@@ -1,0 +1,1736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Schäfererzälungen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118791273">
+<surname>Rost</surname>
+<forename>Johann Christoph</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">81</measure>
+<measure type="tokens">8610</measure>
+<measure type="types">2233</measure>
+<measure type="characters">53914</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:43:13Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/rost_schaefererzaelungen_1742</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/rost_schaefererzaelungen_1742</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/rost_schaefererzaelungen_1742</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/rost_schaefererzaelungen_1742</idno>
+<idno type="DTADirName">rost_schaefererzaelungen_1742</idno>
+<idno type="DTAID">20512</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">[Rost, Johann Christoph]: Schäfererzälungen. [Berlin], 1742.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Schäfererzälungen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118791273">
+<surname>Rost</surname>
+<forename>Johann Christoph</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">70 S.</measure>
+</extent>
+<publicationStmt>
+<publisher/>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1742</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">SUB Göttingen, 8 P GERM III, 6267</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20P%20GERM%20III%2C%206267</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Schäferdichtung</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Schäferdichtung</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb n="[1]" facs="#f0005"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b"><hi rendition="#in">S</hi>chaͤfererzaͤlungen.</hi></titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<epigraph><cit><quote><hi rendition="#aq">Favete lingvis. Carmina ſi prius<lb/>
+Audita, Muſarum ſacerdos,<lb/>
+Virginibus puerisque canto.</hi></quote><lb/>
+<bibl><hi rendition="#aq"><hi rendition="#et">Horatius.</hi></hi></bibl></cit></epigraph><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><docDate><hi rendition="#g">1742</hi></docDate>.</docImprint></titlePage><lb/>
+<pb n="[2]" facs="#f0006"/>
+<pb n="[3]" facs="#f0007"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div><salute><hi rendition="#c"><hi rendition="#b">An den Herrn Hofrat und Re-<lb/>
+ſidenten von Siepmann.</hi></hi></salute><lb/>
+<p><hi rendition="#in">J</hi>ch las Ew. Hochedelgebornen vor<lb/>
+einiger Zeit einige Stuͤcke von mei-<lb/>
+nen Schaͤfererzaͤlungen vor. Sie wa-<lb/>
+ren ſo gluͤcklich Jhnen nicht zu misfallen,<lb/>
+und erhielten dadurch auch von mir erſt<lb/>
+denjenigen Beifall, welchen ich ſelbſt, one<lb/>
+die vorhergegangene Beurteilung eines<lb/>
+waren Kenners des Geſchmacks und der<lb/>
+Dichtkunſt uͤberhaupt, ihnen zu geben<lb/>
+mich nicht getrauete. Ew. Hochedelge-<lb/>
+bornen, haben bei ſo vielen andern edlen<lb/>
+Wißenſchaften, nicht vergeßen, Sich auch<lb/>
+die Poeſie eigen zu machen; deswegen<lb/>
+unterwerfe ich Jhrer Pruͤfung dieſe klei-<lb/>
+ne Sammlung von Hirtengeſchichten mit<lb/>
+dem groͤßten Zutrauen. Jhre Kennt-<lb/>
+niß und Einſicht verſprechen mir zwar ei-<lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">nen</fw><lb/>
+<pb n="[4]" facs="#f0008"/>
+nen ſtrengen, Jhre uͤbrigen Vorzuͤge aber<lb/>
+auch einen unparteiiſchen Richter. Ein<lb/>
+jeder vernuͤnftiger Verfaſſer kann ſeinen<lb/>
+Schriften kein groͤſſeres Gluͤck wuͤn-<lb/>
+ſchen.</p><lb/>
+<p>Jch habe mich bemuͤhet das ſchalk-<lb/>
+hafte mit dem unſchuldigen und unge-<lb/>
+zwungenen zu verbinden; Und da mei-<lb/>
+ne Abſicht nur zu beluſtigen geweſen iſt:<lb/>
+So wird es mir ſer gleichguͤltig ſein,<lb/>
+wenn mich einige noch hier und da ſeuf-<lb/>
+zende Tartuͤffen verdammen ſollten.<lb/>
+Keine groͤſſere Ere koͤnnte mir wieder-<lb/>
+fahren, als, wenn man mir vorwuͤrfe,<lb/>
+daß die Zal dieſer gedruckten Bogen zu<lb/>
+klein waͤre. Mein Wunſch iſt niemals<lb/>
+geweſen in dem Vielſchreiben ein Held zu<lb/>
+werden, ſonſt wuͤrde ich das leichteſte<lb/>
+Mittel gewaͤlet, und die Zal der Wort-<lb/>
+reichen Ueberſetzer in Deutſchland ver-<lb/>
+mehret haben. Horaz, Catull und Gal-<lb/>
+lus wuͤrden auch ſein verewiget worden,<lb/>
+wenn ſie mer geſchrieben haͤtten: Allein<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="[5]" facs="#f0009"/>
+der meiſte Teil unſer neueren Poeten wuͤr-<lb/>
+de die Ere ſeines Vaterlandes weit gluͤck-<lb/>
+licher behauptet haben, wenn er nicht mer,<lb/>
+als uns von den Gedichten des Gallus<lb/>
+uͤbrig geblieben, geſchrieben haͤtte.</p><lb/>
+<p>Alles, was ich Ew. Hochedelgebornen<lb/>
+noch zu ſagen habe, iſt eine Bitte, mir zu<lb/>
+verzeihen, daß ich Jhren Namen vor dieſe<lb/>
+Bogen geſetzt. Ein kleiner Ehrgeiz, eine<lb/>
+beſondere Hochachtung und ein Abſcheu<lb/>
+vor dem Scheine der Zueignungſchrif-<lb/>
+ten haben lange Zeit in mir geſtritten:<lb/>
+Allein da ſich die beiden erſten vereiniget<lb/>
+hatten, ſo wurde der letzte dennoch uͤber-<lb/>
+wunden. Jch bin mit aller Ergebenheit</p><lb/>
+<closer><salute><hi rendition="#c"><hi rendition="#b">Ew. Hochedelgebornen</hi></hi><lb/>
+<cb/>
+Jn Berlin am 24 des Hornungs<lb/>
+<hi rendition="#et"><hi rendition="#g">1742</hi>.<lb/>
+<cb/>
+gehorſamſter Diener<lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</hi></salute></closer></div> </front><body>
+<pb n="[6]" facs="#f0010"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<head><hi rendition="#b">Die eilfertige Schaͤferinn.</hi></head><lb/>
+<lg><l><hi rendition="#in">D</hi>er junge Schaͤfer Titirus</l><lb/>
+<l>Empfand, was jeder fuͤlen muß.</l><lb/>
+<l>Er ward der Macht der ſchoͤnen Schaͤferinnen,</l><lb/>
+<l>An mancher unruhvollen Nacht,</l><lb/>
+<l>Die er mit Wuͤnſchen zugebracht,</l><lb/>
+<l>Und die ein Traum, ſonſt nichts, oft wargemacht,</l><lb/>
+<l>Zu ſeiner ſchoͤnſten Marter innen.</l></lg><lb/>
+<lg><l>Er raͤumte Silvien allein</l><lb/>
+<l>An Schoͤnheit und an Witz den groͤßten Vorzug ein.</l><lb/>
+<l>Erſt wuͤnſcht er, ſie nur immer zu erblicken.</l><lb/>
+<l>Doch dieſer Wunſch iſt viel zu leer:</l><lb/>
+<l>Wer zaͤrtlich liebt, der wuͤnſchet bald noch mer;</l><lb/>
+<l>Die Liebe weiß ein Herz weit ſtaͤrker zu beruͤcken.</l><lb/>
+<l>Er wuͤnſchte, ſie zu ſehn.</l><lb/>
+<l>Und ſeine Zaͤrtlichkeit, mit bitten und mit klagen,</l><lb/>
+<l>Der jungen Silvie zu ſagen.</l><lb/>
+<l>Doch dieß war leichter noch gewuͤnſchet, als ge-<lb/>
+<hi rendition="#et">ſchehn:</hi></l><lb/>
+<l>Sie und Likoris trieben beide,</l><lb/>
+<l>Als Schweſtern, ſtets zugleich die Herden auf die<lb/>
+<hi rendition="#et">Weide.</hi></l></lg><lb/>
+<pb n="7" facs="#f0011"/>
+<lg><l>Oft ſchleicht ſich Titirus zu ihren Triften hinn,</l><lb/>
+<l>Vielleicht iſt ſie allein, die ſchoͤne Schaͤferinn?</l><lb/>
+<l>O nein! Er koͤmmt und irrt und bleibt ganz traurig<lb/>
+<hi rendition="#et">ſtehen.</hi></l><lb/>
+<l>Man fragt ihn, was er will?</l><lb/>
+<l>Es weiß es wol, doch ſchweigt er ſtill,</l><lb/>
+<l>Und weil er gar nichts ſagt, heißt man ihn wieder<lb/>
+<hi rendition="#et">gehen.</hi></l><lb/>
+<l>So kert der Schaͤfer oft zuruͤck,</l><lb/>
+<l>Und one Kuß und one Blick;</l><lb/>
+<l>Nur mit Verdruß; nur mit vergeblichem Bemuͤhen.</l><lb/>
+<l>So iſt die Zeit,</l><lb/>
+<l>So iſt das Gluͤck und die Gelegenheit,</l><lb/>
+<l>Kein Menſch ſieht ſie ſo ſtark als ein Verliebter<lb/>
+<hi rendition="#et">fliehen.</hi></l></lg><lb/>
+<lg><l>Man nennt oft, uͤbereilt, die Liebe ſeine Laſt.</l><lb/>
+<l>So hatte Titirus auch den Entſchluß gefaßt,</l><lb/>
+<l>Erſt Silvien nnd denn die Liebe zu vergeſſen.</l><lb/>
+<l>Jedoch wer dieſes will, der hat es nicht ermeſſen.</l><lb/>
+<l>Kaum hat er einen Augenblick geſeſſen,</l><lb/>
+<l>So rauſcht der Zefir durch den Wald.</l><lb/>
+<l>Dieß hoͤrt der junge Schaͤfer bald.</l><lb/>
+<l>Er horcht, warum? Er ſpringet auf, weswegen?<lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">Vielleicht</fw><lb/>
+<pb n="8" facs="#f0012"/>
+Vielleicht, weil ſich die Blaͤtter ſtark bewegen?</l><lb/>
+<l>O nein! Er meint es kaͤme Silvia,</l><lb/>
+<l>Er meint noch mer, er meint, ſie ſei ſchon da.</l></lg><lb/>
+<lg><l>Weg, armer Titirus, mit dem verhaßten Triebe!</l><lb/>
+<l>Vergiß erſt Silvien, vergiß hernach die Liebe.</l><lb/>
+<l>Haß du den Augenblick nicht dieſen Schluß gefaßt?</l><lb/>
+<l>Wie koͤmmt es, daß du ihn zu erſt vergeſſen haſt?</l><lb/>
+<l>Man nennt oft, uͤbereilt, die Liebe ſeine Laſt.</l></lg><lb/>
+<lg><l>Doch weil ſein ſchmeichelhafter Sinn</l><lb/>
+<l>Jhm ſchon von ſeiner Schaͤferinn</l><lb/>
+<l>Oft viel geſagt, und oft gelogen,</l><lb/>
+<l>So ſtreckt er ſich nun ganz verdrießlich bei ſeinem<lb/>
+<hi rendition="#et">Baume wieder hinn.</hi></l><lb/>
+<l>Er dachte.</l><lb/>
+<l>Vielleicht was Silvie bei ihrer Heerde machte?</l><lb/>
+<l>O nein! dieß dacht er nicht.</l><lb/>
+<l>Was aber ſonſt? Wer liebt, wird dieß von mir<lb/>
+<hi rendition="#et">nicht fragen:</hi></l><lb/>
+<l>Was ein verliebter denkt, kann er oft ſelbſt nicht<lb/>
+<hi rendition="#et">ſagen.</hi></l></lg><lb/>
+<lg><l>Jtzt ſpringt er noch einmal von ſeinem Lager auf.</l><lb/>
+<l>Doch nun betruͤgt der Zefir ihn nicht wieder,</l><lb/>
+<l>Kein rauſchend Blatt ermuntert ſeine Glieder:<lb/>
+<fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="9" facs="#f0013"/>
+Er ſiehet Silvien, in vollem Lauf,</l><lb/>
+<l>Die nichts als ihren Hilax mitgenommen,</l><lb/>
+<l>Von ihrer Flur nach ſeinen Triften kommen.</l><lb/>
+<l>Er ſiehet ſie, drum ſpringt er hurtig auf.</l></lg><lb/>
+<lg><l>Ach! Silvie, geliebte Schaͤferinn,</l><lb/>
+<l>Dulaͤufſt, wo koͤmmſt du her? Du eilſt, wo willſt<lb/>
+<hi rendition="#et">du hinn?</hi></l><lb/>
+<l>O mache mir einmal die Freude,</l><lb/>
+<l>Und bleib ein wenig hier wo ich die Herde weide.</l><lb/>
+<l>So redet ſie der junge Schaͤfer an:</l><lb/>
+<l>Allein ſie ſagt, daß ſie nicht bleiben kann.</l><lb/>
+<l>Nein, ſpricht ſie, Titirus, mir iſt befolen</l><lb/>
+<l>Ein Schaf von Dafnens Trift zu holen.</l><lb/>
+<l>Likoris huͤtet itzt die Schafe ganz allein,</l><lb/>
+<l>Deswegen muß ich nun bald wieder bei ihr ſein.</l><lb/>
+<l>Ja, wenn du mir ſogar die Herde ſchenken<lb/>
+<hi rendition="#et">wollteſt,</hi></l><lb/>
+<l>So glaube, daß du mich doch nicht bereden ſollteſt.</l><lb/>
+<l>Er bittet nur um einen Augenblick.</l><lb/>
+<l>Umſonſt, ſie gehet fort. Er haͤlt ſie gar zuruͤck.</l><lb/>
+<l>Sie ſchreiht und faͤnget an mit ihm zu ringen;</l><lb/>
+<l>Jhr Hilax will auf den verwegnen Schaͤfer ſpringen.</l><lb/>
+<l>Allein ſie ſieht es noch zu groſſem Gluͤck,</l><lb/>
+<l>Drum ſtoͤſſet ſie den boͤſen Hund zuruͤck.<lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">Dieß</fw><lb/>
+<pb n="10" facs="#f0014"/>
+Dieß fodert auch das Mitleid von den Schoͤnen.</l><lb/>
+<l>Jhr Maͤdchen, nemt dieß allemal in Acht,</l><lb/>
+<l>Den kleinen Hund, der eure Schoß bewacht,</l><lb/>
+<l>Muͤßt ihr zum beiſſen nie gewoͤnen.</l></lg><lb/>
+<lg><l>Der Schaͤfer ſaͤrt mit bitten fort.</l><lb/>
+<l>Ach! ſpricht er, Silvie, ſo hoͤre nur ein Wort.</l><lb/>
+<l>Sie hoͤrt. Er faͤnget an zu klagen:</l><lb/>
+<l>Mich qvaͤlen Zeit und Gluͤck ſeit mer als ſechszehn<lb/>
+<hi rendition="#et">Tagen.</hi></l><lb/>
+<l>Kaum hat er dieß geſagt, ſo will ſie wieder gehn.</l><lb/>
+<l>O da dich Zeit und Gluͤck ſeit ſechszehn Tagen<lb/>
+<hi rendition="#et">qvaͤlen,</hi></l><lb/>
+<l>So, ſpricht ſie, kann ich zum Voraus verſtehn,</l><lb/>
+<l>Du haſt mir allzuvieles zu erzaͤlen.</l><lb/>
+<l>Er bittet noch um einen Augenblick.</l><lb/>
+<l>Er kuͤſſet ihre Hand. Haͤlt ſie nicht dieß zuruͤck?</l><lb/>
+<l>Sie bleibt. Die Liebe laͤßt ihn itzt viel kuͤrzer<lb/>
+<hi rendition="#et">ſprechen.</hi></l><lb/>
+<l>Er blickt ſie zaͤrtlich an;</l><lb/>
+<l>Wie viel hat nicht ein Blick oft kund getan.</l><lb/>
+<l>Er druͤckt die ſchoͤne Hand;</l><lb/>
+<l>Ein ſanfter Druck macht oft das ganze Herz bekañt.</l><lb/>
+<l>Jhr Auge faͤngt nun ſchmachtend an zu brechen.</l><lb/>
+<l>Nein, ſpricht ſie, laß mich gehn!</l></lg><lb/>
+<fw type="catch" place="bottom">Sie</fw><lb/>
+<pb n="11" facs="#f0015"/>
+<lg><l>Sie ſprichts und dennoch bleibt ſie ſtehn.</l><lb/>
+<l>Ach! liebſt du mich? faͤngt er recht zaͤrtlich an zu fra-</l><lb/>
+<l>Wie nun betroffne Silvia? <hi rendition="#et">gen.</hi></l><lb/>
+<l>Der Eigenſinn verbeut dir, ja,</l><lb/>
+<l>Und die Empfindung, nein zu ſagen,</l><lb/>
+<l>Doch fuͤr ein Maͤdchen ſind auch dieß die ſchwerſten<lb/>
+<hi rendition="#et">Fragen.</hi></l><lb/>
+<l>Gieb Acht, verliebter Titirus,</l><lb/>
+<l>Jch wette drauf daß ſie nun wieder eilen muß.</l><lb/>
+<l>Ein Maͤdchen laͤßt ſich nicht ſo leicht gewinnen,</l><lb/>
+<l>Und wenn es halb gewonnen iſt,</l><lb/>
+<l>So ſucht es doch, mit angeborner Liſt,</l><lb/>
+<l>Zu fliehn und dem Bekenntniß zu entrinnen.</l></lg><lb/>
+<lg><l>Auch Silvie will ſich davon befrein,</l><lb/>
+<l>Drum faͤllet ihr das Schaf auf einmal wieder ein,</l><lb/>
+<l>Und dieſer Vorwand heißt ſie fliehen,</l><lb/>
+<l>Sich dem Triumf der Liebe zu entziehen.</l><lb/>
+<l>Sie geht, doch nein, ſie ſagt erſt, daß ſie gehen will.</l><lb/>
+<l>So, ſpricht der Schaͤfer, kannſt du mich verlaſſen?</l><lb/>
+<l>So willſt du mich, weil ich dich liebe, haſſen?</l> </lg><lb/>
+<lg><l>O ſchweig doch, Titirus, mit dieſen Klagen ſtill!</l><lb/>
+<l>Sie geht ja nicht, ſie ſagt nur, daß ſie gehen will.<lb/>
+<fw type="catch" place="bottom">Ein</fw><lb/>
+<pb n="12" facs="#f0016"/>
+<hi rendition="#et">Ein Kuß,</hi></l><lb/>
+<l>Den ihr nur Titirus,</l><lb/>
+<l>Und ſonſt kein andrer reichen muß,</l><lb/>
+<l>Zieht ihre fluͤchtigen und ſchoͤnen Glieder</l><lb/>
+<l>Ganz kraftlos und in den Schatten nieder.</l><lb/>
+<l>Hier ſank die Ueberwundne hinn.</l><lb/>
+<l>Was war der Sieg? dieß hat mir niemand wollen<lb/>
+<hi rendition="#et">ſagen.</hi></l><lb/>
+<l>Genug es war die ſchoͤnſte Schaͤferinn,</l><lb/>
+<l>Drum ſchaͤmt ich mich, hier mer zu fragen.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Die</hi></fw><lb/>
+<pb n="13" facs="#f0017"/>
+<lg type="poem"><head><hi rendition="#b">Die bezauberte Fillis.</hi></head><lb/>
+<lg><l><hi rendition="#in">E</hi>in Kluger zeigt ſich nie bei der Gefar verzagt:</l><lb/>
+<l>Hier hilft nur guter Rat, hier hilft nicht daß<lb/>
+<hi rendition="#et">man klagt.</hi></l></lg><lb/>
+<lg><l>Dort, in den reizenden ſo oft beſchriebnen Gruͤnden,</l><lb/>
+<l>Wo man kein ſremdes Volk und wenig Laſter keñt;</l><lb/>
+<l>Wo man den Witz Verſtand, die Einfalt Tugend<lb/>
+<hi rendition="#et">nennt;</hi></l><lb/>
+<l>Wo ſich die Herzen noch aus Zaͤrtlichkeit verbinden,</l><lb/>
+<l>Dort iſt das ſchoͤne Land, das nur die Dichter finden.</l><lb/>
+<l>Jn dieſen Gegenden pflanzt ſich durch jeden Ort,</l><lb/>
+<l>Mit den Geſchlechten noch ein altes Maͤrchen fort.</l><lb/>
+<l>Jch halte zwar nicht viel von erblichen Geſchichten,</l><lb/>
+<l>Jedoch, ich will davon, was ich gehoͤrt, berichten.</l></lg><lb/>
+<lg><l>Die junge Fillis wuchs heran.</l><lb/>
+<l>Sie war bereits in den ſo ſchoͤnen Jaren,</l><lb/>
+<l>Wo ſie ſonſt Lieb und Wunſch den Herzen offenba-<lb/>
+<hi rendition="#et">ren.</hi></l><lb/>
+<l>Allein, ihr ſah man noch der Jugend Unſchuld an.</l><lb/>
+<l>Jhr Auge war noch one Liſt;</l><lb/>
+<l>Jhr Putz ein Hirtenkleid das one Schleifen iſt.</l><lb/>
+<l>Kein Band durchflocht ihr braunes Har.</l><lb/>
+<l>Worauf der Zierrat nur ein kleiner Stroh hut war.</l></lg><lb/>
+<fw type="catch" place="bottom">Sie</fw><lb/>
+<pb n="14" facs="#f0018"/>
+<lg><l>Noch ſang ſie wenig Hirtenlieder,</l><lb/>
+<l>Und ſtimmte ſie zuweilen eines an,</l><lb/>
+<l>So wars ein Loblied auf den Pan,</l><lb/>
+<l>Dieß ſang ſie oft aus frommer Andacht wieder.</l><lb/>
+<l>Sie tanzte gern, doch one Kunſt;</l><lb/>
+<l>Sie ſuchte keines Schaͤfers Gunſt</l><lb/>
+<l>Durch ihre Stellung zu erlangen.</l><lb/>
+<l>Zu reizen war ihr unbewußt;</l><lb/>
+<l>Sie hatte nur zu ihrer Luſt</l><lb/>
+<l>Den Tanz mit andern angefangen.</l></lg><lb/>
+<lg><l>Jedoch dieß iſt die Art der Liebe,</l><lb/>
+<l>Zuweilen miſcht ſie ſich nicht gleich in unſre Triebe.</l><lb/>
+<l>Sie zeigt ſich nie den Herzen nah;</l><lb/>
+<l>Wenn man ſie ſpuͤrt iſt ſie ſchon da.</l><lb/>
+<l>Sie weiß uns zeitig gnug zu finden,</l><lb/>
+<l>Drum eilt ſie nicht uns zu entzuͤnden.</l></lg><lb/>
+<lg><l>So gings der jungen Fillis auch.</l><lb/>
+<l>Die Schaͤfer hatten den Gebrauch,</l><lb/>
+<l>Nach der Gewonheit ihrer Alten</l><lb/>
+<l>Der Pales alle Jar ein Freudenfeſt zu halten.</l><lb/>
+<l>Hierbei war es geſchehn</l><lb/>
+<l>Daß ſie das erſtemal den Licidas geſehn.</l><lb/>
+<l>Durch dieſen Anblick fiel der jungen Schaͤferinn,<lb/>
+<fw type="catch" place="bottom">Ruh</fw><lb/>
+<pb n="15" facs="#f0019"/>
+Ruh, Freiheit und was mer? der Unſchuld Haͤlſte<lb/>
+<hi rendition="#et">hinn.</hi></l><lb/>
+<l>Hier ſah ſie einen Schaͤfer an;</l><lb/>
+<l>Dieß hatte ſie ſonſt auch getan:</l><lb/>
+<l>Allein, hier tat ſie es mit unverwandten Blicken,</l><lb/>
+<l>Hier that ſie es mit heimlichem Entzuͤcken,</l><lb/>
+<l>Hier tat ſie es, warum? Man hat ſie nicht gefragt,</l><lb/>
+<l>Sonſt haͤtte ſie wol ſelbſt, ſie wuͤßt es nicht, geſagt.</l></lg><lb/>
+<lg><l>Jhr ſchoͤnen Maͤdchen helft mir dieſes offenbaren:</l><lb/>
+<l>Was Filles nicht gewußt, habt ihr vielleicht erfaren.</l></lg><lb/>
+<lg><l>So oft der Schaͤfer mit ihr ſprach,</l><lb/>
+<l>So ſchlug ſie erſt die Augen nieder</l><lb/>
+<l>Und denn erhob ſie nur dieſelben furchtſam wieder,</l><lb/>
+<l>Die Worte folgten langſam nach.</l></lg><lb/>
+<lg><l>Der Schaͤfer war zu wild dieß deutlich zu verſtehen,</l><lb/>
+<l>Drum ließ er ſie,</l><lb/>
+<l>Mit leichter Muͤh,</l><lb/>
+<l>Als eine ſproͤde Nimfe gehen.</l></lg><lb/>
+<lg><l>Kaum war dieß Feſt vorbei,</l><lb/>
+<l>So fuͤlte Filles erſt die nie gefuͤlten Triebe.</l><lb/>
+<l>Sie fuͤlte zwar nichts mer als nur die erſte Liebe,</l><lb/>
+<l>Doch dieß Empfinden war fuͤr ſie noch viel zu neu.</l><lb/>
+<l>Die fremde Glut, die ihren Koͤrper brannte,<lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="16" facs="#f0020"/>
+Die Regung, die ſie Marter nannte,</l><lb/>
+<l>Die Wuͤnſche, die ſie noch nicht kannte,</l><lb/>
+<l>Die machten ihr anitzt die ſonſt vergnuͤgte Zeit</l><lb/>
+<l>Zur ungewonten Qval, zur groͤßten Bangigkeit.</l></lg><lb/>
+<lg><l>Jhr Mund verſchwendete die Klagen,</l><lb/>
+<l>Und konnte nie ſein Ungluͤck ſagen.</l><lb/>
+<l>Kein Ort war ihr mer angenem;</l><lb/>
+<l>Kein Fleck zur Weide mer beqvem.</l><lb/>
+<l>Oft ging ſie nach den kuͤlen Schatten,</l><lb/>
+<l>Doch da ſie Sonn und Luft hier nicht erhitzet hatten,</l><lb/>
+<l>So war es auch fuͤr ſie im Schatten noch zu heiß.</l><lb/>
+<l>Jhr unverdroßner Fleiß</l><lb/>
+<l>War bei den Schafen itzt nicht mer wie ſonſt ge-<lb/>
+<hi rendition="#et">ſchaͤftig.</hi></l><lb/>
+<l>Sie ließ die Herde vor ſich gehn,</l><lb/>
+<l>Wenn dieſe ſtund, ſo blieb ſie ſtehn;</l><lb/>
+<l>Wenn dieſe ging, ſo ging ſie mit.</l><lb/>
+<l>Man konnte keinen muntern Schritt</l><lb/>
+<l>An dieſer jungen Nimfe ſpuͤren;</l><lb/>
+<l>Sie ließ ſich von der Herde fuͤren.</l><lb/>
+<l>Sie wuͤnſchte ſich nur ſtets, und was?</l><lb/>
+<l>Den Hirten Licidas.</l><lb/>
+<l>Was aber wollte ſie mit dieſem Schaͤfer machen?</l></lg><lb/>
+<fw type="catch" place="bottom">Dieß</fw><lb/>
+<pb n="17" facs="#f0021"/>
+<lg><l>Dieß waren damals ihr,</l><lb/>
+<l>Wie mir</l><lb/>
+<l>Vor ziemlich langer Zeit, noch unbekannte Sachen.</l><lb/>
+<l>Kein Licidas erſcheint,</l><lb/>
+<l>Dieß hoffet ſie auch nicht, ſie klaget nur und weint.</l><lb/>
+<l>Sie weint aus Unzufriedenheit,</l><lb/>
+<l>Sie klagt, was klagt ſie denn? Ein Herz voll<lb/>
+<hi rendition="#et">Bangigkeit.</hi></l><lb/>
+<l>Doch mußte noch bei dieſem allen</l><lb/>
+<l>Die Schuld von ihrer Angſt auf dieſen Schaͤfer<lb/>
+<hi rendition="#et">fallen.</hi></l><lb/>
+<l>Ach, ſpricht ſie, Licidas quaͤlt mich durch Zauberei!</l><lb/>
+<l>Sie ſprichts, die Qual bleibt da, ſie ſchweigt und<lb/>
+<hi rendition="#et">weint dabei.</hi></l><lb/>
+<l>So iſt bei Nacht und Tage</l><lb/>
+<l>Jhr erſt und letztes Wort die jaͤmmerlichſte Klage.</l><lb/>
+<l>O! Fillis, ſtelle doch die leeren Seufzer ein,</l><lb/>
+<l>Der Schmerz muß nicht beweint, dir muß geholfen<lb/>
+<hi rendition="#et">ſein.</hi></l></lg><lb/>
+<lg><l>Die Angſt nam taͤglich uͤberhand.</l><lb/>
+<l>Jhr Herz geriet ſo ſtark in Brand,</l><lb/>
+<l>Daß ihre Traͤnen ſchon der Schoͤnheit Abbruch<lb/>
+<hi rendition="#et">taten.</hi></l></lg><lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">Des-</fw><lb/>
+<pb n="18" facs="#f0022"/>
+<lg><l>Deswegen war es hohe Zeit,</l><lb/>
+<l>Der Nimfe mit Behutſamkeit,</l><lb/>
+<l>Ein Mittel fuͤr die Qual zu rathen.</l></lg><lb/>
+<lg><l>Sie klagte Silvien, die ihre Freundinn war,</l><lb/>
+<l>Des jungen Schaͤfers Zaubereien.</l><lb/>
+<l>Die Freundinn ſchrieh: Hier iſt Gefar!</l><lb/>
+<l>Kein Menſch kan dich davon befreien,</l><lb/>
+<l>Als Licidas, der dir den Streich getan,</l><lb/>
+<l>Drum hoͤre meinen Vorſchlag an:</l><lb/>
+<l>Du mußt zu dieſem Schaͤfer gehen,</l><lb/>
+<l>Erſt nur um ſeinen Rat und denn um Huͤlfe flehen.</l><lb/>
+<l>Doch ſprich kein Wort bei ihm von ſeiner Zauberei,</l><lb/>
+<l>Er macht dich ſonſt aus Furcht nicht von der Marter<lb/>
+<hi rendition="#et">frei.</hi></l><lb/>
+<l>Wirſt du die Qual ihm nur beſcheiden klagen,</l><lb/>
+<l>So hilft er dir gewiß, du wirſt mirs wieder ſagen.</l></lg><lb/>
+<lg><l>Gut, Fillis ging zum Schaͤfer hinn,</l><lb/>
+<l>Und, wo ich recht berichtet bin,</l><lb/>
+<l>So hat ſie ihm kein Stuͤck von ihrer Angſt<lb/>
+<hi rendition="#et">verſchwiegen.</hi></l><lb/>
+<l>Doch, welcher Kranke wird auch ſeinen Arzt<lb/>
+<hi rendition="#et">beluͤgen?</hi></l></lg><lb/>
+<fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="19" facs="#f0023"/>
+<lg><l>Er war zum Helfen gleich bereit.</l><lb/>
+<l>Ein Schaͤfer laͤßt ſich leicht erbitten.</l><lb/>
+<l>Er ſah und pruͤfete der Fillis Bangigkeit,</l><lb/>
+<l>Und merkte gleich, was ſie gelitten.</l><lb/>
+<l>Drum nam er ſie mit ſich in ſeine Schaͤferhuͤtte.</l><lb/>
+<l>Hier wiederholte ſie nun noch einmal die Bitte.</l><lb/>
+<l>Er fing die Mittel an; Allein ob die Gefar</l><lb/>
+<l>Durch ſeine Kunſt gehoben war,</l><lb/>
+<l>Hat Fillis Silvien niemals bekennen wollen.</l></lg><lb/>
+<lg><l>Jhr Maͤdchen, ſagt einmal hierbei,</l><lb/>
+<l>Was hat man von der Zauberei</l><lb/>
+<l>Und ihrem Mittel denken ſollen?</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom"><hi rendition="#b">Der</hi></fw><lb/>
+<pb n="[20]" facs="#f0024"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><head><hi rendition="#b">Der bloͤde Schaͤfer.</hi></head><lb/>
+<lg><l><hi rendition="#in">O</hi>ft ſind die Schaͤferinnen ſproͤde</l><lb/>
+<l>Und fliehn aus Eigenſinn des Hirten Zaͤrt-<lb/>
+<hi rendition="#et">lichkeit;</hi></l><lb/>
+<l>Oft aber machen ſie zur Luſt Gelegenheit</l><lb/>
+<l>Und da iſt oft der Schaͤfer gar zu bloͤde.</l><lb/>
+<l>Doch, welcher dieſes iſt,</l><lb/>
+<l>Sein Gluͤcke nur aus Furcht vergißt,</l><lb/>
+<l>Und nichts bei ſeiner Liebe waget,</l><lb/>
+<l>Der iſt hernach nicht wert, daß ihn ein Menſch<lb/>
+<hi rendition="#et">beklaget.</hi></l></lg><lb/>
+<lg><l>Ein junger Hirte, Filimen,</l><lb/>
+<l>War von Natur verliebt, auch zum Gefallen ſchoͤn;</l><lb/>
+<l>Es eiferten die Schaͤferinnen,</l><lb/>
+<l>Die Gunſt des Juͤnglings zu gewinnen.</l><lb/>
+<l>Wie mancher Straus, wie manches Band</l><lb/>
+<l>Ward ſeinet wegen nicht zum Putzen angewandt.</l><lb/>
+<l>Die eine ſang ihm oft ein zaͤrtlich Hirtenlied,</l><lb/>
+<l>Die andre war bemuͤht,<lb/>
+<fw type="catch" place="bottom">Sein</fw><lb/>
+<pb n="21" facs="#f0025"/>
+Sein Herze durch den Tanz zu fangen:</l><lb/>
+<l>Allein zuletzt bereuten ſie,</l><lb/>
+<l>Doch alle die verlorne Muͤh,</l><lb/>
+<l>Nebſt dem verratenen Verlangen.</l><lb/>
+<l>Die Furchtſamkeit</l><lb/>
+<l>Hielt jederzeit</l><lb/>
+<l>Den Antrag Filimens zuruͤcke.</l><lb/>
+<l>Kaum ſprach ſein Herz noch durch die Blicke.</l><lb/>
+<l>Er ging zu mancher Schaͤferinn,</l><lb/>
+<l>Oft mit dem feſten Schluſſe hinn,</l><lb/>
+<l>Jhr nichts als zaͤrtliches zu ſagen.</l><lb/>
+<l>Umſonſt, er konnt es niemals wagen.</l><lb/>
+<l>Und haͤtt ihn eine nur um ſeine Gunſt gefragt,</l><lb/>
+<l>So haͤtt er, glaub ich, ja geſagt,</l><lb/>
+<l>Doch welche Nimfe wird hierum den Schaͤfer<lb/>
+<hi rendition="#et">fragen?</hi></l></lg><lb/>
+<lg><l>Nur Dafne war zu ſer in ihm verliebt,</l><lb/>
+<l>So, daß ſie auf die ſtaͤrkſten Mittel dachte,</l><lb/>
+<l>Wodurch ſie ſich den Schaͤfer eigen machte.</l><lb/>
+<l>Was ſie beſchloß, ward ſtandhaft ausgeuͤbt.</l><lb/>
+<l>Das, was die Schoͤnen ſonſt nur zu erwarten pflegen,</l><lb/>
+<l>Vergaß ſie ihrer Liebe wegen.</l><lb/>
+<l>Was allemal die Hirten ſelbſt getan,</l><lb/>
+<l>Tat ſie und redete den bloͤden Schaͤfer an.</l></lg><lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">Sie</fw><lb/>
+<pb n="22" facs="#f0026"/>
+<lg><l>Sie ſagt ihm, daß er unter allen</l><lb/>
+<l>Jhr einzig und allein gefallen;</l><lb/>
+<l>Nichts fiel ihr zu bekennen ſchwer,</l><lb/>
+<l>Sie ſagt ihm dieß, wer weiß, ob nicht noch mer.</l><lb/>
+<l>Er dankt ihr fuͤr die Zaͤrtlichkeit,</l><lb/>
+<l>Und war vergnuͤgt und tat erfreut.</l><lb/>
+<l>Allein zu mererem ſich zu entſchluͤſſen</l><lb/>
+<l>Fiel ihm zwar oͤfters ein,</l><lb/>
+<l>Jedoch ſein Mut war viel zu klein,</l><lb/>
+<l>Sie auf das erſte mal zu kuͤſſen.</l></lg><lb/>
+<lg><l>Was dachte Daſne wohl hierbei?</l><lb/>
+<l>Sie ſprach ihm zwar nicht von dem Feler frei,</l><lb/>
+<l>Doch glaubte ſie, an ſtatt ihn hoͤniſch zu verlachen,</l><lb/>
+<l>Jhr Umgang wuͤrd ihn wol noch endlich herzhaft<lb/>
+<hi rendition="#et">machen.</hi></l><lb/>
+<l>Umſonſt, er kam, ſprach nichts, ging furchtſam wie-<lb/>
+<hi rendition="#et">der fort,</hi></l><lb/>
+<l>Und was er ja noch ſprach, war ein erfragtes Wort;</l><lb/>
+<l>Doch ließ er ſtets die laͤcherliche Klage hoͤren,</l><lb/>
+<l>Wie grauſam das Geſchick und ſeine Dafne waͤren.</l></lg><lb/>
+<lg><l>Man mußte hier ſo ſtark als Dafne zaͤrtlich ſein,</l><lb/>
+<l>Jhm ſtatt der Rache noch beſtaͤndig zu verzeihn.</l><lb/>
+<l>Sie nam ſich endlich vor, das letzte zu probieren,<lb/>
+<fw type="catch" place="bottom">Und</fw><lb/>
+<pb n="23" facs="#f0027"/>
+Und ihn durch eine kleine Liſt,</l><lb/>
+<l>Die in der Liebe ſonſt ein ſichres Mittel iſt,</l><lb/>
+<l>Zu ſeinen Pflichten anzufuͤren.</l></lg><lb/>
+<lg><l>Einſt warf die junge Schaͤferinn</l><lb/>
+<l>Sich, noch bevor er kam, bei ihrer Herde hinn,</l><lb/>
+<l>Als waͤre ſie bei ihren Schafen,</l><lb/>
+<l>Fuͤr Hitz und Muͤdigkeit ein wenig eingeſchlafen.</l><lb/>
+<l>Jhr runder Arm macht ihr das harte Lager weich,</l><lb/>
+<l>Und ihre Hand vor ihren Augen Schatten,</l><lb/>
+<l>Die mehr zu lauſchen als zu ſchlummern hatten.</l><lb/>
+<l>Dem Buſen war mit Fleiß das Oberkleid zu kurz;</l><lb/>
+<l>Jhr kleiner Schaͤferſchurz</l><lb/>
+<l>Ward noch daneben</l><lb/>
+<l>Der warmen Mittagsluft zum Spielen uͤbergeben.</l><lb/>
+<l>Sie hatte ſich die Stellung ausgedacht,</l><lb/>
+<l>Die bloͤde Schaͤfer klug und kluge luͤſtern macht.</l><lb/>
+<l>Sie lag und lernte ſchon, wie ſie erſchrecken wollte,</l><lb/>
+<l>Wenn Filimen ſie kuͤſſend wecken ſollte.</l><lb/>
+<l>Er kam, doch weil er ſie in dieſem Schlummer ſah,</l><lb/>
+<l>So trat er ihr kaum noch mit leiſen Schritten nah.</l><lb/>
+<l>Der Anblick war zu ſchoͤn, ſein Herz fing an zu<lb/>
+<hi rendition="#et">ſchmachten,</hi></l><lb/>
+<l>Er konnte hier die Nimfe nicht genug betrachten.</l></lg><lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">Jhr</fw><lb/>
+<pb n="24" facs="#f0028"/>
+<lg><l>Jhr meinet, daß er nun einmal verwegner war?</l><lb/>
+<l>Er machte Dafnen nicht ſein Daſein offenbar.</l><lb/>
+<l>Er ſprach nichts mer als dieß: Wie ſanft iſt ihre<lb/>
+<hi rendition="#et">Ruh!</hi></l><lb/>
+<l>Jhr ſchoͤnen Augen bleibt in euerm Schlummer zu.</l><lb/>
+<l>Jhr Blaͤtter rauſchet nicht, und bloͤket nicht ihr<lb/>
+<hi rendition="#et">Herden,</hi></l><lb/>
+<l>Die ſchoͤne Dafne muß durch nichts geſtoͤret werden.</l><lb/>
+<l>Und hierauf ſchlich er ſich nun one Kuß und Wort</l><lb/>
+<l>Mit leiſen Schritten wieder fort.</l><lb/>
+<l>Doch Dafne, die er hatte ſchlummern laſſen,</l><lb/>
+<l>Fing ihn auf einmal an zu haſſen.</l><lb/>
+<l>Die felgeſchlagne Liſt hielt ſie fuͤr ihre Schmach,</l><lb/>
+<l>Drum ſprang ſie auf und ſchickt ihm dieſe Worte<lb/>
+<hi rendition="#et">nach:</hi></l><lb/>
+<l>Du haſt dein eignes Gluͤck vermieden,</l><lb/>
+<l>Und biſt der Luſt nicht wert, die Dafne dir beſchie-<lb/>
+<hi rendition="#et">den.</hi></l></lg><lb/>
+<lg><l>Er hoͤrte dieß und lief zuruͤck,</l><lb/>
+<l>Doch ein verſaͤumter Augenblick</l><lb/>
+<l>Wird keinem Hirten wieder kommen.</l><lb/>
+<l>Auch Dafne hatte hier bereits die Flucht genommen.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="[25]" facs="#f0029"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><head><hi rendition="#b">Die gepruͤften Mutter-<lb/>
+leren.</hi></head><lb/>
+<lg><l><hi rendition="#in">J</hi>hr Maͤdchen, dieſes Werk hab ich fuͤr euch<lb/>
+<hi rendition="#et">beſtimmt.</hi></l><lb/>
+<l>Was, euch zum beſten, jetzt mein Eifer unternimmt,</l><lb/>
+<l>Jſt mir bezalt genug, wofern ihr meine Leren</l><lb/>
+<l>Nur in der Stille wollt durch euern Beifall eren.</l><lb/>
+<l>Jch ſehe, daß euch oft der Muͤtter Grauſamkeit,</l><lb/>
+<l>Mit Liſt und Tirannei die ſchoͤnſte Luſt verbeut:</l><lb/>
+<l>Jhr folget und entbert, drum ſollt ich euch verla-<lb/>
+<hi rendition="#et">chen,</hi></l><lb/>
+<l>Allein ich will euch jetzt viel lieber kluͤger machen.</l><lb/>
+<l>Zwar weiß ich, glaubt es mir, daß oft, durch eure<lb/>
+<hi rendition="#et">Liſt,</hi></l><lb/>
+<l>Die kluͤgſte Mutter ſchon genug betrogen iſt;</l><lb/>
+<l>Jedoch ich will auch nur die Leren denen geben,</l><lb/>
+<l>Die unter euch vielleicht noch in der Unſchuld leben.</l><lb/>
+<l>Euch bitt ich noch einmal, ihr Maͤdchen, hoͤrt mir zu,</l><lb/>
+<l>Was ich erzaͤlen will befoͤrdert eure Ruh.<lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">Was</fw><lb/>
+<pb n="26" facs="#f0030"/>
+Was euch kein Vater ſagt, ſollt ihr von mir erfaren;</l><lb/>
+<l>Wo kann euch, denket nach, ein Freund mer offen-<lb/>
+<hi rendition="#et">baren?</hi></l></lg><lb/>
+<lg><l>Corinne war, von ihrer Jugend an,</l><lb/>
+<l>Der Liebe niemals feind geweſen.</l><lb/>
+<l>Was manches Maͤdchen erſt muß aus den Buͤchern<lb/>
+<hi rendition="#et">leſen,</hi></l><lb/>
+<l>Das hatte Chorilas ihr ſelber kund getan.</l><lb/>
+<l>Aus Liebe ward ſie oft von ihm gekuͤſſet.</l><lb/>
+<l>Aus Liebe blickten ſie einander zaͤrtlich an.</l><lb/>
+<l>Jhr Schoͤnen, ſagt ob ihr ſchon wiſſet,</l><lb/>
+<l>Was ſie aus Liebe mer getan?</l><lb/>
+<l>Jhr ſchweigt, drum hoͤrt von mir die euch ſo frem-<lb/>
+<hi rendition="#et">den Sachen:</hi></l><lb/>
+<l>Aus Liebe ließ ſie ſich von ihm zur Mutter machen.</l><lb/>
+<l>Doch fragt nicht um die Art, wie dieſes wol geſchehn.</l><lb/>
+<l>Corinne war zu ſchlau, kein Menſch hat zugeſehn.</l><lb/>
+<l>Gnug dieß bewies die kleine Lesbia;</l><lb/>
+<l>Von ihrer Zaͤrtlichkeit war dieſe Tochter da.</l></lg><lb/>
+<lg><l>Die Mutter ſchonte kein Bemuͤhen</l><lb/>
+<l>Die kleine Nimfe zu erziehen.</l><lb/>
+<l>Sie wuchs, die Schoͤnheit nam mit ihrem Koͤrper<lb/>
+<hi rendition="#et">zu.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">Jhr</fw><lb/>
+<pb n="27" facs="#f0031"/>
+<lg><l>Jhr junges Herz voll muͤtterlicher Triebe.</l><lb/>
+<l>Blieb fuͤr der Macht der ſtarken Liebe</l><lb/>
+<l>Noch uͤberdieß nicht lang in Ruh.</l><lb/>
+<l>Das, was die Dichter Liebe nennen,</l><lb/>
+<l>Empfand ſie on es recht zu kennen.</l><lb/>
+<l>Denn daß ihr Auge ſtets an Tirſis haften blieb,</l><lb/>
+<l>Dieß macht ein zaͤrtlicher ob gleich noch fremder<lb/>
+<hi rendition="#et">Trieb.</hi></l><lb/>
+<l>Hier wirkte ſchon der Stamm zur Wolluſt das<lb/>
+<hi rendition="#et">Gefuͤle;</hi></l><lb/>
+<l>Allein die Unſchuld war doch ſtets dabei im Spiele;</l><lb/>
+<l>Was kluge Maͤdchen gut verſtehn,</l><lb/>
+<l>Der Mutter Wachſamkeit geſchickt zu hintergehn;</l><lb/>
+<l>Den Gegenſtand verſtolen anzublicken,</l><lb/>
+<l>Jn dieſes konnte ſich die Nimfe noch nicht ſchicken.</l></lg><lb/>
+<lg><l>Corinne war zu klug,</l><lb/>
+<l>Zur ſtrengen Mutter alt genug,</l><lb/>
+<l>Drum durfte ſie hier gar nicht lange raten:</l><lb/>
+<l>Die jungen Toͤchter tun, was ihre Muͤtter taten.</l><lb/>
+<l>Jhr meinet nun, ſie ſah dieß mit Gelaſſenheit?</l><lb/>
+<l>O nein, der Muͤtter Strengigkeit</l><lb/>
+<l>Pflegt ſelten dieß den Toͤchtern zu verſtatten,</l><lb/>
+<l>Was ſie doch ſelbſt vor dem am liebſten hatten.</l></lg><lb/>
+<fw type="catch" place="bottom">Sie</fw><lb/>
+<pb n="28" facs="#f0032"/>
+<lg><l>Sie ſprach zu Lesbien: Der frommen Toͤchter<lb/>
+<hi rendition="#et">Pflicht</hi></l><lb/>
+<l>Vereret was der Rat getreuer Muͤtter ſpricht.</l><lb/>
+<l>Ein Kind muß ſtets den Ungehorſam haſſen</l><lb/>
+<l>Und ſeiner Aeltern Leren faſſen.</l><lb/>
+<l>Nimm jetzt von mir die kluge Regel an,</l><lb/>
+<l>Die dir die beſte Mutter geben kann:</l><lb/>
+<l>Ein junges Maͤdchen muß, mit eifrigem Bemuͤhen,</l><lb/>
+<l>Den Umgang junger Hirten fliehen.</l><lb/>
+<l>Auf ihr Geſpraͤche folgt ein Blick</l><lb/>
+<l>Hierauf bleibt nie der Kuß zuruͤck,</l><lb/>
+<l>Und laſſen ſich die Maͤdchen einmal kuͤſſen,</l><lb/>
+<l>So wiſſe daß ſie alle ſterben muͤſſen.</l><lb/>
+<l>Geſpraͤche, Blick und Kuß</l><lb/>
+<l>Sind dieß wofuͤr ſich ſtets ein Maͤdchen huͤten muß.</l></lg><lb/>
+<lg><l>Die junge Lesbie gehorchte dieſen Leren.</l><lb/>
+<l>Vom Tode kan kein junges Maͤdchen hoͤren;</l><lb/>
+<l>Oft werden ſie, aus bloſſer Furchtſamkeit,</l><lb/>
+<l>Schon krank, wenn nur die Katze ſchreiht.</l><lb/>
+<l>Jhr Muͤtter, wollt ihr eure Toͤchter huͤten,</l><lb/>
+<l>So jaget ihnen nur ein blindes Schrecken ein,</l><lb/>
+<l>Sie moͤgen noch ſo wilde ſein,</l><lb/>
+<l>Sie laſſen ſich hierdurch, was ihr nur wollt, ver-<lb/>
+<hi rendition="#et">bieten.</hi><lb/>
+<fw type="catch" place="bottom">Jedoch</fw><lb/>
+<pb n="29" facs="#f0033"/>
+Jedoch, ihr Schoͤnen, gebt auf alles fleißig Acht,</l><lb/>
+<l>Vielleicht das Lesbia den Satz zu Schanden macht.</l></lg><lb/>
+<lg><l>Die junge Schaͤferinn ging einſt allein ſpazieren.</l><lb/>
+<l>Die Liebe wußte gleich den Tirſis herzufuͤren.</l><lb/>
+<l>Er kam und gruͤßte ſie</l><lb/>
+<l>Und fragte ſie nur was ſie machte,</l><lb/>
+<l>Doch da ſie gleich an ihre Mutter dachte,</l><lb/>
+<l>So lief ſie fort und ſchrieh.</l><lb/>
+<l>Wer aber ſagt, warum ſie jetzt ſchon ſchreihen<lb/>
+<hi rendition="#et">wollte?</hi></l><lb/>
+<l>Vielleicht weil ſie hernach nicht ſchreihen ſollte.</l><lb/>
+<l>Doch wenn ein Maͤdchen laͤuft, ſo laͤuft ein Kluger<lb/>
+<hi rendition="#et">nach;</hi></l><lb/>
+<l>Auch Tirſis holte ſie gar hurtig ein und ſprach:</l><lb/>
+<l>Eh wirſt du nicht von dieſem Flecke kommen,</l><lb/>
+<l>Bevor ich nicht den Urſprung deiner Flucht ver-<lb/>
+<hi rendition="#et">nommen.</hi></l><lb/>
+<l>Weil nun die Schaͤferinn hier keine Huͤlfe ſah,</l><lb/>
+<l>So war auch ihr Entſchluß gleich zu der Antwort<lb/>
+<hi rendition="#et">da.</hi></l><lb/>
+<l>Fleuch, ſagte ſie, ſonſt biſt du mein Verderben,</l><lb/>
+<l>Denn, wo du reden wirſt, ſo blickſt du mich auch an,</l><lb/>
+<l>Drauf folgt dein Kuß den ich dir nicht verweren<lb/>
+<hi rendition="#et">kann,</hi><lb/>
+<fw type="catch" place="bottom">Alsdenn</fw><lb/>
+<pb n="30" facs="#f0034"/>
+Alsdenn muß ich vor deinen Augen ſterben.</l><lb/>
+<l>Dieß iſt der Rat, den mir oft meine Mutter giebt,</l><lb/>
+<l>Sie hat mir diß vertraut weil ſie mich treulich liebt.</l><lb/>
+<l>Drei Dinge ſind mein Tod: Geſpraͤche, Blick und<lb/>
+<hi rendition="#et">Kuß.</hi></l><lb/>
+<l>Fleuch, Tirſis, denn ich weiß, was ich vermeiden<lb/>
+<hi rendition="#et">muß.</hi></l></lg><lb/>
+<lg><l>Dieß ſagte ſie mit Furcht und Zittern.</l><lb/>
+<l>Jhr Maͤdchen merkt ihr bald die Liſt von euren<lb/>
+<hi rendition="#et">Muͤttern?</hi></l><lb/>
+<l>Doch gut, gebt auf den Tirſis Acht,</l><lb/>
+<l>Ein Schaͤfer hat gar oft ein Maͤdchen klug gemacht.</l><lb/>
+<l>Er ſprach, es iſt, als wenn ich ihn itzt reden hoͤrte:</l><lb/>
+<l>Wenn deine Mutter dir nicht alle Luſt verwerte</l><lb/>
+<l>So glaubt ich, daß ſie dich dieß nur aus Einfalt lerte.</l><lb/>
+<l>Doch ſiehe, Lesbie, jetzt ihre Falſchheit ein,</l><lb/>
+<l>Sie goͤnnt dir nicht vergnuͤgt zu ſein.</l><lb/>
+<l>Du mußt dich mer fuͤr ihr als fuͤr den Kuͤſſen huͤten,</l><lb/>
+<l>Wofuͤr ſie dich gewarnt, das will ſie dir verbieten.</l><lb/>
+<l>Jch ſpreche ja mit dir geliebte Schaͤferinn,</l><lb/>
+<l>Und alſo faͤllt die Furcht fuͤr dem Geſpraͤche hinn.</l><lb/>
+<l>Nun laß uns noch zur Luſt probieren</l><lb/>
+<l>Ob dich mein Biick wol wird zum Tode naͤher fuͤren.</l></lg><lb/>
+<fw type="catch" place="bottom">Dieß</fw><lb/>
+<pb n="31" facs="#f0035"/>
+<lg><l>Dieß aber wollte doch die junge Nimfe nicht,</l><lb/>
+<l>So gehts, wer alles glaubt, was eine Muter ſpricht.</l><lb/>
+<l>Sie ſchrieh, ſie bat, die Traͤnen halfen bitten;</l><lb/>
+<l>Ach, ſprach ſie, ſoll ich unſre Schaͤferhuͤtten</l><lb/>
+<l>Denn niemals wieder ſehn?</l><lb/>
+<l>Blickſt du mich einmal an, ſo iſts um mich geſchehn.</l><lb/>
+<l>Gut, ſagte Tirſis drauf, willſt du mir gar nicht<lb/>
+<hi rendition="#et">glauben,</hi></l><lb/>
+<l>So mag die Probe mir zu erſt das Leben rauben.</l><lb/>
+<l>Wenn man durch einen Blick verdirbt,</l><lb/>
+<l>Wenn man von einem Kuſſe ſtirbt,</l><lb/>
+<l>So will ich beide von dir leiden.</l><lb/>
+<l>Jch weiß gewiß ich ſterbe nicht,</l><lb/>
+<l>Du glaubſt es darum nur, weils deine Mutter<lb/>
+<hi rendition="#et">ſpricht.</hi></l></lg><lb/>
+<lg><l>Ein kleiner Vorwitz bleibt doch ſtets den Maͤdchen<lb/>
+<hi rendition="#et">eigen;</hi></l><lb/>
+<l>Wie konnte Lesbia ſich leichter uͤberzeugen,</l><lb/>
+<l>Ob auch ſo viel Gefar</l><lb/>
+<l>Hierbei zu fuͤrchten war?</l><lb/>
+<l>Sie dachte, Tirſis will doch dieß an ſich probiren,</l><lb/>
+<l>Ja, dachte ſie, er wagt, ſein Leben zu verlieren;</l><lb/>
+<l>Jedoch, ſie dachte wieder, nein,</l><lb/>
+<l>Er wuͤrde doch nicht ſo verwegen ſein.<lb/>
+<fw type="catch" place="bottom">Sie</fw><lb/>
+<pb n="32" facs="#f0036"/>
+Sie blickt ihn an, doch ihn zu kuͤſſen,</l><lb/>
+<l>Konnt ihre Furchtſamkeit ſich lange nicht entſchluͤſ-<lb/>
+<hi rendition="#et">ſen.</hi></l><lb/>
+<l>Doch endlich ward er auch von ihr gekuͤßt</l><lb/>
+<l>Er hielt mit Großmut ſtill und bat ſie, fortzufaren.</l><lb/>
+<l>So ſtark auch ihre Kuͤſſe waren,</l><lb/>
+<l>So ſtarb er dennoch nicht. Wo bleibt der Mut-<lb/>
+<hi rendition="#et">ter Liſt?</hi></l><lb/>
+<l>Die Tochter war betrogen,</l><lb/>
+<l>Drum fand ſie ſich gar bald, jedoch recht ſchoͤn<lb/>
+<hi rendition="#et">belogen.</hi></l><lb/>
+<l>Sie ließ mit Luſt an ſich die zwote Probe machen.</l><lb/>
+<l>Die Tochter half nun ſelbſt der Mutter Liſt ver-<lb/>
+<hi rendition="#et">lachen.</hi></l><lb/>
+<l>Sie kuͤßten ſich, und wie viel mal?</l><lb/>
+<l>Wer dieſes fragt,</l><lb/>
+<l>Der ſage mir vorher die groͤßte Zal.</l></lg><lb/>
+<lg><l>Allein, bald haͤtt ich noch das wichtigſte verſchwie-<lb/>
+<hi rendition="#et">gen:</hi></l><lb/>
+<l>Die Mutter ſollte ſie doch nicht zu ſtark beluͤgen,</l><lb/>
+<l>Denn da ſie ſich zu zaͤrtlich kuͤſſen ließ,</l><lb/>
+<l>Und, wenn er aufgehoͤrt, ihn wieder kuͤſſen hieß;</l><lb/>
+<l>So uͤberfiel die Onmacht ihre Glieder,</l><lb/>
+<l>Sie ſank mit ſtarren Augen nieder.<lb/>
+<fw type="catch" place="bottom">Man</fw><lb/>
+<pb n="33" facs="#f0037"/>
+Man ſagt, daß ſie bier ſtarb, jedoch hat man ge-<lb/>
+<hi rendition="#et">irrt,</hi></l><lb/>
+<l>So ſprach ſie wenigſtens: Jch weiß nicht wie<lb/>
+<hi rendition="#et">mir wird.</hi></l><lb/>
+<l>Doch da ich wieder weiß, daß man ſie nicht<lb/>
+<hi rendition="#et">begraben,</hi></l><lb/>
+<l>So muß die junge Schaͤferinn,</l><lb/>
+<l>Wenn ich der Liebe kundig bin,</l><lb/>
+<l>Die Onmacht uͤberſtanden haben.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom"><hi rendition="#b">Das</hi></fw><lb/>
+<pb n="[34]" facs="#f0038"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><head><hi rendition="#b">Das Zeiſigneſt.</hi></head><lb/>
+<lg><l><hi rendition="#in">E</hi>in Greiß von mer als hundert Jaren</l><lb/>
+<l>War in Geſchichten ſehr erfaren.</l><lb/>
+<l>Jhm folgte ſtets ein Chor von jungen Hirten nach,</l><lb/>
+<l>Zu hoͤren was der alte Schaͤfer ſprach.</l><lb/>
+<l>Er wußte rechte Wunderdinge,</l><lb/>
+<l>Und dieſe tat ſein unverdroßner Mund,</l><lb/>
+<l>Der unerfarnen Jugend kund.</l><lb/>
+<l>Einſt ſprach er von dem Zauberringe,</l><lb/>
+<l>Durch deſſen Kraft einmal ein Hirt,</l><lb/>
+<l>Der bei den Schaͤfern noch hierum vereret wird,</l><lb/>
+<l>Sich, wenn er wollt, unſichtbar machte,</l><lb/>
+<l>Und ein Geheimniß oft erfur,</l><lb/>
+<l>Daß mancher Schaͤfer in der Flur</l><lb/>
+<l>Noch ſo geheim zu halten dachte.</l></lg><lb/>
+<lg><l>Dieß hoͤreten ſie mit Verwundrung an,</l><lb/>
+<l>Und jeder wuͤnſchte ſich den Ring, der es getan.<lb/>
+<fw type="catch" place="bottom">Hier</fw><lb/>
+<pb n="35" facs="#f0039"/>
+Hier ging es eifrig an das Fragen:</l><lb/>
+<l>Stack denn im Steine dieſe Kraft?</l><lb/>
+<l>Wie, oder war es nur des Goldes Eigenſchaft?</l><lb/>
+<l>Der alte Schaͤfer ſprach, ich will euch alles ſagen.</l><lb/>
+<l>Jm Golde kann die Kraſt nicht ſein,</l><lb/>
+<l>Sonſt thaͤt es jeder Ring; dieß wirkte nur der<lb/>
+<hi rendition="#et">Stein.</hi></l><lb/>
+<l>Fuͤr uns hat die Natur oft eine Kunſt verſtecket,</l><lb/>
+<l>Und ſchlechten Tieren nur entdecket.</l><lb/>
+<l>Der Zeiſig baut ſein Neſt, und flicht ſtets einen<lb/>
+<hi rendition="#et">Stein,</hi></l><lb/>
+<l>Den er nur finden kann, in Reiß und Moos mit<lb/>
+<hi rendition="#et">ein.</hi></l><lb/>
+<l>Dieß hat ihn die Natur geleret,</l><lb/>
+<l>Damit man ſeine Brut nicht findet, und nicht<lb/>
+<hi rendition="#et">ſtoͤret.</hi></l><lb/>
+<l>Er bauet nur in einen Weidenbaum,</l><lb/>
+<l>Der nah am Waſſer ſteht, doch iſt kein Neſt zu<lb/>
+<hi rendition="#et">ſehen,</hi></l><lb/>
+<l>Es muͤßte denn im Schatten dieſes Baums<lb/>
+<hi rendition="#et">geſchehen.</hi></l><lb/>
+<l>Allein man daͤcht es kaum,</l><lb/>
+<l>Wie viele ſind nicht ſchon darnach gegangen;</l><lb/>
+<l>Die Weiden ſahen ſie, doch keine Neſter hangen.<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">Nun</fw><lb/>
+<pb n="36" facs="#f0040"/>
+Nun ſagt man, daß ein ſolcher Wunderſtein</l><lb/>
+<l>Jn dieſem Ringe ſoll damals geweſen ſein.</l></lg><lb/>
+<lg><l>Dieß hoͤrt und merkte ſich der junge Damaren,</l><lb/>
+<l>Ein Zeiſigneſt einſt zu entdecken,</l><lb/>
+<l>Kann, dacht er, dir vielleicht von ſtatten gehn.</l><lb/>
+<l>Er ließ ſich keine Muͤhe ſchrecken.</l><lb/>
+<l>Jedoch ſo groß ſein Vorſatz war,</l><lb/>
+<l>So macht er ihn doch keinem offenbar.</l><lb/>
+<l>So, daß es nur die junge Chloris wußte,</l><lb/>
+<l>Die ihm oft ſuchen helfen mußte.</l><lb/>
+<l>Kein Ort, wo eine Weide ſtand,</l><lb/>
+<l>War dieſen beiden unbekannt.</l><lb/>
+<l>Sie redten ab, daß er im Schatten ſuchen ſollte,</l><lb/>
+<l>Sie aber nach dem Neſte ſteigen wollte.</l></lg><lb/>
+<lg><l>Einſt ſah er einen Baum von dem ein Zeiſig flog,</l><lb/>
+<l>Der in der Bach den Kropf voll Waſſer zog,</l><lb/>
+<l>Und wieder in den Baum zuruͤcke kehrte,</l><lb/>
+<l>Wo er vielleicht die junge Brut ernaͤrte.</l><lb/>
+<l>Hier, ſchrieh er, muß das Neſt von dieſem Vogel<lb/>
+<hi rendition="#et">ſein.</hi></l><lb/>
+<l>Sie ſtieg hinauf, und er ſah in die Bach hinein.</l></lg><lb/>
+<fw type="catch" place="bottom">Doch</fw><lb/>
+<pb n="37" facs="#f0041"/>
+<lg><l>Doch waͤre dieß mit mir geſchehen,</l><lb/>
+<l>So haͤtt ich ganz gewiß wo anders hinngeſehen.</l><lb/>
+<l>Jm Schatten ſah er was, das einem Neſte glich,</l><lb/>
+<l>Und war bereits fuͤr Freuden auſſer ſich.</l><lb/>
+<l>Greiff, ruft er, und ſie griff, das Bild verſchwand im<lb/>
+<hi rendition="#et">Schatten,</hi></l><lb/>
+<l>Weil ſie drei Blaͤtter traf, die es gezeuget hatten.</l><lb/>
+<l>Er aber meinete, ſie haͤtte ſchon das Neſt,</l><lb/>
+<l>Drum lief er eilig zu, und rufte, halt es feſt.</l><lb/>
+<l>Allein ſie ſchwur bei allen Goͤttern,</l><lb/>
+<l>Es waͤre weiter nichts, als ein Betrug von<lb/>
+<hi rendition="#et">Blaͤttern.</hi></l><lb/>
+<l>Jedoch der Argwon gab dem jungen Schaͤfer ein,</l><lb/>
+<l>Es koͤnnte Chloris leicht zu eigennuͤtzig ſein,</l><lb/>
+<l>Und aus Verlangen nach dem Steine</l><lb/>
+<l>Behielte ſie wol gar das Neſt fuͤr ſich alleine.</l><lb/>
+<l>Drum gab er ihr fuͤr groſſer Ungeduld</l><lb/>
+<l>Den allergroͤßten Undank ſchuld.</l><lb/>
+<l>Er ſprach, du ſuchſt mit Liſt zu widerſtreben,</l><lb/>
+<l>Das Zeiſigneſt heraus zu geben.</l><lb/>
+<l>Gut, Chloris, biſt du ſo geſinnt?</l><lb/>
+<l>Jſt dieß der Lon den meine Redlichkeit gewinnt?</l><lb/>
+<l>Werd ich dir kuͤnftig wieder glauben,<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">So</fw><lb/>
+<pb n="38" facs="#f0042"/>
+So freſſe mir der Marder meine Dauben!</l><lb/>
+<l>So mag der Wolf die Haͤlfte meiner Herde<lb/>
+<hi rendition="#et">rauben!</hi></l></lg><lb/>
+<lg><l>Die arme Schaͤferinn, die one Falſchheit war,</l><lb/>
+<l>Macht ihm durch einen Eid noch einmal offenbar,</l><lb/>
+<l>Daß er ſie one Grund verdachte.</l><lb/>
+<l>Jedoch, da dieſes nur den Argwon groͤſſer machte,</l><lb/>
+<l>So wurde ſie des falſchen Vorwurfs ſatt,</l><lb/>
+<l>Und fing aus Eifer an, die Kuͤnſte zu verfluchen.</l><lb/>
+<l>Damit du ſiehſt, ob dich mein Mund belogen hat,</l><lb/>
+<l>So kannſt du ſelbſt bei mir nach deinem Neſte<lb/>
+<hi rendition="#et">ſuchen.</hi></l></lg><lb/>
+<lg><l>Den Vorſchlag nam ſogleich der Schaͤfer an;</l><lb/>
+<l>Jch haͤtte dieſes auch gethan,</l><lb/>
+<l>Und ſchwoͤre, wenn ich ſo die Neſter ſuchen ſollte,</l><lb/>
+<l>Daß ich ſie hurtig finden wollte.</l></lg><lb/>
+<lg><l>Sie hielt den oft verwegnen Haͤnden ſtill.</l><lb/>
+<l>Er ſuchte, doch umſonſt, er kriegt kein Neſt zu faſſen.</l><lb/>
+<l>Ja, ſprach er, darf ich auch wol ſuchen wo ich will?</l><lb/>
+<l>Aus Unſchuld wollte ſie auch dieß geſchehen laſſen.</l></lg><lb/>
+<fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="39" facs="#f0043"/>
+<lg><l>Er griff, wohinn? Die ſchoͤnen Oerter</l><lb/>
+<l>Verloͤren ihren Werth durch die bekannten<lb/>
+<hi rendition="#et">Woͤrter.</hi></l><lb/>
+<l>Die Liebe macht ihm hier zur Straf ein Blend-<lb/>
+<hi rendition="#et">werk vor,</hi></l><lb/>
+<l>So, daß der ſuchende ſich oͤfters ſelbſt verlor.</l><lb/>
+<l>Jedoch, damit ichs kurz erzaͤle,</l><lb/>
+<l>Wer dahinn greift, wohinn er griff,</l><lb/>
+<l>Der greift den Maͤdchen an die Seele.</l></lg><lb/>
+<lg><l>Ob es der Cbloris weh getan,</l><lb/>
+<l>Das weis ich nicht, genug, ſie fing zu lachen an.</l><lb/>
+<l>Dieß Zeichen hielt er fuͤr das groͤßte,</l><lb/>
+<l>Drum fuͤlt er noch einmal nach dem vermeinten<lb/>
+<hi rendition="#et">Neſte.</hi></l><lb/>
+<l>Gelt, ſprach er, endlich hat doch meine Hand<lb/>
+<hi rendition="#et">entdeckt,</hi></l><lb/>
+<l>Was mir dein falſches Herz mit ſo viel Liſt<lb/>
+<hi rendition="#et">verſteckt?</hi></l><lb/>
+<l>Die junge Nimſe ſchwur, daß es das Neſt nicht<lb/>
+<hi rendition="#et">waͤre,</hi></l><lb/>
+<l>Er aber ſagte trotzig nein,</l><lb/>
+<l>Jch will der Luft nicht wuͤrdig ſein,</l><lb/>
+<l>Wenn ich mich laͤnger noch an deine Worte kere.<lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">Es</fw><lb/>
+<pb n="40" facs="#f0044"/>
+Es waͤre nicht das Neſt? Dieß mache mir nicht<lb/>
+<hi rendition="#et">weiß,</hi></l><lb/>
+<l>Die Sinne truͤgen nicht, ich fuͤle ja das Reiß.</l></lg><lb/>
+<lg><l>Mit Worten war der Eigenſinn nicht abzuſpeiſen,</l><lb/>
+<l>Er drang darauf, ihm das, was er gefuͤlt zu weiſen.</l><lb/>
+<l>Was ſollte Chloris tun? Mir faͤllt kein Mittel<lb/>
+<hi rendition="#et">ein,</hi></l><lb/>
+<l>Sie ſuchte ſich hier vom Verdachte zu befrein,</l><lb/>
+<l>Verzeiht es ihr darum ihr Schoͤnen,</l><lb/>
+<l>Sie wies es endlich Damarenen.</l><lb/>
+<l>Jch weiß daß manche ſpricht, daß Chloris Unrecht<lb/>
+<hi rendition="#et">tat;</hi></l><lb/>
+<l>Allein, ich bitte, gebt ihr einen beſſern Rath.</l></lg><lb/>
+<lg><l>Wie unausſprechlich war nicht dieſes Schaͤfers<lb/>
+<hi rendition="#et">Freude,</hi></l><lb/>
+<l>Er ſchrieh, o Wunderneſt! o ſeltſames Gebaͤude!</l><lb/>
+<l>Doch Chloris wandte wieder ein:</l><lb/>
+<l>Du irrſt, waͤr es das Neſt, wie koͤnnt es ſichtbar<lb/>
+<hi rendition="#et">ſein?</hi></l><lb/>
+<l>Er aber ſprach, vielleicht haſt du den Stein</l><lb/>
+<l>Aus Unvorſichtigkeit bereits verloren.</l><lb/>
+<l>Dieß iſt der Lon dafuͤr, daß du ſo falſch geſchworen.</l></lg><lb/>
+<fw type="catch" place="bottom">Hier</fw><lb/>
+<pb n="41" facs="#f0045"/>
+<lg><l>Hier zog der kleine Cipripor,</l><lb/>
+<l>Den dieſer Zank verdroß, den aͤrgſten Pfeil hervor,</l><lb/>
+<l>Und dachte, Damaren verdienet itzt zur Rache,</l><lb/>
+<l>Daß ich ihm durch den Schuß ein Glied gelaͤmet<lb/>
+<hi rendition="#et">mache.</hi></l><lb/>
+<l>Er ſchoß, und traf den jungen Schaͤfer gut.</l><lb/>
+<l>Des Pfeiles ſtarker Gift drang ihm durch Nerv<lb/>
+<hi rendition="#et">und Blut.</hi></l><lb/>
+<l>Der Schaͤfer hatte nun ein Elend an dem Leibe,</l><lb/>
+<l>Wovon ich ſelbſt nicht ungeruͤret bleibe.</l></lg><lb/>
+<lg><l>Allein wie ging es denn dem kranken Damaren?</l><lb/>
+<l>Wie, ließ ihn Chloris wol ganz one Mitleid<lb/>
+<hi rendition="#et">ſtehn?</hi></l><lb/>
+<l>Kein Menſch ſoll ſeinen Feind in ſeinem Elend<lb/>
+<hi rendition="#et">haſſen,</hi></l><lb/>
+<l>Und ohne ſie war Damaren verlaſſen.</l><lb/>
+<l>Sie nam ſich alſo gleich des armen Schaͤfers an,</l><lb/>
+<l>Und tat weit mer an ihm als eine Muttev<lb/>
+<hi rendition="#et">kann.</hi></l><lb/>
+<l>Allein womit, und wie, darf niemand von mir<lb/>
+<hi rendition="#et">fragen;</hi></l><lb/>
+<l>Man hoͤrte weiter nichts, als oft den Schaͤfer<lb/>
+<hi rendition="#et">ſagen:</hi><lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">Wer</fw><lb/>
+<pb n="42" facs="#f0046"/>
+Wer Zeiſigneſter ſucht, der neme ſich den Stein,</l><lb/>
+<l>Und liefre ſtets an mich die leeren Neſter ein.</l></lg><lb/>
+<lg><l>Jch ſollte zwar die Kunſt der ſchoͤnen Nimfe<lb/>
+<hi rendition="#et">loben;</hi></l><lb/>
+<l>Allein die Krankheit war nicht ganz und gar<lb/>
+<hi rendition="#et">gehoben:</hi></l><lb/>
+<l>Wenn Damaren hernach nur eine Nimfe ſah,</l><lb/>
+<l>So war auch allemal die Laͤmung wieder da.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Die</hi></fw><lb/>
+<pb n="[43]" facs="#f0047"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><head><hi rendition="#b">Die Schaͤferſtunde.</hi></head><lb/>
+<lg><l><hi rendition="#in">H</hi>omer, Virgil, Lukan und wer ihr alle ſeid,</l><lb/>
+<l>Dringt durch ein Heldenlied bis zur Un-<lb/>
+<hi rendition="#et">ſterblichkeit!</hi></l><lb/>
+<l>Singt goͤttlich, laßt die Welt bis an ihr Ende<lb/>
+<hi rendition="#et">leſen,</hi></l><lb/>
+<l>Daß eure Helden groß, ihr groͤſſer noch geweſen.</l><lb/>
+<l>Mir praͤgt kein ſtolzer Trieb erhabne Lieder ein,</l><lb/>
+<l>Mein Rum mag immerhinn gleich mir vergaͤnglich<lb/>
+<hi rendition="#et">ſein,</hi></l><lb/>
+<l>Jch er euch one Neid, denn ſoll mein Lied er-<lb/>
+<hi rendition="#et">ſchallen,</hi></l><lb/>
+<l>So ſuch ich nur dadurch den Schoͤnen zu gefallen.</l><lb/>
+<l>Was ich beſingen will iſt groͤßer als der Held,</l><lb/>
+<l>Den jeder Dichter noch fuͤr ſchwer zu finden haͤlt.</l><lb/>
+<l>Die Schaͤferſtunde hat die Helden ſelbſt be-<lb/>
+<hi rendition="#et">zwungen;</hi></l><lb/>
+<l>Wer ſie beſingt, der hat den groͤßten Held beſungen.</l></lg><lb/>
+<fw type="catch" place="bottom">Jhr</fw><lb/>
+<pb n="44" facs="#f0048"/>
+<lg><l>Jhr Schoͤnen zoͤrnet nicht,</l><lb/>
+<l>Daß meine Muſe ſtets mit euch von Schaͤfern<lb/>
+<hi rendition="#et">ſpricht.</hi></l><lb/>
+<l>Den Helden einen Stand zu waͤlen,</l><lb/>
+<l>Steht allemal dem Dichter frei;</l><lb/>
+<l>Fontaine nam die Koͤnige der Lombardei,</l><lb/>
+<l>Von jungen Hirten laͤßt ſich noch weit mer<lb/>
+<hi rendition="#et">erzaͤlen.</hi></l></lg><lb/>
+<lg><l>Amintens Herz empfand ſchon laͤngſt den ſtarken<lb/>
+<hi rendition="#et">Trieb,</hi></l><lb/>
+<l>Von dem der groſſe Pan ſelbſt nicht verſchonet<lb/>
+<hi rendition="#et">blieb;</hi></l><lb/>
+<l>Den Trieb, der dieſen Gott zu einem Schaͤfer<lb/>
+<hi rendition="#et">machte;</hi></l><lb/>
+<l>Den Trieb, der dieſen Gott um ſeine Sirinx<lb/>
+<hi rendition="#et">brachte.</hi></l><lb/>
+<l>Amintas war verliebt, der jungen Doris Blick</l><lb/>
+<l>Verſprach ihm mit der Zeit das groͤßte Schaͤfer-<lb/>
+<hi rendition="#et">gluͤck.</hi></l><lb/>
+<l>Allein ſo viel er auch der ſuͤſſen Hoffnung glaubte,</l><lb/>
+<l>So felte jedesmal doch die Gelegenheit,</l><lb/>
+<l>Die ſeiner Zaͤrtlichkeit</l><lb/>
+<l>Mer als den bloſſen Wunſch erlaubte.</l></lg><lb/>
+<fw type="catch" place="bottom">Den</fw><lb/>
+<pb n="45" facs="#f0049"/>
+<lg><l>Den Wunſch, den er ſo oft getan,</l><lb/>
+<l>Den ſah er auch der Doris an,</l><lb/>
+<l>Ob ſie denſelben gleich vor ihm verbergen wollte,</l><lb/>
+<l>Vielleicht, daß ihn Amint nur ſtaͤrker wuͤnſchen<lb/>
+<hi rendition="#et">ſollte.</hi></l><lb/>
+<l>Sie liebten ſich und wußten dieß,</l><lb/>
+<l>Noch eh ſie ſichs geſagt, gewiß.</l><lb/>
+<l>Doch, eine Liebe will nicht nur die andre wiſſen,</l><lb/>
+<l>Die Senſucht nach den ungezaͤlten Kuͤſſen;</l><lb/>
+<l>Die Wolluſt, ſich auch da noch ſchmachtend an-<lb/>
+<hi rendition="#et">zuſehn,</hi></l><lb/>
+<l>Wenn der verlangte Wunſch geſchehn;</l><lb/>
+<l>Die Freiheit, ſich das zaͤrtlichſte zu ſagen;</l><lb/>
+<l>Die Hoffnung, das was man noch nie gewagt zu<lb/>
+<hi rendition="#et">wagen,</hi></l><lb/>
+<l>Dieß alles war an ihrer Ungeduld</l><lb/>
+<l>Nach mererer Erfarung ſchuld.</l><lb/>
+<l>Doch in der Liebe koͤmmt das Gluͤcke</l><lb/>
+<l>Zwar meiſtenteils, nur nicht im erſten Augenblicke.</l></lg><lb/>
+<lg><l>Jhr Schoͤnen eilt mit mir nach jener Gegend hinn,</l><lb/>
+<l>Und weil ich nur im Geiſte gegenwaͤrtig bin,</l><lb/>
+<l>So darf euch kein Bedenken qvaͤlen,</l><lb/>
+<l>Mich zum Begleiter zu erwaͤlen.<lb/>
+<fw type="catch" place="bottom">Jhr</fw><lb/>
+<pb n="46" facs="#f0050"/>
+Jhr ſollet den Amint bei ſeiner Schaͤferinn,</l><lb/>
+<l>Jn der gewuͤnſchten Stunde ſehen.</l><lb/>
+<l>Was euer Blick hierbei zu fuͤrchten hat,</l><lb/>
+<l>Wird im Gebuͤſche nur geſchehen.</l><lb/>
+<l>Doch ſollte hier und da ein Blatt</l><lb/>
+<l>Vom Zefir weggewehet werden,</l><lb/>
+<l>So meſſet mir die Schuld nicht bei;</l><lb/>
+<l>Seht weg, ſeht hinn, es ſteht euch alles frei.</l><lb/>
+<l>Jch kan den Winden nicht gebieten,</l><lb/>
+<l>Doch fuͤr dem Zefir hat man ſich nicht ſtark zu huͤten.</l></lg><lb/>
+<lg><l>Einſt trieb die Schaͤferinn die Herde weiter fort,</l><lb/>
+<l>Sie fand und nicht umſonſt, den angenemſten Ort,</l><lb/>
+<l>Wo Blum und Graß die ſchoͤnſten Farben miſchten.</l><lb/>
+<l>Das Waſſer, das ſich hier von ſteilen Felſen goß,</l><lb/>
+<l>Die es durch ihren Grund erfriſchten,</l><lb/>
+<l>Wo es inn eine Bach, mit ſchnellen Rauſchen, floß;</l><lb/>
+<l>Das Volk verbulter Nachtigallen</l><lb/>
+<l>Wo bald der Sproſſer ſchmetternd rief,</l><lb/>
+<l>Und bald, mit Steigen und mit Fallen,</l><lb/>
+<l>Durch die verliebten Toͤne lief;</l><lb/>
+<l>Die Luft die mit den Blaͤttern ſpielte,</l><lb/>
+<l>Auf die erhitzte Flaͤche ſtieß</l><lb/>
+<l>Und in den friſchen Blumen wuͤlte,<lb/>
+<fw type="catch" place="bottom">Wovon</fw><lb/>
+<pb n="47" facs="#f0051"/>
+Wovon ſie den Geruch durch dieſe Gegend blies;</l><lb/>
+<l>Dieß alles ließ die Schaͤferinn nicht gehen,</l><lb/>
+<l>Sie blieb mit ihrer Herde ſtehen.</l><lb/>
+<l>Sie warf ſich auf die Weide hinn;</l><lb/>
+<l>Hier lag die ſchoͤne Schaͤferinn.</l><lb/>
+<l>Sie daͤnte ſich und ſprach mit zaͤrtlichem Ver-<lb/>
+<hi rendition="#et">langen:</hi></l><lb/>
+<l>Ach! koͤnnt ich doch Aminten hier umfangen!</l><lb/>
+<l>Sprach ſie nichts mer? O ja, ein halb verſchluck-<lb/>
+<hi rendition="#et">tes, Ach!</hi></l><lb/>
+<l>Ein matter Blick, der aus den blauen Augen<lb/>
+<hi rendition="#et">brach,</hi></l><lb/>
+<l>Ein Buſen, welcher ſich aus Ungeduld empoͤrte,</l><lb/>
+<l>Die ſagten dem genug,</l><lb/>
+<l>Der hier im Buſche lag, und ſo verliebt, als klug,</l><lb/>
+<l>Jch weiß nicht, ob mer ſah als hoͤrte.</l><lb/>
+<l>Kurz, da die Schaͤferinn ſich deſſen nicht verſah,</l><lb/>
+<l>So ſtund Amintas ſchon vor ihren Augen da.</l><lb/>
+<l>Doch, wie er in den Buſch gekommen,</l><lb/>
+<l>Hab ich noch nie gefragt und auch noch nie ver-<lb/>
+<hi rendition="#et">nommen.</hi></l></lg><lb/>
+<lg><l>Fuͤr Schrecken glaubte dieß die junge Doris kaum,</l><lb/>
+<l>Sie hielt den Anblick erſt fuͤr einen leeren Traum.<lb/>
+<fw type="catch" place="bottom">Sie</fw><lb/>
+<pb n="48" facs="#f0052"/>
+Sie dacht ein Schlummer wollt ihr dieſe Freude<lb/>
+<hi rendition="#et">machen,</hi></l><lb/>
+<l>Drum furchte ſie nichts mer als ploͤtzlich aufzu-<lb/>
+<hi rendition="#et">wachen.</hi></l></lg><lb/>
+<lg><l>Jhr Schoͤnen hat euch nie von einer Luſt getraͤumt,</l><lb/>
+<l>Die euer Mund oft dem mit Ungeſtuͤm verſagte,</l><lb/>
+<l>Der es ſie wachend zu erbitten wagte,</l><lb/>
+<l>Und die ihr ihm oft traͤumend eingeraͤumt?</l><lb/>
+<l>Jhr Schoͤnen, habt ihr dieß erfaren,</l><lb/>
+<l>So darf ich euch nichts mer</l><lb/>
+<l>Von ihrer Luſt zu traͤumen offenbaren.</l><lb/>
+<l>Was aber tat Amint? Jſt dieß wol Fragens<lb/>
+<hi rendition="#et">wert?</hi></l><lb/>
+<l>Ein Schaͤfer, der den ſchoͤnſten Augenblick begert,</l><lb/>
+<l>Bedienet ſich der vorteilhaften Zeit</l><lb/>
+<l>Zur zaͤrtlichſten Verwegenheit.</l><lb/>
+<l>Er ſprach, ſie ſprach, und was? dieß koͤnnt ihr leicht<lb/>
+<hi rendition="#et">erraten,</hi></l><lb/>
+<l>Jch ſag euch itzt nichts mehr als was ſie taten.</l></lg><lb/>
+<lg><l>Ein halb gegebener und halb geraubter Kuß</l><lb/>
+<l>War des verliebten Schaͤfers Gruß.<lb/>
+<fw type="catch" place="bottom">Drauf</fw><lb/>
+<pb n="49" facs="#f0053"/>
+Drauf folgten ſchon die zaͤrtlichſten Geberden,</l><lb/>
+<l>Die leichter nachgemacht, als hier beſchrieben<lb/>
+<hi rendition="#et">werden.</hi></l></lg><lb/>
+<lg><l>Sie blickte den Amint mit Furcht und Schalk-<lb/>
+<hi rendition="#et">heit an,</hi></l><lb/>
+<l>Mit Schalkheit, weil er ihr noch nichts getan;</l><lb/>
+<l>Mit Furcht, damit er ihr nichts tuen ſollte.</l><lb/>
+<l>Kurz, Doris wollte nicht und wollte.</l><lb/>
+<l>Jhr Auge ſprach mer, als ihr Mund verſchwieg;</l><lb/>
+<l>Er ſeufzte nur, indem der ſchoͤne Buſen ſtieg.</l></lg><lb/>
+<lg><l>Hier warf Amint, mit neuer Luſt,</l><lb/>
+<l>Die Finger auf die warme Bruſt,</l><lb/>
+<l>Worauf er, wie er zaͤrtlich glaubte,</l><lb/>
+<l>Die Freiheit, mer zu rauben, raubte.</l><lb/>
+<l>Sein Mund erwaͤlte dieſen Ort;</l><lb/>
+<l>Mit jedem Kuſſe gieng ein lauter Seufzer fort;</l><lb/>
+<l>Mer Schaͤtze wurden hier entdeckt und ausge-<lb/>
+<hi rendition="#et">graben,</hi></l><lb/>
+<l>Als Erd und Meer in ihren Gruͤnden haben.</l></lg><lb/>
+<lg><l>Die kleine ſchoͤne Hand</l><lb/>
+<l>Tat zwar dem Schaͤfer Wiederſtand,<lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">Doch</fw><lb/>
+<pb n="50" facs="#f0054"/>
+Doch ſo, damit Amintas fuͤlte,</l><lb/>
+<l>Daß ihr beredter Griff mer ſpielte,</l><lb/>
+<l>Als ihm nach den verliebten Waffen zielte.</l></lg><lb/>
+<lg><l>Doch, was Amint bisher getan,</l><lb/>
+<l>Dieß ſahe Doris noch fuͤr nicht gefaͤrlich an.</l><lb/>
+<l>Allein jetzt hielt er ſie an beiden Haͤnden;</l><lb/>
+<l>Jetzt ſchlang er ſeinen Arm um die gewoͤlbten<lb/>
+<hi rendition="#et">Lenden;</hi></l><lb/>
+<l>Jetzt macht er ſich zu dem geſchickt,</l><lb/>
+<l>Was keinem Schaͤfer leicht ſo hurtig gluͤckt.</l></lg><lb/>
+<lg><l>Jedoch die Nimfe riß ſich los.</l><lb/>
+<l>Jhr Eifer war ſo groß,</l><lb/>
+<l>Daß ſie Aminten hieß aus ihren Augen gehen.</l><lb/>
+<l>Sie ſagte dieß, allein ſie ſagt es mit Verdruß.</l><lb/>
+<l>Jedoch ein kluger Schaͤfer muß</l><lb/>
+<l>Die Worte nicht, die Blicke nur verſtehen.</l></lg><lb/>
+<lg><l>Er blieb und fing ſogar das Werk verwegner an.</l><lb/>
+<l>Jhr Schoͤnen fragt, wie er verwegner ſcherzen<lb/>
+<hi rendition="#et">kann?</hi><lb/>
+<fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="51" facs="#f0055"/>
+Er ſcherzte ſo, damit ſie merken ſollte,</l><lb/>
+<l>Daß er im Ernſte ſcherzen wollte.</l><lb/>
+<l>Kurz er entbloͤſſete der jungen Doris Knie;</l><lb/>
+<l>Er ſah es, doch mit ſo viel Luſt als Muͤh.</l><lb/>
+<l>Jhr Maͤdchen, zoͤrnet nicht, daß er ihr Knie ge-<lb/>
+<hi rendition="#et">ſehen,</hi></l><lb/>
+<l>Sonſt ſag ich nichts, von dem was mer geſchehen.</l><lb/>
+<l>Genug, daß Doris wiederſtritt,</l><lb/>
+<l>Und was er tat, erſt uͤberwunden, litt.</l><lb/>
+<l>Allein er wußte ſie mit hundert kleinen Sachen</l><lb/>
+<l>So luͤſtern als erhitzt zu machen.</l><lb/>
+<l>Die Augen funkelten; die Zunge ſelbſt ward<lb/>
+<hi rendition="#et">ſchwer;</hi></l><lb/>
+<l>Die Lippen zitterten; die volle Bruſt weit mer;</l><lb/>
+<l>Der Athem ward mit Schlucken eingefangen;</l><lb/>
+<l>Fuͤr Hitze gluͤten ihre Wangen;</l><lb/>
+<l>Sie rief, Amint, ach geh! Sie ſchrieh, Amint,<lb/>
+<hi rendition="#et">ach nein!</hi></l><lb/>
+<l>Hier wurden ihr die Augen klein,</l><lb/>
+<l>Jetzt mangelte die Kraft zu wiederſtreben,</l><lb/>
+<l>Drum mußte ſie ſich dem Amint ergeben.</l></lg><lb/>
+<lg><l>Doch eh ſie ſich ergab, rief ſie die Goͤtter an:</l><lb/>
+<l>Tut mir anitzt, was ihr den Nimfen oft getan,<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">Und</fw><lb/>
+<pb n="52" facs="#f0056"/>
+Und laſſet mich</l><lb/>
+<l>Die Woltat der Verwandlung ſpuͤren.</l><lb/>
+<l>Verwandelt dieſen Ort in einen finſtern Wald,</l><lb/>
+<l>Doch ſchonet hier der menſchlichen Geſtalt.</l><lb/>
+<l>Denn dieſe mochte ſie am wenigſten verlieren.</l><lb/>
+<l>Jhr Bitten ward erhoͤrt. Ein dichter Roſenſtrauch</l><lb/>
+<l>Wuchs neben ihr hervor, und der verbarg ſie auch.</l><lb/>
+<l>Allein dieß war kein Wald; jedoch ich muß nur<lb/>
+<hi rendition="#et">lachen,</hi></l><lb/>
+<l>Die Goͤtter muͤßten ja</l><lb/>
+<l>Die Erde voller Waͤlder machen.</l><lb/>
+<l>Genug ſie wurden doch durch dieſen Buſch be-<lb/>
+<hi rendition="#et">deckt,</hi></l><lb/>
+<l>Jhr meint ſie lagen hier nun ganz und gar ver-<lb/>
+<hi rendition="#et">ſteckt?</hi></l><lb/>
+<l>Der Buſch verbarg ſie nur den neidiſchen Ge-<lb/>
+<hi rendition="#et">ſichtern,</hi></l><lb/>
+<l>Doch aber nicht vor den verſchwiegnen Dichtern.</l></lg><lb/>
+<lg><l>Jhr Schoͤnen bleibet hier,</l><lb/>
+<l>Und waget noch den letzten Blick mit mir.</l><lb/>
+<l>Seht hinn, ich ſehe ſchon die leichten Blaͤtter<lb/>
+<hi rendition="#et">weichen,</hi></l><lb/>
+<l>Jch ſehe den Amint ſein ſchoͤnſtes Gluͤck erreichen;<lb/>
+<fw type="catch" place="bottom">Sagt</fw><lb/>
+<pb n="53" facs="#f0057"/>
+Sagt, ob ihr dieſes ſehen koͤnnt?</l><lb/>
+<l>Jhr ſchweigt, doch mir iſt mer als euch zu ſehn<lb/>
+<hi rendition="#et">vergoͤnnt.</hi></l><lb/>
+<l>Jhr blickt aus Vorwitz hinn, drum kann es euch<lb/>
+<hi rendition="#et">nicht gluͤcken:</hi></l><lb/>
+<l>Jhr koͤnnt die Doris nicht vor dem Amint er-<lb/>
+<hi rendition="#et">blicken.</hi></l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom"><hi rendition="#b">Die</hi></fw><lb/>
+<pb n="[54]" facs="#f0058"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><head><hi rendition="#b">Die gewiſſenhafte Schaͤ-<lb/>
+ferinn.</hi></head><lb/>
+<lg><l><hi rendition="#in">E</hi>s iſt ein einzig Ding, dem an Gewalt nichts<lb/>
+<hi rendition="#et">gleichet,</hi></l><lb/>
+<l>Dem alle Welt gehorcht, die Weißheit ſelber<lb/>
+<hi rendition="#et">weichet,</hi></l><lb/>
+<l>Durch dieſes Ding koͤmmt oft der kluͤgſten Schaͤ-<lb/>
+<hi rendition="#et">ferinn,</hi></l><lb/>
+<l>Zu ihres Schaͤfers Wunſch der Beifall in den<lb/>
+<hi rendition="#et">Sinn.</hi></l><lb/>
+<l>Jedoch wer wollte ſich wol ſeiner Schwachheit<lb/>
+<hi rendition="#et">freuen?</hi></l><lb/>
+<l>Ein kluges Maͤdchen wird, was es verſehn, bereuen.</l><lb/>
+<l>An Heloiſſen lobt noch ſelber Abelard,</l><lb/>
+<l>Daß ſie aus Buſſ und Reu die froͤmmſte Nonne<lb/>
+<hi rendition="#et">ward.</hi><lb/>
+<fw type="catch" place="bottom">Allein,</fw><lb/>
+<pb n="55" facs="#f0059"/>
+Allein, ihr Schoͤnen duͤrft nicht ſtets im Kloſter<lb/>
+<hi rendition="#et">buͤſſen:</hi></l><lb/>
+<l>Ein jedes Maͤdchen hat ein anderes Gewiſſen.</l><lb/>
+<l>Jetzt hoͤret, was man einſt von Amarillen ſprach;</l><lb/>
+<l>Gefaͤllt euch ihre Reu, ſo folgt der Nimſe nach.</l></lg><lb/>
+<lg><l>Mirtill war oft bei Amarillen,</l><lb/>
+<l>Und ließ, um dieſer Nimfe Willen,</l><lb/>
+<l>Faſt jeden Tag die Herd allein,</l><lb/>
+<l>Kaum ſah man noch den faulen Hilax Hirten<lb/>
+<hi rendition="#et">ſein.</hi></l><lb/>
+<l>Drum buͤſſt er manches Stuͤck von ſeinen Scha-<lb/>
+<hi rendition="#et">fen ein.</hi></l><lb/>
+<l>Jedoch es war ihm nur um Amarillen,</l><lb/>
+<l>Drum litt er den Verluſt getroſt um ihret willen.</l></lg><lb/>
+<lg><l>Wo dieſe Nimfe war, war auch der Schaͤfer da,</l><lb/>
+<l>Er legt es endlich ihr ſo nah,</l><lb/>
+<l>Daß, als er einſt zu zaͤrtlich klagte,</l><lb/>
+<l>Jhm Amarillis freundlich ſagte:</l><lb/>
+<l>Er ſollte ganz allein</l><lb/>
+<l>Der Schaͤfer, den ſie liebte, ſein.</l></lg><lb/>
+<fw type="sig" place="bottom">D 4</fw><fw type="catch" place="bottom">Doch</fw><lb/>
+<pb n="56" facs="#f0060"/>
+<lg><l>Doch mußt er ihr zugleich bei der Diane ſchwoͤ-<lb/>
+<hi rendition="#et">ren,</hi></l><lb/>
+<l>Was heut zu Tage noch den Maͤdchen wol<lb/>
+<hi rendition="#et">gefaͤllt,</hi></l><lb/>
+<l>Wenn man es ſchwoͤrt, und doch nicht haͤlt.</l><lb/>
+<l>Jedoch die Goͤtter, die dergleichen Schwuͤre<lb/>
+<hi rendition="#et">hoͤren,</hi></l><lb/>
+<l>Belachen ſie, dem Jupiter zu eren;</l><lb/>
+<l>Verliebten iſts erlaubt, bisweilen falſch zu ſchwoͤ-<lb/>
+<hi rendition="#et">ren.</hi></l></lg><lb/>
+<lg><l>Kaum hatt er dieſen Eid getan,</l><lb/>
+<l>So fing ſich ſchon der Meineid an,</l><lb/>
+<l>Daß oft die Schaͤferinn die Goͤtter bitten muſſte,</l><lb/>
+<l>Dem frechen Hirten zu verzeihn,</l><lb/>
+<l>Und ihrer Unſchuld Mut und Kraͤfte zu ver-<lb/>
+<hi rendition="#et">leihn.</hi></l><lb/>
+<l>Doch da er ſelbſt zu viel von ſeinen Goͤttern<lb/>
+<hi rendition="#et">wuſſte,</hi></l><lb/>
+<l>Und in der Flur ſchon etwas offenbar</l><lb/>
+<l>Von dem Endimion und der Diane war:</l><lb/>
+<l>So dacht er, was die Goͤtter treiben,</l><lb/>
+<l>Wird auch an dir wol ungeſtrafet bleiben.</l></lg><lb/>
+<fw type="catch" place="bottom">Man</fw><lb/>
+<pb n="57" facs="#f0061"/>
+<lg><l>Man ſagt, daß Jupiter hieruͤber ſelbſt gelacht,</l><lb/>
+<l>Und oft, aus Scherz, hiermit Dianen rot gemacht.</l><lb/>
+<l>Zudem war ſelbſt die Nimfe nicht von Stein.</l><lb/>
+<l>Man bilde ſich einmal ein junges Maͤdchen ein,</l><lb/>
+<l>Das ſich von fetter Milch die Backen rund<lb/>
+<hi rendition="#et">gegeſſen,</hi></l><lb/>
+<l>Das, wenn es oft allein geſeſſen,</l><lb/>
+<l>Der Ziege zugeſehn, mit der der Bock geſpielt,</l><lb/>
+<l>Und jedesmal ſich ſelbſt dabei gefuͤlt;</l><lb/>
+<l>Die Mutter oft behorcht, wenn ſie bei ſpaͤter<lb/>
+<hi rendition="#et">Nacht,</hi></l><lb/>
+<l>Die Tochter ſchlafen hieß, die ihr zu lang ge-<lb/>
+<hi rendition="#et">gewacht;</hi></l><lb/>
+<l>Kurz zwo Perſonen von den Jaren,</l><lb/>
+<l>Wie Piramus und Tisbe waren.</l></lg><lb/>
+<lg><l>Jch ſpreche ſie aus Menſchen Liebe frei,</l><lb/>
+<l>Und jeder Schaͤfer ſtimmt mir bei.</l><lb/>
+<l>Sie ließ ſich von Mirtillen kuͤſſen,</l><lb/>
+<l>Und welcher wird das uͤbrige nicht wiſſen?</l><lb/>
+<l>Wer ſeine Schoͤne kuͤßt und nicht das andre<lb/>
+<hi rendition="#et">raubt,</hi></l><lb/>
+<l>Der iſt den Kuß nicht wert, den ihm ihr Mund<lb/>
+<hi rendition="#et">erlaubt.</hi></l></lg><lb/>
+<fw type="sig" place="bottom">D 5</fw><fw type="catch" place="bottom">Hiervon</fw><lb/>
+<pb n="58" facs="#f0062"/>
+<lg><l>Hiervon hat Naſo laͤngſt in ſeiner Kunſt zu lieben,</l><lb/>
+<l>Jm erſten Buche ſelbſt geſchrieben;</l><lb/>
+<l>Und welche ſich in ſeinen Leren uͤben,</l><lb/>
+<l>Die haben mir vertraut, daß ſie dieß oft getrieben,</l><lb/>
+<l>Und daß die Regel auch beſtaͤndig war geblieben.</l></lg><lb/>
+<lg><l>Genug, daß dieß Mirtill verſtund,</l><lb/>
+<l>Denn was uns Naſo ſagt, tat ihm die Liebe kund.</l><lb/>
+<l>Auch den gewiſſen Punkt nam er der Schaͤferinn,</l><lb/>
+<l>Und Amarillis gab dem Raͤuber alles hinn.</l><lb/>
+<l>Doch das Gewiſſen ſchlaͤft nicht lange,</l><lb/>
+<l>Teils wurd ihr um Mirtillen bange,</l><lb/>
+<l>Der ſeinen Eid ſo ſchaͤndlich brach;</l><lb/>
+<l>Teils um ſie ſelbſt, weil ſie bedachte,</l><lb/>
+<l>Daß ſie auch ſich des Meineids ſchuldig machte.</l><lb/>
+<l>Dem allen ſann ſie nun mit warer Reue nach.</l></lg><lb/>
+<lg><l>Die Wolken durften kaum den Horizont bedecken,</l><lb/>
+<l>So meinte ſie ſchon voller Schrecken,</l><lb/>
+<l>Jetzt wuͤrd ein Blitz die Luͤfte teilen,</l><lb/>
+<l>Und jetzt ein Donnerſchlag nach ihrem Herzen<lb/>
+<hi rendition="#et">eilen.</hi></l><lb/>
+<l>Sie furchte ſich vornemlich fuͤr der Opferzeit,</l><lb/>
+<l>Die Goͤtter moͤchten ſie, bei der Gelegenheit,<lb/>
+<fw type="catch" place="bottom">Viel-</fw><lb/>
+<pb n="59" facs="#f0063"/>
+Vielleicht vor alt uud jung beſchaͤmen,</l><lb/>
+<l>Und zu beleidigt ſein ihr Opfer anzunemen.</l><lb/>
+<l>Dieß ließ der Nimfe keine Ruh.</l><lb/>
+<l>Jedoch ihr Kummer nam durch groͤßre Sorgen<lb/>
+<hi rendition="#et">zu:</hi></l><lb/>
+<l>Die Goͤtter lieſſen noch an ihr ein Zeichen ſehen,</l><lb/>
+<l>Wie an den Nimfen oft geſchehen,</l><lb/>
+<l>Die es vorher zu ſchlecht bedacht,</l><lb/>
+<l>Daß jeder, der ſie ſieht, auch weiß was ſie ge-<lb/>
+<hi rendition="#et">macht.</hi></l><lb/>
+<l>Sie wuͤnſchte ſich, im tiefſten Waſſer zu erſau-<lb/>
+<hi rendition="#et">fen;</hi></l><lb/>
+<l>Doch wer iſt ſtark genug in ſeinen Tod zu<lb/>
+<hi rendition="#et">laufen?</hi></l><lb/>
+<l>Darum behielt noch der Verſtand</l><lb/>
+<l>Bei Amarillen auch zuletzt die Oberhand.</l></lg><lb/>
+<lg><l>Ein kluges Maͤdchen wird ſich in dergleichen<lb/>
+<hi rendition="#et">Faͤllen,</hi></l><lb/>
+<l>Aus Ungeduld nicht ganz und gar verzweifelt<lb/>
+<hi rendition="#et">ſtellen:</hi></l><lb/>
+<l>Man trage ſeine Laſt, und iſt ſie noch ſo groß,</l><lb/>
+<l>Zuletzt macht uns die Zeit der ſchweren Buͤrde<lb/>
+<hi rendition="#et">los.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">Dieß</fw><lb/>
+<pb n="60" facs="#f0064"/>
+<lg><l>Dieß ruͤmt man auch an Amarillen,</l><lb/>
+<l>Die ſanfte Nimfe ging gelaſſen zu Mirtillen,</l><lb/>
+<l>Und ſprach, wir beide ſind es wert,</l><lb/>
+<l>Daß uns die groͤßte Strafe wiederfaͤrt.</l><lb/>
+<l>Fuͤr meine Schuld empfind ich ſchon die Rache;</l><lb/>
+<l>Wer weiß, mit was fuͤr Not</l><lb/>
+<l>Der Himmel dir vielleicht ſchon droht,</l><lb/>
+<l>Wenn ich die Goͤtter nicht hierdurch verſenet<lb/>
+<hi rendition="#et">mache.</hi></l></lg><lb/>
+<lg><l>Die Traͤnen rollten hier von ihren Wangen ab,</l><lb/>
+<l>Sie ſtuͤtzte ſich betruͤbt auf ihren Hirtenſtab,</l><lb/>
+<l>Und ſah Mirtillen an, als ob ſie ſagen wollte,</l><lb/>
+<l>Daß er ihr wieder helfen ſollte.</l></lg><lb/>
+<lg><l>Allein der liſtige Mirtill,</l><lb/>
+<l>Jhr Schoͤnen, wurde nicht geruͤret.</l><lb/>
+<l>Er tat das, was ich euch aus Freundſchaft ſagen<lb/>
+<hi rendition="#et">will,</hi></l><lb/>
+<l>Damit euch doch mein Mund mehr beſſert als<lb/>
+<hi rendition="#et">verfuͤret.</hi></l><lb/>
+<l>Der Meineid, ſprach er, geht mir deinetwegen<lb/>
+<hi rendition="#et">nah,</hi></l><lb/>
+<l>Jedoch noch iſt ein Rat zu warer Reue da.</l></lg><lb/>
+<fw type="catch" place="bottom">Wer</fw><lb/>
+<pb n="61" facs="#f0065"/>
+<lg><l>Wer etwas ſtielt, kann niemals ruhig leben,</l><lb/>
+<l>Er muͤſſe denn, was er geſtolen, wiedergeben.</l><lb/>
+<l>Auch wir ſind one dieß nicht von der Marter<lb/>
+<hi rendition="#et">frei,</hi></l><lb/>
+<l>Die Buße bleibt bei allen Suͤnden einerlei;</l><lb/>
+<l>Hier haſt du deine Kuͤſſe wieder.</l><lb/>
+<l>Und hiermit gab er nun der frommen Schaͤfe-<lb/>
+<hi rendition="#et">rinn,</hi></l><lb/>
+<l>Die Kuͤſſe zehnfach wieder hinn.</l><lb/>
+<l>Die halbbekerte warf ſich hier aus Reue nieder;</l><lb/>
+<l>Und der betruͤgliche Mirtill,</l><lb/>
+<l>Vor deſſen gleichen ich die Maͤdchen warnen will,</l><lb/>
+<l>Gab ihr aus Heuchelei auch die Empfindung<lb/>
+<hi rendition="#et">wieder,</hi></l><lb/>
+<l>Die ihn, ich weiß es nicht, wie, wenn und wo<lb/>
+<hi rendition="#et">ergetzte,</hi></l><lb/>
+<l>Als er das erſte mal den ſchweren Eid verletzte.</l><lb/>
+<l>Der Zweifel, ſprach er, wird nun wol gehoben<lb/>
+<hi rendition="#et">ſein.</hi></l><lb/>
+<l>Doch Amarillis ſagte, nein,</l><lb/>
+<l>Noch iſts, als laͤg auf mir der allergroͤßte Stein.</l><lb/>
+<l>Sie blieb mit herzlichem Vergnuͤgen,</l><lb/>
+<l>Aus Reue noch ein wenig liegen.</l></lg><lb/>
+<fw type="catch" place="bottom">Doch</fw><lb/>
+<pb n="62" facs="#f0066"/>
+<lg><l>Doch endlich ſah der Schaͤfer klar,</l><lb/>
+<l>Daß ihr Gewiſſen leichter war,</l><lb/>
+<l>Und er und ſie, kurz alle beide</l><lb/>
+<l>Zerſchmelzeten faſt fuͤr Gewiſſensfreude.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Der</hi></fw><lb/>
+<pb n="[63]" facs="#f0067"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><head><hi rendition="#b">Der verliebte Alte.</hi></head><lb/>
+<lg><l><hi rendition="#in">P</hi>alemon war kein junger Schaͤfer mer.</l><lb/>
+<l>Es fiel bereits den ſteifen Fuͤſſen ſchwer,</l><lb/>
+<l>Den alten Koͤrper fortzutragen.</l><lb/>
+<l>Ein welkes Haupt, worauf das duͤnne Har</l><lb/>
+<l>So weiß als Schnee und faſt noch weiſſer war,</l><lb/>
+<l>Bewegte ſich fuͤr Schwachheit hinn und wieder,</l><lb/>
+<l>Und ſenkte ſich bis auf die Bruſt hernieder.</l><lb/>
+<l>Palemon war ein abgelebter Mann,</l><lb/>
+<l>Wie uns die Malerei den Winter bilden kann.</l></lg><lb/>
+<lg><l>Allein was meint ihr wol, ihr Schoͤnen?</l><lb/>
+<l>Er ſollte ſich nach einem ſanften Tode ſenen,</l><lb/>
+<l>Und ſente ſich, ſo war ich hierzu juͤnger binn,</l><lb/>
+<l>Nach Cintien, der ſchoͤnſten Schaͤferinn.<lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="64" facs="#f0068"/>
+Die Liebe die oft Wunder tut,</l><lb/>
+<l>Begeiſterte des alten Schaͤfers Blut.</l><lb/>
+<l>Er wuͤnſchte wieder jung zu werden,</l><lb/>
+<l>Drum zwang er ſich zu munteren Geberden.</l><lb/>
+<l>So alt und ſchwaͤchlich als er war,</l><lb/>
+<l>So glaubt er doch, er ſaͤhe klar,</l><lb/>
+<l>Daß ihn der Goͤtter Gunſt an Kraͤften ſtaͤrker<lb/>
+<hi rendition="#et">machte,</hi></l><lb/>
+<l>Und Reiz und Anmut noch aus ſeinen Augen<lb/>
+<hi rendition="#et">lachte.</hi></l><lb/>
+<l>Genug er war verliebt, und auch noch reich<lb/>
+<hi rendition="#et">dabei,</hi></l><lb/>
+<l>Drum, dacht er, ſtuͤnd es ihm, gleich jungen Hirten,<lb/>
+<hi rendition="#et">frei,</hi></l><lb/>
+<l>Von ſeiner Zaͤrtlichkeit den Nimfen zu erzaͤlen,</l><lb/>
+<l>Und ſich die ſchoͤnſte zu erwaͤlen.</l><lb/>
+<l>Die Wal traf, wie geſagt, die junge Cintia.</l><lb/>
+<l>Er liebte ſie, ſo bald er ſie nur ſah,</l><lb/>
+<l>Und ſah ſie kaum, als er ihr ſchon entdeckte,</l><lb/>
+<l>Daß ſie den ſtaͤrkſten Trieb in ſeiner Bruſt er-<lb/>
+<hi rendition="#et">weckte.</hi></l><lb/>
+<l>Die Herd, auf die er gleich mit ſeinem Finger<lb/>
+<hi rendition="#et">wies,</hi></l><lb/>
+<l>Bevor er Cintien zur Antwort kommen ließ,<lb/>
+<fw type="catch" place="bottom">Sprach</fw><lb/>
+<pb n="65" facs="#f0069"/>
+Sprach dieſer ſchlaue Greis, ſoll halb die deine<lb/>
+<hi rendition="#et">ſein,</hi></l><lb/>
+<l>Wenn du mich liebſt; hier fiel die Furcht dem<lb/>
+<hi rendition="#et">Alter ein,</hi></l><lb/>
+<l>Drum ſetzt er noch hinnzu: Jedoch mich ganz<lb/>
+<hi rendition="#et">allein.</hi></l><lb/>
+<l>Was ſollte Cintie dem alten Schaͤfer ſagen?</l><lb/>
+<l>Jhr Schoͤnen ſeid gerecht, und helſt mir ſie bekla-<lb/>
+<hi rendition="#et">gen:</hi></l><lb/>
+<l>Drei Ziegen und ein Schaf, hieraus beſtund ihr<lb/>
+<hi rendition="#et">Vieh,</hi></l><lb/>
+<l>Und mer beſaß ſie nicht, und hiervon lebte ſie.</l><lb/>
+<l>Er ſchenkt dir, dachte ſie, die halbe Herde<lb/>
+<hi rendition="#et">gleich,</hi></l><lb/>
+<l>Dieß galt bey Cintien ein halbes Koͤnigreich.</l><lb/>
+<l>Welch freies Maͤdchen wird ſich lange noch be-<lb/>
+<hi rendition="#et">denken,</hi></l><lb/>
+<l>Aus Hofnung reich zu ſein, ſein Armut wegzu-<lb/>
+<hi rendition="#et">ſchenken.</hi></l><lb/>
+<l>Sie gab dem Nutzen nach, doch ſagte ſie dabei:</l><lb/>
+<l>Jch fuͤrchte daß dein Herz zu kalt zur Liebe ſei.</l><lb/>
+<l>Palemon aber ſchwur zu ſeines Alters Ere,</l><lb/>
+<l>Sie ſollte ſehn, wie jung er in der Liebe waͤre.<lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom">Palemon</fw><lb/>
+<pb n="66" facs="#f0070"/>
+Palemon ſchwur nicht falſch: Zu jung und auch<lb/>
+<hi rendition="#et">zu alt;</hi></l><lb/>
+<l>Jn beiden iſt man noch zur Liebe viel zu kalt.</l></lg><lb/>
+<lg><l>Ein jeder Stand hat ſeine Pflichten,</l><lb/>
+<l>Und ein Verliebter hat die ſchwerſten zu entrichten.</l></lg><lb/>
+<lg><l>Dieß ſtellte ſich der Alte ſelber vor,</l><lb/>
+<l>Vielleicht daß er den Mut und auch die Luſt verlor?</l><lb/>
+<l>O nein! Er meint die Kunſt zu wiſſen,</l><lb/>
+<l>Die durch der ſchlauen Maͤnner Liſt</l><lb/>
+<l>Erfunden, oſt verſucht, doch nie bewaͤret iſt:</l><lb/>
+<l>Mit Worten und mit leeren Kuͤſſen</l><lb/>
+<l>Der Zaͤrtlichkeit genug zu tun;</l><lb/>
+<l>Bei ſeiner Cintie, durch ſcherzen und durch ſpielen,</l><lb/>
+<l>Sich zu erwaͤrmen nicht zu kuͤlen,</l><lb/>
+<l>Und unverdient in ihren Armen auszuruhn;</l><lb/>
+<l>Die ſchoͤnſte Nimfe zu beſitzen;</l><lb/>
+<l>Die Perl zu haben, nicht zu nuͤtzen.</l></lg><lb/>
+<lg><l>So denkt der Greis, jedoch die junge Schoͤne<lb/>
+<hi rendition="#et">nicht.</hi><lb/>
+<fw type="catch" place="bottom">Woran</fw><lb/>
+<pb n="67" facs="#f0071"/>
+Woran ein Maͤdchen ſtets vor ſeiner Hochzeit<lb/>
+<hi rendition="#et">denket;</hi></l><lb/>
+<l>Wovon es oft verbluͤmt mit ſeiner Freundinn<lb/>
+<hi rendition="#et">ſpricht;</hi></l><lb/>
+<l>Warum der Maͤnner Tod die treuen Weiber<lb/>
+<hi rendition="#et">kraͤnket;</hi></l><lb/>
+<l>Kurz, was ihr Schoͤnen ſchaͤtzt und kennt,</l><lb/>
+<l>Wenns auch kein Maler malt, und auch kein<lb/>
+<hi rendition="#et">Dichter nennt,</hi></l><lb/>
+<l>Dieß fiel der Nimfe ſtuͤndlich ein,</l><lb/>
+<l>Und darum ſuchte ſie der Alte zu betruͤgen.</l><lb/>
+<l>Doch konnte dieſes moͤglich ſein?</l><lb/>
+<l>Erfarung und Natur und Liebe muͤßten luͤgen.</l><lb/>
+<l>Hier ſag ich oͤffentlich, zu eurer Ere, nein.</l></lg><lb/>
+<lg><l>Sie geben ſich den Handſchlag ſich zu lieben,</l><lb/>
+<l>Und beider Name wird in einen Baum ge-<lb/>
+<hi rendition="#et">ſchrieben.</hi></l><lb/>
+<l>Die Schaͤferinn verert den Greis,</l><lb/>
+<l>An dem ſie nichts zu lieben weiß,</l><lb/>
+<l>Doch ſchade, dacht er fuͤr die Ere,</l><lb/>
+<l>Wenn ich kein zaͤrtlich Wort aus ihrem Munde<lb/>
+<hi rendition="#et">hoͤre.</hi></l></lg><lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">Allein</fw><lb/>
+<pb n="68" facs="#f0072"/>
+<lg><l>Allein er hoͤrt es zeitig gnug.</l><lb/>
+<l>Einſt kuͤßt er ſie, und dacht, er kuͤßte ſie recht klug;</l><lb/>
+<l>Ser ſtark, ſer langſam, ſer bedaͤchtig,</l><lb/>
+<l>Denn dieß zu tun iſt auch das Alter maͤchtig.</l><lb/>
+<l>Er nam ſie zaͤrtlich in den Arm,</l><lb/>
+<l>Sie ward erhitzt und er kaum warm.</l><lb/>
+<l>Jedoch ein Kuß, ein Druck, mer war ihr nicht<lb/>
+<hi rendition="#et">beſchieden;</hi></l><lb/>
+<l>Und damit ſuchte ſie der Alte zu ermuͤden.</l><lb/>
+<l>Allein ihr Weiber ſagt, womit ſeid ihr zufrieden?</l><lb/>
+<l>So zaͤrtlich auch der Greis ſie kuͤßt und druͤckt und<lb/>
+<hi rendition="#et">ſpricht,</hi></l><lb/>
+<l>So ſagte Cintia doch ſtets: Du liebſt mich nicht.</l><lb/>
+<l>Er ſchwoͤrt, ihr Glaube fodert Zeichen,</l><lb/>
+<l>Den weder Kuß, noch Druck, noch Worte<lb/>
+<hi rendition="#et">gleichen.</hi></l><lb/>
+<l>Was ſprach er willſt du mer?</l><lb/>
+<l>Dieß zu bekennen fiel den jungen Lippen ſchwer.</l><lb/>
+<l>Jn ihrem Auge wars zu leſen.</l><lb/>
+<l>O! waͤr ich doch fuͤr ihn bei ihr geweſen,</l><lb/>
+<l>Wie haͤtte mich die Schoͤne nicht geruͤrt.</l><lb/>
+<l>Wie hurtig haͤtte mich ihr Auge nicht verfuͤrt!</l><lb/>
+<l>Wie emſig haͤtt ich nicht darinnen buchſtabiert!</l></lg><lb/>
+<fw type="catch" place="bottom">Doch</fw><lb/>
+<pb n="69" facs="#f0073"/>
+<lg><l>Doch wer nichts merken will, dem muß mans<lb/>
+<hi rendition="#et">deutlich ſagen.</hi></l><lb/>
+<l>Jhm ſagt es ihre loſe Hand,</l><lb/>
+<l>Und wie? das iſt mir zwar bekannt,</l><lb/>
+<l>Doch ihr koͤnnt auch einmal etwas zu raten<lb/>
+<hi rendition="#et">wagen.</hi></l></lg><lb/>
+<lg><l>Der Alte, welcher nur fuͤr Angſt erroͤten kann,</l><lb/>
+<l>Spricht augenblick: horch! mich duͤnckt, Melanp<lb/>
+<hi rendition="#et">ſchlaͤgt an;</hi></l><lb/>
+<l>Es iſt mir immer ſo, als hoͤrt ich etwas bellen.</l><lb/>
+<l>Das Zeichen iſt nicht gut, wenn mir die Oren<lb/>
+<hi rendition="#et">gaͤllen.</hi></l><lb/>
+<l>Und hierauf eilet er zu ſeiner Herde hinn,</l><lb/>
+<l>Und ſpricht auch nicht: komm mit, zu ſeiner<lb/>
+<hi rendition="#et">Schaͤferinn.</hi></l><lb/>
+<l>Sie konnte ſich nicht beſſer raͤchen,</l><lb/>
+<l>Als ihrer Liebe Buͤndniß brechen.</l><lb/>
+<l>Sie ſprach, mit zaͤrtlicher Gewalt:</l><lb/>
+<l>Was hilft mir deine halbe Herde,</l><lb/>
+<l>Wenn ich dafuͤr nur halb von dir geliebet<lb/>
+<hi rendition="#et">werde?</hi></l><lb/>
+<l>Verliebter Alter, deine Liſt,<lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">Zeigt</fw><lb/>
+<pb n="70" facs="#f0074"/>
+Zeigt, daß du zu der Luſt zu alt,</l><lb/>
+<l>Doch aber noch zu jung mich zu betruͤgen biſt.</l></lg><lb/>
+<lg><l>So bald ſie dieß geſagt, verließ ſie gleich den<lb/>
+<hi rendition="#et">Ort,</hi></l><lb/>
+<l>Und trieb vergnuͤgt und frei die kleine Herde<lb/>
+<hi rendition="#et">fort.</hi></l><lb/>
+<l>Der alte Schaͤfer ward verſpottet und ver-<lb/>
+<hi rendition="#et">lacht,</hi></l><lb/>
+<l>Und einmal trug man in der Nacht,</l><lb/>
+<l>Jhm einen Strohmann vor die Tuͤre,</l><lb/>
+<l>O wenn doch, wer ihm gleicht, auch ſeinen Schimpf<lb/>
+<hi rendition="#et">erfuͤre!</hi></l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="[71]" facs="#f0075"/>
+<pb n="[72]" facs="#f0076"/>
+<pb n="[73]" facs="#f0077"/>
+<pb n="[74]" facs="#f0078"/>
+<pb n="[75]" facs="#f0079"/>
+<pb n="[76]" facs="#f0080"/>
+<pb n="[77]" facs="#f0081"/>
+</body></text> </TEI>

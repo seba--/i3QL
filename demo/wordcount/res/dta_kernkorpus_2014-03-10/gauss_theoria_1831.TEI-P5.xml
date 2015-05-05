@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Anzeige von Theoria residuorum biquadraticorum, commentatio secunda</title>
+<author>
+<persName ref="http://d-nb.info/gnd/104234644">
+<surname>Gauß</surname>
+<forename>Carl Friedrich</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">24</measure>
+<measure type="tokens">3457</measure>
+<measure type="types">1053</measure>
+<measure type="characters">24130</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:05:34Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/gauss_theoria_1831</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/gauss_theoria_1831</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/gauss_theoria_1831</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/gauss_theoria_1831</idno>
+<idno type="DTADirName">gauss_theoria_1831</idno>
+<idno type="DTAID">16172</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905191511</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="JA">Gauß, Carl Friedrich: Anzeige von 'Theoria residuorum biquadraticorum, commentatio secunda'. In: Göttingische gelehrte Anzeigen, 23. April 1831, S. 169–178.</bibl>
+<biblFull>
+<titleStmt>
+<title level="a" type="main">Anzeige von Theoria residuorum biquadraticorum, commentatio secunda</title>
+<author>
+<persName ref="http://d-nb.info/gnd/104234644">
+<surname>Gauß</surname>
+<forename>Carl Friedrich</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">10 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Huth</name></publisher>
+<pubPlace>Göttingen</pubPlace>
+<date type="publication">1831</date>
+</publicationStmt>
+<seriesStmt>
+<title level="j" type="main">Göttingische gelehrte Anzeigen</title>
+<biblScope unit="volume">1831</biblScope>
+<biblScope unit="issue">1</biblScope>
+<biblScope unit="pages">S. 169-178</biblScope>
+</seriesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, in: Ac5703-1831,1/68 &lt;a&gt;</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=477494005</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Mathematik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Mathematik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb n="[I]" facs="#f0006"/>
+<titlePage type="main"><docTitle><titlePart type="main"> <hi rendition="#b"><hi rendition="#g">Goͤttingiſche<lb/>
+gelehrte Anzeigen</hi>.</hi></titlePart></docTitle><lb/>
+<byline>Unter der Aufſicht<lb/>
+der koͤnigl. Geſellſchaft der Wiſſenſchaften.</byline><lb/>
+<milestone unit="section" rendition="#hr"/> <titlePart type="volume"><hi rendition="#b"><hi rendition="#g">Der erſte Band</hi></hi></titlePart><lb/>
+<docImprint>auf das Jahr 1831.<lb/>
+<figure/><lb/>
+<milestone unit="section" rendition="#hr"/> <pubPlace><hi rendition="#g">Goͤttingen</hi>,</pubPlace><lb/>
+<hi rendition="#g">gedruckt bey</hi> <publisher><hi rendition="#g">Friedrich Ernſt Huth</hi></publisher>.</docImprint></titlePage><lb/>
+<pb n="[II]" facs="#f0007"/>
+</front>
+<pb n="625" facs="#f0008"/>
+<body> <div n="1"><head><hi rendition="#g">Goͤttingiſche<lb/>
+<hi rendition="#b">gelehrte Anzeigen</hi></hi><lb/>
+unter der Aufſicht<lb/>
+der Koͤnigl. Geſellſchaft der Wiſſenſchaften.</head><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head>64. <hi rendition="#g">Stuͤck.<lb/>
+Den 23. April 1831</hi>.</head><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#g">Goͤttingen</hi>.</head><lb/>
+<p>Eine am 15. April von dem Hofr. Gauß der<lb/>
+Koͤnigl. Societaͤt uͤberreichte Vorleſung: <hi rendition="#aq">Theo-<lb/>
+ria residuorum biquadraticorum, commen-<lb/>
+tatio secunda,</hi> iſt die Fortſetzung der bereits im<lb/>
+ſechsten Bande der <hi rendition="#aq">Commentationes novae</hi> ab-<lb/>
+gedruckten Abhandlung, wovon auch in unſern<lb/>
+Blaͤttern zu ſeiner Zeit 1825 S. 59 eine Anzeige<lb/>
+gemacht war. Auch dieſe Fortſetzung, obgleich<lb/>
+mehr als doppelt ſtaͤrker wie die erſte Abhand-<lb/>
+lung, erſchoͤpft den uͤberaus reichhaltigen Gegen-<lb/>
+ſtand noch nicht, und erſt einer kuͤnftigen dritten<lb/>
+Abhandlung wird die Vollendung des Ganzen<lb/>
+vorbehalten bleiben.</p><lb/>
+<p>Obgleich die Grundbegriffe dieſer Lehren und<lb/>
+der Inhalt der erſten Abhandlung als allen, die<lb/>
+aus der hoͤhern Arithmetik ein Studium gemacht<lb/>
+haben, bekannt vorausgeſetzt werden koͤnnen, wol-<lb/>
+len wir doch jene zur Bequemlichkeit ſolcher Freun-<lb/>
+de dieſes Theils der Mathematik, welchen die<lb/>
+erſte Abhandlung nicht gleich zur Hand iſt, hier<lb/>
+<fw type="sig" place="bottom">[56]</fw><lb/>
+<pb n="626" facs="#f0009"/>
+<fw type="header" place="top">Goͤttingiſche gel. Anzeigen</fw><lb/>
+kurz in Erinnerung bringen. In Beziehung auf<lb/>
+eine beliebige ganze Zahl <hi rendition="#i"><hi rendition="#aq">p</hi></hi> heißt eine andere <hi rendition="#i"><hi rendition="#aq">k</hi></hi><lb/>
+ein biquadratiſcher Reſt, wenn es Zahlen der<lb/>
+Form <hi rendition="#i"><hi rendition="#aq">x</hi></hi><hi rendition="#sup">4</hi> — <hi rendition="#i"><hi rendition="#aq">k</hi></hi> gibt, die durch <hi rendition="#i"><hi rendition="#aq">p</hi></hi> theilbar ſind;<lb/>
+im entgegengeſetzten Fall heißt ſie biquadratiſcher<lb/>
+Nicht-Reſt von <hi rendition="#i"><hi rendition="#aq">p</hi></hi>. Es iſt zureichend, ſich hiebey<lb/>
+auf den Fall einzuſchraͤnken, wo <hi rendition="#i"><hi rendition="#aq">p</hi></hi> eine Primzahl<lb/>
+der Form 4<hi rendition="#i"><hi rendition="#aq">n</hi></hi> + 1, und <hi rendition="#i"><hi rendition="#aq">k</hi></hi> durch dieſelbe nicht<lb/>
+theilbar iſt, da alle andere Faͤlle entweder fuͤr<lb/>
+ſich klar, oder auf dieſen zuruͤckzufuͤhren ſind.</p><lb/>
+<p>Fuͤr einen ſolchen <hi rendition="#g">gegebenen</hi> Werth von <hi rendition="#i"><hi rendition="#aq">p</hi></hi><lb/>
+zerfallen ſaͤmmtliche durch <hi rendition="#i"><hi rendition="#aq">p</hi></hi> nicht theilbare Zah-<lb/>
+len in <hi rendition="#g">vier</hi> Klaſſen, wovon die eine die biqua-<lb/>
+dratiſchen Reſte, eine zweyte ſolche biquadratiſche<lb/>
+Nicht-Reſte, die quadratiſche Reſte von <hi rendition="#i"><hi rendition="#aq">p</hi></hi> ſind,<lb/>
+enthaͤlt, und in die beiden uͤbrigen die biquadra-<lb/>
+tiſchen Nicht-Reſte, welche zugleich quadratiſche<lb/>
+Nicht-Reſte ſind, vertheilt werden. Das Prin-<lb/>
+cip dieſer Vertheilung beſteht darin, daß allemahl<lb/>
+entweder <hi rendition="#i"><hi rendition="#aq">k<hi rendition="#sup">n</hi></hi></hi> — 1, oder <hi rendition="#i"><hi rendition="#aq">k<hi rendition="#sup">n</hi></hi></hi> + 1, oder <hi rendition="#i"><hi rendition="#aq">k<hi rendition="#sup">n</hi></hi></hi> — <hi rendition="#i"><hi rendition="#aq">f</hi></hi>,<lb/>
+oder <hi rendition="#i"><hi rendition="#aq">k<hi rendition="#sup">n</hi></hi></hi> + <hi rendition="#i"><hi rendition="#aq">f</hi></hi> durch <hi rendition="#i"><hi rendition="#aq">p</hi></hi> theilbar ſeyn wird, wo <hi rendition="#i"><hi rendition="#aq">f</hi></hi><lb/>
+eine ganze Zahl bedeutet, die <hi rendition="#i"><hi rendition="#aq">ff</hi></hi> + 1 durch <hi rendition="#i"><hi rendition="#aq">p</hi></hi><lb/>
+theilbar macht. Jeder, dem die elementariſche<lb/>
+Terminologie bekannt iſt, ſieht von ſelbſt, wie<lb/>
+dieſe Worterklaͤrungen in dieſelbe eingekleidet<lb/>
+werden.</p><lb/>
+<p>Die Theorie dieſer Claſſificierung nicht nur fuͤr<lb/>
+den an der Oberflaͤche liegenden Fall <hi rendition="#i"><hi rendition="#aq">k</hi></hi> = — 1,<lb/>
+ſondern auch fuͤr die, ſubtile Huͤlfsunterſuchun-<lb/>
+gen erfordernden Faͤlle <hi rendition="#i"><hi rendition="#aq">k</hi></hi> = ± 2, findet ſich in<lb/>
+der erſter Abhandlung ganz vollendet. Im An-<lb/>
+fang der gegenwaͤrtigen Abhandlung wird nun<lb/>
+zu groͤßern Werthen von <hi rendition="#i"><hi rendition="#aq">k</hi></hi> fortgeſchritten: man<lb/>
+braucht aber dabey zunaͤchſt nur ſolche in Betracht<lb/>
+zu ziehen, die ſelbſt Primzahlen ſind, und der<lb/>
+Erfolg zeigt, daß die Reſultate am einfachſten<lb/>
+ausfallen, wenn man die Werthe poſitiv oder<lb/>
+<pb n="627" facs="#f0010"/>
+<fw type="header" place="top">64. St., den 23. April 1831.</fw><lb/>
+negativ nimmt, je nachdem ſie, abſolut betrach-<lb/>
+tet, von der Form 4 <hi rendition="#i"><hi rendition="#aq">m</hi></hi> + 1 oder 4 <hi rendition="#i"><hi rendition="#aq">m</hi></hi> + 3 ſind.<lb/>
+Die Induction gibt hier ſofort mit großer Leich-<lb/>
+tigkeit eine reiche Ernte von neuen Lehrſaͤtzen,<lb/>
+wovon wir hier nur ein Paar anfuͤhren. Die<lb/>
+Numerierung der Claſſen mit 1, 2, 3, 4 wird<lb/>
+auf die Faͤlle bezogen, wo <hi rendition="#i"><hi rendition="#aq">k<hi rendition="#sup">n</hi></hi></hi> den Zahlen 1, <hi rendition="#i"><hi rendition="#aq">f</hi></hi>,<lb/>
+— 1, — <hi rendition="#i"><hi rendition="#aq">f</hi></hi> congruent wird; zugleich iſt fuͤr die<lb/>
+Zahl <hi rendition="#i"><hi rendition="#aq">f</hi></hi> immer derjenige Werth angenommen, wel-<lb/>
+cher <hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">bf</hi></hi> durch <hi rendition="#i"><hi rendition="#aq">p</hi></hi> theilbar macht, wenn <hi rendition="#i"><hi rendition="#aq">aa</hi></hi> + <hi rendition="#i"><hi rendition="#aq">bb</hi></hi><lb/>
+die Zerlegung von <hi rendition="#i"><hi rendition="#aq">p</hi></hi> in ein ungerades und ein<lb/>
+gerades Quadrat vorſtellt. So findet ſich durch<lb/>
+die Induction, daß die Zahl — 3 allemal zu der<lb/>
+Claſſe 1, 2, 3, 4 gehoͤrt, je nachdem <hi rendition="#i"><hi rendition="#aq">b</hi>, <hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">b</hi>,<lb/>
+<hi rendition="#aq">a</hi>, <hi rendition="#aq">a</hi></hi> — <hi rendition="#i"><hi rendition="#aq">b</hi></hi> durch 3 theilbar iſt; daß die Zahl + 5<lb/>
+der Reihe nach zu jenen Claſſen gehoͤrt, je nach-<lb/>
+dem <hi rendition="#i"><hi rendition="#aq">b</hi>, <hi rendition="#aq">a</hi></hi> — <hi rendition="#i"><hi rendition="#aq">b</hi>, <hi rendition="#aq">a</hi>, <hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">b</hi></hi> durch 5 theilbar iſt;<lb/>
+daß die Zahl — 7 in die Claſſe 1 faͤllt, wenn<lb/>
+<hi rendition="#i"><hi rendition="#aq">a</hi></hi> oder <hi rendition="#i"><hi rendition="#aq">b</hi></hi>; in die Claſſe 1, wenn <hi rendition="#i"><hi rendition="#aq">a</hi></hi> — 2 <hi rendition="#i"><hi rendition="#aq">b</hi></hi> oder<lb/>
+<hi rendition="#i"><hi rendition="#aq">a</hi></hi> — 3 <hi rendition="#i"><hi rendition="#aq">b</hi></hi>; in die Claſſe 2, wenn <hi rendition="#i"><hi rendition="#aq">a</hi></hi> — <hi rendition="#i"><hi rendition="#aq">b</hi></hi> oder<lb/>
+<hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">b</hi></hi>; in die Claſſe 3, wenn <hi rendition="#i"><hi rendition="#aq">a</hi></hi> + 2 <hi rendition="#i"><hi rendition="#aq">b</hi></hi> oder<lb/>
+<hi rendition="#i"><hi rendition="#aq">a</hi></hi> + 3 <hi rendition="#i"><hi rendition="#aq">b</hi></hi> durch 7 theilbar iſt. Aehnliche Theore-<lb/>
+me ergeben ſich in Beziehung auf die Zahlen<lb/>
+— 11, + 13, + 17, — 19, — 23 u. ſ. f.<lb/>
+So leicht ſich aber alle dergleichen ſpecielle Theo-<lb/>
+reme durch die Induction entdecken laſſen, ſo<lb/>
+ſchwer ſcheint es, auf dieſem Wege ein allgemei-<lb/>
+nes Geſetz fuͤr dieſe Formen aufzufinden, wenn<lb/>
+auch manches Gemeinſchaftliche bald in die Au-<lb/>
+gen faͤllt, und noch viel ſchwerer iſt es, fuͤr dieſe<lb/>
+Lehrſaͤtze die Beweiſe zu finden. Die fuͤr die<lb/>
+Zahlen + 2 und — 2 in der erſten Abhandlung<lb/>
+gebrauchten Methoden vertragen hier keine An-<lb/>
+wendung mehr, und wenn gleich andere Metho-<lb/>
+den ebenfalls das, was ſich auf die erſte und<lb/>
+dritte Claſſe bezieht, zu erledigen dienen koͤnn-<lb/>
+<fw type="sig" place="bottom">[56] *</fw><lb/>
+<pb n="628" facs="#f0011"/>
+<fw type="header" place="top">Goͤttingiſche gel. Anzeigen</fw><lb/>
+ten, ſo zeigen ſich doch ſolche zur Begruͤndung<lb/>
+von <hi rendition="#g">vollſtaͤndigen</hi> Beweiſen untauglich.</p><lb/>
+<p>Man erkennt demnach bald, daß man in die-<lb/>
+ſes reiche Gebiet der hoͤhern Arithmetik nur auf<lb/>
+ganz neuen Wegen eindringen kann. Der Verf.<lb/>
+hatte ſchon in der erſten Abhandlung eine An-<lb/>
+deutung gegeben, daß dazu eine eigenthuͤmliche<lb/>
+Erweiterung des ganzen Feldes der hoͤhern Arith-<lb/>
+metik weſentlich erforderlich iſt, ohne damals ſich<lb/>
+naͤher daruͤber zu erklaͤren, worin dieſelbe beſte-<lb/>
+he: die gegenwaͤrtige Abhandlung iſt dazu be-<lb/>
+ſtimmt, dieſen Gegenſtand ins Licht zu ſetzen.</p><lb/>
+<p>Es iſt dieſes nichts anders, als daß fuͤr die<lb/>
+wahre Begruͤndung der Theorie der biquadrati-<lb/>
+ſchen Reſte das Feld der hoͤhern Arithmetik, wel-<lb/>
+ches man ſonſt nur auf die reellen ganzen Zah-<lb/>
+<choice><sic>leu</sic><corr>len</corr></choice> ausdehnte, auch uͤber die imaginaͤren erſtreckt<lb/>
+werden, und dieſen das voͤllig gleiche Buͤrger-<lb/>
+recht mit jenen eingeraͤumt werden muß. So<lb/>
+bald man dieß einmahl eingeſehen hat, erſcheint<lb/>
+jene Theorie in einem ganz neuen Lichte, und<lb/>
+ihre Reſultate gewinnen eine hoͤchſt uͤberraſchende<lb/>
+Einfachheit.</p><lb/>
+<p>Ehe jedoch in dieſem erweiterten Zahlengebiet<lb/>
+die Theorie der biquadratiſchen Reſte ſelbſt ent-<lb/>
+wickelt werden kann, muͤſſen in jenem die dieſer<lb/>
+Theorie vorangehenden Lehren der hoͤhern Arith-<lb/>
+metik, die bisher nur in Beziehung auf reelle<lb/>
+Zahlen bearbeitet ſind, an dieſer <choice><sic>Erweiteruug</sic><corr>Erweiterung</corr></choice><lb/>
+Theil nehmen. Von dieſen vorgaͤngigen Unter-<lb/>
+ſuchungen koͤnnen wir hier nur Einiges anfuͤhren.<lb/>
+Der Verf. nennt jede Groͤße <hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">b i</hi></hi>, wo <hi rendition="#i"><hi rendition="#aq">a</hi></hi> und<lb/>
+<hi rendition="#i"><hi rendition="#aq">b</hi></hi> reelle Groͤßen bedeuten, und <hi rendition="#i"><hi rendition="#aq">i</hi></hi> der Kuͤrze we-<lb/>
+gen anſtatt √ — 1 geſchrieben iſt, eine complexe<lb/>
+ganze Zahl, wenn zugleich <hi rendition="#i"><hi rendition="#aq">a</hi></hi> und <hi rendition="#i"><hi rendition="#aq">b</hi></hi> ganze Zah-<lb/>
+len ſind. Die complexen Groͤßen ſtehen alſo<lb/>
+nicht den reellen entgegen, ſondern enthalten dieſe,<lb/>
+<pb n="629" facs="#f0012"/>
+<fw type="header" place="top">64. St., den 23. April 1831.</fw><lb/>
+als einen ſpeciellen Fall, wo <hi rendition="#i"><hi rendition="#aq">b</hi></hi> = 0, unter ſich.<lb/>
+Zur bequemen Handhabung war es erforderlich,<lb/>
+mehrere auf die complexen Groͤßen ſich beziehende<lb/>
+Begriffsbildungen mit beſondern Benennungen<lb/>
+zu belegen, welche wir aber in dieſer Anzeige zu<lb/>
+umgehen ſuchen werden.</p><lb/>
+<p>So wie in der Arithmetik der reellen Zahlen<lb/>
+nur von zwey Einheiten, der poſitiven und ne-<lb/>
+gativen, die Rede iſt, ſo haben wir in der<lb/>
+Arithmetik der complexen Zahlen vier Einheiten<lb/>
++ 1, — 1, + <hi rendition="#i"><hi rendition="#aq">i</hi></hi>, — <hi rendition="#i"><hi rendition="#aq">i</hi></hi>. <hi rendition="#g">Zuſammengeſetzt</hi><lb/>
+heißt <hi rendition="#g">eine</hi> complexe ganze Zahl, wenn ſie das<lb/>
+Product aus zwey von den Einheiten verſchiede-<lb/>
+nen ganzen Factoren iſt; eine complexe Zahl hin-<lb/>
+gegen, die eine <hi rendition="#g">ſolche</hi> Zerlegung in Facto-<lb/>
+ren nicht zulaͤßt, heißt eine complexe Primzahl.<lb/>
+So iſt z. B. die reelle Zahl 3, auch als com-<lb/>
+plexe Zahl betrachtet eine Primzahl, waͤhrend<lb/>
+5 als complexe Zahl zuſammengeſetzt iſt =<lb/>
+(1 + 2 <hi rendition="#i"><hi rendition="#aq">i</hi></hi>) (1 — 2 <hi rendition="#i"><hi rendition="#aq">i</hi></hi>). Eben ſo wie in der hoͤhern<lb/>
+Arithmetik der reellen Zahlen ſpielen auch in<lb/>
+dem erweiterten Felde dieſer Wiſſenſchaft die<lb/>
+Primzahlen eine Hauptrolle.</p><lb/>
+<p>Wird eine complexe ganze Zahl <hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">bi</hi></hi> als Modu-<lb/>
+lus angenommen, ſo laſſen ſich <hi rendition="#i"><hi rendition="#aq">aa</hi></hi> + <hi rendition="#i"><hi rendition="#aq">bb</hi></hi> unter ſich<lb/>
+nicht congruente, und nicht mehrere, complexe Zahlen<lb/>
+aufſtellen, von denen einer jede vorgegebene ganze<lb/>
+complexe Zahl congruent ſeyn muß, und die man<lb/>
+ein vollſtaͤndiges Syſtem incongruenter Reſte nen-<lb/>
+nen kann. Die ſogenannten kleinſten und abſo-<lb/>
+lut kleinſten Reſte in der Arithmetik der reellen<lb/>
+Zahlen haben auch hier ihr vollkommenes Analo-<lb/>
+gon. So beſteht z. B. fuͤr den Modulus 1 + 2 <hi rendition="#i"><hi rendition="#aq">i</hi></hi><lb/>
+das vollſtaͤndige Syſtem der abſolut kleinſten Reſte<lb/>
+aus den Zahlen 1, <hi rendition="#i"><hi rendition="#aq">i</hi></hi>, — 1 und — <hi rendition="#i"><hi rendition="#aq">i</hi></hi>. Faſt die<lb/>
+<choice><sic>ſaͤmmtlicheu</sic><corr>ſaͤmmtlichen</corr></choice> Unterſuchungen der vier erſten Ab-<lb/>
+ſchnitte der <hi rendition="#aq">Disquisitiones Arithmeticae</hi> fin-<lb/>
+<pb n="630" facs="#f0013"/>
+<fw type="header" place="top">Goͤttingiſche gel. Anzeigen</fw><lb/>
+den, mit einigen Modificationen, auch in der<lb/>
+erweiterten Arithmetik ihren Platz. Das beruͤhmte<lb/>
+Fermatſche Theorem z. B. nimmt hier folgende<lb/>
+Geſtalt an: Wenn <hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">b i</hi></hi> eine complexe Prim-<lb/>
+zahl iſt, und <hi rendition="#i"><hi rendition="#aq">k</hi></hi> eine durch jene nicht theilbare<lb/>
+complexe Zahl, ſo iſt immer <hi rendition="#i"><hi rendition="#aq">k</hi></hi><hi rendition="#sup"><hi rendition="#i"><hi rendition="#aq">aa</hi></hi> + <hi rendition="#i"><hi rendition="#aq">bb</hi></hi> — 1</hi> √ 1<lb/>
+fuͤr den Modulus <hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">b i</hi></hi>. Ganz beſonders merk-<lb/>
+wuͤrdig iſt es aber, daß das Fundamentaltheorem<lb/>
+fuͤr die quadratiſchen Reſte in der Arithmetik der<lb/>
+complexen Zahlen ſein vollkommenes, nur hier<lb/>
+noch einfacheres, Gegenſtuͤck hat; ſind naͤmlich<lb/>
+<hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">b i</hi>, <hi rendition="#aq">A</hi></hi> + <hi rendition="#i"><hi rendition="#aq">B i</hi></hi> complexe Primzahlen, ſo daß<lb/>
+<hi rendition="#i"><hi rendition="#aq">a</hi></hi> und <hi rendition="#i"><hi rendition="#aq">A</hi></hi> ungerade, <hi rendition="#i"><hi rendition="#aq">b</hi></hi> und <hi rendition="#i"><hi rendition="#aq">B</hi></hi> gerade ſind, ſo<lb/>
+iſt die erſte quadratiſcher Reſt der zweyten, wenn<lb/>
+die zweyte quadratiſcher Reſt der erſten iſt, hin-<lb/>
+gegen die erſte quadratiſcher Nichtreſt der zwey-<lb/>
+ten, wenn die zweyte quadratiſcher Nichtreſt der<lb/>
+erſten iſt.</p><lb/>
+<p>Indem die Abhandlung nach dieſen Vorunter-<lb/>
+ſuchungen zu der Lehre von den biquadratiſchen<lb/>
+Reſten ſelbſt uͤbergeht, wird zuvoͤrderſt anſtatt<lb/>
+der bloßen Unterſcheidung zwiſchen biquadrati-<lb/>
+ſchen Reſten und Nichtreſten eine Vertheilung<lb/>
+der durch den Modulus nicht theilbaren Zahlen<lb/>
+in vier Klaſſen feſtgeſetzt. Iſt naͤmlich der Mo-<lb/>
+dulus eine complexe Primzahl <hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">b i</hi></hi>, wo im-<lb/>
+mer <hi rendition="#i"><hi rendition="#aq">a</hi></hi> ungerade <hi rendition="#i"><hi rendition="#aq">b</hi></hi> gerade vorausgeſetzt, und der<lb/>
+Kuͤrze wegen <hi rendition="#i"><hi rendition="#aq">p</hi></hi> ſtatt <hi rendition="#i"><hi rendition="#aq">aa</hi></hi> + <hi rendition="#i"><hi rendition="#aq">bb</hi></hi> geſchrieben wird,<lb/>
+und <hi rendition="#i"><hi rendition="#aq">k</hi></hi> eine complexe durch <hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">bi</hi></hi> nicht theilbare<lb/>
+Zahl, ſo wird allemahl <hi rendition="#i"><hi rendition="#aq">k</hi></hi><hi rendition="#sup">¼ (<hi rendition="#i"><hi rendition="#aq">p</hi></hi> — 1)</hi> einer der Zah-<lb/>
+len + 1, + <hi rendition="#i"><hi rendition="#aq">i</hi></hi>, — 1, — <hi rendition="#i"><hi rendition="#aq">i</hi></hi> congruent ſeyn, und<lb/>
+dadurch eine Vertheilung ſaͤmmtlicher durch <hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">bi</hi></hi><lb/>
+nicht theilbarer Zahlen in vier Claſſen begruͤn-<lb/>
+det, denen der Reihe nach der biquadratiſche<lb/>
+Character 0, 1, 2, 3 beygelegt wird. Offenbar<lb/>
+bezieht ſich der Character 0 auf die biquadrati-<lb/>
+ſchen Reſte, die uͤbrigen auf die biquadratiſchen<lb/>
+<pb n="531[631]" facs="#f0014"/>
+<fw type="header" place="top">64. St., den 23. April 1831.</fw><lb/>
+Nichtreſte, und zwar ſo, daß dem Character 2<lb/>
+zugleich quadratiſche Reſte, den Charactern 1 und<lb/>
+3 hingegen quadratiſche Nichtreſte entſprechen.</p><lb/>
+<p>Man erkennt leicht, daß es hauptſaͤchlich darauf<lb/>
+ankommt, dieſen Character bloß fuͤr ſolche Wer-<lb/>
+the von <hi rendition="#i"><hi rendition="#aq">k</hi></hi> beſtimmen zu koͤnnen, die ſelbſt com-<lb/>
+plexe Primzahlen ſind, und hier fuͤhrt ſogleich<lb/>
+die Induction zu hoͤchſt einfachen Reſultaten.</p><lb/>
+<p>Wird zuerſt <hi rendition="#i"><hi rendition="#aq">k</hi></hi> = 1 + <hi rendition="#i"><hi rendition="#aq">i</hi></hi> geſetzt, ſo zeigt ſich,<lb/>
+daß der Character dieſer Zahl allemahl √<lb/>
+⅛ (— <hi rendition="#i"><hi rendition="#aq">aa</hi></hi> + 2<hi rendition="#i"><hi rendition="#aq">ab</hi></hi> — 3<hi rendition="#i"><hi rendition="#aq">bb</hi></hi> + 1) (<hi rendition="#aq">mod.</hi> 4) wird, und<lb/>
+aͤhnliche Ausdruͤcke finden ſich fuͤr die Faͤlle<lb/>
+<hi rendition="#i"><hi rendition="#aq">k</hi></hi> = 1 — <hi rendition="#i"><hi rendition="#aq">i</hi>, <hi rendition="#aq">k</hi></hi> = — 1 + <hi rendition="#i"><hi rendition="#aq">i</hi>, <hi rendition="#aq">k</hi></hi> = — 1 — <hi rendition="#i"><hi rendition="#aq">i</hi></hi>.</p><lb/>
+<p>Iſt hingegen <hi rendition="#i"><hi rendition="#aq">k</hi></hi> = <hi rendition="#i">α</hi> + <hi rendition="#i">ϐ <hi rendition="#aq">i</hi></hi> eine ſolche Primzahl,<lb/>
+wo <hi rendition="#i">α</hi> ungerade und <hi rendition="#i">ϐ</hi> gerade iſt, ſo ergibt ſich<lb/>
+durch die Induction ſehr leicht ein dem Funda-<lb/>
+mentaltheorem fuͤr die quadratiſchen Reſte ganz<lb/>
+analoges Reciprocitaͤtsgeſetz, welches am einfach-<lb/>
+ſten auf folgende Art ausgedruͤckt werden kann:</p><lb/>
+<p>Wenn ſowohl <hi rendition="#i">α</hi> + <hi rendition="#i">ϐ</hi> — 1 als <hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">b</hi></hi> — 1 durch<lb/>
+4 theilbar ſind (auf welchen Fall alle uͤbrigen<lb/>
+leicht zuruͤckgefuͤhrt werden koͤnnen), und der Cha-<lb/>
+racter der Zahl <hi rendition="#i">α</hi> + <hi rendition="#i">ϐ <hi rendition="#aq">i</hi></hi> in Beziehung auf den<lb/>
+Modulus <hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">b i</hi></hi> durch <hi rendition="#i">λ</hi>, hingegen der Cha-<lb/>
+racter von <hi rendition="#i"><hi rendition="#aq">a</hi></hi> + <hi rendition="#i"><hi rendition="#aq">b i</hi></hi> in Beziehung auf den Mo-<lb/>
+dulus <hi rendition="#i">α</hi> + <hi rendition="#i">ϐ <hi rendition="#aq">i</hi></hi> durch <hi rendition="#i">ι</hi> bezeichnet wird: ſo iſt<lb/>
+<hi rendition="#i">λ</hi> = <hi rendition="#i">ι</hi>, wenn zugleich eine der Zahlen <hi rendition="#i">ϐ, <hi rendition="#aq">b</hi></hi> (oder<lb/>
+beide) durch 4 theilbar iſt, hingegen <hi rendition="#i">λ</hi> = <hi rendition="#i">ι</hi> ± 2,<lb/>
+wenn keine der Zahlen <hi rendition="#i">ϐ, <hi rendition="#aq">b</hi></hi> durch 4 theilbar iſt.</p><lb/>
+<p>Dieſe Theoreme enthalten im Grunde alles<lb/>
+Weſentliche der Theorie der biquadratiſchen Reſte<lb/>
+in ſich: ſo leicht es aber war, ſie durch In-<lb/>
+duction zu entdecken, ſo ſchwer iſt es, ſtrenge<lb/>
+Beweiſe fuͤr ſie zu geben, beſonders fuͤr das<lb/>
+zweyte, das Fundamentaltheorem der biquadra-<lb/>
+tiſchen Reſte. Wegen des großen Umfanges, zu<lb/>
+welchem ſchon die gegenwaͤrtige Abhandlung an-<lb/>
+<pb n="632" facs="#f0015"/>
+<fw type="header" place="top">Goͤttingiſche gel. Anzeigen</fw><lb/>
+gewachſen iſt, ſah ſich der Verfaſſer genoͤthigt,<lb/>
+die Darſtellung des Beweiſes fuͤr das letztere<lb/>
+Theorem, in deſſen Beſitz er ſeit 20 Jahren iſt,<lb/>
+fuͤr eine kuͤnftige dritte Abhandlung zuruͤckzulaſ-<lb/>
+ſen. Dagegen iſt in vorliegender Abhandlung<lb/>
+noch der vollſtaͤndige Beweis fuͤr das erſtere die<lb/>
+Zahl 1 + <hi rendition="#i"><hi rendition="#aq">i</hi></hi> betreffende Theorem (von welchem<lb/>
+die anderen fuͤr 1 — <hi rendition="#i"><hi rendition="#aq">i</hi></hi>, — 1 + <hi rendition="#i"><hi rendition="#aq">i</hi></hi>, — 1 — <hi rendition="#i"><hi rendition="#aq">i</hi></hi> ab-<lb/>
+haͤngig ſind) mitgetheilt, welcher ſchon einigen<lb/>
+Begriff von der Verwicklung des Gegenſtandes<lb/>
+geben kann.</p><lb/>
+<p>Wir haben nun noch einige allgemeine An-<lb/>
+merkungen beyzufuͤgen. Die Verſetzung der Lehre<lb/>
+von den biquadratiſchen Reſten in das Gebiet<lb/>
+der complexen Zahlen koͤnnte vielleicht manchem,<lb/>
+der mit der Natur der imaginaͤren Groͤßen we-<lb/>
+niger vertraut und in falſchen Vorſtellungen da-<lb/>
+von befangen iſt, anſtoͤßig und unnatuͤrlich ſchei-<lb/>
+nen, und die Meinung veranlaſſen, daß die Un-<lb/>
+terſuchung dadurch gleichſam in die Luft geſtellt<lb/>
+ſey, eine ſchwankende Haltung bekomme, und<lb/>
+ſich von der Anſchaulichkeit ganz entferne. Nichts<lb/>
+wuͤrde ungegruͤndeter ſeyn, als eine ſolche Mei-<lb/>
+nung. Im Gegentheil iſt die Arithmetik der<lb/>
+complexen Zahlen der anſchaulichſten Verſinnli-<lb/>
+chung faͤhig, und wenn gleich der Verf. in ſei-<lb/>
+ner dießmahligen Darſtellung eine rein arithme-<lb/>
+tiſche Behandlung befolgt hat, ſo hat er doch auch<lb/>
+fuͤr dieſe die Einſicht lebendiger machende und<lb/>
+deshalb ſehr zu empfehlende Verſinnlichung die<lb/>
+noͤthigen Andeutungen gegeben, welche fuͤr ſelbſt-<lb/>
+denkende Leſer zureichend ſeyn werden. So wie<lb/>
+die abſoluten ganzen Zahlen durch eine in einer<lb/>
+geraden Linie unter gleichen Entfernungen geord-<lb/>
+nete Reihe von Puncten dargeſtellt werden, in<lb/>
+der der Anfangspunct die Zahl 0, der naͤchſte<lb/>
+die Zahl 1 u. ſ. w. vertritt; und ſo wie dann<lb/>
+<pb n="633" facs="#f0016"/>
+<fw type="header" place="top">64. St., den 23. April 1831.</fw><lb/>
+zur Darſtellung der negativen Zahlen nur eine<lb/>
+unbegrenzte Verlaͤngerung dieſer Reihe auf der<lb/>
+entgegengeſetzten Seite des Anfangspuncts erfor-<lb/>
+derlich iſt: ſo bedarf es zur Darſtellung der com-<lb/>
+plexen ganzen Zahlen nur des Zuſatzes, daß jene<lb/>
+Reihe als in einer beſtimmten unbegrenzten Ebe-<lb/>
+ne befindlich angeſehen, und parallel mit ihr auf<lb/>
+beiden Seiten eine unbeſchraͤnkte Anzahl aͤhnli-<lb/>
+cher Reihen in gleichen Abſtaͤnden von einander<lb/>
+angenommen werde, ſo daß wir anſtatt einer<lb/>
+Reihe von Puncten ein Syſtem von Puncten<lb/>
+vor uns haben, die ſich auf eine zwiefache Art<lb/>
+in Reihen von Reihen ordnen laſſen, und zur<lb/>
+Bildung einer Eintheilung der ganzen Ebene in<lb/>
+lauter gleiche Quadrate dienen. Der naͤchſte<lb/>
+Punct bey 0 in der erſten Nebenreihe auf der<lb/>
+einen Seite der Reihe welche die reellen Zahlen<lb/>
+repraͤſentiert, bezieht ſich dann auf die Zahl <hi rendition="#i"><hi rendition="#aq">i</hi></hi>,<lb/>
+ſo wie der naͤchſte Punct bey 0 in der erſten<lb/>
+Nebenreihe auf der andern Seite auf — <hi rendition="#i"><hi rendition="#aq">i</hi></hi> u. ſ. f.<lb/>
+Bey dieſer Darſtellung wird die Ausfuͤhrung der<lb/>
+arithmetiſchen Operationen in Beziehung auf<lb/>
+die complexen Groͤßen, die Congruenz, die Bil-<lb/>
+dung eines vollſtaͤndigen Syſtems incongruenter<lb/>
+Zahlen fuͤr einen gegebenen Modulus u. ſ. f. ei-<lb/>
+ner Verſinnlichung faͤhig, die nichts zu wuͤnſchen<lb/>
+uͤbrig laͤßt.</p><lb/>
+<p>Von der andern Seite wird hierdurch die wahre<lb/>
+Metaphyſik der imaginaͤren Groͤßen in ein neues<lb/>
+helles Licht geſtellt.</p><lb/>
+<p>Unſere allgemeine Arithmetik, von deren Um-<lb/>
+fang die Geometrie der Alten ſo weit uͤberfluͤ-<lb/>
+gelt wird, iſt ganz die Schoͤpfung der neuern<lb/>
+Zeit. Urſpruͤnglich ausgehend von dem Begriff<lb/>
+der abſoluten ganzen Zahlen hat ſie ihr Gebiet<lb/>
+ſtufenweiſe erweitert; zu den ganzen Zahlen ſind<lb/>
+die gebrochenen, zu den rationalen die irratio-<lb/>
+<pb n="634" facs="#f0017"/>
+<fw type="header" place="top">Goͤttingiſche gel. Anzeigen</fw><lb/>
+nalen, zu den poſitiven die negativen, zu den<lb/>
+reellen die imaginaͤren hinzugekommen. Dieß<lb/>
+Vorſchreiten iſt aber immer anfangs mit furcht-<lb/>
+ſam zoͤgerndem Schritt geſchehen. Die erſten<lb/>
+Algebraiſten nannten noch die negativen Wurzeln<lb/>
+der Gleichungen falſche Wurzeln, und ſie ſind es<lb/>
+auch, wo die Aufgabe, auf welche ſie ſich be-<lb/>
+ziehen, ſo eingekleidet vorgetragen iſt, daß die<lb/>
+Beſchaffenheit der geſuchten Groͤße kein Entge-<lb/>
+gengeſetztes zulaͤßt. Allein ſo wenig man in der<lb/>
+<hi rendition="#g">Allgemeinen</hi> Arithmetik Bedenken hat, die<lb/>
+gebrochenen Zahlen mit aufzunehmen, obgleich es<lb/>
+ſo viele zaͤhlbare Dinge gibt, wobey eine Bruch-<lb/>
+zahl ohne Sinn iſt, eben ſo wenig durften in<lb/>
+jener den negativen Zahlen gleiche Rechte mit<lb/>
+den poſitiven deshalb verſagt werden, weil un-<lb/>
+zaͤhlige Dinge kein Entgegengeſetztes zulaſſen:<lb/>
+die Realitaͤt der negativen Zahlen iſt hinreichend<lb/>
+gerechtfertigt, da ſie in unzaͤhligen andern Faͤl-<lb/>
+len ein adaͤquates Subſtrat finden. Daruͤber iſt<lb/>
+man nun freylich ſeit langer Zeit im Klaren-<lb/>
+Allein die den reellen Groͤßen gegenuͤbergeſtellten<lb/>
+imaginaͤren — ehemals, und hin und wieder<lb/>
+noch jetzt, obwohl unſchicklich, <hi rendition="#g">unmoͤgliche</hi> ge-<lb/>
+nannt — ſind noch immer weniger eingebuͤrgert<lb/>
+als nur geduldet, und erſcheinen alſo mehr wie<lb/>
+ein an ſich inhaltleeres Zeichenſpiel, dem man<lb/>
+ein denkbares Subſtrat unbedingt abſpricht, oh-<lb/>
+ne doch den reichen Tribut, welchen dieſes Zei-<lb/>
+chenſpiel zuletzt in den Schatz der Verhaͤltniſſe<lb/>
+der reellen Groͤßen ſteuert, verſchmaͤhen zu wollen.</p><lb/>
+<p>Der Verf. hat dieſen hochwichtigen Theil der<lb/>
+Mathematik ſeit vielen Jahren aus einem ver-<lb/>
+ſchiedenen Geſichtspunct betrachtet, wobey den<lb/>
+imaginaͤren Groͤßen eben ſo gut ein Gegenſtand<lb/>
+untergelegt werden kann, wie den negativen: es<lb/>
+hat aber bisher an einer Veranlaſſung gefehlt,<lb/>
+<pb n="635" facs="#f0018"/>
+<fw type="header" place="top">64. St., den 23. April 1831.</fw><lb/>
+dieſelbe oͤffentlich beſtimmt auszuſprechen, wenn<lb/>
+gleich aufmerkſame Leſer die Spuren davon in<lb/>
+der 1799 erſchienenen Schrift uͤber die Gleichun-<lb/>
+gen, und in der Preisſchrift uͤber die Umbil-<lb/>
+dung der Flaͤchen leicht wiederfinden werden. In<lb/>
+der gegenwaͤrtigen Abhandlung ſind die Grund-<lb/>
+zuͤge davon kurz angegeben; ſie beſtehen in Fol-<lb/>
+gendem.</p><lb/>
+<p>Poſitive und negative Zahlen koͤnnen nur da<lb/>
+eine Anwendung finden, wo das gezaͤhlte ein<lb/>
+Entgegengeſetztes hat, was mit ihm vereinigt<lb/>
+gedacht der Vernichtung gleich zu ſtellen iſt. Ge-<lb/>
+nau beſehen findet dieſe Vorausſetzung nur da<lb/>
+Statt, wo nicht Subſtanzen (fuͤr ſich denkbare<lb/>
+Gegenſtaͤnde) ſondern Relationen zwiſchen je<lb/>
+zweyen Gegenſtaͤnden das gezaͤhlte ſind. Poſtu-<lb/>
+liert wird dabey, daß dieſe Gegenſtaͤnde auf ei-<lb/>
+ne beſtimmte Art in eine Reihe geordnet ſind<lb/>
+z. B. <hi rendition="#i"><hi rendition="#aq">A</hi>, <hi rendition="#aq">B</hi>, <hi rendition="#aq">C</hi>, <hi rendition="#aq">D</hi></hi> ...., und daß die Re-<lb/>
+lation des <hi rendition="#i"><hi rendition="#aq">A</hi></hi> zu <hi rendition="#i"><hi rendition="#aq">B</hi></hi> als der Relation des <hi rendition="#i"><hi rendition="#aq">B</hi></hi> zu<lb/>
+<hi rendition="#i"><hi rendition="#aq">C</hi></hi> u. ſ. w. gleich betrachtet werden kann. Hier<lb/>
+gehoͤrt nun zu dem Begriff der Entgegenſetzung<lb/>
+nichts weiter als <hi rendition="#g">der Umtauſch</hi> der Glieder<lb/>
+der Relation, ſo daß wenn die Relation (oder<lb/>
+der Uebergang) von <hi rendition="#i"><hi rendition="#aq">A</hi></hi> zu <hi rendition="#i"><hi rendition="#aq">B</hi></hi> als + 1 gilt, die<lb/>
+Relation von <hi rendition="#i"><hi rendition="#aq">B</hi></hi> zu <hi rendition="#i"><hi rendition="#aq">A</hi></hi> durch — 1 dargeſtellt<lb/>
+werden muß. Inſofern alſo eine ſolche Reihe<lb/>
+auf beiden Seiten unbegrenzt iſt, repraͤſentiert<lb/>
+jede reelle ganze Zahl die Relation eines belie-<lb/>
+big als Anfang gewaͤhlten Gliedes zu einem be-<lb/>
+ſtimmten Gliede der Reihe.</p><lb/>
+<p>Sind aber die Gegenſtaͤnde von ſolcher Art,<lb/>
+daß ſie nicht in Eine, wenn gleich unbegrenzte,<lb/>
+Reihe geordnet werden koͤnnen, ſondern ſich nur<lb/>
+in Reihen von Reihen ordnen laſſen, oder was<lb/>
+dasſelbe iſt, bilden ſie eine Mannigfaltigkeit von<lb/>
+zwey Dimenſionen; verhaͤlt es ſich dann mit den<lb/>
+<pb n="636" facs="#f0019"/>
+<fw type="header" place="top">Goͤttingiſche gel. Anzeigen</fw><lb/>
+Relationen einer Reihe zu einer andern oder den<lb/>
+Uebergaͤngen aus einer in die andere auf eine<lb/>
+aͤhnliche Weiſe wie vorhin mit den Uebergaͤngen<lb/>
+von einem Gliede einer Reihe zu einem andern<lb/>
+Gliede derſelben Reihe, ſo bedarf es offenbar<lb/>
+zur Abmeſſung des Ueberganges von einem Glie-<lb/>
+de des Syſtems zu einem andern außer den vo-<lb/>
+rigen Einheiten + 1 und — 1 noch zweyer an-<lb/>
+dern unter ſich auch entgegengeſetzten + <hi rendition="#i"><hi rendition="#aq">i</hi></hi> und<lb/>
+— <hi rendition="#i"><hi rendition="#aq">i</hi></hi>. Offenbar muß aber dabey noch poſtuliert<lb/>
+werden, daß die Einheit <hi rendition="#i"><hi rendition="#aq">i</hi></hi> allemahl den Ueber-<lb/>
+gang von einem gegebenen Gliede einer Reihe<lb/>
+zu einem <hi rendition="#g">beſtimmten</hi> Gliede der unmittelbar<lb/>
+angrenzenden Reihe bezeichne. Auf dieſe Weiſe<lb/>
+wird alſo das Syſtem auf eine doppelte Art in<lb/>
+Reihen von Reihen geordnet werden koͤnnen.</p><lb/>
+<p>Der Mathematiker abſtrahiert gaͤnzlich von<lb/>
+der Beſchaffenheit der Gegenſtaͤnde und dem In-<lb/>
+halt ihrer Relationen; er hat es bloß mit der<lb/>
+Abzaͤhlung und Vergleichung der Relationen un-<lb/>
+ter ſich zu thun: inſofern iſt er eben ſo, wie er<lb/>
+den durch + 1 und — 1 bezeichneten Relatio-<lb/>
+nen, an ſich betrachtet, Gleichartigkeit beylegt,<lb/>
+ſolche auf alle vier Elemente + 1, — 1, + <hi rendition="#i"><hi rendition="#aq">i</hi></hi><lb/>
+und — <hi rendition="#i"><hi rendition="#aq">i</hi></hi> zu erſtrecken befugt.</p><lb/>
+<p>Zur Anſchauung laſſen ſich dieſe Verhaͤltniſſe<lb/>
+nur durch eine Darſtellung im Raume bringen,<lb/>
+und der einfachſte Fall iſt, wo kein Grund vor-<lb/>
+handen iſt, die Symbole der Gegenſtaͤnde an-<lb/>
+ders als quadratiſch anzuordnen, indem man<lb/>
+naͤmlich eine unbegrenzte Ebene durch zwey Sy-<lb/>
+ſteme von Parallellinien, die einander rechtwink-<lb/>
+lich durchkreuzen, in Quadrate vertheilt, und<lb/>
+die Durchſchnittspuncte zu den Symbolen waͤhlt.<lb/>
+Jeder ſolche Punct <hi rendition="#i"><hi rendition="#aq">A</hi></hi> hat hier vier Nachba-<lb/>
+ren, und wenn man die Relation des <hi rendition="#i"><hi rendition="#aq">A</hi></hi> zu<lb/>
+einem benachbarten Puncte durch + 1 bezeich-<lb/>
+<pb n="637" facs="#f0020"/>
+<fw type="header" place="top">64. St., den 23. April 1831.</fw><lb/>
+net, ſo iſt die durch — 1 zu bezeichnende von<lb/>
+ſelbſt beſtimmt, waͤhrend man, welche der bei-<lb/>
+den andern man will, fuͤr + <hi rendition="#i"><hi rendition="#aq">i</hi></hi> waͤhlen, oder<lb/>
+den ſich auf + <hi rendition="#i"><hi rendition="#aq">i</hi></hi> beziehenden Punct nach Ge-<lb/>
+fallen <hi rendition="#g">rechts</hi> oder <hi rendition="#g">links</hi> nehmen kann. Die-<lb/>
+ſer Unterſchied zwiſchen rechts und links iſt, ſo<lb/>
+bald man vorwaͤrts und ruͤckwaͤrts <hi rendition="#g">in</hi> der Ebne,<lb/>
+und oben und unten in Beziehung auf die bei-<lb/>
+den Seiten der Ebne einmahl (nach Gefallen)<lb/>
+feſtgeſetzt hat, <hi rendition="#g">in ſich</hi> voͤllig beſtimmt, wenn<lb/>
+wir gleich unſere Anſchauung dieſes Unterſchie-<lb/>
+des andern <hi rendition="#g">nur</hi> durch Nachweiſung an wirklich<lb/>
+vorhandenen materiellen Dingen mittheilen koͤn-<lb/>
+nen <note place="foot" n="*)">Beide Bemerkungen hat ſchon Kant gemacht, aber<lb/>
+man begreift nicht, wie dieſer ſcharfſinnige Philo-<lb/>
+ſoph in der erſteren einen Beweis für ſeine Mei-<lb/>
+nung, daß der Raum <hi rendition="#g">nur</hi> Form unſerer äußern<lb/>
+Anſchauung ſey, zu finden glauben konnte, da die<lb/>
+zweyte ſo klar das Gegentheil, und daß der Raum<lb/>
+unabhängig von unſerer Anſchauungsart eine reelle<lb/>
+Bedeutung haben muß, beweiſet.</note>. Wenn man aber auch uͤber letzteres ſich<lb/>
+entſchloſſen hat, ſieht man, daß es doch von<lb/>
+unſerer Willkuͤhr abhing, welche von den bei-<lb/>
+den in Einem Puncte ſich durchkreuzenden Rei-<lb/>
+hen wir als Hauptreihe, und welche Richtung<lb/>
+in ihr man als auf poſitive Zahlen ſich bezie-<lb/>
+hend anſehen wollten; man ſieht ferner, daß<lb/>
+wenn wir die vorher als + <hi rendition="#i"><hi rendition="#aq">i</hi></hi> behandelte Re-<lb/>
+lation fuͤr + 1 nehmen will, man nothwendig<lb/>
+die vorher durch — 1 bezeichnete Relation fuͤr<lb/>
++ <hi rendition="#i"><hi rendition="#aq">i</hi></hi> nehmen muß. Das heißt aber, in der<lb/>
+Sprache der Mathematiker, + <hi rendition="#i"><hi rendition="#aq">i</hi></hi> iſt mittlere Pro-<lb/>
+portionalgroͤße zwiſchen + 1 und — 1 oder ent-<lb/>
+ſpricht dem Zeichen √ — 1: wir ſagen abſicht-<lb/>
+lich nicht <hi rendition="#g">die</hi> mittlere Proportionalgroͤße, denn<lb/>
+— <hi rendition="#i"><hi rendition="#aq">i</hi></hi> hat offenbar gleichen Anſpruch. Hier iſt<lb/>
+<pb n="638" facs="#f0021"/>
+<fw type="header" place="top">Goͤttingiſche gel. Anzeigen</fw><lb/>
+alſo die Nachweisbarkeit einer anſchaulichen Be-<lb/>
+deutung von √ — 1 vollkommen gerechtfertigt,<lb/>
+und mehr bedarf es nicht, um dieſe Groͤße in<lb/>
+das Gebiet der Gegenſtaͤnde der Arithmetik zu-<lb/>
+zulaſſen.</p><lb/>
+<p>Wir haben geglaubt, den Freunden der Ma-<lb/>
+thematik durch dieſe kurze Darſtellung der Haupt-<lb/>
+momente einer neuen Theorie der ſogenannten<lb/>
+imaginaͤren Groͤßen einen Dienſt zu erweiſen.<lb/>
+Hat man dieſen Gegenſtand bisher aus einem<lb/>
+falſchen Geſichtspunct betrachtet und eine ge-<lb/>
+heimnißvolle Dunkelheit dabey gefunden, ſo iſt<lb/>
+dieß großentheils den wenig ſchicklichen Benen-<lb/>
+nungen zuzuſchreiben. Haͤtte man + 1, — 1,<lb/>
+√ — 1 nicht poſitive, negative, imaginaͤre (oder<lb/>
+gar unmoͤgliche) Einheit, ſondern etwa directe,<lb/>
+inverſe, laterale Einheit genannt, ſo haͤtte von<lb/>
+einer ſolchen Dunkelheit kaum die Rede ſeyn<lb/>
+koͤnnen. Der Verf. hat ſich vorbehalten, den<lb/>
+Gegenſtand, welcher in der vorliegenden Abhand-<lb/>
+lung eigentlich nur gelegentlich beruͤhrt iſt, kuͤnf-<lb/>
+tig vollſtaͤndiger zu bearbeiten, wo dann auch<lb/>
+die Frage, warum die Relationen zwiſchen Din-<lb/>
+gen, die eine Mannigfaltigkeit von mehr als<lb/>
+zwey Dimenſionen darbieten, nicht noch andere<lb/>
+in der allgemeinen Arithmetik zulaͤſſige Arten<lb/>
+von Groͤßen liefern koͤnnen, ihre Beantwortung<lb/>
+finden wird.</p></div></div><lb/>
+<pb facs="#f0022"/>
+<pb facs="#f0023"/>
+<pb facs="#f0024"/>
+</div> </body> </text> </TEI>

@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">     <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Beygabe zum ersten Bande der italienischen Forschungen</title>
+<title type="volume" n="4">Beygabe zum ersten Bande</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118987224">
+<surname>Rumohr</surname>
+<forename>Carl Friedrich von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">29</measure>
+<measure type="tokens">3603</measure>
+<measure type="types">1290</measure>
+<measure type="characters">27956</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:07:46Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/rumohr_forschungen01beygabe_1827</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/rumohr_forschungen01beygabe_1827</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/rumohr_forschungen01beygabe_1827</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/rumohr_forschungen01beygabe_1827</idno>
+<idno type="DTADirName">rumohr_forschungen01beygabe_1827</idno>
+<idno type="DTAID">16923</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905195156</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Rumohr, Karl Friedrich von: Italienische Forschungen. Beygabe zu Bd. 1. Hamburg, 1827.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Beygabe zum ersten Bande der italienischen Forschungen</title>
+<title level="m" type="volume" n="4">Beygabe zum ersten Bande</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118987224">
+<surname>Rumohr</surname>
+<forename>Carl Friedrich von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">20 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Perthes und Besser</name></publisher>
+<pubPlace>Hamburg</pubPlace>
+<date type="publication">1827</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Nr 3129-1</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=695786903</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Kunst</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Kunstgeschichte</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text>     <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="main">         <docTitle>           <titlePart type="main">             <hi rendition="#b">               <hi rendition="#g">Beygabe<lb/>
+zum erſten Bande<lb/>
+der<lb/>
+italieniſchen Forſchungen</hi>             </hi>           </titlePart>         </docTitle>         <lb/>
+<byline>von<lb/>
+<docAuthor><persName ref="http://d-nb.info/gnd/118987224">C. F. <hi rendition="#g">von Rumohr</hi></persName>.</docAuthor></byline>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <docImprint>           <pubPlace>             <hi rendition="#g"><placeName>Berlin</placeName> 1827.</hi>           </pubPlace>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <pubPlace><hi rendition="#g"><placeName>Hamburg</placeName></hi>,<lb/>
+</pubPlace>           <publisher>             <hi rendition="#g">bey Perthes und Beſſer.</hi>           </publisher>         </docImprint>       </titlePage>
+<pb n="[2]" facs="#f0008"/>
+</front>
+<pb n="[3]" facs="#f0009"/>
+<body>       <div n="1">         <p><hi rendition="#in">E</hi>s iſt eine kunſtgeſchichtliche Thatſache: daß die Gegen-<lb/>
+ſtaͤnde kuͤnſtleriſcher Darſtellungen, mit wenigen, der Wirkung<lb/>
+nach unerheblichen Ausnahmen (den Preisaufgaben der Kunſt-<lb/>
+academieen und Vereine) nirgend nach Principien ausge-<lb/>
+waͤhlt, ſondern durch Umſtaͤnde herbeygefuͤhrt werden, deren<lb/>
+Urſprung weit außerhalb der Kunſt in allgemeinen geſchicht-<lb/>
+lichen Verhaͤltniſſen aufzuſuchen iſt. Beſonders, wann es<lb/>
+dem Kuͤnſtler wohl gehet (wann er der Arbeit vollauf hat<lb/>
+und eben daher ſich vollſtaͤndiger entwickelt) kommt in Frage,<lb/>
+nicht, was ſich am beſten eigne, dargeſtellt zu werden, noch<lb/>
+weniger, was an ſich ſelbſt der ſchoͤnſte Gegenſtand ſey,<lb/>
+ſondern einzig: <hi rendition="#g">was an der Zeit ſey.</hi> Da es ſich nun<lb/>
+ergeben kann, und nicht ſelten ergiebt, daß vom Kuͤnſtler<lb/>
+die Darſtellung minder ſchoͤner und ſogar unſchoͤner Gegen-<lb/>
+ſtaͤnde gefordert wird, ſo habe ich verſucht, zu zeigen: <hi rendition="#g">wie<lb/>
+die Anſpruͤche des Schoͤnheitsſinnes auch in ſol-<lb/>
+chen Kunſtwerken befriedigt werden koͤnnen, deren<lb/>
+Gegenſtand an ſich ſelbſt unſchoͤn iſt.</hi> Dieſer wohl-<lb/>
+gemeinte Verſuch hat Anſtoß gegeben; weßhalb ich fuͤr<lb/>
+Pflicht halte, mich uͤber dieſelbe Aufgabe noch einmal, und<lb/>
+wo moͤglich buͤndiger, als fruͤher geſchehen iſt, auszuſprechen.</p>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="4" facs="#f0010"/>
+<div n="1">         <head>           <hi rendition="#b">             <hi rendition="#g">Vorausſetzungen.</hi>           </hi>         </head>         <lb/>
+<p>Erſte. <hi rendition="#fr">Das Wort, <hi rendition="#g">Schoͤnheit,</hi> bezeichnet eine<lb/>
+Eigenſchaft, <hi rendition="#g">das Schoͤne,</hi> hingegen Dinge, denen<lb/>
+jene Eigenſchaft anhaͤngt.</hi></p>         <lb/>
+<p>           <hi rendition="#et"><hi rendition="#g">Anm</hi>. 1. Es erhellet aus der allgemeinen Grammatik,<lb/>
+daß durch das Neutrum des Adjectivs, wo es fuͤr<lb/>
+ſich und in ſubſtantivem Sinne ſtehet, eine unbe-<lb/>
+ſtimmte Mehrheit von Dingen bezeichnet werde,<lb/>
+welchen die, in dem Beyworte ausgeſprochene Ei-<lb/>
+genſchaft anhaͤngt; hingegen durch das abgeleitete<lb/>
+Hauptwort der abſtracte Begriff der Eigenſchaft<lb/>
+ſelbſt.</hi>         </p>         <lb/>
+<p>           <hi rendition="#et">Das Schwanken des Gebrauches in unſerer, wie<lb/>
+in anderen alten und neueren Sprachen (welches<lb/>
+uͤberhaupt nur bey einzelnen Woͤrtern und beſon-<lb/>
+ders <hi rendition="#g">eben bey ſolchen</hi> eingetreten iſt, welche<lb/>
+Eigenſchaften ausſprechen, deren abſtracter Auf-<lb/>
+faſſung man auszuweichen liebte) hebet die Regel<lb/>
+nicht auf, zu welcher wir zuruͤckkehren muͤſſen, ſo-<lb/>
+bald es auf Schaͤrfe des Ausdruckes ankommt.</hi>         </p>         <lb/>
+<p>           <hi rendition="#et"><hi rendition="#g">Anm</hi>. 2. Da offenbar in den ſchoͤnen Dingen viele Ei-<lb/>
+genſchaften vorhanden ſind, welche deren Schoͤnheit<lb/>
+nicht erhoͤhen, noch uͤberall damit zu ſchaffen haben:<lb/>
+<hi rendition="#et">(in einer ſchoͤnen Statue ſind außer der Schoͤn-<lb/>
+heit noch relative Schwere und Groͤße, und<lb/>
+allerley phyſiſche Eigenſchaften des Geſteines<lb/>
+oder Erzes vorhanden; in einem ſchoͤnen Men-<lb/>
+ſchen, eine Unendlichkeit von phyſiſchen, ſitt-<lb/>
+lichen und geiſtigen Eigenſchaften, welche zu<lb/>
+<pb n="5" facs="#f0011"/>
+ſeiner Schoͤnheit theils nur in einer bedingten,<lb/>
+theils aber auch in gar keiner Beziehung ſtehen)</hi><lb/>
+ſo iſt die Schoͤnheit nicht eins und daſſelbe mit den<lb/>
+Dingen, denen ſie anhaͤngt, (dem Schoͤnen), ſon-<lb/>
+dern nur irgend eine Eigenſchaft derſelben. Alle<lb/>
+Eigenſchaften koͤnnen abſtract aufgefaßt werden, alſo<lb/>
+auch dieſe.</hi>         </p>         <lb/>
+<p>Zweyte. <hi rendition="#fr">Der abſtracte Eigenſchaftsbegriff, Schoͤn-<lb/>
+heit, in ſeiner hoͤchſten Allgemeinheit aufgefaßt, kann<lb/>
+umſchrieben werden durch die Worte: Erfreulichkeit<lb/>
+der Apparenz ſichtbarer Dinge.</hi></p>         <lb/>
+<p>           <hi rendition="#et"><hi rendition="#g">Anm</hi>. 1. Dieſe Umſchreibung will, weder die Frage:<lb/>
+<hi rendition="#g">was alles ſchoͤn ſey,</hi> noch die andere: <hi rendition="#g">weß-<lb/>
+halb,</hi> aus welchem Grunde, <hi rendition="#g">etwas ſchoͤn ſey,</hi><lb/>
+erledigen; vielmehr begnuͤgt ſie ſich, auszuſprechen:<lb/>
+was unter allen Umſtaͤnden, in allen Faͤllen, das<lb/>
+Schoͤne ſowohl <hi rendition="#g">vom Unſchoͤnen,</hi> als auch <hi rendition="#g">vom<lb/>
+Nichtſchoͤnen</hi> unterſcheidet, alſo ein allgemeines<lb/>
+und durchwaltendes Merkmal der Schoͤnheit iſt.</hi>         </p>         <lb/>
+<p>           <hi rendition="#et">In der Volksſprache, dem nie ſo geradehin zu be-<lb/>
+ſeitigenden Ausdrucke des gemeinſchaftlichen Be-<lb/>
+wußtſeyns, bezeichnet <hi rendition="#g">ſchoͤn,</hi> nicht, was unerfreu-<lb/>
+lich, noch auch, was gleichguͤltig iſt, ſondern immer<lb/>
+nur <hi rendition="#g">ein Erfreuliches;</hi> worin ſogar die vorkom-<lb/>
+menden, einander ſonſt ausſchließenden, oder doch<lb/>
+gegenſeitig beſchraͤnkenden Erklaͤrungen der Schoͤn-<lb/>
+heit und des Schoͤnen, ſowohl unter ſich, als auch<lb/>
+mit dem Volks- und Sprachbegriffe uͤbereinſtimmen.</hi>         </p>         <lb/>
+<p>           <hi rendition="#et">Erwaͤgen wir indeß, daß vieles an ſich Gute,<lb/>
+etwa Geſundheit, Staͤrke, Tugend und anderes, zwar<lb/>
+<pb n="6" facs="#f0012"/>
+ſeinem Begriffe nach <hi rendition="#g">erfreulich</hi> iſt, doch nur in<lb/>
+ſo fern die Schoͤnheit irgend eines Dinges ausmacht,<lb/>
+oder ſolche mehret und erhoͤht, als es an deſſen<lb/>
+ſichtbarer Oberflaͤche ſich ausdruͤckt; hingegen, in ſo<lb/>
+fern es <hi rendition="#g">nicht</hi> (ſinnlich wahrnehmbar) ſich ausdruͤckt,<lb/>
+auch nicht in dem Begriffe der Schoͤnheit enthalten<lb/>
+iſt, ſondern nur dasjenige iſt, was es an ſich ſelbſt<lb/>
+iſt, nemlich Geſundheit, Staͤrke und ſo ferner; ſo<lb/>
+iſt das allgemeine Merkmal der Schoͤnheit offenbar:<lb/>
+Erfreulichkeit, <hi rendition="#g">nicht des Seyns,</hi> ſondern des<lb/>
+Scheines der ſichtbaren Dinge.</hi>         </p>         <lb/>
+<p>           <hi rendition="#et"><hi rendition="#g">Anm</hi>. 2. Das bekannte: <hi rendition="#g">ſchoͤn iſt, was, ohne zu<lb/>
+nuͤtzen, gefaͤllt,</hi> (was indeß, nicht, was <hi rendition="#g">wir</hi><lb/>
+ſuchen, <hi rendition="#g">die Schoͤnheit,</hi> ſondern eben nur, <hi rendition="#g">das<lb/>
+Schoͤne,</hi> auf ſeine Weiſe ausſpricht) iſt obiger<lb/>
+Umſchreibung in ſo fern verwandt, als es offenbar<lb/>
+gleichfalls von dem Vorſatze ausgehet, den Volks-<lb/>
+begriff in der ihm zukommenden Allgemeinheit aus-<lb/>
+zuſprechen. Andere hingegen haben den Grund der<lb/>
+Schoͤnheit irgend eines einzelnen Schoͤnen zu er-<lb/>
+mitteln geſucht und dieſen, wie immer beſchaffenen,<lb/>
+Grund der Schoͤnheit jenes einzelnen Schoͤnen als<lb/>
+einen allgemeinen, die Schoͤnheit eines jeglichen<lb/>
+Schoͤnen erklaͤrenden geltend machen wollen.</hi>         </p>         <lb/>
+<p>           <hi rendition="#et">Solche, wie man ſie nennt, objective Erklaͤrun-<lb/>
+gen der Schoͤnheit ſind eigentlich nur Emanationen<lb/>
+eines ganz ſubjectiven Entzuͤckens an einzelnem Schoͤ-<lb/>
+nen, fuͤhren daher unausbleiblich zu unwillkuͤhrlichen<lb/>
+Verwechſelungen des Allgemeinen mit dem Beſonde-<lb/>
+ren desjenigen Objectes, von welchem man jedesmal<lb/>
+ausgegangen iſt. Ueberhaupt kann man nicht wohl<lb/>
+<pb n="7" facs="#f0013"/>
+den Grund, deßhalb etwas iſt, fruͤher aufſuchen, als<lb/>
+nachdem man ausgemacht hat, was dieſes etwas iſt.<lb/>
+Wer aber auch von irgend einem einzelnen Dinge<lb/>
+ermittelt haͤtte, einmal, daß es ſchoͤn ſey, dann auch,<lb/>
+weßhalb es ſchoͤn ſey, hat damit noch nicht gefunden,<lb/>
+was die Schoͤnheit uͤberhaupt iſt. — Wie nun immer<lb/>
+in ſolchen Erklaͤrungen (obwohl dieſelben, weil ſie vom<lb/>
+Einzelnen ausgehn, mißliche Verneinungen und Aus-<lb/>
+ſonderungen einzuſchließen pflegen; weil ſie einen<lb/>
+Grund zu ermitteln ſuchen, welcher nicht durchhin zu<lb/>
+Tage liegt, nicht ſelten ſich in Hypotheſen und Dun-<lb/>
+kelheiten verlieren) doch bald ein lebendiges Ge-<lb/>
+fuͤhl fuͤr das Schoͤne, bald wiederum viel Tiefes<lb/>
+und Erhebendes uͤber deſſen letzten Grund hervor-<lb/>
+tritt: ſo haben ſie dennoch, da ſie die Schoͤnheit<lb/>
+uͤberall nur in ihrer innigen Vereinigung mit den<lb/>
+Dingen, alſo concret auffaſſen, mir bey obiger Be-<lb/>
+ſtimmung nicht wohl vorleuchten koͤnnen.</hi>         </p>         <lb/>
+<p>Dritte. <hi rendition="#fr">Nach menſchlicher Vorſtellungsart iſt die<lb/>
+Empfaͤnglichkeit fuͤr Schoͤnheit in dem oben feſtgeſtell-<lb/>
+ten Sinne: zunaͤchſt, eine rein ſinnliche (der Geſichts-<lb/>
+werkzeuge); ferner, ein zwar noch unerklaͤrter, doch<lb/>
+vorhandener Sinn fuͤr Maß und Verhaͤltniß; endlich<lb/>
+Erregbarkeit des Gemuͤthes, bald durch allgemeine<lb/>
+Anklaͤnge, bald durch beſtimmtere, durch ſinnlich Wahr-<lb/>
+nehmbares, im Geiſte erweckte Vorſtellungen. Dieſe<lb/>
+Unterſcheidungen innerhalb des Schoͤnheitsſinnes,<lb/>
+welche jedes deutliche Selbſtbewußtſeyn billigen wird,<lb/>
+erheiſchen aber — da, was auf ſo verſchiedene Seiten<lb/>
+<pb n="8" facs="#f0014"/>
+des Daſeyns einwirkt, nicht ſo durchaus daſſelbe ſeyn<lb/>
+kann — dieſen entſprechende Unterſcheidungen inner-<lb/>
+halb des allgemeinen Begriffes, die Schoͤnheit. In<lb/>
+dieſem unterſcheide ich demzufolge:<lb/>
+<list><item>ſinnliche Annehmlichkeit;</item><lb/>
+<item>harmoniſche Wirkung des in den Geſtalten und<lb/>
+uͤberhaupt in den ſichtbaren Erſcheinungen dem<lb/>
+Maße Unterliegenden.</item><lb/>
+<item>Erfreulichkeit von (vermoͤge der einwohnenden<lb/>
+Sinnbildlichkeit der Formen, beſonders der or-<lb/>
+ganiſchen) durch Sichtbares im Geiſte angereg-<lb/>
+ten Vorſtellungen.</item></list></hi></p>         <lb/>
+<p>           <hi rendition="#et"><hi rendition="#g">Anm</hi>. 1. Dieſe Unterſcheidungen habe ich in der Ab-<lb/>
+ſicht geſucht und herbeygezogen, die Schoͤnheit dem<lb/>
+bildenden Kuͤnſtler zugaͤnglicher zu machen, und hie-<lb/>
+durch die kuͤnſtleriſche Hervorbringung des Schoͤnen<lb/>
+nach Kraͤften zu befoͤrdern. Der praktiſche Werth<lb/>
+derſelben, welcher hinſichtlich der bildenden Kuͤnſte<lb/>
+ſich noch erproben ſoll, hat ſchon ſeit den aͤlteſten<lb/>
+Zeiten in der Muſik ſich bewaͤhrt, deren Schoͤnheit<lb/>
+jenen obigen genau entſprechende Unterſcheidungen<lb/>
+zulaͤßt, welche man jederzeit angeſtellt und in An-<lb/>
+wendung gebracht hat.</hi>         </p>         <lb/>
+<p><hi rendition="#et">In dieſer Kunſt nemlich iſt es die Reinheit des<lb/>
+einzelnen Lautes, welche den aͤußeren Sinn (hier<lb/>
+das Gehoͤr) angenehm erregt; Tact und Harmo-<lb/>
+nie, was den uns eingeborenen Sinn fuͤr Maß<lb/>
+und Verhaͤltniß ausfuͤllt; Melodie (<hi rendition="#aq">cantabile</hi>, das<lb/>
+Mittelbare und Sinnbildliche in der Muſik), was</hi><lb/>
+<pb n="9" facs="#f0015"/>
+das Gemuͤth durch die mannichfaltigſten Anklaͤnge<lb/>
+beruͤhret und ſtimmt. Wie nun immer dieſe ſo<lb/>
+ganz verſchiedenen Schoͤnheiten in gelungenen mu-<lb/>
+ſikaliſchen Ausfuͤhrungen zu einem gemeinſamen Ein-<lb/>
+drucke ſich vereinigen und verſchmelzen, ſo hat man<lb/>
+demungeachtet doch niemals beſtritten: daß der<lb/>
+ausuͤbende Kuͤnſtler die Reinheit, den Tact, den<lb/>
+Ausdruck, oder der Componiſt die Harmonie und<lb/>
+die Melodie, jedes fuͤr ſich betrachten, erſtreben,<lb/>
+uͤben koͤnne, wie es mit Vortheil geſchiehet und<lb/>
+von jeher geſchehen iſt.</p>         <lb/>
+<p>           <hi rendition="#et">Indeß duͤrften jene Unterſcheidungen, als ein An-<lb/>
+knuͤpfungspunct betrachtet, auch fuͤr die wiſſenſchaft-<lb/>
+liche Unterſuchung der Schoͤnheit und des Schoͤnen<lb/>
+von ungleich mehr Belang ſeyn, als man, in An-<lb/>
+ſehung der vieltauſendjaͤhrigen Gewoͤhnung, den<lb/>
+Begriff der Schoͤnheit mit Vorſtellungen von ein-<lb/>
+zelnem Schoͤnen, das Allgemeine mit dem Beſon-<lb/>
+deren, bald zu miſchen, bald zu verwechſeln, ſchwer-<lb/>
+lich vor der Hand anzuerkennen geneigt ſeyn wird.<lb/>
+— Vornehmlich befuͤrchte ich die Mißbilligung de-<lb/>
+rer, welche bey allem Unbeſtimmten und Raͤthſel-<lb/>
+haften ihre Rechnung finden.</hi>         </p>         <lb/>
+<p>           <hi rendition="#et"><hi rendition="#g">Anm</hi>. 2. Wer nun einmal auf keine Weiſe ſich dar-<lb/>
+auf einlaſſen will, die Schoͤnheit abgeſondert von<lb/>
+den Dingen, denen ſie anhaͤngt, aufzufaſſen, duͤrfte<lb/>
+hier eine Abtheilung innerhalb des <hi rendition="#g">Schoͤnen</hi> wahr-<lb/>
+zunehmen glauben, gleich jener laͤngſt verſuchten<lb/>
+und beliebten <hi rendition="#g">in ein ſinnlich und geiſtig</hi> (aͤu-<lb/>
+ßerlich und innerlich) <hi rendition="#g">Schoͤnes</hi>; daher den be-<lb/>
+kannten Einwurf gegen mich in Anwendung bringen<lb/>
+<pb n="10" facs="#f0016"/>
+wollen: <hi rendition="#g">»Das aͤußerlich Schoͤne ſey nur we-<lb/>
+gen ſeiner einwohnenden inneren Schoͤn-<lb/>
+heit und das innerlich Schoͤne nur wegen<lb/>
+ſeiner Erſcheinung in ſinnlich wahrnehm-<lb/>
+barer Form aͤſthetiſch ſchoͤn.«</hi> Dieſer Satz<lb/>
+aber, iſt eine Abwehrung des Verſuches, das ein-<lb/>
+zelne Schoͤne in ſeine Theile aufzuloͤſen, deſſen<lb/>
+Wahres, oder Falſches mithin an dieſer Stelle<lb/>
+durchaus nicht in Frage kommt. Denn ich beſchaͤf-<lb/>
+tige mich hier, nicht mit dem einzelnen Schoͤnen,<lb/>
+welches allerdings, wie Niemand beſtreitet, zunaͤchſt<lb/>
+ein ſinnlich Wahrnehmbares iſt, ſondern mit dem<lb/>
+abſtracten Begriffe der Schoͤnheit, deſſen im Geiſte<lb/>
+aufgefaßte Unterſcheidungen durch den Umſtand,<lb/>
+daß ſolche in den <hi rendition="#g">meiſten</hi> concreten Faͤllen in ein-<lb/>
+ander aufgehen und ſich gegenſeitig aufheben, noch<lb/>
+keinesweges als irrig und unanwendbar erwieſen<lb/>
+werden.</hi>         </p>         <lb/>
+<p>           <hi rendition="#et">Auch duͤrften Einige annehmen wollen, daß, in obi-<lb/>
+ger Abtheilung, <hi rendition="#g">die ſinnliche Annehmlichkeit</hi><lb/>
+nur etwa ſo viel ſagen wolle, als, <hi rendition="#g">das ſinnlich<lb/>
+Angenehme</hi>, oder <hi rendition="#g">Wohlgefaͤllige</hi> einiger veral-<lb/>
+teten Schulen. Indeß iſt das ſinnlich Angenehme,<lb/>
+eben wie, das Anmuthige, das Erhabene und ſo viel<lb/>
+Anderes, eben nur eine von den unzaͤhligen, ſchon<lb/>
+herbeygezogenen oder noch moͤglichen Unterabthei-<lb/>
+lungen innerhalb des einzelnen Schoͤnen, welche ich<lb/>
+bey dieſer Unterſuchung keinesweges im Sinne ha-<lb/>
+ben konnte, ſomit jene Deutung von mir ablehnen<lb/>
+muß. — Uebrigens verſtehe ich nicht, wie man<lb/>
+<hi rendition="#g">ein ſinnlich Angenehmes</hi> (wenn auch in will-<lb/>
+<pb n="11" facs="#f0017"/>
+kuͤhrlichſtem Gegenſatze gegen das eigentlich Schoͤne)<lb/>
+annehmen koͤnne, ohne zugleich eine <hi rendition="#g">ſinnliche<lb/>
+Annehmlichkeit</hi> zuzugeben; noch wie man an-<lb/>
+nehmen koͤnne, <hi rendition="#g">daß jegliches Schoͤne ſinnlich<lb/>
+wahrnehmbar ſey</hi>, ohne zugleich die ſinnliche<lb/>
+Annehmlichkeit gehoͤrig in Anſchlag zu bringen?<lb/>
+Freylich duͤrfte es nicht ſelten eintreten, daß<lb/>
+eben diejenigen, welche der ſinnlichen Annehmlich-<lb/>
+keit in ihrem Schoͤnheitsbegriffe ſelbſt eine unter-<lb/>
+geordnete Stelle verſagen, doch in der Anwendung<lb/>
+ſie eifrigſt begehren, durch dieſelbe auch fuͤr das<lb/>
+Schaale und Geiſtloſe ſich beſtechen laſſen, oder von<lb/>
+ſich abweiſen, was immer Gutes von dieſer Schoͤn-<lb/>
+heit entbloͤßt iſt.</hi>         </p>         <lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="12" facs="#f0018"/>
+<p>Der Vorderſatz des Schluſſes, den ich auf obige Vor-<lb/>
+ausſetzungen begruͤnde, lautet (was der Leſer beachten wolle)<lb/>
+wie folgt:</p>         <lb/>
+<p>           <hi rendition="#fr">Jedes Ding, welches die Eigenſchaft Schoͤn-<lb/>
+heit (dieſer, oder jener anderen, oder auch aller Ar-<lb/>
+ten; im niedrigſten, hoͤheren oder hoͤchſten Maße)<lb/>
+darlegt, iſt <hi rendition="#g">ein Schoͤnes</hi>.</hi>         </p>         <lb/>
+<p>           <hi rendition="#et"><hi rendition="#g">Anm</hi>. 1. Ein ſchoͤnes Ding iſt (ſ. die Vorausſetzun-<lb/>
+gen) nur in ſo fern <hi rendition="#g">ein Schoͤnes</hi>, als ihm die<lb/>
+Eigenſchaft Schoͤnheit beywohnt. Iſt es nun alſo<lb/>
+die Eigenſchaft Schoͤnheit, welche die Dinge zu<lb/>
+<hi rendition="#g">ſchoͤnen</hi> Dingen erhebt: ſo ſind nothwendig alle<lb/>
+Dinge <hi rendition="#g">ſchoͤn</hi>, an welchen jene Eigenſchaft ſich<lb/>
+darlegt.</hi>         </p>         <lb/>
+<p>           <hi rendition="#et"><hi rendition="#g">Anm</hi>. 2. Um einem Dinge das hoͤchſt allgemeine<lb/>
+Praͤdicat: <hi rendition="#g">ſchoͤn</hi>, beyzulegen, fragt man, weder<lb/>
+nach dem Maße, in welchem das Ding ſchoͤn iſt,<lb/>
+noch nach der Art, in welcher es ſchoͤn iſt. Wo<lb/>
+man <hi rendition="#g">dieſe</hi> genauer bezeichnen will, bedient man<lb/>
+ſich: hinſichtlich des Grades, der Comparation;<lb/>
+hinſichtlich de<supplied>r</supplied> Art, eigener, Niemand nicht gelaͤu-<lb/>
+figer Benennungen, z. B. <hi rendition="#g">erhaben, anmuthig</hi><lb/>
+und ſo ferner.</hi>         </p>         <lb/>
+<p>           <hi rendition="#et">Freylich iſt Einigen das Beywort, <hi rendition="#g">ſchoͤn</hi>, die<lb/>
+Bezeichnung bald eines hoͤheren Grades, bald auch<lb/>
+einer hoͤheren Art des Schoͤnen; weßhalb ſie <hi rendition="#g">ihr</hi><lb/>
+Schoͤnes, als ein hoͤheres, den niederen Stufen und<lb/>
+Arten des Schoͤnen (etwa dem Huͤbſchen, Gefaͤlli-<lb/>
+gen und ſo fort) entgegen ſetzen; (ungefaͤhr als<lb/>
+wenn man <hi rendition="#g">das Gute</hi>, als ein hoͤheres Gute, dem<lb/>
+<pb n="13" facs="#f0019"/>
+minder Guten entgegen ſetzen wollte). Da indeß<lb/>
+das Schoͤne auch in dieſem engeren Sinne den<lb/>
+Charakter der Allgemeinheit feſthaͤlt, welchen die<lb/>
+Sprache ihm nun einmal aufgedruͤckt hat, alſo nichts<lb/>
+Beſonderes und Unterſcheidendes, nur etwa einen<lb/>
+hoͤheren Grad der Erfreulichkeit bezeichnet: ſo iſt<lb/>
+dieſer willkuͤhrliche Wortgebrauch, (welcher ſo viele<lb/>
+ihm in der Sprache dargebotene Mittel des Aus-<lb/>
+drucks willkuͤhrlich verſchmaͤhet) hoͤchſtens als eine ei-<lb/>
+gene Comparationsform zu betrachten, welche aller-<lb/>
+dings ganz merkwuͤrdig, doch fuͤr mich nicht bindend iſt.</hi>         </p>         <lb/>
+<p>           <hi rendition="#fr">Der Kuͤnſtler kann, unabhaͤngig von der Schoͤnheit,<lb/>
+oder Unſchoͤnheit des Gegenſtandes ſeiner Darſtel-<lb/>
+lung, in ſeinem Kunſtwerke Schoͤnheiten hervorbrin-<lb/>
+gen (alſo darlegen); nemlich:</hi>         </p>         <lb/>
+<p>           <hi rendition="#et">Zuerſt, <hi rendition="#fr">rein ſinnliche Annehmlichkeit, durch<lb/>
+angemeſſene Handhabung ſeiner Werkzeuge, durch<lb/>
+gehoͤrige Behandlung des Stoffes, aus welchem<lb/>
+er ſeine Geſtaltungen formt, oder in welchem er<lb/>
+dieſelben erſcheinen macht.</hi></hi>         </p>         <lb/>
+<p>           <hi rendition="#et">Zweytens, <hi rendition="#fr">Schoͤnheit des Maßes, durch die<lb/>
+Wahl der Anſicht und Lage, durch die Stellung<lb/>
+und Anordnung des in ſeiner Aufgabe enthal-<lb/>
+tenen, oder doch von derſelben nicht ausgeſchloſ-<lb/>
+ſenen Einzelnen.</hi></hi>         </p>         <lb/>
+<p>           <hi rendition="#et">Drittens, <hi rendition="#fr">Erfreulichkeit der im Geiſte angereg-<lb/>
+ten Vorſtellungen, durch den Ausdruck ſeiner<lb/>
+ſelbſt, nemlich, der Liebenswuͤrdigkeit, Klarheit,<lb/>
+<pb n="14" facs="#f0020"/>
+Erhebung und anderer Vorzuͤge ſeiner Seele.<lb/>
+Denn in jedem Kunſtwerke von einigem Belang<lb/>
+zeigt ſich neben dem Gegenſtande auch die Seele<lb/>
+des Kuͤnſtlers, und zwar mit ſolcher Gewalt und<lb/>
+Eindringlichkeit, daß die Bildwerke und Ge-<lb/>
+maͤlde großer Meiſter wenigſtens in eben dem<lb/>
+Maße Abdruͤcke ihrer eigenthuͤmlichen Geiſtesart<lb/>
+ſind, als Darſtellungen ihres Gegenſtandes.</hi></hi>         <lb/>
+<hi rendition="#fr">Alſo koͤnnen Kunſtwerke ſchoͤn ſeyn, deren Gegen-<lb/>
+ſtand an ſich ſelbſt unſchoͤn iſt.</hi>         </p>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <p>           <hi rendition="#fr">Kann nun der Kuͤnſtler (nemlich der gehoͤrig<lb/>
+begabte und ausgebildete), wie gezeigt worden, in<lb/>
+ſeinem Werke Schoͤnheiten hervorbringen, welche,<lb/>
+ſelbſt wann der Gegenſtand ſeiner Darſtellung (die<lb/>
+Aufgabe) an ſich ſelbſt unſchoͤn iſt, doch ſein Kunſt-<lb/>
+werk, als ſolches, zu einem Schoͤnen erheben; hin-<lb/>
+gegen diejenige Schoͤnheit, welche der jedesmaligen<lb/>
+Kunſtaufgabe angehoͤrt, nur in ſo fern und in dem<lb/>
+Maße auf deren kuͤnſtleriſche Darſtellung uͤbergehn,<lb/>
+als der Kuͤnſtler jedesmal faͤhig iſt, einestheils fuͤr<lb/>
+dieſelbe ſich zu begeiſtern, anderentheils ſie techniſch<lb/>
+auszudruͤcken: ſo iſt, nicht die Schoͤnheit der Auf-<lb/>
+gabe, ſondern die geiſtige Faͤhigkeit, die ſittliche und<lb/>
+techniſche Entwickelung des Kuͤnſtlers die wahrhaft<lb/>
+allgemeine, unter allen Umſtaͤnden unerlaͤßliche Be-<lb/>
+dingung der Schoͤnheit von Kunſtwerken.</hi>         </p>         <lb/>
+<pb n="15" facs="#f0021"/>
+<p>Dieſes Alles verſtehet ſich freylich auch ohne ſo weit<lb/>
+auszuholen, oder, wie man ſagt, von ſelbſt; es koͤnnte mit-<lb/>
+hin den Unbefangenen recht wohl ſcheinen, das Gegentheil<lb/>
+ſey nie ernſtlich behauptet, noch verfochten worden. Um ſo<lb/>
+mehr bin ich einem Recenſenten (in der allgemeinen Lit.<lb/>
+Zeitung 1827. Julius, Col. 482. 511.) fuͤr deſſen Anſtren-<lb/>
+gung verpflichtet, ſeinen Leſern zu zeigen, daß es in der<lb/>
+Kunſtlehre noch immer allerley angenommene und uͤberein-<lb/>
+koͤmmliche Vorſtellungsarten giebt, gegen welche die Wahr-<lb/>
+heit geltend zu machen kein ſo durchaus muͤſſiges Bemuͤhen iſt.</p>         <lb/>
+<p>Wie fuͤr dieſe Gunſt, ſo bringe ich gedachtem Recenſen-<lb/>
+ten auch fuͤr die billigſte Anerkennung manches von mir an-<lb/>
+geregten Saͤchlichen meinen beſten Dank. Indeß kann ich<lb/>
+nicht wohl umhin, viele von Demſelben mir beygemeſſene<lb/>
+Anſichten, Gedanken, Verwechſelungen, ſelbſt (man vergleiche<lb/>
+die Nachweiſungen) manche Worte, welche ich nie gefaßt,<lb/>
+noch geaͤußert habe, nicht als die meinigen anzuerkennen.<lb/>
+Insbeſondere verwahre ich mich gegen eine (Col. 491.) mir<lb/>
+zugeſchobene, angeblich von mir verhehlte Praͤmiſſe, welche<lb/>
+in den Worten des Rec. lautet: <hi rendition="#g">»Es wird Alles durch<lb/>
+die Darſtellung ſchoͤn.«</hi></p>         <lb/>
+<p>Dieſes Alles (des Rec. nemlich; denn mir ſelbſt iſt es<lb/>
+<hi rendition="#g">nie</hi> eingefallen, zu behaupten, noch ſelbſt insgeheim zu den-<lb/>
+ken, daß <hi rendition="#g">Alles</hi> durch die Darſtellung ſchoͤn werde) wird<lb/>
+denn nur ſo viel ſagen ſollen, als: <hi rendition="#g">Alles, was uͤber-<lb/>
+haupt kuͤnſtleriſch aufgefaßt und dargeſtellt wer-<lb/>
+den kann</hi>. Allein auch von einem ſolchen gehoͤrig beding-<lb/>
+ten <hi rendition="#g">Alles</hi> habe ich nie behauptet, noch insgeheim angenom-<lb/>
+men, <hi rendition="#g">daß Solches an ſich ſelbſt durch die Darſtel-<lb/>
+lung ſchoͤn werde</hi>, oder, wie Rec. vielleicht ſagen wol-<lb/>
+len, <hi rendition="#g">unter Umſtaͤnden durch die Darſtellung ſchoͤn<lb/>
+<pb n="16" facs="#f0022"/>
+werden koͤnne</hi>; auch wuͤßte ich nicht, zu welchem Zwecke,<lb/>
+da ich uͤberhaupt nur zeigen wollen, wie noͤthigenfalls<lb/>
+auch unabhaͤngig von der Schoͤnheit, oder Unſchoͤnheit der<lb/>
+Aufgabe im Kunſtwerke Schoͤnheiten entwickelt werden koͤn-<lb/>
+nen, welche <hi rendition="#g">das Kunſtwerk ſelbſt</hi>, und nicht, wie<lb/>
+Rec. (Col. 492.) zu deuten ſcheint, <hi rendition="#g">deſſen Gegenſtand</hi>,<lb/>
+zu einem ſchoͤnen Dinge machen.</p>         <lb/>
+<p>Ich wuͤrde glauben, daß Rec. dieſe Beſtimmung, welche<lb/>
+ich keinesweges anzudeuten verſaͤumt hatte, eben nur habe<lb/>
+uͤberſehen <hi rendition="#g">wollen</hi>, wenn es ſich nicht zeigte, daß eine gaͤnz-<lb/>
+liche Verſchiedenheit des Standpunctes, wie ſelbſt der Ter-<lb/>
+minologie und des Gebrauches uns beyden uͤbrigens gemein-<lb/>
+ſchaftlicher Woͤrter, hier, wie an anderen Stellen das Ver-<lb/>
+ſtaͤndniß und die gegenſeitige Annaͤherung ſo gut als unmoͤg-<lb/>
+lich machen. Waͤhrend ich ſelbſt eben nur darauf ausging,<lb/>
+zu finden, was die Kunſt, welche ich eigenſinnig liebe, nur<lb/>
+irgend in ihrer Entwickelung hemmen, oder foͤrdern kann,<lb/>
+begnuͤgte ſich der Recenſent mit Allgemeinheiten, welche zwar<lb/>
+an ſich ſelbſt ihren Werth haben, doch nicht ſo geradehin in<lb/>
+Anwendung zu bringen ſind. Auf einer ſolchen Allgemein-<lb/>
+heit gruͤndet derſ. ſeinen letzten, wie es ihm ſcheint, unwider-<lb/>
+leglichen Einwurf gegen oben in der Kuͤrze wiederholte, doch<lb/>
+von ihm, wie wir eben geſehn, durchaus mißdeutete Darle-<lb/>
+gung. Dieſer Einwurf lautet, in den Worten des Recen-<lb/>
+ſenten (ſ. Col. 492. unten): <hi rendition="#g">»Das nun, wovon die<lb/>
+Darſtellung ein Ebenbild iſt (das Darſtellen</hi>,<lb/>
+ſagt Rec. um einige Zeilen fruͤher, iſt <hi rendition="#g">ja nichts ande-<lb/>
+res, als das Hervorbringen eines Ebenbildes),<lb/>
+muß ſchoͤn ſeyn, wenn der Darſtellung ſelbſt das<lb/>
+Praͤdicat ſchoͤn beigelegt werden ſoll: denn das<lb/>
+Object und deſſen Darſtellung ſind nothwendig<lb/>
+<pb n="17" facs="#f0023"/>
+identiſch, und die Merkmale des einen ſind auch<lb/>
+die Merkmale des andern</hi>.</p>         <lb/>
+<p>Indeß kann ich dem Recenſenten weder zugeben, daß<lb/>
+jener ſo bekannt klingende Identificationsproceß auf den vor-<lb/>
+liegenden Fall anwendbar ſey, noch ihm ſeine ſo ganz me-<lb/>
+chaniſche Vorſtellung vom kuͤnſtleriſchen Darſtellen irgend ein-<lb/>
+raͤumen. Denn es iſt die Seele des Kuͤnſtlers keinesweges,<lb/>
+wie Rec. anzunehmen ſcheint, gleichſam ein Gypsmodel, aus<lb/>
+welchem genau, was man jedesmal hineingethan, wiederum<lb/>
+hervorgezogen wird; daher das Kunſtwerk (die Darſtellung)<lb/>
+nicht etwa (gleich der Copie, welche Rec. zu den Darſtellun-<lb/>
+gen zaͤhlt) der todte, mechaniſch gewonnene Abdruck ſeines<lb/>
+Gegenſtandes, ſondern das lebendige Product zweyer Facto-<lb/>
+ren, des Gegenſtandes und des denſelben in ſich aufnehmen-<lb/>
+den und verarbeitenden Kuͤnſtlers. Kein Product aber iſt<lb/>
+dem einen oder dem anderen ſeiner Factoren identiſch, ſon-<lb/>
+dern ein fuͤr ſich beſtehendes Drittes. — Mit jener irrigen<lb/>
+Vorſtellung vom kuͤnſtleriſchen Darſtellen faͤllt denn auch der<lb/>
+Einwurf, welchen der Rec. darauf begruͤnden will.</p>         <lb/>
+<p>Uebrigens habe ich nirgend beſtritten: daß uͤberall, wo<lb/>
+Gegenſtaͤnde, welche an ſich ſelbſt ſchoͤn ſind, durch die Mit-<lb/>
+tel der jedesmal in Anſpruch genommenen Kunſtart ausge-<lb/>
+druͤckt werden <hi rendition="#g">koͤnnen</hi>, was bekanntlich nicht immer ein-<lb/>
+tritt; daß uͤberall, wo dieſe Gegenſtaͤnde den Kuͤnſtler wirk-<lb/>
+lich begeiſtern, wo deren Darſtellung innerhalb der techni-<lb/>
+ſchen Entwickelung und ſpeciellen Formenkenntniß des Kuͤnſt-<lb/>
+lers wirklich <hi rendition="#g">moͤglich iſt</hi>: auch jene dem Gegenſtande ei-<lb/>
+genthuͤmliche Schoͤnheit auf das Kunſtwerk uͤbergehen und<lb/>
+die Schoͤnheit dieſes letzten weſentlich erhoͤhen werde. Ich<lb/>
+habe demnach der Schoͤnheit des Gegenſtandes nirgend, wenn<lb/>
+auch nur das Mindeſte von demjenigen Gebiete entzogen,<lb/>
+<fw type="sig" place="bottom">2</fw><lb/>
+<pb n="18" facs="#f0024"/>
+welches ſie <hi rendition="#g">wirklich</hi> (nicht bloß in der Einbildung) beſitzet<lb/>
+und inne hat; erwartete deßhalb nicht, deſſen Vorwachen zu<lb/>
+beunruhigen. Um ſo weniger, da ich, mit vollem Bewußt-<lb/>
+ſeyn der Aufrichtigkeit, unſerem, wie jedem kommenden Ge-<lb/>
+ſchlechte anwuͤnſche: daß es aus einem <hi rendition="#g">tiefgefuͤhlten</hi><lb/>
+Beduͤrfniſſe ſtets vom Kuͤnſtler, auch hinſichtlich der Aufgabe,<lb/>
+nichts ſeiner Unwuͤrdiges begehren moͤge; hingegen dem<lb/>
+Kuͤnſtler unſerer und kuͤnftiger Zeiten: daß er <hi rendition="#g">aus ſeinem<lb/>
+Inneren hervor</hi> ſtets die edelſte Richtung einſchlagen,<lb/>
+ihm dargebotene Aufgaben ſtets im beſten Sinne ergreifen,<lb/>
+und zur Darſtellung auch des Beſten und Hoͤchſten jederzeit<lb/>
+hinlaͤnglich geruͤſtet ſeyn moͤge. Ueberhaupt war ja mein<lb/>
+Zweck, nicht etwa dem Schoͤnen des Gegenſtandes, welches<lb/>
+mir wohl ſo viel gilt, als Anderen, ſeinen eigenthuͤmlichen<lb/>
+Werth zu entziehen; nicht etwa den Kuͤnſtler, oder den Goͤn-<lb/>
+ner vom Schoͤnen zum Unſchoͤnen zu verlocken (was in um-<lb/>
+gekehrter Richtung derſelbe Mißgriff ſeyn wuͤrde, den ich<lb/>
+beſtritten habe und beſtreite); vielmehr nur dieſer: die Her-<lb/>
+vorbringung des Schoͤnen in den bildenden Kuͤnſten vor<lb/>
+Hemmungen ſicher zu ſtellen, welche aus einer falſch angeleg-<lb/>
+ten Theorie hervorgehn.</p>         <lb/>
+<p>— Haͤtte der Kuͤnſtler wohl jemals mit Bewußtſeyn<lb/>
+das Unſchoͤne dem Schoͤnen vorgezogen? waͤre er wohl je-<lb/>
+mals, wo die Wahl ihm freygeſtanden, abſichtlich darauf aus-<lb/>
+gegangen, das Unſchoͤne darzuſtellen? Ich bezweifle, daß<lb/>
+irgend ein Kuͤnſtler, gleichſam der Abtoͤdtung willen, jemals<lb/>
+auf eine ſolche Grille verfallen ſey; vielmehr bin ich aus<lb/>
+inneren, wie auch aus hiſtoriſchen Gruͤnden davon uͤberzeugt:<lb/>
+daß der Kuͤnſtler uͤberall, wo er das Unſchoͤne dargeſtellt,<lb/>
+entweder einem aͤußern Zwange (den Foderungen ſeiner Goͤn-<lb/>
+ner, der Beſchraͤnktheit ſeiner Umgebungen), oder auch, ohne<lb/>
+<pb n="19" facs="#f0025"/>
+ſich deſſen deutlich bewußt zu ſeyn, der Gemeinheit und Nie-<lb/>
+drigkeit ſeiner Neigungen nachgegeben habe. Dieſemnach<lb/>
+waͤre jene Lehre, welche, weder in den aͤußeren Verhaͤltniſ-<lb/>
+ſen des Kuͤnſtlers eine merkliche Beguͤnſtigung herbeyfuͤhrt,<lb/>
+noch den Kuͤnſtler ſittlich beſſert und geiſtig erhoͤht, ſondern<lb/>
+bloß ein Zauberwort ausſpricht, deſſen Sinn nur derjenige<lb/>
+zu loͤſen vermag, welcher eben hierin keiner Anmahnung be-<lb/>
+darf, auch im beſten Falle ganz muͤſſig und, wie es ſich<lb/>
+factiſch erwieſen hat, ohne allen Vortheil fuͤr die Hervor-<lb/>
+bringung des Schoͤnen in der Kunſt. Indeß giebt es im<lb/>
+Gebiete des Geiſtes nichts ganz Neutrales; jegliches ſich<lb/>
+Beruhigen bey irgend einem Scheinwahren und Taͤuſchenden<lb/>
+iſt zugleich eine Hemmung im Denken und in dem davon<lb/>
+abhaͤngenden zweckmaͤßigen Handeln. Zudem iſt es nachzu-<lb/>
+weiſen, daß die Schoͤnheits-Lehre auch active der kuͤnſtleri-<lb/>
+ſchen Hervorbringung des Schoͤnen entgegenwuͤrkt.</p>         <lb/>
+<p>Zunaͤchſt hindert jene nackte Hinweiſung <choice><sic>anf</sic><corr>auf</corr></choice> das Schoͤne<lb/>
+des Gegenſtandes die Entwickelung der Aufaͤnger, indem ſie<lb/>
+(wie es aufmerkenden Beobachtern nicht entgangen ſeyn<lb/>
+wird) dieſelben veranlaßt, zu waͤhlen, wo ſie, eben weil ſie<lb/>
+noch gar nichts wiſſen, noch koͤnnen, nur zugreifen ſollten.<lb/>
+Ferner ſtoͤret ſie auf den mittleren Stufen der Entwickelung,<lb/>
+durch Ablenkung der Aufmerkſamkeit, die unumgaͤnglich noͤ-<lb/>
+thige Ausbildung der Technik und des Styles. Endlich ver-<lb/>
+ruͤcket ſie ſelbſt dem ſchon ausgebildeten Meiſter ſeinen prak-<lb/>
+tiſchen Standpunkt, indem ſie ihn veranlaßt, ſeine Aufgaben,<lb/>
+ſtatt ihnen jedesmal ihre beſte Seite abzugewinnen und ruͤ-<lb/>
+ſtig, wie es noͤthig iſt, ans Werk zu ſchreiten, vielmehr,<lb/>
+wenn ſolche etwa ſeinen Vorſtellungen vom Schoͤnen nicht<lb/>
+entſprechen, ſie mit Verdroſſenheit aufzufaſſen, daher, weder<lb/>
+(durch Ueberwindung von Schwierigkeiten) fuͤr ſeinen Fort-<lb/>
+<pb n="20" facs="#f0026"/>
+ſchritt in der Kunſt, noch (durch Befriedigung ſeiner Goͤn-<lb/>
+ner) fuͤr ſein Fortkommen in der Welt daraus den jedes-<lb/>
+mal moͤglichen Vortheil zu ziehen. Wenn nun dieſe Bemer-<lb/>
+kungen freylich nur dem Kuͤnſtler ganz einleuchten moͤchten,<lb/>
+ſo wird hingegen beſonders bey dem Kunſtfreunde die Be-<lb/>
+merkung Eingang finden, daß der unbefangene, ſich hinge-<lb/>
+bende Genuß ſchoͤner Kunſtwerke durch unzeitige Reflection<lb/>
+uͤber die Schoͤnheit oder Unſchoͤnheit ihres Gegenſtandes ge-<lb/>
+ſtoͤrt und nicht ſelten ganz aufgehoben wird; daß, wer<lb/>
+dem ſogenannten Schoͤnheitsprincip recht eifrig anhaͤngt,<lb/>
+meiſt geneigt iſt, das kuͤnſtleriſch Werthloſe des ſchoͤnen Ge-<lb/>
+genſtandes willen zu ſchaͤtzen, und, umgekehrt, das kuͤnſt-<lb/>
+leriſch Vortreffliche des unſchoͤnen Gegenſtandes willen zu<lb/>
+verwerfen, uͤberhaupt aber jener ſuͤßlichen Flachheit des Ge-<lb/>
+ſchmacks ſich hinzugeben, welche den hoͤheren Kunſtgenuß<lb/>
+(das ſich Bewußtwerden der Sinnes- und Geiſtesart vortreff-<lb/>
+licher Kuͤnſtler) eine laͤngere Zeit hindurch beynahe verdraͤngt<lb/>
+hatte.</p>         <lb/>
+<p>Waͤre es nun, wie ich vermuthe, auch denen, welche die<lb/>
+Sache von einer andern Seite anſehn, mehr um die Her-<lb/>
+vorbringung des Schoͤnen zu thun, als um die Behauptung<lb/>
+einer bedeutungsloſen Formel: ſo werden ſie ſich endlich<lb/>
+wohl ebenfalls mit der Vorſtellung ausſoͤhnen: daß die Er-<lb/>
+fuͤllung ihrer beſten Wuͤnſche eben nur durch kraͤftige Auf-<lb/>
+regung des Geiſtes, guͤnſtigen Anſtoß der Richtung, ent-<lb/>
+ſchloſſene Foͤrderung der techniſchen Entwickelung des Kuͤnſt-<lb/>
+lers koͤnne angenaͤhert und beſchleunigt werden. Was in<lb/>
+Erfuͤllung gehen moͤge.</p>         <lb/>
+<p>Im October 1827.</p>         <lb/>
+</div>     </body>     <back>       <milestone unit="section" rendition="#hr"/>       <div type="imprint">         <p>Gedruckt bey den <hi rendition="#g">Gebruͤdern Vorchers</hi> in Luͤbeck.</p>       </div>       <lb/>
+<pb facs="#f0027"/>
+<pb facs="#f0028"/>
+<pb facs="#f0029"/>
+</back>   </text> </TEI>

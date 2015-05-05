@@ -1,0 +1,2021 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml" ?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Versuch die Metamorphose der Pflanzen zu erklären</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118540238">
+<surname>Goethe</surname>
+<forename>Johann Wolfgang von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">108</measure>
+<measure type="tokens">10153</measure>
+<measure type="types">2562</measure>
+<measure type="characters">74331</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:14:57Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/goethe_metamorphose_1790</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/goethe_metamorphose_1790</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/goethe_metamorphose_1790</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/goethe_metamorphose_1790</idno>
+<idno type="DTADirName">goethe_metamorphose_1790</idno>
+<idno type="DTAID">16491</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905197031</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Goethe, Johann Wolfgang von: Versuch die Metamorphose der Pflanzen zu erklären. Gotha, 1790.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Versuch die Metamorphose der Pflanzen zu erklären</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118540238">
+<surname>Goethe</surname>
+<forename>Johann Wolfgang von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[3] Bl., 86 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Ettinger</name></publisher>
+<pubPlace>Gotha</pubPlace>
+<date type="publication">1790</date>
+</publicationStmt>
+<notesStmt>
+<note type="remarkSource">Es existieren zwei Drucke des "Versuchs" von 1790. Nach Waltraud Hagen (Die Drucke von Goethes Werken) umfassen diese in der Erstausgabe (Hagen S. 211) 86 Seiten und in einer zweiten Ausgabe aus dem gleichen Jahr (Hagen S. 212) 79 Seiten. Für das Deutsche Textarchiv wurde die 86-seitige Ausgabe zu grunde gelegte.</note>
+</notesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, M 13520&lt;a&gt; R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=146974891</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Biologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Biologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<pb facs="#f0010"/>
+<titlePage type="main"> <byline><docAuthor><hi rendition="#c">J. W. von Goethe</hi></docAuthor><lb/>
+<hi rendition="#c">Herzoglich Sachſen-Weimariſchen Geheimraths</hi></byline> <lb/>
+<docTitle> <titlePart type="main"><hi rendition="#c"><hi rendition="#g">Verſuch<lb/>
+die Metamorphoſe<lb/>
+der Pflanzen</hi><lb/>
+zu erklären.</hi></titlePart> </docTitle> <lb/>
+<milestone unit="section" rendition="#hr"/> <docImprint><pubPlace><hi rendition="#c"><hi rendition="#g">Gotha</hi>,</hi></pubPlace><lb/>
+<hi rendition="#c">bey</hi><publisher><hi rendition="#c"><hi rendition="#g">Carl Wilhelm Ettinger</hi>.</hi></publisher><lb/>
+<docDate><hi rendition="#c">1790.</hi></docDate></docImprint> </titlePage> <lb/>
+<pb facs="#f0011"/>
+<pb facs="#f0012"/>
+<div type="contents"> <head><hi rendition="#c"><hi rendition="#g">Inhalt</hi>.</hi></head> <lb/>
+<list> <item>Einleitung. Pag. <ref>1</ref></item> <lb/>
+<item>I. Von den Samenblättern. <ref>7</ref></item> <lb/>
+<item>II. Ausbildung der Stengelblätter von Knoten zu<lb/>
+Knoten. <ref>11</ref></item> <lb/>
+<item>III. Uebergang zum Blüthenstande. <ref>19</ref></item> <lb/>
+<item>IV. Bildung des Kelches. <ref>21</ref></item> <lb/>
+<item>V. Bildung der Krone. <ref>26</ref></item> <lb/>
+<item>VI. Bildung der Staubwerkzeuge. <ref>31</ref></item> <lb/>
+<item>VII. Necktarien. <ref>34</ref></item> <lb/>
+<item>VIII. Noch einiges von den Staubwerkzeugen. <ref>40</ref></item> <lb/>
+<item>IX. Bildung des Griffels. <ref>44</ref></item> <lb/>
+<item>X. Von den Früchten. <ref>49</ref></item> <lb/>
+<item>XI. Von den unmittelbaren Hüllen des Samens. <ref>55</ref></item> <lb/>
+<item>XII. Rückblick und Uebergang. <ref>57</ref></item> <lb/>
+<item>XIII. Von den Augen und ihrer Entwickelung. <ref>59</ref></item> <lb/>
+<item>XIV. Bildung der zuſammengeſezten Blüthen und<lb/>
+Fruchtſtände. <ref>63</ref></item> <lb/>
+<item>XV. Durchgewachſene Roſe. <ref>69</ref></item> <lb/>
+<item>XVI. Durchgewachſene Nelke. <ref>71</ref></item> <lb/>
+<item>XVII. Linnées Theorie von der Anticipation. <ref>73</ref></item> <lb/>
+<item>XVIII. Wiederholung. <ref>79</ref></item> </list> </div> <lb/>
+<pb facs="#f0013"/>
+<pb facs="#f0014"/>
+<div> <epigraph> <cit> <quote>Non quidem me fugit nebulis ſubinde hoc emerſuris iter<lb/>
+<hi rendition="#et">offundi, iſtae tamen diſſipabuntur facile ubi plurimum uti<lb/>
+licebit experimentorum luce, natura enim ſibi ſemper eſt<lb/>
+ſimilis licet nobis ſaepe ob neceſſariarum defectum obſerva-<lb/>
+tionum a ſe diſſentire videatur.</hi><lb/>
+<bibl> <hi rendition="#et"><hi rendition="#i">Linnaei Prolepſis Plantarum.<lb/>
+Diſſ. 1.</hi></hi> </bibl></quote> </cit> </epigraph> </div> <lb/>
+<fw type="sig" place="bottom">*2</fw> <lb/>
+<pb facs="#f0015"/>
+</front> <body>
+<pb facs="#f0016"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c"><hi rendition="#g">Einleitung</hi>.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 1.</hi></head> <lb/>
+<p><hi rendition="#in">E</hi><hi rendition="#k">IN</hi> jeder, der nur das Wachsthum der Pflanzen<lb/>
+einigermaſsen beobachtet, wird leicht bemerken,<lb/>
+daſs gewiſse äuſsere Theile derſelben, ſich<lb/>
+manchmal verwandeln und in die Geſtalt der<lb/>
+nächſtliegenden Theile bald ganz, bald mehr<lb/>
+oder weniger übergehen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 2.</hi></head> <lb/>
+<p>So verändert ſich, zum Beyſpiel, meiſtens<lb/>
+die einfache Blume dann in eine gefüllte, wenn<lb/>
+ſich anſtatt der Staubfäden und Staubbeutel,<lb/>
+Blumenblätter entwickeln, die entweder an<lb/>
+Geſtalt und Farbe vollkommen den übrigen<lb/>
+Blättern der Krone gleich ſind, oder noch ſicht-<lb/>
+bare Zeichen ihres Urſprungs an ſich tragen.</p> </div> <lb/>
+<fw type="sig" place="bottom">A</fw> <lb/>
+<pb n="2" facs="#f0017"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 3.</hi></head> <lb/>
+<p>Wenn wir nun bemerken daſs es auf dieſe<lb/>
+Weiſe, der Pflanze möglich iſt einen Schritt<lb/>
+rückwärts zu thun, und die Ordnung des Wachs-<lb/>
+thums umzukehren; ſo werden wir auf den regel-<lb/>
+mäſsigen Weg der Natur deſto aufmerkſamer<lb/>
+gemacht, und wir lernen die Geſetze der Um-<lb/>
+wandlung kennen, nach welchen ſie Einen Theil<lb/>
+durch den andern hervorbringt, und die ver-<lb/>
+ſchiedenſten Geſtalten durch Modification eines<lb/>
+einzigen Organs darſtellt.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 4.</hi></head> <lb/>
+<p>Die geheime Verwandtſchaft der verſchiedenen<lb/>
+äuſsern Pflanzentheile, als der Blätter, des Kelchs,<lb/>
+der Krone, der Staubfäden, welche ſich nach<lb/>
+einander und gleichſam aus einander entwickeln,<lb/>
+iſt von den Forſchern im allgemeinen längſt<lb/>
+erkannt, ja auch beſonders bearbeitet worden,<lb/>
+und man hat die Wirkung, wodurch ein und<lb/>
+daſſelbe Organ ſich uns manigfaltig verändert<lb/>
+ſehen läſst, die <hi rendition="#i">Metamorphoſe der Pflanzen</hi> genannt.</p> </div> <lb/>
+<pb n="3" facs="#f0018"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 5.</hi></head> <lb/>
+<p>Es zeigt ſich uns dieſe Metamorphoſe auf<lb/>
+dreyerley Art; <hi rendition="#i">regelmäſsig, unregelmäſsig</hi>, und<lb/>
+<hi rendition="#i">zufällig</hi>.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 6.</hi></head> <lb/>
+<p>Die <hi rendition="#i">regelmäſsige</hi> Metamorphoſe, können wir<lb/>
+auch die <hi rendition="#i">fortſchreitende</hi> nennen: denn ſie iſt es,<lb/>
+welche ſich von den erſten Samenblättern bis<lb/>
+zur letzten Ausbildung der Frucht immer ſtufen-<lb/>
+weiſe wirkſam bemerken läſst, und durch Um-<lb/>
+wandlung einer Geſtalt in die andere, gleichſam<lb/>
+auf einer geiſtigen Leiter, zu jenem Gipfel der<lb/>
+Natur, der Fortpflanzung durch zwey Geſchlechter<lb/>
+hinauf ſteigt. Dieſe iſt es welche ich mehrere<lb/>
+Jahre aufmerkſam beobachtet habe, und welche<lb/>
+zu erklären ich gegenwärtigen Verſuch unter-<lb/>
+nehme. Wir werden auch deſswegen bey der<lb/>
+folgenden Demonſtration, die Pflanze nur in ſo<lb/>
+fern betrachten, als ſie Einjährig iſt, und aus<lb/>
+dem Samenkrone zur Befruchtung unaufhaltſam<lb/>
+vorwärts ſchreitet.</p> </div> <lb/>
+<fw type="sig" place="bottom">A 2</fw> <lb/>
+<pb n="4" facs="#f0019"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 7.</hi></head> <lb/>
+<p>Die <hi rendition="#i">unregelmäſsige</hi> Metamorphoſe könnten wir<lb/>
+auch die <hi rendition="#i">rückſchreitende</hi> nennen. Denn wie in<lb/>
+jenem Fall, die Natur vorwärts zu dem groſsen<lb/>
+Zwecke hineilt, tritt ſie hier um eine oder einige<lb/>
+Stufen rückwärts. Wie ſie dort mit unwider-<lb/>
+ſtehlichem Trieb und kräftiger Anſtrengung die<lb/>
+Blumen bildet, und zu den Werken der Liebe<lb/>
+rüſtet; ſo erſchlafft ſie hier gleichſam, und läſst<lb/>
+unentſchloſſen ihr Geſchöpf in einem unent-<lb/>
+ſcheidenen, weichen, unſern Augen oft gefälligen,<lb/>
+aber innerlich unkräftigen und unwirkſamen Zu-<lb/>
+ſtande. Durch die Erfahrungen, welche wir an<lb/>
+dieſer Metamorphoſe zu machen Gelegenheit<lb/>
+haben, werden wir dasjenige enthüllen können<lb/>
+was uns die regelmäſsige verheimlicht, deutlich<lb/>
+ſehen, was wir dort nur ſchlieſsen dürfen; und<lb/>
+auf dieſe Weiſe ſteht es zu hoffen, daſs wir unſere<lb/>
+Abſicht am ſicherſten erreichen.</p> </div> <lb/>
+<pb n="5" facs="#f0020"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 8.</hi></head> <lb/>
+<p>Dagegen werden wir von der dritten Meta-<lb/>
+morphoſe welche <hi rendition="#i">zufällig</hi>, von auſsen, beſonders<lb/>
+durch Inſeckten gewirkt wird, unſere Aufmerk-<lb/>
+ſamkeit wegwenden, weil ſie uns von dem<lb/>
+einfachen Wege, welchem wir zu folgen haben,<lb/>
+ableiten und unſern Zweck verrücken könnte.<lb/>
+Vielleicht findet ſich an einem andern Orte<lb/>
+Gelegenheit von dieſen monſtröſen, und doch<lb/>
+in gewiſſe Gränzen eingeſchränkten Auswüchſen<lb/>
+zu ſprechen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 9.</hi></head> <lb/>
+<p>Ich habe es gewagt gegenwärtigen Verſuch<lb/>
+ohne Beziehung auf erläuternde Kupfer auszu-<lb/>
+arbeiten, die jedoch in manchem Betracht nöthig<lb/>
+ſcheinen möchten. Ich behalte mir vor, ſie in der<lb/>
+Folge nachzubringen, welches um ſo bequemer<lb/>
+geſchehen kann, da noch Stoff genug übrig iſt<lb/>
+gegenwärtige kleine, nur vorläufige Abhandlung<lb/>
+zu erläutern und weiter auszuführen. Es wird<lb/>
+alsdann nicht nöthig ſeyn einen ſo gemeſſenen<lb/>
+Schritt wie gegenwärtig zu halten. Ich werde<lb/>
+manches verwandte herbey führen können, und<lb/>
+<pb n="6" facs="#f0021"/>
+<milestone unit="section" rendition="#hr"/> mehrere Stellen aus gleichgeſinnten Schriftſtellern<lb/>
+geſammlet, werden an ihrem rechten Platze<lb/>
+ſtehen. Beſonders werde ich, von allen Erin-<lb/>
+nerungen gleichzeitiger Meiſter, deren ſich dieſe<lb/>
+edle Wiſſenſchaft zu rühmen hat, Gebrauch zu<lb/>
+machen nicht verfehlen. Dieſen übergebe und<lb/>
+widme ich hiermit gegenwärtige Blätter.</p> </div> </div> <lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="7" facs="#f0022"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">I.<lb/>
+Von den Samenblättern.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 10.</hi></head> <lb/>
+<p><hi rendition="#in">D</hi><hi rendition="#k">A</hi> wir die Stufenfolge des Pflanzen- Wachs-<lb/>
+thums zu beobachten uns vorgenommen haben,<lb/>
+ſo richten wir unſere Aufmerkſamkeit ſogleich in<lb/>
+dem Augenblick auf die Pflanze da ſie ſich aus<lb/>
+dem Samenkorn entwickelt. In dieſer Epoche,<lb/>
+können wir die Theile, welche unmittelbar zu<lb/>
+ihr gehören, leicht und genau erkennen. Sie<lb/>
+läſst ihre Hüllen mehr oder weniger in der Erde<lb/>
+zurück, welche wir auch gegenwärtig nicht<lb/>
+unterſuchen, und bringt in vielen Fällen, wenn<lb/>
+die Wurzel ſich in den Boden befeſtigt hat, die<lb/>
+erſten Organe ihres oberen Wachsthums, welche<lb/>
+ſchon unter der Samendecke verborgen gegen-<lb/>
+wärtig geweſen, an das Licht hervor.</p> </div> <lb/>
+<pb n="8" facs="#f0023"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 11.</hi></head> <lb/>
+<p>Es ſind dieſe erſten Organe unter dem Nahmen<lb/>
+<hi rendition="#i">Cotyledonen</hi> bekannt; man hat ſie auch Samen-<lb/>
+klappen, Kernſtücke, Samenlappen, Samenblätter<lb/>
+genannt, und ſo die verſchiedenen Geſtalten, in<lb/>
+denen wir ſie gewahr werden zu bezeichnen<lb/>
+geſucht.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 12.</hi></head> <lb/>
+<p>Sie erſcheinen oft unförmlich, mit einer rohen<lb/>
+Materie gleichſam ausgeſtopft, und eben ſo ſehr<lb/>
+in die Dicke als in die Breite ausgedehnt; ihre<lb/>
+Gefäſse ſind unkenntlich, und von der Maſſe<lb/>
+des Ganzen kaum zu unterſcheiden; ſie haben<lb/>
+faſt nichts ähnliches von einem Blatte, und<lb/>
+wir können verleitet werden ſie für beſondere<lb/>
+Organe anzuſehen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 13.</hi></head> <lb/>
+<p>Doch nähern ſie ſich bey vielen Pflanzen der<lb/>
+Blattgeſtalt; ſie werden flächer, ſie nehmen, dem<lb/>
+Licht und der Luft ausgeſezt, die grüne Farbe<lb/>
+<pb n="9" facs="#f0024"/>
+<milestone unit="section" rendition="#hr"/> in einem höhern Grade an, die in ihnen ent-<lb/>
+haltenen Gefäſse werden kenntlicher, den Blatt-<lb/>
+rippen ähnlicher.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 14.</hi></head> <lb/>
+<p>Endlich erſcheinen ſie uns als wirkliche Blätter,<lb/>
+ihre Gefäſse ſind der feinſten Ausbildung fähig,<lb/>
+ihre Aehnlichkeit mit den folgenden Blättern<lb/>
+erlaubt uns nicht ſie für beſondere Organe zu<lb/>
+halten, wir erkennen ſie vielmehr für die erſten<lb/>
+Blätter des Stengels.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 15.</hi></head> <lb/>
+<p>Läſst ſich nun aber ein Blatt, nicht ohne<lb/>
+Knoten, und ein Knoten nicht ohne Auge denken,<lb/>
+ſo dürfen wir folgern daſs derjenige Punct wo die<lb/>
+Cotyledonen angeheftet ſind, der wahre erſte<lb/>
+Knotenpunct der Pflanze ſey. Es wird dieſes<lb/>
+durch diejenigen Pflanzen bekräftiget, welche<lb/>
+unmittelbar unter den Flügeln der Cotyledonen,<lb/>
+junge Augen hervortreiben, und aus dieſen erſten<lb/>
+Knoten vollkommene Zweige entwickeln, wie<lb/>
+z. B. Vicia Faba zu thun pflegt.</p> </div> <lb/>
+<pb n="10" facs="#f0025"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 16.</hi></head> <lb/>
+<p>Die Cotyledonen ſind meiſt gedoppelt, und<lb/>
+wir finden hierbey eine Bemerkung zu machen,<lb/>
+welche uns in der Folge noch wichtiger ſcheinen<lb/>
+wird. Es ſind nehmlich die Blätter dieſes erſten<lb/>
+Knotens oft auch dann <hi rendition="#i">gepaart</hi>, wenn die folgen-<lb/>
+den Blätter des Stengels <hi rendition="#i">wechſelsweiſe</hi> ſtehen, es<lb/>
+zeigt ſich alſo hier eine Annäherung und Ver-<lb/>
+bindung der Theile welche die Natur in der<lb/>
+Folge trennt und von einander entfernt. Noch<lb/>
+merkwürdiger iſt es wenn die Cotyledonen als viele<lb/>
+Blättchen um Eine Axe verſammlet erſcheinen,<lb/>
+und der aus ihrer Mitte ſich nach und nach ent-<lb/>
+wickelnde Stengel, die folgenden Blätter einzeln<lb/>
+um ſich herum hervorbringt, welcher Fall ſehr<lb/>
+genau an dem Wachsthum der Pinusarten ſich<lb/>
+bemerken läſst. Hier bildet ein Kranz von Nadeln<lb/>
+gleichſam einen Kelch, und wir werden in der<lb/>
+Folge, bey ähnlichen Erſcheinungen, uns des<lb/>
+gegenwärtigen Falles wieder zu erinnern haben.</p> </div> <lb/>
+<pb n="11" facs="#f0026"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 17.</hi></head> <lb/>
+<p>Ganz unförmliche einzelne Kernſtücke ſolcher<lb/>
+Pflanzen, welche nur mit Einem Blatte keimen,<lb/>
+gehen wir gegenwärtig vorbey.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 18.</hi></head> <lb/>
+<p>Dagegen bemerken wir, daſs auch ſelbſt die<lb/>
+blattähnlichſten Cotyledonen, gegen die folgenden<lb/>
+Blätter des Stengels gehalten, immer unausge-<lb/>
+bildeter ſind. Vorzüglich iſt ihre Peripherie<lb/>
+höchſt einfach, und an derſelben ſind ſo wenig<lb/>
+Spuren von Einſchnitten zu ſehen als auf ihren<lb/>
+Flächen ſich Haare oder andere Gefäſse aus-<lb/>
+gebildeter Blätter bemerken laſſen.</p> </div> </div> <lb/>
+<pb n="12" facs="#f0027"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">II.<lb/>
+Ausbildung der Stengelblätter von<lb/>
+Knoten zu Knoten.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 19.</hi></head> <lb/>
+<p><hi rendition="#in">W</hi><hi rendition="#k">IR</hi> können nunmehr die ſucceſsive Ausbil-<lb/>
+dung der Blätter genau betrachten, da die fort-<lb/>
+ſchreitenden Wirkungen der Natur alle vor unſern<lb/>
+Augen vorgehen. Einige oder mehrere der nun<lb/>
+folgenden Blätter ſind oft ſchon in dem Samen<lb/>
+gegenwärtig, und liegen zwiſchen den Cotyledonen<lb/>
+eingeſchloſsen; ſie ſind in ihrem zuſammengefal-<lb/>
+teten Zuſtande unter dem Nahmen des Federchens<lb/>
+bekannt. Ihre Geſtalt verhält ſich gegen die<lb/>
+Geſtalt der Cotyledonen und der folgenden<lb/>
+Blätter an verſchiedenen Pflanzen verſchieden,<lb/>
+doch weichen ſie meiſt von den Cotyledonen<lb/>
+ſchon darin ab, daſs ſie flach, zart und überhaupt<lb/>
+als wahre Blätter gebildet ſind, ſich völlig grün<lb/>
+färben, auf einem ſichtbaren Knoten ruhen, und<lb/>
+<pb n="13" facs="#f0028"/>
+<milestone unit="section" rendition="#hr"/> ihre Verwandtſchaft mit den folgenden Stengel-<lb/>
+blättern nicht mehr verläugnen können; welchen<lb/>
+ſie aber noch gewöhnlich darin nachſtehen, daſs<lb/>
+ihre Peripherie, ihr Rand nicht vollkommen<lb/>
+ausgebildet iſt.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 20.</hi></head> <lb/>
+<p>Doch breitet ſich die fernere Ausbildung<lb/>
+unaufhaltſam von Knoten zu Knoten durch das<lb/>
+Blatt aus, indem ſich die mittlere Rippe deſſelben<lb/>
+verlängert und die von ihr entſpringende Neben-<lb/>
+rippen ſich mehr oder weniger nach den Seiten<lb/>
+ausſtrecken. Dieſe verſchiedenen Verhältniſſe der<lb/>
+Rippen gegen einander ſind die vornehmſte Urſache<lb/>
+der manigfaltigen Blattgeſtalten. Die Blätter<lb/>
+erſcheinen nunmehr eingekerbt, tief eingeſchnitten,<lb/>
+aus mehreren Blättchen zuſammengeſezt, in<lb/>
+welchem letzten Falle ſie uns vollkommene kleine<lb/>
+Zweige vorbilden. Von einer ſolchen ſucceſſiven<lb/>
+höchſten Vermanigfaltigung der einfachſten Blatt-<lb/>
+geſtalt giebt uns die Dattelpalme ein auffallendes<lb/>
+Beyſpiel. In einer Folge von mehreren Blättern<lb/>
+ſchiebt ſich die Mittelrippe vor, das fächerartige<lb/>
+einfache Blatt wird zerriſſen, abgetheilt, und ein<lb/>
+höchſt zuſammengeſeztes mit einem Zweige wett-<lb/>
+eiferndes Blatt wird entwickelt.</p> </div> <lb/>
+<pb n="14" facs="#f0029"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 21.</hi></head> <lb/>
+<p>In eben dem Maſse, in welchem das Blatt<lb/>
+ſelbſt an Ausbildung zunimmt, bildet ſich auch<lb/>
+der Blattſtiel aus, es ſey nun daſs er unmittelbar<lb/>
+mit ſeinem Blatte zuſammen hange, oder ein<lb/>
+beſonderes in der Folge leicht abzutrennendes<lb/>
+Stielchen ausmache.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 22.</hi></head> <lb/>
+<p>Daſs dieſer für ſich beſtehende Blattſtiel<lb/>
+gleichfalls eine Neigung habe ſich in Blättergeſtalt<lb/>
+zu verwandeln, ſehen wir bey verſchiedenen<lb/>
+Gewächſen z. B. an den Agrumen, und es wird<lb/>
+uns ſeine Organiſation in der Folge noch zu<lb/>
+einigen Betrachtungen auffordern, welchen wir<lb/>
+gegenwärtig ausweichen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 23.</hi></head> <lb/>
+<p>Auch können wir uns vorerſt in die nähere<lb/>
+Beobachtung der Afterblätter nicht einlaſſen; wir<lb/>
+bemerken nur im Vorbeygehn, daſs ſie, beſonders<lb/>
+wenn ſie einen Theil des Stiels ausmachen, bey<lb/>
+<pb n="15" facs="#f0030"/>
+<milestone unit="section" rendition="#hr"/> der künftigen Umbildung deſſelben gleichfalls<lb/>
+ſonderbar verwandelt werden.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 24.</hi></head> <lb/>
+<p>Wie nun die Blätter hauptſächlich ihre erſte<lb/>
+Nahrung den mehr oder weniger modificirten<lb/>
+wäſſerigten Theilen zu verdanken haben, welche<lb/>
+ſie dem Stamme entziehen, ſo ſind ſie ihre gröſsere<lb/>
+Ausbildung und Verfeinerung dem Lichte und<lb/>
+der Luft ſchuldig. Wenn wir jene in der<lb/>
+verſchloſsenen Samenhülle erzeugte Cotyledonen,<lb/>
+mit einem rohen Safte nur gleichſam ausgeſtopft,<lb/>
+faſt gar nicht, oder nur grob organiſirt und<lb/>
+ungebildet finden: ſo zeigen ſich uns die Blätter<lb/>
+der Pflanzen welche unter dem Waſser wachſen,<lb/>
+gröber organiſirt als andere, der freyen Luft<lb/>
+ausgeſezte; ja ſogar entwickelt dieſelbige Pflan-<lb/>
+zenart glättere und weniger verfeinerte Blätter,<lb/>
+wenn ſie in tiefen feuchten Orten wächſt; da ſie<lb/>
+hingegen, in höhere Gegenden verſezt, rauhe,<lb/>
+mit Haaren verſehene, feiner ausgearbeitete Blätter<lb/>
+hervorbringt.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 25.</hi></head> <lb/>
+<p>Auf gleiche Weiſe wird die Anaſtomoſe der<lb/>
+aus den Rippen entſpringenden und ſieh mit<lb/>
+<pb n="16" facs="#f0031"/>
+<milestone unit="section" rendition="#hr"/> ihren Enden einander aufſuchenden, die Blatt-<lb/>
+häutchen bildenden Gefäſse, durch feinere Luftarten<lb/>
+wo nicht allein bewirkt, doch wenigſtenſ ſehr<lb/>
+befördert. Wenn Blätter vieler Pflanzen, die<lb/>
+unter dem Waſſer wachſen, fadenförmig ſind,<lb/>
+oder die Geſtalt von Geweihen annehmen, ſo ſind<lb/>
+wir geneigt eſ dem Mangel einer vollkommenen<lb/>
+Anaſtomoſe zu zuſchreiben. Augenſcheinlich<lb/>
+belehrt uns hiervon das Wachsthum des Ranun-<lb/>
+culus aquaticus, deſsen unter dem Waſser erzeugte<lb/>
+Blätter aus fadenförmigen Rippen beſtehen, die<lb/>
+oberhalb des Waſsers entwickelten aber völlig<lb/>
+anaſtomoſirt und zu einer zuſammenhängenden<lb/>
+Fläche ausgebildet ſind. Ja es läſst ſich an halb<lb/>
+anaſtomoſirten, halb fadenförmigen Blättern dieſer<lb/>
+Pflanze der Uebergang genau bemerken.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 26.</hi></head> <lb/>
+<p>Man hat ſich durch Erfahrungen unterrichtet,<lb/>
+daſs die Blätter verſchiedene Luftarten einſaugen,<lb/>
+und ſie mit den in ihrem Innern enthaltenen<lb/>
+Feuchtigkeiten verbinden; auch bleibt wohl kein<lb/>
+Zweifel übrig, daſs ſie dieſe feineren Säfte wieder<lb/>
+in den Stengel zurück bringen, und die Ausbildung<lb/>
+der in ihrer Nähe liegenden Augen dadurch<lb/>
+<fw type="catch" place="bottom">vorzüglich</fw><lb/>
+<pb n="17" facs="#f0032"/>
+<milestone unit="section" rendition="#hr"/> vorzüglich befördern. Man hat die, aus den<lb/>
+Blättern mehrerer Pflanzen, ja aus den Hölungen<lb/>
+der Rohre entwickelten Luftarten unterſucht, und<lb/>
+ſich alſo vollkommen überzeugen können.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 27.</hi></head> <lb/>
+<p>Wir bemerken bey mehreren Pflanzen daſs<lb/>
+ein Knoten aus dem andern entſpringt. Bey<lb/>
+Stengeln welche von Knoten zu Knoten geſchloſſen<lb/>
+ſind, bey den Cerealien, den Gräſern, Rohren,<lb/>
+iſt es in die Augen fallend; nicht eben ſo<lb/>
+ſehr bey andern Pflanzen, welche in der Mitte<lb/>
+durchaus hohl und mit einem Mark oder vielmehr<lb/>
+einem zelligten Gewebe ausgefüllt erſcheinen. Da<lb/>
+man nun aber dieſem ehemals ſogenannten Mark<lb/>
+ſeinen bisher behaupteten Rang, neben den andern<lb/>
+inneren Theilen der Pflanze, und wie uns ſcheint,<lb/>
+mit überwiegenden Gründen, ſtreitig gemacht <note place="foot" n="(a)"><hi rendition="#i">Hedwig</hi>, in des Leipziger Magazins drittem Stück.</note>,<lb/>
+ihm den ſcheinbar behaupteten Einfluſs in das<lb/>
+Wachsthum abgeſprochen und der innern Seite<lb/>
+der zweiten Rinde, dem ſogenannten Fleiſch, alle<lb/>
+Trieb- und Hervorbringungskraft zu zuſchreiben<lb/>
+nicht gezweifelt hat: ſo wird man ſich gegenwärtig<lb/>
+<fw type="sig" place="bottom">B</fw><lb/>
+<pb n="18" facs="#f0033"/>
+<milestone unit="section" rendition="#hr"/>eher überzeugen, daſs ein oberer Knoten, indem<lb/>
+er aus dem vorhergehenden entſteht und die Säfte<lb/>
+mittelbar durch ihn empfängt, ſolche feiner und<lb/>
+filtrierter erhalten, auch von der inzwiſchen<lb/>
+geſchehenen Einwirkung der Blätter genieſsen,<lb/>
+ſich ſelbſt ſeiner ausbilden und ſeinen Blättern<lb/>
+und Augen feinere Säfte zubringen müſſe.</p> </div> <lb/>
+<div n="2"> <head> <hi rendition="#c">§. 28.</hi> </head> <lb/>
+<p>Indem nun auf dieſe Weiſe die roheren Flüſ-<lb/>
+ſigkeiten immer abgeleitet, reinere herbey geführt<lb/>
+werden, und die Pflanze ſich ſtufenweiſe feiner<lb/>
+auſarbeitet, erreicht ſie den von der Natur vorge-<lb/>
+ſchriebenen Punct. Wir ſehen endlich die Blätter<lb/>
+in ihrer gröſten Ausbreitung und Ausbildung,<lb/>
+und werden bald darauf eine neue Erſcheinung<lb/>
+gewahr, welche uns unterrichtet: die bisher<lb/>
+beobachtete Epoche ſey vorbey, es nahe ſich<lb/>
+eine zweyte, die Epoche der <hi rendition="#i">Blüthe</hi>.</p> </div> </div> <lb/>
+<pb n="19" facs="#f0034"/>
+<lb/>
+<div n="1"> <head>III.<lb/>
+Uebergang zum Blüthenſtande.</head> <lb/>
+<div> <head>§. 29.</head> <lb/>
+<p><hi rendition="#in">D</hi><hi rendition="#k">en</hi> Uebergang zum Blüthenſtande ſehen wir<lb/>
+<hi rendition="#i">ſchneller</hi> oder <hi rendition="#i">langſamer</hi> geſchehen. In dem letzten<lb/>
+Falle bemerken wir gewöhnlich, daſs die ſtengel-<lb/>
+blätter von ihrer Peripherie herein ſich wieder<lb/>
+anfangen zuſammen zu ziehen, beſonders ihre<lb/>
+mannigfaltigen äuſsern Eintheilungen zu verlieren,<lb/>
+ſich dagegen an ihren untern Theilen wo ſie<lb/>
+mit dem ſtengel zuſammen hängen, mehr oder<lb/>
+weniger auszudehnen; in gleicher Zeit ſehen wir<lb/>
+wo nicht die Räume des ſtengels von Knoten zu<lb/>
+Knoten merklich verlängert, doch wenigſtens<lb/>
+denſelben gegen ſeinen vorigen Zuſtand viel<lb/>
+feiner und ſchmächtiger gebildet. </p> </div> <lb/>
+<fw type="sig" place="bottom">B2</fw> <lb/>
+<pb n="20" facs="#f0035"/>
+<lb/>
+<div> <head>§. 30.</head> <lb/>
+<p>Man hat bemerkt, daſs häufige Nahrung den<lb/>
+Blüthenſtand einer Pflanze verhindere, mäſsíge,<lb/>
+ja kärgliche Nahrung ihn beſchleunige. Es zeigt<lb/>
+ſich hierdurch die Wirkung der ſtammblätter,<lb/>
+von welcher oben die Rede geweſen, noch<lb/>
+deutlicher. ſo lange noch rohere ſäfte abzuführen<lb/>
+ſind, ſo lange müſſen ſich die möglichen Organe<lb/>
+der Pflanze zu Werkzeugen dieſes Bedürfniſſes<lb/>
+ausbilden. Dringt übermäſsige Nahrung zu, ſo<lb/>
+muſs jene Operation immer wiederholt werden,<lb/>
+und der Blüthenſtand wird gleichſam unmöglich.<lb/>
+Entzieht man der Pflanze die Nahrung, ſo<lb/>
+erleichtert und verkürzt man dagegen jene Wirkung<lb/>
+der Natur; die Organe der Knoten werden ver-<lb/>
+feinert, die Wirkung der unverfälſchten ſäfte<lb/>
+reiner und kräftiger, die Umwandlung der Theile<lb/>
+wird möglich, und geſchieht unaufhaltſam.</p> </div> </div> <lb/>
+<pb n="21" facs="#f0036"/>
+<lb/>
+<div n="1"> <head>IV.<lb/>
+Bildung des Kelches.</head> <lb/>
+<div n="2"> <head>§. 31.</head> <lb/>
+<p><hi rendition="#in">O</hi><hi rendition="#k">ft</hi> ſehen wir dieſe Umwandlung <hi rendition="#i">ſchnell</hi> vor<lb/>
+ſich gehn, und in dieſem Falle ruckt der ſtengel,<lb/>
+von dem Knoten des letzten ausgebildeten Blattes<lb/>
+an, auf einmal verlängt und verfeinert, in die<lb/>
+Höhe; und verſammlet an ſeinem Ende mehrere<lb/>
+Blätter um eine Axe.</p> </div> <lb/>
+<div n="2"> <head>§. 32.</head> <lb/>
+<p>Daſs die Blätter des Kelches eben dieſelbigen<lb/>
+Organe ſeyen, welche ſich bisher als ſtengelblätter<lb/>
+ausgebildet ſehen laſſen, nun aber oft in ſehr<lb/>
+veränderter Geſtalt, um Einen gemeinſchaftlichen<lb/>
+Mittelpunct verſammlet ſtehen, läſst ſich wie uns<lb/>
+dünkt auf das deutlichſte beweiſen.</p> </div> <lb/>
+<pb n="22" facs="#f0037"/>
+<div n="2"> <head>§. 33.</head> <lb/>
+<p>Wir haben ſchon oben bey den Cotyledonen<lb/>
+eine ähnliche Wirkung der Natur bemerkt, und<lb/>
+mehrere Blätter, ja offenbar mehrere Knoten, um<lb/>
+Einen Punct verſammlet und neben einander<lb/>
+gerückt geſehen. Es zeigen die Fichtenarten,<lb/>
+indem ſie ſich aus dem ſamenkorn entwickeln,<lb/>
+einen ſtrahlenkranz von unverkennbaren Nadeln,<lb/>
+welche, gegen die Gewohnheit anderer Coty-<lb/>
+ledonen, ſchon ſehr ausgebildet ſind; und wir<lb/>
+ſehen in der erſten Kindheit dieſer Pflanze ſchon<lb/>
+diejenige Kraft der Natur gleichſam angedeutet,<lb/>
+wodurch in ihrem höhren Alter der Blüthen und<lb/>
+Fruchtſtand gewirkt werden ſoll.</p> </div> <lb/>
+<lb/>
+<div n="2"> <head>§. 34.</head> <lb/>
+<p>Ferner ſehen wir bey mehreren Blumen unver-<lb/>
+änderte ſtengelblätter gleich unter der Krone zu<lb/>
+einer Art von Kelch zuſammengerückt. Da ſie<lb/>
+ihre Geſtalt noch vollkommen an ſich tragen, ſo<lb/>
+dürfen wir uns hier nur auf den Augenſchein und <lb/>
+auf die botaniſche Terminologie berufen, welche<lb/>
+ſie mit dem Nahmen <hi rendition="#i">Blüthenblätter</hi> Folia floria<lb/>
+bezeichnet hat.</p> </div> <lb/>
+<pb n="23" facs="#f0038"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 35.</hi></head> <lb/>
+<p>Mit mehrerer Aufmerkſamkeit haben wir den<lb/>
+oben ſchon angeführten Fall zu beobachten, wo<lb/>
+der Uebergang zum Blüthenſtande <hi rendition="#i">langſam</hi> vorgeht,<lb/>
+die Stengelblätter nach und nach ſich zuſammen-<lb/>
+ziehen, ſich verändern, und ſich ſachte in den<lb/>
+Kelch gleichſam einſchleichen, wie man ſolches<lb/>
+bey Kelchen der Strahlenblumen, beſonders der<lb/>
+Sonnenblumen, der Calendeln, gar leicht beobach-<lb/>
+ten kann.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 36.</hi></head> <lb/>
+<p>Dieſe Kraft der Natur, welche mehrere Blätter<lb/>
+um eine Axe verſammlet, ſehen wir eine noch<lb/>
+innigere Verbindung bewirken und ſogar dieſe<lb/>
+zuſammengebrachten modificirten Blätter noch<lb/>
+unkenntlicher machen, indem ſie ſolche unter<lb/>
+einander manchmal ganz, oft aber nur zum Theil<lb/>
+verbindet, und an ihren Seiten zuſammengewachſen<lb/>
+hervorbringt. Die ſo nahe an einander gerückten<lb/>
+und gedrängten Blätter berühren ſich auf das<lb/>
+genauſte in ihrem zarten Zuſtande, anaſtomoſiren<lb/>
+ſich durch die Einwirkung der höchſt reinen, in<lb/>
+der Pflanze nunmehr gegenwärtigen Säfte, und<lb/>
+<pb n="24" facs="#f0039"/>
+<milestone unit="section" rendition="#hr"/> ſtellen uns die glockenförmigen oder ſogenannten<lb/>
+<hi rendition="#i">einblätterigen Kelche</hi> dar, welche mehr oder weniger<lb/>
+von oben herein eingeſchnitten, oder getheilt,<lb/>
+uns ihren zuſammengeſezten Urſprung deutlich<lb/>
+zeigen. Wir können uns durch den Augenſchein<lb/>
+hiervon belehren, wenn wir eine Anzahl tief<lb/>
+eingeſchnittener Kelche gegen mehrblätterige<lb/>
+halten; beſonders wenn wir die Kelche mancher<lb/>
+Strahlenblumen genau betrachten. So werden wir<lb/>
+zum Exempel ſehen, daſs ein Kelch der Calendel,<lb/>
+welcher in der ſyſtematiſchen Beſchreibung als<lb/>
+<hi rendition="#i">einfach</hi> und <hi rendition="#i">vielgetheilt</hi> aufgeführt wird, aus mehreren<lb/>
+zuſammen und übereinander gewachſenen Blät-<lb/>
+tern beſtehe, zu welchen ſich, wie ſchon oben<lb/>
+geſagt, zuſammengezogene Stammblätter gleichſam<lb/>
+hinzuſchleichen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 37.</hi></head> <lb/>
+<p>Bey vielen Pflanzen iſt die Zahl und die<lb/>
+Geſtalt in welcher die Kelchblätter, entweder<lb/>
+einzeln oder zuſammengewachſen, um die Axe<lb/>
+des Stiels gereihet werden, beſtändig, ſo wie die<lb/>
+übrigen folgenden Theile. Auf dieſer Beſtändigkeit<lb/>
+beruhet gröſtentheils die Zunahme, die Sicherheit,<lb/>
+die Ehre der botaniſchen Wiſſenſchaft, welche<lb/>
+<pb n="25" facs="#f0040"/>
+<milestone unit="section" rendition="#hr"/> wir in dieſen lezteren Zeiten immer mehr haben<lb/>
+zunehmen ſehn. Bey andern Pflanzen iſt die<lb/>
+Anzahl und Bildung dieſer Theile nicht gleich<lb/>
+beſtändig, aber auch dieſer Unbeſtand hat die<lb/>
+ſcharfe Beobachtungsgabe der Meiſter dieſer<lb/>
+Wiſſenſchaft nicht hintergehen können; ſondern<lb/>
+ſie haben durch genaue Beſtimmungen auch dieſe<lb/>
+Abweichungen der Natur gleichſam in einen engern<lb/>
+Kreis einzuſchlieſsen geſucht.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 38.</hi></head> <lb/>
+<p>Auf dieſe Weiſe bildete alſo die Natur den<lb/>
+Kelch; daſs ſie mehrere Blätter und folglich<lb/>
+mehrere Knoten, welche ſie ſonſt <hi rendition="#i">nach einander</hi>,<lb/>
+und in einiger Entfernung <hi rendition="#i">von einander</hi> hervorge-<lb/>
+bracht hätte, <hi rendition="#i">zuſammen</hi>, meiſt in einer gewiſſen<lb/>
+beſtimmten Zahl und Ordnung um Einen Mittel-<lb/>
+punct verbindet. Wäre durch zudringende über-<lb/>
+flüſſige Nahrung der Blüthenſtand verhindert<lb/>
+worden; ſo würden ſie alsdann aus einander<lb/>
+geruckt, und in ihrer erſten Geſtalt erſchienen<lb/>
+ſeyn. Die Natur bildet alſo im Kelch kein neues<lb/>
+Organ, ſondern ſie verbindet und modificirt nur<lb/>
+die uns ſchon bekannt gewordenen Organe, und<lb/>
+bereitet ſich dadurch eine Stufe näher zum Ziel.</p> </div> </div> <lb/>
+<pb n="26" facs="#f0041"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">V.<lb/>
+Bildung der Krone.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 39.</hi></head> <lb/>
+<p><hi rendition="#in">W</hi><hi rendition="#k">IR</hi> haben geſehen daſs der Kelch durch<lb/>
+verfeinerte Säfte, welche nach und nach in der<lb/>
+Pflanze ſich erzeugen, hervorgebracht werde,<lb/>
+und ſo iſt er nun wieder zum Organe einer<lb/>
+künftigen weitern Verfeinerung beſtimmt. Es<lb/>
+wird uns dieſes ſchon glaublich, wenn wir ſeine<lb/>
+Wirkung auch bloſs mechaniſch erklären. Denn<lb/>
+wie höchſt zart und zur feinſten Filtration<lb/>
+geſchickt müſsen Gefäſse werden, welche, wie<lb/>
+wir oben geſehen haben, in dem höchſten Grade<lb/>
+zuſammen gezogen und an einander gedrängt<lb/>
+ſind.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 40.</hi></head> <lb/>
+<p>Den Uebergang des Kelchs zur Krone, können<lb/>
+wir in mehr als Einem Fall bemerken; denn,<lb/>
+<pb n="27" facs="#f0042"/>
+<milestone unit="section" rendition="#hr"/> obgleich die Farbe des Kelchs noch gewöhnlich<lb/>
+grün und der Farbe der Stengelblätter ähnlich<lb/>
+bleibt; ſo verändert ſich dieſelbe doch oft, an<lb/>
+einem oder dem andern ſeiner Theile, an den<lb/>
+Spitzen, den Rändern, dem Rücken, oder gar<lb/>
+an ſeiner inwendigen Seite, indeſſen die äuſsere<lb/>
+noch grün bleibt; und wir ſehen mit dieſer<lb/>
+Färbung jederzeit eine Verfeinerung verbunden.<lb/>
+Dadurch entſtehen zweydeutige Kelche, welche<lb/>
+mit gleichem Rechte für Kronen gehalten werden<lb/>
+können.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 41.</hi></head> <lb/>
+<p>Haben wir nun bemerkt, daſs von den<lb/>
+Samenblättern herauf eine groſse Ausdehnung<lb/>
+und Ausbildung der Blätter beſonders ihrer<lb/>
+Peripherie, und von da zu dem Kelche, eine<lb/>
+Zuſammenziehung des Umkreiſes vor ſich gehe;<lb/>
+ſo bemerken wir daſs die Krone abermals durch<lb/>
+eine Ausdehnung hervorgebracht werde. Die<lb/>
+Kronenblätter ſind gewöhnlich gröſser als die<lb/>
+Kelchblätter, und es läſst ſich bemerken, daſs<lb/>
+wie die Organe im Kelch zuſammengezogen<lb/>
+werden, ſie ſich nunmehr als Kronenblätter<lb/>
+durch den Einfluſs reinerer, durch den Kelch<lb/>
+<pb n="28" facs="#f0043"/>
+<milestone unit="section" rendition="#hr"/> abermals filtrirter Säfte, in einem hohen Grade<lb/>
+verfeint wieder ausdehnen, und uns, neue ganz<lb/>
+verſchiedene Organe vorbilden. Ihre feine<lb/>
+Organiſation, ihre Farbe, ihr Geruch, würden<lb/>
+uns ihren Urſprung ganz unkenntlich machen,<lb/>
+wenn wir die Natur nicht in mehreren auſser-<lb/>
+ordentlichen Fällen belauſchen könnten.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 42.</hi></head> <lb/>
+<p>So findet ſich z. B., innerhalb des Kelches<lb/>
+einer Nelke, manchmal ein zweiter Kelch, welcher<lb/>
+zum Theil vollkommen grün, die Anlage zu<lb/>
+einem einblätterigen eingeſchnittenen Kelche zeigt;<lb/>
+zum Theil zerriſſen und an ſeinen Spitzen und<lb/>
+Rändern, zu zarten, ausgedehnten, gefärbten<lb/>
+wirklichen Anfängen der Kronenblätter umge-<lb/>
+bildet wird, wodurch wir denn die Verwandt-<lb/>
+ſchaft der Krone und des Kelches abermals deutlich<lb/>
+erkennen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 43.</hi></head> <lb/>
+<p>Die Verwandtſchaft der Krone mit den<lb/>
+Stengelblättern zeigt ſich uns auch auf mehr als<lb/>
+eine Art: denn es erſcheinen an mehreren Pflanzen<lb/>
+<pb n="29" facs="#f0044"/>
+<milestone unit="section" rendition="#hr"/> Stengelblätter ſchon mehr oder weniger gefärbt,<lb/>
+lange ehe ſie ſich dem Blüthenſtande nähern;<lb/>
+andere färben ſich vollkommen in der Nähe<lb/>
+des Blüthenſtandes.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 44.</hi></head> <lb/>
+<p>Auch gehet die Natur manchmal, indem ſie<lb/>
+das Organ des Kelchs gleichſam überſpringt,<lb/>
+unmittelbar zur Krone, und wir haben Gelegen-<lb/>
+heit in dieſem Falle gleichfals zu beobachten,<lb/>
+daſs Stengelblätter zu Kronenblättern übergehen.<lb/>
+So zeigt ſich z. B. manchmal an den Tulpen-<lb/>
+ſtengeln ein beynahe völlig ausgebildetes und<lb/>
+gefärbtes Kronenblatt. Ja noch merkwürdiger<lb/>
+iſt der Fall; wenn ein ſolches Blatt halb grün,<lb/>
+mit ſeiner einen Hälfte zum Stengel gehörig an<lb/>
+demſelben befeſtigt bleibt, indeſs ſein anderer<lb/>
+und gefärbter Theil mit der Krone empor gehoben,<lb/>
+und das Blatt in zwey Theile zerriſſen wird.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 45.</hi></head> <lb/>
+<p>Es iſt eine ſehr wahrſcheinliche Meynung daſs<lb/>
+Farbe und Geruch der Kronenblätter, der<lb/>
+Gegenwart des männlichen Samens in denſelben<lb/>
+<pb n="30" facs="#f0045"/>
+<milestone unit="section" rendition="#hr"/> zu zuſchreiben ſey. Wahrſcheinlich befindet er<lb/>
+ſich in ihnen noch nicht genugſam abgeſondert,<lb/>
+vielmehr mit andern Säften verbunden und diluirt;<lb/>
+und die ſchönen Erſcheinungen der Farben führen<lb/>
+unſ auf den Gedanken daſs die Materie womit<lb/>
+die Blätter ausgefüllt ſind, zwar in einem hohen<lb/>
+Grad von Reinheit, aber noch nicht auf dem<lb/>
+höchſten ſtehe, auf welchem ſie uns weiſs und<lb/>
+ungefärbt erſcheint.</p> </div> </div> <lb/>
+<pb n="31" facs="#f0046"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">VI.<lb/>
+Bildung der Staub-Werkzeuge.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 46.</hi></head> <lb/>
+<p><hi rendition="#in">E</hi><hi rendition="#k">S</hi> wird uns dieſes noch wahrſcheinlicher,<lb/>
+wenn wir die nahe Verwandtſchaft der Kronen-<lb/>
+blätter mit den Staubwerkzeugen bedenken.<lb/>
+Wäre die Verwandtſchaft aller übrigen Theile<lb/>
+untereinander eben ſo in die Augen fallend, ſo<lb/>
+allgemein bemerkt und auſser allen Zweifel geſezt;<lb/>
+ſo würde man gegenwärtigen Vortrag für über-<lb/>
+flüſsig halten können.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 47.</hi></head> <lb/>
+<p>Die Natur zeigt uns in einigen Fällen dieſen<lb/>
+Uebergang regelmäſsig, z. B. bey der Canna,<lb/>
+und mehreren Pflanzen dieſer Familie. Ein<lb/>
+wahres, wenig verändertes Kronenblatt zieht ſich<lb/>
+am obern Rande zuſammen, und es zeigt ſich<lb/>
+ein Staubbeutel, bey welchem das übrige Blatt<lb/>
+die Stelle des Staubfadens vertritt.</p> </div> <lb/>
+<pb n="32" facs="#f0047"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 48.</hi></head> <lb/>
+<p>An Blumen welche öfters gefüllt erſcheinen,<lb/>
+können wir dieſen Uebergang in allen ſeinen<lb/>
+Stufen beobachten. Bey mehreren Roſenarten<lb/>
+zeigen ſich innerhalb der vollkommen gebildeten<lb/>
+und gefärbten Kronenblätter, andere, welche theils<lb/>
+in der Mitte theils an der Seite zuſammen gezogen<lb/>
+ſind; dieſe Zuſammenziehung wird von einer<lb/>
+kleinen Schwiele bewirkt, welche ſich mehr<lb/>
+oder weniger als ein vollkommener Staubbeutel<lb/>
+ſehen läſst, und in eben dieſem Grade nähert<lb/>
+ſich das Blatt der einfacheren Geſtalt eines Staub-<lb/>
+werkzeugs. Bey einigen gefüllten Mohnen<lb/>
+ruhen völlig ausgebildete Antheren, auf wenig<lb/>
+veränderten Blättern der ſtark gefüllten Kronen,<lb/>
+bey andern ziehen Staubbeutelähnliche Schwielen<lb/>
+die Blätter mehr oder weniger zuſammen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 49.</hi></head> <lb/>
+<p>Verwandeln ſich nun alle Staubwerkzeuge in<lb/>
+Kronenblätter, ſo werden die Blumen unfruchtbar;<lb/>
+werden aber in einer Blume, indem ſie ſich<lb/>
+füllt, doch noch Staubwerkzeuge entwickelt, ſo<lb/>
+gehet die Befruchtung vor ſich.</p> </div> <lb/>
+<fw type="catch" place="bottom">§. 50.</fw> <lb/>
+<pb n="33" facs="#f0048"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 50.</hi></head> <lb/>
+<p>Und ſo entſtehet ein Staubwerkzeug, wenn<lb/>
+die Organe, die wir bisher als Kronenblätter ſich<lb/>
+ausbreiten geſehen, wieder in einem höchſt<lb/>
+zuſammengezogenen und zugleich in einem höchſt<lb/>
+verfeinten Zuſtande erſcheinen. Die oben vor-<lb/>
+getragne Bemerkung wird dadurch abermals<lb/>
+beſtätigt und wir werden auf dieſe abwechſelnde<lb/>
+Wirkung der Zuſammenziehung und Ausdehnung,<lb/>
+wodurch die Natur endlich ans Ziel gelangt,<lb/>
+immer aufmerkſamer gemacht.</p> </div> </div> <lb/>
+<fw type="sig" place="bottom">C</fw> <lb/>
+<pb n="34" facs="#f0049"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">VII.<lb/>
+<hi rendition="#g">Necktarien</hi>.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 51.</hi></head> <lb/>
+<p><hi rendition="#in">S</hi><hi rendition="#k">O</hi> ſchnell der Uebergang bey manchen Pflanzen<lb/>
+von der Krone zu den Staubwerkzeugen iſt, ſo<lb/>
+bemerken wir doch, daſs die Natur nicht immer<lb/>
+dieſen Weg mit Einem Schritt zurücklegen kann.<lb/>
+Sie bringt vielmehr Zwiſchenwerkzeuge hervor,<lb/>
+welche an Geſtalt und Beſtimmung ſich bald dem<lb/>
+einen bald dem andern Theile nähern, und<lb/>
+obgleich ihre Bildung höchſt verſchieden iſt,<lb/>
+ſich dennoch meiſt unter Einen Begriff vereinigen<lb/>
+laſſen: Daſs es <hi rendition="#i">langſame Uebergänge von den Kelch-<lb/>
+blättern zu den Staubgefäſsen</hi> ſeyen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 52.</hi></head> <lb/>
+<p>Die meiſten jener verſchieden gebildeten<lb/>
+Organe, welche Linné mit dem Nahmen Necktarien<lb/>
+bezeichnet, laſſen ſich unter dieſem Begriff<lb/>
+<pb n="35" facs="#f0050"/>
+<milestone unit="section" rendition="#hr"/> vereinigen; und wir finden auch hier Gelegenheit<lb/>
+den groſsen Scharfſinn des auſserordentlichen<lb/>
+Mannes zu bewundern, der ohne ſich die<lb/>
+Beſtimmung dieſer Theile ganz deutlich zu<lb/>
+machen, ſich auf eine Ahndung verlieſs und<lb/>
+ſehr verſchieden ſcheinende Organe mit Einem<lb/>
+Nahmen zu belegen wagte.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 53.</hi></head> <lb/>
+<p>Es zeigen uns verſchiedene Kronenblätter,<lb/>
+ſchon ihre Verwandtſchaft mit den Staubgefäſsen<lb/>
+dadurch, daſs ſie, ohne ihre Geſtalt merklich zu<lb/>
+verändern, Grübchen oder Glandeln an ſich<lb/>
+tragen, welche einen honigartigen Saft abſcheiden.<lb/>
+Daſs dieſer eine noch unauſgearbeitete nicht völlig<lb/>
+determinirte Befruchtungs-Feuchtigkeit ſey,<lb/>
+können wir in denen ſchon oben angeführten<lb/>
+Rückſichten einigermaſſen vermuthen, und dieſe<lb/>
+Vermuthung wird durch Gründe welche wir<lb/>
+unten anführen werden, noch einen höhern Grad<lb/>
+von Wahrſcheinlichkeit erreichen.</p> </div> <lb/>
+<fw type="sig" place="bottom">C 2</fw> <lb/>
+<pb n="36" facs="#f0051"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 54.</hi></head> <lb/>
+<p>Nun zeigen ſich auch die ſogenannten Neck-<lb/>
+tarien als für ſich beſtehende Theile; und dann<lb/>
+nähert ſich ihre Bildung bald den Kronenblättern<lb/>
+bald den Staubwerkzeugen. So ſind z. E. die<lb/>
+dreyzehn Fäden, mit ihren eben ſo viel rothen<lb/>
+Kügelchen auf den Necktarien der Parnaſſia den<lb/>
+Staubwerkzeugen höchſt ähnlich. Andere zeigen<lb/>
+ſich als Staubfäden ohne Antheren, als an der<lb/>
+Valliſneria, der Fewillèa; wir finden ſie an der<lb/>
+Pentapetes in einem Kreiſe mit den Staubwerk-<lb/>
+zeugen regelmäſsig abwechſeln, und zwar ſchon<lb/>
+in Blattgeſtalt; auch werden ſie in der ſyſte-<lb/>
+matiſchen Beſchreibung, als Filamenta caſtrata<lb/>
+petaliformia aufgeführt. Eben ſolche ſchwankende<lb/>
+Bildungen ſehen wir, an der Kiggellaria und der<lb/>
+Paſſionsblume.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 55.</hi></head> <lb/>
+<p>Gleichfalls ſcheinen uns die eigentlichen<lb/>
+<hi rendition="#i">Nebenkronen</hi> den Nahmen der Necktarien in dem<lb/>
+oben angegebenen Sinne zu verdienen. Denn<lb/>
+wenn die Bildung der Kronenblätter durch eine<lb/>
+<pb n="37" facs="#f0052"/>
+<milestone unit="section" rendition="#hr"/> Ausdehnung geſchieht, ſo werden dagegen die<lb/>
+Nebenkronen durch eine Zuſammenziehung,<lb/>
+folglich auf eben die Weiſe wie die Staubwerkzeuge<lb/>
+gebildet. So ſehen wir innerhalb vollkommener,<lb/>
+ausgebreiteter Kronen, kleinere, zuſammenge-<lb/>
+zogene Nebenkronen wie im Narciſſus, dem<lb/>
+Nerium, dem Agroſtemma.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 56.</hi></head> <lb/>
+<p>Noch ſehen wir bey verſchiedenen Geſchlechtern<lb/>
+andere Veränderungen der Blätter, welche auf-<lb/>
+fallender und merkwürdiger ſind. Wir bemerken<lb/>
+an verſchiedenen Blumen, daſs ihre Blätter in-<lb/>
+wendig, unten, eine kleine Vertiefung haben,<lb/>
+welche mit einem honigartigen Safte ausgefüllt<lb/>
+iſt. Dieſes Grübchen indem es ſich bey andern<lb/>
+Blumengeſchlechtern und Arten, mehr vertieft,<lb/>
+bringt auf der Rückſeite des Blatts eine Sporn-<lb/>
+oder Hornartige Verlängerung hervor, und die<lb/>
+Geſtalt des übrigen Blattes wird ſogleich mehr<lb/>
+oder weniger modificirt. Wir können dieſes an<lb/>
+verſchiedenen Arten und Varietäten des Agleys<lb/>
+genau bemerken.</p> </div> <lb/>
+<pb n="38" facs="#f0053"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 57.</hi></head> <lb/>
+<p>Im höchſten Grad der Verwandlung findet<lb/>
+man dieſes Organ, z. B. bey dem Aconitum<lb/>
+und der Nigella, wo man aber doch mit geringer<lb/>
+Aufmerkſamkeit ihre Blattähnlichkeit bemerken<lb/>
+wird; beſonders wachſen ſie bey der Nigella<lb/>
+leicht wieder in Blätter aus, und die Blume<lb/>
+wird durch die Umwandlung der Necktarien<lb/>
+gefüllt. Bey dem Aconito wird man mit einiger<lb/>
+aufmerkſamen Beſchauung die Aehnlichkeit der<lb/>
+Necktarien und des gewölbten Blattes, unter<lb/>
+welchen ſie verdeckt ſtehen, erkennen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 58.</hi></head> <lb/>
+<p>Haben wir nun oben geſagt; daſs die Neck-<lb/>
+tarien Annäherungen der Kronenblätter zu den<lb/>
+Staubgefäſsen ſeyen, ſo können wir bey dieſer<lb/>
+Gelegenheit über die unregelmäſsigen Blumen<lb/>
+einige Bemerkungen machen. So könnten z. E.<lb/>
+die fünf äuſsern Blätter des Melianthus als wahre<lb/>
+Kronenblätter aufgeführt, die fünf innern aber als<lb/>
+eine Nebenkrone, aus ſechs Necktarien beſtehend,<lb/>
+beſchrieben werden, wovon das obere ſich der<lb/>
+<pb n="39" facs="#f0054"/>
+<milestone unit="section" rendition="#hr"/> Blattgeſtalt am meiſten nähert, das untere, das<lb/>
+auch jezt ſchon Necktarium heiſst, ſich am weitſten<lb/>
+von ihr entfernt. In eben dem Sinne könnte man<lb/>
+die Carina der Schmetterlings-Blumen ein Neck-<lb/>
+tarium nennen, indem ſie unter den Blättern<lb/>
+dieſer Blume ſich an die Geſtalt der Staubwerk-<lb/>
+zeuge am nächſten heran bildet, und ſich ſehr<lb/>
+weit von der Blattgeſtalt des ſogenannten Vexilli<lb/>
+entfernt. Wir werden auf dieſe Weiſe die<lb/>
+pinſelförmigen Körper, welche an dem Ende der<lb/>
+Carina einiger Arten der Polygala befeſtigt ſind,<lb/>
+gar leicht erklären, und uns von der Beſtimmung<lb/>
+dieſer Theile einen deutlichen Begriff machen<lb/>
+können.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 59.</hi></head> <lb/>
+<p>Unnöthig würde es ſeyn, ſich hier ernſtlich<lb/>
+zu verwahren, daſs es bey dieſen Bemerkungen<lb/>
+die Abſicht nicht ſey, das durch die Bemühungen<lb/>
+der Beobachter und Ordner biſher abgeſonderte<lb/>
+und in Fächer gebrachte zu verwirren; man<lb/>
+wünſcht nur durch dieſe Betrachtungen die<lb/>
+abweichenden Bildungen der Pflanzen erklärbarer<lb/>
+zu machen.</p> </div> </div> <lb/>
+<pb n="40" facs="#f0055"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">VIII.<lb/>
+Noch einiges von den Staubwerkzeugen.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 60.</hi></head> <lb/>
+<p><hi rendition="#in">D</hi><hi rendition="#k">ASS</hi> die Geſchlechtstheile der Pflanzen durch<lb/>
+die Spiralgefäſse wie die übrigen Theile hervor-<lb/>
+gebracht werden, iſt durch mikroſcopiſche<lb/>
+Beobachtungen auſser allen Zweifel geſezt. Wir<lb/>
+nehmen darauſ ein Argument für die innere<lb/>
+Identität der verſchiedenen Pflanzentheile, welche<lb/>
+uns biſher in ſo manigfaltigen Geſtalten erſchienen<lb/>
+ſind.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 61.</hi></head> <lb/>
+<p>Wenn nun die Spiralgefäſse in der Mitte<lb/>
+der Saftgefäſs-Bündel liegen, und von ihnen<lb/>
+umſchloſſen werden: ſo können wir uns jene<lb/>
+ſtarke Zuſammenziehung, einigermaſſen näher<lb/>
+denken, wenn wir die Spiralgefäſse, die uns<lb/>
+wirklich als elaſtiſche Federn erſcheinen, in ihrer<lb/>
+höchſten Kraft gedenken, ſo daſs ſie überwiegend,<lb/>
+<pb n="41" facs="#f0056"/>
+<milestone unit="section" rendition="#hr"/> hingegen die Ausdehnung der Saftgefäſse ſubor-<lb/>
+dinirt wird.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 62.</hi></head> <lb/>
+<p>Die verkürzten Gefäſsbündel können ſich nun<lb/>
+nicht mehr ausbreiten, ſich einander nicht mehr<lb/>
+aufſuchen und durch Anaſtomoſe kein Netz mehr<lb/>
+bilden; die Schlauchgefäſse, welche ſonſt die<lb/>
+Zwiſchenräume des Netzes auſfüllen, können ſich<lb/>
+nicht mehr entwickeln, alle Urſachen wodurch<lb/>
+Stengel- Kelch- und Blumenblätter ſich in die<lb/>
+Breite ausgedehnt haben, fallen hier völlig weg<lb/>
+und es entſteht ein ſchwacher höchſt einfacher<lb/>
+Faden.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 63.</hi></head> <lb/>
+<p>Kaum daſs noch die feinen Häutchen der<lb/>
+Staubbeutel gebildet werden, zwiſchen welchen<lb/>
+ſich die höchſt zarten Gefäſse nunmehr endigen.<lb/>
+Wenn wir nun annehmen, daſs hier eben jene<lb/>
+Gefäſse, welche ſich ſonſt verlängerten, ausbrei-<lb/>
+teten und ſich einander wieder aufſuchten,<lb/>
+gegenwärtig in einem höchſt zuſammen gezogenen<lb/>
+Zuſtande ſind: wenn wir aus ihnen nunmehr den<lb/>
+höchſt ausgebildeten Samenſtaub hervor dringen<lb/>
+<pb n="42" facs="#f0057"/>
+<milestone unit="section" rendition="#hr"/> ſehen, welcher das durch ſeine Thätigkeit erſezt,<lb/>
+was den Gefäſsen die ihn hervorbringen an Aus-<lb/>
+breitung entzogen iſt: wenn er nun mehr losgelöſst<lb/>
+die weiblichen Theile aufſucht, welche den Staub-<lb/>
+gefäſsen durch gleiche Wirkung der Natur entgegen<lb/>
+gewachſen ſind, wenn er ſich feſt an ſie anhängt,<lb/>
+und ſeine Einflüſſe ihnen mittheilt: ſo ſind wir<lb/>
+nicht abgeneigt, die Verbindung der beyden<lb/>
+Geſchlechter eine geiſtige Anaſtomoſe zu nennen,<lb/>
+und glauben wenigſtens einen Augenblick die<lb/>
+Begriffe von Wachsthum und Zeugung, einander<lb/>
+näher gerückt zu haben.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 64.</hi></head> <lb/>
+<p>Die feine Materie welche ſich in den Antheren<lb/>
+entwickelt, erſcheint uns als ein Staub; dieſe<lb/>
+Staubkügelchen ſind aber nur Gefäſse worin höchſt<lb/>
+feiner Saft aufbewahrt iſt. Wir pflichten daher<lb/>
+der Meynung derjenigen bey, welche behaupten<lb/>
+daſs dieſer Saft von den Piſtillen an denen ſich<lb/>
+die Staubkügelchen anhängen, eingeſogen und<lb/>
+ſo die Befruchtung bewirkt werde. Es wird dieſes<lb/>
+um ſo wahrſcheinlicher, da einige Pflanzen keinen<lb/>
+Samenſtaub, vielmehr nur eine bloſse Feuchtigkeit<lb/>
+abſondern.</p> </div> <lb/>
+<pb n="43" facs="#f0058"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 65.</hi></head> <lb/>
+<p>Wir erinnern uns hier des honigartigen<lb/>
+Saftes der Necktarien, und deſſen wahrſcheinlicher<lb/>
+Verwandtſchaft mit der ausgearbeitetern Feuchtig-<lb/>
+keit der Samenbläſschen. Vielleicht ſind die<lb/>
+Necktarien vorbereitende Werkzeuge, vielleicht<lb/>
+wird ihre honigartige Feuchtigkeit von den Staub-<lb/>
+gefäſsen eingeſogen, mehr determinirt und völlig<lb/>
+ausgearbeitet; eine Meynung die um ſo wahr-<lb/>
+ſcheinlicher wird, da man nach der Befruchtung<lb/>
+dieſen Saft nicht mehr bemerkt.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 66.</hi></head> <lb/>
+<p>Wir laſſen hier, obgleich nur im Vorbeygehen,<lb/>
+nicht unbemerkt; daſs ſowohl die Staubfäden als<lb/>
+Antheren verſchiedentlich zuſammengewachſen<lb/>
+ſind, und uns die wunderbarſten Beyſpiele der<lb/>
+ſchon mehrmals von uns angeführten Anaſtomoſe<lb/>
+und Verbindung der in ihren erſten Anfängen<lb/>
+wahrhaft getrennten Pflanzentheile zeigen.</p> </div> </div> <lb/>
+<pb n="44" facs="#f0059"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">IX.<lb/>
+Bildung des Griffels.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 67.</hi></head> <lb/>
+<p><hi rendition="#in">W</hi><hi rendition="#k">AR</hi> ich bisher bemüht, die innere Identität<lb/>
+der verſchiedenen, nach einander entwickelten<lb/>
+Pflanzentheile, bey der gröſten Abweichung der<lb/>
+äuſsern Geſtalt, ſo viel es möglich geweſen<lb/>
+anſchaulich zu machen; ſo wird man leicht ver-<lb/>
+muthen können daſs nunmehr meine Abſicht ſey,<lb/>
+auch die Strucktur der weiblichen Theile auf<lb/>
+dieſem Wege zu erklären.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 68.</hi></head> <lb/>
+<p>Wir betrachten zuförderſt den Griffel von der<lb/>
+Frucht abgeſondert, wie wir ihn auch oft in der<lb/>
+Natur finden; und um ſo mehr können wir es<lb/>
+thun, da er ſich in dieſer Geſtalt von der Frucht<lb/>
+unterſchieden zeigt.</p> </div> <lb/>
+<pb n="45" facs="#f0060"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 69.</hi></head> <lb/>
+<p>Wir bemerken nehmlich daſs der Griffel auf<lb/>
+eben der Stufe des Wachsthums ſtehe, wo wir<lb/>
+die Staubgefäſse gefunden haben. Wir konnten<lb/>
+nehmlich beobachten, daſs die Staubgefäſse durch<lb/>
+eine Zuſammenziehung hervorgebracht werden;<lb/>
+die Griffel ſind oft in demſelbigen Falle, und wir<lb/>
+ſehen ſie, wenn auch nicht immer mit den Staub-<lb/>
+gefäſsen von gleichem Maſse, doch nur um<lb/>
+weniges länger oder kürzer gebildet. In vielen<lb/>
+Fällen ſieht der Griffel faſt einem Staubfaden ohne<lb/>
+Anthere gleich, und die Verwandtſchaft ihrer<lb/>
+Bildung iſt äuſserlich gröſser als bey den übrigen<lb/>
+Theilen. Da ſie nun beyderſeits durch Spiralgefäſse<lb/>
+hervorgebracht werden, ſo ſehen wir deſto deut-<lb/>
+licher, daſs der weibliche Theil ſo wenig als der<lb/>
+männliche ein beſonderes Organ ſey, und wenn<lb/>
+die genaue Verwandtſchaft deſſelben mit dem<lb/>
+männlichen, uns durch dieſe Betrachtung recht<lb/>
+anſchaulich wird, ſo finden wir jenen Gedanken<lb/>
+die Begattung eine Anaſtomoſe zu nennen paſſender<lb/>
+und einleuchtender.</p> </div> <lb/>
+<pb n="46" facs="#f0061"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 70.</hi></head> <lb/>
+<p>Wir finden den Griffel ſehr oft aus mehreren<lb/>
+einzelnen Griffeln zuſammengewachſen, und die<lb/>
+Theile aus denen er beſtehet laſſen ſich kaum am<lb/>
+Ende, wo ſie nicht einmal immer getrennt ſind,<lb/>
+erkennen. Dieſes Zuſammenwachſen, deſſen<lb/>
+Wirkung wir ſchon öfters bemerkt haben, wird<lb/>
+hier am meiſten möglich; ja es muſs geſchehen,<lb/>
+weil die feinen Theile vor ihrer gänzlichen Ent-<lb/>
+wickelung in der Mitte des Blüthenſtandes<lb/>
+zuſammengedrängt ſind, und ſich auf das innigſte<lb/>
+mit einander verbinden können.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 71.</hi></head> <lb/>
+<p>Die nahe Verwandtſchaft mit den vorherge-<lb/>
+henden Theilen des Blüthenſtandes zeigt uns die<lb/>
+Natur in verſchiedenen regelmäſsigen Fällen mehr<lb/>
+oder weniger deutlich. So iſt z. B. das Piſtill der<lb/>
+Iris mit feiner Narbe, in völliger Geſtalt eines<lb/>
+Blumenblattes vor unſern Augen. Die ſchirm-<lb/>
+förmige Narbe der Saracenie zeigt ſich zwar nicht<lb/>
+ſo auffallend aus mehreren Blättern zuſammenge-<lb/>
+ſezt, doch verläugnet ſie ſogar die grüne Farbe<lb/>
+nicht. Wollen wir das Mikroſcop zu Hülfe<lb/>
+<pb n="47" facs="#f0062"/>
+<milestone unit="section" rendition="#hr"/> nehmen, ſo finden wir mehrere Narben, z. E. des<lb/>
+Crocus, der Zanichella, als völlige ein- oder<lb/>
+mehrblätterige Kelche gebildet.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 72.</hi></head> <lb/>
+<p>Rückſchreitend zeigt uns die Natur öfters den<lb/>
+Fall, daſs ſie die Griffel und Narben wieder in<lb/>
+Blumenblätter verwandelt; z. B. füllt ſich der<lb/>
+Ranunculus aſiaticus dadurch, daſs ſich die Narben<lb/>
+und Piſtille des Fruchtbehälters zu wahren Kronen-<lb/>
+blättern umbilden, indeſſen die Staubwerkzeuge,<lb/>
+gleich hinter der Krone, oft unverändert gefunden<lb/>
+werden. Einige andere bedeutende Fälle werden<lb/>
+unten vorkommen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 73.</hi></head> <lb/>
+<p>Wir wiederholen hier jene oben angezeigte<lb/>
+Bemerkungen, daſs Griffel und Staubfäden auf<lb/>
+der gleichen Stufe des Wachſthums ſtehen, und<lb/>
+erläutern jenen Grund des wechſelsweiſen Ausdeh-<lb/>
+nens und Zuſammenziehens dadurch abermals.<lb/>
+Vom Samen bis zu der höchſten Entwickelung<lb/>
+des Stengelblattes, bemerkten wir zuerſt eine<lb/>
+Ausdehnung, darauf ſahen wir durch eine Zuſam-<lb/>
+menziehung den Kelch entſtehen, die Blumenblätter<lb/>
+<pb n="48" facs="#f0063"/>
+<milestone unit="section" rendition="#hr"/> durch eine Ausdehnung, die Geſchlechtstheile<lb/>
+abermals durch eine Zuſammenziehung; und wir<lb/>
+werden nun bald die gröſste Ausdehnung in der<lb/>
+Frucht, und die gröſste Concentration in dem<lb/>
+Samen gewahr werden. In dieſen ſechs Schritten<lb/>
+vollendet die Natur unaufhaltſam das ewige Werk<lb/>
+der Fortpflanzung der Vegetabilien durch zwey<lb/>
+Geſchlechter.</p> </div> </div> <lb/>
+<fw type="catch" place="bottom">X.</fw> <lb/>
+<pb n="49" facs="#f0064"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">X.<lb/>
+Von den Früchten.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 74.</hi></head> <lb/>
+<p><hi rendition="#in">W</hi><hi rendition="#k">IR</hi> werden nunmehr die Früchte zu beo-<lb/>
+bachten haben, und uns bald überzeugen,<lb/>
+daſs dieſelben gleichen Urſprungs und gleichen<lb/>
+Geſezen unterworfen ſeyen. Wir reden hier<lb/>
+eigentlich von ſolchen Gehäuſen welche die Natur<lb/>
+bildet, um die ſogenannten bedeckten Samen<lb/>
+einzuſchlieſsen, oder vielmehr aus dem Innerſten<lb/>
+dieſer Gehäuſe durch die Begattung eine gröſsere<lb/>
+oder geringere Anzahl Samen zu entwickeln.<lb/>
+Daſs dieſe Behältniſſe gleichfalls aus der Natur<lb/>
+und Organiſation der bisher betrachteten Theile<lb/>
+zu erklären ſeyen, wird ſich mit wenigem zeigen<lb/>
+laſſen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 75.</hi></head> <lb/>
+<p>Die rückſchreitende Metamorphoſe macht uns<lb/>
+hier abermals auf dieſes Naturgeſez aufmerkſam.<lb/>
+So läſst ſich zum Beyſpiel an den Nelken, dieſen<lb/>
+<fw type="sig" place="bottom">D</fw><lb/>
+<pb n="50" facs="#f0065"/>
+<milestone unit="section" rendition="#hr"/>eben wegen ihrer Auſartung ſo bekannten und<lb/>
+beliebten Blumen, oft bemerken, daſs die Samen-<lb/>
+kapſeln ſich wieder in kelchähnliche Blätter ver-<lb/>
+ändern, und daſs in eben dieſem Maſse die<lb/>
+aufgeſezten Griffel an Länge abnehmen; ja es finden<lb/>
+ſich Nelken, an denen ſich das Fruchtbehältniſs<lb/>
+in einen wirklichen vollkommenen Kelch ver-<lb/>
+wandelt hat, indeſs die Einſchnitte deſſelben an<lb/>
+der Spitze noch zarte Ueberbleibſel der Griffel<lb/>
+und Narben tragen, und ſich aus dem Innerſten<lb/>
+dieſes zweyten Kelchs, wieder eine mehr oder<lb/>
+weniger vollſtändige Blätterkrone ſtatt der Samen<lb/>
+entwickelt.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 76.</hi></head> <lb/>
+<p>Ferner hat uns die Natur ſelbſt durch regel-<lb/>
+mäſsige und beſtändige Bildungen, auf eine ſehr<lb/>
+manigfaltige Weiſe die Fruchtbarkeit geoffenbart,<lb/>
+welche in einem Blatt verborgen liegt. So bringt<lb/>
+ein zwar verändertes doch noch völlig kenntliches<lb/>
+Blatt der Linde aus ſeiner Mittelrippe ein<lb/>
+Stielchen und an demſelben eine vollkommene<lb/>
+Blüthe und Frucht hervor. Bey dem Ruſcus iſt<lb/>
+die Art wie Blüthen und Früchte auf den Blättern<lb/>
+aufſitzen noch merkwürdiger.</p> </div> <lb/>
+<pb n="51" facs="#f0066"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 77.</hi></head> <lb/>
+<p>Noch ſtärker und gleichſam ungeheuer wird<lb/>
+uns die unmittelbare Fruchtbarkeit der Stengel-<lb/>
+blätter in den Farrenkräutern vor Augen gelegt;<lb/>
+welche durch einen innern Trieb, und vielleicht gar<lb/>
+ohne beſtimmte Wirkung zweyer Geſchlechter,<lb/>
+unzählige, des Wachsthums fähige Samen, oder<lb/>
+vielmehr Keime entwickeln und umherſtreuen,<lb/>
+wo alſo ein Blatt an Fruchtbarkeit mit einer<lb/>
+ausgebreiteten Pflanze, mit einem groſsen und<lb/>
+äſtereichen Baume wetteifert.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 78.</hi></head> <lb/>
+<p>Wenn wir dieſe Beobachtungen gegenwärtig<lb/>
+behalten; ſo werden wir in den Samenbehältern,<lb/>
+ohnerachtet ihrer manigfaltigen Bildung, ihrer<lb/>
+beſonderen Beſtimmung und Verbindung unter<lb/>
+ſich, die Blattgeſtalt nicht verkennen. So wäre<lb/>
+z. B. die Hülſe ein einfaches zuſammengeſchlagenes,<lb/>
+an ſeinen Rändern verwachſenes Blatt, die<lb/>
+Schoten würden aus mehr übereinander gewach-<lb/>
+ſenen Blättern beſtehen, die zuſammengeſezten<lb/>
+Gehäuſe erklärten ſich aus mehreren Blättern<lb/>
+<fw type="sig" place="bottom">D 2</fw><lb/>
+<pb n="52" facs="#f0067"/>
+<milestone unit="section" rendition="#hr"/> welche ſich um einen Mittelpunct vereiniget,<lb/>
+ihr Innerſtes gegen einander aufgeſchloſſen, und<lb/>
+ihre Ränder mit einander verbunden hätten. Wir<lb/>
+können uns hiervon durch den Augenſchein<lb/>
+überzeugen, wenn ſolche zuſammengeſezte Kap-<lb/>
+ſeln nach der Reife von einander ſpringen, da<lb/>
+denn jeder Theil derſelben ſich uns als eine<lb/>
+eröfnete Hülſe oder Schote zeigt. Eben ſo ſehen<lb/>
+wir bey verſchiedenen Arten eines und deſſelben<lb/>
+Geſchlechts, eine ähnliche Wirkung regelmäſsig<lb/>
+vorgehen; z. B. ſind die Fruchtkapſeln der<lb/>
+Nigella orientalis, in der Geſtalt von halb mit<lb/>
+einander verwachſnen Hülſen, um eine Axe ver-<lb/>
+ſammlet, wenn ſie bey der Nigella Damaſcena<lb/>
+völlig zuſammen gewachſen erſcheinen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 79.</hi></head> <lb/>
+<p>Am meiſten rückt uns die Natur dieſe Blatt-<lb/>
+ähnlichkeit aus den Augen, indem ſie ſaftige und<lb/>
+weiche oder holzartige und feſte Samenbehälter<lb/>
+bildet; allein ſie wird unſerer Aufmerkſamkeit<lb/>
+nicht entſchlüpfen können, wenn wir ihr in allen<lb/>
+Uebergängen ſorgfältig zu folgen wiſſen. Hier<lb/>
+ſey es genug, den allgemeinen Begriff davon<lb/>
+angezeigt und die Uebereinſtimmung der Natur<lb/>
+<pb n="53" facs="#f0068"/>
+<milestone unit="section" rendition="#hr"/> an einigen Beyſpielen gewieſen zu haben. Die<lb/>
+groſse Manigfaltigkeit der Samenkapſeln gibt uns<lb/>
+künftig Stoff zu mehrerer Betrachtung.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 80.</hi></head> <lb/>
+<p>Die Verwandtſchaft der Samenkapſeln mit den<lb/>
+vorhergehenden Theilen zeigt ſich auch durch<lb/>
+das Stigma, welches bey vielen unmittelbar auf-<lb/>
+ſizt und mit der Kapſel unzertrennlich verbunden<lb/>
+iſt. Wir haben die Verwandtſchaft der Narbe<lb/>
+mit der Blattgeſtalt ſchon oben gezeigt und<lb/>
+können hier ſie nochmals aufführen; indem ſich<lb/>
+bey gefüllten Mohnen bemerken läſst, daſs die<lb/>
+Narben der Samenkapſeln in farbige, zarte,<lb/>
+Kronenblättern völlig ähnliche Blättchen ver-<lb/>
+wandelt werden.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 81.</hi></head> <lb/>
+<p>Die lezte und gröſte Ausdehnung welche die<lb/>
+Pflanze in ihrem Wachsthum vornimmt; zeigt ſich<lb/>
+in der Frucht. Sie iſt ſowohl an innerer Kraft als<lb/>
+äuſserer Geſtalt oft ſehr groſs, ja ungeheuer.<lb/>
+Da ſie gewöhnlich nach der Befruchtung vor<lb/>
+ſich gehet; ſo ſcheinet der nun mehr determinirte<lb/>
+Same, indem er zu einem Wachsthum aus der<lb/>
+<pb n="54" facs="#f0069"/>
+<milestone unit="section" rendition="#hr"/> ganzen Pflanze die Säfte herbeyziehet, ihnen die<lb/>
+Hauptrichtung nach der Samenkapſel zu geben,<lb/>
+wodurch denn ihre Gefäſse genährt, erweitert,<lb/>
+und oft in dem höchſten Grade ausgefüllt und<lb/>
+ausgeſpannt werden. Daſs hieran reinere Luftarten<lb/>
+einen groſsen Antheil haben, läſst ſich ſchon<lb/>
+aus dem vorigen ſchlieſſen und es beſtätigt ſich<lb/>
+durch die Erfahrung daſs die aufgetriebnen Hülſen<lb/>
+der Colutea reine Luft enthalten.</p> </div> </div> <lb/>
+<pb n="55" facs="#f0070"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c"><hi rendition="#g">XI</hi>.<lb/>
+Von den unmittelbaren Hüllen des<lb/>
+Samens.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 82.</hi></head> <lb/>
+<p><hi rendition="#in">D</hi><hi rendition="#k">AGEGEN</hi> finden wir, daſs der Same in dem<lb/>
+höchſten Grade von Zuſammenziehung und Aus-<lb/>
+bildung ſeines Innern ſich befindet. Es läſst ſich<lb/>
+bey verſchiedenen Samen bemerken daſs er<lb/>
+Blätter zu ſeinen nächſten Hüllen umbilde, mehr<lb/>
+oder weniger ſich anpaſſe, ja meiſtens durch<lb/>
+ſeine Gewalt, ſie völlig an ſich ſchlieſſe und ihre<lb/>
+Geſtalt gänzlich verwandle. Da wir oben mehrere<lb/>
+Samen ſich aus und in Einem Blatt entwickeln<lb/>
+geſehn, ſo werden wir uns nicht wundern, wenn<lb/>
+ein einzelner Samenkeim ſich in eine Blatthülle<lb/>
+kleidet.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 83.</hi></head> <lb/>
+<p>Die Spuren ſolcher nicht völlig den Samen<lb/>
+angepaſsten Blattgeſtalten, ſehen wir an vielen<lb/>
+geflügelten Samen z. B. des Ahorns, der Rüſter,<lb/>
+der Eſche, der Birke. Ein ſehr merkwürdiges<lb/>
+Beyſpiel, wie der Samenkeim breitere Hüllen<lb/>
+<pb n="56" facs="#f0071"/>
+<milestone unit="section" rendition="#hr"/>nach und nach zuſammen zieht und ſich anpaſst,<lb/>
+geben uns die drey verſchiedenen Kreiſe verſchie-<lb/>
+dengeſtalteter Samen der Calendel. Der äuſserſte<lb/>
+Kreis behält noch eine mit den Kelchblättern<lb/>
+verwandte Geſtalt; nur daſs eine, die Rippe<lb/>
+auſdehnende Samenanlage das Blatt krümmt, und<lb/>
+die Krümmung inwendig der Länge nach durch<lb/>
+ein Häutchen in zwey Theile abgeſondert wird.<lb/>
+Der folgende Kreis hat ſich ſchon mehr verändert,<lb/>
+die Breite des Blättchens und das Häutchen<lb/>
+haben ſich gänzlich verlohren; dagegen iſt die<lb/>
+Geſtalt etwas weniger verlängert, die in dem<lb/>
+Rücken befindliche Samenanlage zeigt ſich deut-<lb/>
+licher und die kleinen Erhöhungen auf derſelben<lb/>
+ſind ſtärker; dieſe beyden Reihen ſcheinen<lb/>
+entweder gar nicht, oder nur unvollkommen<lb/>
+befruchtet zu ſeyn. Auf ſie folgt die dritte Samen-<lb/>
+reihe in ihrer ächten Geſtalt ſtark gekrümmt,<lb/>
+und mit einem völlig angepaſsten, und in allen<lb/>
+ſeinen Striefen und Erhöhungen völlig ausge-<lb/>
+bildeten Involucro. Wir ſehen hier abermals eine<lb/>
+gewaltſame Zuſammenziehung ausgebreiteter,<lb/>
+blattähnlicher Theile, und zwar durch die innere<lb/>
+Kraft des Samens, wie wir oben durch die Kraft<lb/>
+der Anthere das Blumenblatt zuſammengezogen<lb/>
+geſehen haben.</p> </div> </div> <lb/>
+<pb n="57" facs="#f0072"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c"><hi rendition="#g">XII</hi>.<lb/>
+Rückblick und Uebergang.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 84.</hi></head> <lb/>
+<p><hi rendition="#in">U</hi><hi rendition="#k">ND</hi> ſo wären wir der Natur auf ihren Schritten,<lb/>
+ſo bedachtſam als möglich gefolgt; wir hätten<lb/>
+die äuſsere Geſtalt der Pflanze in allen ihren<lb/>
+Umwandlungen, von ihrer Entwickelung aus dem<lb/>
+Samenkorn, bis zur neuen Bildung deſſelben<lb/>
+begleitet. Und ohne Anmaſsung die erſten Trieb-<lb/>
+federn der Naturwirkungen entdecken zu wollen,<lb/>
+auf Aeuſserung der Kräfte, durch welche die<lb/>
+Pflanze ein und eben daſſelbe Organ nach und<lb/>
+nach umbildet, unſre Aufmerkſamkeit gerichtet.<lb/>
+Um den einmal ergriffenen Faden nicht zu ver-<lb/>
+laſſen, haben wir die Pflanze durchgehends nur<lb/>
+als einjährig betrachtet, wir haben nur die<lb/>
+Umwandlung der Blätter welche die Knoten<lb/>
+begleiten bemerkt, und alle Geſtalten aus ihnen<lb/>
+hergeleitet. Allein es wird, um dieſem Verſuch<lb/>
+<pb n="58" facs="#f0073"/>
+<milestone unit="section" rendition="#hr"/> die nöthige Vollſtändigkeit zu geben, nunmehr<lb/>
+noch nöthig, von den <hi rendition="#i">Augen</hi> zu ſprechen welche<lb/>
+unter jedem Blatt verborgen liegen, ſich unter<lb/>
+gewiſſen Umſtänden entwickeln, und unter andern<lb/>
+völlig zu verſchwinden ſcheinen.</p> </div> </div> <lb/>
+<pb n="59" facs="#f0074"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c"><hi rendition="#g">XIII</hi>.<lb/>
+Von den Augen und ihrer Entwickelung.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 85.</hi></head> <lb/>
+<p><hi rendition="#in">J</hi><hi rendition="#k">EDER</hi> Knoten hat von der Natur die Kraft, ein<lb/>
+oder mehrere Augen hervorzubringen; und zwar<lb/>
+geſchieht ſolches in der Nähe der ihn bekleidenden<lb/>
+Blätter, welche die Bildung und das Wachsthum<lb/>
+der Augen vorzubereiten und mit zu bewirken<lb/>
+ſcheinen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 86.</hi></head> <lb/>
+<p>In der ſucceſſiven Entwickelung eines Knotens<lb/>
+aus dem andern, in der Bildung eines Blattes an<lb/>
+jedem Knoten und eines Auges in deſſen Nähe,<lb/>
+beruhet die erſte, einfache, langſam fortſchrei-<lb/>
+tende Fortpflanzung der Vegetabilien.</p> </div> <lb/>
+<pb n="60" facs="#f0075"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 87.</hi></head> <lb/>
+<p>Es iſt bekannt, daſs ein ſolches Auge in ſeinen<lb/>
+Wirkungen eine groſse Aehnlichkeit mit dem<lb/>
+reifen Samen hat; und daſs oft in jenem noch<lb/>
+mehr als in dieſem die ganze Geſtalt der künftigen<lb/>
+Pflanze erkannt werden kann.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 88.</hi></head> <lb/>
+<p>Ob ſich gleich an dem Auge ein Wurzelpunct<lb/>
+ſo leicht nicht bemerken läſst, ſo iſt doch derſelbe<lb/>
+eben ſo darin wie in dem Samen gegenwärtig,<lb/>
+und entwickelt ſich, beſonders durch feuchte<lb/>
+Einflüſse, leicht und ſchnell.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 89.</hi></head> <lb/>
+<p>Das Auge bedarf keiner Cotyledonen; weil<lb/>
+es mit ſeiner ſchon völlig organiſirten Mutterpflanze<lb/>
+zuſammenhängt, und aus derſelbigen, ſo lang es<lb/>
+mit ihr verbunden iſt, oder, nach der Trennung,<lb/>
+von der neuen Pflanze auf welche man es gebracht<lb/>
+hat; oder durch die alſobald gebildeten Wurzeln,<lb/>
+wenn man einen Zweig in die Erde bringt,<lb/>
+hinreichende Nahrung erhält.</p> </div> <lb/>
+<pb n="61" facs="#f0076"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 90.</hi></head> <lb/>
+<p>Das Auge beſteht auſ mehr oder weniger<lb/>
+entwickelten Knoten und Blättern, welche den<lb/>
+künftigen Wachsthum weiter verbreiten ſollen.<lb/>
+Die Seitenzweige alſo welche aus den Knoten der<lb/>
+Pflanzen entſpringen, laſſen ſich als beſondere<lb/>
+Pflänzchen, welche eben ſo auf dem Mutterkörper<lb/>
+ſtehen wie dieſer an der Erde befeſtigt iſt,<lb/>
+betrachten.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 91.</hi></head> <lb/>
+<p>Die Vergleichung und Unterſcheidung beyder<lb/>
+iſt ſchon öfters, beſonders aber vor kurzem ſo<lb/>
+ſcharfſinnig und mit ſo vieler Genauigkeit ausge-<lb/>
+führt worden, daſs wir uns hier bloſs mit einem<lb/>
+unbedingten Beyfall darauf berufen können <note place="foot" n="(b)"><hi rendition="#i">Gaertner</hi> de fructibus et feminibus plantarum. Cap. 1.</note>.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 92.</hi></head> <lb/>
+<p>Wir führen davon nur ſo viel an. Die Natur<lb/>
+unterſcheidet bey auſgebildeten Pflanzen, Augen<lb/>
+und Samen deutlich von einander. Steigen wir aber<lb/>
+<pb n="62" facs="#f0077"/>
+<milestone unit="section" rendition="#hr"/> von da zu den unausgebildeten Pflanzen herab,<lb/>
+ſo ſcheint ſich der Unterſchied zwiſchen beyden<lb/>
+ſelbſt vor den Blicken des ſchärfſten Beobachters<lb/>
+zu verlieren. Es giebt unbezweifelte Samen,<lb/>
+unbezweifelte Gemmen; aber der Punct, wo<lb/>
+wirklich befruchtete, durch die Wirkung zweyer<lb/>
+Geſchlechter von der Mutterpflanze iſolirte Samen<lb/>
+mit Gemmen zuſammentreffen, welche aus der<lb/>
+Pflanze nur hervordringen und ſich ohne bemerk-<lb/>
+bare Urſache loſlöſen, iſt wohl mit dem Verſtande,<lb/>
+keineswegs aber mit den Sinnen zu erkennen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 93.</hi></head> <lb/>
+<p>Dieſes wohlerwogen, werden wir folgern<lb/>
+dürfen: daſs die Samen welche ſich durch ihren<lb/>
+eingeſchloſsenen Zuſtand von den Augen, durch<lb/>
+die ſichtbare Urſache ihrer Bildung und Abſondrung<lb/>
+von den Gemmen unterſcheiden, dennoch mit<lb/>
+beyden nahe verwandt ſind.</p> </div> </div> <lb/>
+<pb n="63" facs="#f0078"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">XIV.<lb/>
+Bildung der zuſammengeſezten Blüthen<lb/>
+und Fruchtſtände.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 94.</hi></head> <lb/>
+<p><hi rendition="#in">W</hi><hi rendition="#k">IR</hi> haben biſher die einfachen Blüthenſtände,<lb/>
+ingleichen die Samen welche in Kapſeln befeſtiget<lb/>
+hervorgebracht werden, durch die Umwandlung<lb/>
+der Knotenblätter zu erklären geſucht, und es<lb/>
+wird ſich bey näherer Unterſuchung finden; daſs in<lb/>
+dieſem Falle ſich keine Augen entwickeln, vielmehr<lb/>
+die Möglichkeit einer ſolchen Entwickelung ganz<lb/>
+und gar aufgehoben wird. Um aber die zuſam-<lb/>
+mengeſezten Blüthenſtände ſowohl, als die gemein-<lb/>
+ſchaftlichen Fruchtſtände, um Einen Kegel, Eine<lb/>
+Spindel, auf Einem Boden, und ſo weiter zu<lb/>
+erklären, müſſen wir nun die Entwickelung der<lb/>
+Augen zu Hülfe nehmen.</p> </div> <lb/>
+<pb n="64" facs="#f0079"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 95.</hi></head> <lb/>
+<p>Wir bemerken ſehr oft, daſs Stengel ohne zu<lb/>
+einem einzelnen Blüthenſtande ſich lange vorzu-<lb/>
+bereiten und aufzuſparen, ſchon auſ den Knoten<lb/>
+ihre Blüthen hervortreiben, und ſo bis an ihre<lb/>
+Spitze oft ununterbrochen fortfahren. Doch laſſen<lb/>
+ſich die dabey vorkommenden Erſcheinungen auſ<lb/>
+der oben vorgetragenen Theorie erklären. Alle<lb/>
+Blumen welche ſich aus den Augen entwickeln,<lb/>
+ſind als ganze Pflanzen anzuſehen, welche auf<lb/>
+der Mutterpflanze eben ſo wie dieſe auf der Erde<lb/>
+ſtehen. Da ſie nun aus den Knoten reinere Säfte<lb/>
+erhalten; ſo erſcheinen ſelbſt die erſten Blätter der<lb/>
+Zweiglein viel ausgebildeter, als die erſten Blätter<lb/>
+der Mutterpflanze welche auf die Cotyledonen<lb/>
+folgen; ja es wird die Ausbildung des Kelches<lb/>
+und der Blume oft ſogleich möglich.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 96.</hi></head> <lb/>
+<p>Eben dieſe aus den Augen ſich bildende Blüthen<lb/>
+würden bey mehr zudringender Nahrung, Zweige<lb/>
+geworden ſeyn, und das Schickſal des Mutter-<lb/>
+ſtengels, dem er ſich unter ſolchen Umſtänden<lb/>
+unterwerfen müſste, gleichfalls erduldet haben.</p> </div> <lb/>
+<fw type="catch" place="bottom">§. 97.</fw> <lb/>
+<pb n="65" facs="#f0080"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 97.</hi></head> <lb/>
+<p>So wie nun von Knoten zu Knoten ſich,<lb/>
+dergleichen Blüthen entwickeln, ſo bemerken wir<lb/>
+gleichfalls jene Veränderung der Stengelblätter,<lb/>
+die wir oben bey dem langſamen Uebergange zum<lb/>
+Kelch beobachtet haben. Sie ziehen ſich immer<lb/>
+mehr und mehr zuſammen, und verſchwinden<lb/>
+endlich beynahe ganz. Man nennt ſie alsdann<lb/>
+Bracteas, indem ſie ſich von der Blattgeſtalt<lb/>
+mehr oder weniger entfernen. In eben dieſem<lb/>
+Maſse wird der Stiel verdünnt, die Knoten rücken<lb/>
+mehr zuſammen, und alle oben bemerkte Erſchein-<lb/>
+ungen gehen vor, nur daſs am Ende des Stengels<lb/>
+kein entſchiedener Blüthenſtand folgt, weil die<lb/>
+Natur ihr Recht ſchon von Auge zu Auge aus-<lb/>
+geübt hat.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 98.</hi></head> <lb/>
+<p>Haben wir nun einen ſolchen an jedem Knoten<lb/>
+mit einer Blume gezierten Stengel wohl betrachtet;<lb/>
+ſo werden wir uns gar bald einen <hi rendition="#i">gemeinſchaftlichen<lb/>
+Blüthenſtand</hi> erklären können: wenn wir das was<lb/>
+oben von Entſtehung des Kelches geſagt iſt mit<lb/>
+zu Hülfe nehmen.</p> </div> <lb/>
+<fw type="sig" place="bottom">E</fw> <lb/>
+<pb n="66" facs="#f0081"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 99.</hi></head> <lb/>
+<p>Die Natur bildet einen <hi rendition="#i">gemeinſchaftlichen Kelch</hi>,<lb/>
+aus <hi rendition="#i">vielen</hi> Blättern, welche ſie auf einander drängt<lb/>
+und um Eine Axe verſammlet; mit eben dieſem<lb/>
+ſtarken Triebe des Wachsthums entwickelt ſie<lb/>
+<hi rendition="#i">einen</hi> gleichſam <hi rendition="#i">unendlichen Stengel, mit allen ſeinen<lb/>
+Augen in Blüthengeſtalt, auf einmal, in der möglichſten</hi><lb/>
+an einander gedrängten <hi rendition="#i">Nähe</hi>, und jedes Blümchen<lb/>
+befruchtet das unter ihm ſchon vorbereitete Samen-<lb/>
+gefäſs. Bey dieſer ungeheuren Zuſammenziehung<lb/>
+verlieren ſich die Knotenblätter nicht immer; bey<lb/>
+den Diſteln begleitet das Blättchen getreulich das<lb/>
+Blümchen, das ſich aus den Augen neben ihnen<lb/>
+entwickelt. Man vergleiche mit dieſem Paragraph<lb/>
+die Geſtalt des Dipſacus laciniatus. Bey vielen<lb/>
+Gräſern wird eine jede Blüthe durch ein ſolches<lb/>
+Blättchen, das in dieſem Falle der Balg genannt<lb/>
+wird, begleitet.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 100.</hi></head> <lb/>
+<p>Auf dieſe Weiſe wird es uns nun anſchaulich<lb/>
+ſeyn, wie <hi rendition="#i">die, um einen gemeinſamen Blüthen-<lb/>
+ſtand entwickelte Samen, wahre</hi>, durch die <hi rendition="#i">Wirkung<lb/>
+<pb n="67" facs="#f0082"/>
+<milestone unit="section" rendition="#hr"/> beyder Geſchlechter ausgebildete</hi> und <hi rendition="#i">entwickelte Augen<lb/>
+ſeyen</hi>. Faſsen wir dieſen Begriff feſt, und betrachten<lb/>
+in dieſem Sinne mehrere Pflanzen, ihren Wachs-<lb/>
+thum und Fruchtſtände, ſo wird der Augenſchein<lb/>
+bey einiger Vergleichung uns am beſten überzeugen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 101.</hi></head> <lb/>
+<p>Es wird uns ſodann auch nicht ſchwer ſeyn,<lb/>
+den Fruchtſtand der in der Mitte einer einzelnen<lb/>
+Blume, oft um eine Spindel verſammleten, bedeck-<lb/>
+ten oder unbedeckten Samen zu erklären. Denn<lb/>
+es iſt ganz einerley, ob eine einzelne Blume einen<lb/>
+gemeinſamen Fruchtſtand umgiebt, und die zuſam-<lb/>
+mengewachſenen Piſtille von den Antheren der<lb/>
+Blume die Zeugungsſäfte einſaugen und ſie den<lb/>
+Samenkörnern einflöſsen, oder ob ein jedes Samen-<lb/>
+korn ſein eigenes Piſtill, ſeine eigenen Antheren,<lb/>
+ſeine eigene Kronenblätter um ſich habe.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 102.</hi></head> <lb/>
+<p>Wir ſind überzeugt daſs mit einiger Uebung<lb/>
+es nicht ſchwer ſey, ſich auf dieſem Wege die<lb/>
+manigfaltigen Geſtalten der Blumen und Früchte<lb/>
+zu erklären; nur wird freylich dazu erfordert,<lb/>
+<fw type="sig" place="bottom">E 2</fw><lb/>
+<pb n="68" facs="#f0083"/>
+<milestone unit="section" rendition="#hr"/> daſs man mit jenen oben feſtgeſtellten Begriffen<lb/>
+der Ausdehnung und Zuſammenziehung, der<lb/>
+Zuſammendrängung und Anaſtomoſe, wie mit<lb/>
+Algebraiſchen Formeln bequem zu operiren, und<lb/>
+ſie da, wo ſie hingehören anzuwenden wiſse. Da<lb/>
+nun hierbey viel darauf ankommt, daſs man die<lb/>
+verſchiedenen Stufen, welche die Natur ſo wohl<lb/>
+in der Bildung der Geſchlechter, der Arten, der<lb/>
+Varietäten, als in dem Wachsthum einer jeden<lb/>
+einzelnen Pflanze betritt, genau beobachte und<lb/>
+mit einander vergleiche: ſo würde eine Sammlung<lb/>
+Abbildungen zu dieſem Endzwecke neben einander<lb/>
+geſtellt, und eine Anwendung der botaniſchen<lb/>
+Terminologie auf die verſchiedenen Pflanzentheile<lb/>
+bloſs in dieſer Rückſicht angenehm und nicht<lb/>
+ohne Nutzen ſeyn. Es würden zwey Fälle von<lb/>
+durchgewachſenen Blumen, welche der oben<lb/>
+angeführten Theorie ſehr zu ſtatten kommen, den<lb/>
+Augen vorgelegt, ſehr entſcheidend gefunden<lb/>
+werden.</p> </div> </div> <lb/>
+<pb n="69" facs="#f0084"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">XV.<lb/>
+Durchgewachſene Roſe.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 103.</hi></head> <lb/>
+<p><hi rendition="#in">A</hi><hi rendition="#k">LLES</hi> was wir bisher nur mit der Einbildungs-<lb/>
+kraft und dem Verſtande zu ergreifen geſucht,<lb/>
+zeigt uns das Beyſpiel einer durchgewachſenen<lb/>
+Roſe auf das deutlichſte. Kelch und Krone ſind<lb/>
+um die Axe geordnet und entwickelt, anſtatt<lb/>
+aber, daſs nun im Centro das Samenbehältniſs<lb/>
+<hi rendition="#i">zuſammengezogen</hi>, an demſelben und um daſſelbe die<lb/>
+männlichen und weiblichen Zeugungſtheile <hi rendition="#i">geordnet</hi><lb/>
+ſeyn ſollten, begiebt ſich der Stiel halb <hi rendition="#i">röthlich</hi><lb/>
+halb <hi rendition="#i">grünlich</hi> wieder in die <hi rendition="#i">Höhe</hi>; kleinere dunkel-<lb/>
+rothe zuſammengefaltete Kronenblätter, deren<lb/>
+einige die Spur der Antheren an ſich tragen,<lb/>
+entwickeln ſich <hi rendition="#i">ſucceſſiv</hi> an demſelben. Der Stiel<lb/>
+wächſt fort, ſchon laſſen ſich daran wieder Dornen<lb/>
+ſehn, die folgenden einzelnen gefärbten Blätter<lb/>
+werden kleiner und gehen zulezt vor unſern<lb/>
+Augen in halb roth halb grün gefärbte Stengelblätter<lb/>
+<pb n="70" facs="#f0085"/>
+<milestone unit="section" rendition="#hr"/> über, es bildet ſich eine Folge von regelmäſsigen<lb/>
+Knoten, aus deren Augen abermals, obgleich<lb/>
+unvollkommene Roſenknöſpchen zum Vorſchein<lb/>
+kommen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 104.</hi></head> <lb/>
+<p>Es giebt uns eben dieſes Exemplar auch noch<lb/>
+einen ſichtbaren Beweis des oben ausgeführten:<lb/>
+daſs nehmlich alle Kelche nur in ihrer Peripherie<lb/>
+zuſammengezogene Folia Floralia ſeyen. Denn hier<lb/>
+beſtehet der regelmäſsige um die Axe verſammlete<lb/>
+Kelch aus fünf völlig entwickelten, drey oder<lb/>
+fünffach zuſammengeſezten Blättern, dergleichen<lb/>
+ſonſt die Roſenzweige an ihren Knoten hervor-<lb/>
+bringen.</p> </div> </div> <lb/>
+<pb n="71" facs="#f0086"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">XVI.<lb/>
+Durchgewachſene Nelke.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 105.</hi></head> <lb/>
+<p><hi rendition="#in">W</hi><hi rendition="#k">ENN</hi> wir dieſe Erſcheinung recht beobachtet<lb/>
+haben, ſo wird uns eine andere, welche ſich an<lb/>
+einer durchgewachſenen Nelke zeigt, faſt noch<lb/>
+merkwürdiger werden. Wir ſehen eine vollkom-<lb/>
+mene, mit Kelch und überdies mit einer gefüllten<lb/>
+Krone verſehene, auch in der Mitte mit einer,<lb/>
+zwar nicht ganz ausgebildeten, Samenkapſel völlig<lb/>
+geendigte Blume. Aus den Seiten der Krone<lb/>
+entwickeln ſich vier vollkommene neue Blumen,<lb/>
+welche durch drey und mehrknotige Stengel von<lb/>
+der Mutterblume entfernt ſind; ſie haben abermals<lb/>
+Kelche, ſind wieder gefüllt, und zwar nicht ſo<lb/>
+wohl durch einzelne Blätter als durch Blatt-<lb/>
+kronen, deren Nägel zuſammengewachſen ſind,<lb/>
+meiſtens aber durch Blumenblätter, welche wie<lb/>
+Zweiglein zuſammengewachſen, und um einen<lb/>
+Stiel entwickelt ſind. Ohngeachtet dieſer unge-<lb/>
+heuren Entwickelung ſind die Staubfäden, und<lb/>
+<pb n="72" facs="#f0087"/>
+<milestone unit="section" rendition="#hr"/> Antheren in einigen gegenwärtig. Die Frucht-<lb/>
+hüllen mit den Griffeln ſind zu ſehen und die<lb/>
+Receptakel der Samen wieder zu Blättern ent-<lb/>
+faltet, ja in einer dieſer Blumen waren die<lb/>
+Samendecken zu einem völligen Kelch verbunden,<lb/>
+und enthielten die Anlage zu einer vollkommen<lb/>
+gefüllten Blume wieder in ſich.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 106.</hi></head> <lb/>
+<p>Haben wir bey der Roſe einen gleichſam nur<lb/>
+halbdeterminirten Blüthenſtand, aus deſſen Mitte<lb/>
+einen abermals hervortreibenden Stengel, und<lb/>
+an demſelbigen neue Stengelblätter ſich entwickeln<lb/>
+geſehen: ſo finden wir an dieſer Nelke, bey<lb/>
+wohlgebildetem Kelche und vollkommener Krone,<lb/>
+bey wirklich in der <hi rendition="#i">Mitte</hi> beſtehenden <hi rendition="#i">Frucht-<lb/>
+gehäuſen, aus dem Kreiſe der Kronenblätter, ſich<lb/>
+Augen entwickeln</hi>, und wirkliche Zweige und<lb/>
+Blumen darſtellen. Und ſo zeigen uns denn<lb/>
+beyde Fälle, daſs die Natur gewöhnlich in den<lb/>
+Blumen ihren Wachsthum ſchlieſse und gleichſam<lb/>
+eine Summe ziehe, daſs ſie der Möglichkeit ins<lb/>
+Unendliche mit einzelnen Schritten fortzugehen<lb/>
+Einhalt thue, um durch die Ausbildung der<lb/>
+Samen ſchneller zum Ziel zu gelangen.</p> </div> </div> <lb/>
+<pb n="73" facs="#f0088"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">XVII.<lb/>
+Linnées Theorie von der Anticipation.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 107.</hi></head> <lb/>
+<p><hi rendition="#in">W</hi><hi rendition="#k">ENN</hi> ich, auf dieſem Wege, den einer<lb/>
+meiner Vorgänger, welcher ihn noch dazu,<lb/>
+an der Hand ſeines groſsen Lehrers verſuchte,<lb/>
+ſo fürchterlich und gefährlich beſchreibt <note place="foot" n="(c)">Ferber in Præfatione Diſſertationis ſecundæ de Prolepſi<lb/>
+Plantarum.</note>, auch<lb/>
+hie und da geſtrauchelt hätte, wenn ich ihn nicht<lb/>
+genugſam geebnet und zum beſten meiner Nach-<lb/>
+folger von allen Hinderniſsen gereiniget hätte;<lb/>
+ſo hoffe ich doch dieſe Bemühung nicht fruchtlos<lb/>
+unternommen zu haben.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 108.</hi></head> <lb/>
+<p>Es iſt hier Zeit, der Theorie zu gedenken,<lb/>
+welche Linné zu Erklärung eben dieſer Erſchein-<lb/>
+<pb n="74" facs="#f0089"/>
+<milestone unit="section" rendition="#hr"/>ungen aufgeſtellt. Seinem ſcharfen Blick konnten<lb/>
+die Bemerkungen, welche auch gegenwärtigen<lb/>
+Vortrag veranlaſst, nicht entgehen. Und wenn<lb/>
+wir nunmehr da fortſchreiten können wo er ſtehen<lb/>
+blieb, ſo ſind wir es den gemeinſchaftlichen<lb/>
+Bemühungen ſo vieler Beobachter und Denker<lb/>
+ſchuldig, welche manches Hinderniſs aus dem<lb/>
+Wege geräumt, manches Vorurtheil zerſtreut<lb/>
+haben. Eine genaue Vergleichung ſeiner Theorie<lb/>
+und des oben ausgeführten würde uns hier zu<lb/>
+lange aufhalten. Kenner werden ſie leicht ſelbſt<lb/>
+machen, und ſie müſste zu umſtändlich ſeyn,<lb/>
+um denen anſchaulich zu werden die über dieſen<lb/>
+Gegenſtand noch nicht gedacht haben. Nur<lb/>
+bemerken wir kürzlich was ihn hinderte weiter<lb/>
+fort und bis ans Ziel zu ſchreiten.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 109.</hi></head> <lb/>
+<p>Er machte ſeine Bemerkung zuerſt an Bäumen,<lb/>
+dieſen zuſammengeſezten und lange daurenden<lb/>
+Pflanzen. Er beobachtete, daſs ein Baum, in<lb/>
+einem weitern Gefäſse überflüſsig genährt, mehrere<lb/>
+Jahre hintereinander Zweige aus Zweigen hervor-<lb/>
+bringe, da derſelbe, in ein engeres Gefäſs ein-<lb/>
+<pb n="75" facs="#f0090"/>
+<milestone unit="section" rendition="#hr"/> geſchloſsen, ſchnell Blüthen und Früchte trage.<lb/>
+Er ſahe daſs jene ſucceſſive Entwickelung hier<lb/>
+auf einmal zuſammengedrängt hervorgebracht<lb/>
+werde. Daher nannte er dieſe Wirkung der Natur<lb/>
+<hi rendition="#i">Prolepſis</hi>, eine <hi rendition="#i">Anticipation</hi>, weil die Pflanze, durch<lb/>
+die ſechſ Schritte welche wir oben bemerkt<lb/>
+haben, ſechs Jahre voraus zu nehmen ſchien.<lb/>
+Und ſo führte er auch ſeine Theorie, bezüglich<lb/>
+auf die Knoſpen der Bäume aus, ohne auf die<lb/>
+einjährigen Pflanzen beſonders Rückſicht zu<lb/>
+nehmen, weil er wohl bemerken konnte daſs<lb/>
+ſeine Theorie nicht ſo gut auf dieſe als auf jene<lb/>
+paſſe. Denn nach ſeiner Lehre müſste man<lb/>
+annehmen daſs jede einjährige Pflanze eigentlich<lb/>
+von der Natur beſtimmt geweſen ſey ſechs Jahre<lb/>
+zu wachſen und dieſe längere Friſt in dem Blüthen-<lb/>
+und Fruchtſtande auf einmal anticipire und<lb/>
+ſodann verwelke.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 110.</hi></head> <lb/>
+<p>Wir ſind dagegen zuerſt dem Wachsthum der<lb/>
+einjährigen Pflanze gefolgt; nun läſst ſich die<lb/>
+Anwendung auf die daurenden Gewächſe leicht<lb/>
+machen, da eine aufbrechende Knoſpe des älteſten<lb/>
+<pb n="76" facs="#f0091"/>
+<milestone unit="section" rendition="#hr"/>Baumes als eine einjährige Pflanze anzuſehen iſt,<lb/>
+ob ſie ſich gleich aus einem ſchon lange beſtehenden<lb/>
+Stamme entwickelt und ſelbſt eine längere Dauer<lb/>
+haben kann.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 111.</hi></head> <lb/>
+<p>Die zweyte Urſache, welche Linnéen verhinderte<lb/>
+weiter vorwärts zu gehen, war, daſs er die<lb/>
+verſchiedenen in einander geſchloſſenen Kreiſe des<lb/>
+Pflanzenkörpers, die äuſsere Rinde, die innere,<lb/>
+das Holz, das Mark, zu ſehr als gleichwirkende,<lb/>
+in gleichem Grad lebendige und nothwendige<lb/>
+Theile anſah, und den Urſprung der Blumen und<lb/>
+Fruchttheile dieſen verſchiedenen Kreiſen des<lb/>
+Stammes zuſchrieb, weil jene, eben ſo wie dieſe,<lb/>
+von einander umſchloſſen und ſich auseinander<lb/>
+zu entwickeln ſcheinen. Es war dieſes aber nur<lb/>
+eine oberflächliche Bemerkung, welche näher<lb/>
+betrachtet ſich nirgend beſtätiget. So iſt die<lb/>
+äuſsere Rinde zu weiterer Hervorbringung unge-<lb/>
+ſchickt, und bey daurenden Bäumen eine nach<lb/>
+auſsen zu verhärtete und abgeſonderte Maſse,<lb/>
+wie das Holz nach innen zu verhärtet wird. Sie<lb/>
+fällt bey vielen Bäumen ab, andern Bäumen<lb/>
+<pb n="77" facs="#f0092"/>
+<milestone unit="section" rendition="#hr"/> kann ſie, ohne den geringſten Schaden derſelben,<lb/>
+genommen werden; ſie wird alſo weder einen<lb/>
+Kelch, noch irgend einen lebendigen Pflanzen-<lb/>
+theil hervorbringen. Die zweyte Rinde iſt es,<lb/>
+welche alle Kraft des Lebens und Wachsthums<lb/>
+enthält. In dem Grad in welchem ſie verlezt<lb/>
+wird, wird auch das Wachsthum geſtöhrt, ſie<lb/>
+iſt es welche bey genauer Betrachtung alle<lb/>
+äuſsere Pflanzentheile nach und nach im Stengel,<lb/>
+oder auf einmal in Blüthe und Frucht hervor-<lb/>
+bringt. Ihr wurde von Linnéen nur das ſubor-<lb/>
+dinirte Geſchäft die Blumenblätter hervorzu-<lb/>
+bringen zugeſchrieben. Dem Holze ward<lb/>
+dagegen die wichtige Hervorbringung der männ-<lb/>
+lichen Staubwerkzeuge zu theil; anſtatt daſs<lb/>
+man gar wohl bemerken kann, es ſey daſſelbe<lb/>
+ein durch Solideſcenz zur Ruhe gebrachter,<lb/>
+wenn gleich daurender, doch der Lebens-<lb/>
+wirkung abgeſtorbener Theil. Das Mark ſollte<lb/>
+endlich die wichtigſte Function verrichten,<lb/>
+die weiblichen Geſchlechtstheile und eine zahl-<lb/>
+reiche Nachkommenſchaft hervorbringen. Die<lb/>
+Zweifel welche man gegen dieſe groſse Würde<lb/>
+des Markes erregt, die Gründe die man<lb/>
+dagegen angeführt hat ſind auch mir wichtig<lb/>
+und entſcheidend. Es war nur ſcheinbar als<lb/>
+<pb n="78" facs="#f0093"/>
+<milestone unit="section" rendition="#hr"/> wenn ſich Griffel und Frucht aus dem Mark<lb/>
+entwickelten, weil dieſe Geſtalten, wenn wir<lb/>
+ſie zum erſtenmal erblicken, in einem weichen,<lb/>
+unbeſtimmten markähnlichen, parenchymatoſen<lb/>
+Zuſtande ſich befinden, und eben in der Mitte<lb/>
+des Stengels, wo wir uns nur Mark zu ſehen<lb/>
+gewöhnt haben, zuſammengedrängt ſind.</p> </div> </div> <lb/>
+<pb n="79" facs="#f0094"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"> <head><hi rendition="#c">XVIII.<lb/>
+<hi rendition="#g">Wiederholung</hi>.</hi></head> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 112.</hi></head> <lb/>
+<p><hi rendition="#in">I</hi><hi rendition="#k">CH</hi> wünſche daſs gegenwärtiger Verſuch die<lb/>
+Metamorphoſe der Pflanzen zu erklären, zu<lb/>
+Auflöſung dieſer Zweifel einiges beytragen, und<lb/>
+zu weiteren Bemerkungen und Schlüſſen Gele-<lb/>
+genheit geben möge. Die Beobachtungen worauf<lb/>
+er ſich gründet, ſind ſchon einzeln gemacht,<lb/>
+auch geſammlet und gereihet worden <note place="foot" n="(d)"><hi rendition="#i">Batſch</hi> Anleitung zur Kenntniſs und Geſchichte der<lb/>
+Pflanzen. 1 Theil, 19 Capitel.</note>; und<lb/>
+es wird ſich bald entſcheiden, ob der Schritt<lb/>
+den wir gegenwärtig gethan, ſich der Wahrheit<lb/>
+nähere. So kurz als möglich faſſen wir die Haupt-<lb/>
+reſultate des bisherigen Vortrags zuſammen.</p> </div> <lb/>
+<pb n="80" facs="#f0095"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 113.</hi></head> <lb/>
+<p>Betrachten wir eine Pflanze in ſofern ſie ihre<lb/>
+Lebenſkraft äuſsert, ſo ſehen wir dieſes auf<lb/>
+eine doppelte Art geſchehen, zuerſt, durch das<lb/>
+<hi rendition="#i">Wachsthum</hi> indem ſie Stengel und Blätter hervor-<lb/>
+bringt, und ſodann durch die <hi rendition="#i">Fortpflanzung</hi>,<lb/>
+welche in dem Blüthen- und Fruchtbau vollendet<lb/>
+wird. Beſchauen wir das Wachsthum näher,<lb/>
+ſo ſehen wir, daſs, indem die Pflanze ſich von<lb/>
+Knoten zu Knoten, von Blatt zu Blatt fortſezt,<lb/>
+indem ſie ſproſst, gleichfalls eine Fortpflanzung<lb/>
+geſchehe, die ſich von der Fortpflanzung durch<lb/>
+Blüthe und Frucht, welche <hi rendition="#i">auf einmal</hi> geſchiehet,<lb/>
+darinn unterſcheidet, daſs ſie <hi rendition="#i">ſucceſſiv</hi> iſt, daſs<lb/>
+ſie ſich in einer Folge einzelner Entwicke-<lb/>
+lungen zeigt. Dieſe ſproſsende, nach und nach<lb/>
+ſich äuſsernde Kraft iſt mit jener, welche auf<lb/>
+einmal eine groſse Fortpflanzung entwickelt,<lb/>
+auf das genauſte vewrandt. Man kann unter<lb/>
+verſchiedenen Umſtänden eine Pflanze nöthigen,<lb/>
+daſs ſie immerfort <hi rendition="#i">ſproſse</hi>, man kann dagegen<lb/>
+den <hi rendition="#i">Blüthenſtand beſchleunigen</hi>. Jenes geſchieht,<lb/>
+wenn rohere Säfte der Pflanze in einem gröſseren<lb/>
+Maſse zudringen; dieſes, wenn die geiſtigeren<lb/>
+Kräfte in derſelben überwiegen.</p> </div> <lb/>
+<fw type="catch" place="bottom">§. 114.</fw> <lb/>
+<pb n="81" facs="#f0096"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 114.</hi></head> <lb/>
+<p>Schon dadurch daſs wir das <hi rendition="#i">Sproſsen</hi> eine<lb/>
+ſucceſsive, den <hi rendition="#i">Blüthen- und Fruchtſtand</hi> aber eine<lb/>
+ſimultane Fortpflanzung genannt haben, iſt auch<lb/>
+die Art wie ſich beyde äuſsern, bezeichnet<lb/>
+worden. Eine Pflanze welche <hi rendition="#i">ſproſst</hi>, dehnt<lb/>
+ſich mehr oder weniger aus, ſie entwickelt einen<lb/>
+Stiel oder Stengel, die Zwiſchenräume von<lb/>
+Knoten zu Knoten ſind meiſt bemerkbar, und<lb/>
+ihre Blätter breiten ſich von dem Stengel nach<lb/>
+allen Seiten zu aus. Eine Pflanze dagegen<lb/>
+welche <hi rendition="#i">blüht</hi>, hat ſich in allen ihren Theilen<lb/>
+zuſammengezogen, Länge und Breite ſind gleich-<lb/>
+ſam aufgehoben und alle ihre Organe ſind in<lb/>
+einem höchſt concentrirten Zuſtande, zunächſt<lb/>
+an einander entwickelt.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 115.</hi></head> <lb/>
+<p>Es mag nun die Pflanze ſproſsen, blühen oder<lb/>
+Früchte bringen, ſo ſind es doch nur immer<lb/>
+<hi rendition="#i">dieſelbigen Organe</hi> welche in vielfältigen Beſtim-<lb/>
+mungen und unter oft veränderten Geſtalten<lb/>
+<fw type="sig" place="bottom">F</fw><lb/>
+<pb n="82" facs="#f0097"/>
+<milestone unit="section" rendition="#hr"/> die Vorſchrift der Natur erfüllen. Daſſelbe<lb/>
+Organ welches am Stengel als Blatt ſich aus-<lb/>
+gedehnt und eine höchſt manigfaltige Geſtalt<lb/>
+angenommen hat, zieht ſich nun im Kelche<lb/>
+zuſammen, dehnt ſich in Blumenblatte wieder<lb/>
+aus, zieht ſich in den Geſchlechtſwerkzeugen<lb/>
+zuſammen, um ſich als Frucht zum leztenmal<lb/>
+auszudehnen.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 116.</hi></head> <lb/>
+<p>Dieſe Wirkung der Natur iſt zugleich mit<lb/>
+einer andern verbunden, mit der <hi rendition="#i">Verſammlung<lb/>
+verſchiedener Organe um ein Centrum</hi> nach gewiſsen<lb/>
+Zahlen und Maſsen, welche jedoch bey manchen<lb/>
+Blumen oft unter gewiſsen Umſtänden weit<lb/>
+überſchritten und vielfach verändert werden.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 117.</hi></head> <lb/>
+<p>Auf gleiche Weiſe wirkt bey der <hi rendition="#i">Bildung</hi> der<lb/>
+Blüthen und Früchte <hi rendition="#i">eine Anaſtomoſe</hi> mit, wodurch<lb/>
+die nahe an einander gedrängten, höchſt feinen<lb/>
+Theile der Fructification, entweder auf die<lb/>
+Zeit ihrer ganzen Dauer, oder auch nur auf<lb/>
+einen Theil derſelben innigſt verbunden werden.</p> </div> <lb/>
+<pb n="83" facs="#f0098"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 118.</hi></head> <lb/>
+<p>Doch ſind dieſe Erſcheinungen der <hi rendition="#i">Annähe-<lb/>
+rung, Centralſtellung</hi> und <hi rendition="#i">Anaſtomoſe</hi> nicht allein<lb/>
+dem Blüthen- und Fruchtſtande eigen; wir<lb/>
+können vielmehr etwas ähnliches bey den Cotyle-<lb/>
+donen wahrnehmen und andere Pflanzentheile<lb/>
+werden uns in der Folge reichen Stoff zu ähn-<lb/>
+lichen Betrachtungen geben.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 119.</hi></head> <lb/>
+<p>So wie wir nun die verſchiedenſcheinenden<lb/>
+Organe der ſproſsenden und blühenden Pflanze<lb/>
+alle auſ einem einzigen nehmlich <hi rendition="#i">dem Blatte</hi>,<lb/>
+welches ſich gewöhnlich an jedem Knoten ent-<lb/>
+wickelt, zu erklären geſucht haben; ſo haben<lb/>
+wir auch diejenigen Früchte, welche ihre Samen<lb/>
+feſt in ſich zu verſchlieſsen pflegen, aus der<lb/>
+Blattgeſtalt herzuleiten gewagt.</p> </div> <lb/>
+<fw type="sig" place="bottom">F 2</fw> <lb/>
+<pb n="84" facs="#f0099"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 120.</hi></head> <lb/>
+<p>Es verſtehet ſich hier von ſelbſt, daſs wir<lb/>
+ein allgemeines Wort haben müſsten wodurch<lb/>
+wir dieſes in ſo verſchiedene Geſtalten meta-<lb/>
+morphoſirte Organ bezeichnen, und alle Erſchein-<lb/>
+ungen ſeiner Geſtalt damit vergleichen könnten:<lb/>
+gegenwärtig müſsen wir uns damit begnügen,<lb/>
+daſs wir uns gewöhnen die Erſcheinungen<lb/>
+vorwärts und rückwärts gegen einander zu<lb/>
+halten. Denn wir können eben ſo gut ſagen:<lb/>
+ein Staubwerkzeug ſey ein zuſammengezogenes<lb/>
+Blumenblatt, als wir von dem Blumenblatte<lb/>
+ſagen können: es ſey ein Staubgefäſs im<lb/>
+Zuſtande der Ausdehnung; ein Kelchblatt ſey<lb/>
+ein zuſammengezogenes, einem gewiſsen Grad<lb/>
+der Verfeinerung ſich näherndes Stengelblatt,<lb/>
+als wir von einem Stengelblatt ſagen können es<lb/>
+ſey ein, durch Zudringen roherer Säfte auſge-<lb/>
+dehntes Kelchblatt.</p> </div> <lb/>
+<pb n="85" facs="#f0100"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head><hi rendition="#c">§. 121.</hi></head> <lb/>
+<p>Eben ſo läſst ſich von dem Stengel ſagen; er<lb/>
+ſey ein auſgedehnter Blüthen- und Fruchtſtand,<lb/>
+wie wir von dieſem prädicirt haben: er ſey ein<lb/>
+zuſammengezogener Stengel.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 122.</hi></head> <lb/>
+<p>Auſserdem habe ich am Schluſse des Vortrags<lb/>
+noch die Entwickelung der <hi rendition="#i">Augen</hi> in Betrach-<lb/>
+tung gezogen und dadurch die zuſammengeſezten<lb/>
+Blumen, wie auch die unbedeckten Fruchtſtände<lb/>
+zu erklären geſucht.</p> </div> <lb/>
+<div n="2"> <head><hi rendition="#c">§. 123.</hi></head> <lb/>
+<p>Und auf dieſe Weiſe habe ich mich bemüht,<lb/>
+eine Meynung welche viel überzeugendes für<lb/>
+mich hat, ſo klar und vollſtändig als es mir<lb/>
+möglich ſeyn wollte, darzulegen. Wenn ſolche<lb/>
+dem ohngeachtet noch nicht völlig zur Evidenz<lb/>
+gebracht iſt; wenn ſie noch manchen Wider-<lb/>
+ſprüchen auſgeſezt ſeyn, und die vorgetragne<lb/>
+Erklärungsart nicht überall anwendbar ſcheinen<lb/>
+<pb n="86" facs="#f0101"/>
+<milestone unit="section" rendition="#hr"/> möchte: ſo wird es mir deſto mehr Pflicht<lb/>
+werden, auf alle Erinnerungen zu merken, und<lb/>
+dieſe Materie in der Folge genauer und umſtänd-<lb/>
+licher abzuhandeln, um dieſe Vorſtellungsart<lb/>
+anſchaulicher zu machen, und ihr einen allge-<lb/>
+meinern Beyfall zu erwerben, als ſie vielleicht<lb/>
+gegenwärtig nicht erwarten kann.</p> </div> </div> <lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0102"/>
+</body> <back>
+<pb facs="#f0103"/>
+<pb facs="#f0104"/>
+<pb facs="#f0105"/>
+<pb facs="#f0106"/>
+<pb facs="#f0107"/>
+<pb facs="#f0108"/>
+</back>
+</text> </TEI>

@@ -1,0 +1,2373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Die Postgeheimnisse oder die hauptsächlichsten Regeln welche man beim Reisen und bei Versendungen mit der Post beobachten muß um Verdruß und Verlust zu vermeiden</title>
+<author>
+<persName ref="http://d-nb.info/gnd/100796672">
+<surname>Raabe</surname>
+<forename>Heinrich August</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">97</measure>
+<measure type="tokens">14659</measure>
+<measure type="types">2980</measure>
+<measure type="characters">104843</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:17Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/raabe_postgeheimnisse_1803</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/raabe_postgeheimnisse_1803</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/raabe_postgeheimnisse_1803</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/raabe_postgeheimnisse_1803</idno>
+<idno type="DTADirName">raabe_postgeheimnisse_1803</idno>
+<idno type="DTAID">17170</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194731</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Raabe, Heinrich August: Die Postgeheimnisse oder die hauptsächlichsten Regeln welche man beim Reisen und bei Versendungen mit der Post beobachten muß um Verdruß und Verlust zu vermeiden. Leipzig, 1803.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Die Postgeheimnisse oder die hauptsächlichsten Regeln welche man beim Reisen und bei Versendungen mit der Post beobachten muß um Verdruß und Verlust zu vermeiden</title>
+<author>
+<persName ref="http://d-nb.info/gnd/100796672">
+<surname>Raabe</surname>
+<forename>Heinrich August</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">84 S.</measure>
+</extent>
+<publicationStmt>
+<publisher/>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1803</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">Göttingen SUB, 8 POL III, 9815</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20POL%20III%2C%209815</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Gesellschaftswissenschaften</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Gesellschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="halftitle"> <docTitle> <titlePart type="main"> <hi rendition="#g">Die<lb/>
+Poſtgeheimniſſe<lb/>
+oder<lb/>
+die hauptsaͤchlichſten Regeln<lb/>
+welche man</hi><lb/>
+beim Reiſen und bei Verſendungen<lb/>
+<hi rendition="#g">mit<lb/>
+der Poſt<lb/>
+beobachten muß<lb/>
+um Verdruß und Verluſt<lb/>
+zu vermeiden</hi>.<lb/>
+</titlePart> </docTitle> </titlePage> <div type="contents"> <head> <hi rendition="#g">Inhalt</hi>. </head><lb/>
+<list> <item>1. <hi rendition="#g #in">E</hi> <hi rendition="#g">inleitung</hi>. <hi rendition="#g">Nuͤtzlichkeit des<lb/>
+Poſtweſens</hi>.<lb/>
+<list> <item>a. Klagen uͤber daſſelbe.</item><lb/>
+<item>b. Allgemeine Anweiſung, Verdruͤßlichkeiten</item> </list></item><lb/>
+<item>2. <hi rendition="#g #in">V</hi> <hi rendition="#g">om Reiſen mit der ordinaͤ¬<lb/>
+ren Poſt</hi>.<lb/>
+<list> <item>a. Von Bezahlung des Paſſagiergeldes.</item><lb/>
+<item>b. Von der Ueberfracht.</item><lb/>
+<item>c. — Trinkgeldern.</item><lb/>
+<item>d. — der Bagage des Reiſenden.</item> </list></item><lb/>
+<pb facs="#f0008"/>
+<item>3. <hi rendition="#g">Vom Reiſen mit Extrapoſt</hi>.<lb/>
+<list> <item>a. Wie viel Extrapoſtpferde man nehmen<lb/>
+muͤſſe.</item><lb/>
+<item>b. Von Extrapoſtwagenkutſchen, oder Chai¬<lb/>
+ſen ꝛc.</item><lb/>
+<item>c. Warum man Wartegeld bezahlen muß.</item> </list></item><lb/>
+<item>4. <hi rendition="#g">Von Verſendungen mit der<lb/>
+Poſt</hi>.<lb/>
+<list> <item>a.Vom Frankiren der Briefe; wo es noͤthig<lb/>
+und wenn es nicht erforderlich iſt.</item><lb/>
+<item>b. Ueber den Preis des Briefporto's.</item><lb/>
+<item>c. Von der Taxe der doppelten Briefe, der<lb/>
+gerichtlichen Schriften, Manuſcripte u.<lb/>
+dergl.</item><lb/>
+<item>d. Von ankommenden Briefen, oder was<lb/>
+man beim Empfange der Briefe beob¬<lb/>
+achten muß.</item><lb/>
+<item>e. Wie man mit Briefen, welche man nicht<lb/>
+einloͤſen will, zu verfahren hat.</item> </list></item><lb/>
+<item>5. <hi rendition="#g">Regeln bei Verſendungen der<lb/>
+Gelder und Packete mit der<lb/>
+Poſt</hi>.<lb/>
+<list> <item>a. Wie man Geld in Briefe, Packete, Beu¬<lb/>
+tel, Faͤßer u. dergl. einpacken und ver¬<lb/>
+wahren muͤſſe.</item><lb/>
+<item>b. Vom richtigen Zeichnen der Packete.</item><lb/>
+<item>c. Was beim Empfange der Geldbriefe und<lb/>
+Packete zu beobachten.</item><lb/>
+<item>d. Wie man ſich zu verhalten hat, wenn<lb/>
+unſre Sachen auf der Poſt verlohren,<lb/>
+oder beſchaͤdigt ſind.</item> </list></item> </list><lb/>
+</div>
+<pb n="[1]" facs="#f0009"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#g">Die</hi><lb/>
+<hi rendition="#b #g">Poſtgeheimniſſe</hi><lb/>
+<hi rendition="#g">oder<lb/>
+die hauptſaͤchlichſten Regeln<lb/>
+welche man</hi><lb/>
+beim Reiſen und bei Verſendungen<lb/>
+mit<lb/>
+<hi rendition="#g">der Poſt</hi><lb/>
+beobachten muß<lb/>
+<hi rendition="#g">um Verdruß und Verluſt<lb/>
+zu vermeiden</hi>.<lb/>
+</titlePart> </docTitle> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#g">Leipzig</hi>,</pubPlace> <docDate> <hi rendition="#g">1803</hi>.<lb/>
+</docDate> </docImprint> </titlePage> </front> <body>
+<pb n="[2]" facs="#f0010"/>
+<pb n="[3]" facs="#f0011"/>
+<div n="1"> <head> <hi rendition="#g">Einleitung.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">D</hi>as Poſtweſen iſt gegenwaͤrtig eine ſo ausgebrei¬<lb/>
+tete und weitgreiffende Anſtalt, welche uͤberall ohne<lb/>
+Zweifel die bequemſte und wohlfeilſte Gelegenheit,<lb/>
+<hi rendition="#g">etwas zu verſenden</hi> und <hi rendition="#g">Reiſen anzu¬<lb/>
+ſtellen</hi>, darbietet, daß nicht leicht ein Menſch, der<lb/>
+mit andern Menſchen in Verbindung ſteht, deſſel¬<lb/>
+ben entbehren kann, oder ſich eines andern Mit¬<lb/>
+tels zu jener Abſicht bedienen wird. Es iſt unſtrei¬<lb/>
+tig eine der nuͤtzlichſten Erfindungen und wohlthaͤ¬<lb/>
+tigſten Einrichtungen. Die Poſt verſchaft nicht<lb/>
+nur dem Handel- und Gewerbetreibenden Publiko<lb/>
+taͤglich Vortheile und giebt vielen tauſend Menſchen<lb/>
+Unterhalt; ſondern ſie dienet auch hoͤhern Zwecken<lb/>
+<pb n="4" facs="#f0012"/>
+fuͤr die ganze Menſchheit. Das Poſtweſen iſt, ſeit<lb/>
+ſeiner Einrichtung, ein vorzuͤgliches Mittel gewe¬<lb/>
+ſen, unſre jetzige Kultur befoͤrdern, Wiſſenſchaften<lb/>
+und Aufklaͤrung ausbreiten zu helfen, indem es taͤg¬<lb/>
+lich den Gelehrten diente, Entdeckungen mitzuthei¬<lb/>
+len und dem Genius der Humanitaͤt den Sieg<lb/>
+vorzubereiten. —</p><lb/>
+<p>Dennoch wird dieſe Anſtalt von einem großen<lb/>
+Theile des Publikums, ſelbſt von ſolchen Leuten,<lb/>
+denen ſie taͤglich Nutzen verſchaft, nicht gehoͤrig ge¬<lb/>
+ſchaͤtzt und geachtet. Wenigſtens giebt man ſich<lb/>
+nicht uͤberall Muͤhe genug, die Einrichtungen, wel¬<lb/>
+che im Allgemeinen und in den verſchiedenen Laͤn¬<lb/>
+dern beſonders, bei dem Poſtweſen gemacht ſind,<lb/>
+und wodurch deſſen Betrieb und Beſtand erhalten<lb/>
+wird, kennen zu lernen und zu beobachten. Dage¬<lb/>
+gen hoͤrt man faſt <hi rendition="#g">taͤglich Klagen und Be¬<lb/>
+ſchwerden uͤber das Poſtweſen</hi> und uͤber<lb/>
+Poſtbediente; daher entſtehen ſo viele Verdruͤßlich¬<lb/>
+keiten, Zaͤnkereien und Streitigkeiten zwiſchen den<lb/>
+Poſtofficianten und den Reiſenden und denen, wel¬<lb/>
+che mit der Poſt etwas verſenden, oder empfan¬<lb/>
+gen. Aus Unkunde des Poſtmechanismus entſteht<lb/>
+nicht ſelten Verdruß und Verluſt.</p><lb/>
+<p>Ich glaube daher ein nicht unnuͤtzes Geſchaͤft<lb/>
+zu uͤbernehmen, wenn ich mich bemuͤhe, hier einige<lb/>
+<pb n="5" facs="#f0013"/>
+<hi rendition="#g">Regeln und Nachrichten mitzutheilen</hi>,<lb/>
+<hi rendition="#g">welche man befolgen muß</hi>, <hi rendition="#g">um Verdruß<lb/>
+und Verluſt bei der Poſt zu vermeiden</hi>.<lb/>
+— Dieſe Regeln ſollen und koͤnnen jedoch nur all¬<lb/>
+gemein ſeyn, und ich kann dabei natuͤrlich nicht<lb/>
+auf die eigenthuͤmlichen Poſteinrichtungen irgend ei¬<lb/>
+nes Staats, oder <choice><sic>eiues</sic><corr>eines</corr></choice> Orts, beſonders Ruͤckſicht<lb/>
+nehmen. Da jedoch die Einrichtungen bei dem<lb/>
+Poſtweſen, ſo wie es gegenwaͤrtig in Europa be¬<lb/>
+ſchaffen iſt, im Weſentlichen große Aehnlichkeit ha¬<lb/>
+ben; ſo wird man ſich mit der Befolgung dieſer<lb/>
+Anweiſungen ſo ziemlich durch alle Laͤnder, wo Po¬<lb/>
+ſten ſind und wo man ſich derſelben bedienen will,<lb/>
+aushelfen koͤnnen.</p><lb/>
+<p>Fuͤr Leute, welche von Natur nicht zu Zaͤnke¬<lb/>
+reien geneigt ſind und die ſich alles, was man<lb/>
+von ihnen fordert, gefallen laſſen und ohne Wi¬<lb/>
+derrede thun und geben, was man verlangt, oder<lb/>
+welche die Gabe beſitzen, ſich mit andern uͤber vor¬<lb/>
+kommende Zweifel und Mißverſtaͤndniße auf eine<lb/>
+leichte Art zu vereinigen, bedarf es dieſer Regeln<lb/>
+groͤßtentheils nicht. Allein ſolcher Menſchen giebt<lb/>
+es nicht viel und man kann es nicht fordern, daß<lb/>
+alle, welche mit der Poſt reiſen, oder etwas ver¬<lb/>
+ſenden und empfangen, bei vorkommenden Zwei¬<lb/>
+feln, ſich, ohne Aufklaͤrung deshalben zu erhalten,<lb/>
+<pb n="6" facs="#f0014"/>
+beruhigen ſollen, zumal man zugeben muß, daß<lb/>
+ſowohl von Seiten der Poſtofficianten, als von<lb/>
+Seiten der Reiſenden und Verſender, Irrthuͤmer<lb/>
+veranlaßt und begangen werden koͤnnen. — Je¬<lb/>
+doch muß ich gleich vorlaͤufig, als eine Hauptregel<lb/>
+feſtſetzen, daß man ſich, wie ſchon Moral und<lb/>
+Lebensklugheit heiſchen, uͤberall bemuͤhen muͤſſe,<lb/>
+ſcheinbare Unbilligkeiten zu ertragen und ſich zu be¬<lb/>
+ruhigen, wenn man angenehm leben, mithin auch<lb/>
+friedlicher und ſchiedlicher mit der Poſt Verkehr ha¬<lb/>
+ben will. Denn jede anſcheinende Unbilligkeit ſo¬<lb/>
+gleich auf der Stelle raͤchen und ausfechten zu wol¬<lb/>
+len und uͤber jeden, in dieſem Fache uns auf¬<lb/>
+ſtoßenden Zweifel augenblicklich von dem Poſtbe¬<lb/>
+dienten genugthuende Aufklaͤrung zu verlangen,<lb/>
+fuͤhrt gewoͤhnlich zu noch groͤßern Unannehmlichkei¬<lb/>
+ten und Verdrießlichkeiten.</p><lb/>
+<p>Statt deſſen iſt es beſſer und zweckmaͤßiger, in<lb/>
+allen ſolchen Faͤllen, wo man ſich bei der Poſt be¬<lb/>
+teidigt, oder bevortheilt glaubt, ſich nicht mit den<lb/>
+Officianten in muͤndliche Discuſſionen einzulaſſen,<lb/>
+wenn man nehmlich das Recht nicht offenbar auf<lb/>
+der Seite hat und der Irrthum klar am Tage<lb/>
+liegt, ſondern <choice><sic>uuſre</sic><corr>unſre</corr></choice> Beſchwerden ſchriftlich aufzu¬<lb/>
+ſetzen und ſie entweder dem Poſtdirectorio des Lan¬<lb/>
+des, oder der Regierung ſelbſt zu uͤbergeben. Von<lb/>
+<pb n="7" facs="#f0015"/>
+dieſen Behoͤrden wird ſicherlich Aufklaͤrung des Vor¬<lb/>
+falls und Genugthuung erfolgen und mehr kann<lb/>
+man mit Billigkeit nicht verlangen. Es ſchadet<lb/>
+nichts, wenn eine ſolche Erklaͤrung, oder Genug¬<lb/>
+thung, nicht augenblicklich auf der Stelle gegeben<lb/>
+wird, ſondern erſt mit der Zeit erfolgt. Man hat<lb/>
+denn doch dadurch ſchon ſo viel erlangt, daß man<lb/>
+Verdruß und Aerger vermieden hat, welches fuͤr<lb/>
+die Geſundheit und Zufriedenheit kein geringer Ge¬<lb/>
+winn iſt. Die Oberpoſtaͤmter und Landesregierun¬<lb/>
+gen ſind denn doch verbunden, die angebrachten<lb/>
+Beſchwerden gehoͤrig zu unterſuchen und zu ent¬<lb/>
+ſcheiden, welches auch von denſelben ſicher mit<lb/>
+groͤßerm Nachdruck und Erfolge geſchieht, als von<lb/>
+einem Individuo durch Zank mit dem Poſtbedien¬<lb/>
+ten. Falls aber auch auf dieſem Wege nichts aus¬<lb/>
+zurichten waͤre (wie leider bisweilen der Fall ſeyn<lb/>
+kann) ſo bleibt freilich nichts uͤbrig, wenn man<lb/>
+nicht weiter oberrichterliche Huͤlfe ſuchen will, als<lb/>
+vorlaͤufig die Beſchwerden dem Publikum ſelbſt zur<lb/>
+Beurtheilung und Nachachtung vorzulegen. —</p><lb/>
+<p>Ueberhaupt muß man jedoch in allen Faͤllen,<lb/>
+wo wir Beſchwerden gegen die Poſt zu haben<lb/>
+glauben, bedenken, daß der Poſtofficiant nach Vor¬<lb/>
+ſchrift und Inſtruction handeln muß und daß er es<lb/>
+nicht leicht wagen werde, gegen Vorſchrift und In¬<lb/>
+<pb n="8" facs="#f0016"/>
+ſtruction zu verfahren und dadurch Brodt und Ehre<lb/>
+aufs Spiel zu ſetzen.</p><lb/>
+<p>Handelt er nach ſeiner Inſtruction; ſo faͤllt<lb/>
+unſre Beſchwerde gegen ihn von ſelbſt weg und<lb/>
+wir muͤſſen es uns ſchon gefallen laſſen, uns nach<lb/>
+den Einrichtungen zu bequemen, welche an dieſem<lb/>
+Orte in Abſicht des Poſtweſens gemacht ſind, wenn<lb/>
+wir nicht gegen dieſe ſelbſt zu Felde ziehen koͤnnen.<lb/>
+Handelt er aber pflichtwidrig; ſo iſt es deſto beſſer,<lb/>
+unſre Beſchwerden vor ſeine Obern zu bringen, als<lb/>
+ſich mit ihm in Zaͤnkerei einzulaſſen. Es iſt uͤber<lb/>
+dieß bekannt, daß in den meiſten Laͤndern die Ge¬<lb/>
+ſetze in dieſer Hinſicht ziemlich beſtimmt ſind und<lb/>
+daß nicht leicht eine Regierung mit ihren Bedienten<lb/>
+durch die Finger ſehen, ſondern dem Reiſenden<lb/>
+und Correspondenten volle Gerechtigkeit widerfah¬<lb/>
+ren laſſen werde. In manchen Laͤndern wird der<lb/>
+herrſchaftliche Bediente, der mit Fremden in Colli¬<lb/>
+ſion geraͤth, nur zu ſtrenge behandelt und der<lb/>
+Fremde oft zu ſehr beguͤnſtigt. —</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="9" facs="#f0017"/>
+<p>Ich will nun <hi rendition="#g">erſtlich</hi> Regeln vortragen, wel¬<lb/>
+che man <hi rendition="#g">beim Reiſen mit der Poſt</hi> beobach¬<lb/>
+tem muß, und alsdann <hi rendition="#g">zweitens</hi> Anweiſungen,<lb/>
+welche <hi rendition="#g">bei Verſendungen und beim Em¬<lb/>
+pfange von Sachen</hi> mit der Poſt anwend¬<lb/>
+bar ſind.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb n="[10]" facs="#f0018"/>
+<div n="1"> <head> <hi rendition="#g">Vom Reiſen mit der Poſt.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">W</hi>enn man mit der <hi rendition="#g">ordinaͤren Poſt</hi> ver¬<lb/>
+reiſen will; ſo wird es nothwendig ſeyn, ſich zu<lb/>
+erkundigen, an welchem Tage und zu welcher Ta¬<lb/>
+geszeit und Stunde die Poſt nach dem Orte, wo¬<lb/>
+hin man zu reiſen gedenkt, abgehet. Dieſes wird<lb/>
+man leicht aus dem Kalender oder aus der ſoge¬<lb/>
+nannten Poſttabelle des Orts oder Landes, erfah¬<lb/>
+ren koͤnnen. Laͤcherlich genug iſt es, aber der Fall<lb/>
+tritt doch haͤufig ein, daß es Leute giebt, welche<lb/>
+ſich einbilden, daß ſobald ſie ſich im Poſthauſe zu<lb/>
+einer Reiſe melden, oder einen Brief abgeben, auch<lb/>
+gleich eine Poſt an den Ort, wohin ſie zu reiſen,<lb/>
+oder den Brief zu ſchicken wuͤnſchen, abgehe, oder<lb/>
+abgehen muͤſſe. Solche Leute giebt es nicht nur in<lb/>
+den ſogenannten niedrigen, ſondern auch in den<lb/>
+hoͤhern Staͤnden. Und daher kann man ſchon ab¬<lb/>
+nehmen, daß die Einrichtungen des Poſtweſens<lb/>
+noch nicht ſo allgemein bekannt ſind, als ſie es<lb/>
+verdienen und daß die Muͤhe, ſie bekannter zu ma¬<lb/>
+chen nicht unnuͤtz, ſondern verdienſtlich ſei. —</p><lb/>
+<pb n="11" facs="#f0019"/>
+<p>Hat man den Tag der Abreiſe feſtgeſetzt; ſo<lb/>
+verfuͤgt man ſich nach dem Poſthauſe des Tages,<lb/>
+oder doch wenigſtens einige Stunden vorher, und<lb/>
+giebt daſelbſt dem Poſtofficianten zu erkennen; daß<lb/>
+man wuͤnſche, nach jenem Orte mit der <hi rendition="#g">ordinaͤ¬<lb/>
+ren Poſt</hi> zu reiſen, und man bittet um einen<lb/>
+Platz auf dem Wagen mit der Frage: wie viel da¬<lb/>
+fuͤr bezahlt werden muͤſſe? — Hierauf pflegt dann<lb/>
+von dem Poſtbedienten die Frage zu geſchehen: ob<lb/>
+man <hi rendition="#g">mit</hi>, oder <hi rendition="#g">ohne Bagage</hi> (mit einem Kof¬<lb/>
+fer, oder Gepaͤcke u. d. gl. oder ohne dergleichen)<lb/>
+reiſe? Dieſe Frage iſt deshalben nothwendig, weil<lb/>
+die Paſſagiertaxe fuͤr Perſonen, welche Koffer, oder<lb/>
+anderes Gepaͤck, mit ſich nehmen, natuͤrlicher Weiſe<lb/>
+hoͤher iſt, als fuͤr ſolche, die ohne Bagage reiſen.<lb/>
+So zahlt z. B. auf den Preußiſchen Poſten eine<lb/>
+Perſon mit Bagage fuͤr die Meile 6 gute Groſchen,<lb/>
+ohne Bagage nur 4 Ggr. — Hat man ſich hier¬<lb/>
+uͤber erklaͤrt; ſo fordert der Poſtofficiant das Poſt¬<lb/>
+geld. Wenn man nun die Meilenzahl nach dem<lb/>
+Orte, wohin man will, weiß; ſo wird man leicht<lb/>
+ſelbſt berechnen koͤnnen, ob ſeine Forderung richtig,<lb/>
+oder falſch iſt. Es iſt groͤßtentheils uͤberall gebraͤuch¬<lb/>
+lich, daß dieſes Poſtgeld ſogleich erlegt werde.<lb/>
+Man thut alſo wohl, wenn man ſich mit Landes¬<lb/>
+muͤnze verſiehet und zwar in nicht zu kleinen Sor¬<lb/>
+<pb n="12" facs="#f0020"/>
+ten, denn der Poſtbediente iſt nicht verbunden,<lb/>
+auslaͤndiſches Geld zu nehmen und das Nachzaͤhlen<lb/>
+in zu geringen Muͤnzſorten wuͤrde ihm zu viel von<lb/>
+ſeiner aͤuſſerſt eingeſchraͤnkten Zeit rauben. Alsdann<lb/>
+kann man ſich erkundigen, den wie vielſten Platz<lb/>
+man auf dem Poſtwagen bekommen werde und<lb/>
+um welche Zeit man ſich zur Abfahrt einfinden<lb/>
+muͤſſe. —</p><lb/>
+<p>Bei einigen Poſtaͤmtern erhaͤlt man einen Zet¬<lb/>
+tel, oder Schein, worauf bemerkt iſt, daß man<lb/>
+den, oder jenen Platz auf dieſer, oder jener Poſt<lb/>
+bezahlt habe. Wo ſolche Zetteln nicht gebraͤuchlich<lb/>
+ſind, da werden doch die Reiſenden, ſo wie ſie ſich<lb/>
+melden, nach der Reihe, angeſchrieben und hier¬<lb/>
+nach wird bei der Abfahrt jedem ſein Platz ange¬<lb/>
+wieſen. Die Plaͤtze auf einem Poſtwagen haben<lb/>
+dadurch vor einander Vorzuͤge, daß einige hinten,<lb/>
+andre vorn unter dem Verdecke, andere gar außer<lb/>
+dem Verdecke, und noch andre grade auf der Achſe,<lb/>
+wo man die Stoͤße des Wagens am heftigſten em¬<lb/>
+pfindet, ſind. Die beſten Stellen werden gewoͤhn¬<lb/>
+lich in der Mitte ſeyn. Es wird vergeblich ſeyn,<lb/>
+einen andern Platz, als den man der Ordnung<lb/>
+nach, wie man ſich gemeldet hat, erhalten muß, zu<lb/>
+verlangen, denn die Poſtbedienten richten ſich hier¬<lb/>
+bei nach der Regel der Mahlmuͤller, welche ſagt:<lb/>
+<pb n="13" facs="#f0021"/>
+wer zuerſt koͤmmt, der mahlt zuerſt, und ſie koͤnnen<lb/>
+von dieſer Ordnung nicht abgehen, weil ſie ſonſt<lb/>
+andern mitreiſenden Paſſagieren Unrecht thun und<lb/>
+dieſe ſich ſolches nicht gefallen laſſen, ſondern ſich<lb/>
+dagegen beſchweren wuͤrden. Auch wird es vergeb¬<lb/>
+lich ſeyn, von dem geforderten Poſtgelde etwas ab¬<lb/>
+ziehen zu wollen, denn der Poſtofficiant kann da¬<lb/>
+von, weil es taxmaͤßig iſt und er es nach der Taxe<lb/>
+in Rechnung bringen muß, nichts erlaſſen.</p><lb/>
+<p>Nur in dem Falle, wenn man ſogleich guͤltige<lb/>
+Beweiſe des Unvermoͤgens, oder Armuth beibrin¬<lb/>
+gen koͤnnte, wuͤrde man durch beſcheidene Vorſtel¬<lb/>
+lungen verſuchen duͤrfen, einen Nachlaß an dem<lb/>
+Paſſagiergelde zu erhalten. Eigentlich kann jedoch<lb/>
+ein ſolcher Nachlaß von keinem Poſtofficianten, als<lb/>
+auf beſondern Befehl ſeiner Vorgeſetzten, oder des<lb/>
+Landesherrn, noch weniger kann von ihm gaͤnzliche<lb/>
+Poſtfreiheit ohne beſondre Anweiſung der Herr¬<lb/>
+ſchaft bewilligt werden. Denn bei allen Poſten iſt<lb/>
+es natuͤrlicher Weiſe allgemeines Prinzip, daß jeder,<lb/>
+der mit der Poſt reiſet und alles, was mit der<lb/>
+Poſt verſandt wird, bezahlen muß, wovon kein Offi¬<lb/>
+ciant, ohne beſondre Verfuͤgung ſeiner Obern, ab¬<lb/>
+gehen darf. Die Poſtmeiſter ſind nicht Eigenthuͤ¬<lb/>
+mer, ſondern nur Verwalter der Poſten, mithin<lb/>
+verpflichtet, alle Einkuͤnfte nach der vorgeſchriebe¬<lb/>
+<pb n="14" facs="#f0022"/>
+nen Taxe zu berechnen. Poſt- oder Portofreiheit,<lb/>
+oder Befreiung von Bezahlung des Poſtgeldes kann<lb/>
+nur vom Landesherrn ertheilt werden und erſtreckt<lb/>
+ſich nie weiter, als in dem Maaße, in welchem ſie<lb/>
+ausdruͤcklich bewilligt iſt. Solche Portobefreiung<lb/>
+pflegt nur gewiſſen Perſonen wegen ihrer gemein<lb/>
+nuͤtzigen Unternehmungen, oder fuͤr beſtimmte Ge<lb/>
+ſchaͤfte ertheilt zu werden.</p><lb/>
+<p>Will man auf der Reiſe mit der ordinaͤren<lb/>
+Poſt <hi rendition="#g">Bagage</hi> mitnehmen; ſo muß man ſich er¬<lb/>
+kundigen, wie viele Pfunde man frei mit ſich fuͤh¬<lb/>
+ren duͤrfe? — Da nun auf einigen Poſten einem<lb/>
+Paſſagiere, der das volle Poſtgeld bezahlt, 50, auf<lb/>
+andern Poſten weniger, auf einigen andern hinge¬<lb/>
+gen mehr, nehmlich etwa 60 bis 70 Pfund freige¬<lb/>
+laſſen werden; ſo wird jeder Paſſagier, der die<lb/>
+Schwere ſeines Koffers, oder ſeiner Bagage weiß,<lb/>
+ſelbſt ausrechnen koͤnnen, fuͤr wie viel Pfund er<lb/>
+noch beſonders bezahlen muͤſſe. Dieſes Ueberge¬<lb/>
+wicht, welches ein Reiſender auf der ordinaͤren Poſt,<lb/>
+auſſer der bewilligten Pfundezahl, mit ſich fuͤhrt,<lb/>
+heißt in der Poſtſprache: <hi rendition="#g">Ueberfracht</hi> und auch<lb/>
+das dafuͤr zu erlegende Geld ſelbſt wird Ueberfracht<lb/>
+genannt. Faſt bei allen Poſten wird es jedoch mit<lb/>
+dieſer Ueberfracht nicht zum ſtrengſten genommen.<lb/>
+Theils wird auf einige Pfunde, wenn es die Um¬<lb/>
+<pb n="15" facs="#f0023"/>
+ſtaͤnde geſtatten, nicht geachtet, theils wird auch die<lb/>
+Ueberfracht ſelbſt bei den meiſten Poſten nur nach<lb/>
+der geringern Victualien- und Buͤchertaxe, welche<lb/>
+gewoͤhnlich ¼ oder 1/3 geringer iſt, als die Taxe fuͤr<lb/>
+andre Waaren, genommen und bezahlt. Wenn<lb/>
+nun ein Paſſagier die Pfundezahl ſeiner Ueber¬<lb/>
+fracht weiß und die Taxe, oder wieviel fuͤr 1 Pfund<lb/>
+bis an ſeinen Beſtimmungsort, oder nach der Sta¬<lb/>
+tion, wohin er das Poſtgeld zahlt, gegeben werden<lb/>
+muß; ſo wird er auch leicht ſelbſt berechnen koͤn¬<lb/>
+nen, wie viel Ueberfracht er noch bezahlen muͤſſe<lb/>
+und es iſt rathſam, ſolches, ſobald es gefordert<lb/>
+wird, ohne Anſtand zu erlegen. Der Poſtbediente<lb/>
+iſt verpflichtet, die Bagage der Paſſagiere waͤgen zu<lb/>
+laſſen und fuͤr die Ueberfracht Bezahlung einzufor¬<lb/>
+dern und in Rechnung zu bringen, und da er ſo¬<lb/>
+wohl, als der Poſtwagenmeiſter, welcher das Waͤ¬<lb/>
+gen verrichtet, beeidigte Staatsdiener ſind, welche<lb/>
+nach ihrer Inſtruction verfahren muͤſſen; ſo wird<lb/>
+es vergeblich ſeyn, wenn ein Paſſagier von der<lb/>
+Ueberfracht etwas abdingen, oder ſie ſogar verwei¬<lb/>
+gern wollte. Der Poſtbediente, welcher hierbei<lb/>
+ſeine Pflicht vernachlaͤſſigt, ſteht in Gefahr, daß<lb/>
+eine folgende Poſtſtation die Bagage der Paſſa¬<lb/>
+giere nachwaͤgt, und er alſo wenigſtens aus ſeiner<lb/>
+Taſche erſetzen muͤſſe, was er zu wenig berechnet<lb/>
+<pb n="16" facs="#f0024"/>
+hat. Das Waͤgen der Bagage der Paſſagiere, ſo<lb/>
+wie uͤberhaupt aller auf dem Poſtwagen befindli¬<lb/>
+chen Paͤckereien, iſt ſchon deshalben nothwendig, weil<lb/>
+die Poſt nur mit einer beſtimmten Pfundezahl<lb/>
+nach Maßgabe der Pferdezahl und nach Beſchaffen¬<lb/>
+heit des Wagens und des Weges, belaſtet wer¬<lb/>
+den darf.</p><lb/>
+<p>Bemerkt ein Paſſagier, daß ihm zu viel Ue¬<lb/>
+berfracht abgefordert wird; ſo kann er daruͤber<lb/>
+Vorſtellungen thun und bitten, daß ſeine Bagage<lb/>
+in ſeiner Gegenwart gewogen werde. Will man<lb/>
+ſich dazu nicht verſtehen; ſo bleibt dem Paſſagier<lb/>
+das Mittel offen, ſeine Bagage auf der folgenden<lb/>
+Poſtſtation, oder an dem Orte, wo er die Poſt<lb/>
+verlaͤßt, nachwaͤgen zu laſſen und daſelbſt heraus<lb/>
+zu fordern, was er anfangs zu viel bezahlt hat.<lb/>
+Wird ihm dieß auch hier verweigert, dann iſt frei¬<lb/>
+lich nichts uͤbrig, als den Vorfall dem Oberpoſt¬<lb/>
+amte, oder der Landesregierung ſchriftlich anzuzei¬<lb/>
+gen, wobei jedoch, wie ſich von ſelbſt verſteht, er¬<lb/>
+forderlich iſt, daß man die Bagage in Gegenwart<lb/>
+von Zeugen genau gewogen habe, und man kann<lb/>
+alsdann verſichert ſeyn, daß rechtliche Genugthuung<lb/>
+erfolgen werde.</p><lb/>
+<p>Kommt es endlich zur Abfahrt des Poſtwa¬<lb/>
+gens; ſo muß man ſich zeitig gehoͤrig eingefunden<lb/>
+<pb n="17" facs="#f0025"/>
+haben, damit die Poſt nicht zu warten brauche,<lb/>
+wobei man ſonſt Gefahr laͤuft, daß die Poſt, wenn<lb/>
+man uns vergeblich erwartet und geſucht hat, ab¬<lb/>
+faͤhrt. In dieſem Falle bleibe dem Paſſagier nichts<lb/>
+uͤbrig, als der Poſt ſogleich nachzueilen, wenn er<lb/>
+noch Hofnung hat, ſie einholen zu koͤnnen, oder<lb/>
+falls dieß nicht mehr moͤglich waͤre, bis zum naͤch¬<lb/>
+ſten Poſttage zu warten, wobei man jedoch Gefahr<lb/>
+laͤuft, das Paſſagiergeld noch einmal bezahlen zu<lb/>
+muͤſſen, welches auch nicht unbillig iſt, wenn ent¬<lb/>
+weder bei dieſer. Poſt ein anderer Reiſender abge¬<lb/>
+wieſen wurde, weil die Plaͤtze ſchon beſetzt waren,<lb/>
+oder weil bei der kuͤnftigen ein anderer Paſſagier<lb/>
+auf unſern Platz angenommen werden konnte.<lb/>
+Denn natuͤrlicher Weiſe kann auf einen Poſtwa¬<lb/>
+gen nur eine beſtimmte Anzahl Reiſender, ſo viel<lb/>
+nehmlich Platz und Gewicht verſtatten, angenom¬<lb/>
+men werden.</p><lb/>
+<p>Ehe man jedoch abfaͤhrt, muß man ſich noch<lb/>
+mit den ſogenannten Poſtgehuͤlfen und dienſtbaren<lb/>
+Geiſtern, als da ſind der Kofferſchieber, welcher<lb/>
+unſre Bagage aus unſrer <choice><sic>Wohuung</sic><corr>Wohnung</corr></choice> nach dem Poſt¬<lb/>
+hauſe geholt hat, und der Wagenmeiſter, welcher<lb/>
+die Bagage packt, die Sitze auf dem Wagen an¬<lb/>
+weiſet und die Treppe zum Aufſteigen an den Wa¬<lb/>
+gen ſetzt, abfinden. Wenn man grade nicht weiß,<lb/>
+<fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb n="18" facs="#f0026"/>
+wie viel man einem ſolchen Manne geben muß; ſo<lb/>
+kann man ihm ſicher 2 Ggr. bieten und froh ſeyn,<lb/>
+wenn man damit loskoͤmmt. Gewoͤhnlich erhaͤlt<lb/>
+der Kofferſchieber nach Maaßgabe der Entfernung,<lb/>
+woher er die Bagage geholt hat, 2, 3, 4 auch<lb/>
+6 Ggr. der Wagenmeiſter 2 und der Mann an<lb/>
+der Treppe 1 Ggr. Wo mehrere dieſer Chargen in<lb/>
+einer Perſon vereinigt ſind, da ſteht es um den<lb/>
+Geldbeutel des Reiſenden deſto beſſer. Weil bei<lb/>
+den Poſtaͤmtern einmal Leute gehalten werden, um<lb/>
+die Bagage der Reiſenden zur gehoͤrigen Zeit herbei<lb/>
+zu holen und dieſe Leute von dieſem Geſchaͤft le¬<lb/>
+ben muͤſſen: ſo wird es nicht fuͤglich erlaubt ſeyn,<lb/>
+die Sachen durch eigene Leute nach der Poſt zu<lb/>
+ſchicken, welches auch ſchon deswegen nicht rath¬<lb/>
+ſam iſt, weil man ſelten den rechten Zeitpunkt<lb/>
+treffen und entweder zu fruͤh oder zu ſpaͤt damit<lb/>
+kommen wuͤrde. Beſſer iſt es alſo, wenn man<lb/>
+auch hierbei dem einmal eingefuͤhrten Gebrauche<lb/>
+folgt, wodurch unſre Bagage zugleich der Aufſicht<lb/>
+dieſer Poſtbediente in Verwahrung gegeben wird,<lb/>
+wenn gleich die Ausgaben dadurch ſich etwas ver¬<lb/>
+mehren. — Ueberhaupt will ich jedem Reiſenden<lb/>
+den Rath geben, die Reiſekoſten nicht zu genau<lb/>
+vorher zu beſtimmen und feſtzuſetzen. Denn ob<lb/>
+gleich bei den Poſten alles ſeine beſtimmte Taxe<lb/>
+<pb n="19" facs="#f0027"/>
+hat; ſo koͤnnen beim Reiſen doch Faͤlle eintreten,<lb/>
+wo die Nebenausgaben ſich nicht vorher genau be¬<lb/>
+ſtimmen laſſen. Es hieß ja ſchon lange im Sprich¬<lb/>
+worte:</p><lb/>
+<p>Wer mit der Poſt reiſet,<lb/>
+Muß eines Laſttraͤgers Ruͤcken<lb/>
+und eines Fuͤrſten Beutel haben,<lb/>
+weil das Fahren mit der Poſt nicht nur wegen der<lb/>
+in den meiſten Laͤndern uͤblichen unbequemen Poſt¬<lb/>
+wagen und ſchlechten Wegen, worauf es gewaltige<lb/>
+Ribben- und Ruͤckenſtoͤße ſetzt, ſehr unbequem, ſon¬<lb/>
+dern auch gewoͤhnlich mit mehr Koſten verknuͤpft<lb/>
+iſt, als man ſich einbildet, denn auſſer dem tax¬<lb/>
+maͤßigen Paſſagiergelde, belaufen ſich die Ausga¬<lb/>
+ben an Trinkgeldern fuͤr Wagenmeiſter, Kofferſchie¬<lb/>
+ber, Poſtillons ꝛc. wohl eben ſo hoch, die Zeh¬<lb/>
+rungskoſten, wozu man oft durch die Reiſegeſell¬<lb/>
+ſchaft veranlaßt wird, ungerechnet.</p><lb/>
+<p>Jedoch iſt die ordinaͤre Poſt noch immer die<lb/>
+wohlfeilſte Art zu reiſen und zugleich mit obiger<lb/>
+Einſchraͤnkung die bequemſte. Denn ſchwerlich wird<lb/>
+man auf eine andre Weiſe, weder mit einem<lb/>
+Miethpferde, noch mit einer Lohnkutſche, die Meile<lb/>
+mit 6 bis 8 Ggr. beſtreiten koͤnnen.</p><lb/>
+<p>Vor der Abfahrt iſt noch eins zu beobachten<lb/>
+und zwar noch eine wichtige Angelegenheit! Jedem<lb/>
+<pb n="20" facs="#f0028"/>
+Paſſagier iſt anzurathen, daß er ſelbſt zuſehe, nicht<lb/>
+nur, wohin und wie man ſeinen Koffer geſetzt und<lb/>
+befeſtigt habe, ſondern auch wo ſeine uͤbrigen Sa¬<lb/>
+chen auf dem Wagen geblieben ſind. — Nach den<lb/>
+gemeinen Rechten ſollte zwar die Poſt fuͤr die Si¬<lb/>
+cherheit der Bagage der Reiſenden bei den ordinaͤ¬<lb/>
+ren Poſten haften, da ſie fuͤr den Transport, mit¬<lb/>
+hin auch fuͤr die Aufſicht bezahlt wird; allein in<lb/>
+den meiſten Laͤndern hat man zu verordnen beliebt,<lb/>
+daß die mit den Poſten Reiſenden uͤber ihre Ba¬<lb/>
+gage ſelbſt wachen muͤſſen und daß alſo denſelben<lb/>
+im Fall eines Verluſtes, nichts verguͤtet werden<lb/>
+ſoll, beſonders wenn kein Schaffner oder Con¬<lb/>
+ducteur auf dem Poſtwagen iſt, dem die Verwah¬<lb/>
+rung der Sachen ausdruͤcklich aufgetragen wird.<lb/>
+Wo eine ſolche Verordnung iſt, da wird ein Paſſa¬<lb/>
+gier, dem der Koffer vom Poſtwagen verlohren<lb/>
+geht, entweder ganz vergeblich den Schutz der Ge¬<lb/>
+rechtigkeit anflehen, oder doch das Ende ſeiner<lb/>
+Klage nicht ohne Verdruß und Schaden erleben.<lb/>
+Anzurathen iſt es alſo dem Reiſenden, daß er auf<lb/>
+der Reiſe ſo oft, als er kann, ſich nach ſeinen<lb/>
+Sachen umſehe und ſolche, wo es noͤthig ſcheint<lb/>
+ſichern laͤßt, ja es iſt ſogar rathſam, daß man<lb/>
+ſelbſt Stricke oder Ketten an die Koffer gebe, um<lb/>
+ſie damit befeſtigen zu laſſen. Wird jedoch die<lb/>
+<pb n="21" facs="#f0029"/>
+Bagage von Seiten der Poſt ausdruͤcklich in Ver¬<lb/>
+wahrung genommen, oder auf deren Veranlaſſung<lb/>
+auf einen Poſtbeiwagen gepackt; ſo kann man mit<lb/>
+allem Fug, wenn etwas verlohren geht, auf Er¬<lb/>
+ſtattung des Werths dringen, welche denn auch,<lb/>
+nach gehoͤriger Unterſuchung und Entſcheidung, nicht<lb/>
+entſtehen kann.</p><lb/>
+<p>Koͤmmt man auf der Reiſe zu einer andern<lb/>
+Poſtſtation, wo die Pferde gewechſelt werden; ſo<lb/>
+hat man ſich mit dem Poſtillon, der bis dahin<lb/>
+gefahren hat, abzufinden, indem man ihm ein<lb/>
+Trinkgeld reichen muß, welches derſelbe mit einem<lb/>
+gewiſſen Rechte fordert, und welches gewoͤhnlich<lb/>
+auf eine Station von 2 bis 3 Meilen in 2 Ggr.<lb/>
+beſteht. Auſſer dieſem ſoll zwar der Poſtillon zu<lb/>
+ſeiner Zehrung nichts verlangen, allein es geht ge¬<lb/>
+woͤhnlich ſo rein nicht ab, und die Reiſenden wer¬<lb/>
+den nicht immer umhin koͤnnen, ihm vor einem<lb/>
+Wirthshauſe, wo er etwa anhaͤlt, einen Trunk rei¬<lb/>
+chen zu laſſen. In einigen Laͤndern iſt jedoch die<lb/>
+lobenswerthe Einrichtung, daß die Reiſenden alle<lb/>
+dieſe kleinen Nebenausgaben an Trinkgeldern fuͤr<lb/>
+Poſtillions u. dergl. gleich bei dem Poſtamte tax¬<lb/>
+maͤßig berichtigen koͤnnen, ſo daß ihnen auf der<lb/>
+Reiſe weiter nichts abgefordert werden darf. —</p><lb/>
+<p>Auf einer ſolchen Wechſelſtation wird es auch<lb/>
+<pb n="22" facs="#f0030"/>
+rathſam ſeyn, ſich gleich bei der Ankunft zu erkun¬<lb/>
+digen, wie lange die Poſt ſich daſelbſt aufhalten<lb/>
+werde, damit man ſich in Abſicht der Geſchaͤfte,<lb/>
+welche man an dieſem Orte etwa zu verrichten hat,<lb/>
+oder wegen der Ruhe, der man ſich uͤberlaſſen,<lb/>
+oder wegen der Erfriſchung, welche man zu ſich nehmen<lb/>
+will, darnach einrichten koͤnne, um gegen die Zeit<lb/>
+der Abfahrt wieder gehoͤrig bereit zu ſeyn.</p><lb/>
+<p>Iſt man endlich an den Ort der Beſtimmung<lb/>
+gekommen; ſo muß man nicht fruͤher das Poſt¬<lb/>
+haus verlaſſen, ehe man nicht ſeinen Koffer und<lb/>
+andere Sachen mitnehmen kann, weil ſonſt leicht<lb/>
+eine Verwechſelung vorgehen, oder ein Fremder ſich<lb/>
+unſre Sachen zueignen und mit fortnehmen koͤnnte,<lb/>
+welches lediglich uns zur Laſt fallen wuͤrde. Auſſer<lb/>
+dem Koffer noch viele andere kleinen Packete,<lb/>
+Schachteln und dergl. auf der Poſt bei ſich zu fuͤh¬<lb/>
+ren iſt nicht rathſam, theils weil dieſe leicht be¬<lb/>
+ſchaͤdigt und nicht gut verwahrt werden koͤnnen,<lb/>
+theils auch weil ſie gewoͤhnlich dem Reiſenden ſelbſt<lb/>
+zur Laſt ſind.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb n="[23]" facs="#f0031"/>
+<div n="1"> <head> <hi rendition="#g">Vom Reiſen mit Extra-Poſt.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#g #in">E</hi> <hi rendition="#g">xtra-Poſt</hi> iſt dadurch von <hi rendition="#g">ordinaͤren<lb/>
+Poſten</hi> verſchieden, daß wie letztere immer an ge¬<lb/>
+wiſſen Tagen und in beſtimmter Zeit, es moͤgen<lb/>
+ſich Reiſende dazu angefunden haben, oder nicht,<lb/>
+abgehen und ankommen, erſtere alsdann nur faͤhrt,<lb/>
+wenn es von Reiſenden beſonders verlangt wird<lb/>
+und die dabei erforderlichen Koſten von denſelben<lb/>
+bezahlt werden. Ordinaͤre Poſten gehen auf Koſten<lb/>
+der Landesherren; ſie muͤſſen immer zu der einmal<lb/>
+beſtimmten Zeit abgefertigt werden, auch wenn ein¬<lb/>
+mal kein Paſſagier ſich dazu eingefunden haͤtte, oder<lb/>
+ſonſt keine Ladung, auch nicht einmal ein Brief,<lb/>
+vorhanden waͤre. Die dabei erforderlichen, einmal<lb/>
+feſtgeſetzten Koſten werden aus der Poſtkaſſe be¬<lb/>
+ſtritten. Extra-Poſten gehen aber blos auf Ver¬<lb/>
+langen und zur Bequemlichkeit einzelner Reiſenden.<lb/>
+Die Poſtkaſſe hat gewoͤhnlich davon keine Ein¬<lb/>
+kuͤnfte. Das Extra-Poſtweſen iſt lediglich eine be¬<lb/>
+<pb n="24" facs="#f0032"/>
+ſondere Polizei-Einrichtung eines Landes, worin<lb/>
+ſchon ordinaͤre Poſten ſind, wodurch Reiſende, wel¬<lb/>
+che mit den ordinaͤren Poſten nicht reiſen wollen<lb/>
+und koͤnnen, auf eine poſtmaͤßige Art, von Sta¬<lb/>
+tion zu Station, durch die, fuͤr ordinaͤre Poſten<lb/>
+beſtimmten Pferde und Poſtillons, unter der Di¬<lb/>
+rection der Poſtmeiſter, fuͤr ein landesherrlich be¬<lb/>
+ſtimmtes Fuhrlohn und fuͤr feſtgeſetzte Gebuͤhren,<lb/>
+fortgeſchaft werden. Blos zur Bequemlichkeit ſol¬<lb/>
+cher Reiſenden iſt angeordnet, daß die Poſthalter,<lb/>
+wenn ſich Reiſende um Extra-Poſt melden, an¬<lb/>
+ſpannen laſſen und ſie in beſtimmter Zeitfriſt von<lb/>
+einer Poſtſtation zur andern bringen laſſen muͤſſen.<lb/>
+Solche Reiſende haben nun entweder eigene Wa¬<lb/>
+gen, oder in deren Ermangelung muͤſſen die<lb/>
+Poſthalter ihnen Wagen fuͤr beſtimmte Gebuͤhren<lb/>
+leihen.</p><lb/>
+<p>Wer mit <hi rendition="#g">Extra-Poſt</hi> reiſen will, hat dabei<lb/>
+folgendes zu beobachten. Wenn man die Stunde<lb/>
+der Abreiſe beſtimmt hat; ſo beſtellt man bei dem<lb/>
+Poſtamte die Anzahl Pferde, welche man bedarf,<lb/>
+und zeiget zugleich an, wohin man zu reiſen ge¬<lb/>
+denkt und daß man entweder einen eigenen Wagen<lb/>
+habe, oder nicht, in welchem letztern Falle man<lb/>
+die Art des Wagen, den man zu haben wuͤnſcht,<lb/>
+beſtimmen muß. An den meiſten Oertern iſt es<lb/>
+<pb n="25" facs="#f0033"/>
+alsdann gebraͤuchlich, daß der Poſtwagenmeiſter<lb/>
+koͤmmt, um den Wagen, worin man reiſen, nebſt<lb/>
+der Bagage, welche man mitnehmen will, zu be¬<lb/>
+ſehen, und darnach zu beurtheilen, ob der Wagen<lb/>
+nebſt der beſtimmten Bagage und der Zahl der<lb/>
+Reiſenden durch ſo viel Pferde, als man beſtellt<lb/>
+hat, fortgeſchaft werden koͤnne, oder nicht. Denn<lb/>
+in den Extrapoſt-Ordnungen, oder Reglements, iſt<lb/>
+natuͤrlicher Weiſe beſtimmt, wie viel Pferde zu ei¬<lb/>
+ner Kutſche, oder Chaiſe und zu einer gewiſſen An¬<lb/>
+zahl von Perſonen und Anzahl von Pfunden der<lb/>
+Bagage, genommen werden ſollen, damit die Pfer¬<lb/>
+de nicht uͤber Gebuͤhr belaͤſtigt werden, ſondern die<lb/>
+beſtimmten Stunden halten koͤnnen; denn man muß<lb/>
+ſo wenig die ordinaͤren, als Extrapoſten wie<lb/>
+Frachtwagen anſehen und behandeln. Findet nun<lb/>
+der Wagenmeiſter hierbei nichts zu erinnern; ſo<lb/>
+ſchmiert er den Wagen, ordert das Aufpacken der<lb/>
+Bagage an und laͤßt ſich das Fuhrlohn nebſt ſeiner<lb/>
+Gebuͤhr reichen. Wenn man weiß, wie hoch die<lb/>
+Taxe fuͤr ein Extrapoſtpferd auf die Meile iſt;<lb/>
+ſo wird man leicht abnehmen koͤnnen, ob ſeine For¬<lb/>
+derung richtig, oder falſch iſt. Dieſe Taxe iſt nicht<lb/>
+uͤberall und immer gleich, ſondern ſie wird in den<lb/>
+verſchiedenen Laͤndern von den Landesregierungen<lb/>
+gewoͤhnlich nach Maaßgabe der Korn- und Fut<lb/>
+<pb n="26" facs="#f0034"/>
+terungspreiſe feſtgeſetzt, und da ſie ehemals, bei<lb/>
+niedrigern Preiſen, vom Pferde auf die Meile 6 —<lb/>
+8 Ggr. betrug; ſo iſt ſie hingegen jetzt hier und<lb/>
+da auf 10, 12 — 14 und mehrere Ggr. erhoͤhet.<lb/>
+Die Anzeige von der Taxe des Extrapoſtgeldes und<lb/>
+der Gebuͤhren fuͤr Wagenmeiſter und Poſtillons iſt<lb/>
+gewoͤhnlich in den Poſthaͤuſern oͤffentlich angeſchla¬<lb/>
+gen; in deſſen Ermanglung wird der Reiſende<lb/>
+wohlthun, ſich deshalben bei den Poſtmeiſtern zu<lb/>
+erkundigen. Hat man nicht ſelbſt einen Wagen;<lb/>
+ſo muß man allerdings fuͤr den Wagen, welchen<lb/>
+die Poſt, oder der Extrapoſtfahrer, zu unſrer<lb/>
+Reiſe darleihet, beſonders bezahlen, welches ge¬<lb/>
+woͤhnlich fuͤr eine Chaiſe auf die Meile 4 Ggr. und<lb/>
+fuͤr eine Kutſche 6 Ggr. betraͤgt; einen ordinaͤren offe¬<lb/>
+nen Wagen erhalten jedoch die Reiſenden an vielen<lb/>
+Orten umſonſt, indem die Gebuͤhren dafuͤr ſchon<lb/>
+im Fuhrlohn begriffen ſind. Man wird aber auch<lb/>
+nicht immer, beſonders an kleinen Oertern Kut¬<lb/>
+ſchen und Chaiſen antreffen und erhalten koͤn¬<lb/>
+nen, ſondern ſich oft mit offenen Wagen behelfen<lb/>
+muͤſſen.</p><lb/>
+<p>Man muß ſich ſo einrichten, daß man puͤnkt¬<lb/>
+lich zu der Zeit, zu der die Pferde beſtellt und vor¬<lb/>
+geſpannt ſind, ſich einſetzen und abreiſen koͤnne,<lb/>
+weil man ſonſt, wenn man die Pferde warten<lb/>
+<pb n="27" facs="#f0035"/>
+laͤßt, — <hi rendition="#g">Wartegeld</hi> bezahlen muß, und zwar,<lb/>
+nachdem es die Poſtordnung des Orts beſtimmt,<lb/>
+1 bis 2 Ggr. auf jedes Pferd fuͤr jede Stunde des<lb/>
+Verzugs der Abfahrt.</p><lb/>
+<p>Dieſe Verguͤtung fuͤr das Warten der Poſt¬<lb/>
+pferde iſt keines Weges unbillig, weil die Poſtpferde<lb/>
+nicht von der Willkuͤhr und Gemaͤchlichkeit einzel¬<lb/>
+ner Reiſenden abhaͤngen duͤrfen und weil ſie jeder¬<lb/>
+zeit Geld verdienen muͤſſen, und ſie auch nicht auf andre<lb/>
+Art gebraucht werden, wenigſtens ruhen koͤnnten,<lb/>
+wenn ſie nicht auf uns warten muͤßten. Mit noch<lb/>
+groͤßerm Rechte kann dieſe Verguͤtung von uns ge¬<lb/>
+fordert werden, wenn wir durch einen auf der Reiſe¬<lb/>
+route vorausgeſchickten Laufzettel die Poſtpferde auf<lb/>
+eine gewiſſe Zeit beſtellt haben und doch durch ei¬<lb/>
+genes Verſchulden uns verſpaͤten.</p><lb/>
+<p>Koͤmmt man nun mit ſolcher Extra-Poſt zu<lb/>
+einer Poſtſtation, wo friſche Pferde genommen<lb/>
+werden muͤſſen; ſo kann man allerdings verlangen,<lb/>
+hoͤchſtens binnen einer halben Stunde weiter expe¬<lb/>
+dirt zu werden, allein wenn man die Pferde nicht<lb/>
+vorher durch einen Laufzettel beſtellt hat; ſo wird<lb/>
+man es ſich nicht ſelten gefallen laſſen muͤſſen, ¾<lb/>
+oder eine volle Stunde zu warten. Denn die vor¬<lb/>
+zuſpannenden Pferde muͤſſen doch erſt zubereitet,<lb/>
+vielleicht muͤſſen ſie erſt vom Acker hereingeholt<lb/>
+<pb n="28" facs="#f0036"/>
+werden. Man kann nicht verlangen und erwarten,<lb/>
+daß der Poſtmeiſter an einem kleinen Orte beſtaͤn¬<lb/>
+dig eine Menge Pferde aufs ungewiſſe im Stalle<lb/>
+ſtehen und auf unſre unangemeldete Ankunft ſie ſchon<lb/>
+bereit habe. Es iſt genug, wenn er in dieſem<lb/>
+Falle die ihm vorgeſchriebene Ordnung beobachtet,<lb/>
+wenn dieſe den Umſtaͤnden angemeſſen iſt, welches<lb/>
+leider auch nicht immer iſt, weil diejenigen Leute,<lb/>
+welche ſich ſolche Verordnungen entwerfen, ſelten in der<lb/>
+Lage geweſen ſind, die Moͤglichkeit der Ausfuͤhrung<lb/>
+derſelben ſelbſt verſucht und erfahren zu haben.</p><lb/>
+<p>Hieruͤber mit dem Poſthalter Zank anzufangen,<lb/>
+wuͤrde vergeblich, in manchem Falle ſogar unbillig<lb/>
+ſeyn. Der Reiſende thut wohl, wenn er ihn um<lb/>
+moͤglichſt geſchwinde Fortſchaffung erſucht und da<lb/>
+richtet man gewoͤhnlich mit freundlichen Worten<lb/>
+mehr aus, als durch Forderung der Strenge, oder<lb/>
+durch Androhung vom Anklagen und Rache. Der<lb/>
+Poſtmeiſter kann durch gutes Fahren leicht die Zeit<lb/>
+wieder einbringen laſſen, die etwa durch ihn ver¬<lb/>
+ſaͤumt wurde. Groͤßtentheils iſt es uͤberall Regel,<lb/>
+daß eine Extrapoſt mit eben ſo viel Pferden, wo¬<lb/>
+mit ſie ausfuhr und auf einer Station ankam, wei¬<lb/>
+ter gebracht werden muͤſſe. Weniger Pferde zu<lb/>
+nehmen, haͤngt alſo nicht von den Reiſenden ab.<lb/>
+Nur da, wo der Weg vorzuͤglich gut iſt, wird eine<lb/>
+<pb n="29" facs="#f0037"/>
+verhaͤltnißmaͤßige Verringerung der Pferdezahl ver¬<lb/>
+ſtattet. Hingegen muͤſſen auch die mit Extrapoſt<lb/>
+reiſenden, wo ſchlechtere Wege ſind, ſich eine Ver¬<lb/>
+mehrung der Pferdezahl auf ihre Koſten gefallen<lb/>
+laſſen. Dieſes werden ſie um ſo lieber, wenn ein<lb/>
+Poſtmeiſter, auſſer den bezahlten Pferden, auch<lb/>
+mehr zur Erleichterung ſeiner Pferde, unentgeldlich<lb/>
+vorſpannen laͤßt. —</p><lb/>
+<p>Bei einer Extrapoſtreiſe iſt man noch mehr<lb/>
+verbunden, auf ſeine Koffer und Bagage ſelbſt<lb/>
+wachſam zu ſeyn und ſich, in Abſicht des Aufpa¬<lb/>
+ckens, nicht auf den Poſtillon, oder Wagenmeiſter,<lb/>
+zu verlaſſen. Denn hier gehet alles auf des Rei¬<lb/>
+ſenden Koſten und Gefahr. Die Poſt iſt weiter<lb/>
+ihm nichts ſchuldig, als ihn fuͤr die beſtimmte Ge¬<lb/>
+buͤhr in einer beſtimmten Zeit von einer Station<lb/>
+zur andern zu ſchaffen. Sie nimmt von ſeiner Ba¬<lb/>
+gage weiter keine Notitz, als daß ſie fuͤr die be¬<lb/>
+zahlten Pferde nicht zu ſchwer ſei. Bei einem vor¬<lb/>
+fallenden Verluſte wird alſo die Poſt nichts er¬<lb/>
+ſetzen und wenn ſich der Poſtillion beim Aufpa¬<lb/>
+cken oder Befeſtigen der Bagage ſollte etwas zu<lb/>
+Schulden kommen laſſen, ſo wird es doch ſchwer<lb/>
+halten, von dem armen Teufel Erſtattung zu er¬<lb/>
+langen.</p><lb/>
+<p>Um den Unannehmlichkeiten, welche durch die<lb/>
+<pb n="30" facs="#f0038"/>
+Verſchiedenheit des Geldes entſtehen, auszuweichen,<lb/>
+thut man wohl, ſich mit Muͤnze desjenigen Landes,<lb/>
+in welchem man reiſet, zu verſehen. Freilich iſt es<lb/>
+unangenehm, wenn ein Sachſe ſeine Piſtole im<lb/>
+Hannoͤverſchen nur zu 4 Rthlr. 16 Ggr. ausgeben<lb/>
+kann; allein man kann doch nicht verlangen, daß<lb/>
+der Poſtbediente den Verluſt tragen ſoll, da der¬<lb/>
+ſelbe auf Landesmuͤnze angewieſen iſt, und deren<lb/>
+Werth in Rechnung und an die Herrſchaftliche Kaſſe<lb/>
+abliefern muß. Will ein Reiſender immer erſt bei<lb/>
+jeder Poſt wechſeln, ſein Geld nach dem Cours<lb/>
+reduciren und daruͤber mit den Poſtofficianten ab¬<lb/>
+rechnen; ſo entſtehet dadurch leicht Mißverſtaͤnd¬<lb/>
+niß, wenigſtens Aufenthalt, wobei der Poſtmann<lb/>
+verdruͤßlich werden kann, zumal wenn man ihm<lb/>
+auslaͤndiſche Muͤnze aufbuͤrdet, welche er an ſeinem<lb/>
+Orte nicht wieder anbringen kann. Oeſterreichiſche<lb/>
+und Reichs-Kreutzerſtuͤcke, Batzen u. dergl. nimmt<lb/>
+man im noͤrdlichen Deutſchland nicht gern, auch<lb/>
+nicht mit Agio. Den hierdurch entſtehenden Ver¬<lb/>
+luſt muß der Reiſende tragen und zu ſeinen uͤbri¬<lb/>
+gen Reiſekoſten ſchlagen. Er mag ſich deshalben<lb/>
+uͤber die verſchiedenen Muͤnzherren beklagen, welche<lb/>
+ſich noch nicht zu einerlei Muͤnzfuß haben vereini¬<lb/>
+gen wollen. —</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb n="[31]" facs="#f0039"/>
+<div n="1"> <head> <hi rendition="#g">Von Verſendungen mit der Poſt.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">W</hi>er <hi rendition="#g">Briefe</hi> mit der Poſt abſchickt, welche der<lb/>
+Empfaͤnger poſtfrei erhalten, wofuͤr derſelbe kein<lb/>
+Poſtgeld (Porto) bezahlen ſoll, der muß <hi rendition="#g">franco</hi>,<lb/>
+oder <hi rendition="#g">frei</hi>, oder <hi rendition="#g">poſtfrei</hi>, darauf ſchreiben<lb/>
+und bei der Aufgabe das ihm dafuͤr abgeforderte<lb/>
+Geld bezahlen.</p><lb/>
+<p>Nach der Poſtſprache heißt uͤberhaupt alles<lb/>
+Geld, welches fuͤr Transportirung der Briefe, Gel¬<lb/>
+der, Packete ꝛc. an Fracht, von dem Abſender, oder<lb/>
+von dem Empfaͤnger, bezahlt werden muß: <hi rendition="#g">Por¬<lb/>
+to</hi>. — Zugleich heißen auch ſolche Briefe, welche<lb/>
+abgeſchickt werden, ohne daß dafuͤr am Orte der<lb/>
+Aufgabe Porto bezahlt iſt, die alſo nicht frankirt<lb/>
+ſind, ſondern wofuͤr erſt der Empfaͤnger die Fracht,<lb/>
+oder den Lohn an die Poſt bezahlen ſoll: <hi rendition="#g">Porto¬<lb/>
+briefe</hi>. Mithin heißt, einen Brief, oder ein<lb/>
+Packet u. dergl. <hi rendition="#g">Porto abſchicken</hi>, dafuͤr am<lb/>
+Orte der Abſendung nichts bezahlen, ſondern die<lb/>
+<pb n="32" facs="#f0040"/>
+Erlegung des Porto's dem Empfaͤnger uͤberlaſſen<lb/>
+Ein bei der Aufgabe bezahlter Brief heißt ein franko-<lb/>
+oder <hi rendition="#g">frankirter Brief</hi>.</p><lb/>
+<p>Es iſt der Poſt gewoͤhnlich gleichguͤltig, ob die<lb/>
+Briefe und Packete von den Abſendern franko,<lb/>
+oder porto abgeſchickt werden, das heißt: ob das<lb/>
+dafuͤr gebuͤhrende Poſtgeld bei der Aufgabe erlegt<lb/>
+wird, oder ob es erſt von dem Empfaͤnger bezahlt<lb/>
+werden ſoll. Beſonders iſt dies der Poſt gleichguͤl¬<lb/>
+tig, wenn die zu verſendenden Briefe und Sachen im<lb/>
+Lande bleiben, oder mit Poſten angraͤnzender Laͤn¬<lb/>
+der weiter geſchickt werden, mit welchen die Lan¬<lb/>
+despoſten oder das Poſtamt des Abſendungsorts, in<lb/>
+Verbindung und Abrechnung ſteht. So iſt es z.<lb/>
+B. der Preußiſchen Poſt voͤllig einerlei, ob ein von<lb/>
+Memel nach Weſel beſtimmter Brief porto, oder<lb/>
+franko aufgegeben wird, ob das Poſtgeld dafuͤr zu<lb/>
+Memel bezahlt iſt, oder erſt in Weſel von dem<lb/>
+Empfaͤnger bezahlt werden ſoll. Eben ſo verhaͤlt es<lb/>
+ſich auch bei allen den Poſten, welche mit den<lb/>
+Preußiſchen Poſten in Verbindung geſetzt ſind, ſo<lb/>
+daß die eine Poſt der andern das derſelben, von<lb/>
+den verſchickten Sachen gebuͤhrende Poſtgeld verguͤ¬<lb/>
+tet. So kann man z. B. ſeine Briefe zu Berlin,<lb/>
+oder in jedem andern Orte der preußiſchen Staa¬<lb/>
+ten nach Rußland, Sachſen und nach vielen an¬<lb/>
+<pb n="33" facs="#f0041"/>
+dern Laͤndern franko, oder porto aufgeben oder ab¬<lb/>
+ſenden, weil die koͤnigliche Poſtkaſſe das ihr dafuͤr<lb/>
+gebuͤhrende Porto, ſowol von den inlaͤndiſchen, als<lb/>
+von jenen auslaͤndiſchen Poſtaͤmtern erheben kann<lb/>
+und durch die mit denſelben fuͤhrenden Abrechnun¬<lb/>
+gen verguͤtet erhaͤlt. Gleiche Bewandniß hat es<lb/>
+auch in dieſer Hinſicht in andern Staaten und<lb/>
+Reichen. In den oͤſterreichiſchen Staaten, in<lb/>
+Frankreich, Rußland ꝛc. koͤnnen Briefe von einer<lb/>
+Graͤnze bis zur andern franko oder porto gehen,<lb/>
+weil die dortigen Poſten von den Empfaͤngern das<lb/>
+erhalten koͤnnen, was die Abſender nicht bezahlt<lb/>
+haben.</p><lb/>
+<p>Nur da entſtehen Ausnahmen von dieſer Re¬<lb/>
+gel, wo auslaͤndiſche Poſten mit den inlaͤndiſchen<lb/>
+keine Berechnung haben, — theils wegen der Ver¬<lb/>
+ſchiedenheit des Geldes, theils auch aus andern po¬<lb/>
+litiſchen Gruͤnden. Daher koͤmmt es, daß alle<lb/>
+aus Deutſchland nach England beſtimmten Briefe<lb/>
+bis ans Meer, oder eigentlich bis an das Packet¬<lb/>
+boot, welches ſie aufnimmt, frankirt werden muͤſſen,<lb/>
+weil von England kein Porto verguͤtet wird, da,<lb/>
+wie bekannt, kein engliſches Geld aus der Inſel<lb/>
+verſandt werden darf. — So verhaͤlt es ſich auch<lb/>
+mit dem groͤſten Theile der oͤſterreichiſchen Staa¬<lb/>
+ten. Die dahin gehenden Briefe muͤſſen bis an die<lb/>
+<fw type="sig" place="bottom">3<lb/>
+</fw>
+<pb n="34" facs="#f0042"/>
+Graͤnze frankirt werden, theils weil die oͤſterreichi¬<lb/>
+ſchen Poſtaͤmter den Auslaͤndern, ſelbſt zum Theil<lb/>
+den deutſchen Reichspoſten kein Porto verguͤten,<lb/>
+theils auch weil das oͤſterreichiſche Geld zu niedrig<lb/>
+im Werthe ſteht. Daher muͤſſen alle aus Sachſen<lb/>
+und durch Sachſen nach den oͤſterreichiſchen Staa¬<lb/>
+ten gehenden Poſtguͤter bis an die boͤhmiſche Graͤnze<lb/>
+frankirt werden, weil die oͤſterreichiſchen Poſtaͤm¬<lb/>
+ter den den Sachſen gebuͤhrenden Porto-Vorſchuß<lb/>
+nur in oͤſterreichiſchem Gelde, welches gegen ſaͤchſ<supplied>.</supplied><lb/>
+Conventionsmuͤnze verliehrt, verguͤten wollen, die<lb/>
+ſaͤchſiſchen Poſten aber dieſen Verluſt nicht uͤber¬<lb/>
+nehmen koͤnnen. Selbſt mitten in Deutſchland fin¬<lb/>
+det dieſe Unbequemlichkeit fuͤr das korrespondirende<lb/>
+Publikum noch Statt. — Bekanntlich beſtehet hier,<lb/>
+auſſer den Poſten der verſchiedenen Landesherren<lb/>
+z. B. in den Staaten der Haͤuſer Bayern, Heſſen,<lb/>
+Sachſen ꝛc. auch noch ein beſonders dem Fuͤrſten<lb/>
+von Thurn und Taxis gehoͤrendes und unter deſſen<lb/>
+Direction ſtehendes Poſtweſen. Die Vorfahren die¬<lb/>
+ſes Fuͤrſtlichen Hauſes haben nemlich vor etwa 300<lb/>
+Jahren angefangen, zuerſt in Deutſchland Poſten<lb/>
+anzulegen und dazu Officianten, welche von ihnen<lb/>
+beſoldet und abhaͤngig wurden, angeſtellt, und weil<lb/>
+man nun damals die Nuͤtzlichkeit dieſer Anſtalten<lb/>
+bald empfand; ſo wurden ihnen nicht nur die An¬<lb/>
+<pb n="35" facs="#f0043"/>
+legung der Poſten von den deutſchen Fuͤrſten gern<lb/>
+geſtattet, ſondern ſie wurden auch dazu von man¬<lb/>
+chen Reichsſtaͤnden eingeladen und dabei unterſtuͤtzt.<lb/>
+Nachdem ſich aber nach jener Zeit Handel und<lb/>
+Wandel in Deutſchland mehr gehoben hat und die<lb/>
+Fuͤrſten ſelbſt mehr Aufmerkſamkeit auf die Ver¬<lb/>
+mehrung ihrer Einkuͤnfte wandten und die Ver¬<lb/>
+groͤßerung ihrer Finanzen beabſichtigten; ſo wollten<lb/>
+ſie auch zum Theil die aus dem Poſtweſen ent¬<lb/>
+ſpringenden Aufkuͤnfte dem Fuͤrſten von Thurn und<lb/>
+Taxis nicht allein mehr uͤberlaſſen, ſondern ſie leg¬<lb/>
+ten nach und nach auf eigene Koſten und Gefahr<lb/>
+in ihren Laͤndern eigene Poſten an, und fingen an,<lb/>
+die taxiſchen Poſten theils mit Gewalt zu vertrei¬<lb/>
+ben, theils einzuſchraͤnken, wie ſchon am Ende des<lb/>
+ſiebenzehnten und im Anfange des achtzehnten Jahr¬<lb/>
+hunderts vornehmlich in Oeſterreich, nachher in<lb/>
+Brandenburg, Sachſen, Heſſen ꝛc. geſchehen iſt.<lb/>
+Da jedoch nicht alle Fuͤrſten in dieſen Maaßregeln<lb/>
+einſtimmig waren, ſondern manche ſich noch immer<lb/>
+die taxiſchen Poſten gefallen ließen und in ihren<lb/>
+Laͤndern beibehielten; ſo blieb der Fuͤrſt von Thurn<lb/>
+und Taxis im Beſitz eines von einem Ende<lb/>
+Deutſchland bis zum andern ſich erſtreckenden Poſt¬<lb/>
+weſens, wobei die Officianten ihm <hi rendition="#aq">quoad munus<lb/>
+et officium</hi> verbindlich ſind und wovon die Ein¬<lb/>
+<pb n="36" facs="#f0044"/>
+kuͤnfte in ſeine Kaſſe fließen. Ohne hier die Recht¬<lb/>
+maͤßigkeit dieſer Anſtalt, welche ſich auf das Recht<lb/>
+der erſten Anlage, auf langen und verjaͤhrten Be¬<lb/>
+ſitzſtand und endlich auf Kaiſerliche Belehnung<lb/>
+gruͤnden ſoll, zu unterſuchen, wollen wir nur an¬<lb/>
+fuͤhren, daß dieſes Poſtweſen um Deutſchlands<lb/>
+Kultur, Handel und Gewerbe große Verdienſte<lb/>
+hat, und daß es noch jetzt eine der vortheilhafteſten<lb/>
+Anſtalten fuͤr ganz Deutſchland im Allgemeinen iſt,<lb/>
+indem es nicht nur unter den, durch Politik, Re¬<lb/>
+ligion und verſchiedenes Intereſſe getrennten Staa¬<lb/>
+ten des deutſchen Reichs eine gewiſſe Verbindung<lb/>
+knuͤpft, welches den Landespoſten der einzelnen klei¬<lb/>
+nen Herrſchaften nicht moͤglich iſt, ſondern auch<lb/>
+ſelbſt mit auswaͤrtigen Laͤndern den Verkehr erleich¬<lb/>
+tert, z. B. mit Frankreich, mit der Schweitz und<lb/>
+Italien, wo gleichfalls zum Theil auch taxiſche Po¬<lb/>
+ſten exiſtiren; kurz es iſt eine wahre Nationalan¬<lb/>
+ſtalt und in Deutſchland die einzige, welche ſich<lb/>
+noch erhalten hat. —</p><lb/>
+<p>Aus dem Verhaͤltniſſe zwiſchen den Landes-<lb/>
+oder ſtaͤndiſchen Poſten mit den taxiſchen Reichspo¬<lb/>
+ſten, je nachdem man letztere eingeſchraͤnkt hat, die<lb/>
+aber hingegen ſich in ihrem Beſitzſtande behaupten<lb/>
+und Repreſſalien gebrauchen wollen, iſt nun jetzt<lb/>
+fuͤr das korrespondirende Publikum in Deutſchland<lb/>
+<pb n="37" facs="#f0045"/>
+die Unbequemlichkeit entſtanden, — daß man an<lb/>
+vielen Orten ſeine Briefe nicht franco, oder porto<lb/>
+abſchicken kann, wie man wuͤnſcht, ſondern daß<lb/>
+man ſie bei der Aufgabe bis nach einem gewiſſen<lb/>
+Orte, wo ſie zur taxiſchen Poſt kommen, frankiren<lb/>
+muß, weil die taxiſchen Poſten den Fuͤrſtlichen, oder<lb/>
+letztere den erſteren gleichfalls entweder gar kein<lb/>
+Porto verguͤten wollen, indem ſie ſolche entweder<lb/>
+nicht fuͤr guͤltig erkennen, oder doch ſich auf die in<lb/>
+neuern Zeiten gemachten verſchiedenen ſtaͤndiſchen<lb/>
+Poſttaxen, ſich nicht einlaſſen wollen.</p><lb/>
+<p>Hiernach wird man ſich alſo bei Verſendungen<lb/>
+von Briefen und Sachen richten muͤſſen, und wenn<lb/>
+man bei der Aufgabe nicht ſchon weiß, wie man<lb/>
+ſich zu verhalten hat; ſo muß man von den Poſt¬<lb/>
+officianten daruͤber Erkundigung einziehen und ſich<lb/>
+nach deſſen Anweiſung richten. Man darf in die¬<lb/>
+ſen Faͤllen nicht befuͤrchten, daß der Poſtofficiant,<lb/>
+er mag in Reichsſtaͤndiſchen, oder Fuͤrſtl. taxiſchen<lb/>
+Dienſten ſtehen, nach Willkuͤhr verfahre, denn<lb/>
+er hat ſeine Inſtruction, wornach er ſich richten<lb/>
+muß, und er kann auch nicht einen einzigen Brief,<lb/>
+geſchweige mehrere, nach einem Orte porto laufen<lb/>
+laſſen, wohin frankirt werden muß. So iſt es z.<lb/>
+B. eine wahre Unmoͤglichkeit in verſchiedene Theile<lb/>
+der oͤſterreichiſchen Monarchie, da die oͤſterreichiſchen<lb/>
+<pb n="38" facs="#f0046"/>
+Poſten ſowol von den taxiſchen Reichs- als auch<lb/>
+von andern deutſchen fuͤrſtlichen Poſten gewiſſer<lb/>
+Maaßen getrennt ſind, oder nach Ungarn, Italien,<lb/>
+Spanien, England ꝛc. Briefe ganz porto zu ſenden.<lb/>
+Sie wuͤrden nicht befoͤrdert werden koͤnnen. Dieſe<lb/>
+Gefahr laͤuft derjenige, welcher nach ſolchen Oer¬<lb/>
+tern und Laͤndern Briefe zur Poſt giebt, ohne zu<lb/>
+fragen, ob er dafuͤr etwas bezahlen muͤſſe, und der<lb/>
+nicht die Anweiſung des Poſtofficianten abwartet<lb/>
+und befolgt.</p><lb/>
+<p>Die zur Poſt beſtimmten Briefe ſelbſt muͤſſen<lb/>
+mit deutlich und leſerlich geſchriebenen Aufſchriften<lb/>
+verſehen ſeyn und wenn es mehrere Oerter gleichen<lb/>
+Namens giebt, ſo muß das Land, oder die Pro¬<lb/>
+vinz, worin der Ort, wohin unſer Brief gehen ſoll,<lb/>
+liegt, beigeſetzt werden. Denn da es z. B. mehrere<lb/>
+Frankfurth, Koͤnigsberg, Bergen, Burg, Neu¬<lb/>
+ſtadt ꝛc. giebt, und es uns nicht gleichguͤltig ſeyn<lb/>
+kann, ob ein nach Frankfurth am Mayn beſtimm¬<lb/>
+ter Brief mit der Poſt nach Frankfurth an der<lb/>
+Oder, oder ein nach Braunſchweig in Nie¬<lb/>
+derſachſen nach Brunswyk in Amerika geſchickt<lb/>
+wird; ſo iſt die Beobachtung dieſes Umſtandes un¬<lb/>
+erlaͤßige Pflicht und das Irregehen der Briefe<lb/>
+koͤmmt lediglich auf Rechnung der Correspondenten.<lb/>
+Auf Briefe, welche frankirt ſeyn ſollen, muß der<lb/>
+<pb n="39" facs="#f0047"/>
+Abſender, oder vielmehr der Schreiber derſelben,<lb/>
+ſelbſt mit ſeiner eigenen Hand franco ſetzen und<lb/>
+auch den Ort, oder die Station beifuͤgen, wohin er<lb/>
+bezahlen will, weil ſonſt, wenn ſolches von einer<lb/>
+fremden Hand geſchiehet, oder den Poſtbedienten<lb/>
+uͤberlaſſen bleibt, der Empfaͤnger glauben koͤnnte,<lb/>
+daß die Franchiſe auf der Poſt eigenmaͤchtig abge¬<lb/>
+aͤndert und damit eine Unrichtigkeit begangen ſei.<lb/>
+Man thut wohl, wenn man das Wort: franco,<lb/>
+immer unten linker Hand in die Ecke der Addreſſe<lb/>
+ſchreibt, weil es gewoͤhnlich daſelbſt ſteht und alſo<lb/>
+da vornehmlich geſucht wird und am leichteſten in<lb/>
+die Augen faͤllt. Man hat viele Beiſpiele, daß<lb/>
+wenn Abſender das franco an einen andern Ort<lb/>
+des Couverts und undeutlich ſchreiben, ſo daß es<lb/>
+von den Poſtofficianten nicht bemerkt wurde, ſon¬<lb/>
+dern derſelbe den Brief porto abſandte, daruͤber mit<lb/>
+den Empfaͤngern bittere Verdruͤßlichkeiten entſtan¬<lb/>
+den, wenn dieſe Porto bezahlen ſollten.</p><lb/>
+<p>Ueber den <hi rendition="#g">Preis des Briefporto's</hi>, oder<lb/>
+der Brieffracht, laͤßt ſich im allgemeinen nichts Be¬<lb/>
+ſtimmtes ſagen. Er beruhet groͤſtentheils auf Ta¬<lb/>
+xen, welche vor langer Zeit eingefuͤhrt und die im<lb/>
+ganzen ziemlich billig ſind, zumal wenn man be¬<lb/>
+denkt, daß ſeit jenen Zeiten die Preiſe und Koſten<lb/>
+faſt aller andern Dinge geſtiegen und zum Theil<lb/>
+<pb n="40" facs="#f0048"/>
+verdoppelt ſind. Nur beim Briefporto iſt groͤſten¬<lb/>
+theils ſeit der erſten Errichtung des Poſtweſens in<lb/>
+Deutſchland keine Erhoͤhung vorgenommen, wenig¬<lb/>
+ſtens nicht bei den Reichspoſten. Man kann es<lb/>
+wirklich nicht anders, als ſehr wohlfeil finden, wenn<lb/>
+man einen Brief von Hamburg bis Frankfurth am<lb/>
+Mayn fuͤr 3 Ggr. und von Leipzig bis Hamburg<lb/>
+fuͤr 2 Ggr. ſenden kann. So iſt verhaͤltnißmaͤßig<lb/>
+uͤberall das Porto bei dieſen Poſten und auch bei<lb/>
+denen ſtaͤndiſchen Poſten, welche mit jenen in Ver¬<lb/>
+bindung ſtehen. Hingegen iſt es in einigen Laͤn¬<lb/>
+dern, z. B. im Mecklenburgiſchen, Preußiſchen, Oe¬<lb/>
+ſterreichiſchen, Heſſiſchen ꝛc. in Betracht jenes Ver¬<lb/>
+haͤltniſſes etwas hoͤher. Beſonders wurde einſtens<lb/>
+im Brandenburgiſchen zur Zeit der Herſtellung der<lb/>
+Academie der Wiſſenſchaften zu Berlin das Porto<lb/>
+fuͤr jeden, einzeln zur Poſt gegebenen Brief, mit<lb/>
+6 Pfenig erhoͤhet; am theuerſten unter allen deut¬<lb/>
+ſchen Territorialpoſten ſind jedoch die Mecklenburgi¬<lb/>
+ſchen, beſonders wegen des daſelbſt eingefuͤhrten ſchwe¬<lb/>
+ren Muͤnzfuſſes; jedoch iſt im Ganzen der Un¬<lb/>
+terſchied nicht groß.</p><lb/>
+<p>Man kann nicht immer den Grund angeben,<lb/>
+warum ein Brief von einem Orte nach einem naͤ¬<lb/>
+her liegenden mehr koſtet, als nach einem entfern¬<lb/>
+tern, welches doch hier und da der Fall iſt. Groͤßten¬<lb/>
+<pb n="41" facs="#f0049"/>
+theils liegt er in der beibehaltenen alten Reichspoſt¬<lb/>
+taxe, und der hoͤhere Preis ruͤhrt gewoͤhnlich davon<lb/>
+her, wenn Poſten in neuern Zeiten angelegt ſind,<lb/>
+wobei die Taxe nach dem jetzigen <hi rendition="#aq">pretio rerum</hi> an¬<lb/>
+geordnet wurde. Daher koͤmmt es, daß z. B. ein<lb/>
+Brief von Hannover bis Pyrmont 2 Ggr. und von<lb/>
+Hannover bis Paderborn und Erwitte gleichfalls<lb/>
+nur 2 Ggr. koſtet, ohngeachtet letztere Oerter wei¬<lb/>
+ter entfernt liegen, ſo wie auch ein Brief von Ber¬<lb/>
+lin bis Braunſchweig 4 Ggr. und von Berlin bis<lb/>
+Weſel nicht mehr zahlt.</p><lb/>
+<p>Es iſt vergeblich, uͤber dieſe Verſchiedenheit des<lb/>
+Briefporto's den Poſtofficianten zur Rede zu ſtellen,<lb/>
+weil er gewoͤhnlich keinen Grund davon angeben<lb/>
+kann, als die ihm vorgeſchriebene und an ſeinem<lb/>
+Orte gebraͤuchliche Taxe. Hiervon abzugehen und<lb/>
+das Porto willkuͤhrlich zu beſtimmen, wird und<lb/>
+kann ſich kein Poſtofficiant erlauben, denn ein ſol¬<lb/>
+ches Verfahren wuͤrde nicht von langer Dauer und<lb/>
+mit ſehr unangenehmen Folgen fuͤr ihn verbunden<lb/>
+ſeyn.</p><lb/>
+<p>Daher iſt es aber auch nothwendig, das von<lb/>
+dem Poſtbedienten geforderte Porto ohne Umſtaͤnde<lb/>
+zu erlegen und es kann wahrlich nicht ſtatt finden,<lb/>
+dabei dingen, oder einen Abzug machen zu wollen.<lb/>
+Jeder an ſeine Poſttaxe ſchon mechaniſch gewoͤhnte<lb/>
+<pb n="42" facs="#f0050"/>
+Poſtofficiant koͤnnte ſchon daruͤber verdruͤßlich wer¬<lb/>
+den und uns mit einer ſchneidenden Antwort ab¬<lb/>
+fertigen, wenn wir ihm weniger Porto boͤten, als<lb/>
+er verlangt. Er muͤßte auch ſicherlich jeden Pfennig,<lb/>
+denn wir ihm kuͤrzten, aus ſeiner Taſche beilegen<lb/>
+und der Kaſſe verguͤten.</p><lb/>
+<p>Bis hierher war die Rede vom <hi rendition="#g">Porto fuͤr<lb/>
+einfache Briefe</hi>. Weil es aber duͤnne und<lb/>
+dicke, oder <hi rendition="#g">einfache</hi> und <hi rendition="#g">doppelte</hi> Briefe giebt,<lb/>
+ſo iſt auch das dafuͤr zu erlegende Porto verſchie¬<lb/>
+den. Als einen <hi rendition="#g">einfachen</hi> (ſimpeln) <hi rendition="#g">Brief</hi> ſieht<lb/>
+man den an, der nur aus einem Bogen Papier be¬<lb/>
+ſteht und uͤberhaupt nicht uͤber ein Loth wiegt. Fuͤr<lb/>
+ſolche einloͤthige Briefe wird nur einfaches, oder<lb/>
+das gewoͤhnliche Porto bezahlt. Wiegen ſie aber<lb/>
+mehr; ſo veraͤndert ſich die Taxe. — Hierbei ſind<lb/>
+jedoch die Prinzipien nicht einerlei. Die ſogenann¬<lb/>
+ten Reichspoſten ſcheinen hierin die wohlfeilſten.<lb/>
+Auf den reitenden Preußiſchen und einigen andern<lb/>
+ſtaͤndiſchen Poſten muß fuͤr jedes Loth, welches ein<lb/>
+Brief wiegt, das einfache Porto bezahlt werden, z.<lb/>
+B. wenn ein einfacher Brief nach einem gewiſſen<lb/>
+Orte 2 Ggr. koſtet; ſo koſtet er, wenn er 4 Loth<lb/>
+wiegt 4 Ggr. indem man annimmt, daß in einem<lb/>
+ſolchen vierloͤthigen Briefe wirklich 4 Briefe, oder<lb/>
+doch andre Papiere vom beſondern Werthe, z. B.<lb/>
+<pb n="43" facs="#f0051"/>
+Rechnungen, Wechſel, Aſſignationen, Quitungen<lb/>
+u. dergl. ſeyn koͤnnen. Bei den taxiſchen Reichs¬<lb/>
+poſten ſteigt die Erhoͤhung des Porto fuͤr ſolche<lb/>
+dicke Briefe von 1 bis 3, von 4 bis 7, von 8 bis<lb/>
+11 Loth ꝛc. welches aber auch bei den folgenden<lb/>
+Preußiſchen Poſten der Fall, iſt und uͤberhaupt wird<lb/>
+hierbei auf den Werth des Inhalts oder der Bei¬<lb/>
+ſchluͤße der Briefe Ruͤckſicht genommen, ſo daß<lb/>
+das Porto fuͤr gedruckte Sachen, Proben u. dergl.<lb/>
+geringer iſt. Auf den Engliſchen Poſten hingegen<lb/>
+muß fuͤr ſolche doppelte Briefe drei- und mehrfa¬<lb/>
+ches Porto erlegt werden, ja ein mit einem<lb/>
+Couvert verſehener Brief koſtet ſchon doppeltes<lb/>
+Poſtgeld.</p><lb/>
+<p>Auf den mehrſten Poſten muͤſſen auch die<lb/>
+<hi rendition="#g">Proceßſchriften</hi> der Advocaten, Gerichte und<lb/>
+Partheien, desgleichen die <hi rendition="#g">Manuſcripte</hi> der<lb/>
+Gelehrten und Buchhaͤndler gleichfalls <hi rendition="#g">hoͤheres<lb/>
+Porto</hi> tragen. Die ſogenannten Poſttaxen geben<lb/>
+zwar hiervon keinen Grund an, worauf ſie ſich<lb/>
+aber uͤberhaupt bei ihren Beſtimmungen wenig ein¬<lb/>
+laſſen; die Urſache ſoll jedoch wahrſcheinlich darin<lb/>
+liegen, daß gedachte Schriften einen beſondern<lb/>
+Werth haben und daher auch von der Poſt <hi rendition="#g">vor¬<lb/>
+zuͤglich verwahrt</hi> und in Aufſicht genommen<lb/>
+werden muͤßten. — Ob ſolches nun wirklich ge¬<lb/>
+<pb n="44" facs="#f0052"/>
+ſchieht, oder ob der Grund des hohen Porto's fuͤr<lb/>
+Klageſchriften in der Meynung liegt, daß die Hand¬<lb/>
+lungen der Gerechtigkeit viel Geld koſten muͤſſen,<lb/>
+bleibt noch problematiſch. Wenigſtens ſcheint es<lb/>
+billig zu ſeyn, daß ein mit Makulatur gefuͤllter<lb/>
+Brief von der Poſt eben ſo richtig beſorgt werden<lb/>
+muͤſſe, als die Vertheidigungsſchrift eines unſchul¬<lb/>
+dig Angeklagten, oder eines duͤrftigen Supplikan¬<lb/>
+tens. — Die <hi rendition="#g">Manuſcripte</hi> der Gelehrten muͤſ¬<lb/>
+ſen freilich, als die koſtbarſten Erzeugniſſe des Men¬<lb/>
+ſchen, Ausnahmen machen, und es waͤre auch wirk¬<lb/>
+lich gewiſſermaßen wuͤnſchenswerth, wenn der ver¬<lb/>
+ſchiedene Werth derſelben, ſchon zur Erleichterung<lb/>
+der Critik, durch die Poſt taxirt wuͤrde, oder doch<lb/>
+wenigſtens ſchlechte Producte einiger Scribenten da¬<lb/>
+durch unterdruͤckt wuͤrden, um die Buchhaͤndler und<lb/>
+das Publikum vor groͤßerm Verluſt zu verwahren.<lb/>
+Dieſes wuͤrde man unter die noch unbekannten<lb/>
+Wohlthaten des Poſtweſens rechnen koͤnnen.</p><lb/>
+<p>Wegen der Bezahlung des Porto's fuͤr ſolche<lb/>
+dicke oder ſtarke Briefe pflegt ſehr oft zwiſchen den<lb/>
+Correspondenten und den Poſtofficianten Mißver¬<lb/>
+ſtaͤndniß zu entſtehen, da es manchen befremdet,<lb/>
+wenn mehr, als gewoͤhnliches Porto gefordert wird,<lb/>
+indem viele glauben, ein Brief ſei ein Brief. Sol¬<lb/>
+che Mißverſtaͤndniße werden immer entſtehen, wenn<lb/>
+<pb n="45" facs="#f0053"/>
+nicht die Correspondenten ſich eine genauere Kennt¬<lb/>
+niß von den Poſttaxen verſchaffen und dadurch das<lb/>
+Verfahren der Poſt beurtheilen lernen. Inzwiſchen<lb/>
+kann man im Allgemeinen vorausſetzen, daß die Poſt¬<lb/>
+officianten nicht ſo leicht hierbei vorſaͤtzlich unrichtig<lb/>
+verfahren werden, da ſie ſtets befuͤrchten muͤſſen,<lb/>
+daß eine von ihnen begangene Unrichtigkeit ſehr<lb/>
+bald zur Sprache kommen werde, denn das Pub¬<lb/>
+likum iſt auf die Poſt ſehr wachſam, beobachtet das<lb/>
+Verfahren der Poſtbedienten groͤßtentheils ſehr ſcharf<lb/>
+und iſt geneigt, der Poſt mehr, als billig iſt, zur<lb/>
+Laſt zu legen.</p><lb/>
+<p>Bei <choice><sic><hi rendition="#g">ankommmenden</hi></sic><corr><hi rendition="#g">ankommenden</hi></corr></choice> <hi rendition="#g">Briefen</hi> iſt etwa<lb/>
+Folgendes zu beobachten. Der Empfaͤnger muß das<lb/>
+auf den Brief vom Poſtamte geſetzte Poſtgeld be¬<lb/>
+zahlen und kann nichts davon abziehen, weil ein<lb/>
+ſolcher Abzug lediglich der Taſche des Poſtoffician¬<lb/>
+ten zur Laſt fallen wuͤrde. Denn dieſer iſt nicht<lb/>
+Herr des Poſtgeldes, ſondern nur Verwalter deſſel¬<lb/>
+ben und muß es bei Heller und Pfennig berechnen.</p><lb/>
+<p>Glaubt man jedoch, daß zu viel Porto ange¬<lb/>
+ſetzt ſei, welches allerdings aus Uebereilung und<lb/>
+Irrthum bei der Eile, womit die Expeditionen ge¬<lb/>
+ſchehen muͤſſen, zuweilen der Fall ſeyn kann; ſo<lb/>
+darf und muß man auch daruͤber ſich beſchweren,<lb/>
+Aufklaͤrung und Schadloshaltung ſuchen. Am be¬<lb/>
+<pb n="46" facs="#f0054"/>
+ſten iſt, wenn eine ſolche Beſchwerde ſchriftlich<lb/>
+durch eine an das Poſtamt gerichtete Anzeige mit<lb/>
+Beifuͤgung des Briefs, als <hi rendition="#aq">corpus delicti</hi>, ge¬<lb/>
+ſchiehet. Denn ohne Vorzeigung des Briefs, wes¬<lb/>
+halben Beſchwerde gefuͤhrt wird, iſt der Poſtbediente<lb/>
+ſelten im Stande, ſogleich auf der Stelle befriedi¬<lb/>
+gende Auskunft zu geben, ſondern er wird erſt mit<lb/>
+Muͤhe und Aufopferung von Zeit, welche ihm oft<lb/>
+koſtbar iſt, den Brief in den Poſtkarten und Re¬<lb/>
+giſtern, aufſuchen muͤſſen, welches ihm ſehr unange¬<lb/>
+nehm ſeyn wuͤrde, zumal wenn er die Beſchwerde<lb/>
+ungegruͤndet findet. Iſt aber wirlich zu viel Porto<lb/>
+angeſetzt und ſolches nicht von dem abliefernden,<lb/>
+ſondern bei einem vorliegenden Poſtamte, wo der<lb/>
+Brief aufgegeben wurde, geſchehen: ſo wird der<lb/>
+Brief auf der Route zuruͤck geſendet werden muͤſ¬<lb/>
+ſen, damit der Fehler mit Ueberzeugung da ver¬<lb/>
+beſſert werden koͤnne, wo er begangen iſt. Die¬<lb/>
+ſes wird auch noͤthig ſeyn, wenn ein Francobrief<lb/>
+dennoch mit Porto belegt iſt. Es mag nun das<lb/>
+Porto bei der Aufgabe bezahlt und die Anſetzung<lb/>
+des Poſtgeldes aus Verſehen eines Poſtamtes ge¬<lb/>
+ſchehen, oder das Wort franco mag, weil es ent¬<lb/>
+weder undeutlich, oder an einer ungewoͤhnlichen<lb/>
+Stelle des Couverts geſchrieben war, von dem<lb/>
+Poſtofficianten nicht bemerket ſeyn; ſo wird in allen<lb/>
+<pb n="47" facs="#f0055"/>
+dieſen Faͤllen die Zuruͤckſendung des Briefs ge¬<lb/>
+ſchehen muͤſſen, damit der Fehler an ſeinem Orte<lb/>
+verbeſſert werde. Jedoch kann der Empfaͤnger den<lb/>
+Brief zuvor eroͤffnen und leſen. Es iſt auch hin¬<lb/>
+reichend, wenn nur das Couvert zuruͤck geſchickt<lb/>
+wird. Iſt dieſes nicht thunlich; ſo kann der Em¬<lb/>
+pfaͤnger den Brief vor der Zuruͤckſendung wieder<lb/>
+verſiegeln und es verſteht ſich auch von ſelbſt, daß<lb/>
+er ſeinen Brief mit der naͤchſten Poſt frei zuruͤck<lb/>
+erhaͤlt.</p><lb/>
+<p>Erhaͤlt Jemand durch die Poſt, Briefe, welche<lb/>
+er nicht annehmen und wofuͤr er das Poſtgeld<lb/>
+nicht geben will; ſo darf er ſie, der Regel nach,<lb/>
+nicht erbrechen, ſondern muß ſie uneroͤffnet zuruͤck<lb/>
+geben. Hat er ſie erbrochen und geleſen; ſo hat<lb/>
+er ſie ſich dadurch zugeeignet und muß alſo die da¬<lb/>
+mit verbundene Koſten tragen. Da jedoch heutiges<lb/>
+Tages viele Menſchen unſchuldiger Weiſe haͤufig<lb/>
+mit unverlangten Lotteriebriefen und andern Bet¬<lb/>
+tel- und Brandbriefen, welche man nicht anneh¬<lb/>
+men kann, heimgeſucht werden; ſo bleibt hierbei<lb/>
+faſt kein Mittel uͤbrig, als dieſe Briefe, wenn man<lb/>
+ſie etwa erbrochen hat und nicht annehmen will,<lb/>
+von neuem an den Abſender zu couvertiren und<lb/>
+ſich das etwa dafuͤr bezahlte Porto von der Poſt<lb/>
+wieder erſtatten zu laſſen, wobei man jedoch ver¬<lb/>
+<pb n="48" facs="#f0056"/>
+bunden iſt, auf dem Couverte ſelbſt zu bemerken,<lb/>
+was die Poſt dafuͤr ausgelegt hat. Dieſe Auslage<lb/>
+wird alsdann der Abſender nebſt dem hinzukom¬<lb/>
+menden Porto der Poſt wieder erſtatten muͤſſen.<lb/>
+In einigen Faͤllen iſt es auch thunlich, dergleichen<lb/>
+Briefe ohne dieſe Umſtaͤnde zuruͤck zu ſenden.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb n="[49]" facs="#f0057"/>
+<div n="1"> <head> <hi rendition="#g">Regeln bei Verſendungen der Gelder<lb/>
+und Packete mit der Poſt</hi>.<lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">W</hi>enn man nur weniges Geld, als etwa einige<lb/>
+Piſtolen oder Thaler, mit der Poſt verſenden will,<lb/>
+ſo thut man wohl, ſolches in den Brief ſelbſt zu<lb/>
+legen. Man muß aber das Geld beſonders in ein<lb/>
+eigenes Papier wickeln und dieſes Packetchen in<lb/>
+dem Briefe mit Lack befeſtigen. Ueberhaupt muß<lb/>
+man zu ſolchem Briefe, worin man Geld verſchi¬<lb/>
+cken will, ſtarkes Papier nehmen, oder ihn wenig¬<lb/>
+ſtens in doppeltes Papier couvertiren, mit gutem<lb/>
+Lack verſiegeln und ihn nicht zu klein zuſammen<lb/>
+ſchlagen. Wird das Geld nicht im Briefe mit Lack<lb/>
+befeſtigt, ſondern nur los hineingelegt, ſo daß es<lb/>
+darin hin und her faͤllt; ſo ſcheuert und ſprengt es<lb/>
+leicht das Papier, welches gewoͤhnlich geſchieht,<lb/>
+wenn das Papier duͤnn iſt, wobei es ſich denn<lb/>
+oft eraͤugnet, daß ſich nicht nur Geldſtuͤcke in die<lb/>
+Falten des Briefs ſchieben und beim Erbrechen her¬<lb/>
+<fw type="sig" place="bottom">4<lb/>
+</fw>
+<pb n="50" facs="#f0058"/>
+ausfallen, ſondern auch gaͤnzlich verlohren gehen,<lb/>
+woruͤber dann Verdruß und Verluſt entſteht. Die<lb/>
+Poſt wird ſich ſelten bei ſolchen Vorfaͤllen zu einem<lb/>
+Erſatze verſtehen, weil die Abſender verbunden ſind,<lb/>
+ihre abzuſendenden Briefe und Packete ſelbſt hinlaͤng¬<lb/>
+lich zu verwahren. Sie hat ihre Pflicht erfuͤllt,<lb/>
+wenn ſie den Brief in eben dem Zuſtande ablie¬<lb/>
+fert, in welchem er ihr anvertraut wurde. Wo es<lb/>
+jedoch Gebrauch iſt, das zu verſendende Geld dem<lb/>
+Poſtbedienten zuzuzaͤhlen, ehe es eingepackt wird,<lb/>
+und wo es alſo in Gegenwart des Poſtbedienten,<lb/>
+oder von demſelben ſelbſt eingepackt wird, da hat<lb/>
+man ſich bei eraͤugnendem Verluſte an das empfan¬<lb/>
+gende Poſtamt zu halten. Bei den mehrſten Po¬<lb/>
+ſten wird jedoch das Einpacken den Abſendern ſelbſt<lb/>
+uͤberlaſſen und dieſe ſind verbunden, ihre Sachen<lb/>
+gut verwahrt zur Poſt zu bringen. Wird alſo ein<lb/>
+mit Geld beſchwerter Brief auf der Reiſe von dem<lb/>
+Gelde ſelbſt durchgeſcheuert und zerſprengt, oder<lb/>
+ſpringt das Siegel deſſelben wegen ſchlechten Lacks<lb/>
+auf; ſo wird der dadurch entſtandene Verluſt groͤ¬<lb/>
+ſtentheils dem Abſender zur Laſt fallen. Die Poſt¬<lb/>
+officianten ſollten zwar ſolche ſchlecht verwahrte<lb/>
+Briefe nicht annehmen: allein ſolches iſt nicht im¬<lb/>
+mer zu verhuͤten, da man nicht immer im Stande<lb/>
+<pb n="51" facs="#f0059"/>
+iſt, die Beſchaffenheit des Papiers und Lacks gehoͤ¬<lb/>
+rig zu beurtheilen. —</p><lb/>
+<p>Bei <hi rendition="#g">Goldverſendungen</hi> kann man Sum¬<lb/>
+men von 500 Thalern und daruͤber, auf angezeigte<lb/>
+Art, in den Brief legen. Steigt aber die Summe<lb/>
+uͤber 1000 Rthlr., ſo thut man beſſer, das Gold<lb/>
+beſonders in einen Beutel oder Packet zu thun.<lb/>
+Ein ſolcher Beutel muß von ſtarkem und dichten<lb/>
+doppelten Linnen, oder aus Leder gemacht und<lb/>
+gut genaͤhet werden, damit er ſich nicht zerſcheuere,<lb/>
+oder die Nath aufſpringe. Alsdann muß er mit<lb/>
+einem guten Bindfaden zugebunden und mit gutem<lb/>
+Lack verſiegelt werden, dergeſtalt, daß das Siegel<lb/>
+auf die Enden, oder auf den Knoten des Bindfa¬<lb/>
+dens deutlich ausgedruͤckt werde. Man thut auch<lb/>
+wohl, zwei Siegel darauf zu ſetzen, auf den Fall,<lb/>
+daß etwa das eine aufſpringen oder beſchaͤdigt wer¬<lb/>
+den ſollte.</p><lb/>
+<p>Nimmt man, ſtatt eines Beutels, Papier; ſo<lb/>
+muß man nicht nur das Geld erſt beſonders in<lb/>
+Papier rollen und wickeln und auf jeder Rolle die<lb/>
+Summe des Inhalts bemerken, ſondern auch zu<lb/>
+den, aͤuſſern Umſchlage von einer ſtarken und halt¬<lb/>
+baren Sorte nehmen und das Packet gleichfalls mit<lb/>
+Bindfaden zuſchnuͤren und an beiden Enden gut<lb/>
+verſiegeln. Da man auf blauem, beſonders auf<lb/>
+<pb n="52" facs="#f0060"/>
+dem ſogenannten Zuckerpapier nicht gut leſen kann,<lb/>
+was mit ſchwarzer Dinte darauf geſchrieben iſt; ſo<lb/>
+muß man ſolches nicht zu dieſem Behuf, ſondern<lb/>
+ſtarkes weißes Papier nehmen.</p><lb/>
+<p>Es iſt nicht noͤthig, die ganze Addreſſe oder<lb/>
+Aufſchrift des Briefes, auch auf den Beutel oder<lb/>
+das Packet zu ſetzen (in einigen Faͤllen kann dieß<lb/>
+ſogar ſchaͤdlich ſeyn); aber es iſt nothwendig, den<lb/>
+Beutel, oder das Packet, mit eben dem Pettſchaft,<lb/>
+womit der dazu gehoͤrige Brief verſiegelt iſt, zu<lb/>
+verſiegeln und uͤber dies ein deutliches Zeichen, oder<lb/>
+<hi rendition="#g">Marque</hi>, darauf zu machen. Zu dieſem Zeichen<lb/>
+nimmt man am beſten die Anfangsbuchſtaben des<lb/>
+Namens des Empfaͤngers und es iſt auch ſehr nuͤtz¬<lb/>
+lich, zugleich den Namen des Orts, wohin das<lb/>
+Geld beſtimmt iſt, beizufuͤgen.</p><lb/>
+<p>Ferner muß man nicht nur uͤberhaupt die Auf¬<lb/>
+ſchrift des Briefs deutlich ſchreiben, ſondern man<lb/>
+muß vornehmlich nie vergeſſen, auf derſelben, unten<lb/>
+linker Hand, ausdruͤcklich hinzuſetzen: Hierbei, oder,<lb/>
+nebſt einem linnenen Beutel oder Packet in Pa¬<lb/>
+pier, mit .... Thlr. .. Ggr. .. Pf. gez. <hi rendition="#aq">A</hi>. <hi rendition="#aq">B</hi>.<lb/>
+<hi rendition="#aq">C</hi>. und zugleich die Geldſorte angeben.</p><lb/>
+<p>Letzteres iſt ſchon wegen des zu bezahlenden<lb/>
+Poſtgeldes erforderlich, weil Gold- und Silbermuͤnze<lb/>
+verſchieden taxirt wird, indem das Gold, in großen<lb/>
+<pb n="53" facs="#f0061"/>
+Summen, nicht ſo viel Poſtgeld traͤgt, als Sil¬<lb/>
+bermuͤnze. Auch wird, wenn das Geld auf der<lb/>
+Poſt verlohren gehen ſollte, es nur in der Muͤnzſorte<lb/>
+wieder erſetzt, in welcher es aufgegeben wurde.<lb/>
+Will man das Poſtgeld bei der Aufgabe bezahlen;<lb/>
+ſo muß man nicht unterlaſſen, franco auf den<lb/>
+Brief zu ſchreiben, oder falls man nicht ganz hin<lb/>
+frankiren will; ſo muß man den Namen des Orts,<lb/>
+ſo weit man bezahlt, bei das franco ſetzen.</p><lb/>
+<p>Bei großen Geldverſendungen pflegt man das<lb/>
+Geld in Faͤßer zu thun. Allein es iſt nothwendig,<lb/>
+das Geld nicht blos in die Faͤßer zu ſchuͤtten, ſon¬<lb/>
+dern es im Beuteln verwahrt, in die Faͤßer le¬<lb/>
+gen, weil der Fall ſehr oft eintritt, daß ſolche<lb/>
+Geldfaͤßer, wegen ihrer eigenen Schwere aufſprin¬<lb/>
+gen oder zerbrechen, zumal wenn das dazu ge¬<lb/>
+nommene Holz ſchwach und ſchadhaft iſt. Der<lb/>
+durch ſolches ſchlechte Einpacken entſtandene Scha¬<lb/>
+den koͤmmt mit Recht auf Rechnung des Abſen¬<lb/>
+ders. Man muß die Geldfaͤßer auch nicht zu groß<lb/>
+und zu ſchwer machen, damit ein Menſch ſie auf¬<lb/>
+heben koͤnne. Sind ſie ſchwerer, als 100 Pfund;<lb/>
+ſo geſchieht es leicht, daß die Wagenmeiſter und<lb/>
+Poſtillons beim Auf- und Abladen ſie fallen laſſen,<lb/>
+oder hinwerfen muͤſſen, um nicht von denſelben ge¬<lb/>
+quetſcht zu werden.</p><lb/>
+<pb n="54" facs="#f0062"/>
+<p>Beim <hi rendition="#g">Verſchicken von Waaren in Pa¬<lb/>
+cketen</hi> ſind aͤhnliche Vorſichtsregeln zu beobachten.<lb/>
+Hauptſaͤchlich koͤmmt es darauf an, die Waaren gut<lb/>
+einzupacken und mit hinlaͤnglicher Emballage zu ver¬<lb/>
+wahren, damit ſie gegen Naͤße geſchuͤtzt ſind und<lb/>
+nicht durchſcheuert und zerſchabt werden koͤnnen.<lb/>
+Dieſes wird ohnehin in allen Poſtverordnungen den<lb/>
+Abſendern zur Pflicht gemacht und die Poſt kann<lb/>
+bei der gegenwaͤrtigen Beſchaffenheit der mehrſten<lb/>
+Poſtwagen, nicht alle Packete gegen Naͤße und<lb/>
+Reiben ſchuͤtzen, zumal da ſo viele Packete von ſehr<lb/>
+verſchiedener Geſtalt und Beſchaffenheit zur Poſt<lb/>
+gegeben werden, die alſo nicht immer paßlich ge¬<lb/>
+packt werden koͤnnen. Wachstuch, oder Wachslinnen<lb/>
+iſt zwar ein gutes Mittel, Waaren einzupacken; da<lb/>
+man aber kein Zeichen darauf machen kann, indem<lb/>
+kein Lack darauf haftet, ſo iſt man genoͤthigt, noch<lb/>
+eine Enveloppe von Linnen, Papier, oder Matten<lb/>
+darum zu ſchlagen; oder man muͤßte ſonſt auf das<lb/>
+Wachstuch noch beſonders einen linnenen Lappen<lb/>
+naͤhen und auf dieſen die Marque ſetzen, oder ſol¬<lb/>
+che mit Oelfarbe bezeichnen. Bei einigen Poſten,<lb/>
+z. B. im Preußiſchen, uͤbernimmt es zwar die Poſt,<lb/>
+die Packete zu zeichnen und laͤßt ſich dafuͤr, wie<lb/>
+billig, beſonders bezahlen; allein es iſt beſſer, wenn<lb/>
+die Abſender dies ſelbſt beſorgen. Es kann nicht<lb/>
+<pb n="55" facs="#f0063"/>
+Statt finden, daß man auf Koffer, oder andre<lb/>
+große Packete, welche man mit der Poſt verſenden<lb/>
+will, die Briefe ſelbſt nagele oder hefte. Nein; die<lb/>
+Briefe und Addreſſen muͤſſen beſonders und los<lb/>
+aufgegeben, und die Koffer, oder Packete mit einem<lb/>
+Zeichen verſehen werden. Dieſes Zeichen muß man<lb/>
+auch auf den Brief machen und zugleich dabei an¬<lb/>
+geben, in welche Emballage das Packet geſchla¬<lb/>
+gen iſt.</p><lb/>
+<p>Beim <hi rendition="#g">Empfange</hi> der Geldbriefe und Pa¬<lb/>
+ckete von der Poſt hat man gleichfalls gewiſſe<lb/>
+Vorſichten zu beobachten. Die Ablieferungsart<lb/>
+ſolcher Sachen von der Poſt an die Empfaͤnger<lb/>
+iſt nicht uͤberall gleich. An einigen Orten werden<lb/>
+die mit den Poſten angekommenen Geldbriefe und<lb/>
+Packete den Empfaͤngern ins Haus geſchickt. Dieß<lb/>
+iſt freilich fuͤr die Empfaͤnger ziemlich bequem; al¬<lb/>
+lein es iſt gewoͤhnlich das Unangenehme damit ver¬<lb/>
+bunden, daß der Empfang ſolcher Sachen mehrern<lb/>
+Perſonen bekannt werden kann. An andern Orten<lb/>
+muͤſſen dagegen die Empfaͤnger ſelbſt ihre eingelau¬<lb/>
+fenen Sachen von der Poſt abholen, nachdem ſie<lb/>
+von der Ankunft derſelben aus dem Poſthauſe be¬<lb/>
+nachrichtigt ſind, oder einen Avis erhalten haben.<lb/>
+Dieſer Avis beſteht entweder in einem Zettel, wor¬<lb/>
+auf die angekommene Sache und der Name des<lb/>
+<pb n="56" facs="#f0064"/>
+Empfaͤngers bemerkt iſt, oder es werden die, zu den<lb/>
+angekommenen Packeten gehoͤrenden Briefe den Em¬<lb/>
+pfaͤngern zugeſtellt, damit dieſe ſich nach der Poſt<lb/>
+verfuͤgen koͤnnen, um das Ihrige in Empfang zu<lb/>
+nehmen.</p><lb/>
+<p>Man mag nun die Sachen von der Poſt ins<lb/>
+Haus geſchickt erhalten, oder ſie ſelbſt aus dem<lb/>
+Poſthauſe abholen muͤſſen; ſo wird man in jedem<lb/>
+Falle eine Beſcheinigung oder Quitung, uͤber die<lb/>
+richtige Ablieferung, wie billig, ausſtellen muͤſſen.<lb/>
+Eine ſolche Beſcheinigung muß der Empfaͤnger ſelbſt<lb/>
+aufſetzen, oder doch eigenhaͤndig unterſchreiben, oder<lb/>
+denjenigen, welcher ſie in ſeinem Namen ſchreiben<lb/>
+und Sachen in Empfang nehmen ſoll, dazu hin¬<lb/>
+laͤnglich bevollmaͤchtigen. In einem ſolchen Scheine<lb/>
+muß nicht nur deutlich angegeben werden, was und<lb/>
+wie viel man erhaͤlt; ſondern es iſt auch nuͤtzlich,<lb/>
+anzufuͤhren, von welchem Orte, oder mit welcher<lb/>
+Poſt es gekommen iſt und ob man es franco, oder<lb/>
+porto empfangen habe.</p><lb/>
+<p>Da auch an einigen Orten von den, aus dem<lb/>
+Auslande und ſonſt herein kommenden Sachen und<lb/>
+Waaren Licent, oder Acciſe und Impoſt und wie<lb/>
+die Abgaben ſonſt heißen, gegeben werden muß: ſo<lb/>
+werden die Empfaͤnger ſich auch den, deshalb be¬<lb/>
+ſtehenden Geſetzen und Anordnungen, unterwerfen<lb/>
+<pb n="57" facs="#f0065"/>
+muͤſſen. Es wird in den meiſten Faͤllen vergeblich<lb/>
+ſeyn, ſich hieruͤber mit den Poſtbedienten, oder<lb/>
+Acciſeeinnehmern, in Dispuͤte einzulaſſen. Man<lb/>
+thut beſſer, wenn man ſich hierbei beeintraͤchtigt<lb/>
+glaubt, ſolches ſchriftlich der Landesregierung, oder<lb/>
+der ſonſtigen Behoͤrde anzuzeigen, woher alsdann<lb/>
+rechtliche Entſcheidung erfolgen wird.</p><lb/>
+<p>Eben ſo muß man ſich auch verhalten, wenn<lb/>
+uns <hi rendition="#g">auf der Poſt etwas beſchaͤdigt</hi>, <hi rendition="#g">oder<lb/>
+gar abhanden gekommen iſt</hi>. Muͤndliche<lb/>
+Anzeigen dringen nicht immer gehoͤrig ein und wer¬<lb/>
+den nicht ſelten von den mit Geſchaͤften uͤberhaͤuf¬<lb/>
+ten Poſſtofficianten kurz abgefertigt, oder gar auſſer<lb/>
+Acht geelaßen. Auf ſchriftliche Anzeige wird aber<lb/>
+gehoͤrige Auskunft gegeben werden muͤſſen. Wird<lb/>
+inſonderheit von der Poſt etwa ein beſchaͤdigtes Pa¬<lb/>
+cket an uns abgeliefert, ſo muͤſſen wir uns huͤten,<lb/>
+ſolches anzunehmen. Man muß es, wenn es nur<lb/>
+geſchehen kann, der Poſt zuruͤck geben und derſel¬<lb/>
+ben uͤberlaſſen, ſich daruͤber mit dem Abſender, oder<lb/>
+mit demjenigen, welcher die Beſchaͤdigung veran¬<lb/>
+laßte, abzufinden. Haben wir es aber einmal an¬<lb/>
+genommen, alsdann werden wir hinterher mit un¬<lb/>
+ſern Klagen wenig oder nichts ausrichten. Iſt<lb/>
+man jedoch aus andrer Ruͤckſicht genoͤthigt, das be¬<lb/>
+ſchaͤdigte Packet anzunehmen; ſo muß man darauf<lb/>
+<pb n="58" facs="#f0066"/>
+beſtehen, daß die Art und Weiſe der Beſchaͤdigung<lb/>
+auf der Poſt unterſucht, der uns dadurch zuwach¬<lb/>
+ſende Schaden ergruͤndet und der ganze Vorfall<lb/>
+niedergeſchrieben werde, damit wir dadurch in Stand<lb/>
+geſetzt werden, die Sache weiter zu verfolgen.<lb/>
+Denn wenn es erwieſen werden kann, daß das<lb/>
+Packet der Poſt in gutem Stande uͤberliefert wur¬<lb/>
+de, welches ſchon dadurch Wahrſcheinlichkeit erhaͤlt,<lb/>
+daß die Poſt es annahm, da ſie doch ſchlecht ver¬<lb/>
+wahrte Sachen nicht annehmen ſoll: ſo iſt die<lb/>
+Poſt auch verbunden, den durch ihre Schuld ent¬<lb/>
+ſtandenen Schaden zu tragen, zumal wenn das be¬<lb/>
+ſchaͤdigte Packet von ſolcher Beſchaffenheit war, daß<lb/>
+es gegen Beſchaͤdigung auf der Poſt haͤtte verwahrt<lb/>
+werden koͤnnen. Um ſowol ſolche Beſchaͤdigungen,<lb/>
+als auch den Verluſt verlohrner Sachen von der<lb/>
+Poſt ohne große Weitlaͤuftigkelten erſetzt zu erhal¬<lb/>
+ten, iſt es rathſam, ja nothwendig, den Inhalt<lb/>
+unſrer zur Poſt zu gebenden Packete und deren Werth<lb/>
+ſelbſt auf dem Briefe anzugeben und uns daruͤber<lb/>
+bei der Aufgabe einen Schein reichen zu laſſen.</p><lb/>
+<p>Glaubt man, daß von unſern abgeſandten Sa¬<lb/>
+chen auf der Poſt etwas verlohren gegangen, oder<lb/>
+nicht an den rechten Empfaͤnger gekommen ſei; ſo<lb/>
+iſt vorlaͤufig nichts weiter erforderlich, als auf einen<lb/>
+Bogen Papier zu ſchreiben: daß man an jenem<lb/>
+<pb n="59" facs="#f0067"/>
+oder dieſem Tage, einen Brief mit ſo viel Gelde,<lb/>
+oder ein Packet an den oder jenen, nach dieſem<lb/>
+oder jenem Orte zur Poſt geliefert habe, welches,<lb/>
+laut erhaltener Nachricht, nicht angekommen ſeyn<lb/>
+ſolle und man alſo uͤber die Ablieferung befriedigen¬<lb/>
+de Auskunft, oder Erſatz des Werths erwarte. —<lb/>
+Auf eine ſolche Anzeige wird die Poſt alsdann<lb/>
+ſchon ſelbſt ſorgen muͤſſen, die Sache zu berichtigen<lb/>
+und die Correspondenten zu befriedigen. —</p><lb/>
+<p>Jedoch iſt die Furcht, daß auf der Poſt<lb/>
+<hi rendition="#g">Briefe verlohren gehen</hi>, groͤßtentheils unge¬<lb/>
+gruͤndet. — Man kann ſicher annehmen, daß von<lb/>
+einer Million Briefe kaum einer abhanden koͤmmt.<lb/>
+Man koͤnnte es nicht befremdend finden, wenn meh¬<lb/>
+rere verlohren wuͤrden. Die Poſt iſt eine vielfach<lb/>
+zuſammengeſetzte, ſehr verwickelte Anſtalt, die nur<lb/>
+von Menſchen betrieben wird; aber wegen eines<lb/>
+verlohrnen oder vermißten Briefs wird gewoͤhnlich<lb/>
+ſchon großer und langer Laͤrm gemacht. Oft ſollte<lb/>
+man aber erſt fragen, ob der vermißte Brief auch<lb/>
+wirklich zur Poſt geliefert ſei, oder ob ſich nicht der¬<lb/>
+ſelbe, oder die verlangte Antwort im Hauſe der<lb/>
+Correspondenten ſelbſt verſteckt habe? — In den<lb/>
+meiſten Faͤllen, ja faſt immer kann man verſichert<lb/>
+ſeyn, daß der Verluſt eines Briefes nicht durch die<lb/>
+Poſtofficianten veranlaßt wird, da ſie zu viele Ur¬<lb/>
+<pb n="60" facs="#f0068"/>
+ſachen haben, die ihnen anvertraueten Sachen wohl<lb/>
+zu verwahren. — Es kann ſich aber eraͤugnen, daß<lb/>
+Briefe von einem ungewoͤhnlich kleinen Format ſich<lb/>
+in groͤßere, zu welchen ſie gepackt und mit welchen<lb/>
+ſie vermiſcht wurden, hinein geſchoben haben, oder<lb/>
+daß zwei Briefe mittelſt weicher Oblate, oder ſchlech¬<lb/>
+ten Lacks, womit ſie verſiegelt waren, an einander<lb/>
+klebten. Den Poſtbedienten war es verzeihlich,<lb/>
+wenn ſie bei der Eile ihres Geſchaͤfts und bei der<lb/>
+Menge der unter Haͤnden habenden Briefe und<lb/>
+Sachen, dieſen Zufall nicht entdeckten: aber derje¬<lb/>
+nige, in deſſen Haͤnde ein auf dieſe Art verirrter<lb/>
+Brief gerieth, war eigentlich ſchuldig, denſelben zu¬<lb/>
+ruͤck zu geben, welches aber nicht immer geſchieht.<lb/>
+Man thut alſo wohl, die Briefe nicht zu klein zu<lb/>
+machen, ſie mit gutem Lack zu verwahren, auch ſie<lb/>
+nicht eher zur Poſt zu geben, als bis die Oblate,<lb/>
+womit ſie verſiegelt wurden, voͤllig trocken gewor¬<lb/>
+den iſt, und ſie immer mit einer deutlichen Auf¬<lb/>
+ſchrift zu verſehen.</p><lb/>
+<p>Auf den Preußiſchen, Saͤchſiſchen und vielen<lb/>
+andern Poſten kann der Fall, daß ein Brief<lb/>
+abhanden koͤmmt, noch ſeltener eintreten, weil hier<lb/>
+jeder Brief beſonders in die Poſtkarte eingeſchrieben<lb/>
+wird, nemlich der Name des Empfaͤngers und der<lb/>
+Ort, wohin die Briefe beſtimmt ſind, nach der<lb/>
+<pb n="61" facs="#f0069"/>
+Zahlreihe, welche zugleich auf die Briefe geſetzt<lb/>
+wird. Hier findet es ſich alſo bald, wenn auf ei¬<lb/>
+ner Poſtſtation ein Brief vermißt wird, wo man<lb/>
+ihn zu ſuchen habe, denn man kann jeden Brief<lb/>
+vom Orte ſeiner Aufgabe an bis zum Orte ſeiner<lb/>
+Beſtimmung nachweiſen. Bei den taxiſchen Reichs¬<lb/>
+poſten wie auch bei den Poſten in andern Laͤndern,<lb/>
+z. B. in England, Frankreich ꝛc. verhaͤlt es ſich<lb/>
+hiermit anders. Da werden die einfachen Briefe<lb/>
+nicht namentlich angeſchrieben, ſondern nur gezaͤhlt,<lb/>
+alsdann zuſammengepackt und fortgeſchickt. Mithin<lb/>
+kann hier kein Brief namentlich nachgewieſen wer¬<lb/>
+den; auch kann beim Zaͤhlen leicht ein Brief ver¬<lb/>
+ſehen werden. Das Zaͤhlen geſchieht ohnehin nicht<lb/>
+grade zur Sicherheit der Briefe, ſondern vielmehr<lb/>
+der Berechnung des Poſtgeldes wegen. Jedoch<lb/>
+kann man aber auch bei dieſen Poſten die Briefe<lb/>
+zu einer groͤßern, oder vielmehr ſpeciellern <hi rendition="#g">Auf¬<lb/>
+merkſamkeit empfehlen</hi>, indem man ſie, der<lb/>
+Poſtkunſtſprache nach <hi rendition="#g">rekommendirt</hi>. Man<lb/>
+muß in dieſer Hinſicht das Wort <hi rendition="#g">rekommendirt</hi><lb/>
+auf dem Brief ſchreiben und auſſer dem gewoͤhnli¬<lb/>
+chen Poſtgelde, noch etwas beſonders, <hi rendition="#aq">pro diligen¬<lb/>
+tia</hi> bezahlen. Alsdann wird der Brief namentlich<lb/>
+in die Poſtkarte geſchrieben, welches allerdings zur<lb/>
+Sicherheit des Briefs beitraͤgt. Auf den kurbraun¬<lb/>
+<pb n="62" facs="#f0070"/>
+ſchweigiſchen Poſten traͤgt ein ſolcher rekommandir¬<lb/>
+ter Brief doppeltes Porto. Bei beſonders wichti¬<lb/>
+gen Briefen ſorgen die Poſtaͤmter auch, daß die<lb/>
+Empfaͤnger die Ablieferung derſelben beſcheinigen<lb/>
+muͤſſen. — Bei Briefen, worin Wechſel, oder an¬<lb/>
+dere Papiere von Werth geſchloſſen ſind, iſt es<lb/>
+rathſam, ſolches und wenn es geſchehen kann, den<lb/>
+Werth der Beiſchluͤße auf der Addreße anzugeben.<lb/>
+Der Kuͤrze wegen pflegt man in dieſem Falle auch<lb/>
+wohl nur ein <hi rendition="#aq">NB</hi>. auf den Brief zu ſetzen und die<lb/>
+Poſtaͤmter ſind dann auch ſo aufmerkſam, dieſes<lb/>
+<hi rendition="#aq">NB</hi>. in der Poſtkarte zu bemerken. — Alſo auf<lb/>
+der Poſt kann nicht fuͤglich ein Brief verlohren<lb/>
+gehen. Geſchieht es, ſo koͤnnte es eher durch die<lb/>
+Brieftraͤger geſchehen. Jedoch dieſe werden ſolches<lb/>
+um ſo mehr verhuͤten, da ſie fuͤr die ihnen zur<lb/>
+Beſtellung uͤberlieferten Briefe, das Poſtgeld be¬<lb/>
+zahlen muͤſſen und auch ſelbſt fuͤr jeden abgeliefer¬<lb/>
+ten Brief ein Accidenz von dem Empfaͤnger zu er¬<lb/>
+warten haben. Am haͤufigſten gehen Briefe in den<lb/>
+Haͤuſern der Correspondenten ſelbſt und durch die<lb/>
+Unvorſichtigkeit ihrer Boten verlohren, denn es iſt<lb/>
+nicht ſelten, daß Briefe, welche durchs Geſinde zur<lb/>
+Poſt gebracht werden ſollten, auf der Gaſſe gefun¬<lb/>
+den wurden. —</p><lb/>
+<p>Das <hi rendition="#g">Rekommendiren</hi> und <hi rendition="#g">Notabeniren</hi><lb/>
+<pb n="63" facs="#f0071"/>
+der Briefe kann alſo in angezeigter Maaße von ei¬<lb/>
+nigen Nutzen ſeyn. — Hingegen iſt das <hi rendition="#aq">Cito</hi> auf<lb/>
+den Briefen gewoͤhnlich ohne Nutzen und Wirkung.<lb/>
+Die Poſtbedienten koͤnnen keinen Brief von einem<lb/>
+Orte zum andern mit der ordinaͤren Poſt geſchwin¬<lb/>
+der befoͤrdern, als die Poſt reitet, oder faͤhrt. Die<lb/>
+ordinaͤren Poſten werden immer zu ihrer einmal<lb/>
+beſtimmten Zeit, ſo wie es der Zuſammenhang des<lb/>
+Poſtweſens des Orts erfordert und verſtattet, abge¬<lb/>
+fertiget; ſie reiten oder fahren in der, nach Maaß¬<lb/>
+gabe der Entfernung der Oerter und nach Beſchaf¬<lb/>
+fenheit der Wege berechneten und feſtgeſetzten Zeit<lb/>
+und Stundenzahl, koͤnnen alſo auch nie fruͤher, aber<lb/>
+wegen unvorhergeſehener Zufaͤlle bisweilen ſpaͤter<lb/>
+eintreffen; mithin kann es eigentlich nichts nuͤtzen,<lb/>
+auf Briefe <hi rendition="#aq #g">cito</hi> zu ſchreiben, denn die Poſt kann<lb/>
+und wird deshalben keine Minute ſchneller gehen. —<lb/>
+Wuͤnſcht jedoch Jemand, daß ſein Brief etwas<lb/>
+fruͤher, als gewoͤhnlich, in die Haͤnde ſeines Cor¬<lb/>
+respondenten gelange; ſo muß er auf der Addreſſe<lb/>
+des Briefs, oder durch ein beigefuͤgtes Promemoria<lb/>
+die Poſt erſuchen, den Brief am Orte ſeiner Be¬<lb/>
+ſtimmung ſogleich nach Ankunft der Poſt beſonders<lb/>
+abgeben zu laſſen. Hierdurch wird er bewirken, daß<lb/>
+der Brief nicht erſt durch die Haͤnde der Brieftraͤ¬<lb/>
+ger gehe und von denſelben nach der ihnen gewoͤhn¬<lb/>
+<pb n="64" facs="#f0072"/>
+lichen Ordnung, wonach ſie die angekommenen und<lb/>
+zu beſtellenden Briefe jedesmal nach der Reihe ab¬<lb/>
+geben muͤſſen, ſondern ſogleich von den Poſtexpe¬<lb/>
+dienten durch einem beſondern Boten dem Empfaͤn¬<lb/>
+ger uͤberliefert wird, wodurch alſo vielleicht biswei¬<lb/>
+len ¼ oder ½ Stunde Zeit gewonnen wird. —<lb/>
+Wohnt der Empfaͤnger nicht im Orte des distribui¬<lb/>
+renden Poſtamts; ſo muß der Abſender, wenn ihm<lb/>
+an ſchneller Beſtellung des Briefs gelegen iſt, ſol¬<lb/>
+ches ausdruͤcklich anzeigen und zugleich angeben, auf<lb/>
+welche Art der Brief dem Empfaͤnger zugefoͤrdert<lb/>
+werden, und wer davon die Koſten tragen ſolle.<lb/>
+Denn ſonſt wird die Poſt nicht von der einmal<lb/>
+eingefuͤhrten Ordnung abgehen und die Briefe nur<lb/>
+auf die gewoͤhnliche Weiſe befoͤrdern.</p><lb/>
+<p>Zur Poſt gegebene Briefe und Sachen duͤrfen<lb/>
+eigentlich von den Poſtbedienten <hi rendition="#g">nicht wieder<lb/>
+zuruͤck gegeben</hi> werden. Dieſes Geſetz dienet<lb/>
+ſowol zum Beſten, vornehmlich zur Sicherheit der<lb/>
+Correspondenten ſelbſt, und iſt auch der Poſtoͤkono¬<lb/>
+mie wegen erforderlich. Man hat nehmlich Bei¬<lb/>
+ſpiele gehabt, daß einmal auf die Poſt gelieferte<lb/>
+Briefe von einer andern fremden Perſon zuruͤck ge¬<lb/>
+fordert ſind und damit ſchaͤdlicher Mißbrauch getrie¬<lb/>
+ben iſt. Man hat Beiſpiele, daß Dienſtboten,<lb/>
+Handlungsdiener und andre Subalterne die Briefe<lb/>
+<pb n="65" facs="#f0073"/>
+ihrer Herrſchaften und Vorgeſetzten unter ſcheinba¬<lb/>
+ren Vorwaͤnden von der Poſt zuruͤck genommen<lb/>
+und ſolche entweder gaͤnzlich untergeſchlagen, oder<lb/>
+doch den Inhalt derſelben abgeaͤndert, wohl gar<lb/>
+Rechnungen und Wechſel daraus entwendet haben.<lb/>
+Um dieſen Unfug zu verhuͤten, muß es den Poſt¬<lb/>
+bedienten ſtets Regel ſeyn, nie einen ihnen einmal<lb/>
+zugeſtellten und anvertraueten Brief wieder aus den<lb/>
+Haͤnden zu geben. Sollte jedoch der Abſender ſelbſt<lb/>
+noͤthig finden, ſeinen Brief von der Poſt noch ein¬<lb/>
+mal wieder zuruͤck zu erhalten; ſo wird er dieſes<lb/>
+nur erreichen koͤnnen, wenn er ſelbſt darum ſchrift¬<lb/>
+lich erſucht, die Addreſſe des Briefs aufſchreibt, das<lb/>
+Pettſchaft, mit welchem der Brief verſiegelt iſt, ab¬<lb/>
+druͤckt, oder vorzeigt, und alſo ſich nicht nur als<lb/>
+den wahren Eigenthuͤmer legitimirt, ſondern auch<lb/>
+der Poſt wegen der Zuruͤcklieferung Verſicherung<lb/>
+giebt.</p><lb/>
+<p>Bisweilen ſchickt man mit der Poſt Briefe und<lb/>
+andre Sachen nach einem Orte, woſelbſt doch der<lb/>
+Empfaͤnger ſich noch nicht befindet. Man hat da¬<lb/>
+bei gewoͤhnlich die Abſicht, daß dieſe Briefe oder<lb/>
+Sachen daſelbſt ſo lange auf der Poſt bleiben und<lb/>
+aufbewahrt werden ſollen, bis der Empfaͤnger gleich¬<lb/>
+falls dort angekommen iſt und ſie in Empfang neh<lb/>
+men kann. Auf dieſe Art kann Jemand Briefe<lb/>
+<fw type="sig" place="bottom">5<lb/>
+</fw>
+<pb n="66" facs="#f0074"/>
+und Sachen an ſich ſelbſt addreſſiren, ſie mit der<lb/>
+Poſt nach einem Orte abſenden, um ſie dort vor¬<lb/>
+zufinden, wenn er ſelbſt auf einem andern Wege<lb/>
+angelangt ſeyn wird. Bisweilen hat man auch nur<lb/>
+die Abſicht, ſolche Briefe und Sachen nicht von<lb/>
+der Poſt auf die gewoͤhnliche Weiſe beſtellen zu<lb/>
+laſſen, ſondern die Empfaͤnger ſollen ſolche von der<lb/>
+Poſt, gewiſſ<supplied>e</supplied>r Urſachen wegen, wovon ſie von dem<lb/>
+Abſender un errichtet, oder m<supplied>i</supplied>t denſelben uͤberein<lb/>
+gekommen ſind, ſelbſt abholen. — In allen dieſen<lb/>
+Faͤllen pflegt man auf ſolche Briefe die Woͤrter:<lb/>
+<hi rendition="#aq">poste restante</hi>, oder <hi rendition="#aq">à la poste restante</hi>, d. h.<lb/>
+dieſer Briefe ſoll bis zur Abforderung auf der Poſt<lb/>
+liegen bleiben, zu ſetzen.</p><lb/>
+<p>Die Poſtaͤmter beguͤnſtigen dieſe Wuͤnſche des<lb/>
+Publikums zu deſſen Bequemlichkeit und Nutzen,<lb/>
+gern. Allein es iſt dagegen auch billig, daß ſie bei<lb/>
+ſolchen Faͤllen nicht in Gefahr geſetzt werden. Da¬<lb/>
+her iſt es unumgaͤnglich noͤthig, daß die Empfaͤn¬<lb/>
+ger ſolcher Briefe und Sachen ſich jedesmals hin¬<lb/>
+laͤnglich zum Empfang legitimiren. Dieſes geſchiehet,<lb/>
+wenn ſie entweder eine Vollmacht, oder doch eine<lb/>
+Anweiſung von dem Abſender beibringen, oder<lb/>
+wenn ſie, falls es fremde und unbekannte Perſo¬<lb/>
+nen ſind, Buͤrgſchaft ſtellen, und uͤberhaupt die ih¬<lb/>
+nen in dieſen Faͤllen von der Poſt gegebenen An¬<lb/>
+<pb n="67" facs="#f0075"/>
+weiſungen befolgen. — Denn die Poſt iſt haupt¬<lb/>
+ſaͤchlich verbunden, nach allen Kraͤften zu ſorgen,<lb/>
+daß die ihr anvertrauten Sachen in die Haͤnde des<lb/>
+rechten Empfaͤngers gelangen.</p><lb/>
+<p>Bisweilen wuͤnſchen Correspondenten, daß ih¬<lb/>
+nen auf ihre mit der Poſt abzuſendenden Briefe und<lb/>
+Sachen von den Poſtbedienten <hi rendition="#g">Vorſchuͤße</hi> gelei¬<lb/>
+ſtet werden. Dieſer Fall tritt ein, wenn z. B. ein<lb/>
+Kaufmann oder Faktor, fuͤr einen Abweſenden eine<lb/>
+Auslage an ſogenannten Speſen u. dergl. gemacht<lb/>
+hat, uͤbrigens aber mit demſelben nicht in Rech¬<lb/>
+nung ſteht, ſich alſo dieſes ausgelegte oder vorge¬<lb/>
+ſchoſſene Geld von der Poſt auszahlen laͤßt, welche<lb/>
+alsdann ſolches vermittelſt des Briefes dem entfern¬<lb/>
+ten Schuldner anrechnet und von demſelben wieder<lb/>
+erſtatten laͤßt. Auſſer dieſen ſoll es eigentlich nur<lb/>
+Gerichtsobrigkeiten und dergl. Behoͤrden geſtattet<lb/>
+ſeyn, ſich ſolche Vorſchuͤße von der Poſt auszahlen<lb/>
+und den Schuldigen anrechnen zu laſſen; hingegen<lb/>
+ſoll nicht Jeder, der an Auswaͤrtige Geldforde¬<lb/>
+rungen macht, damit der Poſt beſchwerlich fallen.<lb/>
+Es verſteht ſich auch von ſelbſt, daß dergleichen<lb/>
+Vorſchuͤße keine betraͤchtliche Summen ausmachen,<lb/>
+daß ſie voͤllig liquid ſeyn und daß die Abſender,<lb/>
+wenn etwa die Empfaͤnger den Vorſchuß der Poſt<lb/>
+wieder zu erſtatten ſich weigern, deshalben ver¬<lb/>
+<pb n="68" facs="#f0076"/>
+bindlich bleiben und die Poſt ſchadlos halten, zu¬<lb/>
+mal die Poſt keine Gewalt hat, noch anwenden<lb/>
+darf, um dergleichen Gelder beizutreiben. — Da¬<lb/>
+bei iſt es auch billig, daß den Poſtofficianten ge¬<lb/>
+ſtattet werde, fuͤr die Vorauszahlung ſolcher Vor¬<lb/>
+ſchuͤße und deren Beitreibung, welches ſie auf ihre<lb/>
+Gefahr thun, eine verhaͤltnißmaͤßige Remuneration<lb/>
+zu nehmen. Eine ſolche Gebuͤhr pflegt man ge¬<lb/>
+woͤhnlich <hi rendition="#aq">procura</hi> zu nennen. Auch verſteht es ſich,<lb/>
+daß die Poſt durch die Verſchiedenheit des Werths<lb/>
+des Geldes nichts verliehren darf, ſondern daß es<lb/>
+ihr geſtattet werden muß, gehoͤriges Agio zu neh¬<lb/>
+men, wenn ſie den Verluſt in ſchlechterer Muͤnze<lb/>
+wieder erhaͤlt, als ſie gezahlt hat.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[69]" facs="#f0077"/>
+<div n="2"> <head> <hi rendition="#g">Von Eſtaffetten.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">M</hi>it den Eſtaffetten hat es folgende Bewand¬<lb/>
+niß. Eine Eſtaffette iſt eine auſſerordentlich,<lb/>
+oder extraordinaͤr reitende Poſt, wodurch ein Brief<lb/>
+von einem Orte zum andern poſtmaͤßig gebracht<lb/>
+wird. Ordinaͤre Poſten gehen immer nur an ge¬<lb/>
+wiſſen feſtgeſetzten Tagen und Stunden ab; Eſtaffet¬<lb/>
+ten koͤnnen aber zu jeder Zeit abgeſchickt werden.<lb/>
+Man nennt auch den Brief ſelbſt, die Depeſche,<lb/>
+welche auf dieſe Art eſtaffettenmaͤßig durch die Poſt<lb/>
+befoͤrdert wird, <hi rendition="#g">Eſtaffette</hi>. Die Eſtaffetten neh¬<lb/>
+men den Weg der ordinaͤren reitenden Poſten, be¬<lb/>
+ruͤhren alſo auch die nemlichen Stationen und<lb/>
+wechſeln daſelbſt die Pferde. Wenn nemlich Je¬<lb/>
+mand von Leipzig einen Brief mit Eſtaffette nach<lb/>
+Wien ſchicken will; ſo muß er dieſen Brief, nach¬<lb/>
+dem auf denſelben das Wort <hi rendition="#g">Eſtaffette</hi> geſchrie¬<lb/>
+ben iſt, zu Leipzig ins Poſtamt geben und eigent¬<lb/>
+lich ſogleich die Koſten bezahlen, wenn er den Brief<lb/>
+<pb n="70" facs="#f0078"/>
+franco abſchicken muß. Das Poſtamt fertigt als¬<lb/>
+dann ſogleich einen Poſtillon mit dieſem Schreiben<lb/>
+ab und giebt demſelben einen Paß mit, worin die<lb/>
+Addreße des Briefes und die Route, welche die<lb/>
+Staffette nehmen ſoll, bemerkt iſt. Der auf dieſe<lb/>
+Art von Leipzig abgefertigte Poſtillon reitet bis zur<lb/>
+naͤchſten Poſtſtation auf der Route nach Wien, lie¬<lb/>
+fert daſelbſt den Brief nebſt dem Paſſe an den<lb/>
+Poſtmeiſter ab und kehrt darauf nach Leipzig zu¬<lb/>
+ruͤck. Von dieſer Station wird alsdann ſogleich<lb/>
+wieder ein Poſtillon mit gedachtem Briefe und<lb/>
+Paße zur zweiten geſchickt, und ſo geht es fort von<lb/>
+einer Station zur andern, bis der Brief ins Poſt¬<lb/>
+amt zu Wien abgeliefert wird, welches alsdann<lb/>
+denſelben an den Empfaͤnger beſorgen laͤßt. — Auf<lb/>
+dieſe Art gehen alle Staffetten. Daher iſt es voͤl¬<lb/>
+lig unmoͤglich, mit derſelben Staffette, oder mit<lb/>
+demſelben Poſtillon, welcher von einem Orte mit<lb/>
+einer Eſtaffette abgeſchickt wird, eine Antwort zu¬<lb/>
+ruͤck zu erhalten, wie manche irrig glauben. Denn<lb/>
+der von Leipzig abgeſchickte Poſtillon rettet ja nicht<lb/>
+ganz nach Wien und liefert den Brief nicht ſelbſt<lb/>
+an dem Empfaͤnger ab, ſondern er kehrt, wie alle<lb/>
+uͤbrigen, von ſeiner Station nach Hauſe. — Soll<lb/>
+alſo auf eine Eſtaffette Antwort erfolgen; ſo muß<lb/>
+unſer Correspondent von ſeinem Orte gleichfalls<lb/>
+<pb n="71" facs="#f0079"/>
+wieder eine Eſtaffette abſenden, welche dann auf<lb/>
+die nemliche Art durch die Poſtſtationen befoͤrdert<lb/>
+wird. — Uebrigens iſt es gut, auf dem Staffet¬<lb/>
+ten-Schreiben die Zeit und Stunde der Abferti¬<lb/>
+gung zu bemerken, damit der Empfaͤnger und die<lb/>
+Poſtaͤmter beurtheilen koͤnnen, ob etwas dabei ver¬<lb/>
+ſaͤumt ſei. Jedoch ſorgen hierfuͤr die Poſtaͤmter<lb/>
+ſchon ſelbſt. Denn in dem Eſtaffetten-Paße muß<lb/>
+jede Poſtſtation die Zeit der Ankunft und des Ab¬<lb/>
+gangs anzeichnen und da beim Eſtaffettenreiten ge¬<lb/>
+woͤhnlich auf eine Meile nur eine Stunde und<lb/>
+jeder Poſtſtation nur ¼ Stunde zur Expedition ver¬<lb/>
+ſtattet wird; ſo kann nicht leicht eine Verſaͤumniß<lb/>
+eintreten, als nur etwa von unvorhergeſehenen<lb/>
+auſſerordentlichen Zufaͤllen, wenn z. B. ein Poſtil¬<lb/>
+lon mit ſeinem Pferde ſtuͤrzt, oder ihm ſonſt ein<lb/>
+Unfall begegnet, welches aber auch jedesmal von<lb/>
+den Poſtſtationen im Paße angemerkt werden muß.<lb/>
+Es verſteht ſich alſo von ſelbſt, daß man mit einer<lb/>
+Eſtaffette nur ſimple Briefe, oder maͤßige Packete,<lb/>
+welche der Poſtillon in ſeiner Taſche verwahren<lb/>
+kann, aber keine Koffer, Kiſten und Kaſten verſchi¬<lb/>
+cken koͤnne. Will man dergleichen Sachen auſſer¬<lb/>
+ordentlich eiligſt befoͤrdern; ſo muß man Extrapoſt<lb/>
+dazu nehmen. —</p><lb/>
+<p>Iſt die Eſtaffette von dem Abſender nicht fran¬<lb/>
+<pb n="72" facs="#f0080"/>
+kirt oder bezahlt; ſo muß ſolches der Empfaͤnger<lb/>
+thun und den Betrag der Koſten, welcher ihm an¬<lb/>
+gezeigt wird und woruͤber ihm allenfalls eine Qui¬<lb/>
+tung ertheilt werden kann, an ſein Poſtamt erle¬<lb/>
+gen, welches alsdann jeder Poſtſtation, welche<lb/>
+durch die Eſtaffette beruͤhrt wurde, die verdiente<lb/>
+Gebuͤhr zutheilt. Wegen der hieruͤber zu fuͤhrenden<lb/>
+Rechnung und wegen der Beſorgung der Bezah¬<lb/>
+lung pflegen ſich die Poſtaͤmter auſſer den taxmaͤßi¬<lb/>
+gen Meilengeldern noch einige Groſchen, wie billig,<lb/>
+verguͤten zu laſſen. Das Meilengeld fuͤr eine Staf¬<lb/>
+fette betraͤgt jetzt in den verſchiedenen Laͤndern, we¬<lb/>
+gen der hohen Fruchtpreiſe, 12 bis 16 und mehr<lb/>
+Ggr., ſo wie ſolches von den verſchiedenen Landes¬<lb/>
+regierungen, nach Ermeßen der Umſtaͤnde, feſtge¬<lb/>
+ſetzt wird.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> </div>
+<pb n="[73]" facs="#f0081"/>
+<div n="1"> <head> <hi rendition="#g">Von Courieren.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">S</hi>o wie man auf gedachte auſſerordentliche Art ei¬<lb/>
+nen einzeln Brief, oder Packet, als Eſtaffette, durch<lb/>
+die Poſt beſorgen laſſen kann; ſo kann man auch<lb/>
+einen Menſchen auf aͤhnliche Weiſe durch die Poſt<lb/>
+verſchicken. Will Jemand ſelbſt einen Brief von<lb/>
+einem Orte zum andern bringen, oder wird eine<lb/>
+Perſon abgeſchickt, um eine Nachricht muͤndlich zu<lb/>
+uͤberbringen und bedient ſich ein ſolcher Reiſender<lb/>
+der Poſt; ſo nennt man ihn einen <hi rendition="#g">Courier</hi>.<lb/>
+In Frankreich heißt auch jede reitende Poſt, oder<lb/>
+jeder Poſtreiter Courier. — Ein Courier reiſet, wie<lb/>
+eine Eſtaffette und wird auf aͤhnliche Weiſe durch<lb/>
+die Poſt fortgeſchaft, von Station zu Station.<lb/>
+Gewoͤhnlich wird auch das Meilengeld nach der<lb/>
+Eſtaffettentaxe bezahlt. Wenn ein Courier von Pe¬<lb/>
+tersburg nach Paris gehen ſoll; ſo kann derſelbe<lb/>
+nicht anders ſeine Reiſe, als Courier, bewerkſtelli¬<lb/>
+gen, als daß er ſich zu dieſer Abſicht, bei dem<lb/>
+<pb n="74" facs="#f0082"/>
+Poſtamte zu St. Petersburg meldet, von demſel¬<lb/>
+ben Courierpoſtpferde begehet und mit denſelben zur<lb/>
+naͤchſten Poſtſtation ſich bringen laͤßt, von da er<lb/>
+alsdann weiter und ſodann von Station zu Sta¬<lb/>
+tion fortgeſchaft wird, bis er das Ziel ſeiner Reiſe<lb/>
+erreicht hat.</p><lb/>
+<p>Jeder Courier ſollte eigentlich immer reiten.<lb/>
+Und da ein Courier, der Abſicht gemaͤß, weshalben<lb/>
+er abgeſchickt wird, gewoͤhnlich ſchnell vorwaͤrts ei¬<lb/>
+len muß; ſo wird er ſein Pferd nicht immer im<lb/>
+Schritte, ſondern vielmehr groͤßtentheils im Trott,<lb/>
+und wo moͤglich noch ſchneller gehen laſſen, auch<lb/>
+auf den Poſtſtationen, wo Pferde gewechſelt wer¬<lb/>
+den, keine Zeit verliehren und ſich uͤberhaupt nir¬<lb/>
+gends aufhalten laſſen. Jedoch wird er ſich auch<lb/>
+immer, er mag eilen, ſo ſehr er will, nach den<lb/>
+Umſtaͤnden und nach den deshalben bei der Poſt<lb/>
+gemachten Einrichtungen, bequemen muͤſſen. Dieſe<lb/>
+beſtehen hauptſaͤchlich darin, daß ein auf einer Poſt¬<lb/>
+ſtation ankommender reitender Courier binnen einer<lb/>
+Viertelſtunde, oder in der moͤglichſt kuͤrzeſten Zeit<lb/>
+expedirt und jede Meile in einer Stunde, oder wo<lb/>
+moͤglich in noch weniger Zeit mit ihm zuruͤck gelegt<lb/>
+werden muß. —</p><lb/>
+<p>Einen ſolchen Courier kann der Poſtmeiſter<lb/>
+nicht allein reiten laſſen; ſondern es verſteht ſich<lb/>
+<pb n="75" facs="#f0083"/>
+von ſelbſt, daß ihm ein Poſtillon mitgegeben wer¬<lb/>
+den muß. Denn keinem Poſthalter kann zugemu¬<lb/>
+thet werden, einen ſolchen Mann, der gewoͤhnlich<lb/>
+fremd und unbekannt iſt, ſein Pferd anzuvertrauen;<lb/>
+auch wuͤrde der Courier oft in Gefahr kommen, ſich<lb/>
+auf dem Wege zu verirren <choice><sic>uud</sic><corr>und</corr></choice> immer wuͤrde es<lb/>
+mit Beſchwerlichkeiten verknuͤpft ſeyn, das Pferd<lb/>
+wieder in ſeine Heimath zuruͤck zu ſchaffen. Da¬<lb/>
+her wird dem Courier beſtaͤndig ein Poſtillion zuge¬<lb/>
+geben, welcher in der Poſtmontur und mit den<lb/>
+Poſtinſignien vor ihm her reitet, und nach deſſen<lb/>
+Anweiſung ſich der Courier auf dem Wege richten<lb/>
+muß. Ein Courier darf auch einen Mantelſack von<lb/>
+30 bis 40 Pfund bei ſich fuͤhren und denſelben auf<lb/>
+des Poſtillons Pferd legen; er kann auch verlan¬<lb/>
+gen, daß der Poſtillon ihn die richtige Straße fuͤhre<lb/>
+und ordnungsmaͤßig reite, aber es iſt ihm nicht er¬<lb/>
+laubt, auf die Pferde zu ſchlagen und dem Poſtil¬<lb/>
+lon mit Gewalt und durch unerlaubte Mittel zum<lb/>
+uͤbermaͤßigen Reiten zu reitzen, noch vor demſelben<lb/>
+voraus zu reiten.</p><lb/>
+<p>Manche Couriers bedienen ſich auch, ſtatt des<lb/>
+Reitpferdes, eines Wagens, beſonders wenn ſie zu¬<lb/>
+gleich Sachen mit ſich fuͤhren, welche nicht fuͤglich<lb/>
+auf Pferden fortgebracht werden koͤnnen, und weil<lb/>
+auch auf weiten Reiſen nicht leicht ein Menſch ſol¬<lb/>
+<pb n="76" facs="#f0084"/>
+ches beſtaͤndig ſchnelles Reiten aushalten kann. Ei¬<lb/>
+nige bringen daher ihre eigenen kleinen Wagen von<lb/>
+dem Orte der Abſendung mit; andere wechſeln auf<lb/>
+der Tour, ihrer Bequemlichkeit und der Erholung<lb/>
+wegen, mit Reiten und Fahren ab. Beide muͤſſen,<lb/>
+ſo wie ſie ankommen und wie ſie wuͤnſchen, von<lb/>
+der Poſt weiter gefoͤrdert werden. Wenn nun gleich<lb/>
+ein Courier ſeinen eigenen Wagen hat, oder er mag<lb/>
+auf einer Poſtſtation, ſtatt des Reitpferdes, einen<lb/>
+Wagen nehmen; ſo wird er doch nicht, als ein mit<lb/>
+Extrapoſt Reiſender angeſehen, ſondern er muß Cou¬<lb/>
+riermaͤßig fuͤr die Pferde bezahlen, und fuͤr den ge¬<lb/>
+liehenen Wagen, wie ſich von ſelbſt verſteht, beſon¬<lb/>
+ders verguͤten. Denn man ſetzt voraus, daß er,<lb/>
+als Courier, doch noch ſchneller, als Extrapoſt fah¬<lb/>
+ren laſſen werde, mithin wuͤrde von Seiten der<lb/>
+Poſt eben die auſſerordentliche Anſtrengung geleiſtet<lb/>
+werden muͤſſen. Dem vorreitenden, oder fahrenden<lb/>
+Poſtillon ſind auf jede Meile gewoͤhnlich 4 Ggr. zu<lb/>
+gebilliget. Reitende Couriers pflegen ihre eigene<lb/>
+Saͤttel mit ſich zu fuͤhren und es iſt ihnen dieß um<lb/>
+ſo mehr anzurathen, da ſie nicht auf allen Poſtſta¬<lb/>
+tionen bequeme Sattel antreffen werden, jedoch<lb/>
+muͤſſen ihre Saͤttel auch von der Art ſeyn, daß<lb/>
+ſolche auf alle Pferde paſſen und denſelben keine<lb/>
+Beſchaͤdigungen zufuͤgen. Ein Courierſattel, wo¬<lb/>
+<pb n="77" facs="#f0085"/>
+durch die Pferde gedruͤckt und verletzt werden, kann<lb/>
+vom Poſtmeiſter verworfen werden. Die Depe¬<lb/>
+ſchen, oder andere Sachen, welche ein Courier<lb/>
+uͤberbringen ſoll, muß derſelbe ſelbſt verwahren und<lb/>
+er kann keine Klage fuͤhren, wenn ſie verlohren<lb/>
+gehen, oder beſchaͤdigt werden.</p><lb/>
+</div> <div n="1"> <head> <hi rendition="#g">Vom ſogenannten Poſtſtations- oder Poſt</hi>-<lb/>
+<hi rendition="#g">Recognitionsgelde.</hi><lb/>
+</head> <p> <hi rendition="#in">I</hi>n denjenigen Laͤndern, wo das Poſtweſen, ſowohl<lb/>
+der ordinaͤren Poſten, als auch fuͤr Extrapoſten ge¬<lb/>
+hoͤrig eingerichtet iſt, ſo daß die mit Extrapoſt Rei¬<lb/>
+ſenden immer von einer Station zur andern fortge¬<lb/>
+bracht werden koͤnnen, iſt es nicht erlaubt, eine<lb/>
+Poſtſtation vorbei, oder um dieſelbe weg zu fahren,<lb/>
+ohne die Pferde; zu wechſeln ſondern man muß auf<lb/>
+jeder, auf unſerm Wege beruͤhrten Poſtſtation, fri¬<lb/>
+ſche Pferde nehmen und ſich mit denſelben zur fol¬<lb/>
+genden bringen laſſen. Der Grund hiervon liegt<lb/>
+darin, daß die Poſthalter auf den Stationen ver¬<lb/>
+pflichtet ſind, eine gewiſſe Anzahl Pferde zu unter¬<lb/>
+halten und daß ſie angewieſen ſind, mit dieſen<lb/>
+Pferden die Reiſenden weiter zu ſchaffen. Es iſt<lb/>
+<pb n="78" facs="#f0086"/>
+alſo auch billig, daß den Poſthaltern kein Verdienſt,<lb/>
+den ſie mit ihren, durch ſchwere Koſten und Auf¬<lb/>
+wand zu haltenden Pferden und Poſtknechten, ha¬<lb/>
+ben koͤnnten, — entzogen werde. — Sehr tadelns¬<lb/>
+werth iſt es daher, wenn Reiſende mit ihren frem¬<lb/>
+den Fuhrleuten den Poſtſtationen vorbei zu fahren<lb/>
+ſuchen und es ſich, als eine Geſchicklichkeit zurech¬<lb/>
+nen, wenn ſie es, ohne entdeckt zu werden, gethan<lb/>
+haben. Wie wuͤrde das Extrapoſtweſen beſtehen<lb/>
+koͤnnen, wenn in dieſer Hinſicht nicht gewiſſe Vor¬<lb/>
+ſchriften und Einſchraͤnkungen fuͤr einzelne zum Be¬<lb/>
+ſten des Ganzen gemacht wuͤrden? — Am Ende<lb/>
+wuͤrde es ſonſt dahin komme, daß der Staat ſelbſt<lb/>
+auf den Poſtſtationen des Landes eine Anzahl Poſt¬<lb/>
+pferde nebſt Knechten auf ſeine Koſten unterhalten<lb/>
+muͤßte. Hierzu wuͤrde ſich derſelbe jedoch nicht ver¬<lb/>
+ſtehen. Er duͤrfte es auch nicht, weil die Koſten<lb/>
+davon den Landeseinwohnern am Ende unbilliger<lb/>
+Weiſe zur Laſt fallen wuͤrden. — Es bleibt alſo<lb/>
+nichts uͤbrig, als daß einzelne Reiſenden ſich in<lb/>
+die Ordnung bequemen, wodurch das Extrapoſtwe¬<lb/>
+ſen zum oͤffentlichen Dienſte, oder zur Bequemlich¬<lb/>
+keit und zum Vortheil des Ganzen erhalten werden<lb/>
+kann.</p><lb/>
+<p>Inzwiſchen hat es nichts zu bedeuten, daß die<lb/>
+Poſtſtationen von ſolchen Reiſenden, welche mit<lb/>
+<pb n="79" facs="#f0087"/>
+Extrapoſt von einem Orte abgehen, gefaͤhrdet wer¬<lb/>
+den. Denn den Poſthaltern und deren Knechten<lb/>
+iſt es zur Pflicht gemacht, keine Poſtſtation voruͤber<lb/>
+zu fahren, ſondern die Reiſenden jedesmal nur bis<lb/>
+zur naͤchſten Station und nicht weiter zu bringen,<lb/>
+ſie nach dem Poſthauſe auf der Station zu fuͤhren<lb/>
+und derſelben die weitere Befoͤrderung zu uͤberlaſſen.<lb/>
+Sollte ſich ein Poſtillon durch die Reiſenden verlei¬<lb/>
+ten laſſen, ſie einer Poſt voruͤber zu fahren, oder<lb/>
+ſollte ſelbſt ein Poſthalter ſich ſo weit vergeſſen,<lb/>
+hierin zu willigen; ſo wuͤrde, nach geſchehener Ent¬<lb/>
+deckung des Vorgangs, die gebuͤhrende Strafe nicht<lb/>
+ausbleiben.</p><lb/>
+<p>Aber alle Reiſende nehmen nicht Extrapoſt,<lb/>
+ſondern ſie bedienen ſich entweder ihrer <hi rendition="#g">eigenen<lb/>
+Equipage</hi>, oder ſie nehmen <hi rendition="#g">Miethskutſcher</hi>,<lb/>
+oder <hi rendition="#g">Lohnfuhrleute</hi>. Wer mit eigenen Pfer¬<lb/>
+den und Wagen reiſet, hat in dieſer Hinſicht mit<lb/>
+der Poſt nichts zu ſchaffen. Ihm kann und darf<lb/>
+von Seiten der Poſt kein Hinderniß in den Weg<lb/>
+gelegt, er wird auch hierbei niemals in einigen An¬<lb/>
+ſpruch genommen werden, als daß er etwa auf der<lb/>
+Reiſe auf der einen oder andern Poſtſtation, we¬<lb/>
+gen der Qualitaͤt ſeines Fuhrwerks, ob er nemlich<lb/>
+mit eigenen, oder mit gemietheten, oder Lohnpfer¬<lb/>
+den fahre, befragt wird, zumal, wenn es nicht in<lb/>
+<pb n="80" facs="#f0088"/>
+die Augen fallen ſollte, daß es eigenthuͤmliche Equi¬<lb/>
+page iſt. Um einem ſolchen Examen enthoben zu<lb/>
+ſeyn, iſt daher einem ſolchen Reiſenden anzurathen,<lb/>
+daß er ſich von der Obrigkeit, oder noch beſſer, von<lb/>
+dem Poſtamte ſeines Wohnorts eine Beſcheinigung<lb/>
+uͤber das Eigenthum ſeines Fuhrwerks geben laſſe,<lb/>
+welche er bei vorkommenden Nachfragen vorzeigen und<lb/>
+dadurch groͤßere Weitlaͤuftigkeiten vermeiden koͤnne. —</p><lb/>
+<p>Wer aber nicht mit Extrapoſt und mit eigener<lb/>
+Equipage, ſondern mit gedungenen, oder <hi rendition="#g">gemie¬<lb/>
+theten Pferden</hi> reiſet; muß ſich mit der Poſt,<lb/>
+oder mit allen den Poſtſtationen, welche er auf ſei¬<lb/>
+nem Wege beruͤhrt, abfinden and das ſogenannte,<lb/>
+landesherrlich beſtimmte <hi rendition="#g">Stationsgeld</hi> erlegen.<lb/>
+Dieſes Stationsgeld iſt nicht uͤberall gleich, ſondern<lb/>
+in den verſchiedenen Laͤndern, wo es eingefuͤhrt und<lb/>
+gebraͤuchlich iſt, verſchieden. Groͤßtentheils muß<lb/>
+man von jedem Pferde, welches man vor dem<lb/>
+Wagen hat, fuͤr jede Meile 6, 8 – 12 Pfennig<lb/>
+und mehr, oder weniger geben.</p><lb/>
+<p>Den Grund zu dieſer Abgabe nehmen die Lan¬<lb/>
+desregierungen daher, daß die Miehskutſcher und<lb/>
+andere Lohnfnhrleute durch das Fortbringen ſolcher<lb/>
+Reiſenden den Poſthaltern einen Verdienſt entziehen,<lb/>
+weshalben letztere entſchaͤdigt werden muͤſſen. —<lb/>
+Man will jedoch aber auch die Freiheit der Reiſen¬<lb/>
+<pb n="81" facs="#f0089"/>
+den nicht einſchraͤnken; man will und kann es ihnen<lb/>
+nicht verwehren, ſtatt Extrapoſt zu nehmen, mit ge¬<lb/>
+mietheten Pferden zu reiſen, wenn ſie dabei ihren<lb/>
+Vortheil und mehrere Bequemlichkeit zu finden glau¬<lb/>
+ben. Wenn ſie alſo dieſe vorziehen; ſo ſollen die<lb/>
+Poſtfuhrleute, welche zum Dienſte des reiſenden<lb/>
+Publikums immer mit Koſten Pferde unterhalten<lb/>
+muͤſſen, darunter nicht leiden, ſondern auf eine bil¬<lb/>
+lige Weiſe gewiſſermaßen entſchaͤdigt werden. —</p><lb/>
+<p>Wenn man die Sache aus dieſem Geſichts¬<lb/>
+punkte betrachtet, ſo wird man dieſe Einrichtung<lb/>
+nicht ungerecht und die Abgabe der Stationsgebuͤhr<lb/>
+nicht unbillig finden. Es faͤllt in die Augen, daß<lb/>
+eine ſolche geringe Verguͤtung, als jene wenigen<lb/>
+Pfennige vom Pferde auf die Meile ſind, noch bei<lb/>
+weitem keine hinreichende Entſchaͤdigung fuͤr die Poſt¬<lb/>
+halter ſeyn koͤnne, gegen den Verdienſt, der ihnen<lb/>
+auf dieſe Weiſe durch die Miethsfuhrleute genommen<lb/>
+wird. Durch das Stationsgeld ſollen ſie nur eini¬<lb/>
+germaßen beruhigt und vielmehr die Miethskutſcher<lb/>
+abgehalten werden, Fuhren auf entfernte Oerter zu<lb/>
+uͤbernehmen. — Daher ſoll auch die Entrichtung<lb/>
+der Stationsgelder eigentlich nicht den Reiſenden zur<lb/>
+Laſt fallen, ſondern vielmehr lediglich von den Fuhr¬<lb/>
+leuten geleiſtet werden. Dieſe werden ſich freilich<lb/>
+in den meiſten Faͤllen deshalb wieder an den Rei¬<lb/>
+ſenden erholen. Daher iſt es aber auch nicht immer<lb/>
+wohlfeiler, ſtatt Extrapoſt, einen Miethkutſcher zu<lb/>
+nehmen. — Rechnet der Reiſende die zu erlegende<lb/>
+<fw type="sig" place="bottom">6<lb/>
+</fw>
+<pb n="82" facs="#f0090"/>
+Stationsgebuͤhren und andre Ausgaben, wozu er,<lb/>
+wenn er mit Lohnfuhr reiſet, genoͤthigt wird, welche<lb/>
+aber bei Extrapoſt nicht ſtatt finden, zu dem Fuhr¬<lb/>
+lohne; ſo wird der Unterſchied der Koſten nicht groß,<lb/>
+ſondern oͤfter ſich gleich ſeyn, den Verluſt der Zeit<lb/>
+nicht einmal zu rechnen, denn es iſt doch begreiflich,<lb/>
+daß ein Lohnfuhrmann mit ſeinen Pferden einen<lb/>
+langen Weg nicht ſo geſchwind zuruͤck legen kann,<lb/>
+als wenn auf jeder Poſtſtation friſche Pferde vor¬<lb/>
+geſpannt werden.</p><lb/>
+<p>Reiſet nun Jemand mit gedungenen Pferden;<lb/>
+ſo muß er ſelbſt darauf halten, daß der Fuhrmann<lb/>
+keine Poſtſtation voruͤberfahre, ohne ſich daſelbſt zu<lb/>
+melden und das Stationsgeld zu berichtigen. Denn<lb/>
+wenn dieſe Defraudation entdeckt und der Fuhrmann<lb/>
+angehalten wuͤrde, ſo wuͤrde der Reiſende, wenn er<lb/>
+gleich zu dieſer Ungebuͤhr keine Veranlaſſung gegeben<lb/>
+haͤtte, ſondern ſolche von dem Fuhrmann allein her¬<lb/>
+ruͤhrte, doch gewiſſen Unannehmlichkeiten nicht ent¬<lb/>
+gehen koͤnnen, wenigſtens Zeit verliehren muͤſſen.<lb/>
+Die Beſtrafung eines auf dieſe Art betroffenen Fuhr¬<lb/>
+manns iſt nicht uͤberall gleich. In einigen Laͤndern<lb/>
+muß derſelbe alsdann von jedem Pferde mehrere<lb/>
+Gulden oder Thaler erlegen; in andern muß er<lb/>
+der vorbeigefahrenen und alſo laͤdirten Poſtſtation<lb/>
+das volle Extrapoſtgeld nach der Taxe bis zur naͤch¬<lb/>
+ſten Station verguͤten, in noch andern muß er ſo¬<lb/>
+gleich ſeine Pferde ausſpannen und heimkehren und<lb/>
+der Reiſende muß ſich gefallen laſſen, von dieſem<lb/>
+<pb n="83" facs="#f0091"/>
+Orte ab ſich durch Extrapoſtpferde weiter bringen zu<lb/>
+laſſen. Gewoͤhnlich ſind die Ortsobrigkeiten von den<lb/>
+Landesherren beauftraget, dergleichen Vorfaͤlle nach<lb/>
+den gegebenen Geſetzen zu entſcheiden. —</p><lb/>
+<p>So wie es alſo gedachter maaßen nicht erlaubt<lb/>
+iſt, die Poſtſtationen vorbei zu reiſen, ohne ſich<lb/>
+mit denſelben gehoͤrig abzufinden; eben ſo wenig<lb/>
+wird es auch an Oertern, wo ein regelmaͤßiges Poſt¬<lb/>
+weſen iſt, geſtattet, von fremden auswaͤrtigen Oer¬<lb/>
+tern gemiethete Pferde kommen zu laſſen, um mit¬<lb/>
+telſt derſelben Reiſen zu machen. Ein ſolches Ver¬<lb/>
+fahren wuͤrde den Einwohnern unſers Wohnorts, be¬<lb/>
+ſonders den Poſthaltern nachtheilig ſeyn. Es ver¬<lb/>
+ſteht ſich von ſelbſt, daß dieſes Verbot nicht gegen<lb/>
+Pferde, welche dem Reiſenden eigen gehoͤren, gerich¬<lb/>
+tet ſeyn koͤnne, ſondern gegen fremde Lohnfahrleute.<lb/>
+Mit dieſen darf man nicht abreiſen und uͤber Poſt¬<lb/>
+ſtationen hinaus fahren, ohne ſich mit der Poſt ab¬<lb/>
+gefunden zu haben. Wenn man ſich dieſer Ordnung<lb/>
+unterwirft und vornehmlich auf den beruͤhrten Poſt¬<lb/>
+ſtationen die Gebuͤhren entrichtet; ſo kann man uͤb¬<lb/>
+rigens reiſen, wohin und mit wem man will. Auch<lb/>
+hat die Poſt nichts dabei zu erinnern, wenn man<lb/>
+mit gemietheten Pferden, oder mit Lohnkutſchern<lb/>
+Reiſen nach nahe gelegenen Oertern verrichtet. Die<lb/>
+Abgabe des Stationgeldes wird nur verlanget, wenn<lb/>
+die Miethskutſcher uͤber Poſtſtationen hinausfahren<lb/>
+auf einer Straße, wo Poſthaltereien angelegt ſind<lb/>
+und zur Befoͤrderung der Reiſenden unterhalten werden.</p><lb/>
+<pb n="84" facs="#f0092"/>
+<p>Dieſe Einrichtungen ſcheinen zwar mit einigem<lb/>
+Zwange verknuͤpft zu ſeyn. Allein in Laͤndern, wo<lb/>
+ſie nicht ſind, laͤßt es ſich auch in manchen Faͤllen<lb/>
+nicht gut reiſen. Jeder hat doch nicht eigene Pferde,<lb/>
+oder kann ſie auf weite Touren nicht nehmen. Fuhr¬<lb/>
+leute, welche weite Reiſen uͤbernehmen wollen und<lb/>
+koͤnnen, findet man auch nicht uͤberall. Daher bleibt<lb/>
+doch die Anordnung eines regelmaͤßigen Extrapoſtwe¬<lb/>
+ſens immer noch ein ſehr nuͤtzliches und dienſames<lb/>
+Surrogat. Und wenn es auf dem bisherigen, noch<lb/>
+zur Zeit einzig moͤglichen Fuße beſtehen ſoll; ſo kann<lb/>
+auch die Abgabe der Stationsgelder nicht vermieden<lb/>
+und abgeſchaft werden, wie man leicht einſiehet, und<lb/>
+wovon ſich einſt der wuͤrdige Schloͤzzer zu uͤberzeu¬<lb/>
+gen Gelegenheit hatte.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0093"/>
+<div type="contents"> <list> <item><hi rendition="#aq">e</hi>. Ob und wie Briefe verlohren gehen und<lb/>
+wie man ſie zu ſuchen habe.</item><lb/>
+<item><hi rendition="#aq">f</hi>. Vom Recommandiren der Briefe.</item><lb/>
+<item><hi rendition="#aq">g</hi>. Was nuͤtzt das <hi rendition="#aq">Cito</hi> auf den Briefen?</item><lb/>
+<item><hi rendition="#aq">h</hi>. Wegen Zuruͤckfordern aufgegebner Briefe.</item><lb/>
+<item><hi rendition="#aq">i</hi>. Von <hi rendition="#aq">Poste restante</hi> Briefen und Sachen.</item><lb/>
+<item><hi rendition="#aq">k</hi>. Ob und wie man Geldvorſchuͤße von der<lb/>
+Poſt erhalten koͤnne.</item><lb/>
+<item>6. <hi rendition="#g">Von Eſtaffetten</hi>.<lb/>
+<list> <item><hi rendition="#aq">a</hi>. Was iſt eine Staffette?</item><lb/>
+<item><hi rendition="#aq">b</hi>. Was hat man beim Abſchicken einer Staf¬<lb/>
+fette und beim Empfange derſelben zu<lb/>
+beobachten?</item><lb/>
+<item><hi rendition="#aq">c</hi>. Wie viel eine Staffette koſtet.</item> </list></item><lb/>
+<item>7. <hi rendition="#g">Von Courieren</hi>.<lb/>
+<list> <item><hi rendition="#aq">a</hi>. Von reitenden und fahrenden Couriers.</item><lb/>
+<item><hi rendition="#aq">b</hi>. Wie ſchnell ein Courier reiten darf.</item><lb/>
+<item><hi rendition="#aq">c</hi>. Was er bezahlen muß.</item> </list></item><lb/>
+<item>8. <hi rendition="#g">Vom Poſtſtationsgelde</hi>.<lb/>
+<list> <item><hi rendition="#aq">a</hi>. Warum es bezahlt werden muß.</item><lb/>
+<item><hi rendition="#aq">b</hi>. Wer muß Stationsgeld geben?</item><lb/>
+<item><hi rendition="#aq">c</hi>. Strafe derjenigen, welche eine Station<lb/>
+vorbeifahren, ohne Stationsgebuͤhr zu<lb/>
+berichtigen.</item><lb/>
+<item><hi rendition="#aq">d</hi>. Von Lohn- und Miethskutſchern und ob<lb/>
+es wohlfeiler iſt, ſich derſelben ſtatt der<lb/>
+Poſt zu bedienen.</item><lb/>
+<item><hi rendition="#aq">e</hi>. Vom Poſtzwange.</item> </list></item> </list><lb/>
+</div> <milestone unit="section" rendition="#hr"/>
+<pb facs="#f0094"/>
+<figure/> </div>
+<pb facs="#f0095"/>
+<pb facs="#f0096"/>
+<pb facs="#f0097"/>
+</body> </text> </TEI>

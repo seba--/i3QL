@@ -1,0 +1,3515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">     <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Briefe zu Beförderung der Humanität</title>
+<title type="volume" n="3">Dritte Sammlung</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118549553">
+<surname>Herder</surname>
+<forename>Johann Gottfried von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">181</measure>
+<measure type="tokens">17421</measure>
+<measure type="types">5044</measure>
+<measure type="characters">121922</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:14:58Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/herder_humanitaet03_1794</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/herder_humanitaet03_1794</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/herder_humanitaet03_1794</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/herder_humanitaet03_1794</idno>
+<idno type="DTADirName">herder_humanitaet03_1794</idno>
+<idno type="DTAID">16686</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905192340</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Herder, Johann Gottfried von: Briefe zu Beförderung der Humanität. Bd. 3. Riga, 1794.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Briefe zu Beförderung der Humanität</title>
+<title level="m" type="volume" n="3">Dritte Sammlung</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118549553">
+<surname>Herder</surname>
+<forename>Johann Gottfried von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">170, [2] S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Hartknoch</name></publisher>
+<pubPlace>Riga</pubPlace>
+<date type="publication">1794</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, 301005-3/4 R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=875066232</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text>     <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<titlePage type="halftitle">         <docTitle>           <titlePart type="main"><hi rendition="#g">Briefe</hi><lb/>
+zu<lb/>
+Befoͤrderung der Humanitaͤt.</titlePart><lb/>
+</docTitle>         <milestone unit="section" rendition="#hr"/><lb/>
+</titlePage>
+<pb facs="#f0009"/>
+<pb n="[1]" facs="#f0010"/>
+<pb n="[2]" facs="#f0011"/>
+<figure/>
+<pb n="[3]" facs="#f0012"/>
+<titlePage type="main">         <docTitle>           <titlePart type="main"><hi rendition="#g">Briefe</hi><lb/>
+zu<lb/>
+Befoͤrderung der Humanitaͤt.</titlePart>         </docTitle>         <lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<byline>Herausgegeben<lb/>
+von<lb/>
+<docAuthor>J. G. <hi rendition="#g">Herder</hi>.</docAuthor></byline>         <lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="volume">Dritte Sammlung.</titlePart>         <lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint>           <pubPlace>Riga,</pubPlace>           <docDate>1794.</docDate>           <lb/>
+<publisher><hi rendition="#g">bei Johann Friedrich Hartknoch</hi>.</publisher>         </docImprint>       </titlePage>       <lb/>
+<pb n="[4]" facs="#f0013"/>
+</front>
+<pb n="[5]" facs="#f0014"/>
+<body>       <div n="1">         <head>27.</head>         <lb/>
+<p><hi rendition="#in">S</hi>ie fuͤrchten, daß man dem Wort Humani-<lb/>
+taͤt einen Fleck anhaͤngen werde <note place="foot" n="*)">S. das Ende des vorigen Briefes.<lb/>
+A. d. H.</note>; koͤnnten<lb/>
+wir nicht das Wort aͤndern? <hi rendition="#g">Menſchheit</hi>,<lb/>
+<hi rendition="#g">Menſchlichkeit</hi>, <hi rendition="#g">Menſchenrechte</hi>,<lb/>
+<hi rendition="#g">Menſchenpflichten</hi>, <hi rendition="#g">Menſchenwuͤr</hi>-<lb/>
+<hi rendition="#g">de</hi>, <hi rendition="#g">Menſchenliebe</hi>?</p>         <lb/>
+<p><hi rendition="#g">Menſchen</hi> ſind wir alleſammt, und<lb/>
+tragen ſofern die <hi rendition="#g">Menſchheit</hi> an uns,<lb/>
+oder wir gehoͤren zur <hi rendition="#g">Menſchheit</hi>. Lei-<lb/>
+<fw type="sig" place="bottom">A 3</fw><lb/>
+<pb n="6" facs="#f0015"/>
+der aber hat man in unſerer Sprache dem<lb/>
+Wort <hi rendition="#g">Menſch</hi>, und noch mehr dem barm-<lb/>
+herzigen Wort <hi rendition="#g">Menſchlichkeit</hi> ſo oft<lb/>
+eine Nebenbedeutung von Niedrigkeit,<lb/>
+Schwaͤche und falſchem Mitleid angehaͤngt,<lb/>
+daß man jenes nur mit einem Blick der<lb/>
+Verachtung, dies mit einem Achſelzucken zu<lb/>
+begleiten gewohnt iſt. „<hi rendition="#g">Der Menſch</hi>!“ <note place="foot" n="*)"><hi rendition="#g">Adelung</hi> hat ſogar dem verbannenswuͤrdi-<lb/>
+gen Ausdruck „<hi rendition="#g">das Menſch</hi>“ einen langen<lb/>
+Artikel einraͤumen muͤſſen. A. d. H.</note><lb/>
+ſagen wir jammernd oder verachtend und<lb/>
+glauben einen guten Mann aufs lindeſte<lb/>
+mit dem Ausdruck zu entſchuldigen: „es<lb/>
+habe ihn die <hi rendition="#g">Menſchlichkeit</hi> uͤbereilet.“<lb/>
+Kein Vernuͤnftiger billigt es, daß man den<lb/>
+Charakter des Geſchlechts, zu dem wir ge-<lb/>
+hoͤren, ſo barbariſch hinabgeſetzt hat; man<lb/>
+hat hiemit unweiſer gehandelt, als wenn<lb/>
+<pb n="7" facs="#f0016"/>
+man den Namen ſeiner Stadt oder Lands-<lb/>
+mannſchaft zum Eckelnamen machte. Wir<lb/>
+alſo wollen uns huͤten, daß wir zu Befoͤr-<lb/>
+derung ſolcher <hi rendition="#g">Menſchlichkeit</hi> keine<lb/>
+Briefe ſchreiben.</p>         <lb/>
+<p>Der Name <hi rendition="#g">Menſchenrechte</hi> kann<lb/>
+ohne <hi rendition="#g">Menſchenpflichten</hi> nicht genannt<lb/>
+werden; beide beziehen ſich auf einander,<lb/>
+und fuͤr beide ſuchen wir Ein Wort.</p>         <lb/>
+<p>So auch <hi rendition="#g">Menſchenwuͤrde</hi> und <hi rendition="#g">Men</hi>-<lb/>
+<hi rendition="#g">ſchenliebe</hi>. Das Menſchengeſchlecht, wie<lb/>
+es jetzt iſt und wahrſcheinlich lange noch<lb/>
+ſeyn wird, hat ſeinem groͤßeſten Theil nach<lb/>
+keine Wuͤrde; man darf es eher bemitlei-<lb/>
+den, als verehren. Es ſoll aber zum<lb/>
+<hi rendition="#g">Charakter ſeines Geſchlechts</hi>, mit-<lb/>
+hin auch zu deſſen <hi rendition="#g">Werth</hi> und <hi rendition="#g">Wuͤrde</hi><lb/>
+gebildet werden. Das ſchoͤne Wort <hi rendition="#g">Men</hi>-<lb/>
+<hi rendition="#g">ſchenliebe</hi> iſt ſo trivial worden, daß man<lb/>
+meiſtens die Menſchen liebt, um keinen<lb/>
+<fw type="sig" place="bottom">A 4</fw><lb/>
+<pb n="8" facs="#f0017"/>
+unter den Menſchen wirkſam zu lieben.<lb/>
+Alle dieſe Worte enthalten Theilbegriffe<lb/>
+unſeres Zwecks, den wir gern mit <hi rendition="#g">Einem</hi><lb/>
+Ausdruck bezeichnen moͤchten.</p>         <lb/>
+<p>Alſo wollen wir bei dem Wort <hi rendition="#g">Hu</hi>-<lb/>
+<hi rendition="#g">manitaͤt</hi> bleiben, an welches unter Al-<lb/>
+ten und Neuern die beſten Schriftſteller<lb/>
+ſo wuͤrdige Begriffe geknuͤpft haben. Hu-<lb/>
+manitaͤt iſt der <hi rendition="#g">Charakter unſres Ge</hi>-<lb/>
+<hi rendition="#g">ſchlechts</hi>; er iſt uns aber nur in Anla-<lb/>
+gen angebohren, und muß uns eigentlich<lb/>
+angebildet werden. Wir bringen ihn nicht<lb/>
+fertig auf die Welt mit; auf der Welt<lb/>
+aber ſoll er das Ziel unſres Beſtrebens,<lb/>
+die Summe unſrer Uebungen, unſer <hi rendition="#g">Werth</hi><lb/>
+ſeyn: denn eine <hi rendition="#g">Angelitaͤt</hi> im Menſchen<lb/>
+kennen wir nicht, und wenn der Daͤmon,<lb/>
+der uns regiert, kein humaner Daͤmon iſt,<lb/>
+werden wir Plagegeiſter der Menſchen.<lb/>
+Das <hi rendition="#g">Goͤttliche</hi> in unſerm Geſchlecht iſt<lb/>
+<pb n="9" facs="#f0018"/>
+alſo <hi rendition="#g">Bildung zur Humanitaͤt</hi>; alle<lb/>
+großen und guten Menſchen, Geſetzgeber,<lb/>
+Erfinder, Philoſophen, Dichter, Kuͤnſtler,<lb/>
+jeder edle Menſch in ſeinem Stande, bei<lb/>
+der Erziehung ſeiner Kinder, bei der Be-<lb/>
+obachtung ſeiner Pflichten, durch Beiſpiel,<lb/>
+Werk, Inſtitut und Lehre hat dazu mitge-<lb/>
+holfen. Humanitaͤt iſt der Schatz und die<lb/>
+Ausbeute aller menſchlichen Bemuͤhungen,<lb/>
+gleichſam die <hi rendition="#g">Kunſt unſres Geſchlech</hi>-<lb/>
+<hi rendition="#g">tes</hi>. Die Bildung zu ihr iſt ein Werk,<lb/>
+das unablaͤßig fortgeſetzt werden muß; oder<lb/>
+wir ſinken, hoͤhere und niedere Staͤnde,<lb/>
+zur rohen Thierheit, zur <hi rendition="#g">Brutalitaͤt</hi><lb/>
+zuruͤck.</p>         <lb/>
+<p>Sollte das Wort Humanitaͤt alſo un-<lb/>
+ſre Sprache verunzieren? Alle gebildete<lb/>
+Nationen haben es in ihre Mundart auf-<lb/>
+genommen; und wenn unſre Briefe einem<lb/>
+Fremden in die Hand kaͤmen, muͤßten ſie<lb/>
+<fw type="sig" place="bottom">A 5</fw><lb/>
+<pb n="10" facs="#f0019"/>
+ihm wenigſtens unverfaͤnglich ſcheinen:<lb/>
+denn <hi rendition="#g">Briefe zu Befoͤrderung der<lb/>
+Brutalitaͤt</hi> wird doch kein Ehrliebender<lb/>
+Menſch wollen geſchrieben haben.</p>       </div>       <lb/>
+<pb n="11" facs="#f0020"/>
+<div n="1">         <head>28.</head>         <lb/>
+<p><hi rendition="#in">G</hi>ern nehme ich mit Ihnen das Wort<lb/>
+<hi rendition="#g">Humanitaͤt</hi> in unſre Sprache, wenig-<lb/>
+ſtens im Kreiſe unſrer Geſellſchaft auf;<lb/>
+der Begriff, den es ausdruͤckt, noch mehr<lb/>
+aber deſſen <hi rendition="#g">Geſchichte</hi> ſcheint ihm das<lb/>
+Buͤrgerrecht zu geben.</p>         <lb/>
+<p>So lange der Menſch, dies wunderbare<lb/>
+Raͤthſel der Schoͤpfung, ſich ſeinem ſichtba-<lb/>
+ren Zuſtande nach betrachtete, und ſich da-<lb/>
+bei mit dem was in ihm lag, mit ſeinen<lb/>
+Anlagen und Willenskraͤften oder gar mit<lb/>
+aͤußern Gegenſtaͤnden der daurenden Na-<lb/>
+<pb n="12" facs="#f0021"/>
+tur verglich, ſo ward er auf das Gefuͤhl<lb/>
+der <hi rendition="#g">Hinfaͤlligkeit</hi>, der <hi rendition="#g">Schwaͤche</hi> und<lb/>
+<hi rendition="#g">Krankheit</hi> zuruͤckgeſtoßen; daher in meh-<lb/>
+reren morgenlaͤndiſchen Schriften dieſer<lb/>
+Begriff dem Namen unſres Geſchlechts<lb/>
+urſpruͤnglich beigeſellet iſt. Der Menſch<lb/>
+iſt <hi rendition="#g">von Erde</hi>, eine <hi rendition="#g">zerbrechliche</hi>, von<lb/>
+einem fluͤchtigen Othem durchhauchte <hi rendition="#g">Leim</hi>-<lb/>
+<hi rendition="#g">huͤtte</hi>; ſein Leben iſt ein <hi rendition="#g">Schatte</hi>, ſein<lb/>
+Loos iſt <hi rendition="#g">Muͤhe auf Erden</hi>.</p>         <lb/>
+<p>Schon dieſer Begriff fuͤhrte zur<lb/>
+<hi rendition="#g">Menſchlichkeit</hi>, d. i. zum erbarmenden<lb/>
+Mitgefuͤhl des Leidens ſeiner Nebenmen-<lb/>
+ſchen, zur Theilnahme an den Unvollkom-<lb/>
+menheiten ihrer Natur, mit dem Beſtre-<lb/>
+ben, dieſen zuvorzukommen oder ihnen ab-<lb/>
+zuhelfen. Die Morgenlaͤnder ſind ſo reich<lb/>
+an Sittenſpruͤchen und Einkleidungen, die<lb/>
+dies Menſchengefuͤhl als Pflicht einſchaͤr-<lb/>
+fen oder als eine unſerm Geſchlecht unent-<lb/>
+<pb n="13" facs="#f0022"/>
+behrliche Tugend empfehlen, daß es ſehr<lb/>
+ungerecht waͤre, ihnen Humanitaͤt abzu-<lb/>
+ſprechen, weil ſie dies Wort nicht be-<lb/>
+ſaßen.</p>         <lb/>
+<p>Die Griechen hatten fuͤr den Menſchen<lb/>
+einen edleren Namen: ανϑϱωπος ein <hi rendition="#g">Auf</hi>-<lb/>
+<hi rendition="#g">waͤrtsblickender</hi>, der ſein Antlitz und<lb/>
+Auge aufrecht empor traͤgt, oder wie <hi rendition="#g">Plato</hi><lb/>
+es noch kuͤnſtlicher deutet, Einer, der, in-<lb/>
+dem er ſieht, auch uͤberzaͤhlt und rechnet.<lb/>
+Sie konnten indeſſen eben ſo wenig um-<lb/>
+hin, in dieſem aufrechtblickenden, Vernunft-<lb/>
+artigen Geſchlecht alle die Maͤngel zu be-<lb/>
+merken, die zum bedaurenden Mitgefuͤhl,<lb/>
+alſo zur Humanitaͤt und zur Geſellung<lb/>
+fuͤhren. In Homer und allen ihren Dich-<lb/>
+tern kommen die zaͤrtlichſten Klagen uͤber<lb/>
+das Loos der Menſchheit vor. Erinnern<lb/>
+Sie ſich der Worte Apolls, wenn er die<lb/>
+armen Sterblichen beſchreibt,</p>         <lb/>
+<pb n="14" facs="#f0023"/>
+<lg type="poem">           <lg n="1">             <l>— Wie ſie, gleich den Blaͤttern des Baums,</l>             <lb/>
+<l>jetzt gruͤnen und friſch ſind,</l>             <lb/>
+<l>Von den Fruͤchten der Erde ſich naͤhrend; dann</l>             <lb/>
+<l>aber in Kurzem</l>             <lb/>
+<l>Welken und fallen entſeelet dahin —</l>           </lg>           <lb/>
+<lg n="2">             <l>Oder wenn Jupiter ſelbſt die unſterb-</l>             <lb/>
+<l>lichen Roſſe Achills bedauret, die um ih-</l>             <lb/>
+<l>ren Gebieter trauren:</l>           </lg>           <lb/>
+<lg n="3">             <l>— Er ſprach im Innern der Seele:</l>             <lb/>
+<l>Arme, warum doch gaben wir euch dem Koͤnige</l>             <lb/>
+<l>Peleus,</l>             <lb/>
+<l>Einem Sterblichen, Euch, die niemals altern</l>             <lb/>
+<l>und ſterben?</l>           </lg>           <lb/>
+<lg n="4">             <l>Wars, mit den ungluͤckſeligen Menſchen euch</l>             <lb/>
+<l>leiden zu ſehen?</l>             <lb/>
+<l>Denn elender iſt nirgend ein Weſen, als es</l>             <lb/>
+<l>der Menſch iſt;</l>             <lb/>
+<l>Keines von allen, die uͤber der Erde ſich regen</l>             <lb/>
+<l>und athmen. —</l>           </lg>         </lg>         <lb/>
+<p>In demſelben Ton ſingen ihre lyriſche<lb/>
+Dichter.</p>         <lb/>
+<pb n="15" facs="#f0024"/>
+<p>Naͤchſt der Selbſterhaltung ward es al-<lb/>
+ſo die erſte Pflicht der Menſchheit, den<lb/>
+Schwaͤchen unſerer Nebengeſchoͤpfe beizu-<lb/>
+ſpringen und ſie gegen die Uebel der Na-<lb/>
+tur oder die rohen Leidenſchaften ihres eig-<lb/>
+nen Geſchlechts in Schutz zu nehmen.<lb/>
+Dahin ging die Sorge ihrer Geſetzgeber<lb/>
+und Weiſen, daß ſie in Worten und Ge-<lb/>
+braͤuchen den Menſchen dieſe unentbehrli-<lb/>
+chen heiligen Pflichten gegen ihre Mitmen-<lb/>
+ſchen anempfahlen, und dadurch das aͤlteſte<lb/>
+<hi rendition="#g">Menſchen</hi>- <hi rendition="#g">und Voͤlkerrecht</hi> gruͤnde-<lb/>
+ten. Religion wars, vom Morde ſich zu<lb/>
+enthalten, dem Schwachen beizuſpringen,<lb/>
+dem Irrenden den rechten Weg zu zeigen,<lb/>
+des Verwundeten zu pflegen, den Todten<lb/>
+zu begraben. In Religion wurden die<lb/>
+Pflichten des Ehebundes, der Eltern gegen<lb/>
+die Kinder, der Kinder gegen die Eltern,<lb/>
+des Einheimiſchen gegen die Fremden ein-<lb/>
+<pb n="16" facs="#f0025"/>
+gehuͤllet, und allmaͤlig dies Erbarmen auch<lb/>
+auf Feinde verbreitet <note place="foot" n="*)"><hi rendition="#g">Heyne</hi> hat dieſen Zweck alter griechiſcher<lb/>
+Inſtitute in mehreren ſeiner <hi rendition="#aq">opuſcul. aca-<lb/>
+demic.</hi> vortreflich gezeiget. A. d. H.</note>. Was Poeſie, und<lb/>
+Geſetzgebende Weisheit begonnen hatten,<lb/>
+entwickelte die Philoſophie endlich; und<lb/>
+wir haben es inſonderheit der Sokratiſchen<lb/>
+Schule zu danken, daß in Form ſo man-<lb/>
+nichfaltiger Lehrgebaͤude die <hi rendition="#g">Kenntniß<lb/>
+der Natur des Menſchen</hi>, <hi rendition="#g">ſeiner<lb/>
+weſentlichen Beziehungen und<lb/>
+Pflichten</hi> das Studium der erleſenſten<lb/>
+Geiſter ward. Was Sokrates bei den<lb/>
+Griechen that, brachten bei andern Voͤl-<lb/>
+kern Andre zu Stande; <hi rendition="#g">Confucius</hi> z. B.<lb/>
+iſt der Sokrates der Sineſer, <hi rendition="#g">Menu</hi> der<lb/>
+Indier worden; denn uͤberhaupt ſind die<lb/>
+Geſetze der Menſchenpflicht keinem Volk<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="17" facs="#f0026"/>
+der Erde unbekannt geblieben. In jeder<lb/>
+Staatsverfaſſung aber hat ſie nach Lage<lb/>
+und Zeit das ſogenannte <hi rendition="#g">Beduͤrfniß<lb/>
+des Staats</hi> Theils befoͤrdert, Theils<lb/>
+aufgehalten und verderbet.</p>         <lb/>
+<p>Unter den Roͤmern alſo, denen das<lb/>
+Wort <hi rendition="#g">Humanitaͤt</hi> eigentlich gehoͤrt, fand<lb/>
+der Begriff Anlaß gnug, ſich beſtimmter<lb/>
+auszubilden. Rom hatte harte Geſetze ge-<lb/>
+gen Knechte, Kinder, Fremde, Feinde; die<lb/>
+obern Staͤnde hatten Rechte gegen das<lb/>
+Volk, u. f. Wer dieſe Rechte mit groͤße-<lb/>
+ſter Strenge verfolgte, konnte <hi rendition="#g">gerecht</hi><lb/>
+ſeyn, er war aber dabei nicht <hi rendition="#g">menſch</hi>-<lb/>
+<hi rendition="#g">lich</hi>. Der Edle, der von dieſen Rechten,<lb/>
+wo ſie unbillig waren, von ſelbſt nachließ,<lb/>
+der gegen Kinder, Sklaven, Niedre, Frem-<lb/>
+de, Feinde nicht als Roͤmiſcher Buͤrger oder<lb/>
+Patricier, ſondern als Menſch handelte, der<lb/>
+war <hi rendition="#aq">humanus, humaniſſimus,</hi> nicht etwa in<lb/>
+<fw type="sig" place="bottom">Dritte Samml. B</fw><lb/>
+<pb n="18" facs="#f0027"/>
+Geſpraͤchen nur und in der Geſellſchaft,<lb/>
+ſondern auch in Geſchaͤften, in haͤuslichen<lb/>
+Sitten, in der ganzen Handlungsweiſe.<lb/>
+Und da hiezu das Studium und die Liebe<lb/>
+der griechiſchen Weltweisheit viel that, daß<lb/>
+ſie den rauhen, ſtrengen Roͤmer nachgebend,<lb/>
+ſanft, gefaͤllig, billigdenkend machte, konnte<lb/>
+den bildenden Wiſſenſchaften ein ſchoͤnerer<lb/>
+Name gegeben werden, als daß man ſie<lb/>
+<hi rendition="#g">menſchliche Wiſſenſchaften</hi> nannte?<lb/>
+Gewiß war von ihnen die Philoſophie nicht<lb/>
+ausgeſchloſſen <note place="foot" n="*)"><hi rendition="#g">Erneſti</hi> Rede <hi rendition="#aq">de humanitatis diſciplina</hi> iſt hieruͤber bekannt. A. d. H.</note>; vielmehr war ſie dieſer<lb/>
+bildenden Wiſſenſchaften Erzieherinn und<lb/>
+Geſellinn, bald ihre Mutter, bald ihre<lb/>
+Tochter geweſen.</p>         <lb/>
+<p>Da bei den Roͤmern alſo die <hi rendition="#g">Huma</hi>-<lb/>
+<hi rendition="#g">nitaͤt</hi> zuerſt als eine Bezaͤhmerinn harter<lb/>
+<pb n="19" facs="#f0028"/>
+buͤrgerlicher Geſetze und Rechte, als die ei-<lb/>
+gentliche Tochter der Philoſophie und bil-<lb/>
+denden Wiſſenſchaften einen Namen ge-<lb/>
+wonnen hat, der ſich mit dieſen nachher<lb/>
+weiter vererbte: ſo laſſen Sie uns ja Na-<lb/>
+men und Sache ehren. Auch in den aber-<lb/>
+glaͤubigſten, dunkelſten Zeiten erinnerte der<lb/>
+Name <hi rendition="#aq">humaniora</hi> an den ernſten und ſchoͤ-<lb/>
+nen Zweck, den die Wiſſenſchaften befoͤr-<lb/>
+dern ſollten; dieſen wollen wir, da wir<lb/>
+<hi rendition="#g">menſchliche</hi> Wiſſenſchaften doch nicht<lb/>
+wohl ſagen koͤnnen, mit und ohne dem<lb/>
+Wort Humanitaͤt, nie vergeſſen, nie auf-<lb/>
+geben. Wir beduͤrfen deſſen eben ſo wohl<lb/>
+als die Roͤmer.</p>         <lb/>
+<p>Denn blicken Sie jetzt weiterhin in die<lb/>
+Geſchichte; es kam eine Zeit, da das Wort<lb/>
+Menſch <hi rendition="#aq">(homo)</hi> einen ganz andern Sinn<lb/>
+bekam, es hieß ein <hi rendition="#g">Pflichttraͤger</hi>, ein<lb/>
+<hi rendition="#g">Unterthan</hi>, ein <hi rendition="#g">Vaſall</hi>, ein <hi rendition="#g">Die</hi>-<lb/>
+<fw type="sig" place="bottom">B 2</fw><lb/>
+<pb n="20" facs="#f0029"/>
+<hi rendition="#g">ner</hi> <note place="foot" n="*)">Daher noch der Ausdruck: er iſt ein <hi rendition="#aq">homo!</hi><lb/>
+Du <hi rendition="#aq">homo!</hi> „u. f.“ A. d. H.</note>. Wer dies nicht war, der genoß<lb/>
+keines Rechts, der war ſeines Lebens nicht<lb/>
+ſicher; und die, denen jene dienende Men-<lb/>
+ſchen zugehoͤrten, waren <hi rendition="#g">Uebermen</hi>-<lb/>
+<hi rendition="#g">ſchen</hi>. Der Eid, den man ihnen ablegte,<lb/>
+hieß <hi rendition="#g">Menſchenpflicht</hi> <hi rendition="#aq">(homagium)</hi> und<lb/>
+wer ein freier Mann ſeyn wollte, mußte<lb/>
+durch den <hi rendition="#g">Mann</hi>-<hi rendition="#g">Rechtsbrief</hi> bewei-<lb/>
+ſen, daß er kein <hi rendition="#aq">homo,</hi> kein <hi rendition="#g">Menſch</hi> ſei.<lb/>
+Wundern Sie ſich nun, daß dem Wort<lb/>
+Menſch in unſrer Sprache ein ſo niedriger<lb/>
+Begriff anklebt? ſeiner Abſtammung ſelbſt<lb/>
+heißt es ja nichts anders als ein verachte-<lb/>
+ter Mann, Menniſk', ein Maͤnnlein <note place="foot" n="**)" xml:id="note-0029" next="note-0030">Weder <hi rendition="#g">Wachter</hi> noch <hi rendition="#g">Adelung</hi> haben<lb/>
+dieſen Urſprung der Endung im Wort <hi rendition="#aq">Men-<lb/>
+niſk</hi> bemerkt; er ſcheint aber der wahre:<lb/>
+denn wenn man das Wort <hi rendition="#g">Menſch</hi> nach</note>.<lb/>
+<pb n="21" facs="#f0030"/>
+Auch <hi rendition="#g">Leute</hi>, <hi rendition="#g">Leutlein</hi> wurden nur als<lb/>
+Anhaͤngſel des Landes betrachtet, das ſie<lb/>
+bebauen mußten, auf welchem ſie ſtarben.<lb/>
+Der Fuͤrſt, der Edle war Herr und Eigen-<lb/>
+thuͤmer uͤber Land und Leute; und ſeine<lb/>
+Seckeltraͤger, Canzliſten, Capellane, Vaſal-<lb/>
+len und Clienten waren <hi rendition="#aq">homines,</hi> <hi rendition="#g">Men</hi>-<lb/>
+<hi rendition="#g">ſchen</hi> oder <hi rendition="#g">Menſchlein</hi>, mit mancher-<lb/>
+lei Nebenbeſtimmungen, die ihnen blos das<lb/>
+Verhaͤltniß gab, nach welchem ſie <hi rendition="#g">Ihm</hi><lb/>
+angehoͤrten <note place="foot" n="*)">S. hieruͤber <hi rendition="#aq">Du Fresne Gloſſar. artic.<lb/>
+<hi rendition="#g">Homo</hi>: Homines denariales, chartularii,<lb/>
+fiſcales, eccleſiaſtici, de corpore, pertinen-<lb/>
+tes, commendati, caſati, feudales, exerci-<lb/>
+tales, ligii, de manu mortua, de ſuis ma-<lb/>
+nibus, de manupaſtu etc.</hi></note>. Laſſen Sie uns ja zum<lb/>
+<note place="foot" n="**)" xml:id="note-0030" next="note-0029">Niederſaͤchſiſcher, d. i. der alten und aͤchten<lb/>
+Art ausſpricht, ſo heißt es <hi rendition="#g">Menſ</hi>-ch <hi rendition="#aq">(Mensk)</hi><lb/>
+d. i. ein elender unbewehrter Mann, ein<lb/>
+Maͤnnlein. A. d. H.</note><lb/>
+<fw type="sig" place="bottom">B 3</fw><lb/>
+<pb n="22" facs="#f0031"/>
+Begriff der Humanitaͤt bei Griechen und<lb/>
+Roͤmern uͤbergehen: denn bei dieſem bar-<lb/>
+bariſchen Menſchenrecht wird uns angſt<lb/>
+und bange.</p>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="23" facs="#f0032"/>
+<div n="1">         <head>29.</head>         <lb/>
+<p><hi rendition="#in">D</hi>as Hauptgut wollen wir ja nicht ver-<lb/>
+geſſen, das uns die tiefere Betrachtung<lb/>
+der Menſchennatur fuͤr alle Zeiten erwor-<lb/>
+ben hat; es iſt die <hi rendition="#g">Erkenntniß unſrer<lb/>
+Kraͤfte und Anlagen</hi>, <hi rendition="#g">unſres Be</hi>-<lb/>
+<hi rendition="#g">rufes und unſrer Pflicht</hi>. Eben in<lb/>
+dem, wodurch der Menſch von Thieren ſich<lb/>
+unterſcheidet, liegt ſein Charakter, ſein<lb/>
+Adel, ſeine Beſtimmung; er kann ſich da-<lb/>
+von ſo wenig als von der Menſchheit<lb/>
+ſelbſt losſagen. Dies iſt das wahre <hi rendition="#aq">ſtudi-<lb/>
+um humanitatis,</hi> in welchem uns Griechen<lb/>
+und Roͤmer vortreflich vorgegangen ſind;<lb/>
+Schande, wenn wir ihnen nachbleiben<lb/>
+wollten!</p>         <lb/>
+<fw type="sig" place="bottom">B 4</fw>         <lb/>
+<pb n="24" facs="#f0033"/>
+<p>Der Menſch hat einen Willen, er iſt<lb/>
+des Geſetzes faͤhig: ſeine Vernunft iſt ihm<lb/>
+Geſetz. Ein heiliges, unverbruͤchliches Ge-<lb/>
+ſetz, dem er ſich nie entziehen darf, dem<lb/>
+er ſich nie entziehen ſoll. Er iſt nicht etwa<lb/>
+nur ein mechaniſches Glied der Naturkette;<lb/>
+ſondern der Geiſt, der die Natur beherrſcht,<lb/>
+iſt Theilweiſe in ihm. Jener ſoll er fol-<lb/>
+gen; die Dinge um ihn her, inſonderheit<lb/>
+ſeine eigne Handlungen ſoll er dem allge-<lb/>
+meinen Principium der Welt gemaͤß anord-<lb/>
+nen. Hierinn iſt er keinem Zwange unter-<lb/>
+worfen, ja er iſt keines Zwanges faͤhig.<lb/>
+Er conſtituiret ſich ſelbſt; er conſtituirt mit<lb/>
+andern ihm Gleichgeſinnten nach heiligen,<lb/>
+unverbruͤchlichen Geſetzen eine Geſellſchaft.<lb/>
+Nach ſolchen iſt er Freund, Buͤrger, Ehe-<lb/>
+mann, Vater; Mitbuͤrger endlich der gro-<lb/>
+ßen Stadt Gottes auf Erden, die nur<lb/>
+Ein Geſetz, Ein Daͤmon, der Geiſt einer<lb/>
+<pb n="25" facs="#f0034"/>
+<hi rendition="#g">allgemeinen Vernunft und Huma</hi>-<lb/>
+<hi rendition="#g">nitaͤt</hi> beherrſchet, ordnet, lenket.</p>         <lb/>
+<p>Doch warum ſpreche ich? und laſſe nicht<lb/>
+lieber den menſchenfreundlichen Kaiſer ſpre-<lb/>
+chen, der in ſeinen <hi rendition="#g">Betrachtungen<lb/>
+uͤber ſich ſelbſt</hi> mehr als in ſeiner Sta-<lb/>
+tue vor dem Capitol als Geſetzgeber der<lb/>
+Welt dem Menſchengeſchlecht ſanftmuͤthig-<lb/>
+groß gebietet.</p>         <lb/>
+<p>Mark-Antonin uͤber ſich ſelbſt.</p>         <lb/>
+<p>„Von Apollonius habe ich gelernt, frei<lb/>
+zu ſeyn, und ohne Wankelmuth unbeweglich;<lb/>
+auf nichts anders, auch mit dem kleinſten<lb/>
+Seitenblick hinzuſehen, als auf die Ver-<lb/>
+nunft; immer Derſelbe zu ſeyn, unter den<lb/>
+heftigſten Schmerzen, beym Verluſt eines<lb/>
+Kindes, in langwierigen Krankheiten. Wie<lb/>
+in einem lebendigen Muſter habe ich an<lb/>
+ihm deutlich erſehen, wie Derſelbe Mann<lb/>
+<fw type="sig" place="bottom">B 5</fw><lb/>
+<pb n="26" facs="#f0035"/>
+ſehr ſtrenge und doch auch nachgebend ſeyn<lb/>
+koͤnne. Ich habe von ihm gelernt, wie<lb/>
+man von Freunden ſogenannte Gefaͤlligkei-<lb/>
+ten annehmen koͤnne, daß man ihnen we-<lb/>
+der verhaftet werde, noch ſolche Gefuͤhllos<lb/>
+zuruͤckweiſen duͤrfe.“</p>         <lb/>
+<p>„Vom Sextus lernte ich Wohlwollen;<lb/>
+ich empfing das Muſter einer vaͤterlichen<lb/>
+Hausverwaltung, und den Sinn, nach der<lb/>
+Natur zu leben. Ich lernte, ernſt ſeyn<lb/>
+ohne Steifheit, mich in Freunde ſchicken<lb/>
+ohne Laune, Unwiſſende und vom Wahn Ge-<lb/>
+leitete dulden. An ihm ſah ich, was Ge-<lb/>
+faͤlligkeit gegen Jedermann ſey: denn ſein<lb/>
+Umgang war angenehmer als alle Schmei-<lb/>
+chelei, und doch blieb er zu eben der Zeit<lb/>
+bei allen in Achtung.“</p>         <lb/>
+<p>„Von meinem Bruder Severus lernte<lb/>
+ich Verwandte, Recht und Wahrheit lie-<lb/>
+ben. Durch ihn lernte ich einen <hi rendition="#g">Thraſea</hi>,<lb/>
+<pb n="27" facs="#f0036"/>
+<hi rendition="#g">Helvidius</hi>, <hi rendition="#g">Cato</hi>, <hi rendition="#g">Dion und Bru</hi>-<lb/>
+<hi rendition="#g">tus</hi> kennen: ich empfing die Idee eines<lb/>
+Staats, der nach gleichen Geſetzen und<lb/>
+Rechten verwaltet wird, einer Regierung,<lb/>
+die der Freiheit ihrer Unterthanen die hoͤch-<lb/>
+ſte Achtung erweiſet. Von ihm lernte ich<lb/>
+ſtandhaft und ohne Scheu die Philoſophie<lb/>
+hochſchaͤtzen, gutthaͤtig ſeyn auf die beſte<lb/>
+reichſte Weiſe, jederzeit das Beſte hoffen,<lb/>
+und auf die Liebe der Freunde trauen; es<lb/>
+ihnen geſtehen, worinn man mit ihnen un-<lb/>
+zufrieden ſei; was man wolle oder nicht<lb/>
+wolle, ſie nicht errathen laſſen, ſondern es<lb/>
+ihnen klar ſagen.“</p>         <lb/>
+<p>„Haben wir den Verſtand mit einan-<lb/>
+der gemein, ſo iſt uns auch die Vernunft<lb/>
+gemein, durch die wir vernuͤnftig ſind.<lb/>
+Iſt dieſes: ſo iſt uns auch <hi rendition="#g">die</hi> Vernunft<lb/>
+gemein, die vorſchreibt, was wir zu thun<lb/>
+und nicht zu thun haben. Iſt dies, ſo<lb/>
+<pb n="28" facs="#f0037"/>
+haben wir auch ein gemeinſchaftliches Ge-<lb/>
+ſetz. Iſt das, ſo ſind wir Buͤrger und<lb/>
+nehmen an Einem gemeinſchaftlichen Staate<lb/>
+Theil. Dieſer Staat iſt die Welt: denn<lb/>
+was fuͤr einen andern Staat koͤnnte je-<lb/>
+mand nennen, an dem das ganze Menſchen-<lb/>
+geſchlecht Theil nehme? Aus dieſem ge-<lb/>
+meinſchaftlichen Staat alſo haben wir alle<lb/>
+denſelben Verſtand, dieſelbe Vernunft, die-<lb/>
+ſelbe Geſetzgebende Vernunft: denn woher<lb/>
+haͤtten wir ſie ſonſt? Wie das Irrdiſche<lb/>
+an mir, das Feuchte, das Luftige, das<lb/>
+Feurige jedes aus der Quelle ſeines Ele-<lb/>
+ments kommt, und dahin gehoͤret: ſo muß<lb/>
+auch der Verſtand irgend woher ſeyn und<lb/>
+dazu gehoͤren.“</p>         <lb/>
+<p>„Was Dir fuͤglich iſt, o Weltall, iſt<lb/>
+auch mir bequem. Nichts kommt mir zu<lb/>
+fruͤhe, nichts zu ſpaͤt, was dir recht iſt.<lb/>
+Alles iſt mir Frucht, o Natur, was Deine<lb/>
+<pb n="29" facs="#f0038"/>
+<hi rendition="#g">Horen</hi> mir bringen. Aus dir kommt alles,<lb/>
+in dir iſt alles, in dich kehrt alles zuruͤck.<lb/>
+Wenn jener ſagte: o <hi rendition="#g">du geliebte Ce</hi>-<lb/>
+<hi rendition="#g">crops</hi>-<hi rendition="#g">Stadt</hi>, ſollte ich nicht ſagen: o<lb/>
+<hi rendition="#g">du geliebte Gottes</hi>-<hi rendition="#g">Stadt</hi>!“</p>         <lb/>
+<p>„Der Geiſt des Weltalls iſt ein Ge-<lb/>
+meinheit-Stifter. Das Schlechtere hat er<lb/>
+des Beſſern wegen hervorgebracht, das Beſ-<lb/>
+ſere harmoniſch zu einander geordnet. Du<lb/>
+ſieheſt, wie er unter-wie er zuſammenord-<lb/>
+nete, wie er jedem Dinge nach Wuͤrde das<lb/>
+ſeinige zutheilte, und die edelſten Weſen<lb/>
+zum <hi rendition="#g">einſtimmigen Wohlwollen</hi>, zum<lb/>
+<hi rendition="#g">Gleichſinn gegen einander</hi> verknuͤpft<lb/>
+hat.“</p>         <lb/>
+<p>„Steheſt du des Morgens ungern auf,<lb/>
+ſo ermuntere dich mit dem Gedanken: <hi rendition="#g">ich<lb/>
+erwache zum Werk des Menſchen</hi>!<lb/>
+Sollte ich mit Unwillen dran gehen, Das<lb/>
+zu thun, deßhalb ich gebohren, dazu ich in<lb/>
+<pb n="30" facs="#f0039"/>
+die Welt kommen bin? „Die Ruhe iſt aber<lb/>
+angenehm.“ Biſt du zum Genießen geboh-<lb/>
+ren? oder nicht vielmehr zum Thun, zum<lb/>
+Wirken? Sieheſt du nicht, wie Gewaͤchſe,<lb/>
+Voͤgel, Ameiſen, Spinnen, Bienen die Welt<lb/>
+auf ihrem Platze mitzieren? und du, ein<lb/>
+Menſch, wollteſt deinen Menſchenberuf nicht<lb/>
+erfuͤllen? Du eilſt nicht zu dem, was deine<lb/>
+Natur von dir fodert? Du liebſt dich alſo<lb/>
+nicht ſelbſt, da du deine Natur, und ihr Ge-<lb/>
+ſetz nicht liebeſt. Andre, die ihre Kunſt lie-<lb/>
+ben, zehren ſich in Ausuͤbung derſelben ab,<lb/>
+ſie vergeſſen Speiſe und Trank; du aber<lb/>
+ſchaͤtzeſt deine Menſchennatur geringer, als<lb/>
+der Drechsler die Drehekunſt, der Taͤnzer die<lb/>
+Tanzkunſt, der Geizige das Geld, der Ehr-<lb/>
+ſuͤchtige ein wenig Ehre. Scheinen Dir Ar-<lb/>
+beiten <hi rendition="#g">zum gemeinen Wohlſeyn</hi> zu ge-<lb/>
+ringe, als daß ſie gleichen Fleißes beduͤrf-<lb/>
+ten?“</p>         <lb/>
+<pb n="31" facs="#f0040"/>
+<p>„Siehe zu, daß du nicht <hi rendition="#g">verkaiſert</hi><lb/>
+werdeſt: nimm die Tinctur nicht an. Denn<lb/>
+das geſchieht leicht! Erhalte dich einfach,<lb/>
+gut, unverfaͤlſcht, ernſthaft, Prachtlos,<lb/>
+Rechtliebend, Gottverehrend, ſanftmuͤthig,<lb/>
+liebend die Deinigen, tapfer zu jedem wohl-<lb/>
+anſtaͤndigen Werk. Kaͤmpfe, daß du Der<lb/>
+bleibeſt, zu dem dich die Philoſophie machen<lb/>
+wollte. Verehre die Goͤtter, erhalte die Men-<lb/>
+ſchen. Kurz iſt das Leben; und es giebt nur<lb/>
+Eine Frucht des irrdiſchen Lebens: ein heili-<lb/>
+ges Gemuͤth und zum Wohl der Geſellſchaft<lb/>
+dienende Werke.“</p>         <lb/>
+<p>„Glaube nicht, daß wenn dir etwas<lb/>
+ſchwer duͤnkt, es dem <hi rendition="#g">Menſchen</hi> unmoͤg-<lb/>
+lich ſey; und was dem Menſchen je moͤglich<lb/>
+war, das halte auch dir moͤglich.“</p>         <lb/>
+<p>„Gegen unvernuͤnftige Thiere, uͤberhaupt<lb/>
+auch bei allen vorkommenden Vernunftloſen<lb/>
+Dingen und Geſchaͤften betrage dich als ei-<lb/>
+<pb n="32" facs="#f0041"/>
+ner, der Vernunft hat, großmuͤthig und frei.<lb/>
+Gegen Menſchen aber, als gegen vernuͤnf-<lb/>
+tige Weſen, betrage dich mit gemeinſchaftli-<lb/>
+cher, geſelliger Vernunft.“</p>         <lb/>
+<p>„Die Menſchen ſind um einander willen<lb/>
+da. Belehre ſie alſo, oder ertrage ſie.“</p>         <lb/>
+<p>„Fange endlich einmal an ein Menſch zu<lb/>
+ſeyn; huͤte dich aber eben ſo wohl, den Men-<lb/>
+ſchen zu ſchmeicheln, als uͤber ſie zu zuͤrnen.<lb/>
+Beides iſt wider die Pflicht der Geſellſchaft;<lb/>
+beides iſt ſchaͤdlich.“</p>         <lb/>
+<p>„Welche Macht und Wuͤrde hat der<lb/>
+Menſch! Nichts zu thun, als was die Gott-<lb/>
+heit ſelbſt billigen wuͤrde; und alles aufzu-<lb/>
+nehmen, was ihm Gott anweiſet.“</p>         <lb/>
+<p>„Menſch! Du wareſt in dieſem großen<lb/>
+Staate Gottes ein Mitbuͤrger; was kuͤm-<lb/>
+mert es dich, daß du es nur fuͤnf Jahre lang<lb/>
+wareſt? Was nach Geſetzen geſchieht, thut<lb/>
+Niemandem unrecht. Was iſt denn Schreck-<lb/>
+<fw type="catch" place="bottom">liches</fw><lb/>
+<pb n="33" facs="#f0042"/>
+liches darinn, daß dich nicht ein Tyrann,<lb/>
+noch ein ungerechter Richter ſondern die Na-<lb/>
+tur wegruft, die dich in dieſen Staat ein-<lb/>
+fuͤhrte? eben wie den Schauſpieler, den der<lb/>
+Praͤtor dung, der Praͤtor auch von der<lb/>
+Schaubuͤhne entlaͤßt. — „Aber die fuͤnf<lb/>
+Acte des Stuͤcks ſind von mir noch nicht<lb/>
+geendet; ſondern nur drei. „Wohl! Im<lb/>
+Leben ſind drei Acte auch ein Stuͤck. Was<lb/>
+ein Ganzes ſeyn ſoll, beſtimmet der, der einſt<lb/>
+Compoſiteur, jetzt Aufloͤſer des Spiels iſt.<lb/>
+Du biſt keins von beiden. Geh' alſo zufrie-<lb/>
+den fort; auch Er entlaͤßt dich zufrieden.“</p>         <lb/>
+<p>— So ſpricht Mark-Antonin auf allen<lb/>
+Blaͤttern. Wir wollen nicht ſagen: „Hei-<lb/>
+liger bitte fuͤr uns; ſondern: <hi rendition="#g">menſchlicher<lb/>
+Kaiſer</hi>, <hi rendition="#g">ſei uns ein Muſter</hi>.“</p>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">Dritte Samml. C</fw>       <lb/>
+<pb n="34" facs="#f0043"/>
+<div n="1">         <head>30.</head>         <lb/>
+<lg type="poem">           <lg n="1">             <l><hi rendition="#in">W</hi>er vermag die Wuͤrde von ſolchen Dingen,</l>             <lb/>
+<l>dem Geiſte</l>             <lb/>
+<l>Ihrer Erfindung gemaͤß, ein Lied zu dichten?</l>             <lb/>
+<l>Und wer hat</l>             <lb/>
+<l>Kraft im Buſen, und Worte der Zunge, zu</l>             <lb/>
+<l>ſtroͤmen ein Loblied</l>             <lb/>
+<l>Jenem vortreflichen Mann, der ſolche Schaͤtze</l>             <lb/>
+<l>der Wahrheit,</l>             <lb/>
+<l>Die ſich ſein Herz erworben, uns zum Ge-</l>             <lb/>
+<l>ſchenke gelaßen?</l>           </lg>           <lb/>
+<lg n="2">             <l>Moͤcht' es auch einer wagen, von ſterblichem</l>             <lb/>
+<l>Blute gebohren?</l>             <lb/>
+<l>Wenn der Dinge Gewicht, die ſein hoher</l>             <lb/>
+<l>Geiſt uns entdeckt hat,</l>             <lb/>
+<l>Ihren vortreflichen Werth wir bedenken, ſo</l>             <lb/>
+<l>war er ein Gott uns,</l>             <lb/>
+<pb n="35" facs="#f0044"/>
+<l>Ja ein Gott wars, ruhmvoller Memmius!</l>             <lb/>
+<l>welcher zuerſt uns</l>             <lb/>
+<l>Jenen erhabenen Weg des Lebens gezeiget,</l>             <lb/>
+<l>den jetzt wir</l>             <lb/>
+<l><hi rendition="#g">Weisheit</hi> nennen; und der, durch ihre</l>             <lb/>
+<l>Huͤlfe, das Leben</l>             <lb/>
+<l>Aus dem Dunkel der Nacht, aus wogenden</l>             <lb/>
+<l>Fluthen gerettet,</l>             <lb/>
+<l>Und in den friedlichen Port, in klares Licht es</l>             <lb/>
+<l>geſtellt hat.</l>           </lg>           <lb/>
+<lg n="3">             <l>Nimm die Erfindungen andrer, die man fuͤr</l>             <lb/>
+<l>goͤttlich erkannt hat;</l>             <lb/>
+<l>Ceres pflanzte die Aehren; es lehrte die Sterb-</l>             <lb/>
+<l>lichen Bacchus</l>             <lb/>
+<l>Den gekelterten Moſt aus der Rebe druͤcken;</l>             <lb/>
+<l>da dennoch</l>             <lb/>
+<l>Ohne Gebrauch von dieſen Dingen das Leben</l>             <lb/>
+<l>beſtehn mag,</l>             <lb/>
+<l>Wie mans an Voͤlkern erſieht, die jetzt noch</l>             <lb/>
+<l>ihrer entbehren.</l>           </lg>           <lb/>
+<lg n="4">             <l>Iſt die Bruſt dir nicht rein, ſo ſuchſt du ver-</l>             <lb/>
+<l>gebens ein Gluͤck dir,</l>             <lb/>
+<fw type="sig" place="bottom">C 2</fw>             <lb/>
+<pb n="36" facs="#f0045"/>
+<l>Denkeſt umſonſt an Lebensgenuß. Drum</l>             <lb/>
+<l>ſcheint er ein Gott uns,</l>             <lb/>
+<l>Und mit mehrerem Recht als jene, von dem</l>             <lb/>
+<l>in die Herzen</l>             <lb/>
+<l>Aller Voͤlker ſo ſuͤßer Troſt fuͤr das Leben</l>             <lb/>
+<l>gefloſſen.</l>           </lg>           <lb/>
+<lg n="5">             <l>Sollte dir aber duͤnken, es gingen des</l>             <lb/>
+<l>Herkules Thaten</l>             <lb/>
+<l>Dieſen weit noch voran, ſo wuͤrdeſt du groͤ-</l>             <lb/>
+<l>ber dich irren:</l>             <lb/>
+<l>Denn was hat des Nemaͤiſchen Loͤwen gefuͤrch-</l>             <lb/>
+<l>teter Rachen</l>             <lb/>
+<l>Schreckbares jetzt fuͤr uns? und der Zahn des</l>             <lb/>
+<l>arkadiſchen Keilers?</l>             <lb/>
+<l>Was aus Kreta der Stier? was des lernaͤi-</l>             <lb/>
+<l>ſchen Sumpfes</l>             <lb/>
+<l>Giftige Peſt, die Hydra, mit ziſchenden Nat-</l>             <lb/>
+<l>tern umguͤrtet?</l>             <lb/>
+<l>Was kann die Rieſenbruſt des dreifachen</l>             <lb/>
+<l>Geryon, was die</l>             <lb/>
+<l>Roſſe, die Flammen ſchnauben, die uͤber Thra-</l>             <lb/>
+<l>ciens Felder</l>             <lb/>
+<pb n="37" facs="#f0046"/>
+<l>Auf die Biſtoniſchen Fluren und auf die Frucht-</l>             <lb/>
+<l>reichen Saaten,</l>             <lb/>
+<l>Wo ſich Ismarus hebt, Tod brachten und wil-</l>             <lb/>
+<l>des Verderben?</l>             <lb/>
+<l>Wodurch moͤchten der Stymphaliden gebogene</l>             <lb/>
+<l>Krallen</l>             <lb/>
+<l>Uns noch fuͤrchterlich werden? wodurch der</l>             <lb/>
+<l>heſperiſche Drache,</l>             <lb/>
+<l>Der um den Baum gewunden in ungeheuren</l>             <lb/>
+<l>Kreiſen,</l>             <lb/>
+<l>Tod aus den Augen blitzend, die goldenen Aep-</l>             <lb/>
+<l>fel bewachet?</l>           </lg>           <lb/>
+<lg n="6">             <l>Was moͤcht' dieſer uns ſchaden an ſeiner at-</l>             <lb/>
+<l>lantiſchen Kuͤſte,</l>             <lb/>
+<l>An dem unwirthbaren Ufer, wo keiner von</l>             <lb/>
+<l>uns den Fuß hin-</l>             <lb/>
+<l>Setzet, das der Barbar ſelbſt zu betreten ſich</l>             <lb/>
+<l>ſcheuet.</l>           </lg>           <lb/>
+<lg n="7">             <l>Alſo verhaͤlt es ſich auch mit den uͤbrigen</l>             <lb/>
+<l>Abentheuern.</l>             <lb/>
+<l>Haͤtte ſie keiner beſtanden, wer moͤchte ſie jetzt</l>             <lb/>
+<l>noch beſtehen?</l>           </lg>           <lb/>
+<fw type="sig" place="bottom">C 3</fw>           <lb/>
+<pb n="38" facs="#f0047"/>
+<lg n="8">             <l>Niemand, wie ich glaube. Was ſollten ſie</l>             <lb/>
+<l>Schaden uns bringen?</l>             <lb/>
+<l>Noch iſt voll die Welt von Ungeheuern, es</l>             <lb/>
+<l>herrſchet</l>             <lb/>
+<l>Noch in den Thaͤlern, den Waͤldern, den tiefen</l>             <lb/>
+<l>Kluͤften der Berge</l>             <lb/>
+<l>Raubbegierige Wut; allein was gehet ſie uns</l>             <lb/>
+<l>an?</l>           </lg>           <lb/>
+<lg n="9">             <l>Aber welche Gefahr, und welche toͤdtende</l>             <lb/>
+<l>Zwietracht</l>             <lb/>
+<l>Schleicht ſich in eine Bruſt, die von Leiden-</l>             <lb/>
+<l>ſchaften nicht rein iſt!</l>           </lg>           <lb/>
+<lg n="10">             <l>Wie zerfleiſchen das Herz die aͤngſtlichen,</l>             <lb/>
+<l>ſcharfen Begierden!</l>             <lb/>
+<l>Wie zernaget die Sorge den Menſchen! wie</l>             <lb/>
+<l>quaͤlet die Furcht ihn!</l>             <lb/>
+<l>Welche Verwuͤſtungen richtet der Stolz nicht</l>             <lb/>
+<l>an, und die Geilheit,</l>             <lb/>
+<l>Und der Uebermuth, das Praſſen, die niedrige</l>             <lb/>
+<l>Faulheit!</l>           </lg>           <lb/>
+<pb n="39" facs="#f0048"/>
+<lg n="11">             <l>Alles dieſes hat Er, mit Waffen nicht,</l>             <lb/>
+<l>aber mit Worten,</l>             <lb/>
+<l>Tief aus dem Herzen hinweggeraͤumet und ſel-</l>             <lb/>
+<l>ber gebaͤndigt;</l>             <lb/>
+<l>Und ihm gebuͤhrete nicht der Dank, der Goͤt-</l>             <lb/>
+<l>tern gebuͤhret?</l>           </lg>           <lb/>
+<lg n="12">             <l>Ihm, dem Manne, der ſelbſt mit Goͤtterzunge</l>             <lb/>
+<l>von ihnen</l>             <lb/>
+<l>Oft geſprochen und ganz der Dinge Natur</l>             <lb/>
+<l>uns enthuͤllt hat.</l>             <lb/>
+<l>Auf die Spuren von ſeinem Pfade tret'</l>             <lb/>
+<l>ich —</l>           </lg>         </lg>         <lb/>
+<p>So pries ein Roͤmiſcher Dichter, <hi rendition="#g">Lu</hi>-<lb/>
+<hi rendition="#g">krez</hi>, Einen ſeiner Lieblinge der Vorwelt,<lb/>
+und er hat mehrere derſelben als Genien<lb/>
+unſres Geſchlechts, als Goͤtter und Sterne<lb/>
+an den Himmel geſetzt, weil ſie <hi rendition="#g">Lebens</hi>-<lb/>
+<hi rendition="#g">weisheit und Humanitaͤt</hi> unter den<lb/>
+Menſchen gegruͤndet oder befoͤrdert haben.<lb/>
+Keiner ſeiner edeln Mitbuͤrger iſt ihm hie-<lb/>
+bei in Wort und That nachgeblieben.</p>         <lb/>
+<fw type="sig" place="bottom">C 4</fw>         <lb/>
+<pb n="40" facs="#f0049"/>
+<p>Viele Oden des Horaz, noch mehr aber<lb/>
+ſeine Sermonen und ſogenannte Satyren ſind<lb/>
+<hi rendition="#g">feine Bearbeitungen der Menſch</hi>-<lb/>
+<hi rendition="#g">heit</hi>; ſie haben alle, wenigſtens mittelbar,<lb/>
+zum Zweck, einen Umriß in das rohe Ge-<lb/>
+bilde des Lebens zu bringen, die Ideen und<lb/>
+Sitten jener Perſon, dieſer Staͤnde nach<lb/>
+dem Richtmaas des Wahren und Guten,<lb/>
+des Anſtaͤndigen und Schoͤnen zu ordnen.<lb/>
+Perſius, Juvenal, Lucan und andre wir-<lb/>
+ken dahin, jeder nach ſeiner Weiſe; vor<lb/>
+allen aber bezeichnet Virgil, wo er kann,<lb/>
+ſeine Geſaͤnge mit einem zarten Druck der<lb/>
+Menſchenliebe. Unmoͤglich iſts, daß ein<lb/>
+Mann oder Juͤngling, dem das Innere<lb/>
+dieſer Heiligthuͤmer aufgeſchloſſen wird,<lb/>
+ſein Inneres nicht durchdrungen und zu<lb/>
+einer Form gebildet fuͤhlte, die ihm vielleicht<lb/>
+wenige neuere Schriften gewaͤhren. Es iſt,<lb/>
+als ob jenen großen Autoren die Menſchheit<lb/>
+<pb n="41" facs="#f0050"/>
+reiner vorſtand, oder als ob ſie mehr Kraft<lb/>
+gehabt haͤtten, auch unter allen Unarten<lb/>
+der Zeit, ihre wahre Geſtalt lebhafter an-<lb/>
+zuerkennen, ſtaͤrker und reiner zu ſchildern;<lb/>
+wozu denn, nebſt vielem andern, auch ihre<lb/>
+Sprache und der Begriff beitrug, den ſie<lb/>
+ſich von Poeſie machten.</p>         <lb/>
+<p>Doch nicht bei Poeſie allein blieb dieſe<lb/>
+Bildung ſtehen; Trotz alles Harten und<lb/>
+Druͤckenden zeigt ſie ſich auch in der <hi rendition="#g">Roͤ</hi>-<lb/>
+<hi rendition="#g">miſchen Geſchichte</hi>. Man leſe im <hi rendition="#g">Cor</hi>-<lb/>
+<hi rendition="#g">nelius</hi> des Atticus, in <hi rendition="#g">Salluſt</hi> Catili-<lb/>
+na's, in <hi rendition="#g">Tacitus</hi> Agrikola's Leben, vor<lb/>
+allen aber den letzten, den wegen ſeiner<lb/>
+dunkeln Haͤrte ſo beruͤchtigten <hi rendition="#g">Tacitus</hi>;<lb/>
+und man muͤßte ein entſchiedner Barbar<lb/>
+ſeyn, wenn man in ihnen die tiefen Zuͤge<lb/>
+aͤchter Humanitaͤt nicht bemerkte. Tacitus<lb/>
+beſchreibt die Graͤuelvollſten Zeiten, die<lb/>
+laſterhaftſten Charaktere; er deckt einen<lb/>
+<fw type="sig" place="bottom">C 5</fw><lb/>
+<pb n="42" facs="#f0051"/>
+Abgrund von Sitten und einer Regierungs-<lb/>
+form auf, vor dem man ſchaudert; zeige<lb/>
+man in ihm aber ein einziges Gemaͤhlde<lb/>
+ſolcher Unthaten und verderbten Seelen,<lb/>
+das er nicht in das Licht geſtellt haͤtte,<lb/>
+dahin es gehoͤret! Livia, Tiber, Sejan,<lb/>
+Caligula, Claudius, und wie die Unmen-<lb/>
+ſchen weiter heiſſen; gegentheils jede unter-<lb/>
+druͤckte Sproſſe des Guten, die ſich auf<lb/>
+dieſem abſcheulichen Boden zeigte, alle ſind<lb/>
+von ihm, wenn auch nur mit Einem Wort,<lb/>
+in Einem Zuge, dem unpartheiiſchen Mit-<lb/>
+oder Gegengefuͤhl nahe gebracht; ſie ſtehen<lb/>
+auf ewig in der Claſſe <hi rendition="#g">menſchlicher</hi>,<lb/>
+<hi rendition="#g">halb</hi>- <hi rendition="#g">und unmenſchlicher Weſen</hi>,<lb/>
+wo ſie ſtehen ſollten. Wer uns keine Um-<lb/>
+ſchreibung, ſondern eine Ueberſetzung die-<lb/>
+ſes Geſchichtſchreibers ganz in ſeinen Um-<lb/>
+riſſen, in ſeiner Phyſiognomie gaͤbe, koͤnnte<lb/>
+nicht anders, als den <hi rendition="#g">Sinn der Menſch</hi>-<lb/>
+<pb n="43" facs="#f0052"/>
+<hi rendition="#g">heit</hi> auch fuͤr unſre Zeit tauſendfach er-<lb/>
+wecken und bilden.</p>         <lb/>
+<p>Laſſen Sie uns alſo glauben, daß Jung<lb/>
+und Alt in beiden Geſchlechtern, wenn es<lb/>
+die Schriften der Alten in ihrem Geiſt lie-<lb/>
+ſet, nicht anders als zur Humanitaͤt bear-<lb/>
+beitet werden koͤnne. Die barbariſche Rin-<lb/>
+de des Herkommens, die uns von auſſen<lb/>
+angeſetzt iſt, muß einigermaaßen gebrochen<lb/>
+werden, wenn wir andre Menſchen zu ei-<lb/>
+ner andern aͤußerſt verderbten Zeit maͤnn-<lb/>
+licher denken, wuͤrdiger ſprechen hoͤren.<lb/>
+Wir werden, aus unſerm Todesſchlafe ge-<lb/>
+weckt, und lernen in ſtrengern Umriſſen<lb/>
+kennen:</p>         <lb/>
+<lg type="poem">           <l>             <hi rendition="#aq">Quid ſumus, aut quidnam victuri gignimur,</hi>           </l>           <lb/>
+<l>             <hi rendition="#aq">ordo</hi>           </l>           <lb/>
+<l>             <hi rendition="#aq">quis datus, aut metae quam mollis flexus,</hi>           </l>           <lb/>
+<l>             <hi rendition="#aq">et unde,</hi>           </l>           <lb/>
+<l>             <hi rendition="#aq">
+<pb n="44" facs="#f0053"/>
+</hi>           </l>           <l>             <hi rendition="#aq">quis modus argento, quid fas optare, quid</hi>           </l>           <lb/>
+<l>             <hi rendition="#aq">aſper</hi>           </l>           <lb/>
+<l>             <hi rendition="#aq">utile nummus habet, patriae carisque pro-</hi>           </l>           <lb/>
+<l>             <hi rendition="#aq">pinquis</hi>           </l>           <lb/>
+<l>             <hi rendition="#aq">quantum elargiri deceat, quem te Deus eſſe</hi>           </l>           <lb/>
+<l>             <hi rendition="#aq">iuſſit et humana qua parte locatus es in re —</hi>           </l>           <lb/>
+<l>             <hi rendition="#aq">Diſcite, o miſeri, et cauſſas cognoſcite re-</hi>           </l>           <lb/>
+<l>             <hi rendition="#aq">rum.</hi>           </l>         </lg>       </div>       <lb/>
+<pb n="45" facs="#f0054"/>
+<div n="1">         <head>31.</head>         <lb/>
+<p><hi rendition="#in">D</hi>ie Griechen hatten das Wort Humani-<lb/>
+taͤt nicht; ſeit aber Orpheus ſie durch den<lb/>
+Klang ſeiner Leyer aus Thieren zu Men-<lb/>
+ſchen gemacht hatte, war der Begrif die-<lb/>
+ſes Worts die <hi rendition="#g">Kunſt ihrer Muſen</hi>.<lb/>
+Ich bin weit entfernt, die Griechiſchen<lb/>
+Sitten und Verfaſſungen zu jeder Zeit und<lb/>
+allenthalben als Muſter zu preiſen; das<lb/>
+kann indeſſen nicht gelaͤugnet werden, daß<lb/>
+das<lb/>
+<hi rendition="#c"><hi rendition="#aq">emollit mores nec ſinit eſſe feros</hi></hi><lb/>
+mittelbar oder unmittelbar der Endzweck<lb/>
+geweſen, auf den ihre edelſten Dichter,<lb/>
+Geſetzgeber und Weiſe wirkten. Von Ho-<lb/>
+<pb n="46" facs="#f0055"/>
+mer bis auf Plutarch und Longin iſt ihren be-<lb/>
+ſten Schriften bei einer großen Beſtimmtheit<lb/>
+der Begriffe eine ſo reizende <hi rendition="#g">Cultur der<lb/>
+Seele</hi> eingepraͤget, daß, wie ſich an ihnen<lb/>
+die Roͤmer bildeten, ſie auch uns kaum<lb/>
+ungebildet laſſen moͤgen.</p>         <lb/>
+<p>Einzelne Blaͤtter, die mir <hi rendition="#g">uͤber die<lb/>
+Humanitaͤt einiger Griechiſchen<lb/>
+Dichter und Philoſophen</hi> in die<lb/>
+Haͤnde gekommen ſind, ſollen Ihnen zu<lb/>
+einer andern Zeit zukommen; jetzt bemerke<lb/>
+ich nur, daß wenn in ſpaͤtern Zeiten bei<lb/>
+irgend einem Schriftſteller, er ſei Geſchaͤfts-<lb/>
+mann, Arzt, Theolog oder Rechtslehrer,<lb/>
+eine feinere, ich moͤchte ſagen, claſſiſche<lb/>
+Bildung ſich aͤußerte, dieſe meiſtens auch<lb/>
+auf claſſiſchem Boden, in der Schule der<lb/>
+Griechen und Roͤmer erworben, der Sproͤß-<lb/>
+ling ihres Geiſtes geweſen. Wie die Grie-<lb/>
+chiſche Kunſt unuͤbertroffen, und in Abſicht<lb/>
+<pb n="47" facs="#f0056"/>
+der Reinheit ihrer Umriſſe, des Großen,<lb/>
+Schoͤnen und Edlen ihrer Geſtalten, allen<lb/>
+Zeiten das Muſter geblieben: faſt alſo iſts<lb/>
+auch, Weniges ausgenommen, mit den<lb/>
+Vorſtellungsarten des menſchlichen Geiſtes.<lb/>
+Was wir kraus ſagen und verwickelt den-<lb/>
+ken, gaben ſie hell und rein an den Tag;<lb/>
+ein kleiner Satz, eine ſchlichtvorgetragene<lb/>
+Erfahrung enthaͤlt bei ihnen, wenn mans zu<lb/>
+finden weiß, oft mehr als unſre verworrenſte<lb/>
+Deductionen, die Probleme neuere Staats-<lb/>
+kunſt verwickelt vortraͤgt, ſind in der Grie-<lb/>
+chiſchen Geſchichte hell und klar auseinan-<lb/>
+dergeſetzt, und durch die Erfahrung laͤngſt<lb/>
+entſchieden. Die Kritik des Geſchmacks<lb/>
+endlich, ja die reinſte Philoſophie des Le-<lb/>
+bens, woher ſtammen ſie als von den Grie<lb/>
+chen? In den ſchoͤnſten Seelen dieſer Na-<lb/>
+tion bildeten ſie ſich; hie und da hat ſich<lb/>
+ihr Geiſt ſchweſterlichen Seelen mitgetheilet.<lb/>
+<pb n="48" facs="#f0057"/>
+So lange uns alſo die Griechen nicht ge-<lb/>
+raubt, und da ſie bisher dem Sturz der<lb/>
+Zeiten, der Vertilgung wilder Barbaren<lb/>
+und Schwaͤrmer entronnen ſind, wird wahre<lb/>
+Humanitaͤt nie von der Erde vertilgt<lb/>
+werden.</p>         <lb/>
+<p>Immer wird mir wohl, wenn ich auch in<lb/>
+unſern Zeiten einen reinen Nachklang der<lb/>
+Weisheit Griechiſcher und Roͤmiſcher Mu-<lb/>
+ſen hoͤre. Eine Ausgabe, eine Ueberſetzung,<lb/>
+eine <hi rendition="#g">wahre</hi> Erlaͤuterung dieſes oder jenes<lb/>
+Dichters, Philoſophen und Geſchichtſchrei-<lb/>
+bers halte ich fuͤr ein Bruchſtuͤck des gro-<lb/>
+ßen Gebaͤudes der Bildung unſres Ge-<lb/>
+ſchlechts fuͤr unſre und die zukuͤnftige Zei-<lb/>
+ten. Eine verſtaͤndige Stimme, die uͤber<lb/>
+unſre jetzige Weltlage aus alter Erfahrung<lb/>
+ſpricht, iſt mir mehr, als ob ein Barde<lb/>
+weiſſagte.</p>       </div>       <lb/>
+<pb n="49" facs="#f0058"/>
+<div n="1">         <head>32.</head>         <lb/>
+<p><hi rendition="#in">A</hi>us Ihren Briefen, meine Freunde, ziehe<lb/>
+ich mir folgendes:</p>         <lb/>
+<p>1. Das weiche Mitgefuͤhl mit den<lb/>
+Schwaͤchen unſres Geſchlechts, das wir<lb/>
+gewoͤhnlicher Weiſe <hi rendition="#g">Menſchlichkeit</hi> nen-<lb/>
+nen, macht die ganze Humanitaͤt nicht aus.<lb/>
+Zu rechter Zeit, am rechten Ort ziert es<lb/>
+den Menſchen allerdings; da Sympathie<lb/>
+in reinem Verſtande, d. i. eine lebhafte,<lb/>
+ſchnelle Verſetzung in den Zuſtand des<lb/>
+Fehlenden, Irrenden, Leidenden, Gequaͤl-<lb/>
+ten, der zarteſte Kitt der Vereinigung aͤhn-<lb/>
+licher Geſchoͤpfe, und unter Menſchen das<lb/>
+lindeſte Band ihrer Verbindung iſt. Nichts<lb/>
+<fw type="sig" place="bottom">Dritte Samml. D</fw><lb/>
+<pb n="50" facs="#f0059"/>
+ſtoͤßt mehr zuruͤck, als Gefuͤhlloſe, ſtolze<lb/>
+Haͤrte. Ein Betragen, als ob man hoͤhe-<lb/>
+ren Stammes und ganz andrer, oder gar<lb/>
+eigner Art ſei, erbittert Jeden, und ziehet<lb/>
+dem Uebermenſchen das unvermeidliche Ue-<lb/>
+bel zu, daß ſein Herz ungebrochen, leer,<lb/>
+und ungebildet bleibt, daß Jedermann zu-<lb/>
+letzt ihn haſſet oder verachtet.</p>         <lb/>
+<p>So nothwendig indeſſen eine menſchli-<lb/>
+che <hi rendition="#g">Lindigkeit und Milde</hi> gegen die<lb/>
+Fehler und Leiden unſrer Nebengeſchoͤpfe<lb/>
+bleibt: ſo muß ſie doch, wenn ſie zu weich<lb/>
+und ausſchließend wird, den Charakter er-<lb/>
+ſchlaffen, und kann eben dadurch die haͤr-<lb/>
+teſte Grauſamkeit werden. Ohne Gerech-<lb/>
+tigkeit beſtehet Billigkeit nicht; eine <hi rendition="#g">Nach</hi>-<lb/>
+<hi rendition="#g">ſicht</hi> ohne <hi rendition="#g">Einſicht</hi> der Schwaͤchen und<lb/>
+Fehler iſt eine Verzaͤrtelung, die eiternde<lb/>
+Wunden mit Roſen bedeckt, und eben da-<lb/>
+durch Schmerzen und Gefahr mehrt.</p>         <lb/>
+<pb n="51" facs="#f0060"/>
+<p>2. Auch iſt Humanitaͤt Ihnen nicht<lb/>
+bloß jene leichte <hi rendition="#g">Geſelligkeit</hi>, ein ſanftes<lb/>
+<hi rendition="#g">Zuvorkommen im Umgange</hi>, ſo viel<lb/>
+Reize dies auch dem taͤglichen Leben ge-<lb/>
+waͤhret. Vielmehr iſt ſie, ſubjectiv be-<lb/>
+trachtet,</p>         <lb/>
+<p>3. Ein <hi rendition="#g">Gefuͤhl der menſchlichen<lb/>
+Natur in ihrer Staͤrke und Schwaͤ</hi>-<lb/>
+<hi rendition="#g">che</hi>, <hi rendition="#g">in Maͤngeln und Vollkommen</hi>-<lb/>
+<hi rendition="#g">heiten</hi>, <hi rendition="#g">nicht ohne Thaͤtigkeit</hi>, <hi rendition="#g">nicht<lb/>
+ohne Einſicht</hi>. Was zum Charakter un-<lb/>
+ſres Geſchlechts gehoͤrt, jede moͤgliche Aus-<lb/>
+bildung und Vervollkommung deſſelben, dies<lb/>
+iſt das Objekt, das der humane Mann vor<lb/>
+ſich hat, wornach er ſtrebet, wozu er wir-<lb/>
+ket. Da unſer Geſchlecht ſelbſt aus ſich<lb/>
+machen muß, was aus ihm werden kann<lb/>
+und ſoll: ſo darf keiner, der zu ihm gehoͤrt,<lb/>
+dabei muͤſſig bleiben. Er muß am Wohl<lb/>
+und Weh des Ganzen Theil nehmen, und<lb/>
+<fw type="sig" place="bottom">D 2</fw><lb/>
+<pb n="52" facs="#f0061"/>
+ſeinen Theil Vernunft, ſein Penſum Thaͤ-<lb/>
+tigkeit mit gutem Willen dem Genius ſei-<lb/>
+nes Geſchlechts opfern.</p>         <lb/>
+<p>4. Zum Beſten der geſammten Menſch-<lb/>
+heit kann niemand beitragen, der nicht <hi rendition="#g">aus<lb/>
+ſich ſelbſt macht</hi>, <hi rendition="#g">was aus ihm wer</hi>-<lb/>
+<hi rendition="#g">den kann und ſoll</hi>; jeder alſo muß den<lb/>
+Garten der Humanitaͤt zuerſt auf dem Beet,<lb/>
+wo er als Baum gruͤnet, oder als Blume<lb/>
+bluͤhet, pflegen und warten. Wir tragen<lb/>
+alle ein Ideal in und mit uns, was <hi rendition="#g">Wir</hi><lb/>
+ſeyn ſollten, und nicht ſind; die Schlacken,<lb/>
+die wir ablegen, die Form, die wir erlan-<lb/>
+gen ſollen, kennen wir alle. Und da, was<lb/>
+wir werden ſollen, wir nicht anders als<lb/>
+durch uns und andre, von ihnen erlangend,<lb/>
+auf ſie wirkend, werden koͤnnen: ſo wird<lb/>
+nothwendig unſre Humanitaͤt mit der Hu-<lb/>
+manitaͤt andrer Eins, und unſer ganzes<lb/>
+Leben eine Schule, ein Uebungsplatz der-<lb/>
+<pb n="53" facs="#f0062"/>
+ſelben. Was wahrhaftig, was ehrbar,<lb/>
+was gerecht, was keuſch, was lieblich<lb/>
+iſt, was wohllautet, iſt etwa eine Tu-<lb/>
+gend, iſt etwa ein Lob, deſſen beflei-<lb/>
+ßigt euch, ſagt ſelbſt ein Apoſtel.</p>         <lb/>
+<p>5. Alle Einrichtungen der Menſchen,<lb/>
+alle Wiſſenſchaften und Kuͤnſte koͤnnen,<lb/>
+wenn ſie rechter Art ſind, keinen andern<lb/>
+Zweck haben, als uns zu <hi rendition="#g">humaniſiren</hi>,<lb/>
+d. i. den Unmenſchen oder Halbmenſchen<lb/>
+zum Menſchen zu machen, und unſerm Ge-<lb/>
+ſchlecht zuerſt in kleinen Theilen die Form<lb/>
+zu geben, die die Vernunft billigt, die<lb/>
+Pflicht fodert, nach der unſer Beduͤrfniß<lb/>
+ſtrebet. Daß die Wiſſenſchaften, die man<lb/>
+<hi rendition="#aq">humaniora</hi> nennt, zum leeren Zeitvertreib<lb/>
+oder zu eitelm Putz ausgeartet ſind, iſt ein<lb/>
+Mißbrauch, den ſchon ihr Name ſtrafet.<lb/>
+Urſpruͤnglich war dies nicht alſo. Vollends<lb/>
+<fw type="sig" place="bottom">D 3</fw><lb/>
+<pb n="54" facs="#f0063"/>
+Kuͤnſte und Wiſſenſchaften, die den ange-<lb/>
+bohrnen Stolz, die freche Anmaaßung, das<lb/>
+blinde Vorurtheil, die Unvernunft und Un-<lb/>
+ſittlichkeit ſtaͤrken, verſchleiern, ſchmuͤcken,<lb/>
+beſchoͤnen, ſollte man <hi rendition="#g">brutaliſirende</hi><lb/>
+Kuͤnſte und Wiſſenſchaften nennen, werth<lb/>
+von Sklaven getrieben zu werden, damit<lb/>
+auf ihnen die menſchliche Thierheit ruhe.</p>         <lb/>
+<p>Es freuet mich, daß Sie den Dichter,<lb/>
+der den unmenſchlichen Achill beſang, aus<lb/>
+der Reihe <hi rendition="#g">humaniſirender Weiſen</hi><lb/>
+nicht ausſchließen wollen; das Theater der<lb/>
+Alten und ihre Geſetzgebung wird davon<lb/>
+gewiß auch nicht ausgeſchloſſen ſeyn. Das<lb/>
+Gemuͤth laͤutert, hebet und ſtaͤrkt ſich durch<lb/>
+die Betrachtung: „wir ſind Menſchen.<lb/>
+Nichts mehr, aber auch nichts minderes,<lb/>
+als dieſer Name ſaget.“</p>       </div>       <lb/>
+<pb n="55" facs="#f0064"/>
+<div n="1">         <head><hi rendition="#g">Nachſchrift</hi>.</head>         <lb/>
+<p>Fragment eines Geſpraͤches des Lords<lb/>
+Shaftesburi.</p>         <lb/>
+<p><hi rendition="#in">T</hi>heokles. Kann eine Freundſchaft ſo<lb/>
+heroiſch ſeyn, als die gegen das menſch-<lb/>
+liche Geſchlecht? Halten Sie die Liebe ge-<lb/>
+gen Freunde uͤberhaupt und gegen unſer<lb/>
+Vaterland fuͤr nichts? Oder glauben Sie,<lb/>
+daß die <hi rendition="#g">beſondre</hi> Freundſchaft ohne ſol-<lb/>
+che erweiterte Neigung und ohne das Ge-<lb/>
+<fw type="sig" place="bottom">D 4</fw><lb/>
+<pb n="56" facs="#f0065"/>
+fuͤhl der Verbindlichkeit gegen die Geſell-<lb/>
+ſchaft beſtehen koͤnne?</p>         <lb/>
+<p><hi rendition="#g">Philokles</hi>. Daß man Verbindlich-<lb/>
+keiten gegen das menſchliche Geſchlecht<lb/>
+habe, wird niemand leugnen, der auf den<lb/>
+Namen eines Freundes Anſpruch macht.<lb/>
+Schwerlich wuͤrde ich dem nur den Na-<lb/>
+men <hi rendition="#g">Menſch</hi> zugeſtehen, der nie Jeman-<lb/>
+den Freund genannt oder nie ſelbſt Freund<lb/>
+geheißen hat. Aber wer ſich als ein wah-<lb/>
+rer Freund bewaͤhrt, der iſt Menſch ge-<lb/>
+nug und wird es der Geſellſchaft an ſich<lb/>
+nicht fehlen laſſen. Fuͤr meine Perſon ſehe<lb/>
+ich ſo wenig Großes und Liebenswuͤrdiges<lb/>
+an dem menſchlichen Geſchlecht, und habe<lb/>
+eine ſo gleichguͤltige Meinung von dem<lb/>
+großen Haufen der Geſellſchaft, daß ich<lb/>
+mir ſehr wenig Vergnuͤgen von der Liebe<lb/>
+zu beiden verſprechen kann.</p>         <lb/>
+<pb n="57" facs="#f0066"/>
+<p>Th. Rechnen Sie denn Guͤte und<lb/>
+Dankbarkeit unter die Handlungen der<lb/>
+Freundſchaft und des Wohlwollens?</p>         <lb/>
+<p>Ph. Ohne Zweifel; ſie ſind ja die vor-<lb/>
+nehmſten.</p>         <lb/>
+<p>Th. Geſetzt alſo der Verpflichtete ent-<lb/>
+deckte Fehler an ſeinem Wohlthaͤter, wuͤrde<lb/>
+dies jenen von ſeiner Dankbarkeit los-<lb/>
+ſprechen?</p>         <lb/>
+<p>Ph. Nicht im geringſten.</p>         <lb/>
+<p>Th. Oder macht es die Ausuͤbung der<lb/>
+Dankbarkeit weniger angenehm?</p>         <lb/>
+<p>Ph. Mich duͤnkt vielmehr das Gegen-<lb/>
+theil. Denn wenn mirs an allen andern<lb/>
+Mitteln der Vergeltung fehlte, ſo wuͤrde<lb/>
+ich mich freuen, wenigſtens <hi rendition="#g">dadurch</hi><lb/>
+meine Dankbarkeit gegen meinen Wohl-<lb/>
+thaͤter ſicher zeigen zu koͤnnen, daß ich<lb/>
+ſeine Fehler als ein Freund ertruͤge.</p>         <lb/>
+<fw type="sig" place="bottom">D 5</fw>         <lb/>
+<pb n="58" facs="#f0067"/>
+<p>Th. Und was die Guͤte betrift, ſagen<lb/>
+Sie mir, mein Freund, ſollen wir denn<lb/>
+blos denen Gutes thun, die es verdienen?<lb/>
+Etwa bloß einem <hi rendition="#g">guten</hi> Nachbar oder<lb/>
+Verwandten, einem <hi rendition="#g">guten</hi> Vater, Kinde<lb/>
+oder Bruder? Oder lehrt Natur, Ver-<lb/>
+nunft und Menſchlichkeit uns nicht viel-<lb/>
+mehr, einem Vater bloß weil er Vater,<lb/>
+einem Kinde bloß weil es Kind iſt, Gutes<lb/>
+zu thun? Und ſo in jedem Verhaͤltniß des<lb/>
+menſchlichen Lebens.</p>         <lb/>
+<p>Ph. Ich glaube, das letzte iſt das<lb/>
+richtigſte.</p>         <lb/>
+<p>Th. O Philokles! Bedenken Sie alſo,<lb/>
+was Sie ſagten, da Sie die Liebe gegen<lb/>
+das menſchliche Geſchlecht der menſchlichen<lb/>
+Gebrechen wegen verwarfen, und den gro-<lb/>
+ßen Haufen ſeines elenden Zuſtandes we-<lb/>
+gen verachteten. Sehen Sie nun, ob dieſe<lb/>
+Geſinnung mit der Menſchlichkeit beſtehen<lb/>
+<pb n="59" facs="#f0068"/>
+kann, die Sie ſonſt ſo hoch ſchaͤtzen und<lb/>
+ausuͤben. Wo kann Edelmuth ſtatt finden,<lb/>
+wenn nicht hier? Wo koͤnnen wir je<lb/>
+Freundſchaft beweiſen, wenn nicht an die-<lb/>
+ſem Hauptgegenſtande derſelben? Gegen<lb/>
+wen werden wir treu und dankbar ſeyn,<lb/>
+wenn nicht gegen das menſchliche Geſchlecht<lb/>
+und gegen die Geſellſchaft, welcher wir ſo<lb/>
+ſtark verpflichtet ſind? Welche Gebrechen<lb/>
+oder Fehler koͤnnen eine ſolche Unterlaſſung<lb/>
+entſchuldigen, oder in einem dankbaren<lb/>
+Herzen je das Vergnuͤgen vermindern, wel-<lb/>
+ches aus liebevoller Erwiederung empfan-<lb/>
+gener Wohlthaten entſpringt? Koͤnnen<lb/>
+Sie, bloß aus guter Lebensart, aus ei-<lb/>
+nem natuͤrlichguten Temperament Vergnuͤ-<lb/>
+gen daran finden, Hoͤflichkeit, Gefaͤlligkeit,<lb/>
+Dienſtfertigkeit zu beweiſen, Gegenſtaͤnde<lb/>
+des Mitleidens ſelbſt aufſuchen und wo es<lb/>
+in Ihrer Macht ſteht, ſelbſt Unbekannten<lb/>
+<pb n="60" facs="#f0069"/>
+dienen; kann es auch in fremden Laͤndern<lb/>
+oder, wenns Auswaͤrtige betrifft, auch hier<lb/>
+Sie entzuͤcken, allen die es beduͤrfen, auf<lb/>
+die leutſeligſte, freundſchaftlichſte Art zu<lb/>
+helfen, zu rathen, beizuſtehen; und ſollte<lb/>
+Ihr Vaterland oder was noch mehr iſt,<lb/>
+Ihr ganzes Geſchlecht weniger Wohlwollen<lb/>
+von Ihnen fodern koͤnnen, weniger Ach-<lb/>
+tung von Ihnen verdienen, als Einer von<lb/>
+jenen Gegenſtaͤnden, die Ihnen von unge-<lb/>
+faͤhr in den Wurf kommen? —</p>         <lb/>
+<p>Ph. Ich befuͤrchte, daß ich auf dieſe<lb/>
+Art nie ein Freund oder Liebhaber werde.<lb/>
+Eine Liebe gegen eine einzelne Perſon kann<lb/>
+ich ſo ziemlich faſſen; aber dieſe zuſammen-<lb/>
+geſetzte, allgemeine Art von Liebe, (ich ge-<lb/>
+ſtehe es, Theokles,) iſt mir zu hoch. Ich<lb/>
+kann das Individuum, aber nicht die ganze<lb/>
+Gattung, ich kann nichts lieben, wovon<lb/>
+ich nicht irgend ein ſinnliches Bild habe.</p>         <lb/>
+<pb n="61" facs="#f0070"/>
+<p>Th. Wie, Philokles? Sie koͤnnten<lb/>
+nie anders lieben, als auf dieſe Art?<lb/>
+War Palaͤmons Charakter Ihnen gleich-<lb/>
+guͤltig, da er Sie zu dem langen Brief-<lb/>
+wechſel vermochte, der Ihrer neuerlichen<lb/>
+perſoͤnlichen Bekanntſchaft voranging?</p>         <lb/>
+<p>Ph. Ich kann dies nicht laͤugnen; und<lb/>
+jetzt, duͤnkt mich, verſtehe ich Ihr Geheim-<lb/>
+niß, und begreife wie ich mich dazu vor-<lb/>
+bereiten muß. Denn eben wie ich damals<lb/>
+als ich Palaͤmon zu lieben anfing, mich ge-<lb/>
+noͤthigt ſah, mir eine Art von materiellem<lb/>
+Gegenſtande zu bilden und immer ein ſol-<lb/>
+ches Bild im Kopf hatte, ſo oft ich an ihn<lb/>
+dachte: eben ſo muß ichs in dieſem Falle<lb/>
+zu machen ſuchen —</p>         <lb/>
+<p>Th. Mich duͤnkt, Sie koͤnnten immer<lb/>
+ſo viel Gefaͤlligkeit gegen das menſchliche<lb/>
+Geſchlecht haben, als gegen die alten Roͤ-<lb/>
+mer, in welche Sie, aller ihrer Fehler un-<lb/>
+<pb n="62" facs="#f0071"/>
+geachtet, doch immer verliebt geweſen ſind,<lb/>
+beſonders unter der Vorſtellung eines<lb/>
+ſchoͤnen Juͤnglings, der <hi rendition="#g">Genius des<lb/>
+Volks</hi> genannt.</p>         <lb/>
+<p>Ph. Waͤre mirs moͤglich, meiner Seele<lb/>
+ein ſolches Bild einzudruͤcken, es moͤchte<lb/>
+nun <hi rendition="#g">das menſchliche Geſchlecht</hi> oder<lb/>
+<hi rendition="#g">die Natur</hi> bedeuten, ſo wuͤrde das ver-<lb/>
+muthlich auf mich wirken, und mich zum<lb/>
+Liebhaber nach Ihrer Art machen. Noch<lb/>
+beſſer aber, wenn Sie es ſo veranſtalten<lb/>
+koͤnnten, daß die Liebe zwiſchen uns wech-<lb/>
+ſelſeitig wuͤrde; wenn Sie mich uͤberreden<lb/>
+koͤnnten, zu glauben, dieſer Genius ſei<lb/>
+nicht gleichguͤltig gegen meine Liebe und<lb/>
+faͤhig ſie zu erwiedern —</p>         <lb/>
+<p>Th. Gut! ich nehme die Bedingung<lb/>
+an. Morgen, wenn die oͤſtliche Sonne,<lb/>
+wie die Dichter ſagen, mit ihren erſten<lb/>
+Stralen den Gipfel jenes Huͤgels vergol-<lb/>
+<pb n="63" facs="#f0072"/>
+det, dann wollen wir, wenns Ihnen be-<lb/>
+liebt, mit Huͤlfe der Nymphen des Hains<lb/>
+dieſer unſrer Liebe nachſpuͤren, erſt den<lb/>
+Genius des Orts anrufen, und dann ver-<lb/>
+ſuchen, ob wir nicht wenigſtens eines<lb/>
+ſchwachen, fernen Anblicks des <hi rendition="#g">hoͤchſten<lb/>
+Genius</hi> und der <hi rendition="#g">erſten Urſchoͤnheit</hi><lb/>
+gewuͤrdigt werden. Sollte es Ihnen gluͤcken,<lb/>
+nur Einmal dieſe zu ſehen: ſo ſtehe ich da-<lb/>
+fuͤr, alle jene widrige Zuͤge und Haͤßlich-<lb/>
+keiten ſowohl der Natur als des menſchlichen<lb/>
+Geſchlechts werden Augenblicks verſchwin-<lb/>
+den. Ihr Herz wird ganz mit der Liebe<lb/>
+erfuͤllt werden, die ich Ihnen wuͤnſche.</p>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <p>So weit dies Geſpraͤch. Wie Theo-<lb/>
+kles ſeinen Zweck bewirkt habe, moͤgen Sie<lb/>
+in der vortreflichen Rhapſodie: <hi rendition="#g">die Mo</hi>-<lb/>
+<pb n="64" facs="#f0073"/>
+<hi rendition="#g">raliſten</hi> beim edeln Shaftesburi ſelbſt<lb/>
+leſen <note place="foot" n="*)">Meiner Geſinnung nach iſt es Eines der<lb/>
+ſchoͤnſten Verdienſte <hi rendition="#g">Spaldings</hi>, daß Er,<lb/>
+zu jener Zeit 1745. in ſeiner Lage uns<lb/>
+<hi rendition="#g">Shaftesburi's Moraliſten</hi> bekannt<lb/>
+machte. Mehr als dreißig Jahre nachher iſt<lb/>
+zuerſt die Ueberſetzung des ganzen Shaftes-<lb/>
+buri gefolget. <hi rendition="#g">Shaftesburi philoſo</hi>-<lb/>
+<hi rendition="#g">phiſche Werke</hi>, <hi rendition="#g">Leipzig</hi>. 1776-79.<lb/>
+A. d. H.</note>.</p>       </div>       <lb/>
+<pb n="65" facs="#f0074"/>
+<div n="1">         <head>33.</head>         <lb/>
+<p><hi rendition="#in">M</hi>it Recht nennen Sie <hi rendition="#g">Shaftesburi</hi><lb/>
+einen edeln Schriftſteller; ob ihn gleich hie<lb/>
+und da, ſein Stand, ich moͤchte ſagen,<lb/>
+ſeine <hi rendition="#g">Lordſchaft</hi> uͤbereilte. Sein zuwei-<lb/>
+len Zwangvoller Styl, manche Spaͤſſe, die<lb/>
+er ſich uͤber die Geiſtlichkeit erlaubte, ſein<lb/>
+Einfall, „Witz und Humor zum Pruͤfſtein<lb/>
+aller, auch der ernſteſten Wahrheit zu ma-<lb/>
+chen,“ haben Tadler und Widerleger gnug<lb/>
+gefunden; uͤber ſeinen Kunſt-Geſchmack<lb/>
+waͤre auch Manches zu ſagen. Die beſſere<lb/>
+philoſophiſche Seele aber, die in ihm<lb/>
+wohnte, ſein <hi rendition="#aq">honeſtum</hi> und <hi rendition="#aq">decorum</hi> in der<lb/>
+Moral, hundert feine Bemerkungen uͤber<lb/>
+<fw type="sig" place="bottom">Dritte Samml. E</fw><lb/>
+<pb n="66" facs="#f0075"/>
+Grundſaͤtze, Sitten, Compoſition und Le-<lb/>
+bensweiſe ſind nach allem Tadel unwider-<lb/>
+legt geblieben. Ich kann mir nicht vor-<lb/>
+ſtellen, daß ein unbefangener honetter<lb/>
+Mann dieſen Schriftſteller ohne innige Ach-<lb/>
+tung aus der Hand legen ſollte; und fuͤr<lb/>
+Juͤnglinge wuͤnſchte ich in unſrer Sprache<lb/>
+zum uͤberſetzten Shaftesburi eine Zugabe,<lb/>
+„<hi rendition="#g">wie Shaftesburi zu leſen und<lb/>
+was in ihm zu berichtigen ſeyn<lb/>
+moͤchte</hi>.“ Wie <hi rendition="#g">Leibnitz</hi>, ſo hielten <hi rendition="#g">Di</hi>-<lb/>
+<hi rendition="#g">derot</hi>, <hi rendition="#g">Leßing</hi>, <hi rendition="#g">Mendelsſohn</hi>, von<lb/>
+dieſem <hi rendition="#aq">Virtuoſo</hi> der Humanitaͤt viel; auf<lb/>
+die beſten Koͤpfe unſres Jahrhunderts, auf<lb/>
+Maͤnner, die ſich fuͤrs Wahre, Schoͤne und<lb/>
+Gute mit entſchiedner Redlichkeit bemuͤh-<lb/>
+ten, hat er auszeichnend gewirket.</p>         <lb/>
+<p>Und doch, m. F. duͤnkt mir ſein Syſtem<lb/>
+der Moral unzureichend, ſofern es ſich bloß<lb/>
+auf das <hi rendition="#aq">decorum et honeſtum</hi> als auf ein<lb/>
+<pb n="67" facs="#f0076"/>
+<hi rendition="#g">Gefuͤhl</hi> gruͤndet. Es kommen ſtarke Stel-<lb/>
+len daruͤber, auch als Pflicht, als Geſetz<lb/>
+betrachtet, in ihm vor; im Ganzen aber,<lb/>
+ſcheint mirs, hat er, um ſeine Moral lie-<lb/>
+benswuͤrdig zu machen, mit der menſchli-<lb/>
+chen Natur etwas zu ſehr getaͤndelt. Hier<lb/>
+muß man hinter allem doch endlich mit der<lb/>
+Stoiſchen Philoſophie zum <hi rendition="#g">alten Wort<lb/>
+Gottes</hi> zuruͤckgehen: „<hi rendition="#g">Du ſollt</hi>! <hi rendition="#g">du<lb/>
+ſollt nicht</hi>!“ ſofern uns dies nicht Con-<lb/>
+venienz, Geſchmack und Vergnuͤgen, ſon-<lb/>
+dern Pflicht und Vernunft vorhaͤlt.</p>         <lb/>
+<p>Neulich kam mir ein <hi rendition="#g">Lehrgedicht</hi> zu<lb/>
+Handen, wo mir zuerſt folgende Stelle in<lb/>
+die Augen fiel:</p>         <lb/>
+<lg type="poem">           <lg n="1">             <l>Sei liebreich mit Vernunft; nur weiſe Huld</l>             <lb/>
+<l>iſt aͤcht,</l>             <lb/>
+<l>Giebt Jedem was ſie ſoll und kraͤnket keines</l>             <lb/>
+<l>Recht.</l>           </lg>           <lb/>
+<fw type="sig" place="bottom">E 2</fw>           <lb/>
+<pb n="68" facs="#f0077"/>
+<lg n="2">             <l>Kein Schimmer aͤußrer Macht, kein Geld, das</l>             <lb/>
+<l>Sklaven ruͤhret,</l>             <lb/>
+<l>Haͤlt den Gerechten ab, zu thun was ihm</l>             <lb/>
+<l>gebuͤhret.</l>           </lg>           <lb/>
+<lg n="3">             <l>Gleich feurig zu dem Schutz des Edlen als</l>             <lb/>
+<l>des Knechts,</l>             <lb/>
+<l>Iſt er der treue Freund des menſchlichen</l>             <lb/>
+<l>Geſchlechts.</l>           </lg>           <lb/>
+<lg n="4">             <l>Unfaͤhig zu der Kunſt, die den Vertrag ver-</l>             <lb/>
+<l>drehet,</l>             <lb/>
+<l>Haͤlt er dem Fuͤrſten Wort, wie dem der</l>             <lb/>
+<l>nackend gehet;</l>             <lb/>
+<l>Bei ihm iſt was du haſt ſo ſicher als bei dir,</l>             <lb/>
+<l>Das ihm geliehne Gut zieht er dem eignen fuͤr;</l>             <lb/>
+<l>Im kleinſten Werk getreu, verſchwiegen bis zur</l>             <lb/>
+<l>Baare,</l>             <lb/>
+<l>Und zu des Freundes Dienſt bereit bis zum</l>             <lb/>
+<l>Altare.</l>           </lg>           <lb/>
+<lg n="5">             <l>Hoͤrt, Buͤrger der Natur, den Inhalt aller</l>             <lb/>
+<l>Pflicht:</l>             <lb/>
+<l><hi rendition="#g">Lernt die Gerechtigkeit</hi>! <hi rendition="#g">vergeßet</hi></l>             <lb/>
+<l><hi rendition="#g">Gottes nicht</hi>!</l>           </lg>           <lb/>
+<pb n="69" facs="#f0078"/>
+<l>Gereitzt durch dieſe Stelle, ſchlug ich wei-</l>           <lb/>
+<l>ter zuruͤck und fand die <hi rendition="#g">Geſchichte der</hi></l>           <lb/>
+<l><hi rendition="#g">Humanitaͤt</hi> ſo vorgetragen:</l>           <lb/>
+<lg n="6">             <l>Vernunft, der Gottheit Stral, der rohen Voͤl-</l>             <lb/>
+<l>kern ſchien,</l>             <lb/>
+<l>Hieß aus des Waldes Nacht ſie in die Staͤdte</l>             <lb/>
+<l>ziehn;</l>             <lb/>
+<l>Gab Ordnung und Geſetz, ſchuf Menſchen</l>             <lb/>
+<l>aus Barbaren,</l>             <lb/>
+<l>Gebot den Wilden ſelbſt, Vertraͤge zu bewah-</l>             <lb/>
+<l>ren.</l>           </lg>           <lb/>
+<lg n="7">             <l>Dies hob der Weiſen Ruhm in Griechenland</l>             <lb/>
+<l>empor,</l>             <lb/>
+<l>Und rief aus Scythien den Anacharſis vor.</l>             <lb/>
+<l>So war der Menſchheit Recht der Leitſtern</l>             <lb/>
+<l>alter Weiſen;</l>             <lb/>
+<l>Doch keiner wagte ſich es andern anzuprei-</l>             <lb/>
+<l>ſen — —</l>             <lb/>
+<l>Die Welt verdankt Dirs nie, unſterblicher</l>             <lb/>
+<l>Sokrat!</l>             <lb/>
+<l>Dein Fuß betrat zuerſt den ungebahnten Pfad.</l>           </lg>           <lb/>
+<fw type="sig" place="bottom">E 3</fw>           <lb/>
+<pb n="70" facs="#f0079"/>
+<lg n="8">             <l>Der alte Philoſoph, vertieft in Zahl und</l>             <lb/>
+<l>Sternen,</l>             <lb/>
+<l>Erhielt von dir die Kunſt, <hi rendition="#g">ſich ſelbſt be</hi>-</l>             <lb/>
+<l><hi rendition="#g">ſchaun zu lernen</hi>.</l>             <lb/>
+<l>Es ſah der Menſch das Licht, das laͤngſt in</l>             <lb/>
+<l>ihm gebrannt,</l>             <lb/>
+<l>Und das, vom Wahn umwoͤlkt, nur Traͤgheit</l>             <lb/>
+<l>nicht erkannt.</l>           </lg>           <lb/>
+<lg n="9">             <l>Da fuͤhlte ſich Athen, und lernte Platons</l>             <lb/>
+<l>Lehren,</l>             <lb/>
+<l>Des Weiſen von Stagyr, des Epiktets vereh-</l>             <lb/>
+<l>ren,</l>             <lb/>
+<l>Da trateſt du auch auf, erhabner Epikur,</l>             <lb/>
+<l>Der Tugend aͤchter Freund und Kenner der</l>             <lb/>
+<l>Natur. —</l>           </lg>           <lb/>
+<lg n="10">             <l>Verehrungswuͤrdges Rom! groß durch er-</l>             <lb/>
+<l>fochtne Kronen,</l>             <lb/>
+<l>Noch groͤßer durch den Geiſt geprieſ'ner Cice-</l>             <lb/>
+<l>ronen,</l>             <lb/>
+<l>O Rom, Europa ſelbſt, von deiner Herrſchaft</l>             <lb/>
+<l>Joch</l>             <lb/>
+<l>Vorlaͤngſt entlediget, ehrt dein Geſetze noch.</l>           </lg>           <lb/>
+<pb n="71" facs="#f0080"/>
+<lg n="11">             <l>Aus Quellen der Natur ſind deines Rechtes</l>             <lb/>
+<l>Lehren</l>             <lb/>
+<l>Urſpruͤnglich hergefuͤhrt; ſie muͤſſen ewig waͤh-</l>             <lb/>
+<l>ren!</l>             <lb/>
+<l>Die Nacht der Barbarei verfinſterte dies</l>             <lb/>
+<l>Licht,</l>             <lb/>
+<l>Die Welt verwilderte und ſah die Tugend</l>             <lb/>
+<l>nicht.</l>           </lg>           <lb/>
+<lg n="12">             <l>Ein ſchwarzes Wunderthier, der Ketzereifer,</l>             <lb/>
+<l>ſiegte,</l>             <lb/>
+<l>Der Dummheit Tugend hieß und mit der</l>             <lb/>
+<l>Wahrheit kriegte;</l>             <lb/>
+<l>Bis ihr verſtaͤrkter Glanz der Welt mehr Ein-</l>             <lb/>
+<l>ſicht gab;</l>             <lb/>
+<l>Da fielen der Vernunft die ſchweren Feſſeln</l>             <lb/>
+<l>ab.</l>           </lg>         </lg>         <lb/>
+<p>Der Dichter nennt <hi rendition="#g">Baco</hi>, <hi rendition="#g">Grotius</hi>,<lb/>
+<hi rendition="#g">Puffendorf</hi> u. a. mit verdientem Ruhm:<lb/>
+er gehet die Pflichten durch, gegen Seele<lb/>
+und Leib, gegen Gott und andre. Ueber<lb/>
+Irrthum und Unwiſſenheit, Klugheit und<lb/>
+<fw type="sig" place="bottom">E 4</fw><lb/>
+<pb n="72" facs="#f0081"/>
+Thorheit, uͤber die Verbindlichkeit zur Wiſ-<lb/>
+ſenſchaft und zu allgemeinen Begriffen,<lb/>
+uͤber Erfahrung, Vernunft, Geſchichte,<lb/>
+Fabel, Selbſterkenntniß, als Mittel zu<lb/>
+Beſſerung des Verſtandes und Willens,<lb/>
+enthaͤlt ſein Gedicht ſchoͤne Stellen. Deß-<lb/>
+gleichen uͤber einzelne Pflichten, die Maͤ-<lb/>
+ßigkeit, Sittſamkeit, Gnuͤgſamkeit, Ver-<lb/>
+bindlichkeit zur Arbeit, uͤber Pflichten in<lb/>
+Gluͤck und Ungluͤck, uͤber die Dankbarkeit<lb/>
+gegen Gott, das Vertrauen auf die Vor-<lb/>
+ſehung, uͤber geſellige Huͤlfe, Sanftmuth,<lb/>
+Großmuth, Wahrheitliebe, Freigebigkeit<lb/>
+u. f.; wobei ſowohl die entgegenſtehenden<lb/>
+Laſter, als die Grenzen der Tugend be-<lb/>
+merkt oder geſchildert werden. Es ſind<lb/>
+Lehren in ihm, die der Jugend Gedaͤcht-<lb/>
+nißſpruͤche werden ſollten, indem ſie die<lb/>
+Grundveſten aller moraliſchen Wahrheit<lb/>
+enthalten: z. B.</p>         <lb/>
+<pb n="73" facs="#f0082"/>
+<lg type="poem">           <lg n="1">             <l>Es ward ein gleicher Trieb in aller Herz</l>             <lb/>
+<l>gelegt,</l>             <lb/>
+<l>Und allen Sterblichen die Regel eingepraͤgt:</l>             <lb/>
+<l><hi rendition="#g">Du ſollt das Gute thun</hi>, <hi rendition="#g">du ſollt das</hi></l>             <lb/>
+<l><hi rendition="#g">Boͤſe laſſen</hi>;</l>             <lb/>
+<l>In dieſen Goͤtterſpruch laͤßt das Geſetz ſich</l>             <lb/>
+<l>faſſen,</l>             <lb/>
+<l>Das die Natur uns ſchrieb. Er haͤlt ein</l>             <lb/>
+<l><hi rendition="#g">Recht</hi> in ſich:</l>             <lb/>
+<l><hi rendition="#g">Beginne</hi>, <hi rendition="#g">denke</hi>, <hi rendition="#g">flieh</hi>, <hi rendition="#g">begehre</hi>,</l>             <lb/>
+<l><hi rendition="#g">ſchweige</hi>, <hi rendition="#g">ſprich</hi>.</l>           </lg>           <lb/>
+<lg n="2">             <l>Nicht Erz, das Roſt verzehrt, nicht Blaͤt-</l>             <lb/>
+<l>ter, die veralten,</l>             <lb/>
+<l>Kein Stein hat dies Geſetz der Menſchen auf-</l>             <lb/>
+<l>behalten!</l>             <lb/>
+<l>Der Allmacht Tochter grub mit ewigheller</l>             <lb/>
+<l>Schrift,</l>             <lb/>
+<l>Es in die Seelen ein, die nie Verweſung trift.</l>             <lb/>
+<l>Ein ewiges Gebot, darinn ich wandeln muͤßte,</l>             <lb/>
+<l>Wenn, welches ferne ſei! ich auch von Gott</l>             <lb/>
+<l>nichts wuͤßte! —</l>           </lg>         </lg>         <lb/>
+<fw type="sig" place="bottom">E 5</fw>         <lb/>
+<pb n="74" facs="#f0083"/>
+<p>Zu wuͤnſchen waͤre es, daß der Verfaſſer<lb/>
+ſich durchaus auf dieſem ſtrengen Pfade<lb/>
+gehalten haͤtte. Da er aber das ſogenannte<lb/>
+<hi rendition="#g">Syſtem der Vollkommenheiten</hi> als<lb/>
+Grund der Moral annimmt: ſo wird ſein<lb/>
+Gebaͤude hie und da ſchwankend. Aller-<lb/>
+dings vervollkommt uns die Ausuͤbung<lb/>
+der Pflicht; nicht aber muͤſſen wir ſie thun,<lb/>
+um uͤber Gewinn an Vollkommenheiten zu<lb/>
+markten. Das Gebot heißt: <hi rendition="#g">Du ſollt</hi>!<lb/>
+nicht: <hi rendition="#g">Du wirſt</hi>! welches bloß eine hoͤfli-<lb/>
+che Bettelei waͤre.</p>         <lb/>
+<p>Sie halten vielleicht dies ſchoͤne Lehr-<lb/>
+gedicht fuͤr ein Manuſcript; leider iſts ſeit<lb/>
+ſeiner Bekanntmachung im Jahr 1758.<lb/>
+fuͤr Viele ein Manuſcript geblieben. Es<lb/>
+heißt „<hi rendition="#g">Lichtwehrs Recht der Ver</hi>-<lb/>
+<hi rendition="#g">nunft</hi>,“ und ſcheint unſrer poetiſchen<lb/>
+Welt ſo veraltet, wie <hi rendition="#g">Hallers</hi>, <hi rendition="#g">Hage</hi>-<lb/>
+<hi rendition="#g">dorns</hi>, <hi rendition="#g">Kaͤſtners</hi>, <hi rendition="#g">Uz</hi>, <hi rendition="#g">Witthofs</hi>,<lb/>
+<pb n="75" facs="#f0084"/>
+ja uͤberhaupt die <hi rendition="#g">Lehrgedichte</hi>. Unſer<lb/>
+Publikum iſt jung; es liebt Taͤndeleien der<lb/>
+Jugend.</p>       </div>       <lb/>
+<pb n="76" facs="#f0085"/>
+<div n="1">         <head>34.</head>         <lb/>
+<p><hi rendition="#in">D</hi>ie Blaͤtter uͤber die <hi rendition="#g">Humanitaͤt Ho</hi>-<lb/>
+<hi rendition="#g">mers</hi>, die Sie zu ſehen wuͤnſchen, nehme<lb/>
+ich aus einer unvollendeten, groͤßern<lb/>
+Schrift, die ihr Verfaſſer <hi rendition="#g">Jonien</hi> ge-<lb/>
+nannt hat, deren weitern Inhalt ich aber<lb/>
+hier nicht zu verrathen habe.</p>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <p>Ueber die Humanitaͤt Homers in ſeiner<lb/>
+Iliade.</p>         <lb/>
+<p>Wir kommen allmaͤlich wieder in die<lb/>
+Zeiten zuruͤck, da man von Homers Roh-<lb/>
+heit nicht gnug reden konnte. In Frank-<lb/>
+<pb n="77" facs="#f0086"/>
+reich warf man ihm vormals nur Mangel<lb/>
+an Geſchmack vor; in Deutſchland ſcheint<lb/>
+es ein Lieblingsgeſichtspunkt zu werden, in<lb/>
+den Sitten ſeiner Helden, mithin wohl<lb/>
+gar in Homer ſelbſt Mangel an <hi rendition="#g">Bildung</hi>,<lb/>
+an <hi rendition="#g">moraliſchem</hi> Geſchmack zu finden<lb/>
+und dies unſterbliche Gedicht endlich nur<lb/>
+als die „<hi rendition="#g">hiſtoriſche Tradition wil</hi>-<lb/>
+<hi rendition="#g">der Zeiten</hi>“ zu behandeln, die, wie man<lb/>
+ſich ausdruͤckt, Homers gluͤhende Einbil-<lb/>
+dungskraft aufnahm und veſtſtellte. So<lb/>
+viel Wahres dieſer Geſichtspunkt in man-<lb/>
+chem Betracht zeigen mag, ſo zeigt er ge-<lb/>
+wiß nicht alles Wahre, und ſein Weniges<lb/>
+gewiß nicht auf die nuͤtzlichſte Weiſe. Dazu<lb/>
+gehoͤrt keine Kunſt, hie und da Ueberein-<lb/>
+ſtimmung der Zeiten, die er beſang, mit<lb/>
+Voͤlkern, die auf einer, wie uns duͤnkt,<lb/>
+niedrigern Stuffe der Cultur leben, zu fin-<lb/>
+den, dieſe gefundene Aehnlichkeit zu uͤber-<lb/>
+<pb n="78" facs="#f0087"/>
+treiben, und dabei das Auge vor allem<lb/>
+ſittlichen Gefuͤhl, inſonderheit aber vor der<lb/>
+Kunſt und Weisheit zuzuſchließen, die Ho-<lb/>
+mer unſtreitig auf die Compoſition ſeines<lb/>
+Gedichts gewandt hat.</p>         <lb/>
+<p>Bei jeder Kunſtcompoſition fragt man:<lb/>
+wozu hat ſie der Kuͤnſtler componiret?<lb/>
+was war dabei ſeine Idee? und wie ſetzte<lb/>
+er die Theile ſeines Werks zuſammen?<lb/>
+Sind Homers Rhapſodieen die rohe Stim-<lb/>
+me eines griechiſchen Barden, der einem<lb/>
+rohen Volk Maͤhrchen aus roheren Zeiten<lb/>
+vorſingt, um dieſe mit ihren Unfoͤrmlichkei-<lb/>
+ten ja nicht untergehen zu laſſen; warum<lb/>
+wandte man Jahrtauſende hindurch auf<lb/>
+ihn ſo viele Muͤhe? Waren die Griechen,<lb/>
+die Roͤmer, und unter andern Nationen<lb/>
+die feinſten Denker, waren unter den Grie-<lb/>
+chen Geſetzgeber, Kuͤnſtler, Weiſe, Dichter<lb/>
+nicht aberglaͤubig und bloͤdſinnig, daß ſie<lb/>
+<pb n="79" facs="#f0088"/>
+aus einer Tradition vergangener Unmenſch-<lb/>
+lichkeiten ſo viel Weſens machten, und ei-<lb/>
+nen unreinen Schlam in ſo viel Baͤche<lb/>
+ableiteten? Das hieße ja die Unmenſch-<lb/>
+heit oder Halbmenſchheit um ſo gefaͤhrli-<lb/>
+cher veſthalten, weil ſie mit Homers Far-<lb/>
+ben geſchmuͤckt war.</p>         <lb/>
+<p>Fragt man bei jeder Geſchichte, bei je-<lb/>
+dem Drama: „wer ſpricht dies? wenn?<lb/>
+„wozu ſpricht er's in welchem Charakter<lb/>
+„handelt er? wozu ſtellte ihn der Geſchicht-<lb/>
+„ſchreiber oder Dichter auf?“ wie? und<lb/>
+bei der groͤßeſten Compoſition der Welt<lb/>
+wollte man nicht alſo fragen?</p>         <lb/>
+<p>Was beſingt Homer? nicht den Tro-<lb/>
+janiſchen Krieg, nicht eine Geſchichte alter<lb/>
+Zeiten als ſolche; auch nicht Achilles Ge-<lb/>
+ſchichte; ſondern<lb/>
+</p>
+<pb n="80" facs="#f0089"/>
+<lg type="poem">           <l>Den Zorn, des Peleiden Achilles</l>           <lb/>
+<l>Schaͤdlichen Zorn, der tauſend Jammer den</l>           <lb/>
+<l>Griechen gebracht hat,</l>           <lb/>
+<l>Und viel tapfere Seelen der Helden zum Or-</l>           <lb/>
+<l>kus hinabſtieß,</l>           <lb/>
+<l>Ihre Leiber den Hunden und allem Gevoͤgel</l>           <lb/>
+<l>zum Raube</l>           <lb/>
+<l>Gab —</l>         </lg>         <lb/>
+<p>wahrlich, das heißt doch den <hi rendition="#g">Unmuth</hi><lb/>
+Achills, er moͤge gerecht oder ungerecht<lb/>
+ſeyn, nicht unbedingt preiſen. Sogleich<lb/>
+bezeichnet ihn der Dichter, als eine <hi rendition="#g">ver</hi>-<lb/>
+<hi rendition="#g">derbliche Plage der Goͤtter</hi>, die um<lb/>
+ſo bedaurenswuͤrdiger war, weil ſie bloß<lb/>
+aus einem <hi rendition="#g">unſeligen Zwiſt</hi> entſtand,<lb/>
+den ſein Held mit dem Koͤnige Agamem-<lb/>
+non hatte —</p>         <lb/>
+<p>Und wer iſt Schuld an dieſem Zwiſte?<lb/>
+Homer eroͤfnet ſein Gedicht mit einer Er-<lb/>
+zaͤhlung, die keinen Leſer oder Zuhoͤrer im<lb/>
+Zweifel laſſen kann. Ein Vater, ein Prieſter<lb/>
+<fw type="catch" place="bottom">Apolls,</fw></p>         <lb/>
+<pb n="81" facs="#f0090"/>
+<p>Apolls, ein Schonenswuͤrdiger, unantaſtba-<lb/>
+rer Greis kommt unter dem Schutz ſeines<lb/>
+Gottes, um ſeine geraubte Tochter zu bit-<lb/>
+ten. Er ſpricht weder Mitleid noch Er-<lb/>
+barmen an; er will ſie nur, und zwar uͤber-<lb/>
+reichlich loskaufen. Seine kurze Bitte iſt<lb/>
+ſo geziemend, ſo artig; und welche harte,<lb/>
+ungeziemende Antwort giebt der <hi rendition="#g">Koͤnig<lb/>
+der Griechen</hi> dem flehenden Alten.</p>         <lb/>
+<lg type="poem">           <lg n="1">             <l>Alter! Daß ich dich nie bei den holen Schif-</l>             <lb/>
+<l>fen erblicke!</l>             <lb/>
+<l>Treff' ich ferner dich an; es ſei, du weileſt noch</l>             <lb/>
+<l>jetzo,</l>             <lb/>
+<l>Oder du kehreſt ein andermal wieder: ſo moͤchte</l>             <lb/>
+<l>der Goldſtab</l>             <lb/>
+<l>Mit dem Kranze des Gotts dich nicht mehr</l>             <lb/>
+<l>ſchuͤtzen. Die Tochter</l>             <lb/>
+<l>Geb' ich nicht los, bis einſt in unſrer Woh-</l>             <lb/>
+<l>nung in Argos</l>           </lg>           <lb/>
+<fw type="sig" place="bottom">Dritte Samml. F</fw>           <lb/>
+<pb n="82" facs="#f0091"/>
+<lg n="2">             <l>Sie, von ihrem Geburtsland fern, bei Spin-</l>             <lb/>
+<l>del und Webſtuhl</l>             <lb/>
+<l>Und mein Lager bedienend, veraltet. Du aber</l>             <lb/>
+<l>entfliehe!</l>             <lb/>
+<l>Reize mich nicht zum Zorn, wenn noch dein</l>             <lb/>
+<l>Leben dir lieb iſt.</l>           </lg>         </lg>         <lb/>
+<p>Nicht den Vater, den Fremden, den Bit-<lb/>
+tenden, den Greis beleidigt dieſe Antwort<lb/>
+allein; ſie beleidigt den Gott in ſeinem<lb/>
+Prieſter und iſt wirklich die Rede eines<lb/>
+uͤbermuͤthigen Atriden.</p>         <lb/>
+<p>Nun ſteigt der Gott vom Olymp; die<lb/>
+Pfeile fliegen, die Menſchen ſterben, die<lb/>
+Holzſtoͤße flammen; Achill, den die Noth<lb/>
+des Heers jammert, ruft die Verſammlung<lb/>
+zuſammen, um die Urſache auszukunden,<lb/>
+warum ein Gott auf ſie alle jetzt alſo er-<lb/>
+grimmt ſei? Kann Achill edler auf den<lb/>
+Schauplatz gebracht werden, als alſo?<lb/>
+Der Hirte der Voͤlker war durch ſeinen<lb/>
+<pb n="83" facs="#f0092"/>
+Trotz ihr Verderben worden; ſein koͤnigli-<lb/>
+ches Herz machte ſich keinen Vorwurf, ob<lb/>
+Er vielleicht an ihrem Untergange Schuld<lb/>
+ſey, noch ſuchte er Mittel dagegen; den<lb/>
+großherzigen Achill allein kuͤmmert die Sa-<lb/>
+che des Ganzen.</p>         <lb/>
+<p>Als ſolcher erſcheint er ſofort in ſeinen<lb/>
+Reden, unbefangen, wie es die Großher-<lb/>
+zigkeit iſt, und gerade. Da der weiſeſte<lb/>
+Seher ſich nicht erkuͤhnt zu ſprechen, weil<lb/>
+er ſich vor dem Unwillen des Maͤchtigſten,<lb/>
+deſſen Gemuͤthsart ihm bekannt iſt, fuͤrchtet,<lb/>
+nimmt ihn Achill fuͤr das gemeine Beſte in<lb/>
+Schutz; worauf denn der Uebermuth des<lb/>
+Koͤnigs zuerſt auf den Seher, ſogleich nach<lb/>
+einer ſehr billigen Rede des Achilles auf<lb/>
+dieſen herfaͤllt. Und da Achill nicht ge-<lb/>
+ſchaffen war, ſich vor der Verſammlung<lb/>
+oder ſonſt ſchmaͤhen, beleidigen, das Seine<lb/>
+ſich rauben zu laſſen, am wenigſten aber<lb/>
+<fw type="sig" place="bottom">F 2</fw><lb/>
+<pb n="84" facs="#f0093"/>
+vom ſtolzen Duͤnkel eines uͤbermuͤthigen<lb/>
+Atriden; ſo entbrennet der Zwiſt, ſo folgt<lb/>
+die Erbitterung, bei der, (ich wage es zu<lb/>
+ſagen) Achill auch im wildeſten Feuer ge-<lb/>
+recht bleibet. Pallas erſcheint ihm zu rech-<lb/>
+ter Zeit, ihn bei der blonden Haarlocke zu<lb/>
+ergreifen; und als der unbeſonnene Fuͤrſt,<lb/>
+auch nachdem er Zeit zu beſſerer Ueberle-<lb/>
+gung gehabt hatte, ſein unbefugtes Macht-<lb/>
+wort vollfuͤhret, und ihm ſein Eigenthum,<lb/>
+ſeine geliebte Briſeis raubet, betraͤgt ſich<lb/>
+Achill gegen die Herolde mit einer hohen<lb/>
+Maͤßigung. Ungern wie Briſeis dahingeht,<lb/>
+ſehn wir ſie hingehn, und ſetzen uns mit<lb/>
+dem Gekraͤnkten weinend ans Ufer. Da<lb/>
+hoͤren wir ihn der Mutter klagen, und<lb/>
+theilen mit ihr den Jammer um einen ſo<lb/>
+herrlichen Sohn, den bei einem kurzen Le-<lb/>
+ben, ohne ſeine Schuld, dieſe oͤffentliche<lb/>
+Beleidigung, dieſer Gram, dieſer Unmuth<lb/>
+<pb n="85" facs="#f0094"/>
+treffen muͤßte. Mit Freuden ſehen wir den<lb/>
+Vater der Goͤtter den großen Wink thun,<lb/>
+und den Gekraͤnkten in Schutz nehmen.</p>         <lb/>
+<p>Wenn nun, ganze Geſaͤnge der Iliade<lb/>
+hindurch, unſchuldige, tapfre, edle Maͤnner,<lb/>
+wenn liebe Soͤhne, junge Gatten, bluͤhende<lb/>
+Juͤnglinge fallen; wer iſt an ihrem Tode,<lb/>
+wer an der Trauer, den Thraͤnen, dem<lb/>
+Verluſt ihrer Eltern und Gatten und Braͤute<lb/>
+Schuld? Achilles nicht; er ſtreitet bloß<lb/>
+nicht mit, und kann und darf als ein oͤf-<lb/>
+fentlich und ungerecht Gekraͤnkter, nicht<lb/>
+mitſtreiten. Unmuthig ſitzt er in ſeinem<lb/>
+Zelt, und ſeine Myrmidonen murren zuletzt<lb/>
+um ihn her, daß er ſie nicht zum Streit<lb/>
+fuͤhre. Der uͤbermuͤthige Koͤnig allein iſts,<lb/>
+der dadurch die Voͤlker ſtuͤrzt, daß er nicht<lb/>
+nur jenen Helden beleidigte, ſondern ſogleich<lb/>
+auch, im Wahn ſeines Ruhms, zu zeigen,<lb/>
+<fw type="sig" place="bottom">F 3</fw><lb/>
+<pb n="86" facs="#f0095"/>
+daß er Achills nicht beduͤrfe, ſeine geliebten<lb/>
+Voͤlker zur Schlachtbank hinfuͤhrt.</p>         <lb/>
+<p>Unglaublich iſts, wenn man es nicht<lb/>
+ſaͤhe, mit welcher moraliſchen Zartheit Ho-<lb/>
+mer dies alles einleitet und beſchreibet.<lb/>
+Eben dieſelbe Mutter des Beleidigten, die<lb/>
+den hoͤchſten Gott anfleht, hatte dem Dich-<lb/>
+ter Raum gemacht, einen falſchen Traum<lb/>
+vom Himmel kommen zu laſſen, der dem<lb/>
+Koͤnige einbilde, Er koͤnne jetzt, dem Achill<lb/>
+zum Trotz, Troja im Hui erobern.</p>         <lb/>
+<p>Dagegen erhebt ſich nun freilich der<lb/>
+alte Neſtor</p>         <lb/>
+<lg type="poem">           <l>— Und ſagte mit Weisheit:</l>           <lb/>
+<l>Haͤtte den Traum von allen Achaͤern ein</l>           <lb/>
+<l>andrer erzaͤhlet,</l>           <lb/>
+<l>Wuͤrden wir ſagen: du luͤgſt! und ihn unwil-</l>           <lb/>
+<l>lig verſchmaͤhen</l>           <lb/>
+<l>Aber ihn ſah der Koͤnig —</l>         </lg>         <lb/>
+<pb n="87" facs="#f0096"/>
+<p>Und ſogleich ſteht der Koͤnig von ſei-<lb/>
+nem Sitz auf, ſtuͤtzet ſich auf ſeinen uͤber<lb/>
+Alles geprieſenen Scepter, hat ſogar eine<lb/>
+herrliche Liſt erdacht, die Anhaͤnglichkeit<lb/>
+der Griechen an Ihn, an ſeinen Bruder<lb/>
+Menelaus, und deſſen Weib, Helena zu<lb/>
+pruͤfen, uͤberzeugt, daß ſie ſich ihm nicht<lb/>
+anders als zum Opfer geben wuͤrden. Die<lb/>
+koͤnigliche Perſvaſion mißraͤth; der kluge<lb/>
+Ulyſſes, mit dem noch unveralteten Scep-<lb/>
+ter Agamemnons in der Fauſt kann ſie<lb/>
+kaum wieder zu ihren verlaſſenen Sitzen<lb/>
+bringen; wo denn Therſites aufſteht, und<lb/>
+Er allein, auf die unſchicklichſte Art der<lb/>
+Sache Achills erwaͤhnet.</p>         <lb/>
+<p>So Mancherlei uͤber dieſen haͤßlich-<lb/>
+laͤcherlichen Therſit geſchrieben worden; ſo<lb/>
+ſieht Jedermann das vor Augen, daß den<lb/>
+Edelſten der Schlechtſte, den Herrlichſten<lb/>
+der Haͤßlichſte <hi rendition="#g">allein</hi> und <hi rendition="#g">aufs Nie</hi>-<lb/>
+<fw type="sig" place="bottom">F 4</fw><lb/>
+<pb n="88" facs="#f0097"/>
+<hi rendition="#g">drigſte</hi> vertheidigt. Jeder goͤnnet dieſem<lb/>
+die Schlaͤge des Ulyſſes; es iſt aber große<lb/>
+Weisheit des Homers, daß er ſie dem<lb/>
+Therſites zukommen laͤßt, indeß alle Fuͤr-<lb/>
+ſten des Heers, deren keiner Agamemnons<lb/>
+Betragen gegen Achill loben konnte, dazu<lb/>
+ſchwiegen. Allen bekommt dies Schwei-<lb/>
+gen, die ganze Iliade hindurch, ſehr un-<lb/>
+wohl; ihren Voͤlkern aber noch uͤbler.</p>         <lb/>
+<p>Es wird in einem andern Kapitel da-<lb/>
+von die Rede ſeyn, wie Homer, der uͤber-<lb/>
+haupt keinen Groll gegen ein menſchliches<lb/>
+Geſchoͤpf, geſchweige gegen den Koͤnig ſei-<lb/>
+ner Griechen heget, den Agamemnon al-<lb/>
+lenthalben nicht nur geſchont, ſondern, wo<lb/>
+er irgend konnte, koͤniglich und feſtlich aus-<lb/>
+geſchmuͤckt habe. Zum Treffen laͤßt er ihn<lb/>
+ziehen:</p>         <lb/>
+<pb n="89" facs="#f0098"/>
+<lg type="poem">           <l>Ganz an Augen und Haupt dem Donnerbe-</l>           <lb/>
+<l>waffneten Zevs gleich,</l>           <lb/>
+<l>Um den Guͤrtel dem Mars, an Bruſt und</l>           <lb/>
+<l>Schultern dem Meergott;</l>           <lb/>
+<l>Wie der fuͤhrende Stier ſich in der verſamm-</l>           <lb/>
+<l>leten Heerde</l>           <lb/>
+<l>Ausnimmt; unter den Rindern der Erſt' und</l>           <lb/>
+<l>Groͤßte von Anſehn.</l>         </lg>         <lb/>
+<p>Er laͤßet ihn den tapferſten Kriegern, ei-<lb/>
+nem Diomedes ſogar, Verweiſe geben;<lb/>
+doch das Alles thut nichts zur Sache.<lb/>
+Nach vielen erlittenen Niederlagen muß der<lb/>
+alte Neſtor mit dem Bekaͤnntniß doch<lb/>
+heraus:</p>         <lb/>
+<lg type="poem">           <l>— Ich denke noch heute, ſo wie ich ſchon</l>           <lb/>
+<l>vormals</l>           <lb/>
+<l>Dachte, zur Zeit, o Koͤnig, als du die junge</l>           <lb/>
+<l>Briſeis</l>           <lb/>
+<l>Aus des erzuͤrnten Achilles Gezelten gewaltſam</l>           <lb/>
+<l>entfuͤhrteſt,</l>           <lb/>
+<fw type="sig" place="bottom">F 5</fw>           <lb/>
+<pb n="90" facs="#f0099"/>
+<l><hi rendition="#g">Nicht nach unſerm Ermeſſen</hi>; ich rieth</l>           <lb/>
+<l>es mit vielen und ſtarken</l>           <lb/>
+<l>Gruͤnden dir ab; doch du, vom hohen Muthe</l>           <lb/>
+<l>bemeiſtert,</l>           <lb/>
+<l>Kraͤnkteſt die Ehre des Helden, der ſelbſt von</l>           <lb/>
+<l>Goͤttern geehrt war,</l>           <lb/>
+<l>Und noch haſt du bei dir den Siegslohn, den</l>           <lb/>
+<l>du ihm raubteſt.</l>         </lg>         <lb/>
+<p>Er ſchlaͤgt zur Ausſoͤhnung Geſchenke<lb/>
+und ſchmeichelnde Worte vor; Achilles<lb/>
+ſchlaͤgt ſie aus und muß ſie ausſchlagen;<lb/>
+ja waͤre Agamemnon ſelbſt in ſein Zelt<lb/>
+gekommen, er haͤtte einen boͤſen Weg da-<lb/>
+raus gefunden. Nun hatte dieſer Raum<lb/>
+ſeine Wunder der Tapferkeit und Ober-<lb/>
+herrſchaft zu erweiſen, die aber alle dahin-<lb/>
+ausgingen, daß nach Niederlagen von al-<lb/>
+len Seiten, die Mauer der Griechen er-<lb/>
+ſtuͤrmt ward und Hektor, ans Schiff des<lb/>
+Proteſilaus greifend, ausrief: „bringt<lb/>
+<pb n="91" facs="#f0100"/>
+Feuer!“ — Hier war das Ziel. Nicht<lb/>
+Agamemnons Geſchenke, noch eines ſchlauen<lb/>
+Ulyſſes Reden; Achilles eigner Entſchluß,<lb/>
+mit welchem ſich ſeines Freundes Patro-<lb/>
+klus Thraͤnen verbanden, hemmte die aͤu-<lb/>
+ßerſte Gefahr des Heeres. Jetzt gab<lb/>
+Achill dem Patroklus ſeine Waffen, mit<lb/>
+dem gemeſſenen Befehl, wie weit er gehen<lb/>
+ſollte. Als Patroklus dieſen uͤberſchritten<lb/>
+hatte und den Feinden erlag, als Hektor<lb/>
+in die Waffen Achills zu ſeinem eignen<lb/>
+Verderben gekleidet daſtand, und die Nach-<lb/>
+richt vom Tode des Freundes, endlich auch<lb/>
+ſeine kaum noch erbeutete Leiche ins Lager<lb/>
+kam: da war aller Groll dahin; im Him-<lb/>
+mel und auf der Erde war Friede. In<lb/>
+neue Waffen gekleidet, erſcheint er in der<lb/>
+Verſammlung; und wie klein iſt gegen ihn<lb/>
+Agamemnon, ob er ſich gleich noch jetzt,<lb/>
+zur Entſchuldigung ſeines Fehlers, in einem<lb/>
+<pb n="92" facs="#f0101"/>
+Maͤhrchen von der <hi rendition="#g">Ate</hi>, dem Jupiter<lb/>
+gleichſtellt. Wie groß dagegen iſt Achilles<lb/>
+und wie zart! zart in den Klagen um ſei-<lb/>
+nen Freund, in den Klagen an ſeine Mut-<lb/>
+ter; groß in der Verſoͤhnung mit ſeinem<lb/>
+Feinde, in der Anordnung des Begraͤbniſ-<lb/>
+ſes ſeines Freundes,</p>         <lb/>
+<lg type="poem">           <lg n="1">             <l>Laßt Patroklus Gebein, des Menoͤtiaden, uns</l>             <lb/>
+<l>ſammlen,</l>             <lb/>
+<l>Mit ſorgfaͤltiger Wahl; es iſt nicht ſchwer zu</l>             <lb/>
+<l>erkennen.</l>             <lb/>
+<l>Dieſes legen wir bei in goldner Urne, bis ich</l>             <lb/>
+<l>auch</l>             <lb/>
+<l>Sinke zum Hauſe des Pluto — —</l>           </lg>           <lb/>
+<lg n="2">             <l>Dann erhoͤhn wir den Huͤgel zum Grabmahl;</l>             <lb/>
+<l>aber ich wuͤnſch' ihn</l>             <lb/>
+<l>Nicht von ſtolzer Groͤße, nur maͤßig. Breiter</l>             <lb/>
+<l>und hoͤher</l>             <lb/>
+<l>Moͤget ihr, Freund', ihn kuͤnftig erbaun, ſo</l>             <lb/>
+<l>viele von euch mich</l>             <lb/>
+<l>Ueberleben — —</l>           </lg>         </lg>         <lb/>
+<pb n="93" facs="#f0102"/>
+<p>Groß endlich in den Kampfſpielen, in der<lb/>
+Ueberwindung ſein ſelbſt, da er den Leich-<lb/>
+nam Hektors zuruͤckgiebt, in der Behand-<lb/>
+lung Priamus dabei, groß von Anfange<lb/>
+des Gedichts bis zu Ende. Scherzend<lb/>
+ſpricht er zu Priamus:</p>         <lb/>
+<lg type="poem">           <l>Greis, wie ſchlaͤfſt du ſo unbekuͤmmert, kein</l>           <lb/>
+<l>Uebel befuͤrchtend,</l>           <lb/>
+<l>Wenn dich allhier Agamemnon entdeckt und</l>           <lb/>
+<l>die andern Achaͤer! —</l>         </lg>         <lb/>
+<p>Dies iſt das letztemal, da Agamemnons in<lb/>
+der Ilias gedacht wird; wie tief ſteht er<lb/>
+unter Achill, in deſſen Zelte ſein Feind ru-<lb/>
+hig ſchlaͤft.</p>         <lb/>
+<p>Ich weiß wohl, daß man die gedrohete<lb/>
+Mißhandlung am Leichnam Hektors dem<lb/>
+Achilles hoch aufnimmt; aber preiſet ſie<lb/>
+Homer? und verhindern ſie die Goͤtter<lb/>
+nicht ſelbſt, denen Achilles ſogleich wie ein<lb/>
+<pb n="94" facs="#f0103"/>
+Kind gehorchet? Und was hatte Hektor<lb/>
+mit Patroklus Leiche im Sinn, uͤber die<lb/>
+ein ſo hitziger Kampf war? —</p>         <lb/>
+<p>Man iſt gewohnt, Achill und Hektor<lb/>
+zum Nachtheil des Erſten zu vergleichen;<lb/>
+nach welchem Maasſtabe? Nicht nur<lb/>
+waren es verſchiedene Charaktere, und zu<lb/>
+Achills Charakter gehoͤrte, was er war,<lb/>
+untrennbar; ſondern Hektor war auch ein<lb/>
+Trojaner. Daß in Troja, dem alten aſia-<lb/>
+tiſchen Koͤnigsſitze, ein groͤßerer Reichthum,<lb/>
+eine weichere Lebensart herrſchte, als in<lb/>
+den meiſten griechiſchen Staaten ſeyn konn-<lb/>
+te, zeigt ſich in mehreren Stellen der Iliade;<lb/>
+der Charakter des erſten Trojaners mußte<lb/>
+dieſem Zuſtande gemaͤß ſeyn. Der Spie-<lb/>
+gel Homers, in welchem ſich alle Dinge<lb/>
+der Welt gleich klar und rein darſtellen,<lb/>
+zeigt alle Geſtalten gleich menſchlich und<lb/>
+milde. Bei voͤlligen Gegenſaͤtzen ſcheint<lb/>
+<pb n="95" facs="#f0104"/>
+eine Vergleichung kaum moͤglich; und doch<lb/>
+wirft Homer auf alle, wo irgend er kann,<lb/>
+den milden Stral der Menſchheit.</p>         <lb/>
+<p>Sein Gedicht endet, ehe Troja erobert<lb/>
+wird, ehe wir alſo die Graͤuelthaten der<lb/>
+Griechen in dieſer eroberten Stadt gewahr<lb/>
+werden. Selbſt ſein Held hatte das gute<lb/>
+Schickſal, die ſchreckliche Folge ſeiner Tap-<lb/>
+ferkeit nicht zu erleben; er fiel, wie wir<lb/>
+aus andern wiſſen, im Thore von Troja.<lb/>
+Und bei Homer, ſobald Achill mit ſeinen<lb/>
+neuen Waffen dahergeht, geht er zum<lb/>
+Tode. Dies weiſſagt ihm ſeine Mutter,<lb/>
+ſeine weinenden Roſſe, der ſterbende Hektor,<lb/>
+und er ſelbſt weiß es. Sein Leben iſt an<lb/>
+Patroklus Leben geknuͤpft; Ein Huͤgel ſoll<lb/>
+ſie decken, und eine goldne Urne beider<lb/>
+Aſche am Troiſchen Strande vereinen.</p>         <lb/>
+<p>Was uͤberhaupt der Glaube an ein<lb/>
+Schickſal, was die Thaten der Goͤtter, ihre<lb/>
+<pb n="96" facs="#f0105"/>
+Huͤlfe und Feindſchaft gegen Voͤlker und<lb/>
+Menſchen, in die Compoſition Homers an<lb/>
+Ruhe, Milde und hohe Ergebenheit brin-<lb/>
+gen, iſt unſaͤglich. Man nehme dieſe<lb/>
+goͤttliche Farce, wie manche ſie genannt<lb/>
+haben, (μωϱον) aus ſeiner Iliade; und das<lb/>
+Ganze wird widrig oder platt, wie faſt alle<lb/>
+politiſche Geſchichte. Und doch iſt alles<lb/>
+Zuwirken der Goͤtter bei ihm ſo menſch-<lb/>
+lich, ſo natuͤrlich! Nirgend ein zerſtoͤren-<lb/>
+des Wunder; allenthalben nur der Gang<lb/>
+des Menſchengemuͤths, der Menſchenkraͤfte,<lb/>
+ſofern er ans Zufaͤllige, ans Unvorgeſehene,<lb/>
+ans Unendliche reichet. Was zumal die<lb/>
+Goͤtter uͤber die Sterblichen, und uͤber<lb/>
+Achills Roſſe ſprechen, die einem Sterbli-<lb/>
+chen dienen, iſt Seelezerſchneidend.</p>         <lb/>
+<p>Menſchlicher Homer, wie liebe ich dich<lb/>
+in allen deinen Formen und Geſtalten!<lb/>
+Auch Paris, auch die Suͤnderin Helena<lb/>
+<fw type="catch" place="bottom">haſt</fw><lb/>
+<pb n="97" facs="#f0106"/>
+haſt du nicht verſchmaͤhet, und beide in das<lb/>
+ſchoͤnſte Licht geſtellt, in welchem ſie ſtehen<lb/>
+konnten. Nicht vergeſſen ſind ihre Bruͤder<lb/>
+Caſtor und Pollux; ihr Menelaus, ſamt<lb/>
+Ulyß, ſind mit allen Wuͤrden geſchmuͤckt,<lb/>
+deren ſie auf der Ebne vor Troja faͤhig<lb/>
+waren. So Ajax, Diomed, Idomeneus,<lb/>
+Neſtor; jeder erſcheint an ſeinem Orte, zu<lb/>
+ſeiner Zeit in der Rennbahn des Ruhmes.<lb/>
+Kurz oder lange leuchtet ſein Schein; aber<lb/>
+er geht nach Verdienſt auf und nieder.</p>         <lb/>
+<p>Drei Lehren druͤckſt du ſchweigend vor<lb/>
+allen uns ins Herz:</p>         <lb/>
+<lg type="poem">           <lg n="1">             <l>               <hi rendition="#aq">1. Diſcite juſtitiam, miſeri, et non tem-</hi>             </l>             <lb/>
+<l>               <hi rendition="#aq">nere divos,</hi>             </l>           </lg>           <lb/>
+<l>welches ich hier ſo uͤberſetzen moͤchte:</l>           <lb/>
+<lg n="2">             <l>Lernt, ihr Fuͤrſten, gerecht ſeyn und treffliche</l>             <lb/>
+<l>Maͤnner verehren.</l>           </lg>         </lg>         <lb/>
+<fw type="sig" place="bottom">Dritte Samml. G</fw>         <lb/>
+<pb n="98" facs="#f0107"/>
+<p>Dies lehrt uns mit ſeinem Uebermuth der<lb/>
+praͤchtige Agamemnon in der ganzen Iliade.<lb/>
+Er graͤnzt an alle Ausſchweifungen, die<lb/>
+Ariſtoteles Ethik kannte, an die <hi rendition="#g">Hab</hi>-<lb/>
+<hi rendition="#g">begierde </hi> (Akolaſie) den <hi rendition="#g">Neid</hi>, die<lb/>
+<hi rendition="#g">Schaamloſigkeit</hi> und <hi rendition="#g">Beifallge</hi>-<lb/>
+<hi rendition="#g">bung</hi>, die <hi rendition="#g">Pralſucht</hi>; doch graͤnzt er<lb/>
+nur daran, denn der weiſe Homer hat ihn<lb/>
+vor jedem Zuge des Veraͤchtlichen bewah-<lb/>
+ret. Er iſt und bleibt bei ihm ein <hi rendition="#g">un</hi>-<lb/>
+<hi rendition="#g">ſtraͤflicher</hi> Koͤnig. Achilles dagegen be-<lb/>
+ſitzt den Kern deſſen, was die Griechen<lb/>
+<hi rendition="#g">Tugend</hi> nannten, <hi rendition="#g">Großherzigkeit</hi><lb/>
+(μεγαλοψυχια) und <hi rendition="#g">edlen Stolz</hi>, <hi rendition="#g">ho</hi>-<lb/>
+<hi rendition="#g">hes Selbſtgefuͤhl und die aͤußerſte<lb/>
+Wahrheitliebe</hi>. Er iſt <hi rendition="#g">freigebig</hi><lb/>
+und auf eine anſtaͤndige Art <hi rendition="#g">praͤchtig</hi>,<lb/>
+<hi rendition="#g">hoͤflich</hi> in ſeinem Zelt und bis zur Schaam<lb/>
+<hi rendition="#g">beſcheiden</hi>; dabei <hi rendition="#g">gebildeter</hi> als alle<lb/>
+Griechen: denn er war Chirons Zoͤgling<lb/>
+<pb n="99" facs="#f0108"/>
+und ergoͤtzte mitten im Unmuth ſein ſchwer-<lb/>
+beladnes Herz durch Toͤne. Der waͤrmſte<lb/>
+<hi rendition="#g">Freund ſeines Freundes</hi>, an Staͤrke,<lb/>
+Tapferkeit, Schoͤnheit und Ruhmliebe uͤber<lb/>
+alle Griechen erhaben. Und an dieſem<lb/>
+Gottgeliebten Sohn einer Goͤttinn und ei-<lb/>
+nes Helden zeigt uns Homer μηνιν</p>         <lb/>
+<p>2. die erſchreckliche Plage des har-<lb/>
+ten, obwohl gerechten <hi rendition="#g">Unmuths</hi>. Achill<lb/>
+konnte ihm nicht entweichen: denn der<lb/>
+Vorfall, der ihn dazu reizte, drang auf ihn,<lb/>
+ohne daß er ihn ſuchte. Er kann, die<lb/>
+ganze Iliade hindurch, als Achill nicht an-<lb/>
+ders handeln, als er handelt. Das Unan-<lb/>
+genehme aber dieſes Unmuths fuͤr ihn und<lb/>
+fuͤr andre entwickelt der Saͤnger durch<lb/>
+<hi rendition="#g">Worte</hi> aus des guten Phoͤnix, ja aus<lb/>
+Achills eignem Munde und durch Erfolge<lb/>
+in lauter lebendigen Situationen. Sogar<lb/>
+das herbeieilende letzte Schickſal des Edel-<lb/>
+<fw type="sig" place="bottom">G 2</fw><lb/>
+<pb n="100" facs="#f0109"/>
+zuͤrnenden ſehen wir in <hi rendition="#g">dieſe</hi> Reihe der<lb/>
+Dinge verflochten, in dieſen ihm unver-<lb/>
+meidlichen Unfall. Konnte ein zarterer<lb/>
+Punct des menſchlichen Herzens und Le-<lb/>
+bens zarter behandelt werden, als es der<lb/>
+Dichter gethan hat? Gemeine Seelen<lb/>
+wiſſen nichts vom edeln, goͤttlichen Unmuth;<lb/>
+wie manchem groͤßeren Gemuͤth aber iſt er<lb/>
+die Klippe des Gluͤcks, ſeiner Brauchbar-<lb/>
+keit fuͤrs gemeine Weſen, des haͤuslichen<lb/>
+und taͤglichen Wohlſeyns, ja endlich des<lb/>
+Lebens ſelbſt worden! Mehr als Ein Ge-<lb/>
+kraͤnkter hat die Klagen angeſtimmt, die<lb/>
+Achill am Ufer des Meers ſeiner Mutter<lb/>
+zuſeufzte; er konnte aber keinen andern<lb/>
+Troſt hoͤren, als jenem die Goͤttin ſelbſt zu<lb/>
+geben vermochte.</p>         <lb/>
+<p>3. Endlich, welch eine boͤſe Sache iſt<lb/>
+der Krieg! Und wie mißlich iſt jede Re-<lb/>
+gierungsart unter den Menſchen, ſo un-<lb/>
+<pb n="101" facs="#f0110"/>
+umgaͤnglich ſie iſt im Kriege und Frieden!<lb/>
+Beides hat uns Homer ſo vorzuͤglich und<lb/>
+hell dargelegt, daß wir auch hier den Mei-<lb/>
+ſter ſehen, der in die roheſten Dinge Weis-<lb/>
+heit und Menſchlichkeit brachte.</p>       </div>       <lb/>
+<fw type="sig" place="bottom">G 3</fw>       <lb/>
+<pb n="102" facs="#f0111"/>
+<div n="1">         <head>35.</head>         <lb/>
+<lg type="poem">           <l><hi rendition="#in">S</hi>ohn! Dir werden die ſiegende Staͤrke,</l>           <lb/>
+<l>nach ihrem Gefallen,</l>           <lb/>
+<l>Pallas und Juno verleihn; du aber bezaͤhme</l>           <lb/>
+<l>des Herzens</l>           <lb/>
+<l>Stolzaufwallenden Muth: denn guͤtige Triebe</l>           <lb/>
+<l>ſind edler.</l>         </lg>         <lb/>
+<p>Dieſe Lehre laͤßt Homer den alten Pe-<lb/>
+leus ſeinem Achilles auf den Zug vor Troja<lb/>
+mitgeben und die ganze Iliade iſt eigent-<lb/>
+lich ein Lob der <hi rendition="#g">Philophroſyne</hi> d. i.<lb/>
+gefaͤlliger, Menſchenfreundlicher Geſinnung:<lb/>
+Unmuth iſt dem Homer eine Plage des Le-<lb/>
+bens, ſelbſt wenn es ein gerechter, <choice><sic>goͤttli-</sic><corr>goͤtt-</corr></choice><lb/>
+<pb n="103" facs="#f0112"/>
+licher Unmuth (μηνις) waͤre. Er frißt am<lb/>
+Herzen, und naget ab die Bluͤthe des Le-<lb/>
+bens; bei den menſchlichſten Geſinnungen<lb/>
+wird der Gekraͤnkte wider ſeinen Willen<lb/>
+ein Unmenſch. Die aͤlteſte griechiſche Phi-<lb/>
+loſophie ging dahinaus, das Gemuͤth der<lb/>
+Menſchen vor jedem Aeußerſten zu bewah-<lb/>
+ren; die aͤlteſte Philoſophie der Griechen<lb/>
+aber war bei den Dichtern. Mit Recht-<lb/>
+ſchaffenheit, Ruhm und Geſundheit ein<lb/>
+heiteres, frohes Leben fuͤhren zu koͤnnen,<lb/>
+ſtelleten ſie als den hoͤchſten Wunſch der<lb/>
+Sterblichen dar, und warnten vor jedem<lb/>
+Uebermaaße, vor jeder zu hart angeſeſſenen<lb/>
+Neigung. Wie klar muß es in der Seele<lb/>
+Homers geweſen ſeyn, da er, ſein ganzes<lb/>
+Gedicht hindurch, gleichſam die Waage<lb/>
+Jupiters in der Hand haltend, die Nei-<lb/>
+gungen und Charaktere der Menſchen gegen<lb/>
+einander im Streit und in Folgen abwog!</p>         <lb/>
+<fw type="sig" place="bottom">G 4</fw>         <lb/>
+<pb n="104" facs="#f0113"/>
+<p>Der Schild Achilles zeigt bei ihm, wie er<lb/>
+ſich die Welt dachte; unbefangen ſah er<lb/>
+ihre mancherlei, einander oft nahe entge-<lb/>
+gengeſetzten Scenen; froͤhliche und traurige,<lb/>
+ruhige und ſtuͤrmiſche Scenen, und ſchil-<lb/>
+dert ſie, wie dort Vulkan ſie hammerte,<lb/>
+glaͤnzend und unvergaͤnglich. Wem Homers<lb/>
+Muſe den Nebel vom Auge nimmt, ge-<lb/>
+winnet uͤber die Dinge der Welt gewiß<lb/>
+eine große, weiſe und am Ende froͤliche<lb/>
+Ausſicht.</p>         <lb/>
+<p>Wie Achill mit ſeiner Leyer den Un-<lb/>
+muth ſich zu zerſtreuen ſuchte: ſo war es<lb/>
+das Amt der <hi rendition="#g">lyriſchen Dichter</hi> der<lb/>
+Menſchen Herz zur Maͤßigung in Gluͤck<lb/>
+und Ungluͤck zu ſtimmen und es zur Freu-<lb/>
+de, Freundſchaft und Heiterkeit zu ermun-<lb/>
+tern. Leider ſind die meiſten derſelben un-<lb/>
+tergegangen; die uͤbriggebliebenen Reſte<lb/>
+aber zeigen dieſe Beſtimmung. Pindar<lb/>
+<pb n="105" facs="#f0114"/>
+ſelbſt, ob er gleich laute Siege beſingt, hat<lb/>
+ſo manchen Spruch in ſeinen Geſaͤngen,<lb/>
+der zur Maͤßigung im Gluͤck, zum behut-<lb/>
+ſamen Gebrauch des Lebens einladet; ſo<lb/>
+manchen, der dem Unmuthe zuvorzukom-<lb/>
+men ſucht, oder nach Erfahrungen deſ-<lb/>
+ſelben die Seele des Kaͤmpfers edel<lb/>
+erquicket.</p>         <lb/>
+<p>Das feine Echo der Griechen, (wie<lb/>
+Einer unſerer Freunde ihn nannte) Horaz<lb/>
+thut ein Gleiches. Es waͤre zu wuͤnſchen,<lb/>
+daß er in ſeiner wohlgefaͤlligen, einſchmei-<lb/>
+chelnden Art auch uns eigen werden koͤnn-<lb/>
+te; vielleicht iſt dies aber unmoͤglich: denn<lb/>
+die Meiſten ſeiner Oden ſind zu kuͤnſtlich<lb/>
+eingelegte Muſiviſche Arbeit.</p>         <lb/>
+<p>Mehrere derſelben, wiſſen Sie, ſind nach<lb/>
+dem Lateiniſchen in Muſik geſetzt; ich woll-<lb/>
+te, daß auch aus den fuͤr uns nicht <hi rendition="#g">ganz</hi><lb/>
+brauchbaren Oden alle rein-menſchliche<lb/>
+<fw type="sig" place="bottom">G 5</fw><lb/>
+<pb n="106" facs="#f0115"/>
+Strophen, alle beruhigende, troͤſtende, auf-<lb/>
+heiternde Spruͤche und Empfindungen la-<lb/>
+tein componirt wuͤrden. Stellen aus Vir-<lb/>
+gil deßgleichen. Ich erinnere mich aus<lb/>
+Luther, daß ihm einige Worte der ſterben-<lb/>
+den Dido in der Muſik einen unvergeßba-<lb/>
+ren Eindruck gemacht hatten; wem wuͤr-<lb/>
+den nicht jene ewigen Spruͤche der Alten,<lb/>
+mit welchen ſie im einfachſten, kraͤftigſten<lb/>
+Ausdruck das Menſchengemuͤth ſtaͤrken, ei-<lb/>
+nen nach- und wiedertoͤnenden Eindruck<lb/>
+geben? Durch Muſik iſt unſer Geſchlecht<lb/>
+humaniſirt worden; durch Muſik wird es<lb/>
+noch humaniſiret. Was dem Unmuthigen,<lb/>
+dem Lichtlos-Verſtockten die Rede nicht<lb/>
+ſagen darf: ſagen ihm vielleicht Worte auf<lb/>
+Schwingen lieblicher Toͤne.</p>         <lb/>
+<p>Wenn dies von Geſaͤngen der Alten gilt,<lb/>
+ſollte es nicht vielmehr von Sprachen gel-<lb/>
+ten, deren Genius uns vertraulicher und<lb/>
+<pb n="107" facs="#f0116"/>
+naͤher Laute des Troſtes und der Weisheit<lb/>
+zuliſpelt? Kein Zweifel. In den Dichtern<lb/>
+der Italiener, Spanier, Gallier ſchlummern<lb/>
+Toͤne, die, wenn ſie durch Muſik und Anwen-<lb/>
+dung zur Weisheit des Lebens wuͤrden, Voͤl-<lb/>
+ker und Staͤnde menſchlich machen muͤßten.</p>         <lb/>
+<p>Auch in unſern lyriſchen Dichtern ſind<lb/>
+Strophen, die der Sokratiſchen Schule<lb/>
+wuͤrdig ſind; warum leben ſie ſo wenig<lb/>
+im Ohr der Nation? warum ſchlafen ſie<lb/>
+mit ihren Erfindern vergeſſen im Staube?<lb/>
+Die Urſache iſt leicht zu finden: „weil nur<lb/>
+ein ſo kleiner Theil unſrer Nation cultivirt<lb/>
+iſt, und bei einem andern die ſcheinbare<lb/>
+Cultur zu einem falſchen Schmuck frem-<lb/>
+der Ueppigkeit geworden iſt.“ Wir wollen<lb/>
+es uns nicht bergen; man ſpricht viel von<lb/>
+Cultur und Aufklaͤrung; man affectirt und<lb/>
+fuͤrchtet ſie ſo gar, vielleicht weil man an<lb/>
+ſich ſelbſt weiß, daß ſie nicht tief gehet,<lb/>
+<pb n="108" facs="#f0117"/>
+daß ſie ſelten von rechter Art iſt. Denn<lb/>
+wirklich <hi rendition="#g">gebildete Gemuͤther</hi>, (in dem<lb/>
+Verſtande, wie Griechen und Roͤmer dies<lb/>
+Wort uns zugebracht haben,) koͤnnen am<lb/>
+Nutzen der aͤchten Bildung nicht zweifeln.</p>         <lb/>
+<p>Doch wo gerathe ich hin? Laſſen Sie uns<lb/>
+ſchnell zu unſrer Materie, zu dem unver-<lb/>
+faͤnglichen Wunſch nach <hi rendition="#g">Compoſitionen<lb/>
+ſchoͤner Stellen aus lateiniſchen<lb/>
+Dichtern</hi> zuruͤckkehren. Oft, gar oft<lb/>
+wenn ich geiſtliche Muſiken uͤber lateiniſche<lb/>
+Moͤnchsworte hoͤrte, regte ſich das Ver-<lb/>
+langen in mir, auch altroͤmiſche Stellen<lb/>
+mit ſolcher Muſik begleitet zu hoͤren; und<lb/>
+als in <hi rendition="#g">Reichardts</hi> Todtenfeier auf Frie-<lb/>
+derich nach <hi rendition="#g">Luccheſini</hi>'s Worten alt Roͤ-<lb/>
+miſche Tugenden, Eine nach der Andern,<lb/>
+auf des Unſterblichen Grab auch in Toͤnen<lb/>
+ſich zudraͤngten, ward der Wunſch aufs<lb/>
+neue in mir lebendig. Strophen aus<lb/>
+<pb n="109" facs="#f0118"/>
+Horaz, (z. B. B. 1. Ode 7. V. 21-32.<lb/>
+B. 2. Ode 10. V. 13-24.) oder ganze<lb/>
+Stuͤcke mit Zweckmaͤßiger Abwechſelung,<lb/>
+(wie vielleicht B. 1. Ode 9. 24. 26. B. 2.<lb/>
+Ode 3. 11. 14. 16. 19. 20. B. 3. Ode 2.<lb/>
+9. 21. B. 4. Ode 7. Epode 7.) wuͤrden<lb/>
+der Muſik nothwendig den eigenthuͤmlichen<lb/>
+Schwung geben, der ihr bei unſern ver-<lb/>
+brauchten Sylbenmaaßen zu finden oft<lb/>
+ſchwer wird. Der Hoͤrer wuͤrde dadurch<lb/>
+gewiſſermaaßen in die Roͤmiſche Welt, oder<lb/>
+wenigſtens in Zeiten ſeiner Jugend ver-<lb/>
+ſetzt, in welchen er Horaz zuerſt lieben<lb/>
+lernte.</p>         <lb/>
+<p>Wie gluͤcklich war uͤberhaupt dieſer<lb/>
+Dichter! Nicht nur im Leben, ſondern<lb/>
+auch in der Reihe von Wirkungen, die<lb/>
+ihm nach ſeinem Tode das Schickſal an-<lb/>
+wies. Die lyriſchen Dichter der Griechen<lb/>
+ſind untergegangen; Er faſt allein hat uns<lb/>
+<pb n="110" facs="#f0119"/>
+mehrere Formen ihrer Gedanken, ihrer Em-<lb/>
+pfindungen, ihres Ausdrucks, ihrer Syl-<lb/>
+benmaaße in ſeinen Nachbildungen geret-<lb/>
+tet; und was damit fuͤr ein Schatz geret-<lb/>
+tet ſei, hat die Zeitfolge erwieſen. Die<lb/>
+Pindariſche Form, die Form der griechi-<lb/>
+ſchen Scholien und Choͤre war und blieb<lb/>
+den Sprachen Europa's unanwendbar; in<lb/>
+der Horaziſchen Form erhob ſich die Ode,<lb/>
+ſelbſt zu einer Zeit, da die Nationalſpra-<lb/>
+chen der Europaͤiſchen Voͤlker ungebildet<lb/>
+dalagen. In allen Laͤndern ſchloſſen ſich<lb/>
+die Geiſter des Geſanges dem Venuſini-<lb/>
+ſchen Schwan an, und druͤckten zuerſt in<lb/>
+der geliehenen lateiniſchen Sprache Geſin-<lb/>
+nungen aus, die ſie in ihrer Landesſprache<lb/>
+noch nicht auszudruͤcken vermochten. Wie<lb/>
+niedrig iſts, was <hi rendition="#g">Balde</hi> u. a. Deutſch ſan-<lb/>
+gen; wie edler, wo ſie das von <hi rendition="#g">Horaz</hi><lb/>
+geheiligte Werkzeug der Sprache anwen-<lb/>
+den konnten! Ohne ihn haͤtten wir keinen<lb/>
+<pb n="111" facs="#f0120"/>
+<hi rendition="#g">Sarbievius</hi>, deſſen Oden, von <hi rendition="#g">Goͤtz</hi> u. a.<lb/>
+wiederum in unſre Sprache uͤbertragen,<lb/>
+immer noch den Roͤmiſch-Griechiſchen Geiſt<lb/>
+athmen. Gehen Sie in dieſem Geſichts-<lb/>
+punkt die Sammlungen durch, die <hi rendition="#g">Gru</hi>-<lb/>
+<hi rendition="#g">ter</hi> u. a. von den lateiniſchen Dichtern<lb/>
+der <hi rendition="#g">Italiaͤner</hi>, <hi rendition="#g">Gallier</hi>, <hi rendition="#g">Belgen</hi>,<lb/>
+<hi rendition="#g">Deutſchen</hi>, <hi rendition="#g">Daͤnen</hi>, <hi rendition="#g">Schotten</hi>, <hi rendition="#g">Eng</hi>-<lb/>
+<hi rendition="#g">laͤnder</hi> u. f. gegeben haben; unter vielem<lb/>
+Wortgeklingel werden Sie unſtreitig wahre<lb/>
+<hi rendition="#aq">delicias</hi> finden. Jeder edlere Dichter ver-<lb/>
+gaß gleichſam den Lauf der Dinge um ihn<lb/>
+her; uͤber die Vorurtheile ſeines Landes,<lb/>
+ſeiner Secte, ſeines Ordens hinausgeſetzt,<lb/>
+<hi rendition="#g">mußte</hi> er gleichſam mit dem Roͤmiſchen<lb/>
+Dichter auch Roͤmiſch denken. Was ſpaͤ-<lb/>
+terhin in unſrer Sprache eben auch durch<lb/>
+die Horaziſche Form geweckt und in ihr<lb/>
+vorgetragen ſei, darf ich Ihnen aus <hi rendition="#g">Klop</hi>-<lb/>
+<hi rendition="#g">ſtock</hi>, <hi rendition="#g">Goͤtz</hi>, <hi rendition="#g">Uz</hi>, <hi rendition="#g">Ramler</hi> u. a. nicht<lb/>
+<pb n="112" facs="#f0121"/>
+anfuͤhren. Horaz iſt <hi rendition="#g">Saͤnger der Hu</hi>-<lb/>
+<hi rendition="#g">manitaͤt</hi> gleichſam Vorzugsweiſe, die<lb/>
+Form ſeiner Gedanken iſt das erwaͤhlte<lb/>
+Lieblingsmaaß der lyriſchen Muſe worden.<lb/>
+O daß wir alſo ſchon Stellen, wie ſolche:<lb/>
+<hi rendition="#aq">Vitae ſumma breuis — nil deſperandum —<lb/>
+Tu ne quaeſieris — felices ter et amplius —<lb/>
+quod ſi Threicio — linquenda tellus — ae-<lb/>
+quam memento — rebus anguſtis — eheu<lb/>
+fugaces — tecum vivere amem, tecum obeam<lb/>
+libens</hi> — in lateiniſcher Sprache componirt<lb/>
+hoͤrten!</p>         <lb/>
+<p>Hier Eine von <hi rendition="#g">Sarbievs</hi> unſchaͤtzba-<lb/>
+ren Oden auch in der Form des Roͤmers:</p>         <lb/>
+<lb/>
+<lg type="poem">           <head><hi rendition="#g">An die Weisheit</hi>.</head>           <lg n="1">             <l>Die du, hoͤchſte Vernunft, weiſe die Schik-</l>             <lb/>
+<l>kung lenkſt!</l>             <lb/>
+<l>Wie zuweilen der Ernſt deiner Verfuͤ-</l>             <lb/>
+<l>gungen</l>             <lb/>
+<l>Uns ergetzet, ergetzen</l>             <lb/>
+<l>So die menſchliche Spiele Dich?</l>           </lg>           <lb/>
+<fw type="catch" place="bottom">Mit</fw>           <lb/>
+<pb n="113" facs="#f0122"/>
+<lg n="2">             <l>Mit freigebiger Hand ſtreueſt du Guͤter</l>             <lb/>
+<l>aus.</l>             <lb/>
+<l>Und wir raffen ſie auf, wenn ſie ge-</l>             <lb/>
+<l>fallen ſind,</l>             <lb/>
+<l>Wie die Jugend die Nuͤſſe</l>             <lb/>
+<l>Mit kurzweiligem Zanke rafft.</l>             <lb/>
+<l>Wer jetzt Kronen erhaſcht, bricht ſie; wer</l>             <lb/>
+<l>Zepter kriegt,</l>             <lb/>
+<l>Sieht ſie wieder entfuͤhrt, eh er ſie</l>             <lb/>
+<l>tragen kann.</l>           </lg>           <lb/>
+<lg n="3">             <l>Welt! ſo ſchwankſt du, zerriſſen</l>             <lb/>
+<l>Von den Haͤnden der Maͤchtigen.</l>             <lb/>
+<l>Was das geizige Gluͤck unter die Voͤlker</l>             <lb/>
+<l>theilt,</l>             <lb/>
+<l>Iſt ein Puͤnktchen. O laß, Weisheit,</l>             <lb/>
+<l>ich flehe Dir!</l>             <lb/>
+<l>Mich, indeß ſie ſo zanken,</l>             <lb/>
+<l>Mit dir lachen und froͤhlich ſeyn.</l>           </lg>         </lg>       </div>       <lb/>
+<fw type="sig" place="bottom">Dritte Samml. H</fw>       <lb/>
+<pb n="114" facs="#f0123"/>
+<div n="1">         <head>36.</head>         <lb/>
+<p><hi rendition="#in">E</hi>in zweites Fragment aus der Handſchrift<lb/>
+<hi rendition="#g">Ionien</hi> handelt<lb/>
+<hi rendition="#g">Von der Humanitaͤt Homers<lb/>
+in Anſehung des Krieges und der<lb/>
+Kriegfuͤhrenden ſeiner Iliade</hi>.<lb/>
+Laſſen Sie es jetzt ſtatt meines Briefes<lb/>
+gelten.</p>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <p>Selbſt in dem Heldengedicht, das groͤß-<lb/>
+tentheils Thaten der Krieger beſingt, dachte<lb/>
+Homer uͤber Krieg und Frieden <hi rendition="#g">menſch</hi>-<lb/>
+<hi rendition="#g">lich</hi>. Nicht nur, daß er jenen ſo oft den<lb/>
+<hi rendition="#g">Thraͤnenreichen</hi>, <hi rendition="#g">Maͤnnerfreſſen</hi>-<lb/>
+<pb n="115" facs="#f0124"/>
+<hi rendition="#g">den</hi>, <hi rendition="#g">verderblichen</hi>, <hi rendition="#g">harten</hi>, <hi rendition="#g">boͤſen</hi><lb/>
+Krieg nennet; er laͤßt keine Gelegenheit<lb/>
+vorbei, ihn ſeiner Natur nach, mit allen<lb/>
+begleitenden Uebeln, durch Thatſachen zu<lb/>
+ſchildern.</p>         <lb/>
+<p>I. Die Iliade beginnt mit einem Greiſe,<lb/>
+der um ſeine <hi rendition="#g">geraubte</hi>, liebe Tochter<lb/>
+vergebens flehet; und bald wird es nicht<lb/>
+verſchwiegen, daß die Griechen alle benach-<lb/>
+barte Kuͤſten und Inſeln gepluͤndert, daß<lb/>
+ſie die neun Jahre her großentheils vom<lb/>
+Raube gelebt haben. Schon faulet das<lb/>
+Holz an ihren Schiffen, die Seile vermo-<lb/>
+dern;</p>         <lb/>
+<p>Ihre Weiber daheim und unerzogene Kinder<lb/>
+Schmachten, ſie wiederzuſehn —<lb/>
+daher denn, als Agamemnon ihnen den<lb/>
+Vorſchlag that, nach neun Jahren vergeb-<lb/>
+licher Arbeit wieder die Schiffe zu beſtei-<lb/>
+gen und<lb/>
+<fw type="sig" place="bottom">H 2</fw><lb/>
+<pb n="116" facs="#f0125"/>
+— zu fliehn zum werthen Geburtsland;<lb/>
+ſo hatte er kaum das Wort geſprochen,<lb/>
+als die Verſammlung es in freudigem<lb/>
+Ernſt befolgte:</p>         <lb/>
+<lg type="poem">           <l>— Der Staub ſtieg unter den Fuͤßen der</l>           <lb/>
+<l>Maͤnner</l>           <lb/>
+<l>Wallend empor, und einer ermahnte den an-</l>           <lb/>
+<l>dern zur Eile,</l>           <lb/>
+<l>Daß ſie die Schiff' erreichten und bald ins</l>           <lb/>
+<l>Waſſer ſie zoͤgen.</l>         </lg>         <lb/>
+<p>Nur durch vieles Zureden und durch den<lb/>
+gebietenden Stab des Koͤnigs konnte die<lb/>
+Kriegsſatte Schaar wieder in die Verſamm-<lb/>
+lung, durch neue dringende Vorſtellungen<lb/>
+von Schande, Ruhm und Hoffnung wie-<lb/>
+der ins Feld gebracht werden.</p>         <lb/>
+<p>2. Denn es hatte ſich zur Laſt des Krie-<lb/>
+ges auch die <hi rendition="#g">Plage der Peſt</hi> gefunden;<lb/>
+eben ſie unterlaͤßt Homer nicht im Anfange<lb/>
+der Iliade ſchreckhaft zu zeichnen.</p>         <lb/>
+<pb n="117" facs="#f0126"/>
+<lg type="poem">           <l>— Die Voͤlker aus Argos</l>           <lb/>
+<l>Fielen bei Haufen dahin; die ſcharfen Pfeile</l>           <lb/>
+<l>des Gottes</l>           <lb/>
+<l>Flogen toͤdtend umher im ganzen achaͤiſchen</l>           <lb/>
+<l>Kriegsheer,</l>           <lb/>
+<l>Daß man taͤglich die Leichen, gethuͤrmt in</l>           <lb/>
+<l>Haufen verbrannte.</l>         </lg>         <lb/>
+<p>Denn wem iſt unbekannt, daß anſtecken-<lb/>
+de Krankheiten, das gewoͤhnliche Gefolge<lb/>
+aller Kriegsheere ſind, und elender metzeln,<lb/>
+als das Schwert des Feindes?</p>         <lb/>
+<p>3. Als die Goͤttinn endlich im Buſen der<lb/>
+Griechen die <hi rendition="#g">Streitluſt</hi> wieder erweckt,<lb/>
+Daß ſie nach unablaͤſſigem Kampf und Schlach-<lb/>
+ten ſich ſehnen,<lb/>
+und ihnen der Krieg wiederum viel ſuͤßer<lb/>
+duͤnkt,</p>         <lb/>
+<p>— als vormals<lb/>
+Ihnen die Ruͤckfahrt ſchien zum werthen<lb/>
+Lande der Heimath,<lb/>
+<fw type="sig" place="bottom">H 3</fw><lb/>
+<pb n="118" facs="#f0127"/>
+will der Dichter dem blutigen Gefechte noch<lb/>
+durch eine <hi rendition="#g">billige Auskunft</hi> zuvor-<lb/>
+kommen. <hi rendition="#g">Menelaus</hi> und <hi rendition="#g">Paris</hi>, de-<lb/>
+ren Sache es eigentlich allein iſt, um de-<lb/>
+ren willen Menſchen hingeopfert werden,<lb/>
+ſollen durch einen Zweikampf den Zwiſt<lb/>
+entſcheiden.</p>         <lb/>
+<lg type="poem">           <l>— Ihn hoͤrten mit Freude die Griechen und</l>           <lb/>
+<l>Trojer</l>           <lb/>
+<l>Hoffend, das Ende zu ſehn des Elendbringen-</l>           <lb/>
+<l>den Krieges.</l>         </lg>         <lb/>
+<p>4. Da dies Mittel aber nicht gelang,<lb/>
+und die Heere gegen einander ziehen muͤſ-<lb/>
+ſen, von wem laͤßt ſie der Dichter empoͤ-<lb/>
+ren? Die Trojer von <hi rendition="#g">Mars</hi>, den ſein<lb/>
+Vater, Jupiter, ſelbſt ſpaͤterhin alſo an-<lb/>
+redet:</p>         <lb/>
+<pb n="119" facs="#f0128"/>
+<lg type="poem">           <l>Wiſſe, dich haß' ich am meiſten von allen Be-</l>           <lb/>
+<l>wohnern des Himmels:</l>           <lb/>
+<l>Denn du findeſt nur Luſt an Zank und Krie-</l>           <lb/>
+<l>gen und Schlachten.</l>           <lb/>
+<l>Aehnlich biſt du der Mutter am unertraͤgli-</l>           <lb/>
+<l>chen Starrſinn,</l>           <lb/>
+<l>Der nie weichet und kaum von mir durch</l>           <lb/>
+<l>Worte gezaͤhmt wird.</l>         </lg>         <lb/>
+<p>Die Griechen regt Pallas auf, und mit<lb/>
+beiden Aufregern ſind</p>         <lb/>
+<lg type="poem">           <l>— Das <hi rendition="#g">Schrecken</hi>, die <hi rendition="#g">Furcht</hi>, die</l>           <lb/>
+<l>raſtloswuͤtende <hi rendition="#g">Zwietracht</hi>,</l>           <lb/>
+<l>Schweſter des Menſchenverderbenden Mars</l>           <lb/>
+<l>und ſeine Gehuͤlfinn,</l>           <lb/>
+<l>Die erſt klein ſich immer erhebt, bis endlich</l>           <lb/>
+<l>ihr Haupt ſich</l>           <lb/>
+<l>Hoch in Wolken verbirgt, indem ſie die Erde</l>           <lb/>
+<l>bewandelt;</l>           <lb/>
+<fw type="sig" place="bottom">H 4</fw>           <lb/>
+<pb n="120" facs="#f0129"/>
+<l>Dieſe durcheilte die Heer' und ſaͤ'te zu beider</l>           <lb/>
+<l>Verderben</l>           <lb/>
+<l>Streitgier unter ſie aus, und mehrte der Krie-</l>           <lb/>
+<l>ger Getuͤmmel.</l>         </lg>         <lb/>
+<p>Sind dieſe Namen hier allegoriſche Kunſt-<lb/>
+werke? <hi rendition="#g">Geſpenſter</hi> ſinds, die Homer<lb/>
+eben deßwegen ſchreckhaft einfuͤhret, weil<lb/>
+durch Perſonen, die in beſtimmten Umriſ-<lb/>
+ſen erſcheinen, die Wirkung nicht hervor-<lb/>
+zubringen war, die er hervorbringen wollte.<lb/>
+So ſcheint er zu andrer Zeit den <hi rendition="#g">Zorn</hi>,<lb/>
+die <hi rendition="#g">Schadenfreude</hi>, das ſchrecklicher-<lb/>
+greifende <hi rendition="#g">Todesverhaͤngniß</hi> zu perſo-<lb/>
+nificiren; zu gleichem Endzweck, unſere<lb/>
+Begriffe naͤmlich zu verwirren durch dieſe<lb/>
+unumſchriebene Wortlarven. Der <hi rendition="#g">Zorn</hi><lb/>
+iſt ihm wie ein Rauch, und die <hi rendition="#g">Zwie</hi>-<lb/>
+<hi rendition="#g">tracht</hi> erhebt ſich gleicher Geſtalt zwiſchen<lb/>
+Himmel und Erde. — Von allen Kuͤnſt-<lb/>
+ler-Ideen weggeſehen, wie wahr und wie<lb/>
+<pb n="121" facs="#f0130"/>
+graͤßlich! Aus einem Nichts entſpringet<lb/>
+die Zwietracht und wird in kurzem uner-<lb/>
+meßlich. Nie umſchrieben in ihrem Weſen<lb/>
+kommt ſie vielleicht aus Einer Kammer<lb/>
+hervor und durcheilt Staaten, durcheilt<lb/>
+Heere, ſaͤet Verderben und Streitgier um-<lb/>
+her, immer das Haupt in hohen, unabſeh-<lb/>
+lichen Wolken verborgen. Selten wiſſen<lb/>
+die Menſchen, weßhalb ſie ſtreiten; je laͤn-<lb/>
+ger aber, deſto hartnaͤckiger hadern ſie:<lb/>
+denn von Schritt zu Schritt waͤchſt die<lb/>
+unerſaͤttliche Eris.</p>         <lb/>
+<lg type="poem">           <lg n="1">             <l>5. Jetzo trafen ſie nah' auf Einem Raume</l>             <lb/>
+<l>zuſammen,</l>             <lb/>
+<l>Schild und Lanzen begegneten ſich und Kraͤfte</l>             <lb/>
+<l>der ſtarken</l>             <lb/>
+<l>Eiſengepanzerten Maͤnner. Es ſtieſſen die</l>             <lb/>
+<l>baͤuchigen Schilde</l>             <lb/>
+<l>Wechſelnd gegen einander, und ward ein ſchreck-</l>             <lb/>
+<l>lich Getoͤſe.</l>           </lg>           <lb/>
+<fw type="sig" place="bottom">H 5</fw>           <lb/>
+<pb n="122" facs="#f0131"/>
+<lg n="2">             <l>Laut ertoͤnte zugleich das Jammern und Jauch-</l>             <lb/>
+<l>zen der Krieger,</l>             <lb/>
+<l>Schlagender und Erſchlagner; es ſtroͤmte von</l>             <lb/>
+<l>Blute die Erde.</l>           </lg>         </lg>         <lb/>
+<p>Da ſich Homers Iliade einem großen<lb/>
+Theil nach mit dieſem Gemetzel beſchaͤf-<lb/>
+tigt: ſo wird das Menſchengemuͤth des<lb/>
+Dichters hier vorzuͤglich fuͤhlbar. Seine<lb/>
+Todte laͤßt er nie als Thiere fallen; er be-<lb/>
+zeichnet, ſo viel er kann, in einigen Ver-<lb/>
+ſen als Menſchenfreund ihr trauriges<lb/>
+Schickſal. <hi rendition="#g">Dieſer</hi> wird nie mehr zu ſei-<lb/>
+nen geliebten Eltern, zu ſeinen Bruͤdern,<lb/>
+ſeiner Gattinn, ſeinen Kindern wiederkeh-<lb/>
+ren; <hi rendition="#g">jener</hi> hat Reichthum, Wohlſtand,<lb/>
+eine gluͤckliche Ruhe verlaſſen, die er nie<lb/>
+mehr genießen wird. <hi rendition="#g">Einen andern</hi><lb/>
+zeichnet er als Kuͤnſtler, als einen geſchick-<lb/>
+ten, ſchoͤnen, Gottbegabten Mann; ſeine<lb/>
+Kunſt iſt dahin, ſeine Schoͤnheit verwelket,<lb/>
+<pb n="123" facs="#f0132"/>
+der Goͤtter Gaben werden mit der Aſche<lb/>
+begraben. <hi rendition="#g">Jenen</hi> hat falſche Hoffnung,<lb/>
+eine truͤgliche Weiſſagung ins Feld gelockt;<lb/>
+der Tod ergreift ihn, ſchwarze Nacht um-<lb/>
+huͤllet ſein Auge. Und ferner. Mehrere<lb/>
+dieſer Erinnerungen ſind ſo zart, daß ſie<lb/>
+<hi rendition="#g">Inſchriften zu den Grabmaͤlern<lb/>
+der Erſchlagenen</hi> ſeyn koͤnnten, wenn<lb/>
+arme Kriegserſchlagene Grabmal und Urne<lb/>
+erhielten.</p>         <lb/>
+<p>6. Merkwuͤrdig iſt hiebei, daß Homer<lb/>
+dieſes zaͤrtliche Andenken am meiſten <hi rendition="#g">den<lb/>
+Trojanern</hi> ſchenket. Er ein Grieche, der<lb/>
+den Ruhm griechiſcher Helden verewigen<lb/>
+wollte, war zugleich ein Aſiat, ein Jonier,<lb/>
+ein Menſch, und ich moͤchte ſagen ein Be-<lb/>
+daurer des Trojaniſchen Schickſals. Weit<lb/>
+entfernt von der barbariſchen Kleinmuth,<lb/>
+ſeine Feinde verunglimpfend zu beluͤgen,<lb/>
+zeichnet er ihr zarteres Gemuͤth, die groͤ-<lb/>
+<pb n="124" facs="#f0133"/>
+ßere Weichlichkeit ihres Klima, ihre Fami-<lb/>
+lienneigungen, ihre Kuͤnſte, ihr Wohlbeha-<lb/>
+gen zu Friedenszeiten, in Zuͤgen, an denen<lb/>
+ſich offenbar das Auge des Dichters ſelbſt<lb/>
+ergoͤtzte. Die armen Trojaner ſind ihm<lb/>
+eine Heerde Schaafe, die von Woͤlfen an-<lb/>
+gefallen wird; unter ihnen ſind viele frem-<lb/>
+de Bundsgenoſſen, die am Schickſal der<lb/>
+bedraͤngten Koͤnigsſtadt nur aus nachbar-<lb/>
+lichem Mitleid Theil nehmen. Uns den<lb/>
+inneren Wohlſtand Troja's zu zeigen, un-<lb/>
+ſer Herz fuͤr die Bedraͤngten mitfuͤhlend zu<lb/>
+machen, fuͤhrt er ſeinen edlen Hektor im<lb/>
+Anfange des Treffens in die Stadt zuruͤck.<lb/>
+Er zeigt uns Priamus und ſeiner Soͤhne<lb/>
+Wohnungen, zeigt uns die Helena ſelbſt in<lb/>
+einer zwar erniedrigten, aber nicht unwuͤr-<lb/>
+digen Geſtalt; ſo die Aelteſten der Stadt,<lb/>
+ſo endlich Andromache und ihr Kind. Ruͤh-<lb/>
+render iſt wohl kein Abſchied geſchildert<lb/>
+<pb n="125" facs="#f0134"/>
+worden, als den Hektor von ihnen beiden<lb/>
+nahm; und es iſt eine Ueberkritik der<lb/>
+Grammatiker, daß in der Andromache<lb/>
+Rede einige Verſe zu allgemein und zu<lb/>
+viel ſeyn ſollen. Bei dem Dichter ſpricht<lb/>
+ſie im Namen aller Trojaniſchen Frauen,<lb/>
+fuͤr ſie und ihre verwaiſeten, gefangenen<lb/>
+Kinder. Auch hat ſich Homer wohl gehuͤ-<lb/>
+tet, uns die Unthaten ſelbſt zu erzaͤhlen,<lb/>
+die dieſer traurige Abſchied nur vorahnet,<lb/>
+ob ſich gleich der Grund ſeiner ganzen<lb/>
+Odyſſee, die ungluͤckliche Ruͤckfahrt der<lb/>
+Griechen, großen Theils auf ſie bezog.<lb/>
+Weder mit der Graͤuelthat des Ajax vor<lb/>
+dem Bilde der Pallas, noch mit des Pria-<lb/>
+mus, der Polyxena und Andrer unwuͤrdi-<lb/>
+gem Morde hat ſeine Muſe ſich befleckt;<lb/>
+die Kuͤnſtler und tragiſchen Dichter nah-<lb/>
+men ihre Vorſtellung dieſer Scenen aus<lb/>
+andern ſogenannten cykliſchen Dichtern.<lb/>
+<pb n="126" facs="#f0135"/>
+Hektors letzter Gang nach Troja iſt bei<lb/>
+Homer in jedem Schritte groß und heilig.<lb/>
+Der Edle will die zornige Goͤttinn verſoͤh-<lb/>
+nen und ſeine geliebte Vaterſtadt entſuͤn-<lb/>
+digen; daher er auch den Miſſethaͤter Pa-<lb/>
+ris ins Feld fodert, bis am Skaͤiſchen<lb/>
+Thore endlich, an dieſem Ungluͤcksorte, der<lb/>
+traurige Abſchied die Scene endet — —</p>         <lb/>
+<p>Homer war keiner von denen, die ih-<lb/>
+rem Lieblingshelden die ganze Welt auf-<lb/>
+opfern. Seinen Achilles kleidet er in<lb/>
+Gottaͤhnliche Groͤße; Hektor dagegen in<lb/>
+alle Wuͤrde und Zierde des Vertheidigers<lb/>
+ſeiner Geburtsſtadt. Beide Helden konn-<lb/>
+ten in dem Menſchenverderblichen Kriege<lb/>
+nicht auf Einmal glaͤnzen; indeß Jener<lb/>
+alſo einige Tage ruhet, laͤßet er dieſen<lb/>
+ſein Gluͤck aufs hoͤchſte treiben; bis er<lb/>
+durch Anlegung der Waffen Achills die<lb/>
+Nemeſis reizet, und dem Tode ein Opfer<lb/>
+<pb n="127" facs="#f0136"/>
+daſteht. So uͤbertrieb Patroklus ſeine Be-<lb/>
+ſtimmung und ſank; nicht von Hektor,<lb/>
+ſondern zuerſt von Apollo ſelbſt Ruͤckwaͤrts<lb/>
+getroffen, daß Achills Waffen von ihm<lb/>
+fielen. So ſollte, hinter Homers Iliade,<lb/>
+Achilles, da ſein Ziel erreicht war, auch<lb/>
+ſinken. Das Schickſal aller Dreien, der<lb/>
+edelſten Maͤnner, iſt in einander verwebt,<lb/>
+und der Tod Eines ein Verkuͤndiger vom<lb/>
+Tode des Andern. Im Leben und Tode<lb/>
+ehrt Jupiter den Hektor. Da er vom<lb/>
+Zorn der Juno ihn nicht erretten kann,<lb/>
+opfert er ſeinen eignen geliebten Sohn<lb/>
+Sarpedon mit ihm zugleich auf, und ſei-<lb/>
+nen Leichnam entzieht er der Rache Achills<lb/>
+auf die edelſte Weiſe.</p>         <lb/>
+<p>Und wie den Hektor, ſo hat Homer<lb/>
+den alten <hi rendition="#g">Priamus</hi> und alle ſeine Kin-<lb/>
+der geehret. <hi rendition="#g">Deiphobus</hi> iſt vom Apoll<lb/>
+begeiſtert, wie keiner im griechiſchen Heere;<lb/>
+<pb n="128" facs="#f0137"/>
+ſelbſt <hi rendition="#g">Paris</hi> Vorzuͤge werden bei al-<lb/>
+lem Tadel, der ihm gebuͤhrt, nicht ver-<lb/>
+ſchwiegen.</p>         <lb/>
+<p>7. Warum unterſagt Priamus bei dem<lb/>
+Begraͤbniß der Erſchlagenen ſeinem Heer<lb/>
+die weinende Trauerklage? Offenbar lag<lb/>
+dies Verbot in der Situation der Troja-<lb/>
+ner. Sie, eine Verſammlung Aſiatiſcher,<lb/>
+weicherer Voͤlker, an die laut-weinende<lb/>
+Trauerklage mehr noch als die Griechen<lb/>
+gewoͤhnet, ſie, die in der Naͤhe ihrer Ver-<lb/>
+wandten, Kinder und Weiber, vor Troja's<lb/>
+Mauern ihre naͤchſten Freunde und Lands-<lb/>
+leute beſtatten, und in ihrem Tode ihr eignes<lb/>
+Schickſal vorausſahen, ſie hatten ein ſolches<lb/>
+Verbot noͤthiger als die haͤrteren Griechen,<lb/>
+die der angreifende Theil waren, und fern<lb/>
+von den Ihrigen nur ihre Mitſtreiter be-<lb/>
+gruben. Um Patroklus Leiche weinen die<lb/>
+Griechen, inſonderheit die Myrmidonen,<lb/>
+<fw type="catch" place="bottom">am</fw><lb/>
+<pb n="129" facs="#f0138"/>
+am heftigſten Achilles; auch Briſeis weint<lb/>
+und die uͤbrigen Weiber, letztere aber<lb/>
+Um Patroklus zum Schein, im Grund' um<lb/>
+eigenes Elend.</p>         <lb/>
+<p>8. Noch mehr zeigt die Menſchlichkeit<lb/>
+Homers ſich in der Weisheit, mit der er<lb/>
+uͤber das <hi rendition="#g">Schickſal des Krieges</hi><lb/>
+dachte. Alles Kriegsungluͤck laͤßt er durch<lb/>
+<hi rendition="#g">Fehler</hi> entſtehen, durch Fehler und Lei-<lb/>
+denſchaften der Goͤtter und Menſchen. Das<lb/>
+alte Troja wird vom Jupiter dem Eigen-<lb/>
+ſinn eines unverſoͤhnlichen Weibes aufge-<lb/>
+opfert, die eine Reihe ihrer Lieblingsſtaͤdte<lb/>
+hingeben will, wenn Jupiter hier nur ih-<lb/>
+ren Willen erfuͤllet. Die keuſcheſte, ſtolzeſte<lb/>
+Goͤttinn erroͤthet nicht, ihre Umarmung zum<lb/>
+Netz des Betruges zu machen, aus tiefem<lb/>
+Groll lieblos Liebe zu heucheln, mit ge-<lb/>
+borgtem Schmuck an offnem Tage aus der<lb/>
+<fw type="sig" place="bottom">Dritte Samml. I</fw><lb/>
+<pb n="130" facs="#f0139"/>
+Gattin eine beruͤckende Buhlerin zu wer-<lb/>
+den, nur damit Einige Trojaner mehr blu-<lb/>
+ten, indeß ihr beſtochener Kaͤmmerling, der<lb/>
+Schlaf, dem Schickſalwaͤgenden Gott die<lb/>
+Augen zuſchließt. Das Aeußerſte der Rache<lb/>
+eines Weibes! Gegen Troja ſtehen zwo<lb/>
+Weiber, fuͤr Troja zwei Maͤnner; wer zwei-<lb/>
+felt, wenn es auf Haß ankommt, welche Par-<lb/>
+thei zum Ziel gelangen werde? Ging es in den<lb/>
+hartnaͤckigſten Kriegen der Erde je anders?</p>         <lb/>
+<p>In der menſchlichen Scene hangen, wie<lb/>
+vorher gezeigt worden, der Griechen Unfaͤlle<lb/>
+bei Homer lediglich vom Stolz und Wahn<lb/>
+des Koͤniges ab, dem keiner der Rathge-<lb/>
+benden Fuͤrſten ſich zu widerſetzen ge-<lb/>
+traute. Ein falſcher Traum iſt ſeine be-<lb/>
+lehrende Gottheit; ſonſt erſcheinet ihm<lb/>
+keine, (deren mehrere doch andern erſchei-<lb/>
+nen) waͤhrend der ganzen Iliade. Dieſer<lb/>
+falſche Traum heißt <hi rendition="#g">Duͤnkel</hi>, dem Aga-<lb/>
+<pb n="131" facs="#f0140"/>
+memnon, ſchon ſeinem Namen nach ein<lb/>
+Jupiter auf Erden, zum Verderben ſeines<lb/>
+Volkes gehorchet. Den aͤlteſten Rathge-<lb/>
+ber beſticht er damit, daß der Traum in<lb/>
+ſeiner Geſtalt erſchienen ſei; andre Fuͤrſten<lb/>
+ſchweigen, oder wetteifern thoͤricht mit<lb/>
+Achilles Ruhme. So kommt durch Einen,<lb/>
+durch Wenige das ganze Heer an den Rand<lb/>
+des Abgrundes. Zu ſpaͤt wird geſprochen,<lb/>
+zu ſpaͤt geweinet; und unter dieſem allen<lb/>
+iſt und bleibt Agamemnon der ſorgſamſte<lb/>
+Hirte der Voͤlker. O Homer, ſo oft ich<lb/>
+von neuem Deine Iliade leſe, finde ich in<lb/>
+ihr neue Zuͤge der ordnenden Weisheit,<lb/>
+Klugheit und Menſchenliebe, mit der<lb/>
+du wilde Verhaͤltniſſe eines rohen Zeit-<lb/>
+alters erzaͤhleſt. Und keine Lehre, keine<lb/>
+Warnung entfließt deinen Lippen, als ob ſie<lb/>
+die deinige waͤre; jedes Laſter, jede Thorheit,<lb/>
+jede Leidenſchaft ſelbſt lehret und warnet.</p>         <lb/>
+<fw type="sig" place="bottom">I 2</fw>         <lb/>
+<pb n="132" facs="#f0141"/>
+<div n="2">           <head><hi rendition="#g">Diderot</hi> uͤber die Einfalt in<lb/>
+<hi rendition="#g">Homer</hi>.</head>           <lb/>
+<p>„Die Natur hat mir Geſchmack an der<lb/>
+Einfalt gegeben und ich bemuͤhe mich, die-<lb/>
+ſen Geſchmack durch das Leſen der Alten<lb/>
+vollkommner zu machen.</p>           <lb/>
+<p>O mein Freund, wie ſchoͤn iſt die Ein-<lb/>
+falt! Wie uͤbel haben wir gethan, uns<lb/>
+davon zu entfernen!</p>           <lb/>
+<p>Wollen Sie hoͤren, was der Schmerz<lb/>
+einem Vater eingiebt, der jetzt ſeinen<lb/>
+Sohn verlohren hat? Hoͤren Sie den<lb/>
+Priamus. Wollen Sie wiſſen, wie ſich ein<lb/>
+Vater ausdruͤckt, der dem Moͤrder ſeines<lb/>
+Sohns fußfaͤllig flehet? Hoͤren Sie eben<lb/>
+den Priamus zu den Fuͤßen des Achilles.</p>           <lb/>
+<p>Was iſt in dieſen Reden? Kein Witz,<lb/>
+aber ſo viel Wahrheit, daß man faſt glau-<lb/>
+ben ſollte, man wuͤrde eben ſo wohl als<lb/>
+<pb n="133" facs="#f0142"/>
+Homer darauf gefallen ſeyn. Wir aber,<lb/>
+die wir die Schwierigkeit und das Ver-<lb/>
+dienſt, ſo einfaͤltig zu ſeyn, ein wenig ken-<lb/>
+nen, moͤgen dieſe Stellen nur leſen, moͤgen<lb/>
+ſie mit Bedacht leſen, und hernach alle<lb/>
+unſre Schreibereien nehmen und ins Feuer<lb/>
+werfen. Das Genie laͤßt ſich fuͤhlen, aber<lb/>
+nicht nachahmen.“ —</p>           <lb/>
+<p>Was Diderot hier von Homers Ein-<lb/>
+falt ſagt, moͤchte ich von ſeiner Humani-<lb/>
+taͤt ſagen. Man leſe ſeine Beſchreibun-<lb/>
+gen des Todes der Erſchlagnen, man leſe<lb/>
+Hektors Abſchied von ſeinem Weibe und<lb/>
+Kinde, man bemerke jeden Zug, mit dem<lb/>
+der Dichter des Achills erwaͤhnet, inſon-<lb/>
+derheit wenn er ihn ſelbſt redend einfuͤh-<lb/>
+ret, auch was er hie und da uͤber das<lb/>
+<hi rendition="#g">Gluͤck und Ungluͤck des menſchli</hi>-<lb/>
+<hi rendition="#g">chen Lebens</hi>, uͤber <hi rendition="#g">Reichthum</hi>, <hi rendition="#g">Ehre</hi>,<lb/>
+<hi rendition="#g">Adel der Seele und des Geſchlechts</hi>,<lb/>
+<fw type="sig" place="bottom">I 3</fw><lb/>
+<pb n="134" facs="#f0143"/>
+uͤber <hi rendition="#g">Gerechtigkeit</hi>, <hi rendition="#g">Tapferkeit</hi>, <hi rendition="#g">Ge</hi>-<lb/>
+<hi rendition="#g">duld</hi>, <hi rendition="#g">Weisheit</hi>, <hi rendition="#g">Maͤßigung</hi>, <hi rendition="#g">Sanft</hi>-<lb/>
+<hi rendition="#g">muth</hi>, <hi rendition="#g">Gaſtfreundſchaft</hi>, <hi rendition="#g">Verſchwie</hi>-<lb/>
+<hi rendition="#g">genheit</hi>, <hi rendition="#g">Treue</hi>, <hi rendition="#g">Wahrheit</hi>, <hi rendition="#g">uͤber die<lb/>
+Verehrung der Goͤtter</hi>, <hi rendition="#g">die Erge</hi>-<lb/>
+<hi rendition="#g">bung in den Willen des Schickſals</hi>,<lb/>
+und die ihnen entgegengeſetzten Thorheiten<lb/>
+und Laſter einſtreuet; welch eine Schule<lb/>
+der Humanitaͤt iſt in ihm!</p>         </div>       </div>       <lb/>
+<pb n="135" facs="#f0144"/>
+<div n="1">         <head>37.</head>         <lb/>
+<p><hi rendition="#g"><hi rendition="#in">L</hi>eßings</hi> Emilia Galotti hat mich wie-<lb/>
+der einmal ins Theater gelockt; wie zufrie-<lb/>
+den ja geſaͤttigt bin ich hinausgegangen!<lb/>
+Ein Theaterſtuͤck muß geſehen, nicht gele-<lb/>
+ſen werden: denn wenn es iſt, was es<lb/>
+ſeyn ſoll, ſo iſt ja eben auf die Vorſtel-<lb/>
+lung alles berechnet. Ich kann mir nicht<lb/>
+einbilden, daß wenn Stuͤcke dieſer Art,<lb/>
+(aber auch keine andre als ſolche) woͤchent-<lb/>
+lich nur Einmal, auf die leidlich-vollkom-<lb/>
+menſte Weiſe gegeben wuͤrden, und dieſe<lb/>
+Stuͤcke lauter Staͤnde und Situationen un-<lb/>
+ſrer Welt, wie dieſes, enthielten, das Publi-<lb/>
+cum ungebildet, unerleuchtet bleiben koͤnnte.</p>         <lb/>
+<fw type="sig" place="bottom">I 4</fw>         <lb/>
+<pb n="136" facs="#f0145"/>
+<p>Bei der zweiten Ausgabe des <hi rendition="#g">Dide</hi>-<lb/>
+<hi rendition="#g">rotſchen</hi> Theaters bezeugte Leßing dieſem<lb/>
+Schriftſteller oͤffentlich ſeine Dankbarkeit<lb/>
+als dem Manne, der an der Bildung ſei-<lb/>
+nes Geſchmacks großen Antheil habe.<lb/>
+Denn, faͤhrt er fort, es mag mit dieſem<lb/>
+auch beſchaffen ſeyn, wie es will: ſo bin<lb/>
+ich mir doch zu wohl bewußt, daß er ohne<lb/>
+<hi rendition="#g">Diderots</hi> Muſter und Lehren eine ganz<lb/>
+andre Richtung wuͤrde bekommen haben.<lb/>
+Vielleicht eine eignere; aber doch ſchwer-<lb/>
+lich eine, mit der am Ende mein Verſtand<lb/>
+zufriedener geweſen waͤre.“ Und ſetzt ſo-<lb/>
+dann weiter den Einfluß ins Licht, den <hi rendition="#g">Di</hi>-<lb/>
+<hi rendition="#g">derots</hi> Stuͤcke, inſonderheit ſein <hi rendition="#g">Haus</hi>-<lb/>
+<hi rendition="#g">vater</hi> auf das Deutſche Theater gehabt habe.</p>         <lb/>
+<p>Sie wiſſen, wieviel <hi rendition="#g">Diderot</hi> darauf<lb/>
+hielt, daß <hi rendition="#g">Staͤnde</hi> aufs Theater gebracht<lb/>
+werden ſollten, und was <hi rendition="#g">Leßing</hi> in ſeiner<lb/>
+Dramaturgie dabei zu erinnern fand. Na-<lb/>
+<pb n="137" facs="#f0146"/>
+tuͤrlich koͤnnen Staͤnde ohne beſtimmte Cha-<lb/>
+raktere auf dem Theater keine Wirkung<lb/>
+thun; aber bilden ſich die Charaktere der<lb/>
+Menſchen nicht in und nach Staͤnden? und<lb/>
+welcher Stand haͤtte auf den Charakter mehr<lb/>
+Einfluß, als der Stand eines Prinzen? Hier<lb/>
+hatte alſo Leßing ein weites Feld, das <hi rendition="#g">phi</hi>-<lb/>
+<hi rendition="#g">loſophiſche Allgemeine</hi>, dadurch<lb/>
+Ariſtoteles die Poeſie von der nackten Ge-<lb/>
+ſchichte unterſcheidet, als Philoſoph und<lb/>
+Dichter zu bearbeiten. Er zeigt den Cha-<lb/>
+rakter des Prinzen in ſeinem Stande, den<lb/>
+Stand in ſeinem Charakter, beide von<lb/>
+mehreren Seiten, in mehreren Situationen.<lb/>
+Nicht nur bringt er den Prinzen in ſeiner<lb/>
+gegenwaͤrtigen Gemuͤthsſtimmung mit den<lb/>
+verſchiedenſten Perſonen, Maͤnnern und<lb/>
+Weibern, mit Kuͤnſtler und Canzler, Kam-<lb/>
+merherr und Kammerdiener, mit einer<lb/>
+Geliebten, die er jetzt nicht geliebt haben,<lb/>
+<fw type="sig" place="bottom">I 5</fw><lb/>
+<pb n="138" facs="#f0147"/>
+und einer andern, die jetzt von ihm eben<lb/>
+nicht geliebt ſeyn will, mit dem Vater, der<lb/>
+Mutter, dem Braͤutigam derſelben, ja mit<lb/>
+ſich ſelbſt in Geſpraͤch und Handlung; er<lb/>
+unterlaͤßt auch keine Gelegenheit, in jeder<lb/>
+dieſer Situationen eigentlich nach dem<lb/>
+Ringe zu rennen, und wenn mir der Aus-<lb/>
+druck erlaubt iſt, das <hi rendition="#g">Prinzliche</hi> dabei<lb/>
+zu charakteriſiren. Niemand wird unver-<lb/>
+ſchaͤmt gnug ſeyn, deßhalb das Stuͤck eine<lb/>
+Satyre auf die Prinzen zu nennen: denn<lb/>
+nur <hi rendition="#g">dieſer</hi> Prinz, ein Italiaͤniſcher, jun-<lb/>
+ger, eben zu vermaͤhlender Prinz iſts, der<lb/>
+ſich dieſe Spaͤße giebt und bei Marinelli<lb/>
+andre zulaͤßt. Auch iſt ſein Stand, ſeine<lb/>
+Wuͤrde, ſelbſt ſein perſoͤnlicher Charakter<lb/>
+in Allem zart gehalten, und mit wahrer<lb/>
+Freundlichkeit geſchonet. Am Ende des<lb/>
+Stuͤcks aber, wenn der Prinz ſein veraͤcht-<lb/>
+liches Werkzeug ſelbſt verachtend von ſich<lb/>
+<pb n="139" facs="#f0148"/>
+weiſet, und dabei ausruft: „Gott! Gott!<lb/>
+iſt es zum Ungluͤcke ſo mancher nicht genug,<lb/>
+daß Fuͤrſten Menſchen ſind; muͤſſen ſich<lb/>
+auch noch Teufel in ihren Freund ver-<lb/>
+ſtellen?“ und die unſchuldige Braut dabei<lb/>
+im Blut liegt, der Vater, ihr Moͤrder, ſich<lb/>
+eben vor dieſen Fuͤrſten, als vor ſeinen<lb/>
+Richter ſtellt, Marinelli, der Unterhaͤndler<lb/>
+dieſes Gewerbes, ſich noch bedenkt, den<lb/>
+Dolch aufzuheben; wer iſt, dem, wenn in<lb/>
+ſolcher Situation der Vorhang ſinkt, nicht<lb/>
+noch andre Gedanken, außer dem, den der<lb/>
+Prinz ſagt, in die Seele ſtroͤmen? Noth-<lb/>
+wendig fragt man ſich, wie wird das Ge-<lb/>
+richt uͤber den alten Odoardo ablaufen?<lb/>
+wie lange wird Marinelli entfernt ſeyn?<lb/>
+d. i. wie bald wird er, wenn ſein Dienſt<lb/>
+abermals brauchbar iſt, wiederkehren?<lb/>
+u. f.</p>         <lb/>
+<pb n="140" facs="#f0149"/>
+<p>Es iſt vielleicht das hoͤchſte Verdienſt<lb/>
+der Poeſie, inſonderheit des Drama, Staͤnde<lb/>
+und Charaktere aller Art (wenn mir das<lb/>
+niedrige Gleichniß erlaubt iſt) an dem fein-<lb/>
+ſten Spieß, aufs langſamſte am Feuer eig-<lb/>
+ner Thorheiten, Neigungen und Leiden-<lb/>
+ſchaften umzuwenden. In der Seele des<lb/>
+Zuſchauers werden dieſe Staͤnde und Cha-<lb/>
+raktere dadurch <hi rendition="#g">gahr</hi>, oder, mit einem<lb/>
+edleren Ausdruck, <hi rendition="#g">geruͤndet</hi>. Man ſie-<lb/>
+het, was an der Figur Ernſt oder Scherz,<lb/>
+Wort oder That iſt; man blickt auf den<lb/>
+Grund hinunter, und greift das Beſtaͤn-<lb/>
+dige oder Unſtatthafte ihres Charakters,<lb/>
+ihre Verſatilitaͤt und innere Ehrlichkeit<lb/>
+gleichſam mit Haͤnden.</p>         <lb/>
+<p>Die alte Tragoͤdie ging darauf hinaus,<lb/>
+durch Darſtellung unerwartet-ſchrecklicher<lb/>
+Koͤnigsunfaͤlle und Kataſtrophen die Ur-<lb/>
+theile der Menſchen zu berichtigen, ihre<lb/>
+<pb n="141" facs="#f0150"/>
+Grundſaͤtze zu ſichern, und das <hi rendition="#aq">poco piu</hi><lb/>
+und <hi rendition="#aq">poco meno</hi> der Leidenſchaften, der<lb/>
+Furcht und des Mitleids, dem Zuſchauer<lb/>
+auf aͤchter Waage vorzuwaͤgen. Die neuere<lb/>
+Tragoͤdie, wenn ſie gleich ihren Bogen<lb/>
+nicht ſo ſcharf ſpannen und ihre Kaͤule ſo<lb/>
+raſch ſchwingen kann, als die alte, hat<lb/>
+dennoch mit ihr Einerlei Endzweck. Sie<lb/>
+ſpricht zum innerſten Gefuͤhl, zur treueſten<lb/>
+Ehrlichkeit des Menſchen; die Uebelthat<lb/>
+kann ſie auch jenſeit der Geſetze verfolgen,<lb/>
+ſo wie das Luſtſpiel die Thorheit auch jen-<lb/>
+ſeit der Geſetze ſtraft. Beide ſind Spre-<lb/>
+cherinnen vor dem erhabenſten Richterſtuhl<lb/>
+unſres Geſchlechts, vor der <hi rendition="#g">Humanitaͤt</hi><lb/>
+ſelbſt, und ventiliren, beſcheinigen und ge-<lb/>
+genbeſcheinigen vor ihr auf die ſchaͤrfſte,<lb/>
+freieſte Weiſe.</p>         <lb/>
+<p>Leßing kannte dieſen Proceß uͤber die<lb/>
+innere Ehrlichkeit eines Charakters aufs<lb/>
+<pb n="142" facs="#f0151"/>
+genaueſte; ſein <hi rendition="#g">Tellheim</hi> iſt ein von al-<lb/>
+len Seiten gepruͤfter, militairiſcher Cha-<lb/>
+rakter; alles, was um ihn ſteht, was ihm<lb/>
+begegnet, ſichtet ihn das ganze Stuͤck hin-<lb/>
+durch moraliſch. Wen ſolche Komoͤdien<lb/>
+und Trauerſpiele nicht bearbeiten koͤnnen,<lb/>
+der moͤchte durch Worte ſchwerlich zu be-<lb/>
+arbeiten ſeyn.</p>         <lb/>
+<p>Man ruͤckt Leßingen vor, daß er die<lb/>
+zarteſte Weiblichkeit, das uͤber allen Aus-<lb/>
+druck Reizende <hi rendition="#aq">je ne <choice><sic>ſcais</sic><corr>ſais</corr></choice> quoi</hi> des ſchoͤnen<lb/>
+Geſchlechts nicht gekannt, und ſolches eben<lb/>
+ſo wohl in der Emilie, als der Minna,<lb/>
+der Recha als der Orſina verfehlt habe.<lb/>
+Sie ſind, ſagt man, bei ihm Kinder oder<lb/>
+Maͤnner, Helden oder ſchwache Geſchoͤpfe.<lb/>
+— — Ich kann uͤber dieſen Punkt nicht<lb/>
+entſcheiden. Sollte es aber keinen Unter-<lb/>
+ſchied geben, wie ein weiblicher Charakter<lb/>
+im Roman und auf der Buͤhne erſcheinen<lb/>
+<pb n="143" facs="#f0152"/>
+darf? Das neuere Theater iſt bei allen<lb/>
+Voͤlkern Europa's, vorzuͤglich Spaniern<lb/>
+und Franzoſen, aus romanhaften Erzaͤh-<lb/>
+lungen und Sitten entſtanden; ſollte es<lb/>
+dieſe nicht ablegen duͤrfen? ja ſollte es ſie<lb/>
+endlich nicht ablegen muͤſſen, da dieſe<lb/>
+fremde Schminke aus der wirklichen Welt<lb/>
+Theils ſchon verbannet iſt, Theils in Man-<lb/>
+chem offenbar ihrer Verbannung zueilet?<lb/>
+Das Theater der Alten kannte dieſe ro-<lb/>
+mantiſche Schminke nicht, und doch waren<lb/>
+ihre Weiber Weiber.</p>         <lb/>
+<p>Wie dem auch ſei, in dieſem Stuͤck<lb/>
+getraute ich mir den Charakter der Emilie,<lb/>
+Orſina, geſchweige der Claudia voͤllig ver-<lb/>
+theidigen zu koͤnnen; ja es bedarf dieſer<lb/>
+Vertheidigung nicht, da ſich hier Alles in<lb/>
+der Sphaͤre eines Prinzen, um ſeine Per-<lb/>
+ſon, um ſeine Liebe, Treue und Affection<lb/>
+drehet. Wer kennt die Uebermacht dieſes<lb/>
+<pb n="144" facs="#f0153"/>
+Standes beim ſchoͤnen Geſchlechte nicht?<lb/>
+und wer darf es der Emilie in <hi rendition="#g">dieſen</hi><lb/>
+Augenblicken einer ſolchen Situation ver-<lb/>
+argen, wenn ſie den Dolch ihres Vaters<lb/>
+einer kuͤnftigen Gefahr vorziehet? Das<lb/>
+flatternde Voͤgelchen, (verzeihen Sie das<lb/>
+Naturhiſtoriſche Gleichniß) fuͤrchtet nicht<lb/>
+etwa nur den anziehenden Hauch der na-<lb/>
+hen großen glaͤnzenden Schlange; es fuͤh-<lb/>
+let denſelben ſchon, ſieht ihren auf ſie ge-<lb/>
+richteten Blick — oder ohne Gleichniß, ſie<lb/>
+glaubt ſich ſchon umſchlungen von tauſend<lb/>
+feinen Netzen liebenswuͤrdiger Eigenſchaf-<lb/>
+ten, weiß, wie der Prinz ihre Empfindun-<lb/>
+gen der Religion ſelbſt vorm Altar ſtoͤrte,<lb/>
+und wagt wie eine Heilige den Sprung<lb/>
+in die Fluth. Wie Verſtandvoll hat Le-<lb/>
+ßing das Herz der Emilie mit Religion<lb/>
+verwebet, um auch hier die Staͤrke und<lb/>
+Schwaͤche einer ſolchen Stuͤtze zu zeigen!<lb/>
+<fw type="catch" place="bottom">Wie</fw><lb/>
+<pb n="145" facs="#f0154"/>
+Wie uͤberlegt laͤßt er den Prinzen ſie am<lb/>
+heiligen Ort aufſuchen, ſie in der Kapelle<lb/>
+vor aller Welt anreden, und ſtellt die<lb/>
+ſchwache Mutter, den ſtrengen, grollhaften<lb/>
+Fuͤrſtenfeind, Odoardo neben ſie. Ihr Tod<lb/>
+iſt lehrreich-ſchrecklich, ohne aber daß da-<lb/>
+durch die Handlung des Vaters zum ab-<lb/>
+ſoluten Muſter der Beſonnenheit werde.<lb/>
+Nichts weniger! Der Alte hat eben ſo<lb/>
+wohl, als das erſchrockene Maͤdchen in<lb/>
+der betaͤubenden Hofluft den Kopf verloh-<lb/>
+ren; und eben dieſe Verwirrung, die Ge-<lb/>
+fahr ſolcher Charaktere in ſolcher Naͤhe<lb/>
+wollte der Dichter ſchildern.</p>         <lb/>
+<p>So erlaube ich auch der Orſina, (die<lb/>
+nothwendig mit Maͤßigung geſpielt werden<lb/>
+muß) ihre Verhoͤnung des Marinelli, ſelbſt<lb/>
+ihre hoͤlliſche Phantaſie im ſiebenden Auf-<lb/>
+tritte des vierten Acts. Wenn <hi rendition="#g">ſie</hi> nicht<lb/>
+den Mund oͤfnet, wer ſoll ihn oͤffnen? Und<lb/>
+<fw type="sig" place="bottom">Dritte Samml. K</fw><lb/>
+<pb n="146" facs="#f0155"/>
+<hi rendition="#g">ſie</hi> darfs, die geweſene Gebieterin eines<lb/>
+Prinzen, die in ſeiner Sphaͤre an Willkuͤhr<lb/>
+gewoͤhnt iſt. Als eine Beleidigte, Verach-<lb/>
+tete muß ſie anjetzt uͤbertreiben, und bleibt<lb/>
+in der groͤßeſten Tollheit die redende Ver-<lb/>
+nunft ſelbſt, ein Meiſterwerk der Erfindung.</p>         <lb/>
+<p>So auch das Uebereilen des Plans,<lb/>
+das Hineintappen des Prinzen, und vor<lb/>
+Allem, ſeine unbeſcholtene Rechtfertig-<lb/>
+keit, Alles veranlaßt, gebilligt, und am<lb/>
+Ende doch, nachdem der Plan verungluͤckt,<lb/>
+nichts befohlen, nichts gethan zu haben.<lb/>
+In wenigen Tagen, fuͤrchte ich, hat er ſich<lb/>
+ſelbſt ganz rein gefunden, und in der Beichte<lb/>
+ward er gewiß abſolviret. Bei der Ver-<lb/>
+maͤhlung mit der Fuͤrſtin von Maſſa war<lb/>
+Marinelli zugegen, vertrat als Kammer-<lb/>
+herr vielleicht gar des Prinzen Stelle, ſie<lb/>
+abzuholen. Appiani dagegen iſt todt;<lb/>
+Odoardo hat ſich in ſeiner Emilie ſieben-<lb/>
+<pb n="147" facs="#f0156"/>
+fach das Herz durchboret, ſo daß es kei-<lb/>
+nes Bluturtheiles weiter bedarf. Schreck-<lb/>
+lich! —</p>         <lb/>
+<p>Als ich voll dieſes Eindrucks nach<lb/>
+Hauſe kam, fiel <hi rendition="#g">Diderot</hi> mir in die<lb/>
+Hand, und zwar folgende Stelle:</p>         <lb/>
+<p>„Der Schauplatz iſt der einzige Ort,<lb/>
+wo ſich die Thraͤnen des Tugendhaften und<lb/>
+des Boͤſen vermiſchen. Hier laͤßt ſich der<lb/>
+Boͤſe wider Ungerechtigkeiten aufbringen,<lb/>
+die er ſelbſt begangen haͤtte; hier hat er<lb/>
+bei Ungluͤcksfaͤllen Mitleiden, die er ſelbſt<lb/>
+veranlaßt haͤtte; hier ergrimmt er gegen<lb/>
+Perſonen von ſeinem eigenen Charakter.<lb/>
+Aber der Eindruck iſt geſchehen, und er<lb/>
+bleibt, auch wider unſern Willen; der Boͤſe<lb/>
+gehet alſo aus dem Schauplatze, weit we-<lb/>
+niger geneigt uͤbels zu thun, als wenn ihm<lb/>
+ein ernſter und ſtrenger Redner eine Straf-<lb/>
+predigt gehalten haͤtte.</p>         <lb/>
+<fw type="sig" place="bottom">K 2</fw>         <lb/>
+<pb n="148" facs="#f0157"/>
+<p>„Der Dichter, der Romanſchreiber, der<lb/>
+Schauſpieler dringen verſtohlner Weiſe ans<lb/>
+Herz, und treffen es um ſo gewiſſer und<lb/>
+ſtaͤrker, je weniger es den Streich ver-<lb/>
+muthet, je mehr Bloͤße es folglich giebt.<lb/>
+Die Ungluͤcksfaͤlle, durch die man mich<lb/>
+ruͤhrt, ſind erdichtet: was thut das? Sie<lb/>
+ruͤhren mich doch. Jede Zeile in dem<lb/>
+<hi rendition="#g">Ehrlichen Manne</hi>, <hi rendition="#g">der ſich der<lb/>
+Welt entzogen</hi>, im <hi rendition="#g">Dechant von<lb/>
+Killerine</hi>, im <hi rendition="#g">Cleveland</hi> erregt in<lb/>
+mir ein zaͤrtliches Theilnehmen an den Un-<lb/>
+gluͤcksfaͤllen der Tugend, und koſtet mich<lb/>
+Thraͤnen. — Koͤnnte es eine unſeligere<lb/>
+Kunſt geben, als die, die mich zum Mit-<lb/>
+ſchuldigen des Laſterhaften machte? Aber<lb/>
+wo iſt auch eine ſchaͤtzbarere Kunſt als die,<lb/>
+die mich unvermerkt fuͤr das Schickſal des<lb/>
+rechtſchaffenen Mannes einnimmt, die mich<lb/>
+aus der ruhigen und ſuͤßen Faſſung, in<lb/>
+<pb n="149" facs="#f0158"/>
+der ich mich befand, reißet, um mich mit<lb/>
+ihm umherzutreiben, mich in die Hoͤlen zu<lb/>
+verſetzen, in die er fluͤchten muß, mich zum<lb/>
+Mitgenoſſen der Unfaͤlle zu machen, durch<lb/>
+die es dem Dichter beliebt, ſeine Beſtaͤn-<lb/>
+digkeit auf die Probe zu ſtellen.</p>         <lb/>
+<p>Wie ſehr erſprießlich wuͤrde es fuͤr die<lb/>
+Menſchen ſeyn, wenn ſich alle Kuͤnſte der<lb/>
+Nachahmung einen gemeinſchaftlichen Ge-<lb/>
+genſtand waͤhlten und ſich einmal mit den<lb/>
+Geſetzen dahin verbaͤnden, uns die Tugend<lb/>
+liebenswuͤrdig und das Laſter verhaßt zu<lb/>
+machen! Des Philoſophen Pflicht iſt es,<lb/>
+ſie dazu einzuladen; er muß ſich an den<lb/>
+Dichter, an den Mahler, an den Tonkuͤnſt-<lb/>
+ler wenden und ihnen auf das nachdruͤck-<lb/>
+lichſte zurufen: „o ihr von hoͤheren Faͤhig-<lb/>
+keiten, warum hat euch der Himmel be-<lb/>
+gabt?“ — Wird er gehoͤrt, ſo werden<lb/>
+gar bald die Mauern unſrer Pallaͤſte nicht<lb/>
+<fw type="sig" place="bottom">K 3</fw><lb/>
+<pb n="150" facs="#f0159"/>
+mehr von Gemaͤhlden der ſchaͤndlichſten<lb/>
+Wohlluſt bedeckt ſeyn; unſre Stimmen wer-<lb/>
+den nicht laͤnger die Verkuͤndigerinnen des<lb/>
+Laſters ſeyn; und Geſchmack und Tugend<lb/>
+werden dabei gewinnen.</p>         <lb/>
+<p>„Ich habe manchmal gedacht, daß man<lb/>
+gar wohl die wichtigſten Stuͤcke der Moral<lb/>
+auf dem Theater abhandeln koͤnnte, ohne<lb/>
+dadurch dem feurigen und reiſſenden Fort-<lb/>
+gange der dramatiſchen Handlung zu<lb/>
+ſchaden.</p>         <lb/>
+<p>„Nicht Worte, ſondern Eindruͤcke will<lb/>
+ich aus dem Schauplatze mitnehmen. Das<lb/>
+vortreflichſte Gedicht iſt dasjenige, deſſen<lb/>
+Wirkung am laͤngſten in mir dauert.</p>         <lb/>
+<p>„O dramatiſche Dichter! Der wahre<lb/>
+Beifall, nach dem ihr ſtreben muͤßt, iſt<lb/>
+nicht das Klatſchen der Haͤnde, das ſich<lb/>
+ploͤtzlich nach einer ſchimmernden Zeile hoͤ-<lb/>
+ren laͤßt, ſondern der tiefe Seufzer, der<lb/>
+<pb n="151" facs="#f0160"/>
+nach dem Zwange eines langen Stillſchwei-<lb/>
+gens aus der Seele dringt und ſie erleich-<lb/>
+tert. Ja es giebt einen noch heftigern<lb/>
+Eindruck, den ſich aber nur die vorſtellen<lb/>
+koͤnnen, die fuͤr ihre Kunſt gebohren ſind,<lb/>
+und es vorauswiſſen, wie weit ihre Zaube-<lb/>
+rei gehen kann: dieſen naͤmlich, das Volk<lb/>
+in einen Stand der Unbehaͤglichkeit zu<lb/>
+ſetzen; ſo daß Ungewißheit, Bekuͤmmerniß,<lb/>
+Verwirrung in allen Gemuͤthern herrſchen,<lb/>
+und eure Zuſchauer den Ungluͤcklichen glei-<lb/>
+chen, die in einem Erdbeben die Mauern<lb/>
+ihrer Haͤuſer wanken ſehen, und die Erde<lb/>
+ihnen einen veſten Tritt verweigern fuͤh-<lb/>
+len.“ — —</p>       </div>       <lb/>
+<fw type="sig" place="bottom">K 4</fw>       <lb/>
+<pb n="152" facs="#f0161"/>
+<div n="1">         <head>38.</head>         <lb/>
+<p><hi rendition="#in">A</hi>ls <hi rendition="#g">Swift</hi> uͤber Gullivers Reiſen bruͤ-<lb/>
+tete, ſchrieb er an <hi rendition="#g">Pope</hi>: ”ich habe ganze<lb/>
+Nationen, ganze Profeſſionen und Zuͤnfte<lb/>
+immer gehaſſet; meine Liebe gehet nur auf<lb/>
+einzelne Perſonen. Z. B. ich haſſe die Zunft<lb/>
+der Rechtsgelehrten, aber ich liebe den<lb/>
+Rath N. den Richter N N. So habe ichs,<lb/>
+(von meiner eignen Profeſſion nichts zu<lb/>
+ſagen) mit den Aerzten, mit den Solda-<lb/>
+ten, den Englaͤndern, Schotten, Franzoſen<lb/>
+u. f. Vornehmlich aber haſſe und verab-<lb/>
+ſcheue ich das Geſchoͤpf, der <hi rendition="#g">Menſch</hi> ge-<lb/>
+nannt, obſchon ich den Johann, den Pe-<lb/>
+ter, Thomas u. f. von Herzen liebe. An<lb/>
+<pb n="153" facs="#f0162"/>
+dieſes Syſtem habe ich mich (unter uns<lb/>
+geſagt) nun viele Jahre her gehalten, und<lb/>
+werde mich immer daran halten. Ich habe<lb/>
+Materialien zu einer Abhandlung geſamm-<lb/>
+let, welche zeigen ſoll, daß man den Men-<lb/>
+ſchen unrecht durch ein <hi rendition="#g">vernuͤnftiges</hi><lb/>
+Thier definirt, und daß man bloß ein<lb/>
+<hi rendition="#g">Vernunftfaͤhiges</hi> Thier ſetzen ſollte.<lb/>
+Auf dies ſtarke und feſte Fundament der<lb/>
+Miſanthropie, (wie wohl nicht nach <hi rendition="#g">Ti</hi>-<lb/>
+<hi rendition="#g">mons</hi> Manier) gruͤndet ſich das ganze<lb/>
+Gebaͤude meiner Reiſen; und ich werde<lb/>
+nimmer ruhig ſeyn, bis alle ehrliche Leute<lb/>
+hieruͤber meiner Meinung ſind. Die Sache<lb/>
+iſt ſo klar, daß ſie keinen Widerſpruch lei-<lb/>
+det; ja ich will Hundert gegen Eins ſetzen,<lb/>
+daß Sie und ich in dem Puncte uͤberein-<lb/>
+ſtimmen.“</p>         <lb/>
+<p>Dieſe Uebereinſtimmung war ein freund-<lb/>
+ſchaftlicher Wahn, oder ein Compliment,<lb/>
+<fw type="sig" place="bottom">K 5</fw><lb/>
+<pb n="154" facs="#f0163"/>
+das der von ſeiner Meinung durchdrun-<lb/>
+gene <hi rendition="#g">Swift</hi> ſich ſelbſt machte. <hi rendition="#g">Pope</hi><lb/>
+ſchien ihm Recht zu geben, aͤußerte aber<lb/>
+zugleich, daß er Maximen ſchreiben wollte,<lb/>
+die <hi rendition="#g">Rochefoucaults</hi> Grundſaͤtzen ins-<lb/>
+geſammt entgegengeſetzt waͤren; wogegen<lb/>
+<hi rendition="#g">Swift</hi> in noch haͤrteren Ausdruͤcken den<lb/>
+<hi rendition="#g">Rochefoucault</hi>, als ſeinen Liebling, in<lb/>
+welchem er ſeinen ganzen Character gefun-<lb/>
+den, heftig in Schutz nimmt.</p>         <lb/>
+<p>Bei <hi rendition="#g">Swift</hi> naͤmlich war dieſe Men-<lb/>
+ſchenfeindſchaft nicht witzige Laune, ſon-<lb/>
+dern ein bittrer Ernſt, wie ſeine Schrif-<lb/>
+ten, wie ſein Leben es zeiget. Er hatte<lb/>
+einen ſo tiefen Groll gegen die menſchliche<lb/>
+Geſellſchaft gefaßt, daß ſelbſt ſeine Men-<lb/>
+ſchenfreundſchaft, ſeine ſtrenge Sorge fuͤr<lb/>
+die von der Natur und dem Staat ver-<lb/>
+wahrloſeten Ungluͤcklichen ſich in dies rauhe<lb/>
+Gewand kleidete; er ſchien ein Zuchtmei-<lb/>
+<pb n="155" facs="#f0164"/>
+ſter, auch wenn er ein wohlwollender Freund<lb/>
+war.</p>         <lb/>
+<p>Es hieße, Worte verſchwenden, wenn<lb/>
+man uͤber das von <hi rendition="#g">Swift</hi> aufgeſtellte<lb/>
+Paradoxon in der Form diſputiren wollte;<lb/>
+jedermann ſiehet, was in ihm wahr oder<lb/>
+uͤbertrieben ſei.</p>         <lb/>
+<p>Eine andre oft aufgeworfene Frage:<lb/>
+ob es beſſer ſei, von den Menſchen zu gut<lb/>
+oder zu ſchlimm zu denken? d. i. den Men-<lb/>
+ſchen zu ſchmeicheln, oder ſie mit Schaͤrfe<lb/>
+zu behandeln? fuͤhrt, wie mich duͤnkt, ihre<lb/>
+Aufloͤſung auch mit ſich. Man muß keins<lb/>
+von Beiden, und eben hierinn beſtehet die<lb/>
+Philoſophie und Kunſt des Lebens. Alle<lb/>
+Uebertreibungen ſind eben ſo unwahr, als<lb/>
+ſchaͤdlich; meiſtens fallen ſie auch zuſam-<lb/>
+men und loͤſen einander auf. <hi rendition="#g">Young</hi><lb/>
+z. B. der in ſeiner Schrift uͤber die Ori-<lb/>
+ginalwerke den armen <hi rendition="#g">Swift</hi> heftig und<lb/>
+<pb n="156" facs="#f0165"/>
+in der Geſtalt des Menſchenfreundes ſelbſt<lb/>
+Menſchenfeindlich angriff, hat ſich gegen<lb/>
+das von ihm <hi rendition="#g">verehrte</hi> Geſchlecht eben<lb/>
+ſo verſuͤndigt, da er ihm in ſeinem jetzi-<lb/>
+gen Zuſtande die Wuͤrde des Seraphs an-<lb/>
+ſchmeicheln, als <hi rendition="#g">Swift</hi>, da er es zum<lb/>
+Yahoc erniedrigen wollte. Jener, um ſein<lb/>
+Syſtem zu verfolgen, ward gezwungen, den<lb/>
+Lorenzo zu einem Teufel zu machen, damit<lb/>
+der erdichtete Engel in ſein Licht traͤte;<lb/>
+dieſer muſte ſeine vernuͤnftigen Pferde mit<lb/>
+allen Vollkommenheiten ſchmuͤcken, die er<lb/>
+doch nur im Menſchengeſchlecht kannte.<lb/>
+Dem guten <hi rendition="#g">Rouſſeau</hi> iſt es in ſeinen<lb/>
+Uebertreibungen nicht anders gegangen;<lb/>
+in der Phantaſie ein Idealiſt fuͤrs Gute<lb/>
+mußte er in einzelnen Urtheilen und im<lb/>
+Betragen des Lebens ein leidendes Kind<lb/>
+werden.</p>         <lb/>
+<pb n="157" facs="#f0166"/>
+<p>Zwiſchen zwei Aeußerſten giebt es kei-<lb/>
+nen andern Weg der Vernunft und Recht-<lb/>
+ſchaffenheit, als die Mittelſtraße. Man<lb/>
+ſage ſo viel Gutes, man ſchreibe ſo viel<lb/>
+Boͤſes vom Menſchen, als man wolle;<lb/>
+lediglich kommts auf den Gebrauch an,<lb/>
+den man von beiderlei Urtheilen macht; wie<lb/>
+man ſie durch thaͤtige Guͤte, und Weisheit<lb/>
+zuſammen vereinet.</p>         <lb/>
+<p>Das edlere Schauſpiel der Griechen<lb/>
+hatte zum Zweck, zwiſchen beiden Extre-<lb/>
+men eine weiſe und tugendhafte Mitte im<lb/>
+Menſchen zu beveſtigen; o haͤtten wir Me-<lb/>
+nanders und Philemons Schauſpiele! Die<lb/>
+uͤbriggebliebenen wenigen Stellen und<lb/>
+Spruͤche zeigen, daß in ihnen der Menſch<lb/>
+von allen Seiten betrachtet und zur Lehre<lb/>
+aufgeſtellet worden, wie es denn auch Te-<lb/>
+renz, der <hi rendition="#g">halbirte Menander</hi> klar an<lb/>
+den Tag leget:</p>         <lb/>
+<fw type="sig" place="bottom">Dritte Samml. L</fw>         <lb/>
+<pb n="158" facs="#f0167"/>
+<div n="2">           <head><hi rendition="#g">Spruͤche aus Philemon</hi>.</head>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Beſchwerlich iſt ein unverſtaͤndiger</l>             <lb/>
+<l>Zuhoͤrer; vor dir ſitzend, tadelt er</l>             <lb/>
+<l>Aus Thorheit nie ſich ſelbſt. —</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Viel leichter, eine Krankheit, als den Gram</l>             <lb/>
+<l>ertragen. —</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Der Seele Kummer wird durch Rede leicht.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Wer unter uns dort außerhalb der Stadt</l>             <lb/>
+<l>Der Menſchen Graͤber ſieht, der ſage ſich:</l>             <lb/>
+<l>Auch Jeder dieſer ſprach einſt zu ſich ſelbſt:</l>             <lb/>
+<l>„Ich werde, wenn die Zeit kommt, ſchiffen,</l>             <lb/>
+<l>pflanzen,</l>             <lb/>
+<l>„Die Mauer brechen und beſitzen.“ Jetzt</l>             <lb/>
+<l>Beſitzen ſie ein Grab.</l>           </lg>           <lb/>
+<pb n="159" facs="#f0168"/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Ihr Goͤtter, welch ein wohlgeartet Thier</l>             <lb/>
+<l>Iſt eine Schnecke. Kommt auf ihrem Gange</l>             <lb/>
+<l>Sie einem boͤſen Nachbar nah; ſie hebt</l>             <lb/>
+<l>Ihr Haus und wandert weiter. Darum wohnt</l>             <lb/>
+<l>Sie Sorgenlos, weil ſie die Boͤſen immer flieht.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Er iſt ein Knecht; hat aber Fleiſch und Blut</l>             <lb/>
+<l>Wie Du: denn keiner ward durch die Geburt</l>             <lb/>
+<l>ein Knecht;</l>             <lb/>
+<l>Ungluͤcklich Schickſal macht zum Sklaven nur.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Ein boͤſer Diener wird der Strafe nicht entgehn;</l>             <lb/>
+<l>Du aber ſei der Strafe Buͤttel nicht.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Dein Wort, o Freund, hat deine ſchoͤne That</l>             <lb/>
+<l>Geſchmaͤht; des Reichen That hat Bettlers</l>             <lb/>
+<l>Wort vernichtet.</l>             <lb/>
+<l>Ruͤhmſt du die Gabe ſelbſt, die du dem Freun-</l>             <lb/>
+<l>de gabſt,</l>             <lb/>
+<fw type="sig" place="bottom">L 2</fw>             <lb/>
+<pb n="160" facs="#f0169"/>
+<l>So warſt in Thaten du ein Feldherr, und im</l>             <lb/>
+<l>Wort</l>             <lb/>
+<l>Ein Moͤrder. —</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Sprich nicht: „das will ich geben.“ Denn</l>             <lb/>
+<l>wer ſpricht,</l>             <lb/>
+<l>Der giebt noch nicht und hindert andrer Ga-</l>             <lb/>
+<l>ben.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Mit rechter Unterſcheidung gib und nimm.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Das kleineſte Geſchenk, es wird das Groͤßeſte,</l>             <lb/>
+<l>Wenn du's <hi rendition="#g">wohlmeinend</hi> giebſt.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Den Armen haß' ich, der dem Reichen ſchenkt;</l>             <lb/>
+<l>Er ſchilt das Gluͤck, die Unerſaͤttliche! —</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Sei einem Alten, der da fehlt, nicht hart;</l>             <lb/>
+<l>Ein alter Baum iſt zu verpflanzen ſchwer.</l>           </lg>           <lb/>
+<pb n="161" facs="#f0170"/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Im Alter kommt der Reichthum uns zu gut,</l>             <lb/>
+<l>Er fuͤhrt den Alten gluͤcklich an der Hand.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Was graͤmeſt du dich, Freund? du weißt es</l>             <lb/>
+<l>ja,</l>             <lb/>
+<l>Daß eben wenn das Gluͤck den Menſchen</l>             <lb/>
+<l>lacht,</l>             <lb/>
+<l>Zu jedem Ungluͤck es die Pforte finde.</l>             <lb/>
+<l>Auch uͤber Keines Ungluͤck freue dich:</l>             <lb/>
+<l>Denn alles miſcht und kehrt das Schickſal</l>             <lb/>
+<l>um.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Nie ſchilt das Gluͤck. Du weißt, zu boͤſer</l>             <lb/>
+<l>Zeit</l>             <lb/>
+<l>Gehn auch der Goͤtter Sachen ſelbſt nicht</l>             <lb/>
+<l>wohl.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Geſundheit iſt mein erſter Wunſch; der</l>             <lb/>
+<l>zweite</l>             <lb/>
+<fw type="sig" place="bottom">L 3</fw>             <lb/>
+<pb n="162" facs="#f0171"/>
+<l>Gluͤck im Geſchaͤft; der dritte Freude; dann</l>             <lb/>
+<l>Noch Einer: „keinem je verpflichtet ſeyn! —“</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Erſt ſieht, bewundert, dann betrachtet man</l>             <lb/>
+<l>Und faͤllt in Hoffnung, und zuletzt in Liebe.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>„Sag' an, wie ſoll ich Gott gedenken mir?“</l>             <lb/>
+<l>Daß Er, der alles ſieht, unſichtbar ſei.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>„Was machſt du, Syra? Wie befindſt du</l>             <lb/>
+<l>dich?“</l>             <lb/>
+<l>Kannſt du noch alſo fragen einen Greis?</l>             <lb/>
+<l>Ein Greis iſt nimmer wohl. Man ſagt mit</l>             <lb/>
+<l>Recht,</l>             <lb/>
+<l>Und kann es ſagen: „auch der Tod iſt gut.“</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>„Was iſt es denn? warum will er mich</l>             <lb/>
+<l>ſehn?“</l>             <lb/>
+<l>Iſts, wie die Kranken, wenn der Schmerz ſie</l>             <lb/>
+<l>quaͤlt,</l>           </lg>           <lb/>
+<pb n="163" facs="#f0172"/>
+<lg type="poem">             <l>Und ſie den Arzt erblicken, beſſer ſind?</l>             <lb/>
+<l>So der Betruͤbte; ſiehet er den Freund,</l>             <lb/>
+<l>Nur neben ſich; gleich lindert ſich ſein Gram.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Auf Erden lebt kein Menſch, nicht Einer</l>             <lb/>
+<l>lebt,</l>             <lb/>
+<l>Der Boͤſes nicht erfuhr, wie? oder noch</l>             <lb/>
+<l>Erfahren wird. Nur wer, was ihm begegnet,</l>             <lb/>
+<l>Aufs leichtſte nimmt, nur der iſt weiſ' und</l>             <lb/>
+<l>gluͤcklich.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Erkenne was der Menſch iſt, und du wirſt</l>             <lb/>
+<l>Doch gluͤcklich ſeyn. Hier hoͤrſt du Einen todt;</l>             <lb/>
+<l>Dort iſt ein anderer gebohren; dieſe</l>             <lb/>
+<l>Gebar nicht, jenem ging es uͤbel; der</l>             <lb/>
+<l>Hat Huſten; jener weint. Das alles bringt</l>             <lb/>
+<l>Die Menſchheit mit ſich; fliehe nur den Gram.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Viel Ungluͤck iſt in vielen Haͤuſern, das,</l>             <lb/>
+<l>Wenn man es gut ertraͤgt, uns Gutes bringt.</l>           </lg>           <lb/>
+<fw type="sig" place="bottom">L 4</fw>           <lb/>
+<pb n="164" facs="#f0173"/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Der Menſchen Viele machen ſich das Uebel</l>             <lb/>
+<l>Noch groͤßer, als es iſt. Dem ſtarb ein Sohn;</l>             <lb/>
+<l>Dem eine Mutter; dem, beim Jupiter!</l>             <lb/>
+<l>Gar ein Verwandter. Naͤhm' ers, wie es iſt,</l>             <lb/>
+<l>So ſtarb ein Menſch. Das iſt an ſich das</l>             <lb/>
+<l>Uebel.</l>           </lg>           <lb/>
+<lg type="poem">             <lg n="1">               <l>Nun aber ruft er aus: „das Leben iſt fuͤr</l>               <lb/>
+<l>mich</l>               <lb/>
+<l>Kein Leben mehr! Er iſt dahin! Ich werd'</l>               <lb/>
+<l>ihn</l>               <lb/>
+<l>Nie wieder ſehn!“ Er ſieht den Ungluͤcksfall</l>               <lb/>
+<l>Allein <hi rendition="#g">in ſich</hi> und haͤuft auf Uebel Uebel.</l>               <lb/>
+<l>Wer alles mit Vernunft betrachtet, wie</l>               <lb/>
+<l>Es an ſich ſelbſt, und nicht fuͤr ihn nur ſei,</l>               <lb/>
+<l>Empfaͤngt das Gluͤck und haͤlt das Ungluͤck</l>               <lb/>
+<l>fern.</l>             </lg>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>In Traurigkeit ſein ſelbſt noch Meiſter</l>             <lb/>
+<l>ſeyn;</l>             <lb/>
+<l>Dies iſts, was mich erhaͤlt und was den Men-</l>             <lb/>
+<l>ſchen macht.</l>           </lg>           <lb/>
+<pb n="165" facs="#f0174"/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Wir armen Menſchen! Unſer Daſeyn iſt</l>             <lb/>
+<l>Ein Leben ohne Leben. Meinungen</l>             <lb/>
+<l>Beherrſchen uns, ſeit wir Geſetze fanden,</l>             <lb/>
+<l>Der Vor- und Nachwelt Meinungen. Wir</l>             <lb/>
+<l>ſuchen</l>             <lb/>
+<l>Dem Uebel zu entgehn und finden uns</l>             <lb/>
+<l>Zum Uebel Vorwand.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Wer was er ſagen ſoll, nicht ſaget, der</l>             <lb/>
+<l>Iſt immer lang und ſpraͤch' er nur zwei</l>             <lb/>
+<l>Sylben.</l>             <lb/>
+<l>Wer gut ſagt, was er ſaget; ob er viel</l>             <lb/>
+<l>Und lang' auch ſpraͤche, der ſpricht nie zu</l>             <lb/>
+<l>lang.</l>             <lb/>
+<l>Sieh den Homer. Er ſchrieb viel tauſend</l>             <lb/>
+<l>Worte,</l>             <lb/>
+<l>Und wem ſchrieb er zu viel?</l>           </lg>           <lb/>
+<fw type="sig" place="bottom">L 5</fw>           <lb/>
+<pb n="166" facs="#f0175"/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Wenn was wir haben, wir nicht brauchen,</l>             <lb/>
+<l>und</l>             <lb/>
+<l>Was wir nicht haben, ſuchen; ach ſo raubt</l>             <lb/>
+<l>Das Gluͤck uns Jenes, Dieſes wir uns ſelbſt.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>Gerecht iſt nicht, der niemand Unrecht thut;</l>             <lb/>
+<l>Der iſts, der Unrecht thun kann und nicht will.</l>             <lb/>
+<l>Nicht der, der kleinen Raubes ſich enthaͤlt;</l>             <lb/>
+<l>Der iſts, der großen Raub mit Muth ver-</l>             <lb/>
+<l>ſchmaͤht,</l>             <lb/>
+<l>Wenn er ihn haben und behalten kann.</l>             <lb/>
+<l>Nicht der iſts, der dies alles nur befolgt,</l>             <lb/>
+<l>Der iſts, der ungeſchminkten, reinen Sinns,</l>             <lb/>
+<l><hi rendition="#g">Seyn</hi> ein Gerechter und nicht ſcheinen will.</l>           </lg>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lg type="poem">             <l>So viele Kuͤnſte es, o <hi rendition="#g">Laches</hi> gab;</l>             <lb/>
+<l>Kein Lehrer, alle lehrte ſie die Zeit.</l>             <lb/>
+<l>Nicht Koͤrper nur; es wachſen mit der Zeit</l>             <lb/>
+<l>Auch Dinge! —</l>           </lg>           <lb/>
+<pb n="167" facs="#f0176"/>
+<p>Endlich den Hauptſpruch:</p>           <lb/>
+<lg type="poem">             <l>Ανϑϱωπος ων, τȣτ´  ισϑι, ϰαι μεμνησ´ αει.</l>             <lb/>
+<l>Du biſt ein Menſch; das wiß' und denke ſtets</l>             <lb/>
+<l>daran.</l>           </lg>         </div>       </div>       <lb/>
+<pb n="168" facs="#f0177"/>
+<div n="1">         <head>39.</head>         <lb/>
+<p><hi rendition="#in">N</hi>eben den Griechen iſt ſchwer zu ſtehen,<lb/>
+und doch haben auch Wir Stuͤcke, die ne-<lb/>
+ben ihnen ſtehen koͤnnen und duͤrfen.</p>         <lb/>
+<div n="2">           <head><hi rendition="#g">Menſchentugend</hi>.</head>           <lb/>
+<lg type="poem">             <lg n="1">               <l>Die Ohren und die Herzen willig her,</l>               <lb/>
+<l>Ihr Menſchen! Euer Gott hat mich gelehrt,</l>               <lb/>
+<l>Was Tugend ſei; ich lehr' es, Menſchen, Euch!</l>             </lg>             <lb/>
+<lg n="2">               <l>Dem Nackenden von zweien Linnen Eins</l>               <lb/>
+<l>Um ſeine Bloͤße ſelbſt ihm ſchmiegen, und</l>               <lb/>
+<l>Von zweien Broten Eins dem Hungrigen</l>               <lb/>
+<l>Darreichen, und aus ſeinem Quell dem Mann,</l>               <lb/>
+<l>Der friſches Waſſer bittet, einen Trunk</l>               <lb/>
+<l>Selbſt ſchoͤpfen, floͤß' er noch ſo tief im Thal.</l>             </lg>             <lb/>
+<lg n="3">               <l>Ihr meine liebe Menſchen, Tugend iſt:</l>               <lb/>
+<l>Dem Huͤlfeduͤrftigen zuvor mit Gold</l>               <lb/>
+<l>Und Weisheit kommen; ſeine Seele ſehn,</l>               <lb/>
+<pb n="169" facs="#f0178"/>
+<l>Und ſeinen Kummer meſſen; und ſich freun,</l>               <lb/>
+<l>Daß etwa Gold und etwa Weisheit ihn</l>               <lb/>
+<l>Der Freude wiederbringen; ihn auch nicht,</l>               <lb/>
+<l>Wer ſeines Kummers Ueberwinder war,</l>               <lb/>
+<l>Erfahren laſſen —</l>             </lg>             <lb/>
+<lg n="4">               <l>Menſchen, Tugend iſt:</l>               <lb/>
+<l>Und wenn die Boͤſen alle gegen euch</l>               <lb/>
+<l>In ihrer Bosheit wuͤteten, und ſich</l>               <lb/>
+<l>Verſchworen haͤtten alle gegen euch,</l>               <lb/>
+<l>Von Menſchenliebe nicht zu Menſchenhaß</l>               <lb/>
+<l>Hinuͤbergehen; immer, immer gut</l>               <lb/>
+<l>Den Boͤſen ſeyn; dem undankbaren Mann</l>               <lb/>
+<l>Exempel werden edler Dankbarkeit.</l>             </lg>             <lb/>
+<lg n="5">               <l>Ihr meine lieben Menſchen, Tugend iſt:</l>               <lb/>
+<l>Dem Gotterſchaffenen Erhalter ſeyn,</l>               <lb/>
+<l>Lebendigen das Leben friſten, rohen Stoff</l>               <lb/>
+<l>Umwenden, ſo daß er durch euren Fleiß</l>               <lb/>
+<l>Einſt Leben zu dem Leben bringen muß.</l>             </lg>             <lb/>
+<lg n="6">               <l>Ihr meine lieben Menſchen, Tugend iſt:</l>               <lb/>
+<l>Die Summe jedes Guten, welches Gott</l>               <lb/>
+<l>In ſeine Welt gelegt, an ſeinem Theil</l>               <lb/>
+<pb n="170" facs="#f0179"/>
+<l>Vermehren; wenn und wo und wie ſie nur</l>               <lb/>
+<l>Vermehret werden kann. Vermehreſt Du</l>               <lb/>
+<l>Die Summe dieſes Guten, dann, o dann</l>               <lb/>
+<l>Sei Koͤnig oder Bettler, Du gefaͤllſt</l>               <lb/>
+<l>Dem Schoͤpfer alles Guten, deinem Gott.</l>             </lg>             <lb/>
+<lg n="7">               <l>Du willſt ihm nicht gefallen? wie? du</l>               <lb/>
+<l>willſt</l>               <lb/>
+<l>Des Guten Summe nicht vermehren? willſt</l>               <lb/>
+<l>Des Boͤſen, welches Gott in ſeiner Welt</l>               <lb/>
+<l>Zum Guten lenkt, Vermehrer ſeyn? Sei es!</l>               <lb/>
+<l>Du wirſt dich ſchaͤmen einſt und es bereun.</l>             </lg>             <lb/>
+<lg n="8">               <l>So unſer <hi rendition="#g">Gleim</hi> in ſeinem <hi rendition="#g">Halla</hi>-</l>               <lb/>
+<l><hi rendition="#g">dat</hi>, oder <hi rendition="#g">rothen Buche</hi>, dem wir jetzt</l>               <lb/>
+<l>lieber einen andern Namen geben wollen;</l>               <lb/>
+<l>es enthaͤlt Blaͤtter zum aͤchten <hi rendition="#g">Koran</hi></l>               <lb/>
+<l><hi rendition="#g">der Menſchenguͤte</hi>. Und dieſer Lehrer</l>               <lb/>
+<l>ſpricht nicht nur, er thut auch alſo.</l>             </lg>           </lg>         </div>       </div>
+<pb facs="#f0180"/>
+<lb/>
+</body>     <back>       <div n="1">         <head><hi rendition="#g">Inhalt<lb/>
+der dritten Sammlung</hi>.</head>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/>       <div type="contents">         <list>           <item> Br. 27. Ueber das Wort und den Begriff<lb/>
+der Humanitaͤt. <ref>S. 5</ref></item>           <lb/>
+<item>— 28. Fortſetzung. <ref>S. 11</ref></item>           <lb/>
+<item>— 29. Fortſetzung. Einige Ausſpruͤche des<lb/>
+humanſten Kaiſers. <ref>S. 23</ref></item>           <lb/>
+<item>— 30. <hi rendition="#g">Lucrez</hi> von einem Genius der<lb/>
+Menſchheit. Humanitaͤt der Roͤmi-<lb/>
+ſchen Dichtkunſt und Geſchichte. <ref>S. 34</ref></item>           <lb/>
+<item>— 31. Humanitaͤt der Griechen. <ref>S. 45</ref></item>           <lb/>
+<item>— 32. Reſultate. Fragment eines Geſpraͤches<lb/>
+von <hi rendition="#g">Shaftesburi</hi>. <ref>S. 49</ref></item>           <lb/>
+<item>— 33. Ueber Shaftesburi. Ein Lehrgedicht<lb/>
+vom Rechte der Vernunft. <ref>S. 65</ref></item>           <lb/>
+<pb facs="#f0181"/>
+<item>Br. 34. Ueber die Humanitaͤt <hi rendition="#g">Homers</hi> in<lb/>
+der Iliade. <ref>S. 76</ref></item>           <lb/>
+<item>— 35. Vom Unmuth. Von Compoſitionen.<lb/>
+Muſik nach Roͤmiſchen Dichtern. <ref>S. 102</ref></item>           <lb/>
+<item>— 36. Fortſetzung des Fragments uͤber die<lb/>
+Humanitaͤt <hi rendition="#g">Homers</hi> in der Iliade.<lb/>
+<hi rendition="#g">Diderot</hi> uͤber die Einfalt in <hi rendition="#g">Ho</hi>-<lb/>
+<hi rendition="#g">mer</hi>. <ref>S. 114</ref></item>           <lb/>
+<item>— 37. Von <hi rendition="#g">Leßings</hi> Emilia Galotti. Di-<lb/>
+derot uͤber die Moralitaͤt der<lb/>
+Schaubuͤhne. <ref>S. 135</ref></item>           <lb/>
+<item>— 38. <hi rendition="#g">Swift</hi> uͤber die Humanitaͤt. Spruͤ-<lb/>
+che aus Philemon. <ref>S. 158</ref></item>           <lb/>
+<item>— 39. Menſchentugend, von <hi rendition="#g">Gleim</hi>. <ref>S. 168</ref></item>         </list>       </div>       <lb/>
+</back>   </text> </TEI>

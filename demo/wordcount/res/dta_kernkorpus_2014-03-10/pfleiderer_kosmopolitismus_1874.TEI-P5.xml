@@ -1,0 +1,1446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Kosmopolitismus und Patriotismus</title>
+<author>
+<persName ref="http://d-nb.info/gnd/116167890">
+<surname>Pfleiderer</surname>
+<forename>Edmund</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">52</measure>
+<measure type="tokens">10319</measure>
+<measure type="types">3824</measure>
+<measure type="characters">78308</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:15Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/pfleiderer_kosmopolitismus_1874</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/pfleiderer_kosmopolitismus_1874</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/pfleiderer_kosmopolitismus_1874</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/pfleiderer_kosmopolitismus_1874</idno>
+<idno type="DTADirName">pfleiderer_kosmopolitismus_1874</idno>
+<idno type="DTAID">16399</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194551</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Pfleiderer, Edmund: Kosmopolitismus und Patriotismus. Berlin, 1874.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Kosmopolitismus und Patriotismus</title>
+<author>
+<persName ref="http://d-nb.info/gnd/116167890">
+<surname>Pfleiderer</surname>
+<forename>Edmund</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">40 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Habel</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1874</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Ag 9122-3=33/48</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=419234004</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Politik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Politik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<titlePage type="series"> <docTitle> <titlePart type="main"> <hi rendition="#g">Deutſche</hi><lb/>
+<hi rendition="#b">Zeit- und Streit-Fragen.</hi><lb/>
+</titlePart> <titlePart type="sub">Flugſchriften zur Kenntniß der Gegenwart.<lb/>
+</titlePart> </docTitle> <byline>Herausgegeben von<lb/>
+<hi rendition="#b">Fr. v. Holtzendorff und W. Oncken.</hi><lb/>
+</byline> <milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="volume"> <hi rendition="#b">Jahrgang</hi> <hi rendition="#aq #b">III.</hi><lb/>
+(Heft 33–48 umfaſſend).<lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Heft 36.<lb/>
+<hi rendition="#b">Kosmopolitismus und Patriotismus.</hi><lb/>
+Von<lb/>
+<hi rendition="#aq #b">Dr</hi><hi rendition="#b">. Edmund Pfleiderer,</hi><lb/>
+Profeſſor in Kiel.<lb/>
+</titlePart> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b #g">Berlin</hi></pubPlace> <docDate> <hi rendition="#b #g">1874.</hi><lb/>
+</docDate> <publisher>C. G. Lüderitz'ſche Verlagsbuchhandlung<lb/>
+<hi rendition="#b #g">Carl Habel.</hi><lb/>
+33. Wilhelm-Staße 33.<lb/>
+</publisher> </docImprint> <milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="desc">Die beiden inneren Seiten des Umſchlages enthalten den Proſpect<lb/>
+über den neuen dritten Jahrgang.<lb/>
+</titlePart> </titlePage>
+<pb facs="#f0010"/>
+<div type="advertisement"> <gap/> </div>
+<pb n="[1]" facs="#f0011"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b #g">Kosmopolitismus</hi><lb/>
+und<lb/>
+<hi rendition="#b #g">Patriotismus.</hi><lb/>
+</titlePart> </docTitle> <byline>Von<lb/>
+<docAuthor> <hi rendition="#aq">Dr</hi>. <hi rendition="#b">Edmund Pfleiderer,</hi><lb/>
+</docAuthor>Profeſſor in Kiel.<lb/>
+</byline> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b #g">Berlin</hi></pubPlace> <docDate>1874.<lb/>
+</docDate> <publisher>C. G. <hi rendition="#g">Lüderitz</hi>'ſche Verlagsbuchhandlung.<lb/>
+<hi rendition="#b #g">Carl Habel.</hi><lb/>
+</publisher> </docImprint> </titlePage>
+<pb n="[2]" facs="#f0012"/>
+<div type="copyright"> <p rendition="#c">Das Recht der Ueberſetzung in fremde Sprachen wird vorbehalten.</p><lb/>
+</div> </front> <body>
+<pb n="[3]" facs="#f0013"/>
+<p> <hi rendition="#in">E</hi>s iſt, nach dem wiſſenſchaftlichen Ort oder Quellpunkt<lb/>
+angeſehen, <hi rendition="#g">eine Frage der philoſophiſchen Moral</hi>, was<lb/>
+wir im Folgenden zu behandeln unternehmen. Nun wirft man<lb/>
+freilich der Philoſophie beſonders in unſerer, zur Abwechſelung<lb/>
+auch einmal recht wenig philoſophiſch geſtimmten Zeit oft vor,<lb/>
+daß ſie ihren volltönenden Namen Welt- oder Lebensweisheit ſehr<lb/>
+mit Unrecht und faſt nur wie zur ironiſchen Selbſtkritik trage.<lb/>
+Denn in allen möglichen Sphären ſich bewegend, über dieß und<lb/>
+das im Himmel und auf Erden verhandelnd wiſſe ſie nirgends<lb/>
+weniger Beſcheid oder kenne ſich überall beſſer aus, als in der<lb/>
+wirklichen Welt, im realen Leben; gleich nebligen Wolken ziehen<lb/>
+ja ihre abſtrakten Sätze in ferner Höhe dahin und verdunkeln das<lb/>
+Licht der natürlichen Erkenntniß eher, als daß ſie es fördern. —<lb/>
+Mag dieſer, wiewohl vielfach einſeitig übertriebene Tadel einzelne<lb/>
+Gebiete jener Wiſſenſchaft oder noch eher einzelne Formen ihrer<lb/>
+Ausprägung und Vertretung am Ende auch treffen, <hi rendition="#g">wir</hi> hoffen<lb/>
+ihm mit <hi rendition="#g">unſerem</hi> Problem zu entgehen, das <hi rendition="#aq">in mediam rem</hi><lb/>
+unſres realiſtiſchen Jahrhunderts greift, als Zeit- und Streitfrage<lb/>
+im Vordergrund des Intereſſes ſteht und eben die Gegenwart<lb/>
+aufs Lebhafteſte bewegt.</p><lb/>
+<p> <hi rendition="#g">Kosmopolitismus</hi> und <hi rendition="#g">Patriotismus</hi>, Weltbürger¬<lb/>
+lichkeit und Vaterlandsliebe — wohl ſind ſie nicht ſelbſt und<lb/>
+unmittelbar der Zankapfel unſerer kämpfereichen Zeit; ihrer Natur<lb/>
+nach können ſie es auch nicht ſein. Denn wie ſchon ihre kunſt¬<lb/>
+mäßige Wortform andeutet, haben wir an ihnen überhaupt nichts<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#aq">III</hi>. 36.<lb/>
+</fw> <fw type="sig" place="bottom">1*<lb/>
+</fw>
+<pb n="4" facs="#f0014"/>
+gegenſtändlich Greifbares, keine in ſich abgeſchloſſenen, fertigen<lb/>
+Ziele und Intereſſen, für oder wider die man ſich erhitzen könnte.<lb/>
+Sie ſind vielmehr Beide nur begleitende, eine gemeinſchaftliche<lb/>
+Richtung Vieler ausdrückende Stimmungen für andere Beſtrebungen,<lb/>
+von denen ſie den Inhalt empfangen, während ſie jenen dafür<lb/>
+Form und Feuer, vielleicht auch vielfach nur den Vorwand oder<lb/>
+den blendenden, auf die Maſſe berechneten Schein verleihen. Als<lb/>
+dieß aber ſind ſie dennoch der Grundton, auf welchen in dem oft<lb/>
+wenig harmoniſchen Konzert unſerer Tage alle Variationen der<lb/>
+Melodie hüben und drüben ſtets wieder zurückkommen; ſie ſind<lb/>
+die Fahne, um welche ſich die Kämpfer beider Lager in dem Rin¬<lb/>
+gen ſchaaren, das trotz des ſchon verſuchten Spöttelns der Blaſirten<lb/>
+jeder Ernſtere und Einſichtige rundweg „unſeren modernen Kultur¬<lb/>
+kampf“ nennen und für Einen der Wendepunkte in der Geſchichte<lb/>
+erklären wird.</p><lb/>
+<p>Unter dem bauſchig flatternden Banner des <hi rendition="#g">Kosmopoli</hi>¬<lb/>
+<hi rendition="#g">tismus</hi> kämpft die <hi rendition="#g">Internationale</hi>, beſſer Antinationale<lb/>
+ſchwarzer und rother Obſervanz, trotzig überzeugt, weil ſie ja Maſſen<lb/>
+ins Feuer zu führen hat, „unter dieſem Zeichen zu ſiegen“, —<lb/>
+als ſtünde die Welt noch vor derſelben geſchichtlichen Aufgabe, an<lb/>
+derſelben wahren Grenzſcheide zweier Zeitalter, wie einſt Kon¬<lb/>
+ſtantin vor den Mauern Roms im Kampfe gegen Maxentius, wo<lb/>
+immerhin die univerſale Religion gegenüber einem krampfhaft<lb/>
+und krankhaft zu reſtauriren verſuchten Heidenthum ihre innere<lb/>
+Siegesgewißheit ſelbſt im Spiegelbilde der Wolken ſchauen mochte.<lb/>
+— Des alten in ſeiner Art kosmopolitiſchen Weltreichs ſtolze<lb/>
+Loſung und Marke: »<hi rendition="#aq">Civis Romanus sum</hi>«, ein Bürger Roms<lb/>
+bin ich — ſie wird von Neuem angewandt, um die näher liegende<lb/>
+nationale Bürgerpflicht abzuſchütteln und excentriſchen Sinnes ſein<lb/>
+Centrum, ſeinen Schwerpunkt „jenſeits der Berge“ zu finden. —<lb/>
+Das andere Motto eines geiſtigen Weltbürgerſinns neben dem<lb/>
+<pb n="5" facs="#f0015"/>
+politiſchen: »<hi rendition="#aq">Homo sum, nil humani a me alienum puto</hi>; ich<lb/>
+bin ein Menſch und erachte nichts Menſchliches als mir fremd!“<lb/>
+heutigen Tags iſt es traveſtirt zur trotzigen Forderung der „Men¬<lb/>
+ſchenrechte“, welche dem angeblichen Haupttheil der Menſchheit<lb/>
+angeblich vorenthalten ſeien und die ſich zu erkämpfen die Gleich¬<lb/>
+geſinnten <hi rendition="#g">aller</hi> Orte, <hi rendition="#g">jeder</hi> Zunge als Eine rückſichtsloſe Partei<lb/>
+zuſammenſtehen müſſen, den Fluch der ganzen ſeitherigen Geſchichte<lb/>
+mit ſehnigem Arm und nerviger Fauſt zu brechen. Freilich „Ich<lb/>
+erachte nichts Menſchliches als ein <hi rendition="#aq">alienum</hi>“ — im Munde des<lb/>
+Kommunismus hat es eine ganz neue Bedeutung und Prägung<lb/>
+erhalten!</p><lb/>
+<p>Gegen dieſe Legionen ſchaart ſich auf der andern Seite,<lb/>
+ſonſtigen Hader vergeſſend oder doch zurückſtellend, unter der Fahne<lb/>
+des <hi rendition="#g">Patriotismus</hi>, was irgend ſeinen Standort nicht <hi rendition="#g">über</hi><lb/>
+der Erde haben will in hierarchiſchen Höhen, nicht <hi rendition="#g">unter</hi> der<lb/>
+Erde bei den Maulwürfen der Geſchichte und Geſellſchaftsordnung,<lb/>
+ſondern feſt und klar <hi rendition="#g">auf</hi> der Erde, auf heimiſchem Boden, deſſen<lb/>
+lange von den Beſten erſehnte Einheit und Macht, der endlich<lb/>
+verwirklichte Traum der Jahrhunderte nicht ſein ſoll „wie ge¬<lb/>
+wonnen, ſo zerronnen“, eine kurze Blüthe, ſogleich wieder von<lb/>
+den Würmern zernagt und zerfreſſen. Und wie nach der ſinnigen<lb/>
+alten Sage Antäus, ſchwach in freier Luft, durch die Berührung<lb/>
+mit ſeiner Mutter Erde ſtets neue Kraft gewann, ſo gibt in<lb/>
+unſerem Kampf die Vaterlandsliebe ihren treuen Streitern Muth<lb/>
+und Siegeszuverſicht ſelbſt gegen die Heeresmaſſen der Welt¬<lb/>
+bürgerlichen.</p><lb/>
+<p>Dieſe beiden Loſungen, welche als Sinnesweiſen zwar im<lb/>
+Hintergrund der greifbaren Beſtrebungen ſtehen, aber doch ein ſo<lb/>
+mächtiges Wort in unſeren Tagen mitreden, haben wir gegen<lb/>
+einander zu prüfen und zu meſſen an den Naturgeſetzen der Seele,<lb/>
+ſowie an den Grundlinien der Moral, indem wir uns immer<lb/>
+<pb n="6" facs="#f0016"/>
+leiten oder das Gefundene weiter beſtätigen laſſen durch die großen<lb/>
+Schriftzüge der Geſchichte, dieſer beſten Lehrmeiſterin unſeres<lb/>
+Denkens über die Dinge des menſchlichen Lebens.</p><lb/>
+<p>Den Vortritt möge diejenige Richtung und Geſinnung haben,<lb/>
+welche den Mund ſelbſt auch am vollſten zu nehmen und ſich der<lb/>
+Oeffentlichkeit am meiſten anzupreiſen pflegt, der <hi rendition="#g">Kosmopoli¬<lb/>
+tismus</hi>. Gewiß, er hat viel Blendendes an ſich, eine recht<lb/>
+anſprechende und einſchmeichelnde Miene, zumal wenn er in ſo<lb/>
+liebenswürdiger Geſtalt ſich naht, wie in dem berühmten Hohelied<lb/>
+einer freudigen Humanität bei unſerem Schiller, dieſem edlen<lb/>
+Sohn ſeiner gefühlswarmen Zeit:</p><lb/>
+<lg type="poem"> <l>„Seid umſchlungen Millionen,</l><lb/>
+<l>Dieſen Kuß der ganzen Welt!“</l><lb/>
+</lg> <p>Wer möchte gegen dieß Motto des beſten Kosmopolitismus<lb/>
+viel haben, als etwa gleich an der Schwelle einige proſaiſch¬<lb/>
+nüchterne Bedenken, wie man ſich denn die Ausführung dieſes<lb/>
+frommen Wunſches eigentlich vorſtellen ſolle — das böſe Aber<lb/>
+aller dieſer überſchwänglichen Flüge in die Weite! — Immerhin<lb/>
+jedoch mag es ſein, daß der gleichgeſinnte <hi rendition="#g">moderne</hi> Menſch mit<lb/>
+einem gewiſſen Gefühl mitleidigen Bedauerns, froh dagegen im<lb/>
+Bewußtſein der erreichten eigenen Höhe herabſieht auf einen Stand¬<lb/>
+punkt, wie z. B. den der <hi rendition="#g">alten Griechen</hi> und <hi rendition="#g">Römer</hi>. Was<lb/>
+ſteckten doch, wird er ſagen, dieſe vielgerühmten „klaſſiſchen“ Völker<lb/>
+mit bornirteſter Befangenheit in ihren Stäätchen oder Staaten,<lb/>
+was waren ſie, wie auf anderen, ſo auch auf dieſem Gebiet ſo<lb/>
+ganz verſunken in bloße Naturbeſtimmungen, daß ſie dieß ihr<lb/>
+Weſen gar auch noch als höchſte Mannestugend ausgaben! Selbſt<lb/>
+ihre größten Geiſter, hierin wenigſtens ſcheinen ſie dem Kosmo¬<lb/>
+politen herzlich ſchwach geweſen zu ſein und eben den unvermeid¬<lb/>
+lichen Tribut an ihre unvollkommene Zeit bezahlt zu haben, welche<lb/>
+auch die Stärkſten nicht auf einmal und ganz losließ. Sogar der<lb/>
+<pb n="7" facs="#f0017"/>
+ſonſt ſo entſchieden und rühmlich auf das Idealfreie gerichtete<lb/>
+Plato macht als ächter Hellene ein gewaltiges Aufheben aus dem<lb/>
+Staat, ohne doch dabei an etwas Andres zu denken, als an doriſch-ly¬<lb/>
+kurgiſch zugeſchnittene Stadtrepubliken von Griechenland. Dieſe ſollen<lb/>
+nun „der Menſch im Großen“ ſein, in der Gliederung der Stände<lb/>
+und Inſtitutionen nicht ſowohl Ab-, als Vorbild der Einzelſeele,<lb/>
+die erſt in dieſem weiteren Rahmen ihre eigene Beſtimmung er¬<lb/>
+reiche und die Kardinaltugenden voll zu erweiſen vermöge. Und<lb/>
+jener minutiöſe Staatsmoloch wird ſo hoch geſtellt, daß ihm rück¬<lb/>
+ſichtslos als Opfer dargebracht wird, was den Menſchen im Pri¬<lb/>
+vatleben oder in der wiſſenſchaftlichen Thätigkeit recht eigentlich<lb/>
+zum freien geiſtigen Weſen macht — vorausgeſetzt, daß keinerlei<lb/>
+äußere Omnipotenz ſeine Lebensregungen im Keim erſtickt oder ver¬<lb/>
+giftet, wie es hier geſchähe! — Sein Schüler Ariſtoteles, ſonſt<lb/>
+ſo vielfach abweichend, hierin ſtimmt auch er überwiegend mit dem<lb/>
+Meiſter zuſammen und bezeichnet die Anlage für das Staatsleben<lb/>
+als das dem Menſchen Grundweſentliche, deſſen Verwirklichung die<lb/>
+Blüthe der Entwicklung ſei. Kein Wunder, daß die Maſſe ihres<lb/>
+Volks unter dem Banne ſolcher beſchränkten Anſchauungen befangen<lb/>
+blieb und z. B. Verbannung aus dem Vaterland als ſchwerſtes,<lb/>
+dem Tode beinah gleich zu achtendes Loos betrachtete. Denn »<hi rendition="#aq">hic<lb/>
+ego barbarus sum, quia non intelligor ulli</hi>«! In anderen Völ¬<lb/>
+kern und Sprachen ſah man ja mit altkluger Selbſtgenügſamkeit<lb/>
+nur barbariſche Gebilde, phyſiſch und pſychiſch auf halbmenſch¬<lb/>
+licher Stufe — ein Zeugniß der eigenen bornirten Unwiſſenheit,<lb/>
+wenn man dieß Urteil über ſolche fällte, welche in modernem<lb/>
+Lichte geſehen ſich als nächſte Verwandte und in ſofern völlig<lb/>
+Ebenbürtige der „klaſſiſchen“ Völker erweiſen.</p><lb/>
+<p>Einen Schritt der Wahrheit näher ſcheint ſchon das ſpätere<lb/>
+<hi rendition="#g">caeſariſch-römiſche Weltreich</hi>. Wie es toleranten Sinnes<lb/>
+in ſeinem Pantheon allerlei Göttern eine Stätte anwies, ſo ver¬<lb/>
+<pb n="8" facs="#f0018"/>
+einigte es im weiten Rahmen ſeiner profanen Jurisdiction unter¬<lb/>
+ſchiedslos ſoviele Völker, als ſeine Macht zu erreichen, ſein impe¬<lb/>
+ratoriſches Schwert und organiſatoriſches Geſchick zu bewältigen<lb/>
+vermochte. Wenn von ſeinem Kaiſer ein Edikt, z. B. zu jener<lb/>
+bibliſch berichteten Schatzung ausgieng, ſo glaubte ſich „alle Welt“<lb/>
+(πᾶδα οἰκουμένη) zum Gehorſam verpflichtet.</p><lb/>
+<p>In das Erbe dieſer <hi rendition="#aq">urbs-orbis</hi>, dieſer ächt geſchichtlichen<lb/>
+Weltſtadt (und nicht etwa, wie die Sage hinterher das Welt¬<lb/>
+lichpolitiſche theologiſch verbrämt, in das »<hi rendition="#aq">patrimonium</hi>«, die<lb/>
+Erbſchaft Petri) trat weislich und klüglich der kirchliche Ro¬<lb/>
+manismus. Innere Gründe der Sache, meinethalb zu ihrer<lb/>
+Zeit vollberechtigte Ideen, waren immerhin das treibende Mo¬<lb/>
+tiv; aber doch gehörte gerade auch dieſer hiſtoriſche Boden als<lb/>
+äußere Bedingung dazu, um in elaſtiſcher, den Vorfahren ab¬<lb/>
+gelernter Anbequemung an Zeit und Umſtände den weltherr¬<lb/>
+ſchenden mittelalterlichen Katholizismus zu entfalten und ein<lb/>
+univerſales halb Himmels- halb Weltbürgerthum zu begründen.<lb/>
+(Mit feinſtem Inſtinkt für die Wurzeln ſeiner Kraft hängt deß¬<lb/>
+halb noch heute das Pabſtthum an ſeiner „ewigen Stadt“, die¬<lb/>
+ſem für eine phantaſtiſche Phantaſie beinahe wie übergeſchicht¬<lb/>
+lichen Punkt mitten in der Geſchichte; denn es weiß wohl, wie<lb/>
+viel von ſeinem Nimbus ſchwände, wenn es den ſieben Hügeln<lb/>
+den Rücken kehrte, wie es dann nicht bloß in Avignon, ſondern<lb/>
+überall ſonſt im Exil leben würde, außerhalb von <hi rendition="#aq">Roma</hi>, dem<lb/>
+»<hi rendition="#aq">Amor</hi>« der Völker!)</p><lb/>
+<p>Aber all dieß war in den Augen des modernen Kosmopoliten<lb/>
+erſt die Anbahnung und Ahnung des Wahren. Denn nur für<lb/>
+eine glückliche Unwiſſenheit, welche die Grenzen nicht kannte oder<lb/>
+überſah, deckte ſich ja das alte Römerreich und wiederum die Kirche<lb/>
+ſelbſt in ihrem höchſten theokratiſchen Glanz mit der ganzen, die Erde<lb/>
+erfüllenden Menſchheit: das ſtolze Wort „katholiſch“ d. i. allgemein<lb/>
+<pb n="9" facs="#f0019"/>
+war ſo gut wie heutigen Tags nur entweder trotziger Wahn oder<lb/>
+frommer Wunſch, nicht aber Wirklichkeit. Und ſoweit es dieß je<lb/>
+war, herrſchte bloß mechaniſch-gewaltſame Einerleiheit, nicht die<lb/>
+freie ſuveräne Wahl des Geiſtes oder Herzens, das ſich ſelbſt ſeine<lb/>
+Stätten und Formen zum Heimiſchſein beliebig ausſucht.</p><lb/>
+<p>So iſt es trotz mancher Anſätze doch ſchließlich erſt das Werk,<lb/>
+die Großthat der <hi rendition="#g">Neuzeit</hi>, ſich auf dieſe Geiſteshöhe geſchwun¬<lb/>
+gen zu haben, wo die Schranken von Raum und Zeit als über¬<lb/>
+wundene Elemente der Anfänge, als die Windeln der Menſchenkind¬<lb/>
+heit erſcheinen. Die Entdeckungen und Erfindungen vom vierzehn¬<lb/>
+ten Jahrhundert an, vor denen das Mittelalter zuletzt morſch in<lb/>
+ſich zuſammenbrach und von der freieraufathmenden Bruſt der<lb/>
+Menſchheit jener hierarchiſche Alpdruck wich, ſie ſind eben darauf<lb/>
+gerichtet, die ſeitherigen Grenzen auf den verſchiedenſten Gebieten<lb/>
+wenn nicht ganz aufzuheben, ſo doch nach Möglichkeit hinauszu¬<lb/>
+rücken. Des Kopernikus geiſtig großer Gedanke macht der geo¬<lb/>
+centriſchen Selbſtſucht, jenem partikulariſtiſch eingebildeten Wahn<lb/>
+des Menſchen ein Ende, als ob Sonne, Mond und Sterne ſich<lb/>
+juſt nur höfiſch um ihn und ſeine Selbſtherrlichkeit zu drehen hätten.<lb/>
+Er erkennt ſich und ſeinen Wohnort als Glied nur im Ganzen,<lb/>
+ja als verſchwindendes Atom im unendlichen Weltraum, zu deſſen<lb/>
+Höhe und Ferne das Teleſcop ſiegreich nebelzerſtreuend dringt, wäh¬<lb/>
+rend das Mikroſcop ungeahnte Wunder der Welt im Kleinen er¬<lb/>
+ſchließt, Kühne Reiſen, nach den phantaſtiſchen Kreuzzügen nüch¬<lb/>
+ternen Sinnes unternommen, offenbaren eine ganz neue Geogra¬<lb/>
+phie; das Wiederaufleben der klaſſiſchen Wiſſenſchaften, von der Liſt<lb/>
+der Idee durch die Ueberfluthung von Byzanz durch die rohen Türken<lb/>
+gewirkt, zieht den Vorhang vom Theater großer vergangener Geiſtes¬<lb/>
+entwicklung und Geſchichte. Expanſiv und fernwirkend ſind end¬<lb/>
+lich auch jene zwei Erfindungen, welche im Krieg und damit im<lb/>
+Staatsweſen einerſeits, im Frieden andererſeits der Neuzeit kräf¬<lb/>
+<pb n="10" facs="#f0020"/>
+tig zum Durchbruch verhalfen, nemlich Schießpulver und Buch¬<lb/>
+druckerkunſt. Noch ehe alſo unſere Gegenwart mit deren ſtärkeren<lb/>
+Geſchwiſtern, Dampf und Telegraph, Länder und Meere umſpannt<lb/>
+oder in hochgeſteigerter Wiſſenſchaft nicht nur der fernen Welt¬<lb/>
+körper Stoffe beinahe chemiſch analyſirend prüft, der entlegenſten<lb/>
+Erdzeiten Dunkel durch ihre Fackel erhellt, aus Wort- oder Sach¬<lb/>
+trümmern die Urgeſchichte unſeres Planeten und Geſchlechts zu<lb/>
+entziffern vermag, noch vor All dem iſt es die ſchönſte Blüthe ſchon<lb/>
+jener früheren, Welt und Blick erweiternden Errungenſchaften, daß<lb/>
+endlich einmal auch der Menſchengeiſt aufhört, an der Scholle zu<lb/>
+kleben, wo er zufällig geboren, als träge Raupe langſam in ärm¬<lb/>
+lichem Bezirk dahinzukriechen, ſtatt dem Schmetterling gleich ſich<lb/>
+frei in den Lüſten von Blume zu Blume zu wiegen und nieder¬<lb/>
+zulaſſen, wo es ihm gefällt. Jene alle engherzige und kurzſichtige<lb/>
+Beſchränktheit iſt überwunden; es iſt die Zeit gekommen, daß des<lb/>
+Geiſtes allein wahres Weſen, der freie Zug zum großen Ganzen,<lb/>
+der Blick und Sinn fürs Allgemeine der Welt ausſchließlich zum<lb/>
+Recht komme, wie es ihm gebührt, nachdem er ſolange geſchlum¬<lb/>
+mert oder nur dürftige Befriedigung gefunden hat.</p><lb/>
+<p>Einen höchſt ſchlagenden Ausdruck findet dieſe modernkosmo¬<lb/>
+politiſche Geiſtesariſtokratie in einer früheren Schrift des ſo ſtark<lb/>
+politiſchen Philoſophen <hi rendition="#g">Fichte</hi>, welche als Repräſentation der<lb/>
+ganzen damaligen Zeitſtimmung namentlich in Deutſchland ange¬<lb/>
+ſehen werden mag. Faſt als wollte er das Arndt'ſche Vaterlands¬<lb/>
+lied anticipirend parodiren, fragt er nemlich hier: „Was iſt denn<lb/>
+das Vaterland des wahrhaft ausgebildeten chriſtlichen Europäers?<lb/>
+Im Allgemeinen iſt es Europa; insbeſondre in jedem Zeitalter<lb/>
+derjenige europäiſche Staat, welcher auf der Höhe der Kultur<lb/>
+ſteht. Jener Staat, welcher gefährlich fehl greift, wird mit der<lb/>
+Zeit untergehen; aber ebendarum kommen andre und unter dieſen<lb/>
+vorzüglich Einer herauf. Mögen doch die Erdgeborenen, welche<lb/>
+<pb n="11" facs="#f0021"/>
+in der Scholle, dem Fluß, dem Berg ihr Vaterland erkennen,<lb/>
+Bürger des geſunkenen Staates bleiben; ſie behalten, was ſie<lb/>
+wollten und was ſie beglückt. Der ſonnenverwandte Geiſt wird<lb/>
+unwiderſtehlich angezogen werden und ſich hinwenden, wo Licht iſt<lb/>
+und Recht. Und in dieſem Weltbürgerſinn können wir dann über<lb/>
+die Handlungen und Schickſale der Staaten uns beruhigen für<lb/>
+uns ſelbſt und unſere Nachkommen bis ans Ende der Tage.“</p><lb/>
+<p>Allen Reſpekt vor Entwickelung und Fortſchritt, dieſer Ehre<lb/>
+der ſtrebenden Menſchheit, vor den Errungenſchaften der Wiſſen¬<lb/>
+ſchaft und Technik, welche als Pionniere des Geiſtes das Ferne<lb/>
+uns nahe rücken, das Fremde bekannt und beinahe heimiſch machen.<lb/>
+Alle Achtung namentlich auch vor einem ſolchen offenen Geiſtesblick,<lb/>
+der das Weiteſte umſpannt und nicht etwa trägen Sinnes ſich<lb/>
+eine voreilige Grenze als Ruheplatz ſetzt, indem er ſeine Beſchränkt¬<lb/>
+heit für Tugend und Wahrheit ausgibt! Aber jene überſchwängliche<lb/>
+Werthſchätzung des Zugs in die Ferne, jene einſeitige und aus¬<lb/>
+ſchließliche Betonung des Allgemeinen und Ganzen — ob ſie nicht<lb/>
+vielleicht mindeſtens ebenſo bedenklich iſt, als das bornirte Kleben<lb/>
+am Nächſten und Einzelnen; ob eine derartige kühne Verlegung<lb/>
+des Standpunkts für Gefühl und Intereſſe, für ruhende oder thä¬<lb/>
+tige Sympathie in Freud' und Leid, eine Verlegung weg vom<lb/>
+feſten Boden und hinein ins Blaue, nicht im innerſten Grund<lb/>
+trotz aller ſchönen Redensarten Schwindel iſt und Schwindel pro¬<lb/>
+duzirt, im ſtolzen Wahn der hohen Bildung doch nur eine krank¬<lb/>
+hafte Ueber- und Verbildung der geſunden Natur?</p><lb/>
+<p>Laſſen wir uns zuerſt von der <hi rendition="#g">Geſchichte</hi> belehren, wo ſich<lb/>
+in ihr der Kosmopolitismus vornehmlich zeigt. Derſelbe iſt ein<lb/>
+geborener großer Phraſeur und hat uns bis jetzt nur ſeine Licht¬<lb/>
+ſeiten gewieſen. Aber wir müſſen doch auch einmal den Revers<lb/>
+beſchauen und ihm hinter die Kuliſſen ſehen, ob ſein Glanz nicht<lb/>
+am Ende eitel Flittergold und Theaterherrlichkeit iſt!</p><lb/>
+<pb n="12" facs="#f0022"/>
+<p>In dem ſonſt ſo hochpatriotiſchen Alterthum tritt er mit<lb/>
+größerer Stärke erſt gegen das abſterbende Ende deſſelben in der<lb/>
+Moralphiloſophie der <hi rendition="#g">Stoiſchen Schule</hi> auf. Statt des Bar¬<lb/>
+barenthums vorher wird jetzt gar viel Schönes und Erbauliches<lb/>
+von der Menſchheit in ihrem einheitlichen, pantheiſtiſch begründe¬<lb/>
+ten Zuſammenhang, und ſtatt der autochthoniſch eingebildeten Ab¬<lb/>
+ſperrung über die allgemeinen Menſchlichkeitspflichten abgehandelt<lb/>
+— abgehandelt ſage ich, oder noch beſſer, deklamirt; denn ſehr viel<lb/>
+mehr als Redeübung, als Schönthun mit Tugenden und erhabe¬<lb/>
+nen Gefühlen vor ſich ſelbſt und Anderen war jene Moral im<lb/>
+innerſten Kern doch nicht: trotz aller forcirten Härte weichlich und<lb/>
+eitel, bei großen Worten thatlos (und gerne geneigt, durch den<lb/>
+Selbſtmord ſich eine wohlfeile Hinterthüre aus allen Drangſalen<lb/>
+zu öffnen), kurz, bei vielem Bombaſt doch hohl im Kern. Das<lb/>
+auf dieſem Boden gedeihende Wort: „Welt! dich liebe ich!“ mag<lb/>
+wohl gerade ſoviel Naturwahrheit beſeſſen haben, als das bekannte:<lb/>
+„Schmerz, ich verachte dich!“ — Und wie ähnlich in mehr als<lb/>
+Einer Beziehung, ähnlich beſonders in dieſer unmoraliſchen, erſt<lb/>
+von Kant kategoriſch zurechtgewieſenen Tugendhaftigkeit war jener<lb/>
+alten ſtoiſchen Zeit der zweite (wenigſtens human-profane) Kulmi¬<lb/>
+nationspunkt des Kosmopolitismus, <hi rendition="#g">das vorige Jahrhundert</hi>,<lb/>
+vornehmlich in Deutſchland, mit ſeiner überfließenden Stimmungs-<lb/>
+und Gefühlsſeligkeit, in welcher man ſo vielfach die Kraft zum<lb/>
+energiſchen Handeln verpuffte!</p><lb/>
+<p>Nein, alle dieſe Weltbürgerlichkeit, wir möchten ſie die <hi rendition="#g">enthu¬<lb/>
+ſiaſtiſch-ſchwärmende</hi> nennen, war in der That beſten Falls<lb/>
+doch nur ein windiges Theaterpathos. Sie vergaß ganz, daß alle<lb/>
+Naturkräfte, wie Licht und Wärme, mit der Entfernung ſtetig ab¬<lb/>
+nehmen; was Wunder, daß daſſelbe Geſetz ſich auch an der Seele<lb/>
+erwies, daß jene Alleweltsſympathie von bloßer Expanſionskraft<lb/>
+getrieben und keine natürlichen Grenzen mehr anerkennend ſich zu<lb/>
+<pb n="13" facs="#f0023"/>
+leerem Dunſt verflüchtigte und nirgends mehr einen geſundgedie¬<lb/>
+genen Kern beſaß, in dem ſie thatkräftig hätte fußen können.</p><lb/>
+<p>Doch es wäre zu wenig, wollten wir nur ſtehen bleiben bei<lb/>
+dieſer am Ende noch ziemlich harmloſen, halb komiſchen halb<lb/>
+liebenswürdigen Ueberſchwänglichkeit. Auf einer ſchiefen Ebene<lb/>
+geht es weiter, ehe man es ſich verſieht. Wie leicht wird aus<lb/>
+der Ueber-, alſo Unnatur die Unwahrheit, eine mehr oder weniger<lb/>
+bewußte Heuchelei! Das zeigt ſich auch hier: die Extreme berühren<lb/>
+ſich, die Ueberſpannung wird zur Abſpannung und der hochklingende<lb/>
+Sinn fürs Große entpuppt ſich gar vielfach als Deckmantel <hi rendition="#g">be¬<lb/>
+ſchränkter Selbſtſucht</hi>.</p><lb/>
+<p>Zunächſt iſt es der <hi rendition="#g">träge</hi> Egoismus, welcher gerne die nächſt¬<lb/>
+liegenden Pflichten von ſich abwälzt, indem er ſich mit ſcheinbar<lb/>
+Größerem, aber Fernerem und ſchon darum Leichterem entſchuldigt.<lb/>
+Die hohe Weisheit unſerer Sprüchwörter, dieſer naturwüchſigen<lb/>
+Moral, kennt in kleineren Kreiſen dieſes oder doch ein verwand¬<lb/>
+tes Uebel wohl, wenn ſie draſtiſch von manchen Menſchen als Ge¬<lb/>
+ſellſchaftsengeln und Hausteufeln redet. Oder wie Viele rennen<lb/>
+in allerlei frommen wie profanen Vereinen herum und vernach¬<lb/>
+läſſigen über ſolchen vermeintlich „guten Werken“ die unſchein¬<lb/>
+bareren, weil ſtillen Pflichten daheim, deren Erfüllung kein Extra¬<lb/>
+verdienſt verleiht. Daß dieß eine Modekrankheit gerade unſerer,<lb/>
+zuweilen auch übermäßig auf Aſſoziation bedachten Zeit iſt,<lb/>
+können uns ſelbſt Romane und Novellen als keineswegs gering¬<lb/>
+zuſchätzende Zeitſpiegel reichlich belehren. Insbeſondere dürfte<lb/>
+es mit dem leichten Katholiſiren der weiblichen Natur zuſammen¬<lb/>
+hängen, deren normale Tugend eine mehr pflanzenartige und ſtill¬<lb/>
+verborgene iſt, daß namentlich die modernen Emanzipationsgelüſte<lb/>
+— außer dem pſychologiſch motivirten Reiz der „Präſidentſchaft“<lb/>
+in ſolchen Vereinen — ſich durch ſolche keineswegs immer nur<lb/>
+löbliche und erſprießliche Sachen eine gewiſſe künſtliche Ueberver¬<lb/>
+<pb n="14" facs="#f0024"/>
+dienſtlichkeit beizulegen ſuchen. Vornehmlich die in jenen Kreiſen<lb/>
+viel traktirte „äußere Miſſion“ hat ſolange nur erſt ein zweifel¬<lb/>
+haftes oder doch ſehr beſchränktes Recht, als die „innere“ noch<lb/>
+nicht weiter gediehen iſt.</p><lb/>
+<p>Ganz dem zur Seite zu ſtellen iſt im Großen gar häufig der<lb/>
+prätenziöſe Kosmopolitismus. Mag der vorübergehende ſtudenti¬<lb/>
+ſche Frohſinn in heiterer Laune auch einmal ſingen: „Ueberall<lb/>
+bin ich zu Hauſe, Ueberall bin ich bekannt; Wo mir's gut geht,<lb/>
+iſt mein Vaterland!“ — das ſpätere und ernſte Leben ſtellt an¬<lb/>
+dere Forderungen. Beſonders kann es das nicht für zuläſſig er¬<lb/>
+klären, wenn die Unbefriedigung mit dem Eigenen und Nahen, ſtatt<lb/>
+Hand zur allmähligen Beſſerung mitanzulegen, ſich mit dem wohl¬<lb/>
+feilen <choice><sic>Weltbürgertro ſt</sic><corr>Weltbürgertroſt</corr></choice> aus der Enge zieht und in dieſen Flittermantel<lb/>
+gehüllt die Stürme der Zeit an ſich vorüberbrauſen läßt. Es<lb/>
+liegt ja auf platter Hand, wie eben unſre deutſchen Geiſtesgrößen<lb/>
+des vorigen Jahrhunderts in dieſer Weiſe nur aus der Noth der<lb/>
+Gegenwart eine Tugend machten und in der idealen Flucht zum<lb/>
+Welt- oder Menſchheitsganzen ſich zu tröſten ſuchten über die er¬<lb/>
+bärmliche Kleinlichkeit der reellen heimiſchen Zuſtände, die mit der<lb/>
+Größe ihres eigenen Genius um ſo greller kontraſtirte. Wir füh¬<lb/>
+len uns von Ferne nicht berufen, deßhalb einen Stein auf die<lb/>
+ſonſt ſo hellglänzenden Namen des eigenen Volks zu werfen oder<lb/>
+altklugen Sinnes jene gewaltigen Hero<hi rendition="#aq">ë</hi>n zu tadeln, denen wir ja<lb/>
+trotzdem ſo unendlich Vieles und Großes auf den mannigfachſten<lb/>
+Gebieten zu danken haben, ſoweit es ein deutſches Volk gibt.<lb/>
+Nur ſoviel dürfen wir immerhin aus jenem geſchichtlichen Ver¬<lb/>
+ſtändniß lernend entnehmen, daß ſelbige Stimmung lange nicht die<lb/>
+allein geiſteswürdige, modernklaſſiſche und auch für uns noch muſter¬<lb/>
+gültige ſei, da ſie ja nur als Ausfluß ungeſunder Zuſtände und deß¬<lb/>
+halb peſſimiſtiſcher Verzweiflung an der Wirklichkeit ſich erweiſt.</p><lb/>
+<p>Aehnlich, bloß mit viel ſchwächerer, wo nicht ganz mangeln¬<lb/>
+<pb n="15" facs="#f0025"/>
+der äußerer Berechtigung erklärt ſich die bekannte Erſcheinung,<lb/>
+daß die krankhaft unzufriedene, eudämoniſtiſch-weichliche Modephi¬<lb/>
+loſophie unſerer Tage, welche ſich an den Vorgang des Frankfurter<lb/>
+Einſiedlers knüpft, mit beſonderer Vorliebe aufs Weltganze reflek¬<lb/>
+tirt und dafür ihre kritiſch-ätzende Schärfe ſo gerne auch gegen die<lb/>
+nationalen Errungenſchaften der Gegenwart richtet, um, Luſt oder<lb/>
+Schmerz als einzige Angelpunkte des Lebens anerkennend, in pein¬<lb/>
+lichem <choice><sic>A bwägen</sic><corr>Abwägen</corr></choice> herauszurechnen, ob Gewinn oder nicht vielmehr<lb/>
+auch hier Verluſt das Facit ſei. Die üble Laune richtet ſich ihrer<lb/>
+pſychologiſchen Natur nach immer zuerſt und vornehmlich gegen<lb/>
+das Nächſte und Eigene (mit Ausnahme freilich des lieben Ich!);<lb/>
+ſo bleibt als poſitiveres Moment nur eine verſchwommene Sym¬<lb/>
+pathie mit dem Univerſum, oder verdüſtert auch dieſe ſich ſchließ¬<lb/>
+lich zu einem mitleidsvollen Weltſchmerz über ein abſtrakt all¬<lb/>
+gemeines »<hi rendition="#aq">je ne sais quoi</hi>«.</p><lb/>
+<p>In gleicher Art iſt es meiſt nur ſchwach verkappte Selbſt¬<lb/>
+ſucht, wenn der Kosmopolitismus als Haupthebel umtriebigen<lb/>
+<hi rendition="#g">Parteiweſens</hi> von geiſtlicher oder weltlicher Art gebraucht wird,<lb/>
+indem man die Mittel und Genoſſen zu dieſem Einen ausſchließ¬<lb/>
+lichen Zweck ohne alle andre Rückſicht ſucht, wo man ſie ir¬<lb/>
+gend in der Welt und dem Umkreis der Nationen findet. Sehen<lb/>
+wir hier ab von dem eigenen inhaltlichen Werth ſolcher Tendenzen,<lb/>
+die auf umfaſſende Propaganda auszugehen pflegen. Sie <hi rendition="#g">können</hi><lb/>
+ja möglicher Weiſe ganz recht und achtungswürdig ſein, nur <hi rendition="#g">müſ¬<lb/>
+ſen</hi> ſie es nicht; denn Quantität und Maſſe, Zahl und weite Ver¬<lb/>
+breitung imponirt uns ſchon nicht mehr, da wir wiſſen, wie auch<lb/>
+des Unkrauts Brauch es iſt, in zahlloſen, überall ſich einniſtenden<lb/>
+Exemplaren üppig zu wuchern. Nicht minder auf geiſtigem Gebiet<lb/>
+waren die »<hi rendition="#aq">testes veritis</hi>«, die Träger richtiger Einſicht von jeher<lb/>
+in der Minderzahl und der Appell an das »<hi rendition="#aq">suffrage universel</hi>«<lb/>
+daher eine „Entwürdigung der Vernunft“, wie Leibniz ſeinen<lb/>
+<pb n="16" facs="#f0026"/>
+Gegnern aus dem Lager des engliſchen Empirismus treffend<lb/>
+bemerkt.</p><lb/>
+<p>Wenn wir hier nur auf das Formelle eines ſolchen möglichſt<lb/>
+weit gedehnten Parteiweſens achten, ſo liegt offenbar die Ge¬<lb/>
+fahr bedenklich nahe, hiemit geradewegs in den Jeſuitis mus hin¬<lb/>
+einzugerathen, welcher die Mittel unbeſehen durch den Zweck hei¬<lb/>
+ligt. Wie Manches muß „um der guten Parteidisciplin willen“<lb/>
+in den Kauf genommen werden, wogegen ſich die individuelle Ue¬<lb/>
+berzeugung ſträubt, oder auch gegen wie Vieles muß man pflicht¬<lb/>
+ſchuldigſt die Augen der Anerkennung verſchließen, bloß weil es<lb/>
+juſt nicht in die Parteiſchablone paßt, während es Einem priva¬<lb/>
+tim ganz zuſagen würde. Je einſeitiger aber der Parteizweck iſt,<lb/>
+um ſo weniger Spielraum bleibt für die Abweichung, um ſo här¬<lb/>
+ter wird erfahrungsmäßig die Tyrannei und das Joch für die<lb/>
+perſönliche Freiheit. Und noch mehr! Die Bornirung auf ein<lb/>
+einziges Ziel mit rückſichtsloſeſter Mißachtung aller anderen Inter¬<lb/>
+eſſen iſt für die kosmopolitiſche Faction unerläßlich; denn wie<lb/>
+fände ſie bei reicherem Inhalt von mannigfaltigerer Art ſonſt ihre<lb/>
+Geſinnungsgenoſſen in Nord und Süd, in Oſt und Weſt? Ueber¬<lb/>
+einſtimmung der ſonſt Verſchiedenſten trifft ſich nur in ſehr we¬<lb/>
+nigen, dürr und abſtrakt gehaltenen Punkten. Wie muß dann<lb/>
+aber Dieß trotz ſcheinbarer Weltbürgerlichkeit Herz und Sinn aufs<lb/>
+Engſte zuſammenziehen, wie muß die vielſeitiger angelegte Men¬<lb/>
+ſchennatur auf ſo magerer Waide verkümmern, ſtatt ſich harmo¬<lb/>
+niſch durchgebildet zu entfalten! Die Ausdehnung geſchieht auf<lb/>
+Koſten des inneren Reichthums; die Partei wird zur Kaſte, und<lb/>
+in deren Mitte thront allemal je das liebe Ich, das für den<lb/>
+Deſpotismus des Syſtems doch auch ſeine perſönliche Entſchädigung<lb/>
+haben will.</p><lb/>
+<p>Es kann nicht anders ſein, als daß Geſchichts- und Lebens¬<lb/>
+betrachtung uns an dem vielgeprieſenen Kosmopolitismus über¬<lb/>
+<pb n="17" facs="#f0027"/>
+wiegend Hohlheit oder gar ſchnöde Unwahrheit aufweist. Denn<lb/>
+wenn wir von der Sphäre der Erſcheinung hinabſteigen zur ent¬<lb/>
+ſcheidenden Quelle, in die Tiefe der <hi rendition="#g">Menſchenſeele</hi>, ſo ſehen wir<lb/>
+bald, wie jene Einſeitigkeit deren Naturgeſetze ſchwer verletzt. Die<lb/>
+Ueberbildung meint, es ſei die Richtung aufs Ganze und die aufs<lb/>
+Einzelne, der univerſale und der partikulare Trieb, um welche<lb/>
+Zweiheit es ſich hier handelt, nur anzuſehen als zwei Stufen des<lb/>
+Vollkommenen und Unvollkommenen, von denen das Letztere na¬<lb/>
+türlich zu weichen hätte, wenn das Erſtere eintritt. Hierin aber<lb/>
+liegt ein ſchwerer Irrthum, wie ſo oft, wo eine gewaltſam auf<lb/>
+Auseinanderentwicklung bedachte Anſchauungsweiſe verſchiedene na¬<lb/>
+türliche Potenzen in ſolcher ſchulmäßigen Art rangiren will, um<lb/>
+in der doch unendlich viel reicheren Natur Eine gerade Linie des<lb/>
+dialektiſchen Fortſchritts von Unten nach Oben herauszubekommen.<lb/>
+So repräſentiren in Wahrheit auch hier jene Triebe zwei gleich¬<lb/>
+geordnete, wenigſtens fortdauernd neben einander berechtigte Stre¬<lb/>
+bungen des Gemüths. Man könnte ſie den centrifugalen und cen¬<lb/>
+tripetalen Zug nennen (nur freilich nicht im Sinn des gegenwär¬<lb/>
+tigen deutſchen Reichstags!) und dürfte etwa mit einer geiſtvoll¬<lb/>
+kühn intuitiven Naturphiloſophie daran erinnern, wie ſchon im<lb/>
+vorbildenden niederſten Sein der Materie ſich als Anziehung und<lb/>
+Abſtoßung die gleiche Doppelheit der natürlichen Kraftrichtung<lb/>
+ſpüren laſſe, in deren Gleichgewicht der Beſtand der körperlichen<lb/>
+Gebilde beruhe. In unſerem Seelenleben jedenfalls kehren ſie über¬<lb/>
+all wieder und ſind mit ihrem gegenſeitigen Verhältniß für ſo<lb/>
+Vieles (z. B. für das ſpekulative Verſtändniß des Guten und Bö¬<lb/>
+ſen) entſcheidend.</p><lb/>
+<p>Nun verſucht es eben der Kosmopolitismus, die Eine Seite<lb/>
+abzutödten, als wäre ſie ganz zu überwinden, weil ſie immerhin<lb/>
+untergeordnet ſein ſoll. Ein ſolches Unterfangen aber kann als<lb/>
+gewaltſame Meiſterung und Korrektion der Natur ſelbſt nur Ver¬<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#aq">III</hi>. 36.<lb/>
+</fw> <fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb n="18" facs="#f0028"/>
+ſtümmelung, nur Pfuſcherei ergeben. Wie bei der hierin verwand¬<lb/>
+ten Asceſe einer überſchwänglichen Geiſtigkeit und ihrem Streben,<lb/>
+durch erbarmungsloſes Ertödten der Sinne (als des vermeintlichen<lb/>
+Sitzes und Quellpunkts für das Böſe) Heiligkeit zu produziren und<lb/>
+künſtlich zu deſtilliren, wird das Ende vom Lied immer nur das alte<lb/>
+längſtbekannte ſein, daß die Natur, gewaltſam ausgetrieben, bloß<lb/>
+um ſo gewaltthätiger und krankhafter (Hallucinationen der „Heili¬<lb/>
+gen“!) zurückkehrt und ſich für ihre verſuchte Nichtanerkennung<lb/>
+durch um ſo einſeitigeres und deſpotiſcheres Auftreten rächt. —<lb/>
+Warum ſollte alſo nicht auch — da „Worte, Worte, Worte!“<lb/>
+nichts helfen — der herrliche Kosmopolitismus ganz überwiegend<lb/>
+nach eben dieſen Geſetzen den Rückſchlag in ſchnöden Egoismus<lb/>
+erleben?</p><lb/>
+<p>Wahr und ächt iſt überall nur das Natürliche, zwar nicht<lb/>
+ſchon das Rohe, wie es unmittelbar vorliegt, aber das durch den<lb/>
+Geiſt treu Bewahrte und Verklärte. Für das Feld des menſch¬<lb/>
+lichen Zuſammenlebens ſtellt ſich nun die allein erſprießliche Kul¬<lb/>
+tur des Natürlichen dar als Sache betrachtet in der Form des<lb/>
+<hi rendition="#g">Nationalſtaats</hi> ſtatt der Welt oder Menſchheit in blauer All¬<lb/>
+gemeinheit; als Geſinnung dazu angeſehen oder als Seele jenes<lb/>
+Körpers iſt es eben der <hi rendition="#g">Patriotismus</hi> an der Stelle des zer¬<lb/>
+fahrenen Weltbürgerſinnes.</p><lb/>
+<p>Der angemeſſenſte Ort oder Gegenſtand des Patriotismus<lb/>
+iſt aus inneren Gründen der Nationalſtaat. Staat für ſich allein<lb/>
+iſt eine zu abſtrakte und allgemeine Form, für die man ſich doch<lb/>
+nur künſtlich erwärmen könnte. Dieß gilt jedenfalls von der über¬<lb/>
+wiegenden Mehrzahl der Bürger, deren Staatsſinn ſich bekannt¬<lb/>
+lich noch viel ſinnlich-individueller als perſönliche Anhänglichkeit<lb/>
+an das Fürſtenhaus zu ſchematiſiren liebt. Nation für ſich allein<lb/>
+aber wäre zu ſtoffmäßig und zerfloſſen, daher wenig greifbar. Am<lb/>
+naturgemäßeſten gehören Beide zuſammen, wie es in der Haupt¬<lb/>
+<pb n="19" facs="#f0029"/>
+ſache die Entwicklung ſelbſt, ob auch zuweilen auf langen Irr-<lb/>
+und Umwegen geordnet hat.</p><lb/>
+<p>Gegenüber dem ſeltſamen, erſt aus ſpäteren Kulturzeiten ent¬<lb/>
+lehnten Wahn des »<hi rendition="#aq">bellum omnium contra omnes</hi>«, des wilden<lb/>
+Kriegs als Urſtands, hat die Natur ſchon durch die geſchlechtliche<lb/>
+Differenz die urſprünglichſten Einheitsbande zwiſchen den, hienach<lb/>
+bereits nicht mehr atomiſtiſch vereinzelten Individuen geknüpft.<lb/>
+Die Familienkreiſe erweitern ſich zum patriarchaliſchen Zuſammen¬<lb/>
+leben, zur Horde; allmählig giebt man das nomadiſche „überall<lb/>
+und nirgends“ auf und wird ſeßhaft. Hieran ſchließt ſich wie<lb/>
+dem Wort, ſo der Sache nach Sitte, Sittlichkeit und Geſetz (ἕζω,<lb/>
+ἔϑος, ἦϑος — νέμω, νόμος; Gewohnheit u. ſ. w.); da¬<lb/>
+her feierte Hellas einſt in den Thesmophorien die Götter, welche<lb/>
+den Ackerbau gelehrt, zugleich als Gründer der Rechtsordnung.<lb/>
+In ſolch ſtetigem Prozeß, der durch äußere Anſtöße immerhin<lb/>
+beſchleunigt oder ſonſt modifizirt werden mag, wird das zuerſt<lb/>
+nur Inſtinktive und ſich von ſelbſt Machende, Gewohnheitsmäßige<lb/>
+und Traditionelle in das Licht des klaren Bewußtſeins und ver¬<lb/>
+nünftigen Wollens aufgenommen. Es erhält jetzt, zwar nicht erſt ſein<lb/>
+Daſein in künſtlicher Macherei, wie der ſeltſame Mangel an wirk¬<lb/>
+lich geſchichtlichem Sinn im vorigen Jahrhundert ſo vielfach wähnte,<lb/>
+wohl aber ſeine reinigende, Auswüchſe beſchneidende, Lücken ergän¬<lb/>
+zende Sanctionirung und greifbare Feſtſetzung als Niederſchlag des<lb/>
+praktiſchen Geiſtes in einem phyſiſch und pſychiſch zuſammengehöri¬<lb/>
+gen Menſchenkomplex. Damit formt ſich die Volksmaſſe zur ge¬<lb/>
+gliederten Nation, zum Staat.</p><lb/>
+<p>Nunmehr erhält der gemeinſame Boden eine höhere geweihte<lb/>
+Bedeutung als Ort der gemeinſamen Geſchichte und ihrer Denkmäler.<lb/>
+Dieß iſt das „<hi rendition="#g">Vaterland</hi>“ — ein ander Ding in der That, als<lb/>
+wie Fichte es früher ſo geringſchätzig nur in den materiellen Maſſen<lb/>
+von Erdſchollen, Flüſſen und Bergen ſah! Für das ſinnige, ge¬<lb/>
+<fw type="sig" place="bottom">2*</fw>
+<pb n="20" facs="#f0030"/>
+ſchichtspietätsvolle Auge ſchweben ja um jene Stätten die Geiſter<lb/>
+der Vergangenheit und laſſen uns das an ſich Bedeutungsloſe in<lb/>
+einem neuen Lichte erſcheinen. Selbſt die „zerfallenen Schlöſſer<lb/>
+auf unſrem Kontinent, dem alten“ ſind nicht bloß dekorativer<lb/>
+Schmuck für das äſthetiſche Auge, wenn ſie ſich z. B. ſpiegeln in<lb/>
+den grünen Fluthen unſeres Rheins, ſondern Malzeichen unſerer<lb/>
+wechſelvollen Vergangenheit, mit welcher ihre ſtumme Sprache,<lb/>
+aus der doch „klingt ein hoher Klang,“ uns ſympathiſch in Ver¬<lb/>
+bindung ſetzt und allerlei, über die Schranke der Jahrhunderte<lb/>
+ſpringende Gedanken wach ruft, in denen man ſich ſo recht als<lb/>
+Volksganzes zu fühlen lernt. — Dazu kommt das identiſchmitlebende,<lb/>
+im Verfluß der Zeiten ſich ſelbſt weiter webende Geiſterhand, die<lb/>
+„<hi rendition="#g">Mutterſprache</hi>,“ des Nationalgeiſts Grund-Symbol und<lb/>
+Organ, darum die Hauptſcheide der Völker, die einzig wirklich<lb/>
+natürliche Grenze.</p><lb/>
+<p>Wohl giebt es durch den ſchwankenden Lauf der Geſchichte auch<lb/>
+<hi rendition="#g">künſtliche Gebilde</hi> d. h. Staaten, die verſchiedene Nationali¬<lb/>
+täten umfaſſen, oder Nationen, die ſich nicht bloß fragmentariſch<lb/>
+auf mehrere Staaten vertheilen. Aber auch in ſolchem Zuſam¬<lb/>
+menleben muß ſich durchaus eine Art von Nationalbewußtſein zwei¬<lb/>
+ten Grads bilden. Je kürzer oder dürftiger die verkittende Ge¬<lb/>
+ſchichte hier iſt, deſto energiſcher, ja beinahe ängſtlich klammert<lb/>
+man ſich an das Wenige, was ſie bietet, und wäre es ſelbſt ein<lb/>
+zweifelhafter Kern, vom Epheu reichſter Mythologie umrankt, oder<lb/>
+reichte, den fremden Ereigniſſen der Gegenwart lange nicht mehr<lb/>
+ebenbürtig, in eine graue Vergangenheit naiv einfacher Verhält¬<lb/>
+niſſe zurück. So lebhaft iſt der Geſchichtsdrang eines jeden ge¬<lb/>
+ſellſchaftlichen Organismus. Aber ohne mächtigen äußeren Zu¬<lb/>
+ſammenhalt, ſei es nun der gewölbbauartige Gegendruck der rings¬<lb/>
+umgebenden Nachbarn, oder die weſentliche Einheit ſtark ausge¬<lb/>
+bildeter materieller Intereſſen, iſt hier doch die Gefahr innerer<lb/>
+<pb n="21" facs="#f0031"/>
+„Sonderbunds- und Seceſſionsgelüſte“ mehr oder weniger immer<lb/>
+vorhanden. Deßhalb bleibt trotzdem ſtets das Geſündeſte, wo Staat<lb/>
+und Nation ſich im Weſentlichen decken.</p><lb/>
+<p>Das Gemeingefühl der Glieder in einem ſolchen Ganzen, der<lb/>
+vom Gedanken ſtärker oder leichter verklärte natürliche und lebens¬<lb/>
+kräftige Inſtinkt der Zuſammengehörigkeit, oder die <hi rendition="#g">Pietät</hi> gegen<lb/>
+Vaterland und Mutterſprache ſammt Allem, was ſie einſchließend<lb/>
+repräſentiren — das eben iſt <hi rendition="#g">Patriotismus</hi>. Auch ſeine Wiege<lb/>
+ſteht daher, wie die von allem Guten, im häuslichen Kreis der<lb/>
+Familie, im Hort des elterlich-geſchwiſterlichen Zuſammenlebens.<lb/>
+Wie ſich dieſes einſt ſachlich zum Volksſtaat erweiterte, ſo dehnt<lb/>
+ſich in mikrokosmiſcher Wiederholung bei geſunder Entwicklung die<lb/>
+anhängliche Liebe, der treue Gehorſam vom häuslichen Heerde in<lb/>
+immer weitere Kreiſe als ächter Bürgerſinn aus, um an ſeinem<lb/>
+Platz im Leben zu üben, was er in jener Pflanzſchule gelernt hat.</p><lb/>
+<p>In der That, eine Geſinnung von hohem <hi rendition="#g">ſittlichem Werth<lb/>
+und Gehalt</hi>! Stellen wir friſchweg in erſte Linie, daß ſie eine<lb/>
+ernſte <hi rendition="#g">Pflicht</hi> iſt. Denn wie gerne überſehen die Menſchen aller<lb/>
+Zeiten <hi rendition="#g">dieß</hi> Moment des Moraliſchen, weil ſie nur ein Auge ha¬<lb/>
+ben für ihre trotzig reklamirten Rechte. Wie wenn Rechte in der<lb/>
+Stellung des Endlichen zum Unendlichen oder ſogar des Einzelnen<lb/>
+zu einem größeren Ganzen überhaupt anders einen Sinn und<lb/>
+ſelbſt ein Recht hätten, denn als Baſis oder Ermöglichung der<lb/>
+Pflicht, dieſes weit höher ſtehenden Faktors. Der ſchlaffe Eudämo¬<lb/>
+nismus, der wie ein nervenlähmender Föhn durch unſre Zeit geht,<lb/>
+will freilich, und zwar nicht bloß als begehrlicher Sozialismus, da¬<lb/>
+von Nichts wiſſen; was Wunder, daß er ſich überall als gekränkte<lb/>
+und verkürzte Unſchuld fühlt, daß er zum philoſophiſchen und<lb/>
+praktiſchen Peſſimismus wird, der mit Gott und Welt hadert!</p><lb/>
+<p>Aber freilich, wie alles Sittliche läßt ſich auch die patriotiſche<lb/>
+Pflicht nicht beweiſen, ſondern nur darlegen und nachfühlen, ſchließ¬<lb/>
+<pb n="22" facs="#f0032"/>
+lich aber Jedermann zumuthen. Dieß ſchon als ſchuldige <hi rendition="#g">Dankbar¬<lb/>
+keit</hi> für das reiche Erbe, welches Geſchichte und Geſammtheit er¬<lb/>
+ziehend jedem Einzelnen als unverdiente Mitgift fürs Leben in den<lb/>
+Schoos ſchütten. Erinnern wir in dieſer Hinſicht nur an die Geiſtes¬<lb/>
+ſchatzkammer der Sprache, „die für uns dichtet und denkt,“ die dem<lb/>
+Kinde in den paar erſten Lebensjahren ſchon wie eine gütige Fee<lb/>
+eine Fülle gemünzter Weisheit in die Hand drückt, daß es ſie als<lb/>
+Mann verſtehend genieße und mit dem Reichthum jenes „objek¬<lb/>
+tiven Geiſts“ den ſubjektiven nähre. — So gilt es, dankbaren<lb/>
+Sinnes das hierin und ſonſt Empfangene nicht nur unverfälſcht<lb/>
+zu bewahren, ſondern auch weiterbauend zu fördern und ſolidariſch<lb/>
+Eins mit der Geſchichte es der Nachwelt mit Zinſen zu überliefern.</p><lb/>
+<p>Es iſt intereſſant, wie ſich auch geſchichtlich an dieſem tiefſten<lb/>
+moraliſchen Gedanken der Pflicht der deutſche Kosmopolitismus<lb/>
+des vorigen Jahrhunderts zum Patriotismus aufgerafft hat. Wohl<lb/>
+hat <hi rendition="#g">Schiller</hi> zuerſt als frohgemuther Sänger weltbürgerliche<lb/>
+Weitherzigkeit geprieſen oder abſtraktſtürmiſche Weltverbeſſerungs¬<lb/>
+ideen gepredigt. Aber er war doch eine tiefethiſche Dichternatur,<lb/>
+nicht angelegt zu äſthetiſchweicher Beſchaulichkeit; er ging na¬<lb/>
+mentlich durch die ernſte Schule der Kantiſchen Philoſophie und<lb/>
+Sittenlehre; ſo ſah er mehr und mehr trotz allen treubewahrten<lb/>
+Idealismus das Leben mit anderen Augen an. Seine Weltge¬<lb/>
+ſtalten verdichten ſich allmählig zu nationalen Gebilden, zu vater¬<lb/>
+ländiſchen Meiſterſtücken; denn „es wächſt der Menſch mit ſeinem<lb/>
+höhern Zweck.“ Und wie er an der Grenzſcheide des Jahrhun¬<lb/>
+derts nur dunkle ſchwere Wetterwolken über Europa geballt ſieht,<lb/>
+da mahnt er dringend im Tell als ſeinem letzten Vermächtniß,<lb/>
+ein Schirmdach vor dem Sturm zu ſuchen durch Anſchluß ans<lb/>
+Vaterland und deſſen Wurzeln der Kraft.</p><lb/>
+<p>Auch <hi rendition="#g">Fichte</hi>, dieſe grundgediegene Eichennatur, Iäßt ſich noch<lb/>
+rechtzeitig aus den kosmopolitiſchen Schlummerträumen aufwecken<lb/>
+<pb n="23" facs="#f0033"/>
+durch den grellen „Tag von Jena“ und ſich nicht, wie er zuerſt leicht¬<lb/>
+hin gemeint, als ſonnenverwandter Geiſt durch die „Sonne von<lb/>
+Auſterlitz“ geblendet anziehen. Für ihn lag allmählig nur noch<lb/>
+der zu kräftiger Befehdung aufrufende Zauber der Antipathie in<lb/>
+der dämoniſch-großen Geſtalt des kleinen Mannes, in welchem „der<lb/>
+Zeitgeiſt ſelbſt verkörpert zu Pferd zu ſitzen ſchien“, wenn man<lb/>
+ihn mit zwar genialen und für das Gewaltigſubſtantielle begeiſter¬<lb/>
+ten, aber noch zu jungen und durchs ernſte Leben noch nicht ge¬<lb/>
+feiten Augen anſah. Fichte dagegen, der Rouſſeau'ſche Radikaliſt<lb/>
+und Kosmopolit, wird dem zerſtörenden Cäſar gegenüber zum<lb/>
+feurigen „Redner an die <hi rendition="#g">deutſche</hi> Nation“, dem ſelbſt Davouſts<lb/>
+Trommelwirbel durch Berlins Straßen die Mannesworte des be¬<lb/>
+ginnenden, vor dem Ausbruch dumpf grollenden nationalen Sturms<lb/>
+nicht zu übertäuben vermochten.</p><lb/>
+<p>Ueberhaupt, die patriotiſch-nationale Idee, in Deutſchland<lb/>
+wenigſtens tief verſunken und verborgen geweſen, ſprang plötzlich<lb/>
+wie Minerva aus dem Haupte Jupiters in voller Rüſtung als<lb/>
+das „Volk in Waffen“ von 1813 hervor, nachdem der Hephäſtus¬<lb/>
+hammer des Korſen die alten, mürbgewordenen Formen klirrend<lb/>
+zerſchlagen; die Noth der Zeit war es, was die weichmüthigen<lb/>
+Alleweltsgefühlsſeelen zu ſtarken patriotiſchen Karakteren unter<lb/>
+Männern und Frauen umſchmiedete.</p><lb/>
+<p>Durch dieſen gewaltigen äußeren Anſtoß kam aber nur zum<lb/>
+Durchbruch, was ohne allen künſtlichen Zwang im Lauf und Ge¬<lb/>
+ſetz der vernünftigen Entwicklung ſelber lag. Das ſiebenzehnte<lb/>
+Jahrhundert als Erbe des ſechszehnten war durchtobt geweſen vom<lb/>
+mannigfachſten Kampf wiederſtreitender Parteien und Intereſſen<lb/>
+auf weltlichem und geiſtlichem, auf materiellem und ideellem Ge¬<lb/>
+biet. Eine ſolche Zeit des »<hi rendition="#aq">bellum omnium contra omnes</hi>«, wie<lb/>
+ein wackerer Zeitgenoſſe ſie ſchmerzlich empfindet, trägt nothwendig<lb/>
+die Signatur des kraſſen Egoismus. Im achtzehnten Jahrhun¬<lb/>
+<pb n="24" facs="#f0034"/>
+dert hatte man ſich im Weſentlichen arrangirt und „vertragen“<lb/>
+gelernt; ſo konnte als Gegendruck jener gefühlsſatte Kosmopoli¬<lb/>
+tismus die herrſchende Stimmung werden, in welche auch die<lb/>
+Deutſchen, nur ſie ohne wirklichen Grund, ſich verſenkten. Im neun¬<lb/>
+zehnten Jahrhundert endlich war es Zeit, die Vereinigung von<lb/>
+Beiden, vorzunehmen. Eine Richtung durch die andere zu binden,<lb/>
+im Nationalitätsgedanken und Patriotismus Einzelnes und Allge¬<lb/>
+meines zu verknüpfen. Daher eben die bewußt-ausdrückliche Macht,<lb/>
+der ſtaatenumbildende Einfluß, welchen dieſe Idee in unſerem Zeit¬<lb/>
+alter gewonnen hat, nicht ein Fündlein einzelner kluger Köpfe<lb/>
+oder ein Machwerk der ſchlauen Berechnung, ſondern ein Kind der<lb/>
+Geſchichte ſelbſt, an deſſen Wiege „Poros und Penia“, wie Plato<lb/>
+von der Geburt alles Großen ſagt, die Roth der Zeit und das<lb/>
+dadurch aufgebotene Pflichtgefühl ſtanden.</p><lb/>
+<p>Wie aber das Gute beim Licht betrachtet ſich doch immer<lb/>
+ſelbſt belohnt, ſo iſt ein ſolcher pflichtmäßige Anſchluß zunächſt<lb/>
+ans eigene Vaterland gleichzeitig die <hi rendition="#g">allererſprießlichſte</hi> und<lb/>
+<hi rendition="#g">fruchtbringendſte</hi> Stellung.</p><lb/>
+<p>In naturgemäßer, alſo innerlich wahrer und auch auf die<lb/>
+Dauer möglicher Weiſe erweitert ſie die einzelne <hi rendition="#g">Seele des In¬<lb/>
+dividuums</hi>. Daſſelbe lernt in Blick und Intereſſe über das<lb/>
+Schneckenhaus egoiſtiſcher Selbſtſucht, dieſen tiefſten Kern alles<lb/>
+Böſen, ſich erheben. Es bereichert durch warme Sympathie mit<lb/>
+einem noch menſchlich-umſpannbaren und verſtändnißnahen Ganzen<lb/>
+ſein eigenes geiſtiges Leben, ſtatt in der dürren Oede des Iſolir¬<lb/>
+ſtandpunkts zu vertrocknen. In der Hingabe an ſeinen Staat und<lb/>
+deſſen Geſetze, die ſchließlich auch <hi rendition="#g">ſeines</hi> höheren Willens innerſter<lb/>
+Kern ſind, erwirbt es in größerem Maßſtab die edlen Tugenden<lb/>
+der Hingebung und Treue, und wenn es ſein muß auch die menſch¬<lb/>
+liche Kardinaltugend der Opferwilligkeit bis in den Tod. Der<lb/>
+<hi rendition="#g">nationale Krieg</hi> — er iſt von jeher ein Hauptſcandalon des<lb/>
+<pb n="25" facs="#f0035"/>
+Elihu-Burrit'ſchen Kosmopolitismus, von dem man nicht recht<lb/>
+weiß, ob er die Abneigung gegen jenen zur Wirkung oder Urſache<lb/>
+habe. Gewiß, Schlachtfelder und ihre Trümmerſtätten dürfen wir<lb/>
+nicht mit abſtrakt-idealen Augen betrachten; da kann das Urteil<lb/>
+nur in Einem Sinn ausfallen. Wir müſſen vielmehr Leben und<lb/>
+Menſchen nehmen, wie ſie ſind und allezeit bis zum Anbruch des<lb/>
+„ewigen Friedens“ bleiben werden, keine Engel, ſondern Menſchen<lb/>
+mit allerlei Leidenſchaften, die in ihnen ſelbſt wider einander<lb/>
+ſtreiten und dieß unvermeidlich zuweilen auch nach Außen ſpielen<lb/>
+laſſen. Aber von dieſem feſten Standort der Beurteilung aus<lb/>
+hat doch das vielverrufene Wort des männlichen <hi rendition="#g">Hegel</hi> auch<lb/>
+eine wahre Seite, wenn er meint, derartige Gewitter im Völker¬<lb/>
+leben wirken nicht bloß zerſtörend, ſondern auch luftreinigend und<lb/>
+nervenſtärkend; ſie fegen aus mit der dumpfen Schwüle einer nur<lb/>
+ins Materielle verſunkenen Geſinnung; ſie laſſen jeden Einzelnen<lb/>
+die Nichtigkeit und Vergänglichkeit der Güter erkennen, welche als<lb/>
+endliche nicht das Recht auf unſer ganzes Herz haben; ſie reißen<lb/>
+damit das Wurzelwerk aus, mit welchem er ſich in ruhigen und<lb/>
+gemächlichen Tagen ſeiner höheren Beſtimmung zuwider an die<lb/>
+Scholle partikulariſtiſcher Intereſſen verklammert. Und ſo könne<lb/>
+oft ein Volk nur durch eine derartige Blut- und Feuertaufe vor<lb/>
+dem geiſtigen Tod, dieſem größten Schaden, errettet werden; denn<lb/>
+„wer ſein Leben erhalten will, der wird es verlieren“.</p><lb/>
+<p>Freilich, Derartiges hat nur Sinn für Einen, der zuvor über¬<lb/>
+haupt menſchenwürdigen Sinn hat für den überwiegenden Werth<lb/>
+des <hi rendition="#g">Idealen</hi>, wie es in jeder Lage und ſocialen Stellung ſeine<lb/>
+Stätte haben kann und keineswegs bloß bei einer bevorzugten<lb/>
+Spitze der Geſellſchaft. Treffend ſchildert der ſpätere <hi rendition="#g">Fichte</hi> den<lb/>
+ideeloſen Gegenſatz dieſes perſönlichen, ſittlich erhebenden und<lb/>
+ſtärkenden Patriotismus, wenn er die Staatsanſchauung der kosmo¬<lb/>
+politiſchen Mancheſterſeelen alſo darſtellt: „Dem ordinären natür¬<lb/>
+<fw place="bottom" type="sig">(165)<lb/>
+</fw>
+<pb n="26" facs="#f0036"/>
+lichen Menſchen iſt das rein empiriſche Leben die Hauptſache,<lb/>
+letzter Zweck. Hierauf kommen die Mittel, es zu erhalten, es<lb/>
+ſo angenehm und bequem als möglich zu machen, Hab und Gut,<lb/>
+Gewerbfleiß und Handel. Dieſe Mittel des Lebens, Eigenthum<lb/>
+genannt, wie ſie auch zuſammengebracht ſeien, gegen gewaltſamen<lb/>
+Raub jeder Art zu ſchützen, dazu iſt der Staat als bloßes Mittel<lb/>
+da, ſomit ſchon Mittel zweiten Grades, Ihn halten ſich die Eigen¬<lb/>
+thümer, wie der Herr ſich einen Bedienten hält. Der Staat iſt<lb/>
+ſomit nur ein nothwendiges Uebel, das Geld koſtet. Hiebei iſt,<lb/>
+dieſe Ideeloſigkeit beſonders zu karakteriſiren, den Beſitzenden durch¬<lb/>
+aus gleichgültig, wer ſie ſchützt, wenn ſie nur geſchützt werden.<lb/>
+Das einzige Augenmerk dabei iſt: ſo wohlfeil als möglich! Der<lb/>
+Krieg iſt dieſem Krämerſinn nur ein Streit zwiſchen zwei Herrſcher¬<lb/>
+familien über die Frage, welche von Beiden einen gewiſſen Diſtrikt<lb/>
+vertheidigen ſolle. Sobald der Feind — nicht der des Beſitzenden,<lb/>
+ſondern der ſeines vorigen Herrn — ſich ſeines Landes bemächtigt<lb/>
+und die Söldner des Andern vertrieben hat, iſt Alles wieder in<lb/>
+Ordnung und geht ſeinen alten Gang: die Habe iſt geſichert, die<lb/>
+Geſchäfte gehen vor wie nach — Herz, was willſt du mehr? —<lb/>
+Der wahren Anſicht beſteht das Höchſte, nemlich Selbſtändigkeit<lb/>
+und Freiheit einer Nation darin, ihre Geſchichte, die ſie vereint,<lb/>
+organiſch aus ſich ſelber fortzuentwickeln zu einem Reich nach ihrer<lb/>
+beſtimmten volksthümlichen Idee oder Aufgabe. Darin durch<lb/>
+fremde Gewalt geſtört, eingeimpft einem fremden Leben, wäre ein<lb/>
+Volk getödtet, vernichtet, ausgeſtrichen. Da iſt aber ein eigent¬<lb/>
+licher Krieg, nicht der Herrſcherfamilien, ſondern des Volks;<lb/>
+die allgemeine Freiheit und eines Jeden beſondre iſt bedroht;<lb/>
+ohne ſie kann er gar nicht leben wollen, ohne ſich für einen<lb/>
+Nichtswürdigen zu bekennen. Es iſt darum Jedem für ſeine Per¬<lb/>
+ſon und ohne Stellvertretung aufgegeben der Kampf auf Leben<lb/>
+und Tod!“<lb/>
+<pb n="27" facs="#f0037"/>
+So ſehr alſo Heer- und Kriegsdienſt fürs Vaterland ſtörend,<lb/>
+unter Umſtänden zerſtörend in das unmittelbar ſinnliche Ergehen<lb/>
+des Einzelnen eingreifen mögen, auch die kriegeriſche Begeiſterung<lb/>
+als „der zum Kampf aufgebotene Patriotismus“ gehört ſittlich und<lb/>
+geiſtig betrachtet unter jene hochwichtigen Momente, in denen der<lb/>
+Dienſt des größeren Ganzen die wahrhaft menſchenwürdige Er¬<lb/>
+weiterung und Erhebung des Individuums wirkt, alſo trotz aller<lb/>
+äußeren Einbuße doch wahren Gewinn bringt.</p><lb/>
+<p>Auch für das <hi rendition="#g">öffentliche Wirken</hi> in größerem Gebiet<lb/>
+und Umfang, wer Neigung und Beruf dazu in ſich fühlt, liegt<lb/>
+in der eigenen Nation ſo recht der „archimediſche Punkt“ (δός<lb/>
+μοι ποῦ στῶ), von dem aus die Welt in engeren oder weiteren<lb/>
+Kreiſen bewegt werden mag. Wohl iſt es ein bekanntes Wort,<lb/>
+daß „der Prophet nichts gilt in ſeinem Vaterland“. Ob aber<lb/>
+dieß nicht doch nur von der näheren Umgebung in Raum und<lb/>
+Zeit wahr iſt, welche aus allerlei Gründen über der augenfälligen<lb/>
+Schaale eines Mannes den Kern leicht überſieht? Die rein<lb/>
+empiriſche Betrachtung bleibt an der Erſcheinung hängen: „Iſt<lb/>
+er nicht des Zimmermanns Sohn?“ fragt ſie ſelbſt bei den größten<lb/>
+Baumeiſtern der Weltgeſchichte. „Kennen wir nicht ſeine Brüder<lb/>
+und Schweſtern?“ Darin regt ſich ſchon der Neid, der ſich vor¬<lb/>
+nemlich aufs Nahe und äußerlich Gleichgeordnete wirft, während<lb/>
+er bei dem Fernen oder Allzuhohen in ſeiner Vergleichung ver¬<lb/>
+ſtummt. Der atheniſche Oſtrazismus iſt darum ein tief-menſch¬<lb/>
+licher Karakterzug, der ſich bis heutigen Tags noch nicht verloren<lb/>
+hat, ſondern hie und da in dem kleinlicht-neidiſchen Eliminiren<lb/>
+und Hinausdrängen der Tüchtigſten aus dem engeren jeweiligen<lb/>
+Kreis erweist. Aber eine mäßige Entfernung im Raum, ein<lb/>
+nicht zu langer Verfluß der Zeit genügt, um dem beſſeren ideali¬<lb/>
+ſirenden Zug der Menſchennatur zum Sieg zu verhelfen, den ver¬<lb/>
+ſchönernden Duft des »<hi rendition="#aq">olim meminisse juvabit</hi>« auf das zunächſt<lb/>
+<pb n="28" facs="#f0038"/>
+nicht Anerkannte zu werfen und große Männer als Wohlthäter<lb/>
+und Zierden ihrer Nation erſcheinen zu laſſen, nachdem ſie durch<lb/>
+ein kurzes Fegfeuer der Geſchichte hindurchgegangen ſind.</p><lb/>
+<p>In dieſem weiteren Sinn oder bei ſolcher Geduld, die nicht<lb/>
+vorzeitig Früchte ſucht, bleibt es doch vom <hi rendition="#g">Wirken unter dem<lb/>
+eigenen Volke</hi> wahr, daß Gleiches ſtets von weſentlich Gleich¬<lb/>
+genaturtem am beſten erkannt und ſympathiſch-kongenial gewürdigt<lb/>
+wird. Ein glänzendes Beiſpiel bietet hiefür Deutſchlands be¬<lb/>
+gabteſter Kopf, der univerſell gebildete Philoſoph <hi rendition="#g">Leibniz</hi>. In<lb/>
+trübſter Zeit folgte er trotz glänzender Anerbietungen nicht dem<lb/>
+Vorgang aller damals bedeutenderen deutſchen Gelehrten, ſich im<lb/>
+Ausland die Stätte ſeiner Wirkſamkeit zu wählen. Allſeitig wie<lb/>
+nur je Einer, ſelbſt ein »<hi rendition="#aq">miroir de l'univers</hi>« wie ſeine Monade,<lb/>
+blieb er doch dem heimiſchen Boden treu, den gerade in ſchlimm¬<lb/>
+ſter Zeit zu verlaſſen er für „Deſertion und feige Fahnenflucht“<lb/>
+gehalten hätte, wie er ſie keiner Potenz im wohlgeordneten All<lb/>
+zugeſtand. Und dieſe Treue, ſo ausſichtslos ſie ſchien, war nicht<lb/>
+verſchwendet, keine verlorene Mühe, „denn ihre Werke folgen<lb/>
+ihnen nach“. Sein Volk hat ihn verſtanden und durch die That<lb/>
+gewürdigt. Jenes der Monade geſtellte Geſetz raſtloſer Aufklärung<lb/>
+und nie ruhender geiſtiger Strebſamkeit zog immer weitere Kreiſe.<lb/>
+Der Vater der deutſchen Aufklärung, des geiſtvollen deutſchen acht¬<lb/>
+zehnten Jahrhunderts darf ſeine unverdroſſene, patriotiſch-treue<lb/>
+Ausſaat nicht bereuen, ſo dornig und ſteinigt das Ackerfeld auch<lb/>
+zunächſt ſcheinen mochte!</p><lb/>
+<p>Selbſt für die vielfach wünſchenswerthe <hi rendition="#g">Wirkſamkeit über<lb/>
+die Grenze des eigenen Volks hinaus</hi> iſt ein feſter, karakter¬<lb/>
+voll ſelbſtbewußter Standort eben in deſſen Lebensboden das ge¬<lb/>
+radezu Erforderliche. Nicht dadurch imponirt man Anderen und<lb/>
+veranlaßt ſie zu beachtender Aufmerkſamkeit; daß man ſich ihnen<lb/>
+als Bedientenſeele an den Hals wegwirft und um den Preis<lb/>
+<pb n="29" facs="#f0039"/>
+ihrer nothdürftigen Anerkennung die Selbſtachtung dahingiebt.<lb/>
+Schon die Vorbedingung weiterer Notiznahme, das Kennenlernen<lb/>
+der Sprache eines andern Volks wird erfahrungsmäßig nur kräfti¬<lb/>
+gen Nationen gegenüber erfüllt, die auf ſich ſelbſt und dieſe ihre<lb/>
+Sprache etwas halten; denn Niemand will ſich ja mit abgeſchätzter<lb/>
+Münze weiter befaſſen! Und warum berichtet die Geſchichte nur<lb/>
+von einer zeitweis (nicht nur in Deutſchland) herrſchenden Sucht,<lb/>
+die Italiener, ſpäter aber ſo lange die Franzoſen nachzuäffen,<lb/>
+warum anders, als weil dieſe romaniſchen Völker in ihrem von<lb/>
+den Römern ererbten ſtarken Nationalbewußtſein nicht vergaßen,<lb/>
+zunächſt und vor Allem Italiener oder Franzoſen zu ſein, ehe ſie<lb/>
+ſich mit Weiterem befaßten. Dieß thun ſie bis heutigen Tags in<lb/>
+ihrem Katholizismus, den nur die Deutſchen ſo gutmüthig oder<lb/>
+blind ſind, ihrerſeits kosmopolitiſch zu betreiben, während der<lb/>
+Italiener ſeit 300 Jahren in der ununterbrochenen Linie italieni¬<lb/>
+ſcher Päbſte ſich ſonnt und das Ganze als ideell wie reell werth¬<lb/>
+vollen Nationalnimbus wenigſtens im innerſten Herzen hegt. Wem<lb/>
+ſollte es dort nicht ſchmeicheln, ſich in dieſer Art als das geborene<lb/>
+„heilige Volk“, als das von Natur zur geiſtigen Herrſchaft der<lb/>
+nordiſchgermaniſchen Barbaren berufene auserwählte Rüſtzeug Got¬<lb/>
+tes oder der Geſchichte zu betrachten, um auf dieſe Weiſe das<lb/>
+alte »<hi rendition="#aq">imperio regere orbem</hi>« fortzuſetzen! In welchem Sinn<lb/>
+aber beſonders die modernen Franzoſen ultramontan ſind, das iſt<lb/>
+ſattſam aus der Tagesgeſchichte bekannt, und es gehörte ein gut<lb/>
+Theil rein alemanniſches Blut dazu, um einen bekannten Biſchof<lb/>
+aus dem franzöſiſch-nationalen ins kosmopolitiſche Lager übertreten<lb/>
+zu machen. — Zu ſolchen in ſich ſtarken oder wenigſtens kräftig<lb/>
+ſelbſtbewußten Potenzen gravitiren andere, in ſich haltloſere mit<lb/>
+Nothwendigkeit hin. Wer alſo einen Weltberuf erfüllen zu<lb/>
+müſſen glaubt, dürfte zuerſt ſein eigen Haus wohl beſtellen. Den<lb/>
+kernhaften Blick auf dieß gerichtet, hat der wackere Dichter der<lb/>
+<pb n="30" facs="#f0040"/>
+„geharniſchten Sonette“ ganz recht, wenn er den mit ihrem Stre¬<lb/>
+ben vorſchnell in die Weltweite Schweifenden warnend zuruft:</p><lb/>
+<lg type="poem"> <l>Möge Jeder ſtill beglückt</l><lb/>
+<l><hi rendition="#g">Seiner</hi> Freuden warten!</l><lb/>
+<l>Wenn die Roſe ſelbſt ſich ſchmückt,</l><lb/>
+<l>Schmückt ſie auch den Garten.</l><lb/>
+</lg> <p>So erweiſt ſich ſchon hieraus, wie durch die im Patriotismus<lb/>
+gegebene und von der Natur ſelbſt als pflichtmäßig gebotene Be¬<lb/>
+ſchränkung des univerſalen Triebs dieſer keineswegs nun, um¬<lb/>
+gekehrt als wie im Kosmopolitismus, ertödtet, ſondern nur ge¬<lb/>
+ordnet und abgeſtuft iſt. „Vom Nahen zum Fernen, vom Eigenen<lb/>
+zum Fremden, nicht ſprung-, ſondern ſchrittweiſe zum Ganzen!“<lb/>
+Das iſt jetzt die Loſung, nicht nur eine längſt <hi rendition="#aq">in abstracto</hi> be¬<lb/>
+kannte pädagogiſche Regel der Schule Peſtalozzi's, mit der man<lb/>
+erſt in neuerer Zeit wirklicheren Ernſt, z. B. für den geſchichtlichen<lb/>
+und geographiſchen Unterricht macht, ſtatt immer nur in nebel¬<lb/>
+grauer Ferne herumzuſchweifen; nein, es iſt auch eine wohlzu¬<lb/>
+beachtende Mahnung für das größere politiſch-öffentliche Leben.<lb/>
+Unter dieſer Bedingung aber ergiebt ſich gerade auch das moderne,<lb/>
+geiſtigweitherzige <hi rendition="#g">Weltintereſſe</hi> als durchaus <hi rendition="#g">berechtigt</hi>, ja<lb/>
+ſogar <hi rendition="#g">als eingeſchloſſen in der ächten Vaterlandsliebe</hi>.</p><lb/>
+<p>Es iſt zweifellos, daß wir beim einzelnen <hi rendition="#g">Stamm</hi> beginnen<lb/>
+müſſen, wo ſich anders eine Nation in ſolche gliedert. Auch der<lb/>
+ſogenannte Lokal- oder Stammespatriotismus iſt an ſeinem Platz<lb/>
+durchaus für normal und hochberechtigt zu erklären. „Ein ſchlechter<lb/>
+Vogel, der ſein eigen Neſt beſchmutzt“; wer im Kleinen nicht treu<lb/>
+iſt, wird es nimmermehr im Großen ſein; wer ſeinen Stamm<lb/>
+verachtet, angeblich weil er nur und allein Sinn für die ganze<lb/>
+Nation habe, ſteht bei uns im dringenden Verdacht, denſelben Feh¬<lb/>
+ler zu begehen, welchen in größerem Maßſtab der Kosmopolitismus<lb/>
+macht. Gewiß hat eine ſolche reichere Veräſtelung oder Artikulation<lb/>
+<pb n="31" facs="#f0041"/>
+für ein friſcheres und inhaltsvolleres Geſammtleben hohen Werth,<lb/>
+gleichwie die Pädagogik im Kleinen wohl weiß, wie mißlich es iſt,<lb/>
+Ein Kind allein aufzuziehen, wo ihm der geſunde Sporn des Wett¬<lb/>
+eifers, der Anregung und Abſchleifung durch andere Naturen abgeht.</p><lb/>
+<p>Indeß liegt es doch auf der Hand, wie jene ſtärkere Gliede¬<lb/>
+rung nur in der organiſchen Zuſammenfaſſung der Stämme heil¬<lb/>
+ſam iſt. Der einzelne Stamm als ſolcher iſt ein viel zu beſchränktes<lb/>
+Gebiet, um nicht mit größter Entſchiedenheit auf die ergänzenden<lb/>
+Genoſſen neben ihm hinzuweiſen; das einzelne Glied, wo es unter¬<lb/>
+bunden, wo ihm der friſche Blutlauf ſeines Ganzen abgeſperrt<lb/>
+wird, muß nothwendig kranken, verkommen und abſterben; das<lb/>
+iſt Naturgeſetz und wird ſich darum zweifellos auch im ſocial¬<lb/>
+politiſchen Leben erweiſen. Kann man doch daſſelbe ſchon bei<lb/>
+vielen Individualperſönlichkeiten bemerken, die ihr Stand oder<lb/>
+Beruf vom ſonſtigen Bildungsleben iſolirt. Wenn auch nicht ge¬<lb/>
+rade „unter Larven die einzige fühlende Bruſt“, haben ſie doch<lb/>
+oft Mühe, ſich dem ſchädigenden Einfluß des allein Gebildetſeins<lb/>
+unter lauter Ungebildeten zu erwehren. Wie leicht ſetzt ſich bei<lb/>
+dieſem Mangel an Gegendruck die Einbildung des allein Weiſe¬<lb/>
+ſeins, die rechthaberiſche, keinen Widerſpruch mehr vertragende<lb/>
+Eigenliebe und Eitelkeit feſt. Unter ſolchen Umſtänden wäre das<lb/>
+ſogenannte „Verbauern“ noch das geringere Uebel, als dieſe Schä¬<lb/>
+digung, welche wir kurzweg als Bornirung bezeichnen müſſen. —<lb/>
+Ich weiß wohl, daß jeder Vergleich hinkt; aber doch mag jene<lb/>
+Parallele ein Fingerzeig ſein, um uns auch für das weitere Stam¬<lb/>
+mesleben die geiſtige (deßgleichen wirthſchaftliche und kommerzielle)<lb/>
+Gefahr allzu ſtark partikulariſtiſcher Abſchließung ohne Gegendruck<lb/>
+und Wetzſtein durch Andere erkennen und meiden zu lehren.</p><lb/>
+<p>Ein ſolches größere Ganze iſt nun die <hi rendition="#g">Nation</hi>, welche von<lb/>
+der weiſen Natur meiſt in umfaſſenderem Maßſtab gruppirt er¬<lb/>
+ſcheint. Von der Natur ſelbſt ſage ich; denn die früher und<lb/>
+<pb n="32" facs="#f0042"/>
+neuerdings wieder beliebte Erklärung der Völkertypen und ihrer<lb/>
+Unterſchiede lediglich aus äußeren Zufälligkeiten der Nahrung oder<lb/>
+doch nur aus äußeren Mitbedingungen klimatiſcher und überhaupt<lb/>
+geographiſcher Art ſcheint eben doch mit Hartnäckigkeit die Ober¬<lb/>
+fläche für den Kern zu halten. Woher kommt es denn, daß Kin¬<lb/>
+der derſelben Eltern, aufwachſend im gleichen Haus, unter der¬<lb/>
+ſelben Sonne, mit identiſcher materieller wie ideeller Nahrung<lb/>
+dennoch ſich körperlich und geiſtig zu ſcharf ausgeprägten Indi¬<lb/>
+viduen differenziren? Faſt ſcheint es, als ob das Bildlungsgeſetz<lb/>
+der Natur ein ziemlich anderes wäre, als das der „naturwiſſen¬<lb/>
+ſchaftlichen Methode in der Geſchichtsbetrachtung“.</p><lb/>
+<p>So müſſen wir denn auch die Nationalitäten als derartige<lb/>
+Individuen höheren Grads betrachten, welche je als „telluriſche<lb/>
+Kunſtwerke“ (wie Schleiermacher ſagt) aus der verborgenen Werk¬<lb/>
+ſtatt hervorgehen, um ſich ihre geographiſch-geſchichtlichen Verhält¬<lb/>
+niſſe entweder zu ſuchen und zu machen, oder ſich ihnen harmoniſch<lb/>
+anzuſchmiegen, damit ſie die ihnen gewordene eigenartige Geſchichts¬<lb/>
+miſſion nach Kräften erfüllen. Aber eben als individuelle Aus¬<lb/>
+prägungen der allgemeinen Menſchennatur deuten nun doch auch<lb/>
+ſie durch ihre natürlichen Schranken oder Mängel auf andere<lb/>
+Volksindividualitäten zu ihrer nothwendigen Ergänzung hin. Ob¬<lb/>
+wohl der Abſtand der einzelnen Stämme weit geringer iſt, als<lb/>
+der zwiſchen den verſchiedenen Nationen, dürfen wir trotzdem hier<lb/>
+nicht ſtehen bleiben, als wäre dieſe Kluft irgend eine abſolute<lb/>
+Scheidewand. Je beſſer es Einer mit ſeinem eigenen Volke meint,<lb/>
+deſto weniger wird er entweder in chauviniſtiſchem Heißhunger<lb/>
+nach Stoffüberfüllung mit fremdartigen Elementen trachten, die<lb/>
+den eigenen Organismus nur ſchädigend beſchweren, oder aber in<lb/>
+bornirter Weiſe durch eine chineſiſche Mauer ſeine eigene Nation<lb/>
+von Licht und Luft der Anderen abgeſperrt ſehen wollen.</p><lb/>
+<p>Auch im Kulturprozeß und unter den einzelnen, zu je einer<lb/>
+<pb n="33" facs="#f0043"/>
+Leiſtung berufenen Völkern herrſcht Arbeitstheilung; dieſe fordert<lb/>
+wiederum Aſſoziation oder die Anknüpfung <hi rendition="#g">internationaler</hi><lb/>
+Beziehungen. Allein die Signatur des Natürlichen iſt das Maß;<lb/>
+darum ergeben ſich auch jetzt gewiſſe Normen und Stufen. Manche<lb/>
+Züge des geiſtigen Weſens und dem entſprechend gewiſſe Gebiete<lb/>
+des menſchlichen Strebens tragen an ſich ſelbſt den Karakter einer<lb/>
+überall ſo ziemlich identiſchen Allgemeinheit oder unterſchiedsloſen<lb/>
+Gleichheit. Andere dagegen haben den Typus der individuellen<lb/>
+Differenzirung; ſie treten daher ordentlicher Weiſe nur in ſtark<lb/>
+nationaler Schattirung auf.</p><lb/>
+<p>Als Beiſpiel für jenes mag vor Allem die kalttheoretiſche,<lb/>
+leidenſchaftsloſe <hi rendition="#g">Wiſſenſchaft</hi> genannt werden. Bei ihr herrſcht<lb/>
+der Univerſalismus vor, der zwar die nationalen Grenzen nicht<lb/>
+verletzt, aber auch nicht weiter zu beachten hat. Hier iſt es ge¬<lb/>
+radezu lächerliche und ideeloſe Unwiſſenſchaftlichkeit, wenn chauvi¬<lb/>
+niſtiſche Empfindlichkeit dem freieſten Geiſtesverkehr Aller mit<lb/>
+Allen gewaltſam Schlagbäume und Zollſchranken zu ſetzen ſucht<lb/>
+oder die gewiſſermaßen unperſönliche, darum übernationale Wahr¬<lb/>
+heit deßwegen nicht annimmt, weil ſie zufällig auf fremdem Boden<lb/>
+gewachſen, d. h. nicht geworden, ſondern erſtmals ins klare Be¬<lb/>
+wußtſein des Menſchengeiſtes getreten iſt. Die Wiſſenſchaft als<lb/>
+ſolche iſt ein Lebenszweig ganz für ſich, man möchte ſagen über<lb/>
+Raum und Zeit von Natur ſchon erhaben. Dieß gilt im vollſten<lb/>
+Sinn namentlich von den rein objektiven Disciplinen, die mit dem<lb/>
+Geſammtnamen „Naturwiſſenſchaft“ (ſammt ihren techniſchen Ver¬<lb/>
+werthungen) bezeichnet werden mögen.</p><lb/>
+<p>Wenn nationale Differenzen dennoch hereinſpielen (wie es<lb/>
+ja bekannt iſt, daß manche Philoſophie auch die Wiſſenſchaft für<lb/>
+ſpezifiſche Sache des Volksgeiſts erklärt, indem es ſich allerdings<lb/>
+— als Einſchränkung unſerer Klaſſifikation bemerkt — in der<lb/>
+Wirklichkeit nie um abſtrakt-ſcharfe Grenzen, ſondern nur um<lb/>
+ein fließendes Mehr oder Weniger der Momentemiſchung handeln<lb/>
+<fw type="sig" place="bottom">III. 36.<lb/>
+</fw> <fw type="sig" place="bottom">3<lb/>
+</fw>
+<pb n="34" facs="#f0044"/>
+wird), ſo mag dieß einmal darin ſich beweiſen, daß hier mehr<lb/>
+nationale Anlage für dieſen, dort mehr für jenen Wiſſenszweig<lb/>
+ſich zeigt. Sodann wird allerdings die Volksthümlichkeit ſich ſtär¬<lb/>
+ker in den ſogenannten Geiſteswiſſenſchaften geltend machen, ſofern<lb/>
+bei ihnen mit Nothwendigkeit und Recht mehr ſubjektive Zuthat<lb/>
+hereinkommt. Die Geſchichte z. B. wird ohne alle ſtoffliche Fäl¬<lb/>
+ſchung oder Trübung im Spiegel des Einen Volksgeiſts ſich etwas<lb/>
+anders reflektiren, als in dem des andern. Aehnlich wird es ſich<lb/>
+mit den philoſophiſchen Syſtemen verhalten, deren Anfangsvertreter<lb/>
+in der Neuzeit, Bako und Karteſius, ſogleich ächte Nationaltypen<lb/>
+ſind. Trotzdem bleibt auch hier das hohe Wort von Leibniz zu<lb/>
+Recht beſtehen, daß die Wahrheit »<hi rendition="#aq">juris communis</hi>« ſei wie Licht<lb/>
+und Luft. Nur darf freilich bei aller Hingebung an die Forſchung<lb/>
+eine harmoniſch ganze Menſchennatur ſelbſt in der Wiſſenſchaft<lb/>
+nicht total aufgehen; der Menſch, wie nicht minder der Staats¬<lb/>
+bürger will daneben ſeinen Platz!</p><lb/>
+<p>In eigenthümlicher, ſozuſagen gefährlicher Mitte zwiſchen dem<lb/>
+identiſch Allgemeinen und dem individuell Gefärbten alſo auch<lb/>
+Nationalen ſteht die <hi rendition="#g">Religion</hi>. Dorthin ſtellt ſie ſich durch ihr<lb/>
+ſchlechthin univerſales transcendentes Objekt oder Gott. Je reiner,<lb/>
+d. h. abſoluter und darum einheitlicher dieß gefaßt wird, deſto<lb/>
+größer pflegt die Expanſionskraft einer Religionsform zu ſein.<lb/>
+Die Duldſamkeit der Heiden war darum doch nicht bloß Tugend,<lb/>
+ſondern zum guten Theil auch Schwäche oder polytheiſtiſche In¬<lb/>
+differenz. Ihnen konnte Verſchiedenes gleich gelten, eben weil ſie<lb/>
+der Sache gleichgültiger gegenüberſtanden. — Auf die Seite der<lb/>
+Partikularität dagegen gehört die Religion, ſofern und ſoweit ſie<lb/>
+menſchliche Art der Auffaſſung oder endliche Form der Ausprägung<lb/>
+jenes Gehalts iſt, ſei das nun Lehre oder Leben und Organiſation.</p><lb/>
+<p>Wie ſchwer es hält, jene beiden Momente gleichmäßig zu<lb/>
+würdigen, zeigt die Geſchichte zumal der höchſten und darum in¬<lb/>
+tenſivſten, im Guten wie im Böſen ſtärkſten Religionsform. Legt<lb/>
+<pb n="35" facs="#f0045"/>
+man, durch den Werth der Sache veranlaßt, allen Nachdruck auf<lb/>
+die erſte Seite und ſetzt dieſe im ſinnlichen Hang der Menſchen¬<lb/>
+natur unmittelbar identiſch mit der zweiten, ſo gibt dieß den<lb/>
+bekannten fanatiſchen Eroberungsruf eines ſozuſagen kirchlichen<lb/>
+Chauvinismus: „Gott will es!“, womit ſo vielfach nur der liebe<lb/>
+Eigenwille ſich verbrämt. Die eigene Ausprägungsform gilt um<lb/>
+des (wenn es gut geht noch vorhandenen) Gehalts willen für die<lb/>
+allein vollwichtige, für welche man rückſichtslos überall die An¬<lb/>
+erkennung fordert oder »<hi rendition="#aq">in</hi> <hi rendition="#aq #g">Dei</hi> <hi rendition="#aq">gloriam</hi>« zu erzwingen ſucht.<lb/>
+Was wollen ſolchem, in der <hi rendition="#g">Idee</hi> erhabenen Streben gegenüber<lb/>
+Kleinigkeiten wie Nationalgrenzen heißen, als ob ſich nicht auch<lb/>
+das Himmelszelt gleichmäßig über Alle ſpannte!</p><lb/>
+<p>Oder aber hält man ſich wohl frei davon, das Sinnlich¬<lb/>
+ſichtbare für die mehr oder weniger angemeſſene Gegenwart des<lb/>
+Unſichtbaren zu halten; allein nun wendet man ſich ſchwärmeriſch<lb/>
+idealen und übergeiſtigen Sinnes ganz von der irrationalen oder<lb/>
+böſen Erſcheinungswelt ab, um nur in jenen Höhen zu leben und<lb/>
+zu weben. Auch für dieſen Sinn hat die Erde als „Jammerthal“<lb/>
+wenig Bedeutung und Reiz mehr. Der Staat (und am Ende faſt<lb/>
+auch die zeitliche Kirche) iſt ein nothwendiges Uebel lediglich um der<lb/>
+Böſen willen; das Vaterland auf dieſer Welt (und die <hi rendition="#aq">ecclesia visi¬<lb/>
+bis</hi>) iſt eine wenigſagende Durchgangsſtation zur wahren Heimath.<lb/>
+Wenn dieſer Vorwurf unerachtet materialer muſtergültiger Loyali¬<lb/>
+tät (ſtatt moderner „Loyolität“) bekanntlich ſchon die erſte Chriſten¬<lb/>
+gemeinde traf, ſo dürfen wir nicht vergeſſen, wie das verweſende<lb/>
+heidniſche Alterthum ringsumher Vieles zu dieſem platoniſch-chriſt¬<lb/>
+lichen Idealismus, dieſer ascetiſchen Weltflucht (<hi rendition="#aq">Phaedo</hi>!) beitrug.</p><lb/>
+<p>Anders könnte ſich die Sache aber doch in der neuen chriſt¬<lb/>
+lichen Zeit ſtellen. Trotz all der bekannten unberechtigten wie be¬<lb/>
+rechtigten Vorwürfe ſind die Staaten wenigſtens ſachlich und in<lb/>
+ihren Einrichtungen tief vom Chriſtenthum durchdrungen; der Titel<lb/>
+„Welt“ trifft ſie beim Licht betrachtet nicht viel mehr, als er auch<lb/>
+<fw type="sig" place="bottom">3*<lb/>
+</fw>
+<pb n="36" facs="#f0046"/>
+auf die verſchiedenen Kirchen paßt, ſoweit ſie eben gleichfalls zeit¬<lb/>
+lich-menſchliche Darſtellungsverſuche einer Idee ſind. In Anbe¬<lb/>
+tracht deſſen iſt es gewiß der Religion und Kirche wenigſtens recht<lb/>
+wohl möglich, die Klippe eines antinationalen oder doch ſtaats¬<lb/>
+fremden Kosmopolitismus zu vermeiden. Gedenkend an das de¬<lb/>
+müthig-hohe Wort des Apoſtels Paulus: „Wir tragen einen himm¬<lb/>
+liſchen Schatz in irdiſchen Gefäſſen“, wird der nüchtern beſonnene<lb/>
+Fromme bei aller Einſicht in die Nothwendigkeit der empiriſchen<lb/>
+Formen (da Nichts in der Erſcheinungswelt ſchaal- und formlos<lb/>
+exiſtirt) ſich doch von deren Ueberſchätzung frei halten und dadurch<lb/>
+Herz und Blick offen bewahren auch für die Anerkennung anderer<lb/>
+Organiſationen weltlicher wie kirchlicher Art. In gefundem Idea¬<lb/>
+lismus wird er den Staat nicht bloß als Rechts- oder Polizei¬<lb/>
+anſtalt, geſchweige denn als Centralorgan für Gewerbe und Han¬<lb/>
+del, ſondern vielmehr als gleichfalls göttlich verordneten Träger<lb/>
+ſittlicher Kulturideen betrachten, mit welchem er und die Kirche<lb/>
+ſich auf dem Mittelgebiet der Moral unlösbar berühren und ver¬<lb/>
+knüpfen. Der Gedanke, daß jedes Volk eine ihm eigenthümliche<lb/>
+„Miſſion“ in der Geſchichte habe, ſtatt ſich nur atomiſtiſch verloren<lb/>
+herumzutreiben, wird ihm Anlaß werden können, auch die Natio¬<lb/>
+nalitätsidee <hi rendition="#aq">sub specie aeternitatis</hi> anzuſehen, wie Spinoza redet,<lb/>
+d. h. religiösethiſch zu weihen und zu verklären. — Unter dieſem<lb/>
+Geſichtspunkt ſind ſogar Nationalkirchen als das naturgemäßeſte<lb/>
+und geſündeſte Gebilde ſelbſt innerhalb einer identiſchen Hauptre¬<lb/>
+ligion zu bezeichnen. Denn das, was eben die Kirche zur äußer¬<lb/>
+lich organiſirten Kirche im Unterſchied von der innerlichen Fröm¬<lb/>
+migkeit macht, iſt durchaus von äußeren, alſo namentlich auch volks¬<lb/>
+thümlichen Momenten mitbeſtimmt und ſoll auf dieſe wieder zu¬<lb/>
+rückwirken. Wenn aber ſchon die Nationen profan betrachtet ein¬<lb/>
+ander als freundliche Ergänzung fordern, ſo noch vielmehr die<lb/>
+Nationalkirchen, um damit ihrem einheitlich univerſalen Objekt<lb/>
+gerecht zu werden. Gewiß, ſtatt irrenden Sinnes die Brandfackel<lb/>
+<pb n="37" facs="#f0047"/>
+hochmüthiger Zwietracht zu ſchwingen, wäre es gerade für Kirche<lb/>
+und Kirchen ein ſchöner Weltberuf, in ſolcher von Ueberſtürzung<lb/>
+freien Weiſe und ausgehend vom eigenen Heerde weiterhin die<lb/>
+milde Flamme der Humanität ſtille zu hüten und zu nähren.</p><lb/>
+<p>Zu den Gebieten endlich, auf welchen ſich das national Eigen¬<lb/>
+thümliche mit beſonderem Nachdruck erweist oder doch zu erwei¬<lb/>
+ſen hat, gehören <hi rendition="#g">Sprache und Kunſt</hi>, <hi rendition="#g">Geſellſchafts- und<lb/>
+Staatsordnung</hi>. Hier kann es ſich in der That nicht mehr,<lb/>
+wie namentlich im Wiſſensprozeß, um ein mathematiſch ergänzen¬<lb/>
+des Miteinanderſtreben der Völker handeln, ſo daß die Leiſtung<lb/>
+des Einen ohne alles Weitere zum andern übertragen und von<lb/>
+dieſem angenommen werden möchte. Hier iſt eine abſtrakte Ni¬<lb/>
+vellirung thöricht und werthlos; ſtatt bloßen Imports handelt es<lb/>
+ſich vielmehr jetzt um erfriſchende Anregung durch einander und<lb/>
+um Aſſimilirung des Fremden ins eigene Fleiſch und Blut.</p><lb/>
+<p>Wie doktrinär iſt nicht z. B. die zuweilen ſich regende Idee<lb/>
+einer <hi rendition="#g">Alleweltsſprache</hi> auf der Trümmerſtätte der naturwüchſi¬<lb/>
+gen Volksmundarten (was freilich der Philoſoph und Sprachfor¬<lb/>
+ſcher Leibniz bei ſeiner beabſichtigten <hi rendition="#aq">»lingua characteristica ge¬<lb/>
+neralis«</hi> von Ferne nicht im Sinn hatte). Es iſt wohl nicht zu<lb/>
+viel geſagt, wenn man die geiſtige Dürre der Zeiten, welche das<lb/>
+katholiſch-todte Latein als vermeintlich allein hoffähige Sprache<lb/>
+übten, weſentlich mit auf dieſe nationalphilologiſche Unnatur zu¬<lb/>
+rückführt; darum gehörte es mit zu dem frohen Erwachen der<lb/>
+Neuzeit, wenn wir deren Bahnbrecher (z. B. Bako, Hobbes, Leib¬<lb/>
+niz, vor allem Luther) theoretiſch und praktiſch namentlich auch<lb/>
+dieſen Sprachzwang geſunden Sinnes brechen ſehen. — Und ſo<lb/>
+wird noch heutigen Tags der etwaige kleine Nachtheil leichter geiſti¬<lb/>
+ger Abgrenzung durch jenen Unterſchied jedenfalls für große Na¬<lb/>
+tionen weit überwogen durch die friſche Anregung, welche das<lb/>
+Lernen fremder Sprachen (zu fortanigem <hi rendition="#g">rezeptivem</hi> Gebrauch)<lb/>
+gewährt. Weſentlich in dieſer Bildungsſchule lernt ſich die geiſtes¬<lb/>
+<pb n="38" facs="#f0048"/>
+freie Löſung des Gedankens von dem zunächſt doch mehr zufälligen<lb/>
+Laut und die klare Erwägung des Verhältniſſes von Wort und<lb/>
+Sache (vgl. den engliſchen Sprachnominalismus); hier vor Allem<lb/>
+geht namentlich auch erſt das rechte Verſtändniß, die würdigende<lb/>
+Pietät für die eigene Sprache auf. Denn die grundverwerfliche,<lb/>
+als papageimäßiges Gebahren einfach lächerlich zu nennende Sprach¬<lb/>
+mengerei, das Spicken des eigenen dürren Gedankens mit fetten<lb/>
+fremden Brocken, das waarenmäßige Zurſchauſtellen aufgeſchnapp¬<lb/>
+ter moderner Sprachkenntniſſe iſt ja immer nur ein Beweis höchſt<lb/>
+mittelmäßiger Bildung in dieſem und anderen Punkten. Ein An¬<lb/>
+deres iſt natürlich — dem früher Bemerkten zufolge — der maß¬<lb/>
+volle wiſſenſchaftliche Gebrauch derartiger Kunſtausdrücke beſon¬<lb/>
+ders aus todten und darum neutralen Sprachen.</p><lb/>
+<p>Indem wir ſchon die Sprache gewiß mit vollem Recht als<lb/>
+ein Kunſtwerk betrachten, gilt das Geſagte auch für das weitere<lb/>
+Gebiet des <hi rendition="#g">Aeſthetiſchen</hi>. Wo es ſich weſentlich um die äußere<lb/>
+Darſtellung von Gefühlen oder innerſten Stimmungen handelt,<lb/>
+wird es hochnöthig ſein, daß jedes Volk aus ſeinem Eigenen her¬<lb/>
+aus arbeitet, ſonſt wird das Werk wohl meiſtens ein „gemachtes“,<lb/>
+erkünſtelt, aber nicht kunſtvoll, ſondern ſeelenlos, wie Pygmalions<lb/>
+Bildſäule. — Hieher möchten wir auch die ſogenannte <hi rendition="#g">Mode</hi> rech¬<lb/>
+nen, obwohl der Platz für ſie beinahe zu ehrenvoll iſt. Nachah¬<lb/>
+mung liegt ihr im Blut oder gehört zu ihrem Begriff; aber Alles<lb/>
+hat, zumal in Kleiderſachen, ſein Maß! Eine Weltmode ohne<lb/>
+Rückſicht auf klimatiſche, ſoziale und andre jeweils verſchiedene<lb/>
+Momente iſt ebenſo unäſthetiſch als unpraktiſch. Das weibliche<lb/>
+Geſchlecht namentlich, das ſich ſo gerne in Extremen bewegt, zeigt<lb/>
+auch hier als Gegendruck gegen ſeinen ſonſtigen naturgemäßen<lb/>
+Sinn fürs Partikulare wiederum einen entſchieden falſchen kosmo¬<lb/>
+politiſchen Hang.</p><lb/>
+<p>Doch das leitet uns, über die Geſellſchaft, zur viel wichtigeren<lb/>
+<hi rendition="#g">Staatsordnung</hi>. Aecht im Geiſt des ungeſchichtlichweltbürger¬<lb/>
+<pb n="39" facs="#f0049"/>
+lichen vorigen Jahrhunderts lag es, ſeine üppig wuchernden Staats¬<lb/>
+unterſuchungen immer eigentlich nur über den „Staat im Allge¬<lb/>
+meinen“ anzuſtellen und Alles nach Einer Schablone zuzuſchneiden.<lb/>
+Als ob nicht gerade die Verfaſſung mehr als Andres Ausdruck des<lb/>
+jeweiligen praktiſchen Volksgeiſtes wäre, in der Hauptſache im¬<lb/>
+mer ſo gut oder ſo ſchlecht, als die ſonſtige Bildungs- und Ent¬<lb/>
+wicklungsſtufe eines Volks auf „dem Weg des Fortſchritts im Be¬<lb/>
+wußtſein der Freiheit“. Das hat, trotz allen Streits innerlich ver¬<lb/>
+wandt mit der großen Philoſophie ihrer Zeit, die „hiſtoriſche Rechts¬<lb/>
+ſchule“ zu Anfang unſerer Aera richtig betont und damit Front<lb/>
+gemacht gegen das ſchulmäßig-experimentirende Uebertragen frem¬<lb/>
+der Staatsordnungen, ſtatt die Kleider auf den Leib anzumeſſen.</p><lb/>
+<p>Auf allen dieſen Gebieten, wo der individuelle Volkskarakter<lb/>
+das Vorrecht hat zum Ausdruck zu kommen, können wir alſo ſtatt<lb/>
+internationaler Nivellirung nur belehrende Anregung und hierauf<lb/>
+Aſſimilirung zugeſtehen. Dann aber iſt allerdings auch hier der<lb/>
+geiſtesfreie Wechſelverkehr der Nationen vom größten Werth, um die<lb/>
+Vollgeſundheit des Organismus „Menſchheit“ darzuſtellen. Es ſei<lb/>
+nur daran erinnert, wie im vorigen Jahrhundert, gleich dem Königs¬<lb/>
+ſohn im Märchen vom verzauberten Dornröschen, der Naturgenius<lb/>
+des Engländers <hi rendition="#g">Shakſpeare</hi> unſre deutſche Muſe aus ihrem tiefen,<lb/>
+todesähnlichen Schlaf erweckt hat. Nicht minder hat der durch polari¬<lb/>
+ſchen Gegenſatz eigenthümlich verwandte Geiſt unſerer angelſächſiſchen<lb/>
+Vettern in David <hi rendition="#g">Hume</hi> den Philoſophen Kant aus ſeinem „dogma¬<lb/>
+tiſchen Schlummer gerüttelt“ und zum größten Weltweiſen der Neu¬<lb/>
+zeit, zum Anfänger einer glänzenden Reihe von Nachfolgern gemacht.</p><lb/>
+<p>Kehren wir zum Schluß noch einmal vom Allgemeinen zum<lb/>
+Beſonderen zurück und greifen mitten, hinein ins farbige Leben.</p><lb/>
+<p>Wir <hi rendition="#g">Deutſchen</hi> galten lange Zeit förmlich als das zum<lb/>
+<hi rendition="#g">Kosmopolitismus</hi> geradezu prädeſtinirte Volk, das zum <hi rendition="#g">Pa¬<lb/>
+triotismus</hi> weder die Fähigkeit noch eigentlich das geſchichtliche<lb/>
+Recht habe. Was jene Befähigung betrifft, ſo hätte freilich das<lb/>
+<pb n="40" facs="#f0050"/>
+Beiſpiel der anderen, zäh-national geſinnten Völker und Völkchen<lb/>
+aus rein germaniſchem Blut die Voreiligkeit dieſes Schluſſes leh¬<lb/>
+ren und auf die fatale Geſchichte als Haupturſache dieſes unſeres<lb/>
+Weſens hinweiſen können. Hinſichtlich des Rechts zum Patriotis¬<lb/>
+mus haben ſogar Stimmen aus unſerer eigenen Mitte in verzwei¬<lb/>
+felter Geſchichtsphiloſophie den kühnen Vergleich mit dem israë¬<lb/>
+litiſchen Volke gezogen, das ſeinen verwandten Hang zur Fremd¬<lb/>
+länderei (damals zugleich religiöſe Abgötterei) ſchließlich mit der<lb/>
+Zerſtreuung unter alle Nationen büßte. Eine ähnliche Diaſpora<lb/>
+zur Belebung der Weltkultur, die Rolle eines Geiſtesguanos wollte<lb/>
+man, in minder feinem landwirthſchaftlichem Bilde, auch als unſre<lb/>
+normale Miſſion bezeichnen. Vergeſſe man aber bei dieſem flachen<lb/>
+Vergleiche nicht, daß auch Israël, was es Großes geleiſtet, nicht<lb/>
+als zerſtreutes, ſondern als zuſammengehaltenes (im makkabäiſchen<lb/>
+Heldenkampf beinahe kulminirendes) Volk für die Menſchheitsge¬<lb/>
+ſchichte gethan hat. — Außerdem aber mußte doch wahrhaftig ſchon<lb/>
+vor dem Jahre 1870 gegen ſolche jammerbare Selbſtwegwerfung<lb/>
+unſerer Nationalität, gegen ein derartiges Molochsopfer an die<lb/>
+Menſchheit, energiſch proteſtiren, wer irgend unter den Deutſchen<lb/>
+noch Aeſthetik und Ehrgefühl beſaß.</p><lb/>
+<p>Was am Ende, geographiſch und geiſtig, an jener deutſchen<lb/>
+Univerſalität Wahres ſein dürfte — dem Philoſophen Fichte hat<lb/>
+es ſeinerzeit die intereſſante Brücke bei dem Wechſel ſeiner An¬<lb/>
+ſchauungen gebildet — das mögen wir immerhin und gerne be¬<lb/>
+halten; jetzt, vom feſten erkämpften Boden aus haben wir erſt<lb/>
+eigentlich ein Recht dazu. Denn in der That, um ein Wort des<lb/>
+größten deutſchen Mannes der Gegenwart leicht anzuſtreifen: der<lb/>
+<hi rendition="#g">Kosmopolitismus</hi> iſt zwar nicht gerade ein Luxus, aber doch<lb/>
+nur ein hinzukommender Schmuck, den ſich erſt eine durch den<lb/>
+<hi rendition="#g">Patriotismus</hi> ihrer Bürger ſtarkgefugte und wohlbewehrte<lb/>
+Nation erlauben darf.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </body> <back> <div type="imprint"> <p rendition="#c">Druck von J. Dräger's Buchdruckerei (C. <hi rendition="#g">Feicht</hi>) in Berlin.</p><lb/>
+</div>
+<pb facs="#f0051"/>
+<pb facs="#f0052"/>
+</back> </text> </TEI>

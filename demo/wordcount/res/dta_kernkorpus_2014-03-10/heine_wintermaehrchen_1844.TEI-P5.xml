@@ -1,0 +1,2729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Deutschland</title>
+<title type="sub">Ein Wintermährchen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118548018">
+<surname>Heine</surname>
+<forename>Heinrich</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">169</measure>
+<measure type="tokens">11812</measure>
+<measure type="types">4183</measure>
+<measure type="characters">79498</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:55Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/heine_wintermaehrchen_1844</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/heine_wintermaehrchen_1844</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/heine_wintermaehrchen_1844</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/heine_wintermaehrchen_1844</idno>
+<idno type="DTADirName">heine_wintermaehrchen_1844</idno>
+<idno type="DTAID">16287</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905192250</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Heine, Heinrich: Deutschland. Ein Wintermährchen. Hamburg, 1844.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Deutschland</title>
+<title level="m" type="sub">Ein Wintermährchen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118548018">
+<surname>Heine</surname>
+<forename>Heinrich</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">XII, 143 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Hoffmann und Campe</name></publisher>
+<pubPlace>Hamburg</pubPlace>
+<date type="publication">1844</date>
+</publicationStmt>
+<notesStmt>
+<note type="remarkSource">Bei der für das DTA zugrunde gelegten Ausgabe aus der Staatsbibliothek zu Berlin handelt es sich um den 1844 bei Hoffmann &amp; Campe, Hamburg, erschienenen Separatdruck. Diese Fassung des Versepos ist ein zensierter bzw. vorzensierter Separatdruck (Titelauflage) von Heines "Wintermährchen", das zuvor ungekürzt in Heines "Neuen Gedichten" (ebenfalls Hoffmann &amp; Campe, 1844, S. 277–421) gedruckt worden war.</note>
+</notesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Yo 1677&lt;b&gt; R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=879900113</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Epos</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Epos</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="halftitle"> <docTitle> <titlePart type="main"> <hi rendition="#fr"><hi rendition="#b">Deutschland.</hi></hi><lb/>
+Ein Wintermährchen.</titlePart> </docTitle><lb/>
+<byline>Von<lb/>
+<docAuthor> <hi rendition="#b"><hi rendition="#g">Heinrich Heine</hi>.</hi></docAuthor> </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace><hi rendition="#b">Hamburg</hi></pubPlace><lb/>
+<publisher><hi rendition="#g">Bei Hoffmann und Campe</hi>.</publisher><lb/>
+<docDate> <hi rendition="#b">1844.</hi></docDate> </docImprint><lb/>
+</titlePage>
+<pb facs="#f0008"/>
+<pb n="[I]" facs="#f0009"/>
+<titlePage type="halftitle"> <docTitle> <titlePart type="main"> <hi rendition="#b #g">Heine's<lb/>
+Deutſchland.</hi></titlePart> </docTitle><lb/>
+</titlePage>
+<pb n="[II]" facs="#f0010"/>
+<div type="advertisement"> <head> <hi rendition="#b">Bei Hoffmann und Campe iſt erſchienen:</hi> </head><lb/>
+<p rendition="#right">Rthlr. gGr.</p><lb/>
+<list>         <item><hi rendition="#g">Heine</hi>, H., Buch der Lieder. 5te Aufl. <space dim="horizontal"/> 1 12</item><lb/>
+<item>— — Reiſebilder. 4 Bände. 3te Aufl. <space dim="horizontal"/> 7 —</item><lb/>
+<item>— — über den Adel. <space dim="horizontal"/> — 20</item><lb/>
+<item>— — franzöſiſche Zuſtände. <space dim="horizontal"/> 2 —</item><lb/>
+<item>— — romantiſche Schule. <space dim="horizontal"/> 2 —</item><lb/>
+<item>— — Salon. 4 Bände. <space dim="horizontal"/> 6 16</item><lb/>
+<item>— — über den Denunzianten. <space dim="horizontal"/> — 6</item><lb/>
+<item>— — über Ludwig Börne. <space dim="horizontal"/> 2 —</item><lb/>
+</list>     <milestone rendition="#hr" unit="section"/><lb/>
+<list>         <item><hi rendition="#g">Cruſius</hi>, <hi rendition="#g">Ed</hi>., der Beſuch in Hainthal. Idyll mit<lb/>
+6 Stahlſtichen. <space dim="horizontal"/> 1 —</item><lb/>
+<item><hi rendition="#g">Hebbel</hi>, <hi rendition="#g">Fr</hi>., Gedichte. <space dim="horizontal"/> 1 —</item><lb/>
+<item>— — Genoveva. Eine Tragödie in 5 Acten. <space dim="horizontal"/> 1 —</item><lb/>
+<item>— — Judith. Eine Tragödie in 5 Acten. <space dim="horizontal"/> 1 —</item><lb/>
+<item>— — Maria Magdalene. Ein bürgerliches</item><lb/>
+<item>Trauerſpiel in 3 Acten. <space dim="horizontal"/> 1 —</item><lb/>
+<item><hi rendition="#g">Hoffmann v</hi>. <hi rendition="#g">Fallersleben</hi>, unpolitiſche Lieder.<lb/>
+2 Theile. <space dim="horizontal"/> 2 —</item><lb/>
+<item><hi rendition="#g">Immermann</hi>, K., Kaiſer Friedrich <hi rendition="#aq">II</hi>. <space dim="horizontal"/> 1 —</item><lb/>
+<item>— — das Trauerſpiel in Tyrol. <space dim="horizontal"/> — 20</item><lb/>
+<item>— — Tulifäntchen. <space dim="horizontal"/> — 20</item><lb/>
+<item>— — Verkleidungen. <space dim="horizontal"/> — 20</item><lb/>
+<item>— — Memorabilien. 3 Bände. <space dim="horizontal"/> 5 8</item><lb/>
+<item>Lieder eines cosmopolitiſchen Nachtwächters. 2te Aufl. <space dim="horizontal"/> 1 —</item><lb/>
+<item><hi rendition="#g">Maltitz</hi>, <hi rendition="#g">G</hi>. <hi rendition="#g">A</hi>. <hi rendition="#g">von</hi>, Pfefferkörner im Geſchmacke<lb/>
+der Zeit. Ernſter und ſatyriſcher Gattung.<lb/>
+4 Hefte, <hi rendition="#aq">à</hi> 16 gGr. <space dim="horizontal"/> 2 16</item><lb/>
+<item>— — Polonia. Ein Gedicht. <space dim="horizontal"/> — 6</item><lb/>
+<item>— — der alte Student. Dramatiſche Kleinigkeit. <space dim="horizontal"/> — 12</item><lb/>
+<item>— — das Pasquill. Schauſpiel. <space dim="horizontal"/> — 20</item><lb/>
+<item>— — Olivier Cromwell. Hiſtoriſches Drama. <space dim="horizontal"/> 1 —</item><lb/>
+<item><hi rendition="#g">Polenlieder</hi>, ein Todtenopfer. <space dim="horizontal"/> — 6</item><lb/>
+<item><hi rendition="#g">Raupach</hi>, E., dramat. Werke kom. Gattung. 4 Bde. <space dim="horizontal"/> 7 —</item><lb/>
+<item>— — " " ernſter Gattung. 16 Bde. <space dim="horizontal"/> 20 —</item><lb/>
+<item><hi rendition="#g">Sang</hi>, <hi rendition="#g">der</hi>, des fremden Sängers. Eine Phantaſie. <space dim="horizontal"/> — 6</item><lb/>
+<item><hi rendition="#g">Sloman</hi>, <hi rendition="#g">Eliza</hi>, Dichtungen. <space dim="horizontal"/> 1 —</item><lb/>
+<item><hi rendition="#g">Spaziergänge</hi> eines 2ten Wiener Poeten. 2te Aufl. 1 —</item>     </list> </div><lb/>
+<pb n="[III]" facs="#f0011"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#fr">Deutſchland.</hi><lb/>
+Ein Wintermährchen.</titlePart> </docTitle><lb/>
+<byline>Von<lb/>
+<docAuthor> <hi rendition="#b">Heinrich Heine.</hi></docAuthor> </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace>Hamburg.</pubPlace><lb/>
+<publisher> <hi rendition="#g">Bei Hoffmann und Campe</hi>.</publisher><lb/>
+<docDate> <hi rendition="#b">1844.</hi></docDate> </docImprint> </titlePage><lb/>
+<lb/>
+<lb/>
+<pb n="[IV]" facs="#f0012"/>
+<div type="imprint"> <p rendition="#c">H. G. Voigt's Buchdruckerei.</p> </div><lb/>
+</front> <body>
+<pb n="[V]" facs="#f0013"/>
+<div n="1"> <head><hi rendition="#b #g">Vorwort.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">D</hi>as nachſtehende Gedicht ſchrieb ich im dies¬<lb/>
+jährigen Monath Januar zu Paris, und die<lb/>
+freye Luft des Ortes wehete in manche Strophe<lb/>
+weit ſchärfer hinein, als mir eigentlich lieb war.<lb/>
+Ich unterließ nicht, ſchon gleich zu mildern und<lb/>
+auszuſcheiden, was mit dem deutſchen Clima<lb/>
+unverträglich ſchien. Nichtsdeſtoweniger, als ich<lb/>
+das Manuſcript im Monath März an meinen<lb/>
+Verleger nach Hamburg ſchickte, wurden mir<lb/>
+noch mannigfache Bedenklichkeiten in Erwägung<lb/>
+<pb n="VI" facs="#f0014"/>
+geſtellt. Ich mußte mich dem fatalen Geſchäfte<lb/>
+des Umarbeitens nochmals unterziehen, und da<lb/>
+mag es wohl geſchehen ſeyn, daß die ernſten<lb/>
+Töne mehr als nöthig abgedämpft oder von den<lb/>
+Schellen des Humors gar zu heiter überklingelt<lb/>
+wurden. Einigen nackten Gedanken habe ich<lb/>
+im haſtigen Unmuth ihre Feigenblätter wieder<lb/>
+abgeriſſen, und zimperlich ſpröde Ohren habe<lb/>
+ich vielleicht verletzt. Es iſt mir leid, aber ich<lb/>
+tröſte mich mit dem Bewußtſeyn, daß größere<lb/>
+Autoren ſich ähnliche Vergehen zu Schulden<lb/>
+kommen ließen. Des Ariſtophanes will ich zu<lb/>
+ſolcher Beſchönigung gar nicht erwähnen, denn<lb/>
+der war ein blinder Heide, und ſein Publikum<lb/>
+zu Athen hatte zwar eine klaſſiſche Erziehung<lb/>
+genoſſen, wußte aber wenig von Sittlichkeit.<lb/>
+Auf Cervantes und Moli<hi rendition="#aq">è</hi>re könnte ich mich<lb/>
+ſchon viel beſſer berufen; und erſterer ſchrieb<lb/>
+für den hohen Adel beider Caſtilien, letzterer<lb/>
+für den großen König und den großen Hof von<lb/>
+Verſailles! Ach, ich vergeſſe, daß wir in einer<lb/>
+<pb n="VII" facs="#f0015"/>
+ſehr bürgerlichen Zeit leben, und ich ſehe leider<lb/>
+voraus, daß viele Töchter gebildeter Stände an<lb/>
+der Spree, wo nicht gar an der Alſter, über<lb/>
+mein armes Gedicht die mehr oder minder ge¬<lb/>
+bogenen Näschen rümpfen werden! Was ich aber<lb/>
+mit noch größerem Leidweſen vorausſehe, das iſt<lb/>
+das Zeter jener Phariſäer der Nazionalität, die<lb/>
+jetzt mit den Antipathien der Regierungen Hand<lb/>
+in Hand gehen, auch die volle Liebe und Hochach¬<lb/>
+tung der Cenſur genießen, und in der Tages¬<lb/>
+preſſe den Ton angeben können, wo es gilt jene<lb/>
+Gegner zu befehden, die auch zugleich die Geg¬<lb/>
+ner ihrer allerhöchſten Herrſchaften ſind. Wir<lb/>
+ſind im Herzen gewappnet gegen das Mißfallen<lb/>
+dieſer heldenmüthigen Lakayen in ſchwarz-roth¬<lb/>
+goldner Livree. Ich höre ſchon ihre Bierſtim¬<lb/>
+men: du läſterſt ſogar unſere Farben, Verächter<lb/>
+des Vaterlands, Freund der Franzoſen, denen<lb/>
+du den freyen Rhein abtreten willſt! Beruhigt<lb/>
+Euch. Ich werde Eure Farben achten und<lb/>
+ehren, wenn ſie es verdienen, wenn ſie nicht<lb/>
+<pb n="VIII" facs="#f0016"/>
+mehr eine müßige oder knechtiſche Spielerey ſind.<lb/>
+Pflanzt die ſchwarz-roth-goldne Fahne auf die<lb/>
+Höhe des deutſchen Gedankens, macht ſie zur<lb/>
+Standarte des freyen Menſchthums, und ich will<lb/>
+mein beſtes Herzblut für ſie hingeben. Be¬<lb/>
+ruhigt Euch, ich liebe das Vaterland eben ſo<lb/>
+ſehr wie Ihr. Wegen dieſer Liebe habe ich<lb/>
+dreyzehn Lebensjahre im Exile verlebt, und<lb/>
+wegen eben dieſer Liebe kehre ich wieder zurück<lb/>
+in’s Exil, vielleicht für immer, jedenfalls ohne zu<lb/>
+flennen, oder eine ſchiefmäulige Duldergrimaſſe<lb/>
+zu ſchneiden. Ich bin der Freund der Fran¬<lb/>
+zoſen, wie ich der Freund aller Menſchen bin,<lb/>
+wenn ſie vernünftig und gut ſind, und weil ich<lb/>
+ſelber nicht ſo dumm oder ſo ſchlecht bin, als<lb/>
+daß ich wünſchen ſollte, daß meine Deutſchen<lb/>
+und die Franzoſen, die beiden auserwählten<lb/>
+Völker der Humanität, ſich die Hälſe brächen<lb/>
+zum Beſten von England und Rußland und<lb/>
+zur Schadenfreude aller Junker und Pfaffen<lb/>
+dieſes Erdballs. Seyd ruhig, ich werde den Rhein<lb/>
+<pb n="IX" facs="#f0017"/>
+nimmermehr den Franzoſen abtreten, ſchon aus<lb/>
+dem ganz einfachen Grunde: weil mir der Rhein<lb/>
+gehört. Ja, mir gehört er, durch unveräußer¬<lb/>
+liches Geburtsrecht, ich bin des freyen Rheins<lb/>
+noch weit freyerer Sohn, an ſeinem Ufer ſtand<lb/>
+meine Wiege, und ich ſehe gar nicht ein, warum<lb/>
+der Rhein irgend einem Andern gehören ſoll als<lb/>
+den Landeskindern. Elſaß und Lothringen kann<lb/>
+ich freylich dem deutſchen Reiche nicht ſo leicht<lb/>
+einverleiben wie Ihr es thut, denn die Leute in<lb/>
+jenen Landen hängen feſt an Frankreich wegen<lb/>
+der Rechte, die ſie durch die franzöſiſche Staats¬<lb/>
+umwälzung gewonnen, wegen jener Gleichheits¬<lb/>
+geſetze und freyen Inſtituzionen, die dem bür¬<lb/>
+gerlichen Gemüthe ſehr angenehm ſind, aber dem<lb/>
+Magen der großen Menge dennoch Vieles zu<lb/>
+wünſchen übrig laſſen. Indeſſen, die Elſaſſer<lb/>
+und Lothringer werden ſich wieder an Deutſch¬<lb/>
+land anſchließen, wenn wir das vollenden, was die<lb/>
+Franzoſen begonnen haben, wenn wir dieſe über¬<lb/>
+flügeln in der That, wie wir es ſchon gethan<lb/>
+<pb n="X" facs="#f0018"/>
+im Gedanken, wenn wir uns bis zu den letzten<lb/>
+Folgerungen deſſelben emporſchwingen, wenn<lb/>
+wir die Dienſtbarkeit bis in ihrem letzten Schlupf¬<lb/>
+winkel, dem Himmel, zerſtören, wenn wir den<lb/>
+Gott, der auf Erden im Menſchen wohnt, aus<lb/>
+ſeiner Erniedrigung retten, wenn wir die Erlöſer<lb/>
+Gottes werden, wenn wir das arme, glück¬<lb/>
+enterbte Volk und den verhöhnten Genius und die<lb/>
+geſchändete Schönheit wieder in ihre Würde ein¬<lb/>
+ſetzen, wie unſere großen Meiſter geſagt und<lb/>
+geſungen, und wie wir es wollen, wir, die<lb/>
+Jünger — ja, nicht bloß Elſaß und Lothrin¬<lb/>
+gen, ſondern ganz Frankreich wird uns alsdann<lb/>
+zufallen, ganz Europa, die ganze Welt — die<lb/>
+ganze Welt wird deutſch werden! Von dieſer<lb/>
+Sendung und Univerſalherrſchaft Deutſchlands<lb/>
+träume ich oft wenn ich unter Eichen wandle.<lb/>
+Das iſt <hi rendition="#g">mein</hi> Patriotismus.</p><lb/>
+<p>Ich werde in einem nächſten Buche auf<lb/>
+dieſes Thema zurückkommen, mit letzter Ent¬<lb/>
+ſchloſſenheit, mit ſtrenger Rückſichtsloſigkeit, je¬<lb/>
+<pb n="XI" facs="#f0019"/>
+denfalls mit Loyalität. Den entſchiedenſten<lb/>
+Widerſpruch werde ich zu achten wiſſen, wenn<lb/>
+er aus einer Ueberzeugung hervorgeht. Selbſt<lb/>
+der roheſten Feindſeligkeit will ich alsdann ge¬<lb/>
+duldig verzeihen; ich will ſogar der Dummheit<lb/>
+Rede ſtehen, wenn ſie nur ehrlich gemeint iſt.<lb/>
+Meine ganze ſchweigende Verachtung widme ich<lb/>
+hingegen dem geſinnungsloſen Wichte, der aus<lb/>
+leidiger Scheelſucht oder unſauberer Privatgiftig¬<lb/>
+keit meinen guten Leumund in der öffentlichen<lb/>
+Meinung herabzuwürdigen ſucht, und dabey die<lb/>
+Maske des Patriotismus, wo nicht gar die der<lb/>
+Religion und der Moral, benutzt. Der anarchi¬<lb/>
+ſche Zuſtand der deutſchen politiſchen und lite¬<lb/>
+rariſchen Zeitungsblätterwelt ward in ſolcher<lb/>
+Beziehung zuweilen mit einem Talente ausge¬<lb/>
+beutet, das ich ſchier bewundern mußte. Wahr¬<lb/>
+haftig, Schufterle iſt nicht todt, er lebt noch<lb/>
+immer, und ſteht ſeit Jahren an der Spitze einer<lb/>
+wohlorganiſirten Bande von literariſchen Strauch¬<lb/>
+dieben, die in den böhmiſchen Wäldern unſerer<lb/>
+<pb n="XII" facs="#f0020"/>
+Tagespreſſe ihr Weſen treiben, hinter jedem<lb/>
+Buſch, hinter jedem Blatt, verſteckt liegen und<lb/>
+dem leiſeſten Pfiff ihres würdigen Hauptmanns<lb/>
+gehorchen.</p><lb/>
+<p>Noch ein Wort. Das Wintermährchen<lb/>
+bildet den Schluß der „Neuen Gedichte“, die<lb/>
+in dieſem Augenblick bey Hoffmann und Campe<lb/>
+erſcheinen. Um den Einzeldruck veranſtalten<lb/>
+zu können, mußte mein Verleger das Gedicht<lb/>
+den überwachenden Behörden zu beſonderer<lb/>
+Sorgfalt überliefern, und neue Varianten und<lb/>
+Ausmerzungen ſind das Ergebniß dieſer höheren<lb/>
+Kritik. —</p><lb/>
+<p><hi rendition="#g">Hamburg</hi>, d. <hi rendition="#b">17.</hi> Sept. <hi rendition="#b">1844</hi>.</p><lb/>
+<p rendition="#right"><hi rendition="#g">Heinrich Heine</hi>.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb n="[1]" facs="#f0021"/>
+<div n="1"> <head> <hi rendition="#b #g">Deutſchland.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/>     <p rendition="#c"><hi rendition="#b">Ein Wintermährchen.</hi></p><lb/>
+<p rendition="#c"><hi rendition="#g">Geſchrieben im Januar 1844.</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">Heine's Deutſchland 1<lb/>
+</fw>
+<pb n="[2]" facs="#f0022"/>
+<pb n="[3]" facs="#f0023"/>
+<div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">I.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>m traurigen Monat November war's,</l><lb/>
+<l>Die Tage wurden trüber,</l><lb/>
+<l>Der Wind riß von den Bäumen das Laub,</l><lb/>
+<l>Da reiſt' ich nach Deutſchland hinüber.</l><lb/>
+</lg> <lg n="2"> <l>Und als ich an die Grenze kam,</l><lb/>
+<l>Da fühlt ich ein ſtärkeres Klopfen</l><lb/>
+<l>In meiner Bruſt, ich glaube ſogar</l><lb/>
+<l>Die Augen begunnen zu tropfen.</l><lb/>
+</lg> <lg n="3"> <l>Und als ich die deutſche Sprache vernahm,</l><lb/>
+<l>Da ward mir ſeltſam zu Muthe;</l><lb/>
+<l>Ich meinte nicht anders, als ob das Herz</l><lb/>
+<l>Recht angenehm verblute.</l><lb/>
+</lg> <fw type="sig" place="bottom">1 *<lb/>
+</fw>
+<pb n="4" facs="#f0024"/>
+<lg n="4"> <l>Ein kleines Harfenmädchen ſang.</l><lb/>
+<l>Sie ſang mit wahrem Gefühle</l><lb/>
+<l>Und falſcher Stimme, doch ward ich ſehr</l><lb/>
+<l>Gerühret von ihrem Spiele.</l><lb/>
+</lg> <lg n="5"> <l>Sie ſang von Liebe und Liebesgram,</l><lb/>
+<l>Aufopfrung und Wiederfinden</l><lb/>
+<l>Dort oben, in jener beſſeren Welt,</l><lb/>
+<l>Wo alle Leiden ſchwinden.</l><lb/>
+</lg> <lg n="6"> <l>Sie ſang vom irdiſchen Jammerthal,</l><lb/>
+<l>Von Freuden, die bald zerronnen,</l><lb/>
+<l>Vom Jenſeits, wo die Seele ſchwelgt</l><lb/>
+<l>Verklärt in ew'gen Wonnen.</l><lb/>
+</lg> <lg n="7"> <l>Sie ſang das alte Entſagungslied,</l><lb/>
+<l>Das Eyapopeya vom Himmel,</l><lb/>
+<l>Womit man einlullt, wenn es greint,</l><lb/>
+<l>Das Volk, den großen Lümmel.</l><lb/>
+</lg>
+<pb n="5" facs="#f0025"/>
+<lg n="8"> <l>Ich kenne die Weiſe, ich kenne den Text,</l><lb/>
+<l>Ich kenn’ auch die Herren Verfaſſer;</l><lb/>
+<l>Ich weiß, ſie tranken heimlich Wein</l><lb/>
+<l>Und predigten öffentlich Waſſer.</l><lb/>
+</lg> <lg n="9"> <l>Ein neues Lied, ein beſſeres Lied,</l><lb/>
+<l>O Freunde, will ich Euch dichten!</l><lb/>
+<l>Wir wollen hier auf Erden ſchon</l><lb/>
+<l>Das Himmelreich errichten.</l><lb/>
+</lg> <lg n="10"> <l>Wir wollen auf Erden glücklich ſeyn,</l><lb/>
+<l>Und wollen nicht mehr darben;</l><lb/>
+<l>Verſchlemmen ſoll nicht der faule Bauch</l><lb/>
+<l>Was fleißige Hände erwarben.</l><lb/>
+</lg> <lg n="11"> <l>Es wächſt hienieden Brod genug</l><lb/>
+<l>Für alle Menſchenkinder,</l><lb/>
+<l>Auch Roſen und Myrthen, Schönheit und Luſt,</l><lb/>
+<l>Und Zuckererbſen nicht minder.</l><lb/>
+</lg>
+<pb n="6" facs="#f0026"/>
+<lg n="12"> <l>Ja, Zuckererbſen für Jedermann,</l><lb/>
+<l>Sobald die Schooten platzen!</l><lb/>
+<l>Den Himmel überlaſſen wir</l><lb/>
+<l>Den Engeln und den Spatzen.</l><lb/>
+</lg> <lg n="13"> <l>Und wachſen uns Flügel nach dem Tod,</l><lb/>
+<l>So wollen wir Euch beſuchen</l><lb/>
+<l>Dort oben, und wir wir eſſen mit Euch</l><lb/>
+<l>Die ſeligſten Torten und Kuchen.</l><lb/>
+</lg> <lg n="14"> <l>Ein neues Lied, ein beſſeres Lied,</l><lb/>
+<l>Es klingt wie Flöten und Geigen!</l><lb/>
+<l>Das Miſerere iſt vorbey,</l><lb/>
+<l>Die Sterbeglocken ſchweigen.</l><lb/>
+</lg> <lg n="15"> <l>Die Jungfer Europa iſt verlobt</l><lb/>
+<l>Mit dem ſchönen Geniuſſe</l><lb/>
+<l>Der Freiheit, ſie liegen einander im Arm,</l><lb/>
+<l>Sie ſchwelgen im erſten Kuſſe.</l><lb/>
+</lg>
+<pb n="7" facs="#f0027"/>
+<lg n="16"> <l>Und fehlt der Pfaffenſeegen dabei,</l><lb/>
+<l>Die Ehe wird gültig nicht minder —</l><lb/>
+<l>Es lebe Bräutigam und Braut,</l><lb/>
+<l>Und ihre zukünftigen Kinder!</l><lb/>
+</lg> <lg n="17"> <l>Ein Hochzeitkarmen iſt mein Lied,</l><lb/>
+<l>Das beſſere, das neue!</l><lb/>
+<l>In meiner Seele gehen auf</l><lb/>
+<l>Die Sterne der höchſten Weihe —</l><lb/>
+</lg> <lg n="18"> <l>Begeiſterte Sterne, ſie lodern wild,</l><lb/>
+<l>Zerfließen in Flammenbächen —</l><lb/>
+<l>Ich fühle mich wunderbar erſtarkt,</l><lb/>
+<l>Ich könnte Eichen zerbrechen!</l><lb/>
+</lg> <lg n="19"> <l>Seit ich auf deutſche Erde trat</l><lb/>
+<l>Durchſtrömen mich Zauberſäfte —</l><lb/>
+<l>Der Rieſe hat wieder die Mutter berührt,</l><lb/>
+<l>Und es wuchſen ihm neu die Kräfte.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="8" facs="#f0028"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">II.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Während die Kleine von Himmelsluſt</l><lb/>
+<l>Getrillert und muſiciret,</l><lb/>
+<l>Ward von den preußiſchen Douani<hi rendition="#aq">è</hi>rs</l><lb/>
+<l>Mein Koffer viſitiret.</l><lb/>
+</lg> <lg n="2"> <l>Beſchnüffelten Alles, kramten herum</l><lb/>
+<l>In Hemden, Hoſen, Schnupftüchern;</l><lb/>
+<l>Sie ſuchten nach Spitzen, nach Bijouterien,</l><lb/>
+<l>Auch nach verbotenen Büchern.</l><lb/>
+</lg> <lg n="3"> <l>Ihr Thoren, die Ihr im Koffer ſucht!</l><lb/>
+<l>Hier werdet Ihr nichts entdecken!</l><lb/>
+<l>Die Contrebande, die mit mir reiſt,</l><lb/>
+<l>Die hab’ ich im Kopfe ſtecken.</l><lb/>
+</lg>
+<pb n="9" facs="#f0029"/>
+<lg n="4"> <l>Hier hab’ ich Spitzen, die feiner ſind</l><lb/>
+<l>Als die von Brüſſel und Mecheln,</l><lb/>
+<l>Und pack’ ich einſt meine Spitzen aus,</l><lb/>
+<l>Sie werden Euch ſticheln und hecheln.</l><lb/>
+</lg> <lg n="5"> <l>Im Kopfe trage ich Bijouterien,</l><lb/>
+<l>Der Zukunft Krondiamanten,</l><lb/>
+<l>Die Tempelkleinodien des neuen Gotts,</l><lb/>
+<l>Des großen Unbekannten.</l><lb/>
+</lg> <lg n="6"> <l>Und viele Bücher trag’ ich im Kopf!</l><lb/>
+<l>Ich darf es Euch verſichern,</l><lb/>
+<l>Mein Kopf iſt ein zwitſcherndes Vogelneſt</l><lb/>
+<l>Von konfiszirlichen Büchern.</l><lb/>
+</lg> <lg n="7"> <l>Glaubt mir, in Satans Bibliothek</l><lb/>
+<l>Kann es nicht ſchlimmere geben;</l><lb/>
+<l>Sie ſind gefährlicher noch als die</l><lb/>
+<l>Von Hoffmann von Fallersleben! —</l><lb/>
+</lg>
+<pb n="10" facs="#f0030"/>
+<lg n="8"> <l>Ein Paſſagier, der neben mir ſtand,</l><lb/>
+<l>Bemerkte mir, ich hätte</l><lb/>
+<l>Jetzt vor mir den preußiſchen Zollverein,</l><lb/>
+<l>Die große Douanenkette.</l><lb/>
+</lg> <lg n="9"> <l>„Der Zollverein“ — bemerkte er —</l><lb/>
+<l>„Wird unſer Volksthum begründen,</l><lb/>
+<l>Er wird das zerſplitterte Vaterland</l><lb/>
+<l>Zu einem Ganzen verbinden.</l><lb/>
+</lg> <lg n="10"> <l>„Er giebt die äußere Einheit uns,</l><lb/>
+<l>Die ſogenannt materielle;</l><lb/>
+<l>Die geiſtige Einheit giebt uns die Cenſur,</l><lb/>
+<l>Die wahrhaft ideelle —</l><lb/>
+</lg> <lg n="11"> <l>„Sie giebt die innere Einheit uns,</l><lb/>
+<l>Die Einheit im Denken und Sinnen;</l><lb/>
+<l>Ein einiges Deutſchland thut uns Noth,</l><lb/>
+<l>Einig nach Außen und Innen.“</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="11" facs="#f0031"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">III.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Zu Aachen, im alten Dome, liegt</l><lb/>
+<l>Carolus Magnus begraben.</l><lb/>
+<l>(Man muß ihn nicht verwechſeln mit Carl</l><lb/>
+<l>Mayer, der lebt in Schwaben.)</l><lb/>
+</lg> <lg n="2"> <l>Ich möchte nicht todt und begraben ſeyn</l><lb/>
+<l>Als Kaiſer zu Aachen im Dome;</l><lb/>
+<l>Weit lieber lebt’ ich als kleinſter Poet</l><lb/>
+<l>Zu Stukkert am Neckarſtrome.</l><lb/>
+</lg> <lg n="3"> <l>Zu Aachen langweilen ſich auf der Straß’</l><lb/>
+<l>Die Hunde, ſie flehn unterthänig:</l><lb/>
+<l>Gieb uns einen Fußtritt, o Fremdling, das wird</l><lb/>
+<l>Vielleicht uns zerſtreuen ein wenig.</l><lb/>
+</lg>
+<pb n="12" facs="#f0032"/>
+<lg n="4"> <l>Ich bin in dieſem langweilgen Neſt</l><lb/>
+<l>Ein Stündchen herumgeſchlendert.</l><lb/>
+<l>Sah wieder preußiſches Militär,</l><lb/>
+<l>Hat ſich nicht ſehr verändert.</l><lb/>
+</lg> <lg n="5"> <l>Es ſind die grauen Mäntel noch,</l><lb/>
+<l>Mit dem hohen, rothen Kragen —</l><lb/>
+<l>(Das Roth bedeutet Franzoſenblut,</l><lb/>
+<l>Sang Körner in früheren Tagen.)</l><lb/>
+</lg> <lg n="6"> <l>Noch immer das hölzern pedantiſche Volk,</l><lb/>
+<l>Noch immer ein rechter Winkel</l><lb/>
+<l>In jeder Bewegung, und im Geſicht</l><lb/>
+<l>Der eingefrorene Dünkel.</l><lb/>
+</lg> <lg n="7"> <l>Sie ſtelzen noch immer ſo ſteif herum,</l><lb/>
+<l>So kerzengrade geſchniegelt,</l><lb/>
+<l>Als hätten ſie verſchluckt den Stock</l><lb/>
+<l>Womit man ſie einſt geprügelt.</l><lb/>
+</lg>
+<pb n="13" facs="#f0033"/>
+<lg n="8"> <l>Ja, ganz verſchwand die Fuchtel nie,</l><lb/>
+<l>Sie tragen ſie jetzt im Innern;</l><lb/>
+<l>Das trauliche Du wird immer noch</l><lb/>
+<l>An das alte Er erinnern.</l><lb/>
+</lg> <lg n="9"> <l>Der lange Schnurbart iſt eigentlich nur</l><lb/>
+<l>Des Zopfthums neuere Phaſe:</l><lb/>
+<l>Der Zopf, der ehmals hinten hing,</l><lb/>
+<l>Der hängt jetzt unter der Naſe.</l><lb/>
+</lg> <lg n="10"> <l>Nicht übel gefiel mir das neue Coſtum</l><lb/>
+<l>Der Reuter, das muß ich loben,</l><lb/>
+<l>Beſonders die Pikkelhaube, den Helm,</l><lb/>
+<l>Mit der ſtählernen Spitze nach oben.</l><lb/>
+</lg> <lg n="11"> <l>Das iſt ſo ritterthümlich und mahnt</l><lb/>
+<l>An der Vorzeit holde Romantik,</l><lb/>
+<l>An die Burgfrau Johanna von Montfaucon,</l><lb/>
+<l>An den Freyherrn Fouqu<hi rendition="#aq">è</hi>, Uhland, Tieck.</l><lb/>
+</lg>
+<pb n="14" facs="#f0034"/>
+<lg n="12"> <l>Das mahnt an das Mittelalter ſo ſchön,</l><lb/>
+<l>An Edelknechte und Knappen,</l><lb/>
+<l>Die in dem Herzen getragen die Treu</l><lb/>
+<l>Und auf dem Hintern ein Wappen.</l><lb/>
+</lg> <lg n="13"> <l>Das mahnt an Kreuzzug und Turney,</l><lb/>
+<l>An Minne und frommes Dienen,</l><lb/>
+<l>An die ungedruckte Glaubenszeit,</l><lb/>
+<l>Wo noch keine Zeitung erſchienen.</l><lb/>
+</lg> <lg n="14"> <l>Ja, ja, der Helm gefällt mir, er zeugt</l><lb/>
+<l>Vom allerhöchſten Witze!</l><lb/>
+<l>Ein königlicher Einfall war's!</l><lb/>
+<l>Es fehlt nicht die Pointe, die Spitze!</l><lb/>
+</lg> <lg n="15"> <l>Nur fürcht’ ich, wenn ein Gewitter entſteht,</l><lb/>
+<l>Zieht leicht ſo eine Spitze</l><lb/>
+<l>Herab auf Euer romantiſches Haupt</l><lb/>
+<l>Des Himmels modernſte Blitze! — —</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="15" facs="#f0035"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">IV.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Zu Cöllen kam ich ſpät Abends an,</l><lb/>
+<l>Da hörte ich rauſchen den Rheinfluß,</l><lb/>
+<l>Da fächelte mich ſchon deutſche Luft,</l><lb/>
+<l>Da fühlt' ich ihren Einfluß —</l><lb/>
+</lg> <lg n="2"> <l>Auf meinen Appetit. Ich aß</l><lb/>
+<l>Dort Eierkuchen mit Schinken,</l><lb/>
+<l>Und da er ſehr geſalzen war</l><lb/>
+<l>Mußt ich auch Rheinwein trinken.</l><lb/>
+</lg> <lg n="3"> <l>Der Rheinwein glänzt noch immer wie Gold</l><lb/>
+<l>Im grünen Römerglaſe,</l><lb/>
+<l>Und trinkſt du etwelche Schoppen zu viel,</l><lb/>
+<l>So ſteigt er dir in die Naſe.</l><lb/>
+</lg>
+<pb n="16" facs="#f0036"/>
+<lg n="4"> <l>In die Naſe ſteigt ein Prickeln ſo ſüß,</l><lb/>
+<l>Man kann ſich vor Wonne nicht laſſen!</l><lb/>
+<l>Es trieb mich hinaus in die dämmernde Nacht,</l><lb/>
+<l>In die wiederhallenden Gaſſen.</l><lb/>
+</lg> <lg n="5"> <l>Die ſteinernen Häuſer ſchauten mich an,</l><lb/>
+<l>Als wollten ſie mir berichten</l><lb/>
+<l>Legenden aus altverſchollener Zeit,</l><lb/>
+<l>Der heilgen Stadt Cöllen Geſchichten.</l><lb/>
+</lg> <lg n="6"> <l>Ja, hier hat einſt die Cleriſey</l><lb/>
+<l>Ihr frommes Weſen getrieben,</l><lb/>
+<l>Hier haben die Dunkelmänner geherrſcht,</l><lb/>
+<l>Die Ulrich von Hutten beſchrieben.</l><lb/>
+</lg> <lg n="7"> <l>Der Cancan des Mittelalters ward hier</l><lb/>
+<l>Getanzt von Nonnen und Mönchen;</l><lb/>
+<l>Hier ſchrieb Hochſtraaten, der Menzel von Cölln,</l><lb/>
+<l>Die giftgen Denunziaziönchen.</l><lb/>
+</lg>
+<pb n="17" facs="#f0037"/>
+<lg n="8"> <l>Die Flamme des Scheiterhaufens hat hier</l><lb/>
+<l>Bücher und Menſchen verſchlungen;</l><lb/>
+<l>Die Glocken wurden geläutet dabei</l><lb/>
+<l>Und Kyrie Eleiſon geſungen.</l><lb/>
+</lg> <lg n="9"> <l>Dummheit und Bosheit buhlten hier</l><lb/>
+<l>Gleich Hunden auf freier Gaſſe;</l><lb/>
+<l>Die Enkelbrut erkennt man noch heut</l><lb/>
+<l>An ihrem Glaubenshaſſe. —</l><lb/>
+</lg> <lg n="10"> <l>Doch ſiehe! dort im Mondenſchein</l><lb/>
+<l>Den koloſſalen Geſellen!</l><lb/>
+<l>Er ragt verteufelt ſchwarz empor,</l><lb/>
+<l>Das iſt der Dom von Cöllen.</l><lb/>
+</lg> <lg n="11"> <l>Er ſollte des Geiſtes Baſtille ſein,</l><lb/>
+<l>Und die liſtigen Römlinge dachten:</l><lb/>
+<l>In dieſem Rieſenkerker wird</l><lb/>
+<l>Die deutſche Vernunft verſchmachten!</l><lb/>
+</lg> <fw type="sig" place="bottom">Heine's Deutſchland. 2<lb/>
+</fw>
+<pb n="18" facs="#f0038"/>
+<lg n="12"> <l>Da kam der Luther, und er hat</l><lb/>
+<l>Sein großes „Halt!“ geſprochen —</l><lb/>
+<l>Seit jenem Tage blieb der Bau</l><lb/>
+<l>Des Domes unterbrochen.</l><lb/>
+</lg> <lg n="13"> <l>Er ward nicht vollendet — und das iſt gut.</l><lb/>
+<l>Denn eben die Nichtvollendung</l><lb/>
+<l>Macht ihn zum Denkmahl von Deutſchlands Kraft</l><lb/>
+<l>Und proteſtantiſcher Sendung.</l><lb/>
+</lg> <lg n="14"> <l>Ihr armen Schelme vom Domverein,</l><lb/>
+<l>Ihr wollt mit ſchwachen Händen</l><lb/>
+<l>Fortſetzen das unterbrochene Werk,</l><lb/>
+<l>Und die alte Zwingburg vollenden!</l><lb/>
+</lg> <lg n="15"> <l>O thörichter Wahn! Vergebens wird</l><lb/>
+<l>Geſchüttelt der Klingelbeutel,</l><lb/>
+<l>Gebettelt bei Ketzern und Juden ſogar;</l><lb/>
+<l>Iſt alles fruchtlos und eitel.</l><lb/>
+</lg>
+<pb n="19" facs="#f0039"/>
+<lg n="16"> <l>Vergebens wird der große Franz Lißt</l><lb/>
+<l>Zum Beſten des Doms muſiziren,</l><lb/>
+<l>Und ein talentvoller König wird</l><lb/>
+<l>Vergebens deklamiren!</l><lb/>
+</lg> <lg n="17"> <l>Er wird nicht vollendet, der Köllner Dom,</l><lb/>
+<l>Obgleich die Narren in Schwaben</l><lb/>
+<l>Zu ſeinem Fortbau ein ganzes Schiff</l><lb/>
+<l>Voll Steine geſendet haben.</l><lb/>
+</lg> <lg n="18"> <l>Er wird nicht vollendet, trotz allem Geſchrey</l><lb/>
+<l>Der Raben und der Eulen,</l><lb/>
+<l>Die, alterthümlich geſinnt, ſo gern</l><lb/>
+<l>In hohen Kirchthürmen weilen.</l><lb/>
+</lg> <lg n="19"> <l>Ja, kommen wird die Zeit ſogar</l><lb/>
+<l>Wo man, ſtatt ihn zu vollenden,</l><lb/>
+<l>Die inneren Räume zu einem Stall</l><lb/>
+<l>Für Pferde wird verwenden.</l><lb/>
+</lg> <fw type="sig" place="bottom">2*<lb/>
+</fw>
+<pb n="20" facs="#f0040"/>
+<lg n="20"> <l>„Und wird der Dom ein Pferdeſtall,</l><lb/>
+<l>Was ſollen wir dann beginnen</l><lb/>
+<l>Mit den heil'gen drey Kön'gen, die da ruhn</l><lb/>
+<l>Im Tabernakel da drinnen?“</l><lb/>
+</lg> <lg n="21"> <l>So höre ich fragen. Doch brauchen wir uns</l><lb/>
+<l>In unſerer Zeit zu geniren?</l><lb/>
+<l>Die heil'gen drey Kön'ge aus Morgenland,</l><lb/>
+<l>Sie können wo anders logiren.</l><lb/>
+</lg> <lg n="22"> <l>Folgt meinem Rath und ſteckt ſie hinein</l><lb/>
+<l>In jene drey Körbe von Eiſen,</l><lb/>
+<l>Die hoch zu Münſter hängen am Thurm,</l><lb/>
+<l>Der Sankt Lamberti geheißen.</l><lb/>
+</lg> <lg n="23"> <l>Der Schneiderkönig ſaß darin</l><lb/>
+<l>Mit ſeinen beiden Räthen,</l><lb/>
+<l>Wir aber benutzen die Körbe jetzt</l><lb/>
+<l>Für andre Majeſtäten.</l><lb/>
+</lg>
+<pb n="21" facs="#f0041"/>
+<lg n="24"> <l>Zur Rechten ſoll Herr Balthaſar,</l><lb/>
+<l>Zur Linken Herr Melchior ſchweben,</l><lb/>
+<l>In der Mitte Herr Gaspar — Gott weiß, wie einſt</l><lb/>
+<l>Die Drey gehaußt im Leben!</l><lb/>
+</lg> <lg n="25"> <l>Die heil'ge Allianz des Morgenlands,</l><lb/>
+<l>Die jetzt kanoniſiret,</l><lb/>
+<l>Sie hat vielleicht nicht immer ſchön</l><lb/>
+<l>Und fromm ſich aufgeführet.</l><lb/>
+</lg> <lg n="26"> <l>Der Balthaſar und der Melchior,</l><lb/>
+<l>Das waren vielleicht zwey Gäuche,</l><lb/>
+<l>Die in der Noth eine Conſtituzion</l><lb/>
+<l>Verſprochen ihrem Reiche,</l><lb/>
+</lg> <lg n="27"> <l>Und ſpäter nicht Wort gehalten — Es hat</l><lb/>
+<l>Herr Gaspar, der König der Mohren,</l><lb/>
+<l>Vielleicht mit ſchwarzem Undank ſogar</l><lb/>
+<l>Belohnt ſein Volk, die Thoren!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="22" facs="#f0042"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">V.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Und als ich an die Rheinbrück kam,</l><lb/>
+<l>Wohl an die Hafenſchanze,</l><lb/>
+<l>Da ſah ich fließen den Vater Rhein</l><lb/>
+<l>Im ſtillen Mondenglanze.</l><lb/>
+</lg> <lg n="2"> <l>Sey mir gegrüßt, mein Vater Rhein,</l><lb/>
+<l>Wie iſt es mir ergangen?</l><lb/>
+<l>Ich habe oft an dich gedacht,</l><lb/>
+<l>Mit Sehnſucht und Verlangen.</l><lb/>
+</lg> <lg n="3"> <l>So ſprach ich, da hört’ ich im Waſſer tief</l><lb/>
+<l>Gar ſeltſam grämliche Töne,</l><lb/>
+<l>Wie Hüſteln eines alten Manns,</l><lb/>
+<l>Ein Brümmeln und weiches Geſtöhne:</l><lb/>
+</lg>
+<pb n="23" facs="#f0043"/>
+<lg n="4"> <l>„Willkommen, mein Junge, das iſt mir lieb,</l><lb/>
+<l>Daß du mich nicht vergeſſen;</l><lb/>
+<l>Seit dreizehn Jahren ſah ich dich nicht,</l><lb/>
+<l>Mir ging es ſchlecht unterdeſſen.</l><lb/>
+</lg> <lg n="5"> <l>„Zu Biberich hab' ich Steine verſchluckt,</l><lb/>
+<l>Wahrhaftig ſie ſchmeckten nicht lecker!</l><lb/>
+<l>Doch ſchwerer liegen im Magen mir</l><lb/>
+<l>Die Verſe von Niklas Becker.</l><lb/>
+</lg> <lg n="6"> <l>„Er hat mich beſungen als ob ich noch</l><lb/>
+<l>Die reinſte Jungfer wäre,</l><lb/>
+<l>Die ſich von niemand rauben läßt</l><lb/>
+<l>Das Kränzlein ihrer Ehre.</l><lb/>
+</lg> <lg n="7"> <l>„Wenn ich es höre, das dumme Lied,</l><lb/>
+<l>Dann möcht ich mir zerraufen</l><lb/>
+<l>Den weißen Bart, ich möchte fürwahr</l><lb/>
+<l>Mich in mir ſelbſt erſaufen!</l><lb/>
+</lg>
+<pb n="24" facs="#f0044"/>
+<lg n="8"> <l>„Daß ich keine reine Jungfer bin,</l><lb/>
+<l>Die Franzoſen wiſſen es beſſer,</l><lb/>
+<l>Sie haben mit meinem Waſſer ſo oft</l><lb/>
+<l>Vermiſcht ihr Siegergewäſſer.</l><lb/>
+</lg> <lg n="9"> <l>„Das dumme Lied und der dumme Kerl!</l><lb/>
+<l>Er hat mich ſchmählich blamiret,</l><lb/>
+<l>Gewiſſermaßen hat er mich auch</l><lb/>
+<l>Politiſch kompromittiret.</l><lb/>
+</lg> <lg n="10"> <l>„Denn kehren jetzt die Franzoſen zurück,</l><lb/>
+<l>So muß ich vor ihnen erröthen,</l><lb/>
+<l>Ich, der um ihre Rückkehr ſo oft</l><lb/>
+<l>Mit Thränen zum Himmel gebeten.</l><lb/>
+</lg> <lg n="11"> <l>„Ich habe ſie immer ſo lieb gehabt,</l><lb/>
+<l>Die lieben kleinen Französchen —</l><lb/>
+<l>Singen und ſpringen ſie noch wie ſonſt?</l><lb/>
+<l>Tragen noch weiße Höschen?</l><lb/>
+</lg>
+<pb n="25" facs="#f0045"/>
+<lg n="12"> <l>„Ich möchte ſie gerne wiederſehn,</l><lb/>
+<l>Doch fürcht’ ich die Perſifflage,</l><lb/>
+<l>Von wegen des verwünſchten Lieds,</l><lb/>
+<l>Von wegen der Blamage.</l><lb/>
+</lg> <lg n="13"> <l>„Der Alphred de Müſſet, der Gaſſenbub,</l><lb/>
+<l>Der kommt an ihrer Spitze</l><lb/>
+<l>Vielleicht als Tambour, und trommelt mir vor</l><lb/>
+<l>All ſeine ſchlechten Witze.“</l><lb/>
+</lg> <lg n="14"> <l>So klagte der arme Vater Rhein,</l><lb/>
+<l>Konnt ſich nicht zufrieden geben.</l><lb/>
+<l>Ich ſprach zu ihm manch tröſtendes Wort,</l><lb/>
+<l>Um ihm das Herz zu heben:</l><lb/>
+</lg> <lg n="15"> <l>O, fürchte nicht, mein Vater Rhein,</l><lb/>
+<l>Den ſpöttelnden Scherz der Franzoſen;</l><lb/>
+<l>Sie ſind die alten Franzoſen nicht mehr,</l><lb/>
+<l>Auch tragen ſie andere Hoſen.</l><lb/>
+</lg>
+<pb n="26" facs="#f0046"/>
+<lg n="16"> <l>Die Hoſen ſind roth und nicht mehr weiß,</l><lb/>
+<l>Sie haben auch andere Knöpfe,</l><lb/>
+<l>Sie ſingen nicht mehr, ſie ſpringen nicht mehr,</l><lb/>
+<l>Sie ſenken nachdenklich die Köpfe.</l><lb/>
+</lg> <lg n="17"> <l>Sie philoſophiren und ſprechen jetzt</l><lb/>
+<l>Von Kant, von Fiſchte und Hegel,</l><lb/>
+<l>Sie rauchen Tabak, ſie trinken Bier,</l><lb/>
+<l>Und manche ſchieben auch Kegel.</l><lb/>
+</lg> <lg n="18"> <l>Sie werden Philiſter ganz wie wir</l><lb/>
+<l>Und treiben es endlich noch ärger;</l><lb/>
+<l>Sie ſind keine Voltairianer mehr,</l><lb/>
+<l>Sie werden Hengſtenberger.</l><lb/>
+</lg> <lg n="19"> <l>Der Alphred de Müſſet, das iſt wahr,</l><lb/>
+<l>Iſt noch ein Gaſſenjunge;</l><lb/>
+<l>Doch fürchte nichts, wir feſſeln ihm</l><lb/>
+<l>Die ſchändliche Spötterzunge.</l><lb/>
+</lg>
+<pb n="27" facs="#f0047"/>
+<lg n="20"> <l>Und trommelt er dir einen ſchlechten Witz,</l><lb/>
+<l>So pfeifen wir ihm einen ſchlimmern,</l><lb/>
+<l>Wir pfeifen ihm vor was ihm paſſirt</l><lb/>
+<l>Bei ſchönen Frauenzimmern.</l><lb/>
+</lg> <lg n="21"> <l>Gieb dich zufrieden, Vater Rhein,</l><lb/>
+<l>Denk' nicht an ſchlechte Lieder,</l><lb/>
+<l>Ein beſſeres Lied vernimmſt du bald —</l><lb/>
+<l>Leb wohl, wir ſehen uns wieder.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="28" facs="#f0048"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">VI.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Den Paganini begleitete ſtets</l><lb/>
+<l>Ein Spiritus Familiaris,</l><lb/>
+<l>Manchmal als Hund, manchmal in Geſtalt</l><lb/>
+<l>Des ſeligen Georg Harris.</l><lb/>
+</lg> <lg n="2"> <l>Napoleon ſah einen rothen Mann,</l><lb/>
+<l>Vor jedem wicht'gen Ereigniß.</l><lb/>
+<l>Sokrates hatte ſeinen Dämon,</l><lb/>
+<l>Das war kein Hirnerzeugniß.</l><lb/>
+</lg> <lg n="3"> <l>Ich ſelbſt, wenn ich am Schreibtiſch ſaß</l><lb/>
+<l>Des Nachts, hab ich geſehen</l><lb/>
+<l>Zuweilen einen vermummten Gaſt</l><lb/>
+<l>Unheimlich hinter mir ſtehen.</l><lb/>
+</lg>
+<pb n="29" facs="#f0049"/>
+<lg n="4"> <l>Unter dem Mantel hielt er etwas</l><lb/>
+<l>Verborgen, das ſeltſam blinkte</l><lb/>
+<l>Wenn es zum Vorſchein kam, und ein Beil,</l><lb/>
+<l>Ein Richtbeil, zu ſeyn mir dünkte.</l><lb/>
+</lg> <lg n="5"> <l>Er ſchien von unterſetzter Statur,</l><lb/>
+<l>Die Augen wie zwey Sterne;</l><lb/>
+<l>Er ſtörte mich im Schreiben nie,</l><lb/>
+<l>Blieb ruhig ſtehn in der Ferne.</l><lb/>
+</lg> <lg n="6"> <l>Seit Jahren hatte ich nicht geſehn</l><lb/>
+<l>Den ſonderbaren Geſellen,</l><lb/>
+<l>Da fand ich ihn plötzlich wieder hier</l><lb/>
+<l>In der ſtillen Mondnacht zu Cöllen.</l><lb/>
+</lg> <lg n="7"> <l>Ich ſchlenderte ſinnend die Straßen entlang,</l><lb/>
+<l>Da ſah ich ihn hinter mir gehen,</l><lb/>
+<l>Als ob er mein Schatten wäre, und ſtand</l><lb/>
+<l>Ich ſtill, ſo blieb er ſtehen.</l><lb/>
+</lg>
+<pb n="30" facs="#f0050"/>
+<lg n="8"> <l>Blieb ſtehen, als wartete er auf was,</l><lb/>
+<l>Und förderte ich die Schritte,</l><lb/>
+<l>Dann folgte er wieder. So kamen wir</l><lb/>
+<l>Bis auf des Domplatz Mitte.</l><lb/>
+</lg> <lg n="9"> <l>Es ward mir unleidlich, ich drehte mich um</l><lb/>
+<l>Und ſprach: Jetzt ſteh' mir Rede,</l><lb/>
+<l>Was folgſt du mir auf Weg und Steg,</l><lb/>
+<l>Hier in der nächtlichen Oede?</l><lb/>
+</lg> <lg n="10"> <l>Ich treffe dich immer in der Stund,</l><lb/>
+<l>Wo Weltgefühle ſprießen</l><lb/>
+<l>In meiner Bruſt und durch das Hirn</l><lb/>
+<l>Die Geiſtesblitze ſchießen.</l><lb/>
+</lg> <lg n="11"> <l>Du ſiehſt mich an ſo ſtier und feſt —</l><lb/>
+<l>Steh' Rede: was verhüllſt du</l><lb/>
+<l>Hier unter dem Mantel, das heimlich blinkt?</l><lb/>
+<l>W<supplied>er</supplied> biſt du und was willſt du?</l><lb/>
+</lg>
+<pb n="31" facs="#f0051"/>
+<lg n="12"> <l>Doch jener erwiederte trockenen Tons,</l><lb/>
+<l>Sogar ein bischen phlegmatiſch:</l><lb/>
+<l>„Ich bitte dich, exorzire mich nicht,</l><lb/>
+<l>Und werde nur nicht emphatiſch!</l><lb/>
+</lg> <lg n="13"> <l>„Ich bin kein Geſpenſt der Vergangenheit,</l><lb/>
+<l>Kein grabentſtiegener Strohwiſch,</l><lb/>
+<l>Und von Rhetorik bin ich kein Freund,</l><lb/>
+<l>Bin auch nicht ſehr philoſophiſch.</l><lb/>
+</lg> <lg n="14"> <l>„Ich bin von praktiſcher Natur,</l><lb/>
+<l>Und immer ſchweigſam und ruhig.</l><lb/>
+<l>Doch wiſſe: was du erſonnen im Geiſt',</l><lb/>
+<l>Das führ' ich aus, das thu' ich.</l><lb/>
+</lg> <lg n="15"> <l>„Und gehn auch Jahre drüber hin,</l><lb/>
+<l>Ich raſte nicht, bis ich verwandle</l><lb/>
+<l>In Wirklichkeit was du gedacht;</l><lb/>
+<l>Du denkſt, und ich, ich handle.</l><lb/>
+</lg>
+<pb n="32" facs="#f0052"/>
+<lg n="16"> <l>„Du biſt der Richter, der Büttel bin ich,</l><lb/>
+<l>Und mit dem Gehorſam des Knechtes</l><lb/>
+<l>Vollſtreck' ich das Urtheil, das du gefällt,</l><lb/>
+<l>Und ſey es ein ungerechtes.</l><lb/>
+</lg> <lg n="17"> <l>„Dem Conſul trug man ein Beil voran,</l><lb/>
+<l>Zu Rom, in alten Tagen;</l><lb/>
+<l>Auch du haſt deinen Liktor, doch wird</l><lb/>
+<l>Das Beil dir nachgetragen.</l><lb/>
+</lg> <lg n="18"> <l>„Ich bin dein Liktor, und ich geh'</l><lb/>
+<l>Beſtändig mit dem blanken</l><lb/>
+<l>Richtbeile hinter dir — ich bin</l><lb/>
+<l>Die That von deinem Gedanken.“</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="33" facs="#f0053"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">VII.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Ich ging nach Haus und ſchlief als ob</l><lb/>
+<l>Die Engel gewiegt mich hätten.</l><lb/>
+<l>Man ruht in deutſchen Betten ſo weich,</l><lb/>
+<l>Denn das ſind Federbetten.</l><lb/>
+</lg> <lg n="2"> <l>Wie ſehnt’ ich mich oft nach der Süßigkeit</l><lb/>
+<l>Des vaterländiſchen Pfühles,</l><lb/>
+<l>Wenn ich auf harten Matratzen lag,</l><lb/>
+<l>In der ſchlafloſen Nacht des Exiles!</l><lb/>
+</lg> <lg n="3"> <l>Man ſchläft ſehr gut und träumt auch gut</l><lb/>
+<l>In unſeren Federbetten.</l><lb/>
+<l>Hier fühlt die deutſche Seele ſich frey</l><lb/>
+<l>Von allen Erdenketten.</l><lb/>
+</lg> <fw type="sig" place="bottom">Heine's Deutſchland 3<lb/>
+</fw>
+<pb n="34" facs="#f0054"/>
+<lg n="4"> <l>Sie fühlt ſich frey und ſchwingt ſich empor</l><lb/>
+<l>Zu den höchſten Himmelsräumen.</l><lb/>
+<l>O deutſche Seele, wie ſtolz iſt dein Flug</l><lb/>
+<l>In deinen nächtlichen Träumen!</l><lb/>
+</lg> <lg n="5"> <l>Die Götter erbleichen wenn du nah'ſt!</l><lb/>
+<l>Du haſt auf deinen Wegen</l><lb/>
+<l>Gar manches Sternlein ausgeputzt</l><lb/>
+<l>Mit deinen Flügelſchlägen!</l><lb/>
+</lg> <lg n="6"> <l>Franzoſen und Ruſſen gehört das Land,</l><lb/>
+<l>Das Meer gehört den Britten,</l><lb/>
+<l>Wir aber beſitzen im Luftreich' des Traums</l><lb/>
+<l>Die Herrſchaft unbeſtritten.</l><lb/>
+</lg> <lg n="7"> <l>Hier üben wir die Hegemonie,</l><lb/>
+<l>Hier ſind wir unzerſtückelt;</l><lb/>
+<l>Die andern Völker haben ſich</l><lb/>
+<l>Auf platter Erde entwickelt. — —</l><lb/>
+</lg>
+<pb n="35" facs="#f0055"/>
+<lg n="8"> <l>Und als ich einſchlief, da träumte mir,</l><lb/>
+<l>Ich ſchlenderte wieder im hellen</l><lb/>
+<l>Mondſchein die hallenden Straßen entlang,</l><lb/>
+<l>In dem alterthümlichen Cöllen.</l><lb/>
+</lg> <lg n="9"> <l>Und hinter mir ging wieder einher</l><lb/>
+<l>Mein ſchwarzer, vermummter Begleiter.</l><lb/>
+<l>Ich war ſo müde, mir brachen die Knie,</l><lb/>
+<l>Doch immer gingen wir weiter.</l><lb/>
+</lg> <lg n="10"> <l>Wir gingen weiter. Mein Herz in der Bruſt</l><lb/>
+<l>War klaffend aufgeſchnitten,</l><lb/>
+<l>Und aus der Herzenswunde hervor</l><lb/>
+<l>Die rothen Tropfen glitten.</l><lb/>
+</lg> <lg n="11"> <l>Ich tauchte manchmal die Finger hinein,</l><lb/>
+<l>Und manchmal iſt es geſchehen,</l><lb/>
+<l>Daß ich die Hausthürpfoſten beſtrich</l><lb/>
+<l>Mit dem Blut im Vorübergehen.</l><lb/>
+</lg> <fw type="sig" place="bottom">3*<lb/>
+</fw>
+<pb n="36" facs="#f0056"/>
+<lg n="12"> <l>Und jedesmal wenn ich ein Haus</l><lb/>
+<l>Bezeichnet in ſolcher Weiſe,</l><lb/>
+<l>Ein Sterbeglöckchen erſcholl fernher,</l><lb/>
+<l>Wehmüthig wimmernd und leiſe.</l><lb/>
+</lg> <lg n="13"> <l>Am Himmel aber erblich der Mond,</l><lb/>
+<l>Er wurde immer trüber;</l><lb/>
+<l>Gleich ſchwarzen Roſſen jagten an ihm</l><lb/>
+<l>Die wilden Wolken vorüber.</l><lb/>
+</lg> <lg n="14"> <l>Und immer ging hinter mir einher</l><lb/>
+<l>Mit ſeinem verborgenen Beile</l><lb/>
+<l>Die dunkle Geſtalt — ſo wanderten wir</l><lb/>
+<l>Wohl eine gute Weile.</l><lb/>
+</lg> <lg n="15"> <l>Wir gehen und gehen, bis wir zuletzt</l><lb/>
+<l>Wieder zum Domplatz gelangen;</l><lb/>
+<l>Weit offen ſtanden die Pforten dort,</l><lb/>
+<l>Wir ſind hineingegangen.</l><lb/>
+</lg>
+<pb n="37" facs="#f0057"/>
+<lg n="16"> <l>Es herrſchte im ungeheuren Raum</l><lb/>
+<l>Nur Tod und Nacht und Schweigen;</l><lb/>
+<l>Es brannten Ampeln hie und da,</l><lb/>
+<l>Um die Dunkelheit recht zu zeigen.</l><lb/>
+</lg> <lg n="17"> <l>Ich wandelte lange den Pfeilern entlang</l><lb/>
+<l>Und hörte nur die Tritte</l><lb/>
+<l>Von meinem Begleiter, er folgte mir</l><lb/>
+<l>Auch hier bey jedem Schritte.</l><lb/>
+</lg> <lg n="18"> <l>Wir kamen endlich zu einem Ort,</l><lb/>
+<l>Wo funkelnde Kerzenhelle</l><lb/>
+<l>Und blitzendes Gold und Edelſtein;</l><lb/>
+<l>Das war die Drey-Königs-Kapelle.</l><lb/>
+</lg> <lg n="19"> <l>Die heil'gen drey Könige jedoch,</l><lb/>
+<l>Die ſonſt ſo ſtill dort lagen,</l><lb/>
+<l>O Wunder! ſie ſaßen aufrecht jetzt</l><lb/>
+<l>Auf ihren Sarkophagen.</l><lb/>
+</lg>
+<pb n="38" facs="#f0058"/>
+<lg n="20"> <l>Drey Todtengerippe, phantaſtiſch geputzt,</l><lb/>
+<l>Mit Kronen auf den elenden</l><lb/>
+<l>Vergilbten Schädeln, ſie trugen auch</l><lb/>
+<l>Das Zepter in knöchernen Händen.</l><lb/>
+</lg> <lg n="21"> <l>Wie Hampelmänner bewegten ſie</l><lb/>
+<l>Die längſtverſtorbenen Knochen;</l><lb/>
+<l>Die haben nach Moder und zugleich</l><lb/>
+<l>Nach Weihrauchduft gerochen.</l><lb/>
+</lg> <lg n="22"> <l>Der Eine bewegte ſogar den Mund</l><lb/>
+<l>Und hielt eine Rede, ſehr lange;</l><lb/>
+<l>Er ſetzte mir auseinander warum</l><lb/>
+<l>Er meinen Reſpekt verlange.</l><lb/>
+</lg> <lg n="23"> <l>Zuerſt weil er ein Todter ſey,</l><lb/>
+<l>Und zweitens weil er ein König,</l><lb/>
+<l>Und drittens weil er ein Heil'ger ſey, —</l><lb/>
+<l>Das alles rührte mich wenig.</l><lb/>
+</lg>
+<pb n="39" facs="#f0059"/>
+<lg n="24"> <l>Ich gab ihm zur Antwort lachenden Muths:</l><lb/>
+<l>Vergebens iſt deine Bemühung!</l><lb/>
+<l>Ich ſehe, daß du der Vergangenheit</l><lb/>
+<l>Gehörſt in jeder Beziehung.</l><lb/>
+</lg> <lg n="25"> <l>Fort! fort von hier! im tiefen Grab,</l><lb/>
+<l>Iſt Eure natürliche Stelle.</l><lb/>
+<l>Das Leben nimmt jetzt in Beſchlag</l><lb/>
+<l>Die Schätze dieſer Kapelle.</l><lb/>
+</lg> <lg n="26"> <l>Der Zukunft fröhliche Cavallerie</l><lb/>
+<l>Soll hier im Dome hauſen.</l><lb/>
+<l>Und weicht Ihr nicht willig, ſo brauch ich Gewalt,</l><lb/>
+<l>Und laß' Euch mit Kolben lauſen!</l><lb/>
+</lg> <lg n="27"> <l>So ſprach ich und ich drehte mich um,</l><lb/>
+<l>Da ſah ich furchtbar blinken</l><lb/>
+<l>Des ſtummen Begleiters furchtbares Beil —</l><lb/>
+<l>Und er verſtand mein Winken.</l><lb/>
+</lg>
+<pb n="40" facs="#f0060"/>
+<lg n="28"> <l>Er nahte ſich, und mit dem Beil</l><lb/>
+<l>Zerſchmetterte er die armen</l><lb/>
+<l>Skelette des Aberglaubens, er ſchlug</l><lb/>
+<l>Sie nieder ohn' Erbarmen.</l><lb/>
+</lg> <lg n="29"> <l>Es dröhnte der Hiebe Wiederhall</l><lb/>
+<l>Aus allen Gewölben, entſetzlich, —</l><lb/>
+<l>Blutſtröme ſchoſſen aus meiner Bruſt,</l><lb/>
+<l>Und ich erwachte plötzlich.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="41" facs="#f0061"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">VIII.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Von Cöllen bis Hagen koſtet die Poſt</l><lb/>
+<l>Fünf Thaler ſechs Groſchen Preußiſch.</l><lb/>
+<l>Die Diligence war leider beſetzt</l><lb/>
+<l>Und ich kam in die offene Beyſchaiſ’.</l><lb/>
+</lg> <lg n="2"> <l>Ein Spätherbſtmorgen, feucht und grau,</l><lb/>
+<l>Im Schlamme keuchte der Wagen;</l><lb/>
+<l>Doch trotz des ſchlechten Wetters und Wegs</l><lb/>
+<l>Durchſtrömte mich ſüßes Behagen.</l><lb/>
+</lg> <lg n="3"> <l>Das iſt ja meine Heimathluft!</l><lb/>
+<l>Die glühende Wange empfand es!</l><lb/>
+<l>Und dieſer Landſtraßenkoth, er iſt</l><lb/>
+<l>Der Dreck meines Vaterlandes!</l><lb/>
+</lg>
+<pb n="42" facs="#f0062"/>
+<lg n="4"> <l>Die Pferde wedelten mit dem Schwanz</l><lb/>
+<l>So traulich wie alte Bekannte,</l><lb/>
+<l>Und ihre Miſtküchlein dünkten mir ſchön</l><lb/>
+<l>Wie die Aepfel der Atalante!</l><lb/>
+</lg> <lg n="5"> <l>Wir fuhren durch Mühlheim. Die Stadt iſt nett,</l><lb/>
+<l>Die Menſchen ſtill und fleißig.</l><lb/>
+<l>War dort zuletzt im Monat May</l><lb/>
+<l>Des Jahres Ein und dreyzig.</l><lb/>
+</lg> <lg n="6"> <l>Damals ſtand alles im Blüthenſchmuck</l><lb/>
+<l>Und die Sonnenlichter lachten,</l><lb/>
+<l>Die Vögel ſangen ſehnſuchtvoll,</l><lb/>
+<l>Und die Menſchen hofften und dachten —</l><lb/>
+</lg> <lg n="7"> <l>Sie dachten: „Die magere Ritterſchaft</l><lb/>
+<l>Wird bald von hinnen reiſen,</l><lb/>
+<l>Und der Abſchiedstrunk wird ihnen kredenzt</l><lb/>
+<l>Aus langen Flaſchen von Eiſen!</l><lb/>
+</lg>
+<pb n="43" facs="#f0063"/>
+<lg n="8"> <l>„Und die Freiheit kommt mit Spiel und Tanz,</l><lb/>
+<l>Mit der Fahne, der weiß-blau-rothen;</l><lb/>
+<l>Vielleicht holt ſie ſogar aus dem Grab</l><lb/>
+<l>Den Bonaparte, den Todten!“</l><lb/>
+</lg> <lg n="9"> <l>Ach Gott! die Ritter ſind immer noch hier,</l><lb/>
+<l>Und manche dieſer Gäuche,</l><lb/>
+<l>Die ſpindeldürre gekommen in's Land,</l><lb/>
+<l>Die haben jetzt dicke Bäuche.</l><lb/>
+</lg> <lg n="10"> <l>Die blaſſen Canaillen, die ausgeſehn</l><lb/>
+<l>Wie Liebe, Glauben und Hoffen,</l><lb/>
+<l>Sie haben ſeitdem in unſerm Wein</l><lb/>
+<l>Sich rothe Naſen geſoffen — — —</l><lb/>
+</lg> <lg n="11"> <l>Und die Freiheit hat ſich den Fuß verrenkt,</l><lb/>
+<l>Kann nicht mehr ſpringen und ſtürmen;</l><lb/>
+<l>Die Trikolore in Paris</l><lb/>
+<l>Schaut traurig herab von den Thürmen.</l><lb/>
+</lg>
+<pb n="44" facs="#f0064"/>
+<lg n="12"> <l>Der Kaiſer iſt auferſtanden ſeitdem,</l><lb/>
+<l>Doch die engliſchen Würmer haben</l><lb/>
+<l>Aus ihm einen ſtillen Mann gemacht,</l><lb/>
+<l>Und er ließ ſich wieder begraben.</l><lb/>
+</lg> <lg n="13"> <l>Hab' ſelber ſein Leichenbegängniß geſehn,</l><lb/>
+<l>Ich ſah den goldenen Wagen</l><lb/>
+<l>Und die goldenen Siegesgöttinnen drauf,</l><lb/>
+<l>Die den goldenen Sarg getragen.</l><lb/>
+</lg> <lg n="14"> <l>Den Eliſäiſchen Feldern entlang,</l><lb/>
+<l>Durch des Triumphes Bogen,</l><lb/>
+<l>Wohl durch den Nebel, wohl über den Schnee,</l><lb/>
+<l>Kam langſam der Zug gezogen.</l><lb/>
+</lg> <lg n="15"> <l>Mißtönend ſchauerlich war die Muſik.</l><lb/>
+<l>Die Muſikanten ſtarrten</l><lb/>
+<l>Vor Kälte. Wehmüthig grüßten mich</l><lb/>
+<l>Die Adler der Standarten.</l><lb/>
+</lg>
+<pb n="45" facs="#f0065"/>
+<lg n="16"> <l>Die Menſchen ſchauten ſo geiſterhaft</l><lb/>
+<l>In alter Erinn'rung verloren —</l><lb/>
+<l>Der imperiale Mährchentraum</l><lb/>
+<l>War wieder herauf beſchworen.</l><lb/>
+</lg> <lg n="17"> <l>Ich weinte an jenem Tag. Mir ſind</l><lb/>
+<l>Die Thränen in's Auge gekommen,</l><lb/>
+<l>Als ich den verſchollenen Liebesruf,</l><lb/>
+<l>Das <hi rendition="#aq">Vive l'Empereur!</hi> vernommen.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="46" facs="#f0066"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">IX.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Von Cöllen war ich drei Viertel auf Acht</l><lb/>
+<l>Des Morgens fortgereiſet;</l><lb/>
+<l>Wir kamen nach Hagen ſchon gegen Drey,</l><lb/>
+<l>Da wird zu Mittag geſpeiſet.</l><lb/>
+</lg> <lg n="2"> <l>Der Tiſch war gedeckt. Hier fand ich ganz</l><lb/>
+<l>Die altgermaniſche Küche.</l><lb/>
+<l>Sey mir gegrüßt, mein Sauerkraut,</l><lb/>
+<l>Holdſelig ſind deine Gerüche!</l><lb/>
+</lg> <lg n="3"> <l>Geſtofte Kaſtanien im grünen Kohl!</l><lb/>
+<l>So aß ich ſie einſt bei der Mutter!</l><lb/>
+<l>Ihr heimiſchen Stockfiſche ſeid mir gegrüßt!</l><lb/>
+<l>Wie ſchwimmt Ihr klug in der Butter!</l><lb/>
+</lg>
+<pb n="47" facs="#f0067"/>
+<lg n="4"> <l>Jedwedem fühlenden Herzen bleibt</l><lb/>
+<l>Das Vaterland ewig theuer —</l><lb/>
+<l>Ich liebe auch recht braun geſchmort</l><lb/>
+<l>Die Bücklinge und Eyer.</l><lb/>
+</lg> <lg n="5"> <l>Wie jauchzten die Würſte im ſpritzelnden Fett!</l><lb/>
+<l>Die Krammetsvögel, die frommen</l><lb/>
+<l>Gebratenen Englein mit Apfelmuß,</l><lb/>
+<l>Sie zwitſcherten mir: Willkommen!</l><lb/>
+</lg> <lg n="6"> <l>Willkommen, Landsmann, — zwitſcherten ſie —</l><lb/>
+<l>Biſt lange ausgeblieben,</l><lb/>
+<l>Haſt dich mit fremdem Gevögel ſo lang</l><lb/>
+<l>In der Fremde herumgetrieben!</l><lb/>
+</lg> <lg n="7"> <l>Es ſtand auf dem Tiſche eine Gans,</l><lb/>
+<l>Ein ſtilles, gemüthliches Weſen.</l><lb/>
+<l>Sie hat vielleicht mich einſt geliebt,</l><lb/>
+<l>Als wir beide noch jung geweſen.</l><lb/>
+</lg>
+<pb n="48" facs="#f0068"/>
+<lg n="8"> <l>Sie blickte mich an ſo bedeutungsvoll,</l><lb/>
+<l>So innig, ſo treu, ſo wehe!</l><lb/>
+<l>Beſaß eine ſchöne Seele gewiß,</l><lb/>
+<l>Doch war das Fleiſch ſehr zähe.</l><lb/>
+</lg> <lg n="9"> <l>Auch einen Schweinskopf trug man auf</l><lb/>
+<l>In einer zinnernen Schüſſel;</l><lb/>
+<l>Noch immer ſchmückt man den Schweinen bei uns</l><lb/>
+<l>Mit Lorbeerblättern den Rüſſel.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="49" facs="#f0069"/>
+</div> <div n="2"> <head> <hi rendition="#b">Caput X.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Dicht hinter Hagen ward es Nacht,</l><lb/>
+<l>Und ich fühlte in den Gedärmen</l><lb/>
+<l>Ein ſeltſames Fröſteln. Ich konnte mich erſt</l><lb/>
+<l>Zu Unna, im Wirthshaus, erwärmen.</l><lb/>
+</lg> <lg n="2"> <l>Ein hübſches Mädchen fand ich dort,</l><lb/>
+<l>Die ſchenkte mir freundlich den Punſch ein;</l><lb/>
+<l>Wie gelbe Seide das Lockenhaar,</l><lb/>
+<l>Die Augen ſanft wie Mondſchein.</l><lb/>
+</lg> <lg n="3"> <l>Den liſpelnd weſtphäliſchen Accent</l><lb/>
+<l>Vernahm ich mit Wolluſt wieder.</l><lb/>
+<l>Viel ſüße Erinnerung dampfte der Punſch,</l><lb/>
+<l>Ich dachte der lieben Brüder,</l><lb/>
+</lg> <fw type="sig" place="bottom">Heine's Deutſchland. 4<lb/>
+</fw>
+<pb n="50" facs="#f0070"/>
+<lg n="4"> <l>Der lieben Weſtphalen womit ich ſo oft</l><lb/>
+<l>In Göttingen getrunken,</l><lb/>
+<l>Bis wir gerührt einander an's Herz</l><lb/>
+<l>Und unter die Tiſche geſunken!</l><lb/>
+</lg> <lg n="5"> <l>Ich habe ſie immer ſo lieb gehabt,</l><lb/>
+<l>Die lieben, guten Weſtphalen,</l><lb/>
+<l>Ein Volk ſo feſt, ſo ſicher, ſo treu,</l><lb/>
+<l>Ganz ohne Gleißen und Prahlen.</l><lb/>
+</lg> <lg n="6"> <l>Wie ſtanden ſie prächtig auf der Menſur,</l><lb/>
+<l>Mit ihren Löwenherzen!</l><lb/>
+<l>Es fielen ſo grade, ſo ehrlich gemeint,</l><lb/>
+<l>Die Quarten und die Terzen.</l><lb/>
+</lg> <lg n="7"> <l>Sie fechten gut, ſie trinken gut,</l><lb/>
+<l>Und wenn ſie die Hand dir reichen,</l><lb/>
+<l>Zum Freundſchaftsbündniß, dann weinen ſie;</l><lb/>
+<l>Sind ſentimentale Eichen.</l><lb/>
+</lg>
+<pb n="51" facs="#f0071"/>
+<lg n="8"> <l>Der Himmel erhalte dich, wackres Volk,</l><lb/>
+<l>Er ſegne deine Saaten,</l><lb/>
+<l>Bewahre dich vor Krieg und Ruhm,</l><lb/>
+<l>Vor Helden und Heldenthaten.</l><lb/>
+</lg> <lg n="9"> <l>Er ſchenke deinen Söhnen ſtets</l><lb/>
+<l>Ein ſehr gelindes Examen,</l><lb/>
+<l>Und deine Töchter bringe er hübſch</l><lb/>
+<l>Unter die Haube — Amen!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">4*<lb/>
+</fw>
+<pb n="52" facs="#f0072"/>
+</div> <div n="2"> <head> <hi rendition="#b #g"><choice><sic>Capnt</sic><corr>Caput</corr></choice></hi> <hi rendition="#b">XI.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Das iſt der Teutoburger Wald,</l><lb/>
+<l>Den Tacitus beſchrieben,</l><lb/>
+<l>Das iſt der klaſſiſche Moraſt,</l><lb/>
+<l>Wo Varus ſtecken geblieben.</l><lb/>
+</lg> <lg n="2"> <l>Hier ſchlug ihn der Cheruskerfürſt,</l><lb/>
+<l>Der Hermann, der edle Recke;</l><lb/>
+<l>Die deutſche Nationalität,</l><lb/>
+<l>Die ſiegte in dieſem Drecke.</l><lb/>
+</lg> <lg n="3"> <l>Wenn Hermann nicht die Schlacht gewann,</l><lb/>
+<l>Mit ſeinen blonden Horden,</l><lb/>
+<l>So gäb' es deutſche Freiheit nicht mehr,</l><lb/>
+<l>Wir wären römiſch geworden!</l><lb/>
+</lg>
+<pb n="53" facs="#f0073"/>
+<lg n="4"> <l>In unſerem Vaterland herrſchten jetzt</l><lb/>
+<l>Nur römiſche Sprache und Sitten,</l><lb/>
+<l>Veſtalen gäb' es in München ſogar,</l><lb/>
+<l>Die Schwaben hießen Quiriten!</l><lb/>
+</lg> <lg n="5"> <l>Der Hengſtenberg wär' ein Haruspex</l><lb/>
+<l>Und grübelte in den Gedärmen</l><lb/>
+<l>Von Ochſen. Neander wär' ein Augur,</l><lb/>
+<l>Und ſchaute nach Vögelſchwärmen.</l><lb/>
+</lg> <lg n="6"> <l>Birch-Pfeifer ſöffe Terpentin,</l><lb/>
+<l>Wie einſt die römiſchen Damen.</l><lb/>
+<l>(Man ſagt, daß ſie dadurch den Urin</l><lb/>
+<l>Beſonders wohlriechend bekamen.)</l><lb/>
+</lg> <lg n="7"> <l>Der R*** wäre kein deutſcher Lump,</l><lb/>
+<l>Er wäre ein röm'ſcher Lumpazius.</l><lb/>
+<l>Der Freiligrath dichtete ohne Reim,</l><lb/>
+<l>Wie weiland Flaccus Horazius.</l><lb/>
+</lg>
+<pb n="54" facs="#f0074"/>
+<lg n="8"> <l>Der grobe Bettler, Vater Jahn,</l><lb/>
+<l>Der hieße jetzt Grobianus.</l><lb/>
+<l> <hi rendition="#aq">Me hercule</hi>! Maßmann ſpräche Latein,</l><lb/>
+<l>Der Marcus Tullius Maßmanus!</l><lb/>
+</lg> <lg n="9"> <l>Die Wahrheitsfreunde würden jetzt</l><lb/>
+<l>Mit Löwen, Hyänen, Schakalen,</l><lb/>
+<l>Sich raufen in der Arena, anſtatt</l><lb/>
+<l>Mit Hunden in kleinen Journalen.</l><lb/>
+</lg> <lg n="10"> <l>Wir hätten Einen Nero jetzt</l><lb/>
+<l>Statt Landesväter drey Dutzend.</l><lb/>
+<l>Wir ſchnitten uns die Adern auf,</l><lb/>
+<l>Den Schergen der Knechtſchaft trutzend.</l><lb/>
+</lg> <lg n="11"> <l>Der Schelling wär' ganz ein Seneka,</l><lb/>
+<l>Und käme in ſolchem Conflikt um.</l><lb/>
+<l>Zu unſ'rem Cornelius ſagten wir:</l><lb/>
+<l>Kakatum non eſt piktum.</l><lb/>
+</lg>
+<pb n="55" facs="#f0075"/>
+<lg n="12"> <l>Gottlob! Der Hermann gewann die Schlacht,</l><lb/>
+<l>Die Römer wurden vertrieben,</l><lb/>
+<l>Varus mit ſeinen Legionen erlag,</l><lb/>
+<l>Und wir ſind Deutſche geblieben!</l><lb/>
+</lg> <lg n="13"> <l>Wir blieben deutſch, wir ſprechen deutſch,</l><lb/>
+<l>Wie wir es geſprochen haben;</l><lb/>
+<l>Der Eſel heißt Eſel, nicht <hi rendition="#aq">asinus</hi>,</l><lb/>
+<l>Die Schwaben blieben Schwaben.</l><lb/>
+</lg> <lg n="14"> <l>Der Raumer blieb ein deutſcher Lump</l><lb/>
+<l>In unſerm deutſchen Norden.</l><lb/>
+<l>In Reimen dichtet Freiligrath,</l><lb/>
+<l>Iſt kein Horaz geworden.</l><lb/>
+</lg> <lg n="15"> <l>Gottlob, der Maßman ſpricht kein Latein,</l><lb/>
+<l>Birch-Pfeifer ſchreibt nur Dramen,</l><lb/>
+<l>Und ſäuft nicht ſchnöden Terpentin,</l><lb/>
+<l>Wie Roms galante Damen.</l><lb/>
+</lg>
+<pb n="56" facs="#f0076"/>
+<lg n="16"> <l>O Hermann, dir verdanken wir das!</l><lb/>
+<l>Drum wird dir, wie ſich gebühret,</l><lb/>
+<l>Zu Dettmoldt ein Monument geſetzt;</l><lb/>
+<l>Hab' ſelber ſubſkribiret.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="57" facs="#f0077"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XII.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Im nächtlichen Walde humpelt dahin</l><lb/>
+<l>Die Chaiſe. Da kracht es plötzlich —</l><lb/>
+<l>Ein Rad ging los. Wir halten ſtill.</l><lb/>
+<l>Das iſt nicht ſehr ergötzlich.</l><lb/>
+</lg> <lg n="2"> <l>Der Poſtillon ſteigt ab und eilt</l><lb/>
+<l>In's Dorf, und ich verweile</l><lb/>
+<l>Um Mitternacht allein im Wald.</l><lb/>
+<l>Ringsum ertönt ein Geheule.</l><lb/>
+</lg> <lg n="3"> <l>Das ſind die Wölfe, die heulen ſo wild,</l><lb/>
+<l>Mit ausgehungerten Stimmen.</l><lb/>
+<l>Wie Lichter in der Dunkelheit</l><lb/>
+<l>Die feurigen Augen glimmen.</l><lb/>
+</lg>
+<pb n="58" facs="#f0078"/>
+<lg n="4"> <l>Sie hörten von meiner Ankunft gewiß,</l><lb/>
+<l>Die Beſtien, und mir zu Ehre</l><lb/>
+<l>Illuminirten ſie den Wald,</l><lb/>
+<l>Und ſingen ſie ihre Chöre.</l><lb/>
+</lg> <lg n="5"> <l>Das iſt ein Ständchen, ich merke es jetzt,</l><lb/>
+<l>Ich ſoll gefeyert werden!</l><lb/>
+<l>Ich warf mich gleich in Poſitur</l><lb/>
+<l>Und ſprach mit gerührten Gebehrden:</l><lb/>
+</lg> <lg n="6"> <l>„Mitwölfe! Ich bin glücklich heut</l><lb/>
+<l>In Eurer Mitte zu weilen,</l><lb/>
+<l>Wo ſo viel edle Gemüther mir</l><lb/>
+<l>Mit Liebe entgegenheulen.</l><lb/>
+</lg> <lg n="7"> <l>„Was ich in dieſem Augenblick</l><lb/>
+<l>Empfinde, iſt unermeßlich;</l><lb/>
+<l>Ach! dieſe ſchöne Stunde bleibt</l><lb/>
+<l>Mir ewig unvergeßlich.</l><lb/>
+</lg>
+<pb n="59" facs="#f0079"/>
+<lg n="8"> <l>„Ich danke Euch für das Vertraun,</l><lb/>
+<l>Womit Ihr mich beehret,</l><lb/>
+<l>Und das Ihr in jeder Prüfungszeit</l><lb/>
+<l>Durch treue Beweiſe bewähret.</l><lb/>
+</lg> <lg n="9"> <l>„Mitwölfe! Ihr zweifeltet nie an mir,</l><lb/>
+<l>Ihr ließet Euch nicht fangen</l><lb/>
+<l>Von Schelmen, die Euch geſagt, ich ſey</l><lb/>
+<l>Zu den Hunden übergegangen,</l><lb/>
+</lg> <lg n="10"> <l>„Ich ſey abtrünnig und werde bald</l><lb/>
+<l>Hofrath in der Lämmerhürde —</l><lb/>
+<l>Dergleichen zu widerſprechen war</l><lb/>
+<l>Ganz unter meiner Würde.</l><lb/>
+</lg> <lg n="11"> <l>„Der Schaafpelz, den ich umgehängt</l><lb/>
+<l>Zuweilen, um mich zu wärmen,</l><lb/>
+<l>Glaubt mir's, er brachte mich nie dahin</l><lb/>
+<l>Für das Glück der Schaafe zu ſchwärmen.</l><lb/>
+</lg>
+<pb n="60" facs="#f0080"/>
+<lg n="12"> <l>„Ich bin kein Schaaf, ich bin kein Hund,</l><lb/>
+<l>Kein Hofrath und kein Schellfiſch —</l><lb/>
+<l>Ich bin ein Wolf geblieben, mein Herz</l><lb/>
+<l>Und meine Zähne ſind wölfiſch.</l><lb/>
+</lg> <lg n="13"> <l>„Ich bin ein Wolf und werde ſtets</l><lb/>
+<l>Auch heulen mit den Wölfen —</l><lb/>
+<l>Ja, zählt auf mich und helft Euch ſelbſt,</l><lb/>
+<l>Dann wird auch Gott Euch helfen!“</l><lb/>
+</lg> <lg n="14"> <l>Das war die Rede, die ich hielt,</l><lb/>
+<l>Ganz ohne Vorbereitung;</l><lb/>
+<l>Verſtümmelt hat Kolb ſie abgedruckt</l><lb/>
+<l>In der Allgemeinen Zeitung.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="61" facs="#f0081"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XIII</hi> <hi rendition="#b">.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Die Sonne ging auf bey Paderborn,</l><lb/>
+<l>Mit ſehr verdroſſ’ner Gebehrde.</l><lb/>
+<l>Sie treibt in der That ein verdrießlich Geſchäft —</l><lb/>
+<l>Beleuchten die dumme Erde!</l><lb/>
+</lg> <lg n="2"> <l>Hat ſie die eine Seite erhellt,</l><lb/>
+<l>Und bringt ſie mit ſtrahlender Eile</l><lb/>
+<l>Der andern ihr Licht, ſo verdunkelt ſchon</l><lb/>
+<l>Sich jene mittlerweile.</l><lb/>
+</lg> <lg n="3"> <l>Der Stein entrollt dem Syſiphus,</l><lb/>
+<l>Der Danaiden Tonne</l><lb/>
+<l>Wird nie gefüllt, und den Erdenball</l><lb/>
+<l>Beleuchtet vergeblich die Sonne! —</l><lb/>
+</lg>
+<pb n="62" facs="#f0082"/>
+<lg n="4"> <l>Und als der Morgennebel zerrann,</l><lb/>
+<l>Da ſah ich am Wege ragen,</l><lb/>
+<l>Im Frührothſchein, das Bild des Mann's,</l><lb/>
+<l>Der an das Kreuz geſchlagen.</l><lb/>
+</lg> <lg n="5"> <l>Mit Wehmuth erfüllt mich jedesmahl</l><lb/>
+<l>Dein Anblick, mein armer Vetter,</l><lb/>
+<l>Der du die Welt erlöſen gewollt,</l><lb/>
+<l>Du Narr, du Menſchheitsretter!</l><lb/>
+</lg> <lg n="6"> <l>Sie haben dir übel mitgeſpielt,</l><lb/>
+<l>Die Herren vom hohen Rathe.</l><lb/>
+<l>Wer hieß dich auch reden ſo rückſichtslos</l><lb/>
+<l>Von der Kirche und vom Staate!</l><lb/>
+</lg> <lg n="7"> <l>Zu deinem Malheur war die Buchdruckerey</l><lb/>
+<l>Noch nicht in jenen Tagen</l><lb/>
+<l>Erfunden; Du hätteſt geſchrieben ein Buch</l><lb/>
+<l>Ueber die Himmelsfragen.</l><lb/>
+</lg>
+<pb n="63" facs="#f0083"/>
+<lg n="8"> <l>Der Cenſor hätte geſtrichen darin</l><lb/>
+<l>Was etwa anzüglich auf Erden,</l><lb/>
+<l>Und liebend bewahrte dich die Cenſur</l><lb/>
+<l>Vor dem Gekreuzigtwerden.</l><lb/>
+</lg> <lg n="9"> <l>Ach! hätteſt du nur einen andern Text</l><lb/>
+<l>Zu deiner Bergpredigt genommen,</l><lb/>
+<l>Beſaßeſt ja Geiſt und Talent genug,</l><lb/>
+<l>Und konnteſt ſchonen die Frommen!</l><lb/>
+</lg> <lg n="10"> <l>Geldwechsler, Banqui<hi rendition="#aq">è</hi>rs, haſt du ſogar</l><lb/>
+<l>Mit der Peitſche gejagt aus dem Tempel —</l><lb/>
+<l>Unglücklicher Schwärmer, jetzt hängſt du am Kreuz</l><lb/>
+<l>Als warnendes Exempel!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="64" facs="#f0084"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XIV.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Ein feuchter Wind, ein kahles Land,</l><lb/>
+<l>Die Chaiſe wackelt im Schlamme,</l><lb/>
+<l>Doch ſingt es und klingt es in meinem Gemüth:</l><lb/>
+<l>Sonne, du klagende Flamme!</l><lb/>
+</lg> <lg n="2"> <l>Das iſt der Schlußreim des alten Lieds,</l><lb/>
+<l>Das oft meine Amme geſungen —</l><lb/>
+<l>„Sonne, du klagende Flamme!“ das hat</l><lb/>
+<l>Wie Waldhornruf geklungen.</l><lb/>
+</lg> <lg n="3"> <l>Es kommt im Lied ein Mörder vor,</l><lb/>
+<l>Der lebt' in Luſt und Freude;</l><lb/>
+<l>Man findet ihn endlich im Walde gehenkt,</l><lb/>
+<l>An einer grauen Weide.</l><lb/>
+</lg>
+<pb n="65" facs="#f0085"/>
+<lg n="4"> <l>Des Mörders Todesurtheil war</l><lb/>
+<l>Genagelt am Weidenſtamme;</l><lb/>
+<l>Das haben die Rächer der Vehme gethan —</l><lb/>
+<l>Sonne, du klagende Flamme!</l><lb/>
+</lg> <lg n="5"> <l>Die Sonne war Kläger, ſie hatte bewirkt,</l><lb/>
+<l>Daß man den Mörder verdamme.</l><lb/>
+<l>Otilie hatte ſterbend geſchrien:</l><lb/>
+<l>Sonne, du klagende Flamme!</l><lb/>
+</lg> <lg n="6"> <l>Und denk ich des Liedes, ſo denk’ ich auch</l><lb/>
+<l>Der Amme, der lieben Alten;</l><lb/>
+<l>Ich ſehe wieder ihr braunes Geſicht,</l><lb/>
+<l>Mit allen Runzeln und Falten.</l><lb/>
+</lg> <lg n="7"> <l>Sie war geboren im Münſterland,</l><lb/>
+<l>Und wußte, in großer Menge,</l><lb/>
+<l>Geſpenſtergeſchichten, grauſenhaft,</l><lb/>
+<l>Und Mährchen und Volksgeſänge.</l><lb/>
+</lg> <fw type="sig" place="bottom">Heine’s Deutſchland. 5<lb/>
+</fw>
+<pb n="66" facs="#f0086"/>
+<lg n="8"> <l>Wie pochte mein Herz, wenn die alte Frau</l><lb/>
+<l>Von der Königstochter erzählte,</l><lb/>
+<l>Die einſam auf der Heide ſaß</l><lb/>
+<l>Und die goldnen Haare ſtrählte.</l><lb/>
+</lg> <lg n="9"> <l>Die Gänſe mußte ſie hüten dort</l><lb/>
+<l>Als Gänſemagd, und trieb ſie</l><lb/>
+<l>Am Abend die Gänſe wieder durch's Thor,</l><lb/>
+<l>Gar traurig ſtehen blieb ſie.</l><lb/>
+</lg> <lg n="10"> <l>Denn angenagelt über dem Thor</l><lb/>
+<l>Sah ſie ein Roßhaupt ragen,</l><lb/>
+<l>Das war der Kopf des armen Pferds,</l><lb/>
+<l>Das ſie in die Fremde getragen.</l><lb/>
+</lg> <lg n="11"> <l>Die Königstochter ſeufzte tief:</l><lb/>
+<l>O, Falada, daß du hangeſt!</l><lb/>
+<l>Der Pferdekopf herunter rief:</l><lb/>
+<l>O wehe! daß du gangeſt!</l><lb/>
+</lg>
+<pb n="67" facs="#f0087"/>
+<lg n="12"> <l>Die Königstochter ſeufzte tief:</l><lb/>
+<l>Wenn das meine Mutter wüßte!</l><lb/>
+<l>Der Pferdekopf herunter rief:</l><lb/>
+<l>Ihr Herze brechen müßte!</l><lb/>
+</lg> <lg n="13"> <l>Mit ſtockendem Athem horchte ich hin,</l><lb/>
+<l>Wenn die Alte ernſter und leiſer</l><lb/>
+<l>Zu ſprechen begann und vom Rothbart ſprach,</l><lb/>
+<l>Von unſerem heimlichen Kaiſer.</l><lb/>
+</lg> <lg n="14"> <l>Sie hat mir verſichert, er ſey nicht todt,</l><lb/>
+<l>Wie da glauben die Gelehrten,</l><lb/>
+<l>Er hauſe verſteckt in einem Berg</l><lb/>
+<l>Mit ſeinen Waffengefährten.</l><lb/>
+</lg> <lg n="15"> <l>Kiffhäuſer iſt der Berg genannt,</l><lb/>
+<l>Und drinnen iſt eine Höhle;</l><lb/>
+<l>Die Ampeln erhellen ſo geiſterhaft</l><lb/>
+<l>Die hochgewölbten Sääle.</l><lb/>
+</lg> <fw type="sig" place="bottom">5*<lb/>
+</fw>
+<pb n="68" facs="#f0088"/>
+<lg n="16"> <l>Ein Marſtall iſt der erſte Saal,</l><lb/>
+<l>Und dorten kann man ſehen</l><lb/>
+<l>Viel tauſend Pferde, blankgeſchirrt,</l><lb/>
+<l>Die an den Krippen ſtehen.</l><lb/>
+</lg> <lg n="17"> <l>Sie ſind geſattelt und gezäumt,</l><lb/>
+<l>Jedoch von dieſen Roſſen</l><lb/>
+<l>Kein einziges wiehert, kein einziges ſtampft,</l><lb/>
+<l>Sind ſtill, wie aus Eiſen gegoſſen.</l><lb/>
+</lg> <lg n="18"> <l>Im zweiten Saale, auf der Streu,</l><lb/>
+<l>Sieht man Soldaten liegen,</l><lb/>
+<l>Viel tauſend Soldaten, bärtiges Volk,</l><lb/>
+<l>Mit kriegeriſch trotzigen Zügen.</l><lb/>
+</lg> <lg n="19"> <l>Sie ſind gerüſtet von Kopf bis Fuß,</l><lb/>
+<l>Doch alle dieſe Braven,</l><lb/>
+<l>Sie rühren ſich nicht, bewegen ſich nicht,</l><lb/>
+<l>Sie liegen feſt und ſchlafen.</l><lb/>
+</lg>
+<pb n="69" facs="#f0089"/>
+<lg n="20"> <l>Hochaufgeſtapelt im dritten Saal</l><lb/>
+<l>Sind Schwerter, Streitäxte, Speere,</l><lb/>
+<l>Harniſche, Helme, von Silber und Stahl,</l><lb/>
+<l>Altfränkiſche Feuergewehre.</l><lb/>
+</lg> <lg n="21"> <l>Sehr wenig Kanonen, jedoch genug</l><lb/>
+<l>Um eine Trophee zu bilden.</l><lb/>
+<l>Hoch ragt daraus eine Fahne hervor,</l><lb/>
+<l>Die Farbe iſt ſchwarz-roth-gülden.</l><lb/>
+</lg> <lg n="22"> <l>Der Kaiſer bewohnt den vierten Saal.</l><lb/>
+<l>Schon ſeit Jahrhunderten ſitzt er</l><lb/>
+<l>Auf ſteinernem Stuhl, am ſteinernen Tiſch,</l><lb/>
+<l>Das Haupt auf den Armen ſtützt er.</l><lb/>
+</lg> <lg n="23"> <l>Sein Bart, der bis zur Erde wuchs,</l><lb/>
+<l>Iſt roth wie Feuerflammen,</l><lb/>
+<l>Zuweilen zwinkert er mit dem Aug',</l><lb/>
+<l>Zieht manchmal die Braunen zuſammen.</l><lb/>
+</lg>
+<pb n="70" facs="#f0090"/>
+<lg n="24"> <l>Schläft er oder denkt er nach?</l><lb/>
+<l>Man kann's nicht genau ermitteln;</l><lb/>
+<l>Doch wenn die rechte Stunde kommt,</l><lb/>
+<l>Wird er gewaltig ſich rütteln.</l><lb/>
+</lg> <lg n="25"> <l>Die gute Fahne ergreift er dann</l><lb/>
+<l>Und ruft: zu Pferd'! zu Pferde!</l><lb/>
+<l>Sein reiſiges Volk erwacht und ſpringt</l><lb/>
+<l>Lautraſſelnd empor von der Erde.</l><lb/>
+</lg> <lg n="26"> <l>Ein jeder ſchwingt ſich auf ſein Roß,</l><lb/>
+<l>Das wiehert und ſtampft mit den Hufen!</l><lb/>
+<l>Sie reiten hinaus in die klirrende Welt,</l><lb/>
+<l>Und die Trompeten rufen.</l><lb/>
+</lg> <lg n="27"> <l>Sie reiten gut, ſie ſchlagen gut,</l><lb/>
+<l>Sie haben ausgeſchlafen.</l><lb/>
+<l>Der Kaiſer hält ein ſtrenges Gericht,</l><lb/>
+<l>Er will die Mörder beſtrafen —</l><lb/>
+</lg>
+<pb n="71" facs="#f0091"/>
+<lg n="28"> <l>Die Mörder, die gemeuchelt einſt</l><lb/>
+<l>Die theure, wunderſame,</l><lb/>
+<l>Goldlockigte Jungfrau Germania —</l><lb/>
+<l>Sonne, du klagende Flamme!</l><lb/>
+</lg> <lg n="29"> <l>Wohl mancher, der ſich geborgen geglaubt,</l><lb/>
+<l>Und lachend auf ſeinem Schloß ſaß,</l><lb/>
+<l>Er wird nicht entgehen dem rächenden Strang,</l><lb/>
+<l>Dem Zorne Barbaroſſas! — — —</l><lb/>
+</lg> <lg n="30"> <l>Wie klingen ſie lieblich, wie klingen ſie ſüß,</l><lb/>
+<l>Die Mährchen der alten Amme!</l><lb/>
+<l>Mein abergläubiſches Herze jauchzt:</l><lb/>
+<l>Sonne, du klagende Flamme!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="72" facs="#f0092"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XV.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Ein feiner Regen prickelt herab,</l><lb/>
+<l>Eiskalt, wie Nähnadelſpitzen.</l><lb/>
+<l>Die Pferde bewegen traurig den Schwanz,</l><lb/>
+<l>Sie waten im Koth und ſchwitzen.</l><lb/>
+</lg> <lg n="2"> <l>Der Poſtillon ſtößt in ſein Horn,</l><lb/>
+<l>Ich kenne das alte Getute —</l><lb/>
+<l>„Es reiten drey Reiter zum Thor hinaus!“ —</l><lb/>
+<l>Es wird mir ſo dämmrig zu Muthe.</l><lb/>
+</lg> <lg n="3"> <l>Mich ſchläferte und ich entſchlief,</l><lb/>
+<l>Und ſiehe! mir träumte am Ende,</l><lb/>
+<l>Daß ich mich in dem Wunderberg</l><lb/>
+<l>Beim Kaiſer Rothbart befände.</l><lb/>
+</lg>
+<pb n="73" facs="#f0093"/>
+<lg n="4"> <l>Er ſaß nicht mehr auf ſteinernem Stuhl,</l><lb/>
+<l>Am ſteinernen Tiſch, wie ein Steinbild;</l><lb/>
+<l>Auch ſah er nicht ſo ehrwürdig aus,</l><lb/>
+<l>Wie man ſich gewöhnlich einbild't.</l><lb/>
+</lg> <lg n="5"> <l>Er watſchelte durch die Sääle herum</l><lb/>
+<l>Mit mir im trauten Geſchwätze.</l><lb/>
+<l>Er zeigte wie ein Antiquar</l><lb/>
+<l>Mir ſeine Curioſa und Schätze.</l><lb/>
+</lg> <lg n="6"> <l>Im Saale der Waffen erklärte er mir</l><lb/>
+<l>Wie man ſich der Kolben bediene,</l><lb/>
+<l>Von einigen Schwertern rieb er den Roſt</l><lb/>
+<l>Mit ſeinem Hermeline.</l><lb/>
+</lg> <lg n="7"> <l>Er nahm einen Pfauenwedel zur Hand,</l><lb/>
+<l>Und reinigte vom Staube</l><lb/>
+<l>Gar manchen Harniſch, gar manchen Helm,</l><lb/>
+<l>Auch manche Pickelhaube.</l><lb/>
+</lg>
+<pb n="74" facs="#f0094"/>
+<lg n="8"> <l>Die Fahne ſtäubte er gleichfalls ab,</l><lb/>
+<l>Und er ſprach: „mein größter Stolz iſt,</l><lb/>
+<l>Daß noch keine Motte die Seide zerfraß,</l><lb/>
+<l>Und auch kein Wurm im Holz iſt.“</l><lb/>
+</lg> <lg n="9"> <l>Und als wir kamen in den Saal,</l><lb/>
+<l>Wo ſchlafend am Boden liegen</l><lb/>
+<l>Viel tauſend Krieger, kampfbereit,</l><lb/>
+<l>Der Alte ſprach mit Vergnügen:</l><lb/>
+</lg> <lg n="10"> <l>„Hier müſſen wir leiſer reden und gehn,</l><lb/>
+<l>Damit wir nicht wecken die Leute;</l><lb/>
+<l>Wieder verfloſſen ſind hundert Jahr</l><lb/>
+<l>Und Löhnungstag iſt heute.“</l><lb/>
+</lg> <lg n="11"> <l>Und ſiehe! der Kaiſer nahte ſich ſacht</l><lb/>
+<l>Den ſchlafenden Soldaten,</l><lb/>
+<l>Und ſteckte heimlich in die Taſch'</l><lb/>
+<l>Jedwedem einen Dukaten.</l><lb/>
+</lg>
+<pb n="75" facs="#f0095"/>
+<lg n="12"> <l>Er ſprach mit ſchmunzelndem Geſicht,</l><lb/>
+<l>Als ich ihn anſah verwundert:</l><lb/>
+<l>„Ich zahle einen Dukaten per Mann,</l><lb/>
+<l>Als Sold, nach jedem Jahrhundert.“</l><lb/>
+</lg> <lg n="13"> <l>Im Saale wo die Pferde ſtehn</l><lb/>
+<l>In langen, ſchweigenden Reihen,</l><lb/>
+<l>Da rieb der Kaiſer ſich die Händ’,</l><lb/>
+<l>Schien ſonderbar ſich zu freuen.</l><lb/>
+</lg> <lg n="14"> <l>Er zählte die Gäule, Stück vor Stück,</l><lb/>
+<l>Und klätſchelte ihnen die Rippen;</l><lb/>
+<l>Er zählte und zählte, mit ängſtlicher Haſt</l><lb/>
+<l>Bewegten ſich ſeine Lippen.</l><lb/>
+</lg> <lg n="15"> <l>„Das iſt noch nicht die rechte Zahl“ —</l><lb/>
+<l>Sprach er zuletzt verdroſſen —</l><lb/>
+<l>„Soldaten und Waffen hab' ich genung,</l><lb/>
+<l>Doch fehlt es noch an Roſſen.</l><lb/>
+</lg>
+<pb n="76" facs="#f0096"/>
+<lg n="16"> <l>„Roßkämme hab' ich ausgeſchickt</l><lb/>
+<l>In alle Welt, die kaufen</l><lb/>
+<l>Für mich die beſten Pferde ein,</l><lb/>
+<l>Hab' ſchon einen guten Haufen.</l><lb/>
+</lg> <lg n="17"> <l>„Ich warte bis die Zahl komplet,</l><lb/>
+<l>Dann ſchlag' ich los und befreye</l><lb/>
+<l>Mein Vaterland, mein deutſches Volk,</l><lb/>
+<l>Das meiner harret mit Treue.“</l><lb/>
+</lg> <lg n="18"> <l>So ſprach der Kaiſer, ich aber rief:</l><lb/>
+<l>Schlag' los, du alter Geſelle,</l><lb/>
+<l>Schlag' los, und haſt du nicht Pferde genug,</l><lb/>
+<l>Nimm Eſel an ihrer Stelle.</l><lb/>
+</lg> <lg n="19"> <l>Der Rothbart erwiederte lächelnd: „Es hat</l><lb/>
+<l>Mit dem Schlagen gar keine Eile,</l><lb/>
+<l>Man baute nicht Rom in einem Tag,</l><lb/>
+<l>Gut Ding will haben Weile.</l><lb/>
+</lg>
+<pb n="77" facs="#f0097"/>
+<lg n="20"> <l>„Wer heute nicht kommt, kommt morgen gewiß,</l><lb/>
+<l>Nur langſam wächſt die Eiche,</l><lb/>
+<l>Und <hi rendition="#aq">chi va piano va sano</hi>, ſo heißt</l><lb/>
+<l>Das Sprüchwort im römiſchen Reiche.“</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="78" facs="#f0098"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XVI</hi> <hi rendition="#b">.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Das Stoßen des Wagens weckte mich auf,</l><lb/>
+<l>Doch ſanken die Augenlieder</l><lb/>
+<l>Bald wieder zu, und ich entſchlief</l><lb/>
+<l>Und träumte vom Rothbart wieder.</l><lb/>
+</lg> <lg n="2"> <l>Ging wieder ſchwatzend mit ihm herum</l><lb/>
+<l>Durch alle die hallenden Sääle;</l><lb/>
+<l>Er frug mich dies, er frug mich das,</l><lb/>
+<l>Verlangte, daß ich erzähle.</l><lb/>
+</lg> <lg n="3"> <l>Er hatte aus der Oberwelt</l><lb/>
+<l>Seit vielen, vielen Jahren,</l><lb/>
+<l>Wohl ſeit dem ſiebenjährigen Krieg,</l><lb/>
+<l>Kein Sterbenswort erfahren.</l><lb/>
+</lg>
+<pb n="79" facs="#f0099"/>
+<lg n="4"> <l>Er frug nach Moſes Mendelsſohn,</l><lb/>
+<l>Nach der Karſchin, mit Intreſſe</l><lb/>
+<l>Frug er nach der Gräfin Dübarry,</l><lb/>
+<l>Des fünfzehnten Ludwigs Maitreſſe.</l><lb/>
+</lg> <lg n="5"> <l>O Kaiſer, rief ich, wie biſt du zurück!</l><lb/>
+<l>Der Moſes iſt längſt geſtorben,</l><lb/>
+<l>Nebſt ſeiner Rebekka, auch Abraham,</l><lb/>
+<l>Der Sohn, iſt geſtorben, verdorben.</l><lb/>
+</lg> <lg n="6"> <l>Der Abraham hatte mit Lea erzeugt</l><lb/>
+<l>Ein Bübchen, Felix heißt er,</l><lb/>
+<l>Der brachte es weit im Chriſtenthum,</l><lb/>
+<l>Iſt ſchon Capellenmeiſter.</l><lb/>
+</lg> <lg n="7"> <l>Die alte Karſchin iſt gleichfalls todt,</l><lb/>
+<l>Auch die Tochter iſt todt, die Klenke;</l><lb/>
+<l>Helmine Chezy, die Enkelin,</l><lb/>
+<l>Iſt noch am Leben, ich denke.</l><lb/>
+</lg>
+<pb n="80" facs="#f0100"/>
+<lg n="8"> <l>Die Dübarry lebte luſtig und flott,</l><lb/>
+<l>So lange Ludwig regierte,</l><lb/>
+<l>Der fünfzehnte nämlich, ſie war ſchon alt</l><lb/>
+<l>Als man ſie guillotinirte.</l><lb/>
+</lg> <lg n="9"> <l>Der König Ludwig der fünfzehnte ſtarb</l><lb/>
+<l>Ganz ruhig in ſeinem Bette,</l><lb/>
+<l>Der ſechszehnte aber ward guillotinirt</l><lb/>
+<l>Mit der Königin Antoinette.</l><lb/>
+</lg> <lg n="10"> <l>Die Königin zeigte großen Muth,</l><lb/>
+<l>Ganz wie es ſich gebührte,</l><lb/>
+<l>Die Dübarry aber weinte und ſchrie</l><lb/>
+<l>Als man ſie guillotinirte. — —</l><lb/>
+</lg> <lg n="11"> <l>Der Kaiſer blieb plötzlich ſtille ſtehn,</l><lb/>
+<l>Und ſah mich an mit den ſtieren</l><lb/>
+<l>Augen und ſprach: „Um Gotteswill’n,</l><lb/>
+<l>Was iſt das, guillotiniren?“</l><lb/>
+</lg>
+<pb n="81" facs="#f0101"/>
+<lg n="12"> <l>Das Guillotiniren — erklärte ich ihm —</l><lb/>
+<l>Iſt eine neue Methode,</l><lb/>
+<l>Womit man die Leute jeglichen Stands</l><lb/>
+<l>Vom Leben bringt zu Tode.</l><lb/>
+</lg> <lg n="13"> <l>Bey dieſer Methode bedient man ſich</l><lb/>
+<l>Auch einer neuen Maſchine,</l><lb/>
+<l>Die hat erfunden Herr Guillotin,</l><lb/>
+<l>Drum nennt man ſie Guillotine.</l><lb/>
+</lg> <lg n="14"> <l>Du wirſt hier an ein Brett geſchnallt; —</l><lb/>
+<l>Das ſenkt ſich; — du wirſt geſchoben</l><lb/>
+<l>Geſchwinde zwiſchen zwey Pfoſten; — es hängt</l><lb/>
+<l>Ein dreyeckig Beil ganz oben; —</l><lb/>
+</lg> <lg n="15"> <l>Man zieht eine Schnur, dann ſchießt herab</l><lb/>
+<l>Das Beil, ganz luſtig und munter; —</l><lb/>
+<l>Bey dieſer Gelegenheit fällt dein Kopf</l><lb/>
+<l>In einen Sack hinunter.</l><lb/>
+</lg> <fw type="sig" place="bottom">Heine's Deutſchland. 6<lb/>
+</fw>
+<pb n="82" facs="#f0102"/>
+<lg n="16"> <l>Der Kaiſer fiel mir in die Red:</l><lb/>
+<l>„Schweig ſtill, von deiner Maſchine</l><lb/>
+<l>Will ich nichts wiſſen, Gott bewahr',</l><lb/>
+<l>Daß ich mich ihrer bediene!</l><lb/>
+</lg> <lg n="17"> <l>„Der König und die Königinn!</l><lb/>
+<l>Geſchnallt! an einem Brette!</l><lb/>
+<l>Das iſt ja gegen allen Respekt</l><lb/>
+<l>Und alle Etiquette!</l><lb/>
+</lg> <lg n="18"> <l>„Und du, wer biſt du, daß du es wagſt</l><lb/>
+<l>Mich ſo vertraulich zu dutzen?</l><lb/>
+<l>Warte, du Bürſchchen, ich werde dir ſchon</l><lb/>
+<l>Die kecken Flügel ſtutzen!</l><lb/>
+</lg> <lg n="19"> <l>„Es regt mir die innerſte Galle auf,</l><lb/>
+<l>Wenn ich dich höre ſprechen,</l><lb/>
+<l>Dein Odem ſchon iſt Hochverrath</l><lb/>
+<l>Und Majeſtätsverbrechen!“</l><lb/>
+</lg>
+<pb n="83" facs="#f0103"/>
+<lg n="20"> <l>Als ſolchermaßen in Eifer gerieth</l><lb/>
+<l>Der Alte und ſonder Schranken</l><lb/>
+<l>Und Schonung mich anſchnob, da platzten heraus</l><lb/>
+<l>Auch mir die geheimſten Gedanken.</l><lb/>
+</lg> <lg n="21"> <l>Herr Rothbart — rief ich laut — du biſt</l><lb/>
+<l>Ein altes Fabelweſen,</l><lb/>
+<l>Geh’, leg’ dich ſchlafen, wir werden uns</l><lb/>
+<l>Auch ohne dich erlöſen.</l><lb/>
+</lg> <lg n="22"> <l>Die Republikaner lachen uns aus</l><lb/>
+<l>Sehn ſie an unſerer Spitze</l><lb/>
+<l>So ein Geſpenſt mit Zepter und Kron’;</l><lb/>
+<l>Sie riſſen ſchlechte Witze.</l><lb/>
+</lg> <lg n="23"> <l>Auch deine Fahne gefällt mir nicht mehr,</l><lb/>
+<l>Die altdeutſchen Narren verdarben</l><lb/>
+<l>Mir ſchon in der Burſchenſchaft die Luſt</l><lb/>
+<l>An den ſchwarz-roth-goldnen Farben.</l><lb/>
+</lg> <fw type="sig" place="bottom">6 *<lb/>
+</fw>
+<pb n="84" facs="#f0104"/>
+<lg n="24"> <l>Das Beſte wäre du bliebeſt zu Haus,</l><lb/>
+<l>Hier in dem alten Kiffhäuſer —</l><lb/>
+<l>Bedenk' ich die Sache ganz genau,</l><lb/>
+<l>So brauchen wir gar keinen Kaiſer.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="85" facs="#f0105"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XVII.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Ich habe mich mit dem Kaiſer gezankt</l><lb/>
+<l>Im Traum, im Traum verſteht ſich, —</l><lb/>
+<l>Im wachenden Zuſtand ſprechen wir nicht</l><lb/>
+<l>Mit Fürſten ſo widerſetzig.</l><lb/>
+</lg> <lg n="2"> <l>Nur träumend, im idealen Traum,</l><lb/>
+<l>Wagt ihnen der Deutſche zu ſagen</l><lb/>
+<l>Die deutſche Meinung, die er ſo tief</l><lb/>
+<l>Im treuen Herzen getragen.</l><lb/>
+</lg> <lg n="3"> <l>Als ich erwacht' fuhr ich einem Wald</l><lb/>
+<l>Vorbey, der Anblick der Bäume,</l><lb/>
+<l>Der nackten hölzernen Wirklichkeit</l><lb/>
+<l>Verſcheuchte meine Träume.</l><lb/>
+</lg>
+<pb n="86" facs="#f0106"/>
+<lg n="4"> <l>Die Eichen ſchüttelten ernſthaft das Haupt,</l><lb/>
+<l>Die Birken und Birkenreiſer</l><lb/>
+<l>Sie nickten ſo warnend — und ich rief:</l><lb/>
+<l>Vergieb mir, mein theurer Kaiſer!</l><lb/>
+</lg> <lg n="5"> <l>Vergieb mir, o Rothbart, das raſche Wort!</l><lb/>
+<l>Ich weiß, du biſt viel weiſer</l><lb/>
+<l>Als ich, ich habe ſo wenig Geduld —</l><lb/>
+<l>Doch komme du bald, mein Kaiſer!</l><lb/>
+</lg> <lg n="6"> <l>Behagt dir das Guillotiniren nicht,</l><lb/>
+<l>So bleib bey den alten Mitteln:</l><lb/>
+<l>Das Schwert für Edelleute, der Strick</l><lb/>
+<l>Für Bürger und Bauern in Kitteln.</l><lb/>
+</lg> <lg n="7"> <l>Nur manchmal wechſle ab, und laß</l><lb/>
+<l>Den Adel hängen, und köpfe</l><lb/>
+<l>Ein bischen die Bürger und Bauern, wir ſind</l><lb/>
+<l>Ja alle Gottesgeſchöpfe.</l><lb/>
+</lg>
+<pb n="87" facs="#f0107"/>
+<lg n="8"> <l>Stell' wieder her das Halsgericht,</l><lb/>
+<l>Das peinliche Carls des fünften,</l><lb/>
+<l>Und theile wieder ein das Volk</l><lb/>
+<l>Nach Ständen, Gilden und Zünften.</l><lb/>
+</lg> <lg n="9"> <l>Das alte heilige römiſche Reich,</l><lb/>
+<l>Stell's wieder her, das ganze,</l><lb/>
+<l>Gieb uns den modrigſten Plunder zurück</l><lb/>
+<l>Mit allem Firlifanze.</l><lb/>
+</lg> <lg n="10"> <l>Das Mittelalter, immerhin,</l><lb/>
+<l>Das wahre, wie es geweſen,</l><lb/>
+<l>Ich will es ertragen — erlöſe uns nur</l><lb/>
+<l>Von jenem Zwitterweſen,</l><lb/>
+</lg> <lg n="11"> <l>Von jenem Kamaſchenritterthum,</l><lb/>
+<l>Das ekelhaft ein Gemiſch iſt</l><lb/>
+<l>Von gothiſchem Wahn und modernem Lug,</l><lb/>
+<l>Das weder Fleiſch noch Fiſch iſt.</l><lb/>
+</lg>
+<pb n="88" facs="#f0108"/>
+<lg n="12"> <l>Jag' fort das Comödiantenpack,</l><lb/>
+<l>Und ſchließe die Schauſpielhäuſer,</l><lb/>
+<l>Wo man die Vorzeit parodirt —</l><lb/>
+<l>Komme du bald, o Kaiſer!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="89" facs="#f0109"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XVIII.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Minden iſt eine feſte Burg,</l><lb/>
+<l>Hat gute Wehr' und Waffen!</l><lb/>
+<l>Mit preußiſchen Feſtungen hab' ich jedoch</l><lb/>
+<l>Nicht gerne was zu ſchaffen.</l><lb/>
+</lg> <lg n="2"> <l>Wir kamen dort an zur Abendzeit.</l><lb/>
+<l>Die Planken der Zugbrück ſtöhnten</l><lb/>
+<l>So ſchaurig, als wir hinübergerollt;</l><lb/>
+<l>Die dunklen Gräben gähnten.</l><lb/>
+</lg> <lg n="3"> <l>Die hohen Baſtionen ſchauten mich an,</l><lb/>
+<l>So drohend und verdroſſen;</l><lb/>
+<l>Das große Thor ging raſſelnd auf,</l><lb/>
+<l>Ward raſſelnd wieder geſchloſſen.</l><lb/>
+</lg>
+<pb n="90" facs="#f0110"/>
+<lg n="4"> <l>Ach! meine Seele ward betrübt</l><lb/>
+<l>Wie des Odyſſeus Seele,</l><lb/>
+<l>Als er gehört, daß Polyphem</l><lb/>
+<l>Den Felsblock ſchob vor die Höhle.</l><lb/>
+</lg> <lg n="5"> <l>Es trat an den Wagen ein Corporal</l><lb/>
+<l>Und frug uns: wie wir hießen?</l><lb/>
+<l>Ich heiße Niemand, bin Augenarzt</l><lb/>
+<l>Und ſteche den Staar den Rieſen.</l><lb/>
+</lg> <lg n="6"> <l>Im Wirthshaus ward mir noch ſchlimmer zu Muth,</l><lb/>
+<l>Das Eſſen wollt mir nicht ſchmecken.</l><lb/>
+<l>Ging ſchlafen ſogleich, doch ſchlief ich nicht,</l><lb/>
+<l>Mich drückten ſo ſchwer die Decken.</l><lb/>
+</lg> <lg n="7"> <l>Es war ein breites Federbett,</l><lb/>
+<l>Gardinen von rothem Damaſte,</l><lb/>
+<l>Der Himmel von verblichenem Gold,</l><lb/>
+<l>Mit einem ſchmutzigen Quaſte.</l><lb/>
+</lg>
+<pb n="91" facs="#f0111"/>
+<lg n="8"> <l>Verfluchter Quaſt! der die ganze Nacht</l><lb/>
+<l>Die liebe Ruhe mir raubte!</l><lb/>
+<l>Er hing mir, wie des Damokles Schwert,</l><lb/>
+<l>So drohend über dem Haupte!</l><lb/>
+</lg> <lg n="9"> <l>Schien manchmal ein Schlangenkopf zu ſeyn,</l><lb/>
+<l>Und ich hörte ihn heimlich ziſchen:</l><lb/>
+<l>Du biſt und bleibſt in der Feſtung jetzt,</l><lb/>
+<l>Du kannſt nicht mehr entwiſchen!</l><lb/>
+</lg> <lg n="10"> <l>O, daß ich wäre — ſeufzte ich —</l><lb/>
+<l>Daß ich zu Hauſe wäre,</l><lb/>
+<l>Bey meiner lieben Frau in Paris,</l><lb/>
+<l>Im Faubourg-Poiſſoni<hi rendition="#aq">è</hi>re!</l><lb/>
+</lg> <lg n="11"> <l>Ich fühlte, wie über die Stirne mir</l><lb/>
+<l>Auch manchmal etwas geſtrichen,</l><lb/>
+<l>Gleich einer kalten Cenſorhand,</l><lb/>
+<l>Und meine Gedanken wichen —</l><lb/>
+</lg>
+<pb n="92" facs="#f0112"/>
+<lg n="12"> <l>Gensd'armen in Leichenlaken gehüllt,</l><lb/>
+<l>Ein weißes Spukgewirre,</l><lb/>
+<l>Umringte mein Bett, ich hörte auch</l><lb/>
+<l>Unheimliches Kettengeklirre.</l><lb/>
+</lg> <lg n="13"> <l>Ach! die Geſpenſter ſchleppten mich fort,</l><lb/>
+<l>Und ich hab’ mich endlich befunden</l><lb/>
+<l>An einer ſteilen Felſenwand;</l><lb/>
+<l>Dort war ich feſtgebunden.</l><lb/>
+</lg> <lg n="14"> <l>Der böſe ſchmutzige Betthimmelquaſt!</l><lb/>
+<l>Ich fand ihn gleichfalls wieder,</l><lb/>
+<l>Doch ſah er jetzt wie ein Geyer aus,</l><lb/>
+<l>Mit Krallen und ſchwarzem Gefieder.</l><lb/>
+</lg> <lg n="15"> <l>Er glich dem bekannten Adler jetzt,</l><lb/>
+<l>Und hielt meinen Leib umklammert;</l><lb/>
+<l>Er fraß mir die Leber aus der Bruſt,</l><lb/>
+<l>Ich habe geſtöhnt und gejammert.</l><lb/>
+</lg>
+<pb n="93" facs="#f0113"/>
+<lg n="16"> <l>Ich jammerte lange — da krähte der Hahn,</l><lb/>
+<l>Und der Fiebertraum erblaßte.</l><lb/>
+<l>Ich lag zu Minden im ſchwitzenden Bett,</l><lb/>
+<l>Der Adler ward wieder zum Quaſte</l><lb/>
+</lg> <lg n="17"> <l>Ich reiſte fort mit Extrapoſt,</l><lb/>
+<l>Und ſchöpfte freyen Odem</l><lb/>
+<l>Erſt draußen in der freien Natur,</l><lb/>
+<l>Auf Bükkeburgſchem Boden.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="94" facs="#f0114"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XIX.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>O, Danton, du haſt dich ſehr geirrt</l><lb/>
+<l>Und mußteſt den Irthum büßen!</l><lb/>
+<l>Mitnehmen kann man das Vaterland</l><lb/>
+<l>An den Sohlen, an den Füßen.</l><lb/>
+</lg> <lg n="2"> <l>Das halbe Fürſtenthum Bückeburg</l><lb/>
+<l>Blieb mir an den Stiefeln kleben;</l><lb/>
+<l>So lehmigte Wege habe ich wohl</l><lb/>
+<l>Noch nie geſehen im Leben.</l><lb/>
+</lg> <lg n="3"> <l>Zu Bückeburg ſtieg ich ab in der Stadt,</l><lb/>
+<l>Um dort zu betrachten die Stammburg,</l><lb/>
+<l>Wo mein Großvater geboren ward;</l><lb/>
+<l>Die Großmutter war aus Hamburg.</l><lb/>
+</lg>
+<pb n="95" facs="#f0115"/>
+<lg n="4"> <l>Ich kam nach Hannover um Mittagzeit,</l><lb/>
+<l>Und ließ mir die Stiefel putzen.</l><lb/>
+<l>Ich ging ſogleich die Stadt zu beſehn,</l><lb/>
+<l>Ich reiſe gern mit Nutzen.</l><lb/>
+</lg> <lg n="5"> <l>Mein Gott! da ſieht es ſauber aus!</l><lb/>
+<l>Der Koth liegt nicht auf den Gaſſen.</l><lb/>
+</lg> </lg>
+<pb n="96" facs="#f0116"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XX.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Von Harburg fuhr ich in einer Stund’</l><lb/>
+<l>Nach Hamburg. Es war ſchon Abend.</l><lb/>
+<l>Die Sterne am Himmel grüßten mich,</l><lb/>
+<l>Die Luft war lind und labend.</l><lb/>
+</lg> <lg n="2"> <l>Und als ich zu meiner Frau Mutter kam,</l><lb/>
+<l>Erſchrak ſie faſt vor Freude;</l><lb/>
+<l>Sie rief „mein liebes Kind!“ und ſchlug</l><lb/>
+<l>Zuſammen die Hände beide.</l><lb/>
+</lg> <lg n="3"> <l>„Mein liebes Kind, wohl dreyzehn Jahr</l><lb/>
+<l>Verfloſſen unterdeſſen!</l><lb/>
+<l>Du wirſt gewiß ſehr hungrig ſeyn —</l><lb/>
+<l>Sag’ an, was willſt du eſſen?</l><lb/>
+</lg>
+<pb n="97" facs="#f0117"/>
+<lg n="4"> <l>„Ich habe Fiſch und Gänſefleiſch</l><lb/>
+<l>Und ſchöne Apfelſinen.“</l><lb/>
+<l>So gieb mir Fiſch und Gänſefleiſch</l><lb/>
+<l>Und ſchöne Apfelſinen.</l><lb/>
+</lg> <lg n="5"> <l>Und als ich aß mit großem Ap'tit,</l><lb/>
+<l>Die Mutter ward glücklich und munter,</l><lb/>
+<l>Sie frug wohl dies, ſie frug wohl das,</l><lb/>
+<l>Verfängliche Fragen mitunter.</l><lb/>
+</lg> <lg n="6"> <l>„Mein liebes Kind! und wirſt du auch</l><lb/>
+<l>Recht ſorgſam gepflegt in der Fremde?</l><lb/>
+<l>Verſteht deine Frau die Haushaltung,</l><lb/>
+<l>Und flickt ſie dir Strümpfe und Hemde?“</l><lb/>
+</lg> <lg n="7"> <l>Der Fiſch iſt gut, lieb Mütterlein,</l><lb/>
+<l>Doch muß man ihn ſchweigend verzehren;</l><lb/>
+<l>Man kriegt ſo leicht eine Grät' in den Hals,</l><lb/>
+<l>Du darfſt mich jetzt nicht ſtören.</l><lb/>
+</lg> <fw type="sig" place="bottom">Heine's Deutſchland. 7<lb/>
+</fw>
+<pb n="98" facs="#f0118"/>
+<lg n="8"> <l>Und als ich den braven Fiſch verzehrt,</l><lb/>
+<l>Die Gans ward aufgetragen.</l><lb/>
+<l>Die Mutter frug wieder wohl dies, wohl das,</l><lb/>
+<l>Mitunter verfängliche Fragen.</l><lb/>
+</lg> <lg n="9"> <l>„Mein liebes Kind! in welchem Land</l><lb/>
+<l>Läßt ſich am beſten leben?</l><lb/>
+<l>Hier oder in Frankreich? und welchem Volk</l><lb/>
+<l>Wirſt du den Vorzug geben?“</l><lb/>
+</lg> <lg n="10"> <l>Die deutſche Gans, lieb Mütterlein,</l><lb/>
+<l>Iſt gut, jedoch die Franzoſen,</l><lb/>
+<l>Sie ſtopfen die Gänſe beſſer als wir,</l><lb/>
+<l>Auch haben ſie beſſere Saucen. —</l><lb/>
+</lg> <lg n="11"> <l>Und als die Gans ſich wieder empfahl,</l><lb/>
+<l>Da machten ihre Aufwartung</l><lb/>
+<l>Die Apfelſinen, ſie ſchmeckten ſo ſüß,</l><lb/>
+<l>Ganz über alle Erwartung.</l><lb/>
+</lg>
+<pb n="99" facs="#f0119"/>
+<lg n="12"> <l>Die Mutter aber fing wieder an</l><lb/>
+<l>Zu fragen ſehr vergnüglich,</l><lb/>
+<l>Nach tauſend Dingen, mitunter ſogar</l><lb/>
+<l>Nach Dingen die ſehr anzüglich.</l><lb/>
+</lg> <lg n="13"> <l>„Mein liebes Kind! wie denkſt du jetzt?</l><lb/>
+<l>Treibſt du noch immer aus Neigung</l><lb/>
+<l>Die Politik? Zu welcher Parthey</l><lb/>
+<l>Gehörſt du mit Ueberzeugung?“</l><lb/>
+</lg> <lg n="14"> <l>Die Apfelſinen, lieb Mütterlein,</l><lb/>
+<l>Sind gut, und mit wahrem Vergnügen</l><lb/>
+<l>Verſchlucke ich den ſüßen Saft,</l><lb/>
+<l>Und ich laſſe die Schaalen liegen.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">7*<lb/>
+</fw>
+<pb n="100" facs="#f0120"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XXI.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Die Stadt, zur Hälfte abgebrannt,</l><lb/>
+<l>Wird aufgebaut allmählig;</l><lb/>
+<l>Wie'n Pudel, der halb geſchoren iſt,</l><lb/>
+<l>Sieht Hamburg aus, trübſelig.</l><lb/>
+</lg> <lg n="2"> <l>Gar manche Gaſſen fehlen mir,</l><lb/>
+<l>Die ich nur ungern vermiſſe —</l><lb/>
+<l>Wo iſt das Haus, wo ich geküßt</l><lb/>
+<l>Der Liebe erſte Küſſe?</l><lb/>
+</lg> <lg n="3"> <l>Wo iſt die Druckerey, wo ich</l><lb/>
+<l>Die Reiſebilder druckte?</l><lb/>
+<l>Wo iſt der Auſterkeller, wo ich</l><lb/>
+<l>Die erſten Auſtern ſchluckte?</l><lb/>
+</lg>
+<pb n="101" facs="#f0121"/>
+<lg n="4"> <l>Und der Dreckwall, wo iſt der Dreckwall hin?</l><lb/>
+<l>Ich kann ihn vergeblich ſuchen!</l><lb/>
+<l>Wo iſt der Pavillon, wo ich</l><lb/>
+<l>Gegeſſen ſo manchen Kuchen?</l><lb/>
+</lg> <lg n="5"> <l>Wo iſt das Rathhaus, worin der Senat</l><lb/>
+<l>Und die Bürgerſchaft gethronet?</l><lb/>
+<l>Ein Raub der Flammen! Die Flamme hat</l><lb/>
+<l>Das Heiligſte nicht verſchonet.</l><lb/>
+</lg> <lg n="6"> <l>Die Leute ſeufzten noch vor Angſt,</l><lb/>
+<l>Und mit wehmüth'gem Geſichte</l><lb/>
+<l>Erzählten ſie mir vom großen Brand</l><lb/>
+<l>Die ſchreckliche Geſchichte:</l><lb/>
+</lg> <lg n="7"> <l>„Es brannte an allen Ecken zugleich,</l><lb/>
+<l>Man ſah nur Rauch und Flammen!</l><lb/>
+<l>Die Kirchenthürme loderten auf</l><lb/>
+<l>Und ſtürzten krachend zuſammen.</l><lb/>
+</lg>
+<pb n="102" facs="#f0122"/>
+<lg n="8"> <l>„Die alte Börſe iſt verbrannt,</l><lb/>
+<l>Wo unſere Väter gewandelt,</l><lb/>
+<l>Und mit einander Jahrhunderte lang</l><lb/>
+<l>So redlich als möglich gehandelt.</l><lb/>
+</lg> <lg n="9"> <l>„Die Bank, die ſilberne Seele der Stadt,</l><lb/>
+<l>Und die Bücher wo eingeſchrieben</l><lb/>
+<l>Jedweden Mannes Banko-Werth,</l><lb/>
+<l>Gottlob! ſie ſind uns geblieben!</l><lb/>
+</lg> <lg n="10"> <l>„Gottlob! man kollektirte für uns</l><lb/>
+<l>Selbſt bei den fernſten Nazionen —</l><lb/>
+<l>Ein gutes Geſchäft — die Collekte betrug</l><lb/>
+<l>Wohl an die acht Millionen.</l><lb/>
+</lg> <lg n="11"> <l>„Aus allen Ländern floß das Geld</l><lb/>
+<l>In unſre offnen Hände,</l><lb/>
+<l>Auch Victualien nahmen wir an,</l><lb/>
+<l>Verſchmähten keine Spende.</l><lb/>
+</lg>
+<pb n="103" facs="#f0123"/>
+<lg n="12"> <l>„Man ſchickte uns Kleider und Betten genug,</l><lb/>
+<l>Auch Brod und Fleiſch und Suppen!</l><lb/>
+<l>Der König von Preußen wollte ſogar</l><lb/>
+<l>Uns ſchicken ſeine Truppen.</l><lb/>
+</lg> <lg n="13"> <l>„Der materielle Schaden ward</l><lb/>
+<l>Vergütet, das ließ ſich ſchätzen —</l><lb/>
+<l>Jedoch den Schrecken, unſeren Schreck,</l><lb/>
+<l>Den kann uns niemand erſetzen!“</l><lb/>
+</lg> <lg n="14"> <l>Aufmunternd ſprach ich: Ihr lieben Leut,</l><lb/>
+<l>Ihr müßt nicht jammern und flennen,</l><lb/>
+<l>Troya war eine beſſere Stadt</l><lb/>
+<l>Und mußte doch verbrennen.</l><lb/>
+</lg> <lg n="15"> <l>Baut Eure Häuſer wieder auf</l><lb/>
+<l>Und trocknet Eure Pfützen,</l><lb/>
+<l>Und ſchafft Euch beſſ’re Geſetze an,</l><lb/>
+<l>Und beß’re Feuerſpritzen.</l><lb/>
+</lg>
+<pb n="104" facs="#f0124"/>
+<lg n="16"> <l>Gießt nicht zu viel Cajenne-Piment</l><lb/>
+<l>In Eure Mokturtelſuppen;</l><lb/>
+<l>Auch Eure Karpfen ſind Euch nicht geſund,</l><lb/>
+<l>Ihr kocht ſie ſo fett mit den Schuppen.</l><lb/>
+</lg> <lg n="17"> <l>Kalkuten ſchaden Euch nicht viel,</l><lb/>
+<l>Doch hütet Euch vor der Tücke</l><lb/>
+<l>Des Vogels, der ſein Ey gelegt</l><lb/>
+<l>In des Bürgermeiſters Perücke. — —</l><lb/>
+</lg> <lg n="18"> <l>Wer dieſer fatale Vogel iſt,</l><lb/>
+<l>Ich brauch es Euch nicht zu ſagen —</l><lb/>
+<l>Denk' ich an ihn, ſo dreht ſich herum</l><lb/>
+<l>Das Eſſen in meinem Magen.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="105" facs="#f0125"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XXII.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Noch mehr verändert als die Stadt</l><lb/>
+<l>Sind mir die Menſchen erſchienen,</l><lb/>
+<l>Sie geh'n ſo betrübt und gebrochen herum,</l><lb/>
+<l>Wie wandelnde Ruinen.</l><lb/>
+</lg> <lg n="2"> <l>Die mageren ſind noch dünner jetzt,</l><lb/>
+<l>Noch fetter ſind die feiſten,</l><lb/>
+<l>Die Kinder ſind alt, die Alten ſind</l><lb/>
+<l>Kindiſch geworden, die meiſten.</l><lb/>
+</lg> <lg n="3"> <l>Gar manche, die ich als Kälber verließ,</l><lb/>
+<l>Fand ich als Ochſen wieder;</l><lb/>
+<l>Gar manches kleine Gänschen ward</l><lb/>
+<l>Zur Gans mit ſtolzem Gefieder.</l><lb/>
+</lg>
+<pb n="106" facs="#f0126"/>
+<lg n="4"> <l>Die alte Gudel fand ich geſchminkt</l><lb/>
+<l>Und geputzt wie eine Syrene;</l><lb/>
+<l>Hat ſchwarze Locken ſich angeſchafft</l><lb/>
+<l>Und blendend weiße Zähne.</l><lb/>
+</lg> <lg n="5"> <l>Am beſten hat ſich konſervirt</l><lb/>
+<l>Mein Freund der Papierverkäufer;</l><lb/>
+<l>Sein Haar ward gelb und umwallt ſein Haupt,</l><lb/>
+<l>Sieht aus wie Johannes der Täufer.</l><lb/>
+</lg> <lg n="6"> <l>Den **** den ſah ich nur von fern,</l><lb/>
+<l>Er huſchte mir raſch vorüber;</l><lb/>
+<l>Ich höre, ſein Geiſt iſt abgebrannt</l><lb/>
+<l>Und war verſichert bey Biber.</l><lb/>
+</lg> <lg n="7"> <l>Auch meinen alten Cenſor ſah</l><lb/>
+<l>Ich wieder. Im Nebel, gebücket,</l><lb/>
+<l>Begegnet' er mir auf dem Gänſemarkt,</l><lb/>
+<l>Schien ſehr darnieder gedrücket.</l><lb/>
+</lg>
+<pb n="107" facs="#f0127"/>
+<lg n="8"> <l>Wir ſchüttelten uns die Hände, es ſchwamm</l><lb/>
+<l>Im Auge des Manns eine Thräne.</l><lb/>
+<l>Wie freute er ſich, mich wieder zu ſehn!</l><lb/>
+<l>Es war eine rührende Scene. —</l><lb/>
+</lg> <lg n="9"> <l>Nicht alle fand ich. Mancher hat</l><lb/>
+<l>Das Zeitliche geſegnet.</l><lb/>
+<l>Ach! meinem Gumpelino ſogar</l><lb/>
+<l>Bin ich nicht mehr begegnet.</l><lb/>
+</lg> <lg n="10"> <l>Der Edle hatte ausgehaucht</l><lb/>
+<l>Die große Seele ſo eben,</l><lb/>
+<l>Und wird als verklärter Seraph jetzt</l><lb/>
+<l>Am Throne Jehovahs ſchweben.</l><lb/>
+</lg> <lg n="11"> <l>Vergebens ſuchte ich überall</l><lb/>
+<l>Den krummen Adonis, der Taſſen</l><lb/>
+<l>Und Nachtgeſchirr von Porzelan</l><lb/>
+<l>Feil bot in Hamburgs Gaſſen.</l><lb/>
+</lg>
+<pb n="108" facs="#f0128"/>
+<lg n="12"> <l>Sarras, der treue Pudel, iſt todt.</l><lb/>
+<l>Ein großer Verluſt! Ich wette,</l><lb/>
+<l>Daß Campe lieber ein ganzes Schock</l><lb/>
+<l>Schriftſteller verloren hätte. — —</l><lb/>
+</lg> <lg n="13"> <l>Die Populazion des Hamburger Staats</l><lb/>
+<l>Beſteht, ſeit Menſchengedenken,</l><lb/>
+<l>Aus Juden und Chriſten; es pflegen auch</l><lb/>
+<l>Die letztren nicht viel zu verſchenken.</l><lb/>
+</lg> <lg n="14"> <l>Die Chriſten ſind alle ziemlich gut,</l><lb/>
+<l>Auch eſſen ſie gut zu Mittag,</l><lb/>
+<l>Und ihre Wechſel bezahlen ſie prompt,</l><lb/>
+<l>Noch vor dem letzten Respittag.</l><lb/>
+</lg> <lg n="15"> <l>Die Juden theilen ſich wieder ein</l><lb/>
+<l>In zwey verſchiedne Partheyen;</l><lb/>
+<l>Die Alten gehn in die Synagog'</l><lb/>
+<l>Und in den Tempel die Neuen.</l><lb/>
+</lg>
+<pb n="109" facs="#f0129"/>
+<lg n="16"> <l>Die Neuen eſſen Schweinefleiſch,</l><lb/>
+<l>Zeigen ſich widerſetzig,</l><lb/>
+<l>Sind Demokraten; die Alten ſind</l><lb/>
+<l>Vielmehr ariſtokrätzig.</l><lb/>
+</lg> <lg n="17"> <l>Ich liebe die Alten, ich liebe die Neu'n —</l><lb/>
+<l>Doch ſchwör' ich, beim ewigen Gotte,</l><lb/>
+<l>Ich liebe gewiſſe Fiſchchen noch mehr,</l><lb/>
+<l>Man heißt ſie geräucherte Sprotte.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="110" facs="#f0130"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XXIII.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Als Republik war Hamburg nie</l><lb/>
+<l>So groß wie Venedig und Florenz,</l><lb/>
+<l>Doch Hamburg hat beſſere Auſtern; man ſpeiſt</l><lb/>
+<l>Die beſten im Keller von Lorenz.</l><lb/>
+</lg> <lg n="2"> <l>Es war ein ſchöner Abend, als ich</l><lb/>
+<l>Mich hinbegab mit Campen;</l><lb/>
+<l>Wir wollten mit einander dort</l><lb/>
+<l>In Rheinwein und Auſtern ſchlampampen.</l><lb/>
+</lg> <lg n="3"> <l>Auch gute Geſellſchaft fand ich dort,</l><lb/>
+<l>Mit Freude ſah ich wieder</l><lb/>
+<l>Manch alten Genoſſen, z. B. Chaufepi<hi rendition="#aq">é</hi>,</l><lb/>
+<l>Auch manche neue Brüder.</l><lb/>
+</lg>
+<pb n="111" facs="#f0131"/>
+<lg n="4"> <l>Da war der Wille, deſſen Geſicht</l><lb/>
+<l>Ein Stammbuch, worin mit Hieben</l><lb/>
+<l>Die akademiſchen Feinde ſich</l><lb/>
+<l>Recht leſerlich eingeſchrieben.</l><lb/>
+</lg> <lg n="5"> <l>Da war der Fucks, ein blinder Heid,</l><lb/>
+<l>Und perſönlicher Feind des Jehovah,</l><lb/>
+<l>Glaubt nur an Hegel und etwa noch</l><lb/>
+<l>An die Venus des Canova.</l><lb/>
+</lg> <lg n="6"> <l>Mein Campe war Amphytrio</l><lb/>
+<l>Und lächelte vor Wonne;</l><lb/>
+<l>Sein Auge ſtralte Seligkeit,</l><lb/>
+<l>Wie eine verklärte Madonne.</l><lb/>
+</lg> <lg n="7"> <l>Ich aß und trank, mit gutem Ap'tit,</l><lb/>
+<l>Und dachte in meinem Gemüthe:</l><lb/>
+<l>„Der Campe iſt wirklich ein großer Mann,</l><lb/>
+<l>Iſt aller Verleger Blüthe.</l><lb/>
+</lg>
+<pb n="112" facs="#f0132"/>
+<lg n="8"> <l>„Ein andrer Verleger hätte mich</l><lb/>
+<l>Vielleicht verhungern laſſen,</l><lb/>
+<l>Der aber giebt mir zu trinken ſogar;</l><lb/>
+<l>Werde ihn niemals verlaſſen.</l><lb/>
+</lg> <lg n="9"> <l>„Ich danke dem Schöpfer in der Höh',</l><lb/>
+<l>Der dieſen Saft der Reben</l><lb/>
+<l>Erſchuf, und zum Verleger mir</l><lb/>
+<l>Den Julius Campe gegeben!</l><lb/>
+</lg> <lg n="10"> <l>„Ich danke dem Schöpfer in der Höh',</l><lb/>
+<l>Der, durch ſein großes Werde,</l><lb/>
+<l>Die Auſtern erſchaffen in der See</l><lb/>
+<l>Und den Rheinwein auf der Erde!</l><lb/>
+</lg> <lg n="11"> <l>„Der auch Citronen wachſen ließ,</l><lb/>
+<l>Die Auſtern zu bethauen —</l><lb/>
+<l>Nun laß mich, Vater, dieſe Nacht</l><lb/>
+<l>Das Eſſen gut verdauen!“</l><lb/>
+</lg>
+<pb n="113" facs="#f0133"/>
+<lg n="12"> <l>Der Rheinwein ſtimmt mich immer weich,</l><lb/>
+<l>Und löſt jedwedes Zerwürfniß</l><lb/>
+<l>In meiner Bruſt, entzündet darinn</l><lb/>
+<l>Der Menſchenliebe Bedürfniß.</l><lb/>
+</lg> <lg n="13"> <l>Es treibt mich aus dem Zimmer hinaus,</l><lb/>
+<l>Ich muß in den Straßen ſchlendern;</l><lb/>
+<l>Die Seele ſucht eine Seele und ſpäh't</l><lb/>
+<l>Nach zärtlich weißen Gewändern.</l><lb/>
+</lg> <lg n="14"> <l>In ſolchen Momenten zerfließe ich faſt</l><lb/>
+<l>Vor Wehmuth und vor Sehnen;</l><lb/>
+<l>Die Katzen ſcheinen mir alle grau,</l><lb/>
+<l>Die Weiber alle Helenen. — — —</l><lb/>
+</lg> <lg n="15"> <l>Und als ich auf die Drehbahn kam,</l><lb/>
+<l>Da ſah ich im Mondenſchimmer</l><lb/>
+<l>Ein hehres Weib, ein wunderbar</l><lb/>
+<l>Hochbuſiges Frauenzimmer.</l><lb/>
+</lg> <fw type="sig" place="bottom">Heine's Deutſchland. 8<lb/>
+</fw>
+<pb n="114" facs="#f0134"/>
+<lg n="16"> <l>Ihr Antlitz war rund und kerngeſund,</l><lb/>
+<l>Die Augen wie blaue Turkoaſen,</l><lb/>
+<l>Die Wangen wie Roſen, wie Kirſchen der Mund,</l><lb/>
+<l>Auch etwas röthlich die Naſe.</l><lb/>
+</lg> <lg n="17"> <l>Ihr Haupt bedeckte eine Mütz’</l><lb/>
+<l>Von weißem geſteiftem Linnen,</l><lb/>
+<l>Gefältelt wie eine Mauerkron’,</l><lb/>
+<l>Mit Thürmchen und zackigen Zinnen.</l><lb/>
+</lg> <lg n="18"> <l>Sie trug eine weiße Tunika,</l><lb/>
+<l>Bis an die Waden reichend.</l><lb/>
+<l>Und welche Waden! Das Fußgeſtell</l><lb/>
+<l>Zwey doriſchen Säulen gleichend.</l><lb/>
+</lg> <lg n="19"> <l>Die weltlichſte Natürlichkeit</l><lb/>
+<l>Konnt man in den Zügen leſen;</l><lb/>
+<l>Doch das übermenſchliche Hintertheil</l><lb/>
+<l>Verrieth ein höheres Weſen</l><lb/>
+</lg>
+<pb n="115" facs="#f0135"/>
+<lg n="20"> <l>Sie trat zu mir heran und ſprach:</l><lb/>
+<l>„Willkommen an der Elbe,</l><lb/>
+<l>Nach dreyzehnjähr'ger Abweſenheit —</l><lb/>
+<l>Ich ſehe du biſt noch derſelbe!</l><lb/>
+</lg> <lg n="21"> <l>„Du ſuchſt die ſchönen Seelen vielleicht,</l><lb/>
+<l>Die dir ſo oft begegen't</l><lb/>
+<l>Und mit dir geſchwärmt die Nacht hindurch,</l><lb/>
+<l>In dieſer ſchönen Gegend.</l><lb/>
+</lg> <lg n="22"> <l>„Das Leben verſchlang ſie, das Ungethüm,</l><lb/>
+<l>Die hundertköpfige Hyder;</l><lb/>
+<l>Du findeſt nicht die alte Zeit</l><lb/>
+<l>Und die Zeitgenöſſinnen wieder!</l><lb/>
+</lg> <lg n="23"> <l>„Du findeſt die holden Blumen nicht mehr,</l><lb/>
+<l>Die das junge Herz vergöttert;</l><lb/>
+<l>Hier blühten ſie — jetzt ſind ſie verwelkt,</l><lb/>
+<l>Und der Sturm hat ſie entblättert.</l><lb/>
+</lg> <fw type="sig" place="bottom">8*<lb/>
+</fw>
+<pb n="116" facs="#f0136"/>
+<lg n="24"> <l>„Verwelkt, entblättert, zertreten ſogar</l><lb/>
+<l>Von rohen Schickſalsfüßen —</l><lb/>
+<l>Mein Freund, das iſt auf Erden das Loos</l><lb/>
+<l>Von allem Schönen und Süßen!“</l><lb/>
+</lg> <lg n="25"> <l>Wer biſt du? — rief ich — du ſchauſt mich an</l><lb/>
+<l>Wie'n Traum aus alten Zeiten —</l><lb/>
+<l>Wo wohnſt du, großes Frauenbild?</l><lb/>
+<l>Und darf ich dich begleiten?</l><lb/>
+</lg> <lg n="26"> <l>Da lächelte das Weib und ſprach:</l><lb/>
+<l>„Du irrſt dich, ich bin eine feine,</l><lb/>
+<l>Anſtänd'ge, moraliſche Perſon;</l><lb/>
+<l>Du irrſt dich, ich bin nicht ſo Eine.</l><lb/>
+</lg> <lg n="27"> <l>„Ich bin nicht ſo eine kleine Mamſell,</l><lb/>
+<l>So eine welſche Lorettinn —</l><lb/>
+<l>Denn wiſſe: ich bin Hammonia,</l><lb/>
+<l>Hamburgs beſchützende Göttinn!</l><lb/>
+</lg>
+<pb n="117" facs="#f0137"/>
+<lg n="28"> <l>„Du ſtutzeſt und erſchreckſt ſogar,</l><lb/>
+<l>Du ſonſt ſo muthiger Sänger!</l><lb/>
+<l>Willſt du mich noch begleiten jetzt?</l><lb/>
+<l>Wohlan, ſo zög're nicht länger.“</l><lb/>
+</lg> <lg n="29"> <l>Ich aber lachte laut und rief:</l><lb/>
+<l>Ich folge auf der Stelle —</l><lb/>
+<l>Schreit' du voran, ich folge dir,</l><lb/>
+<l>Und ging’ es in die Hölle!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="118" facs="#f0138"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XXIV.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Wie ich die enge Sahltrepp' hinauf</l><lb/>
+<l>Gekommen, ich kann es nicht ſagen;</l><lb/>
+<l>Es haben unſichtbare Geiſter mich</l><lb/>
+<l>Vielleicht hinaufgetragen.</l><lb/>
+</lg> <lg n="2"> <l>Hier, in Hammonias Kämmerlein,</l><lb/>
+<l>Verfloſſen mir ſchnell die Stunden.</l><lb/>
+<l>Die Göttinn geſtand die Sympathie,</l><lb/>
+<l>Die ſie immer für mich empfunden.</l><lb/>
+</lg> <lg n="3"> <l>„Siehſt du“ — ſprach ſie — „in früherer Zeit</l><lb/>
+<l>War mir am meiſten theuer</l><lb/>
+<l>Der Sänger, der den Meſſias beſang</l><lb/>
+<l>Auf ſeiner frommen Leyer.</l><lb/>
+</lg>
+<pb n="119" facs="#f0139"/>
+<lg n="4"> <l>„Dort auf der Commode ſteht noch jetzt</l><lb/>
+<l>Die Büſte von meinem Klopſtock,</l><lb/>
+<l>Jedoch ſeit Jahren dient ſie mir</l><lb/>
+<l>Nur noch als Haubenkopfſtock.</l><lb/>
+</lg> <lg n="5"> <l>„Du biſt mein Liebling jetzt, es hängt</l><lb/>
+<l>Dein Bildniß zu Häupten des Bettes;</l><lb/>
+<l>Und ſiehſt du, ein friſcher Lorbeer umkränzt</l><lb/>
+<l>Den Rahmen des holden Portraites.</l><lb/>
+</lg> <lg n="6"> <l>„Nur daß du meine Söhne ſo oft</l><lb/>
+<l>Genergelt, ich muß es geſtehen,</l><lb/>
+<l>Hat mich zuweilen tief verletzt;</l><lb/>
+<l>Das darf nicht mehr geſchehen.</l><lb/>
+</lg> <lg n="7"> <l>„Es hat die Zeit dich hoffentlich</l><lb/>
+<l>Von ſolcher Unart geheilet,</l><lb/>
+<l>Und dir eine größere Toleranz</l><lb/>
+<l>Sogar für Narren ertheilet.</l><lb/>
+</lg>
+<pb n="120" facs="#f0140"/>
+<lg n="8"> <l>„Doch ſprich, wie kam der Gedanke dir</l><lb/>
+<l>Zu reiſen nach dem Norden</l><lb/>
+<l>In ſolcher Jahrzeit? Das Wetter iſt</l><lb/>
+<l>Schon winterlich geworden!“</l><lb/>
+</lg> <lg n="9"> <l>O, meine Göttin! — erwiederte ich —</l><lb/>
+<l>Es ſchlafen tief im Grunde</l><lb/>
+<l>Des Menſchenherzens Gedanken, die oft</l><lb/>
+<l>Erwachen zur unrechten Stunde.</l><lb/>
+</lg> <lg n="10"> <l>Es ging mir äußerlich ziemlich gut,</l><lb/>
+<l>Doch innerlich war ich beklommen,</l><lb/>
+<l>Und die Beklemmniß täglich wuchs —</l><lb/>
+<l>Ich hatte das Heimweh bekommen.</l><lb/>
+</lg> <lg n="11"> <l>Die ſonſt ſo leichte franzöſiſche Luft,</l><lb/>
+<l>Sie fing mich an zu drücken;</l><lb/>
+<l>Ich mußte Athem ſchöpfen hier</l><lb/>
+<l>In Deutſchland, um nicht zu erſticken.</l><lb/>
+</lg>
+<pb n="121" facs="#f0141"/>
+<lg n="12"> <l>Ich ſehnte mich nach Torfgeruch,</l><lb/>
+<l>Nach deutſchem Tabaksdampfe;</l><lb/>
+<l>Es bebte mein Fuß vor Ungeduld,</l><lb/>
+<l>Daß er deutſchen Boden ſtampfe.</l><lb/>
+</lg> <lg n="13"> <l>Ich ſeufzte des Nachts, und ſehnte mich,</l><lb/>
+<l>Daß ich ſie wiederſähe,</l><lb/>
+<l>Die alte Frau, die am Dammthor wohnt;</l><lb/>
+<l>Das Lottchen wohnt in der Nähe.</l><lb/>
+</lg> <lg n="14"> <l>Auch jenem edlen alten Herrn,</l><lb/>
+<l>Der immer mich ausgeſcholten</l><lb/>
+<l>Und immer großmüthig beſchützt, auch ihm</l><lb/>
+<l>Hat mancher Seufzer gegolten.</l><lb/>
+</lg> <lg n="15"> <l>Ich wollte wieder aus ſeinem Mund</l><lb/>
+<l>Vernehmen den „dummen Jungen!“</l><lb/>
+<l>Das hat mir immer wie Muſik</l><lb/>
+<l>Im Herzen nachgeklungen.</l><lb/>
+</lg>
+<pb n="122" facs="#f0142"/>
+<lg n="16"> <l>Ich ſehnte mich nach dem blauen Rauch,</l><lb/>
+<l>Der aufſteigt aus deutſchen Schornſteinen,</l><lb/>
+<l>Nach niederſächſiſchen Nachtigall'n,</l><lb/>
+<l>Nach ſtillen Buchenhainen.</l><lb/>
+</lg> <lg n="17"> <l>Ich ſehnte mich nach den Plätzen ſogar,</l><lb/>
+<l>Nach jenen Leidensſtazionen,</l><lb/>
+<l>Wo ich geſchleppt das Jugendkreuz</l><lb/>
+<l>Und meine Dornenkronen.</l><lb/>
+</lg> <lg n="18"> <l>Ich wollte weinen wo ich einſt</l><lb/>
+<l>Geweint die bitterſten Thränen —</l><lb/>
+<l>Ich glaube Vaterlandsliebe nennt</l><lb/>
+<l>Man dieſes thörigte Sehnen.</l><lb/>
+</lg> <lg n="19"> <l>Ich ſpreche nicht gern davon; es iſt</l><lb/>
+<l>Nur eine Krankheit im Grunde.</l><lb/>
+<l>Verſchämten Gemüthes, verberge ich ſtets</l><lb/>
+<l>Dem Publiko meine Wunde.</l><lb/>
+</lg>
+<pb n="123" facs="#f0143"/>
+<lg n="20"> <l>Fatal iſt mir das Lumpenpack,</l><lb/>
+<l>Das, um die Herzen zu rühren,</l><lb/>
+<l>Den Patriotismus trägt zur Schau</l><lb/>
+<l>Mit allen ſeinen Geſchwüren.</l><lb/>
+</lg> <lg n="21"> <l>Schamloſe ſchäbbige Bettler ſind's,</l><lb/>
+<l>Almoſen wollen ſie haben —</l><lb/>
+<l>Ein'n Pfennig Popularität</l><lb/>
+<l>Für Menzel und ſeine Schwaben!</l><lb/>
+</lg> <lg n="22"> <l>O meine Göttin, du haſt mich heut</l><lb/>
+<l>In weicher Stimmung gefunden;</l><lb/>
+<l>Bin etwas krank, doch pfleg' ich mich,</l><lb/>
+<l>Und ich werde bald geſunden.</l><lb/>
+</lg> <lg n="23"> <l>Ja ich bin krank, und du könnteſt mir</l><lb/>
+<l>Die Seele ſehr erfriſchen</l><lb/>
+<l>Durch eine gute Taſſe Thee;</l><lb/>
+<l>Du mußt ihn mit Rum vermiſchen.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="124" facs="#f0144"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XXV.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Die Göttin hat mir Thee gekocht</l><lb/>
+<l>Und Rum hineingegoſſen;</l><lb/>
+<l>Sie ſelber aber hat den Rum</l><lb/>
+<l>Ganz ohne Thee genoſſen.</l><lb/>
+</lg> <lg n="2"> <l>An meine Schulter lehnte ſie</l><lb/>
+<l>Ihr Haupt, (die Mauerkrone,</l><lb/>
+<l>Die Mütze, ward etwas zerknittert davon)</l><lb/>
+<l>Und ſie ſprach mit ſanftem Tone:</l><lb/>
+</lg> <lg n="3"> <l>„Ich dachte manchmal mit Schrecken dran,</l><lb/>
+<l>Daß du in dem ſittenloſen</l><lb/>
+<l>Paris ſo ganz ohne Aufſicht lebſt,</l><lb/>
+<l>Bei jenen frivolen Franzoſen.</l><lb/>
+</lg>
+<pb n="125" facs="#f0145"/>
+<lg n="4"> <l>„Du ſchlenderſt dort herum, und haſt</l><lb/>
+<l>Nicht mahl an deiner Seite</l><lb/>
+<l>Einen treuen deutſchen Verleger, der dich</l><lb/>
+<l>Als Mentor warne und leite.</l><lb/>
+</lg> <lg n="5"> <l>„Und die Verführung iſt dort ſo groß,</l><lb/>
+<l>Dort giebt es ſo viele Sylphiden,</l><lb/>
+<l>Die ungeſund, und gar zu leicht</l><lb/>
+<l>Verliert man den Seelenfrieden.</l><lb/>
+</lg> <lg n="6"> <l>„Geh' nicht zurück und bleib' bei uns;</l><lb/>
+<l>Hier herrſchen noch Zucht und Sitte,</l><lb/>
+<l>Und manches ſtille Vergnügen blüht</l><lb/>
+<l>Auch hier, in unſerer Mitte.</l><lb/>
+</lg> <lg n="7"> <l>„Bleib' bei uns in Deutſchland, es wird dir hier</l><lb/>
+<l>Jetzt beſſer als eh'mals munden;</l><lb/>
+<l>Wir ſchreiten fort, du haſt gewiß</l><lb/>
+<l>Den Fortſchritt ſelbſt gefunden.</l><lb/>
+</lg>
+<pb n="126" facs="#f0146"/>
+<lg n="8"> <l>„Auch die Cenſur iſt nicht mehr ſtreng,</l><lb/>
+<l>Hoffmann wird älter und milder,</l><lb/>
+<l>Und ſtreicht nicht mehr mit Jugendzorn</l><lb/>
+<l>Dir deine Reiſebilder.</l><lb/>
+</lg> <lg n="9"> <l>„Du ſelbſt biſt älter und milder jetzt,</l><lb/>
+<l>Wirſt dich in manches ſchicken,</l><lb/>
+<l>Und wirſt ſogar die Vergangenheit</l><lb/>
+<l>In beſſerem Lichte erblicken.</l><lb/>
+</lg> <lg n="10"> <l>„Ja, daß es uns früher ſo ſchrecklich ging,</l><lb/>
+<l>In Deutſchland, iſt Uebertreibung;</l><lb/>
+<l>Man konnte entrinnen der Knechtſchaft, wie einſt</l><lb/>
+<l>In Rom, durch Selbſtentleibung.</l><lb/>
+</lg> <lg n="11"> <l>„Gedankenfreiheit genoß das Volk,</l><lb/>
+<l>Sie war für die großen Maſſen,</l><lb/>
+<l>Beſchränkung traf nur die g'ringe Zahl</l><lb/>
+<l>Derjen'gen, die drucken laſſen.</l><lb/>
+</lg>
+<pb n="127" facs="#f0147"/>
+<lg n="12"> <l>„Geſetzloſe Willkür herrſchte nie,</l><lb/>
+<l>Dem ſchlimmſten Demagogen</l><lb/>
+<l>Ward niemals ohne Urtheilspruch</l><lb/>
+<l>Die Staatskokarde entzogen.</l><lb/>
+</lg> <lg n="13"> <l>„So übel war es in Deutſchland nie,</l><lb/>
+<l>Trotz aller Zeitbedrängniß —</l><lb/>
+<l>Glaub' mir, verhungert iſt nie ein Menſch</l><lb/>
+<l>In einem deutſchen Gefängniß.</l><lb/>
+</lg> <lg n="14"> <l>„Es blühte in der Vergangenheit</l><lb/>
+<l>So manche ſchöne Erſcheinung</l><lb/>
+<l>Des Glaubens und der Gemüthlichkeit;</l><lb/>
+<l>Jetzt herrſcht nur Zweifel, Verneinung.</l><lb/>
+</lg> <lg n="15"> <l>„Die praktiſche äußere Freiheit wird einſt</l><lb/>
+<l>Das Ideal vertilgen,</l><lb/>
+<l>Das wir im Buſen getragen — es war</l><lb/>
+<l>So rein wie der Traum der Liljen!</l><lb/>
+</lg>
+<pb n="128" facs="#f0148"/>
+<lg n="16"> <l>„Auch unſre ſchöne Poeſie</l><lb/>
+<l>Erliſcht, ſie iſt ſchon ein wenig</l><lb/>
+<l>Erloſchen; mit andern Königen ſtirbt</l><lb/>
+<l>Auch Freiligraths Mohrenkönig.</l><lb/>
+</lg> <lg n="17"> <l>„Der Enkel wird eſſen und trinken genug,</l><lb/>
+<l>Doch nicht in beſchaulicher Stille;</l><lb/>
+<l>Es poltert heran ein Spektakelſtück,</l><lb/>
+<l>Zu Ende geht die Idylle.</l><lb/>
+</lg> <lg n="18"> <l>„O, könnteſt du ſchweigen, ich würde dir</l><lb/>
+<l>Das Buch des Schickſals entſiegeln,</l><lb/>
+<l>Ich ließe dir ſpätere Zeiten ſeh'n</l><lb/>
+<l>In meinen Zauberſpiegeln.</l><lb/>
+</lg> <lg n="19"> <l>„Was ich den ſterblichen Menſchen nie</l><lb/>
+<l>Gezeigt, ich möcht' es dir zeigen:</l><lb/>
+<l>Die Zukunft deines Vaterlands —</l><lb/>
+<l>Doch ach! du kannſt nicht ſchweigen!“</l><lb/>
+</lg>
+<pb n="129" facs="#f0149"/>
+<lg n="20"> <l>Mein Gott, o Göttin! — rief ich entzückt —</l><lb/>
+<l>Das wäre mein größtes Vergnügen,</l><lb/>
+<l>Laß mich das künftige Deutſchland ſehn —</l><lb/>
+<l>Ich bin ein Mann und verſchwiegen.</l><lb/>
+</lg> <lg n="21"> <l>Ich will dir ſchwören jeden Eid,</l><lb/>
+<l>Den du nur magſt begehren,</l><lb/>
+<l>Mein Schweigen zu verbürgen dir —</l><lb/>
+<l>Sag an, wie ſoll ich ſchwören?</l><lb/>
+</lg> <lg n="22"> <l>Doch jene erwiederte: „Schwöre mir</l><lb/>
+<l>In Vater Abrahams Weiſe,</l><lb/>
+<l>Wie er Elieſern ſchwören ließ,</l><lb/>
+<l>Als dieſer ſich gab auf die Reiſe.</l><lb/>
+</lg> <lg n="23"> <l>„Heb' auf das Gewand und lege die Hand</l><lb/>
+<l>Hier unten an meine Hüften,</l><lb/>
+<l>Und ſchwöre mir Verſchwiegenheit</l><lb/>
+<l>In Reden und in Schriften!“</l><lb/>
+</lg> <fw type="sig" place="bottom">Heine's Deutſchland. 9<lb/>
+</fw>
+<pb n="130" facs="#f0150"/>
+<lg n="24"> <l>Ein feierlicher Moment! Ich war</l><lb/>
+<l>Wie angeweht vom Hauche</l><lb/>
+<l>Der Vorzeit, als ich ſchwur den Eid,</l><lb/>
+<l>Nach uraltem Erzväterbrauche.</l><lb/>
+</lg> <lg n="25"> <l>Ich hob das Gewand der Göttin auf,</l><lb/>
+<l>Und legte an ihre Hüften</l><lb/>
+<l>Die Hand, gelobend Verſchwiegenheit</l><lb/>
+<l>In Reden und in Schriften.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="131" facs="#f0151"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XXVI.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Die Wangen der Göttinn glühten ſo roth,</l><lb/>
+<l>(Ich glaube in die Krone</l><lb/>
+<l>Stieg ihr der Rum) und ſie ſprach zu mir</l><lb/>
+<l>In ſehr wehmüthigem Tone:</l><lb/>
+</lg> <lg n="2"> <l>„Ich werde alt. Geboren bin ich</l><lb/>
+<l>Am Tage von Hamburgs Begründung.</l><lb/>
+<l>Die Mutter war Schellfiſchköniginn</l><lb/>
+<l>Hier an der Elbe Mündung.</l><lb/>
+</lg> <lg n="3"> <l>„Mein Vater war ein großer Monarch,</l><lb/>
+<l>Carolus Magnus geheißen,</l><lb/>
+<l>Er war noch mächt'ger und klüger ſogar</l><lb/>
+<l>Als Friedrich der Große von Preußen.</l><lb/>
+</lg> <fw type="sig" place="bottom">9*<lb/>
+</fw>
+<pb n="132" facs="#f0152"/>
+<lg n="4"> <l>„Der Stuhl iſt zu Aachen, auf welchem er</l><lb/>
+<l>Am Tage der Krönung ruhte;</l><lb/>
+<l>Den Stuhl worauf er ſaß in der Nacht,</l><lb/>
+<l>Den erbte die Mutter, die gute.</l><lb/>
+</lg> <lg n="5"> <l>„Die Mutter hinterließ ihn mir,</l><lb/>
+<l>Ein Möbel von ſcheinloſem Aeußern,</l><lb/>
+<l>Doch böte mir Rothſchild all' ſein Geld,</l><lb/>
+<l>Ich würde ihn nicht veräußern.</l><lb/>
+</lg> <lg n="6"> <l>„Siehſt du, dort in dem Winkel ſteht</l><lb/>
+<l>Ein alter Seſſel, zerriſſen</l><lb/>
+<l>Das Leder der Lehne, von Mottenfraß</l><lb/>
+<l>Zernagt das Polſterkiſſen.</l><lb/>
+</lg> <lg n="7"> <l>„Doch gehe hin und hebe auf</l><lb/>
+<l>Das Kiſſen von dem Seſſel,</l><lb/>
+<l>Du ſchauſt eine runde Oeffnung dann,</l><lb/>
+<l>Darunter einen Keſſel —</l><lb/>
+</lg>
+<pb n="133" facs="#f0153"/>
+<lg n="8"> <l>„Das iſt ein Zauberkeſſel worin</l><lb/>
+<l>Die magiſchen Kräfte brauen,</l><lb/>
+<l>Und ſteckſt du in die Ründung den Kopf,</l><lb/>
+<l>So wirſt du die Zukunft ſchauen —</l><lb/>
+</lg> <lg n="9"> <l>„Die Zukunft Deutſchlands erblickſt du hier,</l><lb/>
+<l>Gleich wogenden Phantasmen,</l><lb/>
+<l>Doch ſchaudre nicht, wenn aus dem Wuſt</l><lb/>
+<l>Aufſteigen die Miasmen!“</l><lb/>
+</lg> <lg n="10"> <l>Sie ſprach’s und lachte ſonderbar,</l><lb/>
+<l>Ich aber ließ mich nicht ſchrecken,</l><lb/>
+<l>Neugierig eilte ich den Kopf</l><lb/>
+<l>In die furchtbare Ründung zu ſtecken.</l><lb/>
+</lg> <lg n="11"> <l>Was ich geſehn, verrathe ich nicht,</l><lb/>
+<l>Ich habe zu ſchweigen verſprochen,</l><lb/>
+<l>Erlaubt iſt mir zu ſagen kaum,</l><lb/>
+<l>O Gott! was ich gerochen! — — —</l><lb/>
+</lg>
+<pb n="134" facs="#f0154"/>
+<lg n="12"> <l>Ich denke mit Widerwillen noch</l><lb/>
+<l>An jene ſchnöden, verfluchten</l><lb/>
+<l>Vorſpielgerüche, das ſchien ein Gemiſch</l><lb/>
+<l>Von altem Kohl und Juchten.</l><lb/>
+</lg> <lg n="13"> <l>Entſetzlich waren die Düfte, o Gott!</l><lb/>
+<l>Die ſich nachher erhuben;</l><lb/>
+<l>Es war als fegte man den Miſt</l><lb/>
+<l>Aus ſechs und dreißig Gruben. — — —</l><lb/>
+</lg> <lg n="14"> <l>Ich weiß wohl was Saint-Juſt geſagt</l><lb/>
+<l>Weiland im Wohlfahrtsausſchuß:</l><lb/>
+<l>Man heile die große Krankheit nicht</l><lb/>
+<l>Mit Roſenöl und Moſchus —</l><lb/>
+</lg> <lg n="15"> <l>Doch dieſer deutſche Zukunftsduft</l><lb/>
+<l>Mocht alles überragen</l><lb/>
+<l>Was meine Naſe je geahnt —</l><lb/>
+<l>Ich konnt es nicht länger ertragen — — —</l><lb/>
+</lg>
+<pb n="135" facs="#f0155"/>
+<lg n="16"> <l>Mir ſchwanden die Sinne, und als ich aufſchlug</l><lb/>
+<l>Die Augen, ſaß ich an der Seite</l><lb/>
+<l>Der Göttin noch immer, es lehnte mein Haupt</l><lb/>
+<l>An ihre Bruſt, die breite.</l><lb/>
+</lg> <lg n="17"> <l>Es blitzte ihr Blick, es glühte ihr Mund,</l><lb/>
+<l>Es zuckten die Nüſtern der Naſe,</l><lb/>
+<l>Bachantiſch umſchlang ſie den Dichter und ſang</l><lb/>
+<l>Mit ſchauerlich wilder Extaſe:</l><lb/>
+</lg> <lg n="18"> <l>„Bleib bei mir in Hamburg, ich liebe dich,</l><lb/>
+<l>Wir wollen trinken und eſſen</l><lb/>
+<l>Den Wein und die Auſtern der Gegenwart,</l><lb/>
+<l>Und die dunkle Zukunft vergeſſen.</l><lb/>
+</lg> <lg n="19"> <l>„Den Deckel darauf! damit uns nicht</l><lb/>
+<l>Der Mißduft die Freude vertrübet —</l><lb/>
+<l>Ich liebe dich, wie je ein Weib</l><lb/>
+<l>Einen deutſchen Poeten geliebet!</l><lb/>
+</lg>
+<pb n="136" facs="#f0156"/>
+<lg n="20"> <l>„Ich küſſe dich, und ich fühle wie mich</l><lb/>
+<l>Dein Genius begeiſtert;</l><lb/>
+<l>Es hat ein wunderbarer Rauſch</l><lb/>
+<l>Sich meiner Seele bemeiſtert.</l><lb/>
+</lg> <lg n="21"> <l>„Mir iſt, als ob ich auf der Straß'</l><lb/>
+<l>Die Nachtwächter ſingen hörte —</l><lb/>
+<l>Es ſind Hymeneen, Hochzeitmuſik,</l><lb/>
+<l>Mein ſüßer Luſtgefährte!</l><lb/>
+</lg> <lg n="22"> <l>„Jetzt kommen die reitenden Diener auch,</l><lb/>
+<l>Mit üppig lodernden Fackeln,</l><lb/>
+<l>Sie tanzen ehrbar den Fackeltanz,</l><lb/>
+<l>Sie ſpringen und hüpfen und wackeln.</l><lb/>
+</lg> <lg n="23"> <l>„Es kommt der hoch- und wohlweiſe Senat,</l><lb/>
+<l>Es kommen die Oberalten;</l><lb/>
+<l>Der Bürgermeiſter räuſpert ſich</l><lb/>
+<l>Und will eine Rede halten.</l><lb/>
+</lg>
+<pb n="137" facs="#f0157"/>
+<lg n="24"> <l>„In glänzender Uniform erſcheint</l><lb/>
+<l>Das Corps der Diplomaten;</l><lb/>
+<l>Sie gratuliren mit Vorbehalt</l><lb/>
+<l>Im Namen der Nachbarſtaaten.</l><lb/>
+</lg> <lg n="25"> <l>„Es kommt die geiſtliche Deputazion,</l><lb/>
+<l>Rabiner und Paſtöre —</l><lb/>
+<l>Doch ach! da kommt der Hoffmann auch</l><lb/>
+<l>Mit ſeiner Cenſorſcheere!</l><lb/>
+</lg> <lg n="26"> <l>„Die Scheere klirrt in ſeiner Hand,</l><lb/>
+<l>Es rückt der wilde Geſelle</l><lb/>
+<l>Dir auf den Leib — Er ſchneidet in’s Fleiſch —</l><lb/>
+<l>Es war die beſte Stelle.“</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="138" facs="#f0158"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Caput</hi> <hi rendition="#aq #b">XXVII.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>Was ſich in jener Wundernacht</l><lb/>
+<l>Des Weitern zugetragen,</l><lb/>
+<l>Erzähl’ ich Euch einandermahl,</l><lb/>
+<l>In warmen Sommertagen.</l><lb/>
+</lg> <lg n="2"> <l>Das alte Geſchlecht der Heucheley</l><lb/>
+<l>Verſchwindet Gott ſey Dank heut,</l><lb/>
+<l>Es ſinkt allmählig in’s Grab, es ſtirbt</l><lb/>
+<l>An ſeiner Lügenkrankheit.</l><lb/>
+</lg> <lg n="3"> <l>Es wächſt heran ein neues Geſchlecht,</l><lb/>
+<l>Ganz ohne Schminke und Sünden,</l><lb/>
+<l>Mit freien Gedanken, mit freier Luſt —</l><lb/>
+<l>Dem werde ich Alles verkünden.</l><lb/>
+</lg>
+<pb n="139" facs="#f0159"/>
+<lg n="4"> <l>Schon knoſpet die Jugend, welche verſteht</l><lb/>
+<l>Des Dichters Stolz und Güte,</l><lb/>
+<l>Und ſich an ſeinem Herzen wärmt,</l><lb/>
+<l>An ſeinem Sonnengemüthe.</l><lb/>
+</lg> <lg n="5"> <l>Mein Herz iſt liebend wie das Licht,</l><lb/>
+<l>Und rein und keuſch wie das Feuer;</l><lb/>
+<l>Die edelſten Grazien haben geſtimmt</l><lb/>
+<l>Die Saiten meiner Leyer.</l><lb/>
+</lg> <lg n="6"> <l>Es iſt dieſelbe Leyer, die einſt</l><lb/>
+<l>Mein Vater ließ ertönen,</l><lb/>
+<l>Der ſelige Herr Ariſtophanes,</l><lb/>
+<l>Der Liebling der Kamönen.</l><lb/>
+</lg> <lg n="7"> <l>Es iſt die Leyer, worauf er einſt</l><lb/>
+<l>Den Paiſteteros beſungen,</l><lb/>
+<l>Der um die Baſileia gefreyt,</l><lb/>
+<l>Mit ihr ſich emporgeſchwungen.</l><lb/>
+</lg>
+<pb n="140" facs="#f0160"/>
+<lg n="8"> <l>Im letzten Capitel hab' ich verſucht</l><lb/>
+<l>Ein bischen nachzuahmen</l><lb/>
+<l>Den Schluß der „Vögel“, die ſind gewiß</l><lb/>
+<l>Das beſte von Vaters Dramen.</l><lb/>
+</lg> <lg n="9"> <l>Die „Fröſche“ ſind auch vortrefflich. Man giebt</l><lb/>
+<l>In deutſcher Ueberſetzung</l><lb/>
+<l>Sie jetzt auf der Bühne von Berlin,</l><lb/>
+<l>Zu königlicher Ergetzung.</l><lb/>
+</lg> <lg n="10"> <l>Der König liebt das Stück. Das zeugt</l><lb/>
+<l>Von gutem antiquen Geſchmacke;</l><lb/>
+<l>Den Alten amüſirte weit mehr</l><lb/>
+<l>Modernes Froſchgequacke.</l><lb/>
+</lg> <lg n="11"> <l>Der König liebt das Stück. Jedoch</l><lb/>
+<l>Wär' noch der Autor am Leben,</l><lb/>
+<l>Ich riethe ihm nicht ſich in Perſon</l><lb/>
+<l>Nach Preußen zu begeben.</l><lb/>
+</lg>
+<pb n="141" facs="#f0161"/>
+<lg n="12"> <l>Dem wirklichen Ariſtophanes,</l><lb/>
+<l>Dem ginge es ſchlecht, dem Armen;</l><lb/>
+<l>Wir würden ihn bald begleitet ſehn</l><lb/>
+<l>Mit Chören von Gensd’armen.</l><lb/>
+</lg> <lg n="13"> <l>Der Pöbel bekäm’ die Erlaubniß bald</l><lb/>
+<l>Zu ſchimpfen ſtatt zu wedeln;</l><lb/>
+<l>Die Polizei erhielte Befehl</l><lb/>
+<l>Zu fahnden auf den Edeln.</l><lb/>
+</lg> <lg n="14"> <l>O König! Ich meine es gut mit dir,</l><lb/>
+<l>Und will einen Rath dir geben:</l><lb/>
+<l>Die todten Dichter, verehre ſie nur,</l><lb/>
+<l>Doch ſchone die da leben.</l><lb/>
+</lg> <lg n="15"> <l>Beleid'ge lebendige Dichter nicht,</l><lb/>
+<l>Sie haben Flammen und Waffen,</l><lb/>
+<l>Die furchtbarer ſind als Jovis Blitz,</l><lb/>
+<l>Den ja der Poet erſchaffen.</l><lb/>
+</lg>
+<pb n="142" facs="#f0162"/>
+<lg n="16"> <l>Beleid'ge die Götter, die alten und neu'n,</l><lb/>
+<l>Des ganzen Olymps Gelichter,</l><lb/>
+<l>Und den höchſten Jehovah obendrein —</l><lb/>
+<l>Beleid'ge nur nicht den Dichter!</l><lb/>
+</lg> <lg n="17"> <l>Die Götter beſtrafen freilich ſehr hart</l><lb/>
+<l>Des Menſchen Miſſethaten,</l><lb/>
+<l>Das Höllenfeuer iſt ziemlich heiß,</l><lb/>
+<l>Dort muß man ſchmoren und braten —</l><lb/>
+</lg> <lg n="18"> <l>Doch Heilige giebt es, die aus der Glut</l><lb/>
+<l>Losbeten den Sünder; durch Spenden</l><lb/>
+<l>An Kirchen und Seelenmeſſen wird</l><lb/>
+<l>Erworben ein hohes Verwenden.</l><lb/>
+</lg> <lg n="19"> <l>Und am Ende der Tage kommt Chriſtus herab</l><lb/>
+<l>Und bricht die Pforten der Hölle;</l><lb/>
+<l>Und hält er auch ein ſtrenges Gericht,</l><lb/>
+<l>Entſchlüpfen wird mancher Geſelle.</l><lb/>
+</lg>
+<pb n="143" facs="#f0163"/>
+<lg n="20"> <l>Doch giebt es Höllen aus deren Haft</l><lb/>
+<l>Unmöglich jede Befreiung;</l><lb/>
+<l>Hier hilft kein Beten, ohnmächtig iſt hier</l><lb/>
+<l>Des Welterlöſers Verzeihung.</l><lb/>
+</lg> <lg n="21"> <l>Kennſt du die Hölle des Dante nicht,</l><lb/>
+<l>Die ſchrecklichen Terzetten?</l><lb/>
+<l>Wen da der Dichter hineingeſperrt,</l><lb/>
+<l>Den kann kein Gott mehr retten.</l><lb/>
+</lg> <lg n="22"> <l>Kein Gott, kein Heiland, erlöſt ihn je</l><lb/>
+<l>Aus dieſen ſingenden Flammen!</l><lb/>
+<l>Nimm dich in Acht, daß wir dich nicht</l><lb/>
+<l>Zu ſolcher Hölle verdammen.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> </div> </div>
+<pb facs="#f0164"/>
+<pb facs="#f0165"/>
+<pb facs="#f0166"/>
+</body> <back> <div type="imprint">     <p rendition="#c">H. G. Voigt's Buchdruckerei.</p><lb/>
+</div>
+<pb facs="#f0167"/>
+<pb facs="#f0168"/>
+<pb facs="#f0169"/>
+</back> </text> </TEI>

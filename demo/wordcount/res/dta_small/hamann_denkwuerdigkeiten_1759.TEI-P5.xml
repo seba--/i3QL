@@ -1,0 +1,1518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Sokratische Denkwürdigkeiten für die lange Weile des Publicums</title>
+<title type="sub">zusammengetragen von einem Liebhaber der langen Weile</title>
+<title type="sub">Mit einer doppelten Zuschrift an Niemand und an Zween</title>
+<author>
+<persName ref="http://d-nb.info/gnd/11854523X">
+<surname>Hamann</surname>
+<forename>Johann Georg</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">74</measure>
+<measure type="tokens">7254</measure>
+<measure type="types">2606</measure>
+<measure type="characters">52178</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:34Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/hamann_denkwuerdigkeiten_1759</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/hamann_denkwuerdigkeiten_1759</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/hamann_denkwuerdigkeiten_1759</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/hamann_denkwuerdigkeiten_1759</idno>
+<idno type="DTADirName">hamann_denkwuerdigkeiten_1759</idno>
+<idno type="DTAID">20244</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Hamann, Johann Georg: Sokratische Denkwürdigkeiten. Amsterdam [i.e. Königsberg], 1759.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Sokratische Denkwürdigkeiten für die lange Weile des Publicums</title>
+<title level="m" type="sub">zusammengetragen von einem Liebhaber der langen Weile</title>
+<title level="m" type="sub">Mit einer doppelten Zuschrift an Niemand und an Zween</title>
+<author>
+<persName ref="http://d-nb.info/gnd/11854523X">
+<surname>Hamann</surname>
+<forename>Johann Georg</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">64 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Hartung</name></publisher>
+<pubPlace>Königsberg</pubPlace>
+<date type="publication">1759</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>HAB Wolfenbüttel</repository>
+<idno>
+<idno type="shelfmark">HAB Wolfenbüttel, M: Lo 2543.1</idno>
+<idno type="URLCatalogue">Dig: http://diglib.hab.de/drucke/lo-2543-1/start.htm</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb n="[1]" facs="#f0005"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b">Sokratiſche<lb/>
+Denkwuͤrdigkeiten</hi><lb/>
+</titlePart> </docTitle> <docTitle> <titlePart type="sub"> fuͤr die lange Weile<lb/>
+<hi rendition="#b"><hi rendition="#g">des Publicums</hi></hi><lb/>
+zuſammengetragen<lb/>
+<hi rendition="#g"><hi rendition="#b">von einem Liebhaber</hi><lb/>
+der langen Weile.</hi><lb/>
+</titlePart> </docTitle> <milestone unit="section" rendition="#hr"/><lb/>
+<docTitle> <titlePart type="desc"> Mit<lb/>
+einer doppelten Zuſchrift<lb/>
+<hi rendition="#b">an Niemand und an Zween.</hi><lb/>
+</titlePart> </docTitle> <milestone unit="section" rendition="#hr"/><lb/>
+<epigraph><cit><quote> <hi rendition="#aq">O curas hominum! o quantum eſt in rebus inane!<lb/>
+Quis leget haec? ‒ ‒ ‒ Min’ tu iſtud ais? ‒ ‒<lb/>
+Nemo hercule ‒ ‒ Nemo? ‒<lb/>
+Vel DVO vel NEMO ‒ ‒ ‒</hi></quote><lb/>
+<bibl><hi rendition="#aq"><hi rendition="#et"/><hi rendition="#g">PERS.</hi></hi></bibl></cit></epigraph><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace><hi rendition="#g">Amſterdam</hi></pubPlace>,<docDate><hi rendition="#g"> 1759</hi></docDate>.<lb/>
+</docImprint> </titlePage> </front><body>
+<pb n="[2]" facs="#f0006"/>
+<pb n="[3]" facs="#f0007"/>
+<div n="1"><head><hi rendition="#b">An das Publicum,</hi><lb/>
+oder<lb/>
+<hi rendition="#b">Niemand, den Kundbaren.</hi></head><lb/>
+<pb n="[4]" facs="#f0008"/>
+<pb n="[5]" facs="#f0009"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p><hi rendition="#fr"><hi rendition="#in">D</hi>u</hi> fuͤhrſt einen Na-<lb/>
+men, und brauchſt kei-<lb/>
+nen Beweis <hi rendition="#fr">Deines</hi> Daſeyns, <hi rendition="#fr">Du</hi><lb/>
+findeſt Glauben, und thuſt keine<lb/>
+Zeichen denſelben zu verdienen, <hi rendition="#fr">Du</hi><lb/>
+erhaͤltſt Ehre, und haſt weder Be-<lb/>
+grif noch Gefuͤhl davon. <hi rendition="#fr">Wir<lb/>
+wiſſen, daß es keinen Goͤtzen in<lb/>
+der Welt giebt.</hi> Ein Menſch<lb/>
+biſt <hi rendition="#fr">Du</hi> auch nicht; doch muſt <hi rendition="#fr">Du</hi><lb/>
+ein menſchlich Bild ſeyn, das der<lb/>
+Aberglaube vergoͤttert hat. Es<lb/>
+fehlt <hi rendition="#fr">Dir</hi> nicht an Augen und Oh-<lb/>
+ren, die aber nicht ſehen, nicht hoͤ-<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">ren;</fw><lb/>
+<pb n="6" facs="#f0010"/>
+ren; und das kuͤnſtliche Auge, das<lb/>
+<hi rendition="#fr">Du</hi> machſt, das kuͤnſtliche Ohr, das<lb/>
+<hi rendition="#fr">Du</hi> pflanzeſt, iſt, gleich den <hi rendition="#fr">Dei-<lb/>
+nigen,</hi> blind und taub. <hi rendition="#fr">Du</hi> muſt<lb/>
+alles wiſſen, und lernſt nichts; <hi rendition="#fr">Du</hi><lb/>
+muſt alles richten, und verſtehſt nichts.<lb/>
+<hi rendition="#fr">Du</hi> dichteſt, haſt zu ſchaffen, biſt uͤ-<lb/>
+ber Feld, oder ſchlaͤfſt vielleicht, wenn<lb/>
+<hi rendition="#fr">Deine</hi> Prieſter laut ruffen, und<lb/>
+<hi rendition="#fr">Du</hi> ihnen und ihrem Spoͤtter mit<lb/>
+Feuer antworten ſollteſt. <hi rendition="#fr">Dir</hi> wer-<lb/>
+den taͤglich Opfer gebracht, die an-<lb/>
+dere auf <hi rendition="#fr">Deine</hi> Rechnung verzeh-<lb/>
+ren, um aus <hi rendition="#fr">Deinen</hi> ſtarken Mahl-<lb/>
+zeiten <hi rendition="#fr">Dein</hi> Leben wahrſcheinlich zu<lb/>
+machen. So eckel <hi rendition="#fr">Du</hi> biſt, nimmſt<lb/>
+<hi rendition="#fr">Du</hi> doch mit allem fuͤr lieb, wenn<lb/>
+man nur nicht leer vor <hi rendition="#fr">Dir</hi> erſcheint.<lb/>
+<fw type="catch" place="bottom">Jch</fw><lb/>
+<pb n="7" facs="#f0011"/>
+Jch werfe mich wie der Philoſoph<lb/>
+zu den erhoͤrenden Fuͤſſen eines Ty-<lb/>
+rannen. Meine Gabe beſteht in<lb/>
+nichts als Kuͤchlein, von denen ein<lb/>
+Gott, wie <hi rendition="#fr">Du,</hi> einſt <hi rendition="#fr">barſt.</hi> Ueber-<lb/>
+laß ſie daher einem Paar <hi rendition="#fr">Deiner</hi><lb/>
+Anbeter, die ich durch dieſe Pillen<lb/>
+von dem Dienſt <hi rendition="#fr">Deiner Eitelkeit</hi><lb/>
+zu reinigen wuͤnſche.</p><lb/>
+<p>Weil <hi rendition="#fr">Du</hi> die Zuͤge menſchlicher<lb/>
+Unwiſſenheit und Neugierde an <hi rendition="#fr">Dei-<lb/>
+nem</hi> Geſichte traͤgſt; ſo will ich <hi rendition="#fr">Dir</hi><lb/>
+beichten, wer die <hi rendition="#fr">Zween</hi> ſind, de-<lb/>
+nen ich durch <hi rendition="#fr">Deine</hi> Haͤnde dieſen<lb/>
+frommen Betrug ſpielen will. Der<lb/>
+erſte arbeitet am Stein der Weiſen,<lb/>
+wie ein Menſchenfreund, der ihn fuͤr<lb/>
+ein Mittel anſieht, den Fleiß, die<lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">buͤr-</fw><lb/>
+<pb n="8" facs="#f0012"/>
+buͤrgerliche Tugenden und das Wohl<lb/>
+des gemeinen Weſens zu befoͤrdern.<lb/>
+Jch habe fuͤr ihn in der myſtiſchen<lb/>
+Sprache eines Sophiſten geſchrie-<lb/>
+ben; weil Weisheit immer das ver-<lb/>
+borgenſte Geheimnis der Politick<lb/>
+bleiben wird, wenn gleich die Alchy-<lb/>
+mie zu ihren Zweck kommt, alle die<lb/>
+Menſchen reich zu machen, welche<lb/>
+durch des Marqvis von Mirabeau<lb/>
+fruchtbare Maximen bald! Frank-<lb/>
+reich bevoͤlkern muͤſſen. Nach dem<lb/>
+heutigen Plan der Welt bleibt die<lb/>
+Kunſt Gold zu machen alſo mit<lb/>
+Recht das hoͤchſte Project und hoͤch-<lb/>
+ſte Gut unſerer Staatsklugen.</p><lb/>
+<p>Der andere moͤchte einen ſo all-<lb/>
+gemeinen Weltweiſen und guten<lb/>
+<fw type="catch" place="bottom">Muͤnz-</fw><lb/>
+<pb n="9" facs="#f0013"/>
+Muͤnzwaradein abgeben, als New-<lb/>
+ton war. Kein Theil der Kritick<lb/>
+iſt ſicherer, als die man fuͤr Gold<lb/>
+und Silber erfunden hat. Daher<lb/>
+kann die Verwirrung in dem Muͤnz-<lb/>
+weſen Deutſchlands ſo groß nicht<lb/>
+ſeyn, als die in die Lehrbuͤcher ein-<lb/>
+geſchlichen, ſo unter uns gaͤng und<lb/>
+gebe ſind. Es fehlt uns an richti-<lb/>
+gen Verhaͤltnis-Tabellen, die uns<lb/>
+beſtimmen, wie vielloͤthig eine Wahr-<lb/>
+heit ſeyn muͤſſe, und wie viel an ei-<lb/>
+nem Einfall fehlet, wenn er eine<lb/>
+Wahrheit gelten ſoll u. ſ. w.</p><lb/>
+<p>Weil dieſe Kuͤchlein nicht gekaut,<lb/>
+ſondern geſchluckt werden muͤſſen,<lb/>
+gleich denenjenigen, ſo die Cosmiſche<lb/>
+Familie zu Florenz in ihr Wapen<lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">auf-</fw><lb/>
+<pb n="10" facs="#f0014"/>
+aufnahm; ſo ſind ſie nicht fuͤr den<lb/>
+Geſchmack gemacht. Was ihre<lb/>
+Wirkungen anbetrift; ſo lernte bey<lb/>
+einem aͤhnlichen Gefuͤhl derſelben<lb/>
+Veſpaſian zuerſt das Gluͤck <hi rendition="#fr">Deines<lb/>
+Namens</hi> erkennen, und ſoll auf ei-<lb/>
+nem Stuhl, der nicht ſein Thron<lb/>
+war, ausgeruffen haben: <hi rendition="#aq"><hi rendition="#g">VTI<lb/>
+PVTO, DEVS FIO!</hi></hi></p><lb/>
+<figure/></div> <fw type="catch" place="bottom">An</fw><lb/>
+<pb n="[11]" facs="#f0015"/>
+<div n="1"><head>An die<lb/>
+<hi rendition="#b"><hi rendition="#g">Zween.</hi></hi></head><lb/>
+<pb n="[12]" facs="#f0016"/>
+<pb n="[13]" facs="#f0017"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<figure/> <p><hi rendition="#in">D</hi>as Publicum in Griechenland<lb/>
+laß die Denkwuͤrdigkeiten des<lb/>
+Ariſtoteles uͤber die Naturge-<lb/>
+ſchichte der Thiere, und Alexander ver-<lb/>
+ſtand ſie. Wo ein gemeiner Leſer nichts<lb/>
+als <hi rendition="#fr">Schimmel</hi> ſehen moͤchte, wird<lb/>
+der Affect der Freundſchaft Jhnen,<lb/>
+Meine Herren, in dieſen Blaͤttern viel-<lb/>
+leicht ein mikroſkopiſch Waͤldchen ent-<lb/>
+decken.</p><lb/>
+<p>Jch habe uͤber den Sokrates auf<lb/>
+eine ſokratiſche Art geſchrieben. <hi rendition="#fr">Die<lb/>
+Analogie</hi> war die Seele ſeiner Schluͤſ-<lb/>
+<fw type="catch" place="bottom">ſe,</fw><lb/>
+<pb n="14" facs="#f0018"/>
+ſe, und er gab ihnen die <hi rendition="#fr">Jronie</hi> zu<lb/>
+ihrem Leibe. Ungewißheit und Zuver-<lb/>
+ſicht moͤgen mir ſo eigenthuͤmlich ſeyn<lb/>
+als ſie wollen; ſo muͤſſen ſie hier doch<lb/>
+als aͤſthetiſche Nachahmungen betrach-<lb/>
+tet werden.</p><lb/>
+<p>Jn den Werken des <hi rendition="#fr">Xenophons</hi><lb/>
+herrſcht eine aberglaͤubiſche, und in<lb/>
+<hi rendition="#fr">Platons</hi> eine ſchwaͤrmeriſche Andacht;<lb/>
+eine Ader aͤhnlicher Empfindungen laͤuft<lb/>
+daher durch alle Theile dieſer mimi-<lb/>
+ſchen Arbeit. Es wuͤrde mir am leich-<lb/>
+teſten geweſen ſeyn denen <hi rendition="#fr">Heyden</hi> in<lb/>
+ihrer Freymuͤthigkeit hierin naͤher zu<lb/>
+kommen; ich habe mich aber bequemen<lb/>
+muͤſſen meiner Religion den Schleyer<lb/>
+<fw type="catch" place="bottom">zu</fw><lb/>
+<pb n="15" facs="#f0019"/>
+zu borgen, den ein patriotiſcher <hi rendition="#fr">St.<lb/>
+John</hi> und platoniſcher <hi rendition="#fr">Shaftesbury</hi><lb/>
+fuͤr ihren Unglauben und Misglauben<lb/>
+gewebt haben.</p><lb/>
+<p>Sokrates war, meine Herren, kein<lb/>
+gemeiner Kunſtrichter. Er unterſchied<lb/>
+in den Schriften des Heraklitus, das-<lb/>
+jenige, was er nicht verſtand, von dem,<lb/>
+was er darin verſtand, und that eine<lb/>
+ſehr billige und beſcheidene Vermuthung<lb/>
+von dem Verſtaͤndlichen auf das Un-<lb/>
+verſtaͤndliche. Bey dieſer Gelegenheit<lb/>
+redete Sokrates von <hi rendition="#fr">Leſern,</hi> welche<lb/>
+<hi rendition="#fr">ſchwimmen</hi> koͤnnten. Ein Zuſam-<lb/>
+menfluß von Jdeen und Empfindun-<lb/>
+gen in dieſer lebenden <hi rendition="#fr">Elegie</hi> vom<lb/>
+<fw type="catch" place="bottom">Phi-</fw><lb/>
+<pb n="16" facs="#f0020"/>
+Philoſophen machte deſſelben Saͤtze viel-<lb/>
+leicht zu einer Menge kleiner Jnſeln,<lb/>
+zu deren Gemeinſchaft <hi rendition="#fr">Bruͤcken</hi> und<lb/>
+Faͤhren der Methode fehlten.</p><lb/>
+<p>Da Sie beyde meine Freunde ſind;<lb/>
+ſo wird mir Jhr partheyiſch Lob und<lb/>
+Jhr partheyiſcher Tadel gleich ange-<lb/>
+nehm ſeyn. Jch bin ꝛc.</p><lb/>
+<figure/> <fw type="catch" place="bottom"><hi rendition="#b">Sokra-</hi></fw><lb/>
+<pb n="[17]" facs="#f0021"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Sokratiſche<lb/>
+Denkwuͤrdigkeiten.</hi></hi></head><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="3"><head>Einleitung.</head><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<figure/> <p>Der Geſchichte der Philoſophie iſt es<lb/>
+wie der Bildſaͤule des franzoͤſi-<lb/>
+ſchen Staatsminiſters ergan-<lb/>
+gen. Ein groſſer Kuͤnſtler zeigte ſeinen Meiſ-<lb/>
+ſel daran; ein Monarch, der <hi rendition="#fr">Name</hi> eines<lb/>
+ganzen Jahrhunderts, gab die Unkoſten zum<lb/>
+Denkmal und bewunderte das Geſchoͤpf ſei-<lb/>
+nes Unterthauen; der Scythe aber, der auf<lb/>
+ſein Handwerk reiſete, und wie Noah oder<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">der</fw><lb/>
+<pb n="18" facs="#f0022"/>
+der Galilaͤer des Projektmachers, Julians,<lb/>
+ein <hi rendition="#fr">Zimmermann</hi> wurde, um der Gott ſei-<lb/>
+nes Volks zu ſeyn, dieſer Scythe begieng ei-<lb/>
+ne Schwachheit, deren Andenken ihn allein<lb/>
+verewigen koͤnnte. Er lief auf den Marmor<lb/>
+zu, both grosmuͤthig dem Stein die Haͤlfte<lb/>
+ſeines weiten Reichs an, wenn er ihn lehren<lb/>
+wollte, die andere Haͤlfte zu regieren. Sollte<lb/>
+unſere Hiſtorie Mythologie werden; ſo wird<lb/>
+dieſe Umarmung eines lebloſen Lehrers, der<lb/>
+ohne Eigennutz Wunder der Erfuͤllung ge-<lb/>
+than, in ein Maͤhrchen verwandelt ſeyn, das<lb/>
+den Reliquien von Pygmalions Leben aͤhn-<lb/>
+lich ſehen wird. Ein <hi rendition="#fr">Schoͤpfer ſeines Vol-<lb/>
+kes</hi> in der Sprache unſers Witzes wird nach<lb/>
+einer undenklichen Zeit eben ſo poetiſch ver-<lb/>
+ſtanden werden muͤſſen, als ein <hi rendition="#fr">Bildhauer<lb/>
+ſeines Weibes.</hi></p><lb/>
+<p>Es giebt in dem Tempel der Gelehrſam-<lb/>
+keit wuͤrklich einen Goͤtzen, der unter ſeinem<lb/>
+<fw type="catch" place="bottom">Bilde</fw><lb/>
+<pb n="19" facs="#f0023"/>
+Bilde die Aufſchrift der <hi rendition="#fr">philoſophiſchen<lb/>
+Geſchichte</hi> traͤgt; und dem es an Hohen-<lb/>
+prieſtern und Leviten nicht gefehlt. <hi rendition="#fr">Stanley</hi><lb/>
+und <hi rendition="#fr">Brucker</hi> haben uns Koloſſen geliefert,<lb/>
+die eben ſo ſonderbar und unvollendet ſind<lb/>
+als jenes Bild der Schoͤnheit, das ein Grie-<lb/>
+che aus den Reitzen aller Schoͤnen, deren<lb/>
+Eindruck ihm Abſicht und Zufall verſchaffen<lb/>
+konnte, zuſammenſetzte. Meiſterſtuͤcke, die<lb/>
+von <hi rendition="#fr">gelehrten</hi> Kennern der Kuͤnſte immer<lb/>
+ſehr moͤchten bewundert und <hi rendition="#fr">geſucht;</hi> von<lb/>
+Klugen hingegen als abentheuerliche Gewaͤch-<lb/>
+ſe und Chimaͤren in der Stille belacht oder<lb/>
+auch fuͤr die lange Weile und in theatrali-<lb/>
+ſchen Zeichnungen nachgeahmt werden.</p><lb/>
+<p>Weil <hi rendition="#fr">Stanley</hi> ein Englaͤnder und <hi rendition="#fr">Bru-<lb/>
+cker</hi> ein Schwabe iſt: ſo haben ſie beyde die<lb/>
+lange Weile des Publicums zu ihrem Ruhm<lb/>
+vertrieben; wiewohl das Publicum auch fuͤr<lb/>
+die Gefaͤlligkeit, womit es die ungleichen Feh-<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">ler</fw><lb/>
+<pb n="20" facs="#f0024"/>
+ler dieſer Nationalſchriftſteller uͤberſehen, ge-<lb/>
+lobt zu werden verdient.</p><lb/>
+<p><hi rendition="#fr">Deslandes,</hi> ein Autor von encyclopiſchen<lb/>
+Witz hat eine chineſiſche Kaminpuppe fuͤr<lb/>
+das Kabinet des gallicaniſchen Geſchmacks<lb/>
+hervorgebracht. Der Schoͤpfer der <hi rendition="#fr">ſchoͤnen<lb/>
+Natur</hi> ſcheint die groͤſten Koͤpfe Frankreichs,<lb/>
+wie Jupiter ehmals die Cyclopen zur Schmie-<lb/>
+de der Strahlen und Schwaͤrmer verdammt<lb/>
+zu haben, die er zum tauben Wetterleuchten<lb/>
+und aͤtheriſchen Feuerwerken noͤthig hat.</p><lb/>
+<p>Aus denen Urtheilen, die ich uͤber alle die-<lb/>
+ſe ehrliche und feine Verſuche ein kritiſch Sy-<lb/>
+ſtem der philoſophiſchen Geſchichte zu ma-<lb/>
+chen, gefaͤllt, laͤßt ſich mehr als wahrſchein-<lb/>
+lich ſchluͤßen, daß ich keines davon geleſen;<lb/>
+ſondern blos den Schwung und Ton des ge-<lb/>
+lehrten Haufens nachzuahmen, und denen-<lb/>
+jenigen, zu deren Beſten ich ſchreibe, durch<lb/>
+ihre Nachahmung zu ſchmaͤucheln ſuche. Un-<lb/>
+<fw type="catch" place="bottom">ter-</fw><lb/>
+<pb n="21" facs="#f0025"/>
+terdeſſen glaube ich zuverlaͤßiger, daß unſere<lb/>
+Philoſophie eine andere Geſtalt nothwendig<lb/>
+haben muͤſte, wenn man die Schickſale dieſes<lb/>
+Namens oder Wortes: <hi rendition="#fr">Philoſophie,</hi> nach<lb/>
+den Schattierungen der Zeiten, Koͤpfe, Ge-<lb/>
+ſchlechter und Voͤlker, nicht wie ein Gelehr-<lb/>
+ter oder Weltweiſer ſelbſt, ſondern als ein<lb/>
+muͤßiger <note place="foot" n="*)">Ein Menſch <hi rendition="#fr">ohne Geſchaͤfte</hi> heißt auf grie-<lb/>
+chiſch <hi rendition="#fr">Argus.</hi></note> Zuſchauer ihrer olympiſchen Spie-<lb/>
+le ſtudiert haͤtte oder zu ſtudieren wuͤſte.</p><lb/>
+<p>Ein <hi rendition="#fr">Phrygier,</hi> wie Aeſop, der ſich nach<lb/>
+den Geſetzen ſeines <hi rendition="#fr">Klima,</hi> wie man jetzt<lb/>
+redt, Zeit nehmen muſte, klug zu werden,<lb/>
+und ein ſo natuͤrlicher Tropf, als ein <hi rendition="#aq">La<lb/>
+Fontaine,</hi> der ſich beſſer in die Denkungs-<lb/>
+art der Thiere als der Menſchen zu ſchicken<lb/>
+und zu verwandeln wuſte, wuͤrden uns an<lb/>
+ſtatt gemalter Philoſophen oder ihrer zierlich<lb/>
+verſtuͤmmelter Bruſtbilder, ganz andere Ge-<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">ſchoͤpfe</fw><lb/>
+<pb n="22" facs="#f0026"/>
+ſchoͤpfe zeigen, und ihre Sitten und Spruͤ-<lb/>
+che, die Legenden ihrer Lehren und Thaten<lb/>
+mit Farben nachahmen, die dem Leben naͤ-<lb/>
+her kaͤmen.</p><lb/>
+<p>Doch ſind vielleicht die philoſophiſchen<lb/>
+Chroniken und Bildergallerien weniger zu ta-<lb/>
+deln, als der ſchlechte Gebrauch, den ih-<lb/>
+re Liebhaber davon machen. Ein wenig<lb/>
+Schwaͤrmerey und Aberglauben wuͤrde hier<lb/>
+nicht nur Nachſicht verdienen, ſondern et-<lb/>
+was von dieſem Sauerteige gehoͤrt dazu, um<lb/>
+die Seele zu einem philoſophiſchen Herois-<lb/>
+mus in Gaͤhrung zu ſetzen. Ein brennen-<lb/>
+der Ehrgeitz nach Wahrheit und Tugend,<lb/>
+und eine Eroberungswuth aller Luͤgen und<lb/>
+Laſter, die naͤmlich <hi rendition="#fr">nicht</hi> dafuͤr erkannt wer-<lb/>
+den, noch ſeyn wollen; hierinn beſteht der<lb/>
+Heldengeiſt eines Weltweiſen.</p><lb/>
+<p>Wenn Caͤſar Traͤhnen vergießt bey der<lb/>
+Saͤule des macedoniſchen Juͤnglings, und<lb/>
+<fw type="catch" place="bottom">die-</fw><lb/>
+<pb n="23" facs="#f0027"/>
+dieſer bey dem Grabe Achills mit Eyferſucht<lb/>
+an einen Herold des Ruhms denkt, wie der<lb/>
+blinde Minneſaͤnger war: ſo biegt ein Eras-<lb/>
+mus im Spott ſein Knie fuͤr den heiligen<lb/>
+Sokrates, und die helleniſtiſche Muſe unſers<lb/>
+von Baro muß den komiſchen Schatten ei-<lb/>
+nes <hi rendition="#fr">Thomas Diafoirus</hi> beunruhigen, um<lb/>
+uns die unterirrdiſche Wahrheit zu predigen;<lb/>
+daß es goͤttliche Menſchen unter den Heyden<lb/>
+gab, daß wir die Wolke dieſer Zeugen nicht<lb/>
+verachten ſollen, daß ſie der Himmel zu ſei-<lb/>
+nen Boten und Dollmetſchern ſalbte, und zu<lb/>
+eben den Beruf unter ihrem Geſchlechte ein-<lb/>
+weyhte, den die Propheten unter den Juden<lb/>
+hatten.</p><lb/>
+<p>Wie die Natur uns gegeben, unſere Au-<lb/>
+gen zu oͤfnen; ſo die Geſchichte, unſere Oh-<lb/>
+ten. Einen Koͤrper und eine Begebenheit<lb/>
+bis auf ihre erſten Elemente zergliedern, heißt,<lb/>
+Gottes unſichtbares Weſen, ſeine ewige Kraft<lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">und</fw><lb/>
+<pb n="24" facs="#f0028"/>
+und Gottheit ertappen wollen. Wer Moſe<lb/>
+und den Propheten nicht glaubt, wird daher<lb/>
+immer ein <hi rendition="#fr">Dichter,</hi> wieder ſein Wiſſen und<lb/>
+Wollen, wie <hi rendition="#fr">Buffon</hi> uͤber die Geſchichte der<lb/>
+Schoͤpfung und <hi rendition="#fr">Montesquieu</hi> uͤber die Ge-<lb/>
+ſchichte des Roͤmiſchen Reichs.</p><lb/>
+<p>Wenn kein junger Sperling ohne unſern<lb/>
+Gott auf die Erde faͤllt; ſo iſt kein Denkmal<lb/>
+alter Zeiten fuͤr uns verloren gegangen, das<lb/>
+wir zu beklagen haͤtten. <note place="foot" n="*)">Der Preſident von Goguet urtheilt auf eine<lb/>
+aͤhnliche Art in der Vorrede ſeines leſenswuͤr-<lb/>
+digen Werkes <hi rendition="#aq">de l’origine des Loix, des Arts<lb/>
+&amp; des Sciences &amp; de leurs progrès chez los<lb/>
+anciens Peuples.</hi></note> Sollte ſeine Vor-<lb/>
+ſorge ſich nicht uͤber Schriften erſtrecken, da<lb/>
+Er Selbſt ein Schriftſteller geworden, und<lb/>
+der Geiſt Gottes ſo genau geweſen den Werth<lb/>
+der erſten verbotenen Buͤcher aufzuzeichnen,<lb/>
+die ein frommer Eyfer unſerer Religion dem<lb/>
+Feuer geopfert? <note place="foot" n="**)">Apoſtelgeſch. <hi rendition="#aq">XIX.</hi> 19.</note> Wir bewundern es an<lb/>
+Pompejus als eine kluge und edle Handlung,<lb/>
+<fw type="catch" place="bottom">daß</fw><lb/>
+<pb n="25" facs="#f0029"/>
+daß er die Schriften ſeines Feindes Serto-<lb/>
+rius aus dem Wege raͤumte; warum nicht<lb/>
+an unſerm HErrn, daß er die Schriften ei-<lb/>
+nes Celſus untergehen laſſen? Jch meyne<lb/>
+alſo nicht ohne Grund, daß Gott fuͤr alle<lb/>
+Buͤcher, woran uns was gelegen, wenigſtens<lb/>
+ſo viel Aufmerkſamkeit getragen als Caͤſar<lb/>
+fuͤr die beſchriebene Rolle, mit der er in die<lb/>
+See ſprang, oder Paulus fuͤr ſein Perga-<lb/>
+men zu Troada. <note place="foot" n="*)">2 Tim. <hi rendition="#aq">IV.</hi> 13.</note></p><lb/>
+<p>Hatte der Kuͤnſtler, welcher mit einer Lin-<lb/>
+ſe durch ein Nadeloͤhr traf, nicht an einen<lb/>
+Scheffel Linſen genung zur Uebung ſeiner er-<lb/>
+worbenen Geſchicklichkeit? Dieſe Frage moͤch-<lb/>
+te man an alle Gelehrte thun, welche die<lb/>
+Werke der Alten nicht kluͤger, als jener die<lb/>
+Linſen, zu brauchen wißen. Wenn wir mehr<lb/>
+haͤtten, als uns die Zeit hat <hi rendition="#fr">ſchenken</hi> wol-<lb/>
+len; ſo wuͤrden wir ſelbſt genoͤthiget werden<lb/>
+unſere Ladungen uͤber Bord zu werfen, un-<lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">ſere</fw><lb/>
+<pb n="26" facs="#f0030"/>
+ſere Bibliothecken in Brand zu ſtecken, oder<lb/>
+es wie die Hollaͤnder mit dem Gewuͤrz zu<lb/>
+machen.</p><lb/>
+<p>Mich wundert, daß noch keiner den Ver-<lb/>
+ſuch uͤber die Hiſtorie gewagt, den Bacon fuͤr<lb/>
+die Phyſik gethan. <note place="foot" n="*)">Die Geſchichts-Wiſſenſchaft des ſcharfſinnigen<lb/>
+<hi rendition="#fr">Chladenius</hi> iſt blos als ein nuͤtzlich Supple-<lb/>
+ment unſerer ſcholaſtiſchen oder akademiſchen<lb/>
+Vernunftlehre anzuſehen.</note> Bollingbroke giebt ſei-<lb/>
+nem Schuͤler den Rath, die aͤltere Geſchichte<lb/>
+uͤberhaupt wie die heydniſche Goͤtterlehre<lb/>
+und als ein poetiſch Woͤrterbuch zu ſtudie-<lb/>
+ren. Doch vielleicht iſt die ganze Hiſtorie<lb/>
+mehr Mythologie, als es dieſer Philoſoph<lb/>
+meynt, und gleich der Natur ein verſiegelt<lb/>
+Buch, ein verdecktes Zeugnis, ein Raͤthſel,<lb/>
+das ſich nicht aufloͤſen laͤßt, ohne mit einem<lb/>
+andern Kalbe, als unſerer Vernunft zu<lb/>
+pfluͤgen.</p><lb/>
+<p>Meine Abſicht iſt es nicht, ein <hi rendition="#fr">Hiſtorio-<lb/>
+graph</hi> des Sokrates zu ſeyn; ich ſchreibe<lb/>
+<fw type="catch" place="bottom">blos</fw><lb/>
+<pb n="27" facs="#f0031"/>
+blos ſeine <hi rendition="#fr">Denkwuͤrdigkeiten</hi> wie <hi rendition="#fr">Duͤclos</hi><lb/>
+dergleichen zur Geſchichte des <hi rendition="#aq">XVIII</hi>ten<lb/>
+Jahrhunderts fuͤr die lange Weile des ſchoͤ-<lb/>
+nen Publicums herausgegeben.</p><lb/>
+<p>Es lieſſe ſich freylich ein ſo ſinnreicher<lb/>
+Verſuch uͤber das Leben Sokrates ſchreiben,<lb/>
+als <hi rendition="#fr">Blackwall</hi> uͤber den Homer geliefert.<lb/>
+Sollte der Vater der Weltweisheit nicht die-<lb/>
+ſer Ehre naͤher geweſen ſeyn als der Vater<lb/>
+der Dichtkunſt? Was <hi rendition="#fr">Cooper</hi> herausgege-<lb/>
+ben iſt nichts als eine Schuluͤbung, die den<lb/>
+Eckel ſo wohl einer Lob-als Streit-Schrift<lb/>
+mit ſich fuͤhrt.</p><lb/>
+<p>Sokrates beſuchte oͤfters die Werkſtaͤtte<lb/>
+eines Gerbers, der ſein Freund war, und,<lb/>
+wie der Wirth des Apoſtel Petrus zu Joppe,<lb/>
+Simon hieß. Der Handwerker hatte den<lb/>
+erſten Einfall die Geſpraͤche des Sokrates<lb/>
+aufzuſchreiben. Dieſer erkannte ſich viel-<lb/>
+leicht in denſelben beſſer als in Platons, bey<lb/>
+deren Leſung er geſtutzt und gefragt haben<lb/>
+ſoll: <hi rendition="#fr">Was hat dieſer junge Menſch im<lb/>
+Sinn aus mir zu machen?</hi> ‒ ‒ Wenn<lb/>
+ich nur ſo gut als <hi rendition="#fr">Simon der Gerber</hi> mei-<lb/>
+nen Held verſtehe!</p></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Erſter</hi></fw><lb/>
+<pb n="[28]" facs="#f0032"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="3"><head><hi rendition="#b">Erſter Abſchnitt.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>okrates hatte nicht umſonſt einen<lb/>
+Bildhauer und eine Wehmutter zu<lb/>
+Eltern gehabt. Sein Unterricht iſt jederzeit<lb/>
+mit den Hebammenkuͤnſten verglichen wor-<lb/>
+den. Man vergnuͤgt ſich noch dieſen Ein-<lb/>
+fall zu wiederholen, ohne daß man ſelbigen<lb/>
+als das Saamkorn einer fruchtbaren Wahr-<lb/>
+heit haͤtte aufgehen laſſen. Dieſer Ausdruck<lb/>
+iſt nicht blos tropiſch, ſondern zugleich ein<lb/>
+<hi rendition="#fr">Knaͤuel</hi> vortreflicher Begriffe, die jeder Leh-<lb/>
+rer zum Leitfaden in der Erziehung des Ver-<lb/>
+ſtandes noͤthig hat. Wie der Menſch nach<lb/>
+der Gleichheit Gottes erſchaffen worden, ſo<lb/>
+ſcheint <hi rendition="#fr">der Leib eine Figur oder Bild der<lb/>
+Seelen</hi> zu ſeyn. <note place="foot" n="*)">Siehe die folgende Anmerkung.</note> Wenn uns unſer Gebein<lb/>
+verholen iſt, weil wir im Verborgenen ge-<lb/>
+macht, weil wir gebildet werden unten in der<lb/>
+<fw type="catch" place="bottom">Erde;</fw><lb/>
+<pb n="29" facs="#f0033"/>
+Erde; wie viel mehr werden unſere Begriffe<lb/>
+im Verborgenen gemacht, und koͤnnen als<lb/>
+Gliedmaſſen unſers Verſtandes betrachtet<lb/>
+werden. Daß ich ſie Gliedmaaſſen des Ver-<lb/>
+ſtandes nenne, hindert nicht, jeden Begrif<lb/>
+als eine beſondere und ganze Geburt ſelbſt<lb/>
+anzuſehen. Sokrates war alſo beſcheiden<lb/>
+genung ſeine <hi rendition="#fr">Schulweisheit</hi> mit der Kunſt<lb/>
+eines alten Weibes zu vergleichen, welches<lb/>
+blos der Arbeit der Mutter und ihrer zeiti-<lb/>
+gen Frucht zu Huͤlfe kommt, und beyden<lb/>
+Handreichung thut.</p><lb/>
+<p>Die Kraft der Traͤgheit und die ihr ent-<lb/>
+gegengeſetzt ſcheinende Kraft des Stolzes, die<lb/>
+man durch ſo viel Erſcheinungen und Beob-<lb/>
+achtungen veranlaſſet worden in unſerm Wil-<lb/>
+len anzunehmen, bringen die Unwiſſenheit,<lb/>
+und die daraus entſpringende Jrrthuͤmer<lb/>
+und Vorurtheile nebſt allen ihren ſchweſter-<lb/>
+lichen Leidenſchaften hervor. Von dieſer<lb/>
+<fw type="catch" place="bottom">Sei-</fw><lb/>
+<pb n="30" facs="#f0034"/>
+Seite ahmte alſo Sokrates ſeinen Vater nach,<lb/>
+einen Bildhauer, der, <hi rendition="#fr">indem er wegnimmt<lb/>
+und hauet, was am Holze nicht ſeyn ſoll,<lb/>
+eben dadurch die Form des Bildes foͤr-<lb/>
+dert.</hi> <note place="foot" n="*)">Worte unſers Kirchenvaters, Martin Luthers,<lb/>
+bey deſſen Namen ein richtig und fein denken-<lb/>
+der Schwaͤrmer juͤngſt uns erinnert hat, daß<lb/>
+wir von dieſem groſſen Mann nicht nur in der<lb/>
+deutſchen Sprache, ſondern <hi rendition="#fr">uͤberhaupt</hi> nicht<lb/>
+ſo viel gelernt als wir haͤtten ſollen und koͤnnen.</note> Daher hatten die groſſen Maͤnner<lb/>
+ſeiner Zeit zureichenden Grund uͤber ihn zu<lb/>
+ſchreyen, daß er alle Eichen ihrer Waͤlder<lb/>
+faͤlle, alle ihre Kloͤtzer verderbe, und aus<lb/>
+ihrem Holze nichts als <hi rendition="#fr">Spaͤne</hi> zu machen<lb/>
+verſtuͤnde.</p><lb/>
+<p>Sokrates wurde vermuthlich ein Bild-<lb/>
+hauer, weil ſein Vater einer war. Daß er<lb/>
+in dieſer Kunſt nicht mittelmaͤſſig geblieben,<lb/>
+hat man daraus geſchloſſen, weil zu Athen<lb/>
+ſeine drey Bildſaͤulen der Gratien aufgeho-<lb/>
+ben worden. Man war ehmals gewohnt<lb/>
+<fw type="catch" place="bottom">gewe-</fw><lb/>
+<pb n="31" facs="#f0035"/>
+geweſen dieſe Goͤttinnen zu kleiden; den alt-<lb/>
+vaͤteriſchen Gebrauch hatte Sokrates nach-<lb/>
+geahmt, und ſeine Gratien wiederſprachen<lb/>
+der Cuſtome des damaligen Goͤtterſyſtems<lb/>
+und der ſich darauf gruͤndenden ſchoͤnen Kuͤn-<lb/>
+ſte. Wie Sokrates auf dieſe Neuerung ge-<lb/>
+kommen; ob es eine Eingebung ſeines Ge-<lb/>
+nius, oder eine Eitelkeit ſeine Arbeiten zu un-<lb/>
+terſcheiden, oder die Einfalt einer natuͤrli-<lb/>
+chen Schaamhaftigkeit geweſen, die einem<lb/>
+andaͤchtigen Athenienſer wunderlich vorkom-<lb/>
+men muſte; weiß ich nicht. Es iſt aber<lb/>
+nur gar zu wahrſcheinlich, daß dieſe neuge-<lb/>
+kleideten Gratien ſo wenig ohne Anfechtung<lb/>
+werden geblieben ſeyn als die neugekleideten<lb/>
+Gratien unſerer heutigen Dichtkunſt.</p><lb/>
+<p>Hier iſt der Ort die Ueberſichtigkeit einiger<lb/>
+gegen das menſchliche Geſchlecht und deſſen<lb/>
+Aufkommen gar zu witzig geſinnter Patrioten<lb/>
+zu ahnden, die ſich die Verdienſte des Bild-<lb/>
+<fw type="catch" place="bottom">hauers</fw><lb/>
+<pb n="32" facs="#f0036"/>
+hauers im Sokrates ſo groß vorſtellen, daß<lb/>
+ſie den Weiſen daruͤber verkennen, die den<lb/>
+Bildhauer vergoͤttern um deſto fuͤglicher uͤber<lb/>
+des Zimmermanns Sohn ſpotten zu koͤn-<lb/>
+nen. Wenn ſie in Ernſt an Sokrates glau-<lb/>
+ben; ſo ſind ſeine Spruͤche Zeugniſſe wieder<lb/>
+ſie. Dieſe neuen Athenienſer ſind Nachkom-<lb/>
+men <note place="foot" n="*)"><hi rendition="#aq">Progeniem vitioſiorem</hi> nennt ſie Horaz Ode 6.<lb/>
+Buch 3.</note> ſeiner Anklaͤger und Giftmiſcher, ab-<lb/>
+geſchmacktere Verlaͤumder und grauſamere<lb/>
+Moͤrder dann ihre Vaͤter.</p><lb/>
+<p>Bey der Kunſt, in welcher Sokrates er-<lb/>
+zogen worden, war ſein Auge an der Schoͤn-<lb/>
+heit und ihren Verhaͤltniſſen ſo gewohnt<lb/>
+und geuͤbt, daß ſein Geſchmack an wohlge-<lb/>
+bildeten Juͤnglingen uns nicht befremden<lb/>
+darf. Wenn man die Zeiten des Heyden-<lb/>
+thums <note place="foot" n="**)">Roͤm. <hi rendition="#aq">I.</hi></note> kennt, in denen er lebte; ſo iſt<lb/>
+es eine thoͤrichte Muͤhe ihn von einem Laſter<lb/>
+<fw type="catch" place="bottom">weiß</fw><lb/>
+<pb n="33" facs="#f0037"/>
+weiß zu brennen, das unſere Chriſtenheit<lb/>
+an Sokrates uͤberſehen ſollte, wie die artige<lb/>
+Welt an einem Toußaint die kleinen <hi rendition="#fr">Roma-<lb/>
+ne ſeiner Leidenſchaften,</hi> als Schoͤnfleck-<lb/>
+chen ſeiner <hi rendition="#fr">Sitten.</hi> Sokrates ſcheint ein<lb/>
+aufrichtiger Mann geweſen zu ſeyn, deſſen<lb/>
+Handlungen von dem Grund ſeines Herzens,<lb/>
+und nicht von dem Eindruck, den andere da-<lb/>
+von haben, beſtimmt worden. Er leugnete<lb/>
+nicht, daß ſeine verborgene Neigungen mit<lb/>
+den <hi rendition="#fr">Entdeckungen des Geſichtdeuters</hi> ein-<lb/>
+traͤfen; er geſtand, daß deſſen <hi rendition="#fr">Brille</hi> recht<lb/>
+geſehen haͤtte. Ein Menſch, der uͤberzeugt<lb/>
+iſt, daß er nichts weiß, kann, ohne ſich ſelbſt<lb/>
+Luͤgen zu ſtrafen, kein Kenner ſeines guten<lb/>
+Herzens ſeyn. Daß er das ihm beſchuldig-<lb/>
+te Laſter gehaßt, wiſſen wir aus ſeinem Ey-<lb/>
+fer gegen daſſelbe, und in ſeiner Geſchichte<lb/>
+ſind Merkmale ſeiner Unſchuld, die ihn bey<lb/>
+nahe loßſprechen. Man kann keine lebhafte<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">Freund-</fw><lb/>
+<pb n="34" facs="#f0038"/>
+Freundſchaft ohne Sinnlichkeit fuͤhlen, und<lb/>
+eine metaphyſiſche Liebe ſuͤndigt vielleicht<lb/>
+groͤber am Nervenſaft, als eine thieriſche an<lb/>
+Fleiſch und Blut. Sokrates hat alſo ohne<lb/>
+Zweifel fuͤr ſeine Luſt an einer Harmonie der<lb/>
+aͤuſſerlichen und innerlichen Schoͤnheit, in<lb/>
+ſich ſelbſt leiden und ſtreiten muͤſſen. Ueber-<lb/>
+dem wurden Schoͤnheit, Staͤrke des Leibes<lb/>
+und Geiſtes nebſt dem Reichthum an Kin-<lb/>
+dern und Guͤtern in dem jugendlichen Alter<lb/>
+der Welt fuͤr Sinnbilder goͤttlicher Eigen-<lb/>
+ſchaften und Fußſtapfen goͤttlicher Gegen-<lb/>
+wart erklaͤrt. Wir denken ietzt zu abſtrakt<lb/>
+und maͤnnlich die menſchliche Natur nach<lb/>
+dergleichen Zufaͤlligkeiten zu beurtheilen.<lb/>
+Selbſt die Religion lehrt uns einen Gott,<lb/>
+der kein Anſehen der Perſon hat; ohngeach-<lb/>
+tet der Misverſtand des Geſetzes die Juden<lb/>
+an gleiche Vorurtheile hierinn mit den Hey-<lb/>
+den gebunden hielt. Jhre geſunde Vernunft,<lb/>
+<fw type="catch" place="bottom">wor-</fw><lb/>
+<pb n="35" facs="#f0039"/>
+woran es den Juden und Griechen ſo wenig<lb/>
+fehlte als unſern Chriſten und Muſelmaͤn-<lb/>
+nern, ſtieß ſich daran, daß der <hi rendition="#fr">Schoͤnſte<lb/>
+unter den Menſchenkindern</hi> ihnen zum<lb/>
+Erloͤſer verſprochen war, und daß ein Mann<lb/>
+der Schmerzen, voller Wunden und Strie-<lb/>
+men, der Held ihrer Erwartung ſeyn ſollte.<lb/>
+Die Heyden waren durch die <hi rendition="#fr">klugen Fabeln</hi><lb/>
+ihrer Dichter an dergleichen Wiederſpruͤchen<lb/>
+gewohnt; bis ihre Sophiſten, wie unſere,<lb/>
+ſolche als einen Vatermord verdammten, den<lb/>
+man an den erſten Grundſaͤtzen der menſch-<lb/>
+lichen Erkenntnis begeht.</p><lb/>
+<p>Von ſolchem Wiederſpruch finden wir ein<lb/>
+Beyſpiel an dem Delphiſchen Orakel, das<lb/>
+denjenigen fuͤr den weiſeſten erkannte, der<lb/>
+gleichwol von ſich geſtand, daß er nichts<lb/>
+wiſſe. Strafte Sokrates das Orakel Luͤgen,<lb/>
+oder das Orakel ihn? Die ſtaͤrkſten Geiſter<lb/>
+unſerer Zeit haben fuͤr diesmal die Prieſte-<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">rinn</fw><lb/>
+<pb n="36" facs="#f0040"/>
+rinn fuͤr eine Wahrſagerinn gehalten, und<lb/>
+ſich innerlich uͤber ihre Aehnlichkeit mit dem<lb/>
+Vater Sokrates gefreut, der es fuͤr gleich<lb/>
+anſtaͤndig hielt einen Jdeoten zu ſpielen oder<lb/>
+Goͤttern zu glauben. Jſt uͤbrigens der Ver-<lb/>
+dacht gegruͤndet, daß ſich Apoll nach den<lb/>
+Menſchen richte, weil dieſe zu dumm ſind<lb/>
+ſich nach ihn zu richten: ſo handelt er als<lb/>
+ein Gott, dem es leichter faͤllt zu philippiſi-<lb/>
+ren oder zu ſokratiſiren, als uns Apollos zu<lb/>
+ſeyn.</p><lb/>
+<p>Die Ueberlieferung eines Goͤtterſpruches<lb/>
+will aber ſo wenig als ein Komet ſagen fuͤr<lb/>
+einen Philoſophen von heutigem Geſchmack.<lb/>
+Wir muͤſſen nach ſeiner Meynung in dem<lb/>
+<hi rendition="#fr">Buche,</hi> welches das thoͤrichſte Volk auf uns<lb/>
+gebracht, und in den Ueberbleibſeln der Grie-<lb/>
+chen und Roͤmer, ſo bald es auf Orakel, Er-<lb/>
+ſcheinungen, Traͤume und dergleichen Me-<lb/>
+teoren ankommt, dieſe Maͤhrchen unſerer<lb/>
+<fw type="catch" place="bottom">Kin-</fw><lb/>
+<pb n="37" facs="#f0041"/>
+Kinder und Ammen (denn <hi rendition="#fr">Kinder</hi> und <hi rendition="#fr">Am-<lb/>
+men</hi> ſind alle verfloßne Jahrhunderte gegen<lb/>
+unſer lebendes in der Kunſt zu <hi rendition="#fr">erfahren</hi><lb/>
+und zu <hi rendition="#fr">denken</hi>) <note place="foot" n="*)">Das heiſt, <hi rendition="#fr">Eßays</hi> und <hi rendition="#fr">Penſees</hi> der <hi rendition="#fr">Loiſirs</hi><lb/>
+zu ſchreiben.</note> abſondern, oder ſelbige<lb/>
+als die Schnoͤrkel unſerer Alpendichter be-<lb/>
+wundern. Geſetzt, dieſes wuͤrde alles ſo<lb/>
+reichlich eingeraͤumt; als man unverſchaͤmt<lb/>
+ſeyn koͤnte es zu fordern: ſo wird <hi rendition="#fr">Bayle,<lb/>
+einer ihrer Propheten,</hi> zu deſſen Fuͤſſen<lb/>
+dieſe Kretenſer mit ſo viel Anſtand zu gaͤh-<lb/>
+nen gewohnt ſind, weil ihr <hi rendition="#fr">Gamaliel</hi> <note place="foot" n="**)">Bayle eyferte fuͤr die Reli-<lb/>
+gionsduldung wie dieſer Phariſaͤer <hi rendition="#aq">Act. V.</hi></note><lb/>
+gaͤhnt, dieſen Zweiflern antworten; daß,<lb/>
+wenn alle dieſe Begebenheiten mit dem Ein-<lb/>
+fluß der Geſtirne in gleichem Grade der<lb/>
+Falſchheit ſtehen, wenn alles gleichartig er-<lb/>
+logen und erdacht iſt, dennoch der Wahn, die<lb/>
+Einbildung und der Glaube daran zu ihrer<lb/>
+Zeit und an ihrem Ort wuͤrklich groͤſſere<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">Wun-</fw><lb/>
+<pb n="38" facs="#f0042"/>
+Wunder veranlaßt habe und veranlaſſen<lb/>
+koͤnne, als man den Kometen, Orakelſpruͤ-<lb/>
+chen und Traͤumen ſelbſt jemals zugeſchrieben<lb/>
+hat noch zuſchreiben wird. Jn dieſem Ver-<lb/>
+ſtande ſollten aber die Zweifler mehr Recht<lb/>
+als unſere Empyriker behalten, weil es<lb/>
+menſchlicher und Gott anſtaͤndiger ausſieht,<lb/>
+und durch unſere eigene Grillen und Hirnge-<lb/>
+ſpinſte, als durch eine ſo entfernte und koſt-<lb/>
+bare <hi rendition="#fr">Maſchinerey,</hi> wie das Firmament<lb/>
+und die Geiſterwelt unſere bloͤden Augen vor-<lb/>
+kommt, zu ſeinen Abſichten zu regieren.</p><lb/>
+<figure/></div> <fw type="catch" place="bottom"><hi rendition="#b">Zwey-</hi></fw><lb/>
+<pb n="[39]" facs="#f0043"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="3"><head><hi rendition="#b">Zweyter Abſchnitt.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>in Mann, der Geld zu verlieren hatte,<lb/>
+und vermuthlich auch Geld zu verlie-<lb/>
+ren verſtand, dem die Geſchichte <hi rendition="#fr">Kriton</hi><lb/>
+nennt, ſoll die Unkoſten getragen haben un-<lb/>
+ſern Bildhauer in einen Sophiſten zu ver-<lb/>
+wandeln. Wer der etymologiſchen Mine<lb/>
+ſeines Namens traut, wird dieſen Anſchlag<lb/>
+einem weitſehenden Urtheilsgeiſt, ein leicht-<lb/>
+glaͤubiger Schuͤler der taͤglichen Erfahrung<lb/>
+hingegen einem blinden Geſchmack an So-<lb/>
+krates zu ſchreiben.</p><lb/>
+<p>Die Reyhe der Lehrmeiſter und Lehrmei-<lb/>
+ſterinnen, die man dem Sokrates giebt, und<lb/>
+die Kriton ohne Zweifel beſolden muſte, iſt<lb/>
+anſehnlich genung; und doch blieb Sokrates<lb/>
+<hi rendition="#fr">unwiſſend.</hi> Das freche Geſtaͤndniß darin<lb/>
+war gewiſſermaſſen eine Beleidigung, die man<lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">aber</fw><lb/>
+<pb n="40" facs="#f0044"/>
+aber dem aufrichtigen Klienten und Kandi-<lb/>
+daten ſcheint vergeben zu haben, weil ſie auf<lb/>
+ihn ſelbſt am ſchwerſten zuruͤck fiel. Das<lb/>
+<hi rendition="#fr">Loos</hi> der Unwiſſenheit und die Bloͤße derſel-<lb/>
+ben macht eben ſo unverſoͤhnliche Feinde als<lb/>
+die Ueberlegenheit an Verdienſten und die<lb/>
+Schau davon. War Sokrates wirklich un-<lb/>
+wiſſend, ſo muſte ihm auch die Schande un-<lb/>
+wiſſend ſeyn, die vernuͤnftige Leute ſich er-<lb/>
+gruͤbeln, unwiſſend zu ſcheinen.</p><lb/>
+<p>Ein Menſch, der nichts weiß und der nichts<lb/>
+hat, ſind Zwillinge <hi rendition="#fr">eines</hi> Schickſals. Der<lb/>
+Fuͤrwitzige und Argwoͤhniſche zeichnen und<lb/>
+foltern den erſten als einen <hi rendition="#fr">Betruͤger;</hi> wie der<lb/>
+Glaͤubiger und Raͤuber dem letzten, unter-<lb/>
+deſſen der Bauerſtolz des reichen Mann und<lb/>
+Polyhiſtors beyde verachtet. Eben daher<lb/>
+bleibt die philoſophiſche Goͤttin des Gluͤcks<lb/>
+eine bewaͤhrte Freundinn des Dummen, und<lb/>
+durch ihre Vorſorge entgehen die Einfaͤlle des<lb/>
+<fw type="catch" place="bottom">Ar-</fw><lb/>
+<pb n="41" facs="#f0045"/>
+Armen den Motten laͤnger als blanke Klei-<lb/>
+der und rauſchende Schlafroͤcke, als die Hy-<lb/>
+potheſen und Formeln der Kalender-Syſtem-<lb/>
+und Projektmacher ſamt den Akten der Stern-<lb/>
+und Staatsſeher.</p><lb/>
+<p>Sokrates ſcheint von ſeiner Unwiſſenheit<lb/>
+ſo viel geredt zu haben als ein Hypochon-<lb/>
+driaker von ſeiner eingebildeten Krankheit.<lb/>
+Wie man dies Uebel ſelbſt kennen muß um<lb/>
+einen Milzſuͤchtigen zu verſtehen und aus ihm<lb/>
+klug zu werden; ſo gehoͤrt vielleicht eine Sym-<lb/>
+pathie der Unwiſſenheit dazu, von der ſokra-<lb/>
+tiſchen ein Begrif zu haben.</p><lb/>
+<p><hi rendition="#fr">Erkenne dich Selbſt!</hi> ſagte die Thuͤr<lb/>
+jenes beruͤhmten Tempels allen denen, die<lb/>
+hereingiengen dem Gott der Weisheit zu<lb/>
+opfern und ihn uͤber ihre kleinen Haͤndel um<lb/>
+Rath zu fragen. Alle laſen, bewunderten<lb/>
+und wuſten <hi rendition="#fr">auswendig</hi> dieſen Spruch. Man<lb/>
+trug ihn wie der Stein, in den er gegraben<lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">war,</fw><lb/>
+<pb n="42" facs="#f0046"/>
+war, vor der Stirn, ohne den Sinn davon<lb/>
+zu begreifen. Der Gott lachte ohne Zweifel<lb/>
+unter ſeinen guͤldenen Bart, als ihm die<lb/>
+kuͤzliche Aufgabe zu Sokrates Zeiten vorge-<lb/>
+legt wurde: Wer der weiſeſte unter allen da-<lb/>
+mals lebenden Menſchen waͤre? <hi rendition="#fr">Sopho-<lb/>
+kles</hi> und <hi rendition="#fr">Euripides</hi> wuͤrden nicht ſo groſ-<lb/>
+ſe Muſter fuͤr die Schaubuͤhne, ohne Zerglie-<lb/>
+derungskunſt des menſchlichen Herzens, ge-<lb/>
+worden ſeyn. <hi rendition="#fr">Sokrates</hi> uͤbertraf ſie aber<lb/>
+beyde an Weisheit, weil er in der Selbſter-<lb/>
+kenntnis weiter als jene gekommen war, und<lb/>
+<hi rendition="#fr">wuſte,</hi> daß <hi rendition="#fr">er</hi> nichts wuſte. Apoll antwor-<lb/>
+tete jedem ſchon vor der Schwelle; wer wei-<lb/>
+ſe waͤre und wie man es werden koͤnne? jetzt<lb/>
+war die Frage uͤbrig: Wer Sich Selbſt er-<lb/>
+kenne? und woran man ſich in dieſer Pruͤ-<lb/>
+fung zu halten haͤtte? <hi rendition="#fr">Geh, Chaͤrephon,<lb/>
+lern es von Deinem Freunde.</hi> Kein Sterb-<lb/>
+licher kann die Achtſamkeit und Entaͤuſſerung<lb/>
+<fw type="catch" place="bottom">eines</fw><lb/>
+<pb n="43" facs="#f0047"/>
+eines Lehrmeiſters ſittſamer treiben, als wo-<lb/>
+mit Apoll ſeine Anbeter zum Verſtande ſei-<lb/>
+ner Geheimniße gaͤngelte. Alle dieſe Winke<lb/>
+und Bruchſtuͤcke der aͤlteſten Geſchichte und<lb/>
+Tradition beſtaͤtigen die Beobachtung, wel-<lb/>
+che Paulus und Barnabas den Lykaoniern<lb/>
+vorhielten, daß Gott auch unter ihnen ſich<lb/>
+ſelbſt nicht <hi rendition="#fr">unbezeuget</hi> gelaſſen, auch ihnen<lb/>
+vom Himmel <hi rendition="#fr">Regen</hi> und <hi rendition="#fr">fruchtbare Zei-<lb/>
+ten</hi> gegeben. <note place="foot" n="*)">Apoſtelgeſch. <hi rendition="#aq">XIV.</hi></note> Mit wie viel Wahrheit ſing-<lb/>
+te alſo nicht unſere Kirche:</p><lb/>
+<p><hi rendition="#c">Wohl uns des <hi rendition="#fr">feinen</hi> HErren!</hi></p><lb/>
+<p>Ein ſorgfaͤltiger Ausleger muß die Natur-<lb/>
+forſcher nachahmen. Wie dieſe einen Koͤrper<lb/>
+in allerhand willkuͤhrliche Verbindungen mit<lb/>
+andern Koͤrpern verſetzen und kuͤnſtliche Er-<lb/>
+fahrungen erfinden, ſeine Eigenſchaften aus-<lb/>
+zuholen; ſo macht es jener mit ſeinem Tex-<lb/>
+te. Jch habe des Sokrates Spruͤchwort<lb/>
+<fw type="catch" place="bottom">mit</fw><lb/>
+<pb n="44" facs="#f0048"/>
+mit der Delphiſchen Ueberſchrift zuſammen<lb/>
+gehalten; jetzt will ich einige andere Verſuche<lb/>
+thun, die Energie deſſelben ſinnlicher zu ma-<lb/>
+chen.</p><lb/>
+<p>Die Woͤrter haben ihren Werth, wie die<lb/>
+Zahlen von der Stelle, wo ſie ſtehen, und<lb/>
+ihre Begriffe ſind in ihren Beſtimmungen<lb/>
+und Verhaͤltniſſen, gleich den Muͤnzen, nach<lb/>
+Ort und Zeit wandelbar. Wenn die Schlan-<lb/>
+ge der Eva beweiſet: <hi rendition="#fr">Jhr werdet ſeyn wie<lb/>
+Gott,</hi> und Jehova weiſſagt: <hi rendition="#fr">Siehe! Adam<lb/>
+iſt worden als Unſer einer;</hi> wenn Salo-<lb/>
+mo ausruft: <hi rendition="#fr">Alles iſt eitel!</hi> und ein alter<lb/>
+Geck es ihm nachpfeift: ſo ſieht man, daß<lb/>
+einerley Wahrheiten mit einem ſehr entgegen<lb/>
+geſetzten Geiſt ausgeſprochen werden koͤnnen.</p><lb/>
+<p>Ueberdem leidet jeder Satz, wenn er auch<lb/>
+aus einem Munde und Herzen quillt, unend-<lb/>
+lich viel Nebenbegriffe, welche ihm die geben,<lb/>
+ſo ihn annehmen, auf eben die Art als die<lb/>
+<fw type="catch" place="bottom">Licht-</fw><lb/>
+<pb n="45" facs="#f0049"/>
+Lichtſtrahlen dieſe oder jene Farbe werden<lb/>
+nach der Flaͤche, von der ſie in unſer Auge<lb/>
+zuruͤck fallen. Wenn Sokrates dem Kriton<lb/>
+durch ſein: <hi rendition="#fr">Nichts weiß ich!</hi> Rechenſchaft<lb/>
+ablegte, mit eben dieſem Worte die gelehrten<lb/>
+und neugierigen Athenienſer abwieß, und<lb/>
+ſeinen ſchoͤnen Juͤnglingen die Verleugnung<lb/>
+ihrer Eitelkeit zu erleichtern, und ihr Ver-<lb/>
+trauen durch ſeine Gleichheit mit ihnen zu<lb/>
+gewinnen ſuchte: ſo wuͤrden die Umſchrei-<lb/>
+bungen, die man nach dieſem dreyfachen Ge-<lb/>
+ſichtspunkte von ſeinem Wahlſpruche ma-<lb/>
+chen muͤſte, ſo ungleich einander ausſehen,<lb/>
+als bisweilen drey Bruͤder, die Soͤhne eines<lb/>
+leiblichen Vaters ſind.</p><lb/>
+<p>Wir wollen annehmen, daß wir einem Un-<lb/>
+bekannten ein Kartenſpiel anboͤthen. Wenn<lb/>
+dieſer uns antwortete: <hi rendition="#fr">Jch ſpiele nicht;</hi> ſo<lb/>
+wuͤrden wir dies entweder auslegen muͤſſen,<lb/>
+daß er das Spiel nicht verſtuͤnde, oder eine<lb/>
+<fw type="catch" place="bottom">Abnei-</fw><lb/>
+<pb n="46" facs="#f0050"/>
+Abneigung dagegen haͤtte, die in oekonomi-<lb/>
+ſchen, ſittlichen oder andern Gruͤnden liegen<lb/>
+mag. Geſetzt aber ein ehrlicher Mann, von<lb/>
+dem man wuͤſte, daß er alle moͤgliche Staͤrke<lb/>
+im Spiel beſaͤſſe und in den Regeln ſo wohl<lb/>
+als verbotenen Kuͤnſten deſſelben bewandert<lb/>
+waͤre, der ein Spiel aber niemals anders<lb/>
+als auf den Fuß eines unſchuldigen Zeitver-<lb/>
+treibes lieben und treiben koͤnnte, wuͤrde in<lb/>
+einer Geſelſchaft von ſeinen Betruͤgern, die<lb/>
+fuͤr gute Spieler gelten, und denen er von<lb/>
+beyden Seiten gewachſen waͤre, zu einer Par-<lb/>
+they mit ihnen aufgefordert. Wenn dieſer<lb/>
+ſagte: <hi rendition="#fr">Jch ſpiele nicht,</hi> ſo wuͤrden wir mit<lb/>
+ihm den Leuten ins Geſicht ſehen muͤſſen, mit<lb/>
+denen er redet, und ſeine Worte alſo ergaͤn-<lb/>
+zen koͤnnen: <hi rendition="#fr">Jch ſpiele nicht,</hi> naͤmlich, mit<lb/>
+„ſolchen als ihr ſeyd, welche die Geſetze des<lb/>
+„Spiels brechen und das Gluͤck deſſelben<lb/>
+„ſtehlen. Wenn ihr ein Spiel anbiethet; ſo<lb/>
+<fw type="catch" place="bottom">„iſt</fw><lb/>
+<pb n="47" facs="#f0051"/>
+„iſt unſer gegenſeitiger Vergleich den Eigen-<lb/>
+„ſinn des Zufalls fuͤr unſern Meiſter zu er-<lb/>
+„kennen, und ihr nennt die Wiſſenſchaft eu-<lb/>
+„rer geſchwinden Finger <hi rendition="#fr">Zufall,</hi> und ich muß<lb/>
+„ihn dafuͤr annehmen, wenn ich will, oder<lb/>
+„die Gefahr wagen euch zu beleidigen, oder<lb/>
+„die Schande waͤhlen euch nachzuahmen.<lb/>
+„Haͤttet ihr mir den Antrag gethan mit ein-<lb/>
+„ander zu verſuchen, wer der beſte Taſchen-<lb/>
+„ſpieler von uns in Karten waͤre; ſo haͤtte<lb/>
+„ich anders antworten, und vielleicht mit-<lb/>
+„ſpielen wollen, um euch zu zeigen, daß ihr<lb/>
+„ſo ſchlecht gelernt habt Karten <hi rendition="#fr">machen,</hi> als<lb/>
+„ihr verſteht die euch gegeben werden, nach der<lb/>
+„Kunſt zu brauchen„. Jn dieſe rauhe Toͤne<lb/>
+laͤßt ſich die Meynung des Sokrates aufloͤ-<lb/>
+ſen, wenn er den Sophiſten, den Gelehrten<lb/>
+ſeiner Zeit, ſagte: Jch weiß nichts. Da-<lb/>
+her kam es, daß dies Wort ein Dorn in ih-<lb/>
+ren Augen und eine Geiſſel auf ihren Ruͤ-<lb/>
+<fw type="catch" place="bottom">cken</fw><lb/>
+<pb n="48" facs="#f0052"/>
+cken war. Alle <hi rendition="#fr">Einfaͤlle</hi> des Sokrates, die<lb/>
+nichts als <hi rendition="#fr">Auswuͤrfe</hi> und <hi rendition="#fr">Abſonderungen</hi><lb/>
+ſeiner <hi rendition="#fr">Unwiſſenheit</hi> waren, ſchienen ihnen ſo<lb/>
+fuͤrchterlich als die Haare an dem Haupte<lb/>
+Meduſens, dem Nabel der Egide.</p><lb/>
+<p>Die Unwiſſenheit des Sokrates war <hi rendition="#fr">Em-<lb/>
+pfindung.</hi> Zwiſchen Empfindung aber und<lb/>
+einen Lehrſatz iſt ein groͤſſerer Unterſcheid als<lb/>
+zwiſchen einem lebenden Thier und anatomi-<lb/>
+ſchen Gerippe deſſelben. Die alten und<lb/>
+neuen Skeptiker moͤgen ſich noch ſo ſehr in<lb/>
+die Loͤwenhaut der ſokratiſchen Unwiſſenheit<lb/>
+einwickeln; ſo verrathen ſie ſich durch ihre<lb/>
+<hi rendition="#fr">Stimme</hi> und <hi rendition="#fr">Ohren.</hi> Wiſſen ſie nichts;<lb/>
+was braucht die Welt einen gelehrten Be-<lb/>
+weis davon? Jhr Heucheltrug iſt laͤcher-<lb/>
+lich und unverſchaͤmt. Wer aber ſo viel<lb/>
+Scharfſinn und Beredſamkeit noͤthig hat<lb/>
+ſich ſelbſt von ſeiner Unwiſſenheit zu uͤber-<lb/>
+fuͤhren, muß in ſeinem Herzen einen maͤch-<lb/>
+<fw type="catch" place="bottom">tigen</fw><lb/>
+<pb n="49" facs="#f0053"/>
+tigen Wiederwillen gegen die Wahrheit der-<lb/>
+ſelben hegen.</p><lb/>
+<p>Unſer eigen Daſeyn und die Exiſtentz aller<lb/>
+Dinge auſſer uns muß <hi rendition="#fr">geglaubt</hi> und kann<lb/>
+auf keine andere Art ausgemacht werden.<lb/>
+Was iſt gewiſſer als des Menſchen Ende,<lb/>
+und von welcher Wahrheit gibt es eine all-<lb/>
+gemeinere und bewaͤhrtere Erkenntnis? Nie-<lb/>
+mand iſt gleichwol ſo klug ſolche zu glauben,<lb/>
+als der, wie Moſes zuverſtehen giebt, von<lb/>
+Gott ſelbſt gelehrt wird zu bedenken, daß er<lb/>
+ſterben muͤſſe. Was man glaubt, hat daher<lb/>
+nicht noͤthig bewieſen zu werden, und ein<lb/>
+Satz kann noch ſo unumſtoͤßlich bewieſen<lb/>
+ſeyn, ohne deswegen geglaubt zu werden.</p><lb/>
+<p>Es giebt Beweiſe von Wahrheiten, die ſo<lb/>
+wenig taugen als die Anwendung, die man von<lb/>
+den Wahrheiten ſelbſt machen kann; <note place="foot" n="*)">Ein Philoſoph laß uͤber die Unſterblichkeit der<lb/>
+Seelen ſo uͤberzeugend, daß ſeine Zuhoͤrer vor<lb/>
+Freuden Selbſtmoͤrder wurden, wie uns Lactanz<lb/>
+erzaͤhlt.<lb/>
+<fw type="sig" place="bottom">D</fw></note> ja<lb/>
+man kann den Beweiß eines Satzes glauben<lb/>
+ohne dem Satz ſelbſt Beyfall zu geben. Die<lb/>
+Gruͤnde eines <hi rendition="#fr">Hume</hi> moͤgen noch ſo triftig<lb/>
+ſeyn, und ihre Wiederlegungen immerhin<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">lau-</fw><lb/>
+<pb n="50" facs="#f0054"/>
+lauter Lehnſaͤtze und Zweifel: ſo gewinnt<lb/>
+und verliert der Glaube gleich viel bey dem<lb/>
+geſchickteſten Rabuliſten und ehrlichſten Sach-<lb/>
+walter. Der Glaube iſt kein Werk der Ver-<lb/>
+nunft und kann daher auch keinem Angrif<lb/>
+derſelben unterliegen; weil <hi rendition="#fr">Glauben</hi> ſo we-<lb/>
+nig durch Gruͤnde geſchieht als <hi rendition="#fr">Schmecken</hi><lb/>
+und <hi rendition="#fr">Sehen.</hi></p><lb/>
+<p>Die Beziehung und Uebereinſtimmung der<lb/>
+Begriffe iſt eben daſſelbe in einer Demonſtra-<lb/>
+tion, was Verhaͤltnis und Symmetrie der<lb/>
+Linien, Schallwuͤrbel und Farben in der<lb/>
+muſikaliſchen Compoſition und Malerey iſt.<lb/>
+Der Philoſoph iſt dem Geſetz der Nachah-<lb/>
+mung ſo gut unterworfen als der Poet. Fuͤr<lb/>
+dieſen iſt ſeine Muſe und ihr Hieroglyphi-<lb/>
+ſches Schattenſpiel ſo wahr als die Vernunft<lb/>
+und das Lehrgebaͤude derſelben fuͤr jenen.<lb/>
+Das Schickſal ſetze den groͤſten Weltweiſen<lb/>
+und Dichter in Umſtaͤnde, wo ſie ſich beyde<lb/>
+ſelbſt fuͤhlen; ſo verleugnet der eine ſeine Ver-<lb/>
+nunft und entdeckt uns, daß er keine beſte Welt<lb/>
+glaubt, ſo gut er ſie auch beweiſen kann, und<lb/>
+der andere ſieht ſich ſeiner Muſe und Schutz-<lb/>
+engel beraubt, bey dem Tode ſeiner <hi rendition="#fr">Meta.</hi><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="51" facs="#f0055"/>
+Die Einbildungskraft, waͤre ſie ein <hi rendition="#fr">Sonnen-<lb/>
+pferd</hi> und haͤtte Fluͤgel der Morgenroͤthe,<lb/>
+kann alſo keine Schoͤpferinn des Glaubens<lb/>
+ſeyn.</p><lb/>
+<p>Jch weiß fuͤr des Sokrates Zeugnis von<lb/>
+ſeiner Unwiſſenheit kein ehrwuͤrdiger Siegel<lb/>
+und zugleich keinen beſſern Schluͤſſel als den<lb/>
+Orakelſpruch des groſſen <hi rendition="#fr">Lehrers der Hey-<lb/>
+den:</hi></p><lb/>
+<cit><quote>Ει δε τις δοκει ειδεναι τι ουδεπω νυδεν<lb/>
+εγνωκε καϑως δει γνωναι. Ει δε τις αγαπα<lb/>
+τον ΘΕΟΝ ουτος εγνωται υπ αυτον.<lb/>
+<hi rendition="#fr">So jemand ſich duͤnken laͤßt, er<lb/>
+wiſſe etwas, der weiß noch nichts, wie<lb/>
+er wiſſen ſoll. So aber jemand Gott<lb/>
+liebt, der wird von ihm erkannt.</hi> <note place="foot" n="*)">1 Kor. <hi rendition="#aq">VIII.</hi></note></quote><bibl/></cit><lb/>
+<p>— — wie Sokrates vom Apoll fuͤr ei-<lb/>
+nen <hi rendition="#fr">Weiſen.</hi> Wie aber das Korn aller un-<lb/>
+ſerer natuͤrlichen Weisheit verweſen, in Un-<lb/>
+wiſſenheit vergehen muß, und wie aus die-<lb/>
+ſem <hi rendition="#fr">Tode,</hi> aus dieſem <hi rendition="#fr">Nichts</hi> das <hi rendition="#fr">Leben</hi><lb/>
+und <hi rendition="#fr">Weſen</hi> einer hoͤheren Erkenntniß her-<lb/>
+vorkeimen und neugeſchaffen werde; ſo weit<lb/>
+reicht die <hi rendition="#fr">Naſe</hi> eines Sophiſten nicht. Kein<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">Maul-</fw><lb/>
+<pb n="52" facs="#f0056"/>
+Maulwurfshuͤgel, ſondern ein <hi rendition="#fr">Thurn Li-<lb/>
+banons</hi> muß es ſeyn, <hi rendition="#fr">der nach Dameſek<lb/>
+gaft.</hi> <note place="foot" n="*)">Hohelied Salom. <hi rendition="#aq">VII.</hi></note></p><lb/>
+<p>Was erſetzt bey einen <hi rendition="#fr">Homer</hi> die Unwiſ-<lb/>
+ſenheit der Kunſtregeln, die ein Ariſtoteles<lb/>
+nach ihm erdacht, und was einem <hi rendition="#fr">Schakes-<lb/>
+ſpear</hi> die Unwiſſenheit oder Uebertretung je-<lb/>
+ner kritiſchen Geſetze? Das <hi rendition="#fr">Genie</hi> iſt die<lb/>
+einmuͤthige Antwort. Sokrates hatte alſo<lb/>
+freylich gut unwiſſend ſeyn; er hatte einen<lb/>
+Genius, auf deſſen Wiſſenſchaft er ſich ver-<lb/>
+laſſen konnte, den er liebte und fuͤrchtete als<lb/>
+ſeinen Gott, an deſſen <hi rendition="#fr">Frieden</hi> ihm mehr<lb/>
+gelegen war, als an aller Vernunft der E-<lb/>
+gypter und Griechen, deſſen Stimme er <hi rendition="#fr">glaub-<lb/>
+te,</hi> und durch deſſen <hi rendition="#fr">Wind,</hi> wie der erfahr-<lb/>
+ne Doctor Hill uns bewieſen, der leere Ver-<lb/>
+ſtand eines Sokrates ſo gut als der Schoos<lb/>
+einer reinen Jungfrau, fruchtbar werden kann.</p><lb/>
+<p>Ob dieſer <hi rendition="#fr">Daͤmon</hi> des Sokrates nichts<lb/>
+als eine herrſchende Leidenſchaft geweſen und<lb/>
+bey welchem Namen ſie von unſern Sitten-<lb/>
+lehrern geruffen wird, oder ob er einen Fund<lb/>
+ſeiner Staatsliſt; ob er ein Engel oder Ko-<lb/>
+<fw type="catch" place="bottom">bold</fw><lb/>
+<pb n="53" facs="#f0057"/>
+bold, eine hervorragende Jdea ſeiner Einbil-<lb/>
+dungskraft, oder ein erſchlichner und will-<lb/>
+kuͤhrlich angenommener Begrif einer mathe-<lb/>
+matiſchen Unwiſſenheit; ob dieſer <hi rendition="#fr">Daͤmon</hi><lb/>
+nicht vielleicht eine Queckſilberroͤhre oder den<lb/>
+Maſchinen aͤhnlicher geweſen, welchen die<lb/>
+Leuwenhoeks ihre Offenbarungen zu verdan-<lb/>
+ken haben; ob man ihn mit dem wahrſagen-<lb/>
+dem Gefuͤhl eines nuͤchternen Blinden oder<lb/>
+mit der Gabe aus Leichdornen und Narben<lb/>
+uͤbelgeheilter Wunden die Revolutionen des<lb/>
+Wolkenhimmels vorher zu wiſſen, am be-<lb/>
+quemſten vergleichen kann: hieruͤber iſt von<lb/>
+ſo vielen Sophiſten mit ſo viel Buͤndigkeit<lb/>
+geſchrieben worden, daß man erſtaunen muß,<lb/>
+wie Sokrates bey der gelobten Erkenntniß<lb/>
+ſeiner Selbſt, auch hierinn ſo unwiſſend ge-<lb/>
+weſen, daß er einem <hi rendition="#fr">Sinnas</hi> darauf die Ant-<lb/>
+wort hat ſchuldig bleiben wollen. Keinem<lb/>
+Leſer von Geſchmack fehlt es in unſern Tagen<lb/>
+an Freunden von Genie, die mich der Muͤhe<lb/>
+uͤberheben weitlaͤuftiger uͤber den Genius des<lb/>
+Sokrates zu ſeyn.</p><lb/>
+<p>Aus dieſer ſokratiſchen Unwiſſenheit fluͤſſen<lb/>
+als leichte Folgen die Sonderbarkeiten ſeiner<lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">Lehr-</fw><lb/>
+<pb n="54" facs="#f0058"/>
+Lehr- und Denkart. Was iſt natuͤrlicher,<lb/>
+als daß er ſich genoͤthigt ſahe immer zu fra-<lb/>
+gen um kluͤger zu werden; daß er leichtglaͤu-<lb/>
+big that, jedes Meynung fuͤr wahr annahm,<lb/>
+und lieber die Probe der Spoͤtterey und <hi rendition="#fr">gu-<lb/>
+ten Laune</hi> als eine ernſthafte Unterſuchung<lb/>
+anſtellte; daß er alle ſeine Schluͤſſe ſinnlich<lb/>
+und nach der Aehnlichkeit machte; Einfaͤlle<lb/>
+ſagte, weil er keine Dialectick verſtand; gleich-<lb/>
+guͤltig gegen das, was man Wahrheit hieß,<lb/>
+auch keine Leidenſchaften, beſonders diejeni-<lb/>
+gen nicht kannte, womit ſich die Edelſten un-<lb/>
+ter den Athenienſern am meiſten wuſten; daß<lb/>
+er, wie alle Jdeoten, oft ſo zuverſichtlich und<lb/>
+entſcheidend ſprach, als wenn er, unter al-<lb/>
+len Nachteulen ſeines Vaterlandes, die ein-<lb/>
+zige waͤre, welche der Minerva auf ihrem<lb/>
+Helm ſaͤße — — Es hat den Sokraten un-<lb/>
+ſers Alters, den kanoniſchen Lehrern des<lb/>
+Publicums und verdienſtreichen Patronen<lb/>
+des menſchlichen Geſchlechts noch nicht gluͤ-<lb/>
+cken wollen, ihr Muſter in allen ſuͤſſen Feh-<lb/>
+lern zu erreichen. Weil ſie von der Urkunde<lb/>
+ſeiner Unwiſſenheit unendlich abweichen; ſo<lb/>
+muß man alle ſinnreichen Leſearten und Gloſ-<lb/>
+<fw type="catch" place="bottom">ſen</fw><lb/>
+<pb n="55" facs="#f0059"/>
+ſen ihres antiſokratiſchen Daͤmons uͤber ihres<lb/>
+Meiſters Lehren und Tugenden als Schoͤn-<lb/>
+heiten <hi rendition="#fr">freyer</hi> Ueberſetzungen bewundern; und<lb/>
+es iſt eben ſo mislich ihnen zu trauen als<lb/>
+nachzufolgen.</p><lb/>
+<p>Jetzt fehlt es mir an dem Geheimniſſe der<lb/>
+Palingeneſie, das unſere Geſchichtſchreiber<lb/>
+in ihrer Gewalt haben, aus der Aſche jedes<lb/>
+gegebenen Menſchen und gemeinen Weſens<lb/>
+eine geiſtige Geſtalt heraus zu ziehen, die<lb/>
+man einen Charakter oder ein hiſtoriſch Ge-<lb/>
+maͤlde nennt. Ein ſolches Gemaͤlde des<lb/>
+Jahrhunderts und der Republik, worinn So-<lb/>
+krates lebte, wuͤrde uns zeigen, wie kuͤnſt-<lb/>
+lich ſeine Unwiſſenheit fuͤr den Zuſtand ſeines<lb/>
+Volkes und ſeiner Zeit, und zu dem Ge-<lb/>
+ſchaͤfte ſeines Lebens ausgerechnet war. <note place="foot" n="*)">Parrhaſius verfertigte, wie es ſcheint, ein <hi rendition="#fr">ho-<lb/>
+garthſches Gemaͤlde,</hi> welches das <hi rendition="#fr">Publicum<lb/>
+zu Athen</hi> vorſtellen ſollte, und worin uns fol-<lb/>
+gender Kupferſtich oder Schattenriß in Plinius<lb/>
+uͤbrig geblieben? <hi rendition="#aq">Pinxit &amp;</hi> δημον <hi rendition="#aq">Athenien-<lb/>
+ſium, argumento quoque ingenioſo. Volebar<lb/>
+namque <hi rendition="#i">varium, iracundum, iniuſtum, inconſtan-<lb/>
+tem:</hi> eundem <hi rendition="#i">exorabilem, clementem, miſericor-<lb/>
+dem, excelſum, glorioſum, humilem, fcrocem, fuga-<lb/>
+cemque</hi> &amp; <hi rendition="#i">omnia pariter</hi> oſtendere. Hiſt. Nat.<lb/>
+Lib. XXXV. Cap. X.</hi></note> Jch<lb/>
+<fw type="sig" place="bottom">D 4</fw><fw type="catch" place="bottom">kann</fw><lb/>
+<pb n="56" facs="#f0060"/>
+kann nichts mehr thun als der Arm eines<lb/>
+Wegweiſers und bin zu hoͤlzern meinen Le-<lb/>
+ſern in dem Laufe ihrer Betrachtungen Ge-<lb/>
+ſellſchaft zu leiſten.</p><lb/>
+<p>Die Athenienſer waren neugierig. Ein<lb/>
+Unwiſſender iſt der beſte Arzt fuͤr dieſe Luſt-<lb/>
+ſeuche. Sie waren, wie alle neugierige, ge-<lb/>
+neigt <hi rendition="#fr">mitzutheilen</hi> es muſte ihnen alſo ge-<lb/>
+fallen, gefragt zu werden. Sie beſaſſen aber<lb/>
+mehr die Gabe zu erfinden und vorzutragen,<lb/>
+als zu behalten und zu urtheilen; daher hat-<lb/>
+te Sokrates immer Gelegenheit ihr Gedaͤcht-<lb/>
+nis und ihre Urtheilskraft zu vertreten, und<lb/>
+ſie fuͤr Leichtſinn und Eitelkeit zu warnen.<lb/>
+Kurz, Sokrates lockte ſeine Mitbuͤrger aus<lb/>
+den Labyrinthen ihrer gelehrten Sophiſten zu<lb/>
+einer <hi rendition="#fr">Wahrheit,</hi> die <hi rendition="#fr">im Verborgenen liegt,</hi><lb/>
+zu einer <hi rendition="#fr">heimlichen Weisheit,</hi> und von den<lb/>
+Goͤtzenaltaͤren ihrer andaͤchtigen und ſtaats-<lb/>
+klugen Prieſter zum Dienſt eines <hi rendition="#fr">unbekan-<lb/>
+ten Gottes.</hi> Plato ſagte es den Athenien-<lb/>
+ſern ins Geſichte, daß Sokrates ihren Arm<lb/>
+den Goͤttern gegeben waͤre ſie von ihren Thor-<lb/>
+heiten zu uͤberzeugen und zu ſeiner Nachfolge<lb/>
+in der Tugend aufzumuntern. Wer den So-<lb/>
+krates unter den Propheten nicht leiden will,<lb/>
+den muß man fragen: <hi rendition="#fr">Wer der Propheten<lb/>
+Vater ſey?</hi> und ob ſich <hi rendition="#fr">unſer</hi> Gott nicht ei-<lb/>
+nen <hi rendition="#fr">Gott der Heyden</hi> genannt und erwie-<lb/>
+ſen?</p></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Drit-</hi></fw><lb/>
+<pb n="[57]" facs="#f0061"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="3"><head><hi rendition="#b">Dritter Abſchnitt.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>okrates ſoll drey Feldzuͤge mitgemacht<lb/>
+haben. Jn dem erſten hatte ihm ſein<lb/>
+<hi rendition="#fr">Alcidiades</hi> die Erhaltung des Lebens<lb/>
+und der Waffen zu danken, dem er auch den<lb/>
+Preis der Tapferkeit, welcher ihm ſelbſt zu-<lb/>
+kam, uͤberließ. Jn dem zweyten wich er wie<lb/>
+ein Parther, fiel ſeine Verfolger mitten im<lb/>
+Weichen an, theilte mehr Furcht aus, als<lb/>
+ihm eingejagt wurde und trug ſeinen Freund<lb/>
+<hi rendition="#fr">Xenophon,</hi> der vom Pferde gefallen war,<lb/>
+auf den Schultern aus der Gefahr des<lb/>
+Schlachtfeldes. Er entgieng der groſſen Nie-<lb/>
+derlage des dritten Feldzuges eben ſo gluͤck-<lb/>
+lich wie der Peſt, die zu ſeiner Zeit Athen<lb/>
+zweymal heimſuchte.</p><lb/>
+<p>Die Ehrfurcht gegen das Wort in ſeinem<lb/>
+Herzen, auf deſſen Laut er immer aufmerk-<lb/>
+ſam war, entſchuldigte ihn Staatsverſamm-<lb/>
+lungen beyzuwohnen. Als er lange genung<lb/>
+glaubte gelebt zu haben, bot er ſich ſelbſt zu<lb/>
+einer Stelle im Rath an, worinn er als Mit-<lb/>
+glied, Aeltermann <note place="foot" n="*)">Prytan.</note> und Oberhaupt <note place="foot" n="**)">Proſtata.</note> ge-<lb/>
+ſeſſen, und wo er ſich mit ſeiner Unſchicklich-<lb/>
+keit in Sammlung der Stimmen und andern<lb/>
+Gebraͤuchen <hi rendition="#fr">laͤcherlich,</hi> auch mit ſeinem Ei-<lb/>
+<fw type="sig" place="bottom">D 5</fw><fw type="catch" place="bottom">gen-</fw><lb/>
+<pb n="58" facs="#f0062"/>
+genſinn, den er dem unrechten Verfahren ei-<lb/>
+ner Sache entgegen ſetzen muſte, als ein <hi rendition="#fr">Auf-<lb/>
+ruͤhrer</hi> verdaͤchtig gemacht haben ſoll.</p><lb/>
+<p>Sokrates wurde aber kein Autor, und<lb/>
+hierinn handelte er uͤbereinſtimmig mit ſich<lb/>
+ſelbſt. Wie der Held vor der Schlacht bey<lb/>
+Marathon keine Kinder noͤthig hatte; ſo<lb/>
+wenig brauchte Sokrates Schriften zu ſei-<lb/>
+nem Gedaͤchtniſſe. Seine Philoſophie ſchick-<lb/>
+te ſich fuͤr jeden Ort und zu jedem Fall. Der<lb/>
+Markt, das Feld, ein Gaſtmal, das Ge-<lb/>
+faͤngnis waren ſeine Schulen; und das er-<lb/>
+ſte das beſte Quodlibet des menſchlichen Le-<lb/>
+bens und geſellſchaftlichen Umganges diente<lb/>
+ihm den Saamen der Wahrheit auszuſtreuen.<lb/>
+So wenig Schulfuͤchſerey er in ſeiner Lebens-<lb/>
+art beſchuldigt wird, und ſo gut er auch die<lb/>
+Kunſt verſtand die beſten Geſellſchaften ſelbſt<lb/>
+von jungen rohen Leuten zu unterhalten, er-<lb/>
+zaͤhlt man gleichwol von ihm, daß er ganze<lb/>
+Tage und Naͤchte unbeweglich geſtanden, und<lb/>
+einer ſeiner Bildſaͤulen aͤhnlicher als ſich ſelbſt<lb/>
+geweſen. Seine Buͤcher wuͤrden alſo viel-<lb/>
+leicht wie dieſe ſeine Soliloquien und Selbſt-<lb/>
+Geſpraͤche ausgeſehen haben. Er lobte ei-<lb/>
+nen Spatziergang als eine Suppe zu ſeinem<lb/>
+Abendbrodt; er ſuchte aber nicht wie ein<lb/>
+Peripatetiker die Wahrheit im Herumlaufen<lb/>
+und hin- und hergehen.</p><lb/>
+<fw type="catch" place="bottom">Daß</fw><lb/>
+<pb n="59" facs="#f0063"/>
+<p>Daß Sokrates nicht das Talent eines<lb/>
+Scribenten gehabt, lieſſe ſich auch aus dem<lb/>
+Verſuche argwohnen, den er in ſeinem Ge-<lb/>
+faͤngniſſe auf Angabe eines Traums in der<lb/>
+lyriſchen Dichtkunſt machte. Bey dieſer Ge-<lb/>
+legenheit entdeckte er in ſich eine Trockenheit<lb/>
+zu erfinden, den er mit den Fabeln des Aeſops<lb/>
+abzuhelfen wuſte. Gleichwol gerieth ihm<lb/>
+ein Geſang auf den <hi rendition="#fr">Apoll</hi> und die <hi rendition="#fr">Diana.</hi></p><lb/>
+<p>Vielleicht fehlte es ihm auch in ſeinem Hau-<lb/>
+ſe an der Ruhe, Stille und Heiterkeit, die ein<lb/>
+Philoſoph zum Schreiben noͤthig hat, der ſich<lb/>
+und andere dadurch lehren und ergoͤtzen will.<lb/>
+Das Vorurtheil gegen Xantippe, das durch<lb/>
+den erſten Claßiſchen Autor unſerer Schulen<lb/>
+auſteckend und tief eingewurzelt worden, hat<lb/>
+durch die Acta Philoſophorum nicht ausge-<lb/>
+rottet werden koͤnnen, wie es zum Behuf der<lb/>
+Wahrheit und Sittlichkeit zu wuͤnſchen waͤ-<lb/>
+re. Unterdeſſen muͤſſen wir faſt ein Haus-<lb/>
+ereutz von dem Schlage annehmen, um einen<lb/>
+ſolchen Weiſen als Sokrates zu bilden. Die<lb/>
+<hi rendition="#fr">Reitzbarkeit</hi> ſeiner Einfaͤlle konnte vielleicht<lb/>
+aus Mangel und Eckel daran von Xantippen<lb/>
+nicht behaͤnder erſtickt werden als durch Grob-<lb/>
+heiten, Beleidigungen und ihren Nachtſpiegel:<lb/>
+Einer Frau, welche die Haushaltung eines<lb/>
+Philoſophen fuͤhren, und einem Mann, der<lb/>
+die Regierungsgeſchaͤfte <hi rendition="#fr">unvermoͤgender</hi><lb/>
+<fw type="catch" place="bottom">Groß-</fw><lb/>
+<pb n="60" facs="#f0064"/>
+Großviziern verwalten ſoll, iſt freylich die Zeit<lb/>
+zu edel, Wortſpiele zu erſinnen und verbluͤmt<lb/>
+zu reden. Mit eben ſo wenig Grunde hat<lb/>
+man auch als einer Verlaͤumdung einer aͤhn-<lb/>
+lichen Erzaͤhlung von Sokrates Heftigkeit<lb/>
+ſelbſt wiederſprochen, mit der er ſich auf dem<lb/>
+Markte bisweilen die Haare aus dem Hau-<lb/>
+pte gerauft und wie auſſer ſich ſelbſt geweſen<lb/>
+ſeyn ſoll. Gab es nicht Sophiſten und Prie-<lb/>
+ſter zu Athen, mit denen Sokrates in einer<lb/>
+ſolchen Vorſtellung ſeiner ſelbſt reden muſte?<lb/>
+Wuͤrde nicht der <hi rendition="#fr">ſanftmuͤthigſte</hi> und <hi rendition="#fr">herzlich<lb/>
+demuͤthige Menſchen Lehrer</hi> gedrungen<lb/>
+ein Wehe uͤber das andere gegen die Gelehr-<lb/>
+ten und frommen Leute ſeines Volkes aus-<lb/>
+zuſtoſſen?</p><lb/>
+<p>Jn Vergleichung eines <hi rendition="#fr">Xenophons</hi> und<lb/>
+<hi rendition="#fr">Platons</hi> wuͤrde vielleicht der Styl des So-<lb/>
+krates nach den Meiſſel eines Bildhauers aus-<lb/>
+geſehen haben und ſeine Schreibart mehr pla-<lb/>
+ſtiſch als <hi rendition="#fr">maleriſch</hi> geweſen ſeyn. Die Kunſt-<lb/>
+richter waren mit ſeinen <hi rendition="#fr">Anſpielungen</hi> nicht<lb/>
+zufrieden, und tadelten die Gleichniſſe ſeines<lb/>
+muͤndlichen Vortrages bald als zu weit her-<lb/>
+geholt, bald als poͤbelhaft. Alcibiades aber<lb/>
+verglich ſeinen Parabel gewiſſen heiligen Bil-<lb/>
+dern der Goͤtter und Goͤttinnen, die man<lb/>
+nach damaliger Mode in einem kleinen<lb/>
+Gehaͤuſe trug, auf denen nichts als die<lb/>
+<fw type="catch" place="bottom">Ge-</fw><lb/>
+<pb n="61" facs="#f0065"/>
+Geſtalt eines ziegenfuͤßigen Satyrs zu ſe-<lb/>
+hen war.</p><lb/>
+<p>Hier iſt ein Beyſpiel davon. Sokrates<lb/>
+verglich ſich mit einem Arzte, der in einem ge-<lb/>
+meinen Weſen von Kindern die Kuchen- und<lb/>
+Zuckernaͤſchereyen verbiethen wollte. Wenn<lb/>
+dieſe Kunſtverwandten, ſagte er, den Arzt<lb/>
+vor einem Gerichte verklagen moͤchten, das<lb/>
+aus lauter Kindern beſtuͤnde: ſo waͤre ſein<lb/>
+Schickſal entſchieden. Man machte zu Athen<lb/>
+ſo viel Anſchlaͤge an dem Gluͤck der Goͤtter<lb/>
+Theil zu nehmen, und gleich ihnen weiſe und<lb/>
+gluͤcklich zu werden, als man heut zu Tage<lb/>
+macht nach Brodt- und Ehren-Stellen. Je-<lb/>
+der neue Goͤtzendienſt war eine Finanzgrube<lb/>
+der Prieſter, welche das oͤffentliche Wohl<lb/>
+vermehren ſollte; jede neue Secte der So-<lb/>
+phiſten verſprach eine Encyclopedie der geſun-<lb/>
+den Vernunft und Erfahrung. Dieſe Pro-<lb/>
+jecte waren die Naͤſchereyen, welche Sokra-<lb/>
+tes ſeinen Mitbuͤrgern zu vereckeln ſuchte.</p><lb/>
+<p>Athen, das den Homer als einen <hi rendition="#fr">Raſen-<lb/>
+den</hi> zu einer Geldbuſſe verdammt haben ſoll,<lb/>
+verurtheilte den Sokrates als einen <hi rendition="#fr">Miſſe-<lb/>
+thaͤter</hi> zum Tode.</p><lb/>
+<p>Sein erſtes Verbrechen war, daß er die<lb/>
+Goͤtter nicht geehrt und neue haͤtte einfuͤhren<lb/>
+wollen. Plato laͤßt ihn gleichwol in ſeinen<lb/>
+Geſpraͤchen oͤfterer bey den Goͤttern ſchwoͤren<lb/>
+<fw type="catch" place="bottom">als</fw><lb/>
+<pb n="62" facs="#f0066"/>
+als ein verliebter Stutzer bey ſeiner Seele<lb/>
+oder ein irrender Ritter bey den Furien ſei-<lb/>
+ner Ahnen luͤgt. Jn den letzten Augenblicken<lb/>
+ſeines Lebens, da Sokrates ſchon die Kraͤfte<lb/>
+des Geſundbrunnens in ſeinen Gliedern fuͤhl-<lb/>
+te, erſuchte er noch aufs inſtaͤndigſte ſeinen<lb/>
+Kriton einen <hi rendition="#fr">Hahn</hi> fuͤr ihn zu bezahlen und<lb/>
+in ſeinen Namen dem Aeſkulap zu opfern.<lb/>
+Sein zweytes Verbrechen war ein Verfuͤhrer<lb/>
+der Tugend geweſen zu ſeyn, durch ſeine freye<lb/>
+und anſtoͤſſige Lehren.</p><lb/>
+<p>Sokrates antwortete auf dieſe Beſchuldi-<lb/>
+gungen, mit einem Ernſt und Muth, mit ei-<lb/>
+nem Stolz und Kaltſinn, daß man ihn nach<lb/>
+ſeinem Geſichte eher fuͤr einen Befehlshaber<lb/>
+ſeiner Richter, wie ein Alter bemerkt, als<lb/>
+fuͤr einen Beklagten haͤtte anſehen ſollen.</p><lb/>
+<p>Sokrates verlor, ſagt man, einen giftigen<lb/>
+Einfall, <note place="foot" n="*)">Er dictirte ſich im Scherz ſelbſt die Strafe auf<lb/>
+Unkoſten des Staats zu Tode gefuͤttert zu werden.</note> und die gewiſſenhaften Areopagu-<lb/>
+ten die Gedult. Man wurde alſo hierauf<lb/>
+bald uͤber die Strafe einig, der er wuͤrdig<lb/>
+waͤre, ſo wenig man ſich vorher daruͤber hat-<lb/>
+te vergleichen koͤnnen.</p><lb/>
+<p>Ein Feſt zu Athen, an dem es nicht erlaubt<lb/>
+war ein Todesurtheil zu vollziehen, legte den<lb/>
+Sokrates die ſchwere Vorbereitung eines dreyſ-<lb/>
+ſigtaͤgigen Gefaͤngniſſes zu ſeinem Tode auf.</p><lb/>
+<fw type="catch" place="bottom">Nach</fw><lb/>
+<pb n="63" facs="#f0067"/>
+<p>Nach ſeinem Tode ſoll er noch einem Chier,<lb/>
+Namens <hi rendition="#fr">Kyrſas</hi> erſchienen ſeyn, der ſich un-<lb/>
+weit ſeines Grabes niedergeſetzt hatte und<lb/>
+daruͤber eingeſchlafen war. Die Abſicht ſei-<lb/>
+ner Reiſe nach Athen beſtand, Sokrates zu<lb/>
+ſehen, der damals nicht mehr lebte; nach die-<lb/>
+ſer Unterredung alſo mit deſſelben Geſpenſte,<lb/>
+kehrte er in ſein Vaterland zuruͤck, das bey<lb/>
+den Alten wegen ſeines herrlichen Weins be-<lb/>
+kannt iſt.</p><lb/>
+<p>Plato macht die freywillige Armuth des<lb/>
+Sokrates zu einem Zeichen ſeiner goͤttlichen<lb/>
+Sendung. Ein groͤſſeres iſt ſeine Gemein-<lb/>
+ſchaft an dem letzten Schickſale der <hi rendition="#fr">Prophe-<lb/>
+ten</hi> und <hi rendition="#fr">Gerechten.</hi> <note place="foot" n="*)">Matth. <hi rendition="#aq">XXIII.</hi> 29.</note> Ein Bildſaͤule von<lb/>
+Lyſippus war das Denkmal, das die Athe-<lb/>
+nienſer ſeiner Unſchuld und dem Frevel ihres<lb/>
+eigenen Blutgerichts ſetzen lieſſen.</p></div><lb/>
+<div n="3"><head><hi rendition="#b">Schlußrede.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>er nicht von <hi rendition="#fr">Broſamen</hi> und <hi rendition="#fr">Allmoſen,</hi><lb/>
+noch vom <hi rendition="#fr">Raube</hi> zu leben, und fuͤr ein<lb/>
+<hi rendition="#fr">Schwert</hi> alles zu entbehren weiß, iſt nicht<lb/>
+geſchickt zum Dienſt der Wahrheit; Der wer-<lb/>
+de fruͤhe! ein vernuͤnftiger, brauchbarer, ar-<lb/>
+<fw type="catch" place="bottom">tiger</fw><lb/>
+<pb n="64" facs="#f0068"/>
+tiger Mann in der Welt, oder lerne Buͤcklin-<lb/>
+ge machen und Teller lecken: ſo iſt er fuͤr<lb/>
+Hunger und Durſt, fuͤr Galgen und Rad<lb/>
+ſein Lebenlang ſicher.</p><lb/>
+<p>Jſt es wahr, daß GOtt Selbſt, wie es in<lb/>
+dem <hi rendition="#fr">guten Bekenntniſſe</hi> lautet, das er vor<lb/>
+Pilatus ablegte; iſt es wahr, ſage ich, daß<lb/>
+Gott Selbſt, <hi rendition="#fr">dazu</hi> ein Menſch wurde und<lb/>
+<hi rendition="#fr">dazu</hi> in die Welt kam, <hi rendition="#fr">daß er die Wahr-<lb/>
+heit zeugen moͤchte:</hi> ſo brauchte es keine<lb/>
+Allwiſſenheit vorher zu ſehen, daß er nicht<lb/>
+ſo gut wie ein Sokrates von der Welt kom-<lb/>
+men, ſondern eines ſchmaͤhlichern und grau-<lb/>
+ſameren Todes ſterben wuͤrde, als der <hi rendition="#fr">Va-<lb/>
+termoͤrder</hi> des <hi rendition="#fr">allerchriſtlichſten Koͤniges,</hi><lb/>
+<hi rendition="#c">Ludwich’ des <hi rendition="#fr">Vielgeliebten,</hi> der ein Ur-<lb/>
+enkel Ludwich des <hi rendition="#fr">Groſſen</hi> iſt.</hi></p><lb/>
+<figure/></div></div></div>
+<pb n="[65]" facs="#f0069"/>
+<pb n="[66]" facs="#f0070"/>
+<pb n="[67]" facs="#f0071"/>
+<pb n="[68]" facs="#f0072"/>
+<pb n="[69]" facs="#f0073"/>
+<pb n="[70]" facs="#f0074"/>
+</body></text> </TEI>

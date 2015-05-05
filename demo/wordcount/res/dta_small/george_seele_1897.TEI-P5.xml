@@ -1,0 +1,1370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">     <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Das Jahr der Seele</title>
+<author>
+<persName ref="http://d-nb.info/gnd/11853856X">
+<surname>George</surname>
+<forename>Stefan</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">61</measure>
+<measure type="tokens">6862</measure>
+<measure type="types">2950</measure>
+<measure type="characters">42398</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:14:57Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/george_seele_1897</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/george_seele_1897</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/george_seele_1897</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/george_seele_1897</idno>
+<idno type="DTADirName">george_seele_1897</idno>
+<idno type="DTAID">16240</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905191530</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">George, Stefan: Das Jahr der Seele. Berlin, 1897.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Das Jahr der Seele</title>
+<author>
+<persName ref="http://d-nb.info/gnd/11853856X">
+<surname>George</surname>
+<forename>Stefan</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">25. Bl.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Blätter für die Kunst</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1897</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Yo 26835</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=443161267</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text>     <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<titlePage type="main">         <figure/><lb/>
+<docTitle>           <titlePart type="main">             <hi rendition="#red">DAS·JAHR·DER             <lb/>
+SEELE</hi>           </titlePart>         </docTitle>         <byline>           ·           <hi rendition="#red">VON</hi>           <lb/>
+<docAuthor>             <hi rendition="#red">STEFAN*GEORGE</hi>           </docAuthor>         </byline>         <lb/>
+<docImprint>           <publisher><hi rendition="#red">I</hi>M·<hi rendition="#red">V</hi>ERLAGE·<hi rendition="#red">D</hi>ER·<hi rendition="#red">B</hi>LÆTTER·<hi rendition="#red">F</hi>UER·<lb/>
+<hi rendition="#red">D</hi>IE·<hi rendition="#red">K</hi>UNST</publisher>·<pubPlace><hi rendition="#red">B</hi>ERLIN</pubPlace>·<docDate><hi rendition="#red">M</hi>DCCCXCVII</docDate>·         </docImprint>       </titlePage>       <lb/>
+<pb facs="#f0010"/>
+</front>     <body>
+<pb facs="#f0011"/>
+<div n="1">         <head><hi rendition="#blue">NACH DER LESE · WALLER IM SCHNEE · SIEG DES SOMMERS</hi></head>         <lb/>
+<div n="2">           <head><hi rendition="#blue">N</hi><hi rendition="#red">ACH</hi> <hi rendition="#blue">D</hi><hi rendition="#red">ER</hi> <hi rendition="#blue">L</hi><hi rendition="#red">ESE</hi></head>           <lb/>
+<lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">K</hi>omm in den totgesagten park und schau:</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er schimmer ferner lächelnder gestade</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er reinen wolken unverhofftes blau</l>               <lb/>
+<l><hi rendition="#blue">E</hi>rhellt die weiher und die bunten pfade</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>ort nimm das tiefe gelb das weiche grau</l>               <lb/>
+<l><hi rendition="#blue">V</hi>on birken und von buchs · der wind ist lau</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie späten rosen welkten noch nicht ganz</l>               <lb/>
+<l><hi rendition="#blue">E</hi>rlese küsse sie und flicht den kranz</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">V</hi>ergiss auch diese letzen astern nicht</l>               <lb/>
+<l><hi rendition="#blue">D</hi>en purpur um die ranken wilder reben</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd auch was übrig blieb von grünem leben</l>               <lb/>
+<l><hi rendition="#blue">V</hi>erwinde leicht im herbstlichen gesicht.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">I</hi>hr rufe junger jahre die befahlen</l>               <lb/>
+<l><hi rendition="#red">N</hi>ach IHR zu suchen unter diesen zweigen</l>               <lb/>
+<l><hi rendition="#red">I</hi>ch muss vor euch die stirn verneinend neigen</l>               <lb/>
+<l><hi rendition="#red">D</hi>enn meine liebe schläft im land der strahlen</l>             </lg>             <lb/>
+<fw type="sig" place="bottom">I</fw>             <lb/>
+<pb facs="#f0012"/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>och schickt ihr Sie mir wieder die im brennen</l>               <lb/>
+<l><hi rendition="#red">D</hi>es sommers und im flattern der Eroten</l>               <lb/>
+<l><hi rendition="#red">S</hi>ich als geleit mir schüchtern dargeboten</l>               <lb/>
+<l><hi rendition="#red">I</hi>ch will sie diesmal freudig anerkennen</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#blue">D</hi>ie reifen trauben gähren in den bütten</l>               <lb/>
+<l><hi rendition="#red">D</hi>och will ich alles was an edlen trieben</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd schöner saat vom sommer mir geblieben</l>               <lb/>
+<l><hi rendition="#red">A</hi>us vollen händen vor ihr niederschütten.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">J</hi>a heil und dank dir die den segen brachte!</l>               <lb/>
+<l><hi rendition="#blue">D</hi>u schläfertest das immer laute pochen</l>               <lb/>
+<l><hi rendition="#blue">M</hi>it der erwartung deiner Teure sachte</l>               <lb/>
+<l><hi rendition="#blue">I</hi>n diesen glanzerfüllten sterbewochen</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>u kamest und wir halten uns umschlungen</l>               <lb/>
+<l><hi rendition="#blue">I</hi>ch werde sanfte worte für dich lernen</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd ganz als glichest du der Einen Fernen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ich loben auf den sonnen-wanderungen.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">W</hi>ir schreiten auf und ab im reichen flitter</l>               <lb/>
+<l><hi rendition="#red">D</hi>es buchenganges beinah bis zum thore</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd sehen aussen in dem feld vom gitter</l>               <lb/>
+<l><hi rendition="#red">D</hi>en mandelbaum zum zweitenmal im flore</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">W</hi>ir suchen nach den schattenfreien bänken</l>               <lb/>
+<l><hi rendition="#red">D</hi>ort wo uns niemals fremde stimmen scheuchten</l>               <lb/>
+<l><hi rendition="#red">I</hi>n träumen unsre arme sich verschränken</l>               <lb/>
+<l><hi rendition="#red">W</hi>ir laben uns am langen milden leuchten</l>             </lg>             <lb/>
+<pb facs="#f0013"/>
+<lg n="3">               <l><hi rendition="#blue">W</hi>ir fühlen dankbar wie zu leisem brausen</l>               <lb/>
+<l><hi rendition="#red">V</hi>on wipfeln strahlenspuren auf uns tropfen</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd blicken nur und horchen wenn in pausen</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie reifen früchte an den boden klopfen.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">U</hi>mkreisen wir den stillen teich</l>               <lb/>
+<l><hi rendition="#blue">I</hi>n den die wasserwege münden</l>               <lb/>
+<l><hi rendition="#blue">D</hi>u suchst mich heiter zu ergründen</l>               <lb/>
+<l><hi rendition="#blue">E</hi>in wind umweht uns frühlingsweich</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>ie blätter die den boden gilben</l>               <lb/>
+<l><hi rendition="#blue">V</hi>erbreiten neuen wohlgeruch</l>               <lb/>
+<l><hi rendition="#blue">D</hi>u sprichst mir nach in klugen silben</l>               <lb/>
+<l><hi rendition="#blue">W</hi>as mich erfreut im bunten buch</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">D</hi>och weisst du auch vom tiefen glücke</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd schätzest du die stumme thräne</l>               <lb/>
+<l><hi rendition="#blue">D</hi>as auge schattend auf der brücke</l>               <lb/>
+<l><hi rendition="#blue">V</hi>erfolgest du den zug der schwäne.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">W</hi>ir stehen an der hecken gradem wall</l>               <lb/>
+<l><hi rendition="#red">I</hi>n reihen kommen kinder mit der nonne</l>               <lb/>
+<l><hi rendition="#red">S</hi>ie singen lieder von der himmelswonne</l>               <lb/>
+<l><hi rendition="#red">I</hi>n dieser erde sichrem klarem hall</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>ie wir uns in der abendneige sonnten</l>               <lb/>
+<l><hi rendition="#red">U</hi>ns schreckten deine worte und du meinst</l>               <lb/>
+<l><hi rendition="#red">W</hi>ir waren glücklich bloss solang wir einst</l>               <lb/>
+<l><hi rendition="#red">N</hi>icht diese hecken überschauen konnten.</l>             </lg>             <lb/>
+<l/>           </lg>
+<pb facs="#f0014"/>
+<lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">D</hi>u willst am mauerbrunnen wasser schöpfen</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd spielend in die kühlen strahlen langen</l>               <lb/>
+<l><hi rendition="#red">D</hi>och scheint es mir du wendest mit befangen</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie hände von den beiden löwenköpfen</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>en ring mit dem erblindeten juwele</l>               <lb/>
+<l><hi rendition="#red">I</hi>ch suchte dir vom finger ihn zu drehen</l>               <lb/>
+<l><hi rendition="#red">D</hi>ein feuchtes auge küsste meine seele</l>               <lb/>
+<l><hi rendition="#red">A</hi>ls antwort auf mein unverhülltes flehen.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">N</hi>un säume nicht die gaben zu erhaschen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>es scheidenden gepränges vor der wende</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie grauen wolken sammeln sich behende</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie nebel können bald uns überraschen</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">E</hi>in schwaches flöten von zerpflücktem aste</l>               <lb/>
+<l><hi rendition="#blue">V</hi>erkündet dir dass lezte güte weise</l>               <lb/>
+<l><hi rendition="#blue">D</hi>as land eh es im nahen sturm vereise</l>               <lb/>
+<l><hi rendition="#blue">N</hi>och hülle mit beglänzendem damaste</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">D</hi>ie wespen mit den goldengrünen schuppen</l>               <lb/>
+<l><hi rendition="#blue">S</hi>ind von verschlossnen kelchen fortgeflogen</l>               <lb/>
+<l><hi rendition="#blue">W</hi>ir fahren mit dem kahn in weitem bogen</l>               <lb/>
+<l><hi rendition="#blue">U</hi>m bronzebraunen laubes inselgruppen.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">W</hi>ir werden heute nicht zum garten gehen</l>               <lb/>
+<l><hi rendition="#red">D</hi>enn wie uns manchmal rasch und unerklärt</l>               <lb/>
+<l><hi rendition="#red">D</hi>ies leichte duften oder leise wehen</l>               <lb/>
+<l><hi rendition="#red">M</hi>it lang vergessner freude wieder nährt</l>             </lg>             <lb/>
+<pb facs="#f0015"/>
+<lg n="2">               <l><hi rendition="#blue">S</hi>o bringt uns jenes mahnende gespenster</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd leiden das uns bang und müde macht ·</l>               <lb/>
+<l><hi rendition="#red">S</hi>ieh unterm baume draussen vor dem fenster</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie vielen leichen nach der winde schlacht</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#blue">V</hi>om thore dessen eisen-lilien rosten</l>               <lb/>
+<l><hi rendition="#red">E</hi>ntfliegen vögel zum verdeckten rasen</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd andre trinken frierend auf den pfosten</l>               <lb/>
+<l><hi rendition="#red">V</hi>om regen aus den hohlen blumen-vasen.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">I</hi>ch schrieb es auf: nicht länger sei verhehlt</l>               <lb/>
+<l><hi rendition="#blue">W</hi>as als gedanken ich nicht mehr verbanne</l>               <lb/>
+<l><hi rendition="#blue">W</hi>as ich nicht sage du nicht fühlst: uns fehlt</l>               <lb/>
+<l><hi rendition="#blue">B</hi>is an das glück noch eine weite spanne</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">A</hi>n einer hohen blume welkem stiel</l>               <lb/>
+<l><hi rendition="#blue">E</hi>ntfaltest du's · ich stehe fern und ahne · ·</l>               <lb/>
+<l><hi rendition="#blue">E</hi>s war das weisse blatt das dir entfiel</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie grellste farbe auf dem fahlen plane.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">I</hi>m freien viereck mit den gelben steinen</l>               <lb/>
+<l><hi rendition="#red">I</hi>n dessen mitte sich die brunnen regen</l>               <lb/>
+<l><hi rendition="#red">W</hi>illst du noch flüchtig späte rede pflegen</l>               <lb/>
+<l><hi rendition="#red">D</hi>a heut dir hell wie nie die sterne scheinen</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>och tritt von dem basaltenen behälter</l>               <lb/>
+<l><hi rendition="#red">E</hi>r winkt die toten zweige zu bestatten</l>               <lb/>
+<l><hi rendition="#red">I</hi>m vollen mondenlichte weht es kälter</l>               <lb/>
+<l><hi rendition="#red">A</hi>ls drüben unter jener föhren schatten ·</l>             </lg>             <lb/>
+<pb facs="#f0016"/>
+<lg n="3">               <l><hi rendition="#blue">I</hi>ch lasse meine grosse traurigkeit</l>               <lb/>
+<l><hi rendition="#red">D</hi>ich falsch erraten um dich zu verschonen</l>               <lb/>
+<l><hi rendition="#red">I</hi>ch fühle hat die zeit uns kaum entzweit</l>               <lb/>
+<l><hi rendition="#red">S</hi>o wirst du meinen traum nicht mehr bewohnen</l>             </lg>             <lb/>
+<lg n="4">               <l><hi rendition="#blue">D</hi>och wenn erst unterm schnee der park entschlief</l>               <lb/>
+<l><hi rendition="#red">S</hi>o glaub ich dass noch leiser trost entquille</l>               <lb/>
+<l><hi rendition="#red">A</hi>us manchen schönen resten strauss und brief</l>               <lb/>
+<l><hi rendition="#red">I</hi>n tiefer kalter winterlicher stille.</l>             </lg>             <lb/>
+<l/>           </lg>         </div>         <milestone unit="section" rendition="#hrRed"/><lb/>
+<div n="2">           <head><hi rendition="#red">W</hi><hi rendition="#blue">ALLER</hi> <hi rendition="#red">I</hi><hi rendition="#blue">M</hi> <hi rendition="#red">S</hi><hi rendition="#blue">CHNEE</hi></head>           <lb/>
+<lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">D</hi>ie steine die in meiner strasse staken</l>               <lb/>
+<l><hi rendition="#blue">V</hi>erschwanden alle in dem weichen schooss</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er in der ferne bis zum himmel schwillt</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie flocken weben noch am bleichen laken</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">U</hi>nd treibt an meine wimper sie ein stoss</l>               <lb/>
+<l><hi rendition="#blue">S</hi>o zittert sie wie wenn die thräne quillt · ·</l>               <lb/>
+<l><hi rendition="#blue">Z</hi>u sternen schau ich führerlos hinan</l>               <lb/>
+<l><hi rendition="#blue">S</hi>ie lassen mich mit grauser nacht allein</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">I</hi>ch möchte langsam auf dem weissen plan</l>               <lb/>
+<l><hi rendition="#blue">M</hi>ir selber unbewusst gebettet sein ·</l>               <lb/>
+<l><hi rendition="#blue">D</hi>och wenn die wirbel mich zum abgrund trügen</l>               <lb/>
+<l><hi rendition="#blue">I</hi>hr todeswinde mich gelinde träft:</l>             </lg>             <lb/>
+<pb facs="#f0017"/>
+<lg n="4">               <l><hi rendition="#red">I</hi>ch suchte noch einmal nach thor und dach</l>               <lb/>
+<l><hi rendition="#blue">W</hi>ie leicht dass hinter jenen höhenzügen</l>               <lb/>
+<l><hi rendition="#blue">V</hi>erborgen eine junge hoffnung schläft ·</l>               <lb/>
+<l><hi rendition="#blue">B</hi>eim ersten lauen hauche wird sie wach.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">M</hi>ir ist als ob ein blick im dunkel glimme ·</l>               <lb/>
+<l><hi rendition="#red">S</hi>o bebend wähltest du mich zum begleite</l>               <lb/>
+<l><hi rendition="#red">D</hi>ass ich die schwere wandrung benedeite</l>               <lb/>
+<l><hi rendition="#red">S</hi>o rührte mich dein schritt und deine stimme</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>u priesest mir die pracht der stillen erde</l>               <lb/>
+<l><hi rendition="#red">I</hi>n ihrem silberlaub und kühlen strahle</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie frei der lauten freude und beschwerde ·</l>               <lb/>
+<l><hi rendition="#red">W</hi>ir nannten sie die einsam keusche fahle</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#blue">U</hi>nd wir bekannten ihren rauhen mächten</l>               <lb/>
+<l><hi rendition="#red">D</hi>ass in den reinen lüften töne hallten</l>               <lb/>
+<l><hi rendition="#red">D</hi>ass sich die himmel füllten mit gestalten</l>               <lb/>
+<l><hi rendition="#red">S</hi>o herrlich wie in keinen maien-nächten.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">M</hi>it frohem grauen haben wir im späten</l>               <lb/>
+<l><hi rendition="#blue">M</hi>ondabend oft denselben weg begonnen</l>               <lb/>
+<l><hi rendition="#blue">A</hi>ls ob von feuchten blüten ganz beronnen</l>               <lb/>
+<l><hi rendition="#blue">W</hi>ir in den alten wald der sage träten</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>u führtest mich zu den verwunschnen thalen</l>               <lb/>
+<l><hi rendition="#blue">V</hi>on nackter helle und von blassen düften</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd zeigtest mir von weitem wo aus grüften</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie trübe liebe wächst im reif der qualen.</l>             </lg>             <lb/>
+<l/>           </lg>
+<pb facs="#f0018"/>
+<lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">I</hi>ch darf nicht dankend an dir niedersinken</l>               <lb/>
+<l><hi rendition="#red">D</hi>u bist vom geist der flur aus der wir stiegen</l>               <lb/>
+<l><hi rendition="#red">W</hi>ill sich mein trost an deine wehmut schmiegen</l>               <lb/>
+<l><hi rendition="#red">S</hi>o wird sie zucken um ihm abzuwinken</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">V</hi>erharrst du bei dem quälenden beschlusse</l>               <lb/>
+<l><hi rendition="#red">N</hi>ie deines leides nähe zu gestehen</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd nur mit ihm und mir dich zu ergehen</l>               <lb/>
+<l><hi rendition="#red">A</hi>m eisigklaren tief-entschlafnen flusse?</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">I</hi>ch trat vor dich mit einem segenspruche</l>               <lb/>
+<l><hi rendition="#blue">A</hi>m abend wo für dich die kerzen brannten</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd reichte dir auf einem sammtnen tuche</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie höchste meiner gaben: den demanten</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>u aber weisst nichts von dem opferbrauche</l>               <lb/>
+<l><hi rendition="#blue">V</hi>on blanken leuchtern mit erhobnen ärmen</l>               <lb/>
+<l><hi rendition="#blue">V</hi>on schalen die mit wolkenreinem rauche</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er strengen tempel finsterniss erwärmen</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">V</hi>on engeln die sich in den nischen sammeln</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd sich bespiegeln am kristallnen lüster</l>               <lb/>
+<l><hi rendition="#blue">V</hi>on glühender und banger bitte stammeln</l>               <lb/>
+<l><hi rendition="#blue">V</hi>on halben seufzern hingehaucht im düster</l>             </lg>             <lb/>
+<lg n="4">               <l><hi rendition="#red">U</hi>nd nichts von wünschen die auf untern sprossen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>es festlichen altars vernehmlich wimmern</l>               <lb/>
+<l><hi rendition="#blue">D</hi>u fassest fragend kalt und unentschlossen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>en edelstein aus gluten thränen schimmern.</l>             </lg>             <lb/>
+<l/>           </lg>
+<pb facs="#f0019"/>
+<lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">I</hi>ch lehre dich den sanften reiz des zimmers</l>               <lb/>
+<l><hi rendition="#red">E</hi>mpfinden und der trauten winkel raunen</l>               <lb/>
+<l><hi rendition="#red">D</hi>es feuers und des stummen lampen-flimmers</l>               <lb/>
+<l><hi rendition="#red">D</hi>u hast dafür das gleiche müde staunen</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">A</hi>us deiner blässe fach ich keinen funken</l>               <lb/>
+<l><hi rendition="#red">I</hi>ch ziehe mich zurück zum beigemache</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd sinne schweigsam in das knie gesunken:</l>               <lb/>
+<l><hi rendition="#red">O</hi>b jemals du erwachen wirst? erwache!</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#blue">S</hi>o oft ich zagend mich zum vorhang kehre</l>               <lb/>
+<l><hi rendition="#red">D</hi>u sitzest noch wie anfangs in gedanken</l>               <lb/>
+<l><hi rendition="#red">D</hi>ein auge hängt noch immer an der leere</l>               <lb/>
+<l><hi rendition="#red">D</hi>ein schatten kreuzt des teppichs selbe ranken</l>             </lg>             <lb/>
+<lg n="4">               <l><hi rendition="#blue">W</hi>as hindert dann noch dass ungeübte</l>               <lb/>
+<l><hi rendition="#red">V</hi>ertauenslose flehen mir entfliesse:</l>               <lb/>
+<l><hi rendition="#red">O</hi> gieb dass grosse mutter und betrübte</l>               <lb/>
+<l><hi rendition="#red">I</hi>n dieser seele wieder trost entspriesse.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">N</hi>och zwingt mich treue über dir zu wachen</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd deines duldens schönheit dass ich weile</l>               <lb/>
+<l><hi rendition="#blue">M</hi>ein heilig streben ist mich traurig machen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>amit ich wahrer deine trauer teile</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">N</hi>ie wird ein warmer anruf mich empfangen ·</l>               <lb/>
+<l><hi rendition="#blue">B</hi>is in die späten stunden unsres bundes</l>               <lb/>
+<l><hi rendition="#blue">M</hi>uss ich erkennen mit ergebnem bangen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>as herbe schicksal winterlichen fundes.</l>             </lg>             <lb/>
+<l/>           </lg>           <fw type="sig" place="bottom">2</fw>           <lb/>
+<pb facs="#f0020"/>
+<lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">D</hi>ie blume die ich mir am fenster hege</l>               <lb/>
+<l><hi rendition="#red">V</hi>erwahrt vorm froste in der grauen scherbe</l>               <lb/>
+<l><hi rendition="#red">B</hi>etrübt mich nur trotz meiner guten pflege</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd hängt das haupt als ob sie langsam sterbe</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">U</hi>m ihrer frühern blühenden geschicke</l>               <lb/>
+<l><hi rendition="#red">E</hi>rinnerung aus meinem sinn zu merzen</l>               <lb/>
+<l><hi rendition="#red">E</hi>rwähl ich scharfe waffen und ich knicke</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie blasse blume mit dem kranken herzen</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#blue">W</hi>as soll sie nur zur bitternis mir taugen?</l>               <lb/>
+<l><hi rendition="#red">I</hi>ch wünschte dass vom fenster sie verschwände · ·</l>               <lb/>
+<l><hi rendition="#red">N</hi>un heb ich wieder meine leeren augen</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd in die leere nacht die leeren hände.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">D</hi>ein zauber brach da blaue flüge wehten</l>               <lb/>
+<l><hi rendition="#blue">V</hi>on grabesgrünen und von sichrem heile</l>               <lb/>
+<l><hi rendition="#blue">N</hi>un lass mich kurz noch da ich bald enteile</l>               <lb/>
+<l><hi rendition="#blue">V</hi>or dir wie vor dem grossen schmerze beten</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">Z</hi>u raschem abschied musst du dich bequemen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>enn auf dem weiher barst die starre rinde</l>               <lb/>
+<l><hi rendition="#blue">M</hi>ir däucht es dass ich morgen knospen finde</l>               <lb/>
+<l><hi rendition="#blue">I</hi>ns frühjahr darf ich dich nicht mit mir nehmen.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">W</hi>o die strahlen schnell verschleissen</l>               <lb/>
+<l><hi rendition="#red">L</hi>eichentuch der kahlen auen</l>               <lb/>
+<l><hi rendition="#red">W</hi>asser sich in furchen stauen</l>               <lb/>
+<l><hi rendition="#red">I</hi>n den sümpfen schmelzend gleissen</l>             </lg>             <lb/>
+<pb facs="#f0021"/>
+<lg n="2">               <l><hi rendition="#blue">U</hi>nd zum strom vereinigt laufen</l>               <lb/>
+<l><hi rendition="#red">T</hi>ürm ich für erinnerungen</l>               <lb/>
+<l><hi rendition="#red">S</hi>pröder freuden die zersprungen</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd für dich den scheiterhaufen</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#blue">W</hi>eg den schritt vom brande lenkend</l>               <lb/>
+<l><hi rendition="#red">G</hi>reif ich in dem boot die ruder</l>               <lb/>
+<l><hi rendition="#red">D</hi>rüben an dem strand ein bruder</l>               <lb/>
+<l><hi rendition="#red">W</hi>inkt das frohe banner schwenkend</l>             </lg>             <lb/>
+<lg n="4">               <l><hi rendition="#blue">T</hi>auwind fährt in ungestümen</l>               <lb/>
+<l><hi rendition="#red">S</hi>tössen über brache schollen</l>               <lb/>
+<l><hi rendition="#red">M</hi>it den welken seelen sollen</l>               <lb/>
+<l><hi rendition="#red">S</hi>ich die pfade neu beblümen.</l>             </lg>           </lg>         </div>         <lb/>
+<milestone unit="section" rendition="#hrBlue"/><lb/>
+<div n="2">           <head><hi rendition="#blue">S</hi><hi rendition="#red">IEG</hi> <hi rendition="#blue">D</hi><hi rendition="#red">ES</hi> <hi rendition="#blue">S</hi><hi rendition="#red">OMMERS</hi></head>           <lb/>
+<lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">D</hi>er lüfte schaukeln wie von neuen dingen</l>               <lb/>
+<l><hi rendition="#red">A</hi>us grauem himmel brechend milde feuer</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd rauschen heimatwärts gewandter schwingen</l>               <lb/>
+<l><hi rendition="#red">E</hi>ntbietet mir ein neues abenteuer</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>u all die jahre hin mir glanz und glaube</l>               <lb/>
+<l><hi rendition="#red">B</hi>ei dir und wo die stummen zeugen waren</l>               <lb/>
+<l><hi rendition="#red">V</hi>on hoffen und von angst bei diesem laube</l>               <lb/>
+<l><hi rendition="#red">D</hi>enn wird das glück sich je uns offenbaren</l>             </lg>             <lb/>
+<pb facs="#f0022"/>
+<lg n="3">               <l><hi rendition="#blue">W</hi>enn jezt die nacht die lockende besternte</l>               <lb/>
+<l><hi rendition="#red">I</hi>n grüner garten-au es nicht erspäht</l>               <lb/>
+<l><hi rendition="#red">W</hi>enn es die bunte volle blumen-ernte</l>               <lb/>
+<l><hi rendition="#red">W</hi>enn es der glutwind nicht verrät?</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">D</hi>en blauen raden und dem blutigen mohne</l>               <lb/>
+<l><hi rendition="#blue">E</hi>ntgeht dem lispelnden und lichten korn</l>               <lb/>
+<l><hi rendition="#blue">D</hi>urchwandert diese waldung sinnens ohne</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd jeden vielverschlungnen pfad von vorn</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">V</hi>erharrt nicht vor den zeichen in den birken</l>               <lb/>
+<l><hi rendition="#blue">G</hi>eschwunden sei die hand die einst sie schnitt</l>               <lb/>
+<l><hi rendition="#blue">N</hi>un fühlt wie andre namen wunder wirken</l>               <lb/>
+<l><hi rendition="#blue">Z</hi>u jungen frischen stämmen lenkt den schritt</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">V</hi>ergesst der schmerzen und des alten blutes</l>               <lb/>
+<l><hi rendition="#blue">G</hi>erissen am verfallnen dorngesträuch</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd blätter dürrer zeiten leichten mutes</l>               <lb/>
+<l><hi rendition="#blue">B</hi>etretet sie und lasst sie hinter euch!</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">D</hi>u willst mit mir ein reich der sonne stiften</l>               <lb/>
+<l><hi rendition="#red">D</hi>arinnen uns allein die freude ziere</l>               <lb/>
+<l><hi rendition="#red">S</hi>ie heilige die haine und die triften</l>               <lb/>
+<l><hi rendition="#red">E</hi>h unsre pracht und ihre sich verliere</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>ass dieses süsse leben uns genüge</l>               <lb/>
+<l><hi rendition="#red">D</hi>ass wir hier wohnen dankbereite gäste</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd wort und lied ersinnst du dass gefüge</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie klagen flattern in die höchsten äste</l>             </lg>             <lb/>
+<pb facs="#f0023"/>
+<lg n="3">               <l><hi rendition="#blue">D</hi>u singst das lied der summenden gemarken</l>               <lb/>
+<l><hi rendition="#red">D</hi>as sanfte lied vor einer thür am abend</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd lehrest dulden wie die einfach starken</l>               <lb/>
+<l><hi rendition="#red">I</hi>n lächeln jede thräne scheu begrabend:</l>             </lg>             <lb/>
+<lg n="4">               <l><hi rendition="#blue">D</hi>ie vögel fliehen vor den herben schlehen</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie falter bergen sich in sturmestoben</l>               <lb/>
+<l><hi rendition="#red">S</hi>ie funkeln wieder auf so er verstoben —</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd wer hat jemals blumen weinen sehen?</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">D</hi>ie silberbüschel die das gras verbrämen</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd eine tageskerze die uns nickt</l>               <lb/>
+<l><hi rendition="#blue">E</hi>rkennen uns und forschen ob wir kämen</l>               <lb/>
+<l><hi rendition="#blue">V</hi>on einem gütigeren stern geschickt</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>ie reiser streichen über unsre scheitel</l>               <lb/>
+<l><hi rendition="#blue">L</hi>asst sie vereinen was die furcht noch trennt</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd alle frage sei der lippe eitel</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie brennend einer fremden sich bekennt</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">N</hi>un sorgen wir dass uns kein los mehr dräue</l>               <lb/>
+<l><hi rendition="#blue">W</hi>enn eins des andren heisses leben trinkt</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd schauen einig in die sommerbläue</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie freundlich uns aus heller welle winkt · ·</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">G</hi>emahnt dich noch das schöne bildnis dessen</l>               <lb/>
+<l><hi rendition="#red">D</hi>er nach den schluchten-rosen kühn gehascht</l>               <lb/>
+<l><hi rendition="#red">D</hi>er über seiner jagd den tag vergessen</l>               <lb/>
+<l><hi rendition="#red">D</hi>er von der dolden vollem seim genascht</l>             </lg>             <lb/>
+<pb facs="#f0024"/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>er nach dem parke sich zur ruhe wandte</l>               <lb/>
+<l><hi rendition="#red">T</hi>rieb ihn ein flügelschillern allzuweit</l>               <lb/>
+<l><hi rendition="#red">D</hi>er sinnend sass an jenes weihers kante</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd lauschte in die tiefe heimlichkeit · ·</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#blue">U</hi>nd von der insel moosgekrönter steine</l>               <lb/>
+<l><hi rendition="#red">V</hi>erliess der schwan das spiel des wasserfalls</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd legte in die kinderhand die feine</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie schmeichelnde den schlanken hals.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">W</hi>enn trübe mahnung noch einmal uns peinigt</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd schreck in unsre goldnen lande streut</l>               <lb/>
+<l><hi rendition="#blue">D</hi>u sprichst in zuversicht: mit mir vereinigt</l>               <lb/>
+<l><hi rendition="#blue">B</hi>efürchte nicht was flüchtig sich erneut</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">N</hi>ur dass du meinem schutz dich nicht entfernst</l>               <lb/>
+<l><hi rendition="#blue">B</hi>evor das scharfe licht ersterbend loht</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd dir der gartenwald versöhnlich ernst</l>               <lb/>
+<l><hi rendition="#blue">M</hi>it seinen schatten wieder abend bot.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">W</hi>ie ein erwachen war zu andrem werden</l>               <lb/>
+<l><hi rendition="#red">A</hi>ls wir vergangenheit in uns gebändigt</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd als das leben lächelnd uns gehändigt</l>               <lb/>
+<l><hi rendition="#red">W</hi>as lang uns einzig ziel erschien auf erden</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">A</hi>uf einmal alle stunden so nur galten:</l>               <lb/>
+<l><hi rendition="#red">E</hi>in mühevolles werben um die hohe</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie uns vereinte die in ihrer lohe</l>               <lb/>
+<l><hi rendition="#red">G</hi>estalten um uns tilgte und gewalten.</l>             </lg>           </lg>           <lb/>
+<pb facs="#f0025"/>
+<lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">D</hi>ie reichsten schätze lernet frei verschwenden</l>               <lb/>
+<l><hi rendition="#blue">W</hi>ie nach den langen strahlen auf verdorrte</l>               <lb/>
+<l><hi rendition="#blue">G</hi>ewächse sollet ihr am frohen orte</l>               <lb/>
+<l><hi rendition="#blue">D</hi>en heissen gliedern milden regen spenden</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">G</hi>edenkt vom schönsten pflückend was hier sprosset</l>               <lb/>
+<l><hi rendition="#blue">W</hi>enn süss und schwül die dämmrungssterne blicken</l>               <lb/>
+<l><hi rendition="#blue">W</hi>enn glühn und dunkeln wechselnd euch bestricken</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ass ihr soviel verliehen ist genosset</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">U</hi>nd thörig nennt als übel zu befahren</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ass ihr in euch schon ferne bilder küsstet</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd dass ihr niemals zu versöhnen wüsstet</l>               <lb/>
+<l><hi rendition="#blue">D</hi>en kuss im traum empfangen und den wahren.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">W</hi>enn von den eichen erste morgenkühle</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie feuchten perlen uns ins antlitz blies</l>               <lb/>
+<l><hi rendition="#red">S</hi>o knirrte auf dem pfad der spitze kies</l>               <lb/>
+<l><hi rendition="#red">E</hi>rinnerte die schweigenden gefühle</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">U</hi>nd auch die eigene stimme schien dir rauh</l>               <lb/>
+<l><hi rendition="#red">W</hi>enn du im takt verwandter pulse bangen</l>               <lb/>
+<l><hi rendition="#red">V</hi>ernahmst die enger zu den deinen drangen</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd laues schmiegen trocknete den tau.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">R</hi>uhm diesen wipfeln dieser farbenflur</l>               <lb/>
+<l><hi rendition="#blue">S</hi>ie lehrten uns das glück in seinem flüchten</l>               <lb/>
+<l><hi rendition="#blue">Z</hi>u streifen und es bleibt noch zarte spur</l>               <lb/>
+<l><hi rendition="#blue">A</hi>n unsrer hand wie schmelz von reifen früchten</l>             </lg>             <lb/>
+<pb facs="#f0026"/>
+<lg n="2">               <l><hi rendition="#blue">S</hi>chon weht das wimpel und es säumt nicht mehr</l>               <lb/>
+<l><hi rendition="#red">A</hi>us scheidestunden werden thränen rinnen</l>               <lb/>
+<l><hi rendition="#red">O</hi>b einer zweifelhaften wiederkehr</l>               <lb/>
+<l><hi rendition="#red">I</hi>n offnem schmerze zogest du von hinnen</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#blue">I</hi>ch aber horche in die nahe nacht</l>               <lb/>
+<l><hi rendition="#red">O</hi>b dort ein lezter vogelruf vermelde</l>               <lb/>
+<l><hi rendition="#red">D</hi>en schlaf aus dem sie frisch und schön erwacht</l>               <lb/>
+<l><hi rendition="#red">D</hi>er liebe sachten schlaf im blumenfelde.</l>             </lg>           </lg>         </div>       </div>       <lb/>
+<milestone unit="section" rendition="#hrRed"/><lb/>
+<milestone unit="section" rendition="#hrRed"/><lb/>
+<div n="1">         <head><hi rendition="#red">ÜBERSCHRIFTEN UND WIDMUNGEN</hi></head>         <lb/>
+<div n="2">           <head><hi rendition="#red">Ü</hi><hi rendition="#blue">BERSCHRIFTEN</hi></head>           <lb/>
+<lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">L</hi>ieder wie ich gern sie sänge</l>               <lb/>
+<l><hi rendition="#red">D</hi>arf ich freunde noch nicht singen</l>               <lb/>
+<l><hi rendition="#red">N</hi>ur dies flüchtige gedränge</l>               <lb/>
+<l><hi rendition="#red">S</hi>cheuer reime will gelingen</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">H</hi>inter reben oder hinter</l>               <lb/>
+<l><hi rendition="#red">S</hi>tillen mauern zu kredenzen</l>               <lb/>
+<l><hi rendition="#red">Z</hi>ur erheitrung weisser winter</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd zum trost in fahlen lenzen</l>             </lg>             <lb/>
+<pb facs="#f0027"/>
+<lg n="3">               <l><hi rendition="#blue">W</hi>as ich nach den harten fehden</l>               <lb/>
+<l><hi rendition="#red">I</hi>n den schooss des friedens bette</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd aus reicher jugend eden</l>               <lb/>
+<l><hi rendition="#red">I</hi>n das leben über-rette.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">Z</hi>u meinen träumen floh ich vor dem volke</l>               <lb/>
+<l><hi rendition="#blue">M</hi>it heissen händen tastend nach der weite</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd sprach allein und rein mit stern und wolke</l>               <lb/>
+<l><hi rendition="#blue">V</hi>on meinem ersten jugendlichen streite</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>ie blumen hergeholt aus reichem leben</l>               <lb/>
+<l><hi rendition="#blue">U</hi>mflocht ich frei und stolz an goldnen kreisen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>em fern im licht geheiligten efeben</l>               <lb/>
+<l><hi rendition="#blue">V</hi>erklang sein schmerz in feierlichen weisen</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">Z</hi>u götterthalen blinkenden Mäandern</l>               <lb/>
+<l><hi rendition="#blue">I</hi>ch liess in stätten innig hoher sitten</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd in den süden meine seele wandern</l>               <lb/>
+<l><hi rendition="#blue">W</hi>o sie gekrönt den martertod erlitten</l>             </lg>             <lb/>
+<lg n="4">               <l><hi rendition="#red">U</hi>nd heut geschieht es nur aus Einem grunde</l>               <lb/>
+<l><hi rendition="#blue">W</hi>enn ich zum sang das lange schweigen breche</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ass wir uns freuen auf die zwielichtstunde</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd meine düstre schwester also spreche:</l>             </lg>             <lb/>
+<lg n="5">               <l><hi rendition="#red">S</hi>oll ich noch leben darf ich nicht vermissen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>en trank aus deinen klingenden pokalen</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd führer sind in meinen finsternissen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie lichter die aus deinen wunden strahlen.</l>             </lg>           </lg>           <lb/>
+<fw type="sig" place="bottom">3</fw>           <lb/>
+<pb facs="#f0028"/>
+<lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">D</hi>es sehers wort ist wenigen gemeinsam</l>               <lb/>
+<l><hi rendition="#blue">S</hi>chon als die ersten kühnen wünsche kamen</l>               <lb/>
+<l><hi rendition="#blue">I</hi>n einem seltnen reiche ernst und einsam</l>               <lb/>
+<l><hi rendition="#blue">E</hi>rfand er für die dinge eigne namen</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>ie hier erdonnerten von ungeheuern</l>               <lb/>
+<l><hi rendition="#blue">B</hi>efehlen oder lispelten wie bitten</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie wie Paktolen in rubinenfeuern</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd bald wie linde frühlingsbäche glitten</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">A</hi>n deren kraft und klang er sich ergezte</l>               <lb/>
+<l><hi rendition="#blue">S</hi>ie waren wenn er sich im höchsten schwunge</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er welt entfliehend unter träume sezte</l>               <lb/>
+<l><hi rendition="#blue">D</hi>es tempels saitenspiel und heilge zunge</l>             </lg>             <lb/>
+<lg n="4">               <l><hi rendition="#red">N</hi>ur sie — und nicht der sanften lehre lallen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>as mütterliche — hat er sich erlesen</l>               <lb/>
+<l><hi rendition="#blue">A</hi>ls er im rausch von mai und nachtigallen</l>               <lb/>
+<l><hi rendition="#blue">S</hi>ann über erster sehnsucht fabelwesen</l>             </lg>             <lb/>
+<lg n="5">               <l><hi rendition="#red">A</hi>ls er zum lenker seiner lebensfrühe</l>               <lb/>
+<l><hi rendition="#blue">I</hi>m beten rief ob die verheissung löge · ·</l>               <lb/>
+<l><hi rendition="#blue">E</hi>rflehend dass aus zagen busens mühe</l>               <lb/>
+<l><hi rendition="#blue">D</hi>as denkbild sich zur sonne heben möge.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">A</hi>ls ich zog ein vogel frei aus goldnem bauer</l>               <lb/>
+<l><hi rendition="#red">W</hi>ard der segen mir in reichem maasse</l>               <lb/>
+<l><hi rendition="#red">F</hi>rauen warfen von der mauer</l>               <lb/>
+<l><hi rendition="#red">R</hi>osen auf die strasse.</l>             </lg>             <lb/>
+<pb facs="#f0029"/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>urch der länder wunder marmor der paläste</l>               <lb/>
+<l><hi rendition="#red">G</hi>rauen in den heiligen gezelten</l>               <lb/>
+<l><hi rendition="#red">Z</hi>og ich fern vom schwarm der gäste</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd ich sang nur selten</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#blue">J</hi>ahre flossen · von den heimatlichen essen</l>               <lb/>
+<l><hi rendition="#red">W</hi>irbelt rauch zum grauen wolkenraum</l>               <lb/>
+<l><hi rendition="#red">I</hi>ch erhoffe nur vergessen</l>               <lb/>
+<l><hi rendition="#red">R</hi>uh und blassen traum.</l>             </lg>           </lg>           <lb/>
+<div n="3">             <head><hi rendition="#red">Sprüche für die geladenen in T . . .</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#in #red">I</hi>ndess deine mutter dich stillt</l>                 <lb/>
+<l><hi rendition="#blue">S</hi>oll eine leidige fee</l>                 <lb/>
+<l><hi rendition="#blue">V</hi>on schatten singen und tod</l>                 <lb/>
+<l><hi rendition="#blue">S</hi>ie giebt dir als pathengeschenk</l>                 <lb/>
+<l><hi rendition="#blue">A</hi>ugen so trüb und sonder</l>                 <lb/>
+<l><hi rendition="#blue">I</hi>n die sich die musen versenken</l>               </lg>               <lb/>
+<lg n="2">                 <l><hi rendition="#red">V</hi>erächtlich wirst du blicken</l>                 <lb/>
+<l><hi rendition="#blue">A</hi>uf roher spiele gebahren</l>                 <lb/>
+<l><hi rendition="#blue">V</hi>or arbeit die niedrig macht</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ie grossen strengen gedanken</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ich mahnen und wahren</l>               </lg>               <lb/>
+<lg n="3">                 <l><hi rendition="#red">W</hi>enn deine brüder klagen</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd sagen: o schmerz! den deinen</l>                 <lb/>
+<l><hi rendition="#blue">S</hi>ag ihn den winden bei nacht</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd unter der nägel waffe</l>                 <lb/>
+<l><hi rendition="#blue">B</hi>lute die kindliche brust</l>               </lg>               <lb/>
+<pb facs="#f0030"/>
+<lg n="4">                 <l><hi rendition="#red">V</hi>ergiss es nicht: du musst</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>eine frische jugend töten</l>                 <lb/>
+<l><hi rendition="#blue">A</hi>uf ihrem grab allein</l>                 <lb/>
+<l><hi rendition="#blue">W</hi>enn viele thränen es begiessen — spriessen</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nter dem einzig wunderbaren grün</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ie einzigen schönen rosen.</l>               </lg>               <lb/>
+<l/>             </lg>             <lg type="poem">               <lg n="1">                 <l><hi rendition="#blue #in">I</hi>hr lernt: das haus des mangels nur kenne die schwermut</l>                 <lb/>
+<l><hi rendition="#red">N</hi>un seht im prunke der säulen die herbere schwermut</l>               </lg>               <lb/>
+<lg n="2">                 <l><hi rendition="#blue">D</hi>er stets nach dem ziel sich verzehre nur fühle das schicksal</l>                 <lb/>
+<l><hi rendition="#red">I</hi>ch zeige euch in der erfüllung das grausamste schicksal</l>               </lg>               <lb/>
+<lg n="3">                 <l><hi rendition="#blue">D</hi>es der die stunden vertrauert bei köstlichem kleinod</l>                 <lb/>
+<l><hi rendition="#red">D</hi>er schmächtigen fingers spielt mit dem sprühenden kleinod</l>               </lg>               <lb/>
+<lg n="4">                 <l><hi rendition="#blue">U</hi>nd des der angethan mit der könige purpur</l>                 <lb/>
+<l><hi rendition="#red">D</hi>as schwere bleiche antlitz senkt auf den purpur.</l>               </lg>               <lb/>
+<l/>             </lg>             <lg type="poem">               <lg n="1">                 <l><hi rendition="#in #red">B</hi>ei seiner reise mittag bald zurück</l>                 <lb/>
+<l><hi rendition="#blue">B</hi>ald vor sich zum gewölke bangen fragens</l>                 <lb/>
+<l><hi rendition="#blue">H</hi>at lange sich der rastende gedreht ·</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>urchwallt ist ganzer erden berg und thal</l>                 <lb/>
+<l><hi rendition="#blue">S</hi>oviel an glück und thränen hinter ihm ·</l>                 <lb/>
+<l><hi rendition="#blue">W</hi>as kann noch sein? soll er das haupt hier betten</l>                 <lb/>
+<l><hi rendition="#blue">A</hi>ls an des weges marken oder soll er</l>                 <lb/>
+<l><hi rendition="#blue">I</hi>n helleren höhen lauter noch frohlocken</l>                 <lb/>
+<l><hi rendition="#blue">I</hi>n wildern schluchten tiefer noch erstöhnen · ·</l>                 <lb/>
+<l><hi rendition="#blue">S</hi>o war dies alles erst der morgengang?</l>               </lg>             </lg>           </div>         </div>         <lb/>
+<milestone unit="section" rendition="#hrRed"/><lb/>
+<pb facs="#f0031"/>
+<div n="2">           <head><hi rendition="#red">E</hi>RINNERUNGEN <hi rendition="#red">A</hi>N <hi rendition="#red">E</hi>INIGE <hi rendition="#red">A</hi>BENDE<lb/>
+<hi rendition="#red">I</hi>NNERER <hi rendition="#red">G</hi>ESELLIGKEIT</head>           <lb/>
+<div n="3">             <head><hi rendition="#blue">Blumen</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#blue #in">I</hi>n märzentagen streuten wir die samen</l>                 <lb/>
+<l><hi rendition="#red">W</hi>ann unser herz noch einmal heftig litt</l>                 <lb/>
+<l><hi rendition="#red">A</hi>n wehen die vom toten jahre kamen</l>                 <lb/>
+<l><hi rendition="#red">A</hi>m lezten kampf den eis und sonne stritt</l>               </lg>               <lb/>
+<lg n="2">                 <l><hi rendition="#blue">A</hi>n schlanken stäbchen wollten wir sie ziehen</l>                 <lb/>
+<l><hi rendition="#red">W</hi>ir suchten ihnen reinen wasserquell</l>                 <lb/>
+<l><hi rendition="#red">W</hi>ir wussten dass sie unterm licht gediehen</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd unter blicken liebevoll und hell</l>               </lg>               <lb/>
+<lg n="3">                 <l><hi rendition="#blue">M</hi>it frohem fleisse wurden sie begossen</l>                 <lb/>
+<l><hi rendition="#red">W</hi>ir sahen zu den wolken forschend bang</l>                 <lb/>
+<l><hi rendition="#red">Z</hi>usammen auf und harrten unverdrossen</l>                 <lb/>
+<l><hi rendition="#red">O</hi>b sich ein blatt entrollt ein trieb entsprang</l>               </lg>               <lb/>
+<lg n="4">                 <l><hi rendition="#blue">W</hi>ir haben in dem garten sie gepflückt</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd an den nachbarlichen weingeländen</l>                 <lb/>
+<l><hi rendition="#red">W</hi>ir wandelten vom glanz der nacht entzückt</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd trugen sie in unsren kinderhänden.</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#red">Rückkehr</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#in #red">I</hi>ch fahre heim auf reichem kahne</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>as ziel erwacht im abendrot</l>                 <lb/>
+<l><hi rendition="#blue">V</hi>om maste weht die weisse fahne</l>                 <lb/>
+<l><hi rendition="#blue">W</hi>ir übereilen manches boot</l>               </lg>               <lb/>
+<pb facs="#f0032"/>
+<lg n="2">                 <l><hi rendition="#red">D</hi>ie alten ufer und gebäude</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ie alten glocken neu mir sind</l>                 <lb/>
+<l><hi rendition="#blue">M</hi>it der verheissung neuer freude</l>                 <lb/>
+<l><hi rendition="#blue">B</hi>ereden mich die winde lind</l>               </lg>               <lb/>
+<lg n="3">                 <l><hi rendition="#red">D</hi>a taucht aus grünen wogenkämmen</l>                 <lb/>
+<l><hi rendition="#blue">E</hi>in wort ein rosenes gesicht:</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>u wohntest lang bei fremden stämmen</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>och unsre liebe starb dir nicht</l>               </lg>               <lb/>
+<lg n="4">                 <l><hi rendition="#red">D</hi>u fuhrest aus im morgengrauen</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd als ob einen tag nur fern</l>                 <lb/>
+<l><hi rendition="#blue">B</hi>egrüssen dich die wellenfrauen</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ie ufer und der erste stern.</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#blue">Entführung</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#blue #in">Z</hi>ieh mit mir geliebtes kind</l>                 <lb/>
+<l><hi rendition="#red">I</hi>n die wälder ferner kunde</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd behalt als angebind</l>                 <lb/>
+<l><hi rendition="#red">N</hi>ur mein lied in deinem munde</l>               </lg>               <lb/>
+<lg n="2">                 <l><hi rendition="#blue">B</hi>aden wir im sanften blau</l>                 <lb/>
+<l><hi rendition="#red">D</hi>er mit duft umhüllten gränzen</l>                 <lb/>
+<l><hi rendition="#red">W</hi>erden unsre leiber glänzen</l>                 <lb/>
+<l><hi rendition="#red">K</hi>larer scheinen als der tau</l>               </lg>               <lb/>
+<lg n="3">                 <l><hi rendition="#blue">I</hi>n der luft sich silbern fein</l>                 <lb/>
+<l><hi rendition="#red">F</hi>äden uns zu schleiern spinnen</l>                 <lb/>
+<l><hi rendition="#red">A</hi>uf dem rasen bleichen linnen</l>                 <lb/>
+<l><hi rendition="#red">Z</hi>art wie schnee und sternenschein</l>               </lg>               <lb/>
+<pb facs="#f0033"/>
+<lg n="4">                 <l><hi rendition="#blue">U</hi>nter bäumen um den see</l>                 <lb/>
+<l><hi rendition="#red">S</hi>chweben wir vereint uns freuend</l>                 <lb/>
+<l><hi rendition="#red">S</hi>achte singend blumen streuend</l>                 <lb/>
+<l><hi rendition="#red">W</hi>eisse nelken weissen klee</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#red">Reifefreuden</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#in #red">E</hi>in stolzes beben und ein reiches schallen</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>urch später erde schwere fülle strich · ·</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ie kurzen worte waren kaum gefallen</l>                 <lb/>
+<l><hi rendition="#blue">A</hi>ls tiefer rührung ruhe uns beschlich</l>               </lg>               <lb/>
+<lg n="2">                 <l><hi rendition="#red">S</hi>ie sanken hin wo sich am fruchtgeländer</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>er purpurschein im gelben schmelz verlor</l>                 <lb/>
+<l><hi rendition="#blue">S</hi>ie stiegen auf zum schmuck der hügelränder</l>                 <lb/>
+<l><hi rendition="#blue">W</hi>o für die dunkle lust die traube gor</l>               </lg>               <lb/>
+<lg n="3">                 <l><hi rendition="#red">I</hi>ch wagte dir nicht du nicht mir zu nahen</l>                 <lb/>
+<l><hi rendition="#blue">A</hi>ls schräger strahl um unsre häupter schoss</l>                 <lb/>
+<l><hi rendition="#blue">N</hi>och gar mit rede störend zu bejahen</l>                 <lb/>
+<l><hi rendition="#blue">W</hi>as jezt uns band was jedes stumm genoss</l>               </lg>               <lb/>
+<lg n="4">                 <l><hi rendition="#red">U</hi>nd was in uns bei jenes tages rüste</l>                 <lb/>
+<l><hi rendition="#blue">A</hi>uf zu den veilchenfarbnen wolken klomm</l>                 <lb/>
+<l><hi rendition="#blue">W</hi>as mehr als unsre träume und gelüste</l>                 <lb/>
+<l><hi rendition="#blue">A</hi>n diesem gluten-abend zart erglomm.</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#blue">Weisser gesang</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#blue #in">D</hi>ass ich für sie den weissen traum ersänne · ·</l>                 <lb/>
+<l><hi rendition="#red">M</hi>ir schien im schloss das herbe strahlen tränken</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd blasse blüten-bäume nur umschränken</l>                 <lb/>
+<l><hi rendition="#red">D</hi>ass er mit zweier kinder frühtag ränne</l>               </lg>               <lb/>
+<pb facs="#f0034"/>
+<lg n="2">                 <l><hi rendition="#blue">E</hi>in jedes einen schlanken strauss umschlänge</l>                 <lb/>
+<l><hi rendition="#red">H</hi>ell-flitternd wie von leichtgeregter espe</l>                 <lb/>
+<l><hi rendition="#red">D</hi>araus als wimpel eine silber-trespe</l>                 <lb/>
+<l><hi rendition="#red">H</hi>och über ihre schwachen stirnen schwänge</l>               </lg>               <lb/>
+<lg n="3">                 <l><hi rendition="#blue">U</hi>nd beide langsam kämen nach dem weiher</l>                 <lb/>
+<l><hi rendition="#red">A</hi>uf breitem marmelstiege manchmal wankend</l>                 <lb/>
+<l><hi rendition="#red">B</hi>is bei dem flügelschlag der nahen reiher</l>                 <lb/>
+<l><hi rendition="#red">D</hi>er arme sanfte bürde heftig schwankend</l>               </lg>               <lb/>
+<lg n="4">                 <l><hi rendition="#blue">D</hi>uft-nebel wirbelte von kühlen narden</l>                 <lb/>
+<l><hi rendition="#red">M</hi>it denen die Vereinten höherem raume</l>                 <lb/>
+<l><hi rendition="#red">E</hi>ntgegen schwebend immer lichter warden</l>                 <lb/>
+<l><hi rendition="#red">B</hi>ald eines mit dem reinen äther-flaume.</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#red">Nachtwachen</hi></head>             <lb/>
+<lg type="poem">               <head>I</head>               <lb/>
+<lg n="1">                 <l><hi rendition="#in #red">D</hi>eine stirne verborgen halb durch die beiden</l>                 <lb/>
+<l><hi rendition="#blue">W</hi>ölkchen von haaren (sie sind blond und seiden)</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>eine stirne spricht mir von jugendlichem leide</l>               </lg>               <lb/>
+<lg n="2">                 <l><hi rendition="#red">D</hi>eine lippen (sie sind stumm) erzählen die geschichte</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>er seelen verurteilt in gottes gerichte ·</l>                 <lb/>
+<l><hi rendition="#blue">E</hi>rregender spiegel dein auge spiel damit nicht!</l>               </lg>               <lb/>
+<lg n="3">                 <l><hi rendition="#red">W</hi>enn du lächelst (endlich flog über dir der schlummer her)</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ein lächeln gleicht dem weinen sehr</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd du neigst ein wenig dein haupt von kummer schwer.</l>               </lg>               <lb/>
+<l/>             </lg>
+<pb facs="#f0035"/>
+<lg type="poem">               <head>II</head>               <lb/>
+<lg n="1">                 <l><hi rendition="#blue #in">N</hi>icht nahm ich acht auf dich in meiner bahn</l>                 <lb/>
+<l><hi rendition="#red">I</hi>n zeiten feucht und falb worin der wahn</l>                 <lb/>
+<l><hi rendition="#red">D</hi>es suchens fragens sich verlor</l>               </lg>               <lb/>
+<lg n="2">                 <l><hi rendition="#blue">K</hi>ann jemand in den zeiten feucht und falb</l>                 <lb/>
+<l><hi rendition="#red">A</hi>m dunklen thore harren meinethalb?</l>                 <lb/>
+<l><hi rendition="#red">N</hi>un denk ich dein weil unterm dunklen thor</l>               </lg>               <lb/>
+<lg n="3">                 <l><hi rendition="#blue">W</hi>o ängstend säule und gemäuer knarrt</l>                 <lb/>
+<l><hi rendition="#red">D</hi>u meinethalben mein geharrt</l>                 <lb/>
+<l><hi rendition="#red">A</hi>ls niemand ging und als es schweigsam fror.</l>               </lg>               <lb/>
+<l/>             </lg>             <lg type="poem">               <head>III</head>               <lb/>
+<lg n="1">                 <l><hi rendition="#in #red">W</hi>elche beiden mitternächte!</l>                 <lb/>
+<l><hi rendition="#blue">A</hi>ls der selber schmerzdurchbohrte</l>                 <lb/>
+<l><hi rendition="#blue">A</hi>n der dulderin sich rächte</l>               </lg>               <lb/>
+<lg n="2">                 <l><hi rendition="#red">D</hi>ass dein blick sich weich umflorte</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ass dein wink ihr mildrung brächte!</l>                 <lb/>
+<l><hi rendition="#blue">E</hi>ines sah des andren wunden</l>               </lg>               <lb/>
+<lg n="3">                 <l><hi rendition="#red">D</hi>urch des dunkels dichte mähne</l>                 <lb/>
+<l><hi rendition="#blue">Z</hi>ucken rieseln unverbunden · ·</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd nicht wort nicht thräne.</l>               </lg>               <lb/>
+<l/>             </lg>             <lg type="poem">               <head>IV</head>               <lb/>
+<lg n="1">                 <l><hi rendition="#blue #in">E</hi>rwachen aus dem tiefsten traumesschoosse</l>                 <lb/>
+<l><hi rendition="#red">A</hi>ls ich von langer spiegelung betroffen</l>                 <lb/>
+<l><hi rendition="#red">M</hi>ich neigte auf die lippen die erblichen</l>               </lg>               <lb/>
+<lg n="2">                 <l><hi rendition="#blue">E</hi>rtragen sollet ihr nur mitleidgrosse!</l>                 <lb/>
+<l><hi rendition="#red">S</hi>eid nur aus dank den euch geweihten offen:</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd die berührten dann in solchen gluten</l>               </lg>               <lb/>
+<fw type="sig" place="bottom">4</fw>               <lb/>
+<pb facs="#f0036"/>
+<lg n="3">                 <l><hi rendition="#blue">D</hi>ie antwort gaben wider höchstes hoffen</l>                 <lb/>
+<l><hi rendition="#red">D</hi>ass dem noch zweifelnden die sinne wichen</l>                 <lb/>
+<l><hi rendition="#red">O</hi> rinnen der glückseligen minuten!</l>               </lg>               <lb/>
+<l/>             </lg>             <lg type="poem">               <head>V</head>               <lb/>
+<lg n="1">                 <l><hi rendition="#in #red">W</hi>enn solch ein sausen in den wipfeln wühlt</l>                 <lb/>
+<l><hi rendition="#blue">I</hi>st es nicht mehr als dass ein sehnen drohe</l>                 <lb/>
+<l><hi rendition="#blue">A</hi>ls blaue blicke blumen blonde frohe?</l>               </lg>               <lb/>
+<lg n="2">                 <l><hi rendition="#red">W</hi>enn solch ein branden um die festen spült</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ass du verlassen irrend an dem strand</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ie rettung suchst in leerer himmel brand?</l>               </lg>               <lb/>
+<lg n="3">                 <l><hi rendition="#red">D</hi>ass ich wie nie dich blass und bebend finde</l>                 <lb/>
+<l><hi rendition="#blue">K</hi>aum mehr noch als am wegesrand die blinde</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ie unbeachtet ruft im lauten winde.</l>               </lg>               <lb/>
+<l/>             </lg>           </div>         </div>         <milestone unit="section" rendition="#hrBlue"/><lb/>
+<div n="2">           <head><hi rendition="#red">V</hi>ERSTATTET <hi rendition="#red">D</hi>IES <hi rendition="#red">S</hi>PIEL: <hi rendition="#red">E</hi>URE <hi rendition="#red">F</hi>LÜCHTIG<lb/>
+<hi rendition="#red">G</hi>ESCHNITTENEN <hi rendition="#red">S</hi>CHATTEN <hi rendition="#red">Z</hi>UM <hi rendition="#red">S</hi>CHMUCK<lb/>
+<hi rendition="#red">F</hi>ÜR <hi rendition="#red">M</hi>EINER <hi rendition="#red">A</hi>NGEDENKEN <hi rendition="#red">S</hi>AAL</head>           <lb/>
+<lg type="poem">             <milestone unit="section" rendition="#hrBlue"/><lb/>
+<lg n="1">               <l><hi rendition="#blue #in">S</hi>oll nun der mund der von des eises bruch</l>               <lb/>
+<l><hi rendition="#red">Z</hi>um neuen reife längst erstarkt im wehe</l>               <lb/>
+<l><hi rendition="#red">S</hi>ich klagend öffnen und nach welchem spruch</l>               <lb/>
+<l><hi rendition="#red">D</hi>em kinde? unterbrich mich nicht — ich flehe.</l>             </lg>             <lb/>
+<pb facs="#f0037"/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>u stehst am strand · die segel blähn im porte</l>               <lb/>
+<l><hi rendition="#red">E</hi>s geht in tollen winden auf ein riff —</l>               <lb/>
+<l><hi rendition="#red">B</hi>edenke dich und sage sanfte worte</l>               <lb/>
+<l><hi rendition="#red">Z</hi>um fremdling den dein weiter blick begriff.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <milestone unit="section" rendition="#hrRed"/><lb/>
+<lg n="1">               <l><hi rendition="#in #red">D</hi>ie du ein glück vermehrst auch nicht es teilend</l>               <lb/>
+<l><hi rendition="#blue">F</hi>ür schmerzen balsam bist auch kaum sie fassend</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd gar aus schlimmen zeichen schönes rätst</l>               <lb/>
+<l><hi rendition="#blue">E</hi>rfinderisch und gross im reich der güte</l>               <lb/>
+<l><hi rendition="#blue">D</hi>u darfst dich rühmen: manchen geist am strand</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er nach dem schiffbruch hingeschleudert wurde</l>               <lb/>
+<l><hi rendition="#blue">D</hi>en götter und genossen liegen liessen</l>               <lb/>
+<l><hi rendition="#blue">I</hi>ch jenes mädchen hab ihn aufgerichtet.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <milestone unit="section" rendition="#hrBlue"/><lb/>
+<lg n="1">               <l><hi rendition="#blue #in">A</hi>ngenehm flossen bei dir unsre nächtlichen stunden</l>               <lb/>
+<l><hi rendition="#red">D</hi>ass wir der ampel vergassen doch dir zum gewinn nicht ·</l>               <lb/>
+<l><hi rendition="#red">T</hi>rieb dich verblendung mit misslicher wende zu reden</l>               <lb/>
+<l><hi rendition="#red">W</hi>as mir zu hören nicht noch zu erwidern vergönnt ist?</l>               <lb/>
+<l><hi rendition="#red">K</hi>annst du bedächtige sprache nicht weiter erfinden</l>               <lb/>
+<l><hi rendition="#red">M</hi>eide mich! so nicht mein schmerzlich erstaunen dich zwinge</l>               <lb/>
+<l><hi rendition="#red">L</hi>enke die eigne verachtung ob müssigen werbens</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd die gelächter von deiner zerknitterten seele.</l>             </lg>             <lb/>
+<l/>           </lg>           <div n="3">             <head><hi rendition="#red">W. L.</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#in #red">D</hi>er seltnen Einer die das loos erschüttert</l>                 <lb/>
+<l><hi rendition="#blue">V</hi>erbannter herscher ihr erhabnes trauern</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd unbemerkter tod · schon weil du bist</l>                 <lb/>
+<l><hi rendition="#blue">S</hi>ei dir in dank genaht · durch deine hoheit</l>                 <lb/>
+<pb facs="#f0038"/>
+<l><hi rendition="#red">B</hi>estätigst du uns unser recht auf hoheit</l>                 <lb/>
+<l><hi rendition="#blue">V</hi>erwirfst und nimmst mit königlichem wink</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>u richte unsrer manchmal schwanken tritte</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd leitstern über jeder edlen fahrt.</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#red">P. G.</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#blue #in">I</hi>m offnen leben wo ihr all euch gleichet</l>                 <lb/>
+<l><hi rendition="#red">W</hi>o ihr fast niemals wie ihr fühlet saget</l>                 <lb/>
+<l><hi rendition="#red">W</hi>ar manches kommen doch von starkem zittern</l>                 <lb/>
+<l><hi rendition="#red">W</hi>ar manche trennung voll zerdrückter thränen</l>                 <lb/>
+<l><hi rendition="#red">E</hi>s waren tage gross wo ihr euch gabet</l>                 <lb/>
+<l><hi rendition="#red">W</hi>o ihr die schleier eurer klugheit risset</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd abende wo nichts geschah doch töne</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd blicke fielen ewgen angedenkens.</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#red">M. L.</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#in #red">W</hi>ie unsre glorreichen himmel bruder im stolz</l>                 <lb/>
+<l><hi rendition="#blue">S</hi>o breitet dein glänzendes gelb und wie reifender lohn</l>                 <lb/>
+<l><hi rendition="#blue">E</hi>s zittern in deinem lila und wehen grün</l>                 <lb/>
+<l><hi rendition="#blue">G</hi>estaltlose stunden mit ihrem mühsamen rinnen</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd lange seufzer aus kerkern ohne erhebung</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ein strahlendes blau umkleidet die wunschlosen götter</l>                 <lb/>
+<l><hi rendition="#blue">I</hi>n deinem veilchendunkel voll purpurner scheine</l>                 <lb/>
+<l><hi rendition="#blue">I</hi>st unser tötliches sehnen bruder im leid.</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#blue">H. H.</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#blue #in">E</hi>rfinder rollenden gesangs und sprühend</l>                 <lb/>
+<l><hi rendition="#red">G</hi>ewandter zwiegespräche: frist und trennung</l>                 <lb/>
+<l><hi rendition="#red">E</hi>rlaubt dass ich auf meine dächtnisstafel</l>                 <lb/>
+<l><hi rendition="#red">D</hi>en frühern gegner grabe — thu desgleichen</l>                 <lb/>
+<pb facs="#f0039"/>
+<l><hi rendition="#red">D</hi>enn auf des rausches und der regung leiter</l>                 <lb/>
+<l><hi rendition="#red">S</hi>ind beide wir im sinken · nie mehr werden</l>                 <lb/>
+<l><hi rendition="#red">D</hi>er knaben preis und jubel so mir schmeicheln</l>                 <lb/>
+<l><hi rendition="#red">N</hi>ie wieder strofen so im ohr dir donnern.</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#red">K. W.</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#in #red">W</hi>ir seligen! die gottentsandten sprecher</l>                 <lb/>
+<l><hi rendition="#blue">N</hi>ur wagen diesen laut · auf deinen fähren</l>                 <lb/>
+<l><hi rendition="#blue">E</hi>rklang er täglich aus umkränztem becher</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd dennoch fühl ich reue in mir gähren</l>               </lg>               <lb/>
+<lg n="2">                 <l><hi rendition="#red">D</hi>ein leben ehrend muss ich es vermeiden</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ein lächeln und das glück (für dich das wahre)</l>                 <lb/>
+<l><hi rendition="#blue">I</hi>ch muss zurück auf meere dumpfer leiden</l>                 <lb/>
+<l><hi rendition="#blue">I</hi>n meine wunderbaren wehmutjahre.</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#blue">E. R.</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#blue #in">O</hi>ft scheint es so als ob wir unsre besten</l>                 <lb/>
+<l><hi rendition="#red">E</hi>rhebungen mit ihren süssen reizen</l>                 <lb/>
+<l><hi rendition="#red">A</hi>us früher frühe holen und mit resten</l>                 <lb/>
+<l><hi rendition="#red">D</hi>ie öde ganzer lebensräume heizen</l>               </lg>               <lb/>
+<lg n="2">                 <l><hi rendition="#blue">B</hi>ald so dass höchster schatz den wir besessen</l>                 <lb/>
+<l><hi rendition="#red">N</hi>ur noch in seltner nacht uns mag bekümmern</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd wir auf eines schönen alters trümmern</l>                 <lb/>
+<l><hi rendition="#red">H</hi>in schreiten kühl mit grausamem vergessen.</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#red">A. H.</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#in #red">D</hi>u sanfter seher der du hilflos starrest</l>                 <lb/>
+<l><hi rendition="#blue">I</hi>n trauer über ewig welke träume</l>                 <lb/>
+<l><hi rendition="#blue">G</hi>ieb deine hand wir zeigen dir gefilde</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>m saaten der erlösung hinzustreuen</l>               </lg>               <lb/>
+<pb facs="#f0040"/>
+<lg n="2">                 <l><hi rendition="#blue">W</hi>ir wollen gerne sie — verborgne wunder —</l>                 <lb/>
+<l><hi rendition="#blue">M</hi>it unsrem blut und unsren thränen pflegen</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd heiter lächelnd wirst du uns umarmen</l>                 <lb/>
+<l><hi rendition="#blue">W</hi>enn sie vor den erstaunten blicken blühn.</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#blue">A. V.</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#blue #in">I</hi>hr ahnt die linien unsrer hellen welten</l>                 <lb/>
+<l><hi rendition="#red">D</hi>ie bunten halden mit den rebenkronen</l>                 <lb/>
+<l><hi rendition="#red">D</hi>en zefir der durch grade pappeln flüstert</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd Tiburs wasser weich wie liebesflöten?</l>                 <lb/>
+<l><hi rendition="#red">D</hi>a hebt sich euer blondes haupt: kennt IHR</l>                 <lb/>
+<l><hi rendition="#red">D</hi>er nebel tanz im moore grenzenlos</l>                 <lb/>
+<l><hi rendition="#red">I</hi>m dünenried der stürme orgelton</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd das geräusch der ungeheuren see?</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#red">R. P.</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#in #red">W</hi>as frommt die weisheit dem bezirk des wahnes nahe</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ie uns mit grellem blenden schreckt und überwältigt</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>es einen unkund wo sie bürde wird und frevel?</l>                 <lb/>
+<l><hi rendition="#blue">W</hi>ie friedenlos du allerbleichster unsrer brüder</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>urchirrst du deine traurigen und weiten lande!</l>                 <lb/>
+<l><hi rendition="#blue">W</hi>ann wirst du müde neue felder zu erobern</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd lernest einmal pflanzen pflegen und dich freuen</l>                 <lb/>
+<l><hi rendition="#blue">A</hi>n dem was blüht und grünt und reift in dreien gärten?</l>               </lg>               <lb/>
+<l/>             </lg>           </div>           <div n="3">             <head><hi rendition="#blue">C. S.</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#blue #in">D</hi>u teuer uns doch rätsel das uns martert</l>                 <lb/>
+<l><hi rendition="#red">D</hi>ein lächeln spielt: die klüfte zwischen uns</l>                 <lb/>
+<l><hi rendition="#red">E</hi>rkennt wie ich als unergründbar an</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd haltet ihr geheimnis hoch — ja jubelt</l>                 <lb/>
+<pb facs="#f0041"/>
+<l><hi rendition="#red">E</hi>s nie zu fassen · und wir suchen schmerzlich</l>                 <lb/>
+<l><hi rendition="#red">M</hi>it unsrer liebe sie zu überbrücken</l>                 <lb/>
+<l><hi rendition="#red">U</hi>nd folgen deinem wandel ohne furcht</l>                 <lb/>
+<l><hi rendition="#red">A</hi>us deinem antlitz dringt der blick der sieger.</l>               </lg>             </lg>           </div>           <lb/>
+<div n="3">             <head><hi rendition="#red">L. K.</hi></head>             <lb/>
+<lg type="poem">               <lg n="1">                 <l><hi rendition="#in #red">D</hi>och unser aller heimat bleibt das licht</l>                 <lb/>
+<l><hi rendition="#blue">Z</hi>u dem wir kehren auf verschlungnen stegen ·</l>                 <lb/>
+<l><hi rendition="#blue">M</hi>agst du dich einig nennen mit den recken</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd trotzigen gewalten bracher ebnen —</l>                 <lb/>
+<l><hi rendition="#blue">S</hi>agt nicht bei jedem treffen die umschlingung</l>                 <lb/>
+<l><hi rendition="#blue">U</hi>nd dass ich oft dich suche wie du viel</l>                 <lb/>
+<l><hi rendition="#blue">I</hi>n mir erregst und mir gehörst? verrät nicht</l>                 <lb/>
+<l><hi rendition="#blue">D</hi>ass du mich fliehst wie sehr ich in dir bin?</l>               </lg>             </lg>           </div>         </div>         <lb/>
+<milestone unit="section" rendition="#hrRed"/><lb/>
+<milestone unit="section" rendition="#hrRed"/><lb/>
+<div n="2">           <head><hi rendition="#red">T</hi><hi rendition="#blue">RAURIGE</hi> <hi rendition="#red">T</hi><hi rendition="#blue">ÄNZE</hi></head>           <lb/>
+<lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">D</hi>es erntemondes ungestüme flammen</l>               <lb/>
+<l><hi rendition="#red">V</hi>erloschen doch sie wirken in uns beiden</l>               <lb/>
+<l><hi rendition="#red">N</hi>ach kurzer trennung schritten wir zusammen</l>               <lb/>
+<l><hi rendition="#red">A</hi>m alten flusse mit den neuen leiden</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">Z</hi>um ersten male strittest du darüber</l>               <lb/>
+<l><hi rendition="#red">I</hi>ch selber konnte dir nicht mehr erklären</l>               <lb/>
+<l><hi rendition="#red">W</hi>arum die sturm- und wintertage trüber</l>               <lb/>
+<l><hi rendition="#red">W</hi>arum die frühlingslüfte froher wären</l>             </lg>             <lb/>
+<pb facs="#f0042"/>
+<lg n="3">               <l><hi rendition="#blue">D</hi>u streichest zürnend über deine locken</l>               <lb/>
+<l><hi rendition="#red">D</hi>a ich dich heute schon so ruhig finde</l>               <lb/>
+<l><hi rendition="#red">I</hi>ch klage fast: sind meine thränen trocken</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie thränen fern von Lilia dem kinde?</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">D</hi>er raum mit sammetblumigen tapeten</l>               <lb/>
+<l><hi rendition="#blue">S</hi>o waren sie zur zeit der ahnin mode —</l>               <lb/>
+<l><hi rendition="#blue">A</hi>n meinem arme bist du eingetreten</l>               <lb/>
+<l><hi rendition="#blue">N</hi>un reden wir vom guten tode</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>ie starren eisesranken an den scheiben</l>               <lb/>
+<l><hi rendition="#blue">E</hi>ntrücken uns den welten wo wir gingen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>es herdes flammen zuckend sich umschlingen</l>               <lb/>
+<l><hi rendition="#blue">V</hi>or ihnen lass uns eine weile bleiben</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">S</hi>o glaubst du fest dass auch das spiel der musen</l>               <lb/>
+<l><hi rendition="#blue">I</hi>hn den sie liebten niemals wieder freue —</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd ist das reiche licht in deinem busen</l>               <lb/>
+<l><hi rendition="#blue">A</hi>uch ganz erloschen? sag es mir in treue!</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">E</hi>s lacht in dem steigenden jahr dir</l>               <lb/>
+<l><hi rendition="#red">D</hi>er duft aus dem garten noch leis</l>               <lb/>
+<l><hi rendition="#red">F</hi>licht in dem flatternden haar dir</l>               <lb/>
+<l><hi rendition="#red">E</hi>ppich und ehrenpreis</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>ie wehende saat ist wie gold noch</l>               <lb/>
+<l><hi rendition="#red">V</hi>ielleicht nicht so hoch mehr und reich</l>               <lb/>
+<l><hi rendition="#red">R</hi>osen begrüssen dich hold noch</l>               <lb/>
+<l><hi rendition="#red">W</hi>ard auch ihr glanz etwas bleich</l>             </lg>             <lb/>
+<pb facs="#f0043"/>
+<lg n="3">               <l><hi rendition="#blue">V</hi>erschweigen wir was uns verwehrt ist</l>               <lb/>
+<l><hi rendition="#red">G</hi>eloben wir glücklich zu sein</l>               <lb/>
+<l><hi rendition="#red">W</hi>enn auch nicht mehr uns beschert ist</l>               <lb/>
+<l><hi rendition="#red">A</hi>ls noch ein rundgang zu zwein.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">G</hi>ieb ein lied mir wieder</l>               <lb/>
+<l><hi rendition="#blue">I</hi>m klaren tone deiner freudentage —</l>               <lb/>
+<l><hi rendition="#blue">D</hi>u weisst es ja: mir wich der friede</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd meine hand ist zag</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">W</hi>o dunkle seelen sinnen</l>               <lb/>
+<l><hi rendition="#blue">E</hi>rscheinen bilder seltne hohe</l>               <lb/>
+<l><hi rendition="#blue">D</hi>och fehlt das leuchtende erinnern</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie farbe hell und froh</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">W</hi>o sieche seelen reden</l>               <lb/>
+<l><hi rendition="#blue">D</hi>a lindern schmeichelhafte töne</l>               <lb/>
+<l><hi rendition="#blue">D</hi>a ist die stimme tief und edel</l>               <lb/>
+<l><hi rendition="#blue">D</hi>och nicht zum sang so schön.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">D</hi>as lied das jener bettler dudelt</l>               <lb/>
+<l><hi rendition="#red">I</hi>st wie mein lob das dich vergeblich lädt</l>               <lb/>
+<l><hi rendition="#red">I</hi>st wie ein bach der fern vom quelle sprudelt</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd den dein mund zu einem trunk verschmäht</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>as lied das jene blinde leiert</l>               <lb/>
+<l><hi rendition="#red">I</hi>st wie ein traum den ich nicht recht verstand</l>               <lb/>
+<l><hi rendition="#red">I</hi>st wie mein blick der nur umschleiert</l>               <lb/>
+<l><hi rendition="#red">I</hi>n deinen blicken nicht erwidrung fand</l>             </lg>             <lb/>
+<fw type="sig" place="bottom">5</fw>             <lb/>
+<pb facs="#f0044"/>
+<lg n="3">               <l><hi rendition="#blue">D</hi>as lied das jene kinder trillern</l>               <lb/>
+<l><hi rendition="#red">I</hi>st fühllos wie die worte die du giebst</l>               <lb/>
+<l><hi rendition="#red">I</hi>st wie der übergang zu stillern</l>               <lb/>
+<l><hi rendition="#red">G</hi>efühlen wie du sie allein noch liebst.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">D</hi>rei weisen kennt vom dorf der blöde knabe</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie wenn er kommt sich ständig wiederholen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie eine wie der väter hauch vom grabe</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie eh sie starben sich dem herrn befohlen</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>ie andre hat die tugendhafte weihe</l>               <lb/>
+<l><hi rendition="#blue">A</hi>ls ob sie schwestern die beim spinnrad sassen</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd mägde sängen die in langer reihe</l>               <lb/>
+<l><hi rendition="#blue">V</hi>or zeiten zogen auf den abendstrassen</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">D</hi>ie dritte droht — versündigung und rache</l>               <lb/>
+<l><hi rendition="#blue">M</hi>it altem dolch in himmel-blauer scheide</l>               <lb/>
+<l><hi rendition="#blue">M</hi>it mancher sippe angestammtem leide</l>               <lb/>
+<l><hi rendition="#blue">M</hi>it bösen sternen über manchem dache.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">S</hi>tätte von quälenden lüsten</l>               <lb/>
+<l><hi rendition="#red">W</hi>o ihr gestrandet seid</l>               <lb/>
+<l><hi rendition="#red">L</hi>ass deine sonnigen küsten</l>               <lb/>
+<l><hi rendition="#red">F</hi>olge dem strengen bescheid</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">M</hi>ach dass dein ruder erstarke</l>               <lb/>
+<l><hi rendition="#red">L</hi>angsam ohne gefahr</l>               <lb/>
+<l><hi rendition="#red">S</hi>chaukelt dann deine barke</l>               <lb/>
+<l><hi rendition="#red">F</hi>ort mit dem sinkenden jahr</l>             </lg>             <lb/>
+<pb facs="#f0045"/>
+<lg n="3">               <l><hi rendition="#blue">N</hi>icht vor der eisigen firnen</l>               <lb/>
+<l><hi rendition="#red">D</hi>rohendem rätsel erschrick</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd zu den ernsten gestirnen</l>               <lb/>
+<l><hi rendition="#red">H</hi>ebe den suchenden blick!</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">D</hi>ie wachen auen lockten wonnesam</l>               <lb/>
+<l><hi rendition="#blue">I</hi>m veilchenteppich kam sie an das gitter</l>               <lb/>
+<l><hi rendition="#blue">G</hi>eschmückt wie jährig für den bräutigam</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd dachte sein bis nach dem fest der schnitter</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">N</hi>ur eine lerche die im haine schlug</l>               <lb/>
+<l><hi rendition="#blue">B</hi>emerkte ihr erröten und erschrecken</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd wie in sommer-langer tage zug</l>               <lb/>
+<l><hi rendition="#blue">S</hi>ie sann und welkte bei den eiben-hecken</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">V</hi>on ihrer schlanken anmut spricht allein</l>               <lb/>
+<l><hi rendition="#blue">B</hi>ei perlen-schnüren eine seidne locke</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie eine fromme freundin birgt im schrein</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd schlichtes gras mit einem marmorblocke.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">D</hi>a kaum noch sand im stundenglase läuft</l>               <lb/>
+<l><hi rendition="#red">S</hi>o zieh ihm nach dem wandrer tau-beträuft</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie heisse luft verwehte ihn geschwind</l>               <lb/>
+<l><hi rendition="#red">D</hi>en freund der blumen und der sterne kind</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>er eines morgens vor dem schnitt der saat</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie hände traurig vor die stirne that</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd durch wer weiss welch frühen fluch gemahnt</l>               <lb/>
+<l><hi rendition="#red">I</hi>m heut den lezten jugendtag geahnt</l>             </lg>             <lb/>
+<pb facs="#f0046"/>
+<lg n="3">               <l><hi rendition="#blue">D</hi>er durch kein sonnenschmeicheln mehr erweicht</l>               <lb/>
+<l><hi rendition="#red">S</hi>olang er schön war ohne klage leicht</l>               <lb/>
+<l><hi rendition="#red">G</hi>leich einem sommervogel überm ried</l>               <lb/>
+<l><hi rendition="#red">A</hi>n jenem tag aus unsren kreisen schied.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">T</hi>rauervolle nacht</l>               <lb/>
+<l><hi rendition="#blue">S</hi>chwarze sammetdecke dämpft</l>               <lb/>
+<l><hi rendition="#blue">S</hi>chritte im gemach</l>               <lb/>
+<l><hi rendition="#blue">W</hi>orin die liebe kämpft</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>en tod gab ihr dein wunsch</l>               <lb/>
+<l><hi rendition="#blue">N</hi>un siehst du bleich und stumm</l>               <lb/>
+<l><hi rendition="#blue">S</hi>ie auf der bahre ruhn</l>               <lb/>
+<l><hi rendition="#blue">E</hi>s stecken lichter drum</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">D</hi>ie lichter brennen ab</l>               <lb/>
+<l><hi rendition="#blue">D</hi>u eilest blind hinaus</l>               <lb/>
+<l><hi rendition="#blue">N</hi>achdem die liebe starb —</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd weinen schallt im haus.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">W</hi>ir werden nicht mehr starr und bleich</l>               <lb/>
+<l><hi rendition="#red">D</hi>en früheren liebeshelden gleich</l>               <lb/>
+<l><hi rendition="#red">A</hi>n trübsal waren wir zu reich</l>               <lb/>
+<l><hi rendition="#red">W</hi>ir zucken leis und dulden weich</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">S</hi>ie hiessen tapfer hiessen frei</l>               <lb/>
+<l><hi rendition="#red">T</hi>rotz ihrer lippen manchem schrei</l>               <lb/>
+<l><hi rendition="#red">W</hi>ir litten lang und vielerlei</l>               <lb/>
+<l><hi rendition="#red">D</hi>och schweigen müssen wir dabei</l>             </lg>             <lb/>
+<pb facs="#f0047"/>
+<lg n="3">               <l><hi rendition="#blue">S</hi>ie gingen um mit schwert und beil</l>               <lb/>
+<l><hi rendition="#red">D</hi>och streiten ist nicht unser teil</l>               <lb/>
+<l><hi rendition="#red">U</hi>ns ist der friede nicht mehr feil</l>               <lb/>
+<l><hi rendition="#red">U</hi>m ihrer güter weh und heil.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">I</hi>ch weiss du trittst zu mir ins haus</l>               <lb/>
+<l><hi rendition="#blue">W</hi>ie jemand der an leid gewöhnt</l>               <lb/>
+<l><hi rendition="#blue">N</hi>icht froh ist wo zu spiel und schmaus</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie saite zwischen säulen dröhnt</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">H</hi>ier schreitet man nicht laut nicht oft</l>               <lb/>
+<l><hi rendition="#blue">D</hi>urchs fenster dringt der herbstgeruch</l>               <lb/>
+<l><hi rendition="#blue">H</hi>ier wird ein trost dem der nicht hofft</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd bangem frager milder spruch</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">B</hi>eim eintritt leis ein händedruck</l>               <lb/>
+<l><hi rendition="#blue">B</hi>eim weiterzug vom stillen heim</l>               <lb/>
+<l><hi rendition="#blue">E</hi>in kuss — und ein bescheidner schmuck</l>               <lb/>
+<l><hi rendition="#blue">A</hi>ls gastgeschenk: ein zarter reim.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">D</hi>ies leid und diese last: zu bannen</l>               <lb/>
+<l><hi rendition="#red">W</hi>as nah erst war und mein</l>               <lb/>
+<l><hi rendition="#red">V</hi>ergebliches die arme spannen</l>               <lb/>
+<l><hi rendition="#red">N</hi>ach dem was nur mehr schein</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>ies heilungslose sich betäuben</l>               <lb/>
+<l><hi rendition="#red">M</hi>it eitlem nein und kein</l>               <lb/>
+<l><hi rendition="#red">D</hi>ies unbegründete sich sträuben</l>               <lb/>
+<l><hi rendition="#red">D</hi>ies unabwendbar-sein</l>             </lg>             <lb/>
+<pb facs="#f0048"/>
+<lg n="3">               <l><hi rendition="#blue">B</hi>eklemmendes gefühl der schwere</l>               <lb/>
+<l><hi rendition="#red">A</hi>uf müd gewordner pein</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd dann dies dumpfe weh der leere —</l>               <lb/>
+<l><hi rendition="#red">O</hi> dies: mit mir allein.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">N</hi>icht ist weise bis zur lezten frist</l>               <lb/>
+<l><hi rendition="#blue">Z</hi>u geniessen wo vergängnis ist</l>               <lb/>
+<l><hi rendition="#blue">V</hi>ögel flogen südwärts an die see</l>               <lb/>
+<l><hi rendition="#blue">B</hi>lumen welkend warten auf den schnee</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">W</hi>ie dein finger scheu die müden flicht</l>               <lb/>
+<l><hi rendition="#blue">A</hi>ndre blumen schenkt dies jahr uns nicht</l>               <lb/>
+<l><hi rendition="#blue">K</hi>eine bitte riefe sie herbei</l>               <lb/>
+<l><hi rendition="#blue">A</hi>ndre bringt vielleicht uns einst ein mai</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">L</hi>öse meinen arm und bleibe stark</l>               <lb/>
+<l><hi rendition="#blue">L</hi>ass mit mir vorm scheidestrahl den park</l>               <lb/>
+<l><hi rendition="#blue">E</hi>h vom berg der nebel drüber fleucht</l>               <lb/>
+<l><hi rendition="#blue">S</hi>chwinden wir eh winter uns verscheucht.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">K</hi>eins wie dein feines ohr</l>               <lb/>
+<l><hi rendition="#red">M</hi>erkt was tief innen singt</l>               <lb/>
+<l><hi rendition="#red">W</hi>as noch so schüchtern schwingt</l>               <lb/>
+<l><hi rendition="#red">W</hi>as halb sich schon verlor</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">K</hi>eins wie dein festes wort</l>               <lb/>
+<l><hi rendition="#red">S</hi>ucht so bestimmt den trost</l>               <lb/>
+<l><hi rendition="#red">I</hi>n dem was wir erlost</l>               <lb/>
+<l><hi rendition="#red">D</hi>es wahren friedens hort</l>             </lg>             <lb/>
+<pb facs="#f0049"/>
+<lg n="3">               <l><hi rendition="#blue">K</hi>eins wie dein fromm gemüt</l>               <lb/>
+<l><hi rendition="#red">B</hi>espricht so leicht den gram</l>               <lb/>
+<l><hi rendition="#red">D</hi>er eines abends nahm</l>               <lb/>
+<l><hi rendition="#red">W</hi>as uns im tag geglüht.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">M</hi>ir ist kein weg zu steil zu weit</l>               <lb/>
+<l><hi rendition="#blue">D</hi>en ich nicht ginge mein geleit</l>               <lb/>
+<l><hi rendition="#blue">M</hi>it dir — uns ängstet keine kluft</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd sühne steht auf jeder gruft</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">S</hi>o kreuzen wir in wehmut nur</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er freudlos grauen aschen flur</l>               <lb/>
+<l><hi rendition="#blue">M</hi>it ihrem dürren gras und dorn</l>               <lb/>
+<l><hi rendition="#blue">D</hi>och rein von reue rein von zorn</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">M</hi>ein feuchtes auge späht nur fern</l>               <lb/>
+<l><hi rendition="#blue">N</hi>ach diesem Einen aus der gern</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie harfe reich und wol gestimmt</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er unsre goldne harfe nimmt.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">D</hi>ie stürme stieben über brache flächen</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd machen heller ahnung voll die runde</l>               <lb/>
+<l><hi rendition="#red">D</hi>a wollen sich erstickte fluren rächen</l>               <lb/>
+<l><hi rendition="#red">D</hi>a zittert seufzen aus dem bergesschlunde</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">E</hi>s scheint als ob die schrecklich fernen grollen</l>               <lb/>
+<l><hi rendition="#red">D</hi>och eine stimme mahnt aus friedensföhren:</l>               <lb/>
+<l><hi rendition="#red">H</hi>ast du mir ehdem nicht versprechen sollen</l>               <lb/>
+<l><hi rendition="#red">D</hi>er gräber ruh mit klage nie zu stören</l>             </lg>             <lb/>
+<pb facs="#f0050"/>
+<lg n="3">               <l><hi rendition="#blue">I</hi>ch zog vorbei am winterlichen pfahle</l>               <lb/>
+<l><hi rendition="#red">V</hi>or dem wir nie in leerem weinen knieten</l>               <lb/>
+<l><hi rendition="#red">I</hi>ch bat dich nur der bald ihn sieht dem strahle</l>               <lb/>
+<l><hi rendition="#red">D</hi>es frohen lenzes meinen gruss zu bieten.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">G</hi>eführt vom sang der leis sich schlang</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ir ward er leicht der ufergang</l>               <lb/>
+<l><hi rendition="#blue">I</hi>ch sah der höhen dichten rauch</l>               <lb/>
+<l><hi rendition="#blue">V</hi>erjährtes laub und distelstrauch</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>ein auge schweift schon träumerisch</l>               <lb/>
+<l><hi rendition="#blue">A</hi>uf eine erde gabenfrisch</l>               <lb/>
+<l><hi rendition="#blue">D</hi>enn dein gedanke flattert fort</l>               <lb/>
+<l><hi rendition="#blue">V</hi>oraus zu einem sichern hort</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">I</hi>ch frage noch wer kommt wenn sanft</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie gelbe primel nickt am ranft</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd sich das wasser grün umschilft</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er mir den mai beginnen hilft?</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">E</hi>ntflieht auf leichten kähnen</l>               <lb/>
+<l><hi rendition="#red">B</hi>erauschten sonnenwelten</l>               <lb/>
+<l><hi rendition="#red">D</hi>ass immer mildre thränen</l>               <lb/>
+<l><hi rendition="#red">E</hi>uch eure flucht entgelten</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">S</hi>eht diesen taumel blonder</l>               <lb/>
+<l><hi rendition="#red">L</hi>ichtblauer traumgewalten</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd trunkner wonnen sonder</l>               <lb/>
+<l><hi rendition="#red">V</hi>erzückung sich entfalten</l>             </lg>             <lb/>
+<pb facs="#f0051"/>
+<lg n="3">               <l><hi rendition="#blue">D</hi>ass nicht der süsse schauer</l>               <lb/>
+<l><hi rendition="#red">I</hi>n neues leid euch hülle —</l>               <lb/>
+<l><hi rendition="#red">E</hi>s sei die stille trauer</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie diesen frühling fülle.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">L</hi>angsame stunden überm fluss</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie welle zischt wie im verdruss</l>               <lb/>
+<l><hi rendition="#blue">D</hi>a von dem feuchten wind gefrischt</l>               <lb/>
+<l><hi rendition="#blue">E</hi>in schein bald blendet bald verwischt</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">W</hi>ir standen hand in hand am strand</l>               <lb/>
+<l><hi rendition="#blue">D</hi>a sah sie ähren in dem sand</l>               <lb/>
+<l><hi rendition="#blue">S</hi>ie trat hinzu und brach davon</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd fand auf diesen tag den ton</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">B</hi>eginnend klang er hell und leicht</l>               <lb/>
+<l><hi rendition="#blue">W</hi>ie von dem ziel das wir erreicht</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ann ward er dumpfer als sie sang</l>               <lb/>
+<l><hi rendition="#blue">V</hi>om fernen glück wie bang! wie lang!</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">D</hi>er hügel wo wir wandeln liegt im schatten</l>               <lb/>
+<l><hi rendition="#red">I</hi>ndess der drüben noch im lichte webt</l>               <lb/>
+<l><hi rendition="#red">D</hi>er mond auf seinen zarten grünen matten</l>               <lb/>
+<l><hi rendition="#red">N</hi>ur erst als kleine weisse wolke schwebt</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>ie strassen weithin-deutend werden blasser</l>               <lb/>
+<l><hi rendition="#red">D</hi>en wandrern bietet ein gelispel halt</l>               <lb/>
+<l><hi rendition="#red">I</hi>st es vom berg ein unsichtbares wasser</l>               <lb/>
+<l><hi rendition="#red">I</hi>st es ein vogel der sein schlaflied lallt?</l>             </lg>             <lb/>
+<fw type="sig" place="bottom">6</fw>             <lb/>
+<pb facs="#f0052"/>
+<lg n="3">               <l><hi rendition="#blue">D</hi>er dunkelfalter zwei die sich verfrühten</l>               <lb/>
+<l><hi rendition="#red">V</hi>erfolgen sich von halm zu halm im scherz · ·</l>               <lb/>
+<l><hi rendition="#red">D</hi>er rain bereitet aus gesträuch und blüten</l>               <lb/>
+<l><hi rendition="#red">D</hi>en duft des abends für gedämpften schmerz.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">F</hi>lammende wälder am bergesgrat</l>               <lb/>
+<l><hi rendition="#blue">S</hi>chleppende ranken im gelbroten staat</l>               <lb/>
+<l><hi rendition="#blue">V</hi>or ihrem schlummer in klärender haft</l>               <lb/>
+<l><hi rendition="#blue">H</hi>ebst du die traube mit leuchtendem saft</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">L</hi>ang eh sie quoll mit dem sonnigen seim</l>               <lb/>
+<l><hi rendition="#blue">B</hi>rachtest du strauss und kranz mit heim</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd du begrüssest den lohnenden herbst</l>               <lb/>
+<l><hi rendition="#blue">D</hi>a du von sommers schätzen erbst</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">I</hi>hm ward die frucht zum genuss nicht bestellt</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er sich froh auch den knospen gesellt</l>               <lb/>
+<l><hi rendition="#blue">F</hi>ragst du ihn so sagt er dir: weil</l>               <lb/>
+<l><hi rendition="#blue">M</hi>an mir nahm mein einzig heil.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">D</hi>er abend schwül der morgen fahl und nüchtern</l>               <lb/>
+<l><hi rendition="#red">S</hi>ind einziger wechsel ihrer trüben reise</l>               <lb/>
+<l><hi rendition="#red">S</hi>ie ganz in thränen ganz in schmerz und schüchtern</l>               <lb/>
+<l><hi rendition="#red">B</hi>estimmten die gezogenen geleise</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">A</hi>n hohen thoren wo sie eintritt heische</l>               <lb/>
+<l><hi rendition="#red">I</hi>st niemand der für ihre treue zeuge</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd keine hand die fleisch von ihrem fleische</l>               <lb/>
+<l><hi rendition="#red">S</hi>ich bis zu ihr herniederbeuge</l>             </lg>             <lb/>
+<pb facs="#f0053"/>
+<lg n="3">               <l><hi rendition="#blue">S</hi>o wird sie bald ergriffen vom getöse</l>               <lb/>
+<l><hi rendition="#red">B</hi>ald kehrt sie um mit seiner schlimmen beute</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd so wie früher murmelt sie noch heute</l>               <lb/>
+<l><hi rendition="#red">D</hi>en spruch der nahend sie erlöse.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">O</hi>b schwerer nebel in den wäldern hängt</l>               <lb/>
+<l><hi rendition="#blue">D</hi>u sollst im weiterschreiten drum nicht zaudern</l>               <lb/>
+<l><hi rendition="#blue">S</hi>prich mit den bleichen bildern ohne schaudern</l>               <lb/>
+<l><hi rendition="#blue">S</hi>chon regen sie sich sacht hinangedrängt</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">W</hi>enn gras und furche auf dem pfad versteinen</l>               <lb/>
+<l><hi rendition="#blue">G</hi>ehäufter reif die wipfel beugt versteh</l>               <lb/>
+<l><hi rendition="#blue">Z</hi>u lauschen auf der winterwinde weh</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie mit den welken einsamkeiten weinen</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">S</hi>o hältst du immer wach die müde stirn</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd gleitest nicht herab von steiler bösche</l>               <lb/>
+<l><hi rendition="#blue">O</hi>b auch das matt erhellte ziel verlösche</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd über dir das einzige gestirn.</l>             </lg>           </lg>           <lb/>
+<lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">D</hi>a vieles wankt und blasst und sinkt und splittert</l>               <lb/>
+<l><hi rendition="#red">E</hi>rstirbt das lied von dunst und schlaf umflutet</l>               <lb/>
+<l><hi rendition="#red">B</hi>is jäher stoss das mürbe laub zerknittert</l>               <lb/>
+<l><hi rendition="#red">V</hi>on ehmals wilde wunde wieder blutet —</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">B</hi>is plötzlich sonne zuckt aus nassen wettern</l>               <lb/>
+<l><hi rendition="#red">E</hi>in schwarzer fluss die bleichen felder spreitet</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd seltne donner durch die fröste schmettern</l>               <lb/>
+<l><hi rendition="#red">E</hi>s merkt nur in dem zug der grabwärts gleitet</l>             </lg>             <lb/>
+<pb facs="#f0054"/>
+<lg n="3">               <l><hi rendition="#blue">D</hi>ie fackeln zwischen den geneigten nacken</l>               <lb/>
+<l><hi rendition="#red">D</hi>er klänge dröhnen aus dem trauerprunke</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd sucht ob unter rauhen leides schlacken</l>               <lb/>
+<l><hi rendition="#red">N</hi>och glimme ewig klarer freude funke.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">Z</hi>u traurigem behuf</l>               <lb/>
+<l><hi rendition="#blue">E</hi>rweckte sturm die flur</l>               <lb/>
+<l><hi rendition="#blue">A</hi>us finstrem tag entfuhr</l>               <lb/>
+<l><hi rendition="#blue">E</hi>in todesvogel-ruf</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">K</hi>aum zeigt der hügelrund</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er grauen stunden flucht</l>               <lb/>
+<l><hi rendition="#blue">E</hi>in baum tiefhängend sucht</l>               <lb/>
+<l><hi rendition="#blue">N</hi>ach halmen überm grund</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">S</hi>chon taucht die wüstenei</l>               <lb/>
+<l><hi rendition="#blue">Z</hi>urück zum dunklen schacht</l>               <lb/>
+<l><hi rendition="#blue">E</hi>in ton von qual und nacht</l>               <lb/>
+<l><hi rendition="#blue">B</hi>richt wie ein lezter schrei.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">O</hi>b deine augen dich trogen</l>               <lb/>
+<l><hi rendition="#red">D</hi>urch fallender äste hauf</l>               <lb/>
+<l><hi rendition="#red">T</hi>reiben die kämpfenden wogen</l>               <lb/>
+<l><hi rendition="#red">D</hi>en strom hinauf?</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>u jagest nach und sie steigen</l>               <lb/>
+<l><hi rendition="#red">V</hi>on fremden kräften erfasst</l>               <lb/>
+<l><hi rendition="#red">W</hi>irbelndem rieselndem reigen</l>               <lb/>
+<l><hi rendition="#red">F</hi>olgt die begehrende hast</l>             </lg>             <lb/>
+<pb facs="#f0055"/>
+<lg n="3">               <l><hi rendition="#blue">H</hi>üte dich führe nicht weiter</l>               <lb/>
+<l><hi rendition="#red">D</hi>as spiel mit schwerem kauf —</l>               <lb/>
+<l><hi rendition="#red">Z</hi>iehen nicht deine begleiter</l>               <lb/>
+<l><hi rendition="#red">S</hi>chon ihren alten lauf?</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">I</hi>hr tratet zu dem herde</l>               <lb/>
+<l><hi rendition="#blue">W</hi>o alle glut verstarb</l>               <lb/>
+<l><hi rendition="#blue">L</hi>icht war nur an der erde</l>               <lb/>
+<l><hi rendition="#blue">V</hi>om monde leichenfarb</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">I</hi>hr tauchtet in die aschen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ie bleichen finger ein</l>               <lb/>
+<l><hi rendition="#blue">M</hi>it suchen tasten haschen —</l>               <lb/>
+<l><hi rendition="#blue">W</hi>ird es noch einmal schein!</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">S</hi>eht was mit trostgeberde</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er mond euch rät:</l>               <lb/>
+<l><hi rendition="#blue">T</hi>retet weg vom herde</l>               <lb/>
+<l><hi rendition="#blue">E</hi>s ist worden spät.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">W</hi>ie in der gruft die alte</l>               <lb/>
+<l><hi rendition="#red">L</hi>ebendige ampel glüht</l>               <lb/>
+<l><hi rendition="#red">W</hi>ie ihr karfunkel sprüht</l>               <lb/>
+<l><hi rendition="#red">U</hi>m schauernde basalte!</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">V</hi>om runden fenster droben</l>               <lb/>
+<l><hi rendition="#red">E</hi>ntfliesst der ganze glanz</l>               <lb/>
+<l><hi rendition="#red">V</hi>on feuriger monstranz</l>               <lb/>
+<l><hi rendition="#red">M</hi>it goldumreiften globen</l>             </lg>             <lb/>
+<pb facs="#f0056"/>
+<lg n="3">               <l><hi rendition="#blue">U</hi>nd einem weissen lamme —</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd wenn die ampel glüht</l>               <lb/>
+<l><hi rendition="#red">U</hi>nd wenn ihr kleinod sprüht</l>               <lb/>
+<l><hi rendition="#red">I</hi>st es von eigner flamme?</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">D</hi>ie jagd hat sich verzogen</l>               <lb/>
+<l><hi rendition="#blue">D</hi>u bleibst mit trägem bogen —</l>               <lb/>
+<l><hi rendition="#blue">B</hi>lutspuren unter tannen</l>               <lb/>
+<l><hi rendition="#blue">H</hi>orch welch ein laut! von wannen?</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">D</hi>as ist kein lärm der rüden</l>               <lb/>
+<l><hi rendition="#blue">K</hi>ein schrei der flüchtig-müden</l>               <lb/>
+<l><hi rendition="#blue">D</hi>u lauschst am grund beklommen</l>               <lb/>
+<l><hi rendition="#blue">S</hi>ollst du entgegenkommen?</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">N</hi>ur still! schon dringt er näher</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ir schien verirrter späher</l>               <lb/>
+<l><hi rendition="#blue">I</hi>m widerschall der hiefe</l>               <lb/>
+<l><hi rendition="#blue">D</hi>ass jene stimme riefe.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#blue #in">E</hi>s winkte der abendhauch</l>               <lb/>
+<l><hi rendition="#red">M</hi>it dem geneigten glücke</l>               <lb/>
+<l><hi rendition="#red">N</hi>imm und bewahr es auch</l>               <lb/>
+<l><hi rendition="#red">E</hi>h dir ein andrer es pflücke</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#blue">D</hi>och wie in fesseln geschnürt</l>               <lb/>
+<l><hi rendition="#red">J</hi>ammert die seele erblassend</l>               <lb/>
+<l><hi rendition="#red">D</hi>ie glückes nähe spürt</l>               <lb/>
+<l><hi rendition="#red">E</hi>s schauend und doch es nicht fassend</l>             </lg>             <lb/>
+<pb facs="#f0057"/>
+<lg n="3">               <l><hi rendition="#blue">D</hi>a brachte der abendhauch</l>               <lb/>
+<l><hi rendition="#red">I</hi>hr die erlösende kunde:</l>               <lb/>
+<l><hi rendition="#red">M</hi>eine trübste stunde</l>               <lb/>
+<l><hi rendition="#red">N</hi>un kennest du sie auch.</l>             </lg>             <lb/>
+<l/>           </lg>           <lg type="poem">             <lg n="1">               <l><hi rendition="#in #red">W</hi>illst du noch länger auf den kahlen böden</l>               <lb/>
+<l><hi rendition="#blue">N</hi>ach frühern vollen farben spähn</l>               <lb/>
+<l><hi rendition="#blue">A</hi>uf früchte warten in den fahlen öden</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd ähren von verdrängten sommern mähn?</l>             </lg>             <lb/>
+<lg n="2">               <l><hi rendition="#red">B</hi>escheide dich wenn nur im schattenschleier</l>               <lb/>
+<l><hi rendition="#blue">M</hi>ild schimmernd du genossene fülle schaust</l>               <lb/>
+<l><hi rendition="#blue">U</hi>nd durch die müden lüfte ein befreier</l>               <lb/>
+<l><hi rendition="#blue">D</hi>er wind der weiten zärtlich um uns braust</l>             </lg>             <lb/>
+<lg n="3">               <l><hi rendition="#red">U</hi>nd sieh die tage die wie wunden brannten</l>               <lb/>
+<l><hi rendition="#blue">I</hi>n unsrer vorgeschichte schwinden schnell</l>               <lb/>
+<l><hi rendition="#blue">D</hi>och alle dinge die wir blumen nannten</l>               <lb/>
+<l><hi rendition="#blue">V</hi>ersammeln sich am toten quell.</l>             </lg>             <lb/>
+<l/>           </lg>         </div>       </div>       <milestone unit="section" rendition="#hrRed"/><lb/>
+<milestone unit="section" rendition="#hrRed"/><lb/>
+<pb facs="#f0058"/>
+</body>     <back>       <div type="imprint">         <p><hi rendition="#red">GEDRUCKT IM JAHRE ACHTZEHN<lb/>
+HUNDERTSIEBENUNDNEUNZIG<lb/>
+BEI OTTO VON HOLTEN BERLIN<lb/>
+C IN ZWEIHUNDERT UND SECHS<lb/>
+ABZÜGEN DAVON DREI AUF VAN<lb/>
+GELDER DREI AUF JAPANPAPIER</hi></p>       </div>       <lb/>
+<pb facs="#f0059"/>
+<pb facs="#f0060"/>
+<pb facs="#f0061"/>
+</back>   </text> </TEI>

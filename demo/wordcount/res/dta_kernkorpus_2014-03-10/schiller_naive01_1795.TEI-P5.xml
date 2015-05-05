@@ -1,0 +1,1229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Über naive und sentimentalische Dichtung</title>
+<title type="part" n="1">Ueber das Naive</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118607626">
+<surname>Schiller</surname>
+<forename>Friedrich</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">47</measure>
+<measure type="tokens">8161</measure>
+<measure type="types">2457</measure>
+<measure type="characters">57242</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:07:53Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/schiller_naive01_1795</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/schiller_naive01_1795</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/schiller_naive01_1795</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/schiller_naive01_1795</idno>
+<idno type="DTADirName">schiller_naive01_1795</idno>
+<idno type="DTAID">16483</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905195397</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="JA">Schiller, Friedrich: Über naive und sentimentalische Dichtung. [Tl. 1:] Über das Naive. In: Die Horen 1795, 11. St., T. VIII., S. 43-76.</bibl>
+<biblFull>
+<titleStmt>
+<title level="a" type="main">Über naive und sentimentalische Dichtung</title>
+<title level="a" type="part" n="1">Ueber das Naive</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118607626">
+<surname>Schiller</surname>
+<forename>Friedrich</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">S. 43-76</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Cotta</name></publisher>
+<pubPlace>Tübingen</pubPlace>
+<date type="publication">1795</date>
+</publicationStmt>
+<seriesStmt>
+<title level="j" type="main">Die Horen. Eine Monatsschrift</title>
+<biblScope unit="volume">1</biblScope>
+<biblScope unit="issue">11</biblScope>
+<biblScope unit="pages">S. 43-76</biblScope>
+</seriesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Ac 6670&lt;a&gt;-3/4 R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=418278393</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<lb/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<pb n="[I]" facs="#f0010"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b">Die Horen</hi></titlePart><lb/>
+<titlePart type="sub"><hi rendition="#g">eine Monatsſchrift</hi></titlePart></docTitle><lb/>
+<byline>her<hi rendition="#g">ausgegeben von</hi> <docAuthor><hi rendition="#g">Schiller</hi></docAuthor></byline><lb/>
+<titlePart type="volume"><hi rendition="#b"><hi rendition="#g">Dritter Band</hi>.</hi></titlePart><lb/>
+<docImprint><pubPlace><hi rendition="#b"><hi rendition="#g">Tuͤbingen</hi></hi></pubPlace><lb/>
+in der <publisher>J. G. <hi rendition="#g">Cottaiſchen</hi> Buchhandlung</publisher><lb/>
+<docDate><hi rendition="#g">1795</hi>.</docDate></docImprint></titlePage></front><body><lb/>
+<pb n="43" facs="#f0011"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#aq">VIII</hi><lb/>
+<hi rendition="#g">Ueber das Naive</hi>.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>s giebt Augenblicke in unſerm Leben, wo wir der Na-<lb/>
+tur in Pflanzen, Mineralen, Thieren, Landſchaften, ſo<lb/>
+wie der menſchlichen Natur in Kindern, in den Sitten<lb/>
+des Landvolks und der Urwelt, nicht weil ſie unſern Sin-<lb/>
+nen wohlthut, auch nicht weil ſie unſern Verſtand oder<lb/>
+Geſchmack befriedigt (von beyden kann oft das gerade<lb/>
+Gegentheil ſtatt finden) ſondern bloß <hi rendition="#g">weil ſie Natur<lb/>
+iſt</hi>, eine Art von Liebe und von ruͤhrender Achtung wid-<lb/>
+men. Jeder feinere Menſch, dem es nicht ganz und gar<lb/>
+an Empfindung fehlt, erfaͤhrt dieſes, wenn er im Freyen<lb/>
+wandelt, wenn er auf dem Lande lebt, oder ſich bey den<lb/>
+Denkmaͤlern der alten Zeiten verweilet, kurz, wenn er<lb/>
+in kuͤnſtlichen Verhaͤltniſſen und Situationen mit dem An-<lb/>
+blick der einfaͤltigen Natur uͤberraſcht wird. Dieſes, nicht<lb/>
+ſelten zum Beduͤrfniß erhoͤhte Intereſſe iſt es, was vielen<lb/>
+unſrer Liebhabereyen fuͤr Blumen und Thiere, fuͤr ein-<lb/>
+fache Gaͤrten, fuͤr Spaziergaͤnge, fuͤr das Land und ſeine<lb/>
+Bewohner, fuͤr manche Produkte des fernen Alterthums,<lb/>
+u. dgl. zum Grund liegt; vorausgeſetzt, daß weder Af-<lb/>
+fektation, noch ſonſt ein zufaͤlliges Intereſſe dabey im<lb/>
+Spiele ſey. Dieſe Art des Intereſſe an der Natur findet<lb/>
+aber nur unter zwey Bedingungen ſtatt. Fuͤrs erſte iſt<lb/>
+es durchaus noͤthig, daß der Gegenſtand, der uns daſſelbe<lb/>
+einfloͤßt, Natur ſey oder doch von uns dafuͤr gehalten<lb/>
+<pb n="44" facs="#f0012"/>
+werde; zweytens daß er (in weiteſter Bedeutung des Worts)<lb/>
+<hi rendition="#g">naiv</hi> ſey, d. h. daß die Natur mit der Kunſt im Kon-<lb/>
+traſte ſtehe und ſie beſchaͤme. Sobald das letzte zu dem<lb/>
+erſten hinzukommt, und nicht eher, wird die Natur zum<lb/>
+Naiven.</p><lb/>
+<p>Natur in dieſer Betrachtungsart iſt uns nichts an-<lb/>
+ders, als das freiwillige Daſeyn, das Beſtehen der Dinge<lb/>
+durch ſich ſelbſt, die Exiſtenz nach eignen und unabaͤnder-<lb/>
+lichen Geſetzen.</p><lb/>
+<p>Dieſe Vorſtellung iſt ſchlechterdings noͤthig, wenn<lb/>
+wir an dergleichen Erſcheinungen Intereſſe nehmen ſol-<lb/>
+len. Koͤnnte man einer gemachten Blume den Schein<lb/>
+der Natur, mit der vollkommenſten Taͤuſchung geben,<lb/>
+koͤnnte man die Nachahmung des Naiven in den Sitten<lb/>
+bis zur hoͤchſten Illuſion treiben, ſo wuͤrde die Entdeckung<lb/>
+daß es Nachahmung ſey, das Gefuͤhl, von dem die Rede<lb/>
+iſt, gaͤnzlich vernichten. <note place="foot" n="*" xml:id="seg2pn_1_1" next="#seg2pn_1_2">Kant, meines Wiſſens der erſte, der uͤber dieſes Phaͤnomen<lb/>
+eigends zu reflektiren angefangen, erinnert, daß wenn wir<lb/>
+von einem Menſchen den Schlag der Nachtigall bis zur hoͤch-<lb/>
+ſten Taͤuſchung nachgeahmt faͤnden, und uns dem Eindruck<lb/>
+deſſelben mit ganzer Ruͤhrung uͤberlieſſen, mit der Zerſtoͤ-<lb/>
+rung dieſer Illuſion alle unſere Luſt verſchwinden wuͤrde.<lb/>
+Man ſehe das Kapitel <hi rendition="#g">vom intellektuellen Inter-<lb/>
+eſſe am Schoͤnen</hi> in der Critik der aͤſthetiſchen Urtheils-<lb/>
+kraft. Wer den Verfaſſer nur als einen großen Denker<lb/>
+bewundern gelernt hat, wird ſich freuen, hier auf eine<lb/>
+Spur ſeines Herzens zu treffen, und ſich durch dieſe Ent-</note> Daraus erhellet, daß dieſe<lb/>
+<pb n="45" facs="#f0013"/>
+Art des Wohlgefallens an der Natur kein aͤſthetiſches,<lb/>
+ſondern ein moraliſches iſt; denn es wird durch eine Idee<lb/>
+vermittelt, nicht unmittelbar durch Betrachtung erzeugt;<lb/>
+auch richtet es ſich ganz und gar nicht nach der Schoͤn-<lb/>
+heit der Formen. Was haͤtte auch eine unſcheinbare<lb/>
+Blume, eine Quelle, ein bemooßter Stein, das Gezwit-<lb/>
+ſcher der Voͤgel, das Summen der Bienen ꝛc. fuͤr ſich<lb/>
+ſelbſt ſo gefaͤlliges fuͤr uns? Was koͤnnte ihm gar einen<lb/>
+Anſpruch auf unſere Liebe geben? Es ſind nicht dieſe Ge-<lb/>
+genſtaͤnde, es iſt eine durch ſie dargeſtellte <hi rendition="#g">Idee</hi>, was<lb/>
+wir in ihnen lieben. Wir lieben in ihnen das ſtille ſchaf-<lb/>
+fende Leben, das ruhige Wirken aus ſich ſelbſt, das Da-<lb/>
+ſeyn nach eignen Geſetzen, die innere Nothwendigkeit,<lb/>
+die ewige Einheit mit ſich ſelbſt.</p><lb/>
+<p>Sie <hi rendition="#g">ſind</hi>, was wir <hi rendition="#g">waren</hi>; ſie ſind, was wir<lb/>
+wieder <hi rendition="#g">werden ſollen</hi>. Wir waren Natur, wie ſie,<lb/>
+und unſere Kultur ſoll uns, auf dem Wege der Vernunft<lb/>
+und der Freyheit, zur Natur zuruͤckfuͤhren. Sie ſind<lb/>
+alſo zugleich Darſtellung unſerer verlorenen Kindheit,<lb/>
+die uns ewig das theuerſte bleibt; daher ſie uns mit ei-<lb/>
+ner gewiſſen Wehmuth erfuͤllen. Zugleich ſind ſie Dar-<lb/>
+ſtellungen unſerer hoͤchſten Vollendung im Ideale, daher<lb/>
+ſie uns in eine erhabene Ruͤhrung verſetzen.</p><lb/>
+<p>Aber ihre Vollkommenheit iſt nicht ihr Verdienſt,<lb/>
+weil ſie nicht das Werk ihrer Wahl iſt. Sie gewaͤhren<lb/>
+uns alſo die ganz eigene Luſt, daß ſie, ohne uns zu be-<lb/>
+<note place="foot" n="*" xml:id="seg2pn_1_2" prev="#seg2pn_1_1">deckung von dem hohen philoſophiſchen Beruf dieſes Man-<lb/>
+nes (welcher ſchlechterdings beyde Eigenſchaften verbunden<lb/>
+fodert) zu uͤberzeugen.</note><lb/>
+<pb n="46" facs="#f0014"/>
+ſchaͤmen, unſre Muſter ſind. Eine beſtaͤndige Goͤtterer-<lb/>
+ſcheinung umgeben ſie uns, aber mehr erquickend als<lb/>
+blendend. Was ihren Character ausmacht, iſt gerade<lb/>
+das, was dem unſrigen zu ſeiner Vollendung mangelt;<lb/>
+was uns von ihnen unterſcheidet, iſt gerade das, was<lb/>
+ihnen ſelbſt zur Goͤttlichkeit fehlt. Wir ſind frey und ſie<lb/>
+ſind nothwendig; wir wechſeln, ſie bleiben eins. Aber<lb/>
+nur, wenn beydes ſich mit einander verbindet — wenn<lb/>
+der Wille das Geſetz der Nothwendigkeit frey befolgt<lb/>
+und bey allem Wechſel der Phantaſie die Vernunft ihre<lb/>
+Regel behauptet, geht das Goͤttliche oder das Ideal her-<lb/>
+vor. Wir erblicken <hi rendition="#g">in ihnen</hi> alſo ewig das, was uns<lb/>
+abgeht, aber wornach wir aufgefodert ſind zu ringen,<lb/>
+und dem wir uns, wenn wir es gleich niemals errei-<lb/>
+chen, doch in einem unendlichen Fortſchritte zu naͤhern<lb/>
+hoffen duͤrfen. Wir erblicken <hi rendition="#g">in uns</hi> einen Vorzug,<lb/>
+der ihnen fehlt, aber deſſen ſie entweder uͤberhaupt nie-<lb/>
+mals, wie das vernunftloſe, oder nicht anders als in-<lb/>
+dem ſie <hi rendition="#g">unſern</hi> Weg gehen, wie die Kindheit, theil-<lb/>
+haftig werden koͤnnen. Sie verſchaffen uns daher den<lb/>
+ſuͤſſeſten Genuß unſerer Menſchheit als Idee, ob ſie uns<lb/>
+gleich in Ruͤckſicht auf jeden <hi rendition="#g">beſtimmten Zuſtand</hi> un-<lb/>
+ſerer Menſchheit nothwendig demuͤthigen muͤſſen.</p><lb/>
+<p>Da ſich dieſes Intereſſe fuͤr Natur auf eine Idee<lb/>
+gruͤndet, ſo kann es ſich nur in Gemuͤthern zeigen, welche<lb/>
+fuͤr Ideen empfaͤnglich ſind, d. h. in moraliſchen. Bey<lb/>
+weitem die mehreſten Menſchen affektiren es bloß, und<lb/>
+die Allgemeinheit dieſes ſentimentaliſchen Geſchmacks zu<lb/>
+unſern Zeiten, welcher ſich beſonders ſeit der Erſcheinung<lb/>
+gewiſſer Schriften, in empfindſamen Reiſen, dergleichen<lb/>
+Gaͤrten, Spaziergaͤngen, und andere Liebhabereyen dieſer<lb/>
+<pb n="47" facs="#f0015"/>
+Art aͤuſſert, iſt noch ganz und gar kein Beweis fuͤr die<lb/>
+Allgemeinheit dieſer Empfindungsweiſe. Doch wird die<lb/>
+Natur auch auf den gefuͤhlloſeſten immer etwas von die-<lb/>
+ſer Wirkung aͤuſſern, weil ſchon die, allen Menſchen ge-<lb/>
+meine, <hi rendition="#g">Anlage</hi> zum Sittlichen dazu hinreichend iſt,<lb/>
+und wir alle ohne Unterſchied, bey noch ſo großer Ent-<lb/>
+fernung unſerer <hi rendition="#g">Thaten</hi> von der Einfalt und Wahrheit<lb/>
+der Natur, <hi rendition="#g">in der Idee</hi> dazu hingetrieben werden.<lb/>
+Beſonders ſtark und am allgemeinſten aͤuſſert ſich dieſe<lb/>
+Empfindſamkeit fuͤr Natur bey Veranlaſſung ſolcher Ge-<lb/>
+genſtaͤnde, welche in einer engern Verbindung mit uns<lb/>
+ſtehen, und uns den Ruͤckblick auf uns ſelbſt und die<lb/>
+<hi rendition="#g">Unnatur</hi> in uns naͤher legen, wie z. B. bey Kindern.<lb/>
+Man irrt, wenn man glaubt, daß es bloß die Vorſtel-<lb/>
+lung der Huͤlfloſigkeit ſey, welche macht, daß wir in ge-<lb/>
+wiſſen Augenblicken mit ſoviel Ruͤhrung bey Kindern<lb/>
+verweilen. Das mag bey denjenigen vielleicht der Fall<lb/>
+ſeyn, welche der Schwaͤche gegenuͤber nie etwas anders<lb/>
+als ihre eigene Ueberlegenheit zu empfinden pflegen. Aber<lb/>
+das Gefuͤhl, von dem ich rede, (es findet nur in ganz<lb/>
+eigenen moraliſchen Stimmungen ſtatt, und iſt nicht mit<lb/>
+demjenigen zu verwechſeln, welches die froͤhliche Thaͤtig-<lb/>
+keit der Kinder in uns erreget) iſt eher demuͤthigend als<lb/>
+beguͤnſtigend fuͤr die Eigenliebe; und wenn ja ein Vor-<lb/>
+zug dabey in Betrachtung kommt, ſo iſt dieſer wenigſtens<lb/>
+nicht auf unſerer Seite. Nicht weil wir von der Hoͤhe<lb/>
+unſerer Kraft und Vollkommenheit auf das Kind herab-<lb/>
+ſehen, ſondern weil wir aus der Beſchraͤnktheit unſers<lb/>
+Zuſtands, welche von der <hi rendition="#g">Beſtimmung</hi>, die wir ein-<lb/>
+mal erlangt haben, unzertrennlich iſt, zu der graͤnzen-<lb/>
+loſen Beſtimmbarkeit in dem Kinde und zu ſeiner reinen<lb/>
+Unſchuld <hi rendition="#g">hinauf ſehen</hi>, gerathen wir in Ruͤhrung,<lb/>
+<pb n="48" facs="#f0016"/>
+und unſer Gefuͤhl in einem ſolchen Augenblick iſt zu<lb/>
+ſichtbar mit einer gewißen Wehmuth gemiſcht, als daß<lb/>
+ſich dieſe Quelle deſſelben verkennen lieſſe. In dem Kinde<lb/>
+iſt die <hi rendition="#g">Anlage</hi> und <hi rendition="#g">Beſtimmung</hi>, in uns iſt die<lb/>
+<hi rendition="#g">Erfuͤllung</hi> dargeſtellt, welche immer unendlich weit<lb/>
+hinter jener zuruͤckbleibt. Das Kind iſt uns daher eine<lb/>
+Vergegenwaͤrtigung des Ideals, nicht zwar des erfuͤll-<lb/>
+ten, aber des aufgegebenen, und es iſt alſo keinesweges<lb/>
+die Vorſtellung ſeiner Beduͤrftigkeit und Schranken, es<lb/>
+iſt ganz im Gegentheil die Vorſtellung ſeiner reinen und<lb/>
+freyen Kraft, ſeiner Integritaͤt, ſeiner Unendlichkeit, was<lb/>
+uns ruͤhrt. Dem Menſchen von Sittlichkeit und Em-<lb/>
+pfindung wird ein Kind deswegen ein <hi rendition="#g">heiliger</hi> Gegen-<lb/>
+ſtand ſeyn, ein Gegenſtand nehmlich, der durch die Groͤße<lb/>
+einer Idee jede Groͤße der Erfahrung vernichtet; und<lb/>
+der, was er auch in der Beurtheilung des Verſtandes<lb/>
+verlieren mag; in der Beurtheilung der Vernunft wie-<lb/>
+der in reichem Maaße gewinnt.</p><lb/>
+<p>Eben aus dieſem Widerſpruch zwiſchen dem Urtheile<lb/>
+der Vernunft und des Verſtandes geht die ganze eigene<lb/>
+Erſcheinung des gemiſchten Gefuͤhls hervor, welches das<lb/>
+<hi rendition="#g">Naive</hi> der Denkart in uns erreget. Es verbindet die<lb/>
+<hi rendition="#g">kindliche</hi> Einfalt mit der <hi rendition="#g">kindiſchen</hi>; durch die<lb/>
+letztere giebt es dem Verſtand eine Bloͤße und bewirkt<lb/>
+jenes Laͤcheln, wodurch wir unſre (<hi rendition="#g">theoretiſche</hi>)<lb/>
+Ueberlegenheit zu erkennen geben. Sobald wir aber<lb/>
+Urſache haben zu glauben, daß die kindiſche Einfalt zu-<lb/>
+gleich eine kindliche ſey, daß folglich nicht Unverſtand,<lb/>
+nicht theoretiſches Unvermoͤgen, ſondern eine hoͤhere<lb/>
+<hi rendition="#g">praktiſche</hi> Staͤrke, ein Herz voll Unſchuld und Wahr-<lb/>
+heit, die Quelle davon ſey, welches die Huͤlfe der Kunſt<lb/>
+<pb n="49" facs="#f0017"/>
+aus innrer Groͤße verſchmaͤhte, ſo iſt jener Triumph des<lb/>
+Verſtandes vorbey, und der Spott uͤber die Einfaͤltigkeit<lb/>
+geht in Bewunderung der hohen Einfachheit uͤber. Wir<lb/>
+fuͤhlen uns genoͤthigt, den Gegenſtand zu achten, uͤber<lb/>
+den wir vorher <hi rendition="#g">gelaͤchelt</hi> haben, und, indem wir zugleich<lb/>
+einen Blick in uns ſelbſt werfen, uns zu <hi rendition="#g">beklagen</hi>,<lb/>
+daß wir demſelben nicht aͤhnlich ſind. So entſteht die<lb/>
+ganz eigene Erſcheinung eines Gefuͤhls, in welchem froͤh-<lb/>
+licher Spott, Ehrfurcht und Wehmuth zuſammenflieſſen. <note place="foot" n="*" xml:id="seg2pn_2_1" next="#seg2pn_2_2"><hi rendition="#g">Kant</hi> in einer Anmerkung zu der Analytik des Erhabe-<lb/>
+nen (Critik der aͤſthetiſchen Urtheilskraft. S. 225. der<lb/>
+erſten Auflage) unterſcheidet gleichfalls dieſe dreyerley In-<lb/>
+gredienzien in dem Gefuͤhl des Naiven, aber er giebt davon<lb/>
+eine andre Erklaͤrung. „Etwas aus beidem (dem animali-<lb/>
+„ſchen Gefuͤhl des Vergnuͤgens und dem geiſtigen Gefuͤhl<lb/>
+„der Achtung) zuſammengeſetztes findet ſich in der Naivi-<lb/>
+„taͤt, die der Ausbruch der der Menſchheit urſpruͤnglich na-<lb/>
+„tuͤrlichen Aufrichtigkeit wider die zur andern Natur ge-<lb/>
+„wordene Verſtellungskunſt iſt. Man lacht uͤber die Ein-<lb/>
+„falt, die es noch nicht verſteht ſich zu verſtellen und er-<lb/>
+„freut ſich doch auch uͤber die Einfalt der Natur, die<lb/>
+„jener Kunſt hier einen Querſtrich ſpielt. Man erwartete<lb/>
+„die alltaͤgliche Sitte der gekuͤnſtelten und den ſchoͤnen<lb/>
+„Schein vorſichtig angelegten Aeuſſerung und ſiehe es iſt<lb/>
+„die unverdorbene ſchuldloſe Natur, die man anzutreffen<lb/>
+„gar nicht gewaͤrtig und der, ſo ſie bliken ließ, zu ent-<lb/>
+„bloͤßen auch nicht gemeynet war. Daß der ſchoͤne, aber<lb/>
+„falſche Schein, der gewoͤhnlich in unſerm Urtheile ſehr<lb/>
+„viel bedeutet, hier ploͤtzlich in Nichts verwandelt, daß</note><lb/>
+<fw type="sig" place="bottom">Die Horen. 1795. 11tes St. 4</fw><lb/>
+<pb n="50" facs="#f0018"/>
+Zum Naiven wird erfodert daß die Natur uͤber die<lb/>
+<note place="foot" n="*" xml:id="seg2pn_2_2" prev="#seg2pn_2_1" next="#seg2pn_2_3">„gleichſam der Schalk in uns ſelbſt bloß geſtellt wird,<lb/>
+„bringt die Bewegung des Gemuͤths nach zwey entgegen-<lb/>
+„geſetzten Richtungen nach einander hervor, die zugleich<lb/>
+„den Koͤrper heilſam ſchuͤttelt. Daß aber etwas, was un-<lb/>
+„endlich beſſer als alle angenommene Sitte iſt, die Lauter-<lb/>
+„keit der Denkungsart, (wenigſtens die Anlage dazu) doch<lb/>
+„nicht ganz in der menſchlichen Natur erloſchen iſt, miſcht<lb/>
+„Ernſt und Hochſchaͤtzung in dieſes Spiel der Urtheilskraft.<lb/>
+„Weil es aber nur eine kurze Zeit Erſcheinung iſt und die<lb/>
+„Deke der Verſtellungskunſt bald wieder vorgezogen wird,<lb/>
+„ſo mengt ſich zugleich ein Bedauren darunter, welches<lb/>
+„eine Ruͤhrung der Zaͤrtlichkeit iſt, die ſich als Spiel mit<lb/>
+„einem ſolchen gutherzigen Lachen ſehr wohl verbinden laͤßt,<lb/>
+„und auch wirklich damit gewoͤhnlich verbindet, zugleich<lb/>
+„auch die Verlegenheit deſſen, der den Stoff dazu hergiebt,<lb/>
+„daruͤber daß er noch nicht nach Menſchenweiſe gewitzigt<lb/>
+„iſt, zu verguͤten pflegt. —“ Ich geſtehe, daß dieſe Erklaͤ-<lb/>
+rungsart mich nicht ganz befriedigt, und zwar vorzuͤglich<lb/>
+deswegen nicht, weil ſie von dem Naiven uͤberhaupt etwas<lb/>
+behauptet, was hoͤchſtens von einer Species deſſelben, dem<lb/>
+Naiven der Ueberraſchung, von welchem ich nachher reden<lb/>
+werde, wahr iſt. Allerdings erregt es <hi rendition="#g">Lachen</hi>, wenn ſich<lb/>
+jemand durch Naivheit bloß giebt, und in manchen Faͤllen<lb/>
+mag dieſes Lachen aus einer vorhergegangenen Erwartung,<lb/>
+die in Nichts aufgeloͤßt wird, flieſſen. Aber auch die Naiv-<lb/>
+heit der edelſten Art, das Naive der Geſinnung erregt im-<lb/>
+mer ein <hi rendition="#g">Laͤcheln</hi>, welches doch ſchwerlich eine in Nichts</note><lb/>
+<pb n="51" facs="#f0019"/>
+Kunſt den Sieg davon trage <note place="foot" n="*">Ich ſollte vielleicht ganz kurz ſagen: <hi rendition="#g">die Wahrheit<lb/>
+uͤber die Verſtellung</hi>, aber der Begriff des Naiven<lb/>
+ſcheint mir noch etwas mehr einzuſchließen, indem die Ein-<lb/>
+fachheit uͤberhaupt, welche uͤber die Kuͤnſteley, und die<lb/>
+natuͤrliche Freyheit, welche uͤber Steifheit und Zwang<lb/>
+ſiegt, ein aͤhnliches Gefuͤhl in uns erregen.</note> es geſchehe dieß nun wider<lb/>
+Wiſſen und Willen der Perſon, oder mit voͤlligem Be-<lb/>
+wußtſeyn derſelben. In dem erſten Fall iſt es das Naive<lb/>
+der <hi rendition="#g">Ueberraſchung</hi> und beluſtigt; in dem andern iſt<lb/>
+es das Naive der <hi rendition="#g">Geſinnung</hi> und ruͤhrt.</p><lb/>
+<p>Bey dem Naiven der Ueberraſchung muß die Per-<lb/>
+ſon <hi rendition="#g">moraliſch</hi> faͤhig ſeyn, die Natur zu verlaͤugnen;<lb/>
+bey dem Naiven der Geſinnung darf ſie es nicht ſeyn,<lb/>
+<note place="foot" n="*" xml:id="seg2pn_2_3" prev="#seg2pn_2_2">aufgeloͤßte Erwartung zum Grunde hat, ſondern uͤberhaupt<lb/>
+nur aus dem Kontraſt eines gewißen Betragens mit den<lb/>
+einmal angenommenen und erwarteten Formen zu erklaͤren<lb/>
+iſt. Auch zweifle ich, ob die Bedauerniß, welche ſich bey<lb/>
+dem Naiven der letztern Art in unſre Empfindung miſcht,<lb/>
+der naiven Perſon und nicht vielmehr uns ſelbſt oder viel-<lb/>
+mehr der Menſchheit uͤberhaupt gilt, an deren Verfall wir<lb/>
+bey einem ſolchen Anlaß erinnert werden. Es iſt zu offen-<lb/>
+bar eine moraliſche Trauer, die einen edlern Gegenſtand<lb/>
+haben muß, als die phyſiſchen Uebel, von denen die Auf-<lb/>
+richtigkeit in dem gewoͤhnlichen Weltlauf bedrohet wird,<lb/>
+und dieſer Gegenſtand kann nicht wohl ein anderer ſeyn, als<lb/>
+der Verluſt der Wahrheit und Simplicitaͤt in der Menſchheit.</note><lb/>
+<pb n="52" facs="#f0020"/>
+doch duͤrfen wir ſie uns nicht als <hi rendition="#g">phyſiſch</hi> unfaͤhig dazu<lb/>
+denken, wenn es als naiv auf uns wirken ſoll. Die Hand-<lb/>
+lungen und Reden der Kinder geben uns daher auch nur<lb/>
+ſolange den reinen Eindruk des Naiven, als wir uns ih-<lb/>
+res Unvermoͤgens zur Kunſt nicht erinnern, und uͤber-<lb/>
+haupt nur auf den Kontraſt ihrer Natuͤrlichkeit mit der<lb/>
+Kuͤnſtlichkeit in uns Ruͤkſicht nehmen. Das Naive iſt eine<lb/>
+<hi rendition="#g">Kindlichkeit, wo ſie nicht mehr erwartet<lb/>
+wird</hi>, und kann eben deßwegen der wirklichen Kindheit<lb/>
+in ſtrengſter Bedeutung nicht zugeſchrieben werden.</p><lb/>
+<p>In beyden Faͤllen aber, beym Naiven der Ueberra-<lb/>
+ſchung wie bey dem der Geſinnung muß die Natur Recht,<lb/>
+die Kunſt aber Unrecht haben.</p><lb/>
+<p>Erſt durch dieſe letztere Beſtimmung wird der Be-<lb/>
+griff des Naiven vollendet. Der Affekt iſt auch Natur<lb/>
+und die Regel der Anſtaͤndigkeit iſt etwas Kuͤnſtliches,<lb/>
+dennoch iſt der Sieg des Affekts uͤber die Anſtaͤndigkeit<lb/>
+nichts weniger als naiv. Siegt hingegen derſelbe Affekt<lb/>
+uͤber die Kuͤnſteley, uͤber die falſche Anſtaͤndigkeit, uͤber<lb/>
+die Verſtellung, ſo tragen wir kein Bedenken, es naiv<lb/>
+zu nennen. <note place="foot" n="*" xml:id="seg2pn_3_1" next="#seg2pn_3_2">Ein Kind iſt ungezogen, wenn es aus Begierde, Leichtſinn,<lb/>
+Ungeſtuͤm den Vorſchriften einer guten Erziehung entgegen-<lb/>
+handelt, aber es iſt naiv, wenn es ſich von dem Manierier-<lb/>
+ten einer unvernuͤnftigen Erziehung, von den ſteifen Stel-<lb/>
+lungen des Tanzmeiſters u. dgl. aus freyer und geſunder<lb/>
+Natur diſpenſiert. Daſſelbe findet auch bey dem Naiven<lb/>
+in ganz uneigentlicher Bedeutung ſtatt, welches durch Ue-</note> Es wird alſo erfodert, daß die Natur<lb/>
+<pb n="53" facs="#f0021"/>
+nicht durch ihre blinde Gewalt als <hi rendition="#g">dynamiſche</hi>, fon-<lb/>
+dern daß ſie durch ihre Form als <hi rendition="#g">moraliſche</hi> Groͤße,<lb/>
+kurz daß ſie nicht als <hi rendition="#g">Nothdurft</hi>, ſondern als <hi rendition="#g">innre<lb/>
+Nothwendigkeit</hi> uͤber die Kunſt triumphiere. Nicht<lb/>
+die Unzulaͤnglichkeit ſondern die <hi rendition="#g">Unſtatthaftigkeit</hi><lb/>
+der letztern muß der erſtern den Sieg verſchaft haben;<lb/>
+denn jene iſt Mangel, und nichts, was aus Mangel ent-<lb/>
+ſpringt, kann Achtung erzeugen. Zwar iſt es bey dem<lb/>
+Naiven der Ueberraſchung immer die Uebermacht des Af-<lb/>
+fekts und ein <hi rendition="#g">Mangel</hi> an Beſinnung, was die Natur<lb/>
+bekennen macht; aber dieſer Mangel und jene Ueber-<lb/>
+macht machen das Naive noch gar nicht aus, ſondern<lb/>
+geben bloß Gelegenheit, daß die Natur <hi rendition="#g">ihrer mora-<lb/>
+liſchen Beſchaffenheit</hi>, d. h. dem Geſetze <hi rendition="#g">der<lb/>
+Uebereinſtimmung ungehindert folgt</hi>.</p><lb/>
+<p>Das Naive der Ueberraſchung kann nur dem Men-<lb/>
+ſchen und zwar dem Menſchen nur, inſofern er in dieſem<lb/>
+Augenblicke nicht mehr reine und unſchuldige Natur iſt,<lb/>
+zukommen. Es ſetzt einen Willen voraus, der mit dem was<lb/>
+<note place="foot" n="*" xml:id="seg2pn_3_2" prev="#seg2pn_3_1">bertragung von dem Menſchen auf das Vernunftloſe ent-<lb/>
+ſtehet. Niemand wird den Anblick naiv finden, wenn in<lb/>
+einem Garten, der ſchlecht gewartet wird, das Unkraut<lb/>
+uͤberhand nimmt, aber es hat allerdings etwas naives, wenn<lb/>
+der freye Wuchs hervorſtrebender Aeſte das muͤhſelige Werk<lb/>
+der Scheere in einem franzoͤſiſchen Garten vernichtet. So<lb/>
+iſt es ganz und gar nicht naiv, wenn ein geſchultes Pferd<lb/>
+aus natuͤrlicher Plumpheit ſeine Lection ſchlecht macht,<lb/>
+aber es hat etwas vom Naiven, wenn es dieſelbe aus na-<lb/>
+tuͤrlicher Freyheit vergißt.</note><lb/>
+<pb n="54" facs="#f0022"/>
+die Natur auf ihre eigene Hand thut, nicht uͤbereinſtimmt.<lb/>
+Eine ſolche Perſon wird, wenn man ſie zur Beſinnung<lb/>
+bringt, uͤber ſich ſelbſt erſchrecken; die naiv <hi rendition="#g">geſinnte</hi><lb/>
+hingegen wird ſich uͤber die Menſchen und uͤber ihr Er-<lb/>
+ſtaunen verwundern. Da alſo hier nicht der perſoͤnliche<lb/>
+und moraliſche Charakter, ſondern bloß der, durch den<lb/>
+Affekt freygelaſſene natuͤrliche Charakter die Wahrheit be-<lb/>
+kennt, ſo machen wir dem Menſchen aus dieſer Aufrich-<lb/>
+tigkeit kein Verdienſt und unſer Lachen iſt verdienter Spott,<lb/>
+der durch keine perſoͤnliche Hochſchaͤtzung deſſelben zuruͤck-<lb/>
+gehalten wird. Weil es aber doch auch hier die Auf-<lb/>
+richtigkeit der Natur iſt, die durch den Schleier der Falſch-<lb/>
+heit hindurch bricht, ſo verbindet ſich eine Zufriedenheit<lb/>
+hoͤherer Art, mit der Schadenfreude, einen Menſchen er-<lb/>
+tappt zu haben; denn die Natur im Gegenſatz gegen die<lb/>
+Kuͤnſteley und die Wahrheit im Gegenſatz gegen den Be-<lb/>
+trug muß jederzeit Achtung erregen. Wir empfinden alſo<lb/>
+auch uͤber das Naive der Ueberraſchung ein wirklich mo-<lb/>
+raliſches Vergnuͤgen, obgleich nicht uͤber einen morali-<lb/>
+ſchen Gegenſtand. <note place="foot" n="*" xml:id="seg2pn_4_1" next="#seg2pn_4_2">Da das Naive bloß auf der Form beruht, wie etwas ge-<lb/>
+than oder geſagt wird, ſo verſchwindet uns dieſe Eigenſchaft<lb/>
+aus den Augen, ſobald die Sache ſelbſt entweder durch<lb/>
+ihre Urſachen oder durch ihre Folgen einen uͤberwiegenden<lb/>
+oder gar widerſprechenden Eindruck macht. Durch eine<lb/>
+Naivheit dieſer Art kann auch ein Verbrechen entdeckt<lb/>
+werden, aber denn haben wir weder die Ruhe noch die<lb/>
+Zeit, unſre Aufmerkſamkeit auf die Form der Entdeckung<lb/>
+zu richten, und der Abſcheu uͤber den perſoͤnlichen Charak-<lb/>
+ter verſchlingt das Wohlgefallen an dem natuͤrlichen. So</note></p><lb/>
+<pb n="55" facs="#f0023"/>
+<p>Bey dem Naiven der Ueberraſchung achten wir zwar<lb/>
+immer die <hi rendition="#g">Natur</hi>, weil wir die Wahrheit achten muͤſ-<lb/>
+ſen; bey dem Naiven der Geſinnung achten wir hingegen<lb/>
+die <hi rendition="#g">Perſon</hi>, und genieſſen alſo nicht bloß ein morali-<lb/>
+ſches Vergnuͤgen ſondern auch uͤber einen moraliſchen Ge-<lb/>
+genſtand. In dem einen wie in dem andern Falle hat<lb/>
+die Natur <hi rendition="#g">Recht</hi>, daß ſie die Wahrheit ſagt; aber in<lb/>
+dem letztern Fall hat die Natur nicht bloß Recht, ſondern<lb/>
+die Perſon hat auch <hi rendition="#g">Ehre</hi>. In dem erſten Falle ge-<lb/>
+reicht die Aufrichtigkeit der Natur der Perſon immer zur<lb/>
+Schande, weil ſie unfreywillig iſt; in dem zweyten ge-<lb/>
+reicht ſie ihr immer zum Verdienſt, geſetzt auch, daß das-<lb/>
+jenige, was ſie ausſagt, ihr Schande braͤchte.</p><lb/>
+<p>Wir ſchreiben einem Menſchen eine naive Geſinnung<lb/>
+zu, wenn er in ſeinen Urtheilen von den Dingen ihre<lb/>
+gekuͤnſtelten und geſuchten Verhaͤltniße uͤberſieht und ſich<lb/>
+bloß an die einfache Natur haͤlt. Alles was innerhalb<lb/>
+der geſunden Natur davon geurtheilt werden kann, fo-<lb/>
+dern wir von ihm, und erlaſſen ihm ſchlechterdings nur<lb/>
+das, was eine Entfernung von der Natur, es ſey nun im<lb/>
+Denken oder im Empfinden, wenigſtens Bekanntſchaft<lb/>
+derſelben vorausſetzt.</p><lb/>
+<p>Wenn ein Vater ſeinem Kinde erzaͤhlt, daß dieſer oder<lb/>
+<note place="foot" n="*" xml:id="seg2pn_4_2" prev="#seg2pn_4_1">wie uns das empoͤrte Gefuͤhl die moraliſche Freude an der<lb/>
+Aufrichtigkeit der Natur raubt, ſobald wir durch eine<lb/>
+Naivheit ein Verbrechen erfahren; eben ſo erſtickt das<lb/>
+erregte Mitleiden unſere Schadenfreude ſobald wir jemand<lb/>
+durch ſeine Naivheit in Gefahr geſetzt ſehen.</note><lb/>
+<pb n="56" facs="#f0024"/>
+jener Mann fuͤr Armuth verſchmachte, und das Kind<lb/>
+hingeht, und dem armen Mann ſeines Vaters Geldboͤrſe<lb/>
+zutraͤgt, ſo iſt dieſe Handlung naiv; denn die geſunde<lb/>
+Natur handelte aus dem Kinde, und in einer Welt, wo<lb/>
+die geſunde Natur herrſchte, wuͤrde es vollkommen recht<lb/>
+gehabt haben, ſo zu verfahren. Es ſieht bloß auf das<lb/>
+Beduͤrfniß, und auf das naͤchſte Mittel es zu befriedigen;<lb/>
+eine ſolche Ausdehnung des Eigenthumsrechtes, wobey<lb/>
+ein Theil der Menſchen zu Grunde gehen kann, iſt in<lb/>
+der bloßen Natur nicht gegruͤndet. Die Handlung des<lb/>
+Kindes iſt alſo eine Beſchaͤmung der wirklichen Welt, und<lb/>
+das geſteht auch unſer Herz durch das Wohlgefallen, wel-<lb/>
+ches es uͤber jene Handlung empfindet.</p><lb/>
+<p>Wenn ein Menſch ohne Weltkenntniß, ſonſt aber von<lb/>
+gutem Verſtande, einem andern, der ihn betruͤgt, ſich<lb/>
+aber geſchickt zu verſtellen weiß, ſeine Geheimniſſe beich-<lb/>
+tet, und ihm durch ſeine Aufrichtigkeit ſelbſt die Mit-<lb/>
+tel leyht ihm zu ſchaden, ſo finden wir das naiv. Wir<lb/>
+lachen ihn aus, aber koͤnnen uns doch nicht erwehren, ihn<lb/>
+deßwegen hochzuſchaͤtzen. Denn ſein Vertrauen auf den<lb/>
+andern quillt aus der Redlichkeit ſeiner eigenen Geſin-<lb/>
+nungen; wenigſtens iſt er nur in ſo fern naiv, als dieſes<lb/>
+der Fall iſt.</p><lb/>
+<p>Das Naive der Denkart kann daher niemals eine Ei-<lb/>
+genſchaft verdorbener Menſchen ſeyn, ſondern nur Kin-<lb/>
+dern und kindlich geſinnten Menſchen zukommen. Dieſe<lb/>
+letztern handeln und denken oft mitten unter den gekuͤn-<lb/>
+ſtelten Verhaͤltniſſen der großen Welt naiv; ſie vergeſſen<lb/>
+aus eigener ſchoͤner Menſchlichkeit, daß ſie es mit einer<lb/>
+verderbten Welt zu thun haben, und betragen ſich ſelbſt<lb/>
+<pb n="57" facs="#f0025"/>
+an den Hoͤfen der Koͤnige mit einer Ingenuitaͤt und Un-<lb/>
+ſchuld, wie man ſie nur in einer Schaͤferwelt findet.</p><lb/>
+<p>Es iſt uͤbrigens gar nicht ſo leicht, die kindiſche Un-<lb/>
+ſchuld von der kindlichen immer richtig zu unterſcheiden,<lb/>
+indem es Handlungen giebt, welche auf der aͤuſerſten<lb/>
+Grenze zwiſchen beyden ſchweben, und bey denen wir<lb/>
+ſchlechterdings im Zweifel gelaſſen werden, ob wir die Ein-<lb/>
+faͤltigkeit belachen oder die edle Einfalt hochſchaͤtzen ſollen.<lb/>
+Ein ſehr merkwuͤrdiges Beyſpiel dieſer Art findet man in<lb/>
+der Regierungsgeſchichte des <hi rendition="#g">Pabſtes Adrian des<lb/>
+Sechſten</hi>, die uns Herr Schroͤckh mit der ihm eigenen<lb/>
+Gruͤndlichkeit und pragmatiſchen Wahrheit beſchrieben<lb/>
+hat. Dieſer Pabſt, ein Niederlaͤnder von Geburt, ver-<lb/>
+waltete das Pontifikat in einem der kritiſchten Augenblicke<lb/>
+fuͤr die Hierarchie, wo eine erbitterte Parthey die Bloͤßen<lb/>
+der roͤmiſchen Kirche ohne alle Schonung aufdeckte, und<lb/>
+die Gegenparthey im hoͤchſten Grad intereſſiert war, ſie<lb/>
+zuzudecken. Was der wahrhaft naive Charakter, wenn<lb/>
+ja ein ſolcher ſich auf den Stuhl des heiligen Peters ver-<lb/>
+irrte, in dieſem Falle zu thun hatte iſt keine Frage; wohl<lb/>
+aber wie weit eine ſolche Naivitaͤt der Geſinnung mit der<lb/>
+Rolle eines Pabſtes vertraͤglich ſeyn moͤchte. Dieß war<lb/>
+es uͤbrigens, was die Vorgaͤnger und die Nachfolger Adri-<lb/>
+ans in die geringſte Verlegenheit ſetzte. Mit Gleichfoͤrmig-<lb/>
+keit befolgten ſie das einmal angenommene roͤmiſche Syſtem,<lb/>
+uͤberall nichts einzuraͤumen. Aber Adrian hatte wirklich<lb/>
+den geraden Charakter ſeiner Nation, und die Unſchuld<lb/>
+ſeines ehemaligen Standes. Aus der engen Sphaͤre des<lb/>
+Gelehrten war er zu ſeinem erhabenen Poſten emporge-<lb/>
+ſtiegen, und ſelbſt auf der Hoͤhe ſeiner neuen Wuͤrde je-<lb/>
+nem einfachen Charakter nicht untreu geworden. Die<lb/>
+<pb n="58" facs="#f0026"/>
+Mißbraͤuche in der Kirche ruͤhrten ihn, und er war viel<lb/>
+zu redlich, oͤffentlich zu dißimulieren, was er im ſtillen ſich<lb/>
+eingeſtand. Dieſer Denkart gemaͤß ließ er ſich in der <hi rendition="#g">In-<lb/>
+ſtruktion</hi>, die er ſeinem Legaten nach Deutſchland mit-<lb/>
+gab, zu Geſtaͤndnißen verleiten, die noch bey keinem Pab-<lb/>
+ſte erhoͤrt geweſen waren, und den Grundſaͤtzen dieſes<lb/>
+Hofes ſchnurgerade zuwiderliefen. „Wir wiſſen es wohl,<lb/>
+„hieß es unter andern, daß an dieſem heiligen Stuhl<lb/>
+„ſchon ſeit mehrern Jahren viel Abſcheuliches vorgegan-<lb/>
+„gen; kein Wunder, wenn ſich der kranke Zuſtand von<lb/>
+„dem Haupt auf die Glieder, von dem Pabſt auf die<lb/>
+„Praͤlaten fortgeerbt hat. Wir alle ſind abgewichen,<lb/>
+„und ſchon ſeit lange iſt keiner unter uns geweſen, der et-<lb/>
+„was Gutes gethan haͤtte auch nicht Einer.“ Wieder<lb/>
+anderswo befiehlt er dem Legaten in Seinem Nahmen zu<lb/>
+erklaͤren, „daß er, Adrian, wegen deſſen, was vor ihm<lb/>
+„von den Paͤbſten geſchehen, nicht duͤrfe getadelt werden,<lb/>
+„und daß dergleichen Ausſchweifungen, auch da er noch<lb/>
+„in einem geringen Stande gelebt, ihm immer mißfal-<lb/>
+„len haͤtten u. ſ. f. Man kann leicht denken, wie eine<lb/>
+ſolche Naivitaͤt des Pabſtes von der roͤmiſchen Kleriſey<lb/>
+mag aufgenommen worden ſeyn; das wenigſte, was man<lb/>
+ihm Schuld gab war, daß er die Kirche an die Ketzer<lb/>
+verrathen habe. Dieſer hoͤchſt unkluge Schritt des Pabſtes<lb/>
+wuͤrde indeſſen unſerer ganzen Achtung und Bewunderung<lb/>
+werth ſeyn, wenn wir uns nur uͤberzeugen koͤnnten, daß er<lb/>
+wirklich naiv geweſen d. h. daß er ihm bloß durch die<lb/>
+natuͤrliche Wahrheit ſeines Charakters ohne alle Ruͤck-<lb/>
+ſicht auf die moͤglichen Folgen abgenoͤthiget worden ſey,<lb/>
+und daß er ihn nicht weniger gethan haben wuͤrde, wenn<lb/>
+er die begangene Sottiſe in ihrem ganzen Umfang einge-<lb/>
+ſehen haͤtte. Aber wir haben vielmehr Urſache zu glau-<lb/>
+<pb n="59" facs="#f0027"/>
+ben, daß er dieſen Schritt fuͤr gar nicht ſo unpolitiſch<lb/>
+hielt, und in ſeiner Unſchuld ſo weit gieng zu hoffen,<lb/>
+durch ſeine Nachgiebigkeit gegen die Gegner etwas ſehr<lb/>
+wichtiges fuͤr den Vortheil ſeiner Kirche gewonnen zu ha-<lb/>
+ben. Er bildete ſich nicht bloß ein, dieſen Schritt als<lb/>
+redlicher Mann thun zu muͤſſen, ſondern ihn auch als<lb/>
+Pabſt verantworten zu koͤnnen, und indem er vergaß, daß<lb/>
+das kuͤnſtlichſte aller Gebaͤude ſchlechterdings nur durch<lb/>
+eine fortgeſetzte Verlaͤugnung der Wahrheit erhalten wer-<lb/>
+den koͤnnte, begieng er den unverzeyhlichen Fehler, Ver-<lb/>
+haltungsregeln, die in natuͤrlichen Verhaͤltniſſen ſich be-<lb/>
+waͤhrt haben mochten, in einer ganz entgegengeſetzten La-<lb/>
+ge zu befolgen. Dieß veraͤndert allerdings unſer Urtheil<lb/>
+ſehr; und ob wir gleich der Redlichkeit des Herzens, aus<lb/>
+dem jene Handlung floß, unſere Achtung nicht verſagen<lb/>
+koͤnnen, ſo wird dieſe letztere nicht wenig durch die Be-<lb/>
+trachtung geſchwaͤcht, daß die Natur an der Kunſt und<lb/>
+das Herz an dem Kopf einen zu ſchwachen Gegner gehabt<lb/>
+habe.</p><lb/>
+<p>Naiv muß jedes wahre Genie ſeyn, oder es iſt keines.<lb/>
+Seine Naivheit allein macht es zum Genie, und was<lb/>
+es im Intellektuellen und Aeſthetiſchen iſt, kann es im<lb/>
+Moraliſchen nicht verlaͤugnen. Unbekannt mit den Re-<lb/>
+geln, den Kruͤcken der Schwachheit und den Zuchtmei-<lb/>
+ſtern der Verkehrtheit, bloß von der Natur oder dem In-<lb/>
+ſtinkt, ſeinem ſchuͤtzenden Engel, geleitet, geht es ruhig und<lb/>
+ſicher durch alle Schlingen des falſchen Geſchmackes, in<lb/>
+welchen, wenn es nicht ſo klug iſt, ſie ſchon von weitem<lb/>
+zu vermeiden, das Nichtgenie unausbleiblich verſtrickt<lb/>
+wird. Nur dem Genie iſt es gegeben, auſſerhalb des Be-<lb/>
+kannten noch immer zu Hauſe zu ſeyn, und die Natur zu <hi rendition="#g">er-<lb/>
+<pb n="60" facs="#f0028"/>
+weitern</hi>, ohne uͤber ſie <hi rendition="#g">hinauszugehen</hi>. Zwar be-<lb/>
+gegnet letzteres zuweilen auch den groͤßten Genies, aber<lb/>
+nur, weil auch dieſe ihre phantaſtiſchen Augenblicke ha-<lb/>
+ben, wo die ſchuͤtzende Natur ſie verlaͤßt, weil die Macht<lb/>
+des Beyſpiels ſie hinreißt, oder der verderbte Geſchmack<lb/>
+ihrer Zeit ſie verleitet.</p><lb/>
+<p>Die verwickeltſten Aufgaben muß das Genie mit an-<lb/>
+ſpruchloſer Simplicitaͤt und Leichtigkeit loͤſen; das Ey<lb/>
+des Columbus gilt von jeder genialiſchen Entſcheidung.<lb/>
+Dadurch allein legitimiert es ſich als Genie, daß es durch<lb/>
+Einfalt uͤber die verwickelte Kunſt triumphiert. Es ver-<lb/>
+faͤhrt nicht nach erkannten Prinzipien ſondern nach Ein-<lb/>
+faͤllen und Gefuͤhlen; aber ſeine Einfaͤlle ſind Eingebun-<lb/>
+gen eines Gottes (alles was die geſunde Natur thut iſt<lb/>
+goͤttlich) ſeine Gefuͤhle ſind Geſetze fuͤr alle Zeiten und<lb/>
+fuͤr alle Geſchlechter der Menſchen.</p><lb/>
+<p>Den kindlichen Charakter, den das Genie in ſeinen<lb/>
+Werken abdruͤckt, zeigt es auch in ſeinem Privat-Leben<lb/>
+und in ſeinen Sitten. Es iſt <hi rendition="#g">ſchaamhaft</hi>, weil die<lb/>
+Natur dieſes immer iſt; aber es iſt nicht <hi rendition="#g">decent</hi>, weil<lb/>
+nur die Verderbniß decent iſt. Es iſt <hi rendition="#g">verſtaͤndig</hi>, denn<lb/>
+die Natur kann nie das Gegentheil ſeyn; aber es iſt nicht<lb/>
+<hi rendition="#g">liſtig</hi>, denn das kann nur die Kunſt ſeyn. Es iſt ſei-<lb/>
+nem Charakter und ſeinen Neigungen <hi rendition="#g">treu</hi>, aber nicht<lb/>
+ſowohl weil es Grundſaͤtze hat, als weil die Natur bey<lb/>
+allem Schwanken immer wieder in die vorige Stelle<lb/>
+ruͤckt, immer das alte Beduͤrfniß zuruͤckbringt. Es iſt<lb/>
+<hi rendition="#g">beſcheiden</hi>, ja bloͤde, weil das Genie immer ſich ſelbſt<lb/>
+ein Geheimniß bleibt, aber es iſt nicht aͤngſtlich, weil es<lb/>
+die Gefahren des Weges nicht kennt, den es wandelt. Wir<lb/>
+<pb n="61" facs="#f0029"/>
+wiſſen wenig von dem Privatleben der groͤßten Genies,<lb/>
+aber auch das wenige, was uns z. B. von <hi rendition="#g">Sophokles</hi>,<lb/>
+von <hi rendition="#g">Archimed</hi>, von <hi rendition="#g">Hippokrates</hi>, und aus neue-<lb/>
+ren Zeiten von <hi rendition="#g">Arioſt, Dante</hi> und <hi rendition="#g">Taſſo</hi>, von <hi rendition="#g">Ra-<lb/>
+phael</hi>, von <hi rendition="#g">Albrecht, Duͤrer, Zervantes, Sha-<lb/>
+keſpear</hi>, von <hi rendition="#g">Fielding, Sterne</hi> u. a. aufbewahrt<lb/>
+worden iſt, beſtaͤtigt dieſe Behauptung.</p><lb/>
+<p>Ja, was noch weit mehr Schwuͤrigkeit zu haben<lb/>
+ſcheint, ſelbſt der große Staatsmann und Feldherr, wer-<lb/>
+den ſobald ſie durch ihr Genie groß ſind einen naiven Cha-<lb/>
+rakter zeigen. Ich will hier unter den Alten nur an <hi rendition="#g">Epa-<lb/>
+minondas</hi> und <hi rendition="#g">Julius Caͤſar</hi>, unter den Neuern nur<lb/>
+an <hi rendition="#g">Heinrich</hi> <hi rendition="#aq">IV</hi> von Frankreich, <hi rendition="#g">Guſtav Adolph</hi><lb/>
+von Schweden und den Czar <hi rendition="#g">Peter den Großen</hi> er-<lb/>
+innern. Der Herzog von <hi rendition="#g">Marlborough, Tuͤren-<lb/>
+ne, Vendome</hi> zeigen uns alle dieſen Charakter. Dem<lb/>
+andern Geſchlecht hat die Natur in dem naiven Charak-<lb/>
+ter ſeine hoͤchſte Vollkommenheit angewieſen. Nach nichts<lb/>
+ringt die weibliche Gefallſucht ſo ſehr als nach dem<lb/>
+Schein <hi rendition="#g">des Naiven</hi>; Beweis genug, wenn man auch<lb/>
+ſonſt keinen haͤtte, daß die groͤßte Macht des Geſchlechts<lb/>
+auf dieſer Eigenſchaft beruhet. Weil aber die herrſchen-<lb/>
+den Grundſaͤtze bey der weiblichen Erziehung mit dieſem<lb/>
+Charakter in ewigem Streit liegen, ſo iſt es dem Weibe<lb/>
+im moraliſchen eben ſo ſchwer als dem Mann im intellek-<lb/>
+tuellen mit den Vortheilen der guten Erziehung jenes herr-<lb/>
+liche Geſchenk der Natur unverloren zu behalten; und die<lb/>
+<hi rendition="#g">Frau</hi>, die mit einem geſchickten Betragen fuͤr die große<lb/>
+Welt dieſe Naivheit der Sitten verknuͤpft, iſt eben ſo hoch-<lb/>
+achtungswuͤrdig als der Gelehrte, der mit der ganzen Stren-<lb/>
+ge der Schule Genialiſche Freyheit des Denkens verbindet.</p><lb/>
+<pb n="62" facs="#f0030"/>
+<p>Aus der naiven Denkart fließt nothwendiger weiſe<lb/>
+auch ein naiver Ausdruck ſowohl in Worten als Bewe-<lb/>
+gungen, und er iſt das wichtigſte Beſtandſtuͤck der Grazie.<lb/>
+Mit dieſer naiven Anmuth druͤckt das Genie ſeine erha-<lb/>
+benſten und tiefſten Gedanken aus; es ſind Goͤtterſpruͤ-<lb/>
+che aus dem Mund eines Kindes. Wenn der Schul-<lb/>
+verſtand, immer vor Irrthum bange, ſeine Worte wie<lb/>
+ſeine Begriffe an das Kreuz der Grammatik und Logik<lb/>
+ſchlaͤgt, hart und ſteif iſt, um ja nicht unbeſtimmt zu ſeyn,<lb/>
+viele Worte macht, um ja nicht zu viel zu ſagen, und dem<lb/>
+Gedanken, damit er ja den Unvorſichtigen nicht ſchneide,<lb/>
+lieber die Kraft und die Schaͤrfe nimmt, ſo giebt das<lb/>
+Genie dem ſeinigen mit einem einzigen gluͤcklichen Pinſel-<lb/>
+ſtrich einen ewig beſtimmten, feſten und dennoch ganz<lb/>
+freyen Umriß. Wenn dort das Zeichen dem Bezeichne-<lb/>
+ten ewig heterogen und fremd bleibt, ſo ſpringt hier wie<lb/>
+durch innere Nothwendigkeit die Sprache aus dem Gedan-<lb/>
+ken hervor, und iſt ſo ſehr eins mit demſelben, daß ſelbſt<lb/>
+unter der koͤrperlichen Huͤlle der Geiſt wie entbloͤßet er-<lb/>
+ſcheint. Eine ſolche Art des Ausdrucks, wo das Zeichen<lb/>
+ganz in dem Bezeichneten verſchwindet, und wo die Spra-<lb/>
+che den Gedanken, den ſie ausdruͤckt, noch gleichſam na-<lb/>
+ckend laͤßt, da ihn die andre nie darſtellen kann, ohne ihn<lb/>
+zugleich zu verhuͤllen, iſt es, was man in der Schreibart<lb/>
+vorzugsweiſe genialiſch und geiſtreich nennt.</p><lb/>
+<p>Frey und natuͤrlich, wie das Genie in ſeinen Geiſtes-<lb/>
+werken, druͤckt ſich die Unſchuld des Herzens im lebendigen<lb/>
+Umgang aus. Bekanntlich iſt man im geſellſchaftlichen<lb/>
+Leben von der Simplicitaͤt und ſtrengen Wahrheit des Aus-<lb/>
+drucks in demſelben Verhaͤltniß, wie von der Einfalt der<lb/>
+Geſinnungen abgekommen, und die leicht zu verwundende<lb/>
+<pb n="63" facs="#f0031"/>
+Schuld ſo wie die leicht zu verfuͤhrende Einbildungskraft<lb/>
+haben einen aͤngſtlichen Anſtand nothwendig gemacht. Oh-<lb/>
+ne falſch zu ſeyn redet man oͤfters anders, als man denkt;<lb/>
+man muß Umſchweife nehmen, um Dinge zu ſagen, die<lb/>
+nur einer kranken Eigenliebe Schmerz bereiten, nur einer<lb/>
+verderbten Phantaſie Gefahr bringen koͤnnen. Eine Un-<lb/>
+kunde dieſer konventionellen Geſetze, verbunden mit natuͤr-<lb/>
+licher Aufrichtigkeit, welche jede Kruͤmme und jeden Schein<lb/>
+von Falſchheit verachtet, (nicht Roheit, welche ſich dar-<lb/>
+uͤber, weil ſie ihr laͤſtig ſind, hinwegſetzt) erzeugen eine<lb/>
+Naivheit des Ausdrucks im Umgang, welche darinn be-<lb/>
+ſteht, Dinge, die man entweder gar nicht oder nur kuͤnſt-<lb/>
+lich bezeichnen darf, mit ihrem rechten Nahmen und auf<lb/>
+dem kuͤrzeſten Wege zu benennen. Von der Art ſind die ge-<lb/>
+woͤhnlichen Ausdruͤcke der Kinder. Sie erregen Lachen<lb/>
+durch ihren Kontraſt mit den Sitten, doch wird man ſich<lb/>
+immer im Herzen geſtehen, daß das Kind recht habe.</p><lb/>
+<p>Das Naive der Geſinnung kann zwar, eigentlich ge-<lb/>
+nommen, auch nur dem Menſchen als einem der Natur<lb/>
+nicht ſchlechterdings unterworfenen Weſen beygelegt wer-<lb/>
+den, obgleich nur inſofern als wirklich noch die reine Na-<lb/>
+tur aus ihm handelt; aber durch einen Effekt der poetiſie-<lb/>
+renden Einbildungskraft wird es oͤfters von dem Vernuͤnf-<lb/>
+tigen auf das Vernunftloſe uͤbergetragen. So legen wir<lb/>
+oͤfters einem Thiere, einer Landſchaft, einem Gebaͤude,<lb/>
+ja der Natur uͤberhaupt, im Gegenſatz gegen die Willkuͤhr<lb/>
+und die phantaſtiſchen Begriffe des Menſchen einen nai-<lb/>
+ven Charakter bey. Dieß erfodert aber immer, daß wir<lb/>
+dem Willenloſen in unſern Gedanken einen Willen leyhen,<lb/>
+und auf die ſtrenge Richtung deſſelben nach dem Geſetz<lb/>
+der Nothwendigkeit merken. Die Unzufriedenheit uͤber<lb/>
+<pb n="64" facs="#f0032"/>
+unſere eigene ſchlecht gebrauchte moraliſche Freyheit und<lb/>
+uͤber die in unſerm Handeln vermißte ſittliche Harmonie<lb/>
+fuͤhrt leicht eine ſolche Stimmung herbey, in der wir<lb/>
+das Vernunftloſe wie eine Perſon anreden, und demſel-<lb/>
+ben, als wenn es wirklich mit einer Verſuchung zum<lb/>
+Gegentheil zu kaͤmpfen gehabt haͤtte, ſe ne ewige<lb/>
+Gleichfoͤrmigkeit zum Verdienſt machen, ſeine ruhige<lb/>
+Haltung beneiden. Es ſteht uns in einem ſolchen Augen-<lb/>
+blicke wohl an, daß wir das Praͤrogativ unſerer Vernunft<lb/>
+fuͤr einen Fluch und fuͤr ein Uebel halten, und uͤber dem<lb/>
+lebhaften Gefuͤhl der Unvollkommenheit unſeres wirklichen<lb/>
+Leiſtens die Gerechtigkeit gegen unſre Anlage und Be-<lb/>
+ſtimmung aus den Augen ſetzen.</p><lb/>
+<p>Wir ſehen alsdann in der unvernuͤnftigen Natur nur<lb/>
+eine gluͤcklichere Schweſter, die in dem muͤtterlichen Hauſe<lb/>
+zuruͤckblieb, aus welchem wir im Uebermuth unſerer Frey-<lb/>
+heit heraus in die Fremde ſtuͤrmten. Mit ſchmerzlichem<lb/>
+Verlangen ſehnen wir uns dahin zuruͤck, ſobald wir an-<lb/>
+gefangen, die Drangſale der Kultur zu erfahren und hoͤ-<lb/>
+ren im fernen Auslande der Kunſt der Mutter ruͤhrende<lb/>
+Stimme. Solange wir bloße Naturkinder waren, wa-<lb/>
+ren wir gluͤcklich und vollkommen; wir ſind frey gewor-<lb/>
+den, und haben beydes verloren. Daraus entſpringt eine<lb/>
+doppelte und ſehr ungleiche Sehnſucht nach der Natur;<lb/>
+eine Sehnſucht nach ihrer <hi rendition="#g">Gluͤckſeligkeit,</hi> eine Sehn-<lb/>
+ſucht nach ihrer <hi rendition="#g">Vollkommenheit.</hi> Den Verluſt der<lb/>
+erſten beklagt nur der ſinnliche Menſch; um den Verluſt<lb/>
+der andern kann nur der moraliſche trauren.</p><lb/>
+<p>Frage dich alſo wohl, empfindſamer Freund der Na-<lb/>
+tur, ob deine Traͤgheit nach ihrer Ruhe, ob deine be-<lb/>
+leidigte Sittlichkeit nach ihrer Uebereinſtimmung ſchmach-<lb/>
+<pb n="65" facs="#f0033"/>
+tet? Frage dich wohl, wenn die Kunſt dich aneckelt und<lb/>
+die Mißbraͤuche in der Geſellſchaft dich zu der lebloſen<lb/>
+Natur in die Einſamkeit treiben, ob es ihre Beraubun-<lb/>
+gen, ihre Laſten, ihre Muͤhſeligkeiten, oder ob es ihre<lb/>
+moraliſche Anarchie, ihre Willkuͤr, ihre Unordnungen<lb/>
+ſind, die du an ihr verabſcheuſt? In jene muß dein<lb/>
+Muth ſich mit Freuden ſtuͤrzen und dein Erſatz muß die<lb/>
+Freyheit ſelbſt ſeyn, aus der ſie flieſſen. Wohl darfſt<lb/>
+du dir das ruhige Naturgluͤck zum Ziel in der Ferne<lb/>
+auſſtecken, aber nur jenes, welches der Preiß deiner Wuͤr-<lb/>
+digkeit iſt. Alſo nichts von Klagen uͤber die Erſchwerung<lb/>
+des Lebens, uͤber die Ungleichheit der Konditionen, uͤber<lb/>
+den Druck der Verhaͤltniſſe, uͤber die Unſicherheit des<lb/>
+Beſitzes, uͤber Undank, Unterdruͤckung, Verfolgung;<lb/>
+allen <hi rendition="#g">Uebeln</hi> der Kultur mußt du mit freyer Reſigna-<lb/>
+tion dich unterwerfen, mußt ſie als die Naturbedingun-<lb/>
+gen des Einzig guten reſpektieren; nur das <hi rendition="#g">Boͤſe</hi> derſel-<lb/>
+ben mußt du, aber nicht bloß mit ſchlaffen Thraͤnen, be-<lb/>
+klagen. Sorge vielmehr dafuͤr; daß du ſelbſt unter jenen<lb/>
+Befleckungen rein, unter jener Knechtſchaft frey, unter<lb/>
+jenem launiſchen Wechſel beſtaͤndig, unter jener Anarchie<lb/>
+geſetzmaͤßig handelſt. Fuͤrchte dich nicht vor der Verwir-<lb/>
+rung auſſer dir, aber vor der Verwirrung in dir; ſtrebe<lb/>
+nach Einheit, aber ſuche ſie nicht in der Einfoͤrmigkeit;<lb/>
+ſtrebe nach Ruhe, aber durch das Gleichgewicht, nicht<lb/>
+durch den Stillſtand deiner Thaͤtigkeit. Jene Natur,<lb/>
+die du dem Vernunftloſen beneideſt, iſt keiner Achtung,<lb/>
+keiner Sehnſucht werth. Sie liegt hinter dir, ſie muß<lb/>
+ewig hinter dir liegen. Verlaſſen von der Leiter, die<lb/>
+dich trug, bleibt dir jetzt keine andere Wahl mehr, als<lb/>
+mit freyem Bewußtſeyn und Willen das Geſetz zu ergrei-<lb/>
+fen, oder rettungslos in eine bodenloſe Tiefe zu fallen.</p><lb/>
+<fw type="sig" place="bottom">Die Horen. 1795. 11tes St. 5</fw><lb/>
+<pb n="66" facs="#f0034"/>
+<p>Aber wenn du uͤber das verlorene <hi rendition="#g">Gluͤck</hi> der Natur<lb/>
+getroͤſtet biſt, ſo laß ihre <hi rendition="#g">Vollkommenheit</hi> deinem<lb/>
+Herzen zum Muſter dienen. Trittſt du heraus zu ihr<lb/>
+aus deinem kuͤnſtlichen Kreis, ſteht ſie vor dir in ihrer<lb/>
+großen Ruhe, in ihrer naiven Schoͤnheit, in ihrer kind-<lb/>
+lichen Unſchuld und Einfalt; dann verweile bey dieſem<lb/>
+Bilde, pflege dieſes Gefuͤhl, es iſt deiner herrlichſten<lb/>
+Menſchheit wuͤrdig. Laß dir nicht mehr einfallen, mit<lb/>
+ihr <hi rendition="#g">tauſchen</hi> zu wollen, aber nimm ſie in dich auf und<lb/>
+ſtrebe, ihren unendlichen Vorzug mit deinem eigenen<lb/>
+unendlichen Praͤrogativ zu vermaͤhlen, und aus beydem<lb/>
+das Goͤttliche zu erzeugen. Sie umgebe dich wie eine<lb/>
+liebliche <hi rendition="#g">Idylle,</hi> in der du dich ſelbſt immer wieder-<lb/>
+findeſt, aus den Verirrungen der Kunſt, bey der du Muth<lb/>
+und neues Vertrauen ſammelſt zum Laufe und die Flamme<lb/>
+des <hi rendition="#g">Ideals,</hi> die in den Stuͤrmen des Lebens ſo leicht<lb/>
+erliſcht, in deinem Herzen von neuem entzuͤndeſt.</p><lb/>
+<p>Wenn man ſich der ſchoͤnen Natur erinnert, welche<lb/>
+die alten <hi rendition="#g">Griechen</hi> umgab, wenn man nachdenkt, wie<lb/>
+vertraut dieſes Volk unter ſeinem gluͤcklichen Himmel mit<lb/>
+der freyen Natur leben konnte, wie ſehr viel naͤher ſeine<lb/>
+Vorſtellungsart, ſeine Empfindungsweiſe, ſeine Sitten<lb/>
+der einfaͤltigen Natur lagen, und welch ein treuer Ab-<lb/>
+druck derſelben ſeine Dichterwerke ſind, ſo muß die Be-<lb/>
+merkung befremden, daß man ſo wenige Spuren von dem<lb/>
+<hi rendition="#g">ſentimentaliſchen</hi> Intereſſe, mit welchem wir Neuere<lb/>
+an Naturſcenen und an Naturcharaktere hangen koͤnnen,<lb/>
+bey demſelben antrift. Der Grieche iſt zwar im hoͤchſten<lb/>
+Grade genau, treu, umſtaͤndlich in Beſchreibung derſel-<lb/>
+ben, aber doch gerade nicht mehr und mit keinem vor-<lb/>
+zuͤglicheren Herzensantheil, als er es auch in Beſchrei-<lb/>
+<pb n="67" facs="#f0035"/>
+bung eines Anzuges, eines Schildes, einer Ruͤſtung,<lb/>
+eines Hausgeraͤthes oder irgend eines mechaniſchen Pro-<lb/>
+duktes iſt. Er ſcheint, in ſeiner Liebe fuͤr das Objekt,<lb/>
+keinen Unterſchied zwiſchen demjenigen zu machen, was<lb/>
+durch ſich ſelbſt und dem was durch die Kunſt und durch<lb/>
+den menſchlichen Willen iſt. Die Natur ſcheint mehr<lb/>
+ſeinen Verſtand und ſeine Wißbegierde, als ſein mora-<lb/>
+liſches Gefuͤhl zu intereſſieren; er haͤngt nicht mit Innig-<lb/>
+keit, mit Empfindſamkeit, mit ſuͤſſer Wehmuth an derſel-<lb/>
+ben, wie wir Neuern. Ja, indem er ſie in ihren ein-<lb/>
+zelnen Erſcheinungen perſonifiziert und vergoͤttert, und<lb/>
+ihre Wirkungen als Handlungen freyer Weſen darſtellt,<lb/>
+hebt er die ruhige Nothwendigkeit in ihr auf, durch welche<lb/>
+ſie fuͤr uns gerade ſo anziehend iſt. Seine ungedultige<lb/>
+Phantaſie fuͤhrt ihn uͤber ſie hinweg zum Drama des<lb/>
+menſchlichen Lebens. Nur das Lebendige und Freye, nur<lb/>
+Charaktere, Handlungen, Schickſale, und Sitten befrie-<lb/>
+digen ihn, „und wenn <hi rendition="#g">wir</hi> in gewiſſen moraliſchen Stim-<lb/>
+„mungen des Gemuͤths wuͤnſchen koͤnnen, den Vorzug<lb/>
+„unſerer Willensfreyheit, der uns ſo vielem Streit mit<lb/>
+„uns ſelbſt, ſo vielen Unruhen und Verirrungen ausſetzt,<lb/>
+„gegen die wahlloſe aber ruhige Nothwendigkeit des Ver-<lb/>
+„nunftloſen hinzugeben, ſo iſt, gerade umgekehrt, die<lb/>
+„Phantaſie des Griechen geſchaͤftig, die menſchliche Natur<lb/>
+„ſchon in der unbeſeelten Welt anzufangen, und da,<lb/>
+„wo eine blinde Nothwendigkeit herrſcht, dem Willen<lb/>
+„Einfluß zu geben.”</p><lb/>
+<p>Woher wohl dieſer verſchiedene Geiſt? Wie kommt<lb/>
+es, daß wir, die in allem was Natur iſt, von den Alten<lb/>
+ſo unendlich weit uͤbertroffen werden, gerade hier der<lb/>
+Natur in einem hoͤheren Grade huldigen, mit Innigkeit<lb/>
+<pb n="68" facs="#f0036"/>
+an ihr hangen, und ſelbſt die lebloſe Welt mit der waͤrm-<lb/>
+ſten Empfindung umfaſſen koͤnnen? <hi rendition="#g">Daher</hi> kommt es,<lb/>
+weil die Natur bey uns aus der Menſchheit verſchwun-<lb/>
+den iſt, und wir ſie nur auſſerhalb dieſer, in der unbe-<lb/>
+ſeelten Welt, in ihrer Wahrheit wieder antreffen. Nicht<lb/>
+unſere groͤßere <hi rendition="#g">Naturmaͤßigkeit,</hi> ganz im Gegentheil<lb/>
+die <hi rendition="#g">Naturwidrigkeit</hi> unſrer Verhaͤltniſſe, Zuſtaͤnde<lb/>
+und Sitten treibt uns an, dem erwachenden Triebe nach<lb/>
+Wahrheit und Simplicitaͤt, der, wie die moraliſche An-<lb/>
+lage, aus welcher er flieſſet, unbeſtechlich und unaus-<lb/>
+tilgbar in allen menſchlichen Herzen liegt, in der phy-<lb/>
+ſiſchen Welt eine Befriedigung zu verſchaffen, die in der<lb/>
+moraliſchen nicht zu hoffen iſt. Deßwegen iſt das Gefuͤhl,<lb/>
+womit wir an der Natur hangen, dem Gefuͤhle ſo nahe<lb/>
+verwandt, womit wir das entflohene Alter der Kindheit<lb/>
+und der kindiſchen Unſchuld beklagen. Unſre Kindheit<lb/>
+iſt die einzige unverſtuͤmmelte Natur, die wir in der kul-<lb/>
+tivirten Menſchheit noch antreffen, daher es kein Wun-<lb/>
+der iſt, wenn uns jede Fußſtapfe der Natur auſſer uns<lb/>
+auf unſre Kindheit zuruͤckfuͤhrt.</p><lb/>
+<p>Sehr viel anders war es mit den alten Griechen. <note place="foot" n="*" xml:id="seg2pn_5_1" next="#seg2pn_5_2">Aber auch nur bey den Griechen; denn es gehoͤrte gerade<lb/>
+eine ſolche rege Bewegung und eine ſolche reiche Fuͤlle des<lb/>
+menſchlichen Lebens dazu, als den Griechen umgab, um Le-<lb/>
+ben auch in das Lebloſe zu legen, und das Bild der Menſch-<lb/>
+heit mit dieſem Eifer zu verfolgen. <hi rendition="#g">Oſſians</hi> Menſchen-<lb/>
+welt z. B. war duͤrftig und einfoͤrmig; das Lebloſe um ihn<lb/>
+her hingegen war groß, koloſſaliſch, maͤchtig, drang ſich alſo<lb/>
+auf, und behauptete ſelbſt uͤber den Menſchen ſeine Rechte.</note><lb/>
+<pb n="69" facs="#f0037"/>
+Bey dieſen artete die Kultur nicht ſo weit aus, daß die<lb/>
+Natur daruͤber verlaſſen wurde. Der ganze Bau ihres<lb/>
+geſellſchaftlichen Lebens war auf Empfindungen, nicht auf<lb/>
+einem Machwerk der Kunſt errichtet; ihre Goͤtterlehre<lb/>
+ſelbſt war die Eingebung eines naiven Gefuͤhls, die Ge-<lb/>
+burt einer froͤhlichen Einbildungskraft, nicht der gruͤbeln-<lb/>
+den Vernunft, wie der Kirchenglaube der neuern Natio-<lb/>
+nen; da alſo der Grieche die Natur in der Menſchheit<lb/>
+nicht verlohren hatte, ſo konnte er, auſſerhalb dieſer,<lb/>
+auch nicht von ihr uͤberraſcht werden, und kein ſo drin-<lb/>
+gendes Beduͤrfniß nach Gegenſtaͤnden haben, in denen er<lb/>
+ſie wieder fand. Einig mit ſich ſelbſt, und gluͤcklich im<lb/>
+Gefuͤhl ſeiner Menſchheit mußte er bey dieſer als ſeinem<lb/>
+Maximum ſtille ſtehen, und alles andre derſelben zu naͤhern<lb/>
+bemuͤht ſeyn; wenn <hi rendition="#g">wir,</hi> uneinig mit uns ſelbſt, und<lb/>
+ungluͤcklich in unſern Erfahrungen von Menſchheit, kein<lb/>
+dringenderes Intereſſe haben, als aus derſelben heraus-<lb/>
+zufliehen, und eine ſo mislungene Form aus unſern Au-<lb/>
+gen zu ruͤcken.</p><lb/>
+<p><note place="foot" n="*" xml:id="seg2pn_5_2" prev="#seg2pn_5_1">In den Geſaͤngen dieſes Dichters tritt daher die lebloſe<lb/>
+Natur (im Gegenſatz gegen den Menſchen) noch weit mehr,<lb/>
+als Gegenſtand der Empfindung hervor. Indeſſen klagt auch<lb/>
+ſchon Oſſian uͤber einen Verfall der Menſchheit, und ſo<lb/>
+klein auch bey ſeinem Volke der Kreis der Kultur und ihrer<lb/>
+Verderbniſſe war, ſo war die Erfahrung davon doch gerade<lb/>
+lebhaft und eindringlich genug, um den gefuͤhlvollen mora-<lb/>
+liſchen Saͤnger zu dem Lebloſen zuruͤckzuſcheuchen, und uͤber<lb/>
+ſeine Geſaͤnge jenen elegiſchen Ton auszugießen, der ſie fuͤr<lb/>
+uns ſo ruͤhrend und anziehend macht.</note></p><lb/>
+<pb n="70" facs="#f0038"/>
+<p>Das Gefuͤhl, von dem hier die Rede iſt, iſt alſo<lb/>
+nicht das, was die Alten hatten; es iſt vielmehr einerley<lb/>
+mit demjenigen, welches wir <hi rendition="#g">fuͤr die Alten haben.</hi><lb/>
+Sie empfanden natuͤrlich; wir empfinden das natuͤrliche.<lb/>
+Es war ohne Zweifel ein ganz anderes Gefuͤhl, was Ho-<lb/>
+mers Seele fuͤllte, als er ſeinen goͤttlichen Sauhirt den<lb/>
+Ulyſſes bewirthen ließ, als was die Seele des jungen<lb/>
+Werthers bewegte, da er nach einer laͤſtigen Geſellſchaft<lb/>
+dieſen Geſang las. Unſer Gefuͤhl fuͤr Natur gleicht der<lb/>
+Empfindung des Kranken fuͤr die Geſundheit.</p><lb/>
+<p>So wie nach und nach die Natur anfieng, aus dem<lb/>
+menſchlichen Leben als <hi rendition="#g">Erfahrung</hi> und als das (han-<lb/>
+delnde und empfindende) <hi rendition="#g">Subjekt</hi> zu verſchwinden, ſo<lb/>
+ſehen wir ſie in der Dichterwelt als <hi rendition="#g">Idee</hi> und als <hi rendition="#g">Ge-<lb/>
+genſtand</hi> aufgehen. Diejenige Nation, welche es zu-<lb/>
+gleich in der Unnatur und in der Reflexion daruͤber am<lb/>
+weiteſten gebracht hatte, mußte zuerſt von dem Phaͤnomen<lb/>
+des <hi rendition="#g">Naiven</hi> am ſtaͤrkſten geruͤhrt werden, und demſel-<lb/>
+ben einen Nahmen geben. Dieſe Nation waren, ſo viel<lb/>
+ich weiß die <hi rendition="#g">Franzoſen.</hi> Aber die Empfindung des<lb/>
+Naiven und das Intereſſe an demſelben iſt natuͤrlicher-<lb/>
+weiſe viel aͤlter, und datirt ſich ſchon von dem Anfang<lb/>
+der moraliſchen und aͤſthetiſchen Verderbniß. Dieſe Ver-<lb/>
+aͤnderung in der Empfindungsweiſe iſt zum Beyſpiel ſchon<lb/>
+aͤuſſerſt auffallend im <hi rendition="#g">Euripides,</hi> wenn man dieſen<lb/>
+mit ſeinen Vorgaͤngern beſonders dem Aeſchylus ver-<lb/>
+gleicht, und doch war jener Dichter der Guͤnſtling ſeiner<lb/>
+Zeit. Die nehmliche Revolution laͤßt ſich auch unter<lb/>
+den alten <hi rendition="#g">Hiſtorikern</hi> nachweiſen. <hi rendition="#g">Horatz,</hi> der Dich-<lb/>
+ter eines kultivirten und verdorbenen Weltalters preißt<lb/>
+die ruhige Gluͤckſeligkeit in ſeinem Tibur, und ihn koͤnnte<lb/>
+<pb n="71" facs="#f0039"/>
+man als den wahren Stifter dieſer ſentimentaliſchen Dich-<lb/>
+tungsart nennen, ſo wie er auch in derſelben ein noch<lb/>
+nicht uͤbertroffenes Muſter iſt. Auch im <hi rendition="#g">Properz,<lb/>
+Virgil</hi> u. a. findet man Spuren dieſer Empfindungs-<lb/>
+weiſe, weniger beym <hi rendition="#g">Ovid,</hi> dem es dazu an Fuͤlle des<lb/>
+Herzens fehlte, und der in ſeinem Exil zu Tomi die Gluͤck-<lb/>
+ſeligkeit ſchmerzlich vermißt, die Horaz in ſeinem Tibur<lb/>
+ſo gern entbehrte.</p><lb/>
+<p>Die Dichter ſind uͤberall, ſchon ihrem Begriffe nach,<lb/>
+die <hi rendition="#g">Bewahrer</hi> der Natur. Wo ſie dieſes nicht ganz<lb/>
+mehr ſeyn koͤnnen, und ſchon in ſich ſelbſt den zerſtoͤrenden<lb/>
+Einfluß willkuͤrlicher und kuͤnſtlicher Formen erfahren<lb/>
+oder doch mit denſelben zu kaͤmpfen gehabt haben, da<lb/>
+werden ſie als die <hi rendition="#g">Zeugen</hi> und als die <hi rendition="#g">Raͤcher</hi> der<lb/>
+Natur auftreten. Sie werden alſo entweder Natur<lb/>
+<hi rendition="#g">ſeyn,</hi> oder ſie werden die verlorene <hi rendition="#g">ſuchen.</hi> Daraus<lb/>
+entſpringen zwey ganz verſchiedene Dichtungsweiſen,<lb/>
+durch welche das ganze Gebiet der Poeſie erſchoͤpft und<lb/>
+ausgemeſſen wird. Alle Dichter, die es wirklich ſind,<lb/>
+werden, je nachdem die Zeit beſchaffen iſt, in der ſie bluͤ-<lb/>
+hen, oder zufaͤllige Umſtaͤnde auf ihre allgemeine Bildung<lb/>
+und auf ihre voruͤbergehende Gemuͤthsſtimmnng Einfluß<lb/>
+haben, entweder zu den <hi rendition="#g">naiven</hi> oder zu den <hi rendition="#g">ſenti-<lb/>
+mentaliſchen</hi> gehoͤren.</p><lb/>
+<p>Der Dichter einer naiven und geiſtreichen Jugend-<lb/>
+welt, ſo wie derjenige, der in den Zeitaltern kuͤnſtlicher<lb/>
+Kultur ihm am naͤchſten kommt, iſt kalt, gleichguͤltig,<lb/>
+verſchloſſen, ohne alle Vertraulichkeit. Streng und ſproͤde,<lb/>
+wie die jungfraͤuliche <hi rendition="#g">Diana</hi> in ihren Waͤldern, ent-<lb/>
+flieht er dem Herzen, das ihn ſucht, dem Verlangen, das<lb/>
+<pb n="72" facs="#f0040"/>
+ihn umfaſſen will. Nichts erwiedert er, nichts kann ihn<lb/>
+ſchmelzen, oder den ſtrengen Guͤrtel ſeiner Nuͤchternheit<lb/>
+loͤſen. Die trockene Wahrheit, womit er den Gegenſtand<lb/>
+behandelt, erſcheint nicht ſelten als Unempfindlichkeit.<lb/>
+Das Objekt beſitzt ihn gaͤnzlich, ſein Herz liegt nicht<lb/>
+wie ein ſchlechtes Metall gleich unter der Oberflaͤche, ſon-<lb/>
+dern will wie das Gold in der Tiefe geſucht ſeyn. Wie<lb/>
+die Gottheit hinter dem Weltgebaͤude, ſo ſteht er hinter<lb/>
+ſeinem Werk; Er iſt das Werk und das Werk iſt Er;<lb/>
+man muß des erſtern ſchon nicht werth oder nicht maͤchtig<lb/>
+oder ſchon ſatt ſeyn, um nach Ihm nur zu fragen.</p><lb/>
+<p>So zeigt ſich z. B. <hi rendition="#g">Homer</hi> unter den Alten und<lb/>
+<hi rendition="#g">Shakeſpeare</hi> unter den Neuern; zwey hoͤchſt ver-<lb/>
+ſchiedene, durch den unermeßlichen Abſtand der Zeitalter<lb/>
+getrennte Naturen, aber gerade in dieſem Charakterzuge<lb/>
+voͤllig eins. Als ich in einem ſehr fruͤhen Alter den letz-<lb/>
+tern Dichter zuerſt kennen lernte, empoͤrte mich ſeine<lb/>
+Kaͤlte, ſeine Unempfindlichkeit, die ihm erlaubte, im hoͤch-<lb/>
+ſten Pathos zu ſcherzen, die Herzzerſchneidenden Auftritte<lb/>
+im <hi rendition="#g">Hamlet,</hi> im Koͤnig <hi rendition="#g">Lear,</hi> im <hi rendition="#g">Makbeth</hi> u. ſ. f.<lb/>
+durch einen Narren zu ſtoͤren, die ihn bald da feſt hielt,<lb/>
+wo meine Empfindung forteilte, bald da kaltherzig fort-<lb/>
+riß, wo das Herz ſo gern ſtill geſtanden waͤre. Durch<lb/>
+die Bekanntſchaft mit neuern Poeten verleitet, in dem<lb/>
+Werke den Dichter zuerſt aufzuſuchen, <hi rendition="#g">ſeinem</hi> Herzen<lb/>
+zu begegnen, <hi rendition="#g">mit ihm</hi> gemeinſchaftlich uͤber ſeinen Ge-<lb/>
+genſtand zu reflektieren; kurz das Objekt in dem Subjekt<lb/>
+anzuſchauen, war es mir unertraͤglich, daß der Poet ſich<lb/>
+hier gar nirgends faſſen ließ und mir nirgends Rede ſtehen<lb/>
+wollte. Mehrere Jahre hatte er ſchon meine ganze Ver-<lb/>
+ehrung und war mein Studium, ehe ich ſein Individuum<lb/>
+<pb n="73" facs="#f0041"/>
+lieb gewinnen lernte. Ich war noch nicht faͤhig, die<lb/>
+Natur aus der erſten Hand zu verſtehen. Nur ihr durch<lb/>
+den Verſtand reflektiertes und durch die Regel zurecht<lb/>
+gelegtes Bild konnte ich ertragen, und dazu waren die<lb/>
+ſentimentaliſchen Dichter der Franzoſen und auch der<lb/>
+Deutſchen, von den Jahren 1750 bis etwa 1780, gerade<lb/>
+die rechten Subjekte. Uebrigens ſchaͤme ich mich dieſes<lb/>
+Kinderurtheils nicht, da die bejahrte Kritik ein aͤhnliches<lb/>
+faͤllte, und naiv genug war, es in die Welt hineinzuſchreiben.</p><lb/>
+<p>Daſſelbe iſt mir auch mit dem Homer begegnet, den<lb/>
+ich in einer noch ſpaͤtern Periode kennen lernte. Ich er-<lb/>
+innere mich jetzt der merkwuͤrdigen Stelle im <hi rendition="#aq">VI</hi> Buch<lb/>
+der Ilias, wo Glaukus und Diomed im Gefecht auf<lb/>
+einander ſtoſſen, und nachdem ſie ſich als Gaſtfreunde<lb/>
+erkannt, einander Geſchenke geben. Dieſem ruͤhrenden<lb/>
+Gemaͤhlde der Pietaͤt, mit der die Geſetze des <hi rendition="#g">Gaſt-<lb/>
+rechts</hi> ſelbſt im Kriege beobachtet wurden, kann eine<lb/>
+Schilderung des <hi rendition="#g">ritterlichen Edelmuths</hi> im Arioſt<lb/>
+an die Seite geſtellt werden, wo zwey Ritter und Neben-<lb/>
+buler, <hi rendition="#g">Ferrau</hi> und <hi rendition="#g">Rinald,</hi> dieſer ein Chriſt, jener<lb/>
+ein Saracene, nach einem heftigen Kampf und mit Wun-<lb/>
+den bedeckt, Friede machen, und um die fluͤchtige Ange-<lb/>
+lika einzuhohlen, das nehmliche Pferd beſteigen. Beyde<lb/>
+Beyſpiele, ſo verſchieden ſie uͤbrigens ſeyn moͤgen, kom-<lb/>
+men einander in der Wirkung auf unſer Herz beynahe<lb/>
+gleich, weil beyde den ſchoͤnen Sieg der Sitten uͤber<lb/>
+die Leidenſchaft mahlen, und uns durch Naivheit der<lb/>
+Geſinnungen ruͤhren. Aber wie ganz verſchieden nehmen<lb/>
+ſich die Dichter bey Beſchreibung dieſer aͤhnlichen Hand-<lb/>
+lung. Arioſt, der Buͤrger einer ſpaͤteren und von der<lb/>
+Einfalt der Sitten abgekommenen Welt kann bey der Er-<lb/>
+<pb n="74" facs="#f0042"/>
+zaͤhlung dieſes Vorfalls, ſeine eigene Verwunderung,<lb/>
+ſeine Ruͤhrung nicht verbergen. Das Gefuͤhl des Ab-<lb/>
+ſtandes jener Sitten von denjenigen, die Sein Zeitalter<lb/>
+charakteriſieren, uͤberwaͤltigt ihn. Er verlaͤßt auf einmal<lb/>
+das Gemaͤhlde des Gegenſtandes und erſcheint in eigener<lb/>
+Perſon: Man kennt die ſchoͤne Stanze und hat ſie immer<lb/>
+vorzuͤglich bewundert:</p><lb/>
+<lg type="poem"><l>O Edelmuth der alten Ritterſitten!</l><lb/>
+<l>Die Nebenbuler waren, die entzweyt</l><lb/>
+<l>Im Glauben waren, bittern Schmerz noch litten</l><lb/>
+<l>Am ganzen Leib von feindlich wilden Streit,</l><lb/>
+<l>Frey von Verdacht und in Gemeinſchaft ritten</l><lb/>
+<l>Sie durch des krummen Pfades Dunkelheit.</l><lb/>
+<l>Das Roß, getrieben von vier Sporen, eilte</l><lb/>
+<l>Biß wo der Weg ſich in zwey Straßen theilte. <note place="foot" n="*">Der raſende Roland. Erſter Geſang. Stanze 32.</note></l></lg><lb/>
+<p>Und nun der alte Homer! Kaum erfaͤhrt Diomed aus<lb/>
+Glaukus ſeines Gegners Erzaͤhlung, daß dieſer von Vaͤ-<lb/>
+terzeiten her ein Gaſtfreund ſeines Geſchlechts iſt, ſo ſteckt<lb/>
+er die Lanze in die Erde, redet freundlich mit ihm, und<lb/>
+macht mit ihm aus, daß ſie einander im Gefechte kuͤnftig<lb/>
+ausweichen wollen. Doch man hoͤre den Homer ſelbſt:</p><lb/>
+<lg type="poem"><l>„Alſo bin ich nunmehr dein Gaſtfreund mitten in Argos,</l><lb/>
+<l>Du in Lykia mir, wenn jenes Land ich beſuche.</l><lb/>
+<l>Drum mit unſeren Lanzen vermeiden wir uns im Ge-</l><lb/>
+<l>tuͤmmel.</l><lb/>
+<l>Viel ja ſind der Troer mir ſelbſt und der ruͤhmlichen</l><lb/>
+<l>Helfer,</l><lb/>
+<l>
+<pb n="75" facs="#f0043"/>
+</l> <l>Daß ich toͤdte, wen Gott mir gewaͤhrt, und die Schen-</l><lb/>
+<l>kel erreichen;</l><lb/>
+<l>Viel auch dir der Achaier, daß, welchen du kannſt, du</l><lb/>
+<l>erlegeſt.</l><lb/>
+<l>Aber die Ruͤſtungen beide vertauſchen wir, daß auch die</l><lb/>
+<l>andern</l><lb/>
+<l>Schaun, wie wir Gaͤſte zu ſeyn aus Vaͤterzeiten uns</l><lb/>
+<l>ruͤhmen.</l><lb/>
+<l>Alſo redeten jene, herab von den Wagen ſich ſchwingend</l><lb/>
+<l>Faßten ſie beide einander die Haͤnd und gelobten ſich</l><lb/>
+<l>Freundſchaft.”</l></lg><lb/>
+<p>Schwerlich duͤrfte ein <hi rendition="#g">moderner</hi> Dichter (wenigſtens<lb/>
+ſchwerlich einer, der es in der moraliſchen Bedeutung die-<lb/>
+ſes Worts iſt) auch nur biß hieher gewartet haben um ſei-<lb/>
+ne Freude an dieſer Handlung zu bezeugen. Wir wuͤrden<lb/>
+es ihm um ſo leichter verzeyhen, da auch unſer Herz beym<lb/>
+Leſen einen Stillſtand macht, und ſich von dem Objekte<lb/>
+gern entfernt, um in ſich ſelbſt zu ſchauen. Aber von al-<lb/>
+lem dieſem keine Spur im Homer; als ob er etwas all-<lb/>
+taͤgliches berichtet haͤtte, ja als ob er ſelbſt kein Herz in<lb/>
+dem Buſen truͤge, faͤhrt er in ſeiner trockenen Wahrhaf-<lb/>
+tigkeit fort:</p><lb/>
+<lg type="poem"><l>„Doch den Glaukus erregete Zevs, daß er ohne Beſin-</l><lb/>
+<l>nung</l><lb/>
+<l>Gegen den Held Diomedes die Ruͤſtungen, goldne mit</l><lb/>
+<l>ehrnen</l><lb/>
+<l>Wechſelte, hundert Farren werth, neun Farren die an-</l><lb/>
+<l>dern <note place="foot" n="*">Ilias. Voßiſche Ueberſetzung. <hi rendition="#aq">I</hi> Band. Seite 153.</note></l></lg><lb/>
+<pb n="76" facs="#f0044"/>
+<p>Dichter von dieſer naiven Gattung ſind in einem kuͤnft-<lb/>
+lichen Weltalter nicht ſo recht mehr an ihrer Stelle. Auch<lb/>
+ſind ſie in demſelben kaum mehr moͤglich, wenigſtens auf<lb/>
+keine andere Weiſe moͤglich als daß ſie in ihrem Zeitalter<lb/>
+<hi rendition="#g">wild laufen,</hi> und durch ein guͤnſtiges Geſchick vor dem<lb/>
+verſtuͤmmelnden Einfluß deſſelben geborgen werden. Aus<lb/>
+der Societaͤt ſelbſt koͤnnen ſie nie und nimmer hervorgehen;<lb/>
+aber auſſerhalb derſelben erſcheinen ſie noch zuweilen,<lb/>
+doch mehr als Fremdlinge die man anſtaunt, und als<lb/>
+ungezogene Soͤhne der Natur, an denen man ſich aͤrgert.<lb/>
+So wohlthaͤtige Erſcheinungen ſie fuͤr den Kuͤnſtler ſind,<lb/>
+der ſie ſtudiert, und fuͤr den aͤchten Kenner, der ſie zu wuͤr-<lb/>
+digen verſteht, ſo wenig Gluͤck machen ſie im Ganzen und<lb/>
+bey ihrem Jahrhundert. Das Siegel des Herrſchers ruht<lb/>
+auf ihrer Stirne; wir hingegen wollen von den Muſen<lb/>
+gewiegt und getragen werden. Von den Kritikern, den<lb/>
+eigentlichen Zaunhuͤtern des Geſchmacks, werden ſie als<lb/>
+<hi rendition="#g">Grenzſtoͤrer</hi> gehaßt, die man lieber unterdruͤcken moͤch-<lb/>
+te; denn ſelbſt Homer duͤrfte es bloß der Kraft eines mehr<lb/>
+als tauſendjaͤhrigen Zeugniſſes zu verdanken haben, daß<lb/>
+ihn dieſe Geſchmacksrichter gelten laſſen; auch wird es<lb/>
+ihnen ſauer genug, ihre Regeln gegen ſein Beyſpiel, und<lb/>
+ſein Anſehen gegen ihre Regeln zu behaupten.</p><lb/>
+<trailer>Im naͤchſten Stuͤck einige Worte uͤber die ſentimen-<lb/>
+taliſchen Dichter.</trailer></div><lb/>
+<pb facs="#f0045"/>
+<pb facs="#f0046"/>
+<pb facs="#f0047"/>
+</body></text> </TEI>

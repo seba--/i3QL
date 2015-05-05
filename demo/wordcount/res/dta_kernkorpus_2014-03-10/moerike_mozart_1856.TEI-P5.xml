@@ -1,0 +1,3071 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Mozart auf der Reise nach Prag</title>
+<title type="sub">Novelle</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118583107">
+<surname>Mörike</surname>
+<forename>Eduard</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">131</measure>
+<measure type="tokens">20043</measure>
+<measure type="types">6190</measure>
+<measure type="characters">138021</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:07Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/moerike_mozart_1856</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/moerike_mozart_1856</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/moerike_mozart_1856</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/moerike_mozart_1856</idno>
+<idno type="DTADirName">moerike_mozart_1856</idno>
+<idno type="DTAID">17175</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905193977</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Mörike, Eduard: Mozart auf der Reise nach Prag. Stuttgart u. a., 1856.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Mozart auf der Reise nach Prag</title>
+<title level="m" type="sub">Novelle</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118583107">
+<surname>Mörike</surname>
+<forename>Eduard</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">114 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Cotta</name></publisher>
+<pubPlace>Stuttgart</pubPlace>
+<pubPlace>Augsburg</pubPlace>
+<date type="publication">1856</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, 19 ZZ 6772</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=551383305</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Novelle</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="halftitle"> <docTitle> <titlePart type="main"> <hi rendition="#b">Mozart</hi><lb/>
+auf der<lb/>
+<hi rendition="#b #g">Reiſe nach Prag.</hi><lb/>
+</titlePart> <titlePart type="sub"> <hi rendition="#g">Novelle</hi><lb/>
+</titlePart> </docTitle> <byline>von<lb/>
+<docAuthor> <hi rendition="#b">Eduard Mörike.</hi><lb/>
+</docAuthor> </byline> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b">Stuttgart und Augsburg.</hi><lb/>
+</pubPlace> <publisher> <hi rendition="#g">J. G. Cotta'ſcher Verlag</hi>.<lb/>
+</publisher> <docDate> <hi rendition="#b">1856.</hi><lb/>
+</docDate> </docImprint> </titlePage>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<lb/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b #g">Mozart</hi><lb/>
+auf der<lb/>
+<hi rendition="#b #g">Reiſe nach Prag.</hi><lb/>
+</titlePart> <titlePart type="sub"> <hi rendition="#g">Novelle</hi><lb/>
+</titlePart> </docTitle> <byline>von<lb/>
+<docAuthor> <hi rendition="#b">Eduard Mörike.</hi><lb/>
+</docAuthor> </byline> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b">Stuttgart und Augsburg.</hi><lb/>
+</pubPlace> <publisher> <hi rendition="#g">J. G. Cotta' ſcher Verlag</hi>.<lb/>
+</publisher> <docDate> <hi rendition="#b">1856.</hi><lb/>
+</docDate> </docImprint> </titlePage>
+<pb facs="#f0010"/>
+<div type="imprint"> <p rendition="#c">Buchdruckerei der J. G. Cotta'ſchen Buchhandlung<lb/>
+in Stuttgart und Augsburg.</p><lb/>
+</div>
+<pb facs="#f0011"/>
+<div type="dedication"> <p rendition="#c"> <hi rendition="#b">Seinen Freunden,</hi><lb/>
+<hi rendition="#g">den beiden Componiſten</hi><lb/>
+<hi rendition="#b">Louis Hetſch,</hi><lb/>
+Muſikdirector in Mannheim,<lb/>
+und<lb/>
+<hi rendition="#b">Friedrich Ernſt Kauffmann,</hi><lb/>
+Profeſſor in Stuttgart,<lb/>
+zugeeignet</p><lb/>
+<p rendition="#right"> <hi rendition="#b">vom Verfaſſer.</hi></p><lb/>
+</div> </front> <body>
+<pb facs="#f0012"/>
+<pb n="[1]" facs="#f0013"/>
+<p>Im Herbſt des Jahrs 1787 unternahm Mozart<lb/>
+in Begleitung ſeiner Frau eine Reiſe nach Prag, um<lb/>
+Don Juan daſelbſt zur Aufführung zu bringen.</p><lb/>
+<p>Am dritten Reiſetag, den vierzehnten September,<lb/>
+gegen eilf Uhr Morgens, fuhr das wohlgelaunte<lb/>
+Ehepaar noch nicht viel über dreißig Stunden Wegs<lb/>
+von Wien entfernt, in nordweſtlicher Richtung, jen¬<lb/>
+ſeits vom Mannhardsberg und der deutſchen Thaya,<lb/>
+bei Schrems, wo man das ſchöne Mähriſche Gebirg<lb/>
+bald vollends überſtiegen hat.</p><lb/>
+<p>„Das mit drei Poſtpferden beſpannte Fuhrwerk,“<lb/>
+ſchreibt die Baroneſſe von T. an ihre Freundin, „eine<lb/>
+ſtattliche, gelbrothe Kutſche, war Eigenthum einer ge¬<lb/>
+wiſſen alten Frau Generalin Volkſtett, die ſich auf<lb/>
+ihren Umgang mit dem Mozartiſchen Hauſe und ihre<lb/>
+ihm erwieſenen Gefälligkeiten von jeher ſcheint etwas<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Mörike</hi>, Mozart. 1<lb/>
+</fw>
+<pb n="2" facs="#f0014"/>
+zu gut gethan zu haben.“ — Die ungenaue Beſchrei¬<lb/>
+bung des fraglichen Gefährts wird ſich ein Kenner des<lb/>
+Geſchmacks der achtziger Jahre noch etwa durch einige<lb/>
+Züge ergänzen. Der gelbrothe Wagen iſt hüben und<lb/>
+drüben am Schlage mit Blumenboukets, in ihren<lb/>
+natürlichen Farben gemalt, die Ränder mit ſchmalen<lb/>
+Goldleiſten verziert, der Anſtrich aber noch keines¬<lb/>
+wegs von jenem ſpiegelglatten Lack der heutigen Wiener<lb/>
+Werkſtätten glänzend, der Kaſten auch nicht völlig<lb/>
+ausgebaucht, obwohl nach unten zu kokett mit einer<lb/>
+kühnen Schweifung eingezogen; dazu kommt ein hohes<lb/>
+Gedeck mit ſtarrenden Ledervorhängen, die gegenwärtig<lb/>
+zurückgeſtreift ſind.</p><lb/>
+<p>Von dem Coſtüm der beiden Paſſagiere ſey über¬<lb/>
+dieß ſo viel bemerkt. Mit Schonung für die neuen,<lb/>
+im Koffer eingepackten Staatsgewänder war der An¬<lb/>
+zug des Gemahls beſcheidentlich von Frau Conſtanzen<lb/>
+ausgewählt; zu der geſtickten Weſte von etwas ver¬<lb/>
+ſchoſſenem Blau ſein gewohnter brauner Ueberrock mit<lb/>
+einer Reihe großer und dergeſtalt fa<hi rendition="#aq">ç</hi>onnirter Knöpfe,<lb/>
+daß eine Lage röthliches Rauſchgold durch ihr ſternar¬<lb/>
+tiges Gewebe ſchimmerte, ſchwarzſeidene Beinkleider,<lb/>
+Strümpfe, und auf den Schuhen vergoldete Schnallen.<lb/>
+Seit einer halben Stunde hat er wegen der für dieſen<lb/>
+<pb n="3" facs="#f0015"/>
+Monat außerordentlichen Hitze ſich des Rocks entledigt<lb/>
+und ſitzt vergnüglich plaudernd, baarhaupt, in Hemd¬<lb/>
+ärmeln da. Madame Mozart trägt ein bequemes<lb/>
+Reiſehabit, hellgrün und weiß geſtreift; halb aufge¬<lb/>
+bunden fällt der Ueberfluß ihrer ſchönen, lichtbraunen<lb/>
+Locken auf Schulter und Nacken herunter; ſie waren<lb/>
+Zeit ihres Lebens noch niemals von Puder entſtellt,<lb/>
+während der ſtarke, in einen Zopf gefaßte Haarwuchs<lb/>
+ihres Gemahls für heute nur nachläſſiger als gewöhn¬<lb/>
+lich damit verſehen iſt.</p><lb/>
+<p>Man war eine ſanft anſteigende Höhe zwiſchen<lb/>
+fruchtbaren Feldern, welche hie und da die ausge¬<lb/>
+dehnte Waldung unterbrachen, gemachſam hinauf und<lb/>
+jetzt am Waldſaum angekommen.</p><lb/>
+<p>„Durch wie viel Wälder,“ ſagte Mozart, „ſind<lb/>
+wir nicht heute, geſtern und ehegeſtern ſchon paſſirt!<lb/>
+— Ich dachte nichts dabei, geſchweige daß mir ein¬<lb/>
+gefallen wäre, den Fuß hinein zu ſetzen. Wir ſteigen<lb/>
+einmal aus da, Herzenskind, und holen von den<lb/>
+blauen Glocken, die dort ſo hübſch im Schatten<lb/>
+ſtehen. Deine Thiere, Schwager, mögen ein bischen<lb/>
+verſchnaufen.“</p><lb/>
+<p>Indem ſie ſich beide erhoben, kam ein kleines<lb/>
+Unheil an den Tag, welches dem Meiſter einen Zank<lb/>
+<pb n="4" facs="#f0016"/>
+zuzog. Durch ſeine Achtloſigkeit war ein Flacon mit<lb/>
+koſtbarem Riechwaſſer aufgegangen und hatte ſeinen<lb/>
+Inhalt unvermerkt in die Kleider und Polſter ergoſſen.<lb/>
+„Ich hätt' es denken können,“ klagte ſie, „es duftete<lb/>
+ſchon lang ſo ſtark! O weh, ein volles Fläſchchen ächte<lb/>
+Roſ<hi rendition="#aq">é</hi>e d'Aurore rein ausgeleert! Ich ſparte ſie wie<lb/>
+Gold.“ — „Ei, Närrchen,“ gab er ihr zum Troſt<lb/>
+zurück, „begreife doch, auf ſolche Weiſe ganz allein<lb/>
+war uns dein Götter-Riechſchnaps etwas nütze. Erſt<lb/>
+ſaß man in einem Backofen und all dein Gefächel<lb/>
+half nichts, bald aber ſchien der ganze Wagen gleich¬<lb/>
+ſam ausgekühlt; du ſchriebſt es den paar Tropfen zu,<lb/>
+die ich mir auf den Jabot goß; wir waren neu be¬<lb/>
+lebt und das Geſpräch floß munter fort, ſtatt daß<lb/>
+wir ſonſt die Köpfe hätten hängen laſſen wie die<lb/>
+Hämmel auf des Fleiſchers Karren; und dieſe Wohl¬<lb/>
+that wird uns auf dem ganzen Weg begleiten. Jetzt<lb/>
+aber laß uns doch einmal zwei Wieneriſche Noſ'n<lb/>
+recht expreß hier in die grüne Wildniß ſtecken!“</p><lb/>
+<p>Sie ſtiegen Arm in Arm über den Graben an<lb/>
+der Straße und ſofort tiefer in die Tannendunkelheit<lb/>
+hinein, die, ſehr bald bis zur Finſterniß verdichtet,<lb/>
+nur hin und wieder von einem Streifen Sonne auf<lb/>
+ſammetnem Moosboden grell durchbrochen ward. Die<lb/>
+<pb n="5" facs="#f0017"/>
+erquickliche Friſche, im plötzlichen Wechſel gegen die<lb/>
+außerhalb herrſchende Gluth, hätte dem ſorgloſen<lb/>
+Mann ohne die Vorſicht der Begleiterin gefährlich<lb/>
+werden können. Mit Mühe drang ſie ihm das in<lb/>
+Bereitſchaft gehaltene Kleidungsſtück auf. — „Gott,<lb/>
+welche Herrlichkeit!“ rief er, an den hohen Stämmen<lb/>
+hinaufblickend, aus: „man iſt als wie in einer Kirche!<lb/>
+Mir däucht, ich war niemals in einem Wald, und<lb/>
+beſinne mich jetzt erſt, was es doch heißt, ein ganzes<lb/>
+Volk von Bäumen bei einander! Keine Menſchenhand<lb/>
+hat ſie gepflanzt, ſind alle ſelbſt gekommen, und ſtehen<lb/>
+ſo, nur eben weil es luſtig iſt beiſammen wohnen<lb/>
+und wirthſchaften. Siehſt du, mit jungen Jahren<lb/>
+fuhr ich doch in halb Europa hin und her, habe die<lb/>
+Alpen geſehn und das Meer, das Größeſte und<lb/>
+Schönſte, was erſchaffen iſt: jetzt ſteht von ungefähr<lb/>
+der Gimpel in einem ordinären Tannenwald an der<lb/>
+böhmiſchen Grenze, verwundert und verzückt, daß ſol¬<lb/>
+ches Weſen irgend exiſtirt, nicht etwa nur ſo <hi rendition="#aq">una<lb/>
+finzione di poeti</hi> iſt, wie ihre Nymphen, Faune<lb/>
+und dergleichen mehr, auch kein Comödienwald, nein<lb/>
+aus dem Erdboden heraus gewachſen, von Feuchtig¬<lb/>
+keit und Wärmelicht der Sonne groß gezogen! Hier<lb/>
+iſt zu Haus der Hirſch, mit ſeinem wunderſamen<lb/>
+<pb n="6" facs="#f0018"/>
+zackigen Geſtäude auf der Stirn, das poſſierliche Eich¬<lb/>
+horn, der Auerhahn, der Häher.“ — Er bückte ſich,<lb/>
+brach einen Pilz und pries die prächtige hochrothe<lb/>
+Farbe des Schirms, die zarten weißlichen Lamellen<lb/>
+an deſſen unterer Seite, auch ſteckte er verſchiedene<lb/>
+Tannenzapfen ein.</p><lb/>
+<p>„Man könnte denken,“ ſagte die Frau, „du habeſt<lb/>
+noch nicht zwanzig Schritte hinein in den Prater<lb/>
+geſehen, der ſolche Raritäten doch auch wohl aufzu¬<lb/>
+weiſen hat.“</p><lb/>
+<p>„Was Prater! Sapperlot, wie du nur das Wort<lb/>
+hier nennen magſt! Vor lauter Caroſſen, Staatsde¬<lb/>
+gen, Roben und Fächern, Muſik und allem Spektakel<lb/>
+der Welt, wer ſieht denn da noch ſonſt etwas? Und<lb/>
+ſelbſt die Bäume dort, ſo breit ſie ſich auch machen,<lb/>
+ich weiß nicht — Bucheckern und Eicheln, am Boden<lb/>
+verſtreut, ſehn halter aus als wie Geſchwiſterkind mit<lb/>
+der Unzahl verbrauchter Korkſtöpſel darunter. Zwei<lb/>
+Stunden weit riecht das Gehölz nach Kellnern und<lb/>
+nach Saucen.“</p><lb/>
+<p>„O unerhört!“ rief ſie, „ſo redet nun der Mann,<lb/>
+dem gar nichts über das Vergnügen geht, Backhähnl<lb/>
+im Prater zu ſpeiſen!“</p><lb/>
+<p>Als beide wieder in dem Wagen ſaßen, und ſich<lb/>
+<pb n="7" facs="#f0019"/>
+die Straße jetzt nach einer kurzen Strecke ebenen<lb/>
+Wegs allmählig abwärts ſenkte, wo eine lachende<lb/>
+Gegend ſich bis an die entfernteren Berge verlor,<lb/>
+fing unſer Meiſter, nachdem er eine Zeitlang ſtill<lb/>
+geweſen, wieder an: „Die Erde iſt wahrhaftig ſchön,<lb/>
+und keinem zu verdenken, wenn er ſo lang wie mög¬<lb/>
+lich darauf bleiben will. Gott ſey's gedankt, ich<lb/>
+fühle mich ſo friſch und wohl wie je, und wäre bald<lb/>
+zu tauſend Dingen aufgelegt, die denn auch alle nach<lb/>
+einander an die Reihe kommen ſollen, wie nur mein<lb/>
+neues Werk vollendet und aufgeführt ſeyn wird. Wie<lb/>
+viel iſt draußen in der Welt, und wie viel daheim,<lb/>
+Merkwürdiges und Schönes, das ich noch gar nicht<lb/>
+kenne, an Wunderwerken der Natur, an Wiſſen¬<lb/>
+ſchaften, Künſten und nützlichen Gewerben! Der<lb/>
+ſchwarze Köhlerbube dort bei ſeinem Meiler weiß dir<lb/>
+von manchen Sachen auf ein Haar ſo viel Beſcheid<lb/>
+wie ich, da doch ein Sinn und ein Verlangen in<lb/>
+mir wäre, auch einen Blick in Dieß und Jen's<lb/>
+zu thun, das eben nicht zu meinem nächſten Kram<lb/>
+gehört.“</p><lb/>
+<p>„Mir kam,“ verſetzte ſie, „in dieſen Tagen dein<lb/>
+alter Sackkalender in die Hände von Anno fünfund¬<lb/>
+achtzig; da haſt du hinten angemerkt drei bis vier<lb/>
+<pb n="8" facs="#f0020"/>
+Notabene. Zum Erſten ſteht: Mitte Oktober gießet<lb/>
+man die großen Löwen in kaiſerlicher Erzgießerei;<lb/>
+für's Zweite, doppelt angeſtrichen: Profeſſor Gattner<lb/>
+zu beſuchen. Wer iſt der?“</p><lb/>
+<p>„O recht, ich weiß — auf dem Obſervatorio der<lb/>
+gute alte Herr, der mich von Zeit zu Zeit dahin ein¬<lb/>
+lädt. Ich wollte längſt einmal den Mond und 's<lb/>
+Mandl drin mit dir betrachten. Sie haben jetzt ein<lb/>
+mächtig großes Fernrohr oben; da ſoll man auf der<lb/>
+ungeheuern Scheibe, hell und deutlich bis zum Greifen,<lb/>
+Gebirge, Thäler, Klüfte ſehen, und von der Seite,<lb/>
+wo die Sonne nicht hinfällt, den Schatten, den die<lb/>
+Berge werfen. Schon ſeit zwei Jahren ſchlag' ich's<lb/>
+an, den Gang zu thun, und komme nicht dazu, elen¬<lb/>
+der und ſchändlicher Weiſe!“</p><lb/>
+<p>„Nun,“ ſagte ſie, „der Mond entläuft uns nicht.<lb/>
+Wir holen manches nach.“</p><lb/>
+<p>Nach einer Pauſe fuhr er fort: „Und geht es<lb/>
+nicht mit allem ſo? O pfui, ich darf nicht daran<lb/>
+denken, was man verpaßt, verſchiebt und hängen<lb/>
+läßt! — von Pflichten gegen Gott und Menſchen<lb/>
+nicht zu reden — ich ſage von purem Genuß, von<lb/>
+den kleinen unſchuldigen Freuden, die einem jeden<lb/>
+täglich vor den Füßen liegen.“</p><lb/>
+<pb n="9" facs="#f0021"/>
+<p>Madame Mozart konnte oder wollte von der Rich¬<lb/>
+tung, die ſein leicht bewegliches Gefühl hier mehr und<lb/>
+mehr nahm, auf keine Weiſe ablenken, und leider<lb/>
+konnte ſie ihm nur von ganzem Herzen Recht geben,<lb/>
+indem er mit ſteigendem Eifer fortfuhr: „Ward ich<lb/>
+denn je nur meiner Kinder ein volles Stündchen<lb/>
+froh? Wie halb iſt das bei mir, und immer en<lb/>
+paſſant! Die Buben einmal rittlings auf das Knie<lb/>
+geſetzt, mich zwei Minuten mit ihnen durch's Zimmer<lb/>
+gejagt, und damit baſta, wieder abgeſchüttelt! Es<lb/>
+denkt mir nicht, daß wir uns auf dem Lande zu¬<lb/>
+ſammen einen ſchönen Tag gemacht hätten, an Oſtern<lb/>
+oder Pfingſten, in einem Garten oder Wäldel, auf<lb/>
+der Wieſe, wir unter uns allein, bei Kinderſcherz<lb/>
+und Blumenſpiel, um ſelber einmal wieder Kind zu<lb/>
+werden. Allmittelſt geht und rennt und ſauſt das<lb/>
+Leben hin — Herr Gott! bedenkt man's recht, es<lb/>
+möcht' einem der Angſtſchweiß ausbrechen!“</p><lb/>
+<p>Mit der ſo eben ausgeſprochenen Selbſtanklage<lb/>
+war unerwartet ein ſehr ernſthaftes Geſpräch in aller<lb/>
+Traulichkeit und Güte zwiſchen beiden eröffnet. Wir<lb/>
+theilen daſſelbe nicht ausführlich mit, und werfen<lb/>
+lieber einen allgemeinen Blick auf die Verhältniſſe,<lb/>
+die theils ausdrücklich und unmittelbar den Stoff,<lb/>
+<pb n="10" facs="#f0022"/>
+theils auch nur den bewußten Hintergrund der Unter¬<lb/>
+redung ausmachten.</p><lb/>
+<p>Hier drängt ſich uns voraus die ſchmerzliche Be¬<lb/>
+trachtung auf, daß dieſer feurige, für jeden Reiz der<lb/>
+Welt und für das Höchſte, was dem ahnenden Ge¬<lb/>
+müth erreichbar iſt, unglaublich empfängliche Menſch,<lb/>
+ſo viel er auch in ſeiner kurzen Spanne Zeit erlebt,<lb/>
+genoſſen und aus ſich hervorgebracht, ein ſtetiges und<lb/>
+rein befriedigtes Gefühl ſeiner ſelbſt doch lebenslang<lb/>
+entbehrte.</p><lb/>
+<p>Wer die Urſachen dieſer Erſcheinung nicht etwa<lb/>
+tiefer ſuchen will, als ſie vermuthlich liegen, wird ſie<lb/>
+zunächſt einfach in jenen, wie es ſcheint, unüberwind¬<lb/>
+lich eingewohnten Schwächen finden, die wir ſo gern,<lb/>
+und nicht ganz ohne Grund, mit alle dem, was an<lb/>
+Mozart der Gegenſtand unſrer Bewunderung iſt, in<lb/>
+eine Art nothwendiger Verbindung bringen.</p><lb/>
+<p>Des Mannes Bedürfniſſe waren ſehr vielfach,<lb/>
+ſeine Neigung zumal für geſellige Freuden außeror¬<lb/>
+dentlich groß. Von den vornehmſten Häuſern der<lb/>
+Stadt als unvergleichliches Talent gewürdigt und ge¬<lb/>
+ſucht, verſchmähte er Einladungen zu Feſten, Cirkeln<lb/>
+und Parthien ſelten oder nie. Dabei that er der<lb/>
+eigenen Gaſtfreundſchaft innerhalb ſeiner näheren<lb/>
+<pb n="11" facs="#f0023"/>
+Kreiſe gleichfalls genug. Einen längſt hergebrachten<lb/>
+muſikaliſchen Abend am Sonntag bei ihm, ein un¬<lb/>
+gezwungenes Mittagsmahl an ſeinem wohlbeſtellten<lb/>
+Tiſch mit ein paar Freunden und Bekannten, zwei-,<lb/>
+dreimal in der Woche, das wollte er nicht miſſen.<lb/>
+Bisweilen brachte er die Gäſte, zum Schrecken der<lb/>
+Frau, unangekündigt von der Straße weg in's Haus,<lb/>
+Leute von ſehr ungleichem Werth, Liebhaber, Kunſt¬<lb/>
+genoſſen, Sänger und Poeten. Der müßige Schma¬<lb/>
+rotzer, deſſen ganzes Verdienſt in einer immer auf¬<lb/>
+geweckten Laune, in Witz und Spaß, und zwar vom<lb/>
+gröbern Korn beſtand, kam ſo gut wie der geiſtvolle<lb/>
+Kenner und der treffliche Spieler erwünſcht. Den<lb/>
+größten Theil ſeiner Erholung indeß pflegte Mozart<lb/>
+außer dem eigenen Hauſe zu ſuchen. Man konnte<lb/>
+ihn nach Tiſch einen Tag wie den andern am<lb/>
+Billard im Kaffeehaus, und ſo auch manchen Abend<lb/>
+im Gaſthof finden. Er fuhr und ritt ſehr gerne in<lb/>
+Geſellſchaft über Land, beſuchte als ein ausgemachter<lb/>
+Tänzer Bälle und Redouten und machte ſich des Jahrs<lb/>
+einigemale einen Hauptſpaß an Volksfeſten, vor allen<lb/>
+am Brigitten-Kirchtag im Freien, wo er als Pierrot<lb/>
+maskirt erſchien.</p><lb/>
+<p>Dieſe Vergnügungen, bald bunt und ausgelaſſen,<lb/>
+<pb n="12" facs="#f0024"/>
+bald einer ruhigeren Stimmung zuſagend, waren be¬<lb/>
+ſtimmt, dem lang geſpannten Geiſt nach ungeheurem<lb/>
+Kraftaufwand die nöthige Raſt zu gewähren; auch<lb/>
+verfehlten ſie nicht, demſelben nebenher auf den ge¬<lb/>
+heimnißvollen Wegen, auf welchen das Genie ſein<lb/>
+Spiel bewußtlos treibt, die feinen flüchtigen Eindrücke<lb/>
+mitzutheilen, wodurch es ſich gelegentlich befruchtet.<lb/>
+Doch leider kam in ſolchen Stunden, weil es dann<lb/>
+immer galt, den glücklichen Moment bis auf die Neige<lb/>
+auszuſchöpfen, eine andere Rückſicht, es ſey nun der<lb/>
+Klugheit oder der Pflicht, der Selbſterhaltung wie<lb/>
+der Häuslichkeit, nicht in Betracht. Genießend oder<lb/>
+ſchaffend kannte Mozart gleich wenig Maß und Ziel.<lb/>
+Ein Theil der Nacht war ſtets der Compoſition ge¬<lb/>
+widmet. Morgens früh, oft lange noch im Bett,<lb/>
+ward ausgearbeitet. Dann machte er, von zehn<lb/>
+Uhr an, zu Fuß oder im Wagen abgeholt, die<lb/>
+Runde ſeiner Lectionen, die in der Regel noch einige<lb/>
+Nachmittagsſtunden wegnahmen. „Wir plagen uns<lb/>
+wohl auch rechtſchaffen,“ ſo ſchreibt er ſelber einmal<lb/>
+einem Gönner, „und es hält öfter ſchwer, nicht<lb/>
+die Geduld zu verlieren. Da halst man ſich als<lb/>
+wohl accreditirter Cembaliſt und Muſiklehrmeiſter ein<lb/>
+Dutzend Schüler auf, und immer wieder einen neuen,<lb/>
+<pb n="13" facs="#f0025"/>
+unangeſehn, was weiter an ihm iſt, wenn er nur<lb/>
+ſeinen Thaler <hi rendition="#aq">per marca</hi> bezahlt. Ein jeder ungriſche<lb/>
+Schnurrbart vom Geniecorps iſt willkommen, den der<lb/>
+Satan plagt, für nichts und wieder nichts General¬<lb/>
+baß und Contrapunct zu ſtudiren; das übermüthigſte<lb/>
+Comteßchen, das mich wie Meiſter Coquerel, den<lb/>
+Haarkräusler, mit einem rothen Kopf empfängt, wenn<lb/>
+ich einmal nicht auf den Glockenſchlag bei ihr an¬<lb/>
+klopfe u. ſ. w.“ Und wenn er nun durch dieſe und<lb/>
+andere Berufsarbeiten, Accademien, Proben und der¬<lb/>
+gleichen abgemüdet, nach friſchem Athem ſchmachtete,<lb/>
+war den erſchlafften Nerven häufig nur in neuer<lb/>
+Aufregung eine ſcheinbare Stärkung vergönnt. Seine<lb/>
+Geſundheit wurde heimlich angegriffen, ein je und je<lb/>
+wiederkehrender Zuſtand von Schwermuth wurde, wo<lb/>
+nicht erzeugt, doch ſicherlich genährt an eben dieſem<lb/>
+Punkt, und ſo die Ahnung eines frühzeitigen Todes,<lb/>
+die ihn zuletzt auf Schritt und Tritt begleitete, un¬<lb/>
+vermeidlich erfüllt. Gram aller Art und Farbe, das<lb/>
+Gefühl der Neue nicht ausgenommen, war er als<lb/>
+eine herbe Würze jeder Luſt auf ſeinen Theil ge¬<lb/>
+wöhnt. Doch wiſſen wir, auch dieſe Schmerzen<lb/>
+rannen abgeklärt und rein in jenem tiefen Quell zu¬<lb/>
+ſammen, der aus hundert goldenen Röhren ſpringend,<lb/>
+<pb n="14" facs="#f0026"/>
+im Wechſel ſeiner Melodien unerſchöpflich, alle Qual<lb/>
+und alle Seligkeit der Menſchenbruſt ausſtrömte.</p><lb/>
+<p>Am offenbarſten zeigten ſich die böſen Wirkungen<lb/>
+der Lebensweiſe Mozarts in ſeiner häuslichen Ver¬<lb/>
+faſſung. Der Vorwurf thörichter, leichtſinniger Ver¬<lb/>
+ſchwendung lag ſehr nahe; er mußte ſich ſogar an<lb/>
+einen ſeiner ſchönſten Herzenszüge hängen. Kam<lb/>
+Einer, in dringender Noth ihm eine Summe abzu¬<lb/>
+borgen, ſich ſeine Bürgſchaft zu erbitten, ſo war meiſt<lb/>
+ſchon darauf gerechnet, daß er ſich nicht erſt lang<lb/>
+nach Pfand und Sicherheit erkundigte; dergleichen hätte<lb/>
+ihm auch in der That ſo wenig als einem Kinde an¬<lb/>
+geſtanden. Am liebſten ſchenkte er gleich hin, und<lb/>
+immer mit lachender Großmuth, beſonders wenn er<lb/>
+meinte gerade Ueberfluß zu haben.</p><lb/>
+<p>Die Mittel, die ein ſolcher Aufwand neben dem<lb/>
+ordentlichen Hausbedarf erheiſchte, ſtanden allerdings<lb/>
+in keinem Verhältniß mit den Einkünften. Was von<lb/>
+Theatern und Concerten, von Verlegern und Schülern<lb/>
+einging, zuſammt der kaiſerlichen Penſion, genügte<lb/>
+um ſo weniger, da der Geſchmack des Publikums noch<lb/>
+weit davon entfernt war, ſich entſchieden für Mozarts<lb/>
+Muſik zu erklären. Dieſe lauterſte Schönheit, Fülle<lb/>
+und Tiefe befremdete gemeinhin gegenüber der bisher<lb/>
+<pb n="15" facs="#f0027"/>
+beliebten, leicht faßlichen Koſt. Zwar hatten ſich die<lb/>
+Wiener an Belmonte und Conſtanze — Dank den<lb/>
+populären Elementen dieſes Stücks — ſeiner Zeit<lb/>
+kaum erſättigen können, hingegen that, einige Jahre<lb/>
+ſpäter, Figaro, und ſicher nicht allein durch die In¬<lb/>
+triguen des Direktors, im Wettſtreit mit der lieb¬<lb/>
+lichen, doch weit geringeren Coſa rara, einen uner¬<lb/>
+warteten, kläglichen Fall; derſelbe Figaro, den gleich<lb/>
+darauf die gebildetern oder unbefangenern Prager mit<lb/>
+ſolchem Enthuſiasmus aufnahmen, daß der Meiſter,<lb/>
+in dankbarer Rührung darüber, ſeine nächſte große<lb/>
+Oper eigens für ſie zu ſchreiben beſchloß. — Trotz<lb/>
+der Ungunſt der Zeit und dem Einfluß der Feinde<lb/>
+hätte Mozart mit etwas mehr Umſicht und Klugheit<lb/>
+noch immer einen ſehr anſehnlichen Gewinn von ſei¬<lb/>
+ner Kunſt gezogen: ſo aber kam er ſelbſt bei jenen<lb/>
+Unternehmungen zu kurz, wo auch der große Haufen<lb/>
+ihm Beifall zujauchzen mußte. Genug, es wirkte<lb/>
+eben alles, Schickſal und Naturell und eigene Schuld<lb/>
+zuſammen, den einzigen Mann nicht gedeihen zu laſſen.</p><lb/>
+<p>Welch einen ſchlimmen Stand nun aber eine Haus¬<lb/>
+frau, ſofern ſie ihre Aufgabe kannte, unter ſolchen<lb/>
+Umſtänden gehabt haben müſſe, begreifen wir leicht.<lb/>
+Obgleich ſelbſt jung und lebensfroh, als Tochter<lb/>
+<pb n="16" facs="#f0028"/>
+eines Muſikers ein ganzes Künſtlerblut, von Hauſe<lb/>
+aus übrigens ſchon an Entbehrung gewöhnt, bewies<lb/>
+Conſtanze allen guten Willen, dem Unheil an der<lb/>
+Quelle zu ſteuern, manches Verkehrte abzuſchneiden<lb/>
+und den Verluſt im Großen durch Sparſamkeit im<lb/>
+Kleinen zu erſetzen. Nur eben in letzterer Hinſicht<lb/>
+vielleicht ermangelte ſie des rechten Geſchicks und der<lb/>
+frühern Erfahrung. Sie hatte die Kaſſe und führte<lb/>
+das Hausbuch, jede Forderung, jede Schuldmahnung,<lb/>
+und was es Verdrießliches gab, ging ausſchließlich<lb/>
+an ſie. Da ſtieg ihr wohl mitunter das Waſſer an<lb/>
+die Kehle, zumal wenn oft zu dieſer Bedrängniß, zu<lb/>
+Mangel, peinlicher Verlegenheit und Furcht vor offen¬<lb/>
+barer Unehre, noch gar der Trübſinn ihres Mannes<lb/>
+kam, worin er tagelang verharrte, unthätig, keinem<lb/>
+Troſt zugänglich, indem er mit Seufzen und Klagen<lb/>
+neben der Frau, oder ſtumm in einem Winkel vor<lb/>
+ſich hin, den Einen traurigen Gedanken, zu ſterben,<lb/>
+wie eine endloſe Schraube verfolgte. Ihr guter Muth<lb/>
+verließ ſie dennoch ſelten, ihr heller Blick fand meiſt,<lb/>
+wenn auch nur auf einige Zeit, Rath und Hülfe.<lb/>
+Im Weſentlichen wurde wenig oder nichts gebeſſert.<lb/>
+Gewann ſie ihm mit Ernſt und Scherz, mit Bitten<lb/>
+und Schmeicheln für heute ſo viel ab, daß er den<lb/>
+<pb n="17" facs="#f0029"/>
+Thee an ihrer Seite trank, ſich ſeinen Abendbraten<lb/>
+daheim bei der Familie ſchmecken ließ, um nachher<lb/>
+nicht mehr auszugehen, was war damit erreicht?<lb/>
+Er konnte wohl einmal, durch ein verweintes Auge<lb/>
+ſeiner Frau plötzlich betroffen und bewegt, eine ſchlimme<lb/>
+Gewohnheit aufrichtig verwünſchen, das Beſte ver¬<lb/>
+ſprechen, mehr als ſie verlangte, — umſonſt, er fand<lb/>
+ſich unverſehens im alten Fahrgeleiſe wieder. Man<lb/>
+war verſucht zu glauben, es habe anders nicht in<lb/>
+ſeiner Macht geſtanden und eine völlig veränderte<lb/>
+Ordnung nach unſern Begriffen von dem, was allen<lb/>
+Menſchen ziemt und frommt, <hi rendition="#g">ihm</hi> irgendwie gewalt¬<lb/>
+ſam aufgedrungen, müßte das wunderbare Weſen<lb/>
+geradezu ſelbſt aufgehoben haben.</p><lb/>
+<p>Einen günſtigen Umſchwung der Dinge hoffte<lb/>
+Conſtanze doch ſtets in ſo weit, als derſelbe von<lb/>
+außen her möglich war: durch eine gründliche Ver¬<lb/>
+beſſerung ihrer ökonomiſchen Lage, wie ſolche bei dem<lb/>
+wachſenden Ruf ihres Mannes nicht ausbleiben könne.<lb/>
+Wenn erſt, ſo meinte ſie, der ſtete Druck wegfiel.<lb/>
+der ſich auch ihm, bald näher, bald entfernter, von<lb/>
+dieſer Seite fühlbar machte, wenn er, anſtatt die<lb/>
+Hälfte ſeiner Kraft und Zeit dem bloßen Gelder¬<lb/>
+werb zu opfern, ungetheilt ſeiner wahren Beſtimmung<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Mörike</hi>, Mozart. 2<lb/>
+</fw>
+<pb n="18" facs="#f0030"/>
+nachleben dürfe, wenn endlich der Genuß, nach dem er<lb/>
+nicht mehr jagen, den er mit ungleich beſſerem Ge¬<lb/>
+wiſſen haben würde, ihm noch einmal ſo wohl an<lb/>
+Leib und Seele gedeihe, dann ſollte bald ſein ganzer<lb/>
+Zuſtand leichter, natürlicher, ruhiger werden. Sie<lb/>
+dachte gar an einen gelegentlichen Wechſel ihres<lb/>
+Wohnorts, da ſeine unbedingte Vorliebe für Wien,<lb/>
+wo nun einmal nach ihrer Ueberzeugung kein rech¬<lb/>
+ter Segen für ihn ſey, am Ende doch zu überwin¬<lb/>
+den wäre.</p><lb/>
+<p>Den nächſten entſcheidenden Vorſchub aber zu<lb/>
+Verwirklichung ihrer Gedanken und Wünſche verſprach<lb/>
+ſich Madame Mozart vom Erfolg der neuen Oper,<lb/>
+um die es ſich bei dieſer Reiſe handelte.</p><lb/>
+<p>Die Compoſition war weit über die Hälfte vor¬<lb/>
+geſchritten. Vertraute, urtheilsfähige Freunde, die,<lb/>
+als Zeugen der Entſtehung des außerordentlichen<lb/>
+Werks, einen hinreichenden Begriff von ſeiner Art<lb/>
+und Wirkungsweiſe haben mußten, ſprachen überall<lb/>
+davon in einem Tone, daß viele ſelber von den Geg¬<lb/>
+nern darauf gefaßt ſeyn konnten, es werde dieſer<lb/>
+Don Juan, bevor ein halbes Jahr verginge, die ge¬<lb/>
+ſammte muſikaliſche Welt, von einem Ende Deutſch¬<lb/>
+lands bis zum andern, erſchüttert, auf den Kopf<lb/>
+<pb n="19" facs="#f0031"/>
+geſtellt, im Sturm erobert haben. Vorſichtiger und<lb/>
+bedingter waren die wohlwollenden Stimmen an¬<lb/>
+derer, die von dem heutigen Standpunkt der Muſik<lb/>
+ausgehend einen allgemeinen und raſchen Succeß kaum<lb/>
+hofften. Der Meiſter ſelber theilte im Stillen ihre<lb/>
+nur zu wohl begründeten Zweifel.</p><lb/>
+<p>Conſtanze ihrerſeits, wie die Frauen immer, wo<lb/>
+ihr Gefühl einmal lebhaft beſtimmt und noch dazu<lb/>
+vom Eifer eines höchſt gerechten Wunſches eingenom¬<lb/>
+men iſt, durch ſpätere Bedenklichkeiten von da und<lb/>
+dorther ſich viel ſeltener als die Männer irre machen<lb/>
+laſſen, hielt feſt an ihrem guten Glauben, und hatte<lb/>
+eben jetzt im Wagen wiederum Veranlaſſung, den¬<lb/>
+ſelben zu verfechten. Sie that's, in ihrer fröhlichen<lb/>
+und blühenden Manier, mit doppelter Gefliſſenheit,<lb/>
+da Mozarts Stimmung im Verlauf des vorigen Ge¬<lb/>
+ſprächs, das weiter zu nichts führen konnte und deß¬<lb/>
+halb äußerſt unbefriedigend abbrach, bereits merklich<lb/>
+geſunken war. Sie ſetzte ihrem Gatten ſofort mit<lb/>
+gleicher Heiterkeit umſtändlich auseinander, wie ſie<lb/>
+nach ihrer Heimkehr die mit dem Prager Unternehmer<lb/>
+als Kaufpreis für die Partitur accordirten hundert<lb/>
+Dukaten zu Deckung der dringendſten Poſten und ſonſt<lb/>
+zu verwenden gedenke, auch wie ſie zufolge ihres<lb/>
+<pb n="20" facs="#f0032"/>
+Etats den kommenden Winter hindurch bis zum Früh¬<lb/>
+jahr gut auszureichen hoffe.</p><lb/>
+<p>„Dein Herr Bondini wird ſein Schäfchen an der<lb/>
+Oper ſcheeren, glaub' es nur; und iſt er halb der<lb/>
+Ehrenmann, den du ihn immer rühmſt, ſo läßt er<lb/>
+dir nachträglich noch ein artiges Procentchen von<lb/>
+den Summen ab, die ihm die Bühnen nach einan¬<lb/>
+der für die Abſchrift zahlen; wo nicht, nun ja,<lb/>
+Gottlob, ſo ſtehen uns noch andere Chancen in Aus¬<lb/>
+ſicht, und zwar noch tauſendmal ſolidere. Mir ahnet<lb/>
+Allerlei.“</p><lb/>
+<p>„Heraus damit!“</p><lb/>
+<p>„Ich hörte unlängſt ein Vögelchen pfeifen, der<lb/>
+König von Preußen hab' einen Kapellmeiſter nöthig.“</p><lb/>
+<p>„Oho!“</p><lb/>
+<p>„Generalmuſikdirektor wollt' ich ſagen. Laß mich<lb/>
+ein wenig phantaſiren! Die Schwachheit habe ich<lb/>
+von meiner Mutter.“</p><lb/>
+<p>„Nur zu! je toller je beſſer.“</p><lb/>
+<p>„Nein, alles ganz natürlich. — Vornweg alſo<lb/>
+nimm an: über's Jahr um dieſe Zeit —“</p><lb/>
+<p>„Wenn der Papſt die Grete freit —“</p><lb/>
+<p>„Still doch, Hanswurſt! Ich ſage, auf's Jahr<lb/>
+um Sanct Aegidi muß ſchon längſt kein kaiſerlicher<lb/>
+<pb n="21" facs="#f0033"/>
+Kammercomponiſt mit Namen Wolf Mozart in Wien<lb/>
+mehr weit und breit zu finden ſeyn.“</p><lb/>
+<p>„Beiß dich der Fuchs dafür!“</p><lb/>
+<p>„Ich höre ſchon im Geiſt, wie unſere alten<lb/>
+Freunde von uns plaudern, was ſie ſich alles zu<lb/>
+erzählen wiſſen.“</p><lb/>
+<p>„Zum Exempel?“</p><lb/>
+<p>„Da kommt z. B. eines Morgens früh nach Neune<lb/>
+ſchon unſere alte Schwärmerin, die Volkſtett, in ihrem<lb/>
+feurigſten Beſuchsſturmſchritt quer über'n Kohlmarkt<lb/>
+hergeſegelt. Sie war drei Monat fort, die große<lb/>
+Reiſe zum Schwager in Sachſen, ihr tägliches Ge¬<lb/>
+ſpräch, ſo lang wir ſie kennen, kam endlich zu Stand;<lb/>
+ſeit geſtern Nacht iſt ſie zurück, und jetzt, mit ihrem<lb/>
+übervollen Herzen — es ſchwattelt ganz von Reiſe¬<lb/>
+glück und Freundſchaftsungeduld und allerliebſten<lb/>
+Neuigkeiten — ſtracks hin zur Oberſtin damit! die<lb/>
+Trepp' hinauf und angeklopft und das Herein nicht<lb/>
+abgewartet; ſtell' dir den Jubel ſelber vor und das<lb/>
+Embraſſement beiderſeits! — Nun, liebſte, beſte<lb/>
+Oberſtin, hebt ſie nach einigem Vorgängigen mit<lb/>
+friſchem Odem an; ich bringe Ihnen ein Schock<lb/>
+Grüße mit, ob Sie errathen von wem? Ich komme<lb/>
+nicht ſo gradenwegs von Stendal her, es wurde ein<lb/>
+<pb n="22" facs="#f0034"/>
+kleiner Abſtecher gemacht, linkshin, nach Brandenburg<lb/>
+zu. — Wie? wär' es möglich ... Sie kamen nach<lb/>
+Berlin? ſind bei Mozarts geweſen? — Zehn himm¬<lb/>
+liſche Tage! — O liebe, ſüße, einzige Generalin,<lb/>
+erzählen Sie, beſchreiben Sie! Wie geht es unſern<lb/>
+guten Leutchen? Gefallen ſie ſich immer noch ſo gut<lb/>
+wie Anfangs dort? Es iſt mir fabelhaft, undenkbar,<lb/>
+heute noch, und jetzt nur deſto mehr, da Sie von<lb/>
+ihm herkommen — Mozart als Berliner! Wie be¬<lb/>
+nimmt er ſich doch? wie ſieht er denn aus? — O<lb/>
+der! Sie ſollten ihn nur ſehen. Dieſen Sommer hat<lb/>
+ihn der König in's Karlsbad geſchickt. Wann wäre<lb/>
+ſeinem herzgeliebten Kaiſer Joſeph ſo etwas einge¬<lb/>
+fallen, he? Sie waren beide kaum erſt wieder da,<lb/>
+als ich ankam. Er glänzt von Geſundheit und Leben,<lb/>
+iſt rund und beleibt und vif wie Queckſilber; das<lb/>
+Glück ſieht ihm und die Behaglichkeit recht aus den<lb/>
+Augen.“</p><lb/>
+<p>Und nun begann die Sprecherin in ihrer ange¬<lb/>
+nommenen Rolle die neue Lage mit den hellſten Far¬<lb/>
+ben auszumalen. Von ſeiner Wohnung unter den<lb/>
+Linden, von ſeinem Garten und Landhaus an, bis<lb/>
+zu den glänzenden Schauplätzen ſeiner öffentlichen<lb/>
+Wirkſamkeit und den engeren Cirkeln des Hofs, wo<lb/>
+<pb n="23" facs="#f0035"/>
+er die Königin auf dem Piano zu begleiten hatte,<lb/>
+wurde alles durch ihre Schilderung gleichſam zur<lb/>
+Wirklichkeit und Gegenwart. Ganze Geſpräche, die<lb/>
+ſchönſten Anekdoten ſchüttelte ſie aus dem Aermel.<lb/>
+Sie ſchien fürwahr mit jener Reſidenz, mit Potsdam<lb/>
+und mit Sansſouci bekannter als im Schloſſe zu<lb/>
+Schönbrunn und auf der kaiſerlichen Burg. Nebenbei<lb/>
+war ſie ſchalkhaft genug, die Perſon unſres Helden<lb/>
+mit einer Anzahl völlig neuer hausväterlicher Eigen¬<lb/>
+ſchaften auszuſtatten, die ſich auf dem ſoliden Boden<lb/>
+der preußiſchen Existenz entwickelt hatten, und unter<lb/>
+welchen die beſagte Volkſtett, als höchſtes Phänomen<lb/>
+und zum Beweis wie die Extreme ſich manchmal be¬<lb/>
+rühren, den Anſatz eines ordentlichen Geizchens wahr¬<lb/>
+genommen hatte, das ihn unendlich liebenswürdig<lb/>
+kleide. „Ja, nehmen's nur, er hat ſeine dreitauſend<lb/>
+Thaler fix, und das wofür? Daß er die Woche ein¬<lb/>
+mal ein Kammerconcert, zweimal die große Oper<lb/>
+dirigirt — Ach, Oberſtin, ich habe ihn geſehen, un¬<lb/>
+ſern lieben, kleinen goldenen Mann, in Mitten ſeiner<lb/>
+trefflichen Kapelle, die er ſich zugeſchult, die ihn an¬<lb/>
+betet! ſaß mit der Mozartin in ihrer Loge, ſchräg<lb/>
+gegen den höchſten Herrſchaften über! Und was ſtand<lb/>
+auf dem Zettel, bitte Sie — ich nahm ihn mit für<lb/>
+<pb n="24" facs="#f0036"/>
+Sie — ein kleines Reiſ'präſent von mir und Mozarts<lb/>
+drein gewickelt — hier ſchauen Sie, hier leſen Sie,<lb/>
+da ſteht's mit ellenlangen Buchſtaben gedruckt! —<lb/>
+Hilf Himmel! was? Tarar! — Ja, gelten's, Freun¬<lb/>
+din, was man erleben kann! Vor zwei Jahren, wie<lb/>
+Mozart den Don Juan ſchrieb und der verwünſchte<lb/>
+giftige, ſchwarzgelbe Salieri auch ſchon im Stillen<lb/>
+Anſtalt machte, den Triumph, den er mit ſeinem<lb/>
+Stück davon trug in Paris, demnächſt auf ſeinem<lb/>
+eignen Territorio zu begehen, und unſerem guten,<lb/>
+Schnepfen liebenden, allzeit in Coſa rara vergnügten<lb/>
+Publikum nun doch auch 'mal ſo eine Gattung Falken<lb/>
+ſehn zu laſſen, und er und ſeine Helfershelfer bereits<lb/>
+zuſammen munkelten und raffinirten, daß ſie den<lb/>
+Don Juan ſo ſchön gerupft wie jenesmal den Figaro,<lb/>
+nicht todt und nicht lebendig, auf das Theater ſtellen<lb/>
+wollten — wiſſen's, da that ich ein Gelübd', wenn<lb/>
+das infame Stück gegeben wird, ich geh' nicht hin,<lb/>
+um keine Welt! Und hielt auch Wort. Als alles<lb/>
+lief und rannte — und, Oberſtin, Sie mit — blieb<lb/>
+ich an meinem Ofen ſitzen, nahm meine Katze auf<lb/>
+den Schooß und aß meine Kaldauſche; und ſo die<lb/>
+folgenden paar Male auch. Jetzt aber, ſtellen ſie ſich<lb/>
+vor, Tarar auf der Berliner Opernbühne, das Werk<lb/>
+<pb n="25" facs="#f0037"/>
+ſeines Todfeinds, von Mozart dirigirt! — Da müſſen<lb/>
+Sie ſchon drein! rief er gleich in der erſten Viertel¬<lb/>
+ſtunde, und wär's auch nur, daß Sie den Wienern<lb/>
+ſagen können, ob ich dem Knaben Abſalon ein Här¬<lb/>
+chen krümmen ließ. Ich wünſchte, er wär' ſelbſt<lb/>
+dabei, der Erzneidhammel ſollte ſehen, daß ich nicht<lb/>
+nöthig hab', einem andern ſein Zeug zu verhunzen,<lb/>
+damit ich immerfort der bleiben möge, der ich bin!“</p><lb/>
+<p> <hi rendition="#aq">„Brava! bravissima!“</hi> rief Mozart überlaut und<lb/>
+nahm ſein Weibchen bei den Ohren, verküßte, herzte,<lb/>
+kitzelte ſie, ſo daß ſich dieſes Spiel mit bunten Sei¬<lb/>
+fenblaſen einer erträumten Zukunft, die leider niemals,<lb/>
+auch nicht im beſcheidenſten Maße, erfüllt werden<lb/>
+ſollte, zuletzt in hellen Muthwillen, Lärm und Ge¬<lb/>
+lächter auflöste.</p><lb/>
+<p>Sie waren unterdeſſen längſt in's Thal herab<lb/>
+gekommen und näherten ſich einem Dorf, das ihnen<lb/>
+bereits auf der Höhe bemerklich geweſen und hinter<lb/>
+welchem ſich unmittelbar ein kleines Schloß von mo¬<lb/>
+dernem Anſehen, der Wohnſitz eines Grafen von<lb/>
+Schinzberg, in der freundlichen Ebene zeigte. Es<lb/>
+ſollte in dem Ort gefüttert, geraſtet und Mittag ge¬<lb/>
+halten werden. Der Gaſthof, wo ſie hielten, lag<lb/>
+vereinzelt am Ende des Dorfs bei der Straße, von<lb/>
+<pb n="26" facs="#f0038"/>
+welcher ſeitwärts eine Pappelallee von nicht ſechs¬<lb/>
+hundert Schritten zum herrſchaftlichen Garten führte.</p><lb/>
+<p>Mozart, nachdem man ausgeſtiegen, überließ wie<lb/>
+gewöhnlich der Frau die Beſtellung des Eſſens. In¬<lb/>
+zwiſchen befahl er für ſich ein Glas Wein in die<lb/>
+untere Stube, während ſie, nächſt einem Trunke fri¬<lb/>
+ſchen Waſſers, nur irgend einen ſtillen Winkel, um<lb/>
+ein Stündchen zu ſchlafen, verlangte. Man führte<lb/>
+ſie eine Treppe hinauf, der Gatte folgte, ganz mun¬<lb/>
+ter vor ſich hin ſingend und pfeifend. In einem rein<lb/>
+geweißten und ſchnell gelüfteten Zimmer befand ſich<lb/>
+unter andern veralteten Möbeln von edlerer Herkunft<lb/>
+— ſie waren ohne Zweifel aus den gräflichen Ge¬<lb/>
+mächern ſeiner Zeit hierher gewandert — ein ſauberes,<lb/>
+leichtes Bett mit gemaltem Himmel auf dünnen, grün<lb/>
+lackirten Säulen, deſſen ſeidene Vorhänge längſt durch<lb/>
+einen gewöhnlichern Stoff erſetzt waren. Conſtanze<lb/>
+machte ſich's bequem, er verſprach ſie rechtzeitig zu<lb/>
+wecken, ſie riegelte die Thüre hinter ihm zu und er<lb/>
+ſuchte nunmehr Unterhaltung für ſich in der allge¬<lb/>
+meinen Schenkſtube. Hier war jedoch außer dem<lb/>
+Wirth keine Seele, und weil deſſen Geſpräch dem<lb/>
+Gaſt ſo wenig wie ſein Wein behagte, ſo bezeugte<lb/>
+er Luſt, bis der Tiſch bereit wäre, noch einen<lb/>
+<pb n="27" facs="#f0039"/>
+Spaziergang nach dem Schloßgarten zu machen. Der<lb/>
+Zutritt, hörte er, ſey anſtändigen Fremden wohl ge¬<lb/>
+ſtattet und die Familie überdieß heut ausgefahren.</p><lb/>
+<p>Er ging, und hatte bald den kurzen Weg bis zu<lb/>
+dem offenen Gatterthor zurückgelegt, dann langſam<lb/>
+einen hohen alten Lindengang durchmeſſen, an deſſen<lb/>
+Ende linker Hand er in geringer Entfernung das<lb/>
+Schloß von ſeiner Fronte auf einmal vor ſich hatte.<lb/>
+Es war von italieniſcher Bauart, hell getüncht, mit<lb/>
+weit vorliegender Doppeltreppe; das Schieferdach ver¬<lb/>
+zierten einige Statuen in üblicher Manier, Götter<lb/>
+und Göttinnen, ſammt einer Baluſtrade.</p><lb/>
+<p>Von der Mitte zweier großen, noch reichlich blü¬<lb/>
+henden Blumenparterre ging unſer Meiſter nach den<lb/>
+buſchigen Theilen der Anlagen zu, berührte ein paar<lb/>
+ſchöne dunkle Piniengruppen, und lenkte ſeine Schritte<lb/>
+auf vielfach gewundenen Pfaden, indem er ſich all¬<lb/>
+mählig den lichteren Partien wieder näherte, dem<lb/>
+lebhaften Rauſchen eines Springbrunnens nach, den<lb/>
+er ſofort erreichte.</p><lb/>
+<p>Das anſehnlich weite, ovale Baſſin war rings<lb/>
+von einer ſorgfältig gehaltenen Orangerie in Kübeln,<lb/>
+abwechſelnd mit Lorbeeren und Oleandern umſtellt;<lb/>
+ein weicher Sandweg, gegen den ſich eine ſchmale<lb/>
+<pb n="28" facs="#f0040"/>
+Gitterlaube öffnete, lief rund umher. Die Laube bot<lb/>
+das angenehmſte Ruheplätzchen dar; ein kleiner Tiſch<lb/>
+ſtand vor der Bank und Mozart ließ ſich vorn am<lb/>
+Eingang nieder.</p><lb/>
+<p>Das Ohr behaglich dem Geplätſcher des Waſſers<lb/>
+hingegeben, das Aug auf einen Pomeranzenbaum von<lb/>
+mittlerer Größe geheftet, der außerhalb der Reihe,<lb/>
+einzeln, ganz dicht an ſeiner Seite auf dem Boden<lb/>
+ſtand und voll der ſchönſten Früchte hing, ward unſer<lb/>
+Freund durch dieſe Anſchauung des Südens alsbald<lb/>
+auf eine liebliche Erinnerung aus ſeiner Knabenzeit<lb/>
+geführt. Nachdenklich lächelnd reicht er hinüber nach<lb/>
+der nächſten Frucht, als wie um ihre herrliche Ründe,<lb/>
+ihre ſaftige Kühle in hohler Hand zu fühlen. Ganz<lb/>
+im Zuſammenhang mit jener Jugendſcene aber, die<lb/>
+wieder vor ihm aufgetaucht, ſtand eine längſt ver¬<lb/>
+wiſchte muſikaliſche Reminiscenz, auf deren unbe¬<lb/>
+ſtimmter Spur er ſich ein Weilchen träumeriſch er¬<lb/>
+ging. Jetzt glänzen ſeine Blicke, ſie irren da und<lb/>
+dort umher, er iſt von einem Gedanken ergriffen,<lb/>
+den er ſogleich eifrig verfolgt. Zerſtreut hat er zum<lb/>
+zweitenmal die Pomeranze angefaßt, ſie geht vom<lb/>
+Zweige los und bleibt ihm in der Hand. Er ſieht<lb/>
+und ſieht es nicht; ja ſo weit geht die künſtleriſche<lb/>
+<pb n="29" facs="#f0041"/>
+Geiſtabweſenheit, daß er, die duftige Frucht beſtändig<lb/>
+unter der Naſe hin und her wirbelnd und bald den<lb/>
+Anfang, bald die Mitte einer Weiſe unhörbar zwiſchen<lb/>
+den Lippen bewegend, zuletzt inſtinktmäßig ein email¬<lb/>
+lirtes Etui aus der Seitentaſche des Rocks hervorbringt,<lb/>
+ein kleines Meſſer mit ſilbernem Heft daraus nimmt<lb/>
+und die gelbe kugelige Maſſe von oben nach unten<lb/>
+langſam durchſchneidet. Es mochte ihn dabei entfernt<lb/>
+ein dunkles Durſtgefühl geleitet haben, jedoch be¬<lb/>
+gnügten ſich die angeregten Sinne mit Einathmung<lb/>
+des köſtlichen Geruchs. Er ſtarrt minutenlang die<lb/>
+beiden innern Flächen an, fügt ſie ſachte wieder zu¬<lb/>
+ſammen, ganz ſachte, trennt und vereinigt ſie wieder.</p><lb/>
+<p>Da hört er Tritte in der Nähe, er erſchrickt, und<lb/>
+das Bewußtſeyn, wo er iſt, was er gethan, ſtellt<lb/>
+ſich urplötzlich bei ihm ein. Schon im Begriff, die<lb/>
+Pomeranze zu verbergen, hält er doch gleich damit<lb/>
+inne, ſey es aus Stolz, ſey's weil es zu ſpät dazu<lb/>
+war. Ein großer breitſchulteriger Mann in Livree,<lb/>
+der Gärtner des Hauſes, ſtand vor ihm. Derſelbe<lb/>
+hatte wohl die letzte verdächtige Bewegung noch ge¬<lb/>
+ſehen und ſchwieg betroffen einige Sekunden. Mozart,<lb/>
+gleichfalls ſprachlos, auf ſeinem Sitz wie angenagelt,<lb/>
+ſchaute ihm halb lachend, unter ſichtbarem Erröthen,<lb/>
+<pb n="30" facs="#f0042"/>
+doch gewiſſermaßen keck und groß mit ſeinen blauen<lb/>
+Augen in's Geſicht; dann ſetzte er — für einen<lb/>
+Dritten wäre es höchſt komiſch anzuſehen geweſen —<lb/>
+die ſcheinbar unverletzte Pomeranze mit einer Art<lb/>
+von trotzig couragirtem Nachdruck in die Mitte des<lb/>
+Tiſches.</p><lb/>
+<p>„Um Vergebung,“ fing jetzt der Gärtner, nachdem<lb/>
+er den wenig verſprechenden Anzug des Fremden ge¬<lb/>
+muſtert, mit unterdrücktem Unwillen an; „ich weiß<lb/>
+nicht, wen ich hier —“</p><lb/>
+<p>„Kapellmeiſter Mozart aus Wien.“</p><lb/>
+<p>„Sind ohne Zweifel bekannt im Schloß?“</p><lb/>
+<p>„Ich bin hier fremd und auf der Durchreiſe. Iſt<lb/>
+der Herr Graf anweſend?“</p><lb/>
+<p>„Nein.“</p><lb/>
+<p>„Seine Gemahlin?“</p><lb/>
+<p>„Sind beſchäftigt und ſchwerlich zu ſprechen.“</p><lb/>
+<p>Mozart ſtand auf und machte Miene zu gehen.</p><lb/>
+<p>„Mit Erlaubniß, mein Herr, — wie kommen<lb/>
+Sie dazu, an dieſem Ort auf ſolche Weiſe zuzu¬<lb/>
+greifen?“</p><lb/>
+<p>„Was?“ rief Mozart, „zugreifen? Zum Teufel,<lb/>
+glaubt Er denn, ich wollte ſtehlen und das Ding da<lb/>
+freſſen?“<lb/>
+</p>
+<pb n="31" facs="#f0043"/>
+<p>„Mein Herr, ich glaube was ich ſehe. Dieſe<lb/>
+Früchte ſind gezählt, ich bin dafür verantwortlich. Der<lb/>
+Baum iſt vom Herrn Grafen zu einem Feſt beſtimmt,<lb/>
+ſo eben ſoll er weggebracht werden. Ich laſſe Sie<lb/>
+nicht fort, ehbevor ich die Sache gemeldet und Sie<lb/>
+mir ſelbſt bezeugten, wie das da zugegangen iſt.“</p><lb/>
+<p>„Sey's drum. Ich werde hier ſo lange warten.<lb/>
+Verlaß Er ſich darauf.“</p><lb/>
+<p>Der Gärtner ſah ſich zögernd um, und Mozart,<lb/>
+in der Meinung, es ſey vielleicht nur auf ein Trink¬<lb/>
+geld abgeſehen, griff in die Taſche, allein er hatte<lb/>
+das Geringſte nicht bei ſich.</p><lb/>
+<p>Zwei Gartenknechte kamen nun wirklich herbei,<lb/>
+luden den Baum auf eine Bahre und trugen ihn hin¬<lb/>
+weg. Inzwiſchen hatte unſer Meiſter ſeine Brieftaſche<lb/>
+gezogen, ein weißes Blatt herausgenommen, und<lb/>
+während daß der Gärtner nicht von der Stelle wich,<lb/>
+mit Bleiſtift angefangen zu ſchreiben:</p><lb/>
+<p>„Gnädigſte Frau! Hier ſitze ich Unſeliger in<lb/>
+Ihrem Paradieſe, wie weiland Adam, nachdem er<lb/>
+den Apfel gekoſtet. Das Unglück iſt geſchehen, und<lb/>
+ich kann nicht einmal die Schuld auf eine gute Eva<lb/>
+ſchieben, die eben jetzt, von Grazien und Amoretten<lb/>
+eines Himmelbetts umgaukelt, im Gaſthof ſich des<lb/>
+<pb n="32" facs="#f0044"/>
+unſchuldigſten Schlafes erfreut. Befehlen Sie und<lb/>
+ich ſtehe perſönlich Ihro Gnaden Rede über meinen<lb/>
+mir ſelbſt unfaßlichen Frevel. Mit aufrichtiger Be¬<lb/>
+ſchämung</p><lb/>
+<p rendition="#right">Hochdero<lb/>
+unterthänigſter Diener<lb/>
+<hi rendition="#g">W. A. Mozart</hi>,<lb/>
+auf dem Wege nach Prag.“</p><lb/>
+<p>Er übergab das Billet, ziemlich ungeſchickt zuſam¬<lb/>
+mengefaltet, dem peinlich wartenden Diener mit der<lb/>
+nöthigen Weiſung.</p><lb/>
+<p>Der Unhold hatte ſich nicht ſobald entfernt, als<lb/>
+man an der hinteren Seite des Schloſſes ein Gefährt<lb/>
+in den Hof rollen hörte. Es war der Graf, der eine<lb/>
+Nichte und ihren Bräutigam, einen jungen reichen<lb/>
+Baron, vom benachbarten Gut herüberbrachte. Da<lb/>
+die Mutter des letztern ſeit Jahren das Haus nicht<lb/>
+mehr verließ, war die Verlobung heute bei ihr ge¬<lb/>
+halten worden; nun ſollte dieſes Feſt in einer fröh¬<lb/>
+lichen Nachfeier mit einigen Verwandten auch hier<lb/>
+begangen werden, wo Eugenie gleich einer eigenen<lb/>
+Tochter ſeit ihrer Kindheit eine zweite Heimath fand.<lb/>
+Die Gräfin war mit ihrem Sohne Max, dem Lieu¬<lb/>
+tenant, etwas früher nach Hauſe gefahren, um noch<lb/>
+<pb n="33" facs="#f0045"/>
+verſchiedene Anordnungen zu treffen. Nun ſah man<lb/>
+in dem Schloſſe alles, auf Gängen und Treppen,<lb/>
+in voller Bewegung, und nur mit Mühe gelang es<lb/>
+dem Gärtner, im Vorzimmer endlich den Zettel der<lb/>
+Frau Gräfin einzuhändigen, die ihn jedoch nicht auf<lb/>
+der Stelle öffnete, ſondern ohne genau auf die Worte<lb/>
+des Ueberbringers zu achten, geſchäftig weiter eilte.<lb/>
+Er wartete und wartete, ſie kam nicht wieder. Eins<lb/>
+um das andere von der Dienerſchaft, Aufwärter,<lb/>
+Zofe, Kammerdiener, rannte an ihm vorbei, er fragte<lb/>
+nach dem Herrn — der kleidete ſich um; er ſuchte<lb/>
+nun und fand den Grafen Max auf ſeinem Zimmer,<lb/>
+der aber unterhielt ſich angelegentlich mit dem Baron<lb/>
+und ſchnitt ihm, wie in Sorge, er wolle etwas mel¬<lb/>
+den oder fragen, wovon noch nichts verlauten ſollte,<lb/>
+das Wort vom Munde ab: „Ich komme ſchon —<lb/>
+geht nur!“ Es ſtand noch eine gute Weile an, bis<lb/>
+endlich Vater und Sohn zugleich herauskamen und<lb/>
+die fatale Nachricht empfingen.</p><lb/>
+<p>„Das wär' ja höllenmäßig!“ rief der dicke, gut¬<lb/>
+müthige, doch etwas jähe Mann; „das geht ja über<lb/>
+alle Begriffe! Ein Wiener Muſikus, ſagt Ihr?<lb/>
+Vermuthlich irgend ſolch ein Lump, der um ein<lb/>
+Viaticum läuft und mitnimmt was er findet?“</p><lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Mörike</hi>, Mozart. 3<lb/>
+</fw>
+<pb n="34" facs="#f0046"/>
+<p>„Verzeihen Ew. Gnaden, darnach ſieht er gerad<lb/>
+nicht aus. Er däucht mir nicht richtig im Kopf;<lb/>
+auch iſt er ſehr hochmüthig. Moſer nennt er ſich.<lb/>
+Er wartet unten auf Beſcheid; ich hieß den Franz<lb/>
+um den Weg bleiben und ein Aug auf ihn haben.“</p><lb/>
+<p>„Was hilft es hintendrein, zum Henker? Wenn<lb/>
+ich den Narren auch einſtecken laſſe, der Schaden iſt<lb/>
+nicht mehr zu repariren! Ich ſagt' Euch tauſend¬<lb/>
+mal, das vordere Thor ſoll allezeit geſchloſſen bleiben.<lb/>
+Der Streich wär' aber jedenfalls verhütet worden,<lb/>
+hättet Ihr zur rechten Zeit Eure Zurüſtungen gemacht.“</p><lb/>
+<p>Hier trat die Gräfin haſtig und mit freudiger<lb/>
+Aufregung, das offene Billet in der Hand, aus dem<lb/>
+anſtoßenden Cabinet. „Wißt Ihr,“ rief ſie, „wer<lb/>
+unten iſt? Um Gotteswillen, lest den Brief —<lb/>
+Mozart aus Wien, der Componiſt! Man muß gleich<lb/>
+gehen, ihn heraufzubitten — ich fürchte nur, er iſt<lb/>
+ſchon fort! was wird er von mir denken! Ihr,<lb/>
+Velten, ſeyd ihm doch höflich begegnet? Was iſt<lb/>
+denn eigentlich geſchehen?“</p><lb/>
+<p>„Geſchehn?“ verſezte der Gemahl, dem die Aus¬<lb/>
+ſicht auf den Beſuch eines berühmten Mannes un¬<lb/>
+möglich allen Aerger auf der Stelle niederſchlagen<lb/>
+konnte: „der tolle Menſch hat von dem Baum, den<lb/>
+<pb n="35" facs="#f0047"/>
+ich Eugenien beſtimmte, eine der neun Orangen ab¬<lb/>
+geriſſen, hm! das Ungeheuer! Somit iſt unſerem<lb/>
+Spaß geradezu die Spitze abgebrochen und Mar mag<lb/>
+ſein Gedicht nur gleich caſſiren.“</p><lb/>
+<p>„O nicht doch!“ ſagte die dringende Dame; „die<lb/>
+Lücke läßt ſich leicht ausfüllen, überlaßt es nur mir.<lb/>
+Geht Beide jetzt, erlöſ't, empfangt den guten Mann,<lb/>
+ſo freundlich und ſo ſchmeichelhaft ihr immer könnt.<lb/>
+Er ſoll, wenn wir ihn irgend halten können, heut<lb/>
+nicht weiter. Trefft ihr ihn nicht im Garten mehr,<lb/>
+ſucht ihn im Wirthshaus auf, und bringet ihn mit<lb/>
+ſeiner Frau. Ein größeres Geſchenk, eine ſchönere<lb/>
+Ueberraſchung für Eugenien hatte der Zufall uns an<lb/>
+dieſem Tag nicht machen können.“</p><lb/>
+<p>„Gewiß!“ erwiederte Max, „dieß war auch mein<lb/>
+erſter Gedanke. Geſchwinde, kommen Sie, Papa!<lb/>
+Und“ — ſagte er, indem ſie eilends nach der Treppe<lb/>
+liefen — „der Verſe wegen ſeyen Sie ganz ruhig.<lb/>
+Die neunte Muſe ſoll nicht zu kurz kommen; im<lb/>
+Gegentheil, ich werde aus dem Unglück noch beſon¬<lb/>
+dern Vortheil ziehen.“ — „Das iſt unmöglich!“ —<lb/>
+„Ganz gewiß.“ — „Nun, wenn das iſt — allein<lb/>
+ich nehme dich beim Wort — ſo wollen wir dem,<lb/>
+Querkopf alle erdenkliche Ehre erzeigen.“</p><lb/>
+<pb n="36" facs="#f0048"/>
+<p>So lange dieß im Schloß vorging, hatte ſich<lb/>
+unſer Quaſi-Gefangener, ziemlich unbeſorgt über den<lb/>
+Ausgang der Sache, geraume Zeit ſchreibend beſchäf¬<lb/>
+tigt. Weil ſich jedoch gar niemand ſehen ließ, fing<lb/>
+er an unruhig hin und her zu gehen; darüber kam<lb/>
+dringliche Botſchaft vom Wirthshaus, der Tiſch ſey<lb/>
+ſchon lange bereit, er möchte ja gleich kommen, der<lb/>
+Poſtillon preſſire. So ſuchte er denn ſeine Sachen<lb/>
+zuſammen und wollte ohne weiteres aufbrechen, als<lb/>
+beide Herrn vor der Laube erſchienen.</p><lb/>
+<p>Der Graf begrüßte ihn, beinah wie einen frühe¬<lb/>
+ren Bekannten, lebhaft mit ſeinem kräftig ſchallenden<lb/>
+Organ, ließ ihn zu gar keiner Entſchuldigung kom¬<lb/>
+men, ſondern erklärte ſogleich ſeinen Wunſch, das<lb/>
+Ehepaar zum wenigſten für dieſen Mittag und Abend<lb/>
+im Kreis ſeiner Familie zu haben. „Sie ſind uns,<lb/>
+mein liebſter Maeſtro, ſo wenig fremd, daß ich wohl<lb/>
+ſagen kann, der Name Mozart wird ſchwerlich an¬<lb/>
+derswo mit mehr Begeiſterung und häufiger genannt<lb/>
+als hier. Meine Nichte ſingt und ſpielt, ſie bringt<lb/>
+faſt ihren ganzen Tag am Flügel zu, kennt Ihre<lb/>
+Werke auswendig und hat das größte Verlangen,<lb/>
+Sie einmal in mehrerer Nähe zu ſehen, als es vori¬<lb/>
+gen Winter in einem Ihrer Concerte anging. Da<lb/>
+<pb n="37" facs="#f0049"/>
+wir nun demnächſt auf einige Wochen nach Wien<lb/>
+gehen werden, ſo war ihr eine Einladung beim Für¬<lb/>
+ſten Gallizin, wo man Sie öfter findet, von den<lb/>
+Verwandten verſprochen. Jetzt aber reiſen Sie nach<lb/>
+Prag, werden ſobald nicht wiederkehren, und Gott<lb/>
+weiß, ob Sie der Rückweg zu uns führt. Machen<lb/>
+Sie heute und morgen Raſttag! Das Fuhrwerk<lb/>
+ſchicken wir ſogleich nach Hauſe und mir erlauben<lb/>
+Sie die Sorge für Ihr Weiterkommen.“</p><lb/>
+<p>Der Componiſt, welcher in ſolchen Fällen der<lb/>
+Freundſchaft oder dem Vergnügen leicht zehnmal mehr,<lb/>
+als hier gefordert war, zum Opfer brachte, beſann<lb/>
+ſich nicht lange; er ſagte dieſen einen halben Tag<lb/>
+mit Freuden zu, dagegen ſollte morgen mit dem<lb/>
+Früheſten die Reiſe fortgeſetzt werden. Graf Max<lb/>
+erbat ſich das Vergnügen, Madame Mozart abzuho¬<lb/>
+len und alles Nöthige im Wirthshaus abzumachen.<lb/>
+Er ging, ein Wagen ſollte ihm gleich auf dem Fuße<lb/>
+nachfolgen.</p><lb/>
+<p>Von dieſem jungen Mann bemerken wir bei¬<lb/>
+läufig, daß er mit einem, von Vater und Mutter<lb/>
+angeerbten, heitern Sinn Talent und Liebe für ſchöne<lb/>
+Wiſſenſchaften verband, und ohne wahre Neigung zum<lb/>
+Soldatenſtand ſich doch als Offizier durch Kenntniſſe<lb/>
+<pb n="38" facs="#f0050"/>
+und gute Sitten hervorthat. Er kannte die fran¬<lb/>
+zöſiſche Literatur, und erwarb ſich, zu einer Zeit,<lb/>
+wo deutſche Verſe in der höheren Geſellſchaft wenig<lb/>
+galten, Lob und Gunſt durch eine nicht gemeine<lb/>
+Leichtigkeit der poetiſchen Form in der Mutterſprache<lb/>
+nach guten Muſtern, wie er ſie in Hagedorn, in<lb/>
+Götz und andern fand. Für heute war ihm nun,<lb/>
+wie wir bereits vernahmen, ein beſonders erfreulicher<lb/>
+Anlaß geworden, ſeine Gabe zu nutzen.</p><lb/>
+<p>Er traf Madame Mozart, mit der Wirthstoch¬<lb/>
+ter plaudernd, vor dem gedeckten Tiſch, wo ſie ſich<lb/>
+einen Teller Suppe voraus genommen hatte. Sie<lb/>
+war an außerordentliche Zwiſchenfälle, an kecke Steg¬<lb/>
+reifſprünge ihres Manns zu ſehr gewöhnt, als daß<lb/>
+ſie über die Erſcheinung und den Auftrag des jungen<lb/>
+Offiziers mehr als billig hätte betreten ſeyn können.<lb/>
+Mit unverſtellter Heiterkeit, beſonnen und gewandt,<lb/>
+beſprach und ordnete ſie ungeſäumt alles Erforder¬<lb/>
+liche ſelbſt. Es wurde umgepackt, bezahlt, der Po¬<lb/>
+ſtillon entlaſſen, ſie machte ſich, ohne zu große Aengſt¬<lb/>
+lichkeit in Herſtellung ihrer Toilette, fertig, und fuhr<lb/>
+mit dem Begleiter wohlgemuth dem Schloſſe zu, nicht<lb/>
+ahnend, auf welche ſonderbare Weiſe ihr Gemahl ſich<lb/>
+dort eingeführt hatte.</p><lb/>
+<pb n="39" facs="#f0051"/>
+<p>Der befand ſich inzwiſchen bereits ſehr behag¬<lb/>
+lich daſelbſt und auf das Beſte unterhalten. Nach<lb/>
+kurzer Zeit ſah er Eugenien mit ihrem Verlobten; ein<lb/>
+blühendes, höchſt anmuthiges, inniges Weſen. Sie<lb/>
+war blond, ihre ſchlanke Geſtalt in carmoiſinrothe,<lb/>
+leuchtende Seide mit koſtbaren Spitzen feſtlich geklei¬<lb/>
+det, um ihre Stirn ein weißes Band mit edlen Per¬<lb/>
+len. Der Baron, nur wenig älter als ſie, von ſanf¬<lb/>
+tem, offenem Charakter, ſchien ihrer werth in jeder<lb/>
+Rückſicht.</p><lb/>
+<p>Den erſten Aufwand des Geſprächs beſtritt, faſt<lb/>
+nur zu freigebig, der gute launige Hausherr, ver¬<lb/>
+möge ſeiner etwas lauten, mit Späßen und Hiſtör¬<lb/>
+chen ſattſam geſpickten Unterhaltungsweiſe. Es wur¬<lb/>
+den Erfriſchungen gereicht, die unſer Reiſender im<lb/>
+mindeſten nicht ſchonte.</p><lb/>
+<p>Eines hatte den Flügel geöffnet, Figaros Hoch¬<lb/>
+zeit lag aufgeſchlagen, und das Fräulein ſchickte ſich<lb/>
+an, von dem Baron accompagnirt, die Arie Suſan¬<lb/>
+nas in jener Gartenſcene zu ſingen, wo wir den<lb/>
+Geiſt der ſüßen Leidenſchaft ſtromweiſe, wie die ge¬<lb/>
+würzte ſommerliche Abendluft, einathmen. Die feine<lb/>
+Röthe auf Eugeniens Wangen wich zwei Athemzüge<lb/>
+lang der äußerſten Bläſſe; doch mit dem erſten Ton,<lb/>
+<pb n="40" facs="#f0052"/>
+der klangvoll über ihre Lippen kam, fiel ihr jede be¬<lb/>
+klemmende Feſſel vom Buſen. Sie hielt ſich lächelnd,<lb/>
+ſicher auf der hohen Woge, und das Gefühl dieſes<lb/>
+Moments, des einzigen in ſeiner Art vielleicht für<lb/>
+alle Tage ihres Lebens, begeiſterte ſie billig.</p><lb/>
+<p>Mozart war offenbar überraſcht. Als ſie ge¬<lb/>
+endigt hatte, trat er zu ihr und fing mit ſeinem un¬<lb/>
+gezierten Herzensausdruck an: „Was ſoll man ſagen,<lb/>
+liebes Kind, hier wo es iſt wie mit der lieben Sonne,<lb/>
+die ſich am beſten ſelber lobt, indem es gleich jeder¬<lb/>
+mann wohl in ihr wird! Bei ſolchem Geſang iſt<lb/>
+der Seele zu Muth wie dem Kindchen im Bad: es<lb/>
+lacht und wundert ſich und weiß ſich in der Welt<lb/>
+nichts Beſſeres. Uebrigens glauben Sie mir, unſer<lb/>
+einem in Wien begegnet es nicht jeden Tag, daß er<lb/>
+ſo lauter, ungeſchminkt und warm, ja ſo complet<lb/>
+ſich ſelber zu hören bekommt.“ — Damit erfaßte er<lb/>
+ihre Hand und küßte ſie herzlich. Des Mannes hohe<lb/>
+Liebenswürdigkeit und Güte nicht minder, als das<lb/>
+ehrenvolle Zeugniß, wodurch er ihr Talent auszeich¬<lb/>
+nete, ergriff Eugenien mit jener unwiderſtehlichen<lb/>
+Rührung, die einem leichten Schwindel gleicht, und<lb/>
+ihre Augen wollten ſich plötzlich mit Thränen an¬<lb/>
+füllen.</p><lb/>
+<pb n="41" facs="#f0053"/>
+<p>Hier trat Madame Mozart zur Thüre herein,<lb/>
+und gleich darauf erſchienen neue Gäſte, die man er¬<lb/>
+wartet hatte: eine dem Haus ſehr eng verwandte<lb/>
+freiherrliche Familie aus der Nähe, mit einer Toch¬<lb/>
+ter, Franziſka, die ſeit den Kinderjahren mit der<lb/>
+Braut durch die zärtlichſte Freundſchaft verbunden<lb/>
+und hier wie daheim war.</p><lb/>
+<p>Man hatte ſich allerſeits begrüßt, umarmt, be¬<lb/>
+glückwünſcht, die beiden Wiener Gäſte vorgeſtellt, und<lb/>
+Mozart ſetzte ſich an den Flügel. Er ſpielte einen<lb/>
+Theil eines Concerts von ſeiner Compoſition, wel¬<lb/>
+ches Eugenie ſo eben einſtudirte.</p><lb/>
+<p>Die Wirkung eines ſolchen Vertrags in einem<lb/>
+kleinen Kreis wie der gegenwärtige unterſcheidet ſich<lb/>
+natürlicherweiſe von jedem ähnlichen an einem öffent¬<lb/>
+lichen Orte durch die unendliche Befriedigung, die in<lb/>
+der unmittelbaren Berührung mit der Perſon des<lb/>
+Künſtlers und ſeinem Genius innerhalb der häus¬<lb/>
+lichen bekannten Wände liegt.</p><lb/>
+<p>Es war eines jener glänzenden Stücke, worin<lb/>
+die reine Schönheit ſich einmal, wie aus Laune,<lb/>
+freiwillig in den Dienſt der Eleganz begibt, ſo aber,<lb/>
+daß ſie gleichſam nur verhüllt in dieſe mehr will¬<lb/>
+kürlich ſpielenden Formen und hinter eine Menge<lb/>
+<pb n="42" facs="#f0054"/>
+blendender Lichter verſteckt, doch in jeder Bewegung<lb/>
+ihren eigenſten Adel verräth und ein herrliches Pa¬<lb/>
+thos verſchwenderiſch ausgießt.</p><lb/>
+<p>Die Gräfin machte für ſich die Bemerkung, daß<lb/>
+die meiſten Zuhörer, vielleicht Eugenie ſelbſt nicht<lb/>
+ausgenommen, trotz der geſpannteſten Aufmerkſamkeit<lb/>
+und aller feierlichen Stille während eines bezaubern¬<lb/>
+den Spiels, doch zwiſchen Auge und Ohr gar ſehr<lb/>
+getheilt waren. In unwillkürlicher Beobachtung des<lb/>
+Componiſten, ſeiner ſchlichten, beinahe ſteifen Körper¬<lb/>
+haltung, ſeines gutmüthigen Geſichts, der rundlichen<lb/>
+Bewegung dieſer kleinen Hände, war es gewiß auch<lb/>
+nicht leicht möglich, dem Zudrang tauſendfacher Kreuz-<lb/>
+und Quergedanken über den Wundermann zu wider¬<lb/>
+ſtehen.</p><lb/>
+<p>Zu Madame Mozart gewendet ſagte der Graf,<lb/>
+nachdem der Meiſter aufgeſtanden war: „Einem be¬<lb/>
+rühmten Künſtler gegenüber, wenn es ein Kennerlob<lb/>
+zu ſpitzen gilt, das halt nicht eines jeden Sache iſt,<lb/>
+wie haben es die Könige und Kaiſer gut! Es nimmt<lb/>
+ſich eben alles einzig und außerordentlich in einem<lb/>
+ſolchen Munde aus. Was dürfen ſie ſich nicht er¬<lb/>
+lauben, und wie bequem iſt es z. B., dicht hinter'm<lb/>
+Stuhl Ihres Herrn Gemahls, beim Schlußaccord<lb/>
+<pb n="43" facs="#f0055"/>
+einer brillanten Phantaſie dem beſcheidenen claſſiſchen<lb/>
+Mann auf die Schulter zu klopfen und zu ſagen:<lb/>
+„Sie ſind ein Tauſendſaſa, lieber Mozart!“ Kaum<lb/>
+iſt das Wort heraus, ſo geht's wie ein Lauffeuer<lb/>
+durch den Saal: „Was hat er ihm geſagt?“ — „Er<lb/>
+ſey ein Tauſendſaſa, hat er zu ihm geſagt!“ Und<lb/>
+alles, was da geigt und fiſtulirt und componirt, iſt<lb/>
+außer ſich von dieſem Einen Wort; kurzum, es iſt<lb/>
+der große Styl, der familiäre Kaiſerſtyl, der unnach¬<lb/>
+ahmliche, um welchen ich die Joſephs und die Fried¬<lb/>
+richs von je beneidet habe, und das nie mehr als<lb/>
+eben jetzt, wo ich ganz in Verzweiflung bin, von<lb/>
+anderweitiger geiſtreicher Münze zufällig keinen Deut<lb/>
+in allen meinen Taſchen anzutreffen.“</p><lb/>
+<p>Die Art, wie der Schäker dergleichen vorbrachte,<lb/>
+beſtach immerhin und rief unausbleiblich ein Lachen<lb/>
+hervor.</p><lb/>
+<p>Nun aber auf die Einladung der Hausfrau ver¬<lb/>
+fügte die Geſellſchaft ſich nach dem geſchmückten run¬<lb/>
+den Speiſeſalon, aus welchem den Eintretenden ein<lb/>
+feſtlicher Blumengeruch und eine kühlere, dem Appetit<lb/>
+willkommene Luft entgegen wehte.</p><lb/>
+<p>Man nahm die ſchicklich ausgetheilten Plätze ein,<lb/>
+und zwar der diſtinguirte Gaſt den feinigen dem<lb/>
+<pb n="44" facs="#f0056"/>
+Brautpaar gegenüber. Von einer Seite hatte er eine<lb/>
+kleine ältliche Dame, eine unverheirathete Tante Fran¬<lb/>
+ziska's, von der andern die junge reizende Nichte<lb/>
+ſelbſt zur Nebenſitzerin, die ſich durch Geiſt und<lb/>
+Munterkeit ihm bald beſonders zu empfehlen wußte.<lb/>
+Frau Conſtanze kam zwiſchen den Hauswirth und<lb/>
+ihren freundlichen Geleitsmann, den Lieutenant; die<lb/>
+übrigen reihten ſich ein, und ſo ſaß man zu Elfen<lb/>
+nach Möglichkeit bunt an der Tafel, deren unteres<lb/>
+Ende leer blieb. Auf ihr erhoben ſich mitten zwei<lb/>
+mächtig große Porcellanaufſätze mit gemalten Figuren,<lb/>
+breite Schalen gehäuft voll natürlicher Früchte und<lb/>
+Blumen über ſich haltend. An den Wänden des<lb/>
+Saals hingen reiche Feſtons. Was ſonſt da war,<lb/>
+oder nach und nach folgte, ſchien einen ausgedehnten<lb/>
+Schmaus zu verkünden. Theils auf der Tafel, zwi¬<lb/>
+ſchen Schüſſeln und Platten, theils vom Servirtiſch<lb/>
+herüber im Hintergrund, blinkte verſchiedenes edle Ge¬<lb/>
+tränk, vom ſchwärzeſten Roth bis hinauf zu dem<lb/>
+gelblichen Weiß, deſſen luſtiger Schaum herkömmlich<lb/>
+erſt die zweite Hälfte eines Feſtes krönt.</p><lb/>
+<p>Bis gegen dieſen Zeitpunkt hin bewegte ſich die<lb/>
+Unterhaltung, von mehreren Seiten gleich lebhaft ge¬<lb/>
+nährt, in allen Richtungen. Weil aber der Graf<lb/>
+<pb n="45" facs="#f0057"/>
+gleich Anfangs einige mal von weitem und jetzt nur<lb/>
+immer näher und muthwilliger auf Mozarts Garten¬<lb/>
+abenteuer anſpielte, ſo daß die einen heimlich lächel¬<lb/>
+ten, die andern ſich umſonſt den Kopf zerbrachen,<lb/>
+was er denn meine, ſo ging unſer Freund mit der<lb/>
+Sprache heraus.</p><lb/>
+<p>„Ich will in Gottes Namen beichten,“ fing er<lb/>
+an, „auf was Art mir eigentlich die Ehre der Be¬<lb/>
+kanntſchaft in dieſem edlen Haus geworden iſt. Ich<lb/>
+ſpiele dabei nicht die würdigſte Rolle, und um ein<lb/>
+Haar, ſo ſäß' ich jetzt, ſtatt hier vergnügt zu tafeln,<lb/>
+in einem abgelegenen Arreſtantenwinkel des gräflichen<lb/>
+Schloſſes und könnte mir mit leerem Magen die<lb/>
+Spinneweben an der Wand herum betrachten.“</p><lb/>
+<p>„Nun ja!“ rief Madame Mozart, „da werd' ich<lb/>
+ſchöne Dinge hören.“</p><lb/>
+<p>Ausführlich nun beſchrieb er erſt, wie er im<lb/>
+weißen Roß ſeine Frau zurück gelaſſen, die Promenade<lb/>
+in den Park, den Unſtern in der Laube, den Handel<lb/>
+mit der Gartenpolizei, kurz, ungefähr was wir ſchon<lb/>
+wiſſen, gab er alles mit größter Treuherzigkeit und<lb/>
+zum höchſten Ergötzen der Zuhörer preis. Das Lachen<lb/>
+wollte faſt kein Ende nehmen; ſelbſt die gemäßigte<lb/>
+Eugenie enthielt ſich nicht, es ſchüttelte ſie ordentlich.</p><lb/>
+<pb n="46" facs="#f0058"/>
+<p>„Nun,“ fuhr er fort, „das Sprichwort ſagt:<lb/>
+hat einer den Nutzen, dem Spott mag er trutzen.<lb/>
+Ich hab' meinen kleinen Profit von der Sache, Sie<lb/>
+werden ſchon ſehen. Vor allem aber hören Sie,<lb/>
+wie's eigentlich geſchah, daß ſich ein alter Kindskopf<lb/>
+ſo vergeſſen konnte. Eine Jugenderinnerung war mit<lb/>
+im Spiele.“</p><lb/>
+<p>„Im Frühling 1770 reiſte ich als dreizehnjäh¬<lb/>
+riges Bürſchchen mit meinem Vater nach Italien.<lb/>
+Wir gingen von Rom nach Neapel. Ich hatte zwei¬<lb/>
+mal im Conſervatorium und ſonſt zu verſchiedenen<lb/>
+malen geſpielt. Adel und Geiſtlichkeit erzeigten uns<lb/>
+manches Angenehme, vornemlich attachirte ſich ein<lb/>
+Abbate an uns, der ſich als Kenner ſchmeichelte und<lb/>
+übrigens am Hofe etwas galt. Den Tag vor un¬<lb/>
+ſerer Abreiſe führte er uns in Begleitung einiger<lb/>
+anderen Herrn in einen königlichen Garten, die Villa<lb/>
+reale, bei der prachtvollen Straße geradhin am<lb/>
+Meere gelegen, wo eine Bande ſicilianiſcher <hi rendition="#aq">comme¬<lb/>
+dianti</hi> ſich producirte — <hi rendition="#aq">figlj di Nettuno</hi>, wie ſie<lb/>
+ſich neben andern ſchönen Titeln auch nannten. Mit<lb/>
+vielen vornehmen Zuſchauern, worunter ſelbſt die junge<lb/>
+liebenswürdige Königin Carolina ſammt zwei Prin¬<lb/>
+zeſſen, ſaßen wir auf einer langen Reihe von Bänken<lb/>
+<pb n="47" facs="#f0059"/>
+im Schatten einer zeltartig bedeckten, niedern Galerie,<lb/>
+an deren Mauer unten die Wellen plätſcherten. Das<lb/>
+Meer mit ſeiner vielfarbigen Streifung ſtrahlte den<lb/>
+blauen Sonnenhimmel herrlich wider. Gerade vor<lb/>
+ſich hat man den Veſuv, links ſchimmert ſanft ge¬<lb/>
+ſchwungen eine reizende Küſte herein.“</p><lb/>
+<p>„Die erſte Abtheilung der Spiele war vorüber;<lb/>
+ſie wurde auf dem trockenen Bretterboden einer Art<lb/>
+von Flöße ausgeführt, die auf dem Waſſer ſtand, und<lb/>
+hatte nichts Beſonderes; der zweite aber und der<lb/>
+ſchönſte Theil beſtand aus lauter Schiffer-, Schwimm-<lb/>
+und Taucherſtücken und blieb mir ſtets mit allen Ein¬<lb/>
+zelnheiten friſch im Gedächtniß eingeprägt.“</p><lb/>
+<p>„Von entgegengeſetzten Seiten her näherten ſich<lb/>
+einander zwei zierliche, ſehr leicht gebaute Barken,<lb/>
+beide, wie es ſchien, auf einer Luſtfahrt begriffen.<lb/>
+Die eine, etwas größere, war mit einem Halbverdeck<lb/>
+verſehen, und nebſt den Ruderbänken mit einem dün¬<lb/>
+nen Maſt und einem Segel ausgerüſtet, auch präch¬<lb/>
+tig bemalt, der Schnabel vergoldet. Fünf Jünglinge<lb/>
+von idealiſchem Ausſehen, kaum bekleidet, Arme,<lb/>
+Bruſt und Beine dem Anſchein nach nackt, waren<lb/>
+theils an dem Ruder beſchäftigt, theils ergötzten ſie<lb/>
+ſich mit einer gleichen Anzahl artiger Mädchen, ihren<lb/>
+<pb n="48" facs="#f0060"/>
+Geliebten. Eine darunter, welche mitten auf dem<lb/>
+Verdecke ſaß und Blumenkränze wand, zeichnete ſich<lb/>
+durch Wuchs und Schönheit, ſo wie durch ihren Putz<lb/>
+vor allen übrigen aus. Dieſe dienten ihr willig,<lb/>
+ſpannten gegen die Sonne ein Tuch über ſie und<lb/>
+reichten ihr die Blumen aus dem Korb. Eine Flö¬<lb/>
+tenſpielerin ſaß zu ihren Füßen, die den Geſang der<lb/>
+andern mit ihren hellen Tönen unterſtützte. Auch<lb/>
+jener vorzüglichen Schönen fehlte es nicht an einem<lb/>
+eigenen Beſchützer; doch verhielten ſich beide ziemlich<lb/>
+gleichgültig gegen einander und der Liebhaber däuchte<lb/>
+mir faſt etwas roh.“</p><lb/>
+<p>„Inzwiſchen war das andere, einfachere Fahr¬<lb/>
+zeug näher gekommen. Hier ſah man bloß männliche<lb/>
+Jugend. Wie jene Jünglinge Hochroth trugen, ſo<lb/>
+war die Farbe der letztern Seegrün. Sie ſtutzten<lb/>
+beim Anblick der lieblichen Kinder, winkten Grüße<lb/>
+herüber und gaben ihr Verlangen nach näherer Be¬<lb/>
+kanntſchaft zu erkennen. Die munterſte hierauf nahm<lb/>
+eine Roſe vom Buſen und hielt ſie ſchelmiſch in die<lb/>
+Höhe, gleichſam fragend, ob ſolche Gaben bei ihnen<lb/>
+wohl angebracht wären, worauf von drüben allerſeits<lb/>
+mit unzweideutigen Gebärden geantwortet wurde. Die<lb/>
+Rothen ſahen verächtlich und finſter darein, konnten<lb/>
+<pb n="49" facs="#f0061"/>
+aber nichts machen, als mehrere der Mädchen einig<lb/>
+wurden, den armen Teufeln wenigſtens doch etwas<lb/>
+für den Hunger und Durſt zuzuwerfen. Es ſtand<lb/>
+ein Korb voll Orangen am Boden; wahrſcheinlich<lb/>
+waren es nur gelbe Bälle, den Früchten ähnlich<lb/>
+nachgemacht. Und jetzt begann ein entzückendes Schau¬<lb/>
+ſpiel, unter Mitwirkung der Muſik, die auf dem<lb/>
+Uferdamm aufgeſtellt war.“</p><lb/>
+<p>„Eine der Jungfrauen machte den Anfang und<lb/>
+ſchickte für's erſte ein paar Pomeranzen aus leichter<lb/>
+Hand hinüber, die, dort mit gleicher Leichtigkeit auf¬<lb/>
+gefangen, alsbald zurückkehrten; ſo ging es hin und<lb/>
+her, und weil nach und nach immer mehr Mädchen<lb/>
+zuhalfen, ſo flog's mit Pomeranzen bald dem Dutzend<lb/>
+nach in immer ſchnellerem Tempo hin und wieder.<lb/>
+Die Schöne in der Mitte nahm an dem Kampfe<lb/>
+keinen Antheil, als daß ſie höchſt begierig von ihrem<lb/>
+Schemel aus zuſah. Wir konnten die Geſchicklichkeit<lb/>
+auf beiden Seiten nicht genug bewundern. Die Schiffe<lb/>
+drehten ſich auf etwa dreißig Schritte in langſamer<lb/>
+Bewegung um einander, kehrten ſich bald die ganze<lb/>
+Flanke zu, bald ſchief das halbe Vordertheil: es<lb/>
+waren gegen vierundzwanzig Bälle unaufhörlich in der<lb/>
+Luft, doch glaubte man in der Verwirrung ihrer viel<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Mörike</hi>, Mozart. 4<lb/>
+</fw>
+<pb n="50" facs="#f0062"/>
+mehr zu ſehen. Manchmal entſtand ein förmliches<lb/>
+Kreuzfeuer, oft ſtiegen ſie und fielen in einem hohen<lb/>
+Bogen; kaum ging einmal einer und der andere fehl,<lb/>
+es war, als ſtürzten ſie von ſelbſt durch eine Kraft<lb/>
+der Anziehung in die geöffneten Finger.“</p><lb/>
+<p>„So angenehm jedoch das Auge beſchäftigt wurde,<lb/>
+ſo lieblich gingen für's Gehör die Melodien nebenher:<lb/>
+ſicilianiſche Weiſen, Tänze, <hi rendition="#aq">Saltarelli</hi>, <hi rendition="#aq">Canzoni a<lb/>
+ballo</hi>, ein ganzes Quodlibet, auf Guirlandenart leicht<lb/>
+aneinander gehängt. Die jüngere Prinzeß, ein holdes<lb/>
+unbefangenes Geſchöpf, etwa von meinem Alter, be¬<lb/>
+gleitete den Tact gar artig mit Kopfnicken; ihr Lächeln<lb/>
+und die langen Wimpern ihrer Augen kann ich noch<lb/>
+heute vor mir ſehen.“</p><lb/>
+<p>„Nun laſſen Sie mich kürzlich den Verlauf der<lb/>
+Poſſe noch erzählen, obſchon er weiter nichts zu<lb/>
+meiner Sache thut. Man kann ſich nicht leicht etwas<lb/>
+Hübſcheres denken. Während dem das Scharmützel<lb/>
+allmählig ausging und nur noch einzelne Würfe ge¬<lb/>
+wechſelt wurden, die Mädchen ihre goldenen Aepfel<lb/>
+ſammelten und in den Korb zurück brachten, hatte<lb/>
+drüben ein Knabe, wie ſpielenderweis, ein breites,<lb/>
+grüngeſtricktes Netz ergriffen und kurze Zeit unter<lb/>
+dem Waſſer gehalten; er hob es auf, und zum<lb/>
+<pb n="51" facs="#f0063"/>
+Erſtaunen Aller fand ſich ein großer, blau, grün und<lb/>
+goldſchimmernder Fiſch in demſelben. Die Nächſten<lb/>
+ſprangen eifrig zu, um ihn heraus zu holen, da glitt<lb/>
+er ihnen aus den Händen, als wär' es wirklich ein<lb/>
+lebendiger, und fiel in die See. Das war nun eine<lb/>
+abgeredte Kriegsliſt, die Rothen zu bethören und aus<lb/>
+dem Schiff zu locken. Dieſe, gleichſam bezaubert von<lb/>
+dem Wunder, ſobald ſie merkten, daß das Thier nicht<lb/>
+untertauchen wollte, nur immer auf der Oberfläche<lb/>
+ſpielte, beſannen ſich nicht einen Augenblick, ſtürzten<lb/>
+ſich alle in's Meer, die Grünen ebenfalls, und alſo<lb/>
+ſah man zwölf gewandte, wohlgeſtalte Schwimmer,<lb/>
+den fliehenden Fiſch zu erhaſchen bemüht, indem er<lb/>
+auf den Wellen gaukelte, minutenlang unter den¬<lb/>
+ſelben verſchwand, bald da, bald dort, dem einen<lb/>
+zwiſchen den Beinen, dem andern zwiſchen Bruſt und<lb/>
+Kinn herauf, wieder zum Vorſchein kam. Auf Ein¬<lb/>
+mal, wie die Rothen eben am hitzigſten auf ihren<lb/>
+Fang aus waren, erſah die andere Partie ihren<lb/>
+Vortheil und erſtieg ſchnell wie der Blitz das fremde,<lb/>
+ganz den Mädchen überlaſſene Schiff unter großem<lb/>
+Gekreiſche der letztern. Der nobelſte der Burſchen,<lb/>
+wie ein Mercur gewachſen, flog mit freudeſtrahlendem<lb/>
+Geſicht auf die ſchönſte zu, umfaßte, küßte ſie, die,<lb/>
+<pb n="52" facs="#f0064"/>
+weit entfernt in das Geſchrei der andern einzuſtimmen,<lb/>
+ihre Arme gleichfalls feurig um den ihr wohlbekannten<lb/>
+Jüngling ſchlang. Die betrogene Schaar ſchwamm<lb/>
+zwar eilends herbei, wurde aber mit Rudern und<lb/>
+Waffen vom Bord abgetrieben. Ihre unnütze Wuth,<lb/>
+das Angſtgeſchrei der Mädchen, der gewaltſame Wider¬<lb/>
+ſtand einiger von ihnen, ihr Bitten und Flehen, faſt<lb/>
+erſtickt vom übrigen Alarm, des Waſſers, der Muſik,<lb/>
+die plötzlich einen andern Charakter angenommen<lb/>
+hatte — es war ſchön über alle Beſchreibung und<lb/>
+die Zuſchauer brachen darüber in einen Sturm von<lb/>
+Begeiſterung aus.“</p><lb/>
+<p>„In dieſem Moment nun entwickelte ſich das<lb/>
+bisher locker eingebundene Segel: daraus ging ein<lb/>
+roſiger Knabe hervor mit ſilbernen Schwingen, mit<lb/>
+Bogen, Pfeil und Köcher, und in anmuthvoller<lb/>
+Stellung ſchwebte er frei auf der Stange. Schon<lb/>
+ſind die Ruder alle in voller Thätigkeit, das Segel<lb/>
+blähte ſich auf: allein gewaltiger als beides ſchien<lb/>
+die Gegenwart des Gottes und ſeine heftig vorwärts<lb/>
+eilende Gebärde das Fahrzeug fortzutreiben, dergeſtalt,<lb/>
+daß die faſt athemlos nachſetzenden Schwimmer, deren<lb/>
+Einer den goldenen Fiſch hoch mit der Linken über<lb/>
+ſeinem Haupte hielt, die Hoffnung bald aufgaben,<lb/>
+<pb n="53" facs="#f0065"/>
+und bei erſchöpften Kräften nothgedrungen ihre Zu¬<lb/>
+flucht zu dem verlaſſenen Schiffe nahmen. Derweil<lb/>
+haben die Grünen eine kleine bebuſchte Halbinſel<lb/>
+erreicht, wo ſich unerwartet ein ſtattliches Boot mit<lb/>
+bewaffneten Kameraden im Hinterhalt zeigte. Im<lb/>
+Angeſicht ſo drohender Umſtände pflanzte das Häufchen<lb/>
+eine weiße Flagge auf, zum Zeichen, daß man güt¬<lb/>
+lich unterhandeln wolle. Durch ein gleiches Signal<lb/>
+von jenſeits ermuntert, fuhren ſie auf jenen Haltort<lb/>
+zu, und bald ſah man daſelbſt die guten Mädchen<lb/>
+alle, bis auf die Eine, die mit Willen blieb, ver¬<lb/>
+gnügt mit ihren Liebhabern das eigene Schiff be¬<lb/>
+ſteigen. — Hiemit war die Comödie beendigt.“</p><lb/>
+<p>„Mir däucht,“ ſo flüſterte Eugenie mit leuchten¬<lb/>
+den Augen dem Baron in einer Pauſe zu, worin<lb/>
+ſich jedermann beifällig über das eben Gehörte aus¬<lb/>
+ſprach, „wir haben hier eine gemalte Symphonie<lb/>
+von Anfang bis zu Ende gehabt, und ein vollkom¬<lb/>
+menes Gleichniß überdieß des Mozartiſchen Geiſtes<lb/>
+ſelbſt in ſeiner ganzen Heiterkeit! Hab' ich nicht Recht?<lb/>
+iſt nicht die ganze Anmuth Figaro's darin?“</p><lb/>
+<p>Der Bräutigam war im Begriff, ihre Bemerkung<lb/>
+dem Componiſten mitzutheilen, als dieſer zu reden<lb/>
+fortfuhr.</p><lb/>
+<pb n="54" facs="#f0066"/>
+<p>„Es ſind nun ſiebzehn Jahre her, daß ich Italien<lb/>
+ſah. Wer, der es einmal ſah, inſonderheit Neapel,<lb/>
+denkt nicht ſein Lebenlang daran, und wär' er auch,<lb/>
+wie ich, noch halb in Kinderſchuhen geſteckt! So<lb/>
+lebhaft aber wie heut in Ihrem Garten war mir der<lb/>
+letzte ſchöne Abend am Golf kaum jemals wieder auf¬<lb/>
+gegangen. Wenn ich die Augen ſchloß — ganz deut¬<lb/>
+lich, klar und hell, den letzten Schleier von ſich hau¬<lb/>
+chend, lag die himmliſche Gegend vor mir verbreitet!<lb/>
+Meer und Geſtade, Berg und Stadt, die bunte<lb/>
+Menſchenmenge an dem Ufer hin, und dann das<lb/>
+wunderſame Spiel der Bälle durcheinander! Ich<lb/>
+glaubte wieder dieſelbe Muſik in den Ohren zu haben,<lb/>
+ein ganzer Roſenkranz von fröhlichen Melodien zog<lb/>
+innerlich an mir vorbei, Fremdes und Eigenes, Crethi<lb/>
+und Plethi, eins immer das andre ablöſend. Von<lb/>
+ungefähr ſpringt ein Tanzliedchen hervor, Sechsach¬<lb/>
+telstact, mir völlig neu. — Halt, dacht' ich, was<lb/>
+gibt's hier? Das ſcheint ein ganz verteufelt niedliches<lb/>
+Ding! Ich ſehe näher zu — alle Wetter! das iſt ja<lb/>
+Maſetto, das iſt ja Zerlina!“ — Er lachte gegen<lb/>
+Madame Mozart hin, die ihn ſogleich errieth.</p><lb/>
+<p>„Die Sache,“ fuhr er fort, „iſt einfach dieſe.<lb/>
+In meinem erſten Act blieb eine kleine leichte Rumer<lb/>
+<pb n="55" facs="#f0067"/>
+unerledigt, Duett und Chor einer ländlichen Hochzeit.<lb/>
+Vor zwei Monaten nämlich, als ich dieſes Stück der<lb/>
+Ordnung nach vornehmen wollte, da fand ſich auf<lb/>
+den erſten Wurf das Rechte nicht alsbald. Eine<lb/>
+Weiſe, einfältig und kindlich und ſprützend von Fröh¬<lb/>
+lichkeit über und über, ein friſcher Buſenſtrauß mit<lb/>
+Flatterband dem Mädel angeſteckt, ſo mußte es ſeyn.<lb/>
+Weil man nun im Geringſten nichts erzwingen ſoll,<lb/>
+und weil dergleichen Kleinigkeiten ſich oft gelegentlich<lb/>
+von ſelber machen, ging ich darüber weg und ſah<lb/>
+mich im Verfolg der größeren Arbeit kaum wieder<lb/>
+danach um. Ganz flüchtig kam mir heut im Wagen,<lb/>
+kurz eh' wir in's Dorf herein fuhren, der Text in<lb/>
+den Sinn; da ſpann ſich denn weiter nichts an, zum<lb/>
+wenigſten nicht daß ich's wüßte. Genug, ein Stünd¬<lb/>
+chen ſpäter, in der Laube beim Brunnen, erwiſch'<lb/>
+ich ein Motiv, wie ich es glücklicher und beſſer zu<lb/>
+keiner andern Zeit, auf keinem andern Weg erfunden<lb/>
+haben würde. Man macht bisweilen in der Kunſt<lb/>
+beſondere Erfahrungen, ein ähnlicher Streich iſt mir<lb/>
+nie vorgekommen. Denn eine Melodie, dem Vers<lb/>
+wie auf den Leib gegoſſen — doch, um nicht vor¬<lb/>
+zugreifen, ſo weit ſind wir noch nicht, der Vogel<lb/>
+hatte nur den Kopf erſt aus dem Ei, und auf <hi rendition="#g">der</hi><lb/>
+<pb n="56" facs="#f0068"/>
+Stelle fing ich an, ihn vollends rein herauszuſchälen.<lb/>
+Dabei ſchwebte mir lebhaft der Tanz der Zerline vor<lb/>
+Augen, und wunderlich ſpielte zugleich die lachende<lb/>
+Landſchaft am Golf von Neapel herein. Ich hörte<lb/>
+die wechſelnden Stimmen des Brautpaars, die Dirnen<lb/>
+und Burſche im Chor.“</p><lb/>
+<p>Hier trällerte Mozart ganz luſtig den Anfang des<lb/>
+Liedchens:</p><lb/>
+<lg type="poem"> <l rendition="#aq">Giovinette, che fatte all' amore, che fatte all'<lb/>
+<hi rendition="#et">amore,</hi></l><lb/>
+<l rendition="#aq">Non lasciate, che passi l'età, che passi l'età, che<lb/>
+<hi rendition="#et">passi l'età!</hi></l><lb/>
+<l rendition="#aq">Se nel seno vi bulica il core, vi bulica il core,</l><lb/>
+<l rendition="#aq">Il remedio vedete lo quà! La la la! La la la!</l><lb/>
+<l rendition="#aq">Che piacer, che piacer che sarà!</l><lb/>
+<l rendition="#right"><hi rendition="#aq">Ah la la! Ah la la</hi> u. f. f.<note place="foot" n="*">     <lg type="poem">         <l>Liebe Schweſtern, zur Liebe geboren,</l><lb/>
+<l>Nützt der Jugend ſchön blühende Zeit!</l><lb/>
+<l>Hängt ihr 's Köpfchen in Sehnſucht verloren,</l><lb/>
+<l>Amor iſt euch zu helfen bereit.</l><lb/>
+<l rendition="#et">Tral la la!</l><lb/>
+<l>Welch Vergnügen erwartet euch da! u. ſ. w.</l></lg><lb/>
+</note></l><lb/>
+</lg> <p>„Mittlerweile hatten meine Hände das große Un¬<lb/>
+heil angerichtet. Die Nemeſis lauerte ſchon an der<lb/>
+Hecke und trat jetzt hervor in Geſtalt des entſetzlichen<lb/>
+<pb n="57" facs="#f0069"/>
+Mannes im galonirten blauen Rock. Ein Ausbruch<lb/>
+des Veſuvio, wenn er in Wirklichkeit damals an dem<lb/>
+göttlichen Abend am Meer Zuſchauer und Acteurs,<lb/>
+die ganze Herrlichkeit Parthenope's mit einem ſchwar¬<lb/>
+zen Aſchenregen urplötzlich verſchüttet und zugedeckt<lb/>
+hätte, bei Gott, die Kataſtrophe wäre mir nicht un¬<lb/>
+erwarteter und ſchrecklicher geweſen. Der Satan der!<lb/>
+ſo heiß hat mir nicht leicht jemand gemacht. Ein<lb/>
+Geſicht wie aus Erz — einigermaßen dem grauſamen<lb/>
+römiſchen Kaiſer Tiberius ähnlich! Sieht ſo der<lb/>
+Diener aus, dacht' ich, nachdem er weggegangen, wie<lb/>
+mag erſt Seine Gnaden ſelbſt drein ſehen. Jedoch,<lb/>
+die Wahrheit zu geſtehn, ich rechnete ſchon ziemlich<lb/>
+auf den Schutz der Damen, und das nicht ohne<lb/>
+Grund. Denn dieſe Stanzel da, mein Weibchen,<lb/>
+etwas neugierig von Natur, ließ ſich im Wirths¬<lb/>
+haus von der dicken Frau das Wiſſenswürdigſte von<lb/>
+denen ſämmtlichen Perſönlichkeiten der gnädigen Herr¬<lb/>
+ſchaft in meinem Beiſeyn erzählen, ich ſtand dabei<lb/>
+und hörte ſo —“</p><lb/>
+<p>Hier konnte Madame Mozart nicht umhin, ihm<lb/>
+in das Wort zu fallen und auf das Angelegentlichſte<lb/>
+zu verſichern, daß im Gegentheil Er der Ausfrager<lb/>
+geweſen; es kam zu heitern Conteſtationen zwiſchen<lb/>
+<pb n="58" facs="#f0070"/>
+Mann und Frau, die viel zu lachen gaben. — „Dem<lb/>
+ſey nun wie ihm wolle,“ ſagte er, „kurzum, ich<lb/>
+hörte ſo entfernt etwas von einer lieben Pflegetochter,<lb/>
+welche Braut, ſehr ſchön, dazu die Güte ſelber ſey<lb/>
+und ſinge wie ein Engel. <hi rendition="#aq">Per Dio</hi>! fiel mir jetzt<lb/>
+ein: das hilft dir aus der Lauge! Du ſetz'ſt dich auf<lb/>
+der Stelle hin, ſchreibſt's Liedchen auf, ſo weit<lb/>
+es geht, erklärſt die Sottiſe der Wahrheit gemäß,<lb/>
+und es gibt einen trefflichen Spaß. Gedacht, ge¬<lb/>
+than. Ich hatte Zeit genug, auch fand ſich noch<lb/>
+ein ſauberes Bögchen grün linirt Papier. — Und hier<lb/>
+iſt das Produkt! Ich lege es in dieſe ſchönen Hände,<lb/>
+ein Brautlied aus dem Stegreif, wenn Sie es dafür<lb/>
+gelten laſſen.“</p><lb/>
+<p>So reichte er ſein reinlichſt geſchriebenes Noten¬<lb/>
+blatt Eugenien über den Tiſch, des Onkels Hand kam<lb/>
+aber der ihrigen zuvor, er haſchte es hinweg und rief:<lb/>
+„Geduld noch einen Augenblick, mein Kind!“</p><lb/>
+<p>Auf ſeinen Wink that ſich die Flügelthüre des<lb/>
+Salons weit auf, und es erſchienen einige Diener,<lb/>
+die den verhängnißvollen Pomeranzenbaum anſtändig,<lb/>
+ohne Geräuſch in den Saal herein trugen und an der<lb/>
+Tafel unten auf eine Bank niederſetzten; gleichzeitig<lb/>
+wurden rechts und links zwei ſchlanke Myrtenbäumchen<lb/>
+<pb n="59" facs="#f0071"/>
+aufgeſtellt. Eine am Stamm des Orangenbaums<lb/>
+befeſtigte Inſchrift bezeichnete ihn als Eigenthum der<lb/>
+Braut; vorn aber, auf dem Moosgrund, ſtand, mit<lb/>
+einer Serviette bedeckt, ein Porcellanteller, der, als<lb/>
+man das Tuch hinwegnahm, eine zerſchnittene Orange<lb/>
+zeigte, neben welche der Oheim mit liſtigem Blick<lb/>
+des Meiſters Autographen ſteckte. Allgemeiner un¬<lb/>
+endlicher Jubel erhob ſich darüber.</p><lb/>
+<p>„Ich glaube gar,“ ſagte die Gräfin, „Eugenie<lb/>
+weiß noch nicht einmal, was eigentlich da vor ihr<lb/>
+ſteht? Sie kennt wahrhaftig ihren alten Liebling in<lb/>
+ſeinem neuen Flor und Früchteſchmuck nicht mehr!“</p><lb/>
+<p>Beſtürzt, ungläubig ſah das Fräulein bald den<lb/>
+Baum, bald ihren Oheim an. „Es iſt nicht mög¬<lb/>
+lich,“ ſagte ſie, „ich weiß ja wohl, er war nicht mehr<lb/>
+zu retten.“</p><lb/>
+<p>„Du meinſt alſo,“ verſetzte jener, „man habe dir<lb/>
+nur irgend ungefähr ſo ein Erſatzſtück ausgeſucht?<lb/>
+Das wär' was Rechts! Nein, ſieh nur her — ich<lb/>
+muß es machen, wie's in der Comödie der Brauch<lb/>
+iſt, wo ſich die todtgeglaubten Söhne oder Brüder<lb/>
+durch ihre Muttermäler und Narben legitimiren.<lb/>
+Schau dieſen Auswuchs da! und hier die Schrunde<lb/>
+über's Kreuz, du mußt ſie hundertmal bemerkt haben.<lb/>
+<pb n="60" facs="#f0072"/>
+Nun, iſt er's oder iſt er's nicht?“ — Sie konnte<lb/>
+nicht mehr zweifeln; ihr Staunen, ihre Rührung und<lb/>
+Freude war unbeſchreiblich.</p><lb/>
+<p>Es knüpfte ſich an dieſen Baum für die Familie<lb/>
+das mehr als hundertjährige Gedächtniß einer aus¬<lb/>
+gezeichneten Frau, welche wohl verdient, daß wir<lb/>
+ihrer mit Wenigem hier gedenken.</p><lb/>
+<p>Des Oheims Großvater, durch ſeine diplomati¬<lb/>
+ſchen Verdienſte im Wiener Cabinet rühmlich bekannt,<lb/>
+von zwei Regenten nach einander mit gleichem Ver¬<lb/>
+trauen beehrt, war innerhalb ſeines eigenen Hauſes<lb/>
+nicht minder glücklich im Beſitz einer vortrefflichen<lb/>
+Gemahlin, Renate Leonore. Ihr wiederholter Auf¬<lb/>
+enthalt in Frankreich brachte ſie vielfach mit dem<lb/>
+glänzenden Hofe Ludwigs <hi rendition="#aq">XIV</hi>. und mit den bedeu¬<lb/>
+tendſten Männern und Frauen dieſer merkwürdigen<lb/>
+Epoche in Berührung. Bei ihrer unbefangenen Theil¬<lb/>
+nahme an jenem ſteten Wechſel des geiſtreichſten Lebens¬<lb/>
+genuſſes verläugnete ſie auf keinerlei Art, in Worten<lb/>
+und Werken, die angeſtammte deutſche Ehrenfeſtig¬<lb/>
+keit und ſittliche Strenge, die ſich in den kräftigen<lb/>
+Zügen des noch vorhandenen Bildniſſes der Gräfin<lb/>
+unverkennbar ausprägt. Vermöge eben dieſer Den¬<lb/>
+kungsweiſe übte ſie in der gedachten Societät eine<lb/>
+<pb n="61" facs="#f0073"/>
+eigenthümliche naive Oppoſition, und ihre hinter¬<lb/>
+laſſene Korreſpondenz weiſt eine Menge Spuren<lb/>
+davon auf, mit wie viel Freimuth und herzhafter<lb/>
+Schlagfertigkeit, es mochte nun von Glaubensſachen,<lb/>
+von Literatur und Politik, oder von was immer die<lb/>
+Rede ſeyn, die originelle Frau ihre geſunden Grund¬<lb/>
+ſätze und Anſichten zu vertheidigen, die Blößen der<lb/>
+Geſellſchaft anzugreifen wußte, ohne doch dieſer im<lb/>
+mindeſten ſich läſtig zu machen. Ihr reges Intereſſe<lb/>
+für ſämmtliche Perſonen, die man im Hauſe einer<lb/>
+Ninon, dem eigentlichen Herd der feinſten Geiſtes¬<lb/>
+bildung treffen konnte, war demnach ſo beſchaffen<lb/>
+und geregelt, daß es ſich mit dem höheren Freund¬<lb/>
+ſchaftsverhältniß zu einer der edelſten Damen jener<lb/>
+Zeit, der Frau von S<hi rendition="#aq">é</hi>vign<hi rendition="#aq">é</hi>, vollkommen wohl ver¬<lb/>
+trug. Neben manchen muthwilligen Scherzen Cha¬<lb/>
+pelle's an ſie, vom Dichter eigenhändig auf Blätter<lb/>
+mit ſilberblumigem Rande gekritzelt, fanden ſich die<lb/>
+liebevollſten Briefe der Marquiſin und ihrer Tochter<lb/>
+an die ehrliche Freundin aus Oeſterreich nach ihrem<lb/>
+Tod in einem Ebenholzſchränkchen der Großmutter vor.<lb/>
+</p> <p>Frau von S<hi rendition="#aq">é</hi>vign<hi rendition="#aq">é</hi> war es denn auch, aus deren<lb/>
+Hand ſie eines Tages, bei einem Feſte zu Trianon,<lb/>
+auf der Terraſſe des Gartens den blühenden Orangen¬<lb/>
+<pb n="62" facs="#f0074"/>
+zweig empfing, den ſie ſofort auf das Gerathewohl<lb/>
+in einen Topf ſetzte und glücklich angewurzelt mit<lb/>
+nach Deutſchland nahm.</p><lb/>
+<p>Wohl fünfundzwanzig Jahre wuchs das Bäumchen<lb/>
+unter ihren Augen allgemach heran und wurde ſpäter<lb/>
+von Kindern und Enkeln mit äußerſter Sorgfalt ge¬<lb/>
+pflegt. Es konnte nächſt ſeinem perſönlichen Werthe<lb/>
+zugleich als lebendes Symbol der feingeiſtigen Reize<lb/>
+eines beinahe vergötterten Zeitalters gelten, worin<lb/>
+wir heutzutage freilich des wahrhaft Preiſenswerthen<lb/>
+wenig finden können, und das ſchon eine unheilvolle<lb/>
+Zukunft in ſich trug, deren welterſchütternder Eintritt<lb/>
+dem Zeitpunkt unſerer harmloſen Erzählung bereits<lb/>
+nicht ferne mehr lag.</p><lb/>
+<p>Die meiſte Liebe widmete Eugenie dem Vermächt¬<lb/>
+niß der würdigen Ahnfrau, weßhalb der Oheim öfters<lb/>
+merken ließ, es dürfte wohl einſt eigens in ihre Hände<lb/>
+übergehen. Deſto ſchmerzlicher war es dem Fräulein<lb/>
+denn auch, als der Baum im Frühling des vorigen<lb/>
+Jahres, den ſie nicht hier zubrachte, zu trauern be¬<lb/>
+gann, die Blätter gelb wurden und viele Zweige<lb/>
+abſtarben. In Betracht, daß irgend eine beſondere<lb/>
+Urſache ſeines Verkommens durchaus nicht zu ent¬<lb/>
+decken war und keinerlei Mittel anſchlug, gab ihn<lb/>
+<pb n="63" facs="#f0075"/>
+der Gärtner bald verloren, obwohl er ſeiner natür¬<lb/>
+lichen Ordnung nach leicht zwei und dreimal älter<lb/>
+werden konnte. Der Graf hingegen, von einem be¬<lb/>
+nachbarten Kenner berathen, ließ ihn nach einer<lb/>
+ſonderbaren, ſelbſt räthſelhaften Vorſchrift, wie ſie<lb/>
+das Landvolk häufig hat, in einem abgeſonderten<lb/>
+Raume ganz insgeheim behandeln, und ſeine Hoff¬<lb/>
+nung, die geliebte Nichte eines Tags mit dem zu<lb/>
+neuer Kraft und voller Fruchtbarkeit gelangten alten<lb/>
+Freund zu überraſchen, ward über alles Erwarten<lb/>
+erfüllt. Mit Ueberwindung ſeiner Ungeduld und nicht<lb/>
+ohne Sorge, ob denn wohl auch die Früchte, von<lb/>
+denen etliche zuletzt den höchſten Grad der Reife hat¬<lb/>
+ten, ſo lang am Zweige halten würden, verſchob er<lb/>
+die Freude um mehrere Wochen auf das heutige Feſt,<lb/>
+und es bedarf nun weiter keines Worts darüber, mit<lb/>
+welcher Empfindung der gute Herr ein ſolches Glück<lb/>
+noch im letzten Moment durch einen Unbekannten ſich<lb/>
+verkümmert ſehen mußte.</p><lb/>
+<p>Der Lieutenant hatte ſchon vor Tiſche Gelegen¬<lb/>
+heit und Zeit gefunden, ſeinen dichteriſchen Beitrag<lb/>
+zu der feierlichen Uebergabe in's Reine zu bringen<lb/>
+und ſeine vielleicht ohnehin etwas zu ernſt gehaltenen<lb/>
+Verſe durch einen veränderten Schluß den Umſtänden<lb/>
+<pb n="64" facs="#f0076"/>
+möglichſt anzupaſſen. Er zog nunmehr ſein Blatt<lb/>
+bervor, das er, vom Stuhle ſich erhebend und an<lb/>
+die Couſine gewendet, vorlas. Der Inhalt der<lb/>
+Strophen war kurz gefaßt dieſer:</p><lb/>
+<p>Ein Nachkömmling des vielgeprieſ'nen Baums<lb/>
+der Heſperiden, der vor Alters, auf einer weſtlichen<lb/>
+Inſel, im Garten der Juno, als eine Hochzeitgabe<lb/>
+für ſie von Mutter Erde, hervorgeſproßt war, und<lb/>
+welchen die drei melodiſchen Nymphen bewachten,<lb/>
+hat eine ähnliche Beſtimmung von jeher gewünſcht<lb/>
+und gehofft, da der Gebrauch, eine herrliche Braut<lb/>
+mit ſeinesgleichen zu beſchenken, von den Göttern<lb/>
+vorlängſt auch unter die Sterblichen kam.</p><lb/>
+<p>Nach langem vergeblichen Warten ſcheint endlich<lb/>
+die Jungfrau gefunden, auf die er ſeine Blicke richten<lb/>
+darf. Sie erzeigt ſich ihm günſtig und verweilt oft<lb/>
+bei ihm. Doch der muſiſche Lorbeer, ſein ſtolzer<lb/>
+Nachbar am Bord der Quelle, hat ſeine Eiferſucht er¬<lb/>
+regt, indem er droht, der kunſtbegabten Schönen Herz<lb/>
+und Sinn für die Liebe der Männer zu rauben. Die<lb/>
+Myrte tröſtet ihn umſonſt und lehrt ihn Geduld durch<lb/>
+ihr eigenes Beiſpiel; zuletzt jedoch iſt es die andauernde<lb/>
+Abweſenheit der Liebſten, was ſeinen Gram ver¬<lb/>
+mehrt und ihm, nach kurzem Siechthum, tödtlich wird.</p><lb/>
+<pb n="65" facs="#f0077"/>
+<p>Der Sommer bringt die Entfernte und bringt<lb/>
+ſie mit glücklich umgewandtem Herzen zurück. Das<lb/>
+Dorf, das Schloß, der Garten, alles empfängt ſie<lb/>
+mit tauſend Freuden. Roſen und Lilien, in erhöh¬<lb/>
+tem Schimmer, ſehen entzückt und beſchämt zu ihr<lb/>
+auf, Glück winken ihr Sträucher und Bäume: für<lb/>
+Einen, ach, den edelſten, kommt ſie zu ſpät. Sie<lb/>
+findet ſeine Krone verdorrt, ihre Finger betaſten den<lb/>
+lebloſen Stamm und die klirrenden Aeſte ſeines Ge¬<lb/>
+zweigs. Er kennt und ſieht ſeine Pflegerin nimmer.<lb/>
+Wie weint ſie, wie ſtrömt ihre zärtliche Klage!</p><lb/>
+<p>Apollo von weitem vernimmt die Stimme der<lb/>
+Tochter. Er kommt, er tritt herzu und ſchaut mit¬<lb/>
+fühlend ihren Jammer. Alsbald mit ſeinen allheilen¬<lb/>
+den Händen berührt er den Baum, daß er in ſich<lb/>
+erbebt, der vertrocknete Saft in der Rinde gewaltſam<lb/>
+anſchwillt, ſchon junges Laub ausbricht, ſchon weiße<lb/>
+Blumen da und dort in ambroſiſcher Fülle aufgehen.<lb/>
+Ja — denn was vermöchten die Himmliſchen nicht? —<lb/>
+ſchön runde Früchte ſetzen an, dreimal drei, nach der<lb/>
+Zahl der neun Schweſtern; ſie wachſen und wachſen,<lb/>
+ihr kindliches Grün zuſehends mit der Farbe des<lb/>
+Goldes vertauſchend. Phöbus — ſo ſchloß ſich das<lb/>
+Gedicht —</p><lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Mörike</hi>, Mozart. 5<lb/>
+</fw>
+<pb n="66" facs="#f0078"/>
+<lg type="poem"> <lg n="1"> <l>Phöbus überzählt die Stücke,</l><lb/>
+<l>Weidet ſelbſten ſich daran,</l><lb/>
+<l>Ja, es fängt im Augenblicke</l><lb/>
+<l>Ihm der Mund zu wäſſern an;</l><lb/>
+</lg> <lg n="2"> <l>Lächelnd nimmt der Gott der Töne</l><lb/>
+<l>Von der ſaftigſten Beſitz:</l><lb/>
+<l>Laß uns theilen, holde Schöne,</l><lb/>
+<l>Und für Amorn — dieſen Schnitz!</l><lb/>
+</lg> </lg> <p>Der Dichter erntete rauſchenden Beifall, und gern<lb/>
+verzieh man die barocke Wendung, durch welche der<lb/>
+Eindruck des wirklich gefühlvollen Ganzen ſo völlig<lb/>
+aufgehoben wurde.</p><lb/>
+<p>Franziska, deren froher Mutterwitz ſchon zu ver¬<lb/>
+ſchiedenen malen bald durch den Hauswirth, bald<lb/>
+durch Mozart in Bewegung geſetzt worden war, lief<lb/>
+jetzt geſchwinde, wie von ungefähr an etwas erinnert,<lb/>
+hinweg, und kam zurück mit einem braunen engliſchen<lb/>
+Kupferſtich größten Formats, welcher wenig beachtet<lb/>
+in einem ganz entfernten Cabinet unter Glas und<lb/>
+Rahmen hing.</p><lb/>
+<p>„Es muß doch wahr ſeyn, was ich immer hörte,“<lb/>
+rief ſie aus, indem ſie das Bild am Ende der Tafel<lb/>
+aufſtellte, „daß ſich unter der Sonne nichts Neues<lb/>
+<pb n="67" facs="#f0079"/>
+begibt! Hier eine Scene aus dem goldenen Weltalter<lb/>
+— und haben wir ſie nicht erſt heute erlebt? Ich hoffe<lb/>
+doch, Apollo werde ſich in dieſer Situation erkennen.“</p><lb/>
+<p>„Vortrefflich!“ triumphirte Max, „da hätten wir<lb/>
+ihn ja, den ſchönen Gott, wie er ſich juſt gedanken¬<lb/>
+voll über den heiligen Quell hinbeugt. Und damit<lb/>
+nicht genug — dort, ſeht nur, einen alten Satyr<lb/>
+hinten im Gebüſch, der ihn belauſcht! Man möchte<lb/>
+darauf ſchwören, Apoll beſinnt ſich eben auf ein<lb/>
+lange vergeſſenes arkadiſches Tänzchen, das ihn in<lb/>
+ſeiner Kindheit der alte Chiron zu der Cither lehrte.“</p><lb/>
+<p>„So iſt's! nicht anders!“ applaudirte Franziska,<lb/>
+die hinter Mozart ſtand. „Und,“ fuhr ſie gegen<lb/>
+dieſen fort, „bemerken Sie auch wohl den frucht¬<lb/>
+beſchwerten Aſt, der ſich zum Gott herunter ſenkt?“</p><lb/>
+<p>„Ganz recht; es iſt der ihm geweihte Oelbaum.“</p><lb/>
+<p>„Keineswegs! die ſchönſten Apfelſinen ſind's!<lb/>
+Gleich wird er ſich in der Zerſtreuung eine herunter<lb/>
+holen.“</p><lb/>
+<p>„Vielmehr,“ rief Mozart, „er wird gleich dieſen<lb/>
+Schelmenmund mit tauſend Küſſen ſchließen!“ Da¬<lb/>
+mit erwiſchte er ſie am Arm und ſchwur, ſie nicht<lb/>
+mehr loszulaſſen, bis ſie ihm ihre Lippen reiche, was<lb/>
+ſie denn auch ohne vieles Sträuben that.</p><lb/>
+<pb n="68" facs="#f0080"/>
+<p>„Erkläre uns doch, Max,“ ſagte die Gräfin,<lb/>
+„was unter dem Bilde hier ſteht.“</p><lb/>
+<p>„Es ſind Verſe aus einer berühmten Horaziſchen<lb/>
+Ode. Der Dichter Ramler in Berlin hat uns das<lb/>
+Stück vor kurzem unübertrefflich deutſch gegeben. Es<lb/>
+iſt vom höchſten Schwung. Wie prächtig eben dieſe<lb/>
+Eine Stelle:</p><lb/>
+<lg type="poem"> <lg n="1"> <l> <hi rendition="#aq">— — — „hier, der auf der Schulter</hi></l><lb/>
+<l> <hi rendition="#aq">Keinen unthätigen Bogen führet!</hi></l><lb/>
+</lg> <lg n="2"> <l> <hi rendition="#aq">Der seines Delos' grünenden Mutterhain</hi></l><lb/>
+<l> <hi rendition="#aq">Und Patara's beschatteten Strand bewohnt,</hi></l><lb/>
+<l> <hi rendition="#aq">Der seines Hauptes goldne Locken</hi></l><lb/>
+<l> <hi rendition="#aq">In die kastalischen Fluthen tauchet.“</hi></l><lb/>
+</lg> </lg> <p>„Schön! wirklich ſchön!“ ſagte der Graf, „nur<lb/>
+hie und da bedarf es der Erläuterung. So z. B.,<lb/>
+„der keinen unthätigen Bogen führet,“ hieße natür¬<lb/>
+lich ſchlechtweg: der allezeit einer der ſteißigſten Gei¬<lb/>
+ger geweſen. Doch, was ich ſagen wollte: beſter<lb/>
+Mozart, Sie ſäen Unkraut zwiſchen zwei zärtliche<lb/>
+Herzen.“</p><lb/>
+<p>„Ich will nicht hoffen — wie ſo?“<lb/>
+</p> <p>„Eugenie beneidet ihre Freundin, und hat auch<lb/>
+allen Grund.“<lb/>
+</p>
+<pb n="69" facs="#f0081"/>
+<p>„Aha, Sie haben mir ſchon meine ſchwache<lb/>
+Seite abgemerkt. Aber was ſagt der Bräutigam<lb/>
+dazu?“</p><lb/>
+<p>„Ein oder zweimal will ich durch die Finger<lb/>
+ſehen.“</p><lb/>
+<p>„Sehr gut; wir werden der Gelegenheit wahr¬<lb/>
+nehmen. Indeß fürchten Sie nichts, Herr Baron;<lb/>
+es hat keine Gefahr, ſo lang mir nicht der Gott<lb/>
+hier ſein Geſicht und ſeine langen gelben Haare borgt.<lb/>
+Ich wünſchte wohl, er thät's! er ſollte auf der Stelle<lb/>
+Mozarts Zopf mitſammt ſeinem ſchönſten Bandl da¬<lb/>
+für haben.“</p><lb/>
+<p>„Apollo möge aber dann zuſehen,“ lachte Fran¬<lb/>
+ziska, „wie er es anfängt künftig, ſeinen neuen fran¬<lb/>
+zöſiſchen Haarſchmuck mit Anſtand in die kaſtaliſche<lb/>
+Fluth zu tauchen.“</p><lb/>
+<p>Unter dieſen und ähnlichen Scherzen ſtieg Luſtig¬<lb/>
+keit und Muthwillen immer mehr. Die Männer<lb/>
+ſpürten nach und nach den Wein, es wurden eine<lb/>
+Menge Geſundheiten getrunken und Mozart kam in<lb/>
+den Zug, nach ſeiner Gewohnheit in Verſen zu<lb/>
+ſprechen, wobei ihm der Lieutenant das Gleichge¬<lb/>
+wicht hielt und auch der Papa nicht zurückbleiben<lb/>
+wollte; es glückte ihm ein paarmal zum Verwundern.</p><lb/>
+<pb n="70" facs="#f0082"/>
+<p>Doch ſolche Dinge laſſen ſich für die Erzählung kaum<lb/>
+feſthalten, ſie wollen eigentlich nicht wiederholt ſeyn,<lb/>
+weil eben das, was ſie an ihrem Ort unwiderſteh¬<lb/>
+lich macht, die allgemein erhöhte Stimmung, der<lb/>
+Glanz, die Jovialität des perſönlichen Ausdrucks in<lb/>
+Wort und Blick fehlt.</p><lb/>
+<p>Unter andern wurde von dem alten Fräulein zu<lb/>
+Ehren des Meiſters ein Toaſt ausgebracht, der ihm<lb/>
+noch eine ganze lange Reihe unſterblicher Werke ver¬<lb/>
+hieß. — „<hi rendition="#aq">À la bonne heure</hi>, ich bin dabei!“ rief<lb/>
+Mozart und ſtieß ſein Kelchglas kräftig an. Der<lb/>
+Graf begann hierauf mit großer Macht und Sicher¬<lb/>
+heit der Intonation, kraft eigener Eingebung, zu<lb/>
+ſingen:</p><lb/>
+<lg type="poem"> <lg n="1"> <l>Mögen Ihn die Götter ſtärken</l><lb/>
+<l>Zu den angenehmen Werken —</l><lb/>
+</lg> <lg n="2"> <l rendition="#c"><hi rendition="#b #g">Max</hi> (fortfahrend).</l><lb/>
+<l>Wovon der <hi rendition="#aq">da Ponte</hi> weder,</l><lb/>
+<l>Noch der große Schikaneder —</l><lb/>
+</lg> <lg n="3">     <l rendition="#c"><hi rendition="#b #g">Mozart</hi><hi rendition="#b">.</hi></l><lb/>
+<l>Noch bi Gott der Componiſt</l><lb/>
+<l>'s Mindeſt' weiß zu dieſer Friſt!</l><lb/>
+</lg> <lg n="4">     <l rendition="#c"><hi rendition="#b #g">Graf</hi><hi rendition="#b">.</hi></l><lb/>
+<l>Alle, alle ſoll ſie jener</l><lb/>
+<l>Haupt-Spitzbub Italiene</l><lb/>
+</lg>
+<pb n="71" facs="#f0083"/>
+<lg n="5"> <l>Noch erleben, wünſch' ich ſehr,</l><lb/>
+<l>Unſer Signor Bonbonni<hi rendition="#aq">è</hi>re! <note place="foot" n="*">So nannte Mozart unter Freunden ſeinen Collegen Sa¬<lb/>
+lieri, der wo er ging und ſtand Zuckerwerk naſchte, zugleich mit<lb/>
+Anſpielung auf das Zierliche ſeiner Perſon.<lb/>
+</note></l><lb/>
+</lg> <lg n="6">     <l rendition="#c"><hi rendition="#fr">Max</hi>.</l><lb/>
+<l>Gut, ich geb' ihm hundert Jahre —</l><lb/>
+</lg> <lg n="7">     <l rendition="#c"><hi rendition="#fr">Mozart</hi>.</l><lb/>
+<l>Wenn ihn nicht ſammt ſeiner Waare —</l><lb/>
+</lg> <lg n="8">     <l rendition="#c"><hi rendition="#fr">Alle drei</hi> <hi rendition="#aq">con forza</hi>.</l><lb/>
+<l>Noch der Teufel holt vorher.</l><lb/>
+<l>Unſern Monſieur Bonbonni<hi rendition="#aq">è</hi>re.</l><lb/>
+</lg> </lg> <p>Durch des Grafen ausnehmende Singluſt ſchweifte<lb/>
+das zufällig entſtandene Terzett mit Wiederaufnahme<lb/>
+der letzten vier Zeilen in einen ſogenannten endlichen<lb/>
+Canon aus, und die Fräulein Tante beſaß Humor<lb/>
+oder Selbſtvertrauen genug, ihren verfallenen So¬<lb/>
+prano mit allerhand Verzierungen zweckdienlich einzu¬<lb/>
+miſchen. Mozart gab nachher das Verſprechen, bei<lb/>
+guter Muße dieſen Spaß nach den Regeln der Kunſt<lb/>
+expreß für die Geſellſchaft auszuführen, das er auch<lb/>
+ſpäter von Wien aus erfüllte.</p><lb/>
+<p>Eugenie hatte ſich im Stillen längſt mit ihrem<lb/>
+Kleinod aus der Laube des Tiberius vertraut ge¬<lb/>
+macht; allgemein verlangte man jetzt das Duett vom<lb/>
+<pb n="72" facs="#f0084"/>
+Componiſten und ihr geſungen zu hören, und der<lb/>
+Oheim war glücklich, im Chor ſeine Stimme aber¬<lb/>
+mals geltend zu machen. Alſo erhob man ſich und<lb/>
+eilte zum Klavier in's große Zimmer nebenan.</p><lb/>
+<p>Ein ſo reines Entzücken nun auch das köſtliche<lb/>
+Stück bei allen erregte, ſo führte doch ſein Inhalt<lb/>
+ſelbſt, mit einem raſchen Uebergang, auf den Gipfel<lb/>
+geſelliger Luſt, wo die Muſik an und für ſich nicht<lb/>
+weiter in Betracht mehr kommt, und zwar gab zu¬<lb/>
+erſt unſer Freund das Signal, indem er vom Klavier<lb/>
+aufſprang, auf Franziska zuging und ſie, während<lb/>
+Max bereitwilligſt die Violine ergriff, zu einem Schlei¬<lb/>
+fer perſuadirte. Der Hauswirth ſäumte nicht, Ma¬<lb/>
+dame Mozart aufzufordern. Im Nu waren alle be¬<lb/>
+weglichen Möbel, den Raum zu erweitern, durch ge¬<lb/>
+ſchäftige Diener entfernt. Es mußte nach und nach<lb/>
+ein jedes an die Tour, und Fräulein Tante nahm<lb/>
+es keineswegs übel, daß der galante Lieutenant ſie<lb/>
+zu einer Menuet abholte, worin ſie ſich völlig ver¬<lb/>
+jüngte. Schließlich, als Mozart mit der Braut den<lb/>
+Kehraus tanzte, nahm er ſein verſichertes Recht auf<lb/>
+ihren ſchönen Mund in beſter Form dahin.</p><lb/>
+<p>Der Abend war herbeigekommen, die Sonne nah<lb/>
+am Untergehen, es wurde nun erſt angenehm im<lb/>
+<pb n="73" facs="#f0085"/>
+Freien, daher die Gräfin den Damen vorſchlug, ſich<lb/>
+im Garten noch ein wenig zu erholen. Der Graf<lb/>
+dagegen lud die Herrn auf das Billardzimmer, da<lb/>
+Mozart bekanntlich dieß Spiel ſehr liebte. So theilte<lb/>
+man ſich denn in zwei Partien, und wir unſerer¬<lb/>
+ſeits folgen den Frauen.</p><lb/>
+<p>Nachdem ſie den Hauptweg einigemal gemäch¬<lb/>
+lich auf- und abgegangen, erſtiegen ſie einen runden,<lb/>
+von einem hohen Rebengeländer zur Hälfte umgebe¬<lb/>
+nen Hügel, von wo man in das offene Feld, auf<lb/>
+das Dorf und die Landſtraße ſah. Die letzten Strah¬<lb/>
+len der herbſtlichen Sonne funkelten röthlich durch<lb/>
+das Weinlaub herein.</p><lb/>
+<p>„Wäre hier nicht vertraulich zu ſitzen,“ ſagte<lb/>
+die Gräfin, „wenn Madame Mozart uns etwas von<lb/>
+ſich und dem Gemahl erzählen wollte?“</p><lb/>
+<p>Sie war ganz gerne bereit, und alle nahmen<lb/>
+höchſt behaglich auf den im Kreis herbeigerückten<lb/>
+Stühlen Platz.</p><lb/>
+<p>„Ich will Etwas zum Beſten geben, das Sie<lb/>
+auf alle Fälle hätten hören müſſen, da ſich ein kleiner<lb/>
+Scherz darauf bezieht, den ich im Schilde führe. Ich<lb/>
+habe mir in Kopf geſetzt, der Gräfin Braut zur fröh¬<lb/>
+lichen Erinnerung an dieſen Tag ein Angebind von<lb/>
+<pb n="74" facs="#f0086"/>
+ſonderlicher Qualität zu verehren. Daſſelbe iſt ſo<lb/>
+wenig Gegenſtand des Luxus und der Mode, daß es<lb/>
+lediglich nur durch ſeine Geſchichte einigermaßen in¬<lb/>
+tereſſiren kann.“</p><lb/>
+<p>„Was mag das ſeyn, Eugenie?“ ſagte Fran¬<lb/>
+ziſka, „zum wenigſten das Tintenfaß eines berühm¬<lb/>
+ten Mannes.“</p><lb/>
+<p>„Nicht allzuweit gefehlt! Sie ſollen es noch<lb/>
+dieſe Stunde ſehen; im Reiſekoffer liegt der Schatz.<lb/>
+Ich fange an, und werde mit Ihrer Erlaubniß ein<lb/>
+wenig weiter ausholen.“</p><lb/>
+<p>„Vorletzten Winter wollte mir Mozarts Geſund¬<lb/>
+heitszuſtand, durch vermehrte Reizbarkeit und häufige<lb/>
+Verſtimmung, ein fieberhaftes Weſen, nachgerade bange<lb/>
+machen. In Geſellſchaft noch zuweilen luſtig, oft<lb/>
+mehr als recht natürlich, war er zu Haus meiſt trüb<lb/>
+in ſich hinein, ſeufzte und klagte. Der Arzt empfahl<lb/>
+ihm Diät, Pyrmonter und Bewegung außerhalb der<lb/>
+Stadt. Der Patient gab nicht viel auf den guten<lb/>
+Rath; die Cur war unbequem, zeitraubend, ſeinem<lb/>
+Taglauf ſchnurſtracks entgegen. Nun machte ihm<lb/>
+der Doctor die Hölle etwas heiß, er mußte eine lange<lb/>
+Vorleſung anhören von der Beſchaffenheit des menſch¬<lb/>
+lichen Geblüts, von denen Kügelgens darin, vom<lb/>
+<pb n="75" facs="#f0087"/>
+Athemholen und vom Phlogiſton — halt unerhörte<lb/>
+Dinge; auch wie es eigentlich gemeint ſey von der<lb/>
+Natur mit Eſſen, Trinken und Verdauen, das eine<lb/>
+Sache iſt, worüber Mozart bis dahin ganz eben ſo<lb/>
+unſchuldig dachte wie ſein Junge von fünf Jahren.<lb/>
+Die Lection, in der That, machte merklichen Ein¬<lb/>
+druck. Der Doctor war noch keine halbe Stunde<lb/>
+weg, ſo ſind' ich meinen Mann nachdenklich, aber<lb/>
+mit aufgeheitertem Geſicht, auf ſeinem Zimmer über<lb/>
+der Betrachtung eines Stocks, den er in einem<lb/>
+Schrank mit alten Sachen ſuchte und auch glücklich<lb/>
+fand; ich hätte nicht gemeint, daß er ſich deſſen nur er¬<lb/>
+innerte. Er ſtammte noch von meinem Vater, ein ſchö¬<lb/>
+nes Rohr mit hohem Knopf von Lapis Lazuli. Nie ſah<lb/>
+man einen Stock in Mozarts Hand, ich mußte lachen.“<lb/>
+</p> <p>„Du ſiehſt,“ rief er, „ich bin daran, mit meiner<lb/>
+Cur mich völlig in's Geſchirr zu werfen. Ich will<lb/>
+das Waſſer trinken, mir alle Tage Motion im Freien<lb/>
+machen und mich dabei dieſes Stabes bedienen. Da<lb/>
+ſind mir nun verſchiedene Gedanken beigegangen. Es<lb/>
+iſt doch nicht umſonſt, dacht' ich, daß andere Leute,<lb/>
+was da geſetzte Männer ſind, den Stock nicht miſſen<lb/>
+können. Der Commercienrath, unſer Nachbar, geht<lb/>
+niemals über die Straße, ſeinen Gevatter zu beſuchen,<lb/>
+<pb n="76" facs="#f0088"/>
+der Stock muß mit. Profeſſioniſten und Beamte,<lb/>
+Kanzleiherrn, Krämer und Chalanten, wenn ſie am<lb/>
+Sonntag mit Familie vor die Stadt ſpazieren, ein<lb/>
+jeder führt ſein wohlgedientes, rechtſchaffenes Rohr<lb/>
+mit ſich. Vornämlich hab' ich oft bemerkt, wie auf<lb/>
+dem Stephansplatz, ein Viertelſtündchen vor der Pre¬<lb/>
+digt und dem Amt, ehrſame Bürger da und dort<lb/>
+truppweis beiſammen ſtehen im Geſpräch: hier kann<lb/>
+man ſo recht ſehen, wie eine jede ihrer ſtillen Tu¬<lb/>
+genden, ihr Fleiß und Ordnungsgeiſt, gelaßner Muth,<lb/>
+Zufriedenheit, ſich auf die wackern Stöcke gleichſam<lb/>
+als eine gute Stütze lehnt und ſtemmt. Mit Einem<lb/>
+Wort, es muß ein Segen und beſonderer Troſt in<lb/>
+der altväteriſchen und immerhin etwas geſchmackloſen<lb/>
+Gewohnheit liegen. Du magſt es glauben oder nicht,<lb/>
+ich kann es kaum erwarten, bis ich mit dieſem guten<lb/>
+Freund das erſtemal im Geſundheitspaß über die<lb/>
+Brücke nach dem Rennweg promenire! Wir kennen<lb/>
+uns bereits ein wenig und ich hoffe, daß unſere<lb/>
+Verbindung für alle Zeit geſchloſſen iſt.“</p><lb/>
+<p>„Die Verbindung war von kurzer Dauer: das<lb/>
+dritte mal, daß beide mit einander aus waren, kam<lb/>
+der Begleiter nicht mehr mit zurück. Ein anderer<lb/>
+wurde angeſchafft, der etwas länger Treue hielt,<lb/>
+<pb n="77" facs="#f0089"/>
+und jedenfalls ſchrieb ich der Stockliebhaberei ein gut<lb/>
+Theil von der Ausdauer zu, womit Mozart drei<lb/>
+Wochen lang der Vorſchrift ſeines Arztes ganz er¬<lb/>
+träglich nachkam. Auch blieben die guten Folgen<lb/>
+nicht aus; wir ſahen ihn faſt nie ſo friſch, ſo hell<lb/>
+und von ſo gleichmäßiger Laune. Doch machte er<lb/>
+ſich leider in kurzem wieder allzu grün und täglich<lb/>
+hatt' ich deßhalb meine Noth mit ihm. Damals ge¬<lb/>
+ſchah es nun, daß er, ermüdet von der Arbeit eines<lb/>
+anſtrengenden Tages, noch ſpät, ein paar neugieri¬<lb/>
+ger Reiſenden wegen, zu einer muſikaliſchen Soir<hi rendition="#aq">é</hi>e<lb/>
+ging — auf eine Stunde bloß, verſprach er mir<lb/>
+heilig und theuer; doch das ſind immer die Gelegen¬<lb/>
+heiten, wo die Leute, wenn er nur erſt am Flügel<lb/>
+feſtſitzt und im Feuer iſt, ſeine Gutherzigkeit am mehr¬<lb/>
+ſten mißbrauchen; denn da ſitzt er alsdann wie das<lb/>
+Männchen in einer Montgolfiere, ſechs Meilen hoch<lb/>
+über dem Erdboden ſchwebend, wo man die Glocken<lb/>
+nicht mehr ſchlagen hört. Ich ſchickte den Bedienten<lb/>
+zweimal mitten in der Nacht dahin, umſonſt, er<lb/>
+konnte nicht zu ſeinem Herrn gelangen. Um drei Uhr<lb/>
+früh kam dieſer denn endlich nach Haus. Ich nahm mir<lb/>
+vor, den ganzen Tag ernſtlich mit ihm zu ſchmollen.“<lb/>
+</p> <p>Hier überging Madame Mozart einige Umſtände<lb/>
+<pb n="78" facs="#f0090"/>
+mit Stillſchweigen. Es war, muß man wiſſen, nicht<lb/>
+unwahrſcheinlich, daß zu gedachter Abendunterhaltung<lb/>
+auch eine junge Sängerin, Signora Malerbi, kom¬<lb/>
+men würde, an welcher Frau Conſtanze mit allem<lb/>
+Recht Aergerniß nahm. Dieſe Römerin war durch<lb/>
+Mozarts Verwendung bei der Oper angeſtellt worden,<lb/>
+und ohne Zweifel hatten ihre koketten Künſte nicht<lb/>
+geringen Antheil an der Gunſt des Meiſters. Sogar<lb/>
+wollten einige wiſſen, ſie habe ihn mehrere Monate<lb/>
+lang eingezogen und heiß genug auf ihrem Roſt ge¬<lb/>
+halten. Ob dieß nun völlig wahr ſey oder ſehr über¬<lb/>
+trieben, gewiß iſt, ſie benahm ſich nachher frech und<lb/>
+undankbar, und erlaubte ſich ſelbſt Spöttereien über<lb/>
+ihren Wohlthäter. So war es ganz in ihrer Art,<lb/>
+daß ſie ihn einſt, gegenüber einem ihrer glücklichern<lb/>
+Verehrer, kurzweg <hi rendition="#aq">un piccolo grifo raso</hi> (ein kleines<lb/>
+raſirtes Schweinsrüſſelchen) nannte. Der Einfall,<lb/>
+einer Circe würdig, war um ſo empfindlicher, weil<lb/>
+er, wie man geſtehen muß, immerhin ein Körnchen<lb/>
+Wahrheit enthielt. <note place="foot" n="*"><lb/>
+Man hat hier ein älteres kleines Profilbild im Auge, das,<lb/>
+gut gezeichnet und geſtochen, ſich auf dem Titelblatt eines Mo¬<lb/>
+zart'ſchen Klavierwerks befindet, unſtreitig das ähnlichſte von allen,<lb/>
+auch neuerdings im Kunſthandel erſchienenen Porträts.</note></p><lb/>
+<pb n="79" facs="#f0091"/>
+<p>Bei'm Nachhauſegehen von jener Geſellſchaft, bei<lb/>
+welcher übrigens die Sängerin zufällig nicht erſchienen<lb/>
+war, beging ein Freund im Uebermuth des Weins<lb/>
+die Indiscretion, dem Meiſter dieß boshafte Wort zu<lb/>
+verrathen. Er wurde ſchlecht davon erbaut, denn<lb/>
+eigentlich war es für ihn der erſte unzweideutige Be¬<lb/>
+weis von der gänzlichen Herzloſigkeit ſeines Schütz¬<lb/>
+lings. Vor lauter Entrüſtung darüber empfand er<lb/>
+nicht einmal ſogleich den froſtigen Empfang am Bette<lb/>
+ſeiner Frau. In Einem Athem theilte er ihr die Be¬<lb/>
+leidigung mit, und dieſe Ehrlichkeit läßt wohl auf<lb/>
+einen mindern Grad von Schuldbewußtſeyn ſchließen.<lb/>
+Faſt machte er ihr Mitleid rege. Doch hielt ſie ge¬<lb/>
+fliſſentlich an ſich, es ſollte ihm nicht ſo leicht hin¬<lb/>
+gehen. Als er von einem ſchweren Schlaf kurz nach<lb/>
+Mittag erwachte, fand er das Weibchen ſammt den<lb/>
+beiden Knaben nicht zu Hauſe, vielmehr ſäuberlich<lb/>
+den Tiſch für ihn allein gedeckt.</p><lb/>
+<p>Von jeher gab es wenige Dinge, welche Mozart<lb/>
+ſo unglücklich machten, als wenn nicht alles hübſch<lb/>
+eben und heiter zwiſchen ihm und ſeiner guten Hälfte<lb/>
+ſtand. Und hätte er nun erſt gewußt, welche weitere<lb/>
+Sorge ſie ſchon ſeit mehreren Tagen mit ſich herum<lb/>
+trug! — eine der ſchlimmſten in der That, mit deren<lb/>
+<pb n="80" facs="#f0092"/>
+Eröffnung ſie ihn nach alter Gewohnheit ſo lange wie<lb/>
+möglich verſchonte. Ihre Baarſchaft war eheſtens alle,<lb/>
+und keine Ausſicht auf baldige Einnahme da. Ohne<lb/>
+Ahnung von dieſer häuslichen Extremität war gleich¬<lb/>
+wohl ſein Herz auf eine Art beklommen, die mit<lb/>
+jenem verlegenen, hülfloſen Zuſtand eine gewiſſe Aehn¬<lb/>
+lichkeit hatte. Er mochte nicht eſſen, er konnte nicht<lb/>
+bleiben. Geſchwind zog er ſich vollends an, um nur<lb/>
+aus der Stickluft des Hauſes zu kommen. Auf einem<lb/>
+offenen Zettel hinterließ er ein paar Zeilen italieniſch:<lb/>
+„Du haſt mir's redlich eingetränkt, und geſchieht mir<lb/>
+ſchon recht. Sey aber wieder gut, ich bitte dich, und<lb/>
+lache wieder, bis ich heim komme. Mir iſt zu Muth,<lb/>
+als möcht' ich ein Carthäuſer und Trappiſte werden,<lb/>
+ein rechter Heulochs, ſag' ich dir!“ — Sofort nahm<lb/>
+er den Hut, nicht aber auch den Stock zugleich; der<lb/>
+hatte ſeine Epoche paſſirt.</p><lb/>
+<p>Haben wir Frau Conſtanze bis hieher in der<lb/>
+Erzählung abgelöſt, ſo können wir auch wohl noch<lb/>
+eine kleine Strecke weiter fortfahren.</p><lb/>
+<p>Von ſeiner Wohnung, bei der Schranne, rechts<lb/>
+gegen das Zeughaus einbiegend, ſchlenderte der theure<lb/>
+Mann — es war ein warmer, etwas umwölkter<lb/>
+Sommernachmittag — nachdenklich läſſig über den<lb/>
+<pb n="81" facs="#f0093"/>
+ſogenannten Hof, und weiter an der Pfarre zu unſrer<lb/>
+lieben Frau vorbei, dem Schottenthor entgegen, wo<lb/>
+er ſeitwärts zur Linken auf die Mölkerbaſtei ſtieg und<lb/>
+dadurch der Anſprache mehrerer Bekannten, die eben<lb/>
+zur Stadt herein kamen, entging. Nur kurze Zeit<lb/>
+genoß er hier, obwohl von einer ſtumm bei den Ka¬<lb/>
+nonen auf und nieder gehenden Schildwache nicht<lb/>
+beläſtigt, der vortrefflichen Ausſicht über die grüne<lb/>
+Ebene des Glacis und die Vorſtädte hin nach dem<lb/>
+Kahlenberg und ſüdlich nach den ſteieriſchen Alpen.<lb/>
+Die ſchöne Ruhe der äußern Natur widerſprach ſeinem<lb/>
+innern Zuſtand. Mit einem Seufzer ſetzte er ſeinen<lb/>
+Gang über die Eſplanade und ſodann durch die Alſer-<lb/>
+Vorſtadt ohne beſtimmten Zielpunkt fort.</p><lb/>
+<p>Am Ende der Währinger Gaſſe lag eine Schenke<lb/>
+mit Kegelbahn, deren Eigenthümer, ein Seilermeiſter,<lb/>
+durch ſeine gute Waare, wie durch die Reinheit ſeines<lb/>
+Getränks den Nachbarn und Landleuten, die ihr<lb/>
+Weg vorüber führte, gar wohl bekannt war. Man<lb/>
+hörte Kegelſchieben und übrigens ging es bei einer<lb/>
+Anzahl von höchſtens einem Dutzend Gäſten mäßig<lb/>
+zu. Ein kaum bewußter Trieb, ſich unter anſpruch¬<lb/>
+loſen, natürlichen Menſchen in etwas zu vergeſſen,<lb/>
+bewog den Muſiker zur Einkehr. Er ſetzte ſich an<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Mörike</hi>, Mozart. 6<lb/>
+</fw>
+<pb n="82" facs="#f0094"/>
+einen der ſparſam von Bäumen beſchatteten Tiſche<lb/>
+zu einem Wiener Brunnen-Obermeiſter und zwei<lb/>
+andern Spießbürgern, ließ ſich ein Schöppchen kom¬<lb/>
+men und nahm an ihrem ſehr alltäglichen Discours<lb/>
+eingehend Theil, ging dazwiſchen umher, oder ſchaute<lb/>
+dem Spiel auf der Kegelbahn zu.</p><lb/>
+<p>Unweit von der letztern, an der Seite des Hau¬<lb/>
+ſes, befand ſich der offene Laden des Seilers, ein<lb/>
+ſchmaler, mit Fabrikaten voll gepfropfter Raum, weil<lb/>
+außer dem, was das Handwerk zunächſt lieferte, auch<lb/>
+allerlei hölzernes Küchen-, Keller- und landwirth¬<lb/>
+ſchaftliches Geräth, ingleichem Thran und Wagenſalbe,<lb/>
+auch Weniges von Sämereien, Dill und Kümmel,<lb/>
+zum Verkauf umher ſtand oder hing. Ein Mädchen,<lb/>
+das als Kellnerin die Gäſte zu bedienen und neben¬<lb/>
+bei den Laden zu beſorgen hatte, war eben mit einem<lb/>
+Bauern beſchäftigt, welcher, ſein Söhnlein an der<lb/>
+Hand, herzugetreten war, um einiges zu kaufen, ein<lb/>
+Fruchtmaß, eine Bürſte, eine Geißel. Er ſuchte<lb/>
+unter vielen Stücken eines heraus, prüfte es, legte<lb/>
+es weg, ergriff ein zweites und drittes, und kehrte<lb/>
+unſchlüſſig zum erſten zurück; es war kein Fertig¬<lb/>
+werden. Das Mädchen entfernte ſich mehrmals der<lb/>
+Aufwartung wegen, kam wieder und war unermüdlich,<lb/>
+<pb n="83" facs="#f0095"/>
+ihm ſeine Wahl zu erleichtern und annehmlich zu<lb/>
+machen, ohne daß ſie zu viel darum ſchwatzte.</p><lb/>
+<p>Mozart ſah und hörte, auf einem Bänkchen bei<lb/>
+der Kegelbahn, dieſem allen mit Vergnügen zu. So<lb/>
+ſehr ihm auch das gute verſtändige Betragen des<lb/>
+Mädchens, die Ruhe und der Ernſt in ihren anſpre¬<lb/>
+chenden Zügen gefiel, noch mehr intereſſirte ihn für<lb/>
+jetzt der Bauer, welcher ihm, nachdem er ganz be¬<lb/>
+friedigt abgezogen, noch viel zu denken gab. Er hatte<lb/>
+ſich vollkommen in den Mann hinein verſetzt, gefühlt,<lb/>
+wie wichtig die geringe Angelegenheit von ihm be¬<lb/>
+handelt, wie ängſtlich und gewiſſenhaft die Preiſe,<lb/>
+bei einem Unterſchied von wenig Kreuzern, hin und<lb/>
+her erwogen wurden. Und, dachte er, wenn nun<lb/>
+der Mann zu ſeinem Weibe heimkommt, ihr ſeinen<lb/>
+Handel rühmt, die Kinder alle paſſen, bis der Zwerch¬<lb/>
+ſack aufgeht, darin auch was für ſie ſeyn mag; ſie<lb/>
+aber eilt, ihm einen Imbis und einen friſchen Trunk<lb/>
+ſelbſtgekelterten Obſtmoſt zu holen, darauf er ſeinen<lb/>
+ganzen Appetit verſpart hat!</p><lb/>
+<p>Wer auch ſo glücklich wäre, ſo unabhängig von<lb/>
+den Menſchen! ganz nur auf die Natur geſtellt<lb/>
+und ihren Segen, wie ſauer auch dieſer erworben<lb/>
+ſeyn will!</p><lb/>
+<pb n="84" facs="#f0096"/>
+<p>Iſt aber mir mit meiner Kunſt ein anderes Tag¬<lb/>
+werk anbefohlen, das ich am Ende doch mit keinem<lb/>
+in der Welt vertauſchen würde: warum muß ich da¬<lb/>
+bei in Verhältniſſen leben, die das gerade Widerſpiel<lb/>
+von ſolch unſchuldiger, einfacher Exiſtenz ausmachen?<lb/>
+Ein Gütchen wenn du hätteſt, ein kleines Haus bei<lb/>
+einem Dorf in ſchöner Gegend, du ſollteſt wahrlich<lb/>
+neu aufleben! Den Morgen über fleißig bei deinen<lb/>
+Partituren, die ganze übrige Zeit bei der Familie;<lb/>
+Bäume pflanzen, deinen Acker beſuchen, im Herbſt<lb/>
+mit den Buben die Aepfel und die Birn' herunter thun;<lb/>
+bisweilen eine Reiſe in die Stadt zu einer Aufführung<lb/>
+und ſonſt, von Zeit zu Zeit ein Freund und meh¬<lb/>
+rere bei dir — welch eine Seligkeit! Nun ja, wer<lb/>
+weiß was noch geſchieht.</p><lb/>
+<p>Er trat vor den Laden, ſprach freundlich mit dem<lb/>
+Mädchen und fing an, ihren Kram genauer zu be¬<lb/>
+trachten. Bei der unmittelbaren Verwandtſchaft,<lb/>
+welche die meiſten dieſer Dinge zu jenem idylliſchen<lb/>
+Anfluge hatten, zog ihn die Sauberkeit, das Helle,<lb/>
+Glatte, ſelbſt der Geruch der mancherlei Holzarbeiten<lb/>
+an. Es fiel ihm plötzlich ein, Verſchiedenes für ſeine<lb/>
+Frau, was ihr nach ſeiner Meinung angenehm und<lb/>
+nutzbar wäre, auszuwählen. Sein Augenmerk ging<lb/>
+<pb n="85" facs="#f0097"/>
+zuvörderſt auf Gartenwerkzeug. Conſtanze hatte näm¬<lb/>
+lich vor Jahr und Tag auf ſeinen Antrieb ein Stück¬<lb/>
+chen Land vor dem Kärnthner Thor gepachtet und<lb/>
+etwas Gemüſe darauf gebaut; daher ihm jetzt für's<lb/>
+Erſte ein neuer großer Rechen, ein kleinerer ditto,<lb/>
+ſammt Spaten, ganz zweckmäßig ſchien. Dann Wei¬<lb/>
+teres anlangend, ſo macht es ſeinen ökonomiſchen<lb/>
+Begriffen alle Ehre, daß er einem ihn ſehr appetitlich<lb/>
+anlachenden Butterfaß nach kurzer Ueberlegung, wie¬<lb/>
+wohl ungern, entſagte; dagegen ihm ein hohes, mit<lb/>
+Deckel und ſchön geſchnitztem Henkel verſehenes Ge¬<lb/>
+ſchirr zu unmaßgeblichem Gebrauch einleuchtete. Es<lb/>
+war aus ſchmalen Stäben von zweierlei Holz, abwech¬<lb/>
+ſelnd hell und dunkel, zuſammengeſetzt, unten weiter<lb/>
+als oben und innen trefflich ausgepicht. Entſchieden<lb/>
+für die Küche empfahl ſich eine ſchöne Auswahl<lb/>
+Rührlöffel, Wellhölzer, Schneidbretter und Teller von<lb/>
+allen Größen, ſo wie ein Salzbehälter einfachſter<lb/>
+Conſtruction zum Aufhängen.</p><lb/>
+<p>Zuletzt beſah er ſich noch einen derben Stock,<lb/>
+deſſen Handhabe mit Leder und runden Meſſingnägeln<lb/>
+gehörig beſchlagen war. Da der ſonderbare Kunde<lb/>
+auch hier in einiger Verſuchung ſchien, bemerkte die<lb/>
+Verkäuferin mit Lächeln, das ſey juſt kein Tragen<lb/>
+<pb n="86" facs="#f0098"/>
+für Herrn. „Du haſt Recht, mein Kind,“ verſetzte<lb/>
+er, „mir däucht, die Metzger auf der Reiſe haben<lb/>
+ſolche; weg damit, ich will ihn nicht. Das übrige<lb/>
+hingegen alles, was wir da ausgeleſen haben, bringſt<lb/>
+du mir heute oder morgen in's Haus. Dabei nannte<lb/>
+er ihr ſeinen Namen und die Straße. Er ging hier¬<lb/>
+auf, um auszutrinken, an ſeinen Tiſch, wo von den<lb/>
+Dreien nur noch Einer, ein Klempnermeiſter, ſaß.</p><lb/>
+<p>„Die Kellnerin hat heut 'mal einen guten Tag,“<lb/>
+bemerkte der Mann. „Ihr Vetter läßt ihr vom Erlös<lb/>
+im Laden am Gulden einen Batzen.“</p><lb/>
+<p>Mozart freute ſich nun ſeines Einkaufs doppelt:<lb/>
+gleich aber ſollte ſeine Theilnahme an der Perſon noch<lb/>
+größer werden. Denn als ſie wieder in die Nähe<lb/>
+kam, rief ihr derſelbe Bürger zu: „Wie ſteht's, Cres¬<lb/>
+cenz? Was macht der Schloſſer? Feilt er nicht bald<lb/>
+ſein eigen Eiſen?“</p><lb/>
+<p>„O was!“ erwiederte ſie im Weitereilen: „ſelbiges<lb/>
+Eiſen, ſchätz' ich, wächst noch im Berg, zuhinterſt.“</p><lb/>
+<p>„Es iſt ein guter Tropf,“ ſagte der Klempner.<lb/>
+„Sie hat lang ihrem Stiefvater hausgehalten und ihn<lb/>
+in der Krankheit verpflegt, und da er todt war, kam's<lb/>
+heraus, daß er ihr Eigenes aufgezehrt hatte; zeither<lb/>
+dient ſie da ihrem Verwandten, iſt Alles und Alles<lb/>
+<pb n="87" facs="#f0099"/>
+im Geſchäft, in der Wirthſchaft und bei den Kindern.<lb/>
+Sie hat mit einem braven Geſellen Bekanntſchaft und<lb/>
+würde ihn je eher je lieber heirathen; das aber hat<lb/>
+ſo ſeine Haken.“</p><lb/>
+<p>„Was für? Er iſt wohl auch ohne Vermögen?“<lb/>
+</p> <p>„Sie erſparten ſich beide etwas, doch langt es<lb/>
+nicht gar. Jetzt kommt mit Nächſtem drinnen ein<lb/>
+halber Haustheil ſammt Werkſtatt in Gant; dem<lb/>
+Seiler wär's ein Leichtes, ihnen vorzuſchießen, was<lb/>
+noch zum Kaufſchilling fehlt, allein er läßt die Dirne<lb/>
+natürlich nicht gern fahren. Er hat gute Freunde im<lb/>
+Rath und bei der Zunft, da findet der Geſelle nun<lb/>
+allenthalben Schwierigkeiten.“</p><lb/>
+<p>„Verflucht!“ — fuhr Mozart auf, ſo daß der<lb/>
+Andere erſchrack und ſich umſah, ob man nicht horche.<lb/>
+„Und da iſt niemand, der ein Wort nach dem Recht<lb/>
+darein ſpräche? den Herrn eine Fauſt vorhielte? Die<lb/>
+Schufte, die! Wart nur, man kriegt euch noch bei'm<lb/>
+Wickel.“</p><lb/>
+<p>Der Klempner ſaß wie auf Kohlen. Er ſuchte<lb/>
+das Geſagte auf eine ungeſchickte Art zu mildern, bei¬<lb/>
+nahe nahm er es völlig zurück. Doch Mozart hörte<lb/>
+ihn nicht an. „Schämt Euch, wie Ihr nun ſchwatzt.<lb/>
+So macht's ihr Lumpen allemal, ſobald es gilt mit<lb/>
+<pb n="88" facs="#f0100"/>
+etwas einzuſtehen!“ — Und hiemit kehrte er dem Ha¬<lb/>
+ſenfuß ohne Abſchied den Rücken. Der Kellnerin, die<lb/>
+alle Hände voll zu thun hatte mit neuen Gäſten,<lb/>
+raunte er nur im Vorbeigehen zu: „Komme morgen<lb/>
+bei Zeiten, grüße mir deinen Liebſten; ich hoffe, daß<lb/>
+eure Sache gut geht.“ Sie ſtutzte nur und hatte weder<lb/>
+Zeit noch Faſſung ihm zu danken.</p><lb/>
+<p>Geſchwinder als gewöhnlich, weil der Auftritt<lb/>
+ihm das Blut etwas in Wallung brachte, ging er<lb/>
+vorerſt denſelben Weg, den er gekommen, bis an das<lb/>
+Glacis, auf welchem er dann langſamer, mit einem<lb/>
+Umweg, im weiten Halbkreis um die Wälle wandelte.<lb/>
+Ganz mit der Angelegenheit des armen Liebespaars<lb/>
+beſchäftigt, durchlief er in Gedanken eine Reihe ſei¬<lb/>
+ner Bekannten und Gönner, die auf die eine oder<lb/>
+andere Weiſe in dieſem Fall etwas vermochten. Da<lb/>
+indeſſen, bevor er ſich irgend zu einem Schritt be¬<lb/>
+ſtimmte, noch nähere Erklärungen von Seiten des<lb/>
+Mädchens erforderlich waren, beſchloß er dieſe ruhig<lb/>
+abzuwarten und war nunmehr, mit Herz und Sinn<lb/>
+den Füßen voraus eilend, bei ſeiner Frau zu Hauſe.</p><lb/>
+<p>Mit, innerer Gewißheit zählte er auf einen<lb/>
+freundlichen, ja fröhlichen Willkommen, Kuß und<lb/>
+Umarmung ſchon auf der Schwelle, und Sehnſucht<lb/>
+<pb n="89" facs="#f0101"/>
+verdoppelte ſeine Schritte bei'm Eintritt in das Kärnth¬<lb/>
+ner Thor. Nicht weit davon ruft ihn der Poſtträger<lb/>
+an, der ihm ein kleines, doch gewichtiges Packet<lb/>
+übergibt, worauf er eine ehrliche und accurate Hand<lb/>
+augenblicklich erkennt. Er tritt mit dem Boten, um<lb/>
+ihn zu quittiren, in den nächſten Kaufladen; dann,<lb/>
+wieder auf der Straße, kann er ſich nicht bis in ſein<lb/>
+Haus gedulden; er reißt die Siegel auf, halb gehend,<lb/>
+halb ſtehend verſchlingt er den Brief.</p><lb/>
+<p>„Ich ſaß,“ fuhr Madame Mozart hier in der<lb/>
+Erzählung bei den Damen fort, „am Nähtiſch, hörte<lb/>
+meinen Mann die Stiege heraufkommen und den Be¬<lb/>
+dienten nach mir fragen. Sein Tritt und ſeine<lb/>
+Stimme kam mir beherzter, aufgeräumter vor, als<lb/>
+ich erwartete und als mir wahrhaftig angenehm war.<lb/>
+Erſt ging er auf ſein Zimmer, kam aber gleich her¬<lb/>
+über. Guten Abend! ſagt' er; ich, ohne aufzuſehen,<lb/>
+erwiederte ihm kleinlaut. Nachdem er die Stube ein<lb/>
+paarmal ſtillſchweigend gemeſſen, nahm er unter er¬<lb/>
+zwungenem Gähnen die Fliegenklatſche hinter der Thür,<lb/>
+was ihm noch niemals eingefallen war, und murmelte<lb/>
+vor ſich: „Wo nur die Fliegen gleich wieder her<lb/>
+kommen!“ — fing an zu patſchen da und dort, und<lb/>
+zwar ſo ſtark wie möglich. Dieß war ihm ſtets der<lb/>
+<pb n="90" facs="#f0102"/>
+unleidlichſte Ton, den ich in ſeiner Gegenwart nie<lb/>
+hören laſſen durfte. Hm, dacht' ich, daß doch was<lb/>
+man ſelber thut, zumal die Männer, ganz etwas<lb/>
+anderes iſt! Uebrigens hatte ich ſo viele Fliegen gar<lb/>
+nicht wahrgenommen. Sein ſeltſames Betragen ver¬<lb/>
+droß mich wirklich ſehr. — „Sechſe auf Einen Schlag!“<lb/>
+rief er: „willſt du ſehen?“ — Keine Antwort. Da<lb/>
+legt er mir Etwas auf's Nähkiſſen hin, daß ich es<lb/>
+ſehen mußte, ohne ein Auge von meiner Arbeit zu<lb/>
+verwenden. Es war nichts Schlechteres als ein<lb/>
+Häufchen Gold, ſo viel man Ducaten zwiſchen zwei<lb/>
+Finger nimmt. Er ſetzte ſeine Poſſen hinter meinem<lb/>
+Rücken fort, that hin und wieder einen Streich und<lb/>
+ſprach dabei für ſich: „Das fatale, unnütze, ſcham¬<lb/>
+loſe Gezücht! Zu was Zweck es nur eigentlich auf<lb/>
+der Welt iſt — Patſch! — offenbar bloß daß man's<lb/>
+todtſchlage — Pitſch — darauf verſtehe ich mich ei¬<lb/>
+nigermaßen, darf ich behaupten. — Die Naturge¬<lb/>
+ſchichte belehrt uns über die erſtaunliche Vermehrung<lb/>
+dieſer Geſchöpfe — Pitſch Patſch —: in meinem<lb/>
+Hauſe wird immer ſogleich damit aufgeräumt. <hi rendition="#aq">Ah<lb/>
+maledette! disperate!</hi> — Hier wieder ein Stück<lb/>
+zwanzig. Magſt du ſie?“ — Er kam und that wie<lb/>
+vorhin. Hatte ich bisher mit Mühe das Lachen<lb/>
+<pb n="91" facs="#f0103"/>
+unterdrückt, länger war es unmöglich, ich platzte her¬<lb/>
+aus, er fiel mir um den Hals und beide kicherten<lb/>
+und lachten wir um die Wette.“</p><lb/>
+<p>„Woher kommt dir denn aber das Geld?“ frag'<lb/>
+ich, während daß er den Reſt aus dem Röllelchen<lb/>
+ſchüttelt. — „Vom Fürſten Eſterhazy! durch den Haydn!<lb/>
+Lies nur den Brief.“ Ich las.</p><lb/>
+<p>„Eiſenſtadt u. ſ. w. Theuerſter Freund! Seine<lb/>
+Durchlaucht, mein gnädigſter Herr, hat mich zu mei¬<lb/>
+nem größeſten Vergnügen damit betraut, Ihnen bei¬<lb/>
+folgende ſechzig Ducaten zu übermachen. Wir haben<lb/>
+letzt Ihre Quartetten wieder ausgeführt und Seine<lb/>
+Durchlaucht waren ſolchermaßen davon eingenommen<lb/>
+und befriediget als bei dem erſtenmal, vor einem<lb/>
+Vierteljahre, kaum der Fall geweſen. Der Fürſt be¬<lb/>
+merkte mir (ich muß es wörtlich ſchreiben): als Mozart<lb/>
+Ihnen dieſe Arbeit dedicirte, hat er geglaubt nur Sie<lb/>
+zu ehren, doch kann's ihm nichts verſchlagen, wenn<lb/>
+ich zugleich ein Compliment für mich darin erblicke.<lb/>
+Sagen Sie ihm, ich denke von ſeinem Genie bald<lb/>
+ſo groß wie Sie ſelbſt, und mehr könn' er in Ewig¬<lb/>
+keit nicht verlangen. — Amen! ſetz' ich hinzu. Sind<lb/>
+Sie zufrieden?“</p><lb/>
+<p>„Poſtſcript. Der lieben Frau in's Ohr: Sorgen<lb/>
+<pb n="92" facs="#f0104"/>
+Sie gütigſt, daß die Dankſagung nicht aufgeſchoben<lb/>
+werde. Am beſten geſchäh' es perſönlich. Wir müſſen<lb/>
+ſo guten Wind fein erhalten!“</p><lb/>
+<p>„Du Engelsmann! o himmliſche Seele!“ rief<lb/>
+Mozart ein über's anderemal, und es iſt ſchwer zu<lb/>
+ſagen, was ihn am meiſten freute, der Brief, oder<lb/>
+des Fürſten Beifall oder das Geld. Was mich be¬<lb/>
+trifft, aufrichtig geſtanden, mir kam das letztere ge¬<lb/>
+rade damals höchſt gelegen. Wir feierten noch einen<lb/>
+ſehr vergnügten Abend.“</p><lb/>
+<p>„Von der Affäre in der Vorſtadt erfuhr ich<lb/>
+jenen Tag noch nichts, die folgenden eben ſo wenig,<lb/>
+die ganze nächſte Woche verſtrich, keine Crescenz er¬<lb/>
+ſchien, und mein Mann, in einem Strudel von Ge¬<lb/>
+ſchäften, vergaß die Sache bald. Wir hatten an einem<lb/>
+Sonnabend Geſellſchaft; Hauptmann Weſſelt, Graf<lb/>
+Hardegg und andere muſicirten. In einer Pauſe<lb/>
+werde ich hinausgerufen — da war nun die Be¬<lb/>
+ſcheerung! Ich geh' hinein und frage: „Haſt du Be¬<lb/>
+ſtellung in der Alſervorſtadt auf allerlei Holzwaare<lb/>
+gemacht?“ — „Potz Hagel, ja! Ein Mädchen wird<lb/>
+da ſeyn? Laß ſie nur hereinkommen.“ So trat ſie<lb/>
+denn in größter Freundlichkeit, einen vollen Korb<lb/>
+am Arm, mit Rechen und Spaten in's Zimmer,<lb/>
+<pb n="93" facs="#f0105"/>
+entſchuldigte ihr langes Ausbleiben, ſie habe den Na¬<lb/>
+men der Gaſſe nicht mehr gewußt und ſich erſt heut zu¬<lb/>
+recht gefragt. Mozart nahm ihr die Sachen nach<lb/>
+einander ab, die er ſofort mit Selbſtzufriedenheit mir<lb/>
+überreichte. Ich ließ mir herzlich dankbar alles und<lb/>
+jedes wohl gefallen, belobte und pries, nur nahm<lb/>
+es mich Wunder, wozu er das Gartengeräthe gekauft.<lb/>
+— „Natürlich,“ ſagt' er, „für dein Stückchen an der<lb/>
+Wien.“ — „Mein Gott, das haben wir ja aber lange<lb/>
+abgegeben! weil uns das Waſſer immer ſo viel Scha¬<lb/>
+den that und überhaupt gar nichts dabei herauskam.<lb/>
+Ich ſagte dir's, du hatteſt nichts dawider.“ — „Was?<lb/>
+Und alſo die Spargeln, die wir dieß Frühjahr ſpeis¬<lb/>
+ten“ — „Waren immer vom Markt.“ — „Seht,“<lb/>
+ſagt' er, „hätt' ich das gewußt! Ich lobte ſie dir<lb/>
+ſo aus bloßer Artigkeit, weil du mich wirklich dauerteſt<lb/>
+mit deiner Gärtnerei; es waren Dingerl wie die<lb/>
+Federſpulen.“</p><lb/>
+<p>„Die Herrn beluſtigte der Spaß überaus; ich<lb/>
+mußte Einigen ſogleich das Ueberflüſſige zum Anden¬<lb/>
+ken laſſen. Als aber Mozart nun das Mädchen über<lb/>
+ihr Heirathsanliegen ausforſchte, ſie ermunterte, hier<lb/>
+nur ganz frei zu ſprechen, da das, was man für ſie<lb/>
+und ihren Liebſten thun würde, in der Stille, glimpflich<lb/>
+<pb n="94" facs="#f0106"/>
+und ohne Jemandes Anklagen ſolle ausgerichtet wer¬<lb/>
+den, ſo äußerte ſie ſich gleichwohl mit ſo viel Be¬<lb/>
+ſcheidenheit, Vorſicht und Schonung, daß ſie alle<lb/>
+Anweſenden völlig gewann und man ſie endlich mit<lb/>
+den beſten Verſprechungen entließ.“</p><lb/>
+<p>„Den Leuten muß geholfen werden!“ ſagte der<lb/>
+Hauptmann. „Die Innungskniffe ſind das Wenigſte<lb/>
+dabei; hier weiß ich Einen, der das bald in Ord¬<lb/>
+nung bringen wird. Es handelt ſich um einen Bei¬<lb/>
+trag für das Haus, Einrichtungskoſten und dergleichen.<lb/>
+Wie, wenn wir ein Concert für Freunde im Tratt¬<lb/>
+neriſchen Saal mit Entr<hi rendition="#aq">é</hi>e <hi rendition="#aq">ad libitum</hi> ankündigten?“<lb/>
+— Der Gedanke fand lebhaften Anklang. Einer der<lb/>
+Herrn ergriff das Salzfaß und ſagte: „Es müßte<lb/>
+jemand zur Einleitung einen hübſchen hiſtoriſchen<lb/>
+Vortrag thun, Herrn Mozarts Einkauf ſchildern,<lb/>
+ſeine menſchenfreundliche Abſicht erklären, und hier<lb/>
+das Prachtgefäß ſtellt man auf einem Tiſch als Opfer¬<lb/>
+büchſe auf, die beiden Rechen als Decoration rechts<lb/>
+und links dahinter gekreuzt.“</p><lb/>
+<p>Dieß nun geſchah zwar nicht, hingegen das<lb/>
+Concert kam zu Stande; es warf ein Erkleckliches ab,<lb/>
+verſchiedene Beiträge folgten nach, daß das beglückte<lb/>
+Paar noch Ueberſchuß hatte, und auch die andern<lb/>
+<pb n="95" facs="#f0107"/>
+Hinderniſſe waren ſchnell beſeitigt. Duſcheks in Prag,<lb/>
+unſre genauſten Freunde dort, bei denen wir logiren,<lb/>
+vernahmen die Geſchichte, und <hi rendition="#g">ſie</hi>, eine gar gemüth¬<lb/>
+liche herzige Frau, verlangte von dem Kram aus<lb/>
+Curioſität auch etwas zu haben; ſo legt' ich denn<lb/>
+das Paſſendſte für ſie zurück und nahm es bei dieſer<lb/>
+Gelegenheit mit. Da wir inzwiſchen unverhofft eine<lb/>
+neue liebe Kunſtverwandte finden ſollten, die nah<lb/>
+daran iſt, ſich den eigenen Herd einzurichten, und ein<lb/>
+Stück gemeinen Hausrath, welches Mozart ausge¬<lb/>
+wählt, gewißlich nicht verſchmähen wird, will ich mein<lb/>
+Mitbringen halbiren, und Sie haben die Wahl zwi¬<lb/>
+ſchen einem ſchön durchbrochenen Chocoladequirl und<lb/>
+mehrgedachter Salzbüchſe, an welcher ſich der Künſt¬<lb/>
+ler mit einer geſchmackvollen Tulpe verunköſtigt hat.<lb/>
+Ich würde unbedingt zu dieſem Stück rathen; das<lb/>
+edle Salz, ſo viel ich weiß, iſt ein Symbol der<lb/>
+Häuslichkeit und Gaſtlichkeit, wozu wir alle guten<lb/>
+Wünſche für Sie legen wollen.“</p><lb/>
+<p>So weit Madame Mozart. Wie dankbar und<lb/>
+wie heiter alles von den Damen auf- und angenom¬<lb/>
+men wurde, kann man denken. Der Jubel erneuerte<lb/>
+ſich, als gleich darauf bei den Männern oben die<lb/>
+Gegenſtände vorgelegt und das Muſter patriarchaliſcher<lb/>
+<pb n="96" facs="#f0108"/>
+Simplicität nun förmlich übergeben ward, welchem<lb/>
+der Oheim in dem Silberſchranke ſeiner nunmehrigen<lb/>
+Beſitzerin und ihrer ſpäteſten Nachkommen keinen ge¬<lb/>
+ringern Platz verſprach, als jenes berühmte Kunſt¬<lb/>
+werk des florentiniſchen Meiſters in der Ambraſer<lb/>
+Sammlung einnehme.</p><lb/>
+<p>Es war ſchon faſt acht Uhr; man nahm den<lb/>
+Thee. Bald aber ſah ſich unſer Muſiker an ſein<lb/>
+ſchon am Mittag gegebenes Wort, die Geſellſchaft<lb/>
+näher mit dem „Höllenbrand“ bekannt zu machen,<lb/>
+der unter Schloß und Riegel, doch zum Glück nicht<lb/>
+allzutief im Reiſekoffer lag, dringend erinnert. Er<lb/>
+war ohne Zögern bereit. Die Auseinanderſetzung<lb/>
+der Fabel des Stücks hielt nicht lange auf, das<lb/>
+Textbuch wurde aufgeſchlagen und ſchon brannten die<lb/>
+Lichter am Fortepiano.</p><lb/>
+<p>Wir wünſchten wohl, unſere Leſer ſtreifte hier<lb/>
+zum wenigſten etwas von jener eigenthümlichen Em¬<lb/>
+pfindung an, womit oft ſchon ein einzeln abgeriſſener,<lb/>
+aus einem Fenſter bei'm Vorübergehen an unſer Ohr<lb/>
+getragener Accord, der nur von <hi rendition="#g">dorther</hi> kommen<lb/>
+kann, uns wie elektriſch trifft und wie gebannt feſt¬<lb/>
+hält; etwas von jener ſüßen Bangigkeit, wenn wir<lb/>
+in dem Theater, ſo lange das Orcheſter ſtimmt, dem<lb/>
+<pb n="97" facs="#f0109"/>
+Vorhang gegenüber ſitzen. Oder iſt es nicht ſo?<lb/>
+Wenn auf der Schwelle jedes erhabenen tragiſchen<lb/>
+Kunſtwerks, es heiße Macbeth, Oedipus oder wie<lb/>
+ſonſt, ein Schauer der ewigen Schönheit ſchwebt,<lb/>
+wo träfe dieß in höherem, auch nur in gleichem<lb/>
+Maße zu, als eben hier? Der Menſch verlangt und<lb/>
+ſcheut zugleich aus ſeinem gewöhnlichen Selbſt ver¬<lb/>
+trieben zu werden, er fühlt, das Unendliche wird ihn<lb/>
+berühren, das ſeine Bruſt zuſammenzieht, indem es<lb/>
+ſie ausdehnen und den Geiſt gewaltſam an ſich reißen<lb/>
+will. Die Ehrfurcht vor der vollendeten Kunſt tritt<lb/>
+hinzu; der Gedanke, ein göttliches Wunder genießen,<lb/>
+es als ein Verwandtes in ſich aufnehmen zu dürfen,<lb/>
+zu können, führt eine Art von Rührung, ja von<lb/>
+Stolz mit ſich, vielleicht den glücklichſten und reinſten,<lb/>
+deſſen wir fähig ſind.</p><lb/>
+<p>Unſre Geſellſchaft aber hatte damit, daß ſie ein<lb/>
+uns von Jugend auf völlig zu eigen gewordenes<lb/>
+Werk jetzt erſtmals kennen lernen ſollte, einen von<lb/>
+unſerem Verhältniß unendlich verſchiedenen Stand,<lb/>
+und, wenn man das beneidenswerthe Glück der per¬<lb/>
+ſönlichen Vermittlung durch den Urheber abrechnet,<lb/>
+bei weitem nicht den günſtigen wie wir, da eine<lb/>
+reine und vollkommene Auffaſſung eigentlich niemand<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Mörike</hi>, Mozart. 7<lb/>
+</fw>
+<pb n="98" facs="#f0110"/>
+möglich war, auch in mehr als Einem Betracht<lb/>
+ſelbſt dann nicht möglich geweſen ſeyn würde, wenn<lb/>
+das Ganze unverkürzt hätte mitgetheilt werden können.</p><lb/>
+<p>Von achtzehn fertig ausgearbeiteten Numern <note place="foot" n="*"><lb/>
+Bei dieſer Zählung iſt zu wiſſen, daß Elvira's Arie mit<lb/>
+dem Recitativ und Leporello's „Hab's verſtanden“ nicht urſprüng¬<lb/>
+lich in der Oper enthalten geweſen.</note>gab<lb/>
+der Componiſt vermuthlich nicht die Hälfte; (wir<lb/>
+finden in dem, unſerer Darſtellung zu Grunde lie¬<lb/>
+genden Bericht nur das letzte Stück dieſer Reihe, das<lb/>
+Sextett, ausdrücklich angeführt) — er gab ſie mei¬<lb/>
+ſtens, wie es ſcheint, in einem freien Auszug, bloß<lb/>
+auf dem Klavier, und ſang ſtellenweiſe darein, wie<lb/>
+es kam und ſich ſchickte. Von der Frau iſt gleich¬<lb/>
+falls nur bemerkt, daß ſie zwei Arien vorgetragen<lb/>
+habe. Wir möchten uns, da ihre Stimme ſo ſtark<lb/>
+als lieblich geweſen ſeyn ſoll, die erſte der Donna<lb/>
+Anna (Du kennſt den Verräther), und eine von den<lb/>
+beiden der Zerline dabei denken.</p><lb/>
+<p>Genau genommen waren, dem Geiſt, der Ein¬<lb/>
+ſicht, dem Geſchmacke nach, Eugenie und ihr Ver¬<lb/>
+lobter die einzigen Zuhörer wie der Meiſter ſie ſich<lb/>
+wünſchen mußte, und jene war es ſicher ungleich<lb/>
+mehr als dieſer. Sie ſaßen Beide tief im Grunde<lb/>
+<pb n="99" facs="#f0111"/>
+des Zimmers; das Fräulein regungslos, wie eine<lb/>
+Bildſäule, und in die Sache aufgelöst auf einen<lb/>
+ſolchen Grad, daß ſie auch in den kurzen Zwiſchen¬<lb/>
+räumen, wo ſich die Theilnahme der Uebrigen be¬<lb/>
+ſcheiden äußerte oder die innere Bewegung ſich un¬<lb/>
+willkürlich mit einem Ausruf der Bewunderung Luft<lb/>
+machte, die von dem Bräutigam an ſie gerichteten<lb/>
+Worte immer nur ungenügend zu erwiedern vermochte.</p><lb/>
+<p>Als Mozart mit dem überſchwänglich ſchönen<lb/>
+Sextett geſchloſſen hatte, und nach und nach ein Ge¬<lb/>
+ſpräch aufkam, ſchien er vornämlich einzelne Bemer¬<lb/>
+kungen des Barons mit Intereſſe und Wohlgefallen<lb/>
+aufzunehmen. Es wurde vom Schluſſe der Oper<lb/>
+die Rede, ſo wie von der, vorläufig auf den Anfang<lb/>
+Novembers anberaumten Aufführung, und da jemand<lb/>
+meinte, gewiſſe Theile des Finale möchten noch eine<lb/>
+Rieſenaufgabe ſeyn, ſo lächelte der Meiſter mit eini¬<lb/>
+ger Zurückhaltung; Conſtanze aber ſagte zu der<lb/>
+Gräfin hin, daß er es hören mußte: „Er hat noch<lb/>
+was in petto, womit er geheim thut, auch vor mir.“</p><lb/>
+<p>„Du fällſt,“ verſetze er, „aus deiner Rolle,<lb/>
+Schatz, daß du das jetzt zur Sprache bringſt; wenn<lb/>
+ich nun Luſt bekäme, von Neuem anzufangen? und<lb/>
+in der That, es juckt mich ſchon.“<lb/>
+</p>
+<pb n="100" facs="#f0112"/>
+<p>„Leporello!“ rief der Graf, luſtig aufſpringend,<lb/>
+und winkte einem Diener: „Wein! Sillery, drei<lb/>
+Flaſchen!“</p><lb/>
+<p>„Nicht doch! damit iſt es vorbei — mein Junker<lb/>
+hat ſein letztes im Glaſe.“</p><lb/>
+<p>„Wohl bekomm's ihm — und Jedem das Seine!“</p><lb/>
+<p>„Mein Gott, was hab'ich da gemacht!“ lamen¬<lb/>
+tirte Conſtanze, mit einem Blick auf die Uhr, „gleich<lb/>
+iſt es Elfe, und morgen früh ſoll's fort — wie wird<lb/>
+das gehen?“</p><lb/>
+<p>„Es geht halt gar nicht, Beſte! nur ſchlechter¬<lb/>
+dings gar nicht.“</p><lb/>
+<p>„Manchmal,“ fing Mozart an, „kann ſich doch<lb/>
+ein Ding ſonderbar fügen. Was wird denn meine<lb/>
+Stanzl ſagen, wenn ſie erfährt, daß eben das Stück<lb/>
+Arbeit, was ſie nun hören ſoll, um eben dieſe<lb/>
+Stunde in der Nacht, und zwar gleichfalls vor einer<lb/>
+angeſetzten Reiſe, zur Welt geboren iſt?“</p><lb/>
+<p>„Wär's möglich? Wann? Gewiß vor drei Wochen,<lb/>
+wie du nach Eiſenſtadt wollteſt?“</p><lb/>
+<p>„Getroffen! Und das begab ſich ſo. Ich kam nach<lb/>
+Zehne, du ſchliefſt ſchon feſt, von Richters Eſſen<lb/>
+heim, und wollte verſprochenermaßen auch bälder zu<lb/>
+Bett, um Morgens bei Zeiten heraus und in den<lb/>
+<pb n="101" facs="#f0113"/>
+Wagen zu ſteigen. Inzwiſchen hatte Veit, wie ge¬<lb/>
+wöhnlich, die Lichter auf dem Schreibtiſch angezündet,<lb/>
+ich zog mechaniſch den Schlafrock an, und fiel mir<lb/>
+ein, geſchwind mein letztes Penſum noch einmal an¬<lb/>
+zuſehen. Allein, o Mißgeſchick! verwünſchte, ganz<lb/>
+unzeitige Geſchäftigkeit der Weiber! du hatteſt auf¬<lb/>
+geräumt, die Noten eingepackt — die mußten näm¬<lb/>
+lich mit: der Fürſt verlangte eine Probe von dem<lb/>
+Opus; — ich ſuchte, brummte, ſchalt, umſonſt!<lb/>
+Darüber fällt mein Blick auf ein verſiegeltes Couvert:<lb/>
+vom Abbate, den gräulichen Haken nach auf der<lb/>
+Adreſſe — ja wahrlich! und ſchickt mir den umge¬<lb/>
+arbeiteten Reſt ſeines Texis, den ich vor Monats¬<lb/>
+friſt noch nicht zu ſehen hoffte. Sogleich ſitz' ich be¬<lb/>
+gierig hin und leſe und bin entzückt, wie gut der<lb/>
+Kauz verſtand, was ich wollte. Es war alles weit<lb/>
+ſimpler, gedrängter und reicher zugleich. Sowohl die<lb/>
+Kirchhofsſcene, wie das Finale, bis zum Untergang<lb/>
+des Helden, hat in jedem Betracht ſehr gewonnen.<lb/>
+(Du ſollſt mir aber auch, dacht' ich, vortrefflicher Poet,<lb/>
+Himmel und Hölle nicht unbedankt zum zweitenmal<lb/>
+beſchworen haben!) Nun iſt es ſonſt meine Ge¬<lb/>
+wohnheit nicht, in der Compoſition etwas vorauszu¬<lb/>
+nehmen, und wenn es noch ſo lockend wäre; das<lb/>
+<pb n="102" facs="#f0114"/>
+bleibt eine Unart, die ſich ſehr übel beſtrafen kann.<lb/>
+Doch gibt es Ausnahmen, und kurz, der Auftritt<lb/>
+bei der Reiterſtatue des Gouverneurs, die Drohung,<lb/>
+die vom Grabe des Erſchlagenen her urplötzlich das<lb/>
+Gelächter des Nachtſchwärmers haarſträubend unter¬<lb/>
+bricht, war mir bereits in die Krone gefahren. Ich<lb/>
+griff einen Accord und fühlte, ich hatte an der rech¬<lb/>
+ten Pforte angeklopft, dahinter ſchon die ganze Legion<lb/>
+von Schrecken bei einander liege, die im Finale los¬<lb/>
+zulaſſen ſind. So kam für's Erſte ein Adagio her¬<lb/>
+aus: <hi rendition="#aq">D</hi> moll, vier Tacte nur, darauf ein zweiter<lb/>
+Satz mit fünfen — es wird, bild' ich mir ein, auf<lb/>
+dem Theater etwas Ungewöhnliches geben, wo die<lb/>
+ſtärkſten Blasinſtrumente die Stimme begleiten. Einſt¬<lb/>
+weilen hören Sie's, ſo gut es ſich hier machen läßt.“</p><lb/>
+<p>Er löſchte ohne weiteres die Kerzen der beiden<lb/>
+neben ihm ſtehenden Armleuchter aus, und jener<lb/>
+furchtbare Choral: „Dein Lachen endet vor der<lb/>
+Morgenröthe!“ erklang durch die Todtenſtille des<lb/>
+Zimmers. Wie von entlegenen Sternenkreiſen fallen<lb/>
+die Töne aus ſilbernen Poſaunen, eiskalt, Mark<lb/>
+und Seele durchſchneidend, herunter durch die blaue<lb/>
+Nacht.</p><lb/>
+<p>„Wer iſt hier? Antwort!“ hört man Don Juan<lb/>
+<pb n="103" facs="#f0115"/>
+fragen. Da hebt es wieder an, eintönig wie zuvor,<lb/>
+und gebietet dem ruchloſen Jüngling die Todten in<lb/>
+Ruhe zu laſſen.</p><lb/>
+<p>Nachdem dieſe dröhnenden Klänge bis auf die<lb/>
+letzte Schwingung in der Luft verhallt waren, fuhr<lb/>
+Mozart fort: „Jetzt gab es für mich begreiflicher¬<lb/>
+weiſe kein Aufhören mehr. Wenn erſt das Eis ein¬<lb/>
+mal an Einer Uferſtelle bricht, gleich kracht der ganze<lb/>
+See und klingt bis an den entfernteſten Winkel hin¬<lb/>
+unter. Ich ergriff unwillkürlich denſelben Faden<lb/>
+weiter unten bei Don Juans Nachtmahl wieder, wo<lb/>
+Donna Elvira ſich eben entfernt hat und das Ge¬<lb/>
+ſpenſt, der Einladung gemäß, erſcheint. — Hören<lb/>
+Sie an.“</p><lb/>
+<p>Es folgte nun der ganze lange, entſetzenvolle<lb/>
+Dialog, durch welchen auch der Nüchternſte bis an<lb/>
+die Grenze menſchlichen Vorſtellens, ja über ſie hin¬<lb/>
+aus geriſſen wird, wo wir das Ueberſinnliche ſchauen<lb/>
+und hören, und innerhalb der eigenen Bruſt von einem<lb/>
+Aeußerſten zum andern willenlos uns hin und her<lb/>
+geſchleudert fühlen.</p><lb/>
+<p>Menſchlichen Sprachen ſchon entfremdet, bequemt<lb/>
+ſich das unſterbliche Organ des Abgeſchiedenen, noch<lb/>
+einmal zu reden. Bald nach der erſten fürchterlichen<lb/>
+<pb n="104" facs="#f0116"/>
+Begrüßung, als der Halbverklärte die ihm gebotene<lb/>
+irdiſche Nahrung verſchmäht, wie ſeltſam ſchauer¬<lb/>
+lich wandelt ſeine Stimme auf den Sproſſen einer<lb/>
+luftgewebten Leiter unregelmäßig auf und nieder! Er<lb/>
+fordert ſchleunigen Entſchluß zur Buße: kurz iſt dem<lb/>
+Geiſt die Zeit gemeſſen; weit, weit, weit iſt der<lb/>
+Weg! Und wenn nun Don Juan, im ungeheuren<lb/>
+Eigenwillen den ewigen Ordnungen trotzend, unter<lb/>
+dem wachſenden Andrang der hölliſchen Mächte, rath¬<lb/>
+los ringt, ſich ſträubt und windet, und endlich unter¬<lb/>
+geht, noch mit dem vollen Ausdruck der Erhabenheit<lb/>
+in jeder Geberde — wem zitterten nicht Herz und<lb/>
+Nieren vor Luſt und Angſt zugleich? Es iſt ein Ge¬<lb/>
+fühl, ähnlich dem, womit man das prächtige Schau¬<lb/>
+ſpiel einer unbändigen Naturkraft, den Brand eines<lb/>
+herrlichen Schiffes anſtaunt. Wir nehmen wider<lb/>
+Willen gleichſam Partei für dieſe blinde Größe und<lb/>
+theilen knirſchend ihren Schmerz im reißenden Ver¬<lb/>
+lauf ihrer Selbſtvernichtung.</p><lb/>
+<p>Der Componiſt war am Ziele. Eine Zeitlang<lb/>
+wagte niemand, das allgemeine Schweigen zuerſt zu<lb/>
+brechen.</p><lb/>
+<p>„Geben Sie uns,“ fing endlich, mit noch be¬<lb/>
+klemmtem Athem, die Gräfin an, „geben Sie uns,<lb/>
+<pb n="105" facs="#f0117"/>
+ich bitte Sie, einen Begriff, wie Ihnen war, da<lb/>
+Sie in jener Nacht die Feder weglegten!“</p><lb/>
+<p>Er blickte, wie aus einer ſtillen Träumerei er¬<lb/>
+muntert, helle zu ihr auf, beſann ſich ſchnell und<lb/>
+ſagte, halb zu der Dame, halb zu ſeiner Frau:<lb/>
+„Nun ja, mir ſchwankte wohl zuletzt der Kopf. Ich<lb/>
+hatte dieß verzweifelte Dibattimento, bis zu dem Chor<lb/>
+der Geiſter, in Einer Hitze fort, beim offenen Fen¬<lb/>
+ſter, zu Ende geſchrieben, und ſtand nach einer kurzen<lb/>
+Raſt vom Stuhl auf, im Begriff, nach deinem Ca¬<lb/>
+binet zu gehen, damit wir noch ein bischen plaudern<lb/>
+und ſich mein Blut ausgleiche. Da machte ein über¬<lb/>
+querer Gedanke mich mitten im Zimmer ſtill ſtehen.“<lb/>
+(Hier ſah er zwei Sekunden lang zu Boden, und<lb/>
+ſein Ton verrieth beim Folgenden eine kaum merkbare<lb/>
+Bewegung.) „Ich ſagte zu mir ſelbſt: wenn du noch<lb/>
+dieſe Nacht wegſtürbeſt, und müßteſt deine Partitur<lb/>
+an dieſem Punkt verlaſſen: ob dir's auch Ruh im<lb/>
+Grabe ließ'? — Mein Auge hing am Docht des<lb/>
+Lichts in meiner Hand und auf den Bergen von ab¬<lb/>
+getropftem Wachs. Ein Schmerz bei dieſer Vorſtel¬<lb/>
+lung durchzückte mich einen Moment; dann dacht' ich<lb/>
+weiter: wenn denn hernach über kurz oder lang ein<lb/>
+anderer, vielleicht gar ſo ein Wälſcher, die Oper zu<lb/>
+<pb n="106" facs="#f0118"/>
+vollenden bekäme, und fände von der Introduction<lb/>
+bis Numero ſiebzehn, mit Ausnahme Einer Piece,<lb/>
+alles ſauber beiſammen, lauter geſunde, reife Früchte<lb/>
+in's hohe Gras geſchüttelt, daß er ſie nur aufleſen<lb/>
+dürfte; ihm graute aber doch ein wenig hier vor<lb/>
+der Mitte des Finale, und er fände alsdann unver¬<lb/>
+hofft den tüchtigen Felsbrocken da in ſo weit ſchon<lb/>
+bei Seite gebracht: er möchte drum nicht übel in das<lb/>
+Fäuſtchen lachen! Vielleicht wär' er verſucht, mich<lb/>
+um die Ehre zu betrügen. Er ſollte aber wohl die<lb/>
+Finger dran verbrennen; da wär' noch immerhin ein<lb/>
+Häuflein guter Freunde, die meinen Stempel kennen<lb/>
+und mir was mein iſt redlich ſichern würden. —<lb/>
+Nun ging ich, dankte Gott mit einem vollen Blick<lb/>
+hinauf, und dankte, liebes Weibchen, deinem Genius,<lb/>
+der dir ſo lange ſeine beiden Hände ſanft über die<lb/>
+Stirne gehalten, daß du fortſchliefſt wie eine Ratze<lb/>
+und mich kein einzigmal anrufen konnteſt. Wie ich<lb/>
+dann aber endlich kam und du mich um die Uhr be¬<lb/>
+frugſt, log ich dich friſchweg ein paar Stunden jünger<lb/>
+als du warſt, denn es ging ſtark auf Viere; und nun<lb/>
+wirſt du begreifen, warum du mich um Sechſe nicht<lb/>
+aus den Federn brachteſt, der Kutſcher wieder heimge¬<lb/>
+ſchickt und auf den andern Tag beſtellt werden mußte.“<lb/>
+</p>
+<pb n="107" facs="#f0119"/>
+<p>„Natürlich,“ verſetzte Conſtanze, „nur bilde ſich<lb/>
+der ſchlaue Mann nicht ein, man ſey ſo dumm ge¬<lb/>
+weſen, nichts zu merken! Deßwegen brauchteſt du<lb/>
+mir deinen ſchönen Vorſprung fürwahr nicht zu ver¬<lb/>
+heimliche!“</p><lb/>
+<p>„Auch war es nicht deßhalb.“</p><lb/>
+<p>„Weiß ſchon — du wollteſt deinen Schatz vor¬<lb/>
+erſt noch unbeſchrieen haben.“</p><lb/>
+<p>„Mich freut nur,“ rief der gutmüthige Wirth,<lb/>
+„daß wir morgen nicht nöthig haben, ein edles Wiener<lb/>
+Kutſcherherz zu kränken, wenn Herr Mozart partout<lb/>
+nicht aufſtehen kann. Die Ordre „Hans ſpann wie¬<lb/>
+der aus“ thut jederzeit ſehr weh.“</p><lb/>
+<p>Dieſe indirekte Bitte um längeres Bleiben, mit<lb/>
+der ſich die übrigen Stimmen im herzlichſten Zuſpruch<lb/>
+verbanden, gab den Reiſenden Anlaß zu Auseinan¬<lb/>
+derſetzung ſehr triftiger Gründe dagegen; doch ver¬<lb/>
+glich man ſich gerne dahin, daß nicht zu zeitig auf¬<lb/>
+gebrochen und noch vergnügt zuſammen gefrühſtückt<lb/>
+werden ſolle.</p><lb/>
+<p>Man ſtand und drehte ſich noch eine Zeitlang<lb/>
+in Gruppen ſchwatzend um einander. Mozart ſah<lb/>
+ſich nach jemanden um, augenſcheinlich nach der Braut;<lb/>
+da ſie jedoch gerade nicht zugegen war, ſo richtete er<lb/>
+<pb n="108" facs="#f0120"/>
+naiver Weiſe die ihr beſtimmte Frage unmittelbar an<lb/>
+die ihm naheſtehende Franziska: „Was denken Sie<lb/>
+denn nun im Ganzen von unſerm Don Giovanni?<lb/>
+was können Sie ihm Gutes prophezeien?“</p><lb/>
+<p>„Ich will,“ verſetzte ſie mit Lachen, „im Namen<lb/>
+meiner Baſe ſo gut antworten als ich kann: „Meine<lb/>
+einfältige Meinung iſt, daß wenn Don Giovanni<lb/>
+nicht aller Welt den Kopf verrückt, ſo ſchlägt der<lb/>
+liebe Gott ſeinen Muſikkaſten gar zu, auf unbe¬<lb/>
+ſtimmte Zeit heißt das, und gibt der Menſchheit zu<lb/>
+verſtehen —“ — „Und gibt der Menſchheit,“ fiel<lb/>
+der Onkel verbeſſernd ein, „den Dudelſack in die<lb/>
+Hand und verſtocket die Herzen der Leute, daß ſie<lb/>
+anbeten Baalim.“</p><lb/>
+<p>„Behüt' uns Gott!“ lachte Mozart. „Je nun,<lb/>
+im Lauf der nächſten ſechzig, ſiebzig Jahre, nachdem<lb/>
+ich lang fort bin, wird mancher falſche Prophet auf¬<lb/>
+ſtehen.“</p><lb/>
+<p>Eugenie trat mit dem Baron und Max herbei,<lb/>
+die Unterhaltung hob ſich unverſehens auf ein Neues,<lb/>
+ward nochmals ernſthaft und bedeutend, ſo daß der<lb/>
+Componiſt, eh' die Geſellſchaft aus einander ging,<lb/>
+ſich noch gar mancher ſchönen, bezeichnenden Aeußerung<lb/>
+erfreute, die ſeiner Hoffnung ſchmeichelte.</p><lb/>
+<pb n="109" facs="#f0121"/>
+<p>Erſt lange nach Mitternacht trennte man ſich;<lb/>
+Keines empfand bis jetzt, wie ſehr es der Ruhe be¬<lb/>
+durfte.</p><lb/>
+<p>Den andern Tag (das Wetter gab dem geſtri¬<lb/>
+gen nichts nach) um zehn Uhr ſah man einen hüb¬<lb/>
+ſchen Reiſewagen, mit den Effekten beider Wiener<lb/>
+Gäſte bepackt, im Schloßhof ſtehen. Der Graf ſtand<lb/>
+mit Mozart davor, kurz ehe die Pferde heraus ge¬<lb/>
+führt wurden, und fragte, wie er ihm gefalle.</p><lb/>
+<p>„Sehr gut; er ſcheint äußerſt bequem.“</p><lb/>
+<p>„Wohlan, ſo machen Sie mir das Vergnügen<lb/>
+und behalten Sie ihn zu meinem Andenken.“</p><lb/>
+<p>„Wie? iſt das Ernſt?“</p><lb/>
+<p>„Was wär' es ſonſt?“</p><lb/>
+<p>„Heiliger Sixtus und Calixtus — Conſtanze!<lb/>
+du!“ rief er zum Fenſter hinauf, wo ſie mit den<lb/>
+Andern heraus ſah. „Der Wagen ſoll mein ſeyn!<lb/>
+du fährſt künftig in deinem eigenen Wagen!“</p><lb/>
+<p>Er umarmte den ſchmunzelnden Geber, betrach¬<lb/>
+tete und umging ſein neues Beſitzthum von allen<lb/>
+Seiten, öffnete den Schlag, warf ſich hinein und<lb/>
+rief heraus: „Ich dünke mich ſo vornehm und ſo<lb/>
+reich wie Ritter Gluck! Was weiden ſie in Wien<lb/>
+für Augen machen!“ — „Ich hoffe,“ ſagte die Gräfin,<lb/>
+<pb n="110" facs="#f0122"/>
+„Ihr Fuhrwerk wieder zu ſehn bei der Rückkehr von<lb/>
+Prag, mit Kränzen um und um behangen!“</p><lb/>
+<p>Nicht lang nach dieſem letzten fröhlichen Auf¬<lb/>
+tritt ſetzte ſich der vielbelobte Wagen mit dem ſchei¬<lb/>
+denden Paare wirklich in Bewegung und fuhr im<lb/>
+raſchen Trab nach der Landſtraße zu. Der Graf<lb/>
+ließ ſie bis Wittingau fahren, wo Poſtpferde genom¬<lb/>
+men werden ſollten.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Wenn gute, vortreffliche Menſchen durch ihre<lb/>
+Gegenwart vorübergehend unſer Haus belebten, durch<lb/>
+ihren friſchen Geiſtesodem auch unſer Weſen in neuen<lb/>
+raſchen Schwung verſetzten und uns den Segen der<lb/>
+Gaſtfreundſchaft in vollem Maße zu empfinden gaben,<lb/>
+ſo läßt ihr Abſchied immer eine unbehagliche Sto¬<lb/>
+ckung, zum mindeſten für den Reſt des Tags, bei<lb/>
+uns zurück, wofern wir wieder ganz nur auf uns<lb/>
+ſelber angewieſen ſind.</p><lb/>
+<p>Bei unſern Schloßbewohnern traf wenigſtens<lb/>
+das Letztere nicht zu. Franziskas Eltern nebſt der alten<lb/>
+Tante fuhren zwar alsbald auch weg; die Freundin<lb/>
+ſelbſt indeß, der Bräutigam, Max ohnehin, verblieben<lb/>
+noch. Eugenien, von welcher vorzugsweiſe hier die<lb/>
+Rede iſt, weil ſie das unſchätzbare Erlebniß tiefer<lb/>
+<pb n="111" facs="#f0123"/>
+als alle ergriff, ihr, ſollte man denken, konnte nichts<lb/>
+fehlen, nichts genommen oder getrübt ſeyn; ihr reines<lb/>
+Glück in dem wahrhaft geliebten Mann, das erſt ſo<lb/>
+eben ſeine förmliche Beſtätigung erhielt, mußte alles<lb/>
+andre verſchlingen, vielmehr, das Edelſte und Schönſte,<lb/>
+wovon ihr Herz bewegt ſeyn konnte, mußte ſich noth¬<lb/>
+wendig mit jener ſeligen Fülle in Eines verſchmelzen.<lb/>
+So wäre es auch wohl gekommen, hätte ſie geſtern<lb/>
+und heute der bloßen Gegenwart, jetzt nur dem reinen<lb/>
+Nachgenuß derſelben leben können. Allein am Abend<lb/>
+ſchon, bei den Erzählungen der Frau, war ſie von<lb/>
+leiſer Furcht für ihn, an deſſen liebenswerthem Bild<lb/>
+ſie ſich ergötzte, geheim beſchlichen worden; dieſe<lb/>
+Ahnung wirkte nachher, die ganze Zeit als Mozart<lb/>
+ſpielte, hinter allem unſäglichen Reiz, durch alle das<lb/>
+geheimnißvolle Grauen der Muſik hindurch, im Grund<lb/>
+ihres Bewußtſeyns fort, und endlich überraſchte, er¬<lb/>
+ſchütterte ſie das was er ſelbſt in der nämlichen Rich¬<lb/>
+tung gelegenheitlich von ſich erzählte. Es ward ihr<lb/>
+ſo gewiß, ſo ganz gewiß, daß dieſer Mann ſich ſchnell<lb/>
+und unaufhaltſam in ſeiner eigenen Gluth verzehre,<lb/>
+daß er nur eine flüchtige Erſcheinung auf der Erde<lb/>
+ſeyn könne, weil ſie den Ueberfluß, den er verſtrö¬<lb/>
+men würde, in Wahrheit nicht ertrüge.</p><lb/>
+<pb n="112" facs="#f0124"/>
+<p>Dieß, neben vielem andern, ging, nachdem ſie<lb/>
+ſich geſtern niedergelegt, in ihrem Buſen auf und ab,<lb/>
+während der Nachhall Don Juans verworren noch<lb/>
+lange fort ihr inneres Gehör einnahm. Erſt gegen<lb/>
+Tag ſchlief ſie ermüdet ein.</p><lb/>
+<p>Die drei Damen hatten ſich nunmehr mit ihren<lb/>
+Arbeiten in den Garten geſetzt, die Männer leiſteten<lb/>
+ihnen Geſellſchaft, und da das Geſpräch natürlich zu¬<lb/>
+nächſt nur Mozart betraf, ſo verſchwieg auch Eugenie<lb/>
+ihre Befürchtungen nicht. Keins wollte dieſelben im<lb/>
+Mindeſten theilen, wiewohl der Baron ſie vollkom¬<lb/>
+men begriff. Zur guten Stunde, in recht menſchlich<lb/>
+reiner, dankbarer Stimmung pflegt man ſich jeder<lb/>
+Unglücksidee, die einen gerade nicht unmittelbar an¬<lb/>
+geht, aus allen Kräften zu erwehren. Die ſprechend¬<lb/>
+ſten, lachendſten Gegenbeweiſe wurden, beſonders vom<lb/>
+Oheim, vorgebracht, und wie gerne hörte nicht Eu¬<lb/>
+genie alles an! Es fehlte nicht viel, ſo glaubte ſie<lb/>
+wirklich zu ſchwarz geſehen zu haben.</p><lb/>
+<p>Einige Augenblicke ſpäter, als ſie durch's große<lb/>
+Zimmer oben ging, das eben gereinigt und wieder<lb/>
+in Ordnung gebracht worden war, und deſſen vorge¬<lb/>
+zogene, grün damaſtene Fenſtergardinen nur ein ſanf¬<lb/>
+tes Dämmerlicht zuließen, ſtand ſie wehmüthig vor<lb/>
+<pb n="113" facs="#f0125"/>
+dem Klaviere ſtill. Durchaus war es ihr wie ein<lb/>
+Traum, zu denken, wer noch vor wenigen Stunden<lb/>
+davor geſeſſen habe. Lang blickte ſie gedankenvoll die<lb/>
+Taſten an, die Er zuletzt berührt, dann drückte ſie<lb/>
+leiſe den Deckel zu und zog den Schlüſſel ab, in<lb/>
+eiferſüchtiger Sorge, daß ſobald keine andere Hand<lb/>
+wieder öffne. Im Weggehn ſtellte ſie beiläufig einige<lb/>
+Liederhefte an ihren Ort zurück; es fiel ein älteres<lb/>
+Blatt heraus, die Abſchrift eines böhmiſchen Volks¬<lb/>
+liedchens, das Franziska früher, auch wohl ſie ſelbſt,<lb/>
+manchmal geſungen. Sie nahm es auf, nicht ohne<lb/>
+darüber betreten zu ſeyn. In einer Stimmung wie<lb/>
+die ihrige wird der natürlichſte Zufall leicht zum<lb/>
+Orakel. Wie ſie es aber auch verſtehen wollte, der<lb/>
+Inhalt war der Art, daß ihr, indem ſie die ein¬<lb/>
+fachen Verſe wieder durchlas, heiße Thränen entfielen.</p><lb/>
+<lg type="poem"> <lg n="1"> <l rendition="#et">Ein Tännlein grünet wo,</l><lb/>
+<l>Wer weiß, im Walde;</l><lb/>
+<l>Ein Roſenſtrauch, wer ſagt,</l><lb/>
+<l>In welchem Garten?</l><lb/>
+<l>Sie ſind erleſen ſchon,</l><lb/>
+<l>Denk' es, o Seele,</l><lb/>
+<l>Auf deinem Grab zu wurzeln</l><lb/>
+<l>Und zu wachſen.</l><lb/>
+</lg> <fw type="sig" place="bottom"> <hi rendition="#g">Mörike</hi>, Mozart 8<lb/>
+</fw>
+<pb n="114" facs="#f0126"/>
+<lg n="2">     <l rendition="#et">Zwei ſchwarze Rößlein weiden</l><lb/>
+<l>Auf der Wieſe,</l><lb/>
+<l>Sie kehren heim zur Stadt</l><lb/>
+<l>In muntern Sprüngen.</l><lb/>
+<l>Sie werden ſchrittweis gehn</l><lb/>
+<l>Mit deiner Leiche;</l><lb/>
+<l>Vielleicht, vielleicht noch eh'</l><lb/>
+<l>An ihren Hufen</l><lb/>
+<l>Das Eiſen los wird,</l><lb/>
+<l>Das ich blitzen ſehe!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb facs="#f0127"/>
+</body> <back> <div type="corrigenda" n="1"> <head> <hi rendition="#b">Berichtigungen.</hi> </head><lb/>
+<p>Seite 45 Zeile 9 lies <hi rendition="#g">mit</hi> ſtatt in.</p><lb/>
+<p>„ 65 „ 9 „ <hi rendition="#g">Spitzen</hi> ſtatt <hi rendition="#g">Aeſte</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb facs="#f0128"/>
+<pb facs="#f0129"/>
+<pb facs="#f0130"/>
+<pb facs="#f0131"/>
+</back> </text> </TEI>

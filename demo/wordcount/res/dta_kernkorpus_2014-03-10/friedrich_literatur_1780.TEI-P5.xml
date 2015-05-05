@@ -1,0 +1,1916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Ueber die deutsche Litteratur, die Mängel die man ihr vorwerfen kann, die Ursachen derselben und die Mittel sie zu verbessern</title>
+<title type="sub">Aus dem Französischen übersetzt</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118535749">
+<forename>Friedrich</forename>
+<genName>II.</genName>
+<roleName>König von Preußen</roleName>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">71</measure>
+<measure type="tokens">12296</measure>
+<measure type="types">3296</measure>
+<measure type="characters">87477</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:14:55Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/friedrich_literatur_1780</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/friedrich_literatur_1780</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/friedrich_literatur_1780</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/friedrich_literatur_1780</idno>
+<idno type="DTADirName">friedrich_literatur_1780</idno>
+<idno type="DTAID">16473</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905191474</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Friedrich II., König von Preußen: Über die deutsche Literatur [..] Aus dem Französischen übersetzt (Übers. [Christian Konrad Wilhelm Dohm]). Berlin, 1780.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Ueber die deutsche Litteratur, die Mängel die man ihr vorwerfen kann, die Ursachen derselben und die Mittel sie zu verbessern</title>
+<title level="m" type="sub">Aus dem Französischen übersetzt</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118535749">
+<forename>Friedrich</forename>
+<genName>II.</genName>
+<roleName>König von Preußen</roleName>
+</persName>
+</author>
+<editor role="translator">
+<persName ref="http://d-nb.info/gnd/118680145">
+<surname>Dohm</surname>
+<forename>Christian Conrad Wilhelm von </forename>
+</persName>
+</editor>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">62 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Decker</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1780</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Bibl. Diez oct. 8354</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=611569248</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#g">Ueber</hi><lb/>
+die<lb/>
+<hi rendition="#b">deutſche Litteratur,</hi><lb/>
+<hi rendition="#g">die Maͤngel</hi><lb/>
+die man ihr vorwerfen kann,<lb/>
+<hi rendition="#g">die Urſachen derſelben</hi><lb/>
+und<lb/>
+<hi rendition="#b">die Mittel ſie zu verbeſſern</hi>.</titlePart></docTitle><lb/>
+<titlePart type="desc">Aus dem Franzoͤſiſchen uͤberſetzt.</titlePart><lb/>
+<docImprint><pubPlace><hi rendition="#b"><hi rendition="#g"><placeName>Berlin</placeName></hi>,</hi></pubPlace><lb/>
+gedruckt bey <publisher><persName>G. Jac. Decker</persName>, Koͤnigl. Hof-Buchdr.</publisher><lb/>
+<docDate><hi rendition="#g">1780</hi>.</docDate></docImprint></titlePage><lb/>
+<pb n="[2]" facs="#f0008"/>
+</front> <body>
+<pb n="[3]" facs="#f0009"/>
+<lb/>
+<div n="1"><figure/><head>Ueber die deutſche Litteratur; die Maͤngel,<lb/>
+die man ihr vorwerfen kann; die Ur-<lb/>
+ſachen derſelben; und die Mittel ſie zu<lb/>
+verbeſſern.</head><lb/>
+<milestone unit="section" rendition="#hr"/> <p><hi rendition="#in">S</hi>ie wundern ſich, mein Herr, daß ich immer<lb/>
+noch nicht meine Stimme mit der Ihrigen<lb/>
+vereinigen will, um den Fortſchritten, welche nach Ih-<lb/>
+rem Urtheil, die deutſche Litteratur faſt taͤglich macht,<lb/>
+Beyfall zu geben. Ich liebe unſer gemeinſchaftliches<lb/>
+Vaterland ſo ſehr wie Sie; aber gerade eben dieſes<lb/>
+iſt mir ein Beweggrund, ihm nicht eher Lob zu bewil-<lb/>
+ligen, bis es ſich deſſelben wuͤrdig gemacht hat. Man<lb/>
+erklaͤrt nicht einen Mann fuͤr <hi rendition="#fr">Sieger,</hi> der noch mitten<lb/>
+in der Laufbahn iſt, es zu werden. Ich erwarte, daß<lb/>
+er das Ziel wird erreicht haben, und dann wird mein<lb/>
+Beyfall eben ſo aufrichtig, als gerecht ſeyn.</p><lb/>
+<fw type="sig" place="bottom">A 2</fw> <fw type="catch" place="bottom">Sie</fw><lb/>
+<pb n="4" facs="#f0010"/>
+<p>Sie wiſſen, daß in der gelehrten Republik eine<lb/>
+vollkommene Freyheit der Meynungen herrſcht. Sie<lb/>
+ſehen die Gegenſtaͤnde aus einem, ich aus einem <hi rendition="#g">an-<lb/>
+dern</hi> Geſichtspunkt. Erlauben Sie alſo, daß ich mich<lb/>
+erklaͤre, und Ihnen meine Art zu denken, ſo wie mei-<lb/>
+ne Ideen uͤber die alte und neue Litteratur, genauer<lb/>
+entwickele. Ich werde ſie in Abſicht der Sprachen,<lb/>
+der Wiſſenſchaften und des Geſchmacks betrachten.<lb/>
+Ich mache mit <placeName>Griechenland</placeName>, dieſer Wiege der ſchoͤ-<lb/>
+nen Kuͤnſte, den Anfang. Die Sprache der griechi-<lb/>
+ſchen Nation iſt die harmoniſchſte von allen, welche je<lb/>
+geredet worden. Ihre erſten Theologen und Ge-<lb/>
+ſchichtſchreiber waren Dichter. Dieſe brachten gluͤck-<lb/>
+liche Wendungen in ihre Sprache, wurden Schoͤpfer<lb/>
+einer Menge mahleriſcher Ausdruͤcke, und fuͤr alle ihre<lb/>
+Nachfolger, Lehrer der Kunſt, ſich mit Anmuth, Fein-<lb/>
+heit und Wuͤrde auszudruͤcken.</p><lb/>
+<p>Ich gehe von <placeName>Athen</placeName> nach <placeName>Rom</placeName> uͤber, und finde<lb/>
+hier eine Republik, welche zuerſt lange Zeit mit ihren<lb/>
+Nachbarn krieget, und dann fuͤr die Ehre und die Ver-<lb/>
+groͤſſerung ihres Reichs kaͤmpft. Alles in dieſem<lb/>
+Staat war Nerve und Kraft, und nicht eher, bis<lb/>
+<placeName>Rom</placeName>s Nebenbuhlerin, <placeName>Carthago</placeName>, zerſtoͤrt war, fanden<lb/>
+hier die Wiſſenſchaften Eingang. Der große <persName>Scipio<lb/>
+der Afrikaner</persName>, der Freund des <persName>Laͤlius</persName> und <persName>Polybius</persName>,<lb/>
+war der erſte Roͤmer, der die Wiſſenſchaften beſchuͤtzte.<lb/>
+Dann folgten die <persName>Gracchen</persName>; dann <persName>Antonius</persName> und<lb/>
+<fw type="catch" place="bottom"><persName>Craſſus</persName></fw><lb/>
+<pb n="5" facs="#f0011"/>
+<persName>Craſſus</persName>, zwey beruͤhmte Redner ihrer Zeit. Doch ge-<lb/>
+langten die Sprache und der Styl der roͤmiſchen Be-<lb/>
+redſamkeit nicht eher zu ihrer Reife, als zu den Zeiten<lb/>
+des <hi rendition="#fr"><persName>Cicero</persName></hi>, des <persName>Hortenſius</persName>, und der vortrefflichen Ge-<lb/>
+nies, welche die Zierde der Regierung <persName>Auguſt</persName>s waren.</p><lb/>
+<p>Dieſe kurze Ueberſicht bezeichnet mir den natuͤr-<lb/>
+lichen Gang der Litteratur. Ich bin uͤberzeugt, daß<lb/>
+kein Schriftſteller gut in einer Sprache ſchreiben koͤn-<lb/>
+ne, die noch nicht ausgebildet und verfeinert iſt. Ich<lb/>
+ſehe auch, daß man in allen Laͤndern mit dem Noth-<lb/>
+wendigen anfaͤngt, und erſt nachher das Angenehme<lb/>
+hinzufuͤgt. Die roͤmiſche Republik faͤngt damit an,<lb/>
+ſich zu bilden; dann kaͤmpft ſie, um Laͤnder zu bekom-<lb/>
+men; dann ſucht ſie dieſelben anzubauen; und nicht<lb/>
+eher, bis ſie nach den Puniſchen Kriegen, eine feſte und<lb/>
+dauerhafte Verfaſſung erhalten, entſteht der Geſchmack<lb/>
+fuͤr die Kuͤnſte, und gelangt die lateiniſche Sprache und<lb/>
+Beredſamkeit zu einiger Vollkommenheit. Ich be-<lb/>
+merke aber hiebey, daß zwiſchen dem Zeitalter des aͤl-<lb/>
+tern <persName>Scipio</persName> und dem Conſulat des <persName>Cicero</persName> ſich ein Zeit-<lb/>
+raum von hundert und ſechzig Jahren befindet. Ich<lb/>
+ſchließe hieraus, daß die Fortſchritte zur Vollkommen-<lb/>
+heit in allen Dingen, langſam ſind, und daß der Kern,<lb/>
+den man in die Erde pflanzt, erſt Wurzel faſſen, her-<lb/>
+vorkeimen, ſeine Zweige ausbreiten, Kraft und Staͤrke<lb/>
+gewinnen muͤſſe, ehe er Blumen und Fruͤchte hervor-<lb/>
+bringen koͤnne. Ich beurtheile dann <placeName>Deutſchland</placeName> nach<lb/>
+<fw type="sig" place="bottom">A 3</fw> <fw type="catch" place="bottom">dieſen</fw><lb/>
+<pb n="6" facs="#f0012"/>
+dieſen Regeln, um den Standpunkt, in welchem wir<lb/>
+uns itzt wirklich befinden, mit Billigkeit zu beſtim-<lb/>
+men; ich befreye mich von allen Vorurtheilen und laſ-<lb/>
+ſe mich blos von der Wahrheit leiten. Und nun finde<lb/>
+ich eine noch halb-barbariſche Sprache, in ſo viele ver-<lb/>
+ſchiedene Dialekte vertheilt, als <placeName>Deutſchland</placeName> Provin-<lb/>
+zen hat. Jeder Kreiß haͤlt ſich uͤberzeugt, ſeine Sprache<lb/>
+ſey die wahre aͤchte und deutſche. Wir beſitzen noch<lb/>
+keine von der ganzen Nation gebilligte Sammlung,<lb/>
+in der man alle Worte und Redensarten faͤnde, nach<lb/>
+denen man die Reinigkeit der Sprache ſicher beurthei-<lb/>
+len koͤnnte. Was man in <placeName>Schwaben</placeName> ſchreibt, iſt in<lb/>
+<placeName>Hamburg</placeName> kaum verſtaͤndlich; und der oͤſterreichiſche<lb/>
+Styl iſt fuͤr die Sachſen dunkel. Es iſt alſo phyſiſch<lb/>
+unmoͤglich daß auch ein Schriftſteller von dem groͤß-<lb/>
+ten Geiſt, dieſe noch ungebildete Sprache vortrefflich<lb/>
+behandeln koͤnne. Verlangt man vom <hi rendition="#fr"><persName>Phidias</persName></hi> eine<lb/>
+<hi rendition="#fr">Venus</hi> von Gnidus; ſo muß man ihm einen Marmor<lb/>
+ohne Fehler, feine Meißel und gute Grabſtichel geben.<lb/>
+Nur dann darf man von ſeiner Arbeit etwas erwarten;<lb/>
+aber ohne Werkzeuge laͤßt ſich kein Kuͤnſtler denken.<lb/>
+Man koͤnnte mir vielleicht den Einwurf machen, daß<lb/>
+auch die griechiſchen Republiken ehemals eben ſo viele<lb/>
+verſchiedene Dialekte hatten, als wir; und daß man<lb/>
+noch itzt das Vaterland eines Italiaͤners an ſeinem<lb/>
+Styl und ſeiner Ausſprache erkennen koͤnne, die immer<lb/>
+in einem Lande anders ſind, als in dem andern. Ich<lb/>
+<fw type="catch" place="bottom">zweifle</fw><lb/>
+<pb n="7" facs="#f0013"/>
+zweifle an der Richtigkeit dieſer Behauptungen gar<lb/>
+nicht; aber ſie duͤrfen uns nicht abhalten, den fernern<lb/>
+Fortſchritten der Litteratur im alten <placeName>Griechenland</placeName> und<lb/>
+im neuern <placeName>Italien</placeName>, weiter nachzugehen. Die beruͤhm-<lb/>
+ten Dichter, Redner und Geſchichtſchreiber dieſer Laͤn-<lb/>
+der ſetzten die Sprache derſelben durch ihre Schriften<lb/>
+feſt. Das Publikum nahm nach einer ſtillſchweigen-<lb/>
+den Uebereinſtimmung, die Wendungen, Phraſen und<lb/>
+Metaphern, als die beſten und richtigſten an, welche<lb/>
+jene große Kuͤnſtler in ihren Werken gebraucht hatten.<lb/>
+Ihre Ausdruͤcke wurden nach und nach allgemein aus-<lb/>
+gebreitet, und die Sprachen wurden durch ſie verſchoͤ-<lb/>
+nert, veredelt und bereichert.</p><lb/>
+<p>Werfen wir nun wieder einen Blick auf unſer<lb/>
+Vaterland, ſo finden wir ein Gewirre von Sprache,<lb/>
+ohne alle Anmuth, das jeder nach ſeinen Einfaͤllen be-<lb/>
+handelt. Man kennt hier keine Wahl der Ausdruͤcke,<lb/>
+man vernachlaͤßigt die eigentlichſten und ausdruͤckend-<lb/>
+ſten Worte; und man verſchwemmt oft allen Sinn<lb/>
+und Gedanken in einem Meer von Epiſoden. Ich ge-<lb/>
+be mir alle Muͤhe, um unſere <persName>Homer</persName>e, unſere <persName>Virgil</persName>e,<lb/>
+unſere <persName>Anacreon</persName>s, unſere <persName>Horatz</persName>e, unſere <persName>Demoſthen</persName>e,<lb/>
+unſere <persName>Cicero</persName>ne, unſere <persName>Thucydides</persName>, unſere <persName>Livius</persName>, aus-<lb/>
+zuforſchen; aber ich finde ſie nirgend, alle meine Muͤhe<lb/>
+iſt umſonſt. Ich daͤchte alſo, wir waͤren aufrichtig,<lb/>
+und geſtuͤnden nur ehrlich, daß bis itzt die ſchoͤnen<lb/>
+Wiſſenſchaften in unſerm Boden, noch nicht haben ge-<lb/>
+<fw type="sig" place="bottom">A 4</fw> <fw type="catch" place="bottom">deihen</fw><lb/>
+<pb n="8" facs="#f0014"/>
+deihen wollen. <placeName>Deutſchland</placeName> hat Philoſophen gehabt,<lb/>
+welche die Vergleichung mit den Alten aushalten, und<lb/>
+ſie ſogar in mehr als einer Gattung uͤbertreffen. Ich<lb/>
+werde auch hierauf nachher noch zuruͤckkommen. Aber<lb/>
+in Abſicht der ſchoͤnen Wiſſenſchaften muͤſſen wir unſre<lb/>
+Duͤrftigkeit nur geſtehen. Alles was ich Ihnen, ohne<lb/>
+mich zum Schmeichler meiner Landsleute zu erniedri-<lb/>
+gen, zugeſtehn kann, iſt, daß wir in der kleinen Gat-<lb/>
+tung der Fabel einen <hi rendition="#fr"><persName>Gellert</persName></hi> gehabt haben, der ſich ne-<lb/>
+ben <hi rendition="#fr"><persName>Aeſop</persName></hi> und <hi rendition="#fr"><persName>Phaͤdrus</persName></hi> geſetzt. Die Gedichte des<lb/>
+<hi rendition="#fr"><persName>Canitz</persName></hi> ſind ertraͤglich, aber nicht von Seiten der<lb/>
+Sprache, ſondern mehr, weil er, jedoch nur ſchwach,<lb/>
+den <hi rendition="#fr"><persName>Horatz</persName></hi> nachahmt. Ich will auch die Idyllen des<lb/>
+<hi rendition="#fr"><persName>Gesner</persName></hi> nicht ganz uͤbergehen, die einige Vertheidiger<lb/>
+haben; aber ich muß mir doch die Erlaubniß ausbe-<lb/>
+dingen, ihnen die Werke des <hi rendition="#fr"><persName>Tibull</persName></hi>, <hi rendition="#fr"><persName>Catull</persName></hi>, und<lb/>
+<hi rendition="#fr"><persName>Propertz</persName></hi> vorzuziehn. Wenn ich die Geſchichtſchrei-<lb/>
+ber durchgehe, finde ich nur die deutſche Geſchich-<lb/>
+te von <hi rendition="#fr"><persName>Maſcow</persName></hi>, welche am wenigſten fehlerhaft iſt.<lb/>
+Und erwarten Sie wohl im Ernſt, daß ich Ihnen vom<lb/>
+Verdienſt unſrer Redner etwas ſagen ſoll? Ich wuͤßte<lb/>
+Ihnen wenigſtens keinen zu nennen, als den beruͤhmten<lb/>
+<hi rendition="#fr"><persName>Quandt</persName></hi> zu <placeName>Koͤnigsberg</placeName>, der die ſeltene und in ſeiner<lb/>
+Art einzige Gabe beſaß, ſeine Sprache harmoniſch zu<lb/>
+machen, und ich muß leider! zu unſrer Schande hin-<lb/>
+zuſetzen, daß dieſes Verdienſt gar nicht erkannt wor-<lb/>
+den, und ſeinen Namen nicht beruͤhmt gemacht habe.<lb/>
+<fw type="catch" place="bottom">Und</fw><lb/>
+<pb n="9" facs="#f0015"/>
+Und wie kann man auch verlangen, daß die Menſchen<lb/>
+ſich beeifern ſollen, jeder in ſeiner Art vollkommen zu<lb/>
+werden, wenn der Ruhm nicht ihre Belohnung iſt?<lb/>
+Indeß will ich zu den Herrn, die ich genannt habe, noch<lb/>
+einen Ungenannten hinzuſetzen, von dem ich reimloſe<lb/>
+Verſe geſehn habe; die Cadenz und Harmonie der-<lb/>
+ſelben entſtand aus der Abwechſelung der Dactylen<lb/>
+und Spondaͤen; ſie waren voll von Verſtand; und<lb/>
+mein Ohr wurde ſehr angenehm durch einen Wohllaut<lb/>
+der Toͤne geſchmeichelt, deſſen ich unſre Sprache kaum<lb/>
+faͤhig geglaubt hatte. Ich moͤchte behaupten, daß die-<lb/>
+ſe Art von Verſification ſich am beſten fuͤr unſre Spra-<lb/>
+che ſchicke, und ſehr große Vorzuͤge vor dem Reim ha-<lb/>
+be. Wollte man ſich Muͤhe geben, ſie dadurch voll-<lb/>
+kommener zu machen; ſo wuͤrde man es wahrſcheinlich<lb/>
+hierinn weit bringen.</p><lb/>
+<p>Vom deutſchen Theater moͤchte ich Ihnen lieber<lb/>
+gar nichts ſagen. Die <hi rendition="#fr"><persName>Melpomene</persName></hi> iſt bey uns von<lb/>
+ſehr ſeltſamen Leuten verehret worden; einige traben<lb/>
+auf hohen Stelzen einher, andre kriechen im Staube;<lb/>
+alle uͤbertreten die Regeln der Kunſt, koͤnnen daher nicht<lb/>
+intereſſiren und ruͤhren, und muͤſſen von den Altaͤren<lb/>
+der tragiſchen Muſe verwieſen werden. Die Liebhaber<lb/>
+der <hi rendition="#fr"><persName>Thalia</persName></hi> ſind etwas gluͤcklicher geweſen; ſie haben uns<lb/>
+wenigſtens eine wahre und originelle Comoͤdie geliefert,<lb/>
+ich meyne den <hi rendition="#fr">Poſtzug</hi>. Der Dichter dieſes Stuͤcks hat<lb/>
+unſre Sitten und unſer eigenthuͤmliches Laͤcherliche auf<lb/>
+<fw type="sig" place="bottom">A 5</fw> <fw type="catch" place="bottom">das</fw><lb/>
+<pb n="10" facs="#f0016"/>
+das Theater gebracht. Das Stuͤck iſt ſehr gut gemacht,<lb/>
+und Moliere ſelbſt haͤtte den Gegenſtand deſſelben nicht<lb/>
+gluͤcklicher bearbeiten koͤnnen. Es thut mir leid, daß<lb/>
+ich Ihnen nicht eine groͤßre Menge unſrer guten Pro-<lb/>
+dukte aufzaͤhlen kann. Ich mache deshalb der Nation<lb/>
+keine Vorwuͤrfe; es fehlt ihr nicht an Genie und Geiſt.<lb/>
+Aber gewiſſe Urſachen haben ſie zuruͤckgehalten und ver-<lb/>
+hindert, ſich zu gleicher Zeit mit ihren Nachbarn zu<lb/>
+erheben. Laſſen Sie uns bis zu der Wiederauflebung<lb/>
+der Wiſſenſchaften zuruͤckgehn, und die verſchiedene La-<lb/>
+ge gegen einander halten, in der ſich <placeName>Italien</placeName>, <placeName>Frank-<lb/>
+reich</placeName> und <placeName>Deutſchland</placeName>, zur Zeit dieſer Revolution des<lb/>
+menſchlichen Geiſtes befanden.</p><lb/>
+<p>Sie wiſſen, daß die Wiſſenſchaften zuerſt in <placeName>Ita-<lb/>
+lien</placeName> wieder gebohren wurden, wo das Haus Eſte, die<lb/>
+Medicis und der <persName>Pabſt Leo X.</persName> ſie beſchuͤtzten und ihre<lb/>
+Fortſchritte beguͤnſtigten. Zu eben dieſer Zeit, da <placeName>Ita-<lb/>
+lien</placeName> verfeinert wurde, war <placeName>Deutſchland</placeName>, durch die Zaͤn-<lb/>
+kereyen der Theologen, in zwey Partheyen getheilt, de-<lb/>
+ren jede durch erbitterten Haß gegen die andere, und<lb/>
+durch fanatiſchen Enthuſiaſmus, ſich auszeichnete. In<lb/>
+<placeName>Frankreich</placeName> bemuͤhte ſich dagegen <persName><hi rendition="#fr">Franz</hi> I.</persName> mit <placeName>Italien</placeName><lb/>
+den Ruhm der Wiederherſtellung der Wiſſenſchaften<lb/>
+zu theilen. Aber ſeine Muͤhe war vergeblich, ſie in ſein<lb/>
+Vaterland heruͤberzubringen. Die franzoͤſiſche Mo-<lb/>
+narchie befand ſich damals in einem Zuſtande der Er-<lb/>
+mattung, erſchoͤpft durch die Loskaufung ihres Koͤ-<lb/>
+<fw type="catch" place="bottom">nigs</fw><lb/>
+<pb n="11" facs="#f0017"/>
+nigs von <persName>Carl V.</persName> Die Kriege der Ligue hinderten nach<lb/>
+<persName>Franz I.</persName> Tode, die Franzoſen, ſich mit den ſchoͤnen Kuͤnſten<lb/>
+zu beſchaͤftigen. Nicht eher als gegen das Ende der Re-<lb/>
+gierung <persName><hi rendition="#fr">Ludwig</hi> XIII.</persName> da die Wunden der buͤrgerli-<lb/>
+chen Kriege geheilt und die Zeitumſtaͤnde, unter dem<lb/>
+<persName>Cardinal <hi rendition="#fr">Richelieu</hi></persName>, guͤnſtiger waren, kam man auf<lb/>
+den Plan <persName><hi rendition="#fr">Franz</hi> I.</persName> zuruͤck. Der Hof ermunterte die<lb/>
+Gelehrten und die ſchoͤnen Geiſter, die Nacheiferung<lb/>
+ward allgemein, und es dauerte nicht lange, ſo gab unter<lb/>
+<persName>Ludwig XIV.</persName> <placeName>Paris</placeName> weder <placeName>Rom</placeName> noch <placeName>Florenz</placeName> etwas nach.<lb/>
+Und nun, wie ſahe es um dieſe Zeit in <placeName>Deutſchland</placeName><lb/>
+aus? Gerade damals, wie <persName>Richelieu</persName> ſich den hohen<lb/>
+Ruhm erwarb, ſeine Nation zu bilden, wuͤthete der<lb/>
+dreyßigjaͤhrige Krieg in ſeinem groͤßten Feuer. <placeName>Deutſch-<lb/>
+land</placeName> wurde durch zwanzig verſchiedene Armeen verwuͤ-<lb/>
+ſtet und gepluͤndert, die Sieger oder Beſiegte, allemal<lb/>
+die Zerſtoͤrung hinter ſich fuͤhrten. Das Land wurde<lb/>
+verwuͤſtet und nicht wieder angebauet, die Staͤdte bey-<lb/>
+nahe ganz verlaſſen. Auch nach dem weſtphaͤliſchen<lb/>
+Frieden hatte <placeName>Deutſchland</placeName> noch nicht Zeit, ſich wieder<lb/>
+zu erholen. Bald mußte es der damals ſehr furchtba-<lb/>
+ren Macht des ottomanniſchen Reichs widerſtehen;<lb/>
+bald gegen die franzoͤſiſchen Armeen kaͤmpfen, welche<lb/>
+die Herrſchaft ihres Reichs uͤber <placeName>Deutſchland</placeName> auszu-<lb/>
+breiten ſuchten. Zu eben der Zeit, als die Tuͤrken <placeName>Wien</placeName><lb/>
+belagerten, <persName>Melak</persName> die <placeName>Pfalz</placeName> verwuͤſtete, wo Staͤdte<lb/>
+und Doͤrfer von den Flammen verzehret wurden, und<lb/>
+<fw type="catch" place="bottom">wo</fw><lb/>
+<pb n="12" facs="#f0018"/>
+wo ſelbſt die ſonſt heilige Freyſtatt des Todes durch<lb/>
+die ausgelaſſene Frechheit der Soldaten verletzt wurde,<lb/>
+welche, die Leichname der Churfuͤrſten aus ihrer Gruft<lb/>
+hervorzogen, um ihre elende Ueberbleibſel ſich zuzueig-<lb/>
+nen; wo verlaſſene Muͤtter mit ihren abgezehrten Kin-<lb/>
+dern auf dem Arm, ſich aus den Truͤmmern ihres Va-<lb/>
+terlandes retteten: zu eben dieſer Zeit, darf man nicht<lb/>
+erwarten, daß man zu <placeName>Wien</placeName> und <placeName>Manheim</placeName>, Sonnets<lb/>
+verfertigt und ſich mit witzigen Epigrammen beſchaͤf-<lb/>
+tigt habe. Die Muſen verlangen ruhige Zufluchtsor-<lb/>
+te; ſie fliehen die Gegenden, wo die Verwirrung herrſcht<lb/>
+und alles zerſtoͤrt wird. Erſt nach dem ſpaniſchen<lb/>
+Succeſſionskriege fieng man an einigermaſſen wieder-<lb/>
+herzuſtellen, was ſo vieles auf einander folgende Elend<lb/>
+vernichtet hatte. Nicht alſo dem Geiſte und Genie<lb/>
+der Nation muß man die ſchwachen Fortſchritte, die<lb/>
+wir bisher gemacht, beymeſſen; ſondern wir muͤſſen<lb/>
+die Urſache derſelben allein in einer Folge trauriger<lb/>
+Umſtaͤnde, in den faſt unaufhoͤrlichen Kriegen ſuchen,<lb/>
+die unſer Vaterland zerſtoͤrten, und eben ſo arm an<lb/>
+Menſchen, als an Gelde, machten.</p><lb/>
+<p>Laſſen Sie uns den Faden der Begebenheiten nie<lb/>
+aus den Augen verliehren, ſondern itzt den Gang un-<lb/>
+ſrer Vaͤter beobachten. Sie werden mit mir die Weis-<lb/>
+heit loben, die ihr Betragen leitete. Sie handelten<lb/>
+gerade ſo, wie es der Lage, in der ſie ſich befanden, an-<lb/>
+gemeſſen war. Sie fiengen an, ſich auf den Landbau<lb/>
+<fw type="catch" place="bottom">zu</fw><lb/>
+<pb n="13" facs="#f0019"/>
+zu legen, und aus Feldern, zu deren Bearbeitung bis-<lb/>
+her keine Haͤnde da waren, einen neuen Werth zu ziehn.<lb/>
+Sie ſtellten die zerſtoͤrten Haͤuſer wieder her; ſie be-<lb/>
+guͤnſtigten die Fortpflanzung und Vermehrung des<lb/>
+menſchlichen Geſchlechtes. Man iſt allenthalben be-<lb/>
+muͤht geweſen, wuͤſte und verlaſſene Laͤnder wieder ur-<lb/>
+bar zu machen; die vermehrte Bevoͤlkerung hat Indu-<lb/>
+ſtrie hervorgebracht; auch der Luxus hat ſich bey uns<lb/>
+eingefunden, ein Verderben fuͤr kleine Staaten, aber<lb/>
+nuͤtzlich fuͤr die großen, in denen er die Circulation des<lb/>
+Geldes befoͤrdert. Durchreiſen Sie itzt einmal <placeName>Deutſch-<lb/>
+land</placeName> von einer ſeiner Graͤnzen bis zur andern; allent-<lb/>
+halben finden ſie ehemalige Flecken in bluͤhende Staͤdte<lb/>
+verwandelt. Hier liegt <placeName>Muͤnſter</placeName>, etwas weiter hin<lb/>
+<placeName>Caſſel</placeName>; hier <placeName>Dresden</placeName> und <placeName>Leipzig</placeName>. In <placeName>Franken</placeName> fin-<lb/>
+den Sie <placeName>Wuͤrzburg</placeName>, <placeName>Nuͤrnberg</placeName>. Wenn Sie ſich<lb/>
+dem <placeName>Rhein</placeName> naͤhern, kommen Sie uͤber <placeName>Fulda</placeName> und<lb/>
+<placeName>Frankfurt am Mayn</placeName>, nach <placeName>Manheim</placeName>, von da zu-<lb/>
+ruͤck uͤber <placeName>Mainz</placeName> nach <placeName>Bonn</placeName>. Jede dieſer Staͤdte<lb/>
+ſtellt dem erſtaunten Reiſenden Gebaͤude dar, die er an<lb/>
+der Stelle des ehmaligen <hi rendition="#fr">hercyniſchen</hi> Waldes nicht<lb/>
+vermuthet haͤtte. Die maͤnnliche Thaͤtigkeit unſrer<lb/>
+Landsleute begnuͤgte ſich alſo damit nicht, nur blos den<lb/>
+Verluſt zu erſetzen, den das oͤffentliche Ungluͤck verur-<lb/>
+ſacht hatte; ſie erhob ſich weiter und brachte das zur<lb/>
+Vollkommenheit, wovon unſre Vorfahren nur die er-<lb/>
+ſten Entwuͤrfe verſucht hatten. Seit der Zeit dieſer<lb/>
+<fw type="catch" place="bottom">gluͤck-</fw><lb/>
+<pb n="14" facs="#f0020"/>
+gluͤcklichen Veraͤnderungen ſehen wir den Wohlſtand<lb/>
+weit allgemeiner werden. Der niedere Stand des<lb/>
+Landmanns und Buͤrgers ſchmachtet nicht mehr in ei-<lb/>
+ner ſchaͤndlichen Unterdruͤckung; Vaͤter koͤnnen itzt ih-<lb/>
+re Soͤhne den Wiſſenſchaften widmen, ohne ſich zu<lb/>
+verſchulden. Dies ſind die Erſtlinge der gluͤcklichen<lb/>
+Revolution, die wir noch zu erwarten haben; itzt ſind<lb/>
+die Bande, welche das Genie unſrer Vorfahren feſſel-<lb/>
+ten, zerbrochen; ſchon bemerkt man, wie der Saame<lb/>
+einer edlen Nacheiferung unter uns zu keimen anfaͤngt.<lb/>
+Wir ſchaͤmen uns, in gewiſſen Gattungen noch nicht<lb/>
+mit unſern Nachbarn uns vergleichen zu duͤrfen; wir<lb/>
+wuͤnſchen mit unermuͤdeten Arbeiten die Zeit wieder zu<lb/>
+gewinnen, die wir durch unſre Widerwaͤrtigkeiten ver-<lb/>
+lohren haben. Ueberhaupt iſt itzt der Geſchmack der<lb/>
+Nation ſo eifrig auf alles gerichtet, was unſer Vater-<lb/>
+land beruͤhmt machen kann, daß man bey dieſen Ge-<lb/>
+ſinnungen gar nicht zweifeln darf, die Muſen werden<lb/>
+auch uns zu ſeiner Zeit in den Tempel des Ruhms einfuͤh-<lb/>
+ren. Wir wollen alſo unterſuchen, wie das noch uͤbrig<lb/>
+gebliebene Unkraut der Barbaren aus unſerm Boden<lb/>
+voͤllig auszurotten ſeyn moͤchte, und was noch zu thun<lb/>
+waͤre, um die Vollkommenheit zu beſchleunigen, zu der<lb/>
+ſich unſre Landsleute zu erheben wuͤnſchen. Ich wie-<lb/>
+derhole, was ich Ihnen ſchon geſagt habe; man muß<lb/>
+damit anfangen die Sprache zu verbeſſern. Sie muß<lb/>
+noch gefeilt, abgehobelt, und durch geſchickte Haͤnde<lb/>
+<fw type="catch" place="bottom">bearbei-</fw><lb/>
+<pb n="15" facs="#f0021"/>
+bearbeitet werden. Deutlichkeit iſt die erſte Regel,<lb/>
+welche alle, die reden und ſchreiben, beobachten muͤſſen,<lb/>
+weil ihre Abſicht iſt, die Gedanken und Begriffe zu<lb/>
+mahlen, und durch Worte auszudruͤcken. Wozu dient<lb/>
+es, die richtigſten, ſtaͤrkſten und glaͤnzendeſten Ideen<lb/>
+zu denken, wenn man ſie nicht verſtaͤndlich ausdruͤcken<lb/>
+kann? Vielen von unſern Schriftſtellern gefaͤllt ein<lb/>
+verworrner Styl; ſie ſchließen eine Parentheſe in<lb/>
+die andere, und oft findet man erſt am Ende einer<lb/>
+Seite das Wort, von welchem der Sinn der ganzen<lb/>
+Periode abhaͤngt. Nichts verwirrt die Conſtruktion<lb/>
+mehr; anſtatt reich zu ſeyn, iſt man nachlaͤßig, und es<lb/>
+wuͤrde leichter ſeyn, das Raͤthſel des Sphynx aufzuloͤ-<lb/>
+ſen, als ihre Gedanken. Eben ſo ſchaͤdlich fuͤr die Fort-<lb/>
+ſchritte der Wiſſenſchaften, als die Fehler, welche ich<lb/>
+unſrer Sprache und unſerm Styl vorgeworfen, iſt der<lb/>
+Mangel eines gruͤndlichen Studirens. Man hat un-<lb/>
+ſerer Nation ehemals Pedanterie vorgeworfen, weil<lb/>
+wir eine Menge Commentatoren, und gar zu ſorgfaͤl-<lb/>
+tige Unterſucher von Kleinigkeiten unter unſern Ge-<lb/>
+lehrten hatten. Um ſich von dieſem Vorwurf zu be-<lb/>
+freyen, faͤngt man itzt an, das Studium der gelehrten<lb/>
+Sprachen ganz zu vernachlaͤßigen; und um nicht fuͤr<lb/>
+einen Pedanten gehalten zu werden, bleibt man in<lb/>
+allen Wiſſenſchaften nur bey der Oberflaͤche ſtehn.<lb/>
+Wenige unſrer heutigen Gelehrten koͤnnen ohne Schwie-<lb/>
+rigkeit die griechiſchen und lateiniſchen klaſſiſchen<lb/>
+<fw type="catch" place="bottom">Schrift-</fw><lb/>
+<pb n="16" facs="#f0022"/>
+Schriftſteller leſen. Will man aber ſein Ohr durch<lb/>
+die Harmonie der homeriſchen Verſe bilden; ſo muß<lb/>
+man dieſen Dichter ganz fertig ohne Huͤlfe eines Woͤr-<lb/>
+terbuchs leſen koͤnnen. Eben dieſes gilt vom <placeName>Demo-<lb/>
+ſthenes</placeName>, <placeName>Ariſtoteles</placeName>, <placeName>Thucydides</placeName> und <placeName>Plato</placeName>. Und<lb/>
+eben ſo wird eine vollkommene Kenntniß der Sprache<lb/>
+dazu erfodert, wenn man die lateiniſchen Claſſiker ge-<lb/>
+nau kennen lernen will. Aber unſre heutige Jugend<lb/>
+legt ſich faſt gar nicht auf das Griechiſche, und weni-<lb/>
+ge lernen ſo viel Latein, um die Werke der großen<lb/>
+Maͤnner aus dem Zeitalter des <placeName>Auguſts</placeName>, nur mittel-<lb/>
+maͤßig uͤberſetzen zu koͤnnen. Und doch ſind dieſe alten<lb/>
+Schriftſteller die reichen Quellen, aus denen unſre Vor-<lb/>
+gaͤnger, die Italiaͤner, die Franzoſen und Englaͤnder,<lb/>
+ihre Kenntniſſe geſchoͤpft haben. Sie haben ſich, ſo<lb/>
+viel ſie konnten, nach dieſen großen Muſtern gebildet;<lb/>
+ihre Art zu denken, ſich eigen gemacht, und bey Bewun-<lb/>
+derung der großen Schoͤnheiten, von denen die Werke<lb/>
+der Alten voll ſind, haben ſie auch die Fehler derſelben<lb/>
+nicht uͤberſehen. Denn billig muß man mit Einſicht<lb/>
+und Unterſcheidung ſchaͤtzen, und ſich nie einer blin-<lb/>
+den Schmeicheley uͤberlaßen. Jene gluͤckliche Zeiten, de-<lb/>
+ren die Italiaͤner, Franzoſen und Englaͤnder vor uns<lb/>
+genoſſen haben, fangen nun unvermerkt an ſich zu ver-<lb/>
+liehren. Das Publikum iſt gleichſam geſaͤttigt von<lb/>
+den Werken, die es erhalten hat; Kenntniſſe werden<lb/>
+weniger geſchaͤtzt, nachdem ſie mehr verbreitet worden.<lb/>
+<fw type="catch" place="bottom">Dieſe</fw><lb/>
+<pb n="17" facs="#f0023"/>
+Dieſe Nationen glauben ſich ſchon im Beſitz des Ruhms,<lb/>
+den ihre Vorfahren erworben haben, und ſchlummern<lb/>
+auf ihren Lorbeeren ein. Aber ich finde, daß dieſe Di-<lb/>
+greſſion mich von meinem Gegenſtande ableitet; ich<lb/>
+kehre zu ihm zuruͤck, und fahre fort zu unterſuchen,<lb/>
+was vor Fehler mehr in unſrer Art zu ſtudiren ſich<lb/>
+finden?</p><lb/>
+<p>Ich glaube zu bemerken, daß die Schulen nicht<lb/>
+ſo viele gute und geſchickte Lehrer haben, als ſie beduͤrf-<lb/>
+ten. Denn wir haben viele Schulen, und alle wollen<lb/>
+verſorgt ſeyn. Wenn die Lehrer Pedanten ſind, wenn<lb/>
+ihr beſchraͤnkter Geiſt ſich in Kleinigkeiten vertieft,<lb/>
+und uͤber denſelben wichtige Sachen vergißt; wenn<lb/>
+ihr Unterricht verworren, langweilig und leer von Sa-<lb/>
+chen iſt; ſo peinigen ſie ihre Schuͤler, und bringen ih-<lb/>
+nen oft auf immer einen Widerwillen fuͤr den Wiſſen-<lb/>
+ſchaften bey. Andre Schullehrer verrichten ihr Amt<lb/>
+wie bloße Miethlinge. Es kuͤmmert ſie wenig, ob die<lb/>
+Schuͤler von ihrem Unterricht Nutzen haben oder nicht;<lb/>
+ſie ſind zufrieden, wenn ſie nur ihren Gehalt richtig<lb/>
+ausgezahlt bekommen. Noch aͤrger iſt es, wenn die<lb/>
+Lehrer ſelbſt keine Kenntniſſe haben. Was koͤnnen ſie<lb/>
+andre lehren, wenn ſie ſelbſt nichts wiſſen? Ich weiß<lb/>
+freylich ſehr wohl, daß es gluͤcklicherweiſe noch Aus-<lb/>
+nahmen von dieſer Regel giebt, und daß man auch in<lb/>
+<placeName>Deutſchland</placeName> einige ſehr geſchickte Schulmaͤnner findet.<lb/>
+So wenig ich dieſes leugne, ſo wuͤnſche ich nur, daß<lb/>
+<fw type="sig" place="bottom">B</fw> <fw type="catch" place="bottom">ihre</fw><lb/>
+<pb n="18" facs="#f0024"/>
+ihre Zahl groͤßer ſeyn moͤchte. Ueber die fehlerhafte<lb/>
+Methode der meiſten Lehrer, ihren Schuͤlern die Gram-<lb/>
+matik, Rhetorik und Dialektik beyzubringen, koͤnnte<lb/>
+ich noch Vieles ſagen. Wie kann man von ihnen er-<lb/>
+warten, daß ſie den Geſchmack ihrer Untergebnen bil-<lb/>
+den werden, wenn ſie einen verworrenen Styl fuͤr ei-<lb/>
+nen ideenreichen; wenn ſie das Triviale und Niedrige<lb/>
+fuͤr naiv, die fehlerhafte Nachlaͤßigkeit der Proſe<lb/>
+fuͤr edle Simplicitaͤt; Galimathias fuͤr erhaben hal-<lb/>
+ten; wenn ſie die Aufſaͤtze ihrer Schuͤler nicht mit Ge-<lb/>
+nauigkeit verbeſſern, und nicht ihnen ihre Fehler vorhal-<lb/>
+ten, ohne ſie niederzuſchlagen? wenn ſie ihnen nicht ſorg-<lb/>
+faͤltig die Regeln einſchaͤrfen, die ſie bey dem Schreiben<lb/>
+immer vor Augen haben muͤſſen? Gegen die genaue<lb/>
+Richtigkeit der Metaphern, werden eben ſo oft Fehler<lb/>
+von den Lehrern begangen. Ich erinnere mich in meiner<lb/>
+Jugend in einer Zueigungsſchrift des Prof. <persName>Heineccius</persName><lb/>
+an eine Koͤnigin, folgende ſchoͤne Phraſe geleſen zu ha-<lb/>
+ben: „<hi rendition="#fr">Ihro Majeſtaͤt glaͤnzen</hi>, wie ein <hi rendition="#fr">Karfunkel</hi>,<lb/>
+„am Finger der itzigen Zeit“. Kann man ſich ſchlech-<lb/>
+ter ausdruͤcken? Warum iſt die Koͤnigin ein Karfunkel?<lb/>
+Wer hat der Zeit einen Finger gegeben? Wenn die<lb/>
+Kuͤnſtler die Zeit vorſtellen, ſo geben ſie ihr <hi rendition="#fr">Fluͤgel</hi>,<lb/>
+weil ſie ohne Unterlaß davon fliegt; eine <hi rendition="#fr">Waſſeruhr</hi>,<lb/>
+weil die Stunden die Zeit abtheilen; und ſie bewaff-<lb/>
+nen ihren Arm mit einer <hi rendition="#fr">Sichel</hi>, um anzudeuten, daß<lb/>
+ſie alles, was da iſt, wegmaͤhet und zerſtoͤrt. Wenn<lb/>
+<fw type="catch" place="bottom">aber</fw><lb/>
+<pb n="19" facs="#f0025"/>
+aber die Lehrer ſich auf eine ſo niedrige und laͤcher-<lb/>
+liche Art ausdruͤcken, was kann man denn von ihren<lb/>
+Schuͤlern ſich verſprechen?</p><lb/>
+<p>Aber laſſen Sie uns von den niedern Schulen<lb/>
+auf die Univerſitaͤten uͤbergehen, und ſie gleichfalls un-<lb/>
+partheyiſch unterſuchen. Ein Fehler, der mir ſogleich<lb/>
+in die Augen faͤllt, iſt, daß man gar keine allgemeine<lb/>
+Methode hat, die Wiſſenſchaften zu lehren. Jeder<lb/>
+Profeſſor macht ſich ſelbſt ſeine eigne. Meiner Mey-<lb/>
+nung nach aber giebt es nur eine gute Methode, an die<lb/>
+man ſich halten ſollte. Aber wie verfaͤhrt man hier-<lb/>
+inn itzt? Ein Profeſſor der Rechte, z. E. hat einige<lb/>
+Lieblinge unter den beruͤhmten Rechtsgelehrten, und er-<lb/>
+klaͤrt nur dieſer ihre Meynungen: er haͤlt ſich allein an<lb/>
+ihre Schriften, ohne ſich um das zu bekuͤmmern, was<lb/>
+andre Schriftſteller uͤber das Recht geſchrieben haben;<lb/>
+er erhebt die Wuͤrde ſeiner Wiſſenſchaft, um ſeine<lb/>
+Kenntniſſe zu zeigen; er bemuͤht ſich mit Fleiß dunkel<lb/>
+in ſeinen Vorleſungen zu ſeyn, um fuͤr ein Orakel ge-<lb/>
+halten zu werden; er erklaͤrt die Geſetze von <placeName>Memphis</placeName>,<lb/>
+wenn von dem Herkommen des <placeName>Stifts Oſnabruͤck</placeName> die<lb/>
+Rede iſt; und er verbreitet ſich uͤber die Geſetze des<lb/>
+<persName>Minos</persName>, wenn er einen kuͤnftigen Beyſitzer der Gerich-<lb/>
+te von <placeName>St. Gallen</placeName> bilden ſoll.</p><lb/>
+<p>Der Lehrer der Weltweisheit hat gewoͤhnlich auch<lb/>
+ſein Lieblingsſyſtem, an das er ſich nur allein haͤlt.<lb/>
+Seine Schuͤler verlaſſen ſeine Hoͤrſaͤle mit noch mehr<lb/>
+<fw type="sig" place="bottom">B 2</fw> <fw type="catch" place="bottom">Vor</fw><lb/>
+<pb n="20" facs="#f0026"/>
+Vorurtheilen im Kopf, als ſie hineinbrachten; ſie ha-<lb/>
+ben nur einen kleinen Theil menſchlicher Meynungen<lb/>
+durchgelaufen, und kennen noch lange nicht alles Ir-<lb/>
+rige und Abgeſchmackte derſelben.</p><lb/>
+<p>Ich habe bey mir ſelbſt die Frage noch nicht ent-<lb/>
+ſcheiden koͤnnen, ob die Medicin eine Kunſt ſey oder<lb/>
+nicht? Aber ich bin feſt uͤberzeugt, daß kein Menſch<lb/>
+in der Welt das Vermoͤgen habe, einen Magen, Lun-<lb/>
+ge oder Niere neu zu machen, wenn dieſe fuͤr das<lb/>
+menſchliche Leben weſentliche Theile einmal verletzt<lb/>
+ſind; und ich rathe meinen Freunden ſehr, wenn ſie<lb/>
+krank ſind, ihre Zuflucht zu einem Arzt zu nehmen,<lb/>
+der ſchon mehr als einen Kirchhoff angefuͤllt hat, und<lb/>
+nicht zu einem jungen Schuͤler von <persName>Hoffmann</persName> oder<lb/>
+<persName>Boerhave</persName>, der noch nicht Gelegenheit gehabt, irgend<lb/>
+einen Menſchen zu toͤdten.</p><lb/>
+<p>An den Lehrern der Geometrie habe ich gar nichts<lb/>
+zu tadeln. Dieſe Wiſſenſchaft allein hat niemals Sek-<lb/>
+ten gehabt; ſie iſt auf die Analyſis, die Syntheſis und<lb/>
+den Calkul gegruͤndet; ſie beſchaͤftigt ſich nur mit ganz<lb/>
+unwiderſprechlichen Wahrheiten, und die Methode,<lb/>
+ſie zu lehren, iſt in allen Laͤndern dieſelbe.</p><lb/>
+<p>Auch in Abſicht der Theologie will ich ein ehrer-<lb/>
+bietiges Stillſchweigen beobachten. Man ſagt, ſie ſey<lb/>
+eine goͤttliche Wiſſenſchaft, in deren Heiligthum ſich<lb/>
+die Layen nicht wagen duͤrfen.</p><lb/>
+<fw type="catch" place="bottom">Aber</fw><lb/>
+<pb n="21" facs="#f0027"/>
+<p>Aber gegen die Herren Profeſſoren der Geſchich-<lb/>
+te, glaube ich etwas weniger Behutſamkeit beobachten<lb/>
+zu duͤrfen; und es wird mir erlaubt ſeyn, ihrer Pruͤ-<lb/>
+fung einige kleine Zweifel vorzulegen. Ich neh-<lb/>
+me mir alſo die Freyheit, ſie zu fragen: Ob das<lb/>
+Studium der Chronologie der nuͤtzlichſte Theil der<lb/>
+Geſchichte? und ob es ein unverzeilicher Fehler ſey, im<lb/>
+Todesjahr des <hi rendition="#fr"><persName>Belus</persName></hi>, oder in Abſicht des Tages zu<lb/>
+irren, da das Pferd des <hi rendition="#fr"><persName>Darius</persName></hi> durch ſein wiehern,<lb/>
+ſeinen Herrn auf den Thron von <placeName>Perſien</placeName> brachte? Ob<lb/>
+ſo viel darauf ankomme, zu wiſſen, ob die <hi rendition="#fr">goldne<lb/>
+Bulle</hi> um ſechs Uhr Morgens, oder um vier Uhr Nach-<lb/>
+mittags publicirt ſey? Was mich betrifft, ſo begnuͤge<lb/>
+ich mich den Inhalt der goldnen Bulle, und dieſes zu<lb/>
+wiſſen, daß ſie im Jahr 1356. bekannt gemacht worden.<lb/>
+Ich will hiemit gar nicht die Geſchichtſchreiber entſchul-<lb/>
+digen, welche Anachroniſmen begehen. Indeß wuͤrde<lb/>
+ich kleine Verſehen dieſer Art mit mehr Nachſicht be-<lb/>
+urtheilen, als die weit wichtigern Fehler, wenn ein Ge-<lb/>
+ſchichtſchreiber die Begebenheiten verwirrt erzaͤhlt<lb/>
+wenn er ihre Urſachen nicht mit Deutlichkeit entwickelt,<lb/>
+wenn er keine gute Methode beobachtet, wenn er ſich<lb/>
+lang bey Kleinigkeiten aufhaͤlt, und uͤber die wichtig-<lb/>
+ſten Gegenſtaͤnde leicht wegeilt. Ich denke ohngefehr<lb/>
+eben ſo uͤber die Genealogie, und glaube nicht, daß<lb/>
+man einen Gelehrten ſteinigen muͤſſe, weil er etwa die<lb/>
+Genealogie der <persName>heil. Helena, Mutter Kaiſer Conſtan-<lb/>
+<fw type="sig" place="bottom">B 3</fw> <fw type="catch" place="bottom">tins</fw><lb/>
+<pb n="22" facs="#f0028"/>
+tins,</persName> oder der <persName>Hildegard, der Gemahlinn oder Mai-<lb/>
+treſſe Carl des Großen,</persName> nicht genau auseinander zu ſetzen<lb/>
+weiß. Der Lehrer der Geſchichte muß nur das lehren,<lb/>
+was zu wiſſen noͤthig iſt, und das uͤbrige uͤbergehn.<lb/>
+Vielleicht finden Sie meine Kritik zu ſtrenge? „Nichts,<lb/>
+werden Sie ſagen, „iſt hienieden in unſrer Welt<lb/>
+„ganz vollkommen, und unſre Sprache, unſre Schu-<lb/>
+„len und Univerſitaͤten haben alſo das Recht, es auch<lb/>
+„nicht zu ſeyn. Die Kritik; koͤnnten Sie hinzuſetzen,<lb/>
+„iſt eine leichte Sache, aber die Kunſt iſt ſchwer; man<lb/>
+„muͤſſe ſich nicht begnuͤgen, blos die Fehler anzuzeigen,<lb/>
+„ſondern auch die Regeln, die man befolgen ſollte, um<lb/>
+„es beſſer zu machen, angeben.“ Ich geſtehe die Rich-<lb/>
+tigkeit Ihrer Forderung ein, m. H. und bin ganz ge-<lb/>
+neigt Sie zu befriedigen. Eben die Mittel, duͤnkt<lb/>
+mich, durch welche andre Nationen zur Vollkommen-<lb/>
+heit gelangt ſind, haben wir auch, und es kaͤme nur<lb/>
+darauf an, ſie anzuwenden. Ich habe ſchon ſeit vieler<lb/>
+Zeit in meinen muͤßigen Stunden dieſe Materien durch-<lb/>
+gedacht; ſie ſind mir alſo gegenwaͤrtig genug, daß ich<lb/>
+ſie hier auseinanderſetzen und Ihrem erleuchtetem Ur-<lb/>
+theil vorlegen kann; es verſteht ſich von ſelbſt, daß ich<lb/>
+keinen Anſpruch darauf mache, in meinen Grundſaͤtzen<lb/>
+unfehlbar zu ſeyn.</p><lb/>
+<p>Laſſen Sie uns wieder bey der deutſchen Sprache<lb/>
+anfangen, die nach meiner Beſchuldigung, verwirrt<lb/>
+und ſchwer zu bearbeiten iſt, wenig Wohllaut hat, und<lb/>
+<fw type="catch" place="bottom">auch</fw><lb/>
+<pb n="23" facs="#f0029"/>
+auch nicht reich an Metaphern iſt, die doch nothwendig<lb/>
+ſind, um neue Wendungen und Anmuth in ausgebildete<lb/>
+Sprachen zu bringen. Wir werden den Weg, auf<lb/>
+dem wir dieſe Fehler verbeſſern koͤnnen, am beſten aus-<lb/>
+findig machen, wenn wir demjenigen nachgehen, auf<lb/>
+dem unſre Nachbarn zu dem Grade der Vollkommen-<lb/>
+heit gelangt ſind, den wir noch zu erreichen ſuchen.<lb/>
+In <placeName>Italien</placeName> redte man zur Zeit <persName>Carl des Großen</persName>, noch<lb/>
+einen barbariſchen Miſchmaſch von Sprache, der aus<lb/>
+Worten, die man von den Gothen und Longobarden<lb/>
+entlehnt hatte, zuſammengeſetzt, und mit lateiniſchen<lb/>
+Phraſen gemiſcht war, die fuͤr die Ohren von <hi rendition="#fr"><persName>Cicero</persName></hi><lb/>
+und <persName>Virgil</persName> ganz unverſtaͤndlich wuͤrden geweſen ſeyn.<lb/>
+Indeß blieb dieſe Sprache in der Unvollkommen-<lb/>
+heit waͤhrend der Folge barbariſcher Jahrhunderte.<lb/>
+Erſt lange nachher erſchien <hi rendition="#fr"><persName>Dante</persName></hi>; ſeine Verſe be-<lb/>
+zauberten die Leſer, und die Italiaͤner fiengen nun an<lb/>
+zu glauben, daß ihre Sprache doch vielleicht wuͤrdig<lb/>
+ſeyn duͤrfte, auf die der Ueberwinder der Welt zu fol-<lb/>
+gen. Endlich kurz vor und waͤhrend der Wiederherſtel-<lb/>
+lung der Wiſſenſchaften bluͤhten <hi rendition="#fr"><persName>Petrarka</persName></hi>, <hi rendition="#fr"><persName>Arioſt</persName></hi>,<lb/>
+<hi rendition="#fr"><persName>Sannazar</persName></hi> und der <persName>Cardinal <hi rendition="#fr">Bembo.</hi></persName> Das Genie<lb/>
+dieſer beruͤhmten Maͤnner hat vornehmlich der italiaͤ-<lb/>
+niſchen Sprache ihre bleibende Geſtalt gegeben. Zu<lb/>
+gleicher Zeit bildete ſich die Akademie <hi rendition="#aq">della Cruſca</hi>, die<lb/>
+fuͤr die Erhaltung, ſo wie fuͤr die Reinigkeit des<lb/>
+Styls, ſorgte.</p><lb/>
+<fw type="sig" place="bottom">B 4</fw> <fw type="catch" place="bottom">Ich</fw><lb/>
+<pb n="24" facs="#f0030"/>
+<p>Ich gehe itzt nach <placeName>Frankreich</placeName> uͤber, und finde am<lb/>
+Hofe <persName>Franz I.</persName> eine eben ſo mißtoͤnende und unbeſtimm-<lb/>
+te Sprache, als itzt unſre deutſche ſeyn kann. Die<lb/>
+Verehrer von <persName>Marot</persName>, <persName>Rabelais</persName> und <persName>Montagne</persName> moͤgen<lb/>
+es mir verzeihn, wenn ich bekenne, daß ich bey den gro-<lb/>
+ben und ohne alle Anmuth geſchriebenen Werken jener<lb/>
+Schriftſteller nur Langeweile und Widerwillen empfun-<lb/>
+den habe. Nach ihnen, waͤhrend der Regierung <persName>Hein-<lb/>
+rich IV.</persName> erſchien <hi rendition="#fr"><persName>Malherbe</persName></hi>. Er war <placeName>Frankreich</placeName>s er-<lb/>
+ſter Dichter, oder vielmehr, um genauer zu reden, er-<lb/>
+war als Versmacher weniger fehlerhaft, als ſeine Vor-<lb/>
+gaͤnger. Um zu beweiſen, wie wenig er die Vollkom-<lb/>
+menheit in ſeiner Kunſt erreicht hatte, darf ich Ihrer<lb/>
+Erinnerung nur folgende Stelle aus einer ſeiner Oden<lb/>
+zuruͤckrufen:</p><lb/>
+<p><hi rendition="#et"><hi rendition="#aq">Prends ta foudre, <persName>Louis</persName>, et va comme un Lion,<lb/>
+Donner le dernier coup à la derniere tête de la<lb/>
+rebellion.</hi><lb/>
+(Ergreif deinen Donner, <persName>Ludwig</persName>, und, wie ein<lb/>
+Loͤwe, verſetze dem letzten Haupt der Rebellion, den<lb/>
+letzten Schlag.)</hi></p><lb/>
+<p>Hat man wohl jemals einen Loͤwen mit einem Donner<lb/>
+bewaffnet geſehn? Die Fabel giebt ihn in die Haͤnde<lb/>
+des Oberſten der Goͤtter, ſie bewaffnet auch wohl ſeinen<lb/>
+Begleiter, den Adler, damit; aber nie hat der Loͤwe<lb/>
+dieſes Attribut gehabt. Doch laſſen Sie uns den Mal-<lb/>
+herbe mit ſeinen unſchicklichen Gleichniſſen verlaſſen,<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="25" facs="#f0031"/>
+und zu den <hi rendition="#fr"><persName>Corneille</persName></hi>, den <hi rendition="#fr"><persName>Racine</persName></hi>, den <persName>Deſpreaux</persName>,<lb/>
+den <hi rendition="#fr"><persName>Boſſuets</persName></hi>, den <hi rendition="#fr"><persName>Fleſchiers</persName></hi>, den <hi rendition="#fr"><persName>Paſcals</persName></hi>, den <hi rendition="#fr"><persName>Fene-<lb/>
+lons</persName></hi>, den <hi rendition="#fr"><persName>Bourſaults</persName></hi>, den <hi rendition="#fr"><persName>Vaugelas</persName></hi> uͤbergehn. Die-<lb/>
+ſe ſind die wahren Vaͤter der franzoͤſiſchen Sprache. Sie<lb/>
+haben den Styl gebildet, den Gebrauch der Woͤrter feſt-<lb/>
+geſetzt, die Perioden harmoniſch gemacht, und dem bar-<lb/>
+bariſchen und mißtoͤnenden Dialekt ihrer Vorfahren,<lb/>
+Kraft und Energie gegeben. Man nahm die Werke<lb/>
+dieſer ſchoͤnen Geiſter mit groͤſter Begierde und Bey-<lb/>
+fall auf. Was gefaͤllt, wird leicht im Gedaͤchtniß be-<lb/>
+halten. Wer Talent fuͤr die Wiſſenſchaften hatte,<lb/>
+ahmte ſie nach. Der Styl und Geſchmack dieſer groſ-<lb/>
+ſen Maͤnner theilte ſich nachher der ganzen Nation mit.<lb/>
+Erlauben Sie mir hier im Vorbeygehn noch die An-<lb/>
+merkung zu machen, daß in <placeName>Griechenland</placeName>, in <placeName>Italien</placeName><lb/>
+und in <placeName>Frankreich</placeName> die Poeten allemal die erſten waren,<lb/>
+welche ihre Sprache biegſam und harmoniſch, und da-<lb/>
+durch auch zur Bearbeitung der Schriftſteller, welche<lb/>
+nach ihnen in Proſa ſchrieben, faͤhiger machten.</p><lb/>
+<p>Gehe ich nach <placeName>England</placeName> uͤber, ſo finde ich dort eben<lb/>
+das Gemaͤhlde, wie das von <placeName>Frankreich</placeName> und <placeName>Italien</placeName>.<lb/>
+Dieſes Land wurde zuerſt von den Roͤmern, dann von<lb/>
+den Angelſachſen, den Daͤnen, und endlich von <persName>Wil-<lb/>
+helm dem Eroberer, Herzog der Normandie,</persName> erobert.<lb/>
+Aus der Vermiſchung der Sprachen aller dieſer ver-<lb/>
+ſchiedenen Sieger, zu denen noch die Sprache der Be-<lb/>
+ſiegten hinzukam, welche noch itzt im Fuͤrſtenthum <placeName>Wal-<lb/>
+<fw type="sig" place="bottom">B 5</fw> <fw type="catch" place="bottom">lis</fw><lb/>
+<pb n="26" facs="#f0032"/>
+lis</placeName> geredt wird, entſtand das heutige Engliſche. Ich<lb/>
+darf Ihnen nicht ſagen, daß waͤhrend der barbariſchen<lb/>
+Jahrhunderte dieſe Sprache wenigſtens eben ſo roh<lb/>
+und ungebildet war, als die, von denen ich Ihnen ge-<lb/>
+redet habe. Die Wiederauflebung der Wiſſenſchaf-<lb/>
+ten hatte bey allen Nationen dieſelben Wirkungen.<lb/>
+<placeName>Europa</placeName> der dicken Unwiſſenheit muͤde, mit der es ſo viele<lb/>
+Jahrhunderte bedeckt geweſen war, wollte ſich itzt auf-<lb/>
+klaͤren. Auch <placeName>England</placeName>, das immer eiferſuͤchtig auf<lb/>
+<placeName>Frankreich</placeName> war, wollte ſelbſt gute Schriftſteller her-<lb/>
+vorbringen. Und da man, um zu ſchreiben, eine<lb/>
+Sprache haben muß, in der ſich ſchreiben laͤßt, ſo fieng<lb/>
+man mit der Verbeſſerung der Sprache an. Um die-<lb/>
+ſelbe zu beſchleunigen, nahm man aus dem Lateiniſchen,<lb/>
+Franzoͤſiſchen und Italiaͤniſchen alle Worte an, die<lb/>
+man noͤthig zu haben glaubte. Die engliſche Nation<lb/>
+hatte auch wirklich beruͤhmte Schriftſteller, die aber<lb/>
+nicht im Stande waren, die ſcharfen Toͤne ihrer Spra-<lb/>
+che, welche die Ohren der Fremden ſo ſehr beleidigen,<lb/>
+ſanft zu machen. Alle andre Sprachen verliehren,<lb/>
+wenn man ſie uͤberſetzt; die engliſche allein gewinnt<lb/>
+dabey. Ich erinnere mich hiebey einer Antwort, die<lb/>
+ich einmal einen Gelehrten, auf die Frage geben hoͤrte:<lb/>
+Welcher Sprache ſich die Schlange bedient habe, als<lb/>
+ſie unſre erſte Mutter verfuͤhrte? Der engliſchen, ant-<lb/>
+wortete jener, <hi rendition="#fr">denn die Schlange ziſcht</hi>. Nehmen<lb/>
+Sie dieſen Einfall nach ſeinem Werthe.</p><lb/>
+<fw type="catch" place="bottom">Nachdem</fw><lb/>
+<pb n="27" facs="#f0033"/>
+<p>Nachdem ich Ihnen nun gezeigt habe, wie andre<lb/>
+Nationen verfuhren, als ſie ihre Sprache bildeten und<lb/>
+vollkommner machten; ſo werden Sie von ſelbſt ſchlieſ-<lb/>
+ſen, daß es uns eben ſo gut gelingen werde, wie ihnen,<lb/>
+wenn wir nur dieſelben Mittel anwenden. Wir muͤſ-<lb/>
+ſen große Redner und große Dichter haben, die uns<lb/>
+dieſe Dienſte thun, welche ſie unſern Nachbarn geleiſtet<lb/>
+haben, und die wir nicht von unſern Philoſophen er-<lb/>
+warten duͤrfen. Dieſer ihr Geſchaͤft iſt, Irthuͤmer<lb/>
+auszurotten und neue Wahrheiten zu entdecken. Aber<lb/>
+Dichter und Redner muͤſſen uns durch ihre Harmonie<lb/>
+bezaubern, uns ruͤhren und uͤberreden. Da man aber<lb/>
+nicht befehlen kann, daß Genies zu beſtimmten Stun-<lb/>
+den geboren werden ſollen; ſo wollen wir ſehen, ob wir<lb/>
+nicht bis dahin, daß dieſe Genies unter uns erſcheinen<lb/>
+werden, unterdeß einige Mittel gebrauchen koͤnnen, un-<lb/>
+ſre Fortſchritte zu beſchleunigen. Um unſern Styl ge-<lb/>
+drungner zu machen, ſollten wir die unnuͤtzen Paren-<lb/>
+theſen wegwerfen, um Energie zu bekommen, ſollten<lb/>
+wir die alten Schriftſteller uͤberſetzen, die ſich mit der<lb/>
+meiſten Staͤrke und Anmuth ausgedruͤckt haben. Von<lb/>
+den Griechen waͤren beſonders <persName>Thucydides</persName>, <persName>Xenophon</persName>,<lb/>
+die Poetik des <persName>Ariſtoteles</persName>, das Handbuch des <persName>Epictets</persName>,<lb/>
+die Gedanken des <persName>Marc Aurels</persName>, gute Muſter. Be-<lb/>
+ſonders ſollte man ſich auch bemuͤhen, die Staͤrke des<lb/>
+<persName>Demoſthenes</persName> in unſre Sprache gut uͤberzutragen.<lb/>
+Von den Lateinern wuͤrde ich vorzuͤglich die Commen-<lb/>
+<fw type="catch" place="bottom">tarien</fw><lb/>
+<pb n="28" facs="#f0034"/>
+tarien des <persName>Caͤſars</persName>, den <persName>Salluſt</persName>, <persName>Tacitus</persName>, und die <hi rendition="#aq">Ar-<lb/>
+tem poeticam</hi> des <persName>Horaz</persName>; von den Franzoſen aber die<lb/>
+<hi rendition="#aq">Penſées <persName>de Rochefoucault</persName>,</hi> die <hi rendition="#aq">Lettres Perſanes,</hi> den<lb/>
+<hi rendition="#aq">Eſprit des Loix</hi> empfehlen. Die Schriften, welche<lb/>
+ich hier vorſchlage, ſind in einem kurzen, ſententioͤſen<lb/>
+Styl geſchrieben, werden alſo ihre Ueberſetzer zwin-<lb/>
+gen, muͤſſige Phraſen und unnuͤtze Worte zu meiden.<lb/>
+Unſre Schriftſteller werden allen ihren Scharfſinn an-<lb/>
+wenden muͤſſen, um ihre Ideen gedraͤngt und kurz zu-<lb/>
+ſammen zu ziehn, und dadurch ihrer Ueberſetzung eben<lb/>
+die Staͤrke zu geben, die man in den Originalen be-<lb/>
+wundert. Doch muͤſſen ſie bey ihrer Bemuͤhung, mit<lb/>
+Energie zu ſchreiben, ſich auch wohl huͤten, daß ſie nicht<lb/>
+dunkel werden. Immer muͤſſen ſie ſich erinnern, daß<lb/>
+Deutlichkeit die erſte Pflicht jedes Schriftſtellers ſey;<lb/>
+ſich daher nie von den Vorſchriften der Grammatik ent-<lb/>
+fernen, ſondern die Worte, welche die Phraſen regie-<lb/>
+ren, ſo ſtellen, daß niemals eine Zweydeutigkeit dar-<lb/>
+aus entſtehn koͤnne. Ueberſetzungen dieſer Art wuͤrden<lb/>
+dann die Muſter ſeyn, nach welchen unſre Schriftſtel-<lb/>
+ler bey ihren eignen Arbeiten ſich bilden koͤnnten. Als-<lb/>
+dann duͤrften wir uns ſchmeicheln, die Vorſchrift be-<lb/>
+folgt zu haben, welche <persName>Horatz</persName> in ſeiner <hi rendition="#aq">Arte poetica</hi><lb/>
+den Schriftſtellern giebt: <hi rendition="#aq">Tot verba, tot pondera</hi>.</p><lb/>
+<p>Eine noch weit ſchwerere Bemuͤhung aber wuͤrde<lb/>
+es ſeyn, die harten Toͤne ſanfter zu machen, die wir<lb/>
+noch ſo haͤufig in unſrer Sprache antreffen. Die Vo-<lb/>
+<fw type="catch" place="bottom">kale</fw><lb/>
+<pb n="29" facs="#f0035"/>
+kale ſchmeicheln dem Ohr, aber zu viele Conſonanten<lb/>
+hintereinander beleidigen es, weil ſie ſchwer auszuſpre-<lb/>
+chen ſind, und gar keinen Wohlklang haben. Auch<lb/>
+haben wir unter unſern Huͤlfs- und Zeitwoͤrtern viele,<lb/>
+deren letzte Sylben faſt gar nicht gehoͤrt werden, und<lb/>
+dadurch ſehr unangenehm ſind, als <hi rendition="#fr">ſagen, geben, neh-<lb/>
+men</hi>. Man darf dieſen Worten nur noch am Ende<lb/>
+ein <hi rendition="#fr">a</hi> hinzuſetzen, und ſie in <hi rendition="#fr">ſagena, gebena, nehme-<lb/>
+na</hi> verwandeln, ſo werden ſie unſerm Ohre gefallen.<lb/>
+Aber ich weiß ſehr wohl, wenn auch der Kaiſer ſelbſt<lb/>
+mit ſeinen acht Churfuͤrſten auf einem feyerlichen<lb/>
+Reichstage durch ein Geſetz dieſe Ausſprache anbefoͤh-<lb/>
+le; ſo wuͤrden doch die eifrigen Verehrer des aͤchten<lb/>
+alten Deutſchen ſich an dieſe Geſetze gar nicht gebun-<lb/>
+den halten, ſondern allenthalben in ſchoͤnem Latein<lb/>
+ausruffen: <hi rendition="#fr"><hi rendition="#i"><persName>Caeſar</persName> non eſt ſuper Grammaticos,</hi></hi> und das<lb/>
+Volk, das in allen Laͤndern uͤber die Sprachen entſchei-<lb/>
+det, wuͤrde immer fortfahren, <hi rendition="#fr">ſagen</hi> und <hi rendition="#fr">geben</hi> aus-<lb/>
+zuſprechen. Die Franzoſen haben durch ihre Aus-<lb/>
+ſprache viele Worte ſanfter gemacht, die ſonſt das <hi rendition="#fr">Ohr</hi><lb/>
+beleidigten, und die den <persName>Kaiſer <hi rendition="#fr">Julian</hi></persName> veranlaßten,<lb/>
+zu ſagen: Daß die Gallier, wie die Kraͤhen kraͤchzten.<lb/>
+Worte der Art, wie man ſie ſonſt ausſprach, ſind,<lb/>
+<hi rendition="#aq">cro-jo-yent, voi-yai-yent</hi>. Itzt ſagt man <hi rendition="#aq">croyent,<lb/>
+voyent</hi>. Wenn dieſe Worte ſchon nicht dem Ohr<lb/>
+ſchmeicheln, ſo ſind ſie doch nicht ſo unangenehm mehr.<lb/>
+Mit gewiſſen Worten, duͤnkt mich, koͤnnten wir eben<lb/>
+<fw type="catch" place="bottom">ſo</fw><lb/>
+<pb n="30" facs="#f0036"/>
+ſo verfahren. Noch einen Fehler darf ich nicht uͤber-<lb/>
+gehen, ich meyne den, daß unſre Schriftſteller oft nie-<lb/>
+drige und triviale Vergleichungen aus der Sprache<lb/>
+des Poͤbels entlehnen. Ein gewiſſer Dichter, z. E.<lb/>
+bediente ſich in ſeiner Zueignungsſchrift an einen Maͤ-<lb/>
+cenaten folgenden Ausdrucks: <hi rendition="#fr">Schieß, großer Goͤn-<lb/>
+ner, ſchieß deine Strahlen Armdick auf deinen<lb/>
+Knecht hernieder</hi>. Was halten Sie von dieſen arm-<lb/>
+dicken Strahlen? Haͤtte man nicht dem Dichter ſagen<lb/>
+ſollen- „Mein Freund, lerne denken, ehe du dich mit<lb/>
+„dem Schreiben abgiebſt.“ Bey dieſen Maͤngeln un-<lb/>
+ſrer Litteratur, daͤchte ich alſo, wir ahmten nicht die<lb/>
+Armen nach, die gern fuͤr reich gehalten ſeyn moͤchten;<lb/>
+und wir thaͤten beſſer, ganz aufrichtig unſre Duͤrftig-<lb/>
+keit zugeſtehn. Der Gedanke an dieſelbe muß uns<lb/>
+Muth einfloͤßen, durch unermuͤdete Arbeit die Schaͤtze<lb/>
+der Litteratur auch fuͤr uns zu erwerben. Ihr Beſitz<lb/>
+fehlt nur noch, um den Ruhm unſrer Nation ganz<lb/>
+vollkommen zu machen.</p><lb/>
+<p>Nachdem ich Ihnen nunmehr gezeigt, wie man<lb/>
+unſre Sprache bilden koͤnnte; ſo erbitte ich mir nur noch<lb/>
+Ihre Aufmerkſamkeit, wegen der Maaßregeln, die man<lb/>
+nehmen muͤßte, um den Kreiß unſrer Kenntniſſe zu er-<lb/>
+weitern, die Erwerbung derſelben leichter und nuͤtz-<lb/>
+licher zu machen, und dabey zugleich den Geſchmack<lb/>
+der Jugend zu bilden. Ich ſchlage alſo zuerſt vor, daß<lb/>
+man mit mehr Ueberlegung die Rectoren waͤhlen moͤge,<lb/>
+<fw type="catch" place="bottom">denen</fw><lb/>
+<pb n="31" facs="#f0037"/>
+denen man die Schulen anvertrauet, und daß man<lb/>
+ihnen eine verſtaͤndige und gute Methode vorſchreibe,<lb/>
+die ſie beym Unterricht der Grammatik, der Dialektik<lb/>
+und der Rhetorik beobachten muͤßten; daß man kleine<lb/>
+unterſcheidende Belohnungen fuͤr die Schuͤler, die ſich<lb/>
+hervorthun, und leichte Strafen fuͤr die Nachlaͤßigen<lb/>
+einfuͤhrte. <hi rendition="#fr"><persName>Wolf</persName>s</hi> Logik iſt, meiner Meynung nach,<lb/>
+die beſte und deutlichſte von allen. Alle Rektoren ſoll-<lb/>
+ten ſich alſo bey ihrem Unterricht derſelben bedienen,<lb/>
+da auch die von <hi rendition="#fr"><persName>Batteux</persName></hi> nicht uͤberſetzt iſt, und jene<lb/>
+nicht uͤbertrifft. In Abſicht der Rhetorik ſollte man<lb/>
+ſich blos an <hi rendition="#fr"><persName>Quinctilian</persName></hi> halten. Wer ihn ſtudirt,<lb/>
+und nicht zur Beredſamkeit gelangt, wird ſie ſicher nie-<lb/>
+mals lernen. Der Styl dieſes Werks iſt hell und<lb/>
+deutlich, er enthaͤlt alle Vorſchriften und Regeln der<lb/>
+Kunſt. Bey dieſem Unterricht aber muͤſſen die Lehrer<lb/>
+nie verſaͤumen, die eignen Verſuche der Schuͤler ſorg-<lb/>
+faͤltig zu pruͤfen, ſich nicht begnuͤgen, ihre Fehler zu<lb/>
+verbeſſern, ſondern ihnen auch die Gruͤnde entwickeln,<lb/>
+warum die Verbeſſerung noͤthig ſey? auch die Stellen<lb/>
+loben, die ſie gut gemacht haben.</p><lb/>
+<p>Wenn die Lehrer die Methode, welche ich hier<lb/>
+vorſchlage, befolgen, ſo werden ſie die Keime von Ta-<lb/>
+lenten entwickeln, welche die Natur geſaͤet hat; ſie<lb/>
+werden die Urtheilskraft ihrer Schuͤler bilden, wenn<lb/>
+ſie dieſelben gewoͤhnen, nie ohne Kenntniß der Sache<lb/>
+zu entſcheiden; aus Vorderſaͤtzen allemal richtige Fol-<lb/>
+<fw type="catch" place="bottom">gerungen</fw><lb/>
+<pb n="32" facs="#f0038"/>
+gerungen zu ziehen. Die Rhetorik wird dann ihren<lb/>
+Geiſt methodiſch machen, ſie werden die Kunſt lernen,<lb/>
+ihre Ideen zu ordnen, ſie zu verbinden, eine an die an-<lb/>
+dre zu knuͤpfen, auch gluͤckliche, unmerkliche und na-<lb/>
+tuͤrliche Uebergaͤnge von einer zur andern zu finden.<lb/>
+Sie werden ihren Styl allemal dem Gegenſtande an-<lb/>
+gemeſſen einrichten, nur an ſchicklichen Orten Figuren<lb/>
+gebrauchen, ſowohl um die Monotonie des Styls zu<lb/>
+unterbrechen, als auch Blumen uͤber die Stellen auszu-<lb/>
+ſtreuen, die derſelben faͤhig ſind. Sie werden ſich be-<lb/>
+ſonders vor dem Fehler huͤten, zwey Metaphern mitein-<lb/>
+ander zu verwirren, welches den Sinn nothwendig<lb/>
+dunkel und zweydeutig machen muß. Noch wird die<lb/>
+Rhetorik ſie lehren, eine Auswahl von Worten zu ma-<lb/>
+chen, wie ſie ſich fuͤr das Auditorium ſchickt, an das ſie<lb/>
+gerichtet ſind. Sie werden lernen, wie ſie die Gemuͤ-<lb/>
+ther einnehmen, wie ſie gefallen, ruͤhren, Unwillen oder<lb/>
+Mitleiden erregen, uͤberreden, und alle Stimmen ge-<lb/>
+winnen koͤnnen. Sie werden dann empfinden, wie<lb/>
+goͤttlich die Kunſt ſey, mit der man blos durch den ge-<lb/>
+ſchickten Gebrauch der Worte, ohne Gewalt und Zwang,<lb/>
+die Seelen und Herzen beherrſchen, und in einer zahl-<lb/>
+reichen Verſammlung die Leidenſchaften erregen kann,<lb/>
+von denen man ſie eingenommen wiſſen will.</p><lb/>
+<p>Waͤren die guten Schriftſteller der Alten und<lb/>
+Nachbarn einmal uͤberſetzt, ſo wuͤrde ich ihre Lektuͤre<lb/>
+als eine nothwendige und hoͤchſt wichtige Sache em-<lb/>
+<fw type="catch" place="bottom">pfehlen.</fw><lb/>
+<pb n="33" facs="#f0039"/>
+pfohlen. Zur Bildung in der Logik giebt es keine beſ-<lb/>
+ſere Buͤcher, als <hi rendition="#fr"><persName>Bayle</persName>ns Gedanken uͤber die Co-<lb/>
+meten</hi>, und ſeinen Commentar uͤber die Worte: <hi rendition="#fr">Noͤ-<lb/>
+thige ſie hereinzugehn</hi>. Nach meiner Einſicht iſt<lb/>
+<hi rendition="#fr"><persName>Bayle</persName></hi> der erſte Dialektiker, den <placeName>Europa</placeName> je gehabt hat.<lb/>
+Er raiſonnirt nicht nur mit Staͤrke und Praͤciſion; ſon-<lb/>
+dern ſein Hauptvorzug beſteht beſonders darinn, daß<lb/>
+er immer mit einem Blick alles uͤberſieht, was nur ir-<lb/>
+gend an einem Gegenſtande geſehen werden kann;<lb/>
+nichts entgeht ihm, nicht die ſchwache, nicht die ſtarke<lb/>
+Seite. Er weiß ſogleich, wie ein Satz behauptet wer-<lb/>
+den, und wie man die Einwuͤrfe derer, die ihn angreif-<lb/>
+fen moͤchten, wiederlegen muͤſſe. In ſeinem großen<lb/>
+Dictionaire tadelt er den <persName>Ovid</persName> wegen ſeiner Erklaͤrung<lb/>
+vom Chaos; die Artikel uͤber die Manichaͤer, den <persName>Zoroa-<lb/>
+ſter</persName>, den <persName>Epikur</persName> und ſo viele andre, ſind vortreflich.<lb/>
+Alle verdienen geleſen und ſtudirt zu werden. Es wuͤr-<lb/>
+de ein unſchaͤtzbarer Vortheil fuͤr junge Leute ſeyn,<lb/>
+wenn ſie die Staͤrke des Raiſonnements und den aus-<lb/>
+nehmenden Scharfſinn dieſes großen Mannes ſich ganz<lb/>
+eigen machten.</p><lb/>
+<p>Sie errathen ſchon von ſelbſt, welche Schriftſteller<lb/>
+ich beſonders denen empfehlen werde, die ſich vorzuͤg-<lb/>
+lich auf die Beredſamkeit legen wollen. Damit ſie<lb/>
+den Grazien opfern lernen, wuͤrde ich ihnen rathen, die<lb/>
+großen Dichter <persName>Homer</persName> und <persName>Virgil</persName> zu leſen, und eini-<lb/>
+ge der auserleſenſten Oden vom <persName>Horatz</persName>, einige Lieder<lb/>
+<fw type="sig" place="bottom">C</fw> <fw type="catch" place="bottom">vom</fw><lb/>
+<pb n="34" facs="#f0040"/>
+vom <persName>Anakreon</persName> damit zu verbinden. Um ihren Ge-<lb/>
+ſchmack fuͤr die große Beredſamkeit zu bilden, wuͤrde<lb/>
+ich ihnen den <persName>Demoſthenes</persName> und <persName>Cicero</persName> in die Haͤnde<lb/>
+geben. Man bemerke ihnen die Verſchiedenheit des<lb/>
+Verdienſts dieſer beyden großen Redner. Bey dem<lb/>
+erſten darf man nichts zuſetzen, bey dem andern nichts<lb/>
+wegnehmen. Denn muͤßte die Lektuͤre der beſten Lei-<lb/>
+chenreden des <persName>Boſſuet</persName> und <persName>Flechiers</persName>, der franzoͤſiſchen<lb/>
+<persName>Demoſthenes</persName> und Cicero, und der Faſtenpredigten<lb/>
+des <hi rendition="#fr"><persName>Maſſilon</persName></hi> folgen, welche voll von Zuͤgen der er-<lb/>
+habenſten Beredſamkeit ſind. Um zu lernen, wie man<lb/>
+in der Geſchichte ſchreiben muͤſſe, wuͤrde ich den <persName>Li-<lb/>
+vius</persName>, <persName>Salluſtius</persName> und <persName>Tacitus</persName> empfehlen. Man muͤßte<lb/>
+die erhabene Schreibart und die Schoͤnheit der Erzaͤh-<lb/>
+lung dieſer großen Schriftſteller den jungen Leſern<lb/>
+recht entwickeln, dabey aber auch die Leichtglaͤubigkeit<lb/>
+des <persName>Livius</persName> tadeln, der allemal am Ende jedes Jahrs<lb/>
+ein Verzeichniß von Wundern auffuͤhrt, deren immer<lb/>
+eines laͤcherlicher iſt, als das andre. Nachher konnte<lb/>
+man mit den jungen Leuten die <hi rendition="#aq">Hiſtoire univerſelle</hi> von<lb/>
+<hi rendition="#fr"><persName>Boſſuer</persName></hi> und die <hi rendition="#aq">Revolutions romaines</hi> von <hi rendition="#fr"><persName>Vertot</persName></hi><lb/>
+durchlaufen, und auch noch die Einleitung von <persName>Robert-<lb/>
+ſon</persName>s Geſchichte <persName>Carl V.</persName> hinzuſetzen. Dieſe Werke<lb/>
+wuͤrden ihren Geſchmack bilden, und ihnen lehren, wie<lb/>
+man ſchreiben muͤſſe. Hat aber ein Rektor ſelbſt kei-<lb/>
+ne Kenntniſſe; ſo wird er ſich begnuͤgen zu ſagen:<lb/>
+<hi rendition="#fr">Hier hat <persName>Demoſthenes</persName> ein ſehr ſtarkes redneriſches<lb/>
+<fw type="catch" place="bottom">Argu-</fw><lb/>
+<pb n="35" facs="#f0041"/>
+Argument gebraucht; da, und im groͤſten Theil<lb/>
+ſeiner Rede bedient er ſich des Enthymema; da iſt<lb/>
+eine Apoſtrophe; da eine Proſopopeia; da eine Me-<lb/>
+tapher; hier eine Hyperbel</hi>. Dies alles iſt recht<lb/>
+gut, aber wenn der Lehrer die Schoͤnheiten ſeines<lb/>
+Schriftſtellers nicht beſſer zu entwickeln, und auch die<lb/>
+Fehler (welche doch den groͤſten Rednern entwiſchen)<lb/>
+zu bemerken weiß; ſo erfuͤllt er ſeine Pflicht nicht ganz.<lb/>
+Ich dringe auf alles dieſes ſo ſehr, weil ich wuͤnſchte,<lb/>
+daß unſre Juͤnglinge die Schulen mit deutlichen und<lb/>
+beſtimmten Ideen verlaſſen moͤchten, und daß die Leh-<lb/>
+rer ſich nicht begnuͤgten, ihr Gedaͤchtniß anzufuͤllen,<lb/>
+ſondern vornehmlich ihre Urtheilskraft zu bilden ſuch-<lb/>
+ten, damit ſie das Gute von dem Schlechten unterſchei-<lb/>
+den lernen, und nicht blos ſagen, <hi rendition="#fr">dies gefaͤllt mir<lb/>
+nicht</hi>, ſondern auch Gruͤnde angeben koͤnnen, warum<lb/>
+ſie etwas billigen oder verwerfen.</p><lb/>
+<p>Um ſich zu uͤberzeugen, wie wenig Geſchmack noch bis<lb/>
+itzt in <placeName>Deutſchland</placeName> herrſche, duͤrfen Sie nur unſre oͤffent-<lb/>
+lichen Schauſpiele beſuchen. Sie finden daſelbſt die ab-<lb/>
+ſcheulichen Stuͤcke von <persName>Shakeſpear</persName> aufgefuͤhrt, die man<lb/>
+in unſre Sprache uͤberſetzt hat. Die ganze Verſamm-<lb/>
+lung findet ein ausnehmendes <choice><sic>Vergnuͤgendaran</sic><corr>Vergnuͤgen daran</corr></choice>, dieſe<lb/>
+laͤcherlichen Farcen anzuſehn, die nur wuͤrdig waͤren, vor<lb/>
+den Wilden von <persName>Canada</persName> geſpielt zu werden. Ich <choice><sic>be-<lb/>
+nrtheile</sic><corr>be-<lb/>
+urtheile</corr></choice> dieſe Stuͤcke ſo hart, weil ſie wider alle Regeln<lb/>
+des Schauſpiels ſuͤndigen. Dieſe Regeln ſind nicht<lb/>
+<fw type="sig" place="bottom">C 2</fw> <fw type="catch" place="bottom">will-</fw><lb/>
+<pb n="36" facs="#f0042"/>
+willkuͤhrlich. Sie finden dieſelbe in der Poetik des <persName>Ari-<lb/>
+ſtoteles</persName>, wo die drey <hi rendition="#fr">Einheiten der Zeit, des Orts</hi><lb/>
+und der <hi rendition="#fr">Handlung</hi>, als die einzigen und wahren<lb/>
+Mittel vorgeſchrieben ſind, die Tragoͤdien intereſſant zu<lb/>
+machen. In den Stuͤcken jenes engliſchen Schrift-<lb/>
+ſtellers aber geht die Handlung ganze Jahre fort. Wo<lb/>
+bleibt hier die Wahrſcheinlichkeit? Bald erſcheinen in<lb/>
+denſelben Laſttraͤger oder Todtengraͤber und reden, wie<lb/>
+es ſich fuͤr ſie ſchickt. Dann kommen Koͤniginnen und<lb/>
+Prinzen. Wie iſt es moͤglich, daß ein ſo wunderliches<lb/>
+Gemiſch von Großem und Niedrigem, vom Tragiſchen<lb/>
+und Harlequinspoſſen gefallen und ruͤhren koͤnne?<lb/>
+Dem <hi rendition="#fr"><persName>Shakeſpear</persName></hi> kann man indeß ſeine ſonderbare<lb/>
+Ausſchweifungen wohl verzeihen; denn er lebte zu ei-<lb/>
+ner Zeit, da die Wiſſenſchaften in <placeName>England</placeName> erſt gebo-<lb/>
+ren wurden, und man alſo noch keine Reife von denſel-<lb/>
+ben erwarten konnte. Aber erſt vor einigen Jahren iſt<lb/>
+ein <hi rendition="#fr"><persName>Goͤtz von Berlichingen</persName></hi> auf unſerm Theater er-<lb/>
+ſchienen, eine abſcheuliche Nachahmung jener ſchlechten<lb/>
+engliſchen Stuͤcke: und doch bewilligt unſer Publikum<lb/>
+dieſem eckelhaften Gewaͤſche ſeinen lauten Beyfall, und<lb/>
+verlangt mit Eifer ihre oͤftere Widerholung. Ich<lb/>
+weiß, daß man uͤber den Geſchmack nicht ſtreiten darf;<lb/>
+indeß werden Sie mir doch erlauben zu ſagen, daß die-<lb/>
+jenigen, welche gleiches Vergnuͤgen daran finden, Seil-<lb/>
+taͤnzer und Marionetten oder die Tragoͤdien des <persName>Raci-<lb/>
+ne</persName> zu ſehn, nur ihre Zeit zu verbringen ſuchen. Sie<lb/>
+<fw type="catch" place="bottom">wollen</fw><lb/>
+<pb n="37" facs="#f0043"/>
+wollen lieber, daß man zu ihren Augen als zu ihrem<lb/>
+Verſtande rede, und ſie ziehen ein bloßes Schauſpiel<lb/>
+dem vor, was das Herz ruͤhrt.</p><lb/>
+<p>Aber laſſen Sie uns wieder zu unſerm Gegen-<lb/>
+ſtande zuruͤckkommen. Ich habe Ihnen bisher von den<lb/>
+niedern Schulen geredet, und werde nun eben ſo frey<lb/>
+uͤber die Univerſitaͤten urtheilen, Ihnen ſolche Ver-<lb/>
+beſſerungen vorſchlagen, die Denjenigen, welche ſich<lb/>
+die Muͤhe geben wollen, uͤber die Sache gruͤndlich nach-<lb/>
+zudenken, die nuͤtzlichſten und vortheilhafteſten ſcheinen<lb/>
+werden. Man darf nicht glauben, daß die Methode,<lb/>
+nach welcher die Profeſſoren die Wiſſenſchaften lehren,<lb/>
+gleichguͤltig ſey. Iſt in derſelben nicht Deutlichkeit und<lb/>
+Beſtimmtheit, ſo iſt alle uͤbrige Muͤhe vergebens. Aber<lb/>
+die meiſten Profeſſoren haben den Plan ihrer Vorleſun-<lb/>
+gen einmal entworfen, und halten ſich allein daran. Ob<lb/>
+er gut oder ſchlecht ſey, darum <choice><sic>brkuͤmmert</sic><corr>bekuͤmmert</corr></choice> ſich nie-<lb/>
+mand. Man ſieht auch, wie wenig Vortheil bey die-<lb/>
+ſer Art des Studirens herauskoͤmmt, und wie wenige<lb/>
+junge Leute von dieſen Vorleſungen ſo viel Kenntniſſe<lb/>
+als ſie ſollten, zuruͤckbringen. Nach meiner Idee muͤß-<lb/>
+te man alſo jedem Profeſſor genau die Regeln vor-<lb/>
+ſchreiben, die er bey ſeinen Vorleſungen zu befolgen haͤtte.<lb/>
+Ich will verſuchen, dieſe Regeln in einem kurzen Ent-<lb/>
+wurfe anzugeben. Den Geometer und den Theolo-<lb/>
+gen uͤbergehe ich ganz, weil die Evidenz des erſtern gar<lb/>
+keiner Zuſaͤtze mehr faͤhig iſt, und man die einmal an-<lb/>
+<fw type="sig" place="bottom">C 3</fw> <fw type="catch" place="bottom">genom-</fw><lb/>
+<pb n="38" facs="#f0044"/>
+genommenen Meynungen des andern nicht angreifen<lb/>
+darf. Ich wende mich alſo ſogleich zum Philoſophen.<lb/>
+Ich verlange, daß er ſeine Vorleſungen mit einer ge-<lb/>
+nauen Definition der Philoſophie anfange, daß er<lb/>
+alsdann bis zu den entfernteſten Zeiten zuruͤckgehe,<lb/>
+und alle die verſchiedenen Meynungen, welche die Men-<lb/>
+ſchen gehabt und gelehrt haben, nach der Ordnung der<lb/>
+Zeit, genau entwickele und beurtheile. Er muß, z. E.<lb/>
+ſich nicht begnuͤgen, bloß zu ſagen, daß nach dem Sy-<lb/>
+ſtem der Stoicker, die menſchliche Seelen, Theilchen der<lb/>
+Gottheit ſind. So ſchoͤn und erhaben dieſe Idee auch<lb/>
+bey dem erſten Anblick ſcheint; ſo muß unſer Profeſſor<lb/>
+doch zeigen, wie ſie einen wahren Widerſprnch enthaͤlt,<lb/>
+weil der Menſch, wenn er ein Theil der Gottheit waͤre,<lb/>
+unendliche Kenntniſſe haben muͤßte, die er doch nicht<lb/>
+hat; weil, wenn Gott in dem Menſchen waͤre, itzt der<lb/>
+engliſche Gott mit dem franzoͤſiſchen und ſpaniſchen<lb/>
+Krieg fuͤhren, und alſo die verſchiedenen Theile der Gott-<lb/>
+heit ſich gegenſeitig zu zerſtoͤren ſuchen wuͤrden; weil<lb/>
+endlich nach dieſer Lehre, die ſchaͤndlichſten Handlun-<lb/>
+gen und alle Verbrechen, welche die Menſchen begehn,<lb/>
+goͤttliche Werke ſeyn wuͤrden. Iſt es nicht abge-<lb/>
+ſchmackt, ſolche abſcheuliche Meinungen anzunehmen?<lb/>
+Sie koͤnnen eben deshalb, weil ſie ſo ungereimt ſind,<lb/>
+nicht wahr ſeyn.</p><lb/>
+<fw type="catch" place="bottom">Wenn</fw><lb/>
+<pb n="39" facs="#f0045"/>
+<p>Wenn der Lehrer zum Syſtem des <persName>Epikurs</persName> uͤber-<lb/>
+geht, ſo wird er ſich beſonders dabey aufhalten, daß<lb/>
+dieſer Philoſoph ſeinen Goͤttern alle Empfindung ab-<lb/>
+leugnet, welches den Begriffen von der goͤttlichen Na-<lb/>
+tur geradezu widerſpricht. Er muß auch nicht vergeſ-<lb/>
+ſen die Ungereimtheit des Satzes von der Bewegung<lb/>
+der Atomen zu zeigen, und uͤberhaupt alles bemerken,<lb/>
+was dem Raiſonnement dieſes Philoſophen an Ge-<lb/>
+nauigkeit und richtigem Zuſammenhange fehlt. Er<lb/>
+wird ohne Zweifel auch der acataleptiſchen oder ſcepti-<lb/>
+ſchen Sekte erwaͤhnen, und frey geſtehen, daß ſich die<lb/>
+Menſchen oft in der Nothwendigkeit befinden, ihr Ur-<lb/>
+theil zuruͤck zu halten, wenn die Analogie und die Er-<lb/>
+fahrung ihnen keinen Leitfaden darbiethen, der ſie aus<lb/>
+dieſem Irrgarten fuͤhren kann. Wenn unſer Lehrer<lb/>
+viele andre philoſophiſche Syſteme durchgegangen,<lb/>
+wird er hernach zum <hi rendition="#fr"><persName>Galilei</persName></hi> kommen, deſſen Syſtem<lb/>
+er recht beſtimmt vortragen, und die Ungereimtheit des<lb/>
+Betragens der roͤmiſchen Cleriſey zeigen muß, die nicht<lb/>
+erlauben wollte, daß ſich die Erde um ihre Achſe dreh-<lb/>
+te, daß es Menſchen gaͤbe, die Antipoden von uns waͤ-<lb/>
+ren; und die, ſo unfehlbar ſie auch zu ſeyn glaubt, doch<lb/>
+diesmal vor dem Richterſtuhl der geſunden Vernunft<lb/>
+ihren Prozeß verlohr. Hierauf folgen <persName>Copernikus</persName>,<lb/>
+<persName>Tycho de Brache</persName>, und das Wirbelſyſtem des <persName>Descar-<lb/>
+tes</persName>. Der Profeſſor muß ſeinen Zuhoͤrern zeigen, wie<lb/>
+unmoͤglich es ſey, daß ein angefuͤllter Raum ſich aller<lb/>
+<fw type="sig" place="bottom">C 4</fw> <fw type="catch" place="bottom">Bewe-</fw><lb/>
+<pb n="40" facs="#f0046"/>
+Bewegung widerſetze; und er wird bis zur Evidenz<lb/>
+beweiſen, <persName>Descartes</persName> mag ſagen, was er will, daß die<lb/>
+Thiere keine Maſchienen ſind. Hierauf muͤßte dann<lb/>
+ein kurzer Abriß des Syſtems von <persName>Neuton</persName> folgen,<lb/>
+nach welchem man den leeren Raum annehmen muß,<lb/>
+ohne daß man beſtimmen kann, ob er eine bloße Nega-<lb/>
+tion alles Daſeyns, oder ein Weſen ſey, uͤber deſſen<lb/>
+Natur man durchaus keine beſtimmte Begriffe haben<lb/>
+kann. Dieſes darf den Lehrer nicht abhalten ſein Au-<lb/>
+ditorium zu belehren, wie vollkommen das Syſtem,<lb/>
+das Neuton durch ſeinen Calkul auf der Studierſtube<lb/>
+fand, mit den Phaͤnomenen uͤbereinſtimmt, die uns die<lb/>
+Natur zeigt, und wie daher die neuere Weltweiſen ge-<lb/>
+zwungen worden, die Schwere, die Centripetal- und<lb/>
+Centrifugalkraft anzunehmen, verborgene und unbe-<lb/>
+greifliche Eigenſchaften der Natur, von denen man bis<lb/>
+auf unſre Zeiten gar keinen Begriff hatte.</p><lb/>
+<p>Nun wird die Reihe kommen, von <hi rendition="#fr"><persName>Leibniz</persName></hi>, dem<lb/>
+<hi rendition="#fr">Syſtem der Monaden</hi>, und der vorherbeſtimmten<lb/>
+<hi rendition="#fr">Harmonie</hi> zu reden. Unſer Lehrer wird ohne Zweifel<lb/>
+die Bemerkung machen, daß ſich keine Zahl ohne Ein-<lb/>
+heit denken laſſe, und er wird daraus die Folgerung<lb/>
+ziehen, daß die Materie zuletzt aus untrennbaren Koͤr-<lb/>
+pern zuſammengeſetzt ſey. Er wird auch noch ſeinen<lb/>
+Zuhoͤrern bemerken, daß ſich eine unendliche Theilbar-<lb/>
+keit der Materie zwar wohl denken laſſe, aber daß in<lb/>
+der Natur ſelbſt, die urſpruͤnglichen Beſtandtheile ſo<lb/>
+<fw type="catch" place="bottom">fein</fw><lb/>
+<pb n="41" facs="#f0047"/>
+fein ſind, daß ſie unſern Sinnen entwiſchen und man<lb/>
+alſo nothwendig annehmen muͤſſe, daß die erſten Grund-<lb/>
+ſtoffe der Elemente unzerſtoͤrbar ſind. Denn aus nichts<lb/>
+kann nichts hervorgebracht werden, und nichts kann<lb/>
+vernichtet werden. Das Syſtem der vorherbe-<lb/>
+ſtimmten Harmonie wird unſer Weltweiſe als den<lb/>
+Roman eines Mannes von vielem Geiſte vorſtellen,<lb/>
+und dabey bemerken, wie die Natur allemal die kuͤrze-<lb/>
+ſten Wege waͤhle, um ihren Zweck zu erreichen, und<lb/>
+wie man niemals ohne Noth die Weſen vervielfaͤltigen<lb/>
+muͤſſe. Hernach wird er zum <persName>Spinoſa</persName> kommen, deſ-<lb/>
+ſen Wiederlegung ihm nicht viel Muͤhe koſten wird, da<lb/>
+hier eben die Gruͤnde zu gebrauchen ſind, deren man<lb/>
+ſich gegen die Stoicker bedienet. Nichts aber wird<lb/>
+unſerm Lehrer leichter ſeyn, als dieſes Syſtem von der<lb/>
+Seite zu zerſtoͤren, da es die Exiſtenz Gottes leugnet;<lb/>
+er darf nur zeigen, wie jede Sache in der Welt zu ei-<lb/>
+nem gewiſſen Zweck beſtimmt, und auf das vollkom-<lb/>
+menſte ſo eingerichtet iſt, dieſen Zweck zu erfuͤllen.<lb/>
+Alles, ſogar das <hi rendition="#fr">Wachsthum</hi> des geringſten <hi rendition="#fr">Graß-<lb/>
+halms</hi>, beweiſet die <hi rendition="#fr">Gottheit. Der Menſch</hi> beſitzet<lb/>
+einen <hi rendition="#fr">Grad</hi> von <hi rendition="#fr">Verſtand</hi>, den er ſich ſelbſt nicht<lb/>
+gegeben hat, hieraus folget unwiderſprechlich,<lb/>
+daß das <hi rendition="#fr">Weſen</hi>, von dem er Alles hat, noch einen<lb/>
+viel tiefern und unermeßlichern <hi rendition="#fr">Verſtand</hi> beſitzen<lb/>
+muͤſſe.</p><lb/>
+<fw type="sig" place="bottom">C 5</fw> <fw type="catch" place="bottom">Auch</fw><lb/>
+<pb n="42" facs="#f0048"/>
+<p>Auch der <hi rendition="#fr"><persName>Mallebranche</persName></hi> muß nicht ganz vergeſ-<lb/>
+ſen werden. Bey der Entwickelung der Grundſaͤtze<lb/>
+dieſes gelehrten Moͤnchs findet man bald, daß die na-<lb/>
+tuͤrlichen Folgen derſelben, uns zu dem Syſtem der<lb/>
+Stoicker zuruͤckfuͤhren, nemlich zu der allgemeinen<lb/>
+Weltſeele, von der alle Weſen belebt und Theile ſind.<lb/>
+Wenn wir alles in Gott ſehen, wenn alle unſre Em-<lb/>
+pfindungen, unſre Gedanken, unſer Wollen und Begeh-<lb/>
+ren unmittelbar von ſeiner intellektuellen Einwuͤrkung<lb/>
+auf unſre Organen herruͤhren; ſo ſind wir bloße Ma-<lb/>
+ſchienen, die durch goͤttliche Haͤnde in Bewegung ge-<lb/>
+ſetzt werden. Die Gottheit bleibt alsdann nur allein<lb/>
+uͤbrig und der Menſch verſchwindet ganz.</p><lb/>
+<p>Ich traue unſerm Herrn Profeſſor zu viel Ueber-<lb/>
+legung zu, als daß er den weiſen <hi rendition="#fr"><persName>Locke</persName></hi> vergeſſen ſoll-<lb/>
+te; er iſt der einzige Metaphyſiker, der die Einbildungs-<lb/>
+kraft der geſunden Vernunft ganz aufopfert, der nur<lb/>
+der Erfahrung folgt, und vorſichtig ſtille ſteht, ſo bald<lb/>
+dieſer ſichre Fuͤhrer ihn verlaͤßt. Bey der Moral wird<lb/>
+unſer Lehrer etwas vom <hi rendition="#fr"><persName>Sokrates</persName></hi> ſagen, dem <hi rendition="#fr"><persName>Mar-<lb/>
+kus Aurelius</persName></hi> Gerechtigkeit wiederfahren laßen, und<lb/>
+ſich vorzuͤglich bey dem Buch des <persName>Cicero</persName> <hi rendition="#aq">de officiis</hi><lb/>
+verweilen, dem beſten, das je uͤber die Moral geſchrie-<lb/>
+ben worden, und jemals geſchrieben werden wird.</p><lb/>
+<p>Mit den Aerzten habe ich nur zwey Worte zu re-<lb/>
+den. Sie muͤſſen beſonders ihre Schuͤler gewoͤhnen,<lb/>
+die Symptomen der Krankheiten ſorgfaͤltig zu unter-<lb/>
+<fw type="catch" place="bottom">ſuchen,</fw><lb/>
+<pb n="43" facs="#f0049"/>
+ſuchen, um ihre Gattungen genau zu kennen. Dieſe<lb/>
+Symptomen ſind ein ſchneller oder ſchwacher, ein ſtar-<lb/>
+ker oder heftiger oder unterbrochner Puls; Trockenheit<lb/>
+der Zunge; Beſchaffenheit der Augen: die Natur der<lb/>
+Ausduͤnſtung; und alle Arten von Abſonderungen, ſowohl<lb/>
+durch den Urin als den Stuhlgang. Hieraus zieht der<lb/>
+Arzt Folgen, nach denen er mit einiger Sicherheit die<lb/>
+Art des Maraſmus beſtimmen kann, welcher die Krank-<lb/>
+heit verurſacht, und nach dieſen Kenntniſſen waͤhlt er als-<lb/>
+dann die ſicherſten Mittel ſie zu heilen. Der Lehrer der<lb/>
+Arzneykunſt muß auch beſonders ſich Muͤhe geben, ſeinen<lb/>
+Schuͤlern die ausnehmende Verſchiedenheit der Tem-<lb/>
+peramente und die Aufmerkſamkeit, die ſie erfordern,<lb/>
+zu zeigen. Er muß ihnen deutlich machen, wie dieſel-<lb/>
+be Krankheit bey jedem Temperament ganz verſchieden<lb/>
+ſich aͤuſere, und wie nothwendig es daher ſey, die Arz-<lb/>
+neymittel auch in derſelben Krankheit auf das genaue-<lb/>
+ſte nach der Conſtitution des Patienten, abzumeſſen.<lb/>
+Nach allen dieſem Unterricht wage ich es doch nicht zu<lb/>
+hoffen, daß unſere junge Aeſculape Wunder thun wer-<lb/>
+den; aber das Publikum wird doch den Vortheil da-<lb/>
+von haben, daß die Unwiſſenheit oder Traͤgheit der<lb/>
+Aerzte kuͤnftig einige Buͤrger des Staats weniger toͤd-<lb/>
+ten werden.</p><lb/>
+<p>Um kurz zu ſeyn, uͤbergehe ich die Botanik, die<lb/>
+Chimie und Experimental-Phyſik, und komme daher de-<lb/>
+ſto eher zu dem Herrn Profeſſor der Rechte, der mir<lb/>
+<fw type="catch" place="bottom">eine</fw><lb/>
+<pb n="44" facs="#f0050"/>
+eine ſehr unfreundliche Mine zu haben ſcheint. Mein<lb/>
+Herr, moͤchte ich zu ihm ſagen, wir leben nicht mehr in<lb/>
+dem Jahrhunderte der Worte, ſondern der Sachen.<lb/>
+Waͤre es Ihnen gefaͤllig, ſo wuͤnſchte ich, zum Beſten<lb/>
+des Publikums, Sie braͤchten in Ihre hochgelahrten<lb/>
+Vorleſungen, etwas weniger Pedantiſmus und dage-<lb/>
+gen deſto mehr geſunde Vernunft. Sie verderben nur<lb/>
+Ihre Zeit, wenn Sie ein Staatsrecht lehren, das<lb/>
+nicht einmal unter Privatperſonen gilt, das von den<lb/>
+Maͤchtigen nicht geachtet wird, und den Schwachen kei-<lb/>
+nen Schutz giebt; oder, wenn Sie Ihre Schuͤler ganz<lb/>
+vollſtaͤndig von den Geſetzen des <persName>Minos</persName>, des <persName>Solon</persName>,<lb/>
+des <persName>Likurg</persName>, den zwoͤlf Tafeln, dem Juſtinianiſchen Co-<lb/>
+dex unterrichten; und ihnen faſt gar nichts von den<lb/>
+Geſetzen und dem Herkommen unſrer Lande ſagen. Um<lb/>
+Sie zu beruhigen, wollen wir Ihnen gerne zugeben,<lb/>
+daß Ihr Gehirn eine Quinteſſenz der vereinigten Ge-<lb/>
+hirne des Bartolus und Cujacius ausmache; aber<lb/>
+bedenken Sie doch dagegen auch, daß nichts koſtbarer<lb/>
+als die Zeit iſt, und derjenige, der ſie mit unnuͤtzen<lb/>
+Phraſen hinbringt, fuͤr einen Verſchwender erklaͤrt<lb/>
+werden muͤſſe, uͤber den Sie eine Sequeſtration er-<lb/>
+kennen wuͤrden, wenn ihm vor Ihrem Richtſtuhl der<lb/>
+Prozeß gemacht werden ſollte. Erlauben Sie mir alſo,<lb/>
+ſo gelehrt Sie immer ſeyn moͤgen, daß ich als ein bloßer<lb/>
+Laye (wenn Sie mir einigen Muth machen werden,) es<lb/>
+wage, Ihnen einen juriſtiſchen Curſinn vorzuſchlagen.</p><lb/>
+<fw type="catch" place="bottom">Sie</fw><lb/>
+<pb n="45" facs="#f0051"/>
+<p>Sie fingen, daͤcht ich, mit dem Beweiſe an,<lb/>
+daß Geſetze nothwendig ſind, weil keine Geſellſchaft<lb/>
+ohne ſie beſtehen kann. Sie zeigten hierauf, wie es<lb/>
+buͤrgerliche, Criminal- und bloſſe Conventionsgeſetze<lb/>
+gebe. Die erſten dienen dazu, alle Art von Beſitz zu<lb/>
+ſichren, als Erbſchaften, Heyrathsteuer, Leibge-<lb/>
+dinge, Kauf- und Verkaufskontrakte, u. ſ. w. Sie<lb/>
+enthalten die Grundſaͤtze, nach denen man die Graͤnzen<lb/>
+beſtimmen und ſtreitige Rechte erklaͤren und entſchei-<lb/>
+den muß. Die peinlichen Geſetze haben mehr den Zweck<lb/>
+von den Verbrechen abzuſchrecken, als ſie zu ſtrafen.<lb/>
+Die Strafen muͤſſen immer den Verbrechen angemeſ-<lb/>
+ſen, und die gelindeſten, ſo oft es nur moͤglich, den<lb/>
+haͤrteſten vorgezogen werden. Conventionsgeſetze ſind<lb/>
+diejenigen, welche die Regierungen einfuͤhren, um<lb/>
+die Handlung und den Fleiß ihrer Staaten zu befoͤr-<lb/>
+dern. Die beyden erſten Gattungen der Geſetze ſind<lb/>
+bleibend und ewig; die letztern aber ſind Veraͤnderun-<lb/>
+gen unterworfen, weil ſo wohl innere als aͤußere Ur-<lb/>
+ſachen die Regierungen veranlaſſen koͤnnen, einige die-<lb/>
+ſer Geſetze abzuſchaffen und neue einzufuͤhren. Hat<lb/>
+der Herr Profeſſor dieſe vorlaͤufigen Grundſaͤtze mit der<lb/>
+noͤthigen Deutlichkeit vorgetragen; ſo wuͤnſchte ich,<lb/>
+daß es ihm gefaͤllig ſeyn moͤchte, ohne den <persName>Grotius</persName> und<lb/>
+<persName>Puffendorff</persName> weiter um Rath zu fragen, die Geſetze<lb/>
+des Landes, in dem er lebt, genau durchzugehen und<lb/>
+zu entwickeln. Er muß ſich dabey ja huͤten, daß er<lb/>
+<fw type="catch" place="bottom">ſeinen</fw><lb/>
+<pb n="46" facs="#f0052"/>
+ſeinen Schuͤlern keinen Geſchmack an der Streitſucht<lb/>
+beybringe, und nicht Leute aus ihnen bilde, welche<lb/>
+die Geſchaͤfte noch mehr verwickeln, ſtatt ſie zu entwi-<lb/>
+ckeln. Er wird ſich beſonders bemuͤhen, Richtigkeit,<lb/>
+Deutlichkeit und Praͤciſion in ſeine Vorleſungen zu<lb/>
+bringen. Um ſeine Zoͤglinge von fruͤher Jugend an<lb/>
+ſelbſt an dieſe Methode zu gewoͤhnen, wird unſer Leh-<lb/>
+rer alles anwenden, um ihnen Verachtung der Streit-<lb/>
+ſucht beyzubringen, die uͤber alles ſophiſtiſche Erklaͤ-<lb/>
+rungen macht, und ein unerſchoͤpfliches Repertorium<lb/>
+von Subtilitaͤten und Chikanen zu ſeyn ſcheint.</p><lb/>
+<p>Ich wende mich itzt an den Profeſſor der Ge-<lb/>
+ſchichte, und ſtelle ihm zum Muſter den beruͤhmten<lb/>
+und gelehrten <hi rendition="#fr"><persName>Thomaſius</persName></hi> vor. Dieſem groſſen<lb/>
+Mann ſich nur zu naͤhern, wird unſerm Profeſſor einen<lb/>
+guten Ruf, ihm gleich zu werden, hohen Ruhm er-<lb/>
+werben. Er muß ſeine Vorleſungen mit der alten<lb/>
+Geſchichte anfangen, und mit der neuen beſchlieſſen;<lb/>
+aber auch kein Volk vergeſſen, das in der Folge der<lb/>
+Jahrhunderte ſich ausgezeichnet, ſo wie <hi rendition="#fr"><persName>Boſſuet</persName></hi> in<lb/>
+ſeinem ſonſt ſehr ſchaͤtzbaren Buch, die Sineſer, die<lb/>
+Ruſſen, Pohlen und den ganzen Norden uͤbergangen<lb/>
+hat. Vorzuͤglich muß ſich unſer Lehrer mit <placeName>Deutſch-<lb/>
+land</placeName> beſchaͤftigen, weil dieſes fuͤr Deutſche das inte-<lb/>
+reſſanteſte Land iſt.</p><lb/>
+<p>Bey dem dunkeln und ungewiſſen Urſprung der<lb/>
+Nation aber, muß der Lehrer ſich nicht zu lange auf-<lb/>
+<fw type="catch" place="bottom">halten,</fw><lb/>
+<pb n="47" facs="#f0053"/>
+halten, weil wir zu wenig Denkmaale haben, und<lb/>
+die Kenntniß, die man allenfals hieruͤber erwerben<lb/>
+kann, wenig nuͤtzlich iſt. Er wird auch das neunte,<lb/>
+zehnte, eilfte und zwoͤlfte Jahrhundert nur durchlau-<lb/>
+fen ohne ſich dabey aufzuhalten. Im dreyzehnten wird<lb/>
+er anfangen tiefer einzudringen, weil hier die Ge-<lb/>
+ſchichte intereſſanter zu werden anfaͤngt. Je mehr er<lb/>
+ſich den neuern Zeiten naͤhert, deſto mehr muß er ſich<lb/>
+in das Detail der Begebenheiten einlaſſen, weil ſie im-<lb/>
+mer mehr mit der Geſchichte unſrer Zeit zuſammen-<lb/>
+haͤngen. Er muß dabey auch ein richtiges Verhaͤlt-<lb/>
+niß beobachten, und ſich immer laͤnger bey denen Be-<lb/>
+gebenheiten verweilen, welche Folgen gehabt, als bey<lb/>
+denen, welche (wenn ich mich ſo ausdruͤcken darf)<lb/>
+fuͤr die Nachkommen gleichſam todt ſind. Beſonders<lb/>
+wird der Profeſſor auch den Urſprung der Rechte,<lb/>
+Gebraͤuche und Geſetze bemerken, und zeigen bey wel-<lb/>
+chen Veranlaſſungen ſie im deutſchen Reiche eingefuͤhrt<lb/>
+ſind. Er muß die Epoken angeben, da die Kaiſerl.<lb/>
+Reichsſtaͤdte die Unmittelbarkeit erhielten; und worin<lb/>
+ihre Privilegien beſtanden? wie der Bund der Han-<lb/>
+ſeeſtaͤdte entſtanden? wie die Biſchoͤfe und Aebte Sou-<lb/>
+verains wurden? Er wird endlich, ſo gut er kann, es<lb/>
+erklaͤren, wie die Churfuͤrſten das Recht erhalten ha-<lb/>
+ben, den Kaiſer zu waͤhlen. Auch die Verſchie-<lb/>
+denheit der Rechtsverwaltung in dieſer Folge der<lb/>
+Jahrhunderte, darf nicht uͤbergangen werden. Aber<lb/>
+<fw type="catch" place="bottom">von</fw><lb/>
+<pb n="48" facs="#f0054"/>
+von <persName>Carl V.</persName> an muß beſonders unſer Profeſſor zeigen,<lb/>
+daß er Beurtheilungskraft und Geſchicklichkeit be-<lb/>
+ſitze. Von dieſem Zeitpunkt an wird alles intereſſant<lb/>
+und denkwuͤrdig. Daher muß der Lehrer alle Muͤhe<lb/>
+anwenden, die Urſachen der großen Begebenheiten zu<lb/>
+entwickeln. Gleichguͤltig gegen die Perſonen, muß er<lb/>
+das Gute und Boͤſe, wo er es findet, loben und ta-<lb/>
+deln, wie ein jeder daſſelbe verdient. Nun kommt die<lb/>
+Zeit der Religionsunruhen, der Lehrer der Geſchich-<lb/>
+te muß ſie wie ein Philoſoph, beurtheilen. Hierauf<lb/>
+folgen die Kriege, zu welchen jene Unruhen Gelegen-<lb/>
+heit gaben, und Begebenheiten, welche mit der Wuͤr-<lb/>
+de behandelt werden muͤſſen, die ihr großes Intereſſe<lb/>
+erfordert. <placeName>Schweden</placeName>, z. E. nimmt im dreyßigjaͤhri-<lb/>
+gen Kriege die Parthey gegen den Kaiſer. Hier muß<lb/>
+alſo der Lehrer zeigen, was <hi rendition="#fr"><persName>Guſtav Adolph</persName></hi> bewog,<lb/>
+ſich nach <placeName>Deutſchland</placeName> zu begeben; und warum <placeName>Frank-<lb/>
+reich</placeName> ſich fuͤr <placeName>Schweden</placeName> und die proteſtantiſche Sache<lb/>
+erklaͤrte; aber er muß ſich wohl in Acht nehmen, die alten<lb/>
+Unwahrheiten zu wiederholen, welche gar zu leichtglaͤubi-<lb/>
+ge Geſchichtſchreiber verbreitet haben. Er wird alſo<lb/>
+nicht ſagen, daß <persName>Guſtav Adolph</persName> von einem deutſchen Fuͤr-<lb/>
+ſten getoͤdtet ſey, der unter ſeiner Armee diente, weil<lb/>
+dieſes Vorgeben durch nichts bewieſen und ganz un-<lb/>
+wahrſcheinlich iſt. Der weſtphaͤliſche Friede verdient<lb/>
+eine noch umſtaͤndlichere Eroͤrterung, weil er die Haupt-<lb/>
+ſtuͤtze der deutſchen Freiheiten und ein Grundgeſetz ge-<lb/>
+<fw type="catch" place="bottom">worden</fw><lb/>
+<pb n="49" facs="#f0055"/>
+worden iſt, auf welches ſich unſre heutige Verfaſſung<lb/>
+gruͤndet, und wodurch der Ehrgeiz der Kaiſer in ſei-<lb/>
+nen gebuͤhrenden Schranken erhalten wird. Nachher<lb/>
+muß der Lehrer der Geſchichte, die Begebenheiten unter<lb/>
+der Regierung der <persName>Kaiſer Leopold</persName>, <persName>Joſeph I.</persName> und <persName>Carl VI.</persName><lb/>
+vortragen. Dieſes Feld von ſo weitem Umfange wird<lb/>
+ihm Gelegenheit genug geben, ſein Genie und ſeine<lb/>
+Gelehrſamkeit zu zeigen, wenn er nur nichts Weſent-<lb/>
+liches uͤbergeht. Hat unſer Profeſſor die Begeben-<lb/>
+heiten jedes Jahrhunderts auf dieſe Art auseinander-<lb/>
+geſetzt; ſo muß er auch nicht vergeſſen, von den herr-<lb/>
+ſchenden Meynungen deſſelben, und den wackern Maͤn-<lb/>
+nern Rechenſchaft zu geben, welche ſich durch ihre Ta-<lb/>
+lente, ihre Entdeckungen und ihre Schriften am meiſten<lb/>
+bekannt gemacht haben; er wird auch dabey die Auslaͤn-<lb/>
+der nicht uͤbergehn, welche Zeitgenoſſen jener Deut-<lb/>
+ſchen waren. Hat man auf dieſe Art die Geſchichte<lb/>
+behandelt, daß man ein Volk nach dem andern durch-<lb/>
+geht; ſo wuͤrde es fuͤr die Schuͤler ſehr nuͤtzlich ſeyn,<lb/>
+wenn man nun alle Materien wieder nach der Zeitord-<lb/>
+nung zuſammenſtellte und ſie ihnen in einem großen<lb/>
+Gemaͤhlde zeigte. Hier iſt beſonders die chronologi-<lb/>
+ſche Ordnung nothwendig, um nicht die Zeiten mit ein-<lb/>
+ander zu verwechſeln, und um zu lehren, daß man je-<lb/>
+de wichtige Begebenheit immer in die Stelle ſetzen<lb/>
+muͤſſe, in die ſie gehoͤrt; Zeitgenoſſen neben Zeitgenoſ-<lb/>
+ſen. Um das Gedaͤchtniß nicht zu ſehr mit Datis zu<lb/>
+<fw type="sig" place="bottom">D</fw> <fw type="catch" place="bottom">uͤber-</fw><lb/>
+<pb n="50" facs="#f0056"/>
+laden, wuͤrde das beſte ſeyn, die wichtigſten Vorfaͤlle<lb/>
+zu Epoken zu machen. Dieſe ſind Standpunkte fuͤr<lb/>
+das Gedaͤchtniß, die man leicht behaͤlt, und welche ver-<lb/>
+hindern, daß das unermeßliche <choice><sic>Cahos</sic><corr>Chaos</corr></choice> der Geſchichte<lb/>
+ſich nicht in dem Kopfe der jungen Leute verwirre.<lb/>
+Ein ſolcher Curſus der Geſchichte, wie ich ihn vorſchla-<lb/>
+ge, muß tief durchgedacht und wohl geordnet ſeyn,<lb/>
+auch durchaus keine Kleinigkeiten enthalten. Nicht<lb/>
+im <hi rendition="#aq">Theatro Europaeo</hi>, nicht in der deutſchen Geſchich-<lb/>
+te von Buͤnau muß der Geſchichtslehrer Rath ſuchen;<lb/>
+ich wuͤrde ihn lieber auf die Hefte vom <hi rendition="#fr"><persName>Thomaſius</persName></hi><lb/>
+verweiſen, wenn man ſie noch haben kann.</p><lb/>
+<p>Wird die Geſchichte auf dieſe Art gelehret, ſo iſt<lb/>
+es unſtreitig das interreſſanteſte, unterrichtendſte und<lb/>
+nuͤtzlichſte Schauſpiel fuͤr einen jungen Menſchen, der<lb/>
+in die Welt tritt, dieſe Reihe von Veraͤnderungen<lb/>
+durchzugehen, die ſo oft die Geſtalt der Welt veraͤn-<lb/>
+dert haben. Nirgend lernt man das Nichts aller<lb/>
+menſchlichen Dinge beſſer kennen, als wenn man auf<lb/>
+den Truͤmmern ſo vieler Reiche und maͤchtigen Staa-<lb/>
+ten einherwandelt. Bey der unuͤberſehbaren Menge<lb/>
+von Verbrechen, die man dem Blick des edlen Juͤng-<lb/>
+lings vorbeyfuͤhrt, wird es ihm ein ausnehmendes<lb/>
+Vergnuͤgen machen, doch zuweilen große und goͤttliche<lb/>
+Seelen zu finden, die um Verzeihung fuͤr das uͤbrige<lb/>
+verderbte Menſchengeſchlecht zu bitten ſcheinen. Hier<lb/>
+findet er Muſter, denen er nachahmen muß. Dort<lb/>
+<fw type="catch" place="bottom">ſieht</fw><lb/>
+<pb n="51" facs="#f0057"/>
+ſieht er gluͤckliche Menſchen, mit Schmeichlern um-<lb/>
+ringt; ſie fliehn, ſo bald der Tod ihren Goͤtzen beruͤhrt;<lb/>
+die Wahrheit erſcheint dann, und die laute Stimme<lb/>
+des oͤffentlichen Abſcheues macht den gedungenen Paͤ-<lb/>
+negyriſten verſtummen. Ich ſchmeichle mir, daß unſer<lb/>
+Profeſſor ſo viel Verſtand haben werde, um ſeinen Schuͤ-<lb/>
+lern deutlich zu machen, wie eine edle Nacheiferung<lb/>
+von einem ſtrafbaren Ehrgeitz verſchieden ſey, und daß<lb/>
+er ſie zum Nachdenken uͤber ſo viele ſchreckliche Leiden-<lb/>
+ſchaften anfuͤhren wird, die den maͤchtigſten Staaten<lb/>
+das groͤſte Ungluͤck bereitet haben. Mit hundert Exem-<lb/>
+peln kann er beweiſen, wie die guten Sitten die ſicher-<lb/>
+ſten Mittel zur Erhaltung der Staaten ſind, und wie<lb/>
+ihre Verderbniß, die Einfuͤhrung des Luxus, und unge-<lb/>
+maͤßigte Liebe der Reichthuͤmer zu allen Zeiten die Vor-<lb/>
+laͤufer ihres Falls waren.</p><lb/>
+<p>Wenn der Profeſſor den Plan befolgt, den ich<lb/>
+ihm vorſchlage; ſo wird er ſich nicht darauf einſchraͤn-<lb/>
+ken, nur Begebenheiten in dem Gedaͤchtniß ſeiner<lb/>
+Schuͤler zu haͤufen; ſondern er wird ſich bemuͤhen, ih-<lb/>
+re Urtheilskraft zu bilden, und ihre Art zu denken, zu<lb/>
+berichtigen, beſonders aber ihnen Liebe zur Tugend ein-<lb/>
+zufloͤſſen, welches meiner Meinung nach, allen unver-<lb/>
+dauten Kenntniſſen weit vorzuziehen iſt, mit denen<lb/>
+man den Kopf eines jungen Menſchen anzufuͤllen<lb/>
+pflegt.</p><lb/>
+<fw type="sig" place="bottom">D 2</fw> <fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="52" facs="#f0058"/>
+<p>Der Schluß von Allem, was ich Ihnen bisher<lb/>
+vorgetragen, iſt, daß man ſich mit dem groͤßten Eifer<lb/>
+bemuͤhen muͤßte, alle claſſiſche Autoren der alten und<lb/>
+neuern Sprachen gut zu uͤberſetzen. Wir wuͤrden da-<lb/>
+von den doppelten Vortheil haben, daß unſre Sprache<lb/>
+gebildet, und die Kenntniſſe allgemeiner gemacht wuͤr-<lb/>
+den. Wenn wir die guten Schriftſteller unter uns<lb/>
+naturaliſirten, ſo wuͤrden ſie uns neue Ideen zufuͤhren;<lb/>
+ihre Diction und die Anmuth ihres Styls wuͤrde uns<lb/>
+bereichern, und wie viele wichtige Kenntniſſe wuͤrde<lb/>
+nicht das Publikum dadurch erhalten? Ich glaube<lb/>
+nicht, daß unter den <hi rendition="#fr">ſechs und zwanzig</hi> Millionen<lb/>
+Menſchen, die man <placeName>Deutſchland</placeName> beylegt, ſich <hi rendition="#fr">hundert-<lb/>
+tauſend</hi> befinden, welche das Latein gut verſtehn, be-<lb/>
+ſonders wenn Sie den Haufen der Pfaffen und Moͤnche<lb/>
+abrechnen, die es kaum ſo weit gebracht haben, die Re-<lb/>
+geln des Syntax nur einigermaßen zu verſtehen. So<lb/>
+ſind alſo 25,900000 Menſchen von den wichtigſten<lb/>
+Kenntniſſen ganz ausgeſchloſſen, weil ſie dieſelben<lb/>
+nicht in ihrer Mutterſprache bekommen koͤnnen.<lb/>
+Welch eine gluͤckliche Veraͤnderung waͤre es alſo,<lb/>
+wenn unter dieſer Menge von Menſchen jene Kennt-<lb/>
+niſſe allgemeiner gemacht werden koͤnnten. Der Edel-<lb/>
+mann, der ſein Leben auf dem Lande zubringt, wuͤrde<lb/>
+ſich diejenigen Buͤcher auswaͤhlen, die ſich fuͤr ihn ſchick-<lb/>
+ten, und durch ſie ſich eben ſo ſehr unterrichten als be-<lb/>
+luſtigen. Der Buͤrger wuͤrde weniger roh werden,<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="53" facs="#f0059"/>
+und die muͤſſigen Menſchen faͤnden im Leſen eine ſichere<lb/>
+Zuflucht wider die Langeweile. Der Geſchmack fuͤr<lb/>
+die Wiſſenſchaften wuͤrde allgemein werden, Anmuth<lb/>
+und Vergnuͤgen uͤber die menſchliche Geſellſchaft ver-<lb/>
+breiten, und eine unerſchoͤpfliche Quelle fuͤr die Con-<lb/>
+verſation ſeyn. Aus ſolchem beſtaͤndigen gegenſeitigen<lb/>
+Reiben der Geiſter wuͤrde der gute Geſchmack und das<lb/>
+feine Gefuͤhl entſtehen, das mit eben ſo richtiger als<lb/>
+geſchwinder Beurtheilung das Schoͤne empfindet, das<lb/>
+Mittelmaͤßige verwirft und das Schlechte verachtet.<lb/>
+Das Publikum wird alsdenn auch uͤber neue Werke<lb/>
+des Geſchmacks mit mehr Erleuchtung urtheilen, und<lb/>
+die Schriftſteller zwingen, ihre Werke mit groͤßerm<lb/>
+Fleiß und mit Sorgfalt auszuarbeiten, und ſie nicht<lb/>
+eher herauszugeben, bis ſie genau und oͤfterer gepruͤft<lb/>
+und gefeilt ſind.</p><lb/>
+<p>Der Gang, den ich zur Verbeſſerung unſrer Lit-<lb/>
+teratur vorſchlage, iſt nicht aus meiner Einbildung ge-<lb/>
+nommen; er iſt der, den alle Voͤlker, die ſich aufge-<lb/>
+klaͤrt, gewaͤhlt haben. Jemehr der Geſchmack fuͤr die<lb/>
+Wiſſenſchaften allgemeiner werden wird, deſto mehr<lb/>
+Vorzuͤge und andre Vortheile werden die zu erwarten<lb/>
+haben, die ſie mit beſonderm Fleiß cultiviren; deſto<lb/>
+mehr wird das Beyſpiel einiger immer mehrere an-<lb/>
+feuern. <placeName>Deutſchland</placeName> hat ſchon Maͤnner genug, die<lb/>
+zu den muͤhſamſten Unterſuchungen ganz gemacht ſind,<lb/>
+es hat Philoſophen, Genies, und Alles, was man zu<lb/>
+<fw type="sig" place="bottom">D 3</fw> <fw type="catch" place="bottom">ihrer</fw><lb/>
+<pb n="54" facs="#f0060"/>
+ihrer Entwicklung wuͤnſchen kann, nur ein <persName>Prometheus</persName><lb/>
+fehlt noch, der das goͤttliche Feuer vom Himmel hole,<lb/>
+und ſie belebe. Eben das Land, welches den beruͤhm-<lb/>
+ten <hi rendition="#aq"><persName>Petrus de Vineis</persName></hi>, den Canzler des ungluͤcklichen<lb/>
+<persName>Kaiſers Friedrich II.</persName> und die Verfaſſer der bekannten<lb/>
+<hi rendition="#aq">Epiſtolarum obſcurorum virorum</hi> (die uͤber ihr Zeit-<lb/>
+alter ſehr erhaben ſind) hervorgebracht hat; das Land,<lb/>
+in welchem <persName>Eraſmus</persName> geboren iſt, deſſen <hi rendition="#fr">Lob der Narr-<lb/>
+heit</hi> voll von Witz iſt, und noch beſſer ſeyn wuͤrde, wenn<lb/>
+man einige zu niedrige Stellen wegnaͤhme, an denen<lb/>
+man das Kloſter und den Geſchmack der Zeit erkennet;<lb/>
+ein Boden, der den eben ſo weiſen als gelehrten <persName>Me-<lb/>
+lanchton</persName>, und ſo viel andere große Maͤnner hervorge-<lb/>
+bracht hat, iſt noch nicht erſchoͤpft, und kann noch im-<lb/>
+mer wieder Genies erzeugen, die den genannten gleich<lb/>
+kommen. Ich koͤnnte auch zu den angefuͤhrten noch<lb/>
+große Namen hinzuſetzen, denn ich rechne zu den unſri-<lb/>
+gen auch einen <hi rendition="#fr"><persName>Copernik</persName></hi>, deſſen Calkul das Plane-<lb/>
+tenſyſtem und dasjenige berichtigte, was <hi rendition="#fr"><persName>Prolomaͤus</persName></hi><lb/>
+etliche tauſend Jahr vor ihm behauptet hatte. In ei-<lb/>
+nem andern Theile <placeName>Deutſchland</placeName>s entdeckte ein Moͤnch<lb/>
+durch ſeine chymiſche Proceſſe, die erſtaunenswuͤrdige<lb/>
+Wirkungen des Ausbruchs des Pulvers. Auch war<lb/>
+es ein Deutſcher, der die Buchdruckerey erfand, dieſe<lb/>
+herrliche Kunſt, welche die guten Buͤcher verewiger,<lb/>
+und das Publikum in den Stand ſetzt ſich mit gerin-<lb/>
+gen Koſten zu unterrichten. Dem erfinderiſchen Geiſte<lb/>
+<fw type="catch" place="bottom">eines</fw><lb/>
+<pb n="55" facs="#f0061"/>
+eines <hi rendition="#fr"><persName>Otto Guerike</persName></hi> haben wir die Luftpumpe zu danken.<lb/>
+Und wie koͤnnte ich den großen <persName>Leibnitz</persName> uͤbergehen,<lb/>
+deſſen Name in ganz <placeName>Europa</placeName> ſo beruͤhmt iſt. Hat ihn<lb/>
+auch zuweilen die lebhafte Einbildung zu ſyſtematiſchen<lb/>
+Traͤumen verleitet; ſo muß man doch geſtehen, daß<lb/>
+ſelbſt ſeine Verirrungen ſeinen großen Geiſt beweiſen.<lb/>
+Ich koͤnnte dieſe Liſte noch mit den Namen von <hi rendition="#fr"><persName>Tho-<lb/>
+maſius</persName></hi>, <hi rendition="#fr"><persName>Bilfinger</persName></hi>, <hi rendition="#fr"><persName>Haller</persName></hi> und ſehr vielen andern<lb/>
+vergroͤſſern, wenn ich nicht beſſer faͤnde, von der neue-<lb/>
+ſten und gegenwaͤrtigen Zeit nichts zu ſagen. Das<lb/>
+Lob der erwaͤhnten wuͤrde die Eigenliebe der uͤbergan-<lb/>
+genen beleidigen.</p><lb/>
+<p>Ich ſehe voraus, daß man meinem Raiſonnement<lb/>
+vielleicht noch einen Einwurf entgegenſetzen wird, den<lb/>
+ich noch beantworten muß. Waͤhrend der buͤrgerlichen<lb/>
+Kriege, ſagt man vielleicht, bluͤhte in <placeName>Italien</placeName> <hi rendition="#fr"><persName>Pico von<lb/>
+Mirandola</persName></hi>; ich geſtehe dieſes ein, aber der Mann<lb/>
+war auch nur ein bloßer Gelehrter. Waͤhrend daß<lb/>
+<hi rendition="#fr"><persName>Cromwell</persName></hi>, (kann man mir weiter einwerfen,) die Ver-<lb/>
+faſſung ſeines Vaterlandes umſtuͤrzte, und ſeinen Koͤ-<lb/>
+nig auf dem Schafot hinrichten ließ, erſchien <hi rendition="#fr"><persName>Tindal</persName></hi><lb/>
+mit ſeinem <hi rendition="#fr">Leviathan</hi>, und bald nachher <hi rendition="#fr"><persName>Milton</persName></hi> mit<lb/>
+ſeinem verlohrnen <hi rendition="#fr">Paradieſe</hi>; ja ſchon zur Zeit der<lb/>
+<persName>Koͤnigin <hi rendition="#fr">Eliſabeth</hi></persName> und <persName><hi rendition="#fr">Jacob</hi> I.</persName> erleuchtete der <persName>Canz-<lb/>
+ler <hi rendition="#fr">Bacon</hi></persName> ganz <placeName>Europa</placeName>, und wurde ein Orakel fuͤr<lb/>
+die Philoſophie, da er die noch moͤglichen Entdeckun-<lb/>
+gen und den Weg anzeigte, auf dem man zu ihnen ge-<lb/>
+<fw type="sig" place="bottom">D 4</fw> <fw type="catch" place="bottom">langen</fw><lb/>
+<pb n="56" facs="#f0062"/>
+langen koͤnte. Auch in <placeName>Frankreich</placeName> waren die vortref-<lb/>
+lichſten Schriftſteller Zeitgenoſſen der blutigen Kriege<lb/>
+unter <persName>Ludwig XIV.</persName> Warum, kann man alſo ſagen,<lb/>
+waren unſre deutſche Kriege ſo viel fuͤrchterlicher fuͤr<lb/>
+die Wiſſenſchaften, als bey andern Nationen? Es<lb/>
+wird mir nicht ſchwer ſeyn hierauf zu antworten. In<lb/>
+<placeName>Italien</placeName> haben die Wiſſenſchaften nur zu der Zeit ge-<lb/>
+bluͤhet, als <hi rendition="#fr"><persName>Lorenz von Medicis</persName></hi>, der <persName>Papſt <hi rendition="#fr">Leo</hi> X.</persName><lb/>
+und das <hi rendition="#fr">Haus Eſte</hi> ihnen Schutz gaben. Es fielen<lb/>
+in dieſe Zeit einige voruͤbergehende, aber nicht zerſtoͤ-<lb/>
+rende Kriege; und <placeName>Italien</placeName>, eiferſuͤchtig auf die Eh-<lb/>
+re die Wiſſenſchaften wieder hergeſtellt zu haben, un-<lb/>
+terſtuͤtzte ſie ſo ſehr, als es nur irgend ſeine Kraͤfte er-<lb/>
+laubten. In <placeName>England</placeName> zielte <persName>Cromwel</persName>s durch den Fa-<lb/>
+natiſmus unterſtuͤtzte Politik, nur allein auf den Ihren;<lb/>
+grauſam gegen ſeinen Koͤnig regierte er die Nation<lb/>
+mit Weisheit. Daher war <placeName>England</placeName>s Handel nie ſo<lb/>
+bluͤhend als waͤhrend ſeinem Protektorat. <hi rendition="#fr">Der Be-<lb/>
+hemoth</hi> war auch nur eine Partheyſchrift. <hi rendition="#fr">Das ver-<lb/>
+lohrne Paradies von <persName>Milton</persName></hi> iſt unſtreitig von hoͤ-<lb/>
+herem Werth; der Dichter deſſelben beſaß eine unge-<lb/>
+mein ſtarke Einbildungskraft, und nahm das Sujet<lb/>
+aus einer der religioͤſen Farcen, die zu ſeiner Zeit noch<lb/>
+in <placeName>Italien</placeName> geſpielt wurden; aber man muß beſonders<lb/>
+bemerken, daß <placeName>England</placeName> damals ſchon wieder ruhig<lb/>
+und in bluͤhendem Wohlſtande war. Der <persName>Canzler<lb/>
+<hi rendition="#fr">Bacon</hi></persName> lebte an dem feinen und aufgeklaͤrten Hofe<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="57" facs="#f0063"/>
+der <hi rendition="#fr"><persName>Eliſabeth</persName></hi>; er beſaß die durchdringenden Augen<lb/>
+vom Adler des Jupiters, mit denen er die Wiſſenſchaf-<lb/>
+ten durchſchauete, und die Weisheit der Minerva, um<lb/>
+ſie zu ordnen. <hi rendition="#fr"><persName>Bacon</persName>s</hi> Genie gehoͤrt unter die ſelte-<lb/>
+nen Phaͤnomene, die immer nur einzeln und in weiter<lb/>
+Entfernung von einander erſcheinen, und die ihrem<lb/>
+Jahrhundert eben ſo viel Ehre machen, als dem menſch-<lb/>
+lichen Geſchlecht uͤberhaupt.</p><lb/>
+<p>In <placeName>Frankreich</placeName> hatte <persName>Richelieus</persName> Miniſterium das<lb/>
+ſchoͤne Jahrhundert von <persName>Ludwig XIV.</persName> ſchon von ferne<lb/>
+bereitet. Die Wiſſenſchaften fiengen mit dem Anfang<lb/>
+ſeiner Regierung an ſich zu verbreiten, und konnten<lb/>
+durch den Krieg <hi rendition="#aq">de la Fronde</hi>, der nur ein Kinderſpiel<lb/>
+war, nicht unterbrochen werden. <placeName>Ludwig XIV.</placeName> begie-<lb/>
+rig nach jeder Art von Ruhm, wollte ſeine Nation zur<lb/>
+erſten in Abſicht des Geſchmacks und der Litteratur<lb/>
+machen, wie ſie es durch ihre Macht, ihre Eroberun-<lb/>
+gen, ihre Politik und Handel ſchon war. Seine ſieg-<lb/>
+reichen Waffen drangen in die Lande ſeiner Feinde ein.<lb/>
+<placeName>Frankreich</placeName> war ſtolz uͤber das Gluͤck ſeines Monarchen,<lb/>
+ohne die Verwuͤſtungen des Krieges zu empfinden.<lb/>
+Ganz natuͤrlich alſo ließen die Muſen, die gern immer<lb/>
+neben Ruhe und Ueberfluß wohnen, ſich in ſeinem<lb/>
+Reiche nieder.</p><lb/>
+<p>Aber ich muß Sie auf noch einen Unterſchied auf-<lb/>
+merkſam machen, der ſich zwiſchen uns und unſern Nach-<lb/>
+barn, die uns vorgegangen ſind, befindet. In <placeName>Ita-<lb/>
+<fw type="sig" place="bottom">D 5</fw> <fw type="catch" place="bottom">lien,</fw><lb/>
+<pb n="58" facs="#f0064"/>
+lien,</placeName> in <placeName>Frankreich</placeName> und <placeName>England</placeName> ſchrieben die erſten<lb/>
+Gelehrten und ihre Nachfolger allemal in der Landes-<lb/>
+ſprache. Das Publikum nahm ihre Werke mit groͤß-<lb/>
+ter Begierde auf, und die Kenntniſſe verbreiteten ſich<lb/>
+durch die ganze Nation. Bey uns war es hierinn ganz<lb/>
+anders. Die Religionszaͤnkereyen lieferten uns eini-<lb/>
+ge Streiter, welche ganz unverſtaͤndliche Materien auf<lb/>
+eine ſehr dunkle Art unterſuchten; dieſelben Saͤtze bald<lb/>
+behaupteten, bald beſtritten; und die Sophiſmen nur<lb/>
+mit Schimpfworten vermengten. Unſere erſten Ge-<lb/>
+lehrten waren, wie ſie es allenthalben geweſen, Maͤn-<lb/>
+ner, die nur Begebenheiten in ihrem Gedaͤchtniß an-<lb/>
+haͤuften; Pedanten ohne Beurtheilungskraft, wie die<lb/>
+<hi rendition="#fr"><persName>Lipſius</persName></hi>, die <hi rendition="#fr"><persName>Freinshemius</persName></hi>, die <hi rendition="#fr"><persName>Gronovius</persName></hi>, die <hi rendition="#fr"><persName>Graͤ-<lb/>
+vius</persName></hi>, welche auf eine ſehr ſchwerfaͤllige Art einige dunk-<lb/>
+le Phraſen wieder herſtellten, die ſie in alten Manu-<lb/>
+ſcripten fanden. Dieſes konnte bis auf einen gewiſſen<lb/>
+Grad ganz nuͤtzlich ſeyn; aber man mußte nicht allen<lb/>
+ſeinen Fleiß und Aufmerkſamkeit auf dergleichen un-<lb/>
+wichtige Kleinigkeiten wenden. Und doch machte<lb/>
+die pedantiſche Eitelkeit dieſer Herren auf den Beyfall<lb/>
+von ganz <placeName>Europa</placeName> Anſpruch; theils um ihr ſchoͤnes La-<lb/>
+tein zu zeigen, theils um auch von fremden Pedanten<lb/>
+bewundert zu werden, ſchrieben ſie durchaus nicht an-<lb/>
+ders, als lateiniſch. Ihre Werke waren daher fuͤr<lb/>
+das ganze uͤbrige <placeName>Deutſchland</placeName> ungeſchrieben. Hier-<lb/>
+aus entſtanden zwey Unbequemlichkeiten. Die deutſche<lb/>
+<fw type="catch" place="bottom">Sprache</fw><lb/>
+<pb n="59" facs="#f0065"/>
+Sprache wurde gar nicht cultivirt und blieb immer<lb/>
+mit ihrem alten Roſt bedeckt. Der Haupttheil der<lb/>
+Nation, der kein Latein verſtand, konnte ſich auf kei-<lb/>
+ne Weiſe unterrichten, und blieb immer mit dicker<lb/>
+Unwiſſenheit umhuͤllt. Dies ſind Wahrheiten, de-<lb/>
+nen Niemand etwas entgegenſetzen kann. Unſre<lb/>
+Herren Gelehrten ſollten ſich zuweilen erinnern, daß<lb/>
+die Wiſſenſchaften die Nahrungsmittel der Seele ſind;<lb/>
+das Gedaͤchtniß empfaͤngt ſie, wie der Magen die Spei-<lb/>
+ſen; wenn die Urtheilskraft aber nicht ihre Verdauung<lb/>
+befoͤrdert, ſo iſt Unverdaulichkeit des Geiſtes unver-<lb/>
+meidlich. Wenn die Wiſſenſchaften Schaͤtze ſind, ſo<lb/>
+muß man ſie nicht aufhaͤufen und verſchließen; ſondern<lb/>
+dadurch nutzen, daß man ſie in allgemeinen Umlauf-<lb/>
+bringt, und dieſes kann nur durch die Sprache geſche-<lb/>
+hen, welche alle Buͤrger des Staats verſtehn.</p><lb/>
+<p>Noch nicht ſeit langer Zeit haben unſre Gelehr-<lb/>
+ten es gewagt, in ihrer Mutterſprache zu ſchreiben, und<lb/>
+ſchaͤmen ſich nicht mehr Deutſche zu ſeyn. Sie wiſ-<lb/>
+ſen, daß das erſte deutſche Woͤrterbuch noch nicht alt<lb/>
+iſt; ich erroͤthe faſt dafuͤr, wenn ich bedenke, daß ein<lb/>
+ſo ausnehmend nuͤtzliches Buch nicht wenigſtens hun-<lb/>
+dert Jahre vor mir in die Welt gekommen iſt. Bey<lb/>
+alle dem bemerkt man itzt, daß uns allmaͤhlich eine<lb/>
+Gaͤhrung und Veraͤnderung bevorſtehe. Man faͤngt<lb/>
+an von Ruhm der Nation zu reden; wir wollen uns<lb/>
+in gleiche Reihe mit unſern Nachbarn erheben, und<lb/>
+<fw type="catch" place="bottom">Wege</fw><lb/>
+<pb n="60" facs="#f0066"/>
+Wege zum Parnaß, ſo wie zum Tempel des Anden-<lb/>
+kens bahnen. Wer ein feines Gefuͤhl hat, kann dieſes<lb/>
+ſchon bemerken. Man muß alſo nur die alten und<lb/>
+neuern klaſſiſchen Schriftſteller in unſre Sprache uͤber-<lb/>
+ſetzen. Soll das Geld bey uns circuliren, ſo muͤſſen<lb/>
+wir es ins Publikum bringen, und die Wiſſenſchaften,<lb/>
+die ehemals ſo ſelten waren, allgemeiner machen. Um<lb/>
+endlich nichts zu uͤbergehen, was die Fortſchritte un-<lb/>
+ſerer Litteratur aufgehalten hat, will ich auch noch den<lb/>
+Umſtand bemerken, daß an den meiſten Hoͤfen die<lb/>
+deutſche Sprache ſo wenig geredet wird. Unter <persName>Kai-<lb/>
+ſer <hi rendition="#fr">Joſeph</hi> I.</persName> redete man in <hi rendition="#fr"><placeName>Wien</placeName></hi> nur Italiaͤniſch;<lb/>
+unter <persName><hi rendition="#fr">Carl</hi> VI.</persName> wurde dieſes vom <hi rendition="#fr">Spaniſchen</hi> verdrun-<lb/>
+gen; und waͤhrend der Regierung <persName><hi rendition="#fr">Franz</hi> I.</persName> eines ge-<lb/>
+bornen Lothringers, wurde am Wiener Hofe weit mehr<lb/>
+Franzoͤſiſch als Deutſch geredet. An den Churfuͤrſtli-<lb/>
+chen Hoͤfen gieng es eben ſo. Sie werden hievon kei-<lb/>
+ne andre Urſache finden, als die ich Ihnen ſchon oft an-<lb/>
+gefuͤhrt habe. Die ſpaniſche, italiaͤniſche und franzoͤ-<lb/>
+ſiſche Sprache waren gebildet und beſtimmt; die un-<lb/>
+ſre war es nicht. Aber es muß uns troͤſten, daß <placeName>Frank-<lb/>
+reich</placeName> eben dieſes Schickſal erfahren hat. Unter <persName><choice><sic><hi rendition="#fr">Franz</hi> I.</sic><corr><hi rendition="#fr">Franz</hi> I.,</corr></choice></persName><lb/>
+<persName><hi rendition="#fr">Carl</hi> IX.</persName> und <persName><hi rendition="#fr">Heinrich</hi> III.</persName> redte man in allen guten<lb/>
+Geſellſchaften mehr Spaniſch und Italiaͤniſch als Fran-<lb/>
+zoͤſiſch. Die Landesſprache bekam nicht eher die Ober-<lb/>
+hand, bis ſie feiner, deutlich und zierlich geworden, auch<lb/>
+von einer Menge klaſſiſcher Schriftſteller durch mah-<lb/>
+<fw type="catch" place="bottom">leriſche</fw><lb/>
+<pb n="61" facs="#f0067"/>
+leriſche Ausdruͤcke verſchoͤnert war und grammatikali-<lb/>
+ſche Beſtimmtheit erhalten hatte. Unter der Regie-<lb/>
+rung <persName>Ludwig XIV.</persName> verbreitete ſich die franzoͤſiſche<lb/>
+Sprache durch ganz <placeName>Europa</placeName>, und dieß ruͤhrte zum<lb/>
+Theil daher, weil man begierig war, die ſchoͤnen Schrift-<lb/>
+ſteller und die guten Ueberſetzungen der Alten zu leſen,<lb/>
+welche man damals in dieſer Sprache fand. Itzt iſt<lb/>
+dieſelbe das allgemeinſte Mittel geworden, um in allen<lb/>
+Staͤdten und Haͤuſern Zutritt zu erhalten. Wer von<lb/>
+<placeName>Liſſabon</placeName> nach <placeName>Petersburg</placeName> und von <placeName>Stockholm</placeName> nach<lb/>
+<placeName>Neapel</placeName> reiſet, und franzoͤſiſch redet, wird allenthalben<lb/>
+verſtanden. Dieſe einzige Sprache macht uns eine<lb/>
+Menge andre entbehrlich, die wir ſonſt wiſſen muͤßten,<lb/>
+und die unſer Gedaͤchtniß mit Worten beladen wuͤr-<lb/>
+den, an deren Stelle wir itzt Sachen bringen koͤnnen,<lb/>
+welches gewiß ein erheblicher Vorzug iſt.</p><lb/>
+<p>Ich habe Ihnen nun die verſchiedenen Hinder-<lb/>
+niſſe entwickelt, welche uns in der Litteratur nicht ſo<lb/>
+geſchwind haben gehen laſſen, als unſre Nachbarn.<lb/>
+Indeß uͤbertreffen die Spaͤtern zuweilen ihre Vorgaͤn-<lb/>
+ger. Dieß koͤnnte vielleicht bey uns eher der Fall ſeyn,<lb/>
+als man es glauben ſollte; wenn nur unſre Regenten<lb/>
+Geſchmack an den Wiſſenſchaften bekommen; diejenigen<lb/>
+ermuntern, die ſich mit denſelben beſchaͤftigen, und de-<lb/>
+nen Lob und Belohnungen ertheilen, welche es vorzuͤg-<lb/>
+lich weit bringen. Wenn wir <hi rendition="#fr"><persName>Medicis</persName></hi> haben, werden<lb/>
+auch unſre Genies hervorkeimen; und die <persName>Auguſte</persName> wer-<lb/>
+<fw type="catch" place="bottom">den</fw><lb/>
+<pb n="62" facs="#f0068"/>
+den ſchon <persName>Virgile</persName> machen. Wir werden dann auch<lb/>
+unſre klaſſiſchen Schriftſteller bekommen; Jeder wird<lb/>
+ſie leſen wollen; unſre Nachbarn werden Deutſch ler-<lb/>
+nen und die Hoͤfe es mit Vergnuͤgen reden. Und viel-<lb/>
+leicht bringen unſre guten Schriftſteller es dahin, daß<lb/>
+unſre zur Vollkommenheit gebrachte und verfeinerte<lb/>
+Sprache noch einſt von einem Ende von <placeName>Europa</placeName> bis<lb/>
+zum andern wird geredet werden. Noch ſind dieſe ſchoͤ-<lb/>
+nen Tage unſrer Litteratur nicht gekommen; aber ſie<lb/>
+naͤhern ſich, und erſcheinen gewiß. Ich kuͤndige ſie<lb/>
+Ihnen an, obgleich mein Alter mir die Hoffnung nimmt,<lb/>
+ſie noch ſelbſt zu ſehen. Ich bin wie <hi rendition="#fr"><persName>Moſes</persName></hi>, ich ſehe<lb/>
+das <hi rendition="#fr">gelobte Land</hi> von ferne, werde aber nicht ſelbſt<lb/>
+hereinkommen. Erlauben Sie mir dieſe Vergleichung.<lb/>
+Ich laſſe ſonſt den <hi rendition="#fr"><persName>Moſes</persName></hi> in allen ſeinen Wuͤrden, und<lb/>
+will mich auf keine Weiſe mit ihm in Vergleichung<lb/>
+ſetzen. Auch ſind die ſchoͤnen Tage unſrer Litteratur,<lb/>
+denen wir entgegen ſehen, gewiß weit mehr werth,<lb/>
+als die nackten und duͤrftigen Felſen des unfrucht-<lb/>
+baren <placeName>Jdumaͤa</placeName>.</p><lb/>
+<figure/></div><lb/>
+</body><back>
+<pb facs="#f0069"/>
+<pb facs="#f0070"/>
+<pb facs="#f0071"/>
+</back>
+</text> </TEI>

@@ -1,0 +1,1677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Sieben-Gestirne Königlicher Busse/ das ist/ Die Sieben Buß-Psalmen/ Des Königes und Propheten Davids</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118677640">
+<surname>Czepko</surname>
+<forename>Daniel von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">93</measure>
+<measure type="tokens">6299</measure>
+<measure type="types">1862</measure>
+<measure type="characters">39108</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:05:14Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/czepko_siebengestirne_1671</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/czepko_siebengestirne_1671</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/czepko_siebengestirne_1671</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/czepko_siebengestirne_1671</idno>
+<idno type="DTADirName">czepko_siebengestirne_1671</idno>
+<idno type="DTAID">20112</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Czepko, Daniel von: Sieben-Gestirne Königlicher Busse. Brieg, 1671.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Sieben-Gestirne Königlicher Busse/ das ist/ Die Sieben Buß-Psalmen/ Des Königes und Propheten Davids</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118677640">
+<surname>Czepko</surname>
+<forename>Daniel von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[31] Bl.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Tschorn</name></publisher>
+<pubPlace>Brieg</pubPlace>
+<date type="publication">1671</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, 5 in: Dm 6850</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=595122000</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Astronomie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Astronomie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<pb facs="#f0010"/>
+<pb facs="#f0011"/>
+<pb facs="#f0012"/>
+<pb facs="#f0013"/>
+<pb facs="#f0014"/>
+<pb facs="#f0015"/>
+<pb facs="#f0016"/>
+<pb facs="#f0017"/>
+<pb facs="#f0018"/>
+<pb facs="#f0019"/>
+<pb facs="#f0020"/>
+<pb facs="#f0021"/>
+<pb facs="#f0022"/>
+<pb facs="#f0023"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b">Sieben-Geſtirne<lb/>
+Koͤniglicher<lb/>
+Buſſe/</hi><lb/>
+das iſt/<lb/>
+<hi rendition="#b">Die Sieben Buß-Pſalmen/</hi><lb/>
+Des Koͤniges und Propheten<lb/>
+<hi rendition="#b">Davids.</hi></titlePart><lb/>
+<titlePart type="sub">Nach eigentlicher meinung der<lb/>
+<hi rendition="#b">Haubt-Sprache</hi><lb/>
+durch weiland</titlePart></docTitle><lb/>
+<byline><hi rendition="#b">(tit:)</hi><docAuthor><hi rendition="#b"> Danieln von Czepkon/</hi></docAuthor><lb/>
+und Reigersfeld/ auf Mertz-<lb/>
+dorff und Kletſchkau.<lb/>
+Ihr Roͤm. Kaͤyſerl. Maytt.<lb/>
+wie auch<lb/>
+Fuͤrſtl. Lignitz. Brieg. und Wohl.<lb/>
+<hi rendition="#b">Regirungs-Raht/</hi><lb/>
+aufgeſetzet.</byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace>Zum Brieg/</pubPlace> <publisher>druckts Chriſtoph Tſchorn.</publisher><lb/>
+<docDate><hi rendition="#aq">Anno</hi> <hi rendition="#g">1671</hi>.</docDate></docImprint></titlePage><lb/>
+<pb facs="#f0024"/>
+<div type="dedication"><p><hi rendition="#c">Und Der<lb/>
+Hoch-Wohlgebornen Frauen/<lb/>
+<hi rendition="#b"><hi rendition="#fr">Frauen Hedewich/<lb/>
+Freyen von Dyherrn/<lb/>
+gebornen von Saliſch/</hi><lb/>
+Des Hoch-Wohlgebornen Herren/<lb/>
+Herren George <hi rendition="#fr">Abrahams</hi><lb/>
+Freyherrn von Dyherrn/ Herrn</hi><lb/>
+auf Dyherꝛnfurth Ober-Hertzogs-<lb/>
+waldau/ Ganiſcher und<lb/>
+Wahren/ ꝛc.<lb/>
+<hi rendition="#fr"><hi rendition="#b">Der Roͤm. Kayſerl. auch zu</hi><lb/>
+Hungarn und Boͤhaimh Koͤnigl. Maytt.<lb/>
+Raht/</hi> Caͤmmerer/ und Vollmaͤchtigen<lb/>
+Landes-Haubtman des Fuͤrſten-<lb/>
+thums Groſſenglogan/ ꝛc.<lb/>
+<hi rendition="#b">Hertzgeliebten Frauen Ehe-Gemahlin</hi><lb/>
+zu<lb/>
+ſchuldigſter Beehrung<lb/>
+zu geeignet und uͤbergeben<lb/>
+von<lb/>
+<hi rendition="#b">Chriſtian Deodat von Czepkon.</hi></hi></p></div><lb/>
+<pb facs="#f0025"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">An<lb/>
+Buſsfertigen Leſer.</hi></hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ann wir unter das Creu-<lb/>
+tze treten/ und unſern <hi rendition="#fr">Heyland</hi><lb/>
+anſehen/ was ſehen wir anders/<lb/>
+als den brennenden Zorn Got-<lb/>
+tes wider die Suͤnde. Weil<lb/>
+aber nichts gegenwaͤrtigers iſt<lb/>
+ſolchem zu begegnen/ als die <hi rendition="#fr">Buſſe</hi>; Warum<lb/>
+ſind wir ſo nachlaͤtzig/ dem obzuliegen/ durch das<lb/>
+wir dem Zorne GOttes entfliehen/ und des Ewi-<lb/>
+gen Heiles theilhafftig werden koͤnnen? Es iſt mit<lb/>
+bluttigen Thraͤnen zubeweinen/ daß wir/ keinen<lb/>
+Augenblikk in uns gehen/ ſondern in den Tag hin-<lb/>
+ein leben/ und weder ſtraaffen noch ſuͤnden etwas ach-<lb/>
+ten. Dem ab zu ſeyn habe ich eben zu der Zeit/<lb/>
+in welcher <hi rendition="#fr">das Heilige Blutt unſers Erloͤ-<lb/>
+ſers/</hi> durch eifrige Andacht frommer Leuthe/ in<lb/>
+der gantzen Chriſtenheit gleichſam ſtedend’ und pru-<lb/>
+<fw type="sig" place="bottom">A ij</fw><fw type="catch" place="bottom">delnde</fw><lb/>
+<pb facs="#f0026"/>
+delnde iſt/ dieſen <hi rendition="#fr">Abriß der Buſſe</hi>/ die ich taͤg-<lb/>
+lich kraͤfftig in mir befinde/ meinem Naͤchſten<lb/>
+vorſtellen/ und Ihn zu dieſer Seeligen Speiſe<lb/>
+uͤber Engel/ auf unlaͤngſt folgende Marter-<lb/>
+Woche/ einladen wollen. <hi rendition="#fr">Sieben Tage</hi> ha-<lb/>
+ben wir/ in welchen <hi rendition="#k">GOtt</hi> Himmel und Erden<lb/>
+geſchaffen/ und darauf geruhet: <hi rendition="#fr">Sieben Wor-<lb/>
+te</hi>/ die unſer <hi rendition="#g"><hi rendition="#k">Herr</hi></hi> am Stamm des Creutzes<lb/>
+geſprochen/ und darauf geſtorben: <hi rendition="#fr">Sieben Gaa-<lb/>
+ben</hi>/ ſo der <hi rendition="#fr">Heilige Geiſt</hi> uͤber die Glaͤubigen<lb/>
+außgegoſſen/ und darauf alles erhaͤlt; Zu dieſer<lb/>
+vollkommenen Zahl/ wil ich das <hi rendition="#fr">Sieben-Ge-<lb/>
+ſtirne der Koͤniglichen Buſſe</hi>/ das iſt/ die<lb/>
+<hi rendition="#fr">Sieben Buß-Pſalmen</hi> ſetzen. Gewiß/<lb/>
+wie mehrentheils/ wann die <hi rendition="#aq">Plejades,</hi> im geſtirn-<lb/>
+ten Himmel auf ſteigen/ naſſes Wetter folget:<lb/>
+alſo kan es nicht fehlen/ es wird bey andaͤchtigem<lb/>
+Auffgang/ dieſes <hi rendition="#fr">Sieben-Geſtirns</hi>/ auch Buß-<lb/>
+fertige Thraͤnen geben. Welche/ wann Sie mit<lb/>
+den flieſſenden Blutts-tropffen unſers <hi rendition="#fr">Erloͤſers</hi><lb/>
+vermiſchet werden/ was kan maͤchtigers im Him-<lb/>
+<hi rendition="#c">mel und auf Erden erdacht werden/ den Todt<lb/>
+und die Welt/ und darinnen alle<lb/>
+Feinde zu uͤberwaͤl-<lb/>
+tigen.</hi></p></div></front><body><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Die</hi></fw><lb/>
+<pb facs="#f0027"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Die<lb/>
+Sieben Buſs-Pſalmen.</hi></head><lb/>
+<div n="2"><head><hi rendition="#b">Der<lb/>
+Sechſte/<lb/>
+als<lb/>
+Der Erſte Buß-Pſalm.</hi></head><lb/>
+<lg type="poem"><lg n="1"><head>1.</head><lb/>
+<l><hi rendition="#in">L</hi>Icber <hi rendition="#k">Herr/</hi> ich bin es wehrt/</l><lb/>
+<l>Wolteſt du mich gleich verdammen/</l><lb/>
+<l>Heilig/ ob ſie mich verzehrt/</l><lb/>
+<l>heiß ich deines Eifers flammen.</l><lb/>
+<l>Billich ſchlaͤgſt du mich von dir;</l><lb/>
+<l>aber/ wende Gnade fuͤr.</l></lg><lb/>
+<lg n="2"><head>2.</head><lb/>
+<l>Mein <hi rendition="#k">GOtt/</hi> denk an deine Treu/</l><lb/>
+<l>Meine Suͤnde/ mein verbrechen/</l><lb/>
+<l>und des uͤbels tieffe reu/</l><lb/>
+<l>wil mir Hertz und Nieren brechen.</l><lb/>
+<fw type="sig" place="bottom">B iij</fw><fw type="catch" place="bottom"><hi rendition="#fr">HErr</hi>/</fw><lb/>
+<pb facs="#f0028"/>
+<l><hi rendition="#k">Herr/</hi> wo find’ ich ewig ruh/</l><lb/>
+<l>kom̃t dein ſtrenger Zorn dazu.</l></lg><lb/>
+<lg n="3"><head>3.</head><lb/>
+<l>Halt/ <hi rendition="#aq">ô</hi> treuer Vater/ an;</l><lb/>
+<l>laß den Geiſt den du zubrochen/</l><lb/>
+<l>wo ſie gantz nicht abgethan/</l><lb/>
+<l>in dir dein erbaͤrmdeſuchen:</l><lb/>
+<l>Ach! Dein Grimm/ und meine Pein</l><lb/>
+<l>werden ja nicht ewig ſeyn!</l></lg><lb/>
+<lg n="4"><head>4.</head><lb/>
+<l>Strenger Richter/ meine Noth</l><lb/>
+<l>dringet mir durch Mark und Leben/</l><lb/>
+<l>Ich bin Krank biß auf den Tod/</l><lb/>
+<l>Schrekken haben mich umbgeben/</l><lb/>
+<l>keine Krafft iſt mehr in mir/</l><lb/>
+<l>alß die/ welche ſchreyt zu dir.</l></lg><lb/>
+<lg n="5"><head>5.</head><lb/>
+<l>Laßmein Hertze/ drauf du ſichſt/</l><lb/>
+<l>dir das deine doch bewegen.</l><lb/>
+<l>Dann was in mir ſchreyt und iſt/</l><lb/>
+<l>Kom̃t ja/ <hi rendition="#k">Herr/</hi> von deinem Seegen:</l><lb/>
+<l>Von dir kommet die beſchwer/</l><lb/>
+<l>Von dir auch die Rettung her.</l></lg><lb/>
+<fw type="catch" place="bottom">6. Eil’</fw><lb/>
+<pb facs="#f0029"/>
+<lg n="6"><head>6.</head><lb/>
+<l>Eil/ ach! Eil: eh’ich vergeh/</l><lb/>
+<l>unter meinem ſchweren klagen:</l><lb/>
+<l>Dein Erbarmen und mein Weh/</l><lb/>
+<l>muͤſſe ſich grund-auß vertragen:</l><lb/>
+<l>Deine Huͤlff’ und meine Pein/</l><lb/>
+<l>laß/ <hi rendition="#k">Herr/</hi> Bundgenoſſen ſeyn.</l></lg><lb/>
+<lg n="7"><head>7.</head><lb/>
+<l>Suͤſſer Troſt/ gib mir verhoͤr/</l><lb/>
+<l>Ach! wie lange kanſt du ſchweigen/</l><lb/>
+<l>Sieh’ es kan kein Seuffzer mehr/</l><lb/>
+<l>auß dem Kranken Hertzen ſteigen:</l><lb/>
+<l>Biſt du denn ſo ſchwach als ich/</l><lb/>
+<l>dieſes mal zu retten mich.</l></lg><lb/>
+<lg n="8"><head>8.</head><lb/>
+<l>Rett’/ <hi rendition="#aq">ô</hi> rette/ lieber GOtt/</l><lb/>
+<l>Meine Seel’ auß feſten ſtrikken:</l><lb/>
+<l>Laß mich/ <hi rendition="#k">Herr/</hi> in meiner noth/</l><lb/>
+<l>einen ſtrahl der Guͤtt’ erblikken:</l><lb/>
+<l>Zornig biſt du/ doch auf reu/</l><lb/>
+<l>auch auß vollem Hertzen treu.</l></lg><lb/>
+<lg n="9"><head>9.</head><lb/>
+<l>Und im fall/ mein Hertze ſol/</l><lb/>
+<l>In der Quaal und Angſt zuſpringen/</l><lb/>
+<fw type="sig" place="bottom">A jv</fw><fw type="catch" place="bottom">Treu</fw><lb/>
+<pb facs="#f0030"/>
+<l>Treuſter Hort/ wer wird dir wohl</l><lb/>
+<l>ſolche reu vor deines bringen:</l><lb/>
+<l>Wer/ wilt du mir nicht verzeyhn/</l><lb/>
+<l>wird ſo ſehnlich zu dir ſchreyn?</l></lg><lb/>
+<lg n="10"><head>10.</head><lb/>
+<l>Menſchen/ die gleich wie ein Vieh/</l><lb/>
+<l>Ihren Geiſt dahin gegeben/</l><lb/>
+<l>koͤnnen nicht mehr ſpatt und fruͤh/</l><lb/>
+<l>Deinen Ruhm/ <hi rendition="#aq">ô</hi> <hi rendition="#k">GOtt</hi> erheben:</l><lb/>
+<l>Und wer haͤlt dich hoch und wehrt/</l><lb/>
+<l>wenn er zu der Hoͤllen fehrt?</l></lg><lb/>
+<lg n="11"><head>11.</head><lb/>
+<l><hi rendition="#k">Herr/</hi> der Seuffzer muͤde ſchaar/</l><lb/>
+<l>bleibet vor dem groſſen ſchrekken/</l><lb/>
+<l>aͤngſt’ ich mich gleich immerdar/</l><lb/>
+<l>unten in dem Hertzen ſtekken:</l><lb/>
+<l>Zeuch/ und bringe ſie herfuͤr/</l><lb/>
+<l>Keiner macht ſich ſonſt zu Dir.</l></lg><lb/>
+<lg n="12"><head>12.</head><lb/>
+<l>Meine Bett’ohn unterlaß/</l><lb/>
+<l>weil mich dein Zorn vorgeladen/</l><lb/>
+<l>ſind vor Schweiß und Thraͤnen naß/</l><lb/>
+<l>drinnen Du mich laͤſſeſt baden.</l><lb/>
+<fw type="catch" place="bottom">Meit</fw><lb/>
+<pb facs="#f0031"/>
+<l>Meine Seel’ in der beſchwer.</l><lb/>
+<l>ſchwimmt vor deinen Augen her.</l></lg><lb/>
+<lg n="13"><head>13.</head><lb/>
+<l>Vor der Angſt in der ich bin/</l><lb/>
+<l>wil mir alle Krafft zufliſſen/</l><lb/>
+<l>Ich zieh unterm Kummer hin/</l><lb/>
+<l>außgedorrt und aufgeriſſen;</l><lb/>
+<l>von der Quaal wird die geſtalt</l><lb/>
+<l>wie ein Kleid von Motten alt.</l></lg><lb/>
+<lg n="14"><head>14.</head><lb/>
+<l>Allenthalben ſchlaͤgt die Flutt/</l><lb/>
+<l>uͤber meiner Bruſt zuſammen:</l><lb/>
+<l>und/ was mir am baͤngſten thut/</l><lb/>
+<l>frommer <hi rendition="#k">GOtt/</hi> ſind deine Flammen:</l><lb/>
+<l>Zuͤnde doch/ mein Heil/ dafuͤr/</l><lb/>
+<l>Dein’ Erbarmung an in Dir.</l></lg><lb/>
+<lg n="15"><head>15.</head><lb/>
+<l>Aber geht/ ihr Suͤnder/ geht/</l><lb/>
+<l>die ihr <hi rendition="#k">GOtt</hi> nicht koͤnnt vertrauen:</l><lb/>
+<l>Ob es umb mich muͤßlich ſteht/</l><lb/>
+<l>dennoch wil ich auf Ihn bauen:</l><lb/>
+<l>Er/ der <hi rendition="#k">Herr/</hi> kan mich verſehrn:</l><lb/>
+<l>aber auch voll Gnad’ erhoͤrn.</l></lg><lb/>
+<fw type="sig" place="bottom">A v</fw><fw type="catch" place="bottom">16. Die-</fw><lb/>
+<pb facs="#f0032"/>
+<lg n="16"><head>16.</head><lb/>
+<l>Dieſer grund/ auß deſſen Klufft/</l><lb/>
+<l>meine treue Seuffzer ſteigen/</l><lb/>
+<l>kan/ darauf ich ſtets gehofft/</l><lb/>
+<l>Ich den <hi rendition="#k">Herren</hi> zu mir neigen;</l><lb/>
+<l>Dieſer Thraͤnen heiſſe Bach/</l><lb/>
+<l>fleuſſt Ihm biß in Himmel nach.</l></lg><lb/>
+<lg n="17"><head>17.</head><lb/>
+<l>Ich empfind’ in meine Bruſt/</l><lb/>
+<l>Neue Gnadenſtroͤhme ſinken:</l><lb/>
+<l>Er/ der <hi rendition="#k">Herr</hi> ſucht voller luſt/</l><lb/>
+<l>ſuͤſſen Troſt mir zu zutrinken:</l><lb/>
+<l>Mein gebaͤte bindet Ihn/</l><lb/>
+<l>daß Er ſich laͤſſt zu mir ziehn.</l></lg><lb/>
+<lg n="18"><head>18.</head><lb/>
+<l>Die/ ſo mir gehaͤſſig ſeyn/</l><lb/>
+<l>muͤſſen Ihm ihr Leid nicht klagen/</l><lb/>
+<l>muͤſſen in des Todes Pein/</l><lb/>
+<l>voller Furcht und Angſt verzagen.</l><lb/>
+<l>Darumb/ daß Sie nicht bedacht</l><lb/>
+<l>Seiner groſſen Guͤtte macht.</l></lg><lb/>
+<lg n="19"><head>19.</head><lb/>
+<l>Nun/ ich ſehe ſie ſchon gehn/</l><lb/>
+<l>Sie ſchon in die Grube fahren.</l><lb/>
+<fw type="catch" place="bottom">Aber</fw><lb/>
+<pb facs="#f0033"/>
+<l>Aber <hi rendition="#k">GOtt</hi> wird mich erhoͤhn/</l><lb/>
+<l>wird mir Seel’ und Leib bewahren.</l><lb/>
+<l>Ihre Huͤlff’ iſt Schand’ und Spott;</l><lb/>
+<l>Meine nichts als Guͤtt’ und <hi rendition="#k">GOtt</hi>.</l></lg></lg></div><lb/>
+<div n="2"><head><hi rendition="#b">Der Zwey und Dreiſſigſte<lb/>
+<hi rendition="#fr">als der</hi><lb/>
+Zweite Buſs-Pſalm.</hi></head><lb/>
+<lg type="poem"><lg n="1"><head>1.</head><lb/>
+<l><hi rendition="#in">W</hi>ie wohl iſt dem/ dem <hi rendition="#k">GOtt</hi> die ſchuld<lb/>
+<hi rendition="#et">vergeben/</hi></l><lb/>
+<l>und dieſe Laſt ihm wil vom Ruͤcken heben:</l><lb/>
+<l>dem <hi rendition="#k">GOtt</hi> die Suͤnd’ auß lauter Huld<lb/>
+<hi rendition="#et">bedekkt/</hi></l><lb/>
+<l>und nicht ſein Hertz in ſtrengem grimm er-<lb/>
+<hi rendition="#et">ſchrekkt.</hi></l></lg><lb/>
+<lg n="2"><head>2.</head><lb/>
+<l>Wie wohl iſt dem/ dem alles ſein ver-<lb/>
+<hi rendition="#et">uͤben/</hi></l><lb/>
+<l>der <hi rendition="#k">Herr</hi> nicht hat zur Zahlung aufge-<lb/>
+<hi rendition="#et">ſchrieben</hi></l><l xml:id="l1b" prev="#l1a"><hi rendition="#et">(geht/</hi></l><lb/>
+<l xml:id="l1a" next="#l1b">dem kein betrug auß Mund und Hertzen</l><lb/>
+<l>und ſeinen fall grund-auß fuͤr Gott beſteht.</l></lg><lb/>
+<fw type="catch" place="bottom">3. <hi rendition="#fr">Dann</hi></fw><lb/>
+<pb facs="#f0034"/>
+<lg n="3"><head>3.</head><lb/>
+<l>Dann ſieh’/ <hi rendition="#aq">ô</hi> GOtt/ als ich es nicht<lb/>
+<hi rendition="#et">wollt’ achten/</hi></l><lb/>
+<l>fuͤhlt’ ich in mir der Beine Mark ver-<lb/>
+<hi rendition="#et">ſchmachten.</hi></l><lb/>
+<l>Mein Eingeweid’ erboͤbte fuͤr und fuͤr/</l><lb/>
+<l>da ich es nicht erkannt’/ <hi rendition="#aq">ô</hi> GOtt fuͤr dir.</l></lg><lb/>
+<lg n="4"><head>4.</head><lb/>
+<l>Ich heult’ ich heult’/ es wollt in meinem<lb/>
+<hi rendition="#et">Zagen</hi></l><lb/>
+<l>Mich deine Hand fuͤr Zorn zu laͤger ſchlagẽ.</l><lb/>
+<l>Ich war ſo duͤrꝛ umb meiner ſchuld und<lb/>
+<hi rendition="#et">pein/</hi></l><lb/>
+<l>als eine ſchirb’ am Ofen pflegt zu ſeyn.</l></lg><lb/>
+<lg n="5"><head>5.</head><lb/>
+<l>So kunteſt du/ da als ich wolte ſchweigẽ/</l><lb/>
+<l>was ich verdient mir am Gewiſſen zeigen/</l><lb/>
+<l>das war die Bahn/ auf die mein Hertze<lb/>
+<hi rendition="#et">rieß:</hi></l><lb/>
+<l>Die vor die Werk’ auf deine Gnade wieß.</l></lg><lb/>
+<lg n="6"><head>6.</head><lb/>
+<l>Drumb dir/ mein Gott/ bekenn’ ich meine<lb/>
+<hi rendition="#et">Suͤnden;</hi></l><lb/>
+<l>dañ bloß bey Dir iſt Troſt und Heil zufindẽ:</l><lb/>
+<fw type="catch" place="bottom">Dir</fw><lb/>
+<pb facs="#f0035"/>
+<l>Dir berg’ ich nicht die miñſte Miſſethat;</l><lb/>
+<l>denn auſſer Dir/ mein GOtt/ weiß ich<lb/>
+<hi rendition="#et">nicht raht.</hi></l></lg><lb/>
+<lg n="7"><head>7.</head><lb/>
+<l>Ich ſag’ es noch: ach! zehle meine<lb/>
+<hi rendition="#et">ſchmertzen/</hi></l><l xml:id="l2b" prev="#l2a"><hi rendition="#et">(Hertzen:</hi></l><lb/>
+<l xml:id="l2a" next="#l2b">Ich beichte Dir mein GOtt auß gantzem</l><lb/>
+<l>Ich zehle Dir die ſchuld in Fingern hin:</l><lb/>
+<l>laß mich/ mein GOtt/ ohn Troſt nicht von<lb/>
+<hi rendition="#et">Dir ziehn.</hi></l></lg><lb/>
+<lg n="8"><head>8.</head><lb/>
+<l>Und ſiehe Herr/ weil ich dich bloß wil<lb/>
+<hi rendition="#et">wiſſen/</hi></l><lb/>
+<l>fuͤhl’ ich dein Heil in meine Seele fluͤſſen;</l><lb/>
+<l>Du wilt/ weil ich ſo zu Dir weiß zu ſchreyn/</l><lb/>
+<l>auf dieß vertraun mir meine Schuld ver-<lb/>
+<hi rendition="#et">zeyhn.</hi></l></lg><lb/>
+<lg n="9"><head>9.</head><lb/>
+<l>Auf dieß vertraun/ wird ſie die Schaar<lb/>
+<hi rendition="#et">ſich gruͤnden/</hi></l><lb/>
+<l>die Heilge ſchaar/ wann ſich Gewitter findẽ:</l><lb/>
+<l>umb dieſen Troſt/ wie ſtark die Winde<lb/>
+<hi rendition="#et">wehn/</hi></l><lb/>
+<l>wird iederzeit das Volk der from̃en flehn.</l></lg><lb/>
+<fw type="catch" place="bottom">10. <hi rendition="#fr">Drumb</hi></fw><lb/>
+<pb facs="#f0036"/>
+<lg n="10"><head>10.</head><lb/>
+<l>Drumb ankern Sie/ wie weit ſie ihr<lb/>
+<hi rendition="#et">Gewiſſen/</hi></l><lb/>
+<l>durch qual und angſt von dieſer Bahn ge-<lb/>
+<hi rendition="#et">riſſen:</hi></l><lb/>
+<l>Sie bleiben ſtehn/ weil ſie <hi rendition="#k">GOtt</hi> in ſich<lb/>
+<hi rendition="#et">ſchleuſſt;</hi></l><lb/>
+<l>wie ſtark ſich auch der Truͤbſaal Bach er-<lb/>
+<hi rendition="#et">geuſſt.</hi></l></lg><lb/>
+<lg n="11"><head>11.</head><lb/>
+<l>Du biſt mein Schirm/ ich weiß mir<lb/>
+<hi rendition="#et">nicht zu rahten/</hi></l><lb/>
+<l>dekkſt du mich nicht/ <hi rendition="#k">Herr/</hi> unter deinen<lb/>
+<hi rendition="#et">ſchatten;</hi></l><lb/>
+<l>ſtreichſt du die Angſt des Todes nicht von<lb/>
+<hi rendition="#et">mir/</hi></l><lb/>
+<l>mein thun beſteht nicht einen blikk fuͤr Dir.</l></lg><lb/>
+<lg n="12"><head>12.</head><lb/>
+<l>Doch/ Herr/ ich hoͤr’ es brechen Band<lb/>
+<hi rendition="#et">und Eiſen/</hi></l><lb/>
+<l>Du wilt den Troſt mir der vergebung<lb/>
+<hi rendition="#et">weiſen;</hi></l><lb/>
+<l>Es breitet ſich durch meines Hertzen Hauß/</l><lb/>
+<l>ſo groß als Du/ Herr/ dein’ erbarmung auß.</l></lg><lb/>
+<fw type="catch" place="bottom">13. <hi rendition="#fr">Du</hi></fw><lb/>
+<pb facs="#f0037"/>
+<lg n="13"><head>13.</head><lb/>
+<l>Du ſprichſt; Wohlan/ ich/ dein GOtt<lb/>
+<hi rendition="#et">wil dich hoͤren/</hi></l><lb/>
+<l>wil dich die Bahn zum neuen Leben lehren:</l><lb/>
+<l>Mein Auge ſol/ weil du ſo kunteſt flehn/</l><lb/>
+<l>Dich uͤberal verſorgen und verſehn.</l></lg><lb/>
+<lg n="14"><head>14.</head><lb/>
+<l>Was ſtarrt ihr nu? Nicht ſeyd doch<lb/>
+<hi rendition="#et">gleich den Roſſen/</hi></l><lb/>
+<l>die umb den Mund mit Eiſen ſind beſchloſ-<lb/>
+<hi rendition="#et">ſen:</hi></l><lb/>
+<l>nicht ſeyd verſtokkt/ wie Eſel ſo da ſtehn/</l><lb/>
+<l>und ohne Stokk nicht von der ſtelle gehn.</l></lg><lb/>
+<lg n="15"><head>15.</head><lb/>
+<l>Wer Gottloß iſt/ der kan doch nicht ſo<lb/>
+<hi rendition="#et">hoffen/</hi></l><lb/>
+<l>nicht ſo vertraun/ nicht ſo inbruͤnſtig ruffen:</l><lb/>
+<l>Er hat nicht ruh/ wo hin er immer denkt/</l><lb/>
+<l>ſteht Gottes Zorn/ der ſeine Seele kraͤnkt.</l></lg><lb/>
+<lg n="16"><head>16.</head><lb/>
+<l>Hingegen kan voll Luſt und voll ver-<lb/>
+<hi rendition="#et">langen/</hi></l><lb/>
+<l>der from̃e Menſch Barmhertzigkeit er-<lb/>
+<hi rendition="#et">langen:</hi></l><lb/>
+<fw type="catch" place="bottom">Sein</fw><lb/>
+<pb facs="#f0038"/>
+<l>Sein Heil und Theil ſchreibt Er dem Her-<lb/>
+<hi rendition="#et">ren zu:</hi></l><lb/>
+<l>drumb hat ſein Hertz auch in der Hellen ruh.</l></lg><lb/>
+<lg n="17"><head>17.</head><lb/>
+<l>Und darumb auf! ſeyd froͤlich Ihr Er-<lb/>
+<hi rendition="#et">loͤſten;</hi></l><l xml:id="l3b" prev="#l3a"><hi rendition="#et">(troͤſten:</hi></l><lb/>
+<l xml:id="l3a" next="#l3b">Ihr from̃en ruͤhmt/ der <hi rendition="#k">Herr</hi> der wil uns</l><lb/>
+<l>Ein ieder hab’ ein Dank-Lied außerkißt/</l><lb/>
+<l>weil unſer GOtt ſo treu und guͤttig iſt.</l></lg></lg></div><lb/>
+<div n="2"><head><hi rendition="#b">Der Acht und Dreiſſigſte<lb/>
+<hi rendition="#fr">oder</hi><lb/>
+Dritte Buſs-Pſalm.</hi></head><lb/>
+<lg type="poem"><lg n="1"><head>1.</head><lb/>
+<l><hi rendition="#in">A</hi>ch ſtraffe mich doch nicht/ mein GOtt/</l><lb/>
+<l>In deinen Eivers-vollen flammen:</l><lb/>
+<l>Ergreiff mich nicht; Ach! Hell’ und Tod/</l><lb/>
+<l>ſchlaͤgt vor auf meiner Bruſt zuſammen.</l></lg><lb/>
+<lg n="2"><head>2.</head><lb/>
+<l>Ach! lieber Vater nihm dafuͤr/</l><lb/>
+<l>die Zuͤchtigung der linden Rutten:</l><lb/>
+<l>und treibe mich/ (ich beichte Dir/)</l><lb/>
+<l>als deiner Haͤnde Werk zum gutten.</l></lg><lb/>
+<fw type="catch" place="bottom">3. Denn/</fw><lb/>
+<pb facs="#f0039"/>
+<lg n="3"><head>3.</head><lb/>
+<l>Denn/ Herr/ du haſt dich ſehr er grimmt/</l><lb/>
+<l>Es ſchaͤumen deines Zornes Schaalen:</l><lb/>
+<l>Ich weiß/ die Straaf’ iſt mir beſtimmt/</l><lb/>
+<l>Mir gilt dein Plitz und ſeine Strahlen.</l></lg><lb/>
+<lg n="4"><head>4.</head><lb/>
+<l>Die Pfeile die du drangſt in mich/</l><lb/>
+<l>durchdringen meines Hertzens Hoͤhlen:</l><lb/>
+<l>dein Bogen ſchnellt ſie ſtark von ſich/</l><lb/>
+<l>Sie gehn biß in den grund der Seelen.</l></lg><lb/>
+<lg n="5"><head>5.</head><lb/>
+<l>Es heilt kein ſchlag noch ſtreich nicht zu/</l><lb/>
+<l>die dein’ erzuͤrnte Hand geriſſen:</l><lb/>
+<l>denn dein Geſetze bringt nicht ruh/</l><lb/>
+<l>es donnert ſtets in mein gewiſſen.</l></lg><lb/>
+<lg n="6"><head>6.</head><lb/>
+<l>Die rachgir deiner grimmen Hand</l><lb/>
+<l>zeucht mir das Hertz auß meinem Hertzen/</l><lb/>
+<l>Sie druͤkkt in mich des Haſſes brand/</l><lb/>
+<l>und kuͤhlet ſich mit meinem ſchmertzen.</l></lg><lb/>
+<lg n="7"><head>7.</head><lb/>
+<l>Ja <hi rendition="#k">Herr</hi> mein Leib zeigt keine ſtat/</l><lb/>
+<l>die nicht dein Grimm ſucht außzudchnen:</l><lb/>
+<l>Ach! es zumalmt die Miſſethat/</l><lb/>
+<l>das tieffe Mark mit troknen Zaͤhnen.</l></lg><lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">8. <hi rendition="#fr">Kein</hi></fw><lb/>
+<pb facs="#f0040"/>
+<lg n="8"><head>8.</head><lb/>
+<l>Kein anſtand troͤſtet meine Noth;</l><lb/>
+<l>dann Hellen Angſt ſtoͤhrt ihre flammen:</l><lb/>
+<l>Ich bin ſchon untern Suͤnden tod/</l><lb/>
+<l>Sie ſchlagenuͤber mir zuſammen.</l></lg><lb/>
+<lg n="9"><head>9.</head><lb/>
+<l>Sie preſſen mir das Leben auß/</l><lb/>
+<l>wie eine Laſt die nicht zu tragen:</l><lb/>
+<l>wie unterm praſſeln Dach und Hauß/</l><lb/>
+<l>auf eines Scheittel pflegt zu ſchlagen.</l></lg><lb/>
+<lg n="10"><head>10.</head><lb/>
+<l>Und ach! das Blutt und Eiter ſtinkt/</l><lb/>
+<l>das meine Seele durch gefreſſen:</l><lb/>
+<l>weil ſie die Suͤnd als Waſſer trinkt/</l><lb/>
+<l>und aller Furcht und Zucht vergeſſen.</l></lg><lb/>
+<lg n="11"><head>11.</head><lb/>
+<l>Ich bin ein Aaß und Fluch fuͤr GOtt</l><lb/>
+<l>von meiner ſchuld und thorheit wegen:</l><lb/>
+<l>die mich ſchleppt biß in andren Tod/</l><lb/>
+<l>von deinem andern Bund’ und Seegen.</l></lg><lb/>
+<lg n="12"><head>12.</head><lb/>
+<l>Nu <hi rendition="#k">Herr/</hi> ich gehe krum̃ daher/</l><lb/>
+<l>geſtrekkt lieg’ ich im Staub’ auf Erden:</l><lb/>
+<l>Mich laͤſſt die Noth und die beſchwer/</l><lb/>
+<l>nicht mehr erkannt von Menſchen werden.</l></lg><lb/>
+<fw type="catch" place="bottom">13. <hi rendition="#fr">Mein</hi></fw><lb/>
+<pb facs="#f0041"/>
+<lg n="13"><head>13.</head><lb/>
+<l>Mein Kleid iſt Buß’ iſt Reu/ und Leid/</l><lb/>
+<l>drein ſakk’ ich GOtt/ mein gantzes Leben:</l><lb/>
+<l>die Haut hab’ ich in meiner Zeit</l><lb/>
+<l>mit Klag’ und Kummer umbgegeben.</l></lg><lb/>
+<lg n="14"><head>14.</head><lb/>
+<l>Ach! <hi rendition="#k">He</hi>rr die Schande ſtekkt mich an/</l><lb/>
+<l>Ich fuͤhl’ in Daͤrmenſcharffe Kohlen:</l><lb/>
+<l>Geſund iſt hier nichts umb und an/</l><lb/>
+<l>hin biß zum Schaͤdel von der Sohlen.</l></lg><lb/>
+<lg n="15"><head>15.</head><lb/>
+<l>Mein Eingeweid’ iſt duͤrr’ und leer/</l><lb/>
+<l>mein jammer hat es aufgewunden;</l><lb/>
+<l>die Nieren ſind ein gantzer ſchwer/</l><lb/>
+<l>der ſich von Hitz und Angſt gefunden.</l></lg><lb/>
+<lg n="16"><head>16.</head><lb/>
+<l>Ach! <hi rendition="#k">GOtt/</hi> ich weiß nicht/ wie mir iſt/</l><lb/>
+<l>Ich ſink’ in ohnmacht untern ſchmertzen.</l><lb/>
+<l>Die letzten ſtoͤſſe/ wie du ſihſt/</l><lb/>
+<l>ziehn mir die Seel auß meinem Hertzen.</l></lg><lb/>
+<lg n="17"><head>17.</head><lb/>
+<l>Wie eine Schlag-Uhr ſteht mein Geiſt/</l><lb/>
+<l>der die Gewichte ſind benohmmen:</l><lb/>
+<l>mein Leben wie der Rauch hinreiſt/</l><lb/>
+<l>iſt unterm ſeuffzen außgeglommen.</l></lg><lb/>
+<fw type="sig" place="bottom">B ij</fw><fw type="catch" place="bottom">18. <hi rendition="#fr">Nu</hi></fw><lb/>
+<pb facs="#f0042"/>
+<lg n="18"><head>18.</head><lb/>
+<l>Nu/ <hi rendition="#k">Herr/</hi> dir iſt mein’ Angſt bekañt/</l><lb/>
+<l>die groͤſſer iſt als alle Plagen:</l><lb/>
+<l>Dir Sie die Noth in deine Hand/</l><lb/>
+<l>weit beſſer als mein Mund kan tragen.</l></lg><lb/>
+<lg n="19"><head>19.</head><lb/>
+<l>Du kennſt das Seuffzen meiner Bruſt/</l><lb/>
+<l>Du zehlſt mein Zitterndes verlangen:</l><lb/>
+<l>kein ſtoß iſt dir nicht unbewuſt/</l><lb/>
+<l>den ich von deinem Grim̃ empfangen.</l></lg><lb/>
+<lg n="20"><head>20.</head><lb/>
+<l>Mein gantzes Hertzerſchrikkt und boͤbt;</l><lb/>
+<l>das Blutt wirdt Sand/ und Stein die<lb/>
+<hi rendition="#et">Sehnen:</hi></l><lb/>
+<l>das Haubt iſt durch und durch ertoͤbt/</l><lb/>
+<l>Mein’ Augen ſind verleſcht durch Thraͤnen.</l></lg><lb/>
+<lg n="21"><head>21.</head><lb/>
+<l>Ihr Licht entzeucht mir Tag und Schein/</l><lb/>
+<l>durch ſtetes winſeln und verwachen;</l><lb/>
+<l>Sie ſelbſt die Augen brechen ein/</l><lb/>
+<l>ſind traͤge ſich mehr auf-zumachen.</l></lg><lb/>
+<lg n="22"><head>22.</head><lb/>
+<l>Was mehr; es kan faſt jederman/</l><lb/>
+<l>von Freunden meine Wunden ſehen:</l><lb/>
+<fw type="catch" place="bottom">Sie</fw><lb/>
+<pb facs="#f0043"/>
+<l>Sie ſehn mich gegenuͤber an/</l><lb/>
+<l>es jammert Sie/ wie ich muß flehen.</l></lg><lb/>
+<lg n="23"><head>23.</head><lb/>
+<l>Die Nachbarn ſeh’ ich ferne ziehn/</l><lb/>
+<l>Seh’ ich mein Hauß und Leid verlaſſen/</l><lb/>
+<l>da iſt nicht einer/ wie vorhin/</l><lb/>
+<l>der mich wolt’ in die Pflege faſſen.</l></lg><lb/>
+<lg n="24"><head>24.</head><lb/>
+<l>Ja ſelbſt der Blutts-Verwandten<lb/>
+<hi rendition="#et">Schaar/</hi></l><lb/>
+<l>die ſich von meinem Namen nennen:</l><lb/>
+<l>den ekkelt ſtark vor der Gefahr/</l><lb/>
+<l>Ihr Hertze wil nicht meines kennen.</l></lg><lb/>
+<lg n="25"><head>25.</head><lb/>
+<l>Nichts ſteht bey mir/ als meine Pein/</l><lb/>
+<l>die Feinde dennoch außgenohmmen/</l><lb/>
+<l>ſo ſaͤm̃tlich kaum zu zehlen ſeyn/</l><lb/>
+<l>wann Sie mit Schwert und Netzen<lb/>
+<hi rendition="#et">kommen.</hi></l></lg><lb/>
+<lg n="26"><head>26.</head><lb/>
+<l>Sie ſprechen ſtets einander an/</l><lb/>
+<l>mehr plagen auf mein Haubt zu liegen:</l><lb/>
+<l>und denken mich auf letzter Bahn</l><lb/>
+<l>mit Liſt und Schmehung zu beſiegen.</l></lg><lb/>
+<fw type="sig" place="bottom">B iij</fw><fw type="catch" place="bottom">27. Ich</fw><lb/>
+<pb facs="#f0044"/>
+<lg n="27"><head>27.</head><lb/>
+<l>Ich aber kan vor dieſer Schmach/</l><lb/>
+<l>Mund/ Ohren und Gemuͤtte ſchliſſen:</l><lb/>
+<l>mein Hertze fraget nichts darnach/</l><lb/>
+<l>wie ihres mich weiß anzugiſſen.</l></lg><lb/>
+<lg n="28"><head>28.</head><lb/>
+<l>Ich bin wie Stum̃ und Taub dabey/</l><lb/>
+<l>begehr’ auch nicht ein Wort zuſagen:</l><lb/>
+<l>wil mit gedult und ohn’ geſchrey/</l><lb/>
+<l>Ihr ſcharffes laͤſter-Maul vertragen.</l></lg><lb/>
+<lg n="29"><head>29.</head><lb/>
+<l>Denn <hi rendition="#k">Herr/</hi> ich trau und harr’ auf<lb/>
+<hi rendition="#et">dich/</hi></l><lb/>
+<l>Du auch/ mein GOtt/ wirſt mich erhoͤren:</l><lb/>
+<l>Ich weiß wie ſehr du druͤkkeſt mich/</l><lb/>
+<l>Ich leid’ und klage Dir zu Ehren.</l></lg><lb/>
+<lg n="30"><head>30.</head><lb/>
+<l>Ich ſelbſt durchmarter meinen Geiſt/</l><lb/>
+<l>daß ſie die Schenkel ſo geglitten:</l><lb/>
+<l>die Schaar hab’ ich mit luſt geſpeiſt/</l><lb/>
+<l>doch viel hab’ ich auch drumb gelitten.</l></lg><lb/>
+<lg n="31"><head>31.</head><lb/>
+<l>Auß deinem Wort’ und meiner Bruſt/</l><lb/>
+<l>weiß ich/ <hi rendition="#aq">ô</hi> <hi rendition="#k">GOtt/</hi> dein Heil zu leſen:</l><lb/>
+<fw type="catch" place="bottom">Dein</fw><lb/>
+<pb facs="#f0045"/>
+<l>Dein hohes Werk iſt mir bewuſt/</l><lb/>
+<l>und wie ich ſol und kan geneſen.</l></lg><lb/>
+<lg n="32"><head>32.</head><lb/>
+<l>Nun ihre Luſt iſt ſchon gebuͤſſt/</l><lb/>
+<l>als bald mir deine Gnad’ erſchienen:</l><lb/>
+<l>hinfuͤr wo du die ſchuld vergiſſt</l><lb/>
+<l>werd’ ich zu deinem lobe dienen.</l></lg><lb/>
+<lg n="33"><head>33.</head><lb/>
+<l>Denn ich erkenne meine ſchuld/</l><lb/>
+<l>Du thuſt mir recht/ mein <hi rendition="#k">GOtt</hi> durch<lb/>
+<hi rendition="#et">ſtraafen;</hi></l><lb/>
+<l>Ich ehr’ in Demuth und Gedult</l><lb/>
+<l>die Zuͤchtigung gerechter Waffen.</l></lg><lb/>
+<lg n="34"><head>34.</head><lb/>
+<l>Mein elend/ (Du entdekkſt es mir/)</l><lb/>
+<l>Iſt mir zum minſten unverborgen/</l><lb/>
+<l>Ich beichte meine Suͤnde dir/</l><lb/>
+<l>vor die ich hertzlich weiß zu ſorgen.</l></lg><lb/>
+<lg n="35"><head>35.</head><lb/>
+<l>Indeſſen gruͤnnt der Feinde ſchaar/</l><lb/>
+<l>in dem Sie fromme niedertreten:</l><lb/>
+<l>Ihr Gutt und Muth waͤchſt immerdar/</l><lb/>
+<l>die jederman ſucht anzubaͤten.</l></lg><lb/>
+<fw type="sig" place="bottom">B jv</fw><fw type="catch" place="bottom">36. Die</fw><lb/>
+<pb facs="#f0046"/>
+<lg n="36"><head>36.</head><lb/>
+<l>Die ich geliebt/ die ſind mir gram/</l><lb/>
+<l>die mich’ geehrt/ ziehn mich vom Leben:</l><lb/>
+<l>Es fliehn mich/ die ich zu mir nahm:</l><lb/>
+<l>mich binden/ die ich loß gegeben.</l></lg><lb/>
+<lg n="37"><head>37.</head><lb/>
+<l>Die Urſach iſt/ daß Guͤtt’ und <hi rendition="#k">GOtt/</hi></l><lb/>
+<l>darauf ich mich ſo kan verlaſſen/</l><lb/>
+<l>nicht einer umb der Schuld und Noth/</l><lb/>
+<l>ſucht unter ihnen mich zu haſſen.</l></lg><lb/>
+<lg n="38"><head>38.</head><lb/>
+<l>Sie haſſen dich ſelb ſelbſt in mir:</l><lb/>
+<l>drumb kom̃/ mein GOtt mir bey zuſtehen/</l><lb/>
+<l>kom̃ eile/ denn ich traue Dir/</l><lb/>
+<l>laß mich nicht ſo in trauren gehen.</l></lg><lb/>
+<lg n="39"><head>39.</head><lb/>
+<l>Mein Troſt hengt ſich an deine Hand/</l><lb/>
+<l>die wirſt du mir noch heute reichen.</l><lb/>
+<l>Ich wil/ weil ich dein Heil erkannt/</l><lb/>
+<l>nicht einen tritt zuruͤkke weichen.</l></lg><lb/>
+<lg n="40"><head>40.</head><lb/>
+<l>Dru mb eile/ <hi rendition="#k">GOtt/</hi> <hi rendition="#aq">ô</hi> Du mein Heil:</l><lb/>
+<l>Du kanſt/ auß Krafft<gap quantity="1" reason="lost" unit="chars"/> und wilt/ auß guͤtte;</l><lb/>
+<l>Ich ſuch’ und find’ in dir mein Theil:</l><lb/>
+<l>Mich haͤlt dein Wort/ Dich mein Gemuͤtte.</l></lg></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Der</hi></fw><lb/>
+<pb facs="#f0047"/>
+<div n="2"><head><hi rendition="#b">Der Ein und Funffzigſte<lb/>
+<hi rendition="#fr">oder</hi><lb/>
+Vierde Buſs-Pſalm.</hi></head><lb/>
+<lg type="poem"><lg n="1"><head>1.</head><lb/>
+<l><hi rendition="#k"><hi rendition="#in">E</hi>r</hi>barme dich/ mein <hi rendition="#k">GOtt</hi> nach dei-<lb/>
+<hi rendition="#et">ner groſſen Guͤtte:</hi></l><lb/>
+<l>Ich fuͤhle kein Gemuͤth’ alhier in dem ge-<lb/>
+<hi rendition="#et">muͤtte;</hi></l><lb/>
+<l>die Suͤnden trennen mich und dich auf die-<lb/>
+<hi rendition="#et">ſer Bahn/</hi></l><lb/>
+<l>Ach! fuͤhre mich/ mein Heil/ daß ich dich<lb/>
+<hi rendition="#et">finden kan.</hi></l></lg><lb/>
+<lg n="2"><head>2.</head><lb/>
+<l>Tilg’ alle Miſſethat/ umb deiner Wahrheit<lb/>
+<hi rendition="#et">wegen/</hi></l><lb/>
+<l>die mir den Weeg vertritt zu deinem Heil und<lb/>
+<hi rendition="#et">Seegen:</hi></l><lb/>
+<l>mein Hertze hat kein Hertz/ im fall dein<lb/>
+<hi rendition="#et">Hertz’/ <hi rendition="#aq">ô</hi> GOtt/</hi></l><lb/>
+<l>mir nicht ein Hertze macht/ bin ich ohn<lb/>
+<hi rendition="#et">Hertz und Tod.</hi></l></lg><lb/>
+<fw type="sig" place="bottom">B v</fw><fw type="catch" place="bottom">3. Ich</fw><lb/>
+<pb facs="#f0048"/>
+<lg n="3"><head>3.</head><lb/>
+<l>Ich fuͤhle deinen Zorn/ vor dem des Him-<lb/>
+<hi rendition="#et">mels ekken</hi></l><lb/>
+<l>und er der Hellen grund mich nicht vermag<lb/>
+<hi rendition="#et">zudekken.</hi></l><lb/>
+<l>Er theilet Mark und Bein: Er ſcheidet<lb/>
+<hi rendition="#et">Seel’ und Geiſt/</hi></l><lb/>
+<l>Ich bin verlohren/ wo <hi rendition="#k">GOtt</hi> mir nicht<lb/>
+<hi rendition="#et">gnad erweiſt.</hi></l></lg><lb/>
+<lg n="4"><head>4.</head><lb/>
+<l>Ach! <hi rendition="#k">Herr/</hi> ich darff/ ich kan/ das uͤbel<lb/>
+<hi rendition="#et">meiner Seelen</hi></l><lb/>
+<l>vor deinem Angeſicht am minſten nicht ver-<lb/>
+<hi rendition="#et">hoͤlen:</hi></l><lb/>
+<l>dein Grim̃/ und meine Schuld ſchreyn mein<lb/>
+<hi rendition="#et">Gewiſſen an:</hi></l><lb/>
+<l>es ſaget alle Welt/ was ich fuͤr Dir gethan.</l></lg><lb/>
+<lg n="5"><head>5.</head><lb/>
+<l>Nun GOtt ich liege hier/ ach laß! ach laß<lb/>
+<hi rendition="#et">mich buͤſſen:</hi></l><lb/>
+<l>die ſchwere Miſſethat durchkraͤnkt mir mein<lb/>
+<hi rendition="#et">Gewiſſen:</hi></l><lb/>
+<fw type="catch" place="bottom">die</fw><lb/>
+<pb facs="#f0049"/>
+<l>die Straaf’ iſt recht/ doch laß nicht groͤſſer<lb/>
+<hi rendition="#et">meine Pein/</hi></l><lb/>
+<l>Du Heil der gantzen Welt als dein’ Erbar-<lb/>
+<hi rendition="#et">mung ſeyn.</hi></l></lg><lb/>
+<lg n="6"><head>6.</head><lb/>
+<l>Durch-naͤſſe meinen Geiſt; ſchleuß auf den<lb/>
+<hi rendition="#et">Strom der gnaden/</hi></l><lb/>
+<l>damit der Augen-ſtrom durchwaſche mei-<lb/>
+<hi rendition="#et">nen ſchaden:</hi></l><lb/>
+<l>Ich kenne deine Treu/ ich weiß/ wie alt ſie iſt/</l><lb/>
+<l>und daß ſie ofte Huld vor Schuld hat auß-<lb/>
+<hi rendition="#et">erkieſt.</hi></l></lg><lb/>
+<lg n="7"><head>7.</head><lb/>
+<l>An Dir/ mein GOtt/ an Dir hab’ ich die<lb/>
+<hi rendition="#et">ſchuld begangen/</hi></l><lb/>
+<l>von dem ich nichts als Guͤtt’ und Gnad und<lb/>
+<hi rendition="#et">Heil empfangen:</hi></l><lb/>
+<l>das uͤbel/ wie geheim ich es auch halten kan/</l><lb/>
+<l>klagt mich heut’ offentlich fuͤr deinem Ant-<lb/>
+<hi rendition="#et">litz an.</hi></l></lg><lb/>
+<lg n="8"><head>8.</head><lb/>
+<l>Ach! <hi rendition="#aq">ô</hi> was nu zu thun. Dir beicht’ ich<lb/>
+<hi rendition="#et">meine Suͤnden/</hi></l><lb/>
+<l>deñ auch allein bey Dir kan ich genade findẽ</l><lb/>
+<fw type="sig" place="bottom">B vj</fw><fw type="catch" place="bottom">Dir</fw><lb/>
+<pb facs="#f0050"/>
+<l>Dir beicht’ ich meine Schuld. <hi rendition="#k">Herr</hi> dein<lb/>
+<hi rendition="#et">Gericht iſt rein/</hi></l><lb/>
+<l>und dein Wort das iſt wahr/ drumb wirſt<lb/>
+<hi rendition="#et">du mir verzeihn.</hi></l></lg><lb/>
+<lg n="9"><head>9.</head><lb/>
+<l>Rein iſt ja dein Gericht: es weiß der nichts<lb/>
+<hi rendition="#et">vonflekken/</hi></l><lb/>
+<l>vor dem ſich Cherubin und Seraphin be-<lb/>
+<hi rendition="#et">dekken:</hi></l><lb/>
+<l>wahr iſt/ <hi rendition="#k">Herr/</hi> auch dein Wort: es wil<lb/>
+<hi rendition="#et">der hoͤchſte GOtt/</hi></l><lb/>
+<l>des wieder kehrers Heil/ und nicht des Suͤn-<lb/>
+<hi rendition="#et">ders Todt.</hi></l></lg><lb/>
+<lg n="10"><head>10.</head><lb/>
+<l>Nu dieſes Wort/ <hi rendition="#aq">ô</hi> <hi rendition="#g"><hi rendition="#k">Herr/</hi></hi> und dieſes<lb/>
+<hi rendition="#et">dein Gerichte/</hi></l><lb/>
+<l>macht mich in einem froh/ im andern gantz<lb/>
+<hi rendition="#et">zu nichte.</hi></l><lb/>
+<l>Ach wer wil zwiſchen Mir und Dir mein<lb/>
+<hi rendition="#et">Mittler ſeyn:</hi></l><lb/>
+<l>Kein Menſch nicht/ ſondern/ GOtt/ dein<lb/>
+<hi rendition="#et">Wort iſt es allein.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">11. Ich</fw><lb/>
+<pb facs="#f0051"/>
+<lg n="11"><head>11.</head><lb/>
+<l>Ich dring’ auf dieſes Wort auß allen mei-<lb/>
+<hi rendition="#et">nen kraͤfften/</hi></l><lb/>
+<l>drauf hoff’ ich/ dran wil ich mein gantzes<lb/>
+<hi rendition="#et">Hertze hefften:</hi></l><lb/>
+<l>es haͤlt Dir dieſes Wort vor Welt und<lb/>
+<hi rendition="#et">Himmel fuͤr;</hi></l><lb/>
+<l>und wil nicht/ als Gerecht und Seelig/<lb/>
+<hi rendition="#et"><hi rendition="#k">Herr/</hi> von Dir.</hi></l></lg><lb/>
+<lg n="12"><head>12.</head><lb/>
+<l>Wann Du mich vor Dir ſichſt/ wie Staub<lb/>
+<hi rendition="#et">und Aſche liegen/</hi></l><lb/>
+<l>hat die Gerechtigkeit/ <hi rendition="#aq">ô</hi> GOtt/ dran ihr<lb/>
+<hi rendition="#et">genuͤgen:</hi></l><lb/>
+<l>Wann Du mich auf dein Wort/ <hi rendition="#aq">ô</hi> <hi rendition="#k">Herr/</hi><lb/>
+<hi rendition="#et">ſiehſt ſtark vertraun;</hi></l><lb/>
+<l>wil die Barmhertzigkeit/ auf mich vom<lb/>
+<hi rendition="#et">Himmel ſchaun.</hi></l></lg><lb/>
+<lg n="13"><head>13.</head><lb/>
+<l>Denn faͤllt die Suͤnde hin/ denn glaͤntz’ ich<lb/>
+<hi rendition="#et">auf das beſte/</hi></l><lb/>
+<l>wie Gold/ das ſtebenmal bewehrt iſt/ auf<lb/>
+<hi rendition="#et">der teſte:</hi></l><lb/>
+<fw type="catch" place="bottom">dein</fw><lb/>
+<pb facs="#f0052"/>
+<l>dein Wort zeucht mich/ dein Wort zieh’ ich<lb/>
+<hi rendition="#et">dann wieder an:</hi></l><lb/>
+<l>da denkeſt du nicht mehr/ was ich zuvor<lb/>
+<hi rendition="#et">gethan.</hi></l></lg><lb/>
+<lg n="14"><head>14.</head><lb/>
+<l>Mein unrecht macht dich recht: daß du dich<lb/>
+<hi rendition="#et">wilt der Armen/</hi></l><lb/>
+<l>das iſt dein hoͤchſter Ruhm/ auß gantzem<lb/>
+<hi rendition="#et">grund’ erbarmen:</hi></l><lb/>
+<l>und haͤtt’ ich keine ſchuld/ ſo ſucht ich nicht<lb/>
+<hi rendition="#et">dein Heil:</hi></l><lb/>
+<l>drumb kehr’ ich mich zu Dir/ Du <hi rendition="#aq">ô</hi>/ mein<lb/>
+<hi rendition="#et">beſtes theil.</hi></l></lg><lb/>
+<lg n="15"><head>15.</head><lb/>
+<l>Dein Wort iſt wahr/ und ſo auch muſt Du<lb/>
+<hi rendition="#et">recht behalten/</hi></l><lb/>
+<l>wann Du gerichtet wirſt: die Suͤnde darff<lb/>
+<hi rendition="#et">nicht walten.</hi></l><lb/>
+<l>Wie ſehr Du mich verwirffſt/ dien’ ich doch<lb/>
+<hi rendition="#et">drunter Dir/</hi></l><lb/>
+<l>durch mein erkenntnis bricht/ <hi rendition="#aq">ô</hi> <hi rendition="#k">Herr/</hi><lb/>
+<hi rendition="#et">dein Lob herfuͤr.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">16. Und</fw><lb/>
+<pb facs="#f0053"/>
+<lg n="16"><head>16.</head><lb/>
+<l>Und ach! was ſuchſt Du dich ſo ſcharff an<lb/>
+<hi rendition="#et">mir zu raͤchen?</hi></l><lb/>
+<l>Ich bin ein eitler Menſch voll fehler und<lb/>
+<hi rendition="#et">gebraͤchen:</hi></l><lb/>
+<l>die mich zur Welt gebracht/ die floͤßte dieſe<lb/>
+<hi rendition="#et">Pein/</hi></l><lb/>
+<l>und dieſe Schuld mir vor auß ihren Bruͤ-<lb/>
+<hi rendition="#et">ſten ein.</hi></l></lg><lb/>
+<lg n="17"><head>17.</head><lb/>
+<l>Eh’ ich geboren ward/ hab’ ich ſchon ange-<lb/>
+<hi rendition="#et">fangen:</hi></l><lb/>
+<l>der boßheit macht zufuͤhln/ in der ich ward<lb/>
+<hi rendition="#et">empfangen:</hi></l><lb/>
+<l>die Suͤnde machte mir in meiner Mutter<lb/>
+<hi rendition="#et">heiß:</hi></l><lb/>
+<l>daher ich von Natur auch nichts als Suͤn-<lb/>
+<hi rendition="#et">de weiß.</hi></l></lg><lb/>
+<lg n="18"><head>18.</head><lb/>
+<l><hi rendition="#aq">ô</hi>GOtt/ im fall Du wilt recht deine Guͤtt’<lb/>
+<hi rendition="#et">erwegen/</hi></l><lb/>
+<l>es iſt an meiner Schuld und Reu Dir viel<lb/>
+<hi rendition="#et">gelegen.</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">So</hi></fw><lb/>
+<pb facs="#f0054"/>
+<l>So Du nicht wilt erhoͤrn/ wer wuͤrde zu<lb/>
+<hi rendition="#et">Dir ſchreyn?</hi></l><lb/>
+<l>Wer nennte gnaͤdig Dich? ſo Du nicht<lb/>
+<hi rendition="#et">wilt verzeihn?</hi></l></lg><lb/>
+<lg n="19"><head>19.</head><lb/>
+<l>Nu <hi rendition="#k">Herr</hi>/ Du wirſt vor mich ein treues<lb/>
+<hi rendition="#et">Urthel faͤllen/</hi></l><lb/>
+<l>Ich ſehe Huͤlff’ und Heil auß deinem Her-<lb/>
+<hi rendition="#et">tzen quaͤllen:</hi></l><lb/>
+<l>Du kenneſt meine Bruſt/ und wie ſie auf<lb/>
+<hi rendition="#et">dich traut/</hi></l><lb/>
+<l>Sie eignet ihr mehrzu/ als was ſie fuͤhlt<lb/>
+<hi rendition="#et">und ſchaut.</hi></l></lg><lb/>
+<lg n="20"><head>20.</head><lb/>
+<l>Denn/ Vater/ dein Geſetz/ als bald’ ich<lb/>
+<hi rendition="#et">was begangen/</hi></l><lb/>
+<l>das ruͤgt die Schuld in mir der ich mich un-<lb/>
+<hi rendition="#et">terfangen:</hi></l><lb/>
+<l>dein Geiſt verurtheilt mich/ der meine Glie-<lb/>
+<hi rendition="#et">der ruͤhrt:</hi></l><lb/>
+<l>doch troͤſtet er mich auch/ weil er mich zu<lb/>
+<hi rendition="#et">Dir fuͤhrt.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">21. Ich</fw><lb/>
+<pb facs="#f0055"/>
+<lg n="21"><head>21.</head><lb/>
+<l>Ich ſehe/ darumb kan ich Heil und Gnade<lb/>
+<hi rendition="#et">hoffen/</hi></l><lb/>
+<l>der Weißheit tieffen grund und ihr geheim-<lb/>
+<hi rendition="#et">nis offen:</hi></l><lb/>
+<l>der Glauben ſeuffzt in mir des Weibes<lb/>
+<hi rendition="#et">Saamen an/</hi></l><lb/>
+<l>als der der Schlangen Kopf allein zutre-<lb/>
+<hi rendition="#et">ten kan.</hi></l></lg><lb/>
+<lg n="22"><head>22.</head><lb/>
+<l>Das iſt es/ darauf ich ſo feſte weiß zu<lb/>
+<hi rendition="#et">gruͤnden/</hi></l><lb/>
+<l>ſo Kindlich weiß zu traun/ im Kerker mei-<lb/>
+<hi rendition="#et">ner Suͤnden.</hi></l><lb/>
+<l>Der Seelen gantze Krafft ſchleuſt die ver-<lb/>
+<hi rendition="#et">heiſchung ein/</hi></l><lb/>
+<l>wil ſonſt durch keinen Troſt/ als den/ ge-<lb/>
+<hi rendition="#et">troͤſtet ſeyn.</hi></l></lg><lb/>
+<lg n="23"><head>23.</head><lb/>
+<l>Beſprenge mich mein GOtt/ mit Iſop<lb/>
+<hi rendition="#et">deiner Guͤtte/</hi></l><lb/>
+<l>ſo werd’ ich rein/ ſo glaͤntzt vor unſchuld mein<lb/>
+<hi rendition="#et">gemuͤtte:</hi></l><lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">waſch’</fw><lb/>
+<pb facs="#f0056"/>
+<l>waſch’ ab/ was mich beflekkt: waſch’ ab mein<lb/>
+<hi rendition="#et">ſchwartzes weh’/</hi></l><lb/>
+<l>ſo werd’ ich weiſſer ſeyn als neu gefallner<lb/>
+<hi rendition="#et">Schnee.</hi></l></lg><lb/>
+<lg n="24"><head>24.</head><lb/>
+<l>Laß dieſen ſuͤſſen Troſt in meine Wunden<lb/>
+<hi rendition="#et">ſinken/</hi></l><lb/>
+<l>daß Sie des Heiles Oel zum neuen Leben<lb/>
+<hi rendition="#et">trinken:</hi></l><lb/>
+<l>Erneure meinen Geiſt/ und gieb ihm Troſt<lb/>
+<hi rendition="#et">und Raht/</hi></l><lb/>
+<l>als den biß in den Tod die Schuld durch-<lb/>
+<hi rendition="#et">aͤchtet hat.</hi></l></lg><lb/>
+<lg n="25"><head>25.</head><lb/>
+<l>Sol ich die Bothſchafft hoͤrn: die Schuld<lb/>
+<hi rendition="#et">iſt Dir vergeben:</hi></l><lb/>
+<l>alßbald wird Leib und Seel in Luſt und<lb/>
+<hi rendition="#et">Wonne leben:</hi></l><lb/>
+<l>alßbald/ nihmſt du von mir/ der Suͤnden<lb/>
+<hi rendition="#et">ſtrenge Laſt/</hi></l><lb/>
+<l>wird mein Gebein erfreut/ das Du zer-<lb/>
+<hi rendition="#et">malmet haſt.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">26. Ach!</fw><lb/>
+<pb facs="#f0057"/>
+<lg n="26"><head>26.</head><lb/>
+<l>Ach! <hi rendition="#k">Herr</hi>/ wo ſol ich ſonſt/ auf Erden<lb/>
+<hi rendition="#et">Rettung finden?</hi></l><lb/>
+<l>nicht ſiehe doch ſo ſcharff auf dieſen Wuſt<lb/>
+<hi rendition="#et">der Suͤnden:</hi></l><lb/>
+<l>mach’ auf das Hertz’/ und ſchleuß die ſcharf-<lb/>
+<hi rendition="#et">fen Augen zu/</hi></l><lb/>
+<l>denn deine Guͤtte/ <hi rendition="#k">Henr</hi>/ iſt ja ſo groß<lb/>
+<hi rendition="#et">als Du.</hi></l></lg><lb/>
+<lg n="27"><head>27.</head><lb/>
+<l>Zwar/ nicht von mir/ mein <hi rendition="#k">GOtt</hi> wollſt<lb/>
+<hi rendition="#et">du dein’ Augen kehren/</hi></l><lb/>
+<l>nur bloß von meiner Schuld/ die dich ſo kan<lb/>
+<hi rendition="#et">beſchweren:</hi></l><lb/>
+<l>Du ſiehſt der Stam̃ bleibt ſtehn/ viel Rau-<lb/>
+<hi rendition="#et">ber ſchiſſen fuͤr/</hi></l><lb/>
+<l>drumb rott’/ ach! rotte ſie/ mein <hi rendition="#k">GOtt</hi>/<lb/>
+<hi rendition="#et">grund auß in mir.</hi></l></lg><lb/>
+<lg n="28"><head>28.</head><lb/>
+<l><hi rendition="#aq">ô</hi> Vater/ ſchaff’ ein Hertz in mir nach dei-<lb/>
+<hi rendition="#et">ner Guͤtte/</hi></l><lb/>
+<l>das rein/ das Heilig ſey/ zu deiner Gna-<lb/>
+<hi rendition="#et">den huͤtte:</hi></l><lb/>
+<fw type="sig" place="bottom">C ij</fw><fw type="catch" place="bottom">das</fw><lb/>
+<pb facs="#f0058"/>
+<l>das alte muß herauß/ muß ſeyn in nichts<lb/>
+<hi rendition="#et">verkehrt/</hi></l><lb/>
+<l>ſonſt wird in ewigkeit das neue nicht ge-<lb/>
+<hi rendition="#et">wehrt.</hi></l></lg><lb/>
+<lg n="29"><head>29.</head><lb/>
+<l>Laß ſich den rechten Geiſt in dem Gemuͤtt’<lb/>
+<hi rendition="#et">erneuren/</hi></l><lb/>
+<l>und mir mein Eingeweid’ in deiner Huld<lb/>
+<hi rendition="#et">beſteuren/</hi></l><lb/>
+<l>gieb mir das ebne Land der erſten unſchuld<lb/>
+<hi rendition="#et">ein:</hi></l><lb/>
+<l>Ich bau’ und trau’ auf Dich/ ſolt’ ich ver-<lb/>
+<hi rendition="#et">worffen ſeyn.</hi></l></lg><lb/>
+<lg n="30"><head>30.</head><lb/>
+<l>Verwirff mich nicht/ mein <hi rendition="#k">GOtt</hi>/ Ich<lb/>
+<hi rendition="#et">wart’ auf deinen Seegen/</hi></l><lb/>
+<l>den Du zum Grunde wilt in meine Seele<lb/>
+<hi rendition="#et">legen:</hi></l><lb/>
+<l>nihm deinen Heilgen Geiſt/ <hi rendition="#aq">ô</hi> Vater/ nicht<lb/>
+<hi rendition="#et">von mir/</hi></l><lb/>
+<l>daß ich nicht fall/ und geh’ als wie zuvor<lb/>
+<hi rendition="#et">von Dir.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">Laß</fw><lb/>
+<pb facs="#f0059"/>
+<lg n="31"><head>31.</head><lb/>
+<l>Laß mich dein Antlitz ſehn: die Frucht vom<lb/>
+<hi rendition="#et">Creutzes ſtamme:</hi></l><lb/>
+<l>ſo werd’ ich Heil/ ſo wird des Geiſtes ſtar-<lb/>
+<hi rendition="#et">ke flamme</hi></l><lb/>
+<l>mich durch und durch bewaͤhrn. Der Troſt<lb/>
+<hi rendition="#et">brech’ in mir auß/</hi></l><lb/>
+<l>und mach’ in mir/ <hi rendition="#aq">ô</hi> <hi rendition="#k">GOtt</hi>! Dir ein ge-<lb/>
+<hi rendition="#et">weihtes Hauß.</hi></l></lg><lb/>
+<lg n="32"><head>32.</head><lb/>
+<l>Ich wil gehorſam ſeyn. Nur laß mich vor<lb/>
+<hi rendition="#et">Dich treten/</hi></l><lb/>
+<l>nur laß mich deine Freud’ auß Hertzen<lb/>
+<hi rendition="#et">grund erbaͤthen:</hi></l><lb/>
+<l><hi rendition="#k">Herr</hi> dein Dreyfacher Geiſt fuͤhrt mich<lb/>
+<hi rendition="#et">auf dieſe Bahn/</hi></l><lb/>
+<l>drumb nihm dein Lob von ihm durch mei-<lb/>
+<hi rendition="#et">ne Lippen an.</hi></l></lg><lb/>
+<lg n="33"><head>33.</head><lb/>
+<l>Alßdann/ wann Du mich wirſt in meiner<lb/>
+<hi rendition="#et">noth erhoͤren/</hi></l><lb/>
+<l>wil ich den rechten Weeg die uͤbelthaͤter<lb/>
+<hi rendition="#et">lehren!</hi></l><lb/>
+<fw type="sig" place="bottom">C iij</fw><fw type="catch" place="bottom">alßdann</fw><lb/>
+<pb facs="#f0060"/>
+<l>alßdann/ wann Du mir wirſt/ mein Gott/<lb/>
+<hi rendition="#et">genaͤdig ſeyn/</hi></l><lb/>
+<l>ſol auch der Suͤnder Schaar nach deiner<lb/>
+<hi rendition="#et">Huͤlffe ſchreyn.</hi></l></lg><lb/>
+<lg n="34"><head>34.</head><lb/>
+<l>Die Schuld/ vor welche Du ſiehſt heiſſe<lb/>
+<hi rendition="#et">Zehren flieſſen</hi></l><lb/>
+<l>ſiehſt ſchwere Seuftzer gehn/ ſichſt Leib und<lb/>
+<hi rendition="#et">Seele buͤſſen;</hi></l><lb/>
+<l>die Schuld/ <hi rendition="#aq">ô</hi> <hi rendition="#k">GOtt</hi>/ der Du mein Gott<lb/>
+<hi rendition="#et">und Heiland biſt/</hi></l><lb/>
+<l>die nihm/ ach! nihm ſie hin/ du ſiehſt wie<lb/>
+<hi rendition="#et">Sie mich friſt.</hi></l></lg><lb/>
+<lg n="35"><head>35.</head><lb/>
+<l>Den Tod hab’ ich verdient: Du aber biſt<lb/>
+<hi rendition="#et">mein Leben;</hi></l><lb/>
+<l>mein Mund der wird dein Recht vor aller<lb/>
+<hi rendition="#et">Welt erheben.</hi></l><lb/>
+<l>Durch deine Gnad’ allein/ <hi rendition="#k">Herr</hi>/ bin<lb/>
+<hi rendition="#et">ich/ was ich bin/</hi></l><lb/>
+<l>drumb ſol/ <hi rendition="#aq">ô</hi> <hi rendition="#k">GOtt</hi>/ dein Ruhm auf mei-<lb/>
+<hi rendition="#et">ner Zunge bluͤhn.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">36. Ja</fw><lb/>
+<pb facs="#f0061"/>
+<lg n="36"><head>36.</head><lb/>
+<l>Ja <hi rendition="#k">Herr</hi>/ mein Hertze faͤngt mir ſtaͤrker<lb/>
+<hi rendition="#et">an zuſchlagen:</hi></l><lb/>
+<l>es wil zun Lippen rauß/ und Dir dein Lob<lb/>
+<hi rendition="#et">vortragen.</hi></l><lb/>
+<l>Die ſinnen ſam̃len ſich vor meines Mundes<lb/>
+<hi rendition="#et">Thuͤr/</hi></l><lb/>
+<l>und bringen deine Guͤtt’ auf tauſent wei-<lb/>
+<hi rendition="#et">ſen fuͤr.</hi></l></lg><lb/>
+<lg n="37"><head>37.</head><lb/>
+<l>Ich wollt’ ich wollte zwar nach fetten Opf-<lb/>
+<hi rendition="#et">fern ſchauen/</hi></l><lb/>
+<l>und einen Thron von Rauch auf frembde<lb/>
+<hi rendition="#et">Dienſte bauen:</hi></l><lb/>
+<l>jedoch durch Rauch und Dienſt erlang’ ich<lb/>
+<hi rendition="#et">hier kein Theil/</hi></l><lb/>
+<l>dann was mich ſeelig macht/ mein GOtt/<lb/>
+<hi rendition="#et">iſt bloß dein Heil.</hi></l></lg><lb/>
+<lg n="38"><head>38.</head><lb/>
+<l>Die Opffer/ die zu GOtt durch alle Him-<lb/>
+<hi rendition="#et">mel ſteigen/</hi></l><lb/>
+<l>und ſein Gemuͤtte her-grund auß zu unſern<lb/>
+<hi rendition="#et">neigen/</hi></l><lb/>
+<fw type="sig" place="bottom">C jv</fw><fw type="catch" place="bottom">ſind</fw><lb/>
+<pb facs="#f0062"/>
+<l>ſind ein zermalmter Sinn/ ſind ein zerknier-<lb/>
+<hi rendition="#et">ſter Geiſt/</hi></l><lb/>
+<l>wohl dem der dieſe bringt/ er bleibt unab-<lb/>
+<hi rendition="#et">geweiſt.</hi></l></lg><lb/>
+<lg n="39"><head>39.</head><lb/>
+<l>Dieß kan ich nicht auß mir. Dein Geiſt<lb/>
+<hi rendition="#et">muß mich bewegen/</hi></l><lb/>
+<l>muß alle boͤſe Luſt auß meinem willen<lb/>
+<hi rendition="#et">fegen:</hi></l><lb/>
+<l>muß meinen Geiſt erneurn: muß mir die<lb/>
+<hi rendition="#et">Krafft verleihn/</hi></l><lb/>
+<l>daß ich voll Zuverſicht vermag zu Dir zu<lb/>
+<hi rendition="#et">ſchreyn.</hi></l></lg><lb/>
+<lg n="40"><head>40.</head><lb/>
+<l>Du wirſt die Angſt/ die du im Hertzen<lb/>
+<hi rendition="#et">heiſſeſt flehen/</hi></l><lb/>
+<l>und ſonſt zu Hertzen nihmſt/ von mir ja<lb/>
+<hi rendition="#et">nicht verſchmehen/</hi></l><lb/>
+<l><hi rendition="#k">Herr</hi>/ das ich fleh’ iſt dein. Und giebſt<lb/>
+<hi rendition="#et">Du daß ich kan/</hi></l><lb/>
+<l><supplied>ſo</supplied> ſchau auch deine Guͤtt’ in meinem fle-<lb/>
+<hi rendition="#et">hen an.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">41. Wohl-</fw><lb/>
+<pb facs="#f0063"/>
+<lg n="41"><head>41.</head><lb/>
+<l>Wohlan/ der Hoͤchſte wird auf Sion wie-<lb/>
+<hi rendition="#et">der ſchauen/</hi></l><lb/>
+<l>Er wird Jeruſalem zu ſolchen Opffern<lb/>
+<hi rendition="#et">bauen:</hi></l><lb/>
+<l>dann wird man Tag und Nacht das Wort<lb/>
+<hi rendition="#et">des Herren hoͤrn/</hi></l><lb/>
+<l>und die Gerechtigkeit an ſtatt der Dienſte<lb/>
+<hi rendition="#et">lehrn.</hi></l></lg><lb/>
+<lg n="42"><head>42.</head><lb/>
+<l>Ich ſeh’ umb ſeinen Thron/ die gantzen<lb/>
+<hi rendition="#et">Opffer liegen/</hi></l><lb/>
+<l>zu welchem ſich mein Hertz ohn Ende ſol<lb/>
+<hi rendition="#et">verfuͤgen:</hi></l><lb/>
+<l>der Glauben wird der Herd/ die Liebe Flam̃<lb/>
+<hi rendition="#et">und Schein/</hi></l><lb/>
+<l>die Hoffnung Rauch/ und Er/ der <hi rendition="#k">Herr</hi>/<lb/>
+<hi rendition="#et">der Prieſter ſeyn.</hi></l></lg></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">C v</fw><fw type="catch" place="bottom">Der</fw><lb/>
+<pb facs="#f0064"/>
+<div n="2"><head><hi rendition="#fr">Der hundert und Zweite<lb/>
+als der<lb/>
+Fuͤnffte Buſs-Pſalm.</hi></head><lb/>
+<lg type="poem"><lg n="1"><head>1.</head><lb/>
+<l><hi rendition="#in">E</hi>Rhoͤre mein Gebaͤt/ <hi rendition="#aq">ô</hi> <hi rendition="#k">GOtt</hi>/</l><lb/>
+<l>das vor Dich ſchuͤttet meine Noth:</l><lb/>
+<l>nihm mein geſchrey ſo gutt zu Dir/</l><lb/>
+<l>als ſtark es ſtoͤſt/ mein’ Angſt herfuͤr.</l></lg><lb/>
+<lg n="2"><head>2.</head><lb/>
+<l>Nicht kehre von der Quaal und Pein/</l><lb/>
+<l>der milden Augen reichen ſchein:</l><lb/>
+<l><hi rendition="#k">Herr</hi>/ richte deiner Ohren treu</l><lb/>
+<l>nach deiner Guͤtt’ und meiner reu.</l></lg><lb/>
+<lg n="3"><head>3.</head><lb/>
+<l>Mein-Andacht und dein Heil vor Dir</l><lb/>
+<l>gehn beyd’ auß treuem Hertzen fuͤr.</l><lb/>
+<l>Ach! eil/ ich trau und harr auf dich/</l><lb/>
+<l>mein <hi rendition="#k">GOtt</hi>/ ach eil! und rette mich.</l></lg><lb/>
+<lg n="4"><head>4.</head><lb/>
+<l>Ich ſehe meine Tage hin</l><lb/>
+<l>wie leichten Rauch im Winde ziehn:</l><lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb facs="#f0065"/>
+<l>und mein Gebein’ als wie ein Brand</l><lb/>
+<l>iſt außgedorrt vor deiner Hand.</l></lg><lb/>
+<lg n="5"><head>5.</head><lb/>
+<l>Mein Leben faͤllt wie duͤrres Heu/</l><lb/>
+<l>durch deinen Grim̃ und meine Reu:</l><lb/>
+<l>mein Eingeweide ſpiñt ſich ein/</l><lb/>
+<l>wie Seiden Wuͤrm’ in naͤſtern ſeyn.</l></lg><lb/>
+<lg n="6"><head>6.</head><lb/>
+<l>Die Zunge bringt mit Zittern Dir</l><lb/>
+<l>kaum die gebrochne Klage fuͤr:</l><lb/>
+<l>Ich habe keine Krafft/ <hi rendition="#aq">ô</hi> <hi rendition="#k">GOtt</hi>/</l><lb/>
+<l>in Mund zu bringen troknes Brott.</l></lg><lb/>
+<lg n="7"><head>7.</head><lb/>
+<l>Die Seele/ daß ich heiſer bin/</l><lb/>
+<l>hab’ ich vor heulen außgeſchrien:</l><lb/>
+<l>vor ſeufftzen bleibt mein Hertze ſtehn/</l><lb/>
+<l>wie ſchnell es ſonſten pflegt zugehn.</l></lg><lb/>
+<lg n="8"><head>8.</head><lb/>
+<l>Ich heul’ auß tieffem ſchlam̃e vor</l><lb/>
+<l>als wie die Reiger durch ihr Rohr:</l><lb/>
+<l>Ich ſeuffz’? als wie die Eule thut/</l><lb/>
+<l>und bin ein Ort voll grauß und ſchutt.</l></lg><lb/>
+<fw type="catch" place="bottom">9. Vor</fw><lb/>
+<pb facs="#f0066"/>
+<lg n="9"><head>9.</head><lb/>
+<l>Vor aͤngſten hab’ ich Tag und Nacht/</l><lb/>
+<l>mich in der einoͤd’ außgewacht.</l><lb/>
+<l>Ich muß als wie die Spatzen ſeyn/</l><lb/>
+<l>die ohne Neſſt auf Daͤchern ſchreyn.</l></lg><lb/>
+<lg n="10"><head>10.</head><lb/>
+<l>Es feyert keine ſtunde nicht/</l><lb/>
+<l>der ſtoltzen Feinde grimme Pflicht:</l><lb/>
+<l>der argen Spoͤtter falſche ſchmach/</l><lb/>
+<l>ſtellt mir mit ſtillen Netzen nach.</l></lg><lb/>
+<lg n="11"><head>11.</head><lb/>
+<l>Ich aͤſchre mich voll ſchmertzen ein/</l><lb/>
+<l>die mir an ſtat des Brodtes ſeyn/</l><lb/>
+<l>an ſtat des Trankes preß’ ich mir</l><lb/>
+<l>viel Thraͤnen unterm Hertzen fuͤr.</l></lg><lb/>
+<lg n="12"><head>12.</head><lb/>
+<l>Das macht dein Zorn und meine Schuld/</l><lb/>
+<l>wie wohl mir auch dein Heil gewollt:</l><lb/>
+<l>dein Heil/ das mir entgegen kam</l><lb/>
+<l>dafuͤr ich Suͤnd’ und Straafenahm.</l></lg><lb/>
+<lg n="13"><head>13.</head><lb/>
+<l>Die Straaf’ iſt recht/ die Suͤnd’ iſt groß:</l><lb/>
+<l>Ach! waͤr’ ich beyder quit und loß.</l><lb/>
+<fw type="catch" place="bottom">Ich</fw><lb/>
+<pb facs="#f0067"/>
+<l>Ich baͤte deinen eifer an/</l><lb/>
+<l>und hoffe/ was die Guͤtte kan.</l></lg><lb/>
+<lg n="14"><head>14.</head><lb/>
+<l>Gleich wie der Nachbar ſeiner Nacht/</l><lb/>
+<l>der Schatten/ ſich von hinnen macht:</l><lb/>
+<l>gleich wie ein Kraut ohn Safft vertirbt:</l><lb/>
+<l>verlaͤſt ohn’ Dich mein Geiſt und ſtirbt.</l></lg><lb/>
+<lg n="15"><head>15.</head><lb/>
+<l>Du ſitzeſt und verſorgſt dein Reich/</l><lb/>
+<l>auß eigner Krafft und bleibſt Dir gleich;</l><lb/>
+<l>es ſingen deines Namens Zier</l><lb/>
+<l>uns aller Himmel Feſten fuͤr.</l></lg><lb/>
+<lg n="16"><head>16.</head><lb/>
+<l>Steh’ auf/ <hi rendition="#aq">ô</hi> <hi rendition="#k">GOtt</hi>; hier liegt Sion/</l><lb/>
+<l>und haͤbt die Haͤnd’ auf deinen Thron:</l><lb/>
+<l>Erbarme dich/ <hi rendition="#k">Herr</hi> es iſt Zeit:</l><lb/>
+<l>Ach! hoͤre/ wie es zu Dir ſchreyt.</l></lg><lb/>
+<lg n="17"><head>17.</head><lb/>
+<l>Zeit iſt es/ groß iſt ſeine Glutt.</l><lb/>
+<l>Zeit iſt es/ weil es Buſſe thut.</l><lb/>
+<l>Zeit iſt es/ weil die ſtunde koͤm̃t/</l><lb/>
+<l>auf die Du ihm dein Heil beſtim̃t.</l></lg><lb/>
+<fw type="catch" place="bottom">18. Schau</fw><lb/>
+<pb facs="#f0068"/>
+<lg n="18"><head>18.</head><lb/>
+<l>Schau <hi rendition="#k">Herr</hi>/ wie deiner Knechte Pflicht/</l><lb/>
+<l>viel Ziegel brennt/ viel Steine bricht:</l><lb/>
+<l>Sie aͤngſten ſich auf dieß vertraun/</l><lb/>
+<l>den neuen Tempel aufzubaun.</l></lg><lb/>
+<lg n="19"><head>19.</head><lb/>
+<l>Es wird mit Furcht und Zittern hin/</l><lb/>
+<l>das Heer der Heiden vor dich knihn:</l><lb/>
+<l>Es ſollen Koͤnig’ ihre macht</l><lb/>
+<l>nicht mehr vor deiner ziehn in acht.</l></lg><lb/>
+<lg n="29"><head>20.</head><lb/>
+<l>Wann Du <hi rendition="#aq">ô</hi> <hi rendition="#k">Herr</hi>/ als wie wir traun/</l><lb/>
+<l>dein Sion wieder auf wirſt baun;</l><lb/>
+<l>und durch dein gegenwaͤrtig ſeyn</l><lb/>
+<l>es zum verheiſchnen Stuhle weyhn.</l></lg><lb/>
+<lg n="21"><head>21.</head><lb/>
+<l>Ja Du wirſt hoͤren auf der Bahn/</l><lb/>
+<l>das winſeln des geplagten an:</l><lb/>
+<l>Du wirſt nach den Verwaͤißten ſehn/</l><lb/>
+<l>und ihre Seuffzen nicht verſchmaͤhn.</l></lg><lb/>
+<lg n="22"><head>22.</head><lb/>
+<l>Die Nachwelt/ die es wird verſtehn/</l><lb/>
+<l>ſeh’ ich ſchon Haubt und Geiſt erhoͤhn:</l><lb/>
+<fw type="catch" place="bottom">das</fw><lb/>
+<pb facs="#f0069"/>
+<l>das Volk des andern Bundes koͤm̃t/</l><lb/>
+<l>und hat ſein Preiß-Lied angeſtim̃t.</l></lg><lb/>
+<lg n="23"><head>23.</head><lb/>
+<l>Denn Er/ der <hi rendition="#k">Herr</hi> ſchaut von der hoͤh/</l><lb/>
+<l>auf ſeine Guͤtt’ und unſer Weh’:</l><lb/>
+<l>Es faͤhrt vom Himmel auf die Welt/</l><lb/>
+<l>der uns ſein Heil entgegen ſtellt.</l></lg><lb/>
+<lg n="24"><head>24.</head><lb/>
+<l>Daß Er die Ketten ſchlag’ entzwey/</l><lb/>
+<l>und mache die gefangnen frey:</l><lb/>
+<l>und auß des Todes bruche hin</l><lb/>
+<l>koͤnn’ all’ erloͤſte Kinder zihn.</l></lg><lb/>
+<lg n="25"><head>25.</head><lb/>
+<l>Auf daß erſchalle Tag und Nacht</l><lb/>
+<l>auf Sion deiner Werke Pracht:</l><lb/>
+<l>und daß da ſey voll Ehr und Ruhm</l><lb/>
+<l>Jeruſalem dein Eigenthum.</l></lg><lb/>
+<lg n="26"><head>26.</head><lb/>
+<l>Vorauß wann Laͤnder vor erfreun/</l><lb/>
+<l>umb ſeinen Thron ſich werden ſtreun.</l><lb/>
+<l>Und Koͤnigreiche nieder knihn/</l><lb/>
+<l>wird ſeine Guͤtt’ und Allmacht bluͤhn.</l></lg><lb/>
+<fw type="catch" place="bottom">27. Doch</fw><lb/>
+<pb facs="#f0070"/>
+<lg n="27"><head>27.</head><lb/>
+<l>Doch <hi rendition="#k">GOtt</hi>/ die Tage die vergehn/</l><lb/>
+<l>weil ich ſo muß in Hoffnung ſtehn:</l><lb/>
+<l>die Krafft entſinkt mir auf der Bahn/</l><lb/>
+<l>weil deine Furcht iſt abgethan.</l></lg><lb/>
+<lg n="28"><head>28.</head><lb/>
+<l>Ich bitte <hi rendition="#k">Herr</hi>/ wilt du verzihn/</l><lb/>
+<l>nihm ja den Troſt nicht von mir hin:</l><lb/>
+<l>Erſetze den Verzug <hi rendition="#aq">ô</hi> <hi rendition="#k">GOtt</hi>/</l><lb/>
+<l>durch treue rettung meiner Noth.</l></lg><lb/>
+<lg n="29"><head>29.</head><lb/>
+<l>Mein Troſt iſt recht/ dein Wort iſt wahr/</l><lb/>
+<l>drauf trau’ und bau’ ich immerdar.</l><lb/>
+<l>Du wuͤrdeſt/ ſollt ich ſo vergehn/</l><lb/>
+<l>ſo wenig als ein Menſch beſtehn.</l></lg><lb/>
+<lg n="30"><head>30.</head><lb/>
+<l>Du aber bleibſt von Zeit auf Zeit/</l><lb/>
+<l>daher auch deine Guͤttigkeit:</l><lb/>
+<l>die Werke deiner Haͤnde fliehn/</l><lb/>
+<l>Du aber wirſt dein Wort vollzihn.</l></lg><lb/>
+<lg n="31"><head>31.</head><lb/>
+<l><hi rendition="#k">Herr</hi>/ daß Du dieſer Erden Laſt</l><lb/>
+<l>umbwelbet mit dem Himmel haſt/</l><lb/>
+<fw type="catch" place="bottom">Daß</fw><lb/>
+<pb facs="#f0071"/>
+<l>Daß Du haſt jedes außgebaut/</l><lb/>
+<l>wird fuͤr ein Wunder augeſchaut.</l></lg><lb/>
+<lg n="32"><head>32.</head><lb/>
+<l>Wie praͤchtig man die Werk’ erkannt/</l><lb/>
+<l>doch ſchleiſſen ſie als ein Gewand:</l><lb/>
+<l>Sie eilen der Verwandlung zu.</l><lb/>
+<l>Zwey Sachen ſtehn: Dein Wort und Du.</l></lg><lb/>
+<lg n="33"><head>33.</head><lb/>
+<l>Dein Weſen und dein Willen ſteht/</l><lb/>
+<l>ob Erd’ und Himmel untergeht:</l><lb/>
+<l><hi rendition="#k">GOtt</hi> iſt der/ wer Er immer iſt/</l><lb/>
+<l>kein Ziel hat ſeines außerkieſt.</l></lg><lb/>
+<lg n="34"><head>34.</head><lb/>
+<l>Drumb werden auch umb ſeinen ſchein/</l><lb/>
+<l>die Kinder ſeiner Knechte ſeyn.</l><lb/>
+<l>Ihr Saamen bleibt/ Er iſt beſtim̃t/</l><lb/>
+<l>weil Er vom Wort’ und Geiſte koͤm̃t.</l></lg></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom"><hi rendition="#fr">D</hi></fw><fw type="catch" place="bottom"><hi rendition="#fr">Der</hi></fw><lb/>
+<pb facs="#f0072"/>
+<div n="2"><head><hi rendition="#fr">Der Hundert und Dreiſſigſte<lb/>
+als der<lb/>
+Sechſte Buſs-Pſalm.</hi></head><lb/>
+<lg type="poem"><lg n="1"><head>1.</head><lb/>
+<l><hi rendition="#in">M</hi>Ein’ Angſt und Noth die mich ſo<lb/>
+<hi rendition="#et">ſchmertzlich druͤkkt/</hi></l><lb/>
+<l>die mir mein Hertz und alle Krafft ver-<lb/>
+<hi rendition="#et">ſtrikkt/</hi></l><lb/>
+<l>heiſt mich/ ſonſt iſt kein Weeg zum Him-<lb/>
+<hi rendition="#et">mel offen/</hi></l><lb/>
+<l><hi rendition="#aq">ô</hi> Hoͤchſter auß der tieffen zu Dir ruffen.</l></lg><lb/>
+<lg n="2"><head>2.</head><lb/>
+<l>Ich ruff’/ ich ruff’ auß gantzer macht zu<lb/>
+<hi rendition="#et">Dir;</hi></l><lb/>
+<l>Ach! kehre doch dein’ Ohren/ <hi rendition="#k">Herr</hi>/<lb/>
+<hi rendition="#et">zu mir:</hi></l><lb/>
+<l>Nihm mein geſchrey/ Du Troſt der Welt/<lb/>
+<hi rendition="#et">zu Hertzen/</hi></l><lb/>
+<l>weil ich empfind’ in meinem Grimme<lb/>
+<hi rendition="#et">ſchmertzen.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">3. Er-</fw><lb/>
+<pb facs="#f0073"/>
+<lg n="3"><head>3.</head><lb/>
+<l>Erhoͤre mich/ und laß/ da wo ich bin</l><lb/>
+<l>Dich meine Stim̃ in dieſen Abgrund ziehn:</l><lb/>
+<l>laß/ treuer GOtt/ der Stimmen Dich<lb/>
+<hi rendition="#et">erbarmen/</hi></l><lb/>
+<l>die zu Dir ſchreyt/ und hilff/ ach! hilff<lb/>
+<hi rendition="#et">mir armen.</hi></l></lg><lb/>
+<lg n="4"><head>4.</head><lb/>
+<l>Ach! aber darff ich zu Dir ſchreyn und<lb/>
+<hi rendition="#et">flehn/</hi></l><lb/>
+<l>Ich/ dem Du vor ſo viel haſt nachgeſehn:</l><lb/>
+<l>Ich/ den der Schlam̃ ſo klaͤglich Seel und<lb/>
+<hi rendition="#et">Leben/</hi></l><lb/>
+<l>der Suͤnden Schlam̃/ mein GOtt/ ſucht<lb/>
+<hi rendition="#et">umbzugeben.</hi></l></lg><lb/>
+<lg n="5"><head>5.</head><lb/>
+<l>Ich fall’ und ſink’/ und ach! kein Grund<lb/>
+<hi rendition="#et">iſt hier:</hi></l><lb/>
+<l>drumb ruff’ und ſchrey ich/ lieber <hi rendition="#k">Herr</hi>/<lb/>
+<hi rendition="#et">zu Dir:</hi></l><lb/>
+<l>Ach! weiſe nur den Abgrund deiner Guͤtte;</l><lb/>
+<l>er fuͤllt und ſtillt mein Hertz und mein ge-<lb/>
+<hi rendition="#et">muͤtte.</hi></l></lg><lb/>
+<fw type="sig" place="bottom"><hi rendition="#fr">D</hi> ij</fw><fw type="catch" place="bottom"><hi rendition="#fr">Dann</hi></fw><lb/>
+<pb facs="#f0074"/>
+<lg n="6"><head>6.</head><lb/>
+<l>Dann ſo du wilt hin vor den Richtſtuhl<lb/>
+<hi rendition="#et">gehn/</hi></l><lb/>
+<l>ſo jeder ſol zu ſeiner antwort ſtehn/</l><lb/>
+<l>ſo kan kein Menſch auf dieſer gantzen Erden/</l><lb/>
+<l>vor Dir/ <hi rendition="#aq">ô</hi> <hi rendition="#k">Herr</hi>/ gerecht und ſeelig<lb/>
+<hi rendition="#et">werden.</hi></l></lg><lb/>
+<lg n="7"><head>7.</head><lb/>
+<l>Jedoch bey Dir/ mein GOtt/ bey Dir<lb/>
+<hi rendition="#et">allein/</hi></l><lb/>
+<l>ſeh’ ich viel Heil und viel Erloͤſung ſeyn:</l><lb/>
+<l>Du traͤgeſt Rach’ und auch Erbarmd’ im<lb/>
+<hi rendition="#et">Hertzen;</hi></l><l xml:id="l4b" prev="#l4a"><hi rendition="#et">(tzen.</hi></l><lb/>
+<l xml:id="l4a" next="#l4b">und unternihmſt der Suͤnder ihre Schmer-</l></lg><lb/>
+<lg n="8"><head>8.</head><lb/>
+<l>Drumb fuͤrchtet Dich/ <hi rendition="#aq">ô</hi> Vater/ jederman/</l><lb/>
+<l>dieweil ihm ſelbſt kein Menſch nicht helffen<lb/>
+<hi rendition="#et">kan;</hi></l><lb/>
+<l>denn <hi rendition="#k">Herr</hi>/ wenn es bey Menſchen ſolte<lb/>
+<hi rendition="#et">ſtehen/</hi></l><lb/>
+<l>ſo muͤſte ſelbſt dein Ruhm zu Grunde gehen.</l></lg><lb/>
+<lg n="9"><head>9.</head><lb/>
+<l>Ich harr’/ <hi rendition="#aq">ô</hi> GOtt/ auß zitternder begier/</l><lb/>
+<l>auf rechten Troſt/ den ich bloß ſuch’ in Dir:</l><lb/>
+<fw type="catch" place="bottom">Ich</fw><lb/>
+<pb facs="#f0075"/>
+<l>Ich harr’/ <hi rendition="#aq">ô</hi> GOtt/ ich hoff’ auß gantzen<lb/>
+<hi rendition="#et">kraͤfften/</hi></l><lb/>
+<l>und an Dein Wort wil ich mein Hertze<lb/>
+<hi rendition="#et">hefften.</hi></l></lg><lb/>
+<lg n="10"><head>10.</head><lb/>
+<l>Dein Wort iſt wahr. Der Troſt/ den<lb/>
+<hi rendition="#et">GOtt verſpricht/</hi></l><lb/>
+<l>bleibt unverrukkt; Gott treugt und wan-<lb/>
+<hi rendition="#et">ket nicht:</hi></l><lb/>
+<l>mein GOtt/ der Bund/ den ich ſo weiß<lb/>
+<hi rendition="#et">zu faſſen/</hi></l><lb/>
+<l>der zwinget Dich/ daß Du mich nicht<lb/>
+<hi rendition="#et">wirſt laſſen.</hi></l></lg><lb/>
+<lg n="11"><head>11.</head><lb/>
+<l>Drumb wart’ ich drauf: Gleich wie ein<lb/>
+<hi rendition="#et">Waͤchter pflegt/</hi></l><lb/>
+<l>der immer ſieht/ wenn er ſich rauß gelegt/</l><lb/>
+<l>ob nicht herfuͤr der Fruͤh-Stern ſchier wil<lb/>
+<hi rendition="#et">wandern;</hi></l><lb/>
+<l>Ich wart’ auch ſo von einer Nacht zur an-<lb/>
+<hi rendition="#et">dern.</hi></l></lg><lb/>
+<lg n="12"><head>12.</head><lb/>
+<l><hi rendition="#aq">ô</hi> Iſrael/ du außerwehlte Schaar/</l><lb/>
+<l>trau auf das Wort des Herren immerdar:</l><lb/>
+<fw type="sig" place="bottom">D iij</fw><fw type="catch" place="bottom">hoff’</fw><lb/>
+<pb facs="#f0076"/>
+<l>hoff’ auf ſein Heil: wie groß auch deine<lb/>
+<hi rendition="#et">Plagen/</hi></l><lb/>
+<l>der <hi rendition="#k">Herr</hi> der wird dir Huͤlff’ entgegen<lb/>
+<hi rendition="#et">tragen.</hi></l></lg><lb/>
+<lg n="13"><head>13.</head><lb/>
+<l>Dann bey Ihm iſt das Vater-Hertz allein/</l><lb/>
+<l>das guͤttig und langmuͤttig weiß zu ſeyn:</l><lb/>
+<l>bey Ihm/ ſag’ ich/ iſt der gerechte willen/</l><lb/>
+<l>all’ unſre Noth geſchwind’ und viel zu ſtillen.</l></lg><lb/>
+<lg n="14"><head>14.</head><lb/>
+<l>Und Er/ der <hi rendition="#k">Herr</hi>/ der wird zu ſeiner Zeit/</l><lb/>
+<l>die auf Ihn traun/ fuͤhrn auß Gefahr und<lb/>
+<hi rendition="#et">Leid:</hi></l><lb/>
+<l>Er wird ſein Volk von allen ihren Suͤnden/</l><lb/>
+<l>und aller angſt/ als wahrer <hi rendition="#k">GOtt</hi>/ ent-<lb/>
+<hi rendition="#et">binden.</hi></l></lg></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Der</hi></fw><lb/>
+<pb facs="#f0077"/>
+<div n="2"><head><hi rendition="#fr">Der<lb/>
+Hundert und Drey und viertzigſte<lb/>
+als der<lb/>
+Siebende Buſs-Pſalm.</hi></head><lb/>
+<lg type="poem"><lg n="1"><head>1.</head><lb/>
+<l><hi rendition="#k"><hi rendition="#in">H</hi>err</hi>/ umb deiner groſſen Guͤtte</l><lb/>
+<l>hoͤr’ uͤmb was ich ſeufz und bitte:</l><lb/>
+<l>Nihm umb deines Bundes an/</l><lb/>
+<l>was ich klaͤglich flehen kan.</l><lb/>
+<l>Rette mich durch dein Erbarmen/</l><lb/>
+<l>uͤmb der Zuflucht aller armen:</l><lb/>
+<l>Hilff mir umb der ſchweren Pein/</l><lb/>
+<l>denn Du biſt mein Troſt allein.</l></lg><lb/>
+<lg n="2"><head>2.</head><lb/>
+<l>Lade/ was ich wirk’ und tichte</l><lb/>
+<l>nicht ſo eifrig vor Gerichte;</l><lb/>
+<l>denn Du bleibeſt Herr/ ich Knecht:</l><lb/>
+<l>deine Straaf’ iſt gutt und recht:</l><lb/>
+<l>Jedoch ſchenke meinem Hertzen/</l><lb/>
+<l>Dein’ Erloͤſung vor die ſchmertzen.</l><lb/>
+<l>Denn kein Menſch/ wie hoch er ſey/</l><lb/>
+<l>iſt vor Dir gerecht und frey.</l></lg><lb/>
+<fw type="sig" place="bottom">D iij</fw><fw type="catch" place="bottom">3. Sie</fw><lb/>
+<pb facs="#f0078"/>
+<lg n="3"><head>3.</head><lb/>
+<l>Siehe/ <hi rendition="#k">Herr</hi> auß ſeiner hoͤlen/</l><lb/>
+<l>ziehlt der Feind mir nach der Seelen:</l><lb/>
+<l>Ach mein leben ſenkt er ein/</l><lb/>
+<l>wo der Erden todte ſeyn:</l><lb/>
+<l>der anfechtung ihre Waffen</l><lb/>
+<l>wollen mich zu tode ſtraafen.</l><lb/>
+<l>In die Grube wirfft er mich/</l><lb/>
+<l>wo nichts iſt als Nacht und ich.</l></lg><lb/>
+<lg n="4"><head>4.</head><lb/>
+<l>Nein/ ich liege nicht in Kethen/</l><lb/>
+<l>die von Menſchen ab zubaͤten:</l><lb/>
+<l>dieſe Grub’ auß der ich ſchrey/</l><lb/>
+<l>iſt von Huͤlff’ und Rettung frey.</l><lb/>
+<l>Ich empfind’ in meinen Plagen/</l><lb/>
+<l>Eiſen/ die verdam̃te tragen:</l><lb/>
+<l>Mir giebt/ <hi rendition="#k">GOtt</hi> der laͤſt es zu/</l><lb/>
+<l>die Verzweifftung ſelbſt nicht ruh.</l></lg><lb/>
+<lg n="5"><head>5.</head><lb/>
+<l>Schmertzen haben mein Gewiſſen/</l><lb/>
+<l><supplied>gr</supplied>auſam durch und durch zuriſſen:</l><lb/>
+<l>Mein Gemuͤtt’ iſt außgezehrt/</l><lb/>
+<l><supplied>an</supplied>gedorrt und umbgekehrt:</l><lb/>
+<fw type="catch" place="bottom">Angſt</fw><lb/>
+<pb facs="#f0079"/>
+<l>Angſt und ſchrekken umern Flammen/</l><lb/>
+<l>zwingen meinen Geiſt zuſammen:</l><lb/>
+<l>und mein Hertz iſt als ein Stein.</l><lb/>
+<l>kan nicht mehr umb Huͤlffe ſchreyn.</l></lg><lb/>
+<lg n="6"><head>6.</head><lb/>
+<l>Ich gedenk’ auf allen ſeiten/</l><lb/>
+<l>an der alten ihre Zeiten</l><lb/>
+<l>Ich erzehle Wiegen-an</l><lb/>
+<l>was GOtt uͤberall gethan:</l><lb/>
+<l>Seine Werke/ ſeine Sorgen/</l><lb/>
+<l>hat Er vor mir nicht verborgen:</l><lb/>
+<l>ſeinen Wundern ſinn’ ich nach</l><lb/>
+<l>durch die Er mir Heyl verſprach.</l></lg><lb/>
+<lg n="7"><head>7.</head><lb/>
+<l>Alles haſt du <hi rendition="#k">Herr</hi> gegeben/</l><lb/>
+<l>daß Wir Leben/ ſind und weben:</l><lb/>
+<l>Sonder mich ward ich geborn/</l><lb/>
+<l>da als Du mich haſt erkohrn:</l><lb/>
+<l>Sonder mich werd’ ich erhalten/</l><lb/>
+<l>Sonder mich/ <hi rendition="#k">Herr</hi>/ kanſt du walten:</l><lb/>
+<l>ſolteſt du dann ſonder mich/</l><lb/>
+<l>meiner nicht erbarmen dich?</l></lg><lb/>
+<fw type="sig" place="bottom">D v</fw><fw type="catch" place="bottom">8. Zu</fw><lb/>
+<pb facs="#f0080"/>
+<lg n="8"><head>8.</head><lb/>
+<l>Zu Dir heb’ ich Hertz’ und Armen/</l><lb/>
+<l>biß daß du dich wirſt erbarmen:</l><lb/>
+<l>Seel’ und Augen voll begier/</l><lb/>
+<l>richt’ ich lieber GOtt/ zu Dir.</l><lb/>
+<l>Wie die Erde vor der Hitzen</l><lb/>
+<l>hefftig pfleget auf zu ritzen:</l><lb/>
+<l>alſo ſpringt durch mein geſchrey</l><lb/>
+<l>mir Gemuͤtt’ und Bruſt entzwey:</l></lg><lb/>
+<lg n="9"><head>9.</head><lb/>
+<l>Eil’/ ach eile mich zu hoͤren/</l><lb/>
+<l>gleich den alten/ die mich lehren:</l><lb/>
+<l>Siehe Seel’ und Leben hin</l><lb/>
+<l>vor der quaal von hinnen zihn:</l><lb/>
+<l><hi rendition="#k">Herr</hi>/ ich kan doch nicht bezahlen/</l><lb/>
+<l>darumb ſende Gnaden-ſtrahlen:</l><lb/>
+<l>ſonſten muß ich voller Pein</l><lb/>
+<l>ewig in dem Sumpffe ſchreyn.</l></lg><lb/>
+<lg n="10"><head>10.</head><lb/>
+<l>Kehre mir ja nicht denn Ruͤkken:</l><lb/>
+<l>weil Du meinen ſo wilt druͤkken:</l><lb/>
+<l>laß mich doch dein’ Augen ſchn/</l><lb/>
+<l>druͤber mein’ inbruͤnſtig flehn:</l><lb/>
+<fw type="catch" place="bottom">hilff</fw><lb/>
+<pb facs="#f0081"/>
+<l>hilff mir <hi rendition="#k">Herr</hi> durch deinen Seegen/</l><lb/>
+<l>nicht von meiner Suͤnden wegen:</l><lb/>
+<l>mache/ was der Reu gebricht/</l><lb/>
+<l>Vater/ gutt durch deine Pflicht.</l></lg><lb/>
+<lg n="11"><head>11.</head><lb/>
+<l>Saͤume nicht an mich zu denken/</l><lb/>
+<l>biß der Abend ſich wird ſaͤnken:</l><lb/>
+<l>GOtt mein Troſt/ errette mich/</l><lb/>
+<l>Tag und Nacht wart ich auf dich:</l><lb/>
+<l>Zeige mir/ <hi rendition="#k">Herr</hi>/ deinen willen/</l><lb/>
+<l>meine quaal und angſt zuſtillen:</l><lb/>
+<l>mein Gemuͤth’ ach! laß es fuͤr/</l><lb/>
+<l>ſteiget durch dein Heil zu Dir.</l></lg><lb/>
+<lg n="12"><head>12.</head><lb/>
+<l>Scharre/ zeit iſt es zu eilen/</l><lb/>
+<l>mich-fuͤr unter dieſen Pfeilen.</l><lb/>
+<l>Schaue wie der Feind mich ſchrekkt/</l><lb/>
+<l>und mit Wunden uͤberdekkt.</l><lb/>
+<l>Laß mich/ ich bin gantz verblichen/</l><lb/>
+<l>unter deine Fluͤgel kriechen:</l><lb/>
+<l><hi rendition="#k">Herr</hi> laß vor Dir/ meiner Pein</l><lb/>
+<l>nicht dein Heil verborgen ſeyn.</l></lg><lb/>
+<fw type="catch" place="bottom">13. Leh</fw><lb/>
+<pb facs="#f0082"/>
+<lg n="13"><head>13.</head><lb/>
+<l>Lehre mich/ Dich laß’ ich walten/</l><lb/>
+<l>treuer Hort/ dein Wort behalten;</l><lb/>
+<l>deines gutten Geiſtes pflicht/</l><lb/>
+<l>ſey/ <hi rendition="#k">Herr</hi>/ meine Zuverſicht:</l><lb/>
+<l>deine gnad’ in allen Werken/</l><lb/>
+<l>laß/ <hi rendition="#aq">ô</hi> GOtt mich immer ſtaͤrken.</l><lb/>
+<l>Daß ich inner Angſt und Weh’</l><lb/>
+<l>ſtets gerade zu Dir geh’.</l></lg><lb/>
+<lg n="14"><head>14.</head><lb/>
+<l>Ach es dient zu deinen Ehren/</l><lb/>
+<l>wilt du mich auß gnaden hoͤren:</l><lb/>
+<l>GOtt/ umb deines Namens Treu/</l><lb/>
+<l>ſchaff in mir mein Leben neu/</l><lb/>
+<l>bade/ deines Wortes wegen/</l><lb/>
+<l>meine Seel’ in deinem Seegen.</l><lb/>
+<l>Scharr’ umb deiner Guͤtte Du</l><lb/>
+<l>meine Feind’ im Graabe zu.</l></lg><lb/>
+<lg n="15"><head>15.</head><lb/>
+<l>Nun/ Du <hi rendition="#k">Herr</hi>/ Du wirſt ſie faͤllen/</l><lb/>
+<l><supplied>d</supplied>ie mir nach der Seelen ſtellen</l><lb/>
+<fw type="catch" place="bottom">Ja</fw><lb/>
+<pb facs="#f0083"/>
+<l>Ja ſie ſollen unterm flehn/</l><lb/>
+<l>in mir deine Langmuth ſehn;</l><lb/>
+<l><hi rendition="#k">Herr</hi>/ wann mir dein Heil erſchienen/</l><lb/>
+<l>wil ich <hi rendition="#fr">D</hi>ir zum Lobe dienen:</l><lb/>
+<l>Nun ich bin dein Knecht/ <hi rendition="#aq">ô</hi> GOtt/</l><lb/>
+<l>drumb iſt mir dein Beyſtand Noth.</l></lg></lg><lb/>
+<figure/></div></div>
+<pb facs="#f0084"/>
+</body><back> <milestone unit="section" rendition="#hr"/><lb/>
+<div type="postface"><head><hi rendition="#c"><hi rendition="#aq">Typographus ad Lectorem.</hi></hi><lb/>
+</head> <p><hi rendition="#fr"><hi rendition="#in">D</hi>Er liebhabende Leſer gehabe ſich wohl<lb/>
+mit dieſer Buſſe/ und erwarte ehe-<lb/>
+ſtes (wo <hi rendition="#g"><hi rendition="#k">GOtt</hi></hi> wil) andere eben des<lb/>
+<hi rendition="#aq">Autoris</hi> gleicher Art Geiſtl: und Welt-<lb/>
+liche Getichte.</hi></p><lb/>
+</div><figure/><lb/>
+<pb facs="#f0085"/>
+<pb facs="#f0086"/>
+<pb facs="#f0087"/>
+<pb facs="#f0088"/>
+<pb facs="#f0089"/>
+<pb facs="#f0090"/>
+<pb facs="#f0091"/>
+<pb facs="#f0092"/>
+<pb facs="#f0093"/>
+</back> </text> </TEI>

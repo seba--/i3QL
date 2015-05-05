@@ -1,0 +1,1377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Die electrische Telegraphie</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118614088">
+<surname>Siemens</surname>
+<forename>Werner von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">49</measure>
+<measure type="tokens">9395</measure>
+<measure type="types">2549</measure>
+<measure type="characters">71590</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:18Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/siemens_telegraphie_1866</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/siemens_telegraphie_1866</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/siemens_telegraphie_1866</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/siemens_telegraphie_1866</idno>
+<idno type="DTADirName">siemens_telegraphie_1866</idno>
+<idno type="DTAID">17136</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905195720</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="DM">Siemens, Werner von: Die electrische Telegraphie. Berlin, 1866.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Die electrische Telegraphie</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118614088">
+<surname>Siemens</surname>
+<forename>Werner von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">40 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Lüderitz</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1866</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Ag 9016-13/24</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=530830701</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Technik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Technik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<titlePage type="series"> <docTitle> <titlePart type="main"> <hi rendition="#b">Sammlung<lb/>
+gemeinverſtändlicher<lb/>
+wiſſenſchaftlicher Vorträge</hi></titlePart> </docTitle><lb/>
+<lb/>
+<byline>herausgegeben von<lb/>
+<docAuthor> <hi rendition="#b">Rud. Virchow</hi></docAuthor> und <docAuthor> <hi rendition="#b">Fr. v. Holtzendorff.</hi></docAuthor> </byline><lb/>
+<titlePart type="volume"> <hi rendition="#b">Heft 22.</hi></titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace>Berlin,</pubPlace> <docDate>1866.</docDate><lb/>
+<publisher>C. G. Lüderitz'ſche Verlagsbuchhandlung.<lb/>
+A. <hi rendition="#g">Chariſius</hi>. </publisher><lb/>
+</docImprint> </titlePage>
+<pb facs="#f0009"/>
+<titlePage type="main"> <docTitle> <titlePart type="main">Die<lb/>
+<hi rendition="#b">electriſche Telegraphie.</hi></titlePart> </docTitle><lb/>
+<byline>Von<lb/>
+<docAuthor> <hi rendition="#aq #b">Dr</hi><hi rendition="#b">. W. Siemens.</hi></docAuthor> </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace>Berlin,</pubPlace> <docDate> <hi rendition="#aq">1866</hi>.</docDate><lb/>
+<publisher>C. G. Lüderitz' ſche Verlagsbuchhandlung.<lb/>
+A. <hi rendition="#g">Chariſius</hi>.<lb/>
+</publisher> </docImprint> </titlePage>
+<pb facs="#f0010"/>
+<div type="imprint"> <p rendition="#c">Das Recht der Ueberſetzung in fremde Sprachen wird vorbehalten.</p> </div><lb/>
+</front> <body> <div n="1">
+<pb facs="#f0011"/>
+<p> <hi rendition="#in">D</hi>ie electriſche Telegraphie oder die Fernſchreibekunſt, von<lb/>
+dem griechiſchen <hi rendition="#aq">tele</hi> — fern — und <hi rendition="#aq">graphein</hi> — ſchreiben — ſo<lb/>
+genannt, iſt gänzlich ein Kind unſeres an großen Entdeckungen<lb/>
+und tief in das ſociale Leben der Menſchheit eingreifenden Erfin¬<lb/>
+dungen ſo reichen Jahrhunderts. Es finden ſich zwar ſchon ältere<lb/>
+Mittheilungen über Vorſchläge oder Einrichtungen, um mit<lb/>
+Hülfe der damals allein bekannten Reibungselectricität Nach¬<lb/>
+richten aus einem Zimmer in ein benachbartes zu ſenden, doch<lb/>
+waren das unfruchtbare electriſche Spielereien, die man nicht<lb/>
+als den erſten Schritt zur jetzigen electriſchen Telegraphie an¬<lb/>
+ſehen kann.</p><lb/>
+<p>Erſt die wichtigen Entdeckungen der italieniſchen Gelehr¬<lb/>
+ten <hi rendition="#g">Galvani</hi> und <hi rendition="#g">Volta</hi> am Schluß des vorigen Jahrhunderts<lb/>
+führten zur Kenntniß des dauernden electriſchen oder galvani¬<lb/>
+ſchen Stromes und ſchufen dadurch die Grundlage des electri¬<lb/>
+ſchen Telegraphen. <hi rendition="#g">Aleſſandro Volta</hi>, welcher zuerſt erkannte,<lb/>
+daß verſchiedene Metalle durch Berührung entgegengeſetzt elec¬<lb/>
+triſch werden, und daß die vermittelſt eines kupfernen Hakens<lb/>
+am Eiſengitter aufgehängten Froſchſchenkel <hi rendition="#g">Galvani's</hi> deswegen<lb/>
+zuckten, weil ein electriſcher Strom ſie durchlief, welcher ferner<lb/>
+durch dieſe Erkenntniß zur Conſtruction der galvaniſchen Kette<lb/>
+geführt wurde und uns mit wichtigen Eigenſchaften des durch<lb/>
+ſie erzielten dauernden galvaniſchen Stromes bekannt machte,<lb/>
+verdient mithin mit Recht, als der eigentliche Stammvater des<lb/>
+electriſchen Telegraphen genannt zu werden.<lb/>
+</p>
+<pb n="6" facs="#f0012"/>
+<p>Aus dem Vortrage des <hi rendition="#aq">Dr</hi>. <hi rendition="#g">Roſenthal</hi> im 9. Hefte dieſer<lb/>
+Sammlung, welchen ich im Nachſtehenden als bekannt voraus¬<lb/>
+ſetze, iſt erſichtlich, daß eine dieſer Eigenſchaften des electriſchen<lb/>
+Stromes darin beſteht, daß er beim Durchgange durch geſäuer¬<lb/>
+tes Waſſer dieſes in ſeine chemiſchen Beſtandtheile — Sauer¬<lb/>
+ſtoff und Waſſerſtoff — zerſetzt. Schon wenige Jahre, nach¬<lb/>
+dem Volta's Entdeckungen bekannt geworden waren, im Jahre<lb/>
+1808, machte der Münchener Arzt <hi rendition="#aq">Dr</hi>. <hi rendition="#g">Sömmering</hi> den Vor¬<lb/>
+ſchlag, dieſe Eigenſchaft des electriſchen Stromes zur Herſtel¬<lb/>
+lung einer electriſchen Telegraphenverbindung entfernter Orte<lb/>
+zu benutzen. Er wollte die beiden Orte durch ſo viele iſolirte<lb/>
+d. h. von einander und vom Erdboden überall durch Nichtlei¬<lb/>
+ter der Electricität getrennte Metalldrähte verbinden, als das<lb/>
+Alphabet Buchſtaben enthält. An jedem Orte ſollte ein mit<lb/>
+geſäuertem Waſſer gefülltes Glasgefäß und eine Klaviatur auf¬<lb/>
+geſtellt werden. Die Flüſſigkeiten der beiden Glasgefäße ſtan¬<lb/>
+den durch einen beſonderen Draht, deſſen Enden in das Waſ¬<lb/>
+ſer tauchten, in leitender Verbindung mit einander. Außerdem<lb/>
+waren in jedem der Glasgefäße 26 Goldſpitzen angebracht, von<lb/>
+denen jede mit einem Buchſtaben des Alphabets deutlich be¬<lb/>
+zeichnet war. Die gleichbezeichneten Spitzen ſtanden durch einen<lb/>
+der Drähte in leitender Verbindung mit einander. Setzte man<lb/>
+nun an einem der beiden Orte einen der zwei Spitzen mit ein¬<lb/>
+ander verbindenden Drähte durch Niederdrücken der gleichbe¬<lb/>
+zeichneten Taſte der Klaviatur mit dem einen Pole einer gal¬<lb/>
+vaniſchen Kette oder Batterie in leitende Verbindung, deren<lb/>
+anderen Pol mit dem 27. Drahte, welcher die in den Gefäßen<lb/>
+befindlichen Flüſſigkeiten leitend verband, in Verbindung: ſo<lb/>
+mußte ein electriſcher Strom entſtehen, welcher von dem einen<lb/>
+Pol der Batterie ausging, den Draht bis zur anderen Station<lb/>
+durchlief, dort von der Goldſpitze durch das Waſſer zum ge¬<lb/>
+meinſchaftlichen Rückleitungsdraht und durch dieſen zum ande¬<lb/>
+<pb n="7" facs="#f0013"/>
+ren Pole der Batterie zurückkehrte. Es begann dann eine Ent¬<lb/>
+wickelung von Gasbläschen an der betreffenden Goldſpitze, wor¬<lb/>
+aus der Beobachter erkennen konnte, welche Taſte ſein Korre¬<lb/>
+ſpondent niedergedrückt hatte, welchen Buchſtaben er ihm mit¬<lb/>
+hin bezeichnen wollte. Dieſer brauchte alſo nur in langſamer<lb/>
+Reihenfolge die zu machende Mittheilung durch Niederdrücken<lb/>
+der entſprechenden Taſten abzubuchſtabiren, um ſie ihm ver¬<lb/>
+ſtändlich zu machen.</p><lb/>
+<p>Sömmering ſtellte dieſen erſten electriſchen Telegraphen<lb/>
+der Münchener Academie vor. Zur practiſchen Anwendung iſt<lb/>
+er aber nicht gekommen, da die große Zahl der nöthigen Drähte,<lb/>
+die Schwierigkeit ihrer Iſolation und auch wohl die Neuheit<lb/>
+der Sache vor der Ausführung zurückſchreckten. Demohngeachtet<lb/>
+gebührt <hi rendition="#g">Sömmering</hi> das Verdienſt, zuerſt den großen practi¬<lb/>
+ſchen Nutzen erkannt zu haben, welchen die Entdeckung <hi rendition="#g">Volta'</hi>s<lb/>
+der Menſchheit zu bringen im Stande war, und man kann ihn<lb/>
+daher den Erfinder des electriſchen Telegraphen nennen.</p><lb/>
+<p>Das größte Hinderniß der Anwendung des Sömmering'¬<lb/>
+ſchen Telegraphen beſtand jedenfalls in der großen Zahl von<lb/>
+Drähten, welcher er bedurfte. Profeſſor <hi rendition="#g">Schweigger</hi> in Er¬<lb/>
+langen ſchlug daher vor, anſtatt der 26 Goldſpitzen nur zwei<lb/>
+zu nehmen und dieſe durch zwei Leitungsdrähte mit einander<lb/>
+zu verbinden. Mit Hülfe einer paſſenden mechaniſchen Vor¬<lb/>
+richtung ſollte derjenige, welcher eine telegraphiſche Mittheilung<lb/>
+machen wollte, im Stande ſein, ſeine Batterie in der einen<lb/>
+oder anderen Richtung zwiſchen die beiden Drähte zu bringen,<lb/>
+d. h. entweder den poſitiven oder Kupferpol der Batterie mit<lb/>
+dem erſten, und den negativen oder Zinkpol mit dem zweiten<lb/>
+Drahte in leitende Verbindung zu bringen, oder umgekehrt den<lb/>
+poſitiven mit dem zweiten und den Zinkpol mit dem erſten.<lb/>
+Da bekanntlich das Waſſerſtoffgas, welches ſich an derjenigen<lb/>
+Goldſpitze entwickelt, die mit dem negativen Batteriepole<lb/>
+<pb n="8" facs="#f0014"/>
+verbunden iſt, einen doppelt ſo großen Raum einnimmt, wie<lb/>
+das gleichzeitig an der anderen Goldſpitze entwickelte Sauer¬<lb/>
+ſtoffgas, ſo konnte ein aufmerkſamer Beobachter der beiden<lb/>
+Spitzen aus der größeren Zahl von Gasbläschen, die ſich an<lb/>
+der einen oder anderen Spitze bildeten, erkennen, mit welcher<lb/>
+ſein Korreſpondent den negativen Pol ſeiner Batterie verbun¬<lb/>
+den hatte. <hi rendition="#g">Schweigger</hi> ſchlug nun vor, man ſolle ſich über<lb/>
+ein Alphabet vereinbaren, in welchem jeder Buchſtabe durch<lb/>
+eine beſtimmte Reihenfolge von Gasentwickelungen der beiden<lb/>
+Arten — alſo ſtärkerer Gasentwickelung an der erſten oder an<lb/>
+der zweiten Spitze — bezeichnet würde. Hatte ſowohl der Ge¬<lb/>
+ber der telegraphiſchen Mittheilung wie der Empfänger dies<lb/>
+Alphabet im Kopfe, ſo konnte mit Hülfe zweier Dräthe daſſelbe<lb/>
+erreicht werden, was Sömmering mit 27 Drähten erzielte.</p><lb/>
+<p>Eine practiſche Folge konnte der Vorſchlag Schweigger's<lb/>
+damals ſo wenig wie der Sömmering's haben, da die Kennt¬<lb/>
+niß der Geſetze des galvaniſchen Stromes noch zu unvollſtän¬<lb/>
+dig und die Technik noch nicht weit genug vorgeſchritten war,<lb/>
+um alle ſich der Ausführung entgegenſtellenden Schwierigkeiten<lb/>
+überwinden zu können. Er war aber inſofern von großer Wich¬<lb/>
+tigkeit, als er zuerſt zeigte, daß man vermittelſt eines einzigen<lb/>
+Leitungskreiſes durch zuſammengeſetzte Zeichen für die einzelnen<lb/>
+Buchſtaben oder andere telegraphiſche Signale vollſtändige te¬<lb/>
+legraphiſche Mittheilungen machen könnte.</p><lb/>
+<p>Eine zweite Periode der allmähligen Entwicklung der elec¬<lb/>
+triſchen Telegraphie knüpft ſich an die Entdeckung Oerſted's<lb/>
+in Kopenhagen im Jahre 1820. Oerſted fand, daß der elec¬<lb/>
+triſche Strom die frei ſchwebende Magnetnadel ablenkt, wenn<lb/>
+er parallel mit derſelben über oder unter ihr fortgeführt wird,<lb/>
+und daß die Richtung dieſer Ablenkung abhängig iſt von der<lb/>
+Richtung des electriſchen Stromes.</p><lb/>
+<p>Hierdurch war ein neues Mittel gegeben, das Vorhanden¬<lb/>
+<pb n="9" facs="#f0015"/>
+ſein und die Richtung eines electriſchen Stromes in einem<lb/>
+Drahte zu erkennen. <hi rendition="#g">Amp</hi> <hi rendition="#aq #g">è</hi> <hi rendition="#g">re</hi> in Paris, welcher dieſe Eigen¬<lb/>
+ſchaft des electriſchen Stromes näher ſtudirte, machte auch be¬<lb/>
+reits im Jahre 1820 den Vorſchlag, die Ablenkung der Mag¬<lb/>
+netnadel anſtatt der Waſſerzerſetzung zur Conſtruction eines<lb/>
+electriſchen Telegraphen zu benutzen. Er ſchlug vor, an der<lb/>
+entfernten Station ſo viele Magnetnadeln aufzuhängen, wie das<lb/>
+Alphabet Buchſtaben hat. Unter jeder Nadel ſollte ein Draht<lb/>
+fortgeführt werden, welcher zur anderen Station und zurück<lb/>
+ging und durch den man mit Hülfe einer Klaviatur electriſche<lb/>
+Ströme ſenden könnte. Die Nadeln ſollten leichte Schirme<lb/>
+tragen, welche die dahinter ſtehenden Buchſtaben verdeckten.<lb/>
+Wurden die Nadeln nach einander abgelenkt, ſo wurden die<lb/>
+bisher verdeckten Buchſtaben in gleicher Reihenfolge ſichtbar<lb/>
+und man brauchte ſie nur abzuleſen, um die Nachricht zu er¬<lb/>
+fahren.</p><lb/>
+<p>Fechner in Leipzig beſchäftigte ſich mit der Vereinfachung<lb/>
+dieſes Vorſchlages in gleichem Sinne, wie Schweigger den<lb/>
+Sömmering'ſchen Vorſchlag modificirte. Er wollte nur zwei<lb/>
+Drähte und eine Magnetnadel verwenden und die Ablenkungen<lb/>
+derſelben nach rechts und links als Elementarzeichen verwenden,<lb/>
+aus welchen ein Alphabet zuſammengeſetzt werden ſollte. Schweig¬<lb/>
+ger und Poggendorff hatten damals bereits gefunden, daß die<lb/>
+Kraft, mit der der über oder unter der Magnetnadel gleich¬<lb/>
+laufend mit ihr fortgeführte electriſche Strom dieſelbe ablenkt,<lb/>
+ſich bedeutend dadurch verſtärken läßt, daß man den Draht in<lb/>
+vielen Windungen in gleicher Richtung um die Nadel herum¬<lb/>
+führt. Um dies ausführen zu können, ohne der Electricität<lb/>
+Gelegenheit zu geben, von einer Windung zur anderen über¬<lb/>
+zugehen, wurde der Umwindungsdraht dicht mit Seide um¬<lb/>
+ſponnen. Da die Seide den electriſchen Strom nicht leitet,<lb/>
+alſo ein Iſolator für Electricität iſt, ſo konnte die Electricität<lb/>
+<pb n="10" facs="#f0016"/>
+nicht direct von einer Windung zur anderen übergehen, mußte<lb/>
+ſie mithin alle der ganzen Länge nach durchlaufen. Mit Hülfe<lb/>
+eines ſolchen Schweigger'ſchen Multiplicators iſt ſchon ein ſehr<lb/>
+ſchwacher Strom befähigt, eine Magnetnadel ſchnell und kräf¬<lb/>
+tig abzulenken. Fechner erwies hieraus die Möglichkeit, auch<lb/>
+weit von einander entfernte Orte telegraphiſch mit einander zu<lb/>
+verbinden, und berechnete die Zahl und Größe der Platten¬<lb/>
+paare oder Zellen, welche die Batterie zu dem Zwecke haben<lb/>
+mußte.</p><lb/>
+<p>Es war hiermit die wiſſenſchaftliche Grundlage für einen<lb/>
+brauchbaren electriſchen Telegraphen gegeben und in der That<lb/>
+ſind die noch jetzt an vielen Orten, namentlich in England, in<lb/>
+Gebrauch befindlichen Nadeltelegraphen im Weſentlichen mit<lb/>
+Fechner's Vorſchlage übereinſtimmend.</p><lb/>
+<p>Eine dritte Periode der Entwickelung der Telegraphie<lb/>
+knüpft ſich an die Entdeckungen <hi rendition="#g">Arago's</hi> in Paris und <hi rendition="#g">Fara¬<lb/>
+day's</hi> in London. <hi rendition="#g">Arago</hi> fand, daß der electriſche Strom be¬<lb/>
+nachbartes Eiſen magnetiſch macht, daß gehärteter Stahl den<lb/>
+in ihm ſo erzeugten Magnetismus größtentheils dauernd behält,<lb/>
+weiches Eiſen ihn jedoch ſofort faſt vollſtändig wieder verliert,<lb/>
+wenn der electriſche Strom aufhört. Dieſe Wirkung tritt be¬<lb/>
+ſonders kräftig auf, wenn man den Strom wie beim Schweig¬<lb/>
+ger'ſchen Multiplicator, in vielen Windungen um einen Eiſen¬<lb/>
+ſtab herumlaufen läßt. Der Eiſenſtab wird dadurch ein kräf¬<lb/>
+tiger Magnet, welcher benachbartes Eiſen anzieht. Wird die<lb/>
+leitende Verbindung des Umwindungsdrahtes mit den Polen<lb/>
+der Batterie irgendwo unterbrochen, ſo hört auch der Magne¬<lb/>
+tismus des Eiſenſtabes auf und dieſer läßt das angezogene<lb/>
+Eiſen wieder fallen. Die beſchriebene Wirkung eines ſolchen<lb/>
+Electromagnetes iſt beſonders kräftig, wenn man dem mit iſo¬<lb/>
+lirtem Draht umwundenen Eiſenſtabe die Form eines Hufeiſens<lb/>
+<pb n="11" facs="#f0017"/>
+giebt und deſſen beide End- oder Polflächen der anzuziehenden<lb/>
+Eiſenplatte gegenüberſtellt.</p><lb/>
+<p>Ebenſo wichtig iſt die Entdeckung <hi rendition="#g">Faraday's</hi>. Wenn<lb/>
+man zwei Metalldrähte gleichlaufend in geringer Entfernung<lb/>
+von einander ausſpannt und die Enden des einen Drahtes<lb/>
+in einem weiten Bogen mit einander verbindet, ſo entſteht<lb/>
+in dieſem ein kurzer electriſcher Strom, wenn man die Enden<lb/>
+des anderen Drahtes mit den Polen einer galvaniſchen Bat¬<lb/>
+terie verbindet, alſo einen electriſchen Strom in ihm er¬<lb/>
+zeugt. So lange dieſer Strom fortdauert, bemerkt man keinen<lb/>
+Strom in dem Nebendrahte, unterbricht man ihn aber, ſo entſteht<lb/>
+im Nebendrahte wieder ein kurzer Strom von gleicher Stärke<lb/>
+wie der erſte war, aber von entgegengeſetzter Richtung. Man<lb/>
+drückt dies auch ſo aus, daß ein electriſcher Strom beim Ent¬<lb/>
+ſtehen in benachbarten Leitern einen kurzen Strom von entge¬<lb/>
+gengeſetzter, beim Aufhören einen eben ſolchen Strom von glei¬<lb/>
+cher Richtung erzeugt oder inducirt. Eben ſolche vorübergehende<lb/>
+Ströme wechſelnder Richtung werden in Leitern der Electrici¬<lb/>
+tät durch entſtehenden und verſchwindenden Eiſen- oder Stahl¬<lb/>
+magnetismus hervorgebracht. Beſonders kräftig tritt dieſe Er¬<lb/>
+ſcheinung auf, wenn man eine Rolle aus überſponnenen Kup¬<lb/>
+ferdraht auf eine magnetiſche Stahlſtange ſteckt oder den Stahl¬<lb/>
+magnet ſchnell aus ihr herauszieht. Man kann aber auch ſtatt<lb/>
+deſſen eine Stange von weichem Eiſen in der Drahtrolle ſtecken<lb/>
+laſſen und die Stange auf die vorher beſchriebene Weiſe durch<lb/>
+den electriſchen Strom einer galvaniſchen Kette magnetiſiren<lb/>
+und durch Unterbrechung der Kette den Magnetismus wieder<lb/>
+verſchwinden laſſen. In beiden Fällen erhält man in der Draht¬<lb/>
+rolle kurze Ströme wechſelnder Richtung, welche man inducirte<lb/>
+oder auch magneto-electriſche Ströme nennt.</p><lb/>
+<p> <hi rendition="#g">Gauß</hi> und <hi rendition="#g">Weber</hi> in Göttingen benutzten dieſe Entdeckung<lb/>
+Faraday's zur Conſtruction eines electriſchen Telegraphen. Der¬<lb/>
+<pb n="12" facs="#f0018"/>
+ſelbe unterſchied ſich von den bisherigen weſentlich dadurch, daß<lb/>
+die electriſchen Ströme nicht durch eine galvaniſche Batterie, ſon¬<lb/>
+dern durch Stahlmagnete erzeugt wurden. Im übrigen befolgten<lb/>
+ſie den Vorſchlag <hi rendition="#g">Fechner's</hi>, nur einen Leitungskreis anzuwen¬<lb/>
+den und das Alphabet aus Gruppen zweier Elementarzeichen,<lb/>
+der Nadelablenkung nach rechts und nach links, zuſammenzu¬<lb/>
+ſetzen. Anſtatt der leichten Magnetnadel wandten Gauß und<lb/>
+Weber jedoch einen ſtärkeren Magnetſtab mit einem kleinen<lb/>
+Spiegel an, in welchem ſie das Bild eines beleuchteten Maß¬<lb/>
+ſtabes mit enger Theilung vermittelſt eines Fernrohrs beobach¬<lb/>
+teten. Da hiermit auch die kleinſte Drehung des an einem<lb/>
+Seidenfaden aufgehängten Magnetſtabes deutlich zu erkennen<lb/>
+war, ſo brauchte die an dem andern Orte zwiſchen den Polen<lb/>
+zweier kräftiger Magnetſtäbe aufgeſtellte Drahtrolle, welche<lb/>
+mit den dortigen Enden der beiden Leitungsdrähte verbunden<lb/>
+war, nur ein wenig nach dem einen oder andern Magnetpol<lb/>
+hin- und wieder zurückbewegt zu werden, um ein deutliches Zucken<lb/>
+des Maßſtabes im Spiegel nach rechts oder links ſichtbar zu<lb/>
+machen.</p><lb/>
+<p>Dieſer Telegraph von Gauß und Weber verdient noch des¬<lb/>
+wegen beſondere Beachtung, weil er zuerſt wirklich ausgeführt<lb/>
+wurde und vom Jahre 1833 bis zum Jahre 1844 zur telegra¬<lb/>
+phiſchen Verbindung zwiſchen dem magnetiſchen Obſervatorium<lb/>
+in Göttingen und der Sternwarte diente. In dieſem Jahre<lb/>
+ſchlug ein Blitz in dieſe erſte über die Stadt Göttingen fort¬<lb/>
+geführte Leitung und zerſtörte ſie vollſtändig.</p><lb/>
+<p>Angeregt durch die glänzenden Erfolge Gauß und Weber's,<lb/>
+beſchäftigte ſich <hi rendition="#g">Steinheil</hi> in München mit der practiſchen Aus¬<lb/>
+bildung des electriſchen Telegraphen. Seine Telegraphenanlage,<lb/>
+welche das Academiegebäude in München mit der in dem be¬<lb/>
+nachbarten Orte Bogenhauſen befindlichen Sternwarte verband<lb/>
+und zwei Zwiſchenſtationen hatte, war im Jahre 1837 vollen¬<lb/>
+<pb n="13" facs="#f0019"/>
+det und ſomit die zweite, welche wirklich ins Leben trat. Stein¬<lb/>
+heil bediente ſich ebenfalls der durch Stahlmagnete erzeugten<lb/>
+oder magneto-electriſchen Ströme anſtatt der galvaniſchen. Bei<lb/>
+den empfangenden Apparaten führte er den Multiplicatordraht<lb/>
+um 2 kleine, ſo hinter einander ſtehende, Magnetnadeln, daß<lb/>
+der Südpol der einen und der Nordpol der andern einander<lb/>
+ſehr nahe ſtanden. Ging mithin ein electriſcher Strom durch<lb/>
+die Leitung und den Multiplicatordraht, welcher in ſie einge¬<lb/>
+ſchaltet war, alſo einen Theil derſelben bildete, ſo wurden<lb/>
+beide Nadeln in gleichem Sinne nach rechts oder links — je<lb/>
+nach der Richtung des Stromes — gedreht, es trat mithin<lb/>
+immer eins der benachbarten Enden derſelben aus dem Multi¬<lb/>
+plicator hervor, während das andere ſich zurückbewegte. Stein¬<lb/>
+heil verſah nun dieſe mittleren Nadelenden mit kleinen Farbe¬<lb/>
+behältern, die an der äußeren Seite fein durchbohrte Spitzen<lb/>
+hatten. Vor dieſen Spitzen ward durch ein Uhrwerk ein<lb/>
+Papierſtreifen vorbeigeführt. Wurde nun eine Depeſche ge¬<lb/>
+geben, ſo berührte die eine oder andere Spitze, je nachdem<lb/>
+ein poſitiver oder negativer Strom die Leitung durchlief, das<lb/>
+Papier und hinterließ auf demſelben einen farbigen Punkt.<lb/>
+Die Depeſche wurde auf dieſe Weiſe auf dem Papierſtreifen<lb/>
+niedergeſchrieben. <hi rendition="#g">Steinheil</hi> gebührt daher das Verdienſt,<lb/>
+den erſten Schreibtelegraphen erdacht und practiſch ausgeführt<lb/>
+zu haben. Auch acuſtiſche Signale benutzte Steinheil zuerſt,<lb/>
+indem er den nicht mit einem Farbebehälter verſehenen äu¬<lb/>
+ßeren Enden ſeiner Magnetnadeln kleine Glöckchen von ver¬<lb/>
+ſchiedener Tonhöhe gegenüberſtellte. Dieſelben dienten nicht nur<lb/>
+dazu, die Aufmerkſamkeit des Empfängers zu erregen. Dieſer<lb/>
+konnte auch den Inhalt der Mittheilung durch das Gehör ver¬<lb/>
+ſtehen. Endlich gelang es Steinheil auch, die Zahl der noth¬<lb/>
+wendigen Leitungsdrahte auf einen einzigen herabzuſetzen, in¬<lb/>
+dem er den Schließungskreis des electriſchen Stromes durch<lb/>
+<pb n="14" facs="#f0020"/>
+die Erde ſelbſt vervollſtändigte. Bekanntlich leitet das Waſſer<lb/>
+die Electricität, wenn auch im reinen Zuſtande nur ſchwach.<lb/>
+Verſenkt man daher an jedem Ende einer iſolirten Drahtleitung<lb/>
+eine hinlänglich große Metallplatte in ein offenes Waſſer oder in<lb/>
+den feuchten Erdboden, ſo erſetzt der die Electricität leitende feuchte<lb/>
+Erdboden den zweiten oder Rückleitungsdraht. Da ein Draht<lb/>
+— ſowie jeder andere Leiter — die Electricität um ſo beſſer<lb/>
+leitet, je größer ſein Querſchnitt iſt und der von einer verſtärk¬<lb/>
+ten Platte zur anderen gehende Strom ſich beliebig in der feuch¬<lb/>
+ten Erdrinde ausbreiten kann, ja ſtreng genommen, ſie immer<lb/>
+in allen ihren Theilen durchlaufen muß — ſo vertritt <choice><sic>bie</sic><corr>die</corr></choice> Erde<lb/>
+die Stelle eines Leitungsdrahtes von ungeheurer Dicke, der<lb/>
+alſo ſehr gut leitet, obſchon er aus ſchlecht leitendem Material<lb/>
+beſteht.</p><lb/>
+<p>Gleichzeitig mit Steinheil beſchäftigte ſich auch <hi rendition="#g">Schilling<lb/>
+von Cannſtedt</hi> aus den ruſſiſchen Oſtſeeprovinzen mit der Ver¬<lb/>
+beſſerung des electriſchen Telegraphen. Im Principe war ſein<lb/>
+Telegraph mit dem Fechner'ſchen Vorſchlage übereinſtimmend,<lb/>
+doch führte er mehrere practiſche Verbeſſerungen ein. Nament¬<lb/>
+lich verband er mit ihm einen Wecker, ein Uhrwerk mit Glocken,<lb/>
+welches durch die erſte Ablenkung der Nadel ausgelöſt wurde.</p><lb/>
+<p>Wie aus dem bisherigen erſichtlich, hat der Gedanke des<lb/>
+electriſchen Telegraphen ſich langſam im Laufe eines viertel<lb/>
+Jahrhunderts entwickelt. Jeder wiſſenſchaftlichen Entdeckung,<lb/>
+durch welche beſſere Mittel zu ſeiner Verwirklichung gegeben<lb/>
+wurden, folgten ſofort Vorſchläge zur verbeſſerten Conſtruction<lb/>
+des electriſchen Telegraphen. Es iſt daher die Frage, wer der<lb/>
+eigentliche Erfinder deſſelben iſt, nicht zu beantworten. Die<lb/>
+Erfindung war das Product des Geiſtes unſeres Jahrhunderts,<lb/>
+welcher ſich dadurch ſo weſentlich von allen früheren Jahrhun¬<lb/>
+derten unterſcheidet, daß er auf das Studium der Naturerſchei¬<lb/>
+nungen gerichtet iſt, ihre Geſetze zu ergründen und ſie dem<lb/>
+<pb n="15" facs="#f0021"/>
+Menſchen dienſtbar zu machen ſucht. Wenn auch in älteren<lb/>
+Zeiten ein gleiches Streben vielfach vorhanden war und auch<lb/>
+damals ſchon ein weſentlicher Schatz von Erfahrungen und<lb/>
+Kenntniſſen angeſammelt wurde, ſo blieb derſelbe doch nur im<lb/>
+engen Kreiſe bekannt. Erſt nachdem der Buchdruck erfunden<lb/>
+war und in Folge deſſen der Gedanke oder die Beobachtung<lb/>
+des Einzelnen ſchnell Gemeingut der ganzen gebildeten Welt<lb/>
+wurde, konnte ſich der gewaltige Schatz des Wiſſens und Kön¬<lb/>
+nens anſammeln, welcher den wahren Reichthum des Menſchen¬<lb/>
+geſchlechtes und die unerſchöpfliche Quelle bildet, die ihm mit<lb/>
+jedem Jahre neue Kräfte und neue Mittel zur Verbeſſerung<lb/>
+und Verſchönerung ſeines Daſeins zuführt!</p><lb/>
+<p>Während der Gelehrte die Beobachtungen ſammelt, er¬<lb/>
+weitert und ſyſtematiſch zur Naturwiſſenſchaft ordnet und ent¬<lb/>
+wickelt, ſinnt der Gewerbtreibende, der Techniker darüber nach,<lb/>
+wie er dieſe Erweiterung des Wiſſens zur Verbeſſerung ſeines<lb/>
+Gewerbes oder zu neuen Erzeugniſſen verwenden kann. Jeder<lb/>
+Gedanke wirkt befruchtend und erzeugt in andern Köpfen neue,<lb/>
+die, wenn auch an und für ſich vielleicht unbrauchbar, doch<lb/>
+ihrerſeits wieder den Ausgangspunkt wichtiger Erfindungen<lb/>
+bilden können. So iſt auch die Telegraphie entſtanden und nach<lb/>
+und nach zu ihrer jetzigen, noch vor einigen Decennien kaum<lb/>
+zu faſſenden Bedeutung herausgebildet.</p><lb/>
+<p>Bis zum Schluſſe der 3. Periode, vor etwa 30 Jahren,<lb/>
+waren es namentlich deutſche Gelehrte, welche den Gedanken<lb/>
+der electriſchen Telegraphie erfaßten und pflegten. Jetzt be¬<lb/>
+mächtigte ſich die Induſtrie dieſes Gedankens und wir ſehen<lb/>
+einen Wettlauf aller gebildeten Nationen beginnen, um ihn prac¬<lb/>
+tiſch zu entwickeln und zu verwerthen. In dieſer nun beginnen¬<lb/>
+den 4. oder practiſchen Periode übernimmt zuerſt die angloſäch¬<lb/>
+ſiſche Race, welche ſich durch eine mehr practiſche Richtung vor<lb/>
+andern auszeichnet, die Führung. Der Amerikaner <hi rendition="#g">Morſe</hi> und<lb/>
+<pb n="16" facs="#f0022"/>
+der Engländer <hi rendition="#g">Wheatſtone</hi> erwarben ſich beſondere Verdienſte<lb/>
+um die Conſtruction practiſch brauchbarer Telegraphenapparate,<lb/>
+die zweckmäßige Anlage der Leitungen und die Einführung des<lb/>
+electriſchen Telegraphen ins öffentliche Leben. Da der Mor¬<lb/>
+ſe'ſche Telegraph die Grundlage des jetzigen großen Welttele¬<lb/>
+graphen-Netzes geworden iſt, ſo ſoll er hier eingehender beſchrie¬<lb/>
+ben werden, während der beſchränkte Raum dieſer Blätter nur eine<lb/>
+flüchtige Ueberſicht über die unzähligen übrigen Conſtructionen<lb/>
+geſtattet. Morſe benutzte zur Conſtruction ſeines Telegraphen<lb/>
+die ſchon erwähnte Entdeckung Arago's, daß der electriſche<lb/>
+Strom benachbartes Eiſen vorübergehend magnetiſirt. Iſt der<lb/>
+Umwindungsdraht eines Electromagnetes zwiſchen das Ende<lb/>
+einer Telegraphenleitung und die Erde eingeſchaltet, ſo wird<lb/>
+der Anker ſo lange von ihm angezogen, wie ein Strom die<lb/>
+Leitung durchläuft, und fällt wieder ab, wenn der Strom un¬<lb/>
+terbrochen wird. Nach Steinheil's Vorgange führte Morſe<lb/>
+einen Papierſtreifen vor einer abgerundeten Spitze vorüber,<lb/>
+welche am Ende eines um einen Zapfen drehbaren Hebels be¬<lb/>
+feſtigt war. An dieſem Hebel war der Anker des Electromag¬<lb/>
+netes befeſtigt. Durchlief ein Strom die Windungen deſſelben,<lb/>
+und ward der Anker dadurch angezogen, ſo ward die Spitze in<lb/>
+das Papier etwas eingedrückt und bildete auf demſelben einen<lb/>
+Punkt, wenn die Anziehung nur einen Augenblick dauerte, einen<lb/>
+Strich dagegen, wenn der Strom eine größere Dauer hatte.<lb/>
+Am andern Ende der Leitung befand ſich ein Drücker, auch<lb/>
+Schlüſſel oder Taſter genannt. Durch Niederdrücken deſſelben<lb/>
+ſetzte derjenige, welcher eine Nachricht telegraphiren wollte, die<lb/>
+mit dem Drücker verbundene Leitung in leitende Verbindung<lb/>
+mit dem einen Pole einer galvaniſchen Batterie, deren anderer<lb/>
+Pol mit der Erde verbunden war. Der Schließungskreis der<lb/>
+Batterie war nun hergeſtellt, der Strom durchlief den ganzen<lb/>
+Leitungskreis, mithin auch die Windungen des am andern Ende<lb/>
+<pb n="17" facs="#f0023"/>
+des Leitungsdrahtes eingeſchalteten Magnetes. Dieſer zog ſei¬<lb/>
+nen Anker an und es begann auf dem durch das Laufwerk fort¬<lb/>
+gezogenen Papierſtreifen ein Strich, welcher ſich ſo lange fort¬<lb/>
+ſetzte, bis der Strom durch Loslaſſen des durch eine Feder zu¬<lb/>
+rückgezogenen Drückers wieder unterbrochen wurde.</p><lb/>
+<p>Der Telegraphiſt konnte mithin nach Belieben Punkte und<lb/>
+Striche auf dem Papierſtreifen erzeugen und dieſelben durch<lb/>
+beliebig lange Zwiſchenräume von einander trennen. Hatte er<lb/>
+nun ein aus zwei Elementarzeichen — hier alſo aus Punkten<lb/>
+und Strichen — combinirtes Alphabet, wie Schweigger es<lb/>
+vorſchlug, im Kopfe, ſo konnte er ſich ſeinem Korreſpondenten<lb/>
+leicht und ſicher verſtändlich machen.</p><lb/>
+<p>Der Morſe'ſche Telegraph unterſchied ſich vom Stein¬<lb/>
+heil'ſchen alſo weſentlich dadurch, daß erſterer Electromagnete<lb/>
+anſtatt der Magnetnadeln benutzte und ſeine auf dem Papier¬<lb/>
+ſtreifen verzeichneten Buchſtaben und ſonſtigen Zeichen aus Punk¬<lb/>
+ten und Strichen, anſtatt aus Punkten in zwei Linien zuſam¬<lb/>
+menſetzte. Man nennt daher daher alle Telegraphenapparate,<lb/>
+welche dieſe Eigenſchaften haben, Morſe'ſche Telegraphen, wie<lb/>
+verſchieden ſie auch ſonſt vom urſprünglichen Morſe'ſchen Tele¬<lb/>
+graphen ſein mögen.</p><lb/>
+<p>Da der electriſche Strom dadurch ſehr geſchwächt wird,<lb/>
+daß er lange und dünne Drähte zu durchlaufen hat, ſo be¬<lb/>
+durfte man ſehr ſtarker Batterien, um dem Electromagnete die<lb/>
+zur Eindrückung des Papierſtreifens nothwendige Kraft mitzu¬<lb/>
+theilen. Dieſer Uebelſtand ward dadurch beſeitigt, daß man<lb/>
+ein ſogenanntes <hi rendition="#fr">relais</hi> oder Uebertrager mit dem Schreib-Appa¬<lb/>
+rate verband. Dies <hi rendition="#fr">relais</hi> beſteht aus einem kleinen Electro¬<lb/>
+magnet, welcher in die Leitung eingeſchaltet wird. Ueber den<lb/>
+Polen dieſes Magnetes befindet ſich ein Anker, welcher ſich<lb/>
+leicht um eine ſeitlich angebrachte Axe dreht. Die Bewegung<lb/>
+des Ankers wird durch zwei Anſchläge, von denen der eine<lb/>
+<fw type="sig" place="bottom">22. 2<lb/>
+</fw>
+<pb n="18" facs="#f0024"/>
+aus Metall beſteht, auf ein enges Maaß begränzt und, während<lb/>
+der Magnetismus ihn an dieſen Anſchlag heranzieht, zieht eine<lb/>
+Feder ihn wieder zum anderen zurück, wenn der electriſche Strom<lb/>
+aufhört. Zur Ausführung dieſer geringen Bewegung genügt ein<lb/>
+äußerſt ſchwacher Strom durch die Leitung und die Windungen<lb/>
+des <hi rendition="#aq">relais</hi>. Der Ankerhebel des <hi rendition="#aq">relais</hi> und der metalliſche An¬<lb/>
+ſchlag oder Contact deſſelben bilden nun Theile des Schließungs¬<lb/>
+kreiſes einer zweiten, am Orte des Empfängers befindlichen,<lb/>
+Batterie, in welcher auch der Electromagnet des Schreib-Appa¬<lb/>
+rates eingeſchaltet iſt. Dieſe Hülfskette iſt alſo geſchloſſen und<lb/>
+der Anker des Schreibmagnetes, die Eindrücke auf dem<lb/>
+Papierſtreifen ausführt, kräftig angezogen, ſo lange ein Strom<lb/>
+die Hauptkette, alſo die Leitung und das <hi rendition="#aq">relais</hi>, durchläuft. Hört<lb/>
+dieſer Strom auf, ſo hört auch der Strom in der Hülfskette<lb/>
+auf und der durch dieſe während der Schließung gemachte Strich<lb/>
+wird unterbrochen.</p><lb/>
+<p>Wenn auch in neuerer Zeit in Deutſchland Mittel gefunden<lb/>
+ſind, mit Hülfe derer man die Punkte und Striche der Morſe¬<lb/>
+ſchrift nicht mehr durch Eindrücken des Papierſtreifens, ſondern<lb/>
+vermittelſt ſchwarzer oder farbiger Oelfarbe auf dem Papier<lb/>
+verzeichnet, und daher jetzt das <hi rendition="#aq">relais</hi> entbehren kann, ſo iſt es<lb/>
+doch ſeiner Anwendung beim Morſe'ſchen Telegraphen vorzugs¬<lb/>
+weiſe zuzuſchreiben, daß dieſer Telegraph zu ſo allgemeiner Ver¬<lb/>
+wendung gekommen iſt.</p><lb/>
+<p>Doch auch mit Hülfe des <hi rendition="#aq">relais</hi> iſt die Länge der Leitung,<lb/>
+welche man zum Schließungskreiſe einer Batterie benutzen kann,<lb/>
+eine begränzte. Erſt durch die in Deutſchland erfundene Trans¬<lb/>
+lation iſt die Wirkungsſphäre des Morſe'ſchen Telegraphen eine<lb/>
+unbegränzte geworden. Ohne Zeichnungen und ſpecielle Be¬<lb/>
+ſchreibung läßt ſich dieſe Einrichtung im Detail nicht faßlich<lb/>
+beſchreiben. Es genüge hier anzudeuten, was mit derſelben er¬<lb/>
+reicht wird. Ohne Translation iſt, wie ſchon geſagt, die Sprech¬<lb/>
+<pb n="19" facs="#f0025"/>
+weite des Morſe'ſchen Telegraphen eine begränzte. Sollten die<lb/>
+Depeſchen über dieſe Gränze hinausgehen, ſo mußte der Tele¬<lb/>
+graphiſt der erſten Empfangſtation die Depeſche vom Papier¬<lb/>
+ſtreifen ableſen und ſie mit der Hand auf einen neuen Leitungs¬<lb/>
+kreis weiter geben. Dies wiederholt ſich am Ende des zweiten<lb/>
+Leitungskreiſes u. ſ. f. Natürlich werden durch dies häufige<lb/>
+Ableſen und Weitergeben der Depeſchen ſich häufig Irrthümer<lb/>
+einſchleichen, die ſie ſchließlich oft ganz unverſtändlich machen.<lb/>
+Die Translationseinrichtung bewirkt nun, daß der empfangende<lb/>
+Apparat ſelbſt automatiſch die Punkte und Striche, welche er<lb/>
+erhält, als kurze und lange Ströme wiedergiebt, daß alſo der<lb/>
+Apparat ſelbſt die Thätigkeit des weitergebenden Telegraphiſten<lb/>
+ausübt.</p><lb/>
+<p>In Deutſchland iſt das Morſe'ſche Syſtem ſpäter noch<lb/>
+weiter entwickelt, indem man auch die Depeſchengabe durch die<lb/>
+Hand des Telegraphiſten ganz beſeitigt hat. Es geſchieht dies<lb/>
+dadurch, daß man Typen, wie zum Buchdruck, gießt, welche<lb/>
+mit paſſenden Vorſtänden an der oberen Kante vorſtehend ſind.<lb/>
+Dieſe Typen ſind mit dem Buchſtaben bezeichnet, welchen ſie<lb/>
+im Morſe'ſchen Alphabete hervorbringen, wenn ſie unter einem<lb/>
+kleinen Hebel fortgeführt werden, der die Hand des Telegra¬<lb/>
+phiſten zu erſetzen beſtimmt iſt. Sind die Typen nun in<lb/>
+richtiger Reihenfolge in einen geeigneten Mechanismus ge¬<lb/>
+bracht, ſo braucht man ſie mit Hülfe deſſelben nur ſchnell<lb/>
+unter dem Hebel fortzuführen, um die Depeſche dem Orte des<lb/>
+Adreſſaten zuzuſenden. Es wird hierdurch allerdings eine<lb/>
+größere Arbeit bedingt, da das Zuſammenſetzen der De¬<lb/>
+peſche und das ſpätere Auseinanderlegen der Typen mehr Zeit<lb/>
+erfordert wie das Fortgeben der Depeſche mit der Hand, da¬<lb/>
+gegen ſind aber Irrthümer ausgeſchloſſen, da man die Depeſchen<lb/>
+vor der Fortgabe nachleſen kann und da die ankommende Schrift<lb/>
+mechaniſch correct, alſo immer ſicher lesbar iſt. Außerdem ge¬<lb/>
+<fw type="sig" place="bottom">2*<lb/>
+</fw>
+<pb n="20" facs="#f0026"/>
+währt dieſe mechaniſche Depeſchengabe den großen Vortheil,<lb/>
+daß man ſie ſehr viel ſchneller ausführen kann, wie es mit der<lb/>
+Hand möglich iſt, man alſo durch einen diſponibelen Draht in<lb/>
+derſelben Zeit ſehr viel mehr — etwa 5 bis 6 mal ſo viel —<lb/>
+Depeſchen geben kann. Die läſtige Arbeit des Setzens und<lb/>
+Sortirens der Typen wird zuverläſſig in nächſter Zeit durch<lb/>
+Conſtruction geeigneter Setz- und Sortirungsmaſchinen bedeu¬<lb/>
+tend vereinfacht werden.</p><lb/>
+<p>Wie man ſieht, iſt auch bei der Telegraphie das Beſtreben<lb/>
+vorherrſchend, die Handarbeit durch die gleichmäßigere und<lb/>
+ſchnellere Maſchinenarbeit zu erſetzen.</p><lb/>
+<p>Gleichzeitig mit Morſe beſchäftigte ſich Wheatſtone in Eng¬<lb/>
+land mit der Ausbildung und Einführung des electriſchen Tele¬<lb/>
+graphen. Er verfolgte dabei zwei weſentlich verſchiedene Rich¬<lb/>
+tungen, indem er zuerſt den Fechner'ſchen Nadeltelegraphen we¬<lb/>
+ſentlich verbeſſerte und ſpäter Zeiger- und Drucktelegraphen<lb/>
+conſtruirte. Die Nadeltelegraphen Wheatſtone's ſind noch jetzt<lb/>
+in England und einigen anderen Ländern vielfach in Anwendung<lb/>
+und zwar theils als einfache Nadelapparate, theils als Doppel¬<lb/>
+nadel-Telegraphen mit zwei Magnetnadeln, von denen jede mit<lb/>
+einem beſonderen Leitungsdrahte communicirt. Die Ablenkungen<lb/>
+der Nadeln ſind durch elfenbeinerne Stifte, gegen welche die<lb/>
+Nadeln ſchlagen, auf ein enges Spiel begränzt, ſo daß ein ge¬<lb/>
+übtes Auge an ihren Stellungen ſchnell und ſicher den Buch¬<lb/>
+ſtaben erkennen kann, welcher mitgetheilt wird.</p><lb/>
+<p>Die große Einfachheit dieſer Apparate verſchaffte ihnen in der<lb/>
+Kindheit der Telegraphie eine ausgedehnte Anwendung. Man iſt<lb/>
+von ihnen aber ſpäter größtentheils zum Morſe'ſchen Syſtem über¬<lb/>
+gegangen, da die dauernd auf dem Papierſtreifen verzeichnete<lb/>
+Morſeſchrift größere Sicherheit der richtigen Wiedergabe der<lb/>
+Nachrichten bietet wie das flüchtige Nadelſpiel. Wheatſtone<lb/>
+ſelbſt ſuchte einige Jahre ſpäter dieſe Unſicherheit der Ableſung<lb/>
+<pb n="21" facs="#f0027"/>
+der Depeſchen durch die Conſtruction des Zeigertelegraphen zu<lb/>
+beſeitigen. Bei dieſem ſind die Buchſtaben des Alphabets auf<lb/>
+einem Zifferblatte im Kreiſe verzeichnet, ähnlich wie die Zahlen<lb/>
+auf dem Zifferblatte einer Uhr. Durch eine Reihenfolge von<lb/>
+kurzen electriſchen Strömen, welche durch die Leitung geſchickt<lb/>
+werden, wird ein Zeiger auf denjenigen Buchſtaben geführt, auf<lb/>
+welchen die Aufmerkſamkeit des Empfängers gelenkt werden ſoll.<lb/>
+Es geſchieht dies vermittelſt eines Zahnrades, das auf der Axe<lb/>
+befeſtigt iſt, um welche ſich der Zeiger dreht, und welches eben<lb/>
+ſo viele Zähne hat, wie Buchſtaben oder ſonſtige Zeichen ſich auf<lb/>
+dem Zifferkreiſe befinden. In die Zähne des Zahnrades greift<lb/>
+ein kleiner Haken, welcher an dem Anker eines Electromagnetes<lb/>
+befeſtigt iſt. Durchläuft nun ein Strom die Windungen des<lb/>
+Electromagnetes, ſo wird das Rad und mit ihm der Zeiger<lb/>
+um einen Schritt fortbewegt. Wird der Strom unterbrochen, ſo<lb/>
+geht der Anker in ſeine urſprüngliche Stellung zurück, indem er<lb/>
+über den nächſten Zahn des durch einen Sperrkegel feſtgehalte¬<lb/>
+nen Rades hinfortgeht. Ein zweiter Strom bringt den Zeiger<lb/>
+um einen zweiten Schritt weiter u.ſ. f., jeder Strom einen Schritt.<lb/>
+Die gebende Station kann alſo den Zeiger des Apparates der<lb/>
+Empfangſtation durch eine geeignete Anzahl von kurzen Strö¬<lb/>
+men, die ſie durch die Leitung ſchickt, auf jedes beliebige Zei¬<lb/>
+chen des Zifferblattes ſtellen. Folgen ſich die kurzen Ströme<lb/>
+in einem ſchnellen Tempo ſo lange, bis der Zeiger ſein Ziel er¬<lb/>
+reicht hat, und tritt dann eine kleine Pauſe ein, ſo kann der<lb/>
+Empfänger leicht erkennen, welche Buchſtaben oder anderweitige<lb/>
+Zeichen ſein Korreſpondent bezeichnen wollte. Die Erzeugung<lb/>
+der nöthigen Zahl von Strömungen, um den Zeiger von dem<lb/>
+zuletzt mitgetheilten Buchſtaben auf den zunächſt mitzutheilenden<lb/>
+fortzubewegen, bewirkte Wheatſtone durch Drehung einer Kurbel<lb/>
+auf einem Theilkreiſe, welcher dieſelben Buchſtaben und ſonſtigen<lb/>
+Charactere in gleicher Reihenfolge trug, wie ſie auf dem Ziffer¬<lb/>
+<pb n="22" facs="#f0028"/>
+blatte des Empfangsapparates ſich befanden. Die Kurbel war<lb/>
+durch einen Nichtleiter der Electricität, wie Elfenbein oder Holz,<lb/>
+vom metallenen Theilkreiſe iſolirt. Die Oberfläche deſſelben be¬<lb/>
+ſtand abwechſelnd aus leitenden und nichtleitenden, d. i. mit<lb/>
+Elfenbein ausgelegten Feldern. An der Kurbel befand ſich eine<lb/>
+Metallfeder, welche über dieſe Felder des Theilkreiſes fortſchleifte,<lb/>
+wenn ſie gedreht wurde. War nun der Theilkreis des Gebers<lb/>
+mit dem freien Pole einer zur Erde abgeleiteten Batterie und<lb/>
+die Kurbel mit dem Leitungsdraht leitend verbunden, ſo entſtand<lb/>
+jedesmal ein Strom in derſelben, wenn die Feder ein metalli¬<lb/>
+ſches Feld paſſirte, und derſelbe hörte wieder auf, wenn ſie auf<lb/>
+ein nichtleitendes überging. Bewegte man alſo die Kurbel von<lb/>
+einem Buchſtaben bis zu irgend einem andern fort, ſo mußte auch<lb/>
+der Zeiger des Empfängers bis zu demſelben Buchſtaben fort¬<lb/>
+rücken, oder mit andern Worten Kurbel und Zeiger mußten<lb/>
+ſtets auf denſelben Buchſtaben zeigen. Das Telegraphiren be¬<lb/>
+ſtand alſo einfach darin, daß der Geber der Depeſche die Kurbel<lb/>
+nach einander auf alle Buchſtaben der mitzutheilenden Nachricht<lb/>
+ſtellte und der Empfänger die Buchſtaben ablas, auf welchen<lb/>
+der Zeiger einen Augenblick ſtill ſtand.</p><lb/>
+<p>Dieſer einfachſte Zeigertelegraph Wheatſtone's wurde theils<lb/>
+ſchon von ihm ſelbſt, theils von Andern vielfach verändert und ver¬<lb/>
+beſſert. Durch Einführung eines Uhrwerkes, welches den Zeiger des<lb/>
+Empfängers fortbewegte und eine Einrichtung, welche man in der<lb/>
+Uhrmacherei ein Echappement nennt, konnte die Zahl der nöthigen<lb/>
+Ströme, um den Zeiger von einem Buchſtaben zu einem andern<lb/>
+zu bewegen, auf die Hälfte reducirt werden, indem der Anzug<lb/>
+des Ankers ſowohl wie ſein Abfall den Zeiger um einen Schritt<lb/>
+vorwärts bewegte. Anderſeits wurde die Wheatſtone'ſche Kurbel<lb/>
+ganz beſeitigt, indem man die Herſtellung und Unterbrechung<lb/>
+des Stromes durch den Electromagnet ſelbſt ausführen ließ.<lb/>
+Bei dieſer, hier nicht näher zu beſchreibenden, Einrichtung waren<lb/>
+<pb n="23" facs="#f0029"/>
+die Electromagnete der an beiden oder mehreren Stationen be¬<lb/>
+findlichen Empfangsapparate gleichzeitig in die Leitung einge¬<lb/>
+ſchaltet. Die Apparate bildeten ſelbſtthätige elektromagnetiſche<lb/>
+Maſchinen, deren Zeiger immer gleichzeitig den Buchſtabenkreis<lb/>
+durchliefen. Jeder Apparat war mit Taſten verſehen, welche<lb/>
+mit den entſprechenden Buchſtaben des Zifferkreiſes verſehen<lb/>
+waren. Ward eine Taſte niedergedrückt, ſo durchliefen die<lb/>
+Zeiger ſämmtlicher im Leitungskreiſe befindlichen Apparate den<lb/>
+Theilkreis des Zifferblattes bis zu dem Buchſtaben, deſſen<lb/>
+Taſte niedergedrückt war und blieben hier ſo lange ſtehen, wie<lb/>
+die Taſte niedergedrückt erhalten wurde. Die Depeſchengabe<lb/>
+geſchieht bei dieſem ſelbſtthätigen Zeigertelegraphen mithin da¬<lb/>
+durch, daß der, welcher eine Depeſche geben oder ſprechen will,<lb/>
+wie man es gewöhnlich ausdrückt, auf den Taſten ſeines Appa¬<lb/>
+rates die Depeſche abſpielt. Die Zeiger aller eingeſchalteten<lb/>
+Apparate ſtehen dann bei jedem zu gebenden Zeichen einen<lb/>
+Augenblick ſtill und machen es dadurch den Beobachtern er¬<lb/>
+kenntlich.</p><lb/>
+<p>An die Zeigertelegraphen ſchließen ſich die eigentlichen<lb/>
+Drucktelegraphen an. Schon <hi rendition="#g">Wheatſtone</hi> verband mit ſeinem<lb/>
+noch ſehr unvollkommenen Zeigertelegraphen eine Druckvor¬<lb/>
+richtung. Daſſelbe thaten auf andere Weiſe die Conſtructeure<lb/>
+ſpäterer Zeigertelegraphen. Sie beſteht im Weſentlichen immer<lb/>
+darin, daß anſtatt des Zeigers eine Scheibe gedreht wird,<lb/>
+an deren Peripherie ſich gewöhnliche Buchdrucktypen befinden.<lb/>
+Durch Mechanismen, deren Beſchreibung hier übergangen wer¬<lb/>
+den muß, wird der Buchſtabe, bei welchem der Apparat einen<lb/>
+Augenblick ſtill ſteht, auf einem Papierſtreifen abgedruckt, wel¬<lb/>
+cher nach Ausführung des Abdrucks etwas vorrückt, um dem<lb/>
+nächſten Buchſtaben Platz zu machen. Die Depeſche erſcheint<lb/>
+dann auf dem Papierſtreifen wie gewöhnlicher Buchdruck.</p><lb/>
+<p>Eine weitere Verbeſſerung des Wheatſtone'ſchen Zeigertelegra¬<lb/>
+<pb n="24" facs="#f0030"/>
+phen beſteht in der Einführung magnetoelectriſcher Ströme zur<lb/>
+Fortbewegung der Zeiger anſtatt der galvaniſchen Batterieſtröme.<lb/>
+Wenn man die Pole eines Electromagnetes den Polen eines<lb/>
+kräftigen Stahlmagnetes ſchnell nähert, ſo entſteht in den Win¬<lb/>
+dungen des Electromagnetes während der Annäherung ein kurzer<lb/>
+electriſcher Strom. Entfernt man den Electromagnet wieder,<lb/>
+ſo entſteht ein eben ſolcher Strom von entgegengeſetzter Richtung.<lb/>
+Bringt man nun mit der Kurbel des Wheatſtone'ſchen Zeiger¬<lb/>
+telegraphen einen Electromagnet in derartige mechaniſche Ver¬<lb/>
+bindung, daß die Pole deſſelben ſich beim Fortgang der Kurbel<lb/>
+von einem Buchſtaben zum nächſten den Polen eines Stahl¬<lb/>
+magnetes nähern und beim nächſten Schritt der Kurbel wieder<lb/>
+von ihm entfernen, ſo erhält man ſo viel Ströme, wie Buch¬<lb/>
+ſtabenfelder von der Kurbel durchlaufen werden. Durchlaufen<lb/>
+dieſe Ströme anſtatt der Batterieſtröme die Leitung und<lb/>
+die Windungen der Electromagnete der eingeſchalteten Em¬<lb/>
+pfangsſtationen, ſo iſt dadurch das Mittel gegeben, die Zeiger<lb/>
+der letzteren in gleicher Weiſe in Uebereinſtimmung mit der<lb/>
+Kurbel zu erhalten, wie es bei Anwendung galvaniſcher Ströme<lb/>
+der Fall war.</p><lb/>
+<p>Die bisher beſchriebenen Zeiger- und Drucktelegraphen er¬<lb/>
+halten ſämmtlich den übereinſtimmenden Gang des Empfängers<lb/>
+mit dem Geber durch eine Reihe von kurzen Strömen, von welchen<lb/>
+jeder einzelne oder jedes Paar entgegengeſetzter Ströme die<lb/>
+Zeiger oder Druckräder um einen oder zwei Schritte weiterführt.<lb/>
+Der Engländer <hi rendition="#g">Bain</hi> conſtruirte einen Drucktelegraphen nach<lb/>
+einem andern Principe. Er ließ die Typenſcheiben durch Uhr¬<lb/>
+werke drehen, welche einen genau gleichen Gang hatten. Durch<lb/>
+einen electriſchen Strom, der den Telegraphendraht durchlief, wur¬<lb/>
+den dieſe Uhrwerke gleichzeitig ausgelöſt und durch Unterbrechung<lb/>
+des Stromes wieder angehalten. Gingen die Uhrwerke wirklich<lb/>
+gleich ſchnell, ſo mußten die Zeiger oder Druckwerke immer<lb/>
+<pb n="25" facs="#f0031"/>
+auf demſelben Buchſtaben ſtehen bleiben, wenn ſie vor der In¬<lb/>
+gangſetzung eine gleiche Stellung hatten. Es iſt daher hier nicht<lb/>
+die Zahl der Ströme, ſondern die Zeitdauer der Ströme, welche<lb/>
+die Stellung des Zeigers oder Druckrades beſtimmt. Durch<lb/>
+den Amerikaner <hi rendition="#g">Hughes</hi> iſt dieſer Apparat in neuerer Zeit we¬<lb/>
+ſentlich verbeſſert und druckt jetzt telegraphiſche Nachrichten mit<lb/>
+einer überraſchenden Sicherheit und Schnelligkeit, die ihm eine<lb/>
+dauernde Verwendung neben dem Morſe'ſchen Schreibtelegraphen¬<lb/>
+ſyſtem zu ſichern ſcheint.</p><lb/>
+<p>Außer den bisher beſchriebenen drei Telegraphenſyſtemen,<lb/>
+welche in größerem Maßſtabe zur Anwendung gekommen ſind.<lb/>
+dem Nadeltelegraphen, dem Schreib-, und dem Zeiger- und<lb/>
+Drucktelegraphen ſind noch mehrere andere in Vorſchlag gebracht<lb/>
+und auch zur Anwendung gekommen. So ſchlug <hi rendition="#g">Vorſſelmann<lb/>
+de Heer</hi> ſchon 1839 einen auf die phyſiologiſche Wirkung des<lb/>
+electriſchen Stromes baſirten Telegraphen vor. Die Finger<lb/>
+des Empfängers ſollten bei demſelben in den telegraphiſchen<lb/>
+Schließungskreis eingeſchaltet werden durch Berührung metalli¬<lb/>
+ſcher Knöpfe, welche das Ende der Leitungen bildeten. Jeder<lb/>
+Strom, welcher eine Leitung durchlief, erzeugte dann ein krampf¬<lb/>
+haftes Zucken des betreffenden Fingers, woraus erkannt werden<lb/>
+konnte, in welcher Leitung ein electriſcher Strom erzeugt war<lb/>
+und wie lange derſelbe dauerte. An Stelle des Weckers ſollte<lb/>
+der Telegraphiſt an ſeinem Körper zwei mit den Drähten in<lb/>
+leitender Verbindung ſtehende Metallplatten tragen, welche ihm<lb/>
+dann die fühlbare Aufforderung brachten, ſeine Finger zum<lb/>
+Empfang einer Depeſche auf die Metallknöpfe zu legen!</p><lb/>
+<p>Wie bereits früher mitgetheilt, verband ſchon <hi rendition="#g">Steinheil</hi><lb/>
+mit ſeinen Telegraphen kleine Glocken von verſchiedener Tonhöhe,<lb/>
+durch welche der Empfänger einer Depeſche befähigt wurde, die¬<lb/>
+ſelbe durch das Gehör zu verſtehen. Solche acuſtiſche Telegraphen<lb/>
+ſind ſpäter von Andern mehrfach conſtruirt, ſie konnten aber<lb/>
+<pb n="26" facs="#f0032"/>
+ebenſo wenig wie die Nadel- und Zeigertelegraphen den Schreib-<lb/>
+und Drucktelegraphen gegenüber, welche die Depeſchen dauernd<lb/>
+lesbar machen, das Feld behaupten. Dagegen haben ſolche<lb/>
+acuſtiſche Telegraphen, welche nicht vollſtändige Nachrichten,<lb/>
+ſondern einige beſtimmte Signale geben ſollen, eine ſehr allge¬<lb/>
+meine Anwendung gefunden. Man bedient ſich ihrer als Wecker,<lb/>
+um die Aufmerkſamkeit des Telegraphiſten auf ſeinen Empfangs¬<lb/>
+apparat zu lenken, als electriſche Glockenzüge, und beſonders in<lb/>
+Deutſchland in großem Maßſtabe als Signalapparate für die<lb/>
+Beamten der Eiſenbahn, um denſelben den Abgang eines Zuges<lb/>
+von der nächſten Station anzuzeigen. Bei dieſen Läutewerken<lb/>
+der Eiſenbahnen wird die Bewegung der ſchweren Hämmer,<lb/>
+welche die großen auf den Häuschen der Bahnwärter angebrachten<lb/>
+Glocken ertönen laſſen, natürlich nicht vom electriſchen Strome<lb/>
+direct ausgeführt, ſondern durch das Gewicht eines Uhrwerkes,<lb/>
+deſſen Auslöſung durch die Anziehung eines kleinen Magnet¬<lb/>
+ankers durch den electriſchen Strom bewirkt wird.</p><lb/>
+<p>Auch die zerſetzende oder chemiſche Wirkung des electriſchen<lb/>
+Stromes iſt zur Conſtruction verſchiedenartiger Telegraphen¬<lb/>
+apparate benutzt worden. Bekanntlich war der erſte electriſche<lb/>
+Telegraph, der <hi rendition="#g">Sömmering</hi>'ſche, ein electrochemiſcher, indem die<lb/>
+Signale durch Waſſerzerſetzung ſichtbar gemacht wurden. Außer<lb/>
+dem Waſſer zerſetzt aber der electriſche Strom auch viele<lb/>
+in Waſſer gelöſte Metallverbindungen, indem er das Metall<lb/>
+aus denſelben abſcheidet. So kann man durch den electriſchen<lb/>
+Strom Kupfer, Silber, Gold, Nickel und andere Metalle auf<lb/>
+der Oberfläche anderer metallener Körper oder auf leitenden<lb/>
+Formen ablagern, wie es bei der galvaniſchen Verſilberung,<lb/>
+Vergoldung und der Galvanoplaſtik geſchieht. Beſonders leicht<lb/>
+und ſchon durch ſehr ſchwache Ströme wird unter andern das<lb/>
+Jodkalium, ſo wie das blauſauere Eiſen durch den electriſchen<lb/>
+Strom zerſetzt. Tränkt man einen Papierſtreifen mit einer Lö¬<lb/>
+<pb n="27" facs="#f0033"/>
+ſung derartiger Salze und läßt denſelben im feuchten Zu¬<lb/>
+ſtande durch ein Uhrwerk unter einer Metallſpitze fortziehen,<lb/>
+welche ihn gegen ein unter dem Papierſtreifen befindliches Me¬<lb/>
+tallſtück drückt, ſo hinterläßt die Spitze auf dem Papiere ſo lange<lb/>
+einen dunklen Strich, wie ein Strom von der Spitze durch<lb/>
+das Papier geht. Man kann alſo eine ſolche Einrichtung nach<lb/>
+des Engländers <hi rendition="#g">Bain</hi> Vorſchlage anſtatt des Morſe'ſchen Tele¬<lb/>
+graphenmechanismus zur Fixirung der Morſeſchrift benutzen.<lb/>
+Der Engländer <hi rendition="#g">Bakewell</hi> begründete hierauf ſchon im Jahre<lb/>
+1847 ſeinen electrochemiſchen Copirtelegraphen. Dieſer Apparat<lb/>
+erregt dadurch beſonderes Intereſſe, daß er die Handſchrift des<lb/>
+Abſenders der Depeſche ſelbſt oder auch bildliche Darſtellungen<lb/>
+zu reproduciren im Stande iſt. An jedem der beiden Orte,<lb/>
+welche durch einen iſolirten Leitungsdraht mit einander verbunden<lb/>
+ſind, befindet ſich eine metallene Walze. Auf der einen iſt mit<lb/>
+einer iſolirenden Lackdinte die Depeſche geſchrieben oder das zu<lb/>
+telegraphirende Bild gezeichnet. Die Walze der andern Station<lb/>
+iſt mit einem Blatte chemiſch präparirten feuchten Papiers be¬<lb/>
+kleidet. Durch ſorgfältig regulirte Uhrwerke können beide Walzen<lb/>
+in genau gleicher Geſchwindigkeit um ihre Axe gedreht werden.<lb/>
+Auf der Oberfläche jeder Walze ſchleift eine Metallſpitze, welche<lb/>
+mit der anderen durch den iſolirten Leitungsdraht verbunden iſt.<lb/>
+Stehen nun die beiden Metallwalzen ſelbſt durch einen zweiten<lb/>
+Draht oder die Erde in leitender Verbindung mit einander<lb/>
+und iſt in dem ſo hergeſtellten Leitungskreiſe irgendwo eine gal¬<lb/>
+vaniſche Batterie eingeſchaltet, ſo würde er ſtets von einem<lb/>
+Strome durchlaufen und hierdurch auf dem Papierſtreifen ein<lb/>
+ununterbrochener farbiger Strich gebildet werden, wenn nicht durch<lb/>
+die Lackſchicht der Schrift jedesmal eine kurze Unterbrechung des<lb/>
+Stromes herbeigeführt würde, wenn die Spitze über einen<lb/>
+Schriftzug fortgeht. Dieſe Uebergänge über die Schriftzüge<lb/>
+zeigen ſich mithin auf dem Papier als weiße Punkte in der<lb/>
+<pb n="28" facs="#f0034"/>
+ſchwarzen Linie. Durch eine einfache Vorrichtung werden die<lb/>
+Spitzen nach jeder Umdrehung der Walzen etwas ſeitwärts<lb/>
+geſchoben. Es wird ſich alſo auf dem Papierblatte eine Schraf¬<lb/>
+firung aus dunklen Linien bilden, in welcher die Buchſtaben oder<lb/>
+die Zeichnung in der hellen Farbe des Papiers ſichtbar ſind.<lb/>
+Ebenſo kann man auch den ganzen Cylinder mit Lackfarbe über¬<lb/>
+ziehen und das zu übertragende Bild oder die Schriftzüge in<lb/>
+den Ueberzug einradiren. Es wird der Strom jetzt nur cirkuliren,<lb/>
+wenn die Spitze eine radirte Stelle trifft und dadurch in me¬<lb/>
+talliſche Verbindung mit der Walze tritt. Das Bild auf dem<lb/>
+Papierblatte wird dann aus ſchwarzen Punkten auf weißem<lb/>
+Grunde beſtehen.</p><lb/>
+<p>Dieſer <hi rendition="#g">Bakewell</hi>'ſche Copirtelegraph hat das Intereſſe<lb/>
+des Publicums durch ſeine auf den erſten Blick wunderbar<lb/>
+ſcheinende Leiſtung ſtets in hohem Grade in Anſpruch genom¬<lb/>
+men. Er iſt häufig neu erfunden und vielfach verändert,<lb/>
+ohne dadurch weſentlich verbeſſert zu werden, und man könnte<lb/>
+ihn mit einigem Rechte die telegraphiſche Seeſchlange nennen,<lb/>
+die die Welt von Zeit zu Zeit durch ihr Auftauchen aus der<lb/>
+Vergeſſenheit in Bewegung ſetzt, um dann wieder ſpurlos zu<lb/>
+verſchwinden! In der That wird dies Syſtem nie eine größere<lb/>
+practiſche Bedeutung erlangen, wenn auch die mechaniſchen<lb/>
+Schwierigkeiten vollſtändig überwunden werden. Die Gründe<lb/>
+liegen theils in ſpäter zu erörternden Eigenthümlichkeiten der<lb/>
+Leitungen, welche die Anwendung der electrochemiſchen Tele¬<lb/>
+graphen ſehr erſchweren, hauptſächlich aber darin, daß die Nach¬<lb/>
+bildung der für die Menſchenhand, aber nicht für die telegra¬<lb/>
+phiſche Uebertragung zweckmäßigen Schriftzeichen einer weit grö¬<lb/>
+ßern Zahl von telegraphiſchen Elementarzeichen bedarf, wie ein<lb/>
+Steinheil'ſches oder Morſe'ſches Schriftzeichen, welches ſpeciell<lb/>
+für dieſen Zweck combinirt iſt. Bei Anwendung ſolcher tele¬<lb/>
+graphiſchen Schriftzeichen, welche aus den einfachſten Combi¬<lb/>
+<pb n="29" facs="#f0035"/>
+nationen zweier Elementarzeichen beim Morſe'ſchen Alpha¬<lb/>
+bet — des Punktes und Striches — beſtehen, wird man alſo<lb/>
+durch einen Leitungsdraht in derſelben Zeit eine weit größere<lb/>
+Zahl von Depeſchen geben können, wie bei der Copirung der<lb/>
+gebräuchlichen Schriftzeichen der Hand durch den Copir-Tele¬<lb/>
+graphen Bakewell's oder die ſeiner Nachfolger.</p><lb/>
+<p>Dieſer theoretiſche Vorzug derjenigen Telegraphen, welche<lb/>
+die einfachſten Combinationen von Elementarzeichen für die<lb/>
+Bildung der telegraphiſchen Zeichen benutzen, giebt ihnen auch<lb/>
+den Zeiger- und Lettern-Drucktelegraphen gegenüber ein blei¬<lb/>
+bendes Uebergewicht. Um den Zeiger oder das Typenrad<lb/>
+vom erſten zum letzten Buchſtaben des Alphabetes zu bringen,<lb/>
+ſind, wie früher auseinandergeſetzt iſt, mindeſtens halb ſo viel<lb/>
+Ströme erforderlich, wie daſſelbe Buchſtaben enthält, alſo be¬<lb/>
+darf auch die Herſtellung eines telegraphiſchen Zeichens bei ihnen<lb/>
+einer größeren durchſchnittlichen Zahl von Strömungen wie beim<lb/>
+Morſe'ſchen Telegraphen. Der letztere iſt daher einer größeren<lb/>
+Transmiſſionsgeſchwindigkeit fähig, da die Menge der durch<lb/>
+eine Leitung in einer beſtimmten Zeit zu gebenden Ströme eine<lb/>
+begränzte iſt. Auch der <hi rendition="#g">Bain</hi>'ſche und der auf daſſelbe Princip<lb/>
+begründete <hi rendition="#g">Hughes</hi>'ſche Drucktelegraph machen hiervon keine<lb/>
+Ausnahme, obgleich ſie nur eines Stromwechſels zur Darſtel¬<lb/>
+lung eines Letterndruckes bedürfen, da es für die Transmiſſions¬<lb/>
+geſchwindigkeit ganz gleichgültig iſt, ob die Zeit der Drehung<lb/>
+des Typenrades durch einen dauernden Strom oder durch eine<lb/>
+Reihe kurzer Ströme ausgefüllt wird. Entſcheidend iſt nur<lb/>
+die Dauer des einzelnen Stromes, welcher ein Elementar¬<lb/>
+zeichen, alſo den Fortgang des Druckrades, um einen Schritt,<lb/>
+auszuführen im Stande iſt und die mittlere Zahl oder das<lb/>
+ihr entſprechende Zeitintervall ſolcher Strömungen, das zur<lb/>
+Herſtellung eines telegraphiſchen Zeichens durchſchnittlich erfor¬<lb/>
+derlich iſt. Bei kürzeren Telegraphenlinien, bei welchen die Koſten<lb/>
+<pb n="30" facs="#f0036"/>
+der Anlage und Erhaltung der Leitung nicht, wie bei langen<lb/>
+Linien, ſehr überwiegend über die Koſten der Arbeit der De¬<lb/>
+peſchenbeförderung ſind, kommt es jedoch weniger darauf an,<lb/>
+möglichſt viele Depeſchen in einer beſtimmten Zeit durch einen<lb/>
+Leitungsdraht ſchicken zu können, als vielmehr darauf, die Ar¬<lb/>
+beit des Gebens und Empfangens möglichſt klein zu machen.<lb/>
+Die Richtung, in welcher die Telegraphie ſich weiter entwickeln<lb/>
+wird, muß alſo aller Wahrſcheinlichkeit nach die ſein, daß für<lb/>
+die Korreſpondenz entfernter Orte und Länder mit einander die<lb/>
+Uebertragung der Morſeſchrift auf mechaniſchem Wege, für die<lb/>
+Korreſpondenz näher an einander liegender Orte dagegen der<lb/>
+Letterndruck in allgemeine Anwendung kommen wird.</p><lb/>
+<p>Wie aus der obigen Schilderung der allmähligen Ent¬<lb/>
+wickelung des Gedankens der electriſchen Telegraphie zu den<lb/>
+jetzt gebräuchlichen Inſtrumenten hervorgeht, waren es haupt¬<lb/>
+ſächlich practiſche Schwierigkeiten, welche erſt im Laufe der Zeit<lb/>
+überwunden wurden. Der Gelehrte konnte leicht Methoden und<lb/>
+Combinationen erſinnen, welche telegraphiſche Mittheilungen<lb/>
+möglich machten und welche ſich auch, im Zimmer verſucht, treff¬<lb/>
+lich bewährten. In Wirklichkeit trat aber ein neues ſchlimmes<lb/>
+Element hinzu, welches ſeine Pläne durchkreuzte — die iſolirte<lb/>
+Leitung zwiſchen den telegraphiſch zu verbindenden Orten.</p><lb/>
+<p>Um die großen Schwierigkeiten, welche dieſe herbeiführte, rich¬<lb/>
+tig würdigen zu können, muß man ſich klar machen, welche Anfor¬<lb/>
+derungen an eine gute Leitung geſtellt werden müſſen und wel¬<lb/>
+chen Gefahren aller Art dieſelbe ausgeſetzt iſt. Der Leitungs¬<lb/>
+draht muß nicht nur in ununterbrochenem metalliſchen Zuſam¬<lb/>
+menhange von einem Ende bis zum anderen ſtehen, er darf<lb/>
+auf dieſem ganzen langen Wege an keinem einzigen Punkte in<lb/>
+gut leitender Verbindung mit dem Erdboden ſtehen. Eine ſolche<lb/>
+leitende Verbindung wird durch jeden metalliſchen oder auch<lb/>
+nur feuchten Körper, welcher gleichzeitig den Draht und die Erde<lb/>
+<pb n="31" facs="#f0037"/>
+berührt, ja ſogar durch die benetzte Oberfläche eines nichtleiten¬<lb/>
+den Körpers hergeſtellt! Hätte man alſo auch den Draht mit<lb/>
+Glas, Porzellan oder Kautſchouk von den hölzernen, im trocknen<lb/>
+Zuſtande ſelbſt ſchon ziemlich gut iſolirenden Pfoſten, die ihn<lb/>
+vom Erdboden entfernt halten, getrennt, ſo benetzte doch jeder<lb/>
+an irgend einer Stelle der Leitung eintretende Regenfall die<lb/>
+Oberfläche der Iſolatoren und ſtellte eine leitende Verbindung<lb/>
+mit dem Erdboden her, durch welche die Electricität dieſem<lb/>
+direct zugeführt wurde, anſtatt den großen Umweg durch den<lb/>
+Apparat der entfernten Station hindurch zu machen. Selbſt<lb/>
+bei trocknem Wetter gefährden die leitenden Blätter der Bäume,<lb/>
+wenn ſie durch den Wind an den Draht getrieben werden, deſ¬<lb/>
+ſen Iſolation. Jede Gewitterwolke, die ſich an irgend einer<lb/>
+Stelle der Leitung dieſer nähert oder von ihr entfernt, jede<lb/>
+Störung des magnetiſchen Gleichgewichtes der Erde, wie ſie<lb/>
+namentlich bei Nordlichten ſtark auftritt, erzeugt electriſche Ströme<lb/>
+in der Leitung, welche ebenſo wie die unvollſtändige und ver¬<lb/>
+änderliche Iſolation derſelben die regelmäßige Function der Ap¬<lb/>
+parate ſtören. Ein in die Leitung irgendwo einſchlagender Blitz<lb/>
+zerſtört oft ganze Strecken derſelben und mit ihr die Apparate<lb/>
+der benachbarten Stationen, wenn ſie nicht durch gute Blitzab¬<lb/>
+leiter vor ſeiner Wirkung geſchützt ſind. Berückſichtigt man hier¬<lb/>
+bei noch die unzähligen Ereigniſſe aller Art, welche Drähten,<lb/>
+Iſolatoren und Pfoſten Zerſtörung drohen, ſo erſcheint es noch<lb/>
+jetzt oft wunderbar, daß Leitungen, welche ununterbrochen die<lb/>
+halbe Erdperipherie umkreiſen, in oft längere Zeit ungeſtör¬<lb/>
+tem Betriebe ſein können.</p><lb/>
+<p>Erſt allmählig lehrte Nachdenken und Erfahrung dieſe ſtö¬<lb/>
+renden und zerſtörenden Einflüſſe entweder zu beſeitigen oder<lb/>
+doch unſchädlich zu machen. Durch die Glockenform der Iſola¬<lb/>
+toren wurde eine ſtets trocken bleibende Oberfläche des Iſola¬<lb/>
+tors gebildet, welche die Iſolirung des Drahtes auch bei Re¬<lb/>
+<pb n="32" facs="#f0038"/>
+genwetter ſicherte. Dicke Eiſendrähte, die man anſtatt der kupfer¬<lb/>
+nen verwendete, widerſtanden dem Sturme, dem Reife und der<lb/>
+Zerſtörung durch den Blitz und Muthwillen beſſer wie die frü¬<lb/>
+heren kupfernen Daſſelbe thaten ſtarke Pfoſten, die man an<lb/>
+Stelle der früheren dünnen Stangen verwendete. Endlich lernte<lb/>
+man die telegraphiſchen Apparate ſo zu conſtruiren, daß ſie auch<lb/>
+bei großen Schwankungen der Stromſtärke noch ungeſtört und<lb/>
+richtig functionirten.</p><lb/>
+<p>Nicht mit Unrecht erſchien den Männern, welche zuerſt den<lb/>
+Gedanken des electriſchen Telegraphen faßten und pflegten, die<lb/>
+eben geſchilderten Schwierigkeiten der oberirdiſchen Leitungen<lb/>
+ſo unüberwindlich groß, daß ſie es viel leichter ausführbar hiel¬<lb/>
+ten, die Leitungsdrähte mit einem iſolirenden Ueberzuge zu ver¬<lb/>
+ſehen und ſo in den Boden einzugraben. <hi rendition="#g">Sömmering</hi> wollte<lb/>
+ſeine 27 Drähte einzeln mit Seide überſpinnen und dann zu¬<lb/>
+ſammen durch Glas- oder Thonröhren vom Erdboden iſoliren.<lb/>
+<hi rendition="#g">Gauß</hi> und <hi rendition="#g">Weber</hi>, ſo wie auch <hi rendition="#g">Steinheil</hi>, benutzten zwar<lb/>
+ſchon oberirdiſche Leitungen, doch widerſtanden dieſelben nur<lb/>
+kurze Zeit den zerſtörenden Einflüſſen aller Art und gaben auch<lb/>
+während ihrer Dauer zu fortwährenden Störungen der Depeſchen¬<lb/>
+beförderung Veranlaſſung.</p><lb/>
+<p>Den Amerikanern und Engländern gelang es zuerſt, die<lb/>
+Schwierigkeiten der oberirdiſchen Drahtführung einigermaßen<lb/>
+zu überwinden. Auf dem europäiſchen Continente verſuchte man<lb/>
+dagegen anfänglich das unterirdiſche Leitungsſyſtem practiſch<lb/>
+durchzuführen, da man hier mehr wie in jenen Ländern muth¬<lb/>
+willige Zerſtörung der aller Welt ſichtbaren und zugänglichen<lb/>
+oberirdiſchen Leitungen fürchtete. <hi rendition="#g">Jacobi</hi> in Petersburg machte<lb/>
+ausgedehnte Verſuche mit Kupferdrähten, die durch Umwindung<lb/>
+mit Kautſchouk und durch übergezogene Glasröhren vom Erd¬<lb/>
+boden iſolirt wurden. Es zeigte ſich aber bald, daß auf die¬<lb/>
+ſem Wege keine ausreichende Iſolation erreicht wurde, da die<lb/>
+<pb n="33" facs="#f0039"/>
+Feuchtigkeit des Bodens durch die Nähte des Kautſchouks und<lb/>
+die Verbindungsſtellen der Glasröhren ſich einen Weg zum<lb/>
+Drahte bahnte und die letzteren auch häufig zerbrachen. In<lb/>
+Preußen begann man zwar mit oberirdiſchen Drähten, ward<lb/>
+aber durch die häufig eintretenden Störungen wieder davon<lb/>
+zurückgeſchreckt. Nachdem man dann den von Jacobi betretenen<lb/>
+Weg geprüft und ebenfalls als unbrauchbar erkannt hatte, ver¬<lb/>
+ſuchte man auf einem anderen, vielverſprechenden Wege die<lb/>
+Herſtellung ſicherer unterirdiſcher Leitungen. Es war im Jahre<lb/>
+1846 ein neues Material, die <hi rendition="#aq">gutta percha</hi>, bekannt geworden,<lb/>
+welche viele Eigenſchaften, worunter die ausgezeichnete iſolirende<lb/>
+Eigenſchaft, mit dem Kautſchouk gemein hat, ſich aber von dem¬<lb/>
+ſelben weſentlich dadurch unterſcheidet, daß ſie im erwärmten<lb/>
+Zuſtande einen plaſtiſchen Teig bildet. Die Schwierigkeit, die¬<lb/>
+ſen Teig zu einer den Draht eng umſchließenden Röhre ohne<lb/>
+Naht zu formen, wurde durch eine eigenthümliche Maſchine be¬<lb/>
+ſeitigt, welche die weiche <hi rendition="#aq">gutta percha</hi> durch ſtarken Druck con¬<lb/>
+tinuirlich um die die Maſchine paſſirenden Drähte legte. Die<lb/>
+ſo hergeſtellten Leitungen waren in der That vollſtändig aus¬<lb/>
+reichend iſolirt und functionirten auf den ausgedehnten Linien,<lb/>
+die in Norddeutſchland in den nächſten Jahren in zu großer<lb/>
+Uebereilung angelegt wurden, mit vollſtändiger Sicherheit. Die<lb/>
+Schwierigkeiten der Auffindung fehlerhafter Stellen und un¬<lb/>
+zählige andere wurden zwar ebenfalls glücklich überwunden —<lb/>
+es ſtellte ſich aber trotzdem bald heraus, daß die Leitungen, die<lb/>
+ohne beſonderen äußeren Schutz in den Boden gelegt wurden,<lb/>
+unhaltbar waren. Die <hi rendition="#aq">gutta percha</hi> wurde von Ratten und<lb/>
+Mäuſen zernagt und wurde namentlich durch den Sauerſtoff der<lb/>
+Luft, welcher durch den lockeren Boden bis zu den Drähten ge¬<lb/>
+langte, dergeſtalt verändert, daß ſie ihren Zuſammenhang und<lb/>
+ihre iſolirende Fähigkeit ſchon nach wenig Jahren einbüßte.</p><lb/>
+<p>Seit dieſen ungünſtigen Erfahrungen iſt man überall, wo<lb/>
+<fw type="sig" place="bottom">22. 3<lb/>
+</fw>
+<pb n="34" facs="#f0040"/>
+ſie irgend anwendbar ſind, zu oberirdiſchen Leitungen überge¬<lb/>
+gangen, die inzwiſchen weſentliche Verbeſſerungen erfahren ha¬<lb/>
+ben. Faſt alle europäiſchen Bänder ſind jetzt von einem eiſer¬<lb/>
+nen Drahtnetz überſpannt, durch welches der electriſche Bote die<lb/>
+Gedanken und Nachrichten der Menſchen in wunderbarer Ge¬<lb/>
+ſchwindigkeit von Ort zu Ort, vom atlantiſchen Meere zum in¬<lb/>
+diſchen und ſtillen Ocean befördert! Der ſtets wachſende tele¬<lb/>
+graphiſche Verkehr macht natürlich eine immer größer werdende<lb/>
+Zahl von Leitungsdrähten erforderlich, die in manchen Ge¬<lb/>
+genden ſchon ſchwer an den Pfoſten, welche ſchon alle Eiſen¬<lb/>
+bahnen und viele Straßen begleiten, in der für die ſichere Iſo¬<lb/>
+lirung nöthigen Entfernung von einander anzubringen ſind.<lb/>
+Dieſe Schwierigkeit und die Erfahrung, daß mit der Zahl der<lb/>
+Drähte die Sicherheit jedes einzelnen ſich vermindert, wird<lb/>
+wahrſcheinlich mit der Zeit wieder zum verlaſſenen unterirdiſchen<lb/>
+Syſteme zurückführen. Für dieſes iſt jetzt durch die Entwickelung<lb/>
+der unterſeeiſchen oder ſubmarinen Telegraphie eine beſſere Er¬<lb/>
+fahrungsgrundlage gegeben. Verſuche, breite Flüſſe und kleine<lb/>
+Meeresarme durch Verſenkung iſolirter Drähte telegraphiſch zu<lb/>
+unterbrücken, waren ſchon vor den preußiſchen Verſuchen mehr¬<lb/>
+fach angeſtellt, doch immer mit ungünſtigem Erfolge. Erſt die<lb/>
+um die Drähte gepreßte <hi rendition="#aq">gutta percha</hi> bot ein Mittel der ſicheren<lb/>
+Iſolirung und machte ſubmarine Leitungen möglich. Die erſten<lb/>
+auf dieſe Weiſe hergeſtellten Unterwaſſerleitungen waren eine<lb/>
+im Frühjahr des Jahres 1848 ausgeführte Leitung im Kieler<lb/>
+Hafen zur Entzündung von unterſeeiſchen Minen, welche gegen<lb/>
+die däniſchen Kriegsſchiffe angelegt wurden, und der Uebergang<lb/>
+über den Rhein bei Cöln. Bald darauf bemächtigten die Eng¬<lb/>
+länder ſich dieſes Mittels zur Herſtellung größerer ſubmariner<lb/>
+Leitungen. Die mit <hi rendition="#aq">gutta percha</hi> umpreßten Drähte wurden<lb/>
+zu dem Zwecke erſt mit getheertem Hanf und dann mit Eiſen¬<lb/>
+drähten dicht umwunden, wodurch ſie eine große Feſtigkeit er¬<lb/>
+<pb n="35" facs="#f0041"/>
+hielten und vor äußeren Beſchädigungen geſchützt waren. Ein<lb/>
+ſolches electriſches Drahtſeil oder Kabel wird in ähnlicher Weiſe,<lb/>
+wie die Schiffer ihre Seile zuſammenrollen, in den Raum des<lb/>
+zum Auslegen beſtimmten Dampfſchiffes eingelegt. Iſt das Schiff<lb/>
+an dem Küſtenpunkte angekommen, von wo die Legung beginnen<lb/>
+ſoll, ſo wird zuerſt vom Lande aus, durch die Brandung hin¬<lb/>
+durch bis zum tiefen Waſſer, ein mit ſehr dicken Eiſendrähten<lb/>
+umwundenes, ſogenanntes Küſtenkabel gelegt, welches der Zer¬<lb/>
+ſtörung mehr widerſteht wie das dünnere, für das tiefe Waſſer,<lb/>
+wo dieſe Gefahren weit geringer ſind, beſtimmte Kabel. Nach¬<lb/>
+dem das Ende dieſes Küſtenkabels mit dem zuletzt eingelegten<lb/>
+Ende des auf dem Schiffe befindlichen Kabels ſicher verbunden<lb/>
+iſt, beginnt das Schiff ſeine Fahrt zum anderen Küſtenpunkte.<lb/>
+Iſt es hier wieder glücklich in flachem Waſſer angekommen, ſo<lb/>
+wird das Ende des Tiefſeekabels wieder mit dem ſchon im<lb/>
+Voraus gelegten Küſtenkabel verbunden, wodurch die telegra¬<lb/>
+phiſche Verbindung dann vollendet iſt.</p><lb/>
+<p>Dieſe ſo einfach erſcheinende Operation iſt aber trotzdem<lb/>
+ein ſehr ſchwieriges und gefahrvolles Unternehmen, beſonders<lb/>
+dann, wenn die Waſſertiefe groß iſt. Während das Schiff durch<lb/>
+die Kraft ſeiner Maſchine dem Ziele zueilt, und das Kabel über<lb/>
+eine neben dem Steuer angebrachte Rolle dem Meere zugeführt<lb/>
+wird, ſinkt es hinter dem Schiffe in Folge der Schwerkraft<lb/>
+langſam bis zum Boden des Meeres. Würde das Kabel durch<lb/>
+keine dieſer Schwere entgegenwirkende Kraft auf dem Schiffe<lb/>
+zurückgehalten, ſo würde es in großer Geſchwindigkeit auf der<lb/>
+vom Waſſer gebildeten ſchiefen Ebene in die Tiefe hinabgleiten.<lb/>
+Um dies zu verhindern, muß es durch Bremsvorrichtungen mit<lb/>
+einer Kraft zurückgehalten werden, welche dem Gewicht eines<lb/>
+ſenkrecht vom Schiffe bis zum Meeresboden hinabhängenden<lb/>
+Kabelſtückes möglichſt genau gleich iſt. Bei großer Meerestiefe,<lb/>
+die oft eine halbe geographiſche Meile überſteigt, iſt dieſe Kraft<lb/>
+<fw type="sig" place="bottom">3*<lb/>
+</fw>
+<pb n="36" facs="#f0042"/>
+ſo bedeutend, daß die Gefahr des Reißens des Kabels bei der<lb/>
+geringſten Störung groß wird. Wird die Auslegemaſchine auch<lb/>
+nur einen Augenblick unbrauchbar, oder wird das Kabel durch<lb/>
+andere Gründe, durch Verwickelung oder in Folge des häufig<lb/>
+vorkommenden Brechens eines Umhüllungsdrahtes, auf dem<lb/>
+Wege aus dem Schiffsbauche bis zum Waſſer feſtgehalten, ſo<lb/>
+iſt es in tiefem Waſſer gewöhnlich verloren. Doch auch ohne<lb/>
+zu reißen, kann das Kabel unbrauchbar werden, wenn die iſo¬<lb/>
+lirende Hülle des Drahtes die geringſte Beſchädigung hat<lb/>
+oder erhält, durch welche das Waſſer Zutritt zum Leitungsdrahte<lb/>
+findet. Durch die ſorgfältigſte Prüfung, während und nach der<lb/>
+Anfertigung, hat man ſich zwar vorher überzeugt, daß der iſo¬<lb/>
+lirende Ueberzug fehlerfrei iſt, aber der ſtarke Zug, dem das<lb/>
+Kabel während der Legung ausgeſetzt wird, bringt doch hin<lb/>
+und wieder Iſolationsfehler zum Vorſchein, die vorher nicht zu<lb/>
+bemerken waren. Es muß das Kabel daher während der Le¬<lb/>
+gung einer unausgeſetzten elektriſchen Prüfung unterworfen wer¬<lb/>
+den. Zeigt ſich ein Iſolationsfehler, ſo muß die Legung ſofort<lb/>
+unterbrochen und der zuletzt gelegte Theil des Kabels wieder<lb/>
+in das Schiff zurückgewunden werden. Aus den angeſtellten<lb/>
+electriſchen Strommeſſungen muß dann die Lage des Fehlers<lb/>
+beſtimmt und die Reparatur darauf ausgeführt werden. Reißt<lb/>
+das Kabel hierbei, ſo iſt zwar der bisher gelegte Theil deſſel¬<lb/>
+ben verloren, aber doch wenigſtens der noch auf dem Schiffe<lb/>
+befindliche Theil gerettet.</p><lb/>
+<p>Auf eine nähere Beſchreibung der Einrichtungen und Unter¬<lb/>
+ſuchungsmethoden, mit Hülfe deren es gelungen iſt, die große<lb/>
+Unſicherheit der Anfertigung und Legung der ſubmarinen Ka¬<lb/>
+bel nach und nach ſo weit zu beſeitigen, daß im Laufe dieſes<lb/>
+Jahres ſogar das große bisherige Problem der Telegraphie,<lb/>
+die Herſtellung einer directen telegraphiſchen Leitung zwiſchen<lb/>
+Europa und Amerika glücklich gelöſt werden konnte, kann we¬<lb/>
+<pb n="37" facs="#f0043"/>
+gen des begränzten Raumes und Zweckes dieſer Blätter hier<lb/>
+nicht näher eingegangen werden.</p><lb/>
+<p>Dieſe telegraphiſche Verbindung der Weſtküſte Irlands mit<lb/>
+der Küſte von New-Foundland iſt nicht nur bemerkenswerth<lb/>
+wegen der glücklich durchgeführten fehlerfreien Anfertigung und<lb/>
+Legung des ca. 300 deutſche Meilen langen Kabels, ſondern auch<lb/>
+wegen der unerwartet großen Geſchwindigkeit und Sicherheit, mit<lb/>
+welcher die Depeſchenbeförderung durch daſſelbe erfolgt!</p><lb/>
+<p>Bereits im Jahre 1848 erkannte man eine eigenthümliche<lb/>
+Eigenſchaft der von Berlin ausgehenden unterirdiſchen Leitun¬<lb/>
+gen. Dieſe beſteht darin, daß der electriſche Strom nicht, wie<lb/>
+bei oberirdiſchen Leitungen, in ſeiner ganzen Länge gleichzeitig<lb/>
+und im ſelben Augenblicke, in welchem man den Leitungskreis<lb/>
+mit dem freien Pole einer electriſchen Batterie berührt, auf¬<lb/>
+tritt, ſondern daß der Strom etwas ſpäter am entfernten Ende<lb/>
+der Leitung beginnt wie an dem der Batterie zugewendeten.<lb/>
+Es hat dies darin ſeinen Grund, daß der Draht mit der ſeine<lb/>
+iſolirende Hülle umgebenden feuchten Erde eine Leydener Flaſche<lb/>
+bildet, in welcher die Electricität ſich anſammelt. Die aus der<lb/>
+galvaniſchen Batterie in den unterirdiſchen oder unterſeeiſchen<lb/>
+Draht eintretende Electricität muß daher zunächſt dazu ver¬<lb/>
+wandt werden, die große Leydener Flaſche, welche er bildet, mit<lb/>
+Electricität zu füllen oder ſie zu laden, und erſt nachdem dies<lb/>
+geſchehen iſt, kann der Strom am entfernten Ende der Leitung<lb/>
+beginnen. Wird die Verbindung des Drahtes mit der galvani¬<lb/>
+ſchen Batterie unterbrochen, ſo hört die Urſache der Ladung auf<lb/>
+und die auf der Oberfläche des Drahtes angeſammelt ruhende<lb/>
+Electricität fließt nun durch das entfernte Ende der Leitung<lb/>
+zur Erde, wodurch die Flaſche ſich wieder entladet. Der<lb/>
+Strom beginnt alſo nicht nur ſpäter am entfernten Ende der<lb/>
+Leitung, ſondern hört auch ſpäter wieder auf. Man kann ſich<lb/>
+dieſen Vorgang ungefähr ſo vorſtellen, als wenn man durch ein<lb/>
+<pb n="38" facs="#f0044"/>
+langes dünnes Rohr mit elaſtiſchen Wänden Luft pumpen wollte.<lb/>
+In der Nähe der Pumpe würde ſich das Rohr bei jedem Pum¬<lb/>
+penſtoße durch den elaſtiſchen Druck der hineingetriebenen Luft<lb/>
+erweitern. Dieſe Erweiterung würde in abnehmendem Maaße<lb/>
+bis zum andern offenen Ende des Rohres fortgehen und der<lb/>
+Austritt der Luft aus demſelben würde erſt in voller Stärke<lb/>
+beginnen, wenn das Rohr eine kegelförmige Form angenommen<lb/>
+hätte. Nach Vollendung des Pumpenſtoßes würde das Rohr<lb/>
+ſich wieder auf ſeinen normalen Durchmeſſer zuſammenziehen<lb/>
+und die überflüſſige Luft aus dem entfernten Rohrende hin¬<lb/>
+ausgehen. Würde ein zweiter Kolbenſtoß beginnen, bevor dieſe<lb/>
+Ausſtrömung vorüber iſt, ſo würde die Luft nicht ſtoßweiſe<lb/>
+aus dem entfernten Ende hervortreten, ſondern der Strom<lb/>
+würde gar nicht mehr aufhören, und ſtets Luft ausfließen, wenn<lb/>
+auch in wechſelnder Geſchwindigkeit.</p><lb/>
+<p>Aehnlich iſt das Verhalten der Electricität in der unter¬<lb/>
+irdiſchen Leitung oder dem unterſeeiſchen Kabel. Folgen die<lb/>
+electriſchen Strömungen, durch welche man eine Nachricht<lb/>
+geben will, zu ſchnell auf einander, ſo wird ein ununter¬<lb/>
+brochener Strom am anderen Ende zum Vorſchein kommen,<lb/>
+welcher zwar kleine Schwankungen in ſeiner Stärke zeigt,<lb/>
+aber die Dauer der einzelnen gegebenen Ströme nicht mehr<lb/>
+klar erkennen, geſchweige mechaniſch dauernd ſichtbar machen<lb/>
+läßt. Man muß alſo auf unterſeeiſchen Linien weit langſamer<lb/>
+ſprechen als auf oberirdiſchen, um klare Zeichen zu erhalten.<lb/>
+Durch Anwendung von Wechſelſtrömen, das heißt von ab¬<lb/>
+wechſelnd poſitiven und negativen Strömen, hat man dieſe<lb/>
+ſtörenden Einflüſſe zwar weſentlich vermindert und das Spre¬<lb/>
+chen durch lange unterſeeiſche Leitungen ſicherer gemacht und<lb/>
+beſchleunigt; ſie ganz zu beſeitigen, wird aber nie möglich<lb/>
+werden. Beim atlantiſchen Kabel wendet man jetzt Empfangs-<lb/>
+Inſtrumente an, welche im Princip ganz mit denen, welche<lb/>
+<pb n="39" facs="#f0045"/>
+Gauß und Weber benutzten, übereinſtimmen. Es ſind dies<lb/>
+Spiegelgalvanometer, d. h. Magnetnadeln, an welchen kleine<lb/>
+Spiegel befeſtigt ſind. Der Beobachter ſieht in dieſem Spiegel<lb/>
+das Bild einer kleinen Flamme — wie <hi rendition="#g">du Bois-Reymond</hi> dies<lb/>
+bei ſeinen Vorleſungen zur Sichtbarmachung ſchwacher Nerven<lb/>
+und Muskelſtröme zuerſt benutzte. Aus dem Hin- und Zurück¬<lb/>
+zucken des Flämmchens, das durch die ſehr ſchwachen Ströme<lb/>
+bewirkt wird, die als Endreſultat der kräftigen Wechſelſtröme,<lb/>
+welche in die Leitung geſchickt werden, am empfangenden Ende<lb/>
+der Leitung zum Vorſchein kommen, muß der Beobachter den<lb/>
+Sinn der Depeſchen entziffern.</p><lb/>
+<p>Bei oberirdiſchen Leitungen ſind die Ladungserſcheinungen,<lb/>
+welche die Benutzung langer unterſeeiſcher und unterirdiſcher<lb/>
+Leitungen ſo ſehr erſchweren, wie ſchon geſagt, kaum bemerkbar.<lb/>
+Man kann aber dennoch auch eine oberirdiſche Leitung als eine<lb/>
+Leydener Flaſche anſehen, bei der der Draht und der Erdboden<lb/>
+die Belegungen und die zwiſchen Draht und Erde befindliche<lb/>
+Luft die iſolirende Glaswand vertritt. Auch der oberirdiſche<lb/>
+Leitungsdraht muß mithin mit Electricität geladen werden, be¬<lb/>
+vor der Strom am entfernten Ende beginnen kann. Der hier¬<lb/>
+durch bedingte Zeitverluſt iſt aber wegen des geringen Faſſungs¬<lb/>
+vermögens dieſer Drahtflaſche ſo gering, daß er beim Telegra¬<lb/>
+phiren durch die Hand nicht in Betracht kommt. Dagegen<lb/>
+tritt er ſchon merklich auf beim mechaniſchen Telegraphiren, bei<lb/>
+welchem man ſich der Gränze der Leiſtungsfähigkeit des Lei¬<lb/>
+tungsdrahtes ſchon nähert. Je länger und dünner dieſer iſt,<lb/>
+deſto geringer iſt die Zahl der telegraphiſchen Zeichen, die man<lb/>
+durch ihn in derſelben Zeit befördern kann. Auch aus dieſem<lb/>
+Grunde iſt es nicht zweckmäßig, zu lange Leitungskreiſe zu be¬<lb/>
+nutzen, und vortheilhafter Translationsſtationen einzuſchieben,<lb/>
+wenn die Depeſchen ſehr lange Wegſtrecken zu durchlaufen haben.</p><lb/>
+<p>Die Frage, welches die größte Geſchwindigkeit iſt, mit<lb/>
+<pb n="40" facs="#f0046"/>
+welcher ein Draht Depeſchen zu befördern im Stande iſt, kann<lb/>
+nach Obigem nicht allgemein beantwortet werden, da dieſelbe<lb/>
+von der Zeit, welche der electriſche Strom gebraucht, um am<lb/>
+anderen Ende der Leitung aufzutreten, oder, wie man es auch<lb/>
+mit Unrecht ausdrückt, von der Geſchwindigkeit der Electricität<lb/>
+im Drahte abhängt, und da dieſe Zeit von der Länge und dem<lb/>
+Querſchnitte des Drahtes und von ſeiner Entfernung von anderen<lb/>
+Leitern, ſowie auch von der größeren oder geringeren Leitungs¬<lb/>
+fähigkeit des Metalles, aus dem er beſteht, abhängig iſt. Durch<lb/>
+Rechnung hat man gefunden, daß die wirkliche Geſchwindigkeit<lb/>
+der Electricität ſelbſt größer iſt wie die des Lichtes, alſo über<lb/>
+40,000 deutſche Meilen in der Secunde. Da man aber keinen<lb/>
+Draht ausſpannen kann, der keine Flaſchenwirkung hat, ſo iſt<lb/>
+die Fortpflanzung der electriſchen Wirkung in allen telegraphi¬<lb/>
+ſchen Leitern eine weit geringere, beſonders bei unterſeeiſchen<lb/>
+Drähten, bei welchen jene beſonders groß iſt. Zuverläſſige<lb/>
+Verſuche über die wirkliche Größe derſelben liegen noch nicht vor.</p><lb/>
+<p>Wie man ſieht, haben Wiſſenſchaft und Technik noch ein<lb/>
+weites Arbeitsfeld vor ſich, um die Telegraphie theoretiſch und<lb/>
+practiſch ſo fortzubilden, daß ſie den täglich größer werdenden<lb/>
+Anforderungen, welche das ſociale Leben an ſie ſtellt, dauernd<lb/>
+genügen könne!</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> </body> <back> <div type="imprint"> <p rendition="#c">Berlin, Druck von Gebr. Unger (C. Unger), Königl. Hofbuchdrucker.</p> </div><lb/>
+<pb facs="#f0047"/>
+<pb facs="#f0048"/>
+<pb facs="#f0049"/>
+</back> </text> </TEI>

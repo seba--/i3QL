@@ -1,0 +1,3445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Peter Schlemihl's wundersame Geschichte</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118520040">
+<surname>Chamisso</surname>
+<forename>Adelbert von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">167</measure>
+<measure type="tokens">21468</measure>
+<measure type="types">5178</measure>
+<measure type="characters">144671</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:43Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/chamisso_schlemihl_1814</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/chamisso_schlemihl_1814</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/chamisso_schlemihl_1814</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/chamisso_schlemihl_1814</idno>
+<idno type="DTADirName">chamisso_schlemihl_1814</idno>
+<idno type="DTAID">16433</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-20090519830</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Chamisso, Adelbert von: Peter Schlemihl's wundersame Geschichte. Nürnberg, 1814.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Peter Schlemihl's wundersame Geschichte</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118520040">
+<surname>Chamisso</surname>
+<forename>Adelbert von</forename>
+</persName>
+</author>
+<editor>
+<persName ref="http://d-nb.info/gnd/118534556">
+<surname>Fouqué</surname>
+<forename>Friedrich de La Motte- </forename>
+</persName>
+</editor>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">XII, 132 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Schrag</name></publisher>
+<pubPlace>Nürnberg</pubPlace>
+<date type="publication">1814</date>
+</publicationStmt>
+<notesStmt>
+<note type="remarkSource">Beigebunden im Anhang des für das DTA gewählten Exemplars aus der SBB-PK sind sechs Kupfer von George Cruikshank aus der 2. Aufl. (1827).</note>
+</notesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, 344501 R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=410763616</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<div type="frontispiece"> <figure/> </div>
+<pb n="[I]" facs="#f0009"/>
+<titlePage type="main"> <docTitle> <titlePart type="main">Peter Schlemihl's<lb/>
+<hi rendition="#g">wunderſame Geſchichte</hi><lb/>
+</titlePart> </docTitle> <byline> <hi rendition="#g">mitgetheilt<lb/>
+von</hi><lb/>
+<docAuthor> <hi rendition="#g">Adelbert von Chamiſſo</hi></docAuthor><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<hi rendition="#g">und<lb/>
+herausgegeben<lb/>
+von</hi><lb/>
+Friedrich Baron de la Motte Fouqué. </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="desc">Mit einem Kupfer.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace>Nuͤrnberg,<lb/>
+</pubPlace> <publisher> <hi rendition="#g">bei Johann Leonhard Schrag</hi>.<lb/>
+</publisher> <docDate> <hi rendition="#g">1814</hi>.<lb/>
+</docDate> </docImprint> </titlePage>
+<pb n="[II]" facs="#f0010"/>
+<div type="dedication"> <p rendition="#c"><hi rendition="#g">An<lb/>
+Adelbert von Chamiſſo.</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<cit>     <quote>         <lg type="poem">             <lg n="1">                 <l>Trift Frank' und Deutſcher jetzt zuſammen,</l><lb/>
+<l rendition="#et">Und Jeder edlen Muth's entbrannt,</l><lb/>
+<l rendition="#et">So faͤhrt an's tapfre Schwert die Hand,</l><lb/>
+<l>Und Kampf entſpruͤht in wilden Flammen.</l><lb/>
+</lg>             <lg n="2">                 <l>Wir treffen uns auf hoͤherm Feld,</l><lb/>
+<l rendition="#et">Wir zwei verklaͤrt in reinerm Feuer.</l><lb/>
+<l rendition="#et">Heil Dir, mein Frommer, mein Getreuer,</l><lb/>
+<l>Und dem, was uns verbunden haͤlt!</l><lb/>
+</lg>         </lg>     </quote>     <bibl rendition="#right"><hi rendition="#g">Fouqué</hi>.<lb/>
+</bibl> </cit> </div>
+<pb n="[III]" facs="#f0011"/>
+<div type="dedication">     <p rendition="#c">         <hi rendition="#g">Dem<lb/>
+Herrn</hi><lb/>
+Regierungs-Aſſeſſor und Buchhaͤndler<lb/>
+<hi rendition="#g">J. E. Hitzig</hi>,     </p><lb/>
+<space dim="vertical"/>     <p rendition="#c">         <hi rendition="#g">Wohlgeboren,<lb/>
+<space dim="vertical"/>             in<lb/>
+Berlin</hi>.     </p><lb/>
+</div>
+<pb n="[IV]" facs="#f0012"/>
+<pb n="V" facs="#f0013"/>
+<div n="1"> <head><hi rendition="#g">Vorwort</hi>.<lb/>
+</head> <milestone unit="section" rendition="#hr"/><lb/>
+<div type="letter" n="2"> <head><hi rendition="#g">An<lb/>
+Freund Eduard</hi>.</head><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p><hi rendition="#in">B</hi>ewahren, <hi rendition="#g">lieber</hi> <choice><sic><hi rendition="#g">Ednard</hi></sic><corr><hi rendition="#g">Eduard</hi></corr></choice>, ſollen<lb/>
+wir die Geſchichte des armen <hi rendition="#g">Schlemihl</hi>,<lb/>
+dergeſtalt bewahren, daß ſie vor Augen,<lb/>
+die nicht hineinzuſehn haben, beſchirmt<lb/>
+bleibe. Das iſt eine ſchlimme Aufgabe.<lb/>
+Es gibt ſolcher Augen eine ganze Menge,<lb/>
+und welcher Sterbliche kann die Schickſale<lb/>
+eines Manuſcriptes beſtimmen, eines Din¬<lb/>
+<pb n="VI" facs="#f0014"/>
+ges, das beinah noch ſchlimmer zu huͤten<lb/>
+iſt, als ein geſprochenes Wort. Da mach'<lb/>
+ich's denn wie ein Schwindelnder, der in<lb/>
+der Angſt lieber gleich in den Abgrund<lb/>
+ſpringt: ich laſſe die ganze Geſchichte<lb/>
+drucken.</p><lb/>
+<p>Und doch, <hi rendition="#g">Eduard</hi>, es gibt ernſtere<lb/>
+und beſſere Gruͤnde fuͤr mein Benehmen.<lb/>
+Es truͤgt mich Alles, oder in unſerm lie¬<lb/>
+ben Deutſchlande ſchlagen der Herzen viel,<lb/>
+die den armen <hi rendition="#g">Schlemihl</hi> zu verſtehen<lb/>
+faͤhig ſind und auch werth, und uͤber manch<lb/>
+eines aͤchten Landsmannes Geſicht wird bei<lb/>
+dem herben Scherz, den das Leben mit<lb/>
+ihm, und bei dem argloſen, den er mit<lb/>
+ſich ſelbſt treibt, ein geruͤhrtes Laͤcheln<lb/>
+<pb n="VII" facs="#f0015"/>
+ziehn. Und Du, mein <hi rendition="#g">Eduard</hi>, wenn<lb/>
+Du das grundehrliche Buch anſiehſt, und<lb/>
+dabei denkſt, daß viele unbekannte Her¬<lb/>
+zensverwandte es mit uns lieben lernen,<lb/>
+fuͤhlſt auch vielleicht einen Balſamtropfen<lb/>
+in die heiſſe Wunde fallen, die Dir und<lb/>
+Allen, die Dich lieben, der Tod geſchla¬<lb/>
+gen hat.</p><lb/>
+<p>Und endlich: es gibt — ich habe mich<lb/>
+durch mannichfache Erfahrung davon uͤber¬<lb/>
+zeugt — es gibt fuͤr die gedruckten Buͤcher<lb/>
+einen Genius, der ſie in die rechten Haͤn¬<lb/>
+de bringt, und, wenn nicht immer, doch<lb/>
+ſehr oft die unrechten davon abhaͤlt. Auf<lb/>
+allen Fall hat er ein unſichtbares Vorhaͤng¬<lb/>
+ſchloß vor jedwedem aͤchten Geiſtes- und<lb/>
+<pb n="VIII" facs="#f0016"/>
+Gemuͤthswerke, und weiß mit einer ganz<lb/>
+untruͤglichen Geſchicklichkeit auf- und zuzu¬<lb/>
+ſchließen.</p><lb/>
+<p>Dieſem Genius, mein ſehr lieber<lb/>
+<hi rendition="#g">Schlemihl</hi>, vertraue ich Dein Laͤcheln<lb/>
+und Deine Thraͤnen an, und ſomit Gott<lb/>
+befohlen!</p><lb/>
+<closer> <salute> <hi rendition="#g">Fouqué.</hi> </salute> </closer><lb/>
+</div>
+<pb n="IX" facs="#f0017"/>
+<div n="2" type="letter"> <p> <hi rendition="#in">D</hi>u vergiſſeſt Niemanden, Du wirſt<lb/>
+Dich noch eines gewiſſen <hi rendition="#g">Peter Schle</hi>¬<lb/>
+<hi rendition="#g">mihl's</hi> erinnern, den Du in fruͤheren Jah¬<lb/>
+ren ein paar Mal bei mir geſehen haſt, ein<lb/>
+langbeiniger Burſch', den man ungeſchickt<lb/>
+glaubte, weil er linkiſch war und der we¬<lb/>
+gen ſeiner Traͤgheit fuͤr faul galt. Ich hatte<lb/>
+ihn lieb, — Du kannſt nicht vergeſſen ha¬<lb/>
+ben, <hi rendition="#g">Eduard</hi>, wie er uns einmal in un¬<lb/>
+ſerer gruͤnen Zeit durch die Sonnette lief,<lb/>
+ich brachte ihn mit auf einen der poetiſchen<lb/>
+Thee's, wo er mir noch waͤhrend des Schrei¬<lb/>
+bens einſchlief, ohne das Leſen abzuwarten.<lb/>
+Nun erinnere ich mich auch eines Witzes,<lb/>
+den Du auf ihn machteſt. Du hatteſt ihn<lb/>
+nemlich ſchon, Gott weiß, wo und wann,<lb/>
+<pb n="X" facs="#f0018"/>
+in einer alten ſchwarzen Kurtka geſehen,<lb/>
+die er freilich damals noch immer trug, und<lb/>
+ſagteſt: “der ganze Kerl waͤre gluͤcklich zu<lb/>
+ſchaͤtzen, wenn ſeine Seele nur halb ſo un¬<lb/>
+ſterblich waͤre, als ſeine Kurtka.„ — So<lb/>
+wenig galt er bei Euch. — Ich hatte ihn<lb/>
+lieb. — Von dieſem <hi rendition="#g">Schlemihl</hi> nun,<lb/>
+den ich ſeit langen Jahren aus dem Geſicht<lb/>
+verloren hatte, ruͤhrt das Heft her, das ich<lb/>
+Dir mittheilen will — Dir nur, <hi rendition="#g">Eduard</hi>,<lb/>
+meinem naͤchſten, innigſten Freund, mei¬<lb/>
+nem beſſ'rem Ich, vor dem ich kein Ge¬<lb/>
+heimniß verwahren kann, theil' ich es mit,<lb/>
+nur Dir und, es verſteht ſich von ſelbſt,<lb/>
+unſerm <hi rendition="#g">Fouqué</hi>, gleich Dir in meiner<lb/>
+Seele eingewurzelt — aber in ihm theil' ich<lb/>
+es blos dem Freunde mit, nicht dem Dich¬<lb/>
+ter. — Ihr werdet einſehen, wie unange¬<lb/>
+nehm es mir ſeyn wuͤrde, wenn etwa die<lb/>
+Beichte, die ein ehrlicher Mann im Ver¬<lb/>
+trauen auf meine Freundſchaft und Red¬<lb/>
+<pb n="XI" facs="#f0019"/>
+lichkeit an meiner Bruſt ablegt, in einem<lb/>
+Dichterwerke an den Pranger geheftet wuͤr¬<lb/>
+de, oder nur wenn uͤberhaupt unheilig ver¬<lb/>
+fahren wuͤrde, wie mit einem Erzeugniß<lb/>
+ſchlechten Witzes, mit einer Sache, die das<lb/>
+nicht iſt, und ſeyn darf. Freilich, muß<lb/>
+ich ſelbſt geſtehen, daß es um die Geſchichte<lb/>
+Schad’ iſt, die unter des guten Mannes<lb/>
+Feder nur albern geworden, daß ſie nicht<lb/>
+von einer geſchickteren fremden Hand in ih¬<lb/>
+rer ganzen komiſchen Kraft dargeſtellt wer¬<lb/>
+den kann. — Was wuͤrde nicht <hi rendition="#g">Jean<lb/>
+Paul</hi> daraus gemacht haben. — Übri¬<lb/>
+gens, lieber Freund, moͤgen hier Manche<lb/>
+genannt ſeyn, die noch leben; auch das will<lb/>
+beachtet ſeyn. —</p><lb/>
+<p>Noch ein Wort uͤber die Art, wie<lb/>
+dieſe Blaͤtter an mich gelangt ſind. Ge¬<lb/>
+ſtern fruͤh bei meinem Erwachen, gab man<lb/>
+ſie mir ab, — ein wunderlicher Mann,<lb/>
+der einen langen grauen Bart trug, eine<lb/>
+<pb n="XII" facs="#f0020"/>
+ganz abgenuͤtzte ſchwarze Kurtka an hatte,<lb/>
+eine botaniſche Kapſel daruͤber umgehangen,<lb/>
+und bei dem feuchten, regnichten Wetter<lb/>
+Pantoffeln uͤber ſeine Stiefel, hatte ſich<lb/>
+nach mir erkundigt, und dieſes fuͤr mich<lb/>
+hinterlaſſen; er hatte, aus Berlin zu kom¬<lb/>
+men, vorgegeben. — — —</p><lb/>
+<milestone unit="section" rendition="#hr"/> <closer><dateline> <hi rendition="#g">Kunersdorf,</hi><lb/>
+den 27<hi rendition="#sup">ſten</hi> September 1813.</dateline></closer><lb/>
+<postscript><p>P. S. Ich lege dir eine Zeichnung bei, die der<lb/>
+kunſtreiche <hi rendition="#g">Leopold</hi>, der eben an ſeinem<lb/>
+Fenſter ſtand, von der auffallenden Erſchei¬<lb/>
+nung entworfen hat. Als er den Werth,<lb/>
+den ich auf dieſe Skizze legte, geſehen hat,<lb/>
+hat er ſie mir gerne geſchenkt.</p></postscript> </div><lb/>
+<fw type="catch" place="bottom"> <hi rendition="#b">I.</hi> Nach<lb/>
+</fw> </div> </front> <body>
+<pb n="[1]" facs="#f0021"/>
+<div n="1"> <head> <hi rendition="#aq">I.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">N</hi>ach einer gluͤcklichen, jedoch fuͤr mich ſehr<lb/>
+beſchwerlichen Seefahrt, erreichten wir endlich den<lb/>
+Hafen. Sobald ich mit dem Boote an’s Land<lb/>
+kam, belud ich mich ſelbſt mit meiner kleinen<lb/>
+Habſeligkeit, und durch das wimmelnde Volk mich<lb/>
+draͤngend, ging ich in das naͤchſte, geringſte<lb/>
+Haus hinein, vor welchem ich ein Schild haͤngen<lb/>
+ſah. Ich begehrte ein Zimmer, der Hausknecht<lb/>
+maß mich mit einem Blick und fuͤhrte mich un¬<lb/>
+ter’s Dach. Ich ließ mir friſches Waſſer geben,<lb/>
+und genau beſchreiben, wo ich den Herrn <hi rendition="#g">Tho¬<lb/>
+mas John</hi> aufzuſuchen habe: — “Vor dem<lb/>
+Norderthor, das erſte Landhaus zur rechten Hand,<lb/>
+ein großes, neues Haus, von roth und weißem<lb/>
+Marmor mit vielen Saͤulen.„ Gut. — Es<lb/>
+war noch fruͤh an der Zeit, ich ſchnuͤrte ſogleich<lb/>
+<fw type="sig" place="bottom">A<lb/>
+</fw>
+<pb n="2" facs="#f0022"/>
+mein Buͤndel auf, nahm meinen neu gewandten<lb/>
+ſchwarzen Rock heraus, zog mich reinlich an in<lb/>
+meine beſten Kleider, ſteckte das Empfehlungsſchrei¬<lb/>
+ben zu mir, und ſetzte mich alsbald auf den Weg<lb/>
+zu dem Manne, der mir bei meinen beſcheidenen<lb/>
+Hoffnungen foͤrderlich ſeyn ſollte.</p><lb/>
+<p>Nachdem ich die lange Norderſtraße hinauf¬<lb/>
+geſtiegen, und das Thor erreicht, ſah ich bald die<lb/>
+Saͤulen durch das Gruͤne ſchimmern — “alſo<lb/>
+hier,„ dacht' ich. Ich wiſchte den Staub von<lb/>
+meinen Fuͤßen mit meinem Schnupftuch ab, ſetzte<lb/>
+mein Halstuch in Ordnung, und zog in Gottes<lb/>
+Namen die Klingel. Die Thuͤr' ſprang auf.<lb/>
+Auf dem Flur hatt' ich ein Verhoͤr zu beſteh'n,<lb/>
+der Portier ließ mich aber anmelden, und ich hatte<lb/>
+die Ehre, in den Park gerufen zu werden, wo<lb/>
+Herr <hi rendition="#g">John</hi> — mit einer kleinen Geſellſchaft ſich<lb/>
+erging. Ich erkannte gleich den Mann am Glanze<lb/>
+ſeiner wohlbeleibten Selbſtzufriedenheit. Er em¬<lb/>
+pfing mich ſehr gut, — wie ein Reicher einen ar¬<lb/>
+men Teufel, wandte ſich ſogar gegen mich, ohne<lb/>
+ſich jedoch von der uͤbrigen Geſellſchaft abzuwen¬<lb/>
+den, und nahm mir den dargehaltenen Brief aus<lb/>
+<pb n="3" facs="#f0023"/>
+der Hand. — “So, ſo! von meinem Bruder,<lb/>
+ich habe lange nichts von ihm gehoͤrt. Er iſt doch<lb/>
+geſund? — Dort,„ fuhr er gegen die Geſell¬<lb/>
+ſchaft fort, ohne die Antwort zu erwarten, und<lb/>
+wies mit dem Brief auf einen Huͤgel, “dort laß<lb/>
+ich das neue Gebaͤude auffuͤhren.„ Er brach das<lb/>
+Siegel auf und das Geſpraͤch nicht ab, das ſich<lb/>
+auf den Reichthum lenkte. “Wer nicht Herr iſt<lb/>
+wenigſtens einer Million,„ warf er hinein, “der<lb/>
+iſt, man verzeihe mir das Wort, ein Schuft!„<lb/>
+“O wie wahr!„ rief ich aus mit vollem uͤber¬<lb/>
+ſtroͤmenden Gefuͤhl. Das mußte ihm gefallen,<lb/>
+er laͤchelte mich an und ſagte: “Bleiben Sie<lb/>
+hier, lieber Freund, nachher hab' ich vielleicht Zeit,<lb/>
+Ihnen zu ſagen, was ich hiezu denke,„ er deutete<lb/>
+auf den Brief, den er ſodann einſteckte, und<lb/>
+wandte ſich wieder zu der Geſellſchaft. — Er<lb/>
+bot einer jungen Dame den Arm, andere Herr'n<lb/>
+bemuͤhten ſich um andere Schoͤnen, es fand ſich,<lb/>
+was ſich paßte, und man wall'te dem roſenum¬<lb/>
+bluͤh'ten Huͤgel zu.</p><lb/>
+<p>Ich ſchlich hinterher ohne Jemanden beſchwer¬<lb/>
+lich zu fallen, denn keine Seele bekuͤmmerte ſich<lb/>
+<fw type="sig" place="bottom">A 2<lb/>
+</fw>
+<pb n="4" facs="#f0024"/>
+weiter um mich. Die Geſellſchaft war ſehr auf¬<lb/>
+geraͤumt, es ward getaͤndelt und geſcherzt, man<lb/>
+ſprach zuweilen von leichtſinnigen Dingen wichtig,<lb/>
+von wichtigen oͤfters leichtſinnig, und gemaͤchlich<lb/>
+erging beſonders der Witz uͤber abweſende Freunde<lb/>
+und deren Verhaͤltniſſe. Ich war da zu fremd,<lb/>
+um von alle dem Vieles zu verſtehen, zu bekuͤm¬<lb/>
+mert und in mich gekehrt, um den Sinn auf<lb/>
+ſolche Raͤthſel zu haben.</p><lb/>
+<p>Wir hatten den Roſenhain erreicht. Die<lb/>
+ſchoͤne <hi rendition="#g">Fanny</hi>, wie es ſchien, die Herrin des<lb/>
+Tages, wollte aus Eigenſinn einen bluͤhenden<lb/>
+Zweig ſelbſt brechen, ſie verletzte ſich an einem<lb/>
+Dorn, und wie von den dunkeln Roſen, floß Pur¬<lb/>
+pur auf ihre zarte Hand. Dieſes Ereigniß brach¬<lb/>
+te die ganze Geſellſchaft in Bewegung. Es wur¬<lb/>
+de Engliſch Pflaſter geſucht. Ein ſtiller, duͤnner,<lb/>
+hag'rer, laͤnglichter, aͤltlicher Mann, der neben<lb/>
+<choice><sic>mit</sic><corr>mir</corr></choice> ging, und den ich noch nicht bemerkt hatte,<lb/>
+ſteckte ſogleich die Hand in die knapp anliegende<lb/>
+Schoßtaſche ſeines altfraͤnkiſchen grautaffentnen<lb/>
+Rockes, brachte eine kleine Brieftaſche daraus her¬<lb/>
+vor, oͤffnete ſie, und reichte der Dame mit devoter<lb/>
+<pb n="5" facs="#f0025"/>
+Verbeugung das Verlangte. Sie empfing es oh¬<lb/>
+ne Aufmerkſamkeit fuͤr den Geber und ohne Dank,<lb/>
+die Wunde ward verbunden, und man ging wei¬<lb/>
+ter den Huͤgel hinan, von deſſen Ruͤcken man die<lb/>
+weite Ausſicht uͤber das gruͤne Labyrinth des Parkes<lb/>
+nach dem unermeßlichen Ozean genießen wollte.</p><lb/>
+<p>Der Anblick war wirklich groß und herrlich.<lb/>
+Ein lichter Punkt erſchien am Horizont zwiſchen<lb/>
+der dunkeln Fluth und der Blaͤue des Himmels.<lb/>
+“Ein Fernrohr her!„ rief <hi rendition="#g">John</hi>, und noch be¬<lb/>
+vor das auf den Ruf erſcheinende Dienervolk in<lb/>
+Bewegung kam, hatte der graue Mann, beſchei¬<lb/>
+den ſich verneigend, die Hand ſchon in die Rock¬<lb/>
+taſche geſteckt, daraus einen ſchoͤnen Dolon hervor¬<lb/>
+gezogen, und es dem Herrn <hi rendition="#g">John</hi> eingehaͤndigt.<lb/>
+Dieſer, es ſogleich an das Aug' bringend, benach¬<lb/>
+richtigte die Geſellſchaft: es ſei das Schiff, das<lb/>
+geſtern ausgelaufen, und das widrige Winde im<lb/>
+Angeſicht des Hafens zuruͤcke hielten. Das Fern¬<lb/>
+rohr ging von Hand zu Hand, und nicht wieder<lb/>
+in die des Eigenthuͤmers; ich aber ſah verwun¬<lb/>
+dernd den Mann an, und wußte nicht, wie die<lb/>
+große Maſchine aus der winzigen Taſche heraus¬<lb/>
+<pb n="6" facs="#f0026"/>
+gekommen war; es ſchien aber Niemanden auf¬<lb/>
+gefallen zu ſeyn, und man bekuͤmmerte ſich nicht<lb/>
+mehr um den grauen Mann als um mich ſelber.</p><lb/>
+<p>Erfriſchungen wurden gereicht, das ſeltenſte<lb/>
+Obſt aller Zonen in den koſtbarſten Gefaͤßen.<lb/>
+Herr <hi rendition="#g">John</hi> machte die Honneurs mit leichtem<lb/>
+Anſtand und richtete da zum zweiten Mal ein<lb/>
+Wort an mich: “Eſſen Sie nur; das haben Sie<lb/>
+auf der See nicht gehabt.„ Ich verbeugte mich,<lb/>
+aber er ſah es nicht, er ſprach ſchon mit jemand<lb/>
+Anderem.</p><lb/>
+<p>Man haͤtte ſich gern auf den Raſen, am<lb/>
+Abhange des Huͤgels, der ausgeſpannten Land¬<lb/>
+ſchaft gegen uͤber gelagert, haͤtte man die Feuch¬<lb/>
+tigkeit der Erde nicht geſcheut. Es waͤre goͤttlich,<lb/>
+meinte Wer aus der Geſellſchaft, wenn man tuͤr¬<lb/>
+kiſche Teppiche haͤtte, ſie hier auszubreiten. Der<lb/>
+Wunſch war nicht ſobald ausgeſprochen, als ſchon<lb/>
+der Mann im grauen Rock die Hand in der<lb/>
+Taſche hatte, und mit beſcheidener, ja demuͤthi¬<lb/>
+ger Geberde, einen reichen, golddurchwirkten, tuͤr¬<lb/>
+kiſchen Teppich daraus zu ziehen bemuͤht war. Be¬<lb/>
+diente nehmen ihn im Empfang, als muͤſſe es ſo<lb/>
+<pb n="7" facs="#f0027"/>
+ſeyn, und entfalten ihn am begehrten Ort. Die<lb/>
+Geſellſchaft nahm ohne Umſtaͤnde Platz darauf;<lb/>
+ich wiederum ſah betroffen den Mann, die Taſche,<lb/>
+den Teppich an, der uͤber zwanzig Schritt in der<lb/>
+Laͤnge und zehn in der Breite maß, und rieb mir<lb/>
+die Augen, nicht wiſſend, was ich dazu denken<lb/>
+ſollte, beſonders, da Niemand etwas Merkwuͤr¬<lb/>
+diges darin fand.</p><lb/>
+<p>Ich haͤtte gern Aufſchluß uͤber den Mann<lb/>
+gehabt, und gefragt, wer er ſei, nur wußt' ich<lb/>
+nicht, an wen ich mich richten ſollte, denn ich<lb/>
+fuͤrchtete mich faſt noch mehr vor den Herr'n Be¬<lb/>
+dienten, als vor den bedienten Herr'n. Ich faßte<lb/>
+endlich ein Herz, und trat an einen jungen Mann<lb/>
+heran, der mir von minderem Anſehen ſchien als<lb/>
+die Andern, und der oͤfter allein geſtanden hatte.<lb/>
+Ich bat ihn leiſe, mir zu ſagen, wer der gefaͤl¬<lb/>
+lige Mann ſei dort im grauen Kleide, — “Die¬<lb/>
+ſer? der wie ein Ende Zwirn ausſieht, der ei¬<lb/>
+nem Schneider aus der Nadel entlaufen iſt?„<lb/>
+Ja, der allein ſteht — “den kenn' nicht,„<lb/>
+gab er mir zur Antwort, und, wie es ſchien, ei¬<lb/>
+ne laͤngere Unterhaltung mit mir zu vermeiden,<lb/>
+<pb n="8" facs="#f0028"/>
+wandt' er ſich weg und ſprach von gleichguͤltigen<lb/>
+Dingen mit einem Andern.</p><lb/>
+<p>Die Sonne fing jetzt ſtaͤrker zu ſcheinen an,<lb/>
+und ward den Damen beſchwerlich; die ſchoͤne<lb/>
+<hi rendition="#g">Fanny</hi> richtete nachlaͤßig an den grauen Mann,<lb/>
+den, ſo viel ich weiß, noch Niemand angeredet<lb/>
+hatte, die leichtſinnige Frage: ob er nicht auch<lb/>
+vielleicht ein Zelt bei ſich habe? Er beantwortete<lb/>
+ſie durch eine ſo tiefe Verbeugung, als widerfuͤhre<lb/>
+ihm eine unverdiente Ehre, und hatte ſchon die<lb/>
+Hand in der Taſche, aus der ich Zeuge, Stangen,<lb/>
+Schnuͤre, Eiſenwerk, kurz, Alles, was zu dem<lb/>
+prachtvoll'ſten Luſtzelt gehoͤrt, herauskommen ſah.<lb/>
+Die jungen Herr'n halfen es ausſpannen, und<lb/>
+es uͤberhing die ganze Ausdehnung des Teppichs —<lb/>
+und Keiner fand noch etwas Außerordentliches<lb/>
+darin. —</p><lb/>
+<p>Mir war ſchon lang' unheimlich, ja graulich<lb/>
+zu Muthe, wie ward mir vollends, als beim<lb/>
+naͤchſt ausgeſprochenen Wunſch ich ihn noch aus<lb/>
+ſeiner Taſche drei Reitpferde, ich ſage dir, drei<lb/>
+ſchoͤne, große Rappen mit Sattel und Zeug, her¬<lb/>
+ausziehen ſah, — denke Dir, um Gotteswillen!<lb/>
+<pb n="9" facs="#f0029"/>
+drei geſattelte Pferde noch aus derſelben Taſche,<lb/>
+woraus ſchon eine Brieftaſche, ein Fernrohr, ein<lb/>
+gewirkter Teppich, zwanzig Schritte lang und zehn<lb/>
+breit, ein Luſtzelt von derſelben Groͤße, und alle<lb/>
+dazu gehoͤrige Stangen und Eiſen, herausgekom¬<lb/>
+men waren — wenn ich Dir nicht betheuerte,<lb/>
+es ſelbſt mit eigenen Augen angeſehen zu haben,<lb/>
+wuͤrdeſt Du es gewiß nicht glauben. —</p><lb/>
+<p>So verlegen und demuͤthig der Mann ſelbſt<lb/>
+zu ſeyn ſchien, ſo wenig Aufmerkſamkeit ihm auch<lb/>
+die Andern ſchenkten, ſo ward mir doch ſeine<lb/>
+bloße Erſcheinung, von der ich kein Auge ab¬<lb/>
+wenden konnte, ſo ſchauerlich, daß ich ſie nicht<lb/>
+laͤnger ertragen konnte.</p><lb/>
+<p>Ich beſchloß, mich aus der Geſellſchaft zu ſteh¬<lb/>
+len, was bei der unbedeutenden Rolle, die ich darin¬<lb/>
+nen ſpielte, mir ein Leichtes ſchien. Ich wollte nach<lb/>
+der Stadt zuruͤckkehren, am andern Morgen mein<lb/>
+Gluͤck beim Herrn <hi rendition="#g">John</hi> wieder verſuchen, und,<lb/>
+wenn ich den Muth dazu faͤnde, ihn uͤber den ſelt¬<lb/>
+ſamen grauen Mann befragen. — Waͤre es mir<lb/>
+nur ſo zu entkommen gegluͤckt!</p><lb/>
+<pb n="10" facs="#f0030"/>
+<p>Ich hatte mich ſchon wirklich durch den Ro¬<lb/>
+ſenhain, den Huͤgel hinab, gluͤcklich geſchlichen,<lb/>
+und befand mich auf einem freien Raſenplatz, als<lb/>
+ich aus Furcht, außer den Wegen durch’s Gras<lb/>
+gehend angetroffen zu werden, einen forſchenden<lb/>
+Blick um mich warf. — Wie erſchrack ich, als<lb/>
+ich den Mann im grauen Rock hinter mir her und<lb/>
+auf mich zukommen ſah. Er nahm ſogleich den<lb/>
+Hut vor mir ab, und verneigte ſich ſo tief, als<lb/>
+noch Niemand vor mir gethan hatte. Es war<lb/>
+kein Zweifel, er wollte mich anreden, und ich<lb/>
+konnte, ohne grob zu ſeyn, es nicht vermeiden.<lb/>
+Ich nahm den Hut auch ab, verneigte mich wie¬<lb/>
+der, und ſtand da in der Sonne mit bloßem<lb/>
+Haupt wie angewurzelt. Ich ſah’ ihn voller<lb/>
+Furcht ſtier an, und war wie ein Vogel, den<lb/>
+eine Schlange gebannt hat. Er ſelber ſchien ſehr<lb/>
+verlegen zu ſeyn; er hob den Blick nicht auf, ver¬<lb/>
+beugte ſich zu verſchiedenen Malen, trat naͤher,<lb/>
+und redete mich an mit leiſer, unſicherer Stimme,<lb/>
+ungefaͤhr im Tone eines Bettelnden.</p><lb/>
+<p>“Moͤge der Herr meine Zudringlichkeit ent¬<lb/>
+ſchuldigen, wenn ich es wage, ihn ſo unbe¬<lb/>
+<pb n="11" facs="#f0031"/>
+kannter Weiſe aufzuſuchen, ich habe eine Bitte<lb/>
+an ihn. Vergoͤnnen Sie gnaͤdigſt —„ “Aber<lb/>
+um Gotteswillen, mein Herr!„ brach ich in mei¬<lb/>
+ner Angſt aus, “was kann ich fuͤr einen Mann<lb/>
+thun, der„ — — — wir ſtutzten Beide, und wur¬<lb/>
+den, wie mir daͤucht, roth.</p><lb/>
+<p>Er nahm nach einem Augenblick des Schwei¬<lb/>
+gens wieder das Wort: “Waͤhrend der kurzen<lb/>
+Zeit, wo ich das Gluͤck genoß, mich in Ihrer Naͤhe<lb/>
+zu befinden, hab' ich, mein Herr, einige Mal —<lb/>
+erlauben Sie, daß ich es Ihnen ſage, — wirk¬<lb/>
+lich mit unausſprechlicher Bewunderung den ſchoͤ¬<lb/>
+nen, ſchoͤnen Schatten betrachten koͤnnen, den Sie<lb/>
+in der Sonne, und gleichſam mit einer gewiſſen<lb/>
+edlen Verachtung, ohne ſelbſt darauf zu merken,<lb/>
+von ſich werfen, den herrlichen Schatten da zu<lb/>
+Ihren Fuͤßen. Verzeihen Sie mir die freilich kuͤh¬<lb/>
+ne Zumuthung. Sollten Sie ſich wohl nicht ab¬<lb/>
+geneigt finden, mir dieſen Ihren Schatten zu uͤber¬<lb/>
+laſſen.„</p><lb/>
+<p>Er ſchwieg, und mir gings wie ein Muͤhlrad<lb/>
+im Kopfe herum. Was ſollt' ich aus dem ſelt¬<lb/>
+ſamen Antrag machen, mir meinen Schatten ab¬<lb/>
+<pb n="12" facs="#f0032"/>
+zukaufen? Er muß verruͤckt ſeyn, dacht' ich, und<lb/>
+mit veraͤndertem Tone, der zu der Demuth des<lb/>
+ſeinigen beſſer paßte, erwiederte ich alſo:</p><lb/>
+<p>“Ei, ei! guter Freund, habt Ihr denn nicht<lb/>
+an euerm eignen Schatten genug? das heiß' ich<lb/>
+mir einen Handel von einer ganz abſonderlichen<lb/>
+Sorte.„ Er fiel ſogleich wieder ein: “Ich hab'<lb/>
+in meiner Taſche Manches, was dem Herrn nicht<lb/>
+ganz unwerth ſcheinen moͤchte; fuͤr dieſen unſchaͤtz¬<lb/>
+baren Schatten halt' ich den hoͤchſten Preis zu<lb/>
+gering.„</p><lb/>
+<p>Nun uͤberfiel es mich wieder kalt, da ich an<lb/>
+die Taſche erinnert ward, und ich wußte nicht,<lb/>
+wie ich ihn hatte guter Freund nennen koͤnnen.<lb/>
+Ich nahm wieder das Wort, und ſuchte es, wo<lb/>
+moͤglich, mit unendlicher Hoͤflichkeit wieder gut<lb/>
+zu machen.</p><lb/>
+<p>“Aber, mein Herr, verzeihen Sie Ihrem<lb/>
+unterthaͤnigſten Knecht. Ich verſtehe wohl Ihre<lb/>
+Meinung nicht ganz gut, wie koͤnnt' ich nur mei¬<lb/>
+nen Schatten — — —„ Er unterbrach mich:<lb/>
+“Ich erbitte mir nur Dero Erlaubniß, hier<lb/>
+auf der Stelle dieſen edlen Schatten aufheben<lb/>
+<pb n="13" facs="#f0033"/>
+zu duͤrfen, und zu mir zu ſtecken; wie ich das<lb/>
+mache, ſei meine Sorge. Dagegen als Beweis<lb/>
+meiner Erkenntlichkeit gegen den Herrn, uͤberlaſſe<lb/>
+ich ihm die Wahl unter allen Kleinodien, die ich<lb/>
+in der Taſche bei mir fuͤhre: die aͤchte Spring¬<lb/>
+wurzel, die Alraunwurzel, Wechſelpfennige, Raub¬<lb/>
+thaler, das Tellertuch von Rolands Knappen, ein<lb/>
+Galgenmaͤnnlein zu beliebigem Preis; doch, das<lb/>
+wird wohl nichts fuͤr Sie ſeyn: beſſer, Fortuna¬<lb/>
+ti Wuͤnſchhuͤtlein, neu und haltbar wieder reſtau¬<lb/>
+rirt; auch ein Gluͤcksſeckel, wie der ſeine geweſen.„<lb/>
+“Fortunati Gluͤcksſeckel,„ fiel ich ihm in die Re¬<lb/>
+de, und wie groß meine Angſt auch war, hatte<lb/>
+er mit dem einen Wort meinen ganzen Sinn ge¬<lb/>
+fangen. Ich bekam einen Schwindel, und es<lb/>
+flimmerte mir wie doppelte Dukaten vor den Au¬<lb/>
+gen. —</p><lb/>
+<p>“Belieben gnaͤdigſt der Herr dieſen Seckel zu<lb/>
+beſichtigen und zu erproben.„ Er ſteckte die Hand<lb/>
+in die Taſche und zog einen maͤßig großen, feſt¬<lb/>
+genaͤhten Beutel von ſtarkem Korduanleder, an<lb/>
+zwei tuͤchtigen ledernen Schnuͤren heraus und haͤn¬<lb/>
+digte mir ſelbigen ein. Ich griff hinein, und<lb/>
+zog zehn Goldſtuͤcke daraus, und wieder zehn, und<lb/>
+<pb n="14" facs="#f0034"/>
+wieder zehn, und wieder zehn; ich hielt ihm ſchnell<lb/>
+die Hand hin: “Topp! der Handel gilt, fuͤr<lb/>
+den Beutel haben Sie meinen Schatten.„ Er<lb/>
+ſchlug ein, kniete dann ungeſaͤumt vor mir nie¬<lb/>
+der, und mit einer bewundernswuͤrdigen Geſchick¬<lb/>
+lichkeit ſah ich ihn meinen Schatten, vom Kopf<lb/>
+bis zu meinen Fuͤßen, leiſe von dem Graſe loͤ¬<lb/>
+ſen, aufheben, zuſammenrollen und falten, und<lb/>
+zuletzt einſtecken. Er ſtand auf, verbeugte ſich<lb/>
+noch einmal vor mir, und zog ſich nach dem Ro¬<lb/>
+ſengebuͤſche zuruͤck. Mich duͤnkt’, ich hoͤrte ihn<lb/>
+da leiſe fuͤr ſich lachen. Ich aber hielt den Beu¬<lb/>
+tel bei den Schnuͤren feſt, rund um mich her<lb/>
+war die Erde ſonnenhell, und in mir war noch<lb/>
+keine Beſinnung.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="15" facs="#f0035"/>
+</div> <div n="1"> <head> <hi rendition="#aq">II.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">I</hi>ch kam endlich wieder zu Sinnen, und<lb/>
+eilte, dieſen Ort zu verlaſſen, wo ich hoffentlich<lb/>
+nichts mehr zu thun hatte. Ich fuͤllte erſt meine<lb/>
+Taſchen mit Gold, dann band ich mir die Schnuͤre<lb/>
+des Beutels um den Hals feſt, und verbarg ihn<lb/>
+ſelbſt auf meiner Bruſt. Ich kam unbeachtet<lb/>
+aus dem Park, erreichte die Landſtraſſe, und nahm<lb/>
+meinen Weg nach der Stadt. Wie ich in Ge¬<lb/>
+danken dem Thore zu ging, hoͤrt’ ich hinter mir<lb/>
+ſchreien: “Junger Herr! he! junger Herr! hoͤ¬<lb/>
+ren Sie doch! —„ Ich ſah mich um, ein al¬<lb/>
+tes Weib rief mir nach: “Sehe ſich der Herr<lb/>
+doch vor, Sie haben Ihren Schatten verloren.„ —<lb/>
+“Danke Muͤtterchen,„ ich warf ihr ein Gold¬<lb/>
+ſtuͤck fuͤr den wohlgemeinten Rath hin, und trat<lb/>
+unter die Baͤume.</p><lb/>
+<p>Am Thore mußt’ ich gleich wieder von der<lb/>
+Schildwacht hoͤren: “Wo hat der Herr ſeinen<lb/>
+<pb n="16" facs="#f0036"/>
+Schatten gelaſſen?„ und gleich wieder darauf von<lb/>
+ein Paar Frauen: “Jeſus Maria! der arme Menſch<lb/>
+hat keinen Schatten!„ Das fing an mich zu ver¬<lb/>
+drießen, und ich vermied ſehr ſorgfaͤltig, in die<lb/>
+Sonne zu treten. Das ging aber nicht uͤberall<lb/>
+an, zum Beiſpiel nicht uͤber die Breiteſtraſſe, die<lb/>
+ich zunaͤchſt durchkreuzen mußte, und zwar, zu<lb/>
+meinem Unheil, in eben der Stunde, wo die Kna¬<lb/>
+ben aus der Schule gingen. Ein verdammter<lb/>
+buckeliger Schlingel, ich ſeh' ihn noch, hatte es<lb/>
+gleich weg, daß mir ein Schatten fehle. Er ver¬<lb/>
+rieth mich mit großem Geſchrei der ſaͤmtlichen<lb/>
+literariſchen Straſſenjugend der Vorſtadt, welche<lb/>
+ſofort mich zu rezenſiren und mit Koth zu bewer¬<lb/>
+fen anfing: “Ordentliche Leute pflegten ihren<lb/>
+Schatten mit ſich zu nehmen, wann ſie in die<lb/>
+Sonne gingen.„ Um ſie von mir abzuwehren,<lb/>
+warf ich Gold zu vollen Haͤnden unter ſie, und<lb/>
+ſprang in einen Miethswagen, zu dem mir mit¬<lb/>
+leidige Seelen verhalfen.</p><lb/>
+<p>Sobald ich mich in der rollenden Kutſche al¬<lb/>
+lein fand, fing ich bitterlich an zu weinen. Es<lb/>
+mußte ſchon die Ahnung in mir aufſteigen: daß,<lb/>
+<fw type="catch" place="bottom">um<lb/>
+</fw>
+<pb n="17" facs="#f0037"/>
+um ſo viel das Gold auf Erden Verdienſt und Tu¬<lb/>
+gend uͤberwiegt, um ſo viel der Schatten hoͤher als<lb/>
+ſelbſt das Gold geſchaͤtzt werde; und wie ich fruͤher<lb/>
+den Reichthum meinem Gewiſſen aufgeopfert, hatte<lb/>
+ich jetzt den Schatten fuͤr bloßes Geld hingege¬<lb/>
+ben, was konnte, was ſollte auf Erden aus mir<lb/>
+werden!</p><lb/>
+<p>Ich war noch ſehr verſtoͤrt, als der Wagen<lb/>
+vor meinem alten Wirthshaus hielt, ich erſchrack<lb/>
+uͤber die Vorſtellung, nur noch jenes ſchlechte<lb/>
+Dachzimmer zu betreten. Ich ließ mir meine<lb/>
+Sachen herabholen, empfing den aͤrmlichen Buͤn¬<lb/>
+del mit Verachtung, warf einige Goldſtuͤcke hin,<lb/>
+und befahl, vor das vornehmſte Hotel vorzufah¬<lb/>
+ren. Das Haus war gegen Norden gelegen, ich<lb/>
+hatte die Sonne nicht zu fuͤrchten, ich ſchickte<lb/>
+den Kutſcher mit Gold weg, ließ mir die beſten<lb/>
+Zimmer vorn heraus anweiſen, und verſchloß mich<lb/>
+darin, ſo bald ich konnte.</p><lb/>
+<p>Was denkeſt Du, daß ich nun anfing? —<lb/>
+O mein lieber <hi rendition="#g">Chamiſſo</hi>, ſelbſt vor Dir es zu<lb/>
+geſtehen, macht mich erroͤthen. Ich zog den un¬<lb/>
+gluͤcklichen Seckel aus meiner Bruſt hervor, und<lb/>
+<fw type="sig" place="bottom">B<lb/>
+</fw>
+<pb n="18" facs="#f0038"/>
+mit einer Art Wuth, die, wie eine flackernde<lb/>
+Feuersbrunſt, ſich in mir durch ſich ſelbſt mehrte,<lb/>
+zog ich Gold daraus, und Gold, und Gold, und<lb/>
+immer mehr Gold, und ſtreute es auf den Eſtrich,<lb/>
+und ſchritt daruͤber hin, und ließ es klirren, und<lb/>
+warf, mein armes Herz an dem Glanze, an dem<lb/>
+Klange weidend, immer des Metalles mehr zu<lb/>
+dem Metalle, bis ich ermuͤdet ſelbſt auf das rei¬<lb/>
+che Lager ſank und ſchwelgend darin wuͤhlte, mich<lb/>
+daruͤber waͤlzte. So verging der Tag, der Abend,<lb/>
+ich ſchloß meine Thuͤr' nicht auf, die Nacht fand<lb/>
+mich liegend auf dem Golde, und darauf uͤber¬<lb/>
+mannte mich der Schlaf.</p><lb/>
+<p>Da traͤumt' es mir von Dir, es ward mir,<lb/>
+als ſtuͤnde ich hinter der Glasthuͤr Deines kleinen<lb/>
+Zimmers, und ſaͤhe Dich von da an Deinem Ar¬<lb/>
+beitstiſche zwiſchen einem Skelet und einem Bun¬<lb/>
+de getrockneter Pflanzen ſitzen, vor Dir waren<lb/>
+Haller, <choice><sic>Humbold</sic><corr>Humboldt</corr></choice> und <choice><sic>Linne′</sic><corr>Linné</corr></choice> aufgeſchlagen, auf<lb/>
+Deinem Sopha lagen ein Band Goͤthe und der<lb/>
+Zauberring, ich betrachtete Dich lange, und je¬<lb/>
+des Ding in Deiner Stube, und dann Dich wie¬<lb/>
+der, Du ruͤhrteſt Dich aber nicht, Du hatteſt auch<lb/>
+nicht Athem, du warſt todt.</p><lb/>
+<pb n="19" facs="#f0039"/>
+<p>Ich erwachte. Es ſchien noch ſehr fruͤh zu<lb/>
+ſeyn. Meine Uhr ſtand. Ich war wie zerſchla¬<lb/>
+gen, durſtig und hungrig auch noch, ich hatte<lb/>
+ſeit dem vorigen Morgen nichts gegeſſen. Ich ſtieß<lb/>
+von mir mit Unwillen und Überdruß dieſes Gold,<lb/>
+an dem ich kurz vorher mein thoͤrichtes Herz ge¬<lb/>
+ſaͤttiget: nun wußt' ich verdrießlich nicht, was ich<lb/>
+damit anfangen ſollte. Es durfte nicht ſo liegen<lb/>
+bleiben — ich verſuchte, ob es der Beutel wieder<lb/>
+verſchlingen wollte — Nein. Keines meiner Fen¬<lb/>
+ſter oͤffnete ſich uͤber die See. Ich mußte mich<lb/>
+bequemen, es muͤhſam und mit ſauerm Schweiß<lb/>
+zu einem großen Schrank, der in einem Kabinet<lb/>
+ſtand, zu ſchleppen, und es darin zu verpacken.<lb/>
+Ich ließ nur einige Handvoll da liegen. Nachdem<lb/>
+ich mit der Arbeit fertig geworden, legt' ich mich<lb/>
+erſchoͤpft in einen Lehnſtuhl, und erwartete, daß<lb/>
+ſich Leute im Hauſe zu regen anfingen. Ich ließ,<lb/>
+ſobald es moͤglich war, zu eſſen bringen, und den<lb/>
+Wirth zu mir kommen.</p><lb/>
+<p>Ich beſprach mit dieſem Mann die kuͤnftige<lb/>
+Einrichtung meines Hauſes. Er empfahl mir fuͤr<lb/>
+den naͤhern Dienſt um meine Perſon einen ge¬<lb/>
+<fw type="sig" place="bottom">B 2<lb/>
+</fw>
+<pb n="20" facs="#f0040"/>
+wiſſen <hi rendition="#g">Bendel</hi>, deſſen treue und verſtaͤndige Phy¬<lb/>
+ſionomie mich gleich gewann. Derſelbe war’s,<lb/>
+deſſen Anhaͤnglichkeit mich ſeither troͤſtend durch<lb/>
+das Elend des Lebens begleitete, und mir mein<lb/>
+duͤſt’res Loos ertragen half. Ich brachte den gan¬<lb/>
+zen Tag auf meinen Zimmern, mit herrenloſen<lb/>
+Knechten, Schuſtern, Schneidern und Kaufleu¬<lb/>
+ten zu, ich richtete mich ein, und kaufte beſon¬<lb/>
+ders ſehr viele Koſtbarkeiten und Edelſteine, um<lb/>
+nur Etwas des vielen aufgeſpeicherten Goldes los<lb/>
+zu ſeyn; es ſchien aber gar nicht, als koͤnne der<lb/>
+Haufen ſich vermindern.</p><lb/>
+<p>Ich ſchwebte indeß uͤber meinen Zuſtand in<lb/>
+den aͤngſtigendſten Zweifeln. Ich wagte keinen<lb/>
+Schritt aus meiner Thuͤr’, und ließ Abends vier¬<lb/>
+zig Wachskerzen in meinem Saal anzuͤnden, be¬<lb/>
+vor ich aus dem Dunkel heraus kam. Ich ge¬<lb/>
+dachte mit Grauen des fuͤrchterlichen Auftrittes<lb/>
+mit den Schulknaben. Ich beſchloß, ſo viel Muth<lb/>
+ich auch dazu bedurfte, die oͤffentliche Meinung<lb/>
+noch einmal zu pruͤfen. — Die Naͤchte waren zu<lb/>
+der Zeit mondhell. Abends ſpaͤt warf ich einen<lb/>
+weiten Mantel um, druͤckte mir den Hut tief in<lb/>
+<pb n="21" facs="#f0041"/>
+die Augen, und ſchlich, zitternd wie ein Verbre¬<lb/>
+cher, aus dem Hauſe. Erſt auf einem entlege¬<lb/>
+nen Platz trat ich aus dem Schatten der Haͤuſer,<lb/>
+in deren Schutz ich ſo weit gekommen war, an<lb/>
+das Mondeslicht hervor; gefaßt, mein Schickſal<lb/>
+aus dem Munde der Voruͤbergehenden zu ver¬<lb/>
+nehmen.</p><lb/>
+<p>Erſpare mir, lieber Freund, die ſchmerzliche<lb/>
+Wiederholung alles deſſen, was ich erdulden muß¬<lb/>
+te. Die Frauen bezeugten oft das tiefſte Mit¬<lb/>
+leid, das ich ihnen einfloͤßte; Aeußerungen, die<lb/>
+mir die Seele nicht minder durchbohrten, als der<lb/>
+Hohn der Jugend und die hochmuͤthige Verach¬<lb/>
+tung der Maͤnner, beſonders ſolcher dicken, wohl¬<lb/>
+beleibten, die ſelbſt einen breiten Schatten war¬<lb/>
+fen. Ein ſchoͤnes, holdes Maͤdchen, die, wie es<lb/>
+ſchien, ihre Eltern begleitete, indem dieſe bedaͤch¬<lb/>
+tig nur vor ihre Fuͤße ſahen, wandte von Unge¬<lb/>
+faͤhr ihr leuchtendes Auge auf mich; ſie erſchrack<lb/>
+ſichtbarlich, da ſie meine Schattenloſigkeit be¬<lb/>
+merkte, verhuͤllte ihr ſchoͤnes Antlitz in ihren<lb/>
+Schleier, ließ den Kopf ſinken, und ging laut¬<lb/>
+los voruͤber.</p><lb/>
+<pb n="22" facs="#f0042"/>
+<p>Ich ertrug es laͤnger nicht. Salzige Stroͤme<lb/>
+brachen aus meinen Augen, und mit durchſchnit¬<lb/>
+tenem Herzen zog ich mich ſchwankend in's Dunkel<lb/>
+zuruͤck. Ich mußte mich an den Haͤuſern halten,<lb/>
+um meine Schritte zu ſichern, und erreichte lang¬<lb/>
+ſam und ſpaͤt meine Wohnung.</p><lb/>
+<p>Ich brachte die Nacht ſchlaflos zu. Am an¬<lb/>
+dern Tage war meine erſte Sorge, nach dem<lb/>
+Manne im grauen Rocke uͤberall ſuchen zu laſſen.<lb/>
+Vielleicht ſollte es mir gelingen, ihn wieder zu<lb/>
+finden, und wie gluͤcklich! wenn ihn, wie mich,<lb/>
+der thoͤrichte Handel gereuen ſollte. Ich ließ<lb/>
+<hi rendition="#g">Bendel</hi> vor mir kommen, er ſchien Gewandheit<lb/>
+und Geſchick zu beſitzen, — ich ſchilderte ihm ge¬<lb/>
+nau den Mann, in deſſen Beſitz ein Schatz ſich<lb/>
+befand, ohne den mir das Leben nur eine Qual<lb/>
+ſei. Ich ſagte ihm die Zeit, den Ort, wo ich ihn<lb/>
+geſehen; beſchrieb ihm Alle, die zugegen geweſen, und<lb/>
+fuͤgte dieſes Zeichen noch hinzu: er ſolle ſich nach<lb/>
+einem Dolon'ſchen Fernrohr, nach einem golddurch¬<lb/>
+wirkten tuͤrkiſchen Teppich, nach einem Prachtluſt¬<lb/>
+zelt, und endlich nach den ſchwarzen Reithengſten<lb/>
+genau erkundigen, deren Geſchichte, ohne zu be¬<lb/>
+<pb n="23" facs="#f0043"/>
+ſtimmen wie, mit der des raͤthſelhaften Mannes,<lb/>
+zuſammenhienge, welcher Allen unbedeutend ge¬<lb/>
+ſchienen, und deſſen Erſcheinung die Ruhe und<lb/>
+das Gluͤck meines Lebens zerſtoͤrt hatte.</p><lb/>
+<p>Wie ich ausgeredet, holt' ich Gold her, eine<lb/>
+Laſt, wie ich ſie nur zu tragen vermochte, und<lb/>
+legte Edelſteine und Juwelen noch hinzu fuͤr ei¬<lb/>
+nen groͤßern Werth. “<hi rendition="#g">Bendel</hi>,„ ſprach ich,<lb/>
+“dieſes ebnet viele Wege, und macht Vieles leicht,<lb/>
+was unmoͤglich ſchien; ſei nicht karg damit, wie<lb/>
+ich es nicht bin, ſondern geh', und erfreue Deinen<lb/>
+Herrn mit Nachrichten, auf denen ſeine alleinige<lb/>
+Hoffnung beruht.„</p><lb/>
+<p>Er ging. Spaͤt kam er und traurig zuruͤck.<lb/>
+Keiner von den Leuten des Herrn <hi rendition="#g">John</hi>, Keiner<lb/>
+von ſeinen Gaͤſten, er hatte Alle geſprochen, wuß¬<lb/>
+te ſich nur entfernt an den Mann im grauen<lb/>
+Rocke zu erinnern. Der neue Teleskop war da,<lb/>
+und Keiner wußte, wo er hergekommen; der Tep¬<lb/>
+pich, das Zelt waren da noch auf demſelben Huͤ¬<lb/>
+gel ausgebreitet und aufgeſchlagen, die Knechte<lb/>
+ruͤhmten den Reichthum ihres Herrn, und Keiner<lb/>
+<pb n="24" facs="#f0044"/>
+wußte, von wannen dieſe neuen Koſtbarkeiten ihm<lb/>
+zugekommen. Er ſelbſt hatte ſeinen Wohlgefallen<lb/>
+daran, und ihn kuͤmmerte es nicht, daß er nicht<lb/>
+wiſſe, woher er ſie habe; die Pferde hatten die<lb/>
+jungen Herren, die ſie geritten, in ihren Staͤl¬<lb/>
+len, und ſie prieſen die Freigebigkeit des Herrn<lb/>
+<hi rendition="#g">John</hi>, der ſie ihnen an jenem Tage geſchenkt.<lb/>
+So viel erhellte aus der ausfuͤhrlichen Erzaͤhlung<lb/>
+<hi rendition="#g">Bendels</hi>, deſſen raſcher Eifer und verſtaͤndige<lb/>
+Fuͤhrung, auch bei ſo fruchtloſem Erfolg, mein<lb/>
+verdientes Lob erhielten. Ich winkte ihm duͤſter,<lb/>
+mich allein zu laſſen.</p><lb/>
+<p>“Ich habe,„ hub er wieder an, “meinem<lb/>
+Herrn Bericht abgeſtattet, uͤber die Angelegenheit,<lb/>
+die ihm am wichtigſten war. Mir bleibt noch<lb/>
+ein Auftrag auszurichten, den mir heute fruͤh Je¬<lb/>
+mand gegeben, welchem ich vor der Thuͤr begeg¬<lb/>
+nete, da ich zu dem Geſchaͤfte ausging, wo ich<lb/>
+ſo ungluͤcklich geweſen. Die eigenen Worte des<lb/>
+Mannes waren: “Sagen Sie dem Herrn <hi rendition="#g">Pe</hi>¬<lb/>
+„<hi rendition="#g">ter Schlemihl</hi>, er wuͤrde mich hier nicht<lb/>
+„mehr ſehen, da ich uͤber’s Meer gehe; und ein<lb/>
+„guͤnſtiger Wind mich ſo eben nach dem Hafen<lb/>
+<pb n="25" facs="#f0045"/>
+„ruft. Aber uͤber Jahr und Tag werde ich die<lb/>
+„Ehre haben, ihn ſelber aufzuſuchen, und ein<lb/>
+„anderes, ihm dann vielleicht annehmliches Ge¬<lb/>
+„ſchaͤft, vorſchlagen. Empfehlen Sie mich ihm<lb/>
+„unterthaͤnigſt, und verſichern ihn meines Dan¬<lb/>
+„kes.„ Ich frug ihn, wer er waͤre, er ſagte<lb/>
+aber, Sie kennten ihn ſchon.„</p><lb/>
+<p>“Wie ſah der Mann aus?„ rief ich voller<lb/>
+Ahnung. Und <hi rendition="#g">Bendel</hi> beſchrieb mir den Mann<lb/>
+im grauen Rocke Zug fuͤr Zug, Wort fuͤr Wort,<lb/>
+wie er getreu in ſeiner vorigen Erzaͤhlung des Man¬<lb/>
+nes erwaͤhnt, nach dem er ſich erkundigt. —</p><lb/>
+<p>“Ungluͤcklicher,„ ſchrie ich haͤnderingend,<lb/>
+“das war er ja ſelbſt!„ und ihm fiel es wie<lb/>
+Schuppen von den Augen. — “Ja, er war<lb/>
+es, war es wirklich,„ rief er erſchreckt aus, “und<lb/>
+ich Verblendeter, Bloͤdſinniger, habe ihn nicht er¬<lb/>
+kannt: ihn nicht erkannt und meinen Herrn ver¬<lb/>
+rathen.„</p><lb/>
+<p>Er brach, heiß weinend, in die bitterſten<lb/>
+Vorwuͤrfe gegen ſich ſelber aus, und die Ver¬<lb/>
+zweiflung, in der er war, mußte mir ſelber Mit¬<lb/>
+<pb n="26" facs="#f0046"/>
+leiden einfloͤßen. Ich ſprach ihm Troſt ein, ver¬<lb/>
+ſicherte ihn wiederholt, ich ſetzte keinen Zweifel<lb/>
+in ſeine Treue, und ſchickte ihn alsbald nach<lb/>
+dem Hafen, um, wo moͤglich, die Spuren des<lb/>
+ſeltſamen Mannes zu verfolgen. Aber an dieſem<lb/>
+ſelben Morgen waren ſehr verſchiedene Schiffe, die<lb/>
+widrige Winde im Hafen zuruͤckgehalten, ausge¬<lb/>
+laufen, alle nach anderen Weltſtrichen, alle nach<lb/>
+anderen Kuͤſten beſtimmt; und der graue Mann<lb/>
+war ſpurlos wie ein Schatten verſchwunden.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="27" facs="#f0047"/>
+</div> <div n="1"> <head> <hi rendition="#aq">III.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">W</hi>as haͤlfen Fluͤgel dem in eiſernen Ket¬<lb/>
+ten feſt Angeſchmiedeten? er muͤßte dennoch, und<lb/>
+ſchrecklicher, verzweifeln. Ich lag, wie <choice><sic>Taffner</sic><corr>Faffner</corr></choice><lb/>
+bei ſeinem Hort, fern von jedem menſchlichen Zu¬<lb/>
+ſpruch, bei meinem Golde darbend, aber ich hatte<lb/>
+nicht das Herz nach ihm, ſondern ich fluchte ihm,<lb/>
+um deſſentwillen ich mich von allem Leben abge¬<lb/>
+ſchnitten ſah. Bei mir allein mein duͤſt'res Ge¬<lb/>
+heimniß hegend, fuͤrchtete ich mich vor dem letzten<lb/>
+meiner Knechte, den ich zugleich beneiden mußte;<lb/>
+denn er hatte einen Schatten, er durfte ſich ſehen<lb/>
+laſſen in der Sonne. Ich vertrauerte einſam in<lb/>
+meinen Zimmern die Tag' und Naͤchte, und Gram<lb/>
+zehrte an meinem Herzen.</p><lb/>
+<p>Noch Einer haͤrmte ſich unter meinen Au¬<lb/>
+gen ab, mein treuer <hi rendition="#g">Bendel</hi> hoͤrte nicht auf,<lb/>
+ſich mit ſtillen Vorwuͤrfen zu martern, daß er<lb/>
+<pb n="28" facs="#f0048"/>
+das Zutrauen ſeines guͤtigen Herrn betrogen, und<lb/>
+Jenen nicht erkannt, nach dem er ausgeſchickt<lb/>
+war, und mit dem er mein trauriges Schickſal in<lb/>
+enger Verflechtung denken mußte. Ich aber konn¬<lb/>
+te ihm keine Schuld geben, ich erkannte in dem<lb/>
+Ereigniß die fabelhafte Natur des Unbekannten.</p><lb/>
+<p>Nichts unverſucht zu laſſen, ſchickt' ich einſt<lb/>
+<hi rendition="#g">Bendel</hi> mit einem koſtbaren brillantenen Ring<lb/>
+zu dem beruͤhmteſten Maler der Stadt, den ich,<lb/>
+mich zu beſuchen, einladen ließ. Er kam, ich<lb/>
+entfernte meine Leute, verſchloß die Thuͤr, ſetzte<lb/>
+mich zu dem Mann, und, nachdem ich ſeine Kunſt<lb/>
+geprieſen, kam ich mit ſchwerem Herzen zur Sa¬<lb/>
+che, ich ließ ihm zuvor das ſtrengſte Geheimniß<lb/>
+geloben.</p><lb/>
+<p>“Herr Profeſſor,„ fuhr ich fort, “koͤnnten<lb/>
+Sie wohl einem Menſchen, der auf die ungluͤcklichſte<lb/>
+Weiſe von der Welt um ſeinen Schatten gekommen<lb/>
+iſt, einen falſchen Schatten malen?„ — “Sie<lb/>
+meinen einen Schlagſchatten?„ — “den mein’<lb/>
+ich allerdings.„ — “Aber,„ frug er mich wei¬<lb/>
+ter, “durch welche Ungeſchicklichkeit, durch welche<lb/>
+Nachlaͤßigkeit konnte er denn ſeinen Schlagſchatten<lb/>
+<pb n="29" facs="#f0049"/>
+verlieren?„ — “Wie es kam,„ erwiederte ich,<lb/>
+“mag nun ſehr gleichguͤltig ſeyn, doch ſo viel,„<lb/>
+log ich ihm unverſchaͤmt vor: “In Rußland, wo<lb/>
+er im vorigen Winter eine Reiſe that, fror ihm<lb/>
+einmal, bei einer außerordentlichen Kaͤlte, ſein<lb/>
+Schatten dergeſtalt am Boden feſt, daß er ihn<lb/>
+nicht wieder loß bekommen konnte.„</p><lb/>
+<p>“Der falſche Schlagſchatten, den ich ihm ma¬<lb/>
+len koͤnnte,„ erwiederte der Profeſſor, “wuͤrde<lb/>
+doch nur ein ſolcher ſeyn, den er bei der leiſeſten<lb/>
+Bewegung wieder verlieren muͤßte, — zumal wer<lb/>
+an dem eignen angebornen Schatten ſo wenig feſt<lb/>
+hing, als aus Ihrer Erzaͤhlung ſelbſt ſich abneh¬<lb/>
+men laͤßt; wer keinen Schatten hat, gehe nicht<lb/>
+in die Sonne, das iſt das Vernuͤnftigſte und Si¬<lb/>
+cherſte.„ Er ſtand auf und entfernte ſich, indem<lb/>
+er auf mich einen durchbohrenden Blick warf, den<lb/>
+der meine nicht ertragen konnte. Ich ſank in<lb/>
+meinen Seſſel zuruͤck, und verhuͤllte mein Geſicht<lb/>
+in meine Haͤnde.</p><lb/>
+<p>So fand mich noch <hi rendition="#g">Bendel</hi>, als er herein<lb/>
+trat. Er ſah den Schmerz ſeines Herrn, und<lb/>
+<pb n="30" facs="#f0050"/>
+wollte ſich ſtill, ehrerbietig zuruͤckziehen. — Ich<lb/>
+blickte auf — ich erlag unter der Laſt meines<lb/>
+Kummers, ich mußte ihn mittheilen. “Bendel,„<lb/>
+rief ich ihm zu, “Bendel! Du Einziger, der Du<lb/>
+meine Leiden ſiehſt und ehrſt, ſie nicht erforſchen<lb/>
+zu wollen, ſondern ſtill und fromm mit zu fuͤh¬<lb/>
+len ſcheinſt, komm zu mir, <hi rendition="#g">Bendel</hi>, und ſei<lb/>
+der Naͤchſte meines Herzens. Die Schaͤtze mei¬<lb/>
+nes Goldes hab' ich vor Dir nicht verſchloſſen, nicht<lb/>
+verſchließen will ich vor dir die Schaͤtze meines<lb/>
+Grames — <hi rendition="#g">Bendel</hi>, verlaſſe mich nicht. <hi rendition="#g">Ben</hi>¬<lb/>
+<hi rendition="#g">del</hi>, Du ſiehſt mich reich, freigebig, guͤtig, Du<lb/>
+waͤhnſt, es ſollte die Welt mich verherrlichen,<lb/>
+und Du ſieh'ſt mich die Welt flieh'n, und mich<lb/>
+vor ihr verſchließen. <hi rendition="#g">Bendel</hi>, ſie hat gerichtet,<lb/>
+die Welt, und mich verſtoßen, und auch Du viel¬<lb/>
+leicht, wirſt Dich von mir wenden, wenn Du<lb/>
+mein ſchreckliches Geheimniß erfaͤhrſt. <hi rendition="#g">Bendel</hi>,<lb/>
+ich bin reich, freigebig, guͤtig, aber — o Gott! —<lb/>
+ich habe keinen Schatten!„ —</p><lb/>
+<p>“Keinen Schatten?„ rief der gute Junge<lb/>
+erſchreckt aus, und die hellen Thraͤnen ſtuͤrzten ihm<lb/>
+aus den Augen. — “Weh mir, daß ich geboren<lb/>
+<pb n="31" facs="#f0051"/>
+ward, einem ſchattenloſen Herrn zu dienen!„ Er<lb/>
+ſchwieg, und ich hielt mein Geſicht in meinen<lb/>
+Haͤnden. —</p><lb/>
+<p>“<hi rendition="#g">Bendel</hi>,„ ſetzt' ich ſpaͤt und zitternd hin¬<lb/>
+zu, “nun haſt Du mein Vertrauen, nun kannſt<lb/>
+Du es verrathen. Geh' hin und zeuge wider<lb/>
+mich.„ — Er ſchien in ſchwerem Kampfe mit<lb/>
+ſich ſelber, endlich ſtuͤrzte er vor mir nieder, und<lb/>
+ergriff meine Hand, die er mit ſeinen Thraͤnen be¬<lb/>
+netzte. “Nein,„ rief er aus, “was die Welt<lb/>
+auch meine, ich kann und werde um Schattens¬<lb/>
+willen meinen guͤtigen Herrn nicht verlaſſen, ich<lb/>
+werde recht, und nicht klug handeln, ich werde<lb/>
+bei Ihnen bleiben, Ihnen meinen Schatten bor¬<lb/>
+gen, Ihnen helfen, wo ich kann, mit Ihnen wei¬<lb/>
+nen.„ Ich fiel ihm um den Hals, ob ſolcher<lb/>
+ungewohnten Geſinnung ſtaunend;<choice><sic>.</sic><corr/></choice> denn ich war<lb/>
+von ihm uͤberzeugt, daß er es nicht um Geld<lb/>
+that.</p><lb/>
+<p>Seitdem aͤnderten ſich in Etwas mein Schick¬<lb/>
+ſal und meine Lebensweiſe. Es iſt unbeſchreiblich,<lb/>
+wie vorſorglich <hi rendition="#g">Bendel</hi> mein Gebrechen zu ver¬<lb/>
+helen wußte. Überall war er vor mir und mit<lb/>
+<pb n="32" facs="#f0052"/>
+mir, alles vorherſehend, Anſtalten treffend, und<lb/>
+wo Gefahr unverſehens drohte, mich ſchnell mit<lb/>
+ſeinem Schatten uͤberdeckend, denn er war groͤßer<lb/>
+und ſtaͤrker als ich. So wagt' ich mich wieder<lb/>
+unter die Menſchen, und begann eine Rolle in<lb/>
+der Welt zu ſpielen. Ich mußte freilich viele<lb/>
+Eigenheiten und <choice><sic>Laune</sic><corr>Launen</corr></choice> ſcheinbar annehmen. Sol¬<lb/>
+che ſtehen aber dem Reichen gut, und ſo lange<lb/>
+die Wahrheit nur verborgen blieb, genoß ich alle<lb/>
+der Ehre und Achtung, die meinem Golde zukam.<lb/>
+Ich ſah ruhiger dem uͤber Jahr und Tag ver¬<lb/>
+heißenen Beſuch des raͤthſelhaften Unbekannten ent¬<lb/>
+gegen.</p><lb/>
+<p>Ich fuͤhlte ſehr wohl, daß ich mich nicht lange<lb/>
+an einem Orte aufhalten durfte, wo man mich<lb/>
+ſchon ohne Schatten geſehen, und wo ich leicht<lb/>
+verrathen werden konnte; auch dacht' ich vielleicht<lb/>
+nur allein noch daran, wie ich mich bei Herrn <hi rendition="#g">John</hi><lb/>
+gezeigt, und es war mir eine druͤckende Erinnerung,<lb/>
+demnach wollt' ich hier bloß Probe halten, um an¬<lb/>
+derswo leichter und zuverſichtlicher auftreten zu koͤn¬<lb/>
+nen — doch fand ſich, was mich eine Zeitlang an<lb/>
+meine Eitelkeit feſthielt: das iſt im Menſchen, wo<lb/>
+der Anker am zuverlaͤßigſten Grund faßt.</p><lb/>
+<fw type="catch" place="bottom">Eben<lb/>
+</fw>
+<pb n="33" facs="#f0053"/>
+<p>Eben die ſchoͤne <hi rendition="#g">Fanny</hi>, der ich am dritten<lb/>
+Ort wieder begegnete, ſchenkte mir, ohne ſich zu<lb/>
+erinnern, mich jemals geſehen zu haben, einige<lb/>
+Aufmerkſamkeit, denn jetzt hatt' ich Witz und Ver¬<lb/>
+ſtand. — Wenn ich redete, hoͤrte man zu, und<lb/>
+ich wußte ſelber nicht, wie ich zu der Kunſt ge¬<lb/>
+kommen war, das Geſpraͤch ſo leicht zu fuͤhren<lb/>
+und zu beherrſchen. Der Eindruck, den ich auf<lb/>
+die Schoͤne gemacht zu haben einſah, machte aus<lb/>
+mir, was ſie eben begehrte, einen Narren, und<lb/>
+ich folgte ihr ſeither mit tauſend Muͤhen durch<lb/>
+Schatten und Daͤmmerung, wo ich nur konnte.<lb/>
+Ich war nur eitel darauf, ſie uͤber mich eitel zu<lb/>
+machen, und konnte mir, ſelbſt mit dem beſten<lb/>
+Willen nicht, den Rauſch aus dem Kopf ins<lb/>
+Herz zwingen.</p><lb/>
+<p>Aber wozu die ganz gemeine Geſchichte dir<lb/>
+lang und breit wiederholen? — Du ſelber haſt ſie<lb/>
+mir oft genug von andern Ehrenleuten erzaͤhlt. —<lb/>
+Zu dem alten wohlbekannten Spiele, worin ich<lb/>
+gutmuͤthig eine abgedroſchene Rolle uͤbernommen,<lb/>
+kam freilich eine ganz eigens gedichtete Kataſtro¬<lb/>
+phe hinzu, mir und ihr und Allen unerwartet.</p><lb/>
+<fw type="sig" place="bottom">C<lb/>
+</fw>
+<pb n="34" facs="#f0054"/>
+<p>Da ich an einem ſchoͤnen Abend nach mei¬<lb/>
+ner Gewohnheit eine Geſellſchaft in einem erleuch¬<lb/>
+teten Garten verſammelt hatte, wandelte ich mit<lb/>
+der Herrin Arm in Arm, in einiger Entfernung<lb/>
+von den uͤbrigen Gaͤſten, und bemuͤhte mich, ihr<lb/>
+Redesarten vorzudrechſeln. Sie ſah ſittig vor ſich<lb/>
+nieder, und erwiederte leiſe den Druck meiner<lb/>
+Hand; da trat unverſehens hinter uns der Mond<lb/>
+aus den Wolken hervor — und ſie ſah nur <hi rendition="#g">ih¬<lb/>
+ren</hi> Schatten vor ſich hinfallen. Sie fuhr zuſam¬<lb/>
+men, und blickte beſtuͤrzt mich an, dann wieder<lb/>
+auf die Erde, mit dem Auge meinen Schatten<lb/>
+begehrend; und was in ihr vorging, malte ſich ſo<lb/>
+ſonderbar in ihren Mienen, daß ich in ein lautes<lb/>
+Gelaͤchter haͤtte ausbrechen moͤgen, wenn es mir<lb/>
+nicht ſelber eiskalt uͤber den Ruͤcken gelaufen<lb/>
+waͤre.</p><lb/>
+<p>Ich ließ ſie aus meinem Arm in eine Ohn¬<lb/>
+macht ſinken, ſchoß wie ein Pfeil durch die ent¬<lb/>
+ſetzten Gaͤſte, erreichte die Thuͤr', warf mich in<lb/>
+den erſten Wagen, den ich da haltend fand, und<lb/>
+fuhr nach der Stadt zuruͤck, wo ich diesmal zu<lb/>
+meinem Unheil den vorſichtigen <hi rendition="#g">Bendel</hi> gelaſſen<lb/>
+hatte. Er erſchrack, als er mich ſah, <hi rendition="#g">ein</hi> Wort<lb/>
+<pb n="35" facs="#f0055"/>
+entdeckte ihm Alles. Es wurden auf der Stelle<lb/>
+Poſtpferde geholt. Ich nahm nur einen meiner<lb/>
+Leute mit mir, einen abgefeimten Spitzbuben, Na¬<lb/>
+mens <choice><sic><hi rendition="#g">Roscal</hi></sic><corr><hi rendition="#g">Rascal</hi></corr></choice>, der ſich mir durch ſeine Gewand¬<lb/>
+heit nothwendig zu machen gewußt, und der nichts<lb/>
+vom heutigen Vorfall ahnen konnte. Ich legte<lb/>
+in derſelben Nacht noch dreißig Meilen zuruͤck.<lb/>
+<hi rendition="#g">Bendel</hi> blieb hinter mir, mein Haus aufzuloͤſen,<lb/>
+Gold zu ſpenden, und mir das Noͤthigſte nachzu¬<lb/>
+bringen. Als er mich am andern Tage einholte,<lb/>
+warf ich mich in ſeine Arme, und ſchwur ihm,<lb/>
+nicht etwa keine Thorheit mehr zu begehen, ſon¬<lb/>
+dern nur kuͤnftig vorſichtiger zu ſeyn. Wir ſetzten<lb/>
+unſre Reiſe ununterbrochen fort, uͤber die Grenze<lb/>
+und das Gebirg, und erſt am andern Abhang<lb/>
+durch das hohe Bollwerk von jenem Ungluͤcksboden<lb/>
+getrennt, ließ ich mich bewegen, in einem nah'<lb/>
+gelegenen, und wenig beſuchten Bad'ort von den<lb/>
+uͤberſtandenen Muͤhſeligkeiten auszuraſten.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">C 2<lb/>
+</fw>
+<pb n="36" facs="#f0056"/>
+</div> <div n="1"> <head> <hi rendition="#aq">IV.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">I</hi>ch werde in meiner Erzaͤhlung ſchnell uͤber<lb/>
+eine Zeit hineilen muͤſſen, bei der ich, wie gerne,<lb/>
+verweilen wuͤrde, wenn ich ihren lebendigen Geiſt<lb/>
+in der Erinnerung herauf zu beſchwoͤren vermoͤchte.<lb/>
+Aber die Farbe, die ſie belebte, und nur wieder<lb/>
+beleben kann, iſt in mir verloſchen, und wann ich<lb/>
+in meiner Bruſt wieder finden will, was ſie da¬<lb/>
+mals ſo maͤchtig erhob, die Schmerzen und das<lb/>
+Gluͤck, den frommen Wahn, — da ſchlag' ich<lb/>
+vergebens an einen Felſen, der keinen lebendigen<lb/>
+Quell mehr gewaͤhrt, und der Gott iſt von mir<lb/>
+gewichen. Wie veraͤndert blickt ſie mich jetzt an,<lb/>
+dieſe vergangene Zeit! — Ich ſollte dort in dem<lb/>
+Bade eine heroiſche Rolle tragiren, ſchlecht einſtu¬<lb/>
+dirt, und ein Neuling auf der Buͤhne, vergaft'<lb/>
+ich mich aus dem Stuͤcke heraus in ein paar blaue<lb/>
+Augen. Die Eltern, vom Spiele getaͤuſcht, bie¬<lb/>
+<pb n="37" facs="#f0057"/>
+ten Alles auf, den Handel nur ſchnell feſt zu ma¬<lb/>
+chen, und die gemeine Poſſe beſchließt eine Ver¬<lb/>
+hoͤhnung. Und das iſt Alles, Alles! — Das kommt<lb/>
+mir albern und abgeſchmackt vor, und ſchrecklich<lb/>
+wiederum, daß ſo mir vorkommen kann, was da¬<lb/>
+mals ſo reich, ſo groß, die Bruſt mir ſchwellte.<lb/>
+<hi rendition="#g">Mina</hi>, wie ich damals weinte, als ich dich<lb/>
+verlor, ſo wein' ich jetzt, dich auch in mir ver¬<lb/>
+loren zu haben. Bin ich denn ſo alt worden? —<lb/>
+o traurige Vernunft! Nur noch ein Pulsſchlag<lb/>
+jener Zeit, ein Moment jenes Wachens, — aber<lb/>
+nein! einſam auf dem hohen oͤden Meere deiner<lb/>
+bittern Fluth, und laͤngſt aus dem letzten Pokale<lb/>
+der Champagner Elfe entſpruͤht!</p><lb/>
+<p>Ich hatte <hi rendition="#g">Bendel</hi> mit einigen Goldſaͤcken<lb/>
+voraus geſchickt, um mir im Staͤdtchen eine Woh¬<lb/>
+nung nach meinen Beduͤrfniſſen einzurichten. Er<lb/>
+hatte dort viel Geld ausgeſtreut, und ſich uͤber den<lb/>
+vornehmen Fremden, dem er diente, etwas unbe¬<lb/>
+ſtimmt ausgedruͤckt, denn ich wollte nicht genannt<lb/>
+ſeyn, das brachte die guten Leute auf ſonderbare<lb/>
+Gedanken. Sobald mein Haus zu meinem Em¬<lb/>
+pfang bereit war, kam <hi rendition="#g">Bendel</hi> wieder zu mir,<lb/>
+<pb n="38" facs="#f0058"/>
+und holte mich dahin ab. Wir machten uns auf<lb/>
+die Reiſe.</p><lb/>
+<p>Ungefaͤhr eine Stunde vom Orte, auf einem<lb/>
+ſonnigen Plan, ward uns der Weg durch eine<lb/>
+feſtlich geſchmuͤckte Menge verſperrt. Der Wagen<lb/>
+hielt. Muſik, Glockengelaͤute, Kanonenſchuͤße wur¬<lb/>
+den gehoͤrt, ein lautes Vivat durchdrang die Luft, —<lb/>
+vor dem Schlage des Wagens erſchien in weißen<lb/>
+Kleidern ein Chor Jungfrauen von ausnehmen¬<lb/>
+der Schoͤnheit, die aber vor der Einen, wie die<lb/>
+Sterne der Nacht vor der Sonne verſchwanden.<lb/>
+Sie trat aus der Mitte der Schweſtern hervor;<lb/>
+die hohe zarte Bildung kniete verſchaͤmt erroͤthend<lb/>
+vor mir nieder, und hielt mir auf ſeidenem Kiſ¬<lb/>
+ſen, einen aus Lorbeer, Oelzweigen und Roſen<lb/>
+geflochtenen Kranz entgegen, indem ſie von Ma¬<lb/>
+jeſtaͤt, Ehrfurcht und Liebe einige Worte ſprach,<lb/>
+die ich nicht verſtand, aber deren zauberiſcher Sil¬<lb/>
+berklang mein Ohr und Herz berauſchten, — es<lb/>
+war mir, als waͤre ſchon einmal die himmliſche<lb/>
+Erſcheinung an mir voruͤber gewallt. Der Chor<lb/>
+fiel ein, und ſang das Lob eines guten Koͤniges<lb/>
+und das Gluͤck ſeines Volkes.</p><lb/>
+<pb n="39" facs="#f0059"/>
+<p>Und dieſer Auftritt, lieber Freund, mitten<lb/>
+in der Sonne, — ſie kniete noch immer zwei<lb/>
+Schritte vor mir, und ich, ohne Schatten, konnte<lb/>
+die Kluft nicht uͤberſpringen, nicht wieder vor<lb/>
+dem Engel auf die Knie fallen. O, was haͤtt’<lb/>
+ich nicht da fuͤr einen Schatten gegeben. Ich<lb/>
+mußte meine Schaam, meine Angſt, meine Ver¬<lb/>
+zweiflung tief in den Grund meines Wagens ver¬<lb/>
+bergen. <hi rendition="#g">Bendel</hi> beſann ſich endlich fuͤr mich,<lb/>
+er ſprang von der andern Seite aus dem Wagen<lb/>
+heraus, ich rief ihn noch zuruͤck und reichte ihm<lb/>
+aus meinem Kaͤſtchen, das mir eben zur Hand<lb/>
+lag, eine reiche diamantene Krone, die die ſchoͤne<lb/>
+<hi rendition="#g">Fanny</hi> hatte zieren ſollen. Er trat vor, und<lb/>
+ſprach im Namen ſeines Herrn, welcher ſolche Eh¬<lb/>
+renbezeugungen nicht annehmen koͤnne noch wolle;<lb/>
+es muͤſſe hier ein Irrthum vorwalten, jedoch ſeien<lb/>
+die guten Einwohner der Stadt fuͤr ihren guten<lb/>
+Willen bedankt. Er nahm indeß den dargehalte¬<lb/>
+nen Kranz von ſeinem Ort, und legte den bril¬<lb/>
+lantenen Reif an deſſen Stelle; dann reichte er<lb/>
+ehrerbietig der ſchoͤnen Jungfrau die Hand zum<lb/>
+Aufſtehen, entfernte mit einem Wink Geiſtlich¬<lb/>
+keit, <hi rendition="#aq">Magistratus</hi> und alle Deputationen. Nie¬<lb/>
+<pb n="40" facs="#f0060"/>
+mand ward weiter vorgelaſſen. Er hieß den Hau¬<lb/>
+fen ſich theilen und den Pferden Raum geben,<lb/>
+ſchwang ſich wieder in den Wagen, und fort ging's<lb/>
+weiter in geſtrecktem Galopp unter eine aus Laub¬<lb/>
+werk und Blumen erbaute Pforte hinweg, dem<lb/>
+Staͤdtchen zu. — Die Kanonen wurden immer<lb/>
+friſchweg abgefeuert. — Der Wagen hielt vor<lb/>
+meinem Hauſe; ich ſprang behend' in die Thuͤr',<lb/>
+die Menge theilend, die die Begierde, mich zu ſe¬<lb/>
+hen, herbeigerufen hatte. Der Poͤbel ſchrie <hi rendition="#g">Vi¬<lb/>
+vat</hi> unter meinem Fenſter, und ich ließ doppelte<lb/>
+Dukaten daraus regnen; am Abend ward die<lb/>
+Stadt freiwillig erleuchtet. —</p><lb/>
+<p>Und ich wußte immer noch nicht, was das<lb/>
+Alles bedeuten ſollte, und fuͤr wen ich angeſehen<lb/>
+wurde. Ich ſchickte Rascal'n auf Kundſchaft aus.<lb/>
+Er ließ ſich dann erzaͤhlen, weßmaßen man be¬<lb/>
+reits ſichere Nachrichten gehabt, der gute Koͤnig<lb/>
+von Preußen reiſe unter dem Namen eines Gra¬<lb/>
+fen durch das Land; wie mein Adjutant er¬<lb/>
+kannt worden waͤre, und wie er ſich und mich<lb/>
+verrathen habe, wie groß endlich die Freude gewe¬<lb/>
+ſen, da man die Gewißheit gehabt, mich im Orte<lb/>
+<pb n="41" facs="#f0061"/>
+ſelbſt zu beſitzen. Nun ſah man freilich ein, da<lb/>
+ich offenbar das ſtrengſte Inkognito beobachten wol¬<lb/>
+le, wie ſehr man Unrecht gehabt, den Schleier ſo<lb/>
+zudringlich zu luͤften. Ich haͤtte aber ſo huldreich,<lb/>
+ſo gnadenvoll gezuͤrnt, — ich wuͤrde gewiß dem<lb/>
+guten Herzen verzeihen muͤſſen.</p><lb/>
+<p>Meinem Schlingel kam die Sache ſo ſpaßhaft<lb/>
+vor, daß er mit ſtrafenden Reden ſein Moͤglich¬<lb/>
+ſtes that, die guten Leute einſtweilen in ihrem<lb/>
+Glauben zu beſtaͤrken. Er ſtattete mir einen ſehr<lb/>
+komiſchen Bericht ab, und da er mich dadurch er¬<lb/>
+heitert ſah, gab er mir ſelbſt ſeine veruͤbte Bos¬<lb/>
+heit zum Beſten. — Muß ich's bekennen? es<lb/>
+ſchmeichelte mir doch, ſei es auch nur ſo, fuͤr das<lb/>
+verehrte Haupt angeſehen worden zu ſeyn.</p><lb/>
+<p>Ich hieß zu dem morgenden Abend unter den<lb/>
+Baͤumen, die den Raum vor meinem Hauſe be¬<lb/>
+ſchatteten, ein Feſt bereiten, und die ganze Stadt<lb/>
+dazu einladen. Der geheimnißreichen Kraft mei¬<lb/>
+nes Seckels, <hi rendition="#g">Bendel's</hi> Bemuͤhungen und der be¬<lb/>
+henden Erfindſamkeit <hi rendition="#g">Rascal's</hi> gelang es ſelbſt<lb/>
+die Zeit zu beſiegen. Es iſt wirklich erſtaunlich,<lb/>
+<pb n="42" facs="#f0062"/>
+wie reich und ſchoͤn ſich Alles in den wenigen<lb/>
+Stunden anordnete. Die Pracht und der Über¬<lb/>
+fluß, die da ſich erzeugten; auch die ſinnreiche Er¬<lb/>
+leuchtung war ſo weiſe vertheilt, daß ich mich ganz<lb/>
+ſicher fuͤhlte. Es blieb mir nichts zu erinnern, ich<lb/>
+mußte meine Diener loben.</p><lb/>
+<p>Es dunkelte der Abend. Die Gaͤſte erſchie¬<lb/>
+nen, und wurden mir vorgeſtellt. Es ward die<lb/>
+Majeſtaͤt nicht mehr beruͤhrt; aber ich hieß in tie¬<lb/>
+fer Ehrfurcht und Demuth: Herr Graf. Was<lb/>
+ſollt' ich thun? Ich ließ mir den Grafen gefal¬<lb/>
+len, und blieb von Stund' an der Graf Peter.<lb/>
+Mitten im feſtlichen Gewuͤhle begehrte meine<lb/>
+Seele nur nach der Einen. Spaͤt erſchien ſie; ſie,<lb/>
+die die Krone war und trug. Sie folgte ſittſam<lb/>
+ihren Eltern, und ſchien nicht zu wiſſen, daß ſie<lb/>
+die Schoͤnſte ſei. Es wurden mir der Herr Forſt¬<lb/>
+meiſter, ſeine Frau und ſeine Tochter vorgeſtellt.<lb/>
+Ich wußte den Alten viel Angenehmes und Ver¬<lb/>
+bindliches zu ſagen; vor der Tochter ſtand ich wie<lb/>
+ein ausgeſcholtener Knabe da, und vermochte kein<lb/>
+Wort hervor zu lallen. Ich bat ſie endlich ſtam¬<lb/>
+melnd, dies Feſt zu wuͤrdigen, das Amt, deren<lb/>
+<pb n="43" facs="#f0063"/>
+Zeichen ſie ſchmuͤckte, darin zu verwalten. Sie<lb/>
+bat verſchaͤmt mit einem ruͤhrenden Blick um Scho¬<lb/>
+nung; aber verſchaͤmter vor ihr, als ſie ſelbſt,<lb/>
+bracht ich ihr als erſter Unterthan meine Huldi¬<lb/>
+gung in ſteifer Ehrfurcht, und der Wink des Gra¬<lb/>
+fen ward allen Gaͤſten ein Gebot, dem nachzule¬<lb/>
+ben ſich Jeder freudig beeiferte. Majeſtaͤt, Un¬<lb/>
+ſchuld und Grazie beherrſchten, mit der Schoͤnheit<lb/>
+im Bund, ein frohes Feſt. Die gluͤcklichen Eltern<lb/>
+<hi rendition="#g">Mina's</hi> glaubten ihnen nur zur Ehren ihr Kind<lb/>
+erhoͤht, ich ſelber war in einem unbeſchreiblichen<lb/>
+Rauſch. Ich ließ Alles, was ich noch von den<lb/>
+Juwelen hatte, die ich damals, um beſchwerliches<lb/>
+Gold loß zu werden, gekauft, alle Perlen, alles<lb/>
+Edelgeſtein in zwei verdeckte Schuͤſſeln legen, und<lb/>
+bei Tiſche unter dem Namen der Koͤnigin, ihren<lb/>
+Geſpielinnen und allen Damen herumreichen; Gold<lb/>
+ward indeſſen ununterbrochen uͤber die gezogenen<lb/>
+Schranken unter das jubelnde Volk geworfen.</p><lb/>
+<p> <hi rendition="#g">Bendel</hi> am andern Morgen eroͤffnete mir<lb/>
+im Vertrauen, der Verdacht, den er laͤngſt gegen<lb/>
+<choice><sic><hi rendition="#g">Roscal's</hi></sic><corr><hi rendition="#g">Rascal's</hi></corr></choice> Redlichkeit gehegt, ſei nunmehr zur<lb/>
+Gewißheit worden. Er habe geſtern ganze Saͤcke<lb/>
+<pb n="44" facs="#f0064"/>
+Goldes unterſchlagen. “Laſſet uns,„ erwiedert’<lb/>
+ich, “dem armen Schelmen die kleine Beute goͤn¬<lb/>
+nen, ich ſpende gern Allen, warum nicht auch<lb/>
+ihm? Geſtern hat er mir, haben mir alle neuen<lb/>
+Leute, die du mir gegeben, redlich gedient, ſie ha¬<lb/>
+ben mir froh ein frohes Feſt begehen helfen.„ —</p><lb/>
+<p>Es war nicht weiter die Rede davon. <hi rendition="#g">Ras¬<lb/>
+cal</hi> blieb der erſte meiner Dienerſchaft, <hi rendition="#g">Bendel</hi><lb/>
+war aber mein Freund und mein Vertrauter. Die¬<lb/>
+ſer war gewohnt worden, meinen Reichthum als<lb/>
+unerſchoͤpflich zu denken, und er ſpaͤhte nicht nach<lb/>
+deſſen Quellen. — Er half mir vielmehr, in<lb/>
+meinen Sinn eingehend, Gelegenheiten erſinnen,<lb/>
+ihn darzuthun und Gold zu vergeuden. Von jenem<lb/>
+Unbekannten, dem blaſſen Schleicher, wußt' er<lb/>
+nur ſo viel: Ich duͤrfe allein durch ihn von dem<lb/>
+Fluche erloͤſt werden, der auf mir laſtete, und<lb/>
+fuͤrchte ihn, auf dem meine einzige Hoffnung ruh¬<lb/>
+te. Übrigens ſei ich davon uͤberzeugt, er koͤnne<lb/>
+mich uͤberall auffinden, ich ihn nirgends, darum<lb/>
+ich, den verſprochenen Tag erwartend, jede ver¬<lb/>
+gebliche Nachſuchung eingeſtellt.</p><lb/>
+<pb n="45" facs="#f0065"/>
+<p>Die Pracht meines Feſtes und mein Beneh¬<lb/>
+men dabei, erhielten Anfangs die ſtarkglaͤubigen<lb/>
+Einwohner der Stadt bei ihrer vorgefaßten Mei¬<lb/>
+nung. Es ergab ſich freilich ſehr bald aus den<lb/>
+Zeitungen, daß die ganze fabelhafte Reiſe des Koͤ¬<lb/>
+nigs von Preußen ein bloßes ungegruͤndetes Ge¬<lb/>
+ruͤcht geweſen. Ein Koͤnig war ich aber nun ein¬<lb/>
+mal, und mußte ſchlechterdings ein Koͤnig bleiben,<lb/>
+und zwar einer der reichſten und koͤniglichſten, die<lb/>
+es immer geben mag. Nur wußte man nicht<lb/>
+recht, welcher. Die Welt hat nie Grund gehabt,<lb/>
+uͤber Mangel an Monarchen zu klagen, am we¬<lb/>
+nigſten in unſern Tagen; die guten Leute, die<lb/>
+noch keinen mit Augen geſehen, riethen mit glei¬<lb/>
+chem Gluͤck bald auf dieſen, bald auf jenen —<lb/>
+<hi rendition="#g">Graf Peter</hi> blieb immer der er war. —</p><lb/>
+<p>Einſt erſchien unter den Badegaͤſten ein Han¬<lb/>
+delsmann, der Bankerot gemacht hatte, um ſich<lb/>
+zu bereichern; der allgemeine Achtung genoß, und<lb/>
+einen breiten, obgleich etwas blaſſen Schatten von<lb/>
+ſich warf. Er wollte hier das Vermoͤgen, das er<lb/>
+geſammelt, zum Prunk ausſtellen, und es fiel ſo¬<lb/>
+gar ihm ein, mit mir wetteifern zu wollen. Ich<lb/>
+<pb n="46" facs="#f0066"/>
+ſprach meinem Seckel zu, und hatte ſehr bald den<lb/>
+armen Teufel ſo weit, daß er, um ſein Anſehen<lb/>
+zu retten, abermals Bankerot machen mußte und<lb/>
+uͤber das Gebirg ziehen. So ward ich ihn loß. —<lb/>
+Ich habe in dieſer Gegend viele Taugenichts und<lb/>
+Muͤßiggaͤnger gemacht!</p><lb/>
+<p>Bei der koͤniglichen Pracht und Verſchwen¬<lb/>
+dung, womit ich mir Alles unterwarf, lebt' ich<lb/>
+in meinem Hauſe ſehr einfach und eingezogen.<lb/>
+Ich hatte mir die groͤßte Vorſicht zur Regel ge¬<lb/>
+macht, es durfte, unter keinem Vorwand, kein<lb/>
+Anderer, als <hi rendition="#g">Bendel</hi>, die Zimmer, die ich be¬<lb/>
+wohnte, betreten. So lange die Sonne ſchien,<lb/>
+hielt' ich mich mit ihm darin verſchloſſen, und es<lb/>
+hieß: der Graf arbeite in ſeinem Kabinet. Mit<lb/>
+dieſen Arbeiten ſtanden die haͤufigen Kuriere in<lb/>
+Verbindung, die ich um jede Kleinigkeit abſchickte<lb/>
+und erhielt. — Ich nahm nur am Abend unter<lb/>
+meinen Baͤumen, oder in meinem, nach <hi rendition="#g">Ben¬<lb/>
+del</hi>'s Angabe geſchickt und reich erleuchteten Saale<lb/>
+Geſellſchaft an. Wann ich ausging, wobei mich<lb/>
+ſtets <hi rendition="#g">Bendel</hi> mit Argusaugen bewachen mußte,<lb/>
+ſo war es nur nach dem Foͤrſtergarten, und um<lb/>
+<pb n="47" facs="#f0067"/>
+des Einen willen; denn meines Lebens innerlich¬<lb/>
+ſtes Herz war meine Liebe.</p><lb/>
+<p>O mein guter <hi rendition="#g">Chamiſſo</hi>, ich will hoffen,<lb/>
+du habeſt noch nicht vergeſſen, was Liebe ſei!<lb/>
+Ich laſſe Dir hier Vieles zu ergaͤnzen. <hi rendition="#g">Mina</hi><lb/>
+war wirklich ein liebewerthes, gutes, frommes<lb/>
+Kind. Ich hatte ihre ganze Phantaſie an mich<lb/>
+gefeſſelt, ſie wußte in ihrer Demuth nicht, wo¬<lb/>
+mit ſie werth geweſen, daß ich nur nach ihr ge¬<lb/>
+blickt; und ſie vergalt Liebe um Liebe mit der<lb/>
+vollen jugendlichen Kraft eines unſchuldigen Her¬<lb/>
+zens. Sie liebte wie ein Weib, ganz hin ſich<lb/>
+opfernd; ſelbſt vergeſſen, hingegeben den nur mei¬<lb/>
+nend, der ihr Leben war; unbekuͤmmert, ſolle ſie<lb/>
+ſelbſt zu Grunde gehen, das heißt, ſie liebte wirk¬<lb/>
+lich. —</p><lb/>
+<p>Ich aber — o welche ſchreckliche Stunden — —<lb/>
+ſchrecklich! und wuͤrdig dennoch, daß ich ſie zuruͤck¬<lb/>
+wuͤnſche, hab’ ich oft an <hi rendition="#g">Bendel's</hi> Bruſt ver¬<lb/>
+weint, als nach dem erſten bewußtloſen Rauſch ich<lb/>
+mich beſonnen, mich ſelbſt ſcharf angeſchaut, der<lb/>
+ich ohne Schatten mit tuͤckiſcher Selbſtſucht, die¬<lb/>
+ſen Engel verderbend, die reine Seele an mich<lb/>
+<pb n="48" facs="#f0068"/>
+gelogen und geſtolen! Dann beſchloß ich, mich<lb/>
+ihr ſelber zu verrathen; dann gelobt' ich mit theu¬<lb/>
+ren Eidſchwuͤren, mich von ihr zu reißen und zu<lb/>
+entfliehen; dann brach ich wieder in Thraͤnen aus,<lb/>
+und verabredete mit <hi rendition="#g">Bendel'n</hi>, wie ich ſie auf<lb/>
+dem Abend im Foͤrſtergarten beſuchen wolle. —</p><lb/>
+<p>Zu andern Zeiten log ich mir ſelber vom na¬<lb/>
+he bevorſtehenden Beſuch des grauen Unbekannten<lb/>
+große Hoffnungen vor, und weinte wieder, wann<lb/>
+ich daran zu glauben vergebens verſucht hatte. Ich<lb/>
+hatte den Tag ausgerechnet, wo ich den Furcht¬<lb/>
+baren wieder zu ſehen erwartete; denn er hatte ge¬<lb/>
+ſagt, in Jahr und Tag, und ich glaubte an ſein<lb/>
+Wort.</p><lb/>
+<p>Die Eltern waren gute, ehrbare, alte Leute,<lb/>
+die ihr einziges Kind ſehr liebten, das ganze Ver¬<lb/>
+haͤltniß uͤberraſchte ſie, als es ſchon beſtand, und<lb/>
+ſie wußten nicht, was ſie dabei thun ſollten. Sie<lb/>
+hatten fruͤher nicht getraͤumt, der <hi rendition="#g">Graf Peter</hi><lb/>
+koͤnne nur an ihr Kind denken, nun liebte er ſie<lb/>
+gar, und ward wieder geliebt. — Die Mutter<lb/>
+war wohl eitel genug, an die Moͤglichkeit einer<lb/>
+Verbindung zu denken, und darauf hinzuarbeiten,<lb/>
+<fw type="catch" place="bottom">der<lb/>
+</fw>
+<pb n="49" facs="#f0069"/>
+der geſunde Menſchenverſtand des Alten gab ſol¬<lb/>
+chen uͤberſpannten Vorſtellungen nicht Raum. Bei¬<lb/>
+de waren uͤberzeugt von der Reinheit meiner Lie¬<lb/>
+be — ſie konnten nichts thun, als fuͤr ihr Kind<lb/>
+beten.</p><lb/>
+<p>Es faͤllt mir ein Brief in die Hand, den ich<lb/>
+noch aus dieſer Zeit von <hi rendition="#g">Mina</hi> habe. — Ja, das<lb/>
+ſind ihre Zuͤge, ich will Dir ihn abſchreiben.</p><lb/>
+<p>“Bin ein ſchwaches, thoͤrichtes Maͤdchen,<lb/>
+koͤnnte mir einbilden, daß mein Geliebter, weil<lb/>
+ich ihn innig, innig liebe, dem armen Maͤdchen<lb/>
+nicht weh thun moͤchte. — Ach, Du biſt ſo gut,<lb/>
+ſo unausſprechlich gut; aber mißbrauche mich nicht.<lb/>
+Du ſollſt mir nichts opfern, mir nichts opfern wol¬<lb/>
+len; o Gott! ich koͤnnte mich haſſen, wenn Du<lb/>
+das thaͤteſt. Nein — Du haſt mich unendlich<lb/>
+gluͤcklich gemacht, Du haſt mich Dich lieben ge¬<lb/>
+lehrt. Zeuch hin! — Weiß doch mein Schickſal,<lb/>
+<hi rendition="#g">Graf Peter</hi> gehoͤrt nicht mir, gehoͤrt der Welt<lb/>
+an. Will ſtolz ſeyn, wenn ich hoͤre: das iſt er<lb/>
+geweſen, und das war er wieder, und das hat er<lb/>
+vollbracht; da haben ſie ihn angebetet, und da<lb/>
+haben ſie ihn <choice><sic>veroͤgttert</sic><corr>vergoͤttert</corr></choice>. Siehe, wenn ich das<lb/>
+<fw type="sig" place="bottom">D<lb/>
+</fw>
+<pb n="50" facs="#f0070"/>
+denke, zuͤrne ich Dir, daß Du bei einem einfaͤltigen<lb/>
+Kinde Deiner hohen Schickſale vergeſſen kannſt. —<lb/>
+Zeuch hin, ſonſt macht der Gedanke mich noch un¬<lb/>
+gluͤcklich, die ich, ach! durch Dich ſo gluͤcklich, ſo<lb/>
+ſelig bin. — Hab' ich nicht auch einen Oelzweig<lb/>
+und eine Roſenknoſpe in Dein Leben geflochten,<lb/>
+wie in den Kranz, den ich Dir uͤberreichen durfte?<lb/>
+Habe Dich im Herzen, mein Geliebter, fuͤrchte<lb/>
+nicht, von mir zu gehen — werde ſterben ach ſo<lb/>
+ſelig, ſo unausſprechlich ſelig durch Dich.„ —</p><lb/>
+<p>Du kannſt Dir denken, wie mir die Worte<lb/>
+durch's Herz ſchneiden mußten. Ich erklaͤrte ihr,<lb/>
+ich ſei nicht das, wofuͤr man mich anzuſehen<lb/>
+ſchien; ich ſei nur ein reicher, aber unendlich<lb/>
+elender Mann. Auf mir ruhe ein Fluch, der das<lb/>
+einzige Geheimniß zwiſchen ihr und mir ſeyn ſolle,<lb/>
+weil ich nicht noch ohne Hoffnung ſei, daß er<lb/>
+geloͤſt werde. Dies ſei das Gift meiner Tage: daß<lb/>
+ich ſie mit in den Abgrund hinreißen koͤnne, ſie,<lb/>
+die das einzige Licht, das einzige Gluͤck, das ein¬<lb/>
+zige Herz meines Lebens ſei. Dann weinte ſie<lb/>
+wieder, daß ich ungluͤcklich war, ach, ſie war ſo<lb/>
+liebevoll, ſo gut. Um Eine Thraͤne nur mir zu<lb/>
+<pb n="51" facs="#f0071"/>
+erkaufen, hatte ſie, mit welcher Seligkeit, ſich<lb/>
+ſelbſt ganz hingeopfert.</p><lb/>
+<p>Sie war indeß weit entfernt, meine Worte<lb/>
+richtig zu deuten, ſie ahnete nun in mir irgend<lb/>
+einen Fuͤrſten, den ein ſchwerer Bann getroffen,<lb/>
+irgend ein hohes, geaͤchtetes Haupt, und ihre Ein¬<lb/>
+bildungskraft malte ſich geſchaͤftig, unter heroiſchen<lb/>
+Bildern den Geliebten herrlich aus.</p><lb/>
+<p>Einſt ſagte ich ihr: “<hi rendition="#g">Mina</hi>, der letzte Tag<lb/>
+im kuͤnftigen Monat kann mein Schickſal aͤndern<lb/>
+und entſcheiden — geſchieht es nicht, ſo muß ich<lb/>
+ſterben, weil ich Dich nicht ungluͤcklich machen<lb/>
+will.„ — Sie verbarg weinend ihr Haupt an<lb/>
+meiner Bruſt. “Ändert ſich Dein Schickſal, laß<lb/>
+mich nur Dich gluͤcklich wiſſen, ich habe keinen<lb/>
+Anſpruch an Dich — Biſt Du elend, binde mich<lb/>
+an Dein Elend, daß ich es Dir tragen helfe.„ —</p><lb/>
+<p>“Maͤdchen, Maͤdchen, nimm es zuruͤck, das<lb/>
+raſche Wort, das thoͤrichte, das Deinen Lippen<lb/>
+entflohen — und kenn'ſt Du es, dieſes Elend,<lb/>
+kenn'ſt Du ihn, dieſen Fluch? Weißt Du, wer<lb/>
+Dein Geliebter. — – – – was er – – ? —<lb/>
+<fw type="sig" place="bottom">D2<lb/>
+</fw>
+<pb n="52" facs="#f0072"/>
+Siehſt Du mich nicht krampfhaft zuſammenſchau¬<lb/>
+dern, und vor Dir ein Geheimniß haben?„ Sie<lb/>
+fiel ſchluchzend mir zu Fuͤßen, und wiederholte mit<lb/>
+Eidſchwur ihre Bitte. —</p><lb/>
+<p>Ich erklaͤrte mich gegen den hereintretenden<lb/>
+Forſtmeiſter, meine Abſicht ſei, am erſten des<lb/>
+naͤchſtkuͤnftigen Monats um die Hand ſeiner Toch¬<lb/>
+ter anzuhalten — ich ſetzte dieſe Zeit feſt, weil<lb/>
+ſich bis dahin Manches ereignen duͤrfte, was Ein¬<lb/>
+fluß auf mein Schickſal haben koͤnnte. Unwandel¬<lb/>
+bar ſei nur meine Liebe zu ſeiner Tochter. —</p><lb/>
+<p>Der gute Mann erſchrack ordentlich, als er<lb/>
+ſolche Worte aus dem Munde des <hi rendition="#g">Grafen Pe¬<lb/>
+ter</hi> vernahm. Er fiel mir um den Hals, und<lb/>
+ward wieder ganz verſchaͤmt, ſich vergeſſen zu ha¬<lb/>
+ben. Nun fiel es ihm ein, zu zweifeln, zu er¬<lb/>
+waͤgen und zu forſchen; er ſprach von Mitgift, von<lb/>
+Sicherheit, von Zukunft fuͤr ſein liebes Kind. Ich<lb/>
+dankte ihm, mich daran zu mahnen. Ich ſagte<lb/>
+ihm, ich wuͤnſche in dieſer Gegend, wo ich geliebt<lb/>
+zu ſeyn ſchien, mich anzuſiedeln, und ein ſorgen¬<lb/>
+freies Leben zu fuͤhren. Ich bat ihn, die ſchoͤnſten<lb/>
+<pb n="53" facs="#f0073"/>
+Guͤter, die im Lande ausgebeten wurden, unter<lb/>
+dem Namen ſeiner Tochter zu kaufen, und die Be¬<lb/>
+zahlung auf mich anzuweiſen. Es koͤnne darin ein<lb/>
+Vater dem Liebenden am beſten dienen. — Es<lb/>
+gab ihm viel zu thun, denn uͤberall war ihm ein<lb/>
+Fremder zu vorgekommen; er kaufte auch nur fuͤr<lb/>
+ungefaͤhr eine Million.</p><lb/>
+<p>Daß ich ihn damit beſchaͤftigte, war im<lb/>
+Grunde eine unſchuldige Liſt, um ihn zu entfer¬<lb/>
+nen, und ich hatte ſchon aͤhnliche mit ihm gebraucht,<lb/>
+denn ich muß geſtehen, daß er etwas laͤſtig war.<lb/>
+Die gute Mutter war dagegen etwas taub, und<lb/>
+nicht, wie er, auf die Ehre eiferſuͤchtig, den Herrn<lb/>
+Grafen zu unterhalten.</p><lb/>
+<p>Die Mutter kam hinzu, die gluͤcklichen Leute<lb/>
+drangen in mich, den Abend laͤnger unter ihnen<lb/>
+zu bleiben; ich durfte keine Minute weilen: ich ſah<lb/>
+ſchon den aufgehenden Mond am Horizonte daͤm¬<lb/>
+mern. — Meine Zeit war um. —</p><lb/>
+<p>Am naͤchſten Abend ging ich wieder nach dem<lb/>
+Foͤrſtergarten. Ich hatte den Mantel weit uͤber<lb/>
+die Schulter geworfen, den Hut tief in die Au¬<lb/>
+<pb n="54" facs="#f0074"/>
+gen gedruͤckt, ich ging auf Mina zu; wie ſie auf¬<lb/>
+ſah, und mich anblickte, machte ſie eine unwill¬<lb/>
+kuͤhrliche Bewegung; da ſtand mir wieder klar vor<lb/>
+der Seele die Erſcheinung jener ſchaurigen Nacht,<lb/>
+wo ich mich im Mondſchein ohne Schatten ge¬<lb/>
+zeigt. Sie war es wirklich. Hatte ſie mich aber<lb/>
+auch jetzt erkannt? Sie war ſtill und gedanken¬<lb/>
+voll — mir lag es zentnerſchwer auf der Bruſt —<lb/>
+Ich ſtand von meinem Sitz auf. Sie warf ſich<lb/>
+ſtille weinend an meine Bruſt. Ich ging.</p><lb/>
+<p>Nun fand ich ſie oͤfters in Thraͤnen; mir<lb/>
+ward's finſter und finſterer um die Seele, — nur<lb/>
+die Eltern ſchwammen in unuͤberſchwaͤnglicher<lb/>
+Gluͤckſeligkeit; der verhaͤngnißvolle Tag ruͤckte her¬<lb/>
+an, bang und dumpf, wie eine Gewitterwolke.<lb/>
+Der Vorabend war da — ich konnte kaum mehr<lb/>
+athmen. Ich hatte vorſorglich einige Kiſten mit<lb/>
+Gold angefuͤllt, ich wachte die zwoͤlfte Stunde<lb/>
+heran. — Sie ſchlug. —</p><lb/>
+<p>Nun ſaß ich da, das Auge auf die Zeiger<lb/>
+der Uhr gerichtet, die Sekunden, die Minuten<lb/>
+zaͤhlend, wie Dolchſtiche. Bei jedem Laͤrm, der<lb/>
+<pb n="55" facs="#f0075"/>
+ſich regte, fuhr ich auf, der Tag brach an. Die<lb/>
+bleiernen Stunden verdraͤngten einander, es ward<lb/>
+Mittag, Abend, Nacht; es ruͤckten die Zeiger,<lb/>
+welkte die Hoffnung; es ſchlug eilf, und nichts<lb/>
+erſchien; die letzten Minuten der letzten Stunde<lb/>
+fielen, und nichts erſchien, es ſchlug der erſte<lb/>
+Schlag, der letzte Schlag der zwoͤlften Stunde,<lb/>
+und ich ſank hoffnungslos in unendlichen Thraͤnen<lb/>
+auf mein Lager zuruͤck. Morgen ſollt' ich — auf<lb/>
+immer ſchattenlos, um die Hand der Geliebten an¬<lb/>
+halten; banger Schlaf druͤckte mir gegen den<lb/>
+Morgen die Augen zu.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="56" facs="#f0076"/>
+</div> <div n="1"> <head> <hi rendition="#aq">V.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">E</hi>s war noch fruͤh, als mich Stimmen<lb/>
+weckten, die ſich in meinem Vorzimmer, in hef¬<lb/>
+tigem Wortwechſel erhoben. Ich horchte auf. —<lb/>
+<hi rendition="#g">Bendel</hi> verbot meine Thuͤr; <hi rendition="#g">Rascal</hi> ſchwur<lb/>
+hoch und theuer, keine Befehle von ſeines Glei¬<lb/>
+chen anzunehmen, und beſtand darauf, in meine<lb/>
+Zimmer einzudringen. Der guͤtige <hi rendition="#g">Bendel</hi> ver¬<lb/>
+wies ihm, daß ſolche Worte, falls ſie zu meinen<lb/>
+Ohren kaͤmen, ihn um einen vortheilhaften Dienſt<lb/>
+bringen wuͤrden. <hi rendition="#g">Rascal</hi> drohte Hand an ihn<lb/>
+zu legen, wenn er ihm den Eingang noch laͤnger<lb/>
+vertreten wollte. —</p><lb/>
+<p>Ich hatte mich halb angezogen, ich riß zornig<lb/>
+die Thuͤr auf, und fuhr auf <hi rendition="#g">Rascal’n</hi> zu —</p><lb/>
+<p>“Was willſt Du Schurke – – – –,„ er trat<lb/>
+zwei Schritte zuruͤck, und antwortete ganz kalt:<lb/>
+“Sie unterthaͤnigſt bitten, Herr Graf, mir doch<lb/>
+<pb n="57" facs="#f0077"/>
+einmal Ihren Schatten ſehen zu laſſen, — die<lb/>
+Sonne ſcheint eben ſo ſchoͤn auf dem Hofe. —„</p><lb/>
+<p>Ich war wie vom Donner geruͤhrt. Es<lb/>
+dauerte lange, bis ich die Sprache wieder fand. —<lb/>
+“Wie kann ein Knecht gegen ſeinen Herrn – – ?„<lb/>
+Er fiel mir ganz ruhig in die Rede: “Ein Knecht<lb/>
+kann ein ſehr ehrlicher Mann ſeyn und einem<lb/>
+Schattenloſen nicht dienen wollen, ich fordre mei¬<lb/>
+ne Entlaſſung.„ Ich mußte andre Saiten auf¬<lb/>
+ziehen. “Aber <hi rendition="#g">Rascal</hi>, lieber <hi rendition="#g">Rascal</hi>, wer<lb/>
+hat Dich auf die ungluͤckliche Idee gebracht, wie<lb/>
+kannſt Du denken – – – –?„ er fuhr im ſelben</p><lb/>
+<p>Tone fort: “Es wollen Leute behaupten, Sie<lb/>
+haͤtten keinen Schatten — und kurz, Sie zeigen<lb/>
+mir Ihren Schatten, oder geben mir meine Ent¬<lb/>
+laſſung.„</p><lb/>
+<p> <hi rendition="#g">Bendel</hi>, bleich und zitternd, aber beſonne¬<lb/>
+ner als ich, machte mir ein Zeichen, ich nahm zu<lb/>
+dem Alles beſchwichtigenden Golde meine Zuflucht, —<lb/>
+auch das hatte ſeine Macht verloren — er warf's<lb/>
+mir vor die Fuͤße; “von einem Schattenloſen<lb/>
+nehme ich nichts an.„ Er kehrte mir den Ruͤcken<lb/>
+und ging, den Hut auf dem Kopf, ein Liedchen pfei¬<lb/>
+<pb n="58" facs="#f0078"/>
+fend, langſam aus dem Zimmer. Ich ſtand mit<lb/>
+<hi rendition="#g">Bendel</hi> da wie verſteint, gedanken- und re¬<lb/>
+gungslos ihm nachſehend.</p><lb/>
+<p>Schwer — aufſeufzend, und den Tod im<lb/>
+Herzen, ſchickt' ich mich endlich an, mein Wort<lb/>
+zu loͤſen, und, wie ein Verbrecher vor ſeinen Rich¬<lb/>
+tern, in dem Foͤrſtergarten zu erſcheinen. Ich<lb/>
+ſtieg in der dunklen Laube ab, welche nach mir<lb/>
+benannt war, und wo ſie mich auch diesmal er¬<lb/>
+warten mußten. Die Mutter kam mir ſorgenfrei<lb/>
+und freudig entgegen. <hi rendition="#g">Mina</hi> ſaß da, bleich und<lb/>
+ſchoͤn, wie der erſte Schnee, der manchmal im<lb/>
+Herbſte die letzten Blumen kuͤßt, und gleich in<lb/>
+bitt’res Waſſer zerfließen wird. Der Forſtmeiſter,<lb/>
+ein geſchriebenes Blatt in der Hand, ging heftig<lb/>
+auf und ab, und ſchien Vieles in ſich zu unter¬<lb/>
+druͤcken, was mit fliegender Roͤthe und Blaͤſſe<lb/>
+wechſelnd, ſich auf ſeinem ſonſt unbeweglichen Ge¬<lb/>
+ſichte malte. Er kam auf mich zu, als ich her¬<lb/>
+eintrat, und verlangte mit oft unterbrochenen Wor¬<lb/>
+ten, mich allein zu ſprechen. Der Gang, auf den<lb/>
+er mich, ihm zu folgen, einlud, fuͤhrte nach ei¬<lb/>
+nem freien, beſonnten Theile des Gartens — ich<lb/>
+<pb n="59" facs="#f0079"/>
+ließ mich ſtumm auf einen Sitz nieder, und es<lb/>
+erfolgte ein langes Schweigen, das ſelbſt die gute<lb/>
+Mutter nicht zu unterbrechen wagte.</p><lb/>
+<p>Der Forſtmeiſter ſtuͤrmte immer noch unglei¬<lb/>
+chen Schrittes die Laube auf und ab, er ſtand<lb/>
+mit einem Mal vor mir ſtill, blickte ins Papier,<lb/>
+das er hielt, und fragte mich mit pruͤfendem Blick:<lb/>
+“Sollte Ihnen, Herr Graf, ein gewiſſer <hi rendition="#g">Peter<lb/>
+Schlemihl</hi> wirklich nicht unbekannt ſeyn?„<lb/>
+Ich ſchwieg — “ein Mann von vorzuͤglichem Cha¬<lb/>
+rakter und von beſonderen Gaben.„ Er erwar¬<lb/>
+tete eine Antwort. — “Und wenn ich ſelber der<lb/>
+Mann waͤre?„ “dem,„ fuͤgte er heftig hinzu,<lb/>
+“ſein Schatten abhanden gekommen iſt!!„ “O<lb/>
+meine Ahnung, meine Ahnung,„ rief <hi rendition="#g">Mina</hi><lb/>
+aus, “ja, ich weiß es laͤngſt, er hat keinen Schat¬<lb/>
+ten!„ und ſie warf ſich in die Arme der Mut¬<lb/>
+ter, welche erſchreckt, ſie krampfhaft an ſich ſchlieſ¬<lb/>
+ſend, ihr Vorwuͤrfe machte, daß ſie zum Unheil<lb/>
+ſolch ein Geheimniß in ſich verſchloſſen. Sie aber<lb/>
+war, wie Arethuſa, in einen Thraͤnenquell ge¬<lb/>
+wandelt, der beim Klang meiner Stimme haͤufiger<lb/>
+floß, und bei meinem Nahen ſtuͤrmiſch aufbrauſte.</p><lb/>
+<pb n="60" facs="#f0080"/>
+<p>“Und Sie haben,„ hub der Forſtmeiſter<lb/>
+grimmig wieder an, “und Sie haben mit uner¬<lb/>
+hoͤrter Frechheit dieſe und mich zu betruͤgen keinen<lb/>
+Anſtand genommen; und Sie gaben vor, ſie zu<lb/>
+lieben, die Sie ſo weit herunter gebracht haben,<lb/>
+ſehen Sie, wie ſie da weint und ringt. O ſchreck¬<lb/>
+lich! ſchrecklich! —„</p><lb/>
+<p>Ich hatte dergeſtalt alle Beſinnung verloren,<lb/>
+daß ich, wie irre redend, anfing: Es waͤre doch am<lb/>
+Ende ein Schatten, nichts als ein Schatten, man<lb/>
+koͤnne auch ohne das fertig werden, und es waͤre<lb/>
+nicht der Muͤhe werth, ſolchen Laͤrm davon zu er¬<lb/>
+heben. Aber ich fuͤhlte ſo ſehr den Ungrund von<lb/>
+dem, was ich ſprach, daß ich von ſelbſt aufhoͤrte,<lb/>
+ohne daß er mich einer Antwort gewuͤrdigt. Ich<lb/>
+fuͤgte noch hinzu: was man einmal verloren, koͤn¬<lb/>
+ne man ein andermal wieder finden.</p><lb/>
+<p>Er fuhr mich zornig an. — “Geſtehen Sie<lb/>
+mir's, mein Herr, geſtehen Sie mir's, wie ſind<lb/>
+Sie um ihren Schatten gekommen?„ Ich mußte<lb/>
+wieder luͤgen: “Es trat mir dereinſt ein unge¬<lb/>
+ſchlachter Mann ſo flaͤmiſch in meinen Schatten,<lb/>
+<pb n="61" facs="#f0081"/>
+daß er ein großes Loch darein riß — ich habe ihn<lb/>
+nur zum Ausbeſſern gegeben, denn Gold vermag<lb/>
+viel, ich habe ihn ſchon geſtern wieder bekommen<lb/>
+ſollen. –„</p><lb/>
+<p>“Wohl, mein Herr, ganz wohl!„ erwiederte<lb/>
+der Forſtmeiſter, “Sie werben um meine Toch¬<lb/>
+ter, das thun auch Andere, ich habe als ein Va¬<lb/>
+ter fuͤr ſie zu ſorgen, ich gebe Ihnen drei Tage<lb/>
+Friſt, binnen welcher Sie ſich nach einem Schat¬<lb/>
+ten umthun moͤgen; erſcheinen Sie binnen drei<lb/>
+Tage vor mir mit einem wohlangepaßten Schat¬<lb/>
+ten, ſo ſollen Sie mir willkommen ſeyn; am vier¬<lb/>
+ten Tage aber — das ſag' ich Ihnen, — iſt<lb/>
+meine Tochter die Frau eines Andern. —„ Ich<lb/>
+wollte noch verſuchen, ein Wort an <hi rendition="#g">Mina</hi> zu<lb/>
+richten, aber ſie ſchloß ſich, heftiger ſchluchzend,<lb/>
+feſter an ihre Mutter, und dieſe winkte mir ſtill¬<lb/>
+ſchweigend, mich zu entfernen. Ich ſchwankte<lb/>
+hinweg, und mir war's, als ſchloͤße ſich hinter<lb/>
+mir die Welt zu.</p><lb/>
+<p>Der liebevollen Aufſicht <hi rendition="#g">Bendel</hi>'s entſprun¬<lb/>
+gen, durchſchweifte ich in irrem Lauf Waͤlder und<lb/>
+Fluren. Angſtſchweiß trof von meiner Stirne,<lb/>
+<pb n="62" facs="#f0082"/>
+ein dumpftes Stoͤhnen entrang ſich meiner Bruſt,<lb/>
+in mir tobte Wahnſinn. —</p><lb/>
+<p>Ich weiß nicht, wie lange es ſo gedauert ha¬<lb/>
+ben mochte, als ich mich auf einer ſonnigen Heide<lb/>
+beim Ärmel anhalten fuͤhlte. — Ich ſtand ſtill<lb/>
+und ſah mich um — — es war der Mann im<lb/>
+grauen Rock, der ſich nach mir außer Athem ge¬<lb/>
+laufen zu haben ſchien. Er nahm ſogleich das<lb/>
+Wort:</p><lb/>
+<p>“Ich hatte mich auf dem heutigen Tage an¬<lb/>
+gemeldet, Sie haben die Zeit nicht erwarten koͤn¬<lb/>
+nen. Es ſteht aber Alles noch gut, Sie nehmen<lb/>
+Rath an, tauſchen Ihren Schatten wieder ein, der<lb/>
+Ihnen zu Gebote ſteht, und kehren ſogleich wie¬<lb/>
+der um. Sie ſollen in dem Foͤrſtergarten willkom¬<lb/>
+men ſeyn, und Alles iſt nur ein Scherz geweſen;<lb/>
+den <hi rendition="#g">Rascal</hi>, der Sie verrathen hat, und um<lb/>
+Ihre Braut wirbt, nehm' ich auf mich, der Kerl<lb/>
+iſt reif.„</p><lb/>
+<p>Ich ſtand noch wie im Schlafe da. — “Auf<lb/>
+den heutigen Tag angemeldet —?„ ich uͤberdachte<lb/>
+noch einmal die Zeit — er hatte Recht, ich hatte<lb/>
+mich ſtets um einen Tag verrechnet. Ich ſuchte<lb/>
+<pb n="63" facs="#f0083"/>
+mit der rechten Hand nach dem Seckel auf mei¬<lb/>
+ner Bruſt, — er errieth meine Meinung, und<lb/>
+trat zwei Schritte zuruͤck.</p><lb/>
+<p>“Nein, Herr Graf, der iſt in zu guten<lb/>
+Haͤnden, den behalten Sie. —„ Ich ſah ihn mit<lb/>
+ſtieren Augen, verwundert fragend an, er fuhr<lb/>
+fort: “Ich erbitte mir blos eine Kleinigkeit zum<lb/>
+Andenken: Sie ſind nur ſo gut, und unterſchrei¬<lb/>
+ben mir den Zettel da.„ — auf dem Pergament<lb/>
+ſtanden die Worte:</p><lb/>
+<quote> <hi rendition="#et">“Kraft dieſer meiner Unterſchrift vermache<lb/>
+ich dem Inhaber dieſes meine Seele nach<lb/>
+ihrer natuͤrlichen Trennung von meinem<lb/>
+Leibe.„</hi> </quote><lb/>
+<p>Ich ſah mit ſtummen Staunen die Schrift<lb/>
+und den grauen Unbekannten abwechſelnd an. —<lb/>
+Er hatte unterdeſſen mit einer neu geſchnittenen<lb/>
+Feder einen Tropfen Bluts aufgefangen, der mir<lb/>
+aus einem friſchen Dornenriß auf die Hand floß,<lb/>
+und hielt ſie mir hin. —</p><lb/>
+<p>“Wer ſind Sie denn?„ frug ich ihn end¬<lb/>
+lich: “was thut's,„ gab er mir zur Antwort,<lb/>
+<pb n="64" facs="#f0084"/>
+“und ſieht man es mir nicht an? ein armer<lb/>
+Teufel, gleichſam ſo eine Art von Gelehrten und<lb/>
+Phyſikus, der von ſeinen Freunden fuͤr vortreff¬<lb/>
+liche Kuͤnſte ſchlechten Dank erntet, und fuͤr ſich<lb/>
+ſelber auf Erden keinen andern Spaß hat, als<lb/>
+ſein Bißchen Experimentiren — aber unterſchrei¬<lb/>
+ben Sie doch. Rechts, da unten. <hi rendition="#g">Peter<lb/>
+Schlemihl</hi>.„ —</p><lb/>
+<p>Ich ſchuͤttelte mit dem Kopf, und ſagte:<lb/>
+“Verzeihen Sie, mein Herr, das unterſchreibe<lb/>
+ich nicht.„ — “Nicht!„ wiederholte er verwun¬<lb/>
+dert, “und warum nicht?„ —</p><lb/>
+<p>“Es ſcheint mir doch gewiſſermaſſen bedenk¬<lb/>
+lich, meine Seele an meinen Schatten zu ſez¬<lb/>
+zen. — —„ “So, ſo!„ wiederholte er, “be¬<lb/>
+denklich,„ und er brach in ein lautes Gelaͤchter<lb/>
+gegen mich aus. “Und, wenn ich fragen darf,<lb/>
+was iſt denn das fuͤr ein Ding, Ihre Seele? ha¬<lb/>
+ben Sie es je geſehen, und was denken Sie da¬<lb/>
+mit anzufangen, wenn Sie einſt todt ſind. Seien<lb/>
+Sie doch froh, einen Liebhaber zu finden, der Ih¬<lb/>
+nen bei Lebenszeit noch, den Nachlaß dieſes <hi rendition="#aq">X.</hi>,<lb/>
+dieſer galvaniſchen Kraft oder polariſirenden Wirk¬<lb/>
+<fw type="catch" place="bottom">ſamkeit,<lb/>
+</fw>
+<pb n="65" facs="#f0085"/>
+ſamkeit, und was alles das naͤrriſche Ding ſeyn<lb/>
+ſoll, mit etwas Wirklichem bezahlen will, nemlich<lb/>
+mit Ihrem leibhaftigen Schatten, durch den Sie<lb/>
+zu der Hand Ihrer Geliebten und zu der Erfuͤl¬<lb/>
+lung aller Ihrer Wuͤnſche gelangen koͤnnen. Wol¬<lb/>
+len Sie lieber ſelbſt das arme junge Blut dem<lb/>
+niedertraͤchtigen Schurken, dem <hi rendition="#g">Rascal</hi> zuſtoßen<lb/>
+und ausliefern? — Nein, das muͤſſen Sie doch<lb/>
+mit eigenen Augen anſehen; kommen Sie, ich<lb/>
+leihe Ihnen die Tarnkappe hier,„ (er zog etwas<lb/>
+aus der Taſche) “und wir wallfahrten ungeſehen<lb/>
+nach dem Foͤrſtergarten. —„</p><lb/>
+<p>Ich muß geſtehen, daß ich mich uͤberaus<lb/>
+ſchaͤmte, von dieſem Manne ausgelacht zu werden.<lb/>
+Er war mir von Herzensgrunde verhaßt, und ich<lb/>
+glaube, daß mich dieſer perſoͤnliche Widerwille<lb/>
+mehr als Grundſaͤtze oder Vorurtheile abhielt, mei¬<lb/>
+nen Schatten, ſo nothwendig er mir auch war,<lb/>
+mit der begehrten Unterſchrift zu erkaufen. Auch<lb/>
+war mir der Gedanke unertraͤglich, den Gang, den<lb/>
+er mir antrug, in ſeiner Geſellſchaft zu unterneh¬<lb/>
+men. Dieſen haͤßlichen Schleicher, dieſen hohn¬<lb/>
+laͤchelnden Kobold, zwiſchen mich und meine Ge¬<lb/>
+<fw type="sig" place="bottom">E<lb/>
+</fw>
+<pb n="66" facs="#f0086"/>
+liebte, zwei blutig zerriſſene Herzen, ſpoͤttiſch hin¬<lb/>
+treten zu ſehen, empoͤrte mein innigſtes Gefuͤhl.<lb/>
+Ich nahm, was geſchehen war, als verhaͤngt an,<lb/>
+mein Elend als unabwendbar, und mich zu dem<lb/>
+Manne kehrend, ſagte ich ihm:</p><lb/>
+<p>“Mein Herr, ich habe Ihnen meinen Schat¬<lb/>
+ten fuͤr dieſen, an ſich ſehr vorzuͤglichen Seckel<lb/>
+verkauft, und es hat mich genug gereut. Kann<lb/>
+der Handel zuruͤckgehen, in Gottes Namen!„ Er<lb/>
+ſchuͤttelte mit dem Kopf und zog ein ſehr finſteres<lb/>
+Geſicht. Ich fuhr fort: — “So will ich Ih¬<lb/>
+nen auch weiter nichts von meiner Habe verkau¬<lb/>
+fen, ſei es auch um den angebotenen Preis meines<lb/>
+Schattens, und unterſchreibe alſo nichts. Daraus<lb/>
+laͤßt ſich auch abnehmen, daß die Verkappung, zu<lb/>
+der Sie mich einladen, ungleich beluſtigender fuͤr<lb/>
+Sie als fuͤr mich ausfallen muͤßte; halten Sie<lb/>
+mich alſo fuͤr entſchuldigt, und da es einmal nicht<lb/>
+anders iſt, — laßt uns ſcheiden!„ —</p><lb/>
+<p>“Es iſt mir leid, Monſieur <hi rendition="#g">Schlemihl</hi>,<lb/>
+daß Sie eigenſinnig das Geſchaͤft von der Hand<lb/>
+weiſen, das ich Ihnen freundſchaftlich anbot. In¬<lb/>
+<pb n="67" facs="#f0087"/>
+deſſen, vielleicht bin ich ein andermal gluͤcklicher.<lb/>
+Auf baldiges Wiederſehen! — A propos, erlau¬<lb/>
+ben Sie mir noch, Ihnen zu zeigen, daß ich die<lb/>
+Sachen, die ich kaufe, keinesweges verſchimmeln<lb/>
+laſſe, ſondern in Ehren halte, und daß ſie bei mir<lb/>
+gut aufgehoben ſind.„ —</p><lb/>
+<p>Er zog ſogleich meinen Schatten aus ſeiner<lb/>
+Taſche, und ihn mit einem geſchickten Wurf auf<lb/>
+der Haide entfaltend, breitete er ihn auf der Son¬<lb/>
+nenſeite zu ſeinen Fuͤßen aus, ſo daß er zwiſchen<lb/>
+den beiden ihm aufwartenden Schatten, dem mei¬<lb/>
+nen und dem ſeinen, daher ging, denn meiner<lb/>
+mußte ihm gleichfalls gehorchen und nach allen ſei¬<lb/>
+nen Bewegungen ſich richten und bequemen.</p><lb/>
+<p>Als ich nach ſo langer Zeit einmal meinen<lb/>
+armen Schatten wieder ſah’, und ihn zu ſolchem<lb/>
+ſchnoͤden Dienſt herabgewuͤrdigt fand, eben als ich<lb/>
+um ſeinetwillen in ſo namenloſer Noth war, da<lb/>
+brach mir das Herz, und ich fing bitterlich zu<lb/>
+weinen an. Der Verhaßte ſtolzirte mit dem mir<lb/>
+abgejagten Raub, und erneuerte unverſchaͤmt ſei¬<lb/>
+nen Antrag:<lb/>
+<fw type="sig" place="bottom">E2<lb/>
+</fw>
+<pb n="68" facs="#f0088"/>
+“Noch iſt er fuͤr Sie zu haben, ein Feder¬<lb/>
+zug, und ſie retten damit die arme ungluͤckliche<lb/>
+<hi rendition="#g">Mina</hi> aus des Schuftes Klauen in des hochge¬<lb/>
+ehrten Herrn Grafen Arme — wie geſagt, nur<lb/>
+ein Federzug.„ Meine Thraͤnen brachen mit er¬<lb/>
+neuter Kraft hervor, aber ich wandte mich weg,<lb/>
+und winkte ihm, ſich zu entfernen.</p><lb/>
+<p> <hi rendition="#g">Bendel</hi>, der voller Sorgen meine Spuren<lb/>
+bis hieher verfolgt hatte, traf in dieſem Augen¬<lb/>
+blick ein. Als mich die treue fromme Seele wei¬<lb/>
+nend fand, und meinen Schatten, denn er war<lb/>
+nicht zu verkennen, in der Gewalt des wunderli¬<lb/>
+chen grauen Unbekannten ſah, beſchloß er gleich,<lb/>
+ſei es auch mit Gewalt, mich in den Beſitz mei¬<lb/>
+nes Eigenthums wieder herzuſtellen, und da er<lb/>
+ſelbſt mit dem zarten Dinge nicht umzugehen ver¬<lb/>
+ſtand, griff er gleich den Mann mit Worten an,<lb/>
+und ohne vieles Fragen, gebot er ihm ſtracks,<lb/>
+mir das Meine unverzuͤglich verabfolgen zu laſ¬<lb/>
+ſen. Dieſer, ſtatt aller Antwort, kehrte dem un¬<lb/>
+ſchuldigen Burſchen den Ruͤcken und ging. <hi rendition="#g">Ben¬<lb/>
+del</hi> aber erhob den Kreuzdornknuͤttel, den er trug,<lb/>
+und, ihm auf den Ferſen folgend, ließ er ihn ſcho¬<lb/>
+<pb n="69" facs="#f0089"/>
+nungslos unter wiederholtem Befehl, den Schat¬<lb/>
+ten herzugeben, die volle Kraft ſeines nervigten<lb/>
+Armes fuͤhlen. Jener, als ſei er ſolcher Be¬<lb/>
+handlung gewohnt, buͤckte den Kopf, woͤlbte die<lb/>
+Schultern, und zog ſtillſchweigend ruhigen Schrit¬<lb/>
+tes ſeinen Weg uͤber die Haide weiter, mir mei¬<lb/>
+nen Schatten zugleich und meinen treuen Diener<lb/>
+entfuͤhrend. Ich hoͤrte lange noch den dumpfen<lb/>
+Schall durch die Einoͤde droͤnen, bis er ſich end¬<lb/>
+lich in der Entfernung verlor. Einſam war ich<lb/>
+wie vorher mit meinem Ungluͤck.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="70" facs="#f0090"/>
+</div> <div n="1"> <head> <hi rendition="#aq">VI.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">A</hi>llein zuruͤckgeblieben auf der oͤden Haide,<lb/>
+ließ ich unendlichen Thraͤnen freien Lauf, mein<lb/>
+armes Herz von namenloſer banger Laſt erleich¬<lb/>
+ternd. Aber ich ſah meinem unuͤberſchwaͤnglichen<lb/>
+Elend keine Grenzen, keinen Ausgang, kein Ziel,<lb/>
+und ich ſog beſonders mit grimmigem Durſt an<lb/>
+dem neuen Gifte, das der Unbekannte in meine<lb/>
+Wunden gegoſſen. Als ich <hi rendition="#g">Minas</hi> Bild vor<lb/>
+meine Seele rief, und die geliebte, ſuͤße Geſtalt<lb/>
+bleich und in Thraͤnen mir erſchien, wie ich ſie<lb/>
+zuletzt in meiner Schmach geſehen, da trat frech<lb/>
+und hoͤhnend <hi rendition="#g">Rascal's</hi> Schemen zwiſchen ſie und<lb/>
+mich, ich verhuͤllte mein Geſicht, und floh durch<lb/>
+die Einoͤde, aber die ſcheußliche Erſcheinung gab<lb/>
+mich nicht frei, ſondern verfolgte mich im Laufe,<lb/>
+bis ich athemlos an den Boden ſank, und die Erde<lb/>
+mit erneuertem Thraͤnenquell befeuchtete.</p><lb/>
+<pb n="71" facs="#f0091"/>
+<p>Und alles um einen Schatten! und dieſen<lb/>
+Schatten haͤtte mir ein Federzug wieder erworben.<lb/>
+Ich uͤberdachte den befremdenden Antrag und mei¬<lb/>
+ne Weigerung. Es war wuͤſt in mir, ich hatte<lb/>
+weder Urtheil noch Faſſungsvermoͤgen mehr.</p><lb/>
+<p>Der Tag verging. Ich ſtillte meinen Hun¬<lb/>
+ger mit wilden Fruͤchten, meinen Durſt im naͤch¬<lb/>
+ſten Bergſtrom; die Nacht brach ein, ich lagerte<lb/>
+mich unter einem Baum. Der feuchte Morgen<lb/>
+weckte mich aus einem ſchweren Schlaf, in dem<lb/>
+ich mich ſelber wie im Tode roͤcheln hoͤrte. <hi rendition="#g">Ben¬<lb/>
+del</hi> mußte meine Spur verloren haben, und es<lb/>
+freute mich, es zu denken. Ich wollte nicht un¬<lb/>
+ter die Menſchen zuruͤckkehren, vor welchen ich<lb/>
+ſchreckhaft floh, wie das ſcheue Wild des Gebir¬<lb/>
+ges. So verlebte ich drei bange Tage.</p><lb/>
+<p>Ich befand mich am Morgen des vierten<lb/>
+auf einer ſandigen Ebene, welche die Sonne be¬<lb/>
+ſchien, und ſaß auf Felſentruͤmmern in ihrem<lb/>
+Stral, denn ich liebte jetzt ihren lang' entbehrten<lb/>
+Anblick zu genießen. Ich naͤhrte ſtill mein Herz<lb/>
+mit ſeiner Verzweiflung. Da ſchreckte mich ein<lb/>
+<pb n="72" facs="#f0092"/>
+leiſes Geraͤuſch auf, ich warf, zur Flucht bereit,<lb/>
+den Blick um mich her, ich ſah Niemand: aber<lb/>
+es kam auf dem ſonnigen Sande an mir vorbei<lb/>
+geglitten ein Menſchenſchatten, dem meinigen nicht<lb/>
+unaͤhnlich, welcher, allein daher wandelnd, von<lb/>
+ſeinem Herrn abgekommen zu ſeyn ſchien.</p><lb/>
+<p>Da erwachte in mir ein maͤchtiger Trieb:<lb/>
+Schatten, dacht' ich, ſuchſt du deinen Herrn? der<lb/>
+will ich ſeyn. Und ich ſprang hinzu, mich ſeiner<lb/>
+zu bemaͤchtigen; ich dachte nemlich, daß, wenn es<lb/>
+mir gluͤckte, in ſeine Spur zu treten, ſo, daß<lb/>
+er mir an die Fuͤße kaͤme, er wohl daran haͤngen<lb/>
+bleiben wuͤrde, und ſich mit der Zeit an mich ge¬<lb/>
+woͤhnen.</p><lb/>
+<p>Der Schatten, auf meine Bewegung, nahm<lb/>
+vor mir die Flucht, und ich mußte auf den leich¬<lb/>
+ten Fluͤchtling eine angeſtrengte Jagd beginnen,<lb/>
+zu der mich allein der Gedanke, mich aus der<lb/>
+furchtbaren Lage, in der ich war, zu retten,<lb/>
+mit hinreichenden Kraͤften ausruͤſten konnte. Er<lb/>
+floh einem freilich noch entfernten Walde zu, in<lb/>
+deſſen Schatten ich ihn nothwendig haͤtte verlie¬<lb/>
+ren muͤſſen, — ich ſah’s, ein Schreck durchzuckte<lb/>
+<pb n="73" facs="#f0093"/>
+mir das Herz, fachte meine Begierde an, befluͤ¬<lb/>
+gelte meinen L<supplied>a</supplied>uf — ich gewann ſichtbarlich auf<lb/>
+den Schatten, ich kam ihm nach und nach naͤher,<lb/>
+ich mußte ihn erreichen. Nun hielt er ploͤtzlich an,<lb/>
+und kehrte ſich nach mir um. Wie der Loͤwe auf<lb/>
+ſeine Beute, ſo ſchoß ich mit einem gewaltigen<lb/>
+Sprunge hinzu, um ihn in Beſitz zu nehmen —<lb/>
+und traf unerwartet und hart auf koͤrperlichen<lb/>
+Widerſtand. Es wurden mir unſichtbar die un¬<lb/>
+erhoͤrteſten Rippenſtoͤße ertheilt, die wohl je ein<lb/>
+Menſch gefuͤhlt hat.</p><lb/>
+<p>Die Wirkung des Schreckens war in mir,<lb/>
+die Arme krampfhaft zuzuſchlagen und feſt zu<lb/>
+druͤcken, was ungeſehen vor mir ſtand. Ich ſtuͤrzte<lb/>
+in der ſchnellen Handlung vorwaͤrts geſtreckt auf<lb/>
+den Boden: ruͤckwaͤrts aber unter mir ein Menſch,<lb/>
+den ich umfaßt hielt, und der jetzt erſt ſichtbar<lb/>
+erſchien.</p><lb/>
+<p>Nun ward mir auch das ganze Ereigniß ſehr<lb/>
+natuͤrlich erklaͤrbar. Der Mann mußte das un¬<lb/>
+ſichtbare Vogelneſt, welches den, der es haͤlt, nicht<lb/>
+aber ſeinen Schatten, unſichtbar macht, erſt ge¬<lb/>
+tragen und jetzt weggeworfen haben. Ich ſpaͤhete<lb/>
+<pb n="74" facs="#f0094"/>
+mit dem Blick umher, entdeckte gar bald den<lb/>
+Schatten des unſichtbaren Neſtes ſelbſt, ſprang<lb/>
+auf und hinzu, und verfehlte nicht den theuern<lb/>
+Raub. Ich hielt unſichtbar, ſchattenlos das Neſt<lb/>
+in Haͤnden.</p><lb/>
+<p>Der ſchnell ſich aufrichtende Mann, ſich ſo¬<lb/>
+gleich nach ſeinem begluͤckten Bezwinger umſehend,<lb/>
+erblickte auf der weiten ſonnigen Ebene weder ihn<lb/>
+noch deſſen Schatten, nach dem er beſonders aͤngſt¬<lb/>
+lich umherlauſchte. Denn daß ich an und fuͤr<lb/>
+mich ſchattenlos war, hatte er vorher nicht Muße<lb/>
+gehabt zu bemerken, und konnte es nicht vermu¬<lb/>
+then. Als er ſich uͤberzeugt’, daß jede Spur ver¬<lb/>
+ſchwunden, kehrte er in der hoͤchſten Verzweiflung<lb/>
+die Hand gegen ſich ſelber und raufte ſich das<lb/>
+Haar aus. Mir aber gab der errungene Schatz<lb/>
+die Moͤglichkeit und die Begierde zugleich, mich<lb/>
+wieder unter die Menſchen zu miſchen. Es fehlte<lb/>
+mir nicht an Vorwand gegen mich ſelber, mei¬<lb/>
+nen ſchnoͤden Raub zu beſchoͤnigen, oder vielmehr,<lb/>
+ich bedurfte ſolcher nicht, und jedem Gedanken der<lb/>
+Art zu entweichen, eilte ich hinweg, nach dem Un¬<lb/>
+gluͤcklichen nicht zuruͤckſchauend, deſſen aͤngſtliche<lb/>
+<pb n="75" facs="#f0095"/>
+Stimme ich mir noch lange nachſchallen hoͤrte.<lb/>
+So wenigſtens kamen mir damals alle Umſtaͤnde<lb/>
+dieſes Ereigniſſes vor.</p><lb/>
+<p>Ich brannte nach dem Foͤrſtergarten zu ge¬<lb/>
+hen, und durch mich ſelbſt die Wahrheit deſſen zu<lb/>
+erkennen, was mir jener Verhaßte verkuͤndigt hat¬<lb/>
+te; ich wußte aber nicht, wo ich war, ich be¬<lb/>
+ſtieg, um mich in der Gegend um zu ſchauen,<lb/>
+den naͤchſten Huͤgel, ich ſah von ſeinem Gipfel<lb/>
+das nahe Staͤdtchen und den Foͤrſtergarten zu<lb/>
+meinen Fuͤßen liegen. — Heftig klopfte mir das<lb/>
+Herz, und Thraͤnen einer andern Art, als die ich<lb/>
+bis dahin vergoſſen, traten mir in die Augen,<lb/>
+ich ſollte ſie wiederſehen. — Bange Sehnſucht<lb/>
+beſchleunigte meine Schritte auf dem richtigſten<lb/>
+Pfad hinab. Ich kam ungeſehen an einigen<lb/>
+Bauern vorbei, die aus der Stadt kamen. Sie<lb/>
+ſprachen von mir, <hi rendition="#g">Rascal’n</hi> und dem Foͤrſter;<lb/>
+ich wollte nichts anhoͤren, ich eilte voruͤber.</p><lb/>
+<p>Ich trat in den Garten, alle Schauer der<lb/>
+Erwartung in der Bruſt — mir ſchallte es wie<lb/>
+ein Lachen entgegen, mich ſchauderte, ich warf ei¬<lb/>
+<pb n="76" facs="#f0096"/>
+nen ſchnellen Blick um mich her; ich konnte Nie¬<lb/>
+manden entdecken. Ich ſchritt weiter vor, mir<lb/>
+war's, als vernaͤhme ich neben mir ein Geraͤuſch<lb/>
+wie von Menſchentritten; es war aber nichts zu<lb/>
+ſehen: ich dachte mich von meinem Ohre getaͤuſcht.<lb/>
+Es war noch fruͤh, Niemand in <hi rendition="#g">Graf Peter's</hi><lb/>
+Laube, noch leer der Garten; ich durchſchweifte<lb/>
+die bekannten Gaͤnge, ich drang bis nach dem<lb/>
+Wohnhauſe vor. Daſſelbe Geraͤuſch verfolgte mich<lb/>
+vernehmlicher. Ich ſetzte mich mit angſtvollem<lb/>
+Herzen auf eine Bank, die im ſonnigen Raume<lb/>
+der Hausthuͤr gegen uͤber ſtand. Es ward mir, als<lb/>
+hoͤrte ich den ungeſehenen Kobold ſich hohnlachend<lb/>
+neben mich ſetzen. Der Schluͤſſel ward in der<lb/>
+Thuͤr gedreht, ſie ging auf, der Forſtmeiſter trat<lb/>
+heraus, mit Papieren in der Hand. Ich fuͤhlte<lb/>
+mir wie Nebel uͤber den Kopf zieh'n, ich ſah mich<lb/>
+um, und — Entſetzen! — der Mann im grauen<lb/>
+Rock ſaß neben mir, mit ſataniſchem Laͤcheln auf<lb/>
+mich blickend. — Er hatte mir ſeine Tarnkappe<lb/>
+mit uͤber den Kopf gezogen, zu ſeinen Fuͤßen la¬<lb/>
+gen ſein und mein Schatten friedlich neben ein¬<lb/>
+ander; er ſpielte nachlaͤßig mit dem bekannten<lb/>
+Pergament, das er in der Hand hielt, und, in¬<lb/>
+<pb n="77" facs="#f0097"/>
+dem der Forſtmeiſter mit den Papieren beſchaͤftigt<lb/>
+im Schatten der Laube auf- und abging —<lb/>
+beugte er ſich vertraulich zu meinem Ohr und fluͤ¬<lb/>
+ſterte mir die Worte:</p><lb/>
+<p>“So haͤtten Sie denn doch meine Einladung<lb/>
+angenommen, und da ſaͤßen wir einmal zwei<lb/>
+Koͤpfe unter einer Kappe! — Schon recht! ſchon<lb/>
+recht! Nun geben Sie mir aber auch mein Vo¬<lb/>
+gelneſt zuruͤck, Sie brauchen es nicht mehr, und<lb/>
+ſind ein zu ehrlicher Mann, um es mir vorent¬<lb/>
+halten zu wollen — doch keinen Dank dafuͤr, ich<lb/>
+verſichere Sie, daß ich es Ihnen von Herzen<lb/>
+gern geliehen habe.„ — Er nahm es unwei¬<lb/>
+gerlich aus meiner Hand, ſteckte es in die Taſche<lb/>
+und lachte mich abermals aus, und zwar ſo laut,<lb/>
+daß ſich der Forſtmeiſter nach dem Geraͤuſch um¬<lb/>
+ſah. — Ich ſaß wie verſteinert da.</p><lb/>
+<p>“Sie muͤſſen mir doch geſtehen,„ fuhr er<lb/>
+fort, “daß ſo eine Kappe viel bequemer iſt.<lb/>
+Sie deckt doch nicht nur ihren Mann, ſondern<lb/>
+auch ſeinen Schatten mit, und noch ſo viele an¬<lb/>
+dere, als er mit zu nehmen Luſt hat. Sehen<lb/>
+<pb n="78" facs="#f0098"/>
+Sie, heute fuͤhr' ich wieder ihrer zwei. —„ Er<lb/>
+lachte wieder. “Merken Sie Sich's, <hi rendition="#g">Schle</hi>¬<lb/>
+<hi rendition="#g">mihl</hi>, was man Anfangs mit Gutem nicht will,<lb/>
+das muß man am Ende doch gezwungen. Ich<lb/>
+daͤchte noch, Sie kauften mir das Ding ab, neh¬<lb/>
+men die Braut zuruͤck, (denn noch iſt es Zeit)<lb/>
+und wir ließen den <hi rendition="#g">Rascal</hi> am Galgen bau¬<lb/>
+meln, das wird uns ein Leichtes, ſo lange es am<lb/>
+Stricke nicht fehlt — Hoͤren Sie, ich gebe Ih¬<lb/>
+nen noch meine Muͤtze in den Kauf.„</p><lb/>
+<p>Die Mutter trat heraus und das Geſpraͤch<lb/>
+begann. — “Was macht <hi rendition="#g">Mina</hi>? —„ “Sie<lb/>
+weint.„ — “Einfaͤltiges Kind! es iſt doch nicht<lb/>
+zu aͤndern!„ — “Freilich nicht; aber ſie ſo fruͤh<lb/>
+einem Andern zu geben – – – O Mann, Du<lb/>
+biſt grauſam gegen Dein eigenes Kind.„ — “Nein,<lb/>
+Mutter, das ſiehſt Du ſehr falſch. Wenn ſie,<lb/>
+noch bevor ſie ihre doch kindiſchen Thraͤnen ausge¬<lb/>
+weint hat, ſich als die Frau eines ſehr reichen<lb/>
+und geehrten Mannes findet, wird ſie getroͤſtet<lb/>
+aus ihrem Schmerze wie aus einem Traum er¬<lb/>
+wachen, und Gott und uns danken, das wirſt<lb/>
+Du ſehen!„ — “Gott gebe es!„ — “Sie<lb/>
+<pb n="79" facs="#f0099"/>
+beſitzt freilich jetzt ſehr anſehnliche Guͤter; aber<lb/>
+nach dem Aufſehen, das die ungluͤckliche Geſchichte<lb/>
+mit dem Abentheurer gemacht hat, glaubſt Du,<lb/>
+daß ſich ſobald eine andere, fuͤr ſie ſo paſſende<lb/>
+Partie, als der Herr <hi rendition="#g">Rascal</hi>, finden moͤchte?<lb/>
+Weißt Du, was fuͤr ein Vermoͤgen er beſitzt, der<lb/>
+Herr <hi rendition="#g">Rascal</hi>? Er hat fuͤr ſechs Millionen<lb/>
+Guͤter hier im Lande, frei von allen Schulden,<lb/>
+baar bezahlt. Ich habe die Dokumente in Haͤn¬<lb/>
+den gehabt; er war's, der mir uͤberall das Beſte<lb/>
+vorweg genommen hat; und außerdem im Porte<lb/>
+feuille Papiere auf <hi rendition="#g">Thomas John</hi> fuͤr circa<lb/>
+viertehalb Millionen.„ — “Er muß ſehr viel<lb/>
+geſtolen haben.„ — “Was ſind das wieder fuͤr<lb/>
+Reden! Er hat weislich geſpart, wo verſchwen¬<lb/>
+det wurde.„ — “Ein Mann, der die Livree ge¬<lb/>
+tragen hat!„ — “Dummes Zeug! er hat doch<lb/>
+einen untadlichen Schatten.„ — “Du haſt<lb/>
+Recht, aber – – –„</p><lb/>
+<p>Der Mann im grauen Rock lachte und ſah<lb/>
+mich an. Die Thuͤre ging auf, und <hi rendition="#g">Mina</hi> trat<lb/>
+heraus. Sie ſtuͤtzte ſich auf den Arm einer Kam¬<lb/>
+merfrau, ſtille Thraͤnen floſſen auf ihren ſchoͤnen<lb/>
+<pb n="80" facs="#f0100"/>
+blaſſen Wangen. Sie ſetzte ſich in einen Seſſel,<lb/>
+der fuͤr ſie unter den Linden bereitet war, und ihr<lb/>
+Vater nahm einen Stuhl neben ihr. Er faßte<lb/>
+zaͤrtlich ihre Hand, und redete ſie, die heftiger zu<lb/>
+weinen anfing, mit zarten Worten an:</p><lb/>
+<p>“Du biſt mein gutes, liebes Kind, Du wirſt<lb/>
+auch vernuͤnftig ſeyn, wirſt nicht Deinen alten<lb/>
+Vater betruͤben wollen, der nur Dein Gluͤck will;<lb/>
+ich begreife es wohl, liebes Herz, daß es Dich ſehr<lb/>
+erſchuͤttert hat, Du biſt wunderbar Deinem Ungluͤck<lb/>
+entkommen! Bevor wir den ſchaͤndlichen Betrug<lb/>
+entdeckt, haſt Du dieſen Unwuͤrdigen ſehr geliebt;<lb/>
+ſiehe <hi rendition="#g">Mina</hi>, ich weiß es, und mache Dir keine<lb/>
+Vorwuͤrfe daruͤber. Ich ſelber, liebes Kind, ha¬<lb/>
+be ihn auch geliebt, ſo lange ich ihn fuͤr einen<lb/>
+großen Herrn angeſehen habe. Nun ſiehſt Du ſel¬<lb/>
+ber ein, wie anders Alles geworden. Was! ein<lb/>
+jeder Pudel hat ja ſeinen Schatten, und mein lie¬<lb/>
+bes einziges Kind ſollte einen Mann ‑ ‑ ‑ Nein,<lb/>
+Du denkſt auch gar nicht mehr an ihn. — Hoͤre,<lb/>
+<hi rendition="#g">Mina</hi>, nun wirbt ein Mann um Dich, der die<lb/>
+Sonne nicht ſcheut, ein geehrter Mann, der frei¬<lb/>
+lich kein Fuͤrſt iſt, aber zehn Millionen, zehnmal<lb/>
+<fw type="catch" place="bottom">mehr<lb/>
+</fw>
+<pb n="81" facs="#f0101"/>
+mehr als Du in Vermoͤgen beſitzt, ein Mann, der<lb/>
+mein liebes Kind gluͤcklich machen wird. Erwie¬<lb/>
+dere mir nichts, widerſetze Dich nicht, ſei meine gute<lb/>
+gehorſame Tochter, laß Deinen liebenden Vater fuͤr<lb/>
+Dich ſorgen, Deine Thraͤnen trocknen. Verſprich<lb/>
+mir, dem Herrn <hi rendition="#g">Rascal</hi> Deine Hand zu geben. —<lb/>
+Sage, willſt Du mir dies verſprechen?„ —</p><lb/>
+<p>Sie antwortete mit erſtorbener Stimme:<lb/>
+“Ich habe keinen Willen, keinen Wunſch fuͤrder<lb/>
+auf Erden. Geſchehe mit mir, was mein Vater<lb/>
+will.„ Zugleich ward Herr <hi rendition="#g">Rascal</hi> angemeldet,<lb/>
+und trat frech in den Kreis. <hi rendition="#g">Mina</hi> lag in Ohn¬<lb/>
+macht. Mein verhaßter Gefaͤhrte blickte mich zor¬<lb/>
+nig an und fluͤſterte mir die ſchnellen Worte:<lb/>
+“Und das konnten Sie erdulden! was fließt Ih¬<lb/>
+nen denn ſtatt des Blutes in den Adern?„ Er<lb/>
+ritzte mir mit einer raſchen Bewegung eine leichte<lb/>
+Wunde in die Hand, es floß Blut, er fuhr fort:<lb/>
+“Wahrhaftig! rothes Blut! — So unterſchrei¬<lb/>
+ben Sie!„ Ich hatte das Pergament und die<lb/>
+Feder in Haͤnden.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">F<lb/>
+</fw>
+<pb n="82" facs="#f0102"/>
+</div> <div n="1"> <head> <hi rendition="#aq">VII.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">I</hi>ch werde mich Deinem Urtheile bloß ſtel¬<lb/>
+len, lieber <hi rendition="#g">Chamiſſo</hi>, und es nicht zu beſtehen<lb/>
+ſuchen. Ich ſelbſt habe lange ſtrenges Gericht an<lb/>
+mir ſelber vollzogen, denn ich habe den quaͤlenden<lb/>
+Wurm in meinem Herzen genaͤhrt. Es ſchwebte<lb/>
+immerwaͤhrend dieſer ernſte Moment meines Le¬<lb/>
+bens vor meiner Seele, und ich vermocht' es nur<lb/>
+zweifelnden Blickes, mit Demuth und Zerknir¬<lb/>
+ſchung anzuſchauen — Lieber Freund, wer leicht¬<lb/>
+ſinnig nur den Fuß aus der geraden Straſſe ſetzt,<lb/>
+der wird unverſehens in andere Pfade abgefuͤhrt,<lb/>
+die abwaͤrts und immer abwaͤrts ihn ziehen; er<lb/>
+ſieht dann umſonſt die Leitſterne am Himmel<lb/>
+ſchimmern, ihm bleibt keine Wahl, er muß un¬<lb/>
+aufhaltſam den Abhang hinab, und ſich ſelbſt der<lb/>
+Nemeſis opfern. Nach dem uͤbereilten Fehltritt,<lb/>
+der den Fluch auf mich geladen, hatt' ich durch<lb/>
+<pb n="83" facs="#f0103"/>
+Liebe frevelnd in eines andern Weſens Schickſal<lb/>
+mich gedraͤngt: was blieb mir uͤbrig, als wo ich<lb/>
+Verderben geſaͤt, wo ſchnelle Rettung von mir ge¬<lb/>
+heiſcht ward, eben rettend blindlings hinzuzuſprin¬<lb/>
+gen? denn die letzte Stunde ſchlug. — Denke<lb/>
+nicht ſo niedrig von mir, mein <hi rendition="#g">Adalbert</hi>, als<lb/>
+zu meinen, es haͤtte mich irgend ein geforderter<lb/>
+Preis zu theuer geduͤnkt, ich haͤtte mit irgend Et¬<lb/>
+was, was nur mein war, mehr als eben mit Gold<lb/>
+gekargt. — Nein, <hi rendition="#g">Adalbert</hi>; aber mit unuͤber¬<lb/>
+windlichem Haſſe gegen dieſen raͤthſelhaften Schlei¬<lb/>
+cher auf krummen Wegen, war meine Seele an¬<lb/>
+gefuͤllt. Ich mochte ihm Unrecht thun, doch em¬<lb/>
+poͤrte mich jede Gemeinſchaft mit ihm. — Auch<lb/>
+hier trat, wie ſo oft ſchon in mein Leben, und<lb/>
+wie uͤberhaupt ſo oft in die Weltgeſchichte, ein<lb/>
+Ereigniß an die Stelle einer That. Spaͤter habe<lb/>
+ich mich mit mir ſelber verſoͤhnt. Ich habe erſt¬<lb/>
+lich die Nothwendigkeit verehren lernen, und was<lb/>
+iſt mehr, als die <choice><sic>gethanene</sic><corr>gethane</corr></choice> That, das geſchehene<lb/>
+Ereigniß ihr Eigenthum! Dann hab' ich auch dieſe<lb/>
+Nothwendigkeit als eine weiſe Fuͤgung verehren<lb/>
+lernen, die durch das geſammte große Getrieb'<lb/>
+weht, darin wir bloß als mitwirkende getriebene<lb/>
+<fw type="sig" place="bottom">F 2<lb/>
+</fw>
+<pb n="84" facs="#f0104"/>
+treibende Raͤder eingreifen; was ſeyn ſoll, muß ge¬<lb/>
+ſchehen, was ſeyn ſollte, geſchah, und nicht ohne<lb/>
+jene Fuͤgung, die ich endlich noch in meinem Schick¬<lb/>
+ſale, und dem Schickſale derer, die das meine<lb/>
+mit angrif, verehren lernte.</p><lb/>
+<p>Ich weiß nicht, ob ich es der Spannung mei¬<lb/>
+ner Seele, unter dem Drange ſo maͤchtiger Em¬<lb/>
+pfindungen zuſchreiben ſoll, ob der Erſchoͤpfung<lb/>
+meiner phyſiſchen Kraͤfte, die waͤhrend der letzten<lb/>
+Tage ungewohntes Darben geſchwaͤcht, ob endlich<lb/>
+dem zerſtoͤrenden Aufruhr, den die Naͤhe dieſes<lb/>
+grauen Unholdes in meiner ganzen Natur erregte;<lb/>
+genug, es befiel mich, als es an das Unterſchrei¬<lb/>
+ben ging, eine tiefe Ohnmacht, und ich lag eine<lb/>
+lange Zeit wie in den Armen des Todes.</p><lb/>
+<p>Fußſtampfen und Fluchen waren die erſten<lb/>
+Toͤne, die mein Ohr trafen, als ich zum Bewußt¬<lb/>
+ſeyn zuruͤckkehrte; ich oͤffnete die Augen, es war<lb/>
+dunkel, mein verhaßter Begleiter war ſcheltend<lb/>
+um mich bemuͤht. “Heißt das nicht wie ein al¬<lb/>
+tes Weib ſich auffuͤhren. — Man raffe ſich auf,<lb/>
+und vollziehe friſch, was man beſchloſſen, oder hat<lb/>
+<pb n="85" facs="#f0105"/>
+man ſich anders beſonnen, und will lieber grei¬<lb/>
+nen ?„ — Ich richtete mich muͤhſam auf von<lb/>
+der Erde, wo ich lag, und ſchaute ſchweigend um<lb/>
+mich. Es war ſpaͤter Abend, aus dem hellerleuch¬<lb/>
+teten Foͤrſterhauſe erſcholl feſtliche Muſik, einzel¬<lb/>
+ne Gruppen von Menſchen wallten durch die Gaͤn¬<lb/>
+ge des Gartens. Ein Paar traten im Geſpraͤche<lb/>
+naͤher, und nahmen Platz auf der Bank, worauf<lb/>
+ich fruͤher geſeſſen hatte. Sie unterhielten ſich von<lb/>
+der an dieſem Morgen vollzogenen Verbindung des<lb/>
+reichen Herrn <hi rendition="#g">Rascal</hi> mit der Tochter des Hau¬<lb/>
+ſes. — Es war alſo geſchehen. —</p><lb/>
+<p>Ich ſtreifte mit der Hand die Tarnkappe des<lb/>
+ſogleich mir verſchwindenden Unbekannten von mei¬<lb/>
+nem Haupte weg, und eilte ſtillſchweigend, in die<lb/>
+tiefſte Nacht des Gebuͤſches mich verſenkend, den<lb/>
+Weg uͤber <hi rendition="#g">Graf Peter's</hi> Laube einſchlagend,<lb/>
+dem Ausgang des Gartens zu. Unſichtbar aber<lb/>
+geleitete mich mein Plagegeiſt, mich mit ſcharfen<lb/>
+Worten verfolgend. “Das iſt alſo der Dank fuͤr<lb/>
+die Muͤhe, die man genommen hat, Monſieur,<lb/>
+der ſchwache Nerven hat, den langen lieben Tag<lb/>
+hindurch zu pflegen. Und man ſoll den Narren<lb/>
+<pb n="86" facs="#f0106"/>
+im Spiele abgeben. Gut, Herr Trotzkopf fliehn<lb/>
+Sie nur vor mir, wir ſind doch unzertrennlich.<lb/>
+Sie haben mein Gold und ich Ihren Schatten;<lb/>
+das laͤßt uns beiden keine Ruhe — Hat man je<lb/>
+gehoͤrt, daß ein Schatten von ſeinem Herrn ge¬<lb/>
+laſſen haͤtte. Ihrer zieht mich Ihnen nach, bis<lb/>
+Sie ihn wieder zu Gnaden annehmen, und ich<lb/>
+ihn los bin. Was Sie verſaͤumt haben, aus fri¬<lb/>
+ſcher Luſt zu thun, werden Sie, nur zu ſpaͤt,<lb/>
+aus Überdruß und Langeweile nachholen muͤſſen;<lb/>
+man entgeht ſeinem Schickſale nicht.„ Er ſprach<lb/>
+aus demſelben Tone fort und fort; ich floh um¬<lb/>
+ſonſt, er ließ nicht nach, und immer gegenwaͤr¬<lb/>
+tig, redete hoͤhnend von Gold und Schatten. Ich<lb/>
+konnte zu keinem eigenen Gedanken kommen.</p><lb/>
+<p>Ich hatte durch menſchenleere Straſſen einen<lb/>
+Weg nach meinem Hauſe eingeſchlagen. Als ich<lb/>
+davor ſtand, und es anſah, konnte ich es kaum er¬<lb/>
+kennen; hinter den eingeſchlagenen Fenſtern brann¬<lb/>
+te kein Licht. Die Thuͤren waren zu, kein Die¬<lb/>
+nervolk regte ſich mehr darin. Er lachte laut auf<lb/>
+neben mir: “Ja, ja! ſo geht's; aber Ihren<lb/>
+<hi rendition="#g">Bendel</hi> finden Sie wohl daheim, den hat man<lb/>
+<pb n="87" facs="#f0107"/>
+juͤngſt vorſorglich ſo muͤde nach Hauſe geſchickt,<lb/>
+daß er es wohl ſeitdem gehuͤtet haben wird.„ Er<lb/>
+lachte wieder. “Der wird Geſchichten zu erzaͤhlen<lb/>
+haben. — Wohlan denn! fuͤr heute gute Nacht,<lb/>
+auf baldiges Wiederſehen.„</p><lb/>
+<p>Ich hatte wiederholt geklingelt, es erſchien<lb/>
+Licht; <hi rendition="#g">Bendel</hi> frug von innen, wer geklingelt<lb/>
+habe. Als der gute Mann meine Stimme er¬<lb/>
+kannte, konnte er ſeine Freude kaum baͤndigen,<lb/>
+die Thuͤr' flog auf, wir lagen weinend einander<lb/>
+in den Armen. Ich fand ihn ſehr veraͤndert,<lb/>
+ſchwach und krank; mir war aber das Haar ganz<lb/>
+grau geworden.</p><lb/>
+<p>Er fuͤhrte mich durch die veroͤdeten Zimmer<lb/>
+nach einem innern verſchont gebliebenen Gemach;<lb/>
+er holte Speiſe und Trank herbei, wir ſetzten uns,<lb/>
+er fing wieder an zu weinen. Er erzaͤhlte mir, daß<lb/>
+er letzthin den grau gekleideten duͤrren Mann, den<lb/>
+er mit meinem Schatten angetroffen hatte, ſo lange<lb/>
+und ſo weit geſchlagen habe, bis er ſelbſt meine<lb/>
+Spur verloren und vor Muͤdigkeit hingeſunken<lb/>
+ſei; daß nachher, wie er mich nicht wiederfinden<lb/>
+<pb n="88" facs="#f0108"/>
+gekonnt, er nach Hauſe zuruͤckgekehrt, wo bald<lb/>
+darauf der Poͤbel, auf <hi rendition="#g">Rascal's</hi> Anſtiften, her¬<lb/>
+an geſtuͤrmt, die Fenſter eingeſchlagen, und ſeine<lb/>
+Zerſtoͤrungsluſt gebuͤßt. So haͤtten ſie an ihren<lb/>
+Wohlthaͤter gehandelt. Meine Dienerſchaft war<lb/>
+aus einander geflohen. Die oͤrtliche Polizei hatte<lb/>
+mich als verdaͤchtig aus der Stadt verwieſen, und<lb/>
+mir eine Friſt von vier und zwanzig Stunden feſt¬<lb/>
+geſetzt, um deren Gebiet zu verlaſſen. Zu dem,<lb/>
+was mir von <hi rendition="#g">Rascal's</hi> Reichthum und Ver¬<lb/>
+maͤhlung bekannt war, wußte er noch Vieles hin¬<lb/>
+zuzufuͤgen. Dieſer Boͤſewicht, von dem Alles aus¬<lb/>
+gegangen, was hier gegen mich geſchehen war,<lb/>
+mußte vom Anbeginn mein Geheimniß beſeſſen<lb/>
+haben, es ſchien, er habe, vom Golde angezogen,<lb/>
+ſich an mich zu draͤngen gewußt, und ſchon in<lb/>
+der erſten Zeit einen Schluͤſſel zu jenem Gold¬<lb/>
+ſchrank ſich verſchaft, wo er den Grund zu dem<lb/>
+Vermoͤgen gelegt, den noch zu vermehren er jetzt<lb/>
+verſchmaͤhen konnte.</p><lb/>
+<p>Das Alles erzaͤhlte mir <hi rendition="#g">Bendel</hi> unter haͤu¬<lb/>
+figen Thraͤnen, und weinte dann wieder vor<lb/>
+Freuden, daß er mich wieder ſah, mich wieder<lb/>
+<pb n="89" facs="#f0109"/>
+hatte, und daß, nachdem er lange gezweifelt, wo¬<lb/>
+hin das Ungluͤck mich gebracht haben mochte, er<lb/>
+mich es ruhig und gefaßt ertragen ſah. Denn<lb/>
+ſolche Geſtaltung hatte nun die Verzweiflung in<lb/>
+mir genommen. Ich ſah mein Elend rieſengroß,<lb/>
+unwandelbar vor mir, ich hatte ihm meine Thraͤ¬<lb/>
+nen ausgeweint, es konnte kein Geſchrei mehr<lb/>
+aus meiner Bruſt preſſen, ich trug ihm kalt und<lb/>
+gleichguͤltig mein entbloͤßtes Haupt entgegen.</p><lb/>
+<p>“<hi rendition="#g">Bendel</hi>,„ hub ich an, “Du weißt mein<lb/>
+Loos. Nicht ohne fruͤheres Verſchulden trift mich<lb/>
+ſchwere Strafe. Du ſollſt laͤnger nicht, unſchul¬<lb/>
+diger Mann, Dein Schickſal an das meine bin¬<lb/>
+den, ich will es nicht. Ich reite die Nacht noch<lb/>
+fort, ſattle mir ein Pferd, ich reite allein; du<lb/>
+bleibſt, ich will's. Es muͤſſen hier noch einige<lb/>
+Kiſten Goldes liegen, das behalte Du. Ich wer¬<lb/>
+de allein unſtaͤt in der Welt wandern; wann<lb/>
+mir aber je eine heitere Stunde wieder lacht, und<lb/>
+das Gluͤck mich verſoͤhnet anblickt, dann will ich<lb/>
+Deiner getreu gedenken, denn ich habe an Deiner<lb/>
+getreuen Bruſt in ſchweren ſchmerzlichen Stunden<lb/>
+geweint.„<lb/>
+</p>
+<pb n="90" facs="#f0110"/>
+<p>Mit gebrochenem Herzen mußte der Redliche<lb/>
+dieſem letzten Befehle ſeines Herrn, woruͤber er<lb/>
+in der Seele erſchrack, gehorchen, ich war ſeinen<lb/>
+Bitten, ſeinen Vorſtellungen taub, blind ſeinen<lb/>
+Thraͤnen; er fuͤhrte mir das Pferd vor. Ich<lb/>
+druͤckte noch einmal den Weinenden an meine<lb/>
+Bruſt, ſchwang mich in den Sattel und entfernte<lb/>
+mich unter dem Mantel der Nacht von dem<lb/>
+Grabe meines Lebens, unbekuͤmmert, welchen Weg<lb/>
+mein Pferd mich fuͤhren werde; denn ich hatte<lb/>
+weiter auf Erden kein Ziel, keinen Wunſch, keine<lb/>
+Hoffnung.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="91" facs="#f0111"/>
+</div> <div n="1"> <head> <hi rendition="#aq">VIII.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">E</hi>s geſellte ſich bald ein Fußgaͤnger zu mir,<lb/>
+welcher mich bat, nachdem er eine Weile neben<lb/>
+meinem Pferde geſchritten war, da wir doch den¬<lb/>
+ſelben Weg hielten, einen Mantel, den er trug,<lb/>
+hinten auf mein Pferd legen zu duͤrfen, ich ließ<lb/>
+es ſtillſchweigend geſchehen. Er dankte mir mit<lb/>
+leichtem Anſtand fuͤr den leichten Dienſt, lobte<lb/>
+mein Pferd, nahm daraus Gelegenheit, das Gluͤck<lb/>
+und die Macht der Reichen hoch zu preiſen, und<lb/>
+ließ ſich, ich weiß nicht wie, in eine Art von<lb/>
+Selbſtgeſpraͤch ein, bei dem er mich bloß zum Zu¬<lb/>
+hoͤrer hatte.</p><lb/>
+<p>Er entfaltete ſeine Anſichten von dem Leben<lb/>
+und der Welt, und kam ſehr bald auf die Meta¬<lb/>
+phyſik, an die die Forderung erging, das Wort auf¬<lb/>
+zufinden, das aller Raͤthſel Loͤſung ſei. Er ſetzte<lb/>
+<pb n="92" facs="#f0112"/>
+die Aufgabe mit vieler Klarheit aus einander, und<lb/>
+ſchritt fuͤrder zu deren Beantwortung.</p><lb/>
+<p>Du weißt, mein Freund, daß ich deutlich er¬<lb/>
+kannt habe, ſeitdem ich den Philoſophen durch die<lb/>
+Schule gelaufen, daß ich zur philoſophiſchen Spe¬<lb/>
+kulation keinesweges berufen bin, und daß ich mir<lb/>
+dieſes Feld voͤllig abgeſprochen habe; ich habe ſeit¬<lb/>
+her Vieles auf ſich beruhen <choice><sic>laſſeu</sic><corr>laſſen</corr></choice>, Vieles zu wiſ¬<lb/>
+ſen und zu begreifen Verzicht geleiſtet, und bin,<lb/>
+wie Du es mir ſelber gerathen, meinem geraden<lb/>
+Sinn vertrauend, der Stimme in mir, ſo viel<lb/>
+es in meiner Macht geweſen, auf dem eigenen<lb/>
+Weg gefolgt. Nun ſchien mir dieſer Redekuͤnſt¬<lb/>
+ler mit großem Talent ein feſt gefuͤgtes Gebaͤude<lb/>
+aufzufuͤhren, das in ſich ſelbſt begruͤndet ſich em¬<lb/>
+por trug, und wie durch eine innere Nothwendig¬<lb/>
+keit beſtand. Nur vermißt' ich ganz in ihm, was<lb/>
+ich eben darin haͤtte ſuchen wollen, und ſo ward<lb/>
+es mir zu einem bloßen Kunſtwerk, deſſen zierliche<lb/>
+Geſchloſſenheit und Vollendung dem Auge allein<lb/>
+zur Ergoͤtzung diente; aber ich hoͤrte dem wohlbe¬<lb/>
+redten Manne gerne zu, der meine Aufmerkſam¬<lb/>
+keit von meinen Leiden auf ſich ſelbſt abgelenkt,<lb/>
+<pb n="93" facs="#f0113"/>
+und ich haͤtte mich ihm willig ergeben, wenn er<lb/>
+meine Seele wie meinen Verſtand in Anſpruch<lb/>
+genommen haͤtte.</p><lb/>
+<p>Mittlerweile war die Zeit hingegangen, und<lb/>
+unbemerkt hatte ſchon die Morgendaͤmmerung den<lb/>
+Himmel erhellt; ich erſchrack, als ich mit einmal<lb/>
+aufblickte, und im Oſten die Pracht der Farben<lb/>
+ſich entfalten ſah, die die nahe Sonne verkuͤnden,<lb/>
+und gegen ſie war in dieſer Stunde, wo die<lb/>
+Schlagſchatten mit ihrer ganzen Ausdehnung prun¬<lb/>
+ken, kein Schutz, kein Bollwerk in der offenen<lb/>
+Gegend zu erſeh'n! und ich war nicht allein;<lb/>
+ich warf einen Blick auf meinen Begleiter und<lb/>
+erſchrack wieder. — Es war kein anderer als der<lb/>
+Mann im grauen Rock.</p><lb/>
+<p>Er laͤchelte uͤber meine Beſtuͤrzung, und fuhr<lb/>
+fort, ohne mich zum Wort kommen zu laſſen:<lb/>
+“Laßt uns doch, wie es einmal in der Welt Sitte<lb/>
+iſt, unſern wechſelſeitigen Vortheil uns auf eine<lb/>
+Weile verbinden, zu ſcheiden haben wir immer<lb/>
+noch Zeit. Die Straſſe hier laͤngs dem Gebirge,<lb/>
+ob Sie gleich noch nicht daran gedacht haben, iſt<lb/>
+<pb n="94" facs="#f0114"/>
+doch die einzige, die Sie vernuͤnftiger Weiſe ein¬<lb/>
+ſchlagen koͤnnen; hinab in das Thal duͤrfen Sie<lb/>
+nicht, und uͤber das Gebirg werden Sie noch we¬<lb/>
+niger zuruͤckkehren wollen, von wo Sie hergekom¬<lb/>
+men ſind — dieſe iſt auch gerade meine Straſſe. —<lb/>
+Ich ſehe Sie ſchon vor der aufgehenden Sonne<lb/>
+erblaſſen. Ich will Ihnen Ihren Schatten auf<lb/>
+die Zeit unſerer Geſellſchaft leihen, und Sie dul¬<lb/>
+den mich dafuͤr in Ihrer Naͤhe; Sie haben ſo<lb/>
+Ihren <hi rendition="#g">Bendel</hi> nicht mehr bei ſich; ich will Ih¬<lb/>
+nen gute Dienſte leiſten. Sie lieben mich nicht,<lb/>
+das iſt mir leid. Sie koͤnnen mich darum doch<lb/>
+benutzen. Der Teufel iſt nicht ſo ſchwarz, als<lb/>
+man ihn malt. Geſtern haben Sie mich geaͤr¬<lb/>
+gert, das iſt wahr, heute will ich’s Ihnen nicht<lb/>
+nachtragen, und ich habe Ihnen ſchon den Weg<lb/>
+bis hieher verkuͤrzt, das muͤſſen ſie ſelbſt geſte¬<lb/>
+hen — nehmen Sie doch nur einmal Ihren<lb/>
+Schatten auf Probe wieder an.„</p><lb/>
+<p>Die Sonne war aufgegangen, auf der Straſſe<lb/>
+kamen uns Menſchen entgegen, ich nahm, obgleich<lb/>
+mit innerlichem Widerwillen, den Antrag an.<lb/>
+Er ließ laͤchelnd meinen Schatten zur Erde glei¬<lb/>
+<pb n="95" facs="#f0115"/>
+ten, der alsbald ſeine Stelle auf des Pferdes<lb/>
+Schatten einnahm, und luſtig neben mir hertrabte.<lb/>
+Mir war ſehr ſeltſam zu Muth. Ich ritt an ei¬<lb/>
+nem Trupp Landleute vorbei, die vor einem wohl¬<lb/>
+habenden Mann ehrerbietig mit entbloͤßtem Haup¬<lb/>
+te Platz machten. Ich ritt weiter, und blickte<lb/>
+gierigen Auges und klopfenden Herzens ſeitwaͤrts<lb/>
+vom Pferde herab auf dieſen ſonſt meinen Schat¬<lb/>
+ten, den ich jetzt von einem Fremden, ja von ei¬<lb/>
+nem Feinde, erborgt hatte.</p><lb/>
+<p>Dieſer ging unbekuͤmmert neben her, und<lb/>
+pfiff eben ein Liedchen. Er zu Fuß, ich zu Pferd',<lb/>
+ein Schwindel ergriff mich, die Verſuchung war<lb/>
+zu groß, ich wandte ploͤtzlich die Zuͤgel, druͤckte<lb/>
+beide Sporen an, und ſo in voller Karriere einen<lb/>
+Seitenweg eingeſchlagen, aber ich entfuͤhrte den<lb/>
+Schatten nicht, der bei der Wendung vom Pfer¬<lb/>
+de glitt und ſeinen geſetzmaͤßigen Eigenthuͤmer auf<lb/>
+der Landſtraſſe erwartete. Ich mußte beſchaͤmt<lb/>
+umlenken, der Mann im grauen Rocke, als er<lb/>
+ungeſtoͤrt ſein Liedchen zu Ende gebracht, lachte<lb/>
+mich aus, ſetzte mir den Schatten wieder zurecht,<lb/>
+und belehrte mich, er wuͤrde erſt an mir feſthangen<lb/>
+<pb n="96" facs="#f0116"/>
+und bei mir bleiben wollen, wann ich ihn wie¬<lb/>
+derum als rechtmaͤßiges Eigenthum beſitzen wuͤrde.<lb/>
+“Ich halte Sie,„ fuhr er fort, “am Schatten<lb/>
+feſt, und Sie kommen mir nicht loß. Ein rei¬<lb/>
+cher Mann, wie Sie, braucht einmal einen<lb/>
+Schatten, das iſt nicht anders, Sie ſind nur<lb/>
+darin zu tadeln, daß Sie es nicht fruͤher einge¬<lb/>
+ſehen haben.„ —</p><lb/>
+<p>Ich ſetzte meine Reiſe auf derſelben Straſſe<lb/>
+fort; es fanden ſich bei mir alle Bequemlichkeiten<lb/>
+des Lebens, und ſelbſt ihre Pracht wieder ein;<lb/>
+ich konnte mich frei und leicht bewegen, da ich ei¬<lb/>
+nen, obgleich nur erborgten, Schatten beſaß, und<lb/>
+ich floͤßte uͤberall die Ehrfurcht ein, die der Reich¬<lb/>
+thum gebietet; aber ich hatte den Tod im Herzen.<lb/>
+Mein wunderſamer Begleiter, der ſich ſelbſt fuͤr<lb/>
+den unwuͤrdigen Diener des reichſten Mannes in<lb/>
+der Welt ausgab, war von einer außerordentlichen<lb/>
+Dienſtfertigkeit, uͤber die Maßen gewandt und ge¬<lb/>
+ſchickt, der wahre Inbegrif eines Kammerdieners<lb/>
+fuͤr einen reichen Mann, aber er wich nicht von<lb/>
+meiner Seite, und fuͤhrte unaufhoͤrlich das Wort<lb/>
+gegen mich, ſtets die groͤßte Zuverſicht an den<lb/>
+<fw type="catch" place="bottom">Tag<lb/>
+</fw>
+<pb n="97" facs="#f0117"/>
+Tag legend, daß ich endlich, ſei es auch nur, um<lb/>
+ihn los zu werden, den Handel mit dem Schatten<lb/>
+abſchließen wuͤrde. — Er war mir eben ſo laͤſtig<lb/>
+als verhaßt. Ich konnte mich ordentlich vor ihm<lb/>
+fuͤrchten. Ich hatte mich von ihm abhaͤngig ge¬<lb/>
+macht. Er hielt mich, nachdem er mich in die<lb/>
+Herrlichkeit der Welt, die ich floh, zuruͤck gefuͤhrt<lb/>
+hatte. Ich mußte ſeine Beredſamkeit uͤber mich<lb/>
+ergehen laſſen, und fuͤhlte ſchier, er habe Recht.<lb/>
+Ein Reicher muß in der Welt einen Schatten<lb/>
+haben, und, ſobald ich den Stand behaupten<lb/>
+wollte, den er mich wieder geltend zu machen ver¬<lb/>
+leitet hatte, war nur ein Ausgang zu erſehen.<lb/>
+Dieſes aber ſtand bei mir feſt, nachdem ich mei¬<lb/>
+ne Liebe hingeopfert, nachdem mir das Leben ver¬<lb/>
+blaßt war, wollt’ ich meine Seele nicht, ſei es<lb/>
+um alle Schatten der Welt, dieſer Kreatur ver¬<lb/>
+ſchreiben. Ich wußte nicht, wie es enden ſollte.</p><lb/>
+<p>Wir ſaßen einſt vor einer Hoͤle, welche die<lb/>
+Fremden, die das Gebirg’ bereiſen, zu beſuchen<lb/>
+pflegen. Man hoͤrt dort das Gebrauſe unterirdi¬<lb/>
+ſcher Stroͤme aus ungemeſſener Tiefe heraufſchal¬<lb/>
+len, und kein Grund ſcheint den Stein, den man<lb/>
+<fw type="sig" place="bottom">G<lb/>
+</fw>
+<pb n="98" facs="#f0118"/>
+hineinwirft, in ſeinem hallenden Fall aufzuhal¬<lb/>
+ten. Er malte mir, wie er oͤfters that, mit<lb/>
+verſchwenderiſcher Einbildungskraft und im ſchim¬<lb/>
+mernden Reize der glaͤnzendſten Farben, ſorgfaͤltig<lb/>
+ausgefuͤhrte Bilder von dem, was ich in der Welt,<lb/>
+Kraft meines Saͤckels, ausfuͤhren wuͤrde, wenn<lb/>
+ich erſt meinen Schatten wieder in meiner Gewalt<lb/>
+haͤtte. Die Ellenbogen auf die Knie geſtuͤtzt, hielt<lb/>
+ich mein Geſicht in meinen Haͤnden verborgen,<lb/>
+und hoͤrte dem Falſchen zu, das Herz zwiefach<lb/>
+getheilt zwiſchen der Verfuͤhrung und dem ſtren¬<lb/>
+gen Willen in mir. Ich konnte bei ſolchem in¬<lb/>
+nerlichen Zwieſpalt laͤnger nicht ausdauern, und<lb/>
+begann den entſcheidenden Kampf:</p><lb/>
+<p>“Sie ſcheinen, mein Herr, zu vergeſſen, daß<lb/>
+ich Ihnen zwar erlaubt habe, unter gewiſſen Be¬<lb/>
+dingungen in meiner Begleitung zu bleiben, daß<lb/>
+ich mir aber meine voͤllige Freiheit vorbehalten<lb/>
+habe.„ — “Wenn Sie befehlen, ſo pack' ich<lb/>
+ein.„ Die Drohung war ihm gelaͤufig. Ich<lb/>
+ſchwieg; er ſetzte ſich gleich daran, meinen<lb/>
+Schatten wieder zuſammen zu rollen. Ich er¬<lb/>
+blaßte, aber ich ließ es ſtumm geſchehen. Es er¬<lb/>
+<pb n="99" facs="#f0119"/>
+folgte ein langes Stillſchweigen. Er nahm zuerſt<lb/>
+das Wort:</p><lb/>
+<p>“Sie koͤnnen mich nicht leiden, mein Herr,<lb/>
+Sie haſſen mich, ich weiß es; doch warum haſ¬<lb/>
+ſen Sie mich? Iſt es etwa, weil Sie mich auf<lb/>
+oͤffentlicher Straſſe angefallen, und mir mein Vo¬<lb/>
+gelneſt mit Gewalt zu rauben gemeint, oder iſt<lb/>
+es darum, daß Sie mein Gut, den Schatten,<lb/>
+den Sie Ihrer bloßen Ehrlichkeit anvertraut glaub¬<lb/>
+ten, mir diebiſcher Weiſe zu entwenden geſucht<lb/>
+haben? Ich meinerſeits haſſe Sie darum nicht;<lb/>
+ich finde ganz natuͤrlich, daß Sie alle Ihre Vor¬<lb/>
+theile, Liſt und Gewalt geltend zu machen ſuchen;<lb/>
+daß Sie uͤbrigens die allerſtrengſten Grundſaͤtze ha¬<lb/>
+ben, und, wie die Ehrlichkeit ſelbſt denken, iſt ei¬<lb/>
+ne Liebhaberei, wogegen ich auch nichts habe. —<lb/>
+Ich denke in der That nicht ſo ſtreng als Sie;<lb/>
+ich handle bloß, wie Sie denken. Oder hab' ich<lb/>
+Ihnen etwa irgend wann den Daumen auf die<lb/>
+Gurgel gedruͤckt, um Ihre wertheſte Seele, zu der<lb/>
+ich einmal Luſt habe, an mich zu bringen! Hab'<lb/>
+ich von wegen meines ausgetauſchten Saͤckels einen<lb/>
+Diener auf Sie los gelaſſen, hab' ich Ihnen damit<lb/>
+<fw type="sig" place="bottom">G2<lb/>
+</fw>
+<pb n="100" facs="#f0120"/>
+durchzugehen verſucht?„ Ich hatte dagegen nichts<lb/>
+zu erwiedern; er fuhr fort: “Schon recht, mein<lb/>
+Herr, ſchon recht! Sie koͤnnen mich nicht leiden;<lb/>
+auch das begreife ich wohl, und verarge es Ihnen<lb/>
+weiter nicht. Wir muͤſſen ſcheiden, das iſt klar,<lb/>
+und auch Sie fangen an, mir ſehr langweilig<lb/>
+vorzukommen. Um ſich alſo meiner ferneren be¬<lb/>
+ſchaͤmenden Gegenwart voͤllig zu entziehen, rathe<lb/>
+ich es Ihnen noch einmal: Kaufen Sie mir das<lb/>
+Ding ab.„ — Ich hielt ihm den Saͤckel hin.<lb/>
+“Um den Preis?„ — “Nein!„ — Ich ſeufzte<lb/>
+ſchwer auf und nahm wieder das Wort: “Auch<lb/>
+alſo. Ich dringe darauf, mein Herr, laßt uns<lb/>
+ſcheiden, vertreten Sie mir laͤnger nicht den Weg<lb/>
+auf einer Welt, die hoffentlich geraͤumig genug iſt<lb/>
+fuͤr uns beide.„ Er laͤchelte und erwiederte: “Ich<lb/>
+gehe, mein Herr, zuvor aber will ich Sie unter¬<lb/>
+richten, wie Sie mir klingeln koͤnnen, wenn Sie<lb/>
+je Verlangen nach Ihrem unterthaͤnigſten Knecht<lb/>
+tragen ſollten: Sie brauchen nur Ihren Saͤckel<lb/>
+zu ſchuͤtteln, daß die ewigen Goldſtuͤcke darinnen<lb/>
+raſſeln, der Ton zieht mich augenblicklich an. Ein<lb/>
+Jeder denkt auf ſeinen Vortheil in dieſer Welt;<lb/>
+Sie ſehen, daß ich auf Ihren zugleich bedacht<lb/>
+<pb n="101" facs="#f0121"/>
+bin, denn ich eroͤffne Ihnen offenbar eine neue<lb/>
+Kraft — O dieſer Saͤckel! — Und haͤtten gleich<lb/>
+die Motten Ihren Schatten ſchon aufgefreſſen,<lb/>
+der wuͤrde noch ein ſtarkes Band zwiſchen uns<lb/>
+ſeyn. Genug, Sie haben mich an meinem Gold,<lb/>
+befehlen Sie auch in der Ferne uͤber Ihren Knecht,<lb/>
+Sie wiſſen, daß ich mich meinen Freunden<lb/>
+dienſtfertig genug erweiſen kann, und daß die<lb/>
+Reichen beſonders gut mit mir ſtehen; Sie ha¬<lb/>
+ben es ſelbſt geſehen, — nur Ihren Schatten,<lb/>
+mein Herr — das laſſen Sie Sich geſagt<lb/>
+ſeyn — nie wieder, als unter einer einzigen<lb/>
+Bedingung.„</p><lb/>
+<p>Geſtalten der alten Zeit traten vor meine<lb/>
+Seele. Ich frug ihn ſchnell: “Hatten Sie eine<lb/>
+Unterſchrift vom Herrn <hi rendition="#g">John</hi>?„ — Er laͤchel¬<lb/>
+te. — “Mit einem ſo guten Freund, hab' ich<lb/>
+es keinesweges noͤthig gehabt.„ — “Wo iſt<lb/>
+er? bei Gott, ich will es wiſſen!„ Er ſteckte<lb/>
+zoͤgernd die Hand in die Taſche, und daraus bei<lb/>
+den Haaren hervorgezogen erſchien <hi rendition="#g">Thomas<lb/>
+John's</hi> bleiche entſtellte Geſtalt, und die blauen<lb/>
+Leichenlippen bewegten ſich zu ſchweren Worten:<lb/>
+<pb n="102" facs="#f0122"/>
+<hi rendition="#aq">“Justo judicio Dei judicatus sum; Justo ju¬<lb/>
+dicio Dei condemnatus sum</hi>.„ Ich entſetzte<lb/>
+mich, und ſchnell den klingenden Saͤckel in den<lb/>
+Abgrund werfend, ſprach ich zu ihm die letzten<lb/>
+Worte: “So beſchwoͤr' ich Dich im Namen<lb/>
+Gottes, Entſetzlicher! hebe Dich von dannen und<lb/>
+laſſe Dich nie wieder vor meinen Augen blicken!„<lb/>
+Er erhub ſich finſter und verſchwand ſogleich hin¬<lb/>
+ter den Felſenmaſſen, die den wild bewachſenen<lb/>
+Ort begraͤnzten.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="103" facs="#f0123"/>
+</div> <div n="1"> <head> <hi rendition="#aq">IX.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">I</hi>ch ſaß da ohne Schatten und ohne Geld;<lb/>
+aber ein ſchweres Gewicht war von meiner Bruſt<lb/>
+genommen, ich war heiter. Haͤtte ich nicht auch<lb/>
+meine Liebe verloren, oder haͤtt' ich mich nur bei<lb/>
+deren Verluſt vorwurfsfrei gefuͤhlt, ich glaube, ich<lb/>
+haͤtte gluͤcklich ſeyn koͤnnen — ich wußte aber<lb/>
+nicht, was ich anfangen ſollte. Ich durchſuchte<lb/>
+meine Taſchen und fand noch einige Goldſtuͤcke<lb/>
+darin; ich zaͤhlte ſie, und lachte. — Ich hatte<lb/>
+meine Pferde unten im Wirthshauſe, ich ſchaͤmte<lb/>
+mich, dahin zuruͤckzukehren, ich mußte wenigſtens<lb/>
+den Untergang der Sonne erwarten; ſie ſtand noch<lb/>
+hoch am Himmel: Ich legte mich in den Schatten<lb/>
+der naͤchſten Baͤume und ſchlief ruhig ein.</p><lb/>
+<p>Anmuthige Bilder verwoben ſich mir im luf¬<lb/>
+tigen Tanze zu einem gefaͤlligen Traum. <hi rendition="#g">Mina</hi>,<lb/>
+einen Blumenkranz in den Haaren, ſchwebte an<lb/>
+<pb n="104" facs="#f0124"/>
+mir voruͤber, und laͤchelte mich freundlich an.<lb/>
+Auch der ehrliche <hi rendition="#g">Bendel</hi> war mit Blumen be¬<lb/>
+kraͤnzt, und eilte mit freundlichem Gruße voruͤber.<lb/>
+Viele ſah' ich noch, und wie mich duͤnkt, auch<lb/>
+Dich, <hi rendition="#g">Chamiſſo</hi>, im fernen Gewuͤhl; ein hel¬<lb/>
+les Licht ſchien, es hatte aber Keiner einen Schat¬<lb/>
+ten, und was ſeltſamer iſt, es ſah nicht uͤbel<lb/>
+aus, — Blumen und Lieder, Liebe und Freude,<lb/>
+unter Palmenhainen. – – – Ich konnte die be¬<lb/>
+weglichen, leicht verwehten, lieblichen Geſtalten<lb/>
+weder feſthalten noch deuten; aber ich weiß, daß<lb/>
+ich gerne ſolchen Traum traͤumte und mich vor<lb/>
+dem Erwachen in Acht nahm; ich wachte wirklich<lb/>
+ſchon, und hielt noch die Augen zu, um die wei¬<lb/>
+chenden Erſcheinungen laͤnger vor meiner Seele<lb/>
+zu behalten.</p><lb/>
+<p>Ich oͤffnete endlich die Augen, die Sonne<lb/>
+ſtand noch am Himmel, aber im Oſten; ich<lb/>
+hatte die Nacht verſchlafen. Ich nahm es fuͤr<lb/>
+ein Zeichen, daß ich nicht nach dem Wirthshauſe<lb/>
+zuruͤckkehren ſollte. Ich gab leicht, was ich dort<lb/>
+noch beſaß, verloren, und beſchloß, eine Neben¬<lb/>
+ſtraſſe, die durch den waldbewachſenen Fuß des<lb/>
+<pb n="105" facs="#f0125"/>
+Gebirges fuͤhrte, zu Fuße einzuſchlagen, dem Schik¬<lb/>
+ſal es anheim ſtellend, was es mit mir vor hat¬<lb/>
+te, zu erfuͤllen. Ich ſchaute nicht hinter mich<lb/>
+zuruͤck, und dachte auch nicht daran, an <hi rendition="#g">Ben¬<lb/>
+del</hi>, den ich reich zuruͤck gelaſſen hatte, mich zu<lb/>
+wenden, welches ich allerdings gekonnt haͤtte. Ich<lb/>
+ſah mich an auf den neuen Charakter, den ich in<lb/>
+der Welt bekleiden ſollte: Mein Anzug war ſehr<lb/>
+beſcheiden. Ich hatte eine alte ſchwarze Kurtka<lb/>
+an, die ich ſchon in Berlin getragen, und die<lb/>
+mir, ich weiß nicht wie, zu dieſer Reiſe erſt wie¬<lb/>
+der in die Hand gekommen war. Ich hatte ſonſt<lb/>
+eine Reiſemuͤtze auf dem Kopf und ein Paar alte<lb/>
+Stiefeln an den Fuͤßen. Ich erhob mich, ſchnitt<lb/>
+mir an ſelbiger Stelle einen Knotenſtock zum An¬<lb/>
+denken, und trat ſogleich meine Wanderung an.</p><lb/>
+<p>Ich begegnete im Wald einem alten Bauer,<lb/>
+der mich freundlich begruͤßte, und mit dem ich<lb/>
+mich in Geſpraͤch einließ. Ich erkundigte mich,<lb/>
+wie ein wißbegieriger Reiſender, erſt nach dem<lb/>
+Wege, dann nach der Gegend und deren Bewoh¬<lb/>
+ner, den Erzeugniſſen des Gebirges und derlei<lb/>
+mehr. Er antwortete verſtaͤndig und redſelig auf<lb/>
+<pb n="106" facs="#f0126"/>
+meine Fragen. Wir kamen an das Bette eines<lb/>
+Bergſtromes, der uͤber einen weiten Strich des<lb/>
+Waldes ſeine Verwuͤſtung verbreitet hatte. Mich<lb/>
+ſchauderte innerlich vor dem ſonnenhellen Raum,<lb/>
+ich ließ den Landmann vorangehen. Er hielt aber<lb/>
+mitten im gefaͤhrlichen Orte ſtill, und wandte ſich<lb/>
+zu mir, um mir die Geſchichte dieſer Verwuͤſtung<lb/>
+zu erzaͤhlen. Er bemerkte bald, was mir fehlte,<lb/>
+und hielt mitten in ſeiner Rede ein: “Aber wie<lb/>
+geht denn das zu, der Herr hat ja keinen Schat¬<lb/>
+ten.„ — “Leider! leider!„ erwiederte ich ſeuf¬<lb/>
+zend. “Es ſind mir waͤhrend einer boͤſen langen<lb/>
+Krankheit, Haare, Naͤgel und Schatten ausgegan¬<lb/>
+gen. Seht, Vater, in meinem Alter, die Haare,<lb/>
+die ich wieder gekriegt habe, ganz weiß, die Naͤgel<lb/>
+ſehr kurz, und der Schatten, der will noch nicht<lb/>
+wieder wachſen.„ — “Ei! ei!„ verſetzte der alte<lb/>
+Mann kopfſchuͤttelnd, “keinen Schatten, das iſt<lb/>
+boͤs! das war eine boͤſe Krankheit, die der Herr ge¬<lb/>
+habt hat.„ Aber, er hub ſeine Erzaͤhlung nicht wie¬<lb/>
+der an, und bei dem naͤchſten Querweg, der ſich dar¬<lb/>
+bot, ging er, ohne ein Wort zu ſagen, von mir ab. —<lb/>
+Bittere Thraͤnen zitterten aufs Neue in meinen<lb/>
+Wangen und meine Heiterkeit war hin.</p><lb/>
+<pb n="107" facs="#f0127"/>
+<p>Ich ſetzte traurigen Herzens meinen Weg fort,<lb/>
+und ſuchte ferner keines Menſchen Geſellſchaft.<lb/>
+Ich hielt mich im dunkelſten Wald, und mußte<lb/>
+manchmal, um uͤber einen Strich, wo die Sonne<lb/>
+ſchien, zu kommen, Stundenlang darauf warten,<lb/>
+daß mir keines Menſchen Aug' den Durchgang ver¬<lb/>
+bot. Am Abende ſuchte ich Herberge in den Doͤr¬<lb/>
+fern zu nehmen. Ich ging eigentlich nach einem<lb/>
+Bergwerk im Gebirg, wo ich Arbeit unter der<lb/>
+Erde zu finden gedachte; denn, davon abgeſehen,<lb/>
+daß meine jetzige Lage mir gebot, fuͤr meinen Le¬<lb/>
+bensunterhalt ſelbſt zu ſorgen, hatte ich dieſes wohl<lb/>
+erkannt, daß mich allein angeſtrengte Arbeit gegen<lb/>
+meine zerſtoͤrenden Gedanken ſchuͤtzen koͤnnte.</p><lb/>
+<p>Ein Paar regnichte Tage foͤrderten mich leicht<lb/>
+auf den Weg, aber auf Koſten meiner Stiefeln,<lb/>
+deren Solen fuͤr den <hi rendition="#g">Grafen Peter</hi> und nicht<lb/>
+fuͤr den Fußknecht berechnet worden. Ich trat<lb/>
+ſchon auf den bloßen Fuͤßen. Ich mußte ein Paar<lb/>
+neue Stiefeln anſchaffen. Am naͤchſten Morgen<lb/>
+beſorgte ich dieſes Geſchaͤft mit vielem Ernſt in<lb/>
+einem Flecken, wo Kirmes war, und wo in einer<lb/>
+Bude alte und neue Stiefeln zu Kauf ſtanden.<lb/>
+<pb n="108" facs="#f0128"/>
+Ich waͤhlte und handelte lange. Ich mußte auf<lb/>
+ein Paar neue, die ich gerne gehabt haͤtte, Ver¬<lb/>
+zicht leiſten; mich ſchreckte die unbillige Forde¬<lb/>
+rung. Ich begnuͤgte mich alſo mit alten, die<lb/>
+noch gut und ſtark waren, und die mir der ſchoͤne<lb/>
+blondlockige Knabe, der die Bude hielt, gegen<lb/>
+gleich baare Bezahlung, freundlich laͤchelnd ein¬<lb/>
+haͤndigte, indem er mir Gluͤck auf den Weg<lb/>
+wuͤnſchte. Ich zog ſie gleich an, und ging zum<lb/>
+noͤrdlich gelegenen Thor aus dem Ort.</p><lb/>
+<p>Ich war in meinen Gedanken ſehr vertieft,<lb/>
+und ſah kaum, wo ich den Fuß hinſetzte, denn ich<lb/>
+dachte an das Bergwerk, wo ich auf den Abend<lb/>
+noch anzulangen hoffte, und wo ich nicht recht<lb/>
+wußte, wie ich mich ankuͤndigen ſollte. Ich war<lb/>
+noch keine zweihundert Schritte gegangen, als ich<lb/>
+bemerkte, daß ich aus dem Wege gekommen war;<lb/>
+ich ſah mich darnach um, ich befand mich in ei¬<lb/>
+nem wuͤſten uralten Tannenwald, woran die Axt<lb/>
+nie gelegt worden zu ſeyn ſchien. Ich drang noch<lb/>
+einige Schritte vor, ich ſah mich mitten unter<lb/>
+oͤden Felſen, die nur mit Moos und Steinbruch¬<lb/>
+arten bewachſen waren, und zwiſchen welchen<lb/>
+<pb n="109" facs="#f0129"/>
+Schnee und Eisfelder lagen. Die Luft war ſehr<lb/>
+kalt, ich ſah mich um, der Wald war hinter mir<lb/>
+verſchwunden. Ich machte noch einige Schritte —<lb/>
+um mich herrſchte die Stille des Todes, unabſeh¬<lb/>
+bar dehnte ſich das Eis, worauf ich ſtand, und<lb/>
+worauf ein dichter Nebel ſchwer ruhte; die Sonne<lb/>
+ſtand blutig am Rande des Horizontes. Die Kaͤlte<lb/>
+war unertraͤglich. Ich wußte nicht, wie mir ge¬<lb/>
+ſchehen war, der erſtarrende Froſt zwang mich,<lb/>
+meine Schritte zu beſchleunigen, ich vernahm nur<lb/>
+das Gebrauſe ferner Gewaͤſſer, ein Schritt, und<lb/>
+ich war am Eisufer eines Ozeans. Unzaͤhlbare<lb/>
+Heerden von Seehunden ſtuͤrzten ſich vor mir<lb/>
+rauſchend in die Fluth. Ich folgte dieſem Ufer,<lb/>
+ich ſah wieder nackte Felſen, Land, Birken- und<lb/>
+Tannenwaͤlder, ich lief noch ein Paar Minuten<lb/>
+gerade vor mir hin. Es ward erſtickend heiß, ich<lb/>
+ſah mich um, ich ſtand zwiſchen ſchoͤn gebauten<lb/>
+Reisfeldern unter Maulbeerbaͤumen, ich ſetzte mich<lb/>
+in deren Schatten, ich ſah nach meiner Uhr, ich<lb/>
+hatte vor nicht einer Viertelſtunde den Markt¬<lb/>
+flecken verlaſſen, — ich glaubte zu traͤumen, ich<lb/>
+biß mich in die Zunge, um mich zu erwecken;<lb/>
+aber ich wachte wirklich. — Ich ſchloß die Augen<lb/>
+<pb n="110" facs="#f0130"/>
+zu, um meine Gedanken zuſammen zu faſſen. —<lb/>
+Ich hoͤrte vor mir ſeltſame Sylben durch die Naſe<lb/>
+zaͤhlen; ich blickte auf: zwei Chineſen, an der<lb/>
+aſiatiſchen Geſichtsbildung unverkennbar, wenn ich<lb/>
+auch ihrer Kleidung keinen Glauben beimeſſen<lb/>
+wollte, redeten mich mit landesuͤblichen Begruͤſ¬<lb/>
+ſungen in ihrer Sprache an; ich ſtand auf und<lb/>
+trat zwei Schritte zuruͤck. Ich ſah ſie nicht mehr,<lb/>
+die Landſchaft war ganz veraͤndert: Baͤume, Waͤl¬<lb/>
+der, ſtatt der Reisfelder. Ich betrachtete dieſe<lb/>
+Baͤume und die Kraͤuter, die um mich bluͤhten;<lb/>
+die ich kannte, waren ſuͤdoͤſtlich aſiatiſche Gewaͤch¬<lb/>
+ſe; ich wollte auf den einen Baum zugehen, ein<lb/>
+Schritt — und wiederum Alles veraͤndert. Ich<lb/>
+trat nun an, wie ein Rekrut, der geuͤbt wird, und<lb/>
+ſchritt langſam, geſetzt einher. Wunderbar ver¬<lb/>
+aͤnderliche Laͤnder, Fluren, Auen, Gebirge, Step¬<lb/>
+pen, Sandwuͤſten, entrollen ſich vor meinem ſtau¬<lb/>
+nenden Blick: es war kein Zweifel, ich hatte<lb/>
+Siebenmeilenſtiefeln an den Fuͤßen.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="111" facs="#f0131"/>
+</div> <div n="1"> <head> <hi rendition="#aq">X.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">I</hi>ch fiel in ſtummer Andacht auf meine<lb/>
+Knie und vergoß Thraͤnen des Dankes — denn<lb/>
+klar ſtand ploͤtzlich meine Zukunft vor meiner<lb/>
+Seele. Durch fruͤhe Schuld von der menſchlichen<lb/>
+Geſellſchaft ausgeſchloſſen, ward ich zum Erſatz<lb/>
+an die Natur, die ich ſtets geliebt, gewieſen, die<lb/>
+Erde mir zu einem reichen Garten gegeben, das<lb/>
+Studium zur Richtung und Kraft meines Lebens,<lb/>
+zu ihrem Ziel die Wiſſenſchaft. Es war nicht ein<lb/>
+Entſchluß, den ich faßte. Ich habe nur ſeitdem,<lb/>
+was da hell und vollendet im Urbild vor mein inn¬<lb/>
+res Auge trat, getreu, mit ſtillem, ſtrengen, un¬<lb/>
+ausgeſetzten Fleiß darzuſtellen geſucht, und meine<lb/>
+Selbſtzufriedenheit hat von dem Zuſammenfallen<lb/>
+des Dargeſtellten mit dem Urbild abgehangen.</p><lb/>
+<p>Ich rafte mich auf, um ohne Zoͤgern mit<lb/>
+fluͤchtigem Überblick Beſitz von dem Felde zu neh¬<lb/>
+<pb n="112" facs="#f0132"/>
+men, wo ich kuͤnftig aͤrnten wollte — ich ſtand<lb/>
+auf den Hoͤhen des Tibet, und die Sonne, die<lb/>
+mir vor wenigen Stunden aufgegangen war, neig¬<lb/>
+te ſich hier ſchon am Abendhimmel, ich durchwan¬<lb/>
+derte Aſien von Oſten gegen Weſten, ſie in ih¬<lb/>
+rem Lauf einholend, und trat in Afrika ein. Ich<lb/>
+ſah mich neugierig darin um, indem ich es wie¬<lb/>
+derholt in allen Richtungen durchmaß. Wie ich<lb/>
+durch Ägypten die alten Pyramiden und Tempel<lb/>
+angafte, erblickte ich in der Wuͤſte, unfern des<lb/>
+hundertthorigen Theben, die Hoͤlen, wo chriſtliche<lb/>
+Einſiedler ſonſt wohnten. Es ſtand ploͤtzlich feſt<lb/>
+und klar in mir: hier iſt dein Haus. — Ich<lb/>
+erkor eine der verborgenſten, die zugleich geraͤu¬<lb/>
+mig, bequem und den Schakalen unzugaͤnglich<lb/>
+war, zu meinem kuͤnftigen Aufenthalte, und ſetzte<lb/>
+meinen Stab weiter.</p><lb/>
+<p>Ich trat bei den Herkules-Saͤulen nach Eu¬<lb/>
+ropa uͤber, und nachdem ich ſeine ſuͤdlichen und noͤrd¬<lb/>
+lichen Provinzen in Augenſchein genommen, trat<lb/>
+ich von Nordaſien uͤber den Polarglaͤtſcher nach<lb/>
+Groͤnland und Amerika uͤber, durchſchweifte die<lb/>
+beiden Theile dieſes Kontinents, und der Winter,<lb/>
+<fw type="catch" place="bottom">der<lb/>
+</fw>
+<pb n="113" facs="#f0133"/>
+der ſchon im Suͤden herrſchte, trieb mich ſchnell<lb/>
+vom Cap Horn nordwaͤrts zuruͤck.</p><lb/>
+<p>Ich verweilte mich, bis es im oͤſtlichen Aſien<lb/>
+Tag wurde, und ſetzte erſt nach einiger Ruh mei¬<lb/>
+ne Wanderung fort. Ich verfolgte durch beide<lb/>
+Amerika die Bergkette, die die hoͤchſten bekannten<lb/>
+Unebenheiten unſerer Kugel in ſich faßt. Ich<lb/>
+ſchritt langſam und vorſichtig von Gipfel zu Gipfel,<lb/>
+bald uͤber flammende Vulkane, bald uͤber beſchneite<lb/>
+Kuppeln, oft mit Muͤhe athmend, ich erreichte<lb/>
+den Eliasberg, und ſprang uͤber die Behringsſtraſſe<lb/>
+nach Aſien. — Ich verfolgte deſſen weſtliche Kuͤ¬<lb/>
+ſten in ihren vielfachen Wendungen, und unter¬<lb/>
+ſuchte mit beſonderer Aufmerkſamkeit, welche der<lb/>
+dort gelegenen Inſeln mir zugaͤnglich waͤren. Von<lb/>
+der Halbinſel Malacca trugen mich meine Stie¬<lb/>
+fel auf Sumatra, Java, Bali und Lamboc, ich<lb/>
+verſuchte, ſelbſt oft mit Gefahr, und dennoch im¬<lb/>
+mer vergebens, mir uͤber die kleinern Inſeln und<lb/>
+Felſen, wovon dieſes Meer ſtarrt, einen Über¬<lb/>
+gang nordweſtlich nach Borneo und andern Inſeln<lb/>
+dieſes Archipelagus zu bahnen. Ich mußte die<lb/>
+Hoffnung aufgeben. Ich ſetzte mich endlich auf<lb/>
+<fw type="sig" place="bottom">H<lb/>
+</fw>
+<pb n="114" facs="#f0134"/>
+die aͤußerſte Spitze von Lamboc nieder; und das<lb/>
+Geſicht gen Suͤden und Oſten gewendet, weint'<lb/>
+ich, wie am feſt verſchloſſenen Gitter meines Ker¬<lb/>
+kers, daß ich doch ſobald meine Begrenzung ge¬<lb/>
+funden. Das Merkwuͤrdige, zum Verſtaͤndniß der<lb/>
+Erde und ihres ſonnengewirkten Kleides, der Pflan¬<lb/>
+zen und Thierwelt, ſo weſentlich nothwendige Neu¬<lb/>
+holland, und die Suͤdſee mit ihren Zoophyten-Inſeln,<lb/>
+waren mir unterſagt, und ſo war, im Urſprunge<lb/>
+ſchon, Alles, was ich ſammeln und erbauen ſoll¬<lb/>
+te, bloßes Fragment zu bleiben verdammt. — O<lb/>
+mein <hi rendition="#g">Adalbert</hi>, was iſt es doch um die Be¬<lb/>
+muͤhungen der Menſchen!</p><lb/>
+<p>Oft habe ich im ſtrengſten Winter der ſuͤdli¬<lb/>
+chen Halbkugel vom Cap-Horn aus jene zweihun¬<lb/>
+dert Schritte, die mich etwa vom Land van Die¬<lb/>
+men und Neuholland trennten, ſelbſt unbekuͤm¬<lb/>
+mert um die Ruͤckkehr, und ſollte ſich dieſes<lb/>
+ſchlechte Land uͤber mich, wie der Deckel meines<lb/>
+Sarges, ſchließen, uͤber den Polarglaͤtſcher weſt¬<lb/>
+waͤrts zuruͤck zu legen verſucht, habe uͤber Treib¬<lb/>
+eis mit thoͤrigter Wagniß verzweiflungsvolle Schritte<lb/>
+gethan, der Kaͤlte und dem Meere Trotz geboten.<lb/>
+<pb n="115" facs="#f0135"/>
+Umſonſt, noch bin ich auf Neuholland nicht gewe¬<lb/>
+ſen — ich kam dann jedesmal auf Lamboc zu¬<lb/>
+ruͤck und ſetzte mich auf ſeine aͤußerſte Spitze nie¬<lb/>
+der, und weinte wieder, das Geſicht gen Suͤden<lb/>
+und Oſten gewendet, wie am feſt verſchloſſenen<lb/>
+Gitter meines Kerkers.</p><lb/>
+<p>Ich riß mich endlich von dieſer Stelle und<lb/>
+trat mit traurigem Herzen wieder in das innere<lb/>
+Aſien, ich durchſchweifte es fuͤrder, die Morgen¬<lb/>
+daͤmmerung nach Weſten verfolgend, und kam noch<lb/>
+in der Nacht in die Thebais zu meinem vorbe¬<lb/>
+ſtimmten Hauſe, das ich in den geſtrigen Nach¬<lb/>
+mittagsſtunden beruͤhrt hatte.</p><lb/>
+<p>Sobald ich etwas ausgeruht, und es Tag<lb/>
+uͤber Europa war, ließ ich meine erſte Sorge ſeyn,<lb/>
+Alles anzuſchaffen, was ich bedurfte. — Zuvoͤr¬<lb/>
+derſt Hemmſchuhe, denn ich hatte erfahren, wie<lb/>
+unbequem es ſei, ſeinen Schritt nicht anders ver¬<lb/>
+kuͤrzen zu koͤnnen, um nahe Gegenſtaͤnde gemaͤch¬<lb/>
+lich zu unterſuchen, als indem man die Stiefel<lb/>
+auszieht. Ein Paar Pantoffeln uͤbergezogen, hat¬<lb/>
+ten voͤllig die Wirkung, die ich mir davon ver¬<lb/>
+ſprach, und ſpaͤterhin trug ich ſogar deren immer<lb/>
+<fw type="sig" place="bottom">H2<lb/>
+</fw>
+<pb n="116" facs="#f0136"/>
+zwei Paar bei mir, weil ich oͤfter welche von den<lb/>
+Fuͤßen warf, ohne Zeit zu haben, ſie aufzuheben,<lb/>
+wann Loͤwen, Menſchen oder Hyaͤnen mich beim<lb/>
+Botaniſiren aufſchreckten. Meine ſehr gute Uhr<lb/>
+war auf die kurze Dauer meiner Gaͤnge ein vor¬<lb/>
+treffliches Kronometer. Ich brauchte noch außer¬<lb/>
+dem einen Sextant, einige phyſikaliſche Inſtru¬<lb/>
+mente und Buͤcher.</p><lb/>
+<p>Ich machte, dieſes Alles herbei zu ſchaffen,<lb/>
+etliche bange Gaͤnge nach London und Paris, die<lb/>
+ein mir guͤnſtiger Nebel eben beſchattete. Als der<lb/>
+Reſt meines Zaubergoldes erſchoͤpft war, bracht'<lb/>
+ich leicht zu findendes afrikaniſches Elfenbein als<lb/>
+Bezahlung herbei, wobei ich freilich die kleinſten<lb/>
+Zaͤhne, die meine Kraͤfte nicht uͤberſtiegen, aus¬<lb/>
+waͤhlen mußte. Ich ward bald mit Allem verſehen<lb/>
+und ausgeruͤſtet, und ich fing ſogleich als privatiſi¬<lb/>
+render Gelehrter meine neue Lebensweiſe an.</p><lb/>
+<p>Ich ſtreifte auf der Erde umher, bald ihre<lb/>
+Hoͤhen, bald die Temperatur ihrer Quellen und<lb/>
+die der Luft meſſend, bald Thiere beobachtend,<lb/>
+bald Gewaͤchſe unterſuchend; ich eilte von dem<lb/>
+Aequator nach dem Pole, von der einen Welt<lb/>
+<pb n="117" facs="#f0137"/>
+nach der andern; Erfahrungen mit Erfahrungen<lb/>
+vergleichend. Die Eier der afrikaniſchen Strauße<lb/>
+oder der noͤrdlichen Seevoͤgel, und Fruͤchte, beſon¬<lb/>
+ders der Tropen-Palmen und Bananen, waren<lb/>
+meine gewoͤhnlichſte Nahrung. Fuͤr mangelndes<lb/>
+Gluͤck hatt' ich als Surrogat die Nicotiana, und<lb/>
+fuͤr menſchliche Theilnahme und Bande die Liebe<lb/>
+eines treuen Pudels, der mir meine Hoͤhle in<lb/>
+der Thebais bewachte, und wann ich mit neuen<lb/>
+Schaͤtzen beladen zu ihm zuruͤck kehrte, freudig an<lb/>
+mich ſprang, und es mich doch menſchlich empfin¬<lb/>
+den ließ, daß ich nicht allein auf der Erde ſei.<lb/>
+Noch ſollte mich ein Abentheuer unter die Men¬<lb/>
+ſchen zuruͤckfuͤhren.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="118" facs="#f0138"/>
+</div> <div n="1"> <head> <hi rendition="#aq">XI.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p>Als ich einſt auf Nordlands Kuͤſten, meine<lb/>
+Stiefel gehemmt, Flechten und Algen ſammelte,<lb/>
+trat mir unverſehens um die Ecke eines Felſens<lb/>
+ein Eisbaͤr entgegen. Ich wollte, nach weggewor¬<lb/>
+fenen Pantoffeln, auf eine gegen uͤber liegende<lb/>
+Inſel treten, zu der mir ein dazwiſchen aus den<lb/>
+Wellen hervorragender nackter Felſen den Übergang<lb/>
+bahnte. Ich trat mit dem einen Fuß auf den<lb/>
+Felſen feſt auf, und ſtuͤrzte auf der andern Seite<lb/>
+in das Meer, weil mir unbemerkt der Pantoffel<lb/>
+am anderen Fuß haften geblieben war.</p><lb/>
+<p>Die große Kaͤlte ergrif mich, ich rettete mit<lb/>
+Muͤhe mein Leben aus dieſer Gefahr; ſobald ich<lb/>
+Land hielt, lief ich, ſo ſchnell ich konnte, nach der<lb/>
+Lybiſchen Wuͤſte, um mich da an der Sonne zu<lb/>
+trocknen. Wie ich ihr aber ausgeſetzt war, brannte<lb/>
+ſie mir ſo heiß auf den Kopf, daß ich ſehr krank<lb/>
+<pb n="119" facs="#f0139"/>
+wieder nach Norden taumelte. Ich ſuchte durch<lb/>
+heftige Bewegung mir Erleichterung zu verſchaf¬<lb/>
+fen, und lief mit unſichern raſchen Schritten von<lb/>
+Weſten nach Oſten und von Oſten nach Weſten.<lb/>
+Ich befand mich bald in dem Tag und bald in<lb/>
+der Nacht; bald im Sommer und bald in der<lb/>
+Winterkaͤlte.</p><lb/>
+<p>Ich weiß nicht, wie lange ich mich ſo auf<lb/>
+der Erde herumtaumelte. Ein brennendes Fieber<lb/>
+gluͤhte durch meine Adern, ich fuͤhlte mit großer<lb/>
+Angſt die Beſinnung mich verlaſſen. Noch wollte<lb/>
+das Ungluͤck, daß ich bei ſo unvorſichtigem Laufen<lb/>
+Jemanden auf den Fuß trat. Ich mochte ihm<lb/>
+weh gethan haben; ich erhielt einen ſtarken Stoß,<lb/>
+und ich fiel hin. —</p><lb/>
+<p>Als ich zuerſt zum Bewußtſeyn zuruͤckkehrte,<lb/>
+lag ich gemaͤchlich in einem guten Bette, das un¬<lb/>
+ter vielen andern Betten in einem geraͤumigen<lb/>
+und ſchoͤnen Saale ſtand. Es ſaß mir Jemand<lb/>
+zu Haupten; es gingen Menſchen durch den Saal<lb/>
+von einem Bette zum andern. Sie kamen vor<lb/>
+das meine und unterhielten ſich von mir. Sie<lb/>
+nannten mich aber <hi rendition="#g">Numero Zwoͤlf</hi>, und an der<lb/>
+<pb n="120" facs="#f0140"/>
+Wand zu meinen Fuͤßen ſtand doch ganz gewiß,<lb/>
+es war keine Taͤuſchung, ich konnte es deutlich le¬<lb/>
+ſen, auf ſchwarzer Marmortafel mit großen golde¬<lb/>
+nen Buchſtaben mein Name</p><lb/>
+<p> <hi rendition="#aq #g">PETER SCHLEMIHL</hi><lb/>
+ganz richtig geſchrieben. Auf der Tafel ſtanden<lb/>
+noch unter meinem Namen zwei Reihen Buch¬<lb/>
+ſtaben, ich war aber zu ſchwach, um ſie zuſam¬<lb/>
+men zu bringen, ich machte die Augen wie¬<lb/>
+der zu. —</p><lb/>
+<p>Ich hoͤrte Etwas, worin von <hi rendition="#g">Peter Schle</hi>¬<lb/>
+<hi rendition="#g">mihl</hi> die Rede war, laut und vernehmlich able¬<lb/>
+ſen, ich konnte aber den Sinn nicht faſſen; ich<lb/>
+ſah einen freundlichen Mann und eine ſehr ſchoͤ¬<lb/>
+ne Frau in ſchwarzer Kleidung vor meinem Bette<lb/>
+erſcheinen. Die Geſtalten waren mir nicht fremd<lb/>
+und ich konnte ſie nicht erkennen.</p><lb/>
+<p>Es verging einige Zeit, und ich kam wieder<lb/>
+zu Kraͤften. Ich hieß <hi rendition="#g">Numero Zwoͤlf</hi>, und<lb/>
+<hi rendition="#g">Numero Zwoͤlf</hi> galt ſeines langen Bartes we¬<lb/>
+gen fuͤr einen Juden, darum er aber nicht minder<lb/>
+ſorgfaͤltig gepflegt wurde. Daß er keinen Schatten<lb/>
+hatte, ſchien unbemerkt geblieben zu ſeyn. Meine<lb/>
+<pb n="121" facs="#f0141"/>
+Stiefel befanden ſich, wie man mich verſicherte,<lb/>
+nebſt Allem, was man bei mir gefunden, als ich<lb/>
+hieher gebracht worden, in gutem und ſicherm Ge¬<lb/>
+wahrſam, um mir nach meiner Geneſung wieder<lb/>
+zugeſtellt zu werden. Der Ort, worin ich krank<lb/>
+lag, hieß das <hi rendition="#aq #b #g">SCHLEMIHLIUM</hi>; was<lb/>
+taͤglich von <hi rendition="#g">Peter Schlemihl</hi> abgeleſen wurde,<lb/>
+war eine Ermahnung fuͤr denſelben, als den Ur¬<lb/>
+heber und Wohlthaͤter dieſer Stiftung zu beten.<lb/>
+Der freundliche Mann, den ich an meinem Bette<lb/>
+geſehen hatte, war <hi rendition="#g">Bendel</hi>, die ſchoͤne Frau<lb/>
+war <hi rendition="#g">Mina</hi>.</p><lb/>
+<p>Ich genas unerkannt im <hi rendition="#g">Schlemihlio</hi>,<lb/>
+und erfuhr noch mehr, ich war in <hi rendition="#g">Bendel's</hi><lb/>
+Vaterſtadt, wo er aus dem Überreſt meines ſonſt<lb/>
+nicht geſegneten Goldes dieſes Hoſpitium, wo Un¬<lb/>
+gluͤckliche mich ſegneten, unter meinem Namen ge¬<lb/>
+ſtiftet hatte, und er fuͤhrte uͤber daſſelbe die Auf¬<lb/>
+ſicht. <hi rendition="#g">Mina</hi> war Wittwe, ein ungluͤcklicher Kri¬<lb/>
+minal-Prozeß hatte dem Herrn <hi rendition="#g">Rascal</hi> das Le¬<lb/>
+ben und ihr ſelbſt ihr mehrſtes Vermoͤgen gekoſtet.<lb/>
+Ihre Eltern waren nicht mehr. Sie lebte hier<lb/>
+als eine gottesfuͤrchtige Wittwe, und uͤbte Werke<lb/>
+der Barmherzigkeit. —</p><lb/>
+<pb n="122" facs="#f0142"/>
+<p>Sie unterhielt ſich einſt am Bette Numero<lb/>
+Zwoͤlf mit dem Herrn <hi rendition="#g">Bendel</hi>: “Warum,<lb/>
+edle Frau, wollen Sie ſich ſo oft der boͤſen Luft,<lb/>
+die hier herrſcht, ausſetzen? Sollte denn das Schick¬<lb/>
+ſal mit Ihnen ſo hart ſeyn, daß Sie zu ſterben<lb/>
+begehrten?„ — “Nein, Herr <hi rendition="#g">Bendel</hi>, ſeit ich<lb/>
+meinen langen Traum ausgetraͤumt habe, und in<lb/>
+mir ſelber erwacht bin, geht es mir wohl, ſeitdem<lb/>
+wuͤnſche ich nicht mehr und fuͤrchte nicht mehr den<lb/>
+Tod. Seitdem denke ich heiter an Vergangenheit<lb/>
+und Zukunft. Iſt es nicht auch mit ſtillem in¬<lb/>
+nerlichem Gluͤck, daß Sie jetzt auf ſo gottſelige<lb/>
+Weiſe Ihrem Herrn und Freunde dienen?„ —<lb/>
+“Sei Gott gedankt, ja, edle Frau. Es iſt uns<lb/>
+doch wunderſam ergangen, wir haben viel Wohl<lb/>
+und bitt'res Weh unbedachtſam aus dem vollen Be¬<lb/>
+cher geſchluͤrft. Nun iſt er leer; nun moͤchte Ei¬<lb/>
+ner meinen, das ſei Alles nur die Probe geweſen,<lb/>
+und, mit kluger Einſicht geruͤſtet, den wirklichen<lb/>
+Anfang erwarten. Ein anderer iſt nun der wirk¬<lb/>
+liche Anfang, und man wuͤnſcht das erſte Gaukel¬<lb/>
+ſpiel nicht zuruͤck, und iſt dennoch im Ganzen<lb/>
+froh, es, wie es war, gelebt zu haben. Auch find'<lb/>
+ich in mir das Zutrauen, daß es nun unſerm al¬<lb/>
+<pb n="123" facs="#f0143"/>
+ten Freund beſſer ergehen muß, als damals.„ —<lb/>
+“Auch in mir,„ erwiederte die ſchoͤne Wittwe,<lb/>
+und ſie gingen an mir voruͤber.</p><lb/>
+<p>Dieſes Geſpraͤch hatte einen tiefen Eindruck<lb/>
+in mir zuruͤck gelaſſen; aber ich zweifelte im Gei¬<lb/>
+ſte, ob ich mich zu erkennen geben oder unerkannt<lb/>
+von dannen gehen ſollte. — Ich entſchied mich.<lb/>
+Ich ließ mir Papier und Bleiſtift geben, und ſchrieb<lb/>
+die Worte:</p><lb/>
+<p rendition="#et">“Auch Eurem alten Freunde ergeht es nun<lb/>
+beſſer als damals, und buͤßet er, ſo iſt es<lb/>
+Buße der Verſoͤhnung.„</p><lb/>
+<p>Hierauf begehrte ich mich anzuziehen, da ich<lb/>
+mich ſtaͤrker befaͤnde. Man holte den Schluͤſſel<lb/>
+zu dem kleinen Schrank, der neben meinem Bette<lb/>
+ſtand, herbei. Ich fand Alles, was mir gehoͤrte,<lb/>
+darin. Ich legte meine Kleider an, hing meine<lb/>
+botaniſche Kapſel, worin ich mit Freuden meine<lb/>
+nordiſchen Flechten wieder fand, uͤber meine ſchwar¬<lb/>
+ze Kurtka um, zog meine Stiefel an, legte den<lb/>
+geſchriebenen Zettel auf mein Bett, und, ſo wie<lb/>
+die Thuͤr' aufging, war ich ſchon weit auf dem<lb/>
+Wege nach der Thebais.</p><lb/>
+<pb n="124" facs="#f0144"/>
+<p>Wie ich laͤngſt der ſyriſchen Kuͤſte den Weg,<lb/>
+auf den ich mich zum letzten Mal vom Hauſe ent¬<lb/>
+fernt hatte, zuruͤcklegte, ſah ich mir meinen ar¬<lb/>
+men Figaro entgegen kommen. Dieſer vortreffli¬<lb/>
+che Pudel ſchien ſeinen Herrn, <choice><sic>denn</sic><corr>den</corr></choice> er lange zu<lb/>
+Hauſe erwartet haben mochte, auf die Spur nach¬<lb/>
+gehen zu wollen. Ich ſtand ſtill, und rief ihm<lb/>
+zu. Er ſprang bellend an mich mit tauſend ruͤh¬<lb/>
+renden Äußerungen ſeiner unſchuldigen ausgelaſſe¬<lb/>
+nen Freude. Ich nahm ihn unter dem Arm,<lb/>
+denn freilich konnte er mir nicht folgen, und brachte<lb/>
+ihn mit mir wieder nach Hauſe.</p><lb/>
+<p>Ich fand dort Alles in der alten Ordnung,<lb/>
+und kehrte nach und nach, ſo wie ich wieder Kraͤfte<lb/>
+bekam, zu meinen vormaligen Beſchaͤftigungen und<lb/>
+zu meiner alten Lebensweiſe zuruͤck. Nur daß ich<lb/>
+mich ein ganzes Jahr hindurch der mir ganz un¬<lb/>
+zutraͤglichen Polar-Kaͤlte enthielt. —</p><lb/>
+<p>Und ſo, mein lieber <hi rendition="#g">Chamiſſo</hi>, leb' ich<lb/>
+noch heute. Meine Stiefel nutzen ſich nicht<lb/>
+ab, wie das ſehr gelehrte Werk des beruͤhmten<lb/>
+<hi rendition="#aq #g">Tieckius</hi>, <hi rendition="#aq">de rebus gestis Pollicilli</hi>, es mich<lb/>
+<pb n="125" facs="#f0145"/>
+Anfangs befuͤrchten laſſen. Ihre Kraft bleibt un¬<lb/>
+gebrochen; nur meine Kraft geht dahin, doch hab’<lb/>
+ich den Troſt, ſie an einen Zweck in fortgeſetzter<lb/>
+Richtung und nicht fruchtlos verwendet zu haben.<lb/>
+Ich habe, ſo weit meine Stiefel gereicht, die<lb/>
+Erde, ihre Geſtaltung, ihre Hoͤhen, ihre Tem¬<lb/>
+peratur, ihre Atmoſphaͤre in ihrem Wechſel, die<lb/>
+Erſcheinungen ihrer magnetiſchen Kraft, das Le¬<lb/>
+ben auf ihr, beſonders im Pflanzenreiche, gruͤnd¬<lb/>
+licher kennen gelernt, als vor mir irgend ein<lb/>
+Menſch. Ich habe die Thatſachen mit moͤglich¬<lb/>
+ſter Genauigkeit in klarer Ordnung aufgeſtellt in<lb/>
+mehrern Werken, meine Folgerungen und Anſich¬<lb/>
+ten fluͤchtig in einigen Abhandlungen niedergelegt. —<lb/>
+Ich habe die Geographie vom Innern von Afrika und<lb/>
+von den noͤrdlichen Polarlaͤndern, vom Innern von<lb/>
+Aſien und von ſeinen oͤſtlichen Kuͤſten, feſtgeſetzt.<lb/>
+Meine <hi rendition="#aq">Historia stirpium plantarum utriusque<lb/>
+orbis</hi> ſteht da als ein großes Fragment der <hi rendition="#aq">Flora<lb/>
+universalis terrae</hi>, und als ein Glied meines<lb/>
+<hi rendition="#aq">Systema naturae</hi>. Ich glaube darin nicht bloß<lb/>
+die Zahl der bekannten <hi rendition="#aq">Species</hi> maͤßig um mehr<lb/>
+als ein Drittel vermehrt zu haben, ſondern auch<lb/>
+Etwas fuͤr das natuͤrliche Syſtem und fuͤr die<lb/>
+<pb n="126" facs="#f0146"/>
+Geographie der Pflanzen gethan zu haben. Ich<lb/>
+arbeite jetzt fleißig an meiner Fauna. Ich werde<lb/>
+Sorge tragen, daß vor meinem Tode meine Ma¬<lb/>
+nuſkripte bei der Berliner Univerſitaͤt niederge¬<lb/>
+legt werden.</p><lb/>
+<p>Und Dich, mein lieber <hi rendition="#g">Chamiſſo</hi>, hab’ ich<lb/>
+zum Bewahrer meiner wunderſamen Geſchichte er¬<lb/>
+koren, auf daß ſie vielleicht, wenn ich von der<lb/>
+Erde verſchwunden bin, Manchem ſeiner Bewoh¬<lb/>
+ner zur nuͤtzlichen Lehre gereichen koͤnne. Du aber,<lb/>
+mein Freund, willſt Du unter den Menſchen le¬<lb/>
+ben, ſo lerne verehren zuvoͤrderſt den Schatten,<lb/>
+ſodann das Geld. Willſt Du nur Dir und Dei¬<lb/>
+nem beſſern Selbſt leben, o ſo brauchſt Du kei¬<lb/>
+nen Rath.</p><lb/>
+<trailer> <hi rendition="#aq #c"><hi rendition="#g">Explicit</hi>.</hi> </trailer><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="127" facs="#f0147"/>
+</div> </body> <back> <div n="1" type="advertisement"> <head> <hi rendition="#b">Literariſche Anzeige.</hi> </head><lb/>
+<p> <hi rendition="#g">Geſchichte des Zwillings a Pede</hi>,<lb/>
+<hi rendition="#g">von Johannes Author</hi>. Nuͤrnberg,<lb/>
+in Commiſſion bei Joh. Leonh. Schrag,<lb/>
+1811. 174 S. 8. 18 gr. oder 1fl. 6 kr.</p><lb/>
+<p> <hi rendition="#in">E</hi>s gab eine Zeit, und vielleicht iſt ſie<lb/>
+noch nicht <hi rendition="#g">ganz</hi> voruͤber, wo das Kapitel der<lb/>
+Rhetorik <hi rendition="#aq">de tropis et figuris</hi>, in Ausuͤbung ge¬<lb/>
+bracht, fuͤr Poeſie gehalten wurde. Der Verſtand<lb/>
+hatte, ſo lange er noch wohlauf war, die ſtolze<lb/>
+Freude, die aufgetriebenen Rudel, Voͤlker ꝛc. von<lb/>
+Tropen und Figuren als allerlei ihm unterthane<lb/>
+Kreatur aufbewahrend anzureihen und aufzuhen¬<lb/>
+ken. Wenn er aber muͤde war von dieſer Jagd,<lb/>
+und nun die Großen des Reichs (der Seele) zu<lb/>
+leben und zu weben anfingen, ja ihn endlich ſelbſt<lb/>
+in die allgemeine Luſt und Froͤhlichkeit mit hinein<lb/>
+riſſen, ſo daß er kein Wort gegen dieſe Satur¬<lb/>
+<pb n="128" facs="#f0148"/>
+nalien aufbringen konnte: ſo kam alles vorher muͤh¬<lb/>
+ſam Entbotene wie von ſelbſt, und noch mehr,<lb/>
+und nahm ungehindert Theil an der Freude; und<lb/>
+es ging faſt, wie es in der Oper heißt: die Erde<lb/>
+ward ein Himmelreich, und Sterbliche den Goͤt¬<lb/>
+tern gleich. Nun wollte aber der Verſtand, wenn<lb/>
+er ſich wieder begriff, ſein Recht und Weſen, zu<lb/>
+ſondern und zu trennen, nicht aufgeben; und ſo<lb/>
+loͤſte er immer wieder das Zauberband, welches<lb/>
+auch ihn in Himmel und Erde verknuͤpft hatte.<lb/>
+Die himmliſche Klarheit, in welcher alles ſchwamm,<lb/>
+hielt er fuͤr Dunkelheit, aus welcher er ſich ringen<lb/>
+zu muͤſſen glaubte: und ſo ſchied und ſchied er,<lb/>
+was er nur konnte, und nannte dies Aufklaͤrung.<lb/>
+Aber er merkte in der Arbeit gar nicht, daß er<lb/>
+in dem Geſchiedenen nur abgeſchiedene Geiſter hat¬<lb/>
+te, welche auch von ihm wieder ſchieden und hin¬<lb/>
+flogen, wo ſie hergekommen waren. Und ſo blieb<lb/>
+und bleibt ihm ein Geheimniß, was nur ſo weit<lb/>
+eines iſt, als der Menſch aufgehoͤrt hat, ein Kind<lb/>
+am Geiſte zu ſeyn.</p><lb/>
+<p>Wir haben hiermit, faſt unwillkuͤhrlich, das<lb/>
+Feld angegeben, welches dieſes Stiefelpaar (eben der<lb/>
+<fw type="catch" place="bottom">Zwil¬<lb/>
+</fw>
+<pb n="129" facs="#f0149"/>
+Zwilling a Pede) und ſein Herr mit dem geiſt¬<lb/>
+reichſten Spotte und gemuͤthlichſten Scherze be¬<lb/>
+ſchreitet. Die prunkende Armſeligkeit und Tyran¬<lb/>
+nei der Aufklaͤrung, beſonders von Seiten der Er¬<lb/>
+ziehung, gibt ſich hier ſelbſt zum Beſten; und ei¬<lb/>
+nen herrlichen Abſtich dagegen gewaͤhrt die nur<lb/>
+ſtill und ſanft durchleuchtende klare, ruhige Mil¬<lb/>
+de eines einfachen, geſunden Gemuͤths. Es ſind<lb/>
+aber uͤberhaupt gar vielfache Betrachtungen, zu<lb/>
+welchen dies aͤcht humoriſtiſche Werk veranlaßt.<lb/>
+Wer hier eine etwa nachzuerzaͤhlende, fleißig ge¬<lb/>
+fugte und ſorgfaͤltig geglaͤttete, mit luſtigen Ein¬<lb/>
+faͤllen durchſpickte Geſchichte ſuchte, moͤchte durch¬<lb/>
+aus ſeine Rechnung nicht finden: denn nicht lei¬<lb/>
+ſer und loſer haͤngen die Faͤden hier zuſammen,<lb/>
+wie in dem Gegenſtande ſelbſt alles zuſammen¬<lb/>
+haͤngt: ja alles wird gewiſſermaßen ſein eigenes<lb/>
+Widerſpiel, Widerſpiel ſeiner ſelbſt. Keckes Ab¬<lb/>
+ſpringen, eine Freiheit, die eben im Einzelnen,<lb/>
+allen logiſchen Zuſammenhang verſchmaͤhend, alles,<lb/>
+was ſich ihr bietet, mit hoͤherer, combinatoriſcher<lb/>
+und doch ſpielender Kraft zwingt, Einem Ziele nach¬<lb/>
+zugehen, ein ſchaͤlkiſches Verſchweigen des innern<lb/>
+Friedens und der Eintracht, welches dieſe <hi rendition="#aq">disjecta</hi><lb/>
+<fw type="sig" place="bottom">I<lb/>
+</fw>
+<pb n="130" facs="#f0150"/>
+<hi rendition="#aq">membra poetae</hi> doch zuſammen haͤlt, und erſt<lb/>
+aus ſich zum Scherz entlaͤßt, damit ſie ihr eige¬<lb/>
+nes, ſelbſtſtaͤndiges Spiel treiben, und mit dieſem<lb/>
+Tollwerden ihre Einſeitigkeit und Nichtigkeit er¬<lb/>
+weiſen — dieſe Elemente ſind es, welche hier ganz<lb/>
+unwillkuͤhrlich und abſichtslos auf eine kindliche,<lb/>
+demuͤthige und wahrhaft ſelige Einfalt des Ge¬<lb/>
+muͤths, als Gipfel aller Bildung, hintreiben. Aber<lb/>
+der Reichthum des Witzes, welcher hier herrſcht,<lb/>
+und die ganze innere und aͤußere Welt, wo ſie ſich<lb/>
+bietet, ſein nennt, zeigt, daß hier keinesweges von<lb/>
+einer unkraͤftigen, den Kampf ſcheuenden Einfalt<lb/>
+die Rede ſei; ſondern von der Einfalt eines Wei¬<lb/>
+ſen, der ſich kraͤftig und heiter durch die Wider¬<lb/>
+ſpruͤche hindurch gerungen. Nur hier, im Mit¬<lb/>
+telpunkte, iſt der Johannes Author feſt zu halten;<lb/>
+im Übrigen und Einzelnen entſchluͤpft der Schalk<lb/>
+unter den Haͤnden. So heißt es mitten im deſul¬<lb/>
+toriſchſten Scherz: “Der Menſch iſt ein Halb¬<lb/>
+gott; aber nicht wie Theſeus, Herkules und an¬<lb/>
+dere: denn Nichtsthun, ſagen alle, iſt ſeine groͤßte<lb/>
+Heldenthat. Die Helden fuͤhrten ewige Kriege;<lb/>
+und auch hier lebt der Halbgott im Kriege mit<lb/>
+der Welt, im Frieden mit ſich; der Halbmenſch<lb/>
+<pb n="131" facs="#f0151"/>
+im Streit mit ſich und im Frieden mit der Welt;<lb/>
+und wenn das gute Stuͤndlein bei erſterm kommt,<lb/>
+ſo reichen ſich beide die Hand, und der Menſch<lb/>
+muß laͤcheln und ſagen: es iſt doch nicht alles ei¬<lb/>
+tel hienieden ꝛc.„ Denn hier muͤßte mehr abge¬<lb/>
+ſchrieben werden, als erlaubt iſt.</p><lb/>
+<p>Die Freiheit dieſes Werkchens, welche viel¬<lb/>
+leicht von vielen fuͤr Harmloſigkeit angeſehen wer¬<lb/>
+den wird, ſcheint um ſo intereſſanter: da ſie ei¬<lb/>
+nen ſo herben Gegenſatz bildet gegen den Alexan¬<lb/>
+drinismus in der Poeſie, welcher mit geglaͤtteter<lb/>
+Muͤhſeligkeit ſie zu erhaſchen glaubt, und wirk¬<lb/>
+lich auch wohl nicht ſelten den Beifall des Pub¬<lb/>
+likums ſtiehlt. Von dieſem iſt aber hier eben ſo<lb/>
+wenig zu ſpuͤren, als andererſeits von der er¬<lb/>
+zwungenen, ewig mit ſich ſelbſt coquettirenden<lb/>
+Begeiſterung fuͤr das Heilige, von der poetiſchen<lb/>
+Verduͤnſtung und Vergaſung, in welcher ſich heut<lb/>
+zu Tage die unkraͤftigſten und unwiſſendſten Na¬<lb/>
+turen gefallen. Hier iſt viel zwiſchen den Zei¬<lb/>
+len zu leſen: und wer nur dem Schalk die Huͤlle<lb/>
+abziehen kann, auch wo er ſie feſthalten moͤchte,<lb/>
+der wird ihn fuͤr eine recht kerngeſunde, friſche,<lb/>
+ſchoͤne Natur anſprechen.</p><lb/>
+<fw type="sig" place="bottom">I 2<lb/>
+</fw>
+<pb n="132" facs="#f0152"/>
+<p>Die Erwaͤhnung dieſes ſeit ſeiner Erſchei¬<lb/>
+nung nicht erwaͤhnten Werkchens glaubte Referent<lb/>
+der Sache ſchuldig zu ſeyn. Der Verfaſſer ſcheint<lb/>
+mit den Beſten ſeiner Nation das Schickſal zu<lb/>
+theilen, nicht gekannt, oder auch ignorirt zu wer¬<lb/>
+den: obwohl er, dem Geiſte nach zu urtheilen,<lb/>
+oͤfter vorkommt. Wenn es nun gleich, wie nach<lb/>
+<hi rendition="#g">Schiller</hi>, bei den beſten Frauen und Staaten,<lb/>
+auch hier eintreffen ſollte, daß diejenigen die be¬<lb/>
+ſten ſeyn moͤchten, von denen man am wenigſten<lb/>
+ſpricht: ſo thun doch auch Maͤnner das Ihrige,<lb/>
+wenn ſie das Anerkannte ausſprechen, was wohl<lb/>
+bei einer pſeudonymen Schrift um ſo redlicher und<lb/>
+loͤblicher iſt.</p><lb/>
+<p>A. W.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb facs="#f0153"/>
+<div type="appendix"> <figure/>
+<pb facs="#f0154"/>
+<pb facs="#f0155"/>
+<figure/>
+<pb facs="#f0156"/>
+<pb facs="#f0157"/>
+<figure/>
+<pb facs="#f0158"/>
+<pb facs="#f0159"/>
+<figure/>
+<pb facs="#f0160"/>
+<pb facs="#f0161"/>
+<figure/>
+<pb facs="#f0162"/>
+<pb facs="#f0163"/>
+<figure/>
+<pb facs="#f0164"/>
+</div>
+<pb facs="#f0165"/>
+<pb facs="#f0166"/>
+<pb facs="#f0167"/>
+</back> </text> </TEI>

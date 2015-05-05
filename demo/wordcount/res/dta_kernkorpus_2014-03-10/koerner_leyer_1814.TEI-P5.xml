@@ -1,0 +1,1816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Leyer und Schwerdt</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118713507">
+<surname>Körner</surname>
+<forename>Theodor</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">103</measure>
+<measure type="tokens">8177</measure>
+<measure type="types">2669</measure>
+<measure type="characters">54412</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:04Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/koerner_leyer_1814</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/koerner_leyer_1814</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/koerner_leyer_1814</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/koerner_leyer_1814</idno>
+<idno type="DTADirName">koerner_leyer_1814</idno>
+<idno type="DTAID">16410</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905193258</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Körner, Theodor: Leyer und Schwerdt. Berlin, 1814.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Leyer und Schwerdt</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118713507">
+<surname>Körner</surname>
+<forename>Theodor</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[3] Bl., 88 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Nicolai</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1814</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Zentral- und Landesbibliothek Berlin</repository>
+<idno>
+<idno type="shelfmark">Berlin ZLB, o III 42908</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text>         <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<figure/>
+<pb facs="#f0007"/>
+<titlePage type="main">                 <docTitle>                     <titlePart type="main"><hi rendition="#g">Leyer und Schwerdt</hi></titlePart><lb/>
+</docTitle>                 <byline>von<lb/>
+<docAuthor><hi rendition="#g">Theodor Koͤrner<lb/>
+Lieutenant im                             Luͤtzow'ſchen Freikorps</hi>.</docAuthor>                 </byline><lb/>
+<figure/><lb/>
+<docEdition>Einzige rechtmaͤßige, von dem Vater des Dichters veran¬<lb/>
+ſtaltete Ausgabe.</docEdition><lb/>
+<milestone rendition="#hr" unit="section"/><lb/>
+<docImprint>                     <pubPlace><hi rendition="#g">Berlin</hi>,</pubPlace>                     <docDate><hi rendition="#g">1814</hi>.</docDate><lb/>
+<publisher><hi rendition="#g">In der Nicolaiſchen                     Buchhandlung</hi>.</publisher><lb/>
+</docImprint>             </titlePage>         </front>         <body>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<div n="1">                 <head>                     <hi rendition="#g">Zueignung.</hi><lb/>
+</head>                 <lg type="poem">                     <lg n="1">                         <l>                             <hi rendition="#in">E</hi>uch allen, die <hi rendition="#g">Ihr</hi>                             noch mit Freundestreue,</l><lb/>
+<l>An den verwegnen Zitherſpieler denkt,</l><lb/>
+<l>Und deren Bild, ſo oft ich es erneue,</l><lb/>
+<l>Mir ſtillen Frieden in die Seele ſenkt,</l><lb/>
+<l>                             <hi rendition="#g">Euch</hi> gilt dies Lied! — O daß es <hi rendition="#g">Euch</hi> erfreue! —</l><lb/>
+<l>Zwar hat <hi rendition="#g">Euch</hi> oft mein wildes Herz                             gekraͤnkt,</l><lb/>
+<l>Hat ſtuͤrmiſch manche Stunde <hi rendition="#g">Euch</hi>                             verbittert,</l><lb/>
+<l>Doch <hi rendition="#g">Eure</hi> Treu' und Liebe nicht                             erſchuͤttert.</l><lb/>
+</lg>                     <lg n="2">                         <l>So bleibt mir hold! — des Vaterlandes Fahnen,</l><lb/>
+<l>Hoch flattern ſie am deutſchen Freiheitsport.</l><lb/>
+<l>Es ruft die heil'ge Sprache unſrer Ahnen:</l><lb/>
+<l>„Ihr Saͤnger, vor! und ſchuͤtzt das deutſche Wort!“</l><lb/>
+<l>Das kuͤhne Herz laͤßt ſich nicht laͤnger mahnen,</l><lb/>
+<l>Der Sturm der Schlachten traͤgt es brauſend fort,</l><lb/>
+<l>Die Leyer ſchweigt, die blanken Schwerdter klingen,</l><lb/>
+<l>Heraus, mein Schwerdt! Magſt auch dein Liedchen ſingen.</l><lb/>
+</lg>
+<pb facs="#f0010"/>
+<lg n="3">                         <l>Laut tobt der Kampf! — lebt wohl, <hi rendition="#g">Ihr</hi> treuen                             Seelen,</l><lb/>
+<l>                             <hi rendition="#g">Euch</hi> bringt dies Blatt des Freundes Gruß                             zuruͤck,</l><lb/>
+<l>Es mag <hi rendition="#g">Euch</hi> oft, recht oft von ihm                             erzaͤhlen,</l><lb/>
+<l>Es trage ſanft ſein Bild vor Euren Blick. —</l><lb/>
+<l>Und ſollt' ich einſt im Siegesheimzug fehlen, —</l><lb/>
+<l>Weint nicht um mich, beneidet mir mein Gluͤck,</l><lb/>
+<l>Denn was berauſcht, die <hi rendition="#g">Leyer</hi> vorgeſungen,</l><lb/>
+<l>Das hat des <hi rendition="#g">Schwerdtes</hi> freie That errungen.</l><lb/>
+</lg>                 </lg>                 <milestone unit="section" rendition="#hr"/>
+<pb facs="#f0011"/>
+<milestone unit="section" rendition="#hr"/>                 <div type="contents">                     <head>                         <hi rendition="#g">Inhalt</hi>.<lb/>
+</head>                     <list>                         <item>Andreas Hofers Tod.<ref> Seite 3</ref></item><lb/>
+<item>Die Eichen.<ref> — 4</ref></item><lb/>
+<item>Vor Rauchs Buͤſte der Koͤnigin Louiſe.<ref> —                             6</ref></item><lb/>
+<item>Auf dem Schlachtfelde von Aspern.<ref> — 7</ref></item><lb/>
+<item>Hoch lebe das Haus Öſterreich.<ref> — 14</ref></item><lb/>
+<item>Dem Sieger von Aspern.<ref> — 18</ref></item><lb/>
+<item>Bei der Muſik des Prinzen Louis Ferdinand.<ref> — 20</ref></item><lb/>
+<item>Mein Vaterland.<ref> — 23</ref></item><lb/>
+<item>Moskau.<ref> — 25</ref></item><lb/>
+<item>Lied zur feierlichen Einſegnung des preußiſchen Frei-Corps.<ref> —                                 26</ref></item><lb/>
+<item>Troſt.<ref> — 28</ref></item><lb/>
+<item>Durch!<ref> — 32</ref></item><lb/>
+<item>Abſchied von Wien.<ref> — 35</ref></item><lb/>
+<item>Aufruf.<ref> — 37</ref></item><lb/>
+<item>Der preußiſche Graͤnz-Adler.<ref> — 40</ref></item><lb/>
+<item>An die Koͤnigin Louiſe.<ref> — 41</ref></item><lb/>
+<item>Jaͤgerlied.<ref> — 43</ref></item><lb/>
+<item>Lied der ſchwarzen Jaͤger.<ref> — 45</ref></item><lb/>
+<item>Am Hedwigsbrunnen bei Jauer<ref> — 47</ref></item><lb/>
+<pb facs="#f0012"/>
+<item>Letzter Troſt.<ref> Seite 48</ref></item><lb/>
+<item>Bundeslied vor der Schlacht.<ref> — 51</ref></item><lb/>
+<item>Gebet waͤhrend der Schlacht.<ref> — 55</ref></item><lb/>
+<item>Mismuth.<ref> — 57</ref></item><lb/>
+<item>An den Koͤnig.<ref> — 59</ref></item><lb/>
+<item>Reiterlied.<ref> — 60</ref></item><lb/>
+<item>Troſt, nach Abſchluß des Waffenſtillſtandes.<ref> — 63</ref></item><lb/>
+<item>Abſchied vom Leben.<ref> — 65</ref></item><lb/>
+<item>Luͤtzow's wilde Jagd.<ref> — 66</ref></item><lb/>
+<item>Gebet.<ref> — 69</ref></item><lb/>
+<item>Öſterreichs Doppeladler.<ref> — 71</ref></item><lb/>
+<item>Unſere Zuverſicht.<ref> — 72</ref></item><lb/>
+<item>Was uns bleibt.<ref> — 74</ref></item>                     </list><lb/>
+<list>                         <head><hi rendition="#g">Nachtrag</hi>.<lb/>
+Maͤnner und Buben.<ref> —                                 78</ref></head><lb/>
+<item>Trinklied vor der Schlacht.<ref> — 82</ref></item><lb/>
+<item>Schwerdtlied.<ref> — 84</ref></item>                     </list><lb/>
+</div>                 <milestone unit="section" rendition="#hr"/>             </div>
+<pb n="[1]" facs="#f0013"/>
+<div n="1">                 <head>                     <hi rendition="#g">Leyer und Schwerdt.</hi><lb/>
+</head>                 <milestone unit="section" rendition="#hr"/>                 <fw type="sig" place="bottom">1<lb/>
+</fw>
+<pb n="[2]" facs="#f0014"/>
+<pb n="[3]" facs="#f0015"/>
+<milestone unit="section" rendition="#hr"/>                 <div n="2">                     <head>                         <hi rendition="#b #g">Andreas Hofer's Tod.</hi><lb/>
+</head>                     <p rendition="#c">1809.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">T</hi>reu hiengſt du deinem alten                                 Fuͤrſten an,</l><lb/>
+<l rendition="#et">Treu wollteſt du dein altes Gut erfechten,</l><lb/>
+<l rendition="#et">Der Freiheit ihren ew'gen Bund zu flechten,</l><lb/>
+<l rendition="#et">Betratſt du kuͤhn die große Heldenbahn.</l><lb/>
+<l>Und treu kam auch dein Volk zu dir heran,</l><lb/>
+<l rendition="#et">Ob ſie der Vaͤter Gluͤck erkaͤmpfen                                 moͤchten;</l><lb/>
+<l rendition="#et">Ach! wer vermag's, mit Gottes Spruch zu rechten? —</l><lb/>
+<l rendition="#et">Der ſchoͤne Glaube war ein ſchoͤner Wahn.</l><lb/>
+</lg>                         <lg n="2">                             <l>Es fangen dich die Sklaven des Tyrannen,</l><lb/>
+<l rendition="#et">Doch wie zum Siege blickſt du Himmelwaͤrts,</l><lb/>
+<l rendition="#et">Der Freiheit Weg geht durch des Todes Schmerz!</l><lb/>
+<l>Und ruhig ſiehſt du ihre Buͤchſen ſpannen,</l><lb/>
+<l rendition="#et">Sie ſchlagen an, die Kugel trifft in's Herz,</l><lb/>
+<l rendition="#et">Und deine freie Seele fliegt von dannen!</l><lb/>
+</lg>                     </lg>                     <milestone unit="section" rendition="#hr"/>
+<pb n="4" facs="#f0016"/>
+<milestone unit="section" rendition="#hr"/>                 </div>                 <div n="2">                     <head>                         <hi rendition="#g">Die Eichen</hi>.<lb/>
+</head>                     <p rendition="#c">1811.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">A</hi>bend wird's, des Tages Stimmen                                 ſchweigen,</l><lb/>
+<l rendition="#et">Roͤther ſtrahlt der Sonne letztes Gluͤhn,</l><lb/>
+<l>Und hier ſitz' ich unter euren Zweigen,</l><lb/>
+<l rendition="#et">Und das Herz iſt mir ſo voll, ſo kuͤhn!</l><lb/>
+<l>Alter Zeiten alte treue Zeugen,</l><lb/>
+<l rendition="#et">Schmuͤckt euch doch des Lebens friſches Gruͤn,</l><lb/>
+<l>Und der Vorwelt kraͤftige Geſtalten</l><lb/>
+<l>Sind uns noch in eurer Pracht enthalten.</l><lb/>
+</lg>                         <lg n="2">                             <l>Viel des Edlen hat die Zeit zertruͤmmert,</l><lb/>
+<l rendition="#et">Viel des Schoͤnen ſtarb den fruͤhen Tod;</l><lb/>
+<l>Durch die reichen Blaͤtterkraͤnze ſchimmert</l><lb/>
+<l rendition="#et">Seinen Abſchied dort das Abendroth.</l><lb/>
+<l>Doch um das Verhaͤngniß unbekuͤmmert,</l><lb/>
+<l rendition="#et">Hat vergebens euch die Zeit bedroht,</l><lb/>
+<l>Und es ruft mir aus der Zweige Wehen:</l><lb/>
+<l>Alles Große muß im Tod beſtehen! —</l><lb/>
+</lg>                     </lg>
+<pb n="5" facs="#f0017"/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>Und ihr habt beſtanden! — Unter allen</l><lb/>
+<l rendition="#et">Gruͤnt ihr friſch und kuͤhn mit ſtarkem Muth.</l><lb/>
+<l>Wohl kein Pilger wird voruͤber wallen,</l><lb/>
+<l rendition="#et">Der in euerm Schatten nicht geruht.</l><lb/>
+<l>Und wenn herbſtlich eure Blaͤtter fallen,</l><lb/>
+<l rendition="#et">Todt auch ſind ſie euch ein koͤſtlich Gut,</l><lb/>
+<l>Denn verweſend werden eure Kinder</l><lb/>
+<l>Eurer naͤchſten Fruͤhlingspracht Begruͤnder.</l><lb/>
+</lg>                         <lg n="2">                             <l>Schoͤnes Bild von alter deutſcher Treue,</l><lb/>
+<l rendition="#et">Wie ſie beſſ're Zeiten angeſchaut;</l><lb/>
+<l>Wo in freudig kuͤhner Todesweihe,</l><lb/>
+<l rendition="#et">Buͤrger ihre Staaten feſtgebaut. —</l><lb/>
+<l>Ach was hilft's, daß ich den Schmerz erneue?</l><lb/>
+<l rendition="#et">Sind doch alle dieſem Schmerz vertraut!</l><lb/>
+<l>Deutſches Volk, du herrlichſtes vor allen,</l><lb/>
+<l>                                 <hi rendition="#g">Deine Eichen ſtehn</hi>, <hi rendition="#g">du                                     biſt gefallen</hi>!</l><lb/>
+</lg>                     </lg>                     <milestone unit="section" rendition="#hr"/>
+<pb n="6" facs="#f0018"/>
+<milestone unit="section" rendition="#hr"/>                 </div>                 <div n="2">                     <head>Vor Rauch's Buͤſte der Koͤnigin Louiſe.<lb/>
+</head>                     <p rendition="#c">1812.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <l>                             <hi rendition="#in">D</hi>u ſchlaͤfſt ſo ſanft! — Die ſtillen                             Zuͤge hauchen</l><lb/>
+<l rendition="#et">Noch deines Lebens ſchoͤne Traͤume wieder,</l><lb/>
+<l rendition="#et">Der Schlummer nur ſenkt ſeine Fluͤgel nieder,</l><lb/>
+<l rendition="#et">Und heil'ger Frieden ſchließt die klaren Augen.</l><lb/>
+<l>So ſchlummre fort, bis Deines Volkes Bruͤder,</l><lb/>
+<l rendition="#et">Wenn Flammenzeichen von den Bergen rauchen,</l><lb/>
+<l rendition="#et">Mit Gott verſoͤhnt die roſt'gen Schwerdter brauchen,</l><lb/>
+<l rendition="#et">Das Leben opfernd fuͤr die hoͤchſten Guͤter.</l><lb/>
+<l>Tief fuͤhrt der Herr durch Nacht und durch Verderben,</l><lb/>
+<l rendition="#et">So ſollen wir im Kampf das Heil erwerben,</l><lb/>
+<l rendition="#et">Daß unſre Enkel freie Maͤnner ſterben.</l><lb/>
+<l>Kommt dann der Tag der Freiheit und der Rache,</l><lb/>
+<l rendition="#et">Dann ruft <hi rendition="#g">Dein Volk</hi>, dann, <hi rendition="#g">Deutſche Frau</hi>, erwache,</l><lb/>
+<l rendition="#et">Ein guter Engel fuͤr die gute Sache.</l><lb/>
+</lg>                     <milestone unit="section" rendition="#hr"/>
+<pb n="7" facs="#f0019"/>
+<milestone unit="section" rendition="#hr"/>                 </div>                 <div n="2">                     <head>Auf dem Schlachtfelde von Aspern.<lb/>
+</head>                     <p rendition="#c">1812.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">S</hi>chlachtfeld! wo der Todesengel                                 wuͤrgte,</l><lb/>
+<l>Wo der Deutſche ſeine Kraft verbuͤrgte,</l><lb/>
+<l>Heil'ger Boden! dich gruͤßt mein Geſang!</l><lb/>
+<l>Frankreichs ſtolze Adler ſahſt du zittern,</l><lb/>
+<l>Sahſt des Wuͤthrichs Eiſenkraft zerſplittern,</l><lb/>
+<l>Die ſich frech die halbe Welt bezwang. —</l><lb/>
+<l>Euch! ihr Manen der gefallnen Helden,</l><lb/>
+<l>Deren Blick im Siegesdonner brach,</l><lb/>
+<l>Ruf' ich in den Fruͤhling eurer Welten</l><lb/>
+<l>Meines Herzens ganzen Jubel nach.</l><lb/>
+</lg>                         <lg n="2">                             <l>Daß ich damals nicht bei euch geſtanden! —</l><lb/>
+<l>Daß, wo Bruͤder Sieg und Freiheit fanden,</l><lb/>
+<l>Ich trotz Kraft und Jugend doch gefehlt!</l><lb/>
+<l>Gluͤckliche, die ihr den Tag erfochten,</l><lb/>
+<l>Ew'ge Lorbeern habt ihr euch geflochten,</l><lb/>
+<l>Zum Triumph des Vaterlands erwaͤhlt. —</l><lb/>
+<pb n="8" facs="#f0020"/>
+<l>Schwarz und traurig wie auf Grabestruͤmmern</l><lb/>
+<l>Waͤlzt auf Deutſchland ſich des Schickſals Macht,</l><lb/>
+<l>Doch begeiſternd wie mit Sternesſchimmern</l><lb/>
+<l>Bricht der eine Tag durch unſre Nacht.</l><lb/>
+</lg>                         <lg n="3">                             <l>Sonnenhauch in duͤſtern Nebeljahren!</l><lb/>
+<l>Deine Strahlen laß uns treu bewahren,</l><lb/>
+<l>Als Vermaͤchtniß einer ſtolzen Zeit.</l><lb/>
+<l>Ueberall im großen Vaterlande</l><lb/>
+<l>Von der Oſtſee bis zum Donauſtrande,</l><lb/>
+<l>Macht dein Name alle Herzen weit.</l><lb/>
+<l>Aspern klingts, und Karl klingts ſiegestrunken,</l><lb/>
+<l>Wo nur deutſch die Lippe lallen kann.</l><lb/>
+<l>Nein Germanien iſt nicht geſunken,</l><lb/>
+<l>Hat noch <hi rendition="#g">einen</hi> Tag und <hi rendition="#g">einen</hi> Mann.</l><lb/>
+</lg>                         <lg n="4">                             <l>Und ſo lange deutſche Stroͤme ſauſen,</l><lb/>
+<l>Und ſo lange deutſche Lieder brauſen,</l><lb/>
+<l>Gelten dieſe Namen ihren Klang.</l><lb/>
+<l>Was die Tage auch zerſchmettert haben</l><lb/>
+<l>Karl und Aspern iſt ins Herz gegraben</l><lb/>
+<l>Karl und Aspern donnert im Geſang.</l><lb/>
+<pb n="9" facs="#f0021"/>
+<l>Mag der Staub gefallner Helden modern,</l><lb/>
+<l>Die dem großen Tode ſich geweiht,</l><lb/>
+<l>Ihres Ruhmes Flammenzuͤge lodern,</l><lb/>
+<l>In dem Tempel der Unſterblichkeit.</l><lb/>
+</lg>                         <lg n="5">                             <l>Aber nicht, wie ſie die Nachwelt richte,</l><lb/>
+<l>Nicht die ew'ge Stimme der Geſchichte,</l><lb/>
+<l>Reißt der Mitwelt große Schuld entzwei.</l><lb/>
+<l>Ihre Todesweihe lebt im Liede,</l><lb/>
+<l>Doch umſonſt ſuch ich die Pyramide,</l><lb/>
+<l>Die der Denkſtein ihrer Groͤße ſey.</l><lb/>
+<l>Auf dem Wahlplatz heiligten die Ahnen,</l><lb/>
+<l>Ihrer Eichen ſtolze Rieſenpracht,</l><lb/>
+<l>Und die Irmenſaͤule der Germanen,</l><lb/>
+<l>Sprach von der geſchlag'nen Roͤmerſchlacht.</l><lb/>
+</lg>                         <lg n="6">                             <l>In dem blutgen Thal der Thermopylen,</l><lb/>
+<l>Wo der Griechen freie Schaaren fielen,</l><lb/>
+<l>Grub's in Marmor ihrer Bruͤder Dank:</l><lb/>
+<l>„Wandrer! ſags den kinderloſen Eltern</l><lb/>
+<l>„Daß fuͤr's Vaterland auf dieſen Feldern</l><lb/>
+<l>„Sparta's kuͤhne Heldenjugend ſank! — “</l><lb/>
+<pb n="10" facs="#f0022"/>
+<l>Und Jahrtauſende ſind Staub geworden,</l><lb/>
+<l>Jenes Marmors heil'ge Saͤule brach,</l><lb/>
+<l>Doch in triumphirenden Accorden,</l><lb/>
+<l>Riefen's die Jahrhunderte ſich nach.</l><lb/>
+</lg>                         <lg n="7">                             <l>Und erzaͤhlten trotz dem Sturmgetoͤſe,</l><lb/>
+<l>Ihrer Zeit von der Heroen Groͤße,</l><lb/>
+<l>Der Gefall'nen und von Sparta's Dank. —</l><lb/>
+<l>Groß war Griechenland durch ſeine Helden,</l><lb/>
+<l>Aber groͤßer noch durch ſein Vergelten,</l><lb/>
+<l>Wenn der Buͤrger fuͤr die Freiheit ſank.</l><lb/>
+<l>Jenſeits lohnt ein Gott mit ew'gen Strahlen,</l><lb/>
+<l>Doch das Leben will auch ſeinen Glanz.</l><lb/>
+<l>Nur mit Ird'ſchem kann die Erde zahlen,</l><lb/>
+<l>Und der Oehlzweig windet ſich zum Kranz.</l><lb/>
+</lg>                         <lg n="8">                             <l>Drum ſoll es die Nachwelt laut erfahren,</l><lb/>
+<l>Wie auch deutſche Buͤrger dankbar waren,</l><lb/>
+<l>Wie wir der Gefallnen That erkannt,</l><lb/>
+<l>Daß ihr Tod uns Lebende ermuthet,</l><lb/>
+<l>Daß ſie fuͤr Unwuͤrd'ge nicht geblutet,</l><lb/>
+<l>Das beweiſe, deutſches Vaterland! —</l><lb/>
+<pb n="11" facs="#f0023"/>
+<l>Deine Saͤnger laß in Liedern ſtuͤrmen,</l><lb/>
+<l>Und zum Steine fuͤge kuͤhn den Stein,</l><lb/>
+<l>Und die Pyramide laß ſich thuͤrmen</l><lb/>
+<l>Der gefallnen Bruͤder werth zu ſeyn.</l><lb/>
+</lg>                         <lg n="9">                             <l>Nur glaub' nie, du ſchmuͤckteſt ihre Krone,</l><lb/>
+<l>Wenn du deine goldnen Pantheone,</l><lb/>
+<l>Ueber ihre Grabeshuͤgel woͤlbſt!</l><lb/>
+<l>Stolzes Volk! — denkſt du mit Marmorhaufen</l><lb/>
+<l>Deines Dankes Schuldbrief abzukaufen? —</l><lb/>
+<l>Deine Kuppeln ehren nur dich ſelbſt.</l><lb/>
+<l>Nur das Ew'ge kann das Ew'ge ſchmuͤcken,</l><lb/>
+<l>Erdenglanz welkt zur Vergeſſenheit.</l><lb/>
+<l>Was die Zeiten brechen und erdruͤcken</l><lb/>
+<l>Iſt gemein fuͤr die Unſterblichkeit.</l><lb/>
+</lg>                         <lg n="10">                             <l>Aber, Deutſchland, um dich ſelbſt zu ehren,</l><lb/>
+<l>Nicht den eignen Tempel zu zerſtoͤren,</l><lb/>
+<l>Den die angeerbte Kraft gebaut,</l><lb/>
+<l>Zeig' dich werth der großen Todesweihe,</l><lb/>
+<l>Dich, Germania, in alter Treue,</l><lb/>
+<l>Maͤnnerſtolze, kuͤhne Heldenbraut!</l><lb/>
+<pb n="12" facs="#f0024"/>
+<l>Friedlich Volk brich aus den kalten Schranken,</l><lb/>
+<l>Warm und frei, wie dich die Vorwelt kennt.</l><lb/>
+<l>Auf den Feldern, wo die Adler ſanken,</l><lb/>
+<l>Thuͤrme deines Ruhmes Monument.</l><lb/>
+</lg>                         <lg n="11">                             <l>Sieh umher bei fremden Nationen,</l><lb/>
+<l>Wie ſie dort ein muthig Werk belohnen,</l><lb/>
+<l>Wie der Marmor in den Tempeln glaͤnzt.</l><lb/>
+<l>Jeder Sieg aus dunkler Wiſſensſphaͤre,</l><lb/>
+<l>Draͤngt ſich in das Pantheon der Ehre,</l><lb/>
+<l>Und der kuͤhne Kuͤnſtler ſteht bekraͤnzt. —</l><lb/>
+<l>Aber giebt es einen Preis im Leben</l><lb/>
+<l>Wo hinan nicht dieſer Kampf gereicht? —</l><lb/>
+<l>Gut und Blut fuͤr Volk und Freiheit geben,</l><lb/>
+<l>Nenn' die That, die ſich der That vergleicht! —</l><lb/>
+</lg>                         <lg n="12">                             <l>Drum mein Volk, magſt du den Aufruf hoͤren,</l><lb/>
+<l>Oeſtreich! deine Todten ſollſt du ehren!</l><lb/>
+<l>Wer zum deutſchen Stamme ſich bekennt,</l><lb/>
+<l>Reiche ſtolz und freudig ſeine Gabe,</l><lb/>
+<l>Und ſo baue ſich auf ihrem Grabe,</l><lb/>
+<l>Ihrer Heldengroͤße Monument;</l><lb/>
+<pb n="13" facs="#f0025"/>
+<l>Daß es die Jahrhunderte ſich ſagen,</l><lb/>
+<l>Wenn die Mitwelt in den Strudel ſank:</l><lb/>
+<l>                             <hi rendition="#g">Dieſe Schlacht hat deutſches Volk                             geſchlagen</hi>,</l><lb/>
+<l>                             <hi rendition="#g">Dieſer Stein iſt deutſchen Volkes Dank</hi>.</l><lb/>
+</lg>                     </lg>                     <milestone unit="section" rendition="#hr"/>                 </div>
+<pb n="14" facs="#f0026"/>
+<div n="2">                     <head>Hoch lebe das Haus Oeſterreich!<lb/>
+</head>                     <p rendition="#c">Aus der Geſchichte der Schlacht von Aspern.</p><lb/>
+<p rendition="#c">1812.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">E</hi>s ſchweigt die Nacht, die Erde                                 traͤumt</l><lb/>
+<l>Und bleich der Mond die Wolken ſaͤumt. —</l><lb/>
+</lg>                         <lg n="2">                             <l rendition="#et">Was biſt du Welt ſo ſtill, ſo leer!</l><lb/>
+<l rendition="#et">Was lauerſt du wie ein falſches Meer? —</l><lb/>
+<l rendition="#et">Es ſauſt ſo oͤde durch dein Reich</l><lb/>
+<l rendition="#et">Und Schauder faßt die Seele gleich,</l><lb/>
+<l rendition="#et">Als wollteſt du mit leiſem Beben</l><lb/>
+<l rendition="#et">Des Morgens blut'gen Schleyer heben. —</l><lb/>
+<l rendition="#et">Noch ſchlummerts tief in Lagers Raum,</l><lb/>
+<l rendition="#et">Die Sterne ſteigen, auf und nieder;</l><lb/>
+<l rendition="#et">Die Todtenſtille regt ſich kaum! —</l><lb/>
+<l rendition="#et">O laß der Welt den ſchoͤnen Traum,</l><lb/>
+<l rendition="#et">Der nahe Tag verſcheucht ihn wieder! —</l><lb/>
+</lg>
+<pb n="15" facs="#f0027"/>
+<lg n="3">                             <l>In Oſten graut's, es ſinkt die Nacht. —</l><lb/>
+<l>Gottlob! der Morgen iſt erwacht! —</l><lb/>
+</lg>                         <lg n="4">                             <l rendition="#et">Gottlob, der neue Tag bricht an! —</l><lb/>
+<l rendition="#et">Seht euch nochmal die Sonne an.</l><lb/>
+<l rendition="#et">Wohl viele, die jetzt ruͤſtig ſtehn,</l><lb/>
+<l rendition="#et">Sehn ſie nie wieder untergehn.</l><lb/>
+<l rendition="#et">In manchen Herzen pocht das Blut,</l><lb/>
+<l rendition="#et">Nach raſchen Streites Uebermuth,</l><lb/>
+<l rendition="#et">Und eh die naͤchſten Stunden tagen,</l><lb/>
+<l rendition="#et">Hat manches Herz ſchon ausgeſchlagen!</l><lb/>
+</lg>                         <lg n="5">                             <l>Die Sonne kommt, der Nebel reißt‚</l><lb/>
+<l>Ein ſtumm Gebet den Vater preißt.</l><lb/>
+</lg>                         <lg n="6">                             <l rendition="#et">Nun lebt und regt ſich alle Welt‚</l><lb/>
+<l rendition="#et">In blanken Waffen glaͤnzt das Feld.</l><lb/>
+<l rendition="#et">Der Juͤngling ſchreitet kuͤhn hinaus‚</l><lb/>
+<l rendition="#et">Er ſchaut hinauf ins Vaterhaus,</l><lb/>
+<l rendition="#et">Und leiſe Ahndung fuͤllt ſein Herz,</l><lb/>
+<l rendition="#et">Und zieht ihn daͤmmernd himmelwaͤrts.</l><lb/>
+<l rendition="#et">Da traͤgt der tiefbewegte Sinn</l><lb/>
+<l rendition="#et">Die Traͤume zu der Liebſten hin.</l><lb/>
+<l rendition="#et">Sie weinte, als er ſcheiden mußt',</l><lb/>
+<l rendition="#et">Und Wehmuth haucht in ſeine Bruſt,</l><lb/>
+<pb n="16" facs="#f0028"/>
+<l rendition="#et">Und er gedenkt der ſchoͤnen Zeiten! —</l><lb/>
+<l rendition="#et">Er fuͤhlt's, es war ein ewig Scheiden! —</l><lb/>
+</lg>                         <lg n="7">                             <l>Die Sonne ſteigt, der Laͤrmſchuß kracht,</l><lb/>
+<l>Laut jubelnd zieht das Heer zur Schlacht.</l><lb/>
+</lg>                         <lg n="8">                             <l rendition="#et">„Seht ihr den Stephan heruͤberwinken,</l><lb/>
+<l rendition="#et">„Und dort die Fraͤnk'ſchen Adler blinken?</l><lb/>
+<l rendition="#et">„Auf Bruͤder, ſtuͤrzt euch muthig drein',</l><lb/>
+<l rendition="#et">„Die Adler muͤſſen unſer ſeyn. —</l><lb/>
+<l rendition="#et">„Lebt wohl, lebt wohl, ihr meine Lieben,</l><lb/>
+<l rendition="#et">„Weint nicht, ich wollt euch nicht betruͤben!“</l><lb/>
+</lg>                         <lg n="9">                             <l>Es wogt der Kampf, es bruͤllt der Tod,</l><lb/>
+<l>Die Wunden klaffen blutigroth! —</l><lb/>
+</lg>                         <lg n="10">                             <l rendition="#et">„Mir nach! mir nach! dort iſt der Ruhm,</l><lb/>
+<l rendition="#et">„Ihr kaͤmpft fuͤr euer Heiligthum!“</l><lb/>
+<l rendition="#et">Und neben ihm und unter ihm</l><lb/>
+<l rendition="#et">Wuͤrgt raſch des Todes Ungeſtuͤm,</l><lb/>
+<l rendition="#et">Und Mann und Roß zuſammenbrach</l><lb/>
+<l rendition="#et">Er aber jauchzt: „mir nach! mir nach!“</l><lb/>
+<l rendition="#et">Da pfeift eine Kugel durch ſeine Bruſt,</l><lb/>
+<l rendition="#et">Daß gleich das Auge brechen mußt',</l><lb/>
+<pb n="17" facs="#f0029"/>
+<l rendition="#et">Doch hat er mit der letzten Kraft</l><lb/>
+<l rendition="#et">Den letzten Athem zuſammengerafft</l><lb/>
+<l rendition="#et">Und ruft und ſtuͤrzt zu Boden gleich:</l><lb/>
+<l rendition="#et">„Hoch lebe das Haus Oeſterreich! —“</l><lb/>
+</lg>                         <lg n="11">                             <l>Der Adler ſinkt, die Fahne fliegt,</l><lb/>
+<l>Heil dir mein Volk, du haſt geſiegt!</l><lb/>
+</lg>                     </lg>                 </div>                     <milestone unit="section" rendition="#hr"/>                     <fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb n="18" facs="#f0030"/>
+<div n="2">                     <head>Dem Sieger von Aspern.<lb/>
+</head>                     <p rendition="#c">(Bei Ueberſendung der beiden vorhergehenden Gedichte.)</p><lb/>
+<p rendition="#c">1812.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <l><hi rendition="#in">W</hi>as der verwegenen Hand gebot in die Saiten zu<lb/>
+<hi rendition="#et">ſchlagen,</hi></l><lb/>
+<l>Was mein jugendlich Herz tief in Entzuͤckung getaucht,</l><lb/>
+<l>Dieſer Begeiſterung Sturm, er ſchlummert nirgends, es<lb/>
+<hi rendition="#et">mangelt</hi></l><lb/>
+<l>Nie der Bruſt das Gefuͤhl, nur dem Gefuͤhle das Wort.</l><lb/>
+<l>Manche ſchweigen wohl auch, weil die Zeit das Schweigen<lb/>
+<hi rendition="#et">gebiete,</hi></l><lb/>
+<l>Weil der draͤngende Tag ſcheuche den gluͤcklichen Muth.</l><lb/>
+<l>Aber die Zeit will ich ſehn, und den Tag, der gebieten kann,<lb/>
+<hi rendition="#et">froſtig,</hi></l><lb/>
+<l>Kalt und beſonnen zu ſeyn, wenn mich Entzuͤckung durch¬<lb/>
+<hi rendition="#et">gluͤht,</hi></l><lb/>
+<l>Wenn mein germaniſcher Stolz ſich beugt dem germaniſchen<lb/>
+<hi rendition="#et">Helden,</hi></l><lb/>
+<pb n="19" facs="#f0031"/>
+<milestone unit="section" rendition="#hr"/>                         <l>Der auf dem Altar des Siegs, Funken und Flammen<lb/>
+<hi rendition="#et">geweckt.</hi></l><lb/>
+<l>Darum riß es mich fort, ich griff in die rauſchenden Saiten,</l><lb/>
+<l>Sang es laut, was ſich ſonſt wortlos im Herzen vergrub.</l><lb/>
+<l>Aber der Held verzeihe der armen Kunſt ſeines Barden,</l><lb/>
+<l>Die mit frevelndem Muth ſich an das Hoͤchſte gewagt.</l><lb/>
+<l>Zuͤrnt doch der Sturm, der den Donner der brechenden Eiche<lb/>
+<hi rendition="#et">gewohnt iſt,</hi></l><lb/>
+<l>Drum dem Schilfe nicht, das ihm entgegengerauſcht.</l><lb/>
+</lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="20" facs="#f0032"/>
+<div n="2">                     <head>Bei der Muſik des Prinzen Louis Ferdinand.<lb/>
+</head>                     <p rendition="#c">1812.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">D</hi>uͤſtre Harmonien hoͤr' ich                                 klingen,</l><lb/>
+<l>Muthig ſchwellen ſie ans volle Herz,</l><lb/>
+<l>In die Seele fuͤhl' ich ſie mir dringen,</l><lb/>
+<l>Wecken mir den vaterlaͤnd'ſchen Schmerz.</l><lb/>
+<l>Und mit ihren fruͤh gepruͤften Schwingen,</l><lb/>
+<l>Kaͤmpfen ſie im Sturme himmelwaͤrts,</l><lb/>
+<l>Doch ſie tragen nur ein dunkles Sehnen,</l><lb/>
+<l>Nicht den Geiſt aus dieſem Land der Thraͤnen.</l><lb/>
+</lg>                         <lg n="2">                             <l>Allgewaltig haͤlt ihn noch das Leben,</l><lb/>
+<l>Taucht die Fluͤgel in den ſtygſchen Fluß.</l><lb/>
+<l>Es iſt nicht der Kuͤnſte freies Schweben,</l><lb/>
+<l>Nicht verklaͤrter Geiſter Weihekuß.</l><lb/>
+<pb n="21" facs="#f0033"/>
+<l>Noch dem Erdgeiſt iſt er Preis gegeben,</l><lb/>
+<l>Mit dem Staube kaͤmpft der Genius,</l><lb/>
+<l>Reißt er auch im Rauſche der Gedanken,</l><lb/>
+<l>Oft ſich blutend los aus ſeinen Schranken.</l><lb/>
+</lg>                         <lg n="3">                             <l>Dann ergreift ihn ein bachantiſch Wuͤthen,</l><lb/>
+<l>Wilde Melodienblitze ſpruͤhn,</l><lb/>
+<l>Aus dem Tode ruft er Strahlenbluͤthen,</l><lb/>
+<l>Und zertritt ſie kalt, ſobald ſie bluͤhn.</l><lb/>
+<l>Wenn die letzten Funken bleich vergluͤhten,</l><lb/>
+<l>Hebt er ſich noch einmal, ſtolz und kuͤhn,</l><lb/>
+<l>Und verſinkt dann mit gewalt'gem Schauren,</l><lb/>
+<l>In den alten Kampf mit dem Centauren.</l><lb/>
+</lg>                         <lg n="4">                             <l>Wilder Geiſt! jetzt haſt du uͤberwunden,</l><lb/>
+<l>Deine Nacht verſchmilzt in Morgenroth,</l><lb/>
+<l>Ausgekaͤmpft ſind deiner Pruͤfung Stunden,</l><lb/>
+<l>Leer der Kelch, den dir das Schickſal bot.</l><lb/>
+<l>Kunſt und Leben hat den Kranz gewunden,</l><lb/>
+<l>Auf die Locken druͤckte ihn der Tod.</l><lb/>
+<l>Deinen Grabſtein kann die Zeit zermalmen,</l><lb/>
+<l>Doch die Lorbeern werden dort zu Palmen.</l><lb/>
+</lg>
+<pb n="22" facs="#f0034"/>
+<lg n="5">                         <l>Und dein Sehnen klagte nicht vergebens,</l><lb/>
+<l>Einmal wards in deiner Seele Tag,</l><lb/>
+<l>Als dein Herz am kuͤhnſten Ziel des Strebens</l><lb/>
+<l>Kalt und blutend auf der Wahlſtatt lag.</l><lb/>
+<l>Sterbend loͤßte ſich der Sturm des Lebens,</l><lb/>
+<l>Sterbend loͤßte ſich der Harfe Schlag,</l><lb/>
+<l>Und des Himmels ſiegverklaͤrte Soͤhne</l><lb/>
+<l>Trugen dich ins freie Land der Toͤne.</l><lb/>
+</lg></lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="23" facs="#f0035"/>
+<div n="2">                     <head>                         <hi rendition="#g">Mein Vaterland</hi>.<lb/>
+</head>                     <p rendition="#c"><hi rendition="#g">1813</hi>.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">W</hi>o iſt des Saͤngers Vaterland? —</l><lb/>
+<l rendition="#et">Wo edler Geiſter Funken ſpruͤhten,</l><lb/>
+<l rendition="#et">Wo Kraͤnze fuͤr das Schoͤne bluͤhten,</l><lb/>
+<l rendition="#et">Wo ſtarke Herzen freudig gluͤhten,</l><lb/>
+<l rendition="#et">Fuͤr alles Heilige entbrannt,</l><lb/>
+<l>Da war mein Vaterland!</l><lb/>
+</lg>                         <lg n="2">                             <l>Wie heißt des Saͤngers Vaterland? —</l><lb/>
+<l rendition="#et">Jetzt uͤber ſeiner Soͤhne Leichen,</l><lb/>
+<l rendition="#et">Jetzt weint es unter fremden Streichen,</l><lb/>
+<l rendition="#et">Sonſt hieß es nur das Land der Eichen,</l><lb/>
+<l rendition="#et">Das freie Land, das deutſche Land!</l><lb/>
+<l>So hieß mein Vaterland!</l><lb/>
+</lg>                         <lg n="3">                             <l>Was weint des Saͤngers Vaterland? —</l><lb/>
+<l rendition="#et">Daß vor des Wuͤthrichs Ungewittern,</l><lb/>
+<l rendition="#et">Die Fuͤrſten ſeiner Voͤlker zittern,</l><lb/>
+<pb n="24" facs="#f0036"/>
+<l rendition="#et">Daß ihre heil'gen Worte ſplittern,</l><lb/>
+<l rendition="#et">Und daß ſein Ruf kein Hoͤren fand,</l><lb/>
+<l>Drum weint mein Vaterland!</l><lb/>
+</lg>                         <lg n="4">                             <l>Wem ruft des Saͤngers Vaterland? —</l><lb/>
+<l rendition="#et">Es ruft nach den verſtummten Goͤttern,</l><lb/>
+<l rendition="#et">Mit der Verzweiflung Donnerwettern,</l><lb/>
+<l rendition="#et">Nach ſeiner Freiheit, ſeinen Rettern,</l><lb/>
+<l rendition="#et">Nach der Vergeltung Raͤcherhand.</l><lb/>
+<l>Der ruft mein Vaterland!</l><lb/>
+</lg>                         <lg n="5">                             <l>Was will des Saͤngers Vaterland? —</l><lb/>
+<l rendition="#et">Die Knechte will es niederſchlagen,</l><lb/>
+<l rendition="#et">Den Bluthund aus den Graͤnzen jagen,</l><lb/>
+<l rendition="#et">Und frei die freien Soͤhne tragen,</l><lb/>
+<l rendition="#et">Oder, frei ſie betten unterm Sand.</l><lb/>
+<l>Das will mein Vaterland!</l><lb/>
+</lg>                         <lg n="6">                             <l>Und hofft des Saͤngers Vaterland? —</l><lb/>
+<l rendition="#et">Es hofft auf die gerechte Sache,</l><lb/>
+<l rendition="#et">Hofft, daß ſein treues Volk erwache,</l><lb/>
+<l rendition="#et">Hofft auf des großen Gottes Rache,</l><lb/>
+<l rendition="#et">Und hat den Raͤcher nicht verkannt.</l><lb/>
+<l>Drauf hofft mein Vaterland!</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="25" facs="#f0037"/>
+<div n="2">                     <head><hi rendition="#g">Moskau.</hi><lb/>
+</head>                     <p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">W</hi>ie woͤlben ſich dort deiner Kirchen                                 Bogen!</l><lb/>
+<l rendition="#et">Wie ſchimmern der Pallaͤſte goldne Waͤnde!</l><lb/>
+<l rendition="#et">Es ſchwaͤrmt der Blick, wohin ich ihn verſende,</l><lb/>
+<l rendition="#et">Von einer Pracht zur andern fortgeflogen. —</l><lb/>
+</lg>                         <lg n="2">                             <l>Da waͤlzen ſich auf einmal gluͤh'nde Wogen,</l><lb/>
+<l rendition="#et">Es ſchleudern deiner Buͤrger eigne Haͤnde</l><lb/>
+<l rendition="#et">Aufs eigne Dach die ſpruͤh'nden Fackelbraͤnde,</l><lb/>
+<l rendition="#et">Ein Feuerkreis hat praſſelnd dich umzogen. —</l><lb/>
+</lg>                         <lg n="3">                             <l>O laß dich nur vom Aberwitz verdammen; —</l><lb/>
+<l rendition="#et">Ihr Kirchen ſtuͤrzt! Pallaͤſte brecht zuſammen!</l><lb/>
+<l rendition="#et">Der Phoͤnix Rußlands wirft ſich in die Flammen! —</l><lb/>
+</lg>                         <lg n="4">                             <l>Doch hochverklaͤrt aus ſeinem Feuerkranze</l><lb/>
+<l rendition="#et">Wird er erſtehn im friſchen Jugendglanze,</l><lb/>
+<l rendition="#et">Und Sankt Georg ſchwingt ſiegend ſeine Lanze.</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="26" facs="#f0038"/>
+<div n="2">                     <head>Lied zur feierlichen Einſegnung des Preußiſchen<lb/>
+Frei-Corps.<lb/>
+</head>                     <p rendition="#c">Geſungen in der Kirche zu Rochau in Schleſien am 28ſten Mai                         1813.<lb/>
+nach der Weiſe: Ich will von meiner Miſſethat ꝛc.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">W</hi>ir treten hier im Gottes-Haus</l><lb/>
+<l>Mit frommen Muth zuſammen.</l><lb/>
+<l>Uns ruft die Pflicht zum Kampf hinaus,</l><lb/>
+<l>Und alle Herzen flammen.</l><lb/>
+<l>Doch was uns mahnt zu Sieg und Schlacht,</l><lb/>
+<l>Hat Gott ja ſelber angefacht.</l><lb/>
+<l>                                 <hi rendition="#g">Dem Herrn allein die Ehre</hi>!</l><lb/>
+</lg>                         <lg n="2">                             <l>Der Herr iſt unſre Zuverſicht,</l><lb/>
+<l>Wie ſchwer der Kampf auch werde!</l><lb/>
+<l>Wir ſtreiten ja fuͤr Recht und Pflicht,</l><lb/>
+<l>Und fuͤr die heil'ge Erde.</l><lb/>
+<l>Drum retten wir das Vaterland,</l><lb/>
+<l>So that's der Herr durch unſre Hand.</l><lb/>
+<l>                                 <hi rendition="#g">Dem Herrn allein die Ehre</hi>!</l><lb/>
+</lg>
+<pb n="27" facs="#f0039"/>
+<milestone unit="section" rendition="#hr"/>                         <lg n="3">                             <l>Es bricht der freche Uebermuth</l><lb/>
+<l>Der Tyranney zuſammen;</l><lb/>
+<l>Es ſoll der Freiheit heil'ge Gluth,</l><lb/>
+<l>In allen Herzen flammen.</l><lb/>
+<l>Drum friſch in Kampfes Ungeſtuͤm!</l><lb/>
+<l>Gott iſt mit uns und wir mit ihm.</l><lb/>
+<l>                                 <hi rendition="#g">Dem Herrn allein die Ehre</hi>!</l><lb/>
+</lg>                         <lg n="4">                             <l>Er weckt uns jetzt mit Siegerluſt</l><lb/>
+<l>Fuͤr die gerechte Sache,</l><lb/>
+<l>Er rief es ſelbſt in unſre Bruſt:</l><lb/>
+<l>                                 <hi rendition="#g">Auf</hi>, <hi rendition="#g">deutſches Volk</hi>,                                     <hi rendition="#g">erwache</hi>!</l><lb/>
+<l>Und fuͤhrt uns waͤrs auch durch den Tod</l><lb/>
+<l>Zu ſeiner Freiheit Morgenroth.</l><lb/>
+<l>                                 <hi rendition="#g">Dem Herrn allein die Ehre</hi>!</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="28" facs="#f0040"/>
+<div n="2">                     <head>                         <hi rendition="#g">Troſt</hi>.<lb/>
+</head>                     <p rendition="#c"><hi rendition="#g">Ein Rundgeſang</hi>.</p><lb/>
+<p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">W</hi>ie wir ſo treu beiſammen ſtehn</l><lb/>
+<l rendition="#et">Mit unverfaͤlſchtem Blut!</l><lb/>
+<l>Der Feierſtunde heilig Wehn</l><lb/>
+<l rendition="#et">Schwellt meinen jungen Muth.</l><lb/>
+<l>Es treibt mich raſch zum Liede fort,</l><lb/>
+<l rendition="#et">Zum Harfenſturm hinaus,</l><lb/>
+<l>Im Herzen lebt ein kuͤhnes Wort, —</l><lb/>
+<l rendition="#et">Was gilt's, ich ſprech' es aus.</l><lb/>
+</lg>                         <lg n="2">                             <l>Die Zeit iſt ſchlimm, die Welt iſt karg,</l><lb/>
+<l rendition="#et">Die Beſten weggerafft,</l><lb/>
+<l>Die Erde wird ein großer Sarg</l><lb/>
+<l rendition="#et">Der Freiheit und der Kraft.</l><lb/>
+<pb n="29" facs="#f0041"/>
+<l>Doch Muth! — Wenn auch die Tyranney,</l><lb/>
+<l rendition="#et">Die deutſche Flur zertrat,</l><lb/>
+<l>In vielen Herzen, ſtill und treu,</l><lb/>
+<l rendition="#et">Keimt noch des Guten Saat.</l><lb/>
+</lg>                         <lg n="3">                             <l>Verſchuͤchtert durch den blut'gen Ruhm</l><lb/>
+<l rendition="#et">Und durch der Schlachten Gluͤck,</l><lb/>
+<l>Flohn zu der Seele Heiligthum,</l><lb/>
+<l rendition="#et">Die Kuͤnſte ſcheu zuruͤck.</l><lb/>
+<l>Sind auch die Thaͤler jetzt verwaißt,</l><lb/>
+<l rendition="#et">Wo ſonſt ihr Tempel war,</l><lb/>
+<l>Es bleibt doch jeder reine Geiſt</l><lb/>
+<l rendition="#et">Ihr ewiger Altar.</l><lb/>
+</lg>                         <lg n="4">                             <l>Und Freundestreu und Wahrheit gilt</l><lb/>
+<l rendition="#et">Noch eine heil'ge Pflicht.</l><lb/>
+<l>Sieh, wie der Giesbach brauſend ſchwillt! —</l><lb/>
+<l rendition="#et">Du rufſt; mich ſchreckt er nicht.</l><lb/>
+<l>Und laͤg es vor mir wolkenweit</l><lb/>
+<l rendition="#et">Und ſternhoch uͤber mir,</l><lb/>
+<l>Beim Gott! ich halte meinen Eid!</l><lb/>
+<l rendition="#et">Schlag ein! ich folge dir!</l><lb/>
+</lg>
+<pb n="30" facs="#f0042"/>
+<lg n="5">                             <l>Und Frauenunſchuld, Frauenlieb,</l><lb/>
+<l rendition="#et">Steht noch als hoͤchſtes Gut,</l><lb/>
+<l>Wo deutſcher Ahnen Sitte blieb,</l><lb/>
+<l rendition="#et">Und deutſcher Juͤnglings-Muth.</l><lb/>
+<l>Noch trifft den Frevler heil'ger Bann,</l><lb/>
+<l rendition="#et">Der dieſen Zauber ſtoͤrt;</l><lb/>
+<l>Wer fuͤr ſein Lieb' nicht ſterben kann,</l><lb/>
+<l rendition="#et">Iſt keines Kuſſes werth.</l><lb/>
+</lg>                         <lg n="6">                             <l>Auch du haſt noch nicht ausgeflammt</l><lb/>
+<l rendition="#et">Du heil'ge Religion!</l><lb/>
+<l>Was von der ew'gen Liebe ſtammt,</l><lb/>
+<l rendition="#et">Iſt zeitlich nicht entflohn.</l><lb/>
+<l>Das Blut waͤſcht die Altaͤre rein,</l><lb/>
+<l rendition="#et">Die wir entheiligt ſehn.</l><lb/>
+<l>Die Kreuze ſchlaͤgt man frevelnd ein,</l><lb/>
+<l rendition="#et">Doch bleibt der Glaube ſtehn.</l><lb/>
+</lg>                         <lg n="7">                             <l>Und noch regt ſich mit Adlers Schwung</l><lb/>
+<l rendition="#et">Der vaterlaͤnd'ſche Geiſt</l><lb/>
+<l>Und noch lebt die Begeiſterung,</l><lb/>
+<l rendition="#et">Die alle Ketten reißt.</l><lb/>
+<pb n="31" facs="#f0043"/>
+<l>Und wie wir hier zuſammenſtehn</l><lb/>
+<l rendition="#et">In Luſt und Lieb getaucht,</l><lb/>
+<l>So wollen wir uns wieder ſehn</l><lb/>
+<l rendition="#et">Wenn's von den Bergen raucht.</l><lb/>
+</lg>                         <lg n="8">                             <l>Dann friſch Geſellen, Kraft und Muth,</l><lb/>
+<l rendition="#et">Der Tag der Rache koͤmmt,</l><lb/>
+<l>Bis wir ſie mit dem eignen Blut</l><lb/>
+<l rendition="#et">Vom Boden weggeſchwemmt. —</l><lb/>
+<l>Und du im freien Morgenroth</l><lb/>
+<l rendition="#et">Zu dem die Hymne ſtieg,</l><lb/>
+<l>Du fuͤhr uns, Gott, waͤrs auch zum Tod,</l><lb/>
+<l rendition="#et">Fuͤhr nur das Volk zum Sieg!</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="32" facs="#f0044"/>
+<div n="2">                     <head>                         <hi rendition="#g">Durch!</hi><lb/>
+</head>                     <p rendition="#c">Ein Petſchaft, worauf ein Pfeil, der auf eine Wolke zuflog,                         mit der<lb/>
+Unterſchrift: „Durch!“ gab Gelegenheit zu dieſem Gedichte.</p><lb/>
+<p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">W</hi>ie dort im Nebelkranze</l><lb/>
+<l>Voll finſtrer Majeſtaͤt</l><lb/>
+<l>Die ſchwarze Wolkenſchanze</l><lb/>
+<l>Am Firmamente ſteht.</l><lb/>
+<l>Die Feuerkugeln ſpruͤhen,</l><lb/>
+<l>Aus ihrem dunklen Schooß,</l><lb/>
+<l>Und Zackenflammen gluͤhen,</l><lb/>
+<l>Und Donner brechen los.</l><lb/>
+</lg>                         <lg n="2">                             <l>Und vor dem Zorngerichte</l><lb/>
+<l>Kniet armer Suͤnder Zahl:</l><lb/>
+<l>„Herr Zebaoth! vernichte</l><lb/>
+<l>„Nur nicht mein ſtilles Thal.</l><lb/>
+<l>„Das ganze Volk erſchlage,</l><lb/>
+<l>„Rotte die Menſchheit aus,</l><lb/>
+<l>„Nur laß mir <hi rendition="#g">meine</hi> Tage,</l><lb/>
+<l>„Und <hi rendition="#g">mein</hi> Kind und <hi rendition="#g">mein</hi> Haus!“</l><lb/>
+</lg>
+<pb n="33" facs="#f0045"/>
+<lg n="3">                             <l>O liegt nur im Gebete,</l><lb/>
+<l>Feig in den Staub gebuͤckt! —</l><lb/>
+<l>Daß euch der Gott zertrete,</l><lb/>
+<l>Der in den Blitzen zuͤckt!</l><lb/>
+<l>Die Glocke in dem Sturme,</l><lb/>
+<l>Die zum Gebete ruft,</l><lb/>
+<l>Lockt erſt nach ihrem Thurme</l><lb/>
+<l>Die flammenſchwangre Luft. —</l><lb/>
+</lg>                         <lg n="4">                             <l>Und eine andre Menge,</l><lb/>
+<l>Steht dem Verderben nah,</l><lb/>
+<l>Mit blitzendem Gepraͤnge,</l><lb/>
+<l>In Waffenruͤſtung da.</l><lb/>
+<l>Wie ſie noch ohne Grauen,</l><lb/>
+<l>Ganz ruhig fuͤrder ziehn,</l><lb/>
+<l>Und nach den Blitzen ſchauen,</l><lb/>
+<l>Die immer naͤher gluͤhn.</l><lb/>
+</lg>                         <lg n="5">                             <l>Was ſoll das ew'ge Zaudern? —</l><lb/>
+<l>Hier hilft nur raſche That,</l><lb/>
+<l>Die kraftvoll ohne Schaudern,</l><lb/>
+<l>Das Schlangenhaupt zertrat.</l><lb/>
+<l>Soll euch die Ruͤſtung ſchuͤtzen? —</l><lb/>
+<l>Sonſt wehrt ſie wohl dem Streich,</l><lb/>
+<fw type="sig" place="bottom">3<lb/>
+</fw>
+<pb n="34" facs="#f0046"/>
+<l>Jetzt ruft ſie nach den Blitzen,</l><lb/>
+<l>Ruft Rache uͤber euch! —</l><lb/>
+</lg>                         <lg n="6">                             <l>Nein friſch! — Ein freudig Siegen</l><lb/>
+<l>Kommt nur nach heißer Schlacht! —</l><lb/>
+<l>Seht ihr den Pfeil dort fliegen? —</l><lb/>
+<l>Der bricht der Wolken Nacht.</l><lb/>
+<l>Durch muß er, durch! — der Bogen</l><lb/>
+<l>Schonte die Sehne nicht;</l><lb/>
+<l>Der Pfeil iſt durchgeflogen,</l><lb/>
+<l>Schwimmt nun im Sonnenlicht!</l><lb/>
+</lg>                         <lg n="7">                             <l>Durch, Bruͤder, durch! — das werde</l><lb/>
+<l>Das Wort in Kampf und Schmerz;</l><lb/>
+<l>Gemeines will zur Erde,</l><lb/>
+<l>Edles will himmelwaͤrts! —</l><lb/>
+<l>Soll uns der Sumpf vermodern? —</l><lb/>
+<l>Was gilt der Wolkenbrand? —</l><lb/>
+<l>Drum laßt den Blitz nur lodern,</l><lb/>
+<l>Durch! — dort iſt's Vaterland!</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="35" facs="#f0047"/>
+<div n="2">                     <head>                         <hi rendition="#g">Abſchied von Wien.</hi><lb/>
+</head>                     <p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">L</hi>eb' wohl! leb' wohl! — Mit dumpfen                                 Herzensſchlaͤgen</l><lb/>
+<l rendition="#et">Begruͤß' ich dich, und folge meiner Pflicht,</l><lb/>
+<l>Im Auge will ſich eine Thraͤne regen;</l><lb/>
+<l rendition="#et">Was ſtraͤub' ich mich? die Thraͤne ſchmaͤht mich                                 nicht. —</l><lb/>
+<l>Ach! wo ich wandle, ſei's auf Friedenswegen,</l><lb/>
+<l rendition="#et">Sei's wo der Tod die blut'gen Kraͤnze bricht,</l><lb/>
+<l>Da werden deine theuern Huldgeſtalten</l><lb/>
+<l rendition="#et">In Lieb' und Sehnſucht meine Seele ſpalten.</l><lb/>
+</lg>                         <lg n="2">                             <l>Verkennt mich nicht, Ihr Genien meines Lebens,</l><lb/>
+<l rendition="#et">Verkennt nicht meiner Seele ernſten Drang.</l><lb/>
+<l>Begreift die treue Richtung meines Strebens,</l><lb/>
+<l rendition="#et">So in dem Liede, wie im Schwerdterklang.</l><lb/>
+<l>Es ſchwaͤrmten meine Traͤume nicht vergebens;</l><lb/>
+<l rendition="#et">Was ich ſo oft gefeiert mit Geſang,</l><lb/>
+<l>Fuͤr Volk und Freiheit ein begeiſtert Sterben,</l><lb/>
+<l rendition="#et">Laßt mich nun ſelbſt um dieſe Krone werben.</l><lb/>
+</lg>
+<pb n="36" facs="#f0048"/>
+<lg n="3">                         <l>Wohl leichter moͤgen ſich die Kraͤnze flechten,</l><lb/>
+<l rendition="#et">Errungen mit des Liedes heit'rem Muth:</l><lb/>
+<l>Ein rechtes Herz ſchlaͤgt freudig nach dem Rechten.</l><lb/>
+<l rendition="#et">Die ich gepflegt mit jugendlicher Gluth,</l><lb/>
+<l>Laßt mich der Kunſt ein Vaterland erfechten,</l><lb/>
+<l rendition="#et">Und gaͤlt' es auch das eigne waͤrmſte Blut. —</l><lb/>
+<l>Noch dieſen Kuß! und wenns der letzte bliebe,</l><lb/>
+<l rendition="#et">Es giebt ja keinen Tod fuͤr unſre Liebe.</l><lb/>
+</lg></lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="37" facs="#f0049"/>
+<div n="2">                     <head>                         <hi rendition="#g">Aufruf</hi>.<lb/>
+</head>                     <p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">F</hi>riſch auf, mein Volk! Die Flammenzeichen                                 rauchen,</l><lb/>
+<l rendition="#et">Hell aus dem Norden bricht der Freiheit Licht.</l><lb/>
+<l>Du ſollſt den Stahl in Feindes Herzen tauchen,</l><lb/>
+<l rendition="#et">Friſch auf, mein Volk! — Die Flammenzeichen rauchen,</l><lb/>
+<l>Die Saat iſt reif, ihr Schnitter, zaudert nicht!</l><lb/>
+<l rendition="#et">Das hoͤchſte Heil, das letzte liegt im Schwerdte!</l><lb/>
+<l>Druͤck dir den Speer ins treue Herz hinein,</l><lb/>
+<l rendition="#et">Der Freiheit eine Gaſſe! — Waſch' die Erde,</l><lb/>
+<l>Dein deutſches Land mit deinem Blute rein!</l><lb/>
+</lg>                         <lg n="2">                             <l>Es iſt kein Krieg, von dem die Kronen wiſſen,</l><lb/>
+<l rendition="#et">Es iſt ein Kreuzzug, s' iſt ein heil'ger Krieg!</l><lb/>
+<l>Recht, Sitte, Tugend, Glauben und Gewiſſen</l><lb/>
+<l rendition="#et">Hat der Tyrann aus deiner Bruſt geriſſen;</l><lb/>
+<l>Errette ſie mit deiner Freiheit Sieg!</l><lb/>
+<l rendition="#et">Das Winſeln deiner Greiſe ruft: „Erwache!“</l><lb/>
+<l rendition="#et">Der Huͤtte Schutt verflucht die Raͤuberbrut!</l><lb/>
+<pb n="38" facs="#f0050"/>
+<l rendition="#et">Die Schande deiner Toͤchter ſchreit um Rache,</l><lb/>
+<l>Der Meuchelmord der Soͤhne ſchreit nach Blut.</l><lb/>
+</lg>                         <lg n="3">                             <l>Zerbrich den Pflugſchaar, laß den Meiſel fallen,</l><lb/>
+<l rendition="#et">Die Leyer ſtill, den Webſtuhl ruhig ſtehn!</l><lb/>
+<l>Verlaſſe deine Hoͤfe, deine Hallen! —</l><lb/>
+<l>Vor deſſen Antlitz deine Fahnen wallen,</l><lb/>
+<l rendition="#et">Er will ſein Volk in Waffenruͤſtung ſehn.</l><lb/>
+<l>Denn einen großen Altar ſollſt du bauen</l><lb/>
+<l rendition="#et">In ſeiner Freiheit ew'gen Morgenroth.</l><lb/>
+<l>Mit deinem Schwerdt ſollſt du die Steine hauen,</l><lb/>
+<l rendition="#et">Der Tempel gruͤnde ſich auf Heldentod. —</l><lb/>
+</lg>                         <lg n="4">                             <l>Was weint ihr, Maͤdchen, warum klagt ihr, Weiber,</l><lb/>
+<l rendition="#et">Fuͤr die der Herr die Schwerdter nicht geſtaͤhlt,</l><lb/>
+<l>Wenn wir entzuͤckt die jugendlichen Leiber</l><lb/>
+<l>Hinwerfen in die Schaaren eurer Raͤuber,</l><lb/>
+<l rendition="#et">Daß euch des Kampfes kuͤhne Wolluſt fehlt? —</l><lb/>
+<l>Ihr koͤnnt ja froh zu Gottes Altar treten!</l><lb/>
+<l rendition="#et">Fuͤr Wunden gab er zarte Sorgſamkeit,</l><lb/>
+<l>Gab euch in Euern herzlichen Gebeten</l><lb/>
+<l rendition="#et">Den ſchoͤnen reinen Sieg der Froͤmmigkeit.</l><lb/>
+</lg>
+<pb n="39" facs="#f0051"/>
+<lg n="5">                             <l>So betet, daß die alte Kraft erwache,</l><lb/>
+<l rendition="#et">Daß wir daſtehn, das alte Volk des Siegs,</l><lb/>
+<l>Die Maͤrtyrer der heil'gen deutſchen Sache.</l><lb/>
+<l>O ruft ſie an als Genien der Rache,</l><lb/>
+<l rendition="#et">Als gute Engel des gerechten Kriegs.</l><lb/>
+<l>Luiſe ſchwebe ſegnend um den Gatten,</l><lb/>
+<l rendition="#et">Geiſt unſers Ferdinands voran dem Zug!</l><lb/>
+<l>Und all' ihr deutſchen freien Heldenſchatten,</l><lb/>
+<l rendition="#et">Mit uns, mit uns, und unſrer Fahnen Flug!</l><lb/>
+</lg>                         <lg n="6">                             <l>Der Himmel hilft, die Hoͤlle muß uns weichen!</l><lb/>
+<l rendition="#et">Drauf! wakres Volk! drauf! ruft die Freiheit, drauf!</l><lb/>
+<l>Hoch ſchlaͤgt dein Herz, hoch wachſen deine Eichen,</l><lb/>
+<l>Was kuͤmmern dich die Huͤgel deiner Leichen,</l><lb/>
+<l rendition="#et">Hoch pflanze da die Freiheitsfahne auf! —</l><lb/>
+<l>Doch ſtellſt du dann, mein Volk, bekraͤnzt vom                                 Gluͤcke,</l><lb/>
+<l rendition="#et">In deiner Vorzeit heil'gem Siegerglanz,</l><lb/>
+<l>Vergiß die treuen Todten nicht und ſchmuͤcke</l><lb/>
+<l rendition="#et">Auch unſre Urne mit dem Eichenkranz!</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="40" facs="#f0052"/>
+<div n="2">                     <head>Der preußiſche Graͤnz-Adler.<lb/>
+</head>                     <p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <l>                             <hi rendition="#in">S</hi>ei mir gegruͤßt im Rauſchen deiner                             Fluͤgel,</l><lb/>
+<l rendition="#et">Das Herz verheißt mir Sieg in deinem Zeichen.</l><lb/>
+<l rendition="#et">Durch! edler Aar! die Wolke muß dir weichen,</l><lb/>
+<l rendition="#et">Fleuch raͤchend auf von deiner Todten Huͤgel. —</l><lb/>
+<l>Das freie Roß gehorcht dem Sklavenzuͤgel,</l><lb/>
+<l rendition="#et">Den Glanz der Raute ſeh' ich welk verbleichen,</l><lb/>
+<l rendition="#et">Der Loͤwe kruͤmmt ſich unter fremden Streichen,</l><lb/>
+<l rendition="#et">Du nur erhebſt mit neuem Muth die Fluͤgel.</l><lb/>
+<l>Bald werd' ich unter deinen Soͤhnen ſtehen,</l><lb/>
+<l rendition="#et">Bald werd' ich dich im Kampfe wiederſehen,</l><lb/>
+<l rendition="#et">Du wirſt voran zum Sieg, zur Freiheit wehen!</l><lb/>
+<l>Was dann auch immer aus dem Saͤnger werde,</l><lb/>
+<l rendition="#et">Heil ihm, erkaͤmpft er auch mit ſeinem Schwerdte</l><lb/>
+<l rendition="#et">Nichts als ein Grab in einer freien Erde.</l><lb/>
+</lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="41" facs="#f0053"/>
+<div n="2">                     <head>An die Koͤnigin Louiſe.<lb/>
+</head>                     <p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">D</hi>u Heilige, hoͤr <hi rendition="#g">deiner</hi> Kinder Flehen,</l><lb/>
+<l>Es dringe maͤchtig auf zu <hi rendition="#g">deinem</hi>                                 Licht.</l><lb/>
+<l>Kannſt wieder freundlich auf uns niederſehen,</l><lb/>
+<l>Verklaͤrter Engel! laͤnger weine nicht!</l><lb/>
+<l>Denn Preußens Adler ſoll zum Kampfe wehen,</l><lb/>
+<l>Es draͤngt <hi rendition="#g">dein</hi> Volk ſich jubelnd zu                                 der Pflicht,</l><lb/>
+<l>Und jeder waͤhlt, und keinen ſiehſt <hi rendition="#g">du</hi>                                 beben,</l><lb/>
+<l>Den freien Tod fuͤr ein bezwungnes Leben.</l><lb/>
+</lg>                         <lg n="2">                             <l>Wir lagen noch in feige Schmach gebettet‚</l><lb/>
+<l>Da rief nach <hi rendition="#g">dir dein</hi> beſſeres Geſchick.</l><lb/>
+<l>An die unwuͤrd'ge Zeit warſt <hi rendition="#g">du</hi>                                 gekettet,</l><lb/>
+<l>Zur Rache mahnte <hi rendition="#g">dein</hi> gebrochner Blick;</l><lb/>
+<l>So haſt <hi rendition="#g">du</hi> uns den deutſchen Muth gerettet.                                 —</l><lb/>
+<l>Jetzt ſieh auf uns, ſieh auf <hi rendition="#g">dein</hi> Volk                                 zuruͤck,</l><lb/>
+<l>Wie alle Herzen treu und muthig brennen! —</l><lb/>
+<l>Nun woll' uns auch die <hi rendition="#g">Deinen</hi> wieder                                 nennen.</l><lb/>
+</lg>
+<pb n="42" facs="#f0054"/>
+<lg n="3">                             <l>Und wie einſt alle Kraͤfte zu beleben,</l><lb/>
+<l>Ein Heil'genbild fuͤr den gerechten Krieg,</l><lb/>
+<l>Dem Heeresbanner ſchuͤtzend zugegeben,</l><lb/>
+<l>Als Oriflamme in die Luͤfte ſtieg;</l><lb/>
+<l>So ſoll dein Bild auf unſern Fahnen ſchweben,</l><lb/>
+<l>Und ſoll uns leuchten durch die Nacht zum Sieg.</l><lb/>
+<l>                                 <hi rendition="#g">Luiſe</hi> ſey der Schutzgeiſt deutſcher                                 Sache,</l><lb/>
+<l>                                 <hi rendition="#g">Luiſe</hi> ſey das Loſungswort zur Rache!</l><lb/>
+</lg>                         <lg n="4">                             <l>Und wenn wir dann dem Meuter-Heer begegnen,</l><lb/>
+<l>Wir ſtuͤrzen uns voll Zuverſicht hinein,</l><lb/>
+<l>Und moͤgen tauſend Flammenblitze regnen,</l><lb/>
+<l>Und moͤgen tauſend Tode uns umdraͤu'n,</l><lb/>
+<l>Ein Blick auf <hi rendition="#g">deine</hi> Fahne wird uns                                 ſegnen,</l><lb/>
+<l>Wir ſtehen feſt, wir muͤſſen Sieger ſeyn! —</l><lb/>
+<l>Wer dann auch faͤllt fuͤr Tugend, Recht und                                 Wahrheit,</l><lb/>
+<l>                                 <hi rendition="#g">Du</hi> traͤgſt ihn ſanft zu <hi rendition="#g">deiner</hi> ew'gen Klarheit.</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="43" facs="#f0055"/>
+<div n="2">                     <head>                         <hi rendition="#g">Jaͤgerlied.</hi><lb/>
+</head>                     <p rendition="#c">Nach der Weiſe: Auf, auf, ihr Brüder und ſeid ſtark.</p><lb/>
+<p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">F</hi>riſch auf, ihr Jaͤger frei und                                 flink!</l><lb/>
+<l rendition="#et">Die Buͤchſe von der Wand!</l><lb/>
+<l>Der Muthige bekaͤmpft die Welt!</l><lb/>
+<l>Friſch auf den Feind! Friſch in das Feld!</l><lb/>
+<l rendition="#et">Fuͤrs deutſche Vaterland!</l><lb/>
+</lg>                         <lg n="2">                             <l>Aus Weſten, Norden, Suͤd und Oſt</l><lb/>
+<l rendition="#et">Treibt uns der Rache Strahl.</l><lb/>
+<l>Vom Oderfluſſe, Weſer, Main,</l><lb/>
+<l>Vom Elbſtrom und vom Vater Rhein</l><lb/>
+<l rendition="#et">Und aus dem Donauthal.</l><lb/>
+</lg>                         <lg n="3">                             <l>Doch Bruͤder ſind wir allzuſammen,</l><lb/>
+<l rendition="#et">Und das ſchwellt unſern Muth.</l><lb/>
+<l>Uns knuͤpft der Sprache heilig Band,</l><lb/>
+<l>Uns knuͤpft <hi rendition="#g">ein</hi> Gott, <hi rendition="#g">ein</hi> Vaterland,</l><lb/>
+<l rendition="#et">                                 <hi rendition="#g">Ein</hi> treues deutſches Blut.</l><lb/>
+</lg>
+<pb n="44" facs="#f0056"/>
+<lg n="4">                             <l>Nicht zum Erobern zogen wir</l><lb/>
+<l rendition="#et">Vom vaͤterlichen Heerd,</l><lb/>
+<l>Die ſchaͤndlichſte Tyrannenmacht</l><lb/>
+<l>Bekaͤmpfen wir in freud'ger Schlacht,</l><lb/>
+<l rendition="#et">Das iſt des Blutes werth.</l><lb/>
+</lg>                         <lg n="5">                             <l>Ihr aber, die uns treu geliebt,</l><lb/>
+<l rendition="#et">Der Herr ſey euer Schild,</l><lb/>
+<l>Bezahlen wir's mit unſerm Blut,</l><lb/>
+<l>Denn Freiheit iſt das hoͤchſte Gut,</l><lb/>
+<l rendition="#et">Ob's tauſend Leben gilt.</l><lb/>
+</lg>                         <lg n="6">                             <l>Drum muntre Jaͤger, frei und flink,</l><lb/>
+<l rendition="#et">Wie auch das Liebchen weint,</l><lb/>
+<l>Gott hilft uns im gerechten Krieg!</l><lb/>
+<l>Friſch in den Kampf! — Tod oder Sieg!</l><lb/>
+<l rendition="#et">Friſch, Bruͤder, auf den Feind!</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="45" facs="#f0057"/>
+<div n="2">                     <head>Lied der ſchwarzen Jaͤger.<lb/>
+</head>                     <p rendition="#c">                         <hi rendition="#g">Nach der Weiſe: Am Rhein, am Rhein ꝛc.</hi></p><lb/>
+<p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">I</hi>ns Feld, ins Feld! die Rachegeiſter                                 mahnen.</l><lb/>
+<l rendition="#et">Auf deutſches Volk, zum Krieg!</l><lb/>
+<l>Ins Feld, ins Feld! hoch flattern unſre Fahnen,</l><lb/>
+<l rendition="#et">Sie fuͤhren uns zum Sieg.</l><lb/>
+</lg>                         <lg n="2">                             <l>Klein iſt die Schaar, doch groß iſt das Vertrauen</l><lb/>
+<l rendition="#et">Auf den gerechten Gott!</l><lb/>
+<l>Wo ſeine Engel ihre Veſten bauen,</l><lb/>
+<l rendition="#et">Sind Hoͤllenkuͤnſte Spott.</l><lb/>
+</lg>                         <lg n="3">                             <l>Gebt kein Pardon! Koͤnnt Ihr das Schwerdt nicht heben:</l><lb/>
+<l rendition="#et">So wuͤrgt ſie ohne Scheu,</l><lb/>
+<l>Und hoch verkauft den letzten Tropfen Leben,</l><lb/>
+<l rendition="#et">Der Tod macht alle frei.</l><lb/>
+</lg>                         <lg n="4">                             <l>Noch trauren wir im ſchwarzen Raͤcherkleide</l><lb/>
+<l rendition="#et">Um den geſtorbnen Muth,</l><lb/>
+<pb n="46" facs="#f0058"/>
+<l>Doch fragt man euch, was dieſes Roth bedeute,</l><lb/>
+<l rendition="#et">Das deutet Frankenblut.</l><lb/>
+</lg>                         <lg n="5">                             <l>Mit Gott! — Einſt geht hoch uͤber Feindes Leichen</l><lb/>
+<l rendition="#et">Der Stern des Friedens auf,</l><lb/>
+<l>Dann pflanzen wir ein weißes Siegeszeichen</l><lb/>
+<l rendition="#et">Am freien Rheinſtrom auf.</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="47" facs="#f0059"/>
+<div n="2">                     <head>Am Hedwigsbrunnen bei Jauer.<lb/>
+</head>                     <p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <l>                             <hi rendition="#in">W</hi>ie ſprech' ichs aus, was meine Bruſt                             durchzittert? —</l><lb/>
+<l rendition="#et">Der Freude wie der Wehmuth Schwingen tragen</l><lb/>
+<l rendition="#et">Das milde Herz zu liebefrohen Tagen,</l><lb/>
+<l rendition="#et">Von keinem Thraͤnengifte mehr verbittert. —</l><lb/>
+<l>Wer hat mein freies Paradies umgittert? —</l><lb/>
+<l rendition="#et">Wer durfte mich in dieſe Feſſeln ſchlagen,</l><lb/>
+<l rendition="#et">Den Lieder Sohn ins Kriegsgetuͤmmel jagen?</l><lb/>
+<l rendition="#et">Wer hat mir meinen Freudenbaum zerſplittert?</l><lb/>
+<l>Wie? griff' ich nicht mit freier Hand zum Schwerdte,</l><lb/>
+<l rendition="#et">Daß blutverſoͤhnend aus der deutſchen Erde</l><lb/>
+<l rendition="#et">Ein heilig Wort jung und lebendig werde? —</l><lb/>
+<l>Es ſprichts ein Gott im Rauſchen dieſer Wellen:</l><lb/>
+<l rendition="#et">„Am Klippenherzen muß die Kraft zerſchellen,</l><lb/>
+<l rendition="#et">„Und aus dem Tode ſoll das Leben quellen.“</l><lb/>
+</lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="48" facs="#f0060"/>
+<div n="2">                     <head>                         <hi rendition="#g">Letzter Troſt.</hi><lb/>
+</head>                     <p rendition="#c">Beim Zuruͤckzug der vereinigten Heere uͤber die                         Elbe.</p><lb/>
+<p rendition="#c">Nach der Weiſe unſers Bundeslieds: Es heult der Sturm, es<lb/>
+braußt das Meer.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">W</hi>as zieht ihr die Stirne finſter und                                 kraus?</l><lb/>
+<l>Was ſtarrt ihr wild in die Nacht hinaus,</l><lb/>
+<l rendition="#et">Ihr freien, ihr maͤnnlichen Seelen?</l><lb/>
+<l>Jetzt heult der Sturm, jetzt braußt das Meer,</l><lb/>
+<l>Jetzt zittert das Erdreich um uns her,</l><lb/>
+<l rendition="#et">Wir woll'n uns die Noth nicht verhehlen.</l><lb/>
+</lg>                         <lg n="2">                             <l>Die Hoͤlle braußt auf in neuer Gluth.</l><lb/>
+<l>Umſonſt iſt gefloſſen viel edles Blut,</l><lb/>
+<l rendition="#et">Noch triumphiren die Boͤſen.</l><lb/>
+<l>Doch nicht an der Rache des Himmels verzagt,</l><lb/>
+<l>Es hat nicht vergebens blutig getagt,</l><lb/>
+<l rendition="#et">Roth muß ja der Morgen ſich loͤſen.</l><lb/>
+</lg>
+<pb n="49" facs="#f0061"/>
+<lg n="3">                             <l>Und galt es fruͤherhin Muth und Kraft,</l><lb/>
+<l>Jetzt alle Kraͤfte zuſammengerafft,</l><lb/>
+<l rendition="#et">Sonſt ſcheitert das Schiff noch im Hafen.</l><lb/>
+<l>Erhebe dich Jugend, der Tieger draͤut!</l><lb/>
+<l>Bewaffne dich Landſturm, jetzt kommt deine Zeit!</l><lb/>
+<l rendition="#et">Erwache du Volk, das geſchlafen!</l><lb/>
+</lg>                         <lg n="4">                             <l>Und die wir hier ruͤſtig zuſammenſtehn,</l><lb/>
+<l>Und keck dem Tod in die Augen ſehn,</l><lb/>
+<l rendition="#et">Woll'n nicht vom Rechte laſſen.</l><lb/>
+<l>Die Freiheit retten, das Vaterland,</l><lb/>
+<l>Oder freudig ſterben das Schwerdt in der Hand,</l><lb/>
+<l rendition="#et">Und Knechtſchaft und Wuͤthriche haſſen.</l><lb/>
+</lg>                         <lg n="5">                             <l>Das Leben gilt nichts, wo die Freiheit faͤllt.</l><lb/>
+<l>Was giebt uns die weite unendliche Welt</l><lb/>
+<l rendition="#et">Fuͤr des Vaterlands heiligen Boden? —</l><lb/>
+<l>Frei woll'n wir das Vaterland wiederſehn,</l><lb/>
+<l>Oder frei zu den gluͤcklichen Vaͤtern gehn,</l><lb/>
+<l rendition="#et">Ja! gluͤcklich und frei ſind die Todten.</l><lb/>
+</lg>                     <fw type="sig" place="bottom">4<lb/>
+</fw>
+<pb n="50" facs="#f0062"/>
+<lg n="6">                         <l>Drum heule, du Sturm, drum brauſe du Meer,</l><lb/>
+<l>Drum zittre, du Erdreich, um uns her,</l><lb/>
+<l rendition="#et">Ihr ſollt uns die Seele nicht zuͤgeln!</l><lb/>
+<l>Die Erde kann neben uns untergehn</l><lb/>
+<l>Wir woll'n als freie Maͤnner beſtehn,</l><lb/>
+<l rendition="#et">Und den Bund mit dem Blute beſiegeln.</l><lb/>
+</lg></lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="51" facs="#f0063"/>
+<div n="2">                     <head>Bundeslied vor der Schlacht.<lb/>
+</head>                     <p rendition="#c"><hi rendition="#g">Am Morgen des Gefechts bei                         Danneberg.</hi></p><lb/>
+<p rendition="#c">Am 12ten Mai 1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">A</hi>hndungsgrauend, todesmuthig,</l><lb/>
+<l rendition="#et">Bricht der große Morgen an,</l><lb/>
+<l>Und die Sonne kalt und blutig,</l><lb/>
+<l rendition="#et">Leuchtet unſrer blut'gen Bahn.</l><lb/>
+<l>In der naͤchſten Stunden Schooße,</l><lb/>
+<l rendition="#et">Liegt das Schickſal einer Welt,</l><lb/>
+<l>Und es zittern ſchon die Looſe,</l><lb/>
+<l rendition="#et">Und der ehr'ne Wuͤrfel faͤllt.</l><lb/>
+<l>Bruͤder! euch mahne die daͤmmernde Stunde,</l><lb/>
+<l>Mahne euch ernſt zu dem heiligſten Bunde,</l><lb/>
+<l rendition="#et">Treu, ſo zum Tod, als zum Leben, geſellt.</l><lb/>
+</lg>                         <lg n="2">                             <l>Hinter uns, im Graun der Naͤchte,</l><lb/>
+<l rendition="#et">Liegt die Schande, liegt die Schmach,</l><lb/>
+<l>Liegt der Frevel fremder Knechte,</l><lb/>
+<l rendition="#et">Der die deutſche Eiche brach.</l><lb/>
+<pb n="52" facs="#f0064"/>
+<l>Unſre Sprache ward geſchaͤndet,</l><lb/>
+<l rendition="#et">Unſre Tempel ſtuͤrzten ein,</l><lb/>
+<l>Unſre Ehre iſt verpfaͤndet,</l><lb/>
+<l rendition="#et">Deutſche Bruͤder loͤßt ſie ein!</l><lb/>
+<l>Bruͤder, die Rache flammt! reicht euch die Haͤnde,</l><lb/>
+<l>Daß ſich der Fluch der Himmliſchen wende!</l><lb/>
+<l rendition="#et">Loͤßt das verlohrne Palladium ein!</l><lb/>
+</lg>                         <lg n="3">                             <l>Vor uns liegt ein gluͤcklich Hoffen,</l><lb/>
+<l rendition="#et">Liegt der Zukunft goldne Zeit,</l><lb/>
+<l>Steht ein ganzer Himmel offen,</l><lb/>
+<l rendition="#et">Bluͤht der Freiheit Seligkeit.</l><lb/>
+<l>Deutſche Kunſt und deutſche Lieder,</l><lb/>
+<l rendition="#et">Frauenhuld und Liebesgluͤck,</l><lb/>
+<l>Alles Große kommt uns wieder,</l><lb/>
+<l rendition="#et">Alles Schoͤne kehrt zuruͤck.</l><lb/>
+<l>Aber noch gilt es ein graͤßliches Wagen,</l><lb/>
+<l>Leben und Blut in die Schanze zu ſchlagen;</l><lb/>
+<l rendition="#et">Nur in dem Opfertod reift uns das Gluͤck.</l><lb/>
+</lg>                         <lg n="4">                             <l>Nun, mit Gott! wir wollens wagen,</l><lb/>
+<l rendition="#et">Feſt vereint dem Schickſal ſtehn,</l><lb/>
+<l>Unſer Herz zum Altar tragen,</l><lb/>
+<l rendition="#et">Und dem Tod entgegen gehn.</l><lb/>
+<pb n="53" facs="#f0065"/>
+<l>Vaterland! dir woll'n wir ſterben,</l><lb/>
+<l rendition="#et">Wie dein großes Wort gebeut!</l><lb/>
+<l>Unſre Lieben moͤgen's erben,</l><lb/>
+<l rendition="#et">Was wir mit dem Blut befreit.</l><lb/>
+<l>Wachſe, du Freiheit der deutſchen Eichen,</l><lb/>
+<l>Wachſe empor uͤber unſere Leichen! —</l><lb/>
+<l rendition="#et">Vaterland hoͤre den heiligen Eid. —</l><lb/>
+</lg>                         <lg n="5">                             <l>Und nun wendet eure Blicke,</l><lb/>
+<l rendition="#et">Noch einmahl der Liebe nach,</l><lb/>
+<l>Scheidet von dem Bluͤthengluͤcke,</l><lb/>
+<l rendition="#et">Das der gift'ge Suͤden brach.</l><lb/>
+<l>Wird euch auch das Auge truͤber —</l><lb/>
+<l rendition="#et">Keine Thraͤne bringt euch Spott.</l><lb/>
+<l>Werft den letzten Kuß hinuͤber,</l><lb/>
+<l rendition="#et">Dann befehlt ſie eurem Gott!</l><lb/>
+<l>Alle die Lippen, die fuͤr uns beten,</l><lb/>
+<l>Alle die Herzen, die wir zertreten,</l><lb/>
+<l rendition="#et">Troͤſte und ſchuͤtze ſie, ewiger Gott! —</l><lb/>
+</lg>                         <lg n="6">                             <l>Und nun friſch zur Schlacht gewendet,</l><lb/>
+<l rendition="#et">Aug' und Herz zum Licht hinauf!</l><lb/>
+<l>Alles Ird'ſche iſt vollendet,</l><lb/>
+<l rendition="#et">Und das Himmliſche geht auf.</l><lb/>
+<pb n="54" facs="#f0066"/>
+<l>Faßt euch an, ihr deutſchen Bruͤder!</l><lb/>
+<l rendition="#et">Jede Nerve ſey ein Held!</l><lb/>
+<l>Treue Herzen ſehn ſich wieder,</l><lb/>
+<l rendition="#et">Lebewohl fuͤr dieſe Welt!</l><lb/>
+<l>Hoͤrt ihrs! ſchon jauchzt es uns donnernd entgegen!</l><lb/>
+<l>Bruͤder! hinein in den blitzenden Regen!</l><lb/>
+<l rendition="#et">Wiederſehn in der beſſern Welt!</l><lb/>
+</lg></lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="55" facs="#f0067"/>
+<div n="2">                     <head>Gebet waͤhrend der Schlacht.<lb/>
+</head>                     <p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l rendition="#et">                                 <hi rendition="#in">V</hi>ater, ich rufe dich!</l><lb/>
+<l>Bruͤllend umwoͤlkt mich der Dampf der                                 Geſchuͤtze,</l><lb/>
+<l>Spruͤhend umzucken mich raſſelnde Blitze.</l><lb/>
+<l rendition="#et">Lenker der Schlachten, ich rufe dich!</l><lb/>
+<l rendition="#et">Vater du, fuͤhre mich!</l><lb/>
+</lg>                         <lg n="2">                             <l rendition="#et">Vater du, fuͤhre mich!</l><lb/>
+<l>Fuͤhr' mich zum Sieg, fuͤhr mich zum Tode,</l><lb/>
+<l>Herr, ich erkenne deine Gebote,</l><lb/>
+<l rendition="#et">Herr, wie du willſt, ſo fuͤhre mich,</l><lb/>
+<l rendition="#et">Gott, ich erkenne dich!</l><lb/>
+</lg>                         <lg n="3">                             <l rendition="#et">Gott, ich erkenne dich!</l><lb/>
+<l>So im herbſtlichen Rauſchen der Blaͤtter</l><lb/>
+<l>Als im Schlachtendonnerwetter</l><lb/>
+<l rendition="#et">Urquell der Gnade, erkenn' ich dich.</l><lb/>
+<l rendition="#et">Vater du, ſegne mich!</l><lb/>
+</lg>
+<pb n="56" facs="#f0068"/>
+<lg n="4">                             <l rendition="#et">Vater du, ſegne mich!</l><lb/>
+<l>In deine Hand befehl' ich mein Leben,</l><lb/>
+<l>Du kannſt es nehmen, du haſt es gegeben,</l><lb/>
+<l rendition="#et">Zum Leben, zum Sterben ſegne mich.</l><lb/>
+<l rendition="#et">Vater, ich preiſe dich!</l><lb/>
+</lg>                         <lg n="5">                             <l rendition="#et">Vater, ich preiſe dich!</l><lb/>
+<l>S'iſt ja kein Kampf fuͤr die Guͤter der Erde;</l><lb/>
+<l>Das Heiligſte ſchuͤtzen wir mit dem Schwerdte,</l><lb/>
+<l rendition="#et">Drum fallend und ſiegend preis' ich dich,</l><lb/>
+<l rendition="#et">Gott, dir ergeb' ich mich!</l><lb/>
+</lg>                         <lg n="6">                             <l rendition="#et">Gott, dir ergeb' ich mich!</l><lb/>
+<l>Wenn mich die Donner des Todes begruͤßen,</l><lb/>
+<l>Wenn meine Adern geoͤffnet fließen,</l><lb/>
+<l rendition="#et">Dir, mein Gott, dir ergeb' ich mich!</l><lb/>
+<l rendition="#et">Vater, ich rufe dich!</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="57" facs="#f0069"/>
+<div n="2">                     <head>                         <hi rendition="#g">Mißmuth</hi>.<lb/>
+</head>                     <p rendition="#c">Als ich bei Sandow lange Zeit die Ufer der Elbe bewachen<lb/>
+mußte.</p><lb/>
+<p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">V</hi>aterland, du riefſt den                                 Saͤnger,</l><lb/>
+<l rendition="#et">Schwelgend in der Tage Gluͤck.</l><lb/>
+<l>Blutig haſſend deine Draͤnger,</l><lb/>
+<l>Hielt nicht Lied und Liebe laͤnger</l><lb/>
+<l rendition="#et">Seiner Seele Sturm zuruͤck.</l><lb/>
+<l>Und er brach mit wundem Herzen</l><lb/>
+<l rendition="#et">Aus der Freunde Reihn,</l><lb/>
+<l>Tauchte in der Trennung Schmerzen, —</l><lb/>
+<l rendition="#et">Und war dein.</l><lb/>
+</lg>                         <lg n="2">                             <l>Thraͤnend hat er oft die Blicke</l><lb/>
+<l rendition="#et">Zur Vergangenheit geſandt,</l><lb/>
+<l>Auf des Lieds melod'ſcher Bruͤcke</l><lb/>
+<l>Stieg der Geiſt zum alten Gluͤcke</l><lb/>
+<l rendition="#et">In der Liebe goldnes Land.</l><lb/>
+<l>Ach er ſchwaͤrmte nur vergebens,</l><lb/>
+<l rendition="#et">Denn der Stunden rohe Haſt</l><lb/>
+<pb n="58" facs="#f0070"/>
+<l>Warf ihn in den Laͤrm des Lebens,</l><lb/>
+<l rendition="#et">Sturmgefaßt.</l><lb/>
+</lg>                         <lg n="3">                             <l>Doch was ſoll er im Gedraͤnge</l><lb/>
+<l rendition="#et">Ohne Schlachten Morgenroth?</l><lb/>
+<l>Gieb die friedlichen Geſaͤnge,</l><lb/>
+<l>Oder gieb des Krieges Strenge</l><lb/>
+<l rendition="#et">Gieb mir Lieder, oder Tod.</l><lb/>
+<l>Laß mir der Begeiſtrung Thraͤnen,</l><lb/>
+<l rendition="#et">Laß mir meine Liebes-Nacht,</l><lb/>
+<l>Oder wirf mein freudig Sehnen</l><lb/>
+<l rendition="#et">In die Schlacht! —</l><lb/>
+</lg>                         <lg n="4">                             <l>Um mich donnern die Kanonen,</l><lb/>
+<l rendition="#et">Ferne Cimbeln ſchmettern drein;</l><lb/>
+<l>Deutſchland wirft um ſeine Kronen,</l><lb/>
+<l>Und hier ſoll ich ruhig wohnen</l><lb/>
+<l rendition="#et">Und des Stromes Waͤchter ſeyn?</l><lb/>
+<l>Soll ich in der Proſa ſterben? —</l><lb/>
+<l rendition="#et">Poeſie, du Flammenquell,</l><lb/>
+<l>Brich nur los mit leuchtendem Verderben,</l><lb/>
+<l rendition="#et">Aber ſchnell!</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="59" facs="#f0071"/>
+<div n="2">                     <head>                         <hi rendition="#g">An den Koͤnig.</hi><lb/>
+</head>                     <p rendition="#c">Als das Geruͤcht ihn in der Bautzner Schlacht gefallen                         nannte.</p><lb/>
+<p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <l>                             <hi rendition="#in">H</hi>eil <hi rendition="#g">dir</hi>, mein                             Fuͤrſt, auf <hi rendition="#g">deinem</hi> Strahlenthrone!</l><lb/>
+<l rendition="#et">Bricht auch das Herz vom hoͤchſten Schmerz bezwungen,</l><lb/>
+<l rendition="#et">Mit letzter Kraft <hi rendition="#g">dir</hi> jubelnd Heil geſungen,</l><lb/>
+<l rendition="#et">Der Jammer ſtirbt im hoͤchſten Siegestone.</l><lb/>
+<l>Ja, bis das letzte deutſche Wort verklungen,</l><lb/>
+<l rendition="#et">Jauchzt noch das Vaterland von ſeinem Sohne,</l><lb/>
+<l rendition="#et">Der kaͤmpfend fuͤr ſein Volk und ſeine Krone,</l><lb/>
+<l rendition="#et">Sich koͤniglich den Koͤnigstod errungen!</l><lb/>
+<l>Der Sieg fleugt auf, aus deines Blutes Baͤchen</l><lb/>
+<l rendition="#et">Dein Name ſoll des Wuͤthrichs Mauern brechen,</l><lb/>
+<l rendition="#et">Das treue Volk muß ſeinen Koͤnig raͤchen! —</l><lb/>
+<l>Du aber, ſanft entſchlummert unter Leichen,</l><lb/>
+<l rendition="#et">Erwache ſanft in <hi rendition="#g">deinen</hi> goldnen Reichen,</l><lb/>
+<l rendition="#et">Die Palmen bluͤhn <hi rendition="#g">dir</hi> dort wie <hi rendition="#g">deine</hi> Eichen!</l><lb/>
+</lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="60" facs="#f0072"/>
+<div n="2">                     <head>                         <hi rendition="#b #g">Reiterlied.</hi><lb/>
+</head>                     <p rendition="#c">Nach der Weiſe: Es giebt nichts luſt'gers auf der Welt.</p><lb/>
+<p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">F</hi>riſch auf, friſch auf mit raſchem                                 Flug,</l><lb/>
+<l rendition="#et">Frei vor dir liegt die Welt,</l><lb/>
+<l>Wie auch des Feindes Liſt und Trug</l><lb/>
+<l rendition="#et">Uns rings umgattert haͤlt.</l><lb/>
+<l>Steig, edles Roß, und baͤume dich,</l><lb/>
+<l rendition="#et">Dort winkt der Eichenkranz!</l><lb/>
+<l>Streich aus, ſtreich aus, und trage mich</l><lb/>
+<l rendition="#et">Zum luſt'gen Schwerdtertanz.</l><lb/>
+</lg>                         <lg n="2">                             <l>Hoch in den Luͤften, unbeſiegt,</l><lb/>
+<l rendition="#et">Geht friſcher Reitersmuth!</l><lb/>
+<l>Was unter ihm im Staube liegt,</l><lb/>
+<l rendition="#et">Engt nicht das freie Blut.</l><lb/>
+<l>Weit hinter ihm liegt Sorg' und Noth,</l><lb/>
+<l rendition="#et">Und Weib und Kind und Heerd,</l><lb/>
+<l>Vor ihm nur Freiheit oder Tod,</l><lb/>
+<l rendition="#et">Und neben ihm das Schwerdt.</l><lb/>
+</lg>
+<pb n="61" facs="#f0073"/>
+<lg n="3">                             <l>So geht's zum luſt'gen Hochzeitsfeſt,</l><lb/>
+<l rendition="#et">Der Brautkranz iſt der Preis,</l><lb/>
+<l>Und wer das Liebchen warten laͤßt,</l><lb/>
+<l rendition="#et">Den bannt der freie Kreis.</l><lb/>
+<l>Die Ehre iſt der Hochzeitgaſt,</l><lb/>
+<l rendition="#et">Das Vaterland die Braut;</l><lb/>
+<l>Wer ſie recht bruͤnſtiglich umfaßt,</l><lb/>
+<l rendition="#et">Den hat der Tod getraut.</l><lb/>
+</lg>                         <lg n="4">                             <l>Gar ſuͤß mag ſolch ein Schlummer ſeyn</l><lb/>
+<l rendition="#et">In ſolcher Liebesnacht;</l><lb/>
+<l>In Liebchens Armen ſchlaͤfſt du ein,</l><lb/>
+<l rendition="#et">Getreu von ihr bewacht.</l><lb/>
+<l>Und wenn der Eiche gruͤnes Holz</l><lb/>
+<l rendition="#et">Die neuen Blaͤtter ſchwellt,</l><lb/>
+<l>So weckt ſie dich mit freud'gem Stolz,</l><lb/>
+<l rendition="#et">Zur ew'gen Freiheitswelt.</l><lb/>
+</lg>                         <lg n="5">                             <l>Drum wie ſie faͤllt und wie ſie ſteigt,</l><lb/>
+<l rendition="#et">Des Schickſals raſche Bahn,</l><lb/>
+<l>Wohin das Gluͤck der Schlachten neigt,</l><lb/>
+<l rendition="#et">Wir ſchauens ruhig an.</l><lb/>
+<l>Fuͤr deutſche Freiheit woll'n wir ſtehn,</l><lb/>
+<l rendition="#et">Sei's nun im Grabes Schooß,</l><lb/>
+<pb n="62" facs="#f0074"/>
+<l>Sei's oben auf des Sieges Hoͤhn,</l><lb/>
+<l rendition="#et">Wir preiſen unſer Loos.</l><lb/>
+</lg>                         <lg n="6">                             <l>Und wenn uns Gott den Sieg gewaͤhrt,</l><lb/>
+<l rendition="#et">Was hilft euch euer Spott? —</l><lb/>
+<l>Ja! Gottes Arm fuͤhrt unſer Schwerdt,</l><lb/>
+<l rendition="#et">Und unſer Schild iſt Gott!</l><lb/>
+<l>Schon ſtuͤrmt es maͤchtig rings umher,</l><lb/>
+<l rendition="#et">Drum, edler Hengſt, friſch auf!</l><lb/>
+<l>Und wenn die Welt voll Teufel waͤr',</l><lb/>
+<l rendition="#et">Dein Weg geht mitten drauf.</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="63" facs="#f0075"/>
+<div n="2">                     <head>                         <hi rendition="#b #g">Troſt.</hi><lb/>
+</head>                     <p rendition="#c"><hi rendition="#g">Nach Abſchluß des                         Waffenſtillſtandes.</hi></p><lb/>
+<p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">H</hi>erz! laß dich nicht zerſpalten,</l><lb/>
+<l rendition="#et">Durch Feindes Liſt und Spott.</l><lb/>
+<l>Gott wird es wohl verwalten,</l><lb/>
+<l rendition="#et">Er iſt der Freiheit Gott.</l><lb/>
+</lg>                         <lg n="2">                             <l>Laß nur den Wuͤthrich drohen,</l><lb/>
+<l rendition="#et">Dort reicht er nicht hinauf.</l><lb/>
+<l>Einſt bricht in heil'gen Lohen,</l><lb/>
+<l rendition="#et">Doch deine Freiheit auf.</l><lb/>
+</lg>                         <lg n="3">                             <l>Glimmend durch lange Schmerzen,</l><lb/>
+<l rendition="#et">Hat ſie der Tod verklaͤrt.</l><lb/>
+<l>Aus Millionen Herzen,</l><lb/>
+<l rendition="#et">Mit edlem Blut genaͤhrt.</l><lb/>
+</lg>
+<pb n="64" facs="#f0076"/>
+<lg n="4">                             <l>Wird ſeinen Thron zermalmen,</l><lb/>
+<l rendition="#et">Schmelzt deine Feſſeln los,</l><lb/>
+<l>Und pflanzt die gluͤh'nden Palmen</l><lb/>
+<l rendition="#et">Auf deutſcher Helden Moos.</l><lb/>
+</lg>                         <lg n="5">                             <l>Drum laß dich nicht zerſpalten</l><lb/>
+<l rendition="#et">Durch Feindes Liſt und Spott.</l><lb/>
+<l>Gott wird es wohl verwalten,</l><lb/>
+<l rendition="#et">Er iſt der Freiheit Gott.</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="65" facs="#f0077"/>
+<div n="2">                     <head>                         <hi rendition="#g">Abſchied vom Leben.</hi><lb/>
+</head>                     <p rendition="#c">Als ich in der Nacht vom 17ten zum 18ten Juni 1813. ſchwer                         verwundet<lb/>
+und hülflos in einem Holze lag und zu ſterben                         meinte.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <l>                             <hi rendition="#in">D</hi>ie Wunde brennt. — die bleichen Lippen beben.                             —</l><lb/>
+<l rendition="#et">Ich fuͤhl's an meines Herzens matterm Schlage,</l><lb/>
+<l rendition="#et">Hier ſteh ich an den Marken meiner Tage. —</l><lb/>
+<l rendition="#et">Gott, wie du willſt, dir hab' ich mich ergeben. —</l><lb/>
+<l>Viel goldne Bilder ſah ich um mich ſchweben,</l><lb/>
+<l rendition="#et">Das ſchoͤne Traumlied wird zur Todtenklage! —</l><lb/>
+<l rendition="#et">Muth! Muth! — Was ich ſo treu im Herzen trage,</l><lb/>
+<l rendition="#et">Das muß ja doch dort ewig mit mir leben! —</l><lb/>
+<l>Und was ich hier als Heiligthum erkannte,</l><lb/>
+<l rendition="#et">Wofuͤr ich raſch und jugendlich entbrannte,</l><lb/>
+<l rendition="#et">Ob ich's nun Freiheit, ob ich's Liebe nannte,</l><lb/>
+<l>Als leichter Seraph ſeh ichs vor mir ſtehen, —</l><lb/>
+<l rendition="#et">Und wie die Sinne langſam mir vergehen,</l><lb/>
+<l rendition="#et">Traͤgt mich ein Hauch zu morgenrothen Hoͤhen.</l><lb/>
+</lg></div>                     <milestone unit="section" rendition="#hr"/>                     <fw type="sig" place="bottom">5<lb/>
+</fw>
+<pb n="66" facs="#f0078"/>
+<div n="2">                     <head>                         <hi rendition="#g">Luͤtzow's wilde Jagd.</hi><lb/>
+</head>                     <p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">W</hi>as glaͤnzt dort vom Walde im                                 Sonnenſchein?</l><lb/>
+<l rendition="#et">Hoͤr's naͤher und naͤher brauſen.</l><lb/>
+<l>Es zieht ſich herunter in duͤſteren Reihn,</l><lb/>
+<l>Und gellende Hoͤrner ſchallen darein,</l><lb/>
+<l rendition="#et">Und erfuͤllen die Seele mit Grauſen.</l><lb/>
+<l>Und wenn ihr die ſchwarzen Geſellen fragt,</l><lb/>
+<l rendition="#et">Das iſt Luͤtzow's wilde verwegene Jagd.</l><lb/>
+</lg>                         <lg n="2">                             <l>Was zieht dort raſch durch den finſtern Wald,</l><lb/>
+<l rendition="#et">Und ſtreift von Bergen zu Bergen?</l><lb/>
+<l>Es legt ſich in naͤchtlichen Hinterhalt,</l><lb/>
+<l>Das Hurrah jauchzt, und die Buͤchſe knallt,</l><lb/>
+<l rendition="#et">Es fallen die fraͤnkiſchen Schergen.</l><lb/>
+<l>Und wenn ihr die ſchwarzen Jaͤger fragt,</l><lb/>
+<l rendition="#et">Das iſt Luͤtzow's wilde verwegene Jagd.</l><lb/>
+</lg>
+<pb n="67" facs="#f0079"/>
+<lg n="3">                             <l>Wo die Reben dort gluͤhen, dort braußt der Rhein,</l><lb/>
+<l rendition="#et">Der Wuͤthrich geborgen ſich meinte,</l><lb/>
+<l>Da naht es ſchnell mit Gewitterſchein,</l><lb/>
+<l>Und wirft ſich mit ruͤſt'gen Armen hinein‚</l><lb/>
+<l rendition="#et">Und ſpringt ans Ufer der Feinde,</l><lb/>
+<l>Und wenn ihr die ſchwarzen Schwimmer fragt,</l><lb/>
+<l rendition="#et">Das iſt Luͤtzow's wilde verwegene Jagd.</l><lb/>
+</lg>                         <lg n="4">                             <l>Was braußt dort im Thale die laute Schlacht,</l><lb/>
+<l rendition="#et">Was ſchlagen die Schwerdter zuſammen?</l><lb/>
+<l>Wildherzige Reiter ſchlagen die Schlacht,</l><lb/>
+<l>Und der Funke der Freiheit iſt gluͤhend erwacht,</l><lb/>
+<l rendition="#et">Und lodert in blutigen Flammen.</l><lb/>
+<l>Und wenn ihr die ſchwarzen Reiter fragt,</l><lb/>
+<l rendition="#et">Das iſt Luͤtzow's wilde verwegene Jagd.</l><lb/>
+</lg>                         <lg n="5">                             <l>Wer ſcheidet dort roͤchelnd vom Sonnenlicht,</l><lb/>
+<l rendition="#et">Unter winſelnde Feinde gebettet? —</l><lb/>
+<l>Es zuckt der Tod auf dem Angeſicht,</l><lb/>
+<l>Doch die wackern Herzen erzittern nicht‚</l><lb/>
+<l rendition="#et">Das Vaterland iſt ja gerettet!</l><lb/>
+<l>Und wenn ihr die ſchwarzen Gefallnen fragt,</l><lb/>
+<l rendition="#et">Das war Luͤtzo's wilde verwegene Jagd.</l><lb/>
+</lg>
+<pb n="68" facs="#f0080"/>
+<lg n="6">                         <l>Die wilde Jagd und die deutſche Jagd</l><lb/>
+<l rendition="#et">Auf Henkers Blut und Tyrannen.</l><lb/>
+<l>Drum, die ihr uns liebt, nicht geweint und geklagt,</l><lb/>
+<l>Das Land iſt ja frei und der Morgen tagt,</l><lb/>
+<l rendition="#et">Wenn wir's auch nur ſterbend gewannen,</l><lb/>
+<l>Und von Enkeln, zu Enkeln ſey's nachgeſagt:</l><lb/>
+<l rendition="#et">Das war Luͤtzow's wilde verwegene Jagd.</l><lb/>
+</lg></lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="69" facs="#f0081"/>
+<div n="2">                     <head>                         <hi rendition="#g">Gebet.</hi><lb/>
+</head>                     <p rendition="#c"><hi rendition="#g">Nach der Weiſe: <hi rendition="#aq">O sanctissima</hi></hi> <hi rendition="#aq">etc</hi>.</p><lb/>
+<p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l rendition="#et">                                 <hi rendition="#in">H</hi>oͤr' uns, Allmaͤchtiger!</l><lb/>
+<l rendition="#et">Hoͤr' uns, Allguͤtiger!</l><lb/>
+<l>Himmliſcher Fuͤhrer der Schlachten.</l><lb/>
+<l rendition="#et">Vater, dich preiſen wir!</l><lb/>
+<l rendition="#et">Vater, wir danken dir,</l><lb/>
+<l>Daß wir zur Freiheit erwachten!</l><lb/>
+</lg>                         <lg n="2">                             <l rendition="#et">Wie auch die Hoͤlle braußt,</l><lb/>
+<l rendition="#et">Gott, deine ſtarke Fauſt</l><lb/>
+<l>Stuͤrzt das Gebaͤude der Luͤge.</l><lb/>
+<l rendition="#et">Fuͤhr' uns, Herr Zebaoth,</l><lb/>
+<l rendition="#et">Fuͤhr' uns, dreiein'ger Gott,</l><lb/>
+<l>Fuͤhr' uns zur Schlacht und zum Siege!</l><lb/>
+</lg>
+<pb n="70" facs="#f0082"/>
+<lg n="3">                         <l rendition="#et">Fuͤhr uns! — fall' unſer Loos</l><lb/>
+<l rendition="#et">Auch tief in Grabes Schooß,</l><lb/>
+<l>Lob doch, und Preis deinem Nahmen! —</l><lb/>
+<l rendition="#et">Reich, Kraft und Herrlichkeit</l><lb/>
+<l rendition="#et">Sind dein in Ewigkeit!</l><lb/>
+<l>Fuͤhr uns, Allmaͤchtiger! — Amen.</l><lb/>
+</lg></lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="71" facs="#f0083"/>
+<div n="2">                     <head>                         <hi rendition="#g">Oeſtreichs Doppeladler</hi>.<lb/>
+</head>                     <p rendition="#c"><hi rendition="#g">Als ich verwundet nach Oeſtreich                             zuruͤckkehrte</hi>.</p><lb/>
+<p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <l>                             <hi rendition="#in">S</hi>ei mir geſeegnet, heilig Doppelzeichen,</l><lb/>
+<l rendition="#et">Das ich trotz dieſem Wirbelſturm der Jahre</l><lb/>
+<l rendition="#et">In heiterm Stolz und leuchtender gewahre! —</l><lb/>
+<l rendition="#et">Ja hier beginnſt du, freies Land der Eichen!</l><lb/>
+<l>Ein Ruf, dem nur der Seel'gen Stimmen gleichen,</l><lb/>
+<l rendition="#et">Zog mich zu deinem nachbarlichen Aare,</l><lb/>
+<l rendition="#et">Es floß mein Blut am Vaterlands Altare.</l><lb/>
+<l rendition="#et">Ich ſank getroffen von Verraͤther Streichen.</l><lb/>
+<l>Da find' ich dich, ſchoͤn wie im Land der Dichtung,</l><lb/>
+<l rendition="#et">Zween Blitze gluͤht der Augen Doppelrichtung,</l><lb/>
+<l rendition="#et">Der Freiheit Sieg, der Tyranney Vernichtung.</l><lb/>
+<l>Friſch auf, Habsburg, der Teufel muß erliegen,</l><lb/>
+<l rendition="#et">Gott iſt mit dir, wo deine Banner fliegen.</l><lb/>
+<l rendition="#et">Hoch, Oeſtreich, hoch! — dein Schwerdt, dein Karl<lb/>
+<hi rendition="#et">wird ſiegen!</hi></l><lb/>
+</lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="72" facs="#f0084"/>
+<div n="2">                     <head>                         <hi rendition="#g">Unſere Zuverſicht.</hi><lb/>
+</head>                     <p rendition="#c">Nach der Weiſe: Wer nur den lieben Gott läßt walten ꝛc.</p><lb/>
+<p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">W</hi>ir rufen dich mit freud'gen Blicken,</l><lb/>
+<l rendition="#et">Und halten feſt an deinem Wort!</l><lb/>
+<l>Die Hoͤlle ſoll uns nicht beruͤcken,</l><lb/>
+<l rendition="#et">Durch Aberwitz und Meuchelmord,</l><lb/>
+<l>Und was auch rings, in Truͤmmern geht,</l><lb/>
+<l rendition="#et">Wir wiſſens, daß dein Wort beſteht.</l><lb/>
+</lg>                         <lg n="2">                             <l>Nicht leichten Kampfes ſiegt der Glaube,</l><lb/>
+<l rendition="#et">Solch' Gut will ſchwer errungen ſeyn,</l><lb/>
+<l>Freiwillig traͤnkt uns keine Traube,</l><lb/>
+<l rendition="#et">Die Kelter nur erpreßt den Wein,</l><lb/>
+<l>Und will ein Engel himmelwaͤrts,</l><lb/>
+<l rendition="#et">Erſt bricht im Tod ein Menſchenherz.</l><lb/>
+</lg>                         <lg n="3">                             <l>Drum mag auch noch im falſchen Leben</l><lb/>
+<l rendition="#et">Die Luͤge ihre Tempel bau'n,</l><lb/>
+<pb n="73" facs="#f0085"/>
+<l>Und moͤgen goldne Schurken beben,</l><lb/>
+<l rendition="#et">Und ſich vor Kraft und Tugend graun,</l><lb/>
+<l>Und mit der Feigheit Schwindeldrehn,</l><lb/>
+<l rendition="#et">Vor dem erwachten Volke ſtehn.</l><lb/>
+</lg>                         <lg n="4">                             <l>Und moͤgen ſich noch Bruͤder trennen,</l><lb/>
+<l rendition="#et">Und ſich in blutgen Haß entzwein,</l><lb/>
+<l>Und deutſche Fuͤrſten es verkennen,</l><lb/>
+<l rendition="#et">Daß ihre Kronen Schweſtern ſeyn,</l><lb/>
+<l>Und daß wenn Deutſchland einig blieb,</l><lb/>
+<l rendition="#et">Es einer Welt Geſetze ſchrieb.</l><lb/>
+</lg>                         <lg n="5">                             <l>Wir wollen nicht an dir verzagen,</l><lb/>
+<l rendition="#et">Und treu und feſten Muthes ſeyn,</l><lb/>
+<l>Du wirſt den Wuͤthrich doch erſchlagen,</l><lb/>
+<l rendition="#et">Und wirſt dein deutſches Land befrein.</l><lb/>
+<l>Liegt auch der Tag noch Jahreweit,</l><lb/>
+<l rendition="#et">Wer weiß als du die rechte Zeit?</l><lb/>
+</lg>                         <lg n="6">                             <l>Die rechte Zeit zur guten Sache,</l><lb/>
+<l rendition="#et">Zur Freiheit, zum Tyrannentod!</l><lb/>
+<l>Vor deinem Schwerdte ſinkt der Drache,</l><lb/>
+<l rendition="#et">Und faͤrbt die deutſchen Stroͤme roth,</l><lb/>
+<l>Mit Sklaven Blut und freiem Blut! —</l><lb/>
+<l rendition="#et">Du treuer Gott verwalt' es gut!</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="74" facs="#f0086"/>
+<div n="2">                     <head>                         <hi rendition="#g">Was uns bleibt.</hi><lb/>
+</head>                     <p rendition="#c">1813.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <l>                             <hi rendition="#in">W</hi>as uns bleibt, wenn Deutſchlands                             Saͤulen brechen,</l><lb/>
+<l rendition="#et">Wenn der Goͤtter Stimme truͤgt,</l><lb/>
+<l>Wenn der Menſchheit Wunden ſich nicht raͤchen,</l><lb/>
+<l rendition="#et">Wenn das heiligſte Vertrauen luͤgt,</l><lb/>
+<l>Wenn umſonſt die aufgeblitzte Jugend</l><lb/>
+<l rendition="#et">Um des Vaterlandes Kerker ſtuͤrmt,</l><lb/>
+<l>Und des Volkes Spartergleiche Tugend</l><lb/>
+<l rendition="#et">Fruchtlos Leichen uͤber Leichen thuͤrmt? —</l><lb/>
+<l>Was uns bleibt, wenn wir trotz unſerm Rechte</l><lb/>
+<l rendition="#et">Knirſchend vor dem falſchen Gluͤcke ſtehn,</l><lb/>
+<l>Und des Wuͤthrichs feile Henkersknechte</l><lb/>
+<l rendition="#et">Mordend durch der Freiheit Tempel gehn? —</l><lb/>
+<l>Was uns bleibt, wenn unſer Blut vergebens</l><lb/>
+<lb/>
+<pb n="75" facs="#f0087"/>
+<l rendition="#et">Auf des Vaterlandes Grab verraucht,</l><lb/>
+<l>Und der Freiheit Stern, der <hi rendition="#g">Stern des deutſchen                                 Le¬</hi><lb/>
+<hi rendition="#et"><hi rendition="#g">bens</hi>,</hi></l><lb/>
+<l rendition="#et">An dem deutſchen Himmel niedertaucht? —</l><lb/>
+<l>Was uns bleibt? Ruͤhmt nicht des Wiſſens Bronnen,</l><lb/>
+<l rendition="#et">Nicht der Kuͤnſte friedensreichen Strand;</l><lb/>
+<l>Fuͤr die Knechte giebt es keine Sonnen,</l><lb/>
+<l rendition="#et">Und die Kunſt verlangt ein Vaterland!</l><lb/>
+<l>Aller Goͤtter Stimmen ſind verklungen,</l><lb/>
+<l rendition="#et">Vor dem Jammerton der Sklaverei, —</l><lb/>
+<l>Und Homer, er haͤtte nie geſungen,</l><lb/>
+<l rendition="#et">Doch ſein Griechenland war frei! —</l><lb/>
+<l>Was uns bleibt? ein chriſtliches Ertragen,</l><lb/>
+<l rendition="#et">Wo des Dulders feige Thraͤne thaut? —</l><lb/>
+<l>Soll ich ſelbſt den Altar mir zerſchlagen,</l><lb/>
+<l rendition="#et">Den ich mir im Herzen aufgebaut?</l><lb/>
+<l>Soll ich das fuͤr Gottes Finger halten,</l><lb/>
+<l rendition="#et">Wo der Menſchheit Engel Rache ſchrein?</l><lb/>
+<l>Wo die Teufel teufliſch walten,</l><lb/>
+<l rendition="#et">Das kann nur ein Sieg der Hoͤlle ſeyn! —</l><lb/>
+<l>Bleibt uns nichts? — Fliehn alle gute Engel</l><lb/>
+<l rendition="#et">Mit verwandtem Angeſicht?</l><lb/>
+<l>Brechen aller Hoffnung Bluͤthenſtengel,</l><lb/>
+<pb n="76" facs="#f0088"/>
+<milestone unit="section" rendition="#hr"/>                         <l rendition="#et">Weil des Sieges Palme bricht?</l><lb/>
+<l>Kann der Arm kein rettend Kreuz umarmen,</l><lb/>
+<l rendition="#et">In der hoͤchſten letzten Noth,</l><lb/>
+<l>Muͤſſen wir verzweifeln und verjammern,</l><lb/>
+<l rendition="#et">Giebt es keine Freiheit, als den Tod?</l><lb/>
+<l>Doch! — wir ſehn's im Aufſchwung unſerer Jugend,</l><lb/>
+<l rendition="#et">In des ganzen Volkes Heldengeiſt,</l><lb/>
+<l>Ja! es giebt noch eine <hi rendition="#g">deutſche Tugend</hi>,</l><lb/>
+<l rendition="#et">Die allmaͤchtig einſt die Ketten reißt.</l><lb/>
+<l>Wenn auch jetzt in den bezwungnen Hallen</l><lb/>
+<l rendition="#et">Tyranney der Freiheit Tempel bricht, —</l><lb/>
+<l>Deutſches Volk, du konnteſt fallen,</l><lb/>
+<l rendition="#et">                             <hi rendition="#g">Aber ſinken kannſt du nicht</hi>!</l><lb/>
+<l>Und noch lebt der Hoffnung Himmelsfunken!</l><lb/>
+<l rendition="#et">Muthig vorwaͤrts durch das falſche Gluͤck!</l><lb/>
+<l>                             <hi rendition="#g">'S war ein Stern</hi>! jetzt iſt er zwar                             verſunken,</l><lb/>
+<l rendition="#et">Doch der Morgen bringt ihn uns zuruͤck.</l><lb/>
+<l>                             <hi rendition="#g">'S war ein Stern</hi>! <hi rendition="#g">die Sterne                                 bleiben</hi>!</l><lb/>
+<l rendition="#et">                             <hi rendition="#g">'S war der Freiheit goldner Stern</hi>!</l><lb/>
+<l>Laß die blut'gen Wolken treiben,</l><lb/>
+<l rendition="#et">Der iſt in der Huth des Herrn!</l><lb/>
+<l>Mag die Hoͤlle drohn und ſchnauben,</l><lb/>
+<l rendition="#et">Der Tyrann reicht nicht hinauf,</l><lb/>
+<pb n="77" facs="#f0089"/>
+<l>Kann dem Himmel keine Sterne rauben,</l><lb/>
+<l rendition="#et">                             <hi rendition="#g">Unſer Stern geht auf</hi>!</l><lb/>
+<l>Ob die Nacht die freud'ge Jugend toͤdte,</l><lb/>
+<l rendition="#et">                             <hi rendition="#g">Fuͤr den Willen giebt es keinen Tod</hi>,</l><lb/>
+<l>Und des Blutes deutſche Heldenroͤthe</l><lb/>
+<l rendition="#et">                             <hi rendition="#g">Jubelt von der Freiheit Morgenroth</hi>!</l><lb/>
+</lg></div></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="78" facs="#f0090"/>
+<div n="1">                 <head>                     <hi rendition="#g">Nachtrag<lb/>
+aus des Dichters Nachlaſſe.</hi><lb/>
+</head>                 <milestone unit="section" rendition="#hr"/>                 <div n="2">                     <head>                         <hi rendition="#g">Maͤnner und Buben.</hi><lb/>
+</head>                     <p rendition="#c">Nach der Weiſe: Brüder mir iſt alles gleich ꝛc.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                         <l>                             <hi rendition="#in">D</hi>as Volk ſteht auf, der Sturm bricht los,</l><lb/>
+<l>Wer legt noch die Haͤnde feig in den Schoos?</l><lb/>
+<l>Pfui uͤber dich Buben hinter dem Ofen,</l><lb/>
+<l>Unter den Schranzen und unter den Zofen!</l><lb/>
+<l rendition="#et">Biſt doch ein ehrlos erbaͤrmlicher Wicht.</l><lb/>
+<l>Ein deutſches Maͤdchen kuͤßt dich nicht,</l><lb/>
+<l>Ein deutſches Lied erfreut dich nicht,</l><lb/>
+<l>Und deutſcher Wein erquickt dich nicht.</l><lb/>
+<l rendition="#et">Stoßt mit an,</l><lb/>
+<l rendition="#et">Mann fuͤr Mann,</l><lb/>
+<l>Wer den Flammberg ſchwingen kann!</l><lb/>
+</lg>
+<pb n="79" facs="#f0091"/>
+<lg n="2">                             <l>Wenn wir die Schauer der Regennacht</l><lb/>
+<l>Unter Sturmespfeifen wachend vollbracht,</l><lb/>
+<l>Kannſt du freilich auf uͤppigen Pfuͤhlen</l><lb/>
+<l>Wolluͤſtig traͤumend die Glieder fuͤhlen.</l><lb/>
+<l rendition="#et">Biſt doch ein ehrlos erbaͤrmlicher Wicht;</l><lb/>
+<l>Ein deutſches Maͤdchen kuͤßt dich nicht,</l><lb/>
+<l>Ein deutſches Lied erfreut dich nicht,</l><lb/>
+<l>Und deutſcher Wein erquickt dich nicht.</l><lb/>
+<l rendition="#et">Stoßt mit an,</l><lb/>
+<l rendition="#et">Mann fuͤr Mann,</l><lb/>
+<l>Wer den Flammberg ſchwingen kann!</l><lb/>
+</lg>                         <lg n="3">                             <l>Wenn uns der Trompeten rauher Klang,</l><lb/>
+<l>Wie Donner Gottes zum Herzen drang,</l><lb/>
+<l>Magſt du im Theater die Naſe wetzen,</l><lb/>
+<l>Und dich an Trillern und Laufern ergoͤtzen,</l><lb/>
+<l rendition="#et">Biſt doch ein ehrlos erbaͤrmlicher Wicht,</l><lb/>
+<l>Ein deutſches Maͤdchen kuͤßt dich nicht,</l><lb/>
+<l>Ein deutſches Lied erfreut dich nicht,</l><lb/>
+<l>Und deutſcher Wein erquickt dich nicht;</l><lb/>
+<l rendition="#et">Stoßt mit an,</l><lb/>
+<l rendition="#et">Mann fuͤr Mann,</l><lb/>
+<l>Wer den Flammberg ſchwingen kann!</l><lb/>
+</lg>
+<pb n="80" facs="#f0092"/>
+<lg n="4">                             <l>Wenn die Gluth des Tags verſengend druͤckt,</l><lb/>
+<l>Und uns kaum ein Tropfen Waſſer erquickt,</l><lb/>
+<l>Kannſt du Champagner ſpringen laſſen,</l><lb/>
+<l>Kannſt du bei brechenden Tafeln praſſen.</l><lb/>
+<l rendition="#et">Biſt doch ein ehrlos erbaͤrmlicher Wicht,</l><lb/>
+<l>Ein deutſches Maͤdchen kuͤßt dich nicht,</l><lb/>
+<l>Ein deutſches Lied erfreut dich nicht,</l><lb/>
+<l>Und deutſcher Wein erquickt dich nicht.</l><lb/>
+<l rendition="#et">Stoßt mit an,</l><lb/>
+<l rendition="#et">Mann fuͤr Mann,</l><lb/>
+<l>Wer den Flammberg ſchwingen kann.</l><lb/>
+</lg>                         <lg n="5">                             <l>Wenn wir vor'm Drange der wuͤrgenden Schlacht</l><lb/>
+<l>Zum Abſchied an's ferne Treuliebchen gedacht,</l><lb/>
+<l>Magſt du zu deinen Maitreſſen laufen,</l><lb/>
+<l>Und dir mit Golde die Luſt erkaufen.</l><lb/>
+<l rendition="#et">Biſt doch ein ehrlos erbaͤrmlicher Wicht,</l><lb/>
+<l>Ein deutſches Maͤdchen kuͤßt dich nicht,</l><lb/>
+<l>Ein deutſches Lied erfreut dich nicht,</l><lb/>
+<l>Und deutſcher Wein erquickt dich nicht.</l><lb/>
+<l rendition="#et">Stoßt mit an,</l><lb/>
+<l rendition="#et">Mann fuͤr Mann,</l><lb/>
+<l>Wer den Flammberg ſchwingen kann!</l><lb/>
+</lg>
+<pb n="81" facs="#f0093"/>
+<lg n="6">                             <l>Wenn die Kugel pfeift, wenn die Lanze ſaußt,</l><lb/>
+<l>Wenn der Tod uns in tauſend Geſtalten umbraußt,</l><lb/>
+<l>Kannſt du am Spieltiſch dein Septleva brechen,</l><lb/>
+<l>Und mit der Spadille die Koͤnige ſtechen.</l><lb/>
+<l rendition="#et">Biſt doch ein ehrlos erbaͤrmlicher Wicht,</l><lb/>
+<l>Ein deutſches Maͤdchen kuͤßt dich nicht,</l><lb/>
+<l>Ein deutſches Lied erfreut dich nicht,</l><lb/>
+<l>Und deutſcher Wein erquickt dich nicht.</l><lb/>
+<l rendition="#et">Stoßt mit an,</l><lb/>
+<l rendition="#et">Mann fuͤr Mann,</l><lb/>
+<l>Wer den Flammberg ſchwingen kann.</l><lb/>
+</lg>                         <lg n="7">                             <l>Und ſchlaͤgt unſer Stuͤndlein im Schlachtenroth,</l><lb/>
+<l>Willkommen du ſel'ger Soldatentod!</l><lb/>
+<l>Du verkriechſt dich in ſeidene Decken,</l><lb/>
+<l>Winſelnd vor der Vernichtung Schrecken,</l><lb/>
+<l rendition="#et">Stirbſt als ein ehrlos erbaͤrmlicher Wicht,</l><lb/>
+<l>Ein deutſches Maͤdchen beweint dich nicht,</l><lb/>
+<l>Ein deutſches Lied beſingt dich nicht,</l><lb/>
+<l>Und deutſche Becher klingen dir nicht.</l><lb/>
+<l rendition="#et">Stoßt mit an,</l><lb/>
+<l rendition="#et">Mann fuͤr Mann,</l><lb/>
+<l>Wer den Flammberg ſchwingen kann!</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="82" facs="#f0094"/>
+<div n="2">                     <head>Trinklied vor der Schlacht.<lb/>
+</head>                     <p rendition="#c"><hi rendition="#g">Nach der Weiſe: Feinde ringsum ꝛc.</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l rendition="#et">                                 <hi rendition="#in">S</hi>chlacht, du brichſt an!</l><lb/>
+<l>Gruͤßt ſie in freudigem Kreiſe,</l><lb/>
+<l>Laut nach germaniſcher Weiſe.</l><lb/>
+<l rendition="#et">Bruͤder heran!</l><lb/>
+</lg>                         <lg n="2">                             <l rendition="#et">Noch perlt der Wein;</l><lb/>
+<l>Eh' die Poſaunen erdroͤhnen,</l><lb/>
+<l>Laßt uns das Leben verſoͤhnen.</l><lb/>
+<l rendition="#et">Bruͤder ſchenkt ein.</l><lb/>
+</lg>                         <lg n="3">                             <l rendition="#et">Gott Vater hoͤrt,</l><lb/>
+<l>Was an des Grabes Thoren</l><lb/>
+<l>Vaterlands Soͤhne geſchworen,</l><lb/>
+<l rendition="#et">Bruͤder, ihr ſchwoͤrt.</l><lb/>
+</lg>                         <lg n="4">                             <l rendition="#et">Vaterlands Hort,</l><lb/>
+<l>Woll'n wir's aus gluͤhenden Ketten</l><lb/>
+<l>Todt oder ſiegend erretten. —</l><lb/>
+<l rendition="#et">Handſchlag und Wort!</l><lb/>
+</lg>
+<pb n="83" facs="#f0095"/>
+<lg n="5">                             <l rendition="#et">Hoͤrt ihr ſie nahn!</l><lb/>
+<l>Liebe und Freuden und Leiden,</l><lb/>
+<l>Tod! du kannſt uns nicht ſcheiden!</l><lb/>
+<l rendition="#et">Bruͤder ſtoßt an!</l><lb/>
+</lg>                         <lg n="6">                             <l rendition="#et">Schlacht ruft! hinaus!</l><lb/>
+<l>Horch, die Trompeten werben.</l><lb/>
+<l>Vorwaͤrts auf Leben und Sterben!</l><lb/>
+<l rendition="#et">Bruͤder trinkt aus!</l><lb/>
+</lg>                     </lg></div>                     <milestone unit="section" rendition="#hr"/>
+<pb n="84" facs="#f0096"/>
+<div n="2">                     <head>                         <hi rendition="#g">Schwerdtlied.</hi><lb/>
+</head>                     <p rendition="#c">Wenig Stunden vor dem Tode des Verfaſſers am 26. Aug. 1813                         gedichtet.</p><lb/>
+<milestone unit="section" rendition="#hr"/>                     <lg type="poem">                         <lg n="1">                             <l>                                 <hi rendition="#in">D</hi>u Schwerdt an meiner Linken,</l><lb/>
+<l>Was ſoll dein heitres Blinken?</l><lb/>
+<l rendition="#et">Schauſt mich ſo freundlich an,</l><lb/>
+<l rendition="#et">Hab' meine Freude dran.</l><lb/>
+<l rendition="#et">Hurrah! <note place="foot" n="*)">Bei dem Hurrah! wird mit den                                     Schwerdtern geklirrt.<lb/>
+</note></l><lb/>
+</lg>                         <lg n="2">                             <l>„Mich traͤgt ein wackrer Reiter,</l><lb/>
+<l>„Drum blink ich auch ſo heiter,</l><lb/>
+<l rendition="#et">„Bin freien Mannes Wehr,</l><lb/>
+<l rendition="#et">„Das freut dem Schwerdte ſehr.</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>                         <lg n="3">                             <l>Ja gutes Schwerdt frei bin ich,</l><lb/>
+<l>Und liebe dich herzinnig,</l><lb/>
+<l rendition="#et">Als waͤrſt du mir getraut,</l><lb/>
+<l rendition="#et">Als eine liebe Braut.</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>
+<pb n="85" facs="#f0097"/>
+<lg n="4">                             <l>„Dir hab' ich's ja ergeben,</l><lb/>
+<l>„Mein lichtes Eiſenleben,</l><lb/>
+<l rendition="#et">„Ach waͤren wir getraut!</l><lb/>
+<l rendition="#et">„Wann hohlſt du deine Braut?</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>                         <lg n="5">                             <l>Zur Brautnachts Morgenroͤthe,</l><lb/>
+<l>Ruft feſtlich die Trompete,</l><lb/>
+<l rendition="#et">Wenn die Kanonen ſchrei'n,</l><lb/>
+<l rendition="#et">Hohl ich das Liebchen ein.</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>                         <lg n="6">                             <l>„O ſeeliges Umfangen!</l><lb/>
+<l>„Ich harre mit Verlangen.</l><lb/>
+<l rendition="#et">„Du Braͤut'gam hohle mich,</l><lb/>
+<l rendition="#et">„Mein Kraͤnzchen bleibt fuͤr dich,</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>                         <lg n="7">                             <l>Was klirrſt du in der Scheide,</l><lb/>
+<l>Du helle Eiſenfreude,</l><lb/>
+<l rendition="#et">So wild, ſo ſchlachtenfroh?</l><lb/>
+<l rendition="#et">Mein Schwerdt, was klingſt du ſo?</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>
+<pb n="86" facs="#f0098"/>
+<lg n="8">                             <l>„Wohl klirr ich in der Scheide,</l><lb/>
+<l>„Ich ſehne mich zum Streite,</l><lb/>
+<l rendition="#et">„Recht wild und ſchlachtenfroh.</l><lb/>
+<l rendition="#et">„Drum Reiter klirr ich ſo.</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>                         <lg n="9">                             <l>Bleib doch im engen Stuͤbchen.</l><lb/>
+<l>Was willſt du hier, mein Liebchen?</l><lb/>
+<l rendition="#et">Bleib ſtill im Kaͤmmerlein,</l><lb/>
+<l rendition="#et">Bleib, bald hohl' ich dich ein.</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>                         <lg n="10">                             <l>„Laß mich nicht lange warten!</l><lb/>
+<l>„O ſchoͤner Liebesgarten,</l><lb/>
+<l rendition="#et">„Voll Roͤslein blutigroth.</l><lb/>
+<l rendition="#et">„Und aufgebluͤhtem Tod.</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>                         <lg n="11">                             <l>So komm denn aus der Scheide,</l><lb/>
+<l>Du Reiters Augenweide,</l><lb/>
+<l rendition="#et">Heraus, mein Schwerdt, heraus!</l><lb/>
+<l rendition="#et">Fuͤhr' dich ins Vaterhaus.</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>
+<pb n="87" facs="#f0099"/>
+<lg n="12">                             <l>„Ach herrlich iſts im Freien,</l><lb/>
+<l>„Im ruͤſt'gen Hochzeitreihen.</l><lb/>
+<l rendition="#et">„Wie glaͤnzt im Sonnenſtrahl</l><lb/>
+<l rendition="#et">„So braͤutlich hell der Stahl!</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>                         <lg n="13">                             <l>Wohlauf, ihr kecken Streiter,</l><lb/>
+<l>Wohlauf, ihr deutſchen Reiter!</l><lb/>
+<l rendition="#et">Wird euch das Herz nicht warm,</l><lb/>
+<l rendition="#et">Nehmt's Liebchen in den Arm.</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>                         <lg n="14">                             <l>Erſt that es an der Linken,</l><lb/>
+<l>Nur ganz verſtohlen blinken,</l><lb/>
+<l rendition="#et">Doch an die Rechte traut,</l><lb/>
+<l rendition="#et">Gott ſichtbarlich die Braut.</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>                         <lg n="15">                             <l>Drum druͤckt den liebeheißen,</l><lb/>
+<l>Braͤutlichen Mund von Eiſen,</l><lb/>
+<l rendition="#et">An eure Lippen feſt.</l><lb/>
+<l rendition="#et">Fluch! wer die Braut verlaͤßt.</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg>
+<pb n="88" facs="#f0100"/>
+<milestone unit="section" rendition="#hr"/>                         <lg n="16">                             <l>Nun laßt das Liebchen ſingen,</l><lb/>
+<l>Daß helle Funken ſpringen,</l><lb/>
+<l rendition="#et">Der Hochzeitsmorgen graut —</l><lb/>
+<l rendition="#et">Hurrah, du Eiſenbraut!</l><lb/>
+<l rendition="#et">Hurrah!</l><lb/>
+</lg></lg></div></div>                     <milestone unit="section" rendition="#hr"/>
+<pb facs="#f0101"/>
+<pb facs="#f0102"/>
+<pb facs="#f0103"/>
+</body>     </text> </TEI>

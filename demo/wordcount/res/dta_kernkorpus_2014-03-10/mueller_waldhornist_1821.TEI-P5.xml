@@ -1,0 +1,2771 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Sieben und siebzig Gedichte aus den hinterlassenen Papieren eines reisenden Waldhornisten</title>
+<author>
+<persName ref="http://d-nb.info/gnd/11858524X">
+<surname>Müller</surname>
+<forename>Wilhelm</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">175</measure>
+<measure type="tokens">11606</measure>
+<measure type="types">3426</measure>
+<measure type="characters">72704</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:11Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/mueller_waldhornist_1821</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/mueller_waldhornist_1821</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/mueller_waldhornist_1821</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/mueller_waldhornist_1821</idno>
+<idno type="DTADirName">mueller_waldhornist_1821</idno>
+<idno type="DTAID">17203</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194209</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Müller, Wilhelm: Sieben und siebzig Gedichte aus den hinterlassenen Papieren eines reisenden Waldhornisten. Dessau, 1821.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Sieben und siebzig Gedichte aus den hinterlassenen Papieren eines reisenden Waldhornisten</title>
+<author>
+<persName ref="http://d-nb.info/gnd/11858524X">
+<surname>Müller</surname>
+<forename>Wilhelm</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">VIII, 160 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Ackermann</name></publisher>
+<pubPlace>Dessau</pubPlace>
+<date type="publication">1821</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Yn 3071-1&lt;a&gt; R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=656994045</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[III]" facs="#f0007"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#g">Sieben und ſiebzig</hi><lb/>
+<hi rendition="#b">Gedichte</hi><lb/>
+aus den hinterlaſſenen Papieren<lb/>
+eines<lb/>
+<hi rendition="#b #g">reiſenden Waldhorniſten.</hi><lb/>
+<lb/>
+</titlePart> </docTitle> <milestone unit="section" rendition="#hr"/><lb/>
+<byline> <hi rendition="#g">Herausgegeben<lb/>
+von</hi><lb/>
+<docAuthor> <hi rendition="#b #g">Wilhelm Muͤller.</hi><lb/>
+</docAuthor> </byline> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b #g">Deſſau,</hi></pubPlace> <docDate> <hi rendition="#b #g">1821.</hi></docDate><lb/>
+<hi rendition="#g">Bei</hi> <publisher> <hi rendition="#g">Chriſtian Georg Ackermann.</hi> </publisher><lb/>
+</docImprint> </titlePage> </front> <body>
+<pb n="[IV]" facs="#f0008"/>
+<pb n="[V]" facs="#f0009"/>
+<div type="contents" n="1"> <head> <hi rendition="#g">Inhalt.</hi><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</head> <div n="2"> <head>Die ſchoͤne Muͤllerin.<lb/>
+</head> <table> <row> <cell cols="2" rendition="#right">Seite<lb/>
+</cell> </row> <row> <cell>Der Dichter, als Prolog</cell> <cell rendition="#right"> <ref target="#f0015">3</ref><lb/>
+</cell> </row> <row> <cell>Wanderſchaft</cell> <cell rendition="#right"> <ref target="#f0019">7</ref><lb/>
+</cell> </row> <row> <cell>Wohin?</cell> <cell rendition="#right"> <ref target="#f0021">9</ref><lb/>
+</cell> </row> <row> <cell>Halt!</cell> <cell rendition="#right"> <ref target="#f0023">11</ref><lb/>
+</cell> </row> <row> <cell>Dankſagung an den Bach</cell> <cell rendition="#right"> <ref target="#f0024">12</ref><lb/>
+</cell> </row> <row> <cell>Am Feierabend</cell> <cell rendition="#right"> <ref target="#f0026">14</ref><lb/>
+</cell> </row> <row> <cell>Der Neugierige</cell> <cell rendition="#right"> <ref target="#f0027">15</ref><lb/>
+</cell> </row> <row> <cell>Das Mühlenleben</cell> <cell rendition="#right"> <ref target="#f0029">17</ref><lb/>
+</cell> </row> <row> <cell>Ungeduld</cell> <cell rendition="#right"> <ref target="#f0032">20</ref><lb/>
+</cell> </row> <row> <cell>Morgengruß</cell> <cell rendition="#right"> <ref target="#f0034">22</ref><lb/>
+</cell> </row> <row> <cell>Des Müllers Blumen</cell> <cell rendition="#right"> <ref target="#f0036">24</ref><lb/>
+</cell> </row> <row> <cell>Thränenregen</cell> <cell rendition="#right"> <ref target="#f0038">26</ref><lb/>
+</cell> </row> <row> <cell>Mein!</cell> <cell rendition="#right"> <ref target="#f0040">28</ref><lb/>
+</cell> </row> <row> <cell>Pauſe</cell> <cell rendition="#right"> <ref target="#f0041">29</ref><lb/>
+</cell> </row> <row> <cell>Mit dem grünen Lautenbande</cell> <cell rendition="#right"> <ref target="#f0042">30</ref><lb/>
+</cell> </row> <row> <cell>Der Jäger</cell> <cell rendition="#right"> <ref target="#f0043">31</ref><lb/>
+</cell> </row> <row> <cell>Eiferſucht und Stolz</cell> <cell rendition="#right"> <ref target="#f0045">33</ref><lb/>
+</cell> </row> <row> <cell>Erſter Schmerz, letzter Scherz</cell> <cell rendition="#right"> <ref target="#f0046">34</ref><lb/>
+</cell> </row> <row> <cell>Die liebe Farbe</cell> <cell rendition="#right"> <ref target="#f0049">37</ref><lb/>
+</cell> </row>
+<pb n="VI" facs="#f0010"/>
+<row> <cell cols="2" rendition="#right">Seite<lb/>
+</cell> </row> <row> <cell>Die böſe Farbe</cell> <cell rendition="#right"> <ref target="#f0051">39</ref><lb/>
+</cell> </row> <row> <cell>Blümlein Vergißmein</cell> <cell rendition="#right"> <ref target="#f0053">41</ref><lb/>
+</cell> </row> <row> <cell>Trockne Blumen</cell> <cell rendition="#right"> <ref target="#f0055">43</ref><lb/>
+</cell> </row> <row> <cell>Der Müller und der Bach</cell> <cell rendition="#right"> <ref target="#f0057">45</ref><lb/>
+</cell> </row> <row> <cell>Des Baches Wiegenlied</cell> <cell rendition="#right"> <ref target="#f0059">47</ref><lb/>
+</cell> </row> <row> <cell>Der Dichter, als Epilog</cell> <cell rendition="#right"> <ref target="#f0061">49</ref><lb/>
+</cell> </row> </table> </div> <div n="2"> <head> <hi rendition="#b">Johannes und Eſther.</hi> </head><lb/>
+<table> <row> <cell>Chriſtnacht</cell> <cell rendition="#right"> <ref target="#f0065">53</ref><lb/>
+</cell> </row> <row> <cell>Gebet in der Chriſtnacht</cell> <cell rendition="#right"> <ref target="#f0067">55</ref><lb/>
+</cell> </row> <row> <cell>Vereinigung</cell> <cell rendition="#right"> <ref target="#f0068">56</ref><lb/>
+</cell> </row> <row> <cell>Die Paſſionsblume</cell> <cell rendition="#right"> <ref target="#f0069">57</ref><lb/>
+</cell> </row> <row> <cell>Purim</cell> <cell rendition="#right"> <ref target="#f0071">59</ref><lb/>
+</cell> </row> <row> <cell>Vor ihrem Fenſter</cell> <cell rendition="#right"> <ref target="#f0073">61</ref><lb/>
+</cell> </row> <row> <cell>Die Lauberhütte</cell> <cell rendition="#right"> <ref target="#f0075">63</ref><lb/>
+</cell> </row> <row> <cell>Der Perlenkranz</cell> <cell rendition="#right"> <ref target="#f0077">65</ref><lb/>
+</cell> </row> <row> <cell>Maria</cell> <cell rendition="#right"> <ref target="#f0079">67</ref><lb/>
+</cell> </row> <row> <cell>An Johannes</cell> <cell rendition="#right"> <ref target="#f0080">68</ref><lb/>
+</cell> </row> </table> </div> <div n="2"> <head> <hi rendition="#b">Reiſelieder.</hi> </head><lb/>
+<table> <row> <cell>Große Wanderſchaft</cell> <cell rendition="#right"> <ref target="#f0083">71</ref><lb/>
+</cell> </row> <row> <cell cols="2">Wanderlieder eines rheiniſchen Handwerksburſchen.<lb/>
+</cell> </row> <row> <cell>1. Auszug</cell> <cell rendition="#right"> <ref target="#f0086">74</ref><lb/>
+</cell> </row> <row> <cell>2. Auf der Landſtraße</cell> <cell rendition="#right"> <ref target="#f0088">76</ref><lb/>
+</cell> </row>
+<pb n="VII" facs="#f0011"/>
+<row> <cell cols="2" rendition="#right">Seite<lb/>
+</cell> </row> <row> <cell>3. Einſamkeit</cell> <cell rendition="#right"> <ref target="#f0089">77</ref><lb/>
+</cell> </row> <row> <cell>4. Brüderſchaft</cell> <cell rendition="#right"> <ref target="#f0091">79</ref><lb/>
+</cell> </row> <row> <cell>5. Abendreihn</cell> <cell rendition="#right"> <ref target="#f0093">81</ref><lb/>
+</cell> </row> <row> <cell>6. Morgen.</cell> <cell rendition="#right"> <ref target="#f0095">83</ref><lb/>
+</cell> </row> <row> <cell>7. Frühlingsgruß</cell> <cell rendition="#right"> <ref target="#f0098">86</ref><lb/>
+</cell> </row> <row> <cell>8. Entſchuldigung</cell> <cell rendition="#right"> <ref target="#f0100">88</ref><lb/>
+</cell> </row> <row> <cell>9. Hier und dort</cell> <cell rendition="#right"> <ref target="#f0101">89</ref><lb/>
+</cell> </row> <row> <cell>Des Poſtillons Morgenlied vor der Bergſchenke</cell> <cell rendition="#right"> <ref target="#f0103">91</ref><lb/>
+</cell> </row> <row> <cell>Der Prager Muſikant</cell> <cell rendition="#right"> <ref target="#f0106">94</ref><lb/>
+</cell> </row> <row> <cell>Die Prager Muſikantenbraut</cell> <cell rendition="#right"> <ref target="#f0109">97</ref><lb/>
+</cell> </row> <row> <cell>Seefahrers Abſchied</cell> <cell rendition="#right"> <ref target="#f0111">99</ref><lb/>
+</cell> </row> <row> <cell>Schiff und Vogel</cell> <cell rendition="#right"> <ref target="#f0113">101</ref><lb/>
+</cell> </row> </table> </div> <div n="2"> <head> <hi rendition="#b">Die Monate.</hi> </head><lb/>
+<table> <row> <cell>An Ludwig Sigismund Ruhl</cell> <cell rendition="#right"> <ref target="#f0119">107</ref><lb/>
+</cell> </row> <row> <cell>Januar</cell> <cell rendition="#right"> <ref target="#f0120">108</ref><lb/>
+</cell> </row> <row> <cell>Februar</cell> <cell rendition="#right"> <ref target="#f0121">109</ref><lb/>
+</cell> </row> <row> <cell>März</cell> <cell rendition="#right"> <ref target="#f0122">110</ref><lb/>
+</cell> </row> <row> <cell>April</cell> <cell rendition="#right"> <ref target="#f0123">111</ref><lb/>
+</cell> </row> <row> <cell>Mai</cell> <cell rendition="#right"> <ref target="#f0124">112</ref><lb/>
+</cell> </row> <row> <cell>Juni</cell> <cell rendition="#right"> <ref target="#f0125">113</ref><lb/>
+</cell> </row> <row> <cell>Juli</cell> <cell rendition="#right"> <ref target="#f0126">114</ref><lb/>
+</cell> </row> <row> <cell>Auguſt</cell> <cell rendition="#right"> <ref target="#f0127">115</ref><lb/>
+</cell> </row> <row> <cell>September</cell> <cell rendition="#right"> <ref target="#f0128">116</ref><lb/>
+</cell> </row> <row> <cell>October</cell> <cell rendition="#right"> <ref target="#f0129">117</ref><lb/>
+</cell> </row>
+<pb n="VIII" facs="#f0012"/>
+<row> <cell cols="2" rendition="#right">Seite<lb/>
+</cell> </row> <row> <cell>November</cell> <cell rendition="#right"> <ref target="#f0130">118</ref><lb/>
+</cell> </row> <row> <cell>December</cell> <cell rendition="#right"> <ref target="#f0131">119</ref><lb/>
+</cell> </row> </table> </div> <div n="2"> <head> <hi rendition="#b">Laͤndliche Lieder.</hi> </head><lb/>
+<table> <row> <cell>Ländlicher Reigen</cell> <cell rendition="#right"> <ref target="#f0135">123</ref><lb/>
+</cell> </row> <row> <cell>Schifferreigen</cell> <cell rendition="#right"> <ref target="#f0138">126</ref><lb/>
+</cell> </row> <row> <cell>Das Hirtenfeuer in der roͤmiſchen Ebene</cell> <cell rendition="#right"> <ref target="#f0141">129</ref><lb/>
+</cell> </row> <row> <cell>Doppelte Gefahr</cell> <cell rendition="#right"> <ref target="#f0144">132</ref><lb/>
+</cell> </row> <row> <cell>Die glückliche Fiſcherin</cell> <cell rendition="#right"> <ref target="#f0146">134</ref><lb/>
+</cell> </row> <row> <cell>Der Glockenguß zu Breslau</cell> <cell rendition="#right"> <ref target="#f0151">139</ref><lb/>
+</cell> </row> <row> <cell>Thränen und Roſen</cell> <cell rendition="#right"> <ref target="#f0148">146</ref><lb/>
+</cell> </row> <row> <cell>Faſtnachtslied, von den goldnen Zöpfen</cell> <cell rendition="#right"> <ref target="#f0160">148</ref><lb/>
+</cell> </row> <row> <cell>Der Zephyr</cell> <cell rendition="#right"> <ref target="#f0162">150</ref><lb/>
+</cell> </row> <row> <cell>Kuß und Lied</cell> <cell rendition="#right"> <ref target="#f0163">151</ref><lb/>
+</cell> </row> <row> <cell>Die Blutorange, (Epiſtel aus Sorrent)</cell> <cell rendition="#right"> <ref target="#f0164">152</ref><lb/>
+</cell> </row> <row> <cell>Des Finken Gruß</cell> <cell rendition="#right"> <ref target="#f0166">154</ref><lb/>
+</cell> </row> <row> <cell>Des Finken Abſchied</cell> <cell rendition="#right"> <ref target="#f0168">156</ref><lb/>
+</cell> </row> <row> <cell>Wir wiſſen uns zu finden. (Parodirende Gloſſe)</cell> <cell rendition="#right"> <ref target="#f0170">158</ref><lb/>
+</cell> </row> </table> </div> </div> <milestone unit="section" rendition="#hr"/><lb/>
+<pb n="[1]" facs="#f0013"/>
+<div n="1"> <head rendition="#c"> <hi rendition="#g">Die ſchoͤne Muͤllerin</hi>.<lb/>
+</head> <milestone unit="section" rendition="#hr"/><lb/>
+<p rendition="#c"> <hi rendition="#g">(Im Winter zu leſen</hi>.)</p><lb/>
+<fw type="sig" place="bottom">1<lb/>
+</fw>
+<pb n="[2]" facs="#f0014"/>
+<pb n="[3]" facs="#f0015"/>
+<div n="2"> <head> <hi rendition="#b #g">Der Dichter, als Prolog.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch lad' euch, ſchoͤne Damen, kluge Herrn,</l><lb/>
+<l>Und die ihr hoͤrt und ſchaut was Gutes gern,</l><lb/>
+<l>Zu einem funkelnagelneuen Spiel</l><lb/>
+<l>Im allerfunkelnagelneuſten Styl;</l><lb/>
+<l>Schlicht ausgedrechſelt, kunſtlos zugeſtutzt,</l><lb/>
+<l>Mit edler deutſcher Rohheit aufgeputzt,</l><lb/>
+<l>Keck wie ein Burſch' im Stadtſoldatenſtrauß,</l><lb/>
+<l>Dazu wohl auch ein wenig fromm fuͤr's Haus:</l><lb/>
+<l>Das mag genug mir zur Empfehlung ſein,</l><lb/>
+<l>Wem die behagt, der trete nur herein.</l><lb/>
+</lg> <fw type="sig" place="bottom">1*<lb/>
+</fw>
+<pb n="4" facs="#f0016"/>
+<lg n="2"> <l>Erhoffe, weil es grad' iſt Winterzeit,</l><lb/>
+<l>Thut euch ein Stuͤndlein hier im Gruͤn nicht Leid;</l><lb/>
+<l>Denn wißt es nur, daß heut' in meinem Lied</l><lb/>
+<l>Der Lenz mit allen ſeinen Blumen bluͤht.</l><lb/>
+<l>Im Freien geht die freie Handlung vor,</l><lb/>
+<l>In reiner Luft, weit aus der Staͤdte Thor,</l><lb/>
+<l>Durch Wald und Feld, in Gruͤnden, auf den Hoͤh'n;</l><lb/>
+<l>Und was nur in vier Waͤnden darf geſchehn,</l><lb/>
+<l>Das ſchaut ihr halb durch's offne Fenſter an,</l><lb/>
+<l>So iſt der Kunſt und euch genug gethan.</l><lb/>
+</lg> <lg n="3"> <l>Doch wenn ihr nach des Spiels Perſonen fragt,</l><lb/>
+<l>So kann ich euch, den Muſen ſei's geklagt,</l><lb/>
+<l>Nur <hi rendition="#g">eine</hi> praͤſentiren recht und aͤcht,</l><lb/>
+<l>Das iſt ein junger blonder Muͤllersknecht.</l><lb/>
+<l>Denn, ob der Bach zuletzt ein Wort auch ſpricht,</l><lb/>
+<l>So wird ein Bach deshalb Perſon noch nicht.</l><lb/>
+</lg>
+<pb n="5" facs="#f0017"/>
+<lg n="4"> <l>Drum nehmt nur heut das Monodram vorlieb:</l><lb/>
+<l>Wer mehr giebt, als er hat, der heißt ein Dieb.</l><lb/>
+</lg> <lg n="5"> <l>Auch iſt dafuͤr die Scene reich geziert,</l><lb/>
+<l>Mit gruͤnem Sammet unten tapeziert,</l><lb/>
+<l>Der iſt mit tauſend Blumen bunt geſtickt,</l><lb/>
+<l>Und Weg und Steg daruͤber ausgedruͤckt.</l><lb/>
+<l>Die Sonne ſtrahlt von oben hell herein</l><lb/>
+<l>Und bricht in Thau und Thraͤnen ihren Schein,</l><lb/>
+<l>Und auch der Mond blickt aus der Wolken Flor</l><lb/>
+<l>Schwermuͤthig, wie's die Mode will, hervor.</l><lb/>
+<l>Den Hintergrund umkraͤnzt ein hoher Wald,</l><lb/>
+<l>Der Hund ſchlaͤgt an, das muntre Jagdhorn ſchallt;</l><lb/>
+<l>Hier ſtuͤrzt vom ſchroffen Fels der junge Quell</l><lb/>
+<l>Und fließt im Thal als Baͤchlein ſilberhell;</l><lb/>
+<l>Das Muͤhlrad brauſt, die Werke klappern drein,</l><lb/>
+<l>Man hoͤrt die Voͤglein kaum im nahen Hain.</l><lb/>
+</lg>
+<pb n="6" facs="#f0018"/>
+<lg n="6"> <l>Drum denkt, wenn euch zu rauh manch Lied¬</l><lb/>
+<l>chen klingt,</l><lb/>
+<l>Daß das Lokal es alſo mit ſich bringt.</l><lb/>
+<l>Doch, was das Schoͤnſte in der Muͤhle iſt,</l><lb/>
+<l>Das wird euch ſagen mein Monodramiſt;</l><lb/>
+<l>Verrieth' ich's euch, verduͤrb' ich ihm das Spiel:</l><lb/>
+<l>Gehabt euch wohl und amuͤſirt euch viel!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="7" facs="#f0019"/>
+</div> <div n="2"> <head> <hi rendition="#g">Wanderſchaft.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">D</hi>as Wandern iſt des Muͤllers Luſt,</l><lb/>
+<l>Das Wandern!</l><lb/>
+<l>Das muß ein ſchlechter Muͤller ſein,</l><lb/>
+<l>Dem niemals fiel das Wandern ein,</l><lb/>
+<l>Das Wandern.</l><lb/>
+</lg> <lg n="2"> <l>Vom Waſſer haben wir's gelernt,</l><lb/>
+<l>Vom Waſſer!</l><lb/>
+<l>Das hat nicht Raſt bei Tag und Nacht,</l><lb/>
+<l>Iſt ſtets auf Wanderſchaft bedacht,</l><lb/>
+<l>Das Waſſer.</l><lb/>
+</lg> <lg n="3"> <l>Das ſehn wir auch den Raͤdern ab,</l><lb/>
+<l>Den Raͤdern!</l><lb/>
+<l>Die gar nicht gerne ſtille ſtehn,</l><lb/>
+<l>Die ſich mein Tag nicht muͤde drehn,</l><lb/>
+<l>Die Raͤder.</l><lb/>
+</lg>
+<pb n="8" facs="#f0020"/>
+<lg n="4"> <l>Die Steine ſelbſt, ſo ſchwer ſie ſind,</l><lb/>
+<l>Die Steine!</l><lb/>
+<l>Sie tanzen mit den muntern Reihn</l><lb/>
+<l>Und wollen gar noch ſchneller ſein,</l><lb/>
+<l>Die Steine.</l><lb/>
+</lg> <lg n="5"> <l>O Wandern, Wandern, meine Luſt,</l><lb/>
+<l>O Wandern!</l><lb/>
+<l>Herr Meiſter und Frau Meiſterin,</l><lb/>
+<l>Laßt mich in Frieden weiter ziehn</l><lb/>
+<l>Und wandern.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="9" facs="#f0021"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Wohin?</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch hoͤrt' ein Baͤchlein rauſchen</l><lb/>
+<l>Wohl aus dem Felſenquell,</l><lb/>
+<l>Hinab zum Thale rauſchen</l><lb/>
+<l>So friſch und wunderhell.</l><lb/>
+</lg> <lg n="2"> <l>Ich weiß nicht, wie mir wurde,</l><lb/>
+<l>Nicht, wer den Rath mir gab,</l><lb/>
+<l>Ich mußte auch hinunter</l><lb/>
+<l>Mit meinem Wanderſtab.</l><lb/>
+</lg> <lg n="3"> <l>Hinunter und immer weiter,</l><lb/>
+<l>Und immer dem Bache nach,</l><lb/>
+<l>Und immer heller rauſchte</l><lb/>
+<l>Und immer heller der Bach.</l><lb/>
+</lg> <lg n="4"> <l>Iſt das denn meine Straße?</l><lb/>
+<l>O Baͤchlein, ſprich, wohin?</l><lb/>
+<l>Du haſt mit deinem Rauſchen</l><lb/>
+<l>Mir ganz berauſcht den Sinn.</l><lb/>
+</lg>
+<pb n="10" facs="#f0022"/>
+<lg n="5"> <l>Was ſag' ich denn von Rauſchen?</l><lb/>
+<l>Das kann kein Rauſchen ſein:</l><lb/>
+<l>Es ſingen wohl die Nixen</l><lb/>
+<l>Tief unten ihren Reihn.</l><lb/>
+</lg> <lg n="6"> <l>Laß ſingen, Geſell, laß rauſchen,</l><lb/>
+<l>Und wandre froͤhlich nach!</l><lb/>
+<l>Es gehn ja Muͤhlenraͤder</l><lb/>
+<l>In jedem klaren Bach.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="11" facs="#f0023"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Halt!</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">E</hi>ine Muͤhle ſeh' ich blicken</l><lb/>
+<l>Aus den Erlen heraus,</l><lb/>
+<l>Durch Rauſchen und Singen</l><lb/>
+<l>Bricht Raͤdergebraus.</l><lb/>
+</lg> <lg n="2"> <l>Ei willkommen, ei willkommen,</l><lb/>
+<l>Suͤßer Muͤhlengeſang!</l><lb/>
+<l>Und das Haus, wie ſo traulich!</l><lb/>
+<l>Und die Fenſter, wie blank!</l><lb/>
+</lg> <lg n="3"> <l>Und die Sonne, wie helle</l><lb/>
+<l>Vom Himmel ſie ſcheint!</l><lb/>
+<l>Ei, Baͤchlein, liebes Baͤchlein,</l><lb/>
+<l>War es alſo gemeint?</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="12" facs="#f0024"/>
+</div> <div n="2"> <head> <hi rendition="#g">Dankſagung an den Bach.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">W</hi>ar es alſo gemeint,</l><lb/>
+<l>Mein rauſchender Freund,</l><lb/>
+<l>Dein Singen, dein Klingen,</l><lb/>
+<l>War es alſo gemeint?</l><lb/>
+</lg> <lg n="2"> <l>Zur Muͤllerin hin!</l><lb/>
+<l>So lautet der Sinn,</l><lb/>
+<l>Gelt, hab' ich's verſtanden?</l><lb/>
+<l>Zur Muͤllerin hin!</l><lb/>
+</lg> <lg n="3"> <l>Hat <hi rendition="#g">ſie</hi> dich geſchickt?</l><lb/>
+<l>Oder haſt mich beruͤckt?</l><lb/>
+<l>Das moͤcht' ich noch wiſſen,</l><lb/>
+<l>Ob <hi rendition="#g">ſie</hi> dich geſchickt.</l><lb/>
+</lg> <lg n="4"> <l>Nun wie's auch mag ſein,</l><lb/>
+<l>Ich gebe mich drein:</l><lb/>
+<l>Was ich ſuch', hab' ich funden,</l><lb/>
+<l>Wie's immer mag ſein.</l><lb/>
+</lg>
+<pb n="13" facs="#f0025"/>
+<lg n="5"> <l>Nach Arbeit ich frug,</l><lb/>
+<l>Nun hab' ich genug,</l><lb/>
+<l>Fuͤr die Haͤnde, fuͤr's Herze</l><lb/>
+<l>Vollauf genug!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> </div>
+<pb n="14" facs="#f0026"/>
+<div n="2"> <head> <hi rendition="#g">Am Feierabend.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">H</hi>aͤtt' ich tauſend</l><lb/>
+<l>Arme zu ruͤhren!</l><lb/>
+<l>Koͤnnt' ich brauſend</l><lb/>
+<l>Die Raͤder fuͤhren!</l><lb/>
+<l>Koͤnnt' ich wehen</l><lb/>
+<l>Durch alle Haine,</l><lb/>
+<l>Koͤnnt' ich drehen</l><lb/>
+<l>Alle Steine!</l><lb/>
+<l>Daß die ſchoͤne Muͤllerin</l><lb/>
+<l>Merkte meinen treuen Sinn!</l><lb/>
+</lg> <lg n="2"> <l>Ach, wie iſt mein Arm ſo ſchwach!</l><lb/>
+<l>Was ich hebe, was ich trage,</l><lb/>
+<l>Was ich ſchneide, was ich ſchlage,</l><lb/>
+<l>Jeder Knappe thut es nach.</l><lb/>
+<l>Und da ſitz' ich in der großen Runde,</l><lb/>
+<l>In der ſtillen kuͤhlen Feierſtunde,</l><lb/>
+<l>Und der Meiſter ſpricht zu Allen:</l><lb/>
+<l>Euer Werk hat mir gefallen;</l><lb/>
+<l>Und das liebe Maͤdchen ſagt</l><lb/>
+<l>Allen eine gute Nacht.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="15" facs="#f0027"/>
+</div> <div n="2"> <head> <hi rendition="#g">Der Neugierige.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch frage keine Blume,</l><lb/>
+<l>Ich frage keinen Stern,</l><lb/>
+<l>Sie koͤnnen mir alle nicht ſagen,</l><lb/>
+<l>Was ich erfuͤhr' ſo gern.</l><lb/>
+</lg> <lg n="2"> <l>Ich bin ja auch kein Gaͤrtner,</l><lb/>
+<l>Die Sterne ſtehn zu hoch;</l><lb/>
+<l>Mein Baͤchlein will ich fragen,</l><lb/>
+<l>Ob mich mein Herz belog.</l><lb/>
+</lg> <lg n="3"> <l>O Baͤchlein meiner Liebe,</l><lb/>
+<l>Wie biſt du heut ſo ſtumm!</l><lb/>
+<l>Will ja nur Eines wiſſen,</l><lb/>
+<l> <hi rendition="#g">Ein</hi> Woͤrtchen um und um.</l><lb/>
+</lg> <lg n="4"> <l>Ja, heißt das eine Woͤrtchen,</l><lb/>
+<l>Das andre heißet Nein,</l><lb/>
+<l>Die beiden Woͤrtchen ſchließen</l><lb/>
+<l>Die ganze Welt mir ein.</l><lb/>
+</lg>
+<pb n="16" facs="#f0028"/>
+<lg n="5"> <l>O Baͤchlein meiner Liebe,</l><lb/>
+<l>Was biſt du wunderlich!</l><lb/>
+<l>Will's ja nicht weiter ſagen,</l><lb/>
+<l>Sag', Baͤchlein, liebt ſie mich?</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="17" facs="#f0029"/>
+</div> <div n="2"> <head> <hi rendition="#g">Das Muͤhlenleben.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">S</hi>eh' ich ſie am Bache ſitzen,</l><lb/>
+<l>Wenn ſie Fliegennetze ſtrickt,</l><lb/>
+<l>Oder Sonntags fuͤr die Fenſter</l><lb/>
+<l>Friſche Wieſenblumen pfluͤckt;</l><lb/>
+</lg> <lg n="2"> <l>Seh' ich ſie zum Garten wandeln,</l><lb/>
+<l>Mit dem Koͤrbchen in der Hand,</l><lb/>
+<l>Nach den erſten Beeren ſpaͤhen</l><lb/>
+<l>An der gruͤnen Dornenwand:</l><lb/>
+</lg> <lg n="3"> <l>Dann wird mir die Muͤhle enge,</l><lb/>
+<l>Alle Mauern ziehn ſich ein,</l><lb/>
+<l>Und ich moͤchte flugs ein Fiſcher,</l><lb/>
+<l>Jaͤger oder Gaͤrtner ſein.</l><lb/>
+</lg> <lg n="4"> <l>Und der Steine luſtig Pfeifen,</l><lb/>
+<l>Und des Waſſerrad's Gebraus,</l><lb/>
+<l>Und der Werke emſig Klappern,</l><lb/>
+<l>'S jagt mich ſchier zum Thor hinaus.</l><lb/>
+</lg> <fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb n="18" facs="#f0030"/>
+<lg n="5"> <l>Aber wenn in guter Stunde</l><lb/>
+<l>Plaudernd ſie zum Burſchen trit,</l><lb/>
+<l>Und als kluges Kind des Hauſes</l><lb/>
+<l>Seitwaͤrts nach dem Rechten ſieht;</l><lb/>
+</lg> <lg n="6"> <l>Und verſtaͤndig lobt den Einen,</l><lb/>
+<l>Daß der Andre merken mag,</l><lb/>
+<l>Wie er's beſſer treiben ſolle,</l><lb/>
+<l>Geht er ihrem Danke nach —</l><lb/>
+</lg> <lg n="7"> <l>Keiner fuͤhlt ſich recht getroffen,</l><lb/>
+<l>Und doch ſchießt ſie nimmer fehl,</l><lb/>
+<l>Jeder muß von Schonung ſagen,</l><lb/>
+<l>Und doch hat ſie keinen Hehl.</l><lb/>
+</lg> <lg n="8"> <l>Keiner wuͤnſcht, ſie moͤchte gehen</l><lb/>
+<l>Steht ſie auch als Herrin da,</l><lb/>
+<l>Und faſt wie das Auge Gottes</l><lb/>
+<l>Iſt ihr Bild uns immer nah.</l><lb/>
+</lg> <lg n="9"> <l>Und wo wer zum Fallen ſtrauchelt,</l><lb/>
+<l>Haͤlt es ihn im Sinken ſchier,</l><lb/>
+<l>Und wo ich die Haͤnde falte,</l><lb/>
+<l>Kniet es ſtill zur Seite mir —</l><lb/>
+</lg>
+<pb n="19" facs="#f0031"/>
+<lg n="10"> <l>Ei, da mag das Muͤhlenleben</l><lb/>
+<l>Wohl des Liedes wuͤrdig ſein,</l><lb/>
+<l>Und die Raͤder, Stein' und Stampfen</l><lb/>
+<l>Stimmen als Begleitung ein.</l><lb/>
+</lg> <lg n="11"> <l>Alles geht in ſchoͤnem Tanze</l><lb/>
+<l>Auf und ab, und ein und aus:</l><lb/>
+<l>Gott geſegne mir das Handwerk</l><lb/>
+<l>Und des guten Meiſters Haus!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">2*<lb/>
+</fw>
+<pb n="20" facs="#f0032"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Ungeduld.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch ſchnitt' es gern in alle Rinden ein,</l><lb/>
+<l>Ich gruͤb' es gern in jeden Kieſelſtein,</l><lb/>
+<l>Ich moͤcht' es ſaͤ'n auf jedes friſche Beet</l><lb/>
+<l>Mit Kreſſenſamen, der es ſchnell verraͤth,</l><lb/>
+<l>Auf jeden weißen Zettel moͤcht' ich's ſchreiben:</l><lb/>
+<l>Dein iſt mein Herz, und ſoll es ewig bleiben.</l><lb/>
+</lg> <lg n="2"> <l>Ich moͤcht' mir ziehen einen jungen Staar,</l><lb/>
+<l>Bis daß er ſpraͤch' die Worte rein und klar,</l><lb/>
+<l>Bis er ſie ſpraͤch' mit meines Mundes Klang,</l><lb/>
+<l>Mit meines Herzens vollem, heißen Drang;</l><lb/>
+<l>Dann ſaͤng' er hell durch ihre Fenſterſcheiben:</l><lb/>
+<l>Dein iſt mein Herz, und ſoll es ewig bleiben.</l><lb/>
+</lg> <lg n="3"> <l>Den Morgenwinden moͤcht' ichs hauchen ein,</l><lb/>
+<l>Ich moͤcht' es ſaͤuſeln durch den regen Hain;</l><lb/>
+<l>O, leuchtet' es aus jedem Blumenſtern!</l><lb/>
+<l>Truͤg' es der Duft zu ihr von nah und fern!</l><lb/>
+<l>Ihr Wogen, koͤnnt ihr nichts als Raͤder treiben?</l><lb/>
+<l>Dein iſt mein Herz, und ſoll es ewig bleiben.</l><lb/>
+</lg>
+<pb n="21" facs="#f0033"/>
+<lg n="4"> <l>Ich meint', es muͤßt' in meinen Augen ſtehn,</l><lb/>
+<l>Auf meinen Wangen muͤßt' man's brennen ſehn,</l><lb/>
+<l>Zu leſen waͤr's auf meinem ſtummen Mund,</l><lb/>
+<l>Ein jeder Athemzug gaͤb's laut ihr kund;</l><lb/>
+<l>Und ſie merkt nichts von all' dem bangen Treiben:</l><lb/>
+<l>Dein iſt mein Herz, und ſoll es ewig bleiben!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="22" facs="#f0034"/>
+</div> <div n="2"> <head> <hi rendition="#g">Morgengruß.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">G</hi>uten Morgen, ſchoͤne Muͤllerin!</l><lb/>
+<l>Wo ſteckſt du gleich das Koͤpfchen hin,</l><lb/>
+<l>Als waͤr' dir was geſchehen?</l><lb/>
+<l>Verdrießt dich denn mein Gruß ſo ſchwer?</l><lb/>
+<l>Verſtoͤrt dich denn mein Blick ſo ſehr?</l><lb/>
+<l>So muß ich wieder gehen.</l><lb/>
+</lg> <lg n="2"> <l>O laß mich nur von ferne ſtehn,</l><lb/>
+<l>Nach deinem lieben Fenſter ſehn,</l><lb/>
+<l>Von ferne, ganz von ferne!</l><lb/>
+<l>Du blondes Koͤpfchen, komm hervor!</l><lb/>
+<l>Hervor aus eurem runden Thor,</l><lb/>
+<l>Ihr blauen Morgenſterne!</l><lb/>
+</lg> <lg n="3"> <l>Ihr ſchlummertrunknen Aeugelein,</l><lb/>
+<l>Ihr thaubetruͤbten Bluͤmelein,</l><lb/>
+<l>Was ſcheuet ihr die Sonne?</l><lb/>
+<l>Hat es die Nacht ſo gut gemeint,</l><lb/>
+<l>Daß ihr euch ſchließt und buͤckt und weint,</l><lb/>
+<l>Nach ihrer ſtillen Wonne?</l><lb/>
+</lg>
+<pb n="23" facs="#f0035"/>
+<lg n="4"> <l>Nun ſchuͤttelt ab der Traͤume Flor,</l><lb/>
+<l>Und hebt euch friſch und frei empor</l><lb/>
+<l>In Gottes hellen Morgen!</l><lb/>
+<l>Die Lerche wirbelt in der Luft,</l><lb/>
+<l>Und aus dem tiefen Herzen ruft</l><lb/>
+<l>Die Liebe Leid und Sorgen.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="24" facs="#f0036"/>
+</div> <div n="2"> <head> <hi rendition="#g">Des Muͤllers Blumen.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">A</hi>m Bach viel kleine Blumen ſtehn,</l><lb/>
+<l>Aus hellen blauen Augen ſehn;</l><lb/>
+<l>Der Bach der iſt des Muͤllers Freund,</l><lb/>
+<l>Und hellblau Liebchens Auge ſcheint,</l><lb/>
+<l>Drum ſind es meine Blumen.</l><lb/>
+</lg> <lg n="2"> <l>Dicht unter ihrem Fenſterlein</l><lb/>
+<l>Da will ich pflanzen die Blumen ein,</l><lb/>
+<l>Da ruft ihr zu, wenn Alles ſchweigt,</l><lb/>
+<l>Wenn ſich ihr Haupt zum Schlummer neigt,</l><lb/>
+<l>Ihr wißt ja, was ich meine.</l><lb/>
+</lg> <lg n="3"> <l>Und wenn ſie thaͤt die Aeuglein zu,</l><lb/>
+<l>Und ſchlaͤft in ſuͤßer, ſuͤßer Ruh',</l><lb/>
+<l>Dann lispelt als ein Traumgeſicht</l><lb/>
+<l>Ihr zu: Vergiß, vergiß mein nicht!</l><lb/>
+<l>Das iſt es, was ich meine.</l><lb/>
+</lg>
+<pb n="25" facs="#f0037"/>
+<lg n="4"> <l>Und ſchließt ſie fruͤh die Laden auf,</l><lb/>
+<l>Dann ſchaut mit Liebesblick hinauf:</l><lb/>
+<l>Der Thau in euren Aeugelein,</l><lb/>
+<l>Das ſollen meine Thraͤnen ſein,</l><lb/>
+<l>Die will ich auf euch weinen.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="26" facs="#f0038"/>
+</div> <div n="2"> <head> <hi rendition="#g">Thraͤnenregen.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">W</hi>ir ſaßen ſo traulich beiſammen</l><lb/>
+<l>Im kuͤhlen Erlendach,</l><lb/>
+<l>Wir ſchauten ſo traulich zuſammen</l><lb/>
+<l>Hinab in den rieſelnden Bach.</l><lb/>
+</lg> <lg n="2"> <l>Der Mond war auch gekommen,</l><lb/>
+<l>Die Sternlein hinterdrein,</l><lb/>
+<l>Und ſchauten ſo traulich zuſammen</l><lb/>
+<l>In den ſilbernen Spiegel hinein.</l><lb/>
+</lg> <lg n="3"> <l>Ich ſah nach keinem Monde,</l><lb/>
+<l>Nach keinem Sternenſchein,</l><lb/>
+<l>Ich ſchaute nach ihrem Bilde,</l><lb/>
+<l>Nach ihren Augen allein.</l><lb/>
+</lg> <lg n="4"> <l>Und ſahe ſie nicken und blicken</l><lb/>
+<l>Herauf aus dem ſeligen Bach,</l><lb/>
+<l>Die Bluͤmlein am Ufer, die blauen,</l><lb/>
+<l>Sie nickten und blickten ihr nach.</l><lb/>
+</lg>
+<pb n="27" facs="#f0039"/>
+<lg n="5"> <l>Und in den Bach verſunken</l><lb/>
+<l>Der ganze Himmel ſchien,</l><lb/>
+<l>Und wollte mich mit hinunter</l><lb/>
+<l>In ſeine Tiefe ziehn.</l><lb/>
+</lg> <lg n="6"> <l>Und uͤber den Wolken und Sternen</l><lb/>
+<l>Da rieſelte munter der Bach,</l><lb/>
+<l>Und rief mit Singen und Klingen:</l><lb/>
+<l>Geſelle, Geſelle, mir nach.</l><lb/>
+</lg> <lg n="7"> <l>Da gingen die Augen mir uͤber,</l><lb/>
+<l>Da ward es im Spiegel ſo kraus:</l><lb/>
+<l>Sie ſprach: Es kommt ein Regen,</l><lb/>
+<l>Ade, ich geh' nach Haus.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="28" facs="#f0040"/>
+</div> <div n="2"> <head> <hi rendition="#g">Mein!</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <l> <hi rendition="#in">B</hi>aͤchlein, laß dein Rauſchen ſein!</l><lb/>
+<l>Raͤder, ſtellt eu'r Brauſen ein!</l><lb/>
+<l>All ihr muntern Waldvoͤgelein,</l><lb/>
+<l>Groß und klein,</l><lb/>
+<l>Endet eure Melodein!</l><lb/>
+<l>Durch den Hain</l><lb/>
+<l>Aus und ein</l><lb/>
+<l>Schalle heut' <hi rendition="#g">ein</hi> Reim allein:</l><lb/>
+<l>Die geliebte Muͤllerin iſt <hi rendition="#g">mein</hi>!</l><lb/>
+<l> <hi rendition="#g">Mein</hi>!</l><lb/>
+<l>Fruͤhling, ſind das alle deine Bluͤmelein?</l><lb/>
+<l>Sonne, haſt du keinen hellern Schein?</l><lb/>
+<l>Ach, ſo muß ich ganz allein,</l><lb/>
+<l>Mit dem ſeligen Worte <hi rendition="#g">mein</hi>,</l><lb/>
+<l>Unverſtanden in der weiten Schoͤpfung ſein!</l><lb/>
+</lg> <milestone unit="section" rendition="#hr"/>
+<pb n="29" facs="#f0041"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Pauſe.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">M</hi>eine Laute hab' ich gehaͤngt an die Wand,</l><lb/>
+<l>Hab' ſie umſchlungen mit einem gruͤnen Band —</l><lb/>
+<l>Ich kann nicht mehr ſingen, mein Herz iſt zu voll,</l><lb/>
+<l>Weiß nicht, wie ich's in Reime zwingen ſoll.</l><lb/>
+<l>Meiner Sehnſucht allerheißeſten Schmerz</l><lb/>
+<l>Durft' ich aushauchen in Liederſcherz,</l><lb/>
+<l>Und wie ich klagte ſo ſuͤß und fein,</l><lb/>
+<l>Meint' ich doch, mein Leiden waͤr' nicht klein:</l><lb/>
+<l>Ei, wie groß iſt wohl meines Gluͤckes Laſt,</l><lb/>
+<l>Daß kein Klang auf Erden es in ſich faßt?</l><lb/>
+</lg> <lg n="2"> <l>Nun, liebe Laute, ruh' an dem Nagel hier!</l><lb/>
+<l>Und weht ein Luͤftchen uͤber die Saiten dir,</l><lb/>
+<l>Und ſtreift eine Biene mit ihren Fluͤgeln dich,</l><lb/>
+<l>Da wird mir bange und es durchſchauert mich.</l><lb/>
+<l>Warum ließ ich das Band auch haͤngen ſo lang?</l><lb/>
+<l>Oft fliegt's um die Saiten mit ſeufzendem Klang.</l><lb/>
+<l>Iſt es der Nachklang meiner Liebespein?</l><lb/>
+<l>Soll es das Vorſpiel neuer Lieder ſein?</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="30" facs="#f0042"/>
+</div> <div n="2"> <head> <hi rendition="#g">Mit dem gruͤnen Lautenbande.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l>«<hi rendition="#in">S</hi>chad' um das ſchoͤne gruͤne Band,</l><lb/>
+<l>«Daß es verbleicht hier an der Wand,</l><lb/>
+<l>«Ich hab' das Gruͤn ſo gern!»</l><lb/>
+<l>So ſprachſt du, Liebchen, heut zu mir;</l><lb/>
+<l>Gleich knuͤpf' ich's ab und ſend' es dir:</l><lb/>
+<l>Nun hab' das Gruͤne gern!</l><lb/>
+</lg> <lg n="2"> <l>Iſt auch dein ganzer Liebſter weiß,</l><lb/>
+<l>Soll Gruͤn doch haben ſeinen Preis,</l><lb/>
+<l>Und ich auch hab' es gern.</l><lb/>
+<l>Weil unſre Lieb' iſt immer gruͤn,</l><lb/>
+<l>Weil gruͤn der Hoffnung Fernen bluͤhn,</l><lb/>
+<l>Drum haben wir es gern.</l><lb/>
+</lg> <lg n="3"> <l>Nun ſchlinge in die Locken dein</l><lb/>
+<l>Das gruͤne Band gefaͤllig ein,</l><lb/>
+<l>Du haſt ja's Gruͤn ſo gern.</l><lb/>
+<l>Dann weiß ich, wo die Hoffnung wohnt,</l><lb/>
+<l>Dann weiß ich, wo die Liebe thront,</l><lb/>
+<l>Dann hab' ich's Gruͤn erſt gern.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="31" facs="#f0043"/>
+</div> <div n="2"> <head> <hi rendition="#g">Der Jaͤger.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">W</hi>as ſucht denn der Jaͤger am Muͤhlbach hier?</l><lb/>
+<l>Bleib, trotziger Jaͤger, in deinem Revier!</l><lb/>
+<l>Hier giebt es kein Wild zu jagen fuͤr dich,</l><lb/>
+<l>Hier wohnt nur ein Rehlein, ein zahmes, fuͤr mich.</l><lb/>
+<l>Und willſt du das zaͤrtliche Rehlein ſehn,</l><lb/>
+<l>So laß deine Buͤchſen im Walde ſtehn,</l><lb/>
+<l>Und laß deine klaffenden Hunde zu Haus,</l><lb/>
+<l>Und laß auf dem Horne den Saus und Braus,</l><lb/>
+<l>Und ſcheere vom Kinne das ſtruppige Haar,</l><lb/>
+<l>Sonſt ſcheut ſich im Garten das Rehlein, fuͤrwahr.</l><lb/>
+</lg> <lg n="2"> <l>Doch beſſer, du bliebeſt im Walde dazu,</l><lb/>
+<l>Und ließeſt die Muͤhlen und Muͤller in Ruh'.</l><lb/>
+<l>Was taugen die Fiſchlein im gruͤnen Gezweig?</l><lb/>
+<l>Was will denn das Eichhorn im blaͤulichen Teich?</l><lb/>
+<l>Drum bleibe, du trotziger Jaͤger, im Hain,</l><lb/>
+<l>Und laß mich mit meinen drei Raͤdern allein;</l><lb/>
+<l>Und willſt meinem Schaͤtzchen dich machen beliebt,</l><lb/>
+<l>So wiſſe, mein Freund, was ihr Herzchen betruͤbt:</l><lb/>
+<pb n="32" facs="#f0044"/>
+<l>Die Eber, die kommen zu Nacht aus dem Hain</l><lb/>
+<l>Und brechen in ihren Kohlgarten ein,</l><lb/>
+<l>Und treten und wuͤhlen herum in dem Feld:</l><lb/>
+<l>Die Eber, die ſchieße, du Jaͤgerheld!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="33" facs="#f0045"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Eiferſucht und Stolz.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <l> <hi rendition="#in">W</hi>ohin ſo ſchnell, ſo kraus, ſo wild, mein lieber Bach?</l><lb/>
+<l>Eilſt du voll Zorn dem frechen Bruder Jaͤger nach?</l><lb/>
+<l>Kehr' um, kehr' um, und ſchilt erſt deine Muͤllerin,</l><lb/>
+<l>Fuͤr ihren leichten, loſen, kleinen Flatterſinn.</l><lb/>
+<l>Sahſt du ſie geſtern Abend nicht am Thore ſtehn,</l><lb/>
+<l>Mit langem Halſe nach der großen Straße ſehn?</l><lb/>
+<l>Wenn von dem Fang der Jaͤger luſtig zieht nach Haus,</l><lb/>
+<l>Da ſteckt kein ſittſam Kind den Kopf zum Fenſter 'naus.</l><lb/>
+<l>Geh', Baͤchlein, hin und ſag' ihr das, doch ſag' ihr nicht,</l><lb/>
+<l>Hörſt du, kein Wort, von meinem traurigen Geſicht;</l><lb/>
+<l>Sag' ihr: Er ſchnitzt bei mir ſich eine Pfeif' aus Rohr,</l><lb/>
+<l>Und blaͤſt den Kindern ſchoͤne Taͤnz' und Lieder vor.</l><lb/>
+</lg> <milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">3<lb/>
+</fw>
+<pb n="34" facs="#f0046"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Erſter Schmerz, letzter Scherz.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">N</hi>un ſitz' am Bache nieder</l><lb/>
+<l>Mit deinem hellen Rohr,</l><lb/>
+<l>Und blaſ' den lieben Kindern</l><lb/>
+<l>Die ſchoͤnen Lieder vor.</l><lb/>
+</lg> <lg n="2"> <l>Die Luſt iſt ja verrauſchet,</l><lb/>
+<l>Das Leid hat immer Zeit:</l><lb/>
+<l>Nun ſinge neue Lieder</l><lb/>
+<l>Von alter Seligkeit.</l><lb/>
+</lg> <lg n="3"> <l>Noch bluͤhn die alten Blumen,</l><lb/>
+<l>Noch rauſcht der alte Bach,</l><lb/>
+<l>Es ſcheint die liebe Sonne</l><lb/>
+<l>Noch wie am erſten Tag.</l><lb/>
+</lg> <lg n="4"> <l>Die Fenſterſcheiben glaͤnzen</l><lb/>
+<l>Im klaren Morgenſchein,</l><lb/>
+<l>Und hinter den Fenſterſcheiben</l><lb/>
+<l>Da ſitzt die Liebſte mein.</l><lb/>
+</lg>
+<pb n="35" facs="#f0047"/>
+<lg n="5"> <l>Ein Jaͤger, ein gruͤner Jaͤger,</l><lb/>
+<l>Der liegt in ihrem Arm —</l><lb/>
+<l>Ei, Bach, wie luſtig du rauſcheſt,</l><lb/>
+<l>Ei, Sonne, wie ſcheinſt du ſo warm!</l><lb/>
+</lg> <lg n="6"> <l>Ich will einen Strauß dir pfluͤcken,</l><lb/>
+<l>Herzliebſte, von buntem Klee,</l><lb/>
+<l>Den ſollſt du mir ſtellen an's Fenſter,</l><lb/>
+<l>Damit ich den Jaͤger nicht ſeh'.</l><lb/>
+</lg> <lg n="7"> <l>Ich will mit Roſenblaͤttern</l><lb/>
+<l>Den Muͤhlenſteg beſtreu'n:</l><lb/>
+<l>Der Steg hat mich getragen</l><lb/>
+<l>Zu dir, Herzliebſte mein!</l><lb/>
+</lg> <lg n="8"> <l>Und wenn der ſtolze Jaͤger</l><lb/>
+<l>Ein Blaͤttchen mir zertrit,</l><lb/>
+<l>Dann ſtuͤrz', o Steg, zuſammen</l><lb/>
+<l>Und nimm den Gruͤnen mit!</l><lb/>
+</lg> <lg n="9"> <l>Und trag' ihn auf dem Ruͤcken</l><lb/>
+<l>In's Meer, mit gutem Wind,</l><lb/>
+<l>Nach einer fernen Inſel,</l><lb/>
+<l>Wo keine Maͤdchen ſind.</l><lb/>
+</lg> <fw type="sig" place="bottom">3*<lb/>
+</fw>
+<pb n="36" facs="#f0048"/>
+<lg n="10"> <l>Herzliebſte, das Vergeſſen,</l><lb/>
+<l>Es kommt dir ja nicht ſchwer —</l><lb/>
+<l>Willſt du den Muͤller wieder?</l><lb/>
+<l>Vergißt dich nimmermehr.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="37" facs="#f0049"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Die liebe Farbe.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>n Gruͤn will ich mich kleiden,</l><lb/>
+<l>In gruͤne Thraͤnenweiden,</l><lb/>
+<l>Mein Schatz hat's Gruͤn ſo gern.</l><lb/>
+<l>Will ſuchen einen Cypreſſenhain,</l><lb/>
+<l>Eine Haide von gruͤnem Rosmarein,</l><lb/>
+<l>Mein Schatz hat's Gruͤn ſo gern.</l><lb/>
+</lg> <lg n="2"> <l>Wohlauf zum froͤhlichen Jagen!</l><lb/>
+<l>Wohlauf durch Haid' und Hagen!</l><lb/>
+<l>Mein Schatz hat's Jagen ſo gern.</l><lb/>
+<l>Das Wild, das ich jage, das iſt der Tod,</l><lb/>
+<l>Die Haide, die heiß' ich die Liebesnoth,</l><lb/>
+<l>Mein Schatz hat's Jagen ſo gern.</l><lb/>
+</lg>
+<pb n="38" facs="#f0050"/>
+<lg n="3"> <l>Grabt mir ein Grab im Waſen,</l><lb/>
+<l>Deckt mich mit gruͤnem Raſen,</l><lb/>
+<l>Mein Schatz hat's Gruͤn ſo gern.</l><lb/>
+<l>Kein Kreuzlein ſchwarz, kein Bluͤmlein bunt,</l><lb/>
+<l>Gruͤn, Alles gruͤn ſo rings und rund!</l><lb/>
+<l>Mein Schatz hat's Gruͤn ſo gern.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="39" facs="#f0051"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Die boͤſe Farbe.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch moͤchte ziehn in die Welt hinaus,</l><lb/>
+<l>Hinaus in die weite Welt,</l><lb/>
+<l>Wenn's nur ſo gruͤn, ſo gruͤn nicht waͤr'</l><lb/>
+<l>Da draußen in Wald und Feld!</l><lb/>
+</lg> <lg n="2"> <l>Ich moͤchte die gruͤnen Blaͤtter all'</l><lb/>
+<l>Pfluͤcken von jedem Zweig,</l><lb/>
+<l>Ich moͤchte die gruͤnen Graͤſer all'</l><lb/>
+<l>Weinen ganz todtenbleich.</l><lb/>
+</lg> <lg n="3"> <l>Ach Gruͤn, du boͤſe Farbe du,</l><lb/>
+<l>Was ſiehſt mich immer an,</l><lb/>
+<l>So ſtolz, ſo keck, ſo ſchadenfroh,</l><lb/>
+<l>Mich armen weißen Mann?</l><lb/>
+</lg> <lg n="4"> <l>Ich moͤchte liegen vor ihrer Thuͤr,</l><lb/>
+<l>In Sturm und Regen und Schnee,</l><lb/>
+<l>Und ſingen ganz leiſe bei Tag und Nacht</l><lb/>
+<l>Das eine Woͤrtchen Ade!</l><lb/>
+</lg>
+<pb n="40" facs="#f0052"/>
+<lg n="5"> <l>Horch, wenn im Wald ein Jagdhorn ruft,</l><lb/>
+<l>Da klingt ihr Fenſterlein,</l><lb/>
+<l>Und ſchaut ſie auch nach mir nicht aus,</l><lb/>
+<l>Darf ich doch ſchauen hinein.</l><lb/>
+</lg> <lg n="6"> <l>O binde von der Stirn dir ab</l><lb/>
+<l>Das gruͤne, gruͤne Band,</l><lb/>
+<l>Ade, Ade! und reiche mir</l><lb/>
+<l>Zum Abſchied deine Hand!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="41" facs="#f0053"/>
+</div> <div n="2"> <head> <hi rendition="#g">Bluͤmlein Vergißmein.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">W</hi>as treibt mich jeden Morgen</l><lb/>
+<l>So tief in's Holz hinein?</l><lb/>
+<l>Was frommt mir, mich zu bergen</l><lb/>
+<l>Im unbelauſchten Hain?</l><lb/>
+</lg> <lg n="2"> <l>Es bluͤht auf allen Fluren</l><lb/>
+<l>Bluͤmlein <hi rendition="#g">Vergiß mein nicht</hi>,</l><lb/>
+<l>Es ſchaut vom heitern Himmel</l><lb/>
+<l>Herab in blauem Licht.</l><lb/>
+</lg> <lg n="3"> <l>Und ſoll ich's niedertreten,</l><lb/>
+<l>Bebt mir der Fuß zuruͤck,</l><lb/>
+<l>Es fleht aus jedem Kelche</l><lb/>
+<l>Ein wohlbekannter Blick.</l><lb/>
+</lg> <lg n="4"> <l>Weißt du, in welchem Garten</l><lb/>
+<l>Bluͤmlein <hi rendition="#g">Vergiß mein</hi> ſteht?</l><lb/>
+<l>Das Bluͤmlein muß ich ſuchen,</l><lb/>
+<l>Wie auch die Straße geht.</l><lb/>
+</lg>
+<pb n="42" facs="#f0054"/>
+<lg n="5"> <l>'S iſt nicht fuͤr Maͤdchenbuſen,</l><lb/>
+<l>So ſchoͤn ſieht es nicht aus:</l><lb/>
+<l>Schwarz, ſchwarz iſt ſeine Farbe,</l><lb/>
+<l>Es paßt in keinen Strauß.</l><lb/>
+</lg> <lg n="6"> <l>Hat keine gruͤne Blaͤtter,</l><lb/>
+<l>Hat keinen Bluͤthenduft,</l><lb/>
+<l>Es windet ſich am Boden</l><lb/>
+<l>In naͤchtig dumpfer Luft.</l><lb/>
+</lg> <lg n="7"> <l>Waͤchſt auch an einem Ufer,</l><lb/>
+<l>Doch unten fließt kein Bach,</l><lb/>
+<l>Und willſt das Bluͤmlein pfluͤcken,</l><lb/>
+<l>Dich zieht der Abgrund nach.</l><lb/>
+</lg> <lg n="8"> <l>Das iſt der rechte Garten,</l><lb/>
+<l>Ein ſchwarzer, ſchwarzer Flor:</l><lb/>
+<l>Darauf magſt du dich betten —</l><lb/>
+<l>Schleuß zu das Gartenthor!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="43" facs="#f0055"/>
+</div> <div n="2"> <head> <hi rendition="#g">Trockne Blumen.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>hr Bluͤmlein alle,</l><lb/>
+<l>Die ſie mir gab,</l><lb/>
+<l>Euch ſoll man legen</l><lb/>
+<l>Mit mir in's Grab.</l><lb/>
+</lg> <lg n="2"> <l>Wie ſeht ihr alle</l><lb/>
+<l>Mich an ſo weh,</l><lb/>
+<l>Als ob ihr wuͤßtet,</l><lb/>
+<l>Wie mir geſcheh'?</l><lb/>
+</lg> <lg n="3"> <l>Ihr Bluͤmlein alle,</l><lb/>
+<l>Wie welk, wie blaß?</l><lb/>
+<l>Ihr Bluͤmlein alle,</l><lb/>
+<l>Wovon ſo naß?</l><lb/>
+</lg> <lg n="4"> <l>Ach, Thraͤnen machen</l><lb/>
+<l>Nicht maiengruͤn,</l><lb/>
+<l>Machen todte Liebe</l><lb/>
+<l>Nicht wieder bluͤh'n.</l><lb/>
+</lg>
+<pb n="44" facs="#f0056"/>
+<lg n="5"> <l>Und Lenz wird kommen,</l><lb/>
+<l>Und Winter wird gehn,</l><lb/>
+<l>Und Bluͤmlein werden</l><lb/>
+<l>Im Graſe ſtehn,</l><lb/>
+</lg> <lg n="6"> <l>Und Bluͤmlein liegen</l><lb/>
+<l>In meinem Grab,</l><lb/>
+<l>Die Bluͤmlein alle,</l><lb/>
+<l>Die ſie mir gab.</l><lb/>
+</lg> <lg n="7"> <l>Und wenn ſie wandelt</l><lb/>
+<l>Am Huͤgel vorbei,</l><lb/>
+<l>Und denkt im Herzen:</l><lb/>
+<l> <hi rendition="#g">Der</hi> meint' es treu!</l><lb/>
+</lg> <lg n="8"> <l>Dann Bluͤmlein alle,</l><lb/>
+<l>Heraus, heraus!</l><lb/>
+<l>Der Mai iſt kommen,</l><lb/>
+<l>Der Winter iſt aus.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="45" facs="#f0057"/>
+</div> <div n="2"> <head> <hi rendition="#g">Der Muͤller und der Bach.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#g">Der Muͤller.</hi></l><lb/>
+<l> <hi rendition="#in">W</hi>o ein treues Herze</l><lb/>
+<l>In Liebe vergeht,</l><lb/>
+<l>Da welken die Lilien</l><lb/>
+<l>Auf jedem Beet.</l><lb/>
+</lg> <lg n="2"> <l>Da muß in die Wolken</l><lb/>
+<l>Der Vollmond gehn,</l><lb/>
+<l>Damit ſeine Thraͤnen</l><lb/>
+<l>Die Menſchen nicht ſehn.</l><lb/>
+</lg> <lg n="3"> <l>Da halten die Englein</l><lb/>
+<l>Die Augen ſich zu,</l><lb/>
+<l>Und ſchluchzen und ſingen</l><lb/>
+<l>Die Seele zu Ruh'.</l><lb/>
+</lg> <lg n="4"> <l> <hi rendition="#g">Der Bach.</hi></l><lb/>
+<l>Und wenn ſich die Liebe</l><lb/>
+<l>Dem Schmerz entringt,</l><lb/>
+<l>Ein Sternlein, ein neues,</l><lb/>
+<l>Am Himmel erblinkt.</l><lb/>
+</lg>
+<pb n="46" facs="#f0058"/>
+<lg n="5"> <l>Da ſpringen drei Roſen,</l><lb/>
+<l>Halb roth, halb weiß,</l><lb/>
+<l>Die welken nicht wieder,</l><lb/>
+<l>Aus Dornenreis.</l><lb/>
+</lg> <lg n="6"> <l>Und die Engelein ſchneiden</l><lb/>
+<l>Die Fluͤgel ſich ab,</l><lb/>
+<l>Und gehn alle Morgen</l><lb/>
+<l>Zur Erde herab.</l><lb/>
+</lg> <lg n="7"> <l> <hi rendition="#g">Der Muͤller.</hi></l><lb/>
+<l>Ach, Baͤchlein, liebes Baͤchlein,</l><lb/>
+<l>Du meinſt es ſo gut:</l><lb/>
+<l>Ach, Baͤchlein, aber weißt du</l><lb/>
+<l>Wie Liebe thut?</l><lb/>
+</lg> <lg n="8"> <l>Ach, unten, da unten,</l><lb/>
+<l>Die kuͤhle Ruh'!</l><lb/>
+<l>Ach, Baͤchlein, liebes Baͤchlein,</l><lb/>
+<l>So ſinge nur zu.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="47" facs="#f0059"/>
+</div> <div n="2"> <head> <hi rendition="#g">Des Baches Wiegenlied.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">G</hi>ute Ruh', gute Ruh'!</l><lb/>
+<l>Thu die Augen zu!</l><lb/>
+<l>Wandrer, du muͤder, du biſt zu Haus.</l><lb/>
+<l>Die Treu' iſt hier,</l><lb/>
+<l>Sollſt liegen bei mir,</l><lb/>
+<l>Bis das Meer will trinken die Baͤchlein aus.</l><lb/>
+</lg> <lg n="2"> <l>Will betten dich kuͤhl,</l><lb/>
+<l>Auf weichem Pfuͤhl,</l><lb/>
+<l>In dem blauen kryſtallenen Kaͤmmerlein.</l><lb/>
+<l>Heran, heran,</l><lb/>
+<l>Was wiegen kann,</l><lb/>
+<l>Woget und wieget den Knaben mir ein!</l><lb/>
+</lg> <lg n="3"> <l>Wenn ein Jagdhorn ſchallt</l><lb/>
+<l>Aus dem gruͤnen Wald,</l><lb/>
+<l>Will ich ſauſen und brauſen wohl um dich her.</l><lb/>
+<l>Blickt nicht herein,</l><lb/>
+<l>Blaue Bluͤmelein!</l><lb/>
+<l>Ihr macht meinem Schlaͤfer die Traͤume ſo ſchwer.</l><lb/>
+</lg>
+<pb n="48" facs="#f0060"/>
+<lg n="4"> <l>Hinweg, hinweg,</l><lb/>
+<l>Von dem Muͤhlenſteg,</l><lb/>
+<l>Boͤſes Maͤgdlein, daß ihn dein Schatten nicht weckt!</l><lb/>
+<l>Wirf mir herein</l><lb/>
+<l>Dein Tuͤchlein fein,</l><lb/>
+<l>Daß ich die Augen ihm halte bedeckt!</l><lb/>
+</lg> <lg n="5"> <l>Gute Nacht, gute Nacht!</l><lb/>
+<l>Bis Alles wacht,</l><lb/>
+<l>Schlaf' aus deine Freude, ſchlaf' aus dein Leid!</l><lb/>
+<l>Der Vollmond ſteigt,</l><lb/>
+<l>Der Nebel weicht,</l><lb/>
+<l>Und der Himmel da oben, wie iſt er ſo weit!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="49" facs="#f0061"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Der Dichter, als Epilog.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">W</hi>eil gern man ſchließt mit einer runden Zahl,</l><lb/>
+<l>Tret' ich noch einmal in den vollen Saal,</l><lb/>
+<l>Als letztes, fuͤnf und zwanzigſtes Gedicht,</l><lb/>
+<l>Als Epilog, der gern das Kluͤgſte ſpricht.</l><lb/>
+<l>Doch pfuſchte mir der Bach in's Handwerk ſchon</l><lb/>
+<l>Mit ſeiner Leichenred' im naſſen Ton.</l><lb/>
+<l>Aus ſolchem hohlen Waſſerorgelſchall</l><lb/>
+<l>Zieht Jeder ſelbſt ſich beſſer die Moral;</l><lb/>
+<l>Ich geb' es auf, und laſſe dieſen Zwiſt,</l><lb/>
+<l>Weil Widerſpruch nicht meines Amtes iſt.</l><lb/>
+</lg> <lg n="2"> <l>So hab' ich denn nichts lieber hier zu thun,</l><lb/>
+<l>Als euch zum Schluß zu wuͤnſchen, wohl zu ruhn.</l><lb/>
+<l>Wir blaſen unſre Sonn' und Sternlein aus —</l><lb/>
+<l>Nun findet euch im Dunkel gut nach Haus,</l><lb/>
+<l>Und wollt ihr traͤumen einen leichten Traum,</l><lb/>
+<l>So denkt an Muͤhlenrad und Waſſerſchaum,</l><lb/>
+<l>Wenn ihr die Augen ſchließt zu langer Nacht,</l><lb/>
+<l>Bis es den Kopf zum Drehen euch gebracht.</l><lb/>
+<fw type="sig" place="bottom">4<lb/>
+</fw>
+<pb n="50" facs="#f0062"/>
+<l>Und wer ein Maͤdchen fuͤhrt an ſeiner Hand,</l><lb/>
+<l>Der bitte ſcheidend um ein Liebespfand,</l><lb/>
+<l>Und giebt ſie heute, was ſie oft verſagt,</l><lb/>
+<l>So ſei des treuen Muͤllers treu gedacht</l><lb/>
+<l>Bei jedem Haͤndedruck, bei jedem Kuß,</l><lb/>
+<l>Bei jedem heißen Herzensuͤberfluß:</l><lb/>
+<l>Geb' ihm die Liebe fuͤr ſein kurzes Leid</l><lb/>
+<l>In eurem Buſen lange Seligkeit!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/><lb/>
+</div> </div>
+<pb n="[51]" facs="#f0063"/>
+<div n="1"> <head rendition="#c"> <hi rendition="#b #g">Johannes und Eſther</hi> <hi rendition="#b">.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/><lb/>
+<p rendition="#c"> <hi rendition="#g">(Im Frühling zu leſen</hi>.)</p><lb/>
+<fw type="sig" place="bottom">4*<lb/>
+</fw>
+<pb n="[52]" facs="#f0064"/>
+<pb n="[53]" facs="#f0065"/>
+<div n="2"> <head> <hi rendition="#b #g">Chriſtnacht.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">D</hi>urch die Fenſter ſeh' ich's flimmern,</l><lb/>
+<l>Goldengruͤn und Kerzenſchein,</l><lb/>
+<l>Jauchzend hoͤr' ich durch die Laden</l><lb/>
+<l>Helle Kinderſtimmen ſchrein.</l><lb/>
+</lg> <lg n="2"> <l>Schmetternde Poſaunen ſchallen</l><lb/>
+<l>Von dem Kirchenthurm herab:</l><lb/>
+<l>Lobt den Vater in der Hoͤhe,</l><lb/>
+<l>Der der Welt das Kindlein gab!</l><lb/>
+</lg> <lg n="3"> <l>Herz, mein Herz, wie biſt ſo ſelig?</l><lb/>
+<l>Herz, mein Herz, und ſo allein?</l><lb/>
+<l>Unſre Gaben, unſre Wuͤnſche,</l><lb/>
+<l>Duͤrfen wir ſie Keinem weihn?</l><lb/>
+</lg> <lg n="4"> <l>Eine weiß ich wohl zu finden,</l><lb/>
+<l>Der ich Vieles goͤnnen mag;</l><lb/>
+<l>Offen ſteht mir ihre Pforte,</l><lb/>
+<l>Und es kennt mich ihr Gemach.</l><lb/>
+</lg>
+<pb n="54" facs="#f0066"/>
+<lg n="5"> <l>Aber in dem ſtillen Hauſe</l><lb/>
+<l>Brennt kein feſtlich helles Licht,</l><lb/>
+<l>Und im ſchwarzen Wochenkleide</l><lb/>
+<l>Sitzt ſie da und freut ſich nicht.</l><lb/>
+</lg> <lg n="6"> <l>Ach, ihr iſt er nicht geboren,</l><lb/>
+<l>Der in dieſer ſel'gen Nacht</l><lb/>
+<l>Freud' und Fried' und Wohlgefallen</l><lb/>
+<l>Hat zu uns herabgebracht.</l><lb/>
+</lg> <lg n="7"> <l>Seine Liebe, ſeine Leiden</l><lb/>
+<l>Dringen nicht zu ihr hinein:</l><lb/>
+<l>Ueber ihre zarte Seele</l><lb/>
+<l>Herrſchet ein Geſetz von Stein.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="55" facs="#f0067"/>
+</div> <div n="2"> <head> <hi rendition="#g">Gebet in der Chriſtnacht.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">O</hi> Liebe, die am Kreuze rang,</l><lb/>
+<l>O Liebe, die den Tod bezwang</l><lb/>
+<l>Fuͤr alle Menſchenkinder,</l><lb/>
+<l>Gedenk' in dieſer ſel'gen Nacht,</l><lb/>
+<l>Die dich zu uns herabgebracht,</l><lb/>
+<l>Der Seelen, die dir fehlen!</l><lb/>
+</lg> <lg n="2"> <l>O Liebe, die den Stern geſandt</l><lb/>
+<l>Hinaus in's ferne Morgenland,</l><lb/>
+<l>Die Koͤnige zu rufen;</l><lb/>
+<l>Die laut durch ihres Boten Mund</l><lb/>
+<l>Sich gab den armen Hirten kund,</l><lb/>
+<l>Wie biſt du ſtill geworden?</l><lb/>
+</lg> <lg n="3"> <l>Noch eine fromme Hirtin liegt</l><lb/>
+<l>In blinden Schlummer eingewiegt,</l><lb/>
+<l>Und traͤumt von gruͤnen Baͤumen.</l><lb/>
+<l>Singt nicht vor ihrem Fenſterlein</l><lb/>
+<l>Ein Engel: Eſther, laß mich ein,</l><lb/>
+<l>Der Heiland iſt geboren?</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="56" facs="#f0068"/>
+</div> <div n="2"> <head> <hi rendition="#g">Vereinigung.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">W</hi>enn ich nur darf in deine Augen ſchauen,</l><lb/>
+<l>In deine klaren, treuen, frommen Sterne,</l><lb/>
+<l>So fuͤhl' ich weichen das geheime Grauen,</l><lb/>
+<l>Das Lieb' und Liebe haͤlt in ſtummer Ferne.</l><lb/>
+</lg> <lg n="2"> <l>Und unſre Herzen wollen ſich begegnen</l><lb/>
+<l>In langen Blicken, die mit Thraͤnen ringen,</l><lb/>
+<l>Und unſre Liebe will ein Engel ſegnen:</l><lb/>
+<l>Er ſchlaͤgt um uns die weichen, warmen Schwingen.</l><lb/>
+</lg> <lg n="3"> <l>Nach ſeinem Namen wag' ich nicht zu fragen,</l><lb/>
+<l>Noch nach dem Namen deſſen, der ihn ſendet;</l><lb/>
+<l>Ich darf ja wieder weinen, wieder klagen:</l><lb/>
+<l>Fuͤrwahr, mich hat kein eitler Wahn geblendet!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="57" facs="#f0069"/>
+</div> <div n="2"> <head> <hi rendition="#g">Die Paſſionsblume.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">H</hi>ochgebenedeite Pflanze,</l><lb/>
+<l>Deren ſchoͤner Bluͤthenſtern</l><lb/>
+<l>Uns in mildem, weißen Glanze</l><lb/>
+<l>Zeigt das Marterthum des Herrn;</l><lb/>
+<l>Voller Bluͤthen ſeh' ich immer</l><lb/>
+<l>Dich vor ihrem Fenſter ſtehn:</l><lb/>
+<l>Willſt du denn, als eitler Schimmer,</l><lb/>
+<l>Nur in Farb' und Duft vergehn?</l><lb/>
+</lg> <lg n="2"> <l>Ward dir kein geheimes Leben,</l><lb/>
+<l>Unverwelklicher Natur,</l><lb/>
+<l>Von dem Heiland eingegeben,</l><lb/>
+<l>Der dich pflanzt' in unſre Flur,</l><lb/>
+<l>Als ein Bild von ſeinen Leiden,</l><lb/>
+<l>Seinem bittern Liebestod,</l><lb/>
+<l>Daß daran wir ſollen weiden</l><lb/>
+<l>Unſre Seel' in Luſt und Noth?</l><lb/>
+</lg>
+<pb n="58" facs="#f0070"/>
+<lg n="3"> <l>Haſt du nicht in ſtillen Stunden,</l><lb/>
+<l>Heil'ge Blum', ihr zugehaucht</l><lb/>
+<l>Das Geheimniß von den Wunden,</l><lb/>
+<l>Von dem Dorn, in Blut getaucht?</l><lb/>
+<l>Eſther ſchlaͤft, und Traͤume ſchließen</l><lb/>
+<l>Auf der reinen Seele Schrein:</l><lb/>
+<l>Laß aus deinem Sterne fließen</l><lb/>
+<l>Einen Strahl zu ihr hinein!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="59" facs="#f0071"/>
+</div> <div n="2"> <head> <hi rendition="#g">Purim.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">W</hi>as meint ſie mit dem Aſchenkleide</l><lb/>
+<l>An dieſem freudenreichen Tag,</l><lb/>
+<l>Wo Alles gern in Sammt und Seide,</l><lb/>
+<l>In Gold und Steinen prangen mag?</l><lb/>
+</lg> <lg n="2"> <l>Es ſchwimmt das feſtlich bunte Zimmer</l><lb/>
+<l>In hoher Kerzen Duft und Schein:</l><lb/>
+<l>Sie ſchleicht ſich aus der Freude Schimmer,</l><lb/>
+<l>Und ſteht am Fenſter ganz allein.</l><lb/>
+</lg> <lg n="3"> <l>Da legt ſich, wie ein weißer Schleier,</l><lb/>
+<l>Des Mondes Strahl um ihr Geſicht,</l><lb/>
+<l>Und eine ſtille, tiefe Feier</l><lb/>
+<l>Aus ihren ſel'gen Augen ſpricht.</l><lb/>
+</lg>
+<pb n="60" facs="#f0072"/>
+<lg n="4"> <l>O waͤr' ich aus den Truggeſtalten</l><lb/>
+<l>Der wilden, blinden Maskenluſt,</l><lb/>
+<l>Und duͤrfte meine Haͤnde falten</l><lb/>
+<l>Entlarvt im Tempel ihrer Bruſt!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="61" facs="#f0073"/>
+</div> <div n="2"> <head> <hi rendition="#g">Vor ihrem Fenſter.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">W</hi>ie freut es mich, in dunkeln Abendſtunden</l><lb/>
+<l>Vor deinem hellen Fenſter ſtill zu ſtehn!</l><lb/>
+<l>Den Vorhang find' ich hoch hinaufgewunden,</l><lb/>
+<l>Frei darf mein Blick in ſeinen Himmel ſehn.</l><lb/>
+</lg> <lg n="2"> <l>Die Blumen, die ſich an die Rahmen ſchmiegen,</l><lb/>
+<l>Umſchlingen mir dein Bild mit ihrem Kranz,</l><lb/>
+<l>Und meines Odems Hauche uͤberfliegen</l><lb/>
+<l>Mit truͤbem Nebelduft der Scheiben Glanz.</l><lb/>
+</lg> <lg n="3"> <l>Da ſitzeſt du, ſo ſtill und unbefangen,</l><lb/>
+<l>Das ſchoͤne Haupt geſtuͤtzt auf deinen Arm,</l><lb/>
+<l>Und ich bin dir ſo nah mit Luſt und Bangen,</l><lb/>
+<l>Mit meiner Wuͤnſche ungeſtuͤmem Schwarm.</l><lb/>
+</lg> <lg n="4"> <l>Du ſchaueſt her: es wiſſen deine Augen</l><lb/>
+<l>Vom ſuͤßen Zauber ihrer Blicke nicht,</l><lb/>
+<l>Wie meine ſich aus ihnen trunken ſaugen,</l><lb/>
+<l>Und hell ergluͤhen nur von ihrem Licht.</l><lb/>
+</lg>
+<pb n="62" facs="#f0074"/>
+<lg n="5"> <l>Du ahneſt nicht, wie ſich mein ganzes Leben</l><lb/>
+<l>Gleich einem Mond um deine Sonne dreht,</l><lb/>
+<l>Der bald ſich will auf ſtolzen Strahlen heben,</l><lb/>
+<l>Bald tief gebeugt in Thraͤnen untergeht.</l><lb/>
+</lg> <lg n="6"> <l>Still, ſtill, mein Herz! Was meint dein wildes</l><lb/>
+<l>Schlagen?</l><lb/>
+<l>Schau uͤber dich, der Himmel iſt nicht fern;</l><lb/>
+<l>Und Flammen, die aus Sternen fallen, tragen</l><lb/>
+<l>Der Menſchen Seufzer vor den Thron des Herrn.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="63" facs="#f0075"/>
+</div> <div n="2"> <head> <hi rendition="#g">Die Lauberhuͤtte.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">S</hi>ei mir gegruͤßt, du Holde,</l><lb/>
+<l>In deinem gruͤnen Zelt!</l><lb/>
+<l>Hier ſeh' ich erſt dich bluͤhen,</l><lb/>
+<l>Hier bluͤhet deine Welt.</l><lb/>
+</lg> <lg n="2"> <l>Mir iſt's, als ob ich traͤte</l><lb/>
+<l>In ein gelobtes Land,</l><lb/>
+<l>Als ob der Lauf der Zeiten</l><lb/>
+<l>Sich habe umgewandt.</l><lb/>
+</lg> <lg n="3"> <l>Entlaubt ſind unſre Baͤume,</l><lb/>
+<l>Verbluͤht iſt unſer Feld:</l><lb/>
+<l>Hier ſeh' ich Lenz und Sommer</l><lb/>
+<l>Als Bruͤder froh geſellt.</l><lb/>
+</lg> <lg n="4"> <l>Der Herbſt will auch nicht fehlen</l><lb/>
+<l>In dieſem ſchoͤnen Haus,</l><lb/>
+<l>Und ſucht fuͤr ſeine Fruͤchte</l><lb/>
+<l>Sich Blumenzweiglein aus.</l><lb/>
+</lg>
+<pb n="64" facs="#f0076"/>
+<lg n="5"> <l>So pruͤfen Duft und Schimmer</l><lb/>
+<l>Wetteifernd ihre Macht:</l><lb/>
+<l>Es flammen hohe Kerzen</l><lb/>
+<l>Wie Sterne durch die Nacht.</l><lb/>
+</lg> <lg n="6"> <l>Und aus den blanken Becken</l><lb/>
+<l>Steigt Weihrauch ſtolz empor:</l><lb/>
+<l>Da trauert manche Roſe,</l><lb/>
+<l>Weil ſie den Rang verlor.</l><lb/>
+</lg> <lg n="7"> <l>Du ſiehſt mich an, Geliebte,</l><lb/>
+<l>Und mir verſagt das Wort:</l><lb/>
+<l>Du wirſt mich nicht verſtehen</l><lb/>
+<l>An dieſem Zauberort.</l><lb/>
+</lg> <lg n="8"> <l>Wie, ſollteſt du mir folgen</l><lb/>
+<l>In truͤbe, kalte Luft,</l><lb/>
+<l>Aus deinem Vaterlande</l><lb/>
+<l>Voll Gluth und Glanz und Duft?</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="65" facs="#f0077"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Der Perlenkranz.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">E</hi>in Kraͤnzlein moͤcht' ich ſehen</l><lb/>
+<l>Gewunden um dein Haupt,</l><lb/>
+<l>Nicht bunt von Sommerblumen,</l><lb/>
+<l>Nicht immergruͤn belaubt.</l><lb/>
+</lg> <lg n="2"> <l>Von hellen, weißen Perlen</l><lb/>
+<l>Soll es geflochten ſein:</l><lb/>
+<l>Durch deine ſchwarzen Locken</l><lb/>
+<l>Fließt es wie Sternenſchein.</l><lb/>
+</lg> <lg n="3"> <l>Neige dein Haupt, du Liebe,</l><lb/>
+<l>Loͤſ' auf dein langes Haar!</l><lb/>
+<l>Kennſt du die Perlenkrone,</l><lb/>
+<l>Durchſichtig, waſſerklar?</l><lb/>
+</lg> <fw type="sig" place="bottom">5<lb/>
+</fw>
+<pb n="66" facs="#f0078"/>
+<lg n="4"> <l>Bebt Ahnung dir im Herzen?</l><lb/>
+<l>O glaube, was ſie ſpricht.</l><lb/>
+<l>Laß auf dein Haupt mich weinen:</l><lb/>
+<l>Tauft denn die Thraͤne nicht?</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="67" facs="#f0079"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Maria.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">M</hi>aria moͤcht' ich dich begruͤßen,</l><lb/>
+<l>Mein Herz hat ſtets dich ſo genannt. —</l><lb/>
+<l>Seh' ich ein klares Baͤchlein fließen,</l><lb/>
+<l>Setz' ich mich ſtill an ſeinen Rand:</l><lb/>
+<l>Maria, rieſeln ſeine Wogen,</l><lb/>
+<l>Maria ſoll ihr Name ſein;</l><lb/>
+<l>Ein weißes Taͤubchen kommt geflogen,</l><lb/>
+<l>Schwebt uͤber mir im Sonnenſchein.</l><lb/>
+</lg> <lg n="2"> <l>Geliebte, haſt du nichts vernommen,</l><lb/>
+<l>Wie Orgelton und Waſſerfall?</l><lb/>
+<l>Der heil'ge Jordan kommt geſchwommen</l><lb/>
+<l>Durch Berg und Meer mit Jubelſchall.</l><lb/>
+<l>Der Geiſt des Herrn ſchwingt ſein Gefieder</l><lb/>
+<l>Und ruft: Wo iſt die Tochter mein?</l><lb/>
+<l>Tauch' in die Liebesfluthen nieder:</l><lb/>
+<l>Maria ſoll dein Name ſein!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">5*<lb/>
+</fw>
+<pb n="68" facs="#f0080"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">An Johannes.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <l> <hi rendition="#in">A</hi>us deiner Bruſt hab' ich empor geſungen</l><lb/>
+<l>Verſchwieg'ner Liebesflammen Luſt und Schmerz,</l><lb/>
+<l>Und von den Klaͤngen fuͤhl' ich nun durchdrungen</l><lb/>
+<l>Mit tiefer Regung faſt mein eignes Herz.</l><lb/>
+<l>Der Fruͤhling naht: ſchon traͤgt man aus dem Hauſe</l><lb/>
+<l>Die Blumen an das freie Tageslicht;</l><lb/>
+<l>Und laͤnger bleiben auch in ihrer Klauſe</l><lb/>
+<l>Die Winterbluͤthen meiner Muſe nicht.</l><lb/>
+<l>Gedeihen muß die Lenzluft ihnen geben</l><lb/>
+<l>Und junges Gruͤn und friſchen Knoſpendrang,</l><lb/>
+<l>Auf daß ſie ſich befreunden mit dem Leben,</l><lb/>
+<l>Und werben nach der Leute Lob und Dank.</l><lb/>
+<l>So ziehn ſie aus im Duft und Glanz des Maien,</l><lb/>
+<l>Bekraͤnzt mit ſchwarzem Leid und bunter Luſt;</l><lb/>
+<l>Und will der Winter ſie mit Schnee beſtreuen,</l><lb/>
+<l>So fluͤchten ſie zuruͤck in deine Bruſt.</l><lb/>
+</lg> <milestone unit="section" rendition="#hr"/> </div> </div>
+<pb n="[69]" facs="#f0081"/>
+<div n="1"> <head> <hi rendition="#b #g">Reiſelieder.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/>
+<pb n="[70]" facs="#f0082"/>
+<pb n="[71]" facs="#f0083"/>
+<div n="2"> <head> <hi rendition="#b #g">Große Wanderſchaft.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <l> <hi rendition="#in">W</hi>andern, wandern!</l><lb/>
+<l>Geſtern dort und heute hier;</l><lb/>
+<l>Morgen, wohin ziehen wir?</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Wißt ihr wohl das Loſungswort,</l><lb/>
+<l>Das die Welt treibt fort und fort?</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Sehet Sonne, Mond und Sterne,</l><lb/>
+<l>Wie die wandern all' ſo gerne!</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Auch die Erde macht ſich auf</l><lb/>
+<l>Alle Jahr zum friſchen Lauf.</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Ei, ſo laß das Sitzen ſein,</l><lb/>
+<l>Menſch, du mußt doch hinterdrein!</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<pb n="72" facs="#f0084"/>
+<l>Kind und Juͤngling, Mann und Greis,</l><lb/>
+<l>Alſo heißt die Lebensreiſ'.</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Ei, wie ſchoͤne Kompanei!</l><lb/>
+<l>Fuͤrſtengunſt und Frauentreu'!</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Frau Fortuna fuͤhrt uns an,</l><lb/>
+<l>Amor iſt der zweite Mann.</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Auch die Muſen koͤnnt ihr ſehn</l><lb/>
+<l>All' in Reiſeſchuhen gehn.</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Mars faͤhrt auf Aprillenwetter,</l><lb/>
+<l>Laune heißt des Ruhmes Vetter.</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Liebes Herz, ſo zieh' nur mit,</l><lb/>
+<l>Halte wacker Schritt und Tritt!</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Heute hier und morgen dort,</l><lb/>
+<l>Und zu Haus an jedem Ort.</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Regen, Sturm und Sonnenſchein,</l><lb/>
+<l>Rebenſaft und Gerſtenwein.</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Heute blond und morgen braun</l><lb/>
+<l>Iſt mein Schaͤtzchen anzuſchaun.</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<pb n="73" facs="#f0085"/>
+<l>Kalt und warm und ſchlicht und kraus,</l><lb/>
+<l>Bienenſchwarm und Schneckenhaus.</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+<l>Heut' hab' ich dies Lied erdacht,</l><lb/>
+<l>Morgen wird es ausgelacht.</l><lb/>
+<l>Wandern, wandern!</l><lb/>
+</lg> <milestone unit="section" rendition="#hr"/>
+<pb n="74" facs="#f0086"/>
+</div> <div n="2"> <head>Wanderlieder eines rheiniſchen Handwerks¬<lb/>
+burſchen.<lb/>
+</head> <div n="3"> <head>1. <hi rendition="#g">Auszug</hi>.<lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch ziehe ſo luſtig zum Thore hinaus,</l><lb/>
+<l>Als ob's ein Spaß nur waͤr':</l><lb/>
+<l>Das macht, es wallt Feinliebchens Bild</l><lb/>
+<l>Gar helle vor mir her.</l><lb/>
+</lg> <lg n="2"> <l>Da merk' ich dann im Herzen bald:</l><lb/>
+<l>Ich ſei dort, oder hier,</l><lb/>
+<l>Ich gehe fort, ich kehre heim,</l><lb/>
+<l>Ich ziehe doch immer zu ihr.</l><lb/>
+</lg> <lg n="3"> <l>Und wer zu ſeinem Liebchen reiſ't,</l><lb/>
+<l>Dem wird kein Weg zu ſchwer,</l><lb/>
+<l>Der laͤuft bei Tag und laͤuft bei Nacht,</l><lb/>
+<l>Und ruht ſich nimmermehr.</l><lb/>
+</lg>
+<pb n="75" facs="#f0087"/>
+<lg n="4"> <l>Und ob es regnet, ob es ſtuͤrmt,</l><lb/>
+<l>Mir thut kein Wetter weh:</l><lb/>
+<l>Es hat mein Liebchen mir geſagt</l><lb/>
+<l>Ein freundliches Ade!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="76" facs="#f0088"/>
+</div> <div n="3"> <head>2. <hi rendition="#g">Auf der Landſtraße.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">W</hi>as ſuchen doch die Menſchen all'</l><lb/>
+<l>Zu Roß und auch zu Fuß?</l><lb/>
+<l>Das wandert hin und wandert her</l><lb/>
+<l>Zeitlebens ohn' Verdruß.</l><lb/>
+</lg> <lg n="2"> <l>Die haben wohl kein Liebchen heim,</l><lb/>
+<l>Und auch ihr Herz dabei:</l><lb/>
+<l>Sie ſehn mich an und wundern ſich,</l><lb/>
+<l>Daß ich ſo langſam ſei.</l><lb/>
+</lg> <lg n="3"> <l>Ach, wer mit jedem, jedem Fuß,</l><lb/>
+<l>Den er ſetzt in die Welt hinein,</l><lb/>
+<l>Einen Schritt von ſeiner Liebſten thut,</l><lb/>
+<l>Der macht ihn gerne klein.</l><lb/>
+</lg> <lg n="4"> <l>Wer hat das Wandern doch erdacht?</l><lb/>
+<l>Der hatt' ein Herz von Stein;</l><lb/>
+<l>Und waͤr' es heut' noch nicht bekannt,</l><lb/>
+<l>Ich ließ' es wahrlich ſein.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="77" facs="#f0089"/>
+</div> <div n="3"> <head> <hi rendition="#b">3.</hi> <hi rendition="#b #g">Einſamkeit.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">D</hi>er Mai iſt auf dem Wege,</l><lb/>
+<l>Der Mai iſt vor der Thuͤr:</l><lb/>
+<l>Im Garten, auf der Wieſen,</l><lb/>
+<l>Ihr Bluͤmlein kommt herfuͤr!</l><lb/>
+</lg> <lg n="2"> <l>Da hab' ich den Stab genommen,</l><lb/>
+<l>Da hab' ich das Buͤndel geſchnuͤrt,</l><lb/>
+<l>Zieh weiter und immer weiter,</l><lb/>
+<l>Wohin die Straße mich fuͤhrt.</l><lb/>
+</lg> <lg n="3"> <l>Und uͤber mir ziehen die Voͤgel,</l><lb/>
+<l>Sie ziehen in luſtigem Reihn,</l><lb/>
+<l>Sie zwitſchern und trillern und floͤten,</l><lb/>
+<l>Als ging's in den Himmel hinein.</l><lb/>
+</lg> <lg n="4"> <l>Der Wandrer geht alleine,</l><lb/>
+<l>Geht ſchweigend ſeinen Gang;</l><lb/>
+<l>Das Buͤndel will ihn druͤcken,</l><lb/>
+<l>Der Weg wird ihm zu lang.</l><lb/>
+</lg>
+<pb n="78" facs="#f0090"/>
+<lg n="5"> <l>Ja, wenn wir allzuſammen</l><lb/>
+<l>So zoͤgen in's Land hinein!</l><lb/>
+<l>Und wenn auch das nicht waͤre,</l><lb/>
+<l>Koͤnnt' Eine nur mit mir ſein!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="79" facs="#f0091"/>
+</div> <div n="3"> <head> <hi rendition="#g">4. Bruͤderſchaft.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>m Krug zum gruͤnen Kranze</l><lb/>
+<l>Da kehrt' ich durſtig ein:</l><lb/>
+<l>Da ſaß ein Wandrer drinnen</l><lb/>
+<l>Am Tiſch bei kuͤhlem Wein.</l><lb/>
+</lg> <lg n="2"> <l>Ein Glas war eingegoſſen,</l><lb/>
+<l>Das wurde nimmer leer;</l><lb/>
+<l>Sein Haupt ruht' auf dem Buͤndel,</l><lb/>
+<l>Als waͤr's ihm viel zu ſchwer.</l><lb/>
+</lg> <lg n="3"> <l>Ich thaͤt mich zu ihm ſetzen,</l><lb/>
+<l>Ich ſah ihm in's Geſicht,</l><lb/>
+<l>Das ſchien mir gar befreundet,</l><lb/>
+<l>Und dennoch kannt' ich's nicht.</l><lb/>
+</lg> <lg n="4"> <l>Da ſah auch mir in's Auge</l><lb/>
+<l>Der fremde Wandersmann,</l><lb/>
+<l>Und fuͤllte meinen Becher,</l><lb/>
+<l>Und ſah mich wieder an.</l><lb/>
+</lg>
+<pb n="80" facs="#f0092"/>
+<lg n="5"> <l>Hei, was die Becher klangen,</l><lb/>
+<l>Wie brannte Hand in Hand:</l><lb/>
+<l>«Es lebe die Liebſte deine,</l><lb/>
+<l>«Herzbruder, im Vaterland!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="81" facs="#f0093"/>
+</div> <div n="3"> <head> <hi rendition="#b">5.</hi> <hi rendition="#b #g">Abendreihn.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">G</hi>uten Abend, lieber Mondenſchein!</l><lb/>
+<l>Wie blickſt mir ſo traulich in's Herz herein?</l><lb/>
+<l>Nun ſprich, und laß dich nicht lange fragen,</l><lb/>
+<l>Du haſt mir gewiß einen Gruß zu ſagen,</l><lb/>
+<l>Einen Gruß von meinem Schatz.</l><lb/>
+</lg> <lg n="2"> <l>«Wie ſollt' ich bringen den Gruß zu dir?</l><lb/>
+<l>«Du haſt ja keinen Schatz bei mir.</l><lb/>
+<l>«Und was mir da unten die Burſche ſagen,</l><lb/>
+<l>«Und was mir die Frauen und Maͤdchen klagen,</l><lb/>
+<l>«Ei, das verſteh' ich nicht.»</l><lb/>
+</lg> <lg n="3"> <l>Haſt Recht, mein lieber Mondenſchein,</l><lb/>
+<l>Du darfſt auch Schaͤtzchens Bote nicht ſein,</l><lb/>
+<l>Denn thaͤtſt du zu tief ihr in's Auge ſehn,</l><lb/>
+<l>Du koͤnnteſt ja nimmermehr untergehn,</l><lb/>
+<l>Schienſt ewig nur fuͤr ſie.</l><lb/>
+</lg> <fw type="sig" place="bottom">6<lb/>
+</fw>
+<pb n="82" facs="#f0094"/>
+<lg n="4"> <l>Dies Liedchen iſt ein Abendreihn,</l><lb/>
+<l>Ein Wandrer ſang's im Vollmondſchein;</l><lb/>
+<l>Und die es leſen bei Kerzenlicht,</l><lb/>
+<l>Die Leute verſtehn das Liedchen nicht,</l><lb/>
+<l>Und iſt doch kinderleicht.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="83" facs="#f0095"/>
+</div> <div n="3"> <head>6. <hi rendition="#g">Morgen.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>n die gruͤne Welt hinein</l><lb/>
+<l>Zieh' ich mit dem Morgenſchein,</l><lb/>
+<l>Abendluſt und Abendleid</l><lb/>
+<l>Hinter mir ſo weit, ſo weit!</l><lb/>
+</lg> <lg n="2"> <l>Ei, wie roth deine Wangen ſind,</l><lb/>
+<l>Morgen, Morgen, ſuͤßes Kind!</l><lb/>
+<l>Bluͤmlein weinten die ganze Nacht,</l><lb/>
+<l>Weil man dich zu Bett gebracht;</l><lb/>
+<l>Mittag kam, der ſtolze Ritter,</l><lb/>
+<l>Abend kam, der muͤde Schnitter,</l><lb/>
+<l>Keinen haben ſie angeſchaut,</l><lb/>
+<l>Haben ſtill auf dich vertraut.</l><lb/>
+<l>Und nun biſt du wieder da,</l><lb/>
+<l>Biſt ſo freundlich, biſt ſo nah!</l><lb/>
+<l>Und ſie richten ſich empor,</l><lb/>
+<l>Schuͤtteln ab der Traͤume Flor:</l><lb/>
+<l>Wie ſie wanken, wie ſie beben,</l><lb/>
+<l>Scheu die trunknen Blicke heben!</l><lb/>
+<fw type="sig" place="bottom">6*<lb/>
+</fw>
+<pb n="84" facs="#f0096"/>
+<l>War's dein Kuß, der ſie erweckte?</l><lb/>
+<l>War's ein Zephyr, der ſie neckte?</l><lb/>
+<l>Welcher Schrecken, welche Luſt,</l><lb/>
+<l>Mund an Mund, und Bruſt an Bruſt!</l><lb/>
+</lg> <lg n="3"> <l>Guten Morgen, guten Morgen!</l><lb/>
+<l>In die Winde alle Sorgen,</l><lb/>
+<l>Alle Thraͤnen von den Wangen,</l><lb/>
+<l>Aus dem Herzen alles Bangen,</l><lb/>
+<l>Alles froh und Alles frei,</l><lb/>
+<l>Ob's der erſte Welttag ſei!</l><lb/>
+</lg> <lg n="4"> <l>Auch die kleinen Waldvoͤgelein</l><lb/>
+<l>Wollen bei dem Feſte ſein,</l><lb/>
+<l>Laſſen ihre Stimmlein klingen,</l><lb/>
+<l>Einen Gruß hinaufzuſingen.</l><lb/>
+<l>Wißt ihr, wer's am beſten meint</l><lb/>
+<l>Mit dem jungen Himmelsfreund?</l><lb/>
+<l>Lerche ſich zum Hoͤchſten ſchwingt,</l><lb/>
+<l>Und ihm grad' an's Herze ſinkt.</l><lb/>
+<l>Lerche, Lerche, einen Gruß,</l><lb/>
+<l>Lerche, Lerche, Gruß und Kuß,</l><lb/>
+<l>Nimm ſie mit dir von uns Allen,</l><lb/>
+<l>Und laß deine Stimme ſchallen,</l><lb/>
+<l>Wenn wir dich nicht mehr erſehn,</l><lb/>
+<l>Aus den lieben blauen Hoͤh'n!</l><lb/>
+</lg>
+<pb n="85" facs="#f0097"/>
+<lg n="5"> <l>Fiſchlein, Fiſchlein in dem See,</l><lb/>
+<l>Wird's da unten euch zu weh?</l><lb/>
+<l>Drang ſein helles Roſenlicht</l><lb/>
+<l>Noch in eure Tiefe nicht?</l><lb/>
+<l>Ei, ſo ſpringt einmal heraus</l><lb/>
+<l>Aus dem duͤſtern Wogenhaus,</l><lb/>
+<l>Schnappt von ſeinen Aeugelein</l><lb/>
+<l>Einen Blick zu euch hinein,</l><lb/>
+<l>Und die Lampen von Kryſtall</l><lb/>
+<l>Zuͤndet an mit ſeinem Strahl!</l><lb/>
+</lg> <lg n="6"> <l>Morgenſtund hat Gold im Mund!</l><lb/>
+<l>Arme Wandrer, rings und rund,</l><lb/>
+<l>Auf und fort im Morgenſchein,</l><lb/>
+<l>Wollt ihr reiche Leute ſein!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="86" facs="#f0098"/>
+</div> <div n="3"> <head> <hi rendition="#b">7.</hi> <hi rendition="#b #g">Fruͤhlingsgruß.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">D</hi>u heller linder Abendwind,</l><lb/>
+<l>Flieg hin zu meinem Schatz geſchwind,</l><lb/>
+<l>Es wird dich nicht verdrießen,</l><lb/>
+<l>Und faͤchl' ihr ſanft um Wang' und Kinn,</l><lb/>
+<l>Treib deine juͤngſten Duͤfte hin,</l><lb/>
+<l>Und ſprich: Der Lenz laͤßt gruͤßen!</l><lb/>
+</lg> <lg n="2"> <l>Die Laute nehm' ich von der Wand,</l><lb/>
+<l>Und ſchlinge drum ein gruͤnes Band,</l><lb/>
+<l>Ein Voͤglein hoͤrt' ich ſchlagen;</l><lb/>
+<l>Es ſchlug: Wer bindet an mit mir</l><lb/>
+<l>Zu Lieb' und Sang ein Feſtturnier</l><lb/>
+<l>In gruͤnen Roſenhagen?</l><lb/>
+</lg> <lg n="3"> <l>Wohl auf im hellen Mondenſchein,</l><lb/>
+<l>Durch alle Gaſſen aus und ein,</l><lb/>
+<l>Mit Fiedeln und Schalmeien!</l><lb/>
+<l>Thut auf, thut auf die Fenſterlein,</l><lb/>
+<l>Ihr Maͤgdlein, laßt den Fruͤhling ein!</l><lb/>
+<l>Duͤrft euch vor ihm nicht ſcheuen.</l><lb/>
+</lg>
+<pb n="87" facs="#f0099"/>
+<lg n="4"> <l>Er iſt ein wohlgezog'ner Gaſt,</l><lb/>
+<l>Ein Knaͤblein jung und bloͤde faſt,</l><lb/>
+<l>Auch etwas unerfahren:</l><lb/>
+<l>Nehmt Amorn ihm als Lehrer an,</l><lb/>
+<l>So wird er bald ein kluger Mann,</l><lb/>
+<l>Noch eh' er kommt zu Jahren.</l><lb/>
+</lg> <lg n="5"> <l>Du heller linder Abendwind,</l><lb/>
+<l>Was meint zu dir das liebe Kind,</l><lb/>
+<l>Gefaͤllt ihr deine Kunde?</l><lb/>
+<l>Gut' Nacht, gut' Nacht, die Fenſter zu!</l><lb/>
+<l>Der neue Gaſt verlangt nach Ruh',</l><lb/>
+<l>Der Waͤchter blaͤſt die Stunde.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="88" facs="#f0100"/>
+</div> <div n="3"> <head>8. <hi rendition="#g">Entſchuldigung.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">W</hi>enn wir durch die Straßen ziehen,</l><lb/>
+<l>Recht wie Burſch' in Saus und Braus,</l><lb/>
+<l>Schauen Augen, blau' und graue,</l><lb/>
+<l>Schwarz' und braun' aus manchem Haus.</l><lb/>
+</lg> <lg n="2"> <l>Und ich laſſ' die Blicke ſchweifen</l><lb/>
+<l>Durch die Fenſter hin und her,</l><lb/>
+<l>Faſt als wollt' ich Eine ſuchen,</l><lb/>
+<l>Die mir die Allerliebſte waͤr'.</l><lb/>
+</lg> <lg n="3"> <l>Und doch weiß ich, daß die Eine</l><lb/>
+<l>Wohnt viel Meilen weit von mir,</l><lb/>
+<l>Und doch kann ich's Schaun nicht laſſen</l><lb/>
+<l>Nach den ſchmucken Jungfern hier.</l><lb/>
+</lg> <lg n="4"> <l>Liebchen, woll' dich nicht betruͤben,</l><lb/>
+<l>Wenn dir Eins die Kunde bringt,</l><lb/>
+<l>Und daß dich's nicht uͤberraſche,</l><lb/>
+<l>Dieſes Lied der Wandrer ſingt.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="89" facs="#f0101"/>
+</div> <div n="3"> <head> <hi rendition="#b #g">9. Hier und dort.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">M</hi>ein Liebchen hat g'ſagt:</l><lb/>
+<l>Dein Sang mir behagt!</l><lb/>
+<l>Ach, wenn ich doch ſelber</l><lb/>
+<l>Ein Lied gleich waͤr',</l><lb/>
+<l>Meinem Schaͤtzchen zu Ehr'!</l><lb/>
+</lg> <lg n="2"> <l>Da wollt' ich mich ſchreiben</l><lb/>
+<l>Auf ſeid'nes Papier,</l><lb/>
+<l>Und wollte mich ſchicken</l><lb/>
+<l>Per Poſt zu ihr.</l><lb/>
+<l>Flugs thaͤt' ſie erbrechen</l><lb/>
+<l>Das Briefchen ſo fein,</l><lb/>
+<l>Und ſchaute ſchnurgrade</l><lb/>
+<l>In's Herz mir hinein.</l><lb/>
+<l>Und ſaͤhe und hoͤrte,</l><lb/>
+<l>Wie gut ich ihr bin,</l><lb/>
+<l>Und wie ich ihr diene</l><lb/>
+<l>Mit ſtetigem Sinn.</l><lb/>
+<l>Und Liebchen thaͤt' ſagen:</l><lb/>
+<l>Du thuſt mir behagen!</l><lb/>
+<pb n="90" facs="#f0102"/>
+<l>Und ſagte und ſaͤnge</l><lb/>
+<l>Und ſpielte nur mich,</l><lb/>
+<l>Und truͤg' im Mund, im Kopf, im Herzen</l><lb/>
+<l>Mich ewiglich.</l><lb/>
+</lg> <lg n="3"> <l>Haͤtt' Gott mich gefragt,</l><lb/>
+<l>Als die Welt er gemacht,</l><lb/>
+<l>So haͤtt' ich ein Liebchen,</l><lb/>
+<l>Das waͤre fein hier,</l><lb/>
+<l>Und waͤr' ſie wo anders,</l><lb/>
+<l>So waͤr' ich bei ihr.</l><lb/>
+</lg> <lg n="4"> <l>Dies Lied hat geſungen</l><lb/>
+<l>Ein Wandrer vom Rhein.</l><lb/>
+<l>Hier trinkt er das Waſſer,</l><lb/>
+<l>Dort trank er den Wein.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="91" facs="#f0103"/>
+</div> </div> <div n="2"> <head>Des Poſtillons Morgenlied vor der Bergſchenke.<lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">V</hi>ivat, und in's Horn ich ſtoße,</l><lb/>
+<l>Vivat, wie ſo hell es klingt,</l><lb/>
+<l>Wenn es in der Morgenſtunde</l><lb/>
+<l>Meinem Schatz ein Vivat bringt!</l><lb/>
+</lg> <lg n="2"> <l>Und die Peitſche knallt dazwiſchen,</l><lb/>
+<l>Und die Raͤder raſſeln drein,</l><lb/>
+<l>Und die Funken und die Flammen</l><lb/>
+<l>Fliegen uͤber Stock und Stein.</l><lb/>
+</lg> <lg n="3"> <l>Bravo, bravo, braver Schwager!</l><lb/>
+<l>Ruft mir zu der Paſſagier:</l><lb/>
+<l>Mag er's loben und bezahlen,</l><lb/>
+<l>Liebſte, aber's gilt nur dir.</l><lb/>
+</lg> <lg n="4"> <l>Kann ich's mit dem Schwert nicht zeigen,</l><lb/>
+<l>Mit dem blanken Ritterſporn,</l><lb/>
+<l>Hat mein Herz fuͤr ſeine Liebe</l><lb/>
+<l>Doch dies kleine runde Horn.</l><lb/>
+</lg>
+<pb n="92" facs="#f0104"/>
+<lg n="5"> <l>Wer's verſteht, es klingt nicht uͤbel,</l><lb/>
+<l>Friſch und ſcharf wie Morgenwind,</l><lb/>
+<l>Und die Liebſte, die ich meine,</l><lb/>
+<l>Iſt kein ſchwaͤchlich ſtaͤdtiſch Kind.</l><lb/>
+</lg> <lg n="6"> <l>In dem Wald iſt ſie geboren,</l><lb/>
+<l>Iſt des Schenken Toͤchterlein;</l><lb/>
+<l>Klang der Becher, Zank der Zecher</l><lb/>
+<l>Mußt' ihr Wiegenliedchen ſein.</l><lb/>
+</lg> <lg n="7"> <l>In dem Walde ſteht die Schenke</l><lb/>
+<l>Einſam auf dem hoͤchſten Berg,</l><lb/>
+<l>Durch den Schornſtein blaͤſ't die Hexe,</l><lb/>
+<l>Und im Keller wuͤhlt der Zwerg.</l><lb/>
+</lg> <lg n="8"> <l>Aber ſie, die flinke Dirne,</l><lb/>
+<l>Weiß mit Geiſtern umzugehn,</l><lb/>
+<l>Wenn ihr Schluͤſſelbund nur klappert,</l><lb/>
+<l>Laͤßt kein Spuk ſich weiter ſehn.</l><lb/>
+</lg> <lg n="9"> <l>Und wie trefflich kann ſie bannen</l><lb/>
+<l>Geiſter auch von Fleiſch und Bein,</l><lb/>
+<l>Die Berauſchten, ſei's von Liebe,</l><lb/>
+<l>Sei's von Bier und Brantewein.</l><lb/>
+</lg>
+<pb n="93" facs="#f0105"/>
+<lg n="10"> <l>Keiner wagt ſich ihr zu nahen,</l><lb/>
+<l>Weil den Zauberkreis er kennt,</l><lb/>
+<l>Der dem kecken Ueberſpringer</l><lb/>
+<l>Zung' und Finger gleich verbrennt.</l><lb/>
+</lg> <lg n="11"> <l>Aber freundlich und geſpraͤchig</l><lb/>
+<l>Iſt ſie dem beſcheidnen Gaſt,</l><lb/>
+<l>Und an ihrem Thor voruͤber</l><lb/>
+<l>Rollt kein Wagen ohne Raſt.</l><lb/>
+</lg> <lg n="12"> <l>Bravo, bravo, braver Schwager!</l><lb/>
+<l>Ruft mir zu der Paſſagier:</l><lb/>
+<l>Gut gefahren, gut gehalten</l><lb/>
+<l>Bei der ſchmucken Dirne hier.</l><lb/>
+</lg> <lg n="13"> <l>Mag er's loben und bezahlen,</l><lb/>
+<l>Liebſte, aber's gilt nur dir.</l><lb/>
+<l>Schoͤne Schenkin, ach, ich duͤrſte,</l><lb/>
+<l>Schenke, ſchenke Liebe mir!</l><lb/>
+</lg> <lg n="14"> <l>Vivat, und in's Horn ich ſtoße,</l><lb/>
+<l>Und es muß geſchieden ſein!</l><lb/>
+<l>Vivat, und wie ſoll es ſchmettern,</l><lb/>
+<l>Kehr' ich hier auf ewig ein!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="94" facs="#f0106"/>
+</div> <div n="2"> <head> <hi rendition="#g">Der Prager Muſikant.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">M</hi>it der Fiedel auf dem Ruͤcken,</l><lb/>
+<l>Mit dem Kappel in der Hand,</l><lb/>
+<l>Ziehn wir Prager Muſikanten</l><lb/>
+<l>Durch das weite Chriſtenland.</l><lb/>
+</lg> <lg n="2"> <l>Unſer Schutzpatron im Himmel</l><lb/>
+<l>Heißt der heil'ge Nepomuk,</l><lb/>
+<l>Steht mit ſeinem Sternenkraͤnzel</l><lb/>
+<l>Mitten auf der Prager Bruck.</l><lb/>
+</lg> <lg n="3"> <l>Als ich da hinausgewandert,</l><lb/>
+<l>Hab' ich Reverenz gemacht,</l><lb/>
+<l>Ein Gebet ihm aus dem Kopfe</l><lb/>
+<l>Recht bedaͤchtig hergeſagt.</l><lb/>
+</lg> <lg n="4"> <l>Steht alſo in keinem Buͤchel,</l><lb/>
+<l>Wie man's auf dem Herzen hat:</l><lb/>
+<l>Wanderſchaft mit leerem Beutel,</l><lb/>
+<l>Und ein Schaͤtzel in der Stadt.</l><lb/>
+</lg>
+<pb n="95" facs="#f0107"/>
+<lg n="5"> <l>Wenn das Maͤdel ſingen koͤnnte,</l><lb/>
+<l>Waͤr's gezogen mit hinaus,</l><lb/>
+<l>Doch nun hat's 'ne heiſ're Kehle,</l><lb/>
+<l>Mußt' es laſſen drum zu Haus.</l><lb/>
+</lg> <lg n="6"> <l>Ei, da gab es naſſe Augen,</l><lb/>
+<l>'S war mir ſelbſt nicht einerlei:</l><lb/>
+<l>Sprach itzt: 'S iſt ja nicht fuͤr ewig,</l><lb/>
+<l>Schoͤnſtes Nannerl, laß mich frei!</l><lb/>
+</lg> <lg n="7"> <l>Und ich ſchluͤpft' aus ihren Armen,</l><lb/>
+<l>Aus der Pforte, aus dem Haus,</l><lb/>
+<l>Konnt' nicht wieder ruͤckwaͤrts ſchauen,</l><lb/>
+<l>Bis ich war zur Stadt hinaus.</l><lb/>
+</lg> <lg n="8"> <l>Da hab' ich dies Lied geſungen,</l><lb/>
+<l>Hab' die Fiedel zu geſpielt,</l><lb/>
+<l>Bis ich in den Morgenluͤften</l><lb/>
+<l>Auf' der Bruſt mich leicht gefuͤhlt.</l><lb/>
+</lg> <lg n="9"> <l>Manches Voͤglein hat's vernommen:</l><lb/>
+<l>Floͤg' nur eins an Liebchens Ohr,</l><lb/>
+<l>Saͤng' ihr, wenn ſie weinen wollte,</l><lb/>
+<l>Dieſes friſche Liedel vor!</l><lb/>
+</lg>
+<pb n="96" facs="#f0108"/>
+<lg n="10"> <l>Wenn ich aus der Fremde komme,</l><lb/>
+<l>Spiel' ich auf aus anderm Ton,</l><lb/>
+<l>Abends unter ihrem Fenſter:</l><lb/>
+<l>Schaͤtzel, Schaͤtzel, ſchlaͤfſt du ſchon?</l><lb/>
+</lg> <lg n="11"> <l>Hoch geſchwenkt den vollen Beutel,</l><lb/>
+<l>Das giebt eine Muſika!</l><lb/>
+<l>'S Fenſter klirrt, es rauſcht der Laden,</l><lb/>
+<l>Heilige Caͤcilia!</l><lb/>
+</lg> <lg n="12"> <l>All' ihr Prager Muſikanten,</l><lb/>
+<l>Auf, heraus mit Horn und Baß,</l><lb/>
+<l>Spielt den ſchoͤnſten Hochzeitreigen!</l><lb/>
+<l>Morgen leeren wir ein Faß.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="97" facs="#f0109"/>
+</div> <div n="2"> <head> <hi rendition="#g">Die Prager Muſikantenbraut.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">U</hi>nd wißt ihr, wer mein Schaͤtzel iſt?</l><lb/>
+<l>Ein Prager Muſikant,</l><lb/>
+<l>Ein Muſikant von feiner Kunſt</l><lb/>
+<l>In Baß und in Diskant.</l><lb/>
+</lg> <lg n="2"> <l>Und wißt ihr, wo mein Schaͤtzel iſt,</l><lb/>
+<l>So wißt ihr mehr als ich,</l><lb/>
+<l>Denn weil er halt nicht ſchreiben kann,</l><lb/>
+<l>So denkt er nur an mich.</l><lb/>
+</lg> <lg n="3"> <l>Und's Denken iſt ein luſtig Ding,</l><lb/>
+<l>Summt leiſ' in's Herz hinein;</l><lb/>
+<l>Woher es kommt, wohin es geht,</l><lb/>
+<l>Das muß errathen ſein.</l><lb/>
+</lg> <lg n="4"> <l>Ei, kommſt denn nimmermehr zu Ruh',</l><lb/>
+<l>Du Muſikantenblut?</l><lb/>
+<l>Ei, lernſt denn nimmermehr verſtehn,</l><lb/>
+<l>Wie lieb's in Boͤhmen thut?</l><lb/>
+</lg> <fw type="sig" place="bottom">7<lb/>
+</fw>
+<pb n="98" facs="#f0110"/>
+<lg n="5"> <l>So zieh nur hin durch Stadt und Land,</l><lb/>
+<l>Mit dir Sankt Nepomuk,</l><lb/>
+<l>Der ſegne Fiedel dir und Baß</l><lb/>
+<l>Mit gutem Strich und Druck!</l><lb/>
+</lg> <lg n="6"> <l>Und wo in Gottes weiter Welt</l><lb/>
+<l>Du klopfſt an Thuͤr und Thor,</l><lb/>
+<l>Find' offne Beutel uͤberall</l><lb/>
+<l>Und ein geneigtes Ohr.</l><lb/>
+</lg> <lg n="7"> <l>Die Maͤdel ſchaun dir in's Geſicht,</l><lb/>
+<l>Die Maͤnner nach der Hand,</l><lb/>
+<l>Und Einer und die Andre ſpricht:</l><lb/>
+<l>Ein braver Muſikant!</l><lb/>
+</lg> <lg n="8"> <l>Dann ſing' ein Lied von deiner Braut,</l><lb/>
+<l>Die an der Moldau iſt:</l><lb/>
+<l>Das klingt mir hell durch Mark und Bein,</l><lb/>
+<l>Und ſagt mir, wo du biſt.</l><lb/>
+</lg> <lg n="9"> <l>Und ſagt mir noch ſo mancherlei,</l><lb/>
+<l>Was ſchwer ſich ſagt im Reim,</l><lb/>
+<l>Und ſagt mir: Wann die Lerche kommt,</l><lb/>
+<l>Kehr' ich nach Boͤhmen heim.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="99" facs="#f0111"/>
+</div> <div n="2"> <head> <hi rendition="#g">Seefahrers Abſchied.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">D</hi>ie du fliegſt in hohen Luͤften,</l><lb/>
+<l>Kleine Schwalbe, komm herab,</l><lb/>
+<l>Weil ich dir ein Wort im Stillen</l><lb/>
+<l>Unten zu vertrauen hab'.</l><lb/>
+<l>Sollſt mir eine Feder ſchenken</l><lb/>
+<l>Aus den ſchwarzen Fluͤgeln dein,</l><lb/>
+<l>Will an meine Liebe ſchreiben:</l><lb/>
+<l>Herz, es muß geſchieden ſein!</l><lb/>
+</lg> <lg n="2"> <l>Morgen fahr' ich auf dem Meere,</l><lb/>
+<l>Wind und Woge weiß wohin,</l><lb/>
+<l>Und es fragen mich die Freunde,</l><lb/>
+<l>Was ich doch ſo traurig bin.</l><lb/>
+<l>Aber Wind und Woge ſprechen</l><lb/>
+<l>Viel von Unbeſtaͤndigkeit,</l><lb/>
+<l>Und der Sklave ſingt zum Ruder:</l><lb/>
+<l>Maͤchtig, maͤchtig iſt die Zeit!</l><lb/>
+</lg> <fw type="sig" place="bottom">7 *<lb/>
+</fw>
+<pb n="100" facs="#f0112"/>
+<lg n="3"> <l>Gott, und ſoll ich untergehen,</l><lb/>
+<l>Sei es in dem tiefen Meer,</l><lb/>
+<l>Nur nicht in der Liebſten Herzen,</l><lb/>
+<l>Wo ich gern geborgen waͤr'.</l><lb/>
+<l>In dem ſtillen klaren Spiegel</l><lb/>
+<l>Male ſich mein treues Bild,</l><lb/>
+<l>Wann um mich in Ungewittern</l><lb/>
+<l>Die empoͤrte Woge ſchwillt.</l><lb/>
+</lg> <lg n="4"> <l>Liebe, ſieh, wie Well' auf Welle</l><lb/>
+<l>Ringt nach dem erſehnten Strand:</l><lb/>
+<l>Aber manche wird verſchlungen,</l><lb/>
+<l>Eh' ſie kuͤßt das gruͤne Land.</l><lb/>
+<l>Wenn du an dem Ufer wandelſt,</l><lb/>
+<l>Huͤpft die Fluth nach deinem Fuß:</l><lb/>
+<l>Wogen hab' ich nur und Winde,</l><lb/>
+<l>Dir zu ſchicken meinen Gruß.</l><lb/>
+</lg> <lg n="5"> <l>Wann die fernen Hoͤhen daͤmmern,</l><lb/>
+<l>Jauchzet Alles nach dem Land:</l><lb/>
+<l>Nur zwei muͤde Augen bleiben</l><lb/>
+<l>Still dem Meere zugewandt.</l><lb/>
+<l>Wann die Segel wieder glaͤnzen,</l><lb/>
+<l>Wann die Winde heimwaͤrts wehn,</l><lb/>
+<l>Laßt mich auf dem Maſte ſitzen:</l><lb/>
+<l>Liebe kann durch Wolken ſehn.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="101" facs="#f0113"/>
+</div> <div n="2"> <head> <hi rendition="#g">Schiff und Vogel.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">D</hi>ie Fluͤſſe rauſchen in das Meer,</l><lb/>
+<l>Voruͤber an Burgen und Staͤdten,</l><lb/>
+<l>Die Winde blaſen hinterher</l><lb/>
+<l>Mit luſtigen Trompeten.</l><lb/>
+</lg> <lg n="2"> <l>Die Wolken ziehen hoch voran,</l><lb/>
+<l>Wir Voͤglein mitten drinnen,</l><lb/>
+<l>Und Alles, was fliegen und ſingen kann,</l><lb/>
+<l>Nur nach, nur mit uns, nur von hinnen!</l><lb/>
+</lg> <lg n="3"> <l>Ich gruͤße dich, Schifflein! Wohin, woher,</l><lb/>
+<l>Mit dem flatternden goldenen Bande?</l><lb/>
+<l>«Ich gruͤße dich, Voͤglein! In's weite Meer</l><lb/>
+<l>«Fahr' ich hin aus dem engen Lande.</l><lb/>
+</lg>
+<pb n="102" facs="#f0114"/>
+<lg n="4"> <l>«All' meine Segel ſind geſchwellt,</l><lb/>
+<l>«Kein Berg iſt mehr zu ſehen:</l><lb/>
+<l>«Ich hab' mein' Sach' auf den Wind geſtellt,</l><lb/>
+<l>«Der Wind laͤßt mich nicht ſtehen.</l><lb/>
+</lg> <lg n="5"> <l>«Und willſt du, Voͤglein, mit hinaus,</l><lb/>
+<l>«Magſt dich auf den Maſtbaum ſtellen;</l><lb/>
+<l>«Denn voll zum Sinken iſt mein Haus</l><lb/>
+<l>«Von gluͤcklichen Geſellen.</l><lb/>
+</lg> <lg n="6"> <l>«Sie tanzen und ſpringen den ganzen Tag,</l><lb/>
+<l>«Und klimpern und ſpielen und trinken,</l><lb/>
+<l>«Und wer nicht mehr tanzen und trinken mag,</l><lb/>
+<l>«Seiner Nachbarin muß er winken.»</l><lb/>
+</lg> <lg n="7"> <l>Geſellen, die brauch' ich und ſuch' ich nicht,</l><lb/>
+<l>Lieb Schifflein, ich kann ja noch ſingen;</l><lb/>
+<l>Dem Maſtbaum waͤr' ich ein boͤſes Gewicht,</l><lb/>
+<l>Lieb Schifflein, ich habe ja Schwingen.</l><lb/>
+</lg> <lg n="8"> <l>Hoch uͤber dem Segel, hoch uͤber dem Maſt,</l><lb/>
+<l>Wer will mir die Luſt verwehren?</l><lb/>
+<l>Und haͤlt deine wilde Geſellſchaft Raſt,</l><lb/>
+<l>So ſollſt du mich ſingen hoͤren.</l><lb/>
+</lg>
+<pb n="103" facs="#f0115"/>
+<lg n="9"> <l>Und wer nicht ruhen und horchen mag,</l><lb/>
+<l>Gott geſegn' ihm die beſſere Freude!</l><lb/>
+<l>So ſchwing' ich mich auf in den blauen Tag,</l><lb/>
+<l>In die goldene Sonnenweide.</l><lb/>
+</lg> <lg n="10"> <l>So ſing' ich meinen Jubelgeſang</l><lb/>
+<l>Hinaus in alle vier Winde,</l><lb/>
+<l>Daß ihn mein und ſein Lebelang</l><lb/>
+<l>Kein Schreiber und Drucker finde!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> </div> </div>
+<pb n="[104]" facs="#f0116"/>
+<pb n="[105]" facs="#f0117"/>
+<div n="1"> <head> <hi rendition="#b #g">Die Monate.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p rendition="#c"><hi rendition="#g">Florenz</hi>, im September 1818.</p><lb/>
+<pb n="[106]" facs="#f0118"/>
+<pb n="[107]" facs="#f0119"/>
+<div n="2"> <head> <hi rendition="#g">An Ludwig Sigismund Ruhl.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch zog mit dir aus Roma's heil'gen Mauern,</l><lb/>
+<l>Den Ruͤcken jenen Fluren zugewendet,</l><lb/>
+<l>Wo ſich der Himmel nimmer muͤde ſpendet</l><lb/>
+<l>Mit ſeines Fuͤllhorns friſchen Blumenſchauern.</l><lb/>
+</lg> <lg n="2"> <l>Da faßte ploͤtzlich dich ein heißes Trauern,</l><lb/>
+<l>Das uͤber ihren Strom dir nachgeſendet</l><lb/>
+<l>Die Stadt, der du, ich weiß nicht was, verpfaͤndet:</l><lb/>
+<l>Ich hoͤrte deine Seufzer mit Bedauern.</l><lb/>
+</lg> <lg n="3"> <l>Germania, mach' auf dich ohne Weilen,</l><lb/>
+<l>Geſchmuͤckt mit aller deiner Reize Waffen,</l><lb/>
+<l>Den hart gefeiten Fluͤchtling zu begruͤßen!</l><lb/>
+</lg> <lg n="4"> <l>Heiß der zwoͤlf Monde Schaar voraus dir eilen,</l><lb/>
+<l>Und was ein jeder Beſtes kann erſchaffen,</l><lb/>
+<l>Leg' er als Angebind' ihm gern zu Fuͤßen.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="108" facs="#f0120"/>
+</div> <div n="2"> <head> <hi rendition="#g">Januar.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch bringe dir in weißen kalten Haͤnden</l><lb/>
+<l>Ein warmes Haus, erhellt von tauſend Kerzen,</l><lb/>
+<l>Bewohnt von bunten Spielen, Taͤnzen, Scherzen,</l><lb/>
+<l>Von Amoretten auch, die Pfeile ſenden.</l><lb/>
+</lg> <lg n="2"> <l>Sie flattern auf und ab an allen Enden,</l><lb/>
+<l>Die Jungfrau ſchaut beſorgt nach ihrem Herzen,</l><lb/>
+<l>Die Andre ſchon nach Einem, der den Schmerzen</l><lb/>
+<l>Der Wunde moͤchte ſuͤßen Balſam ſpenden.</l><lb/>
+</lg> <lg n="3"> <l>Als huͤlfreich hab' ich immer dich erfunden,</l><lb/>
+<l>Vor Allem, wo es gilt den ſchwachen Schoͤnen,</l><lb/>
+<l>Drum, denk' ich, wird ſie nicht bis morgen klagen.</l><lb/>
+</lg> <lg n="4"> <l>Bald ſind verrauſcht des Feſtes heiße Stunden,</l><lb/>
+<l>Schon hoͤr' ich Hufſchlag vor dem Thore droͤhnen:</l><lb/>
+<l>Reich' ihr den Arm und fuͤhre ſie zum Wagen!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="109" facs="#f0121"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Februar.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">E</hi>rkennſt du mich in meinem bunten Kleide,</l><lb/>
+<l>Mit meiner Pritſche, meinem Schellenhut,</l><lb/>
+<l>Mit meinem unermuͤdlich krauſen Muth,</l><lb/>
+<l>Voll Scherz und Rank und Witz und Schadenfreude?</l><lb/>
+</lg> <lg n="2"> <l>Doch zapft man hier, zu meinem großen Leide,</l><lb/>
+<l>Mir jaͤhrlich ab ein Becken wildes Blut:</l><lb/>
+<l>Humanitas meint es mit mir nicht gut,</l><lb/>
+<l>Und ſchwaͤrzt mich an mit unhumanem Neide.</l><lb/>
+</lg> <lg n="3"> <l>Ich darf nicht mehr frei durch die Straße wandern,</l><lb/>
+<l>In enge Saͤle ſchließen ſie mich ein,</l><lb/>
+<l>Und wollen gar, ich ſoll vernuͤnftig ſein.</l><lb/>
+</lg> <lg n="4"> <l>Wie thut mir's weh um dich vor allen Andern!</l><lb/>
+<l>Ich moͤchte gern dich roͤmiſch luſtig ſehn,</l><lb/>
+<l>Und muͤßt' ich ſelbſt dabei zu Grunde gehn.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="110" facs="#f0122"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Maͤrz.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">M</hi>it einem Strauß von Blumen, die mit Schneee</l><lb/>
+<l>Die kleinen weißen Kelche gern bedecken,</l><lb/>
+<l>Moͤcht' ich, wie ſie, mich deinem Blick verſtecken,</l><lb/>
+<l>Weil ich allein ſo aͤrmlich vor dir ſtehe.</l><lb/>
+</lg> <lg n="2"> <l>Wohin ich auch nach beſſern Gaben ſpaͤhe,</l><lb/>
+<l>Nur Keim und Knospe ſind' ich aller Ecken;</l><lb/>
+<l>Wohl moͤcht' ich Laub und Bluͤthe dir erwecken,</l><lb/>
+<l>Doch fuͤrcht' ich ſehr, mein Hauch thaͤt' ihnen wehe.</l><lb/>
+</lg> <lg n="3"> <l>So nimm denn, was ich bringe, als zum Pfande</l><lb/>
+<l>Der ſchoͤnen Zeit, die ich nur darf verkuͤnden,</l><lb/>
+<l>Daher ſie mich den Mond der <hi rendition="#g">Hoffnung</hi> nennen.</l><lb/>
+</lg> <lg n="4"> <l>Und wenn der Wonnemond regiert im Lande,</l><lb/>
+<l>Wirſt du <hi rendition="#g">Erfuͤllung</hi> auf den Fluren finden,</l><lb/>
+<l>Und ungeloͤſcht ſoll dir kein Wunſch verbrennen.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="111" facs="#f0123"/>
+</div> <div n="2"> <head> <hi rendition="#g">April.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">L</hi>eichtſinnig, launig, neckiſch, ausgelaſſen,</l><lb/>
+<l>Wandl' ich in jeder Stunde Leib und Sinn:</l><lb/>
+<l>Kaum weiß ich ſelbſt, wie ich beſchaffen bin,</l><lb/>
+<l>Wie ſollen mich die fremden Leute faſſen?</l><lb/>
+</lg> <lg n="2"> <l>Hier werf' ich einen Schneeball durch die Gaſſen,</l><lb/>
+<l>Dort ſchweb' ich blau in jungen Duͤften hin,</l><lb/>
+<l>Bald ſtreich' ich ſanft der Schoͤnen weiches Kinn,</l><lb/>
+<l>Bald ſagen ſie, ich waͤre grob im Spaßen.</l><lb/>
+</lg> <lg n="3"> <l>Gern wollt' ich dir noch Vieles von mir ſagen,</l><lb/>
+<l>Doch druͤckt mich des Sonettes enges Band,</l><lb/>
+<l>Das mir die Muſe um den Mund geſchlagen.</l><lb/>
+</lg> <lg n="4"> <l>Sie ſprach: Ich kenne dich als ungezogen,</l><lb/>
+<l>Und jener Herr hat in dem welſchen Land</l><lb/>
+<l>Der beſten Sitt' als Kavalier gepflogen.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="112" facs="#f0124"/>
+</div> <div n="2"> <head> <hi rendition="#g">Mai.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch moͤchte ſchweigend, Lieber, dich umfangen,</l><lb/>
+<l>Gehuͤllt in ſuͤße, bange Daͤmmerungen:</l><lb/>
+<l>Es wird ſo viel zu meinem Preis geſungen,</l><lb/>
+<l>Daß mir die Luſt am Liede faſt vergangen.</l><lb/>
+</lg> <lg n="2"> <l>Waͤrſt du ſo heiß von ſeligem Verlangen,</l><lb/>
+<l>Wie eine Lilie, deren weiße Zungen</l><lb/>
+<l>Den langen Tag nach kuͤhlem Troſt gerungen,</l><lb/>
+<l>Bis daß ſie muͤd' und matt zur Erde hangen:</l><lb/>
+</lg> <lg n="3"> <l>Komm her zu mir, ich gebe dir zu trinken,</l><lb/>
+<l>So viel du magſt, mein treuer deutſcher Zecher,</l><lb/>
+<l>Aus meinem bodenloſen Liebesbecher!</l><lb/>
+</lg> <lg n="4"> <l>Siehſt du die hellen Thauestropfen blinken</l><lb/>
+<l>Dort an den Lilien in der Morgenſonne?</l><lb/>
+<l>Wie maͤßig ſchaltet ihr mit meiner Wonne!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="113" facs="#f0125"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Juni.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch trag' ein Kleid von weichen Roſenherzen,</l><lb/>
+<l>Ich ſchlaf' in einem Bett' von Roſenduft,</l><lb/>
+<l>Bis mich der roſenrothe Morgen ruft,</l><lb/>
+<l>Ein Stuͤndlein in den Knospen zu verſcherzen.</l><lb/>
+</lg> <lg n="2"> <l>Der Mittag liebt ein herzlicheres Herzen,</l><lb/>
+<l>Dringt heiß bis in des Kelches tiefſte Kluft:</l><lb/>
+<l>Da fliegt manch Roſenblaͤttchen durch die Luft,</l><lb/>
+<l>Und ſeufzt von Minneluſt und Minneſchmerzen.</l><lb/>
+</lg> <lg n="3"> <l>Der Abend kommt, den Blumen Troſt zu geben,</l><lb/>
+<l>Die matt und blaß in ſeinem Thau ſich baden,</l><lb/>
+<l>Bis allen ihren Zorn ſie ausgekuͤhlt.</l><lb/>
+</lg> <lg n="4"> <l>Behagt dir, Freund, dies rothe Roſenleben,</l><lb/>
+<l>So ſei von mir auf morgen eingeladen,</l><lb/>
+<l>Denn alle Tage wird ſolch Spiel geſpielt.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">8<lb/>
+</fw>
+<pb n="114" facs="#f0126"/>
+</div> <div n="2"> <head> <hi rendition="#g">Juli.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">A</hi>uf kuͤhlen Bergen, an des Meeres Strande,</l><lb/>
+<l>Iſt dir ein heitrer Gartenſitz bereitet,</l><lb/>
+<l>Nicht allzu eng, auch nicht zu weit verbreitet:</l><lb/>
+<l>Man liebt ſich einzuſchraͤnken auf dem Lande.</l><lb/>
+</lg> <lg n="2"> <l>Ein junger Quell im Bett von weichem Sande</l><lb/>
+<l>Iſt zierlich durch die Gaͤnge hingeleitet,</l><lb/>
+<l>Bis er betrogen in ein Becken gleitet,</l><lb/>
+<l>Das ihm verſteckt der Blumenhain am Rande.</l><lb/>
+</lg> <lg n="3"> <l>Da muß er, eingezwaͤngt in ſchlanker Saͤule,</l><lb/>
+<l>Aufſteigen aus dem runden Marmormunde,</l><lb/>
+<l>Und auf der Hoͤhe ſich in Schaum zerſtaͤuben.</l><lb/>
+</lg> <lg n="4"> <l>Das Moosbeet winkt zu mittaͤglicher Weile:</l><lb/>
+<l>Es ſchlummert Alles, nur im klaren Grunde</l><lb/>
+<l>Seh' ich die goldnen Fiſchlein Spiele treiben.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="115" facs="#f0127"/>
+</div> <div n="2"> <head> <hi rendition="#g">Auguſt.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">W</hi>ann durch das Feld die blanken Senſen klingen,</l><lb/>
+<l>Wann ſich die hohen goldnen Halme neigen,</l><lb/>
+<l>Wann um den Aehrenkranz in wilden Reigen</l><lb/>
+<l>Die Schnitter mit den Schnitterinnen ſpringen:</l><lb/>
+</lg> <lg n="2"> <l>Dann will ein Jeder um die Stirne ſchlingen</l><lb/>
+<l>Ein buntes Band, und ſich als Maͤher zeigen;</l><lb/>
+<l>Wer iſt ſo arm, daß er ſich nicht zu eigen</l><lb/>
+<l>Ein Saatenfeld und Saamen koͤnnt' erringen?</l><lb/>
+</lg> <lg n="3"> <l>Die Hoffnung pfluͤgt fuͤr Alle das Gefilde,</l><lb/>
+<l>Und flinke Wuͤnſche ſtreun mit vollen Haͤnden</l><lb/>
+<l>Die Koͤrner in den weichen Schooß der Erden.</l><lb/>
+</lg> <lg n="4"> <l>Dir iſt das Jahr mit den zwoͤlf Monden milde,</l><lb/>
+<l>Drum will ich dir die ſchaͤrfſte Sichel ſpenden,</l><lb/>
+<l>Die nimmer ſtumpf ſoll in der Ernte werden.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">8*<lb/>
+</fw>
+<pb n="116" facs="#f0128"/>
+</div> <div n="2"> <head> <hi rendition="#g">September.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch gruͤße dich mit hellem Waldhornklange;</l><lb/>
+<l>Hirſchfaͤnger, Buͤchſe, Netz und gruͤnes Kleid,</l><lb/>
+<l>Ein Roß, zu jedem kecken Sprung bereit,</l><lb/>
+<l>Verehr' ich dir, und wuͤnſche Gluͤck zum Fange.</l><lb/>
+</lg> <lg n="2"> <l>Friſch auf! Um das Revier ſei mir nicht bange:</l><lb/>
+<l>Ich habe Eichenwaͤlder tief und breit,</l><lb/>
+<l>Mit Bahnen rings durchhauen fuͤr die Waid,</l><lb/>
+<l>Und Hirſch' und Rehe, wie ich ſie verlange.</l><lb/>
+</lg> <lg n="3"> <l>Den Hut geſchmuͤckt mit einem gruͤnen Reiſe,</l><lb/>
+<l>Die Haͤnde purpurroth von edlem Schweiße,</l><lb/>
+<l>Die Wagen krachend unter ihrer Laſt:</l><lb/>
+</lg> <lg n="4"> <l>So ziehe heim mit deinen Jagdgeſellen,</l><lb/>
+<l>Wenn du nicht erſt ein Wort noch zu beſtellen</l><lb/>
+<l>Hier bei der ſchoͤnen Foͤrſterstochter haſt.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="117" facs="#f0129"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">October.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">V</hi>om alten Rhein ſiehſt du daher mich ſchweben,</l><lb/>
+<l>Auf einem kuͤhlen, klaren Mondenſtrahl,</l><lb/>
+<l>Mit einem vollen, ſchaͤumenden Pokal,</l><lb/>
+<l>Die heiße Stirn umweht von friſchen Reben.</l><lb/>
+</lg> <lg n="2"> <l>Es wogt ein unergruͤndlich tiefes Leben</l><lb/>
+<l>In meiner Beere guͤldenem Kryſtall:</l><lb/>
+<l>Willſt du's entfeſſeln, laß in hellem Schall</l><lb/>
+<l>Zwei Bruderbecher an einander beben.</l><lb/>
+</lg> <lg n="3"> <l>Und unterthaͤnig dieſem Zauberklange,</l><lb/>
+<l>Schwingt flugs ein unzaͤhlbares Elfenchor</l><lb/>
+<l>Aus Silberperlen ſprudelnd ſich empor.</l><lb/>
+</lg> <lg n="4"> <l>Den Rand umhuͤpfen ſie in buntem Drange,</l><lb/>
+<l>Mit Spieß und Degen, Saitenſpiel und Kranz,</l><lb/>
+<l>Bockshorn und Eulenohr und Drachenſchwanz.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="118" facs="#f0130"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">November.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">Z</hi>u rechter Zeit hab' ich dir's angeſehen,</l><lb/>
+<l>Daß du, auf Tanz und Jagd und Becherklingen,</l><lb/>
+<l>Verlangen fuͤhlſt nach wuͤrdigeren Dingen,</l><lb/>
+<l>Womit ich gleich dir kann zu Dienſten ſtehen.</l><lb/>
+</lg> <lg n="2"> <l>Durch Leipzigs volle Laden ging ich ſpaͤhen,</l><lb/>
+<l>Was uns die deutſchen Preſſen Neues bringen:</l><lb/>
+<l>Die Bogen, die noch auf den Seilen hingen,</l><lb/>
+<l>Sie mußten ungetrocknet mit mir gehen.</l><lb/>
+</lg> <lg n="3"> <l>Sparoͤfen kauft' ich auch und Sorgenſtuͤhle,</l><lb/>
+<l>Kaffee und Knaſter, von der beſten Sorte,</l><lb/>
+<l>Und lange runde Bernſteinpfeifenſpitzen.</l><lb/>
+</lg> <lg n="4"> <l>Entreiß dich, Freund, dem eitlen Weltgewuͤhle:</l><lb/>
+<l>Ich fuͤhre zu der Weisheit heil'gen Pforte</l><lb/>
+<l>Die Juͤnger, ohne ſehr ſie zu erhitzen.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="119" facs="#f0131"/>
+</div> <div n="2"> <head> <hi rendition="#g">December.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">M</hi>it Peitſchenknall und lautem Schellenklange</l><lb/>
+<l>Meld' ich mich dir, und ſchuͤttle weiße Flocken</l><lb/>
+<l>Durch alle Straßen hin aus meinen Locken:</l><lb/>
+<l>Dich, hoff' ich, macht das Ungethuͤm nicht bange.</l><lb/>
+</lg> <lg n="2"> <l>Es ſchnaubt der Renner an des Schlittens Stange,</l><lb/>
+<l>Das blanke Halsband ſchuͤtteln deine Doggen,</l><lb/>
+<l>Die Dame huͤllt in warme Flaumenſocken</l><lb/>
+<l>Den zarten Fuß, und denkt: Er bleibt ſo lange.</l><lb/>
+</lg> <lg n="3"> <l>Was zauderſt du? Sitz' auf, mein Freund, geſchwinde!</l><lb/>
+<l>Und ſei mir auf der Fahrt nicht zu verwegen,</l><lb/>
+<l>Muß ich im Namen deiner Schoͤnen bitten.</l><lb/>
+</lg> <lg n="4"> <l>Den ſuͤßen, warmen Odem wehn die Winde</l><lb/>
+<l>Und manche weiche Locke dir entgegen:</l><lb/>
+<l>Halt kurz das Roß, und ſieh auf deinen Schlitten!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> </div> </div>
+<pb n="[120]" facs="#f0132"/>
+<pb n="[121]" facs="#f0133"/>
+<div n="1"> <head> <hi rendition="#g">Laͤndliche Lieder.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/>
+<pb n="[122]" facs="#f0134"/>
+<pb n="[123]" facs="#f0135"/>
+<div n="2"> <head> <hi rendition="#b #g">Laͤndlicher Reigen.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/>     <p rendition="#c"> <hi rendition="#g">Schnitter.</hi></p><lb/>
+<lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch hab' ein Herz verloren</l><lb/>
+<l>Wohl in dem gruͤnen Mai,</l><lb/>
+<l>Und Keine will mir ſagen,</l><lb/>
+<l>Wo's nun geblieben ſei.</l><lb/>
+</lg> <lg n="2"> <l>Ihr ſchmucken Dirnen alle,</l><lb/>
+<l>Nun Eine hat es doch,</l><lb/>
+<l>Und habt ihr's nicht gefunden,</l><lb/>
+<l>So liegt's im Graſe noch.</l><lb/>
+</lg> <lg n="3"> <l>Und wenn es liegt im Graſe,</l><lb/>
+<l>So liegt's auf kuͤhler Streu,</l><lb/>
+<l>Und wann ihr maͤht die Wieſen,</l><lb/>
+<l>So ſchneidet's nicht entzwei.</l><lb/>
+</lg> </lg>
+<pb n="124" facs="#f0136"/>
+<p rendition="#c"> <hi rendition="#g">Schnitterin.</hi></p><lb/>
+<lg type="poem"> <lg n="1"> <l>Ich hab' ein Herz gefunden</l><lb/>
+<l>Wohl in dem Mond April,</l><lb/>
+<l>Wo alle Narren wandern:</l><lb/>
+<l>Einen Narren ich nicht will.</l><lb/>
+</lg> <lg n="2"> <l>Drum will ich's weiter ſchicken,</l><lb/>
+<l>Bis daß es wird geſcheit,</l><lb/>
+<l>Und kommt es klug zuruͤcke,</l><lb/>
+<l>Zum Lieben iſt's immer noch Zeit.</l><lb/>
+</lg> </lg>     <p rendition="#c"> <hi rendition="#g">Schnitter.</hi></p><lb/>
+<lg type="poem"> <lg n="1"> <l>Ich hab' ein Herz begraben</l><lb/>
+<l>Wohl im Dezemberſchnee,</l><lb/>
+<l>Und wenn das Eis zerrinnet,</l><lb/>
+<l>So faͤllt es in den See.</l><lb/>
+</lg> <lg n="2"> <l>Und ſchwimmet auf und nieder,</l><lb/>
+<l>Und huͤpfet her und hin,</l><lb/>
+<l>Bis es in's Netz geſprungen</l><lb/>
+<l>Der ſchoͤnſten Fiſcherin.</l><lb/>
+</lg> </lg>
+<pb n="125" facs="#f0137"/>
+<p rendition="#c"> <hi rendition="#g">Schnitterin.</hi></p><lb/>
+<lg type="poem"> <lg n="1"> <l>Ich hab' manch Herz gefangen</l><lb/>
+<l>Wohl in dem Erntetanz:</l><lb/>
+<l>All' Jahr ein friſches Herzchen,</l><lb/>
+<l>All' Jahr ein friſcher Kranz!</l><lb/>
+</lg> <lg n="2"> <l>Und wem das nicht behaget,</l><lb/>
+<l>Der ſeh' dem Tanze zu;</l><lb/>
+<l>So mag er's Herz behalten,</l><lb/>
+<l>Dazu auch ganze Schuh'.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="126" facs="#f0138"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Schifferreigen.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/>     <p rendition="#c"> <hi rendition="#g">Erſter Schiffer.</hi></p><lb/>
+<lg type="poem"> <lg n="1"> <l> <hi rendition="#in">E</hi>s kommt ein Fink geflogen</l><lb/>
+<l>Des Morgens uͤber Meer,</l><lb/>
+<l>Der bringt mir Gruͤß' und Lieder</l><lb/>
+<l>Von meinem Liebchen her.</l><lb/>
+</lg> <lg n="2"> <l>Wenn ich ein Vogel waͤre,</l><lb/>
+<l>Stellt' ich das Schiffen ein,</l><lb/>
+<l>Und wenn ich waͤr' kein Schiffer,</l><lb/>
+<l>Ein Schwimmer muͤßt' ich ſein.</l><lb/>
+</lg> </lg>     <p rendition="#c"> <hi rendition="#g">Zweiter Schiffer.</hi></p><lb/>
+<lg type="poem"> <lg n="1"> <l>Ich laſſ' mein Schifflein treiben</l><lb/>
+<l>Hinauf, hinab die Fluth;</l><lb/>
+<l>Ob Wind und Woge ſchlafen,</l><lb/>
+<l>Das Schiff ſich nimmer ruht.</l><lb/>
+</lg>
+<pb n="127" facs="#f0139"/>
+<lg n="2"> <l>Gieb mir mein Ruder wieder</l><lb/>
+<l>Und laß das Spielen ſein,</l><lb/>
+<l>O Diebin, oder nimm mich</l><lb/>
+<l>In deinen Rachen ein!</l><lb/>
+</lg> </lg>     <p rendition="#c"> <hi rendition="#g">Dritter Schiffer.</hi></p><lb/>
+<lg type="poem"> <lg n="1"> <l>Es kommt ein Schwan gezogen</l><lb/>
+<l>Des Abends auf der Fluth;</l><lb/>
+<l>Ich will am Strande liegen,</l><lb/>
+<l>Es traͤumt ſich hier ſo gut.</l><lb/>
+</lg> <lg n="2"> <l>Da ſchwimmen auf den Wogen</l><lb/>
+<l>Viel Schiffe groß und klein:</l><lb/>
+<l>Ich kann nicht mit euch fahren,</l><lb/>
+<l>Mein Nachen ſank mir ein.</l><lb/>
+</lg> </lg>     <p rendition="#c"> <hi rendition="#g">Schifferin.</hi></p><lb/>
+<lg type="poem"> <lg n="1"> <l>Ich bin zur Welt gekommen</l><lb/>
+<l>In Wogen und in Wind,</l><lb/>
+<l>Und Wind und Wogen wiegten</l><lb/>
+<l>Mich als ein kleines Kind.</l><lb/>
+</lg>
+<pb n="128" facs="#f0140"/>
+<lg n="2"> <l>Dann bin ich Jungfrau worden,</l><lb/>
+<l>Bekam ein Herz geſchwind;</l><lb/>
+<l>Und Herz und Jungfrau waren</l><lb/>
+<l>Wie lauter Wog' und Wind.</l><lb/>
+</lg> <lg n="3"> <l>Bald klar und ſtill zu ſchauen,</l><lb/>
+<l>Bald wieder wild und kraus,</l><lb/>
+<l>So lock' ich manchen Rachen</l><lb/>
+<l>Auf Klipp' und Sand hinaus.</l><lb/>
+</lg> <lg n="4"> <l>Ihr Schiffer, laßt das Singen,</l><lb/>
+<l>Es geht in Wog' und Wind;</l><lb/>
+<l>Ihr ſolltet ja wohl wiſſen,</l><lb/>
+<l>Was das fuͤr Dinge ſind.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="129" facs="#f0141"/>
+</div> <div n="2"> <head>Das Hirtenfeuer in der roͤmiſchen Ebene.<lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p rendition="#c"><hi rendition="#g">Hirt.</hi></p><lb/>
+<lg type="poem"> <lg n="1"> <l> <hi rendition="#in">A</hi>de, Ade, Geliebte,</l><lb/>
+<l>Und reich' mir deine Hand!</l><lb/>
+<l>Ich treibe meine Heerde</l><lb/>
+<l>Hinab in's Niederland.</l><lb/>
+</lg> <lg n="2"> <l>Die Saaten ſind gemaͤhet,</l><lb/>
+<l>Das Stoppelfeld iſt frei:</l><lb/>
+<l>Laß uns mit blauem Bande</l><lb/>
+<l>Verknuͤpfen Lieb' und Treu'.</l><lb/>
+</lg> <lg n="3"> <l>Ich trag' es auf dem Hute,</l><lb/>
+<l>Du traͤgſt es auf der Bruſt,</l><lb/>
+<l>Und pocht dein Herz dagegen,</l><lb/>
+<l>Ich fuͤhl's in banger Luſt.</l><lb/>
+</lg> <fw type="sig" place="bottom">9<lb/>
+</fw>
+<pb n="130" facs="#f0142"/>
+<lg n="4"> <l>Schauſt du herab vom Berge</l><lb/>
+<l>Wohl in der dunkeln Nacht,</l><lb/>
+<l>Tief unten brennt ein Feuer,</l><lb/>
+<l>Wo dein Geliebter wacht.</l><lb/>
+</lg> <lg n="5"> <l>Und hoͤher ſchlaͤgt die Lohe,</l><lb/>
+<l>Und heller gluͤht der Schein:</l><lb/>
+<l>Dann denk', es iſt ſein Herze,</l><lb/>
+<l>Das will hier oben ſein.</l><lb/>
+</lg> </lg> <p rendition="#c"> <hi rendition="#g">Hirtin.</hi></p><lb/>
+<lg type="poem"> <lg n="1"> <l>Ade, Ade, Geliebter!</l><lb/>
+<l>Wie zeig' ich dir mein Herz?</l><lb/>
+<l>In enger, ſtiller Kammer</l><lb/>
+<l>Verſchließt es Luſt und Schmerz.</l><lb/>
+</lg> <lg n="2"> <l>Und ſchau' ich aus dem Fenſter</l><lb/>
+<l>Hinab in's weite Feld,</l><lb/>
+<l>Du findeſt keine Thraͤne,</l><lb/>
+<l>Die dort hinunterfaͤllt.</l><lb/>
+</lg> <lg n="3"> <l>Ich ſeh' ein Feuer brennen</l><lb/>
+<l>Wohl durch die dunkle Nacht:</l><lb/>
+<l>Geſegnet ſei die Staͤtte,</l><lb/>
+<l>Wo mein Geliebter wacht!</l><lb/>
+</lg>
+<pb n="131" facs="#f0143"/>
+<lg n="4"> <l>Und hoͤher ſchlaͤgt die Lohe,</l><lb/>
+<l>Und heller gluͤht der Schein,</l><lb/>
+<l>Ich wieg' auf ſeinen Flammen</l><lb/>
+<l>All' meine Sorgen ein.</l><lb/>
+</lg> <lg n="5"> <l>Laß nicht den Brand erloͤſchen,</l><lb/>
+<l>Geliebter, eh' es tagt:</l><lb/>
+<l>Kann ich den Schlaf nicht finden,</l><lb/>
+<l>Kuͤrzt mir dein Licht die Nacht.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">9*<lb/>
+</fw>
+<pb n="132" facs="#f0144"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Doppelte Gefahr.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>ch armer Fiſcherbube,</l><lb/>
+<l>Wo ſoll ich ſchiffen hin?</l><lb/>
+<l>Mein Rachen iſt gar kleine,</l><lb/>
+<l>Gar ſchuͤchtern iſt mein Sinn.</l><lb/>
+</lg> <lg n="2"> <l>Im hohen Meere draußen,</l><lb/>
+<l>Da ſind die Wogen groß,</l><lb/>
+<l>Da laͤßt aus Oſt und Weſten</l><lb/>
+<l>Der Himmel die Stuͤrme los.</l><lb/>
+</lg> <lg n="3"> <l>Da jagen die Korſaren</l><lb/>
+<l>Nach jungem Chriſtenblut,</l><lb/>
+<l>Da ſingen die Sirenen</l><lb/>
+<l>Und locken hinab in die Fluth.</l><lb/>
+</lg> <lg n="4"> <l>Am Ufer ſitzt ein Maͤdchen,</l><lb/>
+<l>Die hat ein Augenpaar,</l><lb/>
+<l>Das droht mit Feuerflammen</l><lb/>
+<l>Mir toͤdtliche Gefahr.</l><lb/>
+</lg>
+<pb n="133" facs="#f0145"/>
+<lg n="5"> <l>Sie ſtrickt an einem Netze,</l><lb/>
+<l>Will drin mich fangen ein,</l><lb/>
+<l>Ihr Haar hat lange Flechten,</l><lb/>
+<l>Dran ſoll ich gebunden ſein.</l><lb/>
+</lg> <lg n="6"> <l>Du liebliche Sirene,</l><lb/>
+<l>Sirene von dem Strand,</l><lb/>
+<l>Laß deine Stimme toͤnen</l><lb/>
+<l>Hell uͤber Meer und Land.</l><lb/>
+</lg> <lg n="7"> <l>Tief unten in den Fluthen</l><lb/>
+<l>Da iſt ein goldnes Haus,</l><lb/>
+<l>Da ruhen die Ertrunknen</l><lb/>
+<l>In weichen Armen aus.</l><lb/>
+</lg> <lg n="8"> <l>In dieſem Liebesmeere</l><lb/>
+<l>Wo wird die Ruhſtaͤtt' ſein?</l><lb/>
+<l>Entweder an deinem Herzen,</l><lb/>
+<l>Ach! oder im Grabe mein.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="134" facs="#f0146"/>
+</div> <div n="2"> <head> <hi rendition="#g">Die gluͤckliche Fiſcherin.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">S</hi>ie ſtand im Boot und fiſchte,</l><lb/>
+<l>Ich ſah's vom Ufer her:</l><lb/>
+<l>In's Netz die Fiſchlein ſprangen,</l><lb/>
+<l>Als ob's zum Tanze waͤr';</l><lb/>
+<l>Wollt' keins im Meere bleiben,</l><lb/>
+<l>Das Netz war viel zu klein:</l><lb/>
+<l>Sie ließ es ſich gefallen,</l><lb/>
+<l>Und dacht', es muß ſo ſein.</l><lb/>
+</lg> <lg n="2"> <l>Sie ſtieg aus ihrem Boote,</l><lb/>
+<l>Am Strande blieb ſie ſtehn,</l><lb/>
+<l>Da ſchwoll das Meer und wogte,</l><lb/>
+<l>Als moͤcht' es mit ihr gehn;</l><lb/>
+<l>Und Muſcheln und Korallen</l><lb/>
+<l>Trieb es ihr hinterdrein:</l><lb/>
+<l>Sie hob ſie auf vom Boden,</l><lb/>
+<l>Und dacht', es muß ſo ſein.</l><lb/>
+</lg>
+<pb n="135" facs="#f0147"/>
+<lg n="3"> <l>Ich armer Hirtenbube,</l><lb/>
+<l>Was frommt mein Werben mir</l><lb/>
+<l>Mit Blumen und mit Baͤndern?</l><lb/>
+<l>Die Welt gehoͤret ihr.</l><lb/>
+<l>Ihr ſchlagen alle Herzen,</l><lb/>
+<l>Und waͤren ſie von Stein:</l><lb/>
+<l>Sie nimmt's wie Wogenrauſchen,</l><lb/>
+<l>Und denkt, es muß ſo ſein.</l><lb/>
+</lg> <lg n="4"> <l>Koͤnnt' ich ihr ſelber bringen</l><lb/>
+<l>Der Sterne Silberlicht,</l><lb/>
+<l>Des Himmels Abendblaͤue,</l><lb/>
+<l>Was Neues waͤr' es nicht.</l><lb/>
+<l>Sie hielt's an ihre Augen,</l><lb/>
+<l>Und ſpraͤch': es iſt ja mein!</l><lb/>
+<l>Vergaͤße mir zu danken,</l><lb/>
+<l>Und daͤcht', es muß ſo ſein.</l><lb/>
+</lg> <lg n="5"> <l>Was frommt dein bloͤdes Klingen,</l><lb/>
+<l>Mein kleines Saitenſpiel?</l><lb/>
+<l>Iſt auch ihr Fenſter offen,</l><lb/>
+<l>Sie hoͤrt dich doch nicht viel,</l><lb/>
+<l>Vor allen Jaͤgerhoͤrnern</l><lb/>
+<l>Und Floͤten und Schalmei'n;</l><lb/>
+<l>Sie tanzt dazu den Reigen,</l><lb/>
+<l>Und denkt, es muß ſo ſein.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/><lb/>
+</div> </div>
+<pb n="[136]" facs="#f0148"/>
+<pb n="[137]" facs="#f0149"/>
+<div n="1"> <head rendition="#c"> <hi rendition="#b #g">Muſterkarte</hi> <hi rendition="#b">.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/><lb/>
+<pb n="[138]" facs="#f0150"/>
+<pb n="[139]" facs="#f0151"/>
+<div n="2"> <head> <hi rendition="#b #g">Der Glockenguß zu Breslau.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">W</hi>ar einſt ein Glockengießer</l><lb/>
+<l>Zu Breslau in der Stadt,</l><lb/>
+<l>Ein ehrenwerther Meiſter,</l><lb/>
+<l>Gewandt in Rath und That.</l><lb/>
+</lg> <lg n="2"> <l>Er hatte ſchon gegoſſen</l><lb/>
+<l>Viel Glocken, gelb und weiß,</l><lb/>
+<l>Fuͤr Kirchen und Kapellen</l><lb/>
+<l>Zu Gottes Lob und Preis.</l><lb/>
+</lg> <lg n="3"> <l>Und ſeine Glocken klangen</l><lb/>
+<l>So voll, ſo hell, ſo rein:</l><lb/>
+<l>Er goß auch Lieb' und Glauben</l><lb/>
+<l>Mit in die Form hinein.</l><lb/>
+</lg>
+<pb n="140" facs="#f0152"/>
+<lg n="4"> <l>Doch aller Glocken Krone,</l><lb/>
+<l>Die er gegoſſen hat,</l><lb/>
+<l>Das iſt die Suͤnderglocke</l><lb/>
+<l>Zu Breslau in der Stadt.</l><lb/>
+</lg> <lg n="5"> <l>Im Magdalenenthurme</l><lb/>
+<l>Da haͤngt das Meiſterſtuͤck,</l><lb/>
+<l>Rief ſchon manch ſtarres Herze</l><lb/>
+<l>Zu ſeinem Gott zuruͤck.</l><lb/>
+</lg> <lg n="6"> <l>Wie hat der gute Meiſter</l><lb/>
+<l>So treu das Werk bedacht!</l><lb/>
+<l>Wie hat er ſeine Haͤnde</l><lb/>
+<l>Geruͤhrt bei Tag und Nacht!</l><lb/>
+</lg> <lg n="7"> <l>Und als die Stunde kommen,</l><lb/>
+<l>Daß Alles fertig war,</l><lb/>
+<l>Die Form iſt eingemauert,</l><lb/>
+<l>Die Speiſe gut und gar.</l><lb/>
+</lg> <lg n="8"> <l>Da ſpricht der Glockenmeiſter</l><lb/>
+<l>Zu ſeinem Buͤbelein:</l><lb/>
+<l>Ich laſſ' ein kurzes Weilchen</l><lb/>
+<l>Beim Keſſel dich allein.</l><lb/>
+</lg>
+<pb n="141" facs="#f0153"/>
+<lg n="9"> <l>Will mich mit einem Trunke</l><lb/>
+<l>Noch ſtaͤrken zu dem Guß;</l><lb/>
+<l>Das giebt der zaͤhen Speiſe</l><lb/>
+<l>Erſt einen rechten Fluß.</l><lb/>
+</lg> <lg n="10"> <l>Doch huͤte dich, und ruͤhre</l><lb/>
+<l>Den Hahn mir nimmer an:</l><lb/>
+<l>Sonſt waͤr' es um dein Leben,</l><lb/>
+<l>Fuͤrwitziger, gethan!</l><lb/>
+</lg> <lg n="11"> <l>Der Bube ſteht am Keſſel,</l><lb/>
+<l>Schaut in die Gluth hinein:</l><lb/>
+<l>Das wogt und wallt und wirbelt,</l><lb/>
+<l>Und will entfeſſelt ſein.</l><lb/>
+</lg> <lg n="12"> <l>Und ziſcht ihm in die Ohren,</l><lb/>
+<l>Und zuckt ihm durch den Sinn,</l><lb/>
+<l>Und zieht an allen Fingern</l><lb/>
+<l>Ihn nach dem Hahne hin.</l><lb/>
+</lg> <lg n="13"> <l>Er fuͤhlt ihn in den Haͤnden,</l><lb/>
+<l>Hat ſchnell ihn umgedreht:</l><lb/>
+<l>Da wird ihm angſt und bange,</l><lb/>
+<l>Er weiß nicht, was er thaͤt.</l><lb/>
+</lg>
+<pb n="142" facs="#f0154"/>
+<lg n="14"> <l>Und laͤuft hinaus zum Meiſter,</l><lb/>
+<l>Die Schuld ihm zu geſtehn,</l><lb/>
+<l>Will ſeine Knie' umfaſſen</l><lb/>
+<l>Und ihn um Gnade flehn.</l><lb/>
+</lg> <lg n="15"> <l>Doch wie der nur vernommen</l><lb/>
+<l>Des Knaben erſtes Wort,</l><lb/>
+<l>Da reißt die kluge Rechte</l><lb/>
+<l>Der jaͤhe Zorn ihm fort.</l><lb/>
+</lg> <lg n="16"> <l>Er ſtoͤßt ſein ſcharfes Meſſer</l><lb/>
+<l>Dem Buben in die Bruſt,</l><lb/>
+<l>Dann ſtuͤrzt er nach dem Keſſel,</l><lb/>
+<l>Sein ſelber kaum bewußt.</l><lb/>
+</lg> <lg n="17"> <l>Vielleicht, daß er noch retten,</l><lb/>
+<l>Den Strom noch hemmen kann: —</l><lb/>
+<l>Doch ſieh, der Guß iſt fertig,</l><lb/>
+<l>Es fehlt kein Tropfen dran.</l><lb/>
+</lg> <lg n="18"> <l>Da eilt er abzuraͤumen,</l><lb/>
+<l>Und ſieht, und will's nicht ſehn,</l><lb/>
+<l>Ganz ohne Fleck und Makel</l><lb/>
+<l>Die Glocke vor ſich ſtehn.</l><lb/>
+</lg>
+<pb n="143" facs="#f0155"/>
+<lg n="19"> <l>Der Knabe liegt am Boden,</l><lb/>
+<l>Er ſchaut ſein Werk nicht mehr.</l><lb/>
+<l>Ach, Meiſter, wilder Meiſter,</l><lb/>
+<l>Du ſtießeſt gar zu ſehr!</l><lb/>
+</lg> <lg n="20"> <l>Er ſtellt ſich dem Gerichte,</l><lb/>
+<l>Und klagt ſich ſelber an:</l><lb/>
+<l>Es thaͤt den Richtern wehe</l><lb/>
+<l>Wohl um den wackern Mann.</l><lb/>
+</lg> <lg n="21"> <l>Doch kann ihn Keiner retten,</l><lb/>
+<l>Und Blut will wieder Blut:</l><lb/>
+<l>Er hoͤrt ſein Todesurthel</l><lb/>
+<l>Mit gar gefaßtem Muth.</l><lb/>
+</lg> <lg n="22"> <l>Und als der Tag gekommen,</l><lb/>
+<l>Daß man ihn fuͤhrt hinaus,</l><lb/>
+<l>Da wird ihm angeboten</l><lb/>
+<l>Der letzte Gnadenſchmaus.</l><lb/>
+</lg> <lg n="23"> <l>Ich dank' euch, ſpricht der Meiſter,</l><lb/>
+<l>Ihr Herren lieb und werth,</l><lb/>
+<l>Doch eine andre Gnade</l><lb/>
+<l>Mein Herz von euch begehrt.</l><lb/>
+</lg>
+<pb n="144" facs="#f0156"/>
+<lg n="24"> <l>Laßt mich nur einmal hoͤren</l><lb/>
+<l>Der neuen Glocke Klang!</l><lb/>
+<l>Ich hab' ſie ja bereitet:</l><lb/>
+<l>Moͤcht' wiſſen, ob's gelang.</l><lb/>
+</lg> <lg n="25"> <l>Die Bitte ward gewaͤhret,</l><lb/>
+<l>Sie ſchien den Herr'n gering,</l><lb/>
+<l>Die Glocke ward gelaͤutet,</l><lb/>
+<l>Als er zum Tode ging.</l><lb/>
+</lg> <lg n="26"> <l>Der Meiſter hoͤrt ſie klingen,</l><lb/>
+<l>So voll, ſo hell, ſo rein:</l><lb/>
+<l>Die Augen gehn ihm uͤber,</l><lb/>
+<l>Es muß vor Freude ſein.</l><lb/>
+</lg> <lg n="27"> <l>Und ſeine Blicke leuchten,</l><lb/>
+<l>Als waͤren ſie verklaͤrt:</l><lb/>
+<l>Er hatte in dem Klange</l><lb/>
+<l>Wohl mehr als Klang gehoͤrt.</l><lb/>
+</lg> <lg n="28"> <l>Hat auch geneigt den Nacken</l><lb/>
+<l>Zum Streich voll Zuverſicht;</l><lb/>
+<l>Und was der Tod verſprochen,</l><lb/>
+<l>Das bricht das Leben nicht.</l><lb/>
+</lg>
+<pb n="145" facs="#f0157"/>
+<lg n="29"> <l>Das iſt der Glocken Krone,</l><lb/>
+<l>Die er gegoſſen hat,</l><lb/>
+<l>Die Magdalenenglocke</l><lb/>
+<l>Zu Breslau in der Stadt.</l><lb/>
+</lg> <lg n="30"> <l>Die ward zur Suͤnderglocke</l><lb/>
+<l>Seit jenem Tag geweiht:</l><lb/>
+<l>Weiß nicht, ob's anders worden</l><lb/>
+<l>In dieſer neuen Zeit.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">10<lb/>
+</fw>
+<pb n="146" facs="#f0158"/>
+</div> <div n="2"> <head> <hi rendition="#g">Thraͤnen und Roſen.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">E</hi>in Knaͤblein ging ſpazieren</l><lb/>
+<l>Wohl um die Abendſtund'</l><lb/>
+<l>In einem Roſengarten,</l><lb/>
+<l>Da bluͤhten Bluͤmlein bunt.</l><lb/>
+</lg> <lg n="2"> <l>Er ging wohl auf und nieder</l><lb/>
+<l>Vor eines Gaͤrtners Haus,</l><lb/>
+<l>Da lag ein Maͤgdlein ſchoͤne</l><lb/>
+<l>Zum Fenſterlein heraus.</l><lb/>
+</lg> <lg n="3"> <l>Ein Roͤslein thaͤt' er brechen,</l><lb/>
+<l>Warf's in das Fenſterlein:</l><lb/>
+<l>Thuſt ſchlafen oder wachen,</l><lb/>
+<l>Herzallerliebſte mein?</l><lb/>
+</lg> <lg n="4"> <l>«Ich habe nicht geſchlafen,</l><lb/>
+<l>«Ich habe nicht gewacht,</l><lb/>
+<l>«Ich habe nur getraͤumet,</l><lb/>
+<l>«An dich hab' ich gedacht.»</l><lb/>
+</lg>
+<pb n="147" facs="#f0159"/>
+<lg n="5"> <l>Du haſt ja auch geweinet,</l><lb/>
+<l>Dein' Aeuglein ſind ſo naß;</l><lb/>
+<l>Eine Thraͤn' fiel aus dem Fenſter,</l><lb/>
+<l>Da wuchs eine Roſ' im Gras.</l><lb/>
+</lg> <lg n="6"> <l>«Und iſt eine Roſ' gewachſen,</l><lb/>
+<l>«So wuchs ſie nur fuͤr dich,</l><lb/>
+<l>«Und wenn ich hab' geweinet,</l><lb/>
+<l>«So weint' ich nur um mich.»</l><lb/>
+</lg> <lg n="7"> <l>Was zog er aus der Taſche?</l><lb/>
+<l>Ein ſeidnes Tuͤchelein.</l><lb/>
+<l>Nimm hin, Herzallerliebſte,</l><lb/>
+<l>Wiſch' ab dein' Aeugelein!</l><lb/>
+</lg> <lg n="8"> <l>Und bin ich in der Fremde,</l><lb/>
+<l>Weit, weit von deinem Haus,</l><lb/>
+<l>So weine deine Thraͤnen</l><lb/>
+<l>Zum Fenſter nicht hinaus.</l><lb/>
+</lg> <lg n="9"> <l>So weine ſie bedaͤchtig</l><lb/>
+<l>All' in das Tuch hinein,</l><lb/>
+<l>Damit kein boͤſer Bube</l><lb/>
+<l>Zertritt die Roͤſelein.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">10*<lb/>
+</fw>
+<pb n="148" facs="#f0160"/>
+</div> <div n="2"> <head> <hi rendition="#g">Faſtnachtslied<lb/>
+von den goldenen Zoͤpfen.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">M</hi>aͤgdlein mit den goldnen Zoͤpfen,</l><lb/>
+<l>Maͤgdlein mit dem goldnen Haar!</l><lb/>
+<l>Oder iſt es wohl von Seide,</l><lb/>
+<l>Oder iſt's von beiden gar?</l><lb/>
+<l>Nenn' ich's goldgediegne Seide?</l><lb/>
+<l>Nenn' ich's ſeidenfeines Gold?</l><lb/>
+<l>Und welch zartes Elfenhaͤndchen</l><lb/>
+<l>Hat die Flechten dir gerollt?</l><lb/>
+</lg> <lg n="2"> <l>Maͤgdlein mit den goldnen Zoͤpfen! —</l><lb/>
+<l>Und an jedem haͤngt ein Herz,</l><lb/>
+<l>Hier ein junges, da ein altes,</l><lb/>
+<l>Hier mit Luſt, und da mit Schmerz.</l><lb/>
+<l>Und das meine, ach das meine! —</l><lb/>
+<l>Iſt kein einzig Zoͤpfchen leer?</l><lb/>
+<l>Maͤgdlein mit den goldnen Zoͤpfen,</l><lb/>
+<l>Dichterherzen ſind nicht ſchwer.</l><lb/>
+</lg>
+<pb n="149" facs="#f0161"/>
+<lg n="3"> <l>Und die goldnen Zoͤpfe fliegen</l><lb/>
+<l>Um den Nacken, um den Leib,</l><lb/>
+<l>Und das Fliegen und das Schmiegen</l><lb/>
+<l>Iſt der Herzen Zeitvertreib.</l><lb/>
+<l>Einer hat ſich faſt verirret</l><lb/>
+<l>Um die Schulter ganz allein:</l><lb/>
+<l>Maͤgdlein, ſtreich' ihn nicht zuruͤcke,</l><lb/>
+<l>Freiheit ſteht dem Haar ſo fein.</l><lb/>
+</lg> <lg n="4"> <l>Maͤgdlein mit den goldnen Zoͤpfen,</l><lb/>
+<l>Maͤgdlein mit dem goldnen Haar!</l><lb/>
+<l>Herz an Herz ein ſtilles Plaͤtzchen,</l><lb/>
+<l>Eins iſt Eins, und Zwei ein Paar.</l><lb/>
+<l>Loͤſe deine goldnen Flechten,</l><lb/>
+<l>Alle Herzen fallen aus,</l><lb/>
+<l>Und nur eines, und nur meines,</l><lb/>
+<l>Maͤgdlein, traͤgſt du mit nach Haus!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="150" facs="#f0162"/>
+</div> <div n="2"> <head> <hi rendition="#g">Der Zephyr.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">A</hi>uf einer Roſe ward ich jung,</l><lb/>
+<l>Ein Roſenblatt war meine Wiege,</l><lb/>
+<l>Ein Roſenblatt iſt einſt mein Grab.</l><lb/>
+</lg> <lg n="2"> <l>Ich ſchlafe, wann der Winter tobt,</l><lb/>
+<l>Und mit dem Lenze werd' ich munter,</l><lb/>
+<l>Und naͤhre mich von Duft und Kuß.</l><lb/>
+</lg> <lg n="3"> <l>Du armer, ſtolzer Herr der Welt,</l><lb/>
+<l>Du keuchſt einher mit deiner Krone,</l><lb/>
+<l>Und dienſtbar trockn' ich deinen Schweiß!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="151" facs="#f0163"/>
+</div> <div n="2"> <head> <hi rendition="#g">Kuß und Lied.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">J</hi>uͤngſt kuͤßt' ich einen rothen Mund;</l><lb/>
+<l>Ein Liedchen ſaß auf meinen Lippen,</l><lb/>
+<l>Und aus dem Liedchen ward ein Kuß.</l><lb/>
+</lg> <lg n="2"> <l>Jetzt iſt mein Maͤdchen fern von mir;</l><lb/>
+<l>Zum Kuſſe will mein Mund ſich ſchwellen,</l><lb/>
+<l>Und aus dem Kuſſe wird ein Lied.</l><lb/>
+</lg> <lg n="3"> <l>Fliegt nun, ihr lieben Verſe, hin,</l><lb/>
+<l>Und druͤckt ſie euch an ihre Lippen,</l><lb/>
+<l>So werdet wieder, was ihr war't!</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="152" facs="#f0164"/>
+</div> <div n="2"> <head> <hi rendition="#b #g">Die Blutorange.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p rendition="#c">Epiſtel aus Sorrent.</p><lb/>
+<lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>n Sorrento's Felſengaͤrten</l><lb/>
+<l>Hoͤrt' ich heut' ein Maͤhrchen ſagen</l><lb/>
+<l>Von der blutigen Orange</l><lb/>
+<l>Und der Bluͤthe der Granate.</l><lb/>
+<l>Alſo ſprach der kluge Gaͤrtner:</l><lb/>
+<l>Golden, wie noch heut' die Schale,</l><lb/>
+<l>Gluͤhten einſt die innern Saͤfte</l><lb/>
+<l>Dieſer wuͤrzigen Orangen</l><lb/>
+<l>Von dem Baume hier am Ufer.</l><lb/>
+<l>Und ein Sproͤßling der Granate,</l><lb/>
+<l>Jung und ſchlank, wuchs auf daneben.</l><lb/>
+<l>Als der Winter zog von dannen,</l><lb/>
+<l>Trieb das Baͤumchen erſte Knoſpen,</l><lb/>
+<l>Und gleich heißen Blutes Flammen</l><lb/>
+<l>Brachen Bluͤthen aus den Keimen.</l><lb/>
+<l>Und die Nachbarin Orange,</l><lb/>
+<l>Staunend, wie in Liebesandacht,</l><lb/>
+<l>Bog die hohen Zweige ſchmachtend</l><lb/>
+<l>Nach der fremden Gluth hinuͤber,</l><lb/>
+<pb n="153" facs="#f0165"/>
+<l>Daß die Silberbluͤthen alle</l><lb/>
+<l>Offnen Auges landwaͤrts ſchauten,</l><lb/>
+<l>Und das Meer nur Gruͤnes ſahe.</l><lb/>
+<l>Und als nun der Herbſt gekommen,</l><lb/>
+<l>Und den erſten goldnen Apfel</l><lb/>
+<l>Pruͤfend ich vom Baume pfluͤckte,</l><lb/>
+<l>Ward mir klar der Zweige Schwanken</l><lb/>
+<l>Und der Bluͤthen ſeltſam Draͤngen:</l><lb/>
+<l>Denn gleich heißen Blutes Flammen,</l><lb/>
+<l>Voll, wie langverhalt'nes Sehnen,</l><lb/>
+<l>Floß der Saft aus goldner Schale.</l><lb/>
+<l>Alſo ſprach der kluge Gaͤrtner,</l><lb/>
+<l>Und ich pfluͤckte mir Orangen</l><lb/>
+<l>Von dem ſeltnen Uferbaume.</l><lb/>
+</lg> <lg n="2"> <l>Iſt zu Ende nun die Sage,</l><lb/>
+<l>Schweig' auch ich, und was im Herzen</l><lb/>
+<l>Mir ſich regt mit jedem Schlage,</l><lb/>
+<l>Hat ſich heute ſtill getrunken</l><lb/>
+<l>In dem kuͤhlen Wunderſafte,</l><lb/>
+<l>Und ſo ſend' ich ohne Deutung,</l><lb/>
+<l>Freundin, dir die Gaͤrtnerſage.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="154" facs="#f0166"/>
+</div> <div n="2"> <head> <hi rendition="#g">Des Finken Gruß.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">I</hi>m Fliederſtrauch ein Finke ſaß</l><lb/>
+<l>Und ſang,</l><lb/>
+<l>Er ſang wohl dies und ſang wohl das,</l><lb/>
+<l>Was klang.</l><lb/>
+</lg> <lg n="2"> <l>Nun werft den Winter aus der Thuͤr</l><lb/>
+<l>Weit weit!</l><lb/>
+<l>Der liebe Mai iſt wieder hier,</l><lb/>
+<l>Ihr Leut'!</l><lb/>
+</lg> <lg n="3"> <l>Er hat ein gruͤnes Roͤckchen an</l><lb/>
+<l>Von Gras,</l><lb/>
+<l>Hat bunte blanke Knoͤpfe dran</l><lb/>
+<l>Von Glas.</l><lb/>
+</lg> <lg n="4"> <l>Ein großes Auge hat der Fant,</l><lb/>
+<l>Iſt blau:</l><lb/>
+<l>Paßt auf, ob nicht durch Thuͤr und Wand</l><lb/>
+<l>Er ſchau'!</l><lb/>
+</lg>
+<pb n="155" facs="#f0167"/>
+<lg n="5"> <l>Sein Odem traͤnkt ſo friſch und rein</l><lb/>
+<l>Die Luft,</l><lb/>
+<l>Sein Haar muß ganz gepudert ſein</l><lb/>
+<l>Mit Duft.</l><lb/>
+</lg> <lg n="6"> <l>Er weiß mit Jungfern umzugehn</l><lb/>
+<l>Gar fein,</l><lb/>
+<l>Die Burſchen auch ihn gerne ſehn</l><lb/>
+<l>Im Hain.</l><lb/>
+</lg> <lg n="7"> <l>Den Kindern bringt er Spielwerk mit:</l><lb/>
+<l>Woher?</l><lb/>
+<l>Aus Nuͤrnberg von dem Blumenſchmidt,</l><lb/>
+<l>Daher!</l><lb/>
+</lg> <lg n="8"> <l>Und was ſoll fuͤr die Philiſter ſein?</l><lb/>
+<l>Ja was?</l><lb/>
+<l>Die fangen ſich Muͤcken und Fliegen ein</l><lb/>
+<l>Zum Spaß.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="156" facs="#f0168"/>
+</div> <div n="2"> <head> <hi rendition="#g">Des Finken Abſchied.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <lg type="poem"> <lg n="1"> <l> <hi rendition="#in">E</hi>s ſaß ein Fink auf gruͤnem Zweig,</l><lb/>
+<l>Der war ſo friſch und blaͤtterreich,</l><lb/>
+<l>Und ſang wohl Dies und Jenes:</l><lb/>
+<l>Durch Lenz und Sommer und Herbſt er ſang,</l><lb/>
+<l>Haͤtt' da geſungen ſein Lebelang,</l><lb/>
+<l>Waͤr' nicht der Winter kommen.</l><lb/>
+</lg> <lg n="2"> <l>Der Winter kam mit Saus und Braus:</l><lb/>
+<l>„Ihr Muͤßiggaͤnger, zum Reich heraus,</l><lb/>
+<l>„Ihr Flattrer und Saͤnger und Horcher!</l><lb/>
+<l>„Herab vom Baum, du gruͤnes Blatt!</l><lb/>
+<l>„Zum Bauen und zum Brennen hat</l><lb/>
+<l>„Der Herr das Holz erſchaffen.“</l><lb/>
+</lg> <lg n="3"> <l>Da geht im Hain das Schuͤtteln los,</l><lb/>
+<l>Und flugs ſteht Alles blank und bloß,</l><lb/>
+<l>Bis auf den Zweig des Finken.</l><lb/>
+<l>Jetzt, naſeweiſes Voͤglein, flieh!</l><lb/>
+<l>Mit ſolcher Staatsoͤkonomie</l><lb/>
+<l>Da iſt nicht viel zu ſpaßen.</l><lb/>
+</lg>
+<pb n="157" facs="#f0169"/>
+<lg n="4"> <l>Und's Voͤglein flog und ſang: Ade!</l><lb/>
+<l>Da warf der Winter Reif und Schnee</l><lb/>
+<l>Ihm hinterdrein, und traf's nicht.</l><lb/>
+<l>Der Finke lacht aus voller Kehl':</l><lb/>
+<l>Bewahre Gott jede Chriſtenſeel'</l><lb/>
+<l>Vor dieſem Landesvater!</l><lb/>
+</lg> <lg n="5"> <l>Und als ich mal nach Welſchland zog,</l><lb/>
+<l>Manch Voͤglein mit dem Wandrer flog,</l><lb/>
+<l>Da war auch jenes drunter:</l><lb/>
+<l>Und waͤr's geweſt eine Nachtigall,</l><lb/>
+<l>So haͤtt' mein Lied einen beſſern Schall,</l><lb/>
+<l>Ich hab's ihm nachgeſungen.</l><lb/>
+</lg> </lg> <milestone unit="section" rendition="#hr"/>
+<pb n="158" facs="#f0170"/>
+</div> <div n="2"> <head> <hi rendition="#g">Wir wiſſen uns zu finden.</hi><lb/>
+</head>     <p rendition="#c">Parodirende Gloſſe.</p><lb/>
+<milestone unit="section" rendition="#hr"/>     <p rendition="#c"> <hi rendition="#g">Lerche als Thema.</hi></p><lb/>
+<lg type="poem"> <l> <hi rendition="#in">S</hi>ollſt nicht murren, ſollſt nicht ſchelten,</l><lb/>
+<l>Wenn die Sommerzeit vergeht,</l><lb/>
+<l>Denn es iſt das Loos der Welten,</l><lb/>
+<l>Alles kommt und Alles geht.</l><lb/>
+</lg>     <p rendition="#c"> <hi rendition="#g">Junge Frau.</hi></p><lb/>
+<lg type="poem"> <l> <hi rendition="#in">H</hi>oͤr' ich's da nicht zwoͤlfe ſchlagen?</l><lb/>
+<l>Und <hi rendition="#g">er</hi> iſt noch nicht zu Haus.</l><lb/>
+<l>Ach, ſchon in den Flittertagen</l><lb/>
+<l>Iſt's mit ſeinem Lieben aus.</l><lb/>
+<l>Hat er Pfeifen nur und Karten,</l><lb/>
+<l>Mag zu Haus die Gattin warten:</l><lb/>
+<l>Was bekuͤmmert ihn ihr Schmerz?</l><lb/>
+<l>Doch, er ſoll es mir entgelten! —</l><lb/>
+<l>Still, er kommt, o ſtill, mein Herz!</l><lb/>
+<l> <hi rendition="#g">Sollſt nicht murren</hi>, <hi rendition="#g">ſollſt nicht ſchelten</hi>.</l><lb/>
+</lg>
+<pb n="159" facs="#f0171"/>
+<p rendition="#c"> <hi rendition="#g">Roſenwuͤrmchen.</hi></p><lb/>
+<lg type="poem"> <l>Kam der Sommer hergezogen,</l><lb/>
+<l>Roſenbluͤthchen war dabei,</l><lb/>
+<l>Bin ich hinterdrein geflogen,</l><lb/>
+<l>Wußte nicht, ob's ſchicklich ſei.</l><lb/>
+<l>Roſenbluͤthchen, woll' mir geben</l><lb/>
+<l>Nur ein Blaͤttchen, drauf zu leben!</l><lb/>
+<l>Sprach es: Klein iſt dein Bewerben,</l><lb/>
+<l>Doch gar ſchnell mein Duft verweht.</l><lb/>
+<l>Sprach ich: Mit dir will ich ſterben,</l><lb/>
+<l> <hi rendition="#g">Wenn die Sommerzeit vergeht</hi>.</l><lb/>
+</lg>     <p rendition="#c"> <hi rendition="#g">Philoſophiſche Troͤſterin.</hi></p><lb/>
+<lg type="poem"> <l>Schweſter, trockne deine Zaͤhren!</l><lb/>
+<l>Hin iſt hin, und todt iſt todt.</l><lb/>
+<l>Nichts bei uns kann ewig waͤhren,</l><lb/>
+<l>Heute bleich, was geſtern roth.</l><lb/>
+<l>Eins auch wolle noch bedenken:</l><lb/>
+<l>Ungluͤck kann zum Gluͤck ſich lenken,</l><lb/>
+<l>Einen Beſſern kannſt du frein.</l><lb/>
+<l>Reiche Wittwen ſterben ſelten:</l><lb/>
+<l>Darum, Schweſter, gieb dich drein,</l><lb/>
+<l> <hi rendition="#g">Denn es iſt das Loos der Welten</hi>.</l><lb/>
+</lg>
+<pb n="160" facs="#f0172"/>
+<p rendition="#c"> <hi rendition="#g">Leipziger Gaſtwirth.</hi></p><lb/>
+<lg type="poem"> <l>Ja, wenn's immer Meſſe waͤre,</l><lb/>
+<l>Und die Meſſ' auch immer gut,</l><lb/>
+<l>Gaͤb' ich mein Hotel, auf Ehre,</l><lb/>
+<l>Nicht um einen Rathsherrnhut.</l><lb/>
+<l>Doch, ſchon kleiner wird die Schuͤſſel,</l><lb/>
+<l>Und ich ſeh' die vielen Schluͤſſel</l><lb/>
+<l>Wieder haͤngen an den Waͤnden.</l><lb/>
+<l>Drum, wer ſeine Kunſt verſteht,</l><lb/>
+<l>Denke, wenn er's hat in Haͤnden:</l><lb/>
+<l> <hi rendition="#g">Alles kommt und Alles geht</hi>.</l><lb/>
+</lg> <milestone unit="section" rendition="#hr"/> </div> </div> </body> <back>
+<pb facs="#f0173"/>
+<pb facs="#f0174"/>
+<pb facs="#f0175"/>
+</back> </text> </TEI>

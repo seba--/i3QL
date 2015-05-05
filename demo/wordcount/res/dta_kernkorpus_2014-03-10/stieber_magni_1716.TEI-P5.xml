@@ -1,0 +1,1523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Leben Des Hertzogs Magni zu Mecklenburg, Ersten Evangelischen Bischoffs zu Schwerin</title>
+<author>
+<persName ref="http://d-nb.info/gnd/121840964">
+<surname>Stieber</surname>
+<forename>Georg Friedrich</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">50</measure>
+<measure type="tokens">8127</measure>
+<measure type="types">3160</measure>
+<measure type="characters">59728</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:43:22Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/stieber_magni_1716</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/stieber_magni_1716</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/stieber_magni_1716</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/stieber_magni_1716</idno>
+<idno type="DTADirName">stieber_magni_1716</idno>
+<idno type="DTAID">20584</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Stieber, Georg Friedrich: Leben Des Hertzogs Magni zu Mecklenburg. Rostock u. a., 1716.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Leben Des Hertzogs Magni zu Mecklenburg, Ersten Evangelischen Bischoffs zu Schwerin</title>
+<author>
+<persName ref="http://d-nb.info/gnd/121840964">
+<surname>Stieber</surname>
+<forename>Georg Friedrich</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">44 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Rußworm</name></publisher>
+<pubPlace>Rostock</pubPlace>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1716</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>HAB Wolfenbüttel</repository>
+<idno>
+<idno type="shelfmark">HAB Wolfenbüttel, M: Ea 660 (2)</idno>
+<idno type="URLCatalogue">Dig: http://diglib.hab.de/drucke/ea-660-2s/start.htm</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Biographie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<titlePage type="main"><docTitle><titlePart type="main"> <hi rendition="#fr">Leben<lb/>
+Des Hertzogs<lb/>
+<hi rendition="#aq"><hi rendition="#g">MAGNI</hi></hi><lb/>
+zu Mecklenburg/</hi></titlePart><lb/>
+<titlePart type="sub"><hi rendition="#fr">Erſten<lb/>
+Evangeliſchen Biſchoffs<lb/>
+zu Schwerin/</hi></titlePart></docTitle><lb/>
+<byline><hi rendition="#fr">Bey muͤßigen Stunden entworffen<lb/>
+Von</hi><lb/>
+<docAuthor><hi rendition="#fr"><hi rendition="#aq">G. F. <hi rendition="#k">Stieber</hi>.</hi></hi></docAuthor></byline><lb/>
+<figure/> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace>Roſtock und Leipzig/</pubPlace><lb/>
+<publisher>In Verlegung Johann Heinrich Rußworm/</publisher> <docDate>1716.</docDate></docImprint></titlePage></front><body><lb/>
+<pb facs="#f0002"/>
+<pb n="[1]" facs="#f0003"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head>§. 1.</head><lb/>
+<p><hi rendition="#in">D</hi>A eine gruͤndliche Gelehrſam-<lb/>
+keit auch die verewiget und in Anſe-<lb/>
+hen ſetzet/ welche ſonſt wegen ihres<lb/>
+geringen Herkommens wol verbor-<lb/>
+gen bleiben wuͤrden/ wie viel vor-<lb/>
+trefflicher wird nicht derer Ruhm und Glantz<lb/>
+ſeyn/ welche/ da ſie bereits durch ihre Gewalt und<lb/>
+Geburt durchlauchtig ſind/ ſolche Herrlichkeit<lb/>
+durch den Ruhm einer klugen Gelahrſamkeit zu<lb/>
+vermehren bemuͤhet ſind? Derowegen haben<lb/>
+verſchiedene <hi rendition="#aq">Scribenten</hi> diejenige Fuͤrſten mit groſ-<lb/>
+ſer Sorgfalt angemercket/ welche auch wegen<lb/>
+ihrer <hi rendition="#aq">Erudition</hi> beruͤhmt geweſen. Die Meck-<lb/>
+lenburgiſche Hiſtorie kan die Anzahl der gelehrten<lb/>
+Fuͤrſten ziemlich vermehren. So viel <hi rendition="#aq">Muſen</hi> die<lb/>
+alten <hi rendition="#aq">Poeten</hi> erdacht/ ſo viel gelehrte Herrn ſtel-<lb/>
+let uns die Hiſtorie unſers Landes dar. Denn ſo<lb/>
+hat ſchon Herr <hi rendition="#aq">Frid. Thomas</hi> in ſeinen gelehrten<lb/>
+<hi rendition="#aq">Analectis Guſtrovienſibus p.</hi> 214. und nachhero<lb/>
+Herr <hi rendition="#aq">M. Jac. Hier. Lochner</hi> in ſeiner zu Noſtock als<lb/>
+<hi rendition="#aq">Profeſſor Hiſt.</hi> gehaltenen und ſehr beliebten <hi rendition="#aq">Dis-</hi><lb/>
+<fw type="sig" place="bottom">A</fw><fw type="catch" place="bottom"><hi rendition="#aq">ſerta-</hi></fw><lb/>
+<pb n="2" facs="#f0004"/>
+<hi rendition="#aq">ſertation de Singularibus qvibusdam Mecklenburgi-<lb/>
+cis, c.</hi> 3. neune der Mecklenburgiſchen oder Wen-<lb/>
+diſchen Fuͤrſten angemercket/ welche bey ihrer<lb/>
+Hoheit auch eine heilſahme Gelehrſahmkeit belie-<lb/>
+bet haben. <hi rendition="#aq">GODESCALCUS</hi> ein Koͤnig der Obo-<lb/>
+triten oder Wenden/ welcher im <hi rendition="#aq">XI.</hi> Jahr hun-<lb/>
+dert gelebet/ iſt zu Luͤneburg im Chriſtlichen<lb/>
+Glauben und guten Wiſſenſchafften unterrichtet;<lb/>
+Er hat die <hi rendition="#aq">Theologie</hi> ſo hoch geliebet/ daß er ſich<lb/>
+nicht geſchaͤmet/ ſeinen Unterthanen ſo noch meh-<lb/>
+rentheils Heyden waren/ auch mit Gefahr des<lb/>
+Lebens/ das Evangelium in Wendiſcher Sprache<lb/>
+zu predigen und zu erklaͤhren. Deſſen aber mit<lb/>
+mehrerm in der Mecklenburgiſchen Kirchen-Hi-<lb/>
+ſtorie/ von Stifftung der Chriſtlichen Kirchen<lb/>
+unter den Wenden/ <hi rendition="#aq">Parte IV.</hi> §. 2. ohnlaͤngſt ge-<lb/>
+dacht habe. Der ander gelehrte Wendiſche Fuͤrſt<lb/>
+war <hi rendition="#aq">JOHANNES THEOLOGUS,</hi> welcher billig<lb/>
+alſo genandt/ weil er im <hi rendition="#aq">XIII. Seculo</hi> gantzer<lb/>
+zwantzig Jahr zu Pariß <hi rendition="#aq">ſtudir</hi>et/ und dahero in<lb/>
+der <hi rendition="#aq">Theologi</hi>ſchen Wiſſenſchafft die hoͤchſte Eh-<lb/>
+ren-Belohnung auff daſiger <hi rendition="#aq">Univerſit</hi>aͤt anzuneh-<lb/>
+men ſich nicht gewegert/ indem er nach beywoh-<lb/>
+nender Klugheit dieſe Goͤttliche Wiſſenſchafft<lb/>
+hoͤher hielte/ als das blinde Urtheil der Unver-<lb/>
+ſtaͤndigen/ welche dieſen Herrn desfalls ſchimpfs-<lb/>
+weiſe <hi rendition="#aq">Knees-Janike</hi> zu nennen pflegten. Und weil<lb/>
+er wuſte/ daß GOtt dem Joſua und andern Koͤ-<lb/>
+nigen des Volcks GOttes/ ſonderlich ſein Wort<lb/>
+anvertrauet und vor Augen geleget/ ſo hat er<lb/>
+<fw type="catch" place="bottom">auch</fw><lb/>
+<pb n="3" facs="#f0005"/>
+auch die gantze Bibel mit eigener Hand abge-<lb/>
+ſchrieben/ und ſelbe dem Kloſter Doberan nach-<lb/>
+mahls geſchencket. Der dritte iſt <hi rendition="#aq">WILHEL-<lb/>
+MUS,</hi> der letzte Fuͤrſt unter den Herrn zu Werle/<lb/>
+welcher im <hi rendition="#aq">XV.</hi> Jahrhundert zu <hi rendition="#aq">Joh. Huſſens</hi><lb/>
+Zeiten in Boͤhmen zu Praag <hi rendition="#aq">ſtudir</hi>et/ und ehe er<lb/>
+zur Regierung kommen/ ein Probſt in hieſtgem<lb/>
+Guͤſtrowiſchen Dohm-<hi rendition="#aq">Collegio</hi> geweſen. Der<lb/>
+vierdte gelehrte Mecklenburgiſche Herr war<lb/>
+<hi rendition="#aq">ERICUS,</hi> Hertzogs <hi rendition="#aq">Magni II.</hi> Sohn/ welcher<lb/>
+uͤm den Anfang des <hi rendition="#aq">XVI. Seculi</hi> zu Bononien<lb/>
+und Roſtock <hi rendition="#aq">ſtudir</hi>et/ da er denn auff letzterer <hi rendition="#aq">Aca-<lb/>
+demie</hi> etliche mahl <hi rendition="#aq">Rector Magniſicentiſſimus</hi> ge-<lb/>
+weſen. Der fuͤnffte iſt Hertzog <hi rendition="#aq">MAGNUS,</hi> deſſen<lb/>
+Leben wir jetzo entwerffen. Der ſechſte war <hi rendition="#aq">JO-<lb/>
+HANN. ALBERTUS I.</hi> welcher nicht allein im<lb/>
+<hi rendition="#aq">XVI.</hi> Jahrhundert voͤllig das Land Mecklenburg<lb/>
+von dem Paͤbſtlichen Sauerteig geſaubert/ ſon-<lb/>
+dern auch ſelbſt ein geiſtreich Buch geſchrieben/<lb/>
+<hi rendition="#aq">Meditatio de Morte,</hi> genandt; wie denn auch der<lb/>
+groſſe <hi rendition="#aq">Theologus Joh. Gerhard</hi> in ſeinen <hi rendition="#aq">Locis<lb/>
+Theol. de Morte, p. m.</hi> 343. eine vortreffliche <hi rendition="#aq">Medi-<lb/>
+tation</hi> dieſes Hertzogs anfuͤhret/ und ſelbe ſeinem<lb/>
+Werck einzuverleiben wehrt geachtet. Es war<lb/>
+uͤberdem dieſer <hi rendition="#aq">Johann. Albertus</hi> auch in andern<lb/>
+Wiſſenſchafften/ ſonderlich in <hi rendition="#aq">Matheſi</hi> ſehr erfah-<lb/>
+ren. Das <hi rendition="#aq">Seculum</hi> der <hi rendition="#aq">Reformation,</hi> nemlich<lb/>
+das <hi rendition="#aq">XVI.</hi> Jahrhundert/ war ſonderlich gluͤcklich<lb/>
+vor Mecklenburg/ weil es verſchiedene gelehrte<lb/>
+und ſehr fromme Herrn dieſem Land geſchencket/<lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">ohn-</fw><lb/>
+<pb n="4" facs="#f0006"/>
+ohnzweiffel daß das Werck der <hi rendition="#aq">Reformation</hi> deſto<lb/>
+beſſer moͤchte von ſtatten gehen. Denn ſo war<lb/>
+Hertzog <hi rendition="#aq">ULRICH</hi> zu Mecklenburg auch ein ge-<lb/>
+lehrter Regent/ welcher ein ſchoͤn und erbaulich<lb/>
+<hi rendition="#aq">Theologi</hi>ſches Buch geſchrieben/ worinn die gantze<lb/>
+Chriſtliche Lehre gruͤndlich abgehandelt/ ſo dieſen<lb/>
+Titul fuͤhret: <hi rendition="#fr">Kurtze Wiederholung etli-<lb/>
+cher fuͤrnehmer Haupt-Stuͤcke Chriſtli-<lb/>
+cher Lehre/ nach Ordnung des Catechiſmi/<lb/>
+durch eine hohe Perſon zuſammen getra-<lb/>
+gen/ Leipzig 1594.</hi> Der achte war <hi rendition="#aq">CHRI-<lb/>
+STOPHORUS,</hi> Hertzog zu Mecklenburg und Bi-<lb/>
+ſchoff zu Ratzeburg/ welcher gleichfals ein Buch<lb/>
+geſchrieben <hi rendition="#aq">de veteri Philoſophia.</hi> Der neundte<lb/>
+iſt der Hochgelahrte Fuͤrſt <hi rendition="#aq">GUSTAV ADOLPH,</hi><lb/>
+Hertzog zu Mecklenburg hochſeel. Andenckens/<lb/>
+deſſen unvergleichliche Gelehrſamkeit/ geiſtreiche<lb/>
+<hi rendition="#aq">Poëmata,</hi> tieffſinnige lateiniſche <hi rendition="#aq">Meditationes</hi> und<lb/>
+gelehrte Anmerckungen uͤber die Heil. Schrifft<lb/>
+und <hi rendition="#aq">Patres</hi> wohl ein beſonderes Buch erforderten/<lb/>
+nach <hi rendition="#aq">Meriten</hi> ſelbige zu erzehlen: Wie denn hie-<lb/>
+ſtge Hoch-Fuͤrſtl. <hi rendition="#aq">Bibliothec</hi> von dieſes durch-<lb/>
+lauchtigſten Hertzogs ungemeiner Gelehrſamkeit<lb/>
+genugſahm zeuget/ und davon auch der hochwuͤr-<lb/>
+dige Herr <hi rendition="#aq">D. Fecht</hi> in feiner ſchoͤnen Vorrede uͤber<lb/>
+Ihro Durchlaucht. nun ſchon etliche mahl auff-<lb/>
+gelegte gedruckte Gedichte/ bereits einige Mel-<lb/>
+dung gethan. So es die Umſtaͤnde geſtatten/<lb/>
+koͤnte es leicht ſeyn/ daß wir kuͤnfftig dieſer ge-<lb/>
+lehrten Mecklenburgiſchen Hertzoge Leben zu-<lb/>
+<fw type="catch" place="bottom">ſammen</fw><lb/>
+<pb n="5" facs="#f0007"/>
+ſammen entwuͤrffen/ wie es denn derſelben un-<lb/>
+ſterblicher Ruhm verdienet/ ſo gelehrter als<lb/>
+frommer Regenten hohe <hi rendition="#aq">Meriten</hi> im immerwaͤh-<lb/>
+renden Andencken bey denen Nachkommen zu<lb/>
+erhalten.</p></div><lb/>
+<div n="1"><head>§. 2.</head> <p>Jetzo aber bleiben wir allein bey Her-<lb/>
+tzogs <hi rendition="#aq">MAGNI</hi> Leben/ erſten Evangeliſchen Bi-<lb/>
+ſchoffs zu Schwerin/ welcher vor vielen einen<lb/>
+Rang verdienet/ weil er nicht nur durch ſeine<lb/>
+gruͤndliche Gelehrſamkeit ihm in gantz Teutſch-<lb/>
+land einen groſſen Nahmen erworben/ ſondern<lb/>
+auch/ weil er ſolchen Schatz der Wiſſenſchafften<lb/>
+zum Heyl des gantzen Landes/ und ſonderlich ſei-<lb/>
+nes Stiffts in Befoderung der <hi rendition="#aq">Reformation</hi> und<lb/>
+Wiederherſtellung guter Kuͤnſte und Sprachen/<lb/>
+kluͤglich anzuwenden gewuſt. Jhro Durchl.<lb/>
+ſind gebohren zu Stargard in Mecklenburg/ wie<lb/>
+ſein zu Doberan befindlich teutſches Grabmahl<lb/>
+ausweiſet. Der Tag ſeiner Gebuhrt war der<lb/>
+Tag <hi rendition="#aq">Ulrici,</hi> das iſt der 4. <hi rendition="#aq">Julii</hi> im Jahr 1509. da<lb/>
+noch alles mit Paͤbſtiſcher Finſterniß uͤberzogen<lb/>
+war. <hi rendition="#aq">(vid. Epitaph. Doberan. &amp; Hedericus de Epiſc.<lb/>
+Sverin. MSC. in vita Magni.)</hi> Er war der dritte<lb/>
+unter denen Mecklenburgiſchen Herrn/ welcher<lb/>
+den Nahmen <hi rendition="#aq">Magnus</hi> fuͤhrete; Wie denn ſeine<lb/>
+Tugend und Gelahrſamkeit <hi rendition="#aq">meritirt</hi>en/ daß er<lb/>
+<hi rendition="#aq">Magnus,</hi> d. i. Groß hieß. Daß alſo Nahmen<lb/>
+und That hie eintraffen. Sein Herr Vater war<lb/>
+einer der aller vortrefflichſten Regenten dieſes<lb/>
+Landes/ nemlich Heinrich der Friedfertige/<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">wel-</fw><lb/>
+<pb n="6" facs="#f0008"/>
+welchen das Land wegen ſeiner Lands-vaͤterli-<lb/>
+chen Vorſorge/ Gnade und hohe Verdienſte mit<lb/>
+Recht einen Vater des Vaterlandes/ als mit<lb/>
+ſeinem eigenen Nahmen/ zu nennen pflag. Wie<lb/>
+nun dieſer Heinrich ein Herr war von ungemei-<lb/>
+ner Klugheit und gruͤndlicher Gottesfurcht/ ſo<lb/>
+zuerſt dem auffgehenden Licht des Evangelii bey<lb/>
+der <hi rendition="#aq">Reformation</hi> in dieſem Lande Raum gemacht/<lb/>
+alſo iſt auch deſſen Sohn <hi rendition="#aq">Magnus</hi> denen Fuß-<lb/>
+ſtapffen der vaͤterlichen Tugenden gefolget. Sei-<lb/>
+ne Frau Mutter war aus dem Chur-Fuͤrſtlichen<lb/>
+Hauſe Brandenburg/ <hi rendition="#aq">Urſula,</hi> eine Tochter des<lb/>
+vortrefflichen Chur-Fuͤrſten <hi rendition="#aq">Johannis,</hi> welcher<lb/>
+<hi rendition="#aq">Cicero Germaniæ</hi> genandt wurde; Mit welcher ſich<lb/>
+<hi rendition="#aq">Henricus</hi> der Friedfertige <hi rendition="#aq">a.</hi> 1506. vermaͤhlet/ und im<lb/>
+dritten Jahr dieſer geſegneten Ehe unſern <hi rendition="#aq">Ma-<lb/>
+gnum</hi> gezeuget. Es ſtarb aber dieſem erſtgebohr-<lb/>
+nen Printzen ſchon im 2. Jahr ſeines Alters ſeine<lb/>
+Frau Mutter <hi rendition="#aq">Urſula</hi> ab/ den 18. <hi rendition="#aq">Octob. Ao.</hi> 1511.<lb/>
+Der Herr Vater aber/ Hertzog Heinrich/ lebete<lb/>
+noch biß 1552/ daß er alſo ſeinen Sohn <hi rendition="#aq">Magnum</hi><lb/>
+uͤberlebet. Jetztgedachter Printz <hi rendition="#aq">Magnus</hi> wurde<lb/>
+auffs allerſorgfaͤltigſte erzogen/ weil er Menſch-<lb/>
+licher Hoffnung nach/ ſeinem Herrn Vater in der<lb/>
+Regierung folgen ſolte. Gleich in den erſten<lb/>
+Jahren gab dieſer junge Herr ſchoͤne Merckmah-<lb/>
+le eines klugen Verſtandes und Faͤhigkeit/ und<lb/>
+wurde ſolches gluͤckliche <hi rendition="#aq">Naturel</hi> noch mehr durch<lb/>
+die geſchickte Sorgfalt ſeiner gelehrten <hi rendition="#aq">Informa-<lb/>
+toren</hi> angefriſchet und befodert. Der erſte <hi rendition="#aq">Infor-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">mator</hi></fw><lb/>
+<pb n="7" facs="#f0009"/>
+<hi rendition="#aq">mator</hi> war <hi rendition="#aq">M. Conradus Pegelius,</hi> (1) ein Mann<lb/>
+welcher ſich uͤm die Roſtockiſche <hi rendition="#aq">Academie</hi> ſehr<lb/>
+verdient gemacht/ den auch unſer Hertzog <hi rendition="#aq">Ma-<lb/>
+gnus</hi> ſehr geliebet; Denn ohngeachtet er hernach<lb/>
+einen andern <hi rendition="#aq">Informatorem</hi> bekommen/ hat hoch-<lb/>
+gedachter Hertzog doch noch immer eine beſtaͤndi-<lb/>
+ge Gnade vor ſeinen erſten und alten <hi rendition="#aq">M. Conr.<lb/>
+Pegeln</hi> behalten/ ſo gar/ daß er auch auffs fleißigſte<lb/>
+mit ſelben Briefe gewechſelt. Es meldet der be-<lb/>
+ruͤhmte <hi rendition="#aq">Chytræus</hi> in ſeiner Leich-<hi rendition="#aq">Sermon</hi> oder Lob-<lb/>
+Rede der Hertzogin zu Mecklenburg <hi rendition="#aq">Eliſabeth,</hi><lb/>
+daß noch uͤber hundert Briefe fuͤrhanden/ ſo<lb/>
+Ihro Durchl. mit eigener Hand/ und zwar meiſt<lb/>
+in Lateiniſcher Sprache/ an <hi rendition="#aq">M. Conrad. Pege-<lb/>
+lium</hi> geſchrieben/ welche von Jhro Durchl. Ge-<lb/>
+ſchicklichkeit/ Verſtand und Gnade Zeugniß ge-<lb/>
+ben koͤnnen. (2) Der ander <hi rendition="#aq">Informator</hi> dieſes<lb/>
+Printzen <hi rendition="#aq">Magni</hi> war <hi rendition="#aq">Arnoldus Burenius,</hi> gleich-<lb/>
+fals ein ſehr gelehrter und beruͤhmter Mann/ (3)<lb/>
+deſſen der vortreffliche <hi rendition="#aq">Caſelius</hi> in ſeiner netten<lb/>
+<hi rendition="#aq">Oration de Laudibus Eliſabethæ Cimbricæ,</hi> mit<lb/>
+groͤſten Ruhm gedencket/ und von ihm urtheilet/<lb/>
+er ſey recht dazu auffgelegt geweſen/ einen groſſen<lb/>
+Printzen zu allen Fuͤrſtlichen Tugenden und<lb/>
+<hi rendition="#aq">Qvalit</hi>aͤten zu erziehen. <hi rendition="#aq">Arnoldus Burenius</hi> (ſind<lb/>
+<hi rendition="#aq">Caſelii</hi> Worte) <hi rendition="#aq">homo idem doctiſſimus &amp; graviſſi-<lb/>
+mus - - Ipſemet enim Magni ingenium iis doctri-<lb/>
+nis accurate expoliverat, qvibus moderatorem Civi-<lb/>
+tatis futurum erudiri oporteret. Atqve in hoc regiæ<lb/>
+pædagogiæ munere ſi qvisqvam noſtra majorumve</hi><lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom"><hi rendition="#aq">ætate</hi></fw><lb/>
+<pb n="8" facs="#f0010"/>
+<hi rendition="#aq">ætate recte ſe geſſit, fuit profecto hic Burenius Nam<lb/>
+non frivola neqve levia, aut ad ſpeciem oſtentatio-<lb/>
+nemqve parata, nobiliſſimum iſtum ſuum alumnum<lb/>
+docuerat, qvod pleriqve faciunt. Qvotus enim<lb/>
+qvisqve, cui tam graves partes credantur, ipſe ani-<lb/>
+mum, mores, vitamqve recte excoluit? nedum<lb/>
+ſublimiores artes cognoverit, qvibus regem inſtru-<lb/>
+ctum eſſe oporteat, ut ipſe beate vivat, &amp; beatæ vitæ<lb/>
+rationem ſuis populis ut pater, peneqve ut DEUS,<lb/>
+aut certè pro DEO munifice omniqve cura imper-<lb/>
+tiat. Acceperat enim vir ille ab omnibus autoribus,<lb/>
+qvæ multis qvibus ita arduum munus ſtulte credi-<lb/>
+tur, ne primoribus qvidem labris attigerunt &amp; eum<lb/>
+rerum uſum ſibi paraverat, ut recte ad rerum huma-<lb/>
+narum tractationem &amp; auditores alios &amp; principum<lb/>
+filios, ipſe qvoqve feliciter præpararet.</hi> d. i. <hi rendition="#aq">Ar-<lb/>
+noldus Burenius</hi> war beydes gelehrt und ernſthafft/<lb/>
+welcher ſeinen ihm anvertrauten Printzen beſon-<lb/>
+ders in denjenigen Wiſſenſchafften unterrichtet/<lb/>
+welche ihm als einem kuͤnfftigen Regenten noͤhtig<lb/>
+waren. Gewiß/ ſo jemahls bey Erziehung eines<lb/>
+Printzen alle Regeln einer klugen <hi rendition="#aq">education</hi> in acht<lb/>
+genommen/ ſo hat es <hi rendition="#aq">Burenius</hi> gethan. Er hielte ſich<lb/>
+nicht mit unnuͤtzen/ laͤppiſchen oder ſolchen Sa-<lb/>
+chen auff/ die mehr Schein als eine gruͤndliche<lb/>
+Wiſſenſchafft geben/ welches gleichwohl viele<lb/>
+thun; Denn wie viel ſind derer/ welchen ein ſo<lb/>
+wichtiges Ampt/ die Erziehung eines kuͤnfftigen<lb/>
+Regenten/ anvertrauet wird/ die ſelbſt zuvor mit<lb/>
+anſtaͤndlicher Tugend ihren Wandel/ und mit<lb/>
+genugſahmer klugen Wiſſenſchafft ihr Gemuͤht<lb/>
+<fw type="catch" place="bottom">ausge-</fw><lb/>
+<pb n="9" facs="#f0011"/>
+ausgeſchmuͤckt haben/ daß ſie ſorgfaͤltig zeigen<lb/>
+koͤnten/ wie ein kuͤnfftiger Regent als ein Vater/<lb/>
+ja als ein Gott/ deſſen Bild er traͤget/ ſein Volck<lb/>
+gluͤcklich regieren und ihm ein Exempel eines tu-<lb/>
+gendhafften Wandels geben ſolle. Dieſes hatte<lb/>
+aber <hi rendition="#aq">Burenius</hi> aus den kluͤgſten Schrifften der ge-<lb/>
+lehrten gefaſſet/ welche oͤffters die/ ſo groſſer Her-<lb/>
+ren Erziehung anbefohlen/ nicht einmahl anzuſe-<lb/>
+hen werth achten. So klug weiß dieſer Schul-<lb/>
+Mann von gluͤcklicher <hi rendition="#aq">Information</hi> und Erziehung<lb/>
+eines Printzen zu urtheilen! Und da Hertzog<lb/>
+Heinrich der Friedfertige nicht nur ein ſehr ver-<lb/>
+nuͤnfftiger ſondern auch gottſeliger Regent war/<lb/>
+und daher wohl erkannte/ was vor groſſen Scha-<lb/>
+den ein gantzes Land an ungluͤcklicher Erziehung<lb/>
+und Unterricht eines Printzen haͤtte/ ſo iſt leicht<lb/>
+zn erachten/ daß dieſer Herr offtgedachten <hi rendition="#aq">Bure-<lb/>
+nium</hi> mit groſſer Sorgfalt zu einen ſo wichtigen<lb/>
+Ampte erwaͤhlet habe/ beſonders zu einer ſolchen<lb/>
+Zeit/ da es wegen des fallenden Pabſt- und auff-<lb/>
+gehenden Luther-thums auff kluge Geſchicklichkeit<lb/>
+hauptſaͤchlich ankam. Und weil dazumahl der<lb/>
+Chur-Saͤchſiſche Hoff nicht nur in groſſen Anſe-<lb/>
+hen war/ ſondern auch in demſelben Chur-Fuͤr-<lb/>
+ſtenthum eben zu dieſer Zeit nebſt den guten Kuͤn-<lb/>
+ſten und Sprachen das Licht des Evangelii wie-<lb/>
+der hervorbrach/ ſo wurde unſer Printz <hi rendition="#aq">Magnus,</hi><lb/>
+wegen naher Anverwandtſchafft (4) am Chur-<lb/>
+Saͤchſiſchen Hofe erzogen/ woſelbſten damahls<lb/>
+mit <hi rendition="#aq">Luthero</hi> und <hi rendition="#aq">Melanchthon</hi> faſt taͤglich <hi rendition="#aq">confe-<lb/>
+rence</hi> gehalten wurde/ und die wichtigſten <hi rendition="#aq">Reli-</hi><lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom"><hi rendition="#aq">ons-</hi></fw><lb/>
+<pb n="10" facs="#f0012"/>
+<hi rendition="#aq">gions-</hi>Sachen vorfielen. Welchem Hoff alſo<lb/>
+nicht nur Hertzog <hi rendition="#aq">Magnus,</hi> ſondern auch das gan-<lb/>
+tze Land Mecklenburg viele heilſahme Anſchlaͤge<lb/>
+bey Wiederherſtellung der guten Kuͤnſte und rei-<lb/>
+nen <hi rendition="#aq">Religion</hi> zu dancken hat. Und ich ſolte faſt<lb/>
+gewiß davor halten/ daß die 6. Jahre uͤber/ ſo<lb/>
+lange nemlich <hi rendition="#aq">Burenius</hi> bey Printz <hi rendition="#aq">Magno</hi> als <hi rendition="#aq">In-<lb/>
+formator</hi> geweſen/ ehe er nach Roſtock kommen<lb/>
+und daſelbſt <hi rendition="#aq">privatim</hi> und <hi rendition="#aq">publicè</hi> zu lefen angefan-<lb/>
+gen/ (wie <hi rendition="#aq">M. Weslingius in Progr. funebr. Burenii<lb/>
+in Scriptis Acad. Roſtoch. p.</hi> 378. meldet) er mehren-<lb/>
+theils mit Printz <hi rendition="#aq">Magno</hi> ſich am Chur-Saͤchſt-<lb/>
+ſchen Hoffe auffgehalten/ denn eben uͤm dieſelbe<lb/>
+Zeit wird geſagt/ <hi rendition="#aq">Magnus</hi> ſey an ſolchem Hoffe<lb/>
+erzogen worden. Und das <hi rendition="#aq">Burenius</hi> daſelbſt nicht<lb/>
+muͤſſe unbekandt geweſen ſeyn/ erhellet aus den<lb/>
+Worten <hi rendition="#aq">M. Weslingii</hi> in vorgedachtem <hi rendition="#aq">Program-<lb/>
+mate funebri p. 378. <hi rendition="#i">Exemplum qvoqve illius</hi> (Bu-<lb/>
+renii) <hi rendition="#i">Elector Saxoniæ Johannes Fridericus Magni<lb/>
+omitinus, in ſuis filiis accuratius erudiendis imita-<lb/>
+tus eſt.</hi></hi> Unter eines ſo klugen und gelehrten <hi rendition="#aq">Infor-<lb/>
+matoris</hi> Anfuͤhrung/ nahm der junge Fuͤrſt <hi rendition="#aq">Ma-<lb/>
+gnus</hi> dermaſſen zu/ daß er nicht allein der Latei-<lb/>
+niſchen und Griechiſchen Sprache maͤchtig/ ſon-<lb/>
+dern auch ſo beredt war/ daß man ihn nach <hi rendition="#aq">Chy-<lb/>
+træi</hi> und anderer <hi rendition="#aq">Scribenten</hi> Zeugniß/ unter allen<lb/>
+teutſchen Fuͤrſten vor den Gelahrteſten ſeiner<lb/>
+Zeit gehalten. Denn <hi rendition="#aq">anno</hi> 1530. als das gantze<lb/>
+Reich zu Augſpurg verſammlet war/ da denn die<lb/>
+Augſpurgiſche <hi rendition="#aq">Confeſſion</hi> von denen <hi rendition="#aq">Proteſtanti-</hi><lb/>
+ſchen Herrn uͤbergeben/ hat unſer Printz <hi rendition="#aq">Magnus</hi><lb/>
+<fw type="catch" place="bottom">im</fw><lb/>
+<pb n="11" facs="#f0013"/>
+im 21. Jahr ſeines Alters/ auff ſolchem weltbe-<lb/>
+ruͤhmten Reichs-Tag eine vortreffliche Probe ſei-<lb/>
+ner Gelehrſahm- und Beredſahmkeit abgeleget.<lb/>
+Denn ſo hielte er in Gegenwart des Kaͤyſers <hi rendition="#aq">Ca-<lb/>
+roli V.</hi> und anderer hohen Anweſenden Reichs-<lb/>
+Staͤnde oͤffentlich und auswendig eine lateiniſche<lb/>
+und teutſche Rede/ mit ſolcher Annehmlichkeit/<lb/>
+daß Kaͤyſer <hi rendition="#aq">Carolus V.</hi> nebſt denen hohen Anwe-<lb/>
+ſenden ſich ſehr verwundert/ und ſelbe nachhero<lb/>
+noch einmahl zu hoͤren verlanget. Wie dieſes<lb/>
+aus <hi rendition="#aq">Chemnitii Epitome Geneal. Hiſt.</hi> unſer offtbe-<lb/>
+lobter Herr <hi rendition="#aq">Thomas</hi> in ſeinen <hi rendition="#aq">Analectis Guſtrov. p.</hi><lb/>
+141. angefuͤhret. Mich wundert aber ſehr/ daß<lb/>
+<hi rendition="#aq">Cœleſtinus</hi> in ſeiner <hi rendition="#aq">Hiſtoria Aug. Confeſſ.</hi> dieſes<lb/>
+Hertzogs <hi rendition="#aq">Magni</hi> der doch damahls ſchon Biſchoff<lb/>
+zu Schwerin geweſen/ nicht Meldung thut/ da er<lb/>
+doch ſonſt ſo wol die geiſtliche als weltliche Fuͤr-<lb/>
+ſten und Herrn/ die auffm Reichstag geweſen/ auch<lb/>
+unſers <hi rendition="#aq">Magni</hi> Herrn Vater/ Hertzog <hi rendition="#fr">Heinrich<lb/>
+den Friedfertigen/</hi> und deſſen Herrn Bruder<lb/>
+Hertzog <hi rendition="#fr">Albrecht den Schoͤnen/</hi> mit ihrer<lb/>
+gantzen <hi rendition="#aq">Svite,</hi> (5) wie auch den Biſchoff zu Ra-<lb/>
+tzeburg <hi rendition="#fr">Georg/</hi> welche alle auff gedachtem<lb/>
+Reichs-Tag erſchienen/ ſorgfaͤltig angezeiget.<lb/>
+Dahero man faſt an obiger erzehlten Merckwuͤr-<lb/>
+digkeit zweifeln koͤnte; Allein/ ſie wird nicht al-<lb/>
+lein von einem glaubwuͤrdigen und einheimiſchen<lb/>
+<hi rendition="#aq">Scribenten</hi> erzehlet/ ſondern auch ſo gar durch un-<lb/>
+ſers Hertzogs <hi rendition="#aq">Magni</hi> eigenem <hi rendition="#aq">Epitaphio</hi> zu Do-<lb/>
+beran bekraͤfftiget/ in welchem folgende Worte<lb/>
+ſtehen:</p><lb/>
+<fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="12" facs="#f0014"/>
+<cit><quote>Er war gelehrt und wohl beredt<lb/>
+Wovon das Roͤmiſch Reich weiß Be-<lb/>
+ſcheidt/<lb/>
+Und Kaͤyſer CARL lobt ſein Latein<lb/>
+Welches er redt zierlich und fein.</quote><bibl/></cit><lb/>
+<p>Mit welchen Worten ohn Zweiffel auff obgedach-<lb/>
+te merckwuͤrdige Geſchichte geziehlet wird. Und<lb/>
+kan es ſeyn daß <hi rendition="#aq">Cœleſtinus</hi> unſers <hi rendition="#aq">Magni</hi> entwe-<lb/>
+der vergeſſen/ oder er hat vielleicht ſeiner nicht ge-<lb/>
+dacht/ theils/ weil Hertzog <hi rendition="#aq">Magnus</hi> damahls ſich<lb/>
+aus klugen Abſichten und wegen ſeines Alters<lb/>
+noch nicht als ein Biſchoff in <hi rendition="#aq">ſolenncm Convent</hi> oͤf-<lb/>
+fentlich aufffuͤhren wollen/ ob er gleich ſchon im<lb/>
+7. Jahr zum Biſchoff zu Schwerin <hi rendition="#aq">poſtuli</hi>ret<lb/>
+war; theils/ weil er als ein junger Printze von<lb/>
+21. Jahren an dem Chur-Saͤchſiſchen Hoffe ſich<lb/>
+auffgebalten und erzogen worden (wie aus des<lb/>
+<hi rendition="#aq">Seckendorffii Hiſtoria Lutheran. L. III. §. 17. (d)<lb/>
+p. m.</hi> 44. erhellet.) und er alſo mag in der <hi rendition="#aq">Svite</hi><lb/>
+der andern Saͤchſiſchen Printzen <hi rendition="#aq">incognito</hi> zu<lb/>
+Augſpurg mit erſchienen ſeyn/ da er denn zufaͤlli-<lb/>
+ger Weiſe eine Probe ſeiner Beredſamkeit abgele-<lb/>
+get/ weil dieſer junge Herr damahls ſonderlich<lb/>
+Luſt gehabt in groſſen Verſammlungen <hi rendition="#aq">Orationes</hi><lb/>
+zu halten/ wie <hi rendition="#aq">Chemnitius in Epitome Hiſtoriæ Ge-<lb/>
+nealogicæ Meel. MSCta</hi> erwehnet. Und obgleich<lb/>
+<hi rendition="#aq">anno</hi> 1532. den 16. <hi rendition="#aq">Aug.</hi> Churfuͤrſt in Sachſen<lb/>
+<hi rendition="#aq">Johann</hi> der Beſtaͤndige genannt/ mit Tode abgan-<lb/>
+gen/ iſt er dennoch auch noch <hi rendition="#aq">anno</hi> 1533. an des<lb/>
+<fw type="catch" place="bottom">jungen</fw><lb/>
+<pb n="13" facs="#f0015"/>
+jungen Chur-Fuͤrſten zu Sachſen <hi rendition="#aq">Johann Fride-<lb/>
+richs</hi> Hoffe geweſen/ als mit welchem unſer Her-<lb/>
+tzog <hi rendition="#aq">Magnus</hi> faſt gleiches Alters/ und deſſen naher<lb/>
+Vetter war. Ob er aber noch zu dieſer Zeit be-<lb/>
+ſtaͤndig am Chur-Saͤchſiſchen Hoffe ſich auff-<lb/>
+gehalten/ oder nur ab und zu gereiſet/ davon kan<lb/>
+keine Gewißheit geben. Diß aber iſt auſſer allen<lb/>
+Zweiffel/ daß in bereits gedachtem 1533. Jahr/<lb/>
+als im Monath <hi rendition="#aq">Julio</hi> die Kaͤyſerliche und Paͤbſt-<lb/>
+liche Geſandten dasjenige/ was wegen des kuͤnff-<lb/>
+tigen <hi rendition="#aq">Concilii</hi> berahtſchlaget war/ dem jungen<lb/>
+Churfuͤrſten zu Sachſen Johann Friedrich und<lb/>
+andern Fuͤrſten des Reichs anbringen ſolten/ und<lb/>
+nun nahe bey Weymar ankommen waren/ unſer<lb/>
+Printz <hi rendition="#aq">Magnus</hi> ſelbige mit einer netten lateiniſchen<lb/>
+<hi rendition="#aq">Oration</hi> empfangen/ da er nun ſchon ein Herr von<lb/>
+23. Jahren geweſen. Wie ſolches die glaubwuͤr-<lb/>
+digſte <hi rendition="#aq">Scribenten <hi rendition="#i">Hedericus</hi></hi> in <hi rendition="#aq">MSC.</hi> Verzeichniß<lb/>
+der Biſchoͤffe zu Schw. <hi rendition="#aq">in vita Magni, <hi rendition="#i">Chytræus</hi><lb/>
+Chron. Sax.</hi> uud aus ſelben <hi rendition="#aq"><hi rendition="#i">Seckendorff.</hi> Hiſt. Luth.<lb/>
+L. III. §. 17. add. (d) pag. m.</hi> 44. und auch unſer<lb/>
+Herr <hi rendition="#aq"><hi rendition="#i">Thomas</hi> in Anal. Guſtr. p.</hi> 142. bekraͤfftigen.</p><lb/>
+<p>In ſolchem Anſehen waren auch bey den<lb/>
+Hohen die <hi rendition="#aq">Studien</hi> in vorigen Zeiten/ wodurch<lb/>
+denn die Wiſſenſchafften zum <hi rendition="#aq">Flor</hi> und Auffneh-<lb/>
+men wieder kommen konten. Und weil Hertzog<lb/>
+<hi rendition="#aq">Magnus</hi> ſelbſt die Lieblichkeit derer <hi rendition="#aq">Studien</hi> ge-<lb/>
+ſchmeckt/ ſo hielten Jhro Durchl. auch viel von<lb/>
+Gelehrten/ deren Schutz und Troſt er war. Wie<lb/>
+hoch derſelbe den <hi rendition="#aq">Philipp. Melanchthon</hi> gehalten/<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="14" facs="#f0016"/>
+und was dieſer vor ein groſſes Vergnuͤgen ihm<lb/>
+wiederuͤm aus dieſes gnaͤdigſten Fuͤrſten Gelahr-<lb/>
+ſamkeit gemacht/ kan man aus folgenden Brieff<lb/>
+ſehen/ welchen <hi rendition="#aq">Melanchthon anno</hi> 1548. an denſel-<lb/>
+ben geſchrieben/ den hiebey aus dem erſten Buch<lb/>
+der Brieffe <hi rendition="#aq">Melanchthonis, edit. Lond. p.</hi> 32. hie<lb/>
+einzuruͤcken nicht vor unangenehm halte: <hi rendition="#aq">Et ex<lb/>
+literis tuis amantiſſime ſcriptis, &amp; ex graviſſimo (6)<lb/>
+Arnoldi ſermone, qvi tuarum literarum humanita-<lb/>
+tem verbis ſubſecutus eſt, benevolentiam erga m<supplied>e</supplied><lb/>
+tuam ſingularem cognovi. Qvanqvam autem nihil<lb/>
+mihi accidere gratius ac honorificentius tali tuo vel<lb/>
+ſtudio vel judicio poteſt, tamen hanc tuam volunta-<lb/>
+tem magis Reipublicæ literariæ, qvam mihi priva-<lb/>
+tim gratulor. Nam cum his ferreis temporibus, li-<lb/>
+teræ publico tumultu qvaſi contritæ interituræ vide-<lb/>
+antur, niſi ſtudia earum rurſus excitent iſti, qvi rerum<lb/>
+potiuntur; maxime mihi voluptati eſt, exiſtere ali-<lb/>
+qvem veſtri ordinis, qvi ſtudioſos homines, ut Poëtæ<lb/>
+verbis utar, <hi rendition="#i">triſtes hac tempeſtate Camœnas,</hi> reſpi-<lb/>
+ciat. Neqve enim dubito, qvin ſtudiis noſtris ea<lb/>
+tribuas, qvæ mihi tribuenda eſſe duxiſti. Proinde<lb/>
+etſi mihi in hac miſeria fortuna literarum gratum eſt,<lb/>
+habere veluti aliqvem Mecœnatem, tamen hoc multo<lb/>
+jucundius eſt, qvod publicum honeſtarum artium ac<lb/>
+ſtudiorum patrocinium ſuſcipere mihi videaris. At-<lb/>
+qve hanc meam de te opinionem literæ tuæ nunc con-<lb/>
+firmarunt. Pepererunt autem anno ſuperiore doctis<lb/>
+ſrmi ſermones tui, cum me ad colloqvium familia-<lb/>
+riſſime accerſiviſſes, ubi facile intelligebam te hæc</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">ſtudia</hi></fw><lb/>
+<pb n="15" facs="#f0017"/>
+<hi rendition="#aq">ſtudia literarum, non adductum inani ambitione<lb/>
+complexum eſſe: ſed qvia ſtatueres neminem ſine hoc<lb/>
+inſtrumento ad Rempublicam bene gerendam idone-<lb/>
+um eſſe. Ego igitur hactenus tuorum ſtudiorum li-<lb/>
+benter memini, eaqve publice prædicavi. Nam ut<lb/>
+extaret hujus mei de te judicii teſtimonium, dedica-<lb/>
+vi tibi commentarium in ſententias Salomonis ſcri-<lb/>
+ptum, qvi propediem in lucem edetur. Tu vero<lb/>
+qvod facis, omnibus ingenii atqve animi viribus in<lb/>
+hæc ſtudia, ad qvæ ſapientiſſimo patris conſilio ad-<lb/>
+hibitus es, incumbe. Nullum enim ornamentum<lb/>
+veſtræ nobilitati honeſtius eſt, qvam perfecta doctri-<lb/>
+na; Et ſi verum eſt, qvod ſcribit Plato, naturâ inter<lb/>
+ſe cohærere &amp; cognatas eſſe, magnam potentiam &amp;<lb/>
+ſapientiam; profecto potentiam ſine ſapientia retine-<lb/>
+re nemo poteſt, neqve ſapientia ſine harum artium<lb/>
+cognitione, in qvibus verſaris, perfecta eſſe ulla pot-<lb/>
+eſt. Qvare hanc doctrinam exiſtimes ad regendam<lb/>
+rempublicam non modo utilem, ſed etiam neceſſari-<lb/>
+am futuram eſſe. Hæc, qvanqvam mihi tua aſſidui-<lb/>
+tas &amp; voluntas nota eſt, ſcripſi tamen ut currentem<lb/>
+hortarer, perinde atqve ille apud Homerum ait:</hi><lb/>
+ὀτρύνων σπεύδοντα. <hi rendition="#aq">Nihil autem in omni ratione<lb/>
+diſcendi utilius eſt ſtyli exercitio. Hic eſt, ut inqvit<lb/>
+Cicero, optimus ac præſtantiſſimus dicendi effector<lb/>
+&amp; magiſter. Neqve vero tantum ad locupletandam<lb/>
+ſermonis copiam conducit, ſed habet aliam longe<lb/>
+majorem utilitatem, qvod judicium acuit &amp; format,<lb/>
+mentemqve excitat, ut multo altius introſpiciat o-<lb/>
+mnia, qvam ſolent iſti, qvi ſtyli uſum nullum ha-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">bent.</hi></fw><lb/>
+<pb n="16" facs="#f0018"/>
+<hi rendition="#aq">bent. Non conſilia autorum, qvos legis plurimos<lb/>
+atqve optimos, non ſententias penitus intelliges, niſi<lb/>
+ſcribendi exercitium ad lectionem adhibueris. In<lb/>
+exemplo tuo lineamenta qvædam comparent, ex qvi-<lb/>
+bus conjecturam facio, plurimum te facere poſſe, ſi<lb/>
+hanc exercitationem non remittas. Eſt enim ſana<lb/>
+oratio tua, nihil habens ineptiarum, ut fere posſit<lb/>
+Attica dici, qvo ego genere orationis plurimum de-<lb/>
+lector. Sed hæc convenit Arnoldum domi mon ere.<lb/>
+Ego adductus magnitudine amoris, ulterius prove-<lb/>
+hor, qvam decet. Qvare te rogo, mihi ut ignoſcas,<lb/>
+ſi videar juſto loqvacior, &amp; ut pro tua ſumma huma-<lb/>
+nitate conſtantiaqve benevolentiam, qva me com-<lb/>
+plexus es, retineas, neqve mei amorem abjicias.<lb/>
+Vale feliciter. Ex Witteberga poſtridie Bartholo-<lb/>
+mæi. Anno MDXLVIII.</hi> Es iſt aber Hertzog <hi rendition="#aq">Ma-<lb/>
+gnus</hi> nicht allein ein groſſer Liebhaber der Spra-<lb/>
+chen geweſen/ ſondern trug auch ein beſonders<lb/>
+Belieben zu der <hi rendition="#aq">Philoſophie</hi> uñ abſonderlich zu der<lb/>
+<hi rendition="#aq">Aſtronomie</hi> und Erforſchung der Wercke der Na-<lb/>
+tur. <hi rendition="#aq">Johannes Bocerus</hi> ruͤhmet ihn daher in ſeinen<lb/>
+<hi rendition="#aq">Originibus</hi> und <hi rendition="#aq">rebus geſtis Ducum Megapolenſium,</hi><lb/>
+und nennet ihn <hi rendition="#aq">Principem ævi ſui doctiſſimum.</hi> Es<lb/>
+iſt leicht zu erachten/ wie eines ſolchen gelehrten<lb/>
+Exempel viele im Lande werde gereitzet haben/ gu-<lb/>
+te Kuͤnſte und Wiſſenſchafften zu lieben. Denn<lb/>
+nach der Groſſen Exempel richtet ſich ein gantzes<lb/>
+Land; wie <hi rendition="#aq">Herodianus</hi> anmercket/ <hi rendition="#aq">L. 1. c.</hi> 2. daß<lb/>
+als <hi rendition="#aq">Marcus Anton. Philoſophus</hi> regieret/ da ſey<lb/>
+auch im Reich eine groſſe Anzahl gelehrter und<lb/>
+<fw type="catch" place="bottom">kluger</fw><lb/>
+<pb n="17" facs="#f0019"/>
+kluger Maͤnner geweſen. Und iſt gewiß/ daß<lb/>
+das groſſe Auffnehmen der <hi rendition="#aq">Studien</hi> im <hi rendition="#aq">XVI. Seculo</hi><lb/>
+groſſen Theils auch daher kommen/ weil die ho-<lb/>
+hen Haͤupter zu ſelbiger Zeit nicht uur die Kuͤnſte<lb/>
+durch ihre Freygebigkeit befodert/ ſondern auch<lb/>
+ſelbſt mit groſſen Ernſt denenſelben obgelegen.<lb/>
+Hingegen fiengen die Wiſſenſchafften an wieder<lb/>
+zu fallen/ nachdem die Groſſen zum Theil nach-<lb/>
+gelaſſen/ ſelbige zu lieben und zu belohnen. Jſt<lb/>
+alſo Hertzog <hi rendition="#aq">Magnus</hi> nebſt ſeinem Herrn Vater<lb/>
+<hi rendition="#aq">Henrico Pacifico,</hi> in dieſem Lande <hi rendition="#aq">Reſtaurator bo-<lb/>
+narum artium &amp; religionis</hi> geweſen/ welche zu-<lb/>
+gleich nebſt guten Kuͤnſten und Sprachen die<lb/>
+reine Lehre zuerſt in dieſes Land eingefuͤhret/ und<lb/>
+die vorige Barbarey nebſt dem Pabſtthum aus<lb/>
+Mecklenburg vertrieben. Muß daher dieſes<lb/>
+Hertzogs <hi rendition="#aq">Magni</hi> Ruhm unter den Gelehrten bil-<lb/>
+lig unſterblich ſeyn. Denn wie der ſeel. Herr<lb/>
+<hi rendition="#aq">D. Grap</hi> in ſeinem Evangeliſchen Roſtock <hi rendition="#aq">cap. 5.<lb/>
+p.</hi> 108. anmercket/ ſo iſt vor dieſer Zeit die Roſto-<lb/>
+ckiſche <hi rendition="#aq">Academie</hi> gantz darnieder gelegen/ und<lb/>
+ſeyen die <hi rendition="#aq">Studia</hi> ſo wenig geachtet worden/ daß<lb/>
+der <hi rendition="#aq">Doctor-</hi>Titul gantz veraͤchtlich worden/ wie<lb/>
+denn faſt gantz keine <hi rendition="#aq">Profeſſores</hi> damahls gewe-<lb/>
+ſen/ daß auch der einige <hi rendition="#aq">Nicolaus Leo</hi> ſechs Jahr<lb/>
+habe <hi rendition="#aq">Rector Magnificus</hi> ſeyn muͤſſen. Wiewol<lb/>
+hiebey diß zu erinnern/ daß dennoch zu der Zeit<lb/>
+auch <hi rendition="#aq">M. Conradus Pegelius</hi> einer der beruͤhmſten<lb/>
+<hi rendition="#aq">Profeſſoren</hi> daſelbſt geweſen/ welcher von <hi rendition="#aq">A.</hi> 1508.<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">biß</fw><lb/>
+<pb n="18" facs="#f0020"/>
+biß 1566. (in welchem Jahr ſeiner am letzten ge-<lb/>
+dacht wird) der Roſtockiſchen <hi rendition="#aq">Academie</hi> als<lb/>
+<hi rendition="#aq">Profeſſor</hi> biß in ſein hohes Alter fuͤrgeſtanden.<lb/>
+Wie aus deſſelben eigenem <hi rendition="#aq">Programmate</hi> erhellet/<lb/>
+ſo er bey ſeinem fuͤnfften und letzten <hi rendition="#aq">Rectorat</hi> mit<lb/>
+dem Ausgang des 1565. Jahrs/ <hi rendition="#aq">in reſtitutionem<lb/>
+Menſæ communis,</hi> nach einer ausgeſtandenen<lb/>
+ſchweren Peſtilentz geſchrieben/ und annoch in<lb/>
+denen von <hi rendition="#aq">Joh. Poſſelio edirt</hi>en <hi rendition="#aq">Scriptis Academiæ<lb/>
+Roſtoch. ab anno 1560. usqve ad an. 1567. publice<lb/>
+propoſitis, p.</hi> 367. vorhanden iſt. Wie auch aus<lb/>
+dem/ was <hi rendition="#aq">D. Joh. Boukius</hi> auff deſſelben <hi rendition="#aq">M. Pe-<lb/>
+gelii</hi> Tochter <hi rendition="#aq">Saræ</hi> fruͤhzeitiges Abſterben/ den<lb/>
+16. <hi rendition="#aq">Junii</hi> 1564. als eine Leichen-<hi rendition="#aq">Invitation</hi> ge-<lb/>
+ſchrieben/ und in eben vorgedachten <hi rendition="#aq">Scriptis Ro-<lb/>
+ſtoch. p.</hi> 303. befindlich iſt. Woraus man als<lb/>
+ſonderlich merckwuͤrdig zu ſehen hat/ daß obge-<lb/>
+dachter <hi rendition="#aq">M. Pegelius</hi> die groͤſſeſte Veraͤnderungen<lb/>
+zu Roſtock gluͤcklich uͤberlebt/ und ſeine <hi rendition="#aq">renom-<lb/>
+mee</hi> kluͤglich dabey in acht zu nehmen gewuſt.<lb/>
+Denn er hat eine gute weile unter dem Pabſt-<lb/>
+thum von <hi rendition="#aq">Anno</hi> 1508. hernach bey dem Fall deſ-<lb/>
+ſelben/ und alſo beym erſten Anfang der <hi rendition="#aq">Refor-<lb/>
+mation,</hi> auch endlich noch eine geraume Zeit<lb/>
+nach dem auffgangenen Licht des Evangelii/ da-<lb/>
+ſelbſt <hi rendition="#aq">in officio publico</hi> gelebet/ und wird er in<lb/>
+dem vom ſeel. Herrn Grieſen ſeiner <hi rendition="#aq">Hiſtoria Slü-<lb/>
+teri</hi> angehengtem <hi rendition="#aq">Catalogo Rectorum Acad. Ro-<lb/>
+ſtoch.</hi> fuͤnff mahl als <hi rendition="#aq">Rector Magnificus</hi> angezo-<lb/>
+<fw type="catch" place="bottom">gen.</fw><lb/>
+<pb n="19" facs="#f0021"/>
+gen. Und muß man ſich zum hoͤchſten verwun-<lb/>
+dern/ daß von dieſem alten <hi rendition="#aq">Profeſſore</hi> weder<lb/>
+<hi rendition="#aq">Petrus Lindenbergius,</hi> noch Herr <hi rendition="#aq">D. Grapius,</hi> noch<lb/>
+ſonſt jemand/ der <hi rendition="#aq">de Rebus Roſtoch.</hi> geſchrieben/<lb/>
+etwas gedencket/ da er doch einer der geſchickte-<lb/>
+ſten Maͤnner zu ſeiner Zeit muß geweſen ſeyn;<lb/>
+ſonſt wuͤrde er von Hertzog <hi rendition="#aq">Henrico Pacifico,</hi> als<lb/>
+einem ſehr vernuͤnfftigen klugen Herrn/ nicht<lb/>
+zum <hi rendition="#aq">Informator</hi> des Printzen <hi rendition="#aq">Magni</hi> (als oben<lb/>
+gedacht) erwehlet ſeyn. Welches aber nur bey-<lb/>
+laͤuffig erinnern wollen/ weil es einige Erlaͤute-<lb/>
+rung giebet/ von dem damahligen Wiederaufkom-<lb/>
+men der ehemals gefallenen Kuͤnſte und der <hi rendition="#aq">Univer-<lb/>
+ſit</hi>aͤt Roſtock. <hi rendition="#aq">Anno</hi> 1532. aber kam auch <hi rendition="#aq">M.<lb/>
+Arnoldus Burenius,</hi> der ander <hi rendition="#aq">Informator</hi> Her-<lb/>
+tzogs <hi rendition="#aq">Magni,</hi> ohnzweiffel auff deſſen Verord-<lb/>
+nung und Sorgfalt/ nach Roſtock/ wo er Voll-<lb/>
+macht hatte/ die guten Kuͤnſte wieder empor zu<lb/>
+bringen/ wesfalls er auch ſelbſt <hi rendition="#aq">privatim</hi> und<lb/>
+<hi rendition="#aq">publice</hi> allda zu <hi rendition="#aq">docir</hi>en anfieng. Und ſchiene<lb/>
+es/ als ob Hertzog <hi rendition="#aq">Magnus</hi> diejenige gelehrte<lb/>
+Maͤnner/ deren Fleiß und Treue er aus ſeiner<lb/>
+eigenen <hi rendition="#aq">Information</hi> genugſam verſpuͤhret/ her-<lb/>
+nachmahls dem Gemeinen Beſten und der Ro-<lb/>
+ſtockiſchen <hi rendition="#aq">Univerſit</hi>aͤt/ zu deſto mehrern Auff-<lb/>
+nehmen/ wiedmen und laſſen wollen/ damit auch<lb/>
+das <hi rendition="#aq">Publicum</hi> ſeiner getreuen <hi rendition="#aq">Præceptorum</hi> ſich zu<lb/>
+erfreuen haͤtte. Denn nach <hi rendition="#aq">M. Arnoldi Bure-<lb/>
+nii</hi> Ankunfft zu Roſtock/ kam gemeldte <hi rendition="#aq">Univer-</hi><lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom"><hi rendition="#aq">ſi</hi>taͤt</fw><lb/>
+<pb n="20" facs="#f0022"/>
+<hi rendition="#aq">ſit</hi>aͤt durch hohe Vorſorge Hertzogs <hi rendition="#aq">Magni</hi> und<lb/>
+ſeines regierenden Herrn Vaters bald wieder<lb/>
+in Anſehen/ und wurde ein Gelehrter nach dem<lb/>
+andern dahin <hi rendition="#aq">vocir</hi>et/ daß auch der Raht da-<lb/>
+ſelbſt durch ſolch gutes Exempel der Durchl.<lb/>
+Hertzogen/ gereitzet worden/ als <hi rendition="#aq">Compatronus<lb/>
+Academiæ</hi> zu Wiederauffrichtung der <hi rendition="#aq">Univerſit</hi>aͤt<lb/>
+mit Hand anzulegen. <hi rendition="#aq">Conf. D. Grapii</hi> Evangel.<lb/>
+Roſtock/ <hi rendition="#aq">c. 5. p.</hi> 108. Auſſer denen Gelehrten<lb/>
+aber welche daſelbſt erzehlet werden/ die die <hi rendition="#aq">Stu-<lb/>
+dia</hi> wieder in Auffnehmen in dieſem Lande ge-<lb/>
+bracht/ hat auch ſchon zuvor <hi rendition="#aq">Nicolaus Mareſcal-<lb/>
+cus Thurius</hi> ſich in Roſtock auffgehalten/ welcher<lb/>
+nicht nur in der Mecklenburgiſchen Hiſtorie be-<lb/>
+leſen/ ſondern auch in den Griechiſchen und Roͤ-<lb/>
+miſchen <hi rendition="#aq">Antiqvit</hi>aͤten ein ſehr gelehrter Mann<lb/>
+war/ der in ſeinem eigenen Hauſe einen Buch-<lb/>
+drucker Nahmens <hi rendition="#fr">Guͤnther Winter</hi> hielte/<lb/>
+von welchem er ſeine ſehr rahre <hi rendition="#aq">Annalium Heru-<lb/>
+lorum ac Vandalum Libros Septem, anno</hi> 1521,<lb/>
+wie auch ſeine uͤbrige gelehrte Wercke drucken<lb/>
+laſſen. Durch ſolcher gelehrter Maͤnner Sorg-<lb/>
+falt kamen zu Hertzogs <hi rendition="#aq">Henrici Pacifici</hi> und deſ-<lb/>
+ſen Printzen <hi rendition="#aq">Magni</hi> Zeiten/ als welche ihnen<lb/>
+moͤglichſt beforderlich waren/ die <hi rendition="#aq">Studia</hi> wieder<lb/>
+in dieſem Lande empor.</p><lb/>
+<p>Wie heilſahm aber eine gruͤndliche Gelehr-<lb/>
+ſamkeit groſſen Herren und Printzen ſey/ und<lb/>
+<fw type="catch" place="bottom">weit</fw><lb/>
+<pb n="21" facs="#f0023"/>
+weit nuͤtzlicher als andere hefftige Leibes <hi rendition="#aq">exerciti</hi>en,<lb/>
+ſolches kan unſers Hertzogs <hi rendition="#aq">Magni</hi> Beyſpiel er-<lb/>
+weiſen. Denn dieſe machen das Gemuͤht fluͤch-<lb/>
+tig und zuweilen wild und unbarmhertzig/ gute<lb/>
+Kuͤnſte und Wiſſenſchafften aber machen den<lb/>
+menſchlichen Verſtand vollkommen/ nachdenck-<lb/>
+lich/ klug und tugendhafft/ und bereiten Fuͤrſt-<lb/>
+liche Gemuͤhter zur gluͤcklichen Regierung. Es<lb/>
+iſt gewiß der kluge Ausſpruch des Kaͤyſers <hi rendition="#aq">M.<lb/>
+Aur. Anton. Philoſophi</hi> nicht zu verlachen/ wel-<lb/>
+cher mit jenem Weltweiſen <hi rendition="#aq">Plato</hi> davor gehalten/<lb/>
+<hi rendition="#aq">Tum demum florere civitates, ſi aut Philoſophi im-<lb/>
+perent, aut Imperatores philoſophentur.</hi> <hi rendition="#fr">Denn<lb/>
+ſey eine</hi> <hi rendition="#aq">Republique</hi> <hi rendition="#fr">gluͤcklich/ wenn ent-<lb/>
+weder die Weltweiſen das Regiment fuͤh-<lb/>
+ren/ oder/ wenn Regenten Weißheit<lb/>
+lieben.</hi> Und das hat man ſonderlich an dem<lb/>
+Hoffe unſers Hertzogs <hi rendition="#aq">Magni</hi> und deſſen Herrn<lb/>
+Vaters/ deutlich ſehen koͤnnen. Denn es koͤnnen<lb/>
+die <hi rendition="#aq">Scribenten</hi> nicht genug ruͤhmen/ wie wohl die-<lb/>
+ſer Herrn Hoff eingericht geweſen/ ſo gar das auch<lb/>
+die gewoͤhnlichſte Laſter daran keinen Platz fun-<lb/>
+den/ ohn welchen Unverſtaͤndige meynen/ daß<lb/>
+faſt kein rechter Hoff ſeyn koͤnne. Denn ſo war<lb/>
+Hertzog <hi rendition="#aq">Magnus</hi> ein Feind von aller Uppigkeit/<lb/>
+Hochmuth/ Verſchwendung und Gewaltthaͤtig-<lb/>
+keit; Hingegen liebete er wahre Gottesfurcht/<lb/>
+Tugend/ Klugheit und Maͤßigkeit/ und war<lb/>
+ſonderlich leutſelig und gnaͤdig. Der beruͤhmte<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom"><hi rendition="#aq">Joh.</hi></fw><lb/>
+<pb n="22" facs="#f0024"/>
+<hi rendition="#aq">Joh. Caſelius</hi> ſchreibet von Jhm in ſeinen <hi rendition="#aq">Laudibus<lb/>
+Eliſabethæ Cimbricæ,</hi> welche unſers Hertzogs <hi rendition="#aq">Ma-<lb/>
+gni</hi> Gemahlin war; <hi rendition="#aq">Oderat ipſe faſtum, oderat<lb/>
+luxum, oderat omnem profuſionem, qvæ mala cum<lb/>
+humanitate &amp; beneficentia vigere non poſſe noverat:<lb/>
+neqve ſine plurium inferioris loci mortalium incom-<lb/>
+modis, calamitate &amp; qverelis: nec ubi illæ peſtes ſe-<lb/>
+derent, locum eſſe modeſtiæ &amp; pietati: enormia illa<lb/>
+aularum vitia, qvibus ipſæ ſibi mirè placent, ac ſa<lb/>
+præ cæteris mortalibus beatas judicant, cum iis ipſis<lb/>
+cæteris ſint graves &amp; inviſæ, in ſuorum nemine fere-<lb/>
+bat, in aliis maxime d<hi rendition="#i">e</hi>teſtabatur.</hi> Noch hoͤher er-<lb/>
+hebet dieſes Herrn groſſe Tugenden <hi rendition="#aq">Philippus Me-<lb/>
+lanchthon,</hi> welcher ihn als ein rechtes Muſter ei-<lb/>
+nes vortrefflichen Fuͤrſten dem Hertzog <hi rendition="#aq">Johann<lb/>
+Albrecht I. recommendi</hi>ret. Denn in der Vorre-<lb/>
+de ſeiner Außlegung uͤber die Spruͤche Salomo-<lb/>
+nis/ welche er bey derſelben erſte Aufflage unſerm<lb/>
+Hertzog <hi rendition="#aq">Magno,</hi> als oben ſchon/ in dem Lateini-<lb/>
+ſchen Brieff gedacht/ zugeſchrieben/ aber nach deſ-<lb/>
+ſen Todt/ bey wiederholter Aufflage jetztgedachten<lb/>
+Hertzog zu Mecklenburg Johann Albrecht <hi rendition="#aq">anno<lb/>
+1555. dedici</hi>ret/ ſchreibet er alſo: <hi rendition="#aq">Caufa cur huic<lb/>
+editioni tuum nomen adſcripſerim, non hæc tantum<lb/>
+eſt, qvod ſcio te in hac ingenii &amp; virtutis præſtan-<lb/>
+tia libenter legere ſapientiſſimi Regis admonitiones,<lb/>
+ſed etiam, qvia cum priorern editionem ante annos<lb/>
+(7) viginti dedicaſſem inclyto Principi Magno,<lb/>
+Duci Megalburgenſi, tuo fratri patrueli, hanc re-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">centem,</hi></fw><lb/>
+<pb n="23" facs="#f0025"/>
+<hi rendition="#aq">centem editionem ad te mittere decrevi, ut munus illi<lb/>
+miſſum in familia maneret, in qva ut ſemper Salo-<lb/>
+monis vox audiatur, toto pectore opto, qvam qvidem<lb/>
+ſumma cum pietate Dux MAGNUS audiebat, &amp;<lb/>
+cum ad hanc normam conſilia privata &amp; publica diri-<lb/>
+geret, optimè de patria meritus eſt. Summa reve-<lb/>
+rentia ſapientiſſimum patrem in gubernatione adju-<lb/>
+vit, Eccleſias curavit recte erudiri, &amp; cuſtos fuit du-<lb/>
+arum optimarum rerum, puritatis doctrinæ &amp; con-<lb/>
+cordiæ docentium: fovit ſtudia literatum, qvæ eo<lb/>
+magis amabat, qvia præclare eruditus erat. Et cum<lb/>
+Eccleſiæ doctrinam è fontibus hauſerat, tum vero La-<lb/>
+tinas &amp; Græcas hiſtorias aſſidue legebat, ac à viro do-<lb/>
+ctiſſimo Arnoldo Burenio ad formandam Latinam<lb/>
+orationem ſic adſvefactus erat, ut Latine recte &amp;<lb/>
+ſplendide loqveretur &amp; ſcriberet. Deniqve exem-<lb/>
+plum erat Dux Magnus boni &amp; ſalutaris Principis in<lb/>
+publica &amp; privata vita. Jtaqve qvanto ejus deſiderio<lb/>
+non ſolum patria, ſed etiam vicinæ gentes affician-<lb/>
+tur, vides. conf. Tom. II. Opp. Melanchth. p.</hi> 874.</p><lb/>
+<p>Weil nun Hertzog <hi rendition="#aq">Magnus</hi> durch erworbenen<lb/>
+Ruhm ſeiner ungemeinen Gelehrſamkeit und Tu-<lb/>
+gend aller Orten im hohen Anſehen war/ ſo wur-<lb/>
+de ihm auch die Koͤnigliche <hi rendition="#aq">Princeſſe</hi> aus Denne-<lb/>
+marck <hi rendition="#fr">Eliſabeth/</hi> Koͤnigs <hi rendition="#aq">Friderici I.</hi> Tochter/<lb/>
+und <hi rendition="#aq">Chriſtiani III.</hi> Schweſter/ nicht verſaget/<lb/>
+als er im 35. Jahr ſeines Alters <hi rendition="#aq">anno</hi> 1543. mit<lb/>
+derſelben in eheliche Verbuͤndniß treten wolte.<lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">Und</fw><lb/>
+<pb n="24" facs="#f0026"/>
+Und iſt alſo Hertzog <hi rendition="#aq">Magnus</hi> der (8) erſte Biſchoff<lb/>
+zu Schwerin/ welcher eine Gemahlin genommen;<lb/>
+wie denn zu dieſer Zeit das Gebot des Apoſtels/<lb/>
+ein Biſchoff ſol ſeyn eines Weibes-Mann/ ſchon<lb/>
+genugſahm wider das Roͤmiſche Verbot gerettet<lb/>
+war. Zu dem ſo war Hertzog und Biſchoff <hi rendition="#aq">Ma-<lb/>
+gnus</hi> der Erb-Printz/ welcher ſeinem Herrn Va-<lb/>
+ter Heinrich im Regiment nachfolgen ſolte/ und<lb/>
+weil ſein Herr Bruder <hi rendition="#aq">Philippus</hi> wegen bloͤden<lb/>
+Verſtandes zur Regierung untuͤchtig war/ ſo<lb/>
+wuͤnſchte das gantze Land nichts mehr/ als von<lb/>
+Hertzog <hi rendition="#aq">Magno</hi> einen Erben zu ſehen, wiewohl<lb/>
+dieſer Wunſch nicht erfuͤllet/ denn ungeacht dieſe<lb/>
+Vermaͤhlung Hertzogs <hi rendition="#aq">Magni</hi> mit obgedachter<lb/>
+Koͤniglichen <hi rendition="#aq">Princeſſe</hi> Eliſabeth/ ſo vergnuͤgt und<lb/>
+gluͤcklich war/ daß die Tugend ſelbſt dieſe beyde<lb/>
+Haͤupter wegen Aehnlichkeit der Gemuͤhter ſchien<lb/>
+zuſammen gefuͤhrt zu haben/ ſo fehlete doch ein<lb/>
+Erbe/ und waͤhrete das Ehliche Vergnuͤgen nur<lb/>
+ſechs Jahr/ da <hi rendition="#aq">Magnus</hi> wegen ſeiner anhalten-<lb/>
+den Leibes-Schwachheit mit Tode abgieng/ und<lb/>
+ſeine Gemahlin als eine noch junge Wittwe hin-<lb/>
+terließ; die zwar darauff wieder zuruͤck nach Den-<lb/>
+nemarck ging/ aber hernach von Hertzog <hi rendition="#aq">Ulrich</hi><lb/>
+zu Mecklenburg heimgefuͤhret worden. Welche<lb/>
+unvergleichliche Hertzogin viele Denckmahle ih-<lb/>
+res hohen Verſtandes und groſſen <hi rendition="#aq">merites</hi> im Lan-<lb/>
+de Mecklenburg/ und ſonderlich auch in hieſiger<lb/>
+Stadt Guͤſtrow hinterlaſſen/ die wohl verdien-<lb/>
+<fw type="catch" place="bottom">ten/</fw><lb/>
+<pb n="25" facs="#f0027"/>
+ten/ daß ihr Gedaͤchtniß unter uns erneuret und<lb/>
+auff die Nachkommen erhalten wuͤrde.</p><lb/>
+<p>Es iſt aber Hertzog <hi rendition="#aq">Magnus</hi> nicht zur voͤlli-<lb/>
+gen Regierung dieſes Landes kommen/ indem er<lb/>
+durch den fruͤhzeitigen Todt gehindert/ da er 2.<lb/>
+Jahr vor ſeinen Herrn Vater geſtorben. Zwar<lb/>
+gieng er mit klugen Rathſchlaͤgen ſeinen Herrn<lb/>
+Vater an die Hand/ und iſt viel durch ſeine hohe<lb/>
+Sorgfalt im Werck der Reformation und Wie-<lb/>
+derherſtellung guter Kuͤnſte und Sprachen in hie-<lb/>
+ſigem Lande veranſtaltet/ dennoch aber hat er ſich<lb/>
+nimmer der Regierung angemaſſet/ ſondern iſt<lb/>
+mit ſeinem Biſchthum Schwerin zufrieden gewe-<lb/>
+ſen/ welchem er 34. Jahr vorgeſtanden/ denn ſo<lb/>
+iſt er gar jung/ nemlich im 7. Jahr ſeines Alters<lb/>
+<hi rendition="#aq">anno</hi> 1516. ſchon zum Biſchoff <hi rendition="#aq">poſtuli</hi>ret worden;<lb/>
+welches in den finſtern Zeiten des Pabſtthums<lb/>
+bey denen Groſſen eben ſo gar was ungewoͤhnli-<lb/>
+ches nicht war; Indeſſen da Hertzog <hi rendition="#aq">Magnus</hi> noch<lb/>
+zu jung war ſelbſt das Bißthum zu regieren/ hat<lb/>
+ſein Herr Vater <hi rendition="#aq">Henrieus</hi> daſſelbe ſo lange <hi rendition="#aq">admi-<lb/>
+niſtri</hi>ret/ wie <hi rendition="#aq">Hedericus</hi> in ſeinem offtgemeldten<lb/>
+<hi rendition="#fr">Verzeichniß der Biſchoͤffe zu Schwerin/</hi><lb/>
+<hi rendition="#aq">in vita Magni,</hi> umſtaͤndlich mit dieſen Worten be-<lb/>
+richtet. <hi rendition="#aq">Magnus ‒ ‒ ‒</hi> <hi rendition="#fr">wird nach Biſchoff</hi><lb/>
+<hi rendition="#aq">Petri</hi> <hi rendition="#fr">Todt im 7ten Jahr ſeines Alters<lb/>
+vom Capittel zu Schwerin (nachdem ſie</hi><lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom"><hi rendition="#fr">fuͤnff</hi></fw><lb/>
+<pb n="26" facs="#f0028"/>
+<hi rendition="#fr">fuͤnff Tage</hi> daruͤber <hi rendition="#aq">deliberirt</hi>) zum Bi-<lb/>
+ſchoff und <hi rendition="#aq">Paſtorn poſtuliret, Ao.</hi> 1516.<lb/>
+den 21. <hi rendition="#aq">Junii.</hi> <hi rendition="#fr">Und weil er unmuͤndig<lb/>
+war/ thut dem Capittel Hertzog Hein-<lb/>
+rich an ſeine ſtatt/ als der leibliche Vater<lb/>
+und</hi> <hi rendition="#aq">Tutor legitimus,</hi> <hi rendition="#fr">das</hi> <hi rendition="#aq">Jurament,</hi> <hi rendition="#fr">und<lb/>
+unterſchreibet mit eigenen Haͤnden/ er-<lb/>
+haͤlt auch die</hi> <hi rendition="#aq">Confirmation</hi> <hi rendition="#fr">beym Pabſt</hi><lb/>
+<hi rendition="#aq">Leone X.</hi> <hi rendition="#fr">durch</hi> <hi rendition="#aq">Zuthveldt: Capitulum<lb/>
+ſimiliter pro Magno intercedit, &amp; hoc<lb/>
+peculiariter petit, ut qvia in qvatuor tan-<lb/>
+tum ordinibus, ut vocant, minoribus<lb/>
+conſtitutus erat, ad diſpenſandos &amp; ſup-<lb/>
+plendos à Leone Pontifice, ætatis, ordi-<lb/>
+nis, literarum ſive ſcientiæ, &amp; alios tam<lb/>
+juris qvam facti defectus, in poſtulatum<lb/>
+confirmetur, in adminiſtratorum autem<lb/>
+ætatis ſuæ 21. Poſtulationem Leo Ponti-<lb/>
+fex confirmat: adminiſtrationem ejus<lb/>
+rejicit in annum ætatis 27. Sed ille ſub<lb/>
+Clemente VII. P. R. in realem &amp; actua-<lb/>
+lem poſſeſſionem adminiſtrationis ſpiri-<lb/>
+tualis &amp; corporalis Eccleſiæ &amp; totius di-<lb/>
+oeceſeos Sverinenſis introductus, publi-<lb/>
+catus, denunciatus, &amp; proclamatus eſt.</hi><lb/>
+(9) Damit nun <hi rendition="#aq">Magnus</hi> ſeinem Biſchoͤfflichem<lb/>
+<fw type="catch" place="bottom">Amte</fw><lb/>
+<pb n="27" facs="#f0029"/>
+Amte ein Genuͤge thun moͤchte/ ſo trug er alle<lb/>
+Sorgfalt vor die Kirche dieſes Landes. Und<lb/>
+ob gleich eben zu dieſer Zeit/ da das <hi rendition="#aq">Reforma-<lb/>
+tions-</hi>Werck ernſtlich von <hi rendition="#aq">Luthero</hi> getrieben wur-<lb/>
+de/ die Biſchoͤffe ſich am hefftigſten demſelben<lb/>
+und ſeinem gepredigten Evangelio widerſatzten/<lb/>
+weil er eben derſelben Pflicht und Bloͤſſe gewie-<lb/>
+ſen/ ſo liebte doch unſer Biſchoff <hi rendition="#aq">Magnus</hi> nebſt<lb/>
+ſeinem Herrn Vater das neu auffgehende Licht<lb/>
+des Evangelii gar ſehr/ wozu nicht wenig ge-<lb/>
+holffen/ daß er/ wie oben gedacht/ am Chur-<lb/>
+Saͤchſiſchen Hofe eben zu der Zeit erzogen/ da<lb/>
+an ſelben die wichtigſten Sachen der <hi rendition="#aq">Reforma-<lb/>
+tion</hi> wegen/ gehandelt wurden. Wie denn nun<lb/>
+in Sachſen das Licht des Evangelii in Teutſch-<lb/>
+land auffgangen/ alſo iſt auch ſelbiges von daher<lb/>
+denen Mecklenburgiſchen Landen beyzeiten an-<lb/>
+geſchienen/ und zwar ſonderlich durch hohe Be-<lb/>
+foderung und Sorgfalt Biſchoffs <hi rendition="#aq">Magni</hi> und<lb/>
+ſeines Herrn Vaters <hi rendition="#aq">Henrici</hi> des Friedfertigen/<lb/>
+welche denn zu ihren Zeiten biß auff die Mitte<lb/>
+des <hi rendition="#aq">XVI. Seculi</hi> einen guten Grund zur <hi rendition="#aq">Reforma-<lb/>
+tion</hi> in hieſigen Landen gelegt/ und das vor-<lb/>
+nehmſte hiezugethan/ alſo/ daß das Evangelium<lb/>
+frey und ungehindert in den vornehmſten Staͤd-<lb/>
+ten dieſes Landes/ in Roſtock/ Schwerin und<lb/>
+Guͤſtrow iſt geprediget worden. Doch iſt wohl<lb/>
+zu mercken/ daß das <hi rendition="#aq">Reformations-</hi>Werck nicht<lb/>
+mit Ungeſtuͤhm und Tumult/ ſondern mit der<lb/>
+<fw type="catch" place="bottom">groͤſten</fw><lb/>
+<pb n="28" facs="#f0030"/>
+groͤſten Behutſamkeit und Gedult iſt gefuͤgret<lb/>
+worden. Denn ſo ſchreibet <hi rendition="#aq">Hedericus l. c.</hi> <hi rendition="#fr">Bey<lb/>
+ſeiner</hi> (Biſchoffs <hi rendition="#aq">Magni</hi>) <hi rendition="#fr">Regierung im<lb/>
+1532. Jahr/ iſt durch Befoderung ſeines<lb/>
+Herrn Vaters Hertzog Heinrichs die rei-<lb/>
+ne Lehre des H. Evangelii durch</hi> <hi rendition="#aq">D. Lu-<lb/>
+ther</hi> <hi rendition="#fr">ans Licht gebracht/ erſtlich im Lande<lb/>
+Mecklenburg/ und anfaͤnglich zu Schwe-<lb/>
+rin geprediget worden/ und das Pabſt-<lb/>
+thum begunt zu fallen/ doch</hi> <hi rendition="#aq">NB.</hi> <hi rendition="#fr">ums</hi> <hi rendition="#aq">Ju-<lb/>
+raments</hi> <hi rendition="#fr">willen/ hat er Hertzog Heinrich<lb/>
+das Capittel und den Thum zu Schwerin<lb/>
+bey ihrer Religion und geiſtlichen Ge-<lb/>
+wonheiten bleiben laſſen/ und niemand<lb/>
+ſeines Glaubens halben angefochten/ die-<lb/>
+weil er gelebet.</hi> Wenn aber hie <hi rendition="#aq">Hedericus</hi><lb/>
+des 1532. Jahrs erwehnet/ ſo ſcheinet er nur auff<lb/>
+gewiſſe Umſtaͤnde der <hi rendition="#aq">Reformation</hi> in der Schwe-<lb/>
+riniſchen Kirchen und Bißthum ſeine Abſicht zu<lb/>
+haben/ ſonſt iſt bekandt/ daß ſchon zuvor in Meck-<lb/>
+lenburg/ und zwar bereits <hi rendition="#aq">Anno</hi> 1523. in Roſtock<lb/>
+das gelaͤuterte Evangelium von <hi rendition="#aq">M. Joachim</hi><lb/>
+Schluͤter iſt geprediget worden. Es brachte<lb/>
+aber dem <hi rendition="#aq">Reformations-</hi>Werck in dieſem Lande<lb/>
+einige Hinderung/ daß Hertzog <hi rendition="#aq">Albrecht,</hi> mit<lb/>
+dem Beynahmen der <hi rendition="#fr">Schoͤne</hi> genandt/ welcher<lb/>
+mit ſeinem aͤltern Herrn Bruder <hi rendition="#fr">Heinrich</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">dem</hi></fw><lb/>
+<pb n="29" facs="#f0031"/>
+<hi rendition="#fr">dem Friedfertigen/</hi> gemeinſchafftlich die Re-<lb/>
+gierung fuͤhrte/ nicht mit gleichem Ernſt das<lb/>
+Evangelium befodern wolte; Denn ob er gleich<lb/>
+die Evangeliſche Lehre nicht eben anfeindete/ ſo<lb/>
+erwieß er ſich doch dem fallenden Pabſtthum<lb/>
+noch ziemlich gewogen/ und hinderte verſchiedene<lb/>
+gute Anſchlaͤge/ uͤm alſo dem Roͤmiſchen Koͤnig<lb/>
+<hi rendition="#aq">Ferdinando,</hi> an deſſen Hoff er offters ſich auff-<lb/>
+hielte/ deſto mehr zu Gefallen zu leben. Welches<lb/>
+auch ſelbſt der Herr <hi rendition="#aq">Seckendorff in Hiſt. Luth.<lb/>
+Lib. III. Sect. 8. §. 31. num.</hi> 1. mit dieſen Worten<lb/>
+angemercket: <hi rendition="#aq">In Ducatu Mechlenburgenſi Henri-<lb/>
+cus Dux Evangelicæ doctrinæ intentus ab Alberto<lb/>
+fratre, qvem Ferdinandus Rex animabat, moleſtias<lb/>
+paſſus eſt.</hi> Ob aber gleich die Pfaffen/ Moͤnche<lb/>
+und Kloͤſter hier im Lande dadurch deſto kuͤhner<lb/>
+wurden/ der <hi rendition="#aq">Reformation</hi> ſich zu widerſetzen/<lb/>
+und alle heilſame Anſchlaͤge zu verwerffen/ und<lb/>
+Hertzog Heinrich als ein friedfertiger gnaͤdi-<lb/>
+ger Herr wegen der Zeit Umſtaͤnde mit groſſer<lb/>
+Gedult und Sanfftmuth ſolcher blinden Leute<lb/>
+Widerſtreben kluͤglich zu dulden wuſte/ <hi rendition="#aq">Conf. Cel.<lb/>
+Thomæ Anal. Guſtrov. p.</hi> 121. ſo ließ Biſchoff <hi rendition="#aq">Magnus</hi><lb/>
+ſich doch nicht von dem heilſamen Reformations-<lb/>
+Werck abſchrecken/ ſondern arbeitete immer dar-<lb/>
+an/ und <hi rendition="#aq">conferir</hi>te fleißig mit dem Chur-Saͤchſt-<lb/>
+ſchen Hoff daruͤber. Denn ſo erzehlet abermahl<lb/>
+Herr von <hi rendition="#aq">Seckendorff Lib. III. Hiſt. Luth. Sect. 17.<lb/>
+§. 66. p. m.</hi> 183. daß als <hi rendition="#aq">anno</hi> 1538. im Monath<lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">December</hi></fw><lb/>
+<pb n="30" facs="#f0032"/>
+<hi rendition="#aq">December</hi> zu Parchim ein Landtag gehalten wor-<lb/>
+den/ habe Biſchoff <hi rendition="#aq">Magnus</hi> begehret/ man ſolte<lb/>
+die Meſſe und andere alte Paͤbſtiſche Mißbraͤuche<lb/>
+im gantzen Lande abſchaffen/ woran aber Hertzog<lb/>
+Albrecht/ ſeines Herrn Vaters Bruder/ nicht<lb/>
+gewolt/ der die Sache immer verſchoben/ dawi-<lb/>
+der aber Biſchoff <hi rendition="#aq">Magnus proteſti</hi>ret/ und ſolches<lb/>
+dem Churfuͤrſt in Sachſen <hi rendition="#aq">Johann Friderich I.</hi><lb/>
+den 24. <hi rendition="#aq">December</hi> 1538. mit einem eigenhaͤndigen<lb/>
+Schreiben berichtet; welcher denn auch gleich den<lb/>
+12. <hi rendition="#aq">Januarii</hi> des folgenden 1539. Jahrs geantwor-<lb/>
+tet/ und auff Gutbefinden ſeiner <hi rendition="#aq">Theologorum</hi> ge-<lb/>
+rathen/ er moͤge nur ſelbſt an den Oertern ſeines<lb/>
+Stiffts/ wo er die <hi rendition="#aq">jurisdiction</hi> habe/ ſeine Kirche<lb/>
+zu <hi rendition="#aq">reformi</hi>ren anfangen/ die widerſpaͤnſtige Pre-<lb/>
+diger abſchaffen/ die andern aber/ welchen er nicht<lb/>
+beykommen koͤnnte/ <hi rendition="#aq">excommunici</hi>ren und in Bann<lb/>
+thun; So er aber dergleichen zu thun ſich nicht<lb/>
+unterſtehen duͤrffte/ thue er beſſer/ daß er ſein<lb/>
+Bißthum fahren laſſe/ als durch Verabſaͤumung<lb/>
+ſeines Biſchoͤfflichen Ampts ſich verſuͤndige. Aus<lb/>
+welchem man abermahl ſiehet/ mit was Ernſt und<lb/>
+Nachdruck Biſchoff <hi rendition="#aq">Magnus</hi> die <hi rendition="#aq">Reformation</hi> zu<lb/>
+befodern gefliſſen geweſen/ und was vor ein gutes<lb/>
+Verſtaͤndniß zwiſchen Chur-Sachſen und dieſem<lb/>
+Herrn geweſen/ welcher mit ſelben wegen der Kir-<lb/>
+chen dieſes Landes eine fleißige <hi rendition="#aq">Correſpondance</hi> un-<lb/>
+terhalten. Wie denn auch als der Churfuͤrſt in<lb/>
+Sachſen den Todes-Fall des ſeel. <hi rendition="#aq">Lutheri</hi> ſeinen<lb/>
+<fw type="catch" place="bottom">vornehm-</fw><lb/>
+<pb n="31" facs="#f0033"/>
+vornehmſten Verwandten und Freunden <hi rendition="#aq">anno<lb/>
+1546. notificir</hi>te/ ſo muſte ſolches auch unſerm<lb/>
+Hertzog <hi rendition="#aq">Magno</hi> ſo gleich kund gethan werden.<lb/>
+Auff welche eigenhaͤndige <hi rendition="#aq">notification</hi> auch Her-<lb/>
+tzog <hi rendition="#aq">Magnus</hi> den 23. <hi rendition="#aq">Martii anno</hi> 1546. dem Chur-<lb/>
+Fuͤrſten wieder geantwortet/ davon die <hi rendition="#aq">Copie</hi><lb/>
+verhanden beym <hi rendition="#aq">Seckendorff in Hiſt. Luth. Lib. III.<lb/>
+§. 135. num. (7) p. m</hi> 646.</p><lb/>
+<p>Da nun Biſchoff <hi rendition="#aq">Magnus</hi> ſich ſo hoch uͤm dieſes<lb/>
+Landes Kirche durch ernſtliche Beforderung der<lb/>
+Reformation und Wiederherſtellung der guten<lb/>
+Kuͤnſte und Wiſſenſchafften verdient gemacht/ iſt<lb/>
+leicht zu ermeſſen/ was vor dieſem vortrefflichen<lb/>
+Herrn waͤre zu erwarten geweſen/ wann Jhm<lb/>
+GOtt die Jahre gegoͤnnt/ zur voͤlligen Regierung<lb/>
+dieſer Lande zu gelangen/ wozu er als der Erb-<lb/>
+Printz die naͤchſte Hoffnung und Recht hatte.<lb/>
+Allein Er ſtarb zu Buͤtzow <hi rendition="#aq">anno</hi> 1550. den 28,<lb/>
+oder wie andere den 29. <hi rendition="#aq">Januarli,</hi> noch vor ſeinem<lb/>
+Herrn Vater/ im 41. Jahr ſeines Alters/ und<lb/>
+im 34. ſeines Biſchoͤfflichen Ampts. Und war<lb/>
+dieſer fruͤhzeitige Todes-fall ſeinem 71. jaͤhrigem<lb/>
+alten Vater/ ja dem gantzen Lande ſo viel empfind-<lb/>
+licher/ weil er keinen Leibes-Erben hinterlaſſen.<lb/>
+Er wurd zu Doberan/ wo die meiſten der alten<lb/>
+Fuͤrſten und Koͤnige der Wenden ruhen/ begra-<lb/>
+ben/ und hat ihm ſein ehemahliger alter <hi rendition="#aq">Informa-<lb/>
+tor Arnoldus Burenius</hi> eine Lateiniſche Leichenpre-<lb/>
+<fw type="catch" place="bottom">digt</fw><lb/>
+<pb n="32" facs="#f0034"/>
+digt gehalten. <hi rendition="#aq">Hedericus</hi> meldet an offt angezo-<lb/>
+genem Ort/ daß unſerm <hi rendition="#aq">Magno</hi> von ſeiner Ge-<lb/>
+mahlin Eliſabeth zwo <hi rendition="#aq">Epitaphia,</hi> eins in lateini-<lb/>
+ſchen/ das ander in teutſchen Verſen zu Doberan<lb/>
+ſeyn nachgeſetzet worden/ wie ſie denn auch nach-<lb/>
+mahls aus Liebe gegen dieſen ihren erſten Gemahl/<lb/>
+zu Zeiten ihres zweyten HErrn/ Hertzogs Ul-<lb/>
+richs zu Mecklenburg/ die Doberaniſche Kirche/<lb/>
+ſo nun baufaͤllig werden wollen/ wieder <hi rendition="#aq">renovi</hi>ren<lb/>
+laſſen/ welches der alte Guͤſtrowiſche <hi rendition="#aq">Rector M.<lb/>
+Franciſcus Oemichius</hi> in ſeinem Reim-Gedichte/<lb/>
+worin er der Hertzogin Eliſabeth Leben verfaſſet/<lb/>
+(10) angemercket. Gedachte beyde <hi rendition="#aq">Epitaphia</hi> hat<lb/>
+auch <hi rendition="#aq">Lucas Loſſius</hi> in ſeinen <hi rendition="#aq">Epitaphiis Principum.<lb/>
+&amp;c. p. 137. ſ.</hi> auffgezeichnet/ und lauten alſo:<lb/>
+(11)</p><lb/>
+<div n="2"><head><hi rendition="#aq"><hi rendition="#i">Epitaphium.</hi></hi></head><lb/>
+<cit><quote><bibl><hi rendition="#c"><hi rendition="#aq">Inclyti Herois Doctiſſ. optimiqve Princi-<lb/>
+pis D. <hi rendition="#g">MAGNI</hi>, Ducis Megapolenſ. HENRICI<lb/>
+Filii, &amp; Sverin. Epiſc. qvi obdormivit Butzo-<lb/>
+vii, anno 1550. 5. Calend.<lb/>
+Februarii.</hi></hi></bibl><lb/>
+<lg type="poem"><l><hi rendition="#aq">Doctrina proavis, nulli virtute ſecundus</hi></l><lb/>
+<l><hi rendition="#aq">Mechlenburgenſis Dux tumulo hoc te-<lb/>
+gitur.</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">Nomine</hi></fw><lb/>
+<pb n="33" facs="#f0035"/>
+<l><hi rendition="#aq">Nomine Magnus erat, re major at ille fu-<lb/>
+turus,</hi></l><lb/>
+<l><hi rendition="#aq">Improba mors ſaltem ſi voluiſſet, erat.</hi></l><lb/>
+<l><hi rendition="#aq">Acer in adſerto conſtans &amp; pectore verbo</hi></l><lb/>
+<l><hi rendition="#aq">Et veræ viguit relligionis apex.</hi></l><lb/>
+<l><hi rendition="#aq">Et pudor, &amp; probitas, &amp; dulcis gratia mo-<lb/>
+rum</hi></l><lb/>
+<l><hi rendition="#aq">Certatim donis hunc poliere ſuis.</hi></l><lb/>
+<l><hi rendition="#aq">Eloqvio Neſtor felicis acumine mentis,</hi></l><lb/>
+<l><hi rendition="#aq">Dulichio valuit non minus ille ſene.</hi></l><lb/>
+<l><hi rendition="#aq">Imperii proceres, facundæ munere lingvæ,</hi></l><lb/>
+<l><hi rendition="#aq">Aures &amp; mulſit Carole dive, tuas.</hi></l><lb/>
+<l><hi rendition="#aq">Judicium, pietas &amp; rebus in omnibus ar-<lb/>
+dens</hi></l><lb/>
+<l><hi rendition="#aq">Virtus &amp; patriæ conſtituebat amor.</hi></l><lb/>
+<l><hi rendition="#aq">Illius ex alto Cimbrorum ſangvine Con-<lb/>
+junx</hi></l><lb/>
+<l><hi rendition="#aq">Edita, FRIDERICI filia Regis erat.</hi></l><lb/>
+<l><hi rendition="#aq">Qvæ Magnum veluti generoſum Portia<lb/>
+Brutum</hi></l><lb/>
+<l><hi rendition="#aq">Humectans lacrymis Eliſabetha ſuis.</hi></l><lb/>
+<l><hi rendition="#aq">Condidit hunc vita functum, cineriqve<lb/>
+qvotannis</hi></l><lb/>
+<l><hi rendition="#aq">Ut bene ſit votis officioſa rogat.</hi></l><lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom"><hi rendition="#aq">Illius</hi></fw><lb/>
+<pb n="34" facs="#f0036"/>
+<l><hi rendition="#aq">Illius occaſu qvantum Meglaburgica<lb/>
+damni</hi></l><lb/>
+<l><hi rendition="#aq">Stirps tulit, extincti candida fama docet.</hi></l><lb/>
+<l><hi rendition="#aq">Extremum moriens ſolum te Chriſte vo-<lb/>
+cabat,</hi></l><lb/>
+<l><hi rendition="#aq">Cujus in optato jam cubat ille ſinu.</hi></l></lg></quote></cit><lb/>
+<cit type="translation"><quote><lg type="poem"><head><hi rendition="#fr">Das teutſche</hi> <hi rendition="#aq"><hi rendition="#i">Epitaphium</hi></hi><lb/>
+<hi rendition="#fr">iſt folgendes:</hi></head><lb/>
+<l>Allhie Leſer an dieſem Ort</l><lb/>
+<l>Steh ſtill/ und liß nachfolgend Wort:</l><lb/>
+<l>Ein Fuͤrſt vom Stamm und Tugend<lb/>
+reich/</l><lb/>
+<l>Allhie bey ſeinen Vettern gleich</l><lb/>
+<l>Hertzog <hi rendition="#aq">Magnus</hi> begraben iſt/</l><lb/>
+<l>Und ruhet im Schutz JEſu Chriſt/</l><lb/>
+<l>Tauſend/ fuͤnffhundert und neun Jahr/</l><lb/>
+<l>Zu Stargard er gebohren war/</l><lb/>
+<l>Hertzog Heinrich der friedſam Fuͤrſt/</l><lb/>
+<l>Dem allezeit nach Ehren duͤrſt/</l><lb/>
+<l>Im deutſchen Reich gantz woll bekandt/</l><lb/>
+<l>War ſein liebſter Vater genandt.</l><lb/>
+<l>Sein Frau Mutter war Marggraͤffin/</l><lb/>
+<l>Urſula ihr Nahme/ ruht auch hierinn/</l><lb/>
+<fw type="catch" place="bottom">Sein</fw><lb/>
+<pb n="35" facs="#f0037"/>
+<l>Sein Jahr-Zeit war St. Ulrichs Tag/</l><lb/>
+<l>Darinn ſein Vater groß Freude ſah/</l><lb/>
+<l>Ließ ihn erziehn in Zucht und Ehren/</l><lb/>
+<l>Gottes furcht und freye Kuͤnſte lehren.</l><lb/>
+<l>Er war gelehrt und woll beredt/</l><lb/>
+<l>Davon das Roͤmiſch Reich weiß beſcheid/</l><lb/>
+<l>Und Kayſer <hi rendition="#aq">Carl</hi> lobt ſein Latein/</l><lb/>
+<l>Welches er redt zierlich und rein/</l><lb/>
+<l><hi rendition="#aq">Anno</hi> Tauſend fuͤnffhundert zwar/</l><lb/>
+<l>Dazu im drey und vierzigſten Jahr/</l><lb/>
+<l>In Dennemarck aus Koͤniglichem Stam̃/</l><lb/>
+<l>Er ſein liebes Gemahl bekam/</l><lb/>
+<l>Frau Eliſabeth hochgebohrn/</l><lb/>
+<l>In aller Tugend auserkohrn/</l><lb/>
+<l>Ihr Vater war Koͤnig Friderich/</l><lb/>
+<l>Koͤnig Chriſtian ihr Bruder gleich.</l><lb/>
+<l>Das Regiment hat der Vater gar/</l><lb/>
+<l>Er aber zu Schwerin Biſchoff war/</l><lb/>
+<l>Dennoch ſeines Hochweiſen Raht</l><lb/>
+<l>Der Vater brauchet fruͤh und ſpat/</l><lb/>
+<l>Tauſend fuͤnffhundert funffzig Jahr</l><lb/>
+<l>Zwey Jahr vors Vatern Todt fuͤrwahr/</l><lb/>
+<l>Dienſtags nach Pauli Bekehrung</l><lb/>
+<l>In guter Jugend und Regierung</l><lb/>
+<l>Er zu Buͤtzow ohn Leibes-Erben/</l><lb/>
+<l>Selig in GOtt thaͤt verſterben/</l><lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">Und</fw><lb/>
+<pb n="36" facs="#f0038"/>
+<l>Und darnach auff Lichtmeſſen Tag</l><lb/>
+<l>Den Leichnam zu Dobberan begrab/</l><lb/>
+<l>Welchen GOtt Ruhe und Seligkeit</l><lb/>
+<l>Geb gnaͤdiglich in Ewigkeit.</l></lg></quote></cit><lb/>
+<p>Es gedencket auch <hi rendition="#aq">Hedericus</hi> an offt angezoge-<lb/>
+nem Orte/ daß Hertzog <hi rendition="#aq">Johann Albrecht</hi> zu<lb/>
+Schwerin im Chor mit folgenden Worten/ dem<lb/>
+Hertzog <hi rendition="#aq">Magno</hi> ein Denckmahl ſetzen laſſen:<lb/>
+<cit><quote><p><hi rendition="#aq">D. O. M.<lb/>
+Illuſtri Principi Magn o, Henrici Filio, Du-<lb/>
+ci Megapolenſi<lb/>
+Epiſcopo Sverinenſi, pietate, doctrina &amp;<lb/>
+humanitate<lb/>
+Præſtanti, fratri patrueli ſuo charisſimo<lb/>
+Johannes Albertus<lb/>
+Dux Megap. memoriæ poſuit. V. Anno<lb/>
+XLI. D. S. O.<lb/>
+Buzovii IV. Kal. Februarii Anno M.D.L.</hi></p></quote></cit></p><lb/>
+<p>Obgedachter <hi rendition="#aq">Loſſius</hi> fuͤhret <hi rendition="#aq">p.</hi> 142. unter de-<lb/>
+nen Schweriniſchen <hi rendition="#aq">Epitaphiis</hi> auch nachfolgen-<lb/>
+des Denckmahl an:</p><lb/>
+<cit><quote><lg><l><hi rendition="#aq">Filius Hinrici Princeps re &amp; nomine<lb/>
+Magnus,</hi></l><lb/>
+<l><hi rendition="#aq">Flos patriæ ante Patris funera mœſta<lb/>
+cadit.</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">Par</hi></fw><lb/>
+<pb n="37" facs="#f0039"/>
+<l><hi rendition="#aq">Par fatum Antilocho nactus ſed clarior<lb/>
+illo</hi></l><lb/>
+<l><hi rendition="#aq">Et melior ſtudii ſedulitate ſui.</hi></l><lb/>
+<l><hi rendition="#aq">Scilicet ingenio cunctos ſuperavit &amp; arte,</hi></l><lb/>
+<l><hi rendition="#aq">Qvos habuit eximios Teutonis ora<lb/>
+duces.</hi></l><lb/>
+<l><hi rendition="#aq">Illius ad tumulos Pitho, Aonidesqve, The-<lb/>
+misqve</hi></l><lb/>
+<l><hi rendition="#aq">Tam celebrem lugent non ſupereſſeducem.</hi></l></lg></quote><bibl/></cit></div><lb/>
+<div n="2"><head/> <p>Auſſer dieſen <hi rendition="#aq">Epitaphiis</hi> iſt noch eine ſaubere<lb/>
+<hi rendition="#aq">Elegia Academiæ Roſtochienſis</hi> auff dem Todt die-<lb/>
+ſes hochſeeligen Biſchoffs <hi rendition="#aq">Magni</hi> vorhanden/ wel-<lb/>
+che in den <hi rendition="#aq">Scriptis Academiæ Roſtoch. publicis<lb/>
+p. 383. ſeq.</hi> zu finden iſt.</p><lb/>
+<p>Es iſt aber Hertzog und Biſchoff <hi rendition="#aq">Magnus</hi> vor<lb/>
+vielen andern beſonders zu mercken/ weil 5. merck-<lb/>
+wuͤrdige Dinge in ſeinem Lebens-Lauff vorkom-<lb/>
+men; nemlich/ 1. daß er ſchon im ſiebenden Jahr<lb/>
+zum Biſchoff <hi rendition="#aq">poſtulir</hi>et worden. 2. Daß er<lb/>
+nicht allein der erſte Evangeliſche Biſchoff zu<lb/>
+Schwerin geweſen/ ſondern auch der erſte unter<lb/>
+denen Schweriniſchen Biſchoͤffen/ welcher eine<lb/>
+Gemahlinn genommen. 3. Daß bey ihm Nah-<lb/>
+men und That uͤbereinkommen/ und da er <hi rendition="#aq">Magnus</hi><lb/>
+hieß/ das Sprichwort wahr geworden/ <hi rendition="#aq">Nomen<lb/>
+&amp; omen habet.</hi> 4. Daß er der gelehrteſte unter<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">den</fw><lb/>
+<pb n="38" facs="#f0040"/>
+den Fuͤrſten ſeiner Zeit geweſen. 5. Daß er alſo<lb/>
+<hi rendition="#aq">Reſtaurator literarum &amp; Evangelii</hi> in dieſem Lande<lb/>
+geweſen/ der die reine Lehre und gute Wiſſen-<lb/>
+ſchafften wieder ins Land gebracht/ und die<lb/>
+Paͤbſtiſche Finſterniß vertrieben. Dannenhero<lb/>
+er unter den Gelehrten einen unſterblichen Nah-<lb/>
+men erworben./. welche deſſen herrlichen Ruhm<lb/>
+durch ihre geſchickte Feder im beſtaͤndigen An-<lb/>
+deucken bey den Rachkommen erhalten haben.<lb/>
+Denn/ wie gedacht/ <hi rendition="#aq"><hi rendition="#i">Arnoldus Burenius</hi></hi> hat eine<lb/>
+Lateiniſche Leichen-Predigt gehalten/ die nach<lb/>
+vielen Jahren erſt wieder gefunden./ und von<lb/>
+<hi rendition="#aq">M. Nath. Chytræo</hi> iſt <hi rendition="#aq">publicir</hi>et worden; wie <hi rendition="#aq">He-<lb/>
+dericus l. c.</hi> angemercket. <hi rendition="#aq">Joh. Caſelius</hi> geden-<lb/>
+cket auch derſelben in ſeinen <hi rendition="#aq">Laudibus Eliſabethæ<lb/>
+Cimbricæ p. m.</hi> 30. mit dieſen Worten: <hi rendition="#aq">Magni<lb/>
+Ducis laudes luculenta oratione explicavit Arnol-<lb/>
+dus Burenius, homo idem doctiſſimus &amp; graviſſi-<lb/>
+mus, neqve qvisqvam potuit aut poterit melius.</hi><lb/>
+Auch eben dieſer <hi rendition="#aq"><hi rendition="#i">Caſelius</hi></hi> hat auch unſers Her-<lb/>
+tzogs in jetztgedachter Schrifft oͤffters mit groſ-<lb/>
+ſem Ruhm erwehnet/ auch noch in einem an-<lb/>
+dern <hi rendition="#aq">Scripto,</hi> denn ſo ſchreibet er daſelbſt: <hi rendition="#aq">Nos<lb/>
+vero etiam Magni laudes delibavimus in elogio,<lb/>
+qvod ejns Sorori, Dominæ Urſulæ paucis ante men-<lb/>
+ſibus, qvando ei funus fiebat, ſcripſimus. <hi rendition="#i">Hede-<lb/>
+rieus</hi></hi> oder wie ſein voͤlliger teutſcher Nahme<lb/>
+heiſſet: <hi rendition="#aq">M.</hi> <hi rendition="#fr">Bernhard Heidenreich/</hi> ehe-<lb/>
+mahliger <hi rendition="#aq">Rector</hi> der Stiffts-Schule zu Schwe-<lb/>
+<fw type="catch" place="bottom">rin/</fw><lb/>
+<pb n="39" facs="#f0041"/>
+rin/ der auch die Schweriniſche <hi rendition="#aq">Chronic</hi> geſchrie-<lb/>
+ben/ hat in ſeinem geſchriebenen/ und ſo viel mir<lb/>
+bewuſt/ noch nie <hi rendition="#aq">edirt</hi>en <hi rendition="#fr">kurtzen Verzeichniß<lb/>
+der Biſchoͤffe zu Schwerin/</hi> auch das Le-<lb/>
+ben Hertzogs und Biſchoffs <hi rendition="#aq">Magni</hi> erzehlet/ an-<lb/>
+derer <hi rendition="#aq">Scribent</hi>en jetzo zugeſchweigen/ welche ins-<lb/>
+gemein die Hiſtorie der <hi rendition="#fr">Durchl.</hi> Hertzoge zu<lb/>
+Mecklenburg verfaſſet/ darunter auch ſonderlich<lb/>
+<hi rendition="#aq">Joh. Bocerus,</hi> welcher in ſeinem <hi rendition="#aq">III.</hi> Buch <hi rendition="#aq">de ori-<lb/>
+gine &amp; Rebus Geſtis Ducum Megapolenſium,</hi> ſo<lb/>
+in ſchoͤnen Lateiniſchen Verſen geſchrieben/ auch<lb/>
+unſers <hi rendition="#aq">Magni</hi> Leben beruͤhret.</p></div></div><lb/>
+<div n="1"><head><hi rendition="#fr">Anmerckungen.</hi></head><lb/>
+<note place="end" n="(1.)">Es iſt dieſer <hi rendition="#aq">M. Conradus Pegelius</hi> ohn Zweiſel aus<lb/>
+Wißmar gebuͤrtig geweſen/ und aus einem anſehnlichen<lb/>
+Geſchlecht entſproſſen/ wie aus <hi rendition="#aq">Chytræi Chronico Sa-<lb/>
+xon. Lib. l. p. m.</hi> 43. leicht zu ſchlieſſen iſt.</note><lb/>
+<note place="end" n="(2.)">Ich vermuthe daß dieſe Brieffe annoch in der Schwe-<lb/>
+riniſchen Hoch-Fuͤrſtl. <hi rendition="#aq">Bibliothec</hi> werden zu finden ſeyn/<lb/>
+und waͤre zu wuͤnſchen/ daß ſothane rare Stuͤcke nebſt<lb/>
+andern zur Mecklenburgiſchen Hiſtorie im verborgen lie-<lb/>
+genden Schrifften moͤchten durch Hoher Beforderung<lb/>
+ans Licht gebracht/ und den Liebhabern <hi rendition="#aq">communici</hi>res<lb/>
+werden.</note><lb/>
+<note place="end" n="(3.)">Es ſind die groſſen Verdienſte diefes <hi rendition="#aq">Arnoldi Burenii</hi><lb/>
+wohl wehrt/ daß man ſeiner mit mehrerm gedencke. Er<lb/>
+iſt <hi rendition="#aq">anno</hi> 1485. in Weſtphalen gebohren/ ſein Vater war<lb/>
+ein Ackers-Mann/ und hat zu Wittenberg ſtudiret. Jm<lb/>
+39. Jahr ſeines Alters wurde er von Hertzog Heinrich<lb/>
+dem Friedfertigen an den Schweriniſchen Hoff beruffen/<lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">uͤm</fw><lb/>
+<pb n="40" facs="#f0042"/>
+uͤm ſeinen Printzen <hi rendition="#aq">Magnum</hi> in anſtaͤndlichen Wiſſen-<lb/>
+ſchafften zu unterweiſen/ welches er auch treulich und mis<lb/>
+groſſem Ruhm gethan; nach 6. Jahren verließ er den<lb/>
+Hoff/ und gieng auff Hoch-Fuͤrſtl. Befehl nach Roſtock/<lb/>
+woſelbſt die freyen Kuͤnſte bißhero noch wenig im Flor<lb/>
+und getrieben waren. Solche aber ſuchte er bald wieder<lb/>
+empor zu bringen/ und fieng an mit hoͤchſter Sorgfalt ſo<lb/>
+wohl oͤffentlich als auch <hi rendition="#aq">privatim</hi> zu leſen. Er wohneto<lb/>
+in dem <hi rendition="#aq">Academi</hi>ſchen Hauß/ der Adler genannt. Hie-<lb/>
+benebſt ſahe er auch dabey auff gute <hi rendition="#aq">diſciplin,</hi> und liebet-<lb/>
+eine redliche Gottesfurcht. Er nahm ſo gar auch <hi rendition="#aq">anno</hi><lb/>
+1539. im 54. Jahr ſeines Alters noch den <hi rendition="#aq">Gradum Magi-<lb/>
+ſterii</hi> an/ um alſo der Jugend ein gutes Exempel zu ge-<lb/>
+ben/ und nachdem er mit groffem Nutzen der ſtudirenden<lb/>
+Jugend zu Roſtock biß an ſein Ende ſeinem Ampte treu-<lb/>
+lich vorgeſtanden/ iſt er im 81. Jahr ſeines Alters <hi rendition="#aq">anno</hi><lb/>
+1566. ſeelig verſchieden. <hi rendition="#aq">Philippus Melanchthon,</hi> wel-<lb/>
+cher nebſt andern einer der Vornehmſten in Teutſchland<lb/>
+war/ welche die Freyen-Kuͤnſte und Sprachen wieder<lb/>
+empor brachten/ hielte von unſerm <hi rendition="#aq">Arnoldo Burenio</hi> ſehr<lb/>
+viel/ und pflegte zu ſagen: <hi rendition="#aq"><hi rendition="#i">Ubi Arnoldus ibi Schola.</hi></hi><lb/>
+Wie er denn auch eine gute Vertraulichkeit mit demfel-<lb/>
+ben unterhielte/ als auch aus dem Schreiben zu ſehen/<lb/>
+ſo er an <hi rendition="#aq">Burenium</hi> abgelaſſen/ und in <hi rendition="#aq">Melanchthonis Epi-<lb/>
+ſtolis Londini editis L. l. p.</hi> 175. zu finden. Der vortreff-<lb/>
+liche <hi rendition="#aq">Caſelius</hi> hielte dieſen Mann vor einen <hi rendition="#aq">Reſtaurato-<lb/>
+rem bonarum artium</hi> auff der Roſtockiſchen <hi rendition="#aq">Univerſi</hi>taͤt/<lb/>
+Denn ſo ſchreibet Er in ſeiner <hi rendition="#aq">de laudibus Eliſabethæ<lb/>
+Cimbricæ</hi> gehaltenen <hi rendition="#aq">Oration: <hi rendition="#i">Idemqve</hi> (Burenius)<lb/>
+<hi rendition="#i">primus fuit, qvi ſuperiorum ſeculorum inſcitia<lb/>
+ætqve infantia detecta, &amp; abſterſa caligine bo-<lb/>
+nas literas in Academia noſtra recte diſerteqve<lb/>
+juventuti trædidit.</hi></hi> Welches ihm auch in ſeinem<lb/>
+<hi rendition="#aq">Epitaphio</hi> nachgeruͤhmet wird. <hi rendition="#aq">Nathan Chytræus</hi> machte<lb/>
+ſolch Werck von dieſes Mannes <hi rendition="#aq">meri</hi>ten/ daß er eine be-<lb/>
+<fw type="catch" place="bottom">ſon-</fw><lb/>
+<pb n="41" facs="#f0043"/>
+ſondere <hi rendition="#aq">Oration</hi> von ihm zu ſchreiben/ und deſſen Anden-<lb/>
+cken dadurch zu erhalten ſuchte. Welche von Herrn <hi rendition="#aq">M.<lb/>
+Rollio</hi> ſeinen <hi rendition="#aq">Memoriis Philoſophorum renovatis, p.</hi> 105.<lb/>
+einverleibet iſt. Wer ein mehrers von dieſem gelehrten<lb/>
+Mann zu wiſſen verlanget/ kan es in ſeel. <hi rendition="#aq">D.</hi> Grapens<lb/>
+Evangel. Roſtock <hi rendition="#aq">p.</hi> 110. in Herrn <hi rendition="#aq">D. Æpini Diſſertation<lb/>
+de Meritis Weſtphalorum,</hi> und in Herrn <hi rendition="#aq">M.</hi> Loͤchners<lb/>
+<hi rendition="#aq">diſſertation de Singularibus Meclenburgicis cap.</hi> 3. §. 10.<lb/>
+nachgeleſen.</note><lb/>
+<note place="end" n="(4.)">Dieſe nahe Verwandſchafft faͤllet ſo viel deutlicher<lb/>
+durch folgende <hi rendition="#aq">Genealogi</hi>ſche Tabel in die Augen:<lb/>
+<table rendition="#v"><row><cell cols="2" rendition="#bottomBraced"><hi rendition="#aq">MAGNUS II.</hi> Hertzog zu Mecklenburg.</cell></row><lb/>
+<row><cell><hi rendition="#aq">HENRICUS</hi> <hi rendition="#fr">der Fried-<lb/>
+fertige/</hi> ſeine Gemahlin<lb/>
+war <hi rendition="#aq">Urſula,</hi> eine Tochter<lb/>
+<hi rendition="#aq">Johannis</hi> Chur-Fuͤrſten zu<lb/>
+Brandenburg/ welcher <hi rendition="#aq">Ci-<lb/>
+cero Germaniæ</hi> genandt.</cell><cell><hi rendition="#aq"><hi rendition="#g">SOPHIA,</hi></hi> <hi rendition="#fr">Gemahlin</hi><lb/>
+des Churfuͤrſten zu Sach-<lb/>
+ſen <hi rendition="#aq">Johannis</hi> des Beſtaͤndi-<lb/>
+gen/ mit welcher er <hi rendition="#aq">anno</hi><lb/>
+1500. vermaͤhlet/ ſie ſtarb<lb/>
+aber den 12. <hi rendition="#aq">Julii</hi> 1503/ nach-<lb/>
+dem ſie kurtz vor ihrem<lb/>
+Tode gebohren</cell></row><lb/>
+<row><cell><hi rendition="#aq"><hi rendition="#g">MAGNUS,</hi></hi> Biſchoff zu<lb/>
+Schwerin/ deſſen Leben<lb/>
+wir kuͤrtzlich entworffen<lb/>
+haben.</cell><cell><hi rendition="#aq">JOHANN FRIEDERICH I.</hi><lb/>
+welcher der Großmuͤthige<lb/>
+genannt wird.</cell></row></table></note><lb/>
+<fw type="catch" place="bottom">(5) Die</fw><lb/>
+<pb n="42" facs="#f0044"/>
+<note place="end" n="(5.)">Die Hoch-Fuͤrſtl. <hi rendition="#aq">Miniſtres</hi> und Bedienten/ welche mit<lb/>
+Ihro Durchl. Hertzog Heinrich/ unſers <hi rendition="#aq">Magni</hi> Herr<lb/>
+Vater/ auff dem Reichs-Tag zu Augſpurg geweſen/ ſind<lb/>
+folgende: <hi rendition="#fr">Caſpar von Schoͤnnig/</hi> Cantzler/ welchen<lb/>
+<hi rendition="#aq">Mareſchalcus Thurius</hi> in ſeinen Schrifften <hi rendition="#aq">Caſparum de<lb/>
+bella qvercu</hi> zu nennen pflegt. <hi rendition="#fr">Jochim Hane/</hi><lb/>
+<hi rendition="#aq">Wenceslaus</hi> Herr in Biberſteinen. <hi rendition="#fr">Johann Sper-<lb/>
+ling/</hi> <hi rendition="#aq">Marechal.</hi> <hi rendition="#fr">Caſpar von Danneberg/ Vol-<lb/>
+rath Preen/ Jochim Wangelin/ Sebaſtian<lb/>
+Krauſe/ Volrath von Buͤlau/ Volrath Sper-<lb/>
+ling. Niclas Hane/ Diederich Rhor/ Jtel<lb/>
+Schenck</hi> von Schweinsberg. <hi rendition="#fr">Hans Schenck</hi><lb/>
+von Schweinsberg. <hi rendition="#fr">Jochim Riebe/</hi> <hi rendition="#aq">Evcharius</hi> <hi rendition="#fr">Gam-<lb/>
+me/ Johann Parckentin/ Chriſtoffer Linſtou;</hi><lb/>
+woraus man den anſehnlichen Hoff-Staat dieſes Herrn<lb/>
+wahrnehmen kan. <hi rendition="#aq">Cœleſtinus Tom. Comitiorum<lb/>
+Auguſt.</hi></note><lb/>
+<note place="end" n="(6.)">Dieſer <hi rendition="#aq">Arnoldus</hi> iſt der offtgedachte <hi rendition="#aq">Informator</hi> des<lb/>
+Printzen <hi rendition="#aq">Magni.</hi></note><lb/>
+<note place="end" n="(7.)">Hie entſtehet ein <hi rendition="#aq">dubium:</hi> denn aus <hi rendition="#aq">Melanchthonis</hi><lb/>
+Schreiben an Hertzog <hi rendition="#aq">Magnum anno</hi> 1548. am Tage vor<lb/>
+Bartholomaͤi <hi rendition="#aq">dati</hi>ret erhellet klaͤrlich/ daß er dazumahl<lb/>
+ſeinen <hi rendition="#aq">Commentarium</hi> uͤber die Spruͤchwoͤrter Salo-<lb/>
+monis <hi rendition="#aq">edi</hi>ren wollen/ den er Hertzog <hi rendition="#aq">Magno dedici</hi>ret;<lb/>
+in dieſer andern Zuſchrifft aber/ ſo <hi rendition="#aq">an.</hi> 1555. an Hertzog<lb/>
+Johann Albrecht gericht/ ſchreibet er/ daß er vor 20.<lb/>
+Jahren ſolchen <hi rendition="#aq">Commentarium</hi> dem <hi rendition="#aq">Magno decid<supplied>i</supplied></hi>ret ha-<lb/>
+be. Da doch von 1548/ biß 1555. in welchen Jahren bee-<lb/>
+de <hi rendition="#aq">Dedica<supplied>t</supplied>iones</hi> geſchrieben/ Kaum ſieben Jahr verfloſ-<lb/>
+ſen ſind. Ub erlaſſe alſo andern/ die mehrere Zeit haben<lb/>
+dieſes <hi rendition="#aq">dubium</hi> auffzuloͤſen.</note><lb/>
+<note place="end" n="(8)"><hi rendition="#aq">Hederici</hi> Worte hievon/ ſind <hi rendition="#aq">l. c.</hi> dieſe: <hi rendition="#fr">Dieweil</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">er</hi></fw><lb/>
+<pb n="43" facs="#f0045"/>
+<hi rendition="#fr">er</hi> <hi rendition="#aq">(Magnus)</hi> <hi rendition="#fr">forthin an ſeines alten verlebten<lb/>
+Vaters Staͤtt des Landes und der Regie-<lb/>
+rung ſich anmaſſen ſolte/ wird er</hi> <hi rendition="#aq">novo &amp; pri-<lb/>
+mo exemplo Epilcoporum Sverinenſium</hi> <hi rendition="#fr">ehelich/<lb/>
+und ihm Fraͤulein Eliſabeth Koͤnigs</hi> <hi rendition="#aq">Friderici I.</hi><lb/>
+<hi rendition="#fr">in Dennemarck und</hi> <hi rendition="#aq">Sophiæ</hi> <hi rendition="#fr">aus Pommern<lb/>
+Tochter/ 1524. den</hi> 14. <hi rendition="#aq">October</hi> <hi rendition="#fr">gebohren/ ver-<lb/>
+maͤhlet/ und das Beylager den Sonntag<lb/>
+nach Bartholomaͤi zum Kiel gehalten;</hi> welches<lb/>
+er auch in ſeinem <hi rendition="#aq">Chronico Sverin. ad annum</hi> 1543. ange-<lb/>
+mercket/ wo er dabey ſetzet: <hi rendition="#fr">Die Heimfahrt ſey<lb/>
+zu Schwerin/ aber in gar boͤſem Wetter<lb/>
+geſchehen.</hi> Doch verſiehet es <hi rendition="#aq">Hederieus</hi> in rechnen/<lb/>
+wenn er daſelbſt meldet/ Hertzog <hi rendition="#aq">Magnus</hi> habe ſeines<lb/>
+Alters im 38. Jahr Beylager gehalten/ da er doch <hi rendition="#aq">anno</hi><lb/>
+1509. den 9ten <hi rendition="#aq">Julii</hi> gebohren/ und <hi rendition="#aq">anno</hi> 1550. ge-<lb/>
+ſtorben.</note><lb/>
+<note place="end" n="(9.)">Deſſen gedencket auch kuͤrtzlich <hi rendition="#aq">Hedericus</hi> in ſeinem<lb/>
+<hi rendition="#aq">Chronico Sverin. ad annum</hi> 1516. wo er noch die-<lb/>
+ſes beygefuͤget: Daß Hertzog <hi rendition="#aq">Magnus anno</hi> 1532. ſei-<lb/>
+nes Alters im 23. Jahr/ die Regierung des Bißthums<lb/>
+Schwerins angetreten/ da er denn in eigener Perſon<lb/>
+dem Capittel zu Schwerin/ mit Wiederholung des vo-<lb/>
+rigen <hi rendition="#aq">Juraments</hi> geſchworen/ und alſo <hi rendition="#aq">in realem &amp;<lb/>
+actualem diœceſis poſſesſionem ſolenniter introdneir</hi>et/<lb/>
+<hi rendition="#aq">proclamirt</hi> und <hi rendition="#aq">confirmirt</hi> worden.</note><lb/>
+<note place="end" n="(10.)"><hi rendition="#aq">Oëmichii</hi> Worte und Reimen ſind <hi rendition="#aq">l. c.</hi> dieſe:</note><lb/>
+<lg type="poem"><l>Die ſchoͤne Kirch zu Dobberan/</l><lb/>
+<l>In welcher ihr Begraͤbniß han/</l><lb/>
+<l>Viel Fuͤrſten und Adlicher Mann/</l><lb/>
+<fw type="catch" place="bottom">Hub</fw><lb/>
+<pb n="44" facs="#f0046"/>
+<l>Hub an allen Orten an zu krachen/</l><lb/>
+<l>Dieſelb halff ſie auch wieder machen/</l><lb/>
+<l>Fuͤrnehmlich zum Gedaͤchtniß und Ehrn</l><lb/>
+<l>Ihrem geweßnen lieben Herrn</l><lb/>
+<l>Hertzog <hi rendition="#aq">Magnus,</hi> welcher alldar/</l><lb/>
+<l>Im Wendiſchen Grab begraben war.</l></lg><lb/>
+<note place="end" n="(11)">Es ſind dieſe <hi rendition="#aq">Epitaphia Doberanenſia</hi> auch <hi rendition="#aq">Ao.</hi> 1648.<lb/>
+ſorgfaͤltig von jemand abgeſchrieben/ welches <hi rendition="#aq">MSCt.</hi><lb/>
+vorhanden/ und in <hi rendition="#aq">Conferir</hi>ung deſſen mit <hi rendition="#aq">Losſii</hi> hie an-<lb/>
+gefuͤhrten <hi rendition="#aq">Epitaphiis,</hi> befinde daß im gedachtem <hi rendition="#aq">MSCto,</hi><lb/>
+ſolche hie und da etwas veraͤndert zu leſen ſind/ weiß<lb/>
+alſo nicht ob dieſe <hi rendition="#aq">Epitaphia</hi> nach <hi rendition="#aq">Losſii</hi> Zeiten/ da ſie<lb/>
+etwa verfallen wollen/ ſind in einigen Worten geaͤndert/<lb/>
+oder was die eigentliche Urſach ſolches Unterſcheids in<lb/>
+dieſen <hi rendition="#aq">Epitaphiis</hi> ſey. Doch iſt der Unterſcheid ſo groß<lb/>
+nicht/ daß ſie in der Meynung und Verſtand der Worte<lb/>
+ſolten von einander abgehen/ daruͤm auch hie bey der<lb/>
+aͤlteſten Abſchrifft des <hi rendition="#aq">Lucæ Losſii</hi> dißmahl geblieben.</note><lb/>
+<trailer><hi rendition="#c"><hi rendition="#fr"><hi rendition="#g">ENDE</hi>.</hi></hi></trailer></div><milestone unit="section" rendition="#hr"/><lb/>
+<lb/>
+</body><back>
+<pb n="[45]" facs="#f0047"/>
+<pb n="[46]" facs="#f0048"/>
+<pb n="[47]" facs="#f0049"/>
+<pb n="[48]" facs="#f0050"/>
+</back>
+</text> </TEI>

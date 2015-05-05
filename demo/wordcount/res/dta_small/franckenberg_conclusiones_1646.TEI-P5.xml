@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Conclvsiones de Fundamento Sapientiae Theorico-practicae</title>
+<title type="sub">Das ist/ Endlicher Beschluß Vom Grunde der Weißheit</title>
+<title type="sub">Von etlichen Liebhabern der Wahrheit zusammen getragen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118855050">
+<surname>Frankenberg</surname>
+<forename>Abraham von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">23</measure>
+<measure type="tokens">1407</measure>
+<measure type="types">754</measure>
+<measure type="characters">9609</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:16Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/franckenberg_conclusiones_1646</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/franckenberg_conclusiones_1646</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/franckenberg_conclusiones_1646</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/franckenberg_conclusiones_1646</idno>
+<idno type="DTADirName">franckenberg_conclusiones_1646</idno>
+<idno type="DTAID">20159</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Frankenberg, Abraham von: Conclvsiones de Fundamento Sapientiae Theorico-practicae. Endlicher Beschluß Vom Grunde der Weissheit. [Amsterdam], 1646.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Conclvsiones de Fundamento Sapientiae Theorico-practicae</title>
+<title level="m" type="sub">Das ist/ Endlicher Beschluß Vom Grunde der Weißheit</title>
+<title level="m" type="sub">Von etlichen Liebhabern der Wahrheit zusammen getragen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118855050">
+<surname>Frankenberg</surname>
+<forename>Abraham von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">12 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Königstein</name></publisher>
+<pubPlace>Amsterdam</pubPlace>
+<date type="publication">1646</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">SUB Göttingen, 8 TH TH I, 758/29</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20TH%20TH%20I%2C%20758%2F29</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb n="[1]" facs="#f0005"/>
+<titlePage type="main"><docTitle><titlePart type="main"> <hi rendition="#aq"><hi rendition="#g">CONCLVSIONES</hi><lb/>
+<hi rendition="#i">de</hi><lb/>
+<hi rendition="#g">FUND AMENTO<lb/>
+SAPIENTIÆ</hi><lb/>
+Theorico-practicæ.</hi></titlePart><lb/>
+<titlePart type="sub">Das iſt/<lb/>
+Endlicher Beſchluß<lb/>
+<hi rendition="#b">Vom Grunde der Weißheit/</hi><lb/>
+Von etlichen Liebhabern der Wahrheit<lb/>
+zuſammen getragen.</titlePart></docTitle><lb/>
+<figure/><lb/>
+<docImprint><pubPlace>Koͤnigſtein/</pubPlace><lb/>
+<docDate><hi rendition="#aq">Anno M D C XLVI.</hi></docDate></docImprint></titlePage><lb/>
+<pb n="[2]" facs="#f0006"/>
+</front><body>
+<pb n="3.[3]" facs="#f0007"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#aq">I.</hi></head><lb/>
+<p><hi rendition="#in">D</hi><hi rendition="#fr">Aß alles</hi> <hi rendition="#aq">Informi</hi><hi rendition="#fr">ren vnd</hi><lb/>
+<hi rendition="#aq">Studi</hi>ren einen gewiſſen<lb/>
+Zweck/ Ziel vnd Ende ha-<lb/>
+ben muß.</p><lb/>
+<lg type="poem"><l/> <cb/>
+<l>O <hi rendition="#aq">A</hi> bedenck das <hi rendition="#aq">O</hi>/</l><lb/>
+<l>Wie Vnten/ Oben ſo:</l><lb/>
+<cb/>
+<l>Ach <hi rendition="#aq">O</hi> gedenck ans <hi rendition="#aq">A.</hi></l><lb/>
+<l>Wie Oben/ Vnten da.</l></lg></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">II.</hi></hi></head><cit><quote>Daß das Ende alles Lehrens vnd<lb/>
+Lehrnens nichts anders ſey/ als eine<lb/>
+Wieder-einfuͤhrung zuruͤck/ vnd Ein-<lb/>
+gang zu Gott/ als dem Hoͤheſten Gute/<lb/>
+daraus der Menſch gefallen.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">Introduct. Hominis in Philoſ. Myſt. p.</hi> 228.</hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">III.</hi></hi></head><cit><quote>Daß man dieſen verborgenen<lb/>
+Eingang nicht moͤge finden/ man ſuche<lb/>
+dann die Ehre Gottes lauterlich vor vnd<lb/>
+in allen dingen.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. V. Weigel.</hi> im Buͤchlein/ daß Gott allein gut ſey</hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">IV.</hi></hi></head><cit><quote>Daß die Ehre Gottes beſtehe in<lb/>
+dem ewigen Lobe der herꝛlichen Maye-<lb/>
+ſtaͤt Goͤttlicher Guͤte/ Weißheit/ vnd<lb/>
+Allmacht.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. Pſalterium Davidis, &amp; Hymnos Hermetis. &amp;c</hi></hi></bibl></cit></div><lb/>
+<fw type="sig" place="bottom">A i j</fw><fw type="catch" place="bottom"><hi rendition="#aq">V.</hi> Daß</fw><lb/>
+<pb n="4" facs="#f0008"/>
+<fw type="header" place="top">Vom Grund</fw><lb/>
+<div n="1"><head><hi rendition="#aq">V.</hi></head><cit><quote>Daß dieſes Lob der Herꝛligkeit.<lb/>
+Gottes nicht moͤge recht geprieſen wer-<lb/>
+den/ der Menſch ſey dann mit vnd in<lb/>
+Gott/ vnd Gott mit vnd in dem Men-<lb/>
+ſchen vereiniget.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. Ioh. Arndt de unione credentium cum Chriſto.<lb/>
+Item Oth. Caſman. in libro de pulchritud.<lb/>
+pulch.</hi></hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">VI.</hi></hi></head><cit><quote>Daß die Vereinigung Gottes<lb/>
+vnd des Menſchen nicht geſchehen koͤn-<lb/>
+ne/ ohne den Grund der hertzlichen Liebe<lb/>
+Gottes uͤber alles.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v.</hi> Von dem hoͤchſten Weg der Liebe Gottes. <hi rendition="#aq">Aug. 8.<lb/>
+Ioh. Staupitz</hi> von der Liebe Gottes. <hi rendition="#aq">Arg. 12.<lb/>
+Conſt. de Barbanſon, de occult. ſemit. Div.<lb/>
+Amoris. Col. 12.<lb/>
+Item Amand. <hi rendition="#g">Grat.</hi> de Stellis.</hi> von der Gott-<lb/>
+ſeeligen Liebe. <hi rendition="#aq">Oppenh.</hi> in 4.</hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">VII.</hi></hi></head><cit><quote>Daß dieſe Liebe nicht muͤge be-<lb/>
+kant werden/ ohne den Vorſchmack der<lb/>
+vorlauffenden ſuͤſſen Gnade Gottes.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. Dan. Sudermanni</hi> Hohelied vnd Kupfferſtuͤcke. <hi rendition="#aq">fol.</hi></hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">VIII.</hi></hi></head><cit><quote>Daß die Gnade Gottes ſey<lb/>
+das ewige Leben in <hi rendition="#aq">Chriſto <hi rendition="#g"><hi rendition="#k">Jhsuh</hi></hi></hi><lb/>
+vnſerm HErꝛn.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. Libell.</hi> von der Gnade Gottes/ <hi rendition="#aq">Joh. Ruſbrouch.<lb/>
+Prec. Tauleri. Franc. apud Luc. Jen.</hi> 1624. in 12.</hi></bibl></cit></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">IX.</hi> Daß</fw><lb/>
+<pb n="5" facs="#f0009"/>
+<fw type="header" place="top">der Weißheit.</fw><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">IX.</hi></hi></head><cit><quote>Daß das ewige Leben nichts an-<lb/>
+ders ſey/ als eine Goͤttliche Beſchawlig-<lb/>
+keit vnd Ruhe der Seelen in der gehei-<lb/>
+men Offenbahrung Jeſu Chriſti.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. Libell.</hi> von Gottlich. Beſchawligkeit/ <hi rendition="#aq">Iac. Böhm.<lb/>
+Item</hi> vom uͤberſinlichen Leben <hi rendition="#aq">in Libell. pœnit.</hi></hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq">X.</hi></head><cit><quote>Daß die <hi rendition="#aq">O.I.C.</hi> ſey Gott/ die Na-<lb/>
+tur/ vnd ſich ſelber/ in/ durch/ vnd aus<lb/>
+Gott/ die Natur vnd ſich ſelber eꝛkennen.</quote><lb/>
+<bibl><hi rendition="#et">Kraͤmer-korb mit 7. Laden in 12.<lb/>
+<hi rendition="#aq">Weigel. Studium Univerſale,</hi> Guͤlden grieff.<lb/>
+<hi rendition="#aq">Henr. Nollii Via Sapientiæ. 8.<lb/>
+Weigel. Gnothi ſeauthon.</hi> 3. Thell.<lb/>
+<hi rendition="#aq">Iac. Böhm. de Trib. Principiis.<lb/>
+Ejuſdem De Signatura rerum.</hi></hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XI.</hi></hi></head><cit><quote>Daß dieſe Erkaͤntnuͤs durch das<lb/>
+Licht der Glorien/ Gnaden/ vnd Natur/<lb/>
+in dem drey-einigen Buche der heiligen<lb/>
+Schrifft/ der Welt/ vnd des Menſchen<lb/>
+muͤſſe geſucht/ gefunden vnd geoffen-<lb/>
+bahret werden.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. F. R. C. Famam è Scanziâ redux. 8.<lb/>
+Ægid.</hi> Guttmans Offenb. Goͤttl. Mayeſtaͤt 4.<lb/>
+<hi rendition="#aq">Libell. Theoſoph.</hi> vom wahren Heiligth: 1618. 4.<lb/>
+<hi rendition="#aq">Dyas myſtica Chriſtiani Theophili. in 4.<lb/>
+Baſilica Chym. Crollii. 4.<lb/>
+Cyclop. Paracelſi 1585. 4.<lb/>
+Herm. Triſm. Dialogi.<lb/>
+Jac. Böhm. Comment. ſupta Geneſin.</hi></hi></bibl></cit></div><lb/>
+<fw type="sig" place="bottom">A i i j</fw><fw type="catch" place="bottom"><hi rendition="#aq">XII.</hi> Das</fw><lb/>
+<pb n="6" facs="#f0010"/>
+<fw type="header" place="top">Vom Grund</fw><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XII.</hi></hi></head><cit><quote>Daß dieſe drey Buͤcher in dem<lb/>
+einigen/ innigen vnd ewigen Buche des<lb/>
+Lammes/ Lichtes vnd Lebens oder Her-<lb/>
+tzens Gottes von Ewigkeit beſchrieben/<lb/>
+verſigelt vnd beſchloſſen zu finden.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. Paul.</hi> Lautenſack in der <hi rendition="#aq">O. I. C. <hi rendition="#k">m ſ.</hi><lb/>
+v. Weigel.</hi> uͤber die <hi rendition="#aq">O. I. C. Paul.</hi> Lautenſack.<lb/>
+<hi rendition="#aq">Petr. Leviott. in Tab. Apocal:</hi></hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XIII.</hi></hi></head><cit><quote>Daß dieſes Buch des Lebens<lb/>
+von innen vnd auſſen geſchrieben ſey<lb/>
+<hi rendition="#aq"><hi rendition="#g"><hi rendition="#k">Jesus Christus, Crucifi-<lb/>
+xus</hi></hi></hi> vnd <hi rendition="#aq"><hi rendition="#g"><hi rendition="#k">Resuscitatus.</hi></hi></hi></quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. Libr. Vitæ aureus, Chr. Theophili</hi> mit 7.<lb/>
+Siegeln. 1621. 4.<lb/>
+<hi rendition="#aq">Joh. Reuchlin. de Verbo mirifico Baſil. in</hi> 12.<lb/>
+Geiſtlicher Meyen. Muͤnchen. 4.</hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XIV.</hi></hi></head><cit><quote>Daß wer in dieſem Buche<lb/>
+<hi rendition="#aq">Crucifixi</hi> vnd <hi rendition="#aq">Reſuſcitati</hi> recht leſen<lb/>
+wil/ demſelbigen von innen vnd auſſen<lb/>
+muͤſſe gleichfoͤrmig werden.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v.</hi> Nachfolg. <hi rendition="#aq">I. C. Th. de Kempis.<lb/>
+Weigel.</hi> 2. Buͤchlein vom Leben Chriſti.<lb/>
+Hans Mey. Buͤchlein von dem Bilde vnd Gleich-<lb/>
+nuͤs Gottes im Menſchen. in 12.</hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XV.</hi></hi></head><cit><quote>Daß dieſe Gleichfoͤrmigkeit al-<lb/>
+leine nach der Lehr vnd dem Leben Jeſu<lb/>
+Chriſti muͤſſe verſtanden/ aus dem Glau-<lb/>
+<fw type="catch" place="bottom">ben</fw><lb/>
+<pb n="7" facs="#f0011"/>
+<fw type="header" place="top">der Weißheit.</fw><lb/>
+ben in der Hoffnung mit Gedult durch<lb/>
+die Liebe thaͤtig werden.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. Concordantz</hi> der 3. <hi rendition="#aq">Religionen P. L. C.</hi> 4.<lb/>
+Guͤldcner Thron der Seclen. Jngolſt. 1596. 8.<lb/>
+<hi rendition="#aq">Diarium Humanit. Chriſti. Barth. Sculteti.</hi></hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XVI.</hi></hi></head><cit><quote>Daß in dem Leben Jeſu Chri-<lb/>
+ſti vornaͤmlich drey <hi rendition="#aq">Gradus,</hi> der Ernie-<lb/>
+drigung/ des Stillſtehens/ vnd der Er-<lb/>
+hoͤhung muͤſſen <hi rendition="#aq">practiciret</hi> werden.<lb/>
+<hi rendition="#et"><hi rendition="#aq">Chriſti R.</hi> vom 1. Himmel. 2. im Menſchen. 3. fuͤh-<lb/>
+ret jhn mit/ wieder in ſich/ nach Himmel.</hi></quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. Libr. de Vitâ, Morte &amp; Reſurrect. Rudolphi<lb/>
+Otreb. Angli. Oppenh. in</hi> 4.</hi></bibl><lb/>
+<quote><lg type="poem"><l><hi rendition="#et">Sein Gang kam vom Vater her/</hi></l><lb/>
+<l><hi rendition="#et">Vnd ging wieder zum Vater/</hi></l><lb/>
+<l><hi rendition="#et">Fuhr hinunter zu der Hell/</hi></l><lb/>
+<l><hi rendition="#et">Vnd wieder zu Gottes Stul.</hi></l></lg></quote></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XVII.</hi></hi></head><cit><quote>Daß der Stand der Ernie-<lb/>
+drigung nichts anders ſey als die <hi rendition="#aq">Mor-<lb/>
+tification,</hi> Creutzigung vnd Ertoͤdtung<lb/>
+des Erſten/ Alten/ Euſſern/ Jrꝛdiſchen/<lb/>
+Sichtbahren/ Thieriſchen/ Fleiſchlich-<lb/>
+geſinneten Menſchens/ da man der<lb/>
+Welt vnd jhm ſelber abſterben/ ſtillſtehen<lb/>
+vnd in Sabbath treten muß.<lb/>
+<hi rendition="#et">Gelitten/ gecreutziget/ geſtorben.</hi></quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. Joh. Arndt</hi> in 4. Buͤchern vom wahr. Chriſtenth.</hi></bibl><lb/>
+<quote><lg type="poem"><l><hi rendition="#et">Wer mit Chriſto wil herꝛſchen vnd erben/</hi></l><lb/>
+<l><hi rendition="#et">Muß zuvor mit jhm leiden vnd ſterben.</hi></l></lg></quote></cit></div><lb/>
+<fw type="sig" place="bottom">A i i i j</fw><fw type="catch" place="bottom"><hi rendition="#aq"><hi rendition="#g">XVII.</hi></hi></fw><lb/>
+<pb n="8" facs="#f0012"/>
+<fw type="header" place="top">Vom Grund</fw><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XVIII.</hi></hi></head><cit><quote>Daß das Stillſtehen vnd<lb/>
+Sabbath halten/ nichts anders ſey als<lb/>
+mit Chriſto durch die Tauffe in den Tod<lb/>
+begraben werden; mit einem demuͤtigen<lb/>
+Vnterwurff ſich in gelaſſener Gelaſſen-<lb/>
+heit aller Creaturen verzeihen vnd vnter-<lb/>
+geben: allein in das newe Felſengrab<lb/>
+des Hertzens <hi rendition="#aq"><hi rendition="#g"><hi rendition="#k">Ihsuh Christi</hi></hi></hi> zu<lb/>
+grunde einſincken/ vnd ſich alſo gantz<lb/>
+williglich in Gott verlieren.<lb/>
+<lg type="poem"><l><hi rendition="#et">Begraben/ nieder gefahren zur Hoͤllen.</hi></l><lb/>
+<l><hi rendition="#et">Dir vns laſſen gantz vnd gar/ ꝛc.</hi></l><lb/>
+<l><hi rendition="#et">Jetzt muſtu viel leiden/</hi></l><lb/>
+<l><hi rendition="#et">Deinen Willen meyden.</hi></l></lg><lb/>
+<list rendition="#aq"><item>Cor<list rendition="#leftBraced"><item>Chriſti</item><lb/>
+<item>Chriſtiani</item></list></item><item><list><item>Sepulchrum<list rendition="#rightBraced #leftBraced"><item>Chriſtiani.</item><lb/>
+<item>Chriſti.</item></list></item></list></item></list><lb/>
+<cb/>
+</quote><bibl><hi rendition="#et"> <hi rendition="#aq">v. Taul. Poſtill.<lb/>
+Weigel.</hi> Gelaſſenheit.<lb/>
+<cb/>
+Teutſche <hi rendition="#aq">Theologi.<lb/>
+Jac. Böhm: Auroram. Item</hi> von der Gelaſſenheit.</hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XIX.</hi></hi></head><cit><quote>Daß der Stand der Erhoͤhung<lb/>
+nichts anders ſey/ als aus dem Tode<lb/>
+Chriſti/ durch die newe Geburt im Pa-<lb/>
+radeiſiſchen Leben außgruͤnen: Mit dem<lb/>
+Fleiſche vnd Blute Jeſu Chriſti ge-<lb/>
+ſpeiſet vnd getraͤncket/ von Babel auß-<lb/>
+gehen: Geiſtlich aufferſtehen: den an-<lb/>
+<fw type="catch" place="bottom">dern</fw><lb/>
+<pb n="9" facs="#f0013"/>
+<fw type="header" place="top">der Weißheit.</fw><lb/>
+dern Newen/ Jnwendigen/ Himliſchen/<lb/>
+Vnſichtbahren/ Engliſchen/ Geiſtlichge-<lb/>
+ſinneten Menſchen Jeſum Chriſtum/ der<lb/>
+nach Gott gebildet iſt/ anziehen: als ein<lb/>
+Kind des Lichtes im Lichte wandeln/ auff-<lb/>
+wachſen/ zunehmen/ vnd ſtarck werden/<lb/>
+an Weißheit/ Alter vnd Gnade bey Gott<lb/>
+vnd den Menſchen; biß zu einem voll-<lb/>
+kommenen Manne/ der da lebe in Ge-<lb/>
+rechtigkeit vnd Heiligkeit die fuͤr Gott<lb/>
+gefaͤllig iſt.<lb/>
+<hi rendition="#et">Am 3. Tage wieder aufferſtanden von den<lb/>
+Todten: auffgefahren gen Himmel.<lb/>
+Suchen vnd trachten nach dem was droben iſt: Auff<lb/>
+den Berg des HErꝛn ſteigen: Auß-vnd ein-<lb/>
+gehen/ vnd Weide finden: Fruͤchte des Gei-<lb/>
+ſtes bringen.<lb/>
+Sitzend zur Rechten Gottes; von dannen<lb/>
+Er kommen wird zu richten die Lebendi-<lb/>
+gen vnd Todten.</hi></quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">Libell. de Perfect. Chriſtianâ Benedicti Cane-<lb/>
+feld. Colon. 12. Item</hi><lb/>
+Gedanckenhuͤter/ <hi rendition="#aq">Francofurti, in 12.<lb/>
+v. Jac. Böhm</hi> von der newen Geburt.<lb/>
+<hi rendition="#aq">Aureum Seculum redivivum Henr: Madathani</hi> 8,<lb/>
+Von Chriſtlicher Vollkommenheit <hi rendition="#aq">Joh. Lorichii<lb/>
+Friburg, in 12.<lb/>
+Philoſoph. de Limbo æterno Theoph. Paracelſi,<lb/>
+in 4. 1618.<lb/>
+Novus Homo Valentini Crotoaldii,</hi> 8.</hi></bibl></cit></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">XX.</hi> Daß</fw><lb/>
+<pb n="10" facs="#f0014"/>
+<fw type="header" place="top">Vom Grund</fw><lb/>
+<div n="1"><head><hi rendition="#aq">XX.</hi></head><cit><quote>Daß dis alles ohne ernſtes Bit-<lb/>
+ten/ fleiſſiges Nachſuchen/ vnd vnablaͤß-<lb/>
+liches Anklopffen nicht koͤnne erlanget<lb/>
+werden.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">Jac. Böhm.</hi> Gebaͤtt-buͤchlein.<lb/>
+<hi rendition="#aq">Informatorium Weigelii.<lb/>
+Joh. Arndt</hi> Paradißgaͤrtlein.<lb/>
+<hi rendition="#aq">Theoph.</hi> Handbibel/</hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XXI.</hi></hi></head><cit><quote>Daß man den Vater durch<lb/>
+den Sohn im Geiſte/ vnd in der War-<lb/>
+heit/ vmb den heiligen Geiſt inbruͤnſtig<lb/>
+bitten: das Reich Gottes vor allen<lb/>
+dingen in dem innerſten Grund des<lb/>
+Hertzens ſuchen: Vnd alleine an die<lb/>
+einige/ enge/ vnd innige Pforte des Le-<lb/>
+bens Jeſu Chriſti anklopffen ſolle vnd<lb/>
+muͤſſe.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. Jac. Böhm.</hi> Weg zu Chriſto von der Buſſe<lb/>
+in 12.</hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XXII.</hi></hi></head><cit><quote>Daß man ohn ein Gottſeeli-<lb/>
+ges/ keuſches/ nuͤchternes/ vnd eingezo-<lb/>
+genes Leben/ gar nicht recht bitten/<lb/>
+ſuchen/ noch anklopffen koͤnne.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v. Joh. Val. Andreæ opuſcula varia. in</hi> 12.<lb/>
+Begierer/ oder Seelen-ſchatz. <hi rendition="#aq">Colon. in</hi> 12.</hi></bibl></cit></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq"><hi rendition="#g">XXIII.</hi></hi></fw><lb/>
+<pb n="11" facs="#f0015"/>
+<fw type="header" place="top">der Weißheit.</fw><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XXIII.</hi></hi></head><cit><quote>Daß vergebens ſey ein ſol-<lb/>
+ches abgeſchiedenes Leben zu fuͤhren:<lb/>
+wo man die Annaͤhmligkeit der viel-<lb/>
+vnd Eitelkeit dieſer Welt nicht kan ver-<lb/>
+meyden.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">Sebaſt: Francken Paradoxa.</hi><lb/>
+Sonnen Ritter <hi rendition="#aq">Hoffſteteri.</hi> Gieſſen in 8.<lb/>
+<hi rendition="#aq">Nicol.</hi> von Vnterwalden/ oder Bruder Claus von<lb/>
+der Abgeſchiedenheit.</hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XXIV.</hi></hi></head><cit><quote>Daß vmbſonſt ſey die Welt<lb/>
+verlaſſen/ wo man ſich ſelber/ das iſt/ ſein<lb/>
+eigen Gutt/ Leib/ Lob/ Leben/ Seele/<lb/>
+vnd Willen/ vmb Chriſti Namens/<lb/>
+Erkaͤntnuͤs vnd Liebe wegen/ nicht ler-<lb/>
+net verlieren vnd haſſen.</quote><lb/>
+<bibl><hi rendition="#et"><hi rendition="#aq">v.</hi> Das Buͤchlein von Neun Felſen/ Dillingen/ 1573<lb/>
+<hi rendition="#aq">Tauleri</hi> Nachfolge.<lb/>
+Das groſſe vnd kleine Maͤrterbuch.</hi></bibl></cit></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#g">XXV.</hi></hi></head><cit><quote>Daß diß alles wuͤrcke/ er-<lb/>
+oͤffne/ vnd bezeuge Gott der Vater/ in<lb/>
+ſeinem eingebohrnen Sohne <hi rendition="#aq"><hi rendition="#g"><hi rendition="#k">Jhsuh</hi></hi><lb/>
+Chriſto,</hi> durch den heiligen Geiſt/ wel-<lb/>
+chen Er außgegoſſen hat uͤber vns reich-<lb/>
+lich/ auff daß wir durch deſſelben Gna-<lb/>
+de gerecht vnd Erben wuͤrden des ewi-<lb/>
+<fw type="catch" place="bottom">gen</fw><lb/>
+<pb n="12" facs="#f0016"/>
+<fw type="header" place="top">Vom Grund der Weißheit.</fw><lb/>
+gen Lebens nach der Hoffnung: das iſt<lb/>
+gewislich wahr!<lb/>
+<hi rendition="#et">Sie ſollen Alle von Gott gelehret ſeyn.<lb/>
+<hi rendition="#aq">Cœli enarrant Gloriam <hi rendition="#g"><hi rendition="#k">Dei,</hi></hi> fabricationem<lb/>
+autem manuum Ejus annunciat <hi rendition="#g"><hi rendition="#k">Firma-<lb/>
+mentum.<lb/>
+Dies Diei</hi></hi> eructat Verbum (<hi rendition="#g"><hi rendition="#k">Liber</hi></hi> Li-<lb/>
+brum aperit.)<lb/>
+Et Nox nocti indicat ſcientiam, Pſal.</hi> 19.</hi><lb/>
+<hi rendition="#c">Jhme ſey Lob/ vnd Ehr/ vnd Preis/ von<lb/>
+Ewigkeit zu Ewigkeit/<lb/>
+Amen.<lb/>
+☉☾ ✠ Ω<lb/>
+<hi rendition="#aq">Breviſſima <hi rendition="#g"><hi rendition="#k">Veritatis</hi></hi> Linea:<lb/>
+<hi rendition="#g"><hi rendition="#k">Jhsuh Christi</hi></hi><lb/>
+Sapientiſſima &amp; Perfectiſſima</hi><lb/>
+Θεανϑρώπου<lb/>
+<hi rendition="#aq"><hi rendition="#g"><hi rendition="#k">Doctrina Vita.</hi></hi><lb/>
+In hoc <hi rendition="#g"><hi rendition="#k">Vivo</hi></hi> In hoc <hi rendition="#g"><hi rendition="#k">Vinco</hi></hi><lb/>
+In hoc Tutus, Tacitus, Totus<lb/>
+<hi rendition="#g"><hi rendition="#k">Acquiesco</hi></hi><lb/>
+Amicus Veritatis Fidelis.</hi><lb/>
+<hi rendition="#g">1625.</hi></hi></quote></cit></div><milestone unit="section" rendition="#hr"/><lb/>
+<lb/>
+</body><back>
+<pb n="[13]" facs="#f0017"/>
+<pb n="[14]" facs="#f0018"/>
+<pb n="[15]" facs="#f0019"/>
+<pb n="[16]" facs="#f0020"/>
+<pb n="[17]" facs="#f0021"/>
+<pb n="[18]" facs="#f0022"/>
+<pb n="[19]" facs="#f0023"/>
+</back>
+</text> </TEI>

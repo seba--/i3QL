@@ -1,0 +1,1465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Neu Alamodische Ritterliche Fecht- und Schirm-Kunst</title>
+<title type="sub">Das ist: Wahre und nach neuester Frantzösischer Manier eingerichtete Unterweisung Wie man sich in Fechten und Schirmen perfectioniren und verhalten solle</title>
+<title type="sub">Denen respectivè Herren Liebhaberen zu besserer Erleuterung mit 60. hierzu dienlichen Figuren herausgegeben</title>
+<author>
+<persName ref="http://d-nb.info/gnd/100462588">
+<surname>Doyle</surname>
+<forename>Alexander</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">149</measure>
+<measure type="tokens">8837</measure>
+<measure type="types">1615</measure>
+<measure type="characters">58125</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:11Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/doyle_fechtkunst_1715</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/doyle_fechtkunst_1715</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/doyle_fechtkunst_1715</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/doyle_fechtkunst_1715</idno>
+<idno type="DTADirName">doyle_fechtkunst_1715</idno>
+<idno type="DTAID">20133</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Doyle, Alexander: Neu Alamodische Ritterliche Fecht- und Schirm-Kunst. Nürnberg u. a., 1715.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Neu Alamodische Ritterliche Fecht- und Schirm-Kunst</title>
+<title level="m" type="sub">Das ist: Wahre und nach neuester Frantzösischer Manier eingerichtete Unterweisung Wie man sich in Fechten und Schirmen perfectioniren und verhalten solle</title>
+<title level="m" type="sub">Denen respectivè Herren Liebhaberen zu besserer Erleuterung mit 60. hierzu dienlichen Figuren herausgegeben</title>
+<author>
+<persName ref="http://d-nb.info/gnd/100462588">
+<surname>Doyle</surname>
+<forename>Alexander</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[1] gef. Bl., [73] Bl. : Frontisp., 59 Ill. (Kupferst.).</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Lochner</name></publisher>
+<pubPlace>Nürnberg</pubPlace>
+<pubPlace>Frankfurt (Main)</pubPlace>
+<date type="publication">1715</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">SUB Göttingen, 8 ARS MIL 1098/29 (1) RARA</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20ARS%20MIL%201098%2F29%20(1)%20RARA</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Militär</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<div type="frontispiece"><figure/></div><lb/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b">Neu<lb/>
+Alamodiſche Ritterliche<lb/>
+<hi rendition="#in">F</hi><hi rendition="#red">echt- und </hi><hi rendition="#in">S</hi><hi rendition="#red">chirm-</hi><lb/>
+<hi rendition="#in">K</hi><hi rendition="#red">unſt.</hi></hi></titlePart><lb/>
+<titlePart type="sub">Das iſt:<lb/>
+<hi rendition="#b #red">Wahre und nach neueſter Frantzoͤſiſcher Manier eingerichtete</hi><lb/>
+<hi rendition="#g">Unterweiſung</hi><lb/>
+<hi rendition="#red">Wie man ſich in Fechten und Schirmen <hi rendition="#aq">perfectioni</hi>ren und verhalten ſolle;</hi></titlePart></docTitle><lb/>
+<titlePart type="desc">Denen <hi rendition="#aq">reſpectivè</hi> Herren Liebhaberen zu beſſerer Erleuterung mit 60. hierzu<lb/>
+dienlichen Figuren</titlePart><byline>herausgegeben<lb/>
+Von<lb/>
+<docAuthor><hi rendition="#aq #red"><hi rendition="#b">Alexander Doyle</hi></hi></docAuthor><hi rendition="#b #red"> aus Jrrland gebuͤrtig.</hi></byline><lb/>
+<titlePart type="desc">Jhrer Churfuͤrſtl. Gnaden zu Mayntz verordneten Hof-Fechtmeiſtern.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace>Nuͤrnberg und Franckfurt</pubPlace>/ zu finden bey <publisher>Paul Lochnern/</publisher> Buchhaͤndlern. <hi rendition="#aq">A. </hi><docDate><hi rendition="#aq">M. D. C. C. XV.</hi></docDate></docImprint></titlePage><lb/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<figure/><lb/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<div type="dedication"><p><hi rendition="#c"><hi rendition="#b">Dem</hi><lb/>
+<hi rendition="#fr">Hochwuͤrdigſten Fuͤrſten und Herrn/</hi><lb/>
+<hi rendition="#g">HERRN/</hi><lb/>
+<hi rendition="#aq">LOTHARIO</hi> <hi rendition="#fr">Frantzen/<lb/>
+des Heil. Stuhls zu Mayntz Ertz-Biſchoffen/<lb/>
+des Heyl. Roͤm. Reichs durch</hi> <hi rendition="#aq">Germani</hi> <hi rendition="#b">en Ertz-Cantzlern<lb/>
+und Churfuͤrſten/ Biſchoffen zu Bamberg ꝛc.<lb/>
+Meinem Gnaͤdigſten Herrn/</hi></hi></p></div><lb/>
+<pb facs="#f0008"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="1" type="dedication"><salute><hi rendition="#fr">Hochwuͤrdigſter Ertz-Biſchoff und<lb/>
+<hi rendition="#et">Churfuͤrſt/<lb/>
+Gnaͤdigſter Herr!</hi></hi></salute><lb/>
+<p><hi rendition="#in">S</hi><hi rendition="#fr">Eith deme/ daß in Eu. Churfuͤrſtl.<lb/>
+Bnaden hoher</hi> <hi rendition="#aq">Protection</hi> <hi rendition="#fr">und Dienſten</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">zu ſte-</hi></fw><lb/>
+<pb facs="#f0009"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <hi rendition="#fr">zu ſtehen ich die hoͤchſte Gnad gehabt/ habe nicht al-<lb/>
+lein meine unterthaͤnigſte Schuldigkeit und</hi> <hi rendition="#aq">Incum-<lb/>
+benz</hi> <hi rendition="#fr">Eu. Churfuͤrſtl. Bnaden Edelkna-<lb/>
+ben in dieſer Ritterlichen Schirm- und Fecht-<lb/>
+Kunſt mit treulichſt- und ſorgfaͤltigſter Unterwei-<lb/>
+ſung zu dienen billig allſtets vor Augen gehabt/<lb/>
+ſondern bin anbey dahin bedacht geweſen/ wie ich<lb/>
+einem jeden/ ſo theils zu ſeiner Schutz- und Siche-<lb/>
+rung/ theils und inſonderheit bey gegenwaͤrtigen<lb/>
+gefaͤhrlichen Laͤufften dem</hi> <hi rendition="#aq">Publico</hi> <hi rendition="#fr">dienen zu koͤnnen/<lb/>
+durch Ritterliche Ubungen ſich zu</hi> <hi rendition="#aq">qualifici</hi><hi rendition="#fr">ren trach-</hi><lb/>
+<fw type="sig" place="bottom">)( 3</fw><fw type="catch" place="bottom"><hi rendition="#fr">tet/</hi></fw><lb/>
+<pb facs="#f0010"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <hi rendition="#fr">tet/ dem von GOtt mir verliehenen</hi> <hi rendition="#aq">Talento</hi> <hi rendition="#fr">nach<lb/>
+darzu an Hand gehen/ und ſolche loͤbl.</hi> <hi rendition="#aq">Intention,</hi> <hi rendition="#fr">ſo<lb/>
+viel an mir iſt/ befoͤrdern helffen moͤge; Welchem-<lb/>
+nach dann ich gegenwaͤrtige nach heutiger</hi> <hi rendition="#aq">perfectio-<lb/>
+nir</hi><hi rendition="#fr">ten ſo Frantzoͤſ. als</hi> <hi rendition="#aq">Italiani</hi><hi rendition="#fr">ſcher</hi> <hi rendition="#aq">Manier</hi> <hi rendition="#fr">eingerich-<lb/>
+tete/ von mir ſo</hi> <hi rendition="#aq">tituli</hi><hi rendition="#fr">rte: Neu Alamodiſche<lb/>
+Ritterliche Fecht- und Schirmkunſt ꝛc.<lb/>
+zu verfaſſen/ und die darzu noͤthige</hi> <hi rendition="#aq">Figu</hi><hi rendition="#fr">ren durch<lb/>
+wohlerfahrne Kuͤnſtler nach meiner Anweiſung</hi><lb/>
+<hi rendition="#aq">accuratè delinei</hi><hi rendition="#fr">ren zu laſſen/ umb ſo mehr veran-<lb/>
+laſſet worden/ als mehr jedermaͤnniglich bekannt/</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">daß</hi></fw><lb/>
+<pb facs="#f0011"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <hi rendition="#fr">daß in denen wenigen von dieſer Edlen Kunſt hie-<lb/>
+bevor zum Druck gekommenen</hi> <hi rendition="#aq">Tract</hi><hi rendition="#fr">aͤtlein viele<lb/>
+ungereimbte/ nicht</hi> <hi rendition="#aq">practici</hi><hi rendition="#fr">rliche/ ja irrmachende/<lb/>
+und leichter zu groͤſter Gefahr und Schaden gerei-<lb/>
+chende Unrichtigkeiten/ auch von denen Kupfer-<lb/>
+ſtecheren oder ſonſt herruͤhrende Fehler befindlich<lb/>
+ſeynd; Obwohlen nun Gnaͤdigſter Chur-<lb/>
+fuͤrſt und Herr/ ich mich faſt entbloͤden ſolte/<lb/>
+Eu. Churfuͤrſtl. Gnaden alseinem Geiſt-<lb/>
+lichen Herrn und</hi> <hi rendition="#aq">Regen</hi><hi rendition="#fr">ten dieſes</hi> <hi rendition="#aq">purè</hi> <hi rendition="#fr">weltliche und</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">faſt</hi></fw><lb/>
+<pb facs="#f0012"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <hi rendition="#fr">faſt nur zum Krieg dienende Wercklein unterthaͤ-<lb/>
+nigſt zu</hi> <hi rendition="#aq">dedici</hi><hi rendition="#fr">ren/ ſo</hi> <hi rendition="#aq">animi</hi><hi rendition="#fr">ret mich dannoch eines<lb/>
+theils die von Deroſelben genieſende hohe Chur-<lb/>
+fuͤrſtl.</hi> <hi rendition="#aq">Clemenz,</hi> <hi rendition="#fr">als welcher ich meine zeitliche Wol-<lb/>
+fahrt zu dancken habe/ andern theils aber/ daß<lb/>
+Eu. Churfuͤrſtl. Gnaden dieſe und alle<lb/>
+andere Ritterliche</hi> <hi rendition="#aq">Exercitia</hi> <hi rendition="#fr">und Wiſſenſchafften<lb/>
+nicht allein in Dero Jugend ſelbſten hoͤchſtens<lb/>
+geliebt und geuͤbt/ ſondern nunmehro alle diejenige/<lb/>
+ſo adelich/ als unadeliche/ welche dem von Eu.</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Lhur-</hi></fw><lb/>
+<pb facs="#f0013"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <hi rendition="#fr">Churfuͤrſtl. Gnaden bißhero in ſo groſſer<lb/>
+und Welt-geprieſener Sorgfalt gehabten werthe-<lb/>
+ſten teutſchen Vatterland und gemeinen Beſten zu<lb/>
+ruͤhmlich- und erſprießlichen Dienſten zu ſtehen ge-<lb/>
+dencken/ gar gerne in dergleichen wohl geuͤbt und er-<lb/>
+fahren ſehen: Und gelanget ſolchem nach an Eu.<lb/>
+Churfuͤrſtl. Gnaden mein unterthaͤnigſtes<lb/>
+Bitten/ Dieſelbe geruhen dieſes Tractaͤtlein/ ſo<lb/>
+Deroſelben ich hiemit in tieffeſter</hi> <hi rendition="#aq">Submiſſion</hi> <hi rendition="#fr">ge-<lb/>
+horſamſt</hi> <hi rendition="#aq">devovi</hi><hi rendition="#fr">re/ gnaͤdigſt anzunehmen/ und daß</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">es</hi></fw><lb/>
+<pb facs="#f0014"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <hi rendition="#fr">es zum Druck befoͤrdert werde/ zu erlauben/ mich<lb/>
+aber in beſtaͤndigen hohen Churfuͤrſtl. Hulden zu<lb/>
+erhalten/ als</hi></p><lb/>
+<p><hi rendition="#fr">Eu. Churfuͤrſtl. Gnaden</hi></p><lb/>
+<closer><salute><hi rendition="#et">Unterthaͤnigſt-treu-gehorſambſter<lb/>
+<hi rendition="#aq">Alexander Doyle.</hi></hi></salute></closer></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Sum-</hi></fw></front><body><lb/>
+<pb facs="#f0015"/>
+<figure/><lb/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#in">S</hi>ummariſcher <hi rendition="#in">U</hi>nterricht</hi><lb/>
+Derer<lb/>
+<hi rendition="#b"><hi rendition="#in">J</hi>n der <hi rendition="#in">R</hi>itterlichen <hi rendition="#in">F</hi>echt-<hi rendition="#in">K</hi>unſt ſich befinden-<lb/>
+den vier fuͤrnehmſten <hi rendition="#aq">Quardien,</hi> wovon ſolche den Nahmen</hi><lb/>
+fuͤhren/ und worinnen deren Wuͤrckung beſtehet/ als welche<lb/>
+nach der Ordnung <hi rendition="#aq">accuraté</hi> hierinnen beſchrieben<lb/>
+werden;</head><lb/>
+<p><hi rendition="#c">Dahero zu bemercken/ daß ſo viele <hi rendition="#aq">Quardi</hi>en/ als fuͤrnehmſte oder Haupt-<lb/>
+ſtoͤſſe/ und zwar deren vier: als <hi rendition="#aq">Prima, Secunda,<lb/>
+Tertia, Quarta.</hi></hi></p><lb/>
+<fw type="sig" place="bottom">A</fw><fw type="catch" place="bottom">Die</fw><lb/>
+<pb facs="#f0016"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <p>Die Erſtere nun/ <hi rendition="#aq">Prima</hi> genannt/ belangend/ ziehet ſelbige ihren Nahmen<lb/>
+daher/ wann man den Degen aus der Scheiden ziehen will/ denſelben mit verkehr-<lb/>
+ter Fauſt auf der Seiten ergreiffet/ und nach deſſen Entbloͤſung ſeinem Feinde die<lb/>
+Spitze bietet/ da dann mit dem kleinen Finger in der Hoͤhe/ dem Daumen unten/<lb/>
+mit zugelegter Fauſt und ausgeſtrecktem Arm gegen die Achſel die Spitze <hi rendition="#aq">præ-<lb/>
+ſenti</hi>rt wird: Und in ſolcher <hi rendition="#aq">Poſitur</hi> wird die ſo genannte <hi rendition="#aq">Prima formi</hi>ret;<lb/>
+Wobey gleichwohl nicht unrecht zu mercken/ daß ſolche nicht mehr im Gebrauch/<lb/>
+deſſen Urſach dieſe iſt/ weilen bey Ergreiff- und Ausziehung des Degens man mit<lb/>
+dem Feind gleich in <hi rendition="#aq">Tertia</hi> zu liegen kommt: Alſo dann gewiß/ daß/ wann ei-<lb/>
+ner des andern Spitze oder Schwaͤche der Klingen <hi rendition="#aq">ſtringi</hi>ret/ und ſolche abzu-<lb/>
+wenden ſuchet/ der ander umb des Feindes Bloͤſe in der <hi rendition="#aq">Quart</hi> zu ſtoſſen/ inde-<lb/>
+me er ſolche in der <hi rendition="#aq">Tertz</hi> abgewieſen/ <hi rendition="#aq">lavi</hi>rt/ und in der <hi rendition="#aq">Quart</hi> zu ſtoſſen ge-<lb/>
+zwungen wird; welche Manier von allen <hi rendition="#aq">expedi</hi>ten <hi rendition="#aq">Maiters</hi> ihren <hi rendition="#aq">reſpectivè</hi><lb/>
+Herren <hi rendition="#aq">Schola</hi>ren zu erſt angegeben wird.</p><lb/>
+<fw type="catch" place="bottom">Damit</fw><lb/>
+<pb facs="#f0017"/>
+<figure/><lb/>
+<pb facs="#f0018"/>
+<pb facs="#f0019"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <p>Damit aber auch der vorkommend und geziemenden <hi rendition="#aq">Reverence,</hi> welche fuͤr<lb/>
+die einige und fuͤrnehmſte Zierlichkeit/ beſonders bey Schertzfechten gehalten wird/<lb/>
+nicht moͤge vergeſſen werden/ ſo will hiemit anzeigen/ daß wann/ wie vorge-<lb/>
+meldt/ die Klingen zuſammen kommen/ man den rechten Fuß einen Schritt vor<lb/>
+ſich ſtellen/ den rechten Arm ausſtrecken/ die Spitze ſo hoch/ als hoch des Fein-<lb/>
+des Achſel/ fuͤhren/ die Fuͤſſe in einer Linie/ deſto feſter auf denen Beinen ſtehen<lb/>
+zu koͤnnen/ halten/ damit der rechte Daumen und die Zaͤhe des Fuſſes in einer<lb/>
+Weite des Leibs ſich gerichtet moͤge finden/ wie auch das lincke Knie ſo biegen/<lb/>
+daß der gantze Leib darauff ruhe/ und die lincke Hand ſo hoch/ als das lincke Aug<lb/>
+ein wenig/ doch nicht zu weit/ zuruck halten muͤſſe/ und dieſes deßwegen/ damit<lb/>
+man in ſchoͤner <hi rendition="#aq">Poſitur</hi> ſich ſehen/ wie auch ſeinem Feinde deſto weniger entbloͤſen<lb/>
+moͤge.</p><lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">Jn</fw><lb/>
+<pb facs="#f0020"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <p>Jn ſolcher <hi rendition="#aq">Poſitur</hi> ſtehend/ greifft man in einem <hi rendition="#aq">Tempo</hi> mit der lincken<lb/>
+Hand nach dem Hut/ <hi rendition="#aq">batti</hi>ret mit dem Fuß/ laͤſſet die Spitze mit gehobener<lb/>
+Fauſt in die <hi rendition="#aq">Quart</hi> gegen die anweſende <hi rendition="#aq">Compagnie</hi> ſincken/ wie <hi rendition="#aq">Num.</hi> 2.<lb/>
+zeiget/ zween Schritt zuruck weichend/ <hi rendition="#aq">batti</hi>ret man mit dem rechten Fuß/ thut<lb/>
+einen Schritt mit dem lincken Fuß vor ſich/ und nach auffgeſetztem Hut in einem<lb/>
+<hi rendition="#aq">Tempo</hi> laͤſſet man die Spitze gegen den Feind ſincken/ und ſtellet ſich alſo wie-<lb/>
+der in ſein voriges Lager/ wie <hi rendition="#aq">lit. A.</hi> zeiget. Ob nun wohl die <hi rendition="#aq">Figu</hi>ren oder<lb/>
+Kupfer dieſer hochzierlichen Manier der <hi rendition="#aq">Reverence,</hi> in allen Stuͤcken nicht koͤn-<lb/>
+nen ſo vollkommentlich gerichtet werden/ es ſeye dann/ daß eine jegliche Art de-<lb/>
+ren ausgelegt wuͤrde/ welches aber in etwas verdrießlich vorkaͤme/ ſo wird jedoch<lb/>
+hiebeneben ſtehende <hi rendition="#aq">Figur</hi> zum theil ſolches vorzeigen/ mit welcher ſich jede <hi rendition="#aq">re-<lb/>
+ſpective</hi> Herrn Liebhaber/ welches ich bitte/ zu vergnuͤgen belieben werden.</p><lb/>
+<fw type="catch" place="bottom">Wie</fw><lb/>
+<pb facs="#f0021"/>
+<figure/><lb/>
+<pb facs="#f0022"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie man die <hi rendition="#aq">Quart</hi> ſtoſſe?</hi></head><lb/>
+<p><hi rendition="#in">M</hi>Jt wider vor ſich geſtellten Fuß (wie oben gemeldet) gegen dem Feind hebet<lb/>
+man die Fauſt ſo hoch/ als ſein Angeſicht in die Hoͤhe/ laͤſt den lincken Arm<lb/>
+ausgeſtreckt ſincken/ haͤlt den lincken Fuß ſteiff/ die rechte Schulter hoch richtend/<lb/>
+um die lincke zu bedecken/ den Kopff grad hinter die Fauſt haltend/ auf daß der<lb/>
+Feind den Kopff nicht <hi rendition="#aq">lædir</hi>en moͤge/ und alſo wird die <hi rendition="#aq">Quart</hi> geſtoſſen/ wie <hi rendition="#aq">Figur</hi><lb/>
+weiſet.</p></div><lb/>
+<div n="2"><head><hi rendition="#b">Wie die <hi rendition="#aq">Quart</hi> zu <hi rendition="#aq">parir</hi>en.</hi></head><lb/>
+<p><hi rendition="#in">H</hi>Jebey iſt zu wiſſen/ und wohl zu <hi rendition="#aq">obſervi</hi>ren/ daß man nur allein ſeine Fauſt<lb/>
+in die <hi rendition="#aq">quart</hi> inwarts umkehre/ damit der Daume in die Hoͤhe komme/ ſo<lb/>
+wird und kan man/ des Feindes Schwaͤche zu <hi rendition="#aq">parir</hi>en/ kraͤfftig und maͤchtig ſeyn/<lb/>
+ſolche abzuwenden/ wie ſolches aus nebenſtehender <hi rendition="#aq">Figur</hi> abzumercken iſt.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0023"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">B</fw><lb/>
+<pb facs="#f0024"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie die <hi rendition="#aq">Tertia</hi> zu ſtoſſen.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Jeſes geſchicht/ wann eines Hand umgedrehet/ und deren Flaͤche unter ſich<lb/>
+gerichtet: die lincke Hand ſinckend und die Flaͤche auswaͤrts gehalten/ den<lb/>
+Kopff aber/ damit er vor ſeinem <hi rendition="#aq">Adverſario</hi> deſto geſicherter ſey/ dicht am rech-<lb/>
+ten Arm gehalten wird/ und dann ſeinem <hi rendition="#aq">Adverſario</hi> von auswendig uͤber den<lb/>
+Arm ſtoſſend/ als die <hi rendition="#aq">Figur</hi> 4. zu verſtehen gibt.</p></div><lb/>
+<div n="2"><head><hi rendition="#b">Wie die <hi rendition="#aq">Tertz</hi> zu <hi rendition="#aq">parir</hi>en.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Erſelbe wendet ſeine Fauſt/ die Finger unter ſich/ in die <hi rendition="#aq">Tertz, pari</hi>ret ſei-<lb/>
+nem Gegner die Schwaͤche/ richtet die Spitz gegen deſſen Kopff/ damit/<lb/>
+wann derſelbe zuruck gehet/ er in ſeinem Lager den Nachſtoß deſto leichter fuͤhren<lb/>
+und anbringen koͤnne/ wie auch in <hi rendition="#aq">Figur</hi> 4. zu ſehen.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wie</hi></fw><lb/>
+<pb facs="#f0025"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0026"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie man die <hi rendition="#aq">Secund</hi> ſtoſſen ſolle.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>Olche wird geſtoſſen in derſelbigen <hi rendition="#aq">Linie</hi> als die <hi rendition="#aq">Tertz,</hi> doch daß der Leib<lb/>
+ein wenig niedriger ſey/ die Bruſt aber uͤber das rechte Knie/ der Kopff am<lb/>
+Arm/ und die Fauſt/ um den Kopff zu bedecken/ ein wenig hoch gehalten wer-<lb/>
+de/ damit man ſeinen Feind unter der Klinge deſto mehr und beſſer im Geſicht ha-<lb/>
+ben kan/ wie bey der <hi rendition="#aq">Figur</hi> 5. zu ſehen.</p></div><lb/>
+<div n="2"><head><hi rendition="#b">Wie die <hi rendition="#aq">Secund parir</hi>et wird.</hi></head><lb/>
+<p><hi rendition="#in">Z</hi>U dem Ende kehret man wiederum die Fauſt mit der Klingen unter ſich/ ſei-<lb/>
+nem Feind die Schwaͤche ſeiner Klinge abzuwenden/ richtet die Spitze gera-<lb/>
+de auf des <hi rendition="#aq">Adverſarii</hi> ſeine Bruſt oder Leib/ damit man in der <hi rendition="#aq">Secund,</hi> oder<lb/>
+aber in der <hi rendition="#aq">Tertz</hi> den Nachſtoß/ wann der Feind etwan zuruck gehen ſolte/ je be-<lb/>
+quemer fuͤhren moͤge/ <hi rendition="#fr">welches bey der</hi> <hi rendition="#aq">Figur</hi> 5. <hi rendition="#fr">anzumercken iſt.</hi></p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Nuͤtz-</hi></fw><lb/>
+<pb facs="#f0027"/>
+<figure/><lb/>
+</div></div>
+<pb facs="#f0028"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#in">Y</hi>ützliche <hi rendition="#aq">Obſervation</hi> und <hi rendition="#in">U</hi>nterrichtung deren<lb/>
+drey Haubt-Stoͤß im Fechten.</hi></head><lb/>
+<p><hi rendition="#in">H</hi>Jebey iſt zuvorderſt zu melden/ daß/ wann einer mit ſeinem <hi rendition="#aq">Adverſario</hi><lb/>
+jetzo will angehen/ er vor allen Dingen ſich wohl aus der <hi rendition="#aq">Meſsur</hi> halte/<lb/>
+ſo lang/ bis daß er wohl betrachtet und beſchauet/ wie ſein <hi rendition="#aq">Adverſarius</hi><lb/>
+gegen ihn geſtaltet; Ob er nemlich Erſtlich den Leib vorwarts auf den rechten<lb/>
+Schenckel liegend/ oder ob er Zweytens geſchwinder Fauſt/ oder Drittens/ ob er<lb/>
+mit einem krummen Arm/ oder ob er Vierdens hitzig im Fechten angehen/ oder<lb/>
+ob er ſich Fuͤnfftens auf ſeiner lincken Hand <hi rendition="#aq">parade</hi> verlaſſen thue.</p><lb/>
+<p>Was das Erſtere belanget/ iſt zu wiſſen/ wann der <hi rendition="#aq">Adverſarius</hi> mit dem<lb/>
+Leib vorwarts auf dem rechten Schenckel liegend ſich befindet/ oder zu Fechten ge-<lb/>
+wohnet iſt/ muß er gleich zwey <hi rendition="#aq">Tempo</hi> machen/ oder haben; Eines daß er vom<lb/>
+Schenckel ſich erſt muß heben/ das andere zum Stoß: Und wann nun ſolches/<lb/>
+ſo kan <hi rendition="#aq">Adverſarius</hi> es leichtlich mercken/ und ſich auf ſeine <hi rendition="#aq">Defenſiv</hi> deſto beſſer<lb/>
+<fw type="catch" place="bottom">ſtellen/</fw><lb/>
+<pb facs="#f0029"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> ſtellen/ alſo daß er ſeinem <hi rendition="#aq">Adverſario</hi> eine <hi rendition="#aq">Tertz,</hi> oder <hi rendition="#aq">Quart</hi> nachſtoſſen kan und<lb/>
+mag;</p><lb/>
+<p><hi rendition="#fr">Zweyten falls/</hi> wann der <hi rendition="#aq">Adverſarius</hi> eine geſchwinde Fauſt hat/ ſo muß<lb/>
+man ſich wohl vor der Klinge im Lager bedecken/ dann und wann eine falſche Bloͤ-<lb/>
+ſe geben/ welches ſo viel geſagt iſt/ wann einer von der Spitze ſich entbloͤſe/ daß<lb/>
+er ſich dann wohl mit der Staͤrcke bedecke/ oder wann ſich mit der Staͤrcke entbloͤ-<lb/>
+ſete/ daß er ſich mit der Spitze bedecke/ und alſo den Feind deſto beſſer anlocken<lb/>
+und verfuͤhren/ ſich aber zum <hi rendition="#aq">pari</hi>ren und nachſtoſſen bereit machen/ und folgli-<lb/>
+chen dardurch ſeinen Feind verletzen kan;</p><lb/>
+<p><hi rendition="#fr">Dritten falls/</hi> wann einer mit krummen Arm fechtet/ ſo muß man wiſſen/<lb/>
+wann ſolches <hi rendition="#aq">obſervi</hi>ret wird/ daß derſelbige allezeit grauſam auf der Klinge zu<lb/>
+liegen und ſolche zu <hi rendition="#aq">forci</hi>ren ſuchet und trachtet/ einem ſolchen Fechter aber ſoll<lb/>
+und muß man der Klingen Schwaͤche mit nichten geben/ ſondern vielmehr ſchau-<lb/>
+en/ daß man ihm auf <hi rendition="#aq">Tempo</hi> Stoͤſſe anſetzen moͤge/ doch auch ſich wohl in acht<lb/>
+nehmen/ daß er nicht etwan zugleich einen <hi rendition="#aq">Contra</hi> Stoß bekomme/ welches von<lb/>
+ſolchen und dergleichen Herren Fechteren gar gemeiniglich geſchiehet;</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Vierd-</hi></fw><lb/>
+<pb facs="#f0030"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <p><hi rendition="#fr">Vierdten falls/</hi> ob eines <hi rendition="#aq">Adverſarius</hi> hitzig im fechten angienge? So muß<lb/>
+ſolchen falls nothwendig deſſen Leib wohl betrachtet werden/ ihn auf <hi rendition="#aq">Tempo</hi><lb/>
+Stoͤß entweder zu <hi rendition="#aq">arreti</hi>ren/ oder aber ihn auf <hi rendition="#aq">Volt</hi>en zu empfangen;</p><lb/>
+<p><hi rendition="#fr">Fuͤnfften falls/</hi> da der <hi rendition="#aq">Adverſarius</hi> auf ſeiner Hand <hi rendition="#aq">parad</hi>en ſich verlaſ-<lb/>
+ſen ſolte/ muß man befliſſen ſeyn/ nur allein halbe Stoͤſſe auszuſtoſſen/ damit<lb/>
+man des Feindes Hand <hi rendition="#aq">parade</hi> betruͤgen/ und ihn zum Stoß verfuͤhren moͤge/<lb/>
+er aber ſo leichter an ſeiner Klinge Nachſtoͤſſe vollbringen koͤnne/ wie ſolches alles aus<lb/>
+nachfolgenden <hi rendition="#aq">Lectionibus</hi> und <hi rendition="#aq">Figuris</hi> mit mehrerm Vergnuͤgen zu mercken<lb/>
+und zu erkennen.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Von</hi></fw><lb/>
+<pb facs="#f0031"/>
+<figure/><lb/>
+<fw type="sig" place="bottom">C</fw><lb/>
+<pb facs="#f0032"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Von Ab- oder Außtheilung der Klingen.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Jeſelbige wird auß- oder abgetheilet in vier Theile/ mit dieſen Worten:<lb/>
+<hi rendition="#fr">gantze und halbe Starcke/</hi> ſo dann <hi rendition="#fr">halbe und gantze Schwaͤ-<lb/>
+che/</hi> wie ein ſolches aus hier nebengebildeter <hi rendition="#aq">Figur</hi> 6. abzunehmen iſt.</p><lb/>
+<p>Hierher ſeynd nun auch gehoͤrig die bey der Fecht-Kunſt vorkommende und<lb/>
+gebraͤuchliche <hi rendition="#aq">Termini,</hi> ſamt deroſelben Ausdeutung: Als</p><lb/>
+<list><item>(1) <hi rendition="#aq">Approchi</hi>ren/ iſt ſo viel geſagt/ als Beyrucken.</item><lb/>
+<item>(2) <hi rendition="#aq">Camini</hi>ren/ iſt ſo viel als gehen/ und den Feind zu <hi rendition="#aq">lædi</hi>ren ſuchen.</item><lb/>
+<item>(3) <hi rendition="#aq">Attaqui</hi>ren/ den Feind angehen/ oder ihn an die Klinge gehen.</item><lb/>
+<item>(4) <hi rendition="#aq">Engagi</hi>ren/ die Klinge gewinnen.</item><lb/>
+<item>(5) <hi rendition="#aq">Batti</hi>ren/ an die Klinge ſchlagen/ oder mit dem Fuß an die Erde klappen.</item><lb/>
+<item>(6) <hi rendition="#aq">Appelli</hi>ren/ weiter belangen/ oder einen entweder zum Stoß/ oder zur<lb/>
+<hi rendition="#aq">parade</hi> bewegen.</item><lb/>
+<item>(7) <hi rendition="#aq">Stringi</hi>ren/ die Klinge bezwingen/ oder daͤmpfen.</item><lb/>
+<item>(8) <hi rendition="#aq">Ligi</hi>ren/ den Degen anbinden/ oder umdrehen.</item></list><lb/>
+<fw type="catch" place="bottom">(9) <hi rendition="#aq">Cavi-</hi></fw><lb/>
+<pb facs="#f0033"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <list><item>(9) <hi rendition="#aq">Cavi</hi>ren/ unten durch/ oder oben uͤber gehen.</item><lb/>
+<item>(10) <hi rendition="#aq">Allongi</hi>ren/ ausſtoſſen.</item><lb/>
+<item>(11) <hi rendition="#aq">Pari</hi>ren/ ausnehmen/ oder den Stoß abwenden.</item><lb/>
+<item>(12) <hi rendition="#aq">Repouſi</hi>ren/ nachſtoſſen.</item><lb/>
+<item>(13) <hi rendition="#aq">Paſſi</hi>ren/ einlauffen.</item><lb/>
+<item>(14) <hi rendition="#aq">Volti</hi>ren/ ſich umdrehen.</item><lb/>
+<item>(15) <hi rendition="#aq">Seſſi</hi>ren/ den Degen ergreiffen.</item><lb/>
+<item>(16) <hi rendition="#aq">Rumpi</hi>ren/ die <hi rendition="#aq">Menſur</hi> brechen.</item><lb/>
+<item>(17) <hi rendition="#aq">Retrahi</hi>ren/ ſich zuruck begeben.</item><lb/>
+<item>(18) <hi rendition="#aq">Diſarmi</hi>ren/ den Degen nehmen.</item><lb/>
+<item>(19) <hi rendition="#aq">Ludi</hi>ren/ den Feind zur Erden werffen.</item><lb/>
+<item>(20) <hi rendition="#aq">Fainti</hi>ren/ oder <hi rendition="#aq">fainte</hi> machen/ den Feind zu verfuͤhren/ oder deſſen<lb/>
+Bloͤſe gewinnen.</item></list></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Art</hi></fw><lb/>
+<pb facs="#f0034"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Art und Weiſe ein <hi rendition="#aq">Fainte</hi> zu machen/ und dem Feind<lb/>
+keine Bloͤſe zu geben.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>Rſtlichen iſt zu wiſſen/ wann man an des <hi rendition="#aq">Adverſarii</hi> Klinge kommet/ es<lb/>
+geſchehe ſolches in der <hi rendition="#aq">Tertz,</hi> oder <hi rendition="#aq">Quarta,</hi> daß man die Fauſt hebet/ um<lb/>
+ſich von oben wohl zu beſchuͤtzen/ laͤſſet dann die Spitze ſincken/ und <hi rendition="#aq">bat-<lb/>
+ti</hi>ret in einem <hi rendition="#aq">Tempo</hi> den Fuß/ machet eine kleine <hi rendition="#aq">Fainte</hi> unter die Fauſt/ in<lb/>
+die <hi rendition="#aq">Tertiam,</hi> ſtoͤſſet hernach eine <hi rendition="#aq">Quartam,</hi> haͤlt die Fauſt hoch an des Fein-<lb/>
+des Klinge/ und <hi rendition="#aq">reteri</hi>ret ſich geſchwind in ſeiner <hi rendition="#aq">Poſitur,</hi> und ſuchet in einem<lb/>
+<hi rendition="#aq">Tempo</hi> an des Feindes Klinge zu kommen/ die Schwaͤche zu gewinnen/ und ſo<lb/>
+dardurch vor des <hi rendition="#aq">Adverſarii</hi> Nachſtoß ſich deſto ſicherer zu machen/ wie bey der<lb/>
+<hi rendition="#aq">Figur</hi> 7. geſehen wird.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Zwey</hi></fw><lb/>
+<pb facs="#f0035"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0036"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Zweyte oder gedoppelte <hi rendition="#aq">Fainte.</hi></hi></head><lb/>
+<p><hi rendition="#in">H</hi>Jerzu werden zwey oder drey <hi rendition="#aq">Tempo</hi> gebraucht/ nemlich ſo <hi rendition="#aq">Adverſarius</hi><lb/>
+an die Kling in die <hi rendition="#aq">Quart</hi> zu liegen kommet/ ſo laͤſt man die Spitze ſincken<lb/>
+oder fallen/ unter des <hi rendition="#aq">Adverſarii</hi> ſeiner Klinge/ machet ihm eine <hi rendition="#aq">Fainte</hi> in<lb/>
+der <hi rendition="#aq">Tertz</hi> und in der <hi rendition="#aq">Quart,</hi> und ſtoſſet geſchwind in die <hi rendition="#aq">Tertz,</hi> wie bey der<lb/>
+<hi rendition="#aq">Figur</hi> 8. gezeiget wird.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0037"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0038"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> in der <hi rendition="#aq">Tertz</hi> lieget.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>O machet man eine <hi rendition="#aq">Fainte</hi> in der <hi rendition="#aq">Quart</hi> und in der <hi rendition="#aq">Tertz,</hi> laͤſſet die<lb/>
+Spitz und den Leib ſincken/ und ſtoſſet hernach unter des <hi rendition="#aq">Adverſarii</hi> ſei-<lb/>
+nem Arm in die <hi rendition="#aq">Secundam;</hi> Weil nun aber die <hi rendition="#aq">Secunda</hi> von den dreyen Haubt-<lb/>
+Stoͤſſen die gefaͤhrlichſte iſt/ muß einer ſich wohl ſuchen zu <hi rendition="#aq">reteri</hi>ren/ und ſeines<lb/>
+Feindes Klingen Schwaͤche zu gewinnen/ als an der <hi rendition="#aq">Figur</hi> 9. kan gemercket<lb/>
+werden.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Drey-</hi></fw><lb/>
+<pb facs="#f0039"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">D</fw><lb/>
+<pb facs="#f0040"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Dreyfache <hi rendition="#aq">Finte</hi> zu machen.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Jeſe nimmt an ſich mit ſamt den Stoß/ vier <hi rendition="#aq">Tempo,</hi> nemlich wann <hi rendition="#aq">Ad-<lb/>
+verſarius</hi> in der <hi rendition="#aq">Tertz</hi> zu liegen kaͤme/ oder kommet/ ſo macht man eine<lb/>
+<hi rendition="#aq">Finte</hi> in der <hi rendition="#aq">Quart,</hi> und in <hi rendition="#aq">Tertiâ</hi> und <hi rendition="#aq">Secunda,</hi> und ſtoſſet <hi rendition="#aq">Adverſa-<lb/>
+rio</hi> geſchwind uͤber den Arm die <hi rendition="#aq">Tertz,</hi> welches durch die <hi rendition="#aq">Figur</hi> 10. bezeuget<lb/>
+wird.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0041"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0042"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> aus der <hi rendition="#aq">Meſsur</hi> ſtehet.</hi></head><lb/>
+<p><hi rendition="#in">B</hi>Ey ſolcher Begebenheit <hi rendition="#aq">attaqui</hi>ren die Klingen hoch die <hi rendition="#aq">Quart</hi> im <hi rendition="#aq">mar-<lb/>
+chi</hi>ren/ den Feind zum <hi rendition="#aq">pari</hi>ren zu bringen/ dann laͤſſet man die Spitze<lb/>
+ſincken/ und ſtoſſet geſchwinde ſeinem <hi rendition="#aq">Adverſario</hi> die <hi rendition="#aq">Quart</hi> unter dem Arm/<lb/>
+wie geſehen wird bey der <hi rendition="#aq">Figur</hi> 11.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0043"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0044"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann der <hi rendition="#aq">Adverſarius</hi> in der <hi rendition="#aq">Tertz</hi> ſuchet zu<lb/>
+<hi rendition="#aq">attaqui</hi>ren.</hi></head><lb/>
+<p><hi rendition="#in">J</hi>M fall ein ſolches geſehen wird/ ſo machet man geſchwinde eine <hi rendition="#aq">Fainte</hi> in<lb/>
+die <hi rendition="#aq">Quart,</hi> und ſtoͤſſet die <hi rendition="#aq">Quart</hi> uͤber den Arm/ <hi rendition="#aq">apponi</hi>ret ſeine Fauſt<lb/>
+an des Feindes Klinge/ ſo daß man mit ſeiner Staͤrcke des Feindes Schwaͤche ge-<lb/>
+winnen kan/ wie durch die <hi rendition="#aq">Figur</hi> 12. vorgebildet wird.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0045"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0046"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Art und Weiſe/ wie hergegen man ſeinen Gegner an-<lb/>
+locken und zum Stoß verfuͤhren ſoll.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ann einer des Willens/ oder ein ſolches zu thun geneigt iſt/ ſo muß er mit<lb/>
+der Fauſt in der <hi rendition="#aq">Quart,</hi> des Gegners Kling in die <hi rendition="#aq">Tertz ſtringi</hi>ren/<lb/>
+alſo und dergeſtalten/ daß der Feind die <hi rendition="#aq">Quart</hi> zu ſtoſſen bereit ſey/ ſeine Schwaͤ-<lb/>
+che zu <hi rendition="#aq">pari</hi>ren/ und die <hi rendition="#aq">Flanconade</hi> zu ſtoſſen/ ſo von denen Teutſchen die<lb/>
+<hi rendition="#aq">Quart Revers</hi> genennet wird/ doch alſo/ daß er behender dings die Hand wohl<lb/>
+<hi rendition="#aq">apponi</hi>ret/ damit der Feind ſeine Fauſt nicht umdrehen/ und ihn ſelbſten ver-<lb/>
+letze/ wie bey der <hi rendition="#aq">Figur</hi> 13. gezeiget wird.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0047"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">E</fw><lb/>
+<pb facs="#f0048"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann einer an des <hi rendition="#aq">Adverſarii</hi> Kling in der <hi rendition="#aq">Tertz</hi><lb/>
+zu liegen kommet.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>O machet der ander eine <hi rendition="#aq">Appell,</hi> an des <hi rendition="#aq">Adverſarii</hi> Klinge in <hi rendition="#aq">Quart,</hi><lb/>
+ſo daß derſelbe ſich beweget/ ſelbe zu <hi rendition="#aq">pari</hi>ren/ alsdann kehret man die Fauſt<lb/>
+um/ und ſtoſſet die <hi rendition="#aq">Tertz Cavé dans les armes,</hi> welches die <hi rendition="#aq">Tertz</hi> in <hi rendition="#aq">Quart</hi><lb/>
+geſtoſſen heiſſet/ oder teutſcher zu ſagen/ ein Winckel-Stoß genannt iſt/ jedoch<lb/>
+aber muß der Leib niedrig uͤber dem rechten Schenckel zu liegen kommen/ damit<lb/>
+er unter des <hi rendition="#aq">Adverſarii</hi> Klinge ſich befinden koͤnne/ und dann geſchwind an des<lb/>
+Feindes Klinge <hi rendition="#aq">batti</hi>ren und ſich <hi rendition="#aq">retrahi</hi>ren/ oder zuruck ſpringen/ wie zu ſe-<lb/>
+hen bey der <hi rendition="#aq">Figur</hi> 14.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0049"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0050"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> in <hi rendition="#aq">Quart</hi> mit ſeiner Schwaͤche an der<lb/>
+Staͤrck zu liegen kommet.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>Olchen falls drehet man in einer guten Geſchwindigkeit die Fauſt herum/<lb/>
+<hi rendition="#aq">ligir</hi>et deſſen Klinge und ſtoſſet in die <hi rendition="#aq">Secund,</hi> wie die <hi rendition="#aq">Figura</hi> deutet/<lb/>
+welches alles dann von denen geraden Stoſſen geſagt ſey; Doch muß man ſich in<lb/>
+acht nehmen/ daß <hi rendition="#aq">Adverſarius</hi> die Fauſt nicht an die Klinge ablauffen laſſe/<lb/>
+und euch verletze/ welches gar leichtlich geſchehen kan; Man kan auch/ wann <hi rendition="#aq">Ad-<lb/>
+verſarius</hi> zuruck gehet/ eine kleine <hi rendition="#aq">Fainte</hi> in die <hi rendition="#aq">Tertz</hi> thun/ wollte aber <hi rendition="#aq">Ad-<lb/>
+verſarius pari</hi>ren/ ſo ſtoſſe man in <hi rendition="#aq">Secunda,</hi> wie <hi rendition="#aq">Figur</hi> 15. zeiget.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Art</hi></fw><lb/>
+<pb facs="#f0051"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0052"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> den Degen <hi rendition="#aq">engagi</hi>ret in die<lb/>
+<hi rendition="#aq">Tertz.</hi></hi></head><lb/>
+<p><hi rendition="#in">M</hi>Ache man eine <hi rendition="#aq">Appell</hi> in die <hi rendition="#aq">Quart,</hi> damit man ihn/ die <hi rendition="#aq">Tertz</hi> zu ſtoſ-<lb/>
+ſen/ ſuche zu verfuͤhren/ und ſo dann ſolches von ihm geſchicht/ nemlich/ daß<lb/>
+er ſich die <hi rendition="#aq">Tertz</hi> zu ſtoſſen verfuͤhren laſſe/ dann <hi rendition="#aq">pari</hi>re man wohl/ und mit ſei-<lb/>
+ner Staͤrcke/ an des andern Schwaͤche/ den Arm wohl ausgeſtreckt haltend/ den<lb/>
+Leib aber nidrig/ alſo wird der <hi rendition="#aq">Adverſar</hi> ſelbſt in den Degen hinein lauffen/ und<lb/>
+ſich verletzt machen/ wie bey der <hi rendition="#aq">Figur</hi> 16. wird geſehen werden.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0053"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0054"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> ſeinen Degen hoch an die Kling in<lb/>
+die <hi rendition="#aq">Tertz attaqui</hi>ret.</hi></head><lb/>
+<p><hi rendition="#in">A</hi>Lsdann muß Gegner/ oder der/ ſo mit demjenigen zu fechten kommt/ ſich<lb/>
+gar wohl fuͤrſehen/ daß <hi rendition="#aq">Adverſarius</hi> nicht etwan einen <hi rendition="#aq">Tempo</hi> Stoß in<lb/>
+die <hi rendition="#aq">Secund</hi> fuͤhret/ dieweilen die Fauſt hoch gehoben wird/ wo aber ſolches nicht/<lb/>
+nemlich/ daß <hi rendition="#aq">Adverſarius</hi> keinen <hi rendition="#aq">Tempo</hi> Stoß thaͤte/ oder fuͤhrete/ ſo machet<lb/>
+man alsdann eine <hi rendition="#aq">Finte</hi> in <hi rendition="#aq">Secund,</hi> daferne er dann ſolche <hi rendition="#aq">pari</hi>ret/ ſo <hi rendition="#aq">doupli-</hi><lb/>
+ret wieder eine <hi rendition="#aq">Fainte</hi> in <hi rendition="#aq">Tertz,</hi> und ſtoͤſſet eine <hi rendition="#aq">Quart; pari</hi>ret aber dann<lb/>
+<hi rendition="#aq">Adverſarius</hi> und will nachſtoſſen in die <hi rendition="#aq">Flanconade,</hi> ſo kehre man die Fauſt<lb/>
+nur geſchwind um/ in die <hi rendition="#aq">Secund,</hi> ſo wird zwarn <hi rendition="#aq">Adverſarius</hi> ſelbſt in die<lb/>
+Klinge hinein lauffen/ man muß aber alsdann in einer ſonderlichen Geſchwindig-<lb/>
+keit an die Klinge in die <hi rendition="#aq">Tertz reiteri</hi>ren/ damit <hi rendition="#aq">Adverſarius</hi> durch einen Nach-<lb/>
+ſtoß nicht ſchaden koͤnne/ wie <hi rendition="#aq">Figura</hi> 17. bemercket.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wie</hi></fw><lb/>
+<pb facs="#f0055"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">F</fw><lb/>
+<pb facs="#f0056"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie die gehobene Stoͤſſe muͤſſen gefuͤhret werden/ welche<lb/>
+von denen Frantzoſen die <hi rendition="#aq">cupir</hi>te Stoͤß uͤber die Klinge<lb/>
+genennet werden.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Arbey <hi rendition="#aq">batti</hi>ret man mit dem Fuß/ machet eine <hi rendition="#aq">Fainte</hi> hoch an des <hi rendition="#aq">Ad-<lb/>
+verſarii</hi> ſeine Klinge in Form und Weiſe/ als wann man uͤber ſelbig ſeine<lb/>
+Kling <hi rendition="#aq">cupi</hi>ren wollte/ <hi rendition="#aq">apponi</hi>ret oder bewegt er ſich nicht zu <hi rendition="#aq">pari</hi>ren/ ſo hebe<lb/>
+man die Fauſt mit der Staͤrck an die Schwaͤche/ und ſtoſſe gerad in <hi rendition="#aq">Quart; pa-<lb/>
+ri</hi>ret er aber/ ſo <hi rendition="#aq">cupi</hi>re man uͤber die Kling/ und ſtoſſe in <hi rendition="#aq">Tertz,</hi> welche <hi rendition="#aq">Lection</hi><lb/>
+in <hi rendition="#aq">Tertz</hi> und <hi rendition="#aq">Quart</hi> gar leicht gemacht werden kan/ man muß ſich aber auch<lb/>
+dabey wohl fuͤrſehen/ daß man ſeinem Widerpart keine Bloͤſe gebe/ und er auf ſel-<lb/>
+bigem <hi rendition="#aq">Tempo</hi> nicht etwan einige Verletzung anbringe/ deßwegen man dann auch<lb/>
+den Leib wohl zuruck halten muß/ wie bey <hi rendition="#aq">Figur</hi> 18. zu ſehen.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wie</hi></fw><lb/>
+<pb facs="#f0057"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0058"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie man ſeinen <hi rendition="#aq">Adverſarium</hi> zu verfuͤhren ſuchen/ und<lb/>
+ihn mit <hi rendition="#aq">Tempo</hi> Stoͤſſen empfangen ſolle.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ann der Widerpart anrucket/ und ſeines Gegners Klinge in demſelbigen<lb/>
+<hi rendition="#aq">Tempo</hi> zu gewinnen ſuchet/ oder ſuchen ſollte/ ſo breche man die <hi rendition="#aq">Meſsur</hi><lb/>
+zuruͤck/ und ſuche wieder an ſeine Kling zu kommen/ wo er vorhin oder zuvor ge-<lb/>
+legen/ es ſey oder geſchehe dann ſolches in <hi rendition="#aq">Tertz,</hi> oder <hi rendition="#aq">Quart,</hi> ſo wird <hi rendition="#aq">Adver-<lb/>
+ſarius</hi> vermeinen/ es geſchehe aus einer Forcht/ und ſo er dann nochmahlen an-<lb/>
+<hi rendition="#aq">marchi</hi>ren und die Klinge gewinnen wolle/ muß man ſeinen Leib wohl in acht neh-<lb/>
+men/ geſchwinde unter die Klinge <hi rendition="#aq">cavi</hi>ren/ und in <hi rendition="#aq">Tempo</hi> hinein ſtoſſen/ wie<lb/>
+<hi rendition="#aq">Figur</hi> 19. angibt.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0059"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0060"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> an die Klinge in <hi rendition="#aq">Quart</hi> zu liegen<lb/>
+kommet.</hi></head><lb/>
+<p><hi rendition="#in">A</hi>Lsdann mache man eine <hi rendition="#aq">Appell</hi> hoch in die <hi rendition="#aq">Tertz,</hi> ſtoſſet er dann in <hi rendition="#aq">Tem-<lb/>
+po</hi> in <hi rendition="#aq">Secund,</hi> muß man wohl <hi rendition="#aq">pari</hi>ren und ihm eine <hi rendition="#aq">Finte</hi> hoch in die<lb/>
+<hi rendition="#aq">Tertz</hi> machen/ gleich als wolle er die <hi rendition="#aq">Tertz</hi> ſtoſſen; hebet er <hi rendition="#aq">Adverſarius</hi> die<lb/>
+Fauſt alsdann zur <hi rendition="#aq">parade,</hi> ſo <hi rendition="#aq">repoſt</hi>irt man geſchwind in die <hi rendition="#aq">Secund,</hi> das iſt<lb/>
+nachſtoſſen/ wie es die Frantzoſen nennen/ welches gezeiget wird bey der <hi rendition="#aq">Figur</hi><lb/>
+20.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0061"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0062"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> an der Klinge in der <hi rendition="#aq">Tertz</hi><lb/>
+lieget.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>Olchen falls/ ſo <hi rendition="#aq">engagi</hi>ret man ſeine halbe Schwaͤche/ gibt ihm eine Bloͤſe<lb/>
+in die <hi rendition="#aq">Tertz,</hi> ihn dadurch zu verfuͤhren/ nimmt alsdann ſeine Fauſt wohl<lb/>
+in Obacht; ſo bald er ſich nun bewegt uͤber den Arm in die <hi rendition="#aq">Tertz</hi> zu ſtoſſen/ ſo<lb/>
+falle man geſchwind mit dem Leib niedrig/ laſſe die Spitze ſincken/ und <hi rendition="#aq">arrêti</hi>re<lb/>
+ihn in die <hi rendition="#aq">Secund,</hi> wie <hi rendition="#aq">Figur</hi> 21. anzeiget.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Art</hi></fw><lb/>
+<pb facs="#f0063"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">G</fw><lb/>
+<pb facs="#f0064"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> die Klinge <hi rendition="#aq">attaqui</hi>ret in<lb/>
+<hi rendition="#aq">Quart.</hi></hi></head><lb/>
+<p><hi rendition="#in">S</hi>O machet man ihm geſchwind eine <hi rendition="#aq">Fainte</hi> in die <hi rendition="#aq">Tertz,</hi> und thut dann ei-<lb/>
+nen halben Stoß in die <hi rendition="#aq">Quart;</hi> und wann er wollte <hi rendition="#aq">pari</hi>ren/ ſo ſtoͤſſet man<lb/>
+ihme eine <hi rendition="#aq">Quart</hi> unter den Armen/ mit dem Leib innwendig ſich jedoch wohl aus<lb/>
+dem Wege haltend/ wie <hi rendition="#aq">Figur</hi> 22. zeiget/ <hi rendition="#aq">batti</hi>ret dann geſchwind an des <hi rendition="#aq">Ad-<lb/>
+verſarii</hi> Klingen/ und ſpringet zuruck.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0065"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0066"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> die Klinge ſuchet in <hi rendition="#aq">Quart</hi> zu<lb/>
+<hi rendition="#aq">engagi</hi>ren/ und ſeine Spitze niedrig haͤlt.</hi></head><lb/>
+<p><hi rendition="#in">B</hi>Ey einem ſolchen Fall muß man mit ſeiner Staͤrcke ſeines <hi rendition="#aq">Adverſarii</hi> Schwaͤ-<lb/>
+che <hi rendition="#aq">ſubtiliter</hi> zu gewinnen ſuchen/ und ſtoſſen an die Klinge dem Leibe zu/<lb/>
+es ſeye ſolches in <hi rendition="#aq">Tertz</hi> oder <hi rendition="#aq">Quarta,</hi> wie <hi rendition="#aq">Figur</hi> 23. andeutet/ iſt aber auch<lb/>
+wohl in acht zu nehmen/ daß <hi rendition="#aq">Adverſarius</hi> nicht etwan eine geſchwinde <hi rendition="#aq">Quart</hi><lb/>
+untern Arm zu ſtoſſen ſuche/ und anbringen moͤchte/ ſolchen falls aber muß man<lb/>
+ſeines <hi rendition="#aq">Adverſarii</hi> Fauſt gar genau in acht nehmen/ und allezeit zur <hi rendition="#aq">parade</hi> ſich<lb/>
+bereit halten.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0067"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0068"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> ſuchet die Kling in <hi rendition="#aq">Quart</hi> zu<lb/>
+<hi rendition="#aq">ſtringi</hi>ren.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>O machet man ein <hi rendition="#aq">Appell</hi> in <hi rendition="#aq">Tertz</hi> hoch mit ausgeſtrecktem Armen; wann<lb/>
+dann euer <hi rendition="#aq">Adverſarius</hi> ſolche <hi rendition="#aq">pari</hi>ren wolle/ ſo kehret man die Fauſt an<lb/>
+die Kling in <hi rendition="#aq">Quart</hi> um/ und ſtoſſet ihme ſo fort eine <hi rendition="#aq">Quart</hi> uͤbern Arm/ wie<lb/>
+an <hi rendition="#aq">Figur</hi> 24. zu ſehen/ wiewohlen ſolches ein gefaͤhrlich- und beſorglicher Stoß<lb/>
+und ſchwehr zu <hi rendition="#aq">pari</hi>ren iſt.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0069"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0070"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> den Degen ſucht zu <hi rendition="#aq">engagi</hi>ren.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ann ſolches/ ſo muß man ihme eine <hi rendition="#aq">Appell</hi> in <hi rendition="#aq">Tertz</hi> machen/ und zwar<lb/>
+mit ausgeſtrecktem Arm/ und wann er dann die <hi rendition="#aq">Tertz</hi> oder <hi rendition="#aq">Secund</hi><lb/>
+ſtoſſen wollte/ und <hi rendition="#aq">Adverſarius</hi> zeigen/ als wolle er <hi rendition="#aq">pari</hi>ren/ oder nicht/ ſo dre-<lb/>
+het man den Leib in die <hi rendition="#aq">Quart</hi> wohl um/ und ſtellet ſich in <hi rendition="#aq">Poſitur,</hi> als die<lb/>
+<hi rendition="#aq">Figur</hi> 25. weiſet.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">So</hi></fw><lb/>
+<pb facs="#f0071"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">H</fw><lb/>
+<pb facs="#f0072"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">So <hi rendition="#aq">Adverſarius</hi> den Degen in <hi rendition="#aq">Quart</hi> zu <hi rendition="#aq">engagi</hi>ren/ oder<lb/>
+zu <hi rendition="#aq">ſtring</hi>iren/ und ſo dardurch einen zum Stoß zu ver-<lb/>
+fuͤhren/ ſuchete.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ann ein gleiches an <hi rendition="#aq">Adverſario</hi> bemercket wird/ ſo machet man ihme<lb/>
+<hi rendition="#aq">Fainte</hi> in <hi rendition="#aq">Tertz,</hi> oder aber eine <hi rendition="#aq">Appell,</hi> ſo werden des Widerparts ſei-<lb/>
+ne <hi rendition="#aq">Concept</hi>en von Stund an verruckt werden/ ſo er aber dann <hi rendition="#aq">pari</hi>ret/ ſo ſtoſ-<lb/>
+ſet man ihm eine <hi rendition="#aq">Secund</hi> oder eine <hi rendition="#aq">Quart,</hi> wo ſeine Bloͤſe am beſten zu finden<lb/>
+iſt/ wobey dennoch auch zu wiſſen/ und wohl zu mercken/ daß/ ſo offt als <hi rendition="#aq">Ad-<lb/>
+verſarius</hi> mehrere <hi rendition="#aq">Fint</hi>en zu machen ſuchet/ man alsdann ihme jedesmahl eine<lb/>
+Gegen <hi rendition="#aq">Appell</hi> machen muͤſſe/ umb ihn in ſeinen <hi rendition="#aq">Concept</hi>en fort und fort ver-<lb/>
+ruͤckt zu machen/ wie <hi rendition="#aq">Figur</hi> 26. zeiget.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0073"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0074"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> den Degen in <hi rendition="#aq">Quart</hi> zu <hi rendition="#aq">engagi</hi>ren<lb/>
+ſuchet.</hi></head><lb/>
+<p><hi rendition="#in">M</hi>Uß ihme geſchwind eine <hi rendition="#aq">Appell</hi> in <hi rendition="#aq">Quart</hi> uͤber den Arm mit einem geſchwin-<lb/>
+den halben Stoß in <hi rendition="#aq">Quart</hi> unter den Arm gemacht werden/ und muß ſol-<lb/>
+ches mit geſchwinder Zuruckkommung in die <hi rendition="#aq">Poſitur</hi> an <hi rendition="#aq">Adverſarii</hi> Klingen in<lb/>
+<hi rendition="#aq">Tertz</hi> geſchehen/ umb ſeine Schwaͤche zu gewinnen/ wann nun ſolche gewonnen/<lb/>
+<hi rendition="#aq">doupli</hi>ret man in Geſchwindigkeit an die Klinge in <hi rendition="#aq">Tertz,</hi> wie <hi rendition="#aq">Figur</hi> 27.<lb/>
+zeiget.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0075"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0076"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> an<hi rendition="#aq">marchi</hi>ret den Degen in <hi rendition="#aq">Quart</hi><lb/>
+zu <hi rendition="#aq">forci</hi>ren.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>O muß man ihn die Klinge nicht finden laſſen/ ſondern ihme eine <hi rendition="#aq">Finte</hi> in<lb/>
+<hi rendition="#aq">Tertz</hi> machen/ und eine <hi rendition="#aq">Secund</hi> ſtoſſen/ <hi rendition="#aq">batti</hi>ret dann die Klinge/ und<lb/>
+ſpringet geſchwinde zuruck in ſein Lager/ wie bey <hi rendition="#aq">Figur</hi> 28. zu ſehen.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">So</hi></fw><lb/>
+<pb facs="#f0077"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0078"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">So <hi rendition="#aq">Adverſarius</hi> die Klinge ihm <hi rendition="#aq">engagi</hi>ret in <hi rendition="#aq">Quart</hi><lb/>
+aus der <hi rendition="#aq">Meſsur.</hi></hi></head><lb/>
+<p><hi rendition="#in">A</hi>Lsdann ſo ſuchet man ihm die <hi rendition="#aq">Meſsur</hi> zu gewinnen/ und mit ſeiner Staͤrcke<lb/>
+an ſeine des <hi rendition="#aq">Adverſarii</hi> Schwaͤche zu kommen/ machet ihme eine <hi rendition="#aq">Ligation</hi><lb/>
+in <hi rendition="#aq">Quart,</hi> welches zu verſtehen/ daß man den Degen anbinde/ oder umbdrehet/<lb/>
+aus der Fauſt/ wordurch dann <hi rendition="#aq">Adverſarius</hi> gezwungen wird um gut Wetter zu<lb/>
+bitten/ wie in der <hi rendition="#aq">Figur</hi> 29. geſehen wird.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wie</hi></fw><lb/>
+<pb facs="#f0079"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">J</fw><lb/>
+<pb facs="#f0080"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie und auf was Weis man ſuchen ſolle ſeines <hi rendition="#aq">Adverſarii</hi><lb/>
+Klinge in die <hi rendition="#aq">Quart engagi</hi>ren.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>Jn ſolches zu thun/ ſo gebe man ihme ein wenig Bloͤſe/ daß er entweder in<lb/>
+<hi rendition="#aq">Quart,</hi> oder <hi rendition="#aq">Tertz,</hi> deſto leichter ſtoſſen kan/ uͤbern Arm; und wann als-<lb/>
+dann <hi rendition="#aq">Adverſarius</hi> ſich darob verfuͤhren laͤſſet/ ſo <hi rendition="#aq">pari</hi>ret man ihm mit der <hi rendition="#aq">Ca-<lb/>
+vation,</hi> und <hi rendition="#aq">apponi</hi>ret die lincke Hand an ſeine Klingen/ damit er an dieſelbe/<lb/>
+verſtehendlich eure Klinge/ zu <hi rendition="#aq">pari</hi>ren nicht kommen kan/ wordurch dann ihme<lb/>
+leichtlichen zween oder drey Stoͤſſe anzubringen/ ehe er in ſein Lager zuruck kommen<lb/>
+thut/ wie angemerckt bey <hi rendition="#aq">Figur</hi> 30.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Eine</hi></fw><lb/>
+<pb facs="#f0081"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0082"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Eine <hi rendition="#aq">Appell</hi> an ſeines <hi rendition="#aq">Adverſarii</hi> Klingen in <hi rendition="#aq">Tertz</hi> zu<lb/>
+machen/ und wie einer dabey ſich zu verhalten?</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ann ſolches einer <hi rendition="#aq">tenti</hi>ren oder fuͤrnehmen will/ muß er mit dem rechten<lb/>
+Fuß <hi rendition="#aq">batti</hi>ren/ und den Arm ausſtrecken in <hi rendition="#aq">Tertz,</hi> eben als wann er den<lb/>
+Stoß in <hi rendition="#aq">Tertz</hi> fuͤhren wollte/ und alſo ſuchen den Feind zu verfuͤhren/ in <hi rendition="#aq">Quart</hi><lb/>
+zu ſtoſſen/ fuͤhret er aber dann einen <hi rendition="#aq">Tempo</hi> Stoß/ ſo <hi rendition="#aq">pari</hi>ret man ihm mit der<lb/>
+<hi rendition="#aq">Cavation,</hi> welches <hi rendition="#aq">contra de gagement</hi> genennet wird/ und ſtoſſet dann ge-<lb/>
+ſchwinde in <hi rendition="#aq">Tertz;</hi> ſollte aber etwan <hi rendition="#aq">Adverſarius pari</hi>ren/ ſo <hi rendition="#aq">doupli</hi>ret man<lb/>
+in <hi rendition="#aq">Secund,</hi> und ſpringet zuruck in ſein Lager/ wovon dann <hi rendition="#aq">Figur</hi> 31. <choice><sic>anzeignng</sic><corr>anzeigung</corr></choice><lb/>
+thut.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">An</hi></fw><lb/>
+<pb facs="#f0083"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0084"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">An <hi rendition="#aq">Adverſarii</hi> Kling in <hi rendition="#aq">Quart</hi> liegend zu kommen.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>Ben dieſes zu fuͤgen/ ſo <hi rendition="#aq">batti</hi>ret man in einer Geſchwindigkeit mit dem Fuß/<lb/>
+und <hi rendition="#aq">cavi</hi>ret unter des Feindes Klinge/ als wann man eine <hi rendition="#aq">Tertz</hi> oder<lb/>
+<hi rendition="#aq">Quart</hi> uͤbern Arm ſtoſſen wollte/ <hi rendition="#aq">cupi</hi>ret alsdann uͤber die Klinge/ und ſtoͤſſet<lb/>
+die <hi rendition="#aq">Quart,</hi> wie <hi rendition="#aq">Figur</hi> 32. euch zeiget/ und dieſe werden von denen Teutſchen die<lb/>
+geſchobene Stoͤſſe genennet; Eine ſolche <hi rendition="#aq">Lection</hi> kan nun zwar in <hi rendition="#aq">Tertz</hi> und<lb/>
+<hi rendition="#aq">Quart</hi> gemachet werden/ dennoch aber iſt ſie ſchwehr zu <hi rendition="#aq">pari</hi>ren/ und hat man<lb/>
+ſich abſonderlich dabey in acht zu nehmen/ daß <hi rendition="#aq">Adverſarius</hi> nicht etwan ein<lb/>
+<hi rendition="#aq">Tempo</hi> Stoß anbringe/ wie an <hi rendition="#aq">Figur</hi> 32. zu ſehen.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wie</hi></fw><lb/>
+<pb facs="#f0085"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0086"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie die <hi rendition="#aq">Quart Baſe,</hi> oder auf teutſch die niedrige <hi rendition="#aq">Quart</hi><lb/>
+zu machen/ als welche gegen einen mit der lincken Hand<lb/>
+Fechtenden gar nuͤtzlich iſt.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Jeſelbige zu machen/ haͤlt man die Fauſt hoch/ den Ober-Leib zu bedecken/<lb/>
+die Spitze aber niedrig/ den Unter-Leib zu bedecken/ und machet eine <hi rendition="#aq">Ap-<lb/>
+pell</hi> in <hi rendition="#aq">Quart,</hi> wie <hi rendition="#aq">Figur</hi> 33. zeiget/ und wann dann <hi rendition="#aq">Adverſarius</hi> ein geraden<lb/>
+Stoß in <hi rendition="#aq">Quart</hi> uͤbern Arm thun wollte/ ſo drehet man die Fauſt um/ <hi rendition="#aq">apponi-</hi><lb/>
+ret die lincke Hand an ſeine Klinge/ und ſtoſſet eine gerade <hi rendition="#aq">Quart,</hi> wie <hi rendition="#aq">Fig.</hi> 33.<lb/>
+zeiget/ und eine ſolche <hi rendition="#aq">Parade</hi> iſt bey der Nacht gar nutzlich/ abſonderlich aber de-<lb/>
+nen jenigen/ welche ohngefehr von zweyen oder dreyen angefochten werden/ doch<lb/>
+muß man dabey auch dieſes mercken/ daß man die Fauſt wohl umbdrehet/ die<lb/>
+<hi rendition="#aq">Muline</hi> oder Rad zu machen/ ſo lange und viel/ biß man Gelegenheit bekommet/<lb/>
+ein oder andern zu verletzen/ wie <hi rendition="#aq">Figur</hi> 33. angemerckt.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb facs="#f0087"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">K</fw><lb/>
+<pb facs="#f0088"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann ſich die Klingen in <hi rendition="#aq">Quart</hi> zuſammen befinden.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Ann ſo mache man eine <hi rendition="#aq">Appell</hi> in <hi rendition="#aq">Tertz,</hi> gebe ſeinem <hi rendition="#aq">Adverſario</hi> eine<lb/>
+kleine Bloͤſe/ ihn zu zwingen/ oder zu verurſachen/ die <hi rendition="#aq">Quart</hi> untern Arm<lb/>
+zu ſtoſſen/ <hi rendition="#aq">pari</hi>re dann die <hi rendition="#aq">Quart baſe,</hi> und mit der lincken Hand <hi rendition="#aq">apponi</hi>re<lb/>
+an <hi rendition="#aq">Adverſarii</hi> Kling/ ſo wird er ſo dann nicht wieder zu <hi rendition="#aq">pari</hi>ren kommen koͤn-<lb/>
+nen/ weil die lincke Hand ſeine Klinge nieder truckt/ wie <hi rendition="#aq">Figur</hi> 34. anzeigt.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wie</hi></fw><lb/>
+<pb facs="#f0089"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0090"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie man die <hi rendition="#aq">Quart Baſe Reverſe,</hi> das iſt ſo viel als<lb/>
+verkehrt geſagt/ machen ſolle.</hi></head><lb/>
+<p><hi rendition="#in">H</hi>Jerzu wird erfordert/ daß man eine <hi rendition="#aq">Fint,</hi> oder <hi rendition="#aq">Appell</hi> in die <hi rendition="#aq">Quart</hi> uͤber<lb/>
+den Arm gebe/ alsdann <hi rendition="#aq">Adverſario</hi> die voͤllige Bloͤſe/ den Leib innwendig<lb/>
+haltend/ um <hi rendition="#aq">Adverſarium</hi> dadurch zu locken; wann dann <hi rendition="#aq">Adverſarius</hi> die<lb/>
+gerade <hi rendition="#aq">Quart</hi> ſtoͤſſet/ ſo laſſe man die Spitze innwendig an <hi rendition="#aq">Adverſarii</hi> Klingen<lb/>
+ſincken/ <hi rendition="#aq">pari</hi>re deſſen Schwaͤche untern Arm von auswaͤrts/ und ſtoſſe ihm unter<lb/>
+der Achſel zu/ und ſo balden als <hi rendition="#aq">Adverſarius</hi> ſtoͤſſet/ <hi rendition="#aq">pari</hi>re man im <hi rendition="#aq">marchi-</hi><lb/>
+ren/ damit des Feindes Klinge hinter in Rucken komme/ wordurch er dann gar<lb/>
+leicht und geſchwind wehrloß gemacht wird/ und zwar ohne einige Sorge und Ge-<lb/>
+fahr/ wie <hi rendition="#aq">Figur</hi> 35. zeiget.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wel-</hi></fw><lb/>
+<pb facs="#f0091"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0092"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Welcher geſtalten die <hi rendition="#aq">Tertz Baſe</hi> zu machen/ welche die<lb/>
+<hi rendition="#aq">Poſitur</hi> hat/ als wie die hohe <hi rendition="#aq">Secund.</hi></hi></head><lb/>
+<p><hi rendition="#in">H</hi>Jebey iſt dieſes zu mercken/ daß man die <hi rendition="#aq">Lectiones</hi> eben als wie bey jetzt<lb/>
+gemeldter <hi rendition="#aq">Quart baſe</hi> geſchicht/ gebrauchen kan/ wann man <hi rendition="#aq">per Exem-<lb/>
+ple</hi> an einem geſchloſſenen Ort/ oder an einem Waſſer/ welches hinten auff dem Ru-<lb/>
+cken waͤre/ ſo daß man ſich nicht <hi rendition="#aq">reteri</hi>ren koͤnne/ und dardurch in Gefahr ſtuͤnde/ ſo<lb/>
+leget man ſich geſchwind mit einer Fauſt hoch vor das Angeſicht/ doch den Leib ein<lb/>
+wenig vorgeſtreckt/ und halte dann die Spitz gegen des Feindes Kling oder Bruſt;<lb/>
+ſo dann <hi rendition="#aq">Adverſarius</hi> ſtoſſen thaͤte/ <hi rendition="#aq">pari</hi>ret man <hi rendition="#aq">in Ligation,</hi> gleichwie in der<lb/>
+<hi rendition="#aq">Quart baſe,</hi> wie <hi rendition="#aq">Figur</hi> 36. zeiget; <hi rendition="#aq">pasſi</hi>re dann rechts oder lincks/ wo/ oder<lb/>
+wie man am beſten eine <hi rendition="#aq">Avantage</hi> zu finden/ und ſich aus Gefahr zu halten/ die<lb/>
+Gelegenheit ſich erbietet/ ſo wird <hi rendition="#aq">Adverſarius</hi> wieder in ſein vorigen Stand ge-<lb/>
+bracht werden/ wo er zuvor geweſen iſt.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Auff</hi></fw><lb/>
+<pb facs="#f0093"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0094"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Auff was Art und Weiſe eine <hi rendition="#aq">Ligation</hi> zu machen/ ſeines<lb/>
+Feindes Degen aus der Hand zu drehen.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ann jetzo <hi rendition="#aq">Adverſarius</hi> den Degen mit der Spitze niedrig in <hi rendition="#aq">Quarta at-<lb/>
+taqui</hi>rete/ oder <hi rendition="#aq">engagi</hi>rte/ ſo muß man ſeine Schwaͤche mit der Staͤrcke<lb/>
+zu gewinnen ſuchen/ in <hi rendition="#aq">formi</hi>rung einer an ſeiner Klinge zu machenden <hi rendition="#aq">Ligation</hi><lb/>
+in <hi rendition="#aq">Quart,</hi> und drehen die Fauſt mit der Staͤrcke an ſeiner Schwaͤche geſchwind<lb/>
+herumb/ ſo <hi rendition="#aq">ligi</hi>ret oder drehet man ihm ſeinen Degen aus der Fauſt/ wordurch er<lb/>
+alſo dann <hi rendition="#aq">obligi</hi>ret wird/ um <hi rendition="#aq">Pardon</hi> zu bitten/ ſpringet aber deſſen Dege nicht<lb/>
+aus der Fauſt/ ſo kan man einen Stoß in die <hi rendition="#aq">Tertz</hi> oder <hi rendition="#aq">Secund</hi> in ihn thun/<lb/>
+ehe und bevorn derſelbe wieder in ſein Lager kommet/ und ſo gar leichte verletzet wer-<lb/>
+den kan/ wie <hi rendition="#aq">Figur</hi> 37. davon weiſet.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0095"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">L</fw><lb/>
+<pb facs="#f0096"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie die <hi rendition="#aq">Ligation</hi> um die Klinge in <hi rendition="#aq">Tertz</hi> oder <hi rendition="#aq">Quart,</hi><lb/>
+auff teutſch ein <hi rendition="#aq">Circul</hi> an die Kling zu machen.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>O balden <hi rendition="#aq">Adverſarius</hi> an die Klinge in <hi rendition="#aq">Quart</hi> mit ſeiner Spitze niedrig<lb/>
+zu liegen kommt/ ſo muß man ſuchen mit ſeiner Klinge des <hi rendition="#aq">Adverſarii</hi><lb/>
+Schwaͤche zu gewinnen/ drehe demnach geſchwind mit der Staͤrcke an ſeiner Klin-<lb/>
+ge Schwaͤche/ dieſelbe behend in Geſtalt eines <hi rendition="#aq">Circul</hi>s umkehrend/ und ſtoſſe eine<lb/>
+gerade <hi rendition="#aq">Quart</hi> zu/ welche Art nicht nur in <hi rendition="#aq">Quart/</hi> ſondern auch in <hi rendition="#aq">Tertz</hi> und<lb/>
+<hi rendition="#aq">Secund,</hi> auch ohne Gefahr gemacht werden kan/ wie davon geſehen wird in der<lb/>
+<hi rendition="#aq">Figur</hi> 38.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0097"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0098"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie und auff was Weiſe die <hi rendition="#aq">Paſsade</hi> zu machen ſeye.</hi></head><lb/>
+<p><hi rendition="#in">Z</hi>U <hi rendition="#aq">obſervi</hi>ren iſt/ wann gefehen wird/ daß der Feind keinen Stand in ſeinem Fech-<lb/>
+ten halten thue/ ſondern hin und her wancke/ auch ſeine <hi rendition="#aq">Meſsur</hi> alſo breche/ oder<lb/>
+auch daß jemand ihm zu huͤlff kommen ſolte/ ſo iſt noͤthig/ daß man von einem ſich ſi-<lb/>
+cher zu machen und zu befreyen ſuche/ wie dann zu dem Ende die <hi rendition="#aq">Paſsade</hi> zu ergreiffen/<lb/>
+dabey aber auch ſich wohl in acht zu nehmen/ wann man will <hi rendition="#aq">pasſi</hi>ren und entkom-<lb/>
+men/ daß nicht <hi rendition="#aq">Adverſarius</hi> (welches/ wann derſelbe auch ſchlimm und behend ſeyn<lb/>
+ſollte/ gewißlich erfolget) einen nicht <hi rendition="#aq">arreſti</hi>ren thue/ oder ſonſt ſein <hi rendition="#aq">Maitre</hi> werde/<lb/>
+als <hi rendition="#aq">per Exemple,</hi> wann <hi rendition="#aq">Adverſarius</hi> die Fauſt niedrig haͤtte/ ſo <hi rendition="#aq">attaqui</hi>re man deſſen<lb/>
+Degen in <hi rendition="#aq">Quart,</hi> mit einer <hi rendition="#aq">Appell</hi> von der Klingen/ und halte die Fauſt hoch. Laſ-<lb/>
+ſet ſich aber <hi rendition="#aq">Adverſarius</hi> dardurch nicht ſchroͤcken oder verfuͤhren/ aus ſeinem Lager zu<lb/>
+gehen/ ſo <hi rendition="#aq">paſſi</hi>re man nur geſchwinde die <hi rendition="#aq">Quart</hi> uͤbern Arm mit ſeiner Staͤrcke an <hi rendition="#aq">Ad-<lb/>
+verſarii</hi> ſeine Schwaͤche/ und wann dann derſelbige dieſe <hi rendition="#aq">Paſsade</hi> mit der <hi rendition="#aq">Tertz pari</hi>ren<lb/>
+thaͤte/ ſo laß man innwendig an die Kling ablauffen/ ſo daß man in Behendigkeit ſeinen<lb/>
+Arm um des <hi rendition="#aq">Adverſarii</hi> ſeinen Arm oder Haͤnde/ ſuche zu winden/ und greiffe ihn<lb/>
+um den Degen herum/ bey ſeinem Arm/ ſtelle ſich alſo dann geſchwinde mit dem rech-<lb/>
+ten Fuß wieder zuruck/ und biethe ſeines Feindes Bruſt die Spitze/ ſonſt kan man<lb/>
+auch ſeinen Feind mit dem lincken unter den rechten Fuß ſchlagen/ und ihn ſo auff die<lb/>
+Erde nieder bringen/ wie geſehen wird bey der <hi rendition="#aq">Figur</hi> 39.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0099"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0100"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie die <hi rendition="#aq">Paſade</hi> in <hi rendition="#aq">Quart</hi> uͤbern Arm zu machen.</hi></head><lb/>
+<p><hi rendition="#in">B</hi>Jllig iſt in acht zu nehmen/ wann man ſich mit ſeinem Feind in der <hi rendition="#aq">Quart</hi><lb/>
+befinden thut/ daß deſſen Degen <hi rendition="#aq">ſtringi</hi>ret werde/ und ihm alſo eine <hi rendition="#aq">Fain-<lb/>
+te</hi> in die <hi rendition="#aq">Quart</hi> zu machen ſuche/ wofern er ſich dann verfuͤhren laſſet/ ſo <hi rendition="#aq">cavi</hi>re<lb/>
+man durch und <hi rendition="#aq">paſſi</hi>re in der <hi rendition="#aq">Quart</hi> uͤbern rechten Arm/ die Schultern wohl<lb/>
+zuruck haltend/ ſonſten moͤgte <hi rendition="#aq">Adverſarius</hi> mit der <hi rendition="#aq">Volte</hi> einen <hi rendition="#aq">Arreſt</hi> anbrin-<lb/>
+gen/ wann aber <hi rendition="#aq">Adverſarius</hi> ſich darinn nicht verfuͤhren laſſen ſollte/ muß man<lb/>
+gerad in die <hi rendition="#aq">Quart pasſi</hi>ren/ wie <hi rendition="#aq">Figur</hi> 40. zeiget.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0101"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0102"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie die <hi rendition="#aq">Paſsade</hi> unten in der <hi rendition="#aq">Secund</hi> zu machen.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ann man mit ſeinem <hi rendition="#aq">Adverſario,</hi> alſo beyderſeits in der <hi rendition="#aq">Tertz</hi> ſich be-<lb/>
+findet/ ſo <hi rendition="#aq">cavi</hi>re man unten durch/ und mache ihme eine <hi rendition="#aq">Finte</hi> an ſeine<lb/>
+Schwaͤche nach ſeinem Haupt; bleibet er dann alſo ſtill liegen/ ſo laſſe man die Spi-<lb/>
+tze in der <hi rendition="#aq">Secunda</hi> ſincken/ und <hi rendition="#aq">pasſi</hi>re in Geſchwindigkeit mit gebogenem Leib<lb/>
+und ſtoſſe ihn untern Arm; man kan ſonſt auch mit einer <hi rendition="#aq">Finte</hi> in der <hi rendition="#aq">Secund</hi><lb/>
+ſeinen Feind ſuchen zu verfuͤhren; Daferne er aber ſollte ſtill liegen/ und auf einen<lb/>
+<hi rendition="#aq">Contra</hi> Stoß warten/ ſo erhebe man unten die Klinge mit einer <hi rendition="#aq">Appell,</hi> verhin-<lb/>
+dere dadurch ſein Vorhaben/ <hi rendition="#aq">pasſi</hi>re gleichfalls geſchwind unten in der <hi rendition="#aq">Secunda,</hi><lb/>
+wie <hi rendition="#aq">Figur</hi> 41. zeiget.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0103"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">M</fw><lb/>
+<pb facs="#f0104"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie die gerade <hi rendition="#aq">Paſsade</hi> in <hi rendition="#aq">Quart</hi> zu bemercken/ und wie<lb/>
+ſich darinn zu verhalten.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ann ſich die Degen zuſammen in <hi rendition="#aq">Quart</hi> befinden/ muß man an des <hi rendition="#aq">Ad-<lb/>
+verſarii</hi> Kling eine <hi rendition="#aq">Appell</hi> hoch in <hi rendition="#aq">Quart</hi> uͤbern Arm machen; und wann<lb/>
+er ſich alsdann wuͤrde laſſen verfuͤhren/ oder aber <hi rendition="#aq">pari</hi>ren/ oder auch nicht <hi rendition="#aq">pari-</hi><lb/>
+ren/ mit der Fauſt hoch/ mit ſeiner Staͤrcke an deſſen Schwaͤche den Leib gerad in<lb/>
+einer <hi rendition="#aq">Linie</hi> ſich haltend/ nehme ſich dann wohl in Obacht/ wann er <hi rendition="#aq">pasſi</hi>ret daß<lb/>
+ſein <hi rendition="#aq">Adverſarius</hi> ihn nicht bey dem Gefaͤß ſeine Klinge/ welches gar leicht geſche-<lb/>
+hen kan/ ergreiffe; wann alſo ſolches geſehen wird/ muß man geſchwinde (man<lb/>
+kan ſonſten auch/ wann <hi rendition="#aq">Adverſarius</hi> den Degen nehmen wollte) die Fauſt nur<lb/>
+allein umkehren/ und ihme <hi rendition="#aq">Adverſario</hi> den Winckelſtoß anbringen/ wie <hi rendition="#aq">Figur</hi><lb/>
+42. euch weiſet.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0105"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0106"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie in der <hi rendition="#aq">Paſsade</hi> man ſeinen <hi rendition="#aq">Adverſarium arreti-</hi><lb/>
+ren kan.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ann <hi rendition="#aq">Adverſarius paſſi</hi>ren wollte/ ſo gebe man ihme eine falſche Bloͤſe uͤ-<lb/>
+ber den Arm/ mache ihme dabey etliche falſche <hi rendition="#aq">Tempo</hi> oder <hi rendition="#aq">Faintes,</hi> ihn<lb/>
+deſto ehend - und beſſer zu verfuͤhren/ aber deſſen Fauſt und Leib gar wohl in acht<lb/>
+habend; ſo balden man aber ſiehet/ daß <hi rendition="#aq">Adverſarius pasſi</hi>ren wollte/ ſo <hi rendition="#aq">arre-<lb/>
+ti</hi>ret man geſchwind in die <hi rendition="#aq">Secund;</hi> ſpuͤhrete man aber/ daß er ſich auf die Klin-<lb/>
+ge verlaſſe/ ſo kehre man geſchwind den Leib herum/ und <hi rendition="#aq">arreti</hi>re ihn <hi rendition="#aq">in Volt;</hi><lb/>
+Jſt aber <hi rendition="#aq">Adverſarius</hi> etwan zu geſchwind in der Klinge/ ſo laͤſſet man inwendig<lb/>
+an den Degen ablauffen/ und nehme ihm ſeinen Degen beym Gefaͤß oder Griff/<lb/>
+wie gezeiget wird bey der <hi rendition="#aq">Figur</hi> 43.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0107"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0108"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie die <hi rendition="#aq">Volte</hi> am ſicherſten zu machen.</hi></head><lb/>
+<p><hi rendition="#in">H</hi>Jebey muß zwar geſtehen/ daß ich hin und wieder offtmahls geſehen/ von de-<lb/>
+nen/ welche die <hi rendition="#aq">Information</hi> auf ihren <hi rendition="#aq">Adverſarium</hi> zu <hi rendition="#aq">volti</hi>ren/ ge-<lb/>
+ben haben/ nemlich daß man in ſeinem Lager auf ſeinen Feind <hi rendition="#aq">volti</hi>ren ſolle/ ich<lb/>
+hergegen verſichere feſtiglich und getreulich/ daß ein ſolches gar ſchwer und unſicher<lb/>
+oder gefaͤhrlich zu machen ſeye/ die Urſach aber iſt dieſe/ weilen <hi rendition="#aq">Adverſarius</hi> in<lb/>
+ſeinem Lager wohl bedecket iſt/ und halte ich derowegen fuͤr das allergewiſſeſte und<lb/>
+beſte zu ſeyn daß man ſeinen Feind zum Stoß zu verfuͤhren ſuche/ daferne aber<lb/>
+<hi rendition="#aq">Adverſarius</hi> eines Klinge in die <hi rendition="#aq">Tertz</hi> ſuchete zu <hi rendition="#aq">ſtringi</hi>ren/ und zwarn ſtarck/<lb/>
+ſo muß man ihm die Klinge nicht finden laſſen/ und wann das aber ja geſehen wuͤr-<lb/>
+de/ ſo <hi rendition="#aq">volti</hi>ret man nicht/ ſondern <hi rendition="#aq">cavi</hi>ret vielmehr unter die Klinge durch/ und<lb/>
+breche die <hi rendition="#aq">Meſsur</hi> zuruͤck; wann dann aber <hi rendition="#aq">Adverſarius</hi> die Klinge dennoch wie-<lb/>
+der zu <hi rendition="#aq">ſtringi</hi>ren ſuchen ſollte ſo laſſe man die Spitze nur ſincken/ mit dem lincken<lb/>
+Fuß zuruck hinter den rechten/ und den Leib wohl umgedrehet/ ſtellend/ damit <hi rendition="#aq">Ad-<lb/>
+verſarius</hi> in ſelbigem <hi rendition="#aq">Tempo,</hi> in <hi rendition="#aq">Volt, arreſti</hi>ret werde/ welches dann das<lb/>
+ſicherſte und gewiſſeſte iſt/ und gezeigt wird bey der <hi rendition="#aq">Figur</hi> 44.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wann</hi></fw><lb/>
+<pb facs="#f0109"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0110"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann ſich die Degens zuſammen in <hi rendition="#aq">Quart</hi> findeten.</hi></head><lb/>
+<p><hi rendition="#in">A</hi>Lsdann mache man ſeinem <hi rendition="#aq">Adverſario</hi> eine <hi rendition="#aq">Finte</hi> in <hi rendition="#aq">Tertz,</hi> um einen<lb/>
+halben Stoß in <hi rendition="#aq">Quart</hi> zu ſtoſſen/ ſo bald nun <hi rendition="#aq">Adverſarius pari</hi>ret ha-<lb/>
+ben wird/ und von der Kling die <hi rendition="#aq">Quart</hi> zu ſtoſſen gehe/ drehet man den Leib in<lb/>
+Geſchwindigkeit herum/ und <hi rendition="#aq">arreſti</hi>ret ihn <hi rendition="#aq">in Volt,</hi> wie die <hi rendition="#aq">Figur</hi> 45. an-<lb/>
+zeiget.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0111"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">N</fw><lb/>
+<pb facs="#f0112"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie man eine <hi rendition="#aq">Volte</hi> machen ſolle/ ſeinem <hi rendition="#aq">Adverſario</hi> das<lb/>
+Geſicht oder deſſen Haͤnde zu zerhauen.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>Rſtlichen ſo <hi rendition="#aq">engagi</hi>ret man die Kling in <hi rendition="#aq">Tertz, attaqui</hi>ret dann geſchwind<lb/>
+in die <hi rendition="#aq">Quart</hi> mit einer wenig zu gebenden Bloͤſe uͤbern Arm/ umb ihn zu<lb/>
+verfuͤhren; und wann er dann in die Bloͤſe floͤſſet/ ſo laͤſſet man die Klinge ablauf-<lb/>
+fen/ thut den lincken Fuß hinter den rechten; ſo balden es abgelauffen/ machet man<lb/>
+mit dem rechten Fuß einen langen Schritt/ und fuͤhret den Streich in einem <hi rendition="#aq">Tem-<lb/>
+po,</hi> in Feindes Angeſicht/ oder uͤber die Fauſt/ welches gar fuͤglich und wohl zu<lb/>
+thun iſt/ wie <hi rendition="#aq">Figur</hi> 46. zeiget.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0113"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0114"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie die doppelte <hi rendition="#aq">Volte</hi> zu machen/ in geſchwind- und<lb/>
+leichteſter Manier.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Jeſe iſt zwar in ſcharffem Fechten gar ſchwehr zu vollbringen/ indeme man ſei-<lb/>
+nem <hi rendition="#aq">Adverſario</hi> den Ruͤcken zu kehren/ dennoch aber wann <hi rendition="#aq">Adverſarius</hi> den<lb/>
+Degen ſehr in <hi rendition="#aq">Quart engagi</hi>rete/ ſo <hi rendition="#aq">ſtringi</hi>re man denſelbigen/ die Spitze aus dem<lb/>
+Wege/ und gebe eine falſche Bloͤſe uͤbern Arm in <hi rendition="#aq">Quart,</hi> ihn dardurch deſto beſſer zu<lb/>
+verfuͤhren; ſo balden man aber ſiehet/ daß er ſich ruͤhret oder den Stoß zu fuͤhren/ rich-<lb/>
+tet/ ſo laſſe man den Degen ablauffen/ als bey nechſt vorſtehender <hi rendition="#aq">Lection</hi> angedeutet<lb/>
+iſt/ und wie man nun ſolchen hat laſſen ablauffen/ kehret man ſich gantz zuruck/ und<lb/>
+ſchlage auf des <hi rendition="#aq">Adverſarii</hi> ſeine Klinge hinein/ kehre ſich dann wieder gantz herum/<lb/>
+gehe auf ſeinen <hi rendition="#aq">Adverſarium</hi> loß/ und greiffe ihn fein geſchwinde bey der Bruſt oder<lb/>
+Fauſt/ jedannoch muß man ſich aber auch gar wohl in acht nehmen/ daß <hi rendition="#aq">Adverſa-<lb/>
+rius,</hi> indeme daß man ſich umkehret/ einen nicht faͤnget und zur Erden wuͤrffet/ wie<lb/>
+<hi rendition="#aq">Figur</hi> 47. euch vorſtellet.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Einen</hi></fw><lb/>
+<pb facs="#f0115"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0116"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Einen zu <hi rendition="#aq">diſarmi</hi>ren in unterſchiedlicher Manier/ und<lb/>
+wann ſolches zu thun ſeye.</hi></head><lb/>
+<p><hi rendition="#in">Z</hi>U dieſem Zweck hat man fuͤrnemlich zu mercken/ wie <hi rendition="#aq">Adverſarius</hi> allenfalls<lb/>
+geſinnet ſeyn moͤge; wann nun etwan derſelbe einen langen Stoß in der <hi rendition="#aq">Quart</hi><lb/>
+zu verſetzen gemeinet/ alsdann <hi rendition="#aq">pari</hi>ret man denſelbigen Stoß in der <hi rendition="#aq">Quart</hi> inn-<lb/>
+wendig/ trette hernacher mit dem rechten Fuß fein behende zu/ und druͤcke ſeines<lb/>
+Feindes Klinge etwas nieder/ ergreiffe in Geſchwindigkeit mit der lincken Hand ſei-<lb/>
+nen Degen beym Gefaͤß/ und ziehe ihme in moͤglicher Geſchwindigkeit ſeinen De-<lb/>
+gen aus der Hand/ auch wann man wollte/ kan man alsdann mit ſeines Feindes<lb/>
+eigenen Degen ſeinen Feind erlegen/ wie geſehen wird bey <hi rendition="#aq">Figur</hi> 48.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0117"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0118"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie <hi rendition="#aq">Adverſarius</hi> nach geſtoſſener <hi rendition="#aq">Quart</hi> uͤbern Arm zu<lb/>
+<hi rendition="#aq">diſarmi</hi>ren.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ann der Feind die Klinge in <hi rendition="#aq">Tertz engagi</hi>rete/ ſo mache man ihme eine<lb/>
+<hi rendition="#aq">Fainte</hi> in <hi rendition="#aq">Quart</hi> uͤbern Arm/ ſo balden dann der Stoß geſchehen/ ſo tritt<lb/>
+man mit dem lincken Fuß herzu/ ergreiffet des <hi rendition="#aq">Adverſarii</hi> Degen/ und druͤcket<lb/>
+ſelbigen auswaͤrts uͤber die Klinge herum/ ſo wird ſich auf ſolche Art ſeine Hand<lb/>
+eroͤffnen/ er ſelbſten aber ſeinen Degen entweder zu <hi rendition="#aq">quiti</hi>ren gezwungen/ oder aber/<lb/>
+und wo ſolches nicht/ leidet doch wenigſtens Schaden an ſeiner Hand/ welches dann<lb/>
+denen/ ſo mit einem krummen Arm zu fechten gewohnet/ ſehr gewiß und leichtlichen<lb/>
+begegnen thut/ wie bey der <hi rendition="#aq">Figur</hi> 49. zu ſehen.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Seines</hi></fw><lb/>
+<pb facs="#f0119"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">O</fw><lb/>
+<pb facs="#f0120"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Seines Feindes Degen im Ablauffen zu eroberen/ und<lb/>
+wie ſolches zu fuͤgen.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>Olches zu bewerckſtelligen iſt inſonderheit zu mercken/ wann <hi rendition="#aq">Adverſarius</hi><lb/>
+entweder eine <hi rendition="#aq">Tertz,</hi> oder aber eine <hi rendition="#aq">Quart</hi> uͤbern Arm zu ſtoſſen <hi rendition="#aq">inclini-</hi><lb/>
+ren thaͤte/ ſo iſt das ſicherſte/ daß man deſſen Stoß innwendig nach dem Leib/ uͤber<lb/>
+der Klinge laſſe ablauffen/ ſtellet den lincken Fuß vor ſich/ und greiffet in einem <hi rendition="#aq">Tem-<lb/>
+po</hi> nach dem Gefaͤß ſeines Degens/ fuͤhre dann ſofort einen Streich nach ſeinem An-<lb/>
+geſicht/ mache einen langen Schritt mit dem rechten Fuß zuruck/ und biete die Spitze<lb/>
+des Feindes Bruſt/ und weilen man dardurch ſeines Feindes Degen untern Arm be-<lb/>
+findet/ muß man einen ſtarcken Zug in die Hoͤhe/ oder aber nach ſich/ thun/ ſo wird<lb/>
+der Feind darob gezwungen/ ſeinen Degen zu <hi rendition="#aq">quiti</hi>ren/ und ſelbſt fahren zu laſſen/<lb/>
+wie <hi rendition="#aq">Figur</hi> 50. andeutet.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Einen</hi></fw><lb/>
+<pb facs="#f0121"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0122"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Einem in <hi rendition="#aq">Tertz</hi> zu <hi rendition="#aq">diſarmi</hi>ren.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Arzu <hi rendition="#aq">attaqui</hi>ret man den Degen friſch/ <hi rendition="#aq">batti</hi>ret mit dem Fuß in <hi rendition="#aq">Quart,</hi> ſo<lb/>
+daß <hi rendition="#aq">Adverſarius</hi> ſich verfuͤhren laͤſt/ und ſo er dann einen <hi rendition="#aq">Tempo</hi> Stoß in<lb/>
+<hi rendition="#aq">Tertz</hi> fuͤhren wollte/ <hi rendition="#aq">pari</hi>ret man ihm und <hi rendition="#aq">marchi</hi>ret auf ihn zu/ den Leib nied-<lb/>
+rig haltend/ und greiffet behend nach dem Gefaͤß ſeines Degens/ haltet die Spitze<lb/>
+nach des Feindes Bruſt zu/ und ob er dann etwan ſeine Fauſt zuruͤck ziehen thaͤte/<lb/>
+ehe und bevorn man deſſen Degen beym Gefaͤß ergriffen/ iſt man dennoch ſeiner Mei-<lb/>
+ſter worden/ dieweilen deſſelben Kling und Leib ſchon gewonnen iſt/ wie die <hi rendition="#aq">Figur</hi> 52.<lb/>
+davon Deutung gibt.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0123"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0124"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie einer ſeinem Feind mittels der <hi rendition="#aq">Cavation</hi> durch eine<lb/>
+<hi rendition="#aq">Tertz</hi> oder <hi rendition="#aq">Quart</hi> uͤbern Arm zu <hi rendition="#aq">diſarmi</hi>ren.</hi></head><lb/>
+<p><hi rendition="#in">H</hi>Jerzu thue man ſeinem Feind/ eine falſche Bloͤſe uͤbern Arm geben/ ihn dar-<lb/>
+ob zu verfuͤhren ſuchend/ und ſolte ſolches allenfalls von ihme geſchehen/<lb/>
+<hi rendition="#aq">pari</hi>ret man mit der <hi rendition="#aq">Cavati</hi>on/ <hi rendition="#aq">marchi</hi>ret dann geſchwind auf ihn zu/ und<lb/>
+greiffet mit der lincken Hand ſeinen Degen beym Gefaͤß/ ſchlaget dann mit der<lb/>
+Staͤrcke deſſen Degen nieder/ und thut einen Zug mit der Fauſt/ ſo iſt er und wird<lb/>
+gezwungen denſelbigen fahren zu laſſen/ und wo man dann will/ kan denſelben/<lb/>
+als dardurch eroberten Feindes Degen nur ein wenig/ Mittels dem Gefaͤße nach<lb/>
+ſich wenden; und ſtoſſen/ mit der Spitze/ ſeinen Feind mit deſſen eigenen Degen<lb/>
+darnieder/ doch muß man bey ſolchem <hi rendition="#aq">Caſu</hi> gar geſchwinde ſich finden/ damit<lb/>
+(wann der Feind/ indeme daß man ihm nach ſeinem Degen zu greiffen trachte) er<lb/>
+nicht die Fauſt umdrehet/ und den die <hi rendition="#aq">Cavati</hi>on ſuchenden mit einem Winckelſtoß<lb/>
+verletze/ wie bey der <hi rendition="#aq">Figur</hi> 51. zu mercken.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Einen</hi></fw><lb/>
+<pb facs="#f0125"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0126"/>
+<pb facs="#f0127"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie man ſich gegen einen Lincks-fechtenden zu verhalten.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Jeſes belangend/ ſo ſeynd es nur <hi rendition="#aq">contraire</hi> Stoͤſſe/ alſo daß es mehrers nichts/<lb/>
+dann die <hi rendition="#aq">Tertz</hi> auf <hi rendition="#aq">Quart,</hi> und die <hi rendition="#aq">Quart</hi> auf <hi rendition="#aq">Tertz</hi> ſtoſſen/ ſonſt aber in allen<lb/>
+<hi rendition="#aq">Lectionibus</hi> mit denen vorhergangenen uͤberein kommen thut/ ohne daß einem/ der<lb/>
+lincks zu fechten gewohnet/ es nur im Brauch hat; dann erſtlich wann man ſich vor<lb/>
+einem Lincks-Fechter im Lager ſtellet/ ſo iſt zu <hi rendition="#aq">obſervi</hi>ren/ daß man ſich in <hi rendition="#aq">Tertz</hi> im<lb/>
+Lager wohl bedecke/ <hi rendition="#aq">attaqui</hi>ret alsdann ſeinen Degen in <hi rendition="#aq">Quart</hi> auf <hi rendition="#aq">Tertz,</hi> machet ihm<lb/>
+eine <hi rendition="#aq">Finte</hi> unter die Fauſt/ und ſo er alsdann darauff <hi rendition="#aq">pari</hi>ren oder nicht <hi rendition="#aq">pari</hi>ren moͤch-<lb/>
+te/ ſo ſtoſſet man geſchwind die <hi rendition="#aq">Quart</hi> hinein.</p><lb/>
+<p>Zweytens ſo <hi rendition="#aq">engagi</hi>ret man <hi rendition="#aq">Adverſarii</hi> Degen in die <hi rendition="#aq">Quart</hi> friſch uͤbern Arm/<lb/>
+gibt ihm ein wenig Bloͤſe/ ihn darob zu verfuͤhren und zugleich zu <hi rendition="#aq">obligi</hi>ren/ die <hi rendition="#aq">Quart</hi><lb/>
+zu ſtoſſen; laſſet er ſich dann nun locken die <hi rendition="#aq">Quart</hi> zu ſtoſſen/ <hi rendition="#aq">pari</hi>ret man ihm in die<lb/>
+<hi rendition="#aq">Cavation,</hi> und ſtoſſet in ſelbige <hi rendition="#aq">Quart</hi> gerade uͤbern Arm hinein/ wie <hi rendition="#aq">Figur</hi> 53. an-<lb/>
+zeiget.</p><lb/>
+<p>Drittens/ wann aber <hi rendition="#aq">Adverſarius</hi> den Degen <hi rendition="#aq">ſtringi</hi>rete/ ſo <hi rendition="#aq">contra ſtringi</hi>ret<lb/>
+man an ſeine Schwaͤche/ wollte er ſich aber etwan an die Klinge <hi rendition="#aq">apponi</hi>ren/ ſo <hi rendition="#aq">cupi-</hi><lb/>
+<fw type="sig" place="bottom">P</fw><fw type="catch" place="bottom">ret</fw><lb/>
+<pb facs="#f0128"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> ret man geſchwind unter die Fauſt/ und ſtoͤſſet die <hi rendition="#aq">Quart</hi> unter den Arm/ hernach<lb/>
+und darauff muß man ſich geſchwind zu <hi rendition="#aq">reteri</hi>ren ſuchen/ ſo daß man wieder an ſeine<lb/>
+Schwaͤche komme/ ſich aber auch wohl bedeckt halten/ damit <hi rendition="#aq">Adverſarius</hi> durch einen<lb/>
+behenden Nachſtoß nicht etwan jemand verfolgen oder verletzen koͤnne.</p><lb/>
+<p>Vierdtens <hi rendition="#aq">engagi</hi>ret man <hi rendition="#aq">Adverſarii</hi> Degen friſch in die <hi rendition="#aq">Quart,</hi> machet ihm ein<lb/>
+falſch <hi rendition="#aq">Tempo</hi> in die <hi rendition="#aq">Tertz;</hi> ſtoͤſſete aber <hi rendition="#aq">Adverſarius</hi> auf das <hi rendition="#aq">Tempo</hi> gerade in <hi rendition="#aq">Quart</hi> zu/<lb/>
+ſo <hi rendition="#aq">pari</hi>ret man mit der Fauſt in <hi rendition="#aq">Tertz,</hi> und ſtoſſetdie <hi rendition="#aq">Flanconade</hi> oder teutſch <hi rendition="#aq">Quart<lb/>
+Revers,</hi> wie <hi rendition="#aq">Figur</hi> 53. weiſen thut.</p><lb/>
+<p>Fuͤnfftens/ ſolte <hi rendition="#aq">Adverſarius</hi> eine Bloͤſe uͤbern Arm geben in <hi rendition="#aq">Quart,</hi> ſo fuͤhret<lb/>
+man einen halben Stoß als <hi rendition="#aq">Quart,</hi> uͤbern Arm; laͤſſet er ſich dann darob verfuͤhren/<lb/>
+und zur <hi rendition="#aq">Parade</hi> bewegen/ ſo kehret man die Fauſt nur geſchwind um/ und ſtoͤſſet ge-<lb/>
+rade in <hi rendition="#aq">Tertz</hi> uͤbern Arm hinein/ den Leib aber muß man niedrig ausgeſtreckt halten/<lb/>
+hernacher <hi rendition="#aq">batti</hi>ret man geſchwind an die Kling mit einem Sprung zuruck.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wann</hi></fw><lb/>
+<pb facs="#f0129"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0130"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> den Degen in die <hi rendition="#aq">Tertz</hi> ſuchet zu<lb/>
+<hi rendition="#aq">engagi</hi>ren.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>O machet man behꝛnd eine <hi rendition="#aq">Appell</hi> in die <hi rendition="#aq">Quart,</hi> wann aber <hi rendition="#aq">Adverſarius</hi><lb/>
+zum Stoß/ oder wieder an die Kling zu kommen/ <hi rendition="#aq">cavi</hi>ren wolte/ ſo <hi rendition="#aq">pari-</hi><lb/>
+ret man in <hi rendition="#aq">Contra Cavati</hi>on/ und ſtoſſet gerade in die <hi rendition="#aq">Quart</hi> hinein/ man<lb/>
+kan ihme ſonſten auch einen halben Stoß uͤbern Arm fuͤhren/ und wann er ſich zur<lb/>
+<hi rendition="#aq">Parade</hi> bewegete/ kan man ihm doch einen Stoß oder <hi rendition="#aq">Quart</hi> untern Arm gar<lb/>
+leicht bey-<hi rendition="#aq">practici</hi>ren/ wie <hi rendition="#aq">Figur</hi> 54. zeiget.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wann</hi></fw><lb/>
+<pb facs="#f0131"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0132"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wann <hi rendition="#aq">Adverſarius</hi> ſeinen Degen friſch mit der Staͤrcke<lb/>
+an die Schwaͤche in <hi rendition="#aq">Tertz engagi</hi>ren wolte.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>O gibt man ihm darauff eine falſche Bloͤſe/ verſtehe in <hi rendition="#aq">Tertz,</hi> wann er<lb/>
+dann hierauff/ unter die Fauſt/ geſchwind <hi rendition="#aq">cupi</hi>ren/ oder die <hi rendition="#aq">Tertz</hi><lb/>
+ſtoſſen wolte/ ſo <hi rendition="#aq">pari</hi>ret man hoch mit der <hi rendition="#aq">Cavati</hi>on/ und ſtoſſet geſchwind in<lb/>
+die <hi rendition="#aq">Secund,</hi> ſuchet dann ſchnell/ im zuruck ſpringen/ wieder an ſeine Kling in<lb/>
+<hi rendition="#aq">Quart</hi> zu kommen/ damit <hi rendition="#aq">Adverſarius</hi> keinen Stoß einfuͤhren/ oder dar-<lb/>
+durch verfolgen koͤnne/ wie ſolches ſonſten geſchicht/ und in der <hi rendition="#aq">Figur</hi> 55. zu ſehen.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0133"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0134"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie auf Lincks die <hi rendition="#aq">coupir</hi>te Stoͤſſe angebracht werden<lb/>
+koͤnnen.</hi></head><lb/>
+<p><hi rendition="#in">A</hi>Llenfalls <hi rendition="#aq">Adverſarius</hi> die Klinge in <hi rendition="#aq">Tertz</hi> oder <hi rendition="#aq">Quart</hi> zu <hi rendition="#aq">ſtringi</hi>ren<lb/>
+ſuchete/ ſo machet man ihme eine hohe <hi rendition="#aq">Appell</hi> in ſeine Spitze/ doch aber die<lb/>
+Fauſt in ſeinem Lager haltend/ dergeſtalten/ daß nicht <hi rendition="#aq">Adverſarius</hi> eine Bloͤſe<lb/>
+findet; bewegte er ſich dann zur <hi rendition="#aq">Parade, coupi</hi>ret man geſchwind uͤber ſeine<lb/>
+Klinge/ und wann er ſich aber zur <hi rendition="#aq">Parade</hi> nicht finden moͤgte/ ſo <hi rendition="#aq">apponi</hi>ret<lb/>
+man mit der Staͤrcke an ſeine Schwaͤche/ und ſtoͤſſet gerade auf den Leib zu/ ſo gar<lb/>
+leichtlich zu thun iſt/ wie zu mercken bey <hi rendition="#aq">Figur</hi> 56.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Auff</hi></fw><lb/>
+<pb facs="#f0135"/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">Q</fw><lb/>
+<pb facs="#f0136"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Auff was Manier die <hi rendition="#aq">Paſsade</hi> auff Lincks zu machen ſey.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>Olches geſchicht alſo/ wann die Degen zuſammen ſich in <hi rendition="#aq">Tertz</hi> befinden/ ma-<lb/>
+chet man ſeinem <hi rendition="#aq">Adverſario</hi> einige falſche Bewegung in die <hi rendition="#aq">Quart,</hi> gleich<lb/>
+als wann man die <hi rendition="#aq">Quart</hi> ſtoſſen wollte/ bewegte er ſich dann/ oder bewegte er ſich<lb/>
+nicht/ ſo <hi rendition="#aq">paſſi</hi>ret man mit ausgeſtrecktem Arm geſchwind in die <hi rendition="#aq">Quart,</hi> dabey<lb/>
+aber hat man ſich wohl in acht zu nehmen/ daß man ſich nicht auf des <hi rendition="#aq">Adverſarii</hi><lb/>
+Klinge verlaſſe/ oder ſelbe zu <hi rendition="#aq">ſtringi</hi>ren ſuche/ weil man den Leib gar leicht dabey<lb/>
+verfehlen/ und ſich in Gefahr geben kan/ ſondern muß <hi rendition="#aq">Adverſario</hi> gerad auf<lb/>
+den Leib zu/ zu <hi rendition="#aq">paſſi</hi>ren ſuchen wie bey der <hi rendition="#aq">Figur</hi> 57. geſehen wird.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0137"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0138"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie eine <hi rendition="#aq">Volte</hi> auff Lincks zu machen ſey.</hi></head><lb/>
+<p><hi rendition="#in">M</hi>Ache man eine <hi rendition="#aq">Appell</hi> an die Klinge in <hi rendition="#aq">Tertz,</hi> und gebe ſeinem Feind eine<lb/>
+falſche Bloͤſe; wann dann derſelbe ſich verfuͤhren laͤſſt/ und wollte in <hi rendition="#aq">Quart</hi><lb/>
+ſtoſſen/ ſo kehret man den Leib geſchwind um/ und <hi rendition="#aq">arreſti</hi>ret ihn fort <hi rendition="#aq">in Tem-<lb/>
+po, in Volt,</hi> welches ebenmaͤſſig unter den Arm/ und gar leichte auch zu thun<lb/>
+iſt. Jm fall daß aber <hi rendition="#aq">Adverſarius</hi> nur allein einen halben Stoß fuͤhren thaͤte ſo<lb/>
+hat man ſich zu huͤten/ daß er nicht <hi rendition="#aq">pari</hi>ret/ und einen <hi rendition="#aq">in Flanconade</hi> empfan-<lb/>
+get. Man kan ihn ſonſten auch in <hi rendition="#aq">Tertz volti</hi>ren/ ein ſolches aber muß mit einer<lb/>
+gar fuͤglichen Geſchwindigkeit geſchehen/ und ſich dabey auch ein wenig aus der<lb/>
+<hi rendition="#aq">Meſsur</hi> gehalten werden; So balden dann aber <hi rendition="#aq">Adverſarius</hi> den Degen in <hi rendition="#aq">Tertz</hi><lb/>
+zu <hi rendition="#aq">ſtringi</hi>ren ſuchete/ ſo muß man fein geſchwind in einem <hi rendition="#aq">Tempo</hi> mit dem rech-<lb/>
+ten Fuß <hi rendition="#aq">volti</hi>ren/ den Degen in die lincke Fauſt nehmen/ und ſeinen Feind gerade<lb/>
+in <hi rendition="#aq">Volt</hi> empfangen/ wie die <hi rendition="#aq">Figur</hi> 58. zeiget; welche <hi rendition="#aq">Manier</hi> ich gar oͤffters<lb/>
+mit vielen/ ſo ſich auf die Klinge verlaſſen/ <hi rendition="#aq">practici</hi>ret hab/ und ohne Gefahr wohl<lb/>
+zu <hi rendition="#aq">practici</hi>ren iſt.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Wie</hi></fw><lb/>
+<pb facs="#f0139"/>
+<figure/><lb/>
+</div>
+<pb facs="#f0140"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head><hi rendition="#b">Wie einer auf Lincks <hi rendition="#aq">diſarmi</hi>rt oder Gewehr-loß koͤnne ge-<lb/>
+macht werden.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Jeſes zu thun/ iſt zu wiſſen/ wann ſich die Degen in <hi rendition="#aq">Tertz</hi> zuſammen be-<lb/>
+finden/ ſo machet man ſeinem <hi rendition="#aq">Adverſario</hi> etliche falſche <hi rendition="#aq">Tempo,</hi> denſel-<lb/>
+ben zum Stoß zu bewegen/ und wann dann ſolches von ihm geſehen wird/ und er<lb/>
+die gerade <hi rendition="#aq">Quart</hi> ſtoſſet/ ſo <hi rendition="#aq">pari</hi>ret man niedrig mit dem Leib/ und <hi rendition="#aq">marchi</hi>ret<lb/>
+in einem <hi rendition="#aq">Tempo</hi> auf ihn loß/ greiffet mit der lincken Hand an deſſen Gefaͤß/ und<lb/>
+reiſſet ihm den Degen aus ſeiner Fauſt/ welches dann in <hi rendition="#aq">Tertz</hi> auch eben ſo leicht<lb/>
+geſchehen kan; So dann der Feind eine <hi rendition="#aq">Tertz</hi> fuͤhrete/ <hi rendition="#aq">pari</hi>ret man mit der Hand<lb/>
+in <hi rendition="#aq">Quart,</hi> gehet in ihn drein/ und ergreiffet ſeinen Degen beym Gefaͤß/ wie<lb/>
+<hi rendition="#aq">Figur</hi> 59. zeiget.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b"><hi rendition="#in">E</hi>dle</hi></fw><lb/>
+<pb facs="#f0141"/>
+<figure/><lb/>
+</div></div>
+<pb facs="#f0142"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="1"><head><hi rendition="#b"><hi rendition="#in">E</hi>dle und <hi rendition="#in">H</hi>ochgeehrteſt-auch <hi rendition="#in">H</hi>ochgeehrte<lb/>
+<hi rendition="#in">H</hi>erren.</hi></head><lb/>
+<p><hi rendition="#in">J</hi><hi rendition="#fr">Ch haͤtte zwarn (wie ich das mit Warheit wohl verſicheren kan/ auch<lb/>
+leichtlichen aus vorhergehenden allen ermeſſen und erkennet werden<lb/>
+kan) noch weit mehrere</hi> <hi rendition="#aq">Lectiones</hi> <hi rendition="#fr">hierinnen anfuͤhren und beybringen koͤn-<lb/>
+nen/</hi> <hi rendition="#aq">in ſpecie</hi> <hi rendition="#fr">von</hi> <hi rendition="#aq">Paraden,</hi> <hi rendition="#fr">Armbrechen/</hi> <hi rendition="#aq">Contra Volt</hi><hi rendition="#fr">en ꝛc. Jndeme<lb/>
+aber alles ſolches von keiner</hi> <hi rendition="#aq">Necesſi</hi><hi rendition="#fr">taͤt oder Nothwendigkeit; als habe<lb/>
+auch fuͤr ohnnoͤthig gehalten/ dieſes mit dergleichen anzufuͤllen/ ſonderlichen<lb/>
+dahero/ weilen das auf einem Fecht-Boden/ wo ſich der an Ort und En-<lb/>
+den findet/ denen Edlen und Hochgeehrten Herren</hi> <hi rendition="#aq">Schola</hi><hi rendition="#fr">ren ſelbige Din-<lb/>
+ge beſſer muͤndlich/ als im Druck koͤnnen angedeutet werden/ wobey dann<lb/>
+auch zu erwegen/ daß alles/ was hierinnen unterlaſſen/ bey ſcharffem zier-<lb/>
+lichen Gefecht/ als wovon dieſes einig und allein gehandelt iſt/ nicht ge-<lb/>
+braͤuchlich/ alſo daß ich dieſe meine auffrichtig ‒ und wohlmeynende obige</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">In-</hi></fw><lb/>
+<pb facs="#f0143"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <hi rendition="#aq">Inſtruction</hi> <hi rendition="#fr">im Nahmen GOttes hiemit beſchlieſſe/ allen</hi> <hi rendition="#aq">reſpectivè</hi> <hi rendition="#fr">Her-<lb/>
+ren Liebhabern dieſer erklaͤrten Fecht-Kunſt aber mich auffs beſte</hi> <hi rendition="#aq">recom-<lb/>
+mendi</hi><hi rendition="#fr">rt haben will/ und nochmahlen</hi> <hi rendition="#aq">recommendi</hi><hi rendition="#fr">re/ mit der gehorſam-<lb/>
+ſten Bitte/ dieſer wegen mich ſtets hin im beſten Angedencken zu halten;<lb/>
+Jch aber</hi> <hi rendition="#aq">offeri</hi><hi rendition="#fr">re mich hergegen/ daß/ wofern das Gluͤck ſonſt haben kan/<lb/>
+einem jeglichen/ ſo muͤndlich/ als auch ſonſten meine Wiſſenſchafft im Fech-<lb/>
+ten/ gerne</hi> <hi rendition="#aq">communici</hi><hi rendition="#fr">ren werde und</hi> <hi rendition="#aq">communici</hi><hi rendition="#fr">ren will. Was letzli-<lb/>
+chen aber die</hi> <hi rendition="#aq">Voltegier-</hi><hi rendition="#fr">Kunſt anbelanget/ ſo haͤtte gleichfalls zwarn da-<lb/>
+von genugſame</hi> <hi rendition="#aq">Figu</hi><hi rendition="#fr">ren woͤllen beyfuͤhren/ als aber ich etwogen/ daß ſol-<lb/>
+ches an den</hi> <hi rendition="#aq">Figu</hi><hi rendition="#fr">ren nicht wohl koͤnne erlernet oder verſtanden werden/ ſo<lb/>
+hab auch davon/ weilen es doch nur allein</hi> <hi rendition="#aq">pro formâ,</hi> <hi rendition="#fr">und nichts davon<lb/>
+geſchoͤpffet werden kan/ mich abgehalten/ angeſehen/ daß</hi> <hi rendition="#aq">ſine vivâ Voce<lb/>
+&amp; Manuductione ſpeciali</hi> <hi rendition="#fr">ſelbige nicht zu etlernen; Und beſchlieſſe dieſes<lb/>
+Werck hiemit in GOttes Nahmen.</hi></p><lb/>
+<fw type="sig" place="bottom"><hi rendition="#b">R</hi></fw><fw type="catch" place="bottom"><hi rendition="#b">Re-</hi></fw><lb/>
+<pb facs="#f0144"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <figure/><lb/>
+</div> <div n="1"><head><hi rendition="#b"><hi rendition="#in">R</hi>egiſter<lb/>
+<hi rendition="#in">A</hi>ller deren in dieſem <hi rendition="#in">B</hi>uch ſich befindlichen<lb/>
+<hi rendition="#aq">Lection</hi>en der Edlen Fecht-Kunſt.</hi></head><lb/>
+<list><item><hi rendition="#in">S</hi>Ummariſcher Unterricht. <space dim="horizontal"/> <hi rendition="#aq">Pag.</hi> <ref>1</ref></item><lb/>
+<item>Wie man die <hi rendition="#aq">Quart</hi> ſtoſſe. <space dim="horizontal"/> <ref>3</ref></item><lb/>
+<item>Wie die <hi rendition="#aq">Quart</hi> zu <hi rendition="#aq">pari</hi>ren. <space dim="horizontal"/> <ref><hi rendition="#aq">ibid.</hi></ref></item><lb/>
+<item>Wie die <hi rendition="#aq">Tertia</hi> zu ſtoſſen. <space dim="horizontal"/> <ref>4</ref></item><lb/>
+<item>Wie die <hi rendition="#aq">Tertz</hi> zu <hi rendition="#aq">pari</hi>ren. <space dim="horizontal"/> <ref><hi rendition="#aq">ibid.</hi></ref></item><lb/>
+<item>Wie man die <hi rendition="#aq">Secund</hi> ſtoſſen ſolle. <space dim="horizontal"/> <ref>5</ref></item><lb/>
+<item>Wie die <hi rendition="#aq">Secund pari</hi>ret wird. <space dim="horizontal"/> <ref><hi rendition="#aq">ibid.</hi></ref></item></list><lb/>
+<fw type="catch" place="bottom">Nuͤtzli-</fw><lb/>
+<pb facs="#f0145"/>
+<fw type="header" place="top"><hi rendition="#b">Regiſter.</hi></fw><lb/>
+<list><item>Nuͤtzliche <hi rendition="#aq">Obſervation</hi> und Unterrichtung deren drey Hauptſtoͤß im Fechten. <space dim="horizontal"/> <hi rendition="#aq">Pag.</hi></item><lb/>
+<item>Von Ab- oder Austheilung der Klingen. <space dim="horizontal"/> <ref>6</ref></item><lb/>
+<item>Ausdeutung derer bey der Fecht-Kunſt vorkommender und gebraͤuchlicher <hi rendition="#aq">Termino-<lb/>
+rum.</hi> <space dim="horizontal"/> <ref><hi rendition="#aq">ibid.</hi></ref></item><lb/>
+<item>Art und Weiſe eine <hi rendition="#aq">Fainte</hi> zu machen/ und den Feind keine Bloͤſe zu geben. <space dim="horizontal"/> <ref>7</ref></item><lb/>
+<item>Zweyte oder gedoppelte <hi rendition="#aq">Fainte.</hi> <space dim="horizontal"/> <ref>8</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> in der <hi rendition="#aq">Tertz</hi> lieget. <space dim="horizontal"/> <ref>9</ref></item><lb/>
+<item>Dreyfache <hi rendition="#aq">Finte</hi> zu machen. <space dim="horizontal"/> <ref>10</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> aus der <hi rendition="#aq">Meſsur</hi> ſtehet. <space dim="horizontal"/> <ref>11</ref></item><lb/>
+<item>Wann der <hi rendition="#aq">Adverſarius</hi> in der <hi rendition="#aq">Tertz</hi> ſuchet zu <hi rendition="#aq">attaqui</hi>ren. <space dim="horizontal"/> <ref>12</ref></item><lb/>
+<item>Art und Weiß/ wie hergegen man ſeinen Gegner anlocken und zum Stoß verfuͤhren<lb/>
+ſoll. <space dim="horizontal"/> <ref>13</ref></item><lb/>
+<item>Wann einer an des <hi rendition="#aq">Adverſarii</hi> Kling in der <hi rendition="#aq">Tertz</hi> zu liegen kommet. <space dim="horizontal"/> <ref>14</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> in <hi rendition="#aq">Quart</hi> mit ſeiner Schwaͤche an der Staͤrck zu liegen kommet.<lb/>
+<space dim="horizontal"/> <ref>15</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> den Degen <hi rendition="#aq">engagi</hi>ret in die <hi rendition="#aq">Tertz.</hi> <space dim="horizontal"/> <ref>16</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> ſeinen Degen hoch an die Klinge in die <hi rendition="#aq">Tertz attaqui</hi>ret. <space dim="horizontal"/> <ref>17</ref></item><lb/>
+<item>Wie die gehobene Stoͤſſe muͤſſen gefuͤhret werden/ welche von denen Frantzoſen die<lb/>
+<hi rendition="#aq">cupir</hi>te Stoͤß uͤber die Klinge genennet werden. <space dim="horizontal"/> <ref>18</ref></item><lb/>
+<item>Wie man ſeinen <hi rendition="#aq">Adverſarium</hi> zu verfuͤhren ſuchen/ und mit <hi rendition="#aq">Tempo</hi> Stoͤſſen empfan-<lb/>
+gen ſolle. <space dim="horizontal"/> <ref>19</ref></item></list><lb/>
+<fw type="sig" place="bottom">R 2</fw><fw type="catch" place="bottom">Wann</fw><lb/>
+<pb facs="#f0146"/>
+<fw type="header" place="top"><hi rendition="#b">Regiſter.</hi></fw><lb/>
+<list><item>Wann <hi rendition="#aq">Adverſarius</hi> an die Klinge in <hi rendition="#aq">Quart</hi> zu liegen kommet. <space dim="horizontal"/> <ref>20</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> an der Klinge in der <hi rendition="#aq">Tertz</hi> lieget. <space dim="horizontal"/> <ref>21</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> die Klinge <hi rendition="#aq">attaqui</hi>ret in <hi rendition="#aq">Quart.</hi> <space dim="horizontal"/> <ref>22</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> die Klinge ſuchet in <hi rendition="#aq">Quart</hi> zu <hi rendition="#aq">engagi</hi>ren/ und ſeine Spitze nied-<lb/>
+rig haͤlt. <space dim="horizontal"/> <ref>23</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> ſuchet die Kling in <hi rendition="#aq">Quart</hi> zu <hi rendition="#aq">ſtringi</hi>ren. <space dim="horizontal"/> <ref>24</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> den Degen ſuchet zu <hi rendition="#aq">engagi</hi>ren. <space dim="horizontal"/> <ref>25</ref></item><lb/>
+<item>So <hi rendition="#aq">Adverſarius</hi> den Degen in <hi rendition="#aq">Quart</hi> zu <hi rendition="#aq">engagi</hi>ren oder zu <hi rendition="#aq">ſtringi</hi>ren/ und ſo dar-<lb/>
+durch einen zum Stoß zu verfuͤhren ſuchete. <space dim="horizontal"/> <ref>26</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> den Degen in <hi rendition="#aq">Quart</hi> zu <hi rendition="#aq">engagi</hi>ren ſuchet. <space dim="horizontal"/> <ref>27</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> an<hi rendition="#aq">marchi</hi>ret/ den Degen in <hi rendition="#aq">Quart</hi> zu <hi rendition="#aq">forci</hi>ren. <space dim="horizontal"/> <ref>28</ref></item><lb/>
+<item>So <hi rendition="#aq">Adverſarius</hi> die Klinge ihm <hi rendition="#aq">engagi</hi>ret in <hi rendition="#aq">Quart</hi> aus der <hi rendition="#aq">Meſsur.</hi> <space dim="horizontal"/> <ref>29</ref></item><lb/>
+<item>Wie und auf was Weiſe man ſuchen ſoll/ ſeines <hi rendition="#aq">Adverſarii</hi> Klinge in die <hi rendition="#aq">Quart</hi> zu<lb/>
+<hi rendition="#aq">engagi</hi>ren. <space dim="horizontal"/> <ref>30</ref></item><lb/>
+<item>Eine <hi rendition="#aq">Appell</hi> an ſeines <hi rendition="#aq">Adverſarii</hi> Klingen in <hi rendition="#aq">Tertz</hi> zu machen/ und wie einer dabey<lb/>
+ſich zu verhalten. <space dim="horizontal"/> <ref>31</ref></item><lb/>
+<item>An <hi rendition="#aq">Adverſarii</hi> Kling in <hi rendition="#aq">Quart</hi> liegend zu kommen. <space dim="horizontal"/> <ref>32</ref></item><lb/>
+<item>Wie die <hi rendition="#aq">Quart Baſe,</hi> oder auf teutſch die niedrige <hi rendition="#aq">Quart</hi> zu machen/ als welche gegen<lb/>
+einen mit der lincken Hand fechtenden gar nutzlich iſt. <space dim="horizontal"/> <ref>33</ref></item><lb/>
+<item>Wann ſich die Klingen in <hi rendition="#aq">Quart</hi> zuſammen befinden. <space dim="horizontal"/> <ref>34</ref></item><lb/>
+<item>Wie man die <hi rendition="#aq">Quart Baſe Reverſe,</hi> das iſt ſo viel als verkehrt geſagt/ machen ſolle.<lb/>
+<space dim="horizontal"/> <ref>35</ref></item></list><lb/>
+<fw type="catch" place="bottom">Welcher</fw><lb/>
+<pb facs="#f0147"/>
+<fw type="header" place="top"><hi rendition="#b">Regiſter.</hi></fw><lb/>
+<list><item>Welcher geſtalten die <hi rendition="#aq">Tertz Baſe</hi> zu machen/ welche die <hi rendition="#aq">Poſitur</hi> hat/ als wie die hohe<lb/>
+<hi rendition="#aq">Secund. <space dim="horizontal"/> Pag.</hi> <ref>36</ref></item><lb/>
+<item>Auff was Art und Weiſe eine <hi rendition="#aq">Ligation</hi> zu machen/ ſeines Feindes Degen aus der Hand<lb/>
+zu drehen. <space dim="horizontal"/> <ref>37</ref></item><lb/>
+<item>Wie die <hi rendition="#aq">Ligation</hi> umb die Klinge in <hi rendition="#aq">Tertz</hi> oder <hi rendition="#aq">Quart,</hi> auf teutſch ein <hi rendition="#aq">Circul</hi> an die<lb/>
+Kling zu machen. <space dim="horizontal"/> <ref>38</ref></item><lb/>
+<item>Wie und auf was Weiſe die <hi rendition="#aq">Paſsade</hi> zu machen ſeye. <space dim="horizontal"/> <ref>39</ref></item><lb/>
+<item>Wie die <hi rendition="#aq">Paſsade</hi> in der <hi rendition="#aq">Quart</hi> uͤbern Arm zu machen. <space dim="horizontal"/> <ref>40</ref></item><lb/>
+<item>Wie die <hi rendition="#aq">Paſsade</hi> unten in der <hi rendition="#aq">Secund</hi> zu machen. <space dim="horizontal"/> <ref>41</ref></item><lb/>
+<item>Wie die wahre <hi rendition="#aq">Paſsade</hi> in <hi rendition="#aq">Quart</hi> zu bemercken/ und wie ſich darinn zu verhalten.<lb/>
+<space dim="horizontal"/> <ref>42</ref></item><lb/>
+<item>Wie in der <hi rendition="#aq">Paſsade</hi> man ſeinen <hi rendition="#aq">Adverſarium arreti</hi>ren kan. <space dim="horizontal"/> <ref>43</ref></item><lb/>
+<item>Wie man die <hi rendition="#aq">Volte</hi> am ſicherſten zu machen. <space dim="horizontal"/> <ref>44</ref></item><lb/>
+<item>Wann ſich die Degen zuſammen in <hi rendition="#aq">Quart</hi> finden. <space dim="horizontal"/> <ref>45</ref></item><lb/>
+<item>Wie man eine <hi rendition="#aq">Volte</hi> machen ſolle/ ſeinem <hi rendition="#aq">Adverſario</hi> das Geſicht/ oder deſſen Haͤnde<lb/>
+zu zerhauen. <space dim="horizontal"/> <ref>46</ref></item><lb/>
+<item>Wie die doppelte <hi rendition="#aq">Volte</hi> zu machen/ in geſchwind und leichteſter <hi rendition="#aq">Manier.</hi> <space dim="horizontal"/> <ref>47</ref></item><lb/>
+<item>Einen zu <hi rendition="#aq">diſarmi</hi>ren in unterſchiedlicher <hi rendition="#aq">Manier,</hi> und wann ſolches zu thun ſeye. <space dim="horizontal"/> <ref>48</ref></item><lb/>
+<item>Wie <hi rendition="#aq">Adverſarius</hi> nach geſtoſſener <hi rendition="#aq">Quart</hi> uͤbern Arm zu <hi rendition="#aq">diſarmi</hi>ren. <space dim="horizontal"/> <ref>49</ref></item><lb/>
+<item>Seines Feindes Degen im Ablauffen zu erobern/ und wie ſolches zu fuͤgen. <space dim="horizontal"/> <ref>50</ref></item><lb/>
+<item>Wie einer ſeinen Feind mittels der <hi rendition="#aq">Cavation</hi> durch eine <hi rendition="#aq">Tertz</hi> oder <hi rendition="#aq">Quart</hi> uͤbern Arm<lb/>
+zu <hi rendition="#aq">diſarmi</hi>ren. <space dim="horizontal"/> <ref>51</ref></item></list><lb/>
+<fw type="sig" place="bottom">R 3</fw><fw type="catch" place="bottom">Einen</fw><lb/>
+<pb facs="#f0148"/>
+<fw type="header" place="top"><hi rendition="#b">Regiſter.</hi></fw><lb/>
+<list><item>Einen in <hi rendition="#aq">Tertz</hi> zu <hi rendition="#aq">diſarmi</hi>ren. <space dim="horizontal"/> <hi rendition="#aq">Pag.</hi> <ref>52</ref></item><lb/>
+<item>Wie man ſich gegen einen Lincks-fechtenden zu verhalten. <space dim="horizontal"/> <ref>53</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> den Degen in die <hi rendition="#aq">Tertz</hi> ſuchet zu <hi rendition="#aq">engagi</hi>ren. <space dim="horizontal"/> <ref>54</ref></item><lb/>
+<item>Wann <hi rendition="#aq">Adverſarius</hi> ſeinen Degen friſch mit der Staͤrcke an die Schwaͤche in <hi rendition="#aq">Tertz<lb/>
+engagi</hi>ren wollte. <space dim="horizontal"/> <ref>55</ref></item><lb/>
+<item>Wie auff Lincks die <hi rendition="#aq">coupi</hi>rte Stoͤſſe angebracht werden koͤnnen. <space dim="horizontal"/> <ref>56</ref></item><lb/>
+<item>Auff was <hi rendition="#aq">Manier</hi> die <hi rendition="#aq">Paſsade</hi> auff Lincks zu machen ſey. <space dim="horizontal"/> <ref>57</ref></item><lb/>
+<item>Wie eine <hi rendition="#aq">Volte</hi> auff Lincks zu machen ſey. <space dim="horizontal"/> <ref>58</ref></item><lb/>
+<item>Wie einer auff Lincks <hi rendition="#aq">diſarmi</hi>rt oder Gewehrloß koͤnne gemacht werden. <space dim="horizontal"/> <ref>59</ref></item></list></div><lb/>
+<pb facs="#f0149"/>
+</body></text> </TEI>

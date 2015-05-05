@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Die Hochbau-Ausführungen des Preußischen Staates. Denkschrift der Vereinigung zur Vertretung baukünstlerischer Interessen in Berlin</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118828940">
+<surname>Raschdorff</surname>
+<forename>Julius</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">31</measure>
+<measure type="tokens">5178</measure>
+<measure type="types">1828</measure>
+<measure type="characters">40795</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:17Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/raschdorff_hochbau_1880</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/raschdorff_hochbau_1880</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/raschdorff_hochbau_1880</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/raschdorff_hochbau_1880</idno>
+<idno type="DTADirName">raschdorff_hochbau_1880</idno>
+<idno type="DTAID">16387</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194887</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Raschdorff, Julius: Die Hochbau-Ausfuehrungen des preußischen Staates. Berlin, 1880.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Die Hochbau-Ausführungen des Preußischen Staates. Denkschrift der Vereinigung zur Vertretung baukünstlerischer Interessen in Berlin</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118828940">
+<surname>Raschdorff</surname>
+<forename>Julius</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">20 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Toeche</name></publisher>
+<publisher><name>Pormetter</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1880</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Ny 3451-8</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=623837307</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Technik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Technik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b">Die<lb/>
+Hochbau</hi>-<hi rendition="#b">Ausführungen</hi><lb/>
+des<lb/>
+<hi rendition="#b">Preußiſchen Staates.</hi></titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="sub"> <hi rendition="#g">Denkſchrift</hi><lb/>
+der<lb/>
+<hi rendition="#b">Vereinigung zur Vertretung baukünſtleriſcher Intereſſen<lb/>
+in Berlin.</hi></titlePart> </docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b">Berlin</hi></pubPlace> <docDate> <hi rendition="#b">1880.</hi></docDate><lb/>
+<publisher> <hi rendition="#g">Ernſt Toeche.</hi> </publisher><lb/>
+</docImprint> </titlePage>
+<pb facs="#f0010"/>
+</front>
+<pb facs="#f0011"/>
+<body> <div n="1"> <p> <hi rendition="#in">D</hi>ie Verhandlungen, welche das Haus der Abgeordneten in<lb/>
+ſeiner 20. Sitzung vom 6. Dezember 1879 der Organiſation<lb/>
+des preußiſchen Staats-Bauweſens gewidmet hat, insbeſondere<lb/>
+die entgegen kommenden Erklärungen des Herrn Miniſters der<lb/>
+öffentlichen Arbeiten auf die dort geäußerten Wünſche nach einer<lb/>
+zeitgemäßen Reform der Bauverwaltung und ſeine Andeutungen<lb/>
+über die von ihm bereits in Ausſicht genommenen Ziele einer<lb/>
+ſolchen Reform, haben ſicherlich bei allen Angehörigen des<lb/>
+preußiſchen Bauweſens die lebhafteſte Aufmerkſamkeit erregt.</p><lb/>
+<p>Mit dieſer zugleich mußte natürlich auch der Wunſch er¬<lb/>
+wachen, daß es vor Einleitung beſtimmter Maaßregeln ihnen,<lb/>
+den zunächſt Betheiligten, vergönnt werden möge, ihre Anſichten<lb/>
+über die gegenwärtigen Verhältniſſe jenes Gebiets geltend zu<lb/>
+machen und Mittel zur Beſeitigung der zur Zeit auf ihm vor¬<lb/>
+handenen Uebelſtände in Vorſchlag zu bringen.</p><lb/>
+<p>Da es, neben praktiſchen, beſonders auch <hi rendition="#g">künſtleriſche</hi> Ge¬<lb/>
+ſichtspunkte waren, aus denen man im Abgeordnetenhauſe das Be¬<lb/>
+dürfniß nach einer Reform unſeres Staats-Bauweſens ableitete,<lb/>
+ſo hat ſich die im vorigen Jahre begründete, aus c. 60 unab¬<lb/>
+hängigen Architekten der Landes-Hauptſtadt beſtehende „<hi rendition="#g">Ver¬<lb/>
+einigung zur Vertretung baukünſtleriſcher Intereſſen</hi>“<lb/>
+für verpflichtet gehalten, jene Fragen — ſoweit ſie in den Kreis<lb/>
+ſpezifiſch baukünſtleriſcher Intereſſen fallen — auch ihrerſeits in<lb/>
+eingehende Erwägung zu ziehen. Sie beehrt ſich, das Ergebniß<lb/>
+derſelben im Folgenden zur Kenntniß der hohen Staatsregierung,<lb/>
+ſowie der beiden hohen Häuſer des Landtags zu bringen. —</p><lb/>
+<pb n="4" facs="#f0012"/>
+</div> <div n="1"> <head> <hi rendition="#aq">I</hi>.<lb/>
+</head> <p>Es kann nicht beſtritten werden, daß der im Lande vielfach<lb/>
+verbreiteten Unzufriedenheit mit den architektoniſchen Leiſtungen<lb/>
+unſeres Staats-Bauweſens eine gewiſſe Berechtigung zu Grunde<lb/>
+liegt. Die Nation kann und muß verlangen, daß die aus<lb/>
+Staatsmitteln errichteten öffentlichen Bauten, ſowohl nach ihrer<lb/>
+Anlage wie nach ihrer techniſchen und künſtleriſchen Durchführung,<lb/>
+die Höhe deſſen bezeichnen, was die architektoniſchen Kräfte des<lb/>
+Landes zur Zeit zu leiſten vermögen. Dies iſt bei uns gegen¬<lb/>
+wärtig leider nicht durchweg der Fall. Wohl finden ſich auch<lb/>
+unter den Hochbau-Ausführungen des preußiſchen Staates —<lb/>
+namentlich in den größeren Städten — tüchtige und anerkennens¬<lb/>
+werthe Werke: in ihrer großen Mehrzahl zeigen dieſelben jedoch<lb/>
+nicht jenen Grad architektoniſcher Reife und Vollendung, der in<lb/>
+vielen Privatbauten unſeres Landes ſich kund giebt und durch¬<lb/>
+ſchnittlich auch von den öffentlichen Bauten anderer Nationen<lb/>
+erreicht wird.</p><lb/>
+<p>Die Urſache dieſer auffälligen Erſcheinung, welche gewiß von<lb/>
+Niemand ſchmerzlicher empfunden wird, als von den preußiſchen<lb/>
+Architekten, iſt nicht etwa darin zu ſuchen, daß für die Hochbau-<lb/>
+Ausführungen unſeres Staates zu geringe Mittel bewilligt wür¬<lb/>
+den, wie dies in einer früheren Periode allerdings häufig der<lb/>
+Fall war. Die in neuerer Zeit für jenen Zweck zur Verfügung<lb/>
+geſtellten Geldmittel haben wohl ſtets ausgereicht, um mit den¬<lb/>
+ſelben eine nach jeder Beziehung genügende Löſung der Aufgabe<lb/>
+zu ermöglichen. — Eben ſo wenig wird man angeſichts der nam¬<lb/>
+haften Zahl gediegener Bauwerke aus älterer und neuerer Zeit,<lb/>
+die jenen angreifbaren Leiſtungen gegenüber ſtehen und die mit<lb/>
+den beſten Schöpfungen des Auslandes ſich meſſen können, be¬<lb/>
+haupten wollen, daß es unſerem Lande an fähigen Bautechnikern<lb/>
+und Baukünſtlern fehle.</p><lb/>
+<p>Man wird daher nicht irren, wenn man die Mängel unſerer<lb/>
+öffentlichen Bauten vor allem daraus ableitet, <hi rendition="#g">daß zur Löſung<lb/>
+der architektoniſchen Aufgaben des Staates im all¬<lb/>
+gemeinen nicht der richtige Weg eingeſchlagen wird</hi>.—</p><lb/>
+<p>Bekanntlich unterhält Preußen ein zahlreiches, im weſent¬<lb/>
+<pb n="5" facs="#f0013"/>
+lichen nach dem Muſter der übrigen Verwaltungszweige organi¬<lb/>
+ſirtes Corps von Baubeamten, durch welches alle mit dem öffent¬<lb/>
+lichen Bauweſen zuſammen hängenden Aufgaben — alſo auch<lb/>
+die für Entwurf und Ausführung eines Baues erforderlichen<lb/>
+<hi rendition="#g">ſchöpferiſchen Leiſtungen</hi> — im Wege eines regelmäßigen,<lb/>
+nach drei Inſtanzen gegliederten Geſchäftsganges erledigt werden<lb/>
+ſollen. Da ausſchließlich Beamte zur Verwendung gelangen,<lb/>
+die gleichmäßig nach den höchſten Anſprüchen ausgebildet worden<lb/>
+ſind, ſo iſt die Vorausſetzung dieſer Organiſation offenbar die,<lb/>
+daß der zur Verwaltung eines Baukreiſes angeſtellte Lokal-Bau¬<lb/>
+beamte alle innerhalb ſeines Kreiſes zu errichtenden Neubauten<lb/>
+des Staates zu entwerfen und auszuführen hat, während der dem<lb/>
+Regierungs-Kollegium zugetheilte Regierungs- und Baurath die<lb/>
+Reviſion der bezgl. Arbeiten bewirken und die Bau-Abtheilung des<lb/>
+Miniſteriums der öffentlichen Arbeiten, als ſuperrevidirende Be¬<lb/>
+hörde, für Einhaltung einheitlicher, ſachgemäßer Prinzipien ſor¬<lb/>
+gen ſoll. —</p><lb/>
+<p>Soweit es um <hi rendition="#g">die Entwürfe zu Staatsbauten höhe¬<lb/>
+ren Ranges</hi> ſich handelt, hat in Wirklichkeit längſt eine andere<lb/>
+Praxis ſich eingebürgert. Zwar werden die Entwürfe zu dieſen<lb/>
+Bauten, mit wenigen Ausnahmen, zunächſt noch immer durch die<lb/>
+Lokal-Baubeamten der betreffenden Baukreiſe aufgeſtellt: die Vor¬<lb/>
+lagen der letzteren werden jedoch nur ſelten zur Ausführung geneh¬<lb/>
+migt, ſondern häufig ſchon in der Reviſion ſtark geändert, in der<lb/>
+oberſten Inſtanz dagegen meiſt ganz verworfen und durch ein<lb/>
+von dort geliefertes Projekt erſetzt. <hi rendition="#g">Es iſt gegenwärtig faſt<lb/>
+zur Regel geworden</hi>, <hi rendition="#g">daß die Entwürfe zu den bedeu¬<lb/>
+tenderen Hochbauten des preußiſchen Staates in der<lb/>
+Bau-Abtheilung des Miniſteriums der öffentlichen Ar¬<lb/>
+beiten angefertigt oder durch dieſe beſchafft werden</hi>.—</p><lb/>
+<p>Es mag dahin geſtellt ſein, ob ein ſolches Verfahren, das<lb/>
+in den Lokal-Baubeamten, ja ſelbſt in den Regierungs- und<lb/>
+Bauräthen, die Berufsfreudigkeit und das Gefühl der Verant¬<lb/>
+wortlichkeit nur beeinträchtigen kann, in jedem einzelnen Falle<lb/>
+dadurch nothwendig wurde, daß der von den unteren Inſtanzen<lb/>
+vorgelegte Entwurf ſich als unbrauchbar erwies. In ſehr vielen,<lb/>
+ja den meiſten Fällen dürfte eine ſolche Nothwendigkeit in der<lb/>
+<pb n="6" facs="#f0014"/>
+That vorgelegen haben; <hi rendition="#g">denn die Vorausſetzung</hi>, <hi rendition="#g">daß<lb/>
+unſere Lokal-Baubeamten zur Löſung ſchwieriger ar¬<lb/>
+chitektoniſcher Aufgaben allgemein im Stande ſein<lb/>
+ſollen</hi>, <hi rendition="#g">iſt eine durchaus irrige</hi>.</p><lb/>
+<p>Man darf zunächſt nicht überſehen, daß der Ausbildungsgang<lb/>
+unſerer Baumeiſter bisher ein anerkannt mangelhafter war und es in¬<lb/>
+ſofern noch immer iſt, als faſt nur auf die theoretiſche Ausbildung<lb/>
+Werth gelegt wird, nicht aber auf die für den Baukünſtler be¬<lb/>
+ſonders wichtige praktiſche Schulung, zu der es im gewöhnlichen<lb/>
+Geſchäftsgange an Gelegenheit fehlt. Faſt alle Architekten un¬<lb/>
+ſeres Landes, die ſich zu höherer Leiſtungsfähigkeit entwickelt<lb/>
+haben, verdanken dies neben ihrem Talent und ihrem Fleiß in<lb/>
+erſter Linie dem Glückszufall, daß ſie im Atelier eines erfahrenen<lb/>
+Meiſters unter deſſen Leitung in künſtleriſche Thätigkeit ſich<lb/>
+einleben konnten. — Man muß ſodann aber vor allem ſich klar<lb/>
+machen, daß die Stellung des Lokal-Baubeamten und die Art<lb/>
+ſeiner Amtsgeſchäfte ihm in der Regel die Fähigkeit zu ſchöpfe¬<lb/>
+riſchen, insbeſondere zu künſtleriſchen Leiſtungen nehmen müſſen,<lb/>
+auch wenn er ſolche früher beſeſſen hat. Wohl jeder Künſtler<lb/>
+wird ſich zu ſchöpferiſcher Thätigkeit nur dann im Stande fühlen,<lb/>
+wenn er einerſeits ſeine Kraft in beſtändiger Uebung halten und<lb/>
+wenn er andererſeits in die ihm geſtellten Aufgaben ſich ver¬<lb/>
+tiefen kann; meiſt hält er es ſogar für erforderlich, auf ein<lb/>
+kleineres Spezialgebiet des Schaffens ſich zu beſchränken. Die<lb/>
+Lage unſerer Baubeamten zeigt von dem allem das gerade Gegen¬<lb/>
+theil. Meiſt an eine kleine Provinzialſtadt gefeſſelt und mit<lb/>
+mechaniſchen Bureau-Arbeiten überhäuft, von künſtleriſcher<lb/>
+Anregung und den Mitteln zur Fortbildung nahezu abge¬<lb/>
+ſchnitten — kommt der Einzelne unter ihnen überhaupt nur<lb/>
+ſelten und in längeren Zeitabſchnitten dazu, einer höheren archi¬<lb/>
+tektoniſchen Aufgabe ſich zu widmen, die er alsdann im Drange<lb/>
+des Dienſtes, zwiſchen Geſchäften der heterogenſten und meiſt der<lb/>
+trivialſten, Art als eine „Nummer“ erledigen muß. Beſſere<lb/>
+Verhältniſſe ſind lediglich in den wenigen größeren Städten vor¬<lb/>
+handen, wo es an Anregung nicht fehlt, der Geſchäftskreis ein<lb/>
+einheitlicherer iſt und künſtleriſche Aufgaben etwas häufiger ſich<lb/>
+darbieten. — Was Wunder, daß fähige Architekten, denen die<lb/>
+<pb n="7" facs="#f0015"/>
+Möglichkeit einer anderen Lebensſtellung ſich bot, von jeher nur<lb/>
+geringe Neigung gezeigt haben, dem Staate in den Formen des<lb/>
+Baubeamtenthums zu dienen. Innerhalb des letzteren dauernd<lb/>
+eine eigentliche <hi rendition="#g">künſtleriſche</hi> Wirkſamkeit zu entfalten, iſt that¬<lb/>
+ſächlich nur wenigen, beſonders glücklich veranlagten und ener¬<lb/>
+giſchen Naturen gelungen, und auch dieſen — welche dem Amte<lb/>
+als einem unvermeidlichen Mittel, um zu jenem Ziele zu kommen,<lb/>
+ſich fügen mußten — faſt nur dann, wenn die Gunſt der Vorge¬<lb/>
+ſetzten ihnen von vorn herein eine Ausnahme-Stellung einräumte. —</p><lb/>
+<p>Unter ſolchen Umſtänden iſt es allerdings nur wünſchenswerth,<lb/>
+daß man von einer Aufſtellung der Entwürfe zu wichtigeren Staats¬<lb/>
+bauten durch die Lokal-Baubeamten endgültig abſehe. Aber die<lb/>
+gegenwärtig eingeführte Praxis, deren Anfang wohl bis auf<lb/>
+<hi rendition="#g">Schinkel</hi> zurückreicht und ſich aus dem gewaltigen Uebergewichte<lb/>
+dieſes Meiſters über ſeine Zeitgenoſſen erklärt, unterliegt nicht<lb/>
+minder ſchweren Bedenken und zeigt ebenſo offenkundige Uebelſtände.</p><lb/>
+<p>Es mag zunächſt beiläufig darauf hingewieſen werden, daß<lb/>
+die Bearbeitung der Entwürfe durch die Behörde, welcher zugleich<lb/>
+die Reviſion derſelben obliegt, der in jedem geordneten Staats¬<lb/>
+weſen gültigen Regel zuwider läuft, daß Niemand in eigener Sache<lb/>
+Richter ſein darf. Wenn die bautechniſchen Räthe des Miniſteriums<lb/>
+auch wohl nur ſelten einem Entwurf perſönlich ſich widmen können,<lb/>
+ſondern hierzu der Kräfte ihres, zu immer größerem Umfange an¬<lb/>
+ſchwellenden Techniſchen Bureaus, vereinzelt ſogar der Unterſtützung<lb/>
+von Privat-Architekten, ſich bedienen müſſen, ſo führen ſie doch die<lb/>
+obere Leitung jener Arbeiten und ſind demzufolge meiſt nicht in der<lb/>
+Lage, über dieſelben ſpäterhin ein völlig objektives Urtheil abzugeben.</p><lb/>
+<p>Die Gefahr, daß auf dieſem Wege manche mehr oder minder<lb/>
+anfechtbare Entwürfe zur Genehmigung gelangen, iſt gewiß nicht<lb/>
+ausgeſchloſſen, zumal bei Berufung jener leitenden Beamten des<lb/>
+Staats-Bauweſens doch nicht an erſter Stelle deren <hi rendition="#g">ſchöpferiſche</hi><lb/>
+Befähigung berückſichtigt werden kann und da die Hülfskräfte ihres<lb/>
+Techniſchen Bureaus vorzugsweiſe doch nur aus jüngeren Beamten<lb/>
+beſtehen, die über eine reiche Erfahrung in <hi rendition="#g">künſtleriſcher Praxis</hi><lb/>
+nicht gebieten. — Aber ſelbſt, wenn dieſes Bedenken dadurch ver¬<lb/>
+ringert würde, daß man an jener Zentralſtelle in Wirklichkeit ſtets<lb/>
+die hervorragendſten und leiſtungsfähigſten Architekten des Landes<lb/>
+<pb n="8" facs="#f0016"/>
+zu vereinigen wüßte, ſo würde dennoch niemals der künſtleriſche<lb/>
+Nachtheil beſeitigt werden, der an den Entwürfen zu unſern Staats¬<lb/>
+bauten ſeither am auffälligſten und ſchlimmſten ſich geltend ge¬<lb/>
+macht hat: <hi rendition="#g">die bei einer ſolchen fabrikartigen Maſſen¬<lb/>
+produktion der Entwürfe an einer Stelle unvermeid¬<lb/>
+liche</hi>, <hi rendition="#g">ſchablonenhafte Auffaſſung derſelben</hi>.</p><lb/>
+<p>Eine ausreichende Berückſichtigung der eigenartigen Be¬<lb/>
+ſchaffenheit des Bauplatzes, der landesüblichen Baumaterialien und<lb/>
+der aus hiſtoriſcher Tradition entwickelten Bauformen des be¬<lb/>
+treffenden Gebiets, welche erforderlich iſt, um ein Bauwerk<lb/>
+charakteriſtiſch und intereſſant zu machen, kann in der Regel nicht<lb/>
+ſtattfinden, weil der Entwerfende von jenen Momenten keine oder<lb/>
+doch nur geringe Kenntniß beſitzt. Von einer Vertiefung in der<lb/>
+Aufgabe kann gleichfalls kaum die Rede ſein. — So ſind die<lb/>
+Provinzen unſeres Landes, für welche die vom Staate aus¬<lb/>
+geführten Neubauten ein Gegenſtand des Stolzes ſein ſollten,<lb/>
+ſeit langer Zeit mit einer Reihe von Gebäuden überſäet worden,<lb/>
+die — aus einem begrenzten Vorrath von Formen und Motiven<lb/>
+zuſammengeſetzt — eine nüchterne Uniformität zur Schau tragen<lb/>
+und ſelten zu ihrer Umgebung paſſen, aber demnächſt leider viel¬<lb/>
+fach als Vorbilder für den handwerkmäßigen Privatbau benutzt<lb/>
+worden ſind und durch dieſen Einfluß die eigenartige Phyſiognomie<lb/>
+zahlreicher Ortſchaften aufs tiefſte geſchädigt haben. —</p><lb/>
+<p>Dieſe Nachtheile werden noch verſtärkt durch die Art und<lb/>
+Weiſe, in welcher <hi rendition="#g">die Ausführung der bezgl</hi>. <hi rendition="#g">Entwürfe</hi> erfolgt.<lb/>
+Die letztere wird nämlich, wie dies der Organiſation der Staats-<lb/>
+Bauverwaltung entſpricht, mit wenigen Ausnahmen, nach wie<lb/>
+vor <hi rendition="#g">den Lokal-Baubeamten überlaſſen</hi>, denen zu dieſem<lb/>
+Zweck jüngere diätariſch beſchäftigte Bauführer und Reg.-Bau¬<lb/>
+meiſter zur Seite geſtellt werden. Sind aber jene Beamten,<lb/>
+wie nachgewieſen wurde, nur ausnahmsweiſe in der Lage, einen<lb/>
+befriedigenden Entwurf zu einem öffentlichen Gebäude höherer<lb/>
+Art anzufertigen, ſo ſind ſie aus denſelben Gründen noch viel<lb/>
+weniger im Stande, <hi rendition="#g">einen ſolchen Entwurf im künſtleri¬<lb/>
+ſchen Sinne auszugeſtalten</hi>. Während zum Entwerfen einer<lb/>
+Skizze — natürlich bis zu gewiſſen Grenzen — die akademiſche<lb/>
+Vorbildung genügt, iſt letzteres nicht möglich ohne eine in der<lb/>
+<pb n="9" facs="#f0017"/>
+Praxis gereifte <hi rendition="#g">künſtleriſche Erfahrung</hi>. Eine ſolche beſitzen<lb/>
+die Kreis-Baubeamten ebenſo ſelten, wie die ihnen zugewieſenen<lb/>
+jungen Hülfsarbeiter; ſie ſtehen demnach den ihnen zur Ausfüh¬<lb/>
+rung überſandten, meiſt in kleinem Maßſtabe gezeichneten Ent¬<lb/>
+würfen rathlos gegenüber und ſind darauf angewieſen, mit der<lb/>
+Detaillirung derſelben auf gut Glück zu experimentiren, bezw.<lb/>
+ein ſolches Experiment den zur ſpeziellen Bauleitung beſtellten<lb/>
+Kräften zu überlaſſen. Das Ergebniß kann unmöglich ein glück¬<lb/>
+liches ſein. <hi rendition="#g">So ſtellt ſich die künſtleriſche Ausgeſtaltung<lb/>
+im Einzelnen bei unſern Staatsbauten nur gar zu<lb/>
+häufig als eine dürftige und mißverſtandene dar</hi>. <note place="foot" n="*)">Reſkripte der höchſten Baubehörde haben das wiederholt anerkannt und<lb/>
+vergeblich zu beſſern geſucht. Beſonders charakteriſtiſch iſt das auf die Aus¬<lb/>
+führung neuer Kirchen bezgl. Z.-R. vom 31. März 1856, das „eine zu<lb/>
+untergeordnete, ſogar mißverſtandene Behandlung der Details“, ſowie eine<lb/>
+anſcheinend auf willkürlicher Abſchätzung beruhende, meiſt zu große Bemeſſung<lb/>
+derſelben tadelt und ſtrenges Einhalten des Bauſtils vermißt.<lb/>
+</note>—</p><lb/>
+<p>Hiermit iſt es wohl in ausreichender Weiſe erklärt, daß<lb/>
+auf dem für die Herſtellung unſerer Staatsbauten üblichen Wege<lb/>
+nur höchſt ſelten — durch ein Zuſammentreffen beſonders glück¬<lb/>
+licher Umſtände — Werke entſtehen können, die ganz und voll<lb/>
+das Gepräge einer <hi rendition="#g">künſtleriſchen Leiſtung</hi> tragen. Iſt doch<lb/>
+eine ſolche ſtets nur als <hi rendition="#g">individuelle Schöpfung eines ein¬<lb/>
+zelnen Künſtlers</hi> denkbar, während in die Autorſchaft unſerer<lb/>
+Staatsbauten eine ſo große Zahl verſchiedener Perſönlichkeiten ſich<lb/>
+theilt, daß es in den meiſten Fällen gar nicht möglich iſt anzu¬<lb/>
+geben, von wem das betreffende Gebäude eigentlich herrührt. —<lb/>
+Eine Thatſache, die für ſich allein hinreicht, den künſtleriſchen<lb/>
+Rang dieſer Werke mit einem Schlage zu kennzeichnen!</p><lb/>
+<p>Es mag daneben noch hervor gehoben werden, daß jener für<lb/>
+den künſtleriſchen Werth unſerer Staatsbauten ſo nachtheilige Weg<lb/>
+ihrer Herſtellung auch ein unverhältnißmäßig <hi rendition="#g">koſtſpieliger</hi> iſt.<lb/>
+Die zwei- und dreimalige Bearbeitung des Entwurfs erfordert<lb/>
+natürlich auch <hi rendition="#g">zwei- bis dreifache Projektirungskoſten</hi>,<lb/>
+die um ſo höher ſich zu ſtellen pflegen, als zu dieſen Arbeiten<lb/>
+großentheils diätariſch beſoldete Hülfsarbeiter verwendet werden<lb/>
+müſſen. — Die Ausführung der Bauten wird in's Endloſe ver¬<lb/>
+<pb n="10" facs="#f0018"/>
+ſchleppt, ſo daß für ihre Herſtellung <hi rendition="#g">günſtige Geſchäfts-Kon¬<lb/>
+junkturen häufig nicht ausgenutzt werden können</hi>. — Für<lb/>
+die unvermeidlichen <hi rendition="#g">Sünden des Ausführenden</hi> muß der<lb/>
+Staat das Lehrgeld zahlen. — Und bei alledem iſt derſelbe durch<lb/>
+einen ſo ſchwerfälligen und komplizirten Apparat nicht einmal<lb/>
+davor geſchützt, daß die veranſchlagten und bewilligten Baukoſten<lb/>
+eingehalten werden! — —</p><lb/>
+</div> <div n="1"> <head> <hi rendition="#aq">II</hi>.<lb/>
+</head> <p>Mängel ſo tief greifender Art laſſen das Verlangen nach<lb/>
+einer <hi rendition="#g">radikalen Reform des preußiſchen Staats</hi>-<hi rendition="#g">Bau¬<lb/>
+weſens</hi> allerdings als ein ſehr gerechtfertigtes erſcheinen. Auch<lb/>
+die weſentlichſten Zielpunkte dieſer Reform ſind — ſoweit es um die<lb/>
+hier vorzugsweiſe in Betracht gezogene Seite unſerer Staats¬<lb/>
+bauten ſich handelt — kaum noch zweifelhaft.</p><lb/>
+<p> <hi rendition="#g">Man wird einerſeits dafür ſorgen müſſen</hi>, <hi rendition="#g">daß<lb/>
+die den Staatsbauten zugewendete baukünſtleriſche<lb/>
+Thätigkeit des Landes hinfort nicht mehr durch die<lb/>
+Hauptſtadt allein aufgeſaugt werde</hi>, <hi rendition="#g">daß vielmehr in<lb/>
+den Provinzen des Staates wiederum ein eigenartiges<lb/>
+architektoniſches Leben ſich entfalte</hi>!</p><lb/>
+<p> <hi rendition="#g">Man wird andererſeits von der Herſtellung bau¬<lb/>
+künſtleriſcher Werke im Wege eines bureaukratiſch ge¬<lb/>
+regelten</hi>, <hi rendition="#g">amtlichen Geſchäftsganges abſehen müſſen</hi>,<lb/>
+<hi rendition="#g">wie man längſt überall darauf verzichtet hat</hi>, <hi rendition="#g">Schöpfun¬<lb/>
+gen der übrigen Künſte durch amtliche Anſtellung von<lb/>
+Malern</hi>, <hi rendition="#g">Bildhauern</hi>, <hi rendition="#g">Dichtern und Komponiſten her¬<lb/>
+vor rufen zu wollen</hi>! —</p><lb/>
+<p>Wenn der Bruch mit den durch lange Zeit feſtgehaltenen<lb/>
+Traditionen des Staats, welchen die zweite Forderung enthält,<lb/>
+zunächſt bedenklich erſcheinen ſollte, ſo wird ein Rückblick auf den<lb/>
+hiſtoriſchen Urſprung der bisherigen Einrichtungen unſeres Staats-<lb/>
+Bauweſens dieſe Bedenken leicht zerſtreuen.</p><lb/>
+<p>Daß ſich in Deutſchland ein Inſtitut der Baubeamten ent¬<lb/>
+wickelt hat, wie es die übrigen Kulturſtaaten in gleichem Sinne<lb/>
+und namentlich in gleicher Anwendung auf das Gebiet der ſchöpfe¬<lb/>
+riſchen architektoniſchen Leiſtungen nicht kennen, iſt die natürliche<lb/>
+<pb n="11" facs="#f0019"/>
+Folge der Zuſtände, in denen unſere Nation während der letzten<lb/>
+2 Jahrhunderte ſich befand. Ihre alte Kultur und ihr Wohl¬<lb/>
+ſtand waren nahezu vernichtet und konnten ſich unter den unauf¬<lb/>
+hörlichen Erſchütterungen langwieriger Kriege nur langſam wieder<lb/>
+erholen. Das Bedürfniß nach höheren architektoniſchen Leiſtungen<lb/>
+beſchränkte ſich damals faſt ausſchließlich auf die Höfe der Fürſten<lb/>
+— die Brennpunkte, an denen ſich ſchöpferiſche Initiative und Kunſt¬<lb/>
+übung konzentrirten, um von da aus allmählich auf die Provinzen<lb/>
+ausgeſtrahlt zu werden. Für eine ſolche Ausſtrahlung aber gab es,<lb/>
+im Geiſte der Zeit, keine andere Form, als die des <hi rendition="#g">Beamtenthums</hi>.<lb/>
+So iſt in Preußen, namentlich unter dem landesväterlichen Regi¬<lb/>
+ment Friedrich Wilhelms <hi rendition="#aq">I</hi>. und Friedrich's des Großen, der<lb/>
+Grund zu unſerem Baubeamtenthum gelegt worden, das dem¬<lb/>
+nächſt im Anfange dieſes Jahrhunderts, bei der Reform der ge¬<lb/>
+ſammten inneren Verwaltung unter Friedrich Wilhelm <hi rendition="#aq">III</hi>., ſeine<lb/>
+feſte Organiſation erhalten hat.</p><lb/>
+<p> <hi rendition="#g">Das Baubeamtenthum war in jenen Zeiten ohne<lb/>
+Zweifel eine Nothwendigkeit</hi>. Was es im Dienſte des Staates<lb/>
+leiſten und ſchaffen mußte, war damals überhaupt auf keinem an¬<lb/>
+deren Wege zu erzielen, weil unſer Land, mit verſchwindenden Aus¬<lb/>
+nahmen, keine anderen Architekten und Ingenieure beſaß, als die<lb/>
+vom Staate ausgebildeten und angeſtellten Baubeamten!</p><lb/>
+<p>Eine ſolche Nothwendigkeit iſt heute nicht mehr in gleichem<lb/>
+Grade vorhanden — zum mindeſten nicht auf <hi rendition="#g">baukünſtleriſchem</hi><lb/>
+Gebiete. Seit 40 Jahren iſt unſer Vaterland, das ſeine Kräfte<lb/>
+geſammelt hat, wieder im Aufblühen begriffen. Mit dem wachſen¬<lb/>
+den Wohlſtande mehrte ſich die Zahl der künſtleriſchen Aufgaben,<lb/>
+die neben dem Staats-Bauweſen auch der <hi rendition="#g">Privatbau</hi> zu ſtellen<lb/>
+hatte und es entſtand ein Bedürfniß nach Architekten, welche ſich<lb/>
+der Löſung derſelben unterziehen konnten. Waren dieſelben an¬<lb/>
+fänglich nur unter den Baubeamten zu finden, ſo verzichteten doch<lb/>
+bald einige der für den Staatsdienſt ausgebildeten Baumeiſter auf<lb/>
+eine amtliche Stellung, um ſich ganz jenen Aufgaben widmen zu<lb/>
+können. Es bildete ſich wiederum ein Stand unabhängiger, eine<lb/>
+rein künſtleriſche Thätigkeit ausübender Architekten. — Das letzte<lb/>
+Jahrzehnt, dem wir, trotz mancher Auswüchſe und Verirrungen,<lb/>
+doch einen mächtigen und nachhaltigen Aufſchwung unſerer ge¬<lb/>
+<pb n="12" facs="#f0020"/>
+ſammten Kulturformen verdanken, hat dieſen Prozeß raſch gezeitigt,<lb/>
+zumal die Freigebung der Baugewerbe auch die Schranken beſeitigte,<lb/>
+welche der ſelbſtändigen Thätigkeit des Architekten bisher in der<lb/>
+Forderung eines beſtimmten, zeitraubenden Ausbildungsganges und<lb/>
+mehrfacher Prüfungen, zum Nachtheil vieler auf dem Boden künſt¬<lb/>
+leriſcher Praxis entwickelter Talente, geſetzt waren. So iſt, dem<lb/>
+in ungeahnter Weiſe geſteigerten Bedürfniß entſprechend, die Zahl<lb/>
+der ſogen. <hi rendition="#g">Privat-Architekten</hi> außerordentlich gewachſen und<lb/>
+faſt ſchon in allen größeren Städten des Landes ſind ſie vertreten.</p><lb/>
+<p>Es dürfte keine Ueberhebung ſein, wenn man es ausſpricht,<lb/>
+daß die Leiſtungen dieſer Privat-Architekten denen des Staats-<lb/>
+Bauweſens den Vorrang abgewonnen haben. Der hohen Begabung<lb/>
+und dem ſoliden künſtleriſchen Können einzelner Baubeamten ſoll<lb/>
+damit eben ſo wenig zu nahe getreten werden, wie das offene<lb/>
+Urtheil über die aus den <hi rendition="#g">Einrichtungen</hi> des preußiſchen Staats-<lb/>
+Bauweſens hervorgehenden Uebelſtände ſich überhaupt gegen die<lb/>
+<hi rendition="#g">Perſonen</hi> wenden kann, welche demſelben zur Zeit angehören.<lb/>
+Denn es liegt doch in der Natur der Dinge, daß die Mehrzahl<lb/>
+der Baubeamten es nicht Künſtlern gleich zu thun vermag, die in<lb/>
+ſchöpferiſcher Thätigkeit lebend und webend, ihre zu voller Reife<lb/>
+gediehene Kraft auf die ihnen geſtellten Aufgaben <hi rendition="#g">konzentriren</hi><lb/>
+können. Mag man die architektoniſchen Entwürfe auf öffentlichen<lb/>
+Ausſtellungen in Betracht ziehen, mag man die Bauten an den<lb/>
+Straßen und Plätzen unſerer Städte vergleichen, mag man dem<lb/>
+Einfluſſe nachſpüren, dem die natürliche Grundlage und Ergänzung<lb/>
+aller hohen Kunſt, das <hi rendition="#g">Kunſtgewerbe</hi>, ſein Wieder-Aufleben<lb/>
+verdankt: überall wird man finden, daß gegenwärtig <hi rendition="#g">die Pri¬<lb/>
+vat-Architekten die Führung behaupten</hi>!</p><lb/>
+<p>Bei ſolcher Sachlage würde ein längeres Feſthalten an der tra¬<lb/>
+ditionellen Herſtellung unſerer öffentlichen Bauten dem Intereſſe des<lb/>
+Staates gewiß nicht entſprechen. Schon ſeit geraumer Zeit iſt man<lb/>
+ja auch in einzelnen Fällen zu dem Entſchluß gelangt, Architekten,<lb/>
+welche außerhalb des Baubeamtenthums ſtehen, theils zum Entwurf,<lb/>
+theils zu Entwurf und Ausführung öffentlicher Gebäude — darunter<lb/>
+der wichtigſten Monumental-Bauten — heranzuziehen. Angeſichts<lb/>
+ihrer Zahl, angeſichts der Bedeutung, welche ihre Leiſtungen im<lb/>
+Kunſtleben der Nation gewonnen haben, können dieſe Architekten<lb/>
+<pb n="13" facs="#f0021"/>
+es jedoch verlangen, daß man bei einem ſolchen, von perſönlichem<lb/>
+Ermeſſen abhängenden und darum ſchwer zu kontrollirenden Ver¬<lb/>
+fahren nicht ſtehen bleibe. <hi rendition="#g">Sie können fordern</hi>, <hi rendition="#g">daß man<lb/>
+ihnen einen Antheil an der Bauthätigkeit des Staates<lb/>
+nicht blos wie ein Almoſen</hi>, <hi rendition="#g">ſondern als ein Recht ge¬<lb/>
+währe</hi>! Ein Recht, das auf die <hi rendition="#g">Pflicht</hi> des Staates ſich<lb/>
+ſtützt, für die Löſung ſeiner Aufgaben denjenigen Weg zu wählen,<lb/>
+der ihm die <hi rendition="#g">beſten Erfolge</hi> in Ausſicht ſtellt! —</p><lb/>
+</div> <div n="1"> <head> <hi rendition="#aq">III</hi>.<lb/>
+</head> <p>Die im Vorhergehenden aufgeſtellten und begründeten Forde¬<lb/>
+rungen prinzipieller Art erſchöpfen natürlich in keiner Weiſe die<lb/>
+Wünſche, welche man von einem <hi rendition="#g">allgemeineren</hi> Standpunkte aus<lb/>
+an die Reform der preußiſchen Staats-Bauverwaltung zu ſtellen be¬<lb/>
+rechtigt iſt. Dieſe weiter gehenden Wünſche, welche nur im<lb/>
+Zuſammenhange mit einer tief eingreifenden, längere Zeit zur<lb/>
+Vorbereitung und Durchführung erheiſchenden neuen <hi rendition="#g">Organi¬<lb/>
+ſation des Baubeamtenthums</hi> ſich erfüllen laſſen, können<lb/>
+jedoch an dieſem Orte nicht näher dargelegt werden. Es mag —<lb/>
+von den weſentlich aus andern Rückſichten zu beurtheilenden Ein¬<lb/>
+richtungen zur Herſtellung und Unterhaltung der <hi rendition="#g">Ingenieur-<lb/>
+Bauten</hi> des Staates völlig abgeſehen — an der Andeutung ge¬<lb/>
+nügen, daß für das Hochbauweſen deſſelben in Zukunft vielleicht<lb/>
+eine verhältnißmäßig geringe Zahl künſtleriſch und wiſſenſchaftlich<lb/>
+vorgebildeter <hi rendition="#g">Kontroll-Beamten</hi> genügen wird, die den mittleren<lb/>
+und höchſten Verwaltungs-Behörden beizugeben wären und denen<lb/>
+für die Ueberwachung und Unterhaltung der Staatsgebäude event.<lb/>
+ein Corps von <hi rendition="#g">Unterbeamten</hi> mittlerer, vorzugsweiſe <hi rendition="#g">prak¬<lb/>
+tiſcher Vorbildung</hi> unterſtellt werden könnte.</p><lb/>
+<p>An dieſem Orte kann es ſich vorläufig nur darum handeln,<lb/>
+jenen Forderungen einige <hi rendition="#g">poſitive Vorſchläge</hi> anzuſchließen,<lb/>
+welche darthun ſollen, <hi rendition="#g">wie man</hi> — <hi rendition="#g">auch ohne Auf¬<lb/>
+löſung der bisherigen amtlichen Organiſation</hi> — <hi rendition="#g">die<lb/>
+Hochbau-Ausführungen des preußiſchen Staates fortan<lb/>
+in künſtleriſch befriedigenderer Weiſe beſchaffen könnte</hi>.</p><lb/>
+<p>Man wird hierbei zwiſchen <hi rendition="#g">Aufſtellung der Entwürfe</hi>,<lb/>
+<hi rendition="#g">Prüfung und Beurtheilung</hi> derſelben und <hi rendition="#g">Leitung der<lb/>
+<pb n="14" facs="#f0022"/>
+Bau-Ausführung</hi> unterſcheiden müſſen und hat ſich die Frage<lb/>
+vorzulegen, welche Perſönlichkeiten zu jeder dieſer drei Funktionen<lb/>
+herangezogen werden ſollen. — Da den Technikern, welchen<lb/>
+<hi rendition="#g">Prüfung und Beurtheilung</hi> der Entwürfe obliegt, naturgemäß<lb/>
+ſtets ein gewiſſer Einfluß auf die Auswahl der Entwerfenden zu¬<lb/>
+fallen muß, ſo möge der auf ſie bezügliche Theil der Frage an<lb/>
+erſter Stelle beſprochen werden, während <hi rendition="#g">Entwurf</hi> und <hi rendition="#g">Aus¬<lb/>
+führung</hi>, die bei rationellem Verfahren in der Regel ſtets <hi rendition="#g">in<lb/>
+eine Hand</hi> zu legen ſind, zuſammen behandelt werden können. —</p><lb/>
+<p>Ob ein Entwurf das <hi rendition="#g">Bauprogramm</hi> erfüllt und in wie<lb/>
+weit er den zur Verfügung ſtehenden <hi rendition="#g">Koſten</hi> entſpricht, wird in<lb/>
+jedem Falle von der Behörde, bezw. den Behörden verſchiedener<lb/>
+Inſtanz, beurtheilt werden müſſen, in deren Dienſtkreis der be¬<lb/>
+treffende Bau gehört — d. h. dieſes Urtheil wird nach wie vor<lb/>
+in den Händen derjenigen Techniker liegen, die jenen Amtsſtellen<lb/>
+als <hi rendition="#g">Kontroll-Beamte</hi> beigegeben ſind. Auch ein weſentlicher<lb/>
+Antheil an der Entſcheidung über die <hi rendition="#g">techniſche und künſt¬<lb/>
+leriſche Seite des Entwurfs</hi> gebührt ihnen ohne Zweifel,<lb/>
+wenn ihnen dieſe auch nicht allein verbleiben darf. Um jeder<lb/>
+Einſeitigkeit eines ſolchen Urtheils von vorn herein vorzubeugen<lb/>
+— zugleich auch um die öffentlichen Bauunternehmungen, welche<lb/>
+jetzt lediglich im Schooß der Behörden vorbereitet werden, wieder<lb/>
+zu dem zu machen, was ſie ſein ſollen: zu einer Angelegenheit<lb/>
+des ganzen Volkes — empfiehlt es ſich vielmehr, jene Entſcheidung<lb/>
+<hi rendition="#g">fernerhin von einer Körperſchaft fällen zu laſſen</hi>, <hi rendition="#g">in<lb/>
+der neben einigen Baubeamten des Staates auch eine<lb/>
+Anzahl der durch ihre Fachleiſtungen hervorragenden<lb/>
+unabhängigen Architekten Sitz und Stimme führt</hi>.</p><lb/>
+<p>Der Grundgedanke einer ſolchen Körperſchaft, der dem Zuge<lb/>
+unſerer Zeit nach Selbſtverwaltung wohl durchaus entſpricht, iſt<lb/>
+ja bereits ſeit 30 Jahren in der <hi rendition="#g">Techniſchen Bau-Depu¬<lb/>
+tation</hi> verwirklicht; nur daß die Mitglieder der letzteren dauernd<lb/>
+berufen ſind, während im Intereſſe eines friſcheren Lebens und<lb/>
+eines ſtetigen Zuſammenhanges mit den Strömungen der Gegen¬<lb/>
+wart ein periodiſcher <hi rendition="#g">Wechſel der Perſönlichkeiten</hi> zu for¬<lb/>
+dern wäre. Daß dieſelben an der Beurtheilung eigener Projekte<lb/>
+ſich nicht betheiligen dürften, iſt vorausgeſetzt.<lb/>
+</p>
+<pb n="15" facs="#f0023"/>
+<p>Eine Zentraliſation der betreffenden Arbeiten an <hi rendition="#g">einer</hi><lb/>
+Stelle, bei welcher die Gefahr einer etwas zu ſchematiſchen Auf¬<lb/>
+faſſung derſelben leicht wiederum eintreten könnte, verbietet ſich<lb/>
+ſchon durch deren Umfang. Vorausſichtlich würde man nicht<lb/>
+darauf verzichten, die Techniſche Baudeputation nach deren bevor¬<lb/>
+ſtehender Reorganiſation als ein oberſtes Kollegium jener Art<lb/>
+beizubehalten, das in zweifelhaften Fällen und über Bauten von<lb/>
+beſonders hoher Bedeutung ein letztes Gutachten abzugeben hätte.<lb/>
+Im übrigen dürfte es angemeſſen ſein, <hi rendition="#g">in jeder Provinz des<lb/>
+preußiſchen Staates eine der beſprochenen Körper¬<lb/>
+ſchaften einzuſetzen</hi>. Es iſt anzunehmen, daß man denſelben<lb/>
+für die Mehrzahl aller an ſie gelangenden Fragen das Recht<lb/>
+einer endgültigen Entſcheidung bezw. eines maßgebenden Vetos<lb/>
+einräumen würde und daß ſie demzufolge Gelegenheit hätten, in<lb/>
+Bezug auf unſere Staatsbauten nicht blos den allgemeinen tech¬<lb/>
+niſchen und künſtleriſchen Anforderungen, ſondern auch den eigen¬<lb/>
+artigen Verhältniſſen ihrer Provinz volle Geltung zu verſchaffen.</p><lb/>
+<p>Soweit den Organen der Staatsregierung zur Zeit ein Auf¬<lb/>
+ſichtsrecht über <hi rendition="#g">die architektoniſchen Schöpfungen der<lb/>
+Gemeinden und Korporationen</hi> zuſteht, würde daſſelbe<lb/>
+natürlich gleichfalls von den betreffenden Kollegien zu handhaben<lb/>
+ſein. Vorauſſichtlich würde ſich jedoch der Einfluß ihrer Thä¬<lb/>
+tigkeit bald zu ſolcher Bedeutung erheben, daß die Provinzial-<lb/>
+und Stadtbehörden, die religiöſen und wirthſchaftlichen Korpora¬<lb/>
+tionen alle Entwürfe zu den von ihnen zu errichtenden Monu¬<lb/>
+mentalbauten freiwillig der Prüfung jener Sachverſtändigen<lb/>
+unterbreiten dürften. Ja, es iſt vielleicht zu hoffen, daß auch die<lb/>
+Behörden des <hi rendition="#g">Deutſchen Reiches</hi>, die Militär- und die Poſt¬<lb/>
+verwaltung, ihnen das gleiche Vertrauen zuwenden würden. —</p><lb/>
+<p>Die zweite, ungleich wichtigere Frage iſt darauf gerichtet,<lb/>
+<hi rendition="#g">wem fortan Entwurf und Ausführung der monumen¬<lb/>
+talen Bauten des Staates übertragen werden ſoll</hi>.</p><lb/>
+<p>Der bisher üblichen Methode amtlicher Behandlung dieſer<lb/>
+Aufgaben iſt als allgemeiner Grundſatz gegenüber zu ſtellen,<lb/>
+<hi rendition="#g">daß dieſelben in jedem Falle von demjenigen Archi¬<lb/>
+tekten zu löſen wären</hi>, <hi rendition="#g">der hierzu am meiſten geeignet<lb/>
+erſcheint</hi>!<lb/>
+</p>
+<pb n="16" facs="#f0024"/>
+<p>Für die Auswahl der betreffenden Perſönlichkeiten ſind nur<lb/>
+zwei Wege möglich: entweder die <hi rendition="#g">direkte Uebertragung des<lb/>
+Baues an einen vertrauenswürdigen Architekten</hi> oder<lb/>
+die <hi rendition="#g">Vergebung deſſelben auf Grund einer vorher ge¬<lb/>
+gangenen Konkurrenz</hi>, welches letztere Verfahren in ver¬<lb/>
+ſchiedenen Abarten zur Anwendung gelangen kann. Beide Wege<lb/>
+können gute Ergebniſſe liefern und es würde von der Eigenart<lb/>
+jedes einzelnen Falles abhängig gemacht werden müſſen, welcher<lb/>
+von ihnen als der ausſichtsvollere und deshalb beſſere einzu¬<lb/>
+ſchlagen wäre. —</p><lb/>
+<p> <hi rendition="#g">Die direkte Uebertragung öffentlicher Bauten<lb/>
+an Architekten</hi>, deren bisherige Leiſtungen und deren perſön¬<lb/>
+liche Eigenſchaften für eine gediegene, den Intereſſen des Staates<lb/>
+nach jeder Richtung hin entſprechende Löſung der Aufgabe bürgen,<lb/>
+iſt ein Verfahren, von dem bekanntlich ſchon wiederholt mit aus¬<lb/>
+gezeichnetem Erfolge Anwendung gemacht worden iſt. Es empfiehlt<lb/>
+ſich vor allem durch ſeine <hi rendition="#g">Einfachheit</hi> und wird in vielen Fällen,<lb/>
+wo der Gegenſtand der Aufgabe, die durch beſtimmte Verhältniſſe<lb/>
+gebotene Art des Geſchäftsbetriebes ꝛc. die Zahl der Bewerber ohnehin<lb/>
+einſchränkt, jedem andern vorzuziehen ſein. In der Periode des<lb/>
+Ueberganges zu einer andern Organiſation der Bauverwaltung würde<lb/>
+es auch vielleicht inſofern noch eine beſondere Bedeutung erlangen,<lb/>
+als der Staat die innerhalb ſeines Beamtenthums vertretene<lb/>
+ſchöpferiſche Kraft auf dieſe Weiſe wohl am beſten nutzbar<lb/>
+machen könnte. Natürlich würden die betreffenden Aufgaben den<lb/>
+Beamten nicht nach Maaßgabe ihrer amtlichen Stellung, ſondern<lb/>
+lediglich nach Maaßgabe ihrer individuellen Leiſtungsfähigkeit zu<lb/>
+übertragen ſein.</p><lb/>
+<p>Um den Schein einer Bevorzugung beſtimmter Perſönlich¬<lb/>
+keiten, dem ſich der Staat niemals ausſetzen darf, möglichſt zu ver¬<lb/>
+meiden, müßte jedoch bei dieſem Verfahren darauf geachtet werden,<lb/>
+daß es niemals einer <hi rendition="#g">einzigen</hi> Stelle anheim gegeben würde,<lb/>
+Aufträge jener Art nach eigenem Ermeſſen zu vergeben. Es<lb/>
+dürfte ſich vielleicht empfehlen, den vorher beſprochenen Provinzial-<lb/>
+Baukollegien ein Vorſchlags-Recht zu gewähren, die Auswahl<lb/>
+unter den vorgeſchlagenen Architekten aber derjenigen Behörde<lb/>
+zu überlaſſen, für welche der betreffende Bau ausgeführt wird.<lb/>
+<pb n="17" facs="#f0025"/>
+Sowohl der Staat, wie vor allem auch die Volksthümlichkeit<lb/>
+der Baukunſt könnten nur gewinnen, wenn dieſen Behörden,<lb/>
+welche in Wirklichkeit doch offenbar die Stelle des <hi rendition="#g">Bauherrn</hi><lb/>
+zu vertreten haben, bei Herſtellung unſerer öffentlichen Gebäude<lb/>
+eine weniger paſſive Rolle zugewieſen würde, als dies bisher<lb/>
+in der Regel geſchehen iſt. —</p><lb/>
+<p>Wo eine größere Zahl von Bewerbern vorhanden, die Aus¬<lb/>
+wahl unter denſelben alſo ſchwieriger iſt, ſowie für eine gewiſſe<lb/>
+Art von Aufgaben wird ſich das in anderen Ländern auch für<lb/>
+Staatsbauten mit Vorliebe angewandte <hi rendition="#g">Syſtem der Kon¬<lb/>
+kurrenz</hi> empfehlen. Dank der unabläſſigen Mühe, welche die<lb/>
+Architekten Deutſchlands ſeit geraumer Zeit an die Verbeſſerung<lb/>
+des Konkurrenzweſens gewandt haben und angeſichts ſo mancher<lb/>
+Erfolge, die mit demſelben ſeither erzielt wurden, iſt ja das aus<lb/>
+mangelhaft vorbereiteten und geleiteten Konkurrenzen entſprungene<lb/>
+Vorurtheil gegen dieſelben mehr und mehr im Entſchwinden be¬<lb/>
+griffen. Selbſtverſtändlich würde in jedem einzelnen Falle nicht<lb/>
+nur die rein <hi rendition="#g">künſtleriſche</hi>, ſondern auch die <hi rendition="#g">praktiſche</hi> und<lb/>
+namentlich die <hi rendition="#g">finanzielle</hi> Seite des Baues zur Konkurrenz<lb/>
+ſtehen und bei der Entſcheidung eine weſentliche Rolle ſpielen. —</p><lb/>
+<p> <hi rendition="#g">Die allgemeine und öffentliche Konkurrenz</hi>, gegen<lb/>
+welche jenes Vorurtheil hauptſächlich ſich richtete, iſt in ihrer<lb/>
+Anwendung auf einen beſtimmten Kreis von Aufgaben begrenzt.<lb/>
+Sie wird in allen den Fällen am Platze, hier aber auch un¬<lb/>
+bedingt zu wählen ſein, in denen es vorzugsweiſe um eine<lb/>
+originelle — bekanntlich nur durch einen <hi rendition="#g">glücklichen Wurf</hi> zu<lb/>
+gewinnende — <hi rendition="#g">Grundidee</hi> des Projekts ſich handelt. Die für das<lb/>
+Gelingen einer öffentlichen Konkurrenz in erſter Linie verantwort¬<lb/>
+liche Aufſtellung des Programms, ſowie die Funktion des Preis¬<lb/>
+gerichts würde Mitgliedern jener mehrfach erwähnten Provinzial-<lb/>
+Baukollegien obliegen; auch würden die letzteren zu entſcheiden haben,<lb/>
+ob die Ausführung eines aus der Konkurrenz hervorgegangenen<lb/>
+Entwurfs dem Verfaſſer deſſelben anvertraut werden darf.</p><lb/>
+<p>Weitaus häufiger würde für die Löſung der architektoniſchen<lb/>
+Aufgaben des Staates die <hi rendition="#g">beſchränkte Konkurrenz</hi> unter<lb/>
+mehren, in gleicher Weiſe zur Uebernahme des Baues geeigneten<lb/>
+Architekten ſich eignen, bei welcher dem Verfaſſer des zur Aus¬<lb/>
+<pb n="18" facs="#f0026"/>
+führung gewählten Entwurfs die letztere ohne weiteres als Preis<lb/>
+zufällt. Das Amt der Preisrichter dürfte auch hier von Mitglie¬<lb/>
+dern jener Baukollegien auszuüben ſein. Bei der Auswahl der<lb/>
+zur Konkurrenz einzuladenden Architekten würde man nach den¬<lb/>
+ſelben Grundſätzen zu verfahren haben, wie bei direkter Ueber¬<lb/>
+tragung eines Baues an einen einzelnen Fachmann.</p><lb/>
+<p>Für eine gewiſſe, nicht wenig umfangreiche Klaſſe von<lb/>
+Staatsbauten, deren Typus von vorn herein feſt ſteht und nur<lb/>
+geringen, durch die Lokalverhältniſſe bedingten Modifikationen<lb/>
+unterliegt, wird — ſoweit ſie mehr dem Bedürfnißbau als dem<lb/>
+Monumentalbau angehören — mit großem Vortheil ein <hi rendition="#g">ſpe¬<lb/>
+zielles Syſtem der beſchränkten Konkurrenz</hi> Verwendung<lb/>
+finden können, bei welchem in erſter Linie die <hi rendition="#g">General-Ueber</hi>¬<lb/>
+<hi rendition="#g">nahme der Bauarbeiten</hi> und im Zuſammenhange mit dieſer<lb/>
+die Aufſtellung des Entwurfs zum Gegenſtande der Konkurrenz<lb/>
+gemacht wird; ein Verfahren, das bei Maſchinenlieferungen ꝛc.<lb/>
+ſchon längſt üblich iſt und bei dem heutigen Stande der Bau¬<lb/>
+induſtrie unbedenklich auch auf dieſe übertragen werden kann, da<lb/>
+ſich bald zuverläſſige und leiſtungsfähige Spezialiſten zur Ueber¬<lb/>
+nahme ſolcher Arbeiten in genügender Anzahl anbieten würden. —</p><lb/>
+<p>Wenn man berückſichtigt, daß auf jedem der in Vorſchlag<lb/>
+gebrachten Wege nur Architekten von <hi rendition="#g">erprobter</hi> Befähigung<lb/>
+und Erfahrung zu Entwurf und Leitung unſerer Staatsbauten<lb/>
+gelangen würden und daß dieſe Architekten im Intereſſe ihres<lb/>
+Rufes und ihrer Zukunft jederzeit ihre volle Kraft an die Löſung<lb/>
+der übernommenen Aufgabe ſetzen müßten, ſo kann man für<lb/>
+<hi rendition="#g">den techniſchen und künſtleriſchen Werth</hi> der in dieſer<lb/>
+Weiſe hergeſtellten Staatsbauten wohl die beſte Hoffnung hegen.<lb/>
+Sie dürften in dieſer Beziehung thatſächlich auf der Höhe deſſen<lb/>
+ſtehen, was unſere Zeit und unſer Volk architektoniſch zu ſchaffen<lb/>
+vermögen. Ebenſo dürfte der Gefahr einer ſchablonenhaften<lb/>
+Gleichartigkeit der Entwürfe wirkſam vorgebeugt und den ver¬<lb/>
+ſchiedenen Landestheilen eine <hi rendition="#g">charakteriſtiſche Geſtaltung</hi><lb/>
+ihrer öffentlichen Bauwerke geſichert ſein.</p><lb/>
+<p>Aber auch <hi rendition="#g">in finanzieller Hinſicht</hi> laſſen ſich die Vor¬<lb/>
+theile des Verfahrens unſchwer nachweiſen, trotzdem einer der<lb/>
+weſentlichſten unter ihnen — die Möglichkeit mit einer ſehr viel<lb/>
+<pb n="19" facs="#f0027"/>
+geringeren Anzahl von Baubeamten auszureichen — erſt all¬<lb/>
+mählich zur Geltung gelangen könnte.</p><lb/>
+<p>Erhebliche Mehrkoſten durch die für Entwurf und Bau¬<lb/>
+leitung aufzuwendenden Honorare würden in Wirklichkeit nicht<lb/>
+entſtehen, da die Aufſtellung der Entwürfe außerhalb des ge¬<lb/>
+wöhnlichen Geſchäftsgangs auch gegenwärtig faſt regelmäßig<lb/>
+<hi rendition="#g">beſonders</hi> honorirt wird, die Koſten der oberen Leitung<lb/>
+des Baues aber in vielen Fällen dadurch nahezu gedeckt werden<lb/>
+würden, daß an den Koſten für Spezial-Leitung und Auf¬<lb/>
+ſicht, die bei Staatsbauten eine ganz unverhältnißmäßige<lb/>
+Höhe erreichen, namhaft geſpart werden könnte. Bei der an<lb/>
+letzter Stelle erwähnten Art der beſchränkten Konkurrenz kämen<lb/>
+Koſten für Entwurf und Bauleitung überhaupt nicht in Anſatz. —<lb/>
+Eine <hi rendition="#g">namhafte Erſparniß</hi> aber würde vorausſichtlich dadurch<lb/>
+herbei geführt werden, daß durch die Betheiligung der erfahren¬<lb/>
+ſten Fachmänner und deren Konkurrenz die Entwürfe im allge¬<lb/>
+meinen <hi rendition="#g">kompendiöſer</hi> ausfallen, <hi rendition="#g">die Koſten ihrer Aus¬<lb/>
+führung ſich alſo verringern würden</hi>.</p><lb/>
+<p>Als ein nicht geringerer Vortheil iſt die Vereinfachung der<lb/>
+Verwaltungs-Formen, vor allem aber die <hi rendition="#g">Sicherheit</hi> anzu¬<lb/>
+ſchlagen, welche dem Staate eine derartige Herſtellung ſeiner<lb/>
+Hochbau-Ausführungen gewähren würde. Durch den Vertrag,<lb/>
+den er in jedem einzelnen Falle über Entwurf und Ausführung<lb/>
+des Baues abſchließen würde und für deſſen Einhaltung der be¬<lb/>
+treffende Architekt mit ſeinem Ruf und ſeinem Vermögen zu<lb/>
+bürgen hätte, würde er nicht allein die Gewähr erhalten, für<lb/>
+einen im voraus feſt geſetzten Preis und zu einem beſtimmten<lb/>
+Termin ein <hi rendition="#g">brauchbares</hi> Projekt zu gewinnen, ſondern er wäre<lb/>
+auch vor einer Ueberſchreitung der Bauzeit und des bewilligten<lb/>
+Baukredits geſchützt. — —</p><lb/>
+<p>Daß bei ernſtlichem Willen die dargelegten Vorſchläge ohne<lb/>
+Mühe ſich durchführen laſſen, unterliegt gewiß keinem Zweifel.<lb/>
+Als einziges Bedenken könnte vielleicht geltend gemacht werden,<lb/>
+daß die Zahl der zum Eintritt in die Provinzial-Baukollegien und<lb/>
+zur Uebernahme öffentlicher Bauten geeigneten Architekten in den<lb/>
+verſchiedenen Provinzen unſeres Vaterlandes eine ſehr ungleiche<lb/>
+und in einzelnen offenbar eine unzureichende iſt. Aber abgeſehen<lb/>
+<pb n="20" facs="#f0028"/>
+davon, daß man bei Auswahl der betreffenden Perſönlichkeiten<lb/>
+zunächſt nicht gezwungen wäre, ſich überall nur an die in der<lb/>
+Provinz wohnenden Kräfte zu halten, würde die Ausſicht an<lb/>
+Staatsbauten betheiligt zu werden und dadurch die Grundlage<lb/>
+einer Exiſtenz zu gewinnen, bald eine genügende Anzahl von<lb/>
+Architekten in das fragliche Gebiet führen und damit jenes Be¬<lb/>
+denken gegenſtandslos machen. Es wäre nur zu wünſchen, wenn<lb/>
+auf dieſe Weiſe eine angemeſſene Vertheilung der zur Zeit an<lb/>
+einzelnen Punkten in Ueberzahl angeſammelten architektoniſchen<lb/>
+Kräfte ſich vollzöge. —</p><lb/>
+<p>Was jene Vorſchläge im Gegenſatze zu ſo manchen weit<lb/>
+ausſehenden Reform-Plänen empfehlen dürfte, iſt vor allem der<lb/>
+Umſtand, <hi rendition="#g">daß ihre Annahme keine ſofortige und end¬<lb/>
+gültige Beſeitigung der gegenwärtigen Organiſation<lb/>
+bedingt</hi>. Die neue Ordnung des Verfahrens für Herſtellung<lb/>
+unſerer Staatsbauten kann neben den ſonſtigen Einrichtungen<lb/>
+der Bauverwaltung als ein Verſuch ins Leben gerufen werden,<lb/>
+von dem man wieder Abſtand nehmen möge, wenn er den ge¬<lb/>
+hegten Erwartungen nicht entſpricht!</p><lb/>
+<p>Der Zweck dieſer Denkſchrift wird erfüllt ſein, wenn es ihr<lb/>
+gelingt, an den entſcheidenden Stellen der Ueberzeugung Eingang<lb/>
+zu verſchaffen:</p><lb/>
+<p> <hi rendition="#g">daß es ſich lohnt, einen ſolchen Verſuch<lb/>
+zu unternehmen!</hi></p><lb/>
+<p> <hi rendition="#g">Berlin</hi>, den 3. Januar 1880.</p><lb/>
+<p> <hi rendition="#b">Für die Verewigung zur Vertretung baukünſtleriſcher Intereſſen:</hi></p><lb/>
+<p> <hi rendition="#g">Der Ausſchuß</hi>:</p><lb/>
+<p> <hi rendition="#b">I. C. Raſchdorff, A. Orth, W. Kyllmann,</hi></p><lb/>
+<p>Baurath u. Profeſſor. Baurath. Baumeiſter.</p><lb/>
+<p> <hi rendition="#b">W. Böckmann, C. von Großheim,</hi></p><lb/>
+<p>Baumeiſter. Architekt.</p><lb/>
+<p> <hi rendition="#b">Joh. Otzen,</hi></p><lb/>
+<p>Baumeiſter u. Profeſſor.</p><lb/>
+</div> </body> <back> <div type="imprint"> <p rendition="#c">Druck von W. <hi rendition="#g">Pormetter</hi> in Berlin <hi rendition="#aq">C</hi>., Neue Grünſtraße 30.</p> </div><lb/>
+<pb facs="#f0029"/>
+<pb facs="#f0030"/>
+<pb facs="#f0031"/>
+</back> </text> </TEI>

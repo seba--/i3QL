@@ -1,0 +1,2098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Versuch in Scherzhaften Liedern</title>
+<title type="volume" n="1">Erster Theil</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118717758">
+<surname>Gleim</surname>
+<forename>Johann Wilhelm Ludwig</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">102</measure>
+<measure type="tokens">8775</measure>
+<measure type="types">2638</measure>
+<measure type="characters">56292</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:24Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/gleim_versuch01_1744</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/gleim_versuch01_1744</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/gleim_versuch01_1744</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/gleim_versuch01_1744</idno>
+<idno type="DTADirName">gleim_versuch01_1744</idno>
+<idno type="DTAID">20202</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Gleim, Johann Wilhelm Ludwig: Versuch in Scherzhaften Liedern. Berlin, [1744].</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Versuch in Scherzhaften Liedern</title>
+<title level="m" type="volume" n="1">Erster Theil</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118717758">
+<surname>Gleim</surname>
+<forename>Johann Wilhelm Ludwig</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[4] Bl., 88 S. ; 8°</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Lange</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1744</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>HAB Wolfenbüttel</repository>
+<idno>
+<idno type="shelfmark">HAB Wolfenbüttel, M: Lo 1948 (1)</idno>
+<idno type="URLCatalogue">Dig: http://diglib.hab.de/drucke/lo-1948-1s/start.htm</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b"><hi rendition="#g">Verſuch</hi><lb/>
+in<lb/>
+Scherzhaften<lb/>
+<hi rendition="#g">Liedern.</hi></hi></titlePart></docTitle><lb/>
+<epigraph><quote><hi rendition="#c"><hi rendition="#aq">Nos haec novimus esſe nihil.<lb/>
+Martialis.</hi></hi></quote></epigraph><lb/>
+<titlePart type="volume">Erſter Theil.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><hi rendition="#g">BERLJN.</hi></docImprint></titlePage><lb/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div type="preface"><salute>An..<lb/>
+<hi rendition="#b">Mein Engel!</hi></salute><lb/>
+<p><hi rendition="#in">W</hi>Enn Anakreon mir nicht vor-<lb/>
+geſungen, und wenn du mir<lb/>
+nicht zugehoͤret haͤtteſt; So<lb/>
+haͤtte ich niemals ſcherzhafte Lieder ange-<lb/>
+ſtimmet. Du hoͤrteſt ſie, du gabſt ihnen<lb/>
+Beifall, du lobteſt den Dichter und ſeine<lb/>
+Lieder. Einen ſo ſchoͤnen Sieg haben nie-<lb/>
+<fw type="sig" place="bottom">):( 2</fw><fw type="catch" place="bottom">mals</fw><lb/>
+<pb facs="#f0008"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> mals Petrarche erhalten! Ich darf dich<lb/>
+nicht loben, aber ich verſichere dir, wenn<lb/>
+ich auch nichts, als dich, kleine Brunette,<lb/>
+damit erobert haͤtte; Wenn ich gleich<lb/>
+das Lob der Schoͤnen und der Kunſtrich-<lb/>
+ter nicht damit erwerben kann; So<lb/>
+werde ich doch niemals bereuen, daß ich<lb/>
+mich unterſtanden habe, die Uberreſte<lb/>
+des artigſten Geiſtes unter den Alten<lb/>
+vor nachahmbar zu halten.</p><lb/>
+<p>Du magſt indeſſen meine Verwegen-<lb/>
+heit rechtfertigen, wenn ſie von Kennern<lb/>
+verachtet oder bewundert wird. Ich<lb/>
+duͤrfte dis nicht von dir verlangen, wenn<lb/>
+du nicht ſo bitter boͤſe geworden waͤreſt,<lb/>
+als ich ſagte: Die Urteile einer Geliebten<lb/>
+muͤſſen keinen Verfaſſer dreiſt machen.<lb/>
+Ich konte deinen Kuß nicht miſſen, ſonſt<lb/>
+haͤtte ich damals noch eine halbe Stunde<lb/>
+laͤnger hieruͤber mit dir gezankt. Glaubſt<lb/>
+du nun, mein Engel, daß mich deine Ur-<lb/>
+<fw type="catch" place="bottom">teile</fw><lb/>
+<pb facs="#f0009"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> teile dreiſt gemacht haben? Sage nein,<lb/>
+wenn du willſt, daß dir nicht eines von<lb/>
+den Liedern an Doris allein bekannt<lb/>
+ſeyn ſoll. Ich habe ietzo nur dieienigen<lb/>
+drukken laſſen, die du nicht vor heilig<lb/>
+haͤlt’ſt. Deine Schweſtern moͤgen von<lb/>
+der Sittenlehre derſelben auf das Herz<lb/>
+des Verfaſſers ſchlieſſen, wenn ſie keinen<lb/>
+Scherz verſtehen; weiß ich doch, daß du<lb/>
+ihn verſtehſt. Sage mir nur, wie ich die<lb/>
+Scherze die du noch nicht beurteilet haſt,<lb/>
+nach deinem Geſchmakke verbeſſern ſoll.<lb/>
+Die Scherzrichter werden alsdann erſt<lb/>
+damit zufrieden ſeyn.</p><lb/>
+<p>Wie aber? Wenn ſie ſich unterſtehen<lb/>
+ſolten, dein geheimes Lob, welches die<lb/>
+Anzal der Lieder ſo groß gemacht hat,<lb/>
+nicht zu beſtaͤtigen? Du magſt dich ver-<lb/>
+theidigen, wenn du ein Mittel weißt. Mir<lb/>
+wird kein Tadel zuwider ſeyn, er wird<lb/>
+mich nur behutſamer machen. Du wirſt<lb/>
+<fw type="sig" place="bottom">):(</fw><fw type="catch" place="bottom">meine</fw><lb/>
+<pb facs="#f0010"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> meine Wiederſpenſtigkeit, die du bisher<lb/>
+eigenſinnig genennt haſt, bald anders<lb/>
+nennen. Drei Urteile werden dich<lb/>
+uͤberzeugen, daß es nicht aus bloſſem Ei-<lb/>
+genſinn geſchehen ſei, als ich vor einem<lb/>
+Jahre den Drukk, den du veranſtaltet<lb/>
+hatteſt, verhinderte, ohngeachtet ich vor-<lb/>
+her wuſte, daß dis Unternehmen dir<lb/>
+zwei unzufriedene Minen und mir zwei<lb/>
+verdrießliche Blikke, ein Lied, und hun-<lb/>
+dert gute Worte koſten wuͤrde.</p><lb/>
+<p>Wie viel Minuten, die ich nicht ver-<lb/>
+gnuͤgt zugebracht habe, haſt du ſchon<lb/>
+auf deinem Gewiſſen? Du kamſt geſtern<lb/>
+wieder eine halbe Stunde zu ſpaͤte in die<lb/>
+Geſellſchaft. Die Frau von G … hatte<lb/>
+mich ſchon zweimal gefragt: Warum ich<lb/>
+ſo oft nach der Uhr ſaͤhe: und das ver-<lb/>
+zweifelte kleine ſchwarze Maͤdchen ſahe es<lb/>
+mir an den Augen an, daß du mir fehl-<lb/>
+teſt. Es war mir lieb, daß v. Z. zu ſpaͤt<lb/>
+<fw type="catch" place="bottom">kam.</fw><lb/>
+<pb facs="#f0011"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> kam. Er haͤtte in der That noch ein-<lb/>
+mal zu mir geſagt: Du ſiehſt ia aus<lb/>
+wie ein verliebter Seufzer.</p><lb/>
+<p>Weißt du was mein Engel? Ich<lb/>
+muß es dir nur geſtehen: Die Lieder<lb/>
+an Doris, oder die, worinn Doris was<lb/>
+zu thun hat, gefallen mir nun da ſie ge-<lb/>
+drukkt ſind. Haͤtt’ ich doch die uͤbrigen<lb/>
+nur mit drukken laſſen. Ach! wie boͤſe<lb/>
+wuͤrdeſt du kleines Ding nicht gewor-<lb/>
+den ſeyn. Nein, ich werde es nicht eher<lb/>
+thun, bis du wirſt zu Stande gebracht<lb/>
+haben, was ich dir vorſchlagen werde.</p><lb/>
+<p>Als die Frau Dacier die Scherze<lb/>
+des ſcherzhafteſten Griechen, den Damen<lb/>
+angenehm machen wollte, muſte ſie ihn<lb/>
+in ihrer Mutterſprache unterrichten.<lb/>
+Wenn deine Schweſtern die Lieder auf<lb/>
+dich ſingen ſollen, ſo muſt du ſie in Rei-<lb/>
+<fw type="sig" place="bottom">):( 4</fw><fw type="catch" place="bottom">me</fw><lb/>
+<pb facs="#f0012"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> me uͤberſetzen, wie ich die Wahl (<hi rendition="#aq">pag</hi>. 25.)<lb/>
+uͤberſetzt habe. Bringe morgen einen<lb/>
+Verſuch mit in die Oper, ich will dir<lb/>
+Noten mitbringen, nach welchen du das<lb/>
+uͤberſetzte Lied ſingen und ſpielen kannſt.<lb/>
+Lebe wohl, kleine Brunette. Ich wer-<lb/>
+de dieſe Nacht von dir, von einem Kuſſe,<lb/>
+und von einer Sommerlaube traͤumen.</p></div></front><body><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="1" facs="#f0013"/>
+<div n="1"><head><hi rendition="#b">Anakreon.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">A</hi>nakreon, mein Lehrer,</l><lb/>
+<l>Singt nur von Wein und Liebe;</l><lb/>
+<l>Er ſalbt den Bart mit Salben,</l><lb/>
+<l>Und ſingt von Wein und Liebe;</l><lb/>
+<l>Er kroͤnt ſein Haupt mit Roſen,</l><lb/>
+<l>Und ſingt von Wein und Liebe;</l><lb/>
+<l>Er paaret ſich im Garten,</l><lb/>
+<l>Und ſingt von Wein und Liebe;</l><lb/>
+<l>Er wird beim Trunk ein Koͤnig,</l><lb/>
+<l>Und ſingt von Wein und Liebe;</l><lb/>
+<l>Er ſpielt mit ſeinen Goͤttern,</l><lb/>
+<l>Er lacht mit ſeinen Freunden,</l><lb/>
+<l>Vertreibt ſich Gram und Sorgen,</l><lb/>
+<l>Verſchmaͤht den reichen Poͤbel,</l><lb/>
+<l>Verwirft das Lob der Helden,</l><lb/>
+<l>Und ſingt von Wein und Liebe;</l><lb/>
+<l>Soll denn ſein treuer Schuͤler</l><lb/>
+<l>Von Haß und Waſſer ſingen?</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">A</fw><lb/>
+<pb n="2" facs="#f0014"/>
+<div n="1"><head><hi rendition="#b">Der Rechenſchuͤler.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">M</hi>ein Vater lehrt mich rechnen,</l><lb/>
+<l>Er zaͤlet Pfund und Taler;</l><lb/>
+<l>Ich aber zaͤle Maͤdchens.</l><lb/>
+<l>Er ſagt: Es ſollen zwanzig,</l><lb/>
+<l>Sich in zwei tauſend teilen,</l><lb/>
+<l>Gib iedem ſeine Winſpel;</l><lb/>
+<l>Ich aber teile Maͤdchens,</l><lb/>
+<l>Und gebe iedem hundert.</l><lb/>
+<l>Ein Centner gilt zwey Gulden,</l><lb/>
+<l>Er fraͤgt: Was gelten zwanzig?</l><lb/>
+<l>Und meinet immer Centner;</l><lb/>
+<l>Ich aber meine Maͤdchens.</l><lb/>
+<l>Er fraͤgt mich: Wenn du zwanzig</l><lb/>
+<l>Mit zwanzigen vermehreſt,</l><lb/>
+<l>Wie viel betraͤgt die Summe?</l><lb/>
+<l>Und wenn er mich ſo fraͤget,</l><lb/>
+<l>So denk ich ans Vermehren</l><lb/>
+<l>Der Schweſtern und der Bruͤder,</l><lb/>
+<l>Und lache, wenn ich rechne.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="3" facs="#f0015"/>
+<div n="1"><head><hi rendition="#b">An Herrn von Kleiſt,</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">W</hi>ie lieblich ſprudelt dieſe Quelle!</l><lb/>
+<l>Wie ſanft kuͤßt mich der Weſt im Gaukeln!</l><lb/>
+<l>Wie reitzend ſchwebt das Laub im Schatten!</l><lb/>
+<l>Wie fruchtbar bluͤht die Lind am Ufer!</l><lb/>
+<l>Wie munter ſteht das Thal voll Blumen!</l><lb/>
+<l>Hier, Freund! Hier iſt das Land des Friedens,</l><lb/>
+<l>Hier iſt es gut, hier laß uns wohnen,</l><lb/>
+<l>Hier laß uns, fern von Stolz und Zeptern,</l><lb/>
+<l>Die kurze Lebenszeit verlaͤngern;</l><lb/>
+<l>Hier ſoll ſie, frei von niedern Sorgen,</l><lb/>
+<l>So ſanft, wie dieſer Bach, verflieſſen.</l><lb/>
+<l>Hier darf kein Gold vor Narren glaͤnzen,</l><lb/>
+<l>Hier hoͤrt man keinen Muffel ſeufzen,</l><lb/>
+<l>Hier laͤuft kein Kramer mit Gewichten,</l><lb/>
+<l>Hier raſt kein Menzel mit Huſaren,</l><lb/>
+<l>Hier wafnet ſich kein Held zum Morden,</l><lb/>
+<l>Hier ſoll uns kein erzuͤrnter Prieſter</l><lb/>
+<l>Kein Freigeiſt und kein Quaker aͤrgern.</l><lb/>
+<l>Hier ſind wir einſam, fromm und ſtille,</l><lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">Hier</fw><lb/>
+<pb n="4" facs="#f0016"/>
+<l>Hier ſchwaͤrmen keine ſchwarze Sorgen,</l><lb/>
+<l>Hier hoͤrt man kein Geſchrei der Laſter,</l><lb/>
+<l>Hier brennt kein Schwefel in der Hoͤlle,</l><lb/>
+<l>Hier bruͤllt kein Teufel, wie ein Loͤwe.</l><lb/>
+<l>Hier wollen wir uns Huͤtten bauen,</l><lb/>
+<l>Damit die Tugend ſicher wohne;</l><lb/>
+<l>Hier ſei mein Herz ihr froher Tempel,</l><lb/>
+<l>Hier wiß es nichts von Furcht und Sorgen,</l><lb/>
+<l>Hier wollen wir der Freundſchaft opfern,</l><lb/>
+<l>Hier wollen wir den Himmel loben,</l><lb/>
+<l>Ihn loben, aber ihn nichts bitten.</l><lb/>
+<l>Hier wollen wir uns kennen lernen,</l><lb/>
+<l>Hier wollen wir am Ufer trinken,</l><lb/>
+<l>Und trinkend ſcherzen, und uns kuͤſſen.</l><lb/>
+<l>Was fehlt der Fuͤlle ſolcher Wonne?</l><lb/>
+<l>Ach Freund, es fehlt uns noch die Liebe.</l><lb/>
+<l>Geh! hole du dein blondes Maͤdchen,</l><lb/>
+<l>Ich will die braune Doris holen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="5" facs="#f0017"/>
+<div n="1"><head><hi rendition="#b">Todesgedanken.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">I</hi>ch bin noch nicht geſtorben,</l><lb/>
+<l>Und wenn ich einmal ſterbe,</l><lb/>
+<l>Dann will man mich begraben,</l><lb/>
+<l>Und dann ſoll ich vermodern,</l><lb/>
+<l>Und nicht noch einmal tanzen.</l><lb/>
+<l>Jetzt, da ich noch nicht modre,</l><lb/>
+<l>Muß ich noch Roſen pfluͤkken,</l><lb/>
+<l>Weil ich den Duft noch rieche;</l><lb/>
+<l>Jetzt, da ich noch nicht modre,</l><lb/>
+<l>Muß ich noch Maͤdchen kuͤſſen,</l><lb/>
+<l>Weil ich den Kuß noch fuͤhle;</l><lb/>
+<l>Jetzt, da ich noch nicht modre,</l><lb/>
+<l>Muß ich den Wein verbrauchen.</l><lb/>
+<l>Werd ich im Grab auch durſten?</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">A 3</fw><lb/>
+<pb n="6" facs="#f0018"/>
+<div n="1"><head><hi rendition="#b">Der Vermittler.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">I</hi>n dem Garten, den ich liebe,</l><lb/>
+<l>Wolt ich, mitten unter Roſen,</l><lb/>
+<l>Mit der artigſten Brunette</l><lb/>
+<l>Frohe Gartenſpiele ſpielen.</l><lb/>
+<l>Schatten, Weſt und Nachtigallen</l><lb/>
+<l>Pries ich ihr als Spielgefellen;</l><lb/>
+<l>Aber die vergnuͤgte Schoͤne</l><lb/>
+<l>Ließ ſich nicht zum Spiele reitzen;</l><lb/>
+<l>Ob ſie gleich die Luſt zum ſpielen</l><lb/>
+<l>Roͤthend auf den Wangen zeigte.</l><lb/>
+<l>Neue Gruͤnde, neue Bitten</l><lb/>
+<l>Schaften endlich Ja und Willen,</l><lb/>
+<l>Daß ich mir mit Roſenknoſpen</l><lb/>
+<l>Ihren Kuß erwerben ſolte,</l><lb/>
+<l>Wenn ich ſie damit, von weiten,</l><lb/>
+<l>In der Laube treffen koͤnnte.</l><lb/>
+<l>Niemals hab ich mehr gezielet,</l><lb/>
+<l>Als ich mit den Knoſpen zielte;</l><lb/>
+<l>Niemals traf mein Bogen beſſer.</l><lb/>
+<l>Aber Doris, die Geliebte</l><lb/>
+<fw type="catch" place="bottom">Wei-</fw><lb/>
+<pb n="7" facs="#f0019"/>
+<l>Weigerte den Preis der Wette</l><lb/>
+<l>Dem Gewinner abznliefern,</l><lb/>
+<l>Und verſprach bei iedem Treffer</l><lb/>
+<l>Alle Schulden auszuloͤſchen,</l><lb/>
+<l>Wenn noch eine Knoſpe traͤfe.</l><lb/>
+<l>Als nun eine unter dreien</l><lb/>
+<l>Treffen oder fehlen ſolte,</l><lb/>
+<l>Traf ſie ploͤtzlich an den Buſen</l><lb/>
+<l>Eine ſchwere Roſenknoſpe.</l><lb/>
+<l>Augenblikks, indem ſies fuͤhlte,</l><lb/>
+<l>Oefnete die Roſenknoſpe</l><lb/>
+<l>Das Behaͤltniß der Geruͤche,</l><lb/>
+<l>Und, ihr Schoͤnen, welch ein Wunder!</l><lb/>
+<l>Amor kam heraus geſprungen.</l><lb/>
+<l>Kleine Anmuts volle Lokken</l><lb/>
+<l>Fielen von der zarten Scheitel,</l><lb/>
+<l>Von den Kuͤſſenswerten Lippen</l><lb/>
+<l>Treufelten die Kuͤſſe ſichtbar,</l><lb/>
+<l>Und ein Trupp verliebter Geiſter</l><lb/>
+<l>Und ein Schwarm vergnuͤgter Silfen</l><lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">War</fw><lb/>
+<pb n="8" facs="#f0020"/>
+<l>War geſchaͤftig, ſie zu ſammlen.</l><lb/>
+<l>Mit vergnuͤgten Wolluſtminen</l><lb/>
+<l>Laͤchelte der Goͤtterknabe.</l><lb/>
+<l>Schwebend flog er, wie ein Engel,</l><lb/>
+<l>Zwiſchen mir und meiner Schoͤne,</l><lb/>
+<l>Welche voller Furcht und Schrekken</l><lb/>
+<l>Hurtig aus der Laube flohe.</l><lb/>
+<l>Aber Amor rief ſie freundlich:</l><lb/>
+<l>Kleines Naͤrrchen, biſt du bloͤde?</l><lb/>
+<l>Bleib nur hier, ſonſt ſchießt mein Bogen,</l><lb/>
+<l>Und du wirſt ihm nicht entrinnen.</l><lb/>
+<l>A<supplied>ls</supplied> er eben ſchieſſen wolte,</l><lb/>
+<l>Kam ſie wieder nach der Laube,</l><lb/>
+<l>Wo ſich Amor ihren Augen,</l><lb/>
+<l>Ohne Kleid und Hemde zeigte.</l><lb/>
+<l>Hurtig wandte ſie die Augen</l><lb/>
+<l>Nach der Gaͤrtnerin im Garten;</l><lb/>
+<l>Wie ſie ſchamhaft kluge Schoͤnen,</l><lb/>
+<l>In Geſellſchaft wehrter Freunde,</l><lb/>
+<l>Von geſchnitzten Liebesgoͤttern</l><lb/>
+<fw type="catch" place="bottom">Lieber</fw><lb/>
+<pb n="9" facs="#f0021"/>
+<l>Lieber nach Citheren wenden.</l><lb/>
+<l>Aber Amor flog ihr naͤher,</l><lb/>
+<l>Und befahl mir, daß ſies hoͤrte:</l><lb/>
+<l>Liebling, pfluͤkke Roſenknoſpen,</l><lb/>
+<l>Ich will ſehn, ob deine Knoſpen</l><lb/>
+<l>So, wie meine Pfeile, treffen.</l><lb/>
+<l>Ich gehorchte dem Befehle;</l><lb/>
+<l>Als ich aber unterwegens</l><lb/>
+<l>Die gepfluͤkten Roſenknoſpen</l><lb/>
+<l>In die Taſche ſtekken wollte:</l><lb/>
+<l>Fand ich, Freunde glaubt dem Finder!</l><lb/>
+<l>Beßre Knoſpen in der Taſche.</l><lb/>
+<l>Dieſe nahm ich, ſtatt der andern,</l><lb/>
+<l>Und indem mich Amor winkte,</l><lb/>
+<l>Und indem ſie Amor kuͤßte,</l><lb/>
+<l>Ließ ich ſchnell die Knoſpe fliegen.</l><lb/>
+<l>Kaum war ſie der Hand entflogen,</l><lb/>
+<l>Als mich ſchon der Wurf gereute;</l><lb/>
+<l>Denn ſie ſank in Amors Arme,</l><lb/>
+<l>Und ich dachte, meine Knoſpe</l><lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">Haͤtte</fw><lb/>
+<pb n="10" facs="#f0022"/>
+<l>Haͤtte ſie ſo ſtark getroffen,</l><lb/>
+<l>Daß ſie hurtig ſterben wuͤrde.</l><lb/>
+<l>Denn ſie ſeufzte: Welche Wunde!</l><lb/>
+<l>Seht nur her! ich bin verwundet!</l><lb/>
+<l>Aber Amor lachte froͤlich,</l><lb/>
+<l>Und beſichtigte die Wunde,</l><lb/>
+<l>Und wies mit dem kleinen Finger</l><lb/>
+<l>Knoſp und Pfeil und Wund am Buſen.</l><lb/>
+<l>Siehſt du, ſprach er, deine Knoſpe</l><lb/>
+<l>Muſte dieſen Pfeil verwahren,</l><lb/>
+<l>Denn du ſolteſt dieſe Loſe,</l><lb/>
+<l>Die mich oft, wie dich, verſpottet,</l><lb/>
+<l>Fuͤr die Spoͤtterei beſtrafen.</l><lb/>
+<l>Laß ſie noch ein bisgen quaͤlen,</l><lb/>
+<l>Und dann nimm den Liebesbalſam,</l><lb/>
+<l>Das Geſchenk von meiner Mutter,</l><lb/>
+<l>Und beſtreich damit die Wunde.</l><lb/>
+<l>Kuͤſſe ſie, nun wird ſie kuͤſſen;</l><lb/>
+<l>Laß dir den Gewinſt bezalen,</l><lb/>
+<l>Und bezale du ſie wieder,</l><lb/>
+<fw type="catch" place="bottom">Wenn</fw><lb/>
+<pb n="11" facs="#f0023"/>
+<l>Wenn ſie dich in Zukunft mahnet;</l><lb/>
+<l>Denn, mein Freund, ſo und nicht anders</l><lb/>
+<l>Hab ich dich und ſie vermittelt.</l><lb/>
+<l>O wie oft, wie ſanft, wie zaͤrtlich</l><lb/>
+<l>Kuͤßte mich die liebe Schoͤne,</l><lb/>
+<l>Als ſie Amors Vorwurf hoͤrte!</l><lb/>
+<l>Reuerfuͤllte Freudentraͤnen</l><lb/>
+<l>Floſſen von den ſchoͤnen Wangen.</l><lb/>
+<l>Amor ließ ſie von den Silfen,</l><lb/>
+<l>Die wie Sonnenſtaͤubchen ſchwaͤrmten,</l><lb/>
+<l>In ihr Kußgefaͤſſe ſammlen,</l><lb/>
+<l>Wo ſie, wie mir Amor ſagte,</l><lb/>
+<l>Seine Kuͤſſe feuchten ſolten,</l><lb/>
+<l>Daß ſie friſch und reitzend blieben,</l><lb/>
+<l>Bis er zu der ſchoͤnen Mutter</l><lb/>
+<l>Wieder in den Himmel kaͤme.</l><lb/>
+<l>Wie vertraut, wie froh, wie freundlich</l><lb/>
+<l>Sprach mit uns der Gott der Liebe!</l><lb/>
+<l>Koͤnt ihn doch mein Pinſel malen,</l><lb/>
+<l>Daß ihn alle Schoͤnen ſaͤhen,</l><lb/>
+<fw type="catch" place="bottom">Daß</fw><lb/>
+<pb n="12" facs="#f0024"/>
+<l>Das die Anmut ſeiner Glieder,</l><lb/>
+<l>Ob ſie gleich nicht maͤnnlich ſtehen,</l><lb/>
+<l>Dennoch ſie zum Kuſſe reitzte!</l><lb/>
+<l>Koͤnt ich doch die kleinen Geiſter,</l><lb/>
+<l>Die auf Pfeil und Bogen lachten,</l><lb/>
+<l>Die um Kinn und Wangen ſchwaͤrmten,</l><lb/>
+<l>Mit der Goͤtterſprache malen!</l><lb/>
+<l>Koͤnt ich doch den bloͤden Schoͤnen</l><lb/>
+<l>Die Erſcheinung ſichtbar machen!</l><lb/>
+<l>Doch ſie werden dem Erzaͤlen</l><lb/>
+<l>Meiner lieben Doris glauben,</l><lb/>
+<l>Denn man weiß, ſie kan nicht luͤgen.</l><lb/>
+<l>Ja, ſie werden alles glauben,</l><lb/>
+<l>Wenn ſie kuͤnftig ſehen werden,</l><lb/>
+<l>Daß die Roſen nie verwelken,</l><lb/>
+<l>Die auf ihrem Buſen bluͤhen.</l><lb/>
+<l>Doris ſoll zwar viel erzaͤlen,</l><lb/>
+<l>Aber das, was ich verſchweige,</l><lb/>
+<l>Soll ſie ebenfalls verſchweigen.</l><lb/>
+<l>Welche ſeltne Heimlichkeiten</l><lb/>
+<fw type="catch" place="bottom">Hat</fw><lb/>
+<pb n="13" facs="#f0025"/>
+<l>Hat uns Amor nicht entdekket,</l><lb/>
+<l>Eh er ſchnell, vor unſern Augen,</l><lb/>
+<l>Wieder in die Knoſpe flohe,</l><lb/>
+<l>Oder in den Goͤtterhimmel.</l><lb/>
+<l>Drei Minuten nach dem Wunder</l><lb/>
+<l>Bluͤhten beide Wunderroſen,</l><lb/>
+<l>In der ſchoͤnſten Roſenbluͤte,</l><lb/>
+<l>Auf dem Buſen meiner Doris.</l><lb/>
+<l>Bruͤder, wollt ihr es nicht glauben?</l><lb/>
+<l>Geht nur hin, und ſeht die Roſen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="14" facs="#f0026"/>
+<div n="1"><head><hi rendition="#b">Pflicht zu verliebten Geſpraͤchen,<lb/>
+an<lb/>
+Herrn Amtmann Fromm.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">I</hi>n den lauten Nachtigallen,</l><lb/>
+<l>Lokkt und ſchlaͤgt und iauchzt die Liebe;</l><lb/>
+<l>In der Lerche unterm Himmel</l><lb/>
+<l>Lobt und tirelirt die Liebe;</l><lb/>
+<l>In dem Enter auf dem Waſſer,</l><lb/>
+<l>Schwimmt und ſchnattert nichts als Liebe;</l><lb/>
+<l>In den Schwalben unterm Dache,</l><lb/>
+<l>Zwitſchert, baut und ſpricht die Liebe;</l><lb/>
+<l>In den Spatzen vor dem Fenſter</l><lb/>
+<l>Lauſcht und ruft und huͤpft die Liebe;</l><lb/>
+<l>In dem Taͤuber, in der Taube</l><lb/>
+<l>Girrt und lokkt und lacht die Liebe;</l><lb/>
+<l>In den Toͤnen meiner Laute,</l><lb/>
+<l>Klingt und lobt und ſcherzt die Liebe;</l><lb/>
+<l>In dem Kind auf meinem Schoſſe</l><lb/>
+<l>Huͤpft und ſcherzt und ſingt die Liebe;</l><lb/>
+<l>Alles Wild im freien Felde,</l><lb/>
+<fw type="catch" place="bottom">Alle</fw><lb/>
+<pb n="15" facs="#f0027"/>
+<l>Alle Voͤgel unterm Himmel</l><lb/>
+<l>Haben Stimmen zu der Liebe;</l><lb/>
+<l>Alles ſcherzt und ſpricht vom Lieben;</l><lb/>
+<l>Soll ich denn davon nicht ſprechen?</l></lg></div><lb/>
+<div n="1"><head><hi rendition="#b">Geſchaͤfte.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">M</hi>ir deucht, ſo oft ich ſchlafe,</l><lb/>
+<l>Schlaf ich bei lauter Maͤdchen;</l><lb/>
+<l>Und immer, wenn ich traͤume,</l><lb/>
+<l>Traͤum ich von nichts als Maͤdchen;</l><lb/>
+<l>Und wenn ich wieder wache,</l><lb/>
+<l>Denk ich an nichts als Maͤdchen;</l><lb/>
+<l>Im Schlaf, im Traum, im Wachen</l><lb/>
+<l>Spiel ich mit lauter Maͤdchen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="16" facs="#f0028"/>
+<div n="1"><head><hi rendition="#b">Anlaß zum Schlafe.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">V</hi>on Zefirs ſanftem Saͤuſeln</l><lb/>
+<l>Bin ich oft eingeſchlafen;</l><lb/>
+<l>Vom Saft gepreßter Trauben</l><lb/>
+<l>Bin ich oft eingeſchlafen;</l><lb/>
+<l>Im Schatten iunger Baͤume,</l><lb/>
+<l>Vom Schwarm der muntern Bienen,</l><lb/>
+<l>Beim Sprudeln kleiner Quellen</l><lb/>
+<l>Bin ich oft eingeſchlafen;</l><lb/>
+<l>Doch, ſoll ich ietzo ſchlafen:</l><lb/>
+<l>So muͤſſen Kuͤſſe rauſchen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="17" facs="#f0029"/>
+<div n="1"><head><hi rendition="#b">Das Moͤpschen.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>u liebes kleines Moͤpschen,</l><lb/>
+<l>Wie haſt du mich gefunden?</l><lb/>
+<l>Kom her! auf meinem Schoſſe</l><lb/>
+<l>Will ich dich ſanfte ſtreicheln,</l><lb/>
+<l>Und du ſolt mir erzaͤlen,</l><lb/>
+<l>Warum du mich beſucheſt.</l></lg><lb/>
+<lg n="2"><l>Mein Herr hat mir dis Zimmer</l><lb/>
+<l>Und dieſes Haus gewieſen,</l><lb/>
+<l>Und ſchikkt mich her zum Waͤchter.</l></lg><lb/>
+<lg n="3"><l>Was ſolt du denn bewachen?</l></lg><lb/>
+<lg n="4"><l>Euch ſelber, ſchoͤne Nimfe,</l><lb/>
+<l>Ihr ſolt mit keinem andern</l><lb/>
+<l>Als mit Filemon ſprechen,</l><lb/>
+<l>Mit keinem andern ſcherzen,</l><lb/>
+<l>Mit keinem andern ſpielen;</l><lb/>
+<l>Und wenn ihrs etwa thaͤtet:</l></lg><lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">So</fw><lb/>
+<pb n="18" facs="#f0030"/>
+<lg n="5"><l>So ſoll ich um mich beiſſen.</l><lb/>
+<l>Ich bin ein treuer Diener,</l><lb/>
+<l>Drum huͤtet euch fuͤr Biſſe.</l><lb/>
+<l>Ich leide keinen Fremden</l><lb/>
+<l>Der euch die Bakken ſtreichelt,</l><lb/>
+<l>Der ſich mit ſeinen Lippen</l><lb/>
+<l>Auf eure Lippen druͤkket,</l><lb/>
+<l>Und dann zuruͤkke ziehet</l><lb/>
+<l>Und eure Haͤnde druͤkket.</l></lg><lb/>
+<lg n="6"><l>Wenn aber eine Freundin</l><lb/>
+<l>In einem langen Kleide</l><lb/>
+<l>Mein Schlafgemach beſuchet,</l><lb/>
+<l>Wirſt du es auch nicht leiden,</l><lb/>
+<l>Wenn ich ihr was verſtatte?</l></lg><lb/>
+<lg n="7"><l>Davon hat mich Filemon</l><lb/>
+<l>Nicht voͤllig unterrichtet.</l><lb/>
+<l>Geſchwinde laßt mich laufen,</l><lb/>
+<l>Ich will ihn drum befragen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="19" facs="#f0031"/>
+<div n="1"><head><hi rendition="#b">Bitte um ein laͤngeres Leben.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">L</hi>ieber Tod! du wirſt dich irren;</l><lb/>
+<l>Suchſt du etwa meinen Nachbar</l><lb/>
+<l>Mit dem alten krummen Ruͤkken?</l><lb/>
+<l>Geh nur hin! er wohnt zur Rechten;</l><lb/>
+<l>Geh nur hin! du wirſt ihn finden,</l><lb/>
+<l>Und er hat dich ſchon gerufen.</l><lb/>
+<l>Lieber Tod! du wirſt dich irren;</l><lb/>
+<l>Lieber Tod! geh doch nur weiter.</l><lb/>
+<l>Da! hier iſt die ganze Taſche!</l><lb/>
+<l>Alle dieſe Schwanzdukaten</l><lb/>
+<l>Hab ich einſt fuͤr dich gewechſelt.</l><lb/>
+<l>Nimm ſie hin, und geh nur weiter.</l><lb/>
+<l>Hoͤrſt du nicht den Nachbar rufen?</l><lb/>
+<l>Hol ihn nur, er wird dirs danken.</l><lb/>
+<l>Tod! du irrſt dich; ſoll ich ſchweren?</l><lb/>
+<l>Nein, wir wollen uns nicht zanken.</l><lb/>
+<l>Sieh! hier ſind noch mehr Dukaten.</l><lb/>
+<l>Sei ſo gut, wie unſre Richter.</l><lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">Laß</fw><lb/>
+<pb n="20" facs="#f0032"/>
+<l>Laß dich doch nicht laͤnger bitten!</l><lb/>
+<l>Nimm das Gold, und laß mich leben.</l><lb/>
+<l>Wilſt du nicht, ſo laß es bleiben;</l><lb/>
+<l>Laß mich nur noch einmal kuͤſſen.</l></lg></div><lb/>
+<div n="1"><head><hi rendition="#b">An Doris</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">K</hi>oͤnt ich Holz, wie Menſchen ſchnitzen,</l><lb/>
+<l>Lauter Nimfen wolt ich ſchnitzen;</l><lb/>
+<l>Koͤnt ich Marmorſeulen hauen,</l><lb/>
+<l>Lauter Nimfen wolt ich hauen;</l><lb/>
+<l>Koͤnt ich nur Tapeten wirken,</l><lb/>
+<l>O! ſo wirkt ich lauter Nimfen;</l><lb/>
+<l>Lauter zaͤrtliche Blondinen,</l><lb/>
+<l>Lauter willige Brunetten,</l><lb/>
+<l>Und die zukkerſuͤſſe Schoͤne,</l><lb/>
+<l>Die mich itzt ſo zaͤrtlich kuͤßte,</l><lb/>
+<l>Solte mir zum Muſter dienen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="21" facs="#f0033"/>
+<div n="1"><head><hi rendition="#b">Amor im Garten.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">D</hi>ie Sonne ſank nach Weſten,</l><lb/>
+<l>Und machte noch im Sinken</l><lb/>
+<l>Die letzte Abendroͤte;</l><lb/>
+<l>Als mich ein kuͤhler Zefir</l><lb/>
+<l>Aus meinem Zimmer lokkte.</l><lb/>
+<l>Ich folgt ihm in das Gruͤne,</l><lb/>
+<l>Wo tauſend Roſen bluͤhten,</l><lb/>
+<l>Um die er gauklend ſcherzte.</l><lb/>
+<l>Der Buͤſche kleine Saͤnger</l><lb/>
+<l>Ergoͤtzten mich im Stillen,</l><lb/>
+<l>Und meine Augenlieder</l><lb/>
+<l>Befiel ein ſuͤſſer Schlummer.</l><lb/>
+<l>Ich traͤumte von der Liebe,</l><lb/>
+<l>Ich traͤumte von Dorinden,</l><lb/>
+<l>Von vielen andern Schoͤnen,</l><lb/>
+<l>Und von der lieben Venus.</l><lb/>
+<l>Ich kuͤßte ſie im Traume,</l><lb/>
+<l>Ich ſaß auf ihrem Schoſſe,</l><lb/>
+<l>Und ſagt ihr von Dorinden.</l><lb/>
+<l>Sie hielt mich in den Armen,</l><lb/>
+<l>Und ſprach: Sie ſoll dich lieben.</l><lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">Schnell</fw><lb/>
+<pb n="22" facs="#f0034"/>
+<l>Schnell ward ich wieder munter.</l><lb/>
+<l>Ich ſah mich um, und lauſchte;</l><lb/>
+<l>Denn unter friſchen Roſen</l><lb/>
+<l>Fand ich mich ganz begraben.</l><lb/>
+<l>Ich ſprang von meinem Lager,</l><lb/>
+<l>Den loſen Gaſt zu ſuchen,</l><lb/>
+<l>Der mich ſo ſchoͤn bedekket;</l><lb/>
+<l>Allein im ſchnellen Springen</l><lb/>
+<l>Empfand ich ploͤtzlich Schmerzen.</l><lb/>
+<l>Ein kleines Kind mit Fluͤgeln,</l><lb/>
+<l>Das ich noch nie geſehen,</l><lb/>
+<l>Saß laͤchelnd hinterm Buſche,</l><lb/>
+<l>Und ſprach: Dis kan mein Bogen,</l><lb/>
+<l>Und wies mir mit dem Bogen</l><lb/>
+<l>Dorinden in der Laube.</l><lb/>
+<l>Ich weiß nicht, welche Wunde!</l><lb/>
+<l>Sie ſchmerzt, und that doch ſanfte,</l><lb/>
+<l>Und, als ich nur die Schoͤne</l><lb/>
+<l>Drauf in der Laub’ erblikkte,</l><lb/>
+<l>Verſchwanden alle Schmerzen;</l><lb/>
+<l>Denn ſie war gar zu freundlich.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="23" facs="#f0035"/>
+<div n="1"><head><hi rendition="#b">Die Schule.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">K</hi>inder! habt nur Luſt zu lernen;</l><lb/>
+<l>Seht! es fehlt euch nicht an Lehrern.</l><lb/>
+<l>Feuer, Waſſer, Luft und Erde,</l><lb/>
+<l>Was ihr ſeht, und hoͤrt, und fuͤhlet,</l><lb/>
+<l>Alles kan euch unterrichten.</l><lb/>
+<l>Halt nur erſt den ſchoͤnen Willen</l><lb/>
+<l>Allem etwas abzulernen.</l><lb/>
+<l>Lernet dann, und werdet kluͤger,</l><lb/>
+<l>Lernt vom Loͤwen tapfer ſtreiten;</l><lb/>
+<l>Lernt vom Adler mutig fliegen;</l><lb/>
+<l>Lernt vom Nautul kuͤnſtlich ſchiffen;</l><lb/>
+<l>Lernt vom Biber ſicher bauen;</l><lb/>
+<l>Lernt von Bienen Suͤßigkeiten,</l><lb/>
+<l>Und von Spinnen feine Faden.</l><lb/>
+<l>Lernt auch etwas vom Kaninchen!</l><lb/>
+<l>Aber eh ihr etwas lernet,</l><lb/>
+<l>Lernt von mir und meiner Schoͤne</l><lb/>
+<l>Gut zu ſpielen, gut zu kuͤſſen:</l><lb/>
+<l>Seht nur her! wir halten Schule.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">B 4</fw><lb/>
+<pb n="24" facs="#f0036"/>
+<div n="1"><head><hi rendition="#b">Die Wahl.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">K</hi>oͤnt ich malen, wie Apelles,</l><lb/>
+<l>Lauter Maͤdchen wolt ich malen;</l><lb/>
+<l>Koͤnt ich nur wie Orpheus ſpielen,</l><lb/>
+<l>Lauter Maͤdchen ſolten tanzen;</l><lb/>
+<l>Koͤnt ich Todte lebend machen,</l><lb/>
+<l>Lauter Maͤdchen ſolten leben;</l><lb/>
+<l>Aber koͤnt ich, wie ich wolte</l><lb/>
+<l>Viele wieder ſterben laſſen,</l><lb/>
+<l>Viele ſolten wieder ſterben,</l><lb/>
+<l>Viele wolt ich uͤberſtreichen,</l><lb/>
+<l>Daß ſie ungemalet blieben,</l><lb/>
+<l>Und, vom erſten Tanz ermuͤdet,</l><lb/>
+<l>Solten viele nicht mehr tanzen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="25" facs="#f0037"/>
+<div n="1"><head><hi rendition="#b">Die Wahl.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">K</hi>oͤnt ich nur wie Orpheus ſpielen,</l><lb/>
+<l>Alle Knaben ſoltens fuͤhlen,</l><lb/>
+<l>Und wenn ich ein Stuͤkk geſpielet,</l><lb/>
+<l>Und wenn ſie den Reitz gefuͤhlet,</l><lb/>
+<l>Solten ſie, bei Spiel und Singen,</l><lb/>
+<l>Alle tanzen, alle ſpringen;</l><lb/>
+<l>Koͤnt ich wie Apelles ſchildern,</l><lb/>
+<l>O ſo ſolt es meinen Bildern</l><lb/>
+<l>Nicht an Reitz und Schoͤnheit fehlen,</l><lb/>
+<l>Lauter Knaben wolt ich waͤhlen;</l><lb/>
+<l>Koͤnt ich kuͤnſtlich, wie Propheten,</l><lb/>
+<l>Menſchen wekken, Menſchen toͤdten,</l><lb/>
+<l>O ſo wolt ich Geiſt und Leben</l><lb/>
+<l>Allen Knaben wieder geben.</l><lb/>
+<l>Aber koͤnt ich meinen Willen</l><lb/>
+<l>Durch ein maͤchtig Wort erfuͤllen,</l><lb/>
+<l>Einer ſolte nach dem andern</l><lb/>
+<l>Wieder zu den Todten wandern;</l><lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">Vieler</fw><lb/>
+<pb n="26" facs="#f0038"/>
+<l>Vieler Knaben Schildereien</l><lb/>
+<l>Solten brennend mich erfreuen;</l><lb/>
+<l>Viele ſolten, unzufrieden,</l><lb/>
+<l>Gleich vom erſten Tanz ermuͤden,</l><lb/>
+<l>Stille ſitzen, ſtille ſtehen,</l><lb/>
+<l>Und die andern tanzen ſehen.</l></lg></div><lb/>
+<div n="1"><head><hi rendition="#b">Das Geluͤbde.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">W</hi>o ich morgen oder heute</l><lb/>
+<l>Meine Doris wieder finde;</l><lb/>
+<l>Wo ich etwa dort am Ufer</l><lb/>
+<l>Ihre Spur und Sie entdekke;</l><lb/>
+<l>Wo ich ſie vieleicht im Schatten</l><lb/>
+<l>Unter Roſen ſchlummern ſehe;</l><lb/>
+<l>Wo ich morgen oder heute</l><lb/>
+<l>Ihren zweiten Kuß empfinde;</l><lb/>
+<l>Da will ich zum erſten male</l><lb/>
+<l>Da will ich, vernimms o Liebe!</l><lb/>
+<l>Da will ich, du ſolt es ſehen!</l><lb/>
+<l>Dreiſt nach ihrem Buſen ſchielen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="27" facs="#f0039"/>
+<div n="1"><head><hi rendition="#b">An das Frauenzimmer.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">S</hi>agt mir doch, geliebte Schoͤnen,</l><lb/>
+<l>Iſt euch Amor denn nicht ſichtbar?</l><lb/>
+<l>Oder ſagt ihrs niemand wieder,</l><lb/>
+<l>Weil er allzu oft erſcheinet?</l><lb/>
+<l>O! ihr duͤrſt es nicht verbergen,</l><lb/>
+<l>Wenn er euch gleich oft erſcheinet.</l><lb/>
+<l>Kan ein Gott euch Schande bringen?</l><lb/>
+<l>Wenn er euch des Nachts belauſchet,</l><lb/>
+<l>Wenn er euch des Tages lokket:</l><lb/>
+<l>O! ſo ſagt es, euch zur Ehre,</l><lb/>
+<l>Freunden oder Goͤnnern wieder.</l><lb/>
+<l>Dann wird euch ein ieder loben.</l><lb/>
+<l>Oder wolt ihrs mir entdekken:</l><lb/>
+<l>So will ich, ihr ſolt es ſchen,</l><lb/>
+<l>Euch einmal den Amor fangen.</l><lb/>
+<l>Dann koͤnt ihr mit goldnen Strikken,</l><lb/>
+<l>Ihn an euer Bette binden,</l><lb/>
+<l>Daß er Wunſch und Klagen hoͤre.</l><lb/>
+<fw type="catch" place="bottom">Dann</fw><lb/>
+<pb n="28" facs="#f0040"/>
+<l>Dann koͤnt ihr ihm alles klagen,</l><lb/>
+<l>Und ihn eher nicht befreien,</l><lb/>
+<l>Bis er ſich mit euch verſoͤhnet,</l><lb/>
+<l>Bis er alle Kammerſorgen</l><lb/>
+<l>Mit der Kammerluſt verwechſelt;</l><lb/>
+<l>Bis er ſich in allen Stuͤkken</l><lb/>
+<l>Guͤtig, wie ein Gott, erwieſen.</l><lb/>
+<l>O! wie werdet ihr die Guͤte</l><lb/>
+<l>Des gefangnen Gottes preiſen.</l><lb/>
+<l>Ruft mich nur, wenn er erſcheinet,</l><lb/>
+<l>Denn ich weiß ihn gut zu fangen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="29" facs="#f0041"/>
+<div n="1"><head><hi rendition="#b">An die Eltern.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">V</hi>aͤter! noͤtigt eure Kinder</l><lb/>
+<l>Nie zum Lernen ſolcher Kuͤnſte,</l><lb/>
+<l>Die ſie nicht erlernen wollen.</l><lb/>
+<l>Laßt ſie ſelber was erwaͤhlen,</l><lb/>
+<l>Lobt und billigt ihre Neigung;</l><lb/>
+<l>Sonſt erlebt ihr, wie mein Vater,</l><lb/>
+<l>Ungluͤkk an den beſten Kindern.</l><lb/>
+<l>Fragt ihn nur, itzt wird er ſagen:</l><lb/>
+<l>Vaͤter zwinget keine Kinder.</l><lb/>
+<l>Ich, ſein Sohn, ward auch gezwungen,</l><lb/>
+<l>Aber hat es was gefruchtet?</l><lb/>
+<l>Erſt ſolt ich im ſchwarzen Kleide,</l><lb/>
+<l>Sorgen fuͤr die Geiſter lernen,</l><lb/>
+<l>Weil es meine Mutter wolte;</l><lb/>
+<l>Doch, es rettete mein Vater</l><lb/>
+<l>Mich von ſolchen ſchweren Sorgen;</l><lb/>
+<l>Und da ſolt ich, wieder Willen,</l><lb/>
+<l>Sorgen fuͤr die Koͤrper lernen,</l><lb/>
+<fw type="catch" place="bottom">Aber</fw><lb/>
+<pb n="30" facs="#f0042"/>
+<l>Aber es erfuhr mein Vater,</l><lb/>
+<l>Daß ich lieber gar nichts lernte.</l><lb/>
+<l>Endlich nahm er mich beim Arme,</l><lb/>
+<l>Fuͤhrte mich zum Advokaten,</l><lb/>
+<l>Und ermahnt ihn, daß ichs hoͤrte:</l><lb/>
+<l>Vetter, lehre dieſen rechten,</l><lb/>
+<l>Halt ihn ſcharf, und gieb ihm Arbeit.</l><lb/>
+<l>Hurtig gab ſie mir der Vetter.</l><lb/>
+<l>Koͤpfen, Hangen, Peitſchen, Raͤdern</l><lb/>
+<l>Solt ich aus den Blaͤttern lernen.</l><lb/>
+<l>O! wie haßt ich dieſes Handwerk.</l><lb/>
+<l>O! wie wuͤnſcht ich oft aus Unmut,</l><lb/>
+<l>Meinen Lehrer an den Galgen,</l><lb/>
+<l>Wenn er mich mit Schriften quaͤlte,</l><lb/>
+<l>Welche Blut und Todt verlangten.</l><lb/>
+<l>Aber gab er mir Prozeſſe</l><lb/>
+<l>Von verlohrnen Liebesbriefen,</l><lb/>
+<l>Von wilkommnen Nachtgeſpenſtern,</l><lb/>
+<l>Von ertappten Anverwandten;</l><lb/>
+<l>Oder ſolt ich, ſtatt der Schoͤnen,</l><lb/>
+<fw type="catch" place="bottom">Uber</fw><lb/>
+<pb n="31" facs="#f0043"/>
+<l>Uber bloͤde Maͤnner klagen:</l><lb/>
+<l>Gleich war Kopf und Feder fleißig;</l><lb/>
+<l>Und mein Lehrer kont es merken,</l><lb/>
+<l>Daß ich nichts erlernen wuͤrde,</l><lb/>
+<l>Als die Haͤndel der Verliebten;</l><lb/>
+<l>Drum verſchaft er mir vom Richter</l><lb/>
+<l>Lauter Haͤndel der Verliebten.</l><lb/>
+<l>Itzo weiß ich ſie zu ſchlichten.</l><lb/>
+<l>Drum empfehl ich mich den Schoͤnen,</l><lb/>
+<l>Die mich etwa brauchen moͤchten.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="32" facs="#f0044"/>
+<div n="1"><head><hi rendition="#b">Die Flucht.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">B</hi>ruͤder! ſeht doch durch die Glaͤſer.</l><lb/>
+<l>Seht doch, welche Menſchenkoͤpfe!</l><lb/>
+<l>Stehn doch Koͤpfe von den Thieren</l><lb/>
+<l>Auf den Haͤlſen dieſer Maͤnner!</l><lb/>
+<l>Jener da, weiſt uns die Zaͤhne.</l><lb/>
+<l>Welcher Hund kan wol ſo bellen?</l><lb/>
+<l>Welcher Hund iſt ihm wol aͤhnlich?</l><lb/>
+<l>Dort im Winkel grunzt ſein Bruder.</l><lb/>
+<l>Hoͤrt! nun faͤngt er an zu laͤſtern;</l><lb/>
+<l>Denn er laͤſtert auch im Beten.</l><lb/>
+<l>Welche ſchwarze Laͤſterworte</l><lb/>
+<l>Fliegen von den frommen Lippen!</l><lb/>
+<l>Bruͤder ſeht! die frommen Lippen</l><lb/>
+<l>Sind ſo ſchwarz, wie Prieſterroͤkke.</l><lb/>
+<l>Bruͤder komt, wir wollen laufen;</l><lb/>
+<l>Denn ſie ſpeien Haß und Geifer,</l><lb/>
+<l>Und er trift ſchon ihre Bruͤder.</l><lb/>
+<l>Komt, und laßt die Narren laͤſtern,</l><lb/>
+<l>Komt, wir wollen hier nicht trinken.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="33" facs="#f0045"/>
+<div n="1"><head><hi rendition="#b">Wuͤnſche<lb/>
+an<lb/>
+Herrn Uz in Anſpach.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">K</hi>oͤnnt ich wider Willen lachen,</l><lb/>
+<l>Koͤnnt ich, was ich wolte, machen,</l><lb/>
+<l>Koͤnnt ich iedem, und vor allen,</l><lb/>
+<l>Allen Schoͤnen wolgefallen,</l><lb/>
+<l>Koͤnnt ich niemals beim Erwehlen,</l><lb/>
+<l>In der Wahl des Beſten fehlen,</l><lb/>
+<l>Koͤnnt ich allen braven Schoͤnen,</l><lb/>
+<l>Meine Sitten angewoͤhnen,</l><lb/>
+<l>Koͤnnt ich ſtets, in iedem Leben,</l><lb/>
+<l>Kuͤſſe nehmen, Kuͤſſe geben,</l><lb/>
+<l>Koͤnnt ich mich in Scherz und Lieben,</l><lb/>
+<l>Stets, wie dieſen Abend, uͤben,</l><lb/>
+<l>Koͤnnt ich mitten im Vergnuͤgen</l><lb/>
+<l>Dich, mein Uz, zu kuͤſſen kriegen;</l><lb/>
+<l>Koͤnnt ich denn bei ſolchen Freuden</l><lb/>
+<l>Meines Fuͤrſten Gluͤkk beneiden?</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">C</fw><lb/>
+<pb n="34" facs="#f0046"/>
+<div n="1"><head><hi rendition="#b">An den Winter.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">W</hi>inter mit dem grauen Barte,</l><lb/>
+<l>Mit den angefrornen Lokken,</l><lb/>
+<l>Wilſt du denn nicht einmal lachen?</l><lb/>
+<l>Sind die Lippen zugefroren?</l><lb/>
+<l>Komm herein, was ſtehſt du drauſſen?</l><lb/>
+<l>Komm herein, du ſolſt ſchon thauen.</l><lb/>
+<l>Sich! wie ſtoͤrriſch ſind die Minen.</l><lb/>
+<l>Biſt du denn ein Feind der Freude?</l><lb/>
+<l>Wilſt du meine Luſt verdammen?</l><lb/>
+<l>Gut! ſo will ich dich nicht bitten.</l><lb/>
+<l>Aber ſei nur immer ſtoͤrriſch,</l><lb/>
+<l>Mache Felder, mache Fluren,</l><lb/>
+<l>Mache Berg und Thaͤler traurig,</l><lb/>
+<l>Mich ſolſt du nicht traurig machen.</l><lb/>
+<l>Toͤdte dieſe friſche Lilgen,</l><lb/>
+<l>Toͤdte dieſe iunge Roſen,</l><lb/>
+<l>Auf den iugendlichen Wangen,</l><lb/>
+<l>Toͤdte ſie einmal zum Scherze;</l><lb/>
+<fw type="catch" place="bottom">Aber</fw><lb/>
+<pb n="35" facs="#f0047"/>
+<l>Aber laß mir nur die Roſen,</l><lb/>
+<l>Auf den Wangen, auf dem Buſen</l><lb/>
+<l>Meiner braunen Doris bluͤhend:</l><lb/>
+<l>Dann ſo ſoll ſie dich beſchaͤmen,</l><lb/>
+<l>Dann ſoll ſie mit einem Kuſſe</l><lb/>
+<l>Meinen halberſtorbnen Wangen,</l><lb/>
+<l>Alle Roſen wieder geben;</l><lb/>
+<l>Dann ſoll ſie mit ihren Lippen</l><lb/>
+<l>Meine Lippen ſchoͤner faͤrben.</l><lb/>
+<l>Alter! wilſt du’s ſelbſt verſuchen?</l><lb/>
+<l>Komm! ſie ſoll dich einmal kuͤſſen;</l><lb/>
+<l>Dann ſolſt du, wir wollen wetten,</l><lb/>
+<l>Bald dein Pelzwerk von dir werfen.</l><lb/>
+<l>Dann ſolſt du fuͤr Hitze durſten.</l><lb/>
+<l>Komm! hier iſt ſchon was zu trinken.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">C 2</fw><lb/>
+<pb n="36" facs="#f0048"/>
+<div n="1"><head><hi rendition="#b">Lokkſpeiſe.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">M</hi>einem Vater in der Grube</l><lb/>
+<l>Dank ich noch fuͤr ſeine Liebe.</l><lb/>
+<l>Er hat einſt durch ſeine Lehren</l><lb/>
+<l>Dis mein iunges Herz gebildet;</l><lb/>
+<l>Er gab mir, durch ſeine Lehren,</l><lb/>
+<l>Liebe zu den ſchoͤnen Kuͤnſten,</l><lb/>
+<l>Und ein Herz voll Lehrbegierde,</l><lb/>
+<l>Laßt uns doch die Vaͤter loben,</l><lb/>
+<l>Die uns nicht mit harten Worten,</l><lb/>
+<l>Die uns mit Vernunft und Schmeicheln</l><lb/>
+<l>Klug und Lehrbegierig machen.</l><lb/>
+<l>Laßt uns kuͤnftig unſern Kindern</l><lb/>
+<l>Luſt und Liebe groͤſſer machen.</l><lb/>
+<l>Laßt uns unſre lieben Vaͤter</l><lb/>
+<l>In der Lehrart uͤbertreffen!</l><lb/>
+<l>Ja! ich will ſchon meine Kinder</l><lb/>
+<l>Staͤrker zu den Kuͤnſten reitzen,</l><lb/>
+<l>Als mich einſt mein Vater reitzte.</l><lb/>
+<fw type="catch" place="bottom">Knabe</fw><lb/>
+<pb n="37" facs="#f0049"/>
+<l>Knabe, ſprach er: Lerne ſchreiben,</l><lb/>
+<l>Denn ſonſt kannſt du bei dem Fuͤrſten</l><lb/>
+<l>Kuͤnftig keine Schaͤtze ſammlen.</l><lb/>
+<l>Hurtig lernt ich alles ſchreiben.</l><lb/>
+<l>Denn ich liebte Kutſch und Schaͤtze.</l><lb/>
+<l>Aber, warlich, meine Knabeu</l><lb/>
+<l>Sollens doch noch ſchneller lernen;</l><lb/>
+<l>Denn ich will ſie beſſer reitzen.</l><lb/>
+<l>Liebſte, ja! ſo will ich ſagen,</l><lb/>
+<l>Liebſte Knaben, lernt doch ſchreiben,</l><lb/>
+<l>Denn ſonſt koͤnnt ihr einſt im Alter</l><lb/>
+<l>Keine Liebesbriefe wechſeln.</l><lb/>
+<l>O! wie werden ſie dann lernen.</l><lb/>
+<l>Lerne tanzen, ſprach mein Vater,</l><lb/>
+<l>Denn es macht geſchikkte Glieder,</l><lb/>
+<l>Und ich lernte hurtig tanzen;</l><lb/>
+<l>Aber haͤtt er nur geſprochen:</l><lb/>
+<l>Lieber Sohn! man kann beim Tanzen</l><lb/>
+<l>Manche ſchoͤne Haͤnde druͤkken,</l><lb/>
+<l>Die ſich ſonſt nicht druͤkken laſſen,</l><lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">Und</fw><lb/>
+<pb n="38" facs="#f0050"/>
+<l>Und man kann im ſanften Druͤkken,</l><lb/>
+<l>Klugen Schoͤnen alles ſagen,</l><lb/>
+<l>Was wir ſonſt nicht ſagen duͤrfen;</l><lb/>
+<l>Drum ſo rath ich, lerne tantzen:</l><lb/>
+<l>O! ſo wuͤrd ich itzt im Tanzen</l><lb/>
+<l>Dich, o Lani! uͤbertreffen.</l><lb/>
+<l>O! wie will ich meine Kinder</l><lb/>
+<l>Zu den Wiſſenſchaften reitzen!</l><lb/>
+<l>O! was vor gelehrte Knaben</l><lb/>
+<l>Werden meine Lehren ziehen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="39" facs="#f0051"/>
+<div n="1"><head><hi rendition="#b">Lebenspflichten.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">S</hi>oll ich mich mit Sorgen quaͤlen?</l><lb/>
+<l>Nein, ſo glich ich meiner Mutter;</l><lb/>
+<l>Soll ich reichen Narren ſchmeicheln?</l><lb/>
+<l>Nein, ſo wuͤrd ich ſelbſt zum Narren;</l><lb/>
+<l>Soll ich meine Bruͤder ſtrafen?</l><lb/>
+<l>Nein, ſie wiſſen meine Fehler;</l><lb/>
+<l>Soll ich mir viel Freunde ſuchen?</l><lb/>
+<l>Nein, ich werde ſie nicht finden;</l><lb/>
+<l>Soll ich mir den Himmel wuͤnſchen?</l><lb/>
+<l>Nein, dann wuͤnſcht ich ia zu ſterben.</l><lb/>
+<l>Soll ich an der Welt was tadeln?</l><lb/>
+<l>Nein, ſie wird nicht beſſer werden;</l><lb/>
+<l>Soll ich trinken? Soll ich lieben?</l><lb/>
+<l>Soll ich tanzen? Soll ich lachen?</l><lb/>
+<l>Soll ich mich mit Roſen kroͤnen?</l><lb/>
+<l>Soll ich ſchmauſen? Soll ich kuͤſſen?</l><lb/>
+<l>Soll ich ſpielen? Soll ich ſcherzen?</l><lb/>
+<l>Soll ich mich um nichts bekuͤmmern?</l><lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">Soll</fw><lb/>
+<pb n="40" facs="#f0052"/>
+<l>Soll ich mit den Schoͤnen taͤndeln?</l><lb/>
+<l>Ja, dis ſoll ich, und mein Vater</l><lb/>
+<l>Lehrt es mich bei grauen Haaren,</l><lb/>
+<l>Und er nennt es: Lebenspflichten.</l></lg></div><lb/>
+<div n="1"><head><hi rendition="#b">An den Tod.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">T</hi>od, kanſt du dich auch verlieben?</l><lb/>
+<l>Warum holſt du denn mein Maͤdchen?</l><lb/>
+<l>Kanſt du nicht die Mutter holen?</l><lb/>
+<l>Denn die ſieht dir doch noch aͤhnlich.</l><lb/>
+<l>Friſche roſenrote Wangen,</l><lb/>
+<l>Die mein Wunſch ſo ſchoͤn gefaͤrbet,</l><lb/>
+<l>Bluͤhen nicht fuͤr blaſſe Knochen,</l><lb/>
+<l>Bluͤhen nicht fuͤr deine Lippen.</l><lb/>
+<l>Tod! was wilſt du mit dem Maͤdchen?</l><lb/>
+<l>Mit den Zaͤhnen ohne Lippen</l><lb/>
+<l>Kanſt du es ia doch nicht kuͤſſen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="41" facs="#f0053"/>
+<div n="1"><head><hi rendition="#b">Der Gelehrte.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">S</hi>oll ich von den Zeitungsſchreibern</l><lb/>
+<l>Meinen Namen ſchreiben lernen?</l><lb/>
+<l>Soll ich in dem Sterngewoͤlbe</l><lb/>
+<l>Neue Welten ſichtbar machen?</l><lb/>
+<l>Soll ich Wolfen oder Knutzen</l><lb/>
+<l>Zweifelsknoten loͤſen helfen?</l><lb/>
+<l>Soll ich Stoff und Sittenlehren</l><lb/>
+<l>Fuͤr die Blaͤtterſchreiber ſtehlen?</l><lb/>
+<l>Soll ich von den Buͤcherrichtern</l><lb/>
+<l>Schimpfen oder tadeln lernen?</l><lb/>
+<l>Soll ich in der Weltgeſchichte</l><lb/>
+<l>Proben tapfrer Narren ſuchen?</l><lb/>
+<l>Soll ich meinen Geiſt befragen:</l><lb/>
+<l>Was er ſei, und wo er wohne?</l><lb/>
+<l>Soll ich mit den Oberprieſtern</l><lb/>
+<l>Heucheln, oder Ketzer machen?</l><lb/>
+<l>Soll ich fuͤr den Kupferſtecher</l><lb/>
+<l>Mein gelehrtes Bildniß mahlen?</l><lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">Soll</fw><lb/>
+<pb n="42" facs="#f0054"/>
+<l>Soll ich Blei zu Golde ſchmelzen?</l><lb/>
+<l>Soll ich Raͤthe rathen lehren?</l><lb/>
+<l>Soll ich Miltons Teufel ſchelten?</l><lb/>
+<l>Soll ich Wunderwerke dichten?</l><lb/>
+<l>Oder ſoll ich ſie erklaͤren?</l><lb/>
+<l>Nein, dis ſoll mein Anverwandter.</l><lb/>
+<l>Er, der Prinz beruͤhmter Narren,</l><lb/>
+<l>Er, der grundgelehrte Wiſſer,</l><lb/>
+<l>Er, der Pruͤfer der Beweiſe.</l><lb/>
+<l>Soll ſich noch zu Tode gruͤbeln;</l><lb/>
+<l>Er, der Erbfeind meiner Freude</l><lb/>
+<l>Soll ſich blaß und elend leſen.</l><lb/>
+<l>Und dann will ich ihn befragen:</l><lb/>
+<l>Macht mich auch mein Maͤdchen elend?</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="43" facs="#f0055"/>
+<div n="1"><head><hi rendition="#b">An die Liebe.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">L</hi>iebe! allerliebſte Liebe!</l><lb/>
+<l>Seegne mich mit deinem Triebe.</l><lb/>
+<l>Laß mir deinen Reitz empfinden,</l><lb/>
+<l>Laß mich deine Glut entzuͤnden,</l><lb/>
+<l>Laß mich deinen Zukker ſchmekken,</l><lb/>
+<l>Laß mich durch ein Lied erwekken,</l><lb/>
+<l>Wenn ich Zeit und Luſt verſaͤume</l><lb/>
+<l>Muͤßig wach’, und muͤßig traͤume.</l><lb/>
+<l>Laß mir huͤbſch durch dein Genieſſen</l><lb/>
+<l>Zeit und Stunden ſchueller flieſſen.</l><lb/>
+<l>Laß mirs an der Muͤh zu waͤhlen,</l><lb/>
+<l>Aber nie an Schoͤnen fehlen,</l><lb/>
+<l>Und damit auch viel Beſchwerden,</l><lb/>
+<l>Durch ein Mittel minder werden,</l><lb/>
+<l>Laß mir kuͤnftig nur von allen</l><lb/>
+<l>Eine ſchoͤn ſeyn und gefallen.</l><lb/>
+<l>Lehr ihr denn, ſich gut zu ſchikken,</l><lb/>
+<l>Gut zu ſpielen, gut zu blikken,</l><lb/>
+<fw type="catch" place="bottom">Lehr</fw><lb/>
+<pb n="44" facs="#f0056"/>
+<l>Lehr ihr meine Neigung kennen,</l><lb/>
+<l>Klug zu frieren, klug zu brennen,</l><lb/>
+<l>Lehr ihr witzig abzuſchlagen,</l><lb/>
+<l>Lehr ihr reitzend Ja zu ſagen.</l><lb/>
+<l>Aus den Worten, aus den Werken</l><lb/>
+<l>Laß ihr Wunſch und Willen merken?</l><lb/>
+<l>Aber lehr ihr Wunſch und Willen</l><lb/>
+<l>Nicht zur Unzeit zu erfuͤllen,</l><lb/>
+<l>Daß ſie ſich erſt artig ſchaͤme</l><lb/>
+<l>Und ſich nicht zu bald bequeme.</l><lb/>
+<l>Lehr ihr alle frohe Minen</l><lb/>
+<l>Die der Luſt zum Vorteil dienen,</l><lb/>
+<l>Lehr ihr alle Froͤlichkeiten</l><lb/>
+<l>Lehr ihr auch, was ſie bedeuten,</l><lb/>
+<l>Daß ſie ſtets in Unſchuld prange,</l><lb/>
+<l>Daß ſie nie zuviel verlange,</l><lb/>
+<l>Daß ſie mirs vernuͤnftig klage,</l><lb/>
+<l>Wenn ich ihr zuviel verſage.</l><lb/>
+<l>Lehr ihr, wie man nie veralte</l><lb/>
+<l>Wie man Reitz und Wert behalte,</l><lb/>
+<fw type="catch" place="bottom">Wenn</fw><lb/>
+<pb n="45" facs="#f0057"/>
+<l>Wenn auch einſt auf Bruſt und Wangen</l><lb/>
+<l>Aller Roſen Schmukk vergangen.</l><lb/>
+<l>Lehr ihr, wenn wir uns vereinen,</l><lb/>
+<l>Treu zu ſeyn, und treu zu ſcheinen,</l><lb/>
+<l>Daß ſie mich mit nichts betruͤbe</l><lb/>
+<l>Und mich immer ſtaͤrker liebe.</l><lb/>
+<l>Lehr auch mich, durch deine Lehren,</l><lb/>
+<l>Solchen Engel zu verehren,</l><lb/>
+<l>Daß er, wenn ich ihn vergnuͤge,</l><lb/>
+<l>Keine Luſt zum Wechſel kriege.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="46" facs="#f0058"/>
+<div n="1"><head><hi rendition="#b">An Herrn Gleim.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">N</hi>imm mich mit, geliebter Damon,</l><lb/>
+<l>Nimm mich mit auf deine Fluren.</l><lb/>
+<l>Laß mich dort den iungen Fruͤling,</l><lb/>
+<l>Und den Glanz der Morgenroͤte,</l><lb/>
+<l>Und die Thaͤler voll Violen,</l><lb/>
+<l>Und den Thau auf muͤden Blumen</l><lb/>
+<l>Und die fruͤhe Venus ſehen.</l><lb/>
+<l>Schweig! es liſpelt ſchon ein Zefir</l><lb/>
+<l>Ein vergnuͤgter Freund des Lenzen.</l><lb/>
+<l>Sieh! er waͤlzt ſich auf dem Graſe,</l><lb/>
+<l>Und im Waͤlzen kuͤßt er Blumen,</l><lb/>
+<l>Und die wankende Narziſſe,</l><lb/>
+<l>Wird verliebt und kuͤßt ihn wieder.</l><lb/>
+<l>Komm, wir wollen ihn erhaſchen,</l><lb/>
+<l>Und es ſoll ſein ſanftes Saͤuſeln,</l><lb/>
+<l>Uns bis in den Buſch begleiten,</l><lb/>
+<l>Wo wir ſeinen Freund, den Fruͤling,</l><lb/>
+<l>Unter Linden ſuchen wollen.</l><lb/>
+<fw type="catch" place="bottom">Komm</fw><lb/>
+<pb n="47" facs="#f0059"/>
+<l>Komm, ſo bald wir ihn gefunden,</l><lb/>
+<l>Wollen wir, in ſeinen Armen,</l><lb/>
+<l>An dem weichſten Ufer ſchlummern;</l><lb/>
+<l>Bis uns ein vergnuͤgtes Maͤdchen,</l><lb/>
+<l>Welches unſer Schlummer aͤrgert,</l><lb/>
+<l>Durch ein Schaͤferlied erwekket.</l></lg></div><lb/>
+<div n="1"><head><hi rendition="#b">An die Helden.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">H</hi>elden! dingt mich nicht zum Dichter.</l><lb/>
+<l>Meine Laute will nicht ſchallen,</l><lb/>
+<l>Wenn ich euch ein Loblied ſinge.</l><lb/>
+<l>Immer iſt ſie widerſpenſtig,</l><lb/>
+<l>Immer gibt ſie falſche Toͤne,</l><lb/>
+<l>Wenn ich euch ein Loblied ſinge.</l><lb/>
+<l>Wenn ich von der Liebe ſinge,</l><lb/>
+<l>Wenn ich Amors Waffen preiſe</l><lb/>
+<l>Oder wenn ich trinkend lalle:</l><lb/>
+<l>Dann trift ſie die ſchoͤnſten Toͤne,</l><lb/>
+<l>Dann ſo geht ſie immer richtig.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="48" facs="#f0060"/>
+<div n="1"><head><hi rendition="#b">An Herrn Rittmeiſter Adler.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">M</hi>ein Wein vertreibt die Grillen,</l><lb/>
+<l>Mein Schwerdt die bloͤden Helden,</l><lb/>
+<l>Mein Lob die lauten Schmeichler,</l><lb/>
+<l>Mein Tanz die Winternaͤchte,</l><lb/>
+<l>Mein Spott den Schwarm der Narren,</l><lb/>
+<l>Mein taubes Ohr die Praler,</l><lb/>
+<l>Mein Schimpf die falſchen Freunde,</l><lb/>
+<l>Mein Glaub und meine Lieder</l><lb/>
+<l>Vertreiben tauſend Teufel.</l><lb/>
+<l>Nur den verſchmitzten Amor,</l><lb/>
+<l>Den Schmeichler, den Tirannen,</l><lb/>
+<l>Kann kein Gebet, kein Degen,</l><lb/>
+<l>Kein Spott, kein Schimpf, kein Lachen,</l><lb/>
+<l>Und auch kein Wein veriagen.</l><lb/>
+<l>Freund! mit dem krummen Schwerdte,</l><lb/>
+<l>Weißt du ihn zu vertreiben?</l><lb/>
+<l>Kannſt du es mit Huſaren?</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="49" facs="#f0061"/>
+<div n="1"><head><hi rendition="#b">Der Sternſeher.<lb/>
+An<lb/>
+Herrn</hi> ‒‒ ‒‒ ‒‒ ‒‒</head><lb/>
+<lg type="poem"><l><hi rendition="#in">D</hi>er Kenner aller Welten,</l><lb/>
+<l>Der in dem Sterngewoͤlbe</l><lb/>
+<l>Kometen und Trabanten</l><lb/>
+<l>Und neue Sonnen ſuchet,</l><lb/>
+<l>Und ohne Scherz und Liebe</l><lb/>
+<l>Durch alle Naͤchte wachet,</l><lb/>
+<l>Bewog mich iuͤngſt am Abend</l><lb/>
+<l>Zu frieren und zu wachen.</l><lb/>
+<l>Den holen Raum des Himmels</l><lb/>
+<l>Erhell’ten tauſend Sterne,</l><lb/>
+<l>Wie tauſend helle Lampen</l><lb/>
+<l>Den weiſſen Saal erhellen. <note place="foot" n="*">Auf dem Koͤniglichen Schloſſe in Berlin.</note></l><lb/>
+<l>Sie brannten in dem Blauen,</l><lb/>
+<l>Und warfen kleine Stralen,</l><lb/>
+<l>Wie Lichter Stralen werfen;</l><lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">Und</fw><lb/>
+<pb n="50" facs="#f0062"/>
+<l>Und oft ſah ich, verwundernd,</l><lb/>
+<l>Wie ſie ſich ſelber putzten.</l><lb/>
+<l>Sie brannten ſtill und ſicher,</l><lb/>
+<l>Bis Lun<supplied>en</supplied>s ſtolzer Schimmer</l><lb/>
+<l>Den Abgrund heller machte;</l><lb/>
+<l>Schnell waren von der Menge</l><lb/>
+<l>Die kleinſten ausgeloͤſchet.</l><lb/>
+<l>Ich rief dem Mond entgegen:</l><lb/>
+<l>So dulde doch, Tiranne,</l><lb/>
+<l>Bei deinem groſſen Schimmer,</l><lb/>
+<l>Die kleinen Himmelslichter!</l><lb/>
+<l>Allein der Sternbeſeher</l><lb/>
+<l>Beſeufzte meine Dumheit,</l><lb/>
+<l>Und rief beim letzten Seufzer:</l><lb/>
+<l>Du Dummer, ſteh doch ſtille!</l><lb/>
+<l>Ich ſtand; er rief: Steh veſte!</l><lb/>
+<l>Und legt auf meine Schulter</l><lb/>
+<l>Ein Rohr, als wollt er ſchieſſen.</l><lb/>
+<l>Ich bat ihn um mein Leben,</l><lb/>
+<l>Allein ich muß ietzt lachen,</l><lb/>
+<fw type="catch" place="bottom">Es</fw><lb/>
+<pb n="51" facs="#f0063"/>
+<l>Es ſchlt ihm Rohr und Pulver,</l><lb/>
+<l>Denn die vermeinte Flinte,</l><lb/>
+<l>Das Rohr auf meiner Schulter,</l><lb/>
+<l>War nur ein langes Auge,</l><lb/>
+<l>Womit er durch die Luͤfte</l><lb/>
+<l>Den Mond herunter holte.</l><lb/>
+<l>Er holt’ ihn auch herunter,</l><lb/>
+<l>Und ſah ihn in der Naͤhe,</l><lb/>
+<l>Und ſprach: Ich will im Monde,</l><lb/>
+<l>Die Thaͤler voller Tannen,</l><lb/>
+<l>Und alle Waͤlder zaͤlen;</l><lb/>
+<l>Ich will die Berge meſſen,</l><lb/>
+<l>Und alle Fluͤſſe zaͤlen.</l><lb/>
+<l>Er zaͤlte ſchon bis zwanzig;</l><lb/>
+<l>Allein, indem er zaͤlte,</l><lb/>
+<l>Erhub er ſchnell die Stimme,</l><lb/>
+<l>Und rief, wie Waͤchter rufen:</l><lb/>
+<l>Im Monde wohnen Maͤdchens!</l><lb/>
+<l>Er, der noch nie gelaͤchelt,</l><lb/>
+<l>Fing ploͤtzlich an zu lachen,</l><lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">Und</fw><lb/>
+<pb n="52" facs="#f0064"/>
+<l>Und ſahe nach dem Monde,</l><lb/>
+<l>Und lachte ploͤtzlich wieder,</l><lb/>
+<l>Und ſprach, noch halb im Lachen:</l><lb/>
+<l>Ich ſehe kleine Maͤdchens;</l><lb/>
+<l>Sie tanzen unter Knaben,</l><lb/>
+<l>Sie tanzen nach Figuren,</l><lb/>
+<l>Nach Winkeln und Quadraten,</l><lb/>
+<l>Nach Zirkeln und Ovalen,</l><lb/>
+<l>Und ſpielen mit dem Zirkel,</l><lb/>
+<l>Und ſtehn auf hohen Gipfeln,</l><lb/>
+<l>Und ſehn mit laͤngern Augen,</l><lb/>
+<l>Als Neuton und Copernik.</l><lb/>
+<l>Ich habe nie mit Maͤdchens</l><lb/>
+<l>Getanzet noch geſpielet;</l><lb/>
+<l>O! koͤnnt ich doch im Monde</l><lb/>
+<l>Mit dieſen Maͤdchens ſpielen.</l><lb/>
+<l>Ach lieber Sternbeſeher!</l><lb/>
+<l>So ſprach ich, bloͤd’ und furchtſam,</l><lb/>
+<l>Ach laß mir doch die Maͤdchen</l><lb/>
+<fw type="catch" place="bottom">Mit</fw><lb/>
+<pb n="53" facs="#f0065"/>
+<l>Mit meinem Auge ſehen.</l><lb/>
+<l>Gleich grif er an mein Auge,</l><lb/>
+<l>Und ſprach, wie Zaub’rer ſprechen:</l><lb/>
+<l>Dis Auge werde laͤnger.</l><lb/>
+<l>Indem er dieſes ſagte,</l><lb/>
+<l>Ließ ein vergnuͤgtes Maͤdchen,</l><lb/>
+<l>Das mich und ihn beſchaute,</l><lb/>
+<l>Das mich und ihn verlachte,</l><lb/>
+<l>Die ſchwarzen Augen funkeln.</l><lb/>
+<l>Schnell rief ich: Weg vom Auge!</l><lb/>
+<l>Mein Auge ſoll nicht wachſen.</l><lb/>
+<l>Beſieh du deine Maͤdchens.</l><lb/>
+<l>Ich will mit dieſem ſpielen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">D 3</fw><lb/>
+<pb n="54" facs="#f0066"/>
+<div n="1"><head><hi rendition="#b">Amor, ein Werber.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">A</hi>mor wirbt, ich ſeh ihn werben.</l><lb/>
+<l>Wie geſchaͤftig, und wie freundlich</l><lb/>
+<l>Dringt er ſich in alle Haufen.</l><lb/>
+<l>Doch! er iſt nicht iedem ſichtbar.</l><lb/>
+<l>Seht! ietzt geht er mit ſpatziren,</l><lb/>
+<l>Seht! ietzt fuͤhrt er die Geworb’nen</l><lb/>
+<l>An den Haͤnden treuer Freunde,</l><lb/>
+<l>Unter Weiden oder Linden;</l><lb/>
+<l>Und, geſichert fuͤr Verraͤtern,</l><lb/>
+<l>Schweren ſie zu ſeiner Fahne.</l><lb/>
+<l>Seht ihn bei den Uberlaͤufern,</l><lb/>
+<l>Seht doch! er bedekkt mit Larven</l><lb/>
+<l>Wangen, welche leicht erroͤten,</l><lb/>
+<l>Und entfuͤhret ſie den Waͤchtern,</l><lb/>
+<l>Und verbirgt ſie fuͤr Verraͤtern,</l><lb/>
+<l>Und begleitet ſie zum Tanze,</l><lb/>
+<l>Und entdekkt ſie nur dem Taͤnzer,</l><lb/>
+<l>Dem er ſie zum Tanze bringet.</l><lb/>
+<fw type="catch" place="bottom">Graun</fw><lb/>
+<pb n="55" facs="#f0067"/>
+<l>Graun und Cato <note place="foot" n="*">Eine Oper, von Herrn Graun componirt.</note> hilft ihm werben.</l><lb/>
+<l>Er beſtellt in weiſſen Saͤlen</l><lb/>
+<l>Spieler zu den Spielerinnen,</l><lb/>
+<l>Taͤnzerinnen zu den Taͤnzern,</l><lb/>
+<l>Und Verliebte zu Verliebten;</l><lb/>
+<l>Und dann wirbt er ſich die Beſten.</l><lb/>
+<l>Wenn es ihm an Volke fehlet-</l><lb/>
+<l>Darf er keine Trommel ruͤhren.</l><lb/>
+<l>Alle Straſſen voller Schlitten,</l><lb/>
+<l>Alle Saͤle voller Larven,</l><lb/>
+<l>Alle Boͤden voller Taͤnze,</l><lb/>
+<l>Alle Stuͤhle voller Andacht,</l><lb/>
+<l>Alle Baͤnke voller Weiſen,</l><lb/>
+<l>Alle Gaͤrten voller Roſen,</l><lb/>
+<l>Alle Ufer klarer Baͤche,</l><lb/>
+<l>Alle Logen und Parterren</l><lb/>
+<l>Dienen ihm zu Werbeplaͤtzen.</l><lb/>
+<l>Seht! dort fuͤhrt er die Geworb’nen</l><lb/>
+<l>Durch die Thuͤr des Operhauſes;</l><lb/>
+<l>Sagt mir, konnten einſt die Preuſſen</l><lb/>
+<l>Ihre Rieſen beſſer werben?</l></lg></div><lb/>
+<fw type="sig" place="bottom">D 4</fw><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="56" facs="#f0068"/>
+<div n="1"><head><hi rendition="#b">Der Atheiſt.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">A</hi>llerliebſter GOtt der Liebe,</l><lb/>
+<l>Die dich lieben, liebſt du wieder.</l><lb/>
+<l>Ach! wilſt du mich denn nicht lieben?</l><lb/>
+<l>Doris iſt noch immer ſproͤde.</l><lb/>
+<l>Spanne doch den Bogen ſtrenger,</l><lb/>
+<l>Nimm den aͤrgſten deiner Pfeile,</l><lb/>
+<l>Denn ihr Herz iſt hart, wie Marmor.</l><lb/>
+<l>Mit der Kunſt bered’ter Lippen,</l><lb/>
+<l>Mit der Macht vertrauter Schwuͤre,</l><lb/>
+<l>Mit der Staatsliſt deiner Lehrer,</l><lb/>
+<l>Mit der Wuͤrkung meiner Waffen</l><lb/>
+<l>Werd’ ich es nicht leicht erobern;</l><lb/>
+<l>Denn ſie iſt zu ſtark bewafnet.</l><lb/>
+<l>Sie verſteht die Kunſt zu ſiegen,</l><lb/>
+<l>Trotz dem beſten deiner Krieger.</l><lb/>
+<l>Wirſt du ſie denn uͤberwinden?</l><lb/>
+<l>Liebesgott! nur drei Minuten</l><lb/>
+<l>Glaub’ ich noch an deine Pfeile;</l><lb/>
+<fw type="catch" place="bottom">Haſt</fw><lb/>
+<pb n="57" facs="#f0069"/>
+<l>Haſt du mir nach drei Minuten</l><lb/>
+<l>Dieſe Sproͤde nicht gebaͤndigt:</l><lb/>
+<l>O! ſo will ich in der vierten</l><lb/>
+<l>Dich und deine Mutter laͤugnen.</l></lg></div><lb/>
+<div n="1"><head><hi rendition="#b">Urſachen zum Lieben.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">D</hi>a, wo die Adler fliegen,</l><lb/>
+<l>Iſt alles voll von Liebe;</l><lb/>
+<l>Da, wo die Karpen ſchwimmen,</l><lb/>
+<l>Iſt alles voll von Liebe;</l><lb/>
+<l>Im Garten, auf den Fluren,</l><lb/>
+<l>In Thaͤlern, auf den Bergen,</l><lb/>
+<l>In Stuben und in Kammern,</l><lb/>
+<l>Auf Kanzeln und auf Thronen,</l><lb/>
+<l>Im Himmel und auf Erden,</l><lb/>
+<l>Iſt alles voll von Liebe;</l><lb/>
+<l>Soll denn mein Herz nicht voll ſeyn?</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">D 5</fw><lb/>
+<pb n="58" facs="#f0070"/>
+<div n="1"><head><hi rendition="#b">An die Sonne.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">S</hi>onne! alle Menſchenzungen</l><lb/>
+<l>Loben deine goldne Stralen.</l><lb/>
+<l>Baͤche, wo ſich Nimſen baden,</l><lb/>
+<l>Wo ſie ſich am Ufer troknen;</l><lb/>
+<l>Thaͤler, wo ſich Hirt’ und Heerde</l><lb/>
+<l>Deiner Glut entgegen lagert;</l><lb/>
+<l>Berge, wo von dir erwaͤrmet</l><lb/>
+<l>Eiß und Schnee in Thaͤler rinnet;</l><lb/>
+<l>Klippen, wo an kalten Eichen</l><lb/>
+<l>Ziegen hangen, Gemſen klettern;</l><lb/>
+<l>Fluren, wo Narziſſen bluͤhen</l><lb/>
+<l>Wo dein Stral Violen waͤrmet,</l><lb/>
+<l>Danken dir fuͤr deine Stralen:</l><lb/>
+<l>Aber ich kann dir nicht danken;</l><lb/>
+<l>Denn du ſtralteſt gar zu helle,</l><lb/>
+<l>Als mich in der Sommerlaube</l><lb/>
+<l>Keine Mutter ſchen ſollte.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="59" facs="#f0071"/>
+<div n="1"><head><hi rendition="#b">Mittel die Franzoſen zu ſchlagen.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">N</hi>eulich ſagt ich meiner Laute:</l><lb/>
+<l>Carl beſiegt die Franzen tapfer,</l><lb/>
+<l>Willſt du ihn denn nicht beſingen?</l><lb/>
+<l>Er verdient’s, ich will dirs ſagen,</l><lb/>
+<l>Er beſiegt, dis mußt du wiſſen,</l><lb/>
+<l>Deutſche Laute, deine Feinde.</l><lb/>
+<l>Wilſt du ſie nicht auch beſiegen?</l><lb/>
+<l>Lokke ſie doch in ein Treffen;</l><lb/>
+<l>Ich will ſingen, du ſollt ſtreiten;</l><lb/>
+<l>Aber nicht mit ſtarken Waffen,</l><lb/>
+<l>Nicht mit toͤdlichem Geſchoſſe,</l><lb/>
+<l>Nein, mit ſanften Liebestoͤnen.</l><lb/>
+<l>Laß ſie denn ſo zaͤrtlich klingen,</l><lb/>
+<l>Laß dich ſo bezaubernd hoͤren,</l><lb/>
+<l>Daß das ganze Heer der Franzen</l><lb/>
+<l>Sich den Augenblikk verliebe.</l><lb/>
+<l>Dann ſoll Carl dazwiſchen kommen,</l><lb/>
+<l>Und zum Vorteil ſeiner Helden</l><lb/>
+<fw type="catch" place="bottom">Ihnen</fw><lb/>
+<pb n="60" facs="#f0072"/>
+<l>Ihnen alle Maͤdchens rauben,</l><lb/>
+<l>Und wenn er das beſte kuͤſſet,</l><lb/>
+<l>Soll er ſie noch ſpoͤttiſch fragen:</l><lb/>
+<l>Wie gefaͤllt euch unſre Beute?</l></lg></div><lb/>
+<div n="1"><head><hi rendition="#b">Amor auf der Jagd.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">A</hi>mor winkt mir, ſoll ich folgen?</l><lb/>
+<l>Seht! wie ſchalkhaft kann er laͤcheln.</l><lb/>
+<l>Seht ihn doch! den kleinen Jaͤger.</l><lb/>
+<l>Dort im Buſche ſieht er Maͤdchens;</l><lb/>
+<l>Seht! er zeigt ſie mit dem Bogen.</l><lb/>
+<l>Seht! nun ſchleicht er an der Seite;</l><lb/>
+<l>Seht ihr nicht? er winkt ſchon wieder.</l><lb/>
+<l>Bruͤder laßt uns nicht mehr trinken,</l><lb/>
+<l>Wollt ihr mit? ich muß ihm folgen.</l><lb/>
+<l>Kommt, er ſoll die Nimfen ſchieſſen.</l><lb/>
+<l>Seht! er ſchießt ſchon. Laßt mich laufen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="61" facs="#f0073"/>
+<div n="1"><head><hi rendition="#b">Die geheime Sprache.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">W</hi>enn ich mich und meine Schoͤne</l><lb/>
+<l>Mit der gelben Nelke kroͤne,</l><lb/>
+<l>Wenn ich ihr mit Efen winke,</l><lb/>
+<l>Und ihr zeige, wie ich trinke,</l><lb/>
+<l>Wenn ich luſtig guter Dinge</l><lb/>
+<l>Ihr vergnuͤgt entgegen ſpringe,</l><lb/>
+<l>Wenn ich, da ich ihr begegne</l><lb/>
+<l>Ihren vollen Buſen ſeegne,</l><lb/>
+<l>Wenn ich ruf’: ich will im Garten</l><lb/>
+<l>Bei der Sonnenblume warten,</l><lb/>
+<l>Wenn ich ſie ins Thal begleite,</l><lb/>
+<l>Weiß ſie ſchon was es bedeute;</l><lb/>
+<l>Und weil wir uns fuͤrchten muͤſſen</l><lb/>
+<l>Muß ſie’s nur alleine wiſſen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="62" facs="#f0074"/>
+<div n="1"><head><hi rendition="#b">Trinklied.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">S</hi>eht den iungen Bacchus an!</l><lb/>
+<l>Seht doch! wie er trinken kann;</l><lb/>
+<l>Seht die Augen, die Geberden</l><lb/>
+<l>Sollen unſre Muſter werden!</l><lb/>
+<l>Wenn die Glaͤſer, voll von Wein</l><lb/>
+<l>Aug’ und Herz und Geiſt erfreun.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="2"><l>Treue Bruͤder, laßt euch rathen,</l><lb/>
+<l>Thut doch, was die Alten thaten,</l><lb/>
+<l>Gebt Verdienſten ihren Lohn,</l><lb/>
+<l>Kroͤnet dieſen Bacchusſohn;</l><lb/>
+<l>Daß die Tugend auf der Erde,</l><lb/>
+<l>Lieblich und erkennet werde.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="3"><l>Den die Weisheit ſichtbar ſchmuͤkkt,</l><lb/>
+<l>Der ſich doch zum Bacchus ſchikkt,</l><lb/>
+<l>Den man ſieht ſein Amt verwalten,</l><lb/>
+<l>Und des Abends Piknik halten,</l><lb/>
+<l><fw type="catch" place="bottom">Der</fw></l><lb/>
+<l>
+<pb n="63" facs="#f0075"/>
+Der noch nie beſtrafet iſt,</l><lb/>
+<l>Weil man ihn dabei vermißt;</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="4"><l>Der noch keinen Trunk vermieden,</l><lb/>
+<l>Der ſich ſelbſt darzu beſchieden,</l><lb/>
+<l>Den kein voller Roͤmer ſchrekkt,</l><lb/>
+<l>Dem der Wein am beſten ſchmekkt;</l><lb/>
+<l>Der verdient zum rechten Lohne</l><lb/>
+<l>Von den Bruͤdern eine Krone.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="5"><l>Bruͤder! ſeht den Bruder an,</l><lb/>
+<l>Wie der Bruder trinken kann!</l><lb/>
+<l>Unter allen Bacchusſoͤhnen</l><lb/>
+<l>Muß man ihn zum Koͤnig kroͤnen,</l><lb/>
+<l>Bruͤder, ia, er muß es ſeyn,</l><lb/>
+<l>Seht! er ſchenkt ſchon wieder ein.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="64" facs="#f0076"/>
+<div n="1"><head><hi rendition="#b">Der Sternſeher.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">D</hi>es Abends funkeln Sterne;</l><lb/>
+<l>Und iſt der Himmel helle:</l><lb/>
+<l>So ſeh’ ich gern ihr Funkeln.</l><lb/>
+<l>Doch ſeh’ ich meines Maͤdchens</l><lb/>
+<l>Recht feuervolle Augen,</l><lb/>
+<l>Zugleich im Fenſter funkeln:</l><lb/>
+<l>So lenk ich ſchnell mein Auge</l><lb/>
+<l>Vom Himmel nach dem Fenſter.</l><lb/>
+<l>Da ſeh ich beßre Sterne;</l><lb/>
+<l>Da ſchimmert meinen Augen,</l><lb/>
+<l>Die allerſchoͤnſte Venus;</l><lb/>
+<l>Da ſeh’ ich, in der Naͤhe,</l><lb/>
+<l>Den Glanz der rechten Henne,</l><lb/>
+<l>Und einen beſſern Wagen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="65" facs="#f0077"/>
+<div n="1"><head><hi rendition="#b">Auf den Tod einer Nachtigall<lb/>
+an<lb/>
+Herrn Naumann.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">S</hi>inge! Meiſter ſtarker Lieder,</l><lb/>
+<l>Singe! Preiß der Nachtigallen,</l><lb/>
+<l>Singe! Liebling meines Freundes,</l><lb/>
+<l>Die gewohnten Abendlieder.</l><lb/>
+<l>Siehſt du nicht? die Spree wird dunkel,</l><lb/>
+<l>Und es dient ihr helles Ufer</l><lb/>
+<l>Keiner Schoͤnen mehr zum Spiegel;</l><lb/>
+<l>Dennoch kommen ſie gepaaret,</l><lb/>
+<l>Aus Verlangen dich zu hoͤren,</l><lb/>
+<l>Oder doch aus Luſt zum Schatten.</l><lb/>
+<l>Siehſt du nicht, du Freund des Schattens,</l><lb/>
+<l>Siehſt du nicht die Sonne weichen?</l><lb/>
+<l>Singe doch! ſie geht zur Ruhe;</l><lb/>
+<l>Singe doch den Stern zu Grabe.</l><lb/>
+<l>Vogel! nein, bei todten Graͤbern</l><lb/>
+<l>Kannſt du deine Lieder ſparen.</l><lb/>
+<l>Nein, du biſt kein Leichenſaͤnger.</l><lb/>
+<l>Du beſchaͤm’ſt mit frohen Toͤnen</l><lb/>
+<l>Tauſend Operſaͤngerinnen;</l><lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom">Du</fw><lb/>
+<pb n="66" facs="#f0078"/>
+<l>Du beſingſt nur Scherz und Liebe</l><lb/>
+<l>Und das Volk im ſtillen Schatten,</l><lb/>
+<l>Das fuͤr neue Leichen ſorget.</l><lb/>
+<l>Soll ich meine Doris holen?</l><lb/>
+<l>Oder ſoll mein Freund im Schatten</l><lb/>
+<l>Eine Schaͤferinn verſoͤnen?</l><lb/>
+<l>Nachtigall! dann wirſt du ſingen.</l><lb/>
+<l>Aber wie? du biſt ſo ſtille.</l><lb/>
+<l>Schlaͤfſt du? oder biſt du traurig?</l><lb/>
+<l>Denn es regt ſich ia kein Fluͤgel.</l><lb/>
+<l>Freund! du biſt noch nicht geſtorben,</l><lb/>
+<l>Huͤpfe doch ſo frei, wie geſtern.</l><lb/>
+<l>Sieh! dort geht dein Herr gepaaret,</l><lb/>
+<l>Sieh doch! welchen Schatz er fuͤhret.</l><lb/>
+<l>Wilſt du denn kein Brautlied ſingen?</l><lb/>
+<l>Nachtigall! bald werd’ ich ſchelten.</l><lb/>
+<l>Hoͤrſt du keine Kuͤſſe rauſchen?</l><lb/>
+<l>Siehſt du keine Zaͤrtlichkeiten?</l><lb/>
+<l>Keine Boten ſuͤſſer Freuden?</l><lb/>
+<l>Keine Zeichen der Verliebten?</l><lb/>
+<l>Stoͤre ſie mit lauten Toͤnen</l><lb/>
+<l>In der Reihe des Vergnuͤgens.</l><lb/>
+<l>Sage, wilſt du ſie nicht ſtoͤren?</l><lb/>
+<l>Schweigſt du noch? hoͤr auf zu ſchweigen.</l><lb/>
+<fw type="catch" place="bottom">Schlage</fw><lb/>
+<pb n="67" facs="#f0079"/>
+<l>Schlage, daß ſie ſich erſchrekken,</l><lb/>
+<l>Staͤrker, wie die Abendglokke.</l><lb/>
+<l>Hilft kein Bitten? Wilſt du trotzen?</l><lb/>
+<l>Vogel! ſoll ich zornig werden?</l><lb/>
+<l>Bald wird mich dein Schweigen aͤrgern.</l><lb/>
+<l>Warte nur! man ſoll dich ſtrafen;</l><lb/>
+<l>Denn dein Herrr ſoll auf mein Bitten</l><lb/>
+<l>Dich von deiner Gattin trennen.</l><lb/>
+<l>Hoͤre doch ihr zaͤrtlichs Girren.</l><lb/>
+<l>Du, der ſtets die Liebe hoͤrte,</l><lb/>
+<l>Wilſt du ſie denn ietzt nicht hoͤren?</l><lb/>
+<l>Doris! komm nur mit der Kerze,</l><lb/>
+<l>Daß die Daͤmm’rung ſich entferne;</l><lb/>
+<l>Denn ich muß den Vogel ſehen,</l><lb/>
+<l>Und du ſolſt ihn zu dir nehmen,</l><lb/>
+<l>Und ihn meinem Freunde bringen,</l><lb/>
+<l>Daß er ſeinen Trotz beſtrafe.</l><lb/>
+<l>Vogel! wilſt du noch nicht ſingen?</l><lb/>
+<l>Warte nur! dort kommt die Kerze,</l><lb/>
+<l>Nette dich noch von der Strafe.</l><lb/>
+<l>Siehſt du? Doris ſoll dich nehmen.</l><lb/>
+<l>Nimm den trotzigen Gefang’nen,</l><lb/>
+<l>Nimm ihn, Doris! bei den Fluͤgeln,</l><lb/>
+<l>Und begleit ihn ſelbſt zur Strafe;</l><lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">Laß</fw><lb/>
+<pb n="68" facs="#f0080"/>
+<l>Laß ihn ‒‒ Doris! welch ein Schrekken!</l><lb/>
+<l>Siehſt du wol den armen Vogel?</l><lb/>
+<l>Siehſt du wol? er iſt geſtorben.</l><lb/>
+<l>Die betruͤbte Todtenfarbe</l><lb/>
+<l>Dekkt den Schnabel und die Augen.</l><lb/>
+<l>Muſt er denn ſo ſchnell erblaſſen?</l><lb/>
+<l>Geſtern ſang er noch ſo munter.</l><lb/>
+<l>Zwoͤlf gelehrte Stimmenkenner</l><lb/>
+<l>Prieſen geſtern ſeine Stimme.</l><lb/>
+<l>Unter ſeinen hellen Toͤnen</l><lb/>
+<l>Klang kein Ton, wie Trauertoͤne.</l><lb/>
+<l>Warum ſang er denn nicht traurig?</l><lb/>
+<l>Wollt’ er etwa, wie ein Weiſer,</l><lb/>
+<l>Seinem Tod entgegen ſcherzen?</l><lb/>
+<l>Ja, er wollt’ es, dir zu gleichen,</l><lb/>
+<l>Denn er war ein weiſer Vogel,</l><lb/>
+<l>Und es iſt die Art der Weiſen,</l><lb/>
+<l>Daß ſie leben, wenn ſie koͤnnen,</l><lb/>
+<l>Daß ſie lachen, wenn ſie ſterben.</l><lb/>
+<l>Warum ſah’ ich ihn nicht ſterben?</l><lb/>
+<l>Seine letzten frohen Toͤne</l><lb/>
+<l>Haͤtt’ ich, ſo wie ſie erſchallten,</l><lb/>
+<l>Schnell auf Noten ſetzen wollen,</l><lb/>
+<l>Daß du einſt mit ſeinem Liede,</l><lb/>
+<fw type="catch" place="bottom">Gleich,</fw><lb/>
+<pb n="69" facs="#f0081"/>
+<l>Gleichfals meine Todesſtunde</l><lb/>
+<l>Adeln und beſingen koͤnteſt;</l><lb/>
+<l>Daß ich oft auf meiner Floͤte,</l><lb/>
+<l>Nach den Kuͤſſen deines Mundes,</l><lb/>
+<l>Mit den Toͤnen des Verſtorb’nen,</l><lb/>
+<l>Tod und Gruft verlachen koͤnte.</l><lb/>
+<l>Tod! als du den Vogel holteſt,</l><lb/>
+<l>Sprich! ſcherzt er dir nicht entgegen?</l><lb/>
+<l>Ja, er war gewohnt zu ſcherzen.</l><lb/>
+<l>Er empfand Verdruß und Klagen,</l><lb/>
+<l>Aber mitten unter Traͤnen,</l><lb/>
+<l>Wenn verwaiſ’te Augen trau’rten,</l><lb/>
+<l>Scherzten dennoch ſeine Toͤne,</l><lb/>
+<l>Wie ſie, wenn die Freude lachte,</l><lb/>
+<l>Froͤlich mit darunter ſcherzten.</l><lb/>
+<l>O! wie bald, wie ſehr, wie ſehnend</l><lb/>
+<l>Wird mein Freund den Vogel miſſen,</l><lb/>
+<l>Wenn ſich keine frohe Lieder</l><lb/>
+<l>Unter ſeine Scherze miſchen.</l><lb/>
+<l>O! wie wird mein Freund ſich graͤmen,</l><lb/>
+<l>O! wie wird er ſich erſchrekken,</l><lb/>
+<l>Wenn er dieſe Leiche ſiehet.</l><lb/>
+<l>Doris! ſieh’ ſie doch, die Leiche,</l><lb/>
+<l>Kan ſie nicht dein Kuß erwekken?</l><lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">Kuͤß</fw><lb/>
+<pb n="70" facs="#f0082"/>
+<l>Kuͤß ihn doch, den kleinen Todten,</l><lb/>
+<l>Gib ihn her, ich will ihn kuͤſſen,</l><lb/>
+<l>Und dann will ich ihn verbergen,</l><lb/>
+<l>Daß mein Freund, im Klee, am Ufer,</l><lb/>
+<l>Mitten unter Scherz und Kuͤſſen,</l><lb/>
+<l>Keinen Todesfall erfahre.</l><lb/>
+<l>O! wie wird mein Freund ſich graͤmen!</l><lb/>
+<l>Waͤr ich doch kein Trauerbote!</l><lb/>
+<l>O! wie wird in ienem Bauer</l><lb/>
+<l>Die betruͤbte Gattin trauren!</l><lb/>
+<l>Doris! komm, ich will ſie troͤſten.</l><lb/>
+<l>Aber nein! ſie mag nur trauren,</l><lb/>
+<l>Denn ich moͤgte bei dem Troͤſten</l><lb/>
+<l>Auch an unſre Trennung denken;</l><lb/>
+<l>Und wer wuͤrde mich denn troͤſten?</l><lb/>
+<l>Engel! werde nur nicht traurig.</l><lb/>
+<l>Schweig! ſonſt machen deine Traͤnen</l><lb/>
+<l>Den Verluſt des Vogels groͤſſer.</l><lb/>
+<l>Schweig! ſonſt ſchaͤtzen deine Traͤnen</l><lb/>
+<l>Den Verluſt des beſten Saͤngers.</l><lb/>
+<l>Doris! warlich dieſer Vogel</l><lb/>
+<l>War der Preis der Nachtigallen,</l><lb/>
+<l>War ihr beſter Virtuoſe.</l><lb/>
+<l>Tauſend Operſaͤngerinnen,</l><lb/>
+<fw type="catch" place="bottom">Tauſend</fw><lb/>
+<pb n="71" facs="#f0083"/>
+<l>Tauſend Haͤlſe halber Maͤnner</l><lb/>
+<l>Solten ihn zu Grabe ſingen;</l><lb/>
+<l>Denn er ſang ſo ſchoͤn, wie tauſend.</l><lb/>
+<l>Macht Catull den Sperling ewig?</l><lb/>
+<l>O! es muß ein beßrer Dichter</l><lb/>
+<l>Dieſen Vogel ewig machen.</l><lb/>
+<l>O! es muß ein beßrer Troͤſter</l><lb/>
+<l>Meines Freundes Trauer tilgen.</l><lb/>
+<l>Broks, der Herold ſeiner Bruͤder,</l><lb/>
+<l>Broks ſoll ihm ein Grablied ſingen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="72" facs="#f0084"/>
+<div n="1"><head><hi rendition="#b">Der Regenbogen.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">B</hi>loͤder Schoͤnen blaſſe Wangen</l><lb/>
+<l>Werden ſchnell vor Scham erroͤthet,</l><lb/>
+<l>Wenn ſich bei der lieben Mutter</l><lb/>
+<l>Ein erwuͤnſchter Braͤut’gam meldet;</l><lb/>
+<l>Wenn ſie, auf Befehl der Mutter,</l><lb/>
+<l>Seinen erſten Kuß empfinden,</l><lb/>
+<l>Wird das holde Roth erhoͤhet,</l><lb/>
+<l>Und dann gleicht es iungen Roſen.</l><lb/>
+<l>Aber wenn ſie, ohne Mutter,</l><lb/>
+<l>Kuͤſſen und ſich kuͤſſen laſſen,</l><lb/>
+<l>Dann beſchaͤmt das Roth der Wangen</l><lb/>
+<l>Alle Roſen, allen Purpur.</l><lb/>
+<l>Laßt mir tauſend ſolche Wangen</l><lb/>
+<l>Um den halben Himmel ſetzen;</l><lb/>
+<l>Setzt ſie mir in runder Ordnung</l><lb/>
+<l>Unter dieſen Regenbogen:</l><lb/>
+<l>Ploͤtzlich ſoll er ſich verliehren,</l><lb/>
+<l>Denn er ſoll dem Wangenbogen,</l><lb/>
+<l>Wie der Mond der Sonnen weichen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="73" facs="#f0085"/>
+<div n="1"><head><hi rendition="#b">An Doris.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">K</hi>uͤnſtlerinn! wir kuͤnſteln beide,</l><lb/>
+<l>Du kannſt ſtikken, ich kann malen.</l><lb/>
+<l>Aber ſtikkſt du denn nur Blumen?</l><lb/>
+<l>Kanſt du nicht mit goldnen Faden</l><lb/>
+<l>Knaben oder Maͤdchen ſtikken?</l><lb/>
+<l>Wag’ es nur, du wirſt es koͤnnen.</l><lb/>
+<l>Aber erſtlich ſtikke Knaben.</l><lb/>
+<l>Stikke ſolche, wie ich male,</l><lb/>
+<l>Ohne Perlen, ohne Purpur,</l><lb/>
+<l>Wie ſie ſich im Gruͤnen iagen,</l><lb/>
+<l>Oder wie ſie ſich das Hemde</l><lb/>
+<l>Vor den Augen bloͤder Nimfen</l><lb/>
+<l>Vorwerts auf die Knie halten.</l><lb/>
+<l>Sieh’ ſie ſelbſt, hier ſind im Buche</l><lb/>
+<l>Zwanzig Knaben abgeſchildert,</l><lb/>
+<l>Waͤhle dir den beſten Knaben,</l><lb/>
+<l>Nimm den Loſen, der ſo laͤchelt,</l><lb/>
+<l>Oder ienen, mit dem Bogen,</l><lb/>
+<l>Der dich mit dem Pfeile drohet,</l><lb/>
+<l>Nimm ſie nicht, hier ſind noch andre,</l><lb/>
+<l>Sieh ſie an, und waͤhle ſelber,</l><lb/>
+<fw type="catch" place="bottom">Ich</fw><lb/>
+<pb n="74" facs="#f0086"/>
+<l>Ich will ſehn, wie gut du waͤhleſt.</l><lb/>
+<l>Dieſen Knaben wilſt du ſtikken?</l><lb/>
+<l>Dieſen, der nach Kuͤſſen ſchmachtet?</l><lb/>
+<l>Der halbnakkend ſich nicht ſchaͤmet?</l><lb/>
+<l>Doris! dieſes bin ich ſelber.</l><lb/>
+<l>Hat mein Pinſel mich getroffen?</l><lb/>
+<l>Kennſt du mich an dieſen Zuͤgen?</l><lb/>
+<l>Gut! du ſolſt mich ſelber ſtikken.</l><lb/>
+<l>Aber erſt muſt du mich ſchildern.</l><lb/>
+<l>Hoͤre nur, wir wollen tauſchen.</l><lb/>
+<l>Ich will ſtikken, du ſolſt malen.</l><lb/>
+<l>Hurtig gib mir Gold und Nadel,</l><lb/>
+<l>Dieſe Roſe will ich enden;</l><lb/>
+<l>Denn ſie wird in blauer Seide</l><lb/>
+<l>Einſt auf deinem Buſen bluͤhen.</l><lb/>
+<l>Unterdeß kanſt du mich malen,</l><lb/>
+<l>Und ſobald du mich gemalet,</l><lb/>
+<l>Solſt du das Gemaͤlde ſtikken.</l><lb/>
+<l>Da! hier haſt du meine Farben!</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="75" facs="#f0087"/>
+<div n="1"><head><hi rendition="#b">Das Fehlbare.<lb/>
+An<lb/>
+Herrn ‒‒ ‒‒ ‒‒ ‒‒</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>ir, Weisheit, bin ich gar nicht gut,</l><lb/>
+<l>Du laͤßt mirs oft an Freuden fehlen;</l><lb/>
+<l>Denn das, was man am liebſten thut,</l><lb/>
+<l>Wilſt du ſo gleich zum Boͤſen zaͤlen.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="2"><l>Dich, Froͤmmigkeit, dich lieb ich zwar,</l><lb/>
+<l>Doch! laß mich auch zuweilen fehlen;</l><lb/>
+<l>Ich will mir ia durchs ganze Jahr</l><lb/>
+<l>Den Fruͤhling nur dazu erwehlen.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="3"><l>Dich, liebes Gluͤkke, bet’ ich an,</l><lb/>
+<l>Laß mirs an keinem Guten fehlen!</l><lb/>
+<l>Nur laß mich, wenn ichs haben kan,</l><lb/>
+<l>Mehr Neider, als Dukaten zaͤlen.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="4"><l>Wenn du mir, Liebe, guͤnſtig biſt,</l><lb/>
+<l>So laß mir nicht Brunetten fehlen;</l><lb/>
+<l>Wenn ich Brunetten gnug gekuͤßt,</l><lb/>
+<l>So will ich denn Blondinen waͤhlen.</l></lg><lb/>
+<fw type="catch" place="bottom">Es</fw><lb/>
+<pb n="76" facs="#f0088"/>
+<lg n="5"><l>Es fehlet mir des Ehſtands Quaal,</l><lb/>
+<l>Ach moͤchte ſie nur immer fehlen;</l><lb/>
+<l>So koͤnt ich einſt zur frohen Zahl</l><lb/>
+<l>Der Tage auch die Naͤchte zaͤlen.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="6"><l>Ach ſeeliger Anakreon,</l><lb/>
+<l>Ach daß uns deine Zeiten fehlen!</l><lb/>
+<l>Den Vorteil wuͤnſcht ich mir davon,</l><lb/>
+<l>Du ſolteſt mir ein Maͤdchen waͤhlen.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="7"><l>Doch! wenn gleich dieſer Kenner fehlt,</l><lb/>
+<l>So ſoll mir doch die Wahl nicht fehlen.</l><lb/>
+<l>Mein Freund, der iuͤngſt fuͤr ſich gewaͤhlt,</l><lb/>
+<l>Soll auch fuͤr mich ein Maͤdchen waͤhlen.</l></lg></div><lb/>
+<div n="1"><head><hi rendition="#b">Der Komet.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">F</hi>reunde! ſeht den Schrekkpropheten.</l><lb/>
+<l>Unter Millionen Sternen,</l><lb/>
+<l>Die mir zum Vergnuͤgen funkeln,</l><lb/>
+<l>Funkelt dieſer mir zum Schrekken;</l><lb/>
+<l>Denn mir graut fuͤr ſeinem Schwanze.</l><lb/>
+<l>Glaubt es nur, wie ich es glaube,</l><lb/>
+<fw type="catch" place="bottom">Glaubt</fw><lb/>
+<pb n="77" facs="#f0089"/>
+<l>Glaubt es den Kometenkennern:</l><lb/>
+<l>Dieſer Stern war einſt ein Koͤrper,</l><lb/>
+<l>Welchen Engel oder Menſchen,</l><lb/>
+<l>Fuͤr Tirannen oder Prieſter,</l><lb/>
+<l>Schoͤn und fruchtbar machen muſten.</l><lb/>
+<l>Jetzt verwuͤſtet ihn ſein Schoͤpfer</l><lb/>
+<l>Aus Erbarmung oder Rache,</l><lb/>
+<l>Jetzt verzehrt ihn Dampf und Feuer,</l><lb/>
+<l>Und ſein Schwanz iſt voll Gewaͤſſer,</l><lb/>
+<l>Und er weiß ihn zu eroͤfnen,</l><lb/>
+<l>Und dann koͤnnen ſeine Fluten</l><lb/>
+<l>Ganze Welten untertauchen,</l><lb/>
+<l>Oder, wenn er uns beruͤhret,</l><lb/>
+<l>Kann er mich und euch verbrennen,</l><lb/>
+<l>Und dann koͤnnen wir im Brennen</l><lb/>
+<l>Keine Bruͤderſchaften ſtiften.</l><lb/>
+<l>Freunde! laßt uns Bruͤder werden,</l><lb/>
+<l>Daß wir uns wie Bruͤder troͤſten,</l><lb/>
+<l>Daß wir Bruder! ruffen koͤnnen,</l><lb/>
+<l>Wenn wir brennen oder ſchwimmen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="78" facs="#f0090"/>
+<div n="1"><head><hi rendition="#b">Auf eine ſchwarze Lerche.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">L</hi>erche! mit dem ſchwarzen Kopfe,</l><lb/>
+<l>Mit dem glaͤnzend ſchwarzen Schnabel,</l><lb/>
+<l>Sage! biſt du nicht ein Haͤhnchen?</l><lb/>
+<l>Deine freie Vogelmine</l><lb/>
+<l>Iſt ſo maͤnnlich, wie die meine,</l><lb/>
+<l>Und deshalb lobt dich mein Maͤdchen.</l><lb/>
+<l>Sage! haſt du denn kein Weibgen?</l><lb/>
+<l>Sind dir keine Kinder aͤhnlich?</l><lb/>
+<l>Oder, haſt du keine Schweſtern?</l><lb/>
+<l>Wo ſind deine Anverwandten?</l><lb/>
+<l>Gleicht dein Vater dir an Farbe?</l><lb/>
+<l>Oder, was hat ihn bewogen,</l><lb/>
+<l>Daß er dich ſo ſchwarz gefaͤrbet?</l><lb/>
+<l>Denn es gleicht dir ia kein Bruder.</l><lb/>
+<l>Vogel! ſchaffe mir geſchwinde</l><lb/>
+<l>Junge Lerchen, die dir gleichen;</l><lb/>
+<l>Ja! du muſt dich gleich verlieben.</l><lb/>
+<l>Sich! hier iſt fuͤr dich ein Weibgen.</l><lb/>
+<fw type="catch" place="bottom">Sieh!</fw><lb/>
+<pb n="79" facs="#f0091"/>
+<l>Sieh! mein Maͤdchen ſoll dirs geben,</l><lb/>
+<l>Nimms und ſchaffe mir Brunetten.</l><lb/>
+<l>Ich will ſehn, ob deine Bruͤder</l><lb/>
+<l>Ebenfals Brunetten lieben.</l><lb/>
+<l>Maͤdchen, ſieh! er wird ſich paaren,</l><lb/>
+<l>Maͤdchen, ſieh! er iſt kein Haͤhnchen.</l><lb/>
+<l>Sieh! wie artig kan man irren!</l><lb/>
+<l>Iſt dein Weibgen doch ein Haͤhnchen.</l><lb/>
+<l>Gleicht dir doch mein Fruͤlingsbote,</l><lb/>
+<l>An Geſchlecht, und Luſt, und Farbe</l><lb/>
+<l>Wie er mir an Freiheit gleichet.</l><lb/>
+<l>Da! ich ſchenk ihn dir den Vogel,</l><lb/>
+<l>Unvergleichliche Brunette!</l><lb/>
+<l>Lieb’ ihn, denn er iſt dir aͤhnlich.</l><lb/>
+<l>Doris! ia, du kanſt ia malen,</l><lb/>
+<l>Hurtig male mir den Vogel,</l><lb/>
+<l>Mal’ ihn zwiſchen andre Lerchen,</l><lb/>
+<l>Daß man ſieht, wie er ſich paaret.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="80" facs="#f0092"/>
+<div n="1"><head><hi rendition="#b">Kaffee und Thee.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">E</hi>s fragten mich einſt Maͤdchen</l><lb/>
+<l>Mit braunen Augenbraunen:</l><lb/>
+<l>Freund, warum trinkſt du Kaffee?</l><lb/>
+<l>Da ſprach ich zu dem Maͤdchen:</l><lb/>
+<l>Zur Ehre der Brunetten!</l><lb/>
+<l>Dis ruͤhmten ſich die Braunen</l><lb/>
+<l>Heut in der Kaffeeſtunde,</l><lb/>
+<l>Als ſie den blonden Maͤdchen</l><lb/>
+<l>Den Vorzug ſtreitig machten.</l><lb/>
+<l>Sie zankten ſich beim Kaffee,</l><lb/>
+<l>Und riefen mich zum Schlichten.</l><lb/>
+<l>Komm! ſprach ein loſes Maͤdchen,</l><lb/>
+<l>Und winkte mit dem Faͤcher,</l><lb/>
+<l>Du haſt ja einſt geſungen,</l><lb/>
+<l>Du koͤnteſt Haͤndel ſchlichten;</l><lb/>
+<l>Nun ſchlicht auch unſre Haͤndel.</l><lb/>
+<l>Doch, erſt muß ich dich fragen:</l><lb/>
+<l>Warum trinkſt du den Kaffee?</l></lg><lb/>
+<lg n="2"><l>Verraͤtriſche Brunette,</l><lb/>
+<l>Es hoͤren mein Bekentniß</l><lb/>
+<l><fw type="catch" place="bottom">Die</fw></l><lb/>
+<l>
+<pb n="81" facs="#f0093"/>
+Die artigſten Blondinen,</l><lb/>
+<l>Es hoͤrts die blonde Doris,</l><lb/>
+<l>Allein ich darf nicht ſchweigen.</l></lg><lb/>
+<lg n="3"><l>Ich ſprach, ſo bald ſie fragte:</l><lb/>
+<l>Zur Ehre der Brunetten!</l><lb/>
+<l>Und that den ſtillen Seufzer:</l><lb/>
+<l>Minerva gib mir Weisheit.</l><lb/>
+<l>Noch da ich alſo ſeufzte,</l><lb/>
+<l>Bewegten ſich die Braunen</l><lb/>
+<l>An allen Kaffeetiſchen,</l><lb/>
+<l>Und klatſchten in die Haͤnde,</l><lb/>
+<l>Und wieſen auf die Blonden,</l><lb/>
+<l>Und machten ſtolzre Minen</l><lb/>
+<l>Als Juno, da ſie herſchte.</l><lb/>
+<l>Schnell trat ich zu den Blonden,</l><lb/>
+<l>Und frug die blonde Doris:</l><lb/>
+<l>Was iauchzen denn die Schoͤnen?</l><lb/>
+<l>Da ſprach die Blonde ſpoͤttiſch:</l><lb/>
+<l>„Du trinkeſt ia den Kaffee</l><lb/>
+<l>„Zur Ehre der Brunetten.</l></lg><lb/>
+<lg n="4"><l>Hier ſagt ich langſam wieder,</l><lb/>
+<l>Was mir die weiſe Goͤttin</l><lb/>
+<l>Unſichtbar heimlich ſagte:</l><lb/>
+<l><fw type="sig" place="bottom">F</fw><fw type="catch" place="bottom">Den</fw></l><lb/>
+<l>
+<pb n="82" facs="#f0094"/>
+„Den braunen Trank der Tuͤrken</l><lb/>
+<l>„Trink ich des Nachmittages</l><lb/>
+<l>„Zur Ehre der Brunetten;</l><lb/>
+<l>„Den weiſſen Trank der Seren,</l><lb/>
+<l>„Den Thee, trink ich des Morgens</l><lb/>
+<l>„Zur Ehre der Blondinen.</l></lg><lb/>
+<lg n="5"><l>Schnell iauchzten alle Blonden,</l><lb/>
+<l>Und klatſchten in die Haͤnde,</l><lb/>
+<l>Und wieſen auf die Braunen,</l><lb/>
+<l>Und ſpotteten der Minen</l><lb/>
+<l>Des Vorzugs und des Stolzes.</l></lg><lb/>
+<lg n="6"><l>Ich aber gab Minerven</l><lb/>
+<l>Den Dank fuͤr ihre Weisheit,</l><lb/>
+<l>Und ſchlich mich aus dem Zimmer,</l><lb/>
+<l>Und ließ die Schoͤnen zanken.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="83" facs="#f0095"/>
+<div n="1"><head><hi rendition="#b">Die Aerzte.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">D</hi>urch den Anblikk holder Nimfen,</l><lb/>
+<l>Durch die Wuͤrkung ſanfter Haͤnde,</l><lb/>
+<l>Friſcher Wangen, ſchwarzer Augen</l><lb/>
+<l>Senken ſich in Geiſt und Glieder</l><lb/>
+<l>Neue Kraͤfte, neues Leben.</l><lb/>
+<l>Wenn ich, voll von Schlafſucht, liege,</l><lb/>
+<l>Darf mich nur Dorinde kuͤtzeln,</l><lb/>
+<l>Ploͤtzlich hoͤr’ ich auf zu ſchlafen.</l><lb/>
+<l>Wenn mir Kopf und Waugen ſchmerzen,</l><lb/>
+<l>Darf ſie ſie nur einmal ſtreicheln,</l><lb/>
+<l>Ploͤtzlich weichen alle Schmerzen.</l><lb/>
+<l>Neulich raubte mir ein Fieber</l><lb/>
+<l>Kraft und Luſt aus allen Nerven,</l><lb/>
+<l>Und ich fieng ſchon an zu ſterben;</l><lb/>
+<l>Aber Doris, meine Taube,</l><lb/>
+<l>Strich, mit ſanften Liebeshaͤnden,</l><lb/>
+<l>Alle halberſtorb’ne Glieder,</l><lb/>
+<l>Und, indem ich ſterben wolte,</l><lb/>
+<fw type="sig" place="bottom">F 2</fw><fw type="catch" place="bottom">Kuͤßte</fw><lb/>
+<pb n="84" facs="#f0096"/>
+<l>Kuͤßte ſie zum Abſchiedsſeegen</l><lb/>
+<l>Noch einmal die blaſſen Lippen,</l><lb/>
+<l>Ploͤtzlich hoͤrt’ ich auf zu ſterben.</l><lb/>
+<l>Ploͤtzlich flohen Brand und Fieber,</l><lb/>
+<l>Ploͤtzlich ward ich froh und munter.</l><lb/>
+<l>Zwanzig Stunden nach dem Kuſſe</l><lb/>
+<l>Fuͤhlt’ ich ſchon in allen Gliedern</l><lb/>
+<l>Neue Kraͤfte, neues Leben;</l><lb/>
+<l>Und nach zwanzig andern Stunden</l><lb/>
+<l>Hatt’ ich mir, mit neuen Kraͤften,</l><lb/>
+<l>Schon die Lippen roth gekuͤſſet.</l><lb/>
+<l>Doris! dein Geneſungsmittel</l><lb/>
+<l>Hat den Beifall aller Aerzte;</l><lb/>
+<l>Aber lehr es keinen Aerzten,</l><lb/>
+<l>Spar es nur fuͤr meine Fieber,</l><lb/>
+<l>Und verſchreib es keinen andern.</l><lb/>
+<l>Deine Schweſtern kanſt du’s lehren.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="85" facs="#f0097"/>
+<div n="1"><head><hi rendition="#b">Die Jugendluſt.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">L</hi>aßt den alten Ehrenmann</l><lb/>
+<l>Unſre Jugend ſchelten!</l><lb/>
+<l>Weil er es nicht laſſen kann</l><lb/>
+<l>Soll ers nicht entgelten.</l><lb/>
+<l>Weiß er doch, worauf er ſchilt,</l><lb/>
+<l>Was ihm ietzt ſo wenig gilt,</l><lb/>
+<l>That er ſonſt nicht ſelten.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="2"><l>Iſt es denn nicht Zeit genung</l><lb/>
+<l>Zu den bittern Klagen?</l><lb/>
+<l>Alter! warum waͤr ich iung?</l><lb/>
+<l>Etwa mich zu plagen?</l><lb/>
+<l>Sprich nur, ob dein Herz nicht ſpricht:</l><lb/>
+<l>Thu’ es erſt, wenn Muth gebricht,</l><lb/>
+<l>In den alten Tagen.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="3"><l>Alter, ſchweig! ich weiß, ich bin</l><lb/>
+<l>Auf dem rechten Wege.</l><lb/>
+<l>Bruder, ſieh! mein froher Sinn</l><lb/>
+<l>Iſt nicht faul noch traͤge.</l><lb/>
+<l>Sieh! es macht kein Kummerſchweiß,</l><lb/>
+<l>Nein, ein iugendlicher Fleiß</l><lb/>
+<l>Dieſe Herzensſchlaͤge.</l></lg><lb/>
+<fw type="sig" place="bottom">F 3</fw><fw type="catch" place="bottom">Muͤtter</fw><lb/>
+<pb n="86" facs="#f0098"/>
+<lg n="4"><l>Muͤtter! hoͤrt dem Vater zu,</l><lb/>
+<l>Hoͤret ſeine Lehren.</l><lb/>
+<l>Bruder ‒ ‒ ‒ ‒ ich und du</l><lb/>
+<l>Duͤrfen ſie nicht hoͤren.</l><lb/>
+<l>Nimm das Glas, das Doris haͤlt.</l><lb/>
+<l>Waͤre dis die beſte Welt,</l><lb/>
+<l>Wenn wir muͤßig waͤren?</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="5"><l>Bruder! ia, dich lehrt der Wein</l><lb/>
+<l>Deine Weisheitsſpruͤche.</l><lb/>
+<l>Koͤnt ich wohl dein Bruder ſeyn,</l><lb/>
+<l>Wenn ich dir nicht gliche?</l><lb/>
+<l>Nein, wir waͤren nicht geſcheut</l><lb/>
+<l>Wenn ein Tropfen Lebenszeit</l><lb/>
+<l>Ohne Luſt verſtriche.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="6"><l>Bruͤder! ruft die Warheit aus</l><lb/>
+<l>Auf den Bacchusfeſten.</l><lb/>
+<l>Und die bittet auf den Schmaus,</l><lb/>
+<l>Waͤhlet die zu Gaͤſten,</l><lb/>
+<l>Welche laͤngſt, wie wir, gewuſt,</l><lb/>
+<l>Welten voller Jugendluſt</l><lb/>
+<l>Sind die allerbeſten.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="87" facs="#f0099"/>
+<div n="1"><head><hi rendition="#b">Die Bruͤderſchaft.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">L</hi>aßt mich lachen, laßt mich ſcherzen,</l><lb/>
+<l>Denn was hilft mir Gram und Sorge.</l><lb/>
+<l>Weg, verdammter Schwarm der Grillen!</l><lb/>
+<l>Weg, und ſchwaͤrme ſchnell und ſicher</l><lb/>
+<l>Nach den Feinden meiner Freude.</l><lb/>
+<l>Komm! du Stifter des Vergnuͤgens,</l><lb/>
+<l>Komm! du Freund von Luſt und Bruͤdern,</l><lb/>
+<l>Komm! es ſoll der Saft im Glaſe,</l><lb/>
+<l>Den du aus den Trauben druͤkkeſt,</l><lb/>
+<l>Grillen, Gram und Haß ertraͤnken.</l><lb/>
+<l>Trinke mit, vergnuͤgter Vater,</l><lb/>
+<l>Bringe mir don vollen Roͤmer,</l><lb/>
+<l>Ich will ihn dem Nachbar bringen,</l><lb/>
+<l>Und der Nachbar ſoll ihn nehmen</l><lb/>
+<l>Und ihn andern Nachbarn bringen,</l><lb/>
+<l>Bis ihn dir der letzte Nachbar</l><lb/>
+<l>Voll und perlend wieder bringet.</l><lb/>
+<l>Dann ſollt du von forne trinken,</l><lb/>
+<l>Und dann werd ich wieder durſten,</l><lb/>
+<l>Und ihn freudig wieder leeren,</l><lb/>
+<l>Und, durch deinen Kuß berechtigt,</l><lb/>
+<l>Werd’ ich mich zum Bruder trinken.</l><lb/>
+<fw type="sig" place="bottom">F 4</fw><fw type="catch" place="bottom">Bruder</fw><lb/>
+<pb n="88" facs="#f0100"/>
+<l>Bruder Weingott! ia, ich merke,</l><lb/>
+<l>Ja, ich bin bereits dein Bruder.</l><lb/>
+<l>Kuͤſſe mich, ich will dich kuͤſſen,</l><lb/>
+<l>Daß ſich Treu und Bruderliebe</l><lb/>
+<l>Durch den Bruderkuß verſtaͤrke.</l><lb/>
+<l>Bruder, gnug! ſie iſt geſtaͤrket,</l><lb/>
+<l>Laß mich nun die Bruͤder kuͤſſen.</l><lb/>
+<l>Bruͤder! habt ihr keine Schweſtern?</l><lb/>
+<l>Nun ſind ſie mir auch verſchwiſtert.</l><lb/>
+<l>Holt ſie mir, ich will ſie kuͤſſen.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="[89]" facs="#f0101"/>
+<pb n="[90]" facs="#f0102"/>
+</body></text> </TEI>

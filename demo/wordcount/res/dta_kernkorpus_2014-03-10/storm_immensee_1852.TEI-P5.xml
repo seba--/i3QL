@@ -1,0 +1,1598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Immensee</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118618725">
+<surname>Storm</surname>
+<forename>Theodor</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">73</measure>
+<measure type="tokens">9881</measure>
+<measure type="types">2699</measure>
+<measure type="characters">64640</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:22Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/storm_immensee_1852</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/storm_immensee_1852</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/storm_immensee_1852</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/storm_immensee_1852</idno>
+<idno type="DTADirName">storm_immensee_1852</idno>
+<idno type="DTAID">16392</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905196106</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Storm, Theodor: Immensee. Berlin, 1852.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Immensee</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118618725">
+<surname>Storm</surname>
+<forename>Theodor</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">61 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Duncker</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1852</date>
+</publicationStmt>
+<notesStmt>
+<note type="remarkSource">Theodor Storms Novelle "Immensee" erschien zuerst 1850 in dem von Karl Leonhard Biernatzki herausgegebenen "Volksbuch für Schleswig, Holstein und Lauenburg" (Altona: Verlag der Expedition des Altonaer Mercur's). Gemäß den DTA-Leitlinien wurde für das Deutsche Textarchiv die erste selbstständige Publikation des Textes digitalisiert.</note>
+</notesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, 19 ZZ 8955</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=450813126</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Novelle</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="halftitle"> <docTitle> <titlePart type="main"> <hi rendition="#b #g">Immenſee.</hi></titlePart> </docTitle><lb/>
+<milestone unit="section" rendition="#hr"/> </titlePage>
+<pb n="[2]" facs="#f0008"/>
+<pb n="[3]" facs="#f0009"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b #g">Immenſee</hi></titlePart> </docTitle><lb/>
+<byline>von<lb/>
+<docAuthor> <hi rendition="#g">Theodor Storm.</hi></docAuthor> </byline><lb/>
+<figure/><lb/>
+<docImprint> <pubPlace>Berlin.</pubPlace><lb/>
+<publisher> <hi rendition="#b">Verlag von Alexander Duncker,</hi><lb/>
+Königl. Hofbuchhändler. </publisher><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docDate>1852.</docDate><lb/>
+</docImprint> </titlePage> </front> <body>
+<pb n="[4]" facs="#f0010"/>
+<pb n="[5]" facs="#f0011"/>
+<div n="1"> <head> <hi rendition="#b">Der Alte.</hi><lb/>
+</head> <p> <hi rendition="#in">A</hi>n einem Spätherbſtnachmittage ging ein alter wohl¬<lb/>
+gekleideter Mann langſam die Straße hinab. Er<lb/>
+ſchien von einem Spaziergange nach Hauſe zurück¬<lb/>
+zukehren; denn ſeine Schnallenſchuhe, die einer vor¬<lb/>
+übergegangenen Mode angehörten, waren beſtäubt.<lb/>
+Den langen Rohrſtock mit goldenem Knopf trug er<lb/>
+unter dem Arm; mit ſeinen dunkeln Augen, in welche<lb/>
+ſich die ganze verlorene Jugend gerettet zu haben<lb/>
+ſchien, und welche eigenthümlich von den ſchneeweißen<lb/>
+Haaren abſtachen, ſah er ruhig umher oder in die<lb/>
+Stadt hinab, welche im Abendſonnendufte vor ihm<lb/>
+lag. — Er ſchien faſt ein Fremder; denn von den<lb/>
+Vorübergehenden grüßten ihn nur wenige, obgleich<lb/>
+Mancher unwillkürlich in dieſe ernſten Augen zu ſehen<lb/>
+gezwungen wurde. Endlich ſtand er vor einem hohen<lb/>
+<pb n="6" facs="#f0012"/>
+Giebelhauſe ſtill, ſah noch einmal in die Stadt hin¬<lb/>
+aus, und trat dann in die Hausdiele. Bei dem Schall<lb/>
+der Thürglocke wurde drinnen in der Stube von einem<lb/>
+Guckfenſter, welches nach der Diele hinausging, der<lb/>
+grüne Vorhang weggeſchoben und das Geſicht einer<lb/>
+alten Frau dahinter ſichtbar. Der Mann winkte ihr<lb/>
+mit ſeinem Rohrſtock. Noch kein Licht! ſagte er in<lb/>
+einem etwas ſüdlichen Accent; und die Haushälterin<lb/>
+ließ den Vorhang wieder fallen. Der Alte ging nun<lb/>
+über die weite Hausdiele, durch einen Peſel, wo große<lb/>
+Eichſchränke mit Porzellanvaſen an den Wänden ſtan¬<lb/>
+den; durch die gegenüberſtehende Thür trat er in einen<lb/>
+kleinen Flur, von wo aus eine enge Treppe zu den<lb/>
+obern Zimmern des Hinterhauſes führte. Er ſtieg<lb/>
+ſie langſam hinauf, ſchloß oben eine Thür auf, und<lb/>
+trat dann in ein mäßig großes Zimmer. Hier war<lb/>
+es heimlich und ſtill; die eine Wand war faſt mit<lb/>
+Repoſitorien und Bücherſchränken bedeckt; an der<lb/>
+andern hingen Bilder von Menſchen und Gegenden;<lb/>
+vor einem Tiſch mit grüner Decke, auf dem einzelne<lb/>
+aufgeſchlagene Bücher umherlagen, ſtand ein ſchwer¬<lb/>
+fälliger Lehnſtuhl mit rothem Sammetkiſſen. — Nach¬<lb/>
+dem der Alte Hut und Stock in die Ecke geſtellt hatte,<lb/>
+<pb n="7" facs="#f0013"/>
+ſetzte er ſich in den Lehnſtuhl und ſchien mit gefalteten<lb/>
+Händen von ſeinem Spaziergange auszuruhen. —<lb/>
+Wie er ſo ſaß, wurde es allmählig dunkler; endlich<lb/>
+fiel ein Mondſtrahl durch die Fenſterſcheiben auf die<lb/>
+Gemälde an der Wand, und wie der helle Streif<lb/>
+langſam weiter rückte, folgten die Augen des Mannes<lb/>
+unwillkürlich. Nun trat er über ein kleines Bild in<lb/>
+ſchlichtem ſchwarzem Rahmen. Eliſabeth! ſagte der<lb/>
+Alte leiſe; und wie er das Wort geſprochen, war die<lb/>
+Zeit verwandelt; <hi rendition="#g">er war in ſeiner Jugend</hi>.</p><lb/>
+</div> <div n="1"> <head> <hi rendition="#b">Die Kinder</hi>.<lb/>
+</head> <p>Bald trat die anmuthige Geſtalt eines kleinen<lb/>
+Mädchens zu ihm. Sie hieß Eliſabeth und mochte<lb/>
+fünf Jahre zählen; er ſelbſt war doppelt ſo alt. Um<lb/>
+den Hals trug ſie ein rothſeidenes Tüchelchen; das<lb/>
+ließ ihr hübſch zu den braunen Augen.</p><lb/>
+<p>Reinhardt! rief ſie, wir haben frei, frei! den gan¬<lb/>
+zen Tag keine Schule, und morgen auch nicht.</p><lb/>
+<p>Reinhardt ſtellte die Rechentafel, die er ſchon<lb/>
+unterm Arm hatte, flink hinter die Hausthür, und<lb/>
+dann liefen beide Kinder durchs Haus in den Garten,<lb/>
+<pb n="8" facs="#f0014"/>
+und durch die Gartenpforte hinaus auf die Wieſe.<lb/>
+Die unverhofften Ferien kamen ihnen herrlich zu<lb/>
+Statten. Reinhardt hatte hier mit Eliſabeths Hülfe<lb/>
+ein Haus aus Raſenſtücken aufgeführt; darin wollten<lb/>
+ſie die Sommerabende wohnen; aber es fehlte noch<lb/>
+die Bank. Nun ging er gleich an die Arbeit; Nägel,<lb/>
+Hammer und die nöthigen Bretter lagen ſchon bereit.<lb/>
+Während deſſen ging Eliſabeth an dem Wall entlang<lb/>
+und ſammelte den ringförmigen Samen der wilden<lb/>
+Malve in ihre Schürze; davon wollte ſie ſich Ketten<lb/>
+und Halsbänder machen; und als Reinhardt endlich<lb/>
+trotz manches krumm geſchlagenen Nagels ſeine Bank<lb/>
+dennoch zu Stande gebracht hatte und nun wieder<lb/>
+in die Sonne hinaustrat, ging ſie ſchon weit davon<lb/>
+am andern Ende der Wieſe.</p><lb/>
+<p>Eliſabeth! rief er, Eliſabeth! und da kam ſie,<lb/>
+und ihre Locken flogen. Komm, ſagte er, nun iſt<lb/>
+unſer Haus fertig. Du biſt ja ganz heiß geworden;<lb/>
+komm herein, wir wollen uns auf die neue Bank<lb/>
+ſetzen. Ich erzähl' dir etwas.</p><lb/>
+<p>Dann gingen ſie beide hinein, und ſetzten ſich auf<lb/>
+die neue Bank. Eliſabeth nahm ihre Ringelchen aus<lb/>
+der Schürze und zog ſie auf lange Bindfäden; Rein¬<lb/>
+<pb n="9" facs="#f0015"/>
+hardt fing an zu erzählen: Es waren einmal drei<lb/>
+Spinnfrauen — —</p><lb/>
+<p>Ach, ſagte Eliſabeth, das weiß ich ja auswendig;<lb/>
+du mußt auch nicht immer daſſelbe erzählen.</p><lb/>
+<p>Da mußte Reinhardt die Geſchichte von den drei<lb/>
+Spinnfrauen ſtecken laſſen, und ſtatt deſſen erzählte<lb/>
+er die Geſchichte von dem armen Mann, der in die<lb/>
+Löwengrube geworfen war. Nun war es Nacht; ſagte<lb/>
+er, weißt du? ganz finſtere, und die Löwen ſchliefen.<lb/>
+Mitunter aber gähnten ſie im Schlaf und reckten die<lb/>
+rothen Zungen aus; dann ſchauderte der Mann und<lb/>
+meinte, daß der Morgen komme. Da warf es um ihn<lb/>
+her auf einmal einen hellen Schein, und als er auf¬<lb/>
+ſah, ſtand ein Engel vor ihm. Der winkte ihm mit<lb/>
+der Hand und ging dann gerade in die Felſen hinein.</p><lb/>
+<p>Eliſabeth hatte aufmerkſam zugehört. Ein Engel?<lb/>
+ſagte ſie: Hatte er denn Flügel?</p><lb/>
+<p>Es iſt nur ſo eine Geſchichte; antwortete Rein¬<lb/>
+hardt; es giebt ja gar keine Engel.</p><lb/>
+<p>O pfui, Reinhardt! ſagte ſie und ſah ihm ſtarr ins<lb/>
+Geſicht. Als er ſie aber finſter anblickte, fragte ſie<lb/>
+ihn zweifelnd: Warum ſagen ſie es denn immer?<lb/>
+Mutter und Tante und auch in der Schule?</p><lb/>
+<pb n="10" facs="#f0016"/>
+<p>Das weiß ich nicht; antwortete er.</p><lb/>
+<p>Aber du, ſagte Eliſabeth, giebt es denn auch keine<lb/>
+Löwen?</p><lb/>
+<p>Löwen? Ob es Löwen giebt! In Indien; da ſpan¬<lb/>
+nen die Götzenprieſter ſie vor den Wagen und fahren<lb/>
+mit ihnen durch die Wüſte. Wenn ich groß bin, will<lb/>
+ich einmal ſelber hin. Da iſt es viel tauſendmal<lb/>
+ſchöner als hier bei uns; da giebt es gar keinen Win¬<lb/>
+ter. Du mußt auch mit mir. Willſt du?</p><lb/>
+<p>Ja, ſagte Eliſabeth; aber Mutter muß dann auch<lb/>
+mit, und deine Mutter auch.</p><lb/>
+<p>Nein, ſagte Reinhardt; die ſind dann zu alt, die<lb/>
+können nicht mit.</p><lb/>
+<p>Ich darf aber nicht allein.</p><lb/>
+<p>Du ſollſt ſchon dürfen; du wirſt dann wirklich meine<lb/>
+Frau, und dann haben die Andern dir nichts zu<lb/>
+befehlen.</p><lb/>
+<p>Aber meine Mutter wird weinen.</p><lb/>
+<p>Wir kommen ja wieder, ſagte Reinhardt heftig;<lb/>
+ſag es nur gerade heraus, willſt du mit mir reiſen?<lb/>
+Sonſt geh ich allein; und dann komme ich nimmer<lb/>
+wieder.</p><lb/>
+<p>Der Kleinen kam das Weinen nahe. Mach nur<lb/>
+<pb n="11" facs="#f0017"/>
+nicht ſo böſe Augen, ſagte ſie; ich will ja mit nach<lb/>
+Indien.</p><lb/>
+<p>Reinhardt faßte ſie mit ausgelaſſener Freude bei<lb/>
+beiden Händen, und zog ſie hinaus auf die Wieſe.<lb/>
+Nach Indien, nach Indien! ſang er und ſchwenkte ſich<lb/>
+mit ihr im Kreiſe, daß ihr das rothe Tüchelchen vom<lb/>
+Halſe flog. Dann aber ließ er ſie plötzlich los und<lb/>
+ſagte ernſt: Es wird doch nichts daraus werden; du<lb/>
+haſt keine Courage.</p><lb/>
+<p>— — Eliſabeth! Reinhardt! rief es jetzt von der<lb/>
+Gartenpforte. Hier! Hier! antworteten die Kinder,<lb/>
+und ſprangen Hand in Hand nach Hauſe.</p><lb/>
+</div> <div n="1"> <head> <hi rendition="#b">Im Walde.</hi><lb/>
+</head> <p>So lebten die Kinder zuſammen; ſie war ihm oft<lb/>
+zu ſtill, er war ihr oft zu heftig, aber ſie ließen des¬<lb/>
+halb nicht von einander; faſt alle Freiſtunden theilten<lb/>
+ſie, Winters in den beſchränkten Zimmern ihrer Müt¬<lb/>
+ter; Sommers in Buſch und Feld. — Als Eliſabeth<lb/>
+einmal in Reinhardts Gegenwart von dem Schul¬<lb/>
+lehrer geſcholten wurde, ſtieß er ſeine Tafel zornig<lb/>
+auf den Tiſch, um den Eifer des Mannes auf ſich zu<lb/>
+<pb n="12" facs="#f0018"/>
+lenken. Es wurde nicht bemerkt. Aber Reinhardt ver¬<lb/>
+lor alle Aufmerkſamkeit an den geographiſchen Vor¬<lb/>
+trägen; ſtatt deſſen verfaßte er ein langes Gedicht;<lb/>
+darin verglich er ſich ſelbſt mit einem jungen Adler,<lb/>
+den Schulmeiſter mit einer grauen Krähe, Eliſabeth<lb/>
+war die weiße Taube; der Adler gelobte, an der grauen<lb/>
+Krähe Rache zu nehmen, ſobald ihm die Flügel ge¬<lb/>
+wachſen ſein würden. Dem jungen Dichter ſtanden<lb/>
+die Thränen in den Augen; er kam ſich ſehr erhaben<lb/>
+vor. Als er nach Hauſe gekommen war, wußte er ſich<lb/>
+einen kleinen Pergamentband mit vielen weißen Blät¬<lb/>
+tern zu verſchaffen; auf die erſten Seiten ſchrieb er<lb/>
+mit ſorgſamer Hand ſein erſtes Gedicht. — Bald<lb/>
+darauf kam er in eine andere Schule; hier ſchloß er<lb/>
+manche neue Kameradſchaft mit Knaben ſeines Al¬<lb/>
+ters; aber ſein Verkehr mit Eliſabeth wurde dadurch<lb/>
+nicht geſtört. Von den Märchen, welche er ihr ſonſt<lb/>
+erzählt und wieder erzählt hatte, fing er jetzt an, die,<lb/>
+welche ihr am beſten gefallen hatten, aufzuſchreiben;<lb/>
+dabei wandelte ihn oft die Luſt an, etwas von ſeinen<lb/>
+eigenen Gedanken hineinzudichten; aber, er wußte<lb/>
+nicht weshalb, er konnte immer nicht dazu gelangen.<lb/>
+So ſchrieb er ſie genau auf, wie er ſie ſelber gehört<lb/>
+<pb n="13" facs="#f0019"/>
+hatte. Dann gab er die Blätter an Eliſabeth, die<lb/>
+ſie in einem Schubfach ihrer Schatulle ſorgfältig<lb/>
+aufbewahrte; und es gewährte ihm eine anmuthige<lb/>
+Befriedigung, wenn er ſie mitunter Abends dieſe<lb/>
+Geſchichten in ſeiner Gegenwart aus den von ihm<lb/>
+geſchriebenen Heften ihrer Mutter vorleſen hörte.</p><lb/>
+<p>Sieben Jahre waren vorüber. Reinhardt ſollte<lb/>
+zu ſeiner weiteren Ausbildung die Stadt verlaſſen.<lb/>
+Eliſabeth konnte ſich nicht in den Gedanken finden,<lb/>
+daß es nun eine Zeit ganz ohne Reinhardt geben<lb/>
+werde. Es freute ſie, als er ihr eines Tages ſagte,<lb/>
+er werde, wie ſonſt, Märchen für ſie aufſchreiben; er<lb/>
+wolle ſie ihr mit den Briefen an ſeine Mutter ſchicken;<lb/>
+ſie müſſe ihm dann wieder ſchreiben, wie ſie ihr gefallen<lb/>
+hätten. Die Abreiſe rückte heran; vorher aber kam<lb/>
+noch mancher Reim in den Pergamentband. Das<lb/>
+allein war für Eliſabeth ein Geheimniß, obgleich ſie<lb/>
+die Veranlaſſung zu dem ganzen Buche und zu den<lb/>
+meiſten Liedern war, welche nach und nach faſt die<lb/>
+Hälfte der weißen Blätter gefüllt hatten.</p><lb/>
+<p>Es war im Juni; Reinhardt ſollte am anderen<lb/>
+Tage reiſen. Nun wollte man noch einmal einen<lb/>
+feſtlichen Tag zuſammen begehen. Dazu wurde eine<lb/>
+<pb n="14" facs="#f0020"/>
+Landpartie nach einer der <choice><sic>nahbelegenen</sic><corr>nahgelegenen</corr></choice> Holzungen<lb/>
+in größerer Geſellſchaft veranſtaltet. Der ſtunden¬<lb/>
+lange Weg bis an den Saum des Waldes wurde zu<lb/>
+Wagen zurückgelegt; dann nahm man die Proviant¬<lb/>
+körbe herunter und marſchirte weiter. Ein Tannen¬<lb/>
+gehölz mußte zuerſt durchwandert werden; es war<lb/>
+kühl und dämmerig und der Boden überall mit ſeinen<lb/>
+Nadeln beſtreut. Nach halbſtündigem Wandern kam<lb/>
+man aus dem Tannendunkel in eine friſche Buchen¬<lb/>
+waldung; hier war alles licht und grün, mit¬<lb/>
+unter brach ein Sonnenſtrahl durch die blätterreichen<lb/>
+Zweige; ein Eichkätzchen ſprang über ihren Köpfen<lb/>
+von Aſt zu Aſt. — Auf einem Platze, über welchem<lb/>
+uralte Buchen mit ihren Kronen zu einem durch¬<lb/>
+ſichtigen Laubgewölbe zuſammenwuchſen, machte die<lb/>
+Geſellſchaft Halt. Eliſabeths Mutter öffnete einen<lb/>
+der Körbe; ein alter Herr warf ſich zum Proviant¬<lb/>
+meiſter auf. Alle um mich herum, ihr jungen Vögel!<lb/>
+rief er, und merket genau, was ich euch zu ſagen habe.<lb/>
+Zum Frühſtück erhält jetzt ein Jeder von euch zwei<lb/>
+trockene Wecken; die Butter iſt zu Hauſe geblieben,<lb/>
+die Zukoſt muß ſich ein Jeder ſelber ſuchen. Es ſtehen<lb/>
+genug Erdbeeren im Walde, das heißt, für den, der<lb/>
+<pb n="15" facs="#f0021"/>
+ſie zu finden weiß. Wer ungeſchickt iſt, muß ſein<lb/>
+Brod trocken eſſen; ſo geht es überall im Leben.<lb/>
+Habt ihr meine Rede begriffen?</p><lb/>
+<p>Ja wohl! riefen die Jungen.</p><lb/>
+<p>Ja ſeht, ſagte der Alte, ſie iſt aber noch nicht zu<lb/>
+Ende. Wir Alten haben uns im Leben ſchon genug<lb/>
+umhergetrieben; darum bleiben wir jetzt zu Haus, das<lb/>
+heißt, hier unter dieſen breiten Bäumen, und ſchälen<lb/>
+die Kartoffeln, und machen Feuer und rüſten die<lb/>
+Tafel, und wenn die Uhr zwölf iſt, ſollen auch die<lb/>
+Eier gekocht werden. Dafür ſeid ihr uns von euren<lb/>
+Erdbeeren die Hälfte ſchuldig, damit wir auch einen<lb/>
+Nachtiſch ſerviren können. Und nun geht nach Oſt<lb/>
+und Weſt und ſeid ehrlich!</p><lb/>
+<p>Die Jungen machten allerlei ſchelmiſche Geſichter.<lb/>
+Halt! rief der alte Herr noch einmal. Das brauche<lb/>
+ich euch wohl nicht zu ſagen, wer keine findet, braucht<lb/>
+auch keine abzuliefern; aber das ſchreibt euch wohl<lb/>
+hinter eure feinen Ohren, von uns Alten bekommt er<lb/>
+auch nichts. Und nun habt ihr für dieſen Tag gute<lb/>
+Lehren genug; wenn ihr nun noch Erdbeeren dazu<lb/>
+habt, ſo werdet ihr für heute ſchon durchs Leben<lb/>
+kommen.</p><lb/>
+<pb n="16" facs="#f0022"/>
+<p>Die Jungen waren derſelben Meinung, und began¬<lb/>
+nen ſich paarweiſe auf die Fahrt zu machen.</p><lb/>
+<p>Komm, Eliſabeth, ſagte Reinhardt, ich weiß einen<lb/>
+Erdbeerenſchlag; du ſollſt kein trocknes Brod eſſen.</p><lb/>
+<p>Eliſabeth knüpfte die grünen Bänder ihres Stroh¬<lb/>
+huts zuſammen, und hing ihn über den Arm. So<lb/>
+komm, ſagte ſie, der Korb iſt fertig.</p><lb/>
+<p>Dann gingen ſie in den Wald hinein, tiefer und<lb/>
+tiefer; durch feuchte undurchdringliche Baumſchatten,<lb/>
+wo Alles ſtill war, nur unſichtbar über ihnen in den<lb/>
+Lüften das Geſchrei der Falken; dann wieder durch<lb/>
+dichtes Geſtrüpp, ſo dicht, daß Reinhardt vorangehen<lb/>
+mußte, um einen Pfad zu machen, hier einen Zweig<lb/>
+zu knicken, dort eine Ranke bei Seite zu biegen.<lb/>
+Bald aber hörte er hinter ſich Eliſabeth ſeinen Namen<lb/>
+rufen. Er wandte ſich um. Reinhardt! rief ſie,<lb/>
+warte doch, Reinhardt! — Er konnte ſie nicht gewahr<lb/>
+werden; endlich ſah, er ſie in einiger Entfernung<lb/>
+mit den Sträuchern kämpfen; ihr feines Köpfchen<lb/>
+ſchwamm nur kaum über den Spitzen der Farren¬<lb/>
+kräuter. Nun ging er noch einmal zurück, und führte<lb/>
+ſie durch das Wirrniß der Kräuter und Stauden auf<lb/>
+einen freien Platz hinaus, wo blaue Falter zwiſchen<lb/>
+<pb n="17" facs="#f0023"/>
+den einſamen Waldblumen flatterten. Reinhardt ſtrich<lb/>
+ihr die feuchten Haare aus dem erhitzten Geſichtchen;<lb/>
+dann wollte er ihr den Strohhut aufſetzen, und ſie<lb/>
+wollte es nicht leiden; aber dann bat er ſie, und dann<lb/>
+ließ ſie es doch geſchehen.</p><lb/>
+<p>Wo bleiben denn aber deine Erdbeeren? fragte<lb/>
+ſie endlich, indem ſie ſtehen blieb und einen tiefen<lb/>
+Athemzug that.</p><lb/>
+<p>Hier haben ſie geſtanden, ſagte er; aber die Kröten<lb/>
+ſind uns zuvorgekommen, oder die Marder, oder viel¬<lb/>
+leicht die Elfen.</p><lb/>
+<p>Ja, ſagte Eliſabeth, die Blätter ſtehen noch da;<lb/>
+aber ſprich hier nicht von Elfen. Komm nur, ich bin<lb/>
+noch gar nicht müde; wir wollen weiter ſuchen.</p><lb/>
+<p>Vor ihnen war ein kleiner Bach, jenſeits wieder<lb/>
+der Wald. Reinhardt hob Eliſabeth auf ſeine Arme<lb/>
+und trug ſie hinüber. Nach einer Weile traten ſie<lb/>
+aus dem ſchattigen Laube wieder in eine weite Lich¬<lb/>
+tung hinaus. Hier müſſen Erdbeeren ſein, ſagte das<lb/>
+Mädchen, es duftet ſo ſüß.</p><lb/>
+<p>Sie gingen ſuchend durch den ſonnigen Raum;<lb/>
+aber ſie fanden keine. Nein, ſagte Reinhardt, es iſt<lb/>
+nur der Duft des Haidekrauts.</p><lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Storm</hi>, Immenſee. 2<lb/>
+</fw>
+<pb n="18" facs="#f0024"/>
+<p>Himbeerbüſche und Hülſendorn ſtanden überall<lb/>
+durch einander, ein ſtarker Geruch von Haidekräu¬<lb/>
+tern, welche abwechſelnd mit kurzem Graſe die freien<lb/>
+Stellen des Bodens bedeckten, erfüllte die Luft. Hier<lb/>
+iſt es einſam, ſagte Eliſabeth; wo mögen die Andern<lb/>
+ſein?</p><lb/>
+<p>An den Rückweg hatte Reinhardt nicht gedacht.<lb/>
+Warte nur; woher kommt der Wind? ſagte er, und<lb/>
+hob ſeine Hand in die Höhe. Aber es kam kein Wind.</p><lb/>
+<p>Still, ſagte Eliſabeth, mich dünkt, ich hörte ſie<lb/>
+ſprechen. Rufe einmal dahinunter.</p><lb/>
+<p>Reinhardt rief durch die hohle Hand: Kommt hier¬<lb/>
+her! — Hierher! rief es zurück.</p><lb/>
+<p>Sie antworten! ſagte Eliſabeth und klatſchte in die<lb/>
+Hände.</p><lb/>
+<p>Nein, es war nichts, es war nur der Wiederhall.</p><lb/>
+<p>Eliſabeth faßte Reinhardts Hand. Mir graut!<lb/>
+ſagte ſie.</p><lb/>
+<p>Nein, ſagte Reinhardt, das muß es nicht. Hier<lb/>
+iſt es prächtig. Setz dich dort in den Schatten zwi¬<lb/>
+ſchen die Kräuter. Laß uns eine Weile ausruhen;<lb/>
+wir finden die Andern ſchon.</p><lb/>
+<p>Eliſabeth ſetzte ſich unter eine überhängende Buche<lb/>
+<pb n="19" facs="#f0025"/>
+und lauſchte aufmerkſam nach allen Seiten; Reinhardt<lb/>
+ſaß einige Schritte davon auf einem Baumſtumpf und<lb/>
+ſah ſchweigend nach ihr hinüber. Die Sonne ſtand<lb/>
+gerade über ihnen; es war glühende Mittagshitze;<lb/>
+kleine goldglänzende, ſtahlblaue Fliegen ſtanden flügel¬<lb/>
+ſchwingend in der Luft; rings um ſie her ein feines<lb/>
+Schwirren und Summen, und manchmal hörte man<lb/>
+tief im Walde das Hämmern der Spechte und das<lb/>
+Kreiſchen der andern Waldvögel.</p><lb/>
+<p>Horch, ſagte Eliſabeth, es läutet.</p><lb/>
+<p>Wo? fragte Reinhardt.</p><lb/>
+<p>Hinter uns. Hörſt du? Es iſt Mittag.</p><lb/>
+<p>Dann liegt hinter uns die Stadt; und wenn wir<lb/>
+in dieſer Richtung gerade durchgehen, ſo müſſen wir<lb/>
+die Andern treffen.</p><lb/>
+<p>So traten ſie ihren Rückweg an; das Erdbeeren¬<lb/>
+ſuchen hatten ſie aufgegeben, denn Eliſabeth war<lb/>
+müde geworden. Endlich klang zwiſchen den Bäumen<lb/>
+hindurch das Lachen der Geſellſchaft; dann ſahen ſie<lb/>
+auch ein weißes Tuch am Boden ſchimmern, das war<lb/>
+die Tafel, und darauf ſtanden Erdbeeren in Hülle<lb/>
+und Fülle. Der alte Herr hatte eine Serviette im<lb/>
+Knopfloch und den Jungen die Fortſetzung ſei¬<lb/>
+<fw type="sig" place="bottom">2*<lb/>
+</fw>
+<pb n="20" facs="#f0026"/>
+ner moraliſchen Reden, während er eifrig an einem<lb/>
+Braten herumtranchirte.</p><lb/>
+<p>Da ſind die Nachzügler! riefen die Jungen, als ſie<lb/>
+Reinhardt und Eliſabeth durch die Bäume kommen<lb/>
+ſahen.</p><lb/>
+<p>Hierher! rief der alte Herr, Tücher ausgeleert, Hüte<lb/>
+umgekehrt! Nun zeigt her, was ihr gefunden habt.</p><lb/>
+<p>Hunger und Durſt! ſagte Reinhardt.</p><lb/>
+<p>Wenn das Alles iſt, erwiderte der Alte, und hob<lb/>
+ihnen die volle Schüſſel entgegen, ſo müßt ihr es auch<lb/>
+behalten. Ihr kennt die Abrede; hier werden keine<lb/>
+Müßiggänger gefüttert.</p><lb/>
+<p>Endlich ließ er ſich aber doch erbitten, und nun<lb/>
+wurde Tafel gehalten; dazu ſchlug die Droſſel aus<lb/>
+den Wachholderbüſchen.</p><lb/>
+<p>So ging der Tag hin. — Reinhardt hatte aber doch<lb/>
+etwas gefunden; waren es keine Erdbeeren, ſo war<lb/>
+es doch auch im Walde gewachſen. Als er nach Hauſe<lb/>
+gekommen war, ſchrieb er in ſeinen alten Pergament¬<lb/>
+band:</p><lb/>
+<lg type="poem"> <lg n="1"> <l>Hier an der Bergeshalde</l><lb/>
+<l>Verſtummet ganz der Wind;</l><lb/>
+<l>Die Zweige hängen nieder,</l><lb/>
+<l>Darunter ſitzt das Kind.</l><lb/>
+</lg>
+<pb n="21" facs="#f0027"/>
+<lg n="2"> <l>Sie ſitzt im Thymiane,</l><lb/>
+<l>Sie ſitzt in lauter Duft;</l><lb/>
+<l>Die blauen Fliegen ſummen</l><lb/>
+<l>Und blitzen durch die Luft.</l><lb/>
+</lg> <lg n="3"> <l>Es ſteht der Wald ſo ſchweigend,</l><lb/>
+<l>Sie ſchaut ſo klug darein;</l><lb/>
+<l>Um ihre braunen Locken</l><lb/>
+<l>Hinfließt der Sonnenſchein.</l><lb/>
+</lg> <lg n="4"> <l>Der Kuckuck lacht von ferne,</l><lb/>
+<l>Es geht mir durch den Sinn:</l><lb/>
+<l>Sie hat die goldnen Augen</l><lb/>
+<l>Der Waldeskönigin.</l><lb/>
+</lg> </lg> <p>So war ſie nicht allein ſein Schützling; ſie war ihm<lb/>
+auch der Ausdruck für alles Liebliche und Wunderbare<lb/>
+ſeines aufgehenden Lebens.</p><lb/>
+</div> <div n="1"> <head> <hi rendition="#b">Da ſtand das Kind am Wege.</hi><lb/>
+</head> <p>Weihnachtabend kam heran. — Es war noch Nach¬<lb/>
+mittags, als Reinhardt mit andern Studenten im<lb/>
+Rathskeller am alten Eichentiſch zuſammen ſaß. Die<lb/>
+Lampen an den Wänden waren angezündet, denn hier<lb/>
+unten dämmerte es ſchon; aber die Gäſte waren ſpar¬<lb/>
+ſam verſammelt, die Kellner lehnten müßig an den<lb/>
+Mauerpfeilern. In einem Winkel des Gewölbes<lb/>
+ſaßen ein Geigenſpieler und ein Zittermädchen mit<lb/>
+<pb n="22" facs="#f0028"/>
+feinen zigeunerhaften Zügen; ſie hatten ihre Inſtru¬<lb/>
+mente auf dem Schooß liegen und ſchienen theilnahm¬<lb/>
+los vor ſich hin zu ſehen.</p><lb/>
+<p>Am Studententiſche knallte ein Champagnerpfrop¬<lb/>
+fen. Trinke, mein böhmiſch Liebchen! rief ein junger<lb/>
+Mann von junkerhaftem Aeußern, indem er ein volles<lb/>
+Glas zu dem Mädchen hinüberreichte.</p><lb/>
+<p>Ich mag nicht, ſagte ſie, ohne ihre Stellung zu ver¬<lb/>
+ändern.</p><lb/>
+<p>So ſinge! rief der Junker, und warf ihr eine Sil¬<lb/>
+bermünze in den Schooß. Das Mädchen ſtrich ſich<lb/>
+langſam mit den Fingern durch ihr ſchwarzes Haar,<lb/>
+während der Geigenſpieler ihr ins Ohr flüſterte; aber<lb/>
+ſie warf den Kopf zurück, und ſtützte das Kinn auf<lb/>
+ihre Zitter. Für den ſpiel' ich nicht, ſagte ſie.</p><lb/>
+<p>Reinhardt ſprang mit dem Glaſe in der Hand auf,<lb/>
+und ſtellte ſich vor ſie. Was willſt du? fragte ſie<lb/>
+trotzig.</p><lb/>
+<p>Deine Augen ſehn.</p><lb/>
+<p>Was gehn dich meine Augen an?</p><lb/>
+<p>Reinhardt ſah funkelnd auf ſie nieder. Ich weiß<lb/>
+wohl, ſie ſind falſch! — Sie legte ihre Wange in die<lb/>
+flache Hand, und ſah ihn lauernd an. Reinhardt hob<lb/>
+<pb n="23" facs="#f0029"/>
+ſein Glas an den Mund. Auf deine ſchönen, ſünd¬<lb/>
+haften Augen! ſagte er, und trank.</p><lb/>
+<p>Sie lachte, und warf den Kopf herum. Gieb!<lb/>
+ſagte ſie; und indem ſie ihre ſchwarzen Augen in die<lb/>
+ſeinen heftete, trank ſie langſam den Reſt. Dann<lb/>
+griff ſie einen Dreiklang und ſang mit tiefer leiden¬<lb/>
+ſchaftlicher Stimme:<lb/>
+<lg type="poem"> <l>Heute, nur heute</l><lb/>
+<l>Bin ich ſo ſchön ;</l><lb/>
+<l>Morgen, ach morgen</l><lb/>
+<l>Muß Alles vergehn!</l><lb/>
+<l>Nur dieſe Stunde</l><lb/>
+<l>Biſt du noch mein;</l><lb/>
+<l>Sterben, ach ſterben</l><lb/>
+<l>Soll ich allein.</l><lb/>
+</lg> Während der Geigenſpieler in raſchem Tempo das<lb/>
+Nachſpiel einſetzte, geſellte ſich ein neuer Ankömmling<lb/>
+zu der Gruppe.</p><lb/>
+<p>Ich wollte dich abholen, Reinhardt; ſagte er. Du<lb/>
+warſt ſchon fort; aber das Chriſtkind war bei dir ein¬<lb/>
+gekehrt.</p><lb/>
+<p>Das Chriſtkind? ſagte Reinhardt, das kommt nicht<lb/>
+mehr zu mir.</p><lb/>
+<p>Ei was! Dein ganzes Zimmer roch nach Tannen¬<lb/>
+baum und braunen Kuchen.</p><lb/>
+<pb n="24" facs="#f0030"/>
+<p>Reinhardt ſetzte das Glas aus der Hand und griff<lb/>
+nach ſeiner Mütze.</p><lb/>
+<p>Was willſt du? fragte das Mädchen.</p><lb/>
+<p>Ich komme ſchon wieder.</p><lb/>
+<p>Sie runzelte die Stirn. Bleib! rief ſie leiſe, und<lb/>
+ſah ihn vertraulich an.</p><lb/>
+<p>Reinhardt zögerte. Ich kann nicht, ſagte er.</p><lb/>
+<p>Sie ſtieß ihn lachend mit der Fußſpitze. Geh!<lb/>
+ſagte ſie. Du taugſt nichts; ihr taugt alle mit ein¬<lb/>
+ander nichts. Und während ſie ſich abwandte, ſtieg<lb/>
+Reinhardt langſam die Kellertreppe hinauf.</p><lb/>
+<p>Draußen auf der Straße war es tiefe Dämmerung;<lb/>
+er fühlte die friſche Winterluft an ſeiner heißen Stirn.<lb/>
+Hie und da fiel der helle Schein eines brennenden<lb/>
+Tannenbaums aus den Fenſtern, dann und wann<lb/>
+hörte man von drinnen das Geräuſch von kleinen<lb/>
+Pfeifen und Blechtrompeten und dazwiſchen jubelnde<lb/>
+Kinderſtimmen. Schaaren von Bettelkindern gingen<lb/>
+von Haus zu Haus, oder ſtiegen auf die Treppen¬<lb/>
+geländer und ſuchten durch die Fenſter einen Blick in<lb/>
+die verſagte Herrlichkeit zu gewinnen. Mitunter<lb/>
+wurde auch eine Thür plötzlich aufgeriſſen und ſchel¬<lb/>
+tende Stimmen trieben einen ganzen Schwarm ſolcher<lb/>
+<pb n="25" facs="#f0031"/>
+kleinen Gäſte aus dem hellen Hauſe auf die dunkle<lb/>
+Gaſſe hinaus; anderswo wurde auf dem Hausflur ein<lb/>
+altes Weihnachtslied geſungen; es waren klare Mäd¬<lb/>
+chenſtimmen darunter. Reinhardt hörte ſie nicht, er<lb/>
+ging raſch an Allem vorüber, aus einer Straße in<lb/>
+die andere. Als er an ſeine Wohnung gekommen,<lb/>
+war es faſt völlig dunkel geworden: er ſtolperte die<lb/>
+Treppe hinauf und trat in ſeine Stube. Ein ſüßer<lb/>
+Duft ſchlug ihm entgegen; das heimelte ihn an, das<lb/>
+roch wie zu Haus der Mutter Weihnachtsſtube. Mit<lb/>
+zitternder Hand zündete er ſein Licht an; da lag ein<lb/>
+mächtiges Packet auf dem Tiſch, und als er es öffnete,<lb/>
+fielen die wohlbekannten braunen Feſtkuchen heraus;<lb/>
+auf einigen waren die Anfangsbuchſtaben ſeines Na¬<lb/>
+mens in Zucker ausgeſtreut; das konnte Niemand<lb/>
+anders als Eliſabeth gethan haben. Dann kam ein<lb/>
+Päckchen mit feiner geſtickter Wäſche zum Vorſchein,<lb/>
+Tücher und Manſchetten, zuletzt Briefe von der Mut¬<lb/>
+ter und von Eliſabeth. Reinhardt öffnete zuerſt den<lb/>
+letzteren; Eliſabeth ſchrieb:</p><lb/>
+<p>Die ſchönen Zuckerbuchſtaben können dir wohl<lb/>
+erzählen, wer bei den Kuchen mitgeholfen hat; die¬<lb/>
+ſelbe Perſon hat die Manſchetten für dich geſtickt.<lb/>
+<pb n="26" facs="#f0032"/>
+Bei uns wird es nun Weihnachtabend ſehr ſtill<lb/>
+werden; meine Mutter ſtellt immer ſchon um halb<lb/>
+zehn ihr Spinnrad in die Ecke; es iſt gar ſo ein¬<lb/>
+ſam dieſen Winter, wo du nicht hier biſt. Nun iſt<lb/>
+auch vorigen Sonntag der Hänfling geſtorben, den<lb/>
+du mir geſchenkt hatteſt; ich habe ſehr geweint, aber<lb/>
+ich hab' ihn doch immer gut gewartet. Der ſang<lb/>
+ſonſt immer Nachmittags, wenn die Sonne auf ſein<lb/>
+Bauer ſchien; du weißt, die Mutter hing oft ein<lb/>
+Tuch über, um ihn zu geſchweigen, wenn er ſo recht<lb/>
+aus Kräften ſang. Da iſt es nun noch ſtiller in<lb/>
+der Kammer, nur daß dein alter Freund Erich uns<lb/>
+jetzt mitunter beſucht. Du ſagteſt einmal, er ſähe<lb/>
+ſeinem braunen Ueberrock ähnlich. Daran muß<lb/>
+ich nun immer denken, wenn er zur Thür herein¬<lb/>
+kommt, und es iſt gar zu komiſch; ſag es aber nicht<lb/>
+zur Mutter, ſie wird dann leicht verdrießlich. —<lb/>
+Rath', was ich deiner Mutter zu Weihnachten<lb/>
+ſchenke! Du räthſt es nicht? Mich ſelber! Der<lb/>
+Erich zeichnet mich in ſchwarzer Kreide; ich habe<lb/>
+ihm ſchon drei Mal ſitzen müſſen, jedes Mal eine<lb/>
+ganze Stunde. Es war mir recht zuwider, daß<lb/>
+der fremde Menſch mein Geſicht ſo auswendig<lb/>
+<pb n="27" facs="#f0033"/>
+lernte. Ich wollte auch nicht, aber die Mutter<lb/>
+redete mir zu; ſie ſagte, es würde der guten Frau<lb/>
+Werner eine gar große Freude machen.</p><lb/>
+<p>Aber du hältſt nicht Wort, Reinhardt. Du haſt<lb/>
+keine Märchen geſchickt. Ich habe dich oft bei dei¬<lb/>
+ner Mutter verklagt; ſie ſagt dann immer, du habeſt<lb/>
+jetzt mehr zu thun, als ſolche Kindereien. Ich<lb/>
+glaub' es aber nicht; es iſt wohl anders.</p><lb/>
+<p>Nun las Reinhardt auch den Brief ſeiner Mutter,<lb/>
+und als er beide Briefe geleſen und langſam wieder<lb/>
+zuſammengefaltet und weggelegt hatte, überfiel ihn<lb/>
+unerbittliches Heimweh. Er ging eine Zeit lang in<lb/>
+ſeinem Zimmer auf und nieder: er ſprach leiſe und<lb/>
+dann halbverſtändlich zu ſich ſelbſt:<lb/>
+<lg type="poem"> <l>Er wäre faſt verirret</l><lb/>
+<l>Und wußte nicht hinaus;</l><lb/>
+<l>Da ſtand das Kind am Wege</l><lb/>
+<l>Und winkte ihm nach Haus!</l><lb/>
+</lg> Dann trat er an ſein Pult, nahm einiges Geld her¬<lb/>
+aus, und ging wieder auf die Straße hinab. — Hier<lb/>
+war es mittlerweile ſtiller geworden; die Weihnachts¬<lb/>
+bäume waren ausgebrannt, die Umzüge der Kinder<lb/>
+hatten aufgehört. Der Wind fegte durch die einſa¬<lb/>
+<pb n="28" facs="#f0034"/>
+men Straßen; Alte und Junge ſaßen in ihren Häu¬<lb/>
+ſern familienweiſe zuſammen; der zweite Abſchnitt<lb/>
+des Weihnachtsabends hatte begonnen. —</p><lb/>
+<p>Als Reinhardt in die Nähe des Rathskellers kam,<lb/>
+hörte er aus der Tiefe herauf Geigenſtrich und den<lb/>
+Geſang des Zittermädchens; nun klingelte unten<lb/>
+die Kellerthür, und eine dunkle Geſtalt ſchwankte die<lb/>
+breite, matt erleuchtete Treppe herauf. Reinhardt<lb/>
+trat in den Häuſerſchatten, und ging dann raſch vor¬<lb/>
+über. Nach einer Weile erreichte er den erleuchteten<lb/>
+Laden eines Juweliers; und nachdem er hier ein klei¬<lb/>
+nes Kreuz von rothen Korallen eingehandelt hatte,<lb/>
+ging er auf demſelben Wege, den er gekommen war,<lb/>
+wieder zurück.</p><lb/>
+<p>Nicht weit von ſeiner Wohnung bemerkte er ein<lb/>
+kleines, in klägliche Lumpen gehülltes Mädchen an<lb/>
+einer hohen Hausthür ſtehen, in vergeblicher Bemü¬<lb/>
+hung ſie zu öffnen. Soll ich dir helfen? ſagte er.<lb/>
+Das Kind erwiderte nichts, ließ aber die ſchwere<lb/>
+Thürklinke fahren. Reinhardt hatte ſchon die Thür<lb/>
+geöffnet. Nein, ſagte er, ſie könnten dich hinaus¬<lb/>
+jagen; komm mit mir! Ich will dir Weihnachtskuchen<lb/>
+geben. Dann machte er die Thüre wieder zu und<lb/>
+<pb n="29" facs="#f0035"/>
+faßte das kleine Mädchen an der Hand, das ſtillſchwei¬<lb/>
+gend mit ihm in ſeine Wohnung ging.</p><lb/>
+<p>Er hatte das Licht beim Weggehen brennen laſſen.<lb/>
+Hier haſt du Kuchen; ſagte er, und gab ihr die Hälfte<lb/>
+ſeines ganzen Schatzes in ihre Schürze, nur keine mit<lb/>
+den Zuckerbuchſtaben. Nun geh nach Haus und gieb<lb/>
+deiner Mutter auch davon. Das Kind ſah mit einem<lb/>
+ſcheuen Blick zu ihm hinauf; es ſchien ſolcher Freund¬<lb/>
+lichkeit ungewohnt und nichts darauf erwidern zu<lb/>
+können. Reinhardt machte die Thür auf und leuch¬<lb/>
+tete ihr, und nun flog die Kleine wie ein Vogel mit<lb/>
+ihren Kuchen die Treppe hinab und zum Hauſe hinaus.</p><lb/>
+<p>Reinhardt ſchürte das Feuer in ſeinem Ofen an<lb/>
+und ſtellte das beſtaubte Dintenfaß auf ſeinen Tiſch;<lb/>
+dann ſetzte er ſich hin und ſchrieb, und ſchrieb die<lb/>
+ganze Nacht Briefe an ſeine Mutter, an Eliſabeth.<lb/>
+Der Reſt der Weihnachtskuchen lag unberührt neben<lb/>
+ihm; aber die Manſchetten von Eliſabeth hatte er<lb/>
+angeknüpft, was ſich gar wunderlich zu ſeinem weißen<lb/>
+Flaußrock ausnahm. So ſaß er noch, als die Winter¬<lb/>
+ſonne auf die gefrorenen Fenſterſcheiben fiel und ihm<lb/>
+gegenüber im Spiegel ein blaſſes, ernſtes Antlitz<lb/>
+zeigte.</p><lb/>
+<pb n="30" facs="#f0036"/>
+</div> <div n="1"> <head> <hi rendition="#b">Daheim.</hi><lb/>
+</head> <p>Als es Oſtern geworden war, reiſte Reinhardt in<lb/>
+die Heimath. Am Morgen nach ſeiner Ankunft ging<lb/>
+er zu Eliſabeth. Wie groß du geworden biſt, ſagte<lb/>
+er, als das ſchöne ſchmächtige Mädchen ihm lächelnd<lb/>
+entgegenkam. Sie erröthete, aber ſie erwiderte nichts;<lb/>
+ihre Hand, die er beim Willkommen in die ſeine ge¬<lb/>
+nommen, ſuchte ſie ihm ſanft zu entziehen. Er ſah<lb/>
+ſie zweifelnd an, das hatte ſie früher nicht gethan;<lb/>
+nun war es, als trete etwas Fremdes zwiſchen ſie. —<lb/>
+Das blieb auch, als er ſchon länger da geweſen, und<lb/>
+als er Tag für Tag immer wiedergekommen war.<lb/>
+Wenn ſie allein zuſammen ſaßen, entſtanden Pauſen,<lb/>
+die ihm peinlich waren und denen er dann ängſtlich<lb/>
+zuvorzukommen ſuchte. Um während der Ferienzeit<lb/>
+eine beſtimmte Unterhaltung zu haben, fing er an<lb/>
+Eliſabeth in der Botanik zu unterrichten, womit er<lb/>
+ſich in den erſten Monaten ſeines Univerſitätslebens<lb/>
+angelegentlich beſchäftigt hatte. Eliſabeth, die ihm<lb/>
+in Allem zu folgen gewohnt und überdies lehrhaft<lb/>
+war, ging bereitwillig darauf ein. Nun wurden meh¬<lb/>
+rere Male in der Woche Excurſionen ins Feld oder<lb/>
+<pb n="31" facs="#f0037"/>
+in die Haiden gemacht, und hatten ſie dann Mittags<lb/>
+die grüne Botaniſirkapſel voll Kraut und Blumen<lb/>
+nach Hauſe gebracht, ſo kam Reinhardt einige Stun¬<lb/>
+den ſpäter wieder, um mit Eliſabeth den gemeinſchaft¬<lb/>
+lichen Fund zu ordnen und zu theilen.</p><lb/>
+<p>In ſolcher Abſicht trat er eines Nachmittags ins<lb/>
+Zimmer, als Eliſabeth am Fenſter ſtand und ein ver¬<lb/>
+goldetes Vogelbauer, das er ſonſt nicht dort geſehen,<lb/>
+mit friſchem Hühnerſchwarm beſteckte. Im Bauer ſaß<lb/>
+ein Kanarienvogel, der mit den Flügeln ſchlug und<lb/>
+kreiſchend nach Eliſabeths Fingern pickte. Sonſt<lb/>
+hatte Reinhardts Vogel an dieſer Stelle gehangen.<lb/>
+Hat mein armer Hänfling ſich nach ſeinem Tode in<lb/>
+einen Goldfinken verwandelt? fragte er heiter.</p><lb/>
+<p>Das pflegen die Hänflinge nicht; ſagte die Mutter,<lb/>
+welche ſpinnend im Lehnſtuhl ſaß. Ihr Freund Erich<lb/>
+hat ihn heut Mittag für Eliſabeth von ſeinem Hofe<lb/>
+hereingeſchickt.</p><lb/>
+<p>Von welchem Hofe?</p><lb/>
+<p>Das wiſſen Sie nicht?</p><lb/>
+<p>Was denn?</p><lb/>
+<p>Daß Erich ſeit einem Monat den zweiten Hof ſei¬<lb/>
+nes Vaters am Immenſee angetreten hat?</p><lb/>
+<pb n="32" facs="#f0038"/>
+<p>Aber Sie haben mir kein Wort davon geſagt.</p><lb/>
+<p>Ei, ſagte die Mutter, Sie haben ſich auch noch mit<lb/>
+keinem Worte nach Ihrem Freunde erkundigt. Er<lb/>
+iſt ein gar lieber, verſtändiger junger Mann.</p><lb/>
+<p>Die Mutter ging hinaus, um den Kaffee zu beſor¬<lb/>
+gen; Eliſabeth hatte Reinhardt den Rücken zugewandt<lb/>
+und war noch mit dem Bau ihrer kleinen Laube be¬<lb/>
+ſchäftigt. Bitte, nur ein kleines Weilchen; ſagte ſie,<lb/>
+gleich bin ich fertig. — Da Reinhardt wider ſeine<lb/>
+Gewohnheit nicht antwortete, ſo wandte ſie ſich um.<lb/>
+In ſeinen Augen lag ein plötzlicher Ausdruck von<lb/>
+Kummer, den ſie nie darin gewahrt hatte. Was fehlt<lb/>
+dir, Reinhardt? fragte ſie, indem ſie nahe zu ihm trat.</p><lb/>
+<p>Mir? ſagte er gedankenlos und ließ ſeine Augen<lb/>
+träumeriſch in den ihren ruhen.</p><lb/>
+<p>Du ſiehſt ſo traurig aus.</p><lb/>
+<p>Eliſabeth, ſagte er, ich kann den gelben Vogel nicht<lb/>
+leiden.</p><lb/>
+<p>Sie ſah ihn ſtaunend an; ſie verſtand ihn nicht.<lb/>
+Du biſt ſo ſonderbar; ſagte ſie.</p><lb/>
+<p>Er nahm ihre beiden Hände, die ſie ruhig in den<lb/>
+ſeinen ließ. Bald trat die Mutter wieder herein.</p><lb/>
+<p>Nach dem Kaffee ſetzte dieſe ſich an ihr Spinnrad;<lb/>
+<pb n="33" facs="#f0039"/>
+Reinhardt und Eliſabeth gingen ins Nebenzimmer,<lb/>
+um ihre Pflanzen zu ordnen. Nun wurden Staub¬<lb/>
+fäden gezählt, Blätter und Blüthen ſorgfältig ausge¬<lb/>
+breitet und von jeder Art zwei Exemplare zum Trock¬<lb/>
+nen zwiſchen die Blätter eines großen Folianten<lb/>
+gelegt. Es war ſonnige Nachmittagsſtille; nur neben<lb/>
+an ſchnurrte der Mutter Spinnrad und von Zeit zu<lb/>
+Zeit wurde Reinhardts gedämpfte Stimme gehört,<lb/>
+wenn er die Ordnungen und Klaſſen der Pflanzen<lb/>
+nannte oder Eliſabeths ungeſchickte Ausſprache der<lb/>
+lateiniſchen Namen corrigirte.</p><lb/>
+<p>Mir fehlt noch von neulich die Maiblume; ſagte<lb/>
+ſie jetzt, als der ganze Fund beſtimmt und geordnet war.</p><lb/>
+<p>Reinhardt zog einen kleinen weißen Pergamentband<lb/>
+aus der Taſche. Hier iſt ein Maiblumenſtengel für<lb/>
+dich; ſagte er, indem er die halbgetrocknete Pflanze<lb/>
+herausnahm.</p><lb/>
+<p>Als Eliſabeth die beſchriebenen Blätter ſah, fragte<lb/>
+ſie: Haſt du wieder Märchen gedichtet?</p><lb/>
+<p>Es ſind keine Märchen, antwortete er, und reichte<lb/>
+ihr das Buch.</p><lb/>
+<p>Es waren lauter Verſe, die meiſten füllten höchſtens<lb/>
+eine Seite. Eliſabeth wandte ein Blatt nach dem<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Storm</hi>, Immenſee. 3<lb/>
+</fw>
+<pb n="34" facs="#f0040"/>
+andern um; ſie ſchien nur die Ueberſchriften zu leſen.<lb/>
+„Als ſie vom Schulmeiſter geſcholten war. Als ſie<lb/>
+ſich im Walde verirrt hatten. Mit den Oſtermärchen.<lb/>
+Als ſie mir zum erſten Mal geſchrieben hatte“; in der<lb/>
+Weiſe lauteten faſt alle. Reinhardt blickte forſchend<lb/>
+zu ihr hin, und indem ſie immer weiter blätterte, ſah<lb/>
+er, wie zuletzt auf ihrem klaren Antlitz ein zartes Roth<lb/>
+hervorbrach und es allmählig ganz überzog. Er wollte<lb/>
+ihre Augen ſehen; aber Eliſabeth ſah nicht auf, und<lb/>
+legte das Buch am Ende ſchweigend vor ihm hin.</p><lb/>
+<p>Gieb es mir nicht ſo zurück! ſagte er.</p><lb/>
+<p>Sie nahm ein braunes Reis aus der Blechkapſel.<lb/>
+Ich will dein Lieblingskraut hineinlegen; ſagte ſie,<lb/>
+und gab ihm das Buch in ſeine Hände. — —</p><lb/>
+<p>Endlich kam der letzte Tag der Ferienzeit und der<lb/>
+Morgen der Abreiſe. Auf ihre Bitte erhielt Eliſabeth<lb/>
+von der Mutter die Erlaubniß, ihren Freund an den<lb/>
+Poſtwagen zu begleiten, der einige Straßen von ihrer<lb/>
+Wohnung ſeine Station hatte. Als ſie vor die Haus¬<lb/>
+thür traten, gab Reinhardt ihr den Arm; ſo ging er<lb/>
+ſchweigend neben dem ſchlanken Mädchen her. Je<lb/>
+näher ſie ihrem Ziele kamen, deſto mehr war es ihm,<lb/>
+er habe ihr, ehe er auf ſo lange Abſchied nehme, etwas<lb/>
+<pb n="35" facs="#f0041"/>
+Nothwendiges mitzutheilen, etwas, wovon aller Werth<lb/>
+und alle Lieblichkeit ſeines künftigen Lebens abhänge,<lb/>
+und doch konnte er ſich des erlöſenden Wortes nicht<lb/>
+bewußt werden. Das ängſtigte ihn; er ging immer<lb/>
+langſamer.</p><lb/>
+<p>Du kommſt zu ſpät; ſagte ſie, es hat ſchon zehn<lb/>
+geſchlagen auf St. Marien.</p><lb/>
+<p>Er ging aber darum nicht ſchneller. Endlich ſagte<lb/>
+er ſtammelnd: Eliſabeth, du wirſt mich nun in zwei<lb/>
+Jahren gar nicht ſehen — — wirſt du mich wohl noch<lb/>
+eben ſo lieb haben wie jetzt, wenn ich wieder da bin?</p><lb/>
+<p>Sie nickte, und ſah ihm freundlich ins Geſicht. —<lb/>
+Ich habe dich auch vertheidigt; ſagte ſie nach einer<lb/>
+Pauſe.</p><lb/>
+<p>Mich? Gegen wen hatteſt du das nöthig?</p><lb/>
+<p>Gegen meine Mutter. Wir ſprachen geſtern Abend,<lb/>
+als du weggegangen warſt, noch lange über dich. Sie<lb/>
+meinte, du ſeiſt nicht mehr ſo gut, wie du geweſen.</p><lb/>
+<p>Reinhardt ſchwieg einen Augenblick; dann aber<lb/>
+nahm er ihre Hand in die ſeine, und indem er ihr<lb/>
+ernſt in ihre Kinderaugen blickte, ſagte er: Ich bin<lb/>
+noch eben ſo gut, wie ich geweſen bin; glaube du das<lb/>
+nur feſt! Glaubſt du es, Eliſabeth?</p><lb/>
+<fw type="sig" place="bottom">3 *<lb/>
+</fw>
+<pb n="36" facs="#f0042"/>
+<p>Ja, ſagte ſie. Er ließ ihre Hand los und ging<lb/>
+raſch mit ihr durch die letzte Straße. Je näher ihm<lb/>
+der Abſchied kam, deſto freudiger ward ſein Geſicht;<lb/>
+er ging ihr faſt zu ſchnell.</p><lb/>
+<p>Was haſt du, Reinhardt? fragte ſie.</p><lb/>
+<p>Ich habe ein Geheimniß, ein ſchönes! ſagte er, und<lb/>
+ſah ſie mit leuchtenden Augen an. Wenn ich nach<lb/>
+zwei Jahren wieder da bin, dann ſollſt du es erfahren.</p><lb/>
+<p>Mittlerweile hatten ſie den Poſtwagen erreicht; es<lb/>
+war noch eben Zeit genug. Noch einmal nahm Rein¬<lb/>
+hardt ihre Hand. Leb' wohl! ſagte er, leb' wohl, Eli¬<lb/>
+ſabeth. Vergiß es nicht.</p><lb/>
+<p>Sie ſchüttelte mit dem Kopf. Leb' wohl! ſagte ſie.<lb/>
+Reinhardt ſtieg hinein, und die Pferde zogen an.<lb/>
+Als der Wagen um die Straßenecke rollte, ſah er noch<lb/>
+einmal ihre liebe Geſtalt, wie ſie langſam den Weg<lb/>
+zurückging.</p><lb/>
+</div> <div n="1"> <head> <hi rendition="#b">Ein Brief.</hi><lb/>
+</head> <p>Faſt zwei Jahre nachher ſaß Reinhardt vor ſeiner<lb/>
+Lampe zwiſchen Büchern und Papieren in Erwartung<lb/>
+eines Freundes, mit welchem er gemeinſchaftliche Stu¬<lb/>
+dien übte. Man kam die Treppe herauf. Herein! —<lb/>
+<pb n="37" facs="#f0043"/>
+Es war die Wirthin. Ein Brief für Sie, Herr<lb/>
+Werner! Dann entfernte ſie ſich wieder.</p><lb/>
+<p>Reinhardt hatte ſeit ſeinem Beſuche in der Heimath<lb/>
+nicht an Eliſabeth geſchrieben und von ihr keinen<lb/>
+Brief mehr erhalten. Auch dieſer war nicht von ihr;<lb/>
+es war die Hand ſeiner Mutter. Reinhardt brach<lb/>
+und las, und bald las er Folgendes:</p><lb/>
+<p rendition="#et">In deinem Alter, mein liebes Kind, hat noch<lb/>
+faſt jedes Jahr ſein eigenes Geſicht; denn die Ju¬<lb/>
+gend läßt ſich nicht ärmer machen. Hier iſt auch<lb/>
+Manches anders geworden, was dir wohl erſtan<lb/>
+weh thun wird, wenn ich dich ſonſt recht verſtanden<lb/>
+habe. Erich hat ſich geſtern endlich das Jawort<lb/>
+von Eliſabeth geholt, nachdem er in dem letzten<lb/>
+Vierteljahr zweimal vergebens angefragt hatte.<lb/>
+Sie hat ſich immer nicht dazu entſchließen können;<lb/>
+nun hat ſie es endlich doch gethan; ſie iſt auch noch<lb/>
+gar ſo jung. Die Hochzeit ſoll bald ſein, und die<lb/>
+Mutter wird dann mit ihnen fortgehen.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="38" facs="#f0044"/>
+</div> <div n="1"> <head> <hi rendition="#b">Immenſee.</hi><lb/>
+</head> <p>Wiederum waren Jahre vorüber. — Auf einem<lb/>
+abwärts führenden ſchattigen Waldwege wanderte an<lb/>
+einem warmen Frühlingsnachmittage ein junger Mann<lb/>
+mit kräftigem, gebräuntem Antlitz. Mit ſeinen ernſten<lb/>
+grauen Augen ſah er geſpannt in die Ferne, als er¬<lb/>
+warte er endlich eine Veränderung des einförmigen<lb/>
+Weges, die jedoch immer nicht eintreten wollte. Endlich<lb/>
+kam ein Karrenfuhrwerk langſam von unten herauf.<lb/>
+Holla! guter Freund, rief der Wanderer dem neben¬<lb/>
+gehenden Bauer zu, geht's hier recht nach Immenſee?</p><lb/>
+<p>Immer gerad' aus; antwortete der Mann, und<lb/>
+rückte an ſeinem Rundhute.</p><lb/>
+<p>Hat's denn noch weit bis dahin?</p><lb/>
+<p>Der Herr iſt dicht davor. Keine halbe Pfeif' Toback,<lb/>
+ſo haben's den See; das Herrenhaus liegt hart daran.</p><lb/>
+<p>Der Bauer fuhr vorüber; der Andere ging eiliger<lb/>
+unter den Bäumen entlang. Nach einer Viertelſtunde<lb/>
+hörte ihm zur Linken plötzlich der Schatten auf; der<lb/>
+Weg führte an einem Abhang, aus dem die Gipfel<lb/>
+hundertjähriger Eichen nur kaum hervorragten. Ueber<lb/>
+<pb n="39" facs="#f0045"/>
+ſie hinweg öffnete ſich eine weite, ſonnige Landſchaft.<lb/>
+Tief unten lag der See, ruhig, dunkelblau, faſt rings¬<lb/>
+um von grünen, ſonnbeſchienenen Wäldern umgeben,<lb/>
+nur an einer Stelle traten ſie auseinander und ge¬<lb/>
+währten eine tiefe Fernſicht, bis auch dieſe durch blaue<lb/>
+Berge geſchloſſen wurde. Quer gegenüber, mitten<lb/>
+in dem grünen Laub der Wälder, lag es wie Schnee<lb/>
+darüber her; das waren blühende Obſtbäume, und<lb/>
+daraus hervor auf dem hohen Ufer erhob ſich das<lb/>
+Herrenhaus, weiß mit rothen Ziegeln. Ein Storch<lb/>
+flog vom Schornſtein auf und kreiſte langſam über<lb/>
+dem Waſſer. — Immenſee! rief der Wanderer. Es<lb/>
+war faſt, als hätte er jetzt das Ziel ſeiner Reiſe erreicht;<lb/>
+denn er ſtand unbeweglich, und ſah über die Gipfel<lb/>
+der Bäume zu ſeinen Füßen hinüber ans andre Ufer,<lb/>
+wo das Spiegelbild des Herrenhauſes leiſe ſchaukelnd<lb/>
+auf dem Waſſer ſchwamm. Dann ſetzte er plötzlich<lb/>
+ſeinen Weg fort.</p><lb/>
+<p>Es ging jetzt faſt ſteil den Berg hinab, ſo daß die<lb/>
+untenſtehenden Bäume wieder Schatten gewährten,<lb/>
+zugleich aber die Ausſicht auf den See verdeckten, der<lb/>
+nur zuweilen zwiſchen den Lücken der Zweige hin¬<lb/>
+durchblitzte. Bald ging es wieder ſanft empor, und<lb/>
+<pb n="40" facs="#f0046"/>
+nun verſchwand rechts und links die Holzung; ſtatt<lb/>
+deſſen ſtreckten ſich dichtbelaubte Weinhügel am Wege<lb/>
+entlang; zu beiden Seiten deſſelben ſtanden blühende<lb/>
+Obſtbäume voll ſummender, wühlender Bienen. Ein<lb/>
+ſtattlicher Mann in braunem Ueberrock kam dem Wan¬<lb/>
+derer entgegen. Als er ihn faſt erreicht hatte, ſchwenkte<lb/>
+er ſeine Mütze und rief mit heller Stimme: Willkom¬<lb/>
+men, willkommen, Bruder Reinhardt! Willkommen<lb/>
+auf Gut Immenſee!</p><lb/>
+<p>Gott grüß dich, Erich, und Dank für dein Willkom¬<lb/>
+men! rief ihm der Andre entgegen.</p><lb/>
+<p>Dann waren ſie zu einander gekommen und reichten<lb/>
+ſich die Hände. Biſt du es denn aber auch? ſagte<lb/>
+Erich, als er ſo nahe in das ernſte Geſicht ſeines alten<lb/>
+Schulkameraden ſah.</p><lb/>
+<p>Freilich bin ich's, Erich, und du biſt es auch; nur<lb/>
+ſiehſt du noch faſt heiterer aus, als du ſchon ſonſt<lb/>
+immer gethan haſt.</p><lb/>
+<p>Ein frohes Lächeln machte Erichs einfache Züge bei<lb/>
+dieſen Worten noch um Vieles heiterer. Ja, Bruder<lb/>
+Reinhardt, ſagte er, dieſem noch einmal ſeine Hand<lb/>
+reichend, ich habe aber auch ſeitdem das große Loos<lb/>
+gezogen; du weißt es ja. Dann rieb er ſich die Hände<lb/>
+<pb n="41" facs="#f0047"/>
+und rief vergnügt: Das wird eine Ueberraſchung!<lb/>
+Den erwartet ſie nicht, in alle Ewigkeiten nicht!</p><lb/>
+<p>Eine Ueberraſchung? fragte Reinhardt. Für wen<lb/>
+denn?</p><lb/>
+<p>Für Eliſabeth.</p><lb/>
+<p>Eliſabeth! Du haſt ihr nicht von meinem Beſuch<lb/>
+geſagt?</p><lb/>
+<p>Kein Wort, Bruder Reinhardt; ſie denkt nicht an<lb/>
+dich, die Mutter auch nicht. Ich hab' dich ganz im<lb/>
+Geheim verſchrieben, damit die Freude deſto größer ſei.<lb/>
+Du weißt, ich hatte immer ſo meine ſtillen Plänchen.</p><lb/>
+<p>Reinhardt wurde nachdenklich; der Athem ſchien<lb/>
+ihm ſchwer zu werden, je näher ſie dem Hofe kamen.<lb/>
+An der linken Seite des Weges hörten nun auch die<lb/>
+Weingärten auf und machten einem weitläuftigen<lb/>
+Küchengarten Platz, der ſich bis faſt an das Ufer des<lb/>
+Sees hinabzog. Der Storch hatte ſich mittlerweile<lb/>
+niedergelaſſen, und ſpazierte gravitätiſch zwiſchen den<lb/>
+Gemüſebeeten umher. Holla! rief Erich in die Hände<lb/>
+klatſchend, ſtiehlt mir der hochbeinichte Aegypter ſchon<lb/>
+wieder meine kurzen Erbſenſtangen! Der Vogel erhob<lb/>
+ſich langſam, und flog auf das Dach eines neuen Ge¬<lb/>
+bäudes, das am Ende des Küchengartens lag und<lb/>
+<pb n="42" facs="#f0048"/>
+deſſen Mauern mit aufgebundenen Pfirſich- und<lb/>
+Aprikoſenbäumen überzweigt waren. Das iſt die<lb/>
+Spritfabrik, ſagte Erich; ich habe ſie erſt vor zwei<lb/>
+Jahren angelegt. Die Wirthſchaftsgebäude hat mein<lb/>
+Vater ſelig neu aufſetzen laſſen; das Wohnhaus iſt<lb/>
+ſchon von meinem Großvater gebaut worden. So<lb/>
+kommt man immer ein Bischen weiter.</p><lb/>
+<p>Sie waren bei dieſen Worten aus einen geräumigen<lb/>
+Platz gekommen, der an den Seiten durch die länd¬<lb/>
+lichen Wirtſchaftsgebäude, im Hintergrunde durch<lb/>
+das Herrenhaus begränzt wurde, an deſſen beide Flü¬<lb/>
+gel ſich eine hohe Gartenmauer anſchloß; hinter dieſer<lb/>
+ſah man die Züge dunkler Taxuswände, und hin<lb/>
+und wieder ließen Syringenbäume ihre blühenden<lb/>
+Zweige in den Hofraum hinunterhängen, Männer<lb/>
+mit ſonnen- und arbeitsheißen Geſichtern gingen über<lb/>
+den Platz und grüßten die Freunde, während Erich<lb/>
+dem einen und dem andern einen Auftrag oder eine<lb/>
+Frage über ihr Tagewerk entgegenrief. — Dann hat¬<lb/>
+ten ſie das Haus erreicht. Eine hohe, kühle Hausflur<lb/>
+nahm ſie auf, an deren Ende ſie links in einen etwas<lb/>
+dunkleren Seitengang einbogen. Hier öffnete Erich<lb/>
+eine Thür, und ſie traten in einen geräumigen Garten¬<lb/>
+<pb n="43" facs="#f0049"/>
+ſaal, der durch das Laubgedränge, welches die gegen¬<lb/>
+über liegenden Fenſter bedeckte, zu beiden Seiten mit<lb/>
+grüner Dämmerung erfüllt war; zwiſchen dieſen aber<lb/>
+ließen zwei hohe, weit geöffnete Flügelthüren den<lb/>
+vollen Glanz der Frühlingsſonne hereinfallen, und<lb/>
+gewährten die Ausſicht in einen Garten mit gezirkel¬<lb/>
+ten Blumenbeeten und hohen ſteilen Laubwänden,<lb/>
+getheilt durch einen geraden breiten Gang, durch wel¬<lb/>
+chen man auf den See und weiter auf die gegenüber¬<lb/>
+liegenden Wälder hinausſah. Als die Freunde hin¬<lb/>
+eintraten, trug die Zugluft ihnen einen Strom von<lb/>
+Duft entgegen.</p><lb/>
+<p>Auf einer Terraſſe vor der Gartenthür ſaß eine<lb/>
+weiße, mädchenhafte Frauengeſtalt. Sie ſtand auf<lb/>
+und ging den Eintretenden entgegen; aber auf halbem<lb/>
+Wege blieb ſie wie eingewurzelt ſtehen, und ſtarrte<lb/>
+den Fremden unbeweglich an. Er ſtreckte ihr lächelnd<lb/>
+die Hand entgegen. Reinhardt! rief ſie, Reinhardt!<lb/>
+Mein Gott, du biſt es! — Wir haben uns lange<lb/>
+nicht geſehen.</p><lb/>
+<p>Lange nicht, ſagte er, und konnte nichts weiter<lb/>
+ſagen; denn als er ihre Stimme hörte, fühlte er einen<lb/>
+feinen körperlichen Schmerz am Herzen, und wie er<lb/>
+<pb n="44" facs="#f0050"/>
+zu ihr aufblickte, ſtand ſie vor ihm, dieſelbe leichte<lb/>
+zärtliche Geſtalt, der er vor Jahren in ſeiner Vater¬<lb/>
+ſtadt Lebewohl geſagt hatte.</p><lb/>
+<p>Erich war mit freudeſtrahlendem Antlitz an der Thür<lb/>
+zurückgeblieben. Nun Eliſabeth? ſagte er, Gelt! den<lb/>
+hätteſt du nicht erwartet, den in alle Ewigkeit nicht!</p><lb/>
+<p>Eliſabeth ſah ihn mit ſchweſterlichen Augen an.<lb/>
+Du biſt ſo gut, Erich! ſagte ſie.</p><lb/>
+<p>Er nahm ihre ſchmale Hand liebkoſend in die ſeinen.<lb/>
+Und nun wir ihn haben, ſagte er, nun laſſen wir ihn<lb/>
+ſobald nicht wieder los. Er iſt ſo lange draußen ge¬<lb/>
+weſen; wir wollen ihn wieder heimiſch machen. Schau<lb/>
+nur, wie fremd und vornehm er ausſehen worden iſt.</p><lb/>
+<p>Ein ſcheuer Blick Eliſabeths ſtreifte Reinhardts<lb/>
+Antlitz. Es iſt nur die Zeit, die wir nicht beiſammen<lb/>
+waren; ſagte er.</p><lb/>
+<p>In dieſem Augenblick kam die Mutter, mit einem<lb/>
+Schlüſſelkörbchen am Arm, zur Thüre herein. Herr<lb/>
+Werner! ſagte ſie, als ſie Reinhardt erblickte; ei, ein<lb/>
+eben ſo lieber, als unerwarteter Gaſt. — Und nun<lb/>
+ging die Unterhaltung in Fragen und Antworten ihren<lb/>
+ebenen Tritt. Die Frauen ſetzten ſich zu ihrer Arbeit,<lb/>
+und während Reinhardt die für ihn bereiteten Erfri¬<lb/>
+<pb n="45" facs="#f0051"/>
+ſchungen genoß, hatte Erich ſeinen ſoliden Meerſchaum¬<lb/>
+kopf angebrannt, und ſaß dampfend und discourirend<lb/>
+an ſeiner Seite.</p><lb/>
+<p>Am andern Tage mußte Reinhardt mit ihm hinaus;<lb/>
+auf die Aecker, in die Weinberge, in den Hopfengar¬<lb/>
+ten, in die Spritfabrik. Es war Alles wohl beſtellt;<lb/>
+die Leute, welche auf dem Felde und bei den Keſſeln<lb/>
+arbeiteten, hatten alle ein geſundes und zufriedenes<lb/>
+Ausſehen. Zu Mittag kam die Familie im Garten¬<lb/>
+ſaal zuſammen, und der Tag wurde dann, je nach der<lb/>
+Muße der Wirthe, mehr oder minder gemeinſchaftlich<lb/>
+verlebt. Nur die Stunden vor dem Abendeſſen, wie<lb/>
+die erſten des Vormittags, blieb Reinhardt arbeitend<lb/>
+auf ſeinem Zimmer. Er hatte ſeit Jahren, wo er<lb/>
+deren habhaft werden konnte, die im Volke lebenden<lb/>
+Reime und Lieder geſammelt, und ging nun daran<lb/>
+ſeinen Schatz zu ordnen und wo möglich mit neuen<lb/>
+Aufzeichnungen aus der Umgegend zu vermehren. —<lb/>
+Eliſabeth war zu allen Zeiten ſanft und freundlich;<lb/>
+Erichs immer gleichbleibende Aufmerkſamkeit nahm<lb/>
+ſie mit einer faſt demüthigen Dankbarkeit auf, und<lb/>
+Reinhardt dachte mitunter, das heitere Kind von ehe¬<lb/>
+dem habe wohl eine weniger ſtille Frau verſprochen.</p><lb/>
+<pb n="46" facs="#f0052"/>
+<p>Seit dem zweiten Tage ſeines Hierſeins pflegte er<lb/>
+Abends einen Spaziergang an dem Ufer des Sees<lb/>
+zu machen. Der Weg führte hart unter dem Garten<lb/>
+vorbei. Am Ende deſſelben, auf einer vorſpringenden<lb/>
+Baſtei, ſtand eine Bank unter hohen Birken; die<lb/>
+Mutter hatte ſie die Abendbank getauft, weil der<lb/>
+Platz gegen Abend lag und des Sonnenuntergangs<lb/>
+halber um dieſe Zeit am meiſten benutzt wurde. —<lb/>
+Von einem Spaziergange auf dieſem Wege kehrte<lb/>
+Reinhardt eines Abends zurück, als er vom Regen<lb/>
+überraſcht wurde. Er ſuchte Schutz unter einer am<lb/>
+Waſſer ſtehenden Linde; aber die ſchweren Tropfen<lb/>
+ſchlugen bald durch die Blätter. Durchnäßt, wie er<lb/>
+war, ergab er ſich darein und ſetzte langſam ſeinen<lb/>
+Rückweg fort. Es war faſt dunkel; der Regen fiel<lb/>
+immer dichter. Als er ſich der Abendbank näherte,<lb/>
+glaubte er zwiſchen den ſchimmernden Birkenſtämmen<lb/>
+eine weiße Frauengeſtalt zu unterſcheiden. Sie ſtand<lb/>
+unbeweglich und, wie er beim Näherkommen zu erken¬<lb/>
+nen meinte, zu ihm hingewandt, als wenn ſie jemanden<lb/>
+erwarte. Er glaubte, es ſei Eliſabeth. Als er aber<lb/>
+raſcher zuſchritt, um ſie zu erreichen und dann mit ihr<lb/>
+zuſammen durch den Garten ins Haus zurückzukehren,<lb/>
+<pb n="47" facs="#f0053"/>
+wandte ſie ſich langſam ab und verſchwand in die<lb/>
+dunkeln Seitengänge. Er konnte das nicht reimen;<lb/>
+er war aber faſt zornig auf Eliſabeth, und dennoch<lb/>
+zweifelte er, ob ſie es geweſen ſei; aber er ſcheute ſich<lb/>
+ſie danach zu fragen; ja, er ging bei ſeiner Rückkehr<lb/>
+nicht in den Gartenſaal, nur um Eliſabeth nicht etwa<lb/>
+durch die Gartenthür hereintreten zu ſehen.</p><lb/>
+</div> <div n="1"> <head> <hi rendition="#b">Meine Mutter hat's gewollt.</hi><lb/>
+</head> <p>Einige Tage nachher, es ging ſchon gegen Abend,<lb/>
+ſaß die Familie, wie gewöhnlich um dieſe Zeit, im<lb/>
+Gartenſaal zuſammen. Die Thüren ſtanden offen; die<lb/>
+Sonne war ſchon hinter den Wäldern jenſeit des Sees.</p><lb/>
+<p>Reinhardt wurde um die Mittheilung einiger Volks¬<lb/>
+lieder gebeten, welche er am Nachmittage von einem<lb/>
+auf dem Lande wohnenden Freunde geſchickt bekommen<lb/>
+hatte. Er ging auf ſein Zimmer, und kam gleich dar¬<lb/>
+auf mit einer Papierrolle zurück, welche aus einzelnen<lb/>
+ſauber geſchriebenen Blättern zu beſtehen ſchien.</p><lb/>
+<p>Man ſetzte ſich an den Tiſch, Eliſabeth an Rein¬<lb/>
+hardts Seite. Wir leſen auf gut Glück; ſagte er, ich<lb/>
+habe ſie ſelber noch nicht durchgeſehen.</p><lb/>
+<pb n="48" facs="#f0054"/>
+<p>Eliſabeth rollte das Manuſcript auf. Hier ſind<lb/>
+Noten; ſagte ſie, das mußt du ſingen, Reinhardt.</p><lb/>
+<p>Und dieſer las nun zuerſt einige Tyroler Schnader¬<lb/>
+hüpferl, indem er beim Leſen je zuweilen die luſtige<lb/>
+Melodie mit halber Stimme anklingen ließ. Eine<lb/>
+allgemeine Heiterkeit bemächtigte ſich der kleinen<lb/>
+Geſellſchaft. Wer hat doch aber die ſchönen Lieder<lb/>
+gemacht? fragte Eliſabeth.</p><lb/>
+<p>Ei, ſagte Erich, das hört man den Dingern ſchon<lb/>
+an; Schneidergeſellen und Friſeure, und derlei lufti¬<lb/>
+ges Geſindel.</p><lb/>
+<p>Reinhardt ſagte: Sie werden gar nicht gemacht; ſie<lb/>
+wachſen, ſie fallen aus der Luft, ſie fliegen über Land<lb/>
+wie Mariengarn, hierhin und dorthin, und werden an<lb/>
+tauſend Stellen zugleich geſungen. Unſer eigenſtes<lb/>
+Thun und Leiden finden wir in dieſen Liedern; es iſt,<lb/>
+als ob wir alle an ihnen mitgeholfen hätten.</p><lb/>
+<p>Er nahm ein anderes Blatt: Ich ſtand auf hohen<lb/>
+Bergen....</p><lb/>
+<p>Das kenne ich! rief Eliſabeth. Stimme nur an,<lb/>
+Reinhardt; ich will dir helfen. Und nun ſangen ſie<lb/>
+jene Melodie, die ſo räthſelhaft iſt, daß man nicht<lb/>
+glauben kann, ſie ſei von Menſchen erdacht worden;<lb/>
+<pb n="49" facs="#f0055"/>
+Eliſabeth mit ihrer etwas verdeckten Altſtimme dem<lb/>
+Tenor ſecondirend.</p><lb/>
+<p>Die Mutter ſaß inzwiſchen emſig an ihrer Näherei,<lb/>
+Erich hatte die Hände in einander gelegt und hörte<lb/>
+andächtig zu. Als das Lied zu Ende war, legte Rein¬<lb/>
+hardt das Blatt ſchweigend bei Seite. — Vom Ufer<lb/>
+des Sees herauf kam durch die Abendſtille das Geläute<lb/>
+der Heerdenglocken; ſie horchten unwillkürlich; da hör¬<lb/>
+ten ſie eine klare Knabenſtimme ſingen:<lb/>
+<lg type="poem"> <l>Ich ſtand auf hohen Bergen,</l><lb/>
+<l>Und ſah ins tiefe Thal....</l><lb/>
+</lg> Reinhardt lächelte: Hört ihr es wohl? So geht's von<lb/>
+Mund zu Mund.</p><lb/>
+<p>Es wird oft in dieſer Gegend geſungen; ſagte Eli¬<lb/>
+ſabeth.</p><lb/>
+<p>Ja, ſagte Erich, es iſt der Hirtenkaspar; er treibt<lb/>
+die Starken heim.</p><lb/>
+<p>Sie horchten noch eine Weile, bis das Geläute oben<lb/>
+hinter den Wirthſchaftsgebäuden verſchwunden war.<lb/>
+Das ſind Urtöne; ſagte Reinhardt, ſie ſchlafen in<lb/>
+Waldesgründen; Gott weiß, wer ſie gefunden hat.</p><lb/>
+<p>Er zog ein neues Blatt heraus.</p><lb/>
+<p>Es war ſchon dunkler geworden; ein rother Abend¬<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Storm</hi>, Immenſee. 4<lb/>
+</fw>
+<pb n="50" facs="#f0056"/>
+ſchein lag wie Schaum auf den Wäldern jenſeit des<lb/>
+Sees. Reinhardt rollte das Blatt auf, Eliſabeth legte<lb/>
+an der einen Seite ihre Hand darauf, und ſah mit<lb/>
+hinein. Dann las Reinhardt:</p><lb/>
+<lg type="poem"> <lg n="1"> <l>Meine Mutter hat's gewollt,</l><lb/>
+<l>Den Andern ich nehmen ſollt';</l><lb/>
+<l>Was ich zuvor beſeſſen,</l><lb/>
+<l>Mein Herz ſollt' es vergeſſen;</l><lb/>
+<l>Das hat es nicht gewollt.</l><lb/>
+</lg> <lg n="2"> <l>Meine Mutter klag' ich an,</l><lb/>
+<l>Sie hat nicht wohlgethan;</l><lb/>
+<l>Was ſonſt in Ehren ſtünde,</l><lb/>
+<l>Nun iſt es worden Sünde.</l><lb/>
+<l>Was fang' ich an!</l> </lg><lb/>
+<lg n="3"> <l>Für all mein Stolz und Freud’</l><lb/>
+<l>Gewonnen hab' ich Leid.</l><lb/>
+<l>Ach, wär' das nicht geſchehen,</l><lb/>
+<l>Ach, könnt' ich betteln gehen</l><lb/>
+<l>Ueber die braune Haid !</l> </lg> </lg><lb/>
+<p>Während des Leſens hatte Reinhardt ein unmer¬<lb/>
+liches Zittern des Papiers empfunden; als er zu Ende<lb/>
+war, ſchob Eliſabeth leiſe ihren Stuhl zurück, und<lb/>
+ging ſchweigend in den Garten hinab. Ein Blick der<lb/>
+Mutter folgte ihr. Erich wollte nachgehen; doch die<lb/>
+Mutter ſagte: Eliſabeth hat draußen zu thun. So<lb/>
+unterblieb es.</p><lb/>
+<pb n="51" facs="#f0057"/>
+<p>Draußen aber legte ſich der Abend mehr und mehr<lb/>
+über Garten und See, die Nachtſchmetterlinge ſchoſſen<lb/>
+ſurrend an den offenen Thüren vorüber, durch welche<lb/>
+der Duft der Blumen und Geſträuche immer ſtärker<lb/>
+hereindrang; vom Waſſer herauf kam das Geſchrei der<lb/>
+Fröſche, unter den Fenſtern ſchlug eine Nachtigall,<lb/>
+tiefer im Garten eine andere; der Mond ſah über die<lb/>
+Bäume. Reinhardt blickte noch eine Weile auf die<lb/>
+Stelle, wo Eliſabeths feine Geſtalt zwiſchen den Laub¬<lb/>
+gängen verſchwunden war; dann rollte er ſein Manu¬<lb/>
+ſcript zuſammen, grüßte die Anweſenden, und ging<lb/>
+durchs Haus an das Waſſer hinab.</p><lb/>
+<p>Die Wälder ſtanden ſchweigend und warfen ihr<lb/>
+Dunkel weit auf den See hinaus, während die Mitte<lb/>
+deſſelben in ſchwüler Mondesdämmerung lag. Mit¬<lb/>
+unter ſchauerte ein leiſes Säuſeln durch die Bäume;<lb/>
+aber es war kein Wind, es war nur das Athmen der<lb/>
+Sommernacht. Reinhardt ging immer am Ufer ent¬<lb/>
+lang. Einen Steinwurf vom Lande konnte er eine<lb/>
+weiße Waſſerlilie erkennen. Auf einmal wandelte ihn<lb/>
+die Luſt an, ſie in der Nähe zu ſehen; er warf ſeine<lb/>
+Kleider ab, und ſtieg ins Waſſer. Es war flach, ſcharfe<lb/>
+Pflanzen und Steine ſchnitten ihn an den Füßen, und<lb/>
+<fw type="sig" place="bottom">4 *<lb/>
+</fw>
+<pb n="52" facs="#f0058"/>
+er kam immer nicht in die zum Schwimmen nöthige<lb/>
+Tiefe. Dann war es plötzlich unter ihm weg, die<lb/>
+Waſſer quirlten über ihm zuſammen, und es dauerte<lb/>
+eine Zeit lang, ehe er wieder auf die Oberfläche kam.<lb/>
+Nun regte er Hand und Fuß und ſchwamm im Kreiſe<lb/>
+umher, bis er ſich bewußt geworden, von wo er hin¬<lb/>
+eingegangen war. Bald ſah er auch die Lilie wieder;<lb/>
+ſie lag einſam zwiſchen den großen blanken Blättern.<lb/>
+— Er ſchwamm langſam hinaus, und hob mitunter<lb/>
+die Arme aus dem Waſſer, daß die herabrieſelnden<lb/>
+Tropfen im Mondlicht blitzten; aber es war, als ob<lb/>
+die Entfernung zwiſchen ihm und der Blume dieſelbe<lb/>
+bliebe; nur das Ufer lag, wenn er ſich umblickte, in<lb/>
+immer ungewiſſerem Dufte hinter ihm. Er gab indeß<lb/>
+ſein Unternehmen nicht auf, ſondern ſchwamm rüſtig<lb/>
+in derſelben Richtung fort. Endlich war er der Blume<lb/>
+ſo nahe gekommen, daß er die ſilbernen Blätter deut¬<lb/>
+lich im Mondlicht unterſcheiden konnte; zugleich aber<lb/>
+fühlte er ſich in einem Netze verſtrickt, die glatten<lb/>
+Stengel langten vom Grunde herauf und rankten ſich<lb/>
+an ſeine nackten Glieder. Das unbekannte Waſſer lag<lb/>
+ſo ſchwarz um ihn her, hinter ſich hörte er das Sprin¬<lb/>
+gen eines Fiſches; es wurde ihm plötzlich ſo unheim¬<lb/>
+<pb n="53" facs="#f0059"/>
+lich in dem fremden Elemente, daß er mit Gewalt das<lb/>
+Geſtrick der Pflanzen zerriß, und in athemloſer Haſt<lb/>
+dem Lande zuſchwamm. Als er von hier auf den See<lb/>
+zurückblickte, lag die Lilie wie zuvor fern und einſam<lb/>
+über der dunkeln Tiefe. — Er kleidete ſich an, und<lb/>
+ging langſam nach Hauſe zurück. Als er aus dem<lb/>
+Garten in den Saal trat, fand er Erich und die Mut¬<lb/>
+ter in den Vorbereitungen einer kleinen Geſchäfts¬<lb/>
+reiſe, welche am andern Tage vor ſich gehen ſollte.</p><lb/>
+<p>Wo ſind denn Sie ſo ſpät in der Nacht geweſen?<lb/>
+rief ihm die Mutter entgegen.</p><lb/>
+<p>Ich? erwiederte er, ich wollte die Waſſerlilie be¬<lb/>
+ſuchen; es iſt aber nichts daraus geworden.</p><lb/>
+<p>Das verſteht wieder einmal kein Menſch! ſagte<lb/>
+Erich. Was Tauſend hatteſt du denn mit der Waſſer¬<lb/>
+lilie zu thun?</p><lb/>
+<p>Ich habe ſie früher einmal gekannt, ſagte Rein¬<lb/>
+hardt; es iſt aber ſchon lange her.</p><lb/>
+</div> <div n="1"> <head> <hi rendition="#b">Eliſabeth.</hi><lb/>
+</head> <p>Am folgenden Nachmittag wanderten Reinhardt<lb/>
+und Eliſabeth jenſeit des Sees bald durch die Höl¬<lb/>
+zung, bald auf dem hohen vorſpringenden Uferrande.<lb/>
+<pb n="54" facs="#f0060"/>
+Eliſabeth hatte von Erich den Auftrag erhalten, wäh¬<lb/>
+rend ſeiner und der Mutter Abweſenheit Reinhardt<lb/>
+mit den ſchönſten Ausſichten der nächſten Umgegend,<lb/>
+namentlich von der andern Uferſeite auf den Hof<lb/>
+ſelber, bekannt zu machen. Nun gingen ſie von einem<lb/>
+Punkt zum andern. Endlich wurde Eliſabeth müde,<lb/>
+und ſetzte ſich in den Schatten überhängender Zweige,<lb/>
+Reinhardt ſtand ihr gegenüber an einen Baumſtamm<lb/>
+gelehnt; da hörte er tiefer im Walde den Kuckuck rufen,<lb/>
+und es kam ihm plötzlich, dies Alles ſei ſchon einmal<lb/>
+eben ſo geweſen. Er ſah ſie ſeltſam lächelnd an.<lb/>
+Wollen wir Erdbeeren ſuchen? fragte er.</p><lb/>
+<p>Es iſt keine Erdbeerenzeit, ſagte ſie.</p><lb/>
+<p>Sie wird aber bald kommen.</p><lb/>
+<p>Eliſabeth ſchüttelte ſchweigend den Kopf; dann<lb/>
+ſtand ſie auf, und beide ſetzten ihre Wanderung fort;<lb/>
+und wie ſie ſo an ſeiner Seite ging, wandte ſein Blick<lb/>
+ſich immer wieder nach ihr hin; denn ſie ging ſchön,<lb/>
+als wenn ſie von ihren Kleidern getragen würde. Er<lb/>
+blieb oft unwillkürlich einen Schritt zurück, um ſie<lb/>
+ganz und voll ins Auge faſſen zu können. So kamen<lb/>
+ſie an einen freien, haidebewachſenen Platz mit einer<lb/>
+weit ins Land reichenden Ausſicht. Reinhardt bückte<lb/>
+<pb n="55" facs="#f0061"/>
+ſich und pflückte etwas von den am Boden wachſenden<lb/>
+Kräutern. Als er wieder aufſah, trug ſein Geſicht<lb/>
+den Ausdruck leidenſchaftlichen Schmerzes. Kennſt<lb/>
+du dieſe Blume? fragte er.</p><lb/>
+<p>Sie ſah ihn fragend an. Es iſt eine Erica. Ich<lb/>
+habe ſie oft im Walde gepflückt.</p><lb/>
+<p>Ich habe zu Hauſe ein altes Buch, ſagte er; ich<lb/>
+pflegte ſonſt allerlei Lieder und Reime hineinzuſchrei¬<lb/>
+ben; es iſt aber lange nicht mehr geſchehen. Zwiſchen<lb/>
+den Blättern liegt auch eine Erica; aber es iſt nur eine<lb/>
+verwelkte. Weißt du, wer ſie mir gegeben hat?</p><lb/>
+<p>Sie nickte ſtumm; aber ſie ſchlug die Augen nieder<lb/>
+und ſah nur auf das Kraut, das er in der Hand hielt.<lb/>
+So ſtanden ſie lange. Als ſie die Augen gegen ihn<lb/>
+aufſchlug, ſah er, daß ſie voll Thränen waren.</p><lb/>
+<p>Eliſabeth, ſagte er, — hinter jenen blauen Bergen<lb/>
+liegt unſere Jugend. Wo iſt ſie geblieben?</p><lb/>
+<p>Sie ſprachen nichts mehr; ſie gingen ſtumm neben<lb/>
+einander zum See hinab. Die Luft war ſchwül, im<lb/>
+Weſten ſtieg ſchwarzes Gewölk auf. Es wird Ge¬<lb/>
+witter, ſagte Eliſabeth, indem ſie ihren Schritt beeilte.<lb/>
+Reinhardt nickte ſchweigend und beide gingen raſch am<lb/>
+Ufer entlang, bis ſie ihren Kahn erreicht hatten.</p><lb/>
+<pb n="56" facs="#f0062"/>
+<p>Während der Ueberfahrt ließ Eliſabeth ihre Hand<lb/>
+auf dem Rande des Kahnes ruhen. Er blickte beim<lb/>
+Rudern zu ihr hinüber; ſie aber ſah an ihm vorbei in<lb/>
+die Ferne. So glitt ſein Blick herunter und blieb auf<lb/>
+ihrer Hand; und dieſe blaſſe Hand verrieth ihm, was<lb/>
+ihr Antlitz ihm verſchwiegen hatte. Er ſah auf ihr<lb/>
+jenen feinen Zug geheimen Schmerzes, der ſich ſo gern<lb/>
+ſchöner Frauenhände bemächtigt, die Nachts auf<lb/>
+krankem Herzen liegen. — Als Eliſabeth ſein Auge<lb/>
+auf ihrer Hand ruhen fühlte, ließ ſie ſie langſam über<lb/>
+Bord ins Waſſer gleiten.</p><lb/>
+<p>Auf dem Hofe angekommen trafen ſie einen Schee¬<lb/>
+renſchleiferkarren vor dem Herrenhauſe; ein Mann<lb/>
+mit ſchwarzen, niederhängenden Locken trat emſig das<lb/>
+Rad und ſummte eine Zigeunermelodie zwiſchen den<lb/>
+Zähnen, während ein eingeſchirrter Hund ſchnaufend<lb/>
+daneben lag. Auf dem Hausflur ſtand in Lumpen<lb/>
+gehüllt ein Mädchen mit verſtörten ſchönen Zügen und<lb/>
+ſtreckte bettelnd die Hand gegen Eliſabeth aus. Rein¬<lb/>
+hardt griff in ſeine Taſche; aber Eliſabeth kam ihm<lb/>
+zuvor und ſchüttete haſtig den ganzen Inhalt ihrer<lb/>
+Börſe in die offene Hand der Bettlerin. Dann wandte<lb/>
+<pb n="57" facs="#f0063"/>
+ſie ſich eilig ab, und Reinhardt hörte, wie ſie ſchluch¬<lb/>
+zend die Treppe hinaufging.</p><lb/>
+<p>Er wollte ſie aufhalten, aber er beſann ſich und<lb/>
+blieb an der Treppe zurück. Das Mädchen ſtand noch<lb/>
+immer auf dem Flur, unbeweglich, das empfangene<lb/>
+Almoſen in der Hand. Was willſt du noch? fragte<lb/>
+Reinhardt.</p><lb/>
+<p>Sie fuhr zuſammen. Ich will nichts mehr, ſagte<lb/>
+ſie; dann den Kopf nach ihm zurückwendend, ihn an¬<lb/>
+ſtarrend mit den verirrten Augen, ging ſie langſam<lb/>
+gegen die Thür. Er rief einen Namen aus, aber ſie<lb/>
+hörte es nicht mehr; mit geſenktem Haupte, mit über<lb/>
+der Bruſt gekreuzten Armen ſchritt ſie über den Hof<lb/>
+hinab.<lb/>
+<lg type="poem"> <l>Sterben, ach ſterben</l><lb/>
+<l>Soll ich allein!</l><lb/>
+</lg> Ein altes Lied brauſte ihm ins Ohr, der Athem ſtand<lb/>
+ihm ſtill; eine kurze Weile, dann wandte er ſich ab<lb/>
+und ging auf ſein Zimmer.</p><lb/>
+<p>Er ſetzte ſich hin, um zu arbeiten, aber er hatte<lb/>
+keine Gedanken. Nachdem er es eine Stunde lang<lb/>
+vergebens verſucht hatte, ging er ins Familienzimmer<lb/>
+hinab. Es war Niemand da, nur kühle grüne Däm¬<lb/>
+<pb n="58" facs="#f0064"/>
+merung; auf Eliſabeths Nähtiſch lag ein rothes Band,<lb/>
+das ſie am Nachmittag um den Hals getragen hatte.<lb/>
+Er nahm es in die Hand, aber es that ihm weh, und<lb/>
+er legte es wieder hin. Er hatte keine Ruh, er ging<lb/>
+an den See hinab und band den Kahn los; er ruderte<lb/>
+hinüber und ging noch einmal alle Wege, die er kurz<lb/>
+vorher mit Eliſabeth zuſammen gegangen war. Als<lb/>
+er wieder nach Hauſe kam, war es dunkel; auf dem<lb/>
+Hofe begegnete ihm der Kutſcher, der die Wagenpferde<lb/>
+ins Gras bringen wollte; die Reiſenden waren eben<lb/>
+zurückgekehrt. Bei ſeinem Eintritt in den Hausflur<lb/>
+hörte er Erich im Gartenſaal auf- und abſchreiten.<lb/>
+Er ging nicht zu ihm hinein; er ſtand einen Augen¬<lb/>
+blick ſtill, und ſtieg dann leiſe die Treppe hinauf nach<lb/>
+ſeinem Zimmer. Hier ſetzte er ſich in den Lehnſtuhl<lb/>
+ans Fenſter; er that vor ſich ſelbſt, als wolle er die<lb/>
+Nachtigall hören, die unten in den Taxuswänden<lb/>
+ſchlug; aber er hörte nur den Schlag ſeines eigenen<lb/>
+Herzens. Unter ihm im Hauſe ging Alles zur Ruh,<lb/>
+die Nacht verrann, er fühlte es nicht. — So ſaß er<lb/>
+ſtundenlang. Endlich ſtand er auf und legte ſich ins<lb/>
+offene Fenſter. Der Nachtthau rieſelte zwiſchen den<lb/>
+Blättern, die Nachtigall hatte aufgehört zu ſchlagen<lb/>
+<pb n="59" facs="#f0065"/>
+Allmählig wurde auch das tiefe Blau des Nachthim¬<lb/>
+mels von Oſten her durch einen blaßgelben Schimmer<lb/>
+verdrängt; ein friſcher Wind erhob ſich und ſtreifte<lb/>
+Reinhards heiße Stirn: die erſte Lerche ſtieg jauch¬<lb/>
+zend in die Luft. — Reinhardt kehrte ſich plötzlich um<lb/>
+und trat an den Tiſch; er tappte nach einem Bleiſtift,<lb/>
+und als er dieſen gefunden, ſetzte er ſich und ſchrieb<lb/>
+damit einige Zeilen auf einen weißen Bogen Papier.<lb/>
+Nachdem er hiemit fertig war, nahm er Hut und Stock<lb/>
+und das Papier zurücklaſſend, öffnete er behutſam die<lb/>
+Thür und ſtieg in den Flur hinab. — Die Morgen¬<lb/>
+dämmerung ruhte noch in allen Winkeln; die große<lb/>
+Hauskatze dehnte ſich auf der Strohmatte und ſträubte<lb/>
+den Rücken gegen ſeine Hand, die er gedankenlos ent¬<lb/>
+gegenhielt. Draußen im Garten aber prieſterten ſchon<lb/>
+die Sperlinge von den Zweigen und ſagten es allen,<lb/>
+daß die Nacht vorbei ſei. Da hörte er oben im Hauſe<lb/>
+eine Thür gehen; es kam die Treppe herunter, und<lb/>
+als er aufſah, ſtand Eliſabeth vor ihm. Sie legte die<lb/>
+Hand auf ſeinen Arm, ſie bewegte die Lippen, aber er<lb/>
+hörte keine Worte. Du kommſt nicht wieder, ſagte<lb/>
+ſie endlich. Ich weiß es, lüge nicht; du kommſt nie<lb/>
+wieder.</p><lb/>
+<pb n="60" facs="#f0066"/>
+<p>Nie, ſagte er, Sie ließ ihre Hand ſinken und ſagte<lb/>
+nichts mehr. Er ging über den Flur der Thüre zu;<lb/>
+dann wandte er ſich noch einmal. Sie ſtand bewe¬<lb/>
+gungslos an derſelben Stelle und ſah ihn mit todten<lb/>
+Augen an. Er that einen Schritt vorwärts und<lb/>
+ſtreckte die Arme nach ihr aus. Dann kehrte er ſich<lb/>
+gewaltſam ab, und ging zur Thür hinaus. — Draußen<lb/>
+lag die Welt im friſchen Morgenlichte, die Thauperlen,<lb/>
+die in den Spinngeweben hingen, blitzten in den erſten<lb/>
+Sonnenſtrahlen. Er ſah nicht rückwärts, er wanderte<lb/>
+raſch hinaus; und mehr und mehr verſank hinter ihm<lb/>
+das ſtille Gehöft, und vor ihm auf ſtieg' die große<lb/>
+weite Welt.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> <div n="1"> <head> <hi rendition="#b">Der Alte.</hi><lb/>
+</head> <p>Der Mond ſchien nicht mehr in die Fenſterſcheiben,<lb/>
+es war dunkel geworden: der Alte aber ſaß noch im¬<lb/>
+mer mit gefalteten Händen in ſeinem Lehnſtuhl und<lb/>
+blickte vor ſich hin in den Raum des Zimmers. All¬<lb/>
+mählig verzog ſich vor ſeinen Augen die ſchwarze<lb/>
+Dämmerung um ihn her zu einem breiten dunklen<lb/>
+<pb n="61" facs="#f0067"/>
+See; ein ſchwarzes Gewäſſer legte ſich hinter das<lb/>
+andere, immer tiefer und ferner, und auf dem letzten,<lb/>
+ſo fern, daß die Augen des Alten ſie kaum erreichten,<lb/>
+ſchwamm einſam zwiſchen breiten Blättern eine weiße<lb/>
+Waſſerlilie.</p><lb/>
+<p>Die Stubenthür ging auf und ein heller Licht¬<lb/>
+ſchimmer fiel ins Zimmer. Es iſt gut, daß Sie kom¬<lb/>
+men, Brigitte, ſagte der Alte. Stellen Sie das Licht<lb/>
+nur auf den Tiſch.</p><lb/>
+<p>Dann rückte er auch den Stuhl zum Tiſche, nahm<lb/>
+eins der aufgeſchlagenen Bücher, und vertiefte ſich in<lb/>
+Studien, an denen er einſt die Kraft ſeiner Jugend<lb/>
+geübt hatte.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb facs="#f0068"/>
+</body> <back> <div type="imprint"> <milestone unit="section" rendition="#hr"/><lb/>
+<p rendition="#c">Druck von Gieſecke &amp; Devrient in Leipzig.</p> <milestone unit="section" rendition="#hr"/><lb/>
+</div><lb/>
+<pb facs="#f0069"/>
+<div type="advertisement"> <p>Im Verlage von <hi rendition="#b">Alexander Duncker</hi>, Königl.<lb/>
+Hofbuchhändler in <hi rendition="#g">Berlin</hi>, ſind die nachſtehenden,<lb/>
+ſchön ausgeſtatteten <hi rendition="#b">Miniatur-Ausgaben</hi> erſchienen<lb/>
+und durch alle Buchhandlungen des In- und Aus¬<lb/>
+landes zu beziehen:</p><lb/>
+<p> <hi rendition="#b">Geibel, Emanuel,</hi> Gedichte. 28ſte Aufl. geh. 1 Thlr.<lb/>
+24 Sgr. — eleg. gebund. mit Goldſchnitt 2 Thlr.<lb/>
+7½ Sgr. — ſehr eleg. in Kalbleder mit Goldſchnitt<lb/>
+2 Thlr. 22½ Sgr.</p><lb/>
+<p> <hi rendition="#b">Gerſtenberg, Friedrich von,</hi> Gedichte. geb. 20 Sgr.<lb/>
+eleg. gebd. mit Goldſchnitt 1 Thlr.</p><lb/>
+<p> <hi rendition="#b">Hertz, Henrik,</hi> König René's Tochter. Lyriſches<lb/>
+Drama. Aus dem Däniſchen, unter Mitwirkung<lb/>
+des Verfaſſers von <hi rendition="#g">Fr</hi>. <hi rendition="#g">Breſemann</hi>. 4te Aufl.<lb/>
+geh. 8 Sgr. — eleg. gebd. mit Goldſchnitt 20 Sgr.</p><lb/>
+<p> <hi rendition="#b">Heſekiel, George,</hi> Das liebe Dorel, die Perle von<lb/>
+Brandenburg. Eine Geſchichte fürs preußiſche Volk.<lb/>
+geh. 9 Sgr. — eleg. gebd. mit Goldſchnitt 18 Sgr.</p><lb/>
+<p> <hi rendition="#b">Kopiſch, A.,</hi> Allerlei Geiſter. 2te Aufl. geh. 1 Thlr.<lb/>
+— eleg. gebd. mit Goldſchnitt 1 Thlr. 10 Sgr.</p><lb/>
+<p> <hi rendition="#b">Landesmann, H.,</hi> Abdul. eleg. geh. mit Goldſchnitt<lb/>
+9 Sgr.</p><lb/>
+<p> <hi rendition="#b">Lehmann, Ferdinand,</hi> Streit und Friede. Gedichte.<lb/>
+Mit einer Vorrede von <hi rendition="#g">Ludwig Tieck</hi>. geh.<lb/>
+24 Sgr. — eleg. gebd. mit Goldſchnitt 1 Thlr.<lb/>
+6 Sgr.</p><lb/>
+<pb facs="#f0070"/>
+<p> <hi rendition="#b">Prinzeſſin Ilſe.</hi> Ein Märchen aus dem Harzgebirge.<lb/>
+3te Aufl. geh. 15 Sgr. — eleg. gebd. mit Goldſchn.<lb/>
+27 Sgr.</p><lb/>
+<p> <hi rendition="#b">Putlitz, Guſtav zu,</hi> Was ſich der Wald erzählt. Ein<lb/>
+Märchenſtrauß. 12te Aufl. geh. 15 Sgr. — eleg.<lb/>
+gebd. mit Goldſchnitt 27 Sgr.</p><lb/>
+<p> <hi rendition="#b">Salmuth, Dina von,</hi> Jugendblüthen. Gedichte. 2te<lb/>
+verbeſſerte Ausgabe. eleg. gebd. mit Goldſchnitt<lb/>
+1 Thlr. 15 Sgr.</p><lb/>
+<p> <hi rendition="#b">Stunden, Ernſte.</hi> Andachtsbuch für Frauen von<lb/>
+einer Frau. (Zum Beſten des Eliſabeth-Kinder-<lb/>
+Hospitals.) 2te Auflage. geh. 15 Sgr. — eleg.<lb/>
+gebd. mit Goldſchnitt 27 Sgr.</p><lb/>
+<p> <hi rendition="#b">Guſtav zu Putlitz,</hi></p><lb/>
+<p>Was ſich der Wald erzählt.</p><lb/>
+<p>Ein Märchenstrauss.</p><lb/>
+<p> <hi rendition="#g">Iluſtrirte Pracht-Ausgabe</hi>.</p><lb/>
+<p>Mit ſechs Zeichnungen von A. <hi rendition="#g">Hindorf</hi> und vielen Vignetten.</p><lb/>
+<p> <hi rendition="#b">Zehnte Auflage.</hi></p><lb/>
+<p>geheftet ............... 1 Thlr. 20 Sgr.</p><lb/>
+<p>eleg. in Kattun gebd. mit Goldſchn. 2 - 20 -</p><lb/>
+<p>eleg. in feinſt. Kalbleder m. Goldſchn. 3 - 22½-</p><lb/>
+</div> <milestone unit="section" rendition="#hr"/>
+<pb facs="#f0071"/>
+<pb facs="#f0072"/>
+<pb facs="#f0073"/>
+</back> </text> </TEI>

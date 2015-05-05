@@ -1,0 +1,1077 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Was heißt und zu welchem Ende studiert man Universalgeschichte?</title>
+<title type="sub">Eine Akademische Antrittsrede bey Eröfnung seiner Vorlesungen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118607626">
+<surname>Schiller</surname>
+<forename>Friedrich</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">38</measure>
+<measure type="tokens">6220</measure>
+<measure type="types">2339</measure>
+<measure type="characters">45832</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:15:14Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/schiller_universalgeschichte_1789</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/schiller_universalgeschichte_1789</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/schiller_universalgeschichte_1789</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/schiller_universalgeschichte_1789</idno>
+<idno type="DTADirName">schiller_universalgeschichte_1789</idno>
+<idno type="DTAID">17210</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905197338</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Schiller, Friedrich: Was heißt und zu welchem Ende studiert man Universalgeschichte? (Antrittsvorlesung in Jena, 26. 5. 1789 ). Jena, 1789.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Was heißt und zu welchem Ende studiert man Universalgeschichte?</title>
+<title level="m" type="sub">Eine Akademische Antrittsrede bey Eröfnung seiner Vorlesungen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118607626">
+<surname>Schiller</surname>
+<forename>Friedrich</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">32 S. </measure>
+</extent>
+<publicationStmt>
+<publisher><name>Akademische Buchhandlung</name></publisher>
+<pubPlace>Jena</pubPlace>
+<date type="publication">1789</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">Göttingen SUB, DD91 A 33386 RARA</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=DD91%20A%2033386%20RARA</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Historiographie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Historiographie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb n="[1]" facs="#f0003"/>
+<titlePage type="main"><docTitle><titlePart type="main">Was heißt<lb/>
+<hi rendition="#g">und</hi><lb/>
+zu welchem Ende ſtudiert man<lb/>
+<hi rendition="#b">Univerſalgeſchichte?</hi></titlePart><lb/>
+<milestone unit="section" rendition="#hr"/> <titlePart type="sub"><hi rendition="#g">Eine Akademiſche Antrittsrede</hi></titlePart></docTitle><lb/>
+<byline>bey<lb/>
+Eroͤfnung ſeiner Vorleſungen<lb/>
+gehalten<lb/>
+von<docAuthor> <hi rendition="#g">Friedrich Schiller</hi>,</docAuthor><lb/>
+Professor der Geschichte in Jena.</byline><lb/>
+<milestone unit="section" rendition="#hr"/> <docImprint><pubPlace><hi rendition="#g">Jena</hi></pubPlace>,<lb/>
+<publisher><hi rendition="#g">in der Akademiſchen Buchhandlung</hi></publisher>.<lb/>
+<docDate><hi rendition="#g">1789</hi>.</docDate></docImprint></titlePage><lb/>
+</front><body>
+<pb n="[2]" facs="#f0004"/>
+<pb n="[3]" facs="#f0005"/>
+<div n="1"><head><hi rendition="#c"><hi rendition="#g">Was heißt<lb/>
+und zu welchem Ende ſtudiert man<lb/>
+Univerſalgeſchichte</hi>?<lb/>
+<hi rendition="#g">Eine akademiſche Antrittsrede</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <p><hi rendition="#in">E</hi>rfreuend und ehrenvoll iſt mir der Auftrag, meine<lb/>
+h. H. H., an Ihrer Seite kuͤnftig ein Feld zu durch-<lb/>
+wandern, das dem denkenden Betrachter ſo viele Ge-<lb/>
+genſtaͤnde des Unterrichts, dem thaͤtigen Weltmann ſo<lb/>
+herrliche Muſter zur Nachahmung, dem Philoſophen<lb/>
+ſo wichtige Aufſchluͤſſe, und jedem ohne Unterſchied ſo<lb/>
+reiche Quellen des edelſten Vergnuͤgens eroͤfnet. Das<lb/>
+große weite Feld der allgemeinen Geſchichte, der An-<lb/>
+blick ſo vieler vortrefflichen jungen Maͤnner, die eine<lb/>
+edle Wißbegierde um mich her verſammelt, und in<lb/>
+deren Mitte ſchon manches wirkſame Genie fuͤr das<lb/>
+kommende Zeitalter aufbluͤht, macht mir meine Pflicht<lb/>
+zum Vergnuͤgen, laͤßt mich aber auch die Strenge und<lb/>
+Wichtigkeit derſelben in ihrem ganzen Umfang empfin-<lb/>
+den. Je groͤßer das Geſchenk iſt, das ich Ihnen zu<lb/>
+uͤbergeben habe — und was hat der Menſch dem Men-<lb/>
+ſchen groͤßeres zu geben, als Wahrheit? — deſtomehr<lb/>
+muß ich Sorge tragen, daß ſich der Werth deſſelben un-<lb/>
+<fw type="sig" place="bottom">A 2</fw> <fw type="catch" place="bottom">ter</fw><lb/>
+<pb n="4" facs="#f0006"/>
+ter meiner Hand nicht verringere. Je lebendiger und<lb/>
+reiner ihr Geiſt in dieſer gluͤcklichſten Epoche ſeines Wir-<lb/>
+kens empfaͤnge, und je raſcher ſich ihre jugendlichen Ge-<lb/>
+fuͤhle entflammen, deſto mehr Aufforderung fuͤr mich,<lb/>
+zu verhuͤten, daß ſich dieſer Enthuſiasmus, den die<lb/>
+Wahrheit allein das Recht hat zu erwecken, an Betrug<lb/>
+und Taͤuſchung nicht unwuͤrdig verſchwende.</p><lb/>
+<p>Fruchtbar und weit umfaſſend iſt das Gebiet der Ge-<lb/>
+ſchichte; in ihrem Kreiſe liegt die ganze moraliſche Welt.<lb/>
+Durch alle Zuſtaͤnde, die der Menſch erlebte, durch alle<lb/>
+abwechſelnde Geſtalten der Meinung, durch ſeine Thor-<lb/>
+heit und ſeine Weisheit, ſeine Verſchlimmerung und<lb/>
+ſeine Veredlung, begleitet ſie ihn, von allem was er ſich<lb/>
+nahm und gab, muß ſie Rechenſchaft ablegen. Es iſt<lb/>
+keiner unter Ihnen allen, dem Geſchichte nicht etwas<lb/>
+wichtiges zu ſagen haͤtte; alle noch ſo verſchiedenen Bah-<lb/>
+nen Ihrer kuͤnftigen Beſtimmung verknuͤpfen ſich ir-<lb/>
+gendwo mit derſelben; aber Eine Beſtimmung theilen<lb/>
+Sie alle auf gleiche Weiſe mit einander, diejenige, wel-<lb/>
+che Sie auf die Welt mitbrachten — ſich als Menſchen<lb/>
+auszubilden — und zu dem Menſchen eben redet die<lb/>
+Geſchichte.</p><lb/>
+<p>Ehe ich es aber unternehmen kann, meine H. H.,<lb/>
+Ihre Erwartungen von dieſem Gegenſtande Ihres Fleiſ-<lb/>
+ſes genauer zu beſtimmen, und die Verbindung anzu-<lb/>
+geben, worin derſelbe mit dem eigentlichen Zweck<lb/>
+Ihrer ſo verſchiedenen Studien ſteht, wird es nicht<lb/>
+uͤberfluͤßig ſeyn, mich uͤber dieſen Zweck Ihrer Stu-<lb/>
+<fw type="catch" place="bottom">dien</fw><lb/>
+<pb n="5" facs="#f0007"/>
+dien ſelbſt vorher mit Ihnen einzuverſtehen. Eine vor-<lb/>
+laͤufige Berichtigung dieſer Frage, welche mir paſſend<lb/>
+und wuͤrdig genug ſcheint, unſre kuͤnftige akademiſche<lb/>
+Verbindung zu eroͤfnen, wird mich in den Stand<lb/>
+ſetzen, Ihre Aufmerkſamkeit ſo gleich auf die wuͤrdigſte<lb/>
+Seite der Weltgeſchichte hinzuweiſen.</p><lb/>
+<p>Anders iſt der Studierplan, den ſich der Brodge-<lb/>
+lehrte, anders derjenige, den der philoſophiſche Kopf<lb/>
+ſich vorzeichnet. Jener, dem es bey ſeinem Fleiß ein-<lb/>
+zig und allein darum zu thun iſt, die Bedingungen zu<lb/>
+erfuͤllen, unter denen er zu einem Amte faͤhig und der<lb/>
+Vortheile deſſelben theilhaftig werden kann, der nur<lb/>
+darum die Kraͤfte ſeines Geiſtes in Bewegung ſetzt, um<lb/>
+dadurch ſeinen ſinnlichen Zuſtand zu verbeſſern und ei-<lb/>
+ne kleinliche Ruhmſucht zu befriedigen, — ein ſolcher<lb/>
+wird beym Eintritt in ſeine akademiſche Laufbahn keine<lb/>
+wichtigere Angelegenheit haben, als die Wiſſenſchaften,<lb/>
+die er Brodſtudien nennt, von allen uͤbrigen, die den<lb/>
+Geiſt nur als Geiſt vergnuͤgen, auf das ſorgfaͤltigſte<lb/>
+abzuſondern. Alle Zeit, die er dieſen letztern widmete,<lb/>
+wuͤrde er ſeinem kuͤnftigen Berufe zu entziehen glauben,<lb/>
+und ſich dieſen Raub nie vergeben. Seinen ganzen<lb/>
+Fleiß wird er nach den Foderungen einrichten, die von<lb/>
+dem kuͤnftigen Herrn ſeines Schickſals an ihn gemacht<lb/>
+werden, und alles gethan zu haben glauben, wenn er<lb/>
+ſich faͤhig gemacht hat, dieſe Inſtanz nicht zu fuͤrchten.<lb/>
+Hat er ſeinen Kurſus durchlaufen und das Ziel ſeiner<lb/>
+Wuͤnſche erreicht, ſo entlaͤßt er ſeine Fuͤhrerinnen —<lb/>
+<fw type="sig" place="bottom">A 3</fw> <fw type="catch" place="bottom">denn</fw><lb/>
+<pb n="6" facs="#f0008"/>
+denn wozu noch weiter ſie bemuͤhen? Seine groͤßte<lb/>
+Angelegenheit iſt jetzt, die zuſammen gehaͤuften Ge-<lb/>
+daͤchtnißſchaͤtze zur Schau zu tragen, und ja zu verhuͤ-<lb/>
+ten, daß ſie in ihrem Werthe nicht ſinken. Jede Er-<lb/>
+weiterung ſeiner Brodwiſſenſchaft beunruhigt ihn, weil<lb/>
+ſie ihm neue Arbeit zuſendet, oder die vergangene un-<lb/>
+nuͤtz macht; jede wichtige Neuerung ſchreckt ihn auf,<lb/>
+denn ſie zerbricht die alte Schulform, die er ſich ſo muͤh-<lb/>
+ſam zu eigen machte, ſie ſetzt ihn in Gefahr, die ganze<lb/>
+Arbeit ſeines vorigen Lebens zu verlieren. Wer hat<lb/>
+uͤber Reformatoren mehr geſchrieen, als der Haufe der<lb/>
+Brodgelehrten? Wer haͤlt den Fortgang nuͤtzlicher Re-<lb/>
+volutionen im Reich des Wiſſens mehr auf, als eben<lb/>
+dieſe? Jedes Licht, das durch ein gluͤckliches Genie,<lb/>
+in welcher Wiſſenſchaft es ſey, angezuͤndet wird, macht<lb/>
+ihre Duͤrftigkeit ſichtbar; ſie fechten mit Erbitterung,<lb/>
+mit Heimtuͤcke, mit Verzweiflung, weil ſie bey dem<lb/>
+Schulſyſtem, das ſie vertheidigen, zugleich fuͤr ihr gan-<lb/>
+zes Daſeyn fechten. Darum kein unverſoͤhnlicherer Feind,<lb/>
+kein neidiſcherer Amtsgehuͤlfe, kein bereitwilligerer Ke-<lb/>
+tzermacher, als der Brodgelehrte. Je weniger ſeine<lb/>
+Kenntniſſe durch ſich ſelbſt ihn belohnen, deſto groͤßere<lb/>
+Vergeltung heiſcht er von außen; fuͤr das Verdienſt der<lb/>
+Handarbeiter und das Verdienſt der Geiſter hat er nur<lb/>
+Einen Maaßſtab, die Muͤhe. Darum hoͤrt man nie-<lb/>
+mand uͤber Undank mehr klagen, als den Brodgelehr-<lb/>
+ten; nicht bey ſeinen Gedankenſchaͤtzen ſucht er ſeinen<lb/>
+Lohn, ſeinen Lohn erwartet er von fremder Anerken-<lb/>
+nung, von Ehrenſtellen, von Verſorgung. Schlaͤgt<lb/>
+<fw type="catch" place="bottom">ihm</fw><lb/>
+<pb n="7" facs="#f0009"/>
+ihm dieſes fehl, wer iſt ungluͤcklicher als der Brodge-<lb/>
+lehrte? Er hat umſonſt gelebt, gewacht, gearbeitet;<lb/>
+er hat umſonſt nach Wahrheit geforſcht, wenn ſich Wahr-<lb/>
+heit, fuͤr ihn nicht in Gold, in Zeitungslob, in Fuͤr-<lb/>
+ſtengunſt verwandelt.</p><lb/>
+<p>Beklagenswerther Menſch, der mit dem edelſten<lb/>
+aller Werkzeuge, mit Wiſſenſchaft und Kunſt, nichts<lb/>
+hoͤheres will und ausrichtet, als der Tagloͤhner mit dem<lb/>
+ſchlechteſten! der im Reiche der vollkommenſten Frey-<lb/>
+heit eine Sclavenſeele mit ſich herum traͤgt! — Noch<lb/>
+beklagenswerther aber iſt der junge Mann von Genie,<lb/>
+deſſen natuͤrlich ſchoͤner Gang durch ſchaͤdliche Lehren<lb/>
+und Muſter auf dieſen traurigen Abweg verlenkt wird,<lb/>
+der ſich uͤberreden ließ, fuͤr ſeinen kuͤnftigen Beruf mit<lb/>
+dieſer kuͤmmerlichen Genauigkeit zu ſammeln. Bald<lb/>
+wird ſeine Berufswiſſenſchaft als ein Stuͤckwerk ihn an-<lb/>
+ekeln; Wuͤnſche werden in ihm aufwachen, die ſie nicht<lb/>
+zu befriedigen vermag, ſein Genie wird ſich gegen ſei-<lb/>
+ne Beſtimmung auflehnen. Als Bruchſtuͤck erſcheint<lb/>
+ihm jetzt alles was er thut, er ſieht keinen Zweck ſei-<lb/>
+nes Wirkens, und doch kann er Zweckloſigkeit nicht er-<lb/>
+tragen. Das Muͤhſelige, das Geringfuͤgige in ſeinen<lb/>
+Berufsgeſchaͤften druͤckt ihn zu Boden, weil er ihm den<lb/>
+frohen Muth nicht entgegen ſetzen kann, der nur die<lb/>
+helle Einſicht, nur die geahndete Vollendung begleitet.<lb/>
+Er fuͤhlt ſich abgeſchnitten, herausgeriſſen aus dem Zu-<lb/>
+ſammenhang der Dinge, weil er unterlaſſen hat, ſeine<lb/>
+Thaͤtigkeit an das große Ganze der Welt anzuſchließen.<lb/>
+<fw type="sig" place="bottom">A 4</fw> <fw type="catch" place="bottom">Dem</fw><lb/>
+<pb n="8" facs="#f0010"/>
+Dem Rechtsgelehrten entleidet ſeine Rechtswiſſenſchaft,<lb/>
+ſobald der Schimmer beſſerer Kultur ihre Bloͤßen ihm<lb/>
+beleuchtet, anſtatt daß er jetzt ſtreben ſollte, ein neuer<lb/>
+Schoͤpfer derſelben zu ſeyn, und den entdeckten Man-<lb/>
+gel aus innerer Fuͤlle zu verbeſſern. Der Arzt entzwey-<lb/>
+het ſich mit ſeinem Beruf, ſobald ihm wichtige Fehl-<lb/>
+ſchlaͤge die Unzuverlaͤßigkeit ſeiner Syſteme zeigen; der<lb/>
+Theolog verliert die Achtung fuͤr den Seinigen, ſo-<lb/>
+bald ſein Glaube an die Unfehlbarkeit ſeines Lehrgebaͤu-<lb/>
+des wankt.</p><lb/>
+<p>Wie ganz anders verhaͤlt ſich der philoſophiſche<lb/>
+Kopf! — Eben ſo ſorgfaͤltig, als der Brodgelehrte<lb/>
+ſeine Wiſſenſchaft von allen uͤbrigen abſondert, be-<lb/>
+ſtrebt ſich jener, ihr Gebiet zu erweitern, und ihren<lb/>
+Bund mit den uͤbrigen wieder herzuſtellen — herzu-<lb/>
+ſtellen, ſage ich, denn nur der abſtrahirende Verſtand<lb/>
+hat jene Grenzen gemacht, hat jene Wiſſenſchaften<lb/>
+von einander geſchieden. Wo der Brodgelehrte trennt,<lb/>
+vereinigt der philoſophiſche Geiſt. Fruͤhe hat er ſich<lb/>
+uͤberzeugt, daß im Gebiete des Verſtandes, wie in der<lb/>
+Sinnenwelt, alles in einander greife, und ſein reger<lb/>
+Trieb nach Uebereinſtimmung kann ſich mit Bruchſtuͤ-<lb/>
+cken nicht begnuͤgen. Alle ſeine Beſtrebungen ſind auf<lb/>
+Vollendung ſeines Wiſſens gerichtet; ſeine edle Unge-<lb/>
+duld kann nicht ruhen, bis alle ſeine Begriffe zu einem<lb/>
+harmoniſchen Ganzen ſich geordnet haben, bis er im<lb/>
+Mittelpunkt ſeiner Kunſt, ſeiner Wiſſenſchaft ſteht, und<lb/>
+von hier aus ihr Gebiet mit befriedigtem Blick uͤber-<lb/>
+<fw type="catch" place="bottom">ſchauet.</fw><lb/>
+<pb n="9" facs="#f0011"/>
+ſchauet. Neue Entdeckungen im Kreiſe ſeiner Thaͤtig-<lb/>
+keit, die den <hi rendition="#fr">Brodgelehrten</hi> niederſchlagen, entzuͤcken<lb/>
+den philoſophiſchen Geiſt. Vielleicht fuͤllen ſie eine<lb/>
+Luͤcke, die das werdende Ganze ſeiner Begriffe noch<lb/>
+verunſtaltet hatte, oder ſetzen den lezten noch fehlenden<lb/>
+Stein an ſein Ideengebaͤude, der es vollendet. Soll-<lb/>
+ten ſie es aber auch zertruͤmmern, ſollte eine neue Ge-<lb/>
+dankenreyhe, eine neue Naturerſcheinung, ein neu ent-<lb/>
+decktes Geſetz in der Koͤrperwelt, den ganzen Bau ſeiner<lb/>
+Wiſſenſchaft umſtuͤrzen: ſo hat er die <hi rendition="#fr">Wahrheit</hi> im-<lb/>
+mer mehr geliebt als ſein <hi rendition="#fr">Syſtem</hi>, und gerne wird<lb/>
+er die alte mangelhafte Form mit einer neuern und<lb/>
+ſchoͤnern vertauſchen. Ja, wenn kein Streich von<lb/>
+auſſen ſein Ideengebaͤude erſchuͤttert, ſo iſt er ſelbſt,<lb/>
+von einem ewig wirkſamen Trieb nach Verbeſſerung<lb/>
+gezwungen, er ſelbſt iſt der Erſte, der es unbefriedigt<lb/>
+aus einander legt, um es vollkommener wieder herzu-<lb/>
+ſtellen. Durch immer neue und immer ſchoͤnere Ge-<lb/>
+danken-Formen ſchreitet der philoſophiſche Geiſt zu hoͤ-<lb/>
+herer Vortreflichkeit fort, wenn der Brodgelehrte, in<lb/>
+ewigem Geiſtesſtillſtand, das unfruchtbare Einerley<lb/>
+ſeiner Schulbegriffe huͤtet.</p><lb/>
+<p>Kein gerechterer Beurtheiler fremden Verdienſts<lb/>
+als der philoſophiſche Kopf. Scharfſichtig und erfin-<lb/>
+deriſch genug, um jede Thaͤtigkeit zu nutzen, iſt er<lb/>
+auch billig genug, den Urheber auch der kleinſten zu<lb/>
+ehren. <hi rendition="#fr">Fuͤr</hi> ihn arbeiten alle Koͤpfe — alle Koͤpfe ar-<lb/>
+beiten gegen den Brodgelehrten. Jener weiß alles<lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">was</fw><lb/>
+<pb n="10" facs="#f0012"/>
+was um ihn geſchiehet und gedacht wird, in ſein Ei-<lb/>
+genthum zu verwandeln — zwiſchen denkenden Koͤpfen<lb/>
+gilt eine innige Gemeinſchaft aller Guͤter des Geiſtes;<lb/>
+was Einer im Reiche der Wahrheit erwirbt, hat er<lb/>
+Allen erworben — Der Brodgelehrte verzaͤunet ſich gegen<lb/>
+alle ſeine Nachbarn, denen er neidiſch Licht und Sonne<lb/>
+mißgoͤnnt, und bewacht mit Sorge die baufaͤllige<lb/>
+Schranke, die ihn nur ſchwach gegen die ſiegende Ver-<lb/>
+nunft vertheidigt. Zu allem was der Brodgelehrte<lb/>
+unternimmt, muß er Reiz und Aufmunterung von<lb/>
+auſſen her borgen: der philoſophiſche Geiſt findet in<lb/>
+ſeinem Gegenſtand, in ſeinem Fleiße ſelbſt, Reiz und<lb/>
+Belohnung. Wie viel begeiſterter kan er ſein Werk<lb/>
+angreiffen, wieviel lebendiger wird ſein Eifer, wieviel<lb/>
+ausdaurender ſein Muth und ſeine Thaͤtigkeit ſeyn, da<lb/>
+bey ihm die Arbeit ſich durch die Arbeit verjuͤnget.<lb/>
+Das Kleine ſelbſt gewinnt Groͤße unter ſeiner ſchoͤpfe-<lb/>
+riſchen Hand, da er dabey immer das Große im Auge<lb/>
+hat, dem es dienet, wenn der Brodgelehrte in dem<lb/>
+Großen ſelbſt nur das Kleine ſieht. Nicht was er<lb/>
+treibt, ſondern wie er das, was er treibt, behandelt,<lb/>
+unterſcheidet den philoſophiſchen Geiſt. Wo er auch<lb/>
+ſtehe und wirke, er ſteht immer im Mittelpunkt des<lb/>
+Ganzen; und ſo weit ihn auch das Objekt ſeines<lb/>
+Wirkens von ſeinen uͤbrigen Bruͤdern entferne, er iſt<lb/>
+ihnen verwandt und nahe durch einen harmoniſch wir-<lb/>
+kenden Verſtand, er begegnet ihnen wo alle helle Koͤpfe<lb/>
+einander finden. Soll ich dieſe Schilderung noch wei-<lb/>
+ter fortfuͤhren, m. H. H. oder darf ich hoffen, daß es<lb/>
+<fw type="catch" place="bottom">ber</fw><lb/>
+<pb n="11" facs="#f0013"/>
+bereits bey Ihnen entſchieden ſey, welches von den<lb/>
+beyden Gemaͤhlden, die ich Ihnen hier vorgehalten<lb/>
+habe, Sie Sich zum Muſter nehmen wollen? Von<lb/>
+der Wahl, die Sie zwiſchen beyden getroffen haben,<lb/>
+haͤngt es ab, ob Ihnen das Studium der Univerſalge-<lb/>
+ſchichte empfohlen oder erlaßen werden kann. Mit<lb/>
+dem <hi rendition="#fr"><hi rendition="#g">Zweyten</hi></hi> allein habe ich es zu thun; denn bey<lb/>
+dem Beſtreben, ſich dem <hi rendition="#fr">Erſten</hi> nuͤtzlich zu machen,<lb/>
+moͤchte ſich die Wiſſenſchaft ſelbſt allzuweit von ihrem<lb/>
+hoͤhern Entzweck entfernen, und einen kleinen Gewinn<lb/>
+mit einem zu großen Opfer erkaufen.</p><lb/>
+<p>Ueber den Geſichtspunkt mit Ihnen einig, aus wel-<lb/>
+chem der Werth einer Wiſſenſchaft zu beſtimmen iſt,<lb/>
+kann ich mich dem Begriff der Univerſalgeſchichte ſelbſt,<lb/>
+dem Gegenſtand der heutigen Vorleſung, naͤhern.</p><lb/>
+<p>Die Entdeckungen, welche unſre europaͤiſchen See-<lb/>
+fahrer in fernen Meeren und auf entlegenen Kuͤſten ge-<lb/>
+macht haben, geben uns ein eben ſo lehrreiches als un-<lb/>
+terhaltendes Schauſpiel. Sie zeigen uns Voͤlkerſchaf-<lb/>
+ten, die auf den mannichfaltigſten Stuffen der Bildung<lb/>
+um uns herum gelagert ſind, wie Kinder verſchiednen<lb/>
+Alters um einen Erwachſenen herum ſtehen, und durch<lb/>
+ihr Beyſpiel ihm in Erinnerung bringen, was er ſelbſt<lb/>
+vormals geweſen, und wovon er ausgegangen iſt. Eine<lb/>
+weiſe Hand ſcheint uns dieſe rohen Voͤlkerſtaͤmme bis<lb/>
+auf den Zeitpunkt aufgeſpart zu haben, wo wir in un-<lb/>
+ſrer eignen Kultur weit genug wuͤrden fortgeſchritten<lb/>
+ſeyn, um von dieſer Entdeckung eine nuͤtzliche Anwen-<lb/>
+<fw type="catch" place="bottom">dung</fw><lb/>
+<pb n="12" facs="#f0014"/>
+dung auf uns ſelbſt zu machen, und den verlohrnen An-<lb/>
+fang unſers Geſchlechts aus dieſem Spiegel wieder her-<lb/>
+zuſtellen. Wie beſchaͤmend und traurig aber iſt das<lb/>
+Bild, das uns dieſe Voͤlker von unſerer Kindheit geben!<lb/>
+und doch iſt es nicht einmahl die erſte Stuffe mehr, auf<lb/>
+der wir ſie erblicken. Der Menſch fieng noch veraͤcht-<lb/>
+licher an. Wir finden jene doch ſchon als Voͤlker, als<lb/>
+politiſche Koͤrper: aber der Menſch mußte ſich erſt durch<lb/>
+eine auſſerordentliche Anſtrengung zur Geſellſchaft er-<lb/>
+heben.</p><lb/>
+<p>Was erzaͤhlen uns die Reiſebeſchreiber nun von dies-<lb/>
+ſen Wilden? Manche fanden ſie ohne Bekanntſchaft<lb/>
+mit den unentbehrlichſten Kuͤnſten, ohne das Eiſen,<lb/>
+ohne den Pflug, einige ſogar ohne den Beſitz des Feuers.<lb/>
+Manche rangen noch mit wilden Thieren um Speiſe<lb/>
+und Wohnung, bey vielen hatte ſich die Sprache noch<lb/>
+kaum von thieriſchen Toͤnen zu verſtaͤndlichen Zeichen<lb/>
+erhoben. Hier war nicht einmal das ſo einfache Band<lb/>
+der <hi rendition="#fr">Ehe</hi>, dort noch keine Kenntniß des <hi rendition="#fr">Eigenthums</hi>;<lb/>
+hier konnte die ſchlaffe Seele noch nicht einmal eine Er-<lb/>
+fahrung feſt halten, die ſie doch taͤglich wiederhohlte;<lb/>
+ſorglos ſah man den Wilden das Lager hingeben, wor-<lb/>
+auf er heute ſchlief, weil ihm nicht einfiel, daß er mor-<lb/>
+gen wieder ſchlafen wuͤrde. Krieg hingegen war bey<lb/>
+allen, und das Fleiſch des uͤberwundenen Feindes nicht<lb/>
+ſelten der Preis des Sieges. Bey andern, die mit meh-<lb/>
+rern Gemaͤchlichkeiten des Lebens vertraut, ſchon eine<lb/>
+hoͤhere Stuffe der Bildung erſtiegen hatten, zeigten<lb/>
+<fw type="catch" place="bottom">Knecht</fw><lb/>
+<pb n="13" facs="#f0015"/>
+Knechtſchaft und Deſpotismus ein ſchauderhaftes Bild.<lb/>
+Dort ſah man einen Deſpoten Afrikas ſeine Unterthanen<lb/>
+fuͤr einen Schluck Brandwein verhandeln: — hier wur-<lb/>
+den ſie auf ſeinem Grab abgeſchlachtet, ihm in der Un-<lb/>
+terwelt zu dienen. Dort wirft ſich die fromme Einfalt<lb/>
+vor einen laͤcherlichen Fetiſch, und hier vor einem grau-<lb/>
+ſenvollen Scheuſal nieder; in ſeinen Goͤttern mahlt ſich<lb/>
+der Menſch. So tief ihn dort Sclaverey, Dummheit<lb/>
+und Aberglauben niederbeugen, ſo elend iſt er hier durch<lb/>
+das andre Extrem geſetzloſer Freyheit. Immer zum<lb/>
+Angriff und zur Vertheidigung geruͤſtet, von jedem Ge-<lb/>
+raͤuſch aufgeſcheucht, reckt der Wilde ſein ſcheues Ohr<lb/>
+in die Wuͤſte; <hi rendition="#fr">Feind</hi> heißt ihm alles was neu iſt, und<lb/>
+wehe dem Fremdling den das Ungewitter an ſeine Kuͤſte<lb/>
+ſchleudert! Kein wirthlicher Heerd wird ihm rauchen,<lb/>
+kein ſuͤßes Gaſtrecht ihn erfreuen. Aber ſelbſt da, wo<lb/>
+ſich der Menſch von einer feindſeligen Einſamkeit zur<lb/>
+Geſellſchaft, von der Noth zum Wohlleben, von der<lb/>
+Furcht zu der Freude erhebt — wie abenteuerlich und<lb/>
+ungeheuer zeigt er ſich unſern Augen! Sein roher<lb/>
+Geſchmack ſucht Froͤhlichkeit in der Betaͤubung, Schoͤn-<lb/>
+heit in der Verzerrung, Ruhm in der Uebertreibung;<lb/>
+Entſetzen erweckt uns ſelbſt ſeine Tugend, und das was<lb/>
+er ſeine Gluͤckſeligkeit nennt, kann uns nur Ekel oder<lb/>
+Mitleid erregen.</p><lb/>
+<p>So waren <hi rendition="#g">wir</hi>. Nicht viel beſſer fanden uns Caͤ-<lb/>
+ſar und Tacitus vor achtzehn hundert Jahren.</p><lb/>
+<p>Was ſind wir jetzt? — Laſſen Sie mich einen Au-<lb/>
+genblick bey dem Zeitalter ſtille ſtehen, worinn wir le-<lb/>
+<fw type="catch" place="bottom">ben</fw><lb/>
+<pb n="14" facs="#f0016"/>
+ben, bey der gegenwaͤrtigen Geſtalt der Welt, die wir<lb/>
+bewohnen.</p><lb/>
+<p>Der menſchliche Fleiß hat ſie angebaut, und den<lb/>
+widerſtrebenden Boden durch ſein Beharren und ſeine<lb/>
+Geſchicklichkeit uͤberwunden. Dort hat er dem Meere<lb/>
+Land abgewonnen, hier dem duͤrren Lande Stroͤme ge-<lb/>
+geben. Zonen und Jahrszeiten hat der Menſch durch<lb/>
+einander gemengt, und die weichlichen Gewaͤchſe des<lb/>
+Orients zu ſeinem rauheren Himmel abgehaͤrtet. Wie<lb/>
+er Europa nach Weſtindien und dem Suͤdmeere trug,<lb/>
+hat er Aſien in Europa auferſtehen laſſen. Ein heitrer<lb/>
+Himmel lacht jetzt uͤber Germaniens Waͤldern, welche<lb/>
+die ſtarke Menſchenhand zerriß und dem Sonnenſtral<lb/>
+aufthat, und in den Wellen des Rheins ſpiegeln ſich<lb/>
+Aſiens Reben. An ſeinen Ufern erheben ſich volkreiche<lb/>
+Staͤdte, die Genuß und Arbeit in munterm Leben durch-<lb/>
+ſchwaͤrmen. Hier finden wir den Menſchen, in ſeines Er-<lb/>
+werbes friedlichem Beſitz ſicher unter einer Million, ihn,<lb/>
+dem ſonſt ein einziger Nachbar den Schlummer raubte.<lb/>
+Die Gleichheit, die er durch ſeinen Eintritt in die Ge-<lb/>
+ſellſchaft verlohr, hat er wieder gewonnen durch weiſe<lb/>
+Geſetze. Von dem blinden Zwange des Zufalls und<lb/>
+der Noth hat er ſich unter die ſanftere Herrſchaft der<lb/>
+Vertraͤge gefluͤchtet, und die Freyheit des Raubthiers<lb/>
+hingegeben, um die edlere Freyheit des Menſchen zu<lb/>
+retten. Wohlthaͤtig haben ſich ſeine Sorgen getrennt,<lb/>
+ſeine Thaͤtigkeiten vertheilt. Jetzt noͤthigt ihn das ge-<lb/>
+bieteriſche Beduͤrfniß nicht mehr an die Pflugſchaar,<lb/>
+<fw type="catch" place="bottom">jezt</fw><lb/>
+<pb n="15" facs="#f0017"/>
+jetzt fordert ihn kein Feind mehr von dem Pflug auf<lb/>
+das Schlachtfeld, Vaterland und Heerd zu vertheidigen.<lb/>
+Mit dem Arme des Landmanns fuͤllt er ſeine Scheunen,<lb/>
+mit den Waffen des Kriegers ſchuͤtzt er ſein Gebiet.<lb/>
+Das Geſetz wacht uͤber ſein Eigenthum — und ihm<lb/>
+bleibt das unſchaͤtzbare Recht, ſich ſelbſt ſeine Pflicht<lb/>
+auszuleſen.</p><lb/>
+<p>Wie viele Schoͤpfungen der Kunſt, wie viele Wun-<lb/>
+der des Fleiſſes, welches Licht in allen Feldern des Wiſ-<lb/>
+ſens, ſeit dem der Menſch in der traurigen Selbſtver-<lb/>
+theidigung ſeine Kraͤfte nicht mehr unnuͤtz verzehrt,<lb/>
+ſeitdem es in ſeine Willkuͤhr geſtellt worden, ſich mit der<lb/>
+Noth abzufinden, der er nie ganz entfliehen ſoll; ſeit-<lb/>
+dem er das koſtbare Vorrecht errungen hat, uͤber ſeine<lb/>
+Faͤhigkeit frey zu gebieten, und dem Ruf ſeines Ge-<lb/>
+nius zu folgen! Welche rege Thaͤtigkeit uͤberall, ſeit-<lb/>
+dem die vervielfaͤltigten Begierden dem Erfindungsgeiſt<lb/>
+neue Fluͤgel gaben, und dem Fleiß neue Raͤume auf-<lb/>
+thaten! — Die Schranken ſind durchbrochen, welche<lb/>
+Staaaten und Nationen in feindſeligem Egoismus ab-<lb/>
+ſonderten. Alle denkenden Koͤpfe verknuͤpft jetzt ein welt-<lb/>
+buͤrgerliches Band, und alles Licht ſeines Jahrhunderts<lb/>
+kann nunmehr den Geiſt eines neuern Galilei und Eras-<lb/>
+mus beſcheinen.</p><lb/>
+<p>Seitdem die Geſetze zu der Schwaͤche des Menſchen<lb/>
+herunterſtiegen, kam der Menſch auch den Geſetzen ent-<lb/>
+gegen. Mit ihnen iſt er ſanfter geworden, wie er mit<lb/>
+ihnen verwilderte; ihren barbariſchen Strafen folgen<lb/>
+<fw type="catch" place="bottom">die</fw><lb/>
+<pb n="16" facs="#f0018"/>
+die barbariſchen Verbrechen allmaͤhlig in die Vergeſſen-<lb/>
+heit nach. Ein großer Schritt zur Veredlung iſt ge-<lb/>
+ſchehen, daß die Geſetze tugendhaft ſind, wenn auch<lb/>
+gleich noch nicht die Menſchen. Wo die Zwangspflich-<lb/>
+ten von dem Menſchen ablaſſen, uͤbernehmen ihn die<lb/>
+Sitten. Den keine Strafe ſchreckt und kein Gewiſſen<lb/>
+zuͤgelt, halten jetzt die Geſetze des Anſtands und<lb/>
+der Ehre in Schranken.</p><lb/>
+<p>Wahr iſt es, auch in unſer Zeitalter haben ſich<lb/>
+noch manche barbariſche Ueberreſte aus den vorigen ein-<lb/>
+gedrungen, Geburten des Zufalls und der Gewalt, die<lb/>
+das Zeitalter der Vernunft nicht haͤtte verewigen ſol-<lb/>
+len. Aber wieviel Geſtalt hat der Verſtand des Men-<lb/>
+ſchen auch dieſem barbariſchen Nachlaß der aͤltern und<lb/>
+mittlern Jahrhunderte anerſchaffen! Wie unſchaͤdlich,<lb/>
+ja wie nuͤtzlich hat er oft gemacht, was er umzuſtuͤr-<lb/>
+tzen noch nicht wagen konnte! Auf dem rohen Grunde<lb/>
+der Lehen-Anarchie fuͤhrte Teutſchland das Syſtem ſei-<lb/>
+ner politiſchen und kirchlichen Freyheit auf. Das<lb/>
+Schattenbild des roͤmiſchen Imperators, das ſich dies-<lb/>
+ſeits der Apenninen erhalten, leiſtet der Welt jezt un-<lb/>
+endlich mehr Gutes, als ſein ſchreckhaftes Urbild im<lb/>
+alten Rom — denn es haͤlt ein nuͤtzliches Staatsſyſtem<lb/>
+durch <hi rendition="#fr">Eintracht</hi> zuſammen: jenes druͤckte die thaͤtig-<lb/>
+ſten Kraͤfte der Menſchheit in einer ſclaviſchen <hi rendition="#fr">Ein-<lb/>
+foͤrmigkeit</hi> darnieder. Selbſt unſre Religion — ſo ſehr<lb/>
+entſtellt durch die untreuen Haͤnde, durch welche ſie<lb/>
+uns uͤberliefert worden — wer kann in ihr den vere-<lb/>
+<fw type="catch" place="bottom">deln-</fw><lb/>
+<pb n="17" facs="#f0019"/>
+delnden Einfluß der beſſern Philoſophie verkennen?<lb/>
+Unſre Leibnitze und Locke machten ſich um das<lb/>
+<hi rendition="#fr">Dogma</hi> und um die <hi rendition="#fr">Moral</hi> des Chriſtenthums eben<lb/>
+ſo verdient, als — der Pinſel eines Raphael und Cor-<lb/>
+reggio um die heilige Geſchichte.</p><lb/>
+<p>Endlich unſre Staaten — mit welcher Innigkeit,<lb/>
+mit welcher Kunſt ſind ſie einander verſchlungen! wie<lb/>
+viel dauerhafter durch den wohlthaͤtigen Zwang der<lb/>
+Noth als vormals durch die feyerlichſten Vertraͤge ver-<lb/>
+bruͤdert! Den Frieden huͤtet jezt ein ewig geharniſch-<lb/>
+ter Krieg, und die Selbſtliebe eines Staats ſezt ihn<lb/>
+zum Waͤchter uͤber den Wohlſtand des andern. Die<lb/>
+europaͤiſche Staatengeſellſchaft ſcheint in eine große<lb/>
+Familie verwandelt. Die Hausgenoſſen koͤnnen ein-<lb/>
+ander anfeinden, aber nicht mehr zerfleiſchen.</p><lb/>
+<p>Welche entgegengeſezte Gemaͤhlde! Wer ſollte in<lb/>
+dem verfeinerten Europaͤer des achtzehnten Jahrhun-<lb/>
+derts nur einen fortgeſchrittnen Bruder des neuern<lb/>
+Kanadiers, des alten Celten vermuthen? Alle dieſe<lb/>
+Fertigkeiten, Kunſttriebe, Erfahrungen, alle dieſe<lb/>
+Schoͤpfungen der Vernunft ſind im Raume von weni-<lb/>
+gen Jahrtauſenden in dem Menſchen angepflanzt und<lb/>
+entwickelt worden; alle dieſe Wunder der Kunſt, dieſe<lb/>
+Rieſenwerke des Fleiſſes ſind aus ihm heraus gerufen<lb/>
+worden. Was weckte jene zum Leben, was lockte die-<lb/>
+ſe heraus? Welche Zuſtaͤnde durchwanderte der Menſch,<lb/>
+bis er von jenem Aeuſſerſten zu dieſem Aeuſſerſten, vom<lb/>
+ungeſelligen Hoͤhlenbewohner — zum geiſtreichen Den-<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">ker,</fw><lb/>
+<pb n="18" facs="#f0020"/>
+ker, zum gebildeten Weltmann hinaufſtieg? — Die<lb/>
+allgemeine Weltgeſchichte giebt Antwort auf dieſe<lb/>
+Frage.</p><lb/>
+<p>So unermeßlich ungleich zeigt ſich uns das nemli-<lb/>
+che Volk auf dem nemlichen Landſtriche, wenn wir es<lb/>
+in verſchiedenen Zeitraͤumen anſchauen! Nicht weniger<lb/>
+auffallend iſt der Unterſchied, den uns das gleichzeitige<lb/>
+Geſchlecht, aber in verſchiedenen Laͤndern, darbie-<lb/>
+tet. Welche Mannigfaltigkeit in Gebraͤuchen, Ver-<lb/>
+faſſungen und Sitten! Welcher raſche Wechſel von Fin-<lb/>
+ſterniß und Licht, von Anarchie und Ordnung, von<lb/>
+Gluͤckſeligkeit und Elend, wenn wir den Menſchen<lb/>
+auch nur in dem kleinen Welttheil Europa aufſuchen!<lb/>
+Frey an der Themſe, und fuͤr dieſe Freyheit ſein eige-<lb/>
+ner Schuldner; hier unbezwingbar zwiſchen ſeinen Al-<lb/>
+pen, dort zwiſchen ſeinen Kunſtfluͤſſen und Suͤmpfen<lb/>
+unuͤberwunden. An der Weichſel kraftlos und elend<lb/>
+durch ſeine Zwietracht; jenſeits der Pyrenaͤen durch<lb/>
+ſeine Ruhe kraftlos und elend. Wohlhabend und ge-<lb/>
+ſegnet in Amſterdam ohne Aernte; duͤrftig und ungluͤck-<lb/>
+lich an des Ebro unbenutztem Paradieſe. Hier zwey<lb/>
+entlegene Voͤlker durch ein Weltmeer getrennt, und zu<lb/>
+Nachbarn gemacht durch Beduͤrfniß, Kunſtfleiß und<lb/>
+politiſche Bande; dort die Anwohner Eines Stroms<lb/>
+durch eine andere Liturgie unermeßlich geſchieden! Was<lb/>
+fuͤhrte Spaniens Macht uͤber den atlantiſchen Ocean in<lb/>
+das Herz von Amerika, und nicht einmal uͤber den<lb/>
+Tajo und Guadiana hinuͤber? Was erhielt in Italien<lb/>
+und Teutſchland ſo viele Thronen, und ließ in Frankreich<lb/>
+<fw type="catch" place="bottom">alle,</fw><lb/>
+<pb n="19" facs="#f0021"/>
+alle, bis auf Einen, verſchwinden? — Die Univer-<lb/>
+ſalgeſchichte loͤßt dieſe Frage.</p><lb/>
+<p>Selbſt daß wir uns in dieſem Augenblick hier zu-<lb/>
+ſammen fanden, uns mit dieſem Grade von National-<lb/>
+kultur, mit dieſer Sprache, dieſen Sitten, dieſen buͤr-<lb/>
+gerlichen Vortheilen, dieſem Maaß von Gewiſſensfrey-<lb/>
+heit zuſammen fanden, iſt das Reſultat vielleicht aller<lb/>
+vorhergegangenen Weltbegebenheiten: die ganze Welt-<lb/>
+geſchichte wuͤrde wenigſtens noͤthig ſeyn, dieſes einzige<lb/>
+Moment zu erklaͤren. Daß wir uns als Chriſten zu-<lb/>
+ſammen fanden, mußte dieſe Religion, durch unzaͤhlige<lb/>
+Revolutionen vorbereitet, aus dem Judenthum hervor-<lb/>
+gehen, mußte ſie den roͤmiſchen Staat genau ſo finden,<lb/>
+als ſie ihn fand, um ſich mit ſchnellem ſiegendem Lauf<lb/>
+uͤber die Welt zu verbreiten und den Thron der Caͤſarn<lb/>
+endlich ſelbſt zu beſteigen. Unſre rauhen Vorfahren<lb/>
+in den thuͤringiſchen Waͤldern mußten der Uebermacht<lb/>
+der Franken unterliegen, um ihren Glauben anzuneh-<lb/>
+men. Durch ſeine wachſenden Reichthuͤmer, durch die<lb/>
+Unwiſſenheit der Voͤlker und durch die Schwaͤche ihrer<lb/>
+Beherrſcher mußte der Klerus verfuͤhrt und beguͤnſtigt<lb/>
+werden, ſein Anſehen zu mißbrauchen, und ſeine<lb/>
+ſtille Gewiſſensmacht in ein weltliches Schwerd umzu-<lb/>
+wandeln. Die Hierarchie mußte in einem <hi rendition="#fr">Gregor</hi> und<lb/>
+<hi rendition="#fr">Innozenz</hi> alle ihre Greuel auf das Menſchengeſchlecht<lb/>
+ausleeren, damit das uͤberhandnehmende Sittenver-<lb/>
+derbniß und des geiſtlichen Deſpotismus ſchreyendes<lb/>
+Scandal einen unerſchrockenen Auguſtinermoͤnch auffor-<lb/>
+dern konnte, das Zeichen zum Abfall zu geben, und<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">dem</fw><lb/>
+<pb n="20" facs="#f0022"/>
+dem roͤmiſchen Hierarchen eine Haͤlfte Europens zu ent-<lb/>
+reiſſen, — wenn wir uns als proteſtantiſche Chriſten<lb/>
+hier verſammeln ſollten. Wenn dieß geſchehen ſollte,<lb/>
+ſo mußten die Waffen unſrer Fuͤrſten Karln <hi rendition="#aq">V.</hi> einen<lb/>
+Religionsfrieden abnoͤthigen; ein Guſtav Adolf mußte<lb/>
+den Bruch dieſes Friedens raͤchen, und ein neuer all-<lb/>
+gemeiner Friede ihn auf ewig begruͤnden. Staͤdte muß-<lb/>
+ten ſich in Italien und Teutſchland erheben, dem Fleiß<lb/>
+ihre Thore oͤffnen, die Ketten der Leibeigenſchaft zer-<lb/>
+brechen, unwiſſenden Tyrannen den Richterſtab aus den<lb/>
+Haͤnden ringen, und durch eine kriegeriſche Hanſa ſich<lb/>
+in Achtung ſetzen, wenn Gewerbe und Handel bluͤhen,<lb/>
+und der Ueberfluß den Kuͤnſten der Freude rufen, wenn<lb/>
+der Staat den nuͤtzlichen Landmann ehren, und in dem<lb/>
+wohlthaͤtigen <hi rendition="#fr">Mittelſtande</hi>, dem Schoͤpfer unſrer gan-<lb/>
+zen Kultur, ein dauerhaftes Gluͤck fuͤr die Menſchheit<lb/>
+heran reifen ſollte. Teutſchlands Kaiſer mußten ſich<lb/>
+in Jahrhundertlangen Kaͤmpfen mit dem roͤmiſchen<lb/>
+Stuhl, mit ihren Vaſallen, und mit eiferſuͤchtigen Nach-<lb/>
+barn — Europa ſich ſeines gefaͤhrlichen Ueberfluſſes<lb/>
+in Aſiens Graͤbern entladen; und der trotzige Lehen-Adel<lb/>
+in einem moͤrderiſchen Fauſtrecht, Roͤmerzuͤgen und hei-<lb/>
+ligen Fahrten ſeinen Empoͤrungsgeiſt ausbluten: wenn<lb/>
+das verworrene Chaos ſich ſondern, und die ſtreitenden<lb/>
+Maͤchte des Staats in dem geſegneten Gleichgewicht<lb/>
+ruhen ſollten, wovon unſre jetzige Muße der Preiß iſt.<lb/>
+Wenn ſich unſer Geiſt aus der Unwiſſenheit herausrin-<lb/>
+gen ſollte, worin geiſtlicher und weltlicher Zwang ihn<lb/>
+gefeſſelt hielt: ſo mußte der lang erſtickte Keim der Ge-<lb/>
+<fw type="catch" place="bottom">lehr</fw><lb/>
+<pb n="21" facs="#f0023"/>
+lehrſamkeit unter ihren wuͤthendſten Verfolgern aufs<lb/>
+neue hervorbrechen, und ein <hi rendition="#fr">Al Mamun</hi> den Wiſſen-<lb/>
+ſchaften den Raub verguͤten, den ein Omar an ihnen<lb/>
+veruͤbt hatte. Das unertraͤgliche Elend der Barbarey<lb/>
+mußte unſre Vorfahren von den blutigen <hi rendition="#fr">Urtheilen Gots</hi><lb/>
+tes zu menſchlichen Richterſtuͤhlen treiben, verheerende<lb/>
+Seuchen die verirrte Heilkunſt zur Betrachtung der Na-<lb/>
+tur zuruͤckrufen, der Muͤßiggang der Moͤnche mußte<lb/>
+fuͤr das Boͤſe, das ihre Werkthaͤtigkeit ſchuf, von ferne<lb/>
+einen Erſatz zubereiten, und der profane Fleiß in den<lb/>
+Kloͤſtern die zerruͤtteten Reſte des Auguſtiſchen Weltal-<lb/>
+ters bis zu den Zeiten der Buchdruckerkunſt hinhalten.<lb/>
+An griechiſchen und roͤmiſchen Muſtern mußte der nie-<lb/>
+dergedruͤckte Geiſt nordiſcher Barbaren ſich aufrichten,<lb/>
+und die Gelehrſamkeit einen Bund mit den Muſen und<lb/>
+Grazien ſchließen, wann ſie einen Weg zu dem Her-<lb/>
+zen finden, und den Nahmen einer Menſchenbilderin<lb/>
+ſich verdienen ſollte. — Aber haͤtte Griechenland wohl<lb/>
+einen Thucydides, einen Plato, einen Ariſtoteles, haͤtte<lb/>
+Rom einen Horaz, einen Cicero, einen Virgil und Li-<lb/>
+vius gebohren, wenn dieſe beyden Staaten nicht zu der-<lb/>
+jenigen Hoͤhe des politiſchen Wohlſtands emporgedrun-<lb/>
+gen waͤren, welche ſie wirklich erſtiegen haben? Mit<lb/>
+einem Wort — wenn nicht ihre ganze Geſchichte vor-<lb/>
+hergegangen waͤre? Wie viele Erfindungen, Entdeckun-<lb/>
+gen, Staats- und Kirchenrevolutionen mußten <hi rendition="#fr">zuſam-<lb/>
+mentreffen</hi>, dieſen neuen, noch zarten Keimen von Wiſ-<lb/>
+ſenſchaft und Kunſt, Wachsthum und Ausbreitung zu<lb/>
+geben! Wie viele Kriege mußten gefuͤhrt, wie viele<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">Buͤnd-</fw><lb/>
+<pb n="22" facs="#f0024"/>
+Buͤndniſſe geknuͤpft, zerriſſen und aufs neue geknuͤpft<lb/>
+werden, um endlich Europa zu dem Friedensgrundſatz<lb/>
+zu bringen, welcher allein den Staaten wie den Buͤr-<lb/>
+gern vergoͤnnt, ihre Aufmerkſamkeit auf ſich ſelbſt zu<lb/>
+richten, und ihre Kraͤfte zu einem verſtaͤndigen Zwecke<lb/>
+zu verſammeln!</p><lb/>
+<p>Selbſt in den alltaͤglichſten Verrichtungen des buͤr-<lb/>
+gerlichen Lebens koͤnnen wir es nicht vermeiden, die<lb/>
+Schuldner vergangener Jahrhunderte zu werden; die<lb/>
+ungleichartigſten Perioden der Menſchheit ſteuern zu<lb/>
+unſrer Kultur, wie die entlegendſten Welttheile zu un-<lb/>
+ſerm Luxus. Die Kleider, die wir tragen, die Wuͤrze<lb/>
+an unſern Speiſen und der Preis, um den wir ſie kau-<lb/>
+fen, viele unſrer kraͤftigſten Heilmittel, und eben ſo<lb/>
+viele neue Werkzeuge unſers Verderbens — ſetzen ſie<lb/>
+nicht einen <hi rendition="#fr">Columbus</hi> voraus, der Amerika entdeckte,<lb/>
+einen <hi rendition="#fr">Vaſco de Gama</hi>, der die Spitze von Afrika um-<lb/>
+ſchiffte?</p><lb/>
+<p>Es zieht ſich alſo eine lange Kette von Begebenhei-<lb/>
+ten von dem gegenwaͤrtigen Augenblicke bis zum An-<lb/>
+fange des Menſchengeſchlechts hinauf, die wie Urſache<lb/>
+und Wirkung in einander greifen. Ganz und vollzaͤh-<lb/>
+lich uͤberſchauen kann ſie nur der unendliche Verſtand;<lb/>
+dem Menſchen ſind engere Grenzen geſetzt. <hi rendition="#aq">I.</hi> Unzaͤh-<lb/>
+lig viele dieſer Ereigniſſe haben entweder keinen menſch-<lb/>
+lichen Zeugen und Beobachter gefunden, oder ſie ſind<lb/>
+durch kein Zeichen feſt gehalten worden. Dahin gehoͤ-<lb/>
+<fw type="catch" place="bottom">ren</fw><lb/>
+<pb n="23" facs="#f0025"/>
+ren alle, die dem Menſchengeſchlechte ſelbſt und der<lb/>
+Erfindung der Zeichen vorhergegangen ſind. Die Quelle<lb/>
+aller Geſchichte iſt Tradition, und das Organ der Tra-<lb/>
+dition iſt die Sprache. Die ganze Epoche vor der <hi rendition="#fr">Spra-<lb/>
+che</hi>, ſo folgenreich ſie auch fuͤr die <hi rendition="#fr">Welt</hi> geweſen, iſt<lb/>
+fuͤr die <hi rendition="#fr">Weltgeſchichte</hi> verloren. <hi rendition="#aq">II.</hi> Nachdem aber auch<lb/>
+Sprache erfunden, und durch ſie die Moͤglichkeit vor-<lb/>
+handen war, geſchehene Dinge auszudruͤcken und wei-<lb/>
+ter mitzutheilen, ſo geſchah dieſe Mittheilung anfangs<lb/>
+durch den unſichern und wandelbaren Weg der <hi rendition="#fr">Sagen</hi>.<lb/>
+Von Munde zu Munde pflanzte ſich eine ſolche Bege-<lb/>
+benheit durch eine lange Folge von Geſchlechtern fort,<lb/>
+und da ſie durch Media gieng, die veraͤndert werden<lb/>
+und veraͤndern, ſo mußte ſie dieſe Veraͤnderungen mit<lb/>
+erleiden. Die lebendige Tradition oder die muͤndliche<lb/>
+Sage iſt daher eine ſehr unzuverlaͤßige Quelle fuͤr die<lb/>
+Geſchichte, daher ſind alle Begebenheiten <hi rendition="#fr">vor dem Ge-<lb/>
+brauche der Schrift</hi> fuͤr die Weltgeſchichte ſo gut als<lb/>
+verloren. <hi rendition="#aq">III.</hi> Die Schrift iſt aber ſelbſt nicht unver-<lb/>
+gaͤnglich; unzaͤhlich viele Denkmaͤler des Alterthums<lb/>
+haben Zeit und Zufaͤlle zerſtoͤrt, und nur we-<lb/>
+nige Truͤmmer haben ſich aus der Vorwelt in die Zei-<lb/>
+ten der Buchdruckerkunſt gerettet. Bey weitem der<lb/>
+groͤßre Theil iſt mit den Aufſchluͤſſen, die er uns ge-<lb/>
+ben ſollte, fuͤr die Weltgeſchichte verloren. <hi rendition="#aq">IV.</hi> Unter<lb/>
+den wenigen endlich, welche die Zeit verſchonte, iſt die<lb/>
+groͤßere Anzahl durch die <hi rendition="#fr">Leidenſchaft</hi>, durch den <hi rendition="#fr">Unver-<lb/>
+ſtand</hi>, und oft ſelbſt durch das <hi rendition="#fr">Genie</hi> ihrer Beſchreiber<lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">verun-</fw><lb/>
+<pb n="24" facs="#f0026"/>
+verunſtaltet und unkennbar gemacht. Das Mistrauen<lb/>
+erwacht bey dem aͤlteſten hiſtoriſchen Denkmal, und es<lb/>
+verlaͤßt uns nicht einmal bey einer Chronik des heutigen<lb/>
+Tages. Wenn wir uͤber eine Begebenheit, die ſich heute<lb/>
+erſt, und unter Menſchen mit denen wir leben, und<lb/>
+in der Stadt die wir bewohnen, ereignet, die Zeugen<lb/>
+abhoͤren, und aus ihren widerſprechenden Berichten<lb/>
+Muͤhe haben die Wahrheit zu entraͤthſeln: welchen<lb/>
+Muth koͤnnen wir zu Nationen und Zeiten mitbringen,<lb/>
+die durch Fremdartigkeit der Sitten weiter als durch<lb/>
+ihre Jahrtauſende von uns entlegen ſind? — Die klei-<lb/>
+ne Summe von Begebenheiten, die nach allen bisher<lb/>
+geſchehenen Abzuͤgen zuruͤckbleibt, iſt der Stoff der Ge-<lb/>
+ſchichte in ihrem weiteſten Verſtande. <hi rendition="#fr">Was</hi> und <hi rendition="#fr">wie-<lb/>
+viel</hi> von dieſem hiſtoriſchen Stoff gehoͤrt nun der <hi rendition="#fr">Uni-<lb/>
+verſalgeſchichte?</hi></p><lb/>
+<p>Aus der ganzen Summe dieſer Begebenheiten hebt<lb/>
+der Univerſalhiſtoriker diejenigen heraus, welche auf die<lb/>
+heutige Geſtalt der Welt und den Zuſtand der jetzt le-<lb/>
+benden Generation einen weſentlichen, unwiderſprechli-<lb/>
+chen und leicht zu verfolgenden Einfluß gehabt haben.<lb/>
+Das Verhaͤltniß eines hiſtoriſchen Datums zu der heuti-<lb/>
+gen Weltverfaſſung iſt es alſo, worauf geſehen werden<lb/>
+muß, um Materialien fuͤr die Weltgeſchichte zu ſam-<lb/>
+meln. Die Weltgeſchichte geht alſo von einem Prin-<lb/>
+cip aus, das dem Anfang der Welt gerade entgegen-<lb/>
+ſtehet. Die wirkliche Folge der Begebenheiten ſteigt<lb/>
+<fw type="catch" place="bottom">von</fw><lb/>
+<pb n="25" facs="#f0027"/>
+von dem Urſprung der Dinge zu ihrer neueſten Ord-<lb/>
+nung herab, der Univerſalhiſtoriker ruͤckt von der neue-<lb/>
+ſten Weltlage aufwaͤrts dem Urſprung der Dinge ent-<lb/>
+gegen. Wenn er von dem laufenden Jahr und Jahr-<lb/>
+hundert zu dem naͤchſt vorhergegangenen in Gedanken<lb/>
+hinaufſteigt, und unter den Begebenheiten, die das<lb/>
+Leztere ihm darbietet, diejenigen ſich merkt, welche den<lb/>
+Aufſchluß uͤber die naͤchſtfolgenden enthalten — wenn<lb/>
+er dieſen Gang ſchrittweiſe fortgeſetzt hat bis zum An-<lb/>
+fang — nicht der Welt, denn dahin fuͤhrt ihn kein<lb/>
+Wegweiſer — bis zum Anfang der Denkmaͤler, dann<lb/>
+ſteht es bey ihm, auf dem gemachten Weg umzukeh-<lb/>
+ren, und an dem Leitfaden dieſer bezeichneten Fakten,<lb/>
+ungehindert und leicht, vom Anfang der Denkmaͤler<lb/>
+bis zu dem neueſten Zeitalter herunter zu ſteigen. Dies<lb/>
+iſt die Weltgeſchichte, die wir haben, und die Ihnen<lb/>
+wird vorgetragen werden.</p><lb/>
+<p>Weil die Weltgeſchichte von dem Reichthum und<lb/>
+der Armuth an Quellen abhaͤngig iſt, ſo muͤſſen eben<lb/>
+ſo viele Luͤcken in der Weltgeſchichte entſtehen, als es<lb/>
+leere Strecken in der Ueberlieferung giebt. So gleich-<lb/>
+foͤrmig, nothwendig und beſtimmt ſich die Weltveraͤn-<lb/>
+derungen auseinander entwickeln, ſo unterbrochen und<lb/>
+zufaͤllig werden ſie in der Geſchichte in einander gefuͤgt<lb/>
+ſeyn. Es iſt daher zwiſchen dem Gange der <hi rendition="#fr">Welt</hi> und dem<lb/>
+Gange der <hi rendition="#fr">Weltgeſchichte</hi> ein merkliches Mißverhaͤlt-<lb/>
+niß ſichtbar. Jenen moͤchte man mit einem ununter-<lb/>
+brochen fortfließenden Strom vergleichen, wovon aber<lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">in</fw><lb/>
+<pb n="26" facs="#f0028"/>
+in der Weltgeſchichte nur hie und da eine Welle be-<lb/>
+leuchtet wird. Da es ferner leicht geſchehen kann,<lb/>
+daß der Zuſammenhang einer entfernten Weltbegeben-<lb/>
+heit mit dem Zuſtand des laufenden Jahres fruͤher in<lb/>
+die Augen faͤllt, als die Verbindung, worin ſie mit<lb/>
+Ereigniſſen ſtehet, die ihr vorhergiengen oder gleichzei-<lb/>
+tig waren: ſo iſt es ebenfalls unvermeidlich, daß Bege-<lb/>
+benheiten, die ſich mit dem neueſten Zeitalter aufs ge-<lb/>
+naueſte binden, in dem Zeitalter, dem ſie eigentlich<lb/>
+angehoͤren nicht ſelten iſolirt erſcheinen. Ein Fak-<lb/>
+tum dieſer Art waͤre z. B. der Urſprung des Chri-<lb/>
+ſtenthums und beſonders der chriſtlichen Sittenlehre.<lb/>
+Die chriſtliche Religion hat an der gegenwaͤrtigen Ge-<lb/>
+ſtalt der Welt einen ſo vielfaͤltigen Antheil, daß ihre<lb/>
+Erſcheinung das wichtigſte Faktum fuͤr die Weltge-<lb/>
+ſchichte wird: aber weder in der Zeit, wo ſie ſich zeig-<lb/>
+te, noch in dem Volke, bey dem ſie aufkam, liegt (aus<lb/>
+Mangel der Quellen) ein befriedigender Erklaͤrungs-<lb/>
+grund ihrer Erſcheinung.</p><lb/>
+<p>So wuͤrde denn unſre Weltgeſchichte nie etwas an-<lb/>
+ders als ein Aggregat von Bruchſtuͤcken werden, und<lb/>
+nie den Nahmen einer Wiſſenſchaft verdienen. Jezt<lb/>
+alſo kommt ihr der philoſophiſche Verſtand zu Huͤlfe,<lb/>
+und, indem er dieſe Bruchſtuͤcke durch kuͤnſtliche Bin-<lb/>
+dungsglieder verkettet, erhebt er das Aggregat zum<lb/>
+Syſtem, zu einem vernunftmaͤßig zuſammenhaͤngenden<lb/>
+Ganzen. Seine Beglaubigung dazu liegt in der Gleich-<lb/>
+<fw type="catch" place="bottom">foͤrmig-</fw><lb/>
+<pb n="27" facs="#f0029"/>
+foͤrmigkeit und unveraͤnderlichen Einheit der Naturge-<lb/>
+ſetze und des menſchlichen Gemuͤths, welche Einheit<lb/>
+Urſache iſt, daß die Ereigniße des entfernteſten Alter-<lb/>
+thums, unter dem Zuſammenfluß aͤhnlicher Umſtaͤnde<lb/>
+von auſſen, in den neueſten Zeitlaͤuften wiederkehren;<lb/>
+daß alſo von den neueſten Erſcheinungen, die im Kreis<lb/>
+unſrer Beobachtung liegen, auf diejenigen, welche ſich<lb/>
+in geſchichtloſen Zeiten verlieren, ruͤckwaͤrts ein Schluß<lb/>
+gezogen und einiges Licht verbreitet werden kann. Die<lb/>
+Methode, nach der Analogie zu ſchließen, iſt, wie<lb/>
+uͤberall ſo auch in der Geſchichte ein maͤchtiges Huͤlfs-<lb/>
+mittel: aber ſie muß durch einen erheblichen Zweck ge-<lb/>
+rechtfertigt, und mit eben ſoviel Vorſicht als Beur-<lb/>
+theilung in Ausuͤbung gebracht werden.</p><lb/>
+<p>Nicht lange kann ſich der philoſophiſche Geiſt bey<lb/>
+dem Stoffe der Weltgeſchichte verweilen, ſo wird ein<lb/>
+neuer Trieb in ihm geſchaͤftig werden, der nach Ueber-<lb/>
+einſtimmung ſtrebt — der ihn unwiderſtehlich reizt,<lb/>
+alles um ſich herum ſeiner eigenen vernuͤnftigen Natur<lb/>
+zu aſſimiliren, und jede ihm vorkommende Erſcheinung<lb/>
+zu der hoͤchſten Wirkung, die er erkannt, zum <hi rendition="#fr">Gedan-<lb/>
+ken</hi> zu erheben. Je oͤfter alſo und mit je gluͤcklicherm<lb/>
+Erfolge er den Verſuch erneuert, das Vergangene mit<lb/>
+dem Gegenwaͤrtigen zu verknuͤpfen: deſto mehr wird<lb/>
+er geneigt, was er als <hi rendition="#fr">Urſache</hi> und <hi rendition="#fr">Wirkung</hi> in ein-<lb/>
+ander greifen ſieht, als <hi rendition="#fr">Mittel</hi> und <hi rendition="#fr">Abſicht</hi> zu verbin-<lb/>
+den. Eine Erſcheinung nach der andern faͤngt an, ſich<lb/>
+<fw type="catch" place="bottom">dem</fw><lb/>
+<pb n="28" facs="#f0030"/>
+dem blinden Ohngefaͤhr, der geſetzloſen Freyheit zu<lb/>
+entziehen, und ſich einem uͤbereinſtimmenden Ganzen<lb/>
+(das freylich nur in ſeiner Vorſtellung vorhanden iſt)<lb/>
+als ein paſſendes Glied anzureyhen. Bald faͤllt es<lb/>
+ihm ſchwer, ſich zu uͤberreden, daß dieſe Folge von<lb/>
+Erſcheinungen, die in ſeine Vorſtellung ſoviel Regel-<lb/>
+maͤßigkeit und Abſicht annahm, dieſe Eigenſchaften in<lb/>
+der Wirklichkeit verlaͤugne; es faͤllt ihm ſchwer, wieder<lb/>
+unter die blinde Herrſchaft der Nothwendigkeit zu ge-<lb/>
+ben, was unter dem geliehenen Lichte des Verſtandes<lb/>
+angefangen hatte eine ſo heitre Geſtalt zu gewinnen.<lb/>
+Er nimmt alſo dieſe Harmonie aus ſie ſelbſt heraus,<lb/>
+und verpflanzt ſie auſſer ſich in die Ordnung der Dinge<lb/>
+d. i. er bringt einen vernuͤnftigen Zweck in dem Gang<lb/>
+der Welt, und ein teleologiſches Prinzip in die <hi rendition="#fr">Welt-<lb/>
+geſchichte</hi>. Mit dieſem durchwandert er ſie noch ein-<lb/>
+mal, und haͤlt es pruͤfend gegen jede Erſcheinung, wel-<lb/>
+che dieſer große Schauplatz ihm darbietet. Er ſieht es<lb/>
+durch tauſend beyſtimmende Fakta <hi rendition="#fr">beſtaͤtigt</hi>, und durch<lb/>
+eben ſoviele andre <hi rendition="#fr">widerlegt</hi>; aber ſo lange in der<lb/>
+Reyhe der Weltveraͤnderungen noch wichtige Bindungs-<lb/>
+glieder fehlen, ſo lange das Schickſal uͤber ſo viele Be-<lb/>
+gebenheiten den letzten Aufſchluß noch zuruͤckhaͤlt, er-<lb/>
+klaͤrt er die Frage fuͤr <hi rendition="#fr">unentſchieden</hi>, und diejenige<lb/>
+Meinung ſiegt, welche dem Verſtande die hoͤhere Be-<lb/>
+friedigung, und dem Herzen die groͤßre Gluͤckſelig-<lb/>
+keit anzubieten hat.</p><lb/>
+<fw type="catch" place="bottom">Es</fw><lb/>
+<pb n="29" facs="#f0031"/>
+<p>Es dedarf wohl keiner Erinnerung, daß eine Welt-<lb/>
+geſchichte nach lezterm Plane in den ſpaͤteſten Zeiten<lb/>
+erſt zu erwarten ſteht. Eine vorſchnelle Anwendung<lb/>
+dieſes großen Maaßes koͤnnte den Geſchichtsforſcher<lb/>
+leicht in Verſuchung fuͤhren, den Begebenheiten Ge-<lb/>
+walt anzuthun, und dieſe gluͤckliche Epoche fuͤr die<lb/>
+Weltgeſchichte immer weiter zu entfernen, indem er ſie<lb/>
+beſchleunigen will. Aber nicht zu fruͤhe kann die Auf-<lb/>
+merkſamkeit auf dieſe lichtvolle und doch ſo ſehr ver-<lb/>
+nachlaͤßigte Seite der Weltgeſchichte gezogen werden,<lb/>
+wodurch ſie ſich an den hoͤchſten Gegenſtand aller<lb/>
+menſchlichen Beſtrebungen anſchließt. Schon der ſtille<lb/>
+Hinblick auf dieſes, wenn auch nur moͤgliche, Ziel<lb/>
+muß dem Fleiß des Forſchers einen belebenden Sporn<lb/>
+und eine ſuͤße Erhohlung geben. Wichtig wird ihm<lb/>
+auch die kleinſte Bemuͤhung ſeyn, wenn er ſich auf<lb/>
+dem Wege ſieht, oder auch nur einen ſpaͤten Nachfolger<lb/>
+darauf leitet, das Problem der Weltordnung aufzuloͤ-<lb/>
+ſen, und dem hoͤchſten Geiſt in ſeiner ſchoͤnſten Wir-<lb/>
+kung zu begegnen.</p><lb/>
+<p>Und auf ſolche Art behandelt, M. H. H. wird Ihnen<lb/>
+das Studium der Weltgeſchichte eine eben ſo anziehen-<lb/>
+de als nuͤtzliche Beſchaͤftigung gewaͤhren. Licht wird<lb/>
+ſie in Ihrem Verſtande, und eine wohlthaͤtige Begei-<lb/>
+ſterung in ihrem Herzen entzuͤnden. Sie wird Ihren<lb/>
+Geiſt von der gemeinen und kleinlichen Anſicht morali-<lb/>
+ſcher Dinge entwoͤhnen, und, indem ſie vor Ihren<lb/>
+<fw type="catch" place="bottom">Augen</fw><lb/>
+<pb n="30" facs="#f0032"/>
+Augen das große Gemaͤhlde der Zeiten und Voͤlker aus-<lb/>
+einander breitet, wird ſie die vorſchnellen Entſcheidun-<lb/>
+gen des Augenblicks, und die beſchraͤnkten Urtheile<lb/>
+der Selbſtſucht verbeſſern. Indem ſie den Menſchen<lb/>
+gewoͤhnt, ſich mit der ganzen Vergangenheit zuſammen<lb/>
+zu faßen, und mit ſeinen Schluͤſſen in die ferne Zu-<lb/>
+kunft voraus zu eilen: ſo verbirgt ſie die Grenzen<lb/>
+von Geburt und Tod, die das Leben des Menſchen<lb/>
+ſo eng und ſo druͤckend umſchlieſſen, ſo breitet ſie<lb/>
+optiſch taͤuſchend ſein kurzes Daſeyn in einen unendli-<lb/>
+chen Raum aus, und fuͤhrt das Individuum unver-<lb/>
+merkt in die Gattung hinuͤber.</p><lb/>
+<p>Der Menſch verwandelt ſich und flieht von der<lb/>
+Buͤhne; ſeine Meynungen fliehen und verwandeln<lb/>
+ſich mit ihm: die Geſchichte allein bleibt unausgeſetzt<lb/>
+auf dem Schauplatz, eine unſterbliche Buͤrgerin aller<lb/>
+Nationen und Zeiten. Wie der homeriſche Zeus ſieht<lb/>
+ſie mit gleich heitern Blicke auf die blutigen Arbeiten<lb/>
+des Kriegs, und auf die friedlichen Voͤlker herab, die<lb/>
+ſich von der Milch ihrer Heerden ſchuldlos ernaͤhren.<lb/>
+Wie regellos auch die Freyheit des Menſchen mit dem<lb/>
+Weltlauf zu ſchalten ſcheine, ruhig ſieht ſie dem ver-<lb/>
+worrenen Spiele zu: denn ihr weitreichender Blick<lb/>
+entdeckt ſchon von ferne, wo dieſe regellos ſchweifen-<lb/>
+de Freyheit am Bande der Nothwendigkeit geleitet wird.<lb/>
+Was ſie dem ſtrafenden Gewiſſen eines Gregors und<lb/>
+Cromwells geheim haͤlt, eilt ſie der Menſchheit zu of-<lb/>
+<fw type="catch" place="bottom">fenba-</fw><lb/>
+<pb n="31" facs="#f0033"/>
+fenbaren: „ daß der ſelbſtſuͤchtige Menſch niedrige<lb/>
+Zwecke zwar verfolgen kann, aber unbewußt vortrefliche<lb/>
+befoͤrdert.„</p><lb/>
+<p>Kein falſcher Schimmer wird ſie blenden, kein<lb/>
+Vorurtheil der Zeit ſie dahinreiſſen, denn ſie erlebt<lb/>
+das letzte Schickſal aller Dinge. Alles was aufhoͤrt,<lb/>
+hat fuͤr ſie gleich kurz gedauert: ſie haͤlt den verdienten<lb/>
+Olivenkranz friſch, und zerbricht den Obeliſken, den<lb/>
+die Eitelkeit thuͤrmte. Indem ſie das feine Getriebe<lb/>
+auseinander legt, wodurch die ſtille Hand der Natur<lb/>
+ſchon ſeit dem Anfang der Welt die Kraͤfte des Men-<lb/>
+ſchen planvoll entwickelt, und mit Genauigkeit andeu-<lb/>
+tet, was in jedem Zeitraume fuͤr dieſen großen Natur-<lb/>
+plan gewonnen worden iſt: ſo ſtellt ſie den wahren<lb/>
+Maaßſtab fuͤr Gluͤckſeligkeit und Verdienſt wieder her,<lb/>
+den der herrſchende Wahn in jedem Jahrhundert an-<lb/>
+ders verfaͤlſchte. Sie heilt uns von der uͤbertriebenen<lb/>
+Bewunderung des Alterthums, und von der kindi-<lb/>
+ſchen Sehnſucht nach vergangenen Zeiten; und indem<lb/>
+ſie uns auf unſre eigenen Beſitzungen aufmerkſam<lb/>
+macht, laͤßt ſie uns die geprieſenen goldnen Zeiten<lb/>
+Alexanders und Auguſts nicht zuruͤckwuͤnſchen.</p><lb/>
+<p>Unſer <hi rendition="#g">menſchliches</hi> Jahrhundert herbey zu fuͤh-<lb/>
+ren haben ſich — ohne es zu wiſſen oder zu erzielen —<lb/>
+alle vorhergehenden Zeitalter angeſtrengt. Unſer ſind<lb/>
+alle Schaͤtze, welche Fleiß und Genie, Vernunft und<lb/>
+Erfahrung im langen Alter der Welt endlich heimge-<lb/>
+<fw type="catch" place="bottom">bracht</fw><lb/>
+<pb n="32" facs="#f0034"/>
+bracht haben. Aus der Geſchichte erſt werden Sie<lb/>
+lernen, einen Werth auf die Guͤter legen, denen Ge-<lb/>
+wohnheit und unangefochtener Beſitz ſo gern unſre<lb/>
+Dankbarkeit rauben: koſtbare theure Guͤter, an denen<lb/>
+das Blut der Beſten und Edelſten klebt, die durch<lb/>
+die ſchwere Arbeit ſo vieler Generationen haben errun-<lb/>
+gen werden muͤſſen! Und welcher unter Ihnen, bey<lb/>
+dem ſich ein heller Geiſt mit einem empfindenden Her-<lb/>
+zen gattet, koͤnnte dieſer hohen Verpflichtung ein-<lb/>
+gedenk ſeyn, ohne daß ſich ein ſtiller Wunſch in ihm<lb/>
+regte, an das kommende Geſchlecht die Schuld zu<lb/>
+entrichten, die er dem vergangenen nicht mehr abtra-<lb/>
+gen kann? Ein edles Verlangen muß in uns entgluͤ-<lb/>
+hen, zu dem reichen Vermaͤchtniß von Wahrheit, Sitt-<lb/>
+lichkeit und Freyheit, das wir von der Vorwelt uͤberka-<lb/>
+men und reich vermehrt an die Folgewelt wieder ab-<lb/>
+geben muͤſſen, auch aus unſern Mitteln einen Bey-<lb/>
+trag zu legen, und an dieſer unvergaͤnglichen Kette,<lb/>
+die durch alle Menſchengeſchlechter ſich windet, unſer flie-<lb/>
+hendes Daſeyn zu befeſtigen. Wie verſchieden auch<lb/>
+die Beſtimmung ſey, die in der buͤrgerlichen Geſell-<lb/>
+ſchaft Sie erwartet — etwas dazu ſteuern koͤnnen Sie<lb/>
+alle! Jedem Verdienſt iſt eine Bahn zur Unſterblichkeit<lb/>
+aufgethan, zu der wahren Unſterblichkeit meyne ich,<lb/>
+wo die That lebt und weiter eilt, wennn auch der Nah-<lb/>
+me ihres Urhebers hinter ihr zuruͤckbleiben ſollte.</p></div><lb/>
+</body><back>
+<pb n="[33]" facs="#f0035"/>
+<pb n="[34]" facs="#f0036"/>
+<pb n="[35]" facs="#f0037"/>
+<pb n="[36]" facs="#f0038"/>
+</back>
+</text> </TEI>

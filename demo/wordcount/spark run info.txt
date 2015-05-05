@@ -1,0 +1,61 @@
+.\bin\spark-shell --driver-memory 6G --executor-memory 1G
+
+val dir = "C:/Users/Mirko/Documents/Projekte/git/i3QL/demo/wordcount/res/dta_kernkorpus_2014-03-10/*.xml"
+val file = sc.textFile(dir, 1).coalesce(4).cache()
+file.count()
+val counts = file.flatMap(line => line.replaceAll("\\p{Punct}"," ").split("\\s+")).map(word => (word, 1)).reduceByKey((x,y) => x + y)
+
+def run() {
+val before = System.currentTimeMillis()
+counts.first()
+val after = System.currentTimeMillis()
+println(s"Before: $before After $after total ${after - before}")	
+}
+
+run()
+
+//Time with reading files
+def run(): Unit = {
+val dir = "C:/Users/Mirko/Documents/Projekte/git/i3QL/demo/wordcount/res/dta_kernkorpus_2014-03-10/*.xml" // Should be some file on your system
+val file = sc.textFile(dir, 1)
+val counts = file.flatMap(line => line.replaceAll("\\p{Punct}"," ").split("\\s+")).map(word => (word, 1)).reduceByKey((x,y) => x + y)
+val before = System.currentTimeMillis()
+counts.first()
+val after = System.currentTimeMillis()
+println(s"Before: $before After $after total ${after - before}")	
+}
+
+//Time with reading files
+def run(): Unit = {
+val dir = "C:/Users/Mirko/Documents/Projekte/git/i3QL/demo/wordcount/res/dta_small/*.xml" // Should be some file on your system
+val file = sc.textFile(dir, 1)
+val counts = file.flatMap(line => line.replaceAll("\\p{Punct}"," ").split("\\s+")).map(word => (word, 1)).reduceByKey((x,y) => x + y)
+val before = System.currentTimeMillis()
+counts.first()
+val after = System.currentTimeMillis()
+println(s"Before: $before After $after total ${after - before}")	
+}
+
+//Time without reading files
+def run2(): Unit = {
+val dir = "C:/Users/Mirko/Documents/Projekte/git/i3QL/demo/wordcount/res/dta_kernkorpus_2014-03-10/*.xml" // Should be some file on your system
+val file = sc.textFile(dir, 1).cache()
+file.collect()
+val counts = file.flatMap(line => line.replaceAll("\\p{Punct}"," ").split("\\s+")).map(word => (word, 1)).reduceByKey((x,y) => x + y)
+val before = System.currentTimeMillis()
+counts.first()
+val after = System.currentTimeMillis()
+println(s"Before: $before After $after total ${after - before}")	
+}
+
+//Time without reading files
+def run2(): Unit = {
+val dir = "C:/Users/Mirko/Documents/Projekte/git/i3QL/demo/wordcount/res/dta_small/*.xml" // Should be some file on your system
+val file = sc.textFile(dir, 1).cache()
+file.collect()
+val counts = file.flatMap(line => line.replaceAll("\\p{Punct}"," ").split("\\s+")).map(word => (word, 1)).reduceByKey((x,y) => x + y)
+val before = System.currentTimeMillis()
+counts.first()
+val after = System.currentTimeMillis()
+println(s"Before: $before After $after total ${after - before}")	
+}

@@ -1,0 +1,1752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Woran krankt die deutsche Gewerkschaftsbewegung?</title>
+<title type="sub">Ein zeitgemäßes Wort mit besonderer Berücksichtigung der Arbeitslosen-Unterstützungsfrage</title>
+<author>
+<persName ref="http://d-nb.info/gnd/177015993">
+<surname>Poersch</surname>
+<forename>Bruno</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">45</measure>
+<measure type="tokens">11955</measure>
+<measure type="types">3082</measure>
+<measure type="characters">93670</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:16Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/poersch_gewerkschaftsbewegung_1897</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/poersch_gewerkschaftsbewegung_1897</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/poersch_gewerkschaftsbewegung_1897</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/poersch_gewerkschaftsbewegung_1897</idno>
+<idno type="DTADirName">poersch_gewerkschaftsbewegung_1897</idno>
+<idno type="DTAID">16501</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194628</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Poersch, Bruno: Woran krankt die deutsche Gewerkschaftsbewegung? Berlin, 1897.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Woran krankt die deutsche Gewerkschaftsbewegung?</title>
+<title level="m" type="sub">Ein zeitgemäßes Wort mit besonderer Berücksichtigung der Arbeitslosen-Unterstützungsfrage</title>
+<author>
+<persName ref="http://d-nb.info/gnd/177015993">
+<surname>Poersch</surname>
+<forename>Bruno</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">31 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Sassenbach</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1897</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Fd 559/40</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=664406947</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Politik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Politik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="halftitle"> <docTitle> <titlePart type="main"> <hi rendition="#b">Woran krankt die deutſche<lb/>
+Gewerkſchaftsbewegung?</hi></titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="sub"> <hi rendition="#b">Ein zeitgemäßes Wort<lb/>
+mit beſonderer Berückſichtigung der Arbeitsloſen-<lb/>
+Unterſtützungfrage</hi></titlePart> </docTitle><lb/>
+<byline>von<lb/>
+<docAuthor> <hi rendition="#b #g">Bruno Poerſch</hi><hi rendition="#b">.</hi></docAuthor> </byline><lb/>
+<titlePart type="price">Preis 15 Pf.</titlePart><lb/>
+<docImprint> <pubPlace> <hi rendition="#b">Berlin</hi></pubPlace> <docDate> <hi rendition="#b">1897.</hi></docDate><lb/>
+<publisher>Verlag von <hi rendition="#g">Joh. Saſſenbach</hi>, Invalidenſtr. 118. </publisher><lb/>
+</docImprint> </titlePage>
+<pb facs="#f0008"/>
+<div type="advertisement"> <head>Verlag von <hi rendition="#b">J. Saſſenbach</hi>, Berlin 4.</head><lb/>
+<milestone rendition="#hr" unit="section"/>     <p><hi rendition="#b">Joh. Saſſenbach, Die Freimaurerei.</hi></p><lb/>
+<p rendition="#c"><hi rendition="#b">Ihre Geſchichte, Thätigkeit und innere Einrichtung.</hi></p><lb/>
+<p rendition="#c">4. verb. Auflage 1897. 64 Seiten. 40 Pf.</p><lb/>
+<milestone rendition="#hr" unit="section"/>     <p><hi rendition="#b">Joh. Saſſenbach, Die heilige Inquiſition.</hi></p><lb/>
+<p rendition="#c">Ein Beitrag zur Geſchichte der chriſtlichen Religion.</p><lb/>
+<p rendition="#c">2. Auflage 1894. 192 Seiten. 60 Pfg.</p><lb/>
+<milestone rendition="#hr" unit="section"/>     <p><hi rendition="#b">Klaus Kraus, An der Wende.</hi></p><lb/>
+<p rendition="#c">Humoresken und Satyren. Geſchichten aus dem Leben.<lb/>
+1893. 170 Seiten. 40 Pf<supplied>.</supplied></p><lb/>
+<milestone rendition="#hr" unit="section"/>     <p><hi rendition="#b">Friedrich Hofmann, Die Zukunft der deutſchen<lb/>
+Gewerkſchaften.</hi></p><lb/>
+<p rendition="#c">2. Auflage 1896. 30 Seiten. 15 Pf.</p><lb/>
+<milestone rendition="#hr" unit="section"/>     <p><hi rendition="#b">Fr. von Oppeln-Bronikowski, Erinnerungen an<lb/>
+Richard Wrede.</hi></p><lb/>
+<p rendition="#c">Nachtrag zu den letzten Preß-Vorkommniſſen.<lb/>
+1897. 22 Seiten. 50 Pf.</p>     <milestone rendition="#hr" unit="section"/> </div><lb/>
+<pb facs="#f0009"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b">Woran krankt die<lb/>
+deutſche Gewerkſchaftsbewegung?</hi></titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="sub">Ein zeitgemäßes Wort<lb/>
+mit beſonderer Berückſichtigung der Arbeitsloſen-<lb/>
+Unterſtützungsfrage</titlePart> </docTitle><lb/>
+<byline>von<lb/>
+<docAuthor> <hi rendition="#b #g">Bruno Poerſch.</hi></docAuthor> </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b">Berlin</hi></pubPlace> <docDate> <hi rendition="#b">1897.</hi></docDate><lb/>
+<publisher>Verlag von <hi rendition="#g">Joh. Saſſenbach</hi>, Invalidenſtr. 118. </publisher><lb/>
+</docImprint> </titlePage> </front> <body>
+<pb n="[2]" facs="#f0010"/>
+<pb n="[3]" facs="#f0011"/>
+<div n="1"> <head> <hi rendition="#b">Einleitung.</hi><lb/>
+</head> <p>Die deutſche Gewerkſchaftsbewegung iſt nicht das, was ſie<lb/>
+ſein ſoll. Die Organiſationen ſind zu ſchwach, da nur ein ganz<lb/>
+geringer Prozentſatz der Berufsangehörigen ſich dieſen ange¬<lb/>
+ſchloſſen hat. In den meiſten Gewerben ſchwankt die Zahl der<lb/>
+Organiſirten zwiſchen 2 bis 10 pCt, und nur wenige Verbände<lb/>
+haben einen größeren Prozentſatz Organiſirter aufzuweiſen. Die<lb/>
+Kaſſenbeſtände der Organiſationen ſind gleichfalls ſehr minimal,<lb/>
+wenig Pfennige kommen durchgängig auf den Kopf des Mit¬<lb/>
+gliedes und nur die Organiſationen der Buchdrucker, Bildhauer<lb/>
+und noch einige andere beſitzen größere Kapitalien. Daß bei<lb/>
+einer ſolchen Sachlage die meiſten Organiſationen keinen großen<lb/>
+Einfluß auf die Lohn- und Arbeitsbedingungen ausüben können,<lb/>
+iſt begreiflich. Namentlich das vergangene Jahr hat dieſes wieder<lb/>
+zur Genüge bewieſen. Trotzdem die allgemeine Geſchäftslage<lb/>
+äußerſt günſtig war, verliefen viele Streiks — beſonders die<lb/>
+größeren — zu Ungunſten der Arbeiter, wie z. B. die Ausſtände<lb/>
+der Berliner <hi rendition="#g">Lithographen</hi>, <hi rendition="#g">Hut- u</hi>. <hi rendition="#g">Muſikinſtrumenten¬<lb/>
+macher</hi> und der Arbeiter von <hi rendition="#g">Dürrkopp</hi> u. <hi rendition="#g">Comp</hi>. in <hi rendition="#g">Biele¬<lb/>
+feld</hi>. Andere wieder zeitigten Reſultate, die keineswegs den<lb/>
+Opfern entſprachen, die für ſie gebracht wurden, wie z. B. der<lb/>
+<hi rendition="#g">Kottbuſer Textilarbeiter-Streik</hi> und der Ausſtand der<lb/>
+<hi rendition="#g">Stuhlarbeiter zu Lauterburg</hi> a. H. Nur eine geringe<lb/>
+Anzahl endete mit Siegen für die Intereſſirten. Aber auch<lb/>
+viele dieſer gemeldeten Siege ſind oft ſehr problematiſcher Natur.<lb/>
+Wenn z. B. ein Theil der Streikenden nicht wieder in die Be¬<lb/>
+triebe eingeſtellt wird, kann man unmöglich von einem <hi rendition="#g">wirk¬<lb/>
+lichen</hi> Siege reden. Dann aber ſind in vielen Fällen die erzielten<lb/>
+Errungenſchaften ſchon wieder den Siegern entriſſen worden<lb/>
+und wo ſie noch eingehalten werden, da wird dasſelbe eintreten<lb/>
+— wie immer — ſobald die Konjunktur ſich verſchlechtert. Dieſes<lb/>
+ſind die Reſultate der vorjährigen Gewerkſchaftskämpfe, die ſich<lb/>
+zu Zeiten eines wirthſchaftlichen Aufſchwunges abgeſpiel haben,<lb/>
+wie einen ſolchen Deutſchland noch nie geſehen hat. Sind die<lb/>
+Geſchäftszeiten ſchlechter, dann können die meiſten deutſchen ge¬<lb/>
+werkſchaftlichen Organiſationen gar keinen Einfluß auf die Lohn-<lb/>
+und Arbeitsbedingungen ausüben und müſſen Alles ſo gehen<lb/>
+laſſen, wie es geht. — Nicht mit Unrecht ſchrieb daher vor<lb/>
+Kurzem die „Verſöhnung“, daß die Kämpfe der deutſchen Ge¬<lb/>
+werkſchaften ſich im <hi rendition="#g">Kreiſe</hi> herumdrehen.</p><lb/>
+<p>Woher dieſe ganzen Erſcheinungen? Sind ſie in der Natur<lb/>
+des gewerkſchaftlichen Kampfes begründet? — Meiner Meinung<lb/>
+<pb n="4" facs="#f0012"/>
+nach nicht, ſondern ganz andere Dinge ſpielen hierbei eine<lb/>
+Rolle mit: 1. <hi rendition="#g">Die Unterſchätzung des gewerkſchaftlichen<lb/>
+Kampfes</hi>, 2. <hi rendition="#g">Das ungenügende Hilfskaſſen- und Unter¬<lb/>
+ſtützungsweſen</hi> und 3. <hi rendition="#g">Der mangelhafte und unge¬<lb/>
+nügende Beamtenſtab</hi> der meiſten deutſchen Gewerkſchafts¬<lb/>
+organiſationen. — In den folgenden Abſchnitten will ich dieſes<lb/>
+näher auseinanderſetzen und meine Behauptungen zu beweiſen<lb/>
+ſuchen. Zwar werde ich dabei Ausführungen machen müſſen, die<lb/>
+ſchon oft gemacht ſind, doch dieſes liegt in der Natur der Sache.</p><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</div> <div n="1"> <head> <hi rendition="#aq">I</hi>.<lb/>
+<hi rendition="#b">Der gewerkſchaftliche Kampf<lb/>
+und ſeine Bedeutung für die Arbeiterklaſſe.</hi><lb/>
+</head> <p>Von vielen deutſchen Arbeitern wird der <hi rendition="#g">gewerkſchaft¬<lb/>
+liche</hi> Kampf noch immer unterſchätzt und nur in der <hi rendition="#g">politiſchen</hi><lb/>
+Bewegung das einzige Heil erblickt. Sie legen der Gewerkſchafts¬<lb/>
+bewegung eine ſehr minimale Bedeutung bei; glauben nicht, daß<lb/>
+dieſelbe irgend etwas zur Hebung der Lebenslage des Prole¬<lb/>
+tariats beitragen könne, und wollen die gewerkſchaftlichen Orga¬<lb/>
+niſationen nur als <hi rendition="#g">Vorbildungsſchule</hi>, als <hi rendition="#g">Rekrutirungs¬<lb/>
+inſtitut</hi> für die <hi rendition="#g">politiſche</hi> Bewegung betrachtet wiſſen. Iſt<lb/>
+die Zahl dieſer Leute auch nur gering, ſo üben ſie doch einen<lb/>
+großen Einfluß auf die herrſchenden Anſchauungen aus, da ſie<lb/>
+meiſtens die intelligenteſten Arbeiter ſind und die Maſſe an<lb/>
+Bildung und Wiſſen überragen.</p><lb/>
+<p>Der gewerkſchaftliche Kampf hat wohl eine große Bedeutung,<lb/>
+mindeſtens dieſelbe wie der politiſche. Er kann die Löhne er¬<lb/>
+höhen, die Arbeitszeit verkürzen, kurz die Lage des Proletariats<lb/>
+heben und anderſeits ſtärkt er gewaltig auch die <hi rendition="#g">politiſche</hi><lb/>
+Macht der Arbeiterklaſſe.</p><lb/>
+<p>Das Alles wird uns ſo ſchlagend durch die engliſche Ge¬<lb/>
+werkſchaftsbewegung bewieſen, die leider den meiſten deutſchen<lb/>
+Arbeitern eine <hi rendition="#aq">terra incognita</hi> iſt. — Meine Gegner im eigenen<lb/>
+Lager — ich meine die „Nur“-Politiker — werden ſofort gegen<lb/>
+die letzte Behauptung Einwände machen. — „Die engliſchen Ge¬<lb/>
+werkſchaftsorganiſationen haben nur deshalb auf ihre heutige<lb/>
+Höhe kommen können, weil ſie ſich viel <hi rendition="#g">freier</hi> entwickeln konnten,<lb/>
+als die deutſchen.“ Das iſt einer der beliebteſten Einwände, der<lb/>
+aber nicht zutrifft, da die Trade-Unions in ihrer Jugend ebenſo<lb/>
+brutal verfolgt und unterdrückt wurden, wie die gewerkſchaftlichen<lb/>
+Organiſationen der deutſchen Arbeiter, ja vielleicht noch brutaler.<lb/>
+— Dafür hier nähere Beweiſe zu bringen, kann nicht meine<lb/>
+Aufgabe ſein, weil dieſes zu weit führen würde. Ich erinnere<lb/>
+nur an die Verſchwörungsakte, an die Beſtimmungen des Kon¬<lb/>
+traktbruches, die Stempelſteuer betreffs der Preſſe u. ſ. w. Wer<lb/>
+<pb n="5" facs="#f0013"/>
+ſich darüber näher informiren will, der ſtudire nur die Geſchichte<lb/>
+des Trade-Unionismus und er wird dieſe Behauptung beſtätigt<lb/>
+finden. — Trotzdem iſt die engliſche Gewerkſchaftsbewegung in<lb/>
+die Höhe gekommen, hat bedeutend die materielle Lage des eng¬<lb/>
+liſchen Proletariats gehoben und dieſes auch in politiſcher Be¬<lb/>
+ziehung zu einem gewaltigen, Ausſchlag gebenden Faktor im Staats¬<lb/>
+leben gemacht. Oder ſind dieſe Angaben nicht wahr? Man ver¬<lb/>
+gleiche nur die Lage der engliſchen Arbeiterklaſſe am Anfange<lb/>
+dieſes Jahrhunderts mit ihrer gegenwärtigen und man wird<lb/>
+finden, daß dieſe ſich bedeutend verbeſſert hat. Die deutſche Ar¬<lb/>
+beiterklaſſe wurde überhaupt nie ſo brutal ausgebeutet, als die<lb/>
+engliſche in ihrer erſten Jugendzeit; ich weiſe nur auf die Ar¬<lb/>
+beiterkaſernen, auf das gewaltig ausgebreitete Truckſyſtem und<lb/>
+auf die Frauen- und Kinderarbeit hin. — Heute dagegen iſt die<lb/>
+wirthſchaftliche Lage der engliſchen Arbeiter bedeutend beſſer als<lb/>
+die des Proletariats aller anderen europäiſchen Länder. Zwar<lb/>
+ſchmachten auch dort noch tauſende in Noth und Elend, doch<lb/>
+man überſehe die Thatſache nicht, daß mit einem Schlage nie<lb/>
+aus der Hölle der kapitaliſtiſchen Geſellſchaft ein ſozialiſtiſches<lb/>
+Paradies gemacht werden kann. Dieſes widerſpricht den Geſetzen<lb/>
+der Entwickelung. — Ausbeutung und Unterdrückung ſind das<lb/>
+Produkt von Jahrtauſenden und was Jahrtauſende erzeugt haben,<lb/>
+können wenige Jahre nicht beſeitigen. Das mag für Manchen,<lb/>
+der da glaubt, ſchon in den nächſten Jahren im ſozialdemo¬<lb/>
+kratiſchen Zukunftsſtaat zu leben, nicht erfreulich ſein. Nimmt<lb/>
+man jedoch dieſes an, ſo beweiſt man damit nur, daß man aus<lb/>
+der Geſchichte der Menſchheit keine Lehren gezogen hat. Die<lb/>
+Kulturentwickelung iſt von jeher den Schneckengang gegangen<lb/>
+und große Veränderungen in wirthſchaftlicher Beziehung voll¬<lb/>
+ziehen ſich nur langſam und nicht ſprungweiſe. — Dann zu der<lb/>
+politiſchen Macht, welche die engliſche Arbeiterklaſſe beſitzen ſoll.<lb/>
+Das engliſche Proletariat hat eine viel beſſere Arbeiterſchutz¬<lb/>
+geſetzgebung aufzuweiſen, die auch von dem Unternehmerthum<lb/>
+beachtet wird; es iſt im engliſchen Staate eine mit den anderen<lb/>
+Geſellſchaftsſchichten gleichberechtigte Klaſſe und wird in ſeinen<lb/>
+Beſtrebungen nicht ſo verfolgt, bekämpft und beſchimpft, als<lb/>
+das deutſche. Die politiſche Macht, welche die engliſche Arbeiter¬<lb/>
+klaſſe wirklich beſitzt, kam auf dem letzten internationalen Berg¬<lb/>
+arbeiterkongreß wieder einmal ſo recht zum Ausdruck. Die Frage<lb/>
+der Bergwerksverſtaatlichung wurde behandelt, alſo eine Frage,<lb/>
+die ſozialiſtiſchen Charakters iſt. Durch die Verſtaatlichung der<lb/>
+Bergwerke wird der Einzel-Unternehmer beſeitigt und die Ge¬<lb/>
+ſammtheit tritt als Unternehmer auf. Die „liberalen“ Engländer<lb/>
+ſtimmten für die Verſtaatlichung derſelben und die ſozialdemo¬<lb/>
+kratiſchen Deutſchen enthielten ſich der Abſtimmung. Sie konnten<lb/>
+auch garnicht für die Verſtaatlichung ſtimmen, denn das würde<lb/>
+in Deutſchland für die Bergarbeiter Muſterausbeutung und<lb/>
+Unterdrückung jeder Meinungsfreiheit bedeuten. Warum haben<lb/>
+die engliſchen Arbeiter aber derartiges nicht zu erwarten? Weil<lb/>
+ſie eine Macht im engliſchen Staate ſind! Und ſo iſt es auch<lb/>
+in allen anderen Dingen. — Starke wirthſchaftliche Organiſation<lb/>
+bedeutet politiſche Macht; <hi rendition="#g">ohne eine ſtarke Gewerkſchaft¬<lb/>
+<pb n="6" facs="#f0014"/>
+bewegung iſt wirkliche politiſche Macht des Prole¬<lb/>
+tariats undenkbar</hi>. Auch die politiſche Macht unſeres<lb/>
+Agrarierthums, der Induſtriellen u. wurzelt zum großen Theil<lb/>
+in den <hi rendition="#g">wirthſchaftlichen</hi> Organiſationen derſelben. Der<lb/>
+<hi rendition="#g">rein</hi>-politiſche Kampf der Arbeiterklaſſe trifft nur im Allgemeinen<lb/>
+die ſtaatlichen Vertreter des Kapitalismus, den Kapitalismus da¬<lb/>
+gegen ſelbſt nur ſehr wenig; der gewerkſchaftliche Kampf jedoch<lb/>
+berührt jede Faſer des Kapitalismus Die ganze kapitaliſtiſche<lb/>
+Geſellſchaft wird durch den gewerkſchaftlichen Kampf bis in die<lb/>
+tiefſten Tiefen aufgerührt, jeder Kapitaliſt hat mit ihm zu rechnen.<lb/>
+Dieſes führt dahin, daß der Kapitaliſt ſchließlich gezwungen wird,<lb/>
+die Arbeiter als gleichberechtigt anzuerkennen, was zur Folge<lb/>
+haben muß, daß auch auf politiſchem Gebiete im Laufe der Zeiten<lb/>
+das gleiche eintritt. Der gewerkſchaftliche Kampf ebnet ferner<lb/>
+erſt den Boden für eine vernünftige Arbeiterſchutzgeſetzgebung,<lb/>
+er bringt große geſchloſſene Maſſen für beſtimmte Schutzgeſetze<lb/>
+in Bewegung, zwingt die herrſchenden Gewalten dadurch, ſich<lb/>
+mit dieſen Dingen zu beſchäftigen und ſchließlich nachzugeben.<lb/>
+Er bietet ferner eine Garantie dafür, daß die beſtehenden Ar¬<lb/>
+beiterſchutzgeſetze auch zur Durchführung gelangen. — Wenn von<lb/>
+allen dieſen Wirkungen des gewerkſchaftlichen Kampfes in Deutſch¬<lb/>
+land bisher nur wenig verſpürt worden iſt, ſo liegt dieſes meines<lb/>
+Erachtens nach, wie ich bereits bemerkt habe, nicht in dem<lb/>
+<hi rendition="#g">Weſen</hi> der Gewerkſchaftsbewegung ſelber, ſondern an ganz<lb/>
+anderen Dingen, die ich auch bereits erwähnt und ſpäter zu be¬<lb/>
+weiſen verſuchen werde. — In England hat der gewerkſchaftliche<lb/>
+Kampf die angegebenen Wirkungen zur Folge gehabt und auch<lb/>
+bei uns muß dieſes naturgemäß eintreten. — Gelingt es ſelbſt<lb/>
+durch den politiſchen Kampf Arbeiterſchutzgeſetze den Machthabern<lb/>
+abzutrotzen, ſo haben dieſe doch nur eine ſehr minimale Be¬<lb/>
+deutung für das Proletariat, wenn keine ſtarken gewerkſchaftlichen<lb/>
+Organiſationen vorhanden ſind, um ſie auch zur Durchführung<lb/>
+zu bringen, was ſo ſchlagend durch die deutſchen Verhältniſſe<lb/>
+bewieſen wird. Wir beſitzen eine ganze Anzahl Arbeiterſchutz¬<lb/>
+beſtimmungen, die jedoch nur durchſchnittlich auf dem Papier<lb/>
+vorhanden ſind und in der Praxis nicht beachtet werden. Warum<lb/>
+nicht dieſes? Weil die meiſten deutſchen Arbeiter von den näheren<lb/>
+Beſtimmungen derſelben keine Ahnung haben und anderſeits<lb/>
+auch nicht die genügende Macht beſitzen, um ſie zur Durch¬<lb/>
+führung bringen zu können. Dieſe Erſcheinung iſt nur die Folge<lb/>
+der mangelhaften gewerkſchaftlichen Organiſation. Wahrhaft<lb/>
+troſtlos ſieht es auf dieſem Gebiete aus. Die Unternehmer<lb/>
+treten in der offenkundigſten Weiſe alle geſetzlichen Beſtimmungen<lb/>
+mit Füßen, ja ſtellen oft die Arbeiter nur unter der ausdrück¬<lb/>
+lichen Bedingung ein, daß die bezüglichen Geſetze nicht inne ge¬<lb/>
+halten werden. Der politiſche Kampf wird in dieſen Dingen<lb/>
+nie, nie Aenderungen ſchaffen können, das kann nur der gewerk¬<lb/>
+ſchaftliche. Zwingen aber die Arbeiter das Unternehmerthum,<lb/>
+die geſetzlichen Beſtimmungen zu beachten, ſo bedeutet das ein<lb/>
+Fortſchritt, der naturgemäß einen weiteren Fortſchritt zur Folge<lb/>
+haben muß.</p><lb/>
+<p>Ich habe zu verſchiedenen Malen, um die Richtigkeit meiner<lb/>
+<pb n="7" facs="#f0015"/>
+Behauptungen zu beweiſen, die engliſche Gewerkſchaftsbewegung<lb/>
+angeführt und daher muß ich noch auf eine Annahme zurück¬<lb/>
+kommen, durch die man die Stärke und Bedeutung der engliſchen<lb/>
+Gewerkſchaftsorganiſationen zu erklären ſucht. — „Die engliſchen<lb/>
+Organiſationen ſeien zu einer Zeit entſtanden, wo England die<lb/>
+kapitaliſtiſche Alleinherrſchaft ausübte“, ſo lautet dieſe Annahme.<lb/>
+Man will alſo damit ſagen, daß England einen großen Abſatz<lb/>
+für ſeine induſtriellen Produkte hatte und die Geſchäftslage<lb/>
+äußerſt günſtig war, welches natürlich auch auf die Lage der<lb/>
+engliſchen Arbeiterklaſſe und deren Beſtrebungen ſeinen Einfluß<lb/>
+ausüben mußte. Doch auch dieſe Annahme kann unmöglich<lb/>
+richtig ſein, denn wir finden, daß einmal die Lage des engliſchen<lb/>
+Proletariats in jenen Zeiten eine äußerſt ſchlechte war und daß<lb/>
+anderſeits eben ſolche gewaltige Kriſen wütheten, wie gegenwärtig.<lb/>
+Wenn ferner von dem Abſatzgebiet der damaligen engliſchen In¬<lb/>
+duſtrie geſprochen wird, ſo iſt dabei auch nicht zu vergeſſen, daß<lb/>
+in den erſten Jahrzehnten unſers Jahrhunderts die Abſatzgebiete<lb/>
+für kapitaliſtiſche Produkte viel kleiner waren, als jetzt.</p><lb/>
+<p>Man iſt in den Kreiſen der deutſchen Arbeiter deshalb nicht<lb/>
+beſonders gut auf das engliſche Proletariat zu ſprechen, weil es<lb/>
+nicht zur Sozialdemokratie ſchwört. Gewiß ſind die deutſchen<lb/>
+Arbeiter den engliſchen in der Theorie überlegen, ſie haben die<lb/>
+Tendenz der heutigen Entwickelung und das Endziel der Ar¬<lb/>
+beiterbewegung richtig erfaßt, aber in der Praxis ſtehen ſie weit<lb/>
+hinter den engliſchen Arbeitern. Die Praxis iſt von jeher die<lb/>
+ſchwache Seite der Deutſchen geweſen, während ſie in der<lb/>
+Theorie immer ſehr revolutionär waren. So auch heute. Durch<lb/>
+Theorien wird kein Elend aus der Welt geſchafft, durch Theorien<lb/>
+wird kein Hungriger ſatt, aber das kann durch den Weg der<lb/>
+Praxis geſchehen. Der Weg der Praxis muß naturgemäß auch<lb/>
+ohne Theorie in Folge der Entwickelung zum Sozialismus<lb/>
+führen. — Dann wird ferner gegen die Gewerkſchaftsbewegung<lb/>
+der Einwand erhoben, daß dieſe ſchon deshalb keine große Zu¬<lb/>
+kunft haben könne, weil die Weiterentwickelung der kapitaliſtiſchen<lb/>
+Geſellſchaft (Konzentration des Kapitals, chroniſche Ueberproduktion,<lb/>
+Kartelle ꝛc.) naturgemäß die Chancen des gewerkſchaftlichen<lb/>
+Kampfes verſchlechtern müßte. — Dieſer Einwand, der durch die<lb/>
+Praxis, durch die Thatſachen und in der Theorie durch <hi rendition="#g">Kautsky</hi><lb/>
+und <hi rendition="#g">Schippel</hi> längſt widerlegt worden iſt, ſpukt noch immer in<lb/>
+den Köpfen vieler deutſcher Arbeiter umher. Namentlich wenn<lb/>
+ein Streik zu Ungunſten der Arbeiter verlaufen iſt, wird immer<lb/>
+wieder und wieder die Behauptung aufgeſtellt, daß die Zeit der<lb/>
+gewerkſchaftlichen Kämpfe vorbei ſei und nur noch der politiſche<lb/>
+helfen könne.</p><lb/>
+<p>Gewiß verfolgt die kapitaliſtiſche Produktionsweiſe die Ten¬<lb/>
+denz, die Kleinbetriebe zu vernichten und dafür immer größere<lb/>
+Betriebe entſtehen zu laſſen, doch bedeutet dieſes noch lange<lb/>
+nicht, daß der gewerkſchaftliche Kampf dadurch zur Unfruchtbarkeit<lb/>
+verdammt ſei. Einmal haben wir in Deutſchland noch viel mit<lb/>
+Kleinbetrieben zu rechnen, welche der Agitation ꝛc. große Hinder¬<lb/>
+niſſe in den Weg legen und anderſeits tauchen mit der Konzen¬<lb/>
+tration des Kapitals eine Reihe von Momenten auf, die jene<lb/>
+<pb n="8" facs="#f0016"/>
+Nachtheile, welche der Gewerkſchaftsbewegung durch die Konzen¬<lb/>
+tration zugefügt werden, auf der anderen Seite wieder auf¬<lb/>
+wiegen. — Je größer die Betriebe ſind, je leichter iſt im Allge¬<lb/>
+meinen die Agitation. Nicht tauſende verſchiedener Mängel ſind<lb/>
+hier aufzuweiſen, ſondern die gleichen, die Alle treffen; der auf¬<lb/>
+geklärte Arbeiter kann den Unaufgeklärten viel leichter für ſeine<lb/>
+Ideen gewinnen, da er fortwährend mit ihm zuſammen iſt. Er<lb/>
+kann ferner durch den moraliſchen Druck dieſen zwingen, mitzu¬<lb/>
+thun. Auch das Solidaritätsgefühl muß ſich in größeren Be¬<lb/>
+trieben ſchneller entwickeln, als in vielen Kleinbetrieben, da<lb/>
+tauſende klar und ſichtbar an demſelben Uebel kranken. Wir<lb/>
+ſehen daher ſchon an dieſem Umſtande, daß die Konzentration<lb/>
+des Kapitals gleichzeitig Momente erzeugt, die für den gewerk¬<lb/>
+ſchaftlichen Kampf günſtig wirken. — Ich halte es in dieſer<lb/>
+ganzen Frage mit <hi rendition="#g">Kautsky</hi>, der in der „Neuen Zeit“ ſchrieb:<lb/>
+„Je mehr die Konzentration des Kapitals fortſchreitet, deſto<lb/>
+größer wird, im Verhältniß zur Zahl die beſchäftigten Arbeiter,<lb/>
+die Maſſe des in einem induſtriellen Unternehmen angelegten<lb/>
+Kapitals (Baulichkeiten, Maſchinen, Rohmaterial u. ſ. w.). Jede<lb/>
+Einſtellung des Betriebes entwerthet dieſes Kapital und zwar<lb/>
+um ſo mehr, je länger die Arbeitseinſtellung dauert. In einem<lb/>
+Unternehmen, in dem relativ viel konſtantes Kapital angelegt<lb/>
+iſt, bedeutet jede Betriebsunterbrechung nicht nur einen Gewinn¬<lb/>
+verluſt, ſondern einen erheblichen, poſitiven Schaden für den<lb/>
+Kapitaliſten. Dazu kommt ein anderer Umſtand: Die Abgaben,<lb/>
+die der Unternehmer von ſeinem Mehrwerth abzugeben hat —<lb/>
+Steuern, Grundrenten, Zinſen für geborgtes Kapital u. ſ. w. —<lb/>
+müſſen von ihm bezahlt werden, mag ſein Betrieb im Gang<lb/>
+ſein und Mehrwerth ſchlucken oder nicht. Auch das drängt ihn,<lb/>
+von jeder Betriebseinſtellung möglichſt abzuſehen. Dieſe Ab¬<lb/>
+gaben haben aber im Allgemeinen die Tendenz zu wachſen und<lb/>
+daher das Vermehrungsbedürfniß des induſtriellen Kapitals zu<lb/>
+ſteigern. Alle dieſe Umſtände tragen weſentlich mit bei, den<lb/>
+Drang nach Ueberproduktion zu fördern; ſie wirken aber auch<lb/>
+dahin, jeden ungelegenen Streik immer verluſtvoller für den<lb/>
+Kapitaliſten und dieſen immer geneigter zu machen, einem Streik,<lb/>
+der ihn im Einſacken von Mehrwerth auch nur Wochen oder<lb/>
+Tage hindern könnte, durch Konzeſſionen vorzubeugen, oder ihn<lb/>
+dadurch möglichſt raſch zu beenden.“</p><lb/>
+<p> <hi rendition="#g">Parvus</hi> kann ſich in ſeiner bekannten Schrift über „Die<lb/>
+Gewerkſchaften und die Sozialdemokratie“ mit dieſen Ausfüh¬<lb/>
+rungen nicht ganz einverſtanden erklären. Er ſagt z. B.: „Man<lb/>
+ſehe doch, wie dieſe Ungethüme Millionen über Millionen aus¬<lb/>
+geben, ihre Waaren maſſenweiſe unter den Rohſtoffpreis ver¬<lb/>
+ſchleudern, wenn es gilt, einen Konkurrenten zu erdrücken. Und<lb/>
+da ſoll es ihnen vor einem Streik angſt und bange werden?“</p><lb/>
+<p>Wenn dieſe Rieſenbetriebe ungeheure Summen zur Er¬<lb/>
+drückung unliebſamer Konkurrenten ausgeben, ſo thun ſie es<lb/>
+doch nur aus dem Grunde und in der Gewißheit, daß ſie, ſo¬<lb/>
+bald der unliebſame Konkurrent todt iſt, mit Leichtigkeit dieſe<lb/>
+Summen <hi rendition="#g">wieder</hi> gewinnen und noch weitere ungeheure<lb/>
+Summen dazu. Dieſes iſt die Urſache, weshalb ſie ſo han¬<lb/>
+<pb n="9" facs="#f0017"/>
+deln. — Ganz anders liegt es jedoch bei einem Streik. Da iſt<lb/>
+in der Regel die Summe, welche ſie eventuell den ſtreikenden<lb/>
+Arbeitern bewilligen im Verhältniß zu jenem Schaden, den ſie<lb/>
+durch einen Streik erleiden, eine ſo minimale, daß ſie das<lb/>
+kleinere Uebel wählen und nachgeben. Die Hamburger Rheder<lb/>
+z. B. hätten gewiß in zehn Jahren nicht je Mehrausgabe ge¬<lb/>
+habt, wenn ſie die Forderungen der Arbeiter bewilligt haben<lb/>
+würden, die ſie jetzt innerhalb weniger Wochen gehabt haben<lb/>
+und doch früher oder ſpäter die Forderungen bewilligen werden<lb/>
+müſſen. Sie ziehen aus dieſem Kampfe die Lehre, welche ſchon<lb/>
+ſo viele Kapitaliſten gezogen haben, daß es für ſie in geſchäft¬<lb/>
+licher Beziehung, im Intereſſe ihres Geldbeutels, beſſer iſt, die<lb/>
+minimalen Forderungen zu bewilligen, als es zu großen Diffe¬<lb/>
+renzen kommen zu laſſen. — Die Ausſichten, die der Kapitaliſt<lb/>
+bei der <hi rendition="#g">Todtmachung</hi> eines unliebſamen Konkurrenten hat,<lb/>
+ſind beim Streik in der Regel nicht vorhanden. — Dann<lb/>
+kommt noch der Umſtand hinzu, daß der Schaden, welchen der<lb/>
+Kapitaliſt durch Bewilligung von Forderungen erleidet, zum<lb/>
+<hi rendition="#g">Theil</hi> durch die eintretende <hi rendition="#g">größere</hi> Leiſtungsfähigkeit des<lb/>
+Arbeiters wieder gedeckt wird. Der engliſche Kapitaliſt, der<lb/>
+ſeine Arbeiter 8 und 9 Stunden arbeiten läßt und ihnen einen<lb/>
+angemeſſenen Lohn zahlt, fährt vom geſchäftlichen Standpunkte<lb/>
+aus ſchlauer, als der ruſſiſche, der 16 Stunden arbeiten läßt<lb/>
+und Hungerlöhne zahlt. Dieſe Ueberzeugung drängt ſich auch<lb/>
+den Kapitaliſten auf, ſobald die Arbeiterbewegung <hi rendition="#g">erſtarkt</hi> iſt<lb/>
+und ſich durch keine Macht der Erde mehr hemmen läßt. —<lb/>
+Dann ſagt <hi rendition="#g">Parvus</hi> weiter: „Dieſe Rieſenbetriebe trotzen ja<lb/>
+ſogar der Kriſe, die viel verheerender wirkt, als ein Streik.“<lb/>
+Der Kriſe <hi rendition="#g">müſſen</hi> ſie <hi rendition="#g">gezwungen</hi> trotzen, weil dieſe eine<lb/>
+eherne Macht iſt, die ſich im Rahmen der kapitaliſtiſchen Ge¬<lb/>
+ſellſchaft nicht beſeitigen läßt; dem Streik aber können ſie aus¬<lb/>
+weichen. — Dann kommt noch ein weiterer Umſtand zu Gunſten<lb/>
+der Gewerkſchaftsbewegung hinzu, den <hi rendition="#g">Parvus</hi> ſehr richtig<lb/>
+betont, es iſt die fortſchreitende Theilarbeit. Sie verſchlechtert<lb/>
+nicht die Chancen des gewerkſchaftlichen Kampfes, wie oft an¬<lb/>
+genommen wird; ſie bedingt eine Menge von Kunſtgriffen,<lb/>
+welche ſich im Laufe der Jahrzehnte hin ausgebildet haben,<lb/>
+die aber oft den Arbeitern in demſelben Arbeitsraum unter¬<lb/>
+einander unbekannt ſind und eine große Leiſtungsfähigkeit.<lb/>
+Solche ſtreikende <choice><sic>Arbeiterarmeeen</sic><corr>Arbeiterarmeen</corr></choice>, wo dann der einzelne Ar¬<lb/>
+beiter nur ein Rädchen in dem ungeheuren Betriebe iſt, ſind<lb/>
+ſchwer zu erſetzen. Daher auch die Erſcheinung, daß nach ver¬<lb/>
+loren gegangenen Streiks durchweg die Streikbrecher wieder<lb/>
+hinausfliegen, da ſie beim beſten Willen die Streikenden nicht<lb/>
+erſetzen konnten.</p><lb/>
+<p>Aus allen dieſen Gründen glaube ich daher, daß keines¬<lb/>
+wegs durch die Konzentration des Kapitals die Chancen des<lb/>
+gewerkſchaftlichen Kampfes ſich verſchlechtern müſſen. — An¬<lb/>
+dererſeits iſt aber auch der Streit nicht die einzige Waffe des<lb/>
+gewerkſchaftlichen Kampfes, ſondern es giebt noch andere Waffen,<lb/>
+auf die ich ſpäter zu ſprechen kommen werde. — Dann zu den<lb/>
+Kartellen. — Da Kartelle größere Betriebe ſind, ſo gilt auch<lb/>
+<pb n="10" facs="#f0018"/>
+von ihnen das vorher ſchon Ausgeführte. Ferner ſind aber bei<lb/>
+der Kartellfrage noch weitere Punkte in’s Auge zu faſſen, und<lb/>
+ich will in dieſer Beziehung hier nur lediglich die Ausführun¬<lb/>
+gen <hi rendition="#g">Kautskhy’s</hi> wiedergeben. Er ſagt einmal:</p><lb/>
+<p>„Man darf aber auch nicht etwa glauben, daß die geſammte<lb/>
+Produktion binnen Kurzem in den Händen von Kartellen ſein<lb/>
+wird. Bisher iſt die Kartellirung in der Regel nur in In¬<lb/>
+duſtrien geglückt, die eine Monopolſtellung entweder von vorn¬<lb/>
+herein beſaßen, wie z. B. viele Bergwerke, oder ſie durch die<lb/>
+ökonomiſche Entwickelung und ſtaatliche Maßregeln-Schutzzölle,<lb/>
+Steuergeſetzgebung und dergl. — erhalten haben.“ Ferner:<lb/>
+„Jedes Kartell ſtellt ſich außerhalb des Getriebes der freien<lb/>
+Konkurrenz, damit aber auch außerhalb der Solidarität der<lb/>
+bürgerlichen Intereſſen. Denn dieſe beruht auf die Freiheit<lb/>
+der Konkurrenz, auf die Möglichkeit, die jeden Beſitzenden<lb/>
+(wenigſtens ideell) gegeben iſt, ſein Vermögen in jener Induſtrie<lb/>
+anzulegen, wo es den meiſten Profit verſpricht; auf die Mög¬<lb/>
+lichkeit, an jedem Ausnahmeprofit dadurch theilzunehmen, daß<lb/>
+man ſich auf das Induſtriegebiet wirft, welches ihn liefert, und<lb/>
+auf die Möglichkeit, ihn dadurch ſchließlich auch wieder auf das<lb/>
+Durchſchnittsniveau des Profits zu ſenken. Das Klaſſenin¬<lb/>
+tereſſe des Kapitals duldet kein Privilegium, kein Monopol<lb/>
+<hi rendition="#g">innerhalb</hi> der Kapitaliſtenklaſſe. Jedes Kartell bildet aber<lb/>
+ein ſolches Monopol, ein ſolches Privilegium. Es grenzt ein<lb/>
+beſtimmtes Gebiet induſtrieller Thätigkeit als ausſchließliches<lb/>
+Privateigenthum einiger Wenigen ab, zu welchem der ganzen<lb/>
+übrigen Kapitaliſtenklaſſe der Eintritt verwehrt wird, und läßt<lb/>
+dort die verlockendſten goldnen Aepfel hoher Extraprofite ge¬<lb/>
+deihen, indeß gleichzeitig die Holzäpfel des Durchſchnittsprofits,<lb/>
+welche außerhalb des eingehegten Induſtriegebietes wachſen,<lb/>
+immer ſpärlicher und ſauer werden. Das iſt ein Zuſtand, der<lb/>
+jedes ehrliche Kapitaliſtenherz revoltiren muß. Nicht in prole¬<lb/>
+tariſchen Kreiſen, ſondern in bürgerlichen iſt die Entrüſtung<lb/>
+über die Truſts und Kartelle am lebhafteſten laut geworden.<lb/>
+— Bricht in einer derartig zu einem Privatmonopol geworde¬<lb/>
+nen Induſtrie ein Kampf zwiſchen den Unternehmern und Ar¬<lb/>
+beitern aus, dann kann unter Umſtänden das bürgerliche Pu¬<lb/>
+blikum durch ſeine Gegnerſchaft gegen das Monopol ſoweit ge¬<lb/>
+trieben werden, daß es ſeine Gegnerſchaft gegen die Arbeiter¬<lb/>
+klaſſe für einen Moment vergißt und mit den Arbeitern ſym¬<lb/>
+pathiſirt.“</p><lb/>
+<p> <hi rendition="#g">Parvus</hi> macht in ſeiner ſchon erwähnten Schrift noch<lb/>
+darauf beſonders aufmerkſam, daß viele Kartelle zur Zeit der<lb/>
+wirthſchaftlichen Depreſſion entſtehen und nur <hi rendition="#g">kurzlebig</hi> ſind,<lb/>
+was wohl auch unbedingt zutrifft.</p><lb/>
+<p>Wie verhält es ſich dann weiter mit der chroniſchen Ueber¬<lb/>
+produktion? Die Annahme, daß die kapitaliſtiſche Geſellſchaft<lb/>
+ſich immer in dem Zuſtande der chroniſchen Ueberproduktion<lb/>
+befinden müſſe, nie mehr günſtige Geſchäftszeiten ſehen werde,<lb/>
+dieſe Annahme, welche bis noch vor Kurzem von Vielen ver¬<lb/>
+theidigt wurde, iſt durch die Thatſachen, durch den bedeutenden<lb/>
+wirthſchaftlichen Aufſchwung längſt widerlegt worden. — Auch<lb/>
+<pb n="11" facs="#f0019"/>
+in dieſer Beziehung ſchließe ich mich im Allgemeinen den<lb/>
+Kautsky'ſchen Ausführungen an. Dieſer ſagt: „Nach wie vor<lb/>
+bewegt ſich das Geſchäftsleben im Zyklus von Belebung, flotte¬<lb/>
+rem Geſchäftsgang, Zuſammenbruch, Hinſiechen und Wieder¬<lb/>
+belebung; der Unterſchied gegen früher iſt nur der, daß die Zeit¬<lb/>
+räume des Siechthums immer länger werden, die Wiederbele¬<lb/>
+bung immer ſchwerer und langſamer, die Zeiten des flotten<lb/>
+Geſchäftsganges immer kürzer, der Gewinn daraus immer un¬<lb/>
+ſicherer, der Zuſammenbruch immer verheerender. Aber gerade<lb/>
+je mehr das der Fall iſt, deſto ſorgſamer muß der Unternehmer<lb/>
+darauf achten, daß die Zeit der günſtigen Konjunktur, die immer<lb/>
+<choice><sic>prekrärer</sic><corr>prekärer</corr></choice>, der Ausnützung aber immer nothwendiger wird, nicht<lb/>
+durch Streiks verloren geht. Je mehr die chroniſche Ueber¬<lb/>
+produktion ſich ausdehnt, um ſo härter trifft dem Unternehmer<lb/>
+jeder Streit in der Zeit des kümmerlichen Aufſchwunges, der<lb/>
+ſich hier und da noch bemerkbar macht, deſto eher iſt er in einer<lb/>
+ſolchen Zeit zu Konzeſſionen geneigt. — Die chroniſche Ueber¬<lb/>
+produktion macht alſo das Streiken nicht ausſichtslos, ſie be¬<lb/>
+wirkt blos, daß die Anforderungen an die beruflichen Organi¬<lb/>
+ſationen der Arbeiter und an ihre Führer wachſen. Es wird<lb/>
+jetzt immer nothwendiger, den richtigen Zeitpunkt abzuwarten,<lb/>
+dieſen dann aber raſcheſt auszunützen; die Ausdauer, Geduld<lb/>
+und Disziplin der Maſſen, ihre Einſicht in die wirthſchaftlichen<lb/>
+Verhältniſſe und die Straffheit ihrer Organiſation müſſen in<lb/>
+demſelben Maße wachſen, in dem die chroniſche Ueberproduktion<lb/>
+ſich entwickelt, ſoll ihre Widerſtandsfähigkeit durch dieſe nicht ge¬<lb/>
+ſchädigt werden.“ — Ob die <hi rendition="#g">Kautsky</hi>'ſche Annahme, daß die<lb/>
+Zeiten des flotten Geſchäftsganges immer kürzer werden, auf<lb/>
+Thatſache beruht, iſt eine Frage. Nimmt doch <hi rendition="#g">Parvus</hi> von<lb/>
+dem gegenwärtigen wirthſchaftlichen Aufſchwung an, daß<lb/>
+er, bedingt durch die Eröffnung gewaltiger Abſatzgebiete, der<lb/>
+größte der kapitaliſtiſchen Geſellſchaft ſein wird. — Wie dem<lb/>
+nun auch ſei: die Ueberproduktion herrſcht nicht immer und die<lb/>
+Chancen des gewerkſchaftlichen Kampfes werden durch ſie nicht<lb/>
+naturgemäß verſchlechtert. — Wie falſch die Annahme iſt, daß<lb/>
+mit der Weiterentwickelung des heutigen Produktionsſyſtems<lb/>
+auch die Poſition der Arbeiterklaſſe für den gewerkſchaftlichen<lb/>
+Kampf ſich verſchlechtern müſſe, wird ferner durch die engliſche<lb/>
+Gewerkſchaftsbewegung bewieſen, England iſt auf dem Gebiete<lb/>
+der Induſtrie am höchſten entwickelt und es beſitzt die ſtärkſten<lb/>
+Gewerkſchaftsorganiſationen, die namentlich in den letzten Jahr¬<lb/>
+zehnten gewaltig gewachſen und immer mehr und mehr ſich aus¬<lb/>
+breiten. Die größten Organiſationen ſind aber hier gerade in<lb/>
+jenen Induſtrieen aufzuweiſen, wo das Kapital am konzentrirteſten<lb/>
+iſt, während in jenen Gewerben, wo dieſes nicht zutrifft, die<lb/>
+Berufsvereinigungen ſchwächer ſind. Darum hat wohl auch<lb/>
+<hi rendition="#g">Karl Marx</hi> recht gehabt, wenn er bereits 1847 ſchrieb, daß<lb/>
+der Entwickelungsgrad der Koalitionen genau den Rang be¬<lb/>
+zeichnet, den das betreffende Land in der Hierarchie des Welt¬<lb/>
+marktes einnimmt.</p><lb/>
+<p>Dann zu den anderen Einwänden, die gegen die Gewerk¬<lb/>
+ſchaftsbewegung erhoben werden. — Einer derſelben lautet:<lb/>
+<pb n="12" facs="#f0020"/>
+„Schon deshalb habe die gewerkſchaftliche Bewegung ſo gut wie<lb/>
+keine Bedeutung, weil der Kapitaliſt, ſobald die Arbeiter durch<lb/>
+eine Lohnbewegung verbeſſerte Löhne erhalten haben, auch ſofort<lb/>
+die Preiſe ſeiner Fabrikate erhöht, ſo daß alſo in letzter Inſtanz<lb/>
+die Arbeiterklaſſe aus den gewerkſchaftlichen Kämpfen keinen<lb/>
+Nutzen ziehen kann. Sie muß für Lebensmittel, Mobilien,<lb/>
+Wohnungsmiethe ꝛc. ſoviel <hi rendition="#g">mehr</hi> zahlen, als jene Lohnerhöhung<lb/>
+ausmacht, welche durch Streiks u. ſ. w. von den verſchiedenſten<lb/>
+Kategorien erreicht worden iſt.“ Dieſe Anſicht habe ich oft ge¬<lb/>
+hört, ja ſelbſt von Perſonen, die gewerkſchaftlich organiſirt<lb/>
+waren. — Sie wurden auch einſt von <hi rendition="#g">Proudhon</hi> vertheidigt,<lb/>
+und ſah ſich <hi rendition="#g">Karl Marx</hi> bereits vor 52 Jahren veranlaßt,<lb/>
+ihr im „Elend der Philoſophie“ gegenüberzutreten und die<lb/>
+Unrichtigkeit derſelben zu beweiſen. — Gewiß kommt es vor,<lb/>
+daß an irgend einem kleinen Orte, wo z. B. die Schuhmacher¬<lb/>
+geſellen eine Erhöhung des Lohnes erreicht, und die Schuh¬<lb/>
+machermeiſter darüber vor Aerger beinahe den Verſtand ver¬<lb/>
+loren haben, in allen Zeitungen bekannt machen, daß von<lb/>
+jetzt ab das Stiefelbeſohlen ſo und ſo viel mehr koſtet;<lb/>
+doch die Konkurrenz bringt die wild gewordenen Meiſter bald<lb/>
+wieder zur Vernunft und drückt die Preiſe auf das frühere<lb/>
+Niveau herunter. — Auch iſt es nicht abzuleugnen, daß Streiks<lb/>
+von den Kapitaliſten provozirt worden ſind, um die Preiſe ihrer<lb/>
+Fabrikate ſteigern zu können. Doch alles dieſes ſind nur Aus¬<lb/>
+nahmen, die garnichts beſagen. Wäre die erwähnte Behauptung<lb/>
+richtig, ſo müßten die engliſchen Arbeiter noch immer auf der¬<lb/>
+ſelben elenden Stufe ſtehen, wie am Anfange dieſes Jahr¬<lb/>
+hunderts. Dieſes iſt nicht der Fall und damit die Unrichtigkeit<lb/>
+dieſer Annahme bewieſen.</p><lb/>
+<p>Ferner legen deshalb einige Perſonen der gewerkſchaftlichen<lb/>
+Bewegung keine große Bedeutung bei, weil ſie annehmen, daß<lb/>
+die deutſche Arbeiterklaſſe, einerſeits in Folge ihrer ſtarken po¬<lb/>
+litiſchen Bewegung und anderſeits durch die Zuſpitzung der heu¬<lb/>
+tigen Verhältniſſe, bald die Staatsgewalt erobern werde. „<hi rendition="#g">Ehe<lb/>
+wir es in Deutſchland zu einer ſtarken Gewerkſchafts¬<lb/>
+bewegung gebracht haben</hi>, <hi rendition="#g">beſitzen wir längſt die po¬<lb/>
+litiſche Macht</hi>.“ Dieſen Ausſpruch habe ich viele, viele Male<lb/>
+zu hören bekommen, doch ſind meines Erachtens noch derartige<lb/>
+Ausſichten garnicht vorhanden. — Die deutſche Sozialdemokratie<lb/>
+arbeitet nun ſchon über drei Jahrzehnte und hat erſt — wie<lb/>
+<hi rendition="#g">dieſes auch nicht anders ſein kann</hi> — den kleineren Theil<lb/>
+der arbeitenden Bevölkerung für ſich gewonnen. Die bisher ge¬<lb/>
+leiſtete Arbeit iſt aber viel leichter geweſen als die kommende. —<lb/>
+Ferner: — Iſt in der heutigen Sozialdemokratie Alles Gold was<lb/>
+glänzt?! Iſt nicht nur Vieles Talmi?! In den Großſtädten<lb/>
+iſt es unter den Arbeitern förmlich zur Mode geworden, Sozial¬<lb/>
+demokrat ſein zu müſſen. Jeder Klimbimverein, Skat-, Rad¬<lb/>
+fahrer-, Raucherklub ꝛc. muß einen ſozialdemokratiſchen Anſtrich<lb/>
+haben, trotzdem die meiſten Mitglieder dieſer Vereine nicht die<lb/>
+blaſſe Ahnung von der Sozialdemokratie und deren Beſtrebungen<lb/>
+beſitzen, noch nie eine Stunde ſich den Kopf mit derartigen<lb/>
+Fragen zerbrochen haben.</p><lb/>
+<pb n="13" facs="#f0021"/>
+<p>Wenn ferner angenommen wird, daß ein <hi rendition="#g">kommender großer<lb/>
+Krieg</hi>, oder eine gewaltige Kriſe plötzlich die Maſſen in die Arme<lb/>
+der Sozialdemokratie treiben und ſo dieſe die Staatsgewalt er¬<lb/>
+obern und die ſozialdemokratiſche Geſellſchaft verwirklichen werde<lb/>
+können, ſo iſt das weiter nichts, als ein Glaube an kommende<lb/>
+Wunder. Traurig wäre es aber mit der deutſchen Arbeiterklaſſe<lb/>
+beſtellt, wenn ſie ihre ganze Zukunft auf blinden Glauben auf¬<lb/>
+bauen wollte; ſie hat zu arbeiten, Stein für Stein des herrſchenden<lb/>
+Syſtems niederzureißen und in den Rahmen desſelben die Vor¬<lb/>
+bedingungen für das zukünftige aufzubauen. Dazu dient aber<lb/>
+vor allen Dingen der gewerkſchaftliche Kampf. Ich glaube dieſen<lb/>
+Abſchnitt nicht beſſer ſchließen zu können, als mit den vorzüg¬<lb/>
+lichen Worten <hi rendition="#g">Eduard Bernſtein's</hi>: „Man braucht kein<lb/>
+Mancheſtermann oder Anarchiſt, kein Gegner der Anrufung oder<lb/>
+Benutzung des Staates zu ſein, um es für wenig wünſchens¬<lb/>
+werth zu halten, daß die Arbeiter ſich daran gewöhnen, <hi rendition="#g">alle</hi><lb/>
+Hilfe und Verbeſſerung vom Staat, „von oben her“, zu erwarten.<lb/>
+Wer ſich nicht einem Glauben an zukünftige Wunder ergiebt,<lb/>
+der Vorſtellung, daß man in jedem Augenblick des Bedarfs<lb/>
+leiſtungsfähige organiſche Gebilde aus dem Boden ſtampfen<lb/>
+kann, wird in der Gewerkſchaft nicht nur eine Vorſchule weit¬<lb/>
+gehender demokratiſcher Selbſtverwaltung begrüßen, ſondern auch<lb/>
+einen wichtigen Hebel der von der Sozialdemokratie erſtrebten<lb/>
+wirthſchaftlichen Umgeſtaltungen. Der Satz, daß die Emanzipation<lb/>
+der Arbeiterklaſſe das Werk dieſer ſelbſt ſein muß, hat eine<lb/>
+weitere Bedeutung als blos die der Eroberung der Staatsgewalt<lb/>
+durch die Arbeiter.“ <note place="foot" n="*)"><lb/>
+„Die Geſchichte des Britiſchen Trade-Unionismus“ von<lb/>
+S. u. B. Webb, Nachwort.</note></p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> <div n="1"> <head>II.<lb/>
+<hi rendition="#b #fr">Das Hilfskaſſen- und Unterſtützungsweſen<lb/>
+in den Gewerkſchaftsorganiſationen</hi>.<lb/>
+</head> <p>„Schreibt man über Gewerkſchaften, ſo kann man nicht um¬<lb/>
+hin, von England zu ſprechen“, ſo ſagt <hi rendition="#g">Parvus</hi> in ſeiner<lb/>
+wiederholt erwähnten Schrift. Auch ich habe dieſes ſchon in<lb/>
+dem vorherigen Abſchnitt gethan und muß es jetzt wieder thun.<lb/>
+— Wenn man die engliſchen Gewerkſchaftsorganiſationen näher<lb/>
+betrachtet, ſo wird man finden, daß ſich dieſelben vor Allem in<lb/>
+einem Punkte <hi rendition="#g">weſentlich</hi> von denen der deutſchen Arbeiter<lb/>
+unterſcheiden. Die meiſten Berufsorganiſationen des engliſchen<lb/>
+Proletariats und namentlich die größeren ſind nicht ſogenannte<lb/>
+<hi rendition="#g">reine</hi> Gewerkſchaftsvereine, ſondern ſie beſitzen auch den Charakter<lb/>
+von <hi rendition="#g">Verſicherungs-Geſellſchaften</hi> auf Gegenſeitigkeit und<lb/>
+<pb n="14" facs="#f0022"/>
+zwar dadurch, indem ſie Unterſtützungen bei Arbeitsloſigkeit, Un¬<lb/>
+fällen, Arbeitsunfähigkeit, Auswanderung, in Krankheits-, Todes¬<lb/>
+fällen u. ſ. w. gewähren. Die meiſten deutſchen Gewerkſchafts¬<lb/>
+organiſationen haben derartige Unterſtützungen nicht, oder doch<lb/>
+nur ganz minimale. — Und dieſes ſcheint mir der ſpringende<lb/>
+Punkt zu ſein, weshalb die engliſchen Organiſationen <hi rendition="#g">ſtärker</hi><lb/>
+ſind, <hi rendition="#g">Stabili</hi><supplied><hi rendition="#g">t</hi></supplied><hi rendition="#g">ät</hi> beſitzen und einen <hi rendition="#g">wirklichen dauernden<lb/>
+Einfluß</hi> auf die Lohn- und Arbeitsverhältniſſe ausüben können,<lb/>
+als die deutſchen Durch das Unterſtützungsweſen hat man die<lb/>
+Maſſe für die Organiſation gewonnen, hat ſie dauernd an der¬<lb/>
+ſelben gekettet und iſt durch einzelne Unterſtützungszweige ferner<lb/>
+im Stande, den Arbeitsmarkt, reſp. den Preis der Waare Ar¬<lb/>
+beitskraft, auch ohne Streiks indirekt beeinfluſſen zu können. —<lb/>
+Daß dieſe meine Annahmen richtig ſind, wird durch folgende<lb/>
+Thatſachen bewieſen. — Die engliſche Gewerkſchaftsbewegung<lb/>
+war einſt ohne ihr jetziges ausgebautes Unterſtützungsweſen<lb/>
+genau dasſelbe was gegenwärtig die deutſche iſt. Auch ſie drehte<lb/>
+ſich damals im Kreiſe herum und bildete eine Kette von un¬<lb/>
+unterbrochenen Niederlagen. Erſt als durch <hi rendition="#g">William Allon</hi><lb/>
+und <hi rendition="#g">William Newton</hi> die Amalgamirte Vereinigung der Ma¬<lb/>
+ſchinenbauer mit ihrem ausgedehnten Unterſtützungsweſen im<lb/>
+Jahre 1851 in's Leben gerufen wurde, iſt die engliſche Gewerk¬<lb/>
+ſchaftsbewegung zu ihrer heutigen Bedeutung gekommen; erſt<lb/>
+als dieſes „Neue Muſter“ von den meiſten anderen Organi¬<lb/>
+ſationen nachgeahmt wurde, haben ſich dieſe auf ihre gegenwärtige<lb/>
+Stärke und Stabilität entwickelt. Man ſtudire nur Ge¬<lb/>
+ſchichte des Britiſchen Trade-Unionismus und man wird die<lb/>
+Behauptung bewahrheitet finden. Aber auch durch die deutſche<lb/>
+Gewerkſchaftsbewegung wird dieſelbe beſtätigt. Die wenigen<lb/>
+deutſchen Gewerkſchaftsorganiſationen, welche ihren Mitgliedern<lb/>
+größere Unterſtützungen gewähren, alſo auch gleichzeitig den<lb/>
+Charakter von <hi rendition="#g">Verſicherungsgeſellſchaften</hi> haben, beſitzen<lb/>
+einen viel ſtärkeren und feſteren Mitgliederbeſtand als diejenigen,<lb/>
+welche nur <hi rendition="#g">reine</hi> Gewerkſchaftszwecke verfolgen. — Das Haupt¬<lb/>
+mittel des gewerkſchaftlichen Verſicherungsweſen iſt meines Er¬<lb/>
+achtens nach die Arbeitsloſen-Unterſtützung: ich werde ſie in dem<lb/>
+folgenden Abſchnitt eingehend behandeln und dabei eine Reihe<lb/>
+von Ausführungen machen, die ich eigentlich ſchon hier machen<lb/>
+müßte, um aber Wiederholungen zu vermeiden, unterlaſſen habe.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> <div n="1"> <head>III.<lb/>
+<hi rendition="#b #fr">Die Unterſtützung der Arbeitsloſen und die<lb/>
+gewerkſchaftlichen Organiſationen.</hi><lb/>
+</head> <p> <hi rendition="#g">Parvus</hi> ſagt ſehr richtig, daß die Frage der Arbeitsloſen-<lb/>
+Unterſtützung für die Gewerkſchaftsorganiſationen keine <hi rendition="#g">prin¬<lb/>
+zipielle</hi>, ſondern eine rein <hi rendition="#g">taktiſche</hi> iſt. Alle diejenigen,<lb/>
+<pb n="15" facs="#f0023"/>
+welche für die Einführung der Arbeitsloſen-Unterſtützung ein¬<lb/>
+treten, thun dann auch dieſes nicht aus Gründen der Humanität,<lb/>
+alſo aus Prinzip, ſondern lediglich aus Gründen der Taktik,<lb/>
+der Kriegsführung, um dasjenige zu erreichen, was bisher<lb/>
+nicht möglich geweſen iſt. — So auch ich. — Ich glaube,<lb/>
+daß die Einführung der Arbeitsloſen-Unterſtützung in die Ge¬<lb/>
+werkſchaftsorganiſationen vor allem folgende Umſtände be¬<lb/>
+dingen muß:</p><lb/>
+<list>     <item>1. <hi rendition="#g">Der Mitgliederbeſtand der Organiſationen wird<lb/>
+bedeutend wachſen.</hi></item><lb/>
+<item>2. <hi rendition="#g">Der Mitgliederbeſtand wird erheblich an Sta¬<lb/>
+bilität zunehmen.</hi></item><lb/>
+<item>3. <hi rendition="#g">Die Kaſſenbeſtände werden ſich vergrößern.</hi></item></list><lb/>
+<p>Schon dieſe Umſtände müſſen, wenn ſie zutreffend ſind,<lb/>
+eine bedeutende Verbeſſerung der Chancen der gewerkſchaftlichen<lb/>
+Kämpfe zur Folge haben.</p><lb/>
+<list><item>4. <hi rendition="#g">Die Organiſationen können die erzielten Er¬<lb/>
+rungenſchaften auch auf die Dauer feſthalten<lb/>
+und ſind im Stande, auch ohne Streiks, in¬<lb/>
+direkt einen Einfluß auf den Arbeitsmarkt,<lb/>
+reſp. auf die Lohn- und Arbeitsbedingungen<lb/>
+auszuüben</hi>.</item></list><lb/>
+<p>Die jetzt folgenden Ausführungen ſollen die aufgeſtellten<lb/>
+Theſen beweiſen.</p><lb/>
+<p>Nach einer im Jahre 1894 vom „Correſpondent“ veröffent¬<lb/>
+lichten Statiſtik — neue Zahlen ſtehen mir nicht zur Verfügung,<lb/>
+doch hat dieſes wenig zu ſagen, da gegenwärtig die Verhältniſſe<lb/>
+genau ſo oder doch ähnlich liegen — waren in folgenden Bran¬<lb/>
+chen, deren gewerkſchaftliche Vereinigungen <hi rendition="#g">die Arbeitsloſen-<lb/>
+Unterſtützung eingeführt</hi> hatten, folgender Prozentſatz der<lb/>
+Berufsgenoſſen organiſirt: Buchdrucker 50 pCt., Handſchuh¬<lb/>
+macher 74 pCt., Bildhauer 56 pCt., Kupferſchmiede 35 pCt.,<lb/>
+Porzellanarbeiter 25 pCt. und Zigarrenſortirer 24 pCt. In den<lb/>
+Berufen, deren Organiſationen keine Arbeitsloſen-Unterſtützung<lb/>
+zahlten, ſtellt ſich dagegen das Verhältniß wie folgt: Tabak¬<lb/>
+arbeiter 11 pCt., Maurer 3 pCt., Metallarbeiter 8 pCt., Holz¬<lb/>
+arbeiter 2 pCt., Zimmerer 5 pCt. u. ſ. w. Wenn man dieſe<lb/>
+Zahlen näher betrachtet, muß ſich doch jedem die Ueberzeugung<lb/>
+aufdrängen, daß die Arbeitsloſen-Unterſtützung eine gewaltige<lb/>
+Rolle bei der Stärke der Organiſation mitſpielt, — Jene An¬<lb/>
+nahme, daß die Buchdrucker nur deshalb ſtärker organiſirt<lb/>
+wären, weil ihr Beruf eine beſſere Bildung erfordere, als die<lb/>
+der anderen Branchen, iſt irrthümlich. Die beſſere Bildung<lb/>
+kann nur eine ganz untergeordnete Rolle mitſpielen, ſonſt<lb/>
+könnten die Handſchuhmacher, Kupferſchmiede ꝛc. nicht ſtärker<lb/>
+organiſirt ſein als die Metallarbeiter, da dieſe Berufe in betreff<lb/>
+der erforderlichen Bildung auf ein und derſelben Stufe ſtehen.<lb/>
+— Man frage ferner nur die Leiter jener Organiſationen, welche<lb/>
+Arbeitsloſen-Unterſtützung gewähren, weshalb ſie beſſer organi¬<lb/>
+ſirt ſind, ſo wird man ſtets die Antwort erhalten, daß es das<lb/>
+Unterſtützungsweſen und vor allem die Arbeitsloſen-Unterſtützung<lb/>
+ſei, durch die man die meiſten Mitglieder gewonnen hat.</p><lb/>
+<pb n="16" facs="#f0024"/>
+<p>Die Menſchen ſind nun einmal Egoiſten und auch die Ar¬<lb/>
+beiter machen davon keine Ausnahme; für jeden Groſchen, den<lb/>
+ſie zu irgend einer Sache geben, wollen ſie gleich greifbare ma¬<lb/>
+terielle Vortheile ſehen. Man agitire nur in Werkſtätten, Fa¬<lb/>
+briken und Verſammlungen unter Indifferente für die Organi¬<lb/>
+ſation und in der Regel iſt ſtets die erſte Frage, die man hört:<lb/>
+„Was bietet mir die Organiſation?“ Was bekomme ich denn,<lb/>
+wenn ich derſelben beitrete?“ Jeder geſchickte Gewerkſchaftler<lb/>
+wird mit dieſer Thatſache rechnen müſſen und daher die Orga¬<lb/>
+niſation ſo einzurichten haben, daß ſie den Wünſchen der<lb/>
+Maſſe entſpricht. An den höheren Beitrag ſtoßen ſich die<lb/>
+meiſten Arbeiter nicht, wie alle bisherigen Erfahrungen lehren.<lb/>
+— In Berlin haben in letzterer Zeit einige Verwaltungsſtellen<lb/>
+zentraler Organiſationen die Arbeitsloſen-Unterſtützung nur<lb/>
+für ihre Verwaltungsſtelle eingeführt und trotzdem eine lokale<lb/>
+Arbeitsloſen-Unterſtützung nie die Bedeutung haben kann, wie<lb/>
+die zentrale, trotzdem ſind dieſe Organiſationen ſofort gewachſen;<lb/>
+und jene Mitglieder, welche früher zu den <choice><sic>enragirteſten</sic><corr>engagirteſten</corr></choice> Gegnern<lb/>
+der Arbeitsloſen-Unterſtützung gehörten, ſind durch die That¬<lb/>
+ſachen belehrt, zu eifrigen Befürwortern derſelben geworden.<lb/>
+Diejenigen, welche annehmen, die Maſſe auch ohne derartige<lb/>
+Zugmittel gewinnen zu können, befinden ſich im gewaltigen<lb/>
+Irrthum; <hi rendition="#g">alle bisherige Erfahrungen ſchlagen dieſer<lb/>
+Annahme geradezu in's Geſicht</hi>. <hi rendition="#b #fr">Tauſende von Agi¬<lb/>
+tatoren können noch Jahre und Jahre mit Engels¬<lb/>
+zungen reden und immer werden wir auf dem alten<lb/>
+Standpunkte ſtehen bleiben</hi>. — Auch die engliſche Gewerk¬<lb/>
+ſchaftsbewegung beweiſt dieſes. Schon im vorigen Abſchnitt<lb/>
+habe ich angeführt, daß dieſelbe erſt dann ihre jetzige Höhe er¬<lb/>
+reicht hat, als ſie das Unterſtützungsweſen einführte und aus¬<lb/>
+baute. — Daß die meiſten engliſchen Gewerkſchaftsorganiſationen<lb/>
+und namentlich die der größeren Induſtriezweige Arbeitsloſen-<lb/>
+Unterſtützung zahlen, dafür folgende Beweiſe:</p><lb/>
+<p>Von den 202 Trade-Unions, welche Arbeitsloſen-Unter¬<lb/>
+ſtützung z. B. im Jahre 1894 zahlten, gehörten</p><lb/>
+<p>40 mit 175 544 Mitgliedern den Eiſenbahnarbeitern und<lb/>
+Schiffbauern an.</p><lb/>
+<p>23 mit 97 703 Mitgliedern dem Baugewerbe,<lb/>
+41 mit 94 881 Mitgliedern der Textilinduſtrie,<lb/>
+13 mit 65 998 Mitgliedern der Bekleidungsinduſtrie,<lb/>
+19 mit 34 715 Mitgliedern dem Buchdruck- und Buch¬<lb/>
+bindergewerbe,</p><lb/>
+<p>28 mit 25 185 Mitgliedern der Möbelinduſtrie und ver¬<lb/>
+wandten Gewerben (wie Wagenbauer, Faßbinder, Kork-, Glas-,<lb/>
+Leder- und Hafenarbeiter),</p><lb/>
+<p>10 mit 87 585 Mitgliedern der Montaninduſtrie an.</p><lb/>
+<p>Nur zwei größere engliſche Gewerkſchafts-Verbände — ab¬<lb/>
+geſehen von dem der ungelernten Arbeiter — zahlen keine<lb/>
+Arbeitsloſen-Unterſtützung und zwar die der Baumwoll- und<lb/>
+Bergarbeiter von Lankaſhire und Yorkſhire. Wenn dieſe beiden<lb/>
+Verbände trotzdem ſtark und von Bedeutung ſind, ſo kommt<lb/>
+dieſes nur daher, daß ganz beſondere Umſtände in dieſen In¬<lb/>
+<pb n="17" facs="#f0025"/>
+duſtrieen günſtig für die Organiſation wirken. Einmal iſt dieſes<lb/>
+die <hi rendition="#g">Arbeiterſchutzgeſetzgebung</hi>, welche, wie z. B. das<lb/>
+Berggeſetz verlangt, daß jede Grube Wiegekontrolleure anzu¬<lb/>
+ſtellen hat, die von den Arbeitern zu wählen ſind. Nun wählt<lb/>
+man hierzu meiſtens die Ortsbeamten der Organiſation und<lb/>
+ſichert ſich dadurch einen feſten Beamtenſtab. Trotzdem iſt die<lb/>
+Bergarbeiter-Föderation von Lankaſhire im Jahre 1894 von<lb/>
+41000 auf unter 20000 Mitglieder zuſammengeſchrumpft. —<lb/>
+Dann kommt zweitens noch der Umſtand hinzu, daß die ge¬<lb/>
+nannten Induſtriezweige ſich auf beſtimmte Punkte Englands<lb/>
+konzentriren und ſo die Organiſationsarbeit bedeutend erleich¬<lb/>
+tern. — <hi rendition="#g">Sidney und Beatrice Webb</hi> konſtatiren in ihrem<lb/>
+Werk „Die Geſchichte des britiſchen Trade-Unionismus“ und<lb/>
+auch <hi rendition="#g">Ed</hi>. <hi rendition="#g">Bernſtein</hi> in dem Nachwort deſſelben, daß das<lb/>
+Hilfskaſſenweſen viel zur heutigen Stärke und Stetigkeit der<lb/>
+engliſchen Gewerkſchaftsbewegung beigetragen hat. — Man ziehe<lb/>
+nun doch die Lehre daraus und thue desgleichen! — Oder gilt<lb/>
+denn wirklich das Wort, daß die Menſchen aus der Geſchichte<lb/>
+nichts lernen?!</p><lb/>
+<p>Dann zu meiner zweiten Behauptung. Nach ihr ſollen die<lb/>
+Organiſationen durch die Arbeitsloſen-Unterſtützung auch er¬<lb/>
+heblich an Stabilität gewinnen. — Heute fehlt den Organi¬<lb/>
+ſationen ohne Arbeitsloſen-Unterſtützung ſolche gänzlich. Sie<lb/>
+gleichen Taubenſchlägen; die Mitglieder kommen und gehen<lb/>
+ſtändig. Auf der einen Seite laſſen ſich zehn aufnehmen und<lb/>
+auf der anderen Seite müſſen zu gleicher Zeit zehn wegen<lb/>
+Rückſtändigkeit der Beiträge ausgeſchloſſen werden. In Wirk¬<lb/>
+lichkeit gehören dieſen Organiſationen keine 25 pCt. der Mit¬<lb/>
+glieder längere Zeit an und darum ſinkt die Zahl der wirklich<lb/>
+Organiſirten auf das äußerſte Minimum herab. — Einige Be¬<lb/>
+weiſe dafür. — Der deutſche Holzarbeiter-Verband nahm im<lb/>
+Jahre 1895 20000 neue Mitglieder auf und in derſelben Zeit<lb/>
+traten 17000 Mitglieder aus. Der Verband der Schneider<lb/>
+nahm im Jahre 1894 12000 Mitglieder auf und 10000 ſchieden<lb/>
+aus. — So aber verhält es ſich mit allen Organiſationen ohne<lb/>
+Arbeitsloſen-Unterſtützung. — Woher dieſe Erſcheinung? Tau¬<lb/>
+ſende treten, nachdem ein Agitator in bezaubernden Worten<lb/>
+gezeigt hat, was alles zu erreichen ſei, wenn Einigkeit geſchaffen<lb/>
+werde, in den ſchönen Traum der Organiſation bei, daß nun<lb/>
+endlich bald eine beſſere Zukunft hereinbrechen werde. Sie<lb/>
+zahlen einige Wochen und vielleicht auch Monate ihre Beiträge,<lb/>
+doch die ſchöne Zukunft kommt nicht; entweder ſteht noch immer<lb/>
+die Maſſe der Organiſation fern, oder die Konjunktur iſt ſchlecht,<lb/>
+daß momentan nichts unternommen werden kann. Der ſchöne<lb/>
+Traum verliert allmählich an Schönheit, verſchwindet ſchließlich<lb/>
+ganz und der Gedanke taucht auf und wurzelt ſich immer feſter<lb/>
+und feſter, daß doch durch die Organiſation nichts zu erreichen<lb/>
+ſei. Wozu dann Beiträge zahlen? Sie werden nicht mehr ge¬<lb/>
+zahlt und der Ausſchluß erfolgt. Tauſende und abermals<lb/>
+tauſende haben dieſen Ideengang durchgemacht. In Berlin z. B.<lb/>
+und ſo auch in den meiſten anderen größeren Orten, giebt es<lb/>
+in ſehr vielen Branchen wohl ſo gut wie keine Arbeiter, die<lb/>
+<pb n="18" facs="#f0026"/>
+nicht ſchon einmal organiſirt waren. Aber deshalb, weil ſich<lb/>
+ihre Hoffnungen nicht erfüllt, ſind ſie wieder ausgetreten. Ja<lb/>
+ſelbſt Leute, welche einſt die beſtehenden Organiſationen in's<lb/>
+Leben gerufen haben, zu ihren thätigſten Mitgliedern gehörten,<lb/>
+ſind heute aus genau denſelben Gründen von der Bildfläche<lb/>
+verſchwunden. — Ganz anders liegt die Sache in Organi¬<lb/>
+ſationen mit Arbeitsloſen-Unterſtützung, oder anderen Unter¬<lb/>
+ſtützungseinrichtungen. Hier erwerben die Mitglieder durch die<lb/>
+Zahlung eines höheren Beitrages nach beſtimmter Friſt Rechte<lb/>
+auf Unterſtützungen. Zahlen ſie ihre Beiträge nicht regelmäßig,<lb/>
+ſo gehen ſie dieſer Rechte verluſtig. Dieſer Umſtand zwingt<lb/>
+die Mitglieder, der Organiſation treu zu bleiben. Die meiſten<lb/>
+Arbeiter haben heute mit der Thatſache zu rechnen, daß ſie einſt<lb/>
+arbeitslos werden können, dann ſind ſie, gehören ſie einer<lb/>
+Organiſation mit Arbeitsloſen-Unterſtützung an, vor der größten<lb/>
+Noth geſchützt. Das überlegt und ſagt ſich Jeder. Schon des¬<lb/>
+halb werden die meiſten in ſolchen Organiſationen nicht mit<lb/>
+ihren Beiträgen im Rückſtande bleiben und ſich ausſchließen<lb/>
+laſſen, weil dieſes mit <hi rendition="#g">direktem materiellem</hi> Schaden verbunden<lb/>
+iſt, was in den Organiſationen <hi rendition="#g">ohne</hi> Arbeitsloſen-Unterſtützung<lb/>
+ſo gut wie nicht zutrifft. In den letzten Organiſationen kann<lb/>
+man zu jeder Zeit vollberechtigtes Mitglied werden, in den Or¬<lb/>
+ganiſationen mit Arbeitsloſen-Unterſtützung nicht, da tritt dieſes<lb/>
+erſt nach ein oder zwei Jahren ein, nachdem man eine höhere<lb/>
+Summe an dieſelbe gezahlt hat. — Schon der geſunde Menſchen¬<lb/>
+verſtand muß es ſagen, daß unſere Annahme richtig iſt und<lb/>
+durch die Thatſachen wird ſie auch beſtätigt. Der Verband der<lb/>
+Buchdrucker verlor 1893 bei 16000 Mitgliedern nur 1210 durch<lb/>
+Austritt, Todesfall und Ausſchluß — So wird alſo durch<lb/>
+dieſes Mittel die Maſſe dauernd an die Organiſation gekettet<lb/>
+und dieſe erhält einen ſtabilen Charakter, Das ſogenannte<lb/>
+reine „<hi rendition="#g">geiſtige Band</hi>“ genügt nun einmal nicht, um die<lb/>
+Maſſe für die Organiſation zu gewinnen und ſie an derſelben<lb/>
+zu feſſeln, es bedarf des materiellen Bandes, dieſes aber wird<lb/>
+durch die Arbeitsloſen-Unterſtützung geſchaffen. — Selbſt die<lb/>
+wirthſchaftlichen Organiſationen der Beſitzenden haben derartige<lb/>
+materielle Bänder nothwendig. Die landwirthſchaftlichen Or¬<lb/>
+ganiſationen ſorgen für Kredit, Düngermittel, Maſchinen, Feuer¬<lb/>
+verſicherung u. ſ. w.; die der Induſtriellen und des Handels¬<lb/>
+ſtandes gewähren ähnliche Dinge. — Auch die Arbeiter werden<lb/>
+nur ſo die Maſſe für die Berufsorganiſationen gewinnen und<lb/>
+halten können. — Man laſſe ſich nicht etwa durch den gegen¬<lb/>
+wärtigen wirthſchaftlichen Aufſchwung täuſchen; wenn auch durch<lb/>
+denſelben viele Organiſationen an Mitgliedern und Stabilität<lb/>
+gewonnen haben, ſo iſt das doch nur vorübergehend. — Ge¬<lb/>
+winnen aber die Organiſationen durch die Arbeitsloſen-Unter¬<lb/>
+ſtützung an Stabilität, ſo muß dieſes eine ganze Reihe von<lb/>
+weiteren Vortheilen für dieſelbe zur Folge haben. Jene Zän¬<lb/>
+kereien kleinlichen Charakters, die heute viele Organiſationen<lb/>
+beherrſchen, werden abnehmen. Das Wiſſen der einzelnen<lb/>
+Mitglieder in gewerkſchaftlichen Dingen muß zunehmen, ſie<lb/>
+werden ſelbſt urtheilen lernen und ſich nicht von Perſonen ge¬<lb/>
+<pb n="19" facs="#f0027"/>
+brauchen laſſen, die nur ehrgeizigen und ſelbſtſüchtigen Plänen<lb/>
+unter dem Deckmantel anderer Fragen nachlaufen und oft die<lb/>
+ganze Organiſation zerſtören.</p><lb/>
+<p>Dann zu meiner dritten Behauptung, daß die Kaſſenbeſtände<lb/>
+ſich durch die Einführung der Arbeitsloſen-Unterſtützung ver¬<lb/>
+größern müſſen. — Dieſes muß unbedingt eintreten. Man<lb/>
+betrachte nur die Kaſſenbeſtände der Organiſationen mit Arbeits¬<lb/>
+loſen-Unterſtützung und man wird meine Behauptung beſtätigt<lb/>
+finden.</p><lb/>
+<p>Nach der letzten von der General-Kommiſſion veröffentlichten<lb/>
+Statiſtik hatten die Buchdrucker einen Kaſſenbeſtand von 49,12,<lb/>
+Bildhauer 15,06, Handſchuhmacher 14,47, Hutmacher 34,80, Zi¬<lb/>
+garrenſortirer 18,69 Mk. pro Kopf des Mitgliedes. Das waren<lb/>
+Organiſationen mit Arbeitsloſen-Unterſtützung. Bei Verbänden<lb/>
+ohne Arbeitsloſen-Unterſtützung ſtellt ſich das Verhältniß wie<lb/>
+folgt: Metallarbeiter 1,17, Maler 3,61, Holzarbeiter 1,13,<lb/>
+Former 2,86, Bäcker 0,67, Bauarbeiter 0,46 Mk. u. ſ. w. —<lb/>
+Sehen die Unternehmer, daß größere Kaſſenbeſtände vorhanden<lb/>
+ſind, ſo werden ſie ſich bei Lohnbewegungen ꝛc. lange nicht ſo<lb/>
+halsſtarrig ſtellen, wie gegenwärtig. Jetzt wiſſen ſie ſehr gut,<lb/>
+daß den eventuell Streikenden bald das Geld ausgeht und ſie<lb/>
+dann wieder kommen müſſen; darum geben ſie nicht nach und<lb/>
+bleiben Sieger. Sind doch im vorigen Jahre unbedingt auf<lb/>
+Grund dieſer Thatſache eine ganze Reihe Streiks von den<lb/>
+Unternehmern provozirt worden, um die ihnen einſt vielleicht<lb/>
+ſpäter gefährlich werden könnende <choice><sic>Orgauiſation</sic><corr>Organiſation</corr></choice> in ihrem Keime<lb/>
+zu vernichten. — Die deutſchen Arbeiter müſſen zur Zahlung<lb/>
+höherer Beiträge erzogen werden, wollen ſie durch den gewerk¬<lb/>
+ſchaftlichen Kampf etwas erreichen. — Die Arbeitsloſen-Unter¬<lb/>
+ſtützung wird dazu führen. Betrachten wir uns einmal die<lb/>
+engliſchen Gewerkſchaftsorganiſationen in dieſer Beziehung.<lb/>
+Staunen werden tauſende deutſcher Arbeiter, wenn ſie die Ein¬<lb/>
+nahmen, Ausgaben und Kaſſenbeſtände derſelben ſehen.</p><lb/>
+<p>Bei den <hi rendition="#g">Vereinigten Maſchinenbauern</hi> ſtellte ſich<lb/>
+dieſes Verhältniß 1893 — neuere Zahlen habe ich nicht zur<lb/>
+Verfügung — wie folgt:</p><lb/>
+<p>Einnahme ....... 5400000 Mk.</p><lb/>
+<p>Ausgabe ....... 5700000 "</p><lb/>
+<p>Kaſſenbeſtand .....4000000 "</p><lb/>
+<p> <hi rendition="#g">Alle</hi> 49 <hi rendition="#g">zentraliſirten deutſchen Organiſationen</hi><lb/>
+hatten 1895 eine</p><lb/>
+<p>Einnahme von ..... 2745617 Mk.</p><lb/>
+<p>Ausgabe von ..... 2140985 "</p><lb/>
+<p>Kaſſenbeſtand von .... 1640437 "</p><lb/>
+<p>Hierbei iſt nicht zu vergeſſen, daß die Hälfte der Einnahme,<lb/>
+Ausgabe und des Kaſſenbeſtandes auf das Konto der deutſchen<lb/>
+Buchdrucker kommt. — Alſo ſind in einer einzigen engliſchen<lb/>
+Organiſation die Kaſſenverhältniſſe beinahe 2½ mal ſo groß, als<lb/>
+wie in <hi rendition="#g">allen</hi> deutſchen Gewerkſchafts-Verbänden zuſammen.<lb/>
+Wenn man ſich dieſen ungeheuren, gewaltigen Gegenſatz vor<lb/>
+Augen führt, ſo wird man begreifen müſſen, wo des Pudels<lb/>
+Kern liegt, weshalb die engliſchen Arbeiter andere Erfolge wie<lb/>
+<pb n="20" facs="#f0028"/>
+die deutſchen aufzuweiſen haben. — Nach dieſer Richtung hin<lb/>
+müſſen alſo die deutſchen Gewerkſchaftsorganiſationen ausgebaut<lb/>
+werden, dann werden ſie auch Fortſchritte machen. Ohne Pulver<lb/>
+und Blei kann kein Krieg geführt werden und ohne Geld kein<lb/>
+gewerkſchaftlicher Kampf, der Ausſicht auf Erfolg haben ſoll.<lb/>
+Die deutſchen Arbeiter kämpfen aber meiſtens ohne Geld. Sehr<lb/>
+richtig ſagte der Genoſſe <hi rendition="#g">Dreher</hi> auf dem zweiten Kongreß der<lb/>
+Handelshilfsarbeiter: „Eine Kampfesorganiſation ohne Kriegs¬<lb/>
+fonds kommt mir vor wie ein Soldat, der unter dem Tamtam<lb/>
+der Schlachtmuſik in's Feld zieht, zu Hauſe aber Gewehr und<lb/>
+Patronen vergeſſen hat.“ — Darum führe man die Arbeitsloſen-<lb/>
+Unterſtützung ein; ſie wird größere Kaſſenbeſtände zur Folge<lb/>
+haben, ſie wird die Maſſe zur Zahlung höherer Beiträge er¬<lb/>
+ziehen. —</p><lb/>
+<p>Treffen die vorher näher erläuterten Umſtände zu, wachſen<lb/>
+die Organiſationen an Mitgliedern, Stabilität und Geld, ſo<lb/>
+müſſen ſich dadurch naturgemäß die Poſitionen der gewerkſchaft¬<lb/>
+lichen Kämpfe bedeutend verbeſſern. Die Organiſationen werden<lb/>
+z. B. Minimallöhne, wie in den meiſten Berufen Englands, zur<lb/>
+Durchführung bringen können, die in Deutſchland noch faſt<lb/>
+überall in's Reich der Märchen gehören. — Sie werden weitere<lb/>
+Erfolge erzielen. — Viele Kämpfe, die bisher mit einer Nieder¬<lb/>
+lage endeten, würden dann Siege bedeuten. — Ferner zu meiner<lb/>
+vierten Behauptung, daß Organiſationen mit Arbeitsloſen-Unter¬<lb/>
+ſtützung auch im Stande ſind, die erzielten Errungenſchaften auf<lb/>
+die Dauer feſtzuhalten. — Die gegenwärtigen Organiſationen<lb/>
+können dieſes in der Regel nicht. Sobald die Geſchäftslage ſich<lb/>
+verſchlechtert, iſt der Unternehmer bemüht, den Arbeitern wieder<lb/>
+jene Zugeſtändniſſe zu entreißen, die er ihnen zu Zeiten der<lb/>
+günſtigen Konjunktur machen mußte. Dieſes gelingt ihm in den<lb/>
+meiſten Fällen ohne große Schwierigkeiten, da die Arbeiter ſo<lb/>
+gut wie gar keinen Widerſtand dem entgegenſetzen können. —<lb/>
+Nehmen wir einmal an, daß es den Arbeitern irgend einer<lb/>
+Branche bei günſtiger Konjunktur gelungen war, einen Lohn von<lb/>
+21 Mk. pro Woche zu erzielen, ſo wird der Unternehmer, ſobald<lb/>
+die günſtige Geſchäftslage etwas nachläßt, ſofort den Verſuch<lb/>
+machen, nur 20 oder 19 Mk. zu zahlen. Er rechnet ſehr richtig<lb/>
+mit dem Umſtand, daß ſich in Folge der vergrößerten Arbeits¬<lb/>
+loſigkeit genug Leute finden werden, die der <hi rendition="#b">Hunger</hi> zwingt, zu<lb/>
+dieſen Bedingungen zu arbeiten. Daher werden ſeine Arbeiter<lb/>
+von 1000 in 999 Fällen, ohne auch nur ein Wort zu ſagen, ſich<lb/>
+mit der Bedingung einverſtanden erklären, weil auch ſie ſehr gut<lb/>
+wiſſen, daß ſie ſonſt ſofort hinausfliegen und dann dem Hunger<lb/>
+preisgegeben ſind. Wohl wird mancher eine Fauſt in der Taſche<lb/>
+machen, doch durch das drohende Geſpenſt des Hungers ge¬<lb/>
+zwungen, beugt er ſich dem Willen und der Ausbeutung des<lb/>
+Unternehmers. — Darum auch die Erſcheinung, daß durchweg<lb/>
+den Organiſationen ohne Arbeitsloſen-Unterſtützung die erzielten<lb/>
+Errungenſchaften bald wieder entriſſen werden, daß ſie ſich in<lb/>
+ihren Kämpfen im Kreiſe herumdrehen, Streiks unternehmen<lb/>
+müſſen, um dasjenige wieder zu erobern, was bereits vor zehn<lb/>
+oder mehreren Jahren einmal errungen war — Ganz anders<lb/>
+<pb n="21" facs="#f0029"/>
+liegt die Sache in Organiſationen mit Arbeitsloſen-Unterſtützung.<lb/>
+Die Lohn- und Arbeitsbedingungen bewegen ſich hier nicht im<lb/>
+Kreiſe, ſondern durchgängig auf aufſteigender Skala. Warum?<lb/>
+Weil die Arbeitenden durch die <hi rendition="#g">Arbeitsloſen-Unter¬<lb/>
+ſtützung</hi> gegen beabſichtigte Reduzirungen ſich <hi rendition="#g">erfolgreich<lb/>
+wehren können</hi>; weil ferner die <hi rendition="#g">Arbeitsloſen</hi> in <hi rendition="#g">Folge</hi> der<lb/>
+<hi rendition="#g">Arbeitsloſen-Unterſtützung</hi> nicht zu <hi rendition="#g">jedem Preis an¬<lb/>
+fangen werden</hi>. — Denn in Organiſationen mit Arbeitsloſen-<lb/>
+Unterſtützung erlangt die Organiſation eine viel größere Macht<lb/>
+gegenüber den einzelnen Mitgliedern; ſie kann dieſelben zwingen,<lb/>
+die gefaßten Beſchlüſſe zur Durchführung zu bringen und ſie ein¬<lb/>
+zuhalten, was in Organiſationen ohne Arbeitsloſen-Unterſtützung<lb/>
+ſo gut wie nicht der Fall iſt. Letztere Vereinigungen haben zur<lb/>
+Durchführung und Einhaltung gefaßter Beſchlüſſe nur das<lb/>
+Mittel des <hi rendition="#g">moraliſchen</hi> Drucks zur Verfügung, während die<lb/>
+Organiſationen mit Arbeitsloſen- und anderen Unterſtützungen<lb/>
+auch einen gewiſſen <hi rendition="#g">materiellen</hi> Druck auf ihre Mitglieder aus¬<lb/>
+üben können. Verſucht der Unternehmer die Löhne zu reduziren<lb/>
+oder andere Verſchlechterungen vorzunehmen, ſo wird der Ar¬<lb/>
+beiter, der Arbeitsloſen-Unterſtützung erhält, wenn er ſich nicht<lb/>
+ſelbſt dagegen wehrt, von ſeiner Organiſation gezwungen, da¬<lb/>
+gegen Front zu machen, ſonſt wird er — natürlich immer vor¬<lb/>
+ausgeſetzt, daß ſeine Berufsvereinigung beſtimmte Lohnſätze ꝛc.<lb/>
+feſtgeſetzt hat — ausgeſchloſſen, was für ihn mit <hi rendition="#g">materiellem</hi><lb/>
+Schaden verbunden iſt, da dann alle ſeine langjährig erworbenen<lb/>
+Rechte zum Teufel gehen. Der reine <hi rendition="#g">moraliſche</hi> Druck kann<lb/>
+nie in demſelben Maaße eine Wirkung ausüben, da er zum Theil<lb/>
+durch Noth und Elend beſeitigt wird und an den wenig feſten<lb/>
+Charakteren ſcheitert. — Daher finden wir auch, daß ſtabile Or¬<lb/>
+ganiſationen mit Arbeitsloſen-Unterſtützung ein großes Augen¬<lb/>
+merk auf die Einhaltung gefaßter Beſchlüſſe und erzielter Er¬<lb/>
+rungenſchaften richten, wählend die Organiſationen ohne Arbeits¬<lb/>
+loſen-Unterſtützung dieſes meiſtens nicht thun und in Folge der<lb/>
+geſchilderten Umſtände nicht thun können und ſtillſchweigend,<lb/>
+ohnmächtig zuſehen müſſen, wie die Beſchlüſſe und Abmachungen<lb/>
+nicht eingehalten werden. — Dann ferner wird der Arbeitsloſe<lb/>
+— wie bereits betont — nicht zu jedem Preis anfangen, weil<lb/>
+er vor der größten Noth gleichſam geſchützt iſt, und auch nicht<lb/>
+anfangen dürfen aus den ſchon vorher angeführten Gründen. —<lb/>
+So iſt alſo die Arbeitsloſen-Unterſtützung im Stande, die Ar¬<lb/>
+beitskraft reſp. den Preis der Waare Arbeitskraft indirekt zu<lb/>
+beeinfluſſen und erweiſt ſich daher als ein vorzügliches Kampfes¬<lb/>
+mittel zur Verbeſſerung der Lebenslage des Proletariats. — Die<lb/>
+Geſchichtsſchreiber der engliſchen Gewerkſchaftsbewegung betonen<lb/>
+daher auch, daß eines der wichtigſten und wirkſamſten Mittel der<lb/>
+beſſeren Organiſationen zur indirekten Beeinfluſſung des Arbeits¬<lb/>
+marktes und zur Verhütung von Lohnreduktionen die Unter¬<lb/>
+ſtützung der Arbeitsloſen ſei. — Obgleich die Richtigkeit meiner<lb/>
+Ausführungen für jeden Denkenden ſelbſtverſtändlich ſein muß,<lb/>
+will ich doch noch einen Beweis für dieſelben anführen. — Der<lb/>
+Vorſtand des Verbandes der deutſchen Handſchuhmacher theilte z. B.<lb/>
+der General-Kommiſſion der Gewerkſchaften Deutſchlands im<lb/>
+<pb n="22" facs="#f0030"/>
+Jahre 1894 mit daß in Folge der ungünſtigen Konjunktur und<lb/>
+übergroßen Arbeitsloſigkeit die Gefahr vorliege, daß die Fabrikanten<lb/>
+die Arbeitsverhältniſſe verſchlechtern würden. Durch Gewährung<lb/>
+von Arbeitsloſen-Unterſtützung auch an die noch nicht bezugs¬<lb/>
+berechtigten Mitglieder gelanges, den Zuzug von Handſchuhmachern<lb/>
+von den bedrohten Orten fernzuhalten und dadurch einer Lohn¬<lb/>
+reduktion ſeitens der Fabrikanten vorzubeugen. — Und was<lb/>
+ſagen zu ſolchen Thatſachen die Helden, welche durch leere Redens¬<lb/>
+arten die Arbeitsloſen-Unterſtützung glauben abthun zu können?<lb/>
+— Komme ich nun zu den hauptſächlichſten Einwänden, die gegen<lb/>
+die Arbeitsloſen-Unterſtützung gemacht werden. — „Die Unter¬<lb/>
+ſtützung der Arbeitsloſen ſei aus prinzipiellen Gründen zu ver¬<lb/>
+werfen.“ „Der Staat habe die Verpflichtung, die Arbeitsloſen<lb/>
+zu unterſtützen.“ — So lauten einige der erſten Einwände. Ich<lb/>
+habe nun ſchon am Anfang dieſes Abſchnittes darauf ausführlich<lb/>
+hingewieſen, daß die Frage der Arbeitsloſen-Unterſtützung gar<lb/>
+keine <hi rendition="#g">prinzipielle</hi>, ſondern eine rein <hi rendition="#g">taktiſche</hi> iſt. — Ferner:<lb/>
+Der heutige Staat erkennt die Verpflichtung, irgend einem ſeiner<lb/>
+Mitglieder eine Garantie für ſeine Exiſtenz zu bieten, nicht an<lb/>
+und ebenſowenig glaubt er verpflichtet zu ſein, die Arbeitsloſen<lb/>
+zu unterſtützen. Es ſind auch nicht die geringſten Ausſichten<lb/>
+vorhanden, daß er in den nächſten Jahren und Jahrzehnten eine<lb/>
+ſolche Verpflichtung anerkennen wird. — Sind wir nun auch<lb/>
+der Meinung, daß die Geſellſchaft wohl die Verpflichtung habe,<lb/>
+ihren Mitgliedern, ſoweit dieſe zum Nutzen derſelben thätig ſein<lb/>
+wollen, eine Garantie für ihre Exiſtenz zu bieten, ſo iſt es doch<lb/>
+kindiſch gehandelt, wenn man aus dieſem Grunde gegen die Ein¬<lb/>
+führung der Arbeitsloſen-Unterſtützung iſt. Gerade ſie ſoll dazu<lb/>
+dienen, um das Proletariat vorwärts zu bringen, um ſo immer<lb/>
+näher jenem Geſellſchaftszuſtand zu kommen, der uns als Ideal<lb/>
+vorſchwebt. Iſt die Behauptung richtig, daß der Staat die Ver¬<lb/>
+pflichtung habe, die Arbeitsloſen zu unterſtützen und deshalb eine<lb/>
+Unterſtützung derſelben durch die Gewerkſchaftsorganiſationen zu<lb/>
+verwerfen ſei, ſo muß man logiſcher Weiſe auch die Gewerkſchafts¬<lb/>
+bewegung verwerfen, denn in demſelben Sinne hat dann auch<lb/>
+der Staat die Verpflichtung, den Arbeitern eine ſolche Exiſtenz<lb/>
+zu gewähren, bei der ſie auskömmlich leben können und nicht<lb/>
+erſt ſich eine derartige durch große Opfer erkämpfen müſſen. —<lb/>
+Dann ſind viele aus dem Grunde gegen die Arbeitsloſen-Unter¬<lb/>
+ſtützung, weil ſie meinen, die Arbeiterklaſſe müſſe noch tiefer in<lb/>
+ihrer materiellen Lage ſinken, dann erſt werde ſie ſich zu einem<lb/>
+gewaltigen Kampfe aufraffen; die Unterſtützung der Arbeitsloſen<lb/>
+diene aber zur Verbeſſerung ihrer Lage. — Dieſe Anſicht iſt<lb/>
+grundfalſch. Sinkt das Proletariat in ſeiner Lebenslage noch<lb/>
+tiefer, ſo wird es ſich nie aus ſeinem elendiglichen Verhältniſſen<lb/>
+befreien können. Nur Maſſen, die einigermaßen ihren Hunger<lb/>
+befriedigen können, ſind im Stande, zu denken, ſich planmäßig<lb/>
+zu organiſiren und ſo eine beſſere Zukunft zu erſtreben. Maſſen,<lb/>
+die dagegen hungern müſſen, werden ſo weit durch die Noth ge¬<lb/>
+trieben, daß ſie nicht mehr in dem Kapital ihren Feind erblicken,<lb/>
+ſondern in dem eigenen Arbeitsbruder. Die Noth korrumpirt<lb/>
+die Maſſen, jedes Klaſſengefühl geht ihnen verloren, niedere<lb/>
+<pb n="23" facs="#f0031"/>
+Selbſtſucht, Schmeichelei und Kriecherei tritt an die Stelle der<lb/>
+Moralität, Die Loſung geht dann dahin, durch unmoraliſche<lb/>
+Mittel ſich eine Exiſtenz zu ſchaffen. Das Lumpenproletariat,<lb/>
+dieſes Produkt der größten Noth, hat nie Klaſſenbewußtſein be¬<lb/>
+ſeſſen, ſondern iſt durchgängig bei allen gewerkſchaftlichen, po¬<lb/>
+litiſchen Kämpfen und Revolutionen auf die Seite der gewalt¬<lb/>
+habenden Klaſſe getreten. Wohl iſt es nicht ausgeſchloſſen, daß<lb/>
+Maſſen, die äußerſt tief in ihrer Lebenslage ſtehen, einen<lb/>
+dumpfen gewaltſamen Verzweiflungskampf unternehmen, doch<lb/>
+dieſe Maſſen werden dann <choice><sic>unterliegeu</sic><corr>unterliegen</corr></choice> oder die Kultur vernichten.<lb/>
+Unterliegen deshalb, weil dann unmöglich von einem planmäßigen<lb/>
+Vorgehen die Rede ſein kann, (antike Sklavenkämpfe, Bauern¬<lb/>
+krieg ꝛc.); die Kultur vernichten, wenn ſie ſelbſt zur Herrſchaft<lb/>
+gelangen ſollten, weil es ihnen an der Fähigkeit mangelt, die<lb/>
+zerſtörte Geſellſchaft aufzubauen. <hi rendition="#g">Donnelly</hi> hat in ſeinem Ro¬<lb/>
+man „Caeſars Säule“ wohl ſehr richtig geſchildert, wohin es<lb/>
+führen muß, wenn die Maſſe immer tiefer ſinkt, nämlich zur<lb/>
+Vernichtung der Kultur. Darum iſt es unſere Pflicht, für die<lb/>
+Hebung der Lebenslage des Proletariats einzutreten und nicht<lb/>
+auf eine verzweifelte, gewaltſame Erhebung der Maſſen unſere<lb/>
+Hoffnung zu ſetzen. — „Ja aber die Arbeitsloſen-Unterſtützung<lb/>
+iſt aus materiellen Gründen nicht durchführbar, da dann die<lb/>
+Beiträge bedeutend erhöht werden müſſen,“ ſo lautet ein weiterer<lb/>
+Einwand gegen dieſelbe. Müſſen die Beiträge denn wirklich ſo<lb/>
+bedeutend erhöht werden? Nein, keineswegs! Wenn oft zum<lb/>
+Beweiſe dieſer Behauptung ausgeführt wird, daß die Buchdrucker<lb/>
+doch 1,10 Mk. pro Woche Beitrag zahlen, um die Arbeitsloſen<lb/>
+unterſtützen zu können, ſo iſt auch dieſer Beweis vollſtändig ver¬<lb/>
+fehlt. Die Buchdrucker zahlen zur Unterſtützung der Arbeitsloſen<lb/>
+nach der Angabe von <hi rendition="#g">Eichler</hi>, welche derſelbe auf dem letzten<lb/>
+Gewerkſchaftskongreß machte, pro Woche nur 10 Pfg., während<lb/>
+der andere Beitrag zu ganz anderen Dingen verwandt wird.<lb/>
+Im Jahre 1894 gab die Vereinigung der Buchdrucker für<lb/>
+Reiſe-Unterſtützung 114913,15 Mark, für Umzugskoſten<lb/>
+16921,40 Mark, für Unterſtützung an dauernd Arbeitsunfähige<lb/>
+15967,00 Mark, für Kranken-Unterſtützung 301931,84 Mark,<lb/>
+ür Begräbnißgeld 16552,26 Mk., für außerordentliche Unter¬<lb/>
+ſtützungen 361,20 Mk. und für <hi rendition="#g">Arbeitsloſen-Unterſtützung</hi><lb/>
+101562,00 Mk. aus. Wir ſehen alſo aus dieſen Zahlen, daß<lb/>
+der Beitrag von 1,10 Mk. pro Woche noch zu ganz anderen<lb/>
+Unterſtützungszwecken gezahlt wird, als einzig und allein zur<lb/>
+Unterſtützung der Arbeitsloſen. — Können aber die Arbeiter eine<lb/>
+Erhöhung des Beitrages um 10 und einige Pfennige mehr pro<lb/>
+Woche ertragen? Mancher verneint dieſes, ich bejahe es. Die<lb/>
+Annahme, daß durch die ſtaatliche Verſicherung die deutſchen<lb/>
+Arbeiter in ihrer gewerkſchaftlichen Zahlungsfähigkeit bedeutend<lb/>
+beeinträchtigt würden, iſt ſchon durch <hi rendition="#g">Parvus</hi> widerlegt worden.<lb/>
+Er behauptet mit Recht, daß die gewerkſchaftliche Zahlungs¬<lb/>
+fähigkeit der deutſchen Arbeiter im Verhältniß zu den engliſchen<lb/>
+durch die ſtaatliche Kranken- und Invaliditäts-Verſicherung <hi rendition="#g">ver¬<lb/>
+mehrt</hi> werde, da bei uns die Arbeitgeber einen Theil dieſer<lb/>
+Beiträge aufbringen müſſen, was in England nicht der Fall iſt.<lb/>
+<pb n="24" facs="#f0032"/>
+— Ferner: Viele tauſende von deutſchen Arbeitern gehören<lb/>
+heute allen möglichen Klimbim-Vereinen an, die vielfach höhere<lb/>
+Beiträge erheben, als die heutigen Gewerkſchaftsorganiſationen.<lb/>
+Dann erinnere ich an die Fabrikkaſſen, an die privaten Ver¬<lb/>
+ſicherungsgeſellſchaften ꝛc. — Weiter: Von was leben die<lb/>
+Arbeitsloſen? Alle nehmen ſich doch unmöglich das Leben! Von<lb/>
+dem Gelde entweder, das ſie zur Zeit der Arbeit geſpart haben,<lb/>
+oder ſie machen Schulden, die nachher wieder abgezahlt werden<lb/>
+müſſen, oder die verſchiedenſten Gegenſtände wandern in's<lb/>
+Pfandhaus und werden ſpäter gegen hohe Zinſen ausgelöſt.<lb/>
+Sind ſie verfallen, ſo ſchafft man ſich auf Abzahlung zu theuren<lb/>
+Preiſen neue Gegenſtände an. Die Summen, die auf ſolchen<lb/>
+Art und Weiſe zum Teufel gehen, ſind natürlich <hi rendition="#g">erheblich</hi><lb/>
+größer, als wie jene, die man für die Arbeitsloſen-Unterſtützung<lb/>
+zahlen würde. — „Aber durch die Verbeſſerung der Technik wird<lb/>
+das Heer der Arbeitsloſen immer größer, ſo daß ſchon deshalb<lb/>
+auf die Dauer die Unterſtützung der Arbeitsloſen nicht durch¬<lb/>
+geführt werden kann“, ſo ſagen wieder Andere. Auch dieſer Ein¬<lb/>
+wand iſt nicht ſtichhaltig. — Lieſt man die ſozialdemokratiſche<lb/>
+Literatur der 70er 80er Jahre, ſo wird man oft die Be¬<lb/>
+hauptung finden, daß die engliſchen Gewerkſchaftsorganiſationen<lb/>
+ihrem Ende entgegen gehen, da ſie infolge der fortſchreitenden<lb/>
+Arbeitsloſigkeit die Unterſtützung der Arbeitsloſen unmöglich<lb/>
+lange mehr durchführen werden können. Jetzt ſchreiben wir<lb/>
+1897 und die Gewerkſchaftsverbände der engliſchen Arbeiter haben<lb/>
+nicht ab, ſondern erheblich an Mitglieder zugenommen und die er¬<lb/>
+wähnten Prophezeihungen ſind nicht eingetroffen. — So ſchlimm<lb/>
+ſteht es mit der fortſchreitenden Arbeitsloſigkeit nicht, wie dieſes<lb/>
+ſich in den Köpfen Vieler ausmalt. Das Fortſchreiten der Technik<lb/>
+bedingt für den Kapitaliſten Mehrverdienſt; dieſer Mehrverdienſt<lb/>
+wird entweder zur Vergrößerung der Anlagen verwandt, oder<lb/>
+aber der betr. Kapitaliſt baut ſich eine Villa, ſchafft ſich andere<lb/>
+Dinge an, die er früher nicht hatte, wodurch natürlich auf<lb/>
+anderen Gebieten mehr Arbeiter beſchäftigt werden. — Sind<lb/>
+alle dieſe Einwände widerlegt worden, ſo kommen die Gegner<lb/>
+der Arbeitsloſen-Unterſtützung mit weiteren Behauptungen<lb/>
+gegen dieſelbe.</p><lb/>
+<p>„Die Organiſationen ſeien dann aber keine Kampfesorgani¬<lb/>
+ſationen mehr“. Sind etwa die heutigen Organiſationen Kampfes¬<lb/>
+organiſationen?! Kämpfe haben nur dann einen Zweck, wenn<lb/>
+ſie <choice><sic>Vorcheile</sic><corr>Vortheile</corr></choice>, Erfolge für die Arbeiter bringen. Die heutigen<lb/>
+Gewerkſchaftskämpfe verlaufen aber in ihrer Mehrzahl zu Un¬<lb/>
+gunſten der Arbeiter und die hier und da noch erzielten geringen<lb/>
+Erfolge werden den Arbeitern bald wieder entriſſen. Solche<lb/>
+Kämpfe haben in Wirklichkeit keine Bedeutung, unnütz werden<lb/>
+Kräfte vergeudet und gewaltige Opfer vergebens gebracht. —<lb/>
+Erſt durch die Ausbauung des Unterſtützungsweſens, wodurch<lb/>
+die Organiſationen, wie bewieſen, ſtärker und feſter werden, er¬<lb/>
+zielte Errungenſchaften dauernd erhalten können, die Löhne, reſp.<lb/>
+den Arbeitsmarkt, zu beeinfluſſen im Stande ſind, erſt dadurch<lb/>
+werden die Verbände <hi rendition="#g">wahre</hi> Kampfesorganiſationen. — Gerade<lb/>
+die engliſchen Gewerkſchaftsverbände mit ihrem Unterſtützungs¬<lb/>
+<pb n="25" facs="#f0033"/>
+weſen haben Kämpfe durchgemacht, gegen welche die deutſchen<lb/>
+Arbeiter wahre Waiſenknaben ſind. — Die Einführung der Ar¬<lb/>
+beitsloſen-Unterſtützung führt nicht zur Verſumpfung; die Orga¬<lb/>
+niſationen verlieren den Kampfescharakter nicht Wohl hat ein¬<lb/>
+mal eine große engliſche Arbeiterorganiſation (Maſchinenbauer)<lb/>
+mit ausgebautem Unterſtützungsweſen Zeichen des Verfalls auf¬<lb/>
+zuweiſen gehabt, doch nur deshalb, weil ſie zu wenig Beamte<lb/>
+beſaß und deren ganze Arbeitskraft durch das Unterſtützungs¬<lb/>
+weſen in Anſpruch genommen wurde. Dieſen Fehler hat man<lb/>
+jedoch bald eingeſehen und durch Vergrößerung des Beamten¬<lb/>
+weſens beſeitigt. — In Deutſchland, wo das Klaſſenbewußtſein,<lb/>
+der Sozialismus, unter den Arbeitern tief Fuß gefaßt, iſt eine<lb/>
+Verſumpfung gänzlich ausgeſchloſſen. — Ferner wird eingewandt,<lb/>
+daß dann alle guten Ideale zum Teufel gehen. — Sind denn<lb/>
+die Beſtrebungen der gewerkſchaftlichen Organiſationen rein<lb/>
+<hi rendition="#g">idealer</hi> Natur?! Ich finde das nicht. Sie wollen die Lohn-<lb/>
+und Arbeitsbedingungen verbeſſern, dieſes iſt aber ziemlich ma¬<lb/>
+teriell. Wenn nun wirklich ein kleines Häuflein aus reinem<lb/>
+Idealismus den Organiſationen angehört, ſo möge dieſes Häuf¬<lb/>
+lein nicht vergeſſen, daß kraſſer Materialismus die Maſſe be¬<lb/>
+herrſcht, auch die Arbeiter, und mit dieſem Umſtande iſt zu<lb/>
+rechnen. Und dann: Wie oft werden ſelbſt die idealſt an¬<lb/>
+gelegten Naturen durch die Noth, durch die eherne Gewalt der<lb/>
+heutigen Verhältniſſe gezwungen, alle Ideale über Bord zu<lb/>
+werfen. Von Idealen kann Niemand leben, und wenn der<lb/>
+Hunger erſt mitſpricht, dann wird zu niedrigeren Löhnen ange¬<lb/>
+fangen, als die Gewerkſchaft es geſtattet, die Preiſe gedrückt, ja<lb/>
+womöglich der Arbeitsbruder aus ſeiner Stellung hinausgebiſſen,<lb/>
+um ſelbſt Arbeit zu erhalten. — Daher weg mit allen dieſen<lb/>
+Redensarten, man lerne die Menſchen begreifen, wie ſie ſind und<lb/>
+handele dementſprechend.</p><lb/>
+<p>Weiter wird dann noch eingewandt, daß die Arbeiter, welche<lb/>
+ſich in feſten Stellen befinden, nie für eine Organiſation mit<lb/>
+Arbeitsloſen-Unterſtützung zu gewinnen ſein werden, da ſie von<lb/>
+der Arbeitsloſen-Unterſtützung nichts haben.</p><lb/>
+<p>Einmal, welcher Arbeiter befindet ſich heute in einer feſten<lb/>
+Stellung? Der Arbeiter iſt für den Kapitaliſten zur Waare ge¬<lb/>
+worden; zu einem Gegenſtand, der zu ſeiner Bereicherung dienen<lb/>
+ſoll. Iſt er erſt alt geworden, kann er nicht mehr ſo viel leiſten,<lb/>
+wie eine jüngere Kraft, ſo fliegt er hinaus, und viele andere Um¬<lb/>
+ſtände können jederzeit zu ſeiner Entlaſſung führen. Dann aber<lb/>
+hat auch der in „feſter“ Stellung Befindliche einen Vortheil von<lb/>
+der Arbeitsloſen-Unterſtützung. Wie ich bereits vorher zur Ge¬<lb/>
+nüge bewieſen habe, wird durch dieſelbe der Arbeitsmarkt be¬<lb/>
+einflußt, das Unterbieten läßt nach, der Unternehmer wird auch<lb/>
+mit ihm nicht ſo willkürlich herumſpringen können, wie heute;<lb/>
+kurz, auch er hat Nutzen von derſelben.</p><lb/>
+<p>Nun iſt es ja allerdings Thatſache, daß in einigen Organi¬<lb/>
+ſationen die Arbeitsloſen-Unterſtützung nicht gut durchführbar<lb/>
+ſein wird. So z. B. in den Organiſationen jener Induſtrien,<lb/>
+wo die Heimarbeit vorherrſcht, da eine Kontrolle nicht gut denk¬<lb/>
+bar und dem Betrug Thür und Thor geöffnet ſind. Auch die<lb/>
+<pb n="26" facs="#f0034"/>
+Saiſonarbeit, wie z. B. im Baugewerbe, bereitet größere Schwierig¬<lb/>
+keiten; doch läßt ſich hier dadurch ein Ausweg finden, indem ſie<lb/>
+für die Zeit eingeführt wird, wo die Saiſon ſtattfindet, wie z. B.<lb/>
+dieſes die deutſchen Steinſetzer beabſichtigen.</p><lb/>
+<p>Wo die Arbeitsloſen-Unterſtützung nicht durchführbar iſt,<lb/>
+verſuche man durch <hi rendition="#g">andere Unterſtützungszweige</hi> Mitglieder<lb/>
+zu gewinnen und an die Organiſation zu feſſeln. Wächſt die Mit¬<lb/>
+gliederzahl und die Stabilität in jenen Organiſationen, wo man<lb/>
+die Arbeitsloſen-Unterſtützung durchführen kann und durchgeführt<lb/>
+wird, ſo muß dieſes ganz naturgemäß auch einen Einfluß auf<lb/>
+jene Organiſationen ausüben, die ſie nicht durchführen können.<lb/>
+Die Macht, das Anſehen und die Bedeutung der gewerkſchaft¬<lb/>
+lichen Vereinigung wird dann im Allgemeinen zunehmen. —<lb/>
+Darum Einführung der Arbeitsloſen-Unterſtützung und anderer<lb/>
+Verſicherungszweige.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> <div n="1"> <head>IV.<lb/>
+<hi rendition="#b">Der Beamtenſtab der<lb/>
+deutſchen Gewerkſchafts-Organiſationen</hi>.<lb/>
+</head> <p>Auch betreffs des Beamtenweſens haben die engliſchen Gewerk¬<lb/>
+ſchafts-Organiſationen andere Verhältniſſe aufzuweiſen, als die<lb/>
+deutſchen. Sie beſitzen einen größeren, beſſer beſoldeten und<lb/>
+ſtabileren Beamtenſtab. Ich will hier zunächſt die Gehälter der<lb/>
+Zentralbeamten einiger engliſchen Organiſationen angeben, um<lb/>
+die Gegenſätze zu beweiſen. Die Vereinigung der Maſchinen¬<lb/>
+bauer zahlt ihren Hauptbeamten ein jährliches Gehalt von<lb/>
+4200 Mk., Keſſelſchmiede 5875 Mk., Londoner Maurer 3182 Mk.,<lb/>
+Schuhmacher 5100 Mk. u. ſ. w.</p><lb/>
+<p>C. <hi rendition="#g">Hugo</hi> nennt dieſe Gehälter in ſeinem Werk „Die engliſche<lb/>
+Gewerkvereins-Bewegung“ mäßig. — Daher iſt es wohl auch<lb/>
+erklärlich, daß die Leiter der engliſchen Gewerkſchafts-Organiſationen<lb/>
+den deutſchen überlegen ſind. — Leute mit hervorragender In¬<lb/>
+telligenz und Befähigung finden heute in der politiſchen Arbeiter¬<lb/>
+bewegung oder aber in bürgerlichen Berufen eine beſſer dotirte<lb/>
+Stellung, als ihnen die gewerkſchaftlichen Organiſationen bieten<lb/>
+können. Daher werden auch der deutſchen Gewerkſchaftsbewegung<lb/>
+Kräfte entzogen, die für ſie Bedeutendes leiſten könnten. Nichts<lb/>
+iſt ſo falſch, als jene Anſicht, welche in den Köpfen vieler deut¬<lb/>
+ſcher Arbeiter herumſpukt, daß es ganz egal ſei, wer an der<lb/>
+Spitze ſteht. Die Menſchen ſind durch Veranlagung, Erziehung und<lb/>
+ſo weiter ſehr verſchieden in ihrer Intelligenz, Begabung, Wiſſen<lb/>
+und Talenten, weshalb auch die Perſon eine Rolle mitſpielt.<lb/>
+So ſchreibt z. B. <hi rendition="#g">Fr</hi>. <hi rendition="#g">Engels</hi> in „Die Lage der arbeitenden<lb/>
+Klaſſe in England“, daß die Bergarbeiter-Aſſoziation von Groß¬<lb/>
+britannien und Irland in den vierziger Jahren zum großen<lb/>
+Theil nur deshalb in ihren juriſtiſchen und politiſchen Unter¬<lb/>
+<pb n="27" facs="#f0035"/>
+nehmen ſolche Erfolge aufzuweiſen hatte, weil ſie einen äußerſt<lb/>
+fähigen und energiſchen Anwalt, W. P. <hi rendition="#g">Roberts</hi>, angeſtellt<lb/>
+hatte.</p><lb/>
+<p>Dann beſitzen die größeren engliſchen Zentral-Verbände<lb/>
+neben den Hauptbeamten feſtangeſtellte Diſtriktbeamten, d. h.<lb/>
+Beamte für die einzelnen Landestheile; welche die Fragen der<lb/>
+Agitation, Organiſation, Lohnbewegungen ꝛc. zu erledigen haben.<lb/>
+Dieſer größere Beamtenſtab kann nur zum Nutzen der Bewegung<lb/>
+ſein. Je mehr unabhängige Kräfte, je mehr kann für die Or¬<lb/>
+ganiſation geleiſtet werden. Die Fragen der Gewerkſchaftspolitik<lb/>
+werden mit der Konzentration des Kapitals immer ſchwieriger,<lb/>
+tauſenden von Punkten iſt jetzt eingehendere Aufmerkſamkeit zu<lb/>
+widmen, ſo daß es faſt zur Unmöglichkeit wird, daß derjenige,<lb/>
+welcher vom frühen Morgen bis zum ſpäten Abend in der Fabrik<lb/>
+thätig iſt, dieſe Dinge genau verfolgen und entſprechend richtig<lb/>
+handeln kann. Aus dieſem Grunde geht auch unbedingt ein<lb/>
+großer Theil der Streiks für die deutſchen Arbeiter verloren. —<lb/>
+Dann zu den Ortsbeamten. — Dieſer Einrichtung fehlt in den<lb/>
+meiſten deutſchen Organiſationen gleichfalls jede Stabilität.<lb/>
+Kommt man nach einem Ort, den man vor einigen Jahren ver¬<lb/>
+laſſen hat, ſo findet man durchgängig neue Perſonen in der<lb/>
+Gewerkſchaftsbewegung. Diejenigen, die einſt mit Feuereifer<lb/>
+für die Organiſationen thätig waren, ſind längſt von der Bild¬<lb/>
+fläche verſchwunden, gehören garnicht mehr derſelben an, haben<lb/>
+nur noch ein mitleidiges Lächeln für die ganze Sache, oder aber<lb/>
+ſind ſtiller Theilnehmer geworden. —</p><lb/>
+<p>Woher dieſe Erſcheinung? Einmal wurzelt ſie in den ſchon<lb/>
+vorher genügend erwähnten Umſtänden, in den Mißerfolgen der<lb/>
+Bewegung, andererſeits kommt noch eine weitere Urſache hinzu.<lb/>
+— Die Beamten der Ortsverwaltungen erhalten für ihre Thätig¬<lb/>
+keit durchweg keine Entſchädigung, ja, meiſtens nicht einmal die<lb/>
+baaren Auslagen vergütet. Sie ſollen alles aus „Intereſſe für<lb/>
+die Sache“ machen, wie die gedankenloſe Behauptung lautet.<lb/>
+Daß dieſes „Intereſſe für die Sache“ meiſtens den leitenden<lb/>
+Ortsperſonen mit materiellen Opfern verbunden iſt, die ſich<lb/>
+jährlich oft über mehrere hundert Mark belaufen, wird dabei<lb/>
+nicht berückſichtigt. Drei Sitzungen und mehr ſind vielfach in<lb/>
+einer Woche nöthig, um die laufenden und außerordentlichen<lb/>
+Geſchäfte erledigen zu können. Jede Sitzung koſtet mindeſtens<lb/>
+50 Pf., dann kommen die Arbeitsverſäumniſſe und Ausgaben<lb/>
+beim Suchen von Lokalitäten, Referenten, Erledigung ſonſtiger<lb/>
+Dinge, Mankos, die mit den Sammlungen ꝛc. naturgemäß ver¬<lb/>
+bunden ſind, indirekte Maßregelungen u. ſ. w. hinzu, und nun<lb/>
+rechne man aus, welche materiellen Opfer ſolche Perſonen zu<lb/>
+bringen haben. Das können ſie aber unmöglich auf die Dauer.<lb/>
+Die Wirthſchaft, die Familie der Betreffenden leidet ſchließlich mit<lb/>
+darunter, Streitereien brechen dieſerhalb in derſelben aus —<lb/>
+und was iſt die Folge davon? Die Betreffenden ziehen ſich ent¬<lb/>
+weder gänzlich von der Bewegung zurück, oder aber werden in<lb/>
+ihrer Thätigkeit läſſig, um nicht zu große Opfer bringen zu<lb/>
+müſſen. In beiden Fällen leidet aber darunter auch die Or¬<lb/>
+ganiſation. Sie hat fortwährend mit neuen Kräften zu rechnen,<lb/>
+<pb n="28" facs="#f0036"/>
+die keine praktiſche Thätigkeit hinter ſich haben, die Lehrlinge,<lb/>
+aber auch zugleich Feldherr ſind. — Alle Erfahrungen — und<lb/>
+dieſe ſpielen im gewerkſchaftlichen Kampfe eine gewaltige Rolle<lb/>
+— welche der Einzelne im Laufe ſeiner Thätigkeit geſammelt<lb/>
+hat, und ſie ſpäter nutzbringend verwenden konnte,<lb/>
+gehen der Bewegung verloren, weil dieſe immer m<gap unit="chars" quantity="1"/>t neuen<lb/>
+Kräften — wie ſchon geſagt — zu rechnen hat und daher auch<lb/>
+die vielen Böcke, die bei uns in gewerkſchaftlichen Kämpfen ge¬<lb/>
+ſchoſſen werden. — Bedeutend vernünftiger und praktiſcher da¬<lb/>
+gegen handeln in dieſer Beziehung wieder die engliſchen Organi¬<lb/>
+ſationen. Die ſelbſtmörderiſche Kurzſichtigkeit der deutſchen Or¬<lb/>
+ganiſationen fehlt ihnen auch in dieſem Punkte. Sie gewähren<lb/>
+ihren leitenden Perſonen pro Sitzungsabend eine Entſchädigung<lb/>
+von 50 Pfg. bis 1 Mk. Die Ortsſekretäre erhalten ein kleines<lb/>
+Gehalt, welches nach <hi rendition="#g">C</hi>. <hi rendition="#g">Hugo</hi> ſich bei 300 Mitgliedern bis auf<lb/>
+400 Mark pro Jahr beläuft. — Hierdurch verlangen ſie von<lb/>
+ihren führenden Kräften nicht Opfer, die niemand ohne ſich ſelbſt<lb/>
+zu ſchädigen bringen kann und ſichern ſich einen erfahrenen und<lb/>
+tüchtigen Beamtenſtab. — Natürlich wird, wenn die Organi¬<lb/>
+ſationen mit der Ausbauung des Unterſtützungsweſens an<lb/>
+Stabilität zunehmen, auch dieſes einen günſtigen Einfluß auf<lb/>
+das Beamtenweſen ausüben.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> <div n="1"> <head> <hi rendition="#aq">V.</hi><lb/>
+<hi rendition="#b">Die Sozialpolitik und die Gewerkſchaften.</hi><lb/>
+</head> <p>Die Frage, ob die Gewerkſchaften Sozialpolitik treiben ſollen<lb/>
+oder nicht, iſt in den letzten Monaten wiederholt behandelt<lb/>
+worden, ſo durch <hi rendition="#g">Quarck</hi>, <hi rendition="#g">Parvus</hi> und in den allerletzten<lb/>
+Wochen durch einen Aufſatz von <hi rendition="#g">G</hi>. <hi rendition="#g">Maurer</hi> in der „Neuen<lb/>
+Zeit“. Daher will auch ich meine diesbezügliche Anſicht kurz<lb/>
+darlegen.</p><lb/>
+<p>Meiner Anſicht nach unterliegt es gar keinem Zweifel, daß<lb/>
+die Gewerkſchaften Sozialpolitik treiben müſſen. — Sie haben<lb/>
+ſolche auch immer getrieben, nur nicht im genügenden Maße,<lb/>
+mehr unbewußt als bewußt und nicht planmäßig. Die Gewerk¬<lb/>
+ſchaften werden namentlich nach drei Richtungen in dieſer Be¬<lb/>
+ziehung arbeiten müſſen und zwar: 1) <hi rendition="#g">für die Durchführung<lb/>
+der beſtehenden Sozialgeſetzgebung Sorge zu tragen</hi>;<lb/>
+2) <hi rendition="#g">in die Verwaltungskörper der ſozialen Geſetz¬<lb/>
+gebung einzudringen</hi> und 3) <hi rendition="#g">Verbeſſerungsvorſchläge<lb/>
+beſtehender Sozialgeſetze zu machen und weitere</hi>,<lb/>
+<hi rendition="#g">neue Sozialgeſetze zu verlangen</hi>. — Wie ich früher ſchon<lb/>
+ausgeführt habe, ſteht durchweg die ganze Arbeiterſchutzgeſetzgebung<lb/>
+nur auf dem Papier; ſie wird in tauſenden und abermals<lb/>
+tauſenden Fällen täglich von dem Unternehmerthum mit Füßen<lb/>
+getreten. Das führen ſchon die Berichte der Fabrikinſpektoren<lb/>
+<pb n="29" facs="#f0037"/>
+aus, und die Fabrikinſpektoren können ſelbſt bei dem beſten<lb/>
+Willen nur einen ganz geringen Theil dieſes Gebietes beobachten.<lb/>
+— Die Gewerkſchaften müſſen deshalb dahin arbeiten, daß die<lb/>
+Arbeiterſchutzgeſetze und ſonſtige Vorſchriften von dem Unter¬<lb/>
+nehmerthum durchgeführt und beachtet werden. — Wenn auch<lb/>
+der Staat die Pflicht hat, für die Durchführung derſelben durch<lb/>
+Polizei und Gewerbeinſpektion einzutreten und gewiß in dieſer<lb/>
+Beziehung von ihm noch viel zu wenig geleiſtet wird, ſo kann<lb/>
+man doch auch nicht Alles von demſelben verlangen und ſeine<lb/>
+ganze Hoffnung auf ſein Wirken ſetzen. — So gut wie der<lb/>
+Staat nicht jedem Staatsbürger einen Poliziſten in's Haus<lb/>
+ſchickt und fragen läßt, ob ihn jemand beſtohlen oder geſchlagen<lb/>
+hat, ebenſowenig wird er jemals hinter jeden Arbeiter einen<lb/>
+Schutzmann oder Gewerbeinſpektor ſtellen können. Die Arbeiter<lb/>
+werden zum großen Theil immer ihre Rechte ſelbſt wahren<lb/>
+müſſen. Was iſt aber auf dieſem Gebiet bisher von den<lb/>
+deutſchen Gewerkſchaften gethan? Nur äußerſt wenig! Erſt an<lb/>
+einigen Orten iſt man mit der Gewerbeinſpektion in Verbindung<lb/>
+getreten und hat eine Ueberwachung der Fabrikanten organiſirt.<lb/>
+So iſt z. B. in Berlin mit ſeinen 50000 gewerkſchaftlich organi¬<lb/>
+ſirten Arbeitern in dieſer Beziehung ſo gut wie noch nichts<lb/>
+unternommen. Dann aber müſſen die Organiſationen auch da¬<lb/>
+für Sorge tragen, daß die Arbeiter über die Beſtimmungen der<lb/>
+beſtehenden Arbeiterſchutzgeſetze aufgeklärt werden, da es in dieſer<lb/>
+Beziehung ſehr ſchlimm bei den meiſten Arbeitern ausſieht. —<lb/>
+Ferner ſollen die Organiſationen in die Verwaltungskörper der<lb/>
+ſozialen Geſetzgebung eindringen, vor Allem ſollen ſie die Kranken¬<lb/>
+kaſſen in ihre Hände zu bekommen ſuchen. Dieſe befinden ſich<lb/>
+vielfach noch unter der Leitung von Perſonen, die der Arbeiter¬<lb/>
+bewegung entweder feindlich oder doch gleichgiltig gegenüber¬<lb/>
+ſtehen. Die Krankenkaſſen liefern die Arbeitervertreter für die<lb/>
+Schiedsgerichte ꝛc., der Berufsgenoſſenſchaften, für die Ausſchüſſe,<lb/>
+Aufſichtsräthe und Schiedsgerichte der Invaliditäts- und Alters-<lb/>
+Verſicherung. Daß es aber von großem Vortheil für die Arbeiter<lb/>
+iſt, wenn in dieſen Körperſchaften aufgeklärte Leute ſitzen, dar¬<lb/>
+über herrſcht wohl kein Zweifel. Anderſeits vernimmt die Re¬<lb/>
+gierung auch öfters Mitglieder dieſer Inſtitutionen in Fragen<lb/>
+der Arbeiterſchutzgeſetzgebung als Sachverſtändige. — Wird aber<lb/>
+in Zukunft von den Gewerkſchaften mehr als wie bisher auf<lb/>
+dieſem Gebiet geleiſtet, ſo werden ſich eine ganze Reihe von<lb/>
+Fehlern und Mängeln herausſtellen, welche die Sozialgeſetz¬<lb/>
+gebung aufzuweiſen hat und die einer Abänderung bedürfen.<lb/>
+Die Vorſchläge hierzu werden naturgemäß immer die am leich¬<lb/>
+teſten und beſten machen können, welche mit dieſen Dingen fort¬<lb/>
+während zu thun hatten und das ſind die Gewerkſchaften. —<lb/>
+Anderſeits aber wird es mit der Weiterentwicklung des heutigen<lb/>
+Syſtems immer nöthiger, für einzelne Berufe reſp. Induſtrie¬<lb/>
+gruppen Spezial-Schutzgeſetze zu ſchaffen, ſo z. B. im Bau¬<lb/>
+gewerbe, in der Hausinduſtrie, bei Staats- und Kommunal¬<lb/>
+arbeiten, im Bergwerksweſen u. ſ. w. Sehr richtig ſagt <hi rendition="#g">Par</hi>v<hi rendition="#g">us</hi>:<lb/>
+„Dies alles kann aber die politiſche Partei nicht thun. Es wäre<lb/>
+aber auch taktiſch verfehlt, ihr dieſe Aufgaben zuzuſchreiben. Denn<lb/>
+<pb n="30" facs="#f0038"/>
+ſie würde dadurch ihre Thätigkeit in eine wahre Liliputaner¬<lb/>
+politik zerſplittern.“ — Das iſt unbedingt wahr. — Wie Kohlen<lb/>
+und Erz gewogen werden ſoll, wie Baugerüſte anzulegen ſind,<lb/>
+das werden ſtets die betreffenden Berufsgenoſſen am Beſten wiſſen<lb/>
+und nicht Laien.</p><lb/>
+<p>Die vor Kurzem von der General-Kommiſſion herausgegebene<lb/>
+Schrift über „Mißſtände im Baugewerbe“ beweiſt uns, was die<lb/>
+Gewerkſchaften auf dieſem Gebiet zu leiſten im Stande ſind.<lb/>
+Solches Material hätte die politiſche Bewegung nie zuſammen¬<lb/>
+bringen können. Dann aber wird auch die Agitation für ſolche<lb/>
+Spezial-Schutzgeſetze reſp. Verordnungen immer die intereſſirte<lb/>
+Branche ſelbſt zu führen haben, womit natürlich nicht ausge¬<lb/>
+ſchloſſen iſt, daß auch die politiſche Bewegung ſich mit dieſen<lb/>
+Dingen befaſſen kann. Nur wird ſie dieſes nie ſo <hi rendition="#g">intenſiv</hi><lb/>
+können, wie die direkte intereſſirte Gruppe, weil ihr dazu die<lb/>
+Berufskenntniſſe fehlen. — Allerdings, ſo lange die Organi¬<lb/>
+ſationen nicht ſtärker ſind, als jetzt, ſo lange ſie und das Be¬<lb/>
+amtenweſen keinen feſteren Charakter haben, wie gegenwärtig, ſo<lb/>
+lange werden dieſelben auch Bedeutendes auf dieſem Gebiete<lb/>
+nicht leiſten können. — Ob nun noch beſondere Gewerkſchafts-<lb/>
+Kongreſſe, die ſich mit dieſen Fragen beſchäftigen ſollen, wie<lb/>
+<hi rendition="#g">Quarck</hi> ſie wünſchte, nothwendig ſind, darüber kann man wohl<lb/>
+getheilter Meinung ſein. Jedenfalls iſt aber das Thatſache, daß<lb/>
+die Parteitage ſich unmöglich mit der Spezial-Schutzgeſetzgebung<lb/>
+befaſſen können, im Allgemeinen vielleicht ja, im Speziellen aus<lb/>
+Mangel an Berufskenntniſſen nie. Anderſeits würde dadurch<lb/>
+aber auch nur das Anſehen der Partei leiden, wenn man auf<lb/>
+den Parteikongreſſen darüber ſprechen wollte, wie Leitern bei<lb/>
+Bauten zu ſtellen ſind, wie Koakskörbe beſchaffen ſein ſollen und<lb/>
+welchen Minimallohn der Sattler für ſtaatliche Arbeiten zu er¬<lb/>
+halten hat. Zwar würden auf den Gewerkſchafts-Kongreſſen, die<lb/>
+ja auch aus allen Berufen ſich zuſammenſetzen müßten, genau<lb/>
+ſo wie auf den Parteitagen den Einzelnen die Berufskenntniſſe<lb/>
+bei den verſchiedenſten Fragen fehlen; doch könnten dieſe Kon¬<lb/>
+greſſe auch nur den Zweck haben, die allgemeinen Linien für ein<lb/>
+planmäßiges Vorgehen in dieſen Beziehungen feſtzulegen und<lb/>
+um das Auge der herrſchenden Gewalten mehr für die Ver¬<lb/>
+langen der Arbeiter zu gewinnen, als dieſes durch einzelne Ver¬<lb/>
+ſammlungen und Berufskongreſſe möglich iſt.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> <div n="1"> <head> <hi rendition="#aq">VI.</hi><lb/>
+<hi rendition="#b">Schluß.</hi><lb/>
+</head> <p>Vom hiſtoriſchen Geſichtspunkte aus iſt der gegenwärtige<lb/>
+Stand der deutſchen Gewerkſchaftsbewegung vollkommen be¬<lb/>
+greiflich. Es würde dem ewigen, eiſernen Geſetze der organiſchen<lb/>
+Entwickelung widerſprechen, wollte man von ihr mehr verlangen,<lb/>
+als ſie heute darſtellt. Nichts tritt gleich in ſeiner ganzen Größe,<lb/>
+<pb n="31" facs="#f0039"/>
+in ſeiner ganzen Bedeutung ins Leben, ſondern muß ſich vom<lb/>
+Niedern zum Höhern, vom Kleinen zum Großen entwickeln. Die<lb/>
+deutſche Gewerkſchaftsbewegung hat kaum ihre erſten Kinderjahre<lb/>
+hinter ſich. In ihren Sturm- und Drangperioden befindlich, in<lb/>
+dem Stadium, wo ſie ſich zu ihrer eigentlichen Lebensaufgabe<lb/>
+herausbilden ſoll, treten allmählich, langſam immer mehr An¬<lb/>
+zeichen auf, daß ſie dieſe bald begriffen haben und ſo zum Mann<lb/>
+heranreifen wird.</p><lb/>
+<p>Doch wir, die wir in der Gewerkſchaftsbewegung ſelber<lb/>
+ſtehen, haben ihre heutigen Fehler nicht hiſtoriſch zu entſchuldigen,<lb/>
+ſondern dieſelben zu beſeitigen. Die Wege, welche ich vorge¬<lb/>
+ſchlagen habe, werden dazu führen.</p><lb/>
+<p>Dann erſt wird die deutſche Gewerkſchaftsbewegung das<lb/>
+werden, was ſie ſein ſoll: ein Staat im Staate; ein gewaltiges<lb/>
+Mittel zur Emanzipation des Proletariats, ein Mittel zu einer<lb/>
+höheren geſellſchaftlichen Kulturſtufe.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> </body> <back> <div type="imprint"> <p>Maurer &amp; Dimmick. Berlin S.O. Eliſabeth-Ufer <gap unit="chars" reason="illegible"/>.</p></div><lb/>
+<pb facs="#f0040"/>
+<pb facs="#f0041"/>
+<div type="advertisement"> <head>Verlag von <hi rendition="#b #fr">J. Saſſenbach</hi>, Berlin 4.</head><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p rendition="#c">Seit Oktober 1896 erſcheint die Monatsſchrift<lb/>
+<hi rendition="#b">„Neuland“.</hi><lb/>
+Jede Nummer iſt ein ſtattlicher Band von 64-96 Seiten.</p><lb/>
+<p>Abonnementspreis pro Quartal: 1,30 Mk. durch Poſt<lb/>
+oder Buchhandel, 1,60 Mk. bei direkter Zuſendung.</p><lb/>
+<p rendition="#c"><hi rendition="#b #fr">Einzelnummer 50 Pfennige</hi>.</p><lb/>
+<p>Aus den Preßſtimmen über <hi rendition="#b #fr">„Neuland“</hi> greifen<lb/>
+wir folgende heraus:</p><lb/>
+<p><hi rendition="#b #fr">Volks-Zeitung</hi><hi rendition="#b">,</hi> Leipzig:</p><lb/>
+<p>Wir verweiſen darauf, daß mit Ausnahme der Conrad-Merian¬<lb/>
+ſchen Geſellſchaft, es in Deutſchland keine einzige Zeitſchrift giebt, die<lb/>
+in ihren Darbietungen auf den innigen und weſentlichen Zuſammen¬<lb/>
+hang der modernen Litteratur und Kunſtſtrömungen mit den wirth¬<lb/>
+ſchaftlichen und ſozialen Erſcheinungen unſerer Zeit einginge. Die<lb/>
+vorliegenden Hefte von „Neuland" beweiſen, daß ſeine Herausgeber<lb/>
+nicht nur theoretiſch die Wichtigkeit dieſes Punktes erkannt haben,<lb/>
+denn wir finden neben einer Anzahl aeſthetiſcher Abhandhandlungen<lb/>
+künſtleriſche Darbietungen von Richard Dehmel, Guſtav Falke, Julius<lb/>
+Hart und den erſten Abdruck von Arno Holz' prächtigen Sozialariſtokraten.</p><lb/>
+<p><hi rendition="#b #fr">Volksblatt für Halle</hi><hi rendition="#b">:</hi></p><lb/>
+<p>Die Redaktion der Zeitſchrift iſt in jeder Hinſicht bemüht, allen<lb/>
+Anforderungen der Volkswirthſchaftslehre und der Kunſt gerecht zu<lb/>
+werden. Die Zeitſchrift dürfte ſich bald einer großen Beliebtheit er¬<lb/>
+freuen. Wir wenigſtens können dieſelbe nur ſehr empfehlen.</p><lb/>
+<p><hi rendition="#b #fr">Zeitung für Pommern</hi>:</p><lb/>
+<p>Wir machen unſere Leſer auf die gediegene Zeitſchrift nochmals<lb/>
+ganz beſonders aufmerkſam und empfehlen dieſelbe zum Abonnement<lb/>
+auf's Wärmſte.</p><lb/>
+<p><hi rendition="#b #fr">Brandenburger Zeitung</hi>:</p><lb/>
+<p>Was „Neuland“ ſehr empfehlenswerth macht, iſt, daß neben der<lb/>
+eingehenden Berückſichtigung der politiſchen und ſozialen Angelegenheiten<lb/>
+auch andere Gebiete, insbeſondere die ſogenante ſchöne Litteratur in<lb/>
+eigenen Produktionen wie in ſorgfältiger Kritik hier eine Stätte finden.<lb/>
+Eine Fülle von Aufſätzen auf den Gebieten der Litteratur, der Aeſthetik<lb/>
+und Kunſtkritik, auch des Theaters, von Gedichten und Novellen ent¬<lb/>
+halten die ſechs Hefte. Nicht zu vergeſſen ſei ein fünfaktiges Drama<lb/>
+von Arno Holz.</p><lb/>
+<p>Der I. Halbjahrsband von „<hi rendition="#fr">Neuland</hi>“, 472 S.,<lb/>
+mit einer Fülle von intereſſanten Aufſätzen und künſt¬<lb/>
+leriſchen Abbildungen, kann, ſolange der Vorrath reicht,<lb/>
+zum Preiſe von 2,50 Mk. durch jede Buchhandlung,<lb/>
+ſowie direkt vom Verlage nachbezogen werden.</p><lb/>
+<pb facs="#f0042"/>
+<p rendition="#c"><hi rendition="#b">Joh. Saſſenbach</hi></p><lb/>
+<p rendition="#c"><hi rendition="#b">Bücher-Verſand und Verlag, Berlin 4</hi><lb/>
+empfiehlt eine reiche Auswahl von<lb/>
+<hi rendition="#b">Fachſchriften und Lehrbücher für folgende<lb/>
+Handwerker und Gewerbetreibende:</hi></p><lb/>
+<p><hi rendition="#b">Architekten <space dim="horizontal"/> Lederarbeiter</hi></p><lb/>
+<p><hi rendition="#b">Bäcker <space dim="horizontal"/> Maler</hi></p><lb/>
+<p><hi rendition="#b">Bauführer <space dim="horizontal"/> Maſchinenbauer</hi></p><lb/>
+<p><hi rendition="#b">Bildhauer <space dim="horizontal"/> Maſchiniſten</hi></p><lb/>
+<p><hi rendition="#b">Böttcher <space dim="horizontal"/> Maurer</hi></p><lb/>
+<p><hi rendition="#b">Brauer <space dim="horizontal"/> Metallarbeiter</hi></p><lb/>
+<p><hi rendition="#b">Buchbinder <space dim="horizontal"/> Mühlenbauer</hi></p><lb/>
+<p><hi rendition="#b">Buchdrucker <space dim="horizontal"/> Muſikinſtrumentenmacher</hi></p><lb/>
+<p><hi rendition="#b">Chemiker <space dim="horizontal"/> Optiker</hi></p><lb/>
+<p><hi rendition="#b">Conditoren <space dim="horizontal"/> Photographen</hi></p><lb/>
+<p><hi rendition="#b">Dachdecker <space dim="horizontal"/> Sattler</hi></p><lb/>
+<p><hi rendition="#b">Dekateure <space dim="horizontal"/> Schachtmeiſter</hi></p><lb/>
+<p><hi rendition="#b">Deſtillateure <space dim="horizontal"/> Schloſſer</hi></p><lb/>
+<p><hi rendition="#b">Drechſler <space dim="horizontal"/> Schmiede</hi></p><lb/>
+<p><hi rendition="#b">Eiſengießer <space dim="horizontal"/> Schuhmacher</hi></p><lb/>
+<p><hi rendition="#b">Eſſigfabrikanten <space dim="horizontal"/> Seifenfabrikanten</hi></p><lb/>
+<p><hi rendition="#b">Färber <space dim="horizontal"/> Spiritusfabrikanten</hi></p><lb/>
+<p><hi rendition="#b">Gärtner <space dim="horizontal"/> Stärkefabrikanten</hi></p><lb/>
+<p><hi rendition="#b">Gerber <space dim="horizontal"/> Steindrucker</hi></p><lb/>
+<p><hi rendition="#b">Gipſer <space dim="horizontal"/> Steinſetzer</hi></p><lb/>
+<p><hi rendition="#b">Glaſer <space dim="horizontal"/> Stellmacher</hi></p><lb/>
+<p><hi rendition="#b">Goldarbeiter <space dim="horizontal"/> Tapezierer</hi></p><lb/>
+<p><hi rendition="#b">Gürtler <space dim="horizontal"/> Techniker</hi></p><lb/>
+<p><hi rendition="#b">Holzarbeiter <space dim="horizontal"/> Thierzüchter</hi></p><lb/>
+<p><hi rendition="#b">Holzhändler <space dim="horizontal"/> Tiſchler</hi></p><lb/>
+<p><hi rendition="#b">Keſſelſchmiede <space dim="horizontal"/> Töpfer</hi></p><lb/>
+<p><hi rendition="#b">Klempner <space dim="horizontal"/> Uhrmacher</hi></p><lb/>
+<p><hi rendition="#b">Korbmacher <space dim="horizontal"/> Wagenbauer</hi></p><lb/>
+<p><hi rendition="#b">Kupferſchmiede <space dim="horizontal"/> Weber</hi></p><lb/>
+<p><hi rendition="#b">Lackirer <space dim="horizontal"/> Zeichner</hi></p><lb/>
+<p><hi rendition="#b">Landwirthe <space dim="horizontal"/> Zimmerleute.</hi></p><lb/>
+<p rendition="#c"><hi rendition="#b #fr">Katalog gratis und franko.</hi></p><lb/>
+</div>     <milestone rendition="#hr" unit="section"/><lb/>
+<div type="imprint">     <p rendition="#c">Maurer &amp; Dimmick, Berlin S.O., Eliſabeth-Ufer 55.</p> </div><lb/>
+<pb facs="#f0043"/>
+<pb facs="#f0044"/>
+<pb facs="#f0045"/>
+</back> </text> </TEI>

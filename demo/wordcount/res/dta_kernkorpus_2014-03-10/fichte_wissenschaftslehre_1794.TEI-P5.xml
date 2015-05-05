@@ -1,0 +1,2194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">     <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Ueber den Begriff der Wissenschaftslehre oder der sogenannten Philosophie</title>
+<title type="sub">als Einladungsschrift zu seinen Vorlesungen über diese Wissenschaft</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118532847">
+<surname>Fichte</surname>
+<forename>Johann Gottlieb</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">79</measure>
+<measure type="tokens">14402</measure>
+<measure type="types">2336</measure>
+<measure type="characters">103901</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:05:27Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/fichte_wissenschaftslehre_1794</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/fichte_wissenschaftslehre_1794</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/fichte_wissenschaftslehre_1794</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/fichte_wissenschaftslehre_1794</idno>
+<idno type="DTADirName">fichte_wissenschaftslehre_1794</idno>
+<idno type="DTAID">16203</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905191233</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Fichte, Johann Gottlieb: Über den Begriff der Wissenschaftslehre oder der sogenannten Philosophie. Weimar, 1794.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Ueber den Begriff der Wissenschaftslehre oder der sogenannten Philosophie</title>
+<title level="m" type="sub">als Einladungsschrift zu seinen Vorlesungen über diese Wissenschaft</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118532847">
+<surname>Fichte</surname>
+<forename>Johann Gottlieb</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">VIII S., S. [9] - 68.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Industrie-Comptoir</name></publisher>
+<pubPlace>Weimar</pubPlace>
+<date type="publication">1794</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Nm 5418</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=610511742</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text>     <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<titlePage type="main">         <docTitle>           <titlePart type="main"><hi rendition="#g">Ueber den</hi><lb/>
+<hi rendition="#b">Begriff der Wiſſenſchaftslehre</hi><lb/>
+<hi rendition="#g">oder</hi><lb/>
+der ſogenannten Philoſophie,</titlePart>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <lb/>
+<titlePart type="sub"> als<lb/>
+<hi rendition="#g">Einladungsſchrift zu ſeinen Vorleſungen<lb/>
+über dieſe Wiſſenſchaft</hi></titlePart>           <lb/>
+</docTitle>         <byline> von<lb/>
+<docAuthor> IOHANN GOTTLIEB FICHTE,<lb/>
+</docAuthor><lb/>
+<hi rendition="#g">deſignirten ordentlichen Profeſſor der Philoſophie<lb/>
+auf der Univerſität zu Jena</hi>.<lb/>
+</byline>         <milestone unit="section" rendition="#hr"/>         <docImprint>           <pubPlace>             <hi rendition="#g">Weimar,</hi>           </pubPlace>           <lb/>
+<publisher>             <hi rendition="#g">Im Verlage des Induſtrie-Comptoirs</hi>           </publisher>           <lb/>
+<docDate>             <hi rendition="#g">1794.</hi>           </docDate>           <lb/>
+</docImprint>       </titlePage>     </front>     <body>
+<pb facs="#f0010"/>
+<pb n="[III]" facs="#f0011"/>
+<milestone unit="section" rendition="#hr"/>       <div n="1">         <head>           <hi rendition="#b"><hi rendition="#g">Vorrede</hi>.</hi>         </head>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <p><hi rendition="#in">D</hi>er Verfaſſer dieſer Abhandlung wurde durch das<lb/>
+Leſen neuer Skeptiker, beſonders des <hi rendition="#i">Aeneſidemus</hi>,<lb/>
+und der vortreflichen <hi rendition="#i">Maimonſchen</hi> Schriften völ-<lb/>
+lig von dem überzeugt, was ihm ſchon vorher<lb/>
+höchſt wahrſcheinlich geweſen war: daſs die Phi-<lb/>
+loſophie, ſelbſt durch die neueſten Bemühungen<lb/>
+der ſcharfſinnigſten Männer noch nicht zum Range<lb/>
+einer evidenten Wiſſenſchaft erhoben ſei. Er glaub-<lb/>
+te den Grund davon gefunden, und einen leichten<lb/>
+Weg entdeck<supplied>t</supplied> zu haben, alle jene gar ſehr gegrün-<lb/>
+deten Anforderungen der Skeptiker an die kritiſche<lb/>
+Philoſophie vollkommen zu befriedigen; und das<lb/>
+dogmatiſche und kritiſche Syſtem überhaupt in<lb/>
+ihren ſtreitenden Anſprüchen ſo zu vereinigen, wie<lb/>
+durch die kritiſche Philoſophie die ſtreitenden An-<lb/>
+ſprüche der verſchiedenen dogmatiſchen Syſteme<lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">ver-</fw><lb/>
+<pb n="IV" facs="#f0012"/>
+vereinigt ſind <note place="foot" n="*)">Der eigentliche Streit, der zwiſchen beiden obwaltet, und<lb/>
+in welchem die Skeptiker ſich mit Recht auf die Seite der<lb/>
+Dogmatiker, und mit ihnen des geſunden Menſchenverſtandes,<lb/>
+der zwar nicht als Richter, aber als ein nach Artikeln zu<lb/>
+vernehmender Zeuge gar ſehr in Betrachtung kömmt, geſchla-<lb/>
+gen haben, dürfte wohl der über <hi rendition="#i">den Zuſammenhang unſrer<lb/>
+Erkenntniſs mit einem Dinge an ſich</hi> ſeyn; und der Streit dürf-<lb/>
+te durch eine künftige Wiſſenſchaftslehre wohl dahin entſchie-<lb/>
+den werden, daſs unſre Erkenntniſs zwar nicht unmittelbar<lb/>
+durch die Vorſtellung, aber wohl mittelbar durch das <hi rendition="#i">Gefühl</hi><lb/>
+mit dem Dinge an ſich zuſammenhange; daſs die Dinge aller-<lb/>
+dings bloſs <hi rendition="#i">als Erſcheinungen vorgeſtellt</hi>, daſs ſie aber <hi rendition="#i">als Din-<lb/>
+ge an ſich gefühlt</hi> werden; daſs ohne Gefühl gar keine Vorſtel-<lb/>
+lung möglich ſeyn würde; daſs aber die Dinge an ſich nur<lb/>
+<hi rendition="#i">ſubjektiv</hi>, d. i. nur inwiefern ſie auf unſer Gefühl wirken, er-<lb/>
+kannt werden.</note>. Nicht gewohnt, von Dingen zu<lb/>
+reden, die er noch zu thun hat, — würde er<lb/>
+ſeinen Plan ausgeführt, oder auf immer von ihm ge-<lb/>
+ſchwiegen haben; wenn nicht die gegenwärtige<lb/>
+Veranlaſſung ihm eine Aufforderung zu ſeyn ſchie-<lb/>
+ne, von der bisherigen Anwendung ſeiner Muſse,<lb/>
+und von den Arbeiten, denen er die Zukunft zu<lb/>
+widmen gedenkt, Rechenſchaft abzulegen.</p>         <lb/>
+<p>Die folgende Unterſuchung hat auf keine an-<lb/>
+dere Gültigkeit Anſpruch zu machen, als auf eine<lb/>
+hypothetiſche. Daraus aber folgt gar nicht, daſs<lb/>
+der Verfaſſer ſeinen Behauptungen überhaupt nichts<lb/>
+anders, als unerwieſene Vorausſetzungen zum<lb/>
+<fw type="catch" place="bottom">Grunde</fw><lb/>
+<pb n="V" facs="#f0013"/>
+Grunde zu legen vermöge; und daſs ſie nicht den-<lb/>
+noch die Reſultate eines tiefer gehenden, und fe-<lb/>
+ſten Syſtems ſeyn ſollten. Freilich verſpricht er ſich<lb/>
+erſt nach Jahren es dem Publikum in einer deſſel-<lb/>
+ben würdigen Geſtalt vorlegen zu können; aber<lb/>
+die Billigkeit, daſs man nicht abſprechen werde,<lb/>
+ehe man das Ganze geprüft habe, erwartet er ſchon<lb/>
+jetzt.</p>         <lb/>
+<p>Die erſte Abſicht dieſer Blätter war die, die<lb/>
+ſtudierenden Jünglinge der hohen Schule, auf wel-<lb/>
+che der Verfaſſer gerufen iſt, in den Stand zu<lb/>
+ſetzen, zu urtheilen, ob ſie ſich ſeiner Führung<lb/>
+auf dem Wege der erſten unter den Wiſſenſchaften<lb/>
+anvertrauen, und ob ſie hoffen dürften, daſs er ſo<lb/>
+viel Licht über dieſelbe zu verbreiten vermöge, als<lb/>
+ſie bedürfen, um ihn ohne gefährliches Straucheln<lb/>
+zu gehen: die zweite, die Urtheile ſeiner Gönner<lb/>
+und Freunde über ſein Unternehmen einzuholen.</p>         <lb/>
+<p>Für diejenigen, die weder unter die erſten,<lb/>
+noch unter die zweiten gehören, wenn ihnen die-<lb/>
+ſe Schrift in die Hände kommen ſollte, ſind fol-<lb/>
+gende Anmerkungen.</p>         <lb/>
+<p>Der Verfaſſer iſt bis jetzt innig überzeugt, daſs<lb/>
+kein menſchlicher Verſtand weiter, als bis zu der<lb/>
+Grenze vordringen könne, an der <hi rendition="#k">Kant</hi> beſonders<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">in</fw><lb/>
+<pb n="VI" facs="#f0014"/>
+in ſeiner Kritik der Urtheilskraft, geſtanden, die<lb/>
+er uns aber nie beſtimmt, und als die letzte Grenze<lb/>
+des endlichen Wiſſens angegeben hat. Er weiſs<lb/>
+es, daſs er nie etwas wird ſagen können, worauf<lb/>
+nicht ſchon <hi rendition="#i">Kant</hi>, unmittelbar oder mittelbar, deut-<lb/>
+licher oder dunkler gedeutet habe. Er überläſst<lb/>
+e<supplied>s</supplied> den zukünftigen Zeitaltern das Genie des Man-<lb/>
+nes zu ergründen, der von dem Standpunkte aus,<lb/>
+auf welchem er die philoſophierende Urtheilskraft<lb/>
+fand, oft wie durch höhere Eingebung geleitet,<lb/>
+ſie ſo gewaltig gegen ihr letztes Ziel hinriſs. —<lb/>
+Er iſt eben ſo innig überzeugt, daſs nach dem ge-<lb/>
+nialiſchen Geiſte <hi rendition="#i">Kants</hi> der Philoſophie kein höhe-<lb/>
+res Geſchenk gemacht werden konnte, als durch<lb/>
+den ſyſtematiſchen Geiſt <hi rendition="#i">Reinholds</hi>; und er glaubt<lb/>
+den ehrenvollen Platz zu kennen, welchen die Ele-<lb/>
+mentar-Philoſophie des letztern, bey den weitern<lb/>
+Vorſchriften, die die Philoſophie, an weſſen Hand<lb/>
+es auch ſey, nothwendig machen muſs, dennoch<lb/>
+immer behaupten wird. Es iſt nicht in ſeiner Den-<lb/>
+kungsart irgend ein Verdienſt muthwillig zu ver-<lb/>
+kennen, oder es verkleinern zu wollen; er glaubt<lb/>
+einzuſehen, daſs jede Stuffe, die die Wiſſenſchaft<lb/>
+je beſtiegen hat, erſt beſtiegen ſeyn muſste, ehe ſie<lb/>
+eine höhere betreten konnte; er hält es wahrhaf-<lb/>
+tig nicht für perſönliches Verdienſt durch einen<lb/>
+glücklichen Zufall nach vortreflichen Arbeitern an<lb/>
+die Arbeit gerufen zu werden; und er weiſs, daſs<lb/>
+<fw type="catch" place="bottom">alles</fw><lb/>
+<pb n="VII" facs="#f0015"/>
+alles Verdienſt, was etwa hierin Statt finden könn-<lb/>
+te, nicht auf dem Glücke des Findens, ſondern<lb/>
+auf der Redlichkeit des Suchens beruht, über wel-<lb/>
+che jeder nur ſelbſt ſich richten, und belohnen<lb/>
+kann. Er ſagte dies nicht um jener groſsen Männer<lb/>
+und um derer Willen, die ihnen gleichen; ſondern<lb/>
+für andere nicht ganz ſo groſse Männer. Wer über-<lb/>
+flüſſig findet, daſs er es ſagte, der gehört nicht<lb/>
+unter diejenigen, für welche er es ſagte. Auſſer je-<lb/>
+nen ernſthaften giebt es auch noch ſcherzhafte<lb/>
+Männer, die den Philoſophen warnen, ſich durch<lb/>
+die übertriebne Erwartungen von ſeiner Wiſſen-<lb/>
+ſchaft doch nicht lächerlich zu machen. Ich will<lb/>
+nicht entſcheiden, ob alle recht aus Herzensgrunde<lb/>
+lachen, weil ihnen die Jovialität einmal angeboren<lb/>
+iſt; oder ob es nicht welche unter ihnen giebt, die<lb/>
+ſich bloſs zum Lachen zwingen, um den weltun-<lb/>
+klugen Forſcher ein Unternehmen zu verleiden,<lb/>
+daſs ſie aus begreiflichen Gründen nicht gern ſe-<lb/>
+hen. <note place="foot" n="*)">Malis rident alienis.</note> Da ich, ſo viel mir bewuſst iſt, bis jetzt durch<lb/>
+Aeuſſerung ſolcher hohen Erwartungen ihrer Laune<lb/>
+noch keine Nahrung gegeben habe: ſo iſt es mir<lb/>
+vielleicht am erſten erlaubt, ſie, nicht um der Phi-<lb/>
+loſophen, und noch weniger um der Philoſophie,<lb/>
+ſondern um ihrer ſelbſt Willen zu bitten, das La-<lb/>
+chen ſo lange zu verhalten, bis das Unternehmen<lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">förm-</fw><lb/>
+<pb n="VIII" facs="#f0016"/>
+förmlich miſslungen, und aufgegeben iſt. Mögen<lb/>
+ſie dann unſers Glaubens an die Menſchheit, zu<lb/>
+der ſie ſelbſt gehören, und unſrer Hofnungen von<lb/>
+den groſsen Anlagen derſelben ſpotten; mögen ſie<lb/>
+dann ihren Troſtſpruch: Es iſt der Menſchheit ein-<lb/>
+mal nicht zu helfen; ſo war es, und ſo wird es<lb/>
+immer ſeyn, — wiederholen, ſo oft ſie des Tro-<lb/>
+ſtes bedürfen!</p>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/>       <fw type="catch" place="bottom">Erſter</fw>       <lb/>
+<pb n="[9]" facs="#f0017"/>
+<milestone unit="section" rendition="#hr"/>       <div n="1">         <head><hi rendition="#b"><hi rendition="#g">Erſter Abſchnitt</hi>.</hi><lb/>
+<milestone unit="section" rendition="#hr"/><hi rendition="#g">Ueber</hi><lb/>
+<hi rendition="#b">den Begriff der Wiſſenſchaftslehre</hi><lb/>
+überhaupt.</head>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <div n="2">           <head>§. 1. <hi rendition="#i">Hypothetiſch aufgeſtellter Begriff der<lb/>
+Wiſſenſchaftslehre</hi>.</head>           <lb/>
+<p><hi rendition="#in">U</hi>m getheilte Partheyen zu vereinigen, geht man am<lb/>
+ſicherſten von dem aus, worüber ſie einig ſind.</p>           <lb/>
+<p>Die Philoſophie iſt <hi rendition="#i"><hi rendition="#g">eine Wiſſenſchaft</hi>;</hi> dar-<lb/>
+über kommen alle Beſchreibungen derſelben ſo überein,<lb/>
+wie ſie über das Objekt dieſer Wiſſenſchaft ſich von ein-<lb/>
+ander trennen. Und wie, wenn die Trennung gerade<lb/>
+daher gekommen wäre, daſs der Begriff der Wiſſenſchaft<lb/>
+ſelbſt nicht ganz entwickelt war: und wenn jenes ein-<lb/>
+zige Merkmal völlig hinreichte, den Begriff der Philo-<lb/>
+ſophie ſelbſt zu beſtimmen?</p>           <lb/>
+<fw type="sig" place="bottom">A 5</fw>           <fw type="catch" place="bottom">Eine</fw>           <lb/>
+<pb n="10" facs="#f0018"/>
+<p>Eine Wiſſenſchaft hat ſyſtematiſche Form; alle<lb/>
+Sätze in ihr hangen in einem einzigen Grundſatze zu-<lb/>
+ſammen, und vereinigen ſich in ihm zu einem Gan-<lb/>
+zen — auch dieſes geſteht man allgemein zu. Aber iſt<lb/>
+nun der Begriff der Wiſſenſchaft erſchöpft?</p>           <lb/>
+<p>Wenn jemand auf einem grundloſen und uner-<lb/>
+weiſslichen Satze, z. B. auf dem, daſs es in der <choice><sic>Luſt</sic><corr>Luft</corr></choice><lb/>
+Geſchöpfe mit menſchlichen Neigungen, Leidenſchaf-<lb/>
+ten und Begriffen, und ätheriſchen Körpern gäbe; eine<lb/>
+noch ſo ſyſtematiſche Naturgeſchichte dieſer Luftgeiſter<lb/>
+aufbaute, welches an ſich recht wohl möglich iſt —<lb/>
+würden wir ein ſolches Syſtem, ſo ſtreng auch in demſel-<lb/>
+ben gefolgert wird, und ſo innig auch die einzelnen <choice><sic>Thei-<lb/>
+</sic><corr>Thei-<lb/>
+le </corr></choice>deſſelben unter einander verkettet ſeyn möchten, für<lb/>
+eine Wiſſenſchaft anerkennen? Hinwiederum wenn<lb/>
+jemand einen einzelnen Lehrſatz oder eine Thatſache<lb/>
+anführt — etwa der mechaniſche Handwerker den Satz;<lb/>
+daſs auf einer Horizontallinie der Perpendikul zu bei-<lb/>
+den Seiten rechte Winkel habe; oder der unſtudierte<lb/>
+Bauer das Faktum: daſs der jüdiſche Geſchichtſchreiber<lb/>
+Ioſephus zur Zeit der Zerſtörung Jeruſalems gelebt ha-<lb/>
+be — ſo wird jederman zugeſtehen, derſelbe habe Wiſ-<lb/>
+ſenſchaft von dem geſagten; obgleich der erſtere nicht<lb/>
+den geometriſchen Beweis ſeines Satzes von dem erſten<lb/>
+Grundſatze dieſer Wiſſenſchaft an ſyſtematiſch fuhren,<lb/>
+noch der andere die hiſtoriſche Glaubwürdigkeit ſeiner<lb/>
+Angabe ſchulgerecht darthun kann, ſondern beide die<lb/>
+Sache nur auf Treu und Glauben angenommen haben.<lb/>
+Warum nennen wir nun jenes feſte Syſtem, das auf ei-<lb/>
+nem unerwieſenen, und unerweiſsbaren Satze beruhet,<lb/>
+nicht Wiſſenſchaft; und warum nennen wir die Kennt-<lb/>
+<fw type="catch" place="bottom">niſs</fw><lb/>
+<pb n="11" facs="#f0019"/>
+niſs der zweiten, die in ihrem Verſtande mit keinem<lb/>
+Syſteme zuſammenhängt, Wiſſenſchaft?</p>           <lb/>
+<p>Ohne Zweifel darum, weil das erſtere in aller ſei-<lb/>
+ner ſchulgerechten Form doch nichts enthält, das man<lb/>
+wiſſen kann; und die letztere ohne alle ſchulgerechte<lb/>
+Form, etwas ſagen, das ſie wirklich <hi rendition="#i">wiſſen</hi> und <hi rendition="#i">wiſſen<lb/>
+können</hi>. —</p>           <lb/>
+<p>Das Weſen der Wiſſenſchaft beſtünde demnach in<lb/>
+der Beſchaffenheit ihres Innhalts, dieſer müſste wenig-<lb/>
+ſtens für den, der Wiſſenſchaft haben ſoll, gewiſs ſeyn;<lb/>
+es müſste etwas ſeyn das er wiſſen könnte: und die<lb/>
+ſyſtematiſche Form wäre der Wiſſenſchaft blos zufällig;<lb/>
+ſie wäre nicht der Zweck derſelben, ſondern blos etwa<lb/>
+das Mittel zum Zwecke.</p>           <lb/>
+<p>Nemlich — wenn etwa aus irgend einer Urſache<lb/>
+der menſchliche Geiſt nur ſehr wenig gewiſs wiſſen,<lb/>
+alles andere aber nur meynen, muthmaſsen, ahnen,<lb/>
+willkührlich annehmen könnte, — aber doch, gleich-<lb/>
+falls aus irgend einer Urſache, mit dieſer engbeſchränk-<lb/>
+ten oder unſichern Kenntniſs ſich nicht wohl begnügen<lb/>
+könnte, ſo würde ihm kein anderes Mittel übrig blei-<lb/>
+ben, dieſelbe auszubreiten und zu ſichern, als daſs er<lb/>
+die ungewiſſen Kenntniſſe mit den gewiſſen vergliche,<lb/>
+und aus der Gleichheit oder Ungleichheit der erſtern<lb/>
+mit den letztern, auf die Gewiſsheit oder Ungewiſsheit<lb/>
+derſelben folgerte. Wären ſie einem <hi rendition="#i"><hi rendition="#g">gewiſſen</hi></hi> Satze<lb/>
+gleich, ſo könnte er ſicher annehmen, daſs ſie auch ge-<lb/>
+wiſs ſeyen; wären ſie ihm entgegengeſetzt, ſo wüſste<lb/>
+er nunmehro, daſs ſie falſch wären, und er wäre ſicher,<lb/>
+von ihnen nicht länger getäuſcht zu werden. Er hätte,<lb/>
+wenn auch nicht Wahrheit, doch Befreyung vom Irr-<lb/>
+thum gewonnen. —</p>           <lb/>
+<fw type="catch" place="bottom">Ich</fw>           <lb/>
+<pb n="12" facs="#f0020"/>
+<p>Ich mache mich deutlicher. — Eine Wiſſenſchaft<lb/>
+ſoll Eins, ein Ganzes ſeyn. Der Satz, daſs der Per-<lb/>
+pendikul auf einer Horizontallinie zwei rechte Winkel<lb/>
+mache, oder daſs Joſephus zur Zeit der Zerſtörung Jeru-<lb/>
+ſalems gelebt habe, iſt für den, der keine zuſammen-<lb/>
+hängende Kenntniſs von der Geometrie, oder Geſchich-<lb/>
+te hat, ohne Zweifel ein Ganzes, und in ſo fern eine<lb/>
+Wiſſenſchaft.</p>           <lb/>
+<p>Aber wir betrachten auch die geſammte Geometrie,<lb/>
+und Geſchichte als eine Wiſſenſchaft, da doch Beide<lb/>
+noch gar manches andre enthalten, als jene Sätze, —<lb/>
+wie und wodurch, werden nun eine Menge an ſich<lb/>
+höchſt verſchiedener Sätze zu <hi rendition="#i">Einer</hi> Wiſſenſchaft, zu<lb/>
+Einem und eben demſelben Ganzen?</p>           <lb/>
+<p>Ohne Zweifel dadurch, daſs die einzelnen Sätze<lb/>
+überhaupt nicht Wiſſenſchaft wären, ſondern daſs ſie<lb/>
+erſt im Ganzen, durch ihre Stelle im Ganzen, und<lb/>
+durch ihr Verhältniſs zum Ganzen es werden. Nie<lb/>
+aber kann durch bloſse Zuſammenſetzung von Theilen<lb/>
+ein etwas entſtehen, das nicht in einem Theile des<lb/>
+Ganzen anzutreffen ſei. Wenn gar kein Satz unter<lb/>
+den verbundnen Sätzen Gewiſsheit hätte, ſo würde<lb/>
+auch das durch die Verbindung entſtandene Ganze keine<lb/>
+haben.</p>           <lb/>
+<p>Mithin müſste wenigſtens Ein Satz gewiſs ſeyn<lb/>
+der etwa den übrigen ſeine Gewiſsheit mittheilte; ſo<lb/>
+daſs, wenn, und in wie fern dieſer Eine gewiſs ſeyn<lb/>
+ſoll, auch ein Zweiter, und wenn, und in wie fern<lb/>
+dieſer Zweite gewiſs ſeyn ſoll, auch ein Dritter, u. ſ. f.<lb/>
+gewiſs ſeyn muſs. Und ſo würden mehrere, und an<lb/>
+<fw type="catch" place="bottom">ſich</fw><lb/>
+<pb n="13" facs="#f0021"/>
+ſich vielleicht ſehr verſchiedene Sätze, eben dadurch<lb/>
+daſs ſie <hi rendition="#i">alle</hi> — Gewiſsheit, und <hi rendition="#i">die gleiche</hi> Gewiſsheit<lb/>
+hätten, nur Eine Gewiſsheit gemein haben, und da-<lb/>
+durch nur Eine Wiſſenſchaft werden. —</p>           <lb/>
+<p>Der <hi rendition="#i">gewiſſe</hi> Satz — wir haben bis jezt nur <hi rendition="#i">Einen</hi><lb/>
+als gewiſs angenommen — kann ſeine Gewiſsheit nicht<lb/>
+erſt durch die Verbindung mit den übrigen erhalten,<lb/>
+ſondern muſs ſie vor derſelben vorher haben; denn aus<lb/>
+Vereinigung mehrerer Theile kann nichts entſtehen,<lb/>
+was in keinem Theile iſt. Alle übrigen aber müſsten<lb/>
+die ihrige von ihm erhalten. Er müſste vor aller Ver-<lb/>
+bindung vorher gewiſs und ausgemacht ſeyn. Kein<lb/>
+einziger von den übrigen aber müſste vor der Ver-<lb/>
+bindung es ſeyn, ſondern erſt durch ſie es werden.</p>           <lb/>
+<p>Hieraus erhellet zugleich, daſs unſere obige An-<lb/>
+nahme die einzige richtige iſt, und daſs in einer Wiſ-<lb/>
+ſenſchaft nur Ein Satz ſeyn kann, der vor der Verbin-<lb/>
+dung vorher gewiſs und ausgemacht iſt. Gäbe es meh-<lb/>
+rere dergleichen Sätze; ſo wären ſie entweder mit dem<lb/>
+andern gar nicht verbunden, und dann gehörten ſie<lb/>
+nicht zu dem gleichen Ganzen, ſondern machten Ein<lb/>
+oder mehrere abgeſonderte Ganze aus; oder ſie wären<lb/>
+damit verbunden. Die Sätze ſollen aber nicht anders<lb/>
+verbunden werden, als durch die Eine und gleiche<lb/>
+Gewiſsheit. Wenn Ein Satz gewiſs iſt, ſo ſoll auch<lb/>
+ein anderer gewiſs ſeyn, und wenn der Eine nicht ge-<lb/>
+wiſs iſt, ſo ſoll auch der andere nicht gewiſs ſeyn. Dies<lb/>
+könnte von einem Satze, der eine von den übrigen<lb/>
+Sätzen unabhängige Gewiſsheit hätte, nicht gelten; wenn<lb/>
+ſeine Gewiſsheit unabhängig ſeyn ſoll, ſo iſt er gewiſs,<lb/>
+<fw type="catch" place="bottom">wenn</fw><lb/>
+<pb n="14" facs="#f0022"/>
+wenn auch die Andern nicht gewiſs ſind. Mithin wäre<lb/>
+er überhaupt nicht mit ihnen durch Gewiſsheit verbun-<lb/>
+den<supplied>.</supplied> Ein ſolcher vor der Verbindung vorher gewiſſer<lb/>
+Satz heiſst ein <hi rendition="#i">Grundſatz</hi>. Jede Wiſſenſchaft muſs ei-<lb/>
+nen Grundſatz haben; ja ſie könnte ihrem inneren Cha-<lb/>
+rakter nach wohl gar aus einem einzigen an ſich gewiſ-<lb/>
+ſen Satze beſtehen, — der aber dann freilich nicht<lb/>
+Grundſatz heiſsen könnte, weil er nichts begründete.<lb/>
+Sie kann aber auch nicht mehr als Einen Grundſatz<lb/>
+haben, weil ſie ſonſt nicht Eine ſondern mehrere Wiſ-<lb/>
+ſenſchaften ausmachen würde.</p>           <lb/>
+<p>Eine Wiſſenſchaft kann <choice><sic>auſſendem</sic><corr>auſſerdem</corr></choice> vor der Verbin-<lb/>
+dung vorher gewiſſen Satze noch mehrere Sätze enthal-<lb/>
+ten, die erſt durch die Verbindung mit jenem als gewiſs<lb/>
+erkannt werden. Die Verbindung beſteht, wie eben<lb/>
+erinnert worden, darinn, daſs gezeigt werde, wenn<lb/>
+der Satz A gewiſs ſei, müſſe auch der Satz B — und<lb/>
+wenn dieſer gewiſs ſei, müſſe auch der Satz C u. ſ. f.<lb/>
+gewiſs ſeyn; und dieſe Verbindung heiſst die ſyſtema-<lb/>
+tiſche Form des Ganzen, das aus den einzelnen Thei-<lb/>
+len entſteht. — Wozu nun dieſe Verbindung? Ohne<lb/>
+Zweifel nicht um ein Kunſtſtück des Verbindens zu ma-<lb/>
+chen, ſondern um Sätzen Gewiſsheit zu geben, die an<lb/>
+ſich keine hätten; und ſo iſt die ſyſtematiſche Form nicht<lb/>
+Zweck der Wiſſenſchaft, ſondern ſie iſt das zufällige,<lb/>
+nur unter der Bedingung, daſs die Wiſſenſchaft aus<lb/>
+mehrern Sätzen beſtehen ſolle, anwendbare Mittel zur<lb/>
+Erreichung ihres Zwecks. Sie iſt nicht das Weſen der<lb/>
+Wiſſenſchaft, ſondern eine zufällige Eigenſchaft derſel-<lb/>
+ben. — Die Wiſſenſchaft ſei ein Gebäude; der Haupt-<lb/>
+zweck derſelben ſei Feſtigkeit. Der Grund iſt feſt, und<lb/>
+<fw type="catch" place="bottom">ſo</fw><lb/>
+<pb n="15" facs="#f0023"/>
+ſo wie dieſer gelegt iſt, wäre der Zweck erreicht. Weil<lb/>
+man aber im bloſsen Grunde nicht wohnen, durch ihn<lb/>
+allein ſich weder gegen den willkührlichen Anfall des<lb/>
+Feindes, noch gegen die unwillkührlichen Anfälle der<lb/>
+Witterung ſchützen kann, ſo führt man auf denſelben<lb/>
+Seitenwände, und über dieſen ein Dach auf. Alle Theile<lb/>
+des Gebäudes werden mit dem Grunde, und unter ſich<lb/>
+ſelbſt zuſammengefügt, und dadurch wird das Ganze<lb/>
+feſt; aber man baut nicht ein feſtes Gebäude, damit<lb/>
+man zuſammenfügen könne, ſondern man fügt zuſam-<lb/>
+men, damit das Gebäude feſt werde; und es iſt feſt, in ſo<lb/>
+fern alle Theile deſſelben auf einem feſten Grunde ruhen.</p>           <lb/>
+<p>Der Grund iſt feſt, und er iſt auf keinen neuen<lb/>
+Grund, ſondern er iſt auf den feſten Erdboden gegrün-<lb/>
+det. — Worauf wollen denn wir den Grund unſrer<lb/>
+wiſſenſchaftlichen Gebäude aufführen? Die Grundſätze<lb/>
+unſrer Syſteme ſollen und müſſen vor dem Syſteme vor-<lb/>
+her gewiſs ſeyn. Ihre Gewiſsheit kann in dem Umfange<lb/>
+derſelben nicht erwieſen werden, ſondern jeder in<lb/>
+ihnen mögliche Beweiſs ſetzt ſie ſchon voraus. Sind ſie<lb/>
+gewiſs, ſo iſt freilich alles, was aus ihnen folgt, auch<lb/>
+gewiſs: aber aus was folgt denn ihre eigene Gewiſsheit?</p>           <lb/>
+<p>Noch mehr — wir wollen beym Aufbauen unſrer<lb/>
+Lehrgebäude ſo folgern: <hi rendition="#i">Wenn</hi> der Grundſatz gewiſs iſt,<lb/>
+ſo iſt auch ein beſtimmter andrer Satz gewiſs. Worauf<lb/>
+gründet ſich denn jenes So? Was iſt es, das den noth-<lb/>
+wendigen Zuſammenhang zwiſchen beiden begründet,<lb/>
+vermöge deſſen dem einen eben die Gewiſsheit zukom-<lb/>
+men ſoll, die dem andern zukommt? Welches ſind die<lb/>
+Bedingungen dieſes Zuſammenhangs; und woher wiſſen<lb/>
+wir, <hi rendition="#i">daſs</hi> ſie die Bedingungen, und die <hi rendition="#i">ausſchlieſsenden</hi><lb/>
+<fw type="catch" place="bottom">Be-</fw><lb/>
+<pb n="16" facs="#f0024"/>
+Bedingungen, und die <hi rendition="#i">einzigen</hi> Bedingungen deſſelben<lb/>
+ſind? und wie kommen wir überhaupt dazu, einen<lb/>
+nothwendigen Zuſammenhang zwiſchen verſchiedenen<lb/>
+Sätzen, und ausſchlieſsende, aber erſchöpfte Bedingun-<lb/>
+gen derſelben anzunehmen?</p>           <lb/>
+<p>Kurz, wie läſst ſich die Gewiſsheit des Grund-<lb/>
+ſatzes an ſich; wie läſst ſich die Befugniſs auf eine be-<lb/>
+ſtimmte Art aus ihm die Gewiſsheit anderer Sätze zu<lb/>
+folgern, begründen?</p>           <lb/>
+<p>Dasjenige, was der Grundſatz ſelbſt haben, und<lb/>
+allen übrigen Sätzen, die in der Wiſſenſchaft vorkom-<lb/>
+men, mittheilen ſoll, nenne ich den <hi rendition="#i">innern Gehalt</hi> des<lb/>
+Grundſatzes und der Wiſſenſchaft überhaupt; die Art,<lb/>
+wie er daſſelbe den andern Sätzen mittheilen ſoll,<lb/>
+nenne ich die <hi rendition="#i">Form</hi> der Wiſſenſchaft. Die aufgegebne<lb/>
+Frage iſt mithin die: Wie iſt Gehalt und Form einer<lb/>
+Wiſſenſchaft überhaupt, d. h. wie iſt die Wiſſenſchaft<lb/>
+ſelbſt möglich?</p>           <lb/>
+<p>Etwas, worinn dieſe Frage beantwortet würde,<lb/>
+wäre ſelbſt eine Wiſſenſchaft, <hi rendition="#i">und zwar die Wiſſenſchaft<lb/>
+von der Wiſſenſchaft überhaupt</hi>.</p>           <lb/>
+<p>Es läſst vor der Unterſuchung vorher ſich nicht<lb/>
+beſtimmen, ob die Beantwortung jener Frage möglich<lb/>
+ſeyn werde oder nicht, d. h. ob unſer geſammtes Wiſ-<lb/>
+ſen einen feſten Grund habe, oder ob es, ſo innig<lb/>
+unter ſich verkettet auch die einzelnen Theile deſſelben<lb/>
+ſeyn mögen, doch zuletzt auf Nichts beruhe. Soll<lb/>
+aber unſer Wiſſen einen Grund haben, ſo muſs jene<lb/>
+<fw type="catch" place="bottom">Frage</fw><lb/>
+<pb n="17" facs="#f0025"/>
+Frage ſich beantworten laſſen, und es muſs eine Wiſ-<lb/>
+ſenſchaft geben, in der ſie beantwortet wird; und giebt<lb/>
+es eine ſolche Wiſſenſchaft, ſo hat unſer Wiſſen einen<lb/>
+Grund. Es läſst ſich demnach über die <choice><sic>Cründlichkeit</sic><corr>Gründlichkeit</corr></choice><lb/>
+oder Grundloſigkeit unſers Wiſſens vor der Unterſu-<lb/>
+chung vorher nichts ſagen; und die Möglichkeit der<lb/>
+geforderten Wiſſenſchaft läſst ſich nur durch ihre<lb/>
+Wirklichkeit darthun.</p>           <lb/>
+<p>Die Benennung einer ſolchen Wiſſenſchaft, deren<lb/>
+Möglichkeit bis jetzt bloſs problematiſch iſt, iſt willkür-<lb/>
+lich. Wenn ſich jedoch zeigen ſollte, daſs der Boden,<lb/>
+der nach aller bisherigen Erfahrung für den Anbau der<lb/>
+Wiſſenſchaften brauchbar iſt, durch die ihm zugehöri-<lb/>
+gen bereits beſetzt ſey, und daſs ſich nur noch ein un-<lb/>
+angebautes Stück Land zeige, nemlich das für die Wiſ-<lb/>
+ſenſchaft der Wiſſenſchaften überhaupt; — Wenn ſich<lb/>
+ferner unter einem bekannten Namen (dem der Philo-<lb/>
+ſophie) die Idee einer Wiſſenſchaft vorfände, welche<lb/>
+doch auch Wiſſenſchaft ſeyn oder werden will, und<lb/>
+welche über den Platz, wo ſie ſich anbauen ſoll, mit<lb/>
+ſich nicht einig werden kann: ſo wäre es nicht un-<lb/>
+ſchicklich, ihr den aufgefundenen leeren Platz anzu-<lb/>
+weiſen. Ob man ſich bisher bei dem Worte Philoſo-<lb/>
+phie eben das gedacht habe oder nicht, thut überhaupt<lb/>
+nichts zur Sache; und dann würde dieſe Wiſſenſchaft,<lb/>
+wenn ſie nur einmal Wiſſenſchaft geworden wäre, nicht<lb/>
+ohne Fug einen Namen ablegen, den ſie aus übertrie-<lb/>
+bener Beſcheidenheit bisher geführt hat — den Namen<lb/>
+einer Kennerei, einer Liebhaberei, eines Dillettan-<lb/>
+tiſm. Die Nation, welche ſie erfinden wird, wäre es<lb/>
+wohl werth ihr aus ihrer Sprache einen Namen zu ge-<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">ben</fw><lb/>
+<pb n="18" facs="#f0026"/>
+ben <note place="foot" n="*)">Sie wäre wohl auch werth, ihr die übrigen Kunſtausdrücke<lb/>
+aus ihrer Sprache zu geben; und die Sprache ſelbſt, ſo wie<lb/>
+die Nation, welche dieſelbe redete, würde dadurch ein ent-<lb/>
+ſchiedenes Uebergewicht über alle andere Sprachen und Natio-<lb/>
+nen erhalten.</note>; und ſie könnte dann ſchlechthin <hi rendition="#i">die Wiſſenſchaft</hi>,<lb/>
+oder <hi rendition="#i">die Wiſſenſchaftslehre</hi> heiſſen. Die bisher ſoge-<lb/>
+nannte Philoſophie wäre demnach <hi rendition="#i"><hi rendition="#g">die Wiſſenſchaft<lb/>
+von einer Wiſſenſchaft überhaupt</hi></hi>.</p>         </div>         <lb/>
+<div n="2">           <head>§. 2. <hi rendition="#i">Entwicklung des Begriffs der Wiſſen-<lb/>
+ſchaftslehre</hi>.</head>           <lb/>
+<p>Man ſoll aus Definitionen nicht folgern: das heiſst<lb/>
+entweder, man ſoll daraus, daſs man ſich ohne Wider-<lb/>
+ſpruch in die Beſchreibung eines Dinges, welches ganz<lb/>
+unabhängig von unſrer Beſchreibung exiſtiert, ein ge-<lb/>
+wiſſes Merkmal hat denken können, nicht ohne wei-<lb/>
+tern Grund ſchlieſſen, daſs daſſelbe darum im wirkli-<lb/>
+chen Dinge anzutreffen ſeyn müſſe; oder man ſoll bei<lb/>
+einem Dinge, das ſelbſt erſt durch uns, nach einem<lb/>
+davon gebildeten Begriffe, der den Zweck deſſelben<lb/>
+ausdrückt, hervorgebracht werden ſoll, aus der Denk-<lb/>
+barkeit dieſes Zwecks noch nicht auf die Ausführbar-<lb/>
+keit deſſelben in der Wirklichkeit ſchlieſſen: aber nim-<lb/>
+mermehr kann es heiſſen, man ſolle ſich bei ſeinen gei-<lb/>
+ſtigen oder körperlichen Arbeiten keinen Zweck aufge-<lb/>
+ben, und ſich denſelben, noch ehe man an die Arbeit<lb/>
+geht, ja nicht deutlich zu machen ſuchen, ſondern es<lb/>
+dem Spiele ſeiner Einbildungskraft, oder ſeiner Finger<lb/>
+überlaſſen, was etwa herauskommen möge. Der Er-<lb/>
+finder der Aëroſtatiſchen Bälle durfte wohl die Gröſse<lb/>
+derſelben, und das Verhältniſs der darinn eingeſchloſ-<lb/>
+<fw type="catch" place="bottom">ſenen</fw><lb/>
+<pb n="19" facs="#f0027"/>
+ſenen Luft gegen die Atmoſphäriſche, und den Grad<lb/>
+ihrer Schnelligkeit berechnen; auch noch ehe er wuſs-<lb/>
+te, ob er eine <choice><sic>Luſtart</sic><corr>Luftart</corr></choice> finden würde, die um den er-<lb/>
+forderlichen Grad leichter ſey, als die Atmoſphäriſche:<lb/>
+und Archimedes konnte die Maſchine, durch welche<lb/>
+er den Erdball aus ſeiner Stelle bewegen wollte, be-<lb/>
+rechnen, ob er gleich ſicher wuſste, daſs er keinen<lb/>
+Platz auſſerhalb der Anziehungskraft derſelben finden<lb/>
+würde, von welchem aus er ſie könnte wirken laſſen. —<lb/>
+So unſere eben beſchriebene Wiſſenſchaft. Sie iſt, als<lb/>
+ſolche, nicht etwas, das unabhängig von uns, und<lb/>
+ohne unſer Zuthun exiſtiere, ſondern das erſt durch<lb/>
+die Freiheit unſers nach einer beſtimmten Richtung hin<lb/>
+wirkenden Geiſtes hervorgebracht werden ſoll; wenn<lb/>
+es eine ſolche Freiheit giebt, wie wir gleichfalls noch<lb/>
+nicht wiſſen können. Beſtimmen wir dieſe Richtung<lb/>
+vorher; machen wir uns einen deutlichen Begriff da-<lb/>
+von, <hi rendition="#i">was</hi> unſer Werk werden ſoll! Ob wir es hervor-<lb/>
+bringen können oder nicht, das wird ſich erſt daraus<lb/>
+ergeben, ob wir es wirklich hervorbringen. Jetzt iſt<lb/>
+nicht davon die Frage, ſondern davon, was wir eigent-<lb/>
+lich machen wollen; und das beſtimmt unſere Defini-<lb/>
+tion.</p>           <lb/>
+<p>1) Die beſchriebene Wiſſenſchaft ſoll zuförderſt<lb/>
+eine Wiſſenſchaft <hi rendition="#i">der Wiſſenſchaft überhaupt</hi> ſeyn. Jede<lb/>
+mögliche Wiſſenſchaft hat einen Gründſatz, der in ihr<lb/>
+nicht erwieſen werden kann, ſondern vor ihr vorher<lb/>
+gewiſs ſeyn muſs. Wo ſoll nun dieſer Grundſatz er-<lb/>
+wieſen werden? Ohne <choice><sic>Zweiſel</sic><corr>Zweifel</corr></choice> in derjenigen Wiſſen-<lb/>
+ſchaft, welche alle möglichen Wiſſenſchaften zu begrün-<lb/>
+den hat. — Die Wiſſenſchaftslehre hätte in dieſer<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">Rück-</fw><lb/>
+<pb n="20" facs="#f0028"/>
+Rückſicht zweierlei zu thun. Zuförderſt die Möglich-<lb/>
+keit der Grundſätze überhaupt zu begründen; zu zei-<lb/>
+gen, wie, in wie fern, unter welchen Bedingungen,<lb/>
+und vielleicht in welchen Graden etwas gewiſs ſeyn<lb/>
+könne, und überhaupt, was das heiſſe — gewiſs ſeyn;<lb/>
+dann hätte ſie insbeſon<supplied>d</supplied>ere die Grundſätze aller mögli-<lb/>
+chen Wiſſenſchaften zu erweiſen, die in ihnen ſelbſt<lb/>
+nicht erwieſen werden können.</p>           <lb/>
+<p>Jede Wiſſenſchaft, wenn ſie nicht ein einzelner ab-<lb/>
+geriſſener Satz, ſondern ein aus mehrern einzelnen<lb/>
+Sätzen beſtehendes <choice><sic>Gauze</sic><corr>Ganze</corr></choice> ſeyn ſoll, hat ſyſtematiſche<lb/>
+Form. Dieſe Form, die Bedingung des Zuſammen-<lb/>
+hangs der abgeleiteten Sätze mit dem Grundſatze, und<lb/>
+der Rechtsgrund, aus dieſem Zuſammenhange zu fol-<lb/>
+gern, daſs die erſtern nothwendig eben ſo gewiſs ſeyn<lb/>
+müſſen, als der letztere, läſst in der beſondern Wiſſen-<lb/>
+ſchaft, wenn ſie Einheit haben, und ſich nicht mit<lb/>
+fremden, in ſie nicht gehörigen Dingen beſchäftigen<lb/>
+ſoll, ſich eben ſo wenig darthun, ſondern wird zur<lb/>
+Möglichkeit ihrer Form ſchon vorausgeſetzt. Eine all-<lb/>
+gemeine Wiſſenſchaftslehre hat alſo die Verbindlichkeit<lb/>
+auf ſich, für alle möglichen Wiſſenſchaften die ſyſte-<lb/>
+matiſche Form zu begründen.</p>           <lb/>
+<p>2) Die Wiſſenſchaftslehre iſt ſelbſt <hi rendition="#i">eine Wiſſenſchaft</hi>,<lb/>
+Auch ſie muſs daher zuförderſt einen Grundſatz haben,<lb/>
+der in ihr nicht erwieſen werden kann, ſondern zum<lb/>
+Behuf ihrer Möglichkeit vorausgeſetzt wird. Aber<lb/>
+dieſer Grundſatz kann auch in keiner andern höhern<lb/>
+Wiſſenſchaft erwieſen werden; denn dann wäre dieſe<lb/>
+höhere Wiſſenſchaft die Wiſſenſchaftslehre, und dieje-<lb/>
+<fw type="catch" place="bottom">nige,</fw><lb/>
+<pb n="21" facs="#f0029"/>
+nige, deren Grundſatz erſt erwieſen werden müſste,<lb/>
+wäre er nicht. Dieſer Grundſatz der Wiſſenſchaftslehre,<lb/>
+und vermittelſt ihrer aller Wiſſenſchaften und alles Wiſ-<lb/>
+ſens iſt daher ſchlechterdings keines Beweiſes fähig, d.<lb/>
+h., er iſt auf keinen höhern Satz zurück zu führen, aus<lb/>
+deſſen Vergleichung mit ihm ſeine Gewiſsheit erhelle.<lb/>
+Dennoch ſoll er die Grundlage aller Gewiſsheit abgeben;<lb/>
+er muſs daher doch gewiſs und zwar in ſich ſelbſt, und<lb/>
+um ſein ſelbſt willen, und durch ſich ſelbſt gewiſs<lb/>
+ſeyn. Alle andere Sätze werden gewiſs ſeyn, weil ſich<lb/>
+zeigen läſst, daſs ſie ihm in irgend einer Rückſicht<lb/>
+gleich ſind; dieſer Satz muſs gewiſs ſeyn, bloſs darum,<lb/>
+weil er ſich ſelbſt gleich iſt. Alle andere Sätze werden<lb/>
+nur eine mittelbare und von ihm abgeleitete Gewiſsheit<lb/>
+haben; er muſs unmittelbar gewiſs ſeyn. Auf ihn grün-<lb/>
+det ſich alles Wiſſen, und ohne ihn wäre überhaupt<lb/>
+kein Wiſſen möglich; er aber gründet ſich auf kein an-<lb/>
+deres Wiſſen, ſondern er iſt der Satz des Wiſſens<lb/>
+ſchlechthin — — Dieſer Satz iſt ſchlechthin gewiſs, d. h.,<lb/>
+er iſt gewiſs, <hi rendition="#i">weil</hi> er gewiſs iſt. Er iſt der Grund aller<lb/>
+Gewiſsheit, d. h., alles was gewiſs iſt, iſt gewiſs, weil<lb/>
+<hi rendition="#i">er</hi> gewiſs iſt; und es iſt nichts gewiſs, wenn <hi rendition="#i">er</hi> nicht<lb/>
+gewiſs iſt. Er iſt der Grund alles Wiſſens, d. h., man<lb/>
+weiſs, was er ausſagt, weil man überhaupt weiſs; man<lb/>
+weiſs es unmittelbar, ſo wie man irgend etwas weiſs.<lb/>
+Er begleitet alles Wiſſen, iſt in allen Wiſſen enthalten,<lb/>
+und alles Wiſſen ſetzt ihn voraus.</p>           <lb/>
+<p>Die Wiſſenſchaftslehre muſs, in ſo fern ſie ſelbſt<lb/>
+eine Wiſſenſchaft iſt, wenn ſie nur nicht aus ihrem<lb/>
+bloſsen Grundſatze, ſondern aus mehrern Sätzen beſte-<lb/>
+hen ſoll, — und daſs es ſo ſeyn werde, läſst ſich dar-<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">um</fw><lb/>
+<pb n="22" facs="#f0030"/>
+um vorausſehen, weil ſie für andre Wiſſenſchaften<lb/>
+Grundſätze aufzuſtellen hat — ſie muſs, ſage ich, ſyſte-<lb/>
+matiſche Form haben. Nun kann ſie dieſe ſyſtematiſche<lb/>
+Form von keiner andern Wiſſenſchaft der Beſtimmung<lb/>
+nach entlehnen, oder der Gültigkeit nach ſich darauf<lb/>
+berufen, weil ſie ſelbſt für alle andere Wiſſenſchaften<lb/>
+nicht nur Grundſätze und dadurch ihren innern Gehalt,<lb/>
+ſondern auch die Form und dadurch die Möglichkeit der<lb/>
+Verbindung mehrerer Sätze in ihnen aufzuſtellen hat.<lb/>
+Sie muſs mithin dieſe Form in ſich ſelbſt haben, und ſie<lb/>
+durch ſich ſelbſt begründen.</p>           <lb/>
+<p>Wir dürfen dies nur ein wenig zergliedern, um zu<lb/>
+ſehen, was dadurch eigentlich geſagt werde. — Dasje-<lb/>
+nige, von dem man etwas weiſs, heiſſe indeſs der Ge-<lb/>
+halt, und das, was man davon weiſs, die Form des<lb/>
+Satzes. (In dem Satze: Gold iſt ein Körper, iſt das-<lb/>
+jenige, wovon man etwas weiſs, das Gold und der<lb/>
+Körper; das was man von ihnen weiſs, iſt, daſs ſie in<lb/>
+einer gewiſſen Rückſicht gleich ſind, und in ſo fern eins<lb/>
+ſtatt der andern geſetzt werden könne. Es iſt ein be-<lb/>
+jahender Satz, und dieſe Beziehung iſt ſeine Form.)</p>           <lb/>
+<p>Kein Satz iſt ohne Gehalt oder Form möglich. Es<lb/>
+muſs etwas ſeyn, wovon man weiſs, und etwas, das<lb/>
+man davon weiſs. Der erſte Satz aller Wiſſenſchafts-<lb/>
+lehre muſs demnach beides, Gehalt und Form haben.<lb/>
+Nun ſoll er unmittelbar und durch ſich ſelbſt gewiſs<lb/>
+ſeyn, und das kann nichts anders heiſſen, als daſs der<lb/>
+Gehalt deſſelben ſeine Form, und umgekehrt die Form<lb/>
+deſſelben ſeinen Gehalt beſtimme. Dieſe Form kann<lb/>
+nur zu jenem Gehalte, und dieſer Gehalt kann nur zu<lb/>
+<fw type="catch" place="bottom">jener</fw><lb/>
+<pb n="23" facs="#f0031"/>
+jener Form paſſen; jede andre Form zu dieſem Gehalte<lb/>
+hebt den Satz ſelbſt und mit ihm alles Wiſſen, und je-<lb/>
+der andre Gehalt zu dieſer Form hebt gleichfalls den<lb/>
+Satz ſelbſt und mit ihm alles Wiſſen auf. Die Form<lb/>
+des abſoluten erſten Grundſatzes der Wiſſenſchaftslehre<lb/>
+iſt alſo durch ihn ſelbſt nicht nur gegeben, ſondern auch<lb/>
+als ſchlechthin gültig für den Gehalt deſſelben aufgeſtellt.<lb/>
+Sollte es auſſer dieſem einen abſolut-erſten noch meh-<lb/>
+rere Grundſätze der Wiſſenſchaftslehre geben, die nur<lb/>
+zum Theil abſolut, zum Theil aber durch den erſten<lb/>
+und höchſten bedingt ſeyn müſſen, weil es ſonſt nicht<lb/>
+einen einzigen Grundſatz gäbe: — ſo könnte das abſo-<lb/>
+lut-erſte in denſelben nur entweder der Gehalt oder<lb/>
+die Form, und das bedingte gleichfalls nur entweder<lb/>
+der Gehalt oder die Form ſeyn. Setzet, der <hi rendition="#i"><hi rendition="#g">Gehalt</hi></hi><lb/>
+ſei das unbedingte, ſo wird der abſolut-erſte Grund-<lb/>
+ſatz, der etwas in dem zweiten bedingen muſs, weil<lb/>
+er ſonſt nicht abſolut-erſter Grundſatz wäre, die <hi rendition="#i">Form</hi><lb/>
+deſſelben bedingen; und demnach würde ſeine Form<lb/>
+in der Wiſſenſchaftslehre ſelbſt, und durch ſie, und<lb/>
+durch ihren erſten Grundſatz beſtimmt: oder ſetzet um-<lb/>
+gekehrt, die <hi rendition="#i">Form</hi> ſei das unbedingte, ſo wird durch<lb/>
+den erſten Grundſatz nothwendig der <hi rendition="#i">Gehalt</hi> dieſer Form<lb/>
+beſtimmt, mithin mittelbar auch die Form, in ſo fern<lb/>
+ſie Form eines Gehaltes ſeyn ſoll; alſo auch in dieſem<lb/>
+Falle würde die Form durch die Wiſſenſchaftslehre, und<lb/>
+zwar durch ihren Grundſatz beſtimmt. — Einen Grund-<lb/>
+ſatz aber, der weder ſeiner Form, noch ſeinem Gehalte<lb/>
+nach, durch den abſolut-erſten Grundſatz beſtimmt<lb/>
+würde, kann es nicht geben, wenn es einen abſolut-<lb/>
+erſten Grundſatz, und eine Wiſſenſchaftslehre, und ein<lb/>
+Syſtem des menſchlichen Wiſſens überhaupt geben ſoll.<lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">Mit</fw><lb/>
+<pb n="24" facs="#f0032"/>
+Mithin könnte es auch nicht mehrere Grundſätze geben,<lb/>
+als drei; einen abſolut und ſchlechthin durch ſich ſelbſt,<lb/>
+ſowohl der Form, als dem Gehalte nach beſtimmten;<lb/>
+einen der Form nach durch ſich ſelbſt beſtimmten, und<lb/>
+einem dem Gehalte nach durch ſich ſelbſt beſtimmten. —<lb/>
+Giebt es noch mehrere Sätze in der Wiſſenſchaftslehre,<lb/>
+ſo müſſen alle, ſowohl der Form, als dem Gehalte nach,<lb/>
+durch den Grundſatz beſtimmt ſeyn. Eine Wiſſenſchafts-<lb/>
+lehre muſs demnach die Form aller ihrer Sätze, in ſo<lb/>
+fern ſie einzeln betrachtet werden, beſtimmen. Eine<lb/>
+ſolche Beſtimmung der einzelnen Sätze aber iſt nicht<lb/>
+anders, als ſo möglich, daſs ſie ſich ſelbſt wechſelſeitig<lb/>
+beſtimmen. Nun aber muſs jeder Satz <hi rendition="#i">vollkommen</hi> be-<lb/>
+ſtimmt ſeyn, d. i., ſeine Form muſs nur zu ſeinem Ge-<lb/>
+halte, und zu keinem andern, und dieſer Gehalt muſs<lb/>
+nur zu der Form, in der er iſt, und zu keiner andern<lb/>
+paſſen; denn ſonſt würde der Satz dem Grundſatze, in<lb/>
+ſo fern er gewiſs iſt, (S. oben) nicht gleich, und mithin<lb/>
+nicht gewiſs ſeyn. — Wenn nun alle Sätze einer Wiſ-<lb/>
+ſenſchaftslehre an ſich verſchieden ſeyn ſollen — wie<lb/>
+ſie es denn ſeyn müſſen, denn ſonſt wären es nicht<lb/>
+mehrere Sätze, ſondern ein und ebenderſelbe Satz meh-<lb/>
+reremale: — ſo kann kein Satz ſeine vollkommne Be-<lb/>
+ſtimmung anders, als durch einen einzigen unter allen<lb/>
+erhalten; und hierdurch wird denn die ganze Reihe<lb/>
+der Sätze vollkommen beſtimmt, und es kann keiner an<lb/>
+einer andern Stelle der Reihe ſtehen, als an der er ſteht.<lb/>
+Jeder Satz in der Wiſſenſchaftslehre bekommt durch ei-<lb/>
+nen beſtimmten andern ſeine Stelle beſtimmt, und be-<lb/>
+ſtimmt ſie ſelbſt einem beſtimmten dritten. Die <choice><sic>Wiſſen-<lb/>
+ſchaſtslehre</sic><corr>Wiſſen-<lb/>
+ſchaftslehre</corr></choice> beſtimmt ſich mithin durch ſich ſelbſt die<lb/>
+Form ihres Ganzen.</p>           <lb/>
+<fw type="catch" place="bottom">Dieſe</fw>           <lb/>
+<pb n="25" facs="#f0033"/>
+<p>Dieſe Form der Wiſſenſchaftslehre hat nothwendige<lb/>
+Gültigkeit für den Gehalt derſelben. Denn wenn der<lb/>
+abſolut-erſte Grundſatz unmittelbar gewiſs war, d. i.,<lb/>
+wenn ſeine Form nur für ſeinen Gehalt, und ſein Ge-<lb/>
+halt nur für ſeine Form paſste. — durch ihn aber alle<lb/>
+möglichen folgenden Sätze, unmittelbar oder mittelbar,<lb/>
+dem Gehalte oder der Form nach, beſtimmt werden; —<lb/>
+wenn ſie gleichſam ſchon in ihm enthalten lägen; — ſo<lb/>
+muſs eben das von ihm gelten, was von jenem gilt, daſs<lb/>
+ihre Form nur zu ihrem Gehalte, und ihr Gehalt nur<lb/>
+zu ihrer Form paſſe. Dieſs betrift die einzelnen Sätze;<lb/>
+die Form des Ganzen aber iſt nichts anders, als die Form<lb/>
+der einzelnen Sätze in Einem gedacht, und was von<lb/>
+jedem einzelnen gilt, muſs von allen, als Eins gedacht,<lb/>
+auch gelten.</p>           <lb/>
+<p>Die Wiſſenſchaftslehre ſoll aber nicht nur ſich ſelbſt,<lb/>
+ſondern auch allen möglichen übrigen Wiſſenſchaften<lb/>
+ihre Form geben, und die Gültigkeit dieſer Form für<lb/>
+alle ſicher ſtellen. Dieſes läſst ſich nun nicht anders<lb/>
+denken, als unter der Bedingung, daſs alles, was Satz<lb/>
+irgend einer Wiſſenſchaft ſeyn ſoll, ſchon in irgend ei-<lb/>
+nem Satze der Wiſſenſchaftslehre enthalten, und alſo<lb/>
+ſchon in ihr in ſeiner gehörigen Form aufgeſtellt ſei.<lb/>
+Und dieſes eröffnet uns einen leichten Weg zum Ge-<lb/>
+halte des abſolut-erſten Grundſatzes der Wiſſenſchafts-<lb/>
+lehre zurück zu gehen, von dem wir jetzt etwas mehr<lb/>
+ſagen können, als wir vorhin konnten.</p>           <lb/>
+<p>Man nehme an, <hi rendition="#i">gewiſs wiſſen</hi> heiſſe nichts anders,<lb/>
+als Einſicht in die Unzertrennlichkeit eines beſtimmten<lb/>
+Gehalts von einer beſtimmten Form haben, (welcher<lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">nichts</fw><lb/>
+<pb n="26" facs="#f0034"/>
+nichts weiter als eine Namenerklärung ſeyn ſoll, indem<lb/>
+eine Realerklärung des Wiſſens ſchlechterdings unmög-<lb/>
+lich iſt,): ſo lieſs ſich ſchon jetzt ungefähr einſehen, wie<lb/>
+dadurch, daſs der abſolut-erſte Grundſatz alles Wiſſens<lb/>
+ſeine Form ſchlechthin durch ſeinen Gehalt, und ſeinen<lb/>
+Gehalt ſchlechthin durch ſeine Form beſtimmt, allem<lb/>
+Gehalte des Wiſſens ſeine Form beſtimmt werden könne;<lb/>
+wenn nemlich aller mögliche Gehalt in dem ſeinigen<lb/>
+läge. Mithin müſste, wenn unſre Vorausſetzung rich-<lb/>
+tig ſeyn, und es einen abſolut-erſten Grundſatz alles<lb/>
+Wiſſens geben ſollte, der Gehalt dieſes Grundſatzes der-<lb/>
+jenige ſeyn, der allen möglichen Gehalt in ſich enthiel-<lb/>
+te, ſelbſt aber in keinem andern enthalten wäre. Es<lb/>
+wäre der Gehalt ſchlechthin, der abſolute Gehalt.</p>           <lb/>
+<p>Es iſt leicht zu bemerken, daſs bei Vorausſetzung<lb/>
+der Möglichkeit einer ſolchen Wiſſenſchaftslehre über-<lb/>
+haupt, ſo wie insbeſondere der Möglichkeit ihres<lb/>
+Grundſatzes immer vorausgeſetzt werde, daſs im<lb/>
+menſchlichen Wiſſen wirklich ein Syſtem ſey. Soll ein<lb/>
+ſolches Syſtem darin ſeyn, ſo läſst ſich auch, unabhängig<lb/>
+von unſerer Beſchreibung der Wiſſenſchaftslehre er-<lb/>
+weiſen, daſs es einen ſolchen abſolut-erſten Grundſatz<lb/>
+geben müſſe.</p>           <lb/>
+<p>Soll es kein ſolches Syſtem geben, ſo laſſen ſich<lb/>
+nur zwei Fälle denken. Entweder, es giebt überhaupt<lb/>
+nichts unmittelbar Gewiſſes; unſer Wiſſen bildet meh-<lb/>
+rere oder Eine unendliche Reihe, in der jeder Satz<lb/>
+durch einen höhern, und dieſer wieder durch einen<lb/>
+<supplied>höh</supplied>ern u. ſ. f. begründet wird. Wir bauen unſre<lb/>
+<supplied>Woh</supplied>nhäuſer auf den Erdboden, dieſer ruht auf einem<lb/>
+<fw type="catch" place="bottom">Elephan-</fw><lb/>
+<pb n="27" facs="#f0035"/>
+Elephanten, dieſer auf einer Schildkröte, dieſer — wer<lb/>
+weiſs es, auf was, und ſo ins unendliche fort. —<lb/>
+Wenn es mit unſerm Wiſſen einmal ſo beſchaffen iſt,<lb/>
+ſo können wir es freilich nicht ändern, aber wir ha-<lb/>
+ben dann auch kein feſtes Wiſſen: wir ſind vielleicht<lb/>
+bis auf ein gewiſſes Glied in der Reihe zurückgegan-<lb/>
+gen, und bis auf dieſes haben wir alles feſt gefunden;<lb/>
+aber wer kann uns dafür einſtehen, daſs wir nicht,<lb/>
+wenn wir etwa noch tiefer gehen ſollten, den Ungrund<lb/>
+deſſelben finden, und es werden aufgeben müſſen?<lb/>
+Unſre Gewiſsheit iſt erbeten, und wir können ihrer<lb/>
+nie auf den folgenden Tag ſicher ſeyn.</p>           <lb/>
+<p>Oder — der zweite Fall — unſer Wiſſen beſteht<lb/>
+aus endlichen Reihen, aber aus mehrern. Jede Reihe<lb/>
+ſchlieſst ſich in einem Grundſatze, der durch keinen<lb/>
+andern, ſondern bloſs durch ſich ſelbſt begründet wird;<lb/>
+aber es giebt ſolcher Grundſätze mehrere, welche, da<lb/>
+ſie ſich alle, und ſchlechthin unabhängig von allen übri-<lb/>
+gen begründen, keinen Zuſammenhang unter ſich<lb/>
+haben, ſondern völlig iſolirt ſind. Es giebt etwa meh-<lb/>
+rere angebohrne Wahrheiten in uns, die alle gleich<lb/>
+angebohren ſind, und in deren Zuſammenhang wir<lb/>
+keine weitere Einſicht erwarten können, da derſelbe<lb/>
+über die angebohrnen Wahrheiten hinaus liegt; oder<lb/>
+es giebt ein mannigfaltiges Einfaches in den Dingen<lb/>
+auſſer uns, das uns durch den Eindruck, den ſie auf<lb/>
+uns machen, mitgetheilt wird, in deſſen Zuſammen-<lb/>
+hang wir aber nicht eindringen können, da es über<lb/>
+das Einfachſte im Eindrucke kein noch einfacheres ge-<lb/>
+ben kann. — Wenn es ſich ſo verhält; wenn das<lb/>
+menſchliche Wiſſen an ſich, und ſeiner Natur nach<lb/>
+<fw type="catch" place="bottom">ſolches</fw><lb/>
+<pb n="28" facs="#f0036"/>
+ſolches Stückwerk iſt, wie das wirkliche Wiſſen ſo vie-<lb/>
+ler Menſchen; wenn urſprünglich eine Menge Fäden<lb/>
+in unſerm Geiſte liegen, die unter ſich in keinem Punkte<lb/>
+zuſammenhängen, noch zuſammengehängt werden kön-<lb/>
+nen, ſo vermögen wir abermals nicht gegen unſre Na-<lb/>
+tur zu ſtreiten; unſer Wiſſen iſt, ſo weit es ſich er-<lb/>
+ſtreckt, zwar ſicher; aber es iſt kein <hi rendition="#i">einiges</hi> Wiſſen,<lb/>
+ſondern es ſind <hi rendition="#i">viele</hi> Wiſſenſchaften. — Unſre Woh-<lb/>
+nung ſtünde dann zwar feſt, aber es wäre nicht ein<lb/>
+einiges zuſammenhängendes Gebäude, ſondern ein<lb/>
+Aggregat von Kammern, aus deren keiner wir in die<lb/>
+andre übergehen könnten; es wäre eine Wohnung, in<lb/>
+der wir uns immer verirren, und nie einheimiſch wer-<lb/>
+den würden. Es wäre kein Licht darin, und wir<lb/>
+blieben bei allen unſern Reichthümern arm, weil<lb/>
+wir dieſelben nie überſchlagen, nie als ein Ganzes<lb/>
+betrachten, und nie wiſſen könnten, was wir ei-<lb/>
+gentlich beſäſsen; wir könnten nie einem Theil der-<lb/>
+ſelben zur Verbeſſerung des übrigen anwenden, weil<lb/>
+kein Theil ſich auf das übrige bezöge. Noch mehr,<lb/>
+unſer Wiſſen wäre nie vollendet; wir müſsten täglich<lb/>
+erwarten, daſs eine neue angebohrne Wahrheit ſich in<lb/>
+uns äuſſere, oder die Erfahrung uns ein neues Einfa-<lb/>
+ches geben würde. Wir müſsten immer bereit ſeyn,<lb/>
+uns irgendwo ein neues Häuschen anzubauen. — Dann<lb/>
+wäre keine allgemeine Wiſſenſchaftslehre nöthig, um<lb/>
+andre Wiſſenſchaften zu begründen. Jede wäre auf ſich<lb/>
+ſelbſt gegründet. Es würden ſo viele Wiſſenſchaften<lb/>
+geben, als es einzelne unmittelbar gewiſſe Grund-<lb/>
+ſätze gäbe.</p>           <lb/>
+<fw type="catch" place="bottom">Soll</fw>           <lb/>
+<pb n="29" facs="#f0037"/>
+<p>Soll aber nicht etwa bloſs ein oder mehrere Frag-<lb/>
+mente eines Syſtems, wie im erſten Falle, oder meh-<lb/>
+rere Syſteme wie im zweiten, ſondern ſoll ein vollen-<lb/>
+detes und Einiges Syſtem im menſchlichen Geiſte ſeyn,<lb/>
+ſo muſs es einen ſolchen höchſten und abſolut-erſten<lb/>
+Grundſatz geben. Verbreite von ihm aus ſich unſer<lb/>
+Wiſſen in noch ſo viele Reihen, von deren jeder wie-<lb/>
+der Reihen u. ſ. f. ausgehen, ſo müſſen doch alle in<lb/>
+einem einzigen Ringe feſthangen, der an nichts befe-<lb/>
+ſtiget iſt, ſondern durch ſeine eigne Kraft ſich, und<lb/>
+das ganze Syſtem hält. — Wir haben nun, einen<lb/>
+durch ſeine eigene Schwerkraft ſich haltenden Erdball,<lb/>
+deſſen Mittelpunkt alles, was wir nun wirklich auf dem<lb/>
+Umkreiſe deſſelben, und nicht etwa in die Luft, und<lb/>
+nur perpendikular, und nicht etwa ſchiefwinklicht an-<lb/>
+gebaut haben, allmächtig anzieht, und kein Stäubchen<lb/>
+aus ſeiner Sphäre ſich entreiſſen läſst.</p>           <lb/>
+<p>Ob es ein ſolches Syſtem, und, — was die Be-<lb/>
+dingung deſſelben iſt, — einen ſolchen Grundſatz gebe,<lb/>
+darüber können wir vor der Unterſuchung vorher nichts<lb/>
+entſcheiden. Der Grundſatz läſst ſich nicht nur als<lb/>
+bloſser Satz, er läſst ſich auch als Grundſatz alles Wiſ-<lb/>
+ſens nicht erweiſen. Es kommt auf den Verſuch an.<lb/>
+Finden wir einen Satz, der die innern Bedingungen<lb/>
+des Grundſatzes alles menſchlichen Wiſſens hat, ſo ver-<lb/>
+ſuchen wir, ob er auch die äuſſern habe; ob alles, was<lb/>
+wir wiſſen, oder zu wiſſen glauben, auf ihn ſich zu-<lb/>
+rückführen laſſe. Gelingt es uns, ſo haben wir durch<lb/>
+die wirkliche Aufſtellung der Wiſſenſchaft bewieſen,<lb/>
+daſs ſie möglich war, und daſs es ein Syſtem des menſch-<lb/>
+lichen Wiſſens gebe, deſſen Darſtellung ſie iſt. Gelingt<lb/>
+<fw type="catch" place="bottom">es</fw><lb/>
+<pb n="30" facs="#f0038"/>
+es uns nicht, ſo iſt entweder überhaupt kein ſolches<lb/>
+Syſtem, oder wir haben es nur nicht entdeckt, und<lb/>
+müſſen die Entdeckung deſſelben glücklichern Nachfol-<lb/>
+gern überlaſſen. Geradezu behaupten, daſs es über-<lb/>
+haupt keines gebe, weil wir es nicht gefunden haben,<lb/>
+iſt eine Anmaaſsung, deren Widerlegung unter der<lb/>
+Würde der ernſten Betrachtung iſt.</p>         </div>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/>       <fw type="catch" place="bottom">         <hi rendition="#b">           <hi rendition="#g">Zwei-</hi>         </hi>       </fw>       <lb/>
+<pb n="31" facs="#f0039"/>
+<milestone unit="section" rendition="#hr"/>       <div n="1">         <head>           <hi rendition="#b"><hi rendition="#g">Zweiter Abſchnitt</hi>.<lb/>
+<milestone unit="section" rendition="#hr"/> Erörterung des Begriffs der Wiſ-<lb/>
+ſenſchaftslehre.</hi>         </head>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <div n="2">           <head>§. 3.</head>           <lb/>
+<p><hi rendition="#in">E</hi>inen Begriff wiſſenſchaftlich erörtern — und es iſt<lb/>
+klar, daſs hier von keiner andern, als dieſer höchſten<lb/>
+aller Erörterungen die Rede ſeyn kann — nenne ich<lb/>
+das, wenn man den Ort deſſelben im Syſtem der menſch-<lb/>
+lichen Wiſſenſchaften überhaupt angiebt, d. i., zeigt<lb/>
+welcher Begriff ihn ſeine Stelle beſtimmen, und wel-<lb/>
+chem andern ſie durch daſſelbe beſtimmt werden. Nun<lb/>
+aber kann der Begriff der Wiſſenſchaftslehre überhaupt<lb/>
+im Syſtem aller Wiſſenſchaften, eben ſo wenig einen<lb/>
+Ort haben, als der des Wiſſens an ſich, im Syſtem des<lb/>
+Wiſſens überhaupt: vielmehr iſt er ſelbſt der Ort für<lb/>
+alle wiſſenſchaftlichen Begriffe, und weiſet ihnen ihre<lb/>
+Stellen in ſich ſelbſt, und durch ſich ſelbſt an. Es iſt<lb/>
+klar, daſs hier nur von einer hypothetiſchen <supplied>Erörter-</supplied><lb/>
+rung geredet werde, d. i. die Frag<supplied>e</supplied> <supplied>ist</supplied> <supplied>die:</supplied> <supplied>vorausge-</supplied><lb/>
+ſetzt, daſs es ſchon Wiſſenſchaf<supplied>ten</supplied> <supplied>gebe</supplied> <supplied>und daſs</supplied><lb/>
+<fw type="catch" place="bottom">Wahrheit</fw><lb/>
+<pb n="32" facs="#f0040"/>
+Wahrheit in ihnen ſey, (welches man von der allge-<lb/>
+meinen Wiſſenſchaftslehre vorher gar nicht wiſſen kann)<lb/>
+wie verhält ſich die aufzuſtellende Wiſſenſchaftslehre,<lb/>
+zu dieſen Wiſſenſchaften?</p>           <lb/>
+<p>Auch dieſe Frage iſt durch den bloſsen Begriff der-<lb/>
+ſelben ſchon beantwortet. Die letztern verhalten ſich<lb/>
+zu den erſtern, wie das Begründete zu ſeinem Grunde;<lb/>
+ſie weiſen derſelben ihre Stellen nicht an; aber jene<lb/>
+weiſet ihnen allen ihre Stellen in ſich ſelbſt und durch<lb/>
+ſich ſelbſt an. Demnach iſt es hier bloſs um eine weite-<lb/>
+re Entwicklung dieſer Antwort zu thun.</p>           <lb/>
+<p>Die Wiſſenſchaftslehre ſollte eine Wiſſenſchaft aller<lb/>
+Wiſſenſchaften ſeyn. Hierbei entſteht zuförderſt die<lb/>
+Frage: Wie kann ſie verbürgen, daſs ſie nicht nur alle<lb/>
+bis jetzt bekannten und erfundenen, ſondern auch alle<lb/>
+erfindbaren und möglichen Wiſſenſchaften begründet,<lb/>
+und daſs ſie das ganze Gebiet des menſchlichen Wiſſens<lb/>
+vollkommen erſchöpft habe?</p>           <lb/>
+<p>Sie ſollte in dieſer Rückſicht allen Wiſſenſchaften<lb/>
+ihre Grundſätze geben. Alle Sätze demnach, die in<lb/>
+irgend einer beſondern Wiſſenſchaft Grundſätze ſind,<lb/>
+ſind zugleich auch einheimiſche Sätze der Wiſſenſchafts-<lb/>
+lehre; ein und ebenderſelbe Satz iſt aus zwei Geſichts-<lb/>
+punckten zu betrachten. Die Wiſſenſchaftslehre folgert<lb/>
+aus dem Satze, als einem in ihr enthaltenen weiter;<lb/>
+und die beſondere Wiſſenſchaft folgert aus dem gleichen<lb/>
+Satze, als ihrem Grundſatze, auch weiter. Alſo folgt<lb/>
+entweder in beiden Wiſſenſchaften das gleiche; alle be-<lb/>
+ſondere Wiſſenſchaften ſind nicht nur ihrem Grundſatze,<lb/>
+<fw type="catch" place="bottom">ſondern</fw><lb/>
+<pb n="33" facs="#f0041"/>
+ſondern auch ihren abgeleiteten Sätzen nach in der Wiſſen-<lb/>
+ſchaftslehre enthalten; und es giebt gar keine beſondre<lb/>
+Wiſſenſchaft, ſondern nur Theile einer und eben der-<lb/>
+ſelben Wiſſenſchaftslehre; oder es wird in beiden Wiſ-<lb/>
+ſenſchaften auf verſchiedene Art gefolgert, welches<lb/>
+auch nicht möglich iſt, da die Wiſſenſchaftslehre allen<lb/>
+Wiſſenſchaften ihre Form geben ſoll: oder es muſs zu<lb/>
+einem Satze der bloſſen Wiſſenſchaftslehre noch Etwas,<lb/>
+das freilich nirgend anders her als aus der Wiſſenſchafts-<lb/>
+lehre entlehnt ſeyn kann, hinzukommen, wenn er<lb/>
+Grundſatz einer beſondern Wiſſenſchaft werden ſoll.<lb/>
+Es entſteht die Frage: welches iſt das hinzukommende,<lb/>
+oder — da dieſes hinzukommende die Unterſcheidung<lb/>
+ausmacht — welches iſt die beſtimmte Grenze zwiſchen<lb/>
+der Wiſſenſchaftslehre überhaupt, und jeder beſondern<lb/>
+Wiſſenſchaft.</p>           <lb/>
+<p>Die Wiſſenſchaftslehre ſollte ferner in dergleichen<lb/>
+Rückſicht allen Wiſſenſchaften ihre Form beſtimmen.<lb/>
+Wie das geſchehen könne, iſt ſchon oben angezeigt.<lb/>
+Aber es tritt eine andere Wiſſenſchaft, unter dem Na-<lb/>
+men der <hi rendition="#i">Logik</hi>, mit den gleichen Anſprüchen uns in<lb/>
+den Weg. Zwiſchen beiden muſs entſchieden, es muſs<lb/>
+unterſucht werden, wie die Wiſſenſchaftslehre ſich zur<lb/>
+Logik verhalte.</p>           <lb/>
+<p>Die Wiſſenſchaftslehre iſt ſelbſt eine Wiſſenſchaft,<lb/>
+und was ſie in dieſer Rückſicht zu leiſten habe, iſt oben<lb/>
+beſtimmt. Aber in ſofern ſie bloſse Wiſſenſchaft iſt, iſt<lb/>
+ſie Wiſſenſchaft von irgend <hi rendition="#i">Etwas</hi>; ſie hat einen Gegen-<lb/>
+ſtand, und es iſt aus dem obigen klar, daſs dieſer Ge-<lb/>
+genſtand kein andrer ſei, als das Syſtem des menſchlichen<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">Wiſ-</fw><lb/>
+<pb n="34" facs="#f0042"/>
+Wiſſens überhaupt. Es entſteht die Frage: wie verhält<lb/>
+ſich die Wiſſenſchaft, als Wiſſenſchaft, zu ihrem Gegen-<lb/>
+ſtande, als ſolchem.</p>         </div>         <lb/>
+<div n="2">           <head>§. 4. <hi rendition="#i">In wie fern kann die Wiſſenſchaftslehre<lb/>
+ſicher ſeyn, das menſchliche Wiſſen überhaupt<lb/>
+erſchöpft zu haben?</hi></head>           <lb/>
+<p>Das <hi rendition="#i">bisherige</hi> wahre oder eingebildete menſchliche<lb/>
+Wiſſen, iſt nicht das menſchliche Wiſſen überhaupt.<lb/>
+Geſetzt, ein Philoſoph könnte daſſelbe wirklich umfaſst<lb/>
+haben, und durch eine vollſtändige Induktion den Be-<lb/>
+weiſs führen, daſs es in ſeinem Syſtem enthalten ſei,<lb/>
+ſo hätte er dadurch ſeiner Aufgabe noch bei weitem keine<lb/>
+Genüge gethan: denn wie wollte er durch ſeine Induk-<lb/>
+tion aus der bisherigen Erfahrung erweiſen, daſs auch<lb/>
+in der Zukunft keine Entdeckung gemacht werden könne,<lb/>
+die nicht unter ſein Syſtem paſſe? — Nicht gründlicher<lb/>
+würde die Ausflucht ſeyn, daſs er etwa nur das in der<lb/>
+gegenwärtigen Sphäre der menſchlichen Exiſtenz mög-<lb/>
+liche Wiſſen habe erſchöpfen wollen; denn wenn ſeine<lb/>
+Philoſophie nur für dieſe Sphäre gilt, ſo kennt er keine<lb/>
+mögliche andre, er kennt demnach auch die Grenzen<lb/>
+derjenigen nicht, die durch ſeine Philoſophie erſchöpft<lb/>
+werden ſoll; er hat willkürlich eine Grenze gezogen,<lb/>
+deren Wahrheit er kaum durch etwas anders, als durch<lb/>
+die bisherige Erfahrung erweiſen kann, welche durch<lb/>
+eine künftige Erfahrung ſelbſt innerhalb ſeiner vorge-<lb/>
+gebnen Sphäre immer widerſprochen werden könnte.<lb/>
+Das menſchliche Wiſſen überhaupt ſoll erſchöpft wer-<lb/>
+den, heiſst, es ſoll unbedingt und ſchlechthin beſtimmt<lb/>
+werden, was der Menſch nicht bloſs auf der jetzigen<lb/>
+<fw type="catch" place="bottom">Stuffe</fw><lb/>
+<pb n="35" facs="#f0043"/>
+Stuffe ſeiner Exiſtenz, ſondern auf allen möglichen und<lb/>
+denkbaren Stuffen derſelben wiſſen könne <note place="foot" n="*)">Auf einen möglichen Einwurf, den aber nur ein Popular-<lb/>
+Philoſoph machen könnte! — Die eigentlichen Aufgaben des<lb/>
+menſchlichen Geiſtes ſind freilich, ſo wohl ihrer Anzahl, als<lb/>
+ihrer Ausdehnung nach unendlich; ihre Auflöſung wäre nur<lb/>
+durch eine vollendete Annäherung zum Unendlichen möglich,<lb/>
+welche an ſich unmöglich iſt: aber ſie ſind es darum, weil ſie<lb/>
+gleich <hi rendition="#i">als</hi> unendlich gegeben werden. Es ſind unendlich viele<lb/>
+Radien eines unendlichen Zirkels, deſſen Mittelpunkt gegeben<lb/>
+iſt; und ſo wie der Mittelpunkt gegeben iſt, iſt ja wohl der<lb/>
+ganze unendliche Zirkel, und die unendlich vielen Radien<lb/>
+deſſelben gegeben. Der eine Endpunkt derſelben liegt freilich<lb/>
+in der Unendlichkeit; aber der andre liegt im Mittelpunkte,<lb/>
+und derſelbe iſt allen gemein. Der Mittelpunkt iſt gegeben;<lb/>
+die Richtung der Linien iſt auch gegeben, denn es ſollen ge-<lb/>
+rade Linien ſeyn: alſo ſind alle Radien gegeben (einzelne<lb/>
+Radien aus der unendlichen Anzahl derſelben, werden durch<lb/>
+Eindrücke vom Nicht-Ich <hi rendition="#i">beſtimmt</hi>, als wirklich zuziehende;<lb/>
+aber nicht <hi rendition="#i">gegeben; gegeben</hi> waren ſie zugleich mit dem Mittel-<lb/>
+punkte.) Das menſchliche Wiſſen iſt den <hi rendition="#i">Graden</hi> nach unend-<lb/>
+lich, aber der <hi rendition="#i">Art</hi> nach iſt es durch ſeine Geſetze vollſtändig<lb/>
+beſtimmt, und läſst ſich gänzlich erſchöpfen.</note>.</p>           <lb/>
+<p>Dies iſt nur unter folgenden Bedingungen möglich:<lb/>
+zuförderſt, daſs ſich zeigen laſſe, der aufgeſtellte Grund-<lb/>
+ſatz ſei erſchöpft; und dann, es ſei kein anderer Grund-<lb/>
+ſatz möglich, als der aufgeſtellte.</p>           <lb/>
+<p>Ein Grundſatz iſt erſchöpft, wenn ein vollſtändiges<lb/>
+Syſtem auf demſelben aufgebaut iſt, d. i., wenn der<lb/>
+Grundſatz nothwendig auf <hi rendition="#i">alle</hi> aufgeſtellten Sätze führt,<lb/>
+und <hi rendition="#i">alle</hi> aufgeſtellten Sätze nothwendig wieder auf ihn<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">zurück-</fw><lb/>
+<pb n="36" facs="#f0044"/>
+zurückführen. Wenn kein Satz im ganzen Syſtem vor-<lb/>
+kommt, welcher wahr ſeyn kann, wenn der Grund-<lb/>
+ſatz falſch iſt, oder falſch, wenn der Grundſatz wahr<lb/>
+iſt, ſo iſt dies der negative Beweiſs, daſs kein Satz zu-<lb/>
+viel in das Syſtem aufgenommen worden; denn derje-<lb/>
+nige, der nicht in das Syſtem gehörte würde wahr ſeyn<lb/>
+können, wenn der Grundſatz falſch, oder falſch, wenn<lb/>
+auch der Grundſatz wahr wäre. Iſt der Grundſatz ge-<lb/>
+geben, ſo müſſen <hi rendition="#i">alle</hi> Sätze gegeben ſeyn; in ihm und<lb/>
+durch ihn iſt jeder einzelne gegeben. Es iſt aus dem,<lb/>
+was wir oben über die Verkettung der einzelnen Sätze<lb/>
+in der Wiſſenſchaftslehre geſagt haben, klar, daſs dieſe<lb/>
+Wiſſenſchaft den angezeigten negativen Beweiſs unmit-<lb/>
+telbar in ſich ſelbſt und durch ſich ſelbſt führe. Durch<lb/>
+ihn wird erwieſen, daſs die Wiſſenſchaft <hi rendition="#i">ſyſtematiſch</hi> ſei,<lb/>
+daſs alle ihre Theile in einem einzigen Grundſatze zu-<lb/>
+ſammenhangen. — Die Wiſſenſchaft iſt ein <hi rendition="#i">Syſtem</hi>, oder<lb/>
+ſie iſt vollendet, wenn weiter kein Satz gefolgert wer-<lb/>
+den kann: und dies giebt den poſitiven Beweiſs, daſs<lb/>
+kein Satz zu viel in das Syſtem aufgenommen worden.<lb/>
+Die Frage iſt nur die: wann und unter welchen Bedin-<lb/>
+gungen kann kein Satz weiter gefolgert werden; denn<lb/>
+es iſt klar, daſs das bloſs relative und negative Merkmal:<lb/>
+<hi rendition="#i">ich</hi> ſehe nicht was weiter folgen könne, nichts beweiſt.<lb/>
+Es könnte wohl nach mir ein anderer kommen, wel-<lb/>
+cher da, wo ich nichts ſah, etwas ſähe. Wir bedürfen<lb/>
+eines poſitiven Merkmals, daſs ſchlechthin und unbe-<lb/>
+dingt nichts weiter gefolgert werden könne; und das<lb/>
+könnte kein anders ſeyn, als das, daſs der Grundſatz,<lb/>
+von welchem wir ausgegangen wären, das letzte Reſul-<lb/>
+tat ſey. Dann wäre klar, daſs wir nicht weiter gehen<lb/>
+könnten, ohne den Weg, den wir ſchon einmal ge-<lb/>
+<fw type="catch" place="bottom">macht</fw><lb/>
+<pb n="37" facs="#f0045"/>
+macht, noch einmal zu machen. Es wird ſich bey ein-<lb/>
+ſtiger Aufſtellung der Wiſſenſchaft zeigen, daſs ſie dieſen<lb/>
+Kreislauf wirklich vollendet, und den Forſcher gerade<lb/>
+bey dem Punkte verläſst, von welchem ſie mit ihm aus-<lb/>
+ging, daſs ſie alſo gleichfalls den zweyten poſitiven Be-<lb/>
+weiſs in ſich ſelbſt und durch ſich ſelbſt führt <note place="foot" n="*)">Die Wiſſenſchaftslehre hat alſo abſolute Totalität. In ihr<lb/>
+führt Eins zu Allem, und Alles zu Einem. Sie iſt aber die ein-<lb/>
+zige Wiſſenſchaft welche vollendet werden kann; Vollendung<lb/>
+iſt demnach ihr auszeichnender Charakter. Alle andere Wiſſen-<lb/>
+ſchaften ſind unendlich, und können nie vollendet werden;<lb/>
+denn ſie laufen nicht wieder in ihren Grundſatz zurück. Die<lb/>
+Wiſſenſchaftslehre hat dies für alle zu beweiſen und den Grund<lb/>
+davon anzugeben.</note>.</p>           <lb/>
+<p>Aber, wenn auch der aufgeſtellte Grundſatz er-<lb/>
+ſchöpft, und auf ihn ein vollſtändiges Syſtem aufgebaut<lb/>
+iſt, ſo folgt daraus noch gar nicht, daſs durch ſeine<lb/>
+Erſchöpfung das menſchliche Wiſſen überhaupt er-<lb/>
+ſchöpft ſey; wenn man nicht ſchon vorausſetzt, was<lb/>
+erwieſen werden ſollte, daſs jener Grundſatz der Grund-<lb/>
+ſatz des menſchlichen Wiſſens überhaupt ſey. Zu je-<lb/>
+nem vollendeten Syſteme kann freylich nichts mehr<lb/>
+weder dazu noch davon gethan werden; aber, was<lb/>
+verhindert es denn, daſs nicht etwa in der Zukunft,<lb/>
+wenn auch bis jetzt ſich keine Spur davon zeigen ſollte,<lb/>
+durch die vermehrte Erfahrung, Sätze zu dem menſch-<lb/>
+lichen Bewuſstſeyn gelangen ſollten, die ſich nicht auf<lb/>
+jenen Grundſatz gründen, die alſo einen oder mehrere<lb/>
+andere Grundſätze vorausſetzen: kurz, warum ſollten<lb/>
+neben jenem vollendeten Syſteme, nicht noch eine oder<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">meh-</fw><lb/>
+<pb n="38" facs="#f0046"/>
+mehrere andere Syſteme im menſchlichen Geiſte beſte-<lb/>
+hen können? Sie würden freilich weder mit jenem<lb/>
+erſten, noch unter ſich ſelbſt den geringſten Zuſammen-<lb/>
+hang, den kleinſten gemeinſchaftlichen Punkt haben:<lb/>
+aber das ſollen ſie auch nicht, wenn ſie nicht ein ein-<lb/>
+ziges, ſondern mehrere Syſteme bilden ſollen. Es müſs-<lb/>
+te alſo, wenn die Unmöglichkeit ſolcher neuen Ent-<lb/>
+deckungen befriedigend dargethan werden ſollte, er-<lb/>
+wieſen werden, <hi rendition="#i">daſs</hi> nur ein einziges Syſtem im menſch-<lb/>
+lichen Wiſſen ſeyn könne. — Da dieſer Satz, daſs das<lb/>
+Syſtem ein einziges ſei, ſelbſt ein Beſtandtheil des<lb/>
+menſchlichen Wiſſens ſeyn ſollte, ſo könnte er ſich auf<lb/>
+nichts anders gründen, als auf den Grundſatz alles<lb/>
+menſchlichen Wiſſens, und nirgendsher bewieſen wer-<lb/>
+den, als aus demſelben. Hierdurch wäre nun, vor der<lb/>
+Hand wenigſtens, ſoviel gewonnen, daſs ein anderer,<lb/>
+etwa einmal zum menſchlichen Bewuſstſeyn gelangender<lb/>
+Grundſatz, nicht bloſs ein <hi rendition="#i">andrer</hi>, und von dem aufge-<lb/>
+ſtellten Grundſatze <hi rendition="#i">verſchiedener</hi>, ſondern auch ein dem-<lb/>
+ſelben <hi rendition="#i">gerade entgegengeſetzter</hi> ſeyn müſste. Denn unter<lb/>
+der obigen Vorausſetzung müſste im aufgeſtellten Grund-<lb/>
+ſatze der Satz enthalten ſeyn: im menſchlichen Wiſſen<lb/>
+iſt ein einiges Syſtem. Jeder Satz nun, der nicht zu<lb/>
+dieſem einigen Syſteme gehören ſollte, wäre von dieſem<lb/>
+Syſteme nicht bloſs verſchieden, ſondern ihm, inſofern<lb/>
+jenes Syſtem das einige ſeyn ſollte, ſogar entgegenge-<lb/>
+ſetzt, und müſste auf einem Grundſatze beruhen, in<lb/>
+welchem der Satz läge: Das menſchliche Wiſſen iſt <hi rendition="#i">nicht</hi><lb/>
+ein einiges Syſtem. Man müſste durch weiteres Zurück-<lb/>
+ſchlieſſen auf einen dem erſten Grundſatze geradezu<lb/>
+entgegengeſetzten Grundſatz kommen; und wenn der<lb/>
+erſtere z. B. hieſſe: Ich bin Ich, ſo müſste der andere<lb/>
+heiſſen: Ich bin Nicht-Ich.</p>           <lb/>
+<fw type="catch" place="bottom">Aus</fw>           <lb/>
+<pb n="39" facs="#f0047"/>
+<p>Aus dieſem Widerſpruche ſoll und kann nun nicht<lb/>
+geradezu die Unmöglichkeit eines ſolchen zweiten<lb/>
+Grundſatzes gefolgert werden. Wenn im erſten Grund-<lb/>
+ſatze der Satz liegt: das Syſtem des menſchlichen Wiſ-<lb/>
+ſens ſey ein einiges, ſo liegt freilich auch der darin,<lb/>
+daſs dieſem einigen Siſteme nichts widerſprechen müſſe;<lb/>
+aber beide Sätze ſind ja erſt Folgerungen aus ihm ſelbſt,<lb/>
+und ſo wie die abſolute Gültigkeit alles deſſen, was<lb/>
+aus ihm folgt, angenommen wird, wird ja ſchon an-<lb/>
+genommen, daſs er abſolut-erſter und einziger Grund-<lb/>
+ſatz ſei, und im menſchlichen Wiſſen ſchlechthin ge-<lb/>
+biete. Alſo iſt hier ein Zirkel, aus dem der menſch-<lb/>
+liche Geiſt nie herausgehen kann; und man thut recht<lb/>
+wohl daran, dieſen Zirkel beſtimmt zuzugeſtehen, da-<lb/>
+mit man nicht etwa einmahl über die unerwartete Ent-<lb/>
+deckung deſſelben in Verlegenheit gerathe. Er iſt fol-<lb/>
+gender: Wenn der Satz R erſter höchſter und abſoluter<lb/>
+Grundſatz des menſchlichen Wiſſens iſt, ſo iſt im menſch-<lb/>
+lichen Wiſſen ein einiges Syſtem: denn das letztere folgt<lb/>
+aus dem Satze R.: Da nun im menſchlichen Wiſſen ein<lb/>
+einiges Syſtem ſeyn ſoll, ſo iſt der Satz R, der wirk-<lb/>
+lich (laut der aufgeſtellten Wiſſenſchaft,) ein Syſtem be-<lb/>
+gründet, Grundſatz des menſchlichen Wiſſens überhaupt,<lb/>
+und das auf ihn gegründete Syſtem, iſt jenes einige<lb/>
+Syſtem des menſchlichen Wiſſens.</p>           <lb/>
+<p>Ueber dieſen Zirkel hat man nun nicht Urſache<lb/>
+betreten zu ſeyn. Verlangen, daſs er gehoben werde,<lb/>
+heiſst verlangen, daſs das menſchliche Wiſſen völlig<lb/>
+grundloſs ſei, daſs es gar nichts ſchlechthin gewiſſes<lb/>
+geben, ſondern daſs alles menſchliche Wiſſen nur be-<lb/>
+dingt ſeyn, und daſs kein Satz an ſich, ſondern jeder<lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">nur</fw><lb/>
+<pb n="40" facs="#f0048"/>
+nur unter der Bedingung gelten ſolle, daſs derjenige,<lb/>
+aus dem er folgt, gelte. Wer Luſt dazu hat, mag im-<lb/>
+mer unterſuchen, was er wiſſen würde, wenn ſein Ich<lb/>
+nicht Ich wäre, d. i., wenn er nicht exiſtirte, und<lb/>
+kein Nicht-Ich von ſeinen Ich unterſcheiden könnte.</p>         </div>         <lb/>
+<div n="2">           <head>§. 5. <hi rendition="#i">Welches iſt die Grenze, die die allgemeine<lb/>
+Wiſſenſchaftslehre von der beſondern durch ſie<lb/>
+begründeten Wiſſenſchaft ſcheidet?</hi></head>           <lb/>
+<p>Wir fanden oben (§. 3.) daſs ein und eben derſelbe<lb/>
+Satz nicht in dergleichen Beziehung ein Satz der allge-<lb/>
+meinen Wiſſenſchaftslehre und ein Grundſatz irgend<lb/>
+einer beſondern Wiſſenſchaft ſeyn könne; ſondern daſs<lb/>
+etwa noch etwas hinzukommen müſſe, wenn er das<lb/>
+letztere ſeyn ſoll. — Das, was hinzukommen muſs,<lb/>
+kann nirgend anders her, als aus der allgemeinen Wiſ-<lb/>
+ſenſchaftslehre entlehnt ſeyn, da in ihr alles mögliche<lb/>
+menſchliche Wiſſen enthalten iſt; aber es muſs dort<lb/>
+nicht in eben dem Satze liegen, der jetzt durch den<lb/>
+Zuſatz deſſelben zum Grundſatze einer Wiſſenſchafts-<lb/>
+lehre erhoben werden ſoll, denn ſonſt wäre er ſchon<lb/>
+dort Grundſatz, und wir hätten keine Grenze zwiſchen<lb/>
+der beſondern Wiſſenſchaft, und den Theilen der all-<lb/>
+gemeinen Wiſſenſchaftslehre. Es muſs demnach etwa<lb/>
+ein einzelner Satz der Wiſſenſchaftslehre ſeyn, der mit<lb/>
+dem Satze, der Grundſatz werden ſoll, vereinigt wird.<lb/>
+Da wir hier nicht einen unmittelbaren aus den Begrif-<lb/>
+fen der Wiſſenſchaftslehre ſelbſt entlehnten, ſondern<lb/>
+einen aus der Vorausſetzung, daſs es auſſer ihr wirk-<lb/>
+lich noch andre von ihr getrennte Wiſſenſchaften gebe,<lb/>
+entſpringenden Einwurf zu beantworten haben, ſo<lb/>
+<fw type="catch" place="bottom">kön-</fw><lb/>
+<pb n="41" facs="#f0049"/>
+können wir ihn nicht anders, als gleichfalls durch eine<lb/>
+Vorausſetzung beantworten; und wir haben vor de<supplied>r</supplied><lb/>
+Hand genug gethan, wenn wir nur irgend eine Mög-<lb/>
+lichkeit der geforderten Begrenzung aufzeigen. Daſs<lb/>
+ſie die wahre Grenze angebe — ob es gleich wohl der<lb/>
+Fall ſeyn dürfte — können und ſollen wir hier nicht<lb/>
+beweiſen.</p>           <lb/>
+<p>Man ſetze demnach, die Wiſſenſchaftslehre ent-<lb/>
+halte diejenigen beſtimmten Handlungen des menſch-<lb/>
+lichen Geiſtes, die er alle, ſei er nun bedingt oder un-<lb/>
+bedingt, gezwungen und nothwendig vollbringt; ſie<lb/>
+ſtelle aber dabei als höchſten Erklärungsgrund jener<lb/>
+nothwendigen Handlungen überhaupt, ein Vermögen<lb/>
+derſelben auf, ſich ſchlechthin ohne Zwang und Nöthi-<lb/>
+gung zum handeln überhaupt zu beſtimmen; ſo wäre<lb/>
+durch die Wiſſenſchaftslehre ein nothwendiges und ein<lb/>
+nicht nothwendiges oder freyes Handeln gegeben. Die<lb/>
+Handlungen des menſchlichen Geiſtes, in ſo fern er<lb/>
+nothwendig handelt, wären durch ſie beſtimmt, nicht<lb/>
+aber in ſo fern er frey handelt. — Man ſetze ferner:<lb/>
+auch die freien Handlungen ſollten, aus irgend einem<lb/>
+Grunde beſtimmt werden, ſo könnte das nicht in der<lb/>
+Wiſſenſchaftslehre geſchehen, müſste aber doch, da von<lb/>
+<hi rendition="#i">Beſtimmung</hi> die Rede iſt, in <hi rendition="#i">Wiſſenſchaften</hi>, und alſo in<lb/>
+beſondern Wiſſenſchaften geſchehen. Der Gegenſtand<lb/>
+dieſer freien Handlungen könnte nun kein andrer ſeyn,<lb/>
+als das durch die Wiſſenſchaftslehre überhaupt gegebe-<lb/>
+ne Nothwendige, da nichts vorhanden iſt, das ſie nicht<lb/>
+gegeben hätte, und ſie überall nichts giebt, als das Noth-<lb/>
+wendige. Demnach müſste im Grundſatze einer beſon-<lb/>
+dern Wiſſenſchaft eine Handlung, die die Wiſſenſchafts-<lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">lehre</fw><lb/>
+<pb n="42" facs="#f0050"/>
+lehre frei gelaſſen hätte, beſtimmt werden: Die Wiſſen-<lb/>
+ſchaftslehre gäbe dem Grundſatze das Nothwendige und<lb/>
+die Freiheit überhaupt; die beſondre Wiſſenſchaft aber<lb/>
+gäbe der Freiheit ihre Beſtimmung; und nun wäre die<lb/>
+ſcharfe Grenzlinie gefunden, und ſo bald eine an ſich<lb/>
+freie Handlung eine beſtimmte Richtung bekäme, ſchrit-<lb/>
+ten wir aus dem Gebiete der allgemeinen Wiſſenſchafts-<lb/>
+lehre, auf das Feld einer beſondern Wiſſenſchaft hin-<lb/>
+über. — Ich mache mich durch zwei Beiſpiele deutlich.</p>           <lb/>
+<p>Die Wiſſenſchaftslehre giebt als nothwendig den<lb/>
+Raum und den Punkt als abſolute Grenzen; aber ſie<lb/>
+läſst der Einbildungskraft die völlige Freiheit den Punkt<lb/>
+zu ſetzen, wohin es ihr beliebt. Sobald dieſe Freiheit<lb/>
+beſtimmt wird, z. B. ihn gegen die Begrenzung des<lb/>
+unbegrenzten Raumes fortzubewegen, und dadurch<lb/>
+eine Linie <note place="foot" n="*)">Eine Frage an die Mathematiker! — Liegt nicht der Begriff<lb/>
+des Geraden ſchon im Begriffe der Linie? Giebt es andre Linien<lb/>
+als gerade? und iſt die ſogenannte krumme Linie etwas andres,<lb/>
+als eine Zuſammenreihung unendlich vieler, unendlich naher<lb/>
+Punkte? Der Urſprung derſelben, als Grenzlinie des unend-<lb/>
+lichen Raums (von dem Ich, als Mittelpunkte werden unend-<lb/>
+lich viele unendliche Radien gezogen, denen aber unſre einge-<lb/>
+ſchränkte Einbildungskraft doch einen Endpunkt ſetzen muſs;<lb/>
+dieſe Endpunkte als Eins gedacht, ſind die urſprüngliche Kreis-<lb/>
+linie,) ſcheint mir dafür zu bürgen; und es wird daraus klar,<lb/>
+<hi rendition="#i">daſs</hi>, und <hi rendition="#i">warum</hi> die Aufgabe, ſie durch eine gerade Linie zu<lb/>
+meſſen, unendlich iſt, und nur in einer vollendeten Annäherung<lb/>
+zum Unendlichen erfüllt werden könnte. — Gleichfalls wird<lb/>
+daraus klar, warum die gerade Linie ſich nicht definiren läſst.</note> zu ziehen, ſind wir nicht mehr im Gebie-<lb/>
+te der Wiſſenſchaftslehre, ſondern auf dem Boden einer<lb/>
+beſondern Wiſſenſchaft, welche Geometrie heiſst. Die<lb/>
+<fw type="catch" place="bottom">Auf-</fw><lb/>
+<pb n="43" facs="#f0051"/>
+Aufgabe überhaupt, den Raum nach einer Regel zu be-<lb/>
+grenzen, oder die Conſtruktion in demſelben, iſt Grund-<lb/>
+ſatz der Geometrie, und ſie iſt dadurch von der Wiſſen-<lb/>
+ſchaftslehre ſcharf abgeſchnitten.</p>           <lb/>
+<p>Durch die Wiſſenſchaftslehre ſind ein von den Ge-<lb/>
+ſetzen der bloſsen Vorſtellung ſchlechthin unabhängiges<lb/>
+Nicht-Ich, und die Geſetze nach denen es beobachtet<lb/>
+werden ſoll und muſs <note place="foot" n="*)">So ſonderbar dieſs manchem Naturforſcher vorkommen möge,<lb/>
+ſo wird es ſich doch zu ſeiner Zeit zeigen, daſs es ſich ſtreng<lb/>
+erweiſen läſst: daſs er ſelbſt erſt die Geſetze der Natur, die er<lb/>
+durch Beobachtung von ihr zu lernen glaubt, in ſie hineinge-<lb/>
+legt habe, und daſs ſie ſich, das kleinſte, wie das gröſste, der<lb/>
+Bau des geringfügigſten Grashalms, wie die Bewegung der<lb/>
+Himmelskörper, vor aller Beobachtung vorher aus dem Grund-<lb/>
+ſatze alles menſchlichen Wiſſens ableiten laſſen. Es iſt wahr,<lb/>
+daſs kein Naturgeſetz und überhaupt kein Geſetz zum B<hi rendition="#i">ewuſst-<lb/>
+ſeyn</hi> kommt, wenn nicht ein Gegenſtand gegeben wird, auf den<lb/>
+es angewandt werden kann; es iſt wahr, daſs nicht alle Ge-<lb/>
+genſtände nothwendig, und nicht alle in dem gleichen Grade<lb/>
+damit übereinkommen müſſen; es iſt wahr, daſs kein einziger<lb/>
+ganz und völlig mit ihnen übereinkommt, noch übereinkom-<lb/>
+men kann: aber eben darum iſt es wahr, daſs wir ſie nicht<lb/>
+durch Beobachtung lernen, ſondern ſie aller Beobachtung zum<lb/>
+Grunde legen, und daſs es nicht ſo wohl Geſetze für die von<lb/>
+uns unabhängige Natur, als Geſetze für uns ſelbſt <choice><sic>find</sic><corr>ſind</corr></choice>, wie<lb/>
+wir die Natur zu beobachten haben.</note>, als nothwendig gegeben; aber<lb/>
+die Urtheilskraft behält dabei ihre völlige Freiheit, dieſe<lb/>
+Geſetze überhaupt anzuwenden oder nicht, oder bei<lb/>
+der <choice><sic>Man nigfaltigkeit</sic><corr>Mannigfaltigkeit</corr></choice> der Geſetze ſo wohl als der Gegen-<lb/>
+ſtände, welches Geſetz ſie will, auf einen beliebigen Ge-<lb/>
+genſtand anzuwenden, z. B. den menſchlichen Körper<lb/>
+als rohe, oder organiſirte, oder als animaliſch belebte<lb/>
+<fw type="catch" place="bottom">Mate-</fw><lb/>
+<pb n="44" facs="#f0052"/>
+Materie zu betrachten. So bald aber die Urtheilskraft<lb/>
+die Aufgabe erhält, einen beſtimmten Gegenſtand nach<lb/>
+einem beſtimmten Geſetze <choice><sic>zn</sic><corr>zu</corr></choice> beobachten, um zu ſehen,<lb/>
+ob und in wie fern er mit demſelben übereinkomme<lb/>
+oder nicht, iſt ſie nicht mehr frei, ſondern unter einer<lb/>
+Regel; und wir ſind demnach nicht mehr in der Wiſ-<lb/>
+ſenſchaftslehre, ſondern auf dem Felde einer andern<lb/>
+Wiſſenſchaft, welche die Naturwiſſenſchaft heiſst. Die<lb/>
+Aufgabe überhaupt, jeden in der Erfahrung gegebnen<lb/>
+Gegenſtand an jedes in unſerm Geiſte gegebnes Natur-<lb/>
+geſetz zu halten, iſt Grundſatz der Naturwiſſenſchaft:<lb/>
+ſie beſteht durchgängig aus Experimenten, (nicht aber<lb/>
+aus dem leidenden Verhalten gegen die regelloſen Ein-<lb/>
+wirkungen der Natur auf uns) die man ſich willkürlich<lb/>
+aufgiebt, und denen die Natur entſprechen kann oder<lb/>
+nicht: und dadurch iſt denn die Naturwiſſenſchaft ge-<lb/>
+nugſam von der Wiſſenſchaftslehre überhaupt geſchie-<lb/>
+den.</p>           <lb/>
+<p>Alſo ſieht man ſchon hier — welches wir bloſs<lb/>
+im Vorbeygehen erinnern — warum bloſs die Wiſſen-<lb/>
+ſchaftslehre abſolute Totalität haben, alle beſondre Wiſ-<lb/>
+ſenſchaften aber unendlich ſeyn werden. Die Wiſſen-<lb/>
+ſchaftslehre enthält bloſs das Nothwendige; iſt dies in<lb/>
+jeder Betrachtung nothwendig, ſo iſt es daſſelbe auch<lb/>
+in Abſicht der Quantität, d. h., es iſt nothwendig begränzt.<lb/>
+Alle übrigen Wiſſenſchaften gehen auf die Freyheit, ſo<lb/>
+wohl die unſers Geiſtes, als die des von uns ſchlecht-<lb/>
+hin unabhängigen Nicht-Ich. Soll dieſes wirkliche<lb/>
+Freyheit ſeyn, und ſoll ſie ſchlechthin unter keinem Ge-<lb/>
+ſetze ſtehen, ſo läſst ſich ihr auch kein Wirkungskreis<lb/>
+vorſchreiben, welches ja durch ein Geſetz geſchehen<lb/>
+<fw type="catch" place="bottom">müſs-</fw><lb/>
+<pb n="45" facs="#f0053"/>
+müſste. Ihr Wirkungskreis iſt demnach unendlich. —<lb/>
+Man hat alſo von einer erſchöpfenden Wiſſenſchaftslehre<lb/>
+keine Gefahr für die ins Unendliche fortgehenden Per-<lb/>
+fektibilität des menſchlichen Geiſtes zu beſorgen; ſie<lb/>
+wird dadurch gar nicht aufgehoben, ſondern vielmehr<lb/>
+völlig ſicher und auſſer Zweifel geſetzt, und es wird ihr<lb/>
+eine Aufgabe angewieſen, die ſie in Ewigkeit nicht<lb/>
+endigen kann.</p>         </div>         <lb/>
+<div n="2">           <head>§. 6. <hi rendition="#i">Wie verhält ſich die allgemeine Wiſſen-<lb/>
+ſchaftslehre insbeſondre zur Logik</hi>?</head>           <lb/>
+<p>Die Wiſſenſchaftslehre ſoll für alle möglichen Wiſ-<lb/>
+ſenſchaften die Form aufſtellen: nach der gewöhnlichen<lb/>
+Meinung, an der wohl auch etwas Wahres ſeyn mag,<lb/>
+thut die Logik das gleiche. Wie verhalten ſich dieſe<lb/>
+beiden Wiſſenſchaften, und wie verhalten ſie ſich ins-<lb/>
+beſondere in Abſicht jenes Geſchäfts, das beide ſich an-<lb/>
+maaſsen? So bald man ſich erinnert, daſs die Logik<lb/>
+allen möglichen Wiſſenſchaften blos und allein die Form,<lb/>
+die Wiſſenſchaftslehre aber nicht die Form allein, ſon-<lb/>
+dern auch den Gehalt geben ſolle, ſo iſt ein leichter<lb/>
+Weg eröffnet, um in dieſe höchſtwichtige Unterſuchung<lb/>
+einzudringen. In der Wiſſenſchaftslehre iſt die Form<lb/>
+vom Gehalte, oder der Gehalt von der Form nie ge-<lb/>
+trennt; in jedem ihrer Sätze iſt beides auf das innigſte<lb/>
+vereinigt. Soll in den Sätzen der Logik die bloſse Form<lb/>
+der möglichen Wiſſenſchaften, nicht aber der Gehalt<lb/>
+liegen, ſo ſind ſie nicht zugleich Sätze der Wiſſenſchafts-<lb/>
+lehre; ſondern ſie ſind von ihnen verſchieden; und<lb/>
+folglich iſt auch die ganze Wiſſenſchaft, weder die Wiſ-<lb/>
+ſenſchaftslehre ſelbſt, noch etwa ein Theil von ihr; ſie<lb/>
+iſt, ſo ſonderbar dies auch bei der gegenwärtigen Ver-<lb/>
+<fw type="catch" place="bottom">faſ-</fw><lb/>
+<pb n="46" facs="#f0054"/>
+faſſung der Philoſophie jemanden vorkommen möge,<lb/>
+überhaupt keine philoſophiſche, ſondern ſie iſt eine<lb/>
+eigne abgeſonderte Wiſſenſchaft, wodurch jedoch ihrer<lb/>
+Würde gar kein Abbruch geſchehen ſoll.</p>           <lb/>
+<p>Iſt ſie dies, ſo muſs ſich eine Beſtimmung der Frei-<lb/>
+heit aufzeigen laſſen, durch welche zwiſchen ihr und<lb/>
+der allgemeinen Wiſſenſchaftslehre die Grenze gezogen<lb/>
+werde, und dieſe iſt denn auch leicht aufzufinden. In<lb/>
+der Wiſſenſchaftslehre ſind Gehalt und Form nothwen-<lb/>
+dig vereinigt. Die Logik ſoll die bloſse Form, vom Ge-<lb/>
+halte abgeſondert, aufſtellen; dieſe Abſonderung iſt an<lb/>
+ſich nicht nothwendig, ſondern ſie geſchieht blos durch<lb/>
+Freiheit; mithin muſs in der Logik die Freiheit be-<lb/>
+ſtimmt werden, eine ſolche Abſonderung vorzunehmen.<lb/>
+Man nennt ſie <hi rendition="#i">Abſtraktion</hi>; und demnach beſteht das<lb/>
+Weſen der Logik in der Abſtraktion von allem Gehalt<lb/>
+der Wiſſenſchaftslehre.</p>           <lb/>
+<p>Auf dieſe Art wären die Sätze der Logik bloſs Form,<lb/>
+welches unmöglich iſt; denn es liegt im Begriffe des<lb/>
+Satzes überhaupt, daſs er beides Gehalt, ſo wohl als<lb/>
+Form habe. (§. 1.) Mithin müſste das, was in der Wiſ-<lb/>
+ſenſchaftslehre bloſse Form iſt, in der Logik Gehalt<lb/>
+ſeyn, und dieſer Gehalt bekäme wieder die allgemeine<lb/>
+Form der Wiſſenſchaftslehre, die aber hier beſtimmt als<lb/>
+Form eines logiſchen Satzes gedacht würde. Dieſe<lb/>
+zweite Handlung der Freiheit, durch welche die Form<lb/>
+zur Form der Form ſelbſt, als ihres Gehalts wird, heiſst<lb/>
+<hi rendition="#i">Reflexion</hi>. Keine Abſtraktion iſt ohne Reflexion; und<lb/>
+keine Reflexion ohne Abſtraktion möglich. An ſich be-<lb/>
+trachtet ſind beides Handlungen der Freiheit; wenn<lb/>
+<fw type="catch" place="bottom">ſie</fw><lb/>
+<pb n="47" facs="#f0055"/>
+ſie aber gegenſeitig auf einander bezogen werden, ſo iſt<lb/>
+unter Bedingung der einen, die zweite nothwendig.</p>           <lb/>
+<p>Hieraus ergiebt ſich das beſtimmte Verhältniſs der<lb/>
+Logik zur Wiſſenſchaftslehre. Die erſtere begründet<lb/>
+nicht die letztere, ſondern die letztere begründet die er-<lb/>
+ſtere: Die Wiſſenſchaftslehre kann ſchlechterdings nicht<lb/>
+aus der Logik bewieſen werden, und man darf ihr kei-<lb/>
+nen einzigen logiſchen Satz, auch den des Widerſpruchs<lb/>
+nicht, als gültig vorausſchicken; hingegen muſs jeder<lb/>
+logiſche Satz, und die ganze Logik aus der Wiſſen-<lb/>
+ſchaftslehre bewieſen werden; es muſs gezeigt werden,<lb/>
+daſs die in ihr aufgeſtellten Formen, wirkliche Formen<lb/>
+eines gewiſſen Gehalts in der Wiſſenſchaftslehre ſeyen.<lb/>
+Alſo entlehnt die Logik ihre Gültigkeit von der Wiſſen-<lb/>
+ſchaftslehre, nicht aber die Wiſſenſchaftslehre die ihrige<lb/>
+von der Logik.</p>           <lb/>
+<p>Ferner, die Wiſſenſchaftslehre wird nicht durch<lb/>
+die Logik, aber die Logik wird durch die Wiſſenſchafts-<lb/>
+lehre bedingt und beſtimmt. Die Wiſſenſchaftslehre<lb/>
+bekommt nicht etwa von der Logik ihre Form, ſon-<lb/>
+dern ſie hat ſie in ſich ſelbſt, und ſtellt ſie erſt für die<lb/>
+mögliche Abſtraktion durch Freyheit auf. Im Gegen-<lb/>
+theil aber bedingt die Wiſſenſchaftslehre die Anwendung<lb/>
+der Logik: die Formen, die ſie aufſtellt, dürfen auf<lb/>
+keinen andern Gehalt angewendet werden, als auf den-<lb/>
+jenigen, den ſie ſchon in der Wiſſenſchaftslehre in ſich<lb/>
+faſſen — nicht nothwendig auf den ganzen Gehalt,<lb/>
+den ſie dort in ſich faſſen, denn dadurch würde keine<lb/>
+beſondre Wiſſenſchaft entſtehen, ſondern nur Theile<lb/>
+der Wiſſenſchaftslehre wiederhohlt werden, aber doch<lb/>
+<fw type="catch" place="bottom">noth-</fw><lb/>
+<pb n="48" facs="#f0056"/>
+nothwendig auf einen Theil deſſelben, auf einen in<lb/>
+und mit jenem Gehalt begriffenen Gehalt. Auſſer jener<lb/>
+Bedingung iſt die durch ein ſolches Verfahren zu Stande<lb/>
+gebrachte Wiſſenſchaft ein Luftgebäude.</p>           <lb/>
+<p>Endlich, die Wiſſenſchaftslehre iſt nothwendig —<lb/>
+nicht eben als deutlich gedachte, ſyſtematiſch aufgeſtellte<lb/>
+Wiſſenſchaft, aber doch als Naturanlage — die Logik<lb/>
+aber iſt ein künſtliches Produkt des menſchlichen Gei-<lb/>
+ſtes in ſeiner Freiheit. Ohne die erſtere würde über-<lb/>
+haupt kein Wiſſen und keine Wiſſenſchaft möglich ſeyn;<lb/>
+ohne die leztere würden alle Wiſſenſchaften nur ſpäter<lb/>
+haben zu Stande gebracht werden können. Die erſtere<lb/>
+iſt die ausſchlieſſende Bedingung aller Wiſſenſchaft; die<lb/>
+letztere iſt eine höchſt wohlthätige Erfindung, um den<lb/>
+Fortgang der Wiſſenſchaften zu ſichern und zu er-<lb/>
+leichtern.</p>           <lb/>
+<p>Ich trage das hier ſyſtematiſch abgeleitete in Bei-<lb/>
+ſpielen vor:</p>           <lb/>
+<p>A = A iſt ohne Zweifel ein logiſch richtiger<lb/>
+Satz, und in ſo fern er das iſt, iſt ſeine Bedeutung die:<lb/>
+<hi rendition="#i">wenn</hi> A geſetzt iſt, ſo iſt A geſetzt. Es entſtehen hier-<lb/>
+bei die zwei Fragen: Iſt denn A geſetzt? — und in<lb/>
+wiefern und warum iſt A geſetzt, <hi rendition="#i">wenn</hi> es geſetzt iſt;<lb/>
+wie hängt jenes <hi rendition="#i">Wenn</hi> und dieſes <hi rendition="#i">So</hi> überhaupt zu-<lb/>
+ſammen?</p>           <lb/>
+<p>Setzet: A im obigen Satze bedeute ich, und habe<lb/>
+alſo ſeinen beſtimmten Gehalt, ſo hieſse der Satz zuför-<lb/>
+derſt: Ich bin Ich: oder, <hi rendition="#i">wenn</hi> ich geſetzt bin, ſo bin<lb/>
+<fw type="catch" place="bottom">ich</fw><lb/>
+<pb n="49" facs="#f0057"/>
+ich geſetzt. Aber, weil das Subjekt des Satzes das abſolute<lb/>
+Subjekt, das Subjekt ſchlechthin iſt, ſo wird in dieſem ein-<lb/>
+zigen Falle, mit der Form des Satzes zugleich ſein inne-<lb/>
+rer Gehalt geſetzt: Ich bin geſetzt, <hi rendition="#i">weil</hi> ich mich geſetzt<lb/>
+habe. Ich bin, <hi rendition="#i">weil</hi> ich bin. — Die Logik alſo ſagt:<lb/>
+<hi rendition="#i">Wenn</hi> A iſt, iſt A; die Wiſſenſchaftslehre: <hi rendition="#i">Weil</hi> A iſt,<lb/>
+iſt A. Und hierdurch würde die Frage: Iſt denn A ge-<lb/>
+ſetzt? ſo beantwortet: Es iſt geſetzt, <hi rendition="#i">denn</hi> es iſt geſetzt.</p>           <lb/>
+<p>Setzet: A in obigem Satze bedeute nicht das Ich,<lb/>
+ſondern irgend etwas anders, ſo läſst ſich aus dem obi-<lb/>
+gen die Bedingung einſehen, unter welcher man ſagen<lb/>
+könne: A iſt geſetzt; und wie man berechtigt ſei zu<lb/>
+ſchlieſsen: Wenn A geſetzt iſt, ſo iſt es geſetzt. — Nem-<lb/>
+lich der Satz: A = A gilt urſprünglich <hi rendition="#i">nur vom Ich</hi>; er<lb/>
+iſt von dem Satze der Wiſſenſchaftslehre: Ich bin Ich,<lb/>
+abgezogen; aller Gehalt alſo, worauf er anwendbar ſeyn<lb/>
+ſoll, muſs im Ich liegen, und unter ihm enthalten ſeyn.<lb/>
+Kein A alſo kann etwas anders ſeyn, als ein <hi rendition="#i">im Ich ge-<lb/>
+ſetztes</hi>, und nun hieſſe der Satz ſo: Was im Ich geſetzt<lb/>
+iſt, iſt geſetzt; iſt A im Ich geſetzt, ſo iſt es geſetzt,<lb/>
+(in ſo fern er nemlich geſetzt iſt, als möglich, wirklich,<lb/>
+oder nothwendig) und ſo iſt er unwiderſprechlich wahr,<lb/>
+wenn das Ich Ich ſeyn ſoll. — Iſt ferner das Ich ge-<lb/>
+ſetzt, weil es geſetzt iſt, ſo iſt alles, was im Ich geſetzt<lb/>
+iſt, geſetzt, weil es geſetzt iſt; und wenn nur A etwas<lb/>
+im Ich geſetztes iſt, ſo iſt es geſetzt, wenn es geſetzt<lb/>
+iſt, und die zweite Frage iſt auch beantwortet.</p>         </div>         <lb/>
+<div n="2">           <head>§. 7. <hi rendition="#i">Wie verhält ſich die Wiſſenſchaftslehre als<lb/>
+Wiſſenſchaft, zu ihrem Gegenſtande</hi>?</head>           <lb/>
+<p>Jeder Satz in der Wiſſenſchaftslehre hat Form und<lb/>
+Gehalt: man weiſs etwas; und es iſt etwas, wovon<lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">man</fw><lb/>
+<pb n="50" facs="#f0058"/>
+man es weiſs. Nun aber iſt ja die Wiſſenſchaftslehre<lb/>
+ſelbſt die Wiſſenſchaft von etwas; nicht aber dieſes<lb/>
+Etwas ſelbſt. Mithin wäre dieſelbe überhaupt mit allen<lb/>
+ihren Sätzen, Form eines gewiſſen vor derſelben vor-<lb/>
+handenen Gehalts. Wie verhält ſie ſich zu dieſem Ge-<lb/>
+halte, und was folgt aus dieſem Verhältniſſe?</p>           <lb/>
+<p>Das Objekt der Wiſſenſchaftslehre iſt nach allem<lb/>
+das Syſtem des menſchlichen Wiſſens. Dieſes iſt unab-<lb/>
+hängig von der Wiſſenſchaft deſſelben vorhanden, wird<lb/>
+aber durch ſie in ſyſtematiſcher Form aufgeſtellt. Was<lb/>
+iſt nun dieſe neue Form; wie iſt ſie von der Form, die<lb/>
+vor der Wiſſenſchaft vorher vorhanden ſeyn muſs, un-<lb/>
+terſchieden; und wie iſt die Wiſſenſchaft überhaupt<lb/>
+von ihrem Objekt unterſchieden?</p>           <lb/>
+<p>Was unabhängig von der Wiſſenſchaft im menſch-<lb/>
+lichen Geiſte da iſt, können wir auch die Handlungen<lb/>
+deſſelben nennen. Dieſe ſind das <hi rendition="#i">Was</hi>, das vorhanden<lb/>
+iſt; ſie geſchehen auf eine gewiſſe beſtimmte Art; durch<lb/>
+dieſe beſtimmte Art unterſcheidet ſich die eine von der<lb/>
+andern; und dieſes iſt das <hi rendition="#i">Wie</hi>. Im menſchlichen Geiſte<lb/>
+iſt alſo urſprünglich vor unſerm Wiſſen vorher Gehalt<lb/>
+und Form, und beide ſind unzertrennlich verbunden;<lb/>
+jede Handlung geſchieht auf eine beſtimmte Art nach<lb/>
+einem Geſetze, und dieſes Geſetz beſtimmt die Hand-<lb/>
+lung. Es iſt, wenn alle dieſe Handlungen unter ſich<lb/>
+zuſammenhangen, und unter allgemeinen, beſondern,<lb/>
+und einzelnen Geſetzen ſtehen, für die etwanigen Beob-<lb/>
+achter auch ein Syſtem vorhanden.</p>           <lb/>
+<fw type="catch" place="bottom">Es</fw>           <lb/>
+<pb n="51" facs="#f0059"/>
+<p>Es iſt aber gar nicht nothwendig, daſs dieſe Hand-<lb/>
+lungen wirklich der Folge nach in jener ſyſtematiſchen<lb/>
+Form, eine nach der andern, in unſerm Geiſte vorkom-<lb/>
+men; daſs die, welche alle unter ſich faſst, und das<lb/>
+höchſte, allgemeinſte Geſetz giebt, zuerſt, dann die,<lb/>
+welche weniger unter ſich faſst u. ſ. f. vorkommen; fer-<lb/>
+ner iſt auch das gar nicht die Folge, daſs ſie alle rein<lb/>
+und unvermiſcht vorkommen, ſo daſs nicht mehrere,<lb/>
+die durch einen etwanigen Beobachter gar wohl zu un-<lb/>
+terſcheiden wären, als eine einzige erſcheinen ſollten.<lb/>
+Z. B. die höchſte Handlung des menſchlichen Geiſtes ſei<lb/>
+die, ſeine eigene Exiſtenz zu ſetzen, ſo iſt gar nicht<lb/>
+nothwendig, daſs dieſe Handlung der Zeit nach die erſte<lb/>
+ſei, die zum deutlichen Bewuſstſeyn komme; und eben<lb/>
+ſo wenig iſt nothwendig, daſs ſie jemals zum reinen<lb/>
+Bewuſstſeyn komme, daſs der menſchliche Geiſt jetzt<lb/>
+fähig ſei, ſchlechthin zu denken: <hi rendition="#i">Ich bin</hi>, ohne zugleich<lb/>
+zu denken, daſs irgend etwas <hi rendition="#i">nicht</hi> Ich ſei.</p>           <lb/>
+<p>Hierin liegt nun der ganze Stoff einer möglichen<lb/>
+Wiſſenſchaftslehre, aber nicht die Wiſſenſchaft ſelbſt.<lb/>
+Um dieſe zu Stande zu bringen, dazu gehört noch eine,<lb/>
+unter jenen Handlungen allen nicht enthaltene Hand-<lb/>
+lung des menſchlichen Geiſtes, nehmlich die, ſeine<lb/>
+Handlungsart überhaupt zum Bewuſstſeyn zu erheben.<lb/>
+Da ſie unter jenen Handlungen, welche alle nothwen-<lb/>
+dig, und die nothwendig alle ſind, nicht enthalten<lb/>
+ſeyn ſoll, ſo muſs es eine Handlung der Freiheit ſeyn. —<lb/>
+Die Wiſſenſchaftslehre entſteht alſo, in ſo fern ſie eine<lb/>
+ſyſtematiſche Wiſſenſchaft ſeyn ſoll, gerade ſo, wie alle<lb/>
+möglichen Wiſſenſchaften, in ſo fern ſie ſyſtematiſch<lb/>
+ſeyn ſollen, durch eine Beſtimmung der Freiheit;<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">welche</fw><lb/>
+<pb n="52" facs="#f0060"/>
+welche letztre hier insbeſondre beſtimmt iſt, die Hand-<lb/>
+lungsart des menſchlichen Geiſtes überhaupt zum Be-<lb/>
+wuſstſeyn zu erheben; und die Wiſſenſchaftslehre iſt<lb/>
+von andern Wiſſenſchaften nur dadurch unterſchieden,<lb/>
+daſs das Objekt der letztern ſelbſt eine freie Handlung,<lb/>
+das Objekt der erſtern aber nothwendige Handlun-<lb/>
+gen ſind.</p>           <lb/>
+<p>Durch dieſe freie Handlung wird nun etwas, das<lb/>
+ſchon an ſich Form iſt, die nothwendige Handlung<lb/>
+des menſchlichen Geiſtes, als Gehalt in eine neue Form<lb/>
+die Form des Wiſſens, oder des Bewuſstſeyns aufge-<lb/>
+nommen, und demnach iſt jene Handlung eine Hand-<lb/>
+lung der Reflexion. Jene nothwendigen Handlungen,<lb/>
+werden aus der Reihe, in der ſie etwa an ſich vorkom-<lb/>
+men mögen, getrennt, und von aller Vermiſchung rein<lb/>
+aufgeſtellt; mithin iſt jene Handlung auch eine Hand-<lb/>
+lung der Abſtraktion. Es iſt unmöglich zu reflektiren<lb/>
+ohne abſtrahiert zu haben.</p>           <lb/>
+<p>Die Form des Bewuſstſeyns, in welche die noth-<lb/>
+wendigen Handlungsart des menſchlichen Geiſtes über-<lb/>
+haupt aufgenommen werden ſoll, gehört ohne Zwei-<lb/>
+fel ſelbſt zu den nothwendigen Handlungsarten deſſel-<lb/>
+ben, ſeine Handlungsart wird in ſie ohne Zweifel ge-<lb/>
+rade ſo aufgenommen, wie alles, was darin aufge-<lb/>
+nommen wird: er hätte alſo an ſich keine Schwierig-<lb/>
+keit die Frage zu beantworten: woher denn zum Be-<lb/>
+huf einer möglichen Wiſſenſchaftslehre dieſe Form kom-<lb/>
+men ſollte. Aber, überhebt man ſich der Frage über<lb/>
+die Form, ſo fällt die ganze Schwierigkeit in die Frage<lb/>
+über den Stoff. — Soll die nothwendige Han<supplied>d</supplied>lungsart<lb/>
+<fw type="catch" place="bottom">des</fw><lb/>
+<pb n="53" facs="#f0061"/>
+des menſchlichen Geiſtes an ſich in die Form des Be-<lb/>
+wuſstſeyns aufgenommen werden, ſo müſste ſie ſchon<lb/>
+als ſolche bekannt ſeyn, ſie müſste mithin in dieſe Form<lb/>
+ſchon aufgenommen ſeyn; und wir wären in einem<lb/>
+Zirkel eingeſchloſſen.</p>           <lb/>
+<p>Dieſe Handlungsart überhaupt, ſoll nach dem obi-<lb/>
+gen durch eine reflektirende Abſtraktion von allem, was<lb/>
+<hi rendition="#i">nicht</hi> ſie iſt, abgeſondert werden. Dieſe Abſtraktion ge-<lb/>
+ſchieht durch Freiheit, und der menſchliche Geiſt wird in<lb/>
+ihr gar nicht durch blinden Zwang geleitet. Die ganze<lb/>
+Schwierigkeit iſt alſo in der Frage enthalten: nach wel-<lb/>
+chen Regeln verfährt die Freiheit in jener Abſonderung?<lb/>
+wie weiſs der menſchliche Geiſt, <hi rendition="#i">was</hi> er aufnehmen und<lb/>
+liegen laſſen wolle?</p>           <lb/>
+<p>Das kann er nun ſchlechterdings nicht wiſſen,<lb/>
+wofern nicht etwa dasjenige, was er erſt zum Bewuſst-<lb/>
+ſeyn erheben ſoll, ſchon dazu erhoben iſt; welches ſich<lb/>
+widerſpricht. Alſo giebt es für dieſes <hi rendition="#i">G</hi>eſchäft gar kei-<lb/>
+ne Regel, und kann keine geben. Der menſchliche<lb/>
+Geiſt macht mancherlei Verſuche; er kommt durch<lb/>
+blindes Herumtappen zur Dämmerung, und geht erſt<lb/>
+aus dieſer zum hellen Tage über. Er wird Anfangs<lb/>
+durch dunkle Gefühle <note place="foot" n="*)">Es erhellet daraus, daſs der Philoſoph der dunklen Gefühle<lb/>
+des Richtigen oder das Genie in keinem geringern Grade be-<lb/>
+dürfe, als etwa der Dichter oder der Künſtler; nur in einer<lb/>
+andern Art. Der letztere bedarf des Schönheits- jener des Wahr-<lb/>
+heitsſinnes, dergleichen es allerdings giebt.</note> (deren Urſprung und Wirklich-<lb/>
+keit die Wiſſenſchaftslehre darzulegen hat) geleitet; und<lb/>
+wir hätten noch heute keinen deutlichen Begriff, und<lb/>
+wir wären noch immer der Erdklos, der ſich dem<lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">Boden</fw><lb/>
+<pb n="54" facs="#f0062"/>
+Boden entwand, wenn wir nicht angefangen hätten<lb/>
+dunkel zu fühlen, was wir erſt ſpäter deutlich erkann-<lb/>
+ten. — Dieſs iſt denn auch die Geſchichte der Phi-<lb/>
+loſophie! und wir haben jetzt den eigentlichen<lb/>
+Grund angegeben, warum dasjenige, was doch in je-<lb/>
+dem menſchlichen Geiſte offen da liegt, und was je-<lb/>
+der mit Händen greifen kann, wenn es ihm deutlich<lb/>
+dargelegt wird, erſt nach mannigfaltigen Herumirren<lb/>
+zum Bewuſstſein einiger weniger gelangte. Alle Philo-<lb/>
+ſophen ſind auf das aufgeſtellte Ziel ausgegangen, alle<lb/>
+haben durch Reflexion die nothwendige Handlungsart<lb/>
+des menſchlichen Geiſtes von den zufälligen Be-<lb/>
+dingungen derſelben abſondern wollen; alle haben<lb/>
+ſie wirklich, nur mehr oder weniger rein, und mehr<lb/>
+oder weniger vollſtändig, abgeſondert; im Ganzen aber<lb/>
+iſt die philoſophirende Urtheilskraft immer weiter<lb/>
+vorgerückt und ihrem Ziele näher gekommen.</p>           <lb/>
+<p>Da aber jene Reflexion, nicht in ſo ferne ſie<lb/>
+überhaupt vorgenommen wird, oder nicht, denn in<lb/>
+dieſer Rückſicht iſt ſie frei, ſondern in ſo fern ſie nach<lb/>
+Geſetzen vorgenommen wird, in ſo fern unter der Be-<lb/>
+dingung, daſs ſie überhaupt ſtatt finde, die Art derſel-<lb/>
+ben beſtimmt iſt — auch zu den nothwendigen Hand-<lb/>
+lungen des menſchlichen Geiſtes gehört, ſo müſſen die<lb/>
+Geſetze derſelben im Syſtem des menſchlichen Geiſtes<lb/>
+überhaupt vorkommen; und man kann hinterher, nach<lb/>
+Vollendung der Wiſſenſchaft, allerdings einſehen, ob<lb/>
+man denſelben Genüge geleiſtet habe oder nicht. Man<lb/>
+dürfte alſo glauben, daſs wenigſtens hinterher ein evi-<lb/>
+denter Beweiſs der Richtigkeit unſers wiſſenſchaftlichen<lb/>
+Syſtems, als eines ſolchen möglich wäre.</p>           <lb/>
+<fw type="catch" place="bottom">Aber</fw>           <lb/>
+<pb n="55" facs="#f0063"/>
+<p>Aber die Reflexionsgeſetze die wir im Gange der<lb/>
+Wiſſenſchaft finden, wenn ſie auch mit denen, die wir<lb/>
+als die Regel unſers Verfahrens, hypothetiſch voraus-<lb/>
+ſetzen, übereinſtimmen, ſind doch ſelbſt das Reſultat<lb/>
+von ihrer vorherigen Anwendung; und es entdeckte<lb/>
+ſich hier ein neuer Zirkel: Wir haben gewiſſe Reflexi-<lb/>
+onsgeſetze vorausgeſetzt, und finden jetzt im Verlaufe<lb/>
+der Wiſſenſchaft die gleichen; alſo ſind die Vorausge-<lb/>
+ſetzten die einzig richtigen. Wenn wir andre voraus-<lb/>
+geſetzt hätten, ſo würden wir ohne Zweifel in der<lb/>
+Wiſſenſchaft auch andre gefunden haben; es fragt ſich<lb/>
+nur, ob ſie mit den vorausgeſetzten übereingeſtimmt<lb/>
+haben würden oder nicht; hätten ſie nicht mit ihnen<lb/>
+übereingeſtimmt, ſo war allerdings ſicher, daſs entwe-<lb/>
+der die vorausgeſetzten oder die gefundenen, oder am<lb/>
+wahrſcheinlichſten beide falſch waren. Wir können<lb/>
+alſo in dem Beweiſe hinterher nicht auf die angezeigte<lb/>
+fehlerhafte Art im Zirkel ſchlieſsen; ſondern wir ſchlieſ-<lb/>
+ſen aus der <hi rendition="#i">Uebereinſtimmung</hi> auf die Richtigkeit des<lb/>
+Syſtems. Dieſes iſt aber nur ein negativer Beweiſs,<lb/>
+der bloſse Wahrſcheinlichkeit begründet. Stimmen die<lb/>
+vorausgeſetzten und die gefundenen Reflexionen <hi rendition="#i">nicht</hi><lb/>
+überein, ſo iſt das Syſtem ſicher falſch. Stimmen ſie<lb/>
+überein, ſo kann es richtig ſeyn. Aber es muſs nicht<lb/>
+nothwendig richtig ſeyn; denn obgleich, wenn im<lb/>
+menſchlichen Wiſſen nur ein Syſtem iſt, bey <hi rendition="#i">richtigem<lb/>
+Folgern</hi> eine ſolche Uebereinſtimmung ſich nur auf <hi rendition="#i">eine</hi><lb/>
+Art finden kann, ſo bleibt doch immer der Fall möglich,<lb/>
+daſs die Uebereinſtimmung von ungefähr durch zwei<lb/>
+oder mehrere Uebereinſtimmung bewirkende <hi rendition="#i">unrichtige<lb/>
+Folgerungen</hi> hervorgebracht ſei. — Es iſt, als ob ich die<lb/>
+Probe, der Diviſion durch die Multiplikation mache.<lb/>
+<fw type="sig" place="bottom">D 4</fw><fw type="catch" place="bottom">Be-</fw><lb/>
+<pb n="56" facs="#f0064"/>
+Bekomme ich nicht die begehrte Gröſse als Produkt,<lb/>
+ſondern irgend eine andre, ſo habe ich ſicher irgendwo<lb/>
+<choice><sic>ſalſch</sic><corr>falſch</corr></choice> gerechnet; bekomm ich ſie, ſo iſt wahrſcheinlich,<lb/>
+daſs ich richtig gerechnet habe, aber auch bloſs wahr-<lb/>
+ſcheinlich; denn ich könnte in der Diviſion und Mul-<lb/>
+tiplikation den gleichen Fehler gemacht haben, etwa<lb/>
+in beiden geſagt haben 5 X 9 = 36. und ſo bewieſe die<lb/>
+Uebereinſtimmung nichts. — So die Wiſſenſchafts-<lb/>
+lehre; ſie iſt nicht bloſs die Regel, ſondern ſie iſt zu-<lb/>
+gleich die Rechnung. Wer an der Richtigkeit unſers<lb/>
+Produkts zweifelt, zweifelt nicht eben an dem ewig<lb/>
+gültigen Geſetze, daſs man den einen Faktor ſo vielmal<lb/>
+ſetzen müſſe, als der andre Einheiten habe; es liegt ihm<lb/>
+vielleicht eben ſo ſehr am Herzen als uns, und er zwei-<lb/>
+felt bloſs daran, ob wir es wirklich beobachtet haben.</p>           <lb/>
+<p>Es bleibt demnach, ſelbſt bei der höchſten Einheit<lb/>
+des Syſtems, welches die negative Bedingung ſeiner<lb/>
+Richtigkeit iſt, noch immer etwas übrig, das nie ſtreng<lb/>
+erwieſen, ſondern nur als wahrſcheinlich angenommen<lb/>
+werden kann, nehmlich, daſs dieſe Einheit ſelbſt nicht<lb/>
+von ungefähr durch unrichtige Folgerung entſtanden<lb/>
+ſei. Man kann mehrere Mittel anwenden, um dieſe<lb/>
+Wahrſcheinlichkeit zu erhöhen; man kann die Reihe<lb/>
+der Sätze zu mehreren Malen, wenn ſie unſerm Ge-<lb/>
+dächtniſs nicht mehr gegenwärtig ſind, durchdenken;<lb/>
+man kann den umgekehrten Weg machen, und vom<lb/>
+Reſultate zum Grundſatze zurück gehen; man kann<lb/>
+über ſeine Reflexion ſelber wieder reflektiren u. ſ. f.<lb/>
+die Wahrſcheinlichkeit wird immer gröſser, aber nie<lb/>
+wird Gewiſsheit, was bloſse Wahrſcheinlichkeit war.<lb/>
+Wenn man ſich dabei nur bewuſst iſt, redlich ge-<lb/>
+<fw type="catch" place="bottom">forſcht</fw><lb/>
+<pb n="57" facs="#f0065"/>
+forſcht <note place="foot" n="*)">Der Philoſoph bedarf nicht bloſs des Wahrheitsſinnes, ſon-<lb/>
+dern auch der Wahrheitsliebe. Ich rede nicht davon, daſs er<lb/>
+nicht durch ſeine Sophiſtikationen, deren er ſich ſelbſt wohl<lb/>
+bewuſst iſt, von denen er aber etwa glaubt, daſs ſie keiner<lb/>
+ſeiner Zeitgenoſſen entdecken werde, die ſchon vorausgeſetz-<lb/>
+ten Reſultate zu behaupten ſuchen ſolle; dann weiſs er ſelbſt<lb/>
+daſs er die Wahrheit nicht liebt. Doch iſt hierüber jeder eige-<lb/>
+ner Richter, und kein Menſch hat ein Recht, einen andern<lb/>
+Menſchen dieſer Unlauterkeit zu bezüchtigen, wo die Anzei-<lb/>
+gen nicht ganz offen da liegen. Aber auch gegen die un-<lb/>
+wilkührlichen Sophiſtikationen, denen kein Forſcher mehr aus-<lb/>
+geſetzt iſt, als der Erforſcher des menſchlichen Geiſtes, muſs er<lb/>
+auf ſeiner Hut ſeyn: er muſs es nicht nur dunkel fühlen, ſon-<lb/>
+dern es zum klaren Bewuſstſeyn und zu ſeiner höchſten Maxime<lb/>
+erheben, daſs er nur Wahrheit ſuche, wie ſie auch ausfalle<lb/>
+und daſs ſelbſt die Wahrheit, daſs es überall keine Wahrheit<lb/>
+gebe, ihm willkommen ſeyn würde, wenn ſie nur Wahrheit<lb/>
+wäre. Kein Satz, ſo trocken und ſo ſpitzfindig er ausſehe, muſs<lb/>
+ihm gleichgültig — alle müſſen ihm gleich heilig ſeyn, weil<lb/>
+ſie in das eine Syſtem der Wahrheit gehören, und jeder alle<lb/>
+unterſtützt. Er muſs nie fragen: was wird hieraus folgen?<lb/>
+ſondern ſeines Weges gerade fortgehen, was auch immer folgen<lb/>
+möge. Er muſs keine Mühe ſcheuen, und ſich dennoch beſtän-<lb/>
+dig in der Fähigkeit erhalten die mühſamſten und tiefſinnigſten<lb/>
+Arbeiten aufzugeben, ſo bald ihm die Grundloſigkeit derſel-<lb/>
+ben entweder gezeigt wird, oder er ſie ſelbſt entdekt. Und<lb/>
+wenn er ſich denn auch verrechnet hätte, was wäre es mehr?<lb/>
+was träfe ihn weiter, als das bis jetzt allen Denkern gemein-<lb/>
+ſchaftliche Loos?</note>, und ſich nicht ſchon die Reſultate vorge-<lb/>
+ſetzt zu haben, ſo kann man ſich mit dieſer Wahr-<lb/>
+ſcheinlichkeit gar wohl begnügen, und darf von jedem,<lb/>
+der die Zuverläſſigkeit unſers Syſtems in Zweifel zieht,<lb/>
+fordern, daſs er uns die Fehler in unſern Folgerungen<lb/>
+<fw type="sig" place="bottom">D 5</fw><fw type="catch" place="bottom">nach-</fw><lb/>
+<pb n="58" facs="#f0066"/>
+nachweiſe; aber nie darf man auf Infallibilität Anſpruch<lb/>
+machen. — Das Syſtem des menſchlichen Geiſtes, deſſen<lb/>
+Darſtellung die Wiſſenſchaftslehre ſeyn ſoll, iſt abſolut<lb/>
+gewiſs und infallibel; alles, was in ihm begründet iſt,<lb/>
+iſt ſchlechthin wahr; er irrt nie, und was je in einer<lb/>
+Menſchenſeele geweſen iſt, oder ſeyn wird, iſt wahr.<lb/>
+Wenn die Menſchen irrten, ſo lag der Fehler nicht im<lb/>
+Nothwendigen, ſondern die reflektirende Urtheilskraft<lb/>
+machte ihn in ihrer Freiheit; indem ſie ein Geſetz mit<lb/>
+einem andern verwechſelte. Iſt unſre Wiſſenſchafts-<lb/>
+lehre eine getroffene Darſtellung dieſes Syſtems, ſo iſt<lb/>
+ſie ſchlechthin gewiſs <choice><sic>nnd</sic><corr>und</corr></choice> infallibel, wie jenes; aber<lb/>
+die Frage iſt eben davon, ob und in wie fern unſre<lb/>
+Darſtellung getroffen ſei; und darüber können wir nie<lb/>
+einen ſtrengen, ſondern nur einen Wahrſcheinlichkeit<lb/>
+begründenden Beweiſs führen. Sie hat nur unter der<lb/>
+Bedingung, und nur in ſo fern Wahrheit, als ſie getrof-<lb/>
+fen iſt. Wir ſind nicht Geſetzgeber des menſchlichen<lb/>
+Geiſtes, ſondern ſeine Hiſtoriographen; freilich nicht<lb/>
+Zeitungsſchreiber, ſondern pragmatiſche Geſchicht-<lb/>
+ſchreiber.</p>           <lb/>
+<p>Hiezu kommt noch der Umſtand, daſs ein Syſtem<lb/>
+wirklich im Ganzen richtig ſeyn kann, ohne daſs die<lb/>
+einzelnen Theile deſſelben die völlige Evidenz haben.<lb/>
+Es kann hier und da unrichtig gefolgert, es können<lb/>
+Mittelſätze überſprungen, es können erweiſsbare Sätze<lb/>
+ohne Beweiſs aufgeſtellt oder unrichtig bewieſen ſeyn,<lb/>
+und die wichtigſten Reſultate ſind dennoch richtig.<lb/>
+Dieſs ſcheint unmöglich, es ſcheint, daſs eine haarkleine<lb/>
+Abweichung von der geraden Linie nothwendig zu einer<lb/>
+ſich in’s unendliche vergröſsernden Abweichung führen<lb/>
+<fw type="catch" place="bottom">müſſe;</fw><lb/>
+<pb n="59" facs="#f0067"/>
+müſſe; und ſo würde es allerdings ſeyn, wenn der<lb/>
+Menſch bloſs ein denkendes, und nicht auch ein füh-<lb/>
+lendes Weſen wäre; und wenn nicht oft das Gefühl<lb/>
+durch Verurſachung einer neuen Verirrung von der ge-<lb/>
+raden Bahn des Räſonnements die alten Verirrungen<lb/>
+berichtigte, und ihn nicht wieder dahin zurückleitete,<lb/>
+wohin er durch richtige Folgerung nie wieder zurück-<lb/>
+gekommen wäre.</p>           <lb/>
+<p>Alſo wird, wenn auch eine allgemeingeltende Wiſ-<lb/>
+ſenſchaftslehre aufgeſtellt werden ſollte, die philoſophi-<lb/>
+rende Urtheilskraft noch immer ſelbſt in dieſem Felde<lb/>
+an ihrer fortdauernden Perfektibilität zu arbeiten, ſie<lb/>
+wird noch immer Lücken auszufüllen, Beweiſse zu<lb/>
+ſchärfen, Beſtimmungen noch näher zu beſtimmen<lb/>
+haben.</p>           <lb/>
+<p>Noch hab’ ich zwei Anmerkungen hinzu zu ſetzen:</p>           <lb/>
+<p>Die Wiſſenſchaftslehre ſetzt die Regeln der Refle-<lb/>
+xion und Abſtraktion als bekannt und gültig voraus; ſie<lb/>
+muſs dieſs nothwendig thun, und ſie hat ſich deſſen<lb/>
+nicht zu ſchämen, oder ein Geheimniſs daraus zu ma-<lb/>
+chen, und es zu verſtecken, Sie darf ſich ausdrücken<lb/>
+und Schlüſſe machen, gerade, wie jede andere Wiſſen-<lb/>
+ſchaft; ſie darf alle logiſchen Regeln vorausſetzen, und<lb/>
+alle Begriffe anwenden, deren ſie bedarf. Dieſe Vor-<lb/>
+ausſetzungen geſchehen aber bloſs um ſich verſtändlich<lb/>
+zu machen, alſo ohne die mindeſte Folge daraus zu zie-<lb/>
+hen. Es muſs alles Erweiſsbare erwieſen, auſſer jenem<lb/>
+erſten und höchſten Grundſatze müſſen alle Sätze abge-<lb/>
+<fw type="catch" place="bottom">leitet</fw><lb/>
+<pb n="60" facs="#f0068"/>
+leitet werden. So iſt z. B. weder der logiſche Satz der<lb/>
+Gegenſetzung (des Widerſpruchs, der alle Analyſe be-<lb/>
+gründet) noch der des Grundes (nichts iſt entgegenge-<lb/>
+ſetzt, das nicht in einem dritten gleich wäre, und<lb/>
+nichts iſt gleich, das nicht in einem dritten entgegen-<lb/>
+geſetzt wäre, welcher alle Syntheſis begründet) vom<lb/>
+abſolut-erſten Grundſatze, wohl aber von den beiden<lb/>
+auf ihm beruhenden Grundſätzen abgezogen. Die bei-<lb/>
+den letztern ſind zwar auch Grundſätze, aber nicht ab-<lb/>
+ſolute; es iſt nur etwas in ihnen abſolut. Dieſe Sätze<lb/>
+demnach, ſo wie die logiſchen Sätze, die auf ihnen<lb/>
+beruhen, müſſen zwar nicht bewieſen; aber abgeleitet<lb/>
+werden. — Ich mache mich noch deutlicher: daſs, was<lb/>
+die Wiſſenſchaftslehre aufſtellt, iſt ein gedachter und<lb/>
+in Worte gefaſster Satz; dasjenige im menſchlichen<lb/>
+Geiſte, welchem dieſer Satz korreſpondirt, iſt irgend<lb/>
+eine Handlung deſſelben, die an ſich gar nicht noth-<lb/>
+wendig <hi rendition="#i">gedacht</hi> werden müſste. Dieſer Handlung muſs<lb/>
+nichts vorausgeſetzt werden, als dasjenige, ohne wel-<lb/>
+ches ſie <hi rendition="#i">als</hi> Handlung unmöglich wäre; und das wird<lb/>
+nicht ſtillſchweigend vorausgeſetzt, ſondern es iſt das<lb/>
+Geſchäft der Wiſſenſchaftslehre, es deutlich, und be-<lb/>
+ſtimmt, und <hi rendition="#i">als</hi> dasjenige aufzuſtellen, ohne welches<lb/>
+die Handlung unmöglich ſeyn würde. Es ſei z. B. die<lb/>
+Handlung D — die vierte in der Reihe, ſo muſs ihr die<lb/>
+Handlung C vorher gehen, und als ausſchlieſſende Be-<lb/>
+dingung ihrer Möglichkeit erwieſen werden; und die-<lb/>
+ſer die Handlung B. Die Handlung A aber iſt ſchlecht-<lb/>
+hin möglich, ſie iſt ganz unbedingt, und mithin darf<lb/>
+und ſoll ihr gar nichts vorausgeſetzt werden. — Das<lb/>
+<hi rendition="#i">Denken</hi> der Handlung A aber iſt ganz eine andre Hand-<lb/>
+<fw type="catch" place="bottom">lung</fw><lb/>
+<pb n="61" facs="#f0069"/>
+lung, die weit mehr vorausſetzt. Setzet, ſie ſei in der<lb/>
+Reihe der aufzuſtellenden Handlungen D, ſo iſt klar,<lb/>
+daſs zum Behuf derſelben A. B. C. vorausgeſetzt, und<lb/>
+zwar, da jenes Denken das erſte Geſchäft der Wiſſen-<lb/>
+ſchaftslehre ſeyn ſoll, ſtillſchweigend vorausgeſetzt wer-<lb/>
+den müſſen. Erſt im Satze D werden die Voraus-<lb/>
+ſetzungen des erſten erwieſen werden; aber dann wird<lb/>
+wieder mehreres vorausgeſetzt ſeyn. Die Form der<lb/>
+Wiſſenſchaft eilt demnach ihrem Stoff beſtändig vor;<lb/>
+und das iſt der oben angezeigte Grund, warum die<lb/>
+Wiſſenſchaft, als ſolche, nur Wahrſcheinlichkeit hat.<lb/>
+Das Dargeſtellte und die Darſtellung ſind in zwei ver-<lb/>
+ſchiedenen Reihen. In der erſten wird nichts uner-<lb/>
+wieſenes vorausgeſetzt; für die Möglichkeit des zwei-<lb/>
+ten, muſs nothwendig vorausgeſetzt werden, was ſich<lb/>
+erſt ſpäter erweiſen läſst.</p>           <lb/>
+<p>Die Reflexion, welche in der ganzen Wiſſen-<lb/>
+ſchaftslehre, in ſo ferne ſie Wiſſenſchaft iſt, herrſcht,<lb/>
+iſt <hi rendition="#i">ein Vorſtellen</hi>; daraus aber folgt gar nicht, daſs alles,<lb/>
+<hi rendition="#i">worüber</hi> reflektirt wird, auch nur ein Vorſtellen ſeyn<lb/>
+werde. In der Wiſſenſchaftslehre <hi rendition="#i">wird</hi> das Ich <hi rendition="#i">vorge-<lb/>
+ſtellt</hi>; es folgt aber nicht, das es bloſs <hi rendition="#i">als</hi> vorſtellend,<lb/>
+bloſs als Intelligenz, vorgeſtellt werde: es können ſich<lb/>
+noch wohl andre Beſtimmungen darin auffinden laſſen.<lb/>
+<choice><sic>Daſs</sic><corr>Das</corr></choice> Ich, als philoſophirendes <hi rendition="#i">Subjekt</hi>, iſt unſtreitig<lb/>
+nur vorſtellend; <choice><sic>daſs</sic><corr>das</corr></choice> ich als <hi rendition="#i">Objekt</hi> des Philoſophirens<lb/>
+könnte wohl noch etwas mehr ſeyn. Das Vorſtellen iſt<lb/>
+die höchſte und abſolut-erſte Handlung der Philoſophen,<lb/>
+als ſolchen; die abſolut erſte Handlung des menſchlichen<lb/>
+Geiſtes könnte wohl eine andre ſeyn. Daſs es ſo ſeyn<lb/>
+<fw type="catch" place="bottom">werde,</fw><lb/>
+<pb n="62" facs="#f0070"/>
+werde, iſt vor aller Erfahrung vorher ſchon darum<lb/>
+wahrſcheinlich, weil ſich die Vorſtellung vollkommen<lb/>
+erſchöpfen läſst, und ihr Verfahren durchgängig noth-<lb/>
+wendig iſt; mithin einen letzten Grund ſeiner Noth-<lb/>
+wendigkeit haben muſs, der als letzter Grund keinen<lb/>
+höhern haben kann. Unter dieſer Vorausſetzung könnte<lb/>
+eine Wiſſenſchaft, die auf den Begriff der Vorſtellung<lb/>
+aufgebaut iſt, zwar eine höchſt nützliche Propädevtik<lb/>
+der Wiſſenſchaft, aber ſie könnte nicht die Wiſſen-<lb/>
+ſchaftslehre ſelbſt ſeyn. — So viel aber folgt aus der<lb/>
+obigen Angabe ſicher, daſs die geſammte Handlungsart<lb/>
+des menſchlichen Geiſtes, welche die Wiſſenſchaftslehre<lb/>
+erſchöpfen ſoll, nur in der Form der Vorſtellung — nur<lb/>
+in ſo fern, und ſo wie ſie vorgeſtellt werden — zum<lb/>
+Bewuſtſeyn gelangen.</p>         </div>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/>       <fw type="catch" place="bottom">         <hi rendition="#b">           <hi rendition="#g">Drit-</hi>         </hi>       </fw>       <lb/>
+<pb n="63" facs="#f0071"/>
+<milestone unit="section" rendition="#hr"/>       <div n="1">         <head>           <hi rendition="#b"><hi rendition="#g">Dritter Abſchnitt</hi>.<lb/>
+<milestone unit="section" rendition="#hr"/> Hypothetiſche Eintheilung der<lb/>
+Wiſſenſchaftslehre.</hi>         </head>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <div n="2">           <head>§. 8.</head>           <lb/>
+<p><hi rendition="#in">D</hi>er abſolut-erſte Grundſatz, da es nicht bloſs einen<lb/>
+Theil des menſc<supplied>h</supplied>lichen Wiſſens, ſondern das geſammte<lb/>
+Wiſſen begründen ſoll, muſs der ganzen Wiſſenſchafts-<lb/>
+lehre gemein ſeyn. Eintheilung iſt nur durch Gegen-<lb/>
+ſetzung möglich, deren Glieder aber doch einem<lb/>
+dritten gleich ſeyn müſſen.</p>           <lb/>
+<p>Setzet, das Ich ſei der höchſte Begriff, und dem<lb/>
+Ich werde ein Nicht-Ich entgegen geſetzt, ſo iſt klar,<lb/>
+daſs der letztere nicht entgegengeſetzt werden könne,<lb/>
+ohne <hi rendition="#i">geſetzt</hi>, und zwar in dem höchſten Begriffenen,<lb/>
+dem Ich geſetzt zu ſeyn. Alſo wäre das Ich in zweyer-<lb/>
+<fw type="catch" place="bottom">lei</fw><lb/>
+<pb n="64" facs="#f0072"/>
+lei Rükſicht zu betrachten; als dasjenige, <hi rendition="#i">in</hi> welchem<lb/>
+das Nicht-Ich geſetzt wird; und als dasjenige, <hi rendition="#i">welches</hi><lb/>
+dem Nicht-Ich entgegengeſetzt, und mithin ſelbſt im<lb/>
+abſoluten Ich geſetzt wäre. Das letztere Ich ſollte dem<lb/>
+Nicht-Ich, in ſo fern beide im abſoluten Ich geſetzt<lb/>
+ſind, darin gleich ſeyn, und es ſollte ihm zugleich in<lb/>
+eben der Rückſicht entgegengeſetzt ſeyn. Dieſs würde<lb/>
+ſich nur unter der Bedingung eines dritten im Ich den-<lb/>
+ken laſſen, in welchem beide gleich wären, <choice><sic>nnd</sic><corr>und</corr></choice> dieſes<lb/>
+dritte wäre der Begriff der Quantität. Beide hätten<lb/>
+eine durch ihr entgegengeſetztes beſtimmbare Quanti-<lb/>
+tät <note place="foot" n="*)">Bloſs der Begriff des Ich, des Nicht-Ich, und der Quan-<lb/>
+tität (der Schranken) ſind ſchlechthin a priori. Aus ihnen<lb/>
+ſind durch Gegenſetzung und Gleichung alle übrigen reinen<lb/>
+Begriffe abzuleiten.</note>. Entweder das Ich wird durch das Nicht-Ich<lb/>
+(ſeiner Quantität nach) beſtimmt. Es iſt in ſo fern ab-<lb/>
+hängig; es heiſst Intelligenz, und der Theil der Wiſſen-<lb/>
+ſchaftslehre, welcher von ihr handelt, iſt ihr theoreti-<lb/>
+ſcher Theil. Er wird gegründet auf den von den<lb/>
+Grundſätzen abzuleitenden, und durch ſie zu erweiſen-<lb/>
+den Begriff der Vorſtellung überhaupt.</p>           <lb/>
+<p>Aber <choice><sic>daſs</sic><corr>das</corr></choice> Ich ſollte abſolut, und ſchlechthin durch<lb/>
+ſich ſelbſt beſtimmt ſeyn: wird es durch das Nicht-Ich<lb/>
+beſtimmt, ſo beſtimmt es ſich nicht ſelbſt, und dem<lb/>
+höchſten und abſolut-erſten Grundſatze wird wider-<lb/>
+ſprochen. Um dieſem Widerſpruche auszuweichen,<lb/>
+müſſen wir annehmen, daſs das Nicht-Ich, welches<lb/>
+die Intelligenz beſtimmen ſoll, ſelbſt durch das Ich<lb/>
+<fw type="catch" place="bottom">das</fw><lb/>
+<pb n="65" facs="#f0073"/>
+das in dieſem Geſchäfte nicht vorſtellend ſeyn, ſondern<lb/>
+eine abſolute Kauſalität haben würde, beſtimmt wer-<lb/>
+den. — Da aber eine ſolche Kauſalität das entgegenge-<lb/>
+ſetzte Nicht-Ich, und mit ihm die von demſelben ab-<lb/>
+hängige Vorſtellung gänzlich aufheben würde, mithin<lb/>
+die Annahme derſelben dem zweiten und dritten Grund-<lb/>
+ſatze widerſpricht, ſo muſs ſie vorgeſtellt werden, <hi rendition="#i">als</hi><lb/>
+der Vorſtellung widerſprechend, als <hi rendition="#i">unvorſtellbar</hi>, als<lb/>
+eine Kauſalität die nicht Kauſalität iſt. Aber der Begriff<lb/>
+einer Kauſalität, die nicht Kauſalität iſt, iſt der Begriff<lb/>
+eines <hi rendition="#i">Strebens</hi>. Die Kauſalität iſt nur unter der Bedingung<lb/>
+einer geendeten Annäherung zum Unendlichen denk-<lb/>
+bar, welche ſelbſt nicht denkbar iſt — Dieſer als noth-<lb/>
+wendig zu erweiſende Begriff des Strebens wird dem<lb/>
+zweiten Theile der Wiſſenſchaftslehre zum Grunde ge-<lb/>
+legt, welcher der Praktiſche heiſst.</p>           <lb/>
+<p>Dieſer zweite Theil iſt an ſich bei weitem der<lb/>
+Wichtigſte; der erſte iſt freilich nicht minder wichtig,<lb/>
+aber nur als Grundlage des zweiten, und weil dieſer<lb/>
+ohne ihn ſchlechthin unverſtändlich iſt. Im zweiten<lb/>
+bekommt der theoretiſche Theil erſt ſeine ſichere Be-<lb/>
+grenzung, und ſeine feſte Grundlage, in dem aus dem<lb/>
+aufgeſtellten nothwendigen Streben, die Fragen beant-<lb/>
+wortet werden: Warum müſſen wir unter der Beding-<lb/>
+ung einer vorhandenen Affektion überhaupt vorſtellen;<lb/>
+mit welchem Rechte beziehen wir die Vorſtellung auf<lb/>
+etwas auſſer uns, als auf ihre Urſache; mit welchem<lb/>
+Rechte nehmen wir überhaupt ein durchgängig durch<lb/>
+Geſetze beſtimmtes Vorſtellungsvermögen an: (welche<lb/>
+Geſetze nicht als im Vorſtellungsvermögen einheimiſch,<lb/>
+ſondern als Geſetze des ſtrebenden Ich, deren Anwen-<lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom">dung</fw><lb/>
+<pb n="66" facs="#f0074"/>
+dung durch die Einwirkung des gegenſtrebenden Nicht-<lb/>
+Ich auf das Gefühl bedingt wird, vorgeſtellt werden.)<lb/>
+In ihm wird eine neue durchgängig beſtimmte Theorie<lb/>
+des Angenehmen, des Schönen, und Erhabenen, der<lb/>
+Geſetzmäſsigkeit der Natur in ihrer Freiheit, der Got-<lb/>
+teslehre, des ſogenannten gemeinen Menſchenverſtan-<lb/>
+des, oder des natürlichen Wahrheitsſinnes, und endlich<lb/>
+ein Naturrecht, und eine Sittenlehre begründet, deren<lb/>
+Grundſätze nicht bloſs formal, ſondern material ſind.<lb/>
+Alles durch Aufſtellung dreier Abſoluten. Eines abſo-<lb/>
+luten Ich, und der ſelbſtgegebnen, unter Bedingung<lb/>
+einer Einwirkung des Nicht-Ich vorſtellbaren Geſetze;<lb/>
+eines abſoluten von allen unſern Geſetzen unabhängigen<lb/>
+und freien, unter der Bedingung, daſs es dieſelben po-<lb/>
+ſitiv oder negativ, aber immer in einem endlichen<lb/>
+Grade ausdrücke, vorſtellbaren Nicht-Ich; und einer<lb/>
+abſoluten, unter der Bedingung, daſs es eine Einwir-<lb/>
+kung des Nicht-Ich von einer Wirkung des Ich, oder<lb/>
+einem Geſetze unterſcheide, vorſtellbaren Vermögens<lb/>
+in uns, uns nach Maaſsgabe der Einwirkung beider,<lb/>
+ſchlechthin zu beſtimmen. Ueber dieſe drei Abſoluten<lb/>
+hinaus geht keine Philoſophie.</p>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <fw type="catch" place="bottom">Es</fw>           <lb/>
+<pb n="67" facs="#f0075"/>
+<milestone unit="section" rendition="#hr"/>           <p><hi rendition="#in">E</hi>s iſt den akademiſchen Bürgern, deren Mitbürger in<lb/>
+kurzem zu ſeyn, ich mir zur Ehre ſchätze, aus den<lb/>
+Lektionsankündigungen bekannt, welche Vorleſungen<lb/>
+ich über die Wiſſenſchaft, deren Begriff ich hier zu<lb/>
+entwickeln ſuchte, zu halten gedenke; und ich habe<lb/>
+Ihnen darüber nichts weiter zu ſagen, als daſs ich hoffe,<lb/>
+Ihnen den Leitfaden für beide Theile derſelben als<lb/>
+<hi rendition="#i">Handſchrift für meine Zuhörer</hi> <note place="foot" n="*)">Das letztre nicht um die Rechte der Kritik zu ſchmälern, ſon-<lb/>
+dern um der Kritik und ihrem Repräſentanten, dem Publikum<lb/>
+meine Achtung zu bezeigen.</note> gedruckt in die Hände<lb/>
+liefern zu können. Die gewählten Stunden werde ich<lb/>
+nach meiner Ankunft an dem gewöhnlichen Orte an-<lb/>
+zeigen.</p>           <lb/>
+<p>Ueber Einen Punkt nur bin ich Ihnen noch eine<lb/>
+Erklärung ſchuldig. — Die Wiſſenſchaften ſind, wie<lb/>
+Ihnen allen ohne Zweifel bekannt iſt, nicht zu einer<lb/>
+müſſigen Geiſtesbeſchäftigung, und für die Bedürfniſſe<lb/>
+eines verfeinertern Luxus erfunden. Dann gehörte<lb/>
+der Gelehrte gerade in die Klaſſe, in welche die leben-<lb/>
+den Werkzeuge des Luxus, der weiter nichts als Luxus<lb/>
+iſt, alle gehören, und ſelbſt in dieſer dürfte ihm der<lb/>
+oberſte Platz ſtreitig gemacht werden. Alles unſer For-<lb/>
+ſchen muſs auf den höchſten Zweck der Menſchheit, auf<lb/>
+die Veredlung des Geſchlechts, deſſen Mitglieder wir<lb/>
+ſind, ausgehen, und von den Zöglingen der Wiſſen-<lb/>
+ſchaft aus muſs, als vom Mittelpunkte, Humanitat im<lb/>
+<fw type="catch" place="bottom">höch-</fw><lb/>
+<pb n="68" facs="#f0076"/>
+höchſten Sinne des Worts ſich rund um ſie herum ver-<lb/>
+breiten. Jeder Zuwachs, den die Wiſſenſchaft erhält,<lb/>
+vermehrt die Pflichten ihrer Diener. Es wird alſo im-<lb/>
+mer nothwendiger, folgende Fragen recht ernſtlich zu<lb/>
+beherzigen: Welches iſt die eigentliche Beſtimmung des<lb/>
+Gelehrten, auf welchen Platz in der Ordnung der<lb/>
+Dinge iſt er geſtellt, in welchen Verhältniſſen ſtehen die<lb/>
+Gelehrten unter ſich ſelbſt, gegen die übrigen Menſchen<lb/>
+überhaupt, und insbeſondre gegen die einzelnen Stände<lb/>
+derſelben, wie und durch welche Mittel können ſie den<lb/>
+Pflichten, die ihnen durch dieſe Verhältniſſe aufgelegt<lb/>
+ſind, am geſchickteſten Genüge thun, und wie haben<lb/>
+ſie ſich zu dieſer Geſchicklichkeit zu bilden? Dieſe<lb/>
+Fragen ſind es, die ich in den öffentlichen Vorleſungen,<lb/>
+welche ich unter der Benennung <hi rendition="#i">Moral für Gelehrte</hi>,<lb/>
+angekündigt habe, zu beantworten ſuchen werde. Er-<lb/>
+warten Sie von dieſen Unterhaltungen nicht eine ſyſte-<lb/>
+matiſche Wiſſenſchaft; dem Gelehrten fehlt es öfterer<lb/>
+beim Handeln, als beim Wiſſen. Vergönnen Sie viel-<lb/>
+mehr, daſs wir in dieſen Stunden, wie eine Geſellſchaft<lb/>
+von Freunden, die mehr als Ein Band vereinigt, uns<lb/>
+zum hohen feurigen Gefühl unſrer gemeinſchaftlichen<lb/>
+Pflichten ermuntern.</p>         </div>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/>     </body>     <back>       <div type="corrigenda">         <p><hi rendition="#c"><hi rendition="#i">Einige Druckfehler der erſten zwei Bogen, die allein der Ver-<lb/>
+faſſer <hi rendition="#g">ſelbſt</hi> revidiren konnte</hi>.</hi><lb/>
+S. 6 Z. 11 Vorſchritten, ſtatt: Vorſchriften.<lb/>
+— 16 — 13 Gehalt, ſtatt: Geſtalt.<lb/>
+— 17 — gegen Ende einer nicht übertriebenen, ſtatt: über-<lb/>
+triebener.</p>       </div>     <lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[69]" facs="#f0077"/>
+<pb n="[70]" facs="#f0078"/>
+<pb n="[71]" facs="#f0079"/>
+</back>   </text> </TEI>

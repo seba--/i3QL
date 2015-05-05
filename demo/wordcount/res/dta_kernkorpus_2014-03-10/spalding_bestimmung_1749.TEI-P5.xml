@@ -1,0 +1,1239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Betrachtung über die Bestimmung des Menschen</title>
+<title type="sub">Dritte und vermehrte Auflage</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118751719">
+<surname>Spalding</surname>
+<forename>Johann Joachim</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">44</measure>
+<measure type="tokens">8312</measure>
+<measure type="types">2209</measure>
+<measure type="characters">58374</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:43:18Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/spalding_bestimmung_1749</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/spalding_bestimmung_1749</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/spalding_bestimmung_1749</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/spalding_bestimmung_1749</idno>
+<idno type="DTADirName">spalding_bestimmung_1749</idno>
+<idno type="DTAID">20569</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">[Spalding, Johann Joachim]: Betrachtung über die Bestimmung des Menschen. 3. Aufl. Greifswald, 1749.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Betrachtung über die Bestimmung des Menschen</title>
+<title level="m" type="sub">Dritte und vermehrte Auflage</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118751719">
+<surname>Spalding</surname>
+<forename>Johann Joachim</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="3">3</edition>
+</editionStmt>
+<extent>
+<measure type="pages">44 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Johann Jacob Weitbrecht</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1749</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Universitäts- und Landesbibliothek Halle</repository>
+<idno>
+<idno type="shelfmark">Halle ULB, AB 153258 (1)</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Theologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Theologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<pb facs="#f0010"/>
+<pb n="[1]" facs="#f0011"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b"><hi rendition="#g">Betrachtung</hi></hi><lb/>
+uͤber die<lb/>
+<hi rendition="#b"><hi rendition="#g">Beſtimmung</hi></hi><lb/>
+des<lb/>
+<hi rendition="#b"><hi rendition="#g">Menſchen</hi>.</hi><lb/>
+</titlePart> </docTitle> <milestone unit="section" rendition="#hr"/><lb/>
+<epigraph><cit><quote> <cit><quote><hi rendition="#aq"><hi rendition="#i">— — — quod — ad nos<lb/>
+pertinet et neſcire malum eſt agitamus —</hi><lb/>
+<hi rendition="#et"><hi rendition="#g">HOR</hi>.</hi></hi></quote><bibl/></cit><lb/>
+</quote><bibl/></cit></epigraph> <figure/> <titlePart type="volume"> Dritte und vermehrte Auflage.<lb/>
+</titlePart> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace><hi rendition="#g">Berlin,</hi></pubPlace><lb/>
+bey <publisher>Johann Jacob Weitbrecht</publisher>, <docDate>1749</docDate>.<lb/>
+</docImprint> </titlePage> </front><body>
+<pb n="[2]" facs="#f0012"/>
+<pb n="[3]" facs="#f0013"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head/> <cit><quote><hi rendition="#aq"><hi rendition="#i">Quid ſumus? et quidnam victuri gignimur?</hi><lb/>
+<hi rendition="#et"><hi rendition="#g">PERSIVS.</hi></hi></hi></quote><bibl/></cit><lb/>
+<p><hi rendition="#in">J</hi>ch ſehe, daß ich die kurze Zeit, die ich auf der<lb/>
+Welt zu leben habe, nach ganz verſchiede-<lb/>
+nen Grundregeln zubringen kann, deren<lb/>
+Wehrt und Folgen daher auch unmoͤglich<lb/>
+einerley ſeyn koͤnnen. Da ich nun unlaͤug-<lb/>
+bar eine Faͤhigkeit zu waͤhlen, und in meinen Entſchlieſſungen<lb/>
+eines dem andern vorzuziehen an mir finde, ſo muß ich auch<lb/>
+hiebey nicht blindlings zufahren, ſondern vorher nach meinem<lb/>
+beßten Vermoͤgen auszumachen ſuchen, welcher Weg der<lb/>
+ſicherſte, anſtaͤndigſte und vortheilhafteſte ſey. Manche Er-<lb/>
+fahrungen haben mich ſchon in Dingen von geringerer Wich-<lb/>
+tigkeit gelehret, daß die quaͤlende Empfindung der Reue nach<lb/>
+vollbrachten Handlungen nicht in meiner Gewalt iſt; deſto<lb/>
+mehr wuͤrde ich mir hernach vorzuwerfen haben, wenn ich nicht<lb/>
+die ernſthaſteſte Ueberlegung auf dasjenige gerichtet haͤtte,<lb/>
+worauf mein eigentlicher Wehrt und die ganze Verfaſſung<lb/>
+meines Lebens ankoͤmmt. Es iſt doch einmal der Muͤhe<lb/>
+wehrt, zu wiſſen, warum ich da bin, und was ich vernuͤnfti-<lb/>
+ger Weiſe ſeyn ſoll.</p><lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="4" facs="#f0014"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Die Beyſpiele der Menſchen neben mir ſind mir in dieſem<lb/>
+Stuͤcke keine guͤltige Gewaͤhrleiſtungen, und wenn ſie es auch<lb/>
+ſeyn koͤnnten, ſo ſondern ſie ſich doch ſelbſt hierin ſo unendlich<lb/>
+weit von einander ab, daß ich in viel groͤſſerer Verwirrung<lb/>
+und Verlegenheit ſeyn wuͤrde, mir unter ihnen einen Fuͤhrer<lb/>
+auszuſuchen, als fuͤr mich ſelbſt nach dem richtigſten Wege<lb/>
+zu forſchen. Wenn ich dem einen Schwarm folge, ſo bin ich<lb/>
+allemal ſicher, von dem andern entweder verlacht oder ver-<lb/>
+dammet zu werden. Jch weiß dieſer Ungelegenheit nichts<lb/>
+ſtaͤrkeres, als eine aus Unterſuchung entſpringende Gewißheit<lb/>
+entgegen zu ſetzen, und ich hoffe, dieſe wird mich auf allen<lb/>
+Fall gegen beides gleichguͤltig machen.</p><lb/>
+<p>So viel begreife ich leicht, daß die gemeinen Beſtrebungen<lb/>
+nach Reichthum und Ehre, wenn ſie nicht als bloſſe Mittel<lb/>
+zu wirklichern Abſichten und Guͤtern angeſehen werden, dem<lb/>
+wahren Zwecke des Menſchen unmoͤglich gemaͤß ſeyn koͤnnen.<lb/>
+Es iſt ſo viel leeres, ſo viel falſches, ſo viel auf die bloſſe Ein-<lb/>
+bildung beruhendes in dieſen Gluͤckſeligkeiten, daß ich mich<lb/>
+unfehlbar in einem tauſendfachen Elende befinden kann, wenn<lb/>
+ich gleich in jenen alle meine Abſichten voͤllig erreichet habe.<lb/>
+Waͤre meiner Natur ſonſt keiner wirklichern Empfindungen<lb/>
+der Luſt und des Schmerzens faͤhig, und ſtuͤnden danaͤchſt<lb/>
+meine Fantaſeyen und Vorſtellungen beſtaͤndig unter meiner<lb/>
+Herrſchaft, ſo wuͤrde ich mir kein Bedenken machen duͤrfen,<lb/>
+mein Gluͤck in Fantaſeyen und Vorſtellungen zu ſetzen, und<lb/>
+ſolchen ſodann mit einer unverruͤckten Begierde nachzuhaͤngen.<lb/>
+Allein hievon bin ich mir des Gegentheils viel zu innerlich<lb/>
+bewußt. So lange als was weſentlichers, das meine Nei-<lb/>
+gung rege machen kann, in der Natur verhanden iſt, kann<lb/>
+ich mich vor mir ſelbſt nicht entſchuldigen, wenn ich mich bey<lb/>
+Traͤumen aufhalte.</p><lb/>
+<p>Dergleichen weſentlichers iſt ohne Zweifel das Vergnuͤgen<lb/>
+der Sinne. Jch geſtehe es: dieß wirket auf mich mit einem<lb/>
+<fw type="catch" place="bottom">gewal-</fw><lb/>
+<pb n="5" facs="#f0015"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+gewaltigen Reize. Sollte ich wol nicht dazu ſeyn, es zu ſu-<lb/>
+chen und zu genieſſen? — Der Trieb zum Vergnuͤgen,<lb/>
+der ſo tief in meiner Sele liegt, ſcheinet es zu rechtfertigen,<lb/>
+wenn ich mich dieſer Gattung von Begierden ganz uͤberlaſſe.<lb/>
+Was will ich mehr, als Vergnuͤgen, da ich, allem Anſehen<lb/>
+nach, zum Vergnuͤgen gemacht bin? — Und was fehlet<lb/>
+mir an Vergnuͤgen, wenn ich mir nichts verſagen darf?<lb/>
+Dieſer Grundſatz wird auch, wie es ſcheinet, von der Erfah-<lb/>
+rung maͤchtig unterſtuͤtzet. Wenn ich mir die ſuͤſſe Betaͤu-<lb/>
+bung vorſtelle, in welcher eine beſtaͤndige Abwechſelung von<lb/>
+ſinnlicher Luſt mich durch die kleine Dauer dieſes Lebens hin-<lb/>
+durch fuͤhren kann, ſo, duͤnkt mich, bleibt mir nichts weiter zu<lb/>
+wuͤnſchen uͤbrig. Warum ſoll ich mit einer Begierde, die<lb/>
+in mir aufſteiget, erſt zu hadern aufangen, da ſie mir zum<lb/>
+Lohn ihrer Erfuͤllung voraus ein unfehlbares Ergetzen ver-<lb/>
+ſpricht? Warum ſoll ich entfernte, ungewiſſe, vielleicht ein-<lb/>
+gebildete Folgen durch die Furcht aus der Zukunft herbey<lb/>
+holen, um mir die Zeit zu vergiften, die ich unterdeſſen an-<lb/>
+wenden koͤnnte, neue Neigungen rege zu machen, und auf<lb/>
+eine neue Art zu ſaͤttigen? Was mangelt jenen von Wolluſt<lb/>
+trunkenen Menſchen? Und was wird mir mangeln, wenn ich<lb/>
+ſie nachahme? Was wird mir mangeln, wenn ich meiner<lb/>
+Sele, durch Gewaͤhrung deſſen, was ſie ſelbſt ſodert, beſtaͤn-<lb/>
+dig zu thun gebe, und wenn ich immer ein Vergnuͤgen ſo an<lb/>
+das andere knuͤpfe, daß kein leerer Platz dazwiſchen ſie mit<lb/>
+Ekel quaͤlen, oder mit Ueberlegungen erſchuͤttern darf? Die<lb/>
+Natur und die Geſellſchaft ſind unerſchoͤpfliche Quellen dieſer<lb/>
+Luſt, die meine Sinnen nicht muͤſſig laſſen werden, wenn ich<lb/>
+ſie ihnen nur widmen will. —</p><lb/>
+<p>Dieſe Ueberredungen ſind ſtark; aber mich duͤnkt, ihre<lb/>
+Staͤrke hat etwas wildes und uͤbertaͤubendes an ſich, welches<lb/>
+meiner Sele noch nicht Stille genug verſtattet; darum muß<lb/>
+ich ſie nochmal gelaſſener unterſuchen.</p><lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">Das,</fw><lb/>
+<pb n="6" facs="#f0016"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Das, was ich an manchen Beyſpielen derer, die nach den<lb/>
+bisherigen Grundregeln verfahren, wahrnehme, iſt ſchon ge-<lb/>
+ſchickt, einiges Mistrauen in dieſen Zuſammenhang meiner<lb/>
+Urtheile bey mir zu erwecken. Jch habe ihre Luſt geſehen; ich<lb/>
+habe ihre Begierden gleichſam in ihrer Geburt befriediget ge-<lb/>
+ſehen; ich habe geſehen, mit welcher Schnelligkeit ſie von einer<lb/>
+Ergetzung zur andern geeilet, mit welcher Wachſamkeit ſie auf<lb/>
+allen Seiten das Vergnuͤgen gehaſchet, das bey ihnen vorbey<lb/>
+ſtreichen wollen, mit welcher triumphirenden Gewalt ſie den<lb/>
+ſchwermuͤthigen und gruͤblenden Theil ihrer Sele in den<lb/>
+Schranken gehalten. Das war ein Meer von Wolluſt,<lb/>
+darin ſie ſchwammen. Aber dieſer Zuſtand iſt nicht mehr,<lb/>
+und die Veraͤnderung iſt traurig. Jener ſeufzet in der Duͤrf-<lb/>
+tigkeit, die ihm, nebſt dem koſtbaren und ausgekuͤnſtelten<lb/>
+Vergnuͤgen, auch zugleich das wolfeilere und natuͤrlichere ent-<lb/>
+ziehet; und dieſer ſchmachtet in Krankheiten und Schmerzen,<lb/>
+die ihn nichts angenehmes empſinden laſſen. Eines ſowol<lb/>
+als das andere iſt eine eigentliche Folge ihres Eifers, womit<lb/>
+ſie die groſſe Grundregel, ſich nichts zu verſagen, zur Aus-<lb/>
+uͤbung gebracht haben. Es fehlet unendlich viel, daß das<lb/>
+Andenken der Wolluͤſte, die ſie genoſſen, oder der Bemuͤhun-<lb/>
+gen, womit ſie darnach getrachtet haben, ihnen itzo eine uͤber-<lb/>
+wiegende Beruhigung geben ſollte. Dieſe werden ihnen<lb/>
+vielmehr zu ſo viel Furien, die ihr inwendiges zerreiſſen.</p><lb/>
+<p>Das erſchreckt mich. — Wollte ich wol in ihrer<lb/>
+Stelle ſeyn? Wollte ich mich wol in die auch nur wahr-<lb/>
+ſcheinliche Gefahr geben, daß ich einmal in ihrer Stelle ſeyn<lb/>
+koͤnnte? Sollte ich denn wol dazu auf der Welt ſeyn, alles<lb/>
+zu thun, was den Empfindungen meiner Sinnen ſchmei-<lb/>
+chelt? — Es iſt verdruͤßlich, daß bey der wuͤnſchenswuͤr-<lb/>
+digſten Sache in der Welt, bey dem Vergnuͤgen, ſchlimme<lb/>
+Wirkungen moͤglich ſind; aber das kann ich nun einmal<lb/>
+nicht aͤndern. Jch muß alſo bey dieſer Regel nur auf Ein-<lb/>
+ſchraͤnkungen bedacht ſeyn. Jch muß das Vergnuͤgen der<lb/>
+<fw type="catch" place="bottom">Sinne</fw><lb/>
+<pb n="7" facs="#f0017"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Sinne ſo genieſſen, daß ich fuͤr ſeine ſchlimme Fruͤchte ſicher<lb/>
+bleibe. Hierin beſtehet die groſſe Wiſſenſchaft, an welcher<lb/>
+die feineſten Koͤpfe ſo lange gearbeitet haben; ihre einzige<lb/>
+Hauptwiſſenſchaft des Lebens. Die Kunſt iſt freylich nicht<lb/>
+wenig wehrt, die mich lehret, das ſuͤſſe aus der Wolluſt her-<lb/>
+auszuziehen, ohne von ihrem Stachel getroffen zu werden;<lb/>
+und wenn dieß gleich vermittelſt einer Maͤſſigung und Ent-<lb/>
+haltſamkeit geſchehen muß, die mir etwas koſtet, ſo iſt doch<lb/>
+der Preis nicht zu hoch, fuͤr welchen ich die Befreyung von<lb/>
+Ekel ſowol, als nachmaligen Schmerzen, zugleich erkaufe.<lb/>
+Jch genieſſe vielleicht weniger Luſt, aber ſie iſt empfindlicher<lb/>
+und daurhafter. Hier ſchleichen ſich keine nagende Sorgen<lb/>
+in das Herz, das nur dem Vergnuͤgen offen ſtehet. Jn dieſer<lb/>
+Folge von Ergetzungen iſt zwar Raum fuͤr Gedanken und<lb/>
+Behutſamkeit, aber nicht fuͤr Kummer und Vorwuͤrfe und<lb/>
+ſchreckende Einbildungen. Jch unterdruͤcke meine Vernunft<lb/>
+nicht; ich brauche ſie ihrem Zwecke gemaͤß, und laſſe ſie, da<lb/>
+ich zum Empfinden lebe, den Empfindungen dienen. So<lb/>
+flieſſet dann mein Leben als ein ſanfter Bach unbeſtuͤrmt<lb/>
+zwiſchen lauter Blumen dahin. — Und ſo waͤre alſo ein<lb/>
+ordentlicher Wolluͤſtling dasjenige, was die Natur aus dem<lb/>
+Menſchen haben will. —</p><lb/>
+<p>Nach dieſem meinen neuen Syſtem genieſſe ich nun eine<lb/>
+Zeit lang die Ergetzungen dieſes Lebens mit aller Behutſam-<lb/>
+keit und Sorgfalt. — Und nichts deſtoweniger finden ſich ge-<lb/>
+wiſſe Augenblicke, da mir iſt, als wenn mir etwas fehlet.<lb/>
+Jch kann den Ekel und Ueberdruß mit aller meiner Muͤhe<lb/>
+nicht vermeiden; ich werde unzufrieden; alles wird mir zur<lb/>
+Laſt, und ich ſelbſt. Jch zerſtreue mich; aber ich ſpuͤre bald,<lb/>
+daß ich meinen Unmuth zwar auf eine kleine Zeit vergeſſe, aber<lb/>
+nicht hebe. Jch nehme meine Zuflucht zu meinen gewohnten<lb/>
+Vergnuͤgungen, zu den unſchaͤdlichſten, die ich kenne; allein<lb/>
+in dieſen truͤben Stunden habe ich gleichſam den Geſchmack<lb/>
+daran verlohren; ſie ſind itzo das nicht, was mich befriedigen<lb/>
+<fw type="catch" place="bottom">kann;</fw><lb/>
+<pb n="8" facs="#f0018"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+kann; meine ekle Sele ſtoͤßt ſie von ſich, und bleibt in ihrer<lb/>
+unſtetigen und troſtloſen Verwirrung. Es iſt ein dunkles Ge-<lb/>
+fuͤhl von Sehnſucht und einem geheimen Leeren in mir, das<lb/>
+mich zu Boden druͤckt, das mich verzehret. Jch ungluͤckſeli-<lb/>
+ger! Was will ich denn? und wie iſt mir geholfen? —</p><lb/>
+<p>Das iſt mir wenigſtens nun offenbar, daß die angenehme<lb/>
+Bewegung meiner Sinne nicht meine ganze Sele ausfuͤllet;<lb/>
+daß noch gleichſam ledige Abgruͤnde darin ſeyn muͤſſen, welche<lb/>
+eine Befriedigung von ganz anderer Art erfodern. Aber wo<lb/>
+finde ich dieſe andere Befriedigung? Wo finde ich dieſe unbe-<lb/>
+kannte Saͤttigung, nach welcher mein leerer Geiſt mit Angſt<lb/>
+und Unruhe ſchmachtet? —</p><lb/>
+<p>Wenn ich ohne die Benebelung meiner Sinnlichkeit in<lb/>
+mich ſelbſt gehe, ſo ſehe ich wol, daß wahre Verbeſſerungen,<lb/>
+Vollkommenheiten und Vortheile meiner ſelbſt bey mir moͤg-<lb/>
+lich ſind, daß meine Natur mich innerlich antreibet, darnach<lb/>
+zu trachten, und daß die Erreichung dieſes Beſtrebens mir ein<lb/>
+Wolgefallen erwecket, worin meine Sele ſchon mehr Beruhi-<lb/>
+gung findet, als in dem bloſſen Taumel ſinnlicher Luͤſte. Die<lb/>
+Geſundheit, Staͤrke und Geſchicklichkeit meines Leibes verdie-<lb/>
+nen an ſich meine Sorge, auch ohne unmittelbares Abſehen<lb/>
+auf das Ergetzen, welches meinen Sinnen daraus zu Theil<lb/>
+werden kann. Noch mehr vergnuͤgen mich die Vorzuͤge und<lb/>
+Kraͤfte meines Geiſtes, wenn ich ſie erkenne und wachſen ſehe.<lb/>
+Jch finde, daß ich ſo viel beſſer bin, daß ich in eine ſo viel<lb/>
+hoͤhere Ordnung gehoͤre, als das mannichfaltige Vermoͤgen<lb/>
+zunimmt, deſſen ich mir bewußt bin. Jch beſchaͤftige mich<lb/>
+alſo mit demſelben nicht ohne Empfindung einer einnehmen-<lb/>
+den Luſt. Jch bringe alles zuſammen, ich brauche alles, meinen<lb/>
+Geiſt vollkommener zu machen. Jch ſuche mein Gedaͤchtniß<lb/>
+zu bereichern, meine Begriffe aufzuklaͤren, meinen Witz zu<lb/>
+ſchaͤrfen, meine Einſicht zu erweitern und zu befeſtigen. Jch<lb/>
+ermuͤde nicht, dieſe meine Faͤhigkeiten immer von einer Stuffe<lb/>
+<fw type="catch" place="bottom">auf</fw><lb/>
+<pb n="9" facs="#f0019"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+auf die andere zu bringen. Jch ſorge alſo fuͤr mich, fuͤr meine<lb/>
+wahren Vortheile, und ich freue mich, wenn ich ſie beſitze.</p><lb/>
+<p>Das iſt alles meiner Natur gemaͤß, aber es iſt noch nicht<lb/>
+genug. Jch ſehe andere Weſen um mich, und ich frage mich<lb/>
+dabey: Sind dieſe alle um meinetwillen da? Haben ſie keinen<lb/>
+andern Zweck, als mein Beßtes? Findet zwiſchen mir und<lb/>
+ihnen kein anderes Verhaͤltniß ſtatt, als daß ich, gleich einem<lb/>
+Mittelpunkt, alles andere auf mich ziehen darf? Bin ich mir<lb/>
+alles, und allen andern Weſen fuͤr ſich nichts ſchuldig? Und<lb/>
+habe ich keinen andern natuͤrlichen Zweck, keine andere natuͤr-<lb/>
+liche Begierde in meiner Sele, als meinen Nutzen?</p><lb/>
+<p>Jch wende hiebey eine neue Aufmerkſamkeit auf mich ſelbſt,<lb/>
+und auf das, was ſich in mir bey verſchiedenen Faͤllen geaͤuſſert<lb/>
+hat, und da entdecke ich unwiderſprechlich, daß noch etwas<lb/>
+mehrers iſt, wohin ſich meine Sele neiget, und was fuͤr ſie ge-<lb/>
+hoͤret. Jch habe vielfaͤltig, zu meiner Verwunderung, Triebe<lb/>
+und Empfindungen in mir wahrgenommen, die ich gar nicht<lb/>
+zu den Begierden nach ſinnlicher Luſt, oder nach eigenem Vor-<lb/>
+theil rechnen, und denen ich mit dieſen gar nicht genug thun<lb/>
+kann. Woher koͤmmt doch das Ergetzen an den guten Beſchaf-<lb/>
+fenheiten und an der Gluͤckſeligkeit anderer Weſen? Woher<lb/>
+das ruͤhrende Wolgefallen oder Misfallen an Handlungen, die<lb/>
+ich fuͤr anſtaͤndig oder ſchaͤndlich halte? Was war es doch,<lb/>
+das mich hinderte, die von meinem Wolthaͤter mir heimlich<lb/>
+anvertrauten Guͤter nach ſeinem Tode zu verſchweigen, und ſie<lb/>
+ſeinem darbenden Bruder zu entziehen? Was war der Grund<lb/>
+von dem lebhaften Vergnuͤgen, womit ich jenen unſchuldigen<lb/>
+Fremdling aus der Gefahr befreyete, in welche er durch eine<lb/>
+falſche Anklage gerathen war? — Dieß alles mag her-<lb/>
+kommen, woher es will, ſo ſehe ich doch augenſcheinlich, daß<lb/>
+es nicht aus der Begierde nach ſinnlicher Luſt, oder nach mei-<lb/>
+ner eigenen Verbeſſerung, ſeinen Urſprung hat. Es muß alſo<lb/>
+noch eine ganz andere Quelle von Neigungen in mir ſeyn, als<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">dieſe.</fw><lb/>
+<pb n="10" facs="#f0020"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+dieſe. Und wenn das keine Fantaſey iſt, oder wenn auch dieſe<lb/>
+Fantaſey auſſer meiner willkuͤrlichen Gewalt iſt, wenn ſie mir<lb/>
+natuͤrlich und unveraͤnderlich iſt, ſo muß ich nothwendig fuͤr<lb/>
+ihre Befriedigung mit ſorgen. Dieß iſt aller meiner Ueber-<lb/>
+legung wehrt, und wenn auch die Vortheile und Bequemlich-<lb/>
+keiten meiner vorigen Philoſophie daruͤber wieder zum Opfer<lb/>
+werden ſollten.</p><lb/>
+<p>Ja, wahrlich, ich kann es nicht laͤugnen: Jch ſpuͤre Em-<lb/>
+pfindungen in mir, dabey ich mich ſelbſt vergeſſe, die nicht<lb/>
+mich und meinen Vortheil, in ſo fern ich es bin, und in ſo<lb/>
+fern es mein Vortheil iſt, ſondern ganz etwas anders zum<lb/>
+Zweck haben; Empfindungen der Guͤte und der Ordnung,<lb/>
+die mein bloſſer Wille nicht gemacht hat, und die auch mein<lb/>
+bloſſer Wille nicht vernichten kann; urſpruͤngliche und unab-<lb/>
+haͤngliche Triebe meiner Sele zu dem, was ſich ſchickt, zu<lb/>
+dem, was anſtaͤndig, großmuͤthig und billig iſt, zu der<lb/>
+Schoͤnheit, Uebereinſtimmung und Bollkommenheit uͤber-<lb/>
+haupt, und vornemlich in den Wirkungen verſtaͤndiger und<lb/>
+freyhandlender Weſen.</p><lb/>
+<p>Was ſollte ich ſonſt aus der Scham machen, aus dieſer<lb/>
+beſchwerlichen und von der Furcht doch ſo weſentlich unter-<lb/>
+ſchiedenen Empfindung? Was waͤre die ſo oft von aller Be-<lb/>
+ſorgniß eines Schadens abgeſonderte Reue? Woher kaͤme der<lb/>
+groſfe Unterſcheid des Unwillens bey einerley Nachtheil, der<lb/>
+mir entweder von einem Thiere, von einem Kinde, von einem<lb/>
+Wahnwitzigen, oder hergegen von einem ordentlichen ver-<lb/>
+ſtaͤndigen Menſchen aus Vorſatz und Bosheit zugeſuͤget wird;<lb/>
+wenn nicht meinem Geiſt ein natuͤrlicher Begriff von einem<lb/>
+Anſtaͤndigen und Schaͤndlichen, von einem Schoͤnen und<lb/>
+Haͤßlichen, von Recht und Unrecht eingedruͤckt waͤre?</p><lb/>
+<p>Vielleicht iſt dieſe natuͤrliche Empfindung erſt von Anfang<lb/>
+an durch die betaͤubende Macht der Sinnlichkeit, die mich ſo<lb/>
+gleich in der Welt von allen Seiten umringet und beſtuͤrmet<lb/>
+<fw type="catch" place="bottom">hat,</fw><lb/>
+<pb n="11" facs="#f0021"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+hat, unterdruͤckt worden; allein da hat mir nachher eine ge-<lb/>
+nauere und tiefer gehende Achtſamkeit gar bald gezeiget, daß<lb/>
+dieß ein Mangel, ein wirklicher Uebelſtand in meiner Natur<lb/>
+geweſen, derſelbe mag auch eine Urſache gehabt haben, wel-<lb/>
+che er gewollt. Und wenn ich es hergegen ſelbſt durch<lb/>
+angenommene Fertigkeiten dahin bringe, daß ſich dieſe ſon-<lb/>
+derbaren Triebe nicht ſo ſtark mehr in meiner Sele regen,<lb/>
+daß ſie wider die Obergewalt der andern ſinnlichen und ei-<lb/>
+gennuͤtzigen Neigungen nicht mehr ſo laut reden, ſo bin ich<lb/>
+mir auch in ſolchem Fall gar wohl bewußt, daß es mir et-<lb/>
+was gekoſtet hat, ehe ich ſie unter dieſes Joch gebracht.<lb/>
+So lange ich dahin noch nicht gerathen bin, fuͤhle ich be-<lb/>
+ſtaͤndig dieſen klaren Unterſcheid meiner Begierden, daß<lb/>
+einige bloß auf mich, andere aber auf ein allgemeines Beßtes,<lb/>
+oder auf das, was an ſich gut und ſchoͤn iſt, abzielen; wie-<lb/>
+wol ihnen allen, denen von der einen Gattung ſowol, als von<lb/>
+der andern, das gemein iſt, das ihre Erfuͤllung das Vergnuͤ-<lb/>
+gen bey ſich fuͤhret.</p><lb/>
+<p>Auf die Art faͤllt die Vermuthung voͤllig hinweg, daß jene<lb/>
+Triebe des Rechts und der Guͤte ein Vorurtheil, eine Wirkung<lb/>
+der Erziehung bey mir ſeyn koͤnnten. Denn wenn das moͤg-<lb/>
+lich iſt, ſo weiß ich nicht, warum meine Begierde nach den<lb/>
+Vergnuͤgungen der Sinne und nach meinem Beßten nicht<lb/>
+gleichfalls ein Vorurtheil, eine Wirkung der Erziehung ſeyn<lb/>
+ſollte. So gewiß, als ich verlange, etwas anmuthiges zu<lb/>
+ſuͤhlen, oder eines Vortheils theilhaftig zu werden, ſo gewiß<lb/>
+verlange ich auch, es lieber ohne den Schaden eines Fremden<lb/>
+und Unſchuldigen, als mit demſelben, zu erhalten.</p><lb/>
+<p>Hier finde ich eigentlich den Urſprung deſſen, was in den<lb/>
+Handlungen edel und ſchoͤn iſt; den wahren und groſſen Un-<lb/>
+terſcheid des Anſtaͤndigen und Nuͤtzlichen. Eine That kann<lb/>
+fuͤr mich vortheilhaft ſeyn; ſie kann deswegen klug und ver-<lb/>
+nuͤnftig heiſſen; aber ſie kann unmoͤglich eine edle und ſchoͤne<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">That</fw><lb/>
+<pb n="12" facs="#f0022"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+That heiſſen, wenn ſie nicht das Beßte anderer oder das all-<lb/>
+gemeine Beßte zu ihrem eigentlichen Zweck hat. Die ganze<lb/>
+Welt hat dieſe Begriffe, und braucht ſie auch in den gemein-<lb/>
+ſten Faͤllen des menſchlichen Lebens.</p><lb/>
+<p>So iſt alſo gewiß eine Art von Neigungen eine Quelle der<lb/>
+Handlungen in mir, die von meiner Eigenliebe weſentlich un-<lb/>
+terſchieden iſt, und doch eben ſo weſentlich zu meiner Natur<lb/>
+gehoͤret. Jch finde dieſes Principium von ſolcher Kraft, daß<lb/>
+es ſich oft uͤber meine ganze Sele Meiſter macht, daß es alle<lb/>
+andere Empfindungen gleichſam verſchlinget, und allein mich<lb/>
+entweder mit Luſt oder mit Qual erfuͤllet. Wenn ich bey einem<lb/>
+Blick auf mein Jnwendiges, in meinen Empfindungen Rich-<lb/>
+tigkeit, in meinen Begierden Ordnung, in meinen Handlungen<lb/>
+Uebereinſtimmung wahrnehme; wenn ich ſehe, daß in meinem<lb/>
+Gemuͤthe alles wahr iſt, daß darin alles den weſentlichen Ver-<lb/>
+haͤltniſſen der Dinge gemaͤß beſtimmet iſt, ſo erwecket dieſer<lb/>
+Anblick eine Wolluſt in mir, die uͤber alles ſinnliche Misver-<lb/>
+gnuͤgen triumphiret. Aber dagegen ſind die lebhafteſten Er-<lb/>
+getzungen der Sinne unfaͤhig, mich zu befriedigen, wenn ich,<lb/>
+durch das Anſchauen einer innerlichen Zerruͤttung gequaͤlt,<lb/>
+vergebens mir ſelbſt zu entfliehen, und unter den dickſten<lb/>
+Schwarm koͤrperlicher Beluſtigungen mich vor den Verfol-<lb/>
+gungen einer inwendigen Anklage zu verſtecken ſuche.</p><lb/>
+<p>Da ich nun dieſe urſpruͤngliche Einrichtung meiner Natur<lb/>
+nicht verlaͤugnen kann, ſo wuͤrde ich derſelben offenbarlich<lb/>
+widerſprechen, wenn ich meine Abſichten auf nichts weiter,<lb/>
+als auf mich, auf meine Luſt, und auf meinen Vortheil rich-<lb/>
+ten wollte.</p><lb/>
+<p>Jch ſehe nunmehr, wohin meine Natur mich fuͤhret, meine<lb/>
+ganze Natur, wenn ich ſie unverſtuͤmmelt und unverfaͤlſcht<lb/>
+betrachte; und ich will ihr folgen, wohin ſie mich fuͤhret.</p><lb/>
+<fw type="catch" place="bottom">Jch</fw><lb/>
+<pb n="13" facs="#f0023"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Jch will meine Luſt und meinen Nutzen ſuchen; aber ich<lb/>
+will ſie nicht allein ſuchen, weil ich meinen ganzen Zweck und<lb/>
+meinen wahren Wehrt darin nicht ſetzen kann.</p><lb/>
+<p>Dieſer Leib, den ich an mir trage, ſoll erhalten werden,<lb/>
+und das iſt der vernunftmaͤßige Zweck, worauf die mir einge-<lb/>
+pflanzte Begierde nach ſinnlicher Luſt abzielet. Jch bin ſelbſt<lb/>
+ein Theil des Ganzen, und mir ſelber dabey am naͤheſten; ich<lb/>
+kann niemanden ſo bald und ſo leicht, als mir ſelbſt, nuͤtzen;<lb/>
+darum koͤmmt mir der Trieb ſo wol zu ſtatten, der mich be-<lb/>
+ſonders veranlaſſet, auf dasjenige Acht zu haben, was ich am<lb/>
+erſten beſorgen kann. Jch weiß auch, daß die Schmerzen<lb/>
+und Wiederwaͤrtigkeiten, welche meine Sinnlichkeit angreifen,<lb/>
+zugleich allemal mein hoͤheres Vergnuͤgen in einigem Grade<lb/>
+ſchwaͤchen; darum will ich darauf bedacht ſeyn, auch dieſer<lb/>
+Stimme der Natur zu gehorchen, die mir jene vermeiden heiſſer.</p><lb/>
+<p>Jndeſſen ſoll doch dieß beſtaͤndig meine Hauptſache ſeyn,<lb/>
+daß ich die hoͤhern und edlern Triebe meiner Sele nicht unter-<lb/>
+druͤcken, noch uͤbergehen moͤge; dieſe Triebe, von welchen ich<lb/>
+deutlich genug erkenne, daß ſie billig regieren muͤſſen.</p><lb/>
+<p>Jch will dahin trachten, daß die Neigung der Guͤte und der<lb/>
+wolthaͤtigen Liebe, die mir eingepflanzt iſt, immer mehr geſtaͤr-<lb/>
+ket, und auf alle moͤgliche Weiſe befriediget werde. Die<lb/>
+Gluͤckſeligkeit des menſchlichen Geſchlechts, die mich ſo ange-<lb/>
+nehm ruͤhret, ſoll unveraͤnderlich ein Gegenſtand meiner ernſt-<lb/>
+lichſten Beſtrebungen, und meine eigene Gluͤckſeligkeit ſeyn.<lb/>
+Wenn ich den Unſchuldigen vertheidiget, den Elenden gehol-<lb/>
+fen, den Nothleidenden gerettet, den Menſchen uͤberhaupt<lb/>
+gluͤcklich gemacht ſehe, ſo will ich mich dem Vergnuͤgen, das ich<lb/>
+daruͤber fuͤhle, gaͤnzlich uͤberlaſſen, und mir dieſe Zaͤrtlichkeit<lb/>
+meiner Sele zu einer Ehre anrechnen, da ſie ſo tief und weſent-<lb/>
+lich in meiner Natur gegruͤndet iſt. Wie ſollte ich wuͤnſchen,<lb/>
+gluͤcklich zu ſeyn, und doch bey den Angelegenheiten derjenigen<lb/>
+unempfindlich bleiben, die es eben ſo wol wuͤnſchen, als ich?<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">Nein!</fw><lb/>
+<pb n="14" facs="#f0024"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Nein! es iſt ein Geſetz in mir, das es ganz anders fodert, und<lb/>
+das muß ich hoͤren. Gerechtigkeit gegen alle Menſchen, Auf-<lb/>
+richtigkeit in meinem ganzen Verhalten, Dankbarkeit gegen<lb/>
+Vaterland und Wolthaͤter, Großmuth gegen Feinde ſelbſt,<lb/>
+und eine in dem weitlaͤuftigſten Verſtande allgemeine Liebe;<lb/>
+dieſe natuͤrlichen und unmittelbaren Ausfluͤſſe einer innerli-<lb/>
+chen Richtigkeit, darin die Geſundheit und die Zierde meines<lb/>
+Geiſtes beſtehet, dieß ſoll mein angenehmſtes und beſtaͤndig-<lb/>
+ſtes Geſchaͤfte ſeyn. Jch will mich gewoͤhnen, das Gute, das<lb/>
+Gluͤck, die Schoͤnheit, die Ordnung allenthalben, wo ich ſie<lb/>
+ſehe, mit Luſt zu ſehen.</p><lb/>
+<p>Jndem ich aufs klaͤrſte gewahr werde, wie verſchiedentlich<lb/>
+ſich die Dinge in der Welt auf einander beziehen, und gegen<lb/>
+einander verhalten, und in was fuͤr mannichfaltigen Verhaͤlt-<lb/>
+niſſen ich ſelbſt gegen andere Weſen ſtehe, ſo ſoll es meine<lb/>
+unablaͤßige Sorge ſeyn, daß meine Empfindungen, Neigun-<lb/>
+gen und Handlungen mit dieſen Verhaͤltniſſen auß genaueſte<lb/>
+uͤbereinſtimmen moͤgen. Jch kann nicht machen, daß ein<lb/>
+Menſch, der mein Wolthaͤter geweſen iſt, mein Wolthaͤter<lb/>
+nicht geweſen ſey; ich kann nicht machen, daß ein Weſen,<lb/>
+welches beſſer und vortrefflicher iſt, als ich, mir gleich oder<lb/>
+ſchlechter ſey; Wie widerſinniſch waͤre es denn nicht, wenn<lb/>
+ich jenem meine Dankbarkeit, und dieſem meine Hochachtung<lb/>
+verſagen wollte? wenn ich auf ſolche Weiſe dem unveraͤnder-<lb/>
+lichen Weſen der Dinge widerſprechen, und mich wider das<lb/>
+alleroberſte Geſetz der Wahrheit empoͤren wollte?</p><lb/>
+<p>Solchergeſtalt habe ich die ewigen Regeln des Rechts und<lb/>
+der Ordnung erkannt. Jch habe erkannt, daß es nicht bey<lb/>
+mir ſtehet, die Beziehungen der Dinge unter einander, aus<lb/>
+welchen jene Regeln entſpringen, noch auch meine Empfin-<lb/>
+dungen davon zu aͤndern. Es iſt alſo, wenn ich mich nicht<lb/>
+ſelbſt verdammen will, kein anderer Weg fuͤr mich, als daß<lb/>
+ich mich ſo verhalte, wie es denſelben gemaͤß iſt.</p><lb/>
+<fw type="catch" place="bottom">Mein</fw><lb/>
+<pb n="15" facs="#f0025"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Mein Wehrt und meine Gluͤckſeligkeit ſoll nun darin be-<lb/>
+ſtehen, daß die oberherrſchaftlichen Ausſpruͤche der Wahrheit,<lb/>
+unbetaͤubt durch den Tumult der Leidenſchaften und der eigen-<lb/>
+nuͤtzigen Begierden, allein meine Handlungen leiten; daß die<lb/>
+reine Empfindung deſſen, was ſich ſchickt, meine eigentliche<lb/>
+hoͤchſte Verbindlichkeit ausmache, und daß ich alſo uͤberhaupt<lb/>
+in einem jeden Augenblicke meines Lebens das ſeyn moͤge,<lb/>
+wozu meine Natur und die allgemeine Natur der Dinge<lb/>
+mich beſtimmen.</p><lb/>
+<p>Hiedurch wird in meiner Sele ein Gleichgewicht, eine<lb/>
+Heiterkeit und Ruhe zuwege gebracht werden, die uͤber die<lb/>
+Anfaͤlle aͤuſſerlicher Widerwaͤrtigkeiten weit hinaus iſt. Jch<lb/>
+bin freylich fuͤr die beſchwerlichen Zufaͤlle nicht ſicher, welche<lb/>
+das menſchliche Leben ſo vielfaͤltig begleiten; allein ich bin dann<lb/>
+doch fuͤr die Qualen der Scham und der Reue ſicher, welche<lb/>
+dieſe Zufaͤlle immer am allerbeſchwerlichſten machen. Alles<lb/>
+Boͤſe, was mich etwa treffen mag, dringet hoͤchſtens nicht<lb/>
+weiter, als auf meinen Leib, und bringet ſeine Verwuͤſtungen<lb/>
+niemal in meine Sele, ſo lange ich in einer gelaſſenen Be-<lb/>
+ſchauung mich ſelbſt billigen, ſo lange ich zu mir ſelbſt ſagen<lb/>
+kann: ich thue das, was ich thun ſoll; ich bin das, was ich<lb/>
+ſeyn ſoll. Dieß allein iſt eine unerſchoͤpfliche Quelle der<lb/>
+Gleichmuͤthigkeit und des Friedens, der in ſeiner Stille mehr<lb/>
+wehrt iſt, als alles Getoͤſe ſinnlicher Beluſtigungen. Jſt gleich<lb/>
+das Geſuͤhl dieſes hohen Ergetzens in mir anfangs ſchwach<lb/>
+geweſen, ſo habe ich es doch gleich anfangs unumſtoͤßlich<lb/>
+recht und wahr geſunden; und je mehr ich hernach meinen<lb/>
+Geſchmack an der Wahrheit und Ordnung geuͤbet habe,<lb/>
+deſto ſeiner iſt dieſe empfindende Faͤhigkeit meines Geiſtes,<lb/>
+und deſto ruͤhrender dieſe Luſt geworden. Dieſe Verfaſ-<lb/>
+ſung meiner Sele bringe ich mit in alle die Umſtaͤnde, wor-<lb/>
+in mich mein Schickſal ſetzet; und was ich dann auch ſonſt<lb/>
+in der Welt immer ſeyn mag, ſo bin ich doch innerlich<lb/>
+gluͤcklich, weil ich rechtſchaffen bin.</p><lb/>
+<fw type="catch" place="bottom">Allein</fw><lb/>
+<pb n="16" facs="#f0026"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Allein auch auſſer dem dienet die ganze Natur dazu, mein<lb/>
+Vergnuͤgen zu vermehren. Seit dem ich angefangen habe,<lb/>
+keine Spur der Schoͤnheit und Regelmaͤßigkeit nachlaͤßig zu<lb/>
+uͤbergehen, finde ich ſie unendlich in allem, was ich um mich<lb/>
+ſehe. Alles iſt Ordnung; alles iſt Proportion; alles iſt folg-<lb/>
+lich ein neuer Gegenſtand des Wolgefallens, der Liebe und der<lb/>
+Freude. Wie gleichguͤltig, wie verachtenswuͤrdig ſind mir jene<lb/>
+blendenden Schimmer des Anſehens und der Pracht, gegen<lb/>
+den lebendigen Glanz der wahrhaftig ſchoͤnen Welt, gegen die<lb/>
+Eindruͤcke der Froͤlichkeit, der Ruhe und der Bewunderung<lb/>
+von einem gruͤnen Geſilde, von einem rauſchenden Bach, von<lb/>
+dem angenehmen Schrecken der Nacht, oder von dem maje-<lb/>
+ſtaͤtiſchen Auftritt unzaͤhlbarer Welten! Selbſt die naͤchſten<lb/>
+und gemeinſten Geſtaltungen der Natur ruͤhren mich mit einem<lb/>
+tauſendfachen Ergetzen, wenn ich ſie mit einer Sele empfinde,<lb/>
+die zur Freude und zum Bewundern aufgelegt iſt, und die<lb/>
+nicht in ſich ſelbſt, in ihrer eigenen Verkehrtheit, den natuͤr-<lb/>
+lichſten Samen des Unmuths traͤget. Dieſe meine Sele um-<lb/>
+faſſet die ganze Natur mit einer hoͤhern Art der Liebe, als die<lb/>
+von den Sinnen entſpringet; darum iſt auch ihre Befriedi-<lb/>
+gung nicht in dieſe engen und wandelbaren Graͤnzen einge-<lb/>
+ſchraͤnkt. Jch verliere mich mit Luſt in die Erwaͤgung dieſer<lb/>
+allgemeinen Schoͤnheit, davon ich ſelbſt ein nicht verunſtal-<lb/>
+tender Theil zu ſeyn trachte.</p><lb/>
+<p>Jndem ich aber dieſen Gedanken, die mich ſo hoch ſuͤhren, im-<lb/>
+mer weiter folge, ſo gerathe ich auf einen Begriff, der mich zu ei-<lb/>
+ner noch weit erhabenern Bewunderung hinreiſſet. —— We-<lb/>
+ſen, die ſchon in ihren Einſchraͤnkungen ſo ſchoͤn ſind; Welten,<lb/>
+die in ihren veraͤnderlichen Theilen und in ihrer zufaͤlligen Ver-<lb/>
+bindung ſo viel Richtigkeit haben; ein Ganzes voller Ordnung,<lb/>
+von dem kleineſten Staube an bis zu der unermeßlichſten Aus-<lb/>
+dehnung, voller Regelmaͤßigkeit in allen ſeinen Geſetzen, der<lb/>
+Koͤrper ſowol, als der Geiſter; ein Ganzes, das ſo mannigfal-<lb/>
+tig, und doch durch den genaueſten Zuſammenhang <hi rendition="#fr">Eines</hi> iſt;<lb/>
+<fw type="catch" place="bottom">diß</fw><lb/>
+<pb n="17" facs="#f0027"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+dieß giebt mir die Vorſtellung von einem Urbilde der Voll-<lb/>
+kommenheiten, von einer urſpruͤnglichen Schoͤnheit, von einer<lb/>
+erſten und allgemeinen Quelle der Ordnung. —— Welch<lb/>
+ein Gedanke! —— So iſt denn etwas, von dem alles, was<lb/>
+ich bisher bewundert habe, abhaͤnget? So iſt denn etwas,<lb/>
+von dem alle Theile der Natur ihre Uebereinſtimmungen,<lb/>
+ihre Verhaͤltniſſe und ihren Reiz haben? ein Verſtand, der<lb/>
+fuͤr das Ganze denkt, der das Ganze einrichtet und lenket?<lb/>
+ein Geiſt, der durch ſeine unbegreiflichen Ausfluͤſſe allen Din-<lb/>
+gen Daſeyn, Dauer, Kraͤfte und Schoͤnheit mittheilet? ——<lb/>
+Hier erweitert ſich meine erſtaunte Sele bis zum Unendlichen.<lb/>
+Mich duͤnkt, ich empfinde, und mit einem entzuͤckenden Schau-<lb/>
+der, die Wirklichkeit dieſes oberſten Geiſtes. —— Wahrlich,<lb/>
+er belebet mich, er wirket in mir! Was wuͤrde ich ſeyn, ohne<lb/>
+ihn? Was wuͤrde ich koͤnnen? ich, der ich aufs klaͤreſte weiß,<lb/>
+daß ich einmal nicht geweſen bin, und daß ich meine Thaͤtig-<lb/>
+keit mir nicht gegeben habe? ——</p><lb/>
+<p>Und was ſollten ſich daher wol bey mir fuͤr Empfindungen<lb/>
+gegen dieſes Weſen ſchicken, in welches alle meine Begriffe<lb/>
+von Vortrefflichkeiten zuſammenflieſſen? Bewunderung,<lb/>
+Ehrerbietung, und die tiefſte Anbetung iſt noch wenig genug,<lb/>
+das Verhaͤltniß auszudrucken, worin ich gegen einen unend-<lb/>
+lichen Geiſt ſtehe. Weil ich ihm aber nur ſo wenig leiſten<lb/>
+kann, ſo will ich es ihm doch auch deſto aufrichtiger leiſten.<lb/>
+Jch will mich einer ſo ungeheuren und abſcheulichen Verruͤk-<lb/>
+kung nicht theilhaſtig machen, daß ich mit Gleichguͤltigkeit und<lb/>
+Geringſchaͤtzung an den Urſprung der Weſen und der Voll-<lb/>
+kommenheiten denken ſollte. Jch erſchrecke uͤber meine Klein-<lb/>
+heit in der unermaͤßlichen Natur, und gegen die noch unermaͤß-<lb/>
+lichere Gottheit. Dieſer Sonnenwirbel iſt ein Sandkorn.<lb/>
+Dieſe Erde iſt ein Staub, ein Punkt. Und ich auf dieſer<lb/>
+Erde —— was bin ich? —— Nur das macht mich noch<lb/>
+zu etwas, daß ich die Ordnung empfinden, und in derſelben<lb/>
+bis zu dem Anfange aller Ordnung hinauſſteigen kann. Zu<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">einer</fw><lb/>
+<pb n="18" facs="#f0028"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+einer ſolchen Hoheit bin ich beſtimmt, und der will ich immer<lb/>
+naͤher zu kommen ſuchen. Jch will nicht eher ſtehen bleiben,<lb/>
+als bis ich der Schoͤnheit bis zu ihrer erſten Quelle gefolget<lb/>
+bin. Da ſoll dann meine Sele ruhen. Da ſoll ſie in allen<lb/>
+ihren Faͤhigkeiten vergnuͤget, in allen ihren Trieben befriedi-<lb/>
+get, ſatt von goͤttlichem Licht, und entzuͤckt in den Verehrungen<lb/>
+und Anbetungen der oberſten allgemeinen Vollkommenheit,<lb/>
+alles niedere und ſich ſelbſt vergeſſen. ——</p><lb/>
+<p>Hiebey erkenne ich denn nun auch ungezweifelt, daß dieſer<lb/>
+alles regierende Verſtand keine andere Abſicht haben koͤnne,<lb/>
+als daß alle Dinge in ihrer Art und im Ganzen gut ſeyn<lb/>
+moͤgen. Dahin ſind alle Geſetze eingerichtet, die er in ſie<lb/>
+geleget hat. Dahin zielen die Bewegungen der Koͤrper, und<lb/>
+die urſpruͤnglichen Triebe der verſtaͤndigen Weſen. Die<lb/>
+groſſe Empfindung des Guten- und Boͤſen, des Rechts und<lb/>
+Unrechts, die ich in mir erkannt habe, ruͤhret nicht weniger<lb/>
+von demjenigen her, der ſeine maͤchtigen Einfluͤſſe uͤberall<lb/>
+ausbreitet. Es iſt alſo eine goͤttliche Stimme, es iſt die<lb/>
+Stimme der ewigen Wahrheit, die in mir redet.</p><lb/>
+<p>Da ich nun einen ſo ehrwuͤrdigen Lehrer und Geſetzgeber<lb/>
+an meinem Gewiſſen habe, ſo bin ich zwar deswegen ſo viel<lb/>
+mehr verbunden, auf ſeine Sprache, die ſich ohne Unterlaß<lb/>
+in dem innerſten Grunde meiner Sele hoͤren laͤſſet, aufmerk-<lb/>
+ſam zu ſeyn, und ihr zu gehorchen; allein ich bin dann auch<lb/>
+zugleich gewiß, daß die unwandelbare Redlichkeit, die ich<lb/>
+hierin beweiſe, der richtige Weg iſt, jenem Urbilde der Ord-<lb/>
+nung nach meiner Faͤhigkeit aͤhnlich zu werden, und ihm zu<lb/>
+gefallen. Es iſt nichts bey mir moͤglich, das mir einen Wehrt<lb/>
+geben kann, nichts, das mich mit der anfaͤnglichen Einrichtung<lb/>
+meiner Natur, und mit den Abſichten der hoͤchſten Regierung<lb/>
+uͤbereinſtimmig machen kann, als meine innerliche Richtigkeit.<lb/>
+Dieſer Grund des Wolgefallens der Gottheit iſt ſo ewig und<lb/>
+unveraͤnderlich, als ſie ſelbſt.</p><lb/>
+<fw type="catch" place="bottom">Hoͤher</fw><lb/>
+<pb n="19" facs="#f0029"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Hoͤher kann ſich denn auch meine Ehrbegierde unmoͤglich<lb/>
+erheben, als wenn ich dem gefalle, von dem alles Gute her-<lb/>
+flieſſet; wenn der, der alles ſiehet, der mit einem Blick alle<lb/>
+Empfindungen und Bewegungen in Millionen Welten durch-<lb/>
+ſchauet, wenn der mitten unter dieſer Menge auch mich ſiehet<lb/>
+und billiget. Nun ſind mir die Urtheile der ganzen Welt viel<lb/>
+zu klein, als daß ich mich darum beſonders bekuͤmmern ſollte.<lb/>
+Laͤßt ſich der Beyfall anderer Menſchen, die Gewogenheit der<lb/>
+Groſſen ſowol, als die Achtung der Geringern, nicht ohne dem<lb/>
+auf der Koͤniglichen Straſſe der Wahrheit und Gerechtigkeit,<lb/>
+die ich allein gehen muß, vor mir antreffen, ſo verdienen ſie<lb/>
+gewiß nicht, daß ich ihrenthalber einen Schritt auf Neben-<lb/>
+wege thue. Kein Menſch, mit allem Schwulſt ſeines Ge-<lb/>
+praͤnges und ſeines Stolzes, kann mir durch ſein Gutheiſſen<lb/>
+einen Wehrt geben, weil er ſelbſt keinen Wehrt hat, als in<lb/>
+ſo fern er rechtſchaffen iſt, und ſich mit mir nach eben dem-<lb/>
+ſelben ewigen Regelmaß des Rechts und der Ordnung richtet.<lb/>
+Jch bin groß genug, wenn ich dem Regierer des Ganzen<lb/>
+nicht misfalle.</p><lb/>
+<p>So wie mich aber dieß groß macht, ſo macht es mich auch<lb/>
+ruhig. Der Geiſt, der uͤber alles wachet, der wird auch uͤber<lb/>
+mich wachen. Er, deſſen Weisheit und Guͤte ſich uͤberall in<lb/>
+ſo ſichtbaren Spuren offenbaret, wird nichts geſchehen laſſen,<lb/>
+davon das Ende ihm nicht anſtaͤndig, und ſeinen Geſchoͤpfen<lb/>
+nicht heilſam ſey. Jn ſeiner Hand allein ſtehen auch meine<lb/>
+Schickſale, und wenn ich mich nicht, durch meine Abwei-<lb/>
+chung von den unveraͤnderlichen Fuͤrſchriften des Wahren und<lb/>
+Guten, der gluͤckſeligen Wirkungen ſeiner Fuͤrſorge unfaͤhig<lb/>
+mache, wenn der Richter, den er in mir verordnet hat, mich<lb/>
+nicht verdammet, ſo wird nichts von dem, was mir widerwaͤr-<lb/>
+tig duͤnkt, mir wahrhaftig ſchaden koͤnnen.</p><lb/>
+<p>Zwar in der Welt iſt mir alles ein Raͤthſel. Jch ſehe<lb/>
+die Oberflaͤchen der Dinge, und ihre innere Beſchaffenheiten<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">ent-</fw><lb/>
+<pb n="20" facs="#f0030"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+entwiſchen meinem Auge ſowol als meinem Nachdenken.<lb/>
+Vielleicht lehren mich die langwierigſten und emſigſten Un-<lb/>
+terſuchungen nichts mehr, als nur kuͤnſtlicher, und nicht einmal<lb/>
+gluͤcklicher muthmaſſen. Hier gehet alles ins Unendliche hin-<lb/>
+ein; und ſo auch die Verwaltung der Welt. Alles verwirret<lb/>
+mich; alles macht mich ungewiß. —— Doch, was brauche<lb/>
+ich mehr zu wiſſen, da ich meine Schuldigkeit und die Ober-<lb/>
+herrſchaft einer unendlichen Liebe mit einer ungezweifelten<lb/>
+Ueberzeugung erkenne? Dieſe ſind es endlich doch nur allein<lb/>
+wehrt, daß ſich alle uͤbrige Einſichten darin endigen. Jch<lb/>
+will es mich daher auch nicht beſremden laſſen, wenn ich in<lb/>
+Umſtaͤnde gerathe, davon ich die Folgen und Entwickelungen<lb/>
+nicht voraus ſehe. Jch will nur meinen groſſen Zweck nie<lb/>
+aus dem Geſichte verlieren, und mich dann mit einer unbe-<lb/>
+wegten Sicherheit den Fuͤgungen desjenigen uͤberlaſſen, der<lb/>
+alles nach ſeinem Willen lenket, und deſſen Wille immer gut<lb/>
+iſt. Von ſeiner Fuͤrſicht geleitet, werde ich mitten durch die<lb/>
+fuͤrchterlichſten Verwirrungen dieſes Lebens gluͤcklich hindurch<lb/>
+gelangen, und alle die Dunkelheiten, die mich vielleicht itzo<lb/>
+umgeben und ſtutzig machen, werden ſich endlich einmal in<lb/>
+Licht und Freude verwandeln.</p><lb/>
+<p>Aber wann wird dieß geſchehen? —— Jch folge hin<lb/>
+und wieder den Schickſalen in dieſem Leben mit meinen Be-<lb/>
+obachtungen bis aus Ende, und ich finde den Knoten nicht<lb/>
+aufgeloͤſet. Erſt der Tod endiget hier die Unterdruͤckung der<lb/>
+Tugend, und dort das ſtolze Gluͤck des Laſters. —— Dieß<lb/>
+widerſpricht aller meiner Erwartung, die auf die Begriffe von<lb/>
+der Ordnung gegruͤndet war. Koͤnnen denn die unwandel-<lb/>
+baren Regeln der Billigkeir verſtatten, daß einer Sele, die<lb/>
+ſo iſt, wie ſie ſeyn ſoll, die natuͤrlichen gluͤckſeligen Folgen<lb/>
+ihrer innerlichen Richtigkeit, die ihr ſonſt allein Belohnung<lb/>
+genug ſeyn wuͤrden, durch eine boshafte Gewalt auf immer<lb/>
+geraubt, geſchwaͤcht, oder verbittert werden? Schickt es ſich,<lb/>
+daß ein rechtſchaffenes Gemuͤth, welches allein gluͤcklich zu<lb/>
+<fw type="catch" place="bottom">ſeyn</fw><lb/>
+<pb n="21" facs="#f0031"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ſeyn verdienet, das ganze Leben durch ein Raub der Bosheit,<lb/>
+ein Spiel ungerechter Verfolgungen ſey? daß Unſchuld und<lb/>
+Recht verdammet werde? daß die Tugend unter Hunger und<lb/>
+Bloͤſſe und Verachtung ſeufze, und oft durch die Hand grau-<lb/>
+ſamer Henker und auf den Befehl noch grauſamer Tyrannen<lb/>
+in Schmerzen und Foltern ihren letzten Lohn finde? und daß<lb/>
+hergegen Treuloſigkeit und Mordſucht, indem ſie die Luſt und<lb/>
+die Vortheile dieſes Lebens an ſich reiſſen, gar nicht inne wer-<lb/>
+den, was es auf ſich habe, von dem, was ewig recht iſt, abzu-<lb/>
+weichen, und ſich wider die Geſetze der allgemeinen Regierung<lb/>
+aufzulehnen? — Ebenmaaß und Uebereinſtimmung ver-<lb/>
+ſchwinden hier; und mein Begriff von einer herrſchenden<lb/>
+Ordnung verwirret ſich gaͤnzlich. —</p><lb/>
+<p>Nein! es iſt nicht moͤglich, daß die Welt alſo regieret<lb/>
+werde, da ſie einmal regieret wird. Es muß nothwendig<lb/>
+ein beſſeres Verhaͤltniß der Dinge da ſeyn, ſollte ich dieß auch<lb/>
+in ſeiner voͤlligen Klarheit auſſer dem Bezirk dieſes Lebens zu<lb/>
+ſuchen haben. Es muß eine Zeit ſeyn, da ein jeder das er-<lb/>
+haͤlt, was ihm zukoͤmmt; da alles, was hier verruͤckt, und an<lb/>
+dem unrechten Ort zu ſtehen ſcheinet, ſich in ſein gehoͤriges<lb/>
+Geſchick, und in die ihm gebuͤhrende Stelle hinſenket, da die<lb/>
+allerangemeſſenſte Erſtattung in einer unendlichen Verſchie-<lb/>
+denheit von Graden, von einem aͤuſſerſten Ende bis zu dem<lb/>
+andern, geſchehen, und alles in der vollkommenſten Propor-<lb/>
+tion hergeſtellet werden wird. Es iſt hier eine Art von<lb/>
+Disharmonie, die unſtreitig ein Fehler ſeyn wuͤrde, wenn ſie<lb/>
+ſich nicht hernach in eine vollkommene Zuſammenſtimmung<lb/>
+aufloͤſete.</p><lb/>
+<p>Auf die Art oͤffnet ſich mir eine Ausſicht in die Zukunft,<lb/>
+welche meiner bisher gleichſam eingeſchloſſenen und umwoͤlk-<lb/>
+ten Sele ſo viel mehr Luſt und Freyheit giebet, mir von allen<lb/>
+jenen finſtern Stellen in dem Plan, nach welchem die Welt<lb/>
+regieret wird, eine vollſtaͤndige Aufklaͤrung verſpricht, und<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">mir</fw><lb/>
+<pb n="22" facs="#f0032"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+mir den ganzen Umfang der Fuͤrſicht unendlich wuͤrdiger und<lb/>
+groͤſſer macht. Jch erwarte alſo getroſt noch eine entfernte<lb/>
+Folge von Zeiten, welche die volle Ernte von der gegenwaͤr-<lb/>
+tigen Saat ſeyn, und, vermittelſt einer allgemeinen richtigen<lb/>
+Vergeltung, die Weisheit rechtfertigen wird, welche das<lb/>
+Ganze verwaltet.</p><lb/>
+<p>Die Anlage ſcheinet ganz offenbar dazu in meiner Natur<lb/>
+gemacht zu ſeyn. Jch ſpuͤre Faͤhigkeiten in mir, die eines<lb/>
+Wachsthums ins Unendliche faͤhig ſind, und die auch auſſer<lb/>
+der Verbindung mit dieſen Koͤrpern ſich nicht weniger aͤuſſern<lb/>
+koͤnnen. Sollte mein Vermoͤgen, das Wahre und Gute zu<lb/>
+erkennen und zu lieben, alsdenn aufhoͤren, wann es entweder<lb/>
+erſt durch die Uebung geſchickt wird, ſo viel geſchwinder zu<lb/>
+einer groͤſſern Vollkommenheit hinan zu ſteigen, oder auch,<lb/>
+wenn es kaum angefangen hat, ſich auszuwickeln und in Be-<lb/>
+wegung zu ſetzen? Das waͤre zu viel vergebliches in den Ver-<lb/>
+anſtaltungen einer unendlichen Weisheit.</p><lb/>
+<p>Bin ich aber nur verſichert, daß der groſſe Urheber aller<lb/>
+Dinge, welcher allemal nach den ſtrengeſten Regeln und<lb/>
+nach den edelſten Abſichten handelt, wol nicht ſelbſt willens<lb/>
+ſeyn kann, mich zu zernichten, ſo, glaube ich, darf ich keine<lb/>
+andere Zerſtoͤrung fuͤrchten. Meine eigene innerliche Be-<lb/>
+ſchaffenheit ſetzet mich dafuͤr in Sicherheit. Wenn ich auf<lb/>
+mich Acht gebe, ſo finde ich, daß ich in dem allergenaueſten<lb/>
+Verſtande <hi rendition="#fr">Eines</hi> bin. Dieſe Glieder, die meine Werk-<lb/>
+zeuge ausmachen, das bin <hi rendition="#fr">ich</hi> nicht; ſie ſind, meiner deut-<lb/>
+lichen Empfindung nach, von <hi rendition="#fr">mir</hi> unterſchieden. <hi rendition="#fr">Jch</hi> bin<lb/>
+eigentlich das, was in mir Vorſtellungen hat, urtheilet, ſich<lb/>
+entſchlieſſet; und dieſes <hi rendition="#fr">ich</hi> iſt ganz gewiß nicht etwas in vie-<lb/>
+len, oder in verſchiedenen auſſer einander befindlichen Theilen<lb/>
+beſtehendes. <hi rendition="#fr">Jch,</hi> der ich den Eindruck von dem Licht fuͤhle,<lb/>
+ich bin eben derſelbe, der zu gleicher Zeit die Waͤrme von<lb/>
+der Luft, den Geruch von der Blume, den Schall des mit<lb/>
+<fw type="catch" place="bottom">mir</fw><lb/>
+<pb n="23" facs="#f0033"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+mir redenden empfindet, der dieſe Empfindungen unter ſich<lb/>
+vergleicht, der eine der andern vorziehet. Jch bin mir gar zu<lb/>
+klar bewußt, daß es nicht unſer viele ſind, davon einer dieſen,<lb/>
+der andere jenen Eindruck hat, die ſie ſich etwa einander<lb/>
+mittheileten, und daß alſo dieß <hi rendition="#fr">ich</hi> keine Zuſammenſetzung<lb/>
+von mehrern Theilen ſeyn kann. Jch weiß freylich nicht, wie<lb/>
+es damit weiter eigentlich bewandt iſt; allein dagegen weiß<lb/>
+ich auch eben ſo wenig, ob und was die aͤuſſern, theilbaren,<lb/>
+koͤrperlichen Dinge ſind, davon ich die Vorſtellungen habe.<lb/>
+Wenigſtens bin <hi rendition="#fr">ich</hi> ſelbſt mir mehr bekannt, als jenes alles,<lb/>
+und ich kann daher mit einer vernuͤnftigen Zuverlaͤßigkeit aus<lb/>
+dem vorigen ſchlieſſen, daß dasjenige, was eigentlich <hi rendition="#fr">ich</hi> bin,<lb/>
+nicht nothwendig der Vertilgung mit unterworfen ſeyn muͤſſe,<lb/>
+die meinen Leib dahin reiſſet.</p><lb/>
+<p>Wie ſehr wird nun nicht durch dieſe groſſe Erwartung<lb/>
+mein Wehrt und meine Beſtimmung erhoͤhet? Jch erkenne<lb/>
+nunmehr, daß ich zu einer ganz andern Klaſſe von Dingen<lb/>
+gehoͤre, als diejenigen ſind, die vor meinen Augen entſtehen,<lb/>
+ſich verwandeln und vergehen; und daß dieſes ſichtbare Leben<lb/>
+nicht den ganzen Zweck meines Daſeyns erſchoͤpfe. Jch bin<lb/>
+alſo fuͤr ein anderes Leben gemacht. Die gegenwaͤrtige Zeit<lb/>
+iſt nur der Anfang meiner Dauer; es iſt meine erſte Kind-<lb/>
+heit, worin ich zu der Ewigkeit erzogen werde; Tage der Zu-<lb/>
+bereitung, die mich zu einem neuen und edlern Zuſtande ge-<lb/>
+ſchickt machen ſollen.</p><lb/>
+<p>Aus dieſem Begriff von meinem wahren und ganzen<lb/>
+Leben will ich lernen, das itzige recht zu ſchaͤtzen. Jch will<lb/>
+nie das Verhaͤltniß vergeſſen, worin dieſe wenigen Tage<lb/>
+gegen die Ewigkeit ſtehen, die ich durch zu leben habe. Die<lb/>
+guten und boͤſen Begegniſſe der gegenwaͤrtigen Welt verlie-<lb/>
+ren, indem ich ſie von dieſer Seite betrachte, in meinen Au-<lb/>
+gen alles ihr Gewicht. Anſehen, Ruhm, Macht, Siege und<lb/>
+Kronen ſind ein kurzes Spiel der menſchlichen Eitelkeit, und<lb/>
+<fw type="catch" place="bottom">ſind</fw><lb/>
+<pb n="24" facs="#f0034"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ſind wenigſtens nach dem Tode nichts mehr. Sollte ich mich<lb/>
+ſo erniedrigen, daß ich ſolches zu einem Gegenſtande meiner<lb/>
+wahren Hochachtung machte? So klein iſt meine Sele nicht,<lb/>
+deren Dauer und Empfindungen ſich unendlich weit erſtrek-<lb/>
+ken. Nach zehntauſend Jahren geben mir alle jene Dinge<lb/>
+weder Wuͤrde noch Vergnuͤgen mehr, und ich wuͤrde noch<lb/>
+ſehr gluͤcklich ſeyn, wenn ich alsdann daran ſo zufrieden und<lb/>
+unbeſchaͤmt, als itzo an die Zeitvertreibe meiner Kindheit, ge-<lb/>
+benken koͤnnte.</p><lb/>
+<p>Aber was iſt denn auch, aus gleichem Grunde, die Wider-<lb/>
+waͤrtigkeit dieſes Lebens? Soll ich uͤber die Unbequemlichkei-<lb/>
+ten eines kurzen Weges untroͤſtlich ſeyn, der mich zu meinem<lb/>
+hoͤhern Vaterlande fuͤhret, zu jenem Reiche des Lichts und der<lb/>
+Wahrheit, wo ich in dem naͤhern Anſchauen und Genuß der<lb/>
+urſpruͤnglichen Guͤte, und in dem ewigen Gefuͤhl der reineſten<lb/>
+Freude eine gnugſame Verguͤtung desjenigen, was ich hie<lb/>
+etwa unſchuldig gelitten habe, erhalten werde?</p><lb/>
+<p>Jch ſehe, wie viel mir darauf ankoͤmmt, daß ich dieſen<lb/>
+Gedanken bey mir gegenwaͤrtig erhalte. Jch will mich alſo<lb/>
+gewoͤhnen, die Ewigkeit und das gegenwaͤrtige Leben beſtaͤndig<lb/>
+als ein Ganzes zu betrachten, dieſes in allen meinen Hand-<lb/>
+lungen mit jener zu verknuͤpfen, von einer jeden Sache im-<lb/>
+mer ſo zu denken, wie ich einmal in der zukuͤnftigen Welt und<lb/>
+in den letzten Augenblicken des itzigen Lebens davon werde<lb/>
+denken muͤſſen, und nimmer zu vergeſſen, daß Rechtſchaffenheit<lb/>
+und eine ordentliche Sele das einzige ſey, welches in beiden<lb/>
+gleichen Wehrt behaͤlt.</p><lb/>
+<p>Jch hoffe, dieß wird mich nach und nach zu der Verfaſſung<lb/>
+bringen, daß ich den Abwechſelungen und Zufaͤllen dieſer<lb/>
+Welt mit unbewegtem Gemuͤth, ohne Furcht und Begierde,<lb/>
+zuſehen kann. Jch werde alsdann nicht mehr verſtatten duͤr-<lb/>
+fen, daß das ſcheinbare Gute und Boͤſe lebhaſtere Eindruͤcke<lb/>
+<fw type="catch" place="bottom">bey</fw><lb/>
+<pb n="25" facs="#f0035"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+bey mir habe, als es wehrt iſt. Jch werde damit meinem<lb/>
+Leben eine gewiſſe Feſtigkeit und Einfoͤrmigkeit geben, und<lb/>
+mir ſelbſt immer gleich ſeyn. Jch werde die Tage dieſer<lb/>
+Zeitlichkeit mit Zufriedenheit zubringen und mit Freudigkeit<lb/>
+endigen. Jch bin alsdann abſonderlich auch zu dieſem letz-<lb/>
+tern Schritt beſtaͤndig gefaßt. Jch werde an meinen Abtritt<lb/>
+von dieſem Schauplatze des Lebens als an eine Sache geden-<lb/>
+ken, dazu ich dieſelbige Stunde aufgefordert werden kann;<lb/>
+und ich werde bey dieſem ſonſt ſo fuͤrchterlichen Gedanken<lb/>
+nichts verlieren. Es iſt ohne Zweifel ein jaͤmmerlicher Zu-<lb/>
+ſtand, in welchem ſich die Menſchen befinden, denen dieſe<lb/>
+groſſe und unvermeidliche Veraͤnderung nie einfaͤllt, ohne ſie<lb/>
+zittern zu machen. Jch finde es meiner groͤßten Sorge<lb/>
+wehrt, mich auch uͤber dieſes Elend zu erheben; und ich<lb/>
+werde daruͤber erhaben ſeyn, wenn ich nur unverruͤckt der<lb/>
+Bahn folge, die mir die ewige Wahrheit vorſchreibt. Da iſt<lb/>
+dann meine ganze Einrichtung einmal ſo gemacht, daß alle<lb/>
+meine Vergnuͤgungen ſich mit der Vorſtellung vom Tobe voll-<lb/>
+kommen wol vertragen. Dieſe Vorſtellung kann meine<lb/>
+Ruhe und Freude nimmer ſtoͤren, da er ſelbſt, der Tod, an<lb/>
+meiner Gluͤckſeligkeit nichts zu zerſtoͤren finden wird, ſondern<lb/>
+ſie vielmehr nach allen ihren weſentlichen Theilen nothwendig<lb/>
+vermehren muß.</p><lb/>
+<p>Ein ſo edler und wichtiger Einfluß von dieſer groſſen Anſicht<lb/>
+meiner kuͤnftigen Beſtimmung in die ganze Verfaſſung mei-<lb/>
+ner Sele und meines Verhaltens wuͤrde verurſachen, daß es<lb/>
+mich aufs aͤußerſte ſchmerzen wuͤrde, ſie falſch zu finden, wenn<lb/>
+ſie es auch ſeyn koͤnnte. Es iſt mir zu viel daran gelegen,<lb/>
+daß ſie wahr ſey. Jch will alſo mein ganzes Gemuͤth immer<lb/>
+mehr mit der troſtvollen Vorſtellung erfuͤllen, daß ich noch in<lb/>
+einem andern Zuſtande zu leben habe, worin ich nach der Na-<lb/>
+tur der Dinge, und nach der guͤtigen Regierung der hoͤchſten<lb/>
+Weisheit, nichts als gutes erwarten darf; daß ich alſo einmal,<lb/>
+nach einer voͤlligen Beſreyung von den Thorheiten ſowol, als<lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">den</fw><lb/>
+<pb n="26" facs="#f0036"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+den Plagen dieſes Lebens, mich auf ewig mit der Quelle der<lb/>
+Vollkommenheiten vereinigen, die ganze Wolluſt richtiger<lb/>
+Neigungen unvermiſcht und ungeſtoͤrt genieſſen, und alſo das<lb/>
+groſſe Ziel deſto mehr erreichen werde, dazu ich durch meine<lb/>
+Natur und von meinem Urheber beſtimmet bin, naͤmlich recht-<lb/>
+ſchaffen, und in der Rechtſchaffenheit gluͤckſelig zu ſeyn.</p><lb/>
+<cit><quote><hi rendition="#aq"><hi rendition="#i">Omnium, quae in hominum doctorum diſputatione verſan-</hi><lb/>
+<hi rendition="#et"><hi rendition="#i">tur, nihil profecto eſt praeſtabilius, quam plane intelligi,<lb/>
+nos ad iuſtitiam eſſe natos.</hi><lb/>
+<hi rendition="#g">CICERO</hi>.</hi></hi></quote><bibl/></cit></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Anhang</hi><lb/>
+bey der dritten Auflage.</hi></head><lb/>
+<p><hi rendition="#in">M</hi>an hat mir zu erkennen gegeben, daß dieſe Gedanken<lb/>
+von der Beſtimmung des Menſchen einem Misbrau-<lb/>
+che unterworfen waͤren, der meinen Abſichten hoͤchſt nachthei-<lb/>
+lig iſt. Es giebt noch Leute, welche die Vortrefflichkeit der na-<lb/>
+tuͤrlichen Religion und Sittenlehre als einen Grund anſehen,<lb/>
+die Liebenswuͤrdigkeit und Wahrheit des chriſtlichen Glaubens<lb/>
+zu beſtreiten, und ſolche, ſagt man, koͤnnten aus meinem Auf-<lb/>
+ſotz eine Einſtimmung mit ihrer Meinung erzwingen. Die<lb/>
+Natur heißt es, zeiget dem Menſchen ſeinen Zweck und die<lb/>
+Wege dahin; die Natur fuͤhret uns auf eine allgemeine und<lb/>
+ſichere Richtſchnur des Lebens, auf die edelſten Begriffe von<lb/>
+der Gottheit, auf die troſtvolle und dem Menſchen unentbehr-<lb/>
+liche Erwartung eines zukuͤnftigen Zuſtandes; die Natur<lb/>
+giebt uns Gruͤnde zur Tugend und Ruhe; Folglich hat man<lb/>
+nichts von einer Offenbarung zu halten.</p><lb/>
+<p>Die Unrechtmaͤſſigkeit dieſer Folgerung iſt ſo oft und in ei-<lb/>
+nem ſo ſtarken Lichte gezeiget worden, daß ich geglaubt haͤtte,<lb/>
+<fw type="catch" place="bottom">man</fw><lb/>
+<pb n="27" facs="#f0037"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+man wuͤrde endlich einmal die Chriſten mit der unangenehmen<lb/>
+Wiederholung derſelben verſchonen. Es iſt hier der Ort<lb/>
+nicht, die Beweiſe umſtaͤndlich beyzubringen, womit, abſon-<lb/>
+derlich in den neuern Zeiten, die chriſtliche Offenbarung wider<lb/>
+dieſen Einwurf gerechtfertiget worden; ich will nur einiger<lb/>
+derjenigen uͤberhaupt gedenken, welche mir als die klaͤreſten<lb/>
+und kuͤrzeſten vorkommen, und welche, ohne dem natuͤrlichen<lb/>
+Glauben an Gott das geringſte von ſeinem Wehrte zu beneh-<lb/>
+men, einen jeden vernuͤnftigen und ehrlichen Mann zu der<lb/>
+aufrichtigſten und tiefſten Hochachtung gegen die Lehre Chri-<lb/>
+ſti bewegen muͤſſen. Man mag alsdann zuſehen, mit was<lb/>
+fuͤr einer Benennung man den Geiſt der Leichtſinnigkeit und<lb/>
+der Verachtung, der ſich in dieſem Fall ſo vielfaͤltig aͤuſſert,<lb/>
+zu belegen habe.</p><lb/>
+<p>Wer die Billigkeit und Unpartheylichkeit hat, die Religion<lb/>
+der H. Schriſt in ihrem weſentlichen und in ihrem Haupt-<lb/>
+zweck aufmerkſam zu erwaͤgen, der wird ſo fort finden, daß<lb/>
+dieſe das ſchoͤnſte Zeugniß und der ſtaͤrkſte Beyfall iſt, der<lb/>
+den hieher gehoͤrigen Wahrheiten der Natur und Vernunft<lb/>
+gegeben werden kann. Die allgemeine Liebe gegen Gott,<lb/>
+gegen die Menſchen, und gegen das Gute, die Beſſerung und<lb/>
+Gluͤckſeligkeit der unſterblichen Sele. Das iſt augenſchein-<lb/>
+lich das emſigſte Geſchaͤfte der Stiſter unſers Glaubens.<lb/>
+Mit welcher Klarheit, mit welchem Ernſt, mit welcher ein-<lb/>
+nehmenden Kraft zeigen ſie uns nicht unſern Zweck und un-<lb/>
+ſere Schuldigkeit! Lebendig von der natuͤrlichen Religion<lb/>
+durchdrungen ſeyn, und doch eine Glaubenslehre nicht hoch-<lb/>
+achten, die eben das ſagt, was die natuͤrliche Religion, und<lb/>
+die es ſo deutlich, ſo vollſtaͤndig, ſo ruͤhrend ſagt, ich geſtehe<lb/>
+es, das iſt mir unbegreiflich.</p><lb/>
+<p>Aber das Evangelium kann ohne Zweifel aus einem noch<lb/>
+ſtaͤrkern Grunde auf die Hochachtung derjenigen Anſpruch<lb/>
+machen, denen die natuͤrliche Religion wehrt iſt. Man hat<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">es</fw><lb/>
+<pb n="28" facs="#f0038"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+es mit aller der Zuverlaͤßigkeit, deren eine Sache von dieſer<lb/>
+Art faͤhig iſt, erwieſen, daß keine natuͤrliche Religion in der<lb/>
+Welt ſeyn wuͤrde, wenn keine geoffenbarte waͤre. Je wel-<lb/>
+ter man durch Erfahrungen und Nachdenken in der Er-<lb/>
+kenntniß der menſchlichen Natur gekommen, deſtomehr iſt<lb/>
+man uͤberzeuget worden, daß unſere Vernunſt fuͤr ſich und<lb/>
+ohne alle Anweiſung ſchlechterdings unvermoͤgend iſt, ſich<lb/>
+uͤber die ſinnlichen Dinge, und den Wahrheiten der Reli-<lb/>
+gion zu erheben. Die allererſte Anweiſung aber hat alſo<lb/>
+nothwendig eine goͤttliche Offenbarung ſeyn muͤſſen. Eben<lb/>
+ſo wenig konnte die natuͤrliche Erkenntniß und Verehrung<lb/>
+Gottes nach ihrem ſo allgemeinen und entſetzlichen Verfall<lb/>
+ohne eine goͤttliche unterſtuͤtzte Bekanntmachung wieder auf-<lb/>
+geholfen werden. Daher iſt es auch eine unlaͤugbare Er-<lb/>
+fahrung, daß die natuͤrliche Religion da am beſten erkannt<lb/>
+und gelehret wird, wo das Licht des Evangeliums die Gei-<lb/>
+ſter aufgeklaͤret hat. Laſſet uns aber auch den unmoͤglichen<lb/>
+Fall ſetzen, daß es Koͤpfe gebe, die bloß aus ſich ſelbſt die<lb/>
+Lehren der Religion erfinden koͤnnten; wie wenigen wuͤrde<lb/>
+doch dieß bey dem itzigen Zuſtande des menſchlichen Ge-<lb/>
+ſchlechts moͤglich ſeyn? Wie wenig wuͤrden die Erfindungen<lb/>
+einiger Menſchen ohne die Unterſtuͤtzung eines goͤttlichen<lb/>
+Anſehens uͤber die andern vermoͤgen? Wie unglaublich iſt<lb/>
+es alſo, daß auf die Art die wahre und reine Religion der<lb/>
+Natur eine allgemeine und herrſchende Religion werden<lb/>
+koͤnnte; wie ſie ſolches auch niemal und bey keinem Volke<lb/>
+geweſen? Hieraus laͤſſet ſich urtheilen, was fuͤr Dankbarkeit<lb/>
+und Verpflichtung wir der goͤttlichen Guͤte ſchuldig ſind,<lb/>
+daß ſie der aͤuſſerſten Beduͤrfniß der Menſchen durch dieſen<lb/>
+Unterricht ſo heilſamlich zu Huͤlfe gekommen iſt; und was<lb/>
+fuͤr Ehrerbietung dieſer Unterricht ſelbſt von uns verdiene.</p><lb/>
+<p>Endlich laſſe man auch den eigenthuͤmlichen Lehren des<lb/>
+Chriſtenthums Gerechtigkeit wiederfahren. Sie gehen,<lb/>
+wenn man ſie recht kennet, durchgehends und augenſchein-<lb/>
+<fw type="catch" place="bottom">lich</fw><lb/>
+<pb n="29" facs="#f0039"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+lich auf den groͤßten und letzten Zweck aller Religion, naͤm-<lb/>
+lich, den Menſchen beſſer und gluͤcklich zu machen. Neue<lb/>
+Beſtaͤtigungen der angelegentlichſten Wahrheiten, neue Be-<lb/>
+wegungsgruͤnde, neue Mittel, neue Urſachen des Vertrau-<lb/>
+ens und der Aufmunterung, welche dem Menſchen bey dem<lb/>
+einmal herrſchenden Verderben ſo noͤthig ſind, das iſt es,<lb/>
+wodurch die Offenbarung ſich von der bloſſen Vernunft un-<lb/>
+terſcheidet, und wodurch ſie ſich mit einem ſo verehrens-<lb/>
+wuͤrdigen Vorzuge unterſcheidet. Wir wollen uns inſon-<lb/>
+derheit den Zuſtand eines Menſchen vorſtellen, der durch<lb/>
+ſeine Abweichungen von dem Wege der Wahrheit und des<lb/>
+Rechts in das groͤßte Ungluͤck gerathen, deſſen eigentlich die<lb/>
+menſchliche Natur faͤhig iſt. (Und wer befindet ſich nicht<lb/>
+in dieſem Zuſtande?) Er koͤmmt zu ſich ſelbſt; er empfin-<lb/>
+det ſeine innerliche Haͤßlichkeit; er empfindet den Wider-<lb/>
+ſpruch, worinn er gegen die allgemeine Ordnung, und gegen<lb/>
+das unendliche Urbild aller Ordnung ſtehet; er empfindet<lb/>
+die Abſcheulichkeit des Frevels, womit er die ewigen unver-<lb/>
+aͤnderlichen Geſetze der Wahrheit geſchaͤndet hat. Nichts<lb/>
+iſt ihm offenbarer, als daß er gerade wider Gott iſt. Was<lb/>
+fuͤr ein erſchroͤckliches Gefuͤhl von Unmuth, von Scham,<lb/>
+von Reue, von Furcht, welches natuͤrlich daraus entſprin-<lb/>
+gen muß! Was fuͤr Mistrauen, was fuͤr niederſchlagende<lb/>
+Zweifel bey dem beßten Vorſatz der Umkehrung und Beſſe-<lb/>
+rung! Jch erkenne hieruͤber niemand zum Richter, als den-<lb/>
+jenigen, der uͤberlegend und redlich genug iſt, den Wehrt<lb/>
+der ſittlichen Ordnung und des damit verknuͤpften goͤttlichen<lb/>
+Wohlgefallens lebendig einzuſehen und recht zu ſchaͤtzen,<lb/>
+oder noch beſſer, der in ſeiner eigenen Sele das maͤchtige<lb/>
+Gewicht dieſer groſſen und ungegruͤndeten Empfindungen<lb/>
+gefuͤhlet hat. Der wird es uns ſagen koͤnnen, mit was fuͤr<lb/>
+Augen man die deutlichen Verſicherungen des Evangeliums<lb/>
+anzuſehen habe, daß der allerhoͤchſte Regierer der Welt,<lb/>
+der, ſeinem unwandelbaren Weſen zu Folge, die Ordnung<lb/>
+mit der genaueſten Strenge handhabet, dennoch geneigt und<lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">bereit</fw><lb/>
+<pb n="30" facs="#f0040"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+bereit ſey, alle diejenigen ſeiner Gnade und der Gluͤckſelig-<lb/>
+keit wieder theilhaftig zu machen, die mit Aufrichtigkeit von<lb/>
+ihren unſeligen Verwirrungen zu ihm umkehren, und daß<lb/>
+er zu dem Ende einen Mittler verordnet habe, deſſen Tod<lb/>
+zu einem allgemeinen Opfer fuͤr die Suͤnden der Menſchen<lb/>
+dienen, und ihnen zu dem untruͤglichſten Pfande ihrer Wie-<lb/>
+deraufnehmung gereichen ſoll. Je hoͤher uͤberhaupt der<lb/>
+Begriff und ie lebendiger der Eindruck iſt, den ein Menſch<lb/>
+von ſeiner groſſen Beſtimmung, von Tugend und Recht<lb/>
+und ewiger Ordnung hat, deſto ſtaͤrker und ruͤhrender wird<lb/>
+er den Wehrt der goͤttlichen Anweiſungen empfinden, die<lb/>
+ihm dazu ſo viel Huͤlfe leiſten.</p><lb/>
+<p>Wenn ich alles das vorhergehende bedenke, ſo weiß ich<lb/>
+gar nicht mehr, was ich aus denjenigen machen ſoll, die ſich<lb/>
+ſo viel Muͤhe geben, die chriſtliche Religion durch die Er-<lb/>
+hebung der natuͤrlichen zu unterdrucken. Moͤgten ſie uns<lb/>
+doch ſagen, womit ſie ſich ſonſt um die Lehren der Natur<lb/>
+und des Gewiſſens verdient machen. Wo ſind ihre Be-<lb/>
+muͤhungen, ſie aufzuklaͤren, zu beſtaͤtigen und zu vertheidi-<lb/>
+gen? Wo ſind ihre Arbeiten, ſie unter dem menſchlichen<lb/>
+Geſchlecht auszubreiten und liebenswuͤrdig zu machen?<lb/>
+Dieſe Lehren ſind freylich ſo wichtig und wahr, daß ſie die<lb/>
+Menſchen zu Andaͤchtigen und Heiligen machen muͤßten,<lb/>
+wenn ſie ſtark genug davon uͤberzeugt waͤren, und eine gut-<lb/>
+geartete Sele haͤtten. Wie geht es denn zu, daß diejeni-<lb/>
+gen, welche alsdann ſo laut von dem Lobe des natuͤrlichen<lb/>
+Glaubens an Gott reden, wenn es zum Tadel des Chriſten-<lb/>
+thums gereichen ſoll, wie geht es zu, daß die nichts weni-<lb/>
+ger als Andaͤchtige und Heilige ſind? Dieſer liederliche,<lb/>
+dieſer Tirann, dieſer Verraͤther, dieſer kriechende Schmeich-<lb/>
+ler, dieſer Elende, der nie anders als im Gelaͤchter von<lb/>
+Gott ſpricht, wie! iſt das der Menſch, der aus groſſer Hoch-<lb/>
+achtung ſuͤr die natuͤrliche Religion die chriſtliche nicht lei-<lb/>
+den kann? Jſt das der eifrige Verehrer der vernuͤnftigen<lb/>
+<fw type="catch" place="bottom">Got-</fw><lb/>
+<pb n="31" facs="#f0041"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Gottesfurcht, der ſich deswegen nicht erniedrigen kann, ein<lb/>
+Chriſt zu ſeyn? Laſſet uns der Natur, der Vernunft, der<lb/>
+Sittenlehre und dem guten Herzen die Schande nicht mehr<lb/>
+anthun, jemand fuͤr ihren Freund und Anhaͤnger zu halten,<lb/>
+der wie die geringſte Probe giebt, daß er ſich eine Ehre<lb/>
+daraus mache, Gott und die allgemeine Gerechtigkeit uͤber<lb/>
+alles zu lieben. Ein ſolcher hat im Grunde von der einen<lb/>
+Religion ſo wenig, als von der andern, und, man muß es<lb/>
+nur ſagen, alles, was er vor einem ruchloſen Atheiſten von<lb/>
+Profeſſion voraus hat, das iſt der Charakter eines Betruͤ-<lb/>
+gers, indem er die Welt mit ſeiner vorgegebenen natuͤrlichen<lb/>
+Religion hintergehen will. Eine verachtenswuͤrdige Klaſſe<lb/>
+von Menſchen! Jch moͤgte gerne zu allen den Tadlern,<lb/>
+welche die natuͤrliche Religion bloß als eine Schutzwehr ge-<lb/>
+gen die chriſtliche gebrauchen wollen, ſagen: „Nun wol!<lb/>
+„ man verſchonet euch mit dem Chriſtenthum; man ver-<lb/>
+„ ſchonet eure zarte und gelaͤuterte Vernunft mit Wunder-<lb/>
+„ werken und Geheimniſſen, und goͤttlichen Veranſtaltun-<lb/>
+„ gen. Man erlaubet es euch, an der Lehre Jeſu, die<lb/>
+„ uns ſo wichtig und troͤſtlich iſt, keinen Theil zu haben.<lb/>
+„ Glaubet nur die natuͤrliche Religion; aber glaubet ſie<lb/>
+„ recht. Glaubet ſie mit aller der Empfindung und Be-<lb/>
+„ wegung, mit allen den groſſen Entſchließungen der An-<lb/>
+„ dacht und der Heiligung, welche ihre Wahrheiten bey<lb/>
+„ einem jeden rechtſchaffenen und nachdenkenden Gemuͤthe<lb/>
+„ erwecken muͤſſen; und dann ſey es eurem Gewiſſen uͤber-<lb/>
+„ laſſen, wie es euch gegen den chriſtlichen Glauben geſin-<lb/>
+„ net machen wird; dann fanget an, die Religion Jeſu Chri-<lb/>
+„ ſti zu ſchmaͤhen, wenn ihr koͤnnt.„</p><lb/>
+<p>Sonſt muß ich mich noch gegen diejenigen erklaͤren, die,<lb/>
+ungeachtet alles deſſen, was ich bisher angefuͤhret, dennoch<lb/>
+vielleicht nicht damit zufrieden ſeyn moͤgten, daß ich nicht<lb/>
+gleich in die Geſchichte der Empfindungen eines ehrlichen<lb/>
+<fw type="catch" place="bottom">Man-</fw><lb/>
+<pb n="32" facs="#f0042"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Mannes, woraus gewiſſermaßen die Betrachtung uͤber die<lb/>
+Beſtimmung des Menſchen beſtehet, auch die Buße, die<lb/>
+Verſoͤhnung mit Gott, die Kraft der Gnade, und uͤber-<lb/>
+haupt das Weſentliche und Eigenthuͤmliche des Chriſten-<lb/>
+thums gebracht habe; vornehmlich, da auf die Art man-<lb/>
+chem ungegruͤndeten Argwohn haͤtte vorgebauet werden koͤn-<lb/>
+nen. Mich duͤnkt: Wer die gerade Straſſe nach einem Orte<lb/>
+bezeichnen will, der macht ſich nicht verbindlich, die Wege<lb/>
+und Mittel anzuzeigen, wodurch ein Verirrter wieder darauf<lb/>
+<hi rendition="#c">zuruͤck gebracht werden kann. Dieß iſt eigentlich eine<lb/>
+Arbeit von ganz anderer Art.</hi></p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="[33]" facs="#f0043"/>
+<pb n="[34]" facs="#f0044"/>
+</body></text> </TEI>

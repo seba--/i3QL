@@ -1,0 +1,1252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Über die Grenzen des Naturerkennens</title>
+<title type="sub">Ein Vortrag in der zweiten öffentlichen Sitzung der 45. Versammlung deutscher Naturforscher und Ärzte zu Leipzig am 14. August 1872</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118527665">
+<surname>Du Bois-Reymond</surname>
+<forename>Emil Heinrich</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">51</measure>
+<measure type="tokens">7515</measure>
+<measure type="types">2808</measure>
+<measure type="characters">54112</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:44Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/dubois_naturerkennen_1872</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/dubois_naturerkennen_1872</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/dubois_naturerkennen_1872</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/dubois_naturerkennen_1872</idno>
+<idno type="DTADirName">dubois_naturerkennen_1872</idno>
+<idno type="DTAID">16476</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905191041</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Du Bois-Reymond, Emil Heinrich: Über die Grenzen des Naturerkennens. Leipzig, 1872.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Über die Grenzen des Naturerkennens</title>
+<title level="m" type="sub">Ein Vortrag in der zweiten öffentlichen Sitzung der 45. Versammlung deutscher Naturforscher und Ärzte zu Leipzig am 14. August 1872</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118527665">
+<surname>Du Bois-Reymond</surname>
+<forename>Emil Heinrich</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">39 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Veit</name></publisher>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1872</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Lf 3430&lt;a&gt;</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=600382834</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"><hi rendition="#g">ÜBER DIE GRENZEN</hi><lb/>
+DES<lb/>
+<hi rendition="#g">NATURERKENNENS</hi>.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="sub"><hi rendition="#g">EIN VORTRAG</hi><lb/>
+IN DER<lb/>
+<hi rendition="#g"><hi rendition="#g">ZWEITEN ÖFFENTLICHEN SITZUNG</hi><lb/>
+DER 45. VERSAMMLUNG<lb/>
+DEUTSCHER NATURFORSCHER UND ÄRZTE<lb/>
+ZU LEIPZIG</hi><lb/>
+AM 14. AUGUST 1872</titlePart> </docTitle><lb/>
+<byline>GEHALTEN<lb/>
+VON<lb/>
+<docAuthor>     <hi rendition="#b"><hi rendition="#g">EMIL DU BOIS-REYMOND</hi>.</hi></docAuthor> </byline><lb/>
+<epigraph> <cit> <quote>In Nature's infinite book of secrecy<lb/>
+A little we can read.</quote> </cit> </epigraph><lb/>
+<figure/><lb/>
+<docImprint>     <pubPlace><hi rendition="#g">LEIPZIG</hi>,</pubPlace><lb/>
+<publisher><hi rendition="#g">VERLAG VON VEIT &amp; CO</hi>.</publisher><lb/>
+<docDate>1872.</docDate></docImprint> </titlePage><lb/>
+<pb facs="#f0008"/>
+<div type="copyright"> <p rendition="#c">Das Recht der Uebersetzung wird vorbehalten.</p> </div><lb/>
+</front> <body> <div n="1">
+<pb facs="#f0009"/>
+<opener><hi rendition="#et">Meine Herren!</hi></opener><lb/>
+<p>Wie es einen Welteroberer der alten Zeit an einem<lb/>
+Rasttag inmitten seiner Siegeszüge verlangen konnte, die<lb/>
+Grenzen der unübersehbaren seiner Herrschaft unterwor¬<lb/>
+fenen Länderstrecken genauer festgestellt zu sehen, um<lb/>
+hier ein noch nicht zinspflichtig gemachtes Volk zum<lb/>
+Tribut heranzuziehen, dort in der Wasserwüste ein sei¬<lb/>
+nen Reiterschaaren unüberwindliches Naturhinderniss, und<lb/>
+die wahre Schranke seiner Macht zu erkennen: so wird<lb/>
+es für die Weltbesiegerin unserer Tage, die Naturwissen¬<lb/>
+schaft, kein unangemessenes Beginnen sein, wenn sie bei<lb/>
+festlicher Gelegenheit von der Arbeit ruhend die wahren<lb/>
+Grenzen ihres unermesslichen Reiches einmal klar sich<lb/>
+vorzuzeichnen versucht. Für um so gerechtfertigter halte<lb/>
+ich dies Unternehmen, als ich glaube, dass über die<lb/>
+Grenzen des Naturerkennens zwei Irrthümer sehr ver¬<lb/>
+breitet sind, und als ich es für möglich halte, einer<lb/>
+solchen Betrachtung, trotz ihrer scheinbaren Trivialität,<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#fr">I</hi><lb/>
+</fw>
+<pb n="2" facs="#f0010"/>
+selbst für die, welche jene Irrthümer nicht theilen, einige<lb/>
+neue Seiten abzugewinnen.</p><lb/>
+<p>Ich setze mir also vor, die Grenzen des Naturerken¬<lb/>
+nens aufzusuchen, und beantworte zunächst die Frage,<lb/>
+was Naturerkennen sei.</p><lb/>
+<p>Naturerkennen — genauer gesagt naturwissenschaft¬<lb/>
+liches Erkennen oder Erkennen der Körperwelt mit Hülfe<lb/>
+und im Sinne der theoretischen Naturwissenschaft — ist<lb/>
+Zurückführen der Veränderungen in der Körperwelt auf<lb/>
+Bewegungen von Atomen, die durch deren von der Zeit<lb/>
+unabhängige Centralkräfte bewirkt werden, oder Auflö¬<lb/>
+sung der Naturvorgänge in Mechanik der Atome. Es<lb/>
+ist psychologische Erfahrungsthatsache, dass, wo solche<lb/>
+Auflösung gelingt, unser Causalitätsbedürfniss vorläufig<lb/>
+sich befriedigt fühlt. Die Sätze der Mechanik sind ma¬<lb/>
+thematisch darstellbar, und tragen in sich dieselbe apo¬<lb/>
+diktische Gewissheit, wie die Sätze der Mathematik. In¬<lb/>
+dem die Veränderungen in der Körperwelt auf eine con¬<lb/>
+stante Summe potentieller und kinetischer Energie, welche<lb/>
+einer constanten Menge von Materie anhaftet, zurückge¬<lb/>
+führt werden, bleibt in diesen Veränderungen selber nichts<lb/>
+zu erklären übrig.</p><lb/>
+<p> <hi rendition="#k">Kant's</hi> Behauptung in der Vorrede zu den <hi rendition="#i">Metaphy¬<lb/>
+sischen Anfangsgründen der Naturwissenschaft</hi>, „dass in<lb/>
+„jeder besonderen Naturlehre nur so viel <hi rendition="#g">eigentliche</hi><lb/>
+„Wissenschaft angetroffen werden könne, als darin<lb/>
+<pb n="3" facs="#f0011"/>
+„<hi rendition="#g">Mathematik</hi> anzutreffen sei“ — ist also vielmehr noch<lb/>
+dahin zu verschärfen, dass für Mathematik Mechanik der<lb/>
+Atome gesetzt wird. Sichtlich dies meinte er selber, als<lb/>
+er der Chemie den Namen einer Wissenschaft absprach,<lb/>
+und sie unter die Experimentallehren verwies. Es ist<lb/>
+nicht wenig merkwürdig, dass in unserer Zeit die Chemie,<lb/>
+indem sie durch die Entdeckung der Substitution ge¬<lb/>
+zwungen wurde, den elektrochemischen Dualismus auf¬<lb/>
+zugeben, sich von dem Ziel, eine Wissenschaft in die¬<lb/>
+sem Sinne zu werden, scheinbar wieder weiter ent¬<lb/>
+fernt hat.</p><lb/>
+<p>Denken wir uns alle Veränderungen in der Körper¬<lb/>
+welt in Bewegungen von Atomen aufgelöst, die durch<lb/>
+deren constante Centralkräfte bewirkt werden, so wäre<lb/>
+das Weltall naturwissenschaftlich erkannt. Der Zustand<lb/>
+der Welt während eines Zeitdifferentiales erschiene als<lb/>
+unmittelbare Wirkung ihres Zustandes während des vo¬<lb/>
+rigen und als unmittelbare Ursach ihres Zustandes wäh¬<lb/>
+rend des folgenden Zeitdifferentiales. Gesetz und Zufall<lb/>
+wären nur noch andere Namen für mechanische Noth¬<lb/>
+wendigkeit. Ja es lässt eine Stufe der Naturerkenntniss<lb/>
+sich denken, auf welcher der ganze Weltvorgang durch<lb/>
+Eine mathematische Formel vorgestellt würde, durch Ein<lb/>
+unermessliches System simultaner Differentialgleichungen,<lb/>
+aus dem sich Ort, Bewegungsrichtung und Geschwindig¬<lb/>
+keit jedes Atomes im Weltall zu jeder Zeit ergäbe. „Ein<lb/>
+<fw type="sig" place="bottom">1 *<lb/>
+</fw>
+<pb n="4" facs="#f0012"/>
+„Geist,“ sagt <hi rendition="#k">Laplace</hi>, „der für einen gegebenen Augen¬<lb/>
+„blick alle Kräfte kennte, welche in der Natur wirksam<lb/>
+„sind, und die gegenseitige Lage der Wesen, aus denen<lb/>
+„sie besteht, wenn sonst er umfassend genug wäre, um<lb/>
+„diese Angaben der Analysis zu unterwerfen, würde in<lb/>
+„derselben Formel die Bewegungen der grössten Welt¬<lb/>
+„körper und des leichtesten Atoms begreifen: nichts<lb/>
+„wäre ungewiss für ihn, und Zukunft wie Vergangenheit<lb/>
+„wäre seinem Blicke gegenwärtig. Der menschliche Ver¬<lb/>
+„stand bietet in der Vollendung, die er der Astronomie<lb/>
+„zu geben gewusst hat, ein schwaches Abbild solchen<lb/>
+„Geistes dar.“<note place="end" n="1" xml:id="n-1" next="#n-1t"/></p><lb/>
+<p>In der That, wie der Astronom nur der Zeit in den<lb/>
+Mondgleichungen einen gewissen negativen Werth zu er¬<lb/>
+theilen braucht, um zu ermitteln, ob, als <hi rendition="#k">Perikles</hi> nach<lb/>
+Epidaurus sich einschiffte, die Sonne für den Piraeeus<lb/>
+verfinstert ward, so könnte der von <hi rendition="#k">Laplace</hi> gedachte<lb/>
+Geist durch geeignete Discussion seiner Weltformel uns<lb/>
+sagen, wer die Eiserne Maske war oder wie der „Presi¬<lb/>
+dent“ zu Grunde ging. Wie der Astronom den Tag<lb/>
+vorhersagt, an dem nach Jahren ein Komet aus den Tie¬<lb/>
+fen des Weltraumes am Himmelsgewölbe wieder auf¬<lb/>
+taucht, so läse jener Geist in seinen Gleichungen den<lb/>
+Tag, da das griechische Kreuz von der Sophienmoschee<lb/>
+blitzen oder da England seine letzte Steinkohle verbren¬<lb/>
+nen wird. Setzte er in der Weltformel <hi rendition="#i">t</hi> = — ∞, so<lb/>
+<pb n="5" facs="#f0013"/>
+enthüllte sich ihm der räthselhafte Urzustand der Dinge.<lb/>
+Er sähe im unendlichen Raume die Materie bereits ent¬<lb/>
+weder bewegt oder ungleich vertheilt, da bei gleicher<lb/>
+Vertheilung das labile Gleichgewicht nie gestört worden<lb/>
+wäre. Liesse er <hi rendition="#i">t</hi> im positiven Sinn unbegrenzt wachsen,<lb/>
+so erführe er, ob <hi rendition="#k">Carnot</hi>'<hi rendition="#k">s</hi> Satz erst nach unendlicher<lb/>
+oder schon nach endlicher Zeit das Weltall mit eisigem<lb/>
+Stillstande bedroht. Solchem Geiste wären die Haare<lb/>
+auf unserem Haupte gezählt, und ohne sein Wissen fiele<lb/>
+kein Sperling zur Erde. Ein vor- und rückwärts ge¬<lb/>
+wandter Prophet, wäre ihm, wie schon <hi rendition="#k">d'Alembert</hi> in<lb/>
+der Einleitung zur Encyklopaedie, <hi rendition="#k">Laplace</hi>'<hi rendition="#k">s</hi> Gedanken<lb/>
+im Keime hegend, es ausdrückte, „das Weltganze nur<lb/>
+„eine einzige Thatsache und Eine grosse Wahrheit“.<note place="end" n="2" xml:id="n-2" next="#n-2t"/></p><lb/>
+<p>Es braucht nicht gesagt zu werden, dass der mensch¬<lb/>
+liche Geist von dieser vollkommenen Naturerkenntniss<lb/>
+stets weit entfernt bleiben wird. Um den Abstand zu<lb/>
+zeigen, der uns sogar von deren ersten Anfängen trennt,<lb/>
+genügt Eine Bemerkung. Ehe die Differentialgleichun¬<lb/>
+gen der Weltformel angesetzt werden könnten, müssten<lb/>
+alle Naturvorgänge auf Bewegungen eines substantiell<lb/>
+unterschiedslosen, mithin eigenschaftslosen Substrates<lb/>
+dessen zurückgeführt sein, was uns als verschiedenartige<lb/>
+Materie erscheint, mit anderen Worten, alle Qualität<lb/>
+müsste aus Anordnung und Bewegung solchen Substra¬<lb/>
+tes erklärt sein.</p><lb/>
+<pb n="6" facs="#f0014"/>
+<p>Dies ist völlig im Einklange mit der Lehre von den<lb/>
+Sinnen. Allem Ermessen nach leiten Sinnesorgane und<lb/>
+-Nerven den zugehörigen Hirnprovinzen oder, wie <hi rendition="#k">Joh.<lb/>
+Müller</hi> sie nannte, den Sinnsubstanzen schliesslich einer¬<lb/>
+lei Bewegung zu. Wie in dem von Hrn. <hi rendition="#k">Bidder</hi> erson¬<lb/>
+nenen, Hrn. <hi rendition="#k">Vulpian</hi> gelungenen Versuch am Tast- und<lb/>
+Muskelnerven der Zunge Empfindungs- und Bewegungs¬<lb/>
+fasern so mit einander verheilen, dass Erregung von Fa¬<lb/>
+sern der einen Art durch die Narbe auf Fasern der an¬<lb/>
+deren Art übergeht, so würden, wäre der Versuch<lb/>
+möglich, vollends Fasern verschiedener Sinnesnerven mit<lb/>
+einander verschmelzen. Bei über's Kreuz verheilten Seh-<lb/>
+und Hörnerven hörten wir mit dem Auge den Blitz als<lb/>
+Knall, und sähen mit dem Ohre den Donner als Reihe<lb/>
+von Lichteindrücken.<note place="end" n="3" xml:id="n-3" next="#n-3t"/> Die Sinnesempfindung als solche<lb/>
+entsteht also erst in den Sinnsubstanzen. Diese Sub¬<lb/>
+stanzen sind es, welche die in allen Nerven gleichartige<lb/>
+Erregung überhaupt erst in Sinnesempfindung übersetzen,<lb/>
+und dabei je nach ihrer Natur, als Träger der „specifi¬<lb/>
+schen Energien“ <hi rendition="#k">Joh. Müller's</hi>, die Qualität erzeugen.<lb/>
+Das mosaische: Es ward Licht, ist physiologisch falsch.<lb/>
+Licht ward erst, als der erste rothe Augenpunkt eines<lb/>
+Infusoriums zum ersten Male Hell und Dunkel unter¬<lb/>
+schied. Ohne Seh- und ohne Gehörsinnsubstanz wäre<lb/>
+diese farbenglühende, tönende Welt um uns her finster<lb/>
+und stumm.</p><lb/>
+<pb n="7" facs="#f0015"/>
+<p>Und stumm und finster an sich, d. h. eigenschaftslos,<lb/>
+wie sie aus der subjectiven Zergliederung hervorgeht, ist<lb/>
+die Welt auch für die durch objective Betrachtung ge¬<lb/>
+wonnene mechanische Anschauung, welche statt Schalles<lb/>
+und Lichtes nur Schwingungen eines eigenschaftslosen,<lb/>
+dort zur wägbaren, hier zur unwägbaren Materie gewor¬<lb/>
+denen Urstoffes kennt.</p><lb/>
+<p>Aber wie wohlbegründet diese Vorstellungen im All¬<lb/>
+gemeinen auch sind, zu ihrer Durchführung im Einzelnen<lb/>
+fehlt noch so gut wie Alles. Der Stein der Weisen, der<lb/>
+die heute noch unzerlegten Stoffe ineinander umwandelte<lb/>
+und aus einem höheren Grundstoffe, wenn nicht dem Ur¬<lb/>
+stoffe selber, erzeugte, müsste gefunden sein, ehe die<lb/>
+ersten Vermuthungen über Entstehung scheinbar verschie¬<lb/>
+denartiger aus in Wirklichkeit unterschiedsloser Materie<lb/>
+möglich würden.</p><lb/>
+<p>Obschon der menschliche Geist von dem von <hi rendition="#k">La¬<lb/>
+place</hi> gedachten Geiste stets weit entfernt bleiben wird,<lb/>
+ist er doch nur stufenweise davon verschieden, etwa wie<lb/>
+eine bestimmte Ordinate einer Curve von einer zwar<lb/>
+ausnehmend viel grösseren, jedoch noch endlichen Ordi¬<lb/>
+nate derselben Curve. Wir gleichen diesem Geist, denn<lb/>
+wir begreifen ihn. Ja es ist die Frage, ob nicht ein<lb/>
+Geist wie <hi rendition="#k">Newton</hi>'<hi rendition="#k">s</hi> von dem von <hi rendition="#k">Laplace</hi> gedachten<lb/>
+Geiste sich weniger unterscheidet, als der Geist eines<lb/>
+Australnegers oder eines Pescheräh's vom Geiste <hi rendition="#k">Newton</hi>'<hi rendition="#k">s</hi>.<lb/>
+<pb n="8" facs="#f0016"/>
+Mit anderen Worten, die Unmöglichkeit, die Differential¬<lb/>
+gleichungen der Weltformel aufzustellen, zu integriren<lb/>
+und das Ergebniss zu discutiren, ist keine grundsätzliche,<lb/>
+sondern beruht auf der Unmöglichkeit, die nöthigen<lb/>
+thatsächlichen Bestimmungen zu erlangen, und, selbst<lb/>
+wenn dies möglich wäre, auf deren unermesslicher Aus¬<lb/>
+dehnung, Mannigfaltigkeit und Verwickelung.</p><lb/>
+<p>Die Naturerkenntniss, welche der von <hi rendition="#k">Laplace</hi> ge¬<lb/>
+dachte Geist besässe, stellt somit die höchste denkbare<lb/>
+Stufe unseres eigenen Naturerkennens vor. Wir können<lb/>
+deshalb jene Erkenntniss bei der Untersuchung über die<lb/>
+Grenzen dieses Erkennens zu Grunde legen. Was bei<lb/>
+ihr unerkannt bliebe, das wird unserem in so viel enge¬<lb/>
+ren Schranken eingeschlossenen Geiste vollends verbor¬<lb/>
+gen bleiben.</p><lb/>
+<p>Zwei Stellen sind es nun, wo auch der von <hi rendition="#k">Laplace</hi><lb/>
+gedachte Geist vergeblich weiter vorzudringen trachten<lb/>
+würde, vollends wir stehen zu bleiben gezwungen sind.</p><lb/>
+<p>Erstens nämlich ist daran zu erinnern, dass das Na¬<lb/>
+turerkennen, welches vorher als unser Causalitätsbedürf¬<lb/>
+niss vorläufig befriedigend bezeichnet wurde, in Wahrheit<lb/>
+dies nicht thut, und kein Erkennen ist. Die Vorstellung,<lb/>
+wonach die Welt aus stets dagewesenen und unvergäng¬<lb/>
+lichen kleinsten Theilen besteht, deren Centralkräfte alle<lb/>
+Bewegung erzeugen, ist gleichsam nur Surrogat einer<lb/>
+Erklärung. Sie führt, wie bemerkt, alle Veränderungen<lb/>
+<pb n="9" facs="#f0017"/>
+in der Körperwelt auf eine constante Summe von Kräf¬<lb/>
+ten und eine constante Menge von Materie zurück, und<lb/>
+lässt an den Veränderungen selber also nichts zu erklä¬<lb/>
+ren übrig. Bei dem gegebenen Dasein jenes Constan¬<lb/>
+ten können wir, der gewonnenen Einsicht froh, eine Zeit<lb/>
+lang uns beruhigen; bald aber verlangen wir tiefer ein¬<lb/>
+zudringen, und es selber seinem Wesen nach zu begrei¬<lb/>
+fen. Da ergiebt sich denn bekanntlich, dass zwar<lb/>
+innerhalb bestimmter Grenzen die atomistische Vorstel¬<lb/>
+lung für den Zweck unserer physikalisch-mathematischen<lb/>
+Ueberlegungen brauchbar, ja unentbehrlich ist, dass sie<lb/>
+aber, wenn die Grenzen der an sie zu stellenden For¬<lb/>
+derungen überschritten werden, als Corpuscular- Philo¬<lb/>
+sophie in unlösliche Widersprüche führt.</p><lb/>
+<p>Ein physikalisches Atom, d. h. eine im Vergleich<lb/>
+zu den Körpern, mit denen wir Umgang haben, ver¬<lb/>
+schwindend klein gedachte, ihres Namens ungeachtet in<lb/>
+der Idee aber noch theilbare Masse, der Eigenschaften<lb/>
+oder ein Bewegungszustand zugeschrieben werden, mit¬<lb/>
+tels welcher das Verhalten einer aus unzähligen solchen<lb/>
+Atomen bestehenden Masse sich erklärt, ist eine in sich<lb/>
+folgerichtige und unter Umständen nützliche Fiction der<lb/>
+mathematischen Physik. Doch wird selbst deren Ge¬<lb/>
+brauch neuerlich möglichst vermieden, indem man statt<lb/>
+auf discrete Atome, auf Volumelemente der continuir¬<lb/>
+lich gedachten Körper zurückgeht.<note place="end" n="4" xml:id="n-4" next="#n-4t"/><lb/>
+</p>
+<pb n="10" facs="#f0018"/>
+<p>Ein philosophisches Atom dagegen, d. h. eine an¬<lb/>
+geblich nicht weiter theilbare Masse trägen wirkungs¬<lb/>
+losen Substrates, von der durch den leeren Raum in<lb/>
+die Ferne wirkende Kräfte ausgehen, ist bei näherer Be¬<lb/>
+trachtung ein Unding.</p><lb/>
+<p>Denn soll das nicht weiter theilbare, träge, an sich<lb/>
+unwirksame Substrat wirklichen Bestand haben, so muss<lb/>
+es einen gewissen, noch so kleinen Raum erfüllen.<lb/>
+Dann ist nicht zu begreifen, warum es nicht weiter theil¬<lb/>
+bar sei. Anch kann es den Raum nur erfüllen, wenn<lb/>
+es vollkommen hart ist, d. h. indem es durch eine an<lb/>
+seiner Grenze auftretende, aber nicht darüber hinaus¬<lb/>
+wirkende abstossende Kraft, welche alsbald grösser<lb/>
+wird als jede gegebene Kraft, gegen Eindringen eines<lb/>
+anderen Körperlichen in denselben Raum sich wehrt.<lb/>
+Abgesehen von anderen Schwierigkeiten, welche hieraus<lb/>
+entspringen, ist das Substrat alsdann kein wirkungsloses<lb/>
+mehr.</p><lb/>
+<p>Denkt man sich umgekehrt mit den Dynamisten als<lb/>
+Substrat nur den Mittelpunkt der Centralkräfte, so er¬<lb/>
+füllt das Substrat den Raum nicht mehr, denn der Punkt<lb/>
+ist die im Raume vorgestellte Negation des Raumes.<lb/>
+Dann ist nichts mehr da, wovon die Centralkräfte aus¬<lb/>
+gehen, und was träg sein könnte, gleich der Materie.</p><lb/>
+<p>Durch den leeren Raum in die Ferne wirkende<lb/>
+Kräfte sind an sich unbegreiflich, ja widersinnig, und<lb/>
+<pb n="11" facs="#f0019"/>
+erst seit <hi rendition="#k">Newton's</hi> Zeit, durch Missverstehen seiner<lb/>
+Lehre und gegen seine ausdrückliche Warnung, den<lb/>
+Naturforschern eine geläufige Vorstellung geworden.<lb/>
+Denkt man sich mit <hi rendition="#k">Descartes</hi> und <hi rendition="#k">Leibniz</hi> den gan¬<lb/>
+zen Raum erfüllt, und alle Bewegung durch Ueber¬<lb/>
+tragung in Berührungsnähe erzeugt, so ist zwar das<lb/>
+Entstehen der Bewegung auf ein unserer sinnlichen An¬<lb/>
+schauung entlehntes Bild zurückgeführt, aber es stellen<lb/>
+sich andere Schwierigkeiten ein. Unter Anderem ist es<lb/>
+bei dieser Vorstellung unmöglich, die verschiedene<lb/>
+Dichte der Körper aus verschiedener Zusammenfügung<lb/>
+des gleichartigen Urstoffes zu erklären.</p><lb/>
+<p>Es ist leicht, den Ursprung dieser Widersprüche<lb/>
+aufzudecken. Sie wurzeln in unserem Unvermögen,<lb/>
+etwas anderes als mit unseren äusseren Sinnen entweder,<lb/>
+oder mit unserem inneren Sinn Erfahrenes uns vorzu¬<lb/>
+stellen. Bei dem Bestreben, die Körperwelt zu zerglie¬<lb/>
+dern, gehen wir aus von der Theilbarkeit der Materie,<lb/>
+da sichtlich die Theile etwas einfacheres und ursprüng¬<lb/>
+licheres sind, als das Ganze. Fahren wir in Gedanken<lb/>
+mit Theilung der Materie in's Unendliche fort, so bleiben<lb/>
+wir mit unserer Anschauung in dem uns angewiesenen<lb/>
+Geleise, und fühlen uns in unserem Denken unbehindert.<lb/>
+Zum Verständniss der Dinge aber thun wir keinen Schritt,<lb/>
+da wir in der That nur das im Bereiche des Grossen<lb/>
+und Sichtbaren Erscheinende auch im Bereiche des Klei¬<lb/>
+<pb n="12" facs="#f0020"/>
+nen und Unsichtbaren uns vorgestellt haben. Wir<lb/>
+kommen so zum Begriffe des physikalischen Atoms.<lb/>
+Hören wir nun irgendwo willkürlich mit der Theilung<lb/>
+bei angeblichen philosophischen Atomen auf, die nicht<lb/>
+weiter theilbar, vollkommen hart und überdies an sich<lb/>
+wirkungslos und nur Träger der Centralkräfte sein sollen,<lb/>
+so verlangen wir von einer Materie, die wir uns unter<lb/>
+dem Bilde der Materie denken, mit der wir Um¬<lb/>
+gang haben, ohne dass wir irgend ein neues Er¬<lb/>
+klärungsprincip einführen, dass sie neue, ursprüng¬<lb/>
+liche, das Wesen der Körper aufklärende Eigenschaften<lb/>
+entfalte. So begehen wir den Fehler, der in den vor¬<lb/>
+her blossgelegten Widersprüchen sich offenbart.<note place="end" n="5" xml:id="n-5" next="#n-5t"/></p><lb/>
+<p>Niemand, der etwas tiefer nachgedacht hat, ver¬<lb/>
+kennt die transcendente Natur des Hindernisses, das sich<lb/>
+uns hier entgegenstellt. Wie man auch es zu umgehen<lb/>
+versuche, in der einen oder anderen Form stösst man<lb/>
+immer darauf. Von welcher Seite, unter welcher<lb/>
+Deckung man ihm sich nähere, man erfährt seine Un¬<lb/>
+besiegbarkeit. Die alten ionischen Physiologen standen<lb/>
+davor nicht rathloser als wir. Alle Fortschritte der Na¬<lb/>
+turwissenschaft haben nichts dawider vermocht, alle fer¬<lb/>
+neren werden dawider nichts fruchten. Nie werden wir<lb/>
+besser als heute wissen, was, wie <hi rendition="#k">Paul Erman</hi> zu sagen<lb/>
+pflegte, „hier“, wo Materie ist, „im Raume spukt“.<lb/>
+Denn sogar der von <hi rendition="#k">Laplace</hi> gedachte, über den unseren<lb/>
+<pb n="13" facs="#f0021"/>
+so weit erhabene Geist würde in diesem Punkte nicht<lb/>
+klüger sein als wir, und daran erkennen wir verzweifelnd,<lb/>
+dass wir hier an der einen Grenze unseres Witzes<lb/>
+stehen.</p><lb/>
+<p>Sehen wir aber von dieser ursprünglichen Schranke<lb/>
+ab, setzen wir Materie und Kraft als gegeben und be¬<lb/>
+kannt voraus, so ist in der Idee, wie gesagt, die Kör¬<lb/>
+perwelt verständlich. Von dem Urzustand eines kreisen¬<lb/>
+den Nebelballes führt die von Hrn. <hi rendition="#k">Helmholtz</hi> an der<lb/>
+Hand der mechanischen Wärmetheorie weiter entwickelte<lb/>
+<hi rendition="#k">Kant</hi>'sche Hypothese<note place="end" n="6" xml:id="n-6" next="#n-6t"/> zur Einsicht in die Entstehung<lb/>
+unseres Planetensystems. Schon sehen wir unsere Erde<lb/>
+als feurig flüssigen Tropfen mit einer Atmosphäre unfass¬<lb/>
+barer Beschaffenheit in ihrer Bahn rollen. Wir sehen<lb/>
+sie im Lauf unermesslieher Zeiträume mit einer Schale<lb/>
+erstarrenden Urgesteines sich umgeben, Meer und<lb/>
+Veste sich scheiden, den Granit durch heisse koh¬<lb/>
+lensaure Wolkenbrüche zerfressen das Material zu<lb/>
+kalihaltigen Erdschichten liefern, und schliesslich Bedin¬<lb/>
+gungen entstehen, unter denen <hi rendition="#g">Leben</hi> möglich ward.</p><lb/>
+<p>Wo und in welcher Form es zuerst erschien, ob<lb/>
+auf tiefem Meeresboden als Bathybius- Urschleim, oder<lb/>
+unter Mitwirkung der noch mehr ultraviolette Strahlen<lb/>
+entsendenden Sonne bei noch höherem partiärem Drucke<lb/>
+der Kohlensäure in der Atmosphäre, wer sagt es je?<lb/>
+Aber der von <hi rendition="#k">Laplace</hi> gedachte Geist im Besitze der<lb/>
+<pb n="14" facs="#f0022"/>
+Weltformel <hi rendition="#g">könnte</hi> es sagen. Denn beim Zusammen¬<lb/>
+treten unorganischer Stoffe zu Lebendigem handelt es<lb/>
+sich zunächst nur um Bewegung, um Anordnung von<lb/>
+Molecülen in mehr oder minder festen Gleichgewichts¬<lb/>
+lagen, und um Einleitung eines Stoffwechsels theils<lb/>
+durch Spannkräfte der Molecüle, theils durch von aussen<lb/>
+überkommene Bewegung. Was das Lebende vom<lb/>
+Todten, die Pflanze und das nur in seinen körperlichen<lb/>
+Functionen betrachtete Thier vom Krystall unterscheidet,<lb/>
+ist zuletzt dieses: Im Krystall befindet sich die Materie<lb/>
+in stabilem Gleichgewichte, während durch das orga¬<lb/>
+nische Wesen ein Strom von Materie sich ergiesst, die<lb/>
+Materie darin in mehr oder minder vollkommenem dy¬<lb/>
+namischem Gleichgewichte<note place="end" n="7" xml:id="n-7" next="#n-7t"/> sich befindet, mit bald posi¬<lb/>
+tiver, bald der Null gleicher, bald negativer Bilanz.<lb/>
+Daher ohne Einwirkung äusserer Massen und Kräfte der<lb/>
+Krystall ewig bleibt was er ist, dagegen das organische<lb/>
+Wesen in seinem Bestehen von gewissen äusseren Be¬<lb/>
+dingungen, den integrirenden Reizen der älteren Phy¬<lb/>
+siologie, abhängt, in sich potentielle Energie in kine¬<lb/>
+tische verwandelt und umgekehrt, und einem bestimmten<lb/>
+zeitlichen Verlauf unterworfen ist. Ohne grundsätz¬<lb/>
+liche Verschiedenheit der Kräfte im Krystall und<lb/>
+im organischen Wesen erklärt sich so, dass beide<lb/>
+miteinander incommensurabel sind, wie ein blosses Bau¬<lb/>
+werk incommensurabel ist mit einer Fabrik, in die hier<lb/>
+<pb n="15" facs="#f0023"/>
+Kohle, Wasser, Rohstoffe, aus welcher dort Kohlensäure,<lb/>
+Wassergas, Rauch, Asche und Erzeugnisse ihrer<lb/>
+Maschinen strömen. Das Bauwerk kann man sich aus<lb/>
+lauter dem Ganzen ähnlichen Theilen so gefügt vorstellen,<lb/>
+dass es gleich dem Krystall in ähnliche Theile spaltbar<lb/>
+ist; die Fabrik ist gleich dem organischen Wesen, wenn<lb/>
+wir von dessen Aufbau aus Zellen und der Theilbarkeit<lb/>
+mancher Organismen absehen, ein Individuum.</p><lb/>
+<p>Es ist daher ein Missverständniss, im ersten Er¬<lb/>
+scheinen lebender Wesen auf Erden etwas Supranatura¬<lb/>
+listisches, etwas Anderes zu sehen, als ein überaus<lb/>
+schwieriges mechanisches Problem. Von den beiden Irr¬<lb/>
+thümern, auf die ich hinweisen wollte, ist dies der eine.<lb/>
+Nicht hier ist die andere Grenze des Naturerkennens;<lb/>
+hier nicht mehr als in der Krystallbildung. Könnten<lb/>
+wir die Bedingungen herstellen, unter denen orga¬<lb/>
+nische Wesen einst entstanden, wie wir dies für ge¬<lb/>
+wisse, keinesweges für sämmtliche Krystalle können, so<lb/>
+würden nach dem Principe des Actualismus<note place="end" n="8" xml:id="n-8" next="#n-8t"/> wie damals<lb/>
+auch heute noch organische Wesen entstehen. Sollte<lb/>
+es aber auch nie gelingen, Urzeugung zu beobachten,<lb/>
+geschweige sie im Versuch herbeizuführen, so wäre doch<lb/>
+hier kein unbedingtes Hinderniss. Wären uns Materie<lb/>
+und Kraft verständlich, die Welt hörte nicht auf begreif¬<lb/>
+lich zu sein, auch wenn wir uns jetzt die Erde von<lb/>
+ihrem aequatorialen Smaragdgürtel bis zu den letzten<lb/>
+<pb n="16" facs="#f0024"/>
+flechtengrauen Polarklippen mit der üppigsten Fülle<lb/>
+von Pflanzenleben überwuchert denken, gleichviel<lb/>
+welchen Antheil an der Gestaltung des Pflanzen¬<lb/>
+reiches man organischen Bildungsgesetzen, welchen<lb/>
+der natürlichen Zuchtwahl einräume. Nur die zur<lb/>
+Befruchtung vieler Pflanzen jetzt als unentbehrlich er¬<lb/>
+kannte Beihülfe der Insectenwelt müssen wir aus Grün¬<lb/>
+den, die bald einleuchten werden, in dieser Betrach¬<lb/>
+tung bei Seite lassen. Im Uebrigen bietet das<lb/>
+reichste, von <hi rendition="#k">Bernardin de St. Pierre</hi>, <hi rendition="#k">von Hum¬<lb/>
+boldt</hi> oder <hi rendition="#k">Pöppig</hi> entworfene Naturgemälde eines tro¬<lb/>
+pischen Urwaldes dem Blicke der theoretischen Natur¬<lb/>
+forschung schlechterdings nichts dar, als bewegte Ma¬<lb/>
+terie. Es ist dies, wie mir scheint, eine neue und sehr<lb/>
+einfache Form, die man dem Beweis ertheilen kann,<lb/>
+dass es keine Lebenskraft im Sinne der Vitalisten<lb/>
+giebt.</p><lb/>
+<p>Allein es tritt nunmehr, an irgend einem Punkte<lb/>
+der Entwickelung des Lebens auf Erden, den wir nicht<lb/>
+kennen und auf den es hier nicht ankommt, etwas<lb/>
+Neues, bis dahin Unerhörtes auf, etwas wiederum, gleich<lb/>
+dem Wesen von Materie und Kraft, Unbegreifliches.<lb/>
+Der in negativ unendlicher Zeit angesponnene Faden<lb/>
+des Verständnisses zerreisst, und unser Naturerkennen<lb/>
+gelangt an eine Kluft, über die kein Steg, kein Fittig<lb/>
+trägt: wir stehen an der anderen Grenze unseres Witzes.</p><lb/>
+<pb n="17" facs="#f0025"/>
+<p>Dies neue Unbegreifliche ist das Bewusstsein. Ich<lb/>
+werde jetzt, wie ich glaube in sehr zwingender Weise,<lb/>
+darthun, dass nicht allein bei dem heutigen Stand unse¬<lb/>
+rer Kenntniss das Bewusstsein aus seinen materiellen<lb/>
+Bedingungen nicht erklärbar ist, was wohl jeder zugiebt,<lb/>
+sondern dass es auch der Natur der Dinge nach aus<lb/>
+diesen Bedingungen nie erklärbar sein wird. Die ent¬<lb/>
+gegengesetzte Meinung, dass nicht alle Hoffnung aufzu¬<lb/>
+geben sei, das Bewusstsein aus seinen materiellen Be¬<lb/>
+dingungen zu begreifen, dass dies vielmehr im Laufe<lb/>
+der Jahrhunderte oder Jahrtausende dem alsdann in un¬<lb/>
+geahnte Reiche der Erkenntniss vorgedrungenen Men¬<lb/>
+schengeiste wohl gelingen könne: dies ist der zweite<lb/>
+Irrthum, dessen Bekämpfung ich mir in diesem Vortrage<lb/>
+vorgesetzt habe.</p><lb/>
+<p>Ich gebrauche dabei absichtlich den Ausdruck „Be¬<lb/>
+wusstsein“, weil es hier nur um die Thatsache eines<lb/>
+geistigen Vorganges irgend einer, sei es der niedersten<lb/>
+Art, sich handelt. Man braucht nicht <hi rendition="#k">Watt</hi> sein<lb/>
+Parallelogramm erdenkend, nicht <hi rendition="#k">Shakspeare</hi>, <hi rendition="#k">Raphael</hi>,<lb/>
+<hi rendition="#k">Mozart</hi> in der wunderbarsten ihrer Schöpfungen be¬<lb/>
+griffen sich vorzustellen, um das Beispiel eines aus sei¬<lb/>
+nen materiellen Bedingungen unerklärbaren geistigen<lb/>
+Vorganges zu haben. Wie die gewaltigste und ver¬<lb/>
+wickelteste Muskelleistung eines Menschen oder Thieres im<lb/>
+Wesentlichen nicht dunkler ist, als einfache Zuckung<lb/>
+<fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb n="18" facs="#f0026"/>
+eines einzelnen Primitivmuskelbündels;<note place="end" n="9" xml:id="n-9" next="#n-9t"/> wie die einzelne<lb/>
+Secretionszelle das ganze Räthsel der Absonderung birgt:<lb/>
+so ist auch die erhabenste Seelenthätigkeit aus mate¬<lb/>
+riellen Bedingungen in der Hauptsache nicht unbegreif¬<lb/>
+licher, als das Bewusstsein auf seiner ersten Stufe, der<lb/>
+Sinnesempfindung. Mit der ersten Regung von Behagen<lb/>
+oder Schmerz, die im Beginn des thierischen Lebens auf<lb/>
+Erden ein einfachstes Wesen empfand, ist jene unüber¬<lb/>
+steigliche Kluft gesetzt, und die Welt nunmehr doppelt<lb/>
+unbegreiflich geworden.</p><lb/>
+<p>Ueber wenig Gegenstände ist anhaltender nachge¬<lb/>
+dacht, mehr geschrieben, leidenschaftlicher gestritten<lb/>
+worden, als über die Verbindung von Leib und Seele<lb/>
+im Menschen. Alle philosophischen Schulen, dazu die<lb/>
+Kirchenväter, haben darüber ihre Lehrmeinungen gehabt.<lb/>
+Der neueren Philosophie liegt diese Frage ferner; um so<lb/>
+reicher sind deren Anfänge im siebzehnten Jahrhundert<lb/>
+an Theorien über die Wechselwirkung von Materie und<lb/>
+Geist.</p><lb/>
+<p> <hi rendition="#k">Descartes</hi> selber hatte sich die Möglichkeit, diese<lb/>
+Wechselwirkung zu begreifen, durch zwei Aufstellungen<lb/>
+vorweg abgeschnitten. Erstens behauptete er, dass<lb/>
+Körper und Geist verschiedene Substanzen, durch Got¬<lb/>
+tes Allmacht vereinigt, seien, welche, da der Geist als<lb/>
+unkörperlich keine Ausdehnung habe, nur in Einem<lb/>
+Punkte, nämlich in der sogenannten Zirbeldrüse des Ge¬<lb/>
+<pb n="19" facs="#f0027"/>
+hirns, einander berühren.<note place="end" n="10" xml:id="n-10" next="#n-10t"/> Er behauptete zweitens, dass<lb/>
+die im Weltall vorhandene Bewegungsgrösse beständig<lb/>
+sei.<note place="end" n="12" xml:id="n-12" next="#n-12t"/> Je sicherer daraus die Unmöglichkeit zu folgen<lb/>
+scheint, dass die Seele Bewegung der Materie erzeuge,<lb/>
+um so mehr erstaunt man, wenn nun <hi rendition="#k">Descartes</hi>, um<lb/>
+die Willensfreiheit zu retten, die Seele einfach die Zir¬<lb/>
+beldrüse in dem nöthigen Sinne bewegen lässt, damit<lb/>
+die thierischen Geister, wir würden sagen das Nerven¬<lb/>
+princip, den richtigen Muskeln zuströmen. Umgekehrt<lb/>
+die durch Sinneseindrücke erregten thierischen Geister<lb/>
+bewegen die Zirbeldrüse, und die mit dieser verbundene<lb/>
+Seele merkt die Bewegung.12</p><lb/>
+<p>     <hi rendition="#k">Descartes</hi>' unmittelbare Nachfolger, <hi rendition="#k">Clauberg</hi><note place="end" n="13" xml:id="n-13" next="#n-13t"/>,<lb/>
+<hi rendition="#k">Malebranche</hi><note place="end" n="15" xml:id="n-15" next="#n-15t"/>, <hi rendition="#k">Geulincx</hi>15 bemühen sich, einen so offen¬<lb/>
+baren Missgriff zu verbessern. Sie halten fest an der<lb/>
+Unmöglichkeit einer Wechselwirkung von Geist und<lb/>
+Materie, als zweier verschiedener Substanzen. Um aber<lb/>
+zu verstehen, wie dennoch die Seele den Körper bewegt<lb/>
+und von ihm erregt werde, nehmen sie an, dass das<lb/>
+Wollen der Seele Gott veranlasse, den Körper jedesmal<lb/>
+nach Wunsch der Seele zu bewegen. Umgekehrt die<lb/>
+Sinneseindrücke veranlassen Gott, die Seele jedesmal in<lb/>
+Uebereinstimmung damit zu verändern. Die <hi rendition="#i">Causa effi¬<lb/>
+ciens</hi> der Veränderungen des Körpers durch die Seele<lb/>
+und umgekehrt ist also stets nur Gott; das Wollen der<lb/>
+Seele und die Sinneseindrücke sind nur die <hi rendition="#i">Causae occa¬</hi><lb/>
+<fw type="sig" place="bottom">2 *<lb/>
+</fw>
+<pb n="20" facs="#f0028"/>
+<hi rendition="#i">sionales</hi> für die unaufhörlich erneuten Eingriffe seiner<lb/>
+Allmacht.</p><lb/>
+<p>     <hi rendition="#k">Leibniz</hi> endlich pflegte dies Problem mittels des,<lb/>
+wie es scheint, ursprünglich von <hi rendition="#k">Geulincx</hi> herrührenden<lb/>
+Bildes zweier Uhren zu erläutern, die gleichen Gang<lb/>
+zeigen sollen.<note place="end" n="16" xml:id="n-16" next="#n-16t"/> Auf dreierlei Art, sagt er, könne dies<lb/>
+geschehen. Erstens können beide Uhren durch Schwin¬<lb/>
+gungen, die sie einer gemeinsamen Befestigung mit¬<lb/>
+theilen, einander so beeinflussen, dass ihr Gang derselbe<lb/>
+werde, wie dies <hi rendition="#k">Huyghens</hi> beobachtet habe, und wie es<lb/>
+im Anfange dieses Jahrhunderts <hi rendition="#k">Breguet</hi> sogar angewen¬<lb/>
+det hat, um den Gang jeder der beiden Uhren gleichförmiger<lb/>
+zu machen.<note place="end" n="17" xml:id="n-17" next="#n-17t"/> Zweitens könne stets die eine Uhr gestellt<lb/>
+werden, um sie in gleichem Gange mit der anderen zu<lb/>
+erhalten. Drittens könne von vorn herein der Künstler<lb/>
+so geschickt gewesen sein, dass er beide Uhren, obschon<lb/>
+ganz unabhängig von einander, gleich gehend gemacht<lb/>
+habe. Zwischen Leib und Seele sei die erste Art der<lb/>
+Verbindung anerkannt unmöglich. Die zweite, der occa¬<lb/>
+sionalistischen Lehre entsprechende, sei Gottes unwürdig,<lb/>
+den sie als <hi rendition="#i">Deus ex machina</hi> verwende. So bleibe nur<lb/>
+die dritte übrig, in der man <hi rendition="#k">Leibniz</hi>' eigene Lehre der<lb/>
+praestabilirten Harmonie wiedererkennt.</p><lb/>
+<p>Allein diese und ähnliche Betrachtungen sind in den<lb/>
+Augen der neueren Naturforschung entwerthet und der<lb/>
+Wirkung auf die heutigen Ansichten beraubt durch die<lb/>
+<pb n="21" facs="#f0029"/>
+dualistische Grundlage, auf welche sie, gemäss ihrem<lb/>
+halb theologischen Ursprunge, gleich anfangs sich stellen.<lb/>
+Ihre Urheber gehen aus von der Annahme einer vom<lb/>
+Körper unbedingt verschiedenen geistigen Substanz, der<lb/>
+Seele, deren Verbindung mit dem Körper sie unter¬<lb/>
+suchen. Sie finden, dass eine Verbindung beider Sub¬<lb/>
+stanzen nur durch ein Wunder möglich ist, und dass,<lb/>
+auch nach diesem ersten Wunder, ein ferneres Zusam¬<lb/>
+mengehen beider Substanzen nicht anders stattfinden<lb/>
+kann, als wiederum durch ein entweder stets erneutes<lb/>
+oder seit der Schöpfung fortwirkendes Wunder. Diese<lb/>
+Folge nun geben sie für eine neue Einsicht aus, ohne<lb/>
+hinreichend zu prüfen, ob nicht sie selber vielleicht sich<lb/>
+die Seele erst so zurechtgemacht haben, dass eine Wech¬<lb/>
+selwirkung zwischen ihr und dem Körper undenkbar ist.<lb/>
+Mit Einem Wort, der gelungenste Beweis, dass keine Wech¬<lb/>
+selwirkung von Körper und Seele möglich sei, lässt dem<lb/>
+Zweifel Raum, ob nicht die Praemissen willkürlich seien, und<lb/>
+ob nicht Bewusstsein einfach als Wirkung der Materie ge¬<lb/>
+dacht und vielleicht begriffen werden könne. Für den Na¬<lb/>
+turforscher muss daher der Beweis, dass die geistigen Vor¬<lb/>
+gänge aus ihren materiellen Bedingungen nie zu begrei¬<lb/>
+fen sind, unabhängig von jeder Voraussetzung über den<lb/>
+Urgrund jener Vorgänge geführt werden.</p><lb/>
+<p>Ich nenne astronomische Kenntniss eines materiellen<lb/>
+Systemes solche Kenntniss aller seiner Theile, ihrer ge¬<lb/>
+<pb n="22" facs="#f0030"/>
+genseitigen Lage und ihrer Bewegung, dass ihre Lage<lb/>
+und Bewegung zu irgend einer vergangenen und zu¬<lb/>
+künftigen Zeit mit derselben Sicherheit berechnet werden<lb/>
+kann, wie Lage und Bewegung der Himmelskörper bei<lb/>
+vorausgesetzter unbedingter Schärfe der Beobachtungen<lb/>
+und Vollendung der Theorie. Um die Differentialglei¬<lb/>
+chungen anzusetzen, deren Integration die gewünschten<lb/>
+Bestimmungen liefert, genügen gleichsam drei Positionen<lb/>
+der Theile des Systemes, d. h. es ist nöthig und zu¬<lb/>
+reichend, dass in drei aufeinanderfolgenden, durch zwei<lb/>
+Zeitdifferentiale getrennten Augenblicken die Lage der<lb/>
+Theile des Systemes bekannt sei. Aus dem Unterschiede<lb/>
+der in den gleichen, unendlich kleinen Zeiträumen durch¬<lb/>
+laufenen, nach den drei Axen zerlegten Wege folgen<lb/>
+dann die auf das System und die in ihm wirkenden<lb/>
+Kräfte.</p><lb/>
+<p>Astronomische Kenntniss eines materiellen Systemes<lb/>
+ist bei unserer Unfähigkeit, Materie und Kraft zu be¬<lb/>
+greifen, die vollkommenste Kenntniss, die wir davon er¬<lb/>
+langen können. Es ist die, wobei unser Causalitätstrieb<lb/>
+sich zu beruhigen gewohnt ist, und welche der von <hi rendition="#k">La¬<lb/>
+place</hi> gedachte Geist selber bei gehörigem Gebrauche<lb/>
+seiner Weltformel von dem Systeme besitzen würde.</p><lb/>
+<p>Denken wir uns nun, wir hätten es zur astronomi¬<lb/>
+schen Kenntniss eines Muskels, einer Drüse, eines elek¬<lb/>
+tischen oder Leucht-Organes im gereizten Zustande, einer<lb/>
+<pb n="23" facs="#f0031"/>
+Flimmerzelle, einer Pflanze, des Eies in Berührung mit dem<lb/>
+Samen, der Frucht auf irgend einer Stufe der Entwickelung<lb/>
+gebracht. Alsdann besässen wir also von diesen materiellen<lb/>
+Systemen die vollkommenste mögliche Kenntniss, unser Cau¬<lb/>
+salitätstrieb wäre soweit befriedigt, dass wir nur noch<lb/>
+verlangten, das Wesen von Materie und Kraft selber zu<lb/>
+begreifen. Muskelverkürzung, Absonderung in der Drüse,<lb/>
+Schlag des elektrischen, Leuchten des Leucht-Organes, Flim¬<lb/>
+merbewegung, Wachsthum und Chemismus der Zellen in der<lb/>
+Pflanze, Befruchtung und Entwickelung des Eies: alle<lb/>
+diese jetzt hoffnungslos dunklen Vorgänge wären uns so<lb/>
+durchsichtig, wie die Bewegungen der Planeten.</p><lb/>
+<p>Machen wir dagegen dieselbe Voraussetzung astro¬<lb/>
+nomischer Kenntniss für das Gehirn des Menschen, oder<lb/>
+auch nur für das Seelenorgan des niedersten Thieres,<lb/>
+dessen geistige Thätigkeit auf Empfinden von Lust und<lb/>
+Unlust sich beschränken mag, so wird zwar in Bezug<lb/>
+auf alle darin stattfindenden materiellen Vorgänge unser<lb/>
+Erkennen ebenso vollkommen sein und unser Causalitäts¬<lb/>
+trieb ebenso befriedigt sich fühlen, wie in Bezug auf<lb/>
+Zuckung oder Absonderung bei astronomischer Kenntniss<lb/>
+von Muskel oder Drüse. Die unwillkürlichen und nicht<lb/>
+nothwendig mit Empfindung verbundenen Wirkungen<lb/>
+der Centraltheile, Reflexe, Mitbewegung, Athembewegun¬<lb/>
+gen, Tonus, der Stoffwechsel des Gehirnes und Rücken¬<lb/>
+markes u. d. m. wären erschöpfend erkannt. Auch die<lb/>
+<pb n="24" facs="#f0032"/>
+mit geistigen Vorgängen der Zeit nach stets, also wohl<lb/>
+nothwendig zusammenfallenden Vorgänge wären ebenso<lb/>
+vollkommen durchschaut. Und es wäre natürlich ein<lb/>
+hoher Triumph, wenn wir zu sagen wüssten, dass bei<lb/>
+einem bestimmten geistigen Vorgang in bestimmten<lb/>
+Ganglienkugeln und Nervenröhren eine bestimmte Be¬<lb/>
+wegung bestimmter Atome stattfinde. Es wäre grenzen¬<lb/>
+los interessant, wenn wir so mit geistigem Auge in uns<lb/>
+hineinblickend die zu einem Rechenexempel gehörige<lb/>
+Hirnmechanik sich abspielen sähen wie die Mechanik<lb/>
+einer Rechenmaschine; oder wenn wir auch nur wüssten,<lb/>
+welcher Tanz von Kohlenstoff-, Wasserstoff-, Stickstoff-,<lb/>
+Sauerstoff-, Phosphor- und anderen Atomen der Seligkeit<lb/>
+musikalischen Empfindens, welcher Wirbel solcher Atome<lb/>
+dem Gipfel sinnlichen Geniessens, welcher Molecularsturm<lb/>
+dem wüthenden Schmerz beim Misshandeln des <hi rendition="#i">N. trige¬<lb/>
+minus</hi> entspricht. Die Art des geistigen Vergnügens,<lb/>
+welche die durch Hrn. <hi rendition="#k">Fechner</hi> geschaffenen Anfänge<lb/>
+der Psychophysik oder Hrn. <hi rendition="#k">Donders</hi>' Messungen der<lb/>
+Dauer einfacherer Seelenhandlungen uns bereiten, lässt<lb/>
+uns ahnen, wie solche unverschleierte Einsicht in die<lb/>
+materiellen Bedingungen geistiger Vorgänge uns erbauen<lb/>
+würde.</p><lb/>
+<p>Was aber die geistigen Vorgänge selber betrifft,<lb/>
+so zeigt sich, dass sie bei astronomischer Kenntniss des<lb/>
+Seelenorganes uns ganz ebenso unbegreiflich wären, wie<lb/>
+<pb n="25" facs="#f0033"/>
+jetzt. Im Besitze dieser Kenntniss ständen wir vor ihnen<lb/>
+wie heute, als vor einem völlig Unvermittelten. Die<lb/>
+astronomische Kenntniss des Gehirnes, die höchste, die<lb/>
+wir davon erlangen können, enthüllt uns darin nichts als<lb/>
+bewegte Materie. Durch keine zu ersinnende Anordnung<lb/>
+oder Bewegung materieller Theilchen aber lässt sich<lb/>
+eine Brücke in's Reich des Bewusstseins schlagen.</p><lb/>
+<p>Es scheint zwar bei oberflächlicher Betrachtung, als<lb/>
+könnten durch die Kenntniss der materiellen Vorgänge<lb/>
+im Gehirne gewisse geistige Vorgänge und Anlagen uns<lb/>
+verständlich werden. Ich rechne dahin das Gedächtniss,<lb/>
+den Fluss und die Association der Vorstellungen, die Fol¬<lb/>
+gen der Uebung, die specifischen Talente u. d. m. Das<lb/>
+geringste Nachdenken lehrt, dass dies Täuschung ist.<lb/>
+Nur über gewisse innere Bedingungen des Geistesle¬<lb/>
+bens, welche mit den äusseren durch die Sinneseindrücke<lb/>
+gesetzten etwa gleichbedeutend sind, würden wir unter¬<lb/>
+richtet sein, nicht über das Zustandekommen des Geistes¬<lb/>
+lebens durch diese Bedingungen.</p><lb/>
+<p>Welche denkbare Verbindung besteht zwischen be¬<lb/>
+stimmten Bewegungen bestimmter Atome in meinem<lb/>
+Gehirn einerseits, andererseits den für mich ursprüng¬<lb/>
+lichen, nicht weiter definirbaren, nicht wegzuläugnenden<lb/>
+Thatsachen: „Ich fühle Schmerz, fühle Lust; ich schmecke<lb/>
+süss, rieche Rosenduft, höre Orgelton, sehe Roth,“ und<lb/>
+der ebenso unmittelbar daraus fliessenden Gewissheit:<lb/>
+<pb n="26" facs="#f0034"/>
+„Also bin ich“? Es ist eben durchaus und für immer<lb/>
+unbegreiflich, dass es einer Anzahl von Kohlenstoff-,<lb/>
+Wasserstoff-, Stickstoff-, Sauerstoff- u. s. w. Atomen nicht<lb/>
+sollte gleichgültig sein, wie sie liegen und sich bewegen,<lb/>
+wie sie lagen und sich bewegten, wie sie liegen und sich<lb/>
+bewegen werden. Es ist in keiner Weise einzusehen,<lb/>
+wie aus ihrem Zusammenwirken Bewusstsein entstehen<lb/>
+könne. Sollte ihre Lagerungs- und Bewegungsweise<lb/>
+ihnen nicht gleichgültig sein, so müsste man sie sich<lb/>
+nach Art der Monaden schon einzeln mit Bewusstsein aus¬<lb/>
+gestattet denken. Weder wäre damit das Bewusstsein<lb/>
+überhaupt erklärt, noch für die Erklärung des einheitlichen<lb/>
+Bewusstseins des Individuums das Mindeste gewonnen.<note place="end" n="18" xml:id="n-18" next="#n-18t"/></p><lb/>
+<p>Dass es vollends unmöglich sei, und stets bleiben<lb/>
+werde, höhere geistige Vorgänge aus der als bekannt<lb/>
+vorausgesetzten Mechanik der Hirnatome zu verstehen, be¬<lb/>
+darf nicht der Ausführung. Doch ist, wie schon bemerkt,<lb/>
+gar nicht nöthig, zu höheren Formen geistiger Thätig¬<lb/>
+keit zu greifen, um das Gewicht unserer Betrachtung zu<lb/>
+vergrössern. Sie gewinnt gerade an Eindringlichkeit<lb/>
+durch den Gegensatz zwischen der vollständigen Unwis¬<lb/>
+senheit, in welcher astronomische Kenntniss des Gehirnes<lb/>
+uns über das Zustandekommen auch der niedersten<lb/>
+geistigen Vorgänge liesse, und der durch solche Kenntniss<lb/>
+gewährten ebenso vollständigen Enträthselung der höch¬<lb/>
+sten Probleme der Körperwelt. Ein aus irgend einem<lb/>
+<pb n="27" facs="#f0035"/>
+Grunde bewusstloses, z. B. ohne Traum schlafendes Ge¬<lb/>
+hirn enthielte, astronomisch durchschaut, kein Geheimniss<lb/>
+mehr, und bei astronomischer Kenntniss auch des übri¬<lb/>
+gen Körpers wäre so die ganze menschliche Maschine,<lb/>
+mit ihrem Athmen, ihrem Herzschlag, ihrem Stoffwechsel,<lb/>
+ihrer Wärme, u. s. f., bis auf das Wesen von Materie<lb/>
+und Kraft, völlig entziffert. Der traumlos Schlafende ist<lb/>
+begreiflich, wie die Welt, ehe es Bewusstsein gab. Wie<lb/>
+aber mit der ersten Regung von Bewusstsein die Welt<lb/>
+doppelt unbegreiflich ward, so wird es auch der Schläfer<lb/>
+wieder mit dem ersten ihm dämmernden Traumbild.</p><lb/>
+<p>Der unlösliche Widerspruch, in welchem die me¬<lb/>
+chanische Weltanschauung mit der Willensfreiheit, und<lb/>
+dadurch mittelbar mit der Ethik steht, ist sicherlich von<lb/>
+grosser Bedeutung. Der Scharfsinn der Denker aller<lb/>
+Zeiten hat sich daran erschöpft, und wird fortfahren,<lb/>
+daran sich zu üben. Abgesehen davon, dass Freiheit<lb/>
+sich läugnen lässt, Schmerz und Lust nicht, geht dem<lb/>
+Begehren, welches den Anstoss zum Handeln und somit<lb/>
+erst Gelegenheit zum Thun oder Lassen giebt, nothwendig<lb/>
+Sinnesempfindung voraus. Es ist also das Problem der<lb/>
+Sinnesempfindung, und nicht, wie ich einst sagte, das<lb/>
+der Willensfreiheit, bis zu dem die analytische Mechanik<lb/>
+führt.<note place="end" n="19" xml:id="n-19" next="#n-19t"/></p><lb/>
+<p>Damit ist die andere Grenze unseres Naturerkennens<lb/>
+bezeichnet. Nicht minder als die erste ist sie eine un¬<lb/>
+<pb n="28" facs="#f0036"/>
+bedingte. Nicht mehr als im Verstehen von Kraft und<lb/>
+Materie hat im Verstehen der Geistesthätigkeit aus ma¬<lb/>
+teriellen Bedingungen die Menschheit seit zweitausend<lb/>
+Jahren, trotz allen Entdeckungen der Naturwissenschaft, einen<lb/>
+wesentlichen Fortschritt gemacht. Sie wird es nie. Selbst<lb/>
+der von <hi rendition="#k">Laplace</hi> gedachte Geist mit seiner Weltformel<lb/>
+gliche in seinen Anstrengungen, über diese Schranke<lb/>
+sich fortzuheben, einem nach dem Monde trachtenden<lb/>
+Luftschiffer. In seiner aus bewegter Materie aufgebauten<lb/>
+Welt regen sich zwar die Hirnatome wie in stummem<lb/>
+Spiel. Er übersieht ihre Schaaren, er durchschaut ihre<lb/>
+Verschränkungen, aber er versteht nicht ihre Geberde,<lb/>
+sie denken ihm nicht, und deshalb bleibt, wie wir vor¬<lb/>
+hin sahen, seine Welt eigenschaftslos.</p><lb/>
+<p>An ihm haben wir das Maass unserer eigenen Be¬<lb/>
+fähigung oder vielmehr unserer Ohnmacht. Unser Na¬<lb/>
+turerkennen ist also eingeschlossen zwischen den beiden<lb/>
+Grenzen, welche einerseits die Unfähigkeit, Materie und<lb/>
+Kraft, andererseits das Unvermögen, geistige Vorgänge<lb/>
+aus materiellen Bedingungen zu begreifen, ihm ewig vor¬<lb/>
+schreiben. Innerhalb dieser Grenzen ist der Naturforscher<lb/>
+Herr und Meister, zergliedert er und baut er auf, und<lb/>
+Niemand weiss, wo die Schranke seines Wissens und<lb/>
+seiner Macht liegt; über diese Grenzen hinaus kann er<lb/>
+nicht, und wird er niemals können.</p><lb/>
+<p>Je unbedingter aber der Naturforscher die ihm ge¬<lb/>
+<pb n="29" facs="#f0037"/>
+steckten Grenzen anerkennt, und je demüthiger er in<lb/>
+seine Unwissenheit sich schickt, um so tiefer fühlt er das<lb/>
+Recht, mit voller Freiheit, unbeirrt durch Mythen, Dog¬<lb/>
+men und alterstolze Philosopheme, auf dem Wege der<lb/>
+Induction seine eigene Meinung über die Beziehungen<lb/>
+zwischen Geist und Materie sich zu bilden.</p><lb/>
+<p>Er sieht in tausend Fällen materielle Bedingungen<lb/>
+das Geistesleben beeinflussen. Seinem unbefangenen<lb/>
+Blicke zeigt sich kein Grund zu bezweifeln, dass wirk¬<lb/>
+lich die Sinneseindrücke der sogenannten Seele sich mit¬<lb/>
+theilen. Er sieht den menschlichen Geist gleichsam mit<lb/>
+dem Gehirne wachsen, und, nach der empiristischen<lb/>
+Ansicht, die wesentlichen Formen seines Denkens sogar<lb/>
+erst durch äussere Wahrnehmungen sich aneignen. Er<lb/>
+sieht ihn im Schlaf und Traum, in der Ohnmacht, im<lb/>
+Rausch und der Narkose, im Fieberwahn und der Inani¬<lb/>
+tion, in der Manie, der Epilepsie, dem Blödsinn und der<lb/>
+Mikrocephalie, in unzähligen krankhaften Zuständen ab¬<lb/>
+hängig von der dauernden oder vorübergehenden Be¬<lb/>
+schaffenheit des Organes. Kein theologisches Vorurtheil<lb/>
+hindert ihn wie <hi rendition="#k">Descartes</hi>, in den Thierseelen der Men¬<lb/>
+schenseele verwandte, stufenweise minder vollkommene<lb/>
+Glieder derselben Entwickelungsreihe zu erkennen. Viel¬<lb/>
+mehr sieht er im Wirbelthierreiche die Hirntheile, welche<lb/>
+auch physiologische Versuche und pathologische Erfah¬<lb/>
+rungen als Träger höherer Geistesthätigkeiten bekunden,<lb/>
+<pb n="30" facs="#f0038"/>
+ihrer vergleichsweisen Entwickelung nach mit der Stei¬<lb/>
+gerung diese Thätigkeiten gleichen Schritt halten. Wo von<lb/>
+den anthropoiden Affen zum Menschen die geistige Befähi¬<lb/>
+gung den durch den Besitz der Sprache bezeichneten unge¬<lb/>
+heuren Sprung macht, findet sich ein entsprechender Sprung<lb/>
+in der Hirnmasse vor. Die verschiedene Anordnung glei¬<lb/>
+cher Elementartheile bei den Wirbellosen belehrt aber den<lb/>
+Naturforscher, dass es hier wie bei anderen Organen<lb/>
+weniger auf die Architektur, als auf die Structurelemente<lb/>
+ankommt. Mit ehrfurchtsvollem Staunen betrachtet er<lb/>
+das mikroskopische Klümpchen Nervensubstanz, welches<lb/>
+der Sitz der arbeitsamen, baulustigen, ordnungsliebenden,<lb/>
+pflichttreuen, tapferen Ameisenseele ist.<note place="end" n="20" xml:id="n-20" next="#n-20t"/> Endlich die<lb/>
+Descendenz-Theorie im Verein mit der Lehre von der<lb/>
+natürlichen Zuchtwahl drängt ihm die Vorstellung auf,<lb/>
+dass die Seele als allmäliges Ergebniss gewisser mate¬<lb/>
+rieller Combinationen entstanden, und vielleicht gleich<lb/>
+anderen erblichen, im Kampf um's Dasein dem Einzel¬<lb/>
+wesen nützlichen Gaben durch eine zahllose Reihe<lb/>
+von Geschlechtern sich gesteigert und vervollkommnet<lb/>
+habe.<note place="end" n="21" xml:id="n-21" next="#n-21t"/></p><lb/>
+<p>Wenn nun die alten Denker jede Wechselwirkung<lb/>
+zwischen Leib und Seele, wie sie diese sich vorstellten,<lb/>
+als unverständlich und unmöglich erkannten, und wenn<lb/>
+nur durch praestabilirte Harmonie das Räthsel des den¬<lb/>
+noch stattfindenden Zusammengehens beider Substanzen<lb/>
+<pb n="31" facs="#f0039"/>
+zu lösen ist, so wird wohl die Vorstellung, die sie, in<lb/>
+Schulbegriffen befangen, von der Seele sich machten,<lb/>
+falsch gewesen sein. Die Nothwendigkeit einer der<lb/>
+Wirklichkeit so offenbar zuwiderlaufenden Schlussfolge<lb/>
+ist gleichsam ein apagogischer Beweis gegen die Rich¬<lb/>
+tigkeit der dazu führenden Voraussetzung. Bei seinem<lb/>
+Gleichnisse von den beiden Uhren hat <hi rendition="#k">Leibniz</hi>, wie Hr.<lb/>
+<hi rendition="#k">Fechner</hi> treffend bemerkt,<note place="end" n="22" xml:id="n-22" next="#n-22t"/> die vierte und einfachste<lb/>
+Möglichkeit vergessen, nämlich die, dass vielleicht beide<lb/>
+Uhren, deren Zusammengehen erklärt werden soll, im<lb/>
+Grunde nur eine sind. Ob wir die geistigen Vorgänge<lb/>
+aus materiellen Bedingungen je begreifen werden, ist<lb/>
+eine Frage ganz verschieden von der, ob diese Vor¬<lb/>
+gänge das Erzeugniss materieller Bedingungen sind.<lb/>
+Jene Frage kann verneint werden, ohne dass über<lb/>
+diese etwas ausgemacht, geschweige auch sie verneint<lb/>
+würde.</p><lb/>
+<p>Man erinnert sich des kecken Ausspruches Hrn.<lb/>
+<hi rendition="#k">Carl Vogt</hi>'<hi rendition="#k">s</hi>, der in den funfziger Jahren zu einer Art<lb/>
+von Turnier um die Seele Anlass gab: „dass alle jene<lb/>
+„Fähigkeiten, die wir unter dem Namen Seelenthätigkei¬<lb/>
+„ten begreifen, nur Functionen des Gehirns sind, oder,<lb/>
+„um es einigermaassen grob auszudrücken, dass die Ge¬<lb/>
+„danken etwa in demselben Verhältnisse zum Gehirn<lb/>
+„stehen, wie die Galle zu der Leber oder der Urin zu<lb/>
+„den Nieren.“<note place="end" n="24" xml:id="n-24" next="#n-24t"/> Die Laien stiessen sich an diesem Ver¬<lb/>
+<pb n="32" facs="#f0040"/>
+gleich, weil ihnen die Zusammenstellung des Gedankens<lb/>
+mit der Absonderung der Nieren entwürdigend schien.<lb/>
+Die Physiologie kennt indess solche aesthetischen Rang¬<lb/>
+unterschiede nicht. Ihr ist die Nierenabsonderung ein<lb/>
+wissenschaftlicher Gegenstand von ganz gleicher Würde<lb/>
+mit der Erforschung des Auges oder Herzens oder<lb/>
+sonst eines der gewöhnlich sogenannten edleren Organe.<lb/>
+Auch das ist an dem <hi rendition="#k">Vogt</hi>'schen Ausspruch schwer¬<lb/>
+lich zu tadeln, dass darin die Seelenthätigkeit als<lb/>
+Erzeugniss der materiellen Bedingungen im Gehirne<lb/>
+hingestellt wird. Fehlerhaft dagegen erscheint, dass<lb/>
+er die Vorstellung erweckt, als sei die Seelenthätig¬<lb/>
+keit aus dem Bau des Gehirnes ihrer Natur nach so<lb/>
+begreifbar, wie die Absonderung aus dem Bau der<lb/>
+Drüse.</p><lb/>
+<p>Wo es an den materiellen Bedingungen für geistige<lb/>
+Thätigkeit in Gestalt eines Nervensystemes gebricht wie<lb/>
+in den Pflanzen, kann der Naturforscher ein Seelen¬<lb/>
+leben nicht zugeben, und hierin stösst er nur selten auf<lb/>
+Widerspruch. Was aber wäre ihm zu erwiedern, wenn<lb/>
+er, bevor er in die Annahme einer Weltseele willigte,<lb/>
+verlangte, dass ihm irgendwo in der Welt, in Neuroglia<lb/>
+gebettet und mit warmem arteriellem Blut unter richtigem<lb/>
+Drucke gespeist, ein dem geistigen Vermögen solcher<lb/>
+Seele an Umfang entsprechendes Convolut von Ganglien¬<lb/>
+kugeln und Nervenröhren gezeigt würde?</p><lb/>
+<pb n="33" facs="#f0041"/>
+<p>Schliesslich entsteht die Frage, ob die beiden<lb/>
+Grenzen unseres Naturerkennens nicht vielleicht die<lb/>
+nämliche seien, d. h. ob, wenn wir das Wesen von Ma¬<lb/>
+terie und Kraft begriffen, wir nicht auch verständen, wie<lb/>
+die ihnen zu Grunde liegende Substanz unter bestimmten<lb/>
+Bedingungen empfinden, begehren und denken könne. Frei¬<lb/>
+lich ist diese Vorstellung die einfachste, und nach bekann¬<lb/>
+ten Forschungsgrundsätzen bis zu ihrer Widerlegung der<lb/>
+vorzuziehen, wonach, wie vorhin gesagt wurde, die Welt<lb/>
+doppelt unbegreiflich erscheint. Aber es liegt in der<lb/>
+Natur der Dinge, dass wir auch in diesem Punkte nicht<lb/>
+zur Klarheit kommen, und alles weitere Reden dar¬<lb/>
+über bleibt müssig.</p><lb/>
+<p>In Bezug auf die Räthsel der Körperwelt ist der<lb/>
+Naturforscher längst gewöhnt, mit männlicher Entsagung<lb/>
+sein „<hi rendition="#i">Ignoramus</hi>“ auszusprechen. Im Rückblick auf die<lb/>
+<supplied>durch</supplied>laufene siegreiche Bahn, trägt ihn dabei das stille<lb/>
+Bewusstsein, dass, wo er jetzt nicht weiss, er wenigstens<lb/>
+unter Umständen wissen könnte, und dereinst vielleicht<lb/>
+wissen wird. In Bezug auf das Räthsel aber, was<lb/>
+Materie und Kraft seien, und wie sie zu denken ver¬<lb/>
+mögen, muss er ein für allemal zu dem viel schwerer<lb/>
+abzugebenden Wahrspruch sich entschliessen:</p><lb/>
+<p rendition="#c"><hi rendition="#i">„Ignorabimus!“</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">3<lb/>
+</fw>
+<pb facs="#f0042"/>
+<pb facs="#f0043"/>
+<div n="1"> <head><hi rendition="#g">Anmerkungen</hi>.<lb/>
+</head> <milestone unit="section" rendition="#hr"/> <note place="end" n="1" xml:id="n-1t" prev="#n-1"><p>(S. 4). Essai philosophique sur les probabilités. Seconde<lb/>
+Édition. Paris 1814. p. 3. Die merkwürdige Stelle lautet im<lb/>
+Zusammenhange:</p><lb/>
+<p>Les événemens actuels ont avec les précédens, une liaison<lb/>
+fondée sur le principe évident, qu'une chose ne peut pas com¬<lb/>
+mencer d'être, sans une cause qui la produise. Cet axiome<lb/>
+connu sous le nom de <hi rendition="#i">principe de la raison suffisante</hi>, s'étend<lb/>
+aux actions même les plus indifférentes. La volonté la plus<lb/>
+libre ne peut sans un motif déterminant, leur donner nais¬<lb/>
+sance; car si toutes les circonstances de deux positions étant<lb/>
+exactement les mêmes, elle agissait dans l'une et s'abstenait<lb/>
+d'agir dans l'autre, son choix serait un effet sans cause . . . .<lb/>
+L'opinion contraire est une illusion de l'esprit qui perdant de<lb/>
+vue, les raisons fugitives du choix de la volonté dans les cho¬<lb/>
+ses indifférentes, se persuade qu'elle s'est déterminée d'elle¬<lb/>
+même et sans motifs.</p><lb/>
+<p>Nous devons donc envisager l'état présent de l'univers,<lb/>
+comme l'effet de son état antérieur, et comme la cause de<lb/>
+celui qui va suivre. Une intelligence qui pour un instant<lb/>
+donné, connaîtrait toutes les forces dont la nature est animée,<lb/>
+et la situation respective des êtres qui la composent, si d'ail¬<lb/>
+leurs elle était assez vaste pour soumettre ces données à l'ana¬<lb/>
+<fw type="sig" place="bottom">3 *<lb/>
+</fw>
+<pb n="36" facs="#f0044"/>
+lyse, embrasserait dans la même formule, les mouvemens des<lb/>
+plus grands corps de l'univers et ceux du plus léger atome:<lb/>
+rien se serait incertain pour elle, et l'avenir comme le passé,<lb/>
+serait présent à ses yeux. L'esprit humain offre dans la per¬<lb/>
+fection qu'il a su donner à l'astronomie, une faible esquisse de<lb/>
+cette intelligence. Ses découvertes en mécanique et en géo¬<lb/>
+métrie, jointes à celle de la pesanteur universelle, l'ont mis à<lb/>
+portée de comprendre dans les mêmes expressions analytiques,<lb/>
+les états passés et futurs du système du monde. En appli¬<lb/>
+quant la même méthode à quelques autres objets de ses con¬<lb/>
+naissances, il est parvenu à ramener à des lois générales, les<lb/>
+phénomènes observés, et à prévoir ceux que des circonstances<lb/>
+données doivent faire éclore. Tous ses efforts dans la<lb/>
+recherche de la vérité, tendent à le rapprocher sans cesse de<lb/>
+l'intelligence que nous venons de concevoir, mais dont il restera<lb/>
+toujours infinement éloigné. Cette tendance propre à l'espèce<lb/>
+humaine, est ce qui la rend supérieure aux animaux; et ses<lb/>
+progrès en ce genre, distinguent les nations et les siècles, et<lb/>
+fondent leur véritable gloire.“</p><lb/>
+</note> <note place="end" n="2" xml:id="n-2t" prev="#n-2">(S. 5). Encyclopédie. Discours préliminaire. Paris<lb/>
+1751. Fol. t. I. p. IX. „L'Univers, pour qui sauroit l'embrasser<lb/>
+d'un seul point de vûe, ne serait, s'il est permis de le dire,<lb/>
+qu'un fait unique et une grande vérité.“ Noch vollständiger<lb/>
+hat bereits <hi rendition="#k">Leibniz</hi> den <hi rendition="#k">Laplace</hi>'schen Gedanken entwickelt.<lb/>
+<hi rendition="#k">Bayle</hi> hatte gegen die Lehre von der praestabilirten Harmonie<lb/>
+eingewendet, sie mache für den Körper eine Voraussetzung<lb/>
+ähnlich der eines Schiffes, welches durch eigene Kraft dem<lb/>
+Hafen zusteure. <hi rendition="#k">Leibniz</hi> erwiedert, dies sei gar nicht so un¬<lb/>
+möglich, wie <hi rendition="#k">Bayle</hi> meine. „Il n'y a pas de doute qu'un<lb/>
+homme pourroit faire une machine, capable de se promener<lb/>
+durant quelque tems par une ville, et de se tourner justement<lb/>
+aux coins de certaines rues. Un esprit incomparablement<lb/>
+plus parfait, quoique borné, pourroit aussi prévoir et éviter<lb/>
+<pb n="37" facs="#f0045"/>
+un nombre incomparablement plus grand d'obstacles; ce qui<lb/>
+est si vrai, que si ce monde, selon l'hypothese de quelques<lb/>
+uns, n'était qu'un composé d'un nombre fini d'atomes, qui se<lb/>
+remuassent suivant les lois de la mécanique, il est sûr, qu'un<lb/>
+esprit fini pourroit être assez relevé pour comprendre et prévoir<lb/>
+démonstrativement tout ce qui y doit arriver dans un tems<lb/>
+déterminé; desorte que cet esprit pourroit non seulement fabriquer<lb/>
+un vaisseau, capable d'aller tout seul à un port nommé, en lui<lb/>
+donnant d'abord le tour, la direction, et les ressorts qu'il faut;<lb/>
+mais il pourroit encore former un corps capable de contrefaire<lb/>
+un homme.“ Réplique aux Réflexions contenues dans la se¬<lb/>
+conde Édition du Dictionnaire critique de Mr. <hi rendition="#k">Bayle</hi> etc. (G.<lb/>
+G. <hi rendition="#k">Leibnitii</hi> Opera philosophica etc. Ed. J. E. <hi rendition="#k">Erdmann</hi>. Be¬<lb/>
+rolini 1840. 4°. p. 183. 184.<lb/>
+</note> <note place="end" n="3" xml:id="n-3t" prev="#n-3">(S. 6). Diese schöne Art, die Grundwahrheit der Lehre<lb/>
+von den Sinnen zu erläutern, verdanke ich Hrn. <hi rendition="#k">Donders</hi>.<lb/>
+</note>     <note place="end" n="4" xml:id="n-4t" prev="#n-4">(S. 9). Vergl. <hi rendition="#k">Helmholtz</hi>, Gedächtnissrede auf <hi rendition="#k">Gustav<lb/>
+Magnus</hi>. In den Abhandlungen der Königl. Akademie der<lb/>
+Wissenschaften zu Berlin. Aus dem Jahre 1871. Berlin 1872.<lb/>
+4°. S. 11 ff.<lb/>
+</note>     <note place="end" n="5" xml:id="n-5t" prev="#n-5">(S. 12). Es versteht sich, dass es innerhalb des Rah¬<lb/>
+mens dieses Vortrages meine Absicht nicht sein konnte,<lb/>
+eine vollständige Kritik der Theorien über Materie und Kraft<lb/>
+zu geben, sondern nur anzudeuten, dass hier unlösliche<lb/>
+Widersprüche versteckt sind. Ausführliche Auseinander¬<lb/>
+setzungen des Gegenstandes aus der neueren Zeit findet man<lb/>
+in: G. <hi rendition="#k">Th. Fechner</hi>, Ueber die physikalische und philosophi¬<lb/>
+sche Atomenlehre. Leipzig 1855, und in: F. <hi rendition="#k">Harms</hi>, Philoso¬<lb/>
+phische Einleitung in die Encyklopädie der Physik, im 1. Bde.<lb/>
+von <hi rendition="#k">Karsten</hi>'<hi rendition="#k">s</hi> Allgemeiner Encyklopädie der Physik. Leip¬<lb/>
+zig 1869. S. 307 ff.<lb/>
+</note>     <note place="end" n="6" xml:id="n-6t" prev="#n-6">(S. 13). Die Wechselwirkung der Naturkräfte u. s. w.<lb/>
+Königsberg 1854. S. 44.<lb/>
+</note>
+<pb n="38" facs="#f0046"/>
+<note place="end" n="7" xml:id="n-7t" prev="#n-7">(S. 14). Vergl. <hi rendition="#k">Smaasen</hi>, in <hi rendition="#k">Poggendorff's</hi> Annalen der<lb/>
+Physik und Chemie. 1846. Bd. LXIX. S. 161.<lb/>
+</note>     <note place="end" n="8" xml:id="n-8t" prev="#n-8">(S. 15). S. meine Gedächtnissrede auf <hi rendition="#k">Johannes Müller</hi>.<lb/>
+Aus den Abhandlungen der Königl. Akademie der Wissen¬<lb/>
+schaften zu Berlin 1859. 4 °. S. 129.<lb/>
+</note>     <note place="end" n="9" xml:id="n-9t" prev="#n-9">(S. 18). Ueber thierische Bewegung, Rede u. s. w. von<lb/>
+E. <hi rendition="#k">du Bois-Reymond</hi>. Berlin 1851. S. 4. 5.<lb/>
+</note>     <note place="end" n="10" xml:id="n-10t" prev="#n-10">(S. 19). Oeuvres de <hi rendition="#k">Descartes</hi>, publiées par <hi rendition="#k">Victor<lb/>
+Cousin</hi>. Paris 1824. t. I. Discours de la Méthode, p. 158. 159;<lb/>
+— Méditation sixième. p. 344; — Objections et Réponses. p.<lb/>
+414 et suiv.; — Ibidem t. III. Les Principes de la Philosophie<lb/>
+p. 102.<lb/>
+</note>     <note place="end" n="11" xml:id="n-11t" prev="#n-11">(S. 19). Ibidem, Les Principes etc. p. 151. — Vergl.<lb/>
+E. <hi rendition="#k">du Bois-Reymond</hi>, <hi rendition="#k">Voltaire</hi> in seiner Beziehung zur Natur¬<lb/>
+wissenschaft. Berlin 1868. S. 11.<lb/>
+</note>     <note place="end" n="12" xml:id="n-12t" prev="#n-12">(S. 19). Ibidem. t. IV. Les Passions de l'Ame. p. 66.<lb/>
+67. 72. 73. — L'Homme. p. 402 et suiv.<lb/>
+</note>     <note place="end" n="13" xml:id="n-13t" prev="#n-13">(S. 19). Dictionnaire des Sciences philosophiques par une<lb/>
+Société de professeurs de Philosophie. Paris 1844. t. <hi rendition="#fr">I</hi>. p. 523.<lb/>
+</note>     <note place="end" n="14" xml:id="n-14t" prev="#n-14">(S. 19). <hi rendition="#k">Malebranche</hi>, De la Recherche de la Vérité.<lb/>
+Oeuvres complètes, par MM. <hi rendition="#k">de Genoude</hi> et <hi rendition="#k">de Lourdoueix</hi>.<lb/>
+Paris 1837. 4°. t. I. p. 220 et suiv. — De la Prémotion phy¬<lb/>
+sique. Ibid. t. II. p. 392 et suiv.<lb/>
+</note>     <note place="end" n="15" xml:id="n-15t" prev="#n-15">(S. 19). <hi rendition="#k">Schwegler</hi>, Geschichte der Philosophie im<lb/>
+Umriss. Siebente Aufl. Stuttgart 1870. S. 144. — <hi rendition="#k">Harms</hi> a. a.<lb/>
+O. S. 235. 236.<lb/>
+</note>     <note place="end" n="16" xml:id="n-16t" prev="#n-16">(S. 20). Second Éclaircissement du Système de la<lb/>
+Communication des Substances. 1696. G. G. <hi rendition="#k">Leibnitii</hi>, Opera<lb/>
+philosophica etc. p. 133. — Troisième Éclaircissement. 1696.<lb/>
+Ibid. p. 134. — Lettre à <hi rendition="#k">Basnage</hi> etc. Ibid. p. 152. — Vergl.<lb/>
+<hi rendition="#k">Arn. Geulincs</hi>, <hi rendition="#i">ΓΝΩΘΙ ΣΕΑΥΤΟΝ</hi> sive Ethica etc. Ed. <hi rendition="#k">Phi¬<lb/>
+laretus</hi>, Amstelod. 1709. 12°. p. 124. Nota 19, und H. <hi rendition="#k">Ritter</hi>,<lb/>
+Geschichte der Philosophie. Hamburg 1852. Th. XI. S. 140.<lb/>
+</note>
+<pb n="39" facs="#f0047"/>
+<note place="end" n="17" xml:id="n-17t" prev="#n-17">(S. 20). <hi rendition="#k">Biot</hi>'<hi rendition="#k">s</hi> Lehrbuch der Experimental-Physik.<lb/>
+Deutsch bearbeitet von <hi rendition="#k">Fechner</hi>. Leipzig 1829. Bd. <hi rendition="#fr">II</hi>. S. 129<lb/>
+</note>     <note place="end" n="18" xml:id="n-18t" prev="#n-18">(S. 26). Vergl. die ähnlichen Betrachtungen <hi rendition="#k">Locke</hi>'<hi rendition="#k">s</hi>,<lb/>
+in dem Essay on Human Understanding, (Works, London 1812.<lb/>
+vol. III. p. 54 sqq.), welche auch <hi rendition="#k">Leibniz</hi> in den Nouveaux<lb/>
+Essais sur l'Entendement humain (<hi rendition="#k">Ed</hi>. <hi rendition="#k">Erdmann</hi> etc. p. 375)<lb/>
+sich zu eigen gemacht hat. Vergl. noch <hi rendition="#k">Leibniz</hi> selber 1. c. p.<lb/>
+185. 203. — Den hier von mir entwickelten Beweis, dass wir<lb/>
+die geistigen Vorgänge aus ihren materiellen Bedingungen nie<lb/>
+begreifen werden, habe ich seit Jahren in meinen öffentlichen<lb/>
+Vorlesungen „Ueber einige Ergebnisse der neueren Naturfor¬<lb/>
+schung“ vorgetragen, und auch gesprächsweise mitgetheilt.<lb/>
+Mein Freund Hr. <hi rendition="#k">Tyndall</hi> hat bereits davon in seiner Rede<lb/>
+bei Eröffnung der mathematisch-physikalischen Abtheilung<lb/>
+der Brittischen Naturforscher-Versammlung zu Norwich im<lb/>
+Jahr 1868 mit gewohnter Meisterschaft eine glänzende Dar¬<lb/>
+stellung gegeben. Scope and Limit of scientific Materialism,<lb/>
+in Fragments of Science for unscientific people. London 1871.<lb/>
+p. 121.<lb/>
+</note>     <note place="end" n="19" xml:id="n-19t" prev="#n-19">(S. 27). Untersuchungen über thierische Elektricität.<lb/>
+Bd. 1. Berlin 1848. Vorrede. S. xxxv.<lb/>
+</note>     <note place="end" n="20" xml:id="n-20t" prev="#n-20">(S. 30). <hi rendition="#k">Charles Darwin</hi>, The Descent of man etc.<lb/>
+London 1871. vol. 1. p. .145.<lb/>
+</note>     <note place="end" n="21" xml:id="n-21t" prev="#n-21">(S. 30). Vergl. E. <hi rendition="#k">du Bois-Reymond</hi>, <hi rendition="#k">Leibniz</hi>ische Ge¬<lb/>
+danken in der neueren Naturwissenschaft. Berlin 1870.<lb/>
+</note>     <note place="end" n="22" xml:id="n-22t" prev="#n-22">(S. 31). Elemente der Psychophysik. Th. I. Leipzig<lb/>
+1860. S. 5.<lb/>
+</note>     <note place="end" n="23" xml:id="n-23t" prev="#n-23">(S. 31). Köhlerglaube und Wissenschaft. 3. Auflage.<lb/>
+Giessen 1855. S. 32.<lb/>
+</note> <milestone unit="section" rendition="#hr"/> </div>
+<pb facs="#f0048"/>
+</div> </body> <back> <div type="imprint"> <p rendition="#c">Druck von Bär &amp; Hermann in Leipzig.</p> </div><lb/>
+<pb facs="#f0049"/>
+<pb facs="#f0050"/>
+<pb facs="#f0051"/>
+</back> </text> </TEI>

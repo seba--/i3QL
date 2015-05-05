@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Drittes Schreiben an das Publicum</title>
+<title type="sub">Aus dem Französischen</title>
+<title type="volume" n="3"/>
+<author>
+<persName ref="http://d-nb.info/gnd/118535749">
+<forename>Friedrich</forename>
+<genName>II.</genName>
+<roleName>König von Preußen</roleName>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">24</measure>
+<measure type="tokens">809</measure>
+<measure type="types">431</measure>
+<measure type="characters">5998</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:14:57Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/friedrich_publicum03_1753</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/friedrich_publicum03_1753</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/friedrich_publicum03_1753</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/friedrich_publicum03_1753</idno>
+<idno type="DTADirName">friedrich_publicum03_1753</idno>
+<idno type="DTAID">20882</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">[Friedrich II., König von Preußen]: Drittes Schreiben an das Publicum. [Übers. Gotthold Ephraim Lessing]. Bd. 3. Berlin, 1753.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Drittes Schreiben an das Publicum</title>
+<title level="m" type="sub">Aus dem Französischen</title>
+<title level="m" type="volume" n="3"/>
+<author>
+<persName ref="http://d-nb.info/gnd/118535749">
+<forename>Friedrich</forename>
+<genName>II.</genName>
+<roleName>König von Preußen</roleName>
+</persName>
+</author>
+<editor role="translator">
+<persName ref="http://d-nb.info/gnd/118572121">
+<addName>Gotthold Ephraim Lessing </addName>
+</persName>
+</editor>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">16 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Voss</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1753</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Universitäts- und Landesbibliothek Halle</repository>
+<idno>
+<idno type="shelfmark">ULB Halle, Dd 2744 e/5 (10)</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Sprachwissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Sprachwissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front><lb/>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb n="[1]" facs="#f0005"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#c">Drittes Schreiben<lb/>
+<hi rendition="#g">an das</hi><lb/>
+Publicum.</hi></titlePart><lb/>
+<figure/> <titlePart type="desc">Aus dem Franzoͤſiſchen.</titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace><hi rendition="#c">BERLIN</hi></pubPlace><lb/>
+<docDate><hi rendition="#c">1753.</hi></docDate></docImprint></titlePage><lb/>
+<pb n="[2]" facs="#f0006"/>
+</front><body>
+<pb n="[3]" facs="#f0007"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head>Schreiben<lb/>
+<hi rendition="#g">des Grafen</hi><lb/>
+Rinochetti,<lb/>
+erſten Senators<lb/>
+der Republik Santo-Marino<lb/>
+<hi rendition="#g">an den Baron</hi><lb/>
+v. Zopenbrug,<lb/>
+Miniſter Sr. Koͤnigl. Preußiſchen Majeſtaͤt.</head><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<salute>Mein Herr!</salute><lb/>
+<p><hi rendition="#in">W</hi>ir haben mit eben ſo<lb/>
+großem Erſtaunen als<lb/>
+Unwillen vernommen, daß ei-<lb/>
+<fw type="sig" place="bottom">2</fw><fw type="catch" place="bottom">ne</fw><lb/>
+<pb n="4" facs="#f0008"/>
+ne Art von Zeitungsſchreibern<lb/>
+unverſchaͤmtes Zeug, unſre<lb/>
+Durchlauchtigſte Republik be-<lb/>
+treffend, geſchrieben hat, und<lb/>
+daß man dieſe aͤrgerliche<lb/>
+Schrift in der Hauptſtadt des<lb/>
+Koͤnigs, ihres Herrn, gedruckt<lb/>
+und verkauft hat.</p><lb/>
+<p>Noch bis jetzt hat keine<lb/>
+Schrift, keine Zeitung aus<lb/>
+Berlin jemanden beleidiget;<lb/>
+es iſt uns uͤbrigens bekannt,<lb/>
+daß Se. Koͤnigl. Preußiſche<lb/>
+Majeſtaͤt die Schmaͤhſchriften<lb/>
+wider Privatperſonen ernſtlich<lb/>
+<fw type="catch" place="bottom">be-</fw><lb/>
+<pb n="5" facs="#f0009"/>
+beſtrafen, wir ſind daher deſto<lb/>
+mehr erſtaunt, zu ſehen, daß<lb/>
+man den Druck des Wercks er-<lb/>
+laubet hat, welches zu unſern<lb/>
+Klagen Gelegenheit giebt, und<lb/>
+wir unterſtehen uns zu hoffen,<lb/>
+der Koͤnig ihr Herr, werde es<lb/>
+in ſeinen Staaten nicht dulden,<lb/>
+daß eine Privatperſon Regen-<lb/>
+ten Hohn ſprechen duͤrfe. Wir<lb/>
+ſchmeicheln uns, daß Hoͤchſt-<lb/>
+dieſelben dem Elenden zu ſtar-<lb/>
+fen wuͤrdigen werden, welcher<lb/>
+uns ſo ahndungswuͤrdig belei-<lb/>
+diget hat. Er laͤßt Tractaten<lb/>
+und geheime Artikel drucken;<lb/>
+es ſcheinet ſogar, daß er uns<lb/>
+<fw type="sig" place="bottom">3</fw><fw type="catch" place="bottom">laͤcher-</fw><lb/>
+<pb n="6" facs="#f0010"/>
+laͤcherlich machen will; wahr-<lb/>
+haftig das iſt nicht auszuſte-<lb/>
+hen, und es muß uns eine aus-<lb/>
+nehmende Genugthuung ge-<lb/>
+ſchehen. Es iſt wahr, daß es<lb/>
+in Europa einige Staaten<lb/>
+giebt, welche maͤchtiger ſind,<lb/>
+als der unſrige; muß man uns<lb/>
+aber darum verachten, weil<lb/>
+wir nicht die ſtaͤrkſten ſind?<lb/>
+Gleichwohl weiß meine Durch-<lb/>
+lauchtigſte Republik ſich in Ita-<lb/>
+lien anſehnlich zu machen; wir<lb/>
+haben einzig und allein, ohne<lb/>
+Bundsgenoſſen, den liſtigen<lb/>
+Anſchlaͤgen des Kardinals<lb/>
+Alberoni, den Kanons und<lb/>
+<fw type="catch" place="bottom">dem</fw><lb/>
+<pb n="7" facs="#f0011"/>
+dem Banne der Kirche, und<lb/>
+allen gewaltſamen Anfaͤllen<lb/>
+unſerer Feinde widerſtanden;<lb/>
+wir haben ihre Raͤncke entdeckt,<lb/>
+ihre Entwuͤrfe zu nichte ge-<lb/>
+macht, fuͤr unſre Freyheit ge-<lb/>
+ſtritten, und uns aufrecht er-<lb/>
+halten. Wenn dieſe Thaten<lb/>
+zu Bern, Venedig und Am-<lb/>
+ſterdam geſchehen waͤren,<lb/>
+wuͤrden ſie deswegen ruͤhmli-<lb/>
+cher ſeyn, als da ſie zu San-<lb/>
+to-Marino geſchehen ſind?<lb/>
+Rom ſelbſt bey ſeinem Anfan-<lb/>
+ge war nicht einmal das, was<lb/>
+wir jetzt ſind; die Schwelgerey<lb/>
+hat unſre ernſtlichen Sitten<lb/>
+<fw type="sig" place="bottom">4</fw><fw type="catch" place="bottom">nicht</fw><lb/>
+<pb n="8" facs="#f0012"/>
+nicht verdorben; man ſiehet bey<lb/>
+uns altvaͤterſche Tugenden;<lb/>
+unſre Maͤßigkeit und unſre Ei-<lb/>
+nigkeit erhalten unſern Staat;<lb/>
+wir haben nichts koſtbares<lb/>
+als unſre Freyheit und unſer<lb/>
+Anſehen: weder ein unſeliger<lb/>
+Zeitungsſchreiber, noch irgend<lb/>
+eine Macht auf der Welt ſoll<lb/>
+uns dieſes unſchaͤtzbare Gut<lb/>
+rauben. Wir hoffen, Se.<lb/>
+Majeſtaͤt werden es nicht laͤn-<lb/>
+ger dulden, daß man uns be-<lb/>
+leidige, ſondern als Koͤnig ſich<lb/>
+der Sache einer unabhaͤngigen<lb/>
+Republik annehmen. Wir<lb/>
+ſchmeicheln uns, daß Sie,<lb/>
+<fw type="catch" place="bottom">mein</fw><lb/>
+<pb n="9" facs="#f0013"/>
+<lb/>
+mein Herr, durch ihr Anſehen,<lb/>
+unſre gerechten Vorſtellungen<lb/>
+unterſtuͤtzen, und meiner Durch-<lb/>
+lauchtigſten Republik die Ge-<lb/>
+nugthuung verſchaffen werden,<lb/>
+welche ſie ſich von der Billig-<lb/>
+keit des Koͤnigs ihres Herrn<lb/>
+verſpricht. Ich habe die Ehre<lb/>
+zu ſeyn, mein Herr, u.u.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">5</fw><fw type="catch" place="bottom">Ant-</fw><lb/>
+<pb n="[10]" facs="#f0014"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head>Antwort<lb/>
+<hi rendition="#g">des Barons</hi><lb/>
+v. Zopenbrug,<lb/>
+Staatsminiſters Sr. Koͤnigl. Preußiſchen<lb/>
+Majeſtaͤt<lb/>
+<hi rendition="#g">an den Grafen</hi><lb/>
+Rinochetti,<lb/>
+erſten Senator der Republik Santo-<lb/>
+Marino.</head><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<salute>Mein Herr!</salute><lb/>
+<p><hi rendition="#in">S</hi>obald ich den Brief, mit<lb/>
+welchen Sie mich beeh-<lb/>
+ret, erhalten, habe ich Sr.<lb/>
+<fw type="catch" place="bottom">Ma-</fw><lb/>
+<pb n="11" facs="#f0015"/>
+Majeſtaͤt meinen Bericht da-<lb/>
+von abgeſtattet. Sie koͤnnen<lb/>
+verſichert ſeyn, daß hier je-<lb/>
+dermann die Privatperſonen<lb/>
+verdammet, welche ſich durch<lb/>
+ihre Schriften gebietende<lb/>
+Maͤchte zu beleidigen unter-<lb/>
+ſtehen. Von dem Pabſte und<lb/>
+Kayſer an, bis zu dem Bi-<lb/>
+ſchof von Coſtnitz und dem<lb/>
+Fuͤrſten von Zipentzerbſt muͤſ-<lb/>
+ſen alle regierende Haͤupter<lb/>
+von dem Publico verehret<lb/>
+werden; ſie moͤgen ſtark, oder<lb/>
+ſchwach, Bundesgenoſſen oder<lb/>
+Feinde ſeyn, das thut dar-<lb/>
+bey nichts, und der Wohl-<lb/>
+<fw type="catch" place="bottom">ſtand</fw><lb/>
+<pb n="12" facs="#f0016"/>
+ſtand erfordert es, daß wenn<lb/>
+man ihrer erwaͤhnt, es alle-<lb/>
+zeit in den geziemenden Aus-<lb/>
+druͤcken geſchehen muͤſſe. Die<lb/>
+groſſen Regenten ehren ſich<lb/>
+in ihres gleichen; wann ſie<lb/>
+es leiden, daß eine Privat-<lb/>
+perſon eine andere Macht an-<lb/>
+taſtet, ſo vergeſſen ſie, was<lb/>
+ſie ſich ſelbſt ſchuldig ſind.<lb/>
+Seit einer gewiſſen Zeit iſt<lb/>
+der Mißbrauch der Preſſe<lb/>
+bis zum Aergerniſſe geſtie-<lb/>
+gen; Privatperſonen ha-<lb/>
+ben ſich uͤber die Boßheit<lb/>
+der Schriftſteller zu beklagen<lb/>
+gehabt; und mehr als eine<lb/>
+<fw type="catch" place="bottom">Macht</fw><lb/>
+<pb n="13" facs="#f0017"/>
+Macht iſt von den Leuten<lb/>
+beleidiget worden, welche<lb/>
+Neuigkeiten zuſammenſchmie-<lb/>
+ren, um zu leben, welche mehr<lb/>
+Luͤgen als Wahrheiten aus-<lb/>
+breiten, und ſich zu Aretins<lb/>
+unſers Jahrhunderts auf-<lb/>
+werfen. Allein, Mein Herr, nie-<lb/>
+mand legt den Nachrichten die<lb/>
+ſie verbreiten, Glauben bey,<lb/>
+und da ſie das Publicum nur<lb/>
+allzuofte ſehr groͤblich hinter-<lb/>
+gangen haben, ſo ſind ihre<lb/>
+Neuigkeiten verdaͤchtig gewor-<lb/>
+den. Man hat nicht gewar-<lb/>
+tet bis Dero Durchlauchtig-<lb/>
+ſte Republik ihre gerechten<lb/>
+<fw type="catch" place="bottom">Kla-</fw><lb/>
+<pb n="14" facs="#f0018"/>
+Klagen wieder die verſtohl-<lb/>
+nen Neuigkeiten, die man<lb/>
+hier ausgeſtreuet hat, ange-<lb/>
+bracht; man hat ſogleich das<lb/>
+Werk verbohten und es dem<lb/>
+Verfaſſer ernſtlich unterſagt,<lb/>
+etwas ohne Erlaubniß zu<lb/>
+ſchreiben; ich ſchmeichle mir<lb/>
+daß die Großmuth Dero<lb/>
+Durchlauchtigſten Republik<lb/>
+mit dieſer Zuͤchtigung ſich<lb/>
+wird begnuͤgen laſſen; einem<lb/>
+Schwaͤtzer das Reden, und<lb/>
+einem angeſchoſſenen Kopfe<lb/>
+das Schreiben verbieten, iſt<lb/>
+die groͤßte Strafe die man<lb/>
+ihnen auflegen kan; wir ſind<lb/>
+<fw type="catch" place="bottom">we-</fw><lb/>
+<pb n="15" facs="#f0019"/>
+wegen der Achtung, die man<lb/>
+auswaͤrtigen Maͤchten ſchul-<lb/>
+dig iſt, bis auf das aͤuſſer-<lb/>
+ſte gewiſſenhaft, und nim-<lb/>
+mermehr wird man es hier<lb/>
+zugeben, daß jemand, er<lb/>
+ſey wer er wolle, die Ehr-<lb/>
+erbietung gegen ſie aus den<lb/>
+Augen ſetze.</p><lb/>
+<p>Ich bin hoͤchſt erfreut, daß<lb/>
+dieſe Nichtswuͤrdigkeit mir<lb/>
+Gelegenheit gegeben hat, der<lb/>
+Durchlauchtigſten Republik<lb/>
+zu dienen, und mit einem<lb/>
+Manne Bekanntſchaft zu ma-<lb/>
+<fw type="catch" place="bottom">chen,</fw><lb/>
+<pb n="16" facs="#f0020"/>
+chen, der, wie Sie, in ſo<lb/>
+groſſen Anſehen ſtehet. Mit<lb/>
+dieſen Geſinnungen werde ich<lb/>
+unausgeſetzt verharren, Mein<lb/>
+Herr u.u.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb facs="#f0021"/>
+<pb facs="#f0022"/>
+<pb facs="#f0023"/>
+<pb facs="#f0024"/>
+</body> </text> </TEI>

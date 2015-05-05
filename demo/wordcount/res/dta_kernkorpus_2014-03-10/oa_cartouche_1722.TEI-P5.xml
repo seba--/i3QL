@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Der berühmte Ertz-Dieb und Strassen-Räuber Cartouche, Derer Strassen-Räuber, Diebe und Spitz-Buben Ober-Haupt und Commandeur in Franckreich, in denen merckwürdigsten Begebenheiten seines bösen Lebens, endlichen aufrichtigen Bekäntnisses und schwehren Todes vorgestellet</title>
+<title type="sub">Aus dem Frantzösischen übersetzt und mit unterschiedenen bißhero noch eingelauffenen curieusen Umständen vermehret</title>
+<author>
+<persName>
+<surname>N. N.</surname>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">36</measure>
+<measure type="tokens">7253</measure>
+<measure type="types">2294</measure>
+<measure type="characters">50860</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:57Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/oa_cartouche_1722</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/oa_cartouche_1722</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/oa_cartouche_1722</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/oa_cartouche_1722</idno>
+<idno type="DTADirName">oa_cartouche_1722</idno>
+<idno type="DTAID">20434</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Der berühmte Ertz-Dieb und Strassen-Räuber Cartouche. Leipzig, 1722.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Der berühmte Ertz-Dieb und Strassen-Räuber Cartouche, Derer Strassen-Räuber, Diebe und Spitz-Buben Ober-Haupt und Commandeur in Franckreich, in denen merckwürdigsten Begebenheiten seines bösen Lebens, endlichen aufrichtigen Bekäntnisses und schwehren Todes vorgestellet</title>
+<title level="m" type="sub">Aus dem Frantzösischen übersetzt und mit unterschiedenen bißhero noch eingelauffenen curieusen Umständen vermehret</title>
+<author>
+<persName>
+<surname>N. N.</surname>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">32 S.</measure>
+</extent>
+<publicationStmt>
+<publisher/>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1722</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, 5 an:Fy 7903</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=244950547</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Biographie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Biographie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b">Der beruͤhmte<lb/>
+<hi rendition="#fr"><hi rendition="#in">E</hi>rtz-<hi rendition="#in">D</hi>ieb</hi><lb/>
+und<lb/>
+<hi rendition="#fr"><hi rendition="#in">S</hi>traſſen-<hi rendition="#in">R</hi>aͤuber</hi><lb/>
+<hi rendition="#aq">CARTOUCHE,</hi></hi><lb/>
+</titlePart> </docTitle> <docTitle> <titlePart type="sub"> <hi rendition="#b">Derer<lb/>
+Straſſen-Raͤuber, Diebe und Spitz-Buben Ober-<lb/>
+Haupt und <hi rendition="#aq">Commandeur</hi> in Franckreich, in denen merckwuͤr-<lb/>
+digſten Begebenheiten ſeines boͤſen Lebens, endlichen aufrichtigen<lb/>
+Bekaͤntniſſes und ſchwehren Todes vorgeſtellet.</hi><lb/>
+</titlePart> </docTitle> <docTitle> <titlePart type="desc"> <hi rendition="#b">Aus dem Frantzoͤſiſchen uͤberſetzt und mit unterſchiedenen bißhero<lb/>
+noch eingelauffenen <hi rendition="#aq">curieu</hi>ſen Umſtaͤnden vermehret.</hi><lb/>
+</titlePart> </docTitle> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <hi rendition="#b">Gedruckt Anno </hi><docDate><hi rendition="#b">1722</hi></docDate><hi rendition="#b">.</hi><lb/>
+</docImprint> </titlePage> </front><body><div n="1">
+<pb n="[2]" facs="#f0008"/>
+<pb n="[3]" facs="#f0009"/>
+<figure/> <p><hi rendition="#in">F</hi>Ranckreich, das beruͤhmteſte und angenehmſte Koͤnig-<lb/>
+reich in Europa, iſt einige Jahre her von dem Gipf-<lb/>
+pfel ſeiner Gluͤckſeligkeit in den groͤßten Verfall ge-<lb/>
+rathen. Die ſchwehren Kriege Ludwigs des <hi rendition="#aq">XIV.</hi><lb/>
+haben den Grund zu dieſem Ungluͤck gelegt. Durch<lb/>
+die Wuͤrckungen der beruͤchtigten <hi rendition="#aq">Conſtitutions-Af-<lb/>
+faire</hi> iſt das gute Vertrauen unter denen Einwohnern verſchwunden und<lb/>
+hingegen Mißtrauen und Widerwillen an deſſen Stelle getreten. Al-<lb/>
+les iſt daruͤber in Verwirrung gerathen. Auf die <hi rendition="#aq">Miſſiſippi</hi>ſche Zaube-<lb/>
+rey iſt der betruͤg- und ſchaͤdliche <hi rendition="#aq">Acti</hi>en-Handel gefolget, wodurch 10.<lb/>
+Arme reich und 1000. Reiche arm, das gantze Land aber in unaus-<lb/>
+ſprechliches Elend geſetzet worden. Diejenigen Provintzien, ſo von die-<lb/>
+ſem Ubel am weiteſten entfernet geweſen, hat hierauf die entſetzliche<lb/>
+Seuche der Peſtilentz ergriffen, welche bißher nicht eher zu wuͤtten auf-<lb/>
+gehoͤret, als biß ſie nichts weiter zu verletzen gefunden, und diejenigen,<lb/>
+ſo noch nicht dadurch uͤberfallen worden, in euſerſte Furcht ſetzet. Bey<lb/>
+dieſen hefftigen Plagen iſt alles in groͤſte <hi rendition="#aq">Confuſion</hi> und Beſtuͤrtzung ge-<lb/>
+rathen, welches ſich die Boßheit dergeſtalt zu Nutze zu machen gewuſt,<lb/>
+daß ſie im Truͤben zu fiſchen geſuchet. Weil man aber nicht gleich im<lb/>
+Stande geweſen, derſelben gehoͤrigen Einhalt zu thun, ſo iſt das Land da-<lb/>
+durch in noch groͤſſeres Ungluͤck verfallen und bißher eine rechte Raͤuber-<lb/>
+Moͤrder- und Diebs-Grube geweſen, dergeſtalt, daß die Reiſenden, ja<lb/>
+in Haͤuſern ſelbſt die Einwohner nicht mehr recht ſicher geweſen. Unter<lb/>
+dieſem Gottloſen Geſindel hat ſich ſonderlich einer, Nahmens <hi rendition="#aq">Claude<lb/>
+Cartouche,</hi> von Geburth ein Pariſer, durch Ausuͤbung ſeiner verdamm-<lb/>
+lichen <hi rendition="#aq">Profeſſion</hi> ſehr beruͤhmt gemacht. Jn Franckreich ſelbſt hat man<lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">in</fw><lb/>
+<pb n="4" facs="#f0010"/>
+in vorigen Jahren kaum ſo viel von dem verderblichen <hi rendition="#aq">Acti</hi>en-Cram, als<lb/>
+im Jahre 1721. vom <hi rendition="#aq">Cartouche</hi> geredet. Es ſind ſo viel abentheurliche<lb/>
+Hiſtorien von ihm erzehlet worden, daß man nur durch Nennung ſeines<lb/>
+Namens Kinder und einfaͤltige Leute in Furcht ſetzen koͤnnen. Alle<lb/>
+Straſſen-Raͤube, Diebereyen und Spitzbuben-Streiche, ſo in <hi rendition="#aq">Isle de<lb/>
+France,</hi> und in denen naͤchſt um Paris gelegenen Provintzien vorgefal-<lb/>
+len, muſten durch ihn, oder durch ſeinen Vorſchub geſchehen ſeyn. Bald<lb/>
+hatte man denſelben zu Paris, bald in Orleans, bald wieder an einem<lb/>
+andern Orte geſehen, und doch kunte keiner von allen denjenigen, die<lb/>
+ihn ausſpuͤhren ſollten, ſo gluͤcklich werden, das auf den Kopff dieſes<lb/>
+Raub-Vogels geſetzte Geld zu verdienen. <hi rendition="#aq">Cartouche</hi> war, dem ge-<lb/>
+meinen Ruffe nach, allenthalben, und wenn er geſuchet wurde, doch<lb/>
+nirgends anzutreffen. Endlich aber haͤtte Untreu bald ihren eigenen<lb/>
+Herren geſchlagen, da ein gewiſſer Kerl, Namens <hi rendition="#aq">du Chatelet,</hi> der<lb/>
+mit ihm gereiſet, und den er vor ſeinen beſten Freund gehalten, ſeine<lb/>
+Schlupff-Loͤcher und einige Oerter ſeines Auffenthalts der Obrigkeit an-<lb/>
+gezeiget. <hi rendition="#aq">Cartouche</hi> waͤre hierdurch bald in Verhafft gerathen, er fand<lb/>
+aber dennoch Gelegenheit, ſeinen Verfolgern zu entrinnen und ſuchte<lb/>
+hierauf den Weg zum Lande hinaus.</p><lb/>
+<p>Sein Qvartier ſolte hinfuͤro zu Nancy in Lothringen ſeyn. Da-<lb/>
+mit man aber deſto weniger Urſache haben moͤchte, einen uͤbeln Verdacht<lb/>
+auf ihn zu werffen, ſo <hi rendition="#aq">engagir</hi>te ſich derſelbe bey der Hertzoglichen Kuͤche,<lb/>
+und gab etliche Monath daſelbſt einen Bratenwender ab. Er konte es<lb/>
+aber dennoch nicht laſſen, bey dieſer guten Gelegenheit, unterweilen ſei-<lb/>
+ne Spitzbuben-Griffe zu <hi rendition="#aq">exercir</hi>en. Wie aber derſelbe merckte, daß es<lb/>
+auch hier nichtlange Stich mit ihm halten wuͤrde; ſo gerieth er auf den<lb/>
+thoͤrichten Wahn, daß man ſeiner in Franckreich ſchon vergeſſen haben<lb/>
+und hinfuͤro nicht mehr ſo genau nach ihm fragen wuͤrde.</p><lb/>
+<p>Allein <hi rendition="#aq">Cartouche</hi> hatte ſich in ſeiner Rechnung betrogen. Niemals<lb/>
+war ſo ſcharff nach ihm gefraget worden, als da man nicht wuſte, wo er ei-<lb/>
+gentlich hingerathen waͤre. Man hatte ſich indeſſen ſo wohl zu Paris,<lb/>
+als auch an andern Orten, einer ziemlichen Anzahl von ſeinen Camera-<lb/>
+den bemaͤchtiget, die theils durch die Tortur darzu waren genoͤthiget wor-<lb/>
+den, theils auch freywillig vieles von <hi rendition="#aq">Cartouche</hi> ausſageten, wodurch die<lb/>
+Obrigkeit deſto emſiger gemachet wurde, des <hi rendition="#aq">Cartouche</hi> habhafft zu wer-<lb/>
+den. Jndeſſen ſuchte man das Diebs- und anderes gottloſes Geſindel<lb/>
+<fw type="catch" place="bottom">durch</fw><lb/>
+<pb n="5" facs="#f0011"/>
+durch einige harte <hi rendition="#aq">Execution</hi>en an ihres Gleichen zu ſchrecken. Den letz-<lb/>
+ten <hi rendition="#aq">Auguſti</hi> Abends ward auf dem Platz <hi rendition="#aq">de Greve</hi> Philippus Moreau,<lb/>
+Ritter von Mazieres, Herr von Puits Dore, Creſſan und andern Herr-<lb/>
+lichkeiten, wegen falſcher Muͤntzerey, gekoͤpffet. Zu Anfang ſeines Ar-<lb/>
+reſts hatte derſelbe ſeine Verbrechen nicht geſtehen wollen, wie er aber<lb/>
+auf die Tortur gebracht worden, hat er alles voͤllig geſtanden und dabey<lb/>
+bekannt, daß er dieſe Kunſt von einem gelernet, ſo Audebert hieſſe und ſein<lb/>
+Hertzens Freund geweſen. Die Richter wurden uͤber dieſes Bekaͤnntniß<lb/>
+nicht wenig beſtuͤrtzt, weil der Maleficante eben von dieſem Audebert an-<lb/>
+gegeben worden. Man ſuchte ſich hierauf des Audeberts zu bemaͤchti-<lb/>
+gen; allein er hatte ſich ſchon aus dem Staube gemachet. Wie die Exe-<lb/>
+cution an dem Maleficanten vollzogen war, wurde der Scharffrichter ge-<lb/>
+fangen genommen und nach dem Chatelet gefuͤhret, ohne zu erfahren, war-<lb/>
+um ſolches geſchehen. Der Scharffrichter war nunmehro ſelbſt ein Ar-<lb/>
+reſtante, aber deßwegen unterblieb doch Hengen, Raͤdern und Koͤpffen<lb/>
+nicht, welches durch einen andern Scharffrichter an unterſchiedenen Ma-<lb/>
+leficanten vollſtrecket wurde.</p><lb/>
+<p>Es fruchtete aber dieſes alles bey der in Paris befindlichen Diebs-<lb/>
+Rotte ſo wenig, daß man niemahls von mehrern Diebſtaͤhlen gehoͤret, als<lb/>
+damals. Dem <hi rendition="#aq">General-</hi>Empfaͤnger des Bourbonniſchen Hauſes wur-<lb/>
+den bey hellem Tage durch 4. maſqvirte Diebe 15000. <hi rendition="#aq">Livres</hi> aus ſeinem<lb/>
+Zimmer geſtohlen. Zu Anfang des Monats <hi rendition="#aq">Octobris</hi> ward der <hi rendition="#aq">ordi-<lb/>
+nair</hi>e <hi rendition="#aq">Capellan</hi> und Muſicus des Koͤnigs, Abt <hi rendition="#aq">Chaprelle,</hi> wie er Abends<lb/>
+um 7. Uhr aus dem Pareſoir, allwo er einem Schweitzer die <hi rendition="#aq">Abſolution</hi><lb/>
+geſprochen, nach Hauſe gehen wolte, durch 4. ſehr wohl bekleidete Per-<lb/>
+ſonen angehalten, die ihm die Piſtole auf die Bruſt ſetzten und die Geld-<lb/>
+Beurſe abforderten. Weil er aber nicht mehr als 30. <hi rendition="#aq">Livres</hi> bey ſich hat-<lb/>
+te, ſo gab er ihnen ſelbige, und <hi rendition="#aq">offerir</hi>te noch darzu ſeinen Mantel; Allein<lb/>
+dieſe ſaubere Voͤgel bedanckten ſich auf das hoͤflichſte vor ſeine <hi rendition="#aq">Offer</hi>te und<lb/>
+lieſſen ihren gezwungenen Wohlthaͤter ſeines Weges gehen. Doch<lb/>
+was dieſe mit Gewalt erhalten, wuſte ein anderer von dieſen Gaudieben<lb/>
+durch Liſt zu bekommen. Dieſer ſahe einige <hi rendition="#aq">Cavalie</hi>re vor dem Palaſt<lb/>
+des <hi rendition="#aq">Thuilleries</hi> ſtehen, und weil er wahrgenommen, daß dem einen davon<lb/>
+die Uhr-Kette gar ſichtbar hervor hienge, ſo gieng er bey ihnen vorbey<lb/>
+und ſpuckte einem <hi rendition="#aq">Cavalier</hi> vorwerts auf das Kleid, wendete ſich aber<lb/>
+ſo gleich um, <hi rendition="#aq">deprecir</hi>te wehmuͤthig, hob den voͤrdern Theil des Kleides<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">auf</fw><lb/>
+<pb n="6" facs="#f0012"/>
+auf, das Geſpuckte mit dem in Haͤnden habenden Schnupftuche abzuwi-<lb/>
+ſchen; Allein er hatte indeſſen mit der unter dem Rocke des <hi rendition="#aq">Cavaliers</hi> haben-<lb/>
+den Hand die Uhꝛ deſſelben meiſteꝛlich weg <hi rendition="#aq">practi<supplied>c</supplied>ir</hi>et u. unter dem Schnupf-<lb/>
+tuche unvermerckt fort gebracht. Bey der weitlaͤufftigen Bagage der Prin-<lb/>
+tzeßin von <hi rendition="#aq">Montpenſier</hi> haben dieſe Raub-Voͤgel auch ihr <hi rendition="#aq">Conto</hi> zu machen<lb/>
+gewuſt, und es iſt faſt kein Tag vorbey gegangen, daß ſie nicht etwas<lb/>
+davon ſolten erſchnappet haben. Der Hertzogin von <hi rendition="#aq">Ventadour</hi> haben<lb/>
+ſie ihr meiſtes Silberwerck und ſchoͤnſte Kleider entwendet, auch da ſie<lb/>
+bey dieſer Gelegenheit einige Kleider von Dero Laqvayen ergriffen, die<lb/>
+Kuͤhnheit gehabt, ſolche anzuziehen, ihr, da ſie zu Chartres oͤffentlich ge-<lb/>
+ſpeiſet, in dieſer Figur bey der Taffel aufzuwarten und 9. ſilberne Teller<lb/>
+und 2. Schuͤſſeln zu mauſen.</p><lb/>
+<p>Jmmittelſt als dieſes in und um Paris geſchehen, iſt dem Ertz-Dieb<lb/>
+<hi rendition="#aq">Cartouche</hi> auch wieder ein Appetit angekommen, ſich in dieſe Weltbe-<lb/>
+ruͤhmte Reſidentz zu begeben und daſelbſt ſeine <hi rendition="#aq">Profeſſion,</hi> aber unter ei-<lb/>
+nem andern Namen, weiter fortzuſetzen. Mitten unter dieſen Gedan-<lb/>
+cken fuͤgte es ſich, daß er durch ſeine Spitzbuben-Griffe zu Nancy einem<lb/>
+Kauffmann von <hi rendition="#aq">Commercy</hi> eine Brieff-Taſche entwendete. Jn dieſer<lb/>
+fand er einen nach Paris gerichteten Paß, in welcher die Perſon, ſo darin<lb/>
+beſchrieben war, dem <hi rendition="#aq">Cartouche</hi> ziemlich gleichſehend abgeſchildert zu<lb/>
+ſeyn ſchiene. <hi rendition="#aq">Cartouche</hi> nahm dieſes als ein Schickſahl des Gluͤcks an,<lb/>
+ließ ſich ein in ſeinem Paß beſchriebenes Kleid machen und reiſete ſo<lb/>
+dann, unter dem Namen des in gedachten Paß beſchriebenen Carls Bour-<lb/>
+gvignon, nach Paris, allwo er ohngefehr am 10. <hi rendition="#aq">Octobris</hi> ankam.<lb/>
+Er ward aber folgendes Tages von der Tochter eines Scheeren-Schleif-<lb/>
+fers erkennet, die endlich auch ſein Quartier ausſpuͤhrete, und ſolches<lb/>
+der Obrigkeit anzeigete. Man hat deswegen die Gefangen-Nehmung<lb/>
+des <hi rendition="#aq">Cartouche</hi> mit der Hiſtorie des <hi rendition="#aq">Catilinæ</hi> vergleichen wollen; weil<lb/>
+dieſer auch von einem Scheeren-Schleiffer entdecket worden.</p><lb/>
+<p>Die Obrigkeit machte ſich die erhaltene Nachricht ſehr wohl zu<lb/>
+Nutze und der Aide-Major des Leib-Regiments, Mr. Recon, erhielt von<lb/>
+Hofe Befehl, <hi rendition="#aq">Cartouche</hi> gefangen zu nehmen. Dieſes zu bewerckſtelli-<lb/>
+gen begab ſich derſelbe mit einem Sergeant und vier Soldaten von der<lb/>
+<hi rendition="#aq">Compagnie</hi> des Capitains Chahannes in die Herberge Hauteborne ge-<lb/>
+nannt. Bey ſeiner Ankunfft allhier ließ er ſo gleich den Wirth kommen<lb/>
+und fragte denſelben, ob keine Fremden allhier geſchlaffen haͤtten, und<lb/>
+<fw type="catch" place="bottom">ob</fw><lb/>
+<pb n="7" facs="#f0013"/>
+ob nicht vier Dames allhier <hi rendition="#aq">logir</hi>ten: denn dieſes war die Loſung, die<lb/>
+<hi rendition="#aq">Cartouche</hi> ſeinen Diebs-Cammeraden gegeben hatte. Der Wirth ant-<lb/>
+wortete mit nein; es blieb aber einer von denen Soldaten bey dem Wir-<lb/>
+the ſtehen und Mr. Recon gieng nebſt dem Sergeant und drey Soldaten<lb/>
+ſtillſchweigend die Treppe hinauf und eroͤffnete die Thuͤre des erſten<lb/>
+Zimmers. Sie traffen allhier drey von den Cameraden des <hi rendition="#aq">Cartouche</hi><lb/>
+angekleidet an, die ſich aber in das nechſt gelegene Zimmer <hi rendition="#aq">reteri</hi>reten<lb/>
+und entkamen. <hi rendition="#aq">Cartouche,</hi> auf den das Haupt-Abſehen gerichtet war,<lb/>
+lag im Bette. Der Sergeant aber, ſo den <hi rendition="#aq">Cartouche</hi> wohl kannte und<lb/>
+ihn gleich bey dem Eintritt in das Zimmer geſehen hatte, ſtellete ſich, als<lb/>
+wenn er denſelben nicht merckte und ſagte uͤberlaut zu denen Soldaten:<lb/>
+<hi rendition="#fr">Siehe da, er iſt uns wieder entronnen.</hi> Durch dieſe Finte wurde<lb/>
+<hi rendition="#aq">Cartouche</hi> betrogen, daß er unter die Bett-Decke kroch und ſich unſicht-<lb/>
+bar machte. Wie ſolches geſchehen, fiel ihm der Sergant auf den Halß,<lb/>
+grieff deinſelben gleich in die Armen und die uͤbrigen Soldaten faſſeten<lb/>
+ihn dergeſtalt, daß er ſich nicht bewegen und die unter der Bett-Decke<lb/>
+liegende geladene Piſtolen gebrauchen konte. <hi rendition="#aq">Cartouche</hi> muſte hierauf<lb/>
+ſein bißheriges Lager verlaſſen, und, nachdem er Hoſen und Veſte ange-<lb/>
+kleidet, baarfuß mit fort marſchiren. Der Wirth und die Wirthin mu-<lb/>
+ſten zu gleicher Zeit mit an den Tantz, und die Soldaten, ſo ſie begleite-<lb/>
+ten wurden unter Weges noch mit zwoͤlff Mann verſtaͤrcket. Man brach-<lb/>
+te die Arreſtanten ſo gleich zu dem Staats Secretario in Kriegs-Sachen,<lb/>
+Herrn <hi rendition="#aq">le Blanc,</hi> der aber alſobald Befehl gab, daß man ſie nach dem<lb/>
+Chatelet fuͤhren ſolte. Man hat kaum iemals in einer Proceßion ſo viel<lb/>
+Volcks beyſammen geſehen, als damahls neubegierige Perſonen den<lb/>
+<hi rendition="#aq">Cartouche</hi> nach dem Gefaͤngniſſe begleiteten. Jederman war uͤber ſein<lb/>
+freches und vermeſſenes Ausſehen zum hoͤchſten verwundert, und als eine<lb/>
+Dame von Qvalitaͤt ſich bemuͤhete, ihn zu ſehen, zeigte er ſich derſelben auf<lb/>
+eine ſehr ausgelaſſene Manier. Die gluͤcklichen Faͤnger deſſelben haben<lb/>
+zu ihrer Ergoͤtzlichkeit ſo gleich 1000. Livres erhalten.</p><lb/>
+<p>Bey dem Eintritt ins Chatelet ward <hi rendition="#aq">Cartouche</hi> von den Gerichts-<lb/>
+Dienern uͤbernommen. Wie nun einer von dieſen mit dem Arreſtanten<lb/>
+Schertz treiben wolte, ſo bekam er von demſelben, an ſtatt der Antwort<lb/>
+eine ſo derbe Maulſchelle, daß dem Gerichts-Diener das Schertzen druͤ-<lb/>
+ber vergieng. <hi rendition="#aq">Cartouche</hi> ward hierauſ geſchloſſen und kurtz darnach, in<lb/>
+ſolcher Figur vor den Lieutenant Criminel gebracht. Vor dieſem fuͤh-<lb/>
+<fw type="catch" place="bottom">rete</fw><lb/>
+<pb n="8" facs="#f0014"/>
+rete er ſich ſehr frech auf, und wie ihn derſelbe unter andern fragte: Ob<lb/>
+er nicht <hi rendition="#aq">Claude Cartouche</hi> hieſſe und des verſtorbenen Thomas <hi rendition="#aq">Cartouche</hi><lb/>
+Sohn waͤre, welcher vor dieſem allhier zu Paris an der Bruͤcke <hi rendition="#aq">aux<lb/>
+Choux</hi> gewohnet haͤtte, antwortete derſelbe: Er hieſſe Carl Bourgvi-<lb/>
+gnon, und waͤre des Claude Bourgvignons Sohn, welcher ein Burgun-<lb/>
+der geweſen, begehrte auch zugleich, man ſolte eine gute Flaſche Wein<lb/>
+herholen, der in dieſem Lande gewachſen waͤre, damit er, wenn es etwann<lb/>
+zur peinlichen Frage kaͤme, dieſelbe deſto beſſer aushalten koͤnne. Den<lb/>
+15. <hi rendition="#aq">Octobr.</hi> ward er abermahls <hi rendition="#aq">examinir</hi>et und mit ſeiner Mutter und<lb/>
+juͤngſtem Bruder, die man gleichfalls in Verhafft genommen, <hi rendition="#aq">confronti-</hi><lb/>
+ret; er wolte ſie aber nicht kennen, und die Mutter, weil ſie ihm beweg-<lb/>
+lich zuredete, nicht einmahl anhoͤren. Mutter und Bruder wurden hier-<lb/>
+auf, weil man ſie unſchuldig befunden, gegen Angeloͤbniß, ſich allemal auf<lb/>
+Erfordern wieder zu ſtellen, ihres Arreſts erlaſſen, und ſodann einige mit<lb/>
+<hi rendition="#aq">inhafftir</hi>te Cameraden des <hi rendition="#aq">Cartouche</hi> hergebracht. Dieſe kannten den<lb/>
+<hi rendition="#aq">Cartouche</hi> ſehr wohl, er aber war ein <hi rendition="#aq">ſcilicet</hi> ehrlicher Kerl und wolte die-<lb/>
+ſe Diebe die Tage ſeines Lebens nicht geſehen haben. Man ließ hierauff<lb/>
+auch den Thuͤr-Waͤrter des <hi rendition="#aq">Forts L’Eveque</hi> herbey ruffen, allwo <hi rendition="#aq">Car-<lb/>
+touche</hi> vor dieſem 2. Jahr lang gefangen geſeſſen, der ihn ſo gleich erkenne-<lb/>
+te, und allerhand Umſtaͤnde ſeiner Gefangenſchafft erinnerte, <hi rendition="#aq">Cartou-<lb/>
+che</hi> aber ſagete: Er irrete ſich an der Perſon; Denn er hieſſe Carl<lb/>
+Bourgvignon und wuͤſte nicht wo, oder was das <hi rendition="#aq">Fort l’ Eveque</hi><lb/>
+waͤre.</p><lb/>
+<p><hi rendition="#aq">Cartouche</hi> ward ſodann wieder in das Gefaͤngniß gebracht, allwo<lb/>
+er darnach 24. ſowohl Manns- als Weibes-Perſonen zu ſeinen Gefehr-<lb/>
+ten bekam, welche am 3. Octobr. einen von ihren Cameraden, weil ſie ge-<lb/>
+fuͤrchtet, daß er ſie verrathen moͤchte, ermordet, oder wie ſie zu reden pfleg-<lb/>
+ten, abgebauet hatten; Denn wann <hi rendition="#aq">Cartouche</hi> von dem Ermordeten re-<lb/>
+dete, ſo war das Frantzoͤſiſche Wort <hi rendition="#aq">debattir,</hi> das iſt abbauen, oder abbre-<lb/>
+chen, ſein Kunſt-Wort. Gedachten Ermordeten hatten ſeine barbariſche<lb/>
+Cameraden aufgeſchnitten, ihm das Hertz aus dem Leibe geriſſen und in<lb/>
+4. Theile zerſchnitten, auch ſolcher Geſtalt auf der Gaſſe liegen<lb/>
+laſſen.</p><lb/>
+<p><hi rendition="#aq">Cartouche,</hi> der in ſeinem Gefaͤngniß dermaſſen feſt geſchloſſen war,<lb/>
+daß er ſich kaum regen konnte, hatte von den neubegierigen Perſonen zu<lb/>
+Paris nicht wenigen Zuſpruch. Hohe und Niedrige beſuchten ihn mit<lb/>
+<fw type="catch" place="bottom">Er-</fw><lb/>
+<pb n="9" facs="#f0015"/>
+Erlaubniß der Obrigkeit im Gefaͤngniß und er wuſte jedweden mit einer<lb/>
+geſchickten Antwort zu begegnen, auch zu weilen etwas von ſeiner Unſchuld<lb/>
+mit unter zu mengen. Man ließ ihm aber von Seiten der Richter keine<lb/>
+Ruhe, ſondern er ward alle Tage vor den Criminal-Richter gefuͤhret und<lb/>
+mit andern Perſonen von ſeinem Schrott und Korn <hi rendition="#aq">confrontir</hi>et; allein<lb/>
+er wolte niemanden kennen, auch nichts von demjenigen wiſſen, was man<lb/>
+ihm vorſagete.</p><lb/>
+<p>Mitlerzeit nun da die Richter mit ſeinem Proceß beſchaͤfftiget wa-<lb/>
+ren, gerieth <hi rendition="#aq">Cartouche</hi> auf den Anſchlag, ſie durch ſeine Befreyung dieſer<lb/>
+Muͤhe zu uͤberheben, es waͤre ihm auch bey nahe gegluͤcket, und hatte es mit<lb/>
+dieſem kuͤhnen Unternehmen folgende Bewandniß: <hi rendition="#aq">Cartouche</hi> war in<lb/>
+ein duͤſtres Behaͤltniß gebracht, und, wie gewoͤhnlich, ein andrer Gefang-<lb/>
+ner zu ihm geſetzt worden, der aber nicht von ſeinem Cameraden, ſondern<lb/>
+ein anderer Dieb war, ſo auf dem Lande geſtohlen hatte, und der <hi rendition="#aq">Profeſ-<lb/>
+ſion</hi> nach ein Fleiſcher ſeyn wolte. Dieſer war nicht geſchloſſen. Des<lb/>
+Nachts zwiſchen dem 21. und 22. hatte ein Thuͤrhuͤtter der Gefaͤngniſſe<lb/>
+mit beyden biß nach 1. Uhr Brandtewein getruncken, worauf derſelbe weg<lb/>
+gieng und die Gefangenen allein ließ. <hi rendition="#aq">Cartouche</hi> hatte ſich indeſſen die<lb/>
+Gelegenheit des Gefaͤngniſſes genau beſehen, wie nun der Aufſeher weg<lb/>
+war, machte ſich derſelbe ſo gleich von der Wand loß, an die er geſchluſſen<lb/>
+war, und tappete allenthalben mit den Fuͤſſen und Haͤnden auf dem Fuß-<lb/>
+Boden und an der Mauer herum. Da er nun einen gewiſſen Platz an<lb/>
+der Mauer gefunden, der ihm etwas hohle klang, ſo ſagte derſelbe zu ſei-<lb/>
+nem Mitgefangenen, ich urtheile, daß allhier ein Schlund von einem Se-<lb/>
+cret durch gehen muß, und dieſes ſoll die Thuͤre ſeyn, durch welche wir zu<lb/>
+unſerer Freyheit gelangen wollen; wir muͤſſen folglich allhier, es ko ſte<lb/>
+was es wolle, ein Loch machen. Beyde arbeiteten hierauff ſo lange, biß<lb/>
+ſie Oeffnung in die Maure erlangten und an den Schlund vom Secret<lb/>
+kamen. Dieſer Schlund war zu ihrem Gluͤck mit halb verroſteten eiſer-<lb/>
+nen Baͤndern umfaſſet, ſolche brach <hi rendition="#aq">Cartouche</hi> mit leichter Muͤhe und um<lb/>
+ſo viel vergnuͤgter loß; weil er dadurch Werckzeug bekam, mit welchem<lb/>
+er ſich weiter durcharbeiten konte. Wie nun das Loch groß genug und<lb/>
+nichts mehr uͤbrig war, als ſich in das Gewoͤlbe des Secrets hinein zulaſ-<lb/>
+ſen, ſagte <hi rendition="#aq">Cartouche</hi> zu ſeinem Mitgefangenen: Er waͤre entſchloſſen, ſich<lb/>
+in den ſtinckenden Pful hinein zu laſſen, der Erfolg davon moͤchte ſeyn,<lb/>
+wie er wolte; indem er lieber im Kothe zu erſticken, als die vor ihn zube-<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">rei-</fw><lb/>
+<pb n="10" facs="#f0016"/>
+reitete harte Quaal auszuſtehen vermeynte. Als er nun hierauf ſeinen<lb/>
+Mitgeſellen ermahnet, ihm willig zu folgen, ließ er ſich durch den eroͤffne-<lb/>
+ten Schlund hinunter, da er in eine groͤſſere Oeffnung kam, die in den all-<lb/>
+gemeinen Zuſammenlauff der Secrete gieng. Wie dieſes ſo wohl und<lb/>
+nach Wunſch ablieff, folgte der Camerad gluͤcklich nach. Der Fuß-<lb/>
+Boden von dem Zuſammenlauff der Secrete war mit Steinen ausge-<lb/>
+leget, aber zu ihrem Gluͤck von dem durch lauffenden Waſſer ſo ausge-<lb/>
+ſpielet, daß ſie ſicher fuſſen konten. Sie tappeten hierauf an den Mau-<lb/>
+ren herum und funden endlich ein Loch. <hi rendition="#aq">Cartouche</hi> urtheilete, daß ſol-<lb/>
+ches etwa in einen Keller gehen muͤſte, ſo aus dem <hi rendition="#aq">Chatelet</hi> nach der Gaſ-<lb/>
+ſe zugienge. Das Loch ward hierauf durch das bey ſich habende Eiſen<lb/>
+groͤſſer gemacht und beyde kamen mit leichter Muͤhe in den Keller. Die<lb/>
+gluͤcklichen Arbeiter giengen ſo dann im Keller herum, funden endlich die<lb/>
+Treppe und die Thuͤre derſelben unten offen, allein die oberſte Thuͤre war<lb/>
+verſchloſſen, die ſie aber, wegen des ſchlechten Schloſſes, mit leichter Muͤhe<lb/>
+aufſprengeten. Durch dieſe Mittel kamen ſie in den Hof eins Futteral- und<lb/>
+Schachtel-Machers, deſſen Hauß auf die Gaſſe heraus gieng. Bißher<lb/>
+war alles ſehr gluͤcklich von ſtatten gegangen, aber nunmehr wendete ſich<lb/>
+das Blatt; denn in gedachten Hofe wurden ſie von einem Hunde ent-<lb/>
+decket, der jungen hatte. Dieſer machte einen ſo ſtarcken Lerm, daß der<lb/>
+Hauß-Herr und ſeine Tochter daruͤber erwacheten. <hi rendition="#aq">Cartouche</hi> hatte<lb/>
+immittelſt, wie er nach der Zeit erzehlet, ſeinen aͤuſſerſten Fleiß angewen-<lb/>
+det, den Hund zu fangen; allein er war von ſelbigen ins Bein gebiſſen<lb/>
+worden und der Hund hatte ſich aus ſeinen Haͤnden entriſſen. Die<lb/>
+Tochter des Hauß-Herrn hatte immittelſt zum Fenſter herans geruffen:<lb/>
+<hi rendition="#fr">Diebe! Diebe!</hi> Es war ohngefehr des Morgens gegen 4. Uhr, da die-<lb/>
+ſes Geſchrey aus dem Hauſe erſchallete. Vier Gerichts-Diener, ſo kurtz<lb/>
+vorher von der auſerordentlichen Wacht abgezogen waren, ſtunden<lb/>
+nicht weit davon und truncken mit etlichen Fleiſcher-Knechten Brandte-<lb/>
+wein. So bald dieſe das Geſchrey hoͤreten, lieffen ſie nach dem Hauſe<lb/>
+zu. Die Tochter des Hauß-Herrn, ſo mitlerweile mit einem Licht her-<lb/>
+unter gekommen war und die Thuͤre eroͤffnet hatte, fuͤhrete die ankom-<lb/>
+menden Gerichts-Diener und Fleiſcher-Knechte, wovon die letztern ihre<lb/>
+Beile in Haͤnden hatten, in den Hof, allwo ſie gleich den Reiſe-Camera-<lb/>
+den des <hi rendition="#aq">Cartouche</hi> gewahr wurden und griffen. Man wolte hierauf<lb/>
+dieſem von neuem gefangenen Vogel wieder nach dem <hi rendition="#aq">Chatelet</hi> fuͤhren;<lb/>
+<fw type="catch" place="bottom">Allein</fw><lb/>
+<pb n="11" facs="#f0017"/>
+Allein die Tochter des Hauß-Herrn hielt inſtaͤndig an, man ſolte weiter<lb/>
+ſuchen, es waͤren 2. Perſonen geweſen und eine davon haͤtte mit Ketten<lb/>
+geklappert. Sie fiengen hierauf uͤberlaut zu ſchreyen, es wird warlich<lb/>
+<hi rendition="#aq">Cartouche</hi> ſeyn, ſo zu entfliehen trachtet. Die Hof-Thuͤre ward ſogleich<lb/>
+beſetzet und der Hof ſehr genau durchſuchet. Man brachte lange Zeit zu,<lb/>
+ehe derſelbe gefunden wurde; Denn <hi rendition="#aq">Cartouche</hi> hatte ſich mit dem Bauch<lb/>
+und Geſichte an die Wand des Hauſes geleget und dergeſtalt ausgeſtre-<lb/>
+cket, daß man im Duͤſtren nicht erkennen konnte, ob es Menſch, oder<lb/>
+Hauß waͤre; Endlich aber ward derſelbe, nach langem Herumtappen,<lb/>
+gefunden, gegriffen, und denen indeſſen herbey geholten Thuͤrwaͤrtern des<lb/>
+Gefaͤngniſſes uͤbergeben und ins <hi rendition="#aq">Chatelet</hi> in ein ander Gefaͤngniß ge-<lb/>
+bracht, allwo er feſter geſchloſſen und nach der Zeit Tag und Nacht von<lb/>
+2. Gerichts-Dienern bewachet worden. Mit anbrechendem Tage kam<lb/>
+der Lieutenant des <hi rendition="#aq">Criminal-</hi>Richters zu ihm, dem er, auf Befragen,<lb/>
+gar gelaſſen erzehlete, wie er mit ſeiner Befreyung zu Wercke ge-<lb/>
+gangen.</p><lb/>
+<p>Man ſaͤumete indeſſen auch nicht noch immer Perſonen, die ver-<lb/>
+daͤchtig waren, aufzuſuchen und in Arreſt zu nehmen, da denn unter an-<lb/>
+dern auch 5. Archiers von der Wacht zu Fuß in Verwahrung genommen,<lb/>
+auch <hi rendition="#aq">obſervir</hi>et worden, daß ſeit kurtzer Zeit mehr als 50. Soldaten vom<lb/>
+Regiment Gardes ausgeriſſen, auch daß eine gewiſſe Perſon, welche ſich<lb/>
+ſonſt vom Troͤdeln ernaͤhret, ſich unverſehens unſichtbar, und mit Hin-<lb/>
+terlaſſung aller ihrer Guͤter aus der Stadt gemacht, aus Furcht, von<lb/>
+<hi rendition="#aq">Cartouche</hi> verrathen zu werden.</p><lb/>
+<p><hi rendition="#aq">Cartouche</hi> war im̃ittelſt das gemeinſte, wovon geredet wurde, und ſo<lb/>
+gar die <hi rendition="#aq">Comœdiant</hi>en <hi rendition="#aq">accommodi</hi>reten ſich hierinnen nach dem <hi rendition="#aq">Gouſt</hi> des<lb/>
+Volcks. Die Jtaliaͤniſchen ſtellten deßwegen am 20. Octobr. <hi rendition="#aq"><hi rendition="#i">Harlequin<lb/>
+Cartouche,</hi></hi> aber mit ſchlechten <hi rendition="#aq">Succeſs</hi> vor. Denn wie die Comoͤdie kaum<lb/>
+halb geſpielet war, muſten die Comoͤdianten die Vorhaͤnge des Schau-<lb/>
+Platzes herunter laſſen; weil die gantze <hi rendition="#aq">Action</hi> denen Zuſchauern ſehr ab-<lb/>
+geſchmackt vorkam und ſie ihr Mißvergnuͤgen durch die allhier uͤbliche<lb/>
+Manier zu Pfeiffen zu verſtehen gaben, mit welcher ſchimpfflichen <hi rendition="#aq">Muſic</hi><lb/>
+aber denen Comoͤdianten nichts gedienet war. Der Zulauff bey dieſer<lb/>
+vermeinten <hi rendition="#aq">curieuſ</hi>en <hi rendition="#aq">Action</hi> war ſo groß, daß die Leute einander trugen.<lb/>
+<hi rendition="#aq">Harlequin</hi> ſolte die Perſon des <hi rendition="#aq">Cartouche</hi> vorſtellen, ſo er aber nicht nach<lb/>
+dem Gutduͤncken der ſeltſamen und in ihren Meinungen ſehr <hi rendition="#aq">delicat</hi>en<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">Welt</fw><lb/>
+<pb n="12" facs="#f0018"/>
+Welt verrichten konnte. Dieſen Fehler der Jtaliaͤniſchen, ſuchten die<lb/>
+Frantzoͤſiſchen Comoͤdianten folgendes Tages zu verbeſſern und verſpra-<lb/>
+chen in drey Auftritten: <hi rendition="#fr">Das geſtraffte Schelmen-Stuͤcke,</hi> oder<lb/>
+<hi rendition="#fr">den ungluͤcklichen</hi> <hi rendition="#aq">Cartouche</hi> <hi rendition="#fr">vorzuſtellen,</hi> es hatte aber ein ſpitziger<lb/>
+Kopff hin und wieder unter die angeklebten Zettul geſchrieben: <hi rendition="#fr">Wer<lb/>
+dieſe</hi> <hi rendition="#aq">Action</hi> <hi rendition="#fr">recht natuͤrlich vorgeſtellet zu ſehen wuͤnſchet, der<lb/>
+beliebe ſich noch ein paar Tage zu gedulden, ſo dann aber auff<lb/>
+dem Platz</hi> <hi rendition="#aq">de Greve</hi> <hi rendition="#fr">zu erſcheinen, allwo dieſem Titul und An-<lb/>
+ſchlag ein Genuͤgen geſchehen wird;</hi> Allein das ungedultige<lb/>
+Volck wolte die allhier beſtimmte Zeit nicht erwarten, ſondern lieff in<lb/>
+groſſer Menge in die Frantzoͤſiſche Comoͤdie. Die Frantzoſen waren auch<lb/>
+in der That geſchickter, die Spitzbuben-Comoͤdie vorzuſtellen, als die<lb/>
+Jtaliaͤner, und haben, dem Anſehen nach, mehr Geld damit verdienet,<lb/>
+als <hi rendition="#aq">Cartouche</hi> jemahls durch ſeine Buben-Stuͤcke gewonnen haben mag.<lb/>
+Ja es ſolten auch die Hunde zu Paris ein Andencken von dieſem beruffe-<lb/>
+nen Vogel haben, denn der Poͤbel fieng an dieſelben <hi rendition="#aq">Cartouches</hi> zu nen-<lb/>
+nen.</p><lb/>
+<p>So viel aber in Geſellſchafft von denen Verbrechen dieſes Ertz-Die-<lb/>
+bes geredet, ja ſelbſt in <hi rendition="#aq">Comœdi</hi>en vorgeſtellet wurde, ſo wolte er dennoch<lb/>
+nichts davon geſtehen und war beſtaͤndig ſehr froͤlich und gutes Muths.<lb/>
+Man fand deßwegen vor noͤthig, ihn auf die Tortur zu bringen, aber auch<lb/>
+dieſe war nicht vermoͤgend, ihm das geringſte Bekaͤnntniß abzunoͤthigen.<lb/>
+Er ſtand die voͤllige Tortur mit einer gelaſſenen Mine aus, und da er zum<lb/>
+andern mahl an dieſen Reihen muſte, ſo war derſelbe ſo frech, daß er die<lb/>
+leichtfertigſten Lieder ſunge und ſich die ſchmertzliche Zeit damit vertrieb.<lb/>
+Die <hi rendition="#aq">Act</hi>en bey dieſer Diebs-<hi rendition="#aq">Inquiſition</hi> waren in kurtzer Zeit ſo groß ge-<lb/>
+worden, daß ſie, ohngeachtet man bey uns in Franckreich die <hi rendition="#aq">Act</hi>en nicht<lb/>
+ſo weitlaͤufftig, als an andern Orten, ſchreibet, mehr als 1000. geſchriebe-<lb/>
+ne Vlaͤtter ausmacheten.</p><lb/>
+<p>Man hat indeſſen viel wunderliches Zeug von ſeinem Verbrechen<lb/>
+geſchwatzet. Die entſetzlichen Dinge, die er und ſeine Cammeraden mit<lb/>
+Frauens-Perſonen veruͤbet haben ſollen, verbietet die Schamhafftigkeit<lb/>
+zu erzehlen. Unter andern aber ſollen ſie das Blut derer von ihnen er-<lb/>
+mordeten Perſonen einander zu trincken gegeben haben, ſich dadurch zu<lb/>
+den groͤſten Grauſamkeiten anzureitzen, und ſoll dieſer Tranck, da ſie deſ-<lb/>
+ſen gewohnet geweſen, einen ſo hefftigen Trieb und Wuth und Grauſam-<lb/>
+<fw type="catch" place="bottom">keit</fw><lb/>
+<pb n="13" facs="#f0019"/>
+keit in ihnen erwecket haben, daß ſie alle menſchliche Empfindung dadurch<lb/>
+verlohren. Aus faſt dergleichen raſenden Wuth hat ein gantzer Tropp<lb/>
+von den <hi rendition="#aq">Cartouchi</hi>ſchen Cameraden am 24. Octobr. eine von Meaux kom-<lb/>
+mende Weibes-Perſon <choice><sic>anf</sic><corr>auf</corr></choice> oͤffentlicher Land-Straſſe angefallen und der-<lb/>
+ſelben das Jhrige genommen. Weil aber dieſer Straſſen-Raub juſt<lb/>
+an dem Orte geſchahe, wo einige Tage vorher einer von ihren Camera-<lb/>
+den war geraͤdert worden, ſo vermeynten die Boͤſewichter, ſich nicht beſ-<lb/>
+ſer raͤchen zu koͤnnen, als wenn ſie das ungluͤcklich Weib lebendig neben<lb/>
+ihren Cameraden auf das Rad anbaͤnden, welches ſie auch bewerckſtel-<lb/>
+ligten. Dieſe vor Schrecken und Marter halb todte Frau waͤre auch<lb/>
+gewiß geſtorben, wenn nicht ohngefehr einige Reuter daſelbſt vorbey gerit-<lb/>
+ten, die ſie zwar wieder loß gebunden, aber dadurch nicht verhindern koͤn-<lb/>
+nen, daß ſie ein paar Stunden darnach geſtorben. <hi rendition="#aq">Cartouche</hi> ſelbſt hat<lb/>
+in allen Vorſtaͤdten von Paris 4. biß 5. Quartiere, auch viel alte Weiber<lb/>
+an ſich gehabt, die ſein geraubtes Gut vertroͤdelt. Von dieſen alten Vet-<lb/>
+teln wurden einige zu Eingang des Monats Novembr. von dem Scharff-<lb/>
+richter geſchoren, ihnen die Roͤcke unten abgekuͤrtzet und ſie in dieſer Poſi-<lb/>
+tur in das Spinnhauß eingeſperret.</p><lb/>
+<p>Den 1. Novembr. ward <hi rendition="#aq">Cartouche</hi> aus dem <hi rendition="#aq">Chartelet</hi> in das Ge-<lb/>
+fangniß der <hi rendition="#aq">Conciergerie,</hi> in einer Caroſſe gebracht. Bey ihm ſaſſen 2.<lb/>
+<hi rendition="#aq">Officiers</hi> und ſeine Begleitung beſtund aus 8. Mann zu Pferde von der<lb/>
+Nacht-Wache und 8. biß 10. Gerichts-Dienern. Sobald ſie vor dieſer<lb/>
+neuen Reſidentz angelanget waren, ſtieg einer von denen <hi rendition="#aq">Officiers</hi> ab, und<lb/>
+da er den <hi rendition="#aq">Cartouche</hi> bey dem Ausſteigen ein wenig druͤcken mochte, ſo<lb/>
+hatte dieſer die Verwegenheit zu ſagen: <hi rendition="#fr">Ey ihr Schelme gebt Ach-<lb/>
+tung, daß ihr mir nicht Schaden thut.</hi> Der <hi rendition="#aq">Officier</hi> fieng an<lb/>
+hertzlich daruͤber zu lachen, faſſete dem <hi rendition="#aq">Cartouche</hi> um ſeinen ſchmahlen<lb/>
+Leib und trug ihn in das Gefaͤngniß. Man wolte ihm anfaͤnglich an den<lb/>
+Ort ſetzen, wo der bekannte Koͤnigs-Moͤrder Ravaillac geſeſſen, es ward<lb/>
+aber anders <hi rendition="#aq">reſolvir</hi>et, und der <hi rendition="#aq">Malefican</hi>te in den Thurn von Montgo-<lb/>
+meri, in ein 18. Schuh dickes Gewoͤlbe gebracht, in welchem ihn weder<lb/>
+Sonne noch Mond beſcheinen und er, wegen Enge des niedrigen Platzes,<lb/>
+weder ſitzen, noch recht ſtehen, noch geſtreckt liegen konte, ſondern allezeit<lb/>
+krum gebuͤcket ſeyn muſte. Durch dieſe Veraͤnderung des Quartiers<lb/>
+ward <hi rendition="#aq">Cartouche deſperat,</hi> daß er Gifft zu ſich nahm, ſo aber die erwuͤnſchte<lb/>
+Wuͤrckung nicht hatte; doch ward er einige Tage darauf von einem heff-<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">tigen</fw><lb/>
+<pb n="14" facs="#f0020"/>
+tigen Fieber angegriffen. Jn ſolchem Zuſtande gab ihm der General<lb/>
+Procurator, in Begleitung eines Medici und Gerichts-Schreibers, ei-<lb/>
+ne Viſite, und ordinirte, auf Einrathen des Medici, daß man <hi rendition="#aq">Cartouche</hi><lb/>
+in ein leidlicher Gefaͤngniß bringen und ihm zu ſeiner Nahrung nichts an-<lb/>
+ders, als Bouillons und Conſerve geben moͤchte.</p><lb/>
+<p>So bald ſich derſelbe wieder ein wenig erholet, nahm er, mit Er-<lb/>
+laubniß der Richter, vom neuem Viſiten an. Er erwieß hierbey durch-<lb/>
+gehends einen aufgeweckten Kopff und guten Verſtand, ſchertzte bißwei-<lb/>
+len und war dabey froͤlich und fertig im Antworten. Wie ihn der <hi rendition="#fr">Koͤ-<lb/>
+nigl.</hi> <hi rendition="#aq"><hi rendition="#i">Advocat le Nain</hi></hi> beſuchte und zugleich bat, daß er ihm erzehlen<lb/>
+moͤchte, durch was vor Kuͤnſte er neulich aus dem Gefaͤngniß gekom-<lb/>
+men, that er die <hi rendition="#aq">Relation</hi> mit einer gleichguͤltigen, doch angenehmen Ma-<lb/>
+nier und ſagte: <hi rendition="#fr">daß wir nicht davon gekommen, ruͤhret nur bloß<lb/>
+von dem dummen Teuffel her, der mit mir entwiſchen wolte.<lb/>
+Wenn ich aber einen Cameraden von ſolchem Verſtand, als<lb/>
+mein Herr iſt, bey mir gehabt, wir wolten verſichert beyde frey<lb/>
+ſeyn.</hi> Der <hi rendition="#aq">Advocat</hi> lachte uͤber dieſe Antwort nicht wenig, gab dem<lb/>
+Maleficanten vor dieſe artige Vergleichung einen <hi rendition="#aq">Louis d’Or</hi> und mach-<lb/>
+te ſein <hi rendition="#aq">Adieu.</hi> Eben dergleichen wiederfuhr auch einer gewiſſen vorneh-<lb/>
+men Dame; dieſe war <hi rendition="#aq">curieuſe, Cartouchen</hi> zu ſehen. Wie ſie nun ein<lb/>
+Exempt in das Gefaͤngniß fuͤhrete, allwo der Gefangene auf dem Stroh<lb/>
+lag, entſetzte ſich dieſelbe nicht wenig und tratt etwas zuruͤck; <hi rendition="#aq">Cartouche</hi><lb/>
+aber der ſolches merckte, zog die Decke von Beinen weg, wieß ihr ſeine Feſſel<lb/>
+und ſagte lachend: <hi rendition="#aq">Madame</hi> <hi rendition="#fr">habt ihr auch ſo ſchoͤne Strumpff-<lb/>
+Baͤnder wie ich.</hi></p><lb/>
+<p>Ohngefehr am 12. Novembr. kam auch die Mareſchallin von Bouff-<lb/>
+lers, die ſonſten die Gefangenen zu beſuchen und zu beſchencken gewohnet<lb/>
+iſt, zu ihm. Sie ſchien uͤber die Art ſeiner Feſſelung ſehr geruͤhret zu ſeyn,<lb/>
+ſchenckte dem Gefangenen 30. Livres und rieth ihm zur Gedult. <hi rendition="#aq">Car-<lb/>
+touche</hi> erwiederte: <hi rendition="#aq">Madame</hi> <hi rendition="#fr">ich dancke vor das Geſchencke, weiß<lb/>
+aber nicht, was Gedult ſey; weil ich die Zeit meines Lebens<lb/>
+keine Frau gehabt.</hi></p><lb/>
+<p>Mit den Gerichts-Dienern ſo ihn bewachet, hat er viel geredet, ge-<lb/>
+ſchertzet und unter andern geſaget: <hi rendition="#fr">Er waͤre verſichert, wenn er die<lb/>
+Kunſt verſtuͤnde, ſein jetziges Geſchmeide in Gold zu ver-<lb/>
+wandeln, daß er ein milderes Urtheil, als wohl geſchehen</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">doͤrff-</hi></fw><lb/>
+<pb n="15" facs="#f0021"/>
+<hi rendition="#fr">doͤrffte, wuͤrde zu erwarten haben.</hi> Wie die Frantzoͤſiſchen Co-<lb/>
+moͤdianten, ſo mit der Comoͤdie von ihm groſſes Geld verdienet, demſel-<lb/>
+ben ein Praͤſent von 50. Livres uͤberſchicket, hat er ſolches nicht annehmen<lb/>
+wollen und geſaget. <hi rendition="#fr">Er brauchte nicht ſeinen Unterhalt von ſol-<lb/>
+chen Leuten zu nehmen, die ihr Geld damit verdienten, daß<lb/>
+ſie ſich andern Leuten zum Gelaͤchter machten; Er waͤre je-<lb/>
+tzo ein Koͤniglicher Koſtgaͤnger, der ihm ſo lange Brod ge-<lb/>
+ben, biß er in Stand gerathen wuͤrde, Paris die wahrhaffte<lb/>
+Tragoͤdie von</hi> <hi rendition="#aq">Cartouche</hi> <hi rendition="#fr">vorzuſtellen.</hi></p><lb/>
+<p>Unter vielen andern Perſonen iſt auch der Pfarr von St. Bartho-<lb/>
+lomaͤus bey ihm geweſen. Als dieſer ihn gefraget, ob er leiden moͤchte,<lb/>
+wenn er ihn bißweilen beſuchte, mit ihm vom Geiſtlichen Sachen zu reden,<lb/>
+ſo hat er mit vieler Ehrerbietung geantwortet, daß ihm ſolches ein groſſes<lb/>
+Vergnuͤgen geben wuͤrde. Wie der Pfarr hierauff noch weiter gefra-<lb/>
+get, ob er ein geiſtliches Buch haben wolte, hat er geantwortet: Er koͤnte<lb/>
+weder ſchreiben noch leſen, da man doch das Gegentheil davon gar wohl<lb/>
+gewuſt; weil er aber bey der Verhoͤr jedesmahl alſo geredet, ſo hat er<lb/>
+auch hierinnen nicht <hi rendition="#aq">varir</hi>en wollen, wie er denn durchgehends groſſe Be-<lb/>
+hutſamkeit gebrauchet und allemahl in den Wein viel Waſſer gegoſſen,<lb/>
+damit er bey Verſtande bleiben und ſich nicht etwann verreden moͤchte.<lb/>
+Man hat auch <hi rendition="#aq">Cartouch</hi>en, der ſich oben einen Koͤnigl. Koſtgaͤnger ge-<lb/>
+nennet, ſehr wohl <hi rendition="#aq">tractir</hi>et und ihm taͤglich zum Fruͤhſtuͤck kleine Pa-<lb/>
+ſteten und ein gut Glaß Wein, des Mittags bey dem Eſſen eine Bou-<lb/>
+teille Wein und des Abends die Helffte von einem Huhn, oder ander Ge-<lb/>
+bratens gegeben.</p><lb/>
+<p>Er iſt aber weder durch Schaͤrffe noch Guͤte zu einem Geſtaͤndniß<lb/>
+ſeiner Verbrechen zu bringen geweſen. Da er geſehen, daß es nicht moͤg-<lb/>
+lich waͤre, alles abzulaͤugnen, hat er allerhand artige Raiſonnements<lb/>
+uͤber ſeinen Proceß gefuͤhret und geſaget: Er waͤre einer der geringſten<lb/>
+Ubelthaͤter von dem Complot, darunter man ihn geweſen zu ſeyn beſchul-<lb/>
+digte; weil er nichts anders, als nur einige kleine Diebereyen, aber keine<lb/>
+Mordthaten begangen haͤtte; denn daß er den Exempt todt geſtochen,<lb/>
+waͤre eine Nothwere geweſen. Durch dieſe Halßſtarrigkeit iſt das Par-<lb/>
+lament bewogen worden, ihn zwey Tage vor ſeinem Tode nebſt denje-<lb/>
+nigen, die mit ihm hingerichtet werden ſollen, nochmahls auf die Tortur<lb/>
+bringen zu laſſen, die ſo ſcharff geweſen, daß einer von dieſen Boͤſewich-<lb/>
+<fw type="catch" place="bottom">tern</fw><lb/>
+<pb n="16" facs="#f0022"/>
+tern unter waͤhrender Peinigung geſtorben, ſie haben aber dem ohnge-<lb/>
+achtet nicht das geringſte bekennen wollen. Nach der Tortur hat man<lb/>
+denſelben abermahls mit mehr als 40. Perſonen <hi rendition="#aq">confrontir</hi>et, und da er<lb/>
+durch ſo viel <hi rendition="#aq">Indicia</hi> genugſam uͤberwieſen worden, auf ſein eigen Bekaͤnt-<lb/>
+niß nicht <hi rendition="#aq">reflectir</hi>et, ſondern der General-Fiſcal hat am 27. Novembr.<lb/>
+den wider ihn vor dem Criminal-Gerichte des Parlements <hi rendition="#aq">formirt</hi>en<lb/>
+Proceß geſchloſſen, worauf dem <hi rendition="#aq">Cartouche</hi> ſein Urtheil vorgeleſen und<lb/>
+zugleich angedeutet worden, daß es folgendes Tages an ihm ſolte vollzo-<lb/>
+gen werden.</p><lb/>
+<p>Den 28. des Morgens ſahe man auf den Platz <hi rendition="#aq">de Greve</hi> 5. Raͤder<lb/>
+und 2. Galgen ſtehen, ſo des Nachts vorher aufgerichtet worden. Die<lb/>
+Obrigkeit war entſchloſſen zugleich nebſt <hi rendition="#aq">Cartouche</hi> 6. ſeiner Cameraden<lb/>
+<hi rendition="#aq">juſtificir</hi>en, und an dieſem Ertz-Dieb, zu ſeiner deſto groͤſſern Quaal, die<lb/>
+<hi rendition="#aq">Execution</hi> zuletzt vollziehen zu laſſen. Weil aber die Cameraden des<lb/>
+<hi rendition="#aq">Cartouche</hi> noch mehrere von ihren Diebs-Geſellen angaben, ſo hatte<lb/>
+das <hi rendition="#aq">Criminal-</hi>Gericht vor rathſam befunden, dieſe Miſſethaͤter noch ei-<lb/>
+nige Tage beym Leben zu laſſen, damit man die angegebenen Diebs-Voͤ-<lb/>
+gel indeſſen greiffen und ſie mit ſelbigen <hi rendition="#aq">confrontir</hi>en koͤnnte; und dieſes<lb/>
+war die Urſache, daß Nachmittags 4. Raͤder und 2. Galgen wieder<lb/>
+weggenommen wurden. Ohnfehr gegen 3. Uhr ward <hi rendition="#aq">Cartouche</hi> unter<lb/>
+Begleitung aller Archiers und der Wacht zu Pferd und Fuſſe von der<lb/>
+Hauß-Vogtey auf den Platz <hi rendition="#aq">de Greve</hi> gebracht, und von 6. Archiers<lb/>
+oder Stadt-Knechten auf das <hi rendition="#aq">Chavot</hi> getragen. So bald er auf dieſes<lb/>
+zu ſtehen kam, wurden 4. von ſeinen Cameraden, die man zum Schein<lb/>
+hinauf gefuͤhret hatte, von dem <hi rendition="#aq">Chavot</hi> herunter geſtoſſen. Wie nun<lb/>
+<hi rendition="#aq">Cartouche</hi> fragte, was dieſes zu bedeuten haͤtte, ſo ward ihm zur Antwort<lb/>
+gegeben, dieſe haͤtten ihr Verbrechen freywillig geſtanden und waͤren <hi rendition="#aq">par-<lb/>
+donir</hi>et worden. <hi rendition="#aq">Cartouche</hi> vermeinte durch ein freywilliges Bekaͤnnt-<lb/>
+niß gleichfalls <hi rendition="#aq">Pardon,</hi> oder doch eine Milderung ſeines Urtheils zu er-<lb/>
+halten, und begehrte mit ſeinen Richtern zu reden, weil er noch wichtige<lb/>
+Dinge zu entdecken haͤtte. Er ward ſodann auf das Stadt-Hauß, und<lb/>
+vor die daſelbſt befindliche Gerichts-Perſonen gebracht. Zu dieſen ſagte<lb/>
+derſelbe: Weil er nunmehro ſehen koͤnnte, daß das Ende ſeines Lebens na-<lb/>
+he waͤre, ſo haͤtte er ſich auf dem Wege entſchloſſen, ein auffrichtiges Be-<lb/>
+kenntniß aller ſeiner Verbrechen und eine weitlaͤufftige Entdeckung ſeiner<lb/>
+Cameraden zu thun. Er rechtfertigte hierauff den Richter, ſo ihm ſein<lb/>
+<fw type="catch" place="bottom">To-</fw><lb/>
+<pb n="17" facs="#f0023"/>
+Todes-Urtheil geſprochen, und ſagte, nachdem er alle ſeine Verbrechen,<lb/>
+weßwegen er zum Tode verurtheilet worden, geſtanden, daß er die aller-<lb/>
+ſchwerſte Straffe verdienet, die man nur erdencken koͤnnte. Hiernechſt<lb/>
+bekannte er auch, daß alle diejenigen, ſo in den Haͤnden der Juſtitz ver-<lb/>
+hafftet, und mit ihm <hi rendition="#aq">confrontir</hi>et worden, ſeine Mitverbrecher waͤren.<lb/>
+Man ließ hierauff alle Gefangene auf das Stadt-Hauß bringen, um ſie<lb/>
+von neuem mit <hi rendition="#aq">Cartouche</hi> zu <hi rendition="#aq">confrontir</hi>en, der ſich indeſſen mit ſeinem<lb/>
+Beicht-Vater in einem Winckel des Saals begab, biß dieſelben alle her-<lb/>
+ein gebracht waren, ſo dann aber nahete er ſich zu ihnen und redete ſie mit<lb/>
+einer gelaſſenen Mine folgender maſſen an:</p><lb/>
+<p><hi rendition="#fr">Verwundert euch nicht, meine Herren, daß ich allhier<lb/>
+vor oͤffentlichem Gerichte ſage, wer ihr ſeyd und was ihr ge-<lb/>
+than habt. Man hat mich zwar auf die Folter gebracht,<lb/>
+damit ich ausſagen moͤchte, was ihr gethan haͤttet; ich habe<lb/>
+aber um eurent Willen die groͤſte Marter ausgeſtanden, da<lb/>
+mit man euch vor unſchuldig halten ſolte. Jndeſſen da mein<lb/>
+Beicht-Vater zu mir gekommen und mir aus GOttes Wort<lb/>
+die Schwere meines Verbrechens vorgeſtellet, hat ſolches mein<lb/>
+Hertz dergeſtalt erweichet, daß ich entſchloſſen bin, alles zu ſa-<lb/>
+gen, was ich weiß. Hierzu beweget mich auch auſer dieſem<lb/>
+noch eine andre Urſache; weil unſre Freunde, welche noch<lb/>
+nicht in verhafft gebracht worden, ihr Wort von ſich gegeben,<lb/>
+uns auch mit Auffopfferung ihres Lebens aus dem Gefaͤngniß<lb/>
+zu erretten, welches ſie aber unterlaſſen, und eben deßwegen<lb/>
+will ich nun alles aufrichtig bekennen.</hi></p><lb/>
+<p>Hierauf ließ er alle Namen ſeiner Raub- und Diebs-Geſellen ins<lb/>
+<hi rendition="#aq">Protocoll</hi> auf beſondere Blaͤtter niederſchreiben und ſagte ſo dann bey<lb/>
+Nennung eines jeden Namens aus, was jedweder gethan hatte. Fuͤnf-<lb/>
+fe von den Angegebenen, deren, auſer denen ſchon ſitzenden, mehr als 50.<lb/>
+und unter welchen auch 2. Laquayen der Hertzogin von <hi rendition="#aq">Ventadour</hi> ge-<lb/>
+weſen, wurden noch dieſen Abend in Arreſt genommen, und die Ver-<lb/>
+hoͤr <hi rendition="#aq">continuir</hi>te die gantze Nacht hindurch, da dann zwar einige von de-<lb/>
+nen viel 1000. Zuſchauern nach Hauſe giengen, die meiſten aber blieben<lb/>
+auf den Platze ſtehen, und wurden durch den beſtaͤndig anhaltenden Re-<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">gen,</fw><lb/>
+<pb n="18" facs="#f0024"/>
+gen nicht wenig <hi rendition="#aq">incommodir</hi>et, wie denn auch 16. biß 18. Perſonen theils<lb/>
+durch das groſſe Gedraͤnge, theils auch durch die ausgetheilten<lb/>
+Schlaͤge getoͤdtet und <hi rendition="#aq">bleſſir</hi>et worden. Den 29. Nachmittags um 1.<lb/>
+Uhr ward endlich <hi rendition="#aq">Cartouche</hi> wieder auf den Richt-Platz gebracht, all-<lb/>
+wo er von dem Scharffrichter 11. Schlaͤge mit einer eiſernen Keule,<lb/>
+nemlich 3. auf den rechten, 3. auf den lincken Arm, 2. auf das lincke, 2.<lb/>
+auf das rechte Bein und den letzten auf die Bruſt empfieng. Hierauf<lb/>
+ward der zertruͤmmerte aber noch lebende Coͤrper auf das Rad geleget,<lb/>
+auf welchem man ihn bey nahe noch eine Viertel-Stunde leben ließ,<lb/>
+endlich aber, auf Vorbitte des Beicht-Vaters, die ihm um den Halß<lb/>
+gemachte Schnure zuzog und ihn erdroſſelte. Dieſes war das ſchmertz-<lb/>
+liche Ende eines der groͤſten Raͤuber, Diebe und Spitzbuben in Franck-<lb/>
+reich, von welchem man noch eine ziemliche Weile in Paris zu reden<lb/>
+haben, biß etwann eine andere abenthenerliche Begebenheit ſein Anden-<lb/>
+cken verdunckeln wird. Der ungluͤckſeelige Leichnam blieb ſo dann noch<lb/>
+einige Zeit auf dem Rade liegen, ward aber endlich abgenommen, auf<lb/>
+eine Baare geleget und von den Henckers-Knechten auf den Kirch-Hof<lb/>
+der unſchuldigen Kinder gebracht; Allein es bekam auch hierdurch die<lb/>
+Tragoͤdie von <hi rendition="#aq">Cartouche</hi> noch kein Ende, denn die <hi rendition="#aq">Chirurgi</hi> von <hi rendition="#aq">S.<lb/>
+Coſmo</hi> kaufften dem Scharffrichter den <hi rendition="#aq">Cartouchi</hi>ſchen Coͤrper unter<lb/>
+dem Vorwand ab, daß ſie zum Nutzen ihrer Lehrlinge, eine <hi rendition="#aq">Anatomie</hi><lb/>
+oder Zerlegung damit anſtellen wolten; Allein ſie haben einen <hi rendition="#aq">curieuſ</hi>en<lb/>
+Wucher mit ſelbigem getrieben, und ihn vor Geld ſehen laſſen, da denn<lb/>
+der Zulauff ſo groß geweſen, daß man noch im Zweiffel ſtehet: Ob <hi rendition="#aq">Car-<lb/>
+touche</hi> bey ſeiner Freyheit mit ſeiner Mord- und Diebs-<hi rendition="#aq">Profeſſion,</hi><lb/>
+oder die Comoͤdianten bey ſeiner Gefangenſchafft mit der von ihm ge-<lb/>
+ſpielten Comoͤdie, oder die <hi rendition="#aq">Chirurgi</hi> nach ſeinem Tode mit ſeinem Coͤr-<lb/>
+per mehr verdieuet.</p><lb/>
+<p>Einige haben vor gewiß vorgeben wollen, daß <hi rendition="#aq">Cartouche</hi> ſeine <hi rendition="#aq">Rail-<lb/>
+leri</hi>en auch mitten unter den Todes-Gedancken nicht laſſen koͤnnen, ſon-<lb/>
+dern etlichemal zu dem Beicht-Vater geſaget: Mein <hi rendition="#aq">Syſtema</hi> iſt von kei-<lb/>
+ner groͤſſern Dauer, als des Herrn Law ſeines geweſen. Dieſen Tag<lb/>
+ward weiter nichts vorgenommen; weil die Gerichts-Perſonen ſehr er-<lb/>
+muͤdet waren, den folgenden Morgen aber ſahe man wieder 4. Raͤder und<lb/>
+2. Galgen auf dem Platz <hi rendition="#aq">de Greve</hi> ſtehen.</p><lb/>
+<fw type="catch" place="bottom">Gegen</fw><lb/>
+<pb n="19" facs="#f0025"/>
+<p>Gegen 9. Uhr aber kam Befehl, daß 3. Raͤder wieder weggenom-<lb/>
+men werden ſolten, weil etliche von denjenigen, an denen die <hi rendition="#aq">Execution</hi><lb/>
+vollzogen werden ſollen, auf der nochmahligen Tortur, noch mehr andere<lb/>
+angegeben. Die <hi rendition="#aq">Execution</hi> verzohe ſich hierdurch biß in die Nacht, da<lb/>
+ein Goldſchmidts-Sohn, ein junger Menſch von 22. Jahren auf den<lb/>
+Richt-Platz gebracht und bey brennenden Fackeln geraͤdert wurde.<lb/>
+Wie dieſes geſchehen, wurden auch der Wirth und die Wirthen desjeni-<lb/>
+gen Diebs-Winckels, wo <hi rendition="#aq">Cartouche</hi> ergriffen worden, an beyde Galgen<lb/>
+aufgehencket und die <hi rendition="#aq">Execution</hi> vor dieſen Tag geendiget.</p><lb/>
+<p>Unter den Angegebenen ſollen ſich auch ein <hi rendition="#aq">Commiſſarius</hi> von einer<lb/>
+alten anſehnlichen Adelichen Familie, auch einige andre Perſonen von<lb/>
+<hi rendition="#aq">Diſtinction</hi> befinden, die man aber wohl wird durchſchluͤpffen laſſen.<lb/>
+Seit dem 29. ſind mehr als 60. ſo wohl Manns- als Weibs-Perſonen zu<lb/>
+Paris in Arreſt genommen worden, welche dem <hi rendition="#aq">Cartouche</hi> und ſeinen<lb/>
+Diebs-Geſellen dadurch Vorſchub gethan, daß ſie Knechte und Maͤgde<lb/>
+durch Beſtechungen zu bewegen geſuchet, die Wohnungen ihrer Herr-<lb/>
+ſchafften offen zu laſſen, damit ſie ihre Diebs-<hi rendition="#aq">Profeſſion</hi> des Nachts in<lb/>
+ſelbigen <hi rendition="#aq">exercir</hi>en koͤnten.</p><lb/>
+<p>Hiernechſt hat man aus des <hi rendition="#aq">Cartouche</hi> gefundenen Schrifften er-<lb/>
+ſehen, daß er nach Etampe, Meaux und an andre Orte eine ſtarcke <hi rendition="#aq">Cor-<lb/>
+reſpondenz</hi> gefuͤhret, Diebſtaͤhle dahin gebracht, Wechſel-Briefe davor<lb/>
+gezogen, und einen rechten Wechſel-Handel damit getrieben; Es haben<lb/>
+aber dergleichen Banquiers nunmehro ſchlechten Lohn zu erwarten. Es<lb/>
+ſind auch in unterſchiedene Provintzen des Reichs Befehle geſendet<lb/>
+worden, ſich daſelbſt derer von <hi rendition="#aq">Cartouchen</hi> und ſeinen Cameraden ange-<lb/>
+gebenen Raͤuber und Diebe zu bemaͤchtigen. Ja ſelbſt von Paris hat<lb/>
+man ein ſtarckes <hi rendition="#aq">Commando</hi> in den nach Meaux zu gelegenen Wald ge-<lb/>
+ſendet, die daſelbſt befindlichen Raͤuber und Diebe aufzuheben; Allein<lb/>
+dieſe haben ſich dergeſtalt gewehret, daß ſich die Archiers mit Verluſt von<lb/>
+3. Perſonen zuruͤck ziehen und leer wieder nach Paris zuruͤck <hi rendition="#aq">marchi-</hi><lb/>
+ren muͤſſen.</p><lb/>
+<p>Sonſten hat man auch den Lieutenant des <hi rendition="#aq">Cartouche,</hi> Namens<lb/>
+Pelißier, welcher ſich uͤber der Theilung eines Straſſen-Raubs mit ei-<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">nem</fw><lb/>
+<pb n="20" facs="#f0026"/>
+nem ſeiner Cameraden entzweyet und daruͤber von dieſem in den Arm<lb/>
+verwundet worden, ſich aber nach der Zeit ſehr praͤchtig aufgefuͤhret, auch<lb/>
+viel mit groſſen Herren umgegangen und geſpielet, endlich in dem Hauſe<lb/>
+des Herrn Jntendanten zu Lion arreſtiret, da man ihm geſaget, er gleiche<lb/>
+gar ſehr einem ſo genannten Pelißier, deſſen Beſchreibung von Paris<lb/>
+nach Lion geſendet worden: Pelißier haͤtte hierauf mit Trotz geantwor-<lb/>
+tet, daß viele von ſeinem Namen ihm gleich ſeyn koͤnten; man haͤtte ihm<lb/>
+aber verſetzet, er koͤnte ſich gar leicht rechtfertigen, wenn er ſich nur aus-<lb/>
+kleidete, und ſehen lieſſe, daß er ein gewiß Zeichen nicht an ſeinem Leibe<lb/>
+haͤtte, als er aber ſich deſſen geweigert, haͤtte man ihn mit Gewalt aus-<lb/>
+gezogen, und auf ſeinem Arm das Pflaſter noch auf der Wunde gefun-<lb/>
+den, welche ihm ſein Camerad in der Theilung beygebracht haͤtte. Die-<lb/>
+ſer iſt hierauf zu Lion gefangen genommen worden, um nach Paris ge-<lb/>
+bracht zu werden und ſeinen Lohn allhier zu empfangen. Es haben zwar<lb/>
+die Cameraden von der <hi rendition="#aq">Cartouchi</hi>ſchen Bande ausgebreitet, als wenn<lb/>
+dieſer Pelißier auf dem Wege hieher von ſeinen Mitgeſellen wieder be-<lb/>
+freyet und die bey ihm zur Bedeckung geweſene 8. Gerichts-Diener nie-<lb/>
+der geſchoſſen worden; es iſt aber ſolches falſch geweſen und vermuthet<lb/>
+man den Pelißier ſtuͤndlich allhier, allwo er auf einige Zeit 3. andern<lb/>
+Cameraden, die ſich gleichfalls allhier <hi rendition="#aq">cavalierement</hi> aufgefuͤhret,<lb/>
+und in ſolcher Figur ergriffen worden, Geſellſchafft leiſten<lb/>
+kan.</p><lb/>
+<p>So ſcharff man aber bißher mit dieſem gottloſen Geſindel verfah-<lb/>
+ren, ſo laͤſt es ſich doch nicht abſchrecken, Rauben und Stehlen noch ſtaͤr-<lb/>
+cker, als vormahls geſchehen, fortzuſetzen; wie denn am 5. Decembr. A-<lb/>
+bends um 10. Uhr der <hi rendition="#aq">Artilleri Commiſſarius,</hi> Herr <hi rendition="#aq">Baſſu,</hi> von 5. der-<lb/>
+gleichen Galgenvoͤgeln aufoͤffentlicher Straſſe angegriffen worden. Er<lb/>
+hat ſich zwar tapffer zur Wehre geſetzet, iſt aber endlich mit einem Saͤ-<lb/>
+bel hinterwaͤrts in Kopff gehauen worden, daß er darnieder geſuncken.<lb/>
+Die Raͤuber haben ihm hierauf Hut und Degen genommen und<lb/>
+ſich ſchleunig davon gemacht.</p><lb/>
+<p>Auf dieſes entſetzliche Verbrechen war die Obrigkeit <hi rendition="#aq">reſolvir</hi>et<lb/>
+<fw type="catch" place="bottom">fol-</fw><lb/>
+<pb n="21" facs="#f0027"/>
+folgendes Tages eine <hi rendition="#aq">Execution</hi> vorzunehmen, und Abends um 9. Uhr<lb/>
+ward ein junger Meuſch auf den Platz <hi rendition="#aq">de Greve</hi> gefuͤhret, daſelbſt mit<lb/>
+4. Pferden zerriſſen zu werden; weil er aber bey Erblickung des Richt-<lb/>
+Platzes, nach dem Exempel <hi rendition="#aq">Cartouch</hi>ens, Anſuchung that, nochmahls<lb/>
+vor die Richter gefuͤhret zu werden, ſo hat man ihm auch darinnen gewill-<lb/>
+fahret und ihn auf das Stadt-Hauß gebracht, allwo er noch vieles be-<lb/>
+kennet und erſt folgendes Tages, Nachmittags um 1. Uhr hingerichtet<lb/>
+worden; immittelſt aber hat man doch noch ſelbigen Abend, die Zuſchau-<lb/>
+er nicht leer weg gehen zu laſſen, eine alte Diebs-Vettel aufgehencket.<lb/>
+Man hat auch ſonſten noch in Erfahrung gebracht, daß am 18. Novembr.<lb/>
+zu Nacht, biß 80. Perſonen von der Bande des <hi rendition="#aq">Cartouche</hi> bey Boulle-<lb/>
+gard zuſammen gekommen, und ein neues Ober-Haupt erwehlet, ſo <hi rendition="#aq">St.<lb/>
+Etienne</hi> heiſſen ſoll, der auch ſeine Untergebene ſogleich aus<supplied>c</supplied><hi rendition="#aq">ommandir</hi>et,<lb/>
+an unterſchiedenen Orten ſeine Befehle zu vollziehen, die ihm auch ſo gleich<lb/>
+gehorſamet.</p><lb/>
+<p>Unter der Bande des <hi rendition="#aq">Cartouche</hi> haben ſich auch Geiſtliche befunden,<lb/>
+von denen ein Abt ergriffen worden, welcher ſich Johann Caſpar von<lb/>
+<hi rendition="#aq">Rougaime de la Mothe</hi> genennet, insgemein aber der Abt <hi rendition="#aq">dela Mothe</hi> ge-<lb/>
+heiſſen worden, dieſer hat, auſer andern ſchweren Verbrechen, das <hi rendition="#aq">Semi-<lb/>
+narium</hi> der auslaͤndiſchen <hi rendition="#aq">Miſſion</hi>en unterſchiedliche mahl beſtohlen. Die<lb/>
+Geiſtlichkeit iſt ſehr bemuͤhet geweſen, vor ihn bey dem Herrn Regenten,<lb/>
+in Anſehung ſeines Geiſtlichen Standes, Gnade auszuwuͤrcken, es iſt aber<lb/>
+ihre Bemuͤhung vergebens geweſen, und der Herr Regent hat ſich auff<lb/>
+ihr Anſuchen folgender maſſen erklaͤhret: <hi rendition="#fr">Jch habe den Grafen von<lb/>
+Horn radern laſſen: dieſer ſoll hencken,</hi> welches Urtheil auch am 11.<lb/>
+Decembr. gegen Abend, auf der Vorſtadt von <hi rendition="#aq">St. Germain</hi> in der weiſſen<lb/>
+Creuß-Gaſſe an ihm vollzogen worden, nachdem er vorher faſt eine gantze<lb/>
+Stunde unter dem Galgen geprediget. Ein auslaͤndiſcher Edelmann,<lb/>
+dem der <hi rendition="#aq">executir</hi>te Abt 1600. Livres geliehen, iſt von demſelben, ſo bald<lb/>
+dieſer in Verhafft gerathen, als ein Mitverbrecher angegeben und deßwe-<lb/>
+gen in die Baſtille gebracht worden. Man hat ihn aber, nach genauer<lb/>
+Unterſuchung, unſchuldig befunden und an dem Tage, da der Abt gehan-<lb/>
+gen worden wieder auf freyen Fuß geſtellet.</p><lb/>
+<p>Bey dieſer blutigen Tragoͤdie hat Paris nichts mit groͤſſerm Er-<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">ſtau-</fw><lb/>
+<pb n="22" facs="#f0028"/>
+ſtaunen angehoͤret, als daß der Koͤnigl. General-Fiſcal am 10. Decembr.<lb/>
+einen Befehl von Parlament ausgebracht, daß ein <hi rendition="#aq">Inquiſition</hi>s-Proceß<lb/>
+wider den Lieutenant des Criminal-Gerichts und den Fiſcal vom Chate-<lb/>
+let ſolte angeſtellet werden, welche durch einen von denen bereits geraͤder-<lb/>
+ten Cameraden des <hi rendition="#aq">Cartouche</hi> beſchuldiget worden, daß ſie gewiſſe ihnen<lb/>
+bekante Verbrechen darum verſchwiegen, damit einige dabey <hi rendition="#aq">intereſſir-</hi><lb/>
+te vornehme Perſonen, ſo gedachte beyde Gerichts-<hi rendition="#aq">Officiant</hi>en beſtochen,<lb/>
+verſchonet werden moͤchten. Man erwartet daher recht ſehnlich wie die-<lb/>
+ſer Proceß ablauffen werde.</p><lb/>
+<p>Den 12. <hi rendition="#aq">Decembr.</hi> ſind einige Gefreyte, oder Exempten von denen Ge-<lb/>
+richts-Dienern zu Pferde an die Spaniſche Graͤntzen geſendet worden, um<lb/>
+9. Diebe von der Bande des <hi rendition="#aq">Cartouche,</hi> ſo ſich unter dem Gefolg der<lb/>
+<hi rendition="#aq">Mademoiſelle</hi> von <hi rendition="#aq">Montpenſier</hi> befunden, und wovon ſonderlich zwey dero<lb/>
+Silber-Geſchirr ſtehlen helffen, nach Paris zu bringen. Den 15. ward<lb/>
+abermahls eine Frau von der Bande des <hi rendition="#aq">Cartouche</hi> Chevaliere genannt<lb/>
+aufgeknuͤpffet, und nach der Zeit ſind durch das Criminal-Gerichte noch<lb/>
+2. Weibes- und 6. Manns-Perſonen von eben dieſer Bande zum Tode<lb/>
+verurtheilet worden, dem ohngeachtet iſt doch der Fleiß und Strenge der<lb/>
+Juſtitz nicht vermoͤgend geweſen, denen haͤufigen Mordthaten und Die-<lb/>
+bereyen Einhalt zu thun.</p><lb/>
+<p>Den 20. <hi rendition="#aq">Decembr.</hi> hat man abermahls verſchiedene Perſonen aus<lb/>
+ihren Haͤuſern, und unter dieſen auch einen Schloͤſſer geholet, der wie die<lb/>
+Rede gehet, dem hingerichteten <hi rendition="#aq">Cartouche</hi> die Mittel angewieſen, gemaͤch-<lb/>
+lich und ohne vieles Geraͤuſch, in die Haͤuſer wohlhabender Leute zu<lb/>
+kommen.</p><lb/>
+<p>Am 28. <hi rendition="#aq">dito</hi> Abends um 6. Uhr kamen 3. wohlgekleidete junge Kerls zu ei-<lb/>
+nem auf dem Platz von Maubert wohnenden Kauffman, und forderten ihm<lb/>
+mit entbloͤſſetem Degen ſeine Gold-Boͤrſe ab, die er ihnen auch, ihrer loß<lb/>
+zu werden, willig auslieferte; Kaum aber waren ſie mit dem Raube weg,<lb/>
+ſo rieff der Kauffmann: Es ſind Diebe da. Die <hi rendition="#aq">patronillir</hi>ende Schaar-<lb/>
+Wache kam ohngefehr darzu, und holete noch 2. von dieſen Galgenvoͤgeln<lb/>
+ein, welche in das Chatelet gebracht wurden.</p><lb/>
+<fw type="catch" place="bottom">Dem</fw><lb/>
+<pb n="23" facs="#f0029"/>
+<p>Dem <hi rendition="#aq">du Chatelet,</hi> einem Cameraden des <hi rendition="#aq">Cartouche,</hi> welcher ihn das<lb/>
+erſtemahl verrathen, hat zwar der Koͤnig das Leben geſchencket, doch ſoll er<lb/>
+in ewiger Gefaͤngniß bleiben, um welches er auch ſelbſt angehalten hat,<lb/>
+mit dem Vorgeben, daß ihn doch die uͤbrige Rotte, wenn er frey waͤre,<lb/>
+ermorden wuͤrde; Er begehret taͤglich nichts als 10. Sols, oder 4. gl. da-<lb/>
+von im Gefaͤngniß zu leben, und giebt vor, daß er ſich bekehren wolte.<lb/>
+Bey dieſem Verfahren wider den <hi rendition="#aq">Cartouche</hi> und ſeine Cameraden ſind<lb/>
+uͤberhaupt drey Dinge merckwuͤrdig 1.) daß die Obrigkeit keine Koſten<lb/>
+noch Muͤhe geſcheuet, ſich dieſes Complots zu bemaͤchtigen, auch jetzo ſchon<lb/>
+wuͤrcklich 60000. Livres, oder 20000. Reichs-Thaler aufgewendet wor-<lb/>
+den 2.) daß man uͤber einem ſolchen wichtigen Proceß nicht laͤnger als<lb/>
+6. Wochen und etliche Tage zugebracht, und denen <hi rendition="#aq">Delinquent</hi>en keine<lb/>
+ſchaͤdliche Bedenck-Zeit gelaſſen; 3.) daß man ſich allhier aus aber glaͤu-<lb/>
+biſchen Gebrauch mit denen <hi rendition="#aq">Execution</hi>en nicht an eine gewiſſe Zeit binde,<lb/>
+ſondern dieſelbe, nachdem es denen Richtern gelegen faͤllt, Vor- und Nach-<lb/>
+mittags, auch wohl gar des Abends und um Mitternachts-Zeit vollziehe.<lb/>
+Ein gewiſſer <hi rendition="#aq">Greffier</hi> des Criminal-Gerichts ſoll willens ſeyn, die Hiſtorie<lb/>
+des <hi rendition="#aq">Cartouche</hi> und ſeiner Cameraden ausfuͤhrlich zu beſchreiben, welches<lb/>
+in der That etwas <hi rendition="#aq">curieuſ</hi>es ſeyn wird.</p><lb/>
+<p><hi rendition="#c"><hi rendition="#aq">Nota.</hi> So bald nur gedachte Hiſtorie im Druck verhanden, wird<lb/>
+man nicht ermangeln, ſolche gleichfalls ins Teutſche uͤberſetzt denen<lb/>
+Liebhabern dergleichen Schrifften durch den<lb/>
+Druck mitzutheilen.</hi></p></div><milestone unit="section" rendition="#hr"/><lb/>
+<lb/>
+<pb n="[24]" facs="#f0030"/>
+</body><back>
+<pb n="[25]" facs="#f0031"/>
+<pb n="[26]" facs="#f0032"/>
+<pb n="[27]" facs="#f0033"/>
+<pb n="[28]" facs="#f0034"/>
+<pb n="[29]" facs="#f0035"/>
+<pb n="[30]" facs="#f0036"/>
+</back> </text> </TEI>

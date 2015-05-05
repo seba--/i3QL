@@ -1,0 +1,2977 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Die Leiden des jungen Werthers</title>
+<title type="volume" n="2">Zweyter Theil</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118540238">
+<surname>Goethe</surname>
+<forename>Johann Wolfgang von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">120</measure>
+<measure type="tokens">17972</measure>
+<measure type="types">4422</measure>
+<measure type="characters">116418</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:26Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/goethe_werther02_1774</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/goethe_werther02_1774</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/goethe_werther02_1774</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/goethe_werther02_1774</idno>
+<idno type="DTADirName">goethe_werther02_1774</idno>
+<idno type="DTAID">20870</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Goethe, Johann Wolfgang von: Die Leiden des jungen Werthers. Bd. 2. Leipzig, 1774.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Die Leiden des jungen Werthers</title>
+<title level="m" type="volume" n="2">Zweyter Theil</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118540238">
+<surname>Goethe</surname>
+<forename>Johann Wolfgang von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">S. [113] - 224</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Weygand</name></publisher>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1774</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>HAB Wolfenbüttel</repository>
+<idno>
+<idno type="shelfmark">HAB Wolfenbüttel, M: Lo 2113 (2)</idno>
+<idno type="URLCatalogue">Dig: http://diglib.hab.de/drucke/lo-2113-2s/start.htm</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Roman</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Roman</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb n="[113]" facs="#f0001"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#g">Die Leiden</hi><lb/>
+des<lb/>
+<hi rendition="#g">jungen Werthers.</hi><lb/>
+</titlePart> </docTitle> <milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="volume"> Zweyter Theil.<lb/>
+</titlePart> <figure/> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace><hi rendition="#g">Leipzig</hi></pubPlace>,<lb/>
+in der <publisher>Weygandſchen Buchhandlung</publisher>.<lb/>
+<docDate><hi rendition="#g">1774</hi></docDate>.<lb/>
+</docImprint> </titlePage> </front><body>
+<pb n="[114]" facs="#f0002"/>
+<pb n="[115]" facs="#f0003"/>
+<figure/><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 20. Okt. 1771.</hi></dateline><lb/>
+<p><hi rendition="#in">G</hi>eſtern ſind wir hier angelangt. Der<lb/>
+Geſandte iſt unpaß, und wird ſich al-<lb/>
+ſo einige Tage einhalten, wenn er nur<lb/>
+nicht ſo unhold waͤre, waͤr alles gut. Jch merke,<lb/>
+ich merke, das Schikſal hat mir harte Pruͤfungen<lb/>
+zugedacht. Doch gutes Muths! ein leichter Sinn<lb/>
+traͤgt alles! Ein leichter Sinn! das macht mich<lb/>
+zu lachen, wie das Wort in meine Feder kommt.<lb/>
+O ein Bißgen leichteres Blut wuͤrde mich zum<lb/>
+gluͤklichſten Menſchen unter der Sonne machen.<lb/>
+Was! Da wo andre, mit ihrem Bißgen Kraft und<lb/>
+Talent, vor mir in behaglicher Selbſtgefaͤlligkeit<lb/>
+<fw type="sig" place="bottom">H 2</fw><fw type="catch" place="bottom">herum</fw><lb/>
+<pb n="116" facs="#f0004"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+herum ſchwadroniren, verzweifl’ ich an meiner<lb/>
+Kraft, an meinen Gaben. Guter Gott! der du<lb/>
+mir das alles ſchenkteſt, warum hielteſt du nicht<lb/>
+die Haͤlfte zuruͤk und gabſt mir Selbſtvertrauen<lb/>
+und Genuͤgſamkeit!</p><lb/>
+<p>Gedult! Gedult! Es wird beſſer werden.<lb/>
+Denn ich ſage dir, Lieber, du haſt Recht. Seit ich<lb/>
+unter dem Volke ſo alle Tage herumgetrieben wer-<lb/>
+de, und ſehe was ſie thun und wie ſie’s treiben,<lb/>
+ſteh ich viel beſſer mit mir ſelbſt. Gewiß, weil<lb/>
+wir doch einmal ſo gemacht ſind, daß wir alles mit<lb/>
+uns, und uns mit allem vergleichen; ſo liegt<lb/>
+Gluͤk oder Elend in den Gegenſtaͤnden, womit<lb/>
+wir uns zuſammenhalten, und da iſt nichts ge-<lb/>
+faͤhrlicher als die Einſamkeit. Unſere Einbildungs-<lb/>
+kraft, durch ihre Natur gedrungen ſich zu erheben,<lb/>
+durch die phantaſtiſche Bilder der Dichtkunſt ge-<lb/>
+naͤhrt, bildet ſich eine Reihe Weſen hinauf, wo wir<lb/>
+das unterſte ſind, und alles auſſer uns herrlicher<lb/>
+erſcheint, jeder andre vollkommner iſt. Und das<lb/>
+geht ganz natuͤrlich zu: Wir fuͤhlen ſo oft, daß<lb/>
+uns manches mangelt, und eben was uns fehlt<lb/>
+ſcheint uns oft ein anderer zu beſizzen, dem wir<lb/>
+<fw type="catch" place="bottom">denn</fw><lb/>
+<pb n="117" facs="#f0005"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+denn auch alles dazu geben was wir haben, und<lb/>
+noch eine gewiſſe idealiſche Behaglichkeit dazu.<lb/>
+Und ſo iſt der Gluͤkliche vollkommen fertig, das<lb/>
+Geſchoͤpf unſerer ſelbſt.</p><lb/>
+<p>Dagegen wenn wir mit all unſerer Schwachheit<lb/>
+und Muͤhſeligkeit nur gerade fortarbeiten, ſo fin-<lb/>
+den wir gar oft, daß wir mit all unſerm Schlen-<lb/>
+dern und Laviren es weiter bringen als andre<lb/>
+mit ihren Segeln und Rudern — und — das<lb/>
+iſt doch ein wahres Gefuͤhl ſeiner ſelbſt, wenn<lb/>
+man andern gleich oder gar vorlauft.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 10. Nov.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch fange an mich in ſofern ganz leidlich hier<lb/>
+zu befinden. Das beſte iſt, daß es zu thun<lb/>
+genug giebt, und dann die vielerley Menſchen, die<lb/>
+allerley neue Geſtalten, machen mir ein buntes<lb/>
+Schauſpiel vor meiner Seele. Jch habe den Gra-<lb/>
+fen C.. kennen lernen, einen Mann, den ich jeden<lb/>
+Tag mehr verehren muß. Einen weiten groſſen<lb/>
+Kopf, und der deswegen nicht kalt iſt, weil er<lb/>
+viel uͤberſieht|; aus deſſen Umgange ſo viel Em-<lb/>
+<fw type="sig" place="bottom">H 3</fw><fw type="catch" place="bottom">pfin-</fw><lb/>
+<pb n="118" facs="#f0006"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+pfindung fuͤr Freundſchaft und Liebe hervorleuch-<lb/>
+tet. Er nahm Theil an mir, als ich einen Ge-<lb/>
+ſchaͤftsauftrag an ihn ausrichtete, und er bey den<lb/>
+erſten Worten merkte, daß wir uns verſtunden,<lb/>
+daß er mit mir reden konnte wie nicht mit jedem.<lb/>
+Auch kann ich ſein offnes Betragen gegen mich<lb/>
+nicht genug ruͤhmen. So eine warme groſſe<lb/>
+Freude iſt nicht in der Welt, als eine groſſe See-<lb/>
+le zu ſehen, die ſich gegen einen oͤffnet.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 24. Dec.</hi></dateline><lb/>
+<p><hi rendition="#in">D</hi>er Geſandte macht mir viel Verdruß, ich hab<lb/>
+es voraus geſehn. Es iſt der puͤnktlichſte<lb/>
+Narre, den’s nur geben kann. Schritt vor Schrit<lb/>
+und umſtaͤndlich wie eine Baaſe. Ein Menſch<lb/>
+der nie ſelbſt mit ſich zufrieden iſt, und dem’s da<lb/>
+her niemand zu Danke machen kann. Jch arbei<lb/>
+te gern leicht weg, und wie’s ſteht ſo ſteht’s, da iſt<lb/>
+er im Stande, mir einen Aufſaz zuruͤkzugeben und<lb/>
+zu ſagen: er iſt gut, aber ſehen ſie ihn durch,<lb/>
+man findt immer ein beſſer Wort, eine reinere<lb/>
+Partikel. Da moͤcht ich des Teuſels werden. Kein<lb/>
+<fw type="catch" place="bottom">und,</fw><lb/>
+<pb n="119" facs="#f0007"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+und, kein Bindwoͤrtchen ſonſt darf auſſenbleiben,<lb/>
+und von allen Jnverſionen die mir manchmal entfah-<lb/>
+ren, iſt er ein Todtfeind. Wenn man ſeinen Pe-<lb/>
+riod nicht nach der hergebrachten Melodie herab-<lb/>
+orgelt; ſo verſteht er gar nichts drinne. Das iſt<lb/>
+ein Leiden, mit ſo einem Menſchen zu thun zu<lb/>
+haben.</p><lb/>
+<p>Das Vertrauen des Grafen von C.. iſt noch<lb/>
+das einzige, was mich ſchadlos haͤlt. Er ſagte<lb/>
+mir lezthin ganz aufrichtig: wie unzufrieden er<lb/>
+uͤber die Langſamkeit und Bedenklichkeit meines<lb/>
+Geſandten ſey. Die Leute erſchweren ſich’s und<lb/>
+andern. Doch, ſagt er, man muß ſich darein re-<lb/>
+ſigniren, wie ein Reiſender, der uͤber einen Berg<lb/>
+muß. Freylich! waͤr der Berg nicht da, waͤre der<lb/>
+Weg viel bequemer und kuͤrzer, er iſt nun aber<lb/>
+da! und es ſoll druͤber! —</p><lb/>
+<p>Mein Alter ſpuͤrt auch wohl den Vorzug,<lb/>
+den mir der Graf vor ihm giebt, und das aͤrgert<lb/>
+ihn, und er ergreift jede Gelegenheit, uͤbels gegen<lb/>
+mich vom Grafen zu reden, ich halte, wie natuͤr-<lb/>
+lich, Widerpart, und dadurch wird die Sache nur<lb/>
+ſchlimmer. Geſtern gar bracht er mich auf, denn<lb/>
+<fw type="sig" place="bottom">H 4</fw><fw type="catch" place="bottom">ich</fw><lb/>
+<pb n="120" facs="#f0008"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ich war mit gemeint. Zu ſo Weltgeſchaͤften waͤ-<lb/>
+re der Graf ganz gut, er haͤtte viel Leichtigkeit zu<lb/>
+arbeiten, und fuͤhrte eine gute Feder, doch an gruͤnd-<lb/>
+licher Gelehrſamkeit mangelt es ihm, wie all den<lb/>
+Bellettriſten. Daruͤber haͤtt ich ihn gern ausge-<lb/>
+pruͤgelt, denn weiter iſt mit den Kerls nicht zu<lb/>
+raiſonniren, da das aber nun nicht angieng, ſo<lb/>
+focht ich mit ziemlicher Heftigkeit, und ſagt ihm,<lb/>
+der Graf ſey ein Mann, vor dem man Achtung ha-<lb/>
+ben muͤßte, wegen ſeines Charakters ſowohl, als<lb/>
+ſeiner Kenntniſſe; ich habe, ſagt ich, niemand ge-<lb/>
+kannt, dem es ſo gegluͤkt waͤre, ſeinen Geiſt zu er-<lb/>
+weitern, ihn uͤber unzaͤhlige Gegenſtaͤnde zu ver-<lb/>
+breiten, und doch die Thaͤtigkeit fuͤr’s gemeine Le-<lb/>
+ben zu behalten. Das waren dem Gehirn ſpa-<lb/>
+niſche Doͤrfer, und ich empfahl mich, um nicht<lb/>
+uͤber ein weiteres Deraiſonnement noch mehr Gal-<lb/>
+le zu ſchlukken.</p><lb/>
+<p>Und daran ſeyd ihr all Schuld, die ihr<lb/>
+mich in das Joch geſchwazt, und mir ſo viel<lb/>
+von Aktivitaͤt vorgeſungen habt. Aktivitaͤt! Wenn<lb/>
+nicht der mehr thut, der Kartoffeln ſtekt, und in<lb/>
+die Stadt reitet, ſein Korn zu verkaufen, als ich,<lb/>
+<fw type="catch" place="bottom">ſo</fw><lb/>
+<pb n="121" facs="#f0009"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ſo will ich zehn Jahre noch mich auf der Galeere<lb/>
+abarbeiten, auf der ich nun angeſchmiedet bin.</p><lb/>
+<p>Und das glaͤnzende Elend die Langeweile un-<lb/>
+ter dem garſtigen Volke das ſich hier neben ein-<lb/>
+ander ſieht. Die Rangſucht unter ihnen, wie ſie<lb/>
+nur wachen und aufpaſſen, einander ein Schrittgen<lb/>
+abzugewinnen, die elendeſien erbaͤrmlichſten Leiden-<lb/>
+ſchaften, ganz ohne Roͤkgen! Da iſt ein Weib,<lb/>
+zum Exempel, die jederman von ihrem Adel und<lb/>
+ihrem Lande unterhaͤlt, daß nun jeder Fremde den-<lb/>
+ken muß: das iſt eine Naͤrrin, die ſich auf das<lb/>
+Bißgen Adel und auf den Ruf ihres Landes Wun-<lb/>
+derſttreiche einbildet — Aber es iſt noch viel<lb/>
+aͤrger, eben das Weib iſt hier aus der Nachbar-<lb/>
+ſchaft eine Amtſchreibers Tochter. — Sieh, ich kann<lb/>
+das Menſchengeſchlecht nicht begreifen, das ſo we-<lb/>
+nig Sinn hat, um ſich ſo platt zu proſtituiren.</p><lb/>
+<p>Zwar ich merke taͤglich mehr, mein Lieber,<lb/>
+wie thoͤricht man iſt andre nach ſich zu berechnen.<lb/>
+Und weil ich ſo viel mit mir ſelbſt zu thun ha-<lb/>
+be, und dieſes Herz und Sinn ſo ſtuͤrmiſch iſt,<lb/>
+ach ich laſſe gern die andern ihres Pfads gehen,<lb/>
+wenn ſie mich nur auch koͤnnten gehn laſſen.</p><lb/>
+<fw type="sig" place="bottom">H 5</fw><fw type="catch" place="bottom">Was</fw><lb/>
+<pb n="122" facs="#f0010"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Was mich am meiſten nekt, ſind die fatalen<lb/>
+buͤrgerlichen Verhaͤltniſſe. Zwar weis ich ſo gut<lb/>
+als einer, wie noͤthig der Unterſchied der Staͤnde<lb/>
+iſt, wie viel Vortheile er mir ſelbſt verſchafft, nur<lb/>
+ſoll er mir nicht eben grad im Wege ſtehn, wo ich<lb/>
+noch ein wenig Freude, einen Schimmer von<lb/>
+Gluͤk auf dieſer Erden genieſſen koͤnnte. Jch lern-<lb/>
+te neulich auf dem Spaziergange ein Fraͤulein von<lb/>
+B.. kennen, ein liebenswuͤrdiges Geſchoͤpf, das<lb/>
+ſehr viele Natur mitten in dem ſteifen Leben er-<lb/>
+halten hat. Wir gefielen uns in unſerm Geſpraͤ-<lb/>
+che, und da wir ſchieden, bat ich ſie um Erlaub-<lb/>
+niß, ſie bey ſich ſehen zu duͤrfen. Sie geſtattete<lb/>
+mir das mit ſo viel Freymuͤthigkeit, daß ich den<lb/>
+ſchiklichen Augenblik kaum erwarten konnte, zu ihr<lb/>
+zu gehen. Sie iſt nicht von hier, und wohnt bey<lb/>
+einer Tante im Hauſe. Die Phyſiognomie der al-<lb/>
+ten Schachtel gefiel mir nicht. Jch bezeigte ihr<lb/>
+viel Aufmerkſamkeit, mein Geſpraͤch war |meiſt an<lb/>
+ſie gewandt, und in minder als einer halben Stun-<lb/>
+de hatte ich ſo ziemlich weg, was mir das Fraͤu-<lb/>
+lein nachher ſelbſt geſtund: daß die liebe Tante<lb/>
+in ihrem Alter, und dem Mangel von allem, vom<lb/>
+<fw type="catch" place="bottom">an-</fw><lb/>
+<pb n="123" facs="#f0011"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+anſtaͤndigen Vermoͤgen an bis auf den Geiſt, kei-<lb/>
+ne Stuͤzze hat, als die Reihe ihrer Vorfahren, kei-<lb/>
+nen Schirm, als den Stand, in dem ſie ſich ver-<lb/>
+palliſadirt, und kein Ergoͤzzen, als von ihrem Stok-<lb/>
+werk herab uͤber die buͤrgerlichen Haͤupter weg zu<lb/>
+ſehen. Jn ihrer Jugend ſoll ſie ſchoͤn geweſen<lb/>
+ſeyn, und ihr Leben ſo weggegaukelt, erſt mit ih-<lb/>
+rem Eigenſinne manchen armen Jungen gequaͤlt,<lb/>
+und in reifern Jahren ſich unter den Gehorſam<lb/>
+eines alten Offiziers gedukt haben, der gegen die-<lb/>
+ſen Preis und einen leidlichen Unterhalt das ehr-<lb/>
+ne Jahrhundert mit ihr zubrachte, und ſtarb, und<lb/>
+nun ſieht ſie im eiſernen ſich allein, und wuͤrde<lb/>
+nicht angeſehn, waͤr ihre Nichte nicht ſo liebens-<lb/>
+wuͤrdig.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">den 8. Jan. 1772.</hi></dateline><lb/>
+<p><hi rendition="#in">W</hi>as das fuͤr Menſchen ſind, deren ganze See-<lb/>
+le auf dem Ceremoniel ruht, deren Dich-<lb/>
+ten und Trachten Jahre lang dahin geht, wie ſie<lb/>
+um einen Stuhl weiter hinauf bey Tiſche ſich ein-<lb/>
+ſchieben wollen. Und nicht, daß die Kerls ſonſt<lb/>
+<fw type="catch" place="bottom">keine</fw><lb/>
+<pb n="124" facs="#f0012"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+keine Angelegenheit haͤtten, nein, vielmehr haͤufen<lb/>
+ſich die Arbeiten, eben weil man uͤber die kleinen<lb/>
+Verdruͤßlichkeiten, von Befoͤrderung der wichtigen<lb/>
+Sachen abgehalten wird. Vorige Woche gabs<lb/>
+bey der Schlittenfahrt Haͤndel, und der ganze Spas<lb/>
+wurde verdorben.</p><lb/>
+<p>Die Thoren, die nicht ſehen, daß es eigent-<lb/>
+lich auf den Plaz gar nicht ankommt, und daß der,<lb/>
+der den erſten hat, ſo ſelten die erſte Rolle ſpielt!<lb/>
+Wie mancher Koͤnig wird durch ſeinen Miniſter,<lb/>
+wie mancher Miniſter durch ſeinen Sekretaͤr re-<lb/>
+giert. Und wer iſt dann der Erſte? der, duͤnkt<lb/>
+mich, der die andern uͤberſieht, und ſo viel Ge-<lb/>
+walt oder Liſt hat, ihre Kraͤfte und Leidenſchaften<lb/>
+zu Ausfuͤhrung ſeiner Plane anzuſpannen.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 20. Jan.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch muß Jhnen ſchreiben, liebe Lotte, hier in der<lb/>
+Stube einer geringen Bauernherberge, in<lb/>
+die ich mich vor einem ſchweren Wetter gefluͤchtet<lb/>
+habe. So lange ich in dem traurigen Neſte D..<lb/>
+unter dem fremden, meinem Herzen ganz fremden<lb/>
+<fw type="catch" place="bottom">Volke,</fw><lb/>
+<pb n="125" facs="#f0013"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Volke, herumziehe, hab’ ich keinen Augenblik ge-<lb/>
+habt, keinen, an dem mein Herz mich geheiſſen<lb/>
+haͤtte Jhnen zu ſchreiben. Und jezt in dieſer Huͤt-<lb/>
+te, in dieſer Einſamkeit, in dieſer Einſchraͤnkung,<lb/>
+da Schnee und Schloſſen wider mein Fenſtergen<lb/>
+wuͤthen, hier waren Sie mein erſter Gedanke. Wie<lb/>
+ich herein trat, uͤberfiel mich Jhre Geſtalt, Jhr An-<lb/>
+denken. O Lotte! ſo heilig, ſo warm! Guter<lb/>
+Gott! der erſte gluͤkliche Augenblik wieder.</p><lb/>
+<p>Wenn Sie mich ſaͤhen meine Beſte, in dem<lb/>
+Schwall von Zerſtreuung! Wie ausgetroknet mei-<lb/>
+ne Sinnen werden, nicht Einen Augenblik der Fuͤl-<lb/>
+le des Herzens, nicht Eine ſelige thraͤnenreiche Stun-<lb/>
+de. Nichts! Nichts! Jch ſtehe wie vor einem<lb/>
+Raritaͤtenkaſten, und ſehe die Maͤnngen und Gaͤul-<lb/>
+gen vor mir herumruͤkken, und frage mich oft, ob’s<lb/>
+nicht optiſcher Betrug iſt. Jch ſpiele mit, viel-<lb/>
+mehr, ich werde geſpielt wie eine Marionette, und<lb/>
+faſſe manchmal meinen Nachbar an der hoͤlzernen<lb/>
+Hand und ſchaudere zuruͤk.</p><lb/>
+<p>Ein einzig weiblich Geſchoͤpf hab ich hier<lb/>
+gefunden. Eine Fraͤulein von B.. Sie gleicht<lb/>
+Jhnen liebe Lotte, wenn man Jhnen gleichen kann.<lb/>
+<fw type="catch" place="bottom">Ey!</fw><lb/>
+<pb n="126" facs="#f0014"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Ey! werden Sie ſagen: der Menſch legt ſich auf<lb/>
+niedliche Komplimente! Ganz unwahr iſt’s nicht.<lb/>
+Seit einiger Zeit bin ich ſehr artig, weil ich doch<lb/>
+nicht anders ſeyn kann, habe viel Wiz, und die<lb/>
+Frauenzimmer ſagen: es wuͤſte niemand ſo ſein<lb/>
+zu loben als ich (und zu luͤgen, ſezzen Sie hinzu,<lb/>
+denn ohne das geht’s nicht ab, verſtehen Sie:) Jch<lb/>
+wollte von Fraͤulein B.. reden! Sie hat viel<lb/>
+Seele, die voll aus ihren blauen Augen hervorblikt, ihr<lb/>
+Stand iſt ihr zur Laſt, der keinen der Wuͤtiſche ih-<lb/>
+res Herzens befriedigt. Sie ſehnt ſich aus dem<lb/>
+Getuͤmmel, und wir verphantaſiren manche Stun-<lb/>
+de in laͤndlichen Scenen von ungemiſchter Gluͤk-<lb/>
+ſeligkeit, ach! und von Jhnen! Wie oft muß ſie<lb/>
+Jhnen huldigen. Muß nicht, thut’s freywillig,<lb/>
+hoͤrt ſo gern von Jhnen, liebt Sie —</p><lb/>
+<p>O ſaͤs ich zu Jhren Fuͤſſen in dem lieben ver-<lb/>
+traulichen Zimmergen, und unſere kleinen Lieben<lb/>
+waͤlzten ſich miteinander um mich herum, und wenn<lb/>
+ſie Jhnen zu laut wuͤrden, wollt ich ſie mit einem<lb/>
+ſchauerlichen Maͤhrgen um mich zur Ruhe ver-<lb/>
+ſammlen. Die Sonne geht herrlich unter uͤber<lb/>
+der ſchneeglaͤnzenden Gegend, der Sturm iſt hin-<lb/>
+<fw type="catch" place="bottom">uͤber</fw><lb/>
+<pb n="127" facs="#f0015"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+uͤber gezogen. Und ich — muß mich wieder in<lb/>
+meinen Kaͤfig ſperren. Adieu! Jſt Albert bey<lb/>
+Jhnen? Und wie —? Gott verzeihe mir dieſe<lb/>
+Frage!</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 17. Febr.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch fuͤrchte, mein Geſandter und ich, haltens nicht<lb/>
+lange mehr zuſammen aus. Der Menſch iſt<lb/>
+ganz und gar unertraͤglich. Seine Art zu arbei-<lb/>
+ten und Geſchaͤfte zu treiben iſt ſo laͤcherlich, daß<lb/>
+ich mich nicht enthalten kann ihm zu widerſpre-<lb/>
+chen, und oft eine Sache nach meinem Kopfe und<lb/>
+Art zu machen, das ihm denn, wie natuͤrlich, nie-<lb/>
+mals recht iſt. Daruͤber hat er mich neulich bey<lb/>
+Hofe verklagt, und der Miniſter gab mir einen<lb/>
+zwar ſanften Verweis, aber es war doch ein Ver-<lb/>
+weis, und ich ſtand im Begriffe, meinen Abſchied<lb/>
+zu begehren, als ich einen Privatbrief <note place="foot" n="*)">Man hat aus Ehrfurcht fuͤr dieſen treflichen<lb/>
+Mann, gedachten Brief, und einen andern, deſ-<lb/>
+ſen weiter hinten erwehnt wird, dieſer Samm-<lb/>
+lung entzogen, weil man nicht glaubte, ſolche<lb/>
+Kuͤhnheit durch den waͤrmſten Dank des Pu-<lb/>
+blikums entſchuldigen zu koͤnnen.</note> von ihm<lb/>
+<fw type="catch" place="bottom">erhielt,</fw><lb/>
+<pb n="128" facs="#f0016"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+erhielt, einen Brief, vor dem ich mich niederge-<lb/>
+kniet, und den hohen, ed en, wei en Sinn angebe-<lb/>
+tet habe, wie er meine allzugroſſe Empfindlichkeit<lb/>
+zurechte weißt, wie er meine uͤberſpannte Jdeen<lb/>
+von Wuͤrkſamkeit, von Einfluß auf andre, von<lb/>
+Durchdringen in Geſchaͤften als jugendlichen guten<lb/>
+Muth zwar ehrt, ſie nicht auszurotten, nur zu<lb/>
+mildern und dahin zu leiten ſucht, wo ſie ihr wah-<lb/>
+res Spiel haben, ihre kraͤftige Wuͤrkung thun koͤn-<lb/>
+nen. Auch bin ich auf acht Tage geſtaͤrkt, und in<lb/>
+mir ſelbſt einig geworden. Die Ruhe der Seele<lb/>
+iſt ein herrlich Ding, und die Freude an ſich ſelbſt,<lb/>
+lieber Freund, wenn nur das Ding nicht eben ſo<lb/>
+zerbrechlich waͤre, als es ſchoͤn und koſtbar iſt.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 20. Febr.</hi></dateline><lb/>
+<p><hi rendition="#in">G</hi>ott ſegne euch, meine Lieben, |geb euch all die<lb/>
+guten Tage, die er mir abzieht.</p><lb/>
+<p>Jch danke dir Albert, daß du mich betrogen<lb/>
+haſt, ich wartete auf Nachricht, wann euer Hochzeit-<lb/>
+tag ſeyn wuͤrde, und hatte mir vorgenommen, feyer-<lb/>
+lichſt an demſelben Lottens Schattenriß von der<lb/>
+<fw type="catch" place="bottom">Wand</fw><lb/>
+<pb n="129" facs="#f0017"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Wand zu nehmen, und ſie unter andere Papiere<lb/>
+zu begraben. Nun ſeyd ihr ein Paar, und ihr<lb/>
+Bild iſt noch hier! Nun ſo ſoll’s bleiben! Und<lb/>
+warum nicht? Jch weis, ich bin ja auch bey euch,<lb/>
+bin dir unbeſchadet in Lottens Herzen. Habe, ja<lb/>
+ich habe den zweyten Plaz drinne, und will und<lb/>
+muß ihn behalten. O ich wuͤrde raſend werden,<lb/>
+wenn ſie vergeſſen koͤnnte — Albert in dem Ge-<lb/>
+danken liegt eine Hoͤlle. Albert! Leb wohl. Leb<lb/>
+wohl, Engel des Himmels, leb wohl, Lotte!</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 15. Merz.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch hab einen Verdruß gehabt, der mich von<lb/>
+hier wegtreiben wird, ich knirſche mit den Zaͤh-<lb/>
+nen! Teufel! Er iſt nicht zu erſezzen, und ihr<lb/>
+ſeyd doch allein ſchuld daran, die ihr mich ſporntet<lb/>
+und triebt und quaͤltet, mich in einen Poſten zu<lb/>
+begeben, der nicht nach meinem Sinne war. Nun<lb/>
+hab ich’s nun habt ihr’s. Und daß du nicht wie-<lb/>
+der ſagſt: meine uͤberſpannten Jdeen verduͤrben<lb/>
+alles; ſo haſt du hier lieber Herr, eine Erzaͤh-<lb/>
+<fw type="sig" place="bottom">J</fw><fw type="catch" place="bottom">lung,</fw><lb/>
+<pb n="130" facs="#f0018"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+lung, plan und nett, wie ein Chronikenſchreiber<lb/>
+das aufzeichnen wuͤrde.</p><lb/>
+<p>Der Graf v. C. liebt mich, diſtingwirt mich,<lb/>
+das iſt bekannt, das hab ich dir ſchon hundertmal<lb/>
+geſagt. Nun war ich bey ihm zu Tiſche geſtern,<lb/>
+eben an dem Tage, da Abends die noble Geſellſchaft<lb/>
+von Herren und Frauen bey ihm zuſammenkommt,<lb/>
+an die ich nie gedacht hab, auch mir nie aufge-<lb/>
+fallen iſt, daß wir Subalternen nicht hinein gehoͤ-<lb/>
+ren. Gut. Jch ſpeiſe beym Grafen und nach Ti-<lb/>
+ſche gehn wir im groſſen Saale auf und ab, ich re-<lb/>
+de mit ihm, mit dem Obriſt B. der dazu kommt,<lb/>
+und ſo ruͤkt die Stunde der Geſellſchaft heran.<lb/>
+Jch denke, Gott weis, an nichts. Da tritt herein<lb/>
+die uͤbergnaͤdige Dame von S.. mit Dero Herrn<lb/>
+Gemahl und wohl ausgebruͤteten Gaͤnslein Toch-<lb/>
+ter mit der flachen Bruſt und niedlichem Schnuͤr-<lb/>
+leib, machen <hi rendition="#aq">en passant</hi> ihre hergebrachten hoch-<lb/>
+adlichen Augen und Nasloͤcher, und wie mir die<lb/>
+Nation von Herzen zuwider iſt, wollt ich eben<lb/>
+mich empfehlen, und wartete nur, bis der Graf<lb/>
+vom garſtigen Gewaͤſche frey waͤre, als eben mei-<lb/>
+ne Fraͤulein B.. herein trat, da mir denn das<lb/>
+<fw type="catch" place="bottom">Herz</fw><lb/>
+<pb n="131" facs="#f0019"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Herz immer ein bißgen aufgeht, wenn ich ſie ſe-<lb/>
+he, blieb ich eben, ſtellte mich hinter ihren Stuhl,<lb/>
+und bemerkte erſt nach einiger Zeit, daß ſie mit<lb/>
+weniger Offenheit als ſonſt, mit einiger Verlegen-<lb/>
+heit mit mir redte. Das fiel mir auf. Jſt ſie<lb/>
+auch wie all das Volk, dacht ich, hohl ſie der Teu-<lb/>
+fel! und war angeſtochen und wollte gehn, und<lb/>
+doch blieb ich, weil ich intriguirt war, das Ding<lb/>
+naͤher zu beleuchten. Ueber dem fuͤllt ſich die Ge-<lb/>
+ſellſchaft. Der Baron F.. mit der ganzen Gar-<lb/>
+derobe von den Kroͤnungszeiten Franz des erſten<lb/>
+her, der Hofrath R.. hier aber <hi rendition="#aq">in qualitate</hi> Herr<lb/>
+von R.. genannt mit ſeiner tauben Frau ꝛc. den<lb/>
+uͤbel fournirten J. nicht zu vergeſſen, bey deſſen<lb/>
+Kleidung, Reſte des altfraͤnkiſchen mit dem neu’ſt<lb/>
+aufgebrachten kontraſtiren ꝛc. das kommt all und<lb/>
+ich rede mit einigen meiner Bekanntſchaft, die alle<lb/>
+ſehr lakoniſch ſind, ich dachte — und gab nur auf<lb/>
+meine B.. acht. Jch merkte nicht, daß die Wei-<lb/>
+ber am Ende des Saals ſich in die Ohren pis-<lb/>
+perten, daß es auf die Maͤnner zirkulirte, daß<lb/>
+Frau von S.. mit dem Grafen redte (das alles<lb/>
+hat mir Fraͤulein B.. nachher erzaͤhlt:) biß end<lb/>
+<fw type="sig" place="bottom">J 2</fw><fw type="catch" place="bottom">lich</fw><lb/>
+<pb n="132" facs="#f0020"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+lich der Graf auf mich losgieng und mich in ein<lb/>
+Fenſter nahm. Sie wiſſen ſagt er, unſere wun-<lb/>
+derbaren Verhaͤltniſſe, die Geſellſchaft iſt unzufrie-<lb/>
+den, merk ich, ſie hier zu ſehn, ich wollte nicht um<lb/>
+alles — Jhro Excellenz, fiel ich ein, ich bitte tau-<lb/>
+ſendmal um Verzeihung, ich haͤtte eher dran den-<lb/>
+ken ſollen, und ich weis, Sie verzeihen mir dieſe<lb/>
+Jnkonſequenz, ich wollte ſchon vorhin mich empfeh-<lb/>
+len, ein boͤſer Genius hat mich zuruͤk gehalten,<lb/>
+ſezte ich laͤchelnd hinzu, indem ich mich neigte. Der<lb/>
+Graf druͤkte meine Haͤnde mit einer Empfindung,<lb/>
+die alles ſagte. Jch machte der vornehmen Ge-<lb/>
+ſellſchaft mein Compliment, gieng und ſezte mich in<lb/>
+ein Cabriolet und fuhr nach M.. dort vom Huͤ-<lb/>
+gel die Sonne untergehen zu ſehen, und dabey in<lb/>
+meinem Homer den herrlichen Geſang zu leſen,<lb/>
+wie Ulyß von dem treflichen Schweinhirten bewir-<lb/>
+thet wird. Das war all gut.</p><lb/>
+<p>Des Abends komm ich zuruͤk zu Tiſche. Es<lb/>
+waren noch wenige in der Gaſtſtube, die wuͤrfelten<lb/>
+auf einer Ekke, hatten das Tiſchtuch zuruͤk geſchla-<lb/>
+gen. Da kommt der ehrliche A.. hinein, legt ſei-<lb/>
+nen Hut nieder, indem er mich anſieht, tritt zu mir<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="133" facs="#f0021"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+und ſagt leiſe: Du haſt Verdruß gehabt? Jch?<lb/>
+ſagt ich — der Graf hat dich aus der Geſellſchaft<lb/>
+gewieſen — Hol ſie der Teufel, ſagt ich, mir war’s<lb/>
+lieb, daß ich in die freye Luft kam — Gut, ſagt<lb/>
+er, daß du’s auf die leichte Achſel nimmſt. Nur<lb/>
+verdrießt mich’s. Es iſt ſchon uͤberall herum. —<lb/>
+Da fieng mir das Ding erſt an zu wurmen. Al-<lb/>
+le die zu Tiſche kamen und mich anſahen, dacht<lb/>
+ich die ſehen dich darum an! Das fieng an mir<lb/>
+boͤſes Blut zu ſezzen.</p><lb/>
+<p>Und da man nun heute gar wo ich hin-<lb/>
+trete mich bedauert, da ich hoͤre, daß meine Nei-<lb/>
+der nun triumphiren und ſagen: Da ſaͤhe man’s,<lb/>
+wo’s mit den Uebermuͤthigen hinausgieng, die ſich<lb/>
+ihres bißgen Kopfs uͤberhuͤben und glaubten, ſich<lb/>
+darum uͤber alle Verhaͤltniſſe hinausſezzen zu duͤr-<lb/>
+fen, und was des Hundegeſchwaͤzzes mehr iſt.<lb/>
+Da moͤchte man ſich ein Meſſer in’s Herz bohren.<lb/>
+Denn man rede von Selbſtſtaͤndigkeit was man<lb/>
+will, den will ich ſehn der bulden kann, daß Schur-<lb/>
+ken uͤber ihn reden, wenn ſie eine Priſe uͤber ihn<lb/>
+haben. Wenn ihr Geſchwaͤtz leer iſt, ach! da kann<lb/>
+man ſie leicht laſſen.</p><lb/>
+<fw type="sig" place="bottom">J 3</fw><fw type="catch" place="bottom">am</fw><lb/>
+<pb n="134" facs="#f0022"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 16. Merz.</hi></dateline><lb/>
+<p><hi rendition="#in">E</hi>s hezt mich alles! Heut tref ich die Fraͤu-<lb/>
+lein B.. in der Allee. Jch konnte mich nicht<lb/>
+enthalten ſie anzureden, und ihr, ſobald wir etwas<lb/>
+entfernt von der Geſellſchaft waren, meine Empfind-<lb/>
+lichkeit uͤber ihr neuliches Betragen zu zeigen. O<lb/>
+Werther, ſagte ſie mit einem innigen Tone, konn-<lb/>
+ten Sie meine Verwirrung ſo auslegen, da Sie<lb/>
+mein Herz konnen. Was ich gelitten habe um<lb/>
+ihrentwillen, von dem Augenblikke an, da ich in<lb/>
+den Saal trat. Jch ſah’ alles voraus, hundert-<lb/>
+mal ſaß mir’s auf der Zunge, es Jhnen zu ſagen,<lb/>
+ich wußte, daß die von S.. und T.. mit ihren<lb/>
+Maͤnnern eher aufbrechen wuͤrden, als in Jhrer<lb/>
+Geſellſchaft zu bleiben, ich wußte, daß der Graf es<lb/>
+nicht mit Jhnen verderben darf, und jezo der<lb/>
+Laͤrm — Wie Fraͤulein? ſagt’ ich, und verbarg<lb/>
+meinen Schrekken, denn alles, was Adelin mir eh-<lb/>
+geſtern geſagt hatte, lief mir wie ſiedend Waſſer<lb/>
+durch die Adern in dieſem Augenblikke. — Was<lb/>
+hat mich’s ſchon gekoſtet! ſagte das ſuͤſſe Geſchoͤpf,<lb/>
+<fw type="catch" place="bottom">indem</fw><lb/>
+<pb n="135" facs="#f0023"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+indem ihr die Thraͤnen in den Augen ſtunden.<lb/>
+Jch war nicht Herr mehr von mir ſelbſt, war im<lb/>
+Begriff, mich ihr zu Fuͤſſen zu werfen. Erklaͤren<lb/>
+ſie ſich, ruft ich: Die Thraͤnen liefen ihr die<lb/>
+Wangen herunter, ich war auſſer mir. Sie trok-<lb/>
+nete ſie ab, ohne ſie verbergen zu wollen. Mei-<lb/>
+ne Tante kennen ſie, fieng ſie an; ſie war gegen-<lb/>
+waͤrtig, und hat, o mit was fuͤr Augen hat ſie<lb/>
+das angeſehn. Werther, ich habe geſtern Nacht<lb/>
+ausgeſtanden, und heute fruͤh eine Predigt uͤber<lb/>
+meinen Umgang mit Jhnen, und ich habe muͤſſen<lb/>
+zuhoͤren Sie herabſezzen, erniedrigen, und konn-<lb/>
+te und durfte Sie nur halb vertheidigen.</p><lb/>
+<p>Jedes Wort, das ſie ſprach, gieng mir wie<lb/>
+Schwerder durch’s Herz. Sie fuͤhlte nicht, welche<lb/>
+Barmherzigkeit es geweſen waͤre, mir das alles zu<lb/>
+verſchweigen, und nun fuͤgte ſie noch all dazu, was<lb/>
+weiter wuͤrde getraͤtſcht werden, was die ſchlechten<lb/>
+Kerls alle daruͤber triumphiren wuͤrden. Wie<lb/>
+man nunmehro meinen Uebermuth und Gering-<lb/>
+ſchaͤzzung andrer, das ſie mir ſchon lange vorwer-<lb/>
+fen, geſtraft, erniedrigt ausſchreien wuͤrde. Das<lb/>
+alles, Wilhelm, von ihr zu hoͤren, mit der Stimme<lb/>
+<fw type="sig" place="bottom">J 4</fw><fw type="catch" place="bottom">der</fw><lb/>
+<pb n="136" facs="#f0024"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+der wahrſten Theilnehmung. Jch war zerſtoͤrt,<lb/>
+und bin noch wuͤthend in mir. Jch wollte, daß<lb/>
+ſich einer unterſtuͤnde mir’s vorzuwerfen, daß ich<lb/>
+ihm den Degen durch den Leib ſtoſſen koͤnnte!<lb/>
+Wenn ich Blur ſaͤhe wuͤrde mir’s beſſer werden.<lb/>
+Ach ich hab hundertmal ein Meſſer ergriffen, um<lb/>
+dieſem gedraͤngten Herzen Luft zu machen. Man<lb/>
+erzaͤhlt von einer edlen Art Pferde, die, wenn ſie<lb/>
+ſchroͤklich erhizt und aufgejagt ſind, ſich ſelbſt aus<lb/>
+Jnſtinkt eine Ader aufbeiſſen, um ſich zum Athem<lb/>
+zu helfen. So iſt mir’s oft, ich moͤchte mir eine<lb/>
+Ader oͤfnen, die mir die ewige Freyheit ſchaffte.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 24. Merz.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch habe meine Dimißion bey Hofe verlangt,<lb/>
+und werde ſie, hoff ich erhalten, und ihr wer-<lb/>
+det mir verzeihen, daß ich nicht erſt Permißion<lb/>
+dazu bey euch geholt habe. Jch mußte nun ein-<lb/>
+mal fort, und was ihr zu ſagen hattet, um mir<lb/>
+das Bleiben einzureden weis ich all, und alſo —<lb/>
+Bring das meiner Mutter in einem Saͤſtgen bey,<lb/>
+ich kann mir ſelbſt nicht helfen, alſo mag ſie ſich’s<lb/>
+<fw type="catch" place="bottom">gefallen</fw><lb/>
+<pb n="137" facs="#f0025"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+gefallen laſſen, wenn ich ihr auch nicht helfen<lb/>
+kann. Freylich muß es ihr weh thun. Den<lb/>
+ſchoͤnen Lauf, den ihr Sohn grad zum Geheim-<lb/>
+derath und Geſandten anſezte, ſo auf einmal Hal-<lb/>
+te zu ſehen, und ruͤkwaͤrts mit dem Thiergen in<lb/>
+Stall. Macht nun draus was ihr wollt und kom-<lb/>
+binirt die moͤgliche Faͤlle, unter denen ich haͤtte<lb/>
+bleiben koͤnnen und ſollen. Genug ich gehe. Und<lb/>
+damit ihr wißt wo ich hinkomme, ſo iſt hier der<lb/>
+Fuͤrſt * * der viel Geſchmak an meiner Geſellſchaft<lb/>
+findet, der hat mich gebeten, da er von meiner Ab-<lb/>
+ſicht hoͤrte, mit ihm auf ſeine Guͤter zu gehen, und<lb/>
+den ſchoͤnen Fruͤhling da zuzubringen. Jch ſoll<lb/>
+ganz mir ſelbſt gelaſſen ſeyn, hat er mir verſpro-<lb/>
+chen, und da wir uns zuſammen bis auf einen<lb/>
+gewiſſen Punkt verſtehn, ſo will ich’s denn auf gut<lb/>
+Gluͤk wagen, und mit ihm gehn.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">den 19. April.</hi></dateline><lb/>
+<div n="1"><head>Zur Nachricht.</head><lb/>
+<p>Danke fuͤr deine beyden Briefe. Jch ant-<lb/>
+wortete nicht, weil ich dieſen Brief liegen ließ, bis<lb/>
+mein Abſchied von Hofe da waͤre, weil ich fuͤrch-<lb/>
+<fw type="sig" place="bottom">J 5</fw><fw type="catch" place="bottom">tete</fw><lb/>
+<pb n="138" facs="#f0026"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+tete, meine Mutter moͤchte ſich an den Miniſter<lb/>
+wenden und mir mein Vorhaben erſchweren. Nun<lb/>
+aber iſt’s geſchehen, mein Abſchied iſt da. Jch<lb/>
+mag euch nicht ſagen, wie ungern man mir ihn<lb/>
+gegeben hat, und was mir der Miniſter ſchreibt,<lb/>
+ihr wuͤrdet in neue Lamentationen ausbrechen.<lb/>
+Der Erbprinz hat mir zum Abſchiede <choice><sic>ſuͤnf</sic><corr>fuͤnf</corr></choice> und<lb/>
+zwanzig Dukaten geſchikt, mit einem Wort, das<lb/>
+mich bis zu Thraͤnen geruͤhrt hat. Alſo braucht<lb/>
+die Mutter mir das Geld nicht zu ſchikken, um<lb/>
+das ich neulich ſchrieb.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 5. May.</hi></dateline><lb/>
+<p><hi rendition="#in">M</hi>orgen geh ich von hier ab, und weil mein<lb/>
+Geburtsort nur ſechs Meilen vom Wege<lb/>
+liegt, ſo will ich den auch wieder ſehen, will mich<lb/>
+der alten gluͤklich vertraͤumten Tage erinnern. Zu<lb/>
+eben dem Thore will ich hineingehn, aus dem<lb/>
+meine Mutter mit mir herausfuhr, als ſie nach<lb/>
+dem Tode meines Vaters den lieben vertraulichen<lb/>
+Ort verließ, um ſich in ihre unertraͤgliche Stadt<lb/>
+<fw type="catch" place="bottom">einzu-</fw><lb/>
+<pb n="139" facs="#f0027"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+einzuſperren. Adieu, Wilhelm, du ſollſt von mei-<lb/>
+nem Zuge hoͤren.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 9. May.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch habe die Wallfahrt nach meiner Heimath<lb/>
+mit aller Andacht eines Pilgrims vollendet,<lb/>
+und manche unerwartete Gefuͤhle haben mich er-<lb/>
+griffen. An der groſſen Linde, die eine Viertelſtun-<lb/>
+de vor der Stadt nach S.. zuſteht, ließ ich halten,<lb/>
+ſtieg aus und hieß den Poſtillion fortfahren, um<lb/>
+zu Fuſſe jede Erinnerung ganz neu, lebhaft nach<lb/>
+meinem Herzen zu koſten. Da ſtand ich nun un-<lb/>
+ter der Linde, die ehedeſſen als Knabe das Ziel<lb/>
+und die Graͤnze meiner Spaziergaͤnge geweſen.<lb/>
+Wie anders! Damals ſehnt ich mich in gluͤklicher<lb/>
+Unwiſſenheit hinaus in die unbekannte Welt, wo<lb/>
+ich fuͤr mein Herz alle die Nahrung, alle den Ge-<lb/>
+nuß hoffte, deſſen Ermangeln ich ſo oſt in meinem<lb/>
+Buſen fuͤhlte. Jezt kam ich zuruͤk aus der weiten<lb/>
+Welt — O mein Freund, mit wie viel fehlgeſchla-<lb/>
+genen Hofnungen, mit wie viel zerſtoͤrten Pla-<lb/>
+nen! — Jch ſah das Gebuͤrge vor mir liegen, das<lb/>
+<fw type="catch" place="bottom">ſo</fw><lb/>
+<pb n="140" facs="#f0028"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ſo tauſendmal der Gegenſtand meiner Wuͤnſche ge-<lb/>
+weſen. Stundenlang konnte ich hier ſizzen, und<lb/>
+mich hinuͤber ſehnen, mit inniger Seele mich in<lb/>
+denen Waͤldern, denen Thaͤlern verliehren, die ſich<lb/>
+meinen Augen ſo freundlich daͤmmernd darſtell-<lb/>
+ten — und wenn ich denn nun die beſtimmte<lb/>
+Zeit wieder zuruͤk mußte, mit welchem Widerwillen<lb/>
+verließ ich nicht den lieben Plaz! Jch kam der<lb/>
+Stadt naͤher, alle alte bekannte Gartenhaͤusgen<lb/>
+wurden von mir gegruͤßt, die neuen waren mir<lb/>
+zuwider, ſo auch alle Beraͤnderungen, die man ſonſt<lb/>
+vorgenommen hatte. Jch trat zum Thore hinein,<lb/>
+und fand mich doch gleich und ganz wieder. Lie-<lb/>
+ber, ich mag nicht in’s Detail gehn, ſo reizend als<lb/>
+es mir war, ſo einfoͤrmig wuͤrde es im der Erzaͤh-<lb/>
+lung werden. Jch hatte beſchloſſen auf dem Mark-<lb/>
+te zu wohnen, gleich neben unſerm alten Hauſe.<lb/>
+Jm Hingehen bemerkte ich daß die Schulſtube,<lb/>
+wo ein ehrlich altes Weib unſere Kindheit zuſam-<lb/>
+mengepfercht hatte, in einen Kram verwandelt war.<lb/>
+Jch erinnerte mich der Unruhe, der Thraͤnen, der<lb/>
+Dumpfheit des Sinnes, der Herzensangſt, die ich<lb/>
+in dem Loche ausgeſtanden hatte — Jch that kei-<lb/>
+<fw type="catch" place="bottom">nen</fw><lb/>
+<pb n="141" facs="#f0029"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+nen Schritt, der nicht merkwuͤrdig war. Ein Pil-<lb/>
+ger im heiligen Lande trifft nicht ſo viel Staͤten<lb/>
+religioſer Erinnerung, und ſeine Seele iſt ſchwer-<lb/>
+lich ſo voll heiliger Bewegung. — Noch eins fuͤr<lb/>
+tauſend. Jch gieng den Fluß hinab, bis an einen<lb/>
+gewiſſen Hof, das war ſonſt auch mein Weg, und<lb/>
+die Plaͤzgen da wir Knaben uns uͤbten, die mei-<lb/>
+ſten Spruͤnge der flachen Steine im Waſſer her-<lb/>
+vorzubringen. Jch erinnere mich ſo lebhaft, wenn<lb/>
+ich manchmal ſtand, und dem Waſſer nachſah, mit<lb/>
+wie wunderbaren Ahndungen ich das verfolgte, wie<lb/>
+abenteuerlich ich mir die Gegenden vorſtellte, wo<lb/>
+es nun hinfloͤſſe, und wie ich da ſo bald Gren-<lb/>
+zen meiner Vorſtellungskraft fand, und doch mußte<lb/>
+das weiter gehn, immer weiter, bis ich mich ganz<lb/>
+in dem Anſchauen einer unſichtbaren Ferne ver-<lb/>
+lohr. Siehe mein Lieber, das iſt doch eben das<lb/>
+Gefuͤhl der herrlichen Altvaͤter! Wenn Ulyß von<lb/>
+dem ungemeſſenen Meere, und von der unendlichen<lb/>
+Erde ſpricht, iſt das nicht wahrer, menſchlicher, in-<lb/>
+niger, als wenn jezzo jeder Schulknabe ſich wun-<lb/>
+der weiſe duͤnkt, wenn er nachſagen kann, daß ſie<lb/>
+rund ſey.</p><lb/>
+<fw type="catch" place="bottom">Nun</fw><lb/>
+<pb n="142" facs="#f0030"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Nun bin ich hier auf dem fuͤrſtlichen Jagd-<lb/>
+ſchloſſe. Es laͤßt ſich noch ganz wohl mit dem Herrn<lb/>
+leben, er iſt ganz wahr, und einfach. Was mir<lb/>
+noch manchmal leid thut, iſt, daß er oft uͤber Sa-<lb/>
+chen redt, die er nur gehoͤrt und geleſen hat, und<lb/>
+zwar aus eben dem Geſichtspunkte, wie ſie ihm<lb/>
+der andere darſtellen mochte.</p><lb/>
+<p>Auch ſchaͤzt er meinen Verſtand und Talente<lb/>
+mehr als dies Herz, das doch mein einziger Stolz<lb/>
+iſt, das ganz allein die Quelle von allem iſt, aller<lb/>
+Kraft, aller Seligkeit und alles Elends. Ach was<lb/>
+ich weis, kann jeder wiſſen. — Mein Herz hab<lb/>
+ich allein.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 25. May.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch hatte etwas im Kopfe, davon ich euch nichts<lb/>
+ſagen wollte, bis es ausgefuͤhrt waͤre, jezt da<lb/>
+nichts draus wird, iſt’s eben ſo gut. Jch wollte<lb/>
+in Krieg! Das hat mir lang am Herzen gelegen.<lb/>
+Vornehmlich darum bin ich dem Fuͤrſten hieher ge-<lb/>
+folgt, der General in * * * ſchen Dienſten iſt.<lb/>
+Auf einem Spaziergange entdekte ich ihm mein<lb/>
+<fw type="catch" place="bottom">Vor-</fw><lb/>
+<pb n="143" facs="#f0031"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Vorhaben, er widerrieth mir’s, und es muͤßte bey<lb/>
+mir mehr Leidenſchaft als Grille geweſen ſeyn,<lb/>
+wenn ich ſeinen Gruͤnden nicht haͤtte Gehoͤr geben<lb/>
+wollen.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 11. Juni.</hi></dateline><lb/>
+<p><hi rendition="#in">S</hi>ag was Du willſt, ich kann nicht laͤnger blei-<lb/>
+ben. Was ſoll ich hier? Die Zeit wird<lb/>
+mir lang. Der Fuͤrſt haͤlt mich wie ſeines Glei-<lb/>
+chen gut, und doch bin ich nicht in meiner Lage.<lb/>
+Und dann, wir haben im Grunde nichts gemeines<lb/>
+mit einander. Er iſt ein Mann von Verſtande,<lb/>
+aber von ganz gemeinem Verſtande, ſein Umgang<lb/>
+unterhaͤlt mich nicht mehr, als wenn ich ein wohl-<lb/>
+geſchrieben Buch leſe. Noch acht Tage bleib ich,<lb/>
+und dann zieh ich wieder in der Jrre herum. Das<lb/>
+beſte, was ich hier gethan habe, iſt mein Zeichnen.<lb/>
+Und der Fuͤrſt fuͤhlt in der Kunſt, und wuͤrde noch<lb/>
+ſtaͤrker fuͤhlen, wenn er nicht durch das garſtige,<lb/>
+wiſſenſchaftliche Weſen, und durch die gewoͤhnliche<lb/>
+Terminologie eingeſchraͤnkt waͤre. Manchmal<lb/>
+knirſch ich mit den Zaͤhnen, wenn ich ihn mit war-<lb/>
+mer Jmagination ſo an Natur und Kunſt herum<lb/>
+<fw type="catch" place="bottom">fuͤhre</fw><lb/>
+<pb n="144" facs="#f0032"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+fuͤhre und er’s auf einmal recht gut zu machen<lb/>
+denkt, wenn er mit einem geſtempelten Kunſtworte<lb/>
+drein toͤlpelt.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 18. Juni.</hi></dateline><lb/>
+<p><hi rendition="#in">W</hi>o ich hin will? Das laß Dir im Vertrauen<lb/>
+eroͤfnen. Vierzehn Tage muß ich doch noch<lb/>
+hier bleiben, und dann hab ich mir weis gemacht,<lb/>
+daß ich die Bergwerke in * * ſchen beſuchen wollte,<lb/>
+iſt aber im Grunde nichts dran, ich will nur Lot-<lb/>
+ten wieder naͤher, das iſt alles. Und ich lache<lb/>
+uͤber mein eigen Herz — und thu ihm ſeinen<lb/>
+Willen.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 29. Juli.</hi></dateline><lb/>
+<p><hi rendition="#in">N</hi>ein es iſt gut! Es iſt alles gut! Jch ihr<lb/>
+Mann! O Gott, der du mich machteſt, wenn<lb/>
+du mir dieſe Seligkeit bereitet haͤtteſt, mein ganzes<lb/>
+Leben ſollte ein anhaltendes Gebet ſeyn. Jch will<lb/>
+nicht rechten, und verzeih mir dieſe Thraͤnen, ver-<lb/>
+zeih mir meine vergebliche Wuͤnſche. — Sie meine<lb/>
+Frau! Wenn ich das liebſte Geſchoͤpf unter der<lb/>
+Sonne in meine Arme geſchloſſen haͤtte — Es<lb/>
+<fw type="catch" place="bottom">geht</fw><lb/>
+<pb n="145" facs="#f0033"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+geht mir ein Schauder durch den ganzen Koͤrper,<lb/>
+Wilhelm, wenn Albert ſie um den ſchlanken Leib<lb/>
+faßt.</p><lb/>
+<p>Und, darf ich’s ſagen? Warum nicht, Wil-<lb/>
+helm, ſie waͤre mit mir gluͤklicher geworden als<lb/>
+mit ihm! O er iſt nicht der Menſch, die Wuͤn-<lb/>
+ſche dieſes Herzens alle zu fuͤllen. Ein gewiſſer<lb/>
+Mangel an Fuͤhlbarkeit, ein Mangel — nimm’s<lb/>
+wie du willſt, daß ſein Herz nicht ſympathetiſch<lb/>
+ſchlaͤgt bey — Oh! — bey der Stelle eines<lb/>
+lieben Buchs, wo mein Herz und Lottens in einem<lb/>
+zuſammen treffen. Jn hundert andern Vorfaͤllen,<lb/>
+wenn’s kommt, daß unſere Empfindungen uͤber eine<lb/>
+Handlung eines dritten laut werden. Lieber Wil-<lb/>
+helm! — Zwar er liebt ſie von ganzer Seele,<lb/>
+und ſo eine Liebe was verdient die nicht —</p><lb/>
+<p>Ein unertraͤglicher Menſch hat mich unterbro-<lb/>
+chen. Meine Thraͤnen ſind getroknet. Jch bin<lb/>
+zerſtreut. Adieu Lieber.</p><lb/>
+<fw type="sig" place="bottom">K</fw><fw type="catch" place="bottom">am</fw><lb/>
+<pb n="146" facs="#f0034"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 4. Auguſt.</hi></dateline><lb/>
+<p><hi rendition="#in">E</hi>s geht mir nicht allein ſo. Alle Menſchen<lb/>
+werden in ihren Hofnungen getaͤuſcht, in ih-<lb/>
+ren Erwartungen betrogen. Jch beſuchte mein gu-<lb/>
+tes Weib unter der Linde. Der aͤltſte Bub lief<lb/>
+mir entgegen, ſein Freudengeſchrey fuͤhrte die Mut-<lb/>
+ter herbey, die ſehr niedergeſchlagen ausſah. Jhr<lb/>
+erſtes Wort war: Guter Herr! ach mein Hanns<lb/>
+iſt mir geſtorben, es war der juͤngſte ihrer Knaben,<lb/>
+ich war ſtille, und mein Mann ſagte ſie, iſt aus<lb/>
+der Schweiz zuruͤk, und hat nichts mit gebracht,<lb/>
+und ohne gute Leute haͤtte er ſich heraus betteln<lb/>
+muͤſſen. Er hatte das Fieber kriegt unterwegs.<lb/>
+Jch konnte ihr nichts ſagen, und ſchenkte dem klei-<lb/>
+nen was, ſie bat mich einige Aepfel anzunehmen,<lb/>
+das ich that und den Ort des traurigen Andenkens<lb/>
+verließ.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 21. Aug.</hi></dateline><lb/>
+<p><hi rendition="#in">W</hi>ie man eine Hand umwendet, iſt’s anders<lb/>
+mit mir. Manchmal will ſo ein freudiger<lb/>
+Blik des Lebens wieder aufdaͤmmern, ach nur fuͤr<lb/>
+<fw type="catch" place="bottom">einen</fw><lb/>
+<pb n="147" facs="#f0035"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+einen Augenblik! Wenn ich mich ſo in Traͤumen<lb/>
+verliehre, kann ich mich des Gedankens nicht er-<lb/>
+wehren: Wie, wenn Albert ſtuͤrbe! Du wuͤrdeſt!<lb/>
+ja ſie wuͤrde — und dann lauf ich dem Hirnge-<lb/>
+ſpinſte nach, bis es mich an Abgruͤnde fuͤhrt, vor<lb/>
+denen ich zuruͤkbebe.</p><lb/>
+<p>Wenn ich ſo dem Thore hinaus gehe, den Weg<lb/>
+den ich zum erſtenmal fuhr, Lotten zum Tanze zu<lb/>
+holen, wie war das all ſo anders! Alles, alles iſt<lb/>
+voruͤber gegangen! Kein Wink der vorigen Welt,<lb/>
+kein Pulsſchlag meines damaligen Gefuͤhls. Mir<lb/>
+iſt’s, wie’s einem Geiſte ſeyn muͤßte, der in das<lb/>
+verſengte verſtoͤrte Schloß zuruͤkkehrte, das er als<lb/>
+bluͤhender Fuͤrſt einſt gebaut und mit allen Gaben<lb/>
+der Herrlichkeit ausgeſtattet, ſterbend ſeinem ge-<lb/>
+liebten Sohne hoffnungsvoll hinterlaſſen.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 3. September.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch begreife manchmal nicht, wie ſie ein ande-<lb/>
+rer lieb haben kann, lieb haben darf, da ich<lb/>
+ſie ſo ganz allein, ſo innig, ſo voll liebe, nichts<lb/>
+anders kenne, noch weis, noch habe als ſie.</p><lb/>
+<fw type="sig" place="bottom">K 2</fw><fw type="catch" place="bottom">am</fw><lb/>
+<pb n="148" facs="#f0036"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 6. Sept.</hi></dateline><lb/>
+<p><hi rendition="#in">E</hi>s hat ſchwer gehalten, bis ich mich entſchloß,<lb/>
+meinen blauen einfachen Frak, in dem ich mit<lb/>
+Lotten zum erſtenmal tanzte, abzulegen, er ward<lb/>
+aber zulezt gar unſcheinbar. Auch hab ich mir ei-<lb/>
+nen machen laſſen, ganz wie den vorigen, Kragen<lb/>
+und Aufſchlag und auch wieder ſo gelbe Weſt und<lb/>
+Hoſen dazu.</p><lb/>
+<p>Ganz will’s es doch nicht thun. Jch weis<lb/>
+nicht — Jch denke mit der Zeit ſoll mir der auch<lb/>
+lieber werden.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 15. Sept.</hi></dateline><lb/>
+<p><hi rendition="#in">M</hi>an moͤchte ſich dem Teufel ergeben, Wilhelm,<lb/>
+uͤber all die Hunde, die Gott auf Erden dul-<lb/>
+det, ohne Sinn und Gefuͤhl an dem wenigen, was<lb/>
+drauf noch was werth iſt. Du kennſt die Nuß-<lb/>
+baͤume, unter denen ich bey dem ehrlichen Pfarren<lb/>
+zu St.., mit Lotten geſeſſen, die herrlichen Nuß-<lb/>
+baͤume, die mich, Gott weis, immer mit dem<lb/>
+groͤſten Seelenvergnuͤgen fuͤllten. Wie vertraulich<lb/>
+<fw type="catch" place="bottom">ſie</fw><lb/>
+<pb n="149" facs="#f0037"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ſie den Pfarrhof machten, wie kuͤhl und wie herr-<lb/>
+lich die Aeſte waren. Und die Erinnerung bis zu<lb/>
+die guten Kerls von Pfarrers, die ſie von ſo viel<lb/>
+Jahren pflanzten. Der Schulmeiſter hat uns den<lb/>
+einen Namen oft genannt, den er| von ſeinem Gros-<lb/>
+vater gehoͤrt hatte, und ſo ein braver Mann ſoll<lb/>
+er geweſen ſeyn, und ſein Andenken war mir im-<lb/>
+mer heilig, unter den Baͤumen. Jch ſage Dir,<lb/>
+dem Schulmeiſter ſtanden die Thraͤnen in den Au-<lb/>
+gen, da wir geſtern davon redeten, daß ſie abge-<lb/>
+hauen worden — Abgehauen! Jch moͤchte ra-<lb/>
+ſend werden, ich koͤnnte den Hund ermorden, der<lb/>
+den erſten Hieb dran that. Jch, der ich koͤnnte<lb/>
+mich vertrauren, wenn ſo ein paar Baͤume in<lb/>
+meinem Hofe ſtuͤnden, und einer davon ſtuͤrbe vor<lb/>
+Alter ab, ich muß ſo zuſehn. Lieber Schaz, eins<lb/>
+iſt doch dabey! Was Menſchengefuͤhl iſt! Das<lb/>
+ganze Dorf murrt, und ich hoffe, die Frau Pfar-<lb/>
+rern ſoll’s an Butter und Eyern und uͤbrigem Zu-<lb/>
+trauen ſpuͤren, was fuͤr eine Wunde ſie ihrem Orte<lb/>
+gegeben hat. Denn ſie iſt’s, die Frau des neuen<lb/>
+Pfarrers, unſer Alter iſt auch geſtorben, ein ha-<lb/>
+geres, kraͤnkliches Thier, das ſehr Urſache hat an<lb/>
+<fw type="sig" place="bottom">K 3</fw><fw type="catch" place="bottom">der</fw><lb/>
+<pb n="150" facs="#f0038"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+der Welt keinen Antheil zu nehmen, denn niemand<lb/>
+nimmt Antheil an ihr. Eine Frazze, die ſich ab-<lb/>
+giebt gelehrt zu ſeyn, ſich in die Unterſuchung des<lb/>
+Canons melirt, gar viel an der neumodiſchen mo-<lb/>
+raliſch kritiſchen Reformation des Chriſtenthums ar-<lb/>
+beitet, und uͤber Lavaters Schwaͤrmereyen die Achſeln<lb/>
+zukt, eine ganz zerruͤttete Geſundheit hat, und auf<lb/>
+Gottes Erdboden deswegen keine Freude. So ein<lb/>
+Ding war’s auch allein, um meine Nußbaͤume ab-<lb/>
+zuhauen. Siehſt du, ich komme nicht zu mir!<lb/>
+Stelle dir vor, die abfallenden Blaͤtter machen ihr<lb/>
+den Hof unrein und dumpfig, die Baͤume neh-<lb/>
+men ihr des Tageslicht, und wenn die Nuͤſſe reif<lb/>
+ſind, ſo werfen die Knaben mit Steinen darnach,<lb/>
+und das faͤllt ihr auf die Nerven, und das ſtoͤrt ſie<lb/>
+in ihren tiefen Ueberlegungen, wenn ſie Kennikot,<lb/>
+Semler und Michaelis, gegen einander abwiegt.<lb/>
+Da ich die Leute im Dorfe, beſonders die Alten, ſo<lb/>
+unzufrieden ſah, ſagt’ ich: warum habt ihr’s ge-<lb/>
+litten? — Wenn der Schulz will, hier zu Lande,<lb/>
+ſagten ſie, was kann man machen. Aber eins iſt<lb/>
+recht geſchehn, der Schulz und der Pfarrer, der<lb/>
+doch auch von ſeiner Frauen Grillen, die ihm ſo<lb/>
+<fw type="catch" place="bottom">die</fw><lb/>
+<pb n="151" facs="#f0039"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+die Suppen nicht fett machen, etwas haben wollte,<lb/>
+dachtens mit einander zu theilen, da erfuhr’s die<lb/>
+Kammer und ſagte: hier herein! und verkaufte<lb/>
+die Baͤume an den Meiſtbietenden. Sie liegen!<lb/>
+O wenn ich Fuͤrſt waͤre! Jch wollt die Pfarrern,<lb/>
+den Schulzen und die Kammer — Fuͤrſt! —<lb/>
+Ja wenn ich Fuͤrſt waͤre, was kuͤmmerten mich die<lb/>
+Baͤume in meinem Lande.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 10. Oktober.</hi></dateline><lb/>
+<p><hi rendition="#in">W</hi>enn ich nur ihre ſchwarzen Augen ſehe, iſt<lb/>
+mirs ſchon wohl! Sieh, und was mich ver-<lb/>
+druͤſt, iſt, daß Albert nicht ſo begluͤkt zu ſeyn ſchei-<lb/>
+net, als er — hoffte — als ich — zu ſeyn glaub-<lb/>
+te — wenn — Jch mache nicht gern Gedanken-<lb/>
+ſtriche, aber hier kann ich mich nicht anders aus-<lb/>
+drukken — und mich duͤnkt deutlich genug.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 12. Oktober.</hi></dateline><lb/>
+<p><hi rendition="#in">O</hi>ſſian hat in meinem Herzen den Homer ver-<lb/>
+dr ngt. Welch eine Welt, in die der Herr-<lb/>
+liche mich fuͤhrt. Zu wandern uͤber die Haide,<lb/>
+<fw type="sig" place="bottom">K 4</fw><fw type="catch" place="bottom">um-</fw><lb/>
+<pb n="152" facs="#f0040"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+umſaußt vom Sturmwinde, der in dampfenden<lb/>
+Nebeln, die Geiſter der Vaͤter im daͤmmernden<lb/>
+Lichte des Mondes hinfuͤhrt. Zu hoͤren vom Ge-<lb/>
+buͤrge her, im Gebruͤlle des Waldſtroms, halb ver-<lb/>
+wehtes Aechzen der Geiſter aus ihren Hoͤlen, und<lb/>
+die Wehklagen des zu Tode gejammerten Maͤdgens,<lb/>
+um die vier moosbedekten, grasbewachsnen Steine<lb/>
+des edelgefallnen ihres Geliebten. Wenn ich ihn<lb/>
+denn finde, den wandelnden grauen Barden, der<lb/>
+auf der weiten Haide die Fustapfen ſeiner Vaͤter<lb/>
+ſucht und ach! ihre Grabſteine findet. Und dann<lb/>
+jammernd nach dem lieben Sterne des Abends hin-<lb/>
+blikt, der ſich in’s rollende Meer verbirgt, und die<lb/>
+Zeiten der Vergangenheit in des Helden Seele le-<lb/>
+bendig werden, da noch der freundliche Stral den<lb/>
+Gefahren der Tapfern leuchtete, und der Mond<lb/>
+ihr bekraͤnztes, ſiegruͤkkehrendes Schiff beſchien,<lb/>
+Wenn ich ſo den tiefen Kummer auf ſeiner Stirne<lb/>
+leſe, ſo den lezten verlaßnen Herrlichen in aller<lb/>
+Ermattung dem Grabe zu wanken ſehe, wie er im-<lb/>
+mer neue ſchmerzlich gluͤhende Freuden in der kraft-<lb/>
+loſen Gegenwart der Schatten ſeiner Abgeſchiede-<lb/>
+nen einſaugt, und nach der kalten Erde dem hohen<lb/>
+<fw type="catch" place="bottom">wehen-</fw><lb/>
+<pb n="153" facs="#f0041"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+wehenden Graſe niederſieht, und ausruft: Der<lb/>
+Wanderer wird kommen, kommen, der mich kannte<lb/>
+in meiner Schoͤnheit und fragen, wo iſt der Saͤn-<lb/>
+ger, Fingals treflicher Sohn? Sein Fustritt geht<lb/>
+uͤber mein Grab hin, und er fragt vergebens nach<lb/>
+mir auf der Erde. O Freund! ich moͤchte gleich<lb/>
+einem edlen Waffentraͤger das Schwerd ziehen und<lb/>
+meinen Fuͤrſten von der zuͤkkenden Quaal des lang-<lb/>
+ſam abſterbenden Lebens auf einmal befreyen, und<lb/>
+dem befreyten Halbgott meine Seele nachſenden.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 19. Oktober.</hi></dateline><lb/>
+<p><hi rendition="#in">A</hi>ch dieſe Luͤkke! Dieſe entſezliche Luͤkke, die ich<lb/>
+hier in meinem Buſen fuͤhle! ich denke oft! —<lb/>
+Wenn du ſie nur einmal, nur einmal an dieſes<lb/>
+Herz druͤkken koͤnnteſt. All dieſe Luͤkke wuͤrde aus-<lb/>
+gefuͤllt ſeyn.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 26. Oktober.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>a es wird mir gewiß, Lieber! gewiß und im-<lb/>
+mer gewiſſer, daß an dem Daſeyn eines Ge-<lb/>
+ſchoͤpfs ſo wenig gelegen iſt, ganz wenig. Es kam<lb/>
+<fw type="sig" place="bottom">K 5</fw><fw type="catch" place="bottom">eine</fw><lb/>
+<pb n="154" facs="#f0042"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+eine Freundinn zu Lotten, und ich gieng herein in’s<lb/>
+Nebenzimmer, ein Buch zu nehmen, und konnte<lb/>
+nicht leſen, und dann nahm ich eine Feder zu ſchrei-<lb/>
+ben. Jch hoͤrte ſie leiſe reden, ſie erzaͤhlten ein-<lb/>
+ander inſoſern unbedeutende Sachen, Stadtneuig-<lb/>
+keiten: wie dieſe heyrathet, wie jene krank, ſehr<lb/>
+krank iſt. Sie hat einen troknen Huſten, die Kno-<lb/>
+chen ſtehn ihr zum Geſichte heraus, und kriegt<lb/>
+Ohnmachten, ich gebe keinen Kreuzer fuͤr ihr Leben,<lb/>
+ſagte die eine. Der N. N. iſt auch ſo uͤbel dran,<lb/>
+ſagte Lotte. Er iſt ſchon geſchwollen, ſagte die an-<lb/>
+dre. Und meine lebhafte Einbildungskraft verſezte<lb/>
+mich an’s Bette dieſer Armen, ich ſah ſie, mit wel-<lb/>
+chem Widerwillen ſie dem Leben den Ruͤkken wand-<lb/>
+ten, wie ſie — Wilhelm, und meine Weibgens<lb/>
+redeten davon, wie man eben davon redt: daß<lb/>
+ein Fremder ſtirbt. — Und wenn ich mich um-<lb/>
+ſehe, und ſeh das Zimmer an, und ringsum<lb/>
+mich Lottens Kleider, hier ihre Ohrringe auf<lb/>
+dem Tiſchgen, und Alberts Scripturen und dieſe<lb/>
+Meubels, denen ich nun ſo beſreundet bin, ſo gar<lb/>
+dieſem Dintenſaß; und denke: Sieh, was du nun<lb/>
+dieſem Hauſe biſt! Alles in allem. Deine Freunde<lb/>
+<fw type="catch" place="bottom">ehren</fw><lb/>
+<pb n="155" facs="#f0043"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ehren dich! Du machſt oft ihre Freude, und dei-<lb/>
+nem Herzen ſcheint’s, als wenn es ohne ſie nicht<lb/>
+ſeyn koͤnnte, und doch — wenn du nun giengſt?<lb/>
+wenn du aus dieſem Kreiſe ſchiedeſt, wuͤrden ſie?<lb/>
+wie lange wuͤrden ſie die Luͤkke fuͤhlen, die dein<lb/>
+Verluſt in ihr Schikſal reißt? wie lang? —<lb/>
+O ſo vergaͤnglich iſt der Menſch, daß er auch da,<lb/>
+wo er ſeines Daſeyns eigentliche Gewißheit hat,<lb/>
+da, wo er den einzigen wahren Eindruk ſeiner Ge-<lb/>
+genwart macht; in dem Andenken in der Seele<lb/>
+ſeiner Lieben, daß er auch da verloͤſchen, verſchwin-<lb/>
+den muß, und das — ſo bald!</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 27. Oktober.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch moͤchte mir oft die Bruſt zerreiſſen und das<lb/>
+Gehirn einſtoßen, daß man einander ſo we-<lb/>
+nig ſeyn kann. Ach die Liebe und Freude und<lb/>
+Waͤrme und Wonne, die ich nicht hinzu bringe,<lb/>
+wird mir der andre nicht geben, und mit einem<lb/>
+ganzen Herzen voll Seligkeit, werd ich den andern<lb/>
+nicht begluͤkken der kalt und kraftlos vor mir ſteht.</p><lb/>
+<fw type="catch" place="bottom">am</fw><lb/>
+<pb n="156" facs="#f0044"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 30. Oktober.</hi></dateline><lb/>
+<p><hi rendition="#in">W</hi>enn ich nicht ſchon hundertmal auf dem Punkte<lb/>
+geſtanden bin ihr um den Hals zu fallen.<lb/>
+Weis der große Gott, wie einem das thut, ſo viel<lb/>
+Liebenswuͤrdigkeit vor ſich herumkreuzen zu ſehn und<lb/>
+nicht zugreifen zu duͤrfen. Und das Zugreifen iſt<lb/>
+doch der natuͤrlichſte Trieb der Menſchheit. Grei-<lb/>
+fen die Kinder nicht nach allem was ihnen in Sinn<lb/>
+faͤllt? Und ich?</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 3. November.</hi></dateline><lb/>
+<p><hi rendition="#in">W</hi>eis Gott, ich lege mich ſo oft zu Bette mit<lb/>
+dem Wunſche, ja manchmal mit der Hof-<lb/>
+nung, nicht wieder zu erwachen, und Morgens<lb/>
+ſchlag ich die Augen auf, ſehe die Sonne wieder,<lb/>
+und bin elend. O daß ich launiſch ſeyn koͤnnte,<lb/>
+koͤnnte die Schuld auf’s Wetter, auf einen drit-<lb/>
+ten, auf eine fehlgeſchlagene Unternehmung ſchie-<lb/>
+hen; ſo wuͤrde die unertraͤgliche Laſt des Unwillens<lb/>
+doch nur halb auf mir ruhen. Weh mir, ich<lb/>
+fuͤhle zu wahr, daß an mir allein alle Schuld<lb/>
+<fw type="catch" place="bottom">liegt,</fw><lb/>
+<pb n="157" facs="#f0045"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+liegt, — nicht Schuld! Genug daß in mir die<lb/>
+Quelle alles Elendes verborgen iſt, wie es ehemals<lb/>
+die Quelle aller Seligkeiten war. Bin ich nicht<lb/>
+noch eben derſelbe, der ehemals in aller Fuͤlle der<lb/>
+Empfindung herumſchwebte, dem auf jedem Tritte<lb/>
+ein Paradies folgte, der ein Herz hatte, eine ganze<lb/>
+Welt liebevoll zu umfaſſen. Und das Herz iſt jezo<lb/>
+todt, aus ihm fließen keine Entzuͤkkungen mehr,<lb/>
+meine Augen ſind trokken, und meine Sinnen, die<lb/>
+nicht mehr von erquikkenden Thraͤnen gelabt wer-<lb/>
+den, ziehen aͤngſtlich meine Stirne zuſammen.<lb/>
+Jch leide viel, denn ich habe verlohren was mei-<lb/>
+nes Lebens einzige Wonne war, die heilige bele-<lb/>
+bende Kraft, mit der ich Welten um mich ſchuf.<lb/>
+Sie iſt dahin! — Wenn ich zu meinem Fenſter<lb/>
+hinaus an den fernen Huͤgel ſehe, wie die Morgen-<lb/>
+ſonne uͤber ihn her den Nebel durchbricht und den<lb/>
+ſtillen Wieſengrund beſcheint, und der ſanfte Fluß<lb/>
+zwiſchen ſeinen entblaͤtterten Weiden zu mir her-<lb/>
+ſchlaͤngelt, o wenn da dieſe herrliche Natur ſo ſtarr<lb/>
+vor mir ſteht wie ein lakirt Bildgen, und all die<lb/>
+Wonne keinen Tropfen Seligkeit aus meinem Her-<lb/>
+zen herauf in das Gehirn pumpen kann, und der<lb/>
+<fw type="catch" place="bottom">ganze</fw><lb/>
+<pb n="158" facs="#f0046"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ganze Kerl vor Gottes Angeſicht ſteht wie ein ver-<lb/>
+ſiegter Brunn, wie ein verlechter Eymer! Jch habe<lb/>
+mich ſo oft auf den Boden geworfen und Gott um<lb/>
+Thraͤnen gebeten, wie ein Akkersmann um Regen,<lb/>
+wenn der Himmel ehern uͤber ihm iſt, und um ihn<lb/>
+die Erde verduͤrſtet.</p><lb/>
+<p>Aber, ach ich fuͤhls! Gott giebt Regen und<lb/>
+Sonnenſchein nicht unſerm ungeſtuͤmen Bitten, und<lb/>
+jene Zeiten, deren Andenken mich quaͤlt, warum<lb/>
+waren ſie ſo ſelig? als weil ich mit Geduld ſeinen<lb/>
+Geiſt erwartete, und die Wonne, die er uͤber mich<lb/>
+ausgoß mit ganzem, innig dankbarem Herzen auf-<lb/>
+nahm.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 8. Nov.</hi></dateline><lb/>
+<p><hi rendition="#in">S</hi>ie hat mir meine Exzeſſe vorgeworfen! Ach<lb/>
+mit ſo viel Liebenswuͤrdigkeit! Meine Ex-<lb/>
+zeſſe, daß ich mich manchmal von einem Glas Wein<lb/>
+verleiten laſſe, eine Bouteille zu trinken. Thun<lb/>
+Sie’s nicht! ſagte ſie, denken Sie an Lotten! —<lb/>
+Denken! ſagt’ ich, brauchen Sie mir das zu heiſ-<lb/>
+ſen? Jch denke! — Jch denke nicht! Sie ſind<lb/>
+immer vor meiner Seelen. Heut ſaß ich an dem<lb/>
+<fw type="catch" place="bottom">Flekke,</fw><lb/>
+<pb n="159" facs="#f0047"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Flekke, wo Sie neulich aus der Kutſche ſtiegen —<lb/>
+Sie redte was anders, um mich nicht lieſer in den<lb/>
+Text kommen zu laſſen. Beſter, ich bin dahin!<lb/>
+Sie kann mit mir machen was ſie will.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 15. Nov.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch danke Dir, Wilhelm, fuͤr Deinen herzlichen<lb/>
+Antheil, fuͤr Deinen wohlmeynenden Rath,<lb/>
+und bitte Dich, ruhig zu ſeyn. Laß mich ausdul-<lb/>
+den, ich habe bey all meiner Muͤdſeligkeit noch<lb/>
+Kraft genug durchzuſezzen. Jch ehre die Religion,<lb/>
+das weiſt Du, ich fuͤhle, daß ſie manchem Ermatte-<lb/>
+ten Stab, manchem Verſchmachtenden Erquikkung<lb/>
+iſt. Nur — kann ſie denn, muß ſie denn das ei-<lb/>
+nem jeden ſeyn? Wenn Du die große Welt an-<lb/>
+ſiehſt; ſo ſiehſt du Tauſende, denen ſie’s nicht war,<lb/>
+Tauſende denen ſie’s nicht ſeyn wird, gepredigt<lb/>
+oder ungepredigt, und muß ſie mir’s denn ſeyn?<lb/>
+Sagt nicht ſelbſt der Sohn Gottes: daß die um<lb/>
+ihn ſeyn wuͤrden, die ihm der Vater gegeben hat.<lb/>
+Wenn ich ihm nun nicht gegeben bin! Wenn<lb/>
+mich nun der Vater fuͤr ſich behalten will, wie mir<lb/>
+<fw type="catch" place="bottom">mein</fw><lb/>
+<pb n="160" facs="#f0048"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+mein Herz ſagt! Jch bitte Dich, lege das nicht<lb/>
+falſch aus, ſieh nicht etwa Spott in dieſen unſchul-<lb/>
+digen Worten, es iſt meine ganze Seele, die ich dir<lb/>
+vorlege. Sonſt wollt ich lieber, ich haͤtte geſchwie-<lb/>
+gen, wie ich denn uͤber all das, wovon jedermann<lb/>
+ſo wenig weis als ich, nicht gern ein Wort ver-<lb/>
+liehre. Was iſt’s anders als Menſchenſchikſal, ſein<lb/>
+Maas auszuleiden, ſeinen Becher auszutrinken. —<lb/>
+Und ward der Kelch dem Gott vom Himmel auf<lb/>
+ſeiner Menſchenlippe zu bitter, warum ſoll ich gros<lb/>
+thun und mich ſtellen, als ſchmekte er mir ſuͤſſe.<lb/>
+Und warum ſollte ich mich ſchaͤmen, in dem ſchroͤk-<lb/>
+lichen Augenblikke, da mein ganzes Weſen zwiſchen<lb/>
+Seyn und Nichtſeyn zittert, da die Vergangenheit<lb/>
+wie ein Bliz uͤber dem finſtern Abgrunde der Zu-<lb/>
+kunft leuchtet, und alles um mich her verſinkt, und<lb/>
+mit mir die Welt untergeht. — Jſt es da nicht<lb/>
+die Stimme der ganz in ſich gedraͤngten, ſich ſelbſt<lb/>
+ermangelnden, und unaufhaltſam hinabſtuͤrzenden<lb/>
+Creatur, in den innern Tiefen ihrer vergebens auf-<lb/>
+arbeitenden Kraͤfte zu knirſchen. Mein Gott!<lb/>
+Mein Gott! warum haſt du mich verlaſſen? Und<lb/>
+ſollt ich mich des Ausdruks ſchaͤmen, ſollte mir’s<lb/>
+<fw type="catch" place="bottom">vor</fw><lb/>
+<pb n="161" facs="#f0049"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+vor dem Augenblikke bange ſeyn, da ihm der nicht<lb/>
+entgieng, der die Himmel zuſammenrollt wie ein<lb/>
+Tuch.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 21. Nov.</hi></dateline><lb/>
+<p><hi rendition="#in">S</hi>ie ſieht nicht, ſie fuͤhlt nicht, daß ſie einen<lb/>
+Gift bereitet, der mich und ſie zu Grunde<lb/>
+richten wird. Und ich mit voller Wolluſt ſchlurfe den<lb/>
+Becher aus, den ſie mir zu meinem Verderben reicht.<lb/>
+Was ſoll der guͤtige Blik, mit dem ſie mich oft —<lb/>
+oft? — nein nicht oft, aber doch manchmal an-<lb/>
+ſieht, die Gefaͤlligkeit, womit ſie einen unwillkuͤhr-<lb/>
+lichen Ausdruk meines Gefuͤhls aufnimmt, das Mit-<lb/>
+leiden mit meiner Duldung, das ſich auf ihrer<lb/>
+Stirne zeichnet.</p><lb/>
+<p>Geſtern als ich weggieng, reichte ſie mir die<lb/>
+Hand und ſagte: Adieu, lieber Werther! Lieber<lb/>
+Werther! Es war das erſtemal, daß ſie mich<lb/>
+Lieber hies, und mir giengs durch Mark und Bein.<lb/>
+Jch hab mir’s hundertmal wiederholt und geſtern<lb/>
+Nacht da ich in’s Bette gehen wollte, und mit<lb/>
+mir ſelbſt allerley ſchwazte, ſag ich ſo auf einmal:<lb/>
+<fw type="sig" place="bottom">L</fw><fw type="catch" place="bottom">gute</fw><lb/>
+<pb n="162" facs="#f0050"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+gute Nacht, lieber Werther! Und mußte hernach<lb/>
+ſelbſt uͤber mich lachen.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 24. Nov.</hi></dateline><lb/>
+<p><hi rendition="#in">S</hi>ie fuͤhlt, was ich dulde. Heut iſt mir ihr<lb/>
+Blik tief durch’s Herz gedrungen. Jch fand<lb/>
+ſie allein. Jch ſagte nichts und ſie ſah mich an.<lb/>
+Und ich ſah nicht mehr in ihr die liebliche Schoͤn-<lb/>
+heit, nicht mehr das Leuchten des treflichen Gei-<lb/>
+ſtes; das war all vor meinen Augen verſchwun-<lb/>
+den. Ein weit herrlicherer Blik wuͤrkte auf mich,<lb/>
+voll Ausdruk des innigſten Antheils des ſuͤßten<lb/>
+Mileidens. Warum durft’ ich mich nicht ihr zu<lb/>
+Fuͤſſen werfen! warum durft ich nicht an ihrem<lb/>
+Halſe mit tauſend Kuͤſſen antworten — Sie nahm<lb/>
+ihre Zuflucht zum Claviere und hauchte mit ſuͤſſer<lb/>
+leiſer Stimme harmoniſche Laute zu ihrem Spiele.<lb/>
+Nie hab ich ihre Lippen ſo reizend | geſehn, es<lb/>
+war, als wenn ſie ſich lechzend oͤffneten, jene ſuͤſſe<lb/>
+Toͤne in ſich zu ſchluͤrfen, die aus dem Jnſtru-<lb/>
+mente hervorquollen, und nur der heimliche Wie-<lb/>
+derſchall aus dem ſuͤſſen Munde zuruͤkklaͤnge —<lb/>
+<fw type="catch" place="bottom">Ja</fw><lb/>
+<pb n="163" facs="#f0051"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Ja wenn ich dir das ſo ſagen koͤnnte! Jch wi-<lb/>
+derſtund nicht laͤnger, neigte mich und ſchwur:<lb/>
+Nie will ich’s wagen, einen Kuß euch einzudruͤk-<lb/>
+ken Lippen, auf denen die Geiſter des Himmels<lb/>
+ſchweben — Und doch — ich will — Ha ſiehſt<lb/>
+du, das ſteht wie eine Scheidewand vor meiner<lb/>
+Seelen — dieſe Seligkeit — und da untergegan-<lb/>
+gen, die Suͤnde abzubuͤſſen — Suͤnde?</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 30. Nov.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch ſoll, ich ſoll nicht zu mir ſelbſt kommen, wo<lb/>
+ich hintrete, begegnet mir eine Erſcheinung, die<lb/>
+mich aus aller Faſſung bringt. Heut! O Schik-<lb/>
+ſal! O Menſchheit!</p><lb/>
+<p>Jch gehe an dem Waſſer hin in der Mit-<lb/>
+tagsſtunde, ich hatte keine Luſt zu eſſen. Alles war<lb/>
+ſo oͤde, ein naßkalter Abendwind blies vom Ber-<lb/>
+ge, und die grauen Regenwolken zogen das Thal<lb/>
+hinein. Von ferne ſeh ich einen Menſchen in ei-<lb/>
+nem gruͤnen ſchlechten Rokke, der zwiſchen den Fel-<lb/>
+ſen herumkrabelte und Kraͤuter zu ſuchen ſchien.<lb/>
+Als ich naͤher zu ihm kam und er ſich auf das<lb/>
+<fw type="sig" place="bottom">L 2</fw><fw type="catch" place="bottom">Geraͤuſch</fw><lb/>
+<pb n="164" facs="#f0052"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Geraͤuſch, das ich machte, herumdrehte, ſah ich ei-<lb/>
+ne gar intereſſante Phyſiognomie,| darinn eine<lb/>
+ſtille Trauer den Hauptzug machte, die aber ſonſt<lb/>
+nichts als einen graden guten Sinn ausdruͤkte,<lb/>
+ſeine ſchwarzen Haare waren mit Nadeln in zwey<lb/>
+Rollen geſtekt, und die uͤbrigen in einen ſtarken<lb/>
+Zopf geflochten, der ihm den Ruͤkken herunter hieng.<lb/>
+Da mir ſeine Kleidung einen Menſchen von ge-<lb/>
+ringem Stande zu bezeichnen ſchien, glaubt’ ich,<lb/>
+er wuͤrde es nicht uͤbel nehmen, wenn ich auf ſei-<lb/>
+ne Beſchaͤftigung aufmerkſam waͤre, und daher frag-<lb/>
+te ich ihn, was er ſuchte? Jch fuche, antwortete<lb/>
+er mit einem tiefen Seufzer, Blumen — und fin-<lb/>
+de keine — Das iſt auch die Jahrszeit nicht,<lb/>
+ſagt’ ich laͤchelnd. — Es giebt ſo viel Blumen,<lb/>
+ſagt er, indem er zu mir herunter kam. Jn mei-<lb/>
+nem Garten ſind Roſen und Je laͤnger ie lieber<lb/>
+zweyerley Sorten, eine hat mir mein Vater ge-<lb/>
+geben, ſie wachſen wie’s Unkraut, ich ſuche ſchon<lb/>
+zwey Tage darnach, und kann ſie nicht finden.<lb/>
+Da haußen ſind auch immer Blumen, gelbe und<lb/>
+blaue und rothe, und das Tauſend Guͤldenkraut<lb/>
+hat ein ſchoͤn Bluͤmgen. Keines kann ich finden.<lb/>
+<fw type="catch" place="bottom">Jch</fw><lb/>
+<pb n="165" facs="#f0053"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Jch merkte was unheimliches, und drum fragte<lb/>
+ich durch einen Umweg: Was will er denn mit<lb/>
+den Blumen? Ein wunderbares zukkendes Laͤch-<lb/>
+len verzog ſein Geſicht. Wenn er mich nicht ver-<lb/>
+rathen will, ſagt er, indem er den Finger auf den<lb/>
+Mund druͤkte, ich habe meinem Schazze einen<lb/>
+Straus verſprochen. Das iſt brav, ſagt ich. O<lb/>
+ſagt’ er, ſie hat viel andre Sachen, ſie iſt reich.<lb/>
+Und doch hat ſie ſeinen Straus lieb, verſezt ich.<lb/>
+O! fuhr er fort, ſie hat Juwelen und eine Krone.<lb/>
+Wie heißt ſie denn? — Wenn mich die General-<lb/>
+ſtaaten bezahlen wollten! verſezte er, ich waͤr ein<lb/>
+anderer Menſch! Ja es war einmal eine Zeit,<lb/>
+da mir’s ſo wohl war. Jezt iſt’s aus mit mir,<lb/>
+ich bin nun — Ein naſſer Blik zum Himmel druͤk-<lb/>
+te alles aus. Er war alſo gluͤklich? fragt ich.<lb/>
+Ach ich wollt ich waͤre wieder ſo! ſagt’ er, da war<lb/>
+mir’s ſo wohl, ſo luſtig, ſo leicht wie ein Fiſch im<lb/>
+Waſſer! Heinrich! rufte eine alte Frau, die den<lb/>
+Weg herkam. Heinrich, wo ſtikſt du. Wir ha-<lb/>
+ben dich uͤberall geſucht. Komm zum Eſſen. Jſt<lb/>
+das euer Sohn? fragt’ ich zu ihr tretend. Wohl<lb/>
+mein armer Sohn, verſezte ſie. Gott hat mir ein<lb/>
+<fw type="sig" place="bottom">L 3</fw><fw type="catch" place="bottom">ſchwe-</fw><lb/>
+<pb n="166" facs="#f0054"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ſchweres Kreuz aufgelegt. Wie lang |iſt er ſo?<lb/>
+fragt ich. So ſtille, ſagte ſie, iſt er nun ein halb<lb/>
+Jahr. Gott ſey Dank, daß es nur ſo weit iſt.<lb/>
+Vorher war er ein ganz Jahr raſend, da hat er<lb/>
+an Ketten im Tollhauſe gelegen. Jezt thut er<lb/>
+niemand nichts, nur hat er immer mit Koͤnigen<lb/>
+und Kayſern zu thun. Es war ein ſo guter ſtil-<lb/>
+ler Menſch, der mich ernaͤhren half, ſeine ſchoͤne<lb/>
+Hand ſchrieb, und auf einmal wird er tiefſinnig,<lb/>
+faͤllt in ein hitzig Fieber, daraus in Raſerey, und<lb/>
+nun iſt er, wie ſie ihn ſehen. Wenn ich ihm er-<lb/>
+zaͤhlen ſollt, Herr — Jch unterbrach ihren Strom<lb/>
+von Erzaͤhlungen mit der Frage: was denn das<lb/>
+fuͤr eine Zeit waͤre von der er ſo ruͤhmte, daß er<lb/>
+ſo gluͤklich, ſo wohl darinn geweſen waͤre. Der<lb/>
+thoͤrige Menſch, rief ſie mit mitleidigem Laͤchlen,<lb/>
+da meint er die Zeit, da er von ſich war, das<lb/>
+ruͤhmt er immer! Das iſt die Zeit, da er im<lb/>
+Tollhauſe war, wo er nichts von ſich wußte —<lb/>
+Das fiel mir auf wie ein Donnerſchlag, ich druͤk-<lb/>
+te ihr ein Stuͤk Geld in die Hand und verließ<lb/>
+ſie eilend.</p><lb/>
+<fw type="catch" place="bottom">Da</fw><lb/>
+<pb n="167" facs="#f0055"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Da du gluͤklich warſt! rief ich aus, ſchnell<lb/>
+vor mich hin nach der Stadt zu gehend. Da<lb/>
+dir’s wohl war wie einem Fiſch im Waſſer! —<lb/>
+Gott im Himmel! Haſt du das zum Schikſaal<lb/>
+der Menſchen gemacht, daß ſie nicht gluͤklich ſind,<lb/>
+als eh ſie zu ihrem Verſtande kommen, und wenn<lb/>
+ſie ihn wieder verliehren! Elender und auch wie<lb/>
+beneid ich deinen Truͤbſinn, die Verwirrung dei-<lb/>
+ner Sinne, in der du verſchmachteſt! Du gehſt<lb/>
+hoffnungsvoll aus, deiner Koͤnigin Blumen zu<lb/>
+pfluͤkken — im Winter — und traureſt, da du<lb/>
+keine findeſt, und begreifſt nicht warum, du keine<lb/>
+finden kannſt. Und ich — und ich gehe ohne<lb/>
+Hoffnung ohne Zwek heraus, und kehr wieder heim<lb/>
+wie ich gekommen bin. — Du waͤhnſt, welcher<lb/>
+Menſch du ſeyn wuͤrdeſt wenn die Generalſtaaten<lb/>
+dich bezahlten. Seliges Geſchoͤpf, das den Man-<lb/>
+gel ſeiner Gluͤkſeligkeit einer irdiſchen Hinderniß<lb/>
+zuſchreiben kaͤnn. — Du fuͤhlſt nicht! Du fuͤhlſt<lb/>
+nicht! daß in deinem zerſtoͤrten Herzen, in deinem<lb/>
+zerruͤtteten Gehirne dein Elend liegt, wovon alle<lb/>
+Koͤnige der Erde dir nicht helfen koͤnnen.</p><lb/>
+<fw type="sig" place="bottom">L 4</fw><fw type="catch" place="bottom">Muͤſſe</fw><lb/>
+<pb n="168" facs="#f0056"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Muͤſſe der troſtlos umkommen, der eines<lb/>
+Kranken ſpottet, der nach der entfernteſten Quelle<lb/>
+reiſt die ſeine Krankheit vermehren, ſein Ausleben<lb/>
+ſchmerzhafter machen wird, der ſich uͤber das be-<lb/>
+draͤngte Herz erhebt, das, um ſeine Gewiſſensbiſſe<lb/>
+los zu werden und die Leiden ſeiner Seele abzu-<lb/>
+thun, ſeine Pilgrimſchaft nach dem heiligen Gra-<lb/>
+be thut! Jeder Fußtritt der ſeine Solen auf un-<lb/>
+gebahntem Wege durchſchneidet, iſt ein Lindrungs-<lb/>
+tropfen der geaͤngſteten Seele, und mit jeder aus-<lb/>
+gedauerten Tagreiſe legt ſich das Herz um viel<lb/>
+Bedraͤngniß leichter nieder. — Und duͤrft ihr<lb/>
+das Wahn nennen — Jhr Wortkraͤmer auf eu-<lb/>
+rem Polſtern — Wahn! — O Gott! du ſiehſt<lb/>
+meine Thraͤnen — Mußteſt du, der du den Men-<lb/>
+ſchen arm genug erſchufſt, ihm auch Bruͤder zu-<lb/>
+geben, die ihm das bisgen Armuth, das bisgen<lb/>
+Vertrauen noch raubten, das er auf dich hat, auf<lb/>
+dich, du Allliebender, denn das Vertrauen zu einer<lb/>
+heilenden Wurzel, zu den Thraͤnen des Weinſtoks,<lb/>
+was iſt’s, als Vertrauen zu dir, daß du in alles,<lb/>
+was uns umgiebt, Heil und Lindrungskraft gelegt<lb/>
+haft, der wir ſo ſtuͤndlich beduͤrfen. — Vater, den<lb/>
+<fw type="catch" place="bottom">ich</fw><lb/>
+<pb n="169" facs="#f0057"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ich nicht kenne! Vater, der ſonſt meine ganze See-<lb/>
+le fuͤllte, und nun ſein Angeſicht von mir gewen-<lb/>
+det hat! Rufe mich zu dir! Schweige nicht laͤn-<lb/>
+ger! Dein Schweigen wird dieſe durſtende See-<lb/>
+le nicht aufhalten — Und wuͤrde ein Menſch, ein<lb/>
+Vater zuͤrnen koͤnnen, dem ſein unvermuthet ruͤk-<lb/>
+kehrender Sohn um den Hals fiele und rief: Jch<lb/>
+bin wieder da |mein Vater. Zuͤrne nicht, daß ich<lb/>
+die Wanderſchaft abbreche, die ich nach deinem<lb/>
+Willen laͤnger aushalten ſollte. Die Welt |iſt<lb/>
+uͤberall einerley, auf Muͤh und Arbeit, Lohn und<lb/>
+Freude; aber was ſoll mir das? mir iſt nur<lb/>
+wohl wo du biſt, und vor deinem Angeſichte will<lb/>
+ich leiden und genieſſen — Und du, lieber himm-<lb/>
+liſcher Vater, ſollteſt ihn von dir weiſen?</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 1. Dez.</hi></dateline><lb/>
+<p><hi rendition="#in">W</hi>ilhelm! der Menſch, von dem ich dir ſchrieb,<lb/>
+der gluͤkliche Ungluͤkliche, war Schreiber<lb/>
+bey Lottens Vater, und eine ungluͤkliche Leiden-<lb/>
+ſchaft zu ihr, die er naͤhrte, verbarg, entdekte, und<lb/>
+aus dem Dienſt, geſchikt wurde, hat ihn raſend ge-<lb/>
+<fw type="sig" place="bottom">L 5</fw><fw type="catch" place="bottom">macht.</fw><lb/>
+<pb n="170" facs="#f0058"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+macht. Fuͤhle Kerl, bey dieſen |troknen Worten, mit<lb/>
+welchem Unſinne mich die Geſchichte ergriffen hat,<lb/>
+da mir ſie Albert eben ſo gelaſſen erzaͤhlte, als<lb/>
+dus’ velleicht lieſeſt.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 4. Dez.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch bitte dich — ſiehſt du, mit mir iſt’s aus —<lb/>
+Jch trag das all nicht laͤnger. Heut ſas ich<lb/>
+bey ihr — ſas, ſie ſpielte auf ihrem |Clavier, manch-<lb/>
+faltige Melodien und all den Ausdruk! all! all! —<lb/>
+Was willſt du? — Jhr Schweſtergen puzte ihre<lb/>
+Puppe auf meinem Knie. Mir kamen die Thraͤ-<lb/>
+nen in die Augen. Jch neigte mich und ihr Trau-<lb/>
+ring fiel mir in’s Geſicht — Meine Thraͤnen<lb/>
+floſſen — Und auf einmal fiel ſie in die alte him-<lb/>
+melſuͤſſe Melodie ein, ſo auf einmal, und mir durch<lb/>
+die Seele gehn ein Troſtgefuͤhl und eine Erinne-<lb/>
+rung all des Vergangenen all der Zeiten, da ich<lb/>
+das Lied gehoͤrt, all der duͤſtern Zwiſchenraͤume<lb/>
+des Verdruſſes, der fehlgeſchlagenen Hoffnungen,<lb/>
+und dann — Jch gieng in der Stube auf und<lb/>
+nieder, mein Herz erſtikte unter all dem. Um<lb/>
+<fw type="catch" place="bottom">Gottes</fw><lb/>
+<pb n="171" facs="#f0059"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Gottes Willen, ſagt ich mit einem heftigen Aus-<lb/>
+bruch hin gegen ſie fahrend, um Gottes Willen hoͤ-<lb/>
+ren ſie auf. Sie hielt, und ſah mich ſtarr an.<lb/>
+Werther, ſagte ſie, mit einem Laͤchlen, das mir<lb/>
+durch die Seele gieng, Werther, ſie ſind ſehr krank,<lb/>
+ihre Lieblingsgerichte widerſtehen ihnen. Gehen<lb/>
+ſie! Jch bitte ſie, beruhigen ſie ſich. Jch riß<lb/>
+mich von ihr weg, und — Gott! du ſiehſt mein<lb/>
+Elend, und wirſt es enden.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 6 Dez.</hi></dateline><lb/>
+<p><hi rendition="#in">W</hi>ie mich die Geſtalt verfolgt. Wachend und<lb/>
+traͤumend fuͤllt ſie meine ganze Seele.<lb/>
+Hier, wenn ich die Augen ſchlieſſe, hier in mei-<lb/>
+ner Stirne, wo die innere Sehkraft ſich verei-<lb/>
+nigt, ſtehen ihre ſchwarzen Augen. Hier! Jch<lb/>
+kann dir’s nicht ausdruͤkken. Mach ich meine Au-<lb/>
+gen zu, ſo ſind ſie da, wie ein Meer, wie ein<lb/>
+Abgrund ruhen ſie vor mir, in mir, fuͤllen die<lb/>
+Sinnen meiner Stirne.</p><lb/>
+<p>Was iſt der Menſch? der geprieſene Halb-<lb/>
+gott! Ermangeln ihm nicht da eben, die Kraͤfte<lb/>
+<fw type="catch" place="bottom">wo</fw><lb/>
+<pb n="172" facs="#f0060"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+wo er ſie am noͤthigſten braucht? Und wenn er<lb/>
+in Freude ſich aufſchwingt, oder im Leiden ver-<lb/>
+ſinkt, wird er nicht in beyden eben da aufgehal-<lb/>
+ten, eben da wieder zu dem ſtumpfen kalten Be-<lb/>
+wuſtſeyn zuruͤk gebracht, da | er ſich in der Fuͤlle<lb/>
+des Unendlichen zu verliehren ſehnte.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 8 Dez.</hi></dateline><lb/>
+<p><hi rendition="#in">L</hi>ieber Wilhelm, ich bin in einem Zuſtande, in dem<lb/>
+jene Ungluͤklichen muͤſſen geweſen ſeyn, von<lb/>
+denen man glaubte, ſie wuͤrden von einem boͤſen<lb/>
+Geiſte umher getrieben. Manchmal ergreift mich’s,<lb/>
+es iſt nicht Angſt, nicht Begier! es iſt ein inne-<lb/>
+res unbekanntes Toben, das meine Bruſt zu zer-<lb/>
+reiſſen droht, das mir die Gurgel zupreßt! We-<lb/>
+he! Wehe! Und dann ſchweif ich umher in den<lb/>
+furchtbaren naͤchtlichen Scenen dieſer menſchen-<lb/>
+feindlichen Jahrszeit.</p><lb/>
+<p>Geſtern Nacht mußt ich hinaus. Jch hatte<lb/>
+noch Abends gehoͤrt, der Fluß ſey uͤbergetreten und<lb/>
+die Baͤche all, und von Wahlheim herunter all<lb/>
+mein Liebesthal uͤberſchwemmt. Nachts nach eilf<lb/>
+<fw type="catch" place="bottom">rannt</fw><lb/>
+<pb n="173" facs="#f0061"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+rannt ich hinaus. Ein fuͤrchterliches Schauſpiel.<lb/>
+Vom Fels herunter die wuͤhlenden Fluthen in dem<lb/>
+Mondlichte wirbeln zu ſehn, uͤber Aelker und Wie-<lb/>
+ſen und Hekken und alles, und das weite Thal<lb/>
+hinauf und hinab eine ſtuͤrmende See im Sau-<lb/>
+ſen des Windes. Und wenn denn der Mond wie-<lb/>
+der hervortrat und uͤber der ſchwarzen Wolke ruh-<lb/>
+te, und vor mir hinaus die Fluth in fuͤrchterlich<lb/>
+herrlichen Wiederſchein rollte und klang, da uͤber-<lb/>
+fiel mich ein Schauer, und wieder ein Sehnen!<lb/>
+Ach! Mit offenen Armen ſtand ich gegen den<lb/>
+Abgrund, und athmete hinab! hinab, und ver-<lb/>
+lohr mich in der Wonne, all meine Quaalen all<lb/>
+mein Leiden da hinab zu ſtuͤrmen, dahin zu brau-<lb/>
+ſen wie die Wellen. Oh! Und den Fuß vom<lb/>
+Boden zu heben! Vermochteſt du nicht und alle<lb/>
+Qualen zu enden! — Meine Uhr iſt noch nicht<lb/>
+ausgelaufen — ich fuͤhl’s! O Wilhelm, wie gern<lb/>
+haͤtt ich all mein Menſchſeyn drum gegeben, mit<lb/>
+jenem Sturmwinde die Wolken zu zerreiſſen, die<lb/>
+Fluthen zu faſſen. Ha! Und wird nicht vielleicht<lb/>
+dem Eingekerkerten einmal dieſe Wonne zu Theil! —</p><lb/>
+<fw type="catch" place="bottom">Und</fw><lb/>
+<pb n="174" facs="#f0062"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Und wie ich wehmuͤthig hinab ſah auf ein<lb/>
+Plaͤzgen, wo ich mit Lotten unter einer Weide ge-<lb/>
+ruht, auf einem heiſſen Spaziergange, das war auch<lb/>
+uͤberſchwemmt, und kaum daß ich die Weide er-<lb/>
+kannte! Wilhelm. Und ihre Wieſen, dacht ich,<lb/>
+und all die Gegend um ihr Jagdhaus, wie jezt<lb/>
+vom reiſſenden Strome, verſtoͤrt unſere Lauben,<lb/>
+dacht ich. Und der Vergangenheit Sonnenſtrahl<lb/>
+blikte herein — Wie einem Gefangenen ein<lb/>
+Traum von Heerden, Wieſen und Ehrenaͤmtern.<lb/>
+Jch ſtand! — Jch ſchelte mich nicht, denn ich ha-<lb/>
+be Muth zu ſterben — Jch haͤtte — Nun ſiz<lb/>
+ich hier wie ein altes Weib, das ihr Holz an Zaͤu-<lb/>
+nen ſtoppelt, und ihr Brod an den Thuͤren, um<lb/>
+ihr hinſterbendes freudloſes Daſeyn noch einen Au-<lb/>
+genblik zu verlaͤngern und zu erleichtern.</p><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 17. Dez.</hi></dateline><lb/>
+<p><hi rendition="#in">W</hi>as iſt das, mein Lieber? Jch erſchrekke vor<lb/>
+mir ſelbſt! Jſt nicht meine Liebe zu ihr<lb/>
+die heiligſte, reinſte, bruͤderlichſte Liebe? Hab ich<lb/>
+jemals einen ſtrafbaren Wunſch in meiner Seele<lb/>
+<fw type="catch" place="bottom">ge-</fw><lb/>
+<pb n="175" facs="#f0063"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+gefuͤhlt — ich will nicht betheuren — und nun —<lb/>
+Traͤume! O wie wahr fuͤhlten die Menſchen, die<lb/>
+ſo widerſprechende Wuͤrkungen fremden Maͤchten<lb/>
+zuſchrieben. Dieſe Nacht! Jch zittere es zu ſa-<lb/>
+gen, hielt ich ſie in meinen Armen, feſt an mei-<lb/>
+nen Buſen gedruͤkt und dekte ihren lieben lispeln-<lb/>
+den Mund mit unendlichen Kuͤſſen. Mein Auge<lb/>
+ſchwamm in der Trunkenheit des ihrigen. Gott!<lb/>
+bin ich ſtrafbar, daß ich auch jezt noch eine Selig-<lb/>
+keit fuͤhle, mir dieſe gluͤhende Freuden mit voller<lb/>
+Jnnigkeit zuruͤk zu rufen, Lotte! Lotte! — Und<lb/>
+mit mir iſt’s aus! Meine Sinnen verwirren ſich.<lb/>
+Schon acht Tage hab ich keine Beſinnungskraft,<lb/>
+meine Augen ſind voll Thraͤnen. Jch bin nir-<lb/>
+gends wohl, und uͤberall wohl. Jch wuͤnſche nichts,<lb/>
+verlange nichts. Mir waͤrs beſſer ich gienge.</p></div><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="176" facs="#f0064"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#g">Der Herausgeber</hi><lb/>
+an den Leſer.</head><lb/>
+<p><hi rendition="#in">D</hi>ie ausfuͤhrliche Geſchichte der lezten merkwuͤr-<lb/>
+digen Tage unſers Freundes zu liefern, ſeh<lb/>
+ich mich genoͤthiget ſeine Briefe durch Erzaͤhlung<lb/>
+zu unterbrechen, wozu ich den Stof aus dem Mun-<lb/>
+de Lottens, Albertens, ſeines Bedienten, und an-<lb/>
+derer Zeugen geſammlet habe.</p><lb/>
+<p>Werthers Leidenſchaft hatte den Frieden zwi-<lb/>
+ſchen Alberten und ſeiner Frau allmaͤhlig unter-<lb/>
+graben, dieſer liebte ſie mit der ruhigen Treue ei-<lb/>
+nes rechtſchafnen Manns, und der freundliche Um-<lb/>
+gang mit| ihr ſubordinirte ſich nach und nach ſei-<lb/>
+nen Geſchaͤften. Zwar wollte er ſich nicht den Un-<lb/>
+terſchied geſtehen, der die gegenwaͤrtige Zeit den<lb/>
+Braͤutigams-Tagen ſo ungleich machte: doch fuͤhl-<lb/>
+te er innerlich einen gewiſſen Widerwillen gegen<lb/>
+Werthers Aufmerkſamkeiten fuͤr Lotten, die ihn zu-<lb/>
+gleich ein Eingriff in ſeine Rechte und ein ſtiller<lb/>
+Vorwurf zu ſeyn ſcheinen mußten. Dadurch ward<lb/>
+der uͤble Humor vermehrt, den ihm ſeine uͤber-<lb/>
+haͤuften, gehinderten, ſchlecht belohnten Geſchaͤfte<lb/>
+manchmal gaben, und da denn Werthers Lage auch<lb/>
+<fw type="catch" place="bottom">ihm</fw><lb/>
+<pb n="177" facs="#f0065"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ihn zum traurigen Geſellſchafter machte, indem die<lb/>
+Beaͤngſtigung ſeines Herzens, die uͤbrige Kraͤfte<lb/>
+ſeines Geiſtes, ſeine Lebhaftigkeit, ſeinen Scharfſinn<lb/>
+aufgezehrt hatte; ſo konnte es nicht fehlen daß Lotte<lb/>
+zulezt ſelbſt mit angeſtekt wurde, und in eine Art von<lb/>
+Schwermuth verfiel, in der Albert eine wachſende<lb/>
+Leidenſchaft fuͤr ihren Liebhaber, und Werther einen<lb/>
+tiefen Verdruß uͤber das veraͤnderte Betragen ihres<lb/>
+Mannes zu entdekken glaubte. Das Mistrauen,<lb/>
+womit die beyden Freunde einander anſahen, machte<lb/>
+ihnen ihre wechſelſeitige Gegenwart hoͤchſt beſchwer-<lb/>
+lich. Albert mied das Zimmer ſeiner Frau, wenn<lb/>
+Werther bey ihr war, und dieſer, der es merkte,<lb/>
+ergriff nach einigen fruchtloſen Verſuchen ganz von<lb/>
+ihr zu laſſen, die Gelegenheit, ſie in ſolchen Stun-<lb/>
+den zu ſehen, da ihr Mann von ſeinen Geſchaͤften<lb/>
+gehalten wurde. Daraus entſtund neue Unzufrie-<lb/>
+denheit, die Gemuͤther verhezten ſich immer mehr<lb/>
+gegen einander, bis zulezt Albert ſeiner Frau mit<lb/>
+ziemlich troknen Worten ſagte: ſie moͤchte, wenig-<lb/>
+ſtens um der Leute willen, dem Umgange mit Wer-<lb/>
+thern eine andere Wendung geben, und ſeine allzu-<lb/>
+oͤfteren Beſuche abſchneiden.</p><lb/>
+<fw type="sig" place="bottom">M</fw><fw type="catch" place="bottom">Ohn-</fw><lb/>
+<pb n="178" facs="#f0066"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Ohngefaͤhr um dieſe Zeit hatte ſich der Ent-<lb/>
+ſchluß, dieſe Welt zu verlaſſen, in der Seele des<lb/>
+armen Jungen naͤher beſtimmt. Es war von je<lb/>
+her ſeine Lieblingsidee geweſen, mit der er ſich, be-<lb/>
+ſonders ſeit der Ruͤkkehr zu Lotten, immer getragen.</p><lb/>
+<p>Doch ſollte es keine uͤbereilte, keine raſche<lb/>
+That ſeyn, er wollte mit der beſten Ueberzeugung,<lb/>
+mit der moͤglichſten ruhigen Entſchloſſenheit dieſen<lb/>
+Schritt thun.</p><lb/>
+<p>Seine Zweifel, ſein Streit mit ſich ſelbſt,<lb/>
+blikken aus einem Zettelgen hervor, das wahrſchein-<lb/>
+lich ein angefangener Brief an Wilhelmen iſt, und<lb/>
+ohne Datum, unter ſeinen Papieren gefunden<lb/>
+worden.</p><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p><hi rendition="#in">J</hi>hre Gegenwart, ihr Schikſal, ihr Theilneh-<lb/>
+men an dem meinigen, preßt noch die lezten<lb/>
+Thraͤnen aus meinem verſengten Gehirn.</p><lb/>
+<p>Den Vorhang aufzuheben und dahinter zu<lb/>
+treten, das iſt’s all! Und warum das Zaudern<lb/>
+und Zagen? — Weil man nicht weis, wie’s da-<lb/>
+<fw type="catch" place="bottom">hin-</fw><lb/>
+<pb n="179" facs="#f0067"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+hinten ausſieht? — und man nicht zuruͤkkehrt? —<lb/>
+Und daß das nun die Eigenſchaft unſeres Geiſtes<lb/>
+iſt, da Verwirrung und Finſterniß zu ahnden,<lb/>
+wovon wir nichts Beſtimmtes wiſſen.</p><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Den Verdruß, den er bey der Geſandtſchaft ge-<lb/>
+habt, konnte er nicht vergeſſen. Er erwaͤhnte deſ-<lb/>
+ſen ſelten, doch wenn es auch auf die entfernteſte<lb/>
+Weiſe geſchah, ſo konnte man fuͤhlen, daß er ſeine<lb/>
+Ehre dadurch unwiederbringlich gekraͤnkt hielte, und<lb/>
+daß ihm dieſer Vorfall eine Abneigung gegen alle<lb/>
+Geſchaͤfte und politiſche Wirkſamkeit gegeben hatte.<lb/>
+Daher uͤberließ er ſich ganz der wunderbaren Em-<lb/>
+pfind- und Denkensart, die wir aus ſeinen Brie-<lb/>
+fen kennen, und einer endloſen Leidenſchaft, wor-<lb/>
+uͤber noch endlich alles, was thaͤtige Kraft an ihm<lb/>
+war, verloͤſchen mußte. Das ewige einerley eines<lb/>
+traurigen Umgangs mit dem liebenswuͤrdigen und<lb/>
+geliebten Geſchoͤpfe, deſſen Ruhe er ſtoͤrte, das<lb/>
+ſtuͤrmende Abarbeiten ſeiner Kraͤfte, ohne Zwek<lb/>
+und Ausſicht, draͤngten ihn endlich zu der ſchroͤkli-<lb/>
+chen That.</p><lb/>
+<fw type="sig" place="bottom">M 2</fw><lb/>
+<pb n="180" facs="#f0068"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">am 20. Dec.</hi></dateline><lb/>
+<p><hi rendition="#in">J</hi>ch danke Deiner Liebe, Wilhelm, daß Du das<lb/>
+Wort ſo aufgefangen haſt. Ja Du haſt recht:<lb/>
+Mir waͤre beſſer, ich gienge. Der Vorſchlag, den<lb/>
+Du zu einer Ruͤkkehr zu euch thuſt, gefaͤllt mir<lb/>
+nicht ganz, wenigſtens moͤcht ich noch gern einen<lb/>
+Umweg machen, beſonders da wir anhaltenden Froſt<lb/>
+und gute Wege zu hoffen haben. Auch iſt mir’s<lb/>
+ſehr lieb daß Du kommen willſt, mich abzuholen, ver-<lb/>
+zieh nur noch vierzehn Tage, und erwarte noch ei-<lb/>
+nen Brief von mir mit dem weitern. Es iſt noͤ-<lb/>
+thig, daß nichts gepfluͤkt werde, eh es reif iſt. Und<lb/>
+vierzehn Tage auf oder ab thun viel. Meiner<lb/>
+Mutter ſollſt Du ſagen: daß ſie fuͤr ihren Sohn<lb/>
+beten ſoll und daß ich ſie um Vergebung bitte, we-<lb/>
+gen all des Verdruſſes, den ich ihr gemacht habe.<lb/>
+Das war nun mein Schikſal, die zu betruͤben, de-<lb/>
+nen ich Freude ſchuldig war. Leb wohl, mein<lb/>
+Theuerſter. Allen Segen des Himmels uͤber Dich!<lb/>
+Leb wohl!</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">An</fw><lb/>
+<pb n="181" facs="#f0069"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div><p>An eben dem Tage, es war der Sonntag<lb/>
+vor Weihnachten, kam er Abends zu Lotten, und<lb/>
+fand ſie allein. Sie beſchaͤſtigte ſich, einige Spiel-<lb/>
+werke in Ordnung zu bringen, die ſie ihren kleinen<lb/>
+Geſchwiſtern zum Chriſtgeſchenke zurecht gemacht<lb/>
+hatte. Er redete von dem Vergnuͤgen, das die Klei-<lb/>
+nen haben wuͤrden, und von den Zeiten, da einen<lb/>
+die unerwartete Oeffnung der Thuͤre, und die Er-<lb/>
+ſcheinung eines aufgepuzten Baums mit Wachs-<lb/>
+lichtern, Zukkerwerk und Aepfeln, in paradiſiſche<lb/>
+Entzuͤkkung ſezte. Sie ſollen, ſagte Lotte, indem<lb/>
+ſie ihre Verlegenheit unter ein liebes Laͤcheln ver-<lb/>
+barg: Sie ſollen auch beſche ert kriegen, wenn Sie<lb/>
+recht geſchikt ſind, ein Wachsſtoͤkgen und noch was.<lb/>
+Und was heißen Sie geſchikt ſeyn? rief er aus,<lb/>
+wie ſoll ich ſeyn, wie kann ich ſeyn, beſte Lotte?<lb/>
+Donnerſtag Abend, ſagte ſie, iſt Weyhnachtsabend,<lb/>
+da kommen die Kinder, mein Vater auch, da kriegt<lb/>
+jedes das ſeinige, da kommen Sie auch — aber<lb/>
+nicht eher. — Werther ſtuzte! — Jch bitte Sie,<lb/>
+fuhr ſie fort, es iſt nun einmal ſo, ich bitte Sie<lb/>
+um meiner Ruhe willen, es kann nicht, es kann<lb/>
+nicht ſo bleiben! — Er wendete ſeine Augen von<lb/>
+<fw type="sig" place="bottom">M 3</fw><fw type="catch" place="bottom">ihr,</fw><lb/>
+<pb n="182" facs="#f0070"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ihr, gieng in der Stube auf und ab, und mur,<lb/>
+melte das: es kann nicht ſo bleiben! zwiſchen den<lb/>
+Zaͤhnen. Lotte, die den ſchroͤklichen Zuſtand fuͤhlte,<lb/>
+worinn ihn dieſe Worte verſezt hatten, ſuchte durch<lb/>
+allerley Fragen ſeine Gedanken abzulenken, aber<lb/>
+vergebens: Nein, Lotte, rief er aus: ich werde Sie<lb/>
+nicht wieder ſehn! — Warum das? verſezte ſie,<lb/>
+Werther, Sie koͤnnen, Sie muͤſſen uns wieder<lb/>
+ſehen, nur maͤſſigen Sie ſich. O! warum mußten<lb/>
+Sie mit dieſer Heſtigkeit, dieſer unbezwinglich haf-<lb/>
+tenden Leidenſchaft fuͤr alles, das Sie einmal an-<lb/>
+faſſen, gebohren werden. Jch bitte Sie, fuhr ſie<lb/>
+fort, indem ſie ihn bey der Hand nahm, maͤſſigen<lb/>
+Sie ſich, Jhr Geiſt, Jhre Wiſſenſchaft, Jhre<lb/>
+Talente, was bieten die Jhnen fuͤr mannigfaltige<lb/>
+Ergoͤzzungen dar! ſeyn Sie ein Mann, wenden<lb/>
+Sie dieſe traurige Anhaͤnglichkeit von einem Ge-<lb/>
+ſchoͤpſe, das nichts thun kann als Sie bedauren. —<lb/>
+Er knirrte mit den Zaͤhnen, und ſah ſie duͤſter an.<lb/>
+Sie hielt ſeine Hand: Nur einen Augenblik ru-<lb/>
+higen Sinn, Werther, ſagte ſie. Fuͤhlen Sie<lb/>
+nicht, daß Sie ſich betruͤgen, ſich mit Willen zu<lb/>
+Grunde richten? Warum denn mich! Werther!<lb/>
+<fw type="catch" place="bottom">Juſt</fw><lb/>
+<pb n="183" facs="#f0071"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Juſt mich! das Eigenthum eines andern. Juſt<lb/>
+das! Jch fuͤrchte, ich fuͤrchte, es iſt nur die Un-<lb/>
+moͤglichkeit mich zu beſizzen, die Jhnen dieſen<lb/>
+Wunſch ſo reizend macht. Er zog ſeine Hand aus<lb/>
+der ihrigen, indem er ſie mit einem ſtarren un-<lb/>
+willigen Blikke anſah. Weiſe! rief er, ſehr weiſe!<lb/>
+hat vielleicht Albert dieſe Anmerkung gemacht?<lb/>
+Politiſch! ſehr politiſch! — Es kann ſie jeder ma-<lb/>
+chen, verſezte ſie drauf. Und ſollte denn in der<lb/>
+weiten Welt kein Maͤdgen ſeyn, das die Wuͤnſche<lb/>
+Jhres Herzens erfuͤllte. Gewinnen Sie’s uͤber<lb/>
+ſich, ſuchen| Sie darnach, und ich ſchwoͤre Jhnen,<lb/>
+Sie werden ſie finden. Denn ſchon lange aͤngſtet<lb/>
+mich fuͤr Sie und uns die Einſchraͤnkung, in die<lb/>
+Sie ſich dieſe Zeit her ſelbſt gebannt haben. Ge-<lb/>
+winnen Sie’s uͤber ſich! Eine Reiſe wird Sie,<lb/>
+muß Sie zerſtreuen! Suchen Sie, finden Sie<lb/>
+einen werthen Gegenſtand all Jhrer Liebe, und<lb/>
+kehren Sie zuruͤk, und laſſen Sie uns zuſammen<lb/>
+die Seligkeit einer wahren Freundſchaft genießen.</p><lb/>
+<p>Das koͤnnte man, ſagte er mit einem kalten<lb/>
+Lachen, drukken laſſen, und allen Hofmeiſtern em-<lb/>
+<fw type="sig" place="bottom">M 4</fw><fw type="catch" place="bottom">pfeh-</fw><lb/>
+<pb n="184" facs="#f0072"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+pfehlen. Liebe Lotte, laſſen Sie mir noch ein klein<lb/>
+wenig Ruh, es wird alles werden. — Nur das<lb/>
+Werther! daß Sie nicht eher kommen als Weyh-<lb/>
+nachtsabend! — Er wollte antworten, und Al-<lb/>
+bert trat in die Stube. Man bot ſich einen fro-<lb/>
+ſtigen guten Abend, und gieng verlegen im Zim-<lb/>
+mer neben einander auf und nieder. Werther fieng<lb/>
+einen unbedeutenden Diskurs an, der bald aus<lb/>
+war, Albert desgleichen, der ſodann ſeine Frau nach<lb/>
+einigen Auftraͤgen fragte, und als er hoͤrte, ſie ſeyen<lb/>
+noch nicht ausgerichtet, ihr ſpizze Reden gab, die<lb/>
+Werthern durch’s Herz giengen. Er wollte gehn,<lb/>
+er konnte nicht und zauderte bis Acht, da ſich denn<lb/>
+der Unmuth und Unwillen an einander immer ver-<lb/>
+mehrte, bis der Tiſch gedekt wurde und er Huth<lb/>
+und Stok nahm, da ihm denn Albert ein unbedeu-<lb/>
+tend Kompliment, ob er nicht mit ihnen vorlieb<lb/>
+nehmen wollte? mit auf den Weg gab.</p><lb/>
+<p>Er kam nach Hauſe, nahm ſeinem Burſchen,<lb/>
+der ihm leuchten wollte, das Licht aus der Hand,<lb/>
+und gieng allein in ſein Zimmer, weinte laut, re-<lb/>
+dete aufgebracht mit ſich ſelbſt, gieng heftig die<lb/>
+<fw type="catch" place="bottom">Stube</fw><lb/>
+<pb n="185" facs="#f0073"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Stube auf und ab, und warf ſich endlich in ſeinen<lb/>
+Kleidern auf’s Bette, wo ihn der Bediente fand,<lb/>
+der es gegen Eilf wagte hinein zu gehn, um zu fra-<lb/>
+gen, ob er dem Herrn die Stiefel ausziehen ſollte,<lb/>
+das er denn zuließ und dem Diener verbot, des an-<lb/>
+dern Morgens nicht in’s Zimmer zu kommen, bis<lb/>
+er ihm rufte.</p><lb/>
+<p>Montags fruͤh, den ein und zwanzigſten De-<lb/>
+cember, ſchrieb er folgenden Brief an Lotten, den<lb/>
+man nach ſeinem Tode verſiegelt auf ſeinem<lb/>
+Schreibtiſche gefunden und ihr uͤberbracht hat, und<lb/>
+den ich Abſazweiſe hier einruͤkken will, ſo wie aus<lb/>
+den Umſtaͤnden erhellet, daß er ihn geſchrieben<lb/>
+habe.</p><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p><hi rendition="#in">E</hi>s iſt beſchloſſen, Lotte, ich will ſterben, und das<lb/>
+ſchreib ich Dir ohne romantiſche Ueberſpan-<lb/>
+nung gelaſſen, an dem Morgen des Tags, an<lb/>
+dem ich Dich zum lezten mal ſehn werde. Wenn<lb/>
+Du dieſes lieſeſt, meine Beſte, dekt ſchon das kuͤhle<lb/>
+Grab die erſtarrten Reſte des Unruhigen, Ungluͤk-<lb/>
+<fw type="sig" place="bottom">M 5</fw><fw type="catch" place="bottom">lichen</fw><lb/>
+<pb n="186" facs="#f0074"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+lichen, der fuͤr die lezten Augenblikke ſeines Lebens<lb/>
+keine groͤſſere Suͤſſigkeit weis, als ſich mit Dir zu<lb/>
+unterhalten. Jch habe eine ſchroͤkliche Nacht ge-<lb/>
+habt, und ach eine wohlthaͤtige Nacht, ſie iſt’s, die<lb/>
+meinen wankenden Entſchluß beſeſtiget, beſtimmt<lb/>
+hat: ich will ſterben. Wie ich mich geſtern von<lb/>
+Dir riß, in der fuͤrchterlichen Empoͤrung meiner<lb/>
+Sinnen, wie ſich all all das nach meinem Herzen<lb/>
+draͤngte, und mein hoffnungloſes, freudloſes Daſeyn<lb/>
+neben Dir, in graͤßlicher Kaͤlte mich anpakte; ich<lb/>
+erreichte kaum mein Zimmer, ich warf mich auſſer<lb/>
+mir auf meine Knie, und o Gott! du gewaͤhrteſt<lb/>
+mir das lezte Labſal der bitterſten Thraͤnen, und<lb/>
+tauſend Anſchlaͤge, tauſend Ausſichten wuͤtheten<lb/>
+durch meine Seele, und zuletzt ſtand er da, feſt<lb/>
+ganz der lezte einzige Gedanke: Jch will ſterben! —<lb/>
+Jch legte mich nieder, und Morgens, in all der<lb/>
+Ruh des Erwachens, ſteht er noch feſt, noch ganz<lb/>
+ſtark in meinem Herzen: Jch will ſterben! —<lb/>
+Es iſt nicht Verzweiflung, es iſt Gewißheit, daß<lb/>
+ich ausgetragen habe, und daß ich mich opfere fuͤr<lb/>
+Dich, ja Lotte, warum ſollt ich’s verſchweigen:<lb/>
+eins von uns dreyen muß hinweg, und das will<lb/>
+<fw type="catch" place="bottom">ich</fw><lb/>
+<pb n="187" facs="#f0075"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ich ſeyn. O meine Beſte, in dieſem zerriſſenen<lb/>
+Herzen iſt es wuͤthend herum geſchlichen, oft —<lb/>
+Deinen Mann zu ermorden! — Dich! — mich! —<lb/>
+So ſey’s denn! — Wenn du hinauf ſteigſt auf<lb/>
+den Berg, an einem ſchoͤnen Sommerabende, dann<lb/>
+erinnere Dich meiner, wie ich ſo oft das Thal<lb/>
+herauf kam, und dann blikke nach dem Kirchhofe<lb/>
+hinuͤber nach meinem Grabe, wie der Wind das<lb/>
+hohe Gras im Schein der ſinkenden Sonne, hin<lb/>
+und her wiegt. — Jch war ruhig da ich anfieng,<lb/>
+und nun wein ich wie ein Kind, da mir all das<lb/>
+ſo lebhaft um mich wird. —</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div><p>Gegen zehn Uhr rufte Werther ſeinem Be-<lb/>
+dienten, und unter dem Anziehen ſagte er ihm:<lb/>
+wie er in einigen Tagen verreiſen wuͤrde, er ſolle<lb/>
+daher die Kleider auskehren, und alles zum Ein-<lb/>
+pakken zurechte machen, auch gab er ihm Befehl,<lb/>
+uͤberall Contis zu fordern, einige ausgeliehene Buͤ-<lb/>
+cher abzuholen, und einigen Armen, denen er woͤ-<lb/>
+chentlich etwas zu geben gewohnt war, ihr Zuge-<lb/>
+theiltes auf zwey Monathe |voraus zu bezahlen.</p><lb/>
+<fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="188" facs="#f0076"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Er ließ ſich das Eſſen auf die Stube bringen,<lb/>
+und nach Tiſche ritt er hinaus zum Amtmanne,<lb/>
+den er nicht zu Hauſe antraf. Er gieng tieffinnig<lb/>
+im Garten auf und ab, und ſchien noch zulezt alle<lb/>
+Schwermuth der Erinnerung auf ſich haͤufen zu<lb/>
+wollen.</p><lb/>
+<p>Die Kleinen ließen ihn nicht lange in Ruhe,<lb/>
+ſie verfolgten ihn, ſprangen an ihn hinauf, er-<lb/>
+zaͤhlten ihm: daß, wenn Morgen und wieder<lb/>
+Morgen, und noch ein Tag waͤre, daß ſie die<lb/>
+Chriſtgeſchenke bey Lotten holten, und erzaͤhlten<lb/>
+ihm Wunder, die ſich ihre kleine Einbildungskraft<lb/>
+verſprach. Morgen! rief er aus, und wieder<lb/>
+Morgen, und noch ein Tag! Und kuͤßte ſie alle<lb/>
+herzlich, und wollte ſie verlaſſen, als ihm der kleine<lb/>
+noch was in’s Ohr ſagen wollte. Der verrieth<lb/>
+ihm, daß die großen Bruͤder haͤtten ſchoͤne Neu-<lb/>
+jahrswuͤnſche geſchrieben, ſo gros, und einen fuͤr<lb/>
+den Papa, fuͤr Albert und Lotte einen, und auch<lb/>
+einen fuͤr Herrn Werther. Die wollten ſie des<lb/>
+Neujahrstags fruͤh uͤberreichen.</p><lb/>
+<fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="189" facs="#f0077"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Das uͤbermannte ihn, er ſchenkte jedem was,<lb/>
+ſezte ſich zu Pferde, ließ den Alten gruͤßen, und<lb/>
+ritt mit Thraͤnen in den Augen davon.</p><lb/>
+<p>Gegen fuͤnfe kam er nach Hauſe, befahl der<lb/>
+Magd nach dem Feuer zu ſehen, und es bis in die<lb/>
+Nacht zu unterhalten. Dem Bedienten hieß er<lb/>
+Buͤcher und Waͤſche unten in den Coffer pakken,<lb/>
+und die Kleider einnaͤhen. Darauf ſchrieb er<lb/>
+wahrſcheinlich folgenden Abſaz ſeines lezten Briefes<lb/>
+an Lotten.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div type="letter"><p>Du erwarteſt mich nicht. Du glaubſt, ich wuͤr-<lb/>
+de gehorchen, und erſt Weyhnachtsabend Dich wie-<lb/>
+der ſehn. O Lotte! Heut, oder nie mehr. Weyh-<lb/>
+nachtsabend haͤltſt Du dieſes Papier in Deiner<lb/>
+Hand, zitterſt und benezt es mit Deinen lieben<lb/>
+Thraͤnen. Jch will, ich muß! O wie wohl iſt<lb/>
+mir’s, daß ich entſchloſſen bin.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Um</fw><lb/>
+<pb n="190" facs="#f0078"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div><p>Um halb ſieben gieng er nach Albertens Hauſe,<lb/>
+und fand Lotten allein, die uͤber ſeinen Beſuch ſehr<lb/>
+erſchrokken war. Sie hatte ihrem Manne im<lb/>
+Diskurs geſagt, daß Werther vor Weyhnachts-<lb/>
+abend nicht wiederkommen wuͤrde. Er ließ bald<lb/>
+darauf ſein Pferd ſatteln, nahm von ihr Abſchied<lb/>
+und ſagte, er wolle zu einem Beamten in der Nach-<lb/>
+barſchaft reiten, mit dem er Geſchaͤfte abzuthun<lb/>
+habe, und ſo machte er ſich truz der uͤbeln Witte-<lb/>
+rung fort. Lotte, die wohl wußte, daß er dieſes<lb/>
+Geſchaͤft ſchon lange verſchoben hatte, daß es ihn<lb/>
+eine Nacht von Hauſe halten wuͤrde, verſtund die<lb/>
+Pantomime nur allzu wohl und ward herzlich be-<lb/>
+truͤbt daruͤber. Sie ſaß in ihrer Einſamkeit, ihr<lb/>
+Herz ward weich, ſie ſah das Vergangene,<lb/>
+fuͤhlte all ihren Werth, und ihre Liebe zu ihrem<lb/>
+Manne, der nun ſtatt des verſprochenen Gluͤks<lb/>
+anfieng das Elend ihres Lebens zu machen. Jhre<lb/>
+Gedanken fielen auf Werthern. Sie ſchalt ihn,<lb/>
+und konnte ihn nicht haſſen. Ein geheimer Zug<lb/>
+hatte ihr ihn vom Anfange ihrer Bekanntſchaft<lb/>
+theuer gemacht, und nun, nach ſo viel Zeit, nach<lb/>
+ſo manchen durchlebten Situationen, mußte ſein<lb/>
+<fw type="catch" place="bottom">Ein-</fw><lb/>
+<pb n="191" facs="#f0079"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Eindruk unausloͤſchlich in ihrem Herzen ſeyn. Jhr<lb/>
+gepreßtes Herz machte ſich endlich in Thraͤnen Luft<lb/>
+und gieng in eine ſtille Melancholie uͤber, in der<lb/>
+ſie ſich je laͤnger je tiefer verlohr. Aber wie ſchlug<lb/>
+ihr Herz, als ſie Werthern die Treppe herauf kom-<lb/>
+men und außen nach ihr fragen hoͤrte. Es war zu<lb/>
+ſpaͤt, ſich verlaͤugnen zu laſſen, und ſie konnte ſich<lb/>
+nur halb von ihrer Verwirrung ermannen, als er<lb/>
+ins Zimmer trat. Sie haben nicht Wort gehalten!<lb/>
+rief ſie ihm entgegen. Jch habe nichts verſprochen,<lb/>
+war ſeine Antwort. So haͤtten Sie mir wenig-<lb/>
+ſtens meine Bitte gewaͤhren ſollen, ſagte ſie, es<lb/>
+war Bitte um unſerer beyder Ruhe willen. Jn-<lb/>
+dem ſie das ſprach, hatte ſie bey ſich uͤberlegt, ei-<lb/>
+nige ihrer Freundinnen zu ſich rufen zu laſſen. Sie<lb/>
+ſollten Zeugen ihrer Unterredung mit Werthern<lb/>
+ſeyn, und Abends, weil er ſie nach Hauſe fuͤhren<lb/>
+mußte, ward ſie ihn zur rechten Zeit los. Er hatte<lb/>
+ihr einige Buͤcher zuruͤk gebracht, ſie fragte nach<lb/>
+einigen andern, und ſuchte das Geſpraͤch in Er-<lb/>
+wartung ihrer Freundinnen, allgemein zu erhalten,<lb/>
+als das Maͤdgen zuruͤk kam und ihr hinterbrachte,<lb/>
+wie ſie ſich beyde entſchuldigen ließen, die eine habe<lb/>
+<fw type="catch" place="bottom">unan-</fw><lb/>
+<pb n="192" facs="#f0080"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+unangenehmen Verwandtenbeſuch, und die andere<lb/>
+moͤchte ſich nicht anziehen, und in dem ſchmuzigen<lb/>
+Wetter nicht gerne ausgehen.</p><lb/>
+<p>Daruͤber ward ſie einige Minuten nachdenkend,<lb/>
+bis das Gefuͤhl ihrer Unſchuld ſich mit einigem<lb/>
+Stolze empoͤrte. Sie bot Albertens Grillen Truz,<lb/>
+und die Reinheit ihres Herzens gab ihr eine Feſtig-<lb/>
+keit, daß ſie nicht, wie ſie anfangs vorhatte, ihr<lb/>
+Maͤdgen in die Stube rief, ſondern, nachdem ſie<lb/>
+einige Menuets auf dem Clavier geſpielt hatte, um<lb/>
+ſich zu erholen, und die Verwirrung ihres Her-<lb/>
+zens zu ſtillen, ſich gelaſſen zu Werthern auf’s<lb/>
+Canapee ſezte. Haben Sie nichts zu leſen, ſagte<lb/>
+ſie. Er hatte nichts. Da drinne in meiner<lb/>
+Schublade, fieng ſie an, liegt ihre Ueberſezzung<lb/>
+einiger Geſaͤnge Oſſians, ich habe ſie noch nicht<lb/>
+geleſen, denn ich hoffte immer, ſie von Jhnen zu<lb/>
+hoͤren, aber zeither ſind Sie zu nichts mehr taug-<lb/>
+lich. Er laͤchelte, holte die Lieder, ein Schauer<lb/>
+uͤberfiel ihn, als er ſie in die Hand nahm, und<lb/>
+die Augen ſtunden ihm voll Thraͤnen, als er hin-<lb/>
+ein ſah, er ſezte ſich nieder und las:</p><lb/>
+<fw type="catch" place="bottom">Stern</fw><lb/>
+<pb n="193" facs="#f0081"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Stern der daͤmmernden Nacht, ſchoͤn funkelſt<lb/>
+du in Weſten. Hebſt dein ſtrahlend Haupt aus<lb/>
+deiner Wolke Wandelſt ſtattlich deinen Huͤgel<lb/>
+hin. Wornach blikſt du auf die Haide? Die<lb/>
+ſtuͤrmende Winde haben ſich gelegt. Von ferne<lb/>
+kommt des Giosbachs Murmeln. Rauſchende Wel-<lb/>
+len ſpielen am Felſen ferne. Das Geſumme der<lb/>
+Abendfliegen ſchwaͤrmet uͤber’s Feld. Wornach<lb/>
+ſiehſt du, ſchoͤnes Licht? Aber du laͤchelſt und gehſt,<lb/>
+freudig umgeben dich die Wellen und baden dein<lb/>
+liebliches Haar. Lebe wohl ruhiger Strahl. Er-<lb/>
+ſcheine du herrliches Licht von Oſſians Seele.</p><lb/>
+<p>Und es erſcheint in ſeiner Kraft. Jch ſehe<lb/>
+meine geſchiedene Freunde, ſie ſammeln ſich auf<lb/>
+Lora, wie in den Tagen, die voruͤber ſind. —<lb/>
+Fingal kommt wie eine feuchte Nebelſaͤule; um<lb/>
+ihn ſind ſeine Helden. Und ſieh die Barden des<lb/>
+Geſangs! grauer Ullin! ſtatlicher Ryno! Alpin<lb/>
+lieblicher Saͤnger! Und du ſanft klagende Mino-<lb/>
+na! — Wie veraͤndert ſeyd ihr meine Freunde<lb/>
+ſeit den feſtlichen Tagen auf Selma! da wir buhl-<lb/>
+ten um die Ehre des Geſangs, wie Fruͤhlingsluͤf-<lb/>
+<fw type="sig" place="bottom">N</fw><fw type="catch" place="bottom">te</fw><lb/>
+<pb n="194" facs="#f0082"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+te den Huͤgel hin wechſelnd beugen das ſchwach<lb/>
+lispelnde Gras.</p><lb/>
+<p>Da trat Minona hervor in ihrer Schoͤnheit,<lb/>
+mit niedergeſchlagenem Blik und thraͤnenvollem Au-<lb/>
+ge. Jhr Haar floß ſchwer im unſteten Winde<lb/>
+der von dem Huͤgel herſties. — Duͤſter wards in<lb/>
+der Seele der Helden als ſie| die liebliche Stim-<lb/>
+me erhub; denn oft hatten ſie das Grab Sal-<lb/>
+gars geſehen, oft die finſtere Wohnung der weiſſen<lb/>
+Colma. Colma verlaſſen auf dem Huͤgel, mit all<lb/>
+der harmoniſchen Stimme. Salmar verſprach zu<lb/>
+kommen; aber rings um zog ſich die Nacht. Hoͤ-<lb/>
+ret Colmas Stimme, da ſie auf dem Huͤgel allein<lb/>
+ſaß.</p><lb/>
+<div n="2"><head><hi rendition="#g">Colma</hi>.</head><lb/>
+<p>Es iſt Nacht; — ich bin allein, verlohren<lb/>
+auf dem ſtuͤrmiſchen Huͤgel. Der Wind ſauſt im<lb/>
+Gebuͤrg, der Strohm heult den Felſen hinab. Kei-<lb/>
+ne Huͤtte ſchuͤzt mich vor dem Regen, verlaſſen<lb/>
+auf dem ſtuͤrmiſchen Huͤgel.</p><lb/>
+<p>Tritt, o Mond, aus deinen Wolken; erſchei-<lb/>
+net Sterne der Nacht! Leite mich irgend ein<lb/>
+Strahl zu dem Orte wo meine Liebe ruht von den<lb/>
+<fw type="catch" place="bottom">Be-</fw><lb/>
+<pb n="195" facs="#f0083"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Beſchwerden der Jagd, ſein Bogen neben ihm ab-<lb/>
+geſpannt, ſeine Hunde ſchnobend um ihn! Aber<lb/>
+hier muß ich ſizzen allein auf dem Felſen des<lb/>
+verwachſenen Strohms. Der Strohm und der<lb/>
+Sturm ſauſt, ich hoͤre nicht die Stimme meines<lb/>
+Geliebten.</p><lb/>
+<p>Warum zaudert mein Salgar? Hat er ſein<lb/>
+Wort vergeſſen? — Da iſt der Fels und der<lb/>
+Baum und hier der rauſchende Strohm. Mit<lb/>
+der Nacht verſprachſt du hier zu ſeyn. Ach! wo-<lb/>
+hin hat ſich mein Salgar verirrt? Mit dir wollt<lb/>
+ich fliehen, verlaſſen Vater und Bruder! die Stol-<lb/>
+zen! Lange ſind unſere Geſchlechter Feinde, aber<lb/>
+wir ſind keine Feinde, o Salgar.</p><lb/>
+<p>Schweig eine Weile o Wind, ſtill eine klei-<lb/>
+ne Weile o Strohm, daß meine Stimme klinge<lb/>
+durch’s Thal, daß mein Wandrer mich hoͤre. Sal-<lb/>
+gar! Jch bin’s die ruft. Hier iſt der Baum<lb/>
+und der Fels. Salgar, mein Lieber, hier bin ich.<lb/>
+Warum zauderſt du zu kommen?</p><lb/>
+<p>Sich, der Mond erſcheint. Die Fluth glaͤnzt<lb/>
+im Thale. Die Felſen ſtehn grau den Huͤgel hin-<lb/>
+auf. Aber ich ſeh ihn nicht auf der Hoͤhe. Sei-<lb/>
+<fw type="sig" place="bottom">N 2</fw><fw type="catch" place="bottom">ne</fw><lb/>
+<pb n="196" facs="#f0084"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ne Hunde vor ihm her verkuͤndigen nicht ſeine An-<lb/>
+kunft. Hier muß ich ſizzen allein.</p><lb/>
+<p>Aber wer ſind die dort unten liegen auf der<lb/>
+Haide — Mein Geliebter? Mein Bruder? —<lb/>
+Redet o meine Freunde! Sie antworten nicht.<lb/>
+Wie geaͤngſtet iſt meine Seele — Ach ſie ſind<lb/>
+todt! — Jhre Schwerdte roth vom Gefecht. O<lb/>
+mein Bruder, mein Bruder, warum haſt du mei-<lb/>
+nen Salgax erſchlagen? O mein Salgar, warum<lb/>
+haſt du meinen Bruder erſchlagen? — Jhr wart<lb/>
+mir beyde ſo lieb! O du warſt ſchoͤn an dem<lb/>
+Huͤgel unter Tauſenden; er war ſchroͤklich in der<lb/>
+Schlacht. Antwortet mir! Hoͤrt meine Stimme,<lb/>
+meine Geliebten. Aber ach ſie ſind ſtumm.<lb/>
+Stumm vor ewig. Kalt wie die Erde iſt ihr<lb/>
+Buſen.</p><lb/>
+<p>O von dem Felſen des Huͤgels, von dem<lb/>
+Gipfel des ſtuͤrmenden Berges, redet Geiſter der<lb/>
+Todten! Redet! mir ſoll es nicht grauſen! —<lb/>
+Wohin ſeyd ihr zur Ruhe gegangen? Jn wel-<lb/>
+cher Gruft des Gebuͤrges ſoll ich euch finden! —<lb/>
+Keine ſchwache Stimme vernehm ich im Wind,<lb/>
+keine wehende Antwort im Sturme des Huͤgels.</p><lb/>
+<fw type="catch" place="bottom">Jch</fw><lb/>
+<pb n="197" facs="#f0085"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Jch ſizze in meinem Jammer, ich harre auf<lb/>
+den Morgen in meinen Thraͤnen. Wuͤhlet das<lb/>
+Grab, ihr Freunde der Todten, aber ſchließt es nicht,<lb/>
+bis ich komme. Mein Leben ſchwindet wie ein<lb/>
+Traum, wie ſollt ich zuruͤk bleiben. Hier will ich<lb/>
+wohnen mit meinen Freunden an dem Strohme des<lb/>
+klingenden Felſen — Wenns Nacht wird auf dem<lb/>
+Huͤgel, und der Wind kommt uͤber die Haide, ſoll<lb/>
+mein Geiſt im Winde ſtehn und trauren den Tod<lb/>
+meiner Freunde. Der Jaͤger hoͤrt mich aus ſei-<lb/>
+ner Laube, fuͤrchtet meine Stimme und liebt ſie,<lb/>
+den ſuͤß ſoll meine Stimme ſeyn um meine Freun-<lb/>
+de, ſie waren mir beyde ſo lieb.</p><lb/>
+<p>Das war dein Geſang, o Minona, Tormans<lb/>
+ſanfte erroͤthende Tochter. Unſere Thraͤnen floſſen<lb/>
+um Colma, und unſere Seele ward duͤſter — Ul-<lb/>
+lin trat auf mit der Harfe und gab uns Alpins<lb/>
+Geſang — Alpins Stimme war freundlich, Rynos<lb/>
+Seele ein Feuerſtrahl. Aber ſchon ruhten ſie im<lb/>
+engen Hauſe, und ihre Stimme war verhallet in<lb/>
+Selma — Einſt kehrt Ullin von der Jagd zuruͤk,<lb/>
+eh noch die Helden fielen, er hoͤrte ihren Wette-<lb/>
+geſang auf dem Huͤgel, ihr Lied war ſanft, aber<lb/>
+<fw type="sig" place="bottom">N 3</fw><fw type="catch" place="bottom">traurig,</fw><lb/>
+<pb n="198" facs="#f0086"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+traurig, ſie klagten Morars Fall, des erſten der<lb/>
+Helden. Seine Seele war wie Fingals Seele;<lb/>
+ſein Schwerdt wie das Schwerdt Oslars — Aber<lb/>
+er fiel und ſein Vater jammerte und ſeiner Schwe-<lb/>
+ſter Augen waren voll Thraͤnen — Minonas Au-<lb/>
+gen waren voll Thraͤnen, der Schweſter des herr-<lb/>
+lichen Morars. Sie trat zuruͤk vor Ullins Ge-<lb/>
+ſang, wie der Mond in Weſten, der den Sturm-<lb/>
+regen vorausſieht und ſein ſchoͤnes Haupt in eine<lb/>
+Wolke verbirgt. — Jch ſchlug die Harfe mit Ul-<lb/>
+lin zum Geſange des Jammers.</p></div><lb/>
+<div n="2"><head><hi rendition="#g">Ryno</hi>.</head><lb/>
+<p>Vorbey ſind Wind und Regen, der Mittag<lb/>
+iſt ſo heiter, die Wolken theilen ſich. Fliehend be-<lb/>
+ſcheint den Huͤgel die unbeſtaͤndge Sonne. So<lb/>
+roͤthlich fließt der Strohm des Bergs im Thale hin.<lb/>
+Suͤß iſt dein Murmeln Strohm, doch ſuͤſſer die<lb/>
+Stimme, die ich hoͤre. Es iſt Alpin’s Stimme,<lb/>
+er bejammert den Todten. Sein Haupt iſt vor<lb/>
+Alter gebeugt, und roth ſein thraͤnendes Auge. Al-<lb/>
+pin treflicher Saͤnger, warum allein auf dem ſchwei-<lb/>
+genden Huͤgel, warum jammerſt du wie ein Wind-<lb/>
+ſtos im Wald, wie eine Welle am fernen Geſtade.</p></div><lb/>
+<fw type="catch" place="bottom">Alpin.</fw><lb/>
+<pb n="199" facs="#f0087"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="2"><head><hi rendition="#g">Alpin</hi>.</head><lb/>
+<p>Meine Thraͤnen Ryno, ſind fuͤr den Tod-<lb/>
+ten, meine Stimme fuͤr die Bewohner des Grabs.<lb/>
+Schlank biſt du auf dem Huͤgel, ſchoͤn unter den<lb/>
+Soͤhnen der Haide. Aber du wirſt fallen wie<lb/>
+Morar, und wird der traurende |ſizzen auf deinem<lb/>
+Grabe. Die Huͤgel werden dich vergeſſen, dein<lb/>
+Bogen in der Halle liegen ungeſpannt.</p><lb/>
+<p>Du warſt ſchnell o Morar, wie ein Reh auf<lb/>
+dem Huͤgel, ſchreklich wie die Nachtfeuer am Him-<lb/>
+mel, dein Grimm war ein Sturm. Dein Schwerdt<lb/>
+in der Schlacht wie Wetterleuchten uͤber der Hai-<lb/>
+de. Deine Stimme glich dem Waldſtrohme nach<lb/>
+dem Regen, dem Donner auf fernen Huͤgel. Man-<lb/>
+che fielen vor deinem Arm, die Flamme deines<lb/>
+Grimms verzehrte ſie. Aber wenn du kehrteſt<lb/>
+vom Kriege, wie friedlich war deine Stimme!<lb/>
+Dein Angeſicht war gleich der Sonne nach dem<lb/>
+Gewitter, gleich dem Monde in der ſchweigenden<lb/>
+Nacht. Ruhig deine Bruſt wie der See, wenn<lb/>
+ſich das Brauſen des Windes gelegt hat.</p><lb/>
+<p>Eng iſt nun deine Wohnung, finſter deine<lb/>
+Staͤte. Mit drey Schritten meß ich dein Grab,<lb/>
+<fw type="sig" place="bottom">N 4</fw><fw type="catch" place="bottom">o</fw><lb/>
+<pb n="200" facs="#f0088"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+o du, der du ehe ſo gros waͤrſt! Vier Steine<lb/>
+mit moſigen Haͤuptern ſind dein einzig Gedaͤcht-<lb/>
+niß. Ein| entblaͤtterter Baum, lang Gras; das<lb/>
+wiſpelt im Winde, deutet dem Auge des Jaͤgers<lb/>
+das Grab des maͤchtigen Morars. Keine Mut-<lb/>
+ter haſt du, dich zu beweinen, kein Maͤdgen mit<lb/>
+Thraͤnen der Liebe. Todt iſt, die dich gebahr.<lb/>
+Gefallen die Tochter von Morglan.</p><lb/>
+<p>Wer auf ſeinem Stabe iſt das? Wer iſt’s,<lb/>
+deſſen Haupt weis iſt vor Alter, deſſen Augen<lb/>
+roth ſind von Thraͤnen? — Es iſt dein Vater,<lb/>
+o Morar! Der Vater keines Sohns auſſer dir!<lb/>
+Er hoͤrte von deinem Rufe in der Schlacht; er<lb/>
+hoͤrte von zerſtobenen Feinden. Er hoͤrte Mo-<lb/>
+rars Ruhm! Ach nichts von ſeiner Wunde?<lb/>
+Weine, Vater Morars! Weine! aber dein Sohn<lb/>
+hoͤrt dich nicht. Tief iſt der Schlaf der Todten,<lb/>
+niedrig ihr Kuͤſſen von Staub. Nimmer achtet<lb/>
+er auf die Stimme, nie erwacht er auf deinen<lb/>
+Ruf. O wann wird es Morgen im Grabe? zu<lb/>
+bieten dem Schlummerer: Erwache!</p><lb/>
+<p>Lebe wohl, edelſter der Menſchen, du Eroberer<lb/>
+im Felde! Aber nimmer wird dich das Feld ſehn,<lb/>
+<fw type="catch" place="bottom">nimmer</fw><lb/>
+<pb n="201" facs="#f0089"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+nimmer der duͤſtere Wald leuchten vom Glanze dei-<lb/>
+nes Stahls. Du hinterlieſeſt keinen Sohn, aber<lb/>
+der Geſang ſoll deinen Nahmen erhalten. Kuͤnf-<lb/>
+tige Zeiten ſollen von dir hoͤren, hoͤren ſollen ſie<lb/>
+von dem gefallenen Morar.</p><lb/>
+<p>Laut ward die Trauer der Helden, am laut-<lb/>
+ſten Armins berſtender Seufzer. Jhn erinnert’s<lb/>
+an den Todt ſeines Sohns, der fiel in den Ta-<lb/>
+gen ſeiner Jugend. Carmor ſas nah bey dem<lb/>
+Helden, der Fuͤrſt des hallenden Galmal. Warum<lb/>
+ſchluchſet der Seufzer Armins? ſprach er, was<lb/>
+iſt hier zu weinen? Klingt nicht Lied und Ge-<lb/>
+ſang, die Seele zu ſchmelzen und zu ergoͤzzen.<lb/>
+Sind wie ſanfter Nebel der ſteigend vom See<lb/>
+auf’s Thal ſpruͤht, und die bluͤhenden Blumen fuͤl-<lb/>
+let das Naß, aber die Sonne kommt wieder in<lb/>
+ihrer Kraft und der Nebel iſt gangen. Warum<lb/>
+biſt du ſo jammervoll, Armin, Herr des ſeeumfloſ-<lb/>
+ſenen Gorma?</p><lb/>
+<p>Jammervoll! Wohl das bin ich, und nicht<lb/>
+gering die Urſach meines Wehs. — Carmor, du<lb/>
+verlohrſt keinen Sohn; verlohrſt keine bluͤhende<lb/>
+Tochter! Colgar der Tapfere lebt; und Amira,<lb/>
+<fw type="sig" place="bottom">N 5</fw><fw type="catch" place="bottom">die</fw><lb/>
+<pb n="202" facs="#f0090"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+die ſchoͤnſte der Maͤdgen. Die Zweige deines Hau-<lb/>
+ſes bluͤhen, o Carmor, aber Armin iſt der lezte<lb/>
+ſeines Stamms. Finſter iſt dein Bett, o Dau-<lb/>
+ra! Dumpf iſt dein Schlaf in dem Grabe —<lb/>
+Wann erwachſt du mit deinen Geſaͤngen, mit dei-<lb/>
+ner melodiſchen Stimme? Auf! ihr Winde des<lb/>
+Herbſt, auf! Stuͤrmt uͤber die finſtre Haide!<lb/>
+Waldſtroͤhme brauſt! Heult Stuͤrme in dem Gip-<lb/>
+fel der Eichen! Wandle durch gebrochene Wol-<lb/>
+ken o Mond, zeige wechſelnd dein bleiches Ge-<lb/>
+ſicht! Erinnere mich der ſchroͤklichen Nacht, da<lb/>
+meine Kinder umkamen, Arindal der maͤchtige fiel,<lb/>
+Daura, die liebe, vergieng.</p><lb/>
+<p>Daura, meine Tochter, du warſt ſchoͤn! ſchoͤn<lb/>
+wie der Mond auf den Huͤgeln von Fura, weiß<lb/>
+wie der gefallene Schnee, ſuͤß wie die athmende<lb/>
+Luft. Arindal, dein Bogen war ſtark, dein Speer<lb/>
+ſchnell auf dem Felde, dein Blik wie Nebel auf<lb/>
+der Welle, dein Schild eine Feuerwolke im Sturme.<lb/>
+Armar beruͤhmt im Krieg, kam und warb um Dau-<lb/>
+ras Liebe, ſie widerſtund nicht lange, ſchoͤn waren<lb/>
+die Hoffnungen ihrer Freunde.</p><lb/>
+<fw type="catch" place="bottom">Erath</fw><lb/>
+<pb n="203" facs="#f0091"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Erath, der Sohn Odgals, grollte, denn ſein<lb/>
+Bruder lag erſchlagen von Armar. Er kam in<lb/>
+einen Schiffer verkleidet, ſchoͤn war ſein Nachen<lb/>
+auf der Welle; weiß ſeine Lokken vor Alter, ru-<lb/>
+hig ſein ernſtes Geſicht. Schoͤnſte der Maͤdgen,<lb/>
+ſagt er, liebliche Tochter von Armin. Dort am<lb/>
+Fels nicht fern in der See, wo die rothe Frucht<lb/>
+vom Baume herblinkt, dort wartet Armar auf<lb/>
+Daura. Jch komme, ſeine Liebe zu fuͤhren uͤber<lb/>
+die rollende See.</p><lb/>
+<p>Sie folgt ihm, und rief nach Armar. Nichts<lb/>
+antwortete als die Stimme des Felſens. Armar<lb/>
+mein Lieber, mein Lieber, warum aͤngſteſt du mich<lb/>
+ſo|? Hoͤre, Sohn Arnats, hoͤre. Daura iſt’s, die<lb/>
+dich ruft!</p><lb/>
+<p>Erath, der Verraͤther, floh lachend zum Lande.<lb/>
+Sie erhub ihre Stimme, rief nach ihrem Vater und<lb/>
+Bruder. Arindal! Armin! Jſt keiner, ſeine Dau-<lb/>
+ra zu retten?</p><lb/>
+<p>Jhre Stimme kam uͤber die See. Arindal<lb/>
+mein Sohn, ſtieg vom Huͤgel herab rauh in der<lb/>
+Beute der Jagd. Seine Pfeile raſſelten an ſeiner<lb/>
+Seite. Seinen Begen trug er in der Hand.<lb/>
+<fw type="catch" place="bottom">Fuͤnf</fw><lb/>
+<pb n="204" facs="#f0092"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Fuͤnf ſchwarzgraue Dokken waren um ihn. Er ſah<lb/>
+den kuͤhnen Erath am Ufer, faßt und band ihn an<lb/>
+die Eiche. Feſt umflocht er ſeine Huͤften, er fuͤllt<lb/>
+mit Aechzen die Winde.</p><lb/>
+<p>Arindal betritt die Welle in ſeinem Boote,<lb/>
+Daura heruͤber zu bringen. Armar kam in ſei-<lb/>
+nem Grimm, druͤkt ab den grau befiederten Pfeil,<lb/>
+er klang, er ſank in dein Herz, o Arindal, mein<lb/>
+Sohn! Statt Erath des Verraͤthers kamſt du um,<lb/>
+das Boot erreicht den Felſen, er ſank dran nieder<lb/>
+und ſtarb. Welch war dein Jammer, o Daura,<lb/>
+da zu deinen Fuͤſſen floß deines Bruders Blut.</p><lb/>
+<p>Die Wellen zerſchmettern das Boot. Armar<lb/>
+ſtuͤrzt ſich in die See, ſeine Daura zu retten oder<lb/>
+zu ſterben. Schnell ſtuͤrmt ein Stos vom Huͤgel<lb/>
+in die Wellen, er ſank und hub ſich nicht wieder.</p><lb/>
+<p>Allein auf dem ſeebeſpuͤlten Felſen hoͤrt ich<lb/>
+die Klage meiner Tochter. Viel und laut war<lb/>
+ihr Schreyen; doch konnt ſie ihr Vater nicht<lb/>
+retten. Die ganze Nacht ſtund ich am Ufer, ich<lb/>
+ſah ſie im ſchwachen Strahle des Monds, die gan-<lb/>
+ze Nacht hoͤrt ich ihr Schreyn. Laut war der<lb/>
+Wind, und der Regen ſchlug ſcharf nach der Sei-<lb/>
+<fw type="catch" place="bottom">te</fw><lb/>
+<pb n="205" facs="#f0093"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+te des Bergs. Jhre Stimme ward ſchwach, eh<lb/>
+der Morgen erſchien, ſie ſtarb weg wie die Abend-<lb/>
+luft zwiſchen dem Graſe der Felſen. Beladen mit<lb/>
+Jammer ſtarb ſie und ließ Armin allein! dahin<lb/>
+iſt meine Staͤrke im Krieg, gefallen mein Stolz<lb/>
+unter den Maͤdgen.</p><lb/>
+<p>Wenn die Stuͤrme des Berges kommen, wenn<lb/>
+der Nord die Wellen hoch hebt, ſiz ich am ſchal-<lb/>
+lenden Ufer, ſchaue nach dem ſchroͤklichen Felſen.<lb/>
+Oft im ſinkenden Mond ſeh ich die Geiſter meiner<lb/>
+Kinder, halb daͤmmernd, wandeln ſie zuſammen<lb/>
+in trauriger Eintracht.</p><lb/>
+<p>Ein Strohm von Thraͤnen, der aus Lottens<lb/>
+Augen brach und ihrem gepreßten Herzen Luft<lb/>
+machte, hemmte Werthers Geſang, er warf das<lb/>
+Papier hin, und faßte ihre Hand und weinte die<lb/>
+bitterſten Thraͤnen. Lotte ruhte auf der andern<lb/>
+und verbarg ihre Augen in’s Schnupftuch, die<lb/>
+Bewegung beyder war fuͤrchterlich. Sie fuͤhlten<lb/>
+ihr eigenes Elend in dem Schikſal der Edlen,<lb/>
+fuͤhlten es zuſammen, und ihre Thraͤnen vereinig-<lb/>
+ten ſie. Die Lippen und Augen Werthers gluͤhten<lb/>
+an Lottens Arme, ein Schauer uͤberfiel ſie, ſie woll-<lb/>
+<fw type="catch" place="bottom">te</fw><lb/>
+<pb n="206" facs="#f0094"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+te ſich entfernen und es lag all der Schmerz, der<lb/>
+Antheil betaͤubend wie Bley auf ihr. Sie athmete<lb/>
+ſich zu erholen, und bat ihn ſchluchſend, fortzu-<lb/>
+fahren, bat mit der ganzen Stimme des Himmels,<lb/>
+Werther zitterte, ſein Herz wollte berſten, er hub<lb/>
+das Blatt auf und las halb gebrochen:</p><lb/>
+<p>Warum wekſt du mich Fruͤhlingsluft, du<lb/>
+buhlſt und ſprichſt: ich bethaue mit Tropſen des<lb/>
+Himmels. Aber die Zeit meines Welkens iſt nah,<lb/>
+nah der Sturm, der meine Blaͤtter herabſtoͤrt!<lb/>
+Morgen wird der Wandrer kommen, kommen der<lb/>
+mich ſah in meiner Schoͤnheit, rings wird ſein<lb/>
+Aug im Felde mich ſuchen, und wird mich nicht<lb/>
+finden. —</p><lb/>
+<p>Die ganze Gewalt dieſer Worte fiel uͤber<lb/>
+den Ungluͤklichen, er warf ſich vor Lotten nieder<lb/>
+in der vollen Verzweiflung, faßte ihre Haͤnde,<lb/>
+drukte ſie in ſeine Augen, wider ſeine Stirn, und<lb/>
+ihr ſchien eine Ahndung ſeines ſchroͤklichen Vor-<lb/>
+habens durch die Seele zu fliegen: Jhre Sinnen<lb/>
+verwirrten ſich, ſie drukte ſeine Haͤnde, drukte ſie<lb/>
+wider ihre Bruſt, neigte ſich mit einer wehmuͤthi-<lb/>
+gen Bewegung zu ihm, und ihre gluͤhenden Wan-<lb/>
+<fw type="catch" place="bottom">gen</fw><lb/>
+<pb n="207" facs="#f0095"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+gen beruͤhrten ſich. Die Welt vergieng ihnen, er<lb/>
+ſchlang ſeine Arme um ſie her, preßte ſie an ſei-<lb/>
+ne Bruſt, und dekte ihre zitternde ſtammelnde Lip-<lb/>
+pen mit wuͤthenden Kuͤſſen. Werther! rief ſie<lb/>
+mit erſtikter Stimme ſich abwendend, Werther!<lb/>
+und druͤkte mit ſchwacher Hand ſeine Bruſt von<lb/>
+der ihrigen! Werther! rief ſie mit dem gefaßten<lb/>
+Tone des edelſten Gefuͤhls; er widerſtund nicht,<lb/>
+lies ſie aus ſeinen Armen, und warf ſich unſin-<lb/>
+nig vor ſie hin. Sie riß ſich auf, und in aͤngſt-<lb/>
+licher Verwirrung, bebend zwiſchen Liebe und Zorn<lb/>
+ſagte ſie: Das iſt das leztemal! Werther! Sie<lb/>
+ſehn mich nicht wieder. Und mit dem vollſten<lb/>
+Blik der Liebe auf den Elenden eilte ſie in’s Ne-<lb/>
+benzimmer, und ſchloß hinter ſich zu. Werther<lb/>
+ſtrekte ihr die Arme nach, getraute ſich nicht ſie<lb/>
+zu halten. Er lag an der Erde, den Kopf auf dem<lb/>
+Canapee, und in dieſer Stellung blieb er uͤber ei-<lb/>
+ne halbe Stunde, biß ihn ein Geraͤuſch zu ſich<lb/>
+ſelbſt rief. Es war das Maͤdgen, das den Tiſch<lb/>
+dekken wollte. Er gieng im Zimmer auf und ab,<lb/>
+und da er ſich wieder allein ſah, gieng er zur<lb/>
+Thuͤre des Cabinets, und rief mit leiſer Stimme,<lb/>
+<fw type="catch" place="bottom">Lotte!</fw><lb/>
+<pb n="208" facs="#f0096"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Lotte! Lotte! nur noch ein Wort, ein Lebe wohl! —<lb/>
+Sie ſchwieg, er harrte — und bat — und harr-<lb/>
+te, dann riß er ſich weg und rief, Leb wohl, Lotte!<lb/>
+auf ewig leb wohl!</p><lb/>
+<p>Er kam an’s Stadtthor. Die Waͤchter die<lb/>
+ihn ſchon gewohnt waren, ließen ihn ſtillſchweigend<lb/>
+hinaus, es ſtuͤbte zwiſchen Regen und Schnee,<lb/>
+und erſt gegen eilfe klopfte er wieder. Sein Die-<lb/>
+ner bemerkte, als Werther nach Hauſe kam, daß ſei-<lb/>
+nem Herrn der Huth fehlte. Er getraute ſich<lb/>
+nichts zu ſagen, entkleidete ihn, alles war naß.<lb/>
+Man hat nachher den Huth auf einem Felſen, der<lb/>
+an dem Abhange des Huͤgels in’s Thal ſieht ge-<lb/>
+funden, und es iſt unbegreiflich, wie er ihn in einer<lb/>
+finſtern feuchten Nacht ohne zu ſtuͤrzen erſtiegen<lb/>
+hat.</p><lb/>
+<p>Er legte ſich zu Bette und ſchlief lange.<lb/>
+Der Bediente fand ihn ſchreiben, als er ihm den<lb/>
+andern Morgen auf ſein Rufen den Caffee brach-<lb/>
+te. Er ſchrieb folgendes am Briefe an Lotten:</p></div><lb/>
+<fw type="catch" place="bottom">Zum</fw><lb/>
+<pb n="209" facs="#f0097"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div type="letter"><p>Zum leztenmale denn, zum leztenmale ſchlag ich<lb/>
+dieſe Augen auf, ſie ſollen ach die Sonne nicht mehr<lb/>
+ſehen, ein truͤber neblichter Tag haͤlt ſie bedeckt.<lb/>
+So traure denn, Natur, dein Sohn, dein Freund,<lb/>
+dein Geliebter naht ſich ſeinem Ende. Lotte, das<lb/>
+iſt ein Gefuͤhl ohne gleichen, und doch kommt’s dem<lb/>
+daͤmmernden Traume am naͤchſten, zu ſich zu ſagen:<lb/>
+das iſt der lezte Morgen. Der lezte! Lotte, ich<lb/>
+habe keinen Sinn vor das Wort, der lezte! Steh<lb/>
+ich nicht da in meiner ganzen Kraft, und Morgen<lb/>
+lieg ich ausgeſtreckt und ſchlaff am Boden. Ster-<lb/>
+ben! Was heiſt das? Sieh wir traͤumen, wenn<lb/>
+wir vom Tode reden. Jch hab manchen ſterben ſe-<lb/>
+hen, aber ſo eingeſchraͤnkt iſt die Menſchheit, daß<lb/>
+ſie fuͤr ihres Daſeyns Anfang und Ende keinen Sinn<lb/>
+hat. Jezt noch mein, dein! dein! o Geliebte,<lb/>
+und einen Augenblick — getrennt, geſchieden —<lb/>
+vielleicht auf ewig. — Nein, Lotte, nein —<lb/>
+Wie kann ich vergehen, wie kannſt du vergehen,<lb/>
+wir ſind ja! — Vergehen! — Was heißt das?<lb/>
+das iſt wieder ein Wort! ein leerer Schall ohne Ge-<lb/>
+fuͤhl fuͤr mein Herz. — — Todt, Lotte! Ein-<lb/>
+<fw type="sig" place="bottom">O</fw><fw type="catch" place="bottom">ge-</fw><lb/>
+<pb n="210" facs="#f0098"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+geſcharrt der kalten Erde, ſo eng, ſo finſter! —<lb/>
+Jch hatte eine Freundin, die mein Alles war mei-<lb/>
+ner huͤlfloſen Jugend, ſie ſtarb und ich folgte ih-<lb/>
+rer Leiche, und ſtand an dem Grabe. Wie ſie<lb/>
+den Sarg hinunter ließen und die Seile ſchnurrend<lb/>
+unter ihm weg und wieder herauf ſchnellten, dann<lb/>
+die erſte Schaufel hinunter ſchollerte und die aͤngſt-<lb/>
+liche Lade einen dumpfen Ton wiedergab, und dump-<lb/>
+fer und immer dumpfer und endlich bedecktwar! —<lb/>
+Jch ſtuͤrzte neben das Grab hin — Ergriffen erſchuͤt-<lb/>
+tert geaͤngſtet zerriſſen mein innerſtes, aber ich wuſte<lb/>
+nicht wie mir geſchah, — wie mir geſchehen wird —<lb/>
+Sterben! Grab! Jch verſtehe die Worte nicht!</p><lb/>
+<p>O vergieb mir! vergieb mir! Geſtern! Es haͤt-<lb/>
+te der lezte Augenblik meines Lebens ſeyn ſollen.<lb/>
+O du Engel! zum erſtenmale, zum erſtenmale ganz<lb/>
+ohne Zweifel durch mein innig innerſtes durchgluͤhte<lb/>
+mich das Wonnegefuͤhl: Sie liebt mich! Sie liebt<lb/>
+mich. Es brennt noch auf meinen Lippen das<lb/>
+heilige Feuer das von den deinigen ſtroͤhmte, neue<lb/>
+warme Wonne iſt in meinem Herzen. Vergieb<lb/>
+mir, vergieb mir.</p><lb/>
+<p>Ach ich wuſte, daß du mich liebteſt, wuſte es<lb/>
+an den erſten ſeelenvollen Blikken, an dem erſten<lb/>
+<fw type="catch" place="bottom">Haͤn-</fw><lb/>
+<pb n="211" facs="#f0099"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Haͤndedruk, und doch wenn ich wieder| weg war,<lb/>
+wenn ich Alberten an deiner Seite ſah, verzagt’<lb/>
+ich wieder in fieberhaften Zweiſeln.</p><lb/>
+<p>Erinnerſt du dich der Blumen die du mir ſchik-<lb/>
+teſt, als du in jener fatalen Geſellſchaft |mir kein<lb/>
+Wort ſagen, keine Hand reichen konnteſt, o ich<lb/>
+habe die halbe Nacht davor gekniet, und ſie ver-<lb/>
+ſiegelten mir deine Liebe. Aber ach! dieſe Ein-<lb/>
+druͤkke gingen voruͤber, wie das Gefuͤhl der Gna-<lb/>
+de ſeines Gottes allmaͤhlig wieder aus der See-<lb/>
+le des Glaͤubigen weicht, die ihm mit ganzer<lb/>
+Himmelsfuͤlle im heiligen ſichtbaren Zeichen ge-<lb/>
+reicht ward.</p><lb/>
+<p>Alles das iſt vergaͤnglich, keine Ewigkeit ſoll<lb/>
+das gluͤhende Leben ausloͤſchen, das ich geſtern auf<lb/>
+deinen Lippen genoß, das ich in mir fuͤhle. Sie<lb/>
+liebt mich! Dieſer Arm hat ſie umfaſt, dieſe Lip-<lb/>
+pen auf ihren Lippen gezittert, dieſer Mund am<lb/>
+ihrigen geſtammelt. Sie iſt mein! du biſt mein!<lb/>
+ja Lotte auf ewig!</p><lb/>
+<p>Und was iſt das? daß Albert dein Mann iſt!<lb/>
+Mann? — das waͤre denn fuͤr dieſe Welt — und fuͤr<lb/>
+dieſe Welt Suͤnde, daß ich dich liebe, daß ich dich aus ſei,<lb/>
+nen Armen in die meinigen reiſſen moͤchte? Suͤnde?<lb/>
+<fw type="sig" place="bottom">O 2</fw><fw type="catch" place="bottom">Gut</fw><lb/>
+<pb n="212" facs="#f0100"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Gut! und ich ſtrafe mich davor: Jch hab ſie in<lb/>
+ihrer ganzen Himmelswonne geſchmekt dieſe Suͤn-<lb/>
+de, habe Lebensbalſam und Kraft in mein Herz<lb/>
+geſaugt, du biſt von dem Augenblikke mein! Mein,<lb/>
+o Lotte. Jch gehe voran! Geh zu meinem Va-<lb/>
+ter, zu deinem Vater, dem will ich’s klagen und er<lb/>
+wird mich troͤſten biß du kommſt, und ich fliege<lb/>
+dir entgegen und faſſe dich und bleibe bey dir vor<lb/>
+dem Angeſichte des Unendlichen in ewigen Um-<lb/>
+armungen.</p><lb/>
+<p>Jch traͤume nicht, ich waͤhne nicht! nah<lb/>
+am Grabe ward mir’s heller. Wir werden ſeyn,<lb/>
+wir werden uns wieder ſehn! Deine Mutter ſehn!<lb/>
+ich werde ſie ſehen, werde ſie finden, ach und vor ihr<lb/>
+all mein Herz ausſchütten. Deine Mutter. Dein<lb/>
+Ebenbild.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div><p>Gegen eilfe fragte Werther ſeinen Bedienten,<lb/>
+ob wohl Albert zuruͤk gekommen ſey. Der Be-<lb/>
+diente ſagte: ja er habe deſſen Pferd dahin fuͤh-<lb/>
+ren ſehn. Drauf giebt ihm der Herr ein offenes<lb/>
+Zettelgen des Jnhalts:</p></div><lb/>
+<fw type="catch" place="bottom">Wollten</fw><lb/>
+<pb n="213" facs="#f0101"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div><p><hi rendition="#in">W</hi>ollten Sie mir wohl zu einer vorhabenden<lb/>
+Reiſe ihre Piſtolen leihen? Leben Sie<lb/>
+recht wohl.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div><p>Die liebe Frau hatte die lezte Nacht wenig ge-<lb/>
+ſchlafen, ihr Blut war in einer fieberhaften Em-<lb/>
+poͤrung, und tauſenderley Empfindungen zerruͤtte-<lb/>
+ten ihr Herz. Wider ihren Willen fuͤhlte ſie tief<lb/>
+in ihrer Bruſt das Feuer von Werthers Umar-<lb/>
+mungen, und zugleich ſtellten ſich ihr die Tage ih-<lb/>
+rer unbefangenen Unſchuld, des ſorgloſen Zutrauens<lb/>
+auf ſich ſelbſt in doppelter Schoͤne dar, es aͤng-<lb/>
+ſtigten ſie ſchon zum voraus die Blikke ihres<lb/>
+Manns, und ſeine halb verdruͤßlich halb ſpoͤttiſche<lb/>
+Fragen, wenn er Werthers Beſuch erfahren wuͤr-<lb/>
+de; ſie hatte ſich nie verſtellt, ſie hatte nie gelogen,<lb/>
+und nun ſah ſie ſich zum erſtenmal in der unvermeid-<lb/>
+lichen Nothwendigkeit; der Widerwillen, die Verle-<lb/>
+genheit die ſie dabey empfand, machte die Schuld<lb/>
+in ihren Augen groͤſſer, und doch konnte ſie den<lb/>
+Urheber davon weder haſſen, noch ſich verſprechen,<lb/>
+ihn nie wieder zu ſehn. Sie weinte bis gegen<lb/>
+Morgen, da ſie in einen matten Schlaf verſank,<lb/>
+<fw type="sig" place="bottom">O 3</fw><fw type="catch" place="bottom">aus</fw><lb/>
+<pb n="214" facs="#f0102"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+aus dem ſie ſich kaum aufgeraft und angekleidet<lb/>
+hatte, als ihr Mann zuruͤkkam, deſſen Gegenwart<lb/>
+ihr zum erſtenmal ganz unertraͤglich war; denn<lb/>
+indem ſie zitterte, er wuͤrde das verweinte uͤber-<lb/>
+wachte ihrer Augen und ihrer Geſtalt entdekken,<lb/>
+ward ſie noch verwirrter, bewillkommte ihn mit<lb/>
+einer heftigen Umarmung, die mehr Beſtuͤrzung<lb/>
+und Reue, als eine auffahrende Freude ausdruͤk-<lb/>
+te, und eben dadurch machte ſie die Aufmerkſam-<lb/>
+keit Albertens rege, der, nachdem er einige Briefe<lb/>
+und Pakets erbrochen, ſie ganz trokken fragte, ob<lb/>
+ſonſt nichts vorgefallen, ob niemand da geweſen<lb/>
+waͤre? Sie antwortete ihm ſtokkend, Werther<lb/>
+ſeye geſtern eine Stunde gekommen. — Er nimmt<lb/>
+ſeine Zeit gut, verſezt er, und ging nach ſeinem<lb/>
+Zimmer. Lotte war eine Viertelſtunde allein<lb/>
+geblieben. Die Gegenwart des Mannes, den ſie<lb/>
+liebte und ehrte, hatte einen neuen Eindruk in ihr<lb/>
+Herz gemacht. Sie erinnerte ſich all ſeiner Guͤ-<lb/>
+te, ſeines Edelmuths, ſeiner Liebe, und ſchalt ſich,<lb/>
+daß ſie es ihm ſo uͤbel gelohnt habe. Ein unbe-<lb/>
+kannter Zug reizte ſie ihm zu folgen, ſie nahm<lb/>
+ihre Arbeit, wie ſie mehr gethan hatte, ging nach<lb/>
+ſeinem Zimmer und fragte, ob er was beduͤrfte?<lb/>
+<fw type="catch" place="bottom">er</fw><lb/>
+<pb n="215" facs="#f0103"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+er antwortete: nein! ſtellte ſich an Pult zu ſchrei-<lb/>
+ben, und ſie ſezte ſich nieder zu ſtrikken. Eine<lb/>
+Stunde waren ſie auf dieſe Weiſe neben einan-<lb/>
+der, und als Albert etlichemal in der Stube auf<lb/>
+und ab ging, und Lotte ihn anredete, er aber we-<lb/>
+nig oder nichts drauf gab und ſich wieder an Pult<lb/>
+ſtellte, ſo verfiel ſie in eine Wehmuth, die ihr um<lb/>
+deſto aͤngſtlicher ward, als ſie ſolche zu verbergen<lb/>
+und ihre Thraͤnen zu verſchlukken ſuchte.</p><lb/>
+<p>Die Erſcheinung von Werthers Knaben ver-<lb/>
+ſezte ſie in die groͤſte Verlegenheit, er uͤberreichte<lb/>
+Alberten das Zettelgen, der ſich ganz kalt nach<lb/>
+ſeiner Frau wendete, und ſagte: gieb ihm die Pi-<lb/>
+ſtolen. — Jch laß ihm gluͤkliche Reiſe| wuͤnſchen,<lb/>
+ſagt er zum Jungen. Das fiel auf ſie wie ein<lb/>
+Donnerſchlag. Sie ſchwankte aufzuſtehn. Sie<lb/>
+wußte nicht wie ihr geſchah. Langſam ging ſie<lb/>
+nach der Wand, zitternd nahm ſie ſie herunter,<lb/>
+puzte den Staub ab und zauderte, und haͤtte noch<lb/>
+lang gezoͤgert, wenn nicht Albert durch einen fra-<lb/>
+genden Blik: was denn das geben ſollte? ſie ge-<lb/>
+draͤngt haͤtte. Sie gab das ungluͤkliche Gewehr<lb/>
+dem Knaben, ohne ein Wort vorbringen zu koͤn-<lb/>
+nen, und als der zum Hauſe draus war, machte<lb/>
+<fw type="sig" place="bottom">O 4</fw><fw type="catch" place="bottom">ſie</fw><lb/>
+<pb n="216" facs="#f0104"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ſie ihre Arbeit zuſammen, ging in ihr Zimmer<lb/>
+in dem Zuſtand des unausſprechlichſten Leidens.<lb/>
+Jhr Herz weiſſagte ihr alle Schroͤkniſſe. Bald<lb/>
+war ſie im Begriff ſich zu den Fuͤſſen ihres Man-<lb/>
+nes zu werfen, ihm alles zu entdekken, die Ge-<lb/>
+ſchichte des geſtrigen Abends, ihre Schuld und ih-<lb/>
+re Ahndungen. Dann ſah ſie wieder keinen Aus-<lb/>
+gang des Unternehmens, am wenigſten konnte ſie<lb/>
+hoffen ihren Mann zu einem Gange nach Wer-<lb/>
+thern zu bereden. Der Tiſch ward gedekt, und<lb/>
+eine gute Freundinn, die nur etwas zu fragen kam<lb/>
+und die Lotte nicht wegließ, machte die Unterhal-<lb/>
+tung bey Tiſche ertraͤglich, man zwang ſich, man<lb/>
+redete, man erzaͤhlte, man vergaß ſich.</p><lb/>
+<p>Der Knabe kam mit den Piſtolen zu Wer-<lb/>
+thern, der ſie ihm mit Entzuͤkken abnahm, als er<lb/>
+hoͤrte, Lotte habe ſie ihm gegeben. Er ließ ſich<lb/>
+ein Brod und Wein bringen, hies den Knaben zu<lb/>
+Tiſch gehn, und ſezte ſich nieder zu ſchreiben.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div><p><hi rendition="#in">S</hi>ie ſind durch deine Haͤnde gegangen, du haſt<lb/>
+den Staub davon gepuzt, ich kuͤſſe ſie tau-<lb/>
+ſendmal, du haſt ſie beruͤhrt. Und du Geiſt des<lb/>
+Himmels beguͤnſtigſt meinen Entſchluß! Und du<lb/>
+<fw type="catch" place="bottom">Lotte</fw><lb/>
+<pb n="217" facs="#f0105"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Lotte reichſt mir das Werkzeug, du, von deren<lb/>
+Haͤnden ich den Tod zu empfangen wuͤnſchte,<lb/>
+und ach nun empfange. O ich habe meinen Jun-<lb/>
+gen ausgefragt, du zitterteſt, als du ſie ihm reich-<lb/>
+teſt, du ſagteſt kein Lebe wohl; — Weh! Weh! —<lb/>
+kein Lebe wohl! — Sollteſt du dein Herz fuͤr<lb/>
+mich verſchloſſen haben, um des Augenbliks wil-<lb/>
+len der mich auf ewig an dich befeſtigte. Lotte,<lb/>
+kein Jahrtauſend vermag den Eindruk auszuloͤ-<lb/>
+ſchen! Und ich fuͤhl’s, du kannſt den nicht haſſen,<lb/>
+der ſo fuͤr dich gluͤht.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div><p>Nach Tiſche hieß er den Knaben alles vol-<lb/>
+lends einpakken, zerriß viele Papiere, ging aus,<lb/>
+und brachte noch kleine Schulden in Ordnung.<lb/>
+Er kam wieder nach Hauſe, ging wieder aus, vor’s<lb/>
+Thor ohngeachtet des Regens, in den graͤflichen<lb/>
+Garten, ſchweifte weiter in der Gegend umher,<lb/>
+und kam mit einbrechender Nacht zuruͤk und ſchrieb.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div type="letter"><p><hi rendition="#in">W</hi>ilhelm, ich habe zum leztenmale Feld und<lb/>
+Wald und den Himmel geſehn. Leb wohl<lb/>
+auch du! Liebe Mutter, verzeiht mir! Troͤſte ſie,<lb/>
+Wilhelm. Gott ſegne euch! Meine Sachen ſind<lb/>
+<fw type="sig" place="bottom">O 5</fw><fw type="catch" place="bottom">all</fw><lb/>
+<pb n="218" facs="#f0106"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+all in Ordnung. Lebt wohl! Wir ſehen uns<lb/>
+wieder und freudiger.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div type="letter"><p><hi rendition="#in">J</hi>ch habe dir uͤbel gelohnt, Albert, und du vergiebſt<lb/>
+mir. Jch habe den Frieden deines Hauſes<lb/>
+geſtoͤrt, ich habe Mißtrauen zwiſchen euch gebracht.<lb/>
+Leb wohl, ich will’s enden. O daß ihr gluͤklich<lb/>
+waͤret durch meinen Tod! Albert! Albert! ma-<lb/>
+che den Engel gluͤklich. Und ſo wohne Gottes<lb/>
+Seegen uͤber dir!</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div><p>Er kramte den Abend noch viel in ſeinen<lb/>
+Papieren, zerriß vieles und warf’s in Ofen, ver-<lb/>
+ſiegelte einige Paͤkke mit den Addreſſen |an Wil-<lb/>
+helmen. Sie enthielten kleine Aufſaͤzze, abgeriſſene<lb/>
+Gedanken, deren ich verſchiedene geſehen habe; und<lb/>
+nachdem er um zehn Uhr im Ofen nachlegen, und<lb/>
+ſich einen Schoppen Wein geben laſſen, ſchikte er<lb/>
+den Bedienten, deſſen Kammer wie auch die Schlaf-<lb/>
+zimmer der Hausleute weit hinten hinaus waren,<lb/>
+zu Bette, der ſich denn in ſeinen Kleidern nieder-<lb/>
+legte um fruͤh bey der Hand zu ſeyn, denn ſein<lb/>
+Herr hatte geſagt, die Poſtpferde wuͤrden vor ſechſe<lb/>
+vor’s Haus kommen.</p></div><lb/>
+<fw type="catch" place="bottom">nach</fw><lb/>
+<pb n="219" facs="#f0107"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</div><milestone unit="section" rendition="#hr"/><lb/>
+<div type="diaryEntry"><dateline><hi rendition="#et">nach eilfe.</hi></dateline><lb/>
+<p><hi rendition="#in">A</hi>lles iſt ſo ſtill um mich her, und ſo ruhig mei-<lb/>
+ne Seele, ich danke dir Gott, der du dieſen<lb/>
+lezten Augenblikken dieſe Waͤrme, dieſe Kraft<lb/>
+ſchenkeſt.</p><lb/>
+<p>Jch trete an’s Fenſter, meine Beſte, und ſeh<lb/>
+und ſehe noch durch die ſtuͤrmenden voruͤberfliehen-<lb/>
+den Wolken einzelne Sterne des ewigen Him-<lb/>
+mels! Nein, ihr werdet nicht fallen! Der Ewi-<lb/>
+ge traͤgt euch an ſeinem Herzen, und mich. Jch<lb/>
+ſah die Deichſelſterne des Wagens, des liebſten un-<lb/>
+ter allen Geſtirnen. Wenn ich Nachts von dir<lb/>
+ging, wie ich aus deinem Thore trat, ſtand er gegen<lb/>
+uͤber! Mit welcher Trunkenheit hab ich ihn oft<lb/>
+angeſehen! Oft mit aufgehabenen Haͤnden ihn zum<lb/>
+Zeichen, zum heiligen Merkſteine meiner gegenwaͤr-<lb/>
+tigen Seligkeit <choice><sic>gomacht</sic><corr>gemacht</corr></choice>, und noch — O Lotte, was<lb/>
+erinnert mich nicht an dich! Umgiebſt du mich<lb/>
+nicht, und hab ich nicht gleich einem Kinde, unge-<lb/>
+nuͤgſam allerley Kleinigkeiten zu mir geriſſen, die<lb/>
+du Heilige beruͤhrt hatteſt!</p><lb/>
+<p>Liebes Schattenbild! Jch vermache dir’s zu-<lb/>
+ruͤk, Lotte, und bitte dich es zu ehren. Tauſend, tau-<lb/>
+<fw type="catch" place="bottom">ſend</fw><lb/>
+<pb n="220" facs="#f0108"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ſend Kuͤſſe hab ich drauf gedruͤkt, tauſend Gruͤße<lb/>
+ihm zugewinkt, wenn ich ausgieng, oder nach Hau-<lb/>
+ſe kam.</p><lb/>
+<p>Jch habe deinen Vater in einem Zettelgen ge-<lb/>
+beten, meine Leiche zu ſchuͤzzen. Auf dem Kirch-<lb/>
+hofe ſind zwey Lindenbaͤume, hinten im Ekke nach<lb/>
+dem Felde zu, dort wuͤnſch ich zu ruhen. Er kann,<lb/>
+er wird das fuͤr ſeinen Freund thun. Bitt ihn<lb/>
+auch. Jch will frommen Chriſten nicht zumuthen,<lb/>
+ihren Koͤrper neben einem armen Ungluͤklichen nie-<lb/>
+derzulegen. Ach ich wollte, ihr begruͤbt mich am<lb/>
+Wege, oder im einſamen Thale, daß Prieſter und<lb/>
+Levite vor dem bezeichnenden Steine ſich ſegnend<lb/>
+voruͤberging, und der Samariter eine Thraͤne weinte.</p><lb/>
+<p>Hier Lotte! Jch ſchaudere nicht den kalten<lb/>
+ſchroͤklichen Kelch zu faſſen, aus dem ich den Tau-<lb/>
+mel des Todes trinken ſoll! Du reichteſt mir ihn,<lb/>
+und ich zage nicht. All! All! ſo ſind all die Wuͤn-<lb/>
+ſche und Hoffnungen meines Lebens erfuͤllt! So<lb/>
+kalt, ſo ſtarr an der ehernen Pforte des Todes<lb/>
+anzuklopfen.</p><lb/>
+<p>Daß ich des Gluͤks haͤtte theilhaftig werden<lb/>
+koͤnnen! Fuͤr dich zu ſterben, Lotte, fuͤr dich mich<lb/>
+hinzugeben. Jch wollte muthig, ich wollte freudig<lb/>
+<fw type="catch" place="bottom">ſterben,</fw><lb/>
+<pb n="221" facs="#f0109"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+ſterben, wenn ich dir die Ruhe, die Wonne deines<lb/>
+Lebens wieder ſchaffen koͤnnte; aber ach das ward<lb/>
+nur wenig Edlen gegeben, ihr Blut fuͤr die Jhri-<lb/>
+gen zu vergieſſen, und durch ihren Tod ein neues<lb/>
+hundertfaͤltiges Leben ihren Freunden anzufachen.</p><lb/>
+<p>Jn dieſen Kleidern, Lotte, will ich begraben<lb/>
+ſeyn. Du haſt ſie beruͤhrt, geheiligt. Jch habe<lb/>
+auch darum deinen Vater gebeten. Meine See-<lb/>
+le ſchwebt uͤber dem Sarge. Man ſoll meine<lb/>
+Taſchen nicht ausſuchen. Dieſe blaßrothe Schlei-<lb/>
+fe, die du am Buſen hatteſt, als ich dich zum er-<lb/>
+ſtenmale unter deinen Kindern fand. O kuͤſſe ſie<lb/>
+tauſendmal und erzaͤhl ihnen das Schikſal ihres<lb/>
+ungluͤklichen Freunds. Die Lieben, ſie wimmeln<lb/>
+um mich. Ach wie ich mich an dich ſchloß! Seit<lb/>
+dem erſten Augenblikke dich nicht laſſen konnte!<lb/>
+Dieſe Schleife ſoll mit mir begraben werden. An<lb/>
+meinem Geburtstage ſchenkteſt du mir ſie! Wie<lb/>
+ich das all verſchlang — Ach ich dachte nicht, daß<lb/>
+mich der Weg hierher fuͤhren ſollte! — — Sey<lb/>
+ruhig! ich bitte dich, ſey ruhig! —</p><lb/>
+<p>Sie ſind geladen — es ſchlaͤgt zwoͤlfe! — So<lb/>
+ſey’s denn — Lotte! Lotte leb wohl! Leb wohl!</p><lb/>
+<fw type="catch" place="bottom">Ein</fw><lb/>
+<pb n="222" facs="#f0110"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Ein Nachbar ſah den Blik vom Pulver und<lb/>
+hoͤrte den Schuß fallen, da aber | alles ſtill blieb<lb/>
+achtete er nicht weiter drauf.</p><lb/>
+<p>Morgens um ſechſe tritt der Bediente her-<lb/>
+ein mit dem Lichte, er findet ſeinen Herrn an<lb/>
+der Erde, die Piſtole und Blut. Er ruft, er faßt<lb/>
+ihn an, keine Antwort, er roͤchelt nur noch. Er<lb/>
+lauft nach den Aerzten, nach Alberten. Lotte hoͤr-<lb/>
+te die Schelle ziehen, ein Zittern ergreift all ih-<lb/>
+re Glieder, ſie wekt ihren Mann, ſie ſtehen auf,<lb/>
+der Bediente bringt heulend und ſtotternd die<lb/>
+Nachricht, Lotte ſinkt ohnmaͤchtig vor Alberten<lb/>
+nieder.</p><lb/>
+<p>Als der Medikus zu dem Ungluͤklichen kam,<lb/>
+fand er ihn an der Erde ohne Rettung, der Puls<lb/>
+ſchlug, die Glieder waren alle gelaͤhmt, uͤber dem<lb/>
+rechten Auge hatte er ſich durch den Kopf geſchoſ-<lb/>
+ſen, das Gehirn war herausgetrieben. Man ließ<lb/>
+ihm zum Ueberfluſſe eine Ader am Arme, das Blut<lb/>
+lief, er holte noch immer Athem.</p><lb/>
+<p>Aus dem Blut auf der Lehne des Seſſels<lb/>
+konnte man ſchlieſſen, er habe ſizzend vor dem<lb/>
+Schreibtiſche die That vollbracht. Dann iſt er<lb/>
+<fw type="catch" place="bottom">herun-</fw><lb/>
+<pb n="223" facs="#f0111"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+herunter geſunken, hat ſich konvulſiviſch um den<lb/>
+Stuhl herum gewaͤlzt, er lag gegen das Fenſter<lb/>
+entkraͤftet auf dem Ruͤkken, war in voͤlliger Klei-<lb/>
+dung geſtiefelt, im blauen Frak mit gelber Weſte.</p><lb/>
+<p>Das Haus, die Nachbarſchaft, die Stadt<lb/>
+kam in Aufruhr. Albert trat herein. Werthern<lb/>
+hatte man auf’s Bett gelegt, die Stirne ver-<lb/>
+bunden, ſein Geſicht ſchon wie eines Todten, er<lb/>
+ruͤhrte kein Glied, die Lunge roͤchelte noch fuͤrchter-<lb/>
+lich bald ſchwach bald ſtaͤrker, man erwartete ſein<lb/>
+Ende.</p><lb/>
+<p>Von dem Weine hatte er nur ein Glas ge-<lb/>
+trunken. Emilia Galotti lag auf dem Pulte aufge-<lb/>
+ſchlagen.</p><lb/>
+<p>Von Alberts Beſtuͤrzung, von Lottens Jam-<lb/>
+mer laßt mich nichts ſagen.</p><lb/>
+<p>Der alte Amtmann kam auf die Nachricht<lb/>
+hereingeſprengt, er kuͤßte den Sterbenden unter den<lb/>
+heiſſeſten Thraͤnen. Seine aͤltſten Soͤhne kamen<lb/>
+bald nach ihm zu Fuſſe, ſie fielen neben dem Bet-<lb/>
+te nieder im Ausdruk des unbaͤndigſten Schmer-<lb/>
+zens, kuͤßten ihm die Haͤnde und den Mund, und<lb/>
+der aͤltſte, den er immer am meiſten geliebt, hing<lb/>
+an ſeinen Lippen, bis er verſchieden war und man<lb/>
+<fw type="catch" place="bottom">den</fw><lb/>
+<pb n="224" facs="#f0112"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+den Knaben mit Gewalt wegriß. Um zwoͤlfe Mit-<lb/>
+tags ſtarb er. Die Gegenwart des Amtmanns<lb/>
+und ſeine Anſtalten tiſchten einen Auflauf. Nachts<lb/>
+gegen eilfe ließ er ihn an die Staͤtte begraben, die<lb/>
+er ſich erwaͤhlt hatte, der Alte folgte der Leiche<lb/>
+und die Soͤhne. Albert vermochts nicht. Man<lb/>
+fuͤrchtete fuͤr Lottens Leben. Handwerker trugen<lb/>
+ihn. Kein Geiſtlicher hat ihn begleitet.</p></div></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</body><back> <div n="1" type="corrigenda"><head><hi rendition="#g">Druckfehler.</hi></head><lb/>
+<list><item>S. 9. Z. 14. ſtatt: als, lis: all.</item><lb/>
+<item>— 27. — 3 — ſchwerer — ſchwer.</item><lb/>
+<item>— 31. — <hi rendition="#aq">pen.</hi> nach Vetter ſetze ein? Desgleichen.</item><lb/>
+<item>— 32. — 2 nach dem Worte ſeyn, auch ein?</item><lb/>
+<item>— 90. — 12 ſtatt annahmen — annehmen</item><lb/>
+<item>— 116. — <hi rendition="#aq">vlt.</hi> — cheint — ſcheint.</item><lb/>
+<item>— 118 — 7 — warme große — wahre warme.</item><lb/>
+<item>— 119 — 1 — und, — Und.</item><lb/>
+<item>— 194 — 11 — Salmar — Salgar.</item><lb/>
+<item>— 199 — 11 — uͤrer — uͤber.</item><lb/>
+<item>— — — 13 — Huͤgel — Huͤgeln.</item></list></div><lb/>
+</back> <milestone unit="section" rendition="#hr"/><lb/>
+<pb n="[225]" facs="#f0113"/>
+<pb n="[226]" facs="#f0114"/>
+<pb n="[227]" facs="#f0115"/>
+<pb n="[228]" facs="#f0116"/>
+<pb n="[229]" facs="#f0117"/>
+<pb n="[230]" facs="#f0118"/>
+<pb n="[231]" facs="#f0119"/>
+<pb n="[232]" facs="#f0120"/>
+</text> </TEI>

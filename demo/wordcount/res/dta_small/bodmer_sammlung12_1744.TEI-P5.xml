@@ -1,0 +1,3204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Sammlung Critischer, Poetischer, und anderer geistvollen Schriften</title>
+<title type="sub">Zur Verbesserung des Urtheiles und des Witzes in den Wercken der Wohlredenheit und der Poesie</title>
+<title type="volume" n="12">Zwölfftes und leztes Stück</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118512315">
+<surname>Bodmer</surname>
+<forename>Johann Jacob</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">95</measure>
+<measure type="tokens">18782</measure>
+<measure type="types">4835</measure>
+<measure type="characters">133358</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:03Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/bodmer_sammlung12_1744</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/bodmer_sammlung12_1744</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/bodmer_sammlung12_1744</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/bodmer_sammlung12_1744</idno>
+<idno type="DTADirName">bodmer_sammlung12_1744</idno>
+<idno type="DTAID">20055</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">[Bodmer, Johann Jacob]: Sammlung Critischer, Poetischer, und anderer geistvollen Schriften. Bd. 12. Zürich, 1744.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Sammlung Critischer, Poetischer, und anderer geistvollen Schriften</title>
+<title level="m" type="sub">Zur Verbesserung des Urtheiles und des Witzes in den Wercken der Wohlredenheit und der Poesie</title>
+<title level="m" type="volume" n="12">Zwölfftes und leztes Stück</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118512315">
+<surname>Bodmer</surname>
+<forename>Johann Jacob</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[1] Bl., 92 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Orell</name></publisher>
+<pubPlace>Zürich</pubPlace>
+<date type="publication">1744</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">SUB Göttingen, 8 SVA II, 4845:12</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20SVA%20II%2C%204845%3A12</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik; Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik; Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b #g"><hi rendition="#in">S</hi>ammlung</hi><lb/>
+Critiſcher, Poetiſcher,<lb/>
+und anderer geiſtvollen<lb/>
+<hi rendition="#b #g"><hi rendition="#in">S</hi>chriften,</hi><lb/>
+Zur Verbeſſerung<lb/>
+des Urtheiles und des Witzes<lb/>
+in den Wercken<lb/>
+der Wohlredenheit und der Poeſie.</titlePart></docTitle><lb/>
+<titlePart type="volume">Zwoͤlfftes und leztes Stuͤck.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace>Zuͤrich</pubPlace>,<lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Bey <publisher>Conrad Orell und Comp.</publisher> <docDate>1744</docDate>.</docImprint></titlePage><lb/>
+</front><body>
+<pb facs="#f0002"/>
+<pb n="[1]" facs="#f0003"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Critiſche<lb/>
+Unterſuchung,</hi><lb/>
+Wie weit ſich ein Poet des<lb/>
+gemeinen Wahnes und der<lb/>
+Sage bedienen koͤnne.</hi></head></div><lb/>
+<pb n="[2]" facs="#f0004"/>
+<pb n="3" facs="#f0005"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Critiſche<lb/>
+Unterſuchung/</hi><lb/>
+Wie weit ſich ein Poet des gemei-<lb/>
+nen Wahnes und der Sage bedie-<lb/>
+nen koͤnne.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>Jn junger, noch ungezogener Schuͤler der<lb/>
+Gottſchediſchen Weltweisheit, der ſich J.<lb/>
+A. K. nennet, hat in einer von denen ge-<lb/>
+wohnten Uebungsſtunden, die unter der Aufſicht<lb/>
+des Hrn. Prof. <hi rendition="#fr">Gottſcheds</hi> gehalten werden, zur<lb/>
+Materie einer Ausarbeitung die critiſche Frage be-<lb/>
+kommen: <hi rendition="#fr">Wie weit ſich ein Poet des gemeinen<lb/>
+Wahnes und der Sage bedienen koͤnne?</hi> Und<lb/>
+weil dieſe Frage zu eroͤrtern fuͤr einen angehenden<lb/>
+Schuͤler allzuſchwer gefallen waͤre, um ſo viel<lb/>
+mehr, da dasjenige Lehrbuch, deſſen ſich die Schuͤ-<lb/>
+ler des Hrn. Profeſſors bedienen, nemlich die <hi rendition="#fr">Cri-<lb/>
+tiſche Dichtkunſt fuͤr die Deutſchen,</hi> hieruͤber<lb/>
+gar keinen gruͤndlichen Entſcheid giebt; ſo hat<lb/>
+man ihm aus dem Schrancke der <hi rendition="#aq">Librorum pro-<lb/>
+hibitorum</hi> Hrn. <hi rendition="#fr">Breitingers Critiſche Dicht-<lb/>
+kunſt</hi> und Hrn. <hi rendition="#fr">Alex. Gottlieb Baumgartens</hi><lb/>
+<hi rendition="#aq"><hi rendition="#i">Meditationes philoſophicas</hi>,</hi> aber dieſe leztern nur in<lb/>
+einem deutſchen Auszuge zu einer Anleitung mit<lb/>
+nach Hauſe gegeben, mit beygefuͤgter ernſtlicher<lb/>
+Warnung, daß er ſich gegen die Heterodoxie des<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">XII.</hi> St.] A 2</fw><fw type="catch" place="bottom">Brei-</fw><lb/>
+<pb n="4" facs="#f0006"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+Breitingerſchen Buches wohl verwahre, und alles<lb/>
+nach der Glaubens-Analogie der Gottſchediſchen<lb/>
+Schule fleiſſig pruͤffe. Es hat auch dieſer J. A. K.<lb/>
+ſeine Sache ſo wohl ausgefuͤhret, daß Hr. Prof.<lb/>
+<hi rendition="#fr">Gottſched</hi> dieſe Ausarbeitung ſeines Schuͤlers vor<lb/>
+wuͤrdig geachtet, ſie dem <hi rendition="#aq">XXX</hi>ſten Stuͤcke ſeiner<lb/>
+<hi rendition="#fr">Crit. Beytraͤge</hi> Art. <hi rendition="#aq">V.</hi> zu einverleiben. Jch ha-<lb/>
+be geſagt, daß J. A. K. noch ein junger und un-<lb/>
+gezogener Menſch ſey; denn ob er mir gleich wei-<lb/>
+ter nicht als aus dieſem critiſchen Verſuche bekannt<lb/>
+iſt, ſo glaube ich gleichwohl nicht ohne die groͤſte<lb/>
+Wahrſcheinlichkeit von ihm, daß er die Kinder-<lb/>
+ſchuhe noch nicht voͤllig zertreten habe. Dieſe<lb/>
+Schrift giebt es uns auf allen Blaͤttern zu erken-<lb/>
+nen, inſonderheit finden wir auf der 259ſten S.<lb/>
+ein rechtes Muſter eines kindiſchen und ungezoge-<lb/>
+nen Weſens:</p><lb/>
+<cit><quote>„Epicurus behauptete, daß der<lb/>
+„Leib der Goͤtter nur <hi rendition="#aq">quaſi corpus,</hi> und ihr Blut<lb/>
+„nur <hi rendition="#aq">quaſi ſanguis;</hi> oder nur ein aͤtheriſcher Leib<lb/>
+„und ein aͤtheriſches Blut ſey, wie ſich Hr. Bod-<lb/>
+„mer von den Miltoniſchen Engeln zwar dunck-<lb/>
+„ler, aber deſto gelehrter ausdruͤckt.<lb/>
+<lg type="poem"><l><hi rendition="#fr">„Ey, das iſt ſchoͤn,</hi></l><lb/>
+<l><hi rendition="#fr">„Der Teufel ſelbſt kans nicht verſtehn!„</hi></l></lg></quote></cit><lb/>
+<p>Und bald hernach:</p><lb/>
+<cit><quote>„Meine Waͤrterinnen, wenn<lb/>
+„ich etwa vor dem Hauſe mit einer kleinen Stan-<lb/>
+„ge nach der Luft ſtieß, warnten mich recht an-<lb/>
+„daͤchtig: ich ſolte bey Leibe nicht in die Hoͤhe<lb/>
+„ſtoſſen; ich koͤnnte die lieben Engellein todtſte-<lb/>
+„chen. ꝛc.„</quote></cit><lb/>
+<p>Oder wer hat jemals dergleichen<lb/>
+grobe, witzloſe Schertze bey einem wohlgezogenen<lb/>
+Scribenten, der allbereit unter der Naſe trucken<lb/>
+<fw type="catch" place="bottom">war,</fw><lb/>
+<pb n="5" facs="#f0007"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+war, geleſen? Jch habe fehrner geſagt, daß J.<lb/>
+A. K. ein angehender Schuͤler der deutſchen Welt-<lb/>
+weißheit ſey. Man wird hiervon aus meiner fol-<lb/>
+genden Abhandlung genug uͤberzeuget werden,<lb/>
+jezo will ich zum vorlaͤuftigen Beweiſe deſſen nur die<lb/>
+Stelle Bl. 260. anfuͤhren, wo es heißt:</p><lb/>
+<cit><quote>„Wir<lb/>
+„wiſſen aus der Sittenlehre, daß unſre gantze<lb/>
+„Erkenntniß ihren Urſprung von den Sinnen neh-<lb/>
+„me. Die Erfahrung lehret, wie leicht es ge-<lb/>
+„ſchehen ſey, daß der Gegenſtand, welcher un-<lb/>
+„ſere Sinnen beruͤhren ſoll, zu weit von ihnen ab-<lb/>
+„ſtehe, daß ſich entweder ein gantz undeutliches<lb/>
+„Bild von ihnen in der Seele abdruͤcket; oder<lb/>
+„gar von einem allzueilfertigen Urtheile ein Jrr-<lb/>
+„thum geboren wird. Die Einbildungskraft ſezt<lb/>
+„Bilder und Begriffe zuſammen, welche ſich<lb/>
+„nicht auf einander reimen, es geſchehe nun von<lb/>
+„uns oder von andern.„</quote></cit><lb/>
+<p>Ein Abecedarius in<lb/>
+der Weltweisheit weiß, daß ſo viel als zwo Quel-<lb/>
+len unſrer Erkenntniß ſind, nemlich die Erfahrung<lb/>
+und die Vernunft; und dieſes zwar weiß er nicht<lb/>
+aus der Sittenlehre, ſondern ſchon aus der Ver-<lb/>
+nunftlehre und der Erfahrung: Eben dieſe Ver-<lb/>
+nunftlehre giebt uns auch gantz andern Unterricht<lb/>
+von dem Jrrthum der aus dem Betrug der Sin-<lb/>
+nen entſtehet. Und welcher Menſch weiß, wie er<lb/>
+die lezten worte, <hi rendition="#fr">es geſchehe nun von uns oder<lb/>
+von andern,</hi> reimen oder verſtehen ſol? Jch<lb/>
+habe endlich geſagt, daß dem J. A. K. zu dieſer<lb/>
+Arbeit die Breitingerſche Dichtkunſt behuͤlflich<lb/>
+geweſen ſey: dieß zeiget ſich aus der Vergleichung<lb/>
+des <hi rendition="#aq">VI</hi>ten und <hi rendition="#aq">IX</hi>ten Abſchnitts derſelben, mit die-<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">ſer</fw><lb/>
+<pb n="6" facs="#f0008"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+ſer Schrift, in welcher J. A. K. kaum ein Exem-<lb/>
+pel anfuͤhren kan, das er nicht bey jenem gefun-<lb/>
+den hat: Wiewohl er die Gedancken des Schwei-<lb/>
+zers uͤber dieſe Frage ſo lange verdrehet und ver-<lb/>
+hudelt, bis ſie ihm gantz eigen geworden, und er<lb/>
+endlich aus denſelben den Schweitzer ſelbſt nach<lb/>
+ſeiner Art hat widerlegen koͤnnen. Es will ſich<lb/>
+zwar faſt der Muͤhe nicht loͤhnen, dieſem Schuͤler<lb/>
+ſein Exercitium zu corrigieren, und ich haͤtte es<lb/>
+wuͤrcklich unterlaſſen, wann nicht Hr. Prof. <hi rendition="#fr">Gott-<lb/>
+ſched</hi> daſſelbe in ſeinen Schutz genommen, und<lb/>
+ihm von dem Ueberfluß ſeines Anſehens einen wich-<lb/>
+tigrn Zuſatz gegeben haͤtte:</p><lb/>
+<cit><quote>„Denn von einem<lb/>
+„ehrlichen Duͤnnehaupt wird man nicht ſo leicht<lb/>
+„die Verfuͤhrung junger Leute zu beſorgen haben.<lb/>
+„Wie leicht iſt es hingegen nicht, ſich in die<lb/>
+„Fehler eines Mannes zu verlieben, von dem wir<lb/>
+„nichts als eine Anpreiſung lauter Schoͤnheiten<lb/>
+„gehoͤret haben?„</quote></cit><lb/>
+<p>Nach der Anmerckung eines<lb/>
+von den Greifswaldiſchen Geſellſchaftern Bl. 193.<lb/>
+des erſten Bandes.</p><lb/>
+<p>J. A. K. koͤmmt nach einer muͤheſamen und<lb/>
+recht ſchuͤlerhaften Vorbereitung zulezt auf der<lb/>
+260ſten Seite auf die Erklaͤrung des Wahnes,<lb/>
+die er ſeiner Eroͤrterung zum Grund legt; und<lb/>
+dieſe Erklaͤrung koͤmmt doch noch welſch genug her-<lb/>
+aus:</p><lb/>
+<cit><quote>„Der <hi rendition="#fr">Wahn</hi> iſt eine ungewiſſe Erkennt-<lb/>
+„niß von einem Dinge, die aber doch von ſeinem<lb/>
+„Beſitzer fuͤr gewiß und untruͤglich gehalten wird.<lb/>
+„Wir erkennen leicht, wie weit er von der <hi rendition="#fr">Mey-<lb/>
+„nung</hi> unterſcheiden ſey: Bey einer Meynung<lb/>
+„laͤßt man es dahin geſtellt ſeyn, ob ſie wahr<lb/>
+<fw type="catch" place="bottom">„oder</fw><lb/>
+<pb n="7" facs="#f0009"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+„oder irrig ſey; welches ſich bey dem Wahne<lb/>
+„gantz anders verhaͤlt.„</quote></cit><lb/>
+<p>J. A. K. redet in dieſer<lb/>
+Erklaͤrung von einem <hi rendition="#fr">Beſitzer des Wahnes;</hi> alſo<lb/>
+wird nach ihm der Wahn auch <hi rendition="#aq">inter dominia re-<lb/>
+rum</hi> oder zu dem Eigenthum zu rechnen ſeyn: da<lb/>
+man ſonſt bisdahin geglaubt hat, daß man von<lb/>
+dem Wahne eher koͤnne <hi rendition="#fr">beſeſſen</hi> werden. Er<lb/>
+ſagt, der Wahn ſey <hi rendition="#fr">die Erkenntniß von einem<lb/>
+Dinge, die fuͤr gewiß und untruͤglich gehalten<lb/>
+werde, und doch ungewiß ſey;</hi> nemlich nicht in<lb/>
+Anſehung deſſen, der ſie fuͤr wahr und untruͤglich<lb/>
+haͤlt, denn ſo muͤßte dieſer einerley Erkenntniß zugleich<lb/>
+fuͤr gewiß und ungewiß halten: ſondern in Anſe-<lb/>
+hung der Erkenntniß eines andern. Folglich will<lb/>
+dieſe Erklaͤrung ſo viel ſagen: der Wahn ſey,<lb/>
+wenn ich z. E. fuͤr wahr und untruͤglich halte, was<lb/>
+ein anderer ungewiß erkennt, oder nicht weiß, ob<lb/>
+es wahr oder falſch ſey. Allein ſo lang ein ande-<lb/>
+rer ſelbſt ungewiß iſt, ob etwas wahr oder falſch<lb/>
+ſey, wie kan er meine Meynung fuͤr einen Wahn<lb/>
+halten? Der Wahn hat allezeit eine Beziehung<lb/>
+auf eine andere gruͤndlichere Einſicht und Erkennt-<lb/>
+niß, ohne dieſelbe koͤnnte niemahls kein Wahn<lb/>
+entdeckt werden. Sehet welche Ungewißheit und<lb/>
+Verwirrung! Wer die ſtoltze Vorbereitung<lb/>
+und die prahlerhafte Erzehlung, wie er auf die<lb/>
+Entdeckung dieſer Erklaͤrung gekommen, lieſet, dem<lb/>
+muß das <hi rendition="#aq">Parturiunt montes, naſcetur ridiculus Mus</hi><lb/>
+in den Sinn kommen. Es ſtehet aber J. A. K.<lb/>
+bey dieſer ungluͤcklichen Entdeckung nicht ſtille,<lb/>
+ſondern er waget ſich ferner den Unterſcheid zwi-<lb/>
+ſchen dem Wahne und einer Meynung anzuzei-<lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">gen.</fw><lb/>
+<pb n="8" facs="#f0010"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+gen. Er ſagt:</p><lb/>
+<cit><quote>„Bey einer Meynung laͤßt man<lb/>
+„es dahin geſtellt ſeyn, ob ſie wahr oder irrig<lb/>
+„ſey, welches ſich bey dem Wahne gantz anders<lb/>
+„verhaͤlt.„</quote></cit><lb/>
+<p>Hiemit waͤre nach J. A. K. eine<lb/>
+Meynung <hi rendition="#fr">eine ungewiſſe Erkenntniß, es ſey,<lb/>
+daß der Beſitzer derſelben ſie fuͤr wahr oder ir-<lb/>
+rig haͤlt.</hi> Seine Meynung von etwas geben, iſt<lb/>
+folglich, etwas daher ſagen, von dem ich ungewiß<lb/>
+bin, ob es moͤchte wahr oder irrig ſeyn, welches<lb/>
+ich auch dahin geſtellt ſeyn laſſe: da doch nach<lb/>
+dem gemeinen Gebrauche dieſes Worts, derjenige,<lb/>
+der ſeine Meynung uͤber etwas erklaͤret, ſagt, was<lb/>
+er fuͤr wahr, gut und nuͤtzlich halte; etwas gut<lb/>
+heiſſet oder verwirft.</p><lb/>
+<p>Da der groſſe deutſche Weltweiſe dieſes finſtere<lb/>
+Galimathias ſelbſt vor etwas wohl erſonnenes hal-<lb/>
+ten muß: ſo will ich ihn und ſeinen Schuͤler, wo<lb/>
+moͤglich, aus ihrer Verwirrung auf ordentlichere<lb/>
+Gedancken fuͤhren. Ein <hi rendition="#fr">Jrrthum</hi> iſt, wenn ei-<lb/>
+ner etwas, das an ſich ſelbſt betrachtet wahr iſt,<lb/>
+fuͤr falſch, oder das an ſich ſelbſt betrachtet falſch<lb/>
+iſt, fuͤr wahr haͤlt. So lange einer etwas fuͤr<lb/>
+wahr anſiehet, ſo kan er ſich daſſelbe unmoͤglich<lb/>
+zugleich als falſch vorſtellen; und ſo lange er et-<lb/>
+was fuͤr falſch anſiehet, ſo wird er ſich daſſelbe un-<lb/>
+moͤglich als wahr vorſtellen koͤnnen. Der Jrr-<lb/>
+thum wird demnach allemahl durch eine gruͤndli-<lb/>
+chere Erkenntniß des Wahren oder des Falſchen<lb/>
+entdeckt und vertrieben. Ein <hi rendition="#fr">Wahn</hi> iſt, wenn<lb/>
+einer dasjenige, was an ſich ſelbſt betrachtet un-<lb/>
+gewiß iſt, fuͤr gewiß haͤlt. <hi rendition="#fr">Ungewiß</hi> nenne ich,<lb/>
+was noch zur Zeit nicht genugſam erwieſen iſt, oder<lb/>
+<fw type="catch" place="bottom">erwie-</fw><lb/>
+<pb n="9" facs="#f0011"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+erwieſen werden kan. Und was ungewiß iſt, kan<lb/>
+demnach bey dem Zuwachs eines mehrern Lichts<lb/>
+der Erkenntaiß wahr, oder falſch und irrig befun-<lb/>
+den werden. Befindet man bey genauerer Einſicht<lb/>
+und Unterſuchung einer Sache, daß der vorgefaßte<lb/>
+Wahn von derſelben ohnbegruͤndet und darum irrig<lb/>
+und falſch iſt, ſo ſagt man mit Recht, das ſey bis-<lb/>
+dahin ein <hi rendition="#fr">irriger Wahn</hi> geweſen, weil ſich nem-<lb/>
+lich iezund offenbar zeiget, daß der Wahn, den<lb/>
+man von einer Sache gefaſſet hatte, Jrrthum iſt.<lb/>
+Befindet ſich aber in der Unterſuchung das Ge-<lb/>
+gentheil, nemlich daß der Wahn, den man von<lb/>
+einer Sache gehabt, wuͤrcklich nicht ohne zurei-<lb/>
+chenden Grund, folglich gewiß und wahr iſt, ſo nen-<lb/>
+net man ihn ſchlechtweg einen <hi rendition="#fr">Wahn,</hi> weil man das-<lb/>
+jenige bisdahin ohne genugſamen Grund fuͤr wahr<lb/>
+und gewiß gehalten, was zwar als wahr befun-<lb/>
+den wird; das man aber nichts deſtoweniger auch fuͤr<lb/>
+wahr gehalten haͤtte, wenn es gleich in der naͤhe-<lb/>
+ren Unterſuchung als falſch waͤre befunden worden.<lb/>
+Der Wahn entſpringet hiemit aus einem uͤbereil-<lb/>
+ten Urtheil von Sachen, die man nicht genugſam<lb/>
+unterſucht und gepruͤffet hat, deren Wahrheit oder<lb/>
+Falſchheit man nicht erkennet, da man den Schein<lb/>
+fuͤr das Weſen nimmt, und wo man vernuͤnftiger<lb/>
+Weiſe ſein Urtheil zuruͤckhalten ſollte. Eine <hi rendition="#fr">Mey-<lb/>
+nung</hi> iſt endlich, wenn man in zweifelhaften Sa-<lb/>
+chen und Faͤllen nach gewiſſen Wahrſcheinlichkei-<lb/>
+ten etwas als ſicherer, beſſer und nuͤtzlicher bey<lb/>
+ſich feſt ſetzet: Wo dieſe Wahrſcheinlichkeiten, nach<lb/>
+welchen ſich unſre Meynungen richten, fehl ſchla-<lb/>
+gen oder nicht eintreffen, da kan unſre Meynung<lb/>
+betriegen.</p><lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">Man</fw><lb/>
+<pb n="10" facs="#f0012"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+<p>Man vergleiche nun mit dieſen Saͤtzen und Er-<lb/>
+klaͤrungen, was J. A. K. ſonderlich Bl. 263. von<lb/>
+dem <hi rendition="#fr">wahren Wahne</hi> fuͤr neue Entdeckungen ge-<lb/>
+machet haben will, und ſehe, wie uͤbel es in die-<lb/>
+ſem Kopf muß aufgeraͤumt ſeyn, und wie zuver-<lb/>
+ſichtlich dieſer arme Stuͤmper die Sprache der<lb/>
+groͤſten Erfinder in dem Munde fuͤhret, und ſich<lb/>
+kaum enthalten kan, uͤberlaut auszuruffen, εὕϱηκα,<lb/>
+εὕϱηκα! Von dieſem <hi rendition="#fr">wahren Wahne</hi> ſagt er:</p><lb/>
+<cit><quote>„Es klingt etwas fremde: allein ich bin dadurch<lb/>
+„darauf gebracht worden, weil man in dem ge-<lb/>
+„meinen Leben immer noch das Beywort <hi rendition="#fr">Falſch</hi><lb/>
+„bey dem Wahne gebraucht, wenn man willens<lb/>
+„iſt, eine irrige und unrichtige Erkenntniß anzu-<lb/>
+„deuten. Es koͤnnte vielleicht ſeyn, daß dieß<lb/>
+„Wort vor Zeiten zu den mittlern Woͤrtern<lb/>
+„gehoͤret, und eben ſo wohl eine gute als boͤſe<lb/>
+„Bedeutung gehabt; welche aber hernach verlo-<lb/>
+„ren gegangen. Der gute Geſchmack wuͤrde zu<lb/>
+„dieſer Art des Wahnes fuͤglich koͤnnen gerech-<lb/>
+„net werden. Doch es mag dieſes einer reifern<lb/>
+„Ueberlegung heimgeſtellet ſeyn.„</quote></cit><lb/>
+<p>Eine gantz un-<lb/>
+erhoͤrte Entdeckung des <hi rendition="#fr">wahren Wahnes!</hi> Denn<lb/>
+da es einen falſchen und irrigen Wahn giebt, ſo<lb/>
+kan es ja nicht anders ſeyn, es muß auch einen<lb/>
+<hi rendition="#fr">wahren</hi> Wahn geben. Trefflich wohl geſchloſ-<lb/>
+ſen! Und das Woͤrtgen <hi rendition="#fr">Wahn</hi> muß vor Zeiten<lb/>
+eine gute Bedeutung gehabt haben, es wird nem-<lb/>
+lich entweder eine gruͤndliche Erkenntniß des Wah-<lb/>
+ren und des Falſchen bedeutet haben, oder man<lb/>
+mag vor Zeiten ein uͤbereiltes Urtheil ohne Unter-<lb/>
+ſuchung fuͤr was gutes angeſehen haben. Neben<lb/>
+<fw type="catch" place="bottom">dem</fw><lb/>
+<pb n="11" facs="#f0013"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+dem haben wir hier ein aufrichtiges Bekenntniß<lb/>
+von einem qualificierten Oberdeutſchen aus der<lb/>
+Gottſchediſchen Schule ſelbſt, was von dem <hi rendition="#fr">guten<lb/>
+Geſchmack</hi> dieſer Schule zu halten ſey, nemlich<lb/>
+daß er ein blindes Gluͤck und Ungefehr im Urthei-<lb/>
+len von dem Schoͤnen und Haͤßlichen einer Schrift,<lb/>
+ein bloſſer Wahn, der ohne Verſtand und Ein-<lb/>
+ſicht oͤfters das Gute und Schoͤne gutheiſſet, aber<lb/>
+eben ſo wenig weiß, warum er etwas gutheiſſet,<lb/>
+als warum er etwas verwirfft; hiemit ein blindes<lb/>
+Loos ſey, welches, wenn es von ungefehr richtig ein-<lb/>
+trift, einen eben ſo guten Geſchmack haben muß,<lb/>
+als der Hr. Prof. <hi rendition="#fr">Gottſched</hi> ſelbſt. Sollte<lb/>
+man nicht einen ſolchen unwiſſenden Stoͤltzling zu-<lb/>
+vor noch in die Schule verweiſen, um in ſeinem<lb/>
+<hi rendition="#aq">Compendio logico</hi> erſt noch recht zu lernen, was<lb/>
+<hi rendition="#aq">opinio,</hi> was <hi rendition="#aq">opinio vera &amp; falſa</hi> waͤre, ehe man<lb/>
+ihm geſtatten wuͤrde, als ein Lehrer und Kunſt-<lb/>
+richter aufzutreten, und ſich anzuſtellen, als ob er<lb/>
+neue Wahrheiten entdecken wolle.</p><lb/>
+<p>Noch mehr aber verraͤth J. A. K. ſeine Un-<lb/>
+wiſſenheit, wenn er auf der 262. Seite bey An-<lb/>
+laß der Eintheilung des Wahns in ſeine Claſſen,<lb/>
+in den <hi rendition="#fr">unmoͤglichen, unwahrſcheinlichen,</hi> und<lb/>
+<hi rendition="#fr">wahrſcheinlichen,</hi> den <hi rendition="#fr">Wahn</hi> mit den <hi rendition="#fr">Erdich-<lb/>
+tungen</hi> vermenget, und was Hr. <hi rendition="#fr">Baumgarten,</hi><lb/>
+u. Hr. <hi rendition="#fr">Breitinger</hi> Bl. 135. ſeiner <hi rendition="#fr">Dichtk.</hi> von dieſen<lb/>
+geſagt haben, ohne Unterſcheid auf jenen zeuhen will.<lb/>
+Jedermann verſtehet, was eine <hi rendition="#fr">moͤgliche,</hi> eine<lb/>
+<hi rendition="#fr">wahrſcheinliche,</hi> eine <hi rendition="#fr">wahre;</hi> was im gegentheil<lb/>
+eine <hi rendition="#fr">unmoͤgliche,</hi> eine <hi rendition="#fr">unwahrſcheinliche,</hi> eine<lb/>
+<hi rendition="#fr">falſche Erdichtung</hi> ſey: Eine <hi rendition="#fr">Erdichtung</hi> iſt<lb/>
+<fw type="catch" place="bottom">nem-</fw><lb/>
+<pb n="12" facs="#f0014"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+nemlich, wenn wir durch eine willkuͤhrliche Zu-<lb/>
+ſammenſetzung der Bilder neue Vorſtellungen er-<lb/>
+ſchaffen: Dieſe Zuſammenſetzung iſt entweder<lb/>
+ſchlechterdings <hi rendition="#fr">unmoͤglich,</hi> wo man ſolche getrenn-<lb/>
+te Bilder zuſammenordnet, die einander wider-<lb/>
+ſprechen, und mit einander weſentlich ſtreiten; die<lb/>
+darum Herr <hi rendition="#fr">Baumgarten Utopiſche</hi> Erdichtun-<lb/>
+gen genennet hat, weil ſie in keinem moͤglichen Zu-<lb/>
+ſammenhange der Dinge Platz haben koͤnnen, ja<lb/>
+nicht einmahl koͤnnen gedacht werden. Oder die<lb/>
+Zuſammenſetzung der Erdichtung iſt <hi rendition="#fr">moͤglich;</hi> Al-<lb/>
+les was moͤglich iſt, hat ſchon einige Wahrſchein-<lb/>
+lichkeit, und gehoͤret entweder zu dem gegenwaͤrti-<lb/>
+gen Zuſammenhang der Dinge, oder zu einem an-<lb/>
+dern moͤglichen Zuſammenhang. Jſt das erdichtete<lb/>
+Moͤgliche in der gegenwaͤrtigen Welt moͤglich, ſo<lb/>
+iſt es eben darum, weil es ohne Widerſpruch in<lb/>
+dieſer Welt wuͤrcklich ſeyn koͤnnte, <hi rendition="#fr">wahr:</hi> Jſt es<lb/>
+aber in einer andern Welt moͤglich, ſo iſt es eben<lb/>
+darum, weil es nicht unmoͤglich iſt, und doch mit<lb/>
+der gegenwaͤrtigen Ordnung der Dinge nicht voͤl-<lb/>
+lig uͤbereinſtimmet, <hi rendition="#fr">wahrſcheinlich,</hi> oder eine <hi rendition="#fr">he-<lb/>
+terocoſmiſche Erdichtung.</hi> Zu einer <hi rendition="#fr">Erdich-<lb/>
+tung</hi> wird demnach uͤberhaupt nicht mehr erfor-<lb/>
+dert, als daß ſie moͤglich ſey: Der Erdichtung ſte-<lb/>
+het nicht die Wahrheit, ſondern das Unmoͤgliche<lb/>
+entgegen; denn die Wahrheit oder das Wirckliche<lb/>
+gehoͤret mit dem Moͤglichen unter ein Geſchlecht.<lb/>
+Aber der <hi rendition="#fr">Wahn</hi> wird einer ſichern und begruͤndten<lb/>
+Erkenntniß des Wahren und Falſchen entgegen ge-<lb/>
+ſetzet: Der Wahn gehet nicht bloß auf die Moͤg-<lb/>
+lichkeit der Dinge, ſondern er wird erkennt und<lb/>
+<fw type="catch" place="bottom">entde-</fw><lb/>
+<pb n="13" facs="#f0015"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+entdecket, wenn man gruͤndlich zeigen und erwei-<lb/>
+ſen kan, daß dasjenige, was man bisdahin un-<lb/>
+begruͤndter Weiſe vor wahr gehalten, im Grunde<lb/>
+entweder wahr oder falſch ſey. Wie iſt es denn<lb/>
+moͤglich, daß man Sachen, die in ihrer Natur<lb/>
+ſo ſehr von einander unterſchieden ſind, mit einan-<lb/>
+der vermiſchet, und der einen diejenigen Eigen-<lb/>
+ſchaften beylegen will, die der andern zugehoͤren;<lb/>
+zumahlen da auch der eingefuͤhrte Sprachgebrauch<lb/>
+ſolches kaum erlauben will? Denn da der Wahn<lb/>
+allezeit ein unbegruͤndetes Urtheil zum Grund hat,<lb/>
+ohne Grund und Einſicht aber urtheilen, unver-<lb/>
+nuͤnftig gehandelt iſt, ſo kan der Wahn, als ein<lb/>
+ſolcher betrachtet, niemahls wahr ſeyn; oder er<lb/>
+muͤßte gantz uneigentlich wahr genennet werden,<lb/>
+in der bloſſen Abſicht, weil dasjenige, was man<lb/>
+ohne Grund ſich fuͤr wahr einbildet, eben ſo wohl<lb/>
+wahr, als falſch ſeyn kan. Eben ſo moͤgte ich wohl<lb/>
+hoͤren, wie man mir deutlich erklaͤren wolte, was<lb/>
+ein <hi rendition="#fr">wahrſcheinlicher Wahn</hi> ſey, wenn man ihn<lb/>
+nicht mit einer <hi rendition="#fr">unwahrſcheinlichen Erdichtung</hi><lb/>
+vermiſchen will: Der Wahn vergnuͤget ſich immer<lb/>
+mit bloſſen Wahrſcheinlichkeiten, und ſein Weſen<lb/>
+beſtehet darinnen, daß dasjenige, was einer ohne<lb/>
+weitere Unterſuchung fuͤr wahr annimmt, ihm eben<lb/>
+nicht unwahrſcheinlich vorkoͤmmt, ob ſich gleich ſein<lb/>
+Urtheil nur auf einen betruͤglichen Schein der Wahr-<lb/>
+heit gruͤndet. Wollte man ſagen, der Wahn<lb/>
+ſey dannzumahlen unwahrſcheinlich, wenn ein an-<lb/>
+derer fuͤr unwahrſcheinlich erkennt, was dieſer fuͤr<lb/>
+gewiß haͤlt, ſo habe ich ſchon oben erwieſen, daß<lb/>
+eine bloſſe Unwahrſcheinlichkeit einen Wahn weder<lb/>
+<fw type="catch" place="bottom">ent-</fw><lb/>
+<pb n="14" facs="#f0016"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+entdecken, noch ſtuͤrtzen kan. Eine Erdichtung<lb/>
+kan freylich zu einem Wahne, der ſich nach und<lb/>
+nach ausbreitet, Anlaß geben; aber darum iſt<lb/>
+die Erdichtung mit dem Wahne nicht einerley. Am<lb/>
+meiſten aber verraͤth ſich der groſſe Unverſtand und<lb/>
+die Unbedachtſamkeit des J. A. K. wenn er von<lb/>
+einem <hi rendition="#fr">heterocosmiſchen</hi> Wahne, d. i. von un-<lb/>
+begruͤndten Urtheilen redet, die nicht in der wirck-<lb/>
+lichen, ſondern in einer andern moͤglichen Welt<lb/>
+Statt haben, und den <hi rendition="#fr">wahrſcheinlichen</hi> Wahn<lb/>
+von demſelben unterſcheidet; welches daher ruͤhret,<lb/>
+weil er nicht gemerckt, daß Herr <hi rendition="#fr">Baumgarten</hi><lb/>
+die wahrſcheinliche und die heterocosmiſche Erdich-<lb/>
+dichtung fuͤr eins haͤlt. Jm uͤbrigen iſt freylich<lb/>
+wahr, daß zuweilen ein gantz unvernuͤnftiger und<lb/>
+widerſprechender Satz ein allgemeines Anſehen er-<lb/>
+langen kan, inſonderheit wenn er von dem Aber-<lb/>
+glauben unterſtuͤtzet wird: Allein dieſes ruͤhret kei-<lb/>
+neswegs von dem Wahne her, in ſo ferne er als<lb/>
+ein ſolcher betrachtet wird; ſondern von dem Jrr-<lb/>
+thum, der mit einem falſchen Wahne immer ver-<lb/>
+knuͤpfet iſt; denn der Jrrthum ſtreitet etwann mit<lb/>
+denen erſten Grundwahrheiten, die kein Vernuͤnf-<lb/>
+tiger in Zweifel ziehet; etwann aber mit andern da-<lb/>
+von hergeleiteten Saͤtzen, ſo daß er um etwas ver-<lb/>
+ſteckt iſt, und nicht ſo geſchwind einem jeden in<lb/>
+die Augen leuchtet; allein da die Falſchheit alle-<lb/>
+mahl mit der Wahrheit im Widerſpruch ſtehet,<lb/>
+ſo kan ein irriger Wahn niemahls <hi rendition="#fr">moͤglich</hi> ſeyn.</p><lb/>
+<p>So ungluͤcklich aber J. A. K. in ſeinen Lehrſaͤtzen<lb/>
+iſt, eben ſo ausſchweifend iſt er in ſeinen Exem-<lb/>
+peln und der Anwendung derſelben: Er fuͤhret auf<lb/>
+<fw type="catch" place="bottom">der-</fw><lb/>
+<pb n="15" facs="#f0017"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+derſelben oben angezogenen 262ſten S. den Wahn<lb/>
+von den ſichtbaren Coͤrpern der Goͤtter an, und<lb/>
+ſagt davon:</p><lb/>
+<cit><quote>„Es ſey ſchlechterdings unmoͤglich,<lb/>
+„daß Weſen von den vortrefflichſten Eigenſchaf-<lb/>
+„ten, welche man als Goͤtter verehrte, die menſch-<lb/>
+„liche, als eine ſehr unvollkommene Geſtalt an<lb/>
+„ſich haben ſollten.„</quote></cit><lb/>
+<p>Er muß nicht bedacht ha-<lb/>
+ben, daß die H. Schrift von vielen Erſcheinun-<lb/>
+gen des wahren Gottes Jſraels unter ſichtbarer<lb/>
+Geſtalt ſo oft Meldung thut; daß er die Vereini-<lb/>
+gung der Goͤtter mit der menſchlichen Geſtalt fuͤr<lb/>
+<hi rendition="#fr">an ſich</hi> ſelbſt und ſchlechterdings unmoͤglich aus-<lb/>
+giebt: Denn was an ſich ſelbſt und ſchlechterdings<lb/>
+unmoͤglich iſt, das kan niemals, auch nicht fuͤr<lb/>
+eine kleine Zeit moͤglich werden, ſondern bleibet<lb/>
+allezeit ungereimt und widerſprechend. Es iſt in<lb/>
+Wahrheit nicht zu begreiffen, daß ein gewaltiger<lb/>
+Lehrer, der ſelbſt eine deutſche Weltweißheit ge-<lb/>
+ſchrieben hat, dergleichen unbeſtimmte, verworre-<lb/>
+ne, unvernuͤnftige Saͤtze an einem Schuͤler ohne<lb/>
+Verdruß ſollte dulden, geſchweige noch ſelbſt billi-<lb/>
+gen, und der Welt als etwas leſenswuͤrdiges vor-<lb/>
+legen duͤrfen.</p><lb/>
+<p>Wenn nun J. A. K. ferner auf der 243. u. f.<lb/>
+Seite das Recht des Poeten uͤber den Wahn zu-<lb/>
+folge der gemachten Eintheilung beſtimmen will,<lb/>
+ſo redet er faſt immer unter dem Nahmen des<lb/>
+<hi rendition="#fr">Wahns</hi> von den <hi rendition="#fr">Erdichtungen,</hi> und dieſes ver-<lb/>
+leitet und ſtuͤrtzet ihn in ein unverſtaͤndiges, weit-<lb/>
+laͤuftiges Gewaͤſche, wo weder Ordnung, noch<lb/>
+Deutlichkeit zu finden iſt. Er leitet die Einſchraͤn-<lb/>
+kung der Gewalt des Poeten uͤber den Wahn,<lb/>
+<fw type="catch" place="bottom">oder</fw><lb/>
+<pb n="16" facs="#f0018"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+oder vielmehr uͤber die Erdichtung daher, <hi rendition="#fr">daß die<lb/>
+Poeſie in einer Nachahmung der Natur be-<lb/>
+ſteht, und ein Poet ihre Grentzen niemals uͤber-<lb/>
+ſchreiten darf, ohne einen Fehler zu begehen:</hi><lb/>
+Er machet daraus den Schluß, <hi rendition="#fr">daß ein Poet ſich<lb/>
+des Wahnes nicht ſchlechterdings bedienen<lb/>
+duͤrfe, wenn er unmoͤglich oder unwahrſchein-<lb/>
+lich iſt.</hi> Es gehoͤret nemlich zu der Natur, und<lb/>
+muß uͤberhaupt als wahrſcheinlich angeſehen wer-<lb/>
+den, was durch die unendliche Kraft des Schoͤ-<lb/>
+pfers der Natur moͤglich iſt, hiemit alles, was<lb/>
+mit denen erſten und allgemeinen Grundſaͤtzen, auf<lb/>
+welchen alle Erkenntniß der Wahrheit beruhet, in<lb/>
+keinem Widerſpruche ſtehet: Was hingegen mit<lb/>
+denſelben ſtreitet, das hat auch in der Macht des<lb/>
+Schoͤpfers keinen Grund der Wahrheit, iſt alſo<lb/>
+ſchlechterdings unmoͤglich, und kan nicht einmal<lb/>
+gedacht werden: Und folglich haͤtte J. A. K. ſchlieſ-<lb/>
+ſen ſollen, daß unmoͤgliche und utopiſche Erdich-<lb/>
+tungen in keinem Gedichte jemahls zu gebrauchen<lb/>
+ſeyn, es ſey dann daß der Poet ſich mit Fleiß laͤ-<lb/>
+cherlich machen wolle. Aber eine gantz andere<lb/>
+Bewandtniß hat es mit dem Wahne: Ein Wahn<lb/>
+iſt ein unbegruͤndetes Urtheil von einer Sache,<lb/>
+welches die Unvernunft gezeuget, und der Aber-<lb/>
+glaube in Anſehen gebracht hat. Ein irriger<lb/>
+Wahn, der die Welt jemahls beherrſchet, hat,<lb/>
+ſo lange er nicht von einer beſſer erkannten Wahr-<lb/>
+heit verdrungen wird, das Anſehen und die Macht<lb/>
+der Wahrheit ſelbſten; und auch nachdem er ſein<lb/>
+Anſehen wircklich verlohren hat, und fuͤr irrig er-<lb/>
+kennt wird, behaͤlt er noch immer eine hiſtoriſche<lb/>
+<fw type="catch" place="bottom">Wahr-</fw><lb/>
+<pb n="17" facs="#f0019"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+Wahrheit; er mag an ſich ſelbſt ſo ungereimt und<lb/>
+widerſprechend ſeyn, als er immer will, weil doch<lb/>
+einmal Menſchen geweſen ſind, die denſelben fuͤr<lb/>
+wahr gehalten haben. Da nun ein Poet in den<lb/>
+vornehmſten Stuͤcken der Poeſie, nemlich in dra-<lb/>
+matiſchen und epiſchen Gedichten, entweder gar<lb/>
+nicht, oder doch ſehr ſparſam in ſeinem eigenen<lb/>
+Nahmen redet; ſondern groͤſtentheils fremde Per-<lb/>
+ſonen redend einfuͤhret, ſo iſt er nicht befugt ihnen<lb/>
+ſeine eigenen, obgleich vernuͤnftigern und beſſern<lb/>
+Gedancken und Urtheile von den Sachen zu leihen,<lb/>
+ſondern er muß ſie reden und urtheilen laſſen, wie<lb/>
+es ihr Character, ſo ferne er aus der Hiſtorie be-<lb/>
+kannt iſt, oder das Licht der damahligen Zeiten<lb/>
+wahrſcheinlich mit ſich bringt. Ein Wahn, er<lb/>
+mag uͤbrigens noch ſo gottloß und irrig ſeyn, weil<lb/>
+er eine hiſtoriſche Wahrheit hat, gehoͤret nicht in<lb/>
+Utopien, ſondern in die gegenwaͤrtige wuͤrckliche<lb/>
+Welt, laut dem bekannten Spruͤchwort: Es<lb/>
+koͤnne nichts ſo ungereimtes und widerſinniges er-<lb/>
+dacht werden, das nicht ſelbſt einer von den Phi-<lb/>
+loſophen jemals ſollte gelehret haben. Von ſolcher<lb/>
+Art iſt das Exempel der Biblis, welches J. A. K.<lb/>
+auf der 266. Seite aus Ovidius anfuͤhret. Jch<lb/>
+ſchaͤme mich faſt die elenden Anmerckungen, wo-<lb/>
+mit er ſeine Critick zu rechtfertigen ſuchet, zu be-<lb/>
+ruͤhren: Das vornemſte koͤmmt wohl darauf an,<lb/>
+daß er behaupten will, ein vernuͤnftiger und tugend-<lb/>
+liebender Scribent oder Poet koͤnne ohne Verle-<lb/>
+zung ſeines Gewiſſens, und ohne den Verdacht,<lb/>
+daß er der Wahrheit und Tugend nicht allzu gewogen<lb/>
+ſey, keine gottloſe Perſonen und Character auf-<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">XII.</hi> St.] B</fw><fw type="catch" place="bottom">fuͤh-</fw><lb/>
+<pb n="18" facs="#f0020"/>
+<fw type="header" place="top"><hi rendition="#b">Wir weit ſich ein Poet</hi></fw><lb/>
+fuͤhren, weil er ihnen der Wahrſcheinlichkeit ge-<lb/>
+maͤß keine andere als gottloſe und leichtfertige Re-<lb/>
+den in den Mund geben koͤnnte. Jch will dieſen<lb/>
+ſcheinheiligen Lehrſatz, der die Zulaſſung des Boͤ-<lb/>
+ſen in der Welt gleichſam meiſtert, und die mei-<lb/>
+ſten Stuͤcke in Hrn. <hi rendition="#fr">Gottſcheds</hi> deutſcher Schau-<lb/>
+buͤhne zugleich verdammet, nicht anders widerle-<lb/>
+gen, als daß ich J. A. K. erinnern will, daß die<lb/>
+H. Schrift ſelbſt, ohne einige Befleckung ihrer<lb/>
+Heiligkeit, dieſe Wahrſcheinlichkeit beobachtet,<lb/>
+daß ſie hin und wieder gottloſe Menſchen, ia ſelbſt<lb/>
+Teufel auffuͤhret, denen ſie ihrem Character ge-<lb/>
+maͤß unvernuͤnftige, ja laͤſterliche Reden beyleget.<lb/>
+Nach des J. A. K. Lehrſatz iſt ſie nicht zu ent-<lb/>
+ſchuldigen, daß ſie dieſe Nachbildungen nicht weg-<lb/>
+gelaſſen hat. Die Poeſie iſt eine Nachahmung<lb/>
+der Natur in dem Wircklichen, wie in dem Moͤg-<lb/>
+lichen: da nun Thorheit, Aberglauben, Gottlo-<lb/>
+ſigkeit, nicht nur moͤglich ſind, ſondern die Welt<lb/>
+wircklich beherrſchen, die Wahrheit und Tugend<lb/>
+verfolgen, und ſo fern ſie koͤnnen, unterdruͤcken;<lb/>
+ſo hoͤret die Poeſie auf zu ſeyn, was ſie iſt, wenn<lb/>
+ſie die Natur nur in einem kleinen Theil des Wuͤrck-<lb/>
+lichen nachahmen darf. Jm uͤbrigen findet J. A. K.<lb/>
+ſeine voͤllige Abfertigung in Hrn. <hi rendition="#fr">Breitingers Crit.<lb/>
+Dichtkunſt</hi> Bl. 339. wo es heißt:</p><lb/>
+<cit><quote>„Jndeſſen iſt<lb/>
+„in dem Gebrauche dieſes Kunſtgriffes groſſe Be-<lb/>
+„hutſamkeit noͤthig; <hi rendition="#fr">ich wollte nicht, daß die<lb/>
+„Poeſie mißbraucht wuͤrde, den Aberglauben<lb/>
+„in ſeinen abentheurlichen Traͤumen zu beſteif-<lb/>
+„fen, und dieſelben noch weiter auszubreiten.</hi><lb/>
+„Der Poet muß ſich freylich die Hiſtorie des Aber-<lb/>
+<fw type="catch" place="bottom">„glau-</fw><lb/>
+<pb n="19" facs="#f0021"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+„glaubens und die verſchiedenen Meynungen, die<lb/>
+„von Zeit zu Zeit einen allgemeinen Glauben bey<lb/>
+„den Leuten erhalten haben, bekannt machen,<lb/>
+„damit er das Wunderbare in ſeinen Vorſtel-<lb/>
+„lungen nach Beſchaffenheit der Materie alle-<lb/>
+„mahl auf ſolche Meynungen gruͤnden koͤnne, <hi rendition="#fr">die<lb/>
+„zu der Zeit,</hi> da die Perſonen, die er auffuͤh-<lb/>
+„ret, gelebet, einen durchgaͤngigen Beyfall ge-<lb/>
+„habt hatten. Die Meynung, die er ihnen zu-<lb/>
+„ſchreibet, muß zu derſelben Zeit allgemein gewe-<lb/>
+„ſen ſeyn, keine geſchickter erklaͤrte und beſſer be-<lb/>
+„kannte Wahrheiten muͤſſen damahls mit ihr im<lb/>
+„Widerſpruche gelegen haben, ſonſt wuͤrden dieſe<lb/>
+„wunderbaren Vorſtellungen alle Glaubwuͤrdig-<lb/>
+„keit verlieren, und alſo gantz abentheurlich wer-<lb/>
+„den.„</quote></cit><lb/>
+<p>Man kan auch mit Nutzen nachleſen,<lb/>
+was ferner hieruͤber auf der 340. und etlichen fol-<lb/>
+genden Seiten gruͤndlich ausgefuͤhrt worden. Was<lb/>
+endlich die Beſchuldigung und Entſchuldigung der<lb/>
+alten Poeten, <hi rendition="#fr">Homers</hi> und <hi rendition="#fr">Virgils,</hi> wegen der<lb/>
+Fabeln von ihren Goͤttern anbelanget, ſo muß J.<lb/>
+A. K. noch erweiſen, 1. daß dieſe Dichter uͤber<lb/>
+die Goͤtterhiſtorie mehr Erleuchtung gehabt haben,<lb/>
+als das Volck, und beſtimmen, wie deutlich ſie<lb/>
+den gemeinen Jrrthum des Aberglaubens eingeſe-<lb/>
+hen haben? Denn ſo lange der unvernuͤnftige<lb/>
+Wahn von mehr als einer Gottheit nicht abgele-<lb/>
+get iſt, ſo kan ich nicht wohl abſehen, wie man<lb/>
+ſollte unfaͤhig ſeyn, allen andern abentheurlichen<lb/>
+Erzehlungen Glauben zuzuſtellen, zumahl wenn<lb/>
+ihnen der Aberglauben das Anſehen heiliger Ge-<lb/>
+heimniſſe zuleget. 2. Muß er erweiſen, daß die<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">Alle-</fw><lb/>
+<pb n="20" facs="#f0022"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+Allegoriſchen Abſichten, die ihnen von alten und<lb/>
+neuen, heidniſchen und chriſtlichen Kunſtrichtern<lb/>
+zugeſchrieben werden, ſchlechterdings unmoͤglich<lb/>
+ſeyn. 3. Da <hi rendition="#fr">Homer</hi> und <hi rendition="#fr">Virgil</hi> aͤltere Geſchich-<lb/>
+ten zum Grund ihrer Gedichte genommen, ſo muͤß-<lb/>
+te gezeiget werden, daß ſie ohne Verletzung der<lb/>
+Wahrſcheinlichkeit, denſelbigen Zeiten mehrere Er-<lb/>
+leuchtung haͤtten zutheilen koͤnnen und ſollen, als<lb/>
+ſie nicht gehabt haben. Und endlich 4. ſtehet noch<lb/>
+unerlaͤutert, wie weit ein Poet, insbeſondere ein<lb/>
+epiſcher Dichter, der den Jrrthum des herrſchen-<lb/>
+den Aberglaubens ſeiner Zeiten in einigen Stuͤcken<lb/>
+einſiehet, geſchickt ſey, unter einem Haufen aber-<lb/>
+glaͤubiſcher Goͤtzendiener zugleich das Anſehen eines<lb/>
+guten und glaubwuͤrdigen Dichters und eines Ver-<lb/>
+fechters einer geſunden Theologie zu behaupten;<lb/>
+denn davon iſt auf der 161. Seite der Breitinger-<lb/>
+ſchen Dichtkunſt die Frage; nicht aber wie J. A. K.<lb/>
+die Worte haͤmiſcher Weiſe verkehret, als ob Hr.<lb/>
+Breitinger <hi rendition="#fr">ſo gar zu einer Pflicht der alten Poe-<lb/>
+ten gemacht habe, der Theologie des Poͤbels<lb/>
+gemaͤß zu reden,</hi> uͤber welchen beſondern Glau-<lb/>
+ben J. A. K. ſich nicht genug verwundern kan.<lb/>
+Aber dieſer ungeſchickte Schuͤler zeiget eben dadurch,<lb/>
+daß er zwiſchen einer moraliſchen und einer phy-<lb/>
+ſicaliſchen Nothwendigkeit noch keinen Unterſcheid<lb/>
+zu machen wiſſe; Hr. Prof. Breitinger hat an<lb/>
+dem angezogenen Orte den Homer in der Noth-<lb/>
+wendigkeit betrachtet, in welcher er geſtanden, ſei-<lb/>
+ne erleuchtetern Begriffe, wenn er je dergleichen<lb/>
+gehabt, dem Vorſatz, das Anſehen eines epiſchen<lb/>
+Dichters zu erwerben, aufzuopfern: Dieſe Noth-<lb/>
+<fw type="catch" place="bottom">wen-</fw><lb/>
+<pb n="21" facs="#f0023"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+wendigkeit fuͤhret er theils aus der Natur der Dich-<lb/>
+tung her, die ſich an dem bloß Wahrſcheinlichen<lb/>
+begnuͤget, und um das philoſophiſche Wahre faſt<lb/>
+gaͤntzlich unbekuͤmmert iſt; theils von der Beſchaf-<lb/>
+fenheit derjenigen, denen er durch ſein Gedicht zu<lb/>
+gefallen ſuchte. Dieſes verkehret nun J. A. K.<lb/>
+nach ſeinem boshaften Unverſtand in eine Pflicht,<lb/>
+und dichtet Hrn. Breitinger an, als ob er geſagt<lb/>
+haͤtte, Homer waͤre ſchuldig geweſen, auch bey ei-<lb/>
+ner mehrern Erleuchtung, dem thoͤrichten Aber-<lb/>
+glauben ſeiner Zeiten nachzugeben, nur damit er<lb/>
+ſeinen erzoͤrnten Lehrmeiſter hinter der Wand durch<lb/>
+ein heuchleriſches Aergerniß an der ihm ſo verhaß-<lb/>
+ten Schweitzeriſchen Dichtkunſt raͤchen koͤnne.</p><lb/>
+<p>Wenn nun J. A. K. ferner auf der 268 Seite<lb/>
+nach ſeiner ſcharfſinnigen Eintheilung zu der an-<lb/>
+dern Gattung des Wahns, den er zwar <hi rendition="#fr">moͤglich,</hi><lb/>
+aber <hi rendition="#fr">unwahrſcheinlich</hi> genennt hat, fortgehen ſoll,<lb/>
+ſo weiß er ſich faſt nicht mehr fortzuhelfen; er wird<lb/>
+es ſelbſt gewahr, daß er mit dem moͤglichen und<lb/>
+dabey unwahrſcheinlichen Wahne gantz ſtecken<lb/>
+bleibt, und thut daher einen Abſprung auf die he-<lb/>
+terocosmiſchen oder wahrſcheinlichen <hi rendition="#fr">Erdichtun-<lb/>
+gen, die man auf einen Wahn ſteifen kan, der<lb/>
+bloß moͤglich iſt,</hi> welches aber keinen Verſtand<lb/>
+hat, und ſich ſelbſt offenbar widerſpricht: Denn<lb/>
+ein wuͤrcklicher Wahn, auf den ich eine Erdich-<lb/>
+tung gruͤnden ſoll, kan ja nicht bloß moͤglich ſeyn:<lb/>
+Und ein irriger Wahn von dem Moͤglichen iſt,<lb/>
+wenn ich vor moͤglich halte, was an ſich ſelbſt un-<lb/>
+moͤglich und utopiſch iſt; und eine Erdichtung,<lb/>
+die auf einen ſolchen Wahn gegruͤndet iſt, waͤre<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">dem-</fw><lb/>
+<pb n="22" facs="#f0024"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+demnach unmoͤglich und utopiſch, und gehoͤrte zu<lb/>
+der erſten Claſſe. Zudem hat das Moͤgliche ſchon<lb/>
+einen Grad der Wahrſcheinlichkeit, und kan alſo<lb/>
+nicht ſchlechterdings unwahrſcheinlich und doch zu-<lb/>
+gleich moͤglich ſeyn. Was iſt ſichs dann zu ver-<lb/>
+wundern, daß die gantze Abhandlung von dieſer<lb/>
+zweiten Eintheilung in dieſen wenigen Worten be-<lb/>
+ſtehet: <hi rendition="#fr">Von einer ſolchen Art</hi> (nemlich der <hi rendition="#fr">moͤg-<lb/>
+lichen</hi> und <hi rendition="#fr">wahrſcheinlichen Erdichtungen)<lb/>
+waͤre mir faſt keine bekannt, man wollte denn<lb/>
+Guͤllivers oder Klimms Reiſen dahin rechnen.</hi><lb/>
+Wohin rechnet denn der gute Menſch die Aeſopi-<lb/>
+ſchen Fabeln? Damit ich von ſo vielen emblema-<lb/>
+tiſchen und allegoriſchen Stuͤcken in der alten My-<lb/>
+thologie, in <hi rendition="#fr">Homers</hi> und <hi rendition="#fr">Ovidius</hi> Gedichten, dies-<lb/>
+mahlen nichts ſage, weil dieſes Sachen ſind, die<lb/>
+dem armen Stuͤmper zu hoch ſind. Jch rathe ihm<lb/>
+alſo wohlmeynend, daß er Hrn. Prof. <hi rendition="#fr">Breitin-<lb/>
+gers</hi> Abhandlung von der Fabel mit Verſtand<lb/>
+durchleſe, ſo wird er finden, daß dieſes vornehme<lb/>
+Stuͤck der Dichtung, weder zu den wahren Er-<lb/>
+dichtungen, noch zu den utopiſchen gehoͤret: denn<lb/>
+aus ſeiner Gottſchediſchen Dichtkunſt hat er ſol-<lb/>
+ches bisher nicht lernen koͤnnen.</p><lb/>
+<p>Nicht deutlichere Begriffe, aber wohl eben ſo<lb/>
+viel Boßheit zeiget dieſer J. A. K. wann er auf<lb/>
+der 269. Seite zu der dritten Claſſe fortſchreiten<lb/>
+will; wo er von den <hi rendition="#fr">wahren Erdichtungen</hi> han-<lb/>
+deln ſoll, <hi rendition="#fr">die in die itzige Reihe der Dinge ge-<lb/>
+ſetzt werden.</hi> Da erfodert er, doch wiederum<lb/>
+ohne Verſtand, <hi rendition="#fr">daß</hi> der Wahn, auf welchen<lb/>
+ſich eine ſolche Erdichtung gruͤnden kan, <hi rendition="#fr">nicht nur</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">moͤg-</hi></fw><lb/>
+<pb n="23" facs="#f0025"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+<hi rendition="#fr">moͤglich ſey, ſondern auch einen gewiſſen Grad<lb/>
+der Wahrſcheinlichkeit an ſich habe;</hi> welches ja<lb/>
+eben ſo viel geſagt iſt, als, der moͤgliche Wahn<lb/>
+muͤſſe nicht unmoͤglich ſeyn; weil alles was moͤg-<lb/>
+lich iſt, ſchon einen gewiſſen Grad der Wahrſchein-<lb/>
+lichkeit an ſich hat. Er hat aber ſagen ſollen, ein<lb/>
+ſolcher Wahn, der den Grund zu einer Erdich-<lb/>
+tung hergeben ſoll, muͤſſe nicht nur moͤglich und<lb/>
+ſchlechterdings wahrſcheinlich ſeyn, ſondern auch<lb/>
+mit dem gegenwaͤrtigen Zuſammenhang der Dinge<lb/>
+nicht ſtreiten. Es wuͤrde demnach eine auf den<lb/>
+Grund der Meynung von der Wanderung der<lb/>
+Seelen geſchickt aufgefuͤhrte Erdichtung Wahr-<lb/>
+ſcheinlichkeit genug haben, und bey den Pythago-<lb/>
+raͤern noch gar fuͤr eine Wahrheit gelten: Aber<lb/>
+zu einer ſolchen Ausfuͤhrung brauchte es in der<lb/>
+That nicht einen ſo ungehirnten Kopf als des J.<lb/>
+A. K. iſt, in welchem es wie in dem chaotiſchen<lb/>
+und anarchiſchen Reiche gantz finſter, dunckel und<lb/>
+wild ausſiehet.</p><lb/>
+<p>Auf der 270. Seite beruͤhret J. A. K. noch ei-<lb/>
+nen doppelten Gebrauch des Wahnes, nemlich<lb/>
+daß er einestheils dienen koͤnne, eine Wahrheit da-<lb/>
+mit zu erlaͤutern, anderntheils aber ihre Urſache dar-<lb/>
+aus anzugeben. Was den erſtern Gebrauch an-<lb/>
+gehet, ſo erklaͤrt er ſich daruͤber auf der 271. Seite<lb/>
+alſo:</p><lb/>
+<cit><quote>„Ueberhaupt moͤchte es zu erleiden ſeyn,<lb/>
+„ſich des Wahnes, um etwas damit zu erlaͤutern,<lb/>
+„zu bemaͤchtigen: weil es wohl angehet, wirckli-<lb/>
+„che Dinge mit moͤglichen in Vergleichung zu<lb/>
+„bringen.„</quote></cit><lb/>
+<p>Jch will mich bey der ſeltſamen Art<lb/>
+des Erweiſes, in ſo fern er auf den <hi rendition="#fr">moͤglichen</hi><lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom"><hi rendition="#fr">Wahn</hi></fw><lb/>
+<pb n="24" facs="#f0026"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+<hi rendition="#fr">Wahn</hi> gehet, nicht aufhalten; ich muͤßte nur<lb/>
+widerholen, was ich ſchon oft geſagt habe; ſon-<lb/>
+dern nur dieſes anmercken, daß dieſes Recht<lb/>
+uͤber den Wahn nicht nur dem Dichter, ſondern<lb/>
+einem jeden andern Scribenten zukoͤmmt, weil<lb/>
+nemlich auch etwas an ſich falſches und irriges<lb/>
+zur Erlaͤuterung dienen kan, nach dem bekann-<lb/>
+Axioma: <hi rendition="#aq">Oppoſita juxta ſe poſita magis eluceſcunt.</hi><lb/>
+Aber das Exempel, welches er aus Milton an-<lb/>
+fuͤhret, iſt gantz uͤbel gewehlet, angeſehen es<lb/>
+auf eine Sage und hiſtoriſche Erzehlung gegruͤn-<lb/>
+det iſt, nicht aber auf einen bloſſen Wahn, da-<lb/>
+von er doch ein Exempel hat geben wollen, der-<lb/>
+gleichen nach ſeiner Auſſage Milton haͤufig hat.<lb/>
+Dieſer Englaͤndiſche Poet hat alles angewendet,<lb/>
+ſeinem Bilde eine Wahrſcheinlichkeit mitzuthei-<lb/>
+len, er redet von einem kleinen Jagdſchiffe, um<lb/>
+durch dieſes Maß die Groͤſſe des Anckers naͤ-<lb/>
+her zu beſtimmen; er redet von der Nacht, um<lb/>
+den ſinnlichen Betrug des Piloten wahrſchein-<lb/>
+lich zu machen; er redet von dem ſchlafenden<lb/>
+Leviathan, um ſeine Unempfindtlichkeit dadurch<lb/>
+zu vergroͤſſern. Es muß ihm faſt vorgeſchwa-<lb/>
+net haben, daß einmahl in Leipzig ein junger K.<lb/>
+aufſtehen moͤgte, der dieſe Erzehlung in Zwei-<lb/>
+fel ziehen wuͤrde, daß er ſo ſorgfaͤltig geweſen,<lb/>
+dieſelbe gegen allen Unglauben zu verwahren;<lb/>
+Zudem gruͤndet der Poet ſeine Erzehlung auf<lb/>
+eine ſtandhafte Sage der Seefahrenden. Will<lb/>
+J. A. K. dieſer Sage nicht glauben, ſo ſteht es<lb/>
+ihm frey. Er wird ja ſo billig ſeyn, und nicht<lb/>
+fodern, daß eine Sage ihrem Weſen nach noth-<lb/>
+wendig wahrhaft ſeyn muͤſſe; zugeſchweigen daß<lb/>
+<fw type="catch" place="bottom">dieſe</fw><lb/>
+<pb n="25" facs="#f0027"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+dieſe Sage zum theil auf einem Betruge der<lb/>
+Sinnen beruhet. Wenn ich aber J. A. K.<lb/>
+wuͤrcklich recht laſſen wuͤrde, was wuͤrde er da-<lb/>
+mit gewinnen? Der Poet giebt es nicht fuͤr<lb/>
+eine wahrhafte und untruͤgliche Erzehlung, ſon-<lb/>
+dern fuͤr eine bloſſe Sage dar, und dieſe Sage<lb/>
+dienet ihm nicht weniger dasjenige damit zu er-<lb/>
+laͤutern, was er erlaͤutern will, als wenn es ei-<lb/>
+ne unſtreitige Geſchichte ſeyn wuͤrde.</p><lb/>
+<p>Was den andern Gebrauch des Wahnes an-<lb/>
+ſiehet, ſo erklaͤrt er ſich auf der 271. Seite dar-<lb/>
+uͤber alſo:</p> <cit><quote>„Allein, daß es angehe, von einer<lb/>
+„Wahrheit oder einem Erfolge die Urſache an-<lb/>
+„zugeben, darwider ſtreitet der Grundſatz der<lb/>
+„Poeſie, man muͤßte jedesmahl eine Sache<lb/>
+„bilden, wie ſie iſt.„</quote></cit><lb/>
+<p>Es iſt mir faſt ich leſe<lb/>
+in einem Woͤrterbuch ein Blatt voll einzelner<lb/>
+Woͤrter, ſo ſehr ſcheinet dieſe Erklaͤrung ohne<lb/>
+Verſtand durch den bloſſen Zufall erwachſen zu<lb/>
+ſeyn. Jch verſtehe nicht, was die <hi rendition="#fr">Urſache von<lb/>
+einer Wahrheit</hi> iſt; warum ſollte es nicht ange-<lb/>
+hen, <hi rendition="#fr">von einem Erfolge eine Urſache anzuge-<lb/>
+ben?</hi> Wo hat er den Grundſatz der Poeſie ge-<lb/>
+lernet, <hi rendition="#fr">man muͤſſe jedesmahl eine Sache bil-<lb/>
+den, wie ſie iſt?</hi> Nach dieſem Grundſatz iſt kei-<lb/>
+ne Poeſie noch Erdichtung nicht einmahl moͤg-<lb/>
+lich, wie kan es dann ein Grundſatz der Poeſie<lb/>
+ſeyn? Jch mag vor Ungeduld die Zeit nicht er-<lb/>
+warten, daß ich ſeines Lehrmeiſters, des Hrn.<lb/>
+Prof. <hi rendition="#fr">Gottſcheden</hi> ausfuͤhrlichen <hi rendition="#aq">Commentarium</hi><lb/>
+uͤber folgende und andere dergleichen Regeln<lb/>
+in Ariſtoteles Poetick leſen kan:</p><lb/>
+<cit><quote>„Der Poet<lb/>
+„muß die unmoͤglichen Dinge, wenn ſolche nur<lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">„wahr-</fw><lb/>
+<pb n="26" facs="#f0028"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+„wahrſcheinlich ſind, denen moͤglichen, die bey<lb/>
+„ihrer Moͤglichkeit unglaͤublich ſind, vorziehen.„</quote></cit><lb/>
+<p>Warum ſollte ein Poet, der die Sachen nicht<lb/>
+ſo ſehr vorſtellen muß, wie ſie wircklich ſind,<lb/>
+als wie ſie wahrſcheinlich ſeyn koͤnnten, von ei-<lb/>
+nem Erfolge oder Wirckung nicht eine wahr-<lb/>
+ſcheinliche Urſache angeben duͤrffen? Warum<lb/>
+ſollte z. E. ein Dichter, wenn er ſchon das alte<lb/>
+Syſtema von dem Umlauffe der Sonne um die<lb/>
+Erden, als den Mittelpunct ihres Kreiſes, vor ei-<lb/>
+nen irrigen Wahn haͤlt, doch aus demſelben in ei-<lb/>
+nem Gedichte nicht manches Phaͤnomenon erklaͤ-<lb/>
+ren doͤrfen? Warum ſollte er nicht eine Sym-<lb/>
+pathie und angeborne natuͤrliche Neigung fuͤr die<lb/>
+Urſache mancher Begebenheit angeben doͤrfen?<lb/>
+Warum ſollte er nicht von Gott dem Herren<lb/>
+ſelbſt z. E. ſagen duͤrffen, der Suͤnder iſt auch<lb/>
+in dem geheimſten und finſterſten Winckel nicht<lb/>
+alleine, noch verborgen, denn das Auge des<lb/>
+Herren ſieht, durchdringt und erleuchtet alles;<lb/>
+da ſelbſt die H. Schrift von Gott nach menſch-<lb/>
+licher Art zu reden pflegt? Es ſagt zwar J. A.<lb/>
+K. dadurch gebe man Anlaß zu Jrrthuͤmern:<lb/>
+Aber er ſage mir, wie muͤßte man reden, wie<lb/>
+muͤßte man ſchreiben, wie muͤßte man dichten,<lb/>
+wenn man davor gaͤntzlich geſichert ſeyn wollte?<lb/>
+Gerade die H. Schrift ſelbſt ward von den An-<lb/>
+thropomorphiten zu einem Anlaſſe eines groben<lb/>
+Jrrthums genommen: kan man darum die<lb/>
+Schuld dieſes Jrrthums der H. Schrift zumeſ-<lb/>
+ſen? oder wuͤnſchen, daß ſie von Gott etwa phi-<lb/>
+loſophiſcher moͤchte geredt haben? Hat uns<lb/>
+nicht der Schoͤpfer gegen den Betrug des Jrr-<lb/>
+<fw type="catch" place="bottom">thums</fw><lb/>
+<pb n="27" facs="#f0029"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+thums zulaͤnglich bewaffnet? Brauchen wir<lb/>
+dieſe Waffen nicht, ſondern laſſen ſie durch Nach-<lb/>
+laͤſſigkeit verroſten, ſo iſt die Schuld unſer. Da-<lb/>
+rum haͤtte J. A. K. die Critick uͤber den Aeolus<lb/>
+beym Virgil wohl zu Hauſe laſſen koͤnnen; es<lb/>
+waͤre auch geſchehen, wenn er ſie nicht zu allem<lb/>
+Ungluͤcke beym Clerc angetroffen haͤtte. Jm<lb/>
+uͤbrigen wird J. A. K. wohl thun, wenn er die<lb/>
+Geſetze des Wahrſcheinlichen in Hrn. Breitin-<lb/>
+gers Dichtkunſt auf der 138. Seite (denn in der<lb/>
+Gottſchediſchen wuͤrde er ſie vergeblich ſuchen)<lb/>
+ſich wohl bekannt machet und erwiegt, damit<lb/>
+er nicht fernerhin in waͤhrender Zeit, daß er<lb/>
+vermeynet die Rechte der Poeſie uͤber den Wahn<lb/>
+zu beſchuͤtzen, die Poeſie ſelbſt beſtreite und ver-<lb/>
+urtheile.</p><lb/>
+<p>Endlich koͤmmt J. A. K. auf der 274. Seite<lb/>
+auf den Artickel von <hi rendition="#fr">der Sage.</hi> Er giebt davon<lb/>
+folgende Erklaͤrung:</p><lb/>
+<cit><quote>„Wenn ein Wahn die<lb/>
+„Geſtalt einer Geſchichte annimmt, und als<lb/>
+„eine Begebenheit unter den Menſchen fortge-<lb/>
+„pflantzet wird, er mag nun entſprungen ſeyn<lb/>
+„woher er wolle, ſo bekoͤmmt er den Nahmen<lb/>
+„einer Sage.„</quote></cit><lb/>
+<p>Wie nimmt ein Wahn die<lb/>
+Geſtalt einer Geſchichte an? Kan denn aller<lb/>
+Wahn ohne Unterſcheid zu einer Sage werden?<lb/>
+Oder entſpringt jede Sage nothwendig aus ei-<lb/>
+nem vorgaͤngigen Wahn? Wie oft war die<lb/>
+Zeit her bey uns die Sage, die Franzoſen haben<lb/>
+geſieget: Aus was fuͤr einem Wahne mag wohl<lb/>
+dieſe Sage entſtanden ſeyn? Wenn die Glaub-<lb/>
+wuͤrdigkeit einer Erzehlung nicht genugſam be-<lb/>
+zeuget, wenn ſie mit Grund noch zweifelhaft iſt,<lb/>
+<fw type="catch" place="bottom">was</fw><lb/>
+<pb n="28" facs="#f0030"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+was iſt denn wohl der weſentliche Unterſcheid<lb/>
+zwiſchen einer ſolchen Erzehlung und einer Sage?<lb/>
+Wenn Hr. <hi rendition="#fr">Breitinger</hi> die Sage durch eine <hi rendition="#fr">Af-<lb/>
+terhiſtorie,</hi> d. i. durch eine ungegruͤndete Erzeh-<lb/>
+lung erklaͤret, ſagt dieſe kurtze Erklaͤrung nicht<lb/>
+mehr, als das ungewiſſe Geſchwaͤtze des J. A.<lb/>
+K.? Der gantze Unterſcheid zwiſchen einer Sa-<lb/>
+ge und einer wahren Geſchichte beruhet darauf,<lb/>
+daß jene nicht durch genugſame und glaubwuͤr-<lb/>
+dige Zeugen bekraͤftiget iſt, daß man alſo nicht<lb/>
+mit Gewißheit ſagen kan, ob ſie wircklich Grund<lb/>
+habe, oder nicht: Sonſt findet ſich in Anſehung<lb/>
+ihrer Moͤglichkeit zwiſchen beyden kein Unter-<lb/>
+ſcheid, es muͤſſen beyde nicht ſchlechterdings un-<lb/>
+moͤglich, ſondern wahrſcheinlich ſeyn, wenn ſie<lb/>
+ſollen Glauben finden. Und warum ſollte denn<lb/>
+ein Poet auf eine Sage, ſo lange ihr Ungrund<lb/>
+nicht entdeckt und offenbar iſt, eben ſo wohl als<lb/>
+auf eine wahre Geſchichte ein epiſches Gedicht<lb/>
+auffuͤhren koͤnnen? <hi rendition="#fr">Findet doch eine Sage,</hi> wie<lb/>
+Hr. Prof. <hi rendition="#fr">Breitinget</hi> wohl bemercket, <hi rendition="#fr">bey dem<lb/>
+groſſen Haufen insgemein mehr Glauben, als<lb/>
+die Hiſtorie:</hi> welche Anmerckung der junge Schuͤ-<lb/>
+ler nach den Regeln einer <hi rendition="#aq">Definition</hi> oder Erklaͤ-<lb/>
+rung auf der 275. Seite auf eine recht laͤcher-<lb/>
+liche Weiſe beurtheilet; ſo daß man wohl ver-<lb/>
+huͤten muß, daß dieſer unverſtaͤndige K. nicht<lb/>
+hinter ſolche Buͤcher gerathe, wo nicht bey ei-<lb/>
+nem jeden Satze an dem Rande ausdruͤcklich<lb/>
+gemeldet wird, ob er ein Grundſatz, eine Er-<lb/>
+klaͤrung, ein Heiſcheſatz, eine Anmerckung ꝛc.<lb/>
+ſey, und nach was fuͤr Regeln derſelbe beur-<lb/>
+theilet werden muͤſſe. Jn dieſer Anmerckung<lb/>
+<fw type="catch" place="bottom">fuͤh-</fw><lb/>
+<pb n="29" facs="#f0031"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+fuͤhret Hr. <hi rendition="#fr">Breitinger</hi> einige Urſachen an, wo-<lb/>
+her es komme, daß die Sage uͤber die Hiſto-<lb/>
+ſtorie weg eine ſo groſſe Macht zu bereden habe?<lb/>
+Und J. A. K. weiß aus eigener Erfahrung, und<lb/>
+bekennet es oben auf der 260. Seite, daß das<lb/>
+Anſehen ſeiner Waͤrterinn ehemahlen eine groſſe<lb/>
+Macht uͤber ihn gehabt, welches ſich unter an-<lb/>
+dern daraus gar klar zeiget, daß noch izo die<lb/>
+abentheurlichſten Erzehlungen derſelben beſſer<lb/>
+als die Regeln der Vernunftlehre, die er doch<lb/>
+in friſcherm Andencken haben ſollte, bey ihm<lb/>
+haften: Denn wie armſelig heißt doch das ge-<lb/>
+ſchloſſen? Wenn Hr. <hi rendition="#fr">Breitinger</hi> ſagt: <hi rendition="#fr">Die Sa-<lb/>
+ge findet bey dem groſſen Haufen mehr Glau-<lb/>
+ben als ſelbſt die Hiſtorie:</hi> ſo macht J. A. K.<lb/>
+dieſen Schluß: <hi rendition="#fr">Er ſetzet in ſeinem Begriffe<lb/>
+mit voraus, daß eine Sage allezeit eine wahr-<lb/>
+haftige Hiſtorie zum Gegentheile haben muͤſſe,<lb/>
+welches doch unſtreitig hoͤchſt falſch iſt.</hi> Wem<lb/>
+Dummheit und Bosheit den Verſtand nicht<lb/>
+verblenden, der weiß wohl, daß, wenn man<lb/>
+der Sage die Hiſtorie entgegen ſetzet, man eben<lb/>
+nicht von einer beſondern Sage, oder von ei-<lb/>
+ner beſondern Geſchichte, die der Sage entge-<lb/>
+gen ſtehen ſollten, ſondern von dem redet, was<lb/>
+man nur uͤberhaupt Sage und Hiſtorie heiſſet:<lb/>
+Doch iſt auch dieſes nicht <hi rendition="#fr">unſtreitig hoͤchſt falſch,</hi><lb/>
+ſondern gantz begruͤndt, daß da die Sage eine<lb/>
+ungegruͤndete Erzehlung iſt, der Jrrthum aber<lb/>
+der Wahrheit immer entgegen ſtehet, allemahl<lb/>
+das Gegentheil von einer irrigen Sage wahr<lb/>
+ſeyn muß; wiewohl eben daraus nicht nothwen-<lb/>
+dig folget, daß das Gegentheil von der Sage<lb/>
+<fw type="catch" place="bottom">eben</fw><lb/>
+<pb n="30" facs="#f0032"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet</hi></fw><lb/>
+eben wuͤrcklich muͤſſe geſchehen ſeyn, weil eine<lb/>
+Sage ſich auf eine bloſſe Luͤgen und Erdichtung<lb/>
+gruͤnden kan. Und dieſen ſeinen Unverſtand legt<lb/>
+K. noch deutlicher an den Tag, wenn er Bl.<lb/>
+276 Hrn. Breitinger deswegen einen Wider-<lb/>
+ſpruch aufbuͤrden will:</p><lb/>
+<cit><quote>„Er hatte geſezt, daß<lb/>
+„die Sage dem groͤſten Haufen mehr gefalle,<lb/>
+„als die wahrhafte Geſchichte, und alſo zum<lb/>
+„voraus als bekannt angenommen, daß die-<lb/>
+„ſelbe wohl vorhanden ſeyn koͤnne; welches<lb/>
+„er hier wieder in Zweifel zieht.„</quote></cit><lb/>
+<p>Obgleich<lb/>
+dem Hrn. <hi rendition="#fr">Breitinger</hi> dieſe Frage, ob die der<lb/>
+Sage entgegen ſtehende wahrhafte Geſchichte<lb/>
+wohl vorhanden ſeyn koͤnne, nur nicht einmahl<lb/>
+mag in den Sinn gekommen ſeyn, und alſo die-<lb/>
+ſer Widerſpruch, neben hundert andern, ſich<lb/>
+nirgends als in des J. A. K. Kopf ſelbſten befin-<lb/>
+det; ſo muß ich doch hier wegen des unbe-<lb/>
+ſtimmten Ausdrucks anmercken, daß, ob es<lb/>
+gleich nicht nothwendig und allgemein iſt, doch<lb/>
+freylich die wahrhafte Geſchichte, die der unge-<lb/>
+wiſſen Sage entgegen ſtehet, ſehr oft <hi rendition="#fr">wohl vor-<lb/>
+handen ſeyn kan.</hi> Wenn z. E. die Sage erge-<lb/>
+hen wuͤrde, Hr. Prof. <hi rendition="#fr">Gottſched</hi> habe der Fr.<lb/>
+Neuberin die wiederholte Auffuͤhrung des ihm<lb/>
+ſo widrigen Vorſpieles durch einen hohen Be-<lb/>
+fehl verwehren koͤnnen, ſo wuͤßte jedermann,<lb/>
+daß gerade das Gegentheil wuͤrcklich geſche-<lb/>
+hen und vorhanden, und daß er nicht verhin-<lb/>
+dern koͤnnen, daß dieſe Frau nicht vollkom-<lb/>
+men uͤber ihn triumphierte.</p><lb/>
+<fw type="catch" place="bottom">Wenn</fw><lb/>
+<pb n="31" facs="#f0033"/>
+<fw type="header" place="top"><hi rendition="#b">des Wahnes bedienen koͤnne.</hi></fw><lb/>
+<p>Wenn endlich J. A. K. ſein Urtheil von Hrn.<lb/>
+Prof. Breitingers Gedancken von dem Recht<lb/>
+der Dichter uͤber die Sage geben ſoll, ſo offen-<lb/>
+baret er dabey neben dem groͤſten Unverſtand<lb/>
+eine noch groͤſſere Bosheit, indem er durch<lb/>
+eine falſche Auslegung und Verdrehung ſei-<lb/>
+ner Worte ihm nicht bloß einen fremden Sinn<lb/>
+andichtet; ſondern den Text, den er aus ihm<lb/>
+anfuͤhret, wircklich verfaͤlſcht, da er die Wor-<lb/>
+te <hi rendition="#fr">unter dem Poͤbel</hi> zwiſchen einſchaltet, da-<lb/>
+mit er ihn ſagen laſſe, es ſey ſchon genug,<lb/>
+die Leute durch falſche Sagen zu hintergehen,<lb/>
+wenn nur der Poͤbel nichts beſſers wiſſe, und<lb/>
+den Betrug nicht mercke. Jch habe oben die<lb/>
+gantze Stelle angefuͤhret, und man kan ſie<lb/>
+auf der 340. Seite in dem erſten Theil von<lb/>
+Hrn. <hi rendition="#fr">Breitingers Critiſcher Dichtk.</hi> nachſehen,<lb/>
+ſo wird man den Betrieger finden, und ſehen,<lb/>
+daß Hr. Br. gerade das Gegentheil von dem-<lb/>
+jenigen geſagt hat, was ihm dieſer ausver-<lb/>
+ſchaͤmte J. A. K. andichtet. Und was muß<lb/>
+man wohl von Hrn. Prof. <hi rendition="#fr">Gottſched</hi> ſelbſt<lb/>
+gedencken, da er ſich nicht ſcheuet, ſich derglei-<lb/>
+chen Mittel und Waffen oͤffentlich zu bedie-<lb/>
+nen, um ſein Anſehen vor dem gaͤntzlichen Falle<lb/>
+und Untergang zu ſchuͤtzen, und ſeinen Dagon,<lb/>
+ich meyne ſeine ſogenannte Critiſche Dichtkunſt,<lb/>
+vor dem ſo nahen Umſturtz zu verſichern? Er<lb/>
+kan ſich gegen allen boͤſen Argwohn nicht beſ-<lb/>
+ſer decken, als wenn er den J. A. K. nach<lb/>
+ſeinem wahren Nahmen entdecket, ihn zur bil-<lb/>
+ligen Verantwortung anhaͤlt, und bekennet,<lb/>
+<fw type="catch" place="bottom">daß</fw><lb/>
+<pb n="32" facs="#f0034"/>
+<fw type="header" place="top"><hi rendition="#b">Wie weit ſich ein Poet ꝛc.</hi></fw><lb/>
+daß er dieſe Schrift ſeinen Beytraͤgen, ohne<lb/>
+ſie zuerſt geleſen zu haben, einverleibet habe.<lb/>
+Jch wuͤnſche im uͤbrigen, daß Hr. Prof. <hi rendition="#fr">Gott-<lb/>
+ſched</hi> in ſeiner Schule verſtaͤndigere, beſſer ge-<lb/>
+ſittetere und tugendhaftere Schuͤler ziehen moͤ-<lb/>
+ge, die, wofern ſie nicht geſchickt ſeyn, ſein ge-<lb/>
+fallenes Anſehen zu heben, es doch nicht vol-<lb/>
+lends in den Koth druͤcken.</p><lb/>
+<closer><salute><hi rendition="#et"><hi rendition="#fr">Erlenbach Conrector.</hi></hi></salute></closer></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Der</hi></fw><lb/>
+<pb n="[33]" facs="#f0035"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Verſuch</hi><lb/>
+uͤber den<lb/>
+<hi rendition="#g">Urſprung</hi><lb/>
+der<lb/>
+<hi rendition="#g">Wiſſenſchaften,</hi></hi><lb/>
+Geſchrieben<lb/>
+Aus den Wuͤſten Nubiens,<lb/>
+an den Hochgelehrten Herrn<lb/>
+Dr. J. R. S.<lb/>
+Von dem gelehrten Herrn<lb/>
+<hi rendition="#b">Martinus Scriblerus.</hi></head><lb/>
+<pb n="[34]" facs="#f0036"/>
+<pb n="[35]" facs="#f0037"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Vorrede.</hi></hi></head><lb/>
+<salute><hi rendition="#fr">Mein Leſer!</hi></salute><lb/>
+<p><hi rendition="#in">J</hi>Ch habe dich und die ganze gelehrte<lb/>
+Welt uͤber die wichtige Entdeckung<lb/>
+des Herrn Martinus Scriblerus<lb/>
+hiemit begluͤckwuͤnſchen wollen: Die Hrn.<lb/>
+Scribleri ſind diejenige, welchen man wol<lb/>
+die allermeiſten Buͤcher, und folglich auch<lb/>
+den allergroͤſſeſten Theil des Schazes der<lb/>
+Gelehrſamkeit, zu dancken hat; wie ſich<lb/>
+denn ihr Geſchlecht nicht nur in Engel-<lb/>
+land (wo unſer Herr Martinus lebt), ſon-<lb/>
+der beynebens in Holland, Deutſchland,<lb/>
+Franckreich, ja in der ganzen Welt, un-<lb/>
+gemein ausbreitet. Was mir indeſſen<lb/>
+Sorge verurſachet, iſt, daß da alle irrdi-<lb/>
+ſche Dinge in periodiſchen Zirkeln herum-<lb/>
+gehen, bald eine Zeit kommen moͤchte, in<lb/>
+welcher das Geſchlecht der Urheber der erſten<lb/>
+Kuͤnſte und Wiſſenſchaften, welche jezt (wie<lb/>
+der Hr. M. Scriblerus gar ſchoͤn zeiget), in<lb/>
+der traurigen Geſtalt der Affen und Baſtanen<lb/>
+herumgehen, wieder in den Stand ſeiner er-<lb/>
+ſten Wuͤrde eingeſezet, und hingegen un-<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">ſere</fw><lb/>
+<pb n="[36]" facs="#f0038"/>
+ſere jezige Gelehrten zu Affen und Baſta-<lb/>
+nen werden koͤnnten. Jch wollte dieſes<lb/>
+gern nicht foͤrchten, wenn ſich nur, leyder!<lb/>
+nicht wircklich ſchon einige ſtarcke Zeichen<lb/>
+zu dieſer bevorſtehenden Verwandelung<lb/>
+bey denſelben aͤuſſerten: angeſehen ja be-<lb/>
+kannt genug iſt, daß je mehr die Kranken<lb/>
+in hizigen Fiebern ſchwazen, je naͤher ein<lb/>
+endliches Stillſchweigen (der wirckliche ar-<lb/>
+me Zuſtand des obgedachten, ehedem ſo<lb/>
+beruͤhmten Geſchlechts) zu ſeyn pflegt,<lb/>
+und daß nebſt dem ſehr viele heutige Ge-<lb/>
+lehrte die Eigenſchaft der Erfindung und<lb/>
+Vorſtellung eigener Gedancken mit der<lb/>
+bloſſen Nachahmungskunſt der Affen ſchon<lb/>
+laͤngſt vertauſchet haben. Lieber, wie be-<lb/>
+truͤbt! wenn man ſie an ſtatt ihres jezi-<lb/>
+gen Anſehens von den Marcktſchreyern<lb/>
+zur Schaue herumgefuͤhrt, und in rothen<lb/>
+Bruſtkleidern auf den Theatris Haſelnuͤſ-<lb/>
+ſe aufbeiſſen ſehen wird. Jch wuͤnſche,<lb/>
+mein Leſer, daß wir es nicht erleben muͤſ-<lb/>
+ſen.</p><lb/>
+<closer><salute><hi rendition="#et"><hi rendition="#fr">Der Ueberſezer.</hi></hi></salute></closer></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Ein</hi></fw><lb/>
+<pb n="37" facs="#f0039"/>
+<div n="2"><head><hi rendition="#b">Ein Verſuch</hi><lb/>
+uͤber den<lb/>
+<hi rendition="#b">Urſprung der Wiſſenſchaften,<lb/>
+geſchrieben aus den Wuͤſten Nubiens,</hi><lb/>
+an den hochgelehrten Herrn<lb/>
+<hi rendition="#b">Dr. J. R. S.</hi><lb/>
+Von dem gelehrten Herrn<lb/>
+<hi rendition="#b">Martinus Scriblerus.</hi></head><lb/>
+<p><hi rendition="#in">U</hi>Nter allen denen Nachforſchungen, welche<lb/>
+von curieuſen und wiſſensbegierigen Ge-<lb/>
+muͤthern angeſtellet worden ſind, iſt wol<lb/>
+keine der Muͤhe eines Gelehrten mehr wuͤrdig,<lb/>
+als diejenige, ſo den Urſprung der Kuͤnſte und<lb/>
+Wiſſenſchaften, (welche uns ſo ſehr uͤber das ge-<lb/>
+meine Volck erheben), die Laͤnder, in welchen<lb/>
+ſie entſproſſen, und die Canaͤle, durch welche ſie<lb/>
+geleitet worden ſind, betrifft. Gleichwie dieje-<lb/>
+nige, welche dieſelbe zuerſt unter uns gebracht ha-<lb/>
+ben, in die entfernteſte Theile der Welt gereiſet<lb/>
+ſind, um ſie zu erlangen, alſo mag ich mich auf<lb/>
+eben dieſelbe Weiſe einiger Vortheile ruͤhmen; an-<lb/>
+geſehen ich aus den Wuͤſten Aethiopiens ſchrei-<lb/>
+be, aus denen Sandfeldern, welche den Stolz<lb/>
+einbrechender Armeen begraben haben, aus einer<lb/>
+Gegend, wo ich vielleicht izt mit meinem Fuß bey<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">zehen</fw><lb/>
+<pb n="38" facs="#f0040"/>
+<fw type="header" place="top"><hi rendition="#b">Verſuch uͤber den Urſprung</hi></fw><lb/>
+zehen Klaftern uͤber das Grab des Cambyſes trette,<lb/>
+aus einer Wildniß, wo weder Pythagoras noch<lb/>
+Apollonius jemahls hingedrungen ſind.</p><lb/>
+<p>Man ſtimmet durchgehends uͤberein, daß die<lb/>
+Kuͤnſte und Wiſſenſchaften von den <hi rendition="#fr">Aegyptern</hi> und<lb/>
+<hi rendition="#fr">Jndianern</hi> herzuleiten ſeyn, allein von wem dieſe<lb/>
+ſie zuerſt bekommen, das iſt noch ein Geheimniß.<lb/>
+Der hoͤchſte Zeit-Periodus, auf welchen die Ge-<lb/>
+lehrten es wagen ihnen nachzuſpuͤhren, iſt der An-<lb/>
+fang der Aſſyriſchen Monarchie, da die Erfinder<lb/>
+derſelben als Goͤtter verehret wurden: Daher<lb/>
+wird noͤthig ſeyn, daß wir in noch entferntere Zei-<lb/>
+ten zuruͤckgehen, und einige Erkaͤnntniß ihrer Hi-<lb/>
+ſtorie aus denen auch noch ſo dunckeln und un-<lb/>
+terbrochenen Spuhren, welche uns alte Schrift-<lb/>
+ſteller daruͤber an die Hand geben, herholen.</p><lb/>
+<p>Weder Troja noch Thebes waren die erſten Rei-<lb/>
+che: Wir finden Meldung, wiewol keine Be-<lb/>
+ſchreibungen, einer noch fruͤhern kriegeriſchen Na-<lb/>
+tion, welche den Nahmen der Pygmeer getragen.<lb/>
+Wenn ich die Erzehlungen eines Homers, Ariſto-<lb/>
+teles, und anderer betrachte, die von dem, was<lb/>
+dieſe Nation angeht, als von bekannten Din-<lb/>
+gen reden, ſo kan ich nicht anders gedencken, als daß<lb/>
+ihre Geſchichten, Kriege, Revolutionen, ꝛc. ein<lb/>
+Theil der Wiſſenſchaften geweſen, derer ſich da-<lb/>
+mahls die Gelahrten befliſſen haben. Und wenn<lb/>
+wir ſchon geradeswegs nur von ihren Kriegstha-<lb/>
+ten in Beſchuͤtzung ihres Vaterlands gegen die<lb/>
+jaͤhrliche Einfaͤlle eines maͤchtigen Feindes Nach-<lb/>
+richt haben, ſo zweifle ich doch keineswegs, daß<lb/>
+ſie ſich in den Kuͤnſten einer friedlichen Regierung<lb/>
+<fw type="catch" place="bottom">eben</fw><lb/>
+<pb n="39" facs="#f0041"/>
+<fw type="header" place="top"><hi rendition="#b">der Wiſſenſchaften.</hi></fw><lb/>
+eben ſo ſehr hervorgethan haben, obgleich keine<lb/>
+Spuhren ihrer buͤrgerlichen Anordnungen mehr<lb/>
+uͤbergeblieben ſind. Es ſind wol eben ſo groſſe<lb/>
+Reiche in dem Schiffbruch der Zeiten verſchlun-<lb/>
+gen worden, und dergleichen Zeitlaͤuffe uͤber ſie<lb/>
+verhaͤnget geweſen, die eine gaͤntzliche Vergeſſen-<lb/>
+heit ihrer Geſchichte verurſachet haben. Und wenn<lb/>
+ich muthmaſſen ſollte, daß dieſem Volck durch ei-<lb/>
+ne allgemeine Ausrottung deſſelben, von den Hee-<lb/>
+ren der ungeheuren Voͤgel, welche ſie, nach einhel-<lb/>
+ligem Bericht der alten Scribenten, immer zu<lb/>
+Feinden gehabt haben, ein gleiches begegnet ſey,<lb/>
+ſo moͤchte ich wol nichts unglaublicheres vorbringen,<lb/>
+als wenn wir leſen, daß eine von den Baleari-<lb/>
+ſchen Jnſeln durch Kaninichen, Smynthe durch<lb/>
+die Maͤuſe, und noch unlaͤngſt Bermudas beyna-<lb/>
+he, durch die Ratten, gaͤntzlich verwuͤſtet, und ihrer<lb/>
+Einwohner entbloͤſſet worden. Nichts iſt natuͤr-<lb/>
+licher, als ſich vorzuſtellen, daß die wenige uͤber-<lb/>
+gebliebene ſich hernach weit in ihre Wuͤſten hin-<lb/>
+eingezogen, allwo ſie ungeſtoͤrt gelebt, biß ſie Oſy-<lb/>
+ris auf ſeiner Reiſe, welche er die Menſchen zu<lb/>
+unterrichten vorgenommen, gefunden hat. <hi rendition="#fr">Er<lb/>
+traff</hi> (ſagt Diodorus) <hi rendition="#fr">in Aethiopien eine Art<lb/>
+kleiner Satyren an, die biß auf den halben<lb/>
+Leib mit Haaren bewachſen geweſen,</hi> und derer<lb/>
+Haupt <hi rendition="#fr">Pan</hi> ihn auf ſeinem Zug begleitete. Nun<lb/>
+was dieſen beruͤhmten Pan angehet, ſo geben uns<lb/>
+die alten Scribenten eine umſtaͤndliche Beſchrei-<lb/>
+bung deſſelben, und kommen alle einmuͤthig darinn<lb/>
+uͤberein, daß ſie ihn rauch, baͤrticht, uͤberall mit<lb/>
+Haaren bewachſen, halb als einen Menſchen und<lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">halb</fw><lb/>
+<pb n="40" facs="#f0042"/>
+<fw type="header" place="top"><hi rendition="#b">Verſuch uͤber den Urſprung</hi></fw><lb/>
+halb als ein Thier vorſtellen, anbey aufrecht ge-<lb/>
+hend, mit einem Stab in der Hand; welches<lb/>
+eben die Poſtur iſt, in welcher man uns, ſeine<lb/>
+Nachkommen, biß auf den heutigen Tag ſehen<lb/>
+laͤßt. Und da ſeine vornehmſte Bemuͤhung gewe-<lb/>
+ſen, die Menſchen ein buͤrgerliches Leben zu leh-<lb/>
+ren, ſo gewinnt es wol das Anſehen, daß man<lb/>
+die erſten Anfaͤnge der Wiſſenſchaften nirgend an-<lb/>
+derſtwoher zu leiten habe, als von dieſem Volck;<lb/>
+welches die Goͤtter, wie Homerus berichtet, alle<lb/>
+Jahr zwoͤlf Tage lang beſuchet, nur daß ſie des<lb/>
+Umgangs mit ſolch weiſen und gerechten Einwoh-<lb/>
+nern der Erden pflegen koͤnnten.</p><lb/>
+<p>Gehen wir nun aus Aegypten fort, und beſe-<lb/>
+hen <hi rendition="#fr">Jndien,</hi> ſo werden wir finden, daß die Wiſ-<lb/>
+ſenſchaften auch da von einer gleichen Quelle herruͤh-<lb/>
+ren. Dieſe edle Geſchoͤpfe begleiteten nemlich den<lb/>
+Bacchus auf ſeinem Zuge in dieſe Laͤnder, unter<lb/>
+der Anfuͤhrung des Silenus, welcher uns mit<lb/>
+eben denſelben Merckmahlen und Eigenſchaften be-<lb/>
+ſchrieben wird: Man weiß nicht, ſagt Diodorus,<lb/>
+wo Silenus ſein ſehr altes Geſchlecht herfuͤhret;<lb/>
+Er trug aber einen Schweif an ſeinen Lenden,<lb/>
+ſo wie alle ſeine Nachkommen zum Zeichen ihrer<lb/>
+Abſtammung. Hier dann ſezten ſie eine Colonie<lb/>
+ab, welche bis auf den heutigen Tag mit derglei-<lb/>
+chen Schweiffen beſtehet. Und von dieſer Zeit an<lb/>
+haben ſie ſich, wie es ſcheint, nur denjenigen un-<lb/>
+ter den Menſchen mitgetheilet, welche den Um-<lb/>
+gang ihres eigenen Geſchlechts verlaſſen, und<lb/>
+ſich zu einer weniger unterbrochenen contenplativi-<lb/>
+ſchen Lebensart gewendet haben. Mir koͤmmt<lb/>
+<fw type="catch" place="bottom">ſehr</fw><lb/>
+<pb n="41" facs="#f0043"/>
+<fw type="header" place="top"><hi rendition="#b">der Wiſſenſchaften.</hi></fw><lb/>
+ſehr wahrſcheinlich vor, daß ſie mitten in dieſen<lb/>
+Einoͤden den ſo beruͤhmten Orden der Gymnoſo-<lb/>
+phiſten geſtiftet haben; denn wer die Art und<lb/>
+Weiſe ihres Lebens betrachtet, der wird leicht fin-<lb/>
+den, daß ſie die Manieren und Gewohnheiten ih-<lb/>
+rer Lehrmeiſter auf das genaueſte nachgeahmet ha-<lb/>
+ben. Es wird von ihnen gemeldet, ſie wohnen<lb/>
+in den dickeſten Waͤldern, ſie gehen nacket, ſie<lb/>
+laſſen ihren Leib gantz haaricht werden, und ihre<lb/>
+Naͤgel biß auf eine ungeheure Laͤnge wachſen.<lb/>
+Plutarchus ſchreibt: Sie eſſen, was ſie in den<lb/>
+Feldern bekommen koͤnnen; ihr Tranck ſey Waſſer,<lb/>
+und ihre Better machen ſie ſich von Laub oder<lb/>
+Mooß. Und Herodotus erzehlet uns, ſie achten<lb/>
+es fuͤr etwas heldenmaͤſſiges, einen Hauffen Amei-<lb/>
+ſen oder anders kriechendes Ungeziefer um das Le-<lb/>
+ben zu bringen.</p><lb/>
+<p>Wir ſehen hieraus, daß die zwo Nationen,<lb/>
+welche in Anſehung des Urſprungs der Wiſſen-<lb/>
+ſchaften ſich um den Vorzug bemuͤhen, eben die-<lb/>
+ſelben ſind, welche mit dieſem geiſtreichen Geſchlecht<lb/>
+jederzeit am meiſten verſehen geweſen. Ob ſie<lb/>
+gleich mit einander geſtritten, welche von ihnen<lb/>
+den Segen der Wiſſenſchaften zuerſt erlanget, ſo<lb/>
+ſind ſie doch darinn uͤbereingekommen, daß ſie ſich<lb/>
+beyde gegen dieſe ihre gemeinen Lehrmeiſter danck-<lb/>
+bar erwieſen haben. Es iſt bekannt, daß Aegyp-<lb/>
+ten in den alleraͤlteſten Zeiten dieſelben in ihren ei-<lb/>
+genen Bildniſſen verehret hat: Und man mag mit<lb/>
+Grund ſagen, daß Jndien ein gleiches gethan,<lb/>
+wenn man ſich die in den leztern Zeiten vorkom-<lb/>
+mende Anbettung des Zahns eines dieſer haarich-<lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">ten</fw><lb/>
+<pb n="42" facs="#f0044"/>
+<fw type="header" place="top"><hi rendition="#b">Verſuch uͤber den Urſprung</hi></fw><lb/>
+ten Philoſophen vorſtellt, gleich als ob ſie es zur<lb/>
+Danckbarkeit gegen den Mund thaͤten, aus wel-<lb/>
+chem ſie ihre Wiſſenſchaften erlernet haben.</p><lb/>
+<p>Laßt uns nun in <hi rendition="#fr">Griechenland</hi> uͤbergehen, wo-<lb/>
+hin wir den Orpheus in gleicher Abſicht aus Aegyp-<lb/>
+ten zuruͤckkehren finden, in welcher Oſyris und<lb/>
+Bacchus ihre Zuͤge unternommen: Von dieſem<lb/>
+Periodo an iſts, daß Griechenland zuerſt den Nah-<lb/>
+men der Satyren gehoͤrt, oder ſie fuͤr Semideos<lb/>
+erkennt hat: Und aus dieſem laͤßt ſich gantz ver-<lb/>
+nuͤnftig ſchlieſſen, daß er einige von dieſem wun-<lb/>
+derbaren Geſchlecht, die auch einen Anfuͤhrer<lb/>
+von der Linie Pans gehabt, gleichen Nahmens,<lb/>
+und welchen Theocritus, ausdruͤcklich einen Koͤ-<lb/>
+nig nennet, mit ſich gebracht habe. Wenn<lb/>
+man ſo viel geſtehet, ſo iſt mir leicht, von zwoen<lb/>
+der auſſerordentlichſten Erzehlungen in dem gan-<lb/>
+zen Alterthum Rechenſchaft zu geben: Fuͤr das<lb/>
+erſte erhellet, daß die Tradition von des Orpheus<lb/>
+Muſik, deren die unvernuͤnftigen Thiere nachge-<lb/>
+folget, (welches man von ſeiner Kunſt wilde und<lb/>
+unbaͤndige Gemuͤther zu zaͤhmen erklaͤret hat) dem<lb/>
+Buchſtaben nach verſtanden werden muͤſſe: Und<lb/>
+zweytens, (worauf wir beſonders dringen), daß<lb/>
+die Liebe, welche dieſe <hi rendition="#fr">Weiſe</hi> gegen unſer weibli-<lb/>
+ches Geſchlecht tragen, eine Aufloͤſung aller der<lb/>
+Fabeln alter Zeiten, nach welchen die Goͤtter in<lb/>
+Geſtalt gewiſſer Thiere in den Waͤldern Weibs-<lb/>
+perſonen beſchlaffen haben, an die Hand giebt.<lb/>
+Jch weiß wol, man kan einwenden, es heiſſe, ſie<lb/>
+ſeyn in Geſtalt verſchiedener Thiere beſchlaffen<lb/>
+worden: Allein auf dieſes antworten wir, daß das<lb/>
+<fw type="catch" place="bottom">Frauen-</fw><lb/>
+<pb n="43" facs="#f0045"/>
+<fw type="header" place="top"><hi rendition="#b">der Wiſſenſchaften.</hi></fw><lb/>
+Frauenzimmer, wo es dergleichen zu foͤrchten hat,<lb/>
+nicht wol im Stand iſt, zu unterſcheiden wie die<lb/>
+ausſehen, mit denen es zu thun hat.</p><lb/>
+<p>Aus dem, was wir ſo eben geſagt, iſt hoͤchſt<lb/>
+glaubwuͤrdig, daß die Welt dieſem alten und edeln<lb/>
+Stamme, wo nicht die Helden, doch wenigſtens die<lb/>
+allerſinnreichſten Koͤpfe des Alterthums, zu dan-<lb/>
+ken habe. Eins der merckwuͤrdigſten Beyſpiele<lb/>
+iſt jener groſſe und in der Kunſt der Nachahmung<lb/>
+ſo weit gekommene Geiſt Aeſopus: Fuͤr deſſen Ab-<lb/>
+ſtammung von dieſen <hi rendition="#aq">Hominibus ſylveſtribus</hi> wir<lb/>
+aus dem Planudes einen Beweis ziehen koͤnnen,<lb/>
+welcher ſagt, Aeſopus heiſſe eben ſo viel als Aethio-<lb/>
+pus, <hi rendition="#fr">die urſpruͤngliche Nation unſers Volcks.</hi><lb/>
+Zu einem zweyten Grund moͤgen wir die Beſchrei-<lb/>
+bung ſeiner Perſon angeben: Er war kurtz, unge-<lb/>
+ſtaltet, und ſahe beynahe als ein Wilder aus, ſo<lb/>
+daß er gar wol in den Waͤldern haͤtte leben koͤn-<lb/>
+nen, wenn ihn nicht ſein guͤtiges Temperament<lb/>
+vermocht haͤtte, ſich nach unſern Manieren zu<lb/>
+richten, und in Kleidern an den Hof zu kommen:<lb/>
+Das dritte Beweisthum iſt ſein ſinnreicher und ſa-<lb/>
+tyriſcher Wiz; und endlich, ſein groſſes Erkennt-<lb/>
+niß in der Natur der Thiere, nebſt dem Vergnuͤ-<lb/>
+gen und der natuͤrlichen Neigung, welche er hatte,<lb/>
+bey allen Anlaͤſſen von denſelben zu reden.</p><lb/>
+<p>Das naͤchſte Beyſpiel, welches ich anfuͤhren will,<lb/>
+iſt Socrates: Erſtlich war es eine beſtaͤndige Tra-<lb/>
+dition, daß derſelbe etwas beſonderes und von dem<lb/>
+uͤbrigen menſchlichen Geſchlecht unterſchiedenes ge-<lb/>
+weſen: 2tens war ſein aͤuſſerliches Ausſehen von ei-<lb/>
+ner Beſchaffenheit, welche klar verrieth, von was<lb/>
+<fw type="catch" place="bottom">fuͤr</fw><lb/>
+<pb n="44" facs="#f0046"/>
+<fw type="header" place="top"><hi rendition="#b">Verſuch uͤber den Urſprung</hi></fw><lb/>
+fuͤr einer Linie er abſtammete; angeſehen er einen<lb/>
+kahlen Kopf, eine ſtumpfe Naſe, und hervorra-<lb/>
+gende Augen hatte, und unter ſich zur Erden ſahe:<lb/>
+Drittens, brachte er einige Fabeln des Aeſopus in<lb/>
+Verſe, wahrſcheinlich aus Hochachtung fuͤr die<lb/>
+Thiere uͤberhaupt, und aus Liebe fuͤr ſeine Fa-<lb/>
+milie ins beſondere.</p><lb/>
+<p>Jn dem Verfolg der Zeiten haben die Weibs-<lb/>
+perſonen, mit welchen dieſe Sylvani gern ge-<lb/>
+ſchlaffen haͤtten, ſey es daß Menſchen ſie ſo geleh-<lb/>
+ret, oder daß ſie es aus Forcht vor ihrer Geſtalt<lb/>
+gethan, derſelben Beywohnung gemieden, ſo<lb/>
+daß unſere Weltweiſen genoͤthiget waren, ſich mit<lb/>
+den Thieren zu vermiſchen. Dieſes verurſachte,<lb/>
+daß das haarichte Weſen ihrer Nachkommen ſta-<lb/>
+felweiſe hoͤher als bis auf die Mitte ihres Leibs<lb/>
+gewachſen; in der erſten Generation kam es ihnen<lb/>
+bis an die Arme, in der andern bemaͤchtigte es ſich<lb/>
+des Halſes, und in der dritten ſtieg es uͤber den<lb/>
+Kopf hin, bis ſo das verdorbene Ausſehen, in wel-<lb/>
+chem die Species ſich gegenwaͤrtig verſencket befin-<lb/>
+det, vollkommen entſtanden. Doch muͤſſen wir<lb/>
+hier anmercken, daß einige wenige geweſen, wel-<lb/>
+che das allgemeine Ungluͤck nicht betroffen, indem<lb/>
+es zu allen und jeden Zeiten noch einige, von Vor-<lb/>
+urtheilen nicht eingenommene, Weibsperſonen ge-<lb/>
+geben, durch derer tugendhaftes Mittel die gaͤnz-<lb/>
+liche Ausloͤſchung der Art, wie ſie urſpruͤnglich ge-<lb/>
+weſen, iſt verhuͤtet worden. Und eben ſo iſt merck-<lb/>
+wuͤrdig, daß ihre Natur auch ſelbſt, wenn ſie ſich<lb/>
+mit den Thieren vermiſcht haben, nicht gantz verlo-<lb/>
+ren gegangen, angeſehen ſich immer verwunderliche<lb/>
+<fw type="catch" place="bottom">Eigen-</fw><lb/>
+<pb n="45" facs="#f0047"/>
+<fw type="header" place="top"><hi rendition="#b">der Wiſſenſchaften.</hi></fw><lb/>
+Eigenſchaften an ihnen gewieſen, wie ſolches klar<lb/>
+an denen zu ſehen geweſen, welche dem Alexander<lb/>
+in Jndien gefolget ſind. Lieber, wie nahmen ſie<lb/>
+ſeine Armee in Acht, und welch ein wachendes<lb/>
+Auge hatten ſie auf ſeinen Befehl; wie ſtelleten ſie<lb/>
+ſich in gleiche Verfaſſung, wenn es um einen<lb/>
+Marſch oder um ein Treffen zu thun war! Wel-<lb/>
+che Nachahmung ſeiner ganzen Kriegsordnung!<lb/>
+Nichts anders als alte und aͤchte Ueberbleibſel ih-<lb/>
+rer vorigen kriegeriſchen Neigung, und derjenigen<lb/>
+Verfaſſung, in welcher ſie geſtanden, da ſie eine<lb/>
+Monarchie ausmachten.</p><lb/>
+<p>Nun auf <hi rendition="#fr">Jtalien</hi> zu kommen. Als ſich dieſe<lb/>
+wilde Philoſophen zuerſt da gezeiget, hat es eini-<lb/>
+ge von denen, die am wenigſten vermiſchet waren,<lb/>
+gegeben, welche ſich gefallen lieſſen, mit Men-<lb/>
+ſchen einen Umgang zu haben; dies iſt aus dem<lb/>
+Nahmen des Faunus <hi rendition="#aq">à fando,</hi> vom Sprechen, of-<lb/>
+fenbar. Und ein ſolcher war jener, der aus Haß<lb/>
+gegen die Tyrannie die Waͤlder verlaſſen, und<lb/>
+die Roͤmiſche Armee angefriſchet, wider die He-<lb/>
+trurier, die den Tarquinius wieder wollten ein-<lb/>
+geſezet wiſſen, feindlich zu agieren: Allein hier,<lb/>
+ſo wol als in allen weſtlichen Theilen der Welt,<lb/>
+eraͤugete ſich eine groſſe und merckwuͤrdige Aera,<lb/>
+nemlich die, in welcher ſie anfiengen ſtillzuſchwei-<lb/>
+gen. Wir moͤgen dieſelbe etwas nahe an die Zei-<lb/>
+ten des Ariſtoteles ſezen, da die Anzahl, der Stolz,<lb/>
+und die Thorheit der Weltweiſen aus dem Ge-<lb/>
+ſchlecht der Menſchen uͤberhand genommen, und<lb/>
+durch ſie den Leuten der Kopf zu irre gemachet worden,<lb/>
+als daß ſie tuͤchtig geweſen ſeyn ſollten, die Weißheit<lb/>
+<fw type="catch" place="bottom">dieſer</fw><lb/>
+<pb n="46" facs="#f0048"/>
+<fw type="header" place="top"><hi rendition="#b">Verſuch uͤber den Urſprung</hi></fw><lb/>
+dieſer alten Wald-Philoſophen zu empfangen. Die<lb/>
+Fragen dieſer Academie waren zu zahlreich, denn<lb/>
+daß ſie mit Muſſe von ihnen beantwortet werden;<lb/>
+und zu verwirret, zu abgeſchmackt, zu boͤſe, und<lb/>
+zu ſchaͤdlich, denn daß ſie denſelbigen anderſt als<lb/>
+eine Materie zur Verachtung und zur Verlachung<lb/>
+vorkommen koͤnnten. Jmmer von dieſem Periodo<lb/>
+an, wenn wir etwas von ihren gegebenen Ant-<lb/>
+worten hoͤren, iſt nur zu verſtehen, daß ſie es ge-<lb/>
+than, wenn ſie gefangen, gebunden und gezwun-<lb/>
+gen worden; nicht anders, als jener alte griechi-<lb/>
+ſche Profet Proteus.</p><lb/>
+<p>So leſen wir in des Sylla Zeiten von einem<lb/>
+ſolchen nahe bey Durrachium gefangenen Philo-<lb/>
+ſophen, der nicht beredet werden konnte, Lectionen<lb/>
+zu geben, was man ihm auch immer ſagte, und<lb/>
+ſeine Geſchicklichkeit in den Toͤnen, nur einzig<lb/>
+durch wiehern, wie die Pferde, zeigete.</p><lb/>
+<p>Ein gluͤcklicherer Verſuch ward unter dem Reich<lb/>
+des Auguſtus, von dem forſchenden Geiſt, dem<lb/>
+Virgilius gemacht; die Commentatores halten ihn<lb/>
+und den Varus fuͤr die eigentliche Perſonen, von de-<lb/>
+nen im 6ten St. der Bucolic. erzehlet wird, daß<lb/>
+ſie einen unſerer Philoſophen, und zweifelsfrey ei-<lb/>
+nen von den aͤchten aus dem Geſchlecht des alten<lb/>
+Sylenus, gefangen haben: damit ſie nun mach-<lb/>
+ten, daß er ſich ihnen mittheilete, (wie dann Vir-<lb/>
+gil die Wichtigkeit davon wol eingeſehen), haben<lb/>
+ſie ihn nicht nur feſt gebunden, ſondern auch noch<lb/>
+durch ein ſchoͤnes Maͤdgen, Aegle genannt, ange-<lb/>
+locket, welches dann vermocht, daß er beydes ſehr<lb/>
+lieblich und lehrreich geſungen. Jn dieſem Ge-<lb/>
+<fw type="catch" place="bottom">ſang</fw><lb/>
+<pb n="47" facs="#f0049"/>
+<fw type="header" place="top"><hi rendition="#b">der Wiſſenſchaften.</hi></fw><lb/>
+ſang finden wir ihre Lehre von der Schoͤpſung,<lb/>
+wie ſie nach aller Wahrſcheinlichkeit vor ſo langer<lb/>
+Zeit in dem groſſen Pygmaͤiſchen Reiche gelehret<lb/>
+worden, nebſt verſchiedenen hieroglyphiſchen Er-<lb/>
+zehlungen, unter welchen ſie ihre Sittenlehre ver-<lb/>
+bargen, und ſelbige damit auszierten. Daher ich<lb/>
+dieß Bucolicon als einen unſchaͤtzbaren Schatz der<lb/>
+alleraͤlteſten Wiſſenſchaften anſehe.</p><lb/>
+<p>Unter der Regierung des Conſtantinus wird uns<lb/>
+von einem andern Nachricht gegeben, der in ei-<lb/>
+nem Netze gefangen und nach Alexandria gebracht<lb/>
+worden; das Volck verſammelte ſich hauffenweiſe<lb/>
+um ihn her, ſeine Weisheit anzuhoͤren, allein er<lb/>
+war einer der ſtummen Philoſophen, und lehrete,<lb/>
+wie Am. M. berichtet, nur durch Gebehrden.</p><lb/>
+<p>Der lezte, welchen wir anfuͤhren wollen, der<lb/>
+von der aͤchten Linie herzuſtammen ſcheint, iſt der,<lb/>
+von dem Hieronymus meldet, daß er dem St. An-<lb/>
+tonius in der Wuͤſten erſchienen: Dieſer fragete<lb/>
+ihn, welches der Weg waͤre; worauf er ſeinen<lb/>
+Verſtand und ſeine Hoͤflichkeit durch deuten mit<lb/>
+dem Finger zu erkennen gab; im uͤbrigen aber woll-<lb/>
+te er nichts antworten, denn er war ebenfalls ein<lb/>
+ſtummer Weltweiſer.</p><lb/>
+<p>Dieſes iſt alles, was ich von der Erſcheinung<lb/>
+eines ſo groſſen und gelahrten Volcks in eurem<lb/>
+Welttheil fuͤr dießmahl habe zuſammenbringen koͤn-<lb/>
+nen: Wenn wir aber in ihre alte angebohrne Size,<lb/>
+Africa und Jndien, zuruͤckgehen wollen, ſo wer-<lb/>
+den wir auch ſelbſt in dieſen neuern Zeiten Spuh-<lb/>
+ren ihrer erſten Auffuͤhrung und Dapferkeit an-<lb/>
+treffen.</p><lb/>
+<fw type="catch" place="bottom">Jn</fw><lb/>
+<pb n="48" facs="#f0050"/>
+<fw type="header" place="top"><hi rendition="#b">Verſuch uͤber den Urſprung</hi></fw><lb/>
+<p>Jn Africa (gleich wir in den Sammlungen<lb/>
+des unermuͤdeten Hrn. Purchas leſen) hat ein<lb/>
+Hauffen derſelben, deſſen Anfuͤhrer in ein Weibs-<lb/>
+bild verliebt war, durch Gewalt und Kriegsliſt<lb/>
+denen Portugieſen eine Veſtung abgenommen.</p><lb/>
+<p>Aber ich muß alle andere vorbeygehen, um fuͤr-<lb/>
+nehmlich das Lob zweyer ihrer Monarchen in Jn-<lb/>
+dien, welche ihres gleichen nicht gehabt, zu erhe-<lb/>
+ben: Der erſte war <hi rendition="#fr">Perimal</hi> der Praͤchtige, ein<lb/>
+uͤberaus gelahrter und gutherziger Printz, dem die<lb/>
+Malabaren in der Hitz ihres Eifers einen Tempel<lb/>
+geweyhet, welcher auf 700. Pfeilern ſtehet, die,<lb/>
+nach des Maffeus Meynung, des Agrippa ſeinem<lb/>
+in dem Pantheon nichts nachgeben. Der andre,<lb/>
+<hi rendition="#fr">Hanimant</hi> der Wunderwuͤrdige, Perimals Vet-<lb/>
+ter und Nachfolger, deſſen Wiſſenſchaft ſo groß<lb/>
+geweſen, daß ſeine Anhaͤnger zweifelten, ob es<lb/>
+moͤglich waͤre, daß eben dieſes weiſe Geſchlecht<lb/>
+es wol auf einen ſo hohen Staffel der Vollkom-<lb/>
+menheit zu bringen im Stand waͤre; und daher lie-<lb/>
+ber glaubten, er und ſein Stamme waͤren eine in Af-<lb/>
+fen vergeſtaltete Art Goͤtter: Der Zahn war ſein,<lb/>
+den die Portugieſen An. 1559. in Biſnagar weg-<lb/>
+genommen, und fuͤr welchen die Jndigner, nach<lb/>
+Linſchottens Bericht, die entſetzliche Summe von<lb/>
+700000. Ducaten angeboten haben. Noch ſoll<lb/>
+ich endlich dieſe Materie nicht fahren laſſen, ohne mit<lb/>
+aller gebuͤhrender Hochachtung Oran Outangs des<lb/>
+Groſſen, des lezten von dieſer Linie, deſſen un-<lb/>
+gluͤckſeliges Schickſal gewollt hat, daß er in die<lb/>
+Haͤnde der Europaͤer fiele, Meldung zu thun:<lb/>
+Oran Outangs, deſſen Werth wir nicht kennen;<lb/>
+<fw type="catch" place="bottom">denn</fw><lb/>
+<pb n="49" facs="#f0051"/>
+<fw type="header" place="top"><hi rendition="#b">der Wiſſenſchaften.</hi></fw><lb/>
+denn er war ein ſtummer Philoſophus: Oran Ou-<lb/>
+tangs, durch deſſen Anatomie der gelehrte Dr.<lb/>
+Tyſon unſerm Syſtema, aus der Uebereinkunft<lb/>
+dieſes <hi rendition="#aq">Hominis ſylveſtris</hi> mit unſerm menſchlichen<lb/>
+Leib in denen Theilen, durch welche die vernuͤnf-<lb/>
+tige Seele ſich wirckſam erweiſet, eine neue Be-<lb/>
+kraͤftigung gegeben hat.</p><lb/>
+<p>Wir muͤſſen nun fortgehen, und dieſe Nation<lb/>
+betrachten, wie ſie in <hi rendition="#aq">brutam naturam</hi> verfallen<lb/>
+ausſiehet: aber auch ſelbſt in dieſem Zuſtand, wie<lb/>
+viele Erfahrungen geben ſie uns nicht an die Hand,<lb/>
+von ſolchen, die ſie von der Milzſucht oder von Ge-<lb/>
+ſchwaͤhren befreyeten, indem ſie dieſelben zu rechter<lb/>
+Zeit lachen macheten? Mit was vor Fertigkeit ahmen<lb/>
+ſie alles, was je das merckwuͤrdigſte in dem menſch-<lb/>
+lichen Leben iſt, nach? Und was fuͤr erſtaunliche<lb/>
+Sachen erzehlet uns nicht Le Combe nnd andere<lb/>
+von ihren Begierden, Handlungen, Begreiffungs-<lb/>
+kraft, Zuneigungen, vielerley Erfindungen, und<lb/>
+der Geſchicklichkeit dieſelben ins Werck zu ſetzen?<lb/>
+Gewiß, wenn ſie bey ſo elenden Umſtaͤnden ihrer<lb/>
+Gebuhrt und Auferziehung, und bey einem ſo kur-<lb/>
+zen Lebensziel, als ihnen iezo zu Theil geworden,<lb/>
+dennoch alle andern Thiere ſo weit uͤbertreffen,<lb/>
+und es vielen Menſchen gleich thun, ſo kan man<lb/>
+gedencken, was Wunders man ſich von jenen vor-<lb/>
+ſtellen muͤſſe, die <hi rendition="#aq">melioribus Annis nati fuerant,</hi> jenen<lb/>
+langlebenden, antidiluvianiſchen, Erzvaͤtern dieſes<lb/>
+Volcks, welche die Welt zuerſt die Wiſſenſchaf-<lb/>
+ten gelehret haben.</p><lb/>
+<p>Jch darf mich ruͤhmen, daß ich bey dieſer mei-<lb/>
+ner Nachricht (wie ſie dann gaͤntzlich und allein<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">XII.</hi> St.] D</fw><fw type="catch" place="bottom">mein</fw><lb/>
+<pb n="50" facs="#f0052"/>
+<fw type="header" place="top"><hi rendition="#b">Verſuch uͤber den Urſprung</hi></fw><lb/>
+mein iſt.) aus einer Quelle geſchoͤpfet habe, mit<lb/>
+deren verſchiedene Meynungen der Alten wol uͤber-<lb/>
+ein kommen, ob ſie gleich bisher weder von den al-<lb/>
+ten noch den neuern Gelahrten jemahls entdeckt wor-<lb/>
+den iſt. Und was ſoll ich nun den Menſchen, in<lb/>
+Betrachtung dieſer groſſen Entdeckung, ſagen?<lb/>
+Was anders, als daß ſie ihren Hochmuth herun-<lb/>
+terreiſſen, und bedencken, daß die Urheber unſe-<lb/>
+rer Erkenntniſſen ſich unter den Thieren befinden;<lb/>
+daß die, welche einſt bey der Schoͤpfung unſere<lb/>
+aͤltere Bruͤder geweſen, und deren Reich, wie<lb/>
+Platons Abriß einer vollkommenen Regierungs-<lb/>
+Form erfodert, von Philoſophen beherrſchet wor-<lb/>
+den, die endlich, deren Gelehrſamkeit in Aethiopien<lb/>
+und Jndien in hoͤchſtem Flor geſtanden, nun von<lb/>
+ihnen nicht unterſchieden, und iezo einzig als<lb/>
+Thiere unter den Nahmen der Affen und Bafia-<lb/>
+nen bekannt ſind.</p><lb/>
+<p>Was die Rede angehet, ſo zweifle ich keineswegs,<lb/>
+daß es in ihren angebohrnen vaterlaͤndiſchen Wuͤſten<lb/>
+noch einige Ueberbleibſel von dem erſten noch nicht<lb/>
+ſo gar verdorbenen Geſchlechte gebe, welche derſelben<lb/>
+noch iezo maͤchtig ſind. Jndeſſen iſt die gemeine<lb/>
+Urſach, welche die Spanier angeben, daß ſie nicht<lb/>
+reden wollen, weil ſie nemlich foͤrchten, man moͤch-<lb/>
+te ſie zur Arbeit halten, allein genugſam dafuͤr;<lb/>
+wenn man nur bedenckt, wie ſehr die Gelehrten<lb/>
+ihre Gemoͤchlichkeit lieben. Eine andere iſt, daß<lb/>
+dieſe aufmerckſamen Geſchoͤpfe, da ſie Augen-<lb/>
+Zeugen von der Grauſamkeit geweſen, mit wel-<lb/>
+cher dieſe Nation ihren Bruͤdern, den Jndia-<lb/>
+nern, begegnet, es nothwendig finden zu verhoͤhlen,<lb/>
+<fw type="catch" place="bottom">daß</fw><lb/>
+<pb n="51" facs="#f0053"/>
+<fw type="header" place="top"><hi rendition="#b">der Wiſſenſchaften.</hi></fw><lb/>
+daß ſie Menſchen ſind, damit ſie ſo nicht nur vor<lb/>
+der Arbeit, ſondern auch vor der Grauſamkeit,<lb/>
+beſchuͤzet bleiben. Und geſezt es ſtuͤhnde auch mit<lb/>
+dieſen aufs beſte, ſo koͤnnten ſie drittens kein Ver-<lb/>
+gnuͤgen an dem Umgang mit den Spaniern haben,<lb/>
+als deren ernſthaftes und unfreundliches Tempera-<lb/>
+ment derjenigen natuͤrlichen und offenen Froͤ-<lb/>
+lichkeit, welche man uͤberhaupt bey aller rechtſchaf-<lb/>
+fenen Erkenntniß wahrnimmt, ſo ſehr zuwider iſt.</p><lb/>
+<p>Jndeſſen wenn es iezt, da die Sachen ſo ſtehen,<lb/>
+moͤglich waͤre, auf einige Weiſe ein Mittel zu fin-<lb/>
+den, durch welches man ihre verborgenen Quali-<lb/>
+taͤten aus ihnen hervorbringen koͤnnte, ſo bin ich<lb/>
+verſichert, daß dieſes der gelehrten Welt, ſo wol<lb/>
+in Abſicht auf die Widererlangung verlohrner Wiſ-<lb/>
+ſenſchaften, als auf die Befoͤrderung der noch zu-<lb/>
+kuͤnftigen, von einem ungemeinen Nuzen ſeyn wuͤr-<lb/>
+de. Lieber, mag dann keine artige, geſchickte<lb/>
+Manier erdacht werden, durch welche wir uns ih-<lb/>
+nen beliebt machen koͤnnten? Jſt keine Nation<lb/>
+in der Welt, deren natuͤrliche Beſchaffenheit ſo<lb/>
+gekehret waͤre, daß ſie ſich ihre Geſellſchaft zuwe-<lb/>
+gen bringen, und ſie, vermittelſt einer angeneh-<lb/>
+men Gleichheit der Manieren, gewinnen moͤgte?<lb/>
+Kein Volck, da die Maͤnner ſie durch eine aus-<lb/>
+nehmende Hoͤflichkeit anlocken, und durch nachge-<lb/>
+machte Bewegungen auf gewiſſe Weiſe bezaubern;<lb/>
+das Frauenzimmer aber, durch gutmuͤthig erlaubte<lb/>
+Freyheiten und das allerfreundlichſte Betragen,<lb/>
+dieſe verliebte Creaturen zu einer danckbaren Wi-<lb/>
+dergeltung der Hoͤflichkeit bewegen koͤnnte? Die<lb/>
+Liebe, die ich fuͤr mein Vaterland hege, giebt mir<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">den</fw><lb/>
+<pb n="52" facs="#f0054"/>
+<fw type="header" place="top"><hi rendition="#b">Verſuch uͤber den Urſprung</hi></fw><lb/>
+den Wunſch ein, daß Groß-Brittannien dieſe Na-<lb/>
+tion ſeyn moͤgte; Aber ach! wie koͤnnen wir hoffen,<lb/>
+daß Fremde von ſo groſſer Klugheit ihre Gedan-<lb/>
+ken bey unſerer gegenwaͤrtigen ungluͤckſeligen Tren-<lb/>
+nung, und derſelben ſo weiten Entfernung von ih-<lb/>
+ren Freunden, Verwandten, und Vaterland, mit-<lb/>
+ten unter gewaltſamen Parteyen, frey an den Tag<lb/>
+legen werden? Die Neigung, die ich gegen un-<lb/>
+ſern benachbarten Staat trage, heiſſet mich wuͤn-<lb/>
+ſchen, Holland waͤre dieſelbe: <hi rendition="#aq">Sed læva in parte<lb/>
+mamillæ nil ſalit Arcadico.</hi> Franckreich iſt es alſo,<lb/>
+von da wir dieſe Widerherſtellung der Gelehrſam-<lb/>
+ſamkeit erwarten muͤſſen, als deſſen lezter Monarch<lb/>
+die Wiſſenſchaften unter ſeinen Schutz genommen,<lb/>
+und auf einen ſo hohen Staffel gebracht hat. Jch<lb/>
+meyne wir haben Grund zu hoffen, daß ſeine Emiſ-<lb/>
+ſarien uͤber kurz oder uͤber lang den Befehl erhal-<lb/>
+ten werden, nicht nur gelehrte Leute, ſondern<lb/>
+auch gelehrte Thiere, (verſtehe die alte aͤchte Aethio-<lb/>
+piſche und Jndianiſche Tiegeraffen,) in ihr Vater-<lb/>
+land einzuladen. Und koͤnnte man nicht als-<lb/>
+dann die Talente einer jeden beſondern Art derſel-<lb/>
+ben zum Aufnehmen auch einer jeden beſondern Wiſ-<lb/>
+ſenſchaft anwenden? Die Tigeraffen Helden,<lb/>
+Staatsleute, und Gelehrte zu unterrichten; die<lb/>
+Bafianen den Hofleuten die Ceremonien und an-<lb/>
+ſtaͤndige Geſchicklichkeiten zu zeigen; die Meerkatzen<lb/>
+die Damen und ihre Liebhaber in der Kunſt eines ar-<lb/>
+tigen Umgangs und angenehmen Liebesbezeigungen<lb/>
+zu unterweiſen; die Affen von minderer Gelehrſam-<lb/>
+keit zum beſten der Comoͤdianten und Danzmeiſter;<lb/>
+die Marmoſets denen Hofpages und reiſenden jun-<lb/>
+<fw type="catch" place="bottom">gen</fw><lb/>
+<pb n="53" facs="#f0055"/>
+<fw type="header" place="top"><hi rendition="#b">der Wiſſenſchaften.</hi></fw><lb/>
+gen Engellaͤndiſchen Stutzern zum Dienſt gebrau-<lb/>
+chen? Allein ich uͤberlaſſe dieſelben nach ihren Ar-<lb/>
+ten zu unterſcheiden, und einer jeden ihre beſondere<lb/>
+Beſchaͤftigung zu beſtimmen, dem nachforſchenden<lb/>
+und einſichtsvollen Geiſt der Hrn. Jeſuiten in ih-<lb/>
+ren verſchiedenen Miſſionen.</p><lb/>
+<closer><salute><hi rendition="#et"><hi rendition="#aq"><hi rendition="#i"><hi rendition="#g">VALE</hi> et <hi rendition="#g">FRUERE.</hi></hi><lb/>
+M. S.</hi></hi></salute></closer></div></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom"><hi rendition="#b">D 3</hi></fw><fw type="catch" place="bottom"><hi rendition="#b">Stru-</hi></fw><lb/>
+<pb n="54" facs="#f0056"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Strukaras/</hi><lb/>
+oder<lb/>
+Die Bekehrung;<lb/>
+Eine hiſtoriſche Erzehlung aus dem<lb/>
+Franzoͤſiſchen.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Eit gegen Norden liegt ein beruͤhmtes<lb/>
+Koͤnigreich, welches ſchon mehr als ei-<lb/>
+nen guten Kopf hervorgebracht hat, die<lb/>
+den Ruhm von <hi rendition="#fr">Schoͤpfern</hi> fuͤr ihre Nation ge-<lb/>
+gen ihre ſuͤdlichen und weſtlichen Nachbarn<lb/>
+haͤtten behaupten koͤnnen, und die in ihrer Spra-<lb/>
+che eine Geſchicklichkeit gefunden hatten, die er-<lb/>
+habenſten und die genauſt-beſtimmten Gedan-<lb/>
+ken in aller ihrer Verſchiedenheit auszudruͤcken.<lb/>
+Nichts deſtoweniger waren ihre Nahmen in der<lb/>
+Dunckelheit geblieben, und ihre Schriften hat-<lb/>
+ten ſich verkriechen muͤſſen. Ein falſcher Lehrer,<lb/>
+Strukaras genannt, hatte den poetiſchen Ge-<lb/>
+ſchmack der Nation verderbet, in dem er ihn mit<lb/>
+Regeln gefeſſelt, welche er nicht aus der allge-<lb/>
+meinen Natur der Menſchen, ſondern bloß aus<lb/>
+ſeiner eigenen hergeleitet hatte, wiewohl er<lb/>
+vorgab, daß ſein Naturell ein Abdruck des<lb/>
+Naturells der Nation waͤre, und daß dieſe in<lb/>
+ihm daͤchte, und empfaͤnde. Er ruͤhmte ſich,<lb/>
+daß ſeine Sprache alle poetiſchen Schoͤnheiten<lb/>
+<fw type="catch" place="bottom">in</fw><lb/>
+<pb n="55" facs="#f0057"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras, oder die Bekehrung.</hi></fw><lb/>
+in ſich faſſete, und daß, wenn man ſie in ih-<lb/>
+rer Reinigkeit redete, die Gedancken und Bil-<lb/>
+der unter den Redensarten und Woͤrtern von<lb/>
+ſich ſelber entſtuͤhnden, und ſich in Saͤtze und<lb/>
+Ordnung ſtellten. Was denn in derſelben nicht<lb/>
+erhoͤret war, was von andern gedacht wor-<lb/>
+den, und ihm zu dencken zuſchwer war, das er-<lb/>
+klaͤrete er vor barbariſch, und vor unergruͤnd-<lb/>
+lich. Er machte dieſe Sprache zur Richtſchnur<lb/>
+der Poeſie der Alten und der Neuern, und ver-<lb/>
+bannete alſo alle die herrlichſten Bilder und Vor-<lb/>
+ſtellungen aus derſelben. Homer, Virgil und<lb/>
+Ovidius, wenn er ſie in ſeiner Sprache reden<lb/>
+ließ, verlohren ihre lebhafteſte Munterkeit, und<lb/>
+ihr helleſtes Licht. Aber er ſchwur, daß ſie da-<lb/>
+durch nur regelmaͤſſiger und von beſſerm Ge-<lb/>
+ſchmack geworden waͤren. Seine Geſchicklich-<lb/>
+keit zum verfuͤhren war ſo gar fein nicht, und<lb/>
+man hoͤret nicht, daß ein erwachſener Menſch,<lb/>
+deſſen Verſtand und Geſchmack zur Reife gelan-<lb/>
+get geweſen, von ihm waͤre betrogen worden:<lb/>
+Er gab ſich auch mit ſolchen keine Muͤhe, ſon-<lb/>
+dern machete ſich nur an Juͤnglinge, welche noch<lb/>
+keine nette Begriffe hatten. Dieſelben uͤber-<lb/>
+zeugete er von ſeinen Lehren mit einer hohen Mi-<lb/>
+ne, und mit einem ausgeſtreckten Arm. Er zog<lb/>
+ſie in Kleinigkeiten ſo zaͤrtlich, und ſo weibiſch,<lb/>
+daß ſie die ſtarcke und geſunde Nahrung in den<lb/>
+unſterblichen Schriften der Griechen und Latei-<lb/>
+ner nicht mehr ertragen mogten. Eine Zeile<lb/>
+voller Begriffe druͤckete ſie, und der Vers floß<lb/>
+ihnen nicht, wenn ſich ihm ein ungewoͤhnlicher<lb/>
+<fw type="sig" place="bottom">D 4</fw><fw type="catch" place="bottom">Gedan-</fw><lb/>
+<pb n="56" facs="#f0058"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+Gedancke in den Weg legete. Dieſe Juͤnglinge<lb/>
+wurden mit zunehmenden Jahren zwar am Coͤr-<lb/>
+per, aber nicht am Geſchmacke ſtaͤrcker. Jhr Ge-<lb/>
+ſchmack blieb verzaͤrtelt, bloͤde und ungewiß.<lb/>
+Sie brachten ihn mit ſich in die untern Claſſen,<lb/>
+auf die Univerſitaͤten, in die Staatscabinete,<lb/>
+und an die Hoͤfe. Der Rector, der Profeſſor,<lb/>
+der Staatsminiſter, der Conſiſtorialrath, wa-<lb/>
+ren verderbt, und verderbten wieder. Dadurch<lb/>
+wurden die falſchen Lehrſaͤtze des Verfuͤhrers<lb/>
+beynahe allgemein. Sie machten eine Secte, ja<lb/>
+es ſchien daß ſie den Dienſt des Apollo und der<lb/>
+Muſen noch verdringen wuͤrden. Die Koͤpfe<lb/>
+von gutem Geſchmacke, deren man noch allezeit<lb/>
+zwanzig bis dreiſſig zehlete, berieffen ſich zwar<lb/>
+auf das Urtheil der Nachwelt, aber das half<lb/>
+ihnen wenig, weil dieſe zu ihren Zeiten nicht er-<lb/>
+ſchien, oder nicht reden wollte. Sie ſchrien mit<lb/>
+einem gluͤcklichern Fortgang den Apollo an, er<lb/>
+warf einen guͤtigen Blick auf ſie. Der Stoltz,<lb/>
+die Gewalt und der Jammer, den ſie in dem<lb/>
+Reiche des Witzes anſtelleten, verdroß ihn. Er<lb/>
+gab der <hi rendition="#fr">Critick,</hi> einer Goͤttin, die unter ihm<lb/>
+herrſchete, Befehl, ſich den Betriegern zu wi-<lb/>
+derſetzen, und den reinen Lehren der Muſen, ſei-<lb/>
+ner Toͤchter, wieder aufzuhelfen.</p><lb/>
+<p>Die <hi rendition="#fr">Critick</hi> munterte in dieſer Abſicht etliche<lb/>
+einſichtsreiche Koͤpfe auf, welche in der poe-<lb/>
+tiſchen und andern angenehmen Schreibarten<lb/>
+bald ein neues Licht aufſtecketen. Denn ſie<lb/>
+holeten die unveraͤnderlichen Grundſaͤtze wieder<lb/>
+hervor, welche mit der menſchlichen Natur ihren<lb/>
+<fw type="catch" place="bottom">Urſprung</fw><lb/>
+<pb n="57" facs="#f0059"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+Urſprung genommen haben, und mit dem Ge-<lb/>
+muͤthe und den Empfindungen des Menſchen<lb/>
+gleich alt ſind. Bey dieſer Fackel fieng man<lb/>
+hier und dar an zu ſehen, man entdeckete die<lb/>
+Jrrthuͤmer in des Betriegers Lehrbuͤchern, und<lb/>
+die Bloͤdigkeit der Schriften, welche nach ſei-<lb/>
+nen Regeln verfertiget waren. Sein Anſehen<lb/>
+blendete nicht mehr, und das Lob ward ihnen<lb/>
+nicht mehr vor einen Tribut bezahlt. Doch<lb/>
+geſchah dieſes nicht ſo ſtille; ſeine Anhaͤnger<lb/>
+machten einen wilden Laͤrmen mit harmoniſchen<lb/>
+Schmaͤhworten, und mit ſchlieſſenden Laͤſterun-<lb/>
+gen; ſie zogen auch den Leibrock des Hohenprie-<lb/>
+ſters an, und guͤrteten das Schwerdt der welt-<lb/>
+lichen Macht an die Seite.</p><lb/>
+<p>Sie hatten auch auf ihrer Partey Goͤtter;<lb/>
+die <hi rendition="#fr">Dummheit,</hi> welche den Blocksberg dem<lb/>
+Parnaſſe entgegen ſezet, und die tobende <hi rendition="#fr">Phre-<lb/>
+neſie,</hi> die ihren Sitz zu Waldheim auf einer<lb/>
+Waͤlle Stroh aufgeſchlagen hat. Dieſe beyde<lb/>
+fuͤhrten ſie zu dem Streit mit der Critik an,<lb/>
+und unterrichteten ſie, wie ſie dem Gewaͤſche<lb/>
+einen Nachdruck von Schall geben ſollten. Man<lb/>
+erzehlet, daß ihnen einmahl der <hi rendition="#fr">falſche Ge-<lb/>
+ſchmack</hi> ſichtbarlich erſchienen ſey, als ſie eben<lb/>
+in einem Synodus berathſchlageten, wie ſie<lb/>
+das einbrechende Licht der Critik von ihren Graͤn-<lb/>
+zen zuruͤckhalten wollten; derſelbe habe ihnen<lb/>
+das Haupt mit einem zertheilenden Rauche von<lb/>
+allem noch uͤbrigen Verſtande geſaͤubert, und<lb/>
+es dagegen mit Spinneweben und Staube an-<lb/>
+gefuͤllet. Damahls geſchah es, daß ſie den Erz-<lb/>
+<fw type="sig" place="bottom">D 5</fw><fw type="catch" place="bottom">verfuͤh-</fw><lb/>
+<pb n="58" facs="#f0060"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+verfuͤhrer Strukaras zu ihrem Hierarchen er-<lb/>
+waͤhleten, und ihm ſchwuren, den Unverſtand<lb/>
+ſelbſt in ſeinen Worten zu verehren, und unter<lb/>
+ſeinem Stabe auf die Wahrheit und den Witz<lb/>
+zu Felde zu ziehen.</p><lb/>
+<p>Strukaras verdiente dieſen elenden Vorzug<lb/>
+damit, daß er zuerſt an dem Verderben der<lb/>
+aͤchten Poeſie gearbeitet, und ſeine Schriften<lb/>
+ſorgfaͤltiger, als ſonſt einer, vor Ordnung,<lb/>
+Wahrheit, Witz und Anmuth bewahret hatte.<lb/>
+Er hatte von dem Geſchwaͤtze Kunſtregeln gege-<lb/>
+ben, und den Schall in ein Lehrbuch verfaſſet.<lb/>
+Er wußte Recepte fuͤr Gedichte, welche weder den<lb/>
+Kopf brachen, noch das Hertz in Unruh ſezeten.<lb/>
+Seine Poeſie kriecht mit einer angenehmen Nach-<lb/>
+laͤſſigkeit; wann er ſich in die Wolcken erhebet,<lb/>
+ſo faͤllt er augenblicklich wieder auf den Boden;<lb/>
+er iſt wahrſcheinlich ohne Neuigkeit, und wo er<lb/>
+neu und wunderbar iſt, verliehrt ſich die Wahr-<lb/>
+ſcheinlichkeit. Er hat mittelſt einer Scheer und<lb/>
+eines Topfes voll Pappe ein Trauerſpiel verfer-<lb/>
+tiget, in welchem alle ſeine Regeln dieſer Schreib-<lb/>
+art beobachtet ſind. Durch ſeinen Antrieb iſt<lb/>
+die goͤttliche Aeneis von der Hoheit ihrer Be-<lb/>
+griffe und der Pracht ihrer Ausbildung befreyet<lb/>
+worden. Er ſelbſt hat den Horatz von der Dicht-<lb/>
+kunſt in den Miſchmaſch und die Dunckelheit ſei-<lb/>
+ner eigenen Jrrthuͤmer uͤberſezet.</p><lb/>
+<p>Mit den Schriften dieſes Ertzverfuͤhrers gab<lb/>
+die <hi rendition="#fr">Critik</hi> ſich nicht wenig Muͤhe, ſie klopfte ihm<lb/>
+ſeine Lehrbuͤcher mit der aͤuſſerſten Geduld aus,<lb/>
+ſie las mit groſſer Langmuth das wunderbare<lb/>
+<fw type="catch" place="bottom">Gemen-</fw><lb/>
+<pb n="59" facs="#f0061"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+Gemenge von falſchen Gedancken, widerſinni-<lb/>
+gen Ausdruͤcken, und ſich ſelbſt zerſtoͤrenden Saͤ-<lb/>
+zen in ſeinen Schriften aus einander. Aber es<lb/>
+war in Anſehung des Strukaras verlohrne Muͤhe,<lb/>
+er beſſerte ſich von ihren Lehren nicht, er ſtraͤu-<lb/>
+bete ſich nur deſtomehr dagegen, und erklaͤrte<lb/>
+ſich iezo oͤffentlich wider die eigenſten Rechte der<lb/>
+Poeſie, indem er ihr die wahrſcheinlichen Moͤg-<lb/>
+lichkeiten, die ſinnlichen und die allegoriſchen<lb/>
+Vorſtellungen abgeſonderter Begriffe, der En-<lb/>
+gel, und der Geiſter abſprach. Ein Poet aus<lb/>
+den weſtlichen Gegenden hatte viel wunderbare<lb/>
+und phantaſiereiche Geſchichten von dem Him-<lb/>
+mel und der Hoͤlle, von den ſeligen Geiſtern,<lb/>
+und von den gefallenen Engeln erzehlet, er hat-<lb/>
+te den Satan unter Stroͤmen von Feuer ver-<lb/>
+ſenket, welches er von Wirbelwinden in einen<lb/>
+raſenden Sturm aufblaſen laſſen, er hatte die<lb/>
+<hi rendition="#fr">Suͤnde</hi> in die Geſtalt einer verfuͤhreriſchen<lb/>
+Schoͤnheit verkleidet, und den Tod mit einem<lb/>
+verſteinernden Blick und einem herzdurch dringen-<lb/>
+den Wurffpfeile bewaffnet; Wider dieſe Vorſtel-<lb/>
+lungen ſezete ſich Strukaras mit der aͤuſſerſten<lb/>
+Bloͤdigkeit des Geſchwaͤtzes und des Geſchreyes;<lb/>
+er hieß ſie Geſpenſterhiſtorien, und Hexenmaͤhr-<lb/>
+gen; wovon man ſich keinen Begriff machen<lb/>
+koͤnnte, und welche nur dieneten, die Nation<lb/>
+in Schrecken und Angſt zu ſetzen. Er ſezte ihn<lb/>
+in die Claſſe des Marino, und noch ungeheu-<lb/>
+rerer Dichter. Er wußte, wenn er ſeinen Lehr-<lb/>
+lingen einen Abſcheu vor der poetiſchen <hi rendition="#fr">Schoͤ-<lb/>
+pfung</hi> und den ſinnlichen Vorſtellungen bey-<lb/>
+<fw type="catch" place="bottom">brin-</fw><lb/>
+<pb n="60" facs="#f0062"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+bringen koͤnnte, daß alle Poeſie zugleich uͤber<lb/>
+einen Haufen fallen und die matte und nicht den-<lb/>
+kende Reimerey derſelben Stelle ungehindert<lb/>
+und ungeſtraft beſitzen wuͤrde.</p><lb/>
+<p>Die <hi rendition="#fr">Critik</hi> verſuchte darauf ein empfindliche-<lb/>
+res Mittel den Strukaras wo nicht vernuͤnfti-<lb/>
+ger doch ſchamhaftiger zu machen. Sie hezete<lb/>
+ihre Schweſter, die <hi rendition="#fr">Satyre,</hi> gegen ihn auf.<lb/>
+Dieſe droſchete ihn etliche mahl wacker ab, ſie<lb/>
+gab ihn der gantzen Nation zum beſten, er war<lb/>
+die Kurtzweil aller muntern Koͤpfe, und nur<lb/>
+bey dieſer Gelegenheit haben ſie mehr Witz ver-<lb/>
+ſchwendet, als man vorher der Nation zuge-<lb/>
+trauet hatte, daß ſie in ihrem gantzen Vermoͤ-<lb/>
+gen haͤtte. Die Strukaramben ſelber muß-<lb/>
+ten mitten in der Zeit, da ſie ſich uͤber dieſes Ge-<lb/>
+ſpoͤtte der Satyre beklageten, bekennen, daß<lb/>
+es fein und voll Geiſtes waͤre; aber ſie kehreten<lb/>
+ſich nicht daran, weil ſie nicht erkenneten, daß das<lb/>
+Gelaͤchter der Satyre auf wirckliche Schwach-<lb/>
+heiten des Verſtandes und des Willens fiel.<lb/>
+Daher legeten ſie alle Scham ab. Strukaras<lb/>
+blieb in ihren Augen die Ehre der Nation, der<lb/>
+Pfeiler der Dichtkunſt, der Koͤnig des Witzes,<lb/>
+der nordliche Fontenelle, der Corneille der<lb/>
+Schaubuͤhne.</p><lb/>
+<p>Er fuͤhrete ein Weib mit ſich herum, ſeine<lb/>
+Buſemsfreundin; ſie hatte in ihrer zarteſten<lb/>
+Jugend einen groſſen Witz gewieſen, die Bil-<lb/>
+der und Figuren von Kupferſtichen aus ihrer<lb/>
+Verbindung mit einer Schaͤre herauszuſchnei-<lb/>
+den, und alſobald in einer neuen Verknuͤpfung<lb/>
+<fw type="catch" place="bottom">auf</fw><lb/>
+<pb n="61" facs="#f0063"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+auf einer Puderſchachtel oder einer Zuckerbuͤch-<lb/>
+ſe wieder zuſammenzuſetzen; oder ein halbes Hun-<lb/>
+dert Kloͤppel auf einem Spitzenpult herumzu-<lb/>
+werfen, daß Roſen und Tulpen von Goldfaden<lb/>
+unter ihren Fingern hervorwuchſen. Struka-<lb/>
+ras gewann ſie lieb, und beſtuͤrmete ſie ſechs<lb/>
+Jahre lang mit trukenen Figuren der Redekunſt,<lb/>
+und mit kalten Ausdruͤcken von Liebesflammen.<lb/>
+Sie gab ihm das Jawort, nur damit ſie ſich<lb/>
+von ſeinen Verfolgungen erledigete. Nach-<lb/>
+dem ſie ſein Weib geworden, bildete er ihr Ge-<lb/>
+hirn nach ſeinem eigenen, und goß alle ſeine<lb/>
+Kuͤnſte in daſſelbe. Priſcilla erwies ſich ſo ge-<lb/>
+lehrig, daß ſie den Strukaras in kurtzer Zeit<lb/>
+in dem vollkommenſten Abdruck darſtellete. Es<lb/>
+plauderte iezo in beyden ein Verſtand, ein Witz<lb/>
+frohr in beyden, und eine Kunſt kruͤmmete ſich<lb/>
+in beyden; in den Schriften des Weibes entde-<lb/>
+kete man den Mann, und in des Mannes das<lb/>
+Weib. Er ehrete ſie darum nach ihrem Ver-<lb/>
+dienſte, und nahm ſie in ein <hi rendition="#aq">Conſortium ſtudio-<lb/>
+rum</hi> auf. Aber ihr Herz war aufrichtig, und<lb/>
+irrete mit gutem Gewiſſen den Lehren ihres<lb/>
+Freundes nach. Als nun die Critik und die<lb/>
+Satyre ſich mit denſelben ſo viel zu ſchaffen ge-<lb/>
+macht hatten, hielt ſie in der Unſchuld ihres<lb/>
+Hertzens das alles vor lauter Wuͤrckungen des<lb/>
+Neids und der Boßheit, und ſtaͤrckete ſich im<lb/>
+Geiſt, ihnen ihren Ungrund deutlich zu zeigen.<lb/>
+Allein als ſie in dieſer Gemuͤthsverfaſſung ihre<lb/>
+Schrifften erwog, und gegen die Lehren ihres<lb/>
+Mannes hielt, leuchtete die Wahrheit ihr mit<lb/>
+<fw type="catch" place="bottom">einem</fw><lb/>
+<pb n="62" facs="#f0064"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+einem ſo erheiternden Licht in den Verſtand,<lb/>
+daß ſie ſich nicht entbrechen konnte, ſie zu erken-<lb/>
+nen. Je mehr ſie fortlas, je mehr fand ſie Er-<lb/>
+weiſe und Ueberzeugungen. Jn der ſchaͤrfeſten<lb/>
+Jronie ſelbſt entdeckete ſie einen feſten, auf die<lb/>
+Natur der Sachen gegruͤndeten Fuß. Sie ſah<lb/>
+iezt in den Wercken ihres Freundes ein harmo-<lb/>
+niſches Galimathias, mit dem Gedaͤchtniß aus-<lb/>
+gefuͤhrte Erweiſe, eine gereimte Unordnung,<lb/>
+kaltſinnige Figuren, und eine Sprache ohne<lb/>
+Seele. Jndem ſie dieſe Entdeckungen machete,<lb/>
+veraͤnderte ſich die Geſtalt ihres Angeſichtes ſie-<lb/>
+benmahl, ihr Hertz pochete, die Knie wurden<lb/>
+ſchlaff, Hitze und Froſt wechſelten in ihrem Ge-<lb/>
+bluͤte. Sie ſtuhnd iezo ganz betreten, und un-<lb/>
+ſchluͤſſig, ob ſie die Wahrheit oder die Freund-<lb/>
+ſchaft ehren wollte; nicht lange, ſie beſtrafte<lb/>
+ſich bald ſelbſt, daß ſie zwiſchen beyden hatte<lb/>
+zweifeln koͤnnen. Sie fuͤrchtete indeſſen, daß<lb/>
+Strukaras anderſt dencken wuͤrde; ſie kannte<lb/>
+ſeinen Hochmuth; er mußte nothwendig, kraft<lb/>
+ſeines hoͤhern Verſtandes die Wahrheit einge-<lb/>
+ſehen haben, welche ſie mit ihren ſchwaͤchern<lb/>
+Einſichten entdecket hatte; nichtsdeſtoweniger<lb/>
+hatte er ſie verleugnet; und auf was vor eine<lb/>
+Art ſollte ſie ihm zu wiſſen thun, daß ſie ſeinen<lb/>
+Miſchmaſch entdecket haͤtte? Wie wuͤrde ers<lb/>
+aufnehmen, wenn ſie ſich zu der Wahrheit be-<lb/>
+kennete, gegen welche er das Herz und den Ver-<lb/>
+ſtand verhaͤrtet haͤtte; wuͤrde er ihr nicht ſeine<lb/>
+Liebe entziehen, und koͤnnte ſie ohne dieſelbe le-<lb/>
+ben? Aber wie koͤnnte ſie kuͤnftig ein Herz zu<lb/>
+<fw type="catch" place="bottom">ihm</fw><lb/>
+<pb n="63" facs="#f0065"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+ihm haben, zu einem Menſchen, der ein ſo ver-<lb/>
+kehrtes Gemuͤthe haͤtte? Sie quaͤlete ſich mit<lb/>
+dieſen Gedancken, und prophezeihete ſich ſelber<lb/>
+viele betruͤbte und verdrießliche Stunden. Al-<lb/>
+lein die Pflicht uͤberwand, und ſtaͤrckete ſie gegen<lb/>
+alles Leiden, das ſie vorherſah.</p><lb/>
+<p>Sie eroͤffnete ihrem Mann an einem hellen<lb/>
+Morgen die Veraͤnderung, die ſich in ihrem<lb/>
+Verſtande zugetragen hatte, mit groſſer Ge-<lb/>
+ſchicklichkeit, ſie wußte dasjenige, was ihm in<lb/>
+ihrem Vortrage widrig oder hart ſcheinen konn-<lb/>
+te, mit angenehmen Liebkoſungen und kuͤnſtli-<lb/>
+chen Vorbiegungen gut zu machen, ohne daß<lb/>
+dem Nachdruck ihrer Rede etwas dadurch ab-<lb/>
+gegangen waͤre. Sie trieb ihn auch in der That<lb/>
+dergeſtalt in die Enge, daß er ihr geſtehen muß-<lb/>
+te, er haͤtte den Erweis fuͤr ſeine Lehrſaͤtze nicht<lb/>
+in dem Verſtande ſonder bloß in dem Willen<lb/>
+geſuchet. Aber er that dieſes Bekenntniß mit<lb/>
+einer Stirne, in welcher weder Reue noch Scham<lb/>
+zu erblicken war; und als ſie nur ein Wort von<lb/>
+der Pflicht einſtreuete, die erkannte Wahrheit<lb/>
+oͤffentlich zu bekennen, widerſezete er ſich dieſer<lb/>
+Zumuthung mit der Hartnaͤckigkeit eines Bar-<lb/>
+barn. Er ſagte: Sollte ich ſo manchen Erweis<lb/>
+auf den Grund eines lieblichen Schalles auf-<lb/>
+gefuͤhret haben; ſollte ich ſo manche Beurthei-<lb/>
+lung der verſchiedenſten Sachen nach einem Lei-<lb/>
+ſten verfaſſet, und nach ein Paar Regeln von<lb/>
+logicaliſchen Erklaͤrungen alle Arten der poeti-<lb/>
+ſchen Vorſtellungen gerichtet haben, damit ich<lb/>
+dieſes gantze ſo krauſe, ſo mechaniſche, Gebaͤude<lb/>
+<fw type="catch" place="bottom">durch</fw><lb/>
+<pb n="64" facs="#f0066"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+durch mein eigenes Wort wieder umſtuͤrzete?<lb/>
+Sollte ich durch einen Widerruf nicht bloß mein<lb/>
+eigenes ſondern das Urtheil aller derjenigen ver-<lb/>
+dammen, welche meinem geglaubt haben? Hat<lb/>
+nicht vielmehr mein Geſchmack das Siegel der<lb/>
+Gruͤndlichkeit empfangen, nachdem er von einem<lb/>
+ſo zahlreichen Haufen angenommen worden?<lb/>
+Geſezt, daß ich auf meine Urtheile und Lehrſaͤtze<lb/>
+zufaͤlliger Weiſe gefallen ſey, haben ſie nicht den<lb/>
+gehoͤrigen Erweis durch das Nachſprechen ſo vie-<lb/>
+ler tauſend Schulhalter und Magiſter empfan-<lb/>
+gen? Aber geſtanden, daß die Wahrheit nicht<lb/>
+auf meiner Seite iſt; Soll ich den Ruhm eines<lb/>
+unfehlbaren Kunſtrichters mit dem Nahmen ei-<lb/>
+nes gemeinen aufrichtigen Mannes vertauſchen,<lb/>
+und mich ſelber der Dummheit anklagen, da-<lb/>
+mit ich meine Redlichkeit rette? Jſt es nicht ein<lb/>
+groͤſſerer Schimpf, wenn man uns der Dumm-<lb/>
+heit ſchuldig befindet, als wenn man uns bloß<lb/>
+vor boshaft haͤlt? Mein groͤſſeſter Ruhm iſt,<lb/>
+daß ich zwar bey mir ſelbſt eben ſo gut, als die<lb/>
+witzigſten Leute, den gruͤndlichen Geſchmack mei-<lb/>
+ner Widerſacher einſehe, dabey aber nichtsde-<lb/>
+ſtoweniger meine verdorbene Sache behaupten,<lb/>
+und mein Anſehn der Vernunft zu Trutze auf-<lb/>
+recht erhalten kan.</p><lb/>
+<p>Seine aufrichtige Freundin erſchrack daruͤber,<lb/>
+und fieng an, ihm aus getreuem Hertzen vorzu-<lb/>
+halten, daß es keins von den geringſten Ver-<lb/>
+brechen waͤre, ſich an den Vermoͤgensarten der<lb/>
+Seele, dem Verſtand, der Einbildungskraft<lb/>
+und dem Witz zu verſuͤndigen, dieſes haͤtte weit<lb/>
+<fw type="catch" place="bottom">mehr</fw><lb/>
+<pb n="65" facs="#f0067"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+mehr zu bedeuten, als ſich bloß an dem Coͤrper,<lb/>
+oder an den Gluͤcksguͤtern zu vergreiffen. Die<lb/>
+buͤrgerlichen Geſetze waͤren ſehr ſcharf gegen<lb/>
+einen, der einen Garten zertraͤte, und durch-<lb/>
+wuͤhlete, warum es einem, der in dem Hirn<lb/>
+eines jungen Menſchen, ja einer gantzen Nation,<lb/>
+das unterſte zu oberſt kehrete, ungeſtraft hinge-<lb/>
+hen ſollte? Der Gerechtigkeit muͤßte allemahl<lb/>
+eine Gnuͤge geſchehen; nun waͤre es vortraͤgli-<lb/>
+cher, ihr in der gegenwaͤrtigen Welt, als in<lb/>
+der zukuͤnftigen eine Gnuͤge zu thun. Er ſtuͤhn-<lb/>
+de in Gefahr, den Nahmen eines Aufrichtigen<lb/>
+zu dem Nahmen eines Kunſtverſtaͤndigen zu ver-<lb/>
+liehren.</p><lb/>
+<p>Sie wollte noch weiter mit ihren Vermah-<lb/>
+nungen fortfahren, aber Strukaras ſah ſie mit<lb/>
+der Mine eines ottomaniſchen Ehemanns an,<lb/>
+dergleichen er ſonſt nie gewohnt geweſen, gegen<lb/>
+ſie zu brauchen; er ſchrie uͤber Neid und Unhoͤf-<lb/>
+lichkeit, ſie mißgoͤnnete ihm ſeinen Ruhm, und<lb/>
+haͤtte ſich von ſeinen Widerſachern beſtechen laſ-<lb/>
+ſen. Endlich befahl er ihr mit hoher Stimme,<lb/>
+ſie ſollte ſich zu ihren Maͤgden begeben, und mit<lb/>
+ihnen des Spinnerokens warten. Priſcilla ver-<lb/>
+ſtuhnd, was er damit ſagen wollte; daß er ſie<lb/>
+von der Hoheit einer Scribentin, in welche er<lb/>
+ſie zu ihm erhoben hatte, wieder abſetzen, und<lb/>
+in den Stand eines gemeinen nicht ſchreibenden<lb/>
+Weibes erniedrigen wollte. Dennoch gehor-<lb/>
+ſamte ſie ihm, und ſchluͤckte den Verdruß in<lb/>
+ſich. Er vertraute ihr nach dieſem nicht den platte-<lb/>
+ſten Gedancken mehr in einen Vers zu verfaſ-<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">XII.</hi> St.] E</fw><fw type="catch" place="bottom">ſen,</fw><lb/>
+<pb n="66" facs="#f0068"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+ſen, er hielt ſie von allen Buͤchern entfernt, in-<lb/>
+ſonderheit verhuͤtete er mit einer Art von Eifer-<lb/>
+ſucht, daß ihr keine von den Schriften der <hi rendition="#fr">Cri-<lb/>
+tik</hi> oder der <hi rendition="#fr">Satyre</hi> zu Geſichte kaͤme. Mit ei-<lb/>
+nem Worte, er tractirte ſie als eine Frau, die<lb/>
+zu nichts weiterm faͤhig waͤre. Man ſagt, daß<lb/>
+dieſes ſie nicht ſo ſehr gekraͤncket habe, als daß<lb/>
+er ſo verſtockt wider ſein beſſeres Wiſſen han-<lb/>
+delte.</p><lb/>
+<p>Dieſes Begegniß war der <hi rendition="#fr">Critik</hi> nicht verbor-<lb/>
+gen, ſie wußte, daß mit ſeinem verderbten Ver-<lb/>
+ſtande nichts in Vergleichung kaͤme, als ſein<lb/>
+verderbter Wille. Darum beſann ſie ſich eines<lb/>
+Mittels ihm das Gewiſſen zu ruͤhren, damit er<lb/>
+aufhoͤrete der Wahrheit zu widerſtreben. Sei-<lb/>
+ne Bekehrung war ihr nicht um ſeiner Perſon<lb/>
+willen alleine angelegen, ſondern um aller derer<lb/>
+unſchuldigen willen, welche von ſeinen Groß-<lb/>
+ſprechereyen verfuͤhrt, Recepte fuͤr den Witz<lb/>
+und den Geſchmack von ihm nahmen, womit ſie<lb/>
+aber nur ihr gutes Naturell und ihre natuͤrlichen<lb/>
+Empfindungen verderbeten. Sie verfuͤgete ſich<lb/>
+zu dem Schlaf in ſeine braunen Zimmer der<lb/>
+Nacht und des Schattens, und bat ihn, daß<lb/>
+er ihr den <hi rendition="#fr">Phantaſos,</hi> denjenigen von ſeinen<lb/>
+Traͤumen zugeben wollte, welcher die langver-<lb/>
+ſtrichenen, die weit entfernten, die bloßmoͤgli-<lb/>
+chen Dinge ſo lebhaft in die Phantaſie ſchildern<lb/>
+konnte, daß ſie gegenwaͤrtig zu ſeyn ſchienen.<lb/>
+Auf deſſen willfaͤhrige Einwilligung befahl ſie<lb/>
+dieſem Traume, daß er ſich auf die Bettſtaͤtte<lb/>
+des Strukaras ſetzen, und drey Naͤchte nach<lb/>
+<fw type="catch" place="bottom">einan-</fw><lb/>
+<pb n="67" facs="#f0069"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+einander die Erſcheinungen vor ihm auffuͤhren<lb/>
+ſollte, welche ſie ihm anzeigete. Er gehorſam-<lb/>
+te ihr, und als Struckaras die folgende Nacht<lb/>
+auf ſeinem Bette ruhig ſchlief, flog er auf ſeinen<lb/>
+Hauptpfuͤlben hinunter, und legete ſich hart an<lb/>
+deſſen linkes Ohr, wo er ſeine Phantaſie auf<lb/>
+alle die Arten angriff, wie es ſeyn ſollte, damit<lb/>
+Bilder, Geſtalten und Blendungen dem emp-<lb/>
+fangenen Befehl gemaͤß hervorgebracht wuͤrden.<lb/>
+Jezo duͤnckete es den Strukaras, daß er in dem<lb/>
+<hi rendition="#fr">Paradieſe der Narren</hi> angelanget waͤre; er ſa-<lb/>
+he daſelbſt alle diejenigen, welche unnuͤtzliche<lb/>
+Dinge thun, und ihr Vertrauen auf eitele Din-<lb/>
+ge ſetzen, einen groſſen Nahmen oder Reichthuͤ-<lb/>
+mer zu erlangen; alle die, welche das Lohn ihrer<lb/>
+Thaten auf dieſer Welt dahin nehmen; eine<lb/>
+unzaͤhlbare Menge! Nimrot bauete hier noch<lb/>
+an dem Thurm von Babel; Tetzel bot noch die<lb/>
+Verzeihung der Suͤnden um Geld feil; Triller<lb/>
+und Schwartz ſchrieben Libelle wider diejeni-<lb/>
+gen, welche die Guͤtigkeit gehabt hatten, ſie<lb/>
+von ihren Schreibſuͤnden zu unterrichten, ſie<lb/>
+hoffeten ihre Fehler durch Schmaͤhungen gut zu<lb/>
+machen; aber wenn ſie izo dachten, daß ſie ihr<lb/>
+Vorhaben zu Ende gebracht haͤtten, kam eine<lb/>
+Windsbraut und warf ſie mit ihren Thuͤrmen,<lb/>
+Jndulgenzen und Libellen bunt uͤber Eke in den<lb/>
+<hi rendition="#fr">Limbo der Eitelkeit,</hi> einen unermeßlichen Ab-<lb/>
+grund. Strukaras miſchete ſich alſobald un-<lb/>
+ter dieſe Freundesſchaaren, und fieng an einen<lb/>
+Altar von ſeltſamen Materialien zu baueu; Bai-<lb/>
+les Dictionnaires in Woͤrterbuͤcher verwandelt<lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">wa-</fw><lb/>
+<pb n="68" facs="#f0070"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+waren zu einem Fußgeſtelle von etlichen Trep-<lb/>
+pen geleget, uͤber denſelben lagen Dicht- und<lb/>
+Redemaſchinen, uncritiſche Beytraͤge, erdichtete<lb/>
+Weltweisheiten, umgeſezte Fontenellen, ver-<lb/>
+kleidete Virgils, und undeutſche Schaubuͤhnen,<lb/>
+in abgemeſſenen Eken und Linien; noch hoͤher<lb/>
+lagen kleine Jphigenien und Catonen in ſchmaͤ-<lb/>
+lern Schichten; Strukaras freuete ſich in ſei-<lb/>
+nem Hertzen, als er die Breite, die Staͤrcke<lb/>
+und die Hoͤhe dieſes Altars, den er ſich ſelbſt<lb/>
+geſezet hatte, betrachtete, ſein Muth ſchwellete<lb/>
+auf, er ſtieg iezo auf einer Leiter auf denſelben,<lb/>
+und ſtuhnd oben darauf mit einer zufriedenen<lb/>
+Majeſtaͤt, als ein wuͤrdiger Goͤtze fuͤr einen ſol-<lb/>
+chen Altar. Er ſah von da auf tauſend kleine<lb/>
+Scribenten und elende Poeten hinunter, welche<lb/>
+von dieſer Hoͤhe wie Zwerge in ſeinen Augen<lb/>
+ſchienen. Aber ſein Triumph war kurtz; als er<lb/>
+ſich iezo eine Luſt machete, faule Eyer, Ruͤben,<lb/>
+und Birnen, wovon er einen Vorrath in der<lb/>
+Taſchen hatte, auf ſeine eigenen Bruͤder hinun-<lb/>
+ter zu werfen, fuhr ploͤtzlich ein Wirbelwind da-<lb/>
+her, und ſchmieß ihn mit dem gantzen Bau ſei-<lb/>
+ner poetiſchen Hoheit weit von dar in den <hi rendition="#fr">Lim-<lb/>
+bo der Eitelkeit,</hi> wo er zehntauſend Klafter tief<lb/>
+hinunterſanck, indem er vergeblich mit Kopf,<lb/>
+Hand und Fuß in die Luft ſchlug. Er hatte<lb/>
+noch nicht aufgehoͤret zu ſincken, als er aus dem<lb/>
+Schlaffe erwachete.</p><lb/>
+<p>Er ſann dem Geſichte nach, es hatte einen<lb/>
+tiefen Eindruck in ſeinem Gemuͤthe gemacht, es<lb/>
+ſchien ihm eine gewiſſe Aehnlichkeit mit ſeinem<lb/>
+<fw type="catch" place="bottom">Zuſtan-</fw><lb/>
+<pb n="69" facs="#f0071"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+Zuſtande zu haben, und eine heimliche Prophe-<lb/>
+zeyung in ſich zu faſſen. Doch ſagte er niemanden<lb/>
+was davon, als dem kleinen Bathyll, dem er<lb/>
+gewohnt iſt ſeine Gedancken zu zeigen, wann ſie<lb/>
+noch ohne Geſtalt und Form mit einem halben<lb/>
+Leben unausgebruͤtet in ſeinem Kopf liegen und<lb/>
+noch nicht franzoͤſiſches <hi rendition="#fr">Phoͤbus</hi> ſtammeln koͤn-<lb/>
+nen. Bathyll ließ ihn nicht ungetroͤſtet, er be-<lb/>
+deutete ihm, daß der gantze Traum nichts an-<lb/>
+ders waͤre, als eine Nachaͤffung der gaukleri-<lb/>
+ſchen Phantaſie, welche auf die Erfindung des<lb/>
+Kupferſtiches vor Pops Duncias gearbeitet<lb/>
+haͤtte. Sie hatten voriges Tages die Auflage<lb/>
+dieſes ſatyriſchen Gedichtes von 1729. empfan-<lb/>
+gen, und ſich lange bey der hieroglyphiſchen Fi-<lb/>
+gur des Kupferbildes aufgehalten. Strukaras<lb/>
+bemuͤhete ſich dem Bathyll zu glauben, doch<lb/>
+konnte er nicht davor, daß nicht das Geſichte<lb/>
+ihm beſtaͤndig in den Gedancken ſchwebete; es<lb/>
+ſchwindelte ihm noch im wachen, und er bildete<lb/>
+ſich immerfort ein, daß er noch ſaͤncke.</p><lb/>
+<p>Jn der andern Nacht ſtieg <hi rendition="#fr">Phantaſos</hi> wieder<lb/>
+hinunter, in die Phantaſie des Strukaras un-<lb/>
+erhoͤrte Geſtalten zu ſchildern. Er ließ ihn<lb/>
+einen wuͤſten und wilden Ort ſehen, ein greuli-<lb/>
+ches Gefaͤngniß, das rundherum wie ein uner-<lb/>
+meßlicher Offen brannte, wo aber die Flammen<lb/>
+kein Licht von ſich gaben, ſondern nur eine dun-<lb/>
+kele Daͤmmerung zeigeten, in welcher man trau-<lb/>
+rige Anblicke, und Gegenden voller Schmertzen<lb/>
+ſehen konnte. Hier brannte das Land mit einem<lb/>
+feſten geronnenen Feuer, und die See mit ei-<lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">nem</fw><lb/>
+<pb n="70" facs="#f0072"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+nem fluͤſſigen. Es duͤnckete den Strukaras,<lb/>
+daß er einen Rieſen auf dem Feuerpfuhl ſchwim-<lb/>
+men ſaͤhe, er reckete den Kopf uͤber den Wellen<lb/>
+empor, die Augen funkelten ihm, ſeine uͤbrigen<lb/>
+Theile waren auf den Wogen viel Hufen lang<lb/>
+ausgeſtreckt; er richtete ſich nunmehr auf, und<lb/>
+trug den ungemeſſenen Koͤrper uͤber das Feuer-<lb/>
+meer empor, er ſchaltete die Feuerwellen von<lb/>
+ſich, und gieng nach dem Geſtade. Seine Ge-<lb/>
+ſtalt war wie die Geſtalt eines Ertzengels, und<lb/>
+hatte noch einen groſſen Reſt von Glantz an ſich.<lb/>
+Aber auf ſeinem Angeſichte waren tiefe Narben<lb/>
+eingegraben, und die Sorge ſaß auf ſeinen blaß-<lb/>
+lichten Wangen. Jn den Augenbraunen ließ<lb/>
+ſich ein unbaͤndiger Muth, und ein rachgieriger<lb/>
+Stoltz wahrnehmen. Als er an dem Geſtade<lb/>
+angekommen, ſtuͤzte er ſich auf ſein Speer, ge-<lb/>
+gen welchem die laͤngſte Tanne auf den norwe-<lb/>
+giſchen Bergen nur eine Ruthe war, und indem<lb/>
+er die giftvollen Augen hin und her gehen ließ,<lb/>
+ſagte er: Dieſes iſt die Gegend, die wir mit dem<lb/>
+Himmel haben vertauſchen muͤſſen; dieſes Reich<lb/>
+haben wir mit unſerer Rebellion gewonnen! Jn<lb/>
+flieſſendem Feuer, oder in truckenem zu wohnen,<lb/>
+iſt alle Wahl, die man uns in der Hoͤlle uͤbrig<lb/>
+laͤßt. Unſer Jammer iſt nur allzu wuͤrcklich,<lb/>
+er iſt kein Hexenmaͤhrchen; hier in dieſer aͤuſſer-<lb/>
+ſten Finſterniß iſt unſer Kerker, hier ſind wir<lb/>
+unter Orkane von Feuer begraben, und mit uns<lb/>
+alle diejenigen, welche ſich wider die Wahrheit<lb/>
+empoͤren, und vorſetzlich die Unvernunft predi-<lb/>
+gen. Jndem er dieſe Worte ſagte, duͤnckte<lb/>
+<fw type="catch" place="bottom">es</fw><lb/>
+<pb n="71" facs="#f0073"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+es den Strukaras, daß er die Augen ſtarr auf<lb/>
+ihn gerichtet hielt, daruͤber nahm ein kalter<lb/>
+Schauer ſeine innerſten Adern ein, er fuhr ploͤtz-<lb/>
+lich auf, und rief, indem er aufſprang: Nein,<lb/>
+ich ſage nicht mehr, daß Miltons Hoͤlle ein He-<lb/>
+renmaͤhrchen ſey; Jezt weiß ich, daß ſeine Teu-<lb/>
+fel kein Siebenſachen ſind, daß ihre Maſchinen<lb/>
+fuͤr die Hoͤlle nicht zu groß, und die Hoͤlle fuͤr<lb/>
+ſie nicht zu klein iſt, ich ſehe auch, daß ein groſ-<lb/>
+ſer Unterſchied zwiſchen einem gefallenen Ertzen-<lb/>
+gel und dem Teufel von Juͤterbock iſt, den der<lb/>
+fromme Schmied daſelbſt in einen Sack geſcho-<lb/>
+ben hat.</p><lb/>
+<p>Priſcilla hoͤrte ihn dieſe Worte zitternd ſagen,<lb/>
+und ſah ihn gantz im Schweiſſe baden, ſie fragte<lb/>
+ihn, was ihm widerfahren waͤre, und er erzehl-<lb/>
+te ihr die grauſame Erſcheinung, die er geſehen,<lb/>
+und die fuͤrchterliche Stimme, die noch in ſeinen<lb/>
+Ohren donnerte. Er fuͤgete hinzu, daß er fuͤrch-<lb/>
+tete, er haͤtte ſich an Milton verſuͤndiget, aller-<lb/>
+maſſen er ſeit drey Jahren nichts anders gethan<lb/>
+haͤtte, als ſich den Kopf zerbrochen, damit er<lb/>
+ſeinem <hi rendition="#fr">Verl. Paradieſe</hi> einen Kleck anwerffen<lb/>
+koͤnnte. Zugleich wieß er ihr etliche Blaͤtter,<lb/>
+die er zuſammen geſtoppelt hatte; die Aufſchrift<lb/>
+davon lautete: <hi rendition="#fr">Unterſuchung, wie weit ſich<lb/>
+Milton des gemeinen Wahnes mißbraucht ha-<lb/>
+be,</hi> und, <hi rendition="#fr">Vergleichung des Verl. Paradieſes<lb/>
+Johann Miltons mit Joſeph Nicolaus Maiers<lb/>
+hochzeitlichen Freudenſchall auf Perſeus und<lb/>
+deſſen befreyte Gemahlin Andromeda, als<lb/>
+Kaiſer Carl den</hi> <hi rendition="#aq">VII.</hi> <hi rendition="#fr">und das Roͤmiſche Reich.</hi><lb/>
+<fw type="sig" place="bottom">E 4</fw><fw type="catch" place="bottom">Sie</fw><lb/>
+<pb n="72" facs="#f0074"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+Sie las in dieſen Blaͤttern mit Entſetzen, wie<lb/>
+ſchwermeriſch er wider dieſen goͤttlichen Poeten<lb/>
+wuͤthete, und weil ſie ihn durch das naͤchtliche Ge-<lb/>
+ſicht geruͤhret ſah, redete ſie ihm mit groſſer Drei-<lb/>
+ſtigkeit zu, und berief ſich auf ſein eigenes Gewiſ-<lb/>
+ſen, daß das Miltoniſche Gedichte die empfind-<lb/>
+lichſten Eindruͤcke von Verwunderung, Furcht,<lb/>
+Schrecken, Vergnuͤgung in ſeinem Gemuͤthe ge-<lb/>
+than haͤtte. Er geſtuhnd es ihr, und bezeigete ei-<lb/>
+ne groſſe Reue uͤber die Undanckbarkeit, mit wel-<lb/>
+cher er dieſem Poeten dafuͤr gelohnet hatte. Aber<lb/>
+dieſe redliche Gemuͤthsverfaſſung waͤhrete nicht laͤn-<lb/>
+ger, als bis zu der Ankunft Bathylls, der gleich<lb/>
+in ein Gelaͤchter ausbrach, als er das Nachtge-<lb/>
+ſichte, und die Angſt vernahm, welche es dem Stru-<lb/>
+karas verurſachet hatte. Er ſagte, dieſer Traum<lb/>
+waͤre wieder nichts anders, als eine abentheurliche<lb/>
+Nachahmung der Phantaſie, welche ſich in der<lb/>
+Zeit geſchaͤftig erzeigete, da die Vernunft ſchlief,<lb/>
+durch dieſelbe waͤre der Traum aus verſchiedenen<lb/>
+Lappen des <hi rendition="#fr">Verl. Paradieſes</hi> wunderlich zuſam-<lb/>
+mengeſezet, er waͤre eine Frucht des ſtarcken Nach-<lb/>
+ſinnens, mit welchem Strukaras dieſes abentheur-<lb/>
+liche Gedichte geleſen haͤtte, und das gaͤbe einen<lb/>
+deutlichen Beweis, was vor unergruͤndliche Ge-<lb/>
+dancken es in dem aufgeraͤumteſten Kopfe hervorbrin-<lb/>
+gen koͤnnte. Es waͤre zu nicht anders gut, als das<lb/>
+Gewiſſen aufruͤhriſch zu machen, und das Gehirn<lb/>
+mit Erdichtungen und Geſpenſtern anzufuͤllen. Da-<lb/>
+her rieth er, daß Strukaras dieſe geſpenſtmaͤſſi-<lb/>
+ge Teufel mit einer Kanne Burgunder austreiben<lb/>
+ſollte. Dieſer folgete ihm, Korax und der Buch-<lb/>
+<fw type="catch" place="bottom">drucker</fw><lb/>
+<pb n="73" facs="#f0075"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+drucker Bucephalus wurden beruffen, ihm nebenſt<lb/>
+Bathyll Geſellſchaft zu halten; ſie blieben den gan-<lb/>
+zen Tag, und die halbe folgende Nacht bey ihm.<lb/>
+Wie ſehr ſich aber Strukaras Zwang anthat,<lb/>
+ſah er beſtaͤndig den gefallenen Ertzengel auf dem<lb/>
+trukenen Feuer ſtehen, und hoͤrete beſtaͤndig den<lb/>
+Schall ſeiner entſetzlichen Stimme.</p><lb/>
+<p>Gegen den Morgen kam <hi rendition="#fr">Phantaſos</hi> das dritte<lb/>
+mahl ihn mit Schreckbildern zu plagen. Es<lb/>
+duͤnkete ihn, daß ein anſehnlicher Alter mit einem<lb/>
+majeſtaͤtiſchen Angeſichte, doch dunkeln Augen,<lb/>
+zu ihm ſagte: Sieh mich an, Strukaras, ich bin<lb/>
+der Engellaͤnder, der das epiſche Gedichte geſchrie-<lb/>
+ben hat, gegen welches du eine ſo unſinnige Wuth<lb/>
+bezeigeſt. Du haſt in der vorigen Nacht meine<lb/>
+Hoͤlle und meine gefallenen Engel darinnen mit<lb/>
+deinen Augen geſehen, und vermuthlich erkennet,<lb/>
+daß es keine Schattengeſpenſter oder Hexenmaͤhr-<lb/>
+chen ſind. Jch will dir iezo auch die <hi rendition="#fr">Suͤnde</hi> und<lb/>
+den <hi rendition="#fr">Tod</hi> zeigen, welche du vor leere und erdichtete<lb/>
+Geſpenſter ausgiebſt. Vielleicht thun ſie den gluͤck-<lb/>
+lichen Eindruck auf dich, daß du dich huͤteſt in ihre<lb/>
+Gewalt zu fallen, wenn du ihre abſcheuliche Ge-<lb/>
+ſtalten mit deinen koͤrperlichen Augen erblicken wirſt.</p><lb/>
+<p>Mit dieſem Worte erhaſchete er ihn bey einem<lb/>
+Schopfe Haare <note place="foot" n="a">Ein augenſcheinlicher Beweiß, daß Strukaras nicht,<lb/>
+wie einige argwoͤhniſche vermeinen wollten, G. ſey, weil die-<lb/>
+ſer leztere mit fremden Haaren pranget.</note>, und fuͤhrte ihn mit der Schnel-<lb/>
+ligkeit des Blizes uͤber das Firmament und die<lb/>
+Waſſer, die daſſelbe umflieſſen, hinaus, hernach<lb/>
+durch den Golfo, der zwiſchen dem Himmel und<lb/>
+<fw type="sig" place="bottom">E 5</fw><fw type="catch" place="bottom">der</fw><lb/>
+<pb n="74" facs="#f0076"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+der Hoͤlle liegt, wo der alte Anarch, Chaos,<lb/>
+herrſchet, hindurch zu den Pforten der Hoͤlle. Sie<lb/>
+hoͤreten lange vor ihrer Annaͤherung bey denſelben<lb/>
+ein Geraͤuſche, das gantz anders toͤnete, als die<lb/>
+Muſik bey einem Ballete, es war ein Winſeln,<lb/>
+und Wehklagen, und knirſchendes Wuͤthen. Die<lb/>
+Pforten ſtuhnden weit aufgeſchloſſen. Milton<lb/>
+ſtellete ihn innerhalb auf den verſengten Boden,<lb/>
+und ließ ihn daſelbſt alleine ſtehen. Das erſte,<lb/>
+das ihm in die Augen fiel, war ein graͤßliches Un-<lb/>
+geheuer, bis auf die Huͤften ein ſchoͤnes Frauen-<lb/>
+zimmer, aber von unten ein ſchuppigter Fiſch, der<lb/>
+den Schwantz in haͤßliche Ringe drehete. Um ſie<lb/>
+herum bellete eine Schaar Hoͤllenhunde ohne Auf-<lb/>
+hoͤren, ſie krochen zuweilen in ihren Bauch hinein,<lb/>
+niſteten darinnen, und heuleten immerfort. Ne-<lb/>
+ben ihr ſtuhnd ein noch ſcheußlicheres Geſchoͤpfe,<lb/>
+ſchwartz wie die Nacht, grimmiger als zehn Fu-<lb/>
+rien; es ſchwung in der Rechten einen fuͤrchterli-<lb/>
+chen Stachel. Sein bloſſes Anſchauen verſteiner-<lb/>
+te, was ihm begegnete, mit einem kaͤltern Blicke,<lb/>
+als der gorgoniſchen Schweſtern. Strukaras be-<lb/>
+trachtete das erſtere Bild von dem Haupte bis auf<lb/>
+die Huͤften mit einiger Luſt, aber als er die Au-<lb/>
+gen von den Huͤften bis auf den Fiſchſchwantz lau-<lb/>
+fen ließ, uͤberfiel ihn ein haͤßliches Grauſen, er<lb/>
+lenkete das ekelnde Geſicht geſchwinde auf die Sei-<lb/>
+te, aber da begegnete ihm das andere noch ekel-<lb/>
+haftere Geſchoͤpfe, welches eben in einer Stellung<lb/>
+ſtuhnd, als ob es iezo den toͤdtlichen Wurfpfeil<lb/>
+nach ihm loosſchieſſen wollte. Ein kaltes Schre-<lb/>
+ken ergriff den Strukaras, und ſchlug ihn mit<lb/>
+<fw type="catch" place="bottom">einer</fw><lb/>
+<pb n="75" facs="#f0077"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+einer nie zuvor gefuͤhlten Angſt. Er fuhr mit ei-<lb/>
+nem ſcharfen Angſtſchrey auf, und ſah mit ver-<lb/>
+kehrten Augen lange um ſich her, bis er ſich ſelbſt<lb/>
+wieder fand; bis er fand, daß er in ſeinem eige-<lb/>
+nen Bette ruhete, und daß noch Leben in ſeinem<lb/>
+Hertzen ſchlug. Er freuete ſich, als er ſich davon<lb/>
+vergewiſſert hatte, und that den Augenblick ein<lb/>
+Geluͤbde, daß er die Wahrheit oͤffentlich bekennen<lb/>
+wollte. Es waͤhrete eine gute Stunde, bis daß<lb/>
+er ſich erholet hatte, darauf erzehlte er ſeiner Freun-<lb/>
+din die neue Erſcheinung, und indem er an ihrem<lb/>
+Halſe weinete, befahl er, daß ſein Beichtvater<lb/>
+geholet wuͤrde. Korax und Bathyll waren ſchon<lb/>
+da, zu fragen, wie er die Nacht geruhet haͤtte.<lb/>
+Aber ſobald er ſie anſichtig ward, rief er, daß<lb/>
+man ſie ihm aus dem Geſichte ſchaffen ſollte, ſie<lb/>
+waͤren falſche Schlangen, die ihn durch ihre ver-<lb/>
+fuͤhrenden Lobſpruͤche auf dem Pfade des Verder-<lb/>
+bens aufgehalten haͤtten.</p><lb/>
+<p>Als Hr. Adams gekommen, erzehlte er ihm erſt-<lb/>
+lich die drey erſchrecklichen Erſcheinungen, und wie<lb/>
+er ſich gegen die zwo erſtern ſo unbußfertig verſto-<lb/>
+ket haͤtte. Er verſicherte, daß er darinnen eine<lb/>
+hoͤhere Hand wahrnaͤhme, eine auſſerordentliche<lb/>
+Stimme, die ihm zur Beſſerung rief, und der<lb/>
+er ſich nicht laͤnger widerſetzen wollte. Er wollte<lb/>
+oͤffentliche Proben von einer ungefaͤrbten Buſſe<lb/>
+von ſich geben, wenn er nur dadurch das Boͤſe,<lb/>
+das er durch ſeinen Hochmuth geſtiftet haͤtte, ei-<lb/>
+nigermaſſen gut machen koͤnnte. Darauf legete<lb/>
+er erſtlich muͤndlich ein langes Bekaͤnntniß aller<lb/>
+derer Ausſchweifungen und Uebelthaten ab, die er<lb/>
+<fw type="catch" place="bottom">als</fw><lb/>
+<pb n="76" facs="#f0078"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+als ein Kunſtlehrer und als ein Poet begangen<lb/>
+hatte; hernach forderte er einen Schreibzeug und<lb/>
+Papier, und verfaſſete davon mit eigener Hand<lb/>
+folgendes ſummariſches Regiſter:</p><lb/>
+<list><item><hi rendition="#aq">I.</hi> Jch bekenne, daß ich meine Nation<lb/>
+ſchaͤndlich verunehret habe, indem ich mich vor<lb/>
+ihren Sachwalter ausgegeben, und die Uneh-<lb/>
+re, die ich mit meinen elenden Schriften er-<lb/>
+holet, auf ſie geſchoben habe.</item><lb/>
+<item><hi rendition="#aq">II.</hi> Jch bekenne, daß ich mein Lehrgebaͤu-<lb/>
+de von der Dichtkunſt auf meinen Eigenduͤn-<lb/>
+kel aufgefuͤhrt, und mich beſtrebet habe, mei-<lb/>
+nen Aberwitz unter dem Nahmen des Ge-<lb/>
+ſchmackes zu einem unbetruͤglichen Sinn zu<lb/>
+erheben.</item><lb/>
+<item><hi rendition="#aq">III.</hi> Jch bekenne, daß ich die Dichtkunſt<lb/>
+habe organiſiren und das Gedencken ſo mecha-<lb/>
+niſch machen wollen, daß man ohne einen Kopf<lb/>
+voll Hirnes ſchreiben koͤnnte.</item><lb/>
+<item><hi rendition="#aq">IV.</hi> Jch bekenne, daß ich die Demonſtra-<lb/>
+tion in das Gedichte, und die Dichtung in die<lb/>
+Weltweisheit habe bringen wollen, und bey-<lb/>
+demahl gleich thoͤricht gethan habe.</item><lb/>
+<item><hi rendition="#aq">V.</hi> Jch bekenne, daß ich einen Anſchlag<lb/>
+gemacht habe, die platte Schreibart vor die<lb/>
+natuͤrliche einzufuͤhren, und die gedanckenrei-<lb/>
+che, unter dem Vorwande, daß ſie ſchwuͤl-<lb/>
+ſtig, dunkel und unergruͤndlich waͤre, zu ver-<lb/>
+bannen.</item></list><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">VI.</hi> Jch</fw><lb/>
+<pb n="77" facs="#f0079"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+<list><item><hi rendition="#aq">VI.</hi> Jch bekenne, daß ich Horatzens Dicht-<lb/>
+kunſt nicht aus dem Original, das ich nicht<lb/>
+verſtanden habe, ſondern aus meinem ſchwa-<lb/>
+chen Kopfe uͤberſezet habe.</item><lb/>
+<item><hi rendition="#aq">VII.</hi> Jch bekenne, daß ich den Satan zu<lb/>
+Miltons Helden erhoben, und gelehret, der<lb/>
+Teufel habe ſich an dem Hoͤchſten geraͤchet:<lb/>
+Jch bekenne auch, daß ich die gottloſen Ge-<lb/>
+dancken dieſes hochmuͤthigen Geiſtes an dem<lb/>
+Poeten geſtraft habe.</item><lb/>
+<item><hi rendition="#aq">VIII.</hi> Jch bekenne, daß ich der geſunden<lb/>
+Critik feind geworden, und mich an ihr habe<lb/>
+raͤchen wollen, weil ſie ſich unterſtanden hatte,<lb/>
+mir und meinen Freunden die falſche Einbil-<lb/>
+dung von unſrer Vortrefflichkeit zu benehmen.</item><lb/>
+<item><hi rendition="#aq">IX.</hi> Jch bekenne, daß ich eine Falſchheit<lb/>
+vor erlaubt gehalten, wenn ſie dienen konnte,<lb/>
+mein Anſehn zu beſchuͤtzen, oder meine Gegner<lb/>
+zu beſchimpfen.</item><lb/>
+<item><hi rendition="#aq">X.</hi> Jch bekenne, daß ich mich allemahl habe<lb/>
+quaͤlen muͤſſen, wenn ich etwas artiges und<lb/>
+ſinnreiches habe vorbringen wollen, und daß<lb/>
+die Natur mir die Gabe zu ſchertzen gaͤntzlich<lb/>
+verſagt habe.</item><lb/>
+<item><hi rendition="#aq">XI.</hi> Jch bekenne, daß ich die Engellaͤnder,<lb/>
+die Franzoſen, die Griechen und die Roͤmer<lb/>
+nach meinem Vermoͤgen erniedriget habe, da-<lb/>
+mit ich meine und meiner Freunde Hoheit auf<lb/>
+ihren Fall auffuͤhren koͤnnte.</item></list><lb/>
+<fw type="catch" place="bottom">Nach</fw><lb/>
+<pb n="78" facs="#f0080"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+<p>Nach dieſer meiner redlichen und freyen<lb/>
+Bekenntniß bitte ich es meiner Nation, der<lb/>
+Engellaͤndiſchen, der Franzoͤſiſchen, und allen<lb/>
+denen groſſen und geſchicktern Maͤnnern, den<lb/>
+todten ſo wohl als den lebenden, in der Be-<lb/>
+truͤbniß meines Hertzens ab, daß ich mich ſo<lb/>
+groͤblich an ihnen vergangen habe; Jch beken-<lb/>
+ne, daß dieſes alles, und was ich ihnen noch<lb/>
+weiter zu leide gethan habe, mir ohne Heu-<lb/>
+cheley und von Hertzen leyd ſey; mit Nahmen<lb/>
+bitte ich den Herrn Ceremonienrath <hi rendition="#fr">Kooning,</hi><lb/>
+daß er mir die neidiſchen und undanckbarn<lb/>
+Streiche, die ich auf ſeine natuͤrliche Poeſie<lb/>
+gefuͤhrt, vergeben wolle. Jch hoffe auch,<lb/>
+daß der Hr. Ueberſetzer des Longinus mir die<lb/>
+hoͤhniſche Gelaſſenheit vergeben werde, womit<lb/>
+ich ihn abgefertiget, weil er meine Einthei-<lb/>
+lung der Schreibart einen Miſchmaſch genennt,<lb/>
+und geſtehe gerne, daß dieſes nicht nur von<lb/>
+derſelben, ſondern von meinen beruͤhmteſten<lb/>
+Schriften wahr iſt.</p><lb/>
+<p>Jch bekenne endlich, daß ich mir feſt vor-<lb/>
+genommen habe, meinem naͤrriſchen Hochmuth,<lb/>
+der mich zu dieſen Thorheiten und Sunden<lb/>
+verleitet hat, Abſchied zu geben, und dem<lb/>
+Schreiben und Dichten gaͤntzlich abzuſagen,<lb/>
+allermaſſen ich dazu weder Geſchick noch Be-<lb/>
+ruf empfangen habe. Jch will mich dafuͤr be-<lb/>
+fleiſſigen, mich mit der Arbeit meiner Haͤnde<lb/>
+<fw type="catch" place="bottom">redlich</fw><lb/>
+<pb n="79" facs="#f0081"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+redlich zu ernehren, ohne daß ich ſolche weiter<lb/>
+vor Arbeiten des Kopfes oder des Witzes ver-<lb/>
+kaufen wolle. Und damit ich denjenigen, wel-<lb/>
+che ich mit meinen Schriften beleidiget habe,<lb/>
+ein Zeichen meiner wahren Reue gebe, und<lb/>
+mich ihrer Verzeihung deſto wuͤrdiger mache,<lb/>
+will ich mit allem Fleiſſe und beſter Treue an<lb/>
+der Zernichtigung derſelben arbeiten, und kei-<lb/>
+ne Muͤhe ſparen, ſie zu der Vergeſſenheit, zu<lb/>
+der ich ſie verurtheile, zu befoͤrdern.</p><lb/>
+<p>Solches alles bekennet Strukaras, <hi rendition="#aq">ma-<lb/>
+gnus Impoſtor &amp; peccator.</hi></p><lb/>
+<p>Er uͤbergab dieſe Schrift dem Hr. Adams,<lb/>
+und bat ihn, daß er ſie durch den oͤffentlichen Druck<lb/>
+bekannt machete. Er ſagte, weil ſeine Suͤnden<lb/>
+im oͤffentlichen Licht erſchienen waͤren, ſo waͤre bil-<lb/>
+lig, daß ſeine Buſſe ebenfalls offenbar gemacht<lb/>
+wuͤrde. Er fuͤgete mit Thraͤnen hinzu, daß ihn<lb/>
+nicht nur ſeine eigenen Suͤnden druͤcketen, ſondern<lb/>
+die Suͤnden aller derjenigen ſchlimmen Kunſtrich-<lb/>
+ter und Poeten, welche durch ihn verfuͤhrt, in ſei-<lb/>
+nem Geſchmacke und nach ſeinen Regeln ſchrieben.<lb/>
+Alle elenden Schriften, ſagte er, welche von mei-<lb/>
+nen entſprungen ſind, gehoͤren mir zu, ich habe<lb/>
+ſie zu verantworten, ich habe nicht nur in meiner<lb/>
+Perſon ungeſchickt geſchrieben, ſondern in den Per-<lb/>
+ſonen aller derer, welche ihre magern Geburten<lb/>
+nach meinem Unterricht verfertigen. Jch, nur ich,<lb/>
+habe die Aeneis ihrer Pracht und ihrer Hoheit be-<lb/>
+raubet, nur ich habe ſie in einen ſchlechtern Kittel<lb/>
+<fw type="catch" place="bottom">geklei-</fw><lb/>
+<pb n="80" facs="#f0082"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras,</hi></fw><lb/>
+gekleidet, als der franzoͤſiſche Scarron gethan.<lb/>
+Jch bin Urſache, daß Ovids Feuer in den neuen<lb/>
+Verwandlungen verloͤſchen, und ſeine ſo lebhafte<lb/>
+und anmuthige Geſtalt vergehen wird. Meine<lb/>
+Suͤnden bleiben demnach, und dauren immerfort,<lb/>
+ſo lange als meine Buͤcher geleſen, und zum Mu-<lb/>
+ſter genommen werden.</p><lb/>
+<p>Der Hr. Adams ſchlug ſich zwanzigmahl an die<lb/>
+Bruſt, als er dieſe Reihe von critiſchen Uebeltha-<lb/>
+ten vernahm; er ſah aber auch die Buſſe eben ſo<lb/>
+groß, als die Suͤnden geweſen waren. ‒ ‒ ‒</p><lb/>
+<cit><quote><hi rendition="#c"><hi rendition="#aq">Hic nonnulla expuncta.</hi></hi></quote></cit><lb/>
+<p>Er troͤſtete ihn zulezt, daß wahrſcheinlicher Weiſe<lb/>
+ſeine Schriften nicht lange leben wuͤrden. Die<lb/>
+Critik und die Satyre haͤtten das ihrige ſchon red-<lb/>
+lich gethan, ſie zu ihrem Untergange zu begleiten,<lb/>
+und der Fortpflantzung ſeiner Suͤnden vorzubiegen.<lb/>
+Nach dieſem ſchied er mit groſſer Erbauung von ihm.</p><lb/>
+<p>Die Bekehrung des Strukaras war aufrichtig,<lb/>
+er gab davon unbetruͤgliche Proben, er verbannete<lb/>
+den Bathyll, den Korax, und den Bucephalus auf<lb/>
+ewig aus ſeinem Geſichte; er kaufte etliche hun-<lb/>
+dert Exemplare von ſeinen eigenen Schriften den-<lb/>
+jenigen wieder ab, die damit betrogen worden, und<lb/>
+ſtellete ſie in dem Vorhofe ſeines Hauſes in der Form<lb/>
+eines Altares nach der Bauart zuſammen, wie er in<lb/>
+dem <hi rendition="#fr">Paradieſe der Narren</hi> gethan hatte; aber an-<lb/>
+ſtatt daß er ſich daſelbſt zur Verehrung darauf geſtel-<lb/>
+let hatte, legete er iezo Feuer darunter an, und ver-<lb/>
+brannte ihn zu Aſche. Er konnte ſeine Ehegattin<lb/>
+nicht genug erheben, daß ſie das klingende Ge-<lb/>
+<fw type="catch" place="bottom">ſchwaͤtze</fw><lb/>
+<pb n="81" facs="#f0083"/>
+<fw type="header" place="top"><hi rendition="#b">oder die Bekehrung.</hi></fw><lb/>
+ſchwaͤtze in ſeinen Schriften vor ſo viel tauſend<lb/>
+Maͤnnern erkannt, und daß ſie die Redlichkeit ge-<lb/>
+habt hatte, ihm ſolches zu offenbaren: Er bat ſie<lb/>
+hundertmahl um Verzeihung, daß er ihr deßwe-<lb/>
+gen ſo unfreundlich begegnet waͤre. Jn zweyen<lb/>
+einzigen Stuͤcken ſeines critiſchen Lebenslaufes war<lb/>
+er noch mit ſich ſelbſt zufrieden, naͤmlich, daß er<lb/>
+die Hand nicht an des Ariſtoteles Poetik, und an<lb/>
+Opitzens Gedichte geleget hatte; dadurch, ſagte<lb/>
+er, haͤtte ſich das Maaß ſeiner poetiſchen Vergreif-<lb/>
+fungen nothwendig um ein groſſes vermehren muͤſ-<lb/>
+ſen. Damit er auch den Wiſſenſchaften den Nu-<lb/>
+zen, und den Schriften die Ehre braͤchte, welche<lb/>
+ſie von einem Menſchen von ſo geringen Gaben<lb/>
+haben konnten, lernete er das Buchbinder-Hand-<lb/>
+werck. Er band recht gruͤndlich und mit einem<lb/>
+feinen Geſchmack. Doch nahm er keine andere<lb/>
+Wercke an, als welche befoͤrderlich waren, ſeine<lb/>
+Schriften der Vergeſſenheit zu empfehlen. Man<lb/>
+ſagt, daß er allein in einem Jahre hundert Stuͤcke<lb/>
+von dem verlohrnen Paradieſe in Franzband ein-<lb/>
+gekleidet haͤtte. Sonſt that ihm ſeine Frau in die-<lb/>
+ſer neuen Profeſſion eben ſo gute Dienſte, als ſie<lb/>
+ihm ehmahls bey dem Buͤcherſchreiben gethan hatte.<lb/>
+Nach dieſer Zeit unterbrach keine ſatyriſche Geiſſel<lb/>
+des Tages, und keine Erſcheinung des Nachtes<lb/>
+ſeine Ruhe. Der Schlaf ſendete ihm lauter an-<lb/>
+genehme und vergnuͤgte Traͤume.</p><lb/>
+<p>Die Bekehrung des Strukaras zog die Zerſtreu-<lb/>
+ung und den Untergang ſeiner Sekte nach ſich. Ein<lb/>
+Theil derſelben entwich nach Waldheim, wo ſie<lb/>
+ſich vor den Lectionen der Critik und der Zuchtru-<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">XII.</hi> St.] F</fw><fw type="catch" place="bottom">the</fw><lb/>
+<pb n="82" facs="#f0084"/>
+<fw type="header" place="top"><hi rendition="#b">Strukaras, oder die Bekehrung.</hi></fw><lb/>
+the der Satyre geſichert wußten; ein andrer ſchlug<lb/>
+die Huͤtten auf dem Blocksberge auf, wo Midas<lb/>
+und die Faunen ihrem Geſange zuhoͤren, und ihn<lb/>
+mit Kraͤntzen von Haſenpappeln und Kappesblaͤt-<lb/>
+tern belohnen. Der Geſchmack ward allgemach<lb/>
+gut, nachdem kein Rector, kein Conſiſtorialrath,<lb/>
+und kein Miniſter ſich mehr die Muͤhe nahmen,<lb/>
+ihn durch ihre Lehren oder durch ihr Anſehn zu ver-<lb/>
+derben. Jedermann ſchrieb natuͤrlich, der nichts<lb/>
+anders ſchrieb, als was er empfand, oder dacht,<lb/>
+und man ergriff die Kunſt zu ſchreiben, ſo bald als<lb/>
+niemand mehr Regeln vorſchrieb, wie man mit<lb/>
+Kunſt ſchreiben ſollte.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Nach-</hi></fw><lb/>
+<pb n="83" facs="#f0085"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Nachrichten</hi><lb/>
+von Critiſchen Geſchichten.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>S hatte ſich ein Geruͤchte ausgebreitet, daß<lb/>
+der beruͤhmte Profeſſ. von Leipzig, der ſonſt<lb/>
+gewohnt war zu ruͤhmen, daß die Deut-<lb/>
+ſchen erſt ſeit 13. Jahren, ſeit nemlich ſeine critiſche<lb/>
+Dichtkunſt zum Vorſchein gekommen, das wahre<lb/>
+Weſen der Poeſie haben kennen lernen, endlich<lb/>
+den Sieg uͤber ſein hochmuͤthiges Hertz erhalten<lb/>
+haͤtte, welches ihn bisdahin vermocht hatte, daß<lb/>
+er ſich gegen die deutlichſten Lehren der Critik und<lb/>
+das gruͤndlichſte Geſpoͤtte der Satyre verhaͤrtete.<lb/>
+Er haͤtte, hieß es, der Wahrheit, die er oͤfters<lb/>
+erkannt, ungeachtet er wider ſie zu Felde gegangen<lb/>
+waͤre, die Ehre gegeben, und oͤffentlich vor Freun-<lb/>
+den und Feinden bekennt, daß er das Ungluͤck ge-<lb/>
+habt haͤtte, ſeinen Geſchmack, den er zufaͤlliger<lb/>
+Weiſe angenommen, nach der Hand, da er ihn<lb/>
+an dem Probierſteine der Unterſuchung gepruͤffet,<lb/>
+vor unrichtig und betruͤglich zu erkennen; die Dresd-<lb/>
+niſchen Nachrichten von gelehrten Sachen, der<lb/>
+Hamburgiſche Correſpondent, die Zuͤrcheriſchen<lb/>
+Sammlungen von critiſchen Schriften haͤtten in<lb/>
+allen den Beſchuldigungen, ſo ſie gegen ihn gefuͤhrt,<lb/>
+allerdings recht, ſeine Schuͤler, denen er iezo die<lb/>
+Erlaubniß gaͤbe, dieſe Schriften zu leſen, wuͤrden<lb/>
+es bey dem kleinſten Lichte Verſtandes ſelber wahr-<lb/>
+nehmen. Man fuͤgte hinzu, er wuͤrde mit naͤch-<lb/>
+ſtem ſein leztes Buch unter die Preſſe legen, und<lb/>
+<fw type="sig" place="bottom">F 2</fw><fw type="catch" place="bottom">dieſes</fw><lb/>
+<pb n="84" facs="#f0086"/>
+<fw type="header" place="top"><hi rendition="#b">Nachrichten</hi></fw><lb/>
+dieſes beſtuͤhnde in einer Abbitte an alle die unſchul-<lb/>
+digen Seelen, welche die Schwachheit gehabt haͤt-<lb/>
+ten, ſich von ihm bey der Naſe herumfuͤhren zu<lb/>
+laſſen, und einer treuhertzigen Warnung vor dem<lb/>
+Geſchwaͤtze, das in ſeinen Lehrbuͤchern und poeti-<lb/>
+ſchen Schriften mit ſolcher Kraft des Schalles und<lb/>
+des Miſchmaſches angebracht waͤre; dazu waͤre ein<lb/>
+Schluͤſſel hinzugefuͤget, die mechaniſchen Hand-<lb/>
+griffe und Springfedern, welche er dabey gebraucht,<lb/>
+zu entdecken. Man hatte ſo gar wiſſen wollen, was<lb/>
+ihn zu dieſem Bekenntniß, das einem Manne von<lb/>
+ſeinem Anſehn ſo ſauer ankommen mußte, vermocht<lb/>
+haͤtte. Die Frau Profeſſorin haͤtte zuerſt einen<lb/>
+Stral der Wahrheit erblicket, als ſie die Criti-<lb/>
+ken, die gegen ihren Ehegatten geſchrieben wor-<lb/>
+den, mit einer gewiſſen Aufmerckſamkeit geleſen,<lb/>
+damit ſie ſich in den Stand ſezete, ſie in dem Grun-<lb/>
+de zu widerlegen, ſo daß ſie Satz gegen Satz,<lb/>
+Schluß gegen Schluß, und Erweis gegen Erweis<lb/>
+ſezete. Sie haͤtte die Aufrichtigkeit gehabt, der<lb/>
+erkannten Wahrheit beyzutreten, und die Partey<lb/>
+der Critik gegen ihren Mann ſelbſt zu ergreifen.<lb/>
+Sie haͤtte in einer langen Unterredung mit ihm,<lb/>
+die Sache der Vernunft und des Witzes mit ſo<lb/>
+nachdruͤcklichen Gruͤnden unterſtuͤtzet, und dieſe<lb/>
+Gruͤnde mit untermiſchten Liebkoſungen und hun-<lb/>
+dert kleinen Kunſtſtreichen eines liebenswuͤrdigen<lb/>
+Weibes ſo gut befeſtiget, daß ſie ihn zulezt, nach<lb/>
+Erregung manches Affectes und der Eiferſucht ſelbſt,<lb/>
+auf den Pfad der Wahrheit und der Aufrichtig-<lb/>
+keit geleitet haͤtte, dergeſtalt, daß er alle ungerechte<lb/>
+Scham abgeleget, und ſich entſchloſſen, der guten<lb/>
+<fw type="catch" place="bottom">Sache</fw><lb/>
+<pb n="85" facs="#f0087"/>
+<fw type="header" place="top"><hi rendition="#b">von critiſchen Geſchichten.</hi></fw><lb/>
+Sache mit Abbruch des eiteln und falſchen Ruhms<lb/>
+Zeugniß zu geben. Es iſt nicht zu ſagen, wie ſehr<lb/>
+alle ehrlichen Gemuͤther durch dieſe ſiegreiche Ver-<lb/>
+leugnung ſeiner ſelbſt erbauet worden. Man be-<lb/>
+reitete ihm deßwegen einen Triumph, der weit herr-<lb/>
+licher war, als der Ruhm, den er auf den ſan-<lb/>
+digten Grund ſeiner einſichtsloſen und tonreichen<lb/>
+Schriften gebauet hatte.</p><lb/>
+<p>Allein ich ſehe mich gezwungen zu ſagen, daß<lb/>
+dieſe ſo erbauliche Bekehrung ein leeres Geruͤchte<lb/>
+iſt. Der Hr. Profeſſor geſtehet ſeinen critiſchen<lb/>
+Gegnern noch nicht die offenbarſte Wahrheit zu;<lb/>
+und es iſt, ungeachtet des guten Vertrauens, das<lb/>
+wir gerne zu den Einſichten dieſes Scribenten faſ-<lb/>
+ſen wollten, doch gewiß, daß er von allen den<lb/>
+Schreib- und Hochmuthsſuͤnden, welche ihm vor-<lb/>
+geworffen worden, noch eine ſchlechte Ueberzeugung<lb/>
+hat. Wenn euch der Weg ungefehr nach Leipzig<lb/>
+fuͤhrt, ſo koͤnnet ihr aus ſeinem eigenen Munde<lb/>
+vernehmen, daß er feſt bey ſich beſchloſſen hat, die<lb/>
+hohe Einbildung von ſeinen Schriften wenigſtens<lb/>
+fuͤr ſich zu behalten. Es iſt vermuthlich, daß das<lb/>
+Geruͤchte von ſeiner <hi rendition="#fr">Bekehrung</hi> von einer franzoͤ-<lb/>
+ſiſchen Schrift entſtanden, welche neulich unter<lb/>
+dieſem Titel zu <hi rendition="#aq">Neufchatel</hi> herausgekommen, und<lb/>
+einige Umſtaͤnde in ſich enthaͤlt, die eine ziemliche<lb/>
+Aehnlichkeit mit der Geſchichte des Leipzigiſchen<lb/>
+Profeſſors haben. Alleine wer dieſelbe mit Be-<lb/>
+dacht lieſet, wird bald ſehen, daß wir den Stru-<lb/>
+karas, und die von ihm verfuͤhrte Nation nicht in<lb/>
+Deutſchland, ſondern weit naͤher gegen den Nord-<lb/>
+pol ſuchen muͤſſen. Ein ſo dicker Kopf, als des Stru-<lb/>
+<fw type="sig" place="bottom">F 3</fw><fw type="catch" place="bottom">karas</fw><lb/>
+<pb n="86" facs="#f0088"/>
+<fw type="header" place="top"><hi rendition="#b">Nachrichten</hi></fw><lb/>
+karas war, wird nimmermehr denckende, ſchoͤ-<lb/>
+pfungs- und kunſtreiche Leute, die ſich in den un-<lb/>
+ſterblichen Schriften der Alten und der Neuern<lb/>
+umgeſehen, und die Erkenntniß des menſchlichen<lb/>
+Gemuͤthes zum Grund ihrer Schriften geleget ha-<lb/>
+ben, verfuͤhren koͤnnen.</p><lb/>
+<p>Wieder auf den deutſchen Profeſſor zu kommen,<lb/>
+ſo iſt allein das gewiß, daß er ſeit einiger Zeit alle<lb/>
+Hoffnung hat verſchwinden laſſen, jemanden zu ſei-<lb/>
+ner Seckte zu bereden, der ſeinen Geſchmack auf<lb/>
+die vorhergegangene Unterſuchung gegruͤndet hat,<lb/>
+oder mit ſeiner Poeſie jemanden einzunehmen, der<lb/>
+ſich zu Horazens, Miltons und Hallers Schoͤnhei-<lb/>
+ten gewoͤhnet hat. Er iſt zufrieden, wenn er ſich<lb/>
+nur bey dem ungehirnten Theile der Nation im<lb/>
+Anſehn erhalten mag; und er iſt nunmehr beſchei-<lb/>
+den genug zuzugeben, daß ſein Nahme, und ſeine<lb/>
+Schriften mit ihm leben und ſterben. Nur dieſes<lb/>
+ſuchet er durch das vereinigte Lermen des kleinen<lb/>
+und des vornehmen Poͤbels von ſeinem Anhange<lb/>
+zu erlangen. Zu dieſer Abſicht und nicht weiter<lb/>
+zielet die muͤhſame Arbeit, die er durch ſeine alten<lb/>
+Renommiſten, die <hi rendition="#fr">Beluſtiger,</hi> in den <hi rendition="#fr">haͤlliſchen<lb/>
+Bemuͤhungen</hi> hat vornehmen laſſen. Man ſieht<lb/>
+auch wohl, daß die ſophiſtiſchen Kunſtgriffe in<lb/>
+dieſem Wercke ſo plump und offenbar ſind, daß<lb/>
+nur mit dem Staren behaftete Menſchen in Ge-<lb/>
+fahr kommen, dadurch hintergangen zu werden.<lb/>
+Leute, die eine Auferziehung gehabt, die gelernet ha-<lb/>
+ben, dencken und aufrecht gehen, ſind uͤber dieſe<lb/>
+Klippe weg. Der Verfaſſer des <hi rendition="#fr">Erweiſes, daß<lb/>
+die Gottſchedianiſche Secte den Geſchmack</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">ver-</hi></fw><lb/>
+<pb n="87" facs="#f0089"/>
+<fw type="header" place="top"><hi rendition="#b">von critiſchen Geſchichten.</hi></fw><lb/>
+<hi rendition="#fr">verderbe,</hi> hat dieſem Gezuͤchte von kleinen Kunſt-<lb/>
+tadlern einen toͤdtlichen Schlag verſezet, ſein uͤbri-<lb/>
+ges Leben wird ein beſtaͤndiger Kampf mit dem To-<lb/>
+de ſeyn, und es waͤhret nur darum noch laͤnger mit<lb/>
+ihm, weil es, wie die Hydra, hundert Koͤpfe hat,<lb/>
+deren jeder Gift ſpeyet und ziſchet. Sein vornehm-<lb/>
+ſter Kopf, der Hr. Profeſſor, iſt laͤngſt in demſel-<lb/>
+ben Zuſtande, und es waͤre ſchier den Krieg zu weit<lb/>
+getrieben, wenn man ihn die kurtze Zeit, die<lb/>
+er noch unter den Jeztlebenden zuzubringen hat,<lb/>
+in ſeiner Herrſchaft uͤber die kruͤppligten und krie-<lb/>
+chenden Scribenten und Leſer ſtoͤren wollte; Er<lb/>
+iſt genug gezuͤchtiget, daß er von dem Gipfel des<lb/>
+Parnaſſes, worauf er ſich in der Einbildung ge-<lb/>
+ſetzet hatte, in die niedrigen und moraſtigen Thaͤ-<lb/>
+ler deſſelben geſtuͤrtzet worden. Man findet darum<lb/>
+billig, den Tummelplatz, der in gegenwaͤrtigen<lb/>
+<hi rendition="#fr">Critiſchen Sammlungen</hi> eroͤffnet worden, zuzu-<lb/>
+ſchlieſſen. Dieſes Werck hat ohnedies ſeine gehoͤ-<lb/>
+rige Statur erreicht; und wenn der Hr. Prof.<lb/>
+ſich geluͤſten lieſſe, ſein Reich weiter als uͤber<lb/>
+die gebrechlichen Koͤpfe der Nation zu erſtrecken,<lb/>
+wird es der Critik an Gelegenheit nicht fehlen, ihm<lb/>
+mit Huͤlfe der Satyre den lezten-Stoß in die Gru-<lb/>
+be zu geben.</p><lb/>
+<p>Es iſt uͤbrigens fremden Urſachen zuzuſchreiben,<lb/>
+daß die Proben von dem Vermoͤgen der deutſchen<lb/>
+Schoͤpfungskraft und Geſchicklichkeit in gegenwaͤr-<lb/>
+tiger <hi rendition="#fr">Sammlung</hi> nicht in groͤſſerer Anzahl erſchie-<lb/>
+nen ſind. Man ward durch die Anfaͤlle, welche<lb/>
+auf das wahre Weſen der poetiſchen und anderer<lb/>
+geiſtreichen Schreibarten geſchahen, genoͤthiget, den<lb/>
+<fw type="sig" place="bottom">F 4</fw><fw type="catch" place="bottom">Platz</fw><lb/>
+<pb n="88" facs="#f0090"/>
+<fw type="header" place="top"><hi rendition="#b">Nachrichten von crit. Geſchichten.</hi></fw><lb/>
+Platz, den geſchickte Schriften ſelbſt mit beſſerm Rechte<lb/>
+eingenommen haͤtten, der Vertheidigung der Kunſtmittel,<lb/>
+dadurch ſie zum Reitzen und Entzuͤcken tuͤchtig gemacht<lb/>
+werden, einzuraͤumen. Und weil die Angriffe, die zwar<lb/>
+an ſich hertzlich ſchwach waren, dennoch mit ungeſtuͤmem<lb/>
+Geſchrey und Wuͤthen gethan, und etliche mahl widerho-<lb/>
+let wurden, ſo iſt es ſo gekommen, daß der niederreiſſen-<lb/>
+den Schriften mehr geworden ſind, als der aufbauenden.<lb/>
+Dennoch hat man in der Zeit, da man mit der einen Hand<lb/>
+auf den Feind zuſchlug, nicht unterlaſſen mit der andern<lb/>
+fortzubauen. Oefters hat man mitten im Niederwerffen<lb/>
+die Zeichnung und die Materialien zu einem geſchicktern<lb/>
+Bau gegeben.</p><lb/>
+<p>Die Hoffnung, die wir bey der Unternehmung dieſer<lb/>
+<hi rendition="#fr">Sammlung</hi> zu der Beyhuͤlffe geſchickter Maͤnner bey uns<lb/>
+genehret hatten, hat uns nicht betrogen. Kunſtverſtaͤn-<lb/>
+dige Maͤnner, welche mitten unter den ſchlimmen Poeten<lb/>
+und Kunſtlehrern lebeten, aber dem Elend, das ſie zwar<lb/>
+laͤngſt eingeſehen hatten, ſich nicht mit der noͤthigen Si-<lb/>
+cherheit und Freyheit entgegen ſetzen konnten, ſind zu uns<lb/>
+getreten, und haben uns die ſchaͤndliche Nachrede beſtrei-<lb/>
+ten helffen, in welche die Nation durch die ungezaͤumte<lb/>
+Frechheit ihrer Landsleute geſezt worden; ſie haben uns<lb/>
+nicht allein die noͤthigen Nachrichten von den Beſtrebun-<lb/>
+gen, und dem Fortgange der ſchlimmen Critik mitgetheilt,<lb/>
+ſondern auch unſere <hi rendition="#fr">Sammlung</hi> mit etlichen abſonderli-<lb/>
+chen Schriften, da ſie es ſo hinter dem Berge thun konn-<lb/>
+ten, vermehret. Andere ſind durch unſer Beyſpiel <hi rendition="#fr">ermun-<lb/>
+tert,</hi> oder wenn das zuviel geſagt iſt, wenigſtens veran-<lb/>
+laſſet worden, fuͤr ſich ſelbſt, und in ihrer Heimat den<lb/>
+Eingriffen des verderbten Geſchmakes, ſo weit ſie Gele-<lb/>
+genheit gefunden, es mit Sicherheit zu thun, zu widerſte-<lb/>
+hen. Wir leben verſichert, daß die guten Wirckungen<lb/>
+von dieſem allen ſich taͤglich ſtaͤrcker und haͤufiger erzeigen<lb/>
+werden.</p><lb/>
+<lg type="poem"><l>Die Falſchheit ſiehet man nur eine Zeitlang ehren,</l><lb/>
+<l>Der Wahrheit Feuer weiß ſie endlich zu verzehren.</l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Regi-</hi></fw><lb/>
+<pb n="89" facs="#f0091"/>
+</body><back> <div n="1"><head><hi rendition="#b"><hi rendition="#g">Regiſter</hi><lb/>
+Von den Titeln oder Aufſchriften<lb/>
+der Wercke und Abhandlungen, welche</hi><lb/>
+in dieſer Critiſchen Sammlung zuſam-<lb/>
+mengetragen worden.</head></div><lb/>
+<div type="contents"><list><head><hi rendition="#c"><hi rendition="#fr">Erſtes Stuͤck.</hi></hi></head><lb/>
+<item>Probe einer neuen Ueberſetzung Johann Miltons Verlohr-<lb/>
+nen Paradieſes.<space dim="horizontal"/>Bl. <ref>1</ref></item><lb/>
+<item>Alexander Popen Verſuch von den Eigenſchaften eines<lb/>
+Kunſtrichters.<space dim="horizontal"/><ref>49</ref></item><lb/>
+<item>Von dem Sinnreichen und dem Scharſſinnigen.<space dim="horizontal"/><ref>85</ref></item><lb/>
+<item>Hans Sachs, ein Heldengedicht.<space dim="horizontal"/><ref>115</ref></item><lb/>
+<item>Dunckle Erklaͤrungen dieſes Heldengedichts.<space dim="horizontal"/><ref>132</ref></item><lb/>
+<item>Auszuͤge aus Herr Prof. Breitingers Widerlegung der<lb/>
+<hi rendition="#aq">Lettres ſur la Religion eſſentielle à l’homme, diſtinguée<lb/>
+de ce qui n’en eſt que l’acceſſoire.</hi><space dim="horizontal"/><ref>138</ref></item></list><lb/>
+<list><head><hi rendition="#c"><hi rendition="#fr">Zweytes Stuͤck.</hi></hi></head><lb/>
+<item>Nothwendiges Ergaͤntzungs-Stuͤcke zu der Schutz-Vor-<lb/>
+rede Hrn. Dr. Tr*ll*rs vor ſeinem neuen Aeſopiſchen<lb/>
+Fabelwercke.<space dim="horizontal"/><ref>1</ref></item><lb/>
+<item>Nuͤtzlicher Anhang von einigen authentiſchen Urkunden,<lb/>
+welche dienen, den Ruhm der Tr*ll*riſchen Fabeln zu<lb/>
+befeſtigen, und die neue Critiſche Dichtkunſt ſchwartz<lb/>
+und haͤßlich zu machen.<space dim="horizontal"/><ref>56</ref></item><lb/>
+<item>Ablehnung des Verdachts, daß die Schweitzeriſche Nation<lb/>
+ſich habe bereden laſſen, an Miltons Verl. Par. einen<lb/>
+Geſchmack zu finden.<space dim="horizontal"/><ref>73</ref></item><lb/>
+<item>Nachrichten von dem Urſprung und Wachsthum der Cri-<lb/>
+tk bey den Deutſchen.<space dim="horizontal"/><ref>81</ref></item><lb/>
+<item>Drollingers Ode uͤber die Unſterblichkeit der Seele.<space dim="horizontal"/><ref>181</ref></item></list><lb/>
+<fw type="sig" place="bottom">F 5</fw><fw type="catch" place="bottom"><hi rendition="#fr">Drittes</hi></fw><lb/>
+<pb n="90" facs="#f0092"/>
+<fw type="header" place="top"><hi rendition="#b"><hi rendition="#g">Regiſter.</hi></hi></fw><lb/>
+<list><head><hi rendition="#c"><hi rendition="#fr">Drittes Stuͤck.</hi></hi></head><lb/>
+<item>Erklaͤrung auf einige Antworten, welche jemand dem<lb/>
+Verfaſſer der <hi rendition="#aq">Lettres ſur la Religion eſſentielle à l’hom-<lb/>
+me</hi> gegen gewiſſe Einwuͤrffe Hr. Prof. Breitingers ge-<lb/>
+liehen hat.<space dim="horizontal"/><ref>1</ref></item><lb/>
+<item>Von der verbluͤmten Schreibart.<space dim="horizontal"/><ref>17</ref></item><lb/>
+<item>Von der poſſenhaftigen Schreibart.<space dim="horizontal"/><ref>29</ref></item><lb/>
+<item><hi rendition="#aq">Apologia del Edippo di Sofocle contra le Cenſure del Si-<lb/>
+gnor di Voltaire.</hi><space dim="horizontal"/><ref>37</ref></item><lb/>
+<item>Abhandlung von der Schreibart in Miltons verlohrnen<lb/>
+Paradieſe.<space dim="horizontal"/><ref>75</ref></item><lb/>
+<item>Nachrichten von den Beluſtigungen des Witzes.<space dim="horizontal"/><ref>134</ref></item><lb/>
+<item>Der Complot der herrſchenden Poeten und Kunſtrichter.<lb/>
+<space dim="horizontal"/><ref>161</ref></item></list><lb/>
+<list><head><hi rendition="#c"><hi rendition="#fr">Viertes Stuͤck.</hi></hi></head><lb/>
+<item>Grundriß eines epiſchen Gedichtes von dem geretteten<lb/>
+Noah<space dim="horizontal"/><ref>1</ref></item><lb/>
+<item>Weitere Ausfuͤhrung etlicher Erfindungen mit mehrern<lb/>
+Umſtaͤnden, nebſt den vornehmſten Urſachen derſelben.<space dim="horizontal"/><ref>9</ref></item><lb/>
+<item>Echo des deutſchen Witzes.<space dim="horizontal"/><ref>19</ref></item><lb/>
+<item>Critiſche Unterſuchung, wer der Verfaſſer der neuen An-<lb/>
+merckungen zu der Trilleriſchen Schutzvorrede ſey.<space dim="horizontal"/><ref>36</ref></item><lb/>
+<item>Zureichender Grund, warum der Herausgeber des Er-<lb/>
+gaͤntzungsſtuͤckes den Nahmen Tr*ll*r nur mit Sternen<lb/>
+und Alltagsſtrichlein geflickt habe druͤcken laſſen.<space dim="horizontal"/><ref>48</ref></item><lb/>
+<item>Hiſtoriſcher Erweis, daß das Ergaͤntzungsſtuͤck zu der<lb/>
+Vorrede vor dem Trilleriſchen Fabelbuche, Herr Doc-<lb/>
+tor Trillern; die Vorrede und Anmerckungen zu dem-<lb/>
+ſelben aber <hi rendition="#fr">mich</hi> zum Verfaſſer haben.<space dim="horizontal"/><ref>61</ref></item><lb/>
+<item>Abgenoͤthigtes Lob eines critiſchen Verſuches von einer<lb/>
+freyen Ueberſetzung aus der ſchweitzeriſchen in die ſaͤch-<lb/>
+ſiſche Sprache.<space dim="horizontal"/><ref>71</ref><lb/>
+Abſonderliche Nachricht.<space dim="horizontal"/><ref>84</ref></item></list><lb/>
+<list><head><hi rendition="#c"><hi rendition="#fr">Fuͤnftes Stuͤck.</hi></hi></head><lb/>
+<item>Des Hrn. von Mauvillon Brief von der Sprache der<lb/>
+Deutſchen.<space dim="horizontal"/><ref>5</ref></item><lb/>
+<item>Des Hrn. von Mauvillon Brief von den deutſchen Poe-<lb/>
+ten.<space dim="horizontal"/><ref>30</ref></item><lb/>
+<fw type="catch" place="bottom">Anfang</fw><lb/>
+<pb n="91" facs="#f0093"/>
+<fw type="header" place="top"><hi rendition="#b"><hi rendition="#g">Regiſter.</hi></hi></fw><lb/>
+<item>Anfang des Briefes von dem Fortgang der Philoſophie<lb/>
+in Deutſchland.<space dim="horizontal"/><ref>77</ref></item><lb/>
+<item>Kurtze Abhandlung von den Dichtungen uͤberhaupt.<space dim="horizontal"/><ref>80</ref></item></list><lb/>
+<list><head><hi rendition="#c"><hi rendition="#fr">Sechstes Stuͤck.</hi><lb/>
+Fortſetzung der Echo des deutſchen Witzes.</hi></head><lb/>
+<item>Eroͤrterung der Frage: Wie ferne die Koͤniginn von Sa-<lb/>
+ba und der Koͤnig Herodes mit der Chriſtlichen Reli-<lb/>
+gion einen Zuſammenhang haben?<space dim="horizontal"/><ref>5</ref></item><lb/>
+<item>Von der critiſchen Hoͤflichkeit einiger hochdeutſcher Kunſt-<lb/>
+richter.<space dim="horizontal"/><ref>14</ref></item><lb/>
+<item>Von der critiſchen Gerechtigkeit einiger hochdeutſchen<lb/>
+Kunſtrichter.<space dim="horizontal"/><ref>34</ref></item><lb/>
+<item>Wie die Unvollkommenheit des Gottſchediſchen Verſuches<lb/>
+einer critiſchen Dichtkunſt am ſicherſten koͤnne entſchul-<lb/>
+diget und gegen alle Vorwuͤrffe ſicher geſtellt werden.<space dim="horizontal"/><ref>44</ref></item><lb/>
+<item>Ob es wahr ſey, daß die Deutſchen an Miltons verlohr-<lb/>
+nem Paradieſe keinen Geſchmack finden.<space dim="horizontal"/><ref>54</ref></item><lb/>
+<item>Ein halbes Hundert Vorſchlaͤge zu wichtigen und gantz<lb/>
+lehrreichen critiſchen Unterſuchungen.<space dim="horizontal"/><ref>76</ref></item><lb/>
+<item>Neue Vorrede zur dritten Auflage der Gottſchediſchen<lb/>
+Dichtkunſt von 1742.<space dim="horizontal"/><ref>93</ref></item><lb/>
+<item>Ecloga.<space dim="horizontal"/><ref>139</ref></item></list><lb/>
+<list><head><hi rendition="#c"><hi rendition="#fr">Siebendes Stuͤck.</hi></hi></head><lb/>
+<item>Von dem wichtigen Antheil, den das Gluͤck beytragen<lb/>
+muß einen Epiſchen Poeten zu formiren.<space dim="horizontal"/><ref>3</ref></item><lb/>
+<item>Von den vortrefflichen Umſtaͤnden fuͤr die Poeſie unter den<lb/>
+Kaiſern aus dem ſchwaͤbiſchen Hauſe.<space dim="horizontal"/><ref>25</ref></item><lb/>
+<item>Von der Poeſie des ſechszehnten Jahrhundert nach ihrem<lb/>
+ſchoͤnſten Lichte.<space dim="horizontal"/><ref>54</ref></item><lb/>
+<item>Abentheuer, das ſich mit der Aeneis Hrn. Joh. Chriſt.<lb/>
+Schwartzen in Conrector Erlenbachs Schule zugetra-<lb/>
+gen hat.<space dim="horizontal"/><ref>81</ref></item><lb/>
+<item>Neue Sachen in der critiſchen Literatur.<space dim="horizontal"/><ref>91</ref></item></list><lb/>
+<list><head><hi rendition="#c"><hi rendition="#fr">Achtes Stuͤck.</hi></hi></head><lb/>
+<item>Von der Poeſie des ſechszehnten Jahrhunderts.<space dim="horizontal"/><ref>3</ref></item><lb/>
+<item>Critiſche Betrachtungen uͤber des Herrn von Hagedorn<lb/>
+Ode auf den Weiſen.<lb/>
+<fw type="catch" place="bottom">Wohl-</fw><lb/>
+<pb n="92" facs="#f0094"/>
+<fw type="header" place="top"><hi rendition="#b"><hi rendition="#g">Regiſter.</hi></hi></fw><lb/>
+Wohlgemeinter Vorſchlag, wie Herrn Chriſtoph Schwar-<lb/>
+zen deutſche Aeneis von dem Gerichte der Maklatur<lb/>
+noch zu erretten waͤre.<space dim="horizontal"/><ref>33</ref></item><lb/>
+<item>Verſuch einer Ueberſetzung von Fabeln aus einer deutſchen<lb/>
+Handſchrift des vierzehnten Jahrhunderts.<space dim="horizontal"/><ref>54</ref></item><lb/>
+<item>Sinnliche Erzehlung von der mechaniſchen Verfertigung<lb/>
+des deutſchen Original-Stuͤckes von Cato.<space dim="horizontal"/><ref>80</ref></item></list><lb/>
+<list><head><hi rendition="#c"><hi rendition="#fr">Neuntes Stuͤck.</hi></hi></head><lb/>
+<item>Von dem Zuſtande der deutſchen Poeſie bey Ankunft Mar-<lb/>
+tin Opitzens.<space dim="horizontal"/><ref>3</ref></item><lb/>
+<item>Martin Opitzens verworffene Gedichte.<space dim="horizontal"/><ref>42</ref></item><lb/>
+<item>Genaue Pruͤffung der Gottſchediſchen Ueberſetzung Hora-<lb/>
+zens von der Dichtkunſt.<space dim="horizontal"/><ref>75</ref></item><lb/>
+<item>Nachrichten von einigen neuen Schriften.<space dim="horizontal"/><ref>106</ref></item></list><lb/>
+<list><head><hi rendition="#c"><hi rendition="#fr">Zehntes Stuͤck.</hi></hi></head><lb/>
+<item>Verſuch eines epiſchen Gedichtes von David dem Koͤnig<lb/>
+in Juda.<space dim="horizontal"/><ref>3</ref></item><lb/>
+<item>Des Herrn Vatry Gedancken von den Choͤren in den<lb/>
+Trauerſpielen.<space dim="horizontal"/><ref>85</ref></item></list><lb/>
+<list><head><hi rendition="#c"><hi rendition="#fr">Eilfftes Stuͤck.</hi></hi></head><lb/>
+<item>Hrn. Joh. Chriſtoph Gottſcheds Schreiben an die deutſche<lb/>
+Geſellſchaft von Greifswalde.<space dim="horizontal"/><ref>6</ref></item><lb/>
+<item>Petermanns von Langnau Schreiben an die deutſche Ge-<lb/>
+ſellſchaft von Greifswalde.<space dim="horizontal"/><ref>25</ref></item><lb/>
+<item>Arion eine poetiſche Erzehlung.<space dim="horizontal"/><ref>69</ref></item><lb/>
+<item>Neue Fabeln.<space dim="horizontal"/><ref>88</ref></item></list><lb/>
+<list><head><hi rendition="#c"><hi rendition="#fr">Zwoͤlfftes Stuͤck.</hi></hi></head><lb/>
+<item>Critiſche Unterſuchung, wie weit ſich ein Poet des gemei-<lb/>
+nen Wahnes und der Sage bedienen koͤnne.<space dim="horizontal"/><ref>1</ref></item><lb/>
+<item>Verſuch uͤber den Urſprung der Wiſſenſchaften.<space dim="horizontal"/><ref>33</ref></item><lb/>
+<item>Strukaras, oder die Bekehrung.<space dim="horizontal"/><ref>54</ref></item><lb/>
+<item>Nachrichten von critiſchen Geſchichten.<space dim="horizontal"/><ref>88</ref></item></list><lb/>
+<p><hi rendition="#c"><hi rendition="#b"><hi rendition="#g">ENDE.</hi></hi></hi></p></div><lb/>
+<pb facs="#f0095"/>
+</back> </text> </TEI>

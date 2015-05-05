@@ -1,0 +1,2950 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">     <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Wunderbare Reisen zu Wasser und Lande, Feldzüge und lustige Abentheuer des Freyherrn von Münchhausen, wie er dieselben bey der Flasche im Cirkel seiner Freunde selbst zu erzählen pflegt</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118517104">
+<surname>Bürger</surname>
+<forename>Gottfried August</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">146</measure>
+<measure type="tokens">14268</measure>
+<measure type="types">3949</measure>
+<measure type="characters">96519</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:05:05Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/buerger_muenchhausen_1786</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/buerger_muenchhausen_1786</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/buerger_muenchhausen_1786</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/buerger_muenchhausen_1786</idno>
+<idno type="DTADirName">buerger_muenchhausen_1786</idno>
+<idno type="DTAID">16503</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905196949</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Bürger, Gottfried August: Wunderbare Reisen [..] des Freyherrn von Münchhausen [..]. London: [vielm. Göttingen]: Dieterich, 1786.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Wunderbare Reisen zu Wasser und Lande, Feldzüge und lustige Abentheuer des Freyherrn von Münchhausen, wie er dieselben bey der Flasche im Cirkel seiner Freunde selbst zu erzählen pflegt</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118517104">
+<surname>Bürger</surname>
+<forename>Gottfried August</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">114 S., 3 Bl.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Dieterich</name></publisher>
+<pubPlace>London : [vielm. Göttingen]</pubPlace>
+<date type="publication">1786</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">Göttingen SUB, 8 FAB VI, 2802 RARA</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20FAB%20VI%2C%202802%20RARA</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Roman</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Roman</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text>     <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb n="[1]" facs="#f0006"/>
+<titlePage type="halftitle">         <docTitle>           <titlePart type="main">             <hi rendition="#b"><hi rendition="#g">Des</hi><lb/>
+Freyherrn von Muͤnchhauſen             <lb/>
+<hi rendition="#g">Wunderbare Reiſen</hi>,</hi>           </titlePart>         </docTitle>         <lb/>
+<titlePart type="desc">           <hi rendition="#b"><hi rendition="#g">aus dem Engliſchen,<lb/>
+mit Kupfern</hi>.</hi>         </titlePart>       </titlePage>       <lb/>
+<pb n="[2]" facs="#f0007"/>
+<pb n="[3]" facs="#f0008"/>
+<titlePage type="main">         <docTitle>           <titlePart type="main">             <hi rendition="#b"><hi rendition="#g">Wunderbare<lb/>
+Reiſen<lb/>
+zu<lb/>
+Waſſer und Lande</hi>,<lb/>
+Feldzuͤge und luſtige Abentheuer<lb/>
+<hi rendition="#g">des</hi><lb/>
+Freyherrn von Muͤnchhauſen,<lb/>
+wie er dieſelben bey der Flaſche im Cirkel<lb/>
+ſeiner Freunde ſelbſt zu erzaͤhlen<lb/>
+pflegt.</hi>           </titlePart>         </docTitle>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <titlePart type="desc">           <hi rendition="#b">Aus dem Engliſchen nach der neueſten Ausgabe<lb/>
+uͤberſetzt, hier und da erweitert und mit noch<lb/>
+mehr Kupfern gezieret.</hi>         </titlePart>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <docImprint>           <pubPlace>             <hi rendition="#b">               <hi rendition="#g">London</hi>             </hi>           </pubPlace>           <docDate>             <hi rendition="#b"><hi rendition="#g">1786</hi>.</hi>           </docDate>         </docImprint>       </titlePage>       <lb/>
+<pb n="[4]" facs="#f0009"/>
+<epigraph>         <quote>Glaubt’s nur, ihr gravitaͤtiſchen Herrn?<lb/>
+Geſcheidte Leute narriren gern.</quote>       </epigraph>     </front>     <body>       <lb/>
+<pb n="[5]" facs="#f0010"/>
+<milestone unit="section" rendition="#hr"/>       <div n="1">         <head>           <hi rendition="#b"><hi rendition="#g">Vorrede<lb/>
+zur erſten Ausgabe</hi>.</hi>         </head>         <lb/>
+<p><hi rendition="#in">D</hi>er Freyherr von Muͤnchhauſen zu<lb/>
+Bodenwerder, ohnweit Hameln an<lb/>
+der Weſer, gehoͤrt zu dem edlen Ge-<lb/>
+ſchlechte gleiches Nahmens, welches<lb/>
+den deutſchen Staaten des Koͤnigs<lb/>
+von Großbritannien den verſtorbenen<lb/>
+Premierminiſter und mehrere andere<lb/>
+vornehme Beamten geſchenkt hat.<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="6" facs="#f0011"/>
+Er iſt ein Mann von der originelle-<lb/>
+ſten Laune; und da er vielleicht ge-<lb/>
+funden hat, wie ſchwer es oft haͤlt,<lb/>
+verſchrobenen Koͤpfen geraden Men-<lb/>
+ſchenverſtand einzuraͤſoniren, und wie<lb/>
+leicht hergegen ein dreiſter Haberecht<lb/>
+eine ganze Verſammlung zu uͤbertaͤu-<lb/>
+ben und aus ihren fuͤnf Sinnen hin-<lb/>
+auszuſchreyen vermag: ſo laͤßt er ſich<lb/>
+in ſolchen Faͤllen niemals auf Wi-<lb/>
+derlegungen ein; ſondern wendet zu-<lb/>
+erſt geſchickt die Unterredung auf<lb/>
+gleichguͤltige Gegenſtaͤnde, und dann<lb/>
+erzaͤhlt er irgend ein Geſchichtchen<lb/>
+von ſeinen Reiſen, Feldzuͤgen und<lb/>
+ſchnurrigen Abentheuern in einem ihm<lb/>
+<fw type="catch" place="bottom">ganz</fw><lb/>
+<pb n="7" facs="#f0012"/>
+ganz eigenthuͤmlichen Tone, der aber<lb/>
+gerade der rechte iſt, die Kunſt zu<lb/>
+luͤgen, oder hoͤflicher geſagt, das<lb/>
+lange Meſſer zu handhaben, aus ih-<lb/>
+rem ruhigen Schlupfwinkel hervor<lb/>
+zu kitzeln und blank zu ſtellen.</p>         <lb/>
+<p>Da dieſes Mittel ſchon oͤfter von<lb/>
+gutem Erfolge geweſen iſt, ſo ſey es<lb/>
+uns hiermit erlaubt, dem Publikum<lb/>
+einige von ſeinen Geſchichtchen vor-<lb/>
+zulegen, und diejenigen, die etwa<lb/>
+unter beruͤchtigte Prahlhaͤnſe gerathen,<lb/>
+zu bitten, ſich bey jeder ſchicklichen<lb/>
+Gelegenheit ebendeſſelben zu bedienen.<lb/>
+Gelegenheit aber wird ſeyn, ſo oft<lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">Jemand</fw><lb/>
+<pb n="8" facs="#f0013"/>
+Jemand unter der Maske der Wahr-<lb/>
+heit in ganzem Ernſte falſche Dinge<lb/>
+behauptet und auf Koſten ſeiner ei-<lb/>
+genen Ehre auch diejenigen hinter-<lb/>
+gehet, die zum Ungluͤck ſeine Zuhoͤ-<lb/>
+rer ſind.</p>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/>       <fw type="catch" place="bottom">         <hi rendition="#b">           <hi rendition="#g">Zur</hi>         </hi>       </fw>       <lb/>
+<pb n="[9]" facs="#f0014"/>
+<milestone unit="section" rendition="#hr"/>       <div n="1">         <head>           <hi rendition="#b"><hi rendition="#g">Zur<lb/>
+zweyten Ausgabe</hi>.</hi>         </head>         <lb/>
+<p><hi rendition="#in">D</hi>er ſchnelle Abgang der erſten<lb/>
+Ausgabe dieſes Werkchens bew<supplied>e</supplied>iſet<lb/>
+hinlaͤnglich, daß dem Publikum ſein<lb/>
+moraliſcher Endzweck in dem rechten<lb/>
+Lichte erſchienen iſt. Vielleicht haͤtte<lb/>
+man es noch ſchicklicher: <hi rendition="#fr">Luͤgen-<lb/>
+ſtrafer</hi>, betitelt, da in der That<lb/>
+keine Unart veraͤchtlicher iſt, als die<lb/>
+Ohren ſeiner Freunde mit Unwahr-<lb/>
+heiten zu behelligen.</p>         <lb/>
+<fw type="sig" place="bottom">A 5</fw>         <fw type="catch" place="bottom">Der</fw>         <lb/>
+<pb n="10" facs="#f0015"/>
+<p>Der Baron ſelbſt iſt ein Mann<lb/>
+von außerordentlicher Ehre, der ſein<lb/>
+Vergnuͤgen daran findet, diejenigen<lb/>
+zur Schau auszuſtellen, welche zu<lb/>
+Betruͤgereyen jeder Art geneigt ſind.<lb/>
+Er thut dieſes auf eine ſehr drollige<lb/>
+Art, wenn er in großen Geſellſchaf-<lb/>
+ten diejenigen Geſchichten erzaͤhlt, wel-<lb/>
+che dem Publikum in dieſer kleinen<lb/>
+Sammlung uͤberliefert werden. Sie<lb/>
+iſt anſehnlich durch ſeine Schiff- und<lb/>
+See-Abentheuer vermehrt, und durch<lb/>
+vier Vorſtellungen von ſeinem eigenen<lb/>
+Pinſel verſchoͤnert.</p>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/>       <fw type="catch" place="bottom">         <hi rendition="#b">           <hi rendition="#g">Zur</hi>         </hi>       </fw>       <lb/>
+<pb n="[11]" facs="#f0016"/>
+<milestone unit="section" rendition="#hr"/>       <div n="1">         <head>           <hi rendition="#b"><hi rendition="#g">Zur<lb/>
+deutſchen Ueberſetzung</hi>.</hi>         </head>         <lb/>
+<p><hi rendition="#in">D</hi>ieß Buͤchlein iſt in der deutſchen<lb/>
+Ueberſetzung, die ſich eben nicht<lb/>
+aͤngſtlich an die Worte bindet, hier<lb/>
+und da durch neue Einſchaltungen<lb/>
+erweitert, und duͤrfte bey einer kuͤnf-<lb/>
+tigen Auflage, deren es ſich nicht<lb/>
+ganz ohne Urſache ſchmeichelt, leicht<lb/>
+<fw type="catch" place="bottom">noch</fw><lb/>
+<pb n="12" facs="#f0017"/>
+noch um ein betraͤchtliches vermehrt<lb/>
+werden. Denn unſer Land iſt nicht<lb/>
+nur voll von aͤhnlichen Geſchichten,<lb/>
+ſondern auch die Quelle, woraus<lb/>
+dieſe entſprungen ſind, wird hoffent-<lb/>
+lich noch nicht vertrocknet ſeyn. So<lb/>
+ein Buͤchlein, wie dieſes, iſt frey-<lb/>
+lich weder ein <hi rendition="#aq">Syſtema,</hi> noch <hi rendition="#aq">Tra-<lb/>
+ctatus,</hi> noch <hi rendition="#aq">Commentarius,</hi> noch<lb/>
+<hi rendition="#aq">Synopſis,</hi> noch <hi rendition="#aq">Compendium,</hi> und<lb/>
+es hat keine einzige von allen Claſſen<lb/>
+unſerer vomehmſten Academien und<lb/>
+Societaͤten der Wiſſenſchaften daran<lb/>
+<fw type="catch" place="bottom">Antheil.</fw><lb/>
+<pb n="13" facs="#f0018"/>
+Antheil. Wenn es indeſſen auch<lb/>
+weiter nichts thut, als daß es auf<lb/>
+eine unſchuldige Art zu lachen macht,<lb/>
+ſo braucht, deucht mich, der Vor-<lb/>
+redner eben nicht gerade <hi rendition="#aq">in pontifi-<lb/>
+calibus</hi> in Mantel, Kragen und<lb/>
+Stutzperuͤcke aufzutreten, um es dem<lb/>
+geneigten Leſer ehrbarlich zu empfeh.<lb/>
+len. Denn es iſt alsdann, ſo<lb/>
+klein und frivol es immer ſcheinen<lb/>
+mag, leicht mehr werth, als eine<lb/>
+ganze große Menge dickbeleibter eh-<lb/>
+renveſter Buͤcher, wobey man weder<lb/>
+<fw type="catch" place="bottom">lachen</fw><lb/>
+<pb n="14" facs="#f0019"/>
+lachen noch weinen kann, und worin<lb/>
+weiter nichts ſteht, als was in hun-<lb/>
+dertmal mehr andern dickbeleibten<lb/>
+ehrenveſten Buͤchern laͤngſt geſtanden<lb/>
+hat. Auch paßt alsdann nicht uͤbel<lb/>
+hieher eine Stelle aus des alten ehr-<lb/>
+lichen vergeſſenen <hi rendition="#g">Rollenhagens</hi><lb/>
+Vorrede zu ſeinem Froſchmaͤuſeler, die<lb/>
+ein wenig moderniſirt alſo lautet:</p>         <lb/>
+<lg type="poem">           <l>Der Graubart, der mit duͤrren</l>           <lb/>
+<l>Knochen</l>           <lb/>
+<l>Der Lehre nichts kann, als poltern</l>           <lb/>
+<l>und pochen,</l>           <lb/>
+<fw type="catch" place="bottom">Und</fw>           <lb/>
+<pb n="15" facs="#f0020"/>
+<l>Und hoͤren mag kein luſtiges Wort</l>           <lb/>
+<l>Der packe zuſammen und trolle ſich</l>           <lb/>
+<l>fort!</l>           <lb/>
+<l>Zwar wollen wir’s gaͤnzlich nicht ver-</l>           <lb/>
+<l>ſchwoͤren,</l>           <lb/>
+<l>Ihn auf ein andres Mal zu hoͤren,</l>           <lb/>
+<l>Wenn nehmlich uns auch die Naſen</l>           <lb/>
+<l>blau</l>           <lb/>
+<l>Und Haar und Bart ſich faͤrben grau;</l>           <lb/>
+<l>Auch ſonſt wohl zu gelegener Stund’.</l>           <lb/>
+<l>Denn Wermuth iſt nicht immer</l>           <lb/>
+<l>geſund.</l>           <lb/>
+<l>Man trinkt ja wohl auch neuen Wein,</l>           <lb/>
+<l>Und tunkt in friſchen Honig ’mal ein.</l>           <lb/>
+<l>Die Natur erneut ein neuer Genuß.</l>           <lb/>
+<l>Stets Einerley macht Ueberdruß,</l>           <lb/>
+<fw type="catch" place="bottom">Wie</fw>           <lb/>
+<pb n="16" facs="#f0021"/>
+<l>Wie alles der alten Meiſter Trutzen,</l>           <lb/>
+<l>Der Wechſel nur ſchafft Luſt und</l>           <lb/>
+<l>Nutzen.</l>           <lb/>
+<l>             <hi rendition="#fr">Man ſchilt oft ſpoͤttiſch Zeit-</hi>           </l>           <lb/>
+<l>             <hi rendition="#fr">vertreib,</hi>           </l>           <lb/>
+<l>             <hi rendition="#fr">Was ſtaͤrkt zur Arbeit Seel’</hi>           </l>           <lb/>
+<l>             <hi rendition="#fr">und Leib.</hi>           </l>           <lb/>
+<l>Das nehmen wir nicht zu Herzen</l>           <lb/>
+<l>und Sinnen,</l>           <lb/>
+<l>Und wollen in Gottes Nahmen be-</l>           <lb/>
+<l>ginnen.</l>         </lg>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/>       <fw type="catch" place="bottom">         <hi rendition="#b">           <hi rendition="#g">Des</hi>         </hi>       </fw>       <lb/>
+<pb n="[17]" facs="#f0022"/>
+<milestone unit="section" rendition="#hr"/>       <div n="1">         <head>           <hi rendition="#b"><hi rendition="#g">Des</hi><lb/>
+Freyherrn von Muͤnchhauſen<lb/>
+<hi rendition="#g">Eigene<lb/>
+Erzaͤhlung</hi>.</hi>         </head>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <p><hi rendition="#in">I</hi>ch trat meine Reiſe nach Rußland<lb/>
+von Haus ab mitten im Winter an,<lb/>
+weil ich ganz richtig ſchloß, daß Froſt<lb/>
+und Schnee die Wege durch die noͤrdli-<lb/>
+chen Gegenden von Deutſchland, Poh-<lb/>
+len, Kur- und Liefland, welche jeder<lb/>
+Reiſende, als faſt noch elender, wie<lb/>
+die nach dem Tempel der Tugend, be-<lb/>
+ſchreibet, endlich, ohne beſondere Ko-<lb/>
+ſten hochpreislicher wohlfuͤrſorgender Lan-<lb/>
+des-Regierungen, ausbeſſern muͤßte.<lb/>
+Ich reiſte zu Pferde, welches, wenn<lb/>
+es ſonſt nur gut um Gaul und Rei-<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">ter</fw><lb/>
+<pb n="18" facs="#f0023"/>
+ter ſteht, die bequemſte Art zu reiſen<lb/>
+iſt. Denn man riskirt alsdann we-<lb/>
+der mit irgend einem <hi rendition="#fr">hoͤflichen</hi> deut-<lb/>
+ſchen Poſtmeiſter eine <hi rendition="#aq">Affaire d’honneur</hi><lb/>
+zu bekommen, noch von ſeinem durſti-<lb/>
+gen Poſtilion vor jede Schenke geſchleppt<lb/>
+zu werden. Ich war nur leicht beklei-<lb/>
+det, welches ich ziemlich uͤbel empfand,<lb/>
+jeweiter ich gegen Nordoſt hin kam.<lb/>
+Nun kann man ſich einbilden, wie bey<lb/>
+ſo ſtrengem Wetter, unter dem rauhe-<lb/>
+ften Himmelsſtriche, einem armen alten<lb/>
+Manne zu Muthe ſeyn mußte, den ich<lb/>
+in Pohlen unter einem Haſelbuſche an<lb/>
+der Heerſtraße antraf, wie er ſo huͤlf-<lb/>
+los und ſchaudernd dalag und kaum hatte,<lb/>
+womit er ſeine Schaambloͤße bedecken<lb/>
+konnnte.</p>         <lb/>
+<p>Der arme Teufel dauerte mich von<lb/>
+ganzer Seele. Ob mir nun gleich ſelbſt<lb/>
+das Herz im Leibe fror, ſo warf ich<lb/>
+dennoch meinen Reiſemantel uͤber ihn her.<lb/>
+Ploͤzlich erſcholl eine Stimme vom Him-<lb/>
+<fw type="catch" place="bottom">mel</fw><lb/>
+<pb n="19" facs="#f0024"/>
+mel, die dieſes Liebeswerk ganz ausneh-<lb/>
+mend herausſtrich und mir zurief:<lb/>
+<hi rendition="#et"><hi rendition="#fr">Hohl mich der Teufel,! mein Sohn,<lb/>
+das ſoll dir nicht unvergolten bleiben!</hi></hi></p>         <lb/>
+<p>Ich ließ das gut ſeyn und ritt wei-<lb/>
+ter, bis Nacht und Dunkelheit mich<lb/>
+uͤberfielen. Nirgends war ein Dorf zu<lb/>
+hoͤren, noch zu ſehn. Das ganze Land<lb/>
+lag unter Schnee; und ich wußte weder<lb/>
+Weg noch Steg.</p>         <lb/>
+<p>Des Reitens muͤde ſtieg ich endlich<lb/>
+ab, und band mein Pferd an eine Art<lb/>
+von ſpitzem Baumſtaken, der uͤber dem<lb/>
+Schnee hervorragte. Zur Sicherheit<lb/>
+nahm ich meine Piſtolen unter den Arm,<lb/>
+legte mich nicht weit davon in den<lb/>
+Schnee nieder und that ein ſo geſundes<lb/>
+Schlaͤfchen, daß mir die Augen nicht<lb/>
+eher wieder aufgingen, als bis es heller<lb/>
+lichter Tag war. Wie groß war aber<lb/>
+mein Erſtaunen, als ich fand, daß ich<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">mitten</fw><lb/>
+<pb n="20" facs="#f0025"/>
+mitten in einem Dorfe auf dem Kirch-<lb/>
+hofe lag! Mein Pferd war anfaͤnglich nir-<lb/>
+gends zu ſehn; doch hoͤrte ichs bald dar-<lb/>
+auf irgend wo uͤber mir. Als ich nun<lb/>
+empor ſah, ſo wurde ich gewahr, daß<lb/>
+es an den Wetterhahn des Kirchthurms<lb/>
+gebunden war und von da heruntet hing.<lb/>
+Nun wußte ich ſogleich, wie ich dran<lb/>
+war. Das Dorf war nehmlich die<lb/>
+Nacht uͤber ganz und gar zugeſchneyet<lb/>
+geweſen; das Wetter hatte ſich auf ein-<lb/>
+mal umgeſetzt ich war im Schlafe nach<lb/>
+und nach, ſo wie der Schnee zuſammen<lb/>
+geſchmolzen war, ganz ſanft herabge-<lb/>
+ſunken; und was ich in der Dunkel-<lb/>
+heit fuͤr den Stummel eines Baͤumchens,<lb/>
+der uͤber dem Schnee hervorragte, ge-<lb/>
+halten, und daran mein Pferd gebun-<lb/>
+den hatte, das war das Kreuz oder der<lb/>
+Wetterhahn des Kirchthurmes geweſen.</p>         <lb/>
+<p>Ohne mich nun lange zu bedenken,<lb/>
+nahm ich eine von meinen Piſtolen,<lb/>
+ſchoß nach dem Halfter, kam gluͤcklich<lb/>
+<fw type="catch" place="bottom">auf</fw><lb/>
+<pb facs="#f0026"/>
+<figure/>
+<pb facs="#f0027"/>
+<pb n="21" facs="#f0028"/>
+auf die Art wieder an mein Pferd und<lb/>
+verfolgte meine Reiſe.</p>         <lb/>
+<p>Hierauf ging alles gut, bis ich nach<lb/>
+Rußland kam, wo es eben nicht Mode<lb/>
+iſt, des Winters zu Pferde zu reiſen.<lb/>
+Wie es nun immer meine Maxime iſt,<lb/>
+mich nach dem bekannten: <hi rendition="#fr">laͤndlich ſitt-<lb/>
+lich</hi>, zu richten, ſo nahm ich dort einen<lb/>
+kleinen Rennſchlitten auf ein einzelnes<lb/>
+Pferd und fuhr wohlgemuth auf St.<lb/>
+Petersburg los. Nun weiß ich nicht<lb/>
+mehr recht, ob es in Eſthland, oder<lb/>
+in Ingermanland war, ſo viel aber be-<lb/>
+ſinne ich mich noch wohl, es war mitten<lb/>
+in einem fuͤrchterlichen Walde, als ich<lb/>
+einen entſetzlichen Wolf, mit aller Schnel-<lb/>
+ligkeit des gefraͤßigſten Winterhungers<lb/>
+hinter mir anſetzen ſah. Er hohlte mich<lb/>
+bald ein; und es war ſchlechterdings un-<lb/>
+moͤglich, ihm zu entkommen. Mecha-<lb/>
+niſch legte ich mich platt in den Schlit-<lb/>
+ten nieder und ließ mein Pferd zu un-<lb/>
+ſerm beiderſeitigen Beſten ganz allein<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">agiren.</fw><lb/>
+<pb n="22" facs="#f0029"/>
+agiren. Was ich zwar vermuthete, aber<lb/>
+kaum zu hoffen und zu erwarten wagte,<lb/>
+das geſchah unmittelbar. Der Wolf<lb/>
+bekuͤmmerte ſich nicht im mindeſten um<lb/>
+meine Wenigkeit, ſondern ſprang uͤber<lb/>
+mich hinweg, fiel wuͤthend auf das<lb/>
+Pferd, riß ab und verſchlang auf ein-<lb/>
+mal den ganzen Hintertheil des armen<lb/>
+Thieres, welches vor Schrecken und<lb/>
+Schmerz nur deſto ſchneller lief. Wie<lb/>
+ich nun auf die Art ſelbſt ſo unbemerkt<lb/>
+und gut davon gekommen war, ſo erhob<lb/>
+ich ganz verſtohlen mein Geſicht und<lb/>
+nahm mit Entſetzen wahr, daß der Wolf<lb/>
+ſich beynahe uͤber und uͤber in das Pferd<lb/>
+hineingefreſſen hatte. Kaum aber hatte<lb/>
+er ſich ſo huͤbſch hineingezwaͤnget, ſo nahm<lb/>
+ich mein Tempo wahr, und fiel ihm tuͤchtig<lb/>
+mit meiner Peitſchenſchnur auf das Fell.<lb/>
+Solch ein unerwarteter Ueberfall in dieſem<lb/>
+Futteral verurſachte ihm keinen geringen<lb/>
+Schreck; er ſtrebte mit aller Macht<lb/>
+vorwaͤrts; der Leichnam des Pferdes<lb/>
+fiel zu Boden, und ſiehe! an ſeiner<lb/>
+<fw type="catch" place="bottom">Statt</fw><lb/>
+<pb n="23" facs="#f0030"/>
+Statt ſteckte mein Wolf in dem Ge-<lb/>
+ſchirre. Ich meines Orts hoͤrte nun<lb/>
+noch weniger auf zu peitſchen, und wir<lb/>
+langten in vollem Galopp geſund und<lb/>
+wohlbehalten in St. Petersburg an,<lb/>
+ganz gegen unſere beiderſeitigen reſpec-<lb/>
+tive Erwartungen, und zu nicht gerin-<lb/>
+gem Erſtaunen aller Zuſchauer.</p>         <lb/>
+<p>Ich will Ihnen, meine Herren, mit<lb/>
+Geſchwaͤtz von der Verfaſſung, den Kuͤn-<lb/>
+ſten, Wiſſenſchaften und andern Merk-<lb/>
+wuͤrdigkeiten dieſer praͤchtigen Hauptſtadt<lb/>
+Rußlands keine lange Weile machen;<lb/>
+vielweniger Sie mit allen Intriguen<lb/>
+und luſtigen Abentheuern der Geſell-<lb/>
+ſchaften vom Bonton, wo die Frau<lb/>
+vom Hauſe den Gaſt allzeit mit einem<lb/>
+Schnaps und Schmatz empfaͤngt, un-<lb/>
+terhalten. Ich halte mich viel-<lb/>
+mehr an groͤßere und edlere Gegen-<lb/>
+ſtaͤnde Ihrer Aufmerkſamkeit, nehm-<lb/>
+lich an Pferde und Hunde, wovon ich<lb/>
+immer ein großer Freund geweſen bin;<lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">ferner</fw><lb/>
+<pb n="24" facs="#f0031"/>
+ferner an Fuͤchſe, Woͤlfe und Baͤren,<lb/>
+von welchen, ſo wie von anderm Wild-<lb/>
+prett, Rußland einen groͤßern Ueber-<lb/>
+fluß, als irgend ein Land auf Erden<lb/>
+hat; endlich an ſolche Luſtparthien,<lb/>
+Ritteruͤbungen und preisliche Thaten,<lb/>
+welche den Edelmann beſſer kleiden, als<lb/>
+ein Bischen muffiges Griechiſch, und<lb/>
+Latein, oder alle Riechſaͤchelchen, Klun-<lb/>
+kern und Capriolen franzoͤſiſcher Schoͤn-<lb/>
+geiſter und — Haarkraͤuſeler.</p>         <lb/>
+<p>Da es einige Zeit dauerte, ehe ich<lb/>
+bey der Armee angeſtellt werden konnte,<lb/>
+ſo hatte ich ein Paar Monathe lang<lb/>
+vollkommene Muße und Freyheit, meine<lb/>
+Zeit ſowohl, als auch mein Geld auf<lb/>
+die adelichſte Art von der Welt zu ver-<lb/>
+junkeriren. Sie koͤnnen ſich leicht vor-<lb/>
+ſtellen, meine Herren, daß ich von<lb/>
+beiden nicht wenig außer der Stadt mit<lb/>
+ſolchen wackern Kumpanen verthat,<lb/>
+welche ein offenes unbeſchraͤnktes Wald-<lb/>
+revier gehoͤrig zu ſchaͤtzen wußten. So-<lb/>
+<fw type="catch" place="bottom">wohl</fw><lb/>
+<pb n="25" facs="#f0032"/>
+wohl die Abwechſelung des Zeitvertrei-<lb/>
+bes, welchen dieſes mir darbot, als<lb/>
+auch das außerordentliche Gluͤck, wo-<lb/>
+mit mir jeder Streich gelang, gerei-<lb/>
+chen mir noch immer zur angenehmſten<lb/>
+Erinnerung.</p>         <lb/>
+<p>Eines Morgens ſah ich durch das<lb/>
+Fenſter meines Schlafgemachs, daß ein<lb/>
+großer Teich, der nicht weit davon lag,<lb/>
+mit wilden Enten gleichſam uͤberdeckt<lb/>
+war. Flugs nahm ich mein Gewehr<lb/>
+aus dem Winkel, ſprang zur Treppe<lb/>
+hinab, und das ſo uͤber Hals und Kopf,<lb/>
+daß ich unvorſichtiger Weiſe mit dem<lb/>
+Geſichte gegen die Thuͤrpfoſte rennte.<lb/>
+Feuer und Funken ſtoben mir aus den<lb/>
+Augen; aber das hielt mich keinen Au-<lb/>
+genblick zuruͤck. Ich kam bald zum<lb/>
+Schuß; allein wie ich anlegte, wurde<lb/>
+ich zu meinem großen Verdruſſe gewahr,<lb/>
+daß durch den ſo eben empfangenen hef-<lb/>
+tigen Stoß ſogar der Stein von dem<lb/>
+Flintenhahne abgeſprungen war. Was<lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">ſollte</fw><lb/>
+<pb n="26" facs="#f0033"/>
+ſollte ich nun thun? Denn Zeit war hier<lb/>
+nicht zu verlieren. Gluͤcklicher Weiſe<lb/>
+fiel mir ein, was ſich ſo eben mit meinen<lb/>
+Augen zugetragen hatte. Ich riß alſo<lb/>
+die Pfanne auf, legte mein Gewehr<lb/>
+gegen das wilde Gefluͤgel an und ballte<lb/>
+die Fauſt gegen eins von meinen Augen.<lb/>
+Von einem derben Schlage flogen wieder<lb/>
+Funken genug heraus, der Schuß ging<lb/>
+los, und ich traf fuͤnf Paar Enten, vier<lb/>
+Rothhaͤlſe, und ein Paar Waſſerhuͤhner.<lb/>
+Gegenwart des Geiſtes iſt die Seele<lb/>
+mannhafter Thaten. Wenn Soldaten<lb/>
+und Seeleute oͤfters dadurch gluͤcklich da-<lb/>
+von kommen, ſo dankt der Waidmann<lb/>
+ihr nicht ſeltener ſein gutes Gluͤck.</p>         <lb/>
+<p>So ſchwammen einſt auf einem Land-<lb/>
+ſee, an welchen ich auf einer Jagdſtrei-<lb/>
+ferey gerieth, einige Dutzend wilder<lb/>
+Enten allzu weit von einander zerſtreut<lb/>
+umher, als daß ich mehr denn eine ein-<lb/>
+zige auf einen Schuß zu erlegen hoffen<lb/>
+konnte; und zum Ungluͤck hatte ich<lb/>
+<fw type="catch" place="bottom">meinen</fw><lb/>
+<pb n="27" facs="#f0034"/>
+meinen letzten Schuß ſchon in der Flinte.<lb/>
+Gleichwohl haͤtte ich ſie gern alle ge-<lb/>
+habt, weil ich naͤchſtens eine ganze<lb/>
+Menge guter Freunde und Bekannten<lb/>
+bey mir zu bewirthen Willens war. Da<lb/>
+beſann ich mich auf ein Stuͤckchen<lb/>
+Schinkenſpeck, welches von meinem mit-<lb/>
+genommenen Mundvorrath in meiner<lb/>
+Jagdtaſche noch uͤbrig geblieben war.<lb/>
+Dieſes befeſtigte ich an eine ziemlich<lb/>
+lange Hundelinie, die ich aufdrehete<lb/>
+und ſo wenigſtens noch um viermal ver-<lb/>
+laͤngerte. Nun verbarg ich mich im<lb/>
+Schilfgeſtraͤuch am <choice><sic>Uſer</sic><corr>Ufer</corr></choice>, warf meinen<lb/>
+Speckbrocken aus und hatte das Ver-<lb/>
+gnuͤgen zu ſehen, wie die naͤchſte Ente hur-<lb/>
+tig herbeyſchwamm und ihn verſchlang.<lb/>
+Der erſten folgten bald alle uͤbrigen nach,<lb/>
+und da der glatte Brocken am Faden gar<lb/>
+bald unverdauet hinten wieder heraus-<lb/>
+kam, ſo verſchlang ihn die naͤchſte, und ſo<lb/>
+immer weiter. Kurz der Brocken machte<lb/>
+die Reiſe durch alle Enten ſamt und<lb/>
+ſonders hindurch, ohne von ſeinem Fa-<lb/>
+<fw type="catch" place="bottom">den</fw><lb/>
+<pb n="28" facs="#f0035"/>
+den loszureißen. So ſaßen ſie denn<lb/>
+alle daran, wie Perlen an der Schnur.<lb/>
+Ich zog ſie gar allerliebſt ans Land,<lb/>
+ſchlang mir die Schnur ein halbes Du-<lb/>
+tzendmal um Schultern und Leib, und<lb/>
+ging meines Weges nach Hauſe zu.<lb/>
+Da ich noch eine ziemliche Strecke<lb/>
+dovon entfernt war, und mir die<lb/>
+Laſt von einer ſolchen Menge Enten<lb/>
+ziemlich beſchwerlich fiel, ſo wollte es<lb/>
+mir faſt leid thun, ihrer allzu viele<lb/>
+eingefangen zu haben. Da kam mir<lb/>
+aber ein ſeltſamer Vorfall zu Statten,<lb/>
+der mich Anfangs in nicht geringe Ver-<lb/>
+legenheit ſetzte. Die Enten waren nehm-<lb/>
+lich noch alle lebendig, fingen, als ſie<lb/>
+von der erſten Beſtuͤrzung ſich erhohlt<lb/>
+hatten, gar maͤchtig an mit den Fluͤ-<lb/>
+geln zu ſchlagen und ſich mit mir hoch<lb/>
+in die Luft zu erheben. Nun waͤre bey<lb/>
+manchem wohl guter Rath theuer ge-<lb/>
+weſen. Allein ich benutzte dieſen Um-<lb/>
+ſtand, ſo gut ich konnte, zu meinem Vor-<lb/>
+theil, und ruderte mich mit meinen<lb/>
+<fw type="catch" place="bottom">Rock-</fw><lb/>
+<pb n="29" facs="#f0036"/>
+Rockſchoͤßen nach der Gegend meiner<lb/>
+Behauſung durch die Luft. Als ich<lb/>
+nun gerade uͤber meiner Wohnung an-<lb/>
+gelangt war und es darauf ankam, ohne<lb/>
+Schaden mich herunter zu laſſen, ſo<lb/>
+druͤckte ich einer Ente nach der Andern<lb/>
+den Kopf ein, ſank dadurch ganz ſanft<lb/>
+und allmaͤhlich gerade durch den Schorn-<lb/>
+ſtein meines Hauſes mitten auf den Kuͤ-<lb/>
+chenherd, auf welchem zum Gluͤck noch<lb/>
+kein Feuer angezuͤndet war, zu nicht<lb/>
+geringem Schreck und Erſtaunen meines<lb/>
+Koches. — Wie geſagt, man muß ſich<lb/>
+nur in der Welt zu helfen wiſſen.</p>         <lb/>
+<p>Ein andresmal ſtieß mir in einem<lb/>
+anſehnlichen Walde von Rußland ein<lb/>
+wunderſchoͤner ſchwarzer Fuchs auf. Es<lb/>
+waͤre Jammer-Schade geweſen, ſeinen<lb/>
+koſtbaren Pelz mit einem Kugel- oder<lb/>
+Schrotſchuſſe zu durchloͤchern. Herr<lb/>
+Reineke ſtand dicht bey einem Baume.<lb/>
+Augenblicklich zog ich meine Kugel aus<lb/>
+dem Laufe, lud dafuͤr einen tuͤchtigen<lb/>
+<fw type="catch" place="bottom">Brett-</fw><lb/>
+<pb n="30" facs="#f0037"/>
+Brettnagel in mein Gewehr, feuerte<lb/>
+<choice><sic>uud</sic><corr>und</corr></choice> traf ſo kuͤnſtlich, daß ich ſeine Lunte<lb/>
+feſt an den Baum nagelte. Nun ging<lb/>
+ich ruhig zu ihm hin, nahm mein Waid-<lb/>
+meſſer, gab ihm einen Kreuzſchnitt<lb/>
+uͤbers Geſicht, griff nach meiner Peit-<lb/>
+ſche und karbatſchte ihn ſo artig aus<lb/>
+ſeinem ſchoͤnen Pelze heraus, daß es<lb/>
+eine wahre Luſt und ein rechtes Wunder<lb/>
+zu ſehen war.</p>         <lb/>
+<p>Zufall und gutes Gluͤck machen oft<lb/>
+manchen Fehler wieder gut. Davon<lb/>
+erlebte ich bald nach dieſem ein Bey-<lb/>
+ſpiel, als ich mitten im tiefſten Walde<lb/>
+einen wilden Friſchling und eine Bache<lb/>
+dicht hinter einander hertraben ſah.<lb/>
+Meine Kugel hatte gefehlt. Gleichwohl<lb/>
+lief der Friſchling vorn ganz allein weg,<lb/>
+und die Bache blieb ſtehen, ohne Be-<lb/>
+wegung, als ob ſie an den Boden feſt-<lb/>
+genagelt geweſen waͤre. Wie ich das<lb/>
+Ding naͤher unterſuchte, ſo fand ich,<lb/>
+daß es eine alte blinde Bache war, die<lb/>
+<fw type="catch" place="bottom">ihres</fw><lb/>
+<pb n="31" facs="#f0038"/>
+ihres Friſchlings Schwaͤnzlein im Rachen<lb/>
+hielt, um von ihm aus kindlicher Pflicht<lb/>
+fuͤrbaß geleitet zu werden. Da nun<lb/>
+meine Kugel zwiſchen beiden hindurch<lb/>
+gefahren war, ſo hatte ſie dieſen Leit-<lb/>
+zaum zerriſſen, wovon die alte Bache<lb/>
+das eine Ende noch immer kauete. Da<lb/>
+nun ihr Leiter ſie nicht weiter vorwaͤrts<lb/>
+gezogen hatte, ſo war ſie ſtehen geblieben.<lb/>
+Ich ergriff daher das uͤbriggebliebene End-<lb/>
+chen von des Friſchlings Schwanze, und<lb/>
+leitete daran das alte huͤlfloſe Thier ganz<lb/>
+ohne Muͤhe und Widerſtand nach Hauſe.</p>         <lb/>
+<p>So fuͤrchterlich dieſe wilden Bachen<lb/>
+oft ſind, ſo ſind die Keiler doch weit<lb/>
+grauſamer und gefaͤhrlicher. Ich traf<lb/>
+einſt einen im Walde an, als ich un-<lb/>
+gluͤcklicher Weiſe weder auf Angriff noch<lb/>
+Vertheidigung gefaßt war. Mit ge-<lb/>
+nauer Noth konnte ich noch hinter einen<lb/>
+Baum ſchluͤpfen, als die wuͤthende Be-<lb/>
+ſtie aus Leibeskraͤften einen Seitenhieb<lb/>
+nach mir that. Dafuͤr fuhren aber<lb/>
+<fw type="catch" place="bottom">auch</fw><lb/>
+<pb n="32" facs="#f0039"/>
+auch ſeine Hauer dergeſtalt in den Baum<lb/>
+hinein, daß er weder im Stande war,<lb/>
+ſie ſogleich wieder heraus zu ziehen, noch<lb/>
+den Hieb zu wiederholen. — 〟Ha ha!<lb/>
+dachte ich, nun wollen wir dich bald<lb/>
+kriegen!〟 — Flugs nahm ich einen<lb/>
+Stein, hammerte noch vollends damit<lb/>
+drauf los und nietete ſeine Hauer der-<lb/>
+geſtalt um, daß er ganz und gar nicht<lb/>
+wieder loskommen konnte. So mußte<lb/>
+er ſich denn nun gedulden, bis ich vom<lb/>
+naͤchſten Dorfe Karn und Stricke her-<lb/>
+beygehohlt hatte, um ihn lebendig und<lb/>
+wohlbehalten nach Hauſe zu ſchaffen,<lb/>
+welches auch ganz vortreflich von Stat-<lb/>
+ten ging.</p>         <lb/>
+<p>Sie haben unſtreitig, meine Herren,<lb/>
+von dem Heiligen und Schutzpatron der<lb/>
+Waidmaͤnner und Schuͤtzen, St. Hu-<lb/>
+bert, nicht minder auch von dem Statt-<lb/>
+lichen Hirſche gehoͤrt, der ihm einſt im<lb/>
+Walde aufſtieß, und welcher das hei-<lb/>
+lige Kreuz zwiſchen ſeinem Geweyhe trug.<lb/>
+<fw type="catch" place="bottom">Dieſem</fw><lb/>
+<pb n="33" facs="#f0040"/>
+Dieſem Sanct habe ich noch alle<lb/>
+Jahre mein Opfer in guter Geſell-<lb/>
+ſchaft dargebracht, und den Hirſch<lb/>
+wohl tauſendmal, ſowohl in Kirchen<lb/>
+abgemahlt, als auch in die Sterne<lb/>
+ſeiner Ritter geſtickt, geſehen, ſo daß<lb/>
+ich auf Ehre und Gewiſſen eines bra-<lb/>
+ven Waidmanns kaum zu ſagen weiß,<lb/>
+ob es entweder nicht vor Zeiten ſolcher<lb/>
+Kreuzhirſche gegeben habe, oder wohl<lb/>
+gar noch heutiges Tages gebe. Doch<lb/>
+laſſen Sie ſich vielmehr erzaͤhlen, was<lb/>
+ich mit meinen eigenen Augen ſah.<lb/>
+Einſt, als ich alle mein Bley ver-<lb/>
+ſchoſſen hatte, ſtieß mir ganz wider<lb/>
+mein Vermuthen, der ſtattlichſte Hirſch<lb/>
+von der Welt auf. Er blickte mir ſo,<lb/>
+mir nichts, dir nichts, ins Auge, als<lb/>
+ob ers auswendig gewußt haͤtte, daß<lb/>
+mein Beutel leer war. Augenblicklich<lb/>
+lud ich indeſſen meine Flinte mit Pul-<lb/>
+ver und daruͤber her eine ganze Hand<lb/>
+voll Kirſchſteine, wovon ich, ſo hurtig<lb/>
+ſich das thun ließ, das Fleiſch abge-<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">ſogen</fw><lb/>
+<pb n="34" facs="#f0041"/>
+ſogen hatte. Und ſo gab ich ihm die<lb/>
+volle Ladung mitten auf ſeine Stirn<lb/>
+zwiſchen das Geweyhe. Der Schuß<lb/>
+betaͤubte ihn zwar — er taumelte —<lb/>
+machte ſich aber doch aus dem Staube.<lb/>
+Ein oder zwey Jahre darnach war ich<lb/>
+in eben demſelben Walde auf der Jagd;<lb/>
+und ſiehe! zum Vorſchein kam ein ſtatt-<lb/>
+licher Hirſch, mit einem vollausgewach-<lb/>
+ſenen Kirſchbaume, mehr denn zehn<lb/>
+Fuß hoch, zwiſchen ſeinem Geweyhe.<lb/>
+Mir fiel gleich mein voriges Abentheuer<lb/>
+wieder ein; ich betrachtete den Hirſch<lb/>
+als mein laͤngſt wohl erworbenes Eigen-<lb/>
+thum, und legte ihn mit einem Schuſſe<lb/>
+zu Boden, wodurch ich denn auf ein-<lb/>
+mal an Braten und Kirſchtunke zu-<lb/>
+gleich gerieth. Denn der Baum hing<lb/>
+reichlich voll Fruͤchte, die ich in meinem<lb/>
+ganzen Leben ſo delicat nicht gegeſſen<lb/>
+hatte. Wer kann nun wohl ſagen,<lb/>
+ob nicht irgend ein paſſionirter heiliger<lb/>
+Waidmann, ein jagdluſtiger Abt oder<lb/>
+Biſchoff, das Kreuz auf eine aͤhnliche<lb/>
+<fw type="catch" place="bottom">Art</fw><lb/>
+<pb facs="#f0042"/>
+<figure/>
+<pb facs="#f0043"/>
+<pb n="35" facs="#f0044"/>
+Art durch einen Schuß auf St. Hu-<lb/>
+berts Hirſch zwiſchen das Gehoͤrne ge-<lb/>
+pflanzt habe? Denn dieſe Herren wa-<lb/>
+ren ja von je und je wegen ihres Kreuz-<lb/>
+und — Hoͤrnerpflanzens beruͤhmt, und<lb/>
+ſind es zum Theil noch bis auf den<lb/>
+heutigen Tag. Im Falle der Noth,<lb/>
+und wenn es <hi rendition="#fr">Aut</hi> oder <hi rendition="#fr">Naut</hi> <note place="foot" n="*)"><hi rendition="#aq">Ought or naught.</hi> — Eine wenigſtens in<lb/>
+Niederdeutſchland in dieſer Ausſprache<lb/>
+ſehr populaͤr gewordene Redensart.</note> gilt,<lb/>
+welches einem braven Waidmanne nicht<lb/>
+ſelten begegnet, greift er lieber wer weiß<lb/>
+wozu, und verſucht eher alles, als daß er ſich<lb/>
+die guͤnſtige Gelegenheit entwiſchen laͤßt.<lb/>
+Ich habe mich manches liebes Mal ſelbſt in<lb/>
+einer ſolchen Lage der Verſuchung befunden.</p>         <lb/>
+<p>Was ſagen Sie zum Exempel vom<lb/>
+folgenden Caſus? — Mir waren ein-<lb/>
+mal Tageslicht und Pulver in einem<lb/>
+pohlniſchen <hi rendition="#fr">Walde</hi> ausgegangen. Als<lb/>
+ich nach Hauſe ging, fuhr mir ein ganz<lb/>
+entſetzlicher Baͤr, mit offenem Rachen,<lb/>
+bereit mich zu verſchlingen, auf den<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">Leib.</fw><lb/>
+<pb n="36" facs="#f0045"/>
+Leib. Umſonſt durchſuchte ich in der<lb/>
+Haſt alle meine Taſchen nach Pulver<lb/>
+und Bley. Nichts fand ich, als zwey<lb/>
+Flintenſteine, die man auf einen Noth-<lb/>
+fall wohl mitzunehmen pflegt. Davon<lb/>
+warf ich einen aus aller Macht in den<lb/>
+offenen Rachen des Ungeheuers, ganz<lb/>
+ſeinen Schlund hinab. Wie ihm nun<lb/>
+das nicht allzuwohl deuchten mochte, ſo<lb/>
+machte mein Baͤr links um, ſo daß<lb/>
+ich den andern nach der Hinterpforte<lb/>
+ſchleudern konnte. Wunderbar und herr-<lb/>
+lich ging alles von Statten. Der Stein<lb/>
+fuhr nicht nur hinein, ſondern auch mit<lb/>
+dem andern Steine im Magen derge-<lb/>
+ſtalt zuſammen, daß es Feuer gab und<lb/>
+den Baͤr mit einem gewaltigen Knalle<lb/>
+auseinander ſprengte. Man ſagt, daß<lb/>
+ſo ein wohl applicirter Stein <hi rendition="#aq">a poſte-<lb/>
+riori,</hi> beſonders wenn er mit einem<lb/>
+<hi rendition="#aq">a priori</hi> recht zuſammen fuhr, ſchon<lb/>
+manchen baͤrbeißigen Gelehrten und Phi-<lb/>
+loſophen in die Luft ſprengte. —<lb/>
+Ob ich nun gleich dasmal mit heiler<lb/>
+<fw type="catch" place="bottom">Haut</fw><lb/>
+<pb n="37" facs="#f0046"/>
+Haut davon kam, ſo moͤchte ich das<lb/>
+Stuͤckchen doch eben nicht noch einmal<lb/>
+machen, oder mit einem Baͤr, ohne<lb/>
+andere Vertheidigungsmittel, anbinden.</p>         <lb/>
+<p>Es war aber gewiſſermaßen recht<lb/>
+mein Schickſal, daß die wildeſten und<lb/>
+gefaͤhrlichſten Beſtien mich gerade als-<lb/>
+dann angriffen, wenn ich außer Stande<lb/>
+war, ihnen die Spitze zu bieten, gleich-<lb/>
+ſam als ob ihnen der Inſtinct meine<lb/>
+Wehrloſigkeit verrathen haͤtte. So<lb/>
+ſchoß mir einmal unverſehens ein fuͤrch-<lb/>
+terlicher Wolf ſo nahe auf den Leib,<lb/>
+daß mir nichts weiter uͤbrig blieb, als<lb/>
+ihm, dem mechaniſchen Inſtinct zufolge,<lb/>
+meine Fauſt in den offenen Rachen zu<lb/>
+ſtoßen. Gerade meiner Sicherheit we-<lb/>
+gen ſtieß ich immer weiter und weiter,<lb/>
+und brachte meinen Arm beynahe bis<lb/>
+an die Schulter hinein. Was war<lb/>
+aber nun zu thun? — Ich kann eben<lb/>
+nicht ſagen, daß mir dieſe unbehuͤlfliche<lb/>
+Situation ſonderlich anſtand. — Man<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">denke</fw><lb/>
+<pb n="38" facs="#f0047"/>
+denke nur, Stirn gegen Stirn mit einem<lb/>
+Wolfe! — Wir aͤugelten uns eben<lb/>
+nicht gar lieblich an. Haͤtte ich meinen<lb/>
+Arm zuruͤckgezogen, ſo waͤre mir die<lb/>
+Beſtie nur deſto wuͤthender zu Leibe ge-<lb/>
+ſprungen. So viel ließ ſich klar und<lb/>
+deutlich aus ſeinen flammenden Augen<lb/>
+herausbuchſtabiren. Kurz, ich packte<lb/>
+ihn beym Eingeweide, kehrte ſein aͤuße-<lb/>
+res zu innerſt, wie einen Handſchuh,<lb/>
+um, ſchleuderte ihn zu Boden und ließ<lb/>
+ihn da liegen.</p>         <lb/>
+<p>Dieß Stuͤckchen haͤtte ich nun wie-<lb/>
+der nicht an einem tollen Hunde ver-<lb/>
+ſuchen moͤgen, welcher bald darauf in<lb/>
+einem engen Gaͤßchen zu St. Petersburg<lb/>
+gegen mich anlief. 〟Lauf was du<lb/>
+kannſt!〟 dachte ich. Um deſto beſſer<lb/>
+fortzukommen, warf ich meinen Ueber-<lb/>
+rock ab, und rettete mich geſchwind ins<lb/>
+Haus. Den Rock ließ ich hernach<lb/>
+durch meinen Bedienten hereinhohlen<lb/>
+und zu den andern Kleidern in die Gar-<lb/>
+<fw type="catch" place="bottom">derobe</fw><lb/>
+<pb n="39" facs="#f0048"/>
+derobe haͤngen. Tages darauf gerieth<lb/>
+ich in ein gewaltiges Schrecken durch<lb/>
+meines Johanns Geſchrey: Herr Gott,<lb/>
+Herr Baron, ihr Ueberrock iſt toll!〟<lb/>
+Ich ſprang hurtig zu ihm hinauf und<lb/>
+fand faſt alle meine Kleider umher ge-<lb/>
+zerrt und zu Stuͤcken zerriſſen. Der<lb/>
+Kerl hatte es auf ein Haar getroffen,<lb/>
+daß der Ueberrock toll ſey. Ich kam<lb/>
+gerade noch ſelbſt dazu, wie er uͤber<lb/>
+ein ſchoͤnes neues Gallakleid herfiel und<lb/>
+es auf eine gar unbarmherzige Weiſe<lb/>
+zerſchuͤttelte und umherzauſte.</p>         <lb/>
+<p>In allen dieſen Faͤllen, meine<lb/>
+Herren, wo ich freylich immer gluͤck-<lb/>
+lich, aber doch nur immer mit genauer<lb/>
+Noth davon kam, half mir das Ohn-<lb/>
+gefaͤhr, welches ich durch Tapferkeit<lb/>
+und Gegenwart des Geiſtes zu meinem<lb/>
+Vortheile lenkte. Alles zuſammen ge-<lb/>
+nommen macht, wie Jedermann weiß,<lb/>
+den gluͤcklichen Jaͤger, Seemann und<lb/>
+Soldaten aus. Der aber wuͤrde ein<lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">ſehr</fw><lb/>
+<pb n="40" facs="#f0049"/>
+ſehr unvorſichtiger, tadelnswerther Waid-<lb/>
+mann, Admiral und General ſeyn, der<lb/>
+ſich uͤberall nur auf das Ohngefaͤhr,<lb/>
+oder ſein Geſtirn verlaſſen wollte, ohne<lb/>
+ſich weder um die beſonders erforderli-<lb/>
+chen Kunſtfertigkeiten zu bekuͤmmern,<lb/>
+noch ſich mit denjenigen Werkzeugen zu<lb/>
+verſehen, die den guten Erfolg ſichern.<lb/>
+Ein ſolcher Tadel trifft mich keinesweges.<lb/>
+Denn ich bin immer beruͤhmt geweſen,<lb/>
+ſowohl wegen der Vortreflichkeit meiner<lb/>
+Pferde, Hunde und Gewehre, als auch<lb/>
+wegen der beſondern Art, das alles zu<lb/>
+handhaben, ſo daß ich mich wohl ruͤh-<lb/>
+men kann, in Forſt, Wieſe und Feld<lb/>
+meines Nahmens Gedaͤchtniß hinlaͤng-<lb/>
+lich geſtiftet zu haben. Ich will mich<lb/>
+nun zwar nicht auf Particularitaͤten von<lb/>
+meinen Pferd- und Hundeſtaͤllen, oder<lb/>
+meiner Gewehrkammer einlaſſen, wie<lb/>
+Stall- Jagd- und Hunde-Junker ſonſt<lb/>
+wohl zu thun pflegen; aber eines mei-<lb/>
+ner Lieblingshunde muß ich doch noch<lb/>
+Erwaͤhnung thun. Das Thierchen war<lb/>
+<fw type="catch" place="bottom">ein</fw><lb/>
+<pb facs="#f0050"/>
+<figure/>
+<pb facs="#f0051"/>
+<pb n="41" facs="#f0052"/>
+ein Windſpiel. Mein lebelang hatte,<lb/>
+oder ſah ich kein beſſeres. Es wurde<lb/>
+alt in meinem Dienſte, und war minder<lb/>
+wegen ſeiner Geſtalt, als wegen ſeiner<lb/>
+außerordentlichen Schnelligkeit merkwuͤr-<lb/>
+dig. Mit dieſem Hunde jagte ich be-<lb/>
+ſtaͤndig Jahr aus Jahr ein. Haͤtten<lb/>
+die Herrn ihn geſehen, ſo wuͤrden ſie<lb/>
+ihn gewiß bewundert, und ſich gar nicht<lb/>
+verwundert haben, daß ich ihn ſo lieb<lb/>
+hatte und ſo oft mit ihm jagte. Er<lb/>
+lief ſo ſchnell, ſo oft und ſo lange in<lb/>
+meinem Dienſte, daß er ſich die Beine<lb/>
+ganz bis dicht unterm Leibe weglief, und<lb/>
+ich ihn in ſeiner letzten Lebenszeit nur<lb/>
+noch als Dachsſucher gebrauchen konnte,<lb/>
+in welcher Qualitaͤt er mir denn eben-<lb/>
+falls noch manch liebes Jahr diente.</p>         <lb/>
+<p>Weiland noch als Windſpiel — bey-<lb/>
+laͤufig zu melden, es war eine Huͤn-<lb/>
+dinn — ſetzte ſie einſt hinter einem Haſen<lb/>
+her, der mir ganz ungewoͤhnlich dick<lb/>
+vorkam. Es that mir leid um meine<lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">arme</fw><lb/>
+<pb n="42" facs="#f0053"/>
+arme Huͤndinn; denn ſie war mit Jun-<lb/>
+gen traͤchtig, und wollte doch noch eben<lb/>
+ſo ſchnell laufen, als ſonſt. Nur in<lb/>
+ſehr weiter Entfernung konnte ich zu<lb/>
+Pferde nachfolgen. Auf einmal hoͤrte<lb/>
+ich ein Geklaffe, wie von einer ganzen<lb/>
+Kuppel Hunde, allein ſo ſchwach und<lb/>
+zart, daß ich nicht wußte, was ich<lb/>
+daraus machen ſollte. Wie ich naͤher<lb/>
+kam, ſah ich mein himmelblaues Wun-<lb/>
+der. Die Haͤſinn hatte im Laufen ge-<lb/>
+ſetzt und meine Huͤndinn geworfen; und<lb/>
+zwar jene gerade eben ſo viel junge<lb/>
+Haſen, als dieſe junge Hunde. In-<lb/>
+ſtinctmaͤßig hatten jene die Flucht ge-<lb/>
+nommen, dieſe aber nicht nur gejagt,<lb/>
+ſondern auch gefangen. Dadurch gelangte<lb/>
+ich am Ende der Jagd auf einmal zu<lb/>
+ſechs Haſen und Hunden, da ich doch<lb/>
+nur mit einem einzigen angefangen hatte.</p>         <lb/>
+<p>Ich gedenke dieſer wunderbaren Huͤn-<lb/>
+dinn mit eben dem Vergnuͤgen, als<lb/>
+eines vortreflichen Lithauiſchen Pferdes,<lb/>
+<fw type="catch" place="bottom">welches</fw><lb/>
+<pb n="43" facs="#f0054"/>
+welches nicht mit Gelde zu bezahlen war.<lb/>
+Dieß bekam ich durch ein Ohngefaͤhr,<lb/>
+welches mir Gelegenheit gab, meine<lb/>
+Reitkunſt zu meinem nicht geringen<lb/>
+Ruhme zu zeigen. Ich war nehmlich einſt<lb/>
+auf dem praͤchtigen Landſitze des Grafen<lb/>
+<hi rendition="#fr">Przobofsky</hi> in Lithauen und blieb im<lb/>
+Staatszimmer bey den Damen zum Thee,<lb/>
+indeſſen die Herrn hinunter in den Hof<lb/>
+gingen, um ein junges Pferd von Ge-<lb/>
+bluͤte zu beſehen, welches ſo eben aus<lb/>
+der Stuterey angelangt war. Ploͤtzlich<lb/>
+hoͤrten wir wie einen Nothſchrey. —<lb/>
+Ich eilte die Treppe hinab und fand das<lb/>
+Pferd ſo wild und unbaͤndig, daß Nie-<lb/>
+mand ſich getrauete, ſich ihm zu naͤhern,<lb/>
+oder es zu beſteigen. Beſtuͤrzt und ver-<lb/>
+wirrt ſtanden die entſchloſſenſten Reiter da;<lb/>
+Angſt und Beſorgniß ſchwebte auf allen<lb/>
+Geſichtern, als ich mit einem einzigen<lb/>
+Sprunge auf ſeinem Ruͤcken ſaß, und<lb/>
+das Pferd durch dieſe Ueberraſchung<lb/>
+nicht nur in Schrecken ſetzte, ſondern<lb/>
+es auch durch Anwendung meiner beſten<lb/>
+<fw type="catch" place="bottom">Reiter-</fw><lb/>
+<pb n="44" facs="#f0055"/>
+Reiterkuͤnſte gaͤnzlich zu Ruhe und Ge-<lb/>
+horſam brachte. Um dieß den Damen<lb/>
+noch beſſer zu zeigen und ihnen alle un-<lb/>
+noͤthige Beſorgniß zu erſparen, ſo zwang<lb/>
+ich den Gaul, durch eins der offenen<lb/>
+Fenſter des Theezimmers mit mir hin-<lb/>
+einzuſetzen. Hier ritt ich nun verſchie-<lb/>
+denemale, bald Schritt, bald Trott, bald<lb/>
+Galopp herum, ſetzte endlich ſogar auf<lb/>
+den Theetiſch, und machte da im Kleinen<lb/>
+uͤberaus artig die ganze Schule durch,<lb/>
+woruͤber ſich denn die Damen ganz aus-<lb/>
+nehmend ergoͤtzten. Mein Roͤßchen<lb/>
+machte alles ſo bewundernswuͤrdig ge-<lb/>
+ſchickt, daß es weder Kannen noch Taſſen<lb/>
+zerbrach. Dieß ſetzte mich bey den Da-<lb/>
+men und dem Herrn Grafen ſo hoch in<lb/>
+Gunſt, daß er mit ſeiner gewoͤhnlichen<lb/>
+Hoͤflichkeit mich bat, das junge Pferd<lb/>
+zum Geſchenke von ihm anzunehmen, und<lb/>
+auf ſelbigem in dem Feldzuge gegen die<lb/>
+Tuͤrken, welcher in kurzem unter Anfuͤh-<lb/>
+rung des Grafen Muͤnnich eroͤffnet wer-<lb/>
+den ſollte, auf Sieg und Eroberung aus-<lb/>
+zureiten.</p>         <lb/>
+<fw type="catch" place="bottom">Ein</fw>         <lb/>
+<pb n="45" facs="#f0056"/>
+<p>Ein angenehmers Geſchenk haͤtte<lb/>
+mir nun wohl nicht leicht gemacht wer-<lb/>
+den koͤnnen, beſonders da es mir ſo viel<lb/>
+gutes von einem Feldzuge weißagte, in<lb/>
+welchem ich mein erſtes Probeſtuͤck als<lb/>
+Soldat ablegen wollte. Ein Pferd, ſo<lb/>
+gefuͤgig, ſo muthvoll und feurig —<lb/>
+Lamm und Bucephal zugleich — mußte<lb/>
+mich allezeit an die Pflichten eines braven<lb/>
+Soldaten, und an die erſtaunlichen Tha-<lb/>
+ten erinnern, welche der junge Alexan-<lb/>
+der im Felde verrichtet hatte.</p>         <lb/>
+<p>Wir zogen, wie es ſcheinet, unter<lb/>
+andern auch in der Abſicht zu Felde,<lb/>
+um die Ehre der ruſſiſchen Waffen, wel-<lb/>
+che in dem Feldzuge unter Czaar Peter<lb/>
+am Pruth ein wenig gelitten hatte, wieder<lb/>
+herzuſtellen. Dieſes gelang uns auch<lb/>
+vollkommen durch verſchiedene zwar muͤh-<lb/>
+ſelige, aber doch ruͤhmliche Feldzuͤge,<lb/>
+unter Anfuͤhrung des großen Feldherrn,<lb/>
+deſſen ich vorhin erwaͤhnte.</p>         <lb/>
+<fw type="catch" place="bottom">Die</fw>         <lb/>
+<pb n="46" facs="#f0057"/>
+<p>Die Beſcheidenheit verbietet es Sub-<lb/>
+alternen, ſich große Thaten und Siege<lb/>
+zuzuſchreiben, wovon der Ruhm gemei-<lb/>
+niglich den Anfuͤhrern, ihrer Alltags-<lb/>
+qualitaͤten ungeachtet, ja wohl gar ver-<lb/>
+kehrt genug Koͤnigen und Koͤniginnen<lb/>
+in Rechnung gebracht wird, welche nie-<lb/>
+mals anderes als Muſterungs-Pulver<lb/>
+rochen, nie außer ihren Luſtlagern ein<lb/>
+Schlachtfeld, noch außer ihren Wachtpara-<lb/>
+den ein Heer in Schlachtordnung erblickten.</p>         <lb/>
+<p>Ich mache alſo keinen beſondern<lb/>
+Anſpruch an die Ehre von unſern groͤßern<lb/>
+Affaͤren mit dem Feinde. Wir thaten<lb/>
+insgeſamt unſere Schuldigkeit, welches<lb/>
+in der Sprache des Patrioten, des Sol-<lb/>
+daten, und kurz des braven Mannes<lb/>
+ein ſehr viel umfaſſender Ausdruck, ein<lb/>
+Ausdruck von ſehr wichtigem Inhalt und<lb/>
+Belang iſt, obgleich der große Haufen<lb/>
+muͤſſiger Kannengießer ſich nur einen<lb/>
+ſehr geringen und aͤrmlichen Begriff da-<lb/>
+von machen mag. Da ich indeſſen ein<lb/>
+<fw type="catch" place="bottom">Corps</fw><lb/>
+<pb n="47" facs="#f0058"/>
+Corps Huſaren unter meinen Comando<lb/>
+hatte, ſo ging ich auf verſchiedene Ex-<lb/>
+peditionen aus, wo das Verhalten mei-<lb/>
+ner eigenen Klugheit und Tapferkeit<lb/>
+uͤberlaſſen war. Den Erfolg hiervon,<lb/>
+denke ich denn doch, kann ich mit gutem<lb/>
+Fug auf meine eigene und die Rechnung<lb/>
+derjenigen braven Gefaͤhrten ſchreiben,<lb/>
+die ich zu Sieg und Eroberung fuͤhrte.</p>         <lb/>
+<p>Einſt, als wir die Tuͤrken in Oc-<lb/>
+zakow hineintrieben, gings bey der<lb/>
+Avantgarde ſehr heiß her. Mein feu-<lb/>
+riger Lithauer haͤtte mich beynahe in des<lb/>
+Teufels Kuͤche gebracht. Ich hatte<lb/>
+einen ziemlich entfernten Vorpoſten und<lb/>
+ſah den Feind in einer Wolke von<lb/>
+Staub gegen mich anruͤcken, wodurch<lb/>
+ich wegen ſeiner wahren Anzahl und Ab-<lb/>
+ſicht gaͤnzlich in Ungewißheit blieb. Mich<lb/>
+in eine aͤhnliche Wolke von Staub ein-<lb/>
+zuhuͤllen waͤre freylich wohl ein Alltags-<lb/>
+pfiff geweſen, wuͤrde mich aber eben ſo<lb/>
+wenig kluͤger gemacht, als uͤberhaupt<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="48" facs="#f0059"/>
+der Abſicht naͤher gebracht haben, warum<lb/>
+ich vorausgeſchickt war. Ich ließ daher<lb/>
+meine Flanqueurs zur linken und rechten<lb/>
+auf beyden Fluͤgeln ſich zerſtreuen, und<lb/>
+ſo viel Staub erregen, als ſie nur immer<lb/>
+konnten. Ich ſelbſt aber ging gerade<lb/>
+auf den Feind los, um ihn naͤher in<lb/>
+Augenſchein zu nehmen. Dieß gelang<lb/>
+mir. Denn er ſtand und focht nur ſo<lb/>
+lange, bis die Furcht vor meinen Flan-<lb/>
+queurs ihn in Unordnung zuruͤcktrieb.<lb/>
+Nun wars Zeit, tapfer uͤber ihn her-<lb/>
+zufallen. Wir zerſtreueten ihn voͤllig,<lb/>
+richteten eine gewaltige Niederlage an,<lb/>
+und trieben ihn nicht allein in ſeine Fe-<lb/>
+ſtung zu Loche, ſondern auch durch und<lb/>
+durch, ganz uͤber und wider unſere blut-<lb/>
+gierigſten Erwartungen.</p>         <lb/>
+<p>Weil nun mein Lithauer ſo außeror-<lb/>
+dentlich geſchwind war, ſo war ich der<lb/>
+Vorderſte beym Nachſetzen, und da ich<lb/>
+ſah, daß der Feind ſo huͤbſch zum ge-<lb/>
+genſeitigen Thore wieder hinausfloh, ſo<lb/>
+<fw type="catch" place="bottom">hielt</fw><lb/>
+<pb n="49" facs="#f0060"/>
+hielt ichs fuͤr rathſam, auf dem Markt-<lb/>
+platze anzuhalten, und da zum Rendezvous<lb/>
+blaſen zu laſſen. Ich hielt an, aber<lb/>
+ſtellt euch, ihr Herren, mein Erſtaunen<lb/>
+vor, als ich weder Trompeter, noch<lb/>
+irgend eine lebendige Seele von meinen<lb/>
+Huſaren um mich ſah. — 〟Sprengen<lb/>
+ſie etwa durch andere Straßen? Oder<lb/>
+was iſt aus ihnen geworden?〟 — dachte<lb/>
+ich. Indeſſen konnten ſie meiner Mei-<lb/>
+nung nach unmoͤglich fern ſeyn und muß-<lb/>
+ten mich bald einholen. In dieſer Er-<lb/>
+wartung ritt ich meinen athemloſen Li-<lb/>
+thauer zu einem Brunnen auf dem<lb/>
+Marktplatze und ließ ihn trinken. Er<lb/>
+ſoff ganz unmaͤßig und mit einem Heiß-<lb/>
+durſte, der gar nicht zu loͤſchen war.<lb/>
+Allein das ging ganz natuͤrlich zu.<lb/>
+Denn als ich mich nach meinen Leuten<lb/>
+umſah, was meint Ihr wohl, Ihr<lb/>
+Herren, was ich da erblickte? — Der<lb/>
+ganze Hintertheil des armen Thieres,<lb/>
+Kreuz und Lenden waren fort, und wie<lb/>
+rein abgeſchnitten. So lief denn hinten<lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">das</fw><lb/>
+<pb n="50" facs="#f0061"/>
+das Waſſer eben ſo wieder heraus, als<lb/>
+es von vorn hineingekommen war, ohne<lb/>
+daß es dem Gaul zu gute kam, oder<lb/>
+ihn erfriſchte. Wie das zugegangen<lb/>
+ſeyn mochte, blieb mir ein voͤlliges Raͤth-<lb/>
+ſel, bis lich zum Stadtthore zuruͤckritt.<lb/>
+Da ſah ich nun, daß man, als ich<lb/>
+<hi rendition="#aq">pêle mêle</hi> mit dem fliehenden Feinde<lb/>
+hereingedrungen war, das Schutzgatter,<lb/>
+ohne daß ichs wahrgenommen, fallen<lb/>
+gelaſſen hatte, wodurch denn der Hin-<lb/>
+tertheil, der noch zuckend an der Außen-<lb/>
+ſeite des Thores lag, rein abgeſchlagen<lb/>
+war. Der Verluſt wuͤrde unerſetzlich<lb/>
+geweſen ſeyn, wenn nicht unſer Cur-<lb/>
+ſchmid ein Mittel ausgeſonnen haͤtte,<lb/>
+beyde Theile, ſo lange ſie noch warm<lb/>
+waren, wieder zuſammen zu ſetzen. Er<lb/>
+heftete ſie nehmlich mit jungen Lorbeer-<lb/>
+Sproͤßlingen, die gerade bey der Hand<lb/>
+waren, zuſammen. Die Wunde heilte<lb/>
+zu; und es begab ſich etwas, das nur<lb/>
+einem ſo ruhmvollen Pferde begegnen<lb/>
+konnte. Nehmlich, die Sproſſen ſchlu-<lb/>
+<fw type="catch" place="bottom">gen</fw><lb/>
+<pb facs="#f0062"/>
+<figure/>
+<pb facs="#f0063"/>
+<pb n="51" facs="#f0064"/>
+gen Wurzel in ſeinem Leibe, wuchſen<lb/>
+empor und woͤlbten eine Laube uͤber mir,<lb/>
+ſo daß ich hernach manchen ehrlichen Ritt<lb/>
+im Schatten meiner ſowohl als meines<lb/>
+Roſſes Lorbeern thun konnte.</p>         <lb/>
+<p>Einer andern kleinen Ungelegenheit<lb/>
+von dieſer Affaͤre will ich nur beylaͤufig<lb/>
+erwaͤhnen. Ich hatte ſo heftig, ſo<lb/>
+lange, ſo unermuͤdet auf den Feind los-<lb/>
+gehauen, daß mein Arm dadurch endlich<lb/>
+in eine unwillkuͤhrliche Bewegung des<lb/>
+Hauens gerathen war, welcher ich nicht<lb/>
+mehr ſteuern konnte, als der Feind ſchon<lb/>
+laͤngſt uͤber alle Berge war. Um mich<lb/>
+nun nicht ſelbſt, oder meine Leute, die<lb/>
+mir zu nahe kamen, fuͤr nichts und wider<lb/>
+nichts zu pruͤgeln, und zu Ruhe und<lb/>
+Schlaf zu gelangen, ſah ich mich ge-<lb/>
+noͤthigt, meinen Arm an die Acht Tage<lb/>
+lang eben ſo gut in der Binde zu tra-<lb/>
+gen, als ob er mir halb abgehauen ge-<lb/>
+weſen waͤre.</p>         <lb/>
+<fw type="sig" place="bottom">D 2</fw>         <fw type="catch" place="bottom">Einem</fw>         <lb/>
+<pb n="52" facs="#f0065"/>
+<p>Einem Manne, meine Herren, der<lb/>
+einen Gaul, wie mein Lithauer war, zu<lb/>
+reiten vermochte, koͤnnen Sie auch wohl<lb/>
+noch ein anderes Voltigir- und Reiter-<lb/>
+ſtuͤckchen zutrauen, welches außerdem<lb/>
+vielleicht ein wenig fabelhaft klingen<lb/>
+moͤchte. Wir belagerten nehmlich, ich<lb/>
+weiß nicht mehr welche Stadt, und dem<lb/>
+Feldmarſchal war ganz erſtaunlich viel<lb/>
+an genauer Kundſchaft gelegen, wie die<lb/>
+Sachen in der Feſtung ſtuͤnden. Es<lb/>
+ſchien aͤußerſt ſchwehr, ja faſt unmoͤg-<lb/>
+lich, durch alle Vorpoſten, Wachen und<lb/>
+Feſtungswerke hinein zu gelangen, auch<lb/>
+war eben kein tuͤchtiges Subject vorhan-<lb/>
+den, wodurch man ſo was gluͤcklich aus-<lb/>
+zurichten haͤtte hoffen koͤnnen. Vor<lb/>
+Muth und Dienſteifer faſt ein wenig allzu<lb/>
+raſch, ſtellte ich mich neben eine der groͤß-<lb/>
+ten Kanonen, die ſo eben nach der Fe-<lb/>
+ſtung abgefeuert ward, und ſprang im<lb/>
+Hui auf die Kugel, in der Abſicht, mich<lb/>
+in die Feſtung hineintragen zu laſſen.<lb/>
+Als ich aber halbweges durch die Luft<lb/>
+<fw type="catch" place="bottom">geritten</fw><lb/>
+<pb n="53" facs="#f0066"/>
+geritten war, ſtiegen mir allerley nicht<lb/>
+unerhebliche Bedenklichkeiten zu Kopfe.<lb/>
+〟Hum, dachte ich, hinein kommſt du<lb/>
+nun wohl, allein wie hernach ſogleich<lb/>
+wieder heraus? Und wie kanns dir in der<lb/>
+Feſtung ergehen? Man wird dich ſogleich<lb/>
+als einen Spion erkennen und an den naͤch-<lb/>
+ſten Galgen haͤngen. Ein ſolches Bette der<lb/>
+Ehren wollte ich mir denn doch wohl<lb/>
+verbitten.〟 Nach dieſen und aͤhnlichen<lb/>
+Betrachtungen entſchloß ich mich kurz,<lb/>
+nahm die gluͤckliche Gelegenheit wahr,<lb/>
+als eine Kanonenkugel aus der Feſtung<lb/>
+einige Schritte weit vor mir voruͤber<lb/>
+nach unſerm Lager flog, ſprang von der<lb/>
+meinigen auf dieſe hinuͤber, und kam, zwar<lb/>
+unverrichteter Sache, jedoch wohlbehalten<lb/>
+bey den lieben Unſrigen wieder an.</p>         <lb/>
+<p>So leicht und fertig ich im Sprin-<lb/>
+gen var, ſo war es auch mein Pferd.<lb/>
+Weder Graben noch Zaͤune hielten mich<lb/>
+jemals ab, uͤberall den geradeſten Weg<lb/>
+zu reiten. Einſt ſetzte ich darauf hinter<lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">einem</fw><lb/>
+<pb n="54" facs="#f0067"/>
+einem Haſen her, der queerfeldein uͤber<lb/>
+die Heerſtraße lief. Eine Kutſche mit<lb/>
+zwey ſchoͤnen Damen fuhr dieſen Weg<lb/>
+gerade zwiſchen mir und dem Haſen vor-<lb/>
+bey. Mein Gaul ſetzte ſo ſchnell und<lb/>
+ohne Anſtoß mitten durch die Kutſche hin-<lb/>
+durch, wovon die Fenſter aufgezogen waren,<lb/>
+daß ich kaum Zeit hatte, meinen Huth<lb/>
+abzuziehen, und die Damen wegen dieſer<lb/>
+Freyheit unterthaͤnigſt um Verzeihung<lb/>
+zu bitten.</p>         <lb/>
+<p>Ein andres Mal wollte ich uͤber<lb/>
+einen Moraſt ſetzen, der mir anſaͤnglich<lb/>
+nicht ſo breit vorkam, als ich ihn fand,<lb/>
+da ich mitten im Sprunge war. Schwe-<lb/>
+bend in der Luft wendete ich daher wie-<lb/>
+der um, wo ich hergekommen war, um<lb/>
+einen groͤßern Anlauf zu nehmen. Gleich-<lb/>
+wohl ſprang ich auch zum zweytenmale<lb/>
+noch zu kurz, und fiel nicht weit vom<lb/>
+andern Ufer bis an den Hals in den<lb/>
+Moraſt. Hier haͤtte ich ohnfehlbar um-<lb/>
+kommen muͤſſen, wenn nicht die Staͤrke<lb/>
+<fw type="catch" place="bottom">meines</fw><lb/>
+<pb facs="#f0068"/>
+<figure/>
+<pb facs="#f0069"/>
+<pb n="55" facs="#f0070"/>
+meines eigenen Armes mich an meinem<lb/>
+eigenen Haarzopfe, ſamt dem Pferde,<lb/>
+welches ich feſt zwiſchen meine Kniee<lb/>
+ſchloß, wieder herausgezogen haͤtte.</p>         <lb/>
+<p>Trotz aller meiner Tapferkeit und<lb/>
+Klugheit, trotz meiner und meines Pfer-<lb/>
+des Schnelligkeit, Gewandtheit und<lb/>
+Staͤrke, gings mir in dem Tuͤrkenkriege<lb/>
+doch nicht immer nach Wunſche. Ich<lb/>
+hatte ſogar das Ungluͤck, durch die Menge<lb/>
+uͤbermannt und zum Kriegsgefangenen<lb/>
+gemacht zu werden. Ja, was noch<lb/>
+ſchlimmer war, aber doch immer unter<lb/>
+den Tuͤrken gewoͤhnlich iſt, ich wurde<lb/>
+zum Sclaven verkauft. In dieſem<lb/>
+Stande der Demuͤthigung war mein Ta-<lb/>
+gewerk nicht ſowohl hart und ſauer, als<lb/>
+vielmehr ſeltſam und verdrießlich. Ich<lb/>
+mußte nehmlich des Sultans Bienen alle<lb/>
+Morgen auf die Weide treiben, ſie da-<lb/>
+ſelbſt den ganzen Tag lang huͤten, und<lb/>
+dann gegen Abend wieder zuruͤck in ihre<lb/>
+Stoͤcke treiben. Eines Abends vermißte<lb/>
+<fw type="sig" place="bottom">D 4</fw><fw type="catch" place="bottom">ich</fw><lb/>
+<pb n="56" facs="#f0071"/>
+ich eine Biene, wurde aber ſogleich ge-<lb/>
+wahr, daß zwey Baͤren ſie angefallen<lb/>
+hatten, und ihres Honigs wegen in<lb/>
+Stuͤcke zerreißen wollten. Da ich nun<lb/>
+nichts anderes waffenaͤhnliches in Haͤn-<lb/>
+den hatte, als die ſilberne Axt, welche<lb/>
+das Kennzeichen der Gaͤrtner und Land-<lb/>
+arbeiter des Sultans iſt, ſo warf ich<lb/>
+dieſe nach den beiden Raͤubern, bloß<lb/>
+in der Abſicht, ſie damit wegzuſcheu-<lb/>
+chen. Die arme Biene ſetzte ich auch<lb/>
+wirklich dadurch in Freyheit; allein durch<lb/>
+einen ungluͤcklichen allzu ſtarken Schwung<lb/>
+meines Armes flog die Axt in die Hoͤhe,<lb/>
+und hoͤrte nicht auf zu fliegen, bis ſie<lb/>
+im Monde nieder fiel. Wie ſollte ich<lb/>
+ſie nun wieder kriegen? Mit welcher Lei-<lb/>
+ter auf Erden ſie herunterholen? Da<lb/>
+fiel mir ein, daß die tuͤrkiſchen Bohnen<lb/>
+ſehr geſchwind und zu einer ganz erſtaun-<lb/>
+lichen Hoͤhe empor wuͤchſen. Augenblick-<lb/>
+lich pflanzte ich alſo eine ſolche Bohne,<lb/>
+welche wirklich empor wuchs, und ſich an<lb/>
+eines von des Mondes Hoͤrnern von<lb/>
+<fw type="catch" place="bottom">ſelbſt</fw><lb/>
+<pb facs="#f0072"/>
+<figure/>
+<pb facs="#f0073"/>
+<pb n="57" facs="#f0074"/>
+ſelbſt anrankte. Nun kletterte ich ge-<lb/>
+troſt nach dem Monde empor, wo ich<lb/>
+auch gluͤcklich anlangte. Es war ein<lb/>
+ziemlich muͤhſeliges Stuͤckchen Arbeit,<lb/>
+meine ſilberne Axt an einem Orte wie-<lb/>
+der zu finden, wo alle andere Dinge<lb/>
+gleichfalls wie Silber glaͤnzten. End-<lb/>
+lich aber fand ich ſie doch auf einem<lb/>
+Haufen von Spreu und Haͤckerling. Nun<lb/>
+wollte ich wieder zuruͤckkehren, aber ach!<lb/>
+die Sonnenhitze hatte indeſſen meine<lb/>
+Bohne aufgetrocknet, ſo daß daran<lb/>
+ſchlechterdings nicht wieder herabzuſteigen<lb/>
+war. Was war nun zu thun? — Ich<lb/>
+flocht mir einen Strick von dem Haͤcker-<lb/>
+linge, ſo lang ich ihn nur immer machen<lb/>
+konnte. Dieſen befeſtigte ich an eines<lb/>
+von des Mondes Hoͤrnern und ließ mich<lb/>
+daran herunter. Mit der linken Hand<lb/>
+hielt ich mich feſt und in der rechten fuͤhrte<lb/>
+ich neine Axt. So wie ich nun eine<lb/>
+Strcke hinunter geglitten war, ſo hieb<lb/>
+ich inmer das uͤberfluͤßige Stuͤck uͤber<lb/>
+mir ab, und knuͤpfte daſſelbe unten wieder<lb/>
+<fw type="sig" place="bottom">D 5</fw><fw type="catch" place="bottom">an,</fw><lb/>
+<pb n="58" facs="#f0075"/>
+an, wodurch ich denn ziemlich weit her-<lb/>
+unter gelangte. Dieſes wiederhohlte Ab-<lb/>
+hauen und Anknuͤpfen machte nun frey-<lb/>
+lich den Strick eben ſo wenig beſſer,<lb/>
+als ich mich voͤllig herab auf des Sul-<lb/>
+tans Landgut brachte. Ich mochte wohl<lb/>
+noch ein Paar Meilen weit droben in<lb/>
+den Wolken ſeyn, als mein Strick auf<lb/>
+einmal zerriß und ich mit ſolcher Hef-<lb/>
+tigkeit herab auf Gottes Erdboden fiel,<lb/>
+daß ich ganz betaͤubt davon wurde. Durch<lb/>
+die Schwehre meines von einer ſolchen<lb/>
+Hoͤhe herabfallenden Coͤrpers fiel ich ein<lb/>
+Loch, wenigſtens neun Klafter tief, in<lb/>
+die Erde hinein. Ich erhohlte mich<lb/>
+zwar endlich wieder, wußte aber nun nicht,<lb/>
+wie ich wieder herauskommen ſollte.<lb/>
+Allein was thut nicht die Noth? Ich<lb/>
+grub mir mit meinen Naͤgeln, deren<lb/>
+Wuchs damals vierzigjaͤhrig war, eine<lb/>
+Art von Treppe, und foͤrderte mich da-<lb/>
+durch gluͤcklich zu Tage.</p>         <lb/>
+<p>Durch dieſe muͤhſelige Erfahrung<lb/>
+kluͤger gemacht, fing ichs nachher beſſer<lb/>
+<fw type="catch" place="bottom">an,</fw><lb/>
+<pb facs="#f0076"/>
+<figure/>
+<pb facs="#f0077"/>
+<pb n="59" facs="#f0078"/>
+an, der Baͤren, die ſo gern nach meinen<lb/>
+Bienen und den Honigſtoͤcken ſtiegen,<lb/>
+loß zu werden. Ich beſtrich die Deichſel<lb/>
+eines Ackerwagens mit Honig, und legte<lb/>
+mich nicht weit davon des Nachts in<lb/>
+einen Hinterhalt. Was ich vermuthete,<lb/>
+das geſchah. Ein ungeheurer Baͤr,<lb/>
+herbeygelockt durch den Duft des Ho-<lb/>
+nigs, kam an und fing vorn an der<lb/>
+Spitze der Stange ſo begierig an zu<lb/>
+lecken, daß er ſich die ganze Stange<lb/>
+durch Schlund, Magen und Bauch bis<lb/>
+hinten wieder hinausleckte. Als er ſich<lb/>
+nun ſo artig auf die Stange hinauf ge-<lb/>
+leckt hatte, lief ich hinzu, ſteckte vorn<lb/>
+durch das Loch der Deichſel einen langen<lb/>
+Pflock, verwehrte dadurch dem Naſcher<lb/>
+den Ruͤckzug, und ließ ihn ſitzen bis an<lb/>
+den andern Morgen. Ueber dieß Stuͤck-<lb/>
+chen wollte ſich der Großſultan, der von<lb/>
+ohngefaͤhr vorbey ſpazirte, faſt todtlachen.</p>         <lb/>
+<p>Nicht lange hierauf machten die<lb/>
+Ruſſen mit den Tuͤrken Frieden und ich<lb/>
+<fw type="catch" place="bottom">wurde</fw><lb/>
+<pb n="60" facs="#f0079"/>
+wurde nebſt andern Kriegsgefangenen<lb/>
+wieder nach St. Petersburg ausgelie-<lb/>
+fert. Ich nahm aber nun meinen Ab-<lb/>
+ſchied und verließ Rußland um die Zeit<lb/>
+der großen Revolution vor etwa vier-<lb/>
+zig Jahren, da der Kaiſer in der<lb/>
+Wiege, nebſt ſeiner Mutter und ihrem<lb/>
+Vater, dem Herzoge von Braunſchweig,<lb/>
+dem Feldmarſchal von Muͤnnich und vie-<lb/>
+len andern nach Sibirien geſchickt wur-<lb/>
+den. Es herrſchte damals uͤber ganz<lb/>
+Europa ein ſo außerordentlich ſtrenger<lb/>
+Winter, daß die Sonne eine Art<lb/>
+von Froſtſchaden erlitten haben muß,<lb/>
+woran ſie ſeit der ganzen Zeit her bis<lb/>
+auf den heutigen Tag geſiecht hat. Ich<lb/>
+empfand daher auf der Ruͤckreiſe in mein<lb/>
+Vaterland weit groͤßeres Ungemach, als<lb/>
+ich auf meiner Hinreiſe nach Rußland<lb/>
+erfahren hatte.</p>         <lb/>
+<p>Ich mußte, weil mein Lithauer in<lb/>
+der Tuͤrkey geblieben war, mit der Poſt<lb/>
+reiſen. Als ſichs nun fuͤgte, daß wir<lb/>
+<fw type="catch" place="bottom">an</fw><lb/>
+<pb n="61" facs="#f0080"/>
+an einen engen hohlen Weg zwiſchen<lb/>
+hohen Dornhecken kamen, ſo erinnerte<lb/>
+ich den Poſtilion, mit ſeinem Horne ein<lb/>
+Zeichen zu geben, damit wir uns in die-<lb/>
+ſem engen Paſſe nicht etwa gegen ein<lb/>
+anderes entgegenkommendes Fuhrwerk<lb/>
+feſtfahren moͤchten. Mein Kerl ſetzte<lb/>
+an und blies aus Leibeskraͤften in das<lb/>
+Horn, aber alle ſeine Bemuͤhungen waren<lb/>
+umſonſt. Nicht ein einziger Ton kam<lb/>
+heraus, welches uns ganz unerklaͤrlich,<lb/>
+ja in der That fuͤr ein rechtes Ungluͤck<lb/>
+zu achten war, indem bald eine andere<lb/>
+uns entgegen kommende Kutſche auf uns<lb/>
+ſtieß, vor welcher nun ſchlechterdings<lb/>
+nicht vorbey zu kommen war. Nichts<lb/>
+deſto weniger ſprang ich aus meinem<lb/>
+Wagen und ſpannte zufoͤrderſt die Pferde<lb/>
+aus. Hierauf nahm ich den Wagen,<lb/>
+nebſt den vier Raͤdern und allen Paͤcke-<lb/>
+reyen auf meine Schultern, und ſprang<lb/>
+damit uͤber Ufer und Hecke, ohngefaͤhr<lb/>
+neun Fuß hoch, welches in Ruͤckſicht<lb/>
+auf die Schwere der Kutſche eben keine<lb/>
+<fw type="catch" place="bottom">Kleinig-</fw><lb/>
+<pb n="62" facs="#f0081"/>
+Kleinigkeit war, auf das Feld hinuͤber.<lb/>
+Durch einen andern Ruͤckſprung gelangte<lb/>
+ich, die fremde Kutſche voruͤber, wie-<lb/>
+der in den Weg. Darauf eilte ich<lb/>
+zuruͤck zu unſern Pferden, nahm unter<lb/>
+jeden Arm eins, und hohlte ſie auf die<lb/>
+vorige Art, nehmlich durch einen zwey-<lb/>
+maligen Sprung hinuͤber und heruͤber,<lb/>
+gleichfalls herbey, ließ wieder anſpannen<lb/>
+und gelangte gluͤcklich am Ende der Sta-<lb/>
+tion zur Herberge. Noch haͤtte ich an-<lb/>
+fuͤhren ſollen, daß eins von den Pfer-<lb/>
+den, welches ſehr muthig und nicht uͤber<lb/>
+vier Jahr alt war, ziemlichen Unfug<lb/>
+machen wollte. Denn als ich meinen<lb/>
+zweyten Sprung uͤber die Hecke that,<lb/>
+ſo verrieth es durch ſein Schnauben und<lb/>
+Trampeln ein großes Mißbehagen an<lb/>
+dieſer heftigen Bewegung. Dieß ver-<lb/>
+wehrte ich ihm aber gar bald, indem<lb/>
+ich ſeine Hinterbeine in meine Rocktaſche<lb/>
+ſteckte. In der Herberge erhohlten wir<lb/>
+uns wieder von unſerm Abentheuer.<lb/>
+Der Poſtilion haͤngte ſein Horn an einen<lb/>
+<fw type="catch" place="bottom">Nagel</fw><lb/>
+<pb n="63" facs="#f0082"/>
+Nagel beym Kuͤchenfeuer, und ich ſetzte<lb/>
+mich ihm gegen uͤber.</p>         <lb/>
+<p>Nun hoͤrt, ihr Herren, was geſchah!<lb/>
+Auf einmal gings: <hi rendition="#fr">Tereng! Tereng!<lb/>
+teng! teng!</hi> Wir machten große Augen<lb/>
+und fanden nun auf einmal die Urſache<lb/>
+aus, warum der Poſtilion ſein Horn<lb/>
+nicht hatte blaſen koͤnnen. Die Toͤne<lb/>
+waren in dem Horne feſtgefroren und<lb/>
+kamen nun, ſo wie ſie nach und nach<lb/>
+aufthaueten, hell und klar, zu nicht ge-<lb/>
+ringer Ehre des Fuhrmanns heraus.<lb/>
+Denn die ehrliche Haut unterhielt uns<lb/>
+nun eine ziemliche Zeit lang mit der<lb/>
+herrlichſten Modulation, ohne den Mund<lb/>
+an das Horn zu bringen. Da hoͤrten<lb/>
+wir den preuſſiſchen Marſch — Ohne<lb/>
+Lieb’ und ohne Wein — Als ich auf<lb/>
+meiner Bleiche — Geſtern Abend war<lb/>
+Vetter Michel da — nebſt noch vielen<lb/>
+andern Stuͤckchen, auch ſogar das Abend-<lb/>
+lied: Nun ruhen alle Waͤlder — Mit<lb/>
+dieſem letzten endigte ſich denn dieſer<lb/>
+<fw type="catch" place="bottom">Thau-</fw><lb/>
+<pb n="64" facs="#f0083"/>
+Thauſpaß, ſo wie ich hiermit meine Ruſ-<lb/>
+ſiſche Reiſe-Geſchichte.</p>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <p>Manche Reiſende ſind bisweilen im<lb/>
+Stande, mehr zu behaupten, als genau<lb/>
+genommen wahr ſeyn mag. Daher iſt<lb/>
+es denn kein Wunder, wenn Leſer oder<lb/>
+Zuhoͤrer ein wenig zum Unglauben ge-<lb/>
+neigt werden. Sollten indeſſen einige<lb/>
+von der Geſellſchaft an meiner Wahr-<lb/>
+haftigkeit zweifeln, ſo muß ich ſie wegen<lb/>
+ihrer Unglaͤubigkeit herzlich bemitleiden<lb/>
+und ſie bitten, ſich lieber zu entfernen,<lb/>
+ehe ich meine Schiffs-Abentheuer be-<lb/>
+ginne, die zwar faſt noch wunderbarer,<lb/>
+aber doch eben ſo authentiſch ſind.</p>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/>       <fw type="catch" place="bottom">         <hi rendition="#b">           <hi rendition="#g">Des</hi>         </hi>       </fw>       <lb/>
+<pb n="65" facs="#f0084"/>
+<div n="1">         <head>           <hi rendition="#b"><hi rendition="#g">Des</hi><lb/>
+Freyherrn von Muͤnchhauſen<lb/>
+<hi rendition="#g">See-Abentheuer</hi>.</hi>         </head>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <p><hi rendition="#in">I</hi>m Jahr 1766 ſchiffte ich mich zu<lb/>
+Portsmouth auf einem engliſchen<lb/>
+Kriegsſchiffe erſter Ordnung, mit hun-<lb/>
+dert Kanonen und vierzehnhundert Mann,<lb/>
+nach Nord-America ein. Ich koͤnnte hier<lb/>
+zwar erſt noch allerley, was mir in Eng-<lb/>
+land begegnet iſt, erzaͤhlen; ich verſpare es<lb/>
+aber auf ein anderes Mal. Eins jedoch,<lb/>
+welches mir uͤberaus artig vorkam, will<lb/>
+ich nur noch im Vorbeygehn mitnehmen.<lb/>
+Ich hatte das Vergnuͤgen den Koͤnig<lb/>
+mit großem Pompe in ſeinem Staatswa-<lb/>
+gen nach dem Parlament fahren zu ſehen.<lb/>
+Ein Kutſcher mit einem ungemein re-<lb/>
+ſpectablen Barte, worein das engliſche<lb/>
+Wapen ſehr ſauber geſchnitten war, ſaß<lb/>
+gravitaͤtiſch auf dem Bocke und klatſchte<lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom">mit</fw><lb/>
+<pb n="66" facs="#f0085"/>
+mit ſeiner Peitſche<lb/>
+ein eben ſo deutli-<lb/>
+ches als kuͤnſtliches <note place="foot" n="*)"><hi rendition="#aq">Georg Rex.</hi></note> —</p>         <lb/>
+<figure/>         <p>Anlangend unſere Seereiſe, ſo be-<lb/>
+gegnete uns nichts merkwuͤrdiges, bis<lb/>
+wir ohngefaͤhr noch dreyhundert Meilen<lb/>
+von dem St. Lorenzfluſſe entfernt waren.<lb/>
+Hier ſtieß das Schiff mit erſtaunlicher<lb/>
+Gewalt gegen etwas an, das uns wie<lb/>
+ein Fels vorkam. Gleichwohl konnten<lb/>
+wir, als wir das Senkbley auswarfen,<lb/>
+mit fuͤnfhundert Klaftern noch keinen<lb/>
+Grund finden. Was dieſen Vorfall<lb/>
+noch wunderbarer und beynahe unbe-<lb/>
+greiflich machte, war, daß wir unſer<lb/>
+Steuerruder verlohren, das Bog-<lb/>
+ſpriet mitten entzweybrachen und alle<lb/>
+unſere Maſten von oben bis unten aus<lb/>
+zerſplitterten, wovon auch zwey uͤber<lb/>
+<fw type="catch" place="bottom">Bord</fw><lb/>
+<pb n="67" facs="#f0086"/>
+Bord ſtoben. Ein armer Teufel, wel-<lb/>
+cher gerade oben das Hauptſegel bey-<lb/>
+legte, flog wenigſtens drey Meilen weit<lb/>
+vom Schiffe weg, ehe er zu Waſſer<lb/>
+fiel. Allein er rettete noch dadurch gluͤck-<lb/>
+lich ſein Leben, daß er, waͤhrend er in<lb/>
+der Luft flog, den Schwanz einer Roth-<lb/>
+gans ergriff, welches nicht nur ſeinen<lb/>
+Sturz in das Waſſer milderte, ſondern<lb/>
+ihm auch Gelegenheit gab, auf ihrem<lb/>
+Ruͤcken, oder vielmehr zwiſchen Hals und<lb/>
+Fittigen, ſo lange nach zu ſchwimmen,<lb/>
+bis er endlich wieder an Bord genom-<lb/>
+men werden konnte. Ein anderer Be-<lb/>
+weis von der Gewalt des Stoßes war<lb/>
+dieſer, daß alles Volk zwiſchen den Ver-<lb/>
+decken empor gegen die Kopfdecke ge-<lb/>
+ſchnellt ward. Mein Kopf ward da-<lb/>
+durch ganz in den Magen hinabgepufft,<lb/>
+und es dauerte wohl einige Monathe,<lb/>
+ehe er ſeine natuͤrliche Stellung wieder<lb/>
+bekam. Noch befanden wir uns insge-<lb/>
+ſamt in einem Zuſtande des Erſtaunens<lb/>
+und einer allgemeinen unbeſchreiblichen<lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">Ver-</fw><lb/>
+<pb n="68" facs="#f0087"/>
+Verwirrung, als ſich auf einmal alles<lb/>
+durch Erſcheinung eines großen Wall-<lb/>
+fiſches aufklaͤrte, welcher an der<lb/>
+Oberflaͤche des Waſſers, ſich ſoͤm-<lb/>
+mernd, eingeſchlafen war. Dieß Un-<lb/>
+geheuer war ſo uͤbel damit zufrie-<lb/>
+den, daß wir es mit unſerm Schiffe<lb/>
+geſtoͤrt hatten, daß es nicht nur mit<lb/>
+ſeinem Schwanze die Gallerie und einen<lb/>
+Theil des Oberlofs einſchlug, ſondern<lb/>
+auch zu gleicher Zeit den Hauptanker,<lb/>
+welcher, wie gewoͤhnlich, am Steuer<lb/>
+aufgewunden war, zwiſchen ſeine Zaͤhne<lb/>
+packte, und wenigſtens ſechzig Meilen<lb/>
+weit, ſechs Meilen auf eine Stunde ge-<lb/>
+rechnet, mit unſerm Schiffe davon eilte.<lb/>
+Gott weiß, wohin wir gezogen ſeyn wuͤr-<lb/>
+den, wenn nicht noch gluͤcklicher Weiſe<lb/>
+das Ankertau zerriſſen waͤre, wodurch<lb/>
+der Wallfiſch unſer Schiff, wir aber<lb/>
+auch zugleich unſern Anker verlohren.<lb/>
+Als wir aber ſechs Monathe hierauf wie<lb/>
+der nach Europa zuruͤckſegelten, ſo fan-<lb/>
+den wir eben denſelben Wallſiſch, in<lb/>
+<fw type="catch" place="bottom">einer</fw><lb/>
+<pb n="69" facs="#f0088"/>
+einer Entfernung weniger Meilen von<lb/>
+eben der Stelle, todt auf dem Waſſer<lb/>
+ſchwimmen, und er maß ungelogen der<lb/>
+Laͤnge nach wenigſtens eine halbe Meile.<lb/>
+Da wir nun von einem ſo ungeheuern<lb/>
+Thiere nur wenig an Bord nehmen<lb/>
+konnten, ſo ſetzten wir unſere Boote<lb/>
+aus, ſchnitten ihm mit großer Muͤhe<lb/>
+den Kopf ab, und fanden zu unſerer<lb/>
+großen Freude nicht nur unſern Anker,<lb/>
+ſondern auch uͤber vierzig Klafter Tau,<lb/>
+welches auf der linken Seite ſeines Ra-<lb/>
+chens in einem hohlen Zahne ſteckte.<lb/>
+Dieß war der einzige beſondere Umſtand,<lb/>
+der ſich auf dieſer Reiſe zutrug. Doch<lb/>
+halt! Eine Fatalitaͤt haͤtte ich beynahe<lb/>
+vergeſſen. Als nehmlich das erſte Mal<lb/>
+der Wallfiſch mit dem Schiffe davon<lb/>
+ſchwamm, ſo bekam das Schiff einen<lb/>
+Leck und das Waſſer drang ſo heftig<lb/>
+herein, daß alle unſere Pumpen uns<lb/>
+keine halbe Stunde vor dem Sinken<lb/>
+haͤtten bewahren koͤnnen. Zum guten<lb/>
+Gluͤcke entdeckte ich das Unheil zuerſt.<lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">Es</fw><lb/>
+<pb n="70" facs="#f0089"/>
+Es war ein großes Loch, ohngefaͤhr<lb/>
+einen Fuß im Durchmeſſer. Auf aller-<lb/>
+ley Weiſe verſuchte ich es, das Loch zu<lb/>
+verſtopfen, allein umſonſt. Endlich<lb/>
+rettete ich dieß ſchoͤne Schiff und alle<lb/>
+ſeine zahlreiche Mannſchaft durch den<lb/>
+gluͤcklichſten Einfall von der Welt. Ob<lb/>
+das Loch gleich ſo groß war, ſo fuͤllte<lb/>
+ichs dennoch mit meinem Liebwertheſten<lb/>
+aus, ohne meine Beinkleider abzuzie-<lb/>
+hen; und ich wuͤrde ausgelanget haben,<lb/>
+wenn auch die Oeffnung noch viel groͤßer<lb/>
+geweſen waͤre. Sie werden ſich dar-<lb/>
+uͤber nicht wundern meine Herren, wenn<lb/>
+ich Ihnen ſage, daß ich auf beyden<lb/>
+Seiten von hollaͤndiſchen, wenigſtens weſt-<lb/>
+phaͤliſchen Vorfahren abſtamme. Meine<lb/>
+Situation, ſo lange ich auf der Brille<lb/>
+ſaß, war zwar ein wenig kuͤhl, in-<lb/>
+deſſen ward ich doch bald durch die Kunſt<lb/>
+des Zimmermannes erloͤſet.</p>         <lb/>
+<fw type="catch" place="bottom">           <hi rendition="#b">Zweytes</hi>         </fw>         <lb/>
+<pb n="71" facs="#f0090"/>
+<div n="2">           <head>             <hi rendition="#b">Zweytes See-Abentheuer.</hi>           </head>           <lb/>
+<p>Einſt war ich in großer Gefahr<lb/>
+im mittellaͤndiſchen Meere umzukommen.<lb/>
+Ich badete mich naͤhmlich an einem<lb/>
+Sommernachmittage, ohnweit Marſeille,<lb/>
+in der angenehmen See, als ich einen<lb/>
+großen Fiſch, mit weit aufgeſperrtem<lb/>
+Rachen, in der groͤßten Geſchwindig-<lb/>
+keit auf mich daherſchießen ſah. Zeit<lb/>
+war hier ſchlechterdings nicht zu verlie-<lb/>
+ren, auch war es durchaus unmoͤglich,<lb/>
+ihm zu entkommen. Unverzuͤglich druͤckte<lb/>
+ich mich ſo klein zuſammen, als moͤg-<lb/>
+lich, indem ich meine Fuͤße heraufzog<lb/>
+und die Arme dicht an den Leib ſchloß.<lb/>
+In dieſer Stellung ſchluͤpfte ich denn<lb/>
+gerade zwiſchen ſeinen Kiefern hindurch,<lb/>
+bis in den Magen hinab. Hier brachte<lb/>
+ich, wie man leicht denken kann, einige<lb/>
+Zeit in gaͤnzlicher Finſterniß, aber doch<lb/>
+in einer nicht unbehaglichen Waͤrme zu.<lb/>
+Da ich ihm aber nach und nach Ma-<lb/>
+gendruͤcken verurſachen mochte, ſo waͤre<lb/>
+<fw type="sig" place="bottom">E 4</fw><fw type="catch" place="bottom">er</fw><lb/>
+<pb n="72" facs="#f0091"/>
+er mich wohl gern wieder los geweſen.<lb/>
+Weil es mir gar nicht an Raume fehlte,<lb/>
+ſo ſpielte ich ihm durch Tritt und Schritt,<lb/>
+durch Hopp und He, gar manchen<lb/>
+Poſſen. Nichts ſchien ihn aber mehr<lb/>
+zu beunruhigen, als die ſchnelle Bewe-<lb/>
+gung meiner Fuͤße, da ichs verſuchte,<lb/>
+einen ſchottiſchen Triller zu tanzen.<lb/>
+Ganz entſetzlich ſchrie er auf und erhob<lb/>
+ſich faſt ſenkrecht mit ſeinem halben Leibe<lb/>
+aus dem Waſſer. Hierdurch ward er<lb/>
+aber von dem Volke eines vorbeyſegeln-<lb/>
+den italiaͤniſchen Kauffarthey-Schiffes<lb/>
+entdeckt, und in wenigen Minuten mit<lb/>
+Harpunen erlegt. Sobald er an Bord<lb/>
+gebracht war, hoͤrte ich das Volk ſich<lb/>
+berathſchlagen, wie ſie ihn aufſchneiden<lb/>
+wollten, um die groͤßte Quantitaͤt Oehl<lb/>
+von ihm zu gewinnen. Da ich nun<lb/>
+Italiaͤniſch verſtand, ſo gerieth ich in<lb/>
+die ſchrecklichſte Angſt, daß ihre Meſſer<lb/>
+auch mich <hi rendition="#aq">par Compagnie</hi> mit aufſchneiden<lb/>
+moͤchten. Daher ſtellte ich mich ſo viel<lb/>
+moͤglich in die Mitte des Magens,<lb/>
+<fw type="catch" place="bottom">worin</fw><lb/>
+<pb facs="#f0092"/>
+<figure/>
+<pb facs="#f0093"/>
+<pb n="73" facs="#f0094"/>
+worin fuͤr mehr als ein Dutzend Mann<lb/>
+hinlaͤnglich Platz war, weil ich mir wohl<lb/>
+einbilden konnte, daß ſie mit den Ex-<lb/>
+tremitaͤten den Anfang machen wuͤrden.<lb/>
+Meine Furcht verſchwand indeſſen bald,<lb/>
+da ſie mit Eroͤffnung des Unterleibes<lb/>
+anfingen. Sobald ich nun nur ein<lb/>
+wenig Licht ſchimmern ſah, ſchrie ich<lb/>
+ihnen aus voller Lunge entgegen, wie<lb/>
+angenehm es mir waͤre, die Herren zu<lb/>
+ſehen, und durch ſie aus einer Lage er-<lb/>
+loͤſet zu werden, in welcher ich beynahe<lb/>
+erſtickt waͤre. Unmoͤglich laͤßt ſich das<lb/>
+Erſtaunen auf allen Geſichtern lebhaft<lb/>
+genug ſchildern, als ſie eine Menſchen-<lb/>
+ſtimme aus einem Fiſche heraus ver-<lb/>
+nahmen. Dieß wuchs natuͤrlicher Weiſe<lb/>
+noch mehr, als ſie lang und breit einen<lb/>
+nackenden Menſchen herausſpazieren ſahn.<lb/>
+Kurz, meine Herren, ich erzaͤhlte ihnen<lb/>
+die ganze Begebenheit, ſo wie ich ſie<lb/>
+Ihnen jetzt erzaͤhlt habe, woruͤber ſie<lb/>
+ſich denn alle faſt zu Tode verwundern<lb/>
+wollten.</p>           <lb/>
+<fw type="sig" place="bottom">E 5</fw>           <fw type="catch" place="bottom">Nach-</fw>           <lb/>
+<pb n="74" facs="#f0095"/>
+<p>Nachdem ich einige Erfriſchungen<lb/>
+zu mir genommen hatte und in die See<lb/>
+geſprungen war, um mich abzuſpuͤlen,<lb/>
+ſchwamm ich nach meinen Kleidern,<lb/>
+welche ich auch am Ufer eben ſo wie-<lb/>
+derfand, als ich ſie gelaſſen hatte. So<lb/>
+viel ich rechnen konnte, war ich ohnge-<lb/>
+faͤhr drittehalb Stunden in dem Magen<lb/>
+dieſer Beſtie eingekerkert geweſen.</p>         </div>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <fw type="catch" place="bottom">           <hi rendition="#b">Drittes</hi>         </fw>         <lb/>
+<pb n="75" facs="#f0096"/>
+<div n="2">           <head>             <hi rendition="#b">Drittes See-Abentheuer.</hi>           </head>           <lb/>
+<p>Als ich noch in tuͤrkiſchen Dienſten<lb/>
+war, beluſtigte ich mich oͤfters in einer<lb/>
+Luſt-Barke auf dem <hi rendition="#aq">Mare di Marmora,</hi><lb/>
+von wo aus man die herrlichſte Ausſicht<lb/>
+auf ganz Conſtantinopel, das Seraglio<lb/>
+des Groß-Sultans mit eingeſchloſſen,<lb/>
+beherrſchet. Eines Morgens, als ich<lb/>
+die Schoͤnheit und Heiterkeit des Him-<lb/>
+mels betrachtete, bemerkte ich ein run-<lb/>
+des Ding, ohngefaͤhr wie eine Billard-<lb/>
+Kugel groß, in der Luft, von welchem<lb/>
+noch etwas anderes herunter hing. Ich<lb/>
+griff ſogleich nach meiner beſten und laͤng-<lb/>
+ſten Vogelflinte, ohne welche, wenn<lb/>
+ichs aͤndern kann, ich niemals ausgehe,<lb/>
+oder ausre<supplied>i</supplied>ſe, lud ſie mit einer Kugel<lb/>
+und feuer<supplied>t</supplied>e nach dem runden Dinge in<lb/>
+der Luft; allein umſonſt. Ich wieder-<lb/>
+hohlte den Schuß mit zwey Kugeln, rich-<lb/>
+tete aber noch nichts aus. Erſt der<lb/>
+dritte Schuß, mit vier oder fuͤnf Ku-<lb/>
+geln machte an einer Seite ein Loch<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="76" facs="#f0097"/>
+und brachte das Ding herab. Stellen<lb/>
+Sie ſich meine Verwunderung vor, als<lb/>
+ein niedlich vergoldeter Wagen, haͤngend<lb/>
+an einem ungeheuern Ballon, groͤßer<lb/>
+als die groͤßte Thurm-Kuppel im Um-<lb/>
+fange, ohngefaͤhr zwey Klafter weit<lb/>
+von meiner Barke herunter ſank. In<lb/>
+den Wagen befand ſich ein Mann und<lb/>
+ein halbes Schaf, welches gebraten zu<lb/>
+ſeyn ſchien. Sobald ſich mein erſtes<lb/>
+Erſtaunen gelegt hatte, ſchloß ich mit<lb/>
+meinen Leuten um dieſe ſeltſame Gruppe<lb/>
+einen dichten Kreis.</p>           <lb/>
+<p>Dem Manne, der wie ein Franzoſe<lb/>
+ausſah, welches er denn auch war,<lb/>
+hingen aus jeder Taſche ein Paar praͤch-<lb/>
+tige Uhrketten mit Berlocken, worauf,<lb/>
+wie mich duͤnkt, große Herren und Da-<lb/>
+men abgemahlt waren. Aus jedem<lb/>
+Knopfloche hing ihm eine goldene Me-<lb/>
+daille, wenigſtens hundert Ducaten am<lb/>
+Werth, und an jeglichem ſeiner Finger<lb/>
+ſteckte ein koſtbarer Ring mit Brillan-<lb/>
+<fw type="catch" place="bottom">ten</fw><lb/>
+<pb n="77" facs="#f0098"/>
+ten Seine Rocktaſchen waren mit vollen<lb/>
+Goldboͤrſen beſchwehrt, die ihn faſt zur<lb/>
+Erde zogen. Mein Gott, dachte ich,<lb/>
+der Mann muß dem menſchlichen Ge-<lb/>
+ſchlechte außerordentlich wichtige Dienſte<lb/>
+geleiſtet haben, daß die großen Herren<lb/>
+und Damen, ganz wider ihre heutzu-<lb/>
+tage ſo allgemeine Kniker-Natur, ihn<lb/>
+ſo mit Geſchenken, die es zu ſeyn ſchie-<lb/>
+nen, beſchwehren konnten. Bey allen<lb/>
+dem befand er ſich denn doch gegenwaͤr-<lb/>
+tig von dem Falle ſo uͤbel, daß er kaum<lb/>
+im Stande war, ein Wort hervorzu-<lb/>
+bringen. Nach einiger Zeit erhohlte<lb/>
+er ſich wieder, und ſtattete folgenden<lb/>
+Bericht ab. 〟Dieſes Luftfuhrwerk hatte<lb/>
+ich zwar nicht Kopf und Wiſſenſchaft<lb/>
+genug ſelbſt zu erfinden, dennoch aber<lb/>
+mehr denn uͤberfluͤßige Luftſpringer-<lb/>
+und Seiltaͤnzer-Waghalſigkeit zu be-<lb/>
+ſteigen, und darauf mehrmalen in die<lb/>
+Luft empor zu fahren. Vor ohngefaͤhr<lb/>
+ſieben oder acht Tagen — denn ich habe<lb/>
+meine Rechnung verlohren — erhob ich<lb/>
+<fw type="catch" place="bottom">mich</fw><lb/>
+<pb n="78" facs="#f0099"/>
+mich damit auf der Landſpitze von Corn-<lb/>
+wall in England und nahm ein Schaf mit,<lb/>
+um von oben herab vor den Augen vieler<lb/>
+tauſend Nachgaffer Kunſtſtuͤcke damit zu<lb/>
+machen. Ungluͤcklicher Weiſe drehete ſich<lb/>
+der Wind innerhalb zehen Minuten nach<lb/>
+meinem Hinaufſteigen; und anſtatt mich<lb/>
+nach Exeter zu treiben, wo ich wieder zu<lb/>
+landen gedachte, ward ich hinaus nach<lb/>
+der See getrieben, uͤber welcher ich auch<lb/>
+vermuthlich die ganze Zeit her in der<lb/>
+unermeßlichſten Hoͤhe geſchwebet habe.</p>           <lb/>
+<p>Es war gut, daß ich zu meinem<lb/>
+Kunſtſtuͤckchen mit dem Schafe nicht<lb/>
+hatte gelangen koͤnnen. Denn am dritten<lb/>
+Tage meiner Luftfahrt, wurde mein Hun-<lb/>
+ger ſo groß, daß ich mich genoͤthigt<lb/>
+ſah, das Schaf zu ſchlachten. Als ich<lb/>
+nun damals unendlich hoch uͤber dem<lb/>
+Monde war, und nach einer ſechzehnſtuͤn-<lb/>
+digen noch weitern Auffahrt endlich der<lb/>
+Sonne ſo nahe kam, daß ich mir die<lb/>
+Augenbraunen verſengte, ſo legte ich<lb/>
+das todte Schaf, nachdem ich es vor-<lb/>
+<fw type="catch" place="bottom">her</fw><lb/>
+<pb n="79" facs="#f0100"/>
+her abgehaͤutet, an denjenigen Ort im<lb/>
+Wagen, wo die Sonne die meiſte Kraft<lb/>
+hatte, oder mit andern Worten, wo<lb/>
+der Ballon keinen Schatten hinwarf,<lb/>
+auf welche Weiſe es denn in ohngefaͤhr<lb/>
+drey Viertel Stunden voͤllig gar briet.<lb/>
+Von dieſem Braten habe ich die ganze Zeit<lb/>
+her gelebt〟 — Hier hielt mein Mann<lb/>
+ein, und ſchien ſich in Betrachtung der<lb/>
+Gegenſtaͤnde um ihn her zu vertiefen.<lb/>
+Als ich ihm ſagte, daß die Gebaͤude<lb/>
+da vor uns das Seraglio des Großherrn<lb/>
+zu Conſtantinopel waͤren, ſo ſchien er<lb/>
+außerordentlich beſtuͤrzt, indem er ſich<lb/>
+ganz wo anders zu befinden geglaubt<lb/>
+hatte. 〟Die Urſache meines langen<lb/>
+Fluges, fuͤgte er endlich hinzu, war,<lb/>
+daß mir ein Faden zerriß, der an einer<lb/>
+Klappe in dem Luftballe ſaß, und dazu<lb/>
+diente, die inflammable Luft herauszu-<lb/>
+laſſen. Waͤre nun nicht auf den Ball<lb/>
+gefeuert und derſelbe dadurch aufgeriſſen<lb/>
+worden, ſo moͤchte er wohl, wie Ma-<lb/>
+homet, bis an den juͤngſten Tag zwi-<lb/>
+<fw type="catch" place="bottom">ſchen</fw><lb/>
+<pb n="80" facs="#f0101"/>
+ſchen Himmel und Erde geſchwebt ha-<lb/>
+ben.〟 Den Wagen ſchenkte er hier-<lb/>
+auf großmuͤthig meinem Bootsmanne,<lb/>
+der hinten am Steuer ſtand. Den Ha-<lb/>
+melsbraten warf er ins Meer. Was<lb/>
+aber den Luftball anlangte, ſo war der<lb/>
+von dem Schaden, welchen ich ihm zu-<lb/>
+gefuͤgt hatte, im herunterfallen vollends<lb/>
+ganz und gar zu Stuͤcken zerriſſen.</p>         </div>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <fw type="catch" place="bottom">           <hi rendition="#b">Viertes</hi>         </fw>         <lb/>
+<pb n="81" facs="#f0102"/>
+<div n="2">           <head>             <hi rendition="#b">Viertes See-Abentheuer.</hi>           </head>           <lb/>
+<p>Da wir noch Zeit haben, meine<lb/>
+Herren, eine friſche Flaſche auszutrin-<lb/>
+ken, ſo will ich Ihnen noch eine an-<lb/>
+dere ſehr ſeltſame Begebenheit erzaͤhlen,<lb/>
+die mir wenige Monathe vor meiner<lb/>
+letzten Ruͤckreiſe nach Europa begegnete.</p>           <lb/>
+<p>Der Großherr, welchem ich durch<lb/>
+die Roͤmiſch- und Ruſſiſch-Kaiſerlichen,<lb/>
+wie auch franzoͤſiſchen Botſchafter vor-<lb/>
+geſtellet worden war, bediente ſich meiner,<lb/>
+ein Geſchaͤft von großer Wichtigkeit zu<lb/>
+Großkairo zu betreiben, welches zugleich<lb/>
+ſo beſchaffen war, daß es immer und<lb/>
+ewig ein Geheimniß bleiben mußte.</p>           <lb/>
+<p>Ich reiſete mit großem Pompe in<lb/>
+einem ſehr zahlreichen Gefolge zu Lande<lb/>
+ab. Unterweges hatte ich Gelegenheit,<lb/>
+meine Dienerſchaft mit einigen ſehr<lb/>
+brauchbaren Subjecten zu vermehren.<lb/>
+Denn als ich kaum einige Meilen weit von<lb/>
+<fw type="sig" place="bottom">F</fw><fw type="catch" place="bottom">Conſtan-</fw><lb/>
+<pb n="82" facs="#f0103"/>
+Conſtantinopel entfernt ſeyn mochte, ſah<lb/>
+ich einen kleinlichen ſchmaͤchtigen Men-<lb/>
+ſchen mit großer Schnelligkeit queerfeld-<lb/>
+ein daher laufen, und gleichwohl trug das<lb/>
+Maͤnnchen an jedem Beine ein bleyernes<lb/>
+Gewicht, an die funfzig Pfund ſchwehr.<lb/>
+Verwunderungsvoll uͤber dieſen Anblick<lb/>
+rief ich ihn an und fragte: Wohin, wo<lb/>
+hin ſo ſchnell, mein Freund? Und<lb/>
+warum erſchwehrſt du dir deinen Lauf<lb/>
+durch eine ſolche Laſt?〟 — 〟Ich lief,<lb/>
+verſetzte der Laͤufer, ſeit einer halben<lb/>
+Stunde aus Wien, wo ich bisher bey<lb/>
+einer vornehmen Herrſchaft in Dienſten<lb/>
+ſtand, und heute meinen Abſchied nahm.<lb/>
+Ich gedenke nach Conſtantinopel, um<lb/>
+daſelbſt wieder anzukommen. Durch die<lb/>
+Gewichte an meinen Beinen habe ich<lb/>
+meine Schnelligkeit, die jetzt nicht noͤthig<lb/>
+iſt, ein wenig mindern wollen. Denn<lb/>
+<hi rendition="#aq">moderata durant,</hi> pflegte weiland mein<lb/>
+Praͤceptor zu ſagen.〟 — Dieſer Aſa-<lb/>
+hel gefiel mir nicht uͤbel; ich fragte ihn,<lb/>
+ob er bey mir in Dienſte treten wollte,<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="83" facs="#f0104"/>
+und er war dazu bereit. Wir zogen hierauf<lb/>
+weiter durch manche Stadt, durch man-<lb/>
+ches Land. Nicht fern vom Wege auf<lb/>
+einem ſchoͤnen Gras-Rein lag maͤußchen<lb/>
+ſtill ein Kerl, als ob er ſchliefe. Allein<lb/>
+das that er nicht. Er hielt vielmehr<lb/>
+ſein Ohr ſo aufmerkſam zur Erde, als<lb/>
+haͤtte er die Einwohner der unterſten<lb/>
+Hoͤlle behorchen wollen. — 〟Was<lb/>
+horchſt du da, mein Freund?〟 — 〟Ich<lb/>
+horche da zum Zeitvertreibe auf das<lb/>
+Gras, und hoͤre, wie es waͤchſt.〟 —<lb/>
+Und kannſt du das?〟 — 〟O Kleinig-<lb/>
+keit!〟 — 〟So tritt in meine Dienſte,<lb/>
+Freund, wer weiß, was es bisweilen<lb/>
+nicht zu horchen geben kann.〟 —<lb/>
+Mein Kerl ſprang auf und folgte mir.<lb/>
+Nicht weit davon auf einem kleinen Huͤ-<lb/>
+gel ſtand mit angelegtem Gewehr ein<lb/>
+Jaͤger und knallte in die blaue leere<lb/>
+Luft. — 〟Gluͤck zu, Gluͤck zu, Herr<lb/>
+Waidmann! Doch wonach ſchießeſt du?<lb/>
+Ich ſehe nichts, als blaue leere Luft.〟 —<lb/>
+〟O ich verſuchte nur dieß neue Kuchen-<lb/>
+<fw type="sig" place="bottom">F 2</fw><fw type="catch" place="bottom">reuterſche</fw><lb/>
+<pb n="84" facs="#f0105"/>
+reuterſche Gewehr. Dort auf der Spitze<lb/>
+des Muͤnſters zu Straßburg ſaß ein<lb/>
+Sperling. Den ſchoß ich eben jetzt<lb/>
+herab.〟 Wer meine Paſſion fuͤr das<lb/>
+edle Waid- und Schuͤtzenwerk kennt,<lb/>
+den wird es nicht Wunder nehmen, daß<lb/>
+ich dem vortreflichen Schuͤtzen ſogleich um<lb/>
+den Hals fiel. Daß ich nichts ſparte,<lb/>
+auch ihn in meine Dienſte zu ziehen,<lb/>
+verſteht ſich von ſelbſt. Wir zogen dar-<lb/>
+auf weiter durch manche Stadt, durch<lb/>
+manches Land, und kamen endlich vor dem<lb/>
+Berge Libanon vorbey. Daſelbſt vor einem<lb/>
+großen Cedernwalde ſtand ein derber un-<lb/>
+terſetzter Kerl und zog an einem Stricke,<lb/>
+der um den ganzen Wald herum ge-<lb/>
+ſchlungen war. 〟Was ziehſt du da,<lb/>
+mein Freund?〟 fragte ich den Kerl.〟<lb/>
+— 〟O ich ſoll Bauholz hohlen, und<lb/>
+habe meine Axt zu Hauſe vergeſſen.<lb/>
+Nun muß ich mir ſo gut helfen, als<lb/>
+es angehen will.〟 Mit dieſen Worten<lb/>
+zog er in einem Ruck den ganzen Wald,<lb/>
+bey einer Quadratmeile groß, wie einen<lb/>
+<fw type="catch" place="bottom">Schilf-</fw><lb/>
+<pb n="85" facs="#f0106"/>
+Schilfbuſch vor meinen Augen nieder.<lb/>
+Was ich that, das laͤßt ſich rathen.<lb/>
+Ich haͤtte den Kerl nicht fahren laſſen,<lb/>
+und haͤtte er mir meinen ganzen Ambaſ-<lb/>
+ſadeur-Gehalt gekoſtet. Als ich hier-<lb/>
+auf fuͤrbaß und endlich auf aͤgyptiſchen<lb/>
+Grund und Boden kam, erhob ſich ein<lb/>
+ſo ungeheuerer Sturm, daß ich mit allen<lb/>
+meinen Wagen, Pferden und Gefolge<lb/>
+ſchier umgeriſſen und in die Luft davon<lb/>
+gefuͤhrt zu werden fuͤrchtete. Zur linken<lb/>
+Seite unſeres Weges ſtanden ſieben<lb/>
+Windmuͤhlen in einer Reihe, deren Fluͤ-<lb/>
+gel ſo ſchnell um ihre Achſen ſchwirrten,<lb/>
+als eine Rockenſpindel der ſchnellſten<lb/>
+Spinnerinn. Nicht weit davon zur<lb/>
+Rechten ſtand ein Kerl, von Sir John<lb/>
+Falſtafs Corpulenz, und hielt ſein rech-<lb/>
+tes Naſenloch mit ſeinem Zeigefinger zu.<lb/>
+Sobald der Kerl unſere Noth und uns<lb/>
+ſo kuͤmmerlich in dieſem Sturme haſpeln<lb/>
+ſah, drehte er ſich halb um, machte<lb/>
+Fronte gegen uns, und zog ehrerbietig,<lb/>
+wie ein Muſquetier vor ſeinem Oberſten,<lb/>
+<fw type="sig" place="bottom">F 3</fw><fw type="catch" place="bottom">den</fw><lb/>
+<pb n="86" facs="#f0107"/>
+den Huth vor mir ab. Auf einmal<lb/>
+regte ſich kein Luͤftchen mehr und alle<lb/>
+ſieben Windmuͤhlen ſtanden ploͤtzlich ſtill.<lb/>
+Erſtaunt uͤber dieſen Vorfall, der nicht<lb/>
+natuͤrlich zuzugehen ſchien, ſchrie ich dem<lb/>
+Unhold zu: 〟Kerl was iſt das? Sitzt<lb/>
+dir der Teufel im Leibe, oder biſt du<lb/>
+der Teufel ſelbſt?〟 — 〟Um Verge-<lb/>
+bung, Ihro Excellenz!〟 antwortete mir<lb/>
+der Menſch; 〟ich mache da nur meinem<lb/>
+Herrn, dem Windmuͤller, ein wenig<lb/>
+Wind. Um nun die ſieben Windmuͤhlen<lb/>
+nicht ganz und gar umzublaſen, mußte<lb/>
+ich mir wohl das eine Naſenloch zu<lb/>
+halten.〟 — Ey, ein vortrefliches Sub-<lb/>
+ject! dachte ich in meinem ſtillen Sinn.<lb/>
+Der Kerl laͤßt ſich gebrauchen, wenn<lb/>
+du dereinſt zu Hauſe kommſt und dirs<lb/>
+an Athem fehlt, alle die Wunderdinge<lb/>
+zu erzaͤhlen, die dir auf deinen Reiſen<lb/>
+zu Land und Waſſer aufgeſtoßen ſind.<lb/>
+Wir wurden daher bald des Handels eins.<lb/>
+Der Windmacher ließ ſeine Muͤhlen<lb/>
+ſtehn und folgte mir.</p>           <lb/>
+<fw type="catch" place="bottom">Nach</fw>           <lb/>
+<pb n="87" facs="#f0108"/>
+<p>Nach gerade wars nun Zeit in<lb/>
+Großkairo anzulangen. Sobald ich da-<lb/>
+ſelbſt meinen Auftrag nach Wunſch aus-<lb/>
+gerichtet hatte, gefiel es mir, mein<lb/>
+ganzes unnuͤtzes Geſandten-Gefolge,<lb/>
+außer meinen neuangenommenen nuͤtzli-<lb/>
+chern Subjecten zu verabſchieden, und<lb/>
+mit dieſen als ein bloßer Privatmann<lb/>
+zuruͤck zu reiſen. Da nun das Wetter<lb/>
+gar herrlich und der berufene Nilſtrom<lb/>
+uͤber alle Beſchreibung reizend war, ſo<lb/>
+gerieth ich in Verſuchung eine Barke<lb/>
+zu miethen und bis Alexandrien zu Waſſer<lb/>
+zu reiſen. Das ging nun ganz vor-<lb/>
+treflich, bis in den dritten Tag. Sie<lb/>
+haben, meine Herren, vermuthlich ſchon<lb/>
+mehrmals von den jaͤhrlichen Ueber-<lb/>
+ſchwemmungen des Nils gehoͤrt. Am<lb/>
+dritten Tage, wie geſagt, fing der Nil<lb/>
+ganz unbaͤndig an zu ſchwellen, und<lb/>
+am folgenden Tage war links und rechts<lb/>
+das ganze Land viele Meilen weit und<lb/>
+breit uͤberſchwemmet. Am fuͤnften Tage<lb/>
+nach Sonnen-Untergang verwickelte ſich<lb/>
+<fw type="sig" place="bottom">F 4</fw><fw type="catch" place="bottom">meine</fw><lb/>
+<pb n="88" facs="#f0109"/>
+meine Barke auf einmal in etwas, das<lb/>
+ich fuͤr Ranken und Strauchwerk hielt.<lb/>
+Sobald es aber am naͤchſten Morgen<lb/>
+heller ward, fand ich mich uͤberall von<lb/>
+Mandeln umgeben, welche vollkommen<lb/>
+teif und ganz vortreflich waren. Als<lb/>
+wir das Senkbley auswarfen, fand ſich,<lb/>
+daß wir wenigſtens ſechzig Fuß hoch<lb/>
+uͤber dem Boden ſchwebten, und ſchlech-<lb/>
+terdings weder vor noch ruͤckwaͤrts konn-<lb/>
+ten. Ohngefaͤhr gegen acht oder neun<lb/>
+Uhr, ſoviel ich aus der Hoͤhe der Sonne<lb/>
+abnehmen konnte, erhob ſich ein ploͤtzli-<lb/>
+cher Wind, der unſere Barke ganz auf<lb/>
+eine Seite umlegte. Hierdurch ſchoͤpfte<lb/>
+ſie Waſſer, ſank unter, und ich hoͤrte<lb/>
+und ſah in langer Zeit nichts wieder da-<lb/>
+von, wie ſie gleich vernehmen werden.<lb/>
+Gluͤcklicher Weiſe retteten wir uns ins-<lb/>
+geſamt, naͤhmlich acht Maͤnner und zwey<lb/>
+Knaben, indem wir uns an den Baͤu-<lb/>
+men feſthielten, deren Zweige zwar fuͤr<lb/>
+uns, allein nicht fuͤr die Laſt unſerer<lb/>
+Barke hinreichten. In dieſer Situation<lb/>
+<fw type="catch" place="bottom">verblie-</fw><lb/>
+<pb facs="#f0110"/>
+<figure/>
+<pb facs="#f0111"/>
+<pb n="89" facs="#f0112"/>
+verblieben wir drey Wochen und drey<lb/>
+Tage und lebten ganz allein von Man-<lb/>
+deln. Daß es am Trunke nicht fehlte,<lb/>
+verſtehet ſich von ſelbſt. Am zwey und<lb/>
+zwanzigſten Tage unſers Unſterns fiel<lb/>
+das Waſſer wieder eben ſo ſchnell, als<lb/>
+es geſtiegen war; und am ſechs und<lb/>
+zwanzigſten konnten wir wieder auf <hi rendition="#aq">Terra<lb/>
+firma</hi> fußen. Unſere Barke war der<lb/>
+erſte angenehme Gegenſtand, den wir<lb/>
+erblickten. Sie lag ohngefaͤhr zweyhun-<lb/>
+dert Klafter weit von dem Orte, wo<lb/>
+ſie geſunken war. Nachdem wir nun<lb/>
+alles, was uns noͤthig und nuͤtzlich war,<lb/>
+an der Sonne getrocknet hatten, ſo ver-<lb/>
+ſahen wir uns mit den Nothwendig-<lb/>
+keiten aus unſerm Schiffsvorrath, und<lb/>
+machten uns auf, unſere verlohrne<lb/>
+Straße wieder zu gewinnen. Nach der<lb/>
+genaueſten Berechnung fand ſich, daß<lb/>
+wir an die hundert und funfzig Meilen weit<lb/>
+uͤber Gartenwaͤnde und mancherley Ge-<lb/>
+haͤge hinweggetrieben waren. In ſieben<lb/>
+Tagen erreichten wir den Fluß, der nun<lb/>
+<fw type="sig" place="bottom">F 5</fw><fw type="catch" place="bottom">wieder</fw><lb/>
+<pb n="90" facs="#f0113"/>
+wieder in ſeinen Bette ſtroͤmte, und er-<lb/>
+zaͤhlten unſer Abentheuer einem Bey.<lb/>
+Liebreich half dieſer allen unſern Beduͤrf-<lb/>
+niſſen ab, und ſendete uns in einer von<lb/>
+ſeinen eigenen Barken weiter. In ohn-<lb/>
+gefaͤhr ſechs Tagen langten wir zu Ale-<lb/>
+xandrien an, allwo wir uns nach Con-<lb/>
+ſtantinopel einſchifften. Ich wurde von<lb/>
+dem Großherrn uͤberaus gnaͤdig empfan-<lb/>
+gen, und hatte die Ehre ſeinen Harem<lb/>
+zu ſehen, wo ſeine Hoheit ſelbſt mich<lb/>
+hineinzufuͤhren und ſo viele Damen, ſelbſt<lb/>
+die Weiber nicht ausgenommen, anzu-<lb/>
+bieten geruheten, als ich mir nur immer<lb/>
+zu meinem Vergnuͤgen ausleſen wollte.</p>           <lb/>
+<p>Mit meinen Liebes-Abentheuern<lb/>
+pflege ich nie groß zu thun, daher wuͤnſche<lb/>
+ich Ihnen, meine Herren, jetzt insge-<lb/>
+ſammt eine angenehme Ruhe.</p>         </div>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <fw type="catch" place="bottom">           <hi rendition="#b">Fuͤnftes</hi>         </fw>         <lb/>
+<pb n="91" facs="#f0114"/>
+<div n="2">           <head>             <hi rendition="#b">Fuͤnftes See-Abentheuer.</hi>           </head>           <lb/>
+<p>Nach Endigung der aͤgyptiſchen<lb/>
+Reiſegeſchichte wollte der Baron auf-<lb/>
+brechen und zu Bette gehen, gerade<lb/>
+als die erſchlaffende Aufmerkſamkeit jedes<lb/>
+Zuhoͤrers bey Erwaͤhnung des Groß-<lb/>
+herrlichen Harems in neue Spannung ge-<lb/>
+rieth. Sie haͤtten gar zu gern noch<lb/>
+etwas von dem Harem gehoͤrt. Da aber<lb/>
+der Baron ſich durchaus nicht darauf<lb/>
+einlaſſen und gleichwohl der mit Bitten<lb/>
+auf ihn losſtuͤrmenden muntern Zuhoͤrer-<lb/>
+ſchaft nicht alles abſchlagen wollte, ſo<lb/>
+gab er noch einige Stuͤckchen ſeiner merk-<lb/>
+wuͤrdigen Dienerſchaft zum Beſten und<lb/>
+fuhr in ſeiner Erzaͤhlung alſo fort.</p>           <lb/>
+<p>Bey dem Groß-Sultan galt ich<lb/>
+ſeit meiner aͤgyptiſchen Reiſe alles in<lb/>
+allem. Seine Hoheit konnten gar ohne<lb/>
+mich nicht leben und baten mich jeden<lb/>
+Mittag und Abend bey ſich zum Eſſen.<lb/>
+Ich muß bekennen, meine Herren, daß<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="92" facs="#f0115"/>
+der tuͤrkiſche Kaiſer unter allen Poten-<lb/>
+taten auf Erden den delicateſten Tiſch<lb/>
+fuͤhret. Jedoch iſt dieß nur von den<lb/>
+Speiſen, nicht aber von dem Getraͤnke<lb/>
+zu verſtehen, da, wie Sie wiſſen wer-<lb/>
+den, Mahomets Geſetz ſeinen Anhaͤn-<lb/>
+gern den Wein verbietet. Auf ein gutes<lb/>
+Glas Wein muß man alſo an oͤffent-<lb/>
+lichen tuͤrkiſchen Tafeln Verzicht thun.<lb/>
+Was indeſſen gleich nicht oͤffentlich ge-<lb/>
+ſchieht, das geſchieht doch nicht ſelten<lb/>
+heimlich; und des Verbots ungeachtet,<lb/>
+weiß mancher Tuͤrk ſo gut, als der beſte<lb/>
+deutſche Praͤlat, wie ein gutes Glas<lb/>
+Wein ſchmeckt. Das war nun auch<lb/>
+der Fall mit Seiner tuͤrkiſchen Hoheit.<lb/>
+Bey der oͤffentlichen Tafel, an welcher<lb/>
+gewoͤhnlich der tuͤrkiſche General-Su-<lb/>
+perintendent, naͤhmlich der Mufti, <hi rendition="#aq">in<lb/>
+partem Salarii</hi> mit ſpeiſete und vor Tiſche<lb/>
+das: <hi rendition="#fr">Aller Augen</hi> — nach Tiſche aber<lb/>
+das <hi rendition="#aq">Gratias</hi> beten mußte, wurde des<lb/>
+Weines auch nicht mit einer einzigen<lb/>
+Sylbe gedacht. Nach aufgehobener<lb/>
+<fw type="catch" place="bottom">Tafel</fw><lb/>
+<pb n="93" facs="#f0116"/>
+Tafel aber wartete auf Seine Hoheit<lb/>
+gemeiniglich ein gutes Flaͤſchchen im<lb/>
+Cabinette. Einſt gab der Großſultan<lb/>
+mir einen verſtohlenen freundlichen Wink,<lb/>
+ihm in ſein Cabinett zu folgen. Als<lb/>
+wir uns nun daſelbſt eingeſchloſſen hatten,<lb/>
+hohlte er aus einem Schraͤnkchen eine<lb/>
+Flaſche hervor, und ſprach: Muͤnch-<lb/>
+hauſen, ich weiß ihr Chriſten verſteht<lb/>
+euch auf ein gutes Glas Wein. Da<lb/>
+habe ich noch ein einziges Flaͤſchchen<lb/>
+Tockaier. So delicat muͤßt ihr ihn in<lb/>
+euerm Leben nicht getrunken haben.〟<lb/>
+Hierauf ſchenkten Seine Hoheit ſowohl<lb/>
+mir als ſich eins ein und ſtießen mit mir<lb/>
+an. 〟— Nun was ſagt ihr? Gelt!<lb/>
+es iſt was extra feines?〟 — 〟Das<lb/>
+Weinchen iſt gut, Ihro Hoheit, er-<lb/>
+wiederte ich; allein mit Ihrem Wohl-<lb/>
+nehmen muß ich doch ſagen, daß ich<lb/>
+ihn in Wien beym Hochſeligen Kaiſer<lb/>
+Carl dem ſechſten weit beſſer getrunken<lb/>
+habe. Potz Stern! den ſollten Ihro<lb/>
+Hoheit einmal verſuchen.〟 Freund<lb/>
+<fw type="catch" place="bottom">Muͤnch-</fw><lb/>
+<pb n="94" facs="#f0117"/>
+Muͤnchhauſen, euer Wort in Ehren!<lb/>
+Allein es iſt unmoͤglich, daß irgend ein<lb/>
+Tockaier beſſer ſey. Denn ich bekam<lb/>
+einſt nur dieß eine Flaͤſchchen von einem<lb/>
+Ungariſchen Cavalier und er that ganz<lb/>
+verzweifelt rar damit.〟 — Poſſen,<lb/>
+Ihro Hoheit! Tockaier und Tockaier iſt<lb/>
+ein großmaͤchtiger Unterſchied. Die<lb/>
+Herren Ungarn uͤberſchenken ſich eben<lb/>
+nicht. Was gilt die Wette, ſo ſchaffe<lb/>
+ich Ihnen in Zeit von einer Stunde<lb/>
+gerades Weges und unmittelbar aus<lb/>
+dem Kaiſerlichen Keller eine Flaſche<lb/>
+Tockaier, die aus ganz andern Au-<lb/>
+gen ſehen ſoll.〟 — 〟Muͤnchhau-<lb/>
+ſen, ich glaube ihr faſelt.〟 — 〟Ich<lb/>
+faſele nicht. Gerades Weges aus dem<lb/>
+Kaiſerlichen Keller in Wien ſchaffe ich<lb/>
+Ihnen in Zeit von einer Stunde eine<lb/>
+Flaſche Tockaier von einer ganz andern<lb/>
+Nummer, als dieſer Kraͤtzer hier.〟 —<lb/>
+Muͤnchhauſen, Muͤnchhauſen! Ihr wollt<lb/>
+mich zum Beſten haben und das ver-<lb/>
+bitte ich mir. Ich kenne euch zwar<lb/>
+<fw type="catch" place="bottom">ſonſt</fw><lb/>
+<pb n="95" facs="#f0118"/>
+ſonſt als einen uͤberaus wahrhaften<lb/>
+Mann, allein — jezt ſollte ich doch<lb/>
+faſt denken, Ihr flunkertet.〟 — 〟Ey<lb/>
+nun, Ihro Hoheit! Es kommt ja auf<lb/>
+die Probe an. Erfuͤlle ich nicht mein<lb/>
+Wort — denn von allen Aufſchneide-<lb/>
+reyen bin ich der abgeſagteſte Feind —<lb/>
+ſo laſſen Ihro Hoheit mir den Kopf<lb/>
+abſchlagen. Allein mein Kopf iſt kein<lb/>
+Pappenſtiel. Was ſetzen Sie mir da-<lb/>
+gegen?〟 — 〟Top! Ich halte euch<lb/>
+beym Worte. Iſt auf den Schlag<lb/>
+Vier nicht die Flaſche Tockaier hier, ſo<lb/>
+koſtets euch ohne Barmherzigkeit den<lb/>
+Kopf. Denn foppen laſſe ich mich auch<lb/>
+von meinen beſten Freunden nicht. Be-<lb/>
+ſteht ihr aber, wie Ihr verſprecht, ſo<lb/>
+koͤnnet ihr aus meiner Schatzkammer ſo<lb/>
+viel an Gold, Silber, Perlen und Edel-<lb/>
+geſteinen nehmen, als der ſtaͤrkſte Kerl<lb/>
+davon zu ſchleppen vermag. — 〟Das<lb/>
+laͤßt ſich hoͤren!〟 antwortete ich, bat<lb/>
+mir gleich Feder und Dinte aus und<lb/>
+ſchrieb an die Kaiſerinn-Koͤnigian Maria<lb/>
+Thereſia folgendes Billet:<lb/>
+<fw type="catch" place="bottom">〟Ihre</fw><lb/>
+<pb n="96" facs="#f0119"/>
+<hi rendition="#et">〟Ihre Majeſtaͤt haben ohnſtreitig<lb/>
+〟als Univerſal-Erbinn auch Ihres<lb/>
+〟Hoͤchſtſeligen Herren Vaters Kel-<lb/>
+〟ler mitgeerbt. Duͤrſte ich mir<lb/>
+〟wohl durch Vorzeigern dieſes<lb/>
+〟eine Flaſche von dem Tockaier<lb/>
+〟ausbitten, wie ich ihn bey Ih-<lb/>
+〟rem Herren Vater oft getrunken<lb/>
+〟habe? Allein von dem Beſten!<lb/>
+〟Denn es gilt eine Wette. Ich<lb/>
+〟diene gern dafuͤr wieder, wo<lb/>
+〟ich kann, und beharre uͤbrigens<lb/>
+〟u. ſ. w.</hi></p>           <lb/>
+<p>Dieß Billet gab ich, weil es ſchon<lb/>
+fuͤnf Minuten uͤber drey Uhr war, nur<lb/>
+ſogleich offen meinem Laͤufer, der ſeine Ge-<lb/>
+wichte abſchnallen und ſich unverzuͤglich<lb/>
+auf die Beine nach Wien machen<lb/>
+mußte. Hierauf tranken wir, der Groß-<lb/>
+ſultan und ich, den Reſt von ſeiner<lb/>
+Flaſche in Erwartung des beſſern vol-<lb/>
+lends aus. Es ſchlug ein Viertel, es<lb/>
+ſchlug Halb, es ſchlug drey Viertel auf<lb/>
+Vier, und noch war kein Laͤufer zu hoͤren<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="97" facs="#f0120"/>
+und zu ſehen. Nach gerade, geſtehe<lb/>
+ich, fing mir an ein wenig ſchwul zu<lb/>
+werden; denn es kam mir vor, als<lb/>
+blickten Seine Hoheit ſchon bisweilen nach<lb/>
+der Glockenſchnur, um nach dem Scharf-<lb/>
+richter zu klingeln. Noch erhielt ich<lb/>
+zwar Erlaubniß, einen Gang hinaus<lb/>
+in den Garten zu thun, um friſche Luft<lb/>
+zu ſchoͤpfen, allein es folgten mir auch<lb/>
+ſchon ein Paar dienſtbare Geiſter nach,<lb/>
+die mich nicht aus den Augen ließen.<lb/>
+In dieſer Angſt, und als der Zeiger<lb/>
+ſchon auf fuͤnf und funfzig Minuten ſtand,<lb/>
+ſchickte ich noch geſchwind nach meinem<lb/>
+Horcher und Schuͤtzen. Sie kamen un-<lb/>
+verzuͤglich an, und der Horcher mußte<lb/>
+ſich platt auf die Erde niederlegen, um<lb/>
+zu hoͤren, ob nicht mein Laufer endlich<lb/>
+ankaͤme. Zu meinem nicht geringen<lb/>
+Schrecken meldete er mir, daß der Schlin-<lb/>
+gel irgendwo, allein weit weg von hier,<lb/>
+im tiefſten Schlafe laͤge und aus Leibes-<lb/>
+kraͤften ſchnarchte. Dieß hatte mein<lb/>
+braver Schuͤtze nicht ſobald gehoͤrt, als<lb/>
+<fw type="sig" place="bottom">G</fw><fw type="catch" place="bottom">er</fw><lb/>
+<pb n="98" facs="#f0121"/>
+er auf eine etwas hohe Terraſſe lief und,<lb/>
+nachdem er ſich auf ſeinen Zehen noch mehr<lb/>
+empor gereckt hatte, haſtig ausrief: 〟Bey<lb/>
+meiner armen Seele! Da liegt der Fau-<lb/>
+lenzer unter einer Eiche bey Belgrad<lb/>
+und die Flaſche neben ihm. Wart!<lb/>
+Ich will dich aufkitzeln.〟 — Und hier-<lb/>
+mit legte er unverzuͤglich ſeine Kuchen-<lb/>
+reuterſche Flinte an den Kopf und ſchoß<lb/>
+die volle Ladung oben in den Wipfel<lb/>
+des Baumes. Ein Hagel von Eicheln,<lb/>
+Zweigen und Blaͤttern fiel herab auf<lb/>
+den Schlaͤfer, erweckte und brachte<lb/>
+ihn, da er ſelbſt fuͤrchtete, die Zeit<lb/>
+beynahe verſchlafen zu haben, dermaßen<lb/>
+geſchwind auf die Beine, daß er mit<lb/>
+ſeiner Flaſche und einem eigenhaͤndigen<lb/>
+Billet von Maria Thereſia, um 59½<lb/>
+Minuten auf vier Uhr vor des Sultans<lb/>
+Cabinette anlangte. Das war ein Gau-<lb/>
+dium! Ey, wie ſchluͤrfte das Großherr-<lb/>
+liche Leckermaul! — 〟Muͤnchhauſen, ſprach<lb/>
+er, Ihr muͤßt es mir nicht uͤbel neh-<lb/>
+men, wenn ich dieſe Flaſche fuͤr mich<lb/>
+<fw type="catch" place="bottom">allein</fw><lb/>
+<pb n="99" facs="#f0122"/>
+allein behalte. Ihr ſteht zu Wien<lb/>
+beſſer, als ich; Ihr werdet ſchon an<lb/>
+noch mehr zu kommen wiſſen.〟 — Hier-<lb/>
+mit ſchloß er die Flaſche in ſein Schraͤnk-<lb/>
+chen, ſteckte den Schluͤſſel in die Ho-<lb/>
+ſentaſche, und klingelte nach dem Schatz-<lb/>
+meiſter. — O welch ein angenehmer<lb/>
+Silberton meinen Ohren! — 〟Ich muß<lb/>
+euch nun die Wette bezahlen. — Hier! —<lb/>
+ſprach er zum Schatzmeiſter, der ins<lb/>
+Zimmer trat, laßt meinem Freunde<lb/>
+Muͤnchhauſen ſo viel aus der Schatz-<lb/>
+kammer verabfolgen, als der ſtaͤrkſte<lb/>
+Kerl wegzutragen vermag.〟 Der<lb/>
+Schatzmeiſter neigte ſich vor ſeinem Herrn<lb/>
+bis mit der Naſe zur Erde, mir aber<lb/>
+ſchuͤttelte der Großſultan ganz treuher-<lb/>
+zig die <choice><sic>Haud</sic><corr>Hand</corr></choice>, und ſo ließ er uns<lb/>
+beyde gehn.</p>           <lb/>
+<p>Ich ſaͤumte nun, wie Sie denken<lb/>
+koͤnnen, meine Herren, keinen Augen-<lb/>
+blick, die erhaltene Aſſignation geltend<lb/>
+zu machen, ließ meinen Starken mit<lb/>
+<fw type="sig" place="bottom">G 2</fw><fw type="catch" place="bottom">ſeinem</fw><lb/>
+<pb n="100" facs="#f0123"/>
+ſeinem langen haͤnfenen Stricke kommen<lb/>
+und verfuͤgte mich in die Schatzkammer.<lb/>
+Was da mein Starker, nachdem er<lb/>
+ſein Buͤndel geſchnuͤrt hatte, uͤbrig ließ,<lb/>
+das werden Sie wohl ſchwehrlich hohlen<lb/>
+wollen. Ich eilte mit meiner Beute<lb/>
+gerades Weges nach dem Hafen, nahm<lb/>
+dort das groͤßte Laſtſchiff, das zu be-<lb/>
+kommen war, in Beſchlag, und ging<lb/>
+wohlbepackt mit meiner ganzen Diener-<lb/>
+ſchaft unter Segel, um meinen Fang<lb/>
+in Sicherheit zu bringen, ehe was wi-<lb/>
+driges dazwiſchen kam. Was ich be-<lb/>
+fuͤrchtet hatte, das geſchah. Der Schatz-<lb/>
+meiſter hatte Thuͤr und Thor von der<lb/>
+Schatzkammer offen gelaſſen — und<lb/>
+freylich wars nicht groß mehr noͤthig,<lb/>
+ſie zu verſchließen — war uͤber Hals und<lb/>
+Kopf zum Großſultan gelaufen und hatte<lb/>
+ihm Bericht abgeſtattet, wie vollkom-<lb/>
+men wohl ich ſeine Aſſignation genutzt<lb/>
+hatte. Das war denn nun dem Groß-<lb/>
+ſultan nicht wenig vor den Kopf gefah-<lb/>
+ren. Die Reue uͤber ſeine Uebereilung<lb/>
+<fw type="catch" place="bottom">konnte</fw><lb/>
+<pb n="101" facs="#f0124"/>
+konnte nicht lange ausbleiben. Er hatte<lb/>
+daher gleich dem Großadmiral befohlen,<lb/>
+mit der ganzen Flotte hinter mir her-<lb/>
+zueilen, und mir zu inſinuiren, daß<lb/>
+wir ſo nicht gewettet haͤtten. Als ich<lb/>
+daher noch nicht zwey Meilen weit in<lb/>
+See war, ſo ſah ich ſchon die ganze<lb/>
+tuͤrkiſche Kriegsflotte mit vollen Segeln<lb/>
+hinter mir herkommen, und ich muß<lb/>
+geſtehen, daß mein Kopf, der kaum<lb/>
+wieder feſt geworden war, nicht wenig<lb/>
+von neuem anfing zu wackeln. Allein<lb/>
+nun war mein Windmacher bey der Hand<lb/>
+und ſprach: 〟Laſſen ſich Ihro Excellenz<lb/>
+nicht bange ſeyn!〟 Er trat hierauf auf<lb/>
+das Hinterverdeck meines Schiffes, ſo<lb/>
+daß ſein eines Naſenloch nach der tuͤr-<lb/>
+kiſchen Flotte, das andere aber auf un-<lb/>
+ſere Segel gerichtet war, und blies eine<lb/>
+ſo hinlaͤngliche Portion Wind, daß die<lb/>
+Flotte an Maſten, Segel- und Tauwerk<lb/>
+gar uͤbel zugerichtet, nicht nur bis in<lb/>
+den Hafen zuruͤckgetrieben, ſondern auch<lb/>
+<fw type="sig" place="bottom">G 3</fw><fw type="catch" place="bottom">mein</fw><lb/>
+<pb n="102" facs="#f0125"/>
+mein Schiff in wenig Stunden gluͤcklich<lb/>
+nach Italien getrieben ward. Von<lb/>
+meinem Schatze kam mir jedoch wenig<lb/>
+zu gute. Denn in Italien iſt, trotz<lb/>
+der Ehrenrettung des Herrn Bibliothekar<lb/>
+Jagemann in Weimar <note place="foot" n="*)">S. deutſches Muſeum 1786.</note>, Armuth und<lb/>
+Betteley ſo groß und die Polizey ſo<lb/>
+ſchlecht, daß ich erſtlich, weil ich viel-<lb/>
+leicht eine allzu gutwillige Seele bin, den<lb/>
+groͤßten Theil an die Straßenbettler aus-<lb/>
+ſpenden mußte. Der Reſt aber wurde mir<lb/>
+auf meiner Reiſe nach Rom, auf der<lb/>
+geheiligten Flur von Loretto, durch eine<lb/>
+Bande Straßenraͤuber abgenommen.<lb/>
+Das Gewiſſen wird dieſe Herrn nicht<lb/>
+ſehr daruͤber beunruhigt haben. Denn<lb/>
+ihr Fang war noch immer ſo anſehnlich,<lb/>
+daß um den tauſendſten Theil die ganze<lb/>
+honette Geſellſchaft ſowohl fuͤr ſich, als<lb/>
+ihre Erben und Erbnehmen, auf alle<lb/>
+vergangene und zukuͤnftige Suͤnden, voll-<lb/>
+kommenen Ablaß ſelbſt aus der er-<lb/>
+<fw type="catch" place="bottom">ſten</fw><lb/>
+<pb n="103" facs="#f0126"/>
+ſten und beſten Hand in Rom dafuͤr er-<lb/>
+kaufen konnte. —</p>           <lb/>
+<p>Nun aber, meine Herren, iſt in<lb/>
+der That mein Schlafſtuͤndchen da.<lb/>
+Schlafen Sie wohl!</p>         </div>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <fw type="sig" place="bottom">G 4</fw>         <fw type="catch" place="bottom">           <hi rendition="#b">Sechſtes</hi>         </fw>         <lb/>
+<pb n="104" facs="#f0127"/>
+<div n="2">           <head>             <hi rendition="#b">Sechſtes und letztes See-Abentheuer.</hi>           </head>           <lb/>
+<p>Nach Endigung des vorigen Aben-<lb/>
+theuers, ließ ſich der Baron nicht laͤn-<lb/>
+ger halten, ſondern brach wirklich auf,<lb/>
+und verließ die Geſellſchaft in der beſten<lb/>
+Laune. Als ſich nun Jedermann nach<lb/>
+ſeiner Weiſe uͤber die Unterhaltung<lb/>
+herausließ, die er ſo eben verſchafft<lb/>
+hatte, ſo bemerkte einer von der Ge-<lb/>
+ſellſchaft, ein Partiſan des Barons,<lb/>
+der ihn auf ſeiner letzten Reiſe in die<lb/>
+Tuͤrkey begleitet hatte, daß ohnweit<lb/>
+Conſtantinopel ein ungeheuer großes<lb/>
+Geſchuͤtz befindlich ſey, deſſen der Ba-<lb/>
+ron <hi rendition="#fr">Tott</hi> in ſeinen neulich herausgekom-<lb/>
+menen Denkwuͤrdigkeiten ganz beſonders<lb/>
+erwaͤhnet. Was er davon meldet, iſt,<lb/>
+ſo viel ich mich erinnere, folgendes:<lb/>
+〟Die Tuͤrken hatten ohnweit der Stadt<lb/>
+uͤber der Citadelle auf dem Ufer des<lb/>
+beruͤhmten Fluſſes Simois, ein unge-<lb/>
+heueres Geſchuͤtz aufgepflanzt. Daſſelbe<lb/>
+war ganz aus Kupfer gegoſſen, und<lb/>
+<fw type="catch" place="bottom">ſchoß</fw><lb/>
+<pb n="105" facs="#f0128"/>
+ſchoß eine Marmorkugel wenigſtens <hi rendition="#fr">elf-<lb/>
+hundert Pfund</hi> an Gewicht. Ich hatte<lb/>
+große Luſt, ſagt <hi rendition="#fr">Tott</hi>, es abzufeuern,<lb/>
+um erſt aus ſeiner Wirkung gehoͤrig zu<lb/>
+urtheilen. Alles Volk um mich her<lb/>
+zitterte und bebte, weil es ſich ver-<lb/>
+ſichert hielt, daß Schloß und Stadt<lb/>
+davon uͤbern Haufen ſtuͤrzen wuͤrden.<lb/>
+Endlich ließ doch die Furcht ein wenig<lb/>
+nach, und ich bekam Erlaubniß, das<lb/>
+Geſchuͤtz abzufeuern. Es wurden nicht<lb/>
+weniger, als <hi rendition="#fr">Dreyhundert und dreyßig<lb/>
+Pfund</hi> Pulver dazu erfordert, und die<lb/>
+Kugel wog, wie ich vorhin ſagte, <hi rendition="#fr">Elf-<lb/>
+hundert Pfund</hi>. Als der Kanonier<lb/>
+mit dem Zuͤnder ankam, zog ſich der<lb/>
+Haufen, der mich umgab, ſo weit zu-<lb/>
+ruͤck, als er konnte. Mit genauer Noth<lb/>
+uͤberredete ich den Baſſa, der aus Be-<lb/>
+ſorgniß herzukam, daß keine Gefahr zu<lb/>
+beſorgen ſey. Selbſt dem Kanonier, der<lb/>
+es nach meiner Anweiſung abfeuern<lb/>
+ſollte, klopfte vor Angſt das Herz. Ich<lb/>
+nahm meinen Platz in einer Mauer-<lb/>
+<fw type="sig" place="bottom">G 5</fw><fw type="catch" place="bottom">ſchanze</fw><lb/>
+<pb n="106" facs="#f0129"/>
+ſchanze hinter dem Geſchuͤtze, gab das<lb/>
+Zeichen und fuͤhlte einen Stoß, wie<lb/>
+von einem Erdbeben. In einer Ent-<lb/>
+fernung von dreyhundert Klaftern zer-<lb/>
+ſprang die Kugel in drey Stuͤcke; dieſe<lb/>
+flogen uͤber die Meerenge, prallten von<lb/>
+dem Waſſer empor an die gegenſeitigen<lb/>
+Berge und ſetzten den ganzen Canal, ſo<lb/>
+breit er war, in Einen Schaum.〟</p>           <lb/>
+<p>Dieß, meine Herren, iſt, ſoviel<lb/>
+ich mich erinnere, Baron <hi rendition="#fr">Totts</hi> Nach-<lb/>
+richt von der groͤßten Kanone in der<lb/>
+bekannten Welt. Als nun der Herr<lb/>
+ven Muͤnchhauſen und ich jene Gegend<lb/>
+beſuchten, wurde die Abfeuerung dieſes<lb/>
+ungeheuern Geſchuͤtzes durch den Baron<lb/>
+<hi rendition="#fr">Tott</hi> uns als ein Beyſpiel der außer-<lb/>
+ordentlichen Herzhaftigkeit dieſes Herren<lb/>
+erzaͤhlt.</p>           <lb/>
+<p>Mein Goͤnner, der es durchaus<lb/>
+nicht vertragen konnte, daß ein Fran-<lb/>
+zoſe ihm etwas zuvorgethan haben ſollte,<lb/>
+<fw type="catch" place="bottom">nahm</fw><lb/>
+<pb n="107" facs="#f0130"/>
+nahm eben dieſes Geſchuͤtz auf ſeine<lb/>
+Schulter, ſprang, als ers in ſeine<lb/>
+eigentliche wagrechte Lage gebracht<lb/>
+hatte, gerades Weges ins Meer, und<lb/>
+ſchwamm damit an die gegenſeitige<lb/>
+Kuͤſte. Von dort aus verſuchte er un-<lb/>
+gluͤcklicher Weiſe die Kanone auf ihre<lb/>
+vorige Stelle zuruͤck zu werfeu. Ich<lb/>
+ſage, ungluͤcklicher Weiſe! denn ſie<lb/>
+glitt ihm ein wenig zu fruͤh aus der<lb/>
+Hand, gerade als er zum Wurf aus-<lb/>
+hohlte. Hierdurch geſchah es denn,<lb/>
+daß ſie mitten in den Kanal fiel, wo<lb/>
+ſie nun noch liegt, und wahrſcheinlich<lb/>
+bis an den juͤngſten Tag liegen blei-<lb/>
+ben wird.</p>           <lb/>
+<p>Dieß, meine Herren, war es ei-<lb/>
+gentlich, womit es der Herr Baron<lb/>
+bey dem Großſultan ganz und gar ver-<lb/>
+darb. Die Schatz-Hiſtorie, der er<lb/>
+vorhin ſeine Ungnade beymaß, war<lb/>
+laͤngſt vergeſſen. Denn der Großſultan<lb/>
+<fw type="catch" place="bottom">hat</fw><lb/>
+<pb n="108" facs="#f0131"/>
+hat ja genug einzunehmen, und konnte<lb/>
+ſeine Schatzkammer bald wieder fuͤllen.<lb/>
+Auch befand der Herr Baron, auf eine<lb/>
+eigenhaͤndige Wiedereinladung des Groß-<lb/>
+ſultans, die er zu Rom erhielt, ſich<lb/>
+erſt jetzt zum letzten Male in der<lb/>
+Tuͤrkey; und waͤre vielleicht wohl noch<lb/>
+da, wenn der Verluſt dieſes beruͤchtig-<lb/>
+ten Geſchuͤtzes den grauſameu Tuͤrken<lb/>
+nicht ſo aufgebracht haͤtte, daß er nun<lb/>
+unwiederruflich den Befehl gab, dem<lb/>
+Baron den Kopf abzuſchlagen. Eine<lb/>
+gewiſſe Sultaninn aber, von welcher er<lb/>
+ein großer Liebling geworden war, gab<lb/>
+ihm nicht nur unverzuͤglich von dieſem<lb/>
+blutgierigen Vorhaben Nachricht, ſon-<lb/>
+dern verbarg ihn auch ſo lange in ih-<lb/>
+rem eigenen Gemache, als der Offi-<lb/>
+cier, dem die Execution aufgetragen<lb/>
+war, mit ſeinen Helfershelfern nach<lb/>
+ihm ſuchte. In der naͤchſtfolgenden<lb/>
+Nacht fluͤchteten wir an den Bord eines<lb/>
+nach Venedig beſtimmten Schiffes,<lb/>
+<fw type="catch" place="bottom">welches</fw><lb/>
+<pb n="109" facs="#f0132"/>
+welches gerade im Begriffe war unter<lb/>
+Segel zu gehen, und kamen gluͤck-<lb/>
+lich davon.</p>           <lb/>
+<p>Dieſer Begebenheit erwaͤhnt der<lb/>
+Baron nicht gern, weil ihm da ſein<lb/>
+Verſuch mißlang und er noch dazu<lb/>
+um ein Haar ſein Leben oben drein<lb/>
+verlohren haͤtte. Da ſie gleichwohl<lb/>
+ganz und gar nicht zu ſeiner Schande<lb/>
+gereicht, ſo pflege ich ſie wohl bis-<lb/>
+weilen hinter ſeinem Ruͤcken zu erzaͤhlen.</p>           <lb/>
+<milestone unit="section" rendition="#hr"/>           <p>Nun, meine Herren, kennen Sie<lb/>
+insgeſamt den Herren Baron von Muͤnch-<lb/>
+hauſen, und werden <choice><sic>hoſfentlich</sic><corr>hoffentlich</corr></choice> an ſei-<lb/>
+ner Wahrhaftigkeit im mindeſten<lb/>
+nicht zweifeln. Damit Ihnen aber<lb/>
+auch kein Zweifel gegen die Meinige zu<lb/>
+Kopfe ſteige, ein Umſtand, den ich ſo<lb/>
+<fw type="catch" place="bottom">ſchlecht-</fw><lb/>
+<pb n="110" facs="#f0133"/>
+ſchlechtweg eben nicht vorausſetzen mag,<lb/>
+ſo muß ich Ihnen doch ein wenig ſagen,<lb/>
+wer ich bin.</p>           <lb/>
+<p>Mein Vater, oder wenigſtens der-<lb/>
+jenige, welcher dafuͤr gehalten wurde,<lb/>
+war von Geburt ein Schweizer, aus<lb/>
+Bern. Er fuͤhrte daſelbſt eine Art von<lb/>
+Oberaufſeher uͤber Straßen, Alle’ en, Gaſſen<lb/>
+und Bruͤcken. Dieſe Beamten heißen<lb/>
+dort zu Lande — hm! — <hi rendition="#fr">Gaſſenkehrer</hi>.<lb/>
+Meine Mutter war aus den Savoyſchen<lb/>
+Gebirgen gebuͤrtig, und trug einen<lb/>
+uͤberaus ſchoͤnen großen Kropf am Halſe,<lb/>
+der bey den Damen jener Gegend etwas<lb/>
+ſehr gewoͤhnliches iſt. Sie verließ ihre<lb/>
+Eltern ſehr jung, und ging ihrem<lb/>
+Gluͤcke in eben der Stadt nach, wo<lb/>
+mein Vater das Licht der Welt erblickt<lb/>
+hatte. So lange ſie noch ledig war,<lb/>
+gewann ſie ihren Unterhalt durch aller-<lb/>
+ley Liebeswerk an unſerm Geſchlechte.<lb/>
+Denn man weiß, daß ſie es niemals<lb/>
+<fw type="catch" place="bottom">abſchlug,</fw><lb/>
+<pb n="111" facs="#f0134"/>
+abſchlug, wenn man ſie um eine Ge-<lb/>
+faͤlligkeit anſprach und beſonders ihr<lb/>
+mit gehoͤriger Hoͤflichkeit in der Hand<lb/>
+zuvorkam. Dieſes liebenswuͤrdige Paar<lb/>
+begegnete einander von ohngefaͤhr auf<lb/>
+der Straße, und da ſie beyderſeits<lb/>
+ein wenig berauſcht waren, ſo tau-<lb/>
+melten ſie gegen einander, und taumel-<lb/>
+ten ſich alle beyde uͤber den Haufen.<lb/>
+Wie ſich nun bey dieſer Gelegenheit<lb/>
+ein Theil immer noch unnuͤtzer machte<lb/>
+als der andere, und das Ding zu laut<lb/>
+wurde, ſo wurden ſie alle beyde erſt<lb/>
+in die Schaarwache, hernach aber in<lb/>
+das Zuchthaus geſchleppt. Hier ſahen<lb/>
+ſie bald die Thorheit ihrer Zaͤnkerey<lb/>
+ein, machten alles wieder gut, ver-<lb/>
+liebten ſich und heuratheten einander.<lb/>
+Da aber meine Mutter zu ihren alten<lb/>
+Streichen zuruͤckkehrte, ſo trennte mein<lb/>
+Vater, der gar hohe Begriffe von<lb/>
+Ehre hatte, ſich ziemlich bald von ihr,<lb/>
+und wies ihr die Revenuͤen von einem<lb/>
+<fw type="catch" place="bottom">Trag-</fw><lb/>
+<pb n="112" facs="#f0135"/>
+Tragkorbe zu ihrem kuͤnftigen Unter-<lb/>
+halte an. Sie vereinigte ſich hierauf<lb/>
+mit einer Geſellſchaft, die mit einem<lb/>
+Puppenſpiel umherzog. Mit der Zeit<lb/>
+fuͤhrte ſie das Schickſal nach Rom,<lb/>
+wo ſie eine Auſter-Bude hielt.</p>           <lb/>
+<p>Sie haben ohnſtreitig insgeſamt<lb/>
+von dem Pabſt Ganganelli, oder Cle-<lb/>
+mens <hi rendition="#aq">XIV.</hi>, und wie gern dieſer Herr<lb/>
+Auſtern aß, gehoͤrt. Eines Frey-<lb/>
+tags, als derſelbe in großem Pompe<lb/>
+nach der St. Peters Kirche zur hohen<lb/>
+Meſſe durch die Stadt zog, ſah er<lb/>
+meiner Mutter Auſtern (welche, wie<lb/>
+ſie mir oft erzaͤhlt hat, ausnehmend<lb/>
+ſchoͤn und friſch waren) und konnte un-<lb/>
+moͤglich voruͤberziehen, ohne ſie zu ver-<lb/>
+ſuchen. Nun waren zwar mehr als<lb/>
+fuͤnftauſend Perſonen in ſeinem Ge-<lb/>
+folge; nichts deſtoweniger aber ließ er<lb/>
+ſogleich alles ſtill halten und in die<lb/>
+<fw type="catch" place="bottom">Kirche</fw><lb/>
+<pb n="113" facs="#f0136"/>
+Kirche ſagen, er koͤnnte vor Morgen<lb/>
+das Hochamt nicht halten. Sodann<lb/>
+ſprang er vom Pferde — denn die<lb/>
+Paͤbſte reiten allemal bey ſolchen Ge-<lb/>
+legenheiten — ging in meiner Mutter<lb/>
+Laden, aß erſt alles auf, was von<lb/>
+Auſtern daſelbſt vorhanden war, und<lb/>
+ſtieg hernach mit ihr in den Keller<lb/>
+hinab, wo ſie noch mehr hatte. Dieſes<lb/>
+unterirdiſche Gemach war meiner Mut-<lb/>
+ter Kuͤche, Viſitenſtube und Schlaf-<lb/>
+kammer zugleich. Hier gefiel es ihm<lb/>
+ſo wohl, daß er alle ſeine Begleiter<lb/>
+fortſchickte. Kurz, Seine Heiligkeit<lb/>
+brachten die ganze Nacht dort mit mei-<lb/>
+ner Mutter zu. Ehe Dieſelben am<lb/>
+andern Morgen wieder fortgingen, er-<lb/>
+theilten Sie ihr vollkommen Ablaß,<lb/>
+nicht allein fuͤr jede Suͤnde, die ſie<lb/>
+ſchon auf ſich hatte, ſondern auch fuͤr<lb/>
+alle diejenigen, womit ſie ſich etwa<lb/>
+kuͤnftig noch zu befaſſen Luſt haben<lb/>
+moͤchte.</p>           <lb/>
+<fw type="sig" place="bottom">H</fw>           <fw type="catch" place="bottom">Nun,</fw>           <lb/>
+<pb n="114" facs="#f0137"/>
+<p>Nun, meine Herren, habe ich<lb/>
+darauf das Ehrenwort meiner Mutter<lb/>
+— und wer koͤnnte wohl eine ſolche Ehre<lb/>
+bezweifeln? — daß ich die Frucht jener<lb/>
+Auſternacht bin.</p>         </div>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/>       <fw type="catch" place="bottom">         <hi rendition="#b"><hi rendition="#g">Inhalt</hi>.</hi>       </fw>       <lb/>
+</body>     <back>
+<pb n="[115]" facs="#f0138"/>
+<milestone unit="section" rendition="#hr"/>       <div type="contents">         <head>           <hi rendition="#c">             <hi rendition="#b"><hi rendition="#g">Inhalt</hi>.</hi>           </hi>         </head>         <lb/>
+<list>           <item>Vorrede zur erſten Ausgabe <ref>S. 5</ref></item>           <lb/>
+<item>---- zur zweyten Ausgabe <ref>9</ref></item>           <lb/>
+<item>---- zur deutſchen Ueberſetzung <ref>11</ref></item>           <lb/>
+<item>Der Freyherr von Muͤnchhauſen reiſet<lb/>
+nach Rußland <ref>17</ref></item>           <lb/>
+<item>---- Verrichtet ein Liebeswerk <ref>18</ref></item>           <lb/>
+<item>---- Erhaͤlt eine kraͤftige Verſicherung<lb/>
+vom Himmel <ref>19</ref></item>           <lb/>
+<item>---- Bindet ſein Pferd aus Irrthum<lb/>
+an eine Kirchthurm-Spitze <ref>19</ref></item>           <lb/>
+<item>---- Zerſchießt den Halfter und be-<lb/>
+kommt es wieder <ref>20</ref></item>           <lb/>
+<item>---- Wird von einem Wolfe angefallen <ref>21</ref></item>           <lb/>
+<item>---- Peitſchet ihn in ein Pferd <ref>22</ref></item>           <lb/>
+<item>---- Bedient ſich ſeiner Augen ſtatt<lb/>
+des Flintenſteines und erlegt auf<lb/>
+einen Schuß fuͤnf Paar wilde<lb/>
+Enten und verſchiedenes anderes<lb/>
+Gefluͤgel <ref>25</ref></item>           <lb/>
+<item>---- Faͤngt die wilden Enten mit Speck <ref>26</ref></item>           <lb/>
+<item>---- Sonderbare Luftfahrt <ref>28</ref></item>           <lb/>
+<item>Er karbatſcht einen Fuchs aus ſeinem Pelze <ref>29</ref></item>           <lb/>
+<fw type="sig" place="bottom">H 2</fw>           <fw type="catch" place="bottom">Schießt</fw>           <lb/>
+<pb n="[116]" facs="#f0139"/>
+<item>Schießt zwey wilde Schweine ausein-<lb/>
+ander <ref>S. 30</ref></item>           <lb/>
+<item>Faͤngt einen Keiler und fuͤhrt ihn nach<lb/>
+Hauſe <ref>31</ref></item>           <lb/>
+<item>Betrachtungen uͤber St. Huberts Kreuz-<lb/>
+hirſch <ref>32</ref></item>           <lb/>
+<item>Der Baron ſchießt einen Hirſch mit Kirſch-<lb/>
+kernen auf den Kopf, wovon ein<lb/>
+Baum entſprießt <ref>33</ref></item>           <lb/>
+<item>Brennt und ſprengt einen Baͤr aus-<lb/>
+einander <ref>35</ref></item>           <lb/>
+<item>Kehrt einen Wolf um <ref>37</ref></item>           <lb/>
+<item>Sein Ueberrock wird toll <ref>38</ref></item>           <lb/>
+<item>Practiſche Betrachtungen <ref>39</ref></item>           <lb/>
+<item>Sein Windſpiel laͤuft ſich die Beine ab <ref>40</ref></item>           <lb/>
+<item>Sein Hund wirft Junge, waͤhrend er<lb/>
+einen Haſen jagt <ref>41</ref></item>           <lb/>
+<item>Der Haſe ſetzt Junge, waͤhrend ihn der<lb/>
+Hund verfolgt <ref>42</ref></item>           <lb/>
+<item>Der Baron ſetzt mit einem Pferde zum<lb/>
+Fenſter hinein und reitet auf ei-<lb/>
+nem Theetiſche die Schule, ohne<lb/>
+weder Kannen noch Taſſen zu zer-<lb/>
+brechen <ref>42 - 44</ref></item>           <lb/>
+<item>Practiſche Betrachtungen <ref>45 - 47</ref></item>           <lb/>
+<item>Das Pferd wird in zwey Stuͤcke zerſchla-<lb/>
+gen, aber wieder zuſammen geflickt <ref>48- 50</ref></item>           <lb/>
+<item>Lorbeerzweige wachſen hinten aus dem<lb/>
+Pferde und woͤlben eine Lanbe,<lb/>
+worunter der Baron reitet <ref>51</ref></item>           <lb/>
+<fw type="catch" place="bottom">Der</fw>           <lb/>
+<pb n="[117]" facs="#f0140"/>
+<item>Der Baron kann nach der Schlacht ſeinen<lb/>
+noch immer hauenden Arm nicht<lb/>
+wieder beſaͤnftigen <ref>S. 51</ref></item>           <lb/>
+<item>Er reitet auf Kanonen-Kugeln durch die Luft <ref>52</ref></item>           <lb/>
+<item>Setzt mit ſeinem Pferde durch eine Kut-<lb/>
+ſche mit aufgezogenen Fenſtern <ref>53</ref></item>           <lb/>
+<item>Reißt ſich nebſt ſeinem Pferde ſelbſt an<lb/>
+ſeinem Haarzopfe aus einem<lb/>
+Moraſte <ref>54</ref></item>           <lb/>
+<item>Er geraͤth in tuͤrkiſche Sclaverey <ref>55</ref></item>           <lb/>
+<item>Zwey Baͤren fallen eine Biene an <ref>56</ref></item>           <lb/>
+<item>Der Baron ſteigt ſeiner Axt bis in den<lb/>
+Mond nach und kommt zuruͤck <ref>56</ref></item>           <lb/>
+<item>Faͤllt zwey Meilen hoch aus den Wolken <ref>58</ref></item>           <lb/>
+<item>Graͤbt ſich mit ſeinen Naͤgeln aus einem<lb/>
+neun Klafter tiefen Loche empor <ref>58</ref></item>           <lb/>
+<item>Faͤngt einen Baͤr auf einer Wagendeichſel <ref>59</ref></item>           <lb/>
+<item>Wird wieder nach St. Petersburg ausge-<lb/>
+liefert und nimmt ſeinen Abſchied <ref>59</ref></item>           <lb/>
+<item>Hilft ſich mit ſeinem Waaen in einem<lb/>
+engen Paſſe vor einem andern auf<lb/>
+eine nicht leicht begreifliche Weiſe<lb/>
+vorbey <ref>60-63</ref></item>           <lb/>
+<item>Naͤrriſche Streiche eines Poſthorns <ref>63</ref></item>           <lb/>
+<item>Des Herrn von Muͤnchhauſen See-Aben-<lb/>
+theuer <ref>65</ref></item>           <lb/>
+<item>Beylaͤufige Erwaͤhnung eines geſchickten<lb/>
+engliſchen Kutſchers <ref>66</ref></item>           <lb/>
+<item>Gefahr eines Schiffbruchs durch einen<lb/>
+Wallſiſch <ref>66</ref></item>           <lb/>
+<fw type="sig" place="bottom">H 3</fw>           <fw type="catch" place="bottom">Ein</fw>           <lb/>
+<pb n="[118]" facs="#f0141"/>
+<item>Ein Matroſe wird wunderbarlich durch<lb/>
+eine Rothgans gerettet <ref>S. 67</ref></item>           <lb/>
+<item>Des Barons Kopf geraͤth in eine ſelt-<lb/>
+ſame Stellung <ref>67</ref></item>           <lb/>
+<item>Der Wallfiſch wirthſchaftet gar uͤbel mit<lb/>
+dem Schiffe und ſchwimmt endlich<lb/>
+gar damit fort <ref>68</ref></item>           <lb/>
+<item>Es geht ein Anker und ziemliches Stuͤck<lb/>
+Tau verlohren, ſo aber in einem<lb/>
+hohlen Zahne wieder gefunden<lb/>
+wird <ref>68-69</ref></item>           <lb/>
+<item>Ein Schiff-Leck, den der Baron mit dem<lb/>
+verſtopft, was ihm die Natur<lb/>
+verliehen <ref>69</ref></item>           <lb/>
+<item>Jonas der zweyte im mittellaͤndiſchen Meere <ref>71</ref></item>           <lb/>
+<item>Rettet ſein Leben durch einen Schotti-<lb/>
+ſchen Triller <ref>72</ref></item>           <lb/>
+<item>Wiedergeburt des Barons daſelbſt <ref>73</ref></item>           <lb/>
+<item>Er ſchießt bey Conſtantinopel einen Luft-<lb/>
+ballon herunter <ref>75</ref></item>           <lb/>
+<item>Particularitaͤten von der Perſon die daran<lb/>
+hing <ref>76-80</ref></item>           <lb/>
+<item>Der Baron gebt als Ambaſſadeur nach<lb/>
+Groß-Cairo <ref>81</ref></item>           <lb/>
+<item>Nimmt verſchiedene tuͤchtige Subjecte in<lb/>
+Dienſte, nehmlich,<lb/>
+Einen Laͤufer <ref>82</ref></item>           <lb/>
+<item>Horcher <ref>83</ref></item>           <lb/>
+<item>Schuͤtzen <ref>83</ref></item>           <lb/>
+<item>Starken <ref>84</ref></item>           <lb/>
+<item>Windmacher <ref>85</ref></item>           <lb/>
+<fw type="catch" place="bottom">Kehrt</fw>           <lb/>
+<pb n="[119]" facs="#f0142"/>
+<item>Kehrt nach ausgerichteter Sache von<lb/>
+Groß-Cairo auf dem Nil zuruͤck,<lb/>
+der ihn mit ſeiner Barke auf ei-<lb/>
+nen Mandelbaum ſchwemmet <ref>S. 87-89</ref></item>           <lb/>
+<item>Kommt wieder aufs Trockne und reiſet<lb/>
+nach Conſtantinopel zuruͤck <ref>89</ref></item>           <lb/>
+<item>Der Großſultan fuͤhrt ihn in ſeinem Harem<lb/>
+und laͤßt ihn da ausleſen, was<lb/>
+ihm beliebt <ref>90</ref></item>           <lb/>
+<item>Der Baron laͤßt ſich von der Geſellſchaft<lb/>
+bereden, noch einige Stuͤckchen<lb/>
+ſeiner Dienerſchaft zu erzaͤhlen <ref>91</ref></item>           <lb/>
+<item>Bericht von der Tafel des Groß-<lb/>
+ſultans <ref>91</ref></item>           <lb/>
+<item>Der Baron trinkt mit dem Großſultan<lb/>
+bey verſchloſſenen Thuͤren eine Fla-<lb/>
+ſche Tockaier, wovon derſelbe<lb/>
+großes Weſen macht <ref>93</ref></item>           <lb/>
+<item>Diſpuͤt mit dem Großſultan uͤber die Guͤte<lb/>
+des Weines, nebſt einer Wette <ref>93-95</ref></item>           <lb/>
+<item>Billet des Barons an die Kaiſerinn Ma-<lb/>
+ria Thereſia <ref>96</ref></item>           <lb/>
+<item>Stuͤckchen des Laͤufers <ref>96</ref></item>           <lb/>
+<item>des Horchers <ref>97</ref></item>           <lb/>
+<item>des Schuͤtzen <ref>98</ref></item>           <lb/>
+<item>Der Großſultan laͤßt die Wette auszahlen <ref>99</ref></item>           <lb/>
+<item>Stuͤckchen des Starken <ref>99</ref></item>           <lb/>
+<item>Dem Großſultan kommt die Reue an <ref>100</ref></item>           <lb/>
+<item>Stuͤckchen des Windmachers <ref>101</ref></item>           <lb/>
+<fw type="catch" place="bottom">Der</fw>           <lb/>
+<pb n="[120]" facs="#f0143"/>
+<item>Der Varon langt ſchwehrbeladen in Ita-<lb/>
+lien an, wo ihn Bettler und<lb/>
+Straßenraͤuber leicht machen <ref>S. 102</ref></item>           <lb/>
+<item>Er verlaͤßt die Geſellſchaft und ein Par-<lb/>
+tiſan von ihm ſetzt die Erzaͤhlung<lb/>
+ſeiner Abentheuer fort <ref>104</ref></item>           <lb/>
+<item>Neue Proben von des Barons Staͤrke <ref>104-107</ref></item>           <lb/>
+<item>Der Großſultan will ihm den Kopf ab-<lb/>
+ſchlagen laſſen <ref>108</ref></item>           <lb/>
+<item>Durch Vorſchub einer Sultaninn rettet er<lb/>
+ſein Leben und fluͤchtet von Cor-<lb/>
+ſtantinopel <ref>108</ref></item>           <lb/>
+<item>Der Partiſan giebt Nachricht von ſeiner<lb/>
+eigenen Herkunft, mit einigen<lb/>
+Anecdoten, woruͤber ſich der ge-<lb/>
+neigte Leſer nicht wenig verwun-<lb/>
+dern wird <ref>110</ref></item>         </list>       </div>       <lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0144"/>
+<pb facs="#f0145"/>
+<pb facs="#f0146"/>
+</back>   </text> </TEI>

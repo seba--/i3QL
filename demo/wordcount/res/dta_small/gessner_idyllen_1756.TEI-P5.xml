@@ -1,0 +1,2689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Idyllen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118538969">
+<surname>Geßner</surname>
+<forename>Salomon</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">142</measure>
+<measure type="tokens">16660</measure>
+<measure type="types">3836</measure>
+<measure type="characters">107854</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:23Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/gessner_idyllen_1756</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/gessner_idyllen_1756</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/gessner_idyllen_1756</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/gessner_idyllen_1756</idno>
+<idno type="DTADirName">gessner_idyllen_1756</idno>
+<idno type="DTAID">20190</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">[Geßner, Salomon]: Idyllen. Zürich, 1756.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Idyllen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118538969">
+<surname>Geßner</surname>
+<forename>Salomon</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">134 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Gessner</name></publisher>
+<pubPlace>Zürich</pubPlace>
+<date type="publication">1756</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>BBAW</repository>
+<idno>
+<idno type="shelfmark">BBAW, 2004 B 146</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb n="[1]" facs="#f0006"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#i">IDYLLEN</hi></titlePart></docTitle><lb/>
+<byline><hi rendition="#i">von dem</hi><lb/>
+<docAuthor><hi rendition="#i">Verfasser<lb/>
+des<lb/>
+Daphnis</hi></docAuthor>.</byline><lb/>
+<figure/><lb/>
+<docImprint><pubPlace><hi rendition="#i">Zürich</hi></pubPlace><hi rendition="#i"> bei </hi><publisher><hi rendition="#i">Gessner</hi></publisher>.<lb/>
+<docDate>1756</docDate>.</docImprint></titlePage><lb/>
+</front><body>
+<pb n="[2]" facs="#f0007"/>
+<pb n="[3]" facs="#f0008"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#i">IDYLLEN.</hi></hi></head></div><lb/>
+<pb n="[4]" facs="#f0009"/>
+<pb n="5" facs="#f0010"/>
+<div n="1" type="preface"><head><hi rendition="#i"><hi rendition="#k">An den Leſer.</hi></hi></head><lb/>
+<p><hi rendition="#i"><hi rendition="#in">D</hi>Ieſe Idyllen ſind die Früchte einiger<lb/>
+meiner vergnügteſten Stunden; denn es iſt<lb/>
+eine der angenehmſten Verfaſſungen, in die<lb/>
+uns die Einbildungs-Kraft und ein ſtilles<lb/>
+Gemüth ſetzen können, wenn wir uns mit-<lb/>
+telſt derſelben aus unſern Sitten weg, in ein<lb/>
+goldnes Weltalter ſetzen. Alle Gemählde<lb/>
+von ſtiller Ruhe und ſanftem ungeſtöhrtem<lb/>
+Glük, müſſen Leuten von edler Denkart<lb/>
+gefallen; und um ſo viel mehr gefallen uns<lb/>
+Scenen die der Dichter aus der unverdorbe-<lb/>
+nen Natur herholt, weil ſie oft mit unſern<lb/>
+ſeligſten Stunden, die wir gelebt, Aehnlich-</hi><lb/>
+<fw type="sig" place="bottom">A 3</fw><lb/>
+<pb n="6" facs="#f0011"/>
+<hi rendition="#i">keit zu haben ſcheinen. Oft reiſs ich mich<lb/>
+aus der Stadt los, und fliehe in einſame Ge-<lb/>
+genden, dann entreiſst die Schönheit der Na-<lb/>
+tur mein Gemüth allem dem Ekel und allen<lb/>
+den wiedrigen Eindrüken, die mich aus<lb/>
+der Stadt verfolgt haben; ganz entzükt,<lb/>
+ganz Empfindung über ihre Schönheit, bin<lb/>
+ich dann glüklich wie ein Hirt im goldnen<lb/>
+Weltalter und reicher als ein König.</hi></p><lb/>
+<p><hi rendition="#i">Die Ekloge hat ihre Scenen in eben die-<lb/>
+ſen ſo beliebten Gegenden, ſie bevölkert die-<lb/>
+ſelben mit würdigen Bewohnern, und giebt<lb/>
+uns Züge aus dem Leben glüklicher Leute,<lb/>
+wie ſie ſich bey der natürlichſten Einfalt der<lb/>
+Sitten, der Lebens-Art und ihrer Neigun-<lb/>
+gen, bey allen Begegniſſen, in Glük und Un-<lb/>
+glük betragen. Sie ſind frey von allen den<lb/>
+Sclaviſchen Verhältniſſen, und von allen<lb/>
+<pb n="7" facs="#f0012"/>
+den Bedürfniſſen, die nur die unglükliche<lb/>
+Entfernung von der Natur nothwendig ma-<lb/>
+chet, ſie empfangen bey unverdorbenem Her-<lb/>
+zen und Verſtand ihr Glük gerade aus der<lb/>
+Hand dieſer milden Mutter, und wohnen<lb/>
+in Gegenden, wo ſie nur wenig Hülfe for-<lb/>
+dert, um ihnen die unſchuldigen Bedürfniſſe<lb/>
+und Bequemlichkeiten reichlich darzubieten.<lb/>
+Kurz, ſie ſchildert uns ein goldnes Weltalter,<lb/>
+das gewiſs einmal da geweſen iſt, denn da-<lb/>
+von kan uns die Geſchichte der Patriarchen<lb/>
+überzeugen, und die Einfalt der Sitten, die<lb/>
+uns Homer ſchildert, ſcheint auch in den<lb/>
+kriegeriſchen Zeiten noch ein Ueberbleibſel<lb/>
+deſſelben zu ſeyn. Dieſe Dichtungs-Art<lb/>
+bekömmt daher einen beſondern Vortheil,<lb/>
+wenn man die Scenen in ein entferntes Welt-<lb/>
+alter ſezt; ſie erhalten dardurch einen höhern</hi><lb/>
+<fw type="sig" place="bottom">A 4</fw><lb/>
+<pb n="8" facs="#f0013"/>
+<hi rendition="#i">Grad der Wahrſcheinlichkeit, weil ſie für<lb/>
+unſre Zeiten nicht paſſen, wo der Landmann<lb/>
+mit ſaurer Arbeit unterthänig ſeinem Fürſten<lb/>
+und den Städten den Ueberfluſs liefern muſs,<lb/>
+und Unterdrükung und Armuth ihn ungeſit-<lb/>
+tet und ſchlau und niederträchtig gemacht<lb/>
+haben. Ich will darmit nicht läugnen, daſs<lb/>
+ein Dichter, der ſich ans Hirten-Gedicht<lb/>
+wagt, nicht ſonderbare Schönheiten aus-<lb/>
+ſpüren kann, wenn er die Denkungsart und<lb/>
+die Sitten des Landmanns bemerket, aber<lb/>
+er muſs dieſe Züge mit feinem Geſchmak<lb/>
+wählen, und ihnen ihr Rauhes zu benehmen<lb/>
+wiſſen, ohne den ihnen eigenen Schnitt zu<lb/>
+verderben.</hi></p><lb/>
+<p><hi rendition="#i">Ich habe den Theokrit immer für das<lb/>
+beſte Muſter in dieſer Art Gedichte gehal-<lb/>
+ten. Bey ihm findet man die Einfalt der Sit-<lb/>
+<pb n="9" facs="#f0014"/>
+ten und der Empfindungen am beſten ausge-<lb/>
+drükt, und das Ländliche und die ſchönſte<lb/>
+Einfalt der Natur; er iſt mit dieſer bis auf<lb/>
+die kleinſten Umſtände bekannt geweſen; wir<lb/>
+ſehen in ſeinen Idyllen mehr als Roſen und<lb/>
+Lilien; Seine Gemählde kommen nicht aus<lb/>
+einer Einbildungs-Kraft, die nur die be-<lb/>
+kannteſten und auch dem Unachtſamen in die<lb/>
+Augen fallenden Gegenſtände häuft; ſie ha-<lb/>
+ben die angenehme Einfalt der Natur, nach<lb/>
+der ſie allemal gezeichnet zu ſeyn ſcheinen.<lb/>
+Seinen Hirten hat er den höchſten Grad der<lb/>
+Naivität gegeben, ſie reden Empfindungen,<lb/>
+ſo wie ſie ihnen ihr unverdorbenes Herz in<lb/>
+den Mund legt, und aller Schmuk der Poeſie<lb/>
+iſt aus ihren Geſchäften und aus der unge-<lb/>
+künſtelten Natur hergenommen. Sie ſind<lb/>
+weit von dem Epigrammatiſchen Witz ent-</hi><lb/>
+<fw type="sig" place="bottom">A 5</fw><lb/>
+<pb n="10" facs="#f0015"/>
+<hi rendition="#i">fernt, und von der ſchulgerechten Ordnung<lb/>
+der Sätze; er hat die ſchwere Kunſt gewuſst,<lb/>
+die angenehme Nachläſſigkeit in ihre Geſän-<lb/>
+ge zu bringen, welche die Poeſie in ihrer er-<lb/>
+ſten Kindheit muſs gehabt haben; er wuſste<lb/>
+ihren Liedern die ſanfte Mine der Unſchuld<lb/>
+zu geben, die ſie haben müſſen, wenn die<lb/>
+einfältigen Empfindungen eines unverdorbe-<lb/>
+nen Herzens eine Phantaſie befeuern, die<lb/>
+nur mit den angenehmſten Bildern aus der<lb/>
+Natur angefüllt iſt. Zwar iſt gewiſs, das<lb/>
+die noch weniger verdorbene Einfalt der<lb/>
+Sitten zu ſeiner Zeit, und die Achtung die<lb/>
+man damals noch für den Feldbau hatte,<lb/>
+die Kunſt ihm erleichtert hat. Der zuge-<lb/>
+ſpizte Witz war noch nicht Mode, ſie hat-<lb/>
+ten mehr Verſtand und Empfindung für das<lb/>
+wahre Schöne, als Witz.</hi></p><lb/>
+<pb n="11" facs="#f0016"/>
+<p><hi rendition="#i">Mir deucht, das iſt die Probe darüber,<lb/>
+daſs Theokrit in ſeiner Art fürtreflich ſey,<lb/>
+weil er nur wenigen gefällt; denen kan er<lb/>
+nie gefallen, die nicht für jede Schönheit der<lb/>
+Natur, bis auf die kleinſten Gegenſtände,<lb/>
+empfindlich ſind, denen, deren Empfindun-<lb/>
+gen einen falſchen Schwung genommen ha-<lb/>
+ben, und einer Menge von Leuten, die ihre<lb/>
+Beſtimmung in einer falſch-ekeln Galanterie<lb/>
+finden. Denen ekelt vor dem Ländlichen,<lb/>
+ihnen gefallen nur Hirten, die ſo geziert<lb/>
+denken wie ein witziger Dichter, und die aus<lb/>
+ihren Empfindungen eine ſchlaue Kunſt zu<lb/>
+machen wiſſen. Ich weiſs nicht, ob die<lb/>
+meiſten neuern entweder zu bequem geweſen<lb/>
+ſind, mit der Natur und den Empfindungen<lb/>
+der Unſchuld ſich genauer bekannt zu machen,<lb/>
+oder ob es Gefälligkeit für unſre umgearte-<lb/>
+<pb n="12" facs="#f0017"/>
+ten Sitten iſt, in der Abſicht ſich allgemei-<lb/>
+nern Beyfall zu gewinnen, daſs ſie ſo weit<lb/>
+ſich von dem Theokrit entfernen. Ich habe<lb/>
+meine Regeln in dieſem Muſter geſucht, und<lb/>
+es wird mir eine Verſicherung der glüklichen<lb/>
+Nachabmung ſeyn, wenn ich dieſen Leuten<lb/>
+auch miſsfalle. Zwar weiſs ich wol, daſs<lb/>
+einige wenige Ausdrüke und Bilder im Theo-<lb/>
+krit, bey ſo ſehr abgeänderten Sitten uns ver-<lb/>
+ächtlich worden ſind; dergleichen Umſtänd-<lb/>
+gen habe ich auszuweichen getrachtet. Ich<lb/>
+meyne aber hier nicht dergleichen, die ein<lb/>
+franzöſiſcher Ueberſetzer in dem Virgil nicht<lb/>
+ausſtehen konnte; die ich meyne, hat Vir-<lb/>
+gil, der Nachahmer des Theokrit, ſelbſt<lb/>
+ſchon weggelaſſen.</hi></p><lb/>
+<closer><salute><hi rendition="#et">Geſsner.</hi></salute></closer><lb/>
+<pb n="[13]" facs="#f0018"/>
+<figure/><lb/>
+</div> <div n="1"><head>An<lb/>
+DAPHNEN.</head><lb/>
+<p><hi rendition="#in">N</hi>Icht den blutbeſprizten kühnen Helden, nicht<lb/>
+das öde Schlachtfeld ſingt die frohe Muſe; ſanft<lb/>
+und ſchüchtern flieht ſie das Gewühl, die leichte<lb/>
+Flöt’ in ihrer Hand.</p><lb/>
+<p>Gelokt durch kühler Bäche rieſelndes Geſchwä-<lb/>
+ze und durch der heilgen Wälder dunkeln Schat-<lb/>
+ten, irrt ſie an dem beſchilften Ufer, oder geht<lb/>
+auf Blumen, in grüngewölbten Gängen hoher<lb/>
+Bäume, und ruht im weichen Gras, und ſinnt<lb/>
+auf Lieder, für dich, für dich nur, ſchönſte Daphne!<lb/>
+<pb n="14" facs="#f0019"/>
+Denn dein Gemüth voll Tugend und voll Un-<lb/>
+ſchuld, iſt heiter, wie der ſchönſte Frühlings-<lb/>
+Morgen; So flattert muntrer Scherz und frohes<lb/>
+Lächeln, ſtets um die kleinen Lippen, um die<lb/>
+rothen Wangen, und ſanfte Freude redet ſtets<lb/>
+aus deinen Augen. Ja ſeit du Freund mich nennſt,<lb/>
+geliebte Daphne! ſeitdem umglänzt ein Sonnen-<lb/>
+ſchein von Freude, mein Leben vor mir her, und<lb/>
+jeder Tag, gleicht einem hellen Lieder-reichen<lb/>
+Morgen.</p><lb/>
+<p>O wenn die frohen Lieder dir gefielen! die<lb/>
+meine Muſe oft dem Hirten abhorcht; auch oft<lb/>
+belauſchet ſie in dichten Hainen, der Bäume Nym-<lb/>
+phen und den Ziegenfüſs’gen Wald-Gott, und<lb/>
+Schilfbekränzte Nymphen in den Grotten; und<lb/>
+oft beſuchet ſie bemooſte Hütten, um die der<lb/>
+Landmann ſtille Schatten pflanzet, und bringt<lb/>
+Geſchichte her, von Groſsmuth und von Tugend,<lb/>
+und von der immer frohen Unſchuld. Auch oft<lb/>
+beſchleichet ſie der Gott der Liebe, in grünen<lb/>
+<pb n="15" facs="#f0020"/>
+Grotten dichtverwebner Sträuche, und oft im<lb/>
+Weidenbuſch an kleinen Bächen. Er horchet<lb/>
+denn ihr Lied, und kränzt ihr fliegend Haar,<lb/>
+wenn ſie von Liebe ſingt und frohem Scherz.</p><lb/>
+<p>Diſs, Daphne! diſs allein, belohne meine Lie-<lb/>
+der, diſs ſey mein Ruhm, daſs mir an deiner Sei-<lb/>
+te, aus deinem holden Aug der Beyfall lächle.<lb/>
+Den der nicht glüklich iſt wie ich, begeiſtre der<lb/>
+Gedanke, den Ruhm der ſpäten Enkel zu erſin-<lb/>
+gen; ſie mögen Blumen auf ſein Grabmal ſtreun,<lb/>
+und kühlen Schatten über den verweſnen Pflan-<lb/>
+zen!</p><lb/>
+<figure/><lb/>
+</div>
+<pb n="16" facs="#f0021"/>
+<div n="1"><head><hi rendition="#g">MILON.</hi></head><lb/>
+<p><hi rendition="#in">O</hi> Du! die du lieblicher biſt, als der thauende<lb/>
+Morgen, du mit den groſſen ſchwarzen Augen;<lb/>
+ſchön wallt dein dunkles Haar unter dem Blu-<lb/>
+menkranz weg, und ſpielt mit den Winden.<lb/>
+Lieblich iſts, wenn deine rothen Lippen zum La-<lb/>
+chen ſich öfnen, lieblicher noch, wenn ſie zum<lb/>
+Singen ſich öfnen. Ich habe dich behorcht,<lb/>
+Chloe! o ich habe dich behorcht! da du an<lb/>
+jenem Morgen beym Brunnen ſangeſt, den die<lb/>
+zwo Eichen beſchatten; böſe daſs die Vögel nicht<lb/>
+ſchwiegen, böſe daſs die Quelle rauſchte hab ich<lb/>
+dich behorcht. Izt hab ich neunzehn Ernden ge-<lb/>
+ſehen, und ich bin ſchön und braun von Geſicht;<lb/>
+oft hab ichs bemerkt daſs die Hirten aûfhörten<lb/>
+zu ſingen und horchten, wenn mein Geſang durchs<lb/>
+Thal hintönte, und deinen Geſang würde keine<lb/>
+Flöte beſſer begleiten als meine. O ſchöne Chloe,<lb/>
+<fw type="catch" place="bottom">liebe</fw><lb/>
+<pb n="17" facs="#f0022"/>
+liebe mich! Siehe, wie lieblich es iſt, auf die-<lb/>
+ſem Hügel in meinem Felſen zu wohnen! ſieh wie<lb/>
+das kriechende Epheu ein grünes Nez anmuthig<lb/>
+um den Felſen herwebt, und wie ſein Haupt der<lb/>
+Dornſtrauch beſchattet. Meine Höle iſt bequem,<lb/>
+und ihre Wände ſind mit weichen Fellen behan-<lb/>
+gen, und vor den Eingang hab’ ich Kürbiſſe ge-<lb/>
+pflanzet, ſie kriechen hoch empor und werden<lb/>
+zum dämmernden Dach; Sieh wie lieblich die<lb/>
+Quell’ aus meinem Felſen ſchäumt, und hell über<lb/>
+die Waſſerkreſſe hin durch hohes Gras und Blu-<lb/>
+men quillt! unten am Hügel ſammelt er ſich zur<lb/>
+kleinen See, mit Schilf-Rohr und Weiden um-<lb/>
+kränzt, wo die Nymphen bey ſtillem Mondſchein<lb/>
+oft nach meiner Flöte tanzen, wenn die hüpfen-<lb/>
+den Faunen mit ihren Crotalen mir nachklappern.<lb/>
+Sieh wie auf dem Hügel die Haſelſtaude zu grü-<lb/>
+<note place="foot">Crotalen, waren aufgeſpaltene Rohre, deren auf- und zu-<lb/>
+ſchlagen das Ton-Maaſs des Geſanges und der an-<lb/>
+dern Inſtrumente begleitete.</note><lb/>
+<fw type="sig" place="bottom">B</fw><lb/>
+<pb n="18" facs="#f0023"/>
+nen Grotten ſich wölbt, und wie die Brombeer-<lb/>
+Staude mit ſchwarzer Frucht um mich her kriecht,<lb/>
+und wie der Hambutten-Strauch die rothen Bee-<lb/>
+ren empor trägt, und wie die Apfelbäume voll<lb/>
+Früchte ſtehn, von der kriechenden Reb’ um-<lb/>
+ſchlungen. O Chloe! diſs alles iſt mein! wer<lb/>
+wünſchet ſich mehr? Aber ach! wenn du mich<lb/>
+nicht liebeſt, dann umhüllt ein dichter Nebel die<lb/>
+ganze Gegend. O Chloe, liebe mich! Hier wol-<lb/>
+len wir dann ins weiche Gras uns lagern, wenn<lb/>
+Ziegen an der felſichten Seite klettern, und die<lb/>
+Schafe und die Rinder um uns her im hohen<lb/>
+Graſe watten; dann wollen wir über das weit<lb/>
+ausgebreitete Thal hinſehn, ins glänzende Meer,<lb/>
+wo die Tritonen hüpfen und wo Phöbus von ſei-<lb/>
+nem Wagen ſteigt, und ſingen, daſs es weit um-<lb/>
+her in den Felſen wiedertönt, daſs Nymphen ſtill<lb/>
+ſtehn und horchen, und die Ziegenfüſſigten Wald-<lb/>
+Götter.</p><lb/>
+<p>So ſang Milon der Hirt auf dem Felſen, als<lb/>
+<pb n="19" facs="#f0024"/>
+Chloe in dem Gebüſch ihn behorchte; lächelnd<lb/>
+trat ſie hervor, und faſste dem Hirten die Hand;<lb/>
+Milon, du Hirt auf dem Felſen, ſo ſprach ſie, ich<lb/>
+liebe dich mehr als die Schafe den Klee, mehr<lb/>
+als die Vögel den Geſang; führe mich in deine<lb/>
+Höle; ſüſſer iſt mir dein Kuſs als Honig, ſo lieb-<lb/>
+lich rauſcht mir nicht der Bach.</p><lb/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">B 2</fw><lb/>
+<pb n="20" facs="#f0025"/>
+<div n="1"><head><hi rendition="#g">IDAS. MYCON.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>Ey mir gegrüſst Mycon! du lieblicher Sänger!<lb/>
+Wenn ich dich ſehe, dann hüpft mir das Herz<lb/>
+vor Freude; ſeit du auf dem Stein beym Brunnen<lb/>
+mir das Frühlings-Lied ſangeſt, ſeitdem hab ich<lb/>
+dich nicht geſehen.</p><lb/>
+<p>Mycon. Sey mir gegrüſst Idas, du lieblicher<lb/>
+Flötenſpieler! Laſs uns einen kühlen Ort ſuchen,<lb/>
+und in dem Schatten uns lagern.</p><lb/>
+<p>Idas. Wir wollen auf dieſe Anhöhe gehn,<lb/>
+wo die groſſe Eiche des Palemons ſteht, ſie be-<lb/>
+ſchattet weit umher, und die kühlen Winde flat-<lb/>
+tern da immer. Indeſs können meine Ziegen an<lb/>
+der jähen Wand klettern und vom Geſtrauch<lb/>
+reiſſen; ſieh wie die groſſe Eiche die ſchlan-<lb/>
+ken Aeſte herum trägt, und kühlen Schat-<lb/>
+ten ausſtreut, laſs hier bey den wilden Roſen-<lb/>
+Gebüſchen uns lagern, die ſanften Winde ſollen<lb/>
+<pb n="21" facs="#f0026"/>
+mit unſern Haaren ſpielen. Mycon! diſs iſt<lb/>
+mir ein heilger Ort! O Palemon! dieſe Eiche<lb/>
+bleibt deiner Redlichkeit heiliges Denkmal! Pa-<lb/>
+lemon hatte eine kleine Herde; er opferte dem<lb/>
+Pan viele Schafe, o Pan! bat er, laſs meine<lb/>
+Herde ſich mehren, ſo kan ich ſie mit meinem<lb/>
+armen Nachbar theilen, und Pan machte daſs ſei-<lb/>
+ne Herde in einem Jahr um die Helfte ſich mehr-<lb/>
+te, und Palemon gab dem armen Nachbar die<lb/>
+Helfte der ganzen Herde, und er opferte dem Pan<lb/>
+auf dieſem Hügel, und pflanzt’ eine Eiche, und<lb/>
+ſprach: O Pan! dieſer Tag ſey mir heilig, an<lb/>
+dem mein Wunſch ſich erfüllte, ſegne die Eiche,<lb/>
+daſs ich jährlich in ihrem Schatten dir opfere;<lb/>
+Mycon! ſoll ich dir das Lied ſingen, das ich im-<lb/>
+mer unter dieſer Eiche ſinge?</p><lb/>
+<p>Mycon. Wenn du mir das Lied ſingeſt, dann<lb/>
+will ich dieſe neunſtimmige Flöte dir ſchenken,<lb/>
+ich ſelbſt habe die Rohre mit langer Wahl am Ufer<lb/>
+geſchnitten, und mit wohlriechendem Wachs ver-<lb/>
+eint.</p><lb/>
+<fw type="sig" place="bottom">B 3</fw><lb/>
+<pb n="22" facs="#f0027"/>
+<p>Idas ſang izt.</p><lb/>
+<p>Die ihr euch über mir wölbt, ſchlanke Aeſte,<lb/>
+ihr ſtreut mit euerm Schatten, ein heiliges Ent-<lb/>
+züken auf mich; Ihr Winde, wenn ihr mich<lb/>
+kühlt, dann iſts als rauſcht’ eine Gottheit unſicht-<lb/>
+bar neben mir hin! Ihr Ziegen und ihr Schafe<lb/>
+ſchonet, o ſchonet! und reiſst das junge Epheu<lb/>
+nicht vom weiſſen Stamm, daſs es empor ſchlei-<lb/>
+che und grüne Kränze flechte, rings um den weiſ-<lb/>
+ſen Stamm. Kein Donnerkeil, kein reiſſender<lb/>
+Wind ſoll dir ſchaden, hoher Baum! Die Götter<lb/>
+wollens, du ſolt der Redlichkeit Denkmal ſeyn!<lb/>
+Hoch ſteht ſein Wipfel empor, es ſiehet ihn fern-<lb/>
+her der Hirt, und weiſt ihn ermahnend dem Sohn;<lb/>
+es ſieht ihn die zärtliche Mutter, und ſagt Pale-<lb/>
+mons Geſchichte, dem horchenden Kind auf der<lb/>
+Schooſs. O pflanzt ſolche Denkmal’ ihr Hirten!<lb/>
+daſs wir einſt voll heilgen Entzükens, in dunkeln<lb/>
+Hainen einhergehn.</p><lb/>
+<p>So ſang Idas, er hatte ſchon lange geſchwie-<lb/>
+<pb n="23" facs="#f0028"/>
+gen, und Mycon ſaſs noch wie horchend, ach<lb/>
+Idas! Mich entzükt der thauende Morgen, der<lb/>
+kommende Frühling entzükt mich, noch mehr des<lb/>
+Redlichen Thaten.</p><lb/>
+<p>So ſprach Mycon, und gab ihm die neunſtim-<lb/>
+mige Flöte.</p><lb/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">B 4</fw><lb/>
+<pb n="24" facs="#f0029"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">DAPHNIS.</hi></hi></head><lb/>
+<p><hi rendition="#in">A</hi>N einem hellen Winter-Morgen ſaſs Daphnis<lb/>
+in ſeiner Hütte; die lodernde Flammen angebrann-<lb/>
+ter dürrer Reiſer ſtreuten angenehme Wärme<lb/>
+in der Hütte umher, indeſs daſs der herbe<lb/>
+Winter ſein Stroh-Dach mit tiefem Schnee be-<lb/>
+dekt hielt; er ſah vergnügt durch das enge Fen-<lb/>
+ſter über die wintrichte Gegend hin; Du herber<lb/>
+Winter, ſo ſprach er, doch biſt du ſchön! Lieb-<lb/>
+lich lächelt izt die Sonne durch die dünnbenebelte<lb/>
+Luft über die Schnee-bedekten Hügel hin; wie<lb/>
+glänzet der Schnee! Lieblich iſts, wie aus dem<lb/>
+Weiſſen empor die ſchwarzen Stämme der Bäume<lb/>
+zerſtreut ſtehn, mit ihren krummgeſchwungenen<lb/>
+unbelaubten Aeſten, oder eine braune Hütte mit<lb/>
+dem Schnee-bedekten Dach, oder wenn die<lb/>
+ſchwarzen Zäune von Dorn-Stauden die weiſſe<lb/>
+Ebene durchkreuzen; Schön iſts wie die grüne<lb/>
+<pb n="25" facs="#f0030"/>
+Saat dort über das Feld hin die zarten Spizen aus<lb/>
+dem Schnee empor hebt, und das Weiſs mit<lb/>
+ſanftem Grün vermiſcht; Schön glänzen die nahen<lb/>
+Sträuche, ihre dünnen Aeſte ſind mit Duft ge-<lb/>
+ſchmükt, und die dünnen umherflatternden Fa-<lb/>
+den. Zwar iſt die Gegend öde, die Herden ruhen<lb/>
+eingeſchloſſen im wärmenden Stroh; nur ſelten<lb/>
+ſieht man den Fuſstritt des willigen Stiers, der<lb/>
+traurig das Brennholz vor die Hutte führt, das<lb/>
+ſein Hirt im nahen Hain gefällt hat; die Vögel ha-<lb/>
+ben die Gebüſche verlaſſen, nur die einſame<lb/>
+Meiſe ſinget ihr Lied, nur der kleine Zaun-Schlü-<lb/>
+pfer hupfet umher, und der braune Sperling<lb/>
+kömmt freundlich zu der Hütte und piket die hin-<lb/>
+geſtreuten Körner; Dort wo der Rauch aus den<lb/>
+Bäumen in die Luft empor wallt, dort wohnet<lb/>
+meine Phillis; Vielleicht ſizeſt du izt beym wär-<lb/>
+menden Feuer, das ſchöne Geſicht auf der unter-<lb/>
+ſtüzenden Hand, und denkeſt an mich, und wün-<lb/>
+ſcheſt den Frühling; Ach Phillis! wie ſchön biſt<lb/>
+<fw type="sig" place="bottom">B 5</fw><lb/>
+<pb n="26" facs="#f0031"/>
+du! Aber, nicht nur deine Schönheit hat mich<lb/>
+zur Liebe gereizt; O wie liebt ich dich da! als<lb/>
+dem jungen Alexis zwo Ziegen von der Felſen-<lb/>
+Wand ſtürzten; er weinte, der junge Hirt, ich<lb/>
+bin arm, ſprach er, und habe zwo Ziegen ver-<lb/>
+lohren, die eine war trächtig; ach! ich darf<lb/>
+nicht zu meinem armen Vater in die Hütte zurük<lb/>
+kehren. So ſprach er weinend, du ſaheſt ihn wei-<lb/>
+nen, Phillis, und wiſchteſt die mitleidigen Thrä-<lb/>
+nen vom Aug, und nahmeſt aus deiner kleinen<lb/>
+Herde zwo der beſten Ziegen; da Alexis, ſprachſt<lb/>
+du, nimm dieſe Ziegen, die eine iſt trächtig, und<lb/>
+wie er vor Freude weinte, da weinteſt du auch<lb/>
+vor Freude, weil du ihm geholfen hatteſt. O! ſey<lb/>
+immer unfreundlich Winter; meine Flöte ſoll doch<lb/>
+nicht beſtaubt in der Hütte hangen, ich will dan-<lb/>
+noch von meiner Phillis ein frohes Lied ſingen;<lb/>
+zwar haſt du alles entlaubt, zwar haſt du die<lb/>
+Blumen von den Wieſen genommen, aber du<lb/>
+ſolt es nicht hindern, daſs ich nicht einen Kranz<lb/>
+<pb n="27" facs="#f0032"/>
+flechte; Epheu und das ſchlanke Ewig-Grün<lb/>
+mit den blauen Blumen will ich durch einander<lb/>
+flechten, und dieſe Meiſe, die ich geſtern fieng,<lb/>
+ſoll in ihrer Hütte ſingen; ja ich will dich ihr<lb/>
+heute bringen und den Kranz, ſing ihr dann dein<lb/>
+frohes Lied, ſie wird freundlich lächelnd dich an-<lb/>
+reden, und in ihrer kleinen Hand die Speiſe dir<lb/>
+reichen. O wie wird ſie dich pflegen, weil du<lb/>
+von mir kömmft!</p><lb/>
+<figure/><lb/>
+</div>
+<pb n="28" facs="#f0033"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">MIRTIL.</hi></hi></head><lb/>
+<p><hi rendition="#in">B</hi>Ey ſtillem Abend hatte Mirtil noch den Mond-<lb/>
+beglänzten Sumpf beſucht, die ſtille Gegend im<lb/>
+Mondſchein und das Lied der Nachtigal hatten<lb/>
+ihn in ſtillem Entzüken aufgehalten. Aber izt<lb/>
+kam er zurük, in die grüne Laube von Reben<lb/>
+vor ſeiner einſamen Hütte, und fande ſeinen alten<lb/>
+Vater ſanftſchlummernd am Mondſchein, hinge-<lb/>
+ſunken, ſein graues Haupt auf den einen Arm<lb/>
+hingelehnt. Da ſtellt er ſich, die Arme in ein-<lb/>
+ander geſchlungen, vor ihm hin. Lang ſtand er<lb/>
+da, ſein Blik ruhete unverwandt auf dem Greiſen,<lb/>
+nur blikt’ er zuweilen auf, durch das glänzende<lb/>
+Reblaub zum Himmel, und Freuden-Thränen roll-<lb/>
+ten dem Sohn vom Auge.</p><lb/>
+<p>O du! ſo ſprach er izt, du, den ich nächſt den<lb/>
+Göttern am meiſten ehre! Vater! wie ſanft<lb/>
+ſchlummerſt du da! Wie lächelnd iſt der Schlaf<lb/>
+<pb n="29" facs="#f0034"/>
+des Frommen! Gewiſs gieng dein zitternder<lb/>
+Fuſs aus der Hutte hervor, in ſtillem Gebete<lb/>
+den Abend zu feyren, und betend ſchliefeſt du<lb/>
+ein. Du haſt auch für mich gebetet, Vater! Ach<lb/>
+wie glüklich bin ich! die Götter hören dein Ge-<lb/>
+bet; oder warum ruht unſere Hütte ſo ſicher in<lb/>
+den von Früchten gebogenen Aeſten, warum iſt<lb/>
+der Segen auf unſerer Herde und auf den Früch-<lb/>
+ten unſers Feldes? Oft wenn du bey meiner<lb/>
+ſchwachen Sorge für die Ruhe deines matten<lb/>
+Alters Freuden-Thränen weinſt; wann du dann<lb/>
+gen Himmel blikeſt und freudig mich ſegneſt,<lb/>
+ach was empfind ich dann, Vater! Ach dann<lb/>
+ſchwellt mir die Bruſt, und häufige Thränen quil-<lb/>
+len vom Auge! Da du heut an meinem Arm aus<lb/>
+der Hütte giengeſt, an der wärmenden Sonne<lb/>
+dich zu erquiken, und die frohe Herde um dich<lb/>
+her ſaheſt und die Bäume voll Früchte, und die<lb/>
+fruchtbare Gegend umher, da ſprachſt du, meine<lb/>
+Haare ſind unter Freuden grau worden, ſeyd<lb/>
+<pb n="30" facs="#f0035"/>
+immer geſegnet, Gefilde! nicht lange mehr wird<lb/>
+mein dunkelnder Blik euch durchirren, bald werd<lb/>
+ich euch an ſeligere Gefilde vertauſchen. Ach<lb/>
+Vater! beſter Freund! bald ſoll ich dich verlieh-<lb/>
+ren, trauriger Gedanke! Ach! dann - - dann will<lb/>
+ich einen Altar neben dein Grab hinpflanzen, und<lb/>
+dann, ſo oft ein ſeliger Tag kömmt, wo ich Noth-<lb/>
+leidenden Gutes thun kann, dann will ich, Va-<lb/>
+ter! Milch und Blumen auf dein Grabmal ſtreun.</p><lb/>
+<p>Izt ſchwieg er, und ſah mit thränendem Aug<lb/>
+auf den Greiſen; wie er lächelnd da liegt und<lb/>
+ſchlummert! ſprach er izt ſchluchzend, es ſind<lb/>
+von ſeinen frommen Thaten im Traum vor ſeine<lb/>
+Stirne geſtiegen. Wie der Mondſchein ſein kahles<lb/>
+Haupt beſcheint und den glänzend weiſſen Bart!<lb/>
+O daſs die kühlen Abendwinde dir nicht ſchaden<lb/>
+und der feuchte Thau! izt küſst er ihm die Stir-<lb/>
+ne, ſanft ihn zu weken und führt ihn in die Hütte<lb/>
+um ſanfter auf weichen Fellen zu ſchlummern.</p></div><lb/>
+<pb n="31" facs="#f0036"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">LYCAS</hi> und <hi rendition="#g">MILON.</hi></hi></head><lb/>
+<p><hi rendition="#in">D</hi>Er junge Sänger Milon; denn auf ſeinem zar-<lb/>
+ten Kinn ſtunden die Haare noch ſelten, ſo wie<lb/>
+das zarte Gras im jungen Frühling aus ſpätgefall-<lb/>
+nem Schnee nur ſelten vorkeimt; und Lycas mit<lb/>
+dem ſchöngelokten Haar, gelb wie die reife Saat,<lb/>
+kamen zuſamen mit der blökenden Herde, hinter<lb/>
+dem Buchwald. Sey mir gegrüſst Lycas, ſprach<lb/>
+der Sänger Milon und bot ihm die Hand, ſey<lb/>
+mir gegrüſst, laſs in den Buchwald uns gehn,<lb/>
+indeſs irrt unſere Herde im fetten Gras am Teich,<lb/>
+mein wacher Hund wirds nicht zugeben daſs ſie<lb/>
+ſich zerſtreue.</p><lb/>
+<p>Lycas. Nein Milon, wir wollen hier unter<lb/>
+dem gewölbten ſtozigten Felſen uns ſezen,<lb/>
+es liegen da heruntergeriſſene Stüke mit ſanf-<lb/>
+tem Moos bedekt. Dort iſts lieblich und kühl,<lb/>
+ſieh wie der klare Bach ſtaubend ins wankende<lb/>
+<pb n="32" facs="#f0037"/>
+Geſträuche ſich ſtürzt, er rieſelt unter ihrem Ge-<lb/>
+webe hervor, und eilt in den Teich. Hier iſts<lb/>
+lieblich und kühl, laſs auf die bemoosten Steine<lb/>
+uns ſezen, dann ſteht der Schatten des Buchwalds<lb/>
+dunkel gegen uns über.</p><lb/>
+<p>Und izt giengen ſie und ſezten ſich unter dem<lb/>
+Felſen auf die bemoosten Steine: Und Milon<lb/>
+ſprach, lang ſchon, du Flötenſpieler Lycas, lang<lb/>
+ſchon hab ich deinen Geſang loben gehört, laſs<lb/>
+uns einen Wettgeſang ſingen, denn auch mir ſind<lb/>
+die Muſen gewogen; jenes junge Rind will ich<lb/>
+zum Preis dir ſezen, es iſt ſchön geflekt, ſchwarz<lb/>
+und weiſs.</p><lb/>
+<p>Lycas. Und ich, ich ſeze die beſte Ziege aus<lb/>
+meiner Herde, ſamt ihrem Jungen, dort reiſst ſie<lb/>
+das Epheu von der Weide an Teich, das muntre<lb/>
+Junge hüpft neben ihr. Aber Milon, wer ſoll<lb/>
+Richter ſeyn? Soll ich den alten Menalkas rufen?<lb/>
+Sieh er leitet die Quelle in die Wieſe am Buch-<lb/>
+wald; er verſteht den Geſang. Izt riefen die<lb/>
+<fw type="catch" place="bottom">jun-</fw><lb/>
+<pb n="33" facs="#f0038"/>
+jungen Hirten dem Menalkas, und er kam und<lb/>
+ſezte ſich zu den Knaben auf einen weich-be-<lb/>
+moosten Stein, und Milon hub den Geſang an.</p><lb/>
+<p>Milon. Selig iſt der zu preiſen, der die Gunſt<lb/>
+der Muſen hat. Wenn uns das Herz von Freu-<lb/>
+den hüpft, wie lieblich iſt es dann ein Lied zu<lb/>
+ſingen, der Echo und dem Hain! Nie entſteht<lb/>
+mir ein liebliches Lied, wenn mich der Mond-<lb/>
+ſchein entzükt, oder des Morgens Roſenfarbe.<lb/>
+Auch weiſs ich daſs der Geſang die trüben Stun-<lb/>
+den heiter macht. Denn mir ſind die Muſen<lb/>
+gewogen, und jene ſchneeweiſſe Ziege iſt ihnen<lb/>
+zum Opfer beſtimmt, bald will ich ſie, die Hörner<lb/>
+mit Blumen umkränzt, opfern, und neue Loblieder<lb/>
+ſingen.</p><lb/>
+<p>Lycas. Als ſtammelndes Kind ſaſs ich dem Va-<lb/>
+ter auf dem Schooſs, und wenn er ein Lied<lb/>
+auf der Rohrflöte blies, denn horcht ich ſchon<lb/>
+aufmerkſam zu und lallt’ es ihm nach. Oder<lb/>
+lächelnd nahm ich die Flöt’ ihm vom Mund, und<lb/>
+<fw type="sig" place="bottom">C</fw><lb/>
+<pb n="34" facs="#f0039"/>
+blies gebrochene Töne hervor. Aber bald er-<lb/>
+ſchien Pan mir im Traum. Jüngling, ſo ſprach er,<lb/>
+geh in den Hain und hole die Flöte die der Sän-<lb/>
+ger Hylas an die mir geheiligte Eiche hieng, du<lb/>
+biſt es werth ihm nachzuſpielen. Erſt geſtern hab<lb/>
+ich ihm Sproſſen von meinen neugepfropfeten Bäu-<lb/>
+men gebracht, und einen Krug voll Oel und ei-<lb/>
+nen Krug voll Milch vor ihm ausgegoſſen.</p><lb/>
+<p>Milon. Auch die Liebe begeiſtert zu Geſängen,<lb/>
+mehr als das helle Morgenroth, mehr als der lieb-<lb/>
+liche Schatten, mehr als der Schimmer des Monds.<lb/>
+O wenn ein tugendhaft Mädchen unſre Lieder<lb/>
+lobt! Wenn es unſre Lieder mit ſanftem Lächeln<lb/>
+belohnt, oder mit einem Kranz! Seit Daphne<lb/>
+ihren Freund mich nennt, ſeitdem iſts in meinem<lb/>
+Herzen ſo helle wie in dieſer Gegend voll Son-<lb/>
+nenſchein im Frühling, ſeitdem ſing ich beſſere<lb/>
+Lieder; Daphne, die ſanft lächelt wie die milde<lb/>
+Ceres, und weiſe iſt wie die Muſen.</p><lb/>
+<p>Lycas. Ach! mein Herz iſt lange frey von Lie-<lb/>
+<pb n="35" facs="#f0040"/>
+be geblieben, da ſang ich ruhig nichts als frohe<lb/>
+Lobgeſänge den Göttern, oder von der Pflege der<lb/>
+Herde, oder vom Pfropfen der Bäume, oder vom<lb/>
+Warten des Weinſtokes. Aber ſeit ich Chloen<lb/>
+ſah, die unempfindliche Chloe, ſeitdem ſing ich<lb/>
+nur Trauerlieder, ſeitdem ſtöhrt Wehmuth jede<lb/>
+meiner Freuden. Bald hätt’ ich meine Liebe be-<lb/>
+ſiegt, nur ſelten kam ſie in mein Herze zurük.<lb/>
+Aber ach! ich werde ſie nicht wieder beſiegen,<lb/>
+ſeit ich Chloen beym blühenden Schlehenbuſch<lb/>
+ſah und ihren Geſang hörte; muthwillige Ze-<lb/>
+phirs ſchwermten im Buſch und riſſen die weiſ-<lb/>
+ſen Blüthen weg, und ſtreuten ſie auf Chloen hin,<lb/>
+und ahmeten den beſiegten Winter mit ſeinen<lb/>
+Floken nach.</p><lb/>
+<p>Milon. Dort wo der ſchwarze Tannenwald<lb/>
+ſteht, dort rieſelt ein Bach aus Stauden hervor,<lb/>
+dorthin treibt Daphne oft ihre Herde. Jüngſt hab<lb/>
+ich, als das Morgenroth kam, den ganzen Ort<lb/>
+mit Kränzen geſchmükt, flatternd hiengen ſie von<lb/>
+<fw type="sig" place="bottom">C 2</fw><lb/>
+<pb n="36" facs="#f0041"/>
+einer Staude zur andern, und wanden ſich um<lb/>
+ihre Stämme, da war es wie ein Heiligthum des<lb/>
+Frühlings oder der freundlichen Venus. Ich will<lb/>
+izt noch unſere Namen in dieſe Fichte ſchneiden,<lb/>
+ſprach ich, und dann will ich mich in jenem Buſch<lb/>
+verbergen, und ihr Lächeln ſehn, und ihre Worte<lb/>
+behorchen. So ſprach ich und ſchnitt in die Rin-<lb/>
+de, als plözlich ein Kranz um meine Schläfe ſich<lb/>
+wand, ſchnell ſanft erſchroken ſah ich zurük und<lb/>
+Daphne ſtund lächelnd da, ich habe dich be-<lb/>
+horcht, ſprach ſie, und drükte den zärtlichſten<lb/>
+Kuſs auf meine Lippen.</p><lb/>
+<p>Lycas. Dort an dem Hugel ſteht meine be-<lb/>
+ſchattete Hütte, dort an der blumichten Quelle<lb/>
+ſtehn meine Bienen-Körbe in zween Reihen;<lb/>
+wirthſchaftlich wohnen ſie da im kühlen Schat-<lb/>
+ten der Oelbäume. Noch kein junger Flug hat<lb/>
+ſich zuweit von meinem Anger entfernt, ſie ſum-<lb/>
+ſen frölich umher im blumichten Anger, und ſam-<lb/>
+meln mir Honig und Wachs im Ueberfluſs; Sieh<lb/>
+<pb n="37" facs="#f0042"/>
+wie meine Kühe mit vollem Euter gehn, und wie<lb/>
+die jungen Kälber muthwillig ſie umhüpfen, und<lb/>
+wie meine Ziegen und meine Schafe ſo zahlreich<lb/>
+die Stauden entblättern und das Gras mähen.<lb/>
+Diſs, Chloe! diſs gaben mir die Götter, und ſie<lb/>
+lieben mich weil ich tugendhaft bin; wilt du,<lb/>
+o Chloe! wilt du mich nicht auch lieben wie die<lb/>
+Götter, weil ich tugendhaft bin?</p><lb/>
+<p>So ſangen die Hirten, und Menalkas ſprach:<lb/>
+Wem ſoll ich den Preis zutheilen, ihr ſchönen<lb/>
+Sänger? Eure Lieder ſind ſüſs wie Honig, lieblich<lb/>
+flieſſen ſie wie dieſer Bach, ſo ermuntert der Kuſs<lb/>
+von roſenfarbigten Lippen. Nimm du Lycas das<lb/>
+ſchwarzgeflekte Rind, und gieb dem Milon die<lb/>
+Ziege mit ihrem Jungen.</p><lb/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">C 3</fw><lb/>
+<pb n="38" facs="#f0043"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">AMYNTAS.</hi></hi></head><lb/>
+<p><hi rendition="#in">B</hi>Ey frühem Morgen kam der arme Amyntas<lb/>
+aus dem dichten Hain, das Beil in ſeiner Rech-<lb/>
+ten. Er hatte ſich Stäbe geſchnitten zu einem<lb/>
+Zaun, und trug ihre Laſt gekrümmt auf der Schul-<lb/>
+ter. Da ſah er einen jungen Eichbaum neben<lb/>
+einem hinrauſchenden Bach, und der Bach hatte<lb/>
+wild ſeine Wurzeln von der Erd’ entblöſſet, und<lb/>
+der Baum ſtund da traurig, und drohte zu ſinken.<lb/>
+Schade, ſprach er, ſolteſt du Baum in diſs wilde<lb/>
+Waſſer ſturzen; nein, dein Wipfel ſoll nicht zum<lb/>
+Spiel ſeiner Wellen hingeworfen ſeyn. Izt nahm<lb/>
+er die ſchweren Stäbe von der Schulter; ich kan<lb/>
+mir andre Stäbe holen, ſprach er, und hub an,<lb/>
+einen ſtarken Damm vor den Baum hinzubauen<lb/>
+und grub friſche Erde; Izt war der Damm ge-<lb/>
+baut, und die entblöſsten Wurzeln mit friſcher<lb/>
+Erde bedekt, und izt nahm er ſein Beil auf die<lb/>
+<pb n="39" facs="#f0044"/>
+Schulter, und lächelte noch einmal zu frieden mit<lb/>
+ſeiner Arbeit in den Schatten des geretteten Bau-<lb/>
+mes hin, und wollte in den Hain zurük um andre<lb/>
+Stäbe zu holen; aber die Dryas rief ihm mit lieb-<lb/>
+licher Stimme aus der Fiche zu: ſolt ich unbe-<lb/>
+lohnet dich weglaſſen? gütiger Hirt! ſage mirs,<lb/>
+was wünſcheſt du zur Belohnung, ich weiſs daſs<lb/>
+du arm biſt, und nur fünf Schafe zur Weide füh-<lb/>
+reſt. O wenn du mir zu bitten vergönnſt, Nymphe,<lb/>
+ſo ſprach der arme Hirt; mein Nachbar Palemon<lb/>
+iſt ſeit der Ernde ſchon krank, laſs ihn geſund<lb/>
+werden!</p><lb/>
+<p>So bat der Redliche, und Palemon ward geſund;<lb/>
+aber Amyntas ſah den mächtigen Segen in ſeiner<lb/>
+Herde und bey ſeinen Bäumen und Früchten, und<lb/>
+ward ein reicher Hirt, denn die Götter laſſen die<lb/>
+Redlichen nicht ungeſegnet.</p><lb/>
+<note place="foot">Die Dryaden waren Schuz-Göttinen der Eichen, ſie ent-<lb/>
+ſtunden und ſtarben auch wieder mit dem Baum.</note></div><lb/>
+<fw type="sig" place="bottom">C 4</fw><lb/>
+<pb n="40" facs="#f0045"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">DAMON. DAPHNE.</hi></hi></head><lb/>
+<p><hi rendition="#c">Damon.</hi></p><lb/>
+<p><hi rendition="#in">E</hi>S iſt vorübergegangen, Daphne! das ſchwarze<lb/>
+Gewitter, die ſchrökende Stimme des Donners<lb/>
+ſchweigt; Zittre nicht, Daphne! die Blize ſchlän-<lb/>
+geln ſich nicht mehr durchs ſchwarze Gewölk;<lb/>
+laſs uns die Höle verlaſſen; die Schafe, die ſich<lb/>
+ängſtlich unter dieſem Laubdach geſammelt, ſchüt-<lb/>
+teln den Regen von der triefenden Wolle, und<lb/>
+zerſtreuen ſich wieder auf der erfriſcheten Wei-<lb/>
+de; Laſs uns hervorgehn, und ſehn, wie ſchön<lb/>
+die Gegend im Sonnenſchein glänzt.</p><lb/>
+<p>Izt traten ſie Hand in Hand aus der ſchüzen-<lb/>
+den Grotte hervor; Wie herrlich! rief Daphne,<lb/>
+dem Hirt die Hand drükend, wie herrlich glänzt<lb/>
+die Gegend! Wie hell ſchimmert das Blau des<lb/>
+Himmels durch das zerriſsne Gewölk! Sie fliehen,<lb/>
+die Wolken; wie ſie ihren Schatten in der Sonne-<lb/>
+<pb n="41" facs="#f0046"/>
+beglänzten Gegend zerſtreun! ſieh Damon,<lb/>
+dort liegt der Hügel mit ſeinen Hütten und Her-<lb/>
+den im Schatten, izt flieht der Schatten und läſst<lb/>
+ihn im Sonnen-Glanz; ſieh wie er durchs Thal<lb/>
+hin über die blumichten Wieſen lauft.</p><lb/>
+<p>Wie ſchimmert dort, Daphne! rief Damon,<lb/>
+wie ſchimmert dort der Bogen der Iris von ei-<lb/>
+nem glänzenden Hügel zum andern ausgeſpannt;<lb/>
+am Rüken das graue Gewölk verkündigt die<lb/>
+freundliche Göttin von ihrem Bogen der Gegend<lb/>
+die Ruhe, und lächelt durchs unbeſchädigte<lb/>
+Thal hin.</p><lb/>
+<p>Daphne antwortete, mit zartem Arm ihn um-<lb/>
+ſchlingend, ſieh die Zephir kommen zurük, und<lb/>
+ſpielen froher mit den Blumen, die verjüngt mit<lb/>
+den hellblizenden Regen-Tropfen prangen, und<lb/>
+die bunten Schmetterlinge und die beflügelten<lb/>
+Würmchens fliegen wieder froher im Sonnen-<lb/>
+ſchein, und der nahe Teich ‒ ‒ wie die genezten<lb/>
+Büſche und die Weiden zitternd um ihn her glän-<lb/>
+<fw type="sig" place="bottom">C 5</fw><lb/>
+<pb n="42" facs="#f0047"/>
+zen! ſieh er empfängt wieder ruhig das Bild des<lb/>
+hellen Himmels und der Bäume umher.</p><lb/>
+<p>Damon. Umarme mich Daphne, umarme<lb/>
+mich! O was für Freude durchſtrömt mich!<lb/>
+wie herrlich iſt alles um uns her! Welche uner-<lb/>
+ſchöpfliche Quelle von Entzüken! Von der bele-<lb/>
+benden Sonne bis zur kleineſten Pflanze ſind alles<lb/>
+Wunder! O wie reiſst das Entzüken mich hin!<lb/>
+wenn ich vom hohen Hügel die weitausgebrei-<lb/>
+tete Gegend überſehe, oder, wenn ich ins Gras<lb/>
+hingeſtrekt, die manigfaltigen Blumen und Kräu-<lb/>
+ter betrachte und ihre kleine Bewohner; oder<lb/>
+wenn ich in nächtlichen Stunden, bey geſtirntem<lb/>
+Himmel, den Wechſel der Jahrszeiten, oder den<lb/>
+Wachsthum der unzählbaren Gewächſe ‒ ‒ wenn<lb/>
+ich die Wunder betrachte, dann ſchwellt mir<lb/>
+die Bruſt, Gedanken drengen ſich dann auf;<lb/>
+ich kan ſie nicht entwikeln, dann wein’ ich<lb/>
+und ſinke hin und ſtammle mein Erſtaunen dem<lb/>
+der die Erde ſchuf! O Daphne, nichts gleicht<lb/>
+<pb n="43" facs="#f0048"/>
+dem Entzüken, es ſey denn das Entzüken von dir<lb/>
+geliebt zu ſeyn.</p><lb/>
+<p>Daphne. Ach Damon! auch mich, auch mich<lb/>
+entzüken die Wunder! O laſs uns in zärtlicher<lb/>
+Umarmung den kommenden Morgen, den Glanz<lb/>
+des Abendrohts und den ſanften Schimmer des<lb/>
+Mondes, laſs uns die Wunder betrachten, und<lb/>
+an die bebende Bruſt uns drüken, und unſer Erſtau-<lb/>
+nen ſtammeln; O welch unausſprechliche Freude!<lb/>
+wenn diſs Entzüken zu dem Entzüken der zärt-<lb/>
+lichſten Liebe ſich miſcht.</p><lb/>
+<figure/><lb/>
+</div>
+<pb n="44" facs="#f0049"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">DAMON. PHILLIS.</hi></hi></head><lb/>
+<p><hi rendition="#c">Damon.</hi></p><lb/>
+<p><hi rendition="#in">I</hi>Zt hab ich ſechszehn Frühlinge geſehn, doch<lb/>
+liebſte Phillis! keiner, noch keiner war ſo ſchön<lb/>
+wie der; weiſsſt du warum? ‒ ‒ Ich hüt’ izt<lb/>
+neben dir die Herde.</p><lb/>
+<p>Phillis. Und ich, ich hab izt dreizehn Früh-<lb/>
+linge geſehn. Ach liebſter Damon! keiner, nein<lb/>
+keiner war für mich ſo ſchön wie der; weiſsſt<lb/>
+du warum? ‒ ‒ Izt drükte ſie ihn ſeufzend an<lb/>
+die Bruſt.</p><lb/>
+<p>Damon. Sieh Phillis, wie der dichte Buſch,<lb/>
+bey dieſer Schleuſſe ſchattigt ſich wölbt, hör wie<lb/>
+die Quelle rauſcht; dort wollen wir ins hohe<lb/>
+Gras uns legen, und ‒ ‒ ‒</p><lb/>
+<p>Phillis. Ja, lieber Damon! denn bey dir nur<lb/>
+bin ich froh. Sieh her, mein Buſen bebt voll<lb/>
+Freude, denn ‒ ‒ denk einmal, fünf lange Stun-<lb/>
+den, hab ich dich nicht geſehn.</p><lb/>
+<pb n="45" facs="#f0050"/>
+<p>Damon. Hier, liebe Phillis! hier ſeze dich im<lb/>
+Klee. O könnt ich immer dich lächeln ſehn,<lb/>
+und deine Augen! ‒ ‒ Nein, ſieh mich nicht ſo an,<lb/>
+ſprach er, und drükte ſanft des Mädchens Augen<lb/>
+zu; Glaube, wenn dein Blik ſo lächelnd mir ins<lb/>
+Auge ſieht, ich weiſs nicht wie mir dann ge-<lb/>
+ſchieht, ich zittre, ich ſeufze dann und meine<lb/>
+Worte ſtoken.</p><lb/>
+<p>Phillis. Nimm Damon, nimm die Hand von<lb/>
+meinen Augen, denn, wenn du meine Hand in<lb/>
+deine drükeſt, dann gehts mir eben ſo, mich<lb/>
+durchzittert dann etwas, ich weiſs nicht was es<lb/>
+iſt, dann pochet mir das Herz.</p><lb/>
+<p>Damon. Sieh Phillis, ſieh, was iſt dort auf<lb/>
+dem Baum? zwo Dauben, ‒ ‒ ſieh ‒ ‒ ſieh wie<lb/>
+ſie freundlich ſich mit den Flügeln ſchlagen; höre<lb/>
+wie ſie girren; Izt, izt ‒ ‒ ſie piken ſich den<lb/>
+bunten Hals, und izt den kleinen Kopf, und um<lb/>
+die kleinen Augen. Komm, Phillis! komm, wir<lb/>
+wollen mit den Armen uns auch umſchlagen, wie<lb/>
+<pb n="46" facs="#f0051"/>
+ſie mit den Flügeln; Reiche deinen Hals mir her<lb/>
+und deine Augen, daſs ich dich ſchnäbeln kan ‒ ‒</p><lb/>
+<p>Phillis. Halt deine Lippen doch auf meine<lb/>
+Lippen, dann Damon, ſchnäbeln beyde.</p><lb/>
+<p>Damon. Ach Phillis! ach! wie ſüſs iſt dieſes<lb/>
+Spiel! Habt Dank, habt Dank, ihr kleinen Dau-<lb/>
+ben! der Sperber töd’ euch nie ‒ ‒</p><lb/>
+<p>Phillis. Habet Dank, ihr kleinen Dauben, ha-<lb/>
+bet Dank; flieget her in meinen Schoos, kommt<lb/>
+wohnet bey mir. Im Feld und im Hain will ich<lb/>
+die beſten Speiſen euch ſammeln; indeſs daſs Da<lb/>
+mon mich ſchnäbelt, könnt ihr dann auf meinem<lb/>
+Schoos euch ſchnäbeln; ‒ ‒ Sie kommen nicht ‒ ‒<lb/>
+ſie fliegen weg!</p><lb/>
+<p>Damon. Höre Phillis! mir fällt was ein;<lb/>
+Wenn dieſes Küſſe wären, von denen jüngſt Amyn-<lb/>
+tas ſang.</p><lb/>
+<p>„Dem müden Schnitter iſt ein friſcher Trunk<lb/>
+„nicht halb ſo ſüſs, als Liebenden ein Kuſs;<lb/>
+„viel lieblicher iſt ſein Geräuſch, als wann ein<lb/>
+<pb n="47" facs="#f0052"/>
+„kühler Bach, wenn uns der ſchwühle Mittag<lb/>
+„brennt, durch dunkle Schatten flieſst.</p><lb/>
+<p>Phillis. Ja gewiſs! Bald wollt’ ich wetten,<lb/>
+daſs es Küſſe ſind, komm, wir wollen gehn und<lb/>
+Chloen fragen. ‒ ‒ Doch ſeze mir zuerſt den Kranz<lb/>
+zurecht. ‒ ‒ Du haſt mein Haar zerzauſst!</p><lb/>
+<figure/><lb/>
+</div>
+<pb n="48" facs="#f0053"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">DER ZERBROCHENE<lb/>
+KRUG.</hi></hi></head><lb/>
+<p><hi rendition="#in">E</hi>In ziegenfüſſigter Faun lag unter einer Eiche in<lb/>
+tiefem Schlaf ausgeſtrekt, und die jungen Hirten,<lb/>
+ſahen ihn, wir wollen, ſprachen ſie, ihn feſt an<lb/>
+den Baum binden, und dann ſoll er uns für die<lb/>
+Loslaſſung ein Lied ſingen. Und ſie banden ihn<lb/>
+an dem Stamm der Eiche feſt, und warfen mit<lb/>
+der gefallenen Frucht des Baumes ihn wach. Wo<lb/>
+bin ich? ſo ſprach der Faun, und gähnte, und<lb/>
+dähnte die Arme und die Ziegenfüſſe weit aus,<lb/>
+wo bin ich? Wo iſt meine Flöte? Wo iſt mein<lb/>
+Krug? Ach! da liegen die Scherben vom ſchön-<lb/>
+ſten Krug! Da ich geſtern im Rauſch hier ſank,<lb/>
+da hab ich ihn zerbrochen ‒ ‒ Aber wer hat<lb/>
+mich feſtgebunden? ſo ſprach er und ſah rings<lb/>
+umher, und hörte das zwitſchernde Lachen der<lb/>
+Hirten. Bindet mich los, ihr Knaben, rief er;<lb/>
+<fw type="catch" place="bottom">Wir</fw><lb/>
+<pb n="49" facs="#f0054"/>
+Wir binden dich nicht los, ſprachen ſie, du ſin-<lb/>
+geſt uns denn ein Lied. Was ſoll ich euch ſin-<lb/>
+gen, ihr Hirten? ſprach der Faun, von dem zer-<lb/>
+brochenen Krug will ich ſingen, da ſezet euch<lb/>
+im Gras um mich her.</p><lb/>
+<p>Und die Hirten ſezten ſich ins Gras um ihn her,<lb/>
+und er hub an.</p><lb/>
+<p>Er iſt zerbrochen, er iſt zerbrochen, der ſchön-<lb/>
+ſte Krug, da liegen die Scherben umher!</p><lb/>
+<p>Schön war mein Krug, meiner Höle ſchönſte<lb/>
+Zierde, und gieng ein Wald-Gott vorüber, denn<lb/>
+rief ich: Komm, trink’ und ſiehe den ſchönſten<lb/>
+Krug. Zeus ſelbſt hat bey dem froheſten Feſt<lb/>
+nicht einen ſchönern Krug.</p><lb/>
+<p>Er iſt zerbrochen, ach! er iſt zerbrochen! der<lb/>
+ſchönſte Krug! Da liegen die Scherben umher.</p><lb/>
+<p>Wenn bey mir die Brüder ſich ſammelten, dann<lb/>
+ſaſſen wir rings um den Krug! Wir tranken, und<lb/>
+jeder der trank, ſang die darauf gegrabene Ge-<lb/>
+ſchichte, die ſeinen Lippen die nächſte war. Izt<lb/>
+<fw type="sig" place="bottom">D</fw><lb/>
+<pb n="50" facs="#f0055"/>
+trinken wir nicht mehr, ihr Brüder! aus dem<lb/>
+Krug, izt ſingen wir nicht mehr die Geſchichte,<lb/>
+die jedes Lippen die nächſte iſt;</p><lb/>
+<p>Er iſt zerbrochen, ach er iſt zerbrochen, der<lb/>
+ſchönſte Krug! Da liegen die Scherben umher.</p><lb/>
+<p>Denn auf dem Krug war gegraben, wie Pan<lb/>
+voll Entſezen am Ufer ſah, wie die ſchönſte<lb/>
+Nymphe, in den umſchlingenden Armen, in<lb/>
+liſpelnden Schilf ſich verwandelte; Er ſchnitt da<lb/>
+Flöten von Schilfrohr, von ungleicher Länge, und<lb/>
+kleibte mit Wachs ſie zuſammen, und blies dem<lb/>
+Ufer ein trauriges Lied. Die Echo horchte die<lb/>
+neue Muſik und ſang ſie dem erſtaunten Hain und<lb/>
+den Hügeln.</p><lb/>
+<p>Aber er iſt zerbrochen, er iſt zerbrochen, der<lb/>
+ſchönſte Krug! Da liegen die Scherben umher.</p><lb/>
+<p>Dann ſtund auf dem Kruge, wie Zeus, als weiſ-<lb/>
+ſer Stier, auf dem Rüken die Nymph’ Europa auf<lb/>
+Wellen entführte; Er lekte mit ſchmeichelnder<lb/>
+Zunge der Schönen entblöſſetes Knie. Indeſs<lb/>
+<pb n="51" facs="#f0056"/>
+rang ſie jammernd die Hände über dem Haupt,<lb/>
+mit deſſen lokichtem Haare die gaukelnden Ze-<lb/>
+phire ſpielten, und vor ihm her ritten die Amors,<lb/>
+lächelnd auf dem willigen Delphin.</p><lb/>
+<p>Aber er iſt zerbrochen, er iſt zerbrochen, der<lb/>
+ſchönſte Krug! Da liegen die Scherben umher.</p><lb/>
+<p>Auch war der ſchöne Bachus gegraben; Er<lb/>
+ſaſs in einer Laube von Reben, und eine Nymphe<lb/>
+lag ihm zur Seite. Ihr linker Arm umſchlang<lb/>
+ſeine Hüften, den rechten hielt ſie empor und<lb/>
+zog den Becher zurük, nach dem ſeine lächelnden<lb/>
+Lippen ſich ſehnten. Schmachtend ſah ſie ihn an<lb/>
+und ſchien ihn um Küſſe zu flehen, und vor ihm<lb/>
+ſpielten ſeine geflekten Tieger; ſchmeichelnd aſſen<lb/>
+ſie Trauben, aus den kleinen Händen der Amors;</p><lb/>
+<p>Aber er iſt zerbrochen, er iſt zerbrochen, der<lb/>
+ſchönſte Krug! Da liegen die Scherben umher.<lb/>
+O klag es Echo dem Hain, klag es dem Faun in<lb/>
+den Hölen! er iſt zerbrochen, da liegen die Scher-<lb/>
+ben umher.</p><lb/>
+<fw type="sig" place="bottom">D 2</fw><lb/>
+<pb n="52" facs="#f0057"/>
+<p>So ſang der Faun, und die jungen Hirten ban-<lb/>
+den ihn los und beſahen bewundernd die Scher-<lb/>
+ben im Gras.</p><lb/>
+<figure/><lb/>
+</div>
+<pb n="53" facs="#f0058"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">DAPHNIS. CHLOE.</hi></hi></head><lb/>
+<p><hi rendition="#in">D</hi>As Abendroth kam, als Chloe mit ihrem<lb/>
+Daphnis zu dem rieſelnden Bach in das einſame<lb/>
+Weiden-Gebüſche kamen; Hand in Hand ge-<lb/>
+drükt kamen ſie ins Gebüſche; aber ſchon ſaſs<lb/>
+Alexis am rieſelnden Bach, ein ſchöner Jüng-<lb/>
+ling, aber noch nie war die Liebe in ſeinem<lb/>
+Buſen erwachet; Sey mir gegrüſst, du Liebe-<lb/>
+leerer Jüngling, ſprach Daphnis, vielleicht zwar<lb/>
+hat izt ein Mädchen dein Herz enthärtet, da du<lb/>
+ſo einſame Schatten ſucheſt, denn die Liebenden<lb/>
+ſuchen gerne einſame Schatten. Ich komme mit<lb/>
+meiner Chloe her, wir wollen im ſtillen Buſch<lb/>
+das Glük unſrer Liebe ſingen. So ſprach er, und<lb/>
+drükte des Mädchens Hand an ſeine Bruſt. Wilt<lb/>
+du zuhören, Alexis?</p><lb/>
+<p>Alexis. Nein kein Mädchen hat mein Herz ent-<lb/>
+härtet. Ich kam hieher zu ſehn, wie ſchön der<lb/>
+<fw type="sig" place="bottom">D 3</fw><lb/>
+<pb n="54" facs="#f0059"/>
+Abend die Berge röthet, aber gerne will ich<lb/>
+euern Geſang hören, es iſt lieblich beym Abend-<lb/>
+roth einen ſchönen Geſang zu hören.</p><lb/>
+<p>Daphnis. Komm Chloe, hier laſs uns neben<lb/>
+ihm ins Gras uns ſezen, wir wollen ein Lied ſin-<lb/>
+gen, meine Flöte ſoll deinen Geſang begleiten,<lb/>
+Chloe, und du Alexis, du biſt ein guter Flöten-<lb/>
+Spieler, begleite du den meinen.</p><lb/>
+<p>Ich will ihn begleiten, ſprach Alexis, und izt<lb/>
+ſezten ſie ſich ins Gras am Bach, und Daphnis<lb/>
+hub an.</p><lb/>
+<p>Daphnis. Du ſtilles Thal und ihr belaubte Hü-<lb/>
+gel, kein Hirt iſt ſo glüklich wie ich, denn Chloe<lb/>
+liebet mich! lieblich iſt ſie wie der frühe Mor-<lb/>
+gen, wenn die Sonne ſanft vom Berg heraufſteigt;<lb/>
+dann, dann freut ſich jede Blume, und die Vögel<lb/>
+ſingen ihr entgegen, und hüpfen froh auf ſchlan-<lb/>
+ken Aeſten, daſs der Thau vom Laube fällt.</p><lb/>
+<p>Chloe. Froh iſt die kleine Schwalbe, wenn<lb/>
+ſie vom Winter-Schlaf im Sumpf erwachet, und<lb/>
+<pb n="55" facs="#f0060"/>
+den ſchönen Frühling ſieht; ſie hüpft dann auf den<lb/>
+Weidenbaum und ſinget ihr Entzüken, den Hü-<lb/>
+geln und dem Thal, und ruft, Geſpielen, wachet<lb/>
+auf! der Frühling iſt izt da. Doch viel entzükter<lb/>
+bin ich noch, denn Daphnis liebet mich, und ich<lb/>
+ruf euch Geſpielen zu, viel ſüſſer iſts als der kom-<lb/>
+mende Frühling, wenn uns ein tugendhafter Jüng-<lb/>
+ling liebt.</p><lb/>
+<p>Daphnis. Schön iſt es, wenn auf fernen Hü-<lb/>
+geln, die Herden in dunkeln Büſchen irren; doch<lb/>
+ſchöner iſts, o Chloe! wenn ein friſcher Blu-<lb/>
+men-Kranz dein dunkles Haar durchirrt; ſchön<lb/>
+iſt des heitern Himmels Blau, doch ſchöner iſt dein<lb/>
+blaues Auge, wenn es lächelnd mir winket. Ja<lb/>
+liebe Chloe, mehr lieb ich dich als ſchnelle Fiſche<lb/>
+den klaren Teich, mehr als die Lerche die Mor-<lb/>
+gen-Luft.</p><lb/>
+<p>Chloe. Da als ich im ſtillen Teich mich beſah,<lb/>
+ach! ſeufzt’ ich, könnt ich dem Daphnis gefal-<lb/>
+len! dem beſten Hirten. Indeſs ſtandſt du ungeſehn<lb/>
+<fw type="sig" place="bottom">D 4</fw><lb/>
+<pb n="56" facs="#f0061"/>
+mir am Rüken und warfeſt Blumen über mein<lb/>
+Haupt hin, daſs mein Bild in hüpfenden Kreiſen<lb/>
+verſchwand; Erſchroken ſah ich zurük, und ſah<lb/>
+dich, und ſeufzte, und da drükteſt du mich an<lb/>
+deine Bruſt. Ach! riefſt du, die Götter ſind Zeu-<lb/>
+gen, ich liebe dich! ach! ſprach ich, ich liebe<lb/>
+dich, mehr als die Bienen die Blüthen, mehr als<lb/>
+die Blumen den Morgenthau.</p><lb/>
+<p>Daphnis. O Chloe, wenn du mit thränendem<lb/>
+Auge, wenn du mit umſchlingendem Arme mir<lb/>
+ſagſt, Daphnis! ich liebe dich! Ach dann ſeh<lb/>
+ich durch den Schatten der Baume hinauf, in den<lb/>
+glänzenden Himmel; ihr Götter! ſeufz ich dann,<lb/>
+ach wie kann ich mein Glük euch danken, daſs ihr<lb/>
+Chloen mir ſchenkt? und dann ſink ich an ihre<lb/>
+Bruſt hin und weine, und dann küſst ſie die Thrä-<lb/>
+nen mir vom Aug.</p><lb/>
+<p>Chloe. Und dann küſs ich die Thränen dir<lb/>
+vom Aug, aber häufigere Thränen flieſſen dann<lb/>
+mir vom Aug und miſchen ſich zu deinen Thränen.<lb/>
+<pb n="57" facs="#f0062"/>
+Daphnis, ſeufz ich dann, ach Chloe! ſeufzeſt du,<lb/>
+und die Echo ſeufzet uns nach. Die Herd erquikt<lb/>
+das junge Frühlings-Gras; Der kühle Schatten<lb/>
+erquikt, bey ſchwühler Mittags-Hiz; mich, Daph-<lb/>
+nis! mich erquiket nichts ſo ſehr, als wenn dein<lb/>
+holder Mund mir ſagt, daſs du mich liebſt.</p><lb/>
+<p>So ſangen Daphnis und Chloe. Glükliche Kin-<lb/>
+der, ſo ſprach Alexis und ſeufzt’; ach! izt fühl<lb/>
+ichs, daſs die Lieb’ ein Glük iſt, euer Geſang und<lb/>
+eure Blike und euer Entzüken habens mir geſagt.</p><lb/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">D 5</fw><lb/>
+<pb n="58" facs="#f0063"/>
+<div n="1"><head><hi rendition="#g"><hi rendition="#b">LYCAS,</hi><lb/>
+ODER DIE ERFINDUNG DER<lb/>
+GÄRTEN.</hi></head><lb/>
+<p><hi rendition="#in">I</hi>Zt ſchlieſst uns der ſtürmende Winter ins Zim-<lb/>
+mer, und Wirbelwinde durchwühlen den ſilber-<lb/>
+nen Regen der Floken; Izt ſoll mir die Einbil-<lb/>
+dungskraft den Schaz von Bildern öfnen, die ſie<lb/>
+in dem blumichten Lenz und in dem ſchwülen<lb/>
+Sommer und in dem bunten Herbſt ſich geſam-<lb/>
+melt; aus ihnen will ich izt die ſchönſten wäh-<lb/>
+len, und für dich, ſchöne Daphne! in Gedichte<lb/>
+ſie ordnen. So wählt ein Hirt ſeinem Mädchen<lb/>
+zum Kranz nur die ſchönſten Blumen. O daſs es<lb/>
+dir gefalle! wenn meine Muſe dir ſingt, wie in<lb/>
+der Jugend der Tage, ein Hirt der Gärten Kunſt<lb/>
+erfand.</p><lb/>
+<p>Das iſt der Ort, ſprach Lycas, der ſchöne Hirt;<lb/>
+hier unter dieſem Ulmbaum iſts, wo geſtern, als<lb/>
+<pb n="59" facs="#f0064"/>
+die Sonne wich, die ſchöne Chloe mir die erſten<lb/>
+Küſſe gab; hier ſtandſt du und ſeufzteſt, als mei-<lb/>
+ne zitternden Arme dich umſchlangen, als meine<lb/>
+ſtokende Stimme meine Liebe dir ſagte, und mein<lb/>
+pochendes Herz und meine Thränen im Aug.<lb/>
+O da Chloe! da entſank dein Hirten-Stab der<lb/>
+zitternden Hand, da ſankſt du an meine bebende<lb/>
+Bruſt; Lycas! ſo ſtammelteſt du, o Lycas! ich<lb/>
+liebe dich! Ihr ſtillen Büſche, ihr einſamen Quel-<lb/>
+len ſeyd Zeugen, euch hab ich meine Liebe ge-<lb/>
+klagt, und ihr, ihr Blumen, ihr tranket meine<lb/>
+Thränen wie Thau!</p><lb/>
+<p>O Chloe wie bin ich entzükt! welch unaus-<lb/>
+ſprechliches Glük iſt die Liebe! hier dieſer Ort<lb/>
+ſey der Liebe geheiligt! Ich will um die Ulme<lb/>
+her Roſen-Stauden pflanzen, und die ſchlanke<lb/>
+Waldwinde ſoll ſich an ihrem Stamm hoch hin-<lb/>
+auf ſchlingen, mit den weiſſen Purpur-geſtreiften<lb/>
+Blumen geſchmükt; ich will hieher den ganzen<lb/>
+Frühling ſammeln; die ſchöne Saat-Roſe will<lb/>
+<pb n="60" facs="#f0065"/>
+ich hier bey der Lilie pflanzen. Ich will auf die<lb/>
+Wieſen und auf die Hügel gehen, und will ihnen<lb/>
+die blumichten Pflanzen rauben; die Viole und<lb/>
+die Nelke, und die blaue Gloken-Blume, und die<lb/>
+braune Scabioſe, alles, alles will ich ſammeln;<lb/>
+dann ſoll es ſeyn wie ein Hain voll ſüſſer Ge-<lb/>
+rüche, und dann will ich um den Blumen-Hain<lb/>
+her die nahe Quelle leiten, daſs er zur kleinen In-<lb/>
+ſul wird, und rings umher will ich einen Zaun<lb/>
+von Dornbüſchen pflanzen, daſs die Ziegen und<lb/>
+die Schafe ihn nicht verwüſten. O dann kom-<lb/>
+met, ihr, die ihr der Liebe lebt, ſeufzende Tur-<lb/>
+teldauben, kommt dann im Wipfel der Ulme zu<lb/>
+klagen, und ihr, ihr Sperlinge, verfolgt euch<lb/>
+durchs Roſen-Gebüſch, und ſingt von wiegen-<lb/>
+den Aeſten, und ihr, ihr bunten Schmetterlinge,<lb/>
+haſchet euch im Blumen-Hain, und paart euch<lb/>
+auf wankenden Lilien.</p><lb/>
+<p>Dann ſagt der Hirt, der vorüber geht, wenn<lb/>
+ihm die Zephire die Gerüche weit her entge-<lb/>
+<pb n="61" facs="#f0066"/>
+gen tragen, welcher Gottheit iſt dieſer Ort hei-<lb/>
+lig? Gehört er der Venus, oder hat ihn Diana ſo<lb/>
+ſchön geſchmükt, um müd von der Jagd hier zu<lb/>
+ſchlummern?</p><lb/>
+<figure/><lb/>
+</div>
+<pb n="62" facs="#f0067"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">PALEMON</hi>.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ie lieblich glänzet das Morgenroth durch die<lb/>
+Haſelſtaude und die wilden Roſen am Fenſter!<lb/>
+Wie froh ſinget die Schwalbe auf dem Balken<lb/>
+unter meinem Dach! und die kleine Lerche in<lb/>
+der hohen Luft! Alles iſt munter, und jede Pflanze<lb/>
+hat ſich im Thau verjüngt; auch ich, auch ich<lb/>
+ſcheine verjüngt; mein Stab ſoll mich Greiſen vor<lb/>
+die Schwelle meiner Hütte führen, da will ich<lb/>
+mich der kommenden Sonne gegenüber ſezen,<lb/>
+und über die grünen Wieſen hinſehn. O wie<lb/>
+ſchön iſt alles um mich her! Alles was ich höre<lb/>
+ſind Stimmen der Freude und des Danks. Die<lb/>
+Vögel in der Luft und der Hirt auf dem Felde ſin-<lb/>
+gen ihr Entzüken, auch die Herden brüllen ihre<lb/>
+Freude von den graſreichen Hügeln und aus dem<lb/>
+durchwäſſerten Thal. O wie lang, wie lang,<lb/>
+ihr Götter! ſoll ich noch eurer Gütigkeit Zeuge<lb/>
+<pb n="63" facs="#f0068"/>
+ſeyn? Neunzig male hab ich izt den Wechſel der<lb/>
+Jahrszeiten geſehn, und wann ich zurük denke,<lb/>
+von izt bis zur Stunde meiner Geburt, eine weite<lb/>
+liebliche Ausſicht, die ſich am Ende, mir unüber-<lb/>
+ſehbar in reiner Luft verliert, o wie wallet dann<lb/>
+mein Herz auf! Iſt das Entzuken, das meine Zunge<lb/>
+nicht ſtammeln kann, ſind meine Freuden-Thrä-<lb/>
+nen, ihr Götter! nicht ein zu ſchwacher Dank?<lb/>
+Ach flieſst ihr Thränen, flieſst die Wangen her-<lb/>
+unter! wenn ich zurük ſehe, dann iſts, als hätt’<lb/>
+ich nur einen langen Frühling gelebt, und meine<lb/>
+trüben Stunden waren kurze Gewitter, ſie erfri-<lb/>
+ſchen die Felder und beleben die Pflanzen. Nie<lb/>
+haben ſchädliche Seuchen unſre Herde gemindert,<lb/>
+nie hat ein Unfall unſre Bäume verderbt, und bey<lb/>
+dieſer Hütte hat nie ein langwierig Unglük ge-<lb/>
+ruht. Entzükt ſah ich in die Zukunft hinaus,<lb/>
+wenn meine Kinder lächelnd auf meinem Arm<lb/>
+ſpielten, oder wenn meine Hand des plappernden<lb/>
+Kindes wankenden Fuſstritt leitete; Mit Freuden-<lb/>
+<pb n="64" facs="#f0069"/>
+Thränen ſah ich in die Zukunft hinaus, wenn ich<lb/>
+die jungen Sproſſen aufkeimen ſah; ich will ſie<lb/>
+vor Unfall ſchüzen, ich will ihres Wachsthums<lb/>
+warten, ſprach ich, die Götter werden die Be-<lb/>
+mühung ſegnen; ſie werden empor wachſen,<lb/>
+und herrliche Früchte tragen, und Bäume werden,<lb/>
+die mein ſchwaches Alter in erquikenden Schat-<lb/>
+ten nehmen. So ſprach ich, und drükte ſie an<lb/>
+meine Bruſt, und izt ſind ſie voll Segen empor<lb/>
+gewachſen, und nehmen mein graues Alter in er-<lb/>
+quikenden Schatten; ſo wuchſen die Apfel Bäu-<lb/>
+me, und die Birnen-Bäume, und die hohen Nuſs-<lb/>
+Bäume, die ich als Jüngling um die Hütte her<lb/>
+gepflanzet habe, hoch empor; ſie tragen die alten<lb/>
+Aeſte weit herum, und nehmen die kleine Woh-<lb/>
+nung in erquikenden Schatten. Diſs, diſs war<lb/>
+mein heftigſter Gram, o Mirta! da du an meiner<lb/>
+bebenden Bruſt, in meinen Armen ſturbeſt. Zwölf<lb/>
+male hat izt ſchon der Frühling dein Grab mit<lb/>
+Blumen geſchmükt; aber der Tag nahet, ein froher<lb/>
+<fw type="catch" place="bottom">Tag!</fw><lb/>
+<pb n="65" facs="#f0070"/>
+Tag! da meine Gebeine zu den deinen werden<lb/>
+hingelegt werden; vielleicht führt ihn die kom-<lb/>
+mende Nacht herbey! O! ich ſeh es mit Luſt, wie<lb/>
+mein grauer Bart ſchneeweiſs über meine Bruſt<lb/>
+herunter wallt; ein herrliches Merkmal der Güte<lb/>
+der Götter! Ja ſpiele mit dem weiſſen Haar auf<lb/>
+meiner Bruſt, du kleiner Zephir, der du mich<lb/>
+umhüpfeſt, er iſt es ſo werth, als das goldne Haar<lb/>
+des frohen Jünglings und die braunen Loken am<lb/>
+Naken des aufblühenden Mädchens. O dieſer<lb/>
+Tag ſoll mir ein Tag der Freude ſeyn! ich will<lb/>
+meine Kinder um mich her ſammeln, bis auf den<lb/>
+kleinen ſtammelnden Enkel, und will den Göttern<lb/>
+opfern; hier vor meiner Hütte ſey der Altar; ich<lb/>
+will mein kahles Haupt umkränzen, und mein<lb/>
+ſchwacher Arm ſoll die Leyer nehmen, und dann<lb/>
+wollen wir, ich und meine Kinder, um den Al-<lb/>
+tar her Loblieder ſingen; dann will ich Blumen<lb/>
+über meine Tafel ſtreuen, und unter frohen Ge-<lb/>
+ſprächen das Opferfleiſch eſſen. So ſprach Pale-<lb/>
+<fw type="sig" place="bottom">E</fw><lb/>
+<pb n="66" facs="#f0071"/>
+mon und hub ſich zitternd an ſeinem Stab auf,<lb/>
+und rief die Kinder zuſammen, und hielt den<lb/>
+Göttern ein frohes Feſt.</p><lb/>
+<p>Der ſtille Abend kam, und Palemon ſprach,<lb/>
+voll heiliger Ahnung: laſst uns hinausgehen, Kin-<lb/>
+der, zu dem Grabe der Mirta, da laſst uns Wein<lb/>
+und Honig hingieſſen, und das Feſt mit Geſängen<lb/>
+enden. Und ſie giengen hinaus auf das Grab;<lb/>
+umarmet mich, Kinder, ſprach der Greis, voll<lb/>
+heiligen Entzükens, und er ward aus ihren um-<lb/>
+ſchlingenden Armen zur Cypreſſe verwandelt, die<lb/>
+izt das Grab beſchattet.</p><lb/>
+<p>Der ſtille Mond war Zeuge der Geſchichte,<lb/>
+und hielt ſtille in ſeinem Lauf, und wer in dem<lb/>
+Schatten des Baumes ruht, dem bebt ein heiliges<lb/>
+Entzüken durch die Bruſt, und eine fromme<lb/>
+Thräne fällt ihm vom Aug.</p><lb/>
+<figure/><lb/>
+</div>
+<pb n="67" facs="#f0072"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">MIRTIL. THYRSIS.</hi></hi></head><lb/>
+<p><hi rendition="#in">M</hi>Irtil hatte ſich in einer kühlen nächtlichen<lb/>
+Stunde auf einen weitumſehenden Hügel bege-<lb/>
+ben; geſammelte dürre Reiſer brannten vor ihm<lb/>
+in hellen Flammen, indeſs daſs er einſam ins Gras<lb/>
+geſtrekt mit irrenden Bliken den Himmel, mit<lb/>
+Sternen beſäet, und die vom Mond beleuchtete<lb/>
+Gegend durchlief. Aber ſchüchtern ſah er ſich<lb/>
+izt um, denn es rauſchte etwas im Dunkeln da-<lb/>
+her. Es war Thyrſis; Sey mir willkommen,<lb/>
+ſprach er; ſeze dich zum wärmenden Feuer, wie<lb/>
+kömmſt du hieher, izt da die ganze Gegend<lb/>
+ſchlummert?</p><lb/>
+<p>Thyrſis. Sey mir gegrüſst, hätt’ ich dich zu<lb/>
+finden geglaubt, ich hätte nicht ſo lange gezaudert<lb/>
+den lodernden Flammen zu folgen, die im Dun-<lb/>
+keln ſo ſchön ins Thal glänzen. Aber höre Mir-<lb/>
+til, izt, da des Mondes düſtrer Schimmer und die<lb/>
+<fw type="sig" place="bottom">E 2</fw><lb/>
+<pb n="68" facs="#f0073"/>
+einſame Nacht zu ernſten Geſängen uns lokt, höre<lb/>
+Mirtil, ich ſchenke dir eine ſchöne Lampe, die<lb/>
+mein künſtlicher Vater aus Erde gebildet hat,<lb/>
+eine Schlange mit Flügeln und Füſſen, die<lb/>
+den Mund weit aufſperrt, aus dem das kleine<lb/>
+Licht brennt, den Schweif ringelt ſie empor be-<lb/>
+quem zur Handhabe; diſs ſchenk ich dir, wenn<lb/>
+du mir die Geſchichte des Daphnis und der Chloe<lb/>
+ſingeſt.</p><lb/>
+<p>Mirtil. Ich will dir die Geſchichte des Daph-<lb/>
+nis und der Chloe ſingen, izt da die Nacht zu<lb/>
+ernſten Geſängen lokt. Hier ſind dürre Reiſer,<lb/>
+ſieh du indeſs, daſs das wärmende Feuer nicht<lb/>
+erlöſcht.</p><lb/>
+<p>Klaget mir nach, ihr Felſenklüfte, traurig töne<lb/>
+mein Lied zurük, durch den Hain und vom Ufer!</p><lb/>
+<p>Sanft glänzte der Mond, als Chloe am einſa-<lb/>
+men Ufer ſtund, ſehnlich wartend, denn ein<lb/>
+Nachen ſollte den Daphnis über den Fluſs bringen.<lb/>
+Lange ſäumt mein Geliebter, ſo ſprach ſie; die<lb/>
+<pb n="69" facs="#f0074"/>
+Nachtigal ſchwieg und horchte die zärtlichen Ac-<lb/>
+cente. Lange ſäumt er; doch ‒ ‒ horche ‒ ‒ ich<lb/>
+höre ein plätſchern, wie wenn Wellen wider<lb/>
+einen Nachen ſchlagen. Kömmſt du? Ja! ‒ doch<lb/>
+nein; wollt ihr mich noch oft betriegen ihr<lb/>
+plätſchernden Wellen? O! ſpottet nicht des un-<lb/>
+gedultigen Wartens des zärtlichſten Mädchens!<lb/>
+Wo biſt du izt Geliebter? beflügelt Ungedult nicht<lb/>
+deine Füſſe? wandelſt du izt im Hain dem Ufer<lb/>
+zu? O daſs kein Dorn die eilenden Füſſe verleze,<lb/>
+und keine ſchleichende Schlange deine Ferſen!<lb/>
+Du keuſche Göttin, Luna, oder Diana, mit dem<lb/>
+nie-fehlenden Bogen, ſtreue von deinem ſanften<lb/>
+Glanz auf ſeinen Weg hin! O wenn du aus dem<lb/>
+Nachen ſteigſt, wie will ich dich umarmen! ‒ ‒<lb/>
+Aber izt, gewiſs izt, izt triegt ihr mich doch<lb/>
+nicht ihr Wellen! o ſchlaget ſanft den Nachen!<lb/>
+traget ihn ſorgfältig auf euerm Rüken! O ihr<lb/>
+Nymphen, wenn ihr je geliebt habet, wenn ihr<lb/>
+je wiſst was zärtliche Erwartung iſt ‒ ‒ ich ſeh<lb/>
+<fw type="sig" place="bottom">E 3</fw><lb/>
+<pb n="70" facs="#f0075"/>
+ihn, ſey mir gegrüſst! ‒ ‒ Du antworteſt nicht?<lb/>
+Götter! ‒ ‒ Izt ſank Chloe ohnmächtig am Ufer<lb/>
+hin.</p><lb/>
+<p>Klaget mir nach, ihr Felſenklüfte, traurig töne<lb/>
+mein Lied zurük, durch den Hain und vom Ufer!</p><lb/>
+<p>Ein umgeſtürzter Nachen ſchwamm daher, der<lb/>
+Mond beſchien die klägliche Geſchichte. Am<lb/>
+Ufer lag Chloe ohnmächtig, und eine ſchauernde<lb/>
+Stille herrſchte umher, aber ſie erwachte wie-<lb/>
+der, ein ſchrökliches Erwachen! Sie ſaſs am Ufer,<lb/>
+bebend und ſprachlos, und der Mond verbarg ſich<lb/>
+hinter den Wolken; ihre Bruſt bebte von ſchluch-<lb/>
+zen und ſeufzen, izt ſchrie ſie laut, und die Echo<lb/>
+wiederholte der trauernden Gegend ihr Geſchrey,<lb/>
+und ein banges Winſeln rauſchte durch den Hain<lb/>
+und durch die Gebüſche, ſie ſchlug die ringenden<lb/>
+Hände auf die Bruſt, und riſs die Loken vom<lb/>
+Haupt; ach Daphnis! Daphnis! o ihr treuloſen<lb/>
+Wellen! ihr Nymphen! ach! ich elende! ich<lb/>
+zaudre, ich ſäume, den Tod in den Wellen zu<lb/>
+<pb n="71" facs="#f0076"/>
+ſuchen, die die Freude meines Lebens geraubt ha-<lb/>
+ben! So rief ſie, und ſprang vom Ufer in den Fluſs.</p><lb/>
+<p>Klaget mir nach, ihr Felſenklüfte, traurig töne<lb/>
+mein Lied zurük, durch den Hain und vom Ufer!</p><lb/>
+<p>Aber die Nymphen hatten den Wellen befoh-<lb/>
+len, ſorgfältig ſie auf dem Rüken zu tragen. Grau-<lb/>
+ſame Nymphen! rief ſie, ach! zögert nicht mei-<lb/>
+nen Tod! ach, verſchlinget mich Wellen! aber<lb/>
+die Wellen verſchlangen ſie nicht, ſie trugen ſie<lb/>
+ſanft auf dem Rüken, zum Ufer eines kleinen Ey-<lb/>
+landes. Daphnis hatte mit ſchwimmen ſich ans<lb/>
+Eyland gerettet; wie zärtlich ſie ihm in die<lb/>
+Arme ſank und ihr Entzüken, o das kann ich nicht<lb/>
+ſingen! zärtlicher als wenn die Nachtigall ihrem<lb/>
+Gefängniſs entfliegt, ihr Gatte hatte Nächte durch<lb/>
+im Wipfel kläglich geſeufzet, ſie fliegt izt ent-<lb/>
+zükt dem ſchauernden Gatten zu, ſie ſeufzen und<lb/>
+ſchnäbeln und umſchlagen ſich mit ihren Flügeln,<lb/>
+aber izt tönt ihr Entzüken in Freuden-Liedern<lb/>
+die ſtille Nacht durch.</p><lb/>
+<fw type="sig" place="bottom">E 4</fw><lb/>
+<pb n="72" facs="#f0077"/>
+<p>Klaget izt nicht mehr, ihr Felſenklüfte, Freu-<lb/>
+de töne izt vom Hain zurük und vom Ufer. Und<lb/>
+du gieb mir die Lampe, denn ich habe dir die<lb/>
+Geſchichte des Daphnis und der Chloe ge-<lb/>
+ſungen.</p><lb/>
+<figure/><lb/>
+</div>
+<pb n="73" facs="#f0078"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">CHLOE.</hi></hi></head><lb/>
+<p><hi rendition="#in">I</hi>Hr freundlichen Nymphen, die ihr in dieſem<lb/>
+ſtillen Felſen wohnet, ihr habt dichtes Geſträuch<lb/>
+vor die kühle Oefnung hingepflanzt, daſs ſtille<lb/>
+Ruhe und ſanfter Schatten euch erquike; die ihr<lb/>
+dieſe klare Quelle aus euern Urnen gieſst, wenn<lb/>
+ihr nicht izt im dichten Hain mit den Waldgöt-<lb/>
+tern euch freut, oder auf dem nahen Hügel, oder<lb/>
+wenn ihr auf euern Urnen ſchlummert, o dann<lb/>
+ſtöhre meine Stimme nicht eure Ruhe! Aber hö-<lb/>
+ret meine Klagen, freundliche Nymphen, wenn<lb/>
+ihr wachet! Ich liebe ‒ ‒ ach! ‒ ‒ ich liebe<lb/>
+den Lycas mit dem gelben Haar! habt ihr den<lb/>
+jungen Hirten nicht geſehn, wenn er ſeine gefle-<lb/>
+keten Kühe und die hüpfenden Kälber hier vor-<lb/>
+über treibt, und hinter ihnen hergehend auf ſeiner<lb/>
+Flöte dem Wiederhall ruft? habt ihr ſeine blauen<lb/>
+Augen, ſein ſanftes Lächeln nicht geſehn? oder<lb/>
+<fw type="sig" place="bottom">E 5</fw><lb/>
+<pb n="74" facs="#f0079"/>
+habt ihr ſeinen Geſang gehört, wenn er vom<lb/>
+frohen Frühling ſingt, oder von der frohen Ernde,<lb/>
+oder vom bunten Herbſt, oder von der Pflege der<lb/>
+Herde? Ach! ich liebe den ſchönſten Hirten,<lb/>
+und er weiſs es nicht, daſs ich ihn liebe. O wie<lb/>
+lang wareſt du, herber unfreundlicher Winter!<lb/>
+der du von den Fluren uns ſcheucheſt, wie lang<lb/>
+iſts, ſeit ich im Herbſt ihn das lezte mal ſah!<lb/>
+Ach! da lag er ſchlummernd im Buſch, wie ſchön<lb/>
+lag er da! wie ſpielten die Winde mit ſeinen Lo-<lb/>
+ken! und der Sonnenſchein ſtreute ſchwebende<lb/>
+Schatten der Blätter auf ihn hin: O ich ſeh ihn<lb/>
+noch, ſie hüpften auf ſeinem ſchönen Geſicht<lb/>
+umher, die Schatten der Blätter, und er lächelte<lb/>
+wie im froheſten Traum. Schnell ſammelt’ ich<lb/>
+da Blumen, und wand ſanft einen Kranz um des<lb/>
+ſchlafenden Haar und um ſeine Flöte, und da<lb/>
+trat ich zurük; ich will izt warten, ſprach ich,<lb/>
+bis er aufwachet; wie wird er lächeln, wie<lb/>
+wird er ſich wundern, wenn er ſein Haupt um-<lb/>
+<pb n="75" facs="#f0080"/>
+kränzt ſieht, und ſeine Flöte; hier will ichs er-<lb/>
+warten, er muſs mich wol ſehen, wenn ich hier<lb/>
+ſtehe, und wenn er mich nicht ſieht ‒ ‒ dann<lb/>
+will ich laut lachen. So ſprach ich, und ſtund<lb/>
+im nahen Buſch, als meine Geſpielen mich riefen;<lb/>
+O wie war ich böſe, ich muſst’ izt gehen, und<lb/>
+konnte ſein Lächeln nicht und ſeine Freude nicht<lb/>
+ſehen, als er ſein Haar und ſeine Flöte bekränzet<lb/>
+ſah. Wie froh bin ich! izt kömmt der Frühling<lb/>
+zurük, izt werd ich ihn wieder auf den Fluren<lb/>
+ſehn! Ihr Nymphen! hier will ich Kränze an die<lb/>
+Aeſte der Gebuſche hängen, die eure Höle be-<lb/>
+ſchatten, es ſind die erſten Blumen, frühe Violen,<lb/>
+und May-Blumen, und gelbe Schlüſſel-Blumen,<lb/>
+und röthlichte Maſslieben, und die erſten Blü-<lb/>
+then; Seyd meiner Liebe gewogen; und wenn<lb/>
+der Hirt an dieſer Quelle ſchlummert, dann ſagt<lb/>
+ihm im Traum, daſs es Chloe iſt, die ſeine Flöte<lb/>
+und ſein Haar bekränzt hat, daſs es Chloe iſt die<lb/>
+ihn liebt.</p><lb/>
+<pb n="76" facs="#f0081"/>
+<p>So ſprach Chloe, und umhieng die noch unbe-<lb/>
+laubten Gebüſche mit den erſten Blumen, und ein<lb/>
+ſanftes Geräuſch drang aus der Höle, wie wenn<lb/>
+die Echo den fernen Geſang einer Flöte nach-<lb/>
+ſingt.</p><lb/>
+<figure/><lb/>
+</div>
+<pb n="77" facs="#f0082"/>
+<div n="1"><head><hi rendition="#b">MENALKAS und ÆSCHINES,</hi><lb/>
+<hi rendition="#g">DER JÄGER.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Er junge Hirt Menalkas weidete auf dem<lb/>
+hohen Gebürge, und er gieng tief ins Gebürg, im<lb/>
+wilden Hain ein Schaf zu ſuchen, und im wilden<lb/>
+Hain fand er einen Mann, der abgemattet im<lb/>
+Buſch lag; Ach junger Hirt, ſo rief der Mann,<lb/>
+ich kam geſtern auf diſs wilde Gebürge die Rehe<lb/>
+und die wilden Schweine zu verfolgen, und ich<lb/>
+habe mich verirrt, und bis izt, keine Hütte und<lb/>
+keine Quelle für meinen Durſt, und keine Speiſe<lb/>
+für meinen Hunger gefunden. Der junge Menal-<lb/>
+kas gab ihm izt Brod aus ſeiner Taſche, und fri-<lb/>
+ſchen Käs, und nahm ſeine Flaſche von der Seite,<lb/>
+erfriſche dich, ſo ſprach er, hier iſt friſche Milch,<lb/>
+und dann folge mir, daſs ich dich aus dem Ge-<lb/>
+bürge führe; und der Mann erfriſchte ſich und<lb/>
+der Hirt führte ihn aus dem Gebürg.</p><lb/>
+<pb n="78" facs="#f0083"/>
+<p>Aeſchines, der Jäger, ſprach izt: du ſchöner<lb/>
+Hirt, du haſt mein Leben gerettet, wie ſoll ich<lb/>
+dich belohnen, komm mit mir in die Stadt, dort<lb/>
+wohnt man nicht in ſtröhernen Hütten; Palläſte<lb/>
+von Marmor ſteigen dort hoch an die Wolken,<lb/>
+und hohe Säulen ſtehen um ſie her, du ſolt bey<lb/>
+mir wohnen, und aus Gold trinken, und die<lb/>
+köſtlichen Speiſen aus ſilbernen Platten eſſen.</p><lb/>
+<p>Menalkas ſprach: Was ſoll ich in der Stadt?<lb/>
+Ich wohne ſicher in meiner niedern Hütte, ſie<lb/>
+ſchüzt mich vor Regen und rauhen Winden, und<lb/>
+ſtehn nicht Säulen umher, ſo ſtehn doch frucht-<lb/>
+bare Bäume und Reben umher, dann hol ich aus<lb/>
+der nahen Quelle klares Waſſer im irdenen Krug,<lb/>
+auch hab ich ſüſſen Moſt, und dann eſs ich was<lb/>
+mir die Bäume und meine Herde geben, und hab<lb/>
+ich nicht Silber und Gold, ſo ſtreu ich wolrie-<lb/>
+chende Blumen auf den Tiſch.</p><lb/>
+<p>Aeſchines. Komm mit mir Hirt, dort hat man<lb/>
+auch Bäume und Blumen, dort hat ſie die Kunſt<lb/>
+<pb n="79" facs="#f0084"/>
+in gerade Gänge gepflanzet, und in ſchön geord-<lb/>
+nete Beeten geſammelt; dort hat man auch Quel-<lb/>
+len, Männer und Nymphen von Marmor gieſſen<lb/>
+ſie in groſſe marmorne Beken.</p><lb/>
+<p>Menalkas. Schöner iſt der ungekünſtelte ſchat-<lb/>
+tichte Hain mit ſeinen gekrümmten Gängen, ſchö-<lb/>
+ner ſind die Wieſen mit tauſendfältigen Blumen<lb/>
+geſchmükt; ich hab auch Blumen um die Hütte<lb/>
+gepflanzt, Majoran und Lilien und Roſen; und<lb/>
+o wie ſchön ſind die Quellen wenn ſie aus Klip-<lb/>
+pen ſprudeln, oder aus dem Gebüſche von Hü-<lb/>
+geln ſallen, und dann durch blumichte Wieſen<lb/>
+ſich ſchlängeln! Nein, ich geh nicht in die<lb/>
+Stadt.</p><lb/>
+<p>Aeſchines. Dort wirſt du Mädchens ſehen im<lb/>
+ſeidenen Gewand, von der Sonne unbeſchädigt,<lb/>
+weiſs wie Milch, mit Gold und köſtlichen Per-<lb/>
+len geſchmükt, und die ſchönen Geſänge künſt-<lb/>
+licher Saitenſpieler entzüken dein Ohr.</p><lb/>
+<p>Menalkas. Mein braunes Mädchen iſt ſchön,<lb/>
+<pb n="80" facs="#f0085"/>
+du ſollteſt ſie ſehen, wenn ſie mit friſchen Roſen<lb/>
+und einem bunten Kranz ſich ſchmükt; und o<lb/>
+wie froh ſind wir, wenn wir bey einer rau-<lb/>
+ſchenden Quelle im ſchattichten Buſch ſizen! ſie<lb/>
+ſingt dann, o wie ſchön ſingt ſie! nnd ich be-<lb/>
+gleite ihren Geſang mit der Flöte; unſer Geſang<lb/>
+tönt dann weit umher, und die Echo ſinget uns<lb/>
+nach; oder wir behorchen den ſchönen Geſang<lb/>
+der Vögel, die von den Wipfeln der Bäume und<lb/>
+aus den Gebüſchen ſingen. Oder ſingen eure<lb/>
+Saitenſpieler beſſer als die Nachtigal oder die lieb-<lb/>
+liche Grasmüke? Nein, nein ich geh nicht mit<lb/>
+dir in die Stadt.</p><lb/>
+<p>Aeſchines. Was ſoll ich dir denn geben, Hirt?<lb/>
+Hier nimm die Hand voll Gold, und diſs goldne<lb/>
+Hüfthorn.</p><lb/>
+<p>Menalkas. Was ſoll mir das Gold? ich habe<lb/>
+Heberfluſs; ſoll ich mit dem Golde die Früchte von<lb/>
+den Bäumen erkaufen, oder die Blumen von den<lb/>
+Wieſen, oder ſoll ich von meiner Herde die Milch<lb/>
+erkaufen?</p><lb/>
+<fw type="catch" place="bottom">Aeſchines.</fw><lb/>
+<pb n="81" facs="#f0086"/>
+<p>Aeſchines. Was ſoll ich dir denn geben, glük-<lb/>
+licher Hirt, womit ſoll ich deine Gutthat be-<lb/>
+lohnen?</p><lb/>
+<p>Menalk. Gieb mir die Kürbis-Flaſche, die an<lb/>
+deiner Seite hängt, mir deucht, der junge Bacchus<lb/>
+iſt darauf gegraben, und die Liebes-Götter, wie<lb/>
+ſie Trauben in Körben ſammeln. Und der Jäger<lb/>
+gab ihm freundlich lächelnd die Flaſche, und der<lb/>
+junge Hirt hüpfte vor Freuden, wie ein junges<lb/>
+Lamm hüpft.</p><lb/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">F</fw><lb/>
+<pb n="82" facs="#f0087"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">PHILLIS. CHLOE.</hi></hi></head><lb/>
+<p><hi rendition="#c">Phillis.</hi></p><lb/>
+<p><hi rendition="#in">D</hi>U Chloe, immer trägſt du dein Körbchen am<lb/>
+Arm.</p><lb/>
+<p>Chloe. Ja Phillis, ja! immer trag ich das Körb-<lb/>
+chen am Arm, ich würd es nicht um eine ganze<lb/>
+Herde geben; nein ich würd’ es nicht geben, ſprach<lb/>
+ſie, und drükt’ es lächelnd an ihre Seite.</p><lb/>
+<p>Phillis. Warum Chloe, warum hältſt du dein<lb/>
+Körbchen ſo werth? ſoll ich rathen? Sieh, du<lb/>
+wirſt roth, ſoll ich rathen? ‒ ‒</p><lb/>
+<p>Chloe. Hu ‒ ‒ roth?</p><lb/>
+<p>Phillis. Ja! wie wenn einem das Abendroth<lb/>
+ins Angeſicht ſcheint.</p><lb/>
+<p>Chloe. Hu! ‒ ‒ Phillis ‒ ‒ ich will dirs ſagen;<lb/>
+der junge Amyntas hat mirs geſchenkt, der ſchön-<lb/>
+ſte Hirt; er hat es ſelbſt geflochten. Ach! ſieh<lb/>
+wie nett, ſieh wie ſchön die grünen Blätter und<lb/>
+<pb n="83" facs="#f0088"/>
+die rothen Blumen in das weiſſe Körbchen ge-<lb/>
+flochten ſind, und ich halt es werth, wo ich<lb/>
+hingehe, da tragichs am Arm; die Blumen dünken<lb/>
+mich ſchöner, ſie riechen lieblicher, die ich in<lb/>
+meinem Körbchen trage, und die Früchte ſind ſüſ-<lb/>
+ſer, die ich aus dem Körbchen eſſe. Phillis ‒ ‒<lb/>
+doch was ſoll ich alles ſagen? ‒ ‒ Ich ‒ ‒ ich habs<lb/>
+ſchon oft geküſst. Er iſt doch der beſte, der<lb/>
+ſchönſte Hirt.</p><lb/>
+<p>Phillis. Ich hab es ihn flechten geſehn; wüſs-<lb/>
+teſt du was er da zu dem Körbchen ſprach! Aber<lb/>
+Alexis mein Hirt iſt eben ſo ſchön, du ſollteſt ihn<lb/>
+ſingen hören, ich will das Liedchen dir ſingen,<lb/>
+das er geſtern mir ſang.</p><lb/>
+<p>Chloe. Aber, Phillis! Was hat Amyntas zum<lb/>
+Körbchen geſagt?</p><lb/>
+<p>Phillis. Ja, ich muſs erſt das Liedchen ſingen.</p><lb/>
+<p>Chloe. Ach! ‒ ‒ Iſt es lang?</p><lb/>
+<p>Phillis. Höre nur. Froh bin ich, wenn das<lb/>
+Abendroth, am Hügel mich beſcheint. Doch Phil-<lb/>
+<fw type="sig" place="bottom">F 2</fw><lb/>
+<pb n="84" facs="#f0089"/>
+lis, froher bin ich noch, wenn ich dich lächeln<lb/>
+ſeh. So froh geht nicht der Schnitter heim,<lb/>
+wenn er die lezte Garb’, in ſeine volle Scheune<lb/>
+trägt, als ich, wenn ich von dir geküſst, in meine<lb/>
+Hütte geh. So hat er geſungen.</p><lb/>
+<p>Chloe. Ein ſchönes Lied! Aber Phillis, was<lb/>
+ſprach Alexis zum Körbchen?</p><lb/>
+<p>Phillis. Ich muſs lachen; Er ſaſs am Sumpf<lb/>
+im Weidenbuſch, und indeſs daſs ſeine Finger die<lb/>
+grünen und die braunen und die weiſſen Ruthen<lb/>
+flochten, indeſs ‒ ‒ ‒</p><lb/>
+<p>Chloe. Nu denn, warum ſchweigſt du?</p><lb/>
+<p>Indeſs, fuhr Phillis lachend fort, indeſs, ſprach<lb/>
+er, du Körbchen, dich will ich Chloen ſchen-<lb/>
+ken, der ſchönen Chloe, die ſo lieblich lächelt;<lb/>
+Da ſie geſtern die Herde bey mir vorbey trieb,<lb/>
+ſey mir gegrüſst, Amyntas, ſprach ſie, und lä-<lb/>
+chelte ſo freundlich, ſo freundlich, daſs mir das<lb/>
+Herz pochte. Schmiegt euch gehorſam, ihr bun-<lb/>
+ten Ruthen, und zerbrechet nicht unter dem flech-<lb/>
+<pb n="85" facs="#f0090"/>
+ten; Ihr ſollt dann an der liebſten Chloe Seite<lb/>
+hangen. Ja! wenn ſie es werth hält, o wenn ſie<lb/>
+es werth hielte! wenn ſie es oft an ihrer Seite<lb/>
+trüge! So ſprach er, und indeſs war das Körb-<lb/>
+chen gemacht, und da ſprang er auf, und hüpfte,<lb/>
+daſs es ihm ſo wohl gelungen war.</p><lb/>
+<p>Chloe. Ach! ich geh; dort hinter jenen Hü-<lb/>
+gel treibt er ſeine Herde, ich will bey ihm vor-<lb/>
+bey gehn, ſieh, will ich ſagen, ſieh Amyntas,<lb/>
+ich habe dein Körbchen am Arm.</p><lb/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">F 3</fw><lb/>
+<pb n="86" facs="#f0091"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">TITYRUS. MENALKAS.</hi></hi></head><lb/>
+<p><hi rendition="#in">A</hi>Uf einem Hügel lag der Greis Menalkas, am<lb/>
+mildern Sonnenſtral, und ſah durch die herbſtli-<lb/>
+che Gegend hin, ſanft ſtaunend, als Tityrus, ſein<lb/>
+jüngſter Sohn, unbemerkt ſchon lang an ſeiner<lb/>
+Seite ſtund; voll ſanften Entzükens ſeufzte der<lb/>
+Greis, und der Sohn ſah lang mit ſtiller Freude<lb/>
+auf den Vater herunter; Vater, ſprach er izt mit<lb/>
+ſanften Worten: Wie ſüſs muſs dein Entzüken<lb/>
+ſeyn! Lange ſchon ſeh ichs, wie dein Blik die<lb/>
+herbſtliche Gegend durchwandelt, und höre dein<lb/>
+Seufzen; Vater, gewähre mir izt eine Bitte.</p><lb/>
+<p>Menalkas. Sage deine Bitte, mein Lieber! und<lb/>
+ſeze dich an meine Seite, daſs ich die Stirne dir<lb/>
+küſſe, und Tityrus ſezte ſich an ſeine Seite, und<lb/>
+der Greis küſste zärtlich des Sohnes Stirne. Va-<lb/>
+ter, ſo fuhr der Jüngling fort, mir erzehlte mein<lb/>
+älteſter Bruder; denn oft, wenn wir im Schatten<lb/>
+<pb n="87" facs="#f0092"/>
+Schatten bey der Herde ſizen, dann reden wir<lb/>
+von dir, und dann flieſſen uns Thränen von den<lb/>
+Augen, Freuden-Thränen. Er hat mir erzehlt,<lb/>
+dich habe vordem die Gegend den beſten Sänger<lb/>
+genannt, und manche Ziege habeſt du im Wett-<lb/>
+Geſang gewonnen. O wollteſt du es verſuchen,<lb/>
+mir izt ein Lied zu ſingen, izt da die herbſtliche<lb/>
+Gegend dich entzükt; Gewähre mir Vater, ge-<lb/>
+währe mir dieſe Bitte.</p><lb/>
+<p>Sanft lächelnd ſprach izt Menalkas, ich will es<lb/>
+verſuchen, ob mich die Muſen noch lieben, die<lb/>
+ſo oft den Preis mir erſingen halfen, ich will<lb/>
+ein Lied dir ſingen.</p><lb/>
+<p>Izt durchlief ſein Blik noch einmal die Gegend,<lb/>
+und izt hub er an.</p><lb/>
+<p>Höret mich Muſen, höret mein heiſcheres Ruf-<lb/>
+fen; im Frühling meiner Tage, habt ihr an rau-<lb/>
+ſchenden Bächen und in ſtillen Hainen nie uner-<lb/>
+hört mich gelaſſen; Laſst mir diſs Lied gelingen,<lb/>
+mir grauen Greiſen!</p><lb/>
+<fw type="sig" place="bottom">F 4</fw><lb/>
+<pb n="88" facs="#f0093"/>
+<p>Was für ein ſanftes Entzüken flieſst aus dir izt<lb/>
+mir zu, herbſtliche Gegend? Wie ſchmükt ſich<lb/>
+das ſterbende Jahr! Gelb ſtehn die Sarbachen<lb/>
+und die Weiden um die Teiche her, gelb ſtehn<lb/>
+die Apfel- und die Birnen-Bäume, auf bunten<lb/>
+Hügeln und auf der grünen Flur, vom feurigen<lb/>
+Roth des Kirſchbaums durchmiſcht. Der herbft-<lb/>
+liche Hain iſt bunt, wie im Frühling die Wieſe,<lb/>
+wenn ſie voll Blumen ſteht; Ein röthlichtes Ge-<lb/>
+miſch zieht von dem Berg ſich ins Thal, von im-<lb/>
+mer grünen Tannen und Fichten geflekt. Schon<lb/>
+rauſchet geſunkenes Laub unter des Wandelnden<lb/>
+Füſſen, ernſthaft irren die Herden, auf welkem<lb/>
+Blumen-loſem Gras; nur ſteht die röthlichte Zeit-<lb/>
+loſe da, der einſame Botte des Winters. Izt<lb/>
+kommt die Ruhe des Winters, ihr Bäume, die<lb/>
+ihr uns mild eure reifen Früchte gegeben, und<lb/>
+kühlenden Schatten, dem Hirt und der Herde.<lb/>
+O! ſo gehe keiner zur Ruhe des Grabes, er habe<lb/>
+denn ſüſſe Früchte getragen, und erquikenden<lb/>
+<pb n="89" facs="#f0094"/>
+Schatten über den Nothleidenden geſtreut. Denn,<lb/>
+Sohn, der Segen ruhet bey der Hütte des Redli-<lb/>
+chen und bey ſeiner Scheune. O Sohn! wer<lb/>
+redlich iſt, und auf die Götter traut, der wandelt<lb/>
+nicht auf triegendem Sumpf. Wenn der Red-<lb/>
+liche opfert, dann ſteigt der Opfer-Rauch hoch<lb/>
+zum Olymp, und die Götter hören ſegnend ſeinen<lb/>
+Dank und ſein Flehen. Ihm ſinget die Eule nicht<lb/>
+banges Unglük, und die traurig krächzende Nacht-<lb/>
+Rabe; er wohnet ſicher und ruhig unter ſeinem<lb/>
+friedlichen Dach, die freundlichen Haus-Götter<lb/>
+ſehen des Redlichen Geſchäfte, und hören ſeine<lb/>
+freundlichen Reden und ſegnen ihn. Zwar kom-<lb/>
+men trübe Tag’ im Frühling, zwar kommen don-<lb/>
+nernde Wolken im Segen-vollen Sommer; Aber,<lb/>
+Sohn, murre nicht, wenn Zeus unter deine Hand<lb/>
+voll Tage, auch trübe Stunden miſcht. Vergiſs<lb/>
+nicht meine Lehren, Sohn, ich gehe vor dir her<lb/>
+zum Grabe. Schonet ihr Sturmwinde, ſchonet<lb/>
+des herbſtlichen Schmukes, laſst ſanftere Winde<lb/>
+<fw type="sig" place="bottom">F 5</fw><lb/>
+<pb n="90" facs="#f0095"/>
+ſpielend das ſterbende Laub langſam den Bäumen<lb/>
+rauben, ſo kann mich die bunte Gegend noch oft<lb/>
+entzüken; vielleicht, wenn du wieder kömmſt,<lb/>
+ſchöner Herbſt, vielleicht ſeh ich dich dann nicht<lb/>
+mehr; welchem Baum entſinkt dann das ſterben-<lb/>
+de Laub auf mein ruhiges Grab?</p><lb/>
+<p>So ſang der Greis, und Tityrus drükte weinend<lb/>
+des Vaters Hand an ſeine Wangen.</p><lb/>
+<figure/><lb/>
+</div>
+<pb n="91" facs="#f0096"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">DIE ERFINDUNG</hi></hi><lb/>
+<hi rendition="#g">DES SAITENSPIELS UND DES<lb/>
+GESANGES.</hi></head><lb/>
+<p><hi rendition="#in">I</hi>N der erſten Jugend der Tage, da die wenigen<lb/>
+Bedürfniſse der Unſchuld und die Natur unter den<lb/>
+noch unverdorbenen Menſchen die jungen Künſte<lb/>
+erzeugten, da lebt’ ein Mädchen: In denſelben<lb/>
+Tagen war keines ſo ſchön, keines war ſo zärtlich<lb/>
+gebildet, die Schönheiten der Natur zu empfin-<lb/>
+den; Freuden-Thränen begrüſsten das Morgen-<lb/>
+roth und die ſchöne Gegend, und Entzüken das<lb/>
+Abendroth und den Schimmer des Monds. Da-<lb/>
+mals war der Geſang noch ein Regel-loſes Jauch-<lb/>
+zen der Freude. So bald der frühe Hahn von der<lb/>
+Hütte rief, daſs der Morgen da ſey; denn da hat-<lb/>
+ten ſie ſich zur Freude ſchon geſellige Thiere mit<lb/>
+Speiſe vor die Hütte gewöhnet; dann gieng ſie<lb/>
+unter ihrem ſchüzenden Dach hervor, ein Dach<lb/>
+<pb n="92" facs="#f0097"/>
+von Schilf und Tann-Aeſten, an den Stämmen<lb/>
+nahe ſtehender Bäume befeſtigt, da wohnte ſie im<lb/>
+Schatten, und über ihr, in den dicht-belaubten<lb/>
+Aeſten, die ſingenden Vögel. Sie gieng dann hin-<lb/>
+aus, die Gegend zu ſehn, wie ſie im Thau glänzt,<lb/>
+und den Geſang der Vögel im nahen Hain zu be-<lb/>
+horchen. Entzükt ſaſs ſie dann da und horchte,<lb/>
+und ſuchte ihren Geſang nachzulallen. Harmoni-<lb/>
+ſchere Töne floſſen izt von ihren Lippen, harmo-<lb/>
+niſcher, als noch kein Mädchen geſungen hatte;<lb/>
+was ihre liebliche Stimme von eines jeden Ge-<lb/>
+ſang nachahmen konnte, ordnete ſie verſchieden<lb/>
+zuſammen. Ihr kleinen frohen Sänger, ſo ſprach<lb/>
+ſie mit ſingenden Worten, wie lieblich tönt euer<lb/>
+Lied, von hoher Bäume Wipfeln und aus dem<lb/>
+niedern Strauch! Könnt ich dem glänzenden Mor-<lb/>
+gen ſo lieblich wechſelnde Tön’ entgegen ſingen!<lb/>
+O lehrt mich die wechſelnden Töne, dann ſing’<lb/>
+ich mein ſanftes Entzüken, mit euch, dem frühen<lb/>
+Sonnen-Stral. So ſang ſie, und unvermerkt<lb/>
+<pb n="93" facs="#f0098"/>
+ſchmiegten ihre Worte ſich harmoniſch in ſüſstö-<lb/>
+nendem Maaſs nach ihrem Geſang; voll Entzüken<lb/>
+bemerkte ſie die neue Harmonie gemeſſener Wor-<lb/>
+te. Wie glänzt der Geſang-volle Hain! ſo fuhr<lb/>
+ſie erſtaunt fort, wie glänzt die Gegend umher<lb/>
+im Thau! Wo biſt du, der diſs alles ſchuf? Wie<lb/>
+bin ich entzükt! izt kann ich mit lieblichern Tö-<lb/>
+nen dich loben, als meine Geſpielen. So ſang ſie,<lb/>
+und die Gegend behorchte entzükt die neue Har-<lb/>
+monie, und die Vögel des Haines ſchwiegen und<lb/>
+horchten.</p><lb/>
+<p>Alle Morgen gieng ſie izt, die neue Kunſt zu<lb/>
+üben, in den Hain; aber ein Jüngling hatte ſie<lb/>
+lange ſchon in dem Hain behorcht; entzükt ſtund<lb/>
+er dann im dekenden Buſch und ſeufzte und gieng<lb/>
+tiefer in den Hain und ſucht’ ihr Lied nachzuah-<lb/>
+men. Einsmals ſaſs er ſtaunend unter ſeinem Schilf-<lb/>
+dach, auf ſeinen Bogen gelehnt, denn er hatte die<lb/>
+Kunſt den Bogen zu führen erfunden, um die<lb/>
+Raubvögel zu tödten, die ſeine Dauben ihm raub-<lb/>
+<pb n="94" facs="#f0099"/>
+ten, denen er auf dem nahen Stamm ein Haus<lb/>
+von ſchlanken Weiden-Aeſten geflochten hatte.<lb/>
+Was iſt das, ſo ſprach er, das aus meinem Buſen<lb/>
+herauf ſeufzt, das ſo bang in meinem Herzen ſizt?<lb/>
+Zwar wechſelt es ab, mit Entzüken und mit Freu-<lb/>
+den-Thränen, wenn ich das Mädchen im Hain<lb/>
+ſehe, und ſeinen Geſang höre, aber wenn ſie weg<lb/>
+iſt, o dann, dann ſizt Schwermuth in meinem Bu-<lb/>
+ſen! Ach! was iſt es, das aus meinem Buſen<lb/>
+herauf ſeufzt? Indeſs ſpielte ſeine Hand mit der<lb/>
+angeſpanneten Saite des Bogens, und ein lieblicher<lb/>
+Ton gieng von der Saite, und der Jüngling horch-<lb/>
+te und wiederholt’ erſtaunt den Ton. Dann<lb/>
+ſtaunt er, und dacht’ eine neue Erfindung zu ent-<lb/>
+wikeln tief nach, und dann ſpielt’ er wieder mit<lb/>
+der angeſpanneten Saite des Bogens, von den Ge-<lb/>
+därmen der Raubvögel geflochten. Aber izt ſprang<lb/>
+er auf, und fieng an Stäbe zu ſchneiden, zween<lb/>
+lange Stäbe und zween kürzere, und die zween<lb/>
+kürzern befeſtigt’ er unten und oben gegen die<lb/>
+<pb n="95" facs="#f0100"/>
+zween längern Stäbe, und ſpannte zwiſchen den<lb/>
+zween längern, Saiten an die kürzern feſt; izt<lb/>
+hub ſeine Hand an zu ſpielen, und da bemerkt' er<lb/>
+die liebliche Verſchiedenheit der Töne, der ſchwä-<lb/>
+chern und ſtärkern Saiten, dann band er ſie wie-<lb/>
+der los und ordnete verſchiednere Saiten, in eine<lb/>
+harmoniſchere Reihe, und izt hub er an zu ſpielen<lb/>
+und für Freude zu hüpfen.</p><lb/>
+<p>Izt gieng der Jüngling, ſo oft der Morgen kam,<lb/>
+die neue Kunſt zu üben in den dichten Hain, und<lb/>
+ſuchte zu den Liedern, die er von dem Mädchen<lb/>
+im Hain gehorchet hatte, harmoniſch begleitende<lb/>
+Töne auf ſeinen Saiten. Aber man ſagt, er habe<lb/>
+lang umſonſt geſucht, und viele Töne haben den<lb/>
+Geſang nicht begleiten wollen, aber ein Gott ſey<lb/>
+im Hain ihm erſchienen, und habe die Saiten der<lb/>
+Leyer harmoniſch geordnet und ſeine Lieder ihm<lb/>
+vorgeſpielt. Bey jedem Morgenroth ſucht' er izt<lb/>
+das Mädchen im Hain, und lernte neue Lieder und<lb/>
+gieng dann an die Quelle zurük, auf ſeiner Leyer<lb/>
+ſie nachzuſpielen.</p><lb/>
+<pb n="96" facs="#f0101"/>
+<p>An einem ſchönen Morgen ſaſs das Mädchen im<lb/>
+Hain, mit Blumen bekränzt ſaſs es da und ſang;<lb/>
+Sey gegrüſst liebliche Sonne hinter dem Berg her-<lb/>
+vor, ſchon beglänzen deine Stralen der Bäume<lb/>
+Wipfel auf den hohen Hügeln, und der frohen<lb/>
+Lerche hoch ſchwebendes Gefieder. Dir ſingen<lb/>
+die Vögel des Hains entgegen, und ‒ ‒ Izt<lb/>
+ſchwieg ſie, und ſah aufmerkſam umher, welche<lb/>
+liebliche Stimme miſchet ſich in meinen Geſang?<lb/>
+So rief ſie erſtaunt, ſie begleitet jeden Ton mei-<lb/>
+nes Geſanges! Wo biſt du? ‒ ‒ Warum ſchwei-<lb/>
+geſt du Lied? Singe, liebliche Stimme! Biſt du<lb/>
+ein gefiederter Bewohner dieſes Hains, o ſo<lb/>
+ſchwinge die Flügel hieher auf dieſen Fichten-<lb/>
+baum, daſs ich dich ſehe und deinen Geſang<lb/>
+höre! ſo ſprach ſie, und ſah weit in den Wipfeln<lb/>
+umher; Biſt du ſchüchtern weggeflogen? Oder ‒ ‒<lb/>
+dieſe Stimme hab ich noch nie im Hain gehört,<lb/>
+wenn ich mich betrogen hätte? Mich täuſcht<lb/>
+doch kein Traum? Ich will noch ein Lied ſingen.<lb/>
+<fw type="catch" place="bottom">Seyd</fw><lb/>
+<pb n="97" facs="#f0102"/>
+Seyd willkommen, liebliche Blümchens umher;<lb/>
+geſtern waret ihr Knoſpen, izt ſtehet ihr offen da;<lb/>
+euch grüſſen die lieblichen Morgenlüfte, und die<lb/>
+ſummenden Bienchen, und der bunte Schmetter-<lb/>
+ling, er flattert froh um euch her, und trinket<lb/>
+euern Thau? So ſang ſie, oft unterbrochen, rund<lb/>
+umherſpähend, denn die Stimme hatte den Ge-<lb/>
+ſang wieder begleitet.</p><lb/>
+<p>Izt ſtund ſie ſchüchtern auf, nein, ich habe<lb/>
+mich nicht betrogen, jeden Ton hat die Stimme<lb/>
+begleitet. So ſprach ſie, als der Jüngling aus<lb/>
+dem Gebüſche hervor trat, mit Blumen bekränzt,<lb/>
+die Leyer unter dem Arm. Lächelnd nahm er des<lb/>
+ſchüchtern Mädchens Hand; O du ſchönes Mäd-<lb/>
+chen! ſprach ſein ſanftlächelnder Mund mit lieb-<lb/>
+licher Stimme, kein beflügelter Bewohner des<lb/>
+Hains hat deinen Geſang nachgeſungen; Ich war<lb/>
+es, der deinen Geſang mit dieſen Saiten begleitete.<lb/>
+Alle Morgen gieng ich in den Hain, deinen Ge-<lb/>
+ſang zu hören, und dann gieng ich einſam tief in<lb/>
+<fw type="sig" place="bottom">G</fw><lb/>
+<pb n="98" facs="#f0103"/>
+den Hain, die Lieder auf den Saiten zu ſingen,<lb/>
+und glaube Mädchen, mich hats ein Gott im Hain<lb/>
+gelehrt. Der flüchtige Blik des Mädchens ſtreifte<lb/>
+oft ſchüchtern über den Jüngling hin und ruhete<lb/>
+dann auf den Saiten. O ſchönes Mädchen! fuhr<lb/>
+der Jüngling fort, indem ſein Auge ſchmachtend<lb/>
+ſie anblikte, wie wär ich entzükt, wenn du mir<lb/>
+vergönnteſt, mit dir in den Hain zu gehn, an<lb/>
+deiner Seite ſizend, deinen Geſang mit dieſen Sai-<lb/>
+ten zu folgen! Izt ſah das Mädchen auf. Jüng-<lb/>
+ling, ſo ſprach es, froh bin ich, wenn dein Sai-<lb/>
+tenſpiel meine Lieder begleitet; lieblicher wird<lb/>
+es ſeyn als der Widerhall, und izt komm mit mir<lb/>
+unter mein ſchattichtes Dach, denn die Mittags-<lb/>
+Sonne brennet ſchon, ich will in meinem düſter-<lb/>
+nen Schatten ſüſſe Früchte zum Mittagmahl dir<lb/>
+auftiſchen, und friſche ſüſſe Milch.</p><lb/>
+<p>Izt gieng der Jüngling mit dem Mädchen unter das<lb/>
+Dach, und ſie lehrten die Jünglinge und die Mäd-<lb/>
+chens den Geſang und das Saitenſpiel. Erſt lange<lb/>
+<pb n="99" facs="#f0104"/>
+hernach ward es von der Flöte begleitet, denn<lb/>
+Marſyas brachte die Flöte unter die Waldgötter,<lb/>
+die die Erfinderin Minerva im gerechten Zorn über<lb/>
+den Spott der Göttinen in den Sand warf. <note place="foot" n="††">Minerva war die Erfinderin der Flöte. Einmal blies ſie<lb/>
+ſelbige vor den Göttinen, aber ſie lachten und<lb/>
+ſpotteten, daſs ſie im Spielen den Mund ſo übel<lb/>
+verzöge. Welche Schöne hätte den Schimpf nicht<lb/>
+empfunden? Sie warf zornig die Flöte weg.</note><lb/>
+Man pflanzte da zween Bäume auf einem hohen<lb/>
+Hügel, dem Mädchen und dem Jüngling, und die<lb/>
+ſpäten Enkel erzehlten den Kindern in ihrem Schat-<lb/>
+ten die Erfindung des Saitenſpiels und des Geſanges.</p><lb/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">G 2</fw><lb/>
+<pb n="100" facs="#f0105"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">DER FAUN</hi>.</hi></head><lb/>
+<p><hi rendition="#in">N</hi>Ein, für mich kein froher Tag! ſo rief der<lb/>
+Fann, als er beym Morgenroth aus ſeinem Felſen<lb/>
+taumelte. Seit mir die ſchönſte Nymph’ entfloh,<lb/>
+haſs’ ich den Schein der Sonne; bis ich ſie wie-<lb/>
+der finde, ſoll kein Epheu-Kranz um meine Hör-<lb/>
+ner ſich winden, ſoll keine Blume rings um mei-<lb/>
+ne Höle ſtehn; mein Fuſs ſoll ſie, noch ehe ſie<lb/>
+blühen, zertretten, und meine Flöte ſoll ‒ ‒ und<lb/>
+dieſen Krug ſoll er zertretten.</p><lb/>
+<p>Izt zertrat ſein Fuſs, da kam ein andrer Faun,<lb/>
+er hub den ſchweren Schlauch von ſeiner Schul-<lb/>
+ter; Du raſeſt du, rief er, und lachte; heut, an<lb/>
+dem frohen Tag, Lyeens Feſt! Schnell wind’ einen<lb/>
+Epheu-Kranz um deine Hörner, und komme zu<lb/>
+dem Feſt, dem beſten Tag im Jahr!</p><lb/>
+<p>Nein für mich kein froher Tag, ſo ſprach der<lb/>
+Faun, ich ſchwöre! bis ich ſie finde, ſoll kein<lb/>
+<pb n="101" facs="#f0106"/>
+Epheu-Kranz um meine Hörner ſich winden.<lb/>
+O! ſchwarze Stunde, da mir die Nymph ent-<lb/>
+flohe! ſie flohe bis an den Fluſs, der ihren Lauf<lb/>
+izt hemmte; unentſchloſſen ſtund ſie da, ich bebte<lb/>
+ſchon vor Freude, ſchon glaubt’ ich das ſträuben-<lb/>
+de Mädchen mit ſtarken Armen zu umfaſſen, als<lb/>
+die Tritonen, o die verfluchten Räuber! ſich aus<lb/>
+dem Fluſs erhoben, und die Nymph um ihre Hüf-<lb/>
+ten faſsten, und dann, in die Hörner blaſend,<lb/>
+ſchnell mit ihr an das andere Ufer ſchwammen.<lb/>
+Ich ſchwöre beym Stix! bis ich ſie wieder finde,<lb/>
+ſoll kein Kranz von Epheu um meine Hörner ſich<lb/>
+winden.</p><lb/>
+<p>Und eine ſpröde Nymphe macht dir, ſo ſagt der<lb/>
+andre Faun, o ich muſs lachen! und eine ſpröde<lb/>
+Nymphe macht dir ſo trübe Tage! Mir, Faun’<lb/>
+mir ſoll die Liebe nicht eine trübe Stunde ma-<lb/>
+chen, nein, keine trübe Stunde! verſagt mir dieſe<lb/>
+den Kuſs, dann hüpf’ ich zu der andern hin; ich<lb/>
+ſchwör es dir, Faun! meine Lippen ſollen keine<lb/>
+<fw type="sig" place="bottom">G 3</fw><lb/>
+<pb n="102" facs="#f0107"/>
+Nymphe mehr küſſen, wenn mich eine nur eine<lb/>
+Stunde in ihren Armen behält, heut an dem fro-<lb/>
+hen Feſt; ich will ſie alle lieben, alle will ich<lb/>
+küſſen. Kränke dich nicht, Faun! du biſt noch<lb/>
+jung und ſchön; ſchön iſt dein braunes Geſicht,<lb/>
+und wild dein groſſes ſchwarzes Aug, und dein<lb/>
+Haar kräuſst ſich ſchön um die krummen Hörner<lb/>
+her; ſie ſtehn aus den Loken empor, wie zwo<lb/>
+Eichen aus dem wildeſten Buſch. Laſs dich krän-<lb/>
+zen Faun, hier iſt das ſchönſte Schoſs, laſs dich<lb/>
+kränzen! Ich höre ſchon fernher ein wildes Ge-<lb/>
+räuſche von Tyrſus-Stäben und Trommeln und<lb/>
+Flöten, büke dich her, das Geſchrey kommtſchon<lb/>
+nahe; ſchon kommen ſie hinter dem Hugel her-<lb/>
+vor; laſs dich kränzen! Wie ſtolz die Tiger den<lb/>
+Wagen ziehn! o Lyeus! ſieh die Faunen, die<lb/>
+Nymphen, wie ſie hüpfen! welch ein Getöſe von<lb/>
+Tyrſus-Stäben und Klapper-Schaalen und Flöten!<lb/>
+O Evan Evoe! du biſt bekränzt, ſchnell hebe den<lb/>
+Schlauch mir auf die Schulter; o Evan Evoe!</p></div><lb/>
+<pb n="103" facs="#f0108"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">DER VESTE VORSAZ</hi>.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Ohin irret mein verwundeter Fuſs, durch<lb/>
+Dornen und dicht verwebete Sträuche? Himmel,<lb/>
+welch ſchauerndes Entzüken! Die röthlichten<lb/>
+Stämme der Fichten, und die ſchlanken Stämme<lb/>
+der Eichen ſteigen aus wildem Gebüſche hervor,<lb/>
+und tragen ein trauriges Gewölb über mir; Wel-<lb/>
+che Dunkelheit, welche Schwermuth zittert ihr<lb/>
+von ſchwarzen Aeſten auf mich! Hier will ich<lb/>
+mich hinſezen, an den holen vermoderten Eich-<lb/>
+ſtamm, den ein Nez von Epheu umwikelt; hier<lb/>
+will ich mich hinſezen, wo kein menſchlicher<lb/>
+Fuſstritt noch hingedrungen iſt, wo niemand mich<lb/>
+findt, als ein einſamer Vogel, oder die ſummenden<lb/>
+Bienen, die im nahen Stamm ihr Honig ſammeln,<lb/>
+oder ein Zephir, der in der Wildniſs erzogen,<lb/>
+noch an keinem Buſen geflattert hat. Oder du,<lb/>
+ſprudelnder Bach, wohin rauſcheſt du, an den<lb/>
+<fw type="sig" place="bottom">G 4</fw><lb/>
+<pb n="104" facs="#f0109"/>
+unterhöhlten Wurzeln und durch das wilde Gewe-<lb/>
+be von Geſträuchen? Ich will deinen Wellen fol-<lb/>
+gen, vielleicht führeſt du mich ödern Gegenden<lb/>
+zu; Himmel! welche Ausſicht breitet ſich vor<lb/>
+meinem Aug aus! hier ſteh ich an dem Saum einer<lb/>
+Felſenwand und ſeh ins niedere Thal; hier will<lb/>
+ich mich auf das zerriſſene überhangende Felſen-<lb/>
+Stük ſezen, wo der Bach ſtäubend in den dunkeln<lb/>
+Tannenwald herunter ſich ſtürzt, und rauſchet, wie<lb/>
+wenn es fernher donnert. Dürres Geſträuch hängt<lb/>
+von dem Felſen-Stük traurig herunter, wie das<lb/>
+wilde Haar über die Menſchen-feindliche Stirne<lb/>
+des Timons hängt, der noch kein Mädchen ge-<lb/>
+küſst hat. Ich will in das Thal hinunter ſteigen,<lb/>
+und mit traurig irrendem Fuſs da wandeln, ich<lb/>
+will an dem Fluſs wandeln, der durch das Thal<lb/>
+ſchleicht. Sey mir gegrüſst einſames Thal, und<lb/>
+du Fluſs, und du ſchwarzer Wald; hier auf dei-<lb/>
+nem Sand, o Ufer, will ich izt irren; einſied-<lb/>
+leriſch will ich in deinem Schatten ruhen, me-<lb/>
+<pb n="105" facs="#f0110"/>
+lancholiſcher Wald; Leb izt wohl Amor, dein<lb/>
+Pfeil wird mich hier nicht finden, ich will nicht<lb/>
+mehr lieben, und in einſamer Gegend weiſe ſeyn;<lb/>
+Lebe wohl, du braunes Mädchen, das mit ſchwar-<lb/>
+zen Augen mir das Gift der Liebe in mein bisher<lb/>
+unverwahrtes Herze geblizet hat; Lebe wohl,<lb/>
+noch geſtern hüpfteſt du froh im weiſſen Sommer-<lb/>
+Kleid um mich her, wie die Wellen hier im Son-<lb/>
+nen-Licht hüpfen; und du blondes Mädchen lebe<lb/>
+wohl! dein ſchmachtender Blik ‒ ‒ ach! zu ſehr,<lb/>
+zu ſehr haſt du mein Herze bemeiſtert, und dein<lb/>
+ſchwellender Buſen ‒ ‒ ach! ich förchte, ich werd<lb/>
+ihn hier oft in einſamen traurigen Betrachtungen<lb/>
+ſehen und ſeufzen! Lebe wohl, majeſtätiſche Me-<lb/>
+linde, mit dem ernſten Geſicht wie Pallas und mit<lb/>
+dem majeſtätiſchen Gang, und du kleine Chloe,<lb/>
+die du muthwillig nach meinen Lippen aufhüpfteſt<lb/>
+und mich küſsteſt; in dieſe Gegenden will ich izt<lb/>
+fliehen, und in ernſten Betrachtungen unter dieſen<lb/>
+Fichten mich lagern, und die Liebe verlachen;<lb/>
+<fw type="sig" place="bottom">G 5</fw><lb/>
+<pb n="106" facs="#f0111"/>
+in melancholiſchen Gängen von Laub will ich ir-<lb/>
+ren, und ‒ ‒ Aber ‒ ‒ Himmel! was entdeket<lb/>
+mein Aug am Ufer im Sand! ich zittre, ach ‒ ‒<lb/>
+der Fuſstritt eines Mädchens; ach, wie klein,<lb/>
+wie nett iſt der Fuſs! ‒ ‒ ernſte Betrachtung! Me-<lb/>
+lancholie! ach wo ſeyd ihr? ‒ ‒ wie ſchön war ihr<lb/>
+Gang! ich folg ihr ‒ ‒ Ach Mädchen, ich eile<lb/>
+ich folge deiner Spur! ach! wenn ich dich fän-<lb/>
+de, in meinen Arm würd ich dich drüken, und<lb/>
+dich küſſen! Flieh nicht mein Kind, will ich ſa-<lb/>
+gen, oder flieh wie die Roſe flieht, wenn ein<lb/>
+Zephir ſie küſst, ſie biegt ſich vor ihm weg, und<lb/>
+kömmt lächelnder zu ſeinen Küſſen zurük.</p><lb/>
+<figure/><lb/>
+</div>
+<pb n="107" facs="#f0112"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">DER FRÜHLING</hi>.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Elche Symphonie, welch heilig Entzüken,<lb/>
+jagt mir den gaukelnden Morgen-Traum weg?<lb/>
+Ich ſeh! o himmliſche Freude, ich ſeh dich la-<lb/>
+chenden Jüngling, dich Lenzen! Aurora im Pur-<lb/>
+pur-Gewand, führt dich im Oſten herauf, der<lb/>
+frohe Scherz, das laute Gelächter, und Amor,<lb/>
+ſchon lächelt er hin nach den Büſchen und Flu-<lb/>
+ren, den künftigen Siegen entgegen, und ſchwin-<lb/>
+get den ſcharfgeſpanneten Bogen, und ſchüttelt<lb/>
+den Köcher; auch die Gratien mit umſchlungenen<lb/>
+Armen begleiten dich, frölicher Lenz. Auf den<lb/>
+röthlichſten Stralen der Morgen-Sonne kömmt<lb/>
+ihr daher, die Vögel ſchwärmen froh in dem<lb/>
+röthlichten Sonnen-Stral, euch mit Geſängen ein-<lb/>
+zuholen. Voll Ungeduld drängen ſich die jungen<lb/>
+Roſen aus der Knoſpe, jede will die erſte mit<lb/>
+offener Schoos und lieblichen Gerüchen dir ent-<lb/>
+<pb n="108" facs="#f0113"/>
+gegen lachen. Die Zephirs verkündigen euch gau-<lb/>
+kelnd, ſie hüpfen vom Hügel ins Thal, und ſchwär-<lb/>
+men durch Büſche und Wälder, und lachen ſchalk-<lb/>
+haft, wenn ſie die Oerter vorbeyhüpfen, wo ſie<lb/>
+dem liebenden Schäfer die horchende Spröde im<lb/>
+Buſche verrathen, oder ſchalkhaft beym Reihen-<lb/>
+Tanz die hüpfenden Mädchens ſchamroth gemacht.<lb/>
+Sie hüpfen zerſtreut durch Gebüſche und Wälder,<lb/>
+und liſpeln den ſchlafenden Nymphen und den<lb/>
+Faunen in den Grotten eure Ankunft zu, ſie ſprin-<lb/>
+gen taumelnd hervor, die geiſsfüſſigten Satyren<lb/>
+und die Faunen, und rufen den frölichen Nym-<lb/>
+phen mit frohem Geſchrey, und mit der vielröh-<lb/>
+richten Pfeiffe. Die Nymphen der Bäche öfnen<lb/>
+ihre Krüge wieder, die ſie im Winter verſchloſ-<lb/>
+ſen, und gieſſen ſprudelnde Bäche zwiſchen Bäu-<lb/>
+men unter grünen Gewölben von Aeſten hervor,<lb/>
+oder von büſchichten Hügeln herunter, in man-<lb/>
+chem rauſchenden Fall; ſie ſchlängeln ſich durch<lb/>
+Fluren, und ſammeln ſich in Büſchen und Hainen<lb/>
+<pb n="109" facs="#f0114"/>
+zu glatten Seen, und umfaſſen da oft die zarten<lb/>
+Glieder badender Mädchen.</p><lb/>
+<p>Komm Lenz, komm Stifter der Freude! Du herr-<lb/>
+ſcheteſt Lenz, als unſer wankendes Schiff, ihr<lb/>
+Brüder, die glatte See durchſchwamm; eine<lb/>
+Schaar ſilberner Wellen umhüpfte uns, frohe Ze-<lb/>
+phirs gaukelten mit ihnen, und jagten ſie um das<lb/>
+Schiff her, wenn ſie muthwillig an ſelbigem auf-<lb/>
+hüpften und klatſchten; ſie jagten ſie vom Schiff<lb/>
+ans ſchattichte Ufer, wo der Wiederhall uns nach-<lb/>
+lachte; ſie flohen in den winkenden Schilf, und<lb/>
+hüpften dann wieder ans Schiff; da kröntet ihr<lb/>
+mich, Brüder, mit Rebſchoſſen am Ufer zum Kö-<lb/>
+nig, da war Freud und Entzüken in unſrer Mitte.<lb/>
+Auch da herrſchte der Lenz, ihr Brüder, als wir<lb/>
+auf jenes Berges erhabenem Rüken, eine Hütte<lb/>
+von grünen Zweigen uns bauten, in deren Schat-<lb/>
+ten wir, ins Grüne geſtreket, tranken und uns<lb/>
+umarmend frohe Lieder ſangen; die Waldgötter<lb/>
+behorchten uns, und ſangen leiſe die Lieder uns<lb/>
+<pb n="110" facs="#f0115"/>
+nach. Izt ſingen ſie die Lieder in den Hainen und<lb/>
+Klüften des Bergs, beym Tanz und beym vollen<lb/>
+Krug.</p><lb/>
+<p>Eile, o Lenz! beblume die Triften, und belau-<lb/>
+be den Wald, das Gebüſch und die Lauben.<lb/>
+Bacchus und Silen und ſein Gefolge lachen dir<lb/>
+entgegen, denn wo lachet man froher als im grü-<lb/>
+nen Schatten der Lauben? Amor beſucht ihn oft<lb/>
+den frölichen Bacchus, im kühlen Schatten der<lb/>
+Lauben, auch die Muſen beſuchen ihn, denn er<lb/>
+liebet Geſänge. Bacchus ſingt dann und erzehlt,<lb/>
+und lacht, daſs das Reblaub, das umkränzend<lb/>
+ſein halbes Geſichte beſchattet, aufhüpft. Er<lb/>
+erzehlt bey voller Schaale ſeine Reiſen durch das<lb/>
+entfernte Indien, und wie er die braunen Natio-<lb/>
+nen beſiegt, und wie er im Raub-Schiff als Kind<lb/>
+die Räuber in Delphine verwandelt, und Reben<lb/>
+und Epheu um Maſtbaum und Ruder ſich winden<lb/>
+und ſüſſen Wein habe ſprizen laſſen; dann leert<lb/>
+er die Schaale, und lacht und erzehlet wieder,<lb/>
+<pb n="111" facs="#f0116"/>
+wie er die Roſen geſchaffen. Ich wollt eine jun-<lb/>
+ge Nymphe umfaſſen, ſo ſagt er, das Mädchen<lb/>
+flog mit leichten Füſſen über die Blumen weg,<lb/>
+und lachte ſchalkhaft zurük, wenn es mit unſicherm<lb/>
+Fuſs mich hinter ſich her taumeln ſah; ich hätte<lb/>
+beym Stix das Mädchen nicht erreicht, wenn nicht<lb/>
+ein zakichter Dornbuſch ſich in ſein fliegend Ge-<lb/>
+wand gewikelt hätte, ich lief froh zu dem Mäd-<lb/>
+chen hin, und klatſcht ihm freundlich die Wan-<lb/>
+gen, und ſagte, Mädchen ſey nicht ſo blöde, ich<lb/>
+bin Bacchus, der Gott des Weins und der Freude,<lb/>
+der ewige Jüngling; da lieſs ſich das Mädchen<lb/>
+voll Ehrfurcht küſſen. Da belohnt ich den Dorn-<lb/>
+buſch, ich berührt ihn mit meinem Stab, und<lb/>
+hieſs Blumen wachſen, ſo lieblich roth, als des<lb/>
+Mädchens Wangen da es ſich ſchämte; da wuch-<lb/>
+ſen die Roſen.</p><lb/>
+<p>Pan lähnt ſich auf das moſichte Polſter, und<lb/>
+legt aufmerkſam ſein Haupt, mit Tannreiſern be-<lb/>
+kränzt, auf den unterſtüzenden Arm; du warſt<lb/>
+<pb n="112" facs="#f0117"/>
+glüklicher, Bacchus, als ich, da ich die Sirinx<lb/>
+verfolgte; da haſt du mich heftig verwundet, ſo<lb/>
+ſagt er zum Amor, der jezt des Streiches noch<lb/>
+lachet, ſie ward in Rohre verwandelt; dann ſieht<lb/>
+er traurig nach der ſiebenröhrichten Pfeife, dann<lb/>
+nach dem Becher, und trinkt den Gram weit von<lb/>
+ſich. Auch Amor erzehlt ſeine Siege, und wie er<lb/>
+die Spröden gebändigt. Ach wie entzükt werd<lb/>
+ich ſeyn, braunes Mädchen, wenn er einſt von<lb/>
+dir ein Sieges-Lied ſingt!</p><lb/>
+<figure/><lb/>
+</div> <fw type="catch" place="bottom"><hi rendition="#g">ALS</hi></fw><lb/>
+<pb n="113" facs="#f0118"/>
+<div n="1"><head><hi rendition="#g"><hi rendition="#b">ALS ICH DAPHNEN</hi><lb/>
+AUF DEM SPAZIERGANG<lb/>
+ERWARTETE</hi>.</head><lb/>
+<p><hi rendition="#in">S</hi>Ie kömmt noch nicht, die ſchöne Daphne! hier<lb/>
+will ich ins Gras mich hinlegen und ſie erwarten,<lb/>
+hier an der Quelle. Indeſs will ich die Gegend<lb/>
+umher betrachten, und mein Verlangen täuſchen.<lb/>
+Du hoher ſchwarzer Tannen-Hain, der du die<lb/>
+Pfeil-geraden röthlichen Stämme dicht und hoch<lb/>
+durch deinen dunkeln Schatten empor hebſt, hohe<lb/>
+ſchlanke Eichen, und du Fluſs, der du mit maje-<lb/>
+ſtätiſchem Silberglanz hinter jenen grauen Bergen<lb/>
+hervor rauſcheſt, nicht euch will ich izt ſehen,<lb/>
+izt ſey das Gras um mich her meine Gegend.<lb/>
+Wie ſanft rieſelſt du vorüber, kleine Quelle, durch<lb/>
+die Waſſer-Kreſſen, und durch die Bachbungen,<lb/>
+die ihre blauen Blumen empor tragen; du ſchwin-<lb/>
+geſt kleine funkelnde Ringe um ihre Stämme her<lb/>
+<fw type="sig" place="bottom">H</fw><lb/>
+<pb n="114" facs="#f0119"/>
+und macheſt ſie wanken; von beyden Ufern ſteht<lb/>
+das fette Gras mit Blumen vermiſcht, ſie biegen<lb/>
+ſich herüber, und dein klares Waſſer flieſst durch<lb/>
+ihr buntes Gewölb und glänzet im vielfärbichten<lb/>
+Wiederſchein. Ich will izt durch den kleinen<lb/>
+Hain des wankenden Graſes hinſehn; wie glän-<lb/>
+zet das manigfaltige Grün, von der Sonne be-<lb/>
+ſchienen! ſie ſtreuen ſchwebende Schatten eins<lb/>
+auf das andere hin; ſchlanke Kräuter durchirren<lb/>
+das Gras mit zarten Aeſten und manigfaltigem<lb/>
+Laub, oder ſie ſteigen darüber empor, und tragen<lb/>
+wankende Blumen. Aber du blaue Viole, du Bild<lb/>
+des Weiſen, du ſtehſt beſcheiden niedrig im Gras,<lb/>
+und ſtreuſt Gerüche umher, indeſs daſs Geruch-<lb/>
+loſe Blumen hoch über das Gras empor ſtehn,<lb/>
+und praleriſch winken. Fliegende Würmchens<lb/>
+verfolgen ſich unten im Gras, bald verliert ſie<lb/>
+mein Aug im grünen Schatten, dann ſchwärmen<lb/>
+ſie wieder im Sonnenſchein, oder ſie fliegen zu<lb/>
+Schaaren empor und tanzen höher in der glänzen-<lb/>
+den Luft.</p><lb/>
+<pb n="115" facs="#f0120"/>
+<p>Welch eine bunte Blume wieget ſich dort an<lb/>
+der Quelle? So ſchön und glänzend von Farbe ‒ ‒<lb/>
+doch nein! angenehmer Betrug! ein Schmetter-<lb/>
+ling flieget empor, und läſst das wankende Gräs-<lb/>
+chen zurük. Izt rauſcht ein Würmchen, ſchwarz<lb/>
+beharniſcht auf glänzend rothen Flügeln vorbey,<lb/>
+und ſezt ſich, zu ſeinem Gatten vielleicht, auf die<lb/>
+nahe Gloken-Blume. Rauſche ſanft, du rieſelnde<lb/>
+Quelle, erſchüttert nicht die Blumen und das Gras<lb/>
+ihr Zephirs! Trieg ich mich? oder hör ich den<lb/>
+zärteſten Geſang? Ja ſie ſingen, aber unſer Ohr iſt<lb/>
+zu ſtumpf, das feine Concert zu vernehmen, ſo<lb/>
+wie unſer Auge, die zarten Züge der Bildung zu<lb/>
+ſehn. Was für ein liebliches Sumſen ſchwärmt<lb/>
+um mich her? Warum wanken die Blumen ſo?<lb/>
+Ein Schwarm kleiner Bienen iſts; ſie flogen frö-<lb/>
+lich aus, aus ihrer fernen Wohnſtadt, und zer-<lb/>
+ſtreuten ſich auf den Fluren und in den fernen<lb/>
+Gärten; aufmerkſam wählend ſammeln ſie die gelbe<lb/>
+Beute, und kehren zurük ihren Staat zu mehren,<lb/>
+<fw type="sig" place="bottom">H 2</fw><lb/>
+<pb n="116" facs="#f0121"/>
+jede mit dem gleichen Beſtreben, da iſt kein müſ-<lb/>
+ſiger Bürger; ſie ſchwärmen umher, von Blume<lb/>
+zu Blume, und verbergen nachſuchend die kleinen<lb/>
+haarichten Häupter in den Kelchen der Blumen,<lb/>
+oder ſie graben ſich mühſam hinein, in die noch<lb/>
+nicht offenen Blumen, die Blume ſchlieſſet ſich<lb/>
+wieder, und verbirgt den kleinen Räuber, der die<lb/>
+Schäze ihr raubt, die ſie vielleicht erſt Morgen,<lb/>
+der kommenden Sonne und dem glänzenden Thau<lb/>
+entfaltet hätte.</p><lb/>
+<p>Dort auf die hohe Klee-Blume ſezt ſich ein<lb/>
+kleiner Schmetterling, er ſchwingt ſeine bunten<lb/>
+Flügel; auf ihrem glänzenden Silber ſtehn kleine<lb/>
+purpurne Fleken, und ein goldner Saum verliert<lb/>
+ſich am End der Flügel ins Grüne; Da ſizt er<lb/>
+prächtig und puzt den kleinen Buſch der ſilberneu<lb/>
+Federn auf ſeinem kleinen Haupt. Schöner<lb/>
+Schmetterling! biege die Blume zum Bach hin, und<lb/>
+ſieh da deine ſchöne Geſtalt; dann gleichſt du der<lb/>
+ſchönen Belinde, die beym Spiegel vergiſst, daſs<lb/>
+<pb n="117" facs="#f0122"/>
+ſie mehr als Schmetterling ſeyn ſollte; ihr Kleid<lb/>
+iſt nicht ſo ſchön wie deine Flügel, aber Gedan-<lb/>
+ken-los iſt ſie wie du.</p><lb/>
+<p>Was vor ein wildes Spiel hebt ihr izt an, kleine<lb/>
+Zephirs? Sich haſchend wälzen ſie ſich durch das<lb/>
+Gras hin, wie ein ſanfter Wind auf einem Teich,<lb/>
+Wellen vor ſich her jagt, ſo durchwühlen ſie das<lb/>
+rauſchende Gras, die kleinen bunten Bewohner<lb/>
+fliegen empor und ſehen in die Verwüſtung hin-<lb/>
+unter, izt ruhen ſie wieder die Zephirs, und das<lb/>
+Gras und die Blumen winken ſie freundlich zurük.</p><lb/>
+<p>Aber, o! könnt ich mich izt verbergen! Be-<lb/>
+deket mich ihr Blumen! Dort geht der junge<lb/>
+Hyacinthus vorüber, im ſchönen goldnen Kleid;<lb/>
+er eilt durchs verächtliche Gras, neben der Na-<lb/>
+tur hin, und pfeift; ſie mag ihn anlächeln, für<lb/>
+ihn iſt das eine zu alte Schöne; er eilt zu Fräu-<lb/>
+lein Henrietten, wo die ſchöne Welt beym Spiel-<lb/>
+Tiſch ſich ſammelt; da wird ſein Kleid Augen von<lb/>
+feinerm Geſchmak beſſer entzüken, als ein glühen-<lb/>
+<fw type="sig" place="bottom">H 3</fw><lb/>
+<pb n="118" facs="#f0123"/>
+des Abendroth. Wie wird er lachen, wenn er<lb/>
+mich ſieht, fern von der feinen Welt bey den<lb/>
+Würmern im Gras kriechen! Aber verzeihen ſie,<lb/>
+Hyacintus, wenn ich ſo tumm bin, ihrem ſchö-<lb/>
+nen Gang und dem Glanz ihres Kleides nicht nach-<lb/>
+zuſehn, denn hier an dieſem Gräschen läuft ein<lb/>
+Würmchen empor, ſeine Flügel ſind grünlichtes<lb/>
+Gold, und wechſeln prächtig die hellen Farben<lb/>
+des Regenbogens. Verzeihen ſie Hyacintus, ver-<lb/>
+zeihen ſie der Natur, die einem Wurm ein ſchöner<lb/>
+Kleid gab, als keine Kunſt ihnen liefern kan, ihnen<lb/>
+der doch ſo ausnehmenden Wiz hat, Gewiſſen<lb/>
+und Religion dem tummen Pöbel zu überlaſſen.</p><lb/>
+<p>Aber izt kömmt ſie, die ſchöne Daphne! ich<lb/>
+eil izt an ihre Seite, ihr Blumen, und ihr, ihr<lb/>
+kleinen Bewohner; aber noch oft ſollt ihr mir<lb/>
+das ſanfte Entzüken gewähren, das Entzüken,<lb/>
+auch in der kleinſten Verzierung der Natur die<lb/>
+Harmonie mit der Schönheit und dem Nuzen ins<lb/>
+Unendliche hin in unauflöslicher Umarmung zuſehn.<lb/>
+<pb n="119" facs="#f0124"/>
+Sie kömmt, ſie iſt ſchon nahe, die ſchöne Dapli-<lb/>
+ne; wie ihr leichtes grünes Gewand flattert!<lb/>
+Wie lächelt ihr Mund, wie ſchön iſt ihr Aug!<lb/>
+Aber ſie würden für mich nicht ſchön ſeyn, ver-<lb/>
+riethen ſie nicht die ſchöndenkende Seele und das<lb/>
+edelſte Herz.</p><lb/>
+<figure/><lb/>
+</div> <fw type="sig" place="bottom">H 4</fw><lb/>
+<pb n="120" facs="#f0125"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">DER WUNSCH</hi>.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Ürft’ ich vom Schikſal die Erfüllung meines<lb/>
+einigen Wunſches hoffen; denn ſonſt ſind meine<lb/>
+Wünſche Träume, ich wache auf und weiſs<lb/>
+nicht, daſs ich geträumt habe, es ſey denn ein<lb/>
+Wunſch für andrer Glük; dürft’ ich vom Schikſal<lb/>
+dieſes hoffen, dann wünſcht ich mir nicht Ueber-<lb/>
+fluſs, auch nicht über Brüder zu herrſchen, nicht<lb/>
+daſs entfernte Länder meinen Namen nennen.<lb/>
+O könnt’ ich unbekannt und ſtill, fern vom Ge-<lb/>
+tümmel der Stadt, wo dem Redlichen unaus-<lb/>
+weichliche Fallſtrike gewebt ſind, wo Sitten und<lb/>
+Verhältniſſe tauſend Thorheiten adeln, könnt’ ich<lb/>
+in einſamer Gegend mein Leben ruhig wandeln,<lb/>
+im kleinen Landhaus, beym ländlichen Garten,<lb/>
+unbeneidet und unbemerkt!</p><lb/>
+<p>Im grünen Schatten wölbender Nuſs bäume ſtün-<lb/>
+de dann mein einſames Haus, vor deſſen Fenſtern<lb/>
+<pb n="121" facs="#f0126"/>
+kühle Winde und Schatten und ſanfte Ruhe unter<lb/>
+dem grünen Gewölbe der Bäume wohnen; vor<lb/>
+dem friedlichen Eingang einen kleinen Plaz ein-<lb/>
+gezäunt, in dem eine kühle Brunn-Quelle unter<lb/>
+dem Traubengeländer rauſchet, an deren abflieſ-<lb/>
+ſendem Waſſer die Ente mit ihren Jungen ſpielte,<lb/>
+oder die ſanften Dauben vom beſchatteten Dach<lb/>
+herunter flögen, und nikend im Gras wandelten,<lb/>
+indeſs daſs der majeſtätiſche Hahn ſeine gluchzen-<lb/>
+den Hennen im Hof umher führt; ſie würden<lb/>
+dann auf mein bekanntes Loken herbey flattern,<lb/>
+ans Fenſter, und mit ſchmeichelndem Gewimmel<lb/>
+Speiſe von ihrem Herren fordern.</p><lb/>
+<p>Auf den nahen Schatten-reichen Bäumen, wür-<lb/>
+den die Vögel in ungeſtöhrter Freyheit wohnen,<lb/>
+und von einem Baum zum andern nachbarlich ſich<lb/>
+zurufen und ſingen. In der einen Eke des kleinen<lb/>
+Hofes ſollen dann die geflochtenen Hütten der<lb/>
+Bienen ſtehn, denn ihr nüzlicher Staat iſt ein lieb-<lb/>
+liches Schauſpiel; gerne würden ſie in meinem<lb/>
+<fw type="sig" place="bottom">H 5</fw><lb/>
+<pb n="122" facs="#f0127"/>
+Anger wohnen, wenn wahr iſt, was der Land-<lb/>
+mann ſagt, daſs ſie nur da wohnen, wo Fried<lb/>
+und Ruhe in der Wirthſchaft herrſcht. Hinteu<lb/>
+am Hauſe ſey mein geraumer Garten, wo einfäl-<lb/>
+tige Kunſt, den angenehmen Phantaſien der Na-<lb/>
+tur mit gehorſamer Hülfe beyſteht, nicht aufrüh-<lb/>
+riſch ſie zum dienſtbaren Stoff ſich macht, in<lb/>
+groteske Bilder ſie zu ſchaffen. Wände von Nuſs-<lb/>
+ſtrauch umzäunen ihn, und in jeder Eke ſteht eine<lb/>
+grüne Hütte von wilden Roſinen; dahin würd ich<lb/>
+oft den Stralen der Sonn’ entweichen, oder<lb/>
+ſehen, wie der braune Gärtner die Beeten um-<lb/>
+gräbt, um ſchmakhafte Garten-Gewächſe zu<lb/>
+ſäen; Oft würd ich die Schaufel aus der Hand<lb/>
+ihm nehmen, durch ſeinen Fleiſs zur Arbeit ge-<lb/>
+lokt, um ſelbſt umzugraben, indeſs daſs er neben<lb/>
+mir ſtühnde, der wenigern Kräfte lächelnd; oder<lb/>
+ich hülf ihm die flatternden Gewächſe an Stäben<lb/>
+aufbinden, oder der Roſen-Stauden warten und<lb/>
+der zerſtreuten Nelken und Lilien.</p><lb/>
+<pb n="123" facs="#f0128"/>
+<p>Aufſen am Garten müſst’ ein klarer Bach meine<lb/>
+Gras-reiche Wieſe durchſchlängeln; er ſchlän-<lb/>
+gelte ſich dann durch den ſchattichten Hain<lb/>
+fruchtbarer Bäume, von jungen zarten Stämmen<lb/>
+durchmiſchet, die mein ſorgſamer Fleiſs ſelbſt be-<lb/>
+wachete. Ich würd ihn in der Mitte zu einem<lb/>
+kleinen Teich ſich ſammeln laſſen, und in des<lb/>
+Teiches Mitte baut’ ich eine Laube auf eine kleine<lb/>
+aufgeworfene Inſel; zöge ſich dann noch ein<lb/>
+kleiner Reb-Berg an der Seite in die offene Ge-<lb/>
+gend hinaus, und ein kleines Feld mit winkenden<lb/>
+Aehren, wäre der reichſte König dann gegen mir<lb/>
+beneidens werth?</p><lb/>
+<p>Aber fern ſey meine Hütte von dem Landhaus,<lb/>
+das Dorantes bewohnt, ununterbrochen in Ge-<lb/>
+ſellſchaft zu ſeyn. Bey ihm lernt man, daſs Frank-<lb/>
+reich gewiſs nicht kriegen wird, und was Mops<lb/>
+thäte, wenn er König der Britten wäre, und bey<lb/>
+wohlbedekter Tafel werden die Wiſſenſchaften<lb/>
+beurtheilt, und die Fehler unſers Staats, indeſs<lb/>
+<pb n="124" facs="#f0129"/>
+daſs majeſtätiſcher Anſtand vor der leeren Stirne<lb/>
+ſchwebt. Weit von Oronten weg ſey meine ein-<lb/>
+ſame Wohnung; fernher ſammelt ſich Wein in<lb/>
+ſeinen Keller, die Natur iſt ihm nur ſchön, weil<lb/>
+niedliche Biſſen für ihn in der Luft fliegen, oder<lb/>
+den Hain durchirren, oder in der Flut ſchwimmen.<lb/>
+Er eilt auf das Land um ungeſtöhrt raſen zu kön-<lb/>
+nen; wie bang iſt man in den verfluchten Mauern,<lb/>
+wo der tumme Nachbar jede That bemerkt!<lb/>
+Dir begegne nie, daſs ein einſamer Tag bey dir<lb/>
+allein dich laſſe, eine unleidliche Geſellſchaft für<lb/>
+dich, vielleicht entwiſcht dir ein ſchauernder Blik<lb/>
+in dich ſelbſt. Aber nein, gepeinigte Pferde brin-<lb/>
+gen dir ſchnaubend ihre unwürdigen Laſten, ſie<lb/>
+ſpringen fluchend von dem unſchuldigen Thier;<lb/>
+Tumult und Unſinn und raſender Wiz begleiten<lb/>
+die Geſellſchaft zur Tafel, und ein ohnmächtiger<lb/>
+Rauſch endet die tobende Scene. Noch weiter<lb/>
+von dir, hagrer Harpax, deſſen Thüre hagre Hun-<lb/>
+de bewachen, die hungernd dem ungeſtühm ab-<lb/>
+<pb n="125" facs="#f0130"/>
+gewieſenen Armen das bethränte Brod rauben.<lb/>
+Weit umher iſt der arme Landmann dein gepei-<lb/>
+nigter Schuldner; nur ſelten ſteigt der dünne<lb/>
+Rauch von deinem umgeſtürzten Schorſtein auf,<lb/>
+denn ſollteſt du nicht hungern, da du deinen Reich-<lb/>
+thum dem weinenden Armen raubeſt!</p><lb/>
+<p>Aber wohin reiſst mich ungeſtümer Verdruſs?<lb/>
+Kommt zurük, angenehme Bilder, kommt zurük<lb/>
+und heitert mein Gemüth auf; führet mich wie-<lb/>
+der dahin, wo mein kleines Landhaus ſteht. Der<lb/>
+fromme Landmann ſey mein Nachbar, in ſeiner<lb/>
+braunen beſchatteten Hütte; liebreiche Hülfe<lb/>
+und freundſchaftlicher Rath machen dann einet<lb/>
+dem andern zum freundlich lächelnden Nachbar;<lb/>
+denn, was iſt ſeliger als geliebet zu ſeyn, als der<lb/>
+frohe Gruſs des Manns, dem wir Gutes gethan?</p><lb/>
+<p>Wenn den, der in der Stadt wohnet, unruhi-<lb/>
+ges Getümmel aus dem Schlummer wekt, wenn<lb/>
+die nachbarliche Mauer der Morgen-Sonne lieb-<lb/>
+liche Blike verwehrt, und die ſchöne Scene des<lb/>
+<pb n="126" facs="#f0131"/>
+Morgens ſeinem eingekerkerten Blik nicht ver-<lb/>
+gönnt iſt, dann würd’ eine ſanfte Morgen-Luft<lb/>
+mich weken und die frohen Concerte der Vögel.<lb/>
+Dann flög’ ich aus meiner Ruhe, und gieng’ Au-<lb/>
+roren entgegen, auf blumichte Wieſen, oder auf<lb/>
+die nahen Hügel, und ſäng’ entzükt frohe Lieder<lb/>
+vom Hügel herunter. Denn, was entzüket mehr<lb/>
+als die ſchöne Natur, wenn ſie in harmoniſcher<lb/>
+Unordnung ihre unendlich manigfaltigen Schön-<lb/>
+heiten verwindet? Zukühner Menſch! was unter-<lb/>
+windeſt du dich die Natur durch weither nach-<lb/>
+ahmende Künſte zu ſchmüken? Baue Labyrinte<lb/>
+von grünen Wänden, und laſs den geſpizten Taxus<lb/>
+in abgemeſſener Weite empor ſtehn, die Gänge<lb/>
+ſeyen reiner Sand, daſs kein Geſträuchgen den<lb/>
+wandelnden Fuſstritt verwirre; mir gefällt die<lb/>
+ländliche Wieſe und der verwilderte Hain, ihre<lb/>
+Manigfaltigkeit und Verwirrung hat die Natur<lb/>
+nach geheimern Regeln der Harmonie und der<lb/>
+Schönheit geordnet, die unſere Seele voll ſanften<lb/>
+Entzükens empfindt.</p><lb/>
+<pb n="127" facs="#f0132"/>
+<p>Oft würd’ ich bey ſanftem Mondſchein bis zur<lb/>
+Mitternacht wandeln, in einſamen frohen Be-<lb/>
+trachtungen, über den harmoniſchen Weltbau,<lb/>
+wenn unzählbare Welten und Sonnen über mir<lb/>
+leuchten.</p><lb/>
+<p>Auch beſucht’ ich den Landmann, wenn er<lb/>
+beym Furchen-ziehenden Pflug ſingt, oder die<lb/>
+frohen Reihen der Schnitter, wenn ſie ihre länd-<lb/>
+lichen Lieder ſingen, und hörte ihre frohen Ge-<lb/>
+ſchichtchens und ihren muntern Scherz; oder<lb/>
+wenn der Herbſt kommt, und die Bäume bunt<lb/>
+färbet, dann würd’ ich die Geſang-vollen Wein-<lb/>
+Hügel beſuchen, wenn die Mädchens und die<lb/>
+Jünglinge im Rebenhain lachen, und die reifen<lb/>
+Trauben ſammeln. Wenn der Reichthum des<lb/>
+Herbſtes geſammelt iſt, dann gehen ſie jauchzend<lb/>
+zu der Hütte zurük, wo der Kelter lautes Knarren<lb/>
+weit umher tönt; ſie ſammeln ſich in der Hütte,<lb/>
+wo ein frohes Mahl ſie erwartet. Der erſte Hun-<lb/>
+ger iſt geſtillet, izt kommt der ländliche Scherz<lb/>
+<pb n="128" facs="#f0133"/>
+und das laute Lachen, indeſs daſs der freundliche<lb/>
+Wirth die Weinflaſchen wieder auffüllt und zur<lb/>
+Freude ſie aufmahnet. Kunz erzehlt izt, wie er<lb/>
+groſſe Reiſen gethan hat, bis weit in Schwaben<lb/>
+hinaus, und wie er Häuſer geſehen, noch gröſſer<lb/>
+und ſchöner als die Kirch im Dorf, und wie einen<lb/>
+Herren ſechs ſchöne Roſſe in einem gläſernen<lb/>
+Wagen gezogen haben, ſchöner als das beſte das<lb/>
+der Müller im Thal hat, und wie die Bauern da<lb/>
+mit grünen Spizen-Hüten gehn. So erzehlt’ er<lb/>
+vieles, indeſs daſs der junge Knecht, aufmerkſam<lb/>
+den offenen Mund auf die unterſtüzende Hand ge-<lb/>
+lehnet, bald vergeſſen hätte, daſs ſein Mädchen<lb/>
+an ſeiner Seite ſizt, hätte ſie ihn nicht lachend in<lb/>
+die Wange gekneipt. Dann erzehlt Hans, wie<lb/>
+ſeinen Nachbar ein Irrwiſch verfolgt hat, und wie<lb/>
+er ihm auf den Korb geſeſſen, er hätt’ ihn bis un-<lb/>
+ter die Dachrinne verfolgt, wenn er nicht eins ge-<lb/>
+ſchworen hätte. Aber izt gehen ſie aus der Hüt-<lb/>
+te, um beym Mondſchein zu tanzen, bis die Mit-<lb/>
+ternacht ſie zur Ruhe ruft.</p><lb/>
+<fw type="catch" place="bottom">Wenn</fw><lb/>
+<pb n="129" facs="#f0134"/>
+<p>Wenn aber trübe Tage mit froſtigem Regen,<lb/>
+oder der herbe Winter, oder die ſchwüle Hize<lb/>
+des Sommers den Spaziergang mir verböten, dann<lb/>
+würd ich ins einſame Zimmer mich ſchlieſſen;<lb/>
+mich unterhielte da die edelſte Geſellſchaft, der<lb/>
+Stolz und die Ehr’ eines jeden Jahrhunderts, die<lb/>
+groſſen Geiſter, die ihre Weisheit in lehrende<lb/>
+Bücher ausgegoſſen haben; edle Geſellſchaft, die<lb/>
+unſre Seele zu ihrer Würd’ erhebt! Der lehrte<lb/>
+mich die Sitten ferner Nationen, und die Wunder<lb/>
+der Natur in fernen Welt-Theilen: Der dekt<lb/>
+mir die Geheimniſſe der Natur auf, und führt mich<lb/>
+in ihre geheime Werkſtatt, der würde mich die<lb/>
+Oeconomie ganzer Nationen lehren und ihre Ge-<lb/>
+ſchichte, die Schand und die Ehre des Menſchen-<lb/>
+Geſchlechts. Der lehrt mich die Gröſſe und die<lb/>
+Beſtimmung unſrer Seele, und die Reiz-volle Tu-<lb/>
+gend; um mich her ſtünden die Weiſen und die<lb/>
+Sänger des Alterthums; ihr Pfad iſt der Pfad zum<lb/>
+wahren Schönen, aber nur wenige wagen ſich<lb/>
+<fw type="sig" place="bottom">I</fw><lb/>
+<pb n="130" facs="#f0135"/>
+hin, das blöde Haupt macht tauſende ſchwind-<lb/>
+licht zurük gehn, auf eine leichtere Bahn voll<lb/>
+Flittergold und geruchloſer Blumen. Soll ich die<lb/>
+wenigen nennen? Du ſchöpfriſcher Klopſtok, und<lb/>
+du Bodmer, der du mit Breitingern die Fakel der<lb/>
+Critik aufgeſteket haſt, denen Irrlichtern entge-<lb/>
+gen, die in Sümpfe oder dürre Einöden verführ-<lb/>
+ten. Und du Wieland, (oft beſucht deine Muſe<lb/>
+ihre Schweſter, die ernſte Welt-Weisheit, und<lb/>
+holt erhabenen Stoff, aus ihren geheimeſten Kam-<lb/>
+mern, und bildet ihn zu reizenden Gratien,)<lb/>
+oft ſollen eure Lieder in heiliges Entzüken mich<lb/>
+hinreiſſen; Auch du mahleriſcher von Kleiſt,<lb/>
+ſanft entzükt mich dein Lied, wie ein helles<lb/>
+Abendroth, zu frieden iſt dann mein Herz, und<lb/>
+ſtill, wie die Gegend beym Schimmer des Monds;<lb/>
+auch du Gleim, wenn du die lächelnden Empfin-<lb/>
+dungen unſers Herzens ſingeſt und unſchuldigen<lb/>
+Scherz, ‒ ‒ Doch ſoll ich euch alle nennen ihr<lb/>
+wenigen? die verwöhnte Nation miſskennt euern<lb/>
+<pb n="131" facs="#f0136"/>
+Werth, euch zu ſchäzen iſt einer beſſern Nach-<lb/>
+welt vorbehalten.</p><lb/>
+<p>Auch ich ſchriebe dann oft die Lieder hin, die<lb/>
+ich auf einſamen Spaziergängen gedacht, im dun-<lb/>
+keln Hain, oder beym rauſchenden Waſſerfall,<lb/>
+oder im Trauben-Geländer beym Schimmer des<lb/>
+Monds. Oder ich ſähe im Kupferſtich, wie groſſe<lb/>
+Künſtler die Natur nachgeahmet haben, oder ich<lb/>
+verſucht’ es ſelbſt, ihre ſchönen Auftritte auf dem<lb/>
+geſpanneten Tuch nachzuſchaffen.</p><lb/>
+<p>Zuweilen ſtörte mich ein lautes Klopfen vor<lb/>
+meiner Thüre, wie entzükt wär ich, wenn<lb/>
+ein Freund beym Eröfnen in die offenen Arme mir<lb/>
+eilte; oft fänd’ ich ſie auch, wenn ich vom Spa-<lb/>
+ziergang zurük, der einſamen Hütte mich näherte,<lb/>
+einzeln oder in Truppen mir entgegen grüſſen;<lb/>
+geſellſchaftlich würden wir dann die ſchönſten<lb/>
+Gegenden durchirren, nicht mürriſch ernſthafte<lb/>
+Geſpräche mit freundlichem Scherz gemiſcht,<lb/>
+machten uns die Stunden vorbey hüpfen, Hunger<lb/>
+<fw type="sig" place="bottom">I 2</fw><lb/>
+<pb n="132" facs="#f0137"/>
+würde die Koſt uns würzen, die mein Garten mir<lb/>
+gäbe, und der Teich und mein belebter Hof;<lb/>
+Wir fänden ſie bey der Rükkunft unter ei-<lb/>
+nem Trauben-Geländer, oder in der ſchattichten<lb/>
+Hütte im Garten aufgetiſchet; oft auch ſäſſen<lb/>
+wir beym Mondſchein in der Laube beym be-<lb/>
+ſcheidenen Kelchglas, bey frohen Liedern und<lb/>
+munterm Scherz, es wäre denn, daſs der Nach-<lb/>
+tigal melancholiſches Lied uns aufmerken hieſſe.</p><lb/>
+<p>Aber, was träum’ ich? Zu lang, zu lang ſchon<lb/>
+hat meine Phantaſie dich verfolget, dich, eitelen<lb/>
+Traum! Eiteler Wunſch! nie werd’ ich deine<lb/>
+Erfüllung ſehen. Immer iſt der Menſch unzufrie-<lb/>
+den, wir ſehen weit hinaus auf frömde Gefilde<lb/>
+von Glük, aber Labyrinte verſperren den Zugang,<lb/>
+und dann ſeufzen wir hin, und vergeſſen das Gute<lb/>
+zu bemerken, das jedem auf der angewieſenen<lb/>
+Bahn des Lebens beſchehrt iſt. Unſer wahres<lb/>
+Glük iſt die Tugend. Der iſt ein Weiſer, und glük-<lb/>
+lich, der willig die Stell’ ausfüllt, die der Bau-<lb/>
+<pb n="133" facs="#f0138"/>
+meiſter, der den Plan des ganzen denkt, ihm be-<lb/>
+ſtimmt hat. Ja du, göttliche Tugend, du biſt<lb/>
+unſer Glük, du ſtreuſt Freud’ und Seligkeit in je-<lb/>
+dem Stand auf unſre Tage. O wen ſoll ich be-<lb/>
+neiden, wenn ich durch dich beglükt die Lauf-<lb/>
+bahn meines Lebens vollende? dann ſterb’ ich<lb/>
+froh, von Edeln beweint, die mich um deinet-<lb/>
+willen liebten, von euch beweint ihr Freunde.<lb/>
+Wenn ihr beym Hügel meines Grabes vor-<lb/>
+bey geht, dann drüket euch die Hand, dann um-<lb/>
+armet euch; Hier ligt ſein Staub, ſagt ihr,<lb/>
+des Redlichen, aber Gott belohnt ſeine Be-<lb/>
+mühung glüklich zu ſeyn, izt mit ewigem Glük;<lb/>
+bald aber wird unſer Staub auch da ligen, und<lb/>
+dann genieſſen wir mit ihm das ewige Glük;<lb/>
+und du, geliebte Freundin! wann du beym Hügel<lb/>
+meines Grabes vorüber geheſt, wann die Maaſs-<lb/>
+lieben und die Ringelblumen von meinem Grabe<lb/>
+dir winken, dann ſteig eine Thräne dir ins Auge,<lb/>
+und iſts den Seligen vergönnt, die Gegend, die<lb/>
+<pb n="134" facs="#f0139"/>
+wir bewohnt, und die ſtillen Haine zu beſuchen,<lb/>
+wo wir oft in ſeligen Stunden unſrer Seele groſſe<lb/>
+Beſtimmung dachten, und unſre Freunde zu um-<lb/>
+duften, dann wird meine Seele dich oft umſchwe-<lb/>
+ben, oft, wenn du voll edler hoher Empfindung<lb/>
+einſam nachdenkeſt, wird ein ſanftes Wehen deine<lb/>
+Wangen berühren; dann gehe ein ſanftes Schauern<lb/>
+durch deine Seele!</p><lb/>
+<figure/><lb/>
+</div>
+<pb n="[135]" facs="#f0140"/>
+<pb n="[136]" facs="#f0141"/>
+<pb n="[137]" facs="#f0142"/>
+</body></text> </TEI>

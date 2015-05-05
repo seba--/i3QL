@@ -1,0 +1,2615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Der deutsche Christus</title>
+<title type="sub">Fünfzehn Canzonen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/116442859">
+<surname>Candidus</surname>
+<forename>Karl</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">115</measure>
+<measure type="tokens">14016</measure>
+<measure type="types">4711</measure>
+<measure type="characters">93127</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:42Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/candidus_christus_1854</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/candidus_christus_1854</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/candidus_christus_1854</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/candidus_christus_1854</idno>
+<idno type="DTADirName">candidus_christus_1854</idno>
+<idno type="DTAID">17228</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-20090519783</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Candidus, Karl: Der deutsche Christus. Fünfzehn Canzonen. Leipzig, 1844.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Der deutsche Christus</title>
+<title level="m" type="sub">Fünfzehn Canzonen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/116442859">
+<surname>Candidus</surname>
+<forename>Karl</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">VIII, 96 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Hirzel</name></publisher>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1854</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Yo 6731</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=022576843</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Epos</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[I]" facs="#f0007"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b #g">Der deutſche Chriſtus</hi> <hi rendition="#b">.</hi></titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="sub">Fünfzehn Canzonen</titlePart> </docTitle><lb/>
+<byline>von<lb/>
+<docAuthor> <hi rendition="#b #g">Karl Candidus</hi><hi rendition="#b">.</hi></docAuthor> </byline><lb/>
+<figure/><lb/>
+<docImprint> <pubPlace><hi rendition="#b #g">Leipzig</hi></pubPlace><lb/>
+<publisher> <hi rendition="#g">Verlag von S. Hirzel</hi>.</publisher><lb/>
+<docDate> <hi rendition="#b">1854.</hi></docDate><lb/>
+</docImprint> </titlePage>
+<pb n="[II]" facs="#f0008"/>
+<pb n="[III]" facs="#f0009"/>
+<div type="dedication"> <p rendition="#c">Meinen getreuen Freunden<lb/>
+<hi rendition="#b #fr">Theodor Kugler, Guſtav Mühl, Auguſt Nefftzer</hi><lb/>
+zur Erinnerung<lb/>
+an entſchwundener Jugendzeit trauliche Weiheſtunden<lb/>
+gewidmet.</p><lb/>
+<p> <hi rendition="#g">Nancy</hi>, den 29. Mai 1853.</p><lb/>
+<p rendition="#right"> <hi rendition="#b">K. C.</hi></p><lb/>
+</div>
+<pb n="[IV]" facs="#f0010"/>
+</front>
+<pb n="[V]" facs="#f0011"/>
+<body> <div type="preface"> <p>Ich könnte es überhoben sein, diese von Lothrin¬<lb/>
+gen her uns dargereichte innige und seelenvolle dich¬<lb/>
+tung mit meinen worten zu begleiten, da unfehlbar<lb/>
+ihr reines, zartgefaltetes gewand den blick von selbst<lb/>
+auf sich ziehen wird. ihre überschrift mahnt mich<lb/>
+an Otfried, der, bald sind es nun schon tausend jahre,<lb/>
+im kloster Weiszenburg, also auch jenseit Rheines,<lb/>
+seinen evangeliono deil den stolzen Franken laut er¬<lb/>
+schallen liesz,<lb/>
+<hi rendition="#c">thaz wir Kriste sungun in unsera zungun;</hi><lb/>
+fast um dieselbe zeit, wo eines armen im walde hütenden<lb/>
+hirten stimme, dessen name verschollen ist, durch ein<lb/>
+nachtgesicht plötzlich zur poesie entzündet, den Alt¬<lb/>
+sachsen ihren Heiland sang. so begierig waren diese<lb/>
+Deutschen, ihres frischen glaubens inhalt aus dem rö¬<lb/>
+mischen kleid zu ziehen und in ein heimisches, dem<lb/>
+volke gefüges zu gieszen; sie folgten den evangelischen<lb/>
+berichten auf dem fusze, Otfried mehr aushebend, er¬<lb/>
+bauliche, geistliche gedanken zwischen einstreuend,<lb/>
+der Sachse voller, epischer, in seiner mildeindringenden<lb/>
+sprache klingen heidnische weisen nach. welchen<lb/>
+eindruck diese werke auf ihre zeitgenossen hinter¬<lb/>
+lieszen, wissen wir nicht, beide dichter hätten aber<lb/>
+nicht zu ahnen vermocht, wie zu danke sie späten ge¬<lb/>
+schlechtern geschrieben haben, denen nichts höher an¬<lb/>
+lag, als aus dem schutte langer vergessenheit die sie¬<lb/>
+<pb n="VI" facs="#f0012"/>
+benschläfer zu wecken, und an ihrer unverwitterten<lb/>
+gestalt, als lautersten denkmälern, die regel und den<lb/>
+ganzen wollaut unserer alten sprache zu erforschen.<lb/>
+solange deutsche zunge dauert, werden diese ehrwür¬<lb/>
+digen gedichte gelesen werden und nimmer untergehn.<lb/>
+O des wandels! eine edle hehre dichtung, die vor<lb/>
+erst hundert jahren in allen händen war, und mit mäch¬<lb/>
+tigem ruck durch ihren angebornen adel unsere gesamte<lb/>
+poesie empor gehoben hat, beginnt, wer wollte es sich<lb/>
+verbergen?, ungelesen zu sein und zu versinken. Klop¬<lb/>
+stocks Messias, nachdem er so grosze, in ihm und zu¬<lb/>
+gleich auszer ihm gelegene Wirkung auf seine zeit her¬<lb/>
+vorgebracht hatte, hört fortzuleben auf, und wir müssen<lb/>
+ihn heute für ein verfehltes werk erklären. sein dichter<lb/>
+wähnte dadurch, dasz er in der evangelisten heilige<lb/>
+berichterstattung eine reihe englischer, menschlicher und<lb/>
+teuflischer wesen schaltete, ein wahrhaftes epos zu er¬<lb/>
+zeugen, da doch die zwischentretenden gestalten immer<lb/>
+nur scheinthätig sind, d. h. alles was geschieht eben¬<lb/>
+so wol auch ohne sie geschehen müste oder geschehen<lb/>
+wäre. diese schwebenden und betenden cherubim und<lb/>
+seraphim bis auf unser überempfindsames urelternpaar<lb/>
+herab halten nicht wider, sie sind lauter fünfte räder am<lb/>
+wagen und werden durch ihre erdichtung und unwahr¬<lb/>
+heit uns auf die länge unerträglich, jedes epos aber<lb/>
+fordert ungestörten glauben. Klopstocks Christus selbst,<lb/>
+so erhaben und gefühlvoll er gehalten sei, ist doch we¬<lb/>
+der geistig fein genug, noch menschlich blühend, dasz<lb/>
+beide naturen einander tief durchdrängen.</p><lb/>
+<p>Christus ist gar nicht episch darzustellen, nur<lb/>
+lyrisch, denn aller mythischen auffassung entgegen<lb/>
+strebt die unverrückbare bestimmtheit unserer religion.<lb/>
+<pb n="VII" facs="#f0013"/>
+wer aber sehen will, wie lyrisch er aufzunehmen und<lb/>
+wiederzugeben sei, lese, dünkt mich, unsern neuen<lb/>
+dichter, der vom boden menschlicher und irdischer<lb/>
+gefühle aus dem innersten seiner brust ausgehend auf<lb/>
+in geistige höhe klimmt und sich von ihr herabsenkt,<lb/>
+um von seinem fluge zu ruhen und zum aufschwung<lb/>
+neue stärke zu sammeln. diese mit dichterischer be¬<lb/>
+sonnenheit überall gepaarte schwärmerei scheint sein<lb/>
+eigenstes kennzeichen, und steigender funken art ist es<lb/>
+zu schwärmen, ja alle lyrische begeisterung, mag sie<lb/>
+gott, den sieg oder die liebe zum gegenstand haben,<lb/>
+musz schwärmerisch sein.</p><lb/>
+<p>Des dichters deutschen Christus dürfte man so<lb/>
+nehmen, als ob heimwehvoll und im bewustsein der<lb/>
+ihm ungeschwächt einwohnenden muttersprache er seine<lb/>
+lieder entsende. vielmehr aber ist offenbar die meinung,<lb/>
+dasz er einen Christus in deutschem sinn aufstelle, wie<lb/>
+ihn deutsche gemütsart und gedankenerhebung ge¬<lb/>
+funden, gehegt und erkannt hat, seit durch die reforma¬<lb/>
+tion herz und glaube gelöst und frei gemacht und<lb/>
+jener kalte, allgemeine Christus der katholischen kirche<lb/>
+aufgehoben wurde. als echten protestanten gibt den<lb/>
+verfasser schon seine äuszere stellung kund, und schöne,<lb/>
+warme worte, die jeder finden wird, verbürgen ihn.</p><lb/>
+<p>Er wählte sich eine der geschmeidigsten italieni¬<lb/>
+schen formen aus, die vollen gedankenreichthum wal¬<lb/>
+ten läszt und in ungezwungne reime einschlieszt; unter<lb/>
+allen würde ich der vierten canzone und der zwölften<lb/>
+den preis zuerkennen, worin er seines sohnes taufe<lb/>
+feiert, den an die hergegebnen weihetropfen dereinst<lb/>
+zu mahnen er alle gewässer lieblich aufruft.</p><lb/>
+<p>Mir verargt es keiner, wenn ich ein paar wort¬<lb/>
+<pb n="VIII" facs="#f0014"/>
+bemerkungen beifüge. Candidus bedient sich einiger<lb/>
+ungewöhnlichen ausdrücke, die er vielleicht einführt,<lb/>
+wie neustets für stets von neuem, er setzt im conjunctiv<lb/>
+das praeteritum statt des praesens, wie seite 69 entböte,<lb/>
+75 sprösse, was aber mit einem empfindlichen mangel<lb/>
+unserer sprache zusammenhängt, seite 7 möchte man<lb/>
+lesen hatt es für hat es. schneuse für schneise seite 87<lb/>
+kann gestattet werden. herse seite 64 für egge, im<lb/>
+reim auf ferse schwer zu meiden, ist das einzige ent¬<lb/>
+schlüpfte französische wort (aus irpex, ital. erpice,<lb/>
+harpago). die schreibung ortnung sucht bezüge auf<lb/>
+ort, spitze, ecke, wovon doch schon in der alten<lb/>
+sprache orde, ordnung fern steht, wol aber könnte tief¬<lb/>
+einschlagende etymologie die verhüllte verwandtschaft<lb/>
+zwischen sohn und sühne (goth. sunus und saun) an<lb/>
+den tag bringen.</p><lb/>
+<p rendition="#et"><hi rendition="#k">Berlin</hi> 26 dec. 1853.</p><lb/>
+<p rendition="#right"><hi rendition="#b">Jacob Grimm</hi>.</p> </div><lb/>
+<pb n="[1]" facs="#f0015"/>
+<div n="1"> <head> <hi rendition="#g">Der</hi><lb/>
+<hi rendition="#b #g">deutſche Chriſtus</hi><hi rendition="#b">.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/>
+<pb n="[2]" facs="#f0016"/>
+<pb n="[3]" facs="#f0017"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">I</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Unendliches in Endlichem zu ſchauen</l><lb/>
+<l>Erſannen ihre Götter die Hellenen,</l><lb/>
+<l>Weil himmelher gottmenſchliches Gebaren</l><lb/>
+<l>Dem Sinn entgegendämmerte bei Jenen.</l><lb/>
+<l>Es lag die Welt in heil'gem Morgengrauen.</l><lb/>
+<l>Doch mächtig wollte Gott ſich offenbaren,</l><lb/>
+<l>Und als erfüllet waren</l><lb/>
+<l>Die Zeiten und ſein Vollglanz nun hervortrat</l><lb/>
+<l>Im Mittler Jeſus, ſanken hin die Götter</l><lb/>
+<l>Ein traurig Spiel der Spötter,</l><lb/>
+<l>Hinſank das Fatum und zurück der Chor trat.</l><lb/>
+<l>Des dunkeln Ahnens Zeichen und Umhüllung</l><lb/>
+<l>Schwand vor der Klarheit wirklicher Erfüllung.</l><lb/>
+</lg> <fw type="sig" place="bottom">1 *<lb/>
+</fw>
+<pb n="4" facs="#f0018"/>
+<lg n="2"> <l>Nicht konnten die olympiſchen Geſtalten</l><lb/>
+<l>Dem Gottesmenſchenthume ſich vergleichen</l><lb/>
+<l>Deß der da ſprach: „wer mich ſieht, ſieht den Vater.“</l><lb/>
+<l>Kein Phidias entlockt des Meißels Streichen</l><lb/>
+<l>So warmes Leben und ſo hohes Walten.</l><lb/>
+<l>In Fleiſch und Blut, als wahrer Menſch, auftrat er</l><lb/>
+<l>Und angelweit aufthat er</l><lb/>
+<l>Die Thore des Unendlichen für Jeden</l><lb/>
+<l>Der ſeines Gottbewußtſeins theilhaft werden</l><lb/>
+<l>Und Ewiges auf Erden</l><lb/>
+<l>Darſtellen mochte ſo in Thun wie Reden.</l><lb/>
+<l>Er heiligte für Alle ſich daß Alle</l><lb/>
+<l>Zu Göttern würden bei der Götter Falle.</l><lb/>
+</lg> <lg n="3"> <l>Und war das Fatum attiſcher Tragöden</l><lb/>
+<l>Erſchütternd wie bei ſittlichen Geſetzen</l><lb/>
+<l>Erhabne Unverbrüchlichkeit und Sühne?</l><lb/>
+<l>Ergreift euch nicht ein ſchauderndes Entſetzen</l><lb/>
+<l>Wenn in den Schuldzuſammenhang des blöden</l><lb/>
+<l>Geſchlechts eintretend untergeht der Kühne</l><lb/>
+<l>Dort auf des Lebens Bühne,</l><lb/>
+<l>Daß ſeiner Unſchuld theilhaft das Geſchlecht ſei?</l><lb/>
+<l>Iſt die Heroenwelt doch nur ein Ahnen</l><lb/>
+<l>Der wundervollen Bahnen</l><lb/>
+<l>Worauf der Geiſt uns führt zu dem was recht ſei!</l><lb/>
+<l>Vom Kreuz erſt dunkelt ſchrecklich das Verhängniß,</l><lb/>
+<l>Erſt jene Sühne tilgt der Welt Bedrängniß.</l><lb/>
+</lg>
+<pb n="5" facs="#f0019"/>
+<lg n="4"> <l>Die ihr aus Schutt nun grabet Götterbilder,</l><lb/>
+<l>Mit euch will ſchwelgen ich im Werk der Muſen,</l><lb/>
+<l>Doch ob auch vor dem Donnerer durchfähret</l><lb/>
+<l>Gotthaftes Ahnen der Beſchauer Buſen,</l><lb/>
+<l>Gotthafter däucht mir, trauter auch und milder</l><lb/>
+<l>Ein lebend Menſchenantlitz das verkläret</l><lb/>
+<l>Als Spiegel ſich bewähret</l><lb/>
+<l>Der Herrlichkeit die ſich vom Kreuz ergoſſen.</l><lb/>
+<l>Doch ferner Zukunft bleibt, ach! vorbehalten</l><lb/>
+<l>Das Leben zu geſtalten,</l><lb/>
+<l>Denn dies Geſchlecht hat Flügel nicht noch Floſſen.</l><lb/>
+<l>Sie <hi rendition="#g">haben</hi> nicht und <hi rendition="#g">ſind</hi> auch keine Götter,</l><lb/>
+<l>Und noch die Beſten ſind fürwahr die Spötter.</l><lb/>
+</lg> <lg n="5"> <l>Sie wenigſtens doch zeigen durch ihr Höhnen</l><lb/>
+<l>Vorhandnen Sinn, Beregniß, zeigen Feindſchaft,</l><lb/>
+<l>Und oft iſt Feindſchaft mißverſtand'ne Liebe.</l><lb/>
+<l>Mißbildern kniet der Frömmlinge Gemeinſchaft</l><lb/>
+<l>Anſtatt der Urbildung, der hohen, ſchönen,</l><lb/>
+<l>Zerrbildern, wert zermalmungsvollſter Hiebe.</l><lb/>
+<l>In ſeinem dunkeln Triebe</l><lb/>
+<l>Dient da der Gottheit mancher Läſtrer Gottes</l><lb/>
+<l>Weit beſſer als die dumpfigen Geſellen,</l><lb/>
+<l>Die nie die Bruſt erſchwellen</l><lb/>
+<l>Sich fühlten bei dem freien Hauch des Spottes.</l><lb/>
+<l>Wol gilt manch Nein als Ja hoch ob den Sternen.</l><lb/>
+<l>Doch Theilnahmloſigkeit mag nichts erlernen.</l><lb/>
+</lg>
+<pb n="6" facs="#f0020"/>
+<lg n="6"> <l>Den Heiden werde drum das Wort gepredigt</l><lb/>
+<l>Die gläubig noch zu ihrem Fetiſch beten!</l><lb/>
+<l>Gepredigt denen die vor Graungeſtalten</l><lb/>
+<l>Uralter Götzen opferblutig treten!</l><lb/>
+<l>Vielleicht erkennen dieſe daß erledigt</l><lb/>
+<l>Was ſie geſucht in ihrem dunkeln Walten.</l><lb/>
+<l>Laßt Indern ſich entfalten</l><lb/>
+<l>Der guten Botſchaft tiefſinnſchweres Drama.</l><lb/>
+<l>Vielleicht wird ſich denſelben offenbaren</l><lb/>
+<l>Im unſichtbar-ſichtbaren</l><lb/>
+<l>Gottmenſchen die Bedeutung ihres Brahma.</l><lb/>
+<l>Da wo nur <hi rendition="#g">irdiſches</hi> Beregniß ſchaltet,</l><lb/>
+<l>Sind wahrer Gott und wahrer Menſch veraltet.</l><lb/>
+</lg> <lg n="7"> <l>Ich kenne meine Zeit. Mir aber zucket</l><lb/>
+<l>Der Meißel, was auch immer ſei die Glocke,</l><lb/>
+<l>Ein Bild des großen Stillen auszuhauen</l><lb/>
+<l>Aus der Betrachtung reinſtem Marmorblocke,</l><lb/>
+<l>Für hochſtrebſame Jugend, die, entrucket</l><lb/>
+<l>Gemeiner Welt, es gerne mag erſchauen.</l><lb/>
+<l>Ein heilig ſüßes Grauen</l><lb/>
+<l>Will vor dem hohen Steine mich erfaſſen,</l><lb/>
+<l>„Als knieten Viele ungeſehn“ —, wie's heißet</l><lb/>
+<l>Im frommen Lied. Mir reißet</l><lb/>
+<l>Das Eiſen in der Hand, ich kann's nicht laſſen,</l><lb/>
+<l>Ich muß hinan. Eh' ſich das Jahr mag neigen</l><lb/>
+<l>Muß aus ſich ſelbſt <hi rendition="#g">der deutſche Chriſtus</hi> ſteigen.</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/>
+<pb n="[7]" facs="#f0021"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">II</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Tag unter allen Tagen mir geſegnet,</l><lb/>
+<l>An dem der Heiland geiſtig mir erſchienen,</l><lb/>
+<l>O Tag des Heils, dein werd' ich ſtets gedenken!</l><lb/>
+<l>Ich fuhr dahin auf blanken Eiſenſchienen,</l><lb/>
+<l>Längs den Vogeſen hat es fern geregnet,</l><lb/>
+<l>Ich kam von Straßburgs hoher Schule Bänken</l><lb/>
+<l>Und ließ in ſich verſenken</l><lb/>
+<l>Den Geiſt ſich zu erinnernder Betrachtung.</l><lb/>
+<l>Da war's, da ſah ich ihn, den großen Stillen,</l><lb/>
+<l>Da trat er, mir zu Willen,</l><lb/>
+<l>Hervor aus ringsaufdämmernder Umnachtung,</l><lb/>
+<l>Und die ihn da umſtralt, die hellen Stralen,</l><lb/>
+<l>Sie blitzten gleich Türkiſen und Opalen.</l><lb/>
+</lg>
+<pb n="8" facs="#f0022"/>
+<lg n="2"> <l>Kein bloßes Bild war's, was ſie Bild ſo nennen,</l><lb/>
+<l>Kein Sinnbild, nein, Selbſtdarſtellung des Lebens,</l><lb/>
+<l>Das Leben ſelbſt, er ſelbſt war's. Wonneſchauer</l><lb/>
+<l>Strebt zu erregen leere Form vergebens.</l><lb/>
+<l>Mir aber ſchauerte. Mag Freunde trennen</l><lb/>
+<l>Ein äußeres Geſchick, beſieh's genauer,</l><lb/>
+<l>Sie ſind in Luſt und Trauer</l><lb/>
+<l>Doch ungetrennt, denn weſſen Leib natürlich,</l><lb/>
+<l>Der hat auch einen geiſt'gen Leib, und nimmer</l><lb/>
+<l>Kann ſolchen Leibes Schimmer,</l><lb/>
+<l>Der wirkend lebt, mir gelten als figürlich</l><lb/>
+<l>In jenem dürft'gen Sinne wie ſie's meinen,</l><lb/>
+<l>Weil ihnen Schein und Sein ſich nie vereinen.</l><lb/>
+</lg> <lg n="3"> <l>Nicht nach dem Fleiſch, nein, wie er in uns wohnet,</l><lb/>
+<l>So iſt der Heiland damals mir erſchienen,</l><lb/>
+<l>Und ſeine Hände träuften Glutverlangen,</l><lb/>
+<l>Demütig treu dem Himmliſchen zu dienen,</l><lb/>
+<l>Der mir im eignen Buſen wohnt und thronet.</l><lb/>
+<l>Denn wie Corregio war es mir ergangen</l><lb/>
+<l>Der vor dem Farbenprangen</l><lb/>
+<l>Des Sanzio ausrief: „ich auch bin ein Maler!“</l><lb/>
+<l>Mir hatte Göttliches der Gott gewecket,</l><lb/>
+<l>Und freudig bang erſchrecket</l><lb/>
+<l>Erkannte ich als Stral mich vor dem Straler.</l><lb/>
+<l>Mein Auge war, nachdem es erſt geblendet,</l><lb/>
+<l>Den morgenländ'ſchen Augen zugewendet.</l><lb/>
+</lg>
+<pb n="9" facs="#f0023"/>
+<lg n="4"> <l>Und ſeine Gottesmenſchheit die er zeugte,</l><lb/>
+<l>Die in ihm iſt und lebt und webt bewußtvoll</l><lb/>
+<l>Weil ſie mit ihm verſelbigt hat der Glaube,</l><lb/>
+<l>Die ſeines Leidens iſt und ſeiner Luſt voll,</l><lb/>
+<l>Die tauſend Kreuzen ihren Nacken beugte</l><lb/>
+<l>Und dennoch nimmer ward dem Tod zum Raube,</l><lb/>
+<l>Und Jene die am Staube,</l><lb/>
+<l>Ach! weithin zahllos wie der Sand am Meere</l><lb/>
+<l>In trauriger Gebundenheit noch kleben</l><lb/>
+<l>Und immer noch nicht leben</l><lb/>
+<l>Obſchon ſein Blut für ſie auch troff vom Speere,</l><lb/>
+<l>Der Menſchheit ſämmtliche Geſchlechter malten</l><lb/>
+<l>In jenen Augen ſich die mild erſtralten.</l><lb/>
+</lg> <lg n="5"> <l>Und was uns fördern mag im rechten Handeln,</l><lb/>
+<l>Was als Erkenntniß kräftig im Gedanken</l><lb/>
+<l>Sich fortbewegt, und was da lieblich ſcheinet</l><lb/>
+<l>Als Schönheit in der Sinne holden Schranken,</l><lb/>
+<l>Des Tages Glanz, der Nächte ſtilles Wandeln,</l><lb/>
+<l>Und Schmerz und Wonne die das Leben weinet,</l><lb/>
+<l>Und was der Künſtler meinet,</l><lb/>
+<l>Das All mit Allem was uns in ihm hebet,</l><lb/>
+<l>In ihm beglückt, was da geveſtet aufliegt,</l><lb/>
+<l>Was grünt, was läuft und auffliegt,</l><lb/>
+<l>Was flammt und ſtrömt und frohes Leben lebet,</l><lb/>
+<l>Im Spiegel jener Augen war's zu leſen,</l><lb/>
+<l>War Eins mit Ihm durch ſeiner Liebe Weſen.</l><lb/>
+</lg>
+<pb n="10" facs="#f0024"/>
+<lg n="6"> <l>Es war der Welterlöſer der da ſchwebte,</l><lb/>
+<l>Der Hochverklärte, frei von Zeitbeſchränkniß,</l><lb/>
+<l>Der Zeiten und Geſchichte Herr und Meiſter,</l><lb/>
+<l>Und gleich galt ob er lebte als Erdenkniß,</l><lb/>
+<l>Ob anders, gleich galt wann und wo er lebte,</l><lb/>
+<l>Er war es wie er <hi rendition="#g">wirket</hi> auf die Geiſter.</l><lb/>
+<l>Mir war, wenn ihn ein dreiſter</l><lb/>
+<l>Apoſtel ſchöpferiſch hervorgerufen,</l><lb/>
+<l>Er hätte dann <hi rendition="#g">geſchichtlich</hi> auch gelebet,</l><lb/>
+<l>Geblutet und gebebet</l><lb/>
+<l>Im Volk und im Apoſtel die ihn ſchufen,</l><lb/>
+<l>Und dieſe wären <hi rendition="#g">ſelber</hi> dann geweſen</l><lb/>
+<l>Des fleiſchgeword'nen Gottes <hi rendition="#g">wirklich</hi> Weſen.</l><lb/>
+</lg> <lg n="7"> <l>Aus Gott nur kann ja Göttliches uns kommen</l><lb/>
+<l>Und er nur heiligt jegliche Erſcheinung.</l><lb/>
+<l>Den Punkt aus welchem Gott die Welt beweget</l><lb/>
+<l>Zur Rückkehr aus der Endlichkeit Verneinung,</l><lb/>
+<l>Ihn ſah ich im Gekreuzigten, im Frommen,</l><lb/>
+<l>Der liebend des Geſchlechtes Sünde träget</l><lb/>
+<l>Und uns zu Füßen leget</l><lb/>
+<l>Hochher entſtammte reiche Gottesfülle,</l><lb/>
+<l>Daß wir uns Gold und Perlen eignen können.</l><lb/>
+<l>Ein gnadenreiches Gönnen,</l><lb/>
+<l>Das ſah ich in des Menſchenſohnes Hülle,</l><lb/>
+<l>Wie langerſehnten Regens Niederrauſchen</l><lb/>
+<l>Dem wolig rings die Creaturen lauſchen.</l><lb/>
+</lg>
+<pb n="11" facs="#f0025"/>
+<lg n="8"> <l>Drum in die Zeit hin bergglasglockentönig</l><lb/>
+<l>Sing' ich das Rolandslied des Chriſtenthumes.</l><lb/>
+<l>Mir mochte freilich ſtets auch klarer werden</l><lb/>
+<l>Daß ihm nur Rauſchgoldkronen ird'ſchen Ruhmes</l><lb/>
+<l>Sein Volk ſchuf, nicht ihn ſelbſt, den Geiſterkönig,</l><lb/>
+<l>Daß er im Weſentlichen war auf Erden</l><lb/>
+<l>Wie ſonder viel Beſchwerden</l><lb/>
+<l>Mir Vater ſagte in der Kindheit Tagen:</l><lb/>
+<l>Mir mochte das Geſchichtliche begründen</l><lb/>
+<l>Theilweiſe ſich und ründen,</l><lb/>
+<l>Doch darnach durfte nicht mein Glaube fragen.</l><lb/>
+<l>Der Glaube hat ganz <hi rendition="#g">anderes</hi> Verlangen:</l><lb/>
+<l>Ihm gnügt daß er das Ew'ge hält umfangen.</l><lb/>
+</lg> <lg n="9"> <l>O daß doch nicht mit Weisheit manche Weiſen,</l><lb/>
+<l>Nein, ganz wie aberkluge Kinder ſtreiten</l><lb/>
+<l> <hi rendition="#g">Ob die Geſchichte wahr ſei</hi>! Gibt doch Wahrheit</l><lb/>
+<l>Allein der Geiſt dem Reich der Wirklichkeiten!</l><lb/>
+<l>O heller ſtralt aus tauſend Fabelkreiſen</l><lb/>
+<l>Sie als aus eures Daſeins armer Baarheit!</l><lb/>
+<l>Mir ſitzt in Himmelsklarheit</l><lb/>
+<l>Zur Rechten Gottes ewiglich der Mittler,</l><lb/>
+<l>Hoch über jenen grauſen Finſterniſſen</l><lb/>
+<l>Worin ſich wißbefliſſen</l><lb/>
+<l>Abmühen ernſte Forſcher wie auch Krittler.</l><lb/>
+<l>Wie ruhig kann ich forſchen, leben, ſterben!</l><lb/>
+<l>Er lebt mir ja und läßt mich nicht verderben.</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/>
+<pb n="[12]" facs="#f0026"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">III</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Wie uns ihr eignes Licht die Sichtbarkeiten</l><lb/>
+<l>Auf wunderbarer Kunſt Jodſilber malet,</l><lb/>
+<l>So malt dein Bild auf ſchlichter Seelen Grunde</l><lb/>
+<l>Die Klarheit, welche dir, o Herr, entſtralet</l><lb/>
+<l>Und lieblich fällt in Schmerzes Dunkelheiten,</l><lb/>
+<l>Wenn du den Schieber hebſt zur rechten Stunde.</l><lb/>
+<l>O ſtets mit Herz und Munde</l><lb/>
+<l>Will ich dem heilig hehren Künſtler danken,</l><lb/>
+<l>Der mir durch ſeiner Weltanſchauung Normen</l><lb/>
+<l>Und Grundempfindungsformen</l><lb/>
+<l>Hat umgebildet gänzlich die Gedanken!</l><lb/>
+<l>Die chriſtliche Beſtimmtheit der Gemüter</l><lb/>
+<l>Iſt Kraft als <hi rendition="#g">Geiſt</hi>, iſt Heil als Geiſtes <hi rendition="#g">Güter</hi>.</l><lb/>
+</lg>
+<pb n="13" facs="#f0027"/>
+<lg n="2"> <l>Dein Geiſt iſt deine Weiſe Gott zu haben,</l><lb/>
+<l>Iſt deine Demut und dein Selbſtbewußtſein,</l><lb/>
+<l>Denn weil du <hi rendition="#g">endlich</hi>, iſt der Vater größer,</l><lb/>
+<l>Doch gleichermaßen mußt' in deiner Bruſt ſein</l><lb/>
+<l>Ein Selbſtgefühl unnennbar, hehr, erhaben,</l><lb/>
+<l> <hi rendition="#g">Eins</hi> ja mit Gotte warſt du, mein Erlöſer!</l><lb/>
+<l>Wenn du mich nun, Entblößer</l><lb/>
+<l>Von allen Moſisdecken, mir bewähreſt</l><lb/>
+<l>Als tief von deiner Herrlichkeit durchdrungen,</l><lb/>
+<l>Und wie durch Spiegelungen</l><lb/>
+<l>Mich in ein dir verwandtes Bild verkläreſt,</l><lb/>
+<l>Ja mich zur Brudergleichheit willſt erwählen,</l><lb/>
+<l>Muß Demut nicht und Stolz <hi rendition="#g">auch mich</hi> beſeelen?</l><lb/>
+</lg> <lg n="3"> <l>Du wollteſt niemals <hi rendition="#g">gut</hi> geheißen werden,</l><lb/>
+<l>„Nur Gott iſt gut,“ ſo ſprachſt du groß beſcheiden,</l><lb/>
+<l>Doch warſt du Eins mit Gott, weil nur als nichtig</l><lb/>
+<l>Du dich von Gotte konnteſt unterſcheiden,</l><lb/>
+<l>Und ob du als ein Menſch zwar an Geberden</l><lb/>
+<l>Und mannichfacher Schwachheit warſt erſichtig,</l><lb/>
+<l>Warſt du doch nimmer pflichtig</l><lb/>
+<l>Noch unterworfen dem Geſetz der Sünden,</l><lb/>
+<l>Denn über die perſönlich enge Schranke</l><lb/>
+<l>Hinaus war dein Gedanke,</l><lb/>
+<l>Gott mochteſt du als wahres Selbſt verkünden.</l><lb/>
+<l>Zu gleicher Reinheit drängſt du nun die Geiſter.</l><lb/>
+<l>So wardſt du dienend unſer Aller Meiſter.</l><lb/>
+</lg>
+<pb n="14" facs="#f0028"/>
+<lg n="4"> <l>Und Quelle deiner Demut war dein Lieben,</l><lb/>
+<l>So auch dein Lieben Quelle deiner Hoheit.</l><lb/>
+<l>Sind dies denn nicht der Liebe beide Pole?</l><lb/>
+<l>O wie beklagenswert iſt jene Rohheit,</l><lb/>
+<l>Die an des Stolzes und der Demut Trieben</l><lb/>
+<l>Nur Streit hat, leere Strebungen, gleich hohle!</l><lb/>
+<l>O wenn zu Eurem Wole</l><lb/>
+<l>Ihr liebtet und begriffet! Elend ſcheinen</l><lb/>
+<l>Müßt ihr mir vollends wo ihr vor mögt wenden</l><lb/>
+<l>Das <hi rendition="#g">Selbſtvergegenſtänden</hi>.</l><lb/>
+<l>Angeblich ſchuft ihr Gott und ſeinen Reinen,</l><lb/>
+<l>Und könnt das eigne Werk nicht menſchlich lieben?</l><lb/>
+<l>O wo ſind Stolz und Demut euch <hi rendition="#g">geblieben</hi>?!</l><lb/>
+</lg> <lg n="5"> <l>Du biſt in mich und ich in dich geſtaltet</l><lb/>
+<l>Und nichts kann mich, mein Heiland! von dir ſcheiden,</l><lb/>
+<l>Kann ich doch von mir ſelbſt nicht ſein geſchieden!</l><lb/>
+<l>In meinen Freuden wie in meinen Leiden</l><lb/>
+<l>Haſt göttlich groß du immerdar gewaltet,</l><lb/>
+<l>Und nur in dir gewurzelt iſt mein Frieden.</l><lb/>
+<l>Daß unſer Bund hienieden,</l><lb/>
+<l>Ach, nicht ſo innig iſt wie er wol ſein ſoll,</l><lb/>
+<l>Dies regt mir oft geheimer Wehmut Thränen,</l><lb/>
+<l>Doch dieſes heiße Sehnen,</l><lb/>
+<l>Es kommt von dir, als das mir Ernſt verleih'n ſoll,</l><lb/>
+<l>Und jener Blick der bitterlich macht weinen,</l><lb/>
+<l>Läßt lauter Huld und Liebe ja erſcheinen.</l><lb/>
+</lg>
+<pb n="15" facs="#f0029"/>
+<lg n="6"> <l>Gefühl der Selbigkeit im Unterſchiede,</l><lb/>
+<l>Gefühl des Unterſchiedes in der Einheit,</l><lb/>
+<l>Iſt heißer Durſt und friſcher Trunk der Liebe,</l><lb/>
+<l>Iſt ihrer Demut, ihres Stolzes Reinheit,</l><lb/>
+<l>Iſt ew'ger Schmerz für ſie und ew'ger Friede,</l><lb/>
+<l>Iſt Pendelſchwung und Schwerkraft frommer Triebe,</l><lb/>
+<l>Ich, wo ich immer bliebe.</l><lb/>
+<l>Starb ſchon und du, o Herr, biſt meine Wahrheit,</l><lb/>
+<l>Mein wahres Ich, dieweil mich ließ ererben</l><lb/>
+<l>Dein demutvolles Sterben,</l><lb/>
+<l>Das zahllos iſt, die Fülle deiner Klarheit.</l><lb/>
+<l>Ich lebe, doch nicht ich, es lebt die Liebe</l><lb/>
+<l>In mir, drum ſchrecken mich nicht Todeshiebe.</l><lb/>
+</lg> <lg n="7"> <l>Sie ſchrecken zwar, doch nur das Fleiſch. So nannte</l><lb/>
+<l>Der Beter von Gethſemane den Anhalt</l><lb/>
+<l>Des Unterſchiedgefühls der heil'gen Minne.</l><lb/>
+<l>Beklag' ich mich? Sieh, du haſt wolgethan halt</l><lb/>
+<l>Der Demut Born mir, als ich dich erkannte,</l><lb/>
+<l>Nicht flammend zu verzehren. Sacht verrinne</l><lb/>
+<l>Den Brüdern zum Gewinne</l><lb/>
+<l>Die heil'ge Flut, mir ſelber zum Ergetzen.</l><lb/>
+<l>Aus Fleiſchesſchwachheit quillt ja neuſtets Demut,</l><lb/>
+<l>Und Hochgefühl aus Wehmut</l><lb/>
+<l>Und ſo erſcheinet als ein göttlich Setzen</l><lb/>
+<l>Der Liebesortnung was mir ſchien ein Schade.</l><lb/>
+<l>Was liegt ſo tief daß drunter nicht die Gnade?</l><lb/>
+</lg>
+<pb n="16" facs="#f0030"/>
+<lg n="8"> <l>In meiner Schwachheit gnügt mir deine Gnade.</l><lb/>
+<l>Laß mich in deinen Anblick ganz verſinken!</l><lb/>
+<l>Mir ſelbſt entfliehen ganz in deinen Armen!</l><lb/>
+<l>Vollkommenheit aus deinen Zügen trinken!</l><lb/>
+<l>O laß in deiner Reinheit Wonnenbade</l><lb/>
+<l>Zu neuverjüngtem Leben mich erwarmen!</l><lb/>
+<l>Was böte Troſt mir armen</l><lb/>
+<l>Befleckten Seele wenn nicht dein Gedulden?</l><lb/>
+<l>Ach! kann ich mich denn anders wiederfinden</l><lb/>
+<l>Als wenn bis zum Erblinden</l><lb/>
+<l>Ich mich verliere ganz in deinen Hulden?</l><lb/>
+<l>Nur ſo, nicht anders, kann ich mich erringen</l><lb/>
+<l>Und eigne Bildung dir entgegenbringen.</l><lb/>
+</lg> <lg n="9"> <l>Stets iſt aus Nichts das Sein hervorgegangen.</l><lb/>
+<l>So will ich neuſtets mich in dir vernichten,</l><lb/>
+<l>Neuſtets verfälſchter Selbigkeit neu ſterben,</l><lb/>
+<l>Auf falſches eignes Sein und Thun verzichten,</l><lb/>
+<l>Daß ich von dir das wahre mag empfangen,</l><lb/>
+<l>So oft an mir das Weltjoch geht in Scherben.</l><lb/>
+<l>In Demut will ich werben,</l><lb/>
+<l>In ſtets erneuter Demut um das Größte,</l><lb/>
+<l>Damit das Größte ſtets ſich mir erneue,</l><lb/>
+<l>Und ewig mich erfreue</l><lb/>
+<l>Dein Lieben, das mich von mir ſelbſt erlöste</l><lb/>
+<l>Um neugebildet mich mir ſelbſt zu geben.</l><lb/>
+<l>Machſt du mich klein, iſt göttlich groß mein Leben.</l><lb/>
+</lg>
+<pb n="17" facs="#f0031"/>
+<lg n="10"> <l>Aus Freiheit dient die Gottheit. Alles Wandeln</l><lb/>
+<l>Iſt der Verlauf des ew'gen Opfers Gottes,</l><lb/>
+<l>Des Opfers ſeiner ſelbſt zum Heil der Welten.</l><lb/>
+<l>Gebilde ſelbſt des Zornes und des Spottes</l><lb/>
+<l>Bezeugen ſeiner Liebe treues Handeln.</l><lb/>
+<l>Sein Andres nur mag als ſein Selbſt ihm gelten.</l><lb/>
+<l>Aus ſeinen ew'gen Zelten</l><lb/>
+<l>Kommt er als Stral in meinem Blick zu ſterben,</l><lb/>
+<l>Als Hauch in meiner Bruſt, als Wein und Aehre,</l><lb/>
+<l>Als Mutterſorgezähre,</l><lb/>
+<l>Als Held und Märtrer, die um Liebe werben,</l><lb/>
+<l>Und daß er ſich nur ja ganz treu bezeuge,</l><lb/>
+<l>Als Mittler Jeſus, dem die Welt ſich beuge.</l><lb/>
+</lg> <lg n="11"> <l>So wie er Seligkeit im Dienen findet,</l><lb/>
+<l>Will er daß mich auch Demut nur beglücke.</l><lb/>
+<l>Hat Wolgefallen Gott an meiner Kleinheit,</l><lb/>
+<l>Daß er mich ſeinethalben niederdrücke?</l><lb/>
+<l>Aus Freiheit liebt er und aus Liebe bindet</l><lb/>
+<l>Er dienend ſich an mich als Allgemeinheit,</l><lb/>
+<l>Zurück zu ſeiner Reinheit</l><lb/>
+<l>Mich durch Erkenntniß meines Nichts zu führen,</l><lb/>
+<l>Zurück durch Liebe mich zu ſeiner Freiheit.</l><lb/>
+<l>O wunderſel'ge Zweiheit</l><lb/>
+<l>Die ſich als Einigung aus Eins mag ſpüren!</l><lb/>
+<l>Aus Gnaden bin ich ledig jedes Zwiſtes,</l><lb/>
+<l>O nicht aus mir, nein, Gottes Gabe iſt es.</l><lb/>
+</lg>
+<pb n="18" facs="#f0032"/>
+<lg n="12"> <l>Das Handeln Gottes in mir und nach außen,</l><lb/>
+<l>Als „zierlich Denken“ und als „ſüß Erinnern,“</l><lb/>
+<l>Als künſtleriſches Bilden und Geſtalten,</l><lb/>
+<l>Als Leben in und aus dem „tiefſten Innern,“</l><lb/>
+<l>So wie als hohen Mutes Donnerbrauſen,</l><lb/>
+<l>Als heil'gen Mitgefühles brünſtig Walten</l><lb/>
+<l>Und angemeßnes Schalten,</l><lb/>
+<l>Dann Gottes Handeln in den Weſen allen,</l><lb/>
+<l>Vom höchſten Geiſte bis herab zum Staube,</l><lb/>
+<l>Dies Handeln glaubt der Glaube,</l><lb/>
+<l>Dies Handeln, und nur dies, mag mir gefallen,</l><lb/>
+<l>Das Gnadenhandeln Gottes. <hi rendition="#g">Seine</hi> Werke</l><lb/>
+<l>Beſel'gen mich, nicht eigne Lügenſtärke.</l><lb/>
+</lg> <lg n="13"> <l>Geſelle dich aus ſüßer Herzensſtille,</l><lb/>
+<l>Die Gott mir ſchuf, o Lied! den hohen Chören</l><lb/>
+<l>Die allſtets dem, der Freiheit heißt, erklungen.</l><lb/>
+<l>Ach, ſollte, der das Ohr gepflanzt, nicht hören?</l><lb/>
+<l>Zu denken Solches ſtrebt umſonſt der Wille</l><lb/>
+<l>Und auf zur Freiheit lallen tauſend Zungen.</l><lb/>
+<l>Doch nur in ſich bezwungen</l><lb/>
+<l>Iſt Freiheit Freiheit, nur an Endlichkeiten</l><lb/>
+<l>Unendliches unendlich, und der Vater,</l><lb/>
+<l>Vor mein Bewußtſein trat er</l><lb/>
+<l>Stets nur im Sohn, und Ew'ges nur an Zeiten,</l><lb/>
+<l>Und Alles ſchlingt ſich wunderbar zum Kreiſe.</l><lb/>
+<l>Das iſt, traun! des lebend'gen Gottes Weiſe.</l><lb/>
+</lg>
+<pb n="19" facs="#f0033"/>
+<lg n="14"> <l>Das iſt der Sohn und jenes Wort das That iſt,</l><lb/>
+<l>Wodurch die Welt gemacht und was darinnen,</l><lb/>
+<l>Das iſt der Gottheit Glanz der glänzt und ſcheinet</l><lb/>
+<l>In allem Endlichen, wenn unſern Sinnen</l><lb/>
+<l>Dies ſelbe Wort ein inn'res Licht und Rat iſt,</l><lb/>
+<l>Wie das an allen Gläubigen erſcheinet,</l><lb/>
+<l>Die wonniglich vereinet</l><lb/>
+<l>Mit Jeſu, mit dem Bräut'gam ihrer Seelen,</l><lb/>
+<l>Im ſchwebenden Gewölk, in Meerespſalmen,</l><lb/>
+<l>In Blütenzier und Halmen</l><lb/>
+<l>Ihn ſchau'n und haben, und ſich innig quälen</l><lb/>
+<l>Wenn irgend etwas, ſei es was es möge,</l><lb/>
+<l>Des Herzens fromme Sehnſucht je betröge.</l><lb/>
+</lg> <lg n="15"> <l>Was wüßten wir von höchſten Eigenſchaften,</l><lb/>
+<l>Von Allmacht und Allgegenwart und Liebe</l><lb/>
+<l>Und Weisheit, glänzten ſolche nicht im Sohne?</l><lb/>
+<l>Das Daſein Gottes ganz zu Staub zerriebe</l><lb/>
+<l>Der Winzigſte von unſern „<hi rendition="#g">Weſenhaften</hi>,“</l><lb/>
+<l>Wär's nicht ein heller Stein der Sohneskrone.</l><lb/>
+<l>Der Sohn nur ſchirmt vor Hohne</l><lb/>
+<l>Den alten deutſchen Glauben an den Vater?</l><lb/>
+<l>Ha! dächte ich den Sohn nicht, es verſchlänge</l><lb/>
+<l>Mir der Gedanken Menge</l><lb/>
+<l>So wie ſich ſelbſt des Gottgedankens Krater,</l><lb/>
+<l>Wo in der Dichtung zierlich leichtem Laube</l><lb/>
+<l>Nun üppig ſchwillt der Wahrheit volle Traube.</l><lb/>
+</lg>
+<pb n="20" facs="#f0034"/>
+<lg n="16"> <l>Der Menſch, als Eins geſetzt, lebt mir im Andern.</l><lb/>
+<l>Iſt dieſes Andre Gott, ſo iſt Erhebung</l><lb/>
+<l>In's ew'ge Leben liebendes Verſenken,</l><lb/>
+<l>Und tief, tief unter dir bebt Todesbebung</l><lb/>
+<l>Wie bei der luft'gen Geiſter Gipfelwandern</l><lb/>
+<l>Das ſinnig anmutvolle Dichter denken.</l><lb/>
+<l>Iſt, dran wir uns verſchenken,</l><lb/>
+<l>Das Andre Chriſtus, was iſt unſer Weſen</l><lb/>
+<l>Dann wenn nicht Gottes? Nur des Mittlers Weben</l><lb/>
+<l>Beut uns ja ew'ges Leben</l><lb/>
+<l>Und Weſeneinſicht denen die verweſen.</l><lb/>
+<l>Drum freut mich kindlich jedes Tages Scheinen.</l><lb/>
+<l>Luſt ward mein heimliches Kohelethweinen.</l><lb/>
+</lg> <lg n="17"> <l>O Firmament wo meine Sterne glänzen,</l><lb/>
+<l>Wie haſt du meiner Sehnſucht Schloß erſchloſſen!</l><lb/>
+<l>Wie thut dein tiefes Blau ſo wol den Blicken!</l><lb/>
+<l>O dunkler Grund draus meine Blumen ſproſſen,</l><lb/>
+<l>Wie heimlich unterbreiteſt bunten Kränzen</l><lb/>
+<l>Du dich zu überſchwänglichem Erquicken!</l><lb/>
+<l>Ach, wer kann je erſticken</l><lb/>
+<l>Der Gottesſehnſucht ewig rohe Wunde?</l><lb/>
+<l>Doch ewig blutet ſie nur Wonneſchmerzen</l><lb/>
+<l>Wenn aufging tief im Herzen</l><lb/>
+<l>Erkenntnißglanz vom höchſten Liebesbunde.</l><lb/>
+<l>Nur wie der Wolluſt Uebermaß in Thränen</l><lb/>
+<l>Seufzt, ſeufzt hochüberfülltes frommes Sehnen.</l><lb/>
+</lg>
+<pb n="21" facs="#f0035"/>
+<lg n="18"> <l>Triumph! Triumph! mein Glück iſt ſeine Liebe.</l><lb/>
+<l>Ha, eine Liebe nur ſich ſelbſt vergleichbar!</l><lb/>
+<l>Unwandelbar! fromm! ewig! überſchwänglich!</l><lb/>
+<l>Mir iſt das Höchſte nimmer unerreichbar,</l><lb/>
+<l>Das Höchſte iſt und bleibt ja dieſe Liebe.</l><lb/>
+<l>Warum doch, meine Seele, wärſt du bänglich?</l><lb/>
+<l>Was dürfte dir bedränglich</l><lb/>
+<l>Noch dünken wenn dich Chriſtusarme halten?</l><lb/>
+<l>Mein Freund iſt mein und ich bin ſein beſtändig,</l><lb/>
+<l>Er iſt in mir inwendig</l><lb/>
+<l>Mit ſeines Reiches herrlichem Entfalten.</l><lb/>
+<l>Er lebt in mir, ich bin in ihm vollkommen,</l><lb/>
+<l>Durch ihn gerecht. Frohlockt ihm, alle Frommen!</l><lb/>
+</lg> <lg n="19"> <l>Laßt mich in meiner Bruſt Abgründe ſteigen,</l><lb/>
+<l>Die Fülle meines Glückes zu genießen,</l><lb/>
+<l>Und jauchzen wenn er fehlt an keinen Orten</l><lb/>
+<l>Mein Heißgeliebter, dem die Locken fließen</l><lb/>
+<l>Bekränzt mit aller Anmut holden Zweigen,</l><lb/>
+<l>Ein Held, Hoſanna! unter Siegespforten,</l><lb/>
+<l>Das Wort in allen Worten</l><lb/>
+<l>Die mir mein Denken und mein Fühlen tragen,</l><lb/>
+<l>Weil was da endlich iſt und was unendlich,</l><lb/>
+<l>Mir ewig unabwendlich</l><lb/>
+<l>Nur im Unendlich-Endlichen kann tagen.</l><lb/>
+<l>Soll lebenswarm ich fühlen, ſicher denken,</l><lb/>
+<l>Muß in der Worte Wort ich mich verſenken.</l><lb/>
+</lg>
+<pb n="22" facs="#f0036"/>
+<lg n="20"> <l>Er war ſchon vordem als Vernunftanſtreben</l><lb/>
+<l>In mir, gab meiner Jugend Freiheitsliebe</l><lb/>
+<l>Und eignen Gang, gab heil'ger Ortnung Ahnen,</l><lb/>
+<l>Und brachte Maß in's Spiel der dunkeln Triebe,</l><lb/>
+<l>Und leitete mir unbewußt mein Leben</l><lb/>
+<l>Lang eh' das Ziel ich kannte meiner Bahnen.</l><lb/>
+<l>Er war im hehren Mahnen</l><lb/>
+<l>Der Stimme des Gewiſſens und der Glocken,</l><lb/>
+<l>(Bewußtſein war's der Menſchheit) als, ein Knabe,</l><lb/>
+<l>Ich ſchluchzt' an deinem Grabe,</l><lb/>
+<l>Lieb Schweſterlein du mit den Engelslocken,</l><lb/>
+<l>Weil ich dir einmal, da wolmeinend ſtrenge</l><lb/>
+<l>Zu ſein ich glaubte, hart war, roh und enge.</l><lb/>
+</lg> <lg n="21"> <l>Ja eh' ich ward, iſt er in mir geweſen</l><lb/>
+<l>Und ich in ihm, doch wußt' ich Solches nimmer</l><lb/>
+<l>Bis ich als den Gekreuzigten ihn kannte,</l><lb/>
+<l>Bis er in ſeiner Liebe hohem Schimmer</l><lb/>
+<l>Still vor mich hintrat, als ich zu geneſen</l><lb/>
+<l>Von herber Sehnſucht mich umſonſt ermannte.</l><lb/>
+<l>O wie mein Herz da brannte</l><lb/>
+<l>Als neu ſich auf des geiſt'gen Auges Netze</l><lb/>
+<l>Sein Bild herſtellte und ich mich erinnernd</l><lb/>
+<l>Und immer mehr erinnernd</l><lb/>
+<l> <hi rendition="#g">Ihn</hi> vor mir ſah, und Edens Freudenplätze,</l><lb/>
+<l>Aeonenlang verſchüttet und vergeſſen,</l><lb/>
+<l>Sich breiteten zu reuigem Ermeſſen!</l><lb/>
+</lg>
+<pb n="23" facs="#f0037"/>
+<lg n="22"> <l>Doch ſchnell ausſüßend jeglich Bittres wollte</l><lb/>
+<l>Der Freund in ſeinen Frieden mich verſenken,</l><lb/>
+<l>Und ſeit dem Säuſeln jener Himmelsſtunde</l><lb/>
+<l>Iſt er in allem meinem Schau'n und Denken.</l><lb/>
+<l>Sagt mir wohin das Endliche verrollte.</l><lb/>
+<l>Ertheilet vom Beweglichen mir Kunde.</l><lb/>
+<l>Im weiten Weltenrunde</l><lb/>
+<l>Seh' ich nur Eins, das Reich der heil'gen Minne,</l><lb/>
+<l>Das unbewegliche, das wir empfangen.</l><lb/>
+<l>Ha! mir iſt <hi rendition="#g">aufgegangen</hi> —</l><lb/>
+<l>Nach dieſes Wortes ſchönem Doppelſinne —</l><lb/>
+<l>Im Bilde des Geliebten alles Andre,</l><lb/>
+<l>Wo immer auch, wie weit, wie lang ich wandre.</l><lb/>
+</lg> <lg n="23"> <l>Er iſt Allgegenwart der Gottesfülle</l><lb/>
+<l>In Geiſt wie in Natur, da er zur Einheit</l><lb/>
+<l>Mit diamantnem Band verbindet Beides,</l><lb/>
+<l>Und Selbſtdurchdrungenſein iſt ſeine Reinheit</l><lb/>
+<l>Womit er meine endlich-ſchlechte Hülle</l><lb/>
+<l>Durchdringt daß ich vergeſſe jedes Leides.</l><lb/>
+<l>Des endlich-ſchlechten Kleides</l><lb/>
+<l>Drum will ich mich nicht ſchämen und es ſpreiten</l><lb/>
+<l>Auf des Geliebten Pfade hin in Demut.</l><lb/>
+<l>Wie dort, voll Liebeswehmut,</l><lb/>
+<l>Wird dann mein Herr und König drüber reiten.</l><lb/>
+<l>Gelobt ſei der da kommt von Gotteswegen</l><lb/>
+<l>Im Lichtreif ſeines Haubts auf allen Stegen!</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/>
+<pb n="[24]" facs="#f0038"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">IV</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Schmückt mir das Saitenſpiel mit roten Roſen:</l><lb/>
+<l>Heut will ich froh dem eignen Herzen leben,</l><lb/>
+<l>Heut will dem Genius bekränzt ich warten,</l><lb/>
+<l>Sind doch vom Herrn mir Sinn und Herz gegeben.</l><lb/>
+<l>Heut will ich harmlos wie ein Kindlein koſen</l><lb/>
+<l>Mit allen bunten Blümelein im Garten.</l><lb/>
+<l>O ſende mir den zarten</l><lb/>
+<l>Geſpielen, du Unendlicher, den Sohn her,</l><lb/>
+<l>Der uns <hi rendition="#g">verſöhnt</hi> und darum <hi rendition="#g">Sohn</hi> mag heißen!</l><lb/>
+<l>O ſende mit den weißen</l><lb/>
+<l>Maiwolken ihn von deinem Stralenthron her!</l><lb/>
+<l>Ihn ſende her aus meines Herzens Tiefen</l><lb/>
+<l>Wo dieſer Sabbathfeier Wonnen ſchliefen!</l><lb/>
+</lg>
+<pb n="25" facs="#f0039"/>
+<lg n="2"> <l>Was wären Augen wo nicht Stralen flögen?</l><lb/>
+<l>Was wäre Licht wenn es kein Auge gäbe?</l><lb/>
+<l>Was wären Töne da wo keine Hörer?</l><lb/>
+<l>Was wären Hörer ohne Klangesſchwebe?</l><lb/>
+<l>So Geiſtbegriff auch ſonder Sinnvermögen</l><lb/>
+<l>Und Weltbild ſonder Geiſt ſind Selbſtzerſtörer.</l><lb/>
+<l>Wie liebliche Verſchwörer</l><lb/>
+<l>Sind höchſter Einheit Zeugen alle Dinge,</l><lb/>
+<l>Und Jedes iſt ſo Darſtellung des Ganzen</l><lb/>
+<l>Daß auch in Stäubleins Tanzen</l><lb/>
+<l>Uroffenbarung ſchwingt die Feuerſchwinge.</l><lb/>
+<l>Hat der von Nazareth uns erſt erkoren,</l><lb/>
+<l>Iſt er uns plötzlich überall geboren.</l><lb/>
+</lg> <lg n="3"> <l>Mag Stumpfſinn dich im Kripplein nur erblicken,</l><lb/>
+<l>Und Blindheit dich erkennen, ach! ſelbſt dort nicht,</l><lb/>
+<l>Stillſteht der Weiſen Stern mir allenthalben</l><lb/>
+<l>Wo trennbar von Allgegenwart der Ort nicht.</l><lb/>
+<l>Du Glanz der Gottheit willſt mein Herz erquicken</l><lb/>
+<l>Und mir mit Freudenöl die Augen ſalben,</l><lb/>
+<l>Sei's daß die holden Schwalben</l><lb/>
+<l>Nun kommen oder flieh'n, daß Winterſtürme</l><lb/>
+<l>Herſchneien oder Sommerfriede lächle,</l><lb/>
+<l>Ein warmer Wind herfächle</l><lb/>
+<l>Und ſüdwärts ſchau'n die Hähne deiner Thürme.</l><lb/>
+<l>Doch ſeliger wird deine Näh' empfunden</l><lb/>
+<l>Im Schweben ſolcher goldnen Blüteſtunden.</l><lb/>
+</lg> <fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb n="26" facs="#f0040"/>
+<lg n="4"> <l>Wer ruft mir? Iſt's die Stimme nicht der ſüßen</l><lb/>
+<l>Geſpielin meines Freundes? nicht die Stimme</l><lb/>
+<l>Der Nachtigall? An ſeinem Buſen hegt er</l><lb/>
+<l>Die Kleine, wenn ein Sturm herſaust im Grimme</l><lb/>
+<l>Und toll ihm Aſt und Laubſchmuck wirft zu Füßen;</l><lb/>
+<l>Doch wenn ſein Frühlingsmond hold ſteigt, da trägt er</l><lb/>
+<l>Die Flatternde, bewegt er</l><lb/>
+<l>Sie auf dem Zeigefinger oder ſetzt ſie</l><lb/>
+<l>In dunkelſtes Gebüſch, in traute Wipfel,</l><lb/>
+<l>Und zu der Flüſtergipfel</l><lb/>
+<l>Chorliede ſchlagend jedes Ohr ergetzt ſie.</l><lb/>
+<l>Er lebt und webt in ihr und mag ſich freuen</l><lb/>
+<l>Des Vögleins wie der Hoheit ſeiner Leuen.</l><lb/>
+</lg> <lg n="5"> <l>Mir neige deine Zweige, Lila-Flieder!</l><lb/>
+<l>Er iſt der Thau womit du mich beſprengeſt,</l><lb/>
+<l>Er iſt dein Würzeduft und deine Schöne</l><lb/>
+<l>Womit du dich in alle Herzen drängeſt.</l><lb/>
+<l>Er kommt in dir holdſelig anders wieder</l><lb/>
+<l>Und ſtreut umher was aller Not entwöhne.</l><lb/>
+<l>Beim frohen Lenzgetöne</l><lb/>
+<l>Entblüheſt du der Weſenortnung Tiefen,</l><lb/>
+<l>Trittſt vor uns hin mit eigenem Gebaren,</l><lb/>
+<l>Ein ſüßes Offenbaren</l><lb/>
+<l>Der Huld davon dir alle Dolden triefen.</l><lb/>
+<l>Wie du ſo daſtehſt an der alten Mauer,</l><lb/>
+<l>Erfaſſen mich geheime, ſüße Schauer.</l><lb/>
+</lg>
+<pb n="27" facs="#f0041"/>
+<lg n="6"> <l>Dort flammen Tulpen aus der ſchwarzen Erde,</l><lb/>
+<l>Doch ſieh! die wahre Wurzel ihrer Prachten</l><lb/>
+<l>Ruht im Zuſammenhang der Weltortnungen,</l><lb/>
+<l>Und Himmelshauche ſind's die ſie entfachten.</l><lb/>
+<l>Des allgemeinen ſchöpferiſchen Werde</l><lb/>
+<l>Sind ſie ein Ausdruck in beſondern Zungen,</l><lb/>
+<l>Aus Gottes Mund entſprungen</l><lb/>
+<l>Und darum alſo ſchön und wunderprächtig.</l><lb/>
+<l>O Wort, das uns in Jeſu iſt erſchienen,</l><lb/>
+<l>Du biſt's, du brennſt in ihnen!</l><lb/>
+<l>An heil'ger Stätte ſteh' ich tiefandächtig</l><lb/>
+<l>Gleich jenem Frommen, dem du glutentzündet</l><lb/>
+<l>Erſchienſt im Dornbuſch, wie die Vorwelt kündet.</l><lb/>
+</lg> <lg n="7"> <l>Ihr kleinen weißen Erdbeerblüten wecket</l><lb/>
+<l>Erinnern das wie Himmelblau erheitert.</l><lb/>
+<l>Hat nicht dem Bernardin de St. Pierre</l><lb/>
+<l>Ein Erdbeerſtock zum Weltall ſich erweitert</l><lb/>
+<l>Und jenes Ueberſchwängliche entdecket,</l><lb/>
+<l>Das Mittelpunkt iſt jeder Weſenſphäre?</l><lb/>
+<l>Iſt ſchwerer Herzensleere</l><lb/>
+<l>Dies arme Kraut zum Mittler nicht geworden?</l><lb/>
+<l>Anbetung dir, Sohn Gottes, eingeborner,</l><lb/>
+<l>In Allem unverlorner!</l><lb/>
+<l>Du ſtrömſt einher in alles Lebens Borden!</l><lb/>
+<l>Wo Schönes unſern Blicken ſich entfaltet,</l><lb/>
+<l>Iſt's das Unendliche das endlich waltet.</l><lb/>
+</lg> <fw type="sig" place="bottom">2 *<lb/>
+</fw>
+<pb n="28" facs="#f0042"/>
+<lg n="8"> <l>Iſt nicht die ganze Sichtbarkeit der Himmel</l><lb/>
+<l>Selbſt nur ein Erdbeerſtock im großen Ganzen,</l><lb/>
+<l>Ein einzler Theil im All wie wir es denken,</l><lb/>
+<l>Des göttlichen Gedichts nur ein paar Stanzen,</l><lb/>
+<l>Ein <hi rendition="#g">Endliches</hi>? Doch dieſes Glanzgewimmel,</l><lb/>
+<l>Dies Weltbild will die Welt aufſchließend ſchenken</l><lb/>
+<l>Und ſich vor uns verſenken</l><lb/>
+<l>In's Ueberſinnliche, wie es die Welt iſt,</l><lb/>
+<l>Denn ihr iſt keine Vorſtellung gewachſen</l><lb/>
+<l>Und ihren Rieſenaxen</l><lb/>
+<l>Gibt Raum nur der Begriff der Gottes Zelt iſt.</l><lb/>
+<l>So tönet im Erhabnen wie in allen</l><lb/>
+<l>Gebilden uns des ew'gen Sohnes Lallen.</l><lb/>
+</lg> <lg n="9"> <l>Ihr aber, allverbreitete Beſtände</l><lb/>
+<l>Jedwelcher Bildung, reine Weſenheiten,</l><lb/>
+<l>Die ihr in Paargeſtalten hochher ſteiget</l><lb/>
+<l>Um euern Liebesſtreit nie auszuſtreiten,</l><lb/>
+<l>Euch flieht und haſcht und wieder flieht behende</l><lb/>
+<l>Und euch im Fliehen zur Umarmung neiget,</l><lb/>
+<l>So ernſt im Spiel euch zeiget</l><lb/>
+<l>Als wär' es gottesdienſtliche Verrichtung,</l><lb/>
+<l>So ſpielend frei im Ernſt als wär's ein Scherz nur,</l><lb/>
+<l>Mit unbegriffnem Schmerz nur</l><lb/>
+<l>Schaut Mancher euer Werk und ſieht Vernichtung.</l><lb/>
+<l>Doch ihr ſchwebt lächelnd und dem Frommen leiſe</l><lb/>
+<l>Vertrauet ihr daß dies des Wortes Weiſe.</l><lb/>
+</lg>
+<pb n="29" facs="#f0043"/>
+<lg n="10"> <l>Nur wo Natur in frommem Geiſt ſich ſpiegelt,</l><lb/>
+<l>Als einem zu vermittelnden Gemüte,</l><lb/>
+<l>Tritt auf der Mittler, daß er ſich ihm eine,</l><lb/>
+<l>Und <hi rendition="#g">da</hi> und <hi rendition="#g">dann</hi> nur treibt ſolch ew'ge Blüte,</l><lb/>
+<l>Die, aus beſchränkter Anſchauung entſiegelt.</l><lb/>
+<l>Im holden Duftkelch beut das Allgemeine.</l><lb/>
+<l>Doch iſt das große Eine</l><lb/>
+<l>In der Natur dem Frommen allzugänglich,</l><lb/>
+<l>Weil es in Allem, was da endlich heißet,</l><lb/>
+<l>Uns mächtiglich ergleißet</l><lb/>
+<l>Als eben ſo beſchränkt wie überſchwänglich,</l><lb/>
+<l>Ein kleines Kind, ein großer Gott desgleichen,</l><lb/>
+<l>Der Weihrauch, Gold und Myrrhen <hi rendition="#g">uns</hi> will reichen.</l><lb/>
+</lg> <lg n="11"> <l>Grün-golden ruht ein Käfer mir zu Füßen</l><lb/>
+<l>Wie Spielzeug liegt in einer Kinderſtube.</l><lb/>
+<l>Rings blinken tauſend zarte Lieblichkeiten</l><lb/>
+<l>Und jeder Stein ſcheint eine Demantgrube.</l><lb/>
+<l>Es iſt ſo deine Art, mit wunderſüßen</l><lb/>
+<l>Geſchenken, Jeſuskind, Luſt zu bereiten.</l><lb/>
+<l>So kommt ans blauen Weiten</l><lb/>
+<l>In jenem ſinnig webenden Gedichte</l><lb/>
+<l>Ein himmliſch hoher Gaſt zu armen Hirten,</l><lb/>
+<l>Sobald die Lerchen ſchwirrten,</l><lb/>
+<l>Mit fremder Welten Offenbarungslichte,</l><lb/>
+<l>Doch ſieh: all deine holde Wunderhabe</l><lb/>
+<l>Die biſt du ſelbſt, du lichter Himmelsknabe!</l><lb/>
+</lg> </lg> </div>
+<pb n="[30]" facs="#f0044"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">V</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Die ſchnackiſchen Gemälde welche weinen</l><lb/>
+<l>Und lachen und, o Pfaffenſpuk! Blut ſchwitzen,</l><lb/>
+<l>Auch Erben vom Haus Iſrael bekehren,</l><lb/>
+<l>Zerhauen mögt ihr die mit ſcharfen Witzen,</l><lb/>
+<l>Ihr Geiſter die ihr daſtellt das Verneinen,</l><lb/>
+<l>Doch Wunderwerke ſollt ihr nicht verſehren</l><lb/>
+<l>Draus Jeſu Geiſt mit Speeren,</l><lb/>
+<l>Mit Balſamölgetränkten, heilkraftſchwangern,</l><lb/>
+<l>Die Bruſt durchbohrt der Hörer und Beſchauer,</l><lb/>
+<l>Daß wonnevolle Trauer,</l><lb/>
+<l>Wie Chriſtenkunſt ſie hoch auf Himmelsangern</l><lb/>
+<l>Mag pflücken, ſtill ein Jeder trägt von dannen</l><lb/>
+<l>Und ſolchen Spuk der Wahrheit nicht kann bannen.</l><lb/>
+</lg>
+<pb n="31" facs="#f0045"/>
+<lg n="2"> <l>Denn nicht die ausgeſpannte bunte Leinwand,</l><lb/>
+<l>Die Steine nicht, auch Holz nicht noch Metalle,</l><lb/>
+<l>Nicht Luft- und Gliedbewegung mögen wecken</l><lb/>
+<l>Mit alſo gotthaft lautem Donnerhalle,</l><lb/>
+<l>Beſeitigen der Sünde letzten Einwand</l><lb/>
+<l>Und tief erſchüttern wie mit ſel'gem Schrecken.</l><lb/>
+<l>Die ſich drin will verſtecken,</l><lb/>
+<l>Die Künſtlerſeele thut's, die, gotterfüllet,</l><lb/>
+<l>Uns ihr Unendliches zu offenbaren,</l><lb/>
+<l>In ſolch durchſichtig klaren</l><lb/>
+<l>Gebilden und Getönen ſich enthüllet.</l><lb/>
+<l>Es iſt das Wort der Worte das da webet</l><lb/>
+<l>Und wie ein Gotteslichtblitz uns durchbebet.</l><lb/>
+</lg> <lg n="3"> <l>Selbſt dann wenn in der heil'gen Jungfrau Bilde</l><lb/>
+<l>Das Endliche verherrlicht und gekrönt wird,</l><lb/>
+<l>Als „Ewig-Weibliches das uns hinanzieht“</l><lb/>
+<l>Und Reue pflegt bis alle Schuld verſöhnt wird,</l><lb/>
+<l>Als Mutter Jeſu, deren zarte Milde</l><lb/>
+<l>Aufwärts der Schönheit lichte Himmelsbahn zieht</l><lb/>
+<l>Und uns aus blut'gem Wahn zieht,</l><lb/>
+<l>Iſt Mutter ewiglich ſie nur im Sohne,</l><lb/>
+<l>Iſt nur die Liebe, die ſie Gott vereinet</l><lb/>
+<l>Und die im Sohn erſcheinet,</l><lb/>
+<l>Ihr Sternenkranz und thront auf ihrem Throne.</l><lb/>
+<l>Nur des unendlich-endlichen Seins Einheit</l><lb/>
+<l>Iſt ewiglich des ſchönen Scheines Reinheit.</l><lb/>
+</lg>
+<pb n="32" facs="#f0046"/>
+<lg n="4"> <l>Und wagt die freie Kunſt, was kaum zu wagen,</l><lb/>
+<l>Ein Bild des Widerſpiels der Endlichkeiten,</l><lb/>
+<l>Wo borgt, wenn nicht vom Mittler, ſie die Züge</l><lb/>
+<l>Der menſchlichen und jeder anderweiten</l><lb/>
+<l>Geſtalt? Da mag ſich einer ewig plagen,</l><lb/>
+<l>Es wird zur Wahrheit allfort ihm die Lüge,</l><lb/>
+<l>Und alle höchſten Flüge</l><lb/>
+<l>Des Genius beweiſen daß untrennbar</l><lb/>
+<l>Der Vater iſt vom Sohn und Gott vom Worte,</l><lb/>
+<l>Weil an des Aufſchwungs Orte</l><lb/>
+<l>Gott ſchon das Wort iſt und als Wort nur kennbar.</l><lb/>
+<l>Nur als unendlich-endlichen Seins Einheit</l><lb/>
+<l>Iſt auch ein Kunſtvorwurf die Allgemeinheit.</l><lb/>
+</lg> <lg n="5"> <l>Der reinen Kunſt iſt rein was ſie berühret.</l><lb/>
+<l>Sie übt Vermittelung auch durch Gewande</l><lb/>
+<l>Und durch die Hochpracht flammender Kronleuchter.</l><lb/>
+<l>Den Reichthum heiligt ſie und ſchlingt die Bande</l><lb/>
+<l>Wodurch das Wort auch ihn als Schall ſich küret</l><lb/>
+<l>Und, wie er ſelbſt anzeucht, zu Gott hin zeucht er.</l><lb/>
+<l>Sie füllt mit wolluſtfeuchter</l><lb/>
+<l>Sehnſucht den Blick der weichlich holden Liebe,</l><lb/>
+<l>Und ſündigt nicht wenn, was nur finſtrer Wahn iſt,</l><lb/>
+<l>Sie dem nicht unterthan iſt,</l><lb/>
+<l>Die Heuchelei verſchmähend feiger Diebe.</l><lb/>
+<l>Dem Satyr zeigt ſie frei von Feigenblättern</l><lb/>
+<l>Das Wort der Allmacht das ihn mag zerſchmettern.</l><lb/>
+</lg>
+<pb n="33" facs="#f0047"/>
+<lg n="6"> <l>Vermittelung ſchon war es was ſie meinte</l><lb/>
+<l>Auf Elephanta und an Niles Ufern</l><lb/>
+<l>Wie bei den gottgeſegneten Hellenen</l><lb/>
+<l>Und Iſraels erhabnen Zukunftrufern,</l><lb/>
+<l>Erſt alſo daß nur Sternenblick vereinte</l><lb/>
+<l>Die Nacht dem Lichtreich welchem galt ihr Sehnen,</l><lb/>
+<l>Dann morgenhell in jenen</l><lb/>
+<l>Maßvollen Werken griechiſch edler Muſen,</l><lb/>
+<l>Und als die Geiſterſonne nun gekommen</l><lb/>
+<l>Im ſittlich freien Frommen,</l><lb/>
+<l>Als Gottmenſch, und entzündete die Buſen,</l><lb/>
+<l>Rang auch die Kunſt daß Jeſus ſie durchdringen,</l><lb/>
+<l>Sie ihn darſtellen möchte, dar ihn bringen.</l><lb/>
+</lg> <lg n="7"> <l>Dich aber, hehre Tonkunſt, dich vor Allen</l><lb/>
+<l>Will ich mit allen Deutſchen heilig preiſen</l><lb/>
+<l>Als goldnen Kern der Gabe wol der Zungen.</l><lb/>
+<l>Wer trennt vom Kreuz der Orgel Himmelsweiſen?</l><lb/>
+<l>Und ſoll ein Name mir im Lied erſchallen,</l><lb/>
+<l>Wem hat <hi rendition="#g">Beethoven</hi> Sonnenklang geklungen?</l><lb/>
+<l>Wo Kunſt ſich ſelbſt durchdrungen,</l><lb/>
+<l>Durchdrang ſie aller Gottesfülle Sphären</l><lb/>
+<l>Und waltet chriſtlich, denn ihr ganzes Streben</l><lb/>
+<l>Iſt nur das ew'ge Leben</l><lb/>
+<l>Des Schönen und Erhabnen zu verklären,</l><lb/>
+<l>Und ihr iſt gar das Niedliche und Loſe</l><lb/>
+<l>Ein liebſtes Kind in Vaters ew'gem Schooſe.</l><lb/>
+</lg>
+<pb n="34" facs="#f0048"/>
+<lg n="8"> <l>Ihr ſcheint das Urbild oftmals unerreichbar,</l><lb/>
+<l>Doch iſt's erreicht ſobald es in ihr ſcheinet,</l><lb/>
+<l>Und prieſterlich vom Ewigen durchdrungen</l><lb/>
+<l>Das ſie verkündigt, iſt ſie ihm vereinet,</l><lb/>
+<l>Iſt ſie, Allmittler, gänzlich dir vergleichbar.</l><lb/>
+<l>Vergleichbar nur? Die frommen Huldigungen</l><lb/>
+<l>Womit ſie hält umſchlungen</l><lb/>
+<l>Allewig deine Kniee, mag wol ſchulden</l><lb/>
+<l>Die Jüngerin, denn ihrer Liebe Demut</l><lb/>
+<l>Iſt deine eigne Demut,</l><lb/>
+<l>Ihr Werk dein Werk, die deinen ihre Hulden,</l><lb/>
+<l>Denn nur dein eignes Thun vergegenſtändet</l><lb/>
+<l>Iſt ſie, und nichtig wo dir abgewendet.</l><lb/>
+</lg> <lg n="9"> <l>Wenn Himmelsſchönheit je für Augenblicke</l><lb/>
+<l>Die Sterblichen befreit von Gram und Sorgen,</l><lb/>
+<l>Geſpannten Schmerz gelöst, Schwermut gelichtet,</l><lb/>
+<l>Daß wie ein Kind im Mutterarm geborgen</l><lb/>
+<l>Der Aermſte frei ſich fühlte vom Geſchicke,</l><lb/>
+<l>Weil ihm auf Ewiges der Sinn gerichtet,</l><lb/>
+<l>Verſchlungen und vernichtet</l><lb/>
+<l>Des Todes Trägheit und des Lebens Bürde,</l><lb/>
+<l>Warſt du nicht der Erlöſer und Befreier?</l><lb/>
+<l>Du nicht der ſchwachen Leier</l><lb/>
+<l>Geſittungskraft und himmliſch hohe Würde?</l><lb/>
+<l>Du biſt der wahre Schenke, traun! der Seelen,</l><lb/>
+<l>Den preiſen mögen göttliche Gaſelen.</l><lb/>
+</lg>
+<pb n="35" facs="#f0049"/>
+<lg n="10"> <l>Kunſt iſt dein Thun und Weſen allerwegen.</l><lb/>
+<l>Löst ſich vom Ei Gegliedertes, zeigt Mitte</l><lb/>
+<l>Und Seitenmaß das Ewig-Ungezeugte,</l><lb/>
+<l>Erſtrebet Selbſtbildung ein Mann und Sitte,</l><lb/>
+<l>Hat einer Wiſſen, kann er dar es legen,</l><lb/>
+<l>Stets iſt es deine Kunſt die ſich bezeugte.</l><lb/>
+<l>Wenn ſchön herüberbeugte</l><lb/>
+<l>Zur Auflöſung der Mißklang der Geſchichte,</l><lb/>
+<l>Wenn göttlich reine Stimmen thun hervor ſich</l><lb/>
+<l>Und voller hebt der Chor ſich,</l><lb/>
+<l>Wer fragt noch ob dies deine Kunſt verrichte?</l><lb/>
+<l>Der Muſe Thun iſt nur ein Wiederſcheinen</l><lb/>
+<l>Des deinigen, des großen, ganzen, einen.</l><lb/>
+</lg> <lg n="11"> <l>Stets ſind's für dich, du Himmliſcher! ſechs Tage</l><lb/>
+<l>Vor Oſtern, weil ſie ſtets auf's Neu dich töten</l><lb/>
+<l>Durch anders ſtets geſtaltete Gemeinheit.</l><lb/>
+<l>Da naht die Muſe, naht, ach! mit Erröten</l><lb/>
+<l>Und tiefgeheimer ſtummer Totenklage,</l><lb/>
+<l>Mariagleich, und, fühlend ihre Kleinheit</l><lb/>
+<l>Vor deiner Groß- und Reinheit,</l><lb/>
+<l>Kniet ſie vor dir und geußt demütig holde</l><lb/>
+<l>Die Narde, köſtlich, unverfälſcht, duftſüße</l><lb/>
+<l>Auf deine heil'gen Füße,</l><lb/>
+<l>Und trocknet die mit ihrer Haare Golde.</l><lb/>
+<l>Das Haus des Glaubens aber allenthalben</l><lb/>
+<l>Wird lieblich voll von dem Geruch der Salben!</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/>
+<pb n="[35]" facs="#f0050"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">VI</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Was ſich als Wahrheit tröſtend ſenkt in Weh her</l><lb/>
+<l>Und was als Irrthum ſich um Wahrheit windet,</l><lb/>
+<l>Was fertig ſcheint und was ſich zeigt als Strich nur,</l><lb/>
+<l>Was irrend ſchweift und was zurecht ſich findet,</l><lb/>
+<l>Was irgend iſt, birgt dich, o Wort, von jeher</l><lb/>
+<l>Und Alles Endliche beſteht durch dich nur.</l><lb/>
+<l>Sieh! was dir ſcheu entwich nur,</l><lb/>
+<l>Bleibt Größe noch und iſt als ſolche du ſtets,</l><lb/>
+<l>Und dich nicht ſchauen ſollt' ich da wo Fülle</l><lb/>
+<l>In bildungsreger Hülle</l><lb/>
+<l>Den Sinn erfreut und nimmt fortwährend zu ſtets?</l><lb/>
+<l>Im Menſchen Jeſus aber ſtralt und brennet</l><lb/>
+<l>Dein Licht daß nur, wer blind iſt, es verkennet.</l><lb/>
+</lg>
+<pb n="37" facs="#f0051"/>
+<lg n="2"> <l>Aufging der Menſchheit Sonne voller Klarheit</l><lb/>
+<l>Im Galiläer der als dich ſich wußte,</l><lb/>
+<l>Als das Unendlich-Endliche ſich kannte,</l><lb/>
+<l>Und Solches klar und redlich, wie er mußte,</l><lb/>
+<l>Auch ausſprach und bezeugte als die Wahrheit.</l><lb/>
+<l>Sein Lieben das die Gottheit Vater nannte</l><lb/>
+<l>Und mild das All umſpannte</l><lb/>
+<l>War Urſach, Werk und Weſen höchſter Einheit.</l><lb/>
+<l>Das war nicht jenes kalte, ſtolze, arme</l><lb/>
+<l>„Brahma bin Ich!“ nein, warme</l><lb/>
+<l>Gemütserweiterung zur Allgemeinheit.</l><lb/>
+<l>Fortan hieß Jeſus jedes höchſte Lieben</l><lb/>
+<l>Und biſt von ihm untrennbar du geblieben.</l><lb/>
+</lg> <lg n="3"> <l>Er war's, der dich zuerſt in ſich erkannte</l><lb/>
+<l>Und dir Geſtalt und Name mochte geben</l><lb/>
+<l>So wie du ihm, denn du biſt er, er du ja.</l><lb/>
+<l>Des menſchlichen Bewußtſeins Licht und Leben,</l><lb/>
+<l>Und wie bisher ihm unſer Weihrauch brannte,</l><lb/>
+<l>So tönet ihm der Zukunft Halleluja.</l><lb/>
+<l>Der Welt Unruh und Ruh ja,</l><lb/>
+<l>Sie ſind in ihm nur. Schlichtgroß prophezeite</l><lb/>
+<l>Er Solches ſelbſt mit wahrhaft göttlich klarer</l><lb/>
+<l>Und ewig wunderbarer</l><lb/>
+<l>Beſtimmtheit dem ſchwerfaſſenden Geleite.</l><lb/>
+<l>Am Bergquell aber ſchöpften die Genoſſen</l><lb/>
+<l>Bis Lebensſtröme auch von ihnen floſſen.</l><lb/>
+</lg>
+<pb n="38" facs="#f0052"/>
+<lg n="4"> <l>Ein Tropfen dieſer Fluten ward gefangen</l><lb/>
+<l>In ärmlich ird'nem Krüglein. Welch ein Wunder!</l><lb/>
+<l>Ein Brunnen ward's, der wie er floß und fließet,</l><lb/>
+<l>Doch nie verſieget noch verarmt bei runder</l><lb/>
+<l>Umlagerung des Volks, das mit Verlangen</l><lb/>
+<l>Die Flut ſchöpft, die ſich fort und fort ergießet.</l><lb/>
+<l>Der Born der alſo ſchießet</l><lb/>
+<l>In Kraft und Friſche, tiefher, klar und klingend,</l><lb/>
+<l>Das iſt das höchſte Schrift gewordne Leben,</l><lb/>
+<l>Das neuſtets ſich erheben</l><lb/>
+<l>Und Leben werden will, die Welt durchdringend;</l><lb/>
+<l>Das iſt die Schrift die unter allen Schriften</l><lb/>
+<l>Beſtimmt iſt ein Weltſchriftenthum zu ſtiften.</l><lb/>
+</lg> <lg n="5"> <l>Hier ſind in ſtaunenswürdig feſten Zügen</l><lb/>
+<l>So Wiſſenſchaft wie Glauben uns begründet</l><lb/>
+<l>Und im Unendlich-Endlichen geſetzet,</l><lb/>
+<l>Als wo ſich Denken und Gefühl entzündet</l><lb/>
+<l>Und Jegliches Beſtand hat und Genügen,</l><lb/>
+<l>Wenn außerhalb ſich Alles morſch zerfetzet.</l><lb/>
+<l>Von Himmelsthau benetzet</l><lb/>
+<l>Grünt hier ein Muſterbild den ſchönen Künſten</l><lb/>
+<l>Im Sprößling Iſai's. Hier geußt die Liebe</l><lb/>
+<l>Der ſittlich reinen Triebe</l><lb/>
+<l>Stromurne ſilberblinkend her aus Dünſten.</l><lb/>
+<l>Der Gottmenſchheit Geſammterſcheinungsformen</l><lb/>
+<l>Blüh'n hier in unvergänglich hohen Normen.</l><lb/>
+</lg>
+<pb n="39" facs="#f0053"/>
+<lg n="6"> <l>Und wunderbar! es weiſſagt groß die Bibel</l><lb/>
+<l>Im Selbſtvergehn ihr ewiges Beſtehen.</l><lb/>
+<l>Aufhebt all Jugendliches in der reifen</l><lb/>
+<l>Vollendung ſich des Mannes, und verſehen</l><lb/>
+<l>Soll deß die Kirche ſich, daß ſie, wie Fibel</l><lb/>
+<l>Und Flügelkleid, ab alles Stückwerk ſtreife.</l><lb/>
+<l>Doch was der Geiſt ergreife,</l><lb/>
+<l>Durchdrungener nur wird es ſein das Alte,</l><lb/>
+<l>Er ſelbſt, die Liebe, die im Wandel <hi rendition="#g">bleibet</hi>,</l><lb/>
+<l>Jetzt aber mächtig treibet</l><lb/>
+<l>Daß Schauen und Vollendung ſich geſtalte.</l><lb/>
+<l>Bis dahin bleibt uns Glauben, bleibt uns Hoffen</l><lb/>
+<l>Und ſoll die Liebe mildern alle Schroffen.</l><lb/>
+</lg> <lg n="7"> <l>Auch andre Schrift mag Gottes Wort wol heißen;</l><lb/>
+<l>Wie aber in vergilbten Jugendbriefen</l><lb/>
+<l>Ein Etwas wohnt, was heilig man verehret,</l><lb/>
+<l>So von ureigner Lebensfriſche triefen</l><lb/>
+<l>Und einfach treuer Innigkeit die weißen</l><lb/>
+<l>Pfingſtblumen, wie die Bibel ſie beſcheeret.</l><lb/>
+<l>Auch wird, ſo lang man lehret,</l><lb/>
+<l>Dies Buch, was Lüge ſammeln mag, zerſtreuen</l><lb/>
+<l>Und, auf den Weinſtock zeigend, niederſchlagen</l><lb/>
+<l>Der Dornen ſtolzes Wagen,</l><lb/>
+<l>Die Weinberg ſich zu nennen ſich nicht ſcheuen.</l><lb/>
+<l>Als Prüfſtein liegt es auf dem Altar oben</l><lb/>
+<l>Daß ſich der Lehre Gold dran mag erproben.</l><lb/>
+</lg>
+<pb n="40" facs="#f0054"/>
+<lg n="8"> <l>Ein Volksbuch, ein Gewaltsbuch. Wie ein Erdſtoß</l><lb/>
+<l>War's doch, als Doctor Martin es emporhob.</l><lb/>
+<l>Daß weithin leuchtend Himmelsworte ſtammten,</l><lb/>
+<l>Die rings der Kirche Finſterniß hervorhob.</l><lb/>
+<l>Rom's Gottentfremdung war die That ein Schwertſtoß</l><lb/>
+<l>Voll grimmer Schmerzen die von oben ſtammten,</l><lb/>
+<l>Doch freundlich der geſammten</l><lb/>
+<l>Weſtlichen Chriſtenheit ging, wie ein Sternbild,</l><lb/>
+<l>Auf das Unendlich-Endliche, daß Viele</l><lb/>
+<l>Erkannten Gottes Ziele</l><lb/>
+<l>Und huldigend ſich neigten vor des Herrn Bild.</l><lb/>
+<l>Und heute noch erprobet ſich als Heiland</l><lb/>
+<l>Für Viele dieſes Schriftenthum wie weiland.</l><lb/>
+</lg> <lg n="9"> <l>Wahr iſt es, hundert Gegenſätze ſchweben</l><lb/>
+<l>Gebunden und gelöst in dieſem Buche</l><lb/>
+<l>Und Jedem beut es Jedes, wie ſie ſagen,</l><lb/>
+<l>Doch wurzelt nur im heil'gen Widerſpruche</l><lb/>
+<l>Stets alle Wahrheit ja und alles Leben,</l><lb/>
+<l>Und löſen mag der Geiſt euch alle Fragen.</l><lb/>
+<l>An ſolchem Buch zerſchlagen</l><lb/>
+<l>Sich alle toten Formeln drin die Toten</l><lb/>
+<l>Das Leben bannen möchten und erſticken.</l><lb/>
+<l>Ein himmliſches Erquicken</l><lb/>
+<l>Wird aller Welt in dieſem Buch geboten.</l><lb/>
+<l>Kühn ragt da, voller Früchte, voller Düfte,</l><lb/>
+<l>Des Kreuzes Dialektik in die Lüfte.</l><lb/>
+</lg>
+<pb n="41" facs="#f0055"/>
+<lg n="10"> <l>Der Knechte Knecht im Vatikane blitzet</l><lb/>
+<l>Gezackten Blitz umſonſt. Es mühen Krittler,</l><lb/>
+<l>Buchſtabenknechte, Feinde ſo wie Freunde</l><lb/>
+<l>Umſonſt ſich. Stets bewähret ſich als Mittler</l><lb/>
+<l>Das Wort im Kanon, den die Welt beſitzet,</l><lb/>
+<l>Und übet für und für die welterneu'nde,</l><lb/>
+<l>Bedräu'nde und erfreu'nde,</l><lb/>
+<l>Maßgebende Gewalt. Soll je einſt kommen</l><lb/>
+<l>Die Zeit wo Keiner mehr den Andern lehret,</l><lb/>
+<l>Weil Allen den verkehret</l><lb/>
+<l>Schlecht endlichen Verſtand Gott hat benommen</l><lb/>
+<l>Und Wahrheit mild geſtreut in alle Brüſte,</l><lb/>
+<l>Dann geht die Bibel — eher nicht — zur Rüſte.</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/>
+<pb n="[42]" facs="#f0056"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">VII</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Freut euch! aus allem Nacht- und Licht-Umſtoßnen</l><lb/>
+<l>Rückſtralet Himmelshuld euch Aufmerkſamen.</l><lb/>
+<l>Kann euch doch Jegliches zum Mittler werden!</l><lb/>
+<l>Und lernt ihr dann begreifen jenen Namen</l><lb/>
+<l>Und jenes Bild des freventlich Verſtoßnen,</l><lb/>
+<l>Der Mitte der Vermittlung ward auf Erden,</l><lb/>
+<l>Dann auf den Opferherden</l><lb/>
+<l>Der Gottesmenſchheit flammt auch <hi rendition="#g">eure</hi> Gabe.</l><lb/>
+<l>Dem wird zum Mittler Weltgeräuſch, Dem Schweigen,</l><lb/>
+<l>Dem der Geſtirne Reigen,</l><lb/>
+<l>Dem irgendwer, Dem Schmerz an einem Grabe,</l><lb/>
+<l>Und Jenem ſchauert Heilgefühlserregung</l><lb/>
+<l>Aus reinen Denkens hoher Selbſtbewegung.</l><lb/>
+</lg>
+<pb n="43" facs="#f0057"/>
+<lg n="2"> <l>Wo immer ich, mein Heiland, dich mag ſchauen,</l><lb/>
+<l>In Schrift und Kunſt, in mir und auf der Straßen.</l><lb/>
+<l>Erſcheinſt du mir als Fließendes und Vieles</l><lb/>
+<l>Und auch als Eins und Veſtes gleichermaßen</l><lb/>
+<l>Wie Einheit wol in heil'gem Münſterbauen</l><lb/>
+<l>Benebſt Vielartigkeit des Arbeitſpieles.</l><lb/>
+<l>Laß Jeden ſeines Zieles</l><lb/>
+<l>Beſonderheit, o Herr, ſtets klarer faſſen</l><lb/>
+<l>Und kräftiger erſtreben, auf daß alle</l><lb/>
+<l>Werkleute ſich im Schwalle</l><lb/>
+<l>Des Bildens dahin ſtellen wo ſie baſſen,</l><lb/>
+<l>Und Allen laß im einzeln Thun Bewußtſein</l><lb/>
+<l>Des großen Ganzen ſtets die höchſte Luſt ſein.</l><lb/>
+</lg> <lg n="3"> <l>Denn nichts und ewig auch die Menſchheit kann nicht</l><lb/>
+<l>Aus ſich heraus, kann im Verhältniß ſtehen</l><lb/>
+<l>Zu nichts das nicht zugleich ihr angehörig,</l><lb/>
+<l>Sei's Wollen, Fühlen, Ahnen, ſei's Verſtehen,</l><lb/>
+<l>Selbſt dann, wenn ſie von Grenzen ſpricht, ſelbſt dann nicht,</l><lb/>
+<l>Und Gott trennt man, Natur von Menſchheit thörig.</l><lb/>
+<l>Mag ſäuſelndes Geröhrig</l><lb/>
+<l>Wol als ein Fremdes anſeh'n Strom und Flur ſich?</l><lb/>
+<l>Horcht ihm! es wird ſein Credo euch verkünden.</l><lb/>
+<l>Dem Geiſte muß verbünden</l><lb/>
+<l>Als Geiſt ſich alles Sein, und als Natur ſich</l><lb/>
+<l>Natürlichem. Du aber, Bild der Reinheit,</l><lb/>
+<l>Biſt Geiſt und biſt Natur als höchſte Einheit.</l><lb/>
+</lg>
+<pb n="44" facs="#f0058"/>
+<lg n="4"> <l>Du biſt das königliche Allgemeine,</l><lb/>
+<l>Biſt das Unendliche, die ew'ge Freiheit,</l><lb/>
+<l>Biſt ſelbſtbewußtes All, in Gott ausſagbar,</l><lb/>
+<l>Und dennoch biſt du nicht die Einerleiheit,</l><lb/>
+<l>Nein, das Hocheigenthümliche, weil deine</l><lb/>
+<l>Freiheit bei Selbſtbeſchränkung iſt erfragbar.</l><lb/>
+<l>Der unſer Aller Tag war,</l><lb/>
+<l>Iſt als das fleiſchgewordne Wort ſo Alles</l><lb/>
+<l>In Allem wie er Alles iſt im <hi rendition="#g">einen</hi></l><lb/>
+<l>Charakterbild, dem reinen,</l><lb/>
+<l>Das Eckſtein ward des ird'ſchen Tempelwalles.</l><lb/>
+<l>Und wir auch, die belebten Steine, faſſen</l><lb/>
+<l>In's Ganze uns nach eignen Gottesmaßen.</l><lb/>
+</lg> <lg n="5"> <l>In dir ſind alle Bildungen der Gattung</l><lb/>
+<l>Wie ſie in Raum und Zeit vertheilt erſcheinen.</l><lb/>
+<l>Stets biſt, als Einzler, Ganzes du geblieben,</l><lb/>
+<l>Nicht zwar als ob du Bunteſtes vereinen</l><lb/>
+<l>Im Einzeln möchteſt, dir in Vollausſtattung</l><lb/>
+<l>An <hi rendition="#g">einem</hi> Punkt geſammte Keime trieben,</l><lb/>
+<l>Nein, durch dein hohes Lieben</l><lb/>
+<l>Wodurch du, was als Einzlem dir nicht reifte,</l><lb/>
+<l>In Andern reif ſiehſt und als dein, aus Gnaden,</l><lb/>
+<l>Der Einzel-Myriaden</l><lb/>
+<l>Urſprüngliche Entwickelungsverläufte.</l><lb/>
+<l>Denn Alle hat der Vater dir gegeben,</l><lb/>
+<l>Daß ſie mit dir in Eins vollendet leben.</l><lb/>
+</lg>
+<pb n="45" facs="#f0059"/>
+<lg n="6"> <l>Es iſt das Schöne ſtets das Allgemeine</l><lb/>
+<l>In hochbeſtimmter Form. Du aber biſt ja</l><lb/>
+<l>Des Schönen voller Inbegriff zu nennen</l><lb/>
+<l>Und anders nicht erſchaut dich jeder Chriſt ja.</l><lb/>
+<l>Zum Muſterbild fromm aufblickt die Gemeine</l><lb/>
+<l>Weil Jedem Sinn und Liebe da entbrennen.</l><lb/>
+<l>So muß er bald erkennen</l><lb/>
+<l>In ſich und Andern eigenes Geſtalten.</l><lb/>
+<l>Denn gleichwie in der Kunſt ſo iſt im Leben</l><lb/>
+<l>Nie knechtiſches Ankleben</l><lb/>
+<l>Der Nachahmung gedeihliches Entfalten.</l><lb/>
+<l>An reiner Eigenthümlichkeit entzünde</l><lb/>
+<l>Sich andere Befreiung von der Sünde.</l><lb/>
+</lg> <lg n="7"> <l>Wo ſich der Gottgeſalbte mag erzeigen,</l><lb/>
+<l>Weil er ja Alles uns in Allem ſein muß,</l><lb/>
+<l>In Menſchen und vermenſchheiteten Dingen,</l><lb/>
+<l>Iſt's das Unendliche das er verleih'n muß,</l><lb/>
+<l>Doch endliche Beſtimmtheit, neu und eigen,</l><lb/>
+<l>Muß er nicht minder, wo er aufſtralt, bringen.</l><lb/>
+<l>Wo irgend ſind die Schwingen</l><lb/>
+<l>Der Jordanstaube über Hochgebilden</l><lb/>
+<l>Geſpannt, wird Gottes Liebling eigenthümlich</l><lb/>
+<l>Neu ſein wie als er rühmlich</l><lb/>
+<l> <hi rendition="#g">Zuerſt</hi> auftrat in irdiſchen Gefilden,</l><lb/>
+<l>Und wird in Andern Anderes anregen</l><lb/>
+<l>Und ewig ſelbſt ſein jeglich Selbſtbewegen.</l><lb/>
+</lg>
+<pb n="46" facs="#f0060"/>
+<lg n="8"> <l>Und Völker ſo wie Einzle werden allzeit,</l><lb/>
+<l>Wenn ſelbſtbeſchränkend Einzles ſie erleſen,</l><lb/>
+<l>Als Glieder ſich des großen Ganzen wiſſen.</l><lb/>
+<l>Seht da des Sprachthums Heiligkeit und Weſen!</l><lb/>
+<l>Uns vor dem Fluche gänzlicher Verfallzeit</l><lb/>
+<l>Zu retten iſt das ew'ge Wort befliſſen.</l><lb/>
+<l>O in den Finſterniſſen</l><lb/>
+<l>Der Jetztwelt haltet feſt an ſolchem Horte!</l><lb/>
+<l>Mag mehr und mehr die Gegenwart verrotten</l><lb/>
+<l>Und mag der Fremde ſpotten,</l><lb/>
+<l>Die deutſche Zukunft blüht im deutſchen Worte.</l><lb/>
+<l>Hat Luthers Hammer denn ſchon ausgewuchtet?</l><lb/>
+<l>Noch hat ja deutſcher Geiſt nicht ausgefruchtet.</l><lb/>
+</lg> <lg n="9"> <l>Wie ſpielſt du wechſelreich und vielgeſtaltig.</l><lb/>
+<l>O Herr, allſtets derſelbe und ein andrer,</l><lb/>
+<l>Im Menſchen vor mir und im Menſchenwerke!</l><lb/>
+<l>Ein erdgebildet hoher Himmelswandrer,</l><lb/>
+<l>Als Theil beſchränkt, als Ganzes frei-gewaltig,</l><lb/>
+<l>Ein ſchwaches Rohr ſtets wie ein Gott der Stärke!</l><lb/>
+<l>Doch wo ich dich vermerke,</l><lb/>
+<l>Allmittler! ſchmilzt mir alles dein Erſcheinen</l><lb/>
+<l>Am liebſten ſtets in jenes Bild zurücke,</l><lb/>
+<l>Das wir in Schmerz und Glücke</l><lb/>
+<l>Am Fuß des Kreuzes dankerfüllt beweinen.</l><lb/>
+<l>Vom Kreuz auf Golgatha kommt uns das Leben,</l><lb/>
+<l>Wie mannigfaltig du es mochteſt geben.</l><lb/>
+</lg>
+<pb n="47" facs="#f0061"/>
+<lg n="10"> <l>Dein Kreuz iſt Mittelpunkt uns der Geſchichte,</l><lb/>
+<l>Und jene deine Knechtsgeſtalt bleibt allen</l><lb/>
+<l>Zeitaltern ew'ger Huld erhöhtes Zeichen,</l><lb/>
+<l>Und ob ſtets neue Namen heilig ſchallen,</l><lb/>
+<l>Dein erſter ird'ſcher Name bleibt im Lichte</l><lb/>
+<l>Bis alle Erdenſprachen einſt erbleichen.</l><lb/>
+<l>Es ſind im ganzen reichen</l><lb/>
+<l>Sprachſchatz der Menſchheit keinerlei Juwelen</l><lb/>
+<l>Bedeutender als dieſe deines Lebens</l><lb/>
+<l>Und Todes und Aufſtrebens</l><lb/>
+<l>Bezeugungen an alle Menſchenſeelen,</l><lb/>
+<l>Und, eingefaſſet in die Sacramente,</l><lb/>
+<l>Sind ſie des höchſten Styls Grundelemente.</l><lb/>
+</lg> <lg n="11"> <l>Vor jenem Kreuze muß die Erde küſſen</l><lb/>
+<l>Der Dagon derer die nach Weisheit fragen,</l><lb/>
+<l>Unächter Weisheit, welche nichts mag würzen.</l><lb/>
+<l>Vor jener Knechtsgeſtalt, die wir umklagen,</l><lb/>
+<l>Vor jener herrlichen, erhabnen, müſſen</l><lb/>
+<l>In Staub hin alle falſchen Heil'gen ſtürzen.</l><lb/>
+<l>In jenem Namen ſchürzen</l><lb/>
+<l>Sendboten ſich, beſeligende Kunde</l><lb/>
+<l>Zu künden, und verſteh'n ſich die da glauben.</l><lb/>
+<l>Ein ſolch Palladium rauben</l><lb/>
+<l>Läßt ſich die Gottmenſchheit zu keiner Stunde.</l><lb/>
+<l>Wie möchte ſie? Es thun nur, was ſie ſollen,</l><lb/>
+<l>Die Glieder, und dem Haubt gebührt das Wollen.</l><lb/>
+</lg>
+<pb n="48" facs="#f0062"/>
+<lg n="12"> <l>Und iſt dereinſt der letzte Feind bezwungen,</l><lb/>
+<l>Wenn jemals in der Zeit dies ganz geſcheh'n ſoll,</l><lb/>
+<l>Und iſt der Tod durchaus zu Grund gerichtet,</l><lb/>
+<l>Weil überall der Geiſt des Grundes weh'n ſoll,</l><lb/>
+<l>Und iſt dein Leben allwärts durchgedrungen</l><lb/>
+<l>Und Unform wie Verbildung ganz vernichtet,</l><lb/>
+<l>Und überall gelichtet</l><lb/>
+<l>Die Ausſicht in's Unendliche, daß Alles</l><lb/>
+<l>Gott iſt in Allem, Alles Wort der Worte</l><lb/>
+<l>Und Alles Himmelspforte</l><lb/>
+<l>Für Alle, wird bis zu des Erdenballes</l><lb/>
+<l>Sturz doch der Erdgeiſt ſeiner Wiege denken</l><lb/>
+<l>Und jenem Kripplein fromme Liebe ſchenken.</l><lb/>
+</lg> <lg n="13"> <l>Unendlich-Endliches, Wort aller Worte,</l><lb/>
+<l>Wie andre Welten doch dich mögen nennen,</l><lb/>
+<l>Beſitzen, fühlen, wiſſen und geſtalten,</l><lb/>
+<l>Gedenk' ich oftmals, wenn erfunkelnd brennen</l><lb/>
+<l>Der Nacht Geſtirne. Doch an jedem Orte</l><lb/>
+<l>Iſt dir, wie unterſchiedlich du magſt walten,</l><lb/>
+<l>Die Selbigkeit erhalten</l><lb/>
+<l>Im Vater, im Unendlichen, im Einen,</l><lb/>
+<l>Und jauchzend taucht ſich in den Hochgedanken</l><lb/>
+<l>Mein Herz, daß keine Schranken</l><lb/>
+<l>Geſetzt dem eigenthümlichen Erſcheinen.</l><lb/>
+<l>Ja wahrlich, wer nur „fühlt“! Ein <hi rendition="#g">bloßer</hi> „<hi rendition="#g">Schall</hi>“ ſind</l><lb/>
+<l>Mir „Namen“, <hi rendition="#g">weil ſie mehr</hi> mir überall ſind.</l><lb/>
+</lg> </lg> </div>
+<pb n="[49]" facs="#f0063"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">VIII</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Gefühl des Sollens und ein dunkles Sehnen,</l><lb/>
+<l>Obzwar ein immerwährend unerfülltes,</l><lb/>
+<l>Empfänglichkeit und wechſelvolles Spüren</l><lb/>
+<l>Nach dem Unendlichen, das ein Verhülltes,</l><lb/>
+<l>Wer mag das Endliche damit belehnen</l><lb/>
+<l>Im Sündenirrſal, wenn nicht heil'ges Führen?</l><lb/>
+<l>So ſtralt, den ſie mag küren,</l><lb/>
+<l>Der unfindbare Freund der Frauenſeele</l><lb/>
+<l>Als Urbild, wie in Endlichkeit herſcheinet</l><lb/>
+<l>Ein Gott, bis ihm vereinet,</l><lb/>
+<l>Nun kennend öftrer herber Täuſchung Fehle,</l><lb/>
+<l>Sie volle Gnüge hat und ſüßes Feiern</l><lb/>
+<l>In heilig ſtillen Lebens holden Schleiern.</l><lb/>
+</lg> <fw type="sig" place="bottom">3<lb/>
+</fw>
+<pb n="50" facs="#f0064"/>
+<lg n="2"> <l>Und wie ein Jüngling wirbt um zartes Danken,</l><lb/>
+<l>So das Unendliche. Wie auf der Stirne</l><lb/>
+<l>Der Liebe ruht ihr Traumbild unabtrennbar,</l><lb/>
+<l>Ob ſteigen, ob ſich neigen die Geſtirne,</l><lb/>
+<l>Iſt ewiglich der göttliche Gedanken</l><lb/>
+<l>Im Sorgen nur um's Endliche erkennbar.</l><lb/>
+<l>Und ſtets durch ſolch unnennbar</l><lb/>
+<l>Allſtetes Ineinanderſcheinen ſchwanden</l><lb/>
+<l>Die Beiden ineinander, und mit Klarheit</l><lb/>
+<l>Iſt ſo, als ihre Wahrheit,</l><lb/>
+<l>In irdiſchem Bewußtſein auch erſtanden</l><lb/>
+<l>Urew'ger Liebeseinheit Bild und Weſen,</l><lb/>
+<l>Der Sohn, der „<hi rendition="#g">iſt</hi> eh Abraham <hi rendition="#g">geweſen</hi>“.</l><lb/>
+</lg> <lg n="3"> <l>Judäas Berge ſchweigen jede Kunde</l><lb/>
+<l>Vom Anfang des Bewußtſeins höchſter Würde,</l><lb/>
+<l>Als dankend auf zum Vater mochte beten</l><lb/>
+<l>Der Sohn und frei erkor die Mittlerbürde.</l><lb/>
+<l>O höchſter Himmelsoffenbarung Stunde!</l><lb/>
+<l>O feierlichſte Stunde des Planeten!</l><lb/>
+<l>Ha! Lebensſchauer wehten</l><lb/>
+<l>Aus den Unendlichkeiten her der Himmel,</l><lb/>
+<l>Aus den Unendlichkeiten her der Seele,</l><lb/>
+<l>Und deſſen was er wähle</l><lb/>
+<l>Bewußt, groß ſtand, fernab vom Weltgewimmel,</l><lb/>
+<l>Der erſte freie Menſch. Es ſingt's mit Zaudern</l><lb/>
+<l>Die Muſe, ja! und denkt's mit ſüßem Schaudern</l><lb/>
+</lg>
+<pb n="51" facs="#f0065"/>
+<lg n="4"> <l>Nun lag die Wahrheit offen jenes Bundes</l><lb/>
+<l>Von Jehovah und dem erwählten Volke.</l><lb/>
+<l>Nun war erfüllt Geſetz und Prophezeiung.</l><lb/>
+<l>Das Sollen war erreicht. Die Feuerwolke</l><lb/>
+<l>Schmolz und der Sohn ſtand da. Vor ſeines Mundes</l><lb/>
+<l>Anlächeln ſchwieg die Klage der Entzweiung.</l><lb/>
+<l>Fortan war's um Kaſteiung</l><lb/>
+<l>Und Opferdienſt und Satzungen geſchehen.</l><lb/>
+<l>Des Sohnes ſich zu freu'n ſchien ſüße Pflicht nur.</l><lb/>
+<l>Ihn ſah im Ahnungslicht nur</l><lb/>
+<l>Die Väterwelt. Ihr Traumbild muß vergehen</l><lb/>
+<l>Vor übertreffender Erfüllungsfülle.</l><lb/>
+<l>Den Kern entlaſſend fällt die Tempelhülle.</l><lb/>
+</lg> <lg n="5"> <l>O wie mit ſalomoniſchem Gerölle,</l><lb/>
+<l>O wie mit Zebaoth und Zehngeboten</l><lb/>
+<l>Mögt ihr nun ſtets die Kirche noch verplundern?</l><lb/>
+<l>Das Alles ging ja längſt ſchon zu den Toten,</l><lb/>
+<l>Auch längſt ſchon ſind die Cherubim zur Hölle,</l><lb/>
+<l>Und eure Zionswacht muß ich bewundern.</l><lb/>
+<l>Ja wahrlich! naſſen Zundern</l><lb/>
+<l>Vergleich' ich dies Geſchlecht. Nur ſchwer mag fangen</l><lb/>
+<l>Ein Himmelsfunken, und das ſchönſte Feuer</l><lb/>
+<l>Erliſcht bald. Neuſtets theuer</l><lb/>
+<l>Iſt Toten nur was tot und was vergangen.</l><lb/>
+<l>Tot ſind die leben. Möchte Leben ſprühen</l><lb/>
+<l>Aus heil'ger Aſchenkrüge ew'gem Glühen!</l><lb/>
+</lg> <fw type="sig" place="bottom">3 *<lb/>
+</fw>
+<pb n="52" facs="#f0066"/>
+<lg n="6"> <l>Des Judenchriſtenthumes Petrusheucheln</l><lb/>
+<l>Und Petrusſchwachheit, ach! umſtrickt uns Alle</l><lb/>
+<l>Mehr oder minder bis zum Selbſtbetrügen.</l><lb/>
+<l>O rette deine Kirche vom Verfalle,</l><lb/>
+<l>Denn deine Diener ſind es, die ſie meucheln,</l><lb/>
+<l>O Herr, durch wahngewiegtes Selbſtbelügen!</l><lb/>
+<l>Auf alle Paulusrügen,</l><lb/>
+<l>Wenn je ich ſie verdiene, laß mich achten</l><lb/>
+<l>Und kühn wie Paulus jeden Flor zerreißen</l><lb/>
+<l>Wohinter falſches Gleißen</l><lb/>
+<l>Verläugnet deines Geiſtes neue Machten.</l><lb/>
+<l>So laß mich dienen dir in allen Treuen,</l><lb/>
+<l>Der du einherfährſt Alles zu erneuen.</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/>
+<pb n="[53]" facs="#f0067"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">IX</hi><hi rendition="#b">.</hi><lb/>
+</head> <cit> <quote rendition="#right">Nun freue ich mich in meinem Leiden, daß ich<lb/>
+für euch leide, und erſtatte an meinem Fleiſche,<lb/>
+was noch mangelt an Trübſalen in Chriſto, für<lb/>
+ſeinen Leib, welcher iſt die Gemeinde.<lb/>
+</quote>     <bibl rendition="#right"><hi rendition="#b">Paulus an die Koloſſer I, 24.</hi></bibl><lb/>
+</cit> <lg type="poem"> <lg n="1"> <l>Die Länder auf und ab zu Tod und Leben</l><lb/>
+<l>Geſellt das Bild ſich des geliebten Mannes,</l><lb/>
+<l>Der durch ſein Lieben Höchſtes offenbarte,</l><lb/>
+<l>Ein Retter uns, ein Tilger jedes Bannes.</l><lb/>
+<l>Es ragt das Kreuz wo Menſchentritte ſchweben</l><lb/>
+<l>Bedeutungsvoll als ewige Standarte.</l><lb/>
+<l>Ach, wo ſich ja die zarte</l><lb/>
+<l>Lichtblüte höhern Lebens mag entfalten,</l><lb/>
+<l>Allſtets muß ringen ſie mit wilden Wettern</l><lb/>
+<l>Und traurig ſich entblättern,</l><lb/>
+<l>Soll gold'ne Frucht die Folgezeit erhalten.</l><lb/>
+<l>Nur ſterbend wirſt du jedes Ziel erreichen,</l><lb/>
+<l>Drum iſt das Kreuz der Weltgeſchichte Zeichen.</l><lb/>
+</lg>
+<pb n="54" facs="#f0068"/>
+<lg n="2"> <l>Frei iſt der Geiſt, doch iſt beſtimmt ſein Wirken,</l><lb/>
+<l>Iſt — alſo will er's — ſtrengem Maß verfallen‚</l><lb/>
+<l>Und weil er Liebe ſein will, himmelsglutig</l><lb/>
+<l>Erwählend demutvolles Erdenwallen,</l><lb/>
+<l>Muß er in ihm entfremdeten Bezirken</l><lb/>
+<l>Geſammte Schuld der Erde ſühnen blutig.</l><lb/>
+<l>So nahmen auf ſich mutig</l><lb/>
+<l>Ihr Kreuz der Menſchheit Helden und Befreier,</l><lb/>
+<l>Die mit dem Griffel, die mit frommen Thaten,</l><lb/>
+<l>Die mit dem Pflug und Spaten,</l><lb/>
+<l>Die mit des Schwertes Wucht, die mit der Leier,</l><lb/>
+<l>Denn alle ſind des Mittlers, wie ſie kamen,</l><lb/>
+<l>Die, ihn verklärend, von dem Seinen nahmen.</l><lb/>
+</lg> <lg n="3"> <l>Und ſein ſind, durch ſein Lieben, alle Schmerzen</l><lb/>
+<l>Der Welt, von Blute Abels des Gerechten</l><lb/>
+<l>Bis zu der Weltgeſchichte letzten Plagen‚</l><lb/>
+<l>Daß eine Dornenkrone mochte flechten</l><lb/>
+<l>Der Heilige daraus in ſeinem Herzen,</l><lb/>
+<l>Weit blutiger als die ſein Haubt getragen.</l><lb/>
+<l>Er klagte unſre Klagen</l><lb/>
+<l>Und weinte unſre Thränen eh' wir waren‚</l><lb/>
+<l>Damit hinfort wir <hi rendition="#g">ſeine</hi> Thränen weinen,</l><lb/>
+<l>Erhebend ſo zur reinen</l><lb/>
+<l>Natur des Mitgefühls den rohen, baaren,</l><lb/>
+<l>Unfrommen Schmerz, wo ſeiner Liebe Walten</l><lb/>
+<l>Alsbald uns tröſten mag und neugeſtalten.</l><lb/>
+</lg>
+<pb n="55" facs="#f0069"/>
+<lg n="4"> <l>So geht ein Mann gebeugt von ſchwerem Kummer</l><lb/>
+<l>Ob ſeiner Kinder frevlem Thun. Ihn peinigt,</l><lb/>
+<l>Ihn, der da rein iſt, foltert das Gewiſſen</l><lb/>
+<l>Der Schuldigen mehr als ſie ſelbſt. Es ſteinigt</l><lb/>
+<l>Ihn auf der Straße und ihn flieht der Schlummer</l><lb/>
+<l>Der Nacht. Krank, arm durch ihre Schuld, befliſſen</l><lb/>
+<l>Nur ihren Finſterniſſen</l><lb/>
+<l>Ein Licht zu ſein, ach! ſchleppt er noch ſein Leben.</l><lb/>
+<l>Jetzt mit dem greiſen Vater fühlt Erbarmen</l><lb/>
+<l>Sein jüngſtes Kind. Umarmen</l><lb/>
+<l>Darf er das weinend und zu ſich erheben.</l><lb/>
+<l>Da ſtralt ſein Blick: „laßt mich von hinnen fliehen!</l><lb/>
+<l>Es wird mein Tod ſie alle zu mir ziehen!“</l><lb/>
+</lg> <lg n="5"> <l>O wunderbar Geheimniß du der Liebe,</l><lb/>
+<l>Und dennoch allen kündlich die da lieben,</l><lb/>
+<l>Wie die Gemeinſchaft, welche ſie begründet,</l><lb/>
+<l>So Schuld wie Unſchuld theilt, des Sünders Trieben</l><lb/>
+<l>Des Reinen Reinheit eignet, und im Siebe</l><lb/>
+<l>Der Schuld den Edeln umwirft, daß verbündet</l><lb/>
+<l>Sich Beider Herz entzündet</l><lb/>
+<l>Zu neuen doppelt ſüßen Himmelsflammen!</l><lb/>
+<l>Anbetungswürdiges Geſetz der Liebe</l><lb/>
+<l>Das alle Todeshiebe</l><lb/>
+<l>Ausheilet und das Weltall hält zuſammen!</l><lb/>
+<l>Zwar frommer Wehmut magſt du Urſach werden,</l><lb/>
+<l>Doch die hat niemand noch gereut auf Erden.</l><lb/>
+</lg>
+<pb n="56" facs="#f0070"/>
+<lg n="6"> <l>Mit dem gekreuzigten Erlöſer büßen,</l><lb/>
+<l>Sein Leiden ihm nachfühlend, die Erlöſten,</l><lb/>
+<l>Durch Mitleid ſelbſt mit ihm gekreuzigt ſterben</l><lb/>
+<l>Der böſen Luſt ſie, das nur kann ſie tröſten,</l><lb/>
+<l>Hat doch die Sünde, ach! zu Aller Füßen</l><lb/>
+<l>Den beſten Freund verſchlungen in's Verderben,</l><lb/>
+<l>Weil um den Tod zu werben,</l><lb/>
+<l>In dem die Welt liegt, Mitleid ihn getrieben.</l><lb/>
+<l>So ſtirbt und lebt der Heiligen Gemeine</l><lb/>
+<l>In läuterndem Vereine</l><lb/>
+<l>Mit dem der ſie vermittelt durch ſein Lieben.</l><lb/>
+<l>So iſt <hi rendition="#g">Geſammteinſtand</hi> des Kreuzes Mahnen.</l><lb/>
+<l>Nicht kann es für der Deutung falſche Bahnen.</l><lb/>
+</lg> <lg n="7"> <l>Doch euch will noch was längſt der Geiſt geehret</l><lb/>
+<l>Ein Aergerniß und eine Thorheit däuchten.</l><lb/>
+<l>Die Kreuze wollt ihr „aus der Erde reißen!“</l><lb/>
+<l>Euch blendet des Jahrhunderts Wetterleuchten</l><lb/>
+<l>Daß ihr nicht ſeht wie es die Kreuze mehret,</l><lb/>
+<l>Die ihr zu tragen ſelber ſeid geheißen.</l><lb/>
+<l>Hinauf tragt bis zu weißen</l><lb/>
+<l>Berghäubtern euer Kreuz, ja bis zur Wolke,</l><lb/>
+<l>Bis euch das Herz bricht! O nur ſolche Sühne</l><lb/>
+<l>Kann von der Alp zur Düne</l><lb/>
+<l>Erlöſung endlich bringen allem Volke!</l><lb/>
+<l>Der Edeln Arbeit, nicht die Luſt der Böſen,</l><lb/>
+<l>Kann uns im Himmel und auf Erden löſen.</l><lb/>
+</lg>
+<pb n="57" facs="#f0071"/>
+<lg n="8"> <l>So ſei mir denn gegrüßt, zum Trutz Verächtern,</l><lb/>
+<l>O Zeichen das uns Opferweihe lehret,</l><lb/>
+<l>Bis einſt aus Männerernſt und Frauenthränen</l><lb/>
+<l>Des Volkes Seele reingewaſchen kehret</l><lb/>
+<l>Und Heil erblüht den künftigen Geſchlechtern!</l><lb/>
+<l>Du Menſchheitswappen, wie auch alles Wähnen</l><lb/>
+<l>Und mißverſtand'ne Sehnen</l><lb/>
+<l>Der Sterblichen dich mag entgeiſtet haben,</l><lb/>
+<l>Sei mir gegrüßt, wo ich dich immer ſchaue,</l><lb/>
+<l>Gegrüßt, wie ich vertraue,</l><lb/>
+<l>O Kreuz, all deinen ſüßen Himmelslaben!</l><lb/>
+<l>Wie biſt du ſtreng und dunkelſt ernſte Schauer!</l><lb/>
+<l>Wie biſt du mild und lichteſt jede Trauer!</l><lb/>
+</lg> <lg n="9"> <l>Wie tief das Leid war, alſo hoch wird Luſt ſein,</l><lb/>
+<l>Und wie die Klage war, wird ſein Frohlocken</l><lb/>
+<l>Wenn Gottes Reich mit feſtlichem Geſumme</l><lb/>
+<l>Dereinſt verkünden aller Lande Glocken.</l><lb/>
+<l>Still ſagt dann Jedem ſeliges Bewußtſein</l><lb/>
+<l>Daß heilumflutet letztes Weh verſtumme.</l><lb/>
+<l>Denn gleich iſt ja die Summe</l><lb/>
+<l>Die Gott uns wog der Schmerzen und der Wonnen</l><lb/>
+<l>Und enden muß die ſühnende Geſchichte</l><lb/>
+<l>In höchſter Hulden Lichte</l><lb/>
+<l>Wie ſie mit tiefem Falle hat begonnen.</l><lb/>
+<l>Laß mich, o Kreuz! in deines Kelches Schrecken</l><lb/>
+<l>Der Heilvollendung Maß und Umfang ſchmecken.</l><lb/>
+</lg>
+<pb n="58" facs="#f0072"/>
+<lg n="10"> <l>Und bricht zuletzt der Erde Bau zuſammen</l><lb/>
+<l>Weil ſchlaff der Bogen, weil der Pfeil am Ziele,</l><lb/>
+<l>Und ſchmiegt der Erdgeiſt andrer Ströme Wogen</l><lb/>
+<l>Sich an, zu ſpielen ew'gen Lebens Spiele,</l><lb/>
+<l>Nur rettungsthätig neuſtets wird entflammen</l><lb/>
+<l>Sich ew'ge Liebe, neuſtets angezogen</l><lb/>
+<l>Wird heil'gen Streites Bogen,</l><lb/>
+<l>Bei immer neuem Ziel wirft unverwendlich</l><lb/>
+<l>Aus Schmerzensnacht das <hi rendition="#g">Mittlerthum</hi> die Pfeile</l><lb/>
+<l>Nach glanzumſtraltem Heile,</l><lb/>
+<l>Und Kranz um Kranz erblutet es unendlich.</l><lb/>
+<l>Sprich's aus und wenn dich Schauer überliefen:</l><lb/>
+<l>Ich ſah das Kreuz in allen Himmelstiefen.</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/>
+<pb n="[59]" facs="#f0073"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">X</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Daß Jegliches an ſeinem <hi rendition="#g">Ort</hi> erſcheine,</l><lb/>
+<l>Darin beſteht der <hi rendition="#g">Ortnung</hi> heilig Weſen.</l><lb/>
+<l>Wenn in der Schöpfung Schooß die Roſe pranget</l><lb/>
+<l>Sind Primel und Viole längſt geweſen,</l><lb/>
+<l>Und blühen herbſtlich Aſtern im Vereine,</l><lb/>
+<l>Iſt, traun! ein Thor wer Tulpen noch verlanget.</l><lb/>
+<l>Wenn ſo in Angeln hanget,</l><lb/>
+<l>Die unverrückbar ſind, der Zeiten Kreislauf,</l><lb/>
+<l>Wenn bei der glanzumhauchten Sommerhitze</l><lb/>
+<l>Mit allem eurem Witze</l><lb/>
+<l>Vergeblich ihr beriethet einen Eislauf,</l><lb/>
+<l>Warum doch ſoll des Geiſtes Flügelſpreiten</l><lb/>
+<l>Nicht auch erfolgen zu beſtimmten Zeiten?</l><lb/>
+</lg>
+<pb n="60" facs="#f0074"/>
+<lg n="2"> <l>Wer ſchafft von ſeinem Ort den Himalaya</l><lb/>
+<l>Und macht ihn gleich der kleinſten Hügelkette?</l><lb/>
+<l>Wer zieht in Grönland ſüße Rebenblüten?</l><lb/>
+<l>Wer kann dem Palmbaum ändern ſeine Stätte</l><lb/>
+<l>Daß er nicht ſchatte mehr dem ſtolzen Raja?</l><lb/>
+<l>Kann auch das Nordland Straußeneier brüten?</l><lb/>
+<l>So mögt ihr nicht verhüten</l><lb/>
+<l>Daß jedem Geiſt gemeſſen ſei der Schauplatz.</l><lb/>
+<l>Doch ob von jedem Stein wir hätten Kunde</l><lb/>
+<l>Wo und zu welcher Stunde</l><lb/>
+<l>Er einſt erſchienen auf der Menſchheit Bauplatz,</l><lb/>
+<l>Ihr gönnt in Zeit und Raum dem keine Stelle</l><lb/>
+<l>Den laut zum Eckſtein ſchlug des Bauherrn Kelle.</l><lb/>
+</lg> <lg n="3"> <l>Nach zeitmaßvollem Reigenſchritt der Horen</l><lb/>
+<l>Erglühte jedes Aufſchwungs Morgenröte</l><lb/>
+<l>Stets wo und wann des Cynthiers Geſpann kam.</l><lb/>
+<l>Ihr billigt wol daß Hegel und daß Göthe</l><lb/>
+<l>Gerade da und dann uns ward geboren?</l><lb/>
+<l>Doch daß das Wort, was uns als Gottesmann kam,</l><lb/>
+<l>Gerade da und dann kam,</l><lb/>
+<l>Das Rätſelwort darob die Völker ſchwitzen,</l><lb/>
+<l>Der Menſchheit und Geſchichte Wort, daß Stunden</l><lb/>
+<l>Und Räume das gebunden,</l><lb/>
+<l>Ein rechtes Ziel däucht Solches euern Witzen.</l><lb/>
+<l>Indeß wo Ewiges auf Erden auftrat</l><lb/>
+<l>War es ein Menſch der in der Zeiten Lauf trat.</l><lb/>
+</lg>
+<pb n="61" facs="#f0075"/>
+<lg n="4"> <l>Weil ihr in abgezogner Allgemeinheit</l><lb/>
+<l>Das Ewige nur wähnet, iſt ein Gräuel</l><lb/>
+<l>Die herrlichſte Geſtalt euch der Geſchichte.</l><lb/>
+<l>Die Wahrheit ſeht ihr nur wie einen Knäuel.</l><lb/>
+<l>Verſucht's und ſchaut des Nazareners Reinheit</l><lb/>
+<l>Mit uns in ſeines Mittlerthumes Lichte</l><lb/>
+<l>Worin er treu und ſchlichte</l><lb/>
+<l>Fortlebt, fortſtirbt und ſühnt durch ſeine Söhne</l><lb/>
+<l>Bis daß er Alles einverleibt dem Einen,</l><lb/>
+<l>Deß Minnen und deß Meinen</l><lb/>
+<l>Das ſeine war und iſt als höchſtes Schöne.</l><lb/>
+<l>Vielleicht erfaßt ihr doch in engſten Schranken</l><lb/>
+<l>Zuletzt noch reinſter Reinheit Reingedanken.</l><lb/>
+</lg> <lg n="5"> <l>Du aber, o mein Heiland, den im Leben</l><lb/>
+<l>Ein klares und prophetiſches Bewußtſein</l><lb/>
+<l>Bei Wahl von Zeit und Ort allſtets geleitet,</l><lb/>
+<l>Laß ſolch Verſtändniß auch in meiner Bruſt ſein!</l><lb/>
+<l>Nur wer durch angemeſſen weiſes Streben</l><lb/>
+<l>Sich wirkungsvoll in ſeine Welt verbreitet</l><lb/>
+<l>Und nicht im Nebel ſtreitet,</l><lb/>
+<l>Nur der ja iſt zur rechten Zeit geboren,</l><lb/>
+<l>Nur der iſt immer auch am rechten Orte</l><lb/>
+<l>Und wandelt durch die Pforte</l><lb/>
+<l>Des Daſeins gleich erkürend wie erkoren.</l><lb/>
+<l> <hi rendition="#g">Die Ortnung die ſein Lebenseintritt ſpiegelt</hi></l><lb/>
+<l> <hi rendition="#g">Hat er durch freie Lebensthat beſiegelt</hi>.</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/>
+<pb n="[62]" facs="#f0076"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">XI</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Der Welt will dünken daß zweitauſend Jahre</l><lb/>
+<l>Der Trauer und der Treue mehr als ſchicklich.</l><lb/>
+<l>Ihr biſt du tot, ja längſt tot, und ſie findet</l><lb/>
+<l>Dein zu gedenken nimmermehr erquicklich.</l><lb/>
+<l>Ich aber weiß, Geliebter! daß die Bahre</l><lb/>
+<l>Dich nicht erbeutet und kein Grab dich bindet.</l><lb/>
+<l>Du lebſt und nimmer ſchwindet</l><lb/>
+<l>In deinen Freundesarmen mein Gedenken</l><lb/>
+<l>An alle Todesqual die du gelitten</l><lb/>
+<l>Als du mich dir erſtritten</l><lb/>
+<l>Und neuſtets muß ich mich darein verſenken.</l><lb/>
+<l>Welch roher Sinn, wenn dein ich je vergäße</l><lb/>
+<l>Und meine Dankbarkeit nach Jahren mäße!</l><lb/>
+</lg>
+<pb n="63" facs="#f0077"/>
+<lg n="2"> <l>Der Menſchheit haſt du Ewiges erblutet,</l><lb/>
+<l>Und unſer Dank, nicht darf er ſein vergänglich.</l><lb/>
+<l>Ach, wäre doch Einbuße ſein Erkalten,</l><lb/>
+<l>Verluſt des Heils womit du überſchwänglich</l><lb/>
+<l>Uns ringsum wie mit einem Meer umflutet!</l><lb/>
+<l>Darum erkor ja Tod dein klares Walten,</l><lb/>
+<l>Daß du uns ſeiſt erhalten</l><lb/>
+<l>In brennendem, erkennendem Gedächtniß.</l><lb/>
+<l>Wie heilig, wenn der Kirche Glocken rufen</l><lb/>
+<l>Zu deines Tiſches Stufen,</l><lb/>
+<l>Wie heilig ſoll mir ſein, Herr, dein Vermächtniß!</l><lb/>
+<l>Stets möge da in ſtillem Liebestrauern</l><lb/>
+<l>Ein neues Maß des Heils mich überſchauern.</l><lb/>
+</lg> <lg n="3"> <l>Da will ich alles deines Bluts gedenken</l><lb/>
+<l>Das uns zu gut gefloſſen gleich dem Weine.</l><lb/>
+<l>Das Ahnen der Propheten aller Völker,</l><lb/>
+<l>Du warſt's ja ſelbſt, und <hi rendition="#g">ihr</hi> Blut war das deine.</l><lb/>
+<l>Von Anbeginn ja wollteſt du uns lenken.</l><lb/>
+<l>Allbildungswort, <hi rendition="#g">ſelbſt</hi> All, Gottheitsentwölker,</l><lb/>
+<l> <hi rendition="#g">Selbſt</hi> Gott, du Ziel der Völker,</l><lb/>
+<l>Du biſt auch Schwung und Anlauf der Geſchichte.</l><lb/>
+<l>Dein Blut von Alters her ſind die Entdecker,</l><lb/>
+<l>Erfinder und Erwecker</l><lb/>
+<l>Die durch ihr Leuchten zeugten von dem Lichte.</l><lb/>
+<l>Du bluteteſt ſo oft ſie mochten leiden,</l><lb/>
+<l>Sie alle darf ich nicht vom Mittler ſcheiden.</l><lb/>
+</lg>
+<pb n="64" facs="#f0078"/>
+<lg n="4"> <l>Im Menſchen Jeſus dann zertratſt der Schlange</l><lb/>
+<l>Den Kopf du und ſie ſtach dich in die Ferſe,</l><lb/>
+<l>Und purpurn quoll, derweil die Knechte flohen,</l><lb/>
+<l>Des Sämanns Blut in's Feld bei Pflug und Herſe.</l><lb/>
+<l>O eine Nacht der Hölle, eine bange</l><lb/>
+<l>Nacht des Verrats erfaßte meinen Hohen</l><lb/>
+<l>Und gab ihn preis der rohen</l><lb/>
+<l>Gottloſigkeit des Pöbels aller Stände!</l><lb/>
+<l>Wer kann den Qualkelch ſingen den du trankeſt,</l><lb/>
+<l>O Herr, und wie du trankeſt!</l><lb/>
+<l>Das Kreuz war deiner Marter nur das Ende.</l><lb/>
+<l>Erhabner! dein gedenk' ich voller Demut</l><lb/>
+<l>Wie du gewünſcht in menſchlich ſchöner Wehmut.</l><lb/>
+</lg> <lg n="5"> <l>Du wardſt, du wardſt getauft mit jener Taufe</l><lb/>
+<l>Die du vorausſahſt, wählteſt und erſehnteſt.</l><lb/>
+<l>Und auch das Schwert, gewürgt hat's bis es trunken,</l><lb/>
+<l>Das wilde Schwert womit du uns belehnteſt.</l><lb/>
+<l>Wer ſagt wie groß des Feuers Aſchenhaufe</l><lb/>
+<l>Das angezündet deine Himmelsfunken?</l><lb/>
+<l>Und Alle die geſunken</l><lb/>
+<l>Als Opfer ihres Glaubens, dir ſich ſchenken</l><lb/>
+<l>Ja wollten ſie, ihr Lieben war das deine.</l><lb/>
+<l>Drum bei dem Altarweine</l><lb/>
+<l>Will ich auch dieſes deines Bluts gedenken,</l><lb/>
+<l>Vor Allen dein, o Huß! du Reigenführer</l><lb/>
+<l>Der Zeugen deren Staub noch glimmt dem Spürer.</l><lb/>
+</lg>
+<pb n="65" facs="#f0079"/>
+<lg n="6"> <l>War Galiläi nicht ein Galiläer</l><lb/>
+<l>Als er der Wahrheit wegen ward geplaget?</l><lb/>
+<l>Du biſt ja alle Wahrheit, hoher Meiſter,</l><lb/>
+<l>Und warſt das Licht wo immer es getaget.</l><lb/>
+<l>Von dem was dein iſt nahm der Himmelsſpäher</l><lb/>
+<l>Als er zu neuem Schauen rief die Geiſter.</l><lb/>
+<l>Dein ſind die großen Leiſter</l><lb/>
+<l>Beim Werke der Vermenſchheitung der Erde,</l><lb/>
+<l>Die da bewältigen die Auſſendinge</l><lb/>
+<l>Daß mehr und mehr durchdringe</l><lb/>
+<l>Sein Leibliches der Menſch und König werde,</l><lb/>
+<l>Und ach! den meiſten flocht die Welt zum Lohne</l><lb/>
+<l>Nach heißem Tagwerk eine Dornenkrone.</l><lb/>
+</lg> <lg n="7"> <l>Als Schleiermachers göttliche Erſcheinung.</l><lb/>
+<l>Den rohen Sinn der Zeitgenoſſen ſtrafend,</l><lb/>
+<l>Mit wunderbarem Licht dein Bild erhellte,</l><lb/>
+<l>Veſthielt was wankend, weckte was da ſchlafend,</l><lb/>
+<l>Ja Selbſtverneinung abzwang der Verneinung,</l><lb/>
+<l>Und deine Freiheit, die die Bruſt ihm ſchwellte,</l><lb/>
+<l>Der Welt entgegenſtellte,</l><lb/>
+<l>Den Mittler neuvermittelnd an die Neuen,</l><lb/>
+<l>Warſt du es nicht der dieſen Mann beſeelte</l><lb/>
+<l>Und in ihm war? Ihn quälte</l><lb/>
+<l>Jedoch die Welt, ſtatt ſeiner ſich zu freuen,</l><lb/>
+<l>Die Buchſtabſelige! und ſchwache Fliegen,</l><lb/>
+<l>Doch böſe, mußt' er mühevoll beſiegen.</l><lb/>
+</lg>
+<pb n="66" facs="#f0080"/>
+<lg n="8"> <l>So will ich ernſt und trauernd überlegen</l><lb/>
+<l>Was maßen ward dein Leib für mich gebrochen,</l><lb/>
+<l>Und freudig wird alsbald mein Sinn ſich heben</l><lb/>
+<l>Und liebender mein Herz und reiner pochen.</l><lb/>
+<l>Iſt doch, weil nur dein Tod es zu erregen</l><lb/>
+<l>Vermocht, mir doppelt wert das höchſte Leben,</l><lb/>
+<l>Und wenn uns tief durchbeben,</l><lb/>
+<l>Beim heil'gen Mahle deine tauſend Schmerzen,</l><lb/>
+<l>Wird gleichſehr, deine Ziele zu erjagen</l><lb/>
+<l>So lang es uns will tagen,</l><lb/>
+<l>Ein hoher Mut befeuern alle Herzen.</l><lb/>
+<l>Und alſo wird dein Leib auf geiſt'ge Weiſe</l><lb/>
+<l>In Wahrheit Himmelsſtärkung uns und Speiſe.</l><lb/>
+</lg> <lg n="9"> <l>Ihr aber wollt das Abendmahl ja rein nur</l><lb/>
+<l>Vom blutgeſchichtlich tragiſchen Geſchmacke.</l><lb/>
+<l>Als „<hi rendition="#g">Liebesmahl</hi>“ nur mögt ihr es „<hi rendition="#g">mitmachen</hi>.“</l><lb/>
+<l>Traun! iſt wo Gold, ſo wollt ihr's ohne Schlacke.</l><lb/>
+<l>Nun iſt zwar Leiden ohne Leib ein Schein nur,</l><lb/>
+<l>Und Chriſti Leiden Stärkung für mich Schwachen,</l><lb/>
+<l>Doch ſei's! Spitzfindig flachen</l><lb/>
+<l>Lehrwuſt gar ſelbſt nicht mag ich alter Zeiten.</l><lb/>
+<l>Nur ſagt mir auch, ihr Guten! wie man könnte,</l><lb/>
+<l>Wenn Undank es begönnte,</l><lb/>
+<l>Zu einem Liebesmahle ſich bereiten.</l><lb/>
+<l>Wie mag ich euch doch meine Liebe ſchenken</l><lb/>
+<l>Wenn ich des großen Freunds nicht ſoll gedenken?</l><lb/>
+</lg>
+<pb n="67" facs="#f0081"/>
+<lg n="10"> <l>Iſt's Thorheit nicht, für Menſchenheil zu ſterben</l><lb/>
+<l>Wenn keine Thräne unſern Hügel feuchtet?</l><lb/>
+<l>Geſchlechter opfern ſich und gehn zur Ruhe</l><lb/>
+<l>Und denken: „Alſo lang die Sonne leuchtet</l><lb/>
+<l>Wird unſre Liebe Liebe ſich erwerben.“</l><lb/>
+<l>Ihr Thoren, ihr! was Einer immer thue,</l><lb/>
+<l>Schläft er in dunkler Truhe,</l><lb/>
+<l>So mag er ſchlafen, ſein gedenkt man nimmer.</l><lb/>
+<l>So ſei uns denn das Höchſte das Genießen!</l><lb/>
+<l>Laßt uns mit Spott begießen</l><lb/>
+<l>Wer uns noch ſpricht von hoher Liebe Schimmer!</l><lb/>
+<l>Laßt unſer Alles wilde, ſchnöde Luſt ſein!</l><lb/>
+<l>Die Menſchheit iſt kein Ganzes voll Bewußtſein!</l><lb/>
+</lg> <lg n="11"> <l>Erkennet doch! In lobenswertem Streben</l><lb/>
+<l>Spannt ihr durch Land und Meer die Eiſendrähte.</l><lb/>
+<l>Was hilft's? Fortglüht der Herrn und Knechte Feindſchaft.</l><lb/>
+<l>Die Lebenden vereint ſolch Hochgeräte</l><lb/>
+<l>Dann erſt wenn ihre Toten ihnen leben</l><lb/>
+<l>Und Herzenselectricität Verein ſchafft.</l><lb/>
+<l>Die geiſtige Gemeinſchaft,</l><lb/>
+<l>O kennet ſie, die Zeit wie Raum beſieget</l><lb/>
+<l>Und, ſo Jahrhunderte wie Länderſtrecken</l><lb/>
+<l>Vernichtend, Schmerz mag wecken</l><lb/>
+<l>Daß uns in heil'gem Kampf ein Freund erlieget!</l><lb/>
+<l>Als Ganzes muß die Menſchheit ſich begreifen,</l><lb/>
+<l>Soll ſie nicht ewig ratlos kreiſend ſchweifen.</l><lb/>
+</lg>
+<pb n="68" facs="#f0082"/>
+<lg n="12"> <l>Faßt und begreift die tragiſche Bedeutung</l><lb/>
+<l>Der Handlung wie wir pflegen ſie zu halten.</l><lb/>
+<l>Da ſteht uns Chriſtus mit den Wundenmalen</l><lb/>
+<l>Und um ihn her die blutenden Geſtalten</l><lb/>
+<l>All derer die des Menſchenheils Erbeutung</l><lb/>
+<l>Mit ihm und durch ihn heldengroß bezalen.</l><lb/>
+<l>In heil'gen Opferſchalen,</l><lb/>
+<l>Als frommen Marterthumes Darſtellniſſe,</l><lb/>
+<l>Sind da des Weinſtocks und der Aehre Gaben,</l><lb/>
+<l>Damit wir Zeugen haben</l><lb/>
+<l>Wie edle Liebe groß zu ſterben wiſſe.</l><lb/>
+<l>Tiefernſt fühlt Jeder die <hi rendition="#g">Gemeinverpflichtung</hi></l><lb/>
+<l>Wie vor ſich geht die heilige Verrichtung.</l><lb/>
+</lg> <lg n="13"> <l>So muß den Tod des Herrn ſein Volk verkünden</l><lb/>
+<l>Und allgemeine Todesweihe fodern</l><lb/>
+<l>Bis daß er kommt, bis daß er ſiegreich kehret</l><lb/>
+<l>Aus weltenalterlangem Kampfeslodern.</l><lb/>
+<l>Dann wird der ganzen Menſchheit ſich entzünden</l><lb/>
+<l>Sein Leben wie ſie ſeinen Tod geehret.</l><lb/>
+<l>Dem Friedefürſten wehret</l><lb/>
+<l>Alsdann kein Feind mehr und im Erdengaden</l><lb/>
+<l>Verbreiten ſeines Geiſtes Anortnungen</l><lb/>
+<l>Bei Völkern aller Zungen</l><lb/>
+<l>Erkenntniß als Kanäle höchſter Gnaden.</l><lb/>
+<l>Dein Leib ward nicht umſonſt dahin gegeben,</l><lb/>
+<l>Mein Heiland! dieſes Glaubens laß mich leben.</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/>
+<pb n="[69]" facs="#f0083"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">XII</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Den Tauftag meines Sohnes grüßet munter</l><lb/>
+<l>Mit lautem Chor der Kirchenſpatzen Völklein</l><lb/>
+<l>Wie tiefer thurmab gleitet Sonnenröte</l><lb/>
+<l>Und ſacht verglimmen wangenglühe Wölklein.</l><lb/>
+<l>Ein friſcher Morgenwind weht ſanft herunter</l><lb/>
+<l>Daß er zum Feſttag ſeinen Gruß entböte.</l><lb/>
+<l>Wenn innerlich erhöhte</l><lb/>
+<l>Gemütsſtimmung das Leben uns begeiſtet,</l><lb/>
+<l>Wie iſt die Erde ſchön! Und ſie wär' ſchöner</l><lb/>
+<l>Wenn nicht wie Tagelöhner</l><lb/>
+<l>Die Menſchen, ach! ihr Königswerk geleiſtet.</l><lb/>
+<l>Es bleibt die Schönheit der Natur verhüllet</l><lb/>
+<l>So lang der Lügengeiſt die Welt erfüllet.</l><lb/>
+</lg>
+<pb n="70" facs="#f0084"/>
+<lg n="2"> <l>O Gottentfremdung, einzig Eine Sünde,</l><lb/>
+<l>Wie haſt du mein Geſchlecht mir zugerichtet!</l><lb/>
+<l>Verfinſtert der Verſtand! Verſtockt die Herzen!</l><lb/>
+<l>Und der Geſellſchaft Grundortnung vernichtet!</l><lb/>
+<l>Wer iſt ſo klug daß Einklang er ergründe</l><lb/>
+<l>Wo üppig wuchern Millionen Schmerzen?</l><lb/>
+<l>Ach! ſelbſt die Himmelskerzen</l><lb/>
+<l>Des Lichtes leuchten nicht den „Ewigblinden“</l><lb/>
+<l>Und „äſchern Stadt und Land ein“ zum Beweiſe</l><lb/>
+<l>Daß ſich im Jammerkreiſe</l><lb/>
+<l>Drehn muß die Menſchheit bis ſie Gott mag finden.</l><lb/>
+<l>Das iſt die Wahrheit jener alten Lehre</l><lb/>
+<l>Daß erblich ſtets die Sünde wiederkehre.</l><lb/>
+</lg> <lg n="3"> <l>Denn innerſtes und äußeres Verderben</l><lb/>
+<l>Erzeugen für und für ſich wechſelſeitig</l><lb/>
+<l>Und graunvoll hoffnungsloſe Doppelknechtſchaft</l><lb/>
+<l>Macht was da Menſch heißt ſich als Beute ſtreitig.</l><lb/>
+<l>Geſteigert muß dies Elend ſtets vererben</l><lb/>
+<l>Die Lügenſchöpfung welche das Geſchlecht ſchafft.</l><lb/>
+<l>Weh! niemand iſt der recht ſchafft.</l><lb/>
+<l>Geſammtbeziehungslos hinſchwirrend ſpielen</l><lb/>
+<l>Der menſchlichen Natur verkannte Triebe.</l><lb/>
+<l>Erkenntniß gibt die Liebe</l><lb/>
+<l>Von Sonderkräften und gemeinen Zielen</l><lb/>
+<l>Allein ja und die Liebe ward zum Spotte.</l><lb/>
+<l>Es ſchaut der Menſch den Menſchen außer Gotte.</l><lb/>
+</lg>
+<pb n="71" facs="#f0085"/>
+<lg n="4"> <l>Da iſt von Menſchenachtung kein Gedanke,</l><lb/>
+<l>Kein Sinn für eigenthümliche Entfaltung,</l><lb/>
+<l>Kein Ahnen daß darin die Grundbeſtände</l><lb/>
+<l>Vorhanden göttlicher Geſammtgeſtaltung.</l><lb/>
+<l>Da wuchert widrig wild der Frechheit Ranke</l><lb/>
+<l>Wenn nicht an toter Formeln ſtarre Wände</l><lb/>
+<l>Sie binden plumpe Hände.</l><lb/>
+<l>Wer weiß von Einem Gott und vielen Kräften?</l><lb/>
+<l>Wer weiß von Einem Leib und vielen Gliedern</l><lb/>
+<l>Und ehret auch die niedern</l><lb/>
+<l>Und weiß von Aller nützlichen Geſchäften?</l><lb/>
+<l>Durch Gottentfremdung fiel der Menſchheit Ganzes</l><lb/>
+<l>Wie Blumen auseinander eines Kranzes.</l><lb/>
+</lg> <lg n="5"> <l>O nehmt mein Kind und bringt's dem Kinderfreunde</l><lb/>
+<l>Der einer neuen Menſchheit Vater worden!</l><lb/>
+<l>Da wo er ſteht iſt eine reine Stelle,</l><lb/>
+<l>Da kann die Sünde nicht mein Würmlein morden,</l><lb/>
+<l>Da herzt und ſegnet es die welterneu'nde</l><lb/>
+<l>Hehrheil'ge Hand und ſtreut ihm Himmelshelle</l><lb/>
+<l>Hold auf des Lebens Schwelle</l><lb/>
+<l>Und ſtellt es hin als groß im Gottesreiche,</l><lb/>
+<l>Obgleich auch über ihm ſchon ſchwebt Verdammung</l><lb/>
+<l>Daß die Geſammtverſchlammung</l><lb/>
+<l>Sein Füßlein, wie es wandeln lernt, erreiche.</l><lb/>
+<l>Ein Kind iſt ja nur mögliches Entfalten.</l><lb/>
+<l>Wird mir's die arge Welt nicht arg geſtalten?</l><lb/>
+</lg>
+<pb n="72" facs="#f0086"/>
+<lg n="6"> <l>O nimm hinweg, den Schatten weg, den kalten,</l><lb/>
+<l>Der ſchon die junge Stirn beſtreicht, mein Heiland!</l><lb/>
+<l>Laß deine Taufe meines Kindes Wiege</l><lb/>
+<l>Umſtrömen wie ein unnahbares Eiland</l><lb/>
+<l>Wo deine Heiligen Gemeinſchaft halten</l><lb/>
+<l>Als Himmelsvolk das da die Welt beſiege.</l><lb/>
+<l>In Jüngerarmen liege</l><lb/>
+<l>Und wachſe es als Glied der Neugeſellſchaft,</l><lb/>
+<l>Wo ſich das Heil vererbt wie dort das Kranken</l><lb/>
+<l>Und wo der Gottgedanken</l><lb/>
+<l>Aus Allem leuchtet wie er Alles hell ſchafft.</l><lb/>
+<l>Da wird es heiliger Gemeingeiſt lehren</l><lb/>
+<l>Und Waſſertauf' in Feuertaufe kehren.</l><lb/>
+</lg> <lg n="7"> <l>Wol weiß ich, ach! daß nicht am gleichen Ort lebt,</l><lb/>
+<l>Daß dünn zerſtreut das Häuflein deiner Söhne,</l><lb/>
+<l>Doch ſo nur zeigt es allwärts das Verderben</l><lb/>
+<l>Und zeigt es allwärts deine Himmelsſchöne</l><lb/>
+<l>Und jeder Chriſt, in dem dein Geiſt und Wort lebt,</l><lb/>
+<l>Muß die Genoſſen, die er wünſcht, erſt werben.</l><lb/>
+<l>Sollt' ich drum frühe ſterben,</l><lb/>
+<l>Wirſt in Geſtalt erleuchtet frommer Männer</l><lb/>
+<l>Du meinem Kinde da und dort erſcheinen</l><lb/>
+<l>Und dir den Jüngling einen</l><lb/>
+<l>Als einſichtsvoll lebendigen Bekenner.</l><lb/>
+<l>Mein Kind, wenn Gott das Leben ihm verleihet,</l><lb/>
+<l>Der unſichtbaren Kirche ſei's geweihet.</l><lb/>
+</lg>
+<pb n="73" facs="#f0087"/>
+<lg n="8"> <l>Sei denn getauft im Namen des Dreieinen,</l><lb/>
+<l>Den wir als Ausgang, Weg und Heimkunft kennen,</l><lb/>
+<l>Und der als jedes Dieſes alle Drei iſt,</l><lb/>
+<l>Wie Größe ſich und Grenze niemals trennen,</l><lb/>
+<l>Und ſollte Solches dir einſt dunkel ſcheinen,</l><lb/>
+<l>Mein Sohn, wenn deine Kindeszeit vorbei iſt,</l><lb/>
+<l>So wiſſe daß da frei iſt</l><lb/>
+<l>Und bleibt in Gott wer in der Liebe bleibet,</l><lb/>
+<l>Und habe Chriſtum lieb in allem Leben,</l><lb/>
+<l>Und ſelig ſüßes Beben</l><lb/>
+<l>Wird dir bezeugen daß der Geiſt dich treibet</l><lb/>
+<l>Und daß an dir erfüllt iſt was dem Glauben</l><lb/>
+<l>Verheißen und kein Schickſal dir wird rauben.</l><lb/>
+</lg> <lg n="9"> <l>Ihr aber, Murmelquellen dieſer Erde,</l><lb/>
+<l>Ihr Brunnen Gottes, ſel'ger Ruhe Stätten,</l><lb/>
+<l>Ihr Ströme die ihr hohe Rede tauſchet,</l><lb/>
+<l>Ihr Alpenſeeen in den Felſenbetten</l><lb/>
+<l>Wo ſtolz euch bettete der Allmacht Werde,</l><lb/>
+<l>Und du o Weltmeer das da tiefaufrauſchet,</l><lb/>
+<l>Wenn einſt mein Jüngling lauſchet</l><lb/>
+<l>Dem Zauber eurer ew'gen Melodeien,</l><lb/>
+<l>Dann laßt ihn ſtill ſich in ſich ſelbſt verſenken</l><lb/>
+<l>Und kindlich fromm gedenken</l><lb/>
+<l>Der Tropfen die ihr gabet ihn zu weihen.</l><lb/>
+<l>Erzählt ihm von der Menſchen Wehethume</l><lb/>
+<l>Das ihr geſehen, und von Jeſu Ruhme.</l><lb/>
+</lg> <fw type="sig" place="bottom">4<lb/>
+</fw>
+<pb n="74" facs="#f0088"/>
+<lg n="10"> <l>Denn Jeſus iſt der Herr und wird's vollenden,</l><lb/>
+<l>Wie er's begonnen und geführt bis hieher.</l><lb/>
+<l>Den Kopf zertrat er ja der alten Schlange</l><lb/>
+<l>Als in ſich ſelbſt er ſtellte Harmonie her</l><lb/>
+<l>Und die nicht ſchweigte, nein, für alle Enden</l><lb/>
+<l>Der Welt ausgoß in ſäuſelnd ſanftem Klange.</l><lb/>
+<l>Was ringreich uns ſo bange</l><lb/>
+<l>Umwindet, iſt nur mehr des Schlangenleibes</l><lb/>
+<l>Graunvolles Qualgeſchling und Todeszucken,</l><lb/>
+<l>Das uns noch will erdrucken.</l><lb/>
+<l>Fahr hin! dich traf der Same längſt des Weibes.</l><lb/>
+<l>Es gibt der Geiſt uns Zeugniß deines Falles.</l><lb/>
+<l>Der auf dem Stuhl ſitzt ſpricht: „ſieh! neu wird Alles!“</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/>
+<pb n="[75]" facs="#f0089"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">XIII</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Von Menſchheit hör' ich ſagen viel und ſingen</l><lb/>
+<l>Und von dem Heil der Maſſen durch die Maſſen.</l><lb/>
+<l> <hi rendition="#g">Die Menſchheit aber iſt wo Jeſu Geiſt iſt‚</hi></l><lb/>
+<l>Und dieſer mag zwar bildend wol erfaſſen</l><lb/>
+<l>Die Menge, doch ſie ihn hervor nicht bringen,</l><lb/>
+<l>Weil das Geſchlecht von ſolcher Kraft verwaist iſt.</l><lb/>
+<l>Wenn das Gefild enteist iſt,</l><lb/>
+<l>Pfropft ſtill ein Wundergaſt und ſieh! nach Jahren</l><lb/>
+<l>Beugt ſüße Fruchtlaſt ſeine Himmelsſchöſſe</l><lb/>
+<l>Derweil, wie ſtark es ſpröſſe,</l><lb/>
+<l>Allſtets nur herbe Holzfrucht läßt gewahren</l><lb/>
+<l>Das ungepfropfte Aſtwerk, das daneben</l><lb/>
+<l>Derſelbe Thau, daſſelbe Licht umſchweben.</l><lb/>
+</lg> <fw type="sig" place="bottom">4 *<lb/>
+</fw>
+<pb n="76" facs="#f0090"/>
+<lg n="2"> <l>Der Geiſt allein iſt ewig machtvollkommen.</l><lb/>
+<l>Die Maſſen in Palläſten und in Hütten,</l><lb/>
+<l>Am Webſtuhl und im Lehrſtuhl und auf Thronen,</l><lb/>
+<l>Sie können, was zerrüttet, mehr zerrütten,</l><lb/>
+<l>Doch ſchaffen nichts, nichts was da möchte frommen,</l><lb/>
+<l>Nichts was der Mühe wahrhaft möchte lohnen.</l><lb/>
+<l>Laß blitzen deine Kronen,</l><lb/>
+<l>Du königliches Volk der Geiſtbetrauten,</l><lb/>
+<l>Du Mittlerſchaft die ſich der Herr erküret,</l><lb/>
+<l>Denn dir allein gebühret</l><lb/>
+<l>Zu bauen neuer Menſchheit Himmelsbauten.</l><lb/>
+<l>Der Geiſt allein vermag aus Sündenketten</l><lb/>
+<l>So Könige wie Völker zu erretten.</l><lb/>
+</lg> <lg n="3"> <l>Die löblichſte Gewohnheit iſt unlöblich,</l><lb/>
+<l>Iſt Sünde, weil gedankenloſes Treiben.</l><lb/>
+<l>Wie fänden der Gewohnheit ew'ge Knechte,</l><lb/>
+<l>Sie die in altgewohntem Schlendern leiben</l><lb/>
+<l>Und leben, Gottes Thun verkennend gröblich,</l><lb/>
+<l>Wie fänden ſie das Gute und das Rechte?</l><lb/>
+<l>Vom Pantherthiergeſchlechte</l><lb/>
+<l>Und Mohren fordert ihr kein Hautverwandeln.</l><lb/>
+<l>Weiß auch ein Baum wo der Veredlung Spur iſt?</l><lb/>
+<l>So mag, was nur Natur iſt,</l><lb/>
+<l>Niemals aus Freiheit und für Freiheit handeln.</l><lb/>
+<l>Doch Gottes Huld ſind alle Dinge möglich.</l><lb/>
+<l>Ihm iſt das Unbewegliche beweglich.</l><lb/>
+</lg>
+<pb n="77" facs="#f0091"/>
+<lg n="4"> <l>Von Sünde frei iſt wer da kommt zum Vater.</l><lb/>
+<l>Wer aber führt zu ihm als die ihn kennen?</l><lb/>
+<l>Wer auch verſteht der Menſchen Sinn zu leiten</l><lb/>
+<l>Daß ſie für das Unendliche entbrennen?</l><lb/>
+<l>Wer iſt der Künſte Meiſter und Berater</l><lb/>
+<l>Die äußerlich den Menſchen gern befreiten,</l><lb/>
+<l>Ihm Muße zu bereiten</l><lb/>
+<l>Aus Not und, ach! geiſtloſer Arbeit Fluche?</l><lb/>
+<l>Wer weiß, wer ahnt zum Mindeſten, die Mittel</l><lb/>
+<l>Die uns aus dieſem Spittel</l><lb/>
+<l>Erlöſen möchten, wie dort ſteht im Buche?</l><lb/>
+<l>Wer ſchafft und gründet? gibt uns Hoffnungsſchimmer?</l><lb/>
+<l>Nur Einzle ſind's, die Maſſen ſind es nimmer.</l><lb/>
+</lg> <lg n="5"> <l>Das Chriſtenthum iſt ſel'ger Spiele Spiegel</l><lb/>
+<l>Und <hi rendition="#g">Feſtluſt der Geſalbten</hi> heißt ſein Name.</l><lb/>
+<l>Des Meiſters heitrer Geiſt mag niemand gönnen</l><lb/>
+<l>Zweckloſer Luſtentſagung Uebernahme.</l><lb/>
+<l>Doch ob ihm offen alle Himmelsriegel</l><lb/>
+<l>Und er wol hätte Freude haben können,</l><lb/>
+<l>Ward er, daß wir entrönnen</l><lb/>
+<l>Der Armut, ſelbſt arm, wählte Schmach ſtatt Ehren.</l><lb/>
+<l>So mag auch nur, wen gleiche Liebe ſpornet,</l><lb/>
+<l>Des Menſchenheils bedornet</l><lb/>
+<l>Schmerzreichen, rauhen Pfad zu gehn begehren.</l><lb/>
+<l>Kein Mühſal ſcheut, zu bahnen höchſtem Wandeln,</l><lb/>
+<l>Wen Eins nur freut: zu ſchauen Gottes Handeln.</l><lb/>
+</lg>
+<pb n="78" facs="#f0092"/>
+<lg n="6"> <l>Wohlthätig, Kranke heilend, lehrend wallte</l><lb/>
+<l>Der Meiſter und ſo mögen auch die Seinen</l><lb/>
+<l>Der Leiber wie der Geiſter ſich erbarmen.</l><lb/>
+<l>Wie Sünde ſich und Uebel gern vereinen,</l><lb/>
+<l>So mögen wir daß, wo die Predigt ſchallte,</l><lb/>
+<l>Auch leiblich werde Linderung den Armen.</l><lb/>
+<l>Uns will das Herz erwarmen</l><lb/>
+<l>Beim Anblick des verkommenen Geſchlechtes.</l><lb/>
+<l>Und ſo wie zweierlei iſt unſrer Liebe Segen,</l><lb/>
+<l>So iſt auch allerwegen</l><lb/>
+<l>Stets zweierlei der Lohn den wir als ächtes</l><lb/>
+<l>Beglaubigen empfangen unſrer Uebniß:</l><lb/>
+<l>Leibliche Not und geiſtliche Betrübniß.</l><lb/>
+</lg> <lg n="7"> <l>Ach! ſüßer iſt es freilich ſtill zu blühen</l><lb/>
+<l>Am Gottesbaume als mit ſcharfem Stale</l><lb/>
+<l>Gelöst, noch heimwehträufend, fern von Eden,</l><lb/>
+<l>Verpflanzt zu werden in die Erdenthale.</l><lb/>
+<l>Weit ſüßer als Prophetenamtes Mühen</l><lb/>
+<l>Iſt mit den Vögelein beſchaulich reden.</l><lb/>
+<l>Doch zu des Lebens Fehden</l><lb/>
+<l>Drängt unerbittlich fort aus Hirtenruhe,</l><lb/>
+<l>Getreue Jünger, euch des Meiſters Liebe,</l><lb/>
+<l>Auf daß ihr nicht wie Diebe</l><lb/>
+<l>Des Heiles Schatz verhehlt in toter Truhe.</l><lb/>
+<l>So lang Geheimgut letzte Herrlichkeiten,</l><lb/>
+<l>Heißt <hi rendition="#g">Mittlerthum</hi> das Heilswort aller Zeiten.</l><lb/>
+</lg>
+<pb n="79" facs="#f0093"/>
+<lg n="8"> <l>Mag ſtumpf die Welt dem alten Joch ſich beugen</l><lb/>
+<l>Das längſt den Nacken blutig ihr gerieben,</l><lb/>
+<l>Ihr blöder Blick ſoll uns nicht niederſchlagen,</l><lb/>
+<l>Die ſchöne Hoffnung ſoll uns nicht zerſtieben.</l><lb/>
+<l>Als treue Wächter wollen wir bezeugen</l><lb/>
+<l>Den Gang der Nacht und das gewiſſe Tagen.</l><lb/>
+<l>Hoch ſei einhergetragen</l><lb/>
+<l>Das Glaubensbanner das da ſpricht erfreulich</l><lb/>
+<l>Von dem was man nicht ſieht. Denn nur der Glaube</l><lb/>
+<l>Läßt uns nicht ſein zum Raube</l><lb/>
+<l>Der Trägheit und nur er führt uns getreulich.</l><lb/>
+<l>Geduld iſt not. Durch Glauben und Vertrauen</l><lb/>
+<l>Läßt Gott den Tag der Zukunft uns erſchauen.</l><lb/>
+</lg> <lg n="9"> <l>Es ſchläft die Welt den Todesſchlaf wie immer</l><lb/>
+<l>Und da iſt kaum was möchte Hoffnung geben,</l><lb/>
+<l>Doch durch den Glauben iſt uns klar entfaltet</l><lb/>
+<l>Daß Gott in unſer Nichts gepflanzt ſein Leben</l><lb/>
+<l>Und daß dies All in ſeiner Prachten Schimmer</l><lb/>
+<l>Das bloße göttlich ſtarke Wort geſtaltet.</l><lb/>
+<l>Drum, wenn das Wort nur ſchaltet,</l><lb/>
+<l>Braucht's weiter nichts, noch einen ſchönern Himmel</l><lb/>
+<l>Und eine ſchön're Erde ſtill zu bilden</l><lb/>
+<l>In deren Luſtgefilden</l><lb/>
+<l>Sich regt der neuen Gottmenſchheit Gewimmel.</l><lb/>
+<l>Die blöde Welt, ach! blendet ſolches Hoffen,</l><lb/>
+<l>Allein der Glaube ſieht die Zukunft offen.</l><lb/>
+</lg>
+<pb n="80" facs="#f0094"/>
+<lg n="10"> <l>Im Glauben, da Gott Abraham berufen,</l><lb/>
+<l>Ging dieſer aus und wußte nicht vom Ziele</l><lb/>
+<l>Und wohnte als ein Fremdling unter Zelten.</l><lb/>
+<l>Gewärtig was zu ſtiften Gott gefiele.</l><lb/>
+<l>Im Glauben trat herab von Thronesſtufen</l><lb/>
+<l>Ein Moſes weil er anſah das Vergelten.</l><lb/>
+<l>Das kühne Donnerſchelten</l><lb/>
+<l>Der heiligen Propheten kam vom Glauben.</l><lb/>
+<l>Im Glauben trank Sokrates Gift, und ſandte</l><lb/>
+<l>Der Heiland ungewandte</l><lb/>
+<l>Sendlinge gen der Sünde Todesſchnauben.</l><lb/>
+<l>Im Glauben ſtach Kolumbus in die Meere,</l><lb/>
+<l>Und ſcheute Luther nicht der Weltmacht Heere.</l><lb/>
+</lg> <lg n="11"> <l>Im Glauben wirkten alle Männer Gottes,</l><lb/>
+<l>Und Viele litten Bande und Gefängniß.</l><lb/>
+<l>Sie ſind geſteiniget, zerhackt, zerſtochen,</l><lb/>
+<l>Durch's Schwert getötet. Jeglicher Bedrängniß</l><lb/>
+<l>Und Not bloß, waren ſie ein Ziel des Spottes.</l><lb/>
+<l>Sie, deren unwert war die Welt, verkrochen</l><lb/>
+<l>In Wüſten, auf Bergjochen,</l><lb/>
+<l>In Klüften ſich und Höhlen. O wir haben</l><lb/>
+<l>Im Kampf noch bis auf's Blut nicht widerſtanden!</l><lb/>
+<l>Uns mache nicht zu Schanden</l><lb/>
+<l>Die Schaar der Zeugen die uns ſtets umgaben!</l><lb/>
+<l>Seht auf den Meiſter, der das Widerſprechen</l><lb/>
+<l>Der Welt trägt, ach! bis ihm die Augen brechen.</l><lb/>
+</lg>
+<pb n="81" facs="#f0095"/>
+<lg n="12"> <l>So lang auf Erden Etwas zu erlöſen,</l><lb/>
+<l>Seid ihr nicht ganz erlöst. Ihr müßt's ja fühlen!</l><lb/>
+<l>Nicht euer Ich iſt euer Selbſt, das wahre,</l><lb/>
+<l>Das ganze Selbſt. Zwar auf des Glaubens Pfühlen</l><lb/>
+<l>Ruht ſelig euer Haubt, und frei vom Böſen</l><lb/>
+<l>Iſt euer wahres Selbſt, das volle, klare.</l><lb/>
+<l>Sich ewig offenbare,</l><lb/>
+<l>Doch neuſtets ſpielt ihr ſel'ges Spiel die Liebe,</l><lb/>
+<l>Schafft Leere ſtets, ſchafft Sehnſucht nach Erfüllen,</l><lb/>
+<l>Und will, in ſolchen Hüllen</l><lb/>
+<l>Sich ſchauend, drin erlöſen eigne Triebe.</l><lb/>
+<l>In euer leeres Ich kam ſie hernieder,</l><lb/>
+<l>Und iſt ſie 's wirklich, liebt und löst ihr wieder.</l><lb/>
+</lg> <lg n="13"> <l>Es will durch <hi rendition="#g">euch</hi> der Herr den Geiſt ausgießen,</l><lb/>
+<l>Und was ihr laßt gebunden, bleibt gebunden,</l><lb/>
+<l>Und was ihr löſet, iſt gelöst. Die Bande</l><lb/>
+<l>Der Sündenknechtſchaft an der Menſchheit wunden</l><lb/>
+<l>Gliedmaßen könnet <hi rendition="#g">ihr</hi>, nur <hi rendition="#g">ihr</hi>, aufſchließen.</l><lb/>
+<l>Von <hi rendition="#g">euch</hi> erwarten Freiheit alle Lande.</l><lb/>
+<l>Zu ſüßem Liebesbrande</l><lb/>
+<l>Entfache ſtill die Welt denn euer Hauchen,</l><lb/>
+<l>Bis Liebe Wahrheit, Wahrheit Freiheit bringe,</l><lb/>
+<l>Und neuſchön alle Dinge,</l><lb/>
+<l>Vom Scepter bis zum Pflug, aus Gott auftauchen.</l><lb/>
+<l>Euch iſt das <hi rendition="#g">Amt der Schlüſſel</hi> übertragen,</l><lb/>
+<l>Und eitles Klagen iſt nur Selbſtanklagen.</l><lb/>
+</lg>
+<pb n="82" facs="#f0096"/>
+<lg n="14"> <l>Sitzt aber träg ihr auf des Geiſtes Thronen,</l><lb/>
+<l>Wird dumm der Erde Salz, die Leuchte dunkel,</l><lb/>
+<l>Dann ſeid in Wahrheit ihr nur tote Maſſen,</l><lb/>
+<l>Doch wißt: wie fernſter Sterne Urgefunkel</l><lb/>
+<l>Herfliegt und uns erglänzet nach Aeonen,</l><lb/>
+<l>So naht, aus tiefſtem Himmelsraum entlaſſen,</l><lb/>
+<l>Den Erdball zu erfaſſen,</l><lb/>
+<l>Ein Lebenswürzeſtrom, von Gott erſehen</l><lb/>
+<l>Eh' er den Erdball ſchuf, daß er die Seinen</l><lb/>
+<l>Erwecke ſich aus Steinen,</l><lb/>
+<l>Wenn ihr nicht möchtet ſeine Huld verſtehen.</l><lb/>
+<l>Erfüllt doch Chriſtus die Unendlichkeiten</l><lb/>
+<l>Und kann ſein Werk auch ohne euch bereiten.</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/>
+<pb n="[83]" facs="#f0097"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">XIV</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Wie heult es herzzerſchneidend durch die Lüfte!</l><lb/>
+<l>Wie tost es durch den Wald! Von jenen Bäumen,</l><lb/>
+<l>Den ſtattlich hohen, ſtöhnt gewalt'ges Stöhnen.</l><lb/>
+<l>Es wirft der Sturm des Waſſerſturzes Schäumen</l><lb/>
+<l>Und zerrt und läßt ihn raſen in die Klüfte.</l><lb/>
+<l>Wie leuchtet neuſtets vor dem Donnerdröhnen</l><lb/>
+<l>Der Fels im prächtig ſchönen</l><lb/>
+<l>Blitzglanz! Verkehrt in Nacht iſt Tag. Es fallen</l><lb/>
+<l>Die Tropfen ſtärker, doch mich ſchirmt, o Buche!</l><lb/>
+<l>Dein Laubdach. Keinem Fluche</l><lb/>
+<l>Mehr bebt dies Herz wenn wilde Stimmen ſchallen.</l><lb/>
+<l>Du haſt ganz andre Stürme mir geleget,</l><lb/>
+<l>O Herr! und ſie auch hatte Huld erreget.</l><lb/>
+</lg>
+<pb n="84" facs="#f0098"/>
+<lg n="2"> <l>Beſtimmungsloſes Fühlen iſt kein Fühlen.</l><lb/>
+<l>In Schmerz und Luſt nur iſt Gefühl entfaltet.</l><lb/>
+<l>Drum ſpannt das <hi rendition="#g">ewig-eine Wort</hi> und bricht ſich,</l><lb/>
+<l>Als Widerſpruch und Unortnung geſtaltet.</l><lb/>
+<l>Und Wahn und Lüge, Haß und Tod durchwühlen</l><lb/>
+<l>Die Welt. Doch ſieh! mit Finſterniß verſticht ſich</l><lb/>
+<l>Und zeigt der Liebe Licht ſich</l><lb/>
+<l>Urſtets, der Liebe Leben, denn begründet</l><lb/>
+<l>In ew'ger Einheit nur iſt ew'ges Brechen.</l><lb/>
+<l>Da muß der Bruch ſich rächen</l><lb/>
+<l>Durch Sehnſuchtsweh, und ſel'ges Heil verbündet</l><lb/>
+<l>Treu mit Verſöhnung ſich und ſtiller Friede.</l><lb/>
+<l>Drob preist, o Herr! auch <hi rendition="#g">mein</hi> Herz dich im Liede.</l><lb/>
+</lg> <lg n="3"> <l>Und wird nun wer gefangen war wol ſagen:</l><lb/>
+<l>Gebt nochmals Ketten daß ich freier werde?</l><lb/>
+<l>Und wer wird ſprechen: laßt uns mehr erkranken</l><lb/>
+<l>Um beſſer zu geſunden? Menſch von Erde!</l><lb/>
+<l>Wie ſollten mit der Sünde wir uns tragen</l><lb/>
+<l>Der wir geſtorben ſind, da in Gedanken</l><lb/>
+<l>Mit ſterbensvollem Wanken</l><lb/>
+<l>Der alte Menſch in uns zum Tod begleitet</l><lb/>
+<l>Den Herrn vom Himmel, der in uns nun lebet?</l><lb/>
+<l>Wenn's von den Lippen bebet:</l><lb/>
+<l>„<hi rendition="#aq">O felix culpa</hi>!“ gibt's kein Fleiſch das ſtreitet.</l><lb/>
+<l>Verſöhnt iſt Alles. Von der Sünde Schranken,</l><lb/>
+<l>Nun ſie zertrümmert, aufweint brünſtig Danken.</l><lb/>
+</lg>
+<pb n="85" facs="#f0099"/>
+<lg n="4"> <l>Hier haben keine Stimme, die am Satze</l><lb/>
+<l>Des Widerſpruches abzugweiſe hangen</l><lb/>
+<l>Und deren Denkthat wirklich noch im Grauen</l><lb/>
+<l>Des Bruches und des Widerſpruchs befangen.</l><lb/>
+<l>Mit Recht bezeugen ſie die Teufelsfratze</l><lb/>
+<l>Die ſie als Hinterhaubt des Guten ſchauen.</l><lb/>
+<l>Ich möcht' im bläulich grauen</l><lb/>
+<l>Helldunkel eines Tempels lieber ſehen</l><lb/>
+<l>Ein Jünglingsantlitz qualverſtört und trotzig,</l><lb/>
+<l>Selbſt etwas läppiſch-protzig,</l><lb/>
+<l>Doch immer gotthaft, während Heilsergehen</l><lb/>
+<l>Auf vord'rer Janusſtirn freundſelig ruhte</l><lb/>
+<l>Wie er mit Schlüſſel thront und Königsrute.</l><lb/>
+</lg> <lg n="5"> <l>Licht überſtrömt vom Kreuze die Geſchichte</l><lb/>
+<l>Rückwärts und vorwärts. Schmerzenreiches Irren</l><lb/>
+<l>Bezeichnete des Menſchen erſtes Wollen</l><lb/>
+<l>Auf Erden, doch in ſtets vermehrte Wirren</l><lb/>
+<l>Trat Wahrheit aus prophetiſchem Geſichte,</l><lb/>
+<l>Und dringender auftrat erhab'nes Sollen,</l><lb/>
+<l>Bis Wahrheit mit dem vollen</l><lb/>
+<l>Inhalt der Heiligkeit ſich offenbarte.</l><lb/>
+<l>Dem Jugendſchmerz wird Altersheil entblühen.</l><lb/>
+<l>Es läßt nach unſern Mühen</l><lb/>
+<l>Der Herr uns ſchau'n was er uns aufbewahrte.</l><lb/>
+<l> <hi rendition="#g">Einmal</hi> muß des Geſchlechtes Frucht ſich ſonnen.</l><lb/>
+<l>Sei neuer Siegel Aufſchluß dann begonnen.</l><lb/>
+</lg>
+<pb n="86" facs="#f0100"/>
+<lg n="6"> <l>Wir harren einer Ortnung ird'ſcher Dinge</l><lb/>
+<l>Die Gottes Reich verdient genannt zu werden.</l><lb/>
+<l>Nur geiſtig iſt ſein Reich und darum eben</l><lb/>
+<l>Soll Alles geiſtgeortnet ſein auf Erden.</l><lb/>
+<l>In Adams Reich iſt Arbeit Fluches Schlinge,</l><lb/>
+<l>In Gottes muß ſie ſich zum Spiel erheben.</l><lb/>
+<l>In Adams Reich erſtreben</l><lb/>
+<l>Sich beſte Kämpfer ſelten heil'gen Frieden,</l><lb/>
+<l>In Gottes iſt er Allen, wie dem Kinde</l><lb/>
+<l>Aus Gnaden gar geſchwinde</l><lb/>
+<l>Und ſonder Mühe noch Verdienſt beſchieden.</l><lb/>
+<l>O komm du Spiegel ſel'ger Gottesklarheit,</l><lb/>
+<l>Komm bald und ſei des Kreuzes äuß're Wahrheit.</l><lb/>
+</lg> <lg n="7"> <l>Wie ſpannt dort anmutreich der Regenbogen</l><lb/>
+<l>Sich ob der tiefen, duftig grünen Schneuſe!</l><lb/>
+<l>Der Aufruhr der Natur hat ausgewütet</l><lb/>
+<l>Und freundlich ſchließt der Himmel ſeine Schleuſe.</l><lb/>
+<l>So tret' ich denn heraus, euch Balſamwogen</l><lb/>
+<l>Des Waldes friſch zu trinken, denn behütet</l><lb/>
+<l>Hat ſeinen frohgemütet</l><lb/>
+<l>Dankbaren Knecht der Herr auch diesmal wieder.</l><lb/>
+<l>O Amſelſchlag, o volles, reiches Tönen!</l><lb/>
+<l>Und rings wie viel des Schönen!</l><lb/>
+<l>Erquickung ſtrömt durch Herz und Haubt und Glieder.</l><lb/>
+<l>Mit mark'gen Knochen ſteht zugleich im Leben</l><lb/>
+<l>Wer wahrhaft ſich dem Himmel hat ergeben.</l><lb/>
+</lg>
+<pb n="87" facs="#f0101"/>
+<lg n="8"> <l>O Freudigkeit des Glaubens!</l><lb/>
+<l>Den Satan ſah <hi rendition="#g">auch ich</hi> vom Himmel fallen</l><lb/>
+<l>Wie einen Blitz. Was bleibt vom Wetterſcheine</l><lb/>
+<l>Wenn er erloſch? Das reine,</l><lb/>
+<l>Das heitre Blau wo ew'ge Sterne wallen,</l><lb/>
+<l>Wo, ſchöngeſchmückt zu prieſterlichem Handeln,</l><lb/>
+<l>Die ſeligen Gedanken Gottes wandeln.</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/>
+<pb n="[88]" facs="#f0102"/>
+<div n="2"> <head> <hi rendition="#b">Canzone</hi> <hi rendition="#aq #b">XV</hi><hi rendition="#b">.</hi><lb/>
+</head> <lg type="poem"> <lg n="1"> <l>Eins weiß ich, Andres glaub' ich nur zu wiſſen.</l><lb/>
+<l>Ich weiß das mein Erlöſer lebt und treu iſt.</l><lb/>
+<l>Im Lachen weiß ich dies und unter Thränen</l><lb/>
+<l>Weil er in Wol und Weh mir immer neu iſt.</l><lb/>
+<l>Ich habe redlich mich vor ihm befliſſen,</l><lb/>
+<l>Als unter ſeinen Augen, alles Wähnen</l><lb/>
+<l>Und mißverſtand'ne Sehnen</l><lb/>
+<l>Zu ihm zu bringen als zum Vollgenügen</l><lb/>
+<l>Der Heiligkeit und Wahrheit, und ich glaube</l><lb/>
+<l>Nicht daß mein Thun zum Raube</l><lb/>
+<l>Dem Wahn, zur Beute ward dem Selbſtbetrügen.</l><lb/>
+<l>Doch nur auf Eins mag leben ich und ſterben:</l><lb/>
+<l>Mein Jeſus lebt und läßt mich nicht verderben.</l><lb/>
+</lg>
+<pb n="89" facs="#f0103"/>
+<lg n="2"> <l>So lang ich lebe, muß ich denkend leben,</l><lb/>
+<l>Und ſoll ich anders denken als ich denke,</l><lb/>
+<l>So wirſt du, mein Erlöſer, mich es lehren,</l><lb/>
+<l>Und wenn ich hier der Welt nur Irrwahn ſckenke,</l><lb/>
+<l>So wirſt du ihr dafür die Wahrheit geben</l><lb/>
+<l>Und wirſt, die ich verführte, ſelbſt bekehren.</l><lb/>
+<l>Ich wollte dich ja ehren,</l><lb/>
+<l>Mein Heiland, und du weißt daß ich dich liebe.</l><lb/>
+<l>Auch glaub' ich nicht daß ich mich ſelbſt bethöre,</l><lb/>
+<l>Denn wenn ich dich verlöre,</l><lb/>
+<l>So wüßt' ich nicht was von dem Allen bliebe</l><lb/>
+<l>Was betend ich und weinend dir geſungen.</l><lb/>
+<l>Warſt du Beherrſcher doch auch meiner Zungen!</l><lb/>
+</lg> <lg n="3"> <l>Wie jegliches vollbrachte Werk, ſo mahnet</l><lb/>
+<l>Auch dieſes an den Tod mich, drum erſcheinet</l><lb/>
+<l>Mir ſo unweſentlich was ich vollbrachte.</l><lb/>
+<l>Und freilich wenn mir Alles was da ſcheinet,</l><lb/>
+<l>Wenn dieſe Welt, die du mir haſt gebahnet,</l><lb/>
+<l>Wenn dieſes Denken, das in dir ich dachte,</l><lb/>
+<l>Das ſich in dir entfachte,</l><lb/>
+<l>Dereinſt zu kleinſtem Durchmaß in ſich ſinket.</l><lb/>
+<l>So wie die Glieder mählig mir erkalten</l><lb/>
+<l>Und nur im Herzen walten</l><lb/>
+<l>Noch mag was ew'gen Lebens Abglanz blinket,</l><lb/>
+<l>Dann iſt mein Alles, bei dem Allverſchwinden,</l><lb/>
+<l>In meines Herzens Herzen dich zu finden.</l><lb/>
+</lg>
+<pb n="90" facs="#f0104"/>
+<lg n="4"> <l>Dem Leben was des Lebens!</l><lb/>
+<l>Weil noch dies Herz ausſtralt endloſe Sphären</l><lb/>
+<l>Und allwärts den Geliebten mag erſchauen,</l><lb/>
+<l>So will ich, voll Vertrauen,</l><lb/>
+<l>Was ich geſchaut auch vor der Welt verklären.</l><lb/>
+<l>Geht hin, o Lieder! Grüßt mir die Getreuen.</l><lb/>
+<l>Der Herr iſt Gott im Alten und im Neuen.</l><lb/>
+</lg> </lg> </div> <milestone unit="section" rendition="#hr"/> </div>
+<pb n="[91]" facs="#f0105"/>
+<div n="1"> <head> <hi rendition="#b #g">Anhang</hi><hi rendition="#b">.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/>
+<pb n=" [92]" facs="#f0106"/>
+<pb n="[93]" facs="#f0107"/>
+<div n="2" type="act"> <head><hi rendition="#b #g">Hymnus</hi><hi rendition="#b">.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Einzele Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Was iſt das für ein Glanz und Stral?</p><lb/>
+</sp> <sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#c">Es ſteht verklärt ein Todespfal.</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Ein kahler Kreuzesſtamm ſchlägt aus?</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#c">In einen grünen Lebensſtrauß!</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Sagt, was belebt ihn für ein Saft?</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#c">Es iſt der Liebe Wort und Kraft.</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Was fließt in ſeinen Adern gut?</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#c">Es iſt ein dreimal heilig Blut.</p></sp><lb/>
+<pb n="94" facs="#f0108"/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Geſammtchor</hi>.</hi></speaker><lb/>
+<p>Wie ſteht der Baum ſo göttlich kühn!<lb/>
+Wie rauſchet uns der Aeſte Grün!<lb/>
+Des Himmels Lichter glänzen dran<lb/>
+Und Früchte roſig angethan!<lb/>
+O Weihnachtsbaum, o Lebensholz,<lb/>
+O Demutsſtamm, o Freiheitsſtolz,<lb/>
+Erhebe dich am Strom der Zeit<lb/>
+Voll Kraft und Herrlichkeit!</p><lb/>
+</sp> <sp><speaker><hi rendition="#c"><hi rendition="#g">Einzele Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Hat nicht die Erde ſich bewegt?</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#c">Der Bauherr hat den Grund gelegt.</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Was beut ſich meinen Blicken dar?</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#c">Ein Münſter hehr und wunderbar.</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Wie heißt der Grundſtein?</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#right">Jeſus Chriſt.</p><lb/>
+</sp> <sp><speaker><hi rendition="#c"><hi rendition="#g">Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Wie heißt der Schlußſtein?</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#right">Jeſus Chriſt.</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Wie heißt die Säule?</p></sp><lb/>
+<pb n="95" facs="#f0109"/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#right">Jeſus Chriſt.</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Nennt mir den Gott auch.</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#right">Jeſus Chriſt.</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Geſammtchor</hi>.</hi></speaker><lb/>
+<p>O Kirche Chriſti, Braut und Chriſt,<lb/>
+Wie Prieſter du und Opfer biſt,<lb/>
+Gott und Gemeine allzugleich,<lb/>
+An aller Gottesfülle reich,<lb/>
+Du voller Mond, Abglanz des Herrn,<lb/>
+Du ſelber Herr, du nah, du fern,<lb/>
+O Münſter, rage himmelhoch<lb/>
+Und ſei der Himmel doch!</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Einzele Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Was rauſcht ſo wunderlieblich gar?</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#c">In Kanaan ein Bergquell klar.</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Was deckt wie Meeresflut das Land?</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#c">Erkenntniß Gottes wird's genannt.</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Wer iſt die Quelle?</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#right">Jeſus Chriſt.</p></sp><lb/>
+<pb n="96" facs="#f0110"/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Wer iſt das Weltmeer?</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#right">Jeſus Chriſt.</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Stimme</hi>.</hi></speaker><lb/>
+<p rendition="#c">Wer hat beſiegt den grimmen Tod?</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Halbchor</hi>.</hi></speaker><lb/>
+<p rendition="#c">Der uns Erkenntniß Gottes bot.</p></sp><lb/>
+<sp><speaker><hi rendition="#c"><hi rendition="#g">Geſammtchor</hi>.</hi></speaker><lb/>
+<p>O du dich ſelbſt Ergründender,<lb/>
+Uns ew'ges Leben Spendender,<lb/>
+Gott Vater, Sohn und heil'ger Geiſt,<lb/>
+Der ſich als Eines uns erweiſt,<lb/>
+Alleins, Allmittler, Jeſu Chriſt,<lb/>
+Du aller Schönheit Umkreis biſt!<lb/>
+Auf! geſtern Jeſus Chriſt und heut',<lb/>
+Derſelb' in Ewigkeit.</p></sp><lb/>
+</div> <trailer> <hi rendition="#b #g">Ende</hi> </trailer><lb/>
+<milestone unit="section" rendition="#hr"/> </div> </body> <back> <div type="imprint"> <p rendition="#c">Druck von Otto Wigand in Leipzig.</p> </div><lb/>
+<pb n="[97]" facs="#f0111"/>
+<div type="corrigenda"> <head><hi rendition="#b">Druckfehler.</hi></head><lb/>
+<p>S. 43. Z. 2. v. o. ſetze nach <hi rendition="#g">Straßen</hi> ein Komma.</p><lb/>
+<p>S. 89. Z. 6. v. u. iſt nach <hi rendition="#g">ſinket</hi> ebenfalls ein Komma ſtatt des Puncts zu ſetzen.</p> </div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0112"/>
+<div type="imprint"><p rendition="#c"><hi rendition="#g">Leipzig<lb/>
+Verlag von S. Hirzel.</hi><lb/>
+1854.</p> </div><lb/>
+<div type="imprint"> <p rendition="#c">Druck von Otto Wigand in Leipzig.</p><lb/>
+</div>
+<pb facs="#f0113"/>
+<pb facs="#f0114"/>
+<pb facs="#f0115"/>
+</back> </text> </TEI>

@@ -1,0 +1,2034 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Das Wohl-eingerichtete Seminarium Militare, Oder Pflantz-Schul, Künfftig geschickter und tapferer Kriegs-Leute und Soldaten</title>
+<title type="sub">Wie solche Erstlich bey denen alten Römern, Griechen und Persianern/ ingleichen bey denen Jsraeliten zu Zeiten ihrer Könige, nicht weniger auch bey denen alten Teutschen, in denen jüngern Zeiten aber bey denen Türcken, vermittelst ihres Serails, [...] in Gebrauch gewesen, und beydiesenletzern noch seyn, auch von geraumer Zeit her, bey unterschiedlichen Christlichen Potentaten ebenfalls mit grossen Nutzen ihres Kriegs-Etats eingeführet worden</title>
+<title type="sub">Wobey hernach ferner Wie, wo und durch wem dergleichen Seminaria füglich anzurichten und beständig zu unterhalten seyn, auch was es mit obbesagter Nationen ihrer Einrichtung und Verpflegung derselben, item der Tyronum oder Kriegs-Seminaristen ihren Exercitiis vor eine Bewandniß gehabt habe, und was etwan sonst noch dieser Materia halber zu bemercken seyn möch[t]e, kürtzlich gehandelt wird</title>
+<author>
+<persName ref="http://d-nb.info/gnd/10422262X">
+<surname>Marperger</surname>
+<forename>Paul Jacob</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">48</measure>
+<measure type="tokens">18866</measure>
+<measure type="types">5266</measure>
+<measure type="characters">136703</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:48Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/marperger_militare_1724</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/marperger_militare_1724</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/marperger_militare_1724</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/marperger_militare_1724</idno>
+<idno type="DTADirName">marperger_militare_1724</idno>
+<idno type="DTAID">20873</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Marperger, Paul Jacob: Das Wohl-eingerichtete Seminarium Militare. Dresden, 1724.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Das Wohl-eingerichtete Seminarium Militare, Oder Pflantz-Schul, Künfftig geschickter und tapferer Kriegs-Leute und Soldaten</title>
+<title level="m" type="sub">Wie solche Erstlich bey denen alten Römern, Griechen und Persianern/ ingleichen bey denen Jsraeliten zu Zeiten ihrer Könige, nicht weniger auch bey denen alten Teutschen, in denen jüngern Zeiten aber bey denen Türcken, vermittelst ihres Serails, [...] in Gebrauch gewesen, und beydiesenletzern noch seyn, auch von geraumer Zeit her, bey unterschiedlichen Christlichen Potentaten ebenfalls mit grossen Nutzen ihres Kriegs-Etats eingeführet worden</title>
+<title level="m" type="sub">Wobey hernach ferner Wie, wo und durch wem dergleichen Seminaria füglich anzurichten und beständig zu unterhalten seyn, auch was es mit obbesagter Nationen ihrer Einrichtung und Verpflegung derselben, item der Tyronum oder Kriegs-Seminaristen ihren Exercitiis vor eine Bewandniß gehabt habe, und was etwan sonst noch dieser Materia halber zu bemercken seyn möch[t]e, kürtzlich gehandelt wird</title>
+<author>
+<persName ref="http://d-nb.info/gnd/10422262X">
+<surname>Marperger</surname>
+<forename>Paul Jacob</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">48 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Selbstverlag</name></publisher>
+<pubPlace>Dresden</pubPlace>
+<date type="publication">1724</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>HAB Wolfenbüttel</repository>
+<idno>
+<idno type="shelfmark">HAB Wolfenbüttel, M: Ac 239 (5)</idno>
+<idno type="URLCatalogue">Dig: http://diglib.hab.de/drucke/ac-239-5/start.htm</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Militär</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Militär</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b">Das<lb/>
+<hi rendition="#g">Wohl-eingerichtete</hi><lb/>
+<hi rendition="#aq">SEMINARIUM MILITARE,</hi><lb/>
+Oder<lb/>
+Pflantz-Schul,<lb/>
+Kuͤnfftig geſchickter und tapfferer<lb/>
+Kriegs-Leute und Soldaten,</hi></titlePart><lb/>
+<titlePart type="desc"><hi rendition="#b">Wie ſolche<lb/>
+Erſtlich bey denen alten Roͤmern, Griechen und<lb/>
+Perſianern<supplied>/</supplied> ingleichen bey denen Jſraeliten zu Zeiten ihrer<lb/>
+Koͤnige, nicht weniger auch bey denen alten Teutſchen, in denen juͤn-</hi><lb/>
+gern Zeiten aber bey denen Tuͤrcken, vermittelſt ihres <hi rendition="#aq">Serail</hi>s, (und der<lb/>
+darinn zu der Ottomanniſchen Pforte Kriegs- und Hof-Dienſten erzogenen, und<lb/>
+theils von Chriſtlichen <hi rendition="#aq">Tribut</hi>s, theils von anderer <hi rendition="#aq">Condition</hi> Kindern genomme-<lb/>
+nen Jugend,) in Gebrauch geweſen, und beydieſenletzern noch ſeyn, auch von gerau-<lb/>
+mer Zeit her, bey unterſchiedlichen Chriſtlichen Potentaten ebenfalls mit<lb/>
+groſſen Nutzen ihres Kriegs-<hi rendition="#aq">Etats</hi> eingefuͤhret<lb/>
+worden.<lb/>
+<hi rendition="#b">Wobey hernach ferner<lb/>
+Wie, wo und durch wem dergleichen <hi rendition="#aq">Seminaria</hi> fuͤglich an-<lb/>
+zurichten und beſtaͤndig zu unterhalten ſeyn, auch was es mit obbe-</hi><lb/>
+ſagter <hi rendition="#aq">Nation</hi>en ihrer Einrichtung und Verpflegung derſelben, <hi rendition="#aq">item</hi> der <hi rendition="#aq">Ty-<lb/>
+ronum</hi> oder Kriegs-<hi rendition="#aq">Seminariſt</hi>en ihren <hi rendition="#aq">Exercitiis</hi> vor eine Bewandniß gehabt habe,<lb/>
+und was etwan ſonſt noch dieſer <hi rendition="#aq">Materia</hi> halber zu bemercken ſeyn <choice><sic>moͤche</sic><corr>moͤchte</corr></choice>,<lb/>
+kuͤrtzlich gehandelt wird,<lb/>
+von<lb/>
+<hi rendition="#aq"><hi rendition="#b">P. J. M.</hi></hi></titlePart></docTitle></titlePage><lb/>
+<pb facs="#f0002"/>
+<div type="dedication"><p><hi rendition="#c"><hi rendition="#b">Dem<lb/>
+Hochgebohrnen Grafen und Herrn,<lb/>
+<hi rendition="#g">HERRN</hi><lb/>
+Auguſt Chriſtoph,<lb/>
+Des Heil. Roͤm. Reichs Grafen<lb/>
+von Wackerbarth,</hi><lb/>
+Des Koͤnigl. Pohln. weiſſen Adler- Ordens-Rittern Sr.<lb/>
+Koͤnigl. Majeſtaͤt in Pohlen und Churfl Durchl. zu Sachſen hoͤchſt-<lb/>
+anſehnl. beſtallten Geheimbden <hi rendition="#aq">Cabinet</hi>s- <hi rendition="#aq">Miniſtre,</hi> wuͤrcklich Ge-<lb/>
+heimbden Rathe, <hi rendition="#aq">General</hi>n der <hi rendition="#aq">Infanterie</hi> und <hi rendition="#aq">Artillerie, Gouver-<lb/>
+neur</hi>n und Ober-<hi rendition="#aq">Commendant</hi>en derer Reſidentz-Veſtungen, Neu-<lb/>
+und Alt-Dreßden, ingl. Koͤnigſtein, Sonnenſtein und Stolpen; <hi rendition="#aq">Ge-<lb/>
+neral-Commendant</hi>en der Adel. <hi rendition="#aq">Compagnie Cadet</hi>s, <hi rendition="#aq">General-In-<lb/>
+tendant</hi>en aller <hi rendition="#aq">Civil-</hi> und <hi rendition="#aq">Militair-</hi>Gebaͤude, und <hi rendition="#aq">General-<lb/>
+Commiſſario</hi> der Baltiſchen Meer-Porten,</hi><lb/>
+<hi rendition="#b">Seinem gnaͤdigen Grafen und Herrn.</hi><lb/>
+<hi rendition="#c">Ubergiebet</hi><lb/>
+aus ſchuldigſter <hi rendition="#aq">Obſervanz</hi> und <hi rendition="#aq">Devotion</hi> dieſe wenige <hi rendition="#fr">Jhro Hoch - Graͤfl.</hi> <hi rendition="#aq">EX-<lb/>
+CELLENZ</hi> preißwuͤrdigſten <hi rendition="#aq">Gouvernement</hi>s Zeiten, und Deroſelben darinn taͤg-<lb/>
+lich ſich zeigenden <hi rendition="#aq">Piet</hi>aͤts-<hi rendition="#aq">Juſliz-Clemenz-</hi> und <hi rendition="#aq">Magnanimi</hi>taͤts-Proben, auch heil-<lb/>
+ſamen <hi rendition="#aq">Militair -</hi> und <hi rendition="#aq">Policey-</hi> Veranſtaltungen <hi rendition="#i">(</hi>da unter jenen ſonderlich das in-<lb/>
+<hi rendition="#c">Alt-Dreßden errichtete <hi rendition="#aq"><hi rendition="#i">magniſique</hi></hi> <hi rendition="#fr">Gebaͤude</hi> der Ritter und Adelichen<lb/>
+<hi rendition="#aq">Cadet</hi>s <hi rendition="#aq">Academie</hi> billich zu zehlen iſt) gewidmete Bogen</hi></p><lb/>
+<closer><salute><hi rendition="#et">der <hi rendition="#aq">Autor.</hi></hi></salute></closer></div></front><body><lb/>
+<pb facs="#f0003"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">CAPUT</hi> I.</hi></hi></head><lb/>
+<argument><p><hi rendition="#c"><hi rendition="#b">Von denen <hi rendition="#aq">Seminariis Militaribus,</hi> oder Kriegs - Pflantz-<lb/>
+Schulen insgemein, deroſelben Nutzen und Nothwendigkeit, auch<lb/>
+wie lang und bey was vor Voͤlckern ſolche ſchon laͤngſt in Gebrauch<lb/>
+geweſen.</hi></hi></p></argument><lb/>
+<p><hi rendition="#in">E</hi>Jn <hi rendition="#aq">Seminarium Militare,</hi> oder Kriegs- Pflantz - Schul, iſt ein<lb/>
+ſolches Geſtifft oder <hi rendition="#aq">Inſtitutum,</hi> da die jungen Leute von den<lb/>
+zwoͤlfften oder vierzehenden Jahr ihres Alters an, zu allerhand<lb/>
+Kriegs - Wiſſenſchafften und <hi rendition="#aq">Exercitiis</hi> in einen darzu bequemen<lb/>
+und beſonders <hi rendition="#aq">apti</hi>rten Haus, ſo lang angewieſen und <hi rendition="#aq">exerci</hi>ret<lb/>
+werden, biß ſie an Alter, Verſtand, Leibes - Kraͤfften und Ge-<lb/>
+ſchicklichkeit geſtaͤrcket, tuͤchtig ſeyn, zu ihres Landes - Herrn oder Stadt - Obrig-<lb/>
+keit, (welche ſie von Jugend an darzu auferzogen, und mit groſſen Koſten verpflegen<lb/>
+und unterrichten laſſen,) und in Summa zu des Vaterlands Dienſten die Waffen<lb/>
+zu tragen, und vor deſſelben Wohlfahrt und Beſchuͤtzung, wie es redlichen und<lb/>
+tapffern Kriegs - Leuten zuſtehet, zu ſtreiten, damit es dem Land oder der Stadt,<lb/>
+welche ein ſolches <hi rendition="#aq">Seminarium</hi> angeleget, niemahls an geſchickten Soldaten und<lb/>
+<hi rendition="#aq">Offici</hi>ren fehlen, ſondern ſelbige ſogleich aus einer ſolchen Pflantz - Schul koͤnnen<lb/>
+ausgenommen, in die <hi rendition="#aq">Guarniſ<supplied>o</supplied></hi>nen und unter die Feld - Regimenter vertheilt, und<lb/>
+gegen dem Feind angefuͤhret, an ihrer, und der in Krieg gebliebenen Stelle aber<lb/>
+ſogleich wieder friſche nachgezogen, und alſo des Landes - oder der Stadt Kriegs-<lb/>
+Macht, <hi rendition="#aq">perpetui</hi>rlich in vollkommenen guten Stand, (eben wie ein Pflantz - Gar-<lb/>
+ten, der jaͤhrlich ſeine Fruͤchte ausgiebet, dabey aber auch zugleich neue wieder<lb/>
+zuziehet, alſo daß niemahls kein Abgang daran zu ſpuͤhren ſey,) unterhalten<lb/>
+werden.</p><lb/>
+<p>Hierdurch erzeiget ſich nun vornehmlich auch dieſer Nutzen, daß man ſtets<lb/>
+geuͤbtes Kriegs-Volck auf den Beinen hat, die jungen Anfaͤnger, unter der alten<lb/>
+verſuchten Soldaten ihrer Aufſicht und Anfuͤhrung erzogen, durch ſtetiges <hi rendition="#aq">Exerci</hi>ren<lb/>
+von Muͤßigang abgehalten, arme Knaben die geſunder Leibes - <hi rendition="#aq">Conſtitution</hi> ſeyn.<lb/>
+ihren Eltern abgenommen, und in einer ſolchen Pflantz - Schul ernehret und <supplied>ge-</supplied><lb/>
+kleidet, in ihren Chriſtenthum und nuͤtzlichen Kriegs-Wiſſenſchafften und <hi rendition="#aq">Exerci-<lb/>
+tiis</hi> unterrichtet, und gleichſam von der <hi rendition="#aq">Republic</hi> zu ihren Soͤhneu <hi rendition="#aq">adopti</hi>ret wer-<lb/>
+den, welches alles ohne ein ſolches <hi rendition="#aq">Seminarium</hi> nicht geſchehen wuͤrde, da wir der<lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">meiſten</fw><lb/>
+<pb n="4" facs="#f0004"/>
+meiſten armen Leut Kinder ſchlecht erzogen und weder in der GOttes-Furcht noch<lb/>
+ehrlichen Handthierungen genugſam unterrichtet, ſondern in den Muͤßigang und<lb/>
+in der Jrre herumlauffen, wie wilde ungeſchlachte Baͤume in Wald aufwach-<lb/>
+ſen, und wann ſie ſich zumahl hernach auf boͤſe Raͤncke und Tuͤcke, Stehlen und<lb/>
+Rauben legen, endlich dem Hencker unter die Haͤnde kommen, oder doch die<lb/>
+Zucht-Haͤuſer und Galeeren damit angefuͤllet ſehen, welches alles nicht geſchchen<lb/>
+wuͤrde, wann dergleichen <hi rendition="#aq">Seminaria</hi> ein jeder Kriegs - Herr in ſeinem Land oder<lb/>
+Stadt aufrichten und unterhalten ſolte, die daraus genommene <hi rendition="#aq">Recru</hi>ten ſeynd<lb/>
+auch ſchon gleich <hi rendition="#aq">parat</hi> und <hi rendition="#aq">exerci</hi>ret, und darffen nicht erſt weit und mit groſſen<lb/>
+Koſten zuſamm geſucht oder von allerhand liederlichen Geſind zuſamm getrieben<lb/>
+werden, wiewohl wir uns auch wohl beſcheiden, daß nimmermehr ein Kriegs-<lb/>
+Herr ſolche genugſame <hi rendition="#aq">Seminaria</hi> werde aufrichten koͤnnen, in welchen alle ihme<lb/>
+noͤthige Soldaten, <hi rendition="#aq">Recrut</hi>en und <hi rendition="#aq">Tirones</hi> ſolten koͤnnen von ihrer Jugend an er-<lb/>
+zogen und auf ſeine oder des Landes Koſten unterhalten werden, anerwogen, daß<lb/>
+bey Friedens - Zeiten einem Land daran gelegen, daß es von ſchweren Ausgaben<lb/>
+und <hi rendition="#aq">Preſſur</hi>en, <hi rendition="#i">(</hi>wann anders keine gefaͤhrliche und weit ausſehende <hi rendition="#aq">Conjunctu</hi>ren<lb/>
+ſich hervorthun, da es allerdings auch in Friedens - Zeiten noͤthig iſt auf den Krieg<lb/>
+zu gedencken, und ſich darzu gefaſt zu machen,<hi rendition="#i">)</hi> etlicher maßen entlaſtet werde,<lb/>
+uͤberdem auch das Werben, Preſſen und Ausſchreiben der Soldaten, ein parates<lb/>
+und <hi rendition="#aq">promp</hi>tes Mittel in Volck-reichen Laͤndern und Staͤdten iſt, <hi rendition="#i">(</hi>zumal wann<lb/>
+Handel und Gewerb in ſolchen darnieder lieget,<hi rendition="#i">)</hi> eine Zahl-reiche Armee in kur-<lb/>
+tzer Zeit auf die Beine zu ſetzen, wie dann ſolches vielfaͤltig bey unſern Gedencken<lb/>
+nichts ungewoͤhnliches geweſen, daß, wann heute etliche tauſend Mann geſchlagen<lb/>
+worden, morgen ſchon wieder ſo viel an die Stelle ins Lager eingeruͤcket, und der<lb/>
+in einer <hi rendition="#aq">Campagne</hi> erlittene Verluſt von 30. biß 40. tauſend Mann, in der kuͤnffti-<lb/>
+gen Jahrs-<hi rendition="#aq">Campagne</hi> durch die den Winter uͤber gemachte <hi rendition="#aq">Recrut</hi>en oder erkauffte<lb/>
+frembde <hi rendition="#aq">Troupp</hi>en, <hi rendition="#aq">item</hi> durch den Aufbot des zehenden oder zwantzigſten Man-<lb/>
+ues oder andere <hi rendition="#aq">Repartitiones</hi> ſogleich wieder erſetzet worden, ſo iſt doch indeſſen<lb/>
+das Anlegen ſolcher <hi rendition="#aq">Seminariorum,</hi> aus theils ſchon erzehlten Urſachen ein hoͤchſt<lb/>
+loͤbliches Werck, welches nebenſt denen Werbungen und Ausſchreiben, auch dar-<lb/>
+um kan beybehalten werden, weil man aus ſolchen eines Kern von geuͤbten und<lb/>
+vornehmlich dem Land oder der Stadt, (welche ſie ſo lang erzogen und unterhalten<lb/>
+hat,) mit ſonderbaren Treu und Pflichten zugethanen Soldaten, ſich zu verſehen<lb/>
+hat, wie dann auch den Nutzen und die Nothwendigkeit ſolcher Kriegs - <hi rendition="#aq">Semina-<lb/>
+riorum,</hi> alle diejenige Voͤlcker und Potentaten wohl erwogen, welche, daß es an<lb/>
+ſolchen Pflantz-Schulen bey ihnen nicht mangeln moͤchte, keinen Fleiß noch Ko-<lb/>
+ſten geſpahret haben; die alten Roͤmer deßfalls zu erſt aufzufuͤhren, ſo ſchreibet <hi rendition="#aq">Ve-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">getius</hi></fw><lb/>
+<pb n="5" facs="#f0005"/>
+<hi rendition="#aq">getius lib 1.Cap. 4. de Re militari,</hi> von denen <hi rendition="#aq">Tironibus</hi> oder der zum Krieg an zu-<lb/>
+fuͤhrenden Jugend, weß Alters dieſelbe ſeyn ſoll, folgender maßen:</p><lb/>
+<p><hi rendition="#aq">Si antiqua Conſuetudo ſervanda eſt, incipientem pubertatem ad delectum<lb/>
+cogendam, nullus ignorat non enim tantum celerius, ſed etiam perfectius imbi-<lb/>
+buntur quæ diſcuntur a pueris, deinde militaris Alacritas, ſaltus, &amp; Curſus, ante<lb/>
+tentandus eſt, quam Corpus ætate pigreſcat, Velocitas enim eſt, quæ percepto Ex-<lb/>
+ercitio ſtrenuum efficit Bellatorem, Adoleſcentes legendi ſunt ſicut ait Saluſtius:<lb/>
+nam primum juventus ſimul ac belli patiens erat, in Caſtris per laboris uſum mi-<lb/>
+litiam diſcebat, melius enim eſt, ut exercitatus juvenis cauſetur ætatem nondum ad-<lb/>
+veniſſ<supplied>e</supplied> pugnandi, quam doleat præteriiſſe. Habet etiam ſpacium univerſa diſcen-<lb/>
+di neque enim parva aut levis ars videtur armorum, ſive Equitem ſive peditem ſa-<lb/>
+gittarium velis imbuere, five ſcutatum armaturæ numeros omnes, <choice><sic>omnesqne</sic><corr>omnesque</corr></choice> geſtus<lb/>
+docere, ne locum deſerat ne ordines turbet, ut misſile &amp; deſtinato ictu &amp; magnis<lb/>
+viribus jaciat, ut foſſam ducere, ſudes ſcienter figere norit, tractare Scutum &amp; ob-<lb/>
+liquis ictibus venientia Tela deflectere, plagam prudenter vitare, audacter inferre<lb/>
+Huic taliter inſtituto Tironi, pugnare adverſum quoslibet Hoſtes in Acie, Formido<lb/>
+non erit ſed voluptas,</hi> welches kuͤrtzlich zu Teutſch ſo viel ſagen will:</p><lb/>
+<p><hi rendition="#fr">Was denen Knaben</hi> von Jugend <choice><sic>anf</sic><corr>auf</corr></choice> eingepraͤget wird, das bleibet deſto<lb/>
+veſter, weil ſie noch jung ſeyn, muͤſſen ſie zur Geſchicklichkeit des Leibs durch Lauf-<lb/>
+fen und Springen, zum Kriegs- <hi rendition="#aq">Fatiqu</hi>en aber durch Arbeiten angewohnet wer-<lb/>
+den, ſintemahl es beſſer iſt, daß ein Juͤngling ſich beklage, daß ſeine Jahre, in wel-<lb/>
+chen er unter andere tapffere Soldaten ſoll aufgenommen werden, noch nicht her-<lb/>
+bey gekommen als daß er klage, daß ſie allbereit vorbey gegangen, wann er jung<lb/>
+iſt, hat er noch Zeit die <hi rendition="#aq">Exercitia</hi> mit Pfeilſchieſſen, Grabenziehen, Paliſaden zu ſe-<lb/>
+tzen, mit dem Schild wohl umzugehen, den Feind vortheilhafftig anzugreiffen,<lb/>
+Reyhe und Glieder zu halten, und was dergleichen mehr iſt zu lernen, welches ih-<lb/>
+me auch alles ſo gelaͤufftig ſeyn muß, daß er hernach mit Luſt in das Treffen hin-<lb/>
+ein gehet, und deßfalls gantz keine Furcht bey ſich verſpuͤren laͤſt.</p><lb/>
+<p>Jn dem 1. Capitel beſagten Buchs, da dieſer <hi rendition="#aq">Autor</hi> meldet, daß die Roͤmer<lb/>
+allein durch ſtetige Ubung der Waffen ihre Feinde uͤberwunden haͤtten, ſchreibet<lb/>
+er unter andern auch von denen <hi rendition="#aq">Tironibus</hi> oder ihren Kriegs - <hi rendition="#aq">Seminariſt</hi>en alſo:<lb/>
+<hi rendition="#aq">Adverſus omnia profuit Tironem ſolertem eligere, jus Armorum docere, quotidia-<lb/>
+no Exercitio roborare, quæcunque evenire in Acie atque in præliis posſint, omnia<lb/>
+in Campeſtri Meditatione prænoſcere, ſevere in Deſides vindicare, ſeientia enim<lb/>
+Rei bellicæ, dimicandi nutrit Audaciam, nemo facere metuit, quod ſe bene didieiſſe<lb/>
+confidit, etenim in Certamine Bellorum, exercitata Paucitas ad Victoriam prom-<lb/>
+ptior eſt, rudis &amp; indocta Multitudo, expoſita ſemper ad Cædem,</hi> das iſt:</p><lb/>
+<p>Gegen alle unſere Feinde, (die Gallier, Teutſche, Spanier, Africaner und<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">Grie-</fw><lb/>
+<pb n="6" facs="#f0006"/>
+Griechen) iſt uns unſere wohl <hi rendition="#aq">exerci</hi>rt geweſene junge Mannſchafft vortrefflich zu<lb/>
+ſtatten gekommen, dann ſie hat ſchon zuvor gewuſt, wie es in Krieg und Schlach-<lb/>
+ten hergienge, und durch dieſe Wiſſenſchafft wurde ſie kuͤhn und unverzagt, weil<lb/>
+ſich niemand ſcheuet, dasjenige ins Werck zu richten, was er wohl gelernet hat,<lb/>
+ſo iſt auch ein kleiner Hauff wohl geuͤbter Soldateu beſſer als eine groſſe Menge<lb/>
+ungeuͤbter, als die allezeit zu erwarten haben, daß ſie von jenen werden geſchlagen<lb/>
+werden.</p><lb/>
+<p>Dieſe <hi rendition="#aq">Tirones</hi> oder junge Roͤmiſche <hi rendition="#aq">Seminariſt</hi>en, wann ſie hernach erwach-<lb/>
+ſen und ihre <hi rendition="#aq">Exercitia,</hi> von denen <hi rendition="#aq">Campidoctoribus,</hi> oder <hi rendition="#aq">Armi-Magiſtris,</hi> (derglei-<lb/>
+chen heutigs Tags bey unſern neu-angehenden Soldaten die <hi rendition="#aq">Corporal</hi>s, Feldwe-<lb/>
+bels, <hi rendition="#aq">Sergean</hi>ten und <hi rendition="#aq">Majors</hi> ſeyn,) wohl erlernet hatten, kamen aus ihren <hi rendition="#aq">Ergaſtu-<lb/>
+lis</hi> oder <hi rendition="#aq">Angarijs</hi> heraus, und wurden unter die Armee gegeben, auch in die Solda-<lb/>
+ten-Rolle eingeſchrieben, vorher aber ihnen auf den lincken Arm die zwey Buch-<lb/>
+ſtaben <hi rendition="#aq">M. R.</hi> eingebrand, welches <hi rendition="#aq">Miles Romanus</hi> bedeuten und gleichſam ein <hi rendition="#aq">Sa-<lb/>
+cramentum Militare,</hi> Kriegs-Bund und Pflicht (dem Vaterland jeder Zeit treu zu<lb/>
+verbleiben) ſeyn ſolte.</p><lb/>
+<p><hi rendition="#fr">Bey denen Griechen</hi> waren dergleichen Kriegs-<hi rendition="#aq">Seminaria</hi> ebenfalls ſehr<lb/>
+gebraͤuchlich, dann alſo leſen wir bey dem <hi rendition="#aq">Cornelio Nepote</hi> in dem Leben des <hi rendition="#aq">Epa-<lb/>
+minondæ,</hi> daß er ſeine Thebaner alſo angeredet habe: <hi rendition="#aq">Paritur pax Bello, itaque<lb/>
+qui ea diutina volunt frui, bello exercitati eſſe debent, quare ſi Principes Græciæ<lb/>
+vultis eſſe, caſtris eſt vobis utendum, non palæſtra,</hi> durch Krieg und Tapfferkeit<lb/>
+wird der Frieden erlanget, wer dieſen lang erhalteo will, der muß immer zum<lb/>
+Krieg geruͤſtet, und in denen Waffen geuͤbet ſeyn, wann ihr dannenhero Fuͤrſten<lb/>
+in Griechenland ſeyn wollet, ſo muͤſſet ihr euch mehr bey denen Kriegs - <hi rendition="#aq">Exercitiis</hi><lb/>
+als auf den Schauplatz finden laſſen, <hi rendition="#aq">Armis non ludis promptiores eſſe decet,</hi><lb/>
+man muß fertiger zu ernſthafftigen Kriegs - Sachen, als zu Kurtzweilen und<lb/>
+Schau-Spielen ſeyn, welchergeſtalt auch <hi rendition="#aq">Iphicrates</hi> zu ſeiner Athenienſer groſſen<lb/>
+Vortheil, die Kriegs- <hi rendition="#aq">Exercitia</hi> bey ihrer Armee auf guten Fuß geſetzet, die alte<lb/>
+Untaugliche, wie auch dergleichen Waffen abgeſchaffet und beſſere und bequemere<lb/>
+dafuͤr eingefuͤhret habe, ſolches iſt ebenfalls bey bemeldten <hi rendition="#aq">Autore</hi> zu leſen, ein<lb/>
+gleiches hat auch <hi rendition="#aq">Chabrias</hi> gethan, und der ſchon zuvor gedachte <hi rendition="#aq">Epaminondas</hi><lb/>
+uͤbte ſich gleich nach zuruͤck gelegter Minderjaͤhrigkeit, (welches bey denen Theba-<lb/>
+nern das 14 de Jahr des Alters war, in der ſo genannten <hi rendition="#aq">Gymnaſtica</hi> oder Kriegs-<lb/>
+<hi rendition="#aq">Exercitien</hi>-Schul, welche, worinn ſie beſtanden, bey dem <hi rendition="#aq">Vosſio de 4. Art popul.<lb/>
+C. 3.</hi> ausfuͤhrlich beſchrieben wird, es hatten aber hauptſaͤchlich die alten Grie-<lb/>
+chen deßfalls dreyerley <hi rendition="#aq">Profesſiones</hi> in ſteter Ubung, unter welchen die erſte war<lb/>
+<hi rendition="#aq">Tactica,</hi> oder die Anweiſung zu denen Schlacht-Ordnungen, die andere <hi rendition="#aq">Stratage-<lb/>
+tica,</hi> dieſe gab Unterricht von den Amt eines Obriſten, wie er ſein Kriegs - Volck<lb/>
+<fw type="catch" place="bottom">ſolte</fw><lb/>
+<pb n="7" facs="#f0007"/>
+ſolte regieren, die dritte war <hi rendition="#aq">Poliorcertica,</hi> welche die <hi rendition="#aq">Fortification</hi> der Oerter<lb/>
+lehrte, ſo weit ſelbige zu ſelbiger Zeit bekannt war, auch wie die Belaͤgerung eines<lb/>
+Orts am beſten auszuhalten waͤre, wovon hernach der uhralte Scribent <hi rendition="#aq">Æneas</hi><lb/>
+einen gantzen, und von <hi rendition="#aq">ſaaco Cauſabono</hi> ins Lateiniſche uͤberſetzten <hi rendition="#aq">Tractat Polior-<lb/>
+ceticus ſive de toleranda obſidione</hi> betitult, geſchrieben hat, die Olympiſche Schau-<lb/>
+Spiele, in welchen ſich die Kaͤmpffer in Lauffen, Springen, Scheibenwerffen,<lb/>
+Ringen und Fechten uͤben muſten, waren ebenfalls eine Art der Kriegs-Schulen,<lb/>
+die Griechiſche Jugsnd in dem Gebrauch der Waffen deſto beſſer anzufuͤhren, daß<lb/>
+auch der Verſtand mit der Geſchicklichkeit des Leibs in Kriegs - Sachen verknuͤpf-<lb/>
+fet und ein Soldat <hi rendition="#aq">Arte &amp; Marte</hi> gerecht ſeyn muͤſte, zeigten ſie mit ihrer gewaffne-<lb/>
+ten <hi rendition="#aq">Pallas</hi> an, als deren ſie einen Spieß in die Hand gaben, wovon hernach der<lb/>
+Vers bekannt worden: <hi rendition="#aq">Haſta e<supplied>t</supplied>iam vibrans penetrabile monſtrat Acumen. Vid.<lb/>
+Pancirol. Rer. Memorab. cum Commentariis Salmuthi Part. 1. Tit. 39. p. 132.</hi><lb/>
+Es muſten auch uͤber dem <hi rendition="#i">(</hi>nach unſerer heutigen Redens - Art) alle Griechiſche<lb/>
+<hi rendition="#aq">Tirones</hi> und Soldaten zur Fahne ſchwoͤren, dahero leſen wir bey dem <hi rendition="#aq">Curtio lib.</hi><lb/>
+7. daß des <hi rendition="#aq">Alexandri M.</hi> Soldaten ihren Koͤnig alſo anredeten: <hi rendition="#aq">An non in Tua<lb/>
+Verba, Tui omnes, Te præeunte juravimus, nos inimicos Amicosque habituros,<lb/>
+quos Tu haberes,</hi> <hi rendition="#fr">haben wir Dir nicht bey unſetn Eyd und Pflichten zuge-<lb/>
+ſagt, daß wir getreu bey Dir halten, und diejenige vor Freund oder Feind<lb/>
+erklaͤren wolten, die Du davor erklaͤren wuͤrdeſt</hi> dergleichen Eydſchwur, ſo<lb/>
+man <hi rendition="#aq">Sacramentum militare</hi> nennte, war auch bey denen Roͤmern gebraͤuchlich,<lb/>
+und zwar zogen ſie eben wie die Griechen dabey ihre Schwerdter aus, und<lb/>
+ſchwungen ſolche mit erhobenen Armen um die Koͤpffe herum, worauf <hi rendition="#aq">Lucanus<lb/>
+Lib.</hi> 1. zielet, wann er ſchreibet:</p><lb/>
+<lg type="poem"><l>‒‒‒ ‒‒‒ <hi rendition="#aq">His Cunetæ ſimul aſſenſêre Cohortes</hi></l><lb/>
+<l><hi rendition="#aq">Elatasque altè quæcunque ad Bella vocaret, promiſere manus.</hi> ‒‒‒ ‒‒‒</l></lg><lb/>
+<p><hi rendition="#fr">Der alten Juͤden ihre Kriegs - Schulen</hi> und wie in ſolchen ihre Jugend zu<lb/>
+allerhand <hi rendition="#aq">Exercitiis</hi> angehalten worden, giebet uns die heilige Schrifft, ſamt de-<lb/>
+nen <hi rendition="#aq">Autoribus,</hi> die von denen Juͤdiſchen <hi rendition="#aq">Antiqui</hi>taͤten geſchrieben, in unterſchiedli-<lb/>
+chen Stellen zu erkennen, alſo wann im 2. Buch <hi rendition="#aq">Samuelis Cap. I. v.</hi> 18. ſtehet, Da-<lb/>
+vid befahl, man ſolte die Kinder Juda den Bogen lehren, werden hierunter alle<lb/>
+Arten von Kriegs-<hi rendition="#aq">Exercitiis</hi> verſtanden, welches dentlich aus denen Worten des<lb/>
+46. Pſalms v 10. abzunchmen, da unter den Zerbrechen des Bogens, das gantze<lb/>
+Aufheben und Steuren des Kriegs verſtanden wird, lange zuvor und zu der Rich-<lb/>
+ter Zeiten wuͤrden ſie ſchon in Schleudern oder Steinwerffen geuͤbet, wie ſolches<lb/>
+aus den 20. Capitel und deſſen 16. Vers des Buchs der Richter erbellet, da<lb/>
+allein unter denen damahls zum Krieg ausgezogenen Benjamiten ſieben hundert<lb/>
+Mann gezehlet wurden, welche lincks waren, und doch mit der Schleuder ein<lb/>
+<fw type="catch" place="bottom">Haar</fw><lb/>
+<pb n="8" facs="#f0008"/>
+Haar treffen kunten, daß ſie nicht fehleten, wie <hi rendition="#aq">accurat</hi> auch der kleine David dem<lb/>
+ungeheuren Goliath einen toͤdtlichen Schleuder-Wurff mitten in ſeine Stirn an-<lb/>
+gebracht, ſolches iſt zu leſen in 1. Buch Samuelis im 17. Capitel, alſo heiſſen im 2.<lb/>
+Buch der Koͤnige am 3. Cap.v.15. nicht allein Schleuderer diejenige, welche mit<lb/>
+ihren Schleudern Steine werffen kunten, ſondern auch die mit allerhand Gewehr<lb/>
+und Ruͤſtung wohl umzugehen wuſten, von der Ubung in Pfeilſchieſſen, und deſſen<lb/>
+ſonderlich an denen Hoͤfen der Jſraelitiſchen Koͤnige gar vielfaͤltigen Gebrauch, iſt<lb/>
+zu leſen das 2. Buch Samuel. Cap.10.v.10.21.22.36. <hi rendition="#aq">item</hi> im 2. Buch der Koͤ-<lb/>
+nige Cap.9. und 19. da in beyden merckliche Exempla von Pfeilſchieſſen zu finden<lb/>
+ſeyn, bey der Wiederkunfft aus der Babyloniſchen Gefaͤngniß richtete Eſora auf<lb/>
+Befehl des <hi rendition="#aq">Xerxis</hi> eine oͤffentliche <hi rendition="#aq">Academiam</hi> zu Jeruſalem auf, in welcher nicht<lb/>
+allein <hi rendition="#aq">Theologica,</hi> ſondern auch <hi rendition="#aq">Politica</hi> gelehret wurden, von der heydniſchen<lb/>
+Ritter-<hi rendition="#aq">Academie,</hi> die auf Befehl des <hi rendition="#aq">Antiochi Epiphanis</hi> zu Jeruſalem recht gegen<lb/>
+dem Tempel uͤber aufgerichtet worden, iſt zu leſen das 1. Buch der Maccabaͤer<lb/>
+Cap.1.v.46. <hi rendition="#aq">item</hi> das andere Cap.4.v.15. man beſehe auch, was vor ſchoͤne<lb/>
+Ordnung ſie in ihren Kriegen und Kriegs - Zuͤgen gehabt und gehalten haben, da<lb/>
+war erſtlich der Feld-Hauptmann, dergleichen <hi rendition="#aq">Joab, Abner, Amaſia</hi> geweſen ſeyn,<lb/>
+ferner die <hi rendition="#aq">Chiliarchæ</hi> oder Obriſten uͤber tauſend, die <hi rendition="#aq">Hecatontarchi,</hi> oder <hi rendition="#aq">Capitain</hi>s<lb/>
+uͤber 100. die <hi rendition="#aq">Pentecontarchi</hi> uͤber 50. und die <hi rendition="#aq">Decatarchi</hi> uͤber 10. dieſe insgeſamt<lb/>
+trieben mit ihren untergebenen taͤglich die ihnen vorgeſchriebenen <hi rendition="#aq">Exercitia,</hi> und<lb/>
+lehrten ſie, wie ſie ſich ſo wohl in <hi rendition="#aq">Bataill</hi>en als Belaͤgerungen gegen ihre Feinde<lb/>
+verhalten ſolten, ſie muſten allezeit 5. Mann in einen Glied marchiren, in den<lb/>
+March oder Zug hatten der <hi rendition="#fr">Stamm Judas, Jſaſchar und Zabulon,</hi> auf dem<lb/>
+erſten Trompeten-Schall die <hi rendition="#aq">Avantgarde,</hi> dieſen folgten <hi rendition="#fr">Ruben, Simeon und<lb/>
+Gad,</hi> wann ſie den andern Trompeten - Schall hoͤrten, auf den dritten Schall<lb/>
+giengen <hi rendition="#fr">Ephraim, Manaſſe und Benjamin,</hi> und auf dem vierdten <hi rendition="#fr">Dan, Aſer<lb/>
+und Naphtali,</hi> die 24. Knaben, welche vor Joab und Abner ſpielen, und weil ſie<lb/>
+beyderſeits in Fechten und Ringen wohl geuͤbt geweſen, ſich einander die Haͤlſe<lb/>
+brechen muſten, waren Juͤdiſche <hi rendition="#aq">Tirones</hi> und Kriegs - Schuͤler, Zweiffels ohne<lb/>
+<hi rendition="#aq">Cadet</hi>s und <hi rendition="#aq">Pages</hi> bey denen beyden groſſen <hi rendition="#aq">General</hi>en oder Feld-Herren, wovon<lb/>
+im 2. Buch Samuelis Cap.2. zu leſen iſt, woſelbſt auch des <hi rendition="#aq">Aſahels,</hi> daß er ſehr<lb/>
+leicht wie ein Reh auf ſeinen Fuͤſſen geweſen, gedacht wird, die Helden Davids,<lb/>
+deren das 23. Capitel des 2. Buchs Samuelis Meldung thut, waren gewißlich<lb/>
+auch in der rechten Kriegs-Schul geweſen, und kunten vor groſſe <hi rendition="#aq">Profeſfores</hi> dar-<lb/>
+inn paßiren, aus des Hauptmanns zu Capernaum ſeinen Worten, da er die Will-<lb/>
+faͤhrigkeit der unter ſeinem <hi rendition="#aq">Commando</hi> ſtehenden Kriegs - Knecht lobet, iſt das<lb/>
+taͤgliche <hi rendition="#aq">Exerci</hi>ren, welches in allen Juͤdiſchen Beſatzungs-Staͤdten mit denen da-<lb/>
+ſelbſt in Quartier liegenden Soldaten vorgenommen worden, zu erſehen, wie offt<lb/>
+<fw type="catch" place="bottom">wird</fw><lb/>
+<pb n="9" facs="#f0009"/>
+wird auch nicht in heiliger Schrifft der jungen Mannſchafft gedacht, als im 1.<lb/>
+Buch Samuelis am 24. Cap.v.3. und im 25. Cap.v.2. im 2. Buch Samuelis<lb/>
+am 6. v. 1. und in 10. C.v.9. im 1. Reg. am 12. C.v.21. im 2. Buch der Cro-<lb/>
+nic. am 11.C.v.1. am 13. C.v.3. Eſaiaͤ am 9. C. v. 17. und im 31. C. v.<lb/>
+8. Jer. am 11. Cap v. 22. Ezech. Cap. 23. v. 6. 12. und 23.<lb/>
+und ſo weiter, worun er dann viel zum Kriegs - Weſen angefuͤhrte <hi rendition="#aq">Tyrones</hi> mit<lb/>
+begriffen ſeyn, Rehabeam folgte dem Rath ſeiner mit ihme aufgewachſenen jun-<lb/>
+gen Juͤdiſcher Edelleute, welche Zweiffels ohne mit ihm ihre <hi rendition="#aq">Exercitia</hi> in der Ju-<lb/>
+gend zuſamm getrieben, und zog ſich dadurch den Abfall der zehen Staͤmme auf<lb/>
+den Hals, wio zu leſen im 1. Buch der Koͤnige am 12. Cap. voraus iſt dieſes ein<lb/>
+groſſes <hi rendition="#aq">Argument</hi> vor die Juͤdiſche <hi rendition="#aq">reguli</hi>rte <hi rendition="#aq">Miliz,</hi> was Cap. 9. beſagten Buchs<lb/>
+von Salomonis Reuter-Staͤdten, <hi rendition="#aq">Chevaliers</hi> oder Ritter-<hi rendition="#aq">Guarden,</hi> Kriegs- und<lb/>
+Amt-Leuten gemeldet wird. Jngleichen was wir im 17. Capitel des 2. Buchs<lb/>
+der Cronicka von des Koͤnigs Joſaphat ſeiner vortrefflichen Kriegs- Verfaſſung,<lb/>
+<hi rendition="#aq">regulai</hi>ren und Zahl-reichen Militz, Veſtungen, Zeug - und Korn - Haͤuſern leſen,<lb/>
+auch wie viel hundert tauſend gewaffnete Mannſchafft er auf einmal ins Feld<lb/>
+ſuͤhren koͤnnen, in den 14. Capit. des 1. Buch Samuelis v. 53. wird des Koͤnig<lb/>
+Sauls gedacht, daß, wo er nur einen ſtarcken und ruͤſtigen Mann geſehen, er ſol-<lb/>
+chen zu ſich genommen, ſo ein groſſer Liebhaber war dieſer (hernach wegen ſeines<lb/>
+Ungehorſams gegen GOtt ungluͤckliche) Koͤnig von rechtſchaffenen Kriegs-Leu-<lb/>
+ten und Officirern, wie dann in eben dieſen Capitel ſeiner als eines guten Sol-<lb/>
+datens, (welchen uͤber dem eine ſchoͤne und lange Leibs - Geſtalt zierte) eigenen<lb/>
+tapffern Thaten gegen die Moabiter, Ammoniter, Edomiter, Philiſter und Ama-<lb/>
+lekiter gedacht wird, gleich alſo muß auch ſein Koͤniglicher Printz Jonathan von<lb/>
+Jugend auf in allen loͤblichen und <hi rendition="#aq">martiali</hi>ſchen Tugenden ſeyn erzogen worden,<lb/>
+welches nicht allein aus ſeiner <hi rendition="#aq">g<supplied>e</supplied>nereu</hi>ſen Liebe, die er zu David getragen, und<lb/>
+auch aus ſeinen Helden-Thaten gegen die Philiſter, ſondern auch aus ſeinen fer-<lb/>
+tigen <hi rendition="#aq">Exercitio</hi> in <hi rendition="#aq">Tracti</hi>rung der Waffen, da ſonderlich ſeines Pfeilſchieſſens<lb/>
+nach den Ziel im 1. Buch Samuelis am 20.v.20. gedacht wird, zu erſehen iſt, die<lb/>
+Kriegs-Reguln der Jſraeliter ſeynd im 5. Buch Moſis am 20. Capitel, und der<lb/>
+Jſraelitiſche Kriegs- Staat zu Davids Zeiten, im 1. Buch der Cronica am 12.<lb/>
+Cap. zu leſen, in deſſen folgenden 13 ten v.28. auch des jungen Edelmanns <hi rendition="#aq">Zadock</hi><lb/>
+als eines redlichen Heldens Meldung geſchiehet.</p><lb/>
+<p>Von der alten Teutſchen ihrer Jugend Anfuͤhrung zu Kriegs-Sachen und<lb/>
+Kriegs-<hi rendition="#aq">Fatigu</hi>en, haben wir vors erſte die beſte Nachricht aus dem <hi rendition="#aq">Tacito de<lb/>
+Moribus Germanorum,</hi> oder von der Teutſchen ihren Sitten, da er unter andern<lb/>
+der Erziehung wegen, und damit ſie zukuͤnfftigen Kriegs- <hi rendition="#aq">Fatigu</hi>en deſto gehaͤrte-<lb/>
+ter werden moͤchten, Cap. 20. ſchreibet, ſie laſſen ihre Kinder nackend in Hauß<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">berum</fw><lb/>
+<pb n="10" facs="#f0010"/>
+herumlauffen, damit ſie Hitz und Kaͤlte ſo viel beſſer ertragen lernen, in dieſen<lb/>
+Zuſtand wachſen ſie recht verwunderlich mit ſtarcken Gliedmaßen, und einen<lb/>
+langen geraden Leib auf, auch ſaͤuget <hi rendition="#aq">NB.</hi> eine jede Mutter ihr Kind ſelbſt, und<lb/>
+giebt ſolche keinen Maͤgden noch Ammen uͤber, wie man denn auch keinen Unter-<lb/>
+ſchied zwiſchen eines Herrn und Dieners Kind ſiehet, ſie werden gleich erzogen,<lb/>
+biß ſie endlich das Alter von einander unterſcheidet, die um den Rhein wohnende<lb/>
+Teutſchen pflegten gar ihre neugebohrne Kinder, ſo bald ſie aus Mutter Leib ka-<lb/>
+men, in dieſen Fluß hinein zu tragen, und daſelbſt unter das kalte Waſſer zu tau-<lb/>
+chen, damit ſie durch dieſe <hi rendition="#aq">Extremi</hi>taͤt von der einen zu der andern, gleich als ein<lb/>
+gluͤendes ins Waſſer geſtecktes Eiſen ſo viel mehr gehaͤrtet werden moͤchten, woruͤ-<lb/>
+ber ſich <hi rendition="#aq">Galenus Lib. 1. de tuenda Sanitate</hi> hoͤchlich verwundert, wann er<lb/>
+ſchreibet: <hi rendition="#aq">Quis quæſo ſuſtineat infantem modo editam, &amp; ab Utero adhue ca-<lb/>
+lentem ad Flumen deferre, ut apud Germanos fieri ajunt, ceu eandens ferrum,<lb/>
+in frigidam aquam immergendo, fimul de naturæ vigore periculum facere, fimul-<lb/>
+que corpus ipſum roborare.</hi></p><lb/>
+<p>Wann ſie ein wenig erwachſen, ſo war ihre Speiſe wildes Obſt, dicke<lb/>
+Milch, und zuweilen bekamen ſie auch etwas von Wildpret, das ihre Vaͤter<lb/>
+mit ihren Pfeil und Bogen gefaͤllet hatten, man beſehe hiervon unſern <hi rendition="#aq">Planta-<lb/>
+gen - Tractat,</hi> ingleichen was wir in dem Kuͤch- und Keller-<hi rendition="#aq">Dictionario</hi> von der<lb/>
+alten Teutſchen ihren Speiß-Arten gemeldet.</p><lb/>
+<p>Wie nun ſolchergeſtalt die Speiſen gantz <hi rendition="#aq">ſimples</hi> waren, alſo gieng es<lb/>
+auch mit der Kleidung her, davon abermahls <hi rendition="#aq">Tacitus Cap.</hi> 17. ſchreibet, daß<lb/>
+ſie ſich mit einem groben Rock, der glat an den Leib anlag, und vorn mit einen<lb/>
+ſpitzigen Dorn, bey denen Reichen aber mit einer Spange zugeſteckt geweſen,<lb/>
+ingleichen mit wilder Thiere Haͤuten, die ſie ſelbſt auff der Jagt erleget, be-<lb/>
+kleidet haͤtten.</p><lb/>
+<p>Nun auff ihre <hi rendition="#aq">Exercitia</hi> zu kommen, ſo wuſten ſie zwar von denen Kriegs-<lb/>
+Ubungen, die damahls bey denen Roͤmern gebraͤuchlich waren, nicht viel, je-<lb/>
+doch war die harte Letzens-Art, die ihre Jugend-ſich angewoͤhnen muſte, ſchon<lb/>
+ein guter Anfang darzu, ſonderlich da man ſie bey Zeiten mit auff die Jagt nahm,<lb/>
+da ſie ſich dann uͤber Berg und Thal das Wild zu verfolgen, auch offt in lan-<lb/>
+ger Zeit unter kein Ob-Dach zu kommen angewoͤhnen muſten, wiewohl auch<lb/>
+<hi rendition="#aq">Tacitus Cap.</hi> 6. ſchon meldet, daß man die junge Mannſchafft mit in die<lb/>
+Schlacht genommen, und ſolche zwiſchen die Reuterey <hi rendition="#aq">poſtir</hi>et habe.</p><lb/>
+<p>Weil ſie auch ſehr im Gebrauch hatten, ihre junge <hi rendition="#aq">Nobleſſe</hi> bey Zeiten<lb/>
+zur Auffwartung an Fuͤrſtliche Hoͤfe (wie etwan heutigs Tags mit denen Pa-<lb/>
+gen geſchiehet,) zu bringen, ſo ruͤhmet hiervon abermahl <hi rendition="#aq">Tacitus Cap.</hi> 13. &amp;<lb/>
+14. daß ſie ſich alsdann ihrem Herrn durch tapffere Thaten gefaͤllig und beliebt<lb/>
+<fw type="catch" place="bottom">zu</fw><lb/>
+<pb n="11" facs="#f0011"/>
+zu machen ſehr bemuͤhet haͤtten, ſeine Worte hiervon lauten alſo: Die Fuͤr-<lb/>
+ſten ſtveiten umb den Sieg, und ſie, <hi rendition="#i">(</hi>nehmlich die junge Mannſchafft,) ſo um<lb/>
+und bey ihnen ſeyn, umb den Fuͤrſten deſſen Leib zu bewahren, und ihn in aller-<lb/>
+hand <hi rendition="#aq">Occaſion</hi>en ritterlich beyzuſtehen, welches alles eine vorhergegangene<lb/>
+Kriegs-Ubung andeutet, wie ſie dann auch wann ſie eine Zeitlang bey Hof ge-<lb/>
+weſen, oder ſonſt ihre <hi rendition="#aq">Bravonre</hi> in <hi rendition="#aq">Martiali</hi>ſchen Ubungen und <hi rendition="#aq">Occaſion</hi>en er-<lb/>
+wieſen haben, wehrhafft gemachet, und ihnen ein Degen angehaͤnget worden,<lb/>
+der eben die Bedeutung als der Roͤmer ihr Maͤnnliches Kleid hatte, welches<lb/>
+ſie ihren jungen <hi rendition="#aq">Patriciis</hi> die nunmehro ihr <hi rendition="#aq">Tyrocinium</hi> wohl vollbracht hat-<lb/>
+ten, angeleget.</p><lb/>
+<p>Vor allen aber moͤchte uns von der alten Teutſchen ihrer Jugend Anfuͤh-<lb/>
+rung zu Ritterlichen Ubungen dasjenige was mit ihren Fuͤrſten <hi rendition="#aq">Arminio</hi> vor-<lb/>
+gegangen, eine ziemliche <hi rendition="#aq">Perſuaſion</hi> machen, dieſer junge Herr eines <hi rendition="#aq">Cheri</hi>ſchen<lb/>
+Fuͤrſten Sohn, diente als <hi rendition="#aq">Volontair</hi> in der Roͤmer ihrer <hi rendition="#aq">Armée,</hi> und hielte ſich<lb/>
+wie <hi rendition="#aq">Vellejus Paterculus</hi> ihme das Zeugniß giebet, in allen <hi rendition="#aq">Occaſion</hi>en ſo wohl,<lb/>
+daß ihme endlich das Roͤmiſche Stadt-Recht, und die Wuͤrde eincs Remiſchen<lb/>
+Ritters von Keyſer <hi rendition="#aq">Anguſto</hi> ertheilet worden, welche Ehren - Zeichen er doch<lb/>
+alle in den Wind ſchlug. Als er nach und nach der Roͤmer ihre <hi rendition="#aq">Intenrion</hi> die<lb/>
+freye Teutſche unter ihr Joch zu bringen, merckte, dahero er ſich von ihnen ab-<lb/>
+ſchlich, zu ſeinen Landes-Leuten kam, und die bekannte groſſe Schlacht wieder<lb/>
+die Roͤmer (welche von des <hi rendition="#aq">Auguſti</hi> Feld-Herrn <hi rendition="#aq">Quintilio Varro commandi-</hi><lb/>
+ret wurden,) gewann, welche Niederlage dem <hi rendition="#aq">Auguſto</hi> ſo ſehr zu Hertzen gieng,<lb/>
+daß er auch mit dem Kepff wieder die Wand lief, und etliche Tage lang vor<lb/>
+groſſen Unmuth ausrieff: <hi rendition="#aq">Redde mihi Varre Legiones meas:</hi> Schaffe mir<lb/>
+o <hi rendition="#aq">Varre</hi> meine von denen Teutſchen erſchlagene <hi rendition="#aq">Legiones</hi> wieder.</p><lb/>
+<p>Daß aber hierauff der <hi rendition="#aq">Arminius</hi> ſeine fieghaffte Teutſchen, und ſonder-<lb/>
+lich ſeine <hi rendition="#aq">Cheruſcer</hi> eben wie der <hi rendition="#aq">Marobodns</hi> ſeine Marck-Maͤnner weidlich in<lb/>
+denen Waffen werde <hi rendition="#aq">exercir</hi>et, und was er in der Roͤmiſchen <hi rendition="#aq">Armée</hi> von<lb/>
+Kriegs-<hi rendition="#aq">Exercitiis</hi> gutes geſehen, auch bey ihnen eingefuͤhret haben, ſolches iſt<lb/>
+gantz kein Zweiffel, zumahl weil er ſich leicht die Rechnung machen kunte, daß,<lb/>
+das damahls auff dem hoͤchſten Gipfel ſeiner Gluͤckſeeligkeit geſtandene Rom,<lb/>
+dieſe Schlappe nicht ungerochen laſſen wuͤrde, wie dann hernach auch unter<lb/>
+<hi rendition="#aq">Germanico</hi> geſchehen iſt, welcher Geſtalt in denen folgenden und mittlern Zei-<lb/>
+ten, unter denen Teutſchen Roͤmiſchen Keyſern die Kriegs-<hi rendition="#aq">Exercitia</hi> je laͤnger<lb/>
+je mehr gewachſen, und ſonderlich die ſtreitbare teutſche Jugend darzu ruͤhm-<lb/>
+lich angefuͤhret worden, ſolches geben uns die vielfaͤltige Geſchichte ihrer Hel-<lb/>
+den-Thaten, die <hi rendition="#aq">Tranferi</hi>rung des Keyſerthums von denen Roͤmern auff die<lb/>
+Teutſche, die von denen Keyſern angeordnete <hi rendition="#aq">Turnier</hi>e und Ritterliche Kampf-<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">Spiele.</fw><lb/>
+<pb n="12" facs="#f0012"/>
+Spiele, der Urſprung ſo vieler hoher Chur-und Fuͤrſten, Grafen, Ritter und<lb/>
+Adelicher Haͤuſer, die ſo wohl zur Verbeſſerung der <hi rendition="#aq">Studi</hi>en und freyen Kuͤnſte,<lb/>
+als zur Erlernung und Ubung der Kriegs-Kuͤnſte der Teutſchen Jugend zum<lb/>
+beſten geſtifftete Univerſitaͤten und Ritter-<hi rendition="#aq">Academi</hi>en, als auch dieſer letzteren<lb/>
+ihr heutiger Flor, voraus aber die viele Reichs-<hi rendition="#aq">Conftitutiones,</hi> daß die junge<lb/>
+Mannſchafft ſo wohl auff den Land, als in denen Staͤdten, (zumahl bey an-<lb/>
+ſcheinender Tuͤrcken-Kriegs-Gefahr) fleißig in dem Waffen ſolte geuͤbet wer-<lb/>
+den, zu erkennen.</p><lb/>
+<p>Der Tuͤrcken ihre <hi rendition="#aq">Seminaria</hi> betreffend, ſo ſeynd ſolche ſchon ſeiter der<lb/>
+Zeit ihrer durch Conſtantinopels Eroberung veſt geſetzten gewaltſamen Regie-<lb/>
+rung in ſteten Gebrauch geweſen, werden auch noch biß auff den heutigen Tag;<lb/>
+an vier Orten ihres Reichs, als zu Conſtantinopel, <hi rendition="#aq">Adrionopel, Ibrahim,<lb/>
+Bacha</hi> und <hi rendition="#aq">Pera,</hi> aus denen jaͤhrlich aus denen Tuͤrckiſchen Provintzien zufamm ge-<lb/>
+triebenen <hi rendition="#aq">Tribut</hi>s-Kinder unterhalten, dieſe, und auch der aus gebohrnen Tuͤr-<lb/>
+cken beſtehenden <hi rendition="#aq">Mili</hi>tz, ermangelt es hernach auch nicht an der Wiſſenſchafft<lb/>
+<hi rendition="#aq">martiali</hi>ſcher Ubungen, voraus aber in unterſchiedlichen Ritter-Spielen und<lb/>
+Gewiß-ſchieſſen mit Pfeil und Bogen, auch mitten in des Pferds ſtaͤrckſten<lb/>
+Lauff, ſo daß unſere Europaͤiſche Chriſtliche Ritters-Leut darinnen wenig oder<lb/>
+nichts vor ihnen voraus haben, wie dann ſolches an ihren groſſen Feſt-Taͤgen<lb/>
+und andern <hi rendition="#aq">Solennit</hi>aͤten, ſonderlich bey Beſchneidungen ihrer Keyſerlichen Prin-<lb/>
+tzen mit Verwundern anzuſehen iſt, in Ernſt und Kriegs-Sachen laͤſſet man ſie<lb/>
+von Jugend auff ebefalls nicht muͤßig ſeyn, wiewohl ſolches bey weiten der<lb/>
+Chriſtlichen Potentaten ihren, bey ihrer <hi rendition="#aq">Mili</hi>tz eíngefuͤhrten <hi rendition="#aq">Exerciti</hi>en und <hi rendition="#aq">Re-<lb/>
+glements</hi> nicht beykommet, wie dann auch die Tuͤrcken ſelbſt bekennen muͤſſen,<lb/>
+daß ſeiter ihres ſieghafften <hi rendition="#aq">Selims,</hi> und <hi rendition="#aq">Magnifiqv</hi>en <hi rendition="#aq">Solimanns</hi> Zeiten, dann<lb/>
+alſo benennen ſie nach <hi rendition="#aq">Rigauds</hi> Bericht dieſe ihre beyde alte Keyſer,) die Kriegs-<lb/>
+<hi rendition="#aq">Exereitia</hi> und die <hi rendition="#aq">Bravoure</hi> ihrer <hi rendition="#aq">Mili</hi>tz ſehr gefallen waͤre, was die <hi rendition="#aq">Zaims</hi> und<lb/>
+<hi rendition="#aq">Timariot</hi>en betrifft, konten ſolche ebenfalls gewiſſer maſſen, unter die Tuͤr-<lb/>
+ckiſche Kriegs-<hi rendition="#aq">Seminariſt</hi>en gerechnet werden, weil ſie ihre Lehn-Guͤther nur<lb/>
+darum beſitzen, damit ſie hernach den Groß-Sultan in ſeinen Feld-Zuͤgen, mit<lb/>
+einer gewiſſen Anzahl ihrer auffgebotenen Knechte Dienſte thun muͤſſen, ſo ſie<lb/>
+auch ſterben, ſo ererbet eines ſolchen <hi rendition="#aq">Zaims</hi> oder <hi rendition="#aq">Timariot</hi>ens Sohn ſeines Va-<lb/>
+ters Guͤther eher nicht, er habe ſich dann auch zu denen Kriegs - Zuͤgen und<lb/>
+<hi rendition="#aq">Exercitiis qualifici</hi>ret gemacht, welches ja billich ein <hi rendition="#aq">Seminarium</hi> Tuͤrckiſcher<lb/>
+Kriegs-und Lehns-Leute mag genennet werden.</p><lb/>
+<p>Wir kommen aber nunmehro auf unſere heutige in der Chriſtenheit florirende<lb/>
+und alle vorbemelde weit uͤbertreffende <hi rendition="#aq">Seminaria Militaria,</hi> es ſey gleich der da-<lb/>
+bey gehaltenen ſchoͤnen Ordnung des fertigen Gebrauchs der Waffen, Jtem der<lb/>
+<fw type="catch" place="bottom">unver-</fw><lb/>
+<pb n="13" facs="#f0013"/>
+unvergleichlich eingefuͤhrten Kriegs-<hi rendition="#aq">Exerciti</hi>en, und der dabey nothwendigen<lb/>
+Kriegs-Wiſſenſchafften, oder auch der <hi rendition="#aq">Bravoure</hi> halber, welche eine Ehriſtliche<lb/>
+wohl <hi rendition="#aq">regulirt</hi>e und <hi rendition="#aq">diſeiplinirt</hi>e Militz, in Vergleichung gegen Barbariſche und<lb/>
+und andere <hi rendition="#aq">Nation</hi>en, ſonderlich zu der Zeit beſitzet, da die Kriegs-Kuͤnſte ungleich<lb/>
+hoͤher geſtiegen. als ſie vor tauſend und mehr Jahren, (vornehmlich vor Erfindung<lb/>
+des Buͤchſen-Pulvers, und der ſo hoch getriebenen Beveſtigungs-Kunſt) nicht ge-<lb/>
+weſen ſeyn.</p><lb/>
+<p>Die darinnen befindliche <hi rendition="#aq">Seminariſt</hi>en, und zwar in weiten Verſtand ge-<lb/>
+nommen, ſeynd erſtlich alle tapfere von Adel und Ritters-Leute, welche ihren<lb/>
+Landes-Herrn und dem Vaterland zu Dienſte bey ſich ereignender Feindes-Ge-<lb/>
+fahr auffſitzen, und ihrer Lehns-und Vaſallen-Pflicht, mit Heldenmuͤthigen Strei-<lb/>
+ten, nach eines ieden Landes ſeiner beſondern Verfaßung hieruͤber) nachkommen<lb/>
+muͤſſen, es ſeynd es auch ferner alle wohl <hi rendition="#aq">exercirt</hi>e Buͤrgerſchafften in Reichs-<lb/>
+Reſidentz-und <hi rendition="#aq">Municipal</hi> Staͤdten, welche wohl ehe groſſe Feindliche Armeen nach<lb/>
+viel woͤchentlicher Belaͤgerung und ungemeiner vor ihren Waͤll und Mauren ge-<lb/>
+brauchten Kriegs-Gewalt tapfer abgewieſen, oder doch ſo lang ſich maͤnnlich <hi rendition="#aq">de-<lb/>
+fendir</hi>et haben, biß ſie entweder <hi rendition="#aq">Succurs</hi> oder einen <hi rendition="#aq">honorabl</hi>en <hi rendition="#aq"><choice><sic>Acɔord</sic><corr>Accord</corr></choice></hi> erlanget,<lb/>
+unter dieſen Buͤrgerſchafften, die mehrentheils des Jahrs einmahl von ihren<lb/>
+Buͤrger-<hi rendition="#aq">Capitain</hi>en <hi rendition="#aq">exercir</hi>et werden, haben hernach wieder das <hi rendition="#aq">Præ.</hi> Jhre ſo<lb/>
+genannten Schuͤtzen-Compagnien, die woͤchentlich ſich in ihren Schieß - oder<lb/>
+Schuͤtzen-Haͤuſern mit gezogenen Roͤhren nach der Scheiben, Jtem mit Arm-<lb/>
+Bruͤſten, auch wohl zu gewiſſen Zeiten mit Canonen-Schießen uͤben, und dadurch<lb/>
+ſo geſchickt werden, daß ſie vielmahls von ihren Waͤllen denen Belaͤgerern man-<lb/>
+chen Mann darnieder geleget, als Kriegs-<hi rendition="#aq">Seminaria</hi> haͤtte man auch die Jaͤger<lb/>
+die ſich hin und wieder in Teutſchland befinden anzuſehen, zumahl wann die Herr-<lb/>
+ſchafftliche oder Landes-Fuͤrſtliche Jaͤgerey in dem Land, wo dieſəlbe ſehr ſtarck<lb/>
+iſt, in gewiſſe Compagnien vertheilet, und zu gewiſſen Zeiten auch auf Soldatiſch<lb/>
+<hi rendition="#aq">exercir</hi>et, hernach ein gleiches mit der <hi rendition="#aq">Nobleſſe</hi> und anderer Landſaßen ihren Jaͤ-<lb/>
+gern vorgenommen, aus beyden Partheyen aber hernach Regimenter <hi rendition="#aq">formir</hi>et<lb/>
+wuͤrden, welche in Nothfall mit ihren gezogenen Roͤhren, gegen einen einbrechen-<lb/>
+den Feind koͤnten geſuͤhret werden.</p><lb/>
+<p>Die in oielen groſſen Reichen auf guten Fuß ſtehende Land-Militz, die <hi rendition="#aq">Po-<lb/>
+ſpolite Ruſcenie</hi> in Pohlen und Litthauen, der <hi rendition="#aq">Bann</hi> und <hi rendition="#aq">Arriere Bann</hi> in Franck-<lb/>
+reich, die ſo genannten <hi rendition="#aq">Trainbands</hi> in Engelland, und in der Schweitz der Aufbot<lb/>
+und Außſchuß, (welcher in 24. Stunden uͤber hundert tauſend <choice><sic>Mnnn</sic><corr>Mann</corr></choice> <choice><sic>anfbringet</sic><corr>aufbringet</corr></choice>,)<lb/>
+ſeynd alle unter ſelbiger Laͤnder <hi rendition="#aq">Seminaria Militaria</hi> zu rechnen.</p><lb/>
+<p>Voraus aber unſerer Europaͤiſchen Potentaten ihre auf denen Beinen ha-<lb/>
+bende Zahlreiche Armeen, in welchen durch eine gleichſam <hi rendition="#aq">perpetuir</hi>liche <hi rendition="#aq">Circulati-</hi><lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">on</fw><lb/>
+<pb n="14" facs="#f0014"/>
+on taͤglich ſo viel Soldaten und <hi rendition="#aq">Recrut</hi>en, auch durch das ſtetige <hi rendition="#aq">Exercir</hi>en und<lb/>
+<hi rendition="#aq">Æmulir</hi>en, welches mancher Kriegs-<hi rendition="#aq">Officier</hi> und auch gemeiner Soldat in der<lb/>
+Begierde und Faͤbigkeit zu <hi rendition="#aq">Militairi</hi>ſchen Wiſſenſchafften bey ſich ſpuͤhren laͤſt,<lb/>
+ſo viel geſchickte Leute auffwachſen, daß ein Feld-Lager und <hi rendition="#aq">Garniſon</hi> wegen<lb/>
+der darinn taͤglich vorfallenden <hi rendition="#aq">martiali</hi>ſchen Haͤndel ſchon eine vollkommene<lb/>
+Kriegs-Schul und <hi rendition="#aq">Seminarium</hi> mag genennet werden, allein von dieſen alſo<lb/>
+in weiten Verſtand genommenen <hi rendition="#aq">Seminariis,</hi> iſt dieſes Orts unſere Rede nicht,<lb/>
+ſondern von denen, in welchen (wie zuvor erwehnter maſſen die alten Roͤmer<lb/>
+gethan,) eine ſonderbahre Anzahl junger und zu Kriegs-<hi rendition="#aq">Exercitiis</hi> geſchickter Leute<lb/>
+auff des Landes-Herrn, oder einer groſſen <hi rendition="#aq">Republic</hi> und Landſchafft Koſten unter-<lb/>
+halten, mit tuͤchtigen Lehr-und <hi rendition="#aq">Exerciti</hi>en-Meiſtern verſehen, und ſo lang in einen<lb/>
+ſolchen <hi rendition="#aq">Seminario</hi> verpfleget werden, biß man ſie unter die <hi rendition="#aq">regulai</hi>re <hi rendition="#aq">Mili</hi>tz, zu<lb/>
+<hi rendition="#aq">Garniſon</hi>en und Feld-Regimentern zu der <hi rendition="#aq">Artiglerie</hi> oder den <hi rendition="#aq">Ingenieur-Corps</hi><lb/>
+bey denen See-<hi rendition="#aq">Puifſanc</hi>en aber auff die Schiffe und zu der <hi rendition="#aq">Marine</hi> abgeben, und<lb/>
+hierdurch abgehende <hi rendition="#aq">Oſſiciers</hi> und auch gemeinen Soldaten-Stellen (nachdem<lb/>
+nehmlich der <hi rendition="#aq">Seminariſt</hi>en ihre <hi rendition="#aq">Condition</hi> und <hi rendition="#aq">Capacit</hi>aͤt iſt,<hi rendition="#i">)</hi> wieder erſe-<lb/>
+tzen koͤnne.</p><lb/>
+<p>Dergleichen <hi rendition="#aq">Seminaria</hi> hat ſchon laͤngſt Franckreich und zwar der <hi rendition="#aq">Marine</hi><lb/>
+wegen, in allen ſeinen See-Staͤdten auffgerichtet, da gewiſſe <hi rendition="#aq">Profeſſeurs d’Hy-<lb/>
+drographie</hi> oder der <hi rendition="#aq">Navigation</hi> und Steuermanns-Kunſt beſtellet worden, wel-<lb/>
+che erſtlich etliche geſchickte Wayſen-Kinder deſſelbigen Orts aus denen Way-<lb/>
+ſen-und Findel-Haͤuſern, dann auch gewiſſe von den Koͤnig ſelbſt unterhaitene<lb/>
+<hi rendition="#aq">Alumnos</hi> (ſo mehrentheils <hi rendition="#aq">Cadets</hi> oder junge Edclleut, auch vornehmer Buͤr-<lb/>
+gers Leut ihre Soͤhne ſeyn, welche der Koͤnig kuͤnfftig zur See oder bey der<lb/>
+<hi rendition="#aq">Marine</hi> zu dienen, angenommen hat,) in der See-Fahrt und Steurmanns-<lb/>
+Kunſt unterrichten, und ſelbigen dem Gebrauch der See-Carten, des <hi rendition="#aq">Globi</hi><lb/>
+und <hi rendition="#aq">Compaſſes,</hi> des Grad-Bogens, <hi rendition="#aq">Aſtrolabii,</hi> und anderer auff Schiffen ge-<lb/>
+braͤuchlichen <hi rendition="#aq">Inſtrument</hi>en zeigen muͤſſen, wie ſolches in unterſchiedlichen <hi rendition="#aq">Arti-<lb/>
+culis Cap. VIII.</hi> des Frantzoͤſiſchen See-<hi rendition="#aq">Reglement</hi>s zu erſehen iſt.</p><lb/>
+<p>Eben ſolche <hi rendition="#aq">Marinen - Seminaria</hi> hat auch Engelland ſowohl in Londen als<lb/>
+auch zu <hi rendition="#aq">Chelſey,</hi> (woſelbſt auch das <hi rendition="#aq">Invalid</hi>en-Hauß der Seefahrenden ange-<lb/>
+leget iſt,) ingleichen Dennemarck zu Copenhagen, voraus aber jetziger Zeit<lb/>
+Moſcau <hi rendition="#aq">établir</hi>et, wovon das dritte Capitel der neuen Aufflaze unſers Moſco-<lb/>
+witiſchen Kauffmanns von <hi rendition="#aq">p.</hi> 127. an nachzuleſen iſt, da man unter andern<lb/>
+von Seiner Czaariſchen Majeſtaͤt angelegten <hi rendition="#aq">Academi</hi>en der Kuͤnſte und Wiſ-<lb/>
+ſenſchafften, <hi rendition="#aq">Gymnaſiis</hi> und <hi rendition="#aq">Seminariis,</hi> auch in <hi rendition="#aq">St.</hi> Petersburg, eine mit ge-<lb/>
+lehrten <hi rendition="#aq">Profeſſoribus</hi> beſetzte See-oder <hi rendition="#aq">Marin</hi>en-<hi rendition="#aq">Academie</hi> antreffen wird, in<lb/>
+welcher die von Seiner Majeſtaͤt auff ihre Koſten unterhaltene Jugend, in der<lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">Arit-</hi></fw><lb/>
+<pb n="15" facs="#f0015"/>
+<hi rendition="#aq">Arithmetica, Geometria,</hi> Schiffbau-Kunſt, und andern zur <hi rendition="#aq">Navigation</hi> gehoͤri-<lb/>
+gen Wiſſenſchafften unterrichtet wird.</p><lb/>
+<p>Die ſonſt hin und wieder in Teutſchland <hi rendition="#aq">établirt</hi> geweſene Ritter-<hi rendition="#aq">Acade-<lb/>
+mi</hi>en waren ebenfalls nichts anders als ſolche <hi rendition="#aq">Seminaria,</hi> in welchen die Ade-<lb/>
+liche und vornehme Buͤrger-Jugend zu allen ſolchen Wiſſenſchafften ſolten<lb/>
+angefuͤhret werden, welche ihnen dermahleins bey Hof-und in Regenten-oder<lb/>
+auch in <hi rendition="#aq">Militair-</hi> Stand zu ſtatten kommen koͤnten, warumb aber ſolche meh-<lb/>
+rentheils eingegangen, und wie ſolche auff einen und zwar weit beſtaͤndigern<lb/>
+Fuß als die auffgebobene geweſen, konten <hi rendition="#aq">retablir</hi>et, und die noch <hi rendition="#aq">taliter qua-<lb/>
+liter</hi> beſtehende, in gute Ordnung geſetzet werden, ſolches wollen wir uns<lb/>
+auff eine andere Zeit anzuweiſen vorbehalten haben.</p><lb/>
+<p>Wir ſchlieſſen nunmehro dieſes Capitel mit unterſchiedlicher (aus beruͤhm-<lb/>
+ten <hi rendition="#aq">Autoribus,</hi> uͤber die <hi rendition="#aq">Materiam</hi> von <hi rendition="#aq">Tyronibus</hi> oder Kriegs-Schuͤlern gezo-<lb/>
+genen Anmerckungen, und zwar ſo ſchreibet gleich <hi rendition="#aq">Vegetius lib. 1. Cap. 28. in<lb/>
+fine: Vilius conſtat armis erudire ſuos, quam alienos mercede conducere,</hi> es<lb/>
+koſtet weniger ſeine eingebohrne Landes-Kinder in Waffen zu unterrichten, als<lb/>
+frembde vor Geld zu dingen, welchen Worten <hi rendition="#aq">Lipſius</hi> beyfuͤget: <hi rendition="#aq">Quod Exteri<lb/>
+in itu &amp; reditu conſumunt, hoc ſi in armandis &amp; exercendis Domeſticis impen-<lb/>
+dis, egregiam habes &amp; femper tibi ad manum militarem manum, illi longinquo<lb/>
+accerſendi, &amp; cum diſpendio fœpè expectandi ſunt, domeſtici in Tua ſede uno<lb/>
+Edicto evocautur &amp; adſunt,</hi> was du auff jene nehmlich Frembde mit kom-<lb/>
+men und wieder weggehen wendeſt, das wird es dir koſten, deine Unterthanen<lb/>
+in Waffen abrichten zu laſſen, hierdurch aber haſt du eine eigene und beſtaͤndi-<lb/>
+ge Kriegs-macht allezeit bey der Hand, da die ſreɯbde afft von weiten her<lb/>
+muß beruffen werden.</p><lb/>
+<p>Von der denen Roͤmern taͤglich zugewachſenen jungen Mannſchafft ſchrei-<lb/>
+bet <hi rendition="#aq">Plutarchus in Pyrrho, Romanis Viros &amp; ſobolem militarem, tanquam e pe-<lb/>
+renni fonte Domi affluxiſſe,</hi> es waͤre ihnen ſolche wie das Waſſer aus einer<lb/>
+Qvelie zugefloſſen, dannenhero auch der <hi rendition="#aq">Pyrrhus,</hi> als er wieder die Roͤmer zu<lb/>
+Feld gelegen, ſoll geklaget haben: <hi rendition="#aq">Videri ſibi pugnam cum Lernæa quadam<lb/>
+hydra ſuſceptam, cui Capite uno reſecto alind alindque duplicetur &amp; accreſcat;</hi><lb/>
+Es kaͤme ihme ſein Krieg mit denen Roͤmern nicht anders vor, als wann er<lb/>
+mit der <hi rendition="#aq">Lernæi</hi>ſchen Schlangen ſtritte, welcher er nicht ſo bald einen Kopff ab-<lb/>
+gehauen, als ſchon gleich zwey andere an die Stelle wieder gewachſen waͤren,<lb/>
+ſo bald die Roͤmer von ihrer alten Kriegs-Zucht nachgelaſſen, waren ſie auch<lb/>
+ungluͤcklich, dieſes bezeuget <hi rendition="#aq">Vegetius</hi> im obbemeldten 28. Capitel mit dieſen<lb/>
+Worten: die Sicherheit des langen Friedens, hat die Menſchen eines Theils<lb/>
+zu denen Wolluͤſten des Muͤßiggangs, anders Theils auff Buͤrgerliche Sachen<lb/>
+<fw type="catch" place="bottom">gezo-</fw><lb/>
+<pb n="16" facs="#f0016"/>
+gezogen, dadurch die Kricgs-Zucht geſchwaͤcht, und endlich gar vergeſſen wor-<lb/>
+den. Verwundere ſich demnach niemand, daß da es zu unſerer Vaͤter Zeiten<lb/>
+auch alſo zugegangen, der zwantzig Jaͤbrige Stillſtand, nach dem Erſten Puͤni-<lb/>
+ſchen Krieg, unſere zudor ſieghafft geweſene tapffere Roͤmer ſo ſehr geſchwaͤ-<lb/>
+chet, daß ſie in dem Zweyten dem <hi rendition="#aq">Hannibali</hi> nicht gewachſen geweſen, weil ſie<lb/>
+nehmlich ohne junge geuͤbte Mannſchafft waren, und viel alte Obriſten und<lb/>
+Buͤrgermeiſter verlohren hatten, biß ſie endlich die alte <hi rendition="#aq">Diſciplin</hi> wieder hervor-<lb/>
+geſucht, darauff es ſchon beſſer gegangen iſt, <hi rendition="#aq">Forſtnerus</hi> in ſeinen <hi rendition="#aq">Notis Poli-<lb/>
+tic. ad Tacit. Ann. IV. fol.</hi> 549. ſchreibet von dem Unterſchied zwiſchen der<lb/>
+neugeworbenen und alten <hi rendition="#aq">exercirt</hi>en Roͤmiſchen Militz folgender Geſtalt:<lb/>
+<hi rendition="#aq">Hodie cum Tympanum ſtrepit coeunt protervi, ociofi, legum impatientes, pa-<lb/>
+rentibus immorigeri, maximi Mulierum Mœchi, Alcatores, Urbium fuarum<lb/>
+Fex &amp; Purgamentum, quibus neque Boni intellectus eſt, neque mali Cura,<lb/>
+qui ncque in Victoria Decus, neque in Fuga Flagitium putant - Romani<lb/>
+vero ex Tribubus, Coloniis &amp; Sociis militem habebant electum, Belli &amp; Mune-<lb/>
+rum militarium gnarum, Acie invictum,, &amp; qui Annos non plus ex Faſtis,<lb/>
+quam ſtipendiis fuis numerabat, ut Romani Exerci<supplied>t</supplied>us a Noſtris differant, quod<lb/>
+Navis quæ probatis Tiabibus eſt compacta, ab Ea, quam imtempeſtivè exciſæ<lb/>
+Arbores, &amp; omnia non penſtatis vitiis ligna Componunt.</hi> Warumb auch nicht<lb/>
+alle junge Leute unter die Roͤmiſche <hi rendition="#aq">Mili</hi>tz, ſondern nur diejenige, ſo etwas Mit-<lb/>
+tel hatten, auffgenommen worden, deſſen giebt uns <hi rendition="#aq">Cæſar lib. 3. de Bello Gal-<lb/>
+lico, Cap.</hi> 17. folgenden Bericht: <hi rendition="#aq">Populus Romanus per Claſſes diviſus erat,<lb/>
+&amp; pro Patrimonii Facultate cenſebator, ex iis omnibus quibus Res erat, ad mi-<lb/>
+litiam ducebantur, diligenter enim pro Victoria laborabant qui præter liberta-<lb/>
+tem bona defendebant,</hi> dann diejenige ſtreiten allezeit tapffener, welche ſowohl<lb/>
+vor die Erhaltung ihrer Freyheit als auch ihrer Guͤther kaͤmpffen. <hi rendition="#aq">Illi autem<lb/>
+quibus nullæ opes eran<supplied>t</supplied>, Caput ſuum quod <supplied>ſ</supplied>olum poſſidebant, cenſebantur, &amp;<lb/>
+belli Tempore in mœnibus refidebant, facile enim poterant exiſtere Proditores,<lb/>
+quibus Egeſtas haud facile habetur ſine damno,</hi> die nichts hatten, ließ man zu<lb/>
+Hauß, weil ſie ſonſt leichtlich wann man ſie gegen den Feind gefuͤhret haͤtte, aus<lb/>
+Armuth verleitet, haͤtten Verraͤther abgeben moͤgen. Von der Nutzbarfeit ei-<lb/>
+ne wohl <hi rendition="#aq">exercirt</hi>e einheimiſche Stadt-<hi rendition="#aq">Mili</hi>tz ſtets auff denen Beinen zu haben,<lb/>
+und was hingegen auch vor eine Rachlaͤßigkeit dabey bezeuget werde, ſchreibet<lb/>
+<hi rendition="#aq">Bœcklerus Diſſert. VII. de Potentia Civitatum</hi> folgender Geſtalt: <hi rendition="#aq">Quantum ad<lb/>
+fubſidiarium militem attinet, nulla fere eſt Civitas, quin Propoſitum exercendo-<lb/>
+sum more Militiæ Civium præ fe ferat, fed cum in Rem præfentem veneris,<lb/>
+fegnius ferè omnia adminiſtrari, animadvertas, five quod ferociores &amp; ad Ci-<lb/>
+vilis obſequii Modeſtiam imprompti magis credantur, qui nimis ad Audaciam<lb/>
+<fw type="catch" place="bottom">mili-</fw><lb/>
+<pb n="17" facs="#f0017"/>
+militarem imbuuntur, five quod ex militaribus Civium ſtudiis, impedimentum<lb/>
+metuitur opificiis, Negociationibus aliisque civilibus occupationibus, igitur non<lb/>
+amplius fere temporis huic Rei videmus tribui, quam quod ludo &amp; Remiſſioni<lb/>
+convenit. Quamquam in Germania non defint Conſtitutiones Imperii, &amp; De-<lb/>
+creta Comitiorum, de exercenda in Armis Multitudine Agricolarum &amp; Civium,<lb/>
+idque toties inculcatum fit in Conciliis de Bello Turcico, pertinebat etiam eo<lb/>
+mos vulgo receptus Sclopos ad deſtinatum Seopum explodendi, propoſitis præ-<lb/>
+miis &amp; inſtitutis Certaminibus,</hi> welches eben dasjenige iſt, was wir zuvor, (da<lb/>
+wir von der Teutſchen ihren Rriegs-<hi rendition="#aq">Exercitiis</hi> und <hi rendition="#aq">Seminariis</hi> ſowohl in alten<lb/>
+als mittlern und juͤngern Zeiten, wie auch der deßfalls ergangenen Reichs-Ab-<lb/>
+ſchiede Meldung gethan,) angefuͤhret haben.</p><lb/>
+<p>Daß die alte Roͤmiſche Soldaten einmahl des Tags, die <hi rendition="#aq">Tirones</hi> aber<lb/>
+zweymahl nehmlich des Morgens und Mittags ſeyn <hi rendition="#aq">exerci</hi>ret worden, ſolches<lb/>
+giebet uns <hi rendition="#aq">Vegetius lib.</hi> 2. <hi rendition="#aq">Cap.</hi> 23. &amp; <hi rendition="#aq">ſeqq.</hi> zu erkennen, da er zugleich dieſes<lb/>
+<hi rendition="#aq">Epiphonema</hi> beyfuͤget, <hi rendition="#aq">Intermiſſa Exercitii Conſuetudo Animos Militum debili-<lb/>
+tat &amp; Corpora.</hi> Wann der Soldat nicht ſtets <hi rendition="#aq">exerci</hi>ret wird, ſo wird er ſowohl<lb/>
+am Leib als an Gemuͤth ſchwach. Daß auch die Roͤmer zu ihren Soldaten,<lb/>
+keine andere als wohlhabende Leute, und auch vornehmer Leut Sohne, nicht aber<lb/>
+allerhand gemeines Geſind, als nur in hoͤchſten Nothfall genommen haben, ſol-<lb/>
+ches erhellet aus dieſen Worten des <hi rendition="#aq">Livii lib. X. apud Romanos in Legione non<lb/>
+nifi ingenui, &amp; ex ingenuis niſi Juniores &amp; ex junioribus niſi qui in quinque<lb/>
+Claſſes cenſerentur, &amp; ludicræ artis expertes eſſent, ordine centuriabantur, unde<lb/>
+Servi libertini, pueri, Seniores, Capite cenſi &amp; Hiſtriones ad Arma non vocaban-<lb/>
+tur niſi dubiis Reipublicæ Rebus Neceſſitate cogente,</hi> in des <hi rendition="#aq">Telemaque</hi> Staats-<lb/>
+<hi rendition="#aq">Roman diſcuri</hi>ret der weiſe <hi rendition="#aq">Mentor</hi> von der Aufferziehung der <hi rendition="#aq">Tironum</hi> fol-<lb/>
+gender maſſen: Sie, nehmlich die jungen Leute in einer <hi rendition="#aq">Republic</hi> gehoͤren we-<lb/>
+niger ihren Eltern als der <hi rendition="#aq">Republic</hi> zu, in welcher ſie gebohren, ſie ſeynd Kin-<lb/>
+der des gantzen Volcks, deſſen Hoffnung und Staͤrcke, und wann ſie einmahl<lb/>
+verdorben ſeyn, ſo iſt hernach keine Zeit mehr ſie zu verbeſſern, es iſt das ge-<lb/>
+ringſte, daß man ſie hernach von Chren-Aemtern ausſchlieſſen will, wann ſie<lb/>
+ſich deren unwuͤrdig gemacht, beſſer thut man hingegen, daß man den Ubel<lb/>
+vorkomme, ais daß man darzu genoͤthiget werde, daſſelbe zu ſtraffen, der Koͤ-<lb/>
+nig, welcher ein Vater aller ſeiner Unterthanen iſt, iſt noch vielmehr der Vater<lb/>
+aller Jugend in ſeinem Land, als welche die Blume iſt ſeiner gantzen <hi rendition="#aq">Nation,</hi> in<lb/>
+der Bluͤthe ſchickt es ſich ſchon an zu der Frucht demnach laſſe ſich ein Koͤnig<lb/>
+dieſes nicht veraͤchtlich vorkommen, ſelbſt auff die Erziehung ein wachendes Aug<lb/>
+zu haben, und auch andere darauff Acht geben zu laſſen, er ordne es alſo, daß<lb/>
+man die Kinder den Schmertzen und den Todt verachten lerne, daß man darin-<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">nen</fw><lb/>
+<pb n="18" facs="#f0018"/>
+nen eine Ehre ſuche, die Wolluͤſte und den Reichthum zu fliehen, man laſſe ſie die<lb/>
+Ungerechtigkeit, das Luͤgen, und die Weichlichkeit vor ſolche Laſter halten, welche<lb/>
+ehrloß machen, man gewoͤhne ſie von erſter Jugend an das Lob der Helden zu<lb/>
+ſingen, welche loͤbliche Thaten vor ihr - Vaterland verrichtet, und in denen<lb/>
+Treffen ihre Tapferkeit kund gethan haben, man ziehe ſie auff, daß ſie den<lb/>
+Todt weniger, als den geringſten Vorwurff ihres Gewiſſens fuͤrchten, haupt-<lb/>
+ſaͤchlich aber iſt es von noͤthen, oͤffentliche Schulen zu beſtellen, die Jugend zu<lb/>
+den<supplied>e</supplied>n ſtaͤrckſten Ubungen des Leibs anzugewoͤhnen, ihnen die Weichlichkeit und<lb/>
+den Muͤßiggang zu verleiten, als welche die allerſchoͤnſten Naturen verderben,<lb/>
+voraus aber laſſe man ſie nicht aus den Kriegs-<hi rendition="#aq">Exercitio</hi> kommen, dann dadurch<lb/>
+wird ſie undermerckt gelchwaͤchet, der Muth wird fallen, die Wolluͤſte werden<lb/>
+die Sitten verderben, die andere Voͤlcker aber hernach gar keine Muͤhe brau-<lb/>
+chen, ſie zu uͤberwinden, und da ſie das Ungemach, welches der Krieg mit ſich<lb/>
+zu ſchleppen pfleget, vermeiden wollen, werden ſie daruͤber in eine ſo viel be-<lb/>
+ſchwerlichere Dienſtbarkeit verfallen, nachdem es aber auch ſehr gefaͤhrlich iſt, im<lb/>
+Land ſelbſt krieg zu haben, weil man ſich durch ſolchen, wann man auch gleich<lb/>
+in ſeinem Lager die <hi rendition="#aq">Victoriam</hi> mit <supplied>K</supplied>etten angefeſſelt haͤtte, zugleich mit denen<lb/>
+Feinden auffreibet, das Land von Volck entbloͤſſet, die Aecker ungebauet lie-<lb/>
+gen laͤſt, die <hi rendition="#aq">Commercia</hi> ſtoͤret, die beſten Gefetze ſchwaͤchet, der Einwohner Sit-<lb/>
+ten verderbet, und die freyen Kuͤnſte unterdruͤcket, die Gerechtigkeit und <hi rendition="#aq">Policey</hi><lb/>
+auch zu Kriegs-Zeiten ſehr gekraͤncket wird, als waͤre es der zum Krieg <hi rendition="#aq">deſti-<lb/>
+nirton</hi> Jugend halber beſſer, wann man ſelbige auch auff frembden kriegs-<lb/>
+<hi rendition="#aq">Theatris</hi> umbſehen, und die Erfahrung deſſen, was ſie daſelbſt geſehen, hernach in<lb/>
+dem Vaterlande zu Rutz machen lieſſe, auff welche Weiſe man allezeit eine Krie-<lb/>
+geriſche und tapffere Jugend auff den Beinen haben kan, ohne daß man deß-<lb/>
+falls Krieg im Lande haben doͤrffe, dann das wahse Mittel den Krieg zu entfer-<lb/>
+nen, iſt dieſes, daß man einen langen Frieden erhielte, in ſolchen aber ſich doch<lb/>
+auff die Waffen lege, und die in ſolcher <hi rendition="#aq">Proſeſſion</hi> beruͤhmte Leute werth halte,<lb/>
+auch allezeit von ſeiner eigenen Landes-Jugend eine genugſame Anzahl bey der<lb/>
+Hand habe, die ſchon in auslaͤndiſchen Kriegs-Dienſten geweſen, und die<lb/>
+<hi rendition="#aq">Diſciplin</hi> und Manier wiſſen, wie man die Feinde bekriegen ſoll.</p></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">CAPUT</hi> II.</hi></hi></head><lb/>
+<argument><p><hi rendition="#c"><hi rendition="#b">Von der Eintheilung ſolcher <hi rendition="#aq">Seminariorum</hi> in Adeliche<lb/>
+und Buͤrgerliche, auch woher die Jugend zu nehmen, weiche in<lb/>
+ſolchen zur Kriegs-Kunſt und Ritterlichen <hi rendition="#aq">Exercitiis</hi> ſoll aufferzo-<lb/>
+gen und angewieſen werden.</hi></hi></p></argument><lb/>
+<fw type="catch" place="bottom">Dieſe</fw><lb/>
+<pb n="19" facs="#f0019"/>
+<p><hi rendition="#in">D</hi>Jeſes deſto beſſer abzuhandeln, wollen wir abermahl erſt der alten<lb/>
+ſtreitbaren Roͤmer ihre Kriegs-Schulen vor uns nehmen, und was ſie<lb/>
+in ſolchen vor einen <hi rendition="#aq">Selectum</hi> der Lehr-Schuͤler halber gehalten haben,<lb/>
+kuͤrtzlich beleuchten. Es iſt aber gleich Anfangs ein Unterſchied zwi-<lb/>
+ſchen den noch in ſeiner Wiegen gelegenen Rom, ferner deſſen Juͤnglings-Jah-<lb/>
+ren, und endlich ſeinen maͤnnlichen Alter zu machen, in des Erſten <hi rendition="#aq">Periodi</hi> er-<lb/>
+ſten zweyen <hi rendition="#aq">Seculis</hi> kunte die Stadt Rom wohl auff keine ordentliche Kriegs-<lb/>
+Schulen, vielweniger auff die Abtheilungen derſelben in Adeliche und un-Ade-<lb/>
+liche gedencken, ſondern muſte zufrieden ſeyn, daß ihre von <hi rendition="#aq">Romuli Fundations</hi><lb/>
+Zeiten an, zuſamm gelauffene, und aus allerhand boͤſen Buben und liederlichen<lb/>
+Leuten anfangs <hi rendition="#aq">formirt</hi>e Buͤrgerſchafft, ihre Waͤlle und Mauren nur ſe gut <hi rendition="#aq">de-<lb/>
+fendirt</hi>en als ſie kunten, etwan auch nach und nach der Stadt Gebiet durch die<lb/>
+Waffen erweiterten, und demjenigen, der ſie angreiffen, und in ihrem Beſitz<lb/>
+ſtoͤren-wolte, ſo gut abwieſen, als es damahls in ihren Vermoͤgen war, welche<lb/>
+Kriegs-Art hernach auch unter denen folgenden Koͤnigen, alſo fortgegangen,<lb/>
+jedoch ſo, daß von Zeit zu Zeit nech immer etwas daran verbeſſert, und unter-<lb/>
+ſchiedliches zur guten Ordnung und Kriegs-<hi rendition="#aq">Diſciplin</hi> dienendes hinzu gethan wor-<lb/>
+den, alſo war <hi rendition="#aq">Tullius Hoſtilius</hi> der dritte Roͤmiſche Koͤnig ſchon ſehr bemuͤht,<lb/>
+das, aus lauter Soldaten beſtehende Roͤmiſche Volck in gewiſſe Ab-und Ein-<lb/>
+theilung zu bringen, und eine ordentliche Kriegs-<hi rendition="#aq">Diſciplin</hi> unter denſelben einzu-<lb/>
+fuͤhren, welches wir einiger maſſen daraus erſehen koͤnnen, daß als er die Stadt<lb/>
+<hi rendition="#aq">Albam</hi> zerſtoͤhret, und ihre Einwohuer nach Rom gebracht, er die ſtreitbarſten<lb/>
+aus ſolchen ausgeſucht, ſelbige in 10. <hi rendition="#aq">Turmas</hi> oder Hauffen eingetheilet, mit<lb/>
+denen uͤbrigen aber die mangelhaffte Roͤmiſche <hi rendition="#aq">Legiones</hi> ergaͤntzct, und ſolche<lb/>
+darunter geſtecket, und alſo alles nach des <hi rendition="#aq">Romuli</hi> angefangener Kriegs-<hi rendition="#aq">Diſciplin</hi><lb/>
+angeſtellet, auch da er keinen oͤffentlichen Krieg hatte, dannoch nicht unterlaſ-<lb/>
+ſen, die junge Mannſchafft taͤglich hinaus ins Feld zu fuͤhren, und ſelbige der-<lb/>
+geſtalt in Waffen und andern Kriegs-<hi rendition="#aq">Exercitiis</hi> und Arbeiten zu <hi rendition="#aq">exerci<supplied>r</supplied></hi>en, als<lb/>
+wann er wuͤrcklich einen Feind vor ſich gehabt haͤtte, worzu die damahls in<lb/>
+Rom eingeriſſene Peſtilentz ihme groſſen Anlaß gab, indem er davor hielte, daß<lb/>
+den Leib geſund zu erhalten kein beſſeres Mittel, als das ſtetige Arbeiten und<lb/>
+Kriegs-Ubungen in Feld waͤre.</p><lb/>
+<p>Der nach ihn kommende <hi rendition="#aq">Ancus Martius</hi> war mehr auff Einrichtung ihrer<lb/>
+<hi rendition="#aq">Policey</hi> und Goͤtzen-Dienſt, als auff den Kriegs-<hi rendition="#aq">Etat</hi> bedacht, dahero auch hier<lb/>
+ſchon der Unterſchieb zwiſchen dem geiſtlichen und <hi rendition="#aq">Militair</hi>-Stand ſeinen Anfang<lb/>
+nahm, wiewohl er dieſen letztern doch auch ziemlich beybehalten, wie er dann<lb/>
+auch dadurch ſich im Stand geſetzet, denen <hi rendition="#aq">Lateinern</hi> viel Staͤdte durch die<lb/>
+Waffen abzunehmen.</p><lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom"><hi rendition="#aq">Lucius</hi></fw><lb/>
+<pb n="20" facs="#f0020"/>
+<p><hi rendition="#aq">Lucius Tarquinius Priſcus,</hi> der fuͤnffte Roͤmiſche Koͤnig, war der Erſte, der<lb/>
+nachdem er die <hi rendition="#aq">Sabiner</hi> und <hi rendition="#aq">Lateiner</hi> bezwungen, und nunmehro in Rom guien<lb/>
+Frieden hatte, daſelbſt auff das Auffbauen gewiſſer <hi rendition="#aq">Angariarum</hi> oder <hi rendition="#aq">Baſilica-<lb/>
+rum</hi> (das iſt, ſolche Haͤuſer, worinn die junge Mannſchafft in Kriegs-Sachen<lb/>
+ſolte unterwieſen und <hi rendition="#aq">exerci</hi>ret werden,) bedacht war, wiewohl er dieſes ſein<lb/>
+loͤbliches Vorhaben, wegen des durch einen Meuchel-Moͤrder an ihn veruͤbten<lb/>
+Todtſchlags nicht vollziehen kunte, indeſſen moͤchte man doch von ſeiner Re-<lb/>
+gierungs-Zeit an, den Urſprung der Roͤmiſchen <hi rendition="#aq">Seminariorum Militarium</hi> rech-<lb/>
+nen, auch daß er ſolche in Buͤrgerliche und Adeliche einzutheilen willens gewe-<lb/>
+ſen ſey, welches letztere wir daraus beweiſen, weil er ſeinen Sohn einen Juͤng-<lb/>
+ling von 13. Jahren, als ſich ſolcher im Kriege wieder die <hi rendition="#aq">Sabiner</hi> und <hi rendition="#aq">Hetruſcer</hi><lb/>
+wohl gehalten, mit einer <hi rendition="#aq">Prætexta</hi> und <hi rendition="#aq">Bulla,</hi> das iſt mit einen langen, mit Pur-<lb/>
+pur verbremten Rock, und einen guͤldnen Halß-Gehaͤng beſchencket, welches<lb/>
+hernach auch bey allen Raths-Herren und anderer vornehmen <hi rendition="#aq">Ingenuorum</hi> ih-<lb/>
+ren Kindern alſo eingefuͤhret, und bierdurch gleichſam denen Adelichen <hi rendition="#aq">Semina-<lb/>
+riis</hi> der Anfang gegeben worden.</p><lb/>
+<p>Welche hernach zu ſeines Nachfolgers des <hi rendition="#aq">Servii Tullii</hi> Zeiten nebenſt de-<lb/>
+nen Buͤrgerlichen, erſt ihre rechte Eintheilung und Wachsthum erhalten, dann<lb/>
+dieſer theilte die Roͤmiſche Buͤrgerſchafft in fuͤnff Claſſes oder Standes-Ord-<lb/>
+nungen ein, in der erſten Claß wurden alle diejenige begriffen, die 1500. Gold-<lb/>
+Guͤlden Rheiniſch oder auch daruͤber in Vermoͤgen hatten, aus dieſer nahm er<lb/>
+80. <hi rendition="#aq">Centuri</hi>en oder <hi rendition="#aq">Compagni</hi>en, davon 40. in ſolchen Maͤnnern beſtanden, die<lb/>
+uͤber 40. Jahr alt geweſen, 40. aber in junger Mannſchafft, zwiſchen 20. und<lb/>
+40. Jahren, jene ließ man zur Bewahrung der Stadt zu Hauſe, dieſe aber<lb/>
+fuͤhrte man wieder den Feind ins Feld, oder <hi rendition="#aq">logirt</hi>e ſie in Friedens-Zeiten zwar<lb/>
+in die Staͤdte, jedoch daß ſie taͤglich in denen <hi rendition="#aq">Angariis</hi> oder Trill-Haͤuſern mu-<lb/>
+ſten <hi rendition="#aq">exercir</hi>et werden, ihre Waffen und <hi rendition="#aq">Mondir</hi>ung war eine Sturm-Haube,<lb/>
+Schild oder Tartſche, ein Eiſerner Pantzer und Bein-Schiene, ein langer<lb/>
+Spieß, und ein Schwerdt oder Seiten-Gewehr, in der andern Claß waren die-<lb/>
+jenige, welche unter 1500. biß auff 1100. Gold-Guͤlden in Vermoͤgen hat-<lb/>
+ten, aus dieſen nahm man 40. <hi rendition="#aq">Centuri</hi>en, 20. zur Bewahrung der Stadt, 20.<lb/>
+aber an junger Mannſchafft zum Kriegs-Zuͤgen, und zu denen <hi rendition="#aq">Angariis.</hi> Jhre<lb/>
+Waffen und Ruͤſtungen wareu, ein kleiner runder Schild, eine Sturm-Haube,<lb/>
+ein Harniſch, Spieß und Schwerdt.</p><lb/>
+<p><hi rendition="#fr">Die Dritte Claße</hi> machten diejenige aus, die unter 1100. Gold-Guͤlden<lb/>
+biß auff 750. in Vermoͤgen hatten, dieſe wurden eben ſo wie die vorige abge-<lb/>
+theilet, auſſer daß ſie keinen Harniſch noch Bein-Schienen trugen.</p><lb/>
+<p><hi rendition="#fr">Die Dierdte Claß</hi> beſtand aus Buͤrgern, die nur etwan 375. Gold-<lb/>
+<fw type="catch" place="bottom">Guͤl-</fw><lb/>
+<pb n="21" facs="#f0021"/>
+Guͤlden vermochten, aus dieſen theilte man ebenfalls 40. <hi rendition="#aq">Centuri</hi>en nach der<lb/>
+vorigen Weiſe ab, welche aber nur lange und auch Wurff-Spieſſe hatten.</p><lb/>
+<p><hi rendition="#fr">Die Fuͤnſfte Claß</hi> ward genommen aus denen, die 165. Guͤlden ver-<lb/>
+mochten, dieſe muſten 60. <hi rendition="#aq">Compagni</hi>en hergeben, davon 30. zu Hauß blieben,<lb/>
+30. aber nehmlich die jungen, wurden ins Feld und in die Trill-Haͤuſer oder<lb/>
+<hi rendition="#aq">Angarias</hi> geſchicket, in welchen ſie mehrentheils in Schleudern, und auch Stei-<lb/>
+ne aus freyer Hand zu werffen, <hi rendition="#aq">exercir</hi>et worden.</p><lb/>
+<p>Denen Feld-<hi rendition="#aq">Centuri</hi>en insgeſamt, gab man hernach aus den gemeinen<lb/>
+Poͤbel 2. <hi rendition="#aq">Compagni</hi>en Zimmer-und Bau-Leute, <hi rendition="#aq">item</hi> noch 3. <hi rendition="#aq">Centuri</hi>en ge-<lb/>
+meiner Raths-und Stadt-Diener, Pfeiffer und Poſaunen-Blaͤſer zu, welche<lb/>
+wiewohl ohne Gewehr mit ziehen, und in ihrer <hi rendition="#aq">Profeſſion</hi> bey der <hi rendition="#aq">Armée</hi> Dien-<lb/>
+ſte thun muſten.</p><lb/>
+<p>Solcher Geſtalt ſehen wir, wie erſt die <hi rendition="#aq">Seminaria</hi> ſowohl Buͤrgerliche als<lb/>
+Adeliche, durch die <hi rendition="#aq">Claſſificationes</hi> zu des <hi rendition="#aq">Servii Tulli</hi> Zeiten ihren Anfang ge-<lb/>
+nommen, als hernach die Stadt Rom an Macht, Vermoͤgen und Einwoh-<lb/>
+nern zunahm, da wurde dieſer Unterſchied noch mehr <hi rendition="#aq">obſervir</hi>et, daß man der<lb/>
+<hi rendition="#aq">Conſulum, Prætorum, Quæſtorum, Tribunorum,</hi> und <hi rendition="#aq">Senatorum,</hi> wie auch an-<lb/>
+derer vornehmer und reicher Leute ihre Kinder beſonders auserleſen, und in eine<lb/>
+Nolle zuſamm eingeſchrieben, auch mit ihnen ſchon edlere <hi rendition="#aq">Exercitia,</hi> als mit<lb/>
+denen, aus denen geringern Claßen ausgezogenen, getrieben habe, weil auch<lb/>
+ſolchen <hi rendition="#aq">Patriciis</hi> hernachmahls gantze <hi rendition="#aq">Gouvernements</hi> von Staͤdten und Provin-<lb/>
+tzien, <hi rendition="#aq">item</hi> hohe und <hi rendition="#aq">importantes</hi> Kriegs-<hi rendition="#aq">Chargen</hi> anzuvertrauen waren, ſo<lb/>
+hielten die kluge Noͤmer dafuͤr, daß nicht allein hierzu Leute von guten Sitten<lb/>
+und Verſtand, ſondern auch von edler Abkunfft erfordert wuͤrden, indem das<lb/>
+<hi rendition="#aq">Point d’ Honnenr,</hi> und der <hi rendition="#aq">Familie</hi> auch viel darzu <hi rendition="#aq">coutribuirt</hi>e, daß man in<lb/>
+dem Kriege keine <hi rendition="#aq">Lacheté</hi> und Unverſtand von ſich mercken lieſſe. Es wurden<lb/>
+auch fuͤrnehmlich darumb Adeliche <hi rendition="#aq">Seminaria</hi> von ihnen auffgerichtet, weil ſie<lb/>
+darauff hielten, daß ſolcher vornehmen Leute Kinder, wann ſie erſt in die Zahl<lb/>
+der <hi rendition="#aq">Tyronum,</hi> und folglich der Kriegs-Leute auffgenommen worden, vor des<lb/>
+Vaterlandes Wohlfahrt, ja vor ihr eigenes von ihren Eltern dermahleins zu<lb/>
+gewartendes <hi rendition="#aq">Patrimonium,</hi> umb ſolches nicht zu verlieren, deſto eyfriger ſtrei-<lb/>
+ten wuͤrden, welcher <hi rendition="#aq">Punct</hi> auch umb ſo viel nachdruͤcklicher war, als die al-<lb/>
+ten Roͤmer nicht viel Feder-leſens machten, denen die ſich der <hi rendition="#aq">Defenſion</hi> und<lb/>
+dem Dienſt des Vaterlandes entziehen wolten, oder denſelben nicht mit aller<lb/>
+Treu, Sorgfalt und Tapfferkeit vorſtanden, ihr Haab und Gut, ja das Le-<lb/>
+ben ſelbſt zu nehmen, zum wenigſten verlohren ſie ihren Adel-Stand, wurden<lb/>
+zu Leibeigenen Knechten verkaufft, oder mit Gefaͤngniß und Landes-Verwei-<lb/>
+ſung geſtrafft.</p><lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="22" facs="#f0022"/>
+<p>Die dritte <hi rendition="#aq">Motive</hi> Adeliche <hi rendition="#aq">Cadets</hi> und vornehme <hi rendition="#aq">Tirones</hi> in ein <hi rendition="#aq">Corpus</hi><lb/>
+und <hi rendition="#aq">Semioarium</hi> zuſamm zu bringen, war auch dieſes, weil man von ſolchen<lb/>
+jungen vornehmen Soͤhnen verſichert war, daß ſie in ihrer Cltern Hauſe ſchon<lb/>
+wuͤrden in guten Sitten, Kuͤnſten und Sprachen (ſonderlich in Leſen und<lb/>
+Schreiben) wohl ſeyn unterrichtet worden, welches letztere ihnen aucb darumb<lb/>
+umb ſo vielmehr zu ſtatten kam, weil alle <hi rendition="#aq">Militair</hi>-Beſtallungen und <hi rendition="#aq">Ordres</hi><lb/>
+ſchrifftlich abgefaſſet geweſen, es moͤchten gleich ſolche die <hi rendition="#aq">Expeditione</hi>s ſelbſt,<lb/>
+oder <hi rendition="#aq">Proviant</hi> und <hi rendition="#aq">Munition</hi> und andere Dinge betreffen. Dann da muſte ein<lb/>
+jeder Kriegs-Mann in denen Roͤmiſchen <hi rendition="#aq">Arméen</hi> ſowohl von Adelichen als<lb/>
+Gemeinen <hi rendition="#aq">Officir</hi>ern und Soldaten ſelbſt auffſchreiben, und vor ſich ein Buͤch-<lb/>
+lein halten, was er an Sold empfangen, und wie viel ihme noch <hi rendition="#aq">reſtirt</hi>e, was<lb/>
+er an taͤglicher Frucht und Getreyd eingenommen, und wie viel ihnie noch<lb/>
+hinterſteluͤg ſey, er muſte auch ſeine Wachten und Qvartiere, die Tage und<lb/>
+Oerter <hi rendition="#fr">wann,</hi> und <hi rendition="#fr">wohin</hi> er auff die Arbeit <hi rendition="#aq">commandi<supplied>r</supplied></hi>et worden, auff-<lb/>
+ſchreiben, und weil er den Nahmen ſeines Huuptmanns an ſeinem Faͤhnlein,<lb/>
+und vorn an ſeiner Sturm-Hauben geſchrieben hatte, ſeiner Mit-Soldaten ihre<lb/>
+Nahmen auch auff jeder ihreu Schilde und Tartſchen verzeichnet waren, (da-<lb/>
+mit ſie in der Schlacht ſich nicht verirren koͤnten,) ſo war es ja allerdings noͤ-<lb/>
+thig, daß ein Soldat ſchreiben und leſen koͤnte, welches daß es auch bey unſe-<lb/>
+rer Teutſchen Militz, ja bey allen Buͤrgern und Bauren moͤchte eingefuͤhret<lb/>
+werden, vielfaͤltig ſchon unſer wohlgemeynter Vorſchlag und Wuͤuſchen ge-<lb/>
+weſen iſt.</p><lb/>
+<p>Dieſen jetzt beſchriebenen Roͤmiſchen Adelichen <hi rendition="#aq">Seminariis</hi> und <hi rendition="#aq">Tironibus</hi><lb/>
+wurden hernach die Buͤrgerliche aus denen oberzehlten Zuͤnfften, zu nechſt an<lb/>
+die Seite geſetzt. Es hatten zwar die Roͤmer allen <hi rendition="#aq">Reſpect</hi> vor ihren Adel und<lb/>
+alle vornehme <hi rendition="#aq">Famili</hi>en, aber in ſo weit als die aus ſolchen entſproſſene ſich<lb/>
+tapffer Adelich und wohl aufffuͤhrten, wo dieſes nicht geſchahe, ſo war ihnen<lb/>
+ein tugendhaffter Buͤrger, und Buͤrgers Sohn eben ſo lieb und werth, als der<lb/>
+beſte von Adel, er wurde auch vor dieſen zu hohen Stadt- und Kriegs-Aemtern<lb/>
+gezogen, und fing ſich bey demſelben Buͤrger ſein Adel-Stand durch loͤbliche<lb/>
+Thaten an, da er bey den traͤgen und nichtswuͤrdigen Edelmann hingegen auff-<lb/>
+hoͤrte, wie ſolches viel hundert <hi rendition="#aq">Exempla</hi> in denen Noͤmiſchen Hiſtorien zur Ge-<lb/>
+nuͤge beweiſen koͤnnen.</p><lb/>
+<p>Wiewohl auch zu ſolcheu Buͤrgerlichen <hi rendition="#aq">Tironibus</hi> nicht allerhand Juͤng-<lb/>
+linge die nur vorkamen, auch nicht aus allen und jeden <hi rendition="#aq">Profeſſion</hi>en und Hand-<lb/>
+werckern genommen wurden, dann Erſtlich ſahe man in beyden <hi rendition="#aq">Seminariis</hi> wohl<lb/>
+darauff, ob ein anzunehmender <hi rendition="#aq">Tyro</hi> ſeine r<supplied>e</supplied>chte Leibes-Laͤnge und <hi rendition="#aq">Proportion</hi><lb/>
+hatte, ob er nicht zu klein oder zu ſchwach Waffen zu tragen waͤre, man be-<lb/>
+<fw type="catch" place="bottom">merckte</fw><lb/>
+<pb n="23" facs="#f0023"/>
+merckte auch, ob er ein ehrliches wackeres Geſicht, auffgerichteten Halß, breite<lb/>
+Bruſt, ſtarcke und fleiſchigte Schultern, ſtarcke Finger und Faͤuſte, lange Ar-<lb/>
+men, einen kleinen duͤnnen Bauch, duͤnne Beine, und mehr Seh<supplied>ni</supplied>gt nnd Aede-<lb/>
+rigte, als Fleiſchige Waden haͤtte, der <hi rendition="#aq">Conful Marcus</hi> wolte ſie gar 5 ¾. oder<lb/>
+6. Fuß lang haben, wiewohl nicht eben allezeit auff die Laͤnge, ſondern ob ein<lb/>
+Keri ſtarck von Gliedmaßen, geſunder Leibes-<hi rendition="#aq">Conſtitution,</hi> und wohl unterſetzt<lb/>
+war, geſehen worden.</p><lb/>
+<p>Die Handroercker betreffend, aus welchen man <hi rendition="#aq">Tirones</hi> oder Kriegs-<lb/>
+Schuͤler angenommen, und folglich ſolche der Noͤmiſchen Militz einverleibet, ſo<lb/>
+waren ſolches die Schmiede, Zimmer-Leut, Tiſcher, Steinmetzen, Schiffs-Leut,<lb/>
+und Boots-Geſellen, die Fleiſchhauer, Jaͤger, und in Summa, alle diejenige,<lb/>
+welche mit ſchwerer Arbeit, bey welcher viel Bewegung iſt, umgegangen, was<lb/>
+hingegen ſtillſitzende Handwercker und <hi rendition="#aq">Proſeſſion</hi>en als Riemer, Sattler, Lei-<lb/>
+nen- und Wollen-Weber, Poſamentirer, Schuſter, Schneider, Fiſcher, Vo-<lb/>
+gelſteller, Paſteten-Becker, Gar-Koͤche, Wein-Schencken, Seidenſticker, Ta-<lb/>
+pezirer, und dergleichen <hi rendition="#aq">ſubtil</hi>e Handwercker mehr geweſen, die wurden nicht<lb/>
+geachtet, hingegen beliebte man um ſo vielmehr junge ſtarcke und geſunde Bau-<lb/>
+ren-Kerls, als welche der Sonnen Hitze gewohnt, nichts nach den Schatten<lb/>
+fragten, welche nicht wuſten was Wolluͤſte oder warme Baͤder ſeyn, welche<lb/>
+einfaͤltigen Gemuͤths, und mit ſchlechter Koſt zuſrieden waren, ihre Haͤnde und<lb/>
+Schultern auch ſchon allerhand Laſt zu tragen, Graͤben zu machen, ſchwere<lb/>
+Buͤrden auffzuheben, Holtz, zu hauen, zu pfluͤgen, und andere ſchwere Arbeit<lb/>
+zu tbun, gewohnet hatten, mit dieſen kunten auch die <hi rendition="#aq">Campidoctores</hi> viel ge-<lb/>
+ſchwinder fort kommen, und zu denen Kriegs-<hi rendition="#aq">Exercitiis</hi> ſchreiten, da ſie herge-<lb/>
+gen der Stadt Jugend, erſtlich hin und wieder zu lauffen, zu arbeiten, der Son-<lb/>
+nen Hitz zu vertragen, unter den freyen Himmel zu ſchlaffen, grobe Speiſe zu<lb/>
+eſſen, und andere unter Soldaten vorfallende <hi rendition="#aq">Fatiguen</hi> mehr angewoͤhnen<lb/>
+muſten.</p><lb/>
+<p>Je mehr nun bey der Stadt Rom ihrer anwachſenden Macht, an einer<lb/>
+ſolchen Kriegs- Pflantz-Schul gelegen war, je mehrere Sorgfalt trug man auch<lb/>
+tuͤchtige <hi rendition="#aq">Subjecta</hi> darzu aus- und auffzuſuchen, alſo daß man nicht mehr <hi rendition="#i">(</hi>wie<lb/>
+bey der erſten Roͤmiſchen Koͤnige Zeiten geſchahe,) nur <hi rendition="#aq">enrollirt</hi>e, wer ſich<lb/>
+zum Kriegs-Stand angab, oder alle Buͤrger und Einwohner zu Soldaten mach-<lb/>
+te, ſondern es wurden gewiſſe <hi rendition="#aq">Conquiſitores</hi> oder <hi rendition="#aq">Commiſſarii</hi> beſtellet, welche<lb/>
+erſtlich in der Stadt Rom die tuͤchtigſten <hi rendition="#aq">Tyrones</hi> oder Junggeſellen ausſuch-<lb/>
+ten, ſolche auffzeichneten, und in die <hi rendition="#aq">Angarias</hi> hinein ſandten, hierauff aber ſich<lb/>
+auff das Land, und in die von denen Roͤmern uͤberwundene Laͤnder und Pro-<lb/>
+vintzien begaben, und daſelbſt mit der Jugend gleich alſo verfuhren, nehmlich<lb/>
+<fw type="catch" place="bottom">daß</fw><lb/>
+<pb n="24" facs="#f0024"/>
+daß ſie die beſte davon ausgeleſen, und nach Rom in das <hi rendition="#aq">Seminarium</hi> oder die<lb/>
+Kriegs-<hi rendition="#aq">Academiam</hi> geſandt, woſelbſt ſie ihre <hi rendition="#aq">Tyrocinia</hi> oder Lehr-Jahre, <hi rendition="#i">(</hi>wel-<lb/>
+cher etwan 2. oder 3. waren, nachdem nehmlich ein <hi rendition="#aq">Tyro</hi> die <hi rendition="#aq">Exercitia</hi> hurtig<lb/>
+faſſen kunte,) gedultig aushalten muſten, wann ſie anders dermahleins in den<lb/>
+Soldaten, von dieſen in den Officier-Stand wolten auffgenommen ſeyn, oder<lb/>
+wohl gar das Gluͤck haben, kuͤnfftig Roͤmiſche Feld-Herrn, Buͤrgermeiſter und<lb/>
+Raths - Herren zu werden, <hi rendition="#fr">(nach dem noch heutigs Ta<supplied>g</supplied>s bekannten<lb/>
+Sprichwort: Es muͤſte ein ſchlechter Kerl von einen Soldaten ſeyn,<lb/>
+der nicht mit der Zeit Oberſter oder General zu werden gedaͤchte,)</hi><lb/>
+wie dann auch das Beſetzen hoher und vornehmer auch ſo gar geiſtlicher und<lb/>
+<hi rendition="#aq">Civil - Chargen</hi> bey denen Roͤmern, mit dem Krieg ſo genau verknuͤpffet war,<lb/>
+daß man gemeiniglich darzu keine andere als wohlverdiente Kriegs-Leut befoͤr-<lb/>
+derte, welches mit denen <hi rendition="#aq">Exemplis</hi> ſo vieler Keyſer, die ſich auch zugleich <hi rendition="#aq">Pon-<lb/>
+rifices maximos</hi> nennen lieſſen, und als wuͤrckliche Hohe Prieſter in ihren Goͤ-<lb/>
+tzen-Tempeln Opffer verrichtet haben, zu beweiſen ſtehet.</p><lb/>
+<p>Bey uns in <hi rendition="#aq">Europa</hi> ſeynd heutigs Tags auſſer denen ſchon in vorigen Ca-<lb/>
+pitel gedachten Ritter-<hi rendition="#aq">Academi</hi>en und <hi rendition="#aq">Seminariis</hi> der ſo genannten <hi rendition="#aq">Cadets</hi> oder<lb/>
+jungen Edelleute, (die wie ſonderlich in Dreßden und zu Berlin zu erſehen, zu<lb/>
+allen Adelichen und Kriegs-<hi rendition="#aq">Exercitiis</hi> von der hohen Landes-Obrigkeit erzogen,<lb/>
+und ihnen deßfalls geſchickte Lehr-Meiſters vorgeſetzet, ſie auch uͤber dem zu ih-<lb/>
+rer <hi rendition="#aq">Subſiſten</hi>tz mit einen zulaͤnglichen <hi rendition="#aq">Tractament</hi> verſehen werden,) keine be-<lb/>
+ſondere <hi rendition="#aq">Seminaria</hi> oder Kriegs-Pflantz-Schulen, ſonderlich vor gemeine Buͤr-<lb/>
+gerliche Jugend, die doch kuͤnfftig den groͤſten Theil der Potentaten ihrer <hi rendition="#aq">Ar-<lb/>
+méen</hi> und Kriegs-<hi rendition="#aq">Force</hi> ausmachen, und dannenhero nicht ſo gar aus der Acht<lb/>
+gelaſſen werden ſolten, bekannt, ſondern es iſt an deren ſtatt, das Ausſchrei-<lb/>
+ben, und Werben <hi rendition="#i">(</hi>wann zumahl Kriegs-Gefahr und weit ausſehende <hi rendition="#aq">Conjun-<lb/>
+ctur</hi>en vorhanden,) in Gebrauch, da dann die neu geworbene <hi rendition="#aq">Tyrones</hi> denen<lb/>
+<hi rendition="#aq">Corporal</hi>en, Feldwebeln, und <hi rendition="#aq">Sergeant</hi>en, untergeben werden, welche dieſelbe<lb/>
+eintzeln und auch Rott- und Corporalſchafften - weiß vornehmen, und ihnen<lb/>
+alle Handgriffe mit der Flinten, ſamt denen uͤbrigen Kriegs-<hi rendition="#aq">Exercitiis</hi> weiſen<lb/>
+muͤſſen, in welchen ſie auch ſonderlich in hochbeſagten zweyen Koͤniglichen Re-<lb/>
+ſidentz-Staͤdten ſo <hi rendition="#aq">accurat</hi> abgerichtet und <hi rendition="#aq">dreſſir</hi>et ſeyn, daß ich nicht weiß, ob<lb/>
+es die alten Roͤmer mit ihren <hi rendition="#aq">Gregariis</hi> oder gemeinen Soldaten, in einen drey<lb/>
+oder vier Jaͤhrigen <hi rendition="#aq">Tyrocinio</hi> oder Schul-Jahreu haͤtten weiter bringen koͤn-<lb/>
+nen, ja es wuͤrden ſich gewiß ihre beruͤhmteſte <hi rendition="#aq">Campidoctores</hi> und <hi rendition="#aq">Armi Ma-<lb/>
+giſtri,</hi> auch ſo gar ihre tapfferſte Feld-Herren, wann ſolche wieder auffſtehen,<lb/>
+und unſere heutige teutſche Militz und deroſelben vortreffliches <hi rendition="#aq">Exercitium</hi> an-<lb/>
+ſehen ſolten, hoͤchſt verwundern, wie hoch die Kriegs-Kunſt bey dieſen unſern<lb/>
+<fw type="catch" place="bottom">Zeiten</fw><lb/>
+<pb n="25" facs="#f0025"/>
+Zeiten gegen die ihrige geſtiegen ſey, und wie man ſeiter dem, daß das grobe<lb/>
+und kleine Geſchuͤtz erfunden worden, jetzt gantz andere Waffen, (als ihre Schild<lb/>
+und Tartſchen, lange Spieſſe, Bogen, Pfeil und Schleudern, in Belaͤgerun-<lb/>
+gen aber, ihre Mauerbrecher oder <hi rendition="#aq">Arietes, Teſtudines, muſculi,</hi> und Sturm-Lei-<lb/>
+tern <hi rendition="#aq">&amp;c.</hi> geweſen ſeyn,) erfunden habe, dahero ein gewiſſer teutſcher Poet nicht<lb/>
+unbillích geſungen:</p><lb/>
+<cit><quote><hi rendition="#fr">Was ſoll <choice><sic>uus</sic><corr>uns</corr></choice> jetzt die Schlacht mit Schleudern und mit Stoͤcken,<lb/>
+Und der bepralte Sturm, mit Leitern und mit Boͤcken,<lb/>
+Man ſeh jetzt unſern Krieg und eine groſſe Schlacht,<lb/>
+Der Donner und der Blitz wird mit zu Feld gebracht.</hi></quote><bibl/></cit><lb/>
+<p>An ſtatt ihrer <hi rendition="#aq">Dictatorum, Imperatorum, Legatorum, Tribunorum Militum,<lb/>
+Centurionum, Præfectorum Equitum, De<supplied>c</supplied>urionum, Præfectorum Legionum,<lb/>
+Caſtrorum, Teſſera<supplied>r</supplied>iorum, Conquiſitorum, Vragorum, Menſorum, Metato-<lb/>
+rum, Structorum Annonæ, Anteſignanorum, Signiferorum, Tubicinum,</hi> und<lb/>
+<hi rendition="#aq">Cornicinum &amp;c.</hi> haben wir ſo beruͤhmte, theils noch lebende, theils durch ihre<lb/>
+tapffere Helden-Thaten ins Buch der Helden und Redlichen eingeſchriebene<lb/>
+Feld-Herrn, <hi rendition="#aq">Generals,</hi> Obriſten, und andere vornehme Stab-und Regiments-<lb/>
+Officiers, welche denen alten Griechiſchen und Roͤmiſchen Helden keinen Schritt<lb/>
+weichen doͤrffen, ſo ſeynd auch unſere, bey <hi rendition="#aq">regulirt</hi>en <hi rendition="#aq">Trouppen</hi> ſtehende Ober-<lb/>
+und Unter-Officiers, mehrentheils ſo beſchaffen, daß ſie an <hi rendition="#aq">Bravoure</hi> und Er-<lb/>
+fahrenheit in Kriegs-<hi rendition="#aq">Exercitits,</hi> denen Roͤmiſchen <hi rendition="#aq">Campidoctoribus</hi> noch vieles<lb/>
+lehren koͤnten.</p><lb/>
+<p>Die Roͤmiſche gemeine Militz (welche vornehmlich in <hi rendition="#aq">Triariis, Veteranis<lb/>
+Gregariis, Tironibus, Limitaneis, Claſſiariis, Stationariis, Præſidiariis, Gravis<lb/>
+&amp; Levis Armaturæ Militibus, in Funditoribus, Baliſtariis, Sagitariis, Haſtatis,<lb/>
+Lanceariis, Scutariis, Cataphractis, Adventitiis, Deſultoribus, Pro &amp; Excubito-<lb/>
+ribus, in Cuni<supplied>c</supplied>ulariis, Speculatoribus, Corycæis, &amp;c.</hi> beſtanden,) darff nur un-<lb/>
+ſere <hi rendition="#aq">Chevaliers Gardes, Gens d’ Armes</hi> oder reitende <hi rendition="#aq">Trabant</hi>on, unſere gantze<lb/>
+<hi rendition="#aq">Cavallerie</hi> ſelbſt, von der <hi rendition="#aq">Infanterie</hi> aber die <hi rendition="#aq">Grenadir</hi>er, und gantze Regimen-<lb/>
+ter ſonderlich die, welche unſern Teutſchen und andern Europaͤiſchen Fuͤrſten<lb/>
+und Potentaten zur <hi rendition="#aq">Garde</hi> dienen muͤſſen, <hi rendition="#fr">in dem Lager ſchlagen</hi> aber, unſere<lb/>
+<hi rendition="#aq">General-Quartier-</hi>Meiſters, <hi rendition="#fr">in Belaͤgerungen</hi> unſere Feld-Zeugmeiſters, <hi rendition="#aq">Ar-<lb/>
+tiglerie</hi> Oberſten und Officiers, und das gantze <hi rendition="#aq">Corpus habiler Ingenieurs,</hi> (als<lb/>
+welche gewißlich in der heutigen <hi rendition="#aq">Attaque</hi> und <hi rendition="#aq">Defenſe</hi> der Staͤdte und Veſtun-<lb/>
+gen ihren <hi rendition="#aq">Prædicat</hi> nach Verſtand in Koͤpffen haben muͤſſen,) anſehen, ſo wird<lb/>
+ſie den Unterſchied, der zwiſchen ihren und den heutigen Kriegfuͤhren iſt, gar<lb/>
+leicht begreiffen koͤnnen.</p><lb/>
+<p>Wolte man dagegen ferner einwenden, daß unſere heutige Soldaten, der<lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">Arbeit</fw><lb/>
+<pb n="26" facs="#f0026"/>
+Arbeit und Kriegs-<hi rendition="#aq">Fatiquen</hi> ſo nicht gewohnt waͤren, als wann ſie erſt einige<lb/>
+Jahr vorher ihr <hi rendition="#aq">Tyrocinium</hi> in denen <hi rendition="#aq">Angariis</hi> haͤtten <hi rendition="#aq">abſolvir</hi>en muͤſſen, ſo<lb/>
+antworte ich, daß das ſtete <hi rendition="#aq">Exercir</hi>en, ſo man mit denen Neugeworbenen thut,<lb/>
+und daß man ſie ſonderlich ehe man ſie an Feind fuͤhret, erſt ein paar Jahr in<lb/>
+die Veſtung leget, (welche offtmahls nur mehr als zu viel <hi rendition="#aq">Ergaſtula</hi> oder Zucht-<lb/>
+Haͤuſer vor die rohe junge Kriegs-Purſche ſeyn, die denen Eltern nicht haben<lb/>
+gehorſam ſeyn wollen, und hernach dem Kalb-Fell folgen muͤſſen,) ihnen ein<lb/>
+genugſames <hi rendition="#aq">Tirocinium</hi> und Lehr-Zeit ſey, in welcher man ſie bey offt ſchlech-<lb/>
+ten <hi rendition="#aq">Commiß-</hi>Brodte, und geringen Monat-Geld, vielen Schildwachtſtehen,<lb/>
+taͤglichen <hi rendition="#aq">Exercir</hi>en, offtmahligen Schantzen, und andern Kriegs-<hi rendition="#aq">Operationibus</hi><lb/>
+dergeſtalt zur <hi rendition="#aq">Fatique</hi> angewoͤhnet, daß ſie ſolche auch in denen rauhen Norden-<lb/>
+Laͤndern, und zur harten Winters-Zeit, (da die, des warmen <hi rendition="#aq">Climatis</hi> gewohn-<lb/>
+ten Roͤmer und Griechen wie die Fliegen wuͤrden hingefallen ſeyn,) haben er-<lb/>
+tragen und ausſtehen muͤſſen.</p><lb/>
+<p>Dieſem allen aber ungeachtet ſagen wir doch auch, daß ein gemeines<lb/>
+Buͤrgerliches <hi rendition="#aq">Seminarium</hi> und Kriegs-Pflantz-Schul, unſerer heutigen Euro-<lb/>
+paͤiſchen Kriegs-Verfaſſung und Staats-<hi rendition="#aq">Conjunctur</hi>en nach, denen Chriſtlichen<lb/>
+Potentaten vieler Urſachen wegen, wuͤrde hoͤchſt noͤthig ſeyn, Einmahl wie wir<lb/>
+ſchon in dem Eingang des 1. Capitels dieſes <hi rendition="#aq">Tractats</hi> erwehnet, weil hierdurch<lb/>
+ein Landes-Herr ſogleich fertige und <hi rendition="#aq">exercirt</hi>e <hi rendition="#aq">Recrut</hi>en hat, aus welchen er<lb/>
+Jaͤhrlich den Abgang ſeiner <hi rendition="#aq">Armée</hi> erſetzen kan, und dann auch daß durch die<lb/>
+<hi rendition="#aq">Education</hi> der darinn befindlichen <hi rendition="#aq">Seminariſt</hi>en viel gutes an dieſen Leuten und<lb/>
+denen Jhrigen ſelbſt geſtifftet wird, daß man nehmlich armen Eltern, wann ih-<lb/>
+nen etliche ihrer Soͤhne ſolchergeſtalt abgenommen wuͤrden, eine groſſe Erleuch-<lb/>
+terung, denen <hi rendition="#aq">Tyronibus</hi> aber beydes an Seel und Leib durch die gute <hi rendition="#aq">Education</hi><lb/>
+die man an ſie wendet, und durch die Verſorgung ihres Leibes mit Speiß, Tranck<lb/>
+und Kleidung, ein groſſes <hi rendition="#aq">Beneficium</hi> erzeiget, dem <hi rendition="#aq">Publico</hi> ſelbſt wiederfaͤhrt<lb/>
+hierdurch eine ſonderbahre Wohlthat, indem man es von vieleu Bettel-Kin-<lb/>
+dern, die ſich bey zunehmenden Jahren auff Diebſtahl und Mauſereyen legen<lb/>
+moͤchten, befreyet, des Anſchaffens der <hi rendition="#aq">Recrut</hi>en <hi rendition="#i">(</hi>in ſo weit die aus den <hi rendition="#aq">Se-<lb/>
+minario</hi> genommene hinlaͤnglich ſeyn,<hi rendition="#i">)</hi> uͤberhebet, und was etwan ſonſt noch<lb/>
+vor Vortheile mehr ſeyn moͤchten, die zu Anfang díeſes <hi rendition="#aq">Tractats</hi> beruͤhret<lb/>
+worden.</p><lb/>
+<p>Woher aber dieſe <hi rendition="#aq">Tirones</hi> ſowohl vor die Adeliche als Buͤrgerliche <hi rendition="#aq">Semi-<lb/>
+naria</hi> zu nehmen ſeyn, alſo daß auch darinn eine gute Ordnung und <hi rendition="#aq">Reſpectus</hi><lb/>
+der Einzunehmenden ſowohl ihres <hi rendition="#fr">Alters und Leibes-Vermoͤgens,</hi> als an-<lb/>
+derer dabey vorfallenden Umbſtaͤnde halber gehalten werde, ſolches iſt dasjenige,<lb/>
+welches wir nunmehro als das andere Stuͤck dieſes Capitels abzuhandeln haben.</p><lb/>
+<fw type="catch" place="bottom">Jn</fw><lb/>
+<pb n="27" facs="#f0027"/>
+<p>Jn denen Adelichen <hi rendition="#aq">Seminariis</hi> giebet es allbereit der Augenſchein und die<lb/>
+Erfahrung, daß in ſolche heutigs Tags mehrentheils ſolcher Edelleute, und auch<lb/>
+zuweilen anderer vornehmer Leute Kinder eingenommen werden, welche die<lb/>
+Jhrige ſelbſt zu allen Guten, und ſonderlich in <hi rendition="#aq">mili<supplied>t</supplied>ari</hi>ſchen Wiſſenſchafften,<lb/>
+worzu ſie dieſelbige etwan <hi rendition="#aq">deſtinir</hi>et, erziehen zu laſſen, und biß zu ihrer Mann-<lb/>
+barkeit zu erhalten, nicht genugſame Mittel haben, oder ob ſie gleich ſolche haͤt-<lb/>
+ten, jedoch umb den Glantz ihres Adelichen Hauſes und Stammes ſortzufuͤhren,<lb/>
+ihren aͤlteſten und erſtgebohrnen Schne wegen des allbereit bey vielen Fuͤrſt-<lb/>
+lichen, Graͤfflichen und Adelichen Haͤuſern, ſonderlich in Engelland und Franck-<lb/>
+reich eingefuͤhrten <hi rendition="#aq">Primogenitur-</hi>Rechts, die groͤſte <hi rendition="#aq">Maſſam</hi> ihres Vermoͤgens<lb/>
+ſowohl an Lehn- als <hi rendition="#aq">allodial-</hi>Guͤtern, Geld und <hi rendition="#aq">Mobilibus</hi> laſſen, und ihre<lb/>
+<hi rendition="#aq">Cadets</hi> oder die nach den aͤlteſten Sohn gebohrne, mit einen Stuͤck Geldes<lb/>
+abfinden, und ſo ein ſolcher ſchon erwachſen, denſelben ſein Gluͤck entweder<lb/>
+bey Hof oder in Krieg, oder noch bey jungen Jahren, durch Einbringen in ei-<lb/>
+ne ſolche Ritter-und <hi rendition="#aq">Cadets-Academie</hi> <hi rendition="#i">(</hi>da er freyen Unterhalt und <hi rendition="#aq">Informa-<lb/>
+tion</hi> genieſſet,) kuͤnfftig in des HErrn Dienſten, der eine ſolche Wohlthat an<lb/>
+ihn erzeiget hat, weiter ſuchen laſſen. Hieraus flieſſet nun gleich dieſe Anmer-<lb/>
+ckung, daß <hi rendition="#i">(</hi>1) ſo lang ein Landes-oder Kriegs-Herr genugſame Kinder oder<lb/>
+Soͤhne ſeiner eigenen <hi rendition="#aq">Vaſall</hi>en Lehns-Leute und Unterthanen bekommen kan,<lb/>
+er keine frembde Auslaͤnder einnehmen, und denen Einheimiſchen gleichſam da-<lb/>
+durch das Brodt vor dem Maule wegnehmen ſoll, oder da es <hi rendition="#i">(</hi>2) vieler Ur-<lb/>
+ſachen und erheblichen Umbſtaͤnde halber doch geſchehen muſte, daß man ſolche<lb/>
+auslaͤndiſche <hi rendition="#aq">Beneficiatos</hi> (gleich denen Einheimiſchen) dahin <hi rendition="#aq">conſtringir</hi>e und<lb/>
+anhalte, daß ſie kuͤnfftig, wann ſie erſt in einer ſolchen <hi rendition="#aq">Academie</hi> geſchickt und<lb/>
+tuͤchtig zum Krieg gemachet worden, dem <hi rendition="#fr">Herrn</hi> und Potentaten, der ihnen<lb/>
+die Wohlthat erwieſen, auch hernach in <hi rendition="#aq">Militaribus</hi> oder <hi rendition="#aq">Civilibus</hi> worzu er ſie<lb/>
+tuͤchtig befinden, und <hi rendition="#aq">choiſir</hi>en wird, vor andern dienen, oder ſo es die Umb-<lb/>
+ſtaͤnde ihrer Perſon nicht zulieſſen, doch nimmermehr einen andern wieder ihn<lb/>
+dienen wolten, es moͤchte ſolches gleich mit Rath oder That, <hi rendition="#aq">directè</hi> oder <hi rendition="#aq">indi-<lb/>
+rectè</hi> geſchehen, weil ſolches die Natur eines ſolchen und aller anderer <hi rendition="#aq">Benefi-<lb/>
+ciorum</hi> mit ſich bringt, daß ein <hi rendition="#aq">Alumnus</hi> ſeinen Ernehrer und Erzieher vor al-<lb/>
+len zu Dienſten zu ſtehen, und ihme gewaͤrtig zu ſeyn ſchuldig iſt, voraus, wann<lb/>
+deßfalls <hi rendition="#aq">Avocatoria</hi> an ihn ergehen, er auch anders nicht, als auff dieſe <hi rendition="#aq">Condition</hi><lb/>
+in die <hi rendition="#aq">Academie recipir</hi>et worden waͤre.</p><lb/>
+<p>Von welchen <hi rendition="#aq">Vinculo</hi> aber diejenige ausgeſchloſſen ſeyn, welche, ſie ſeyn<lb/>
+gleich Einheimiſche oder Auslaͤndiſche ihre Kinder oder Soͤhne in eine ſolche <hi rendition="#aq">Ca-<lb/>
+dets-Compagnie</hi> oder Ritter-<hi rendition="#aq">Academie,</hi> mit Verguͤnſtigung des Landes-Herrn<lb/>
+einbringen, und dafuͤr ſowohl ihre <hi rendition="#aq">Exercitia</hi> und Lehr-Meiſters bezahlen, als<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">ihre</fw><lb/>
+<pb n="28" facs="#f0028"/>
+ihre <hi rendition="#aq">Cadets</hi> ſelber in Koſt und Kleidung unterhalten, und nur ihre Abſicht dabey<lb/>
+haben, daß ſolche wann ſie etwan zu Hauſe frey und ungezogen gelebet, in ſol-<lb/>
+cher Tugend-Schule (dergleichen alle <hi rendition="#aq">Cadets</hi> und andere loͤbliche <hi rendition="#aq">Seminaria</hi> ſeyn<lb/>
+ſolten,) zur Sittſamkeit in <hi rendition="#aq">Moribus</hi> und guten Wiſſenſchafften moͤchten ange-<lb/>
+halten, und nebenſt denen <hi rendition="#aq">Beneficiatis</hi> zum Gebrauch der Waffen und andern<lb/>
+Kriegs-<hi rendition="#aq">Functionibus</hi> <hi rendition="#i">(</hi>jedoch als freywillige<hi rendition="#i">)</hi> angefuͤhret, hierdurch auch dem<lb/>
+Hof und Landes-Herrn bekannt, und dermahleins ſo viel eher von ihm, weil<lb/>
+ſie in ſeiner <hi rendition="#aq">Academie</hi> ihr <hi rendition="#aq">Tyrocinium</hi> gehalten, befoͤrdert werden, dergleichen<lb/>
+Wege mit der Selbſtverſorgung der Jhrigen auch die meiſte von Adel gehen<lb/>
+muͤſſen, weil ein Landes-Herr eine groſſe <hi rendition="#aq">Caſſam</hi> haben muͤſte, wann er alle <hi rendition="#aq">Ca-<lb/>
+dets</hi> ſeiner <hi rendition="#aq">Nobleſſe</hi> in gantzem Lande frey erziehen, kleiden und <hi rendition="#aq">informir</hi>en laſ-<lb/>
+ſen ſolte, dannenhero auch nur ein gewiſſer <hi rendition="#aq">Numerus</hi> zu dieſen letztern beſtim-<lb/>
+met, und auff ſolchen auch nur eine gewiſſe Landſchaffts - Bewilligung oder<lb/>
+<hi rendition="#aq">Fundus,</hi> jedoch dergeſtalt ausgemachet werden muß, daß er zulaͤnglich ſey, die<lb/>
+bey einen ſolchen loͤbl. <hi rendition="#aq">Inſtituto</hi> gefuͤhrte Abſicht zu <hi rendition="#aq">maintenir</hi>en.</p><lb/>
+<p>Jndeſſen merckt man auch hiebey, daß das Anlegen der Ritter-<hi rendition="#aq">Academi</hi>en,<lb/>
+in welchen ebenfalls Adeliche, und auch zum Krieg dienende Wiſſenſchafften, als<lb/>
+die <hi rendition="#aq">Mathematie,</hi> Fechten, Reiten, <hi rendition="#aq">Voltigir</hi>en <hi rendition="#aq">&amp;c. docir</hi>et werden, ein ſehr noth-<lb/>
+wendiges Werck, und <hi rendition="#aq">Requiſitum</hi> in einer jeden groſſen Stadt, Land und Pro-<lb/>
+vintz ſey, zu welcher als zu einer <hi rendition="#aq">Specie</hi> eines <hi rendition="#aq">Seminarii</hi> Ein- und Ausheimiſche<lb/>
+ſich nahen, und vor ihr Geld dasjenige lernen koͤnnen, was ihnen ihren Stand<lb/>
+nach dermahleins nuͤtzlich ſeyn kan, nur hat eine hohe Landes- oder Stadt-Obrig-<lb/>
+keit dahin zu ſehen, daß bey ſolchen <hi rendition="#aq">Academi</hi>en nicht die Unfuͤglichkeiten, mit koſt-<lb/>
+baren <hi rendition="#aq">Exercitiis, Tractir</hi>ungen und angemaßten Freyheiten der <hi rendition="#aq">Academiſt</hi>en,<lb/>
+Nachlaͤßigkeit und <hi rendition="#aq">Pretioſitæt</hi> der <hi rendition="#aq">Maitres,</hi> und andern dergleichen Dingen vor-<lb/>
+gehen, welche noch bey unſern Gedencken, die meiſte Ritter-Schulen in <hi rendition="#aq">Deca-<lb/>
+den</hi>tz und <hi rendition="#aq">Ruin</hi> gebracht haben.</p><lb/>
+<p>Zweytens ſo ſeynd auch die <hi rendition="#aq">Cadets-Seminaria</hi> ſolche <hi rendition="#aq">Fundationes,</hi> in wel-<lb/>
+che vornehmer Verſtorbenen von Adel, <hi rendition="#aq">Miniſtrorum,</hi> und hoher Kriegs-Befehl-<lb/>
+haber, die wenig Mittel hinterlaſſen, ihre Soͤhne hinein genommen, und von<lb/>
+ihren Landes-Herrn, als ihren oberſten Vormund, zur Danckbarkeit wegen ih-<lb/>
+res Vaters geleiſteten treuen Dienſte mit Koſt und <hi rendition="#aq">Information</hi> crhalten werden,<lb/>
+woraus hernach dieſe <hi rendition="#aq">Remarque</hi> flieſſet, daß kein <hi rendition="#aq">Cadet</hi> (deſſen Eltern noch<lb/>
+Mittel haben, denſelben ſelbſt zu unterhalten, und was rechtſchaffenes lernen<lb/>
+zu laſſen,) umbſonſt, und auff des Landes-Herrn oder der Landſchafft Unko-<lb/>
+ſten in eine <hi rendition="#aq">Cadets-Academie</hi> ſolte auffgenommen, ſondern die ſeinige, die ge-<lb/>
+woͤhnliche <hi rendition="#aq">Præſtanda</hi> vor ihn zu <hi rendition="#aq">præſtir</hi>en, ſchuldig ſeyn ſolten.</p><lb/>
+<p><hi rendition="#fr">Drittens</hi> ſo bemercket man vielmahls bey den Einkommen ſolcher <hi rendition="#aq">Cadets,</hi><lb/>
+<fw type="catch" place="bottom">wie</fw><lb/>
+<pb n="29" facs="#f0029"/>
+wie rohe ſie noch in <hi rendition="#aq">Pietate, Moribus</hi> und ſolchen <hi rendition="#aq">Studiis</hi> ſeyn, die doch einen<lb/>
+jungen Menſchen, wann er auch gleich keiner von Adel waͤr, unentbehrlich ſeyn,<lb/>
+ich will nur ſetzen, etwas leſen, ſchreiben und rechnen, auch etwan die <hi rendition="#aq">Funda-<lb/>
+menta</hi> in der Lateiniſchen Sprache zu wiſſen, da ihnen nun ſolches auch bey<lb/>
+wohlhabenden Eltern mangelt, ſo iſt es ein Zeichen von deroſelben uͤblen <hi rendition="#aq">Con-<lb/>
+duite</hi> in Anſehung ihrer Kinder-Zucht, und eine gantz und gar nicht an Stands-<lb/>
+Perſonen zu lobende Art, als welche billich, wo nicht durch ein Landes, doch<lb/>
+durch das einem jeden Menſchen eingepraͤgte <hi rendition="#aq">Moral-</hi>Geſetze ſolte abgeſchaffet,<lb/>
+und ihnen das Exempel der Heydniſchen Roͤmer vorgeſtellet werden, denen ihre<lb/>
+in die Kriegs-Schul geſchickte Soͤhne, alle ſchon fertig leſen und ſchreiben wiſſen,<lb/>
+auch einigen Vorſchmack von frembden Sprachen haben muſten, in Betrachtung,<lb/>
+daß wer auff dergleichen und andern hohen Schulen nicht ſelbſt eine vorge-<lb/>
+ſammlete Wiſſenſchafft in dieſer oder jener <hi rendition="#aq">Diſciplin</hi> und <hi rendition="#aq">Studio</hi> mit ſich brin-<lb/>
+get, auch ſelten was rechtſchaffenes darinn mit ſich hinaus nehme.</p><lb/>
+<p>Von der Beſchaffenheit des Verſtandes auff die Beſchaffenheit des Leibes<lb/>
+zu kommen, ſo iſt zuvor ſchon gemeldet worden, wie <hi rendition="#aq">delicat</hi> in dieſem Stuͤck<lb/>
+die alten Roͤmer geweſen, ehe ſie einen jungen Menſchen in ihre Kriegs-Schul<lb/>
+und unter ihre <hi rendition="#aq">Tirones</hi> auff- und angenommen, ob heutigs Tags ſolches bey<lb/>
+vielen <hi rendition="#aq">Cadets- Compagni</hi>en oder <hi rendition="#aq">Academi</hi>en, die der Landes-Herr auff ſeine Un-<lb/>
+koſten haͤlt, <hi rendition="#aq">obſervir</hi>et werde, ſtelle ich dahin, wann manchen die Natur das-<lb/>
+jenige, was zu einen kuͤnfftigen <hi rendition="#aq">robuſt</hi>en Kriegs-Mann gehoͤret, verſaget hat,<lb/>
+und daß er ſolches wann er gleich funfftzig Jahr noch lebte, nicht erlangen wer-<lb/>
+de, von ihn nicht zu hoffen ſtehet, warumb ſolte dann ein ſolcher Menſch, in<lb/>
+eine <hi rendition="#aq">militairi</hi>ſche <hi rendition="#aq">Academie,</hi> und nicht vielmehr in eine ſolche, in welcher er<lb/>
+dem Vaterland in <hi rendition="#aq">Civilibus</hi> und mit dem Kopff zu dienen lernen kan, auffge-<lb/>
+nommen werden.</p><lb/>
+<p>Da auch einen Landes-Herrn daran gelegen, daß ſeine <hi rendition="#aq">Nobleſſe</hi> im Land<lb/>
+ſtets in guten Flor erhalten werde, ſolches aber anderſt nicht als durch eine<lb/>
+tugendhaffte <hi rendition="#aq">Education,</hi> <hi rendition="#i">(</hi>welche hernach alles dasjenige, was einen <hi rendition="#aq">Nobilem<lb/>
+qualificir</hi>et machet, in ſich ſchlieſſet,) erlanget werden kan, indeſſen aber wie<lb/>
+der Augenſchein beweiſet, viel Vermoͤgende von Adel ihre Kinder ohne ſonder-<lb/>
+bahre <hi rendition="#aq">Education</hi> und <hi rendition="#aq">Information</hi> biß in ihr Mannbares Alter bey ſich behal-<lb/>
+ten, in der Meynung, daß wie ſie ſelbſt ohne andere Wiſſenſchafft, auſſer nur<lb/>
+was etwan ein Stuͤck von der Hauß-<hi rendition="#aq">Oeconomie</hi> ſeyn moͤchte, fortgekommen<lb/>
+ſeyn, alſo es auch ihren Soͤhnen nicht darinn ermangeln wuͤrde, ſo iſt ſolches<lb/>
+ein ſo ſchweres Land-Gebrechen, welches auch einer <hi rendition="#aq">publiqu</hi>en <hi rendition="#aq">Remedir</hi>ung be-<lb/>
+darff, und dannenhero nach dem Exempel der Roͤmer dergleichen vornehmen<lb/>
+Leuten <hi rendition="#aq">publica lege</hi> ſolte aufferleget werden, entweder ihre Kinder, ſo ſie ſolche<lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">zum</fw><lb/>
+<pb n="30" facs="#f0030"/>
+zum <hi rendition="#aq">Civil-</hi>Stand erziehen wollen, auff des Landes Univerſitaͤten, oder ſo ſie<lb/>
+zum <hi rendition="#aq">militair-</hi>Stand <hi rendition="#aq">deſtinir</hi>et, in die angelegte Ritter-<hi rendition="#aq">Academi</hi>en, oder <hi rendition="#aq">Ca-<lb/>
+dets-</hi>Kriegs-Schulen einzuſchicken, oder ſo ſie beydes <hi rendition="#aq">negligirt</hi>en, durch ein<lb/>
+<hi rendition="#aq">publicum Examen</hi> darthun und <hi rendition="#aq">docir</hi>en ſolten, daß ſie an <hi rendition="#aq">privat - Informationi-<lb/>
+bus</hi> auff ihren Guͤtern an ihren Soͤhnen nichts haͤtten ermangeln laſſen, welche<lb/>
+nun ſolches nicht beweiſen, und dem Landes-Herrn oder der <hi rendition="#aq">Republic qualificirt</hi>e<lb/>
+Kinder darſtellen koͤnten, die wuͤrden ſichs hernach nicht verdrieſſen laſſen, wann<lb/>
+man ihnen eine Straff von etlich hundert Reichsthlr. zu Unterhaltung der <hi rendition="#aq">Ca-<lb/>
+dets - Academi</hi>en abforderte.</p><lb/>
+<p>Endlich ſo waͤre auch dieſes ein Mittel, die Lands - Ritter- und <hi rendition="#aq">Cadets-<lb/>
+Academi</hi>en bald in Flor und Auffuehmen bringen, und ſelbige mit genugſamen<lb/>
+<hi rendition="#aq">Seminariſt</hi>en anzufuͤllen, wann abermahl <hi rendition="#aq">publica lege</hi> geboten und verordnet<lb/>
+wuͤrde, daß forthin niemand von der <hi rendition="#aq">Nobleſſe</hi> ihren Soͤhnen ſich einiger Be-<lb/>
+foͤrderung in dem Vaterland ſolte zu getroͤſten haben, der nicht, ehe er frembde<lb/>
+Laͤnder, Univerſitaͤten und <hi rendition="#aq">Academi</hi>en beſuchet, vorher drey Jahr in einer hieſi-<lb/>
+gen Landes-<hi rendition="#aq">Academie</hi> oder Univerſitaͤt ſeine <hi rendition="#aq">Studia excolir</hi>et, oder auch durch<lb/>
+<hi rendition="#aq">privat</hi>e Hauß-<hi rendition="#aq">Information</hi> einen ſolchen Grund in Adelichen <hi rendition="#aq">Studiis</hi> und <hi rendition="#aq">Exer-<lb/>
+citiis</hi> geleget haͤtte, daß ihme hernach nicht mehr noͤthig ſey, viel Geld deswe-<lb/>
+gen auſſerhalb Landes zu verzehren.</p><lb/>
+<p>Was die Tuͤrcken vor eine Sammlungs-Art mit ihren <hi rendition="#aq">Tributs-</hi>Kindern<lb/>
+halten, ſolches wird uns folgende Beſchreibung anzeigen:</p><lb/>
+<p>Man ſchicket nehmlich von Hoff einen Officier mit 30. oder mehr Ja-<lb/>
+nitſcharen nach einer gewiſſen Provintz, und giebet demſelben eine Keyſerliche<lb/>
+<hi rendition="#aq">Ordre</hi> an alle Staͤdte und Doͤrffer mit, daß ſolche ihre Chriſten-Kinder die ih-<lb/>
+nen wuͤrden abgefordert werden, ausliefern ſolten, dieſes <hi rendition="#aq">Tribu<supplied>t</supplied></hi>s-Recht ſchei-<lb/>
+net ſeinen Urſprung von denen Chriſtlichen Keyſern zu Conſtantinopel genom-<lb/>
+men zu haben, als welche ehmahls aus allen ihren Landen die beſte und geſchick-<lb/>
+teſte Knaben ausleſen, und ſolche in allen Wiſſenſchafften unterrichten lieſſen,<lb/>
+wie hievon <hi rendition="#aq">Chytræus in Orat, de Statu Ecclef. in Græc. p.</hi> 14. zu ſehen, ein glei-<lb/>
+ches mag auch vor dieſen in <hi rendition="#aq">Perſia</hi> geſchehen ſeyn, wie in den 1. <hi rendition="#aq">Cap.</hi> des Pro-<lb/>
+pheten Danielis von dem Hof des Nebucadnezars zu leſen iſt, ſo bald nun ob-<lb/>
+bemeldter <hi rendition="#aq">Officier</hi> daſelbſt angelanget, ſo muß ein jeder <hi rendition="#aq">Protogeros</hi> (das iſt<lb/>
+der vornehmſte und anſehnlichſte Grieche in einer Stadt oder Dorff, und<lb/>
+gleichſam der Richter oder Schultz daſelbſt,) die Eltern nebenſt denen Kindern<lb/>
+in ſeiner Gemeine zuſamm ruffen, aus welchen hernach die Tuͤrcken, die ſtaͤrck-<lb/>
+ſten und ſchoͤnſten nach ihren Gefallen ausleſen, zumahl wann ein Vater mehr<lb/>
+als einen Sohn hat, dann wann er nur einen einigen haͤtte, wird ihme ſolcher<lb/>
+gemeiniglich gelaſſen, hiebey geſchiehet es nun vielmahls, daß Eltern und Kin-<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="31" facs="#f0031"/>
+der umb dieſen <hi rendition="#aq">Tribut</hi> zu entgehen, ſich in die Waͤlder ſalviren, oder der Sohn<lb/>
+verbirget ſich allein, da dann der Vater ſo lang geplaget wird, biß er den<lb/>
+Fluͤchtling wieder herbey ſchaffet. Merckwuͤrdig iſt, daß ſowohl die Griechi-<lb/>
+ſche Eltern als Kinder, bey dieſen <hi rendition="#fr">Kinder-Zehenden</hi> ſehr ungleich geſinnet ſeyn,<lb/>
+nehmlich einige ſind dabey unerſchrocken, andere hingegen untroͤſtbar, <hi rendition="#aq">Gerla-<lb/>
+chius</hi> erzehlet von einer Wittwe zu <hi rendition="#aq">Palorma,</hi> welche zwey Soͤhne hatte, daß ſie<lb/>
+GOtt Tag und Nacht gebeten, daß er ſie moͤchte ſterben laſſen, damit ſie de-<lb/>
+nen Tuͤrcken nicht in die Hand kaͤmen, und ein gewiſſer Griechiſcher Fuͤrſt wolte<lb/>
+lieber ſich mit allen ſeinen Soͤhnen umbbringen laſſen, als einen davon denen<lb/>
+Tuͤrcken hingeben, arme Griechen hingegen machen desfalls keine Schwuͤrig-<lb/>
+keit, wann ſie durch die Tuͤrcken von der Menge ihrer Kinder auff ſolche Weiſe<lb/>
+etlicher maſſen entlaſtet werden, ja theils unverſtaͤndige Griechiſche, und ver-<lb/>
+muthlich der Veraͤnderung begierige Jungens, wuͤnſchen nur, daß die <hi rendition="#aq">Tribut</hi>s-<lb/>
+Einforderer bald kommen, und ſie unter die Zahl der Sclaven mit wegnehmen<lb/>
+moͤchten, wann aber der Mangel daran in Conſtantinopel nicht allzugroß iſt,<lb/>
+ſo geſchiehet es auch wohl, daß der <hi rendition="#aq">Officier</hi> durch die Finger ſiehet, und wann<lb/>
+er zumahl mit 50. oder 100. Ducaten geſchmieret wird, einem Vater ſeinen<lb/>
+Sohn zu Hauß laͤſt, den er ſonſt ohne ſolche Beſtechung wohl wuͤrde mitge-<lb/>
+nommen haben, man hat auch bemercket, daß bey dieſen <hi rendition="#aq">Tribut-</hi>Einfordern<lb/>
+die Chriſten ſelbſt unter einander ſo neidiſch ſeyn, daß auch gar ein Nachbar<lb/>
+den andern verraͤth, wo er etwan ſeinen Sohn hin verborgen habe, diejenige ſo<lb/>
+ſchon verehligt ſeyn, werden wegen des Kinder-zeugens nicht weggenommen,<lb/>
+welches auch die Urſach iſt, daß viel Eltern ihre Kinder fruͤhzeitig heyrathen laſ-<lb/>
+ſen. Es fordern aber die Tuͤrcken nicht von einer jeden Stadt oder Dorff-<lb/>
+ſchafft eine gewiſſe Anzahl, ſondern ſie nehmen nur ſo viel als ſie vermeynen,<lb/>
+daß darumb doch noch genug zur Zucht nachble<supplied>i</supplied>ben, und das Land nicht gar<lb/>
+erſchoͤpffet werde, gleichfalls ſind auch die Soͤhne die unter Sieben Jahren<lb/>
+ſeyn, damit verſchonet.</p><lb/>
+<p>Die Zeit, da ſolcher Zehenden oder <hi rendition="#aq">Tribut</hi> eingefordert wird, kommt alle<lb/>
+5. Jahr herum, wodurch ihnen immer friſche Knabens wieder anwachſen, wie<lb/>
+ſie dann alle mit Chriſten unter ihren Gebieth beſetzte Landſchafften ſo einge-<lb/>
+theilet, daß ſie aus ſolchen genug Kinder nehmen, und doch nur alle fuͤnff Jahr<lb/>
+herum kommen koͤnnen, wiewohl die zu Conſtantinopel wohnende Chriſten,<lb/>
+ſonderlich die in der Vorſtadt <hi rendition="#aq">Galata,</hi> auch die Stadt <hi rendition="#aq">Nauplium,</hi> und die Oerter,<lb/>
+welche die Venetianer denen Tuͤrcken mit <hi rendition="#aq">Accord</hi> uͤbergeben, ingleichen Ara-<lb/>
+bien Egypten und Ungarn von dieſen Kinder-<hi rendition="#aq">Tribut</hi> befreyet ſeyn. Jn Aſien<lb/>
+hingegen muͤſſen alle <hi rendition="#aq">Provinci</hi>en biß an Perſien, Babylon und Arabien dieſen Ze-<lb/>
+henden geben, ſie moͤgen ſeyn Griechen, Armenier, Jacobiten oder Mahometaner,<lb/>
+<fw type="catch" place="bottom">inglei-</fw><lb/>
+<pb n="32" facs="#f0032"/>
+ingleichen ſind auch die Einwohner in Dalmatien, Boſnien, Servien und Bul-<lb/>
+garien darzu verbunden, es waͤre dann, daß gewiſſe <hi rendition="#aq">Famili</hi>en dadurch befreyet<lb/>
+waͤren, weil ſie mit andern Frohn - Dienſten bey Kriegs - und Friedens - Zeiten<lb/>
+dafuͤr beladen ſeyn, dergleichen unter andern auch dieſe ſeyn, die Kayſerliche<lb/>
+Pferde auf ihren Weyden zu unterhalten, der <hi rendition="#aq">Armée Proviant</hi> und <hi rendition="#aq">Bagage</hi><lb/>
+nachzufuͤhren, und was etwan dergleichen Dienſte mehr ſeyn moͤchten.</p><lb/>
+<p>Sobald dieſe alſo zuſamm getriebene Knaben in Conſtantinopel angelangt,<lb/>
+ſchlieſſet man ſie in das <hi rendition="#aq">Serrail</hi> ein, daſelbſt unterrichtet man ſie in Leſen und<lb/>
+Schreiben, und in der Tuͤrckiſchen Sprache, laͤſſet ſie auch in Kayſerlichen Hof-<lb/>
+Garten arbeiten, oder fuͤhret ſie zu anderer Hand - Arbeit an, und dieſes biß in<lb/>
+das 20ſte Jahr ihres Alters, da man ſie praͤchtig bekleidet, und alle zu Pferd<lb/>
+nach Hof durch die Stadt fuͤhret, worauf ſie dann mit allerhand Hof - oder<lb/>
+Kriegs-<hi rendition="#aq">Charg</hi>en, nachdem jeder ſeiner Leibs - und Verſtands - <hi rendition="#aq">Quali</hi>taͤten nach,<lb/>
+darzu <hi rendition="#aq">capable</hi> iſt, verſehen werden, man ſchneidet ihnen auch alsdann den Zopf<lb/>
+ab, den ſie in waͤhrender Zeit, da ſie in ihren <hi rendition="#aq">Seminario</hi> in den <hi rendition="#aq">Serail</hi> geweſen, vor<lb/>
+denen Ohren haben tragen muͤſſen.</p></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">CAPUT</hi> III.</hi></hi></head><lb/>
+<argument><p><hi rendition="#c"><hi rendition="#b">Von der Einrichtung der <hi rendition="#aq">Seminariorum</hi> ſelbſt, ſowohl dem<lb/>
+Ort als dem Gebaͤu nach, wo und wie ſolche ſolten angeleget werden,<lb/>
+auch was es damit bey denen alten Roͤmern vor eine Beſchaf-<lb/>
+fenheit gehabt habe.</hi></hi></p></argument><lb/>
+<p><hi rendition="#in">V</hi>On dieſen nehmlich der alten Roͤmer ihren <hi rendition="#aq">Seminariis</hi> erſt zu reden, ſo<lb/>
+wurden ſolche auſſerhalb der Stadt angeleget, dann alſo ſchreibet <hi rendition="#aq">Ve-<lb/>
+getius Lib. I. Cap. 3. Tyrones plurimum detinendi ſunt in Angariis,<lb/>
+proculque habendi â Civitatis illecebris,</hi> die <hi rendition="#aq">Tyron</hi>en oder Kriegs-<lb/>
+Schuͤler muͤſſen meiſtentheils in denen vor ſie aufgerichteten Gebaͤuen, (welche<lb/>
+man damahls <hi rendition="#aq">Angarias</hi> nennte) eingeſchloſſen werden, damit ſie von denen Up-<lb/>
+pigkeiten der Staͤdte nicht angeſteckt, ſondern gar von ſolchen unbefleckt erhal-<lb/>
+ten werden. <hi rendition="#aq">Idem lib.3. cap. 16. in Bello qui plus in Angariis vigilaverit plus in<lb/>
+exercendo Milite laboraverit, minus periculum ſuſtinebit,</hi> wer zur Zeit des<lb/>
+Kriegs am meiſten in denen <hi rendition="#aq">Angariis</hi> gewachet, und ſeine untergebene Kriegs-<lb/>
+Schuͤler am beſten geuͤbet hat, der hat ſich der wenigſten Gefahr zu befuͤrch-<lb/>
+ten, dieſe <hi rendition="#aq">Angarias</hi> oder Kriegs - Schul - Gebaͤude, mit ihren gantzen Jnbegriff,<lb/>
+nennten ſie auch <hi rendition="#aq">Caſtra Tyronum,</hi> Laͤger - oder Stadt - und Schul - Quartiere<lb/>
+der Kriegs - Schuͤler, und <hi rendition="#aq">diſtingui</hi>rten ſie dadurch <hi rendition="#aq">a Caſtris Militum,</hi> von denen<lb/>
+<fw type="catch" place="bottom">rechten</fw><lb/>
+<pb n="33" facs="#f0033"/>
+rechten Feld- und Heer-Laͤgern der Roͤmiſchen Soldaten, welche entweder vor<lb/>
+belaͤgerten Staͤdten, oder gegen ihre Feinde in Feld aufgeſchlagen worden, wel-<lb/>
+che Benennung uns abermal zu erkennen giebet, daß ſolche entfernet von denen<lb/>
+Staͤdten, (und zwar nicht nur von Rom allein, ſondern auch von andern Roͤmi-<lb/>
+ſchen <hi rendition="#aq">Municipal-</hi> Staͤdten,) ſeynd angeleget worden, daß auch ſolcher Kriegs-<lb/>
+Schulen unterſchiedliche muͤſſen geweſen ſeyn, ſintemal der <hi rendition="#aq">Angariarum</hi> und<lb/>
+<hi rendition="#aq">Caſtrorum</hi> allezeit in <hi rendition="#aq">plurali</hi> gedacht wird, dann alſo ſchreibet <hi rendition="#aq">Tacitus: Juvenem<lb/>
+Urbano luxu laſcivientem, melius in Caſlris haberi,</hi> damit der in groſſen Staͤd-<lb/>
+ten durch die daſelbſt vorgehende Uppigkeiten wolluͤſtig gewordene Juͤngling et-<lb/>
+was wieder gezaͤhmet werde, ſo waͤre es beſſer, daß er in eine Kriegs - Schul<lb/>
+eingeſchloſſen wuͤrde, welches auch Kayſer <hi rendition="#aq">Severus</hi> gethan, der ſeine junge Prin-<lb/>
+tzen von ſeinen Hof weg, und in die vor der Stadt angelegte <hi rendition="#aq">Caſtra</hi> geſchicket,<lb/>
+damit ſie des weichlichen Hof-Lebens entwoͤhnen, und ein ſtammhafftiges Sol-<lb/>
+datiſches anziehen moͤchten, welche Betrachtung auch dem vortrefflichen <hi rendition="#aq">Epami-<lb/>
+nondam</hi> Fuͤrſten in Griechen- Land bewogen, die Seinige alſo anzureden: <hi rendition="#aq">Si<lb/>
+vultis Principes Græciæ eſſe, Caſtris Vobis eſt u<supplied>r</supplied>endum non palæſtra,</hi> ſo ihr Fuͤr-<lb/>
+ſten in Griechen- Land ſeyn wolt, ſo muͤſt ihr nicht auf denen Schau - Plaͤtzen,<lb/>
+wo Comoͤdien und andere Luſtbarkeiten vorgehen, ſondern in Kriegs - Feld-<lb/>
+Schulen euch aufhalten, <hi rendition="#aq">non Ignavia enim magna imperia continentur, Virorum<lb/>
+Armorumque faciendum certamen eſt,</hi> durch Faulheit wird kein groſſes Reich<lb/>
+erhalten, es muß gefochten und in Waffen eine Ubung ſeyn, wie alſo gar ſchoͤn<lb/>
+<hi rendition="#aq">Tiridates</hi> bey dem <hi rendition="#aq">Tacito lib.</hi> 15. redet, und bey dem <hi rendition="#aq">Lucano lib.</hi> 7. wirfft der<lb/>
+<hi rendition="#aq">Cæſar</hi> denen weibiſchen und weichlichen Griechen ihre <hi rendition="#aq">Gymnaſia &amp; Palæſtræ Stu-<lb/>
+dium</hi> ebenfalls mit derben Worten vor, von <hi rendition="#aq">Æliano Sejano</hi> leſen wir, daß er<lb/>
+eben um dieſer Urſach willen, nehmlich die Uppigkeiten der Staͤdte zu vermeiden,<lb/>
+befohlen habe, der Kriegs- Schuͤler ihre <hi rendition="#aq">Caſtra</hi> weit von denen Staͤdten wegzu-<lb/>
+legen, ſeine Worte lauten hievon alſo: <hi rendition="#aq">Severius acturos ſi Caſtra ſtatuantur pro-<lb/>
+cul ab urbis illecebris,</hi> dieſe denen <hi rendition="#aq">Caſtris</hi> zugeeignete Zucht zeiget hernach auch<lb/>
+ſelbſt ihre Nahmens-Bedeutung an, <hi rendition="#aq">Caſtra enim dicta ſunt quaſi caſta, eo quod<lb/>
+ibi caſtraretur libido,</hi> dann gleichwie in denen Roͤmiſchen Feld - Laͤgern kein<lb/>
+Soldat kein Weib bey ſich fuͤhren durffte, auch kein einiges Frauen Menſch<lb/>
+bey denen Roͤmiſchen <hi rendition="#aq">Arméen</hi> gelitten wurde, alſo ſolten auch die <hi rendition="#aq">Caſtra Tiro-<lb/>
+num</hi> rein, und entfernet von der fleiſchlichen Luſt - Seuche ſeyn, und in ſolchen<lb/>
+die jungen Kriegs-Schuͤler gleichſam als Verſchnittene leben, die keinen ſtimulum<lb/>
+<hi rendition="#aq">Carnis</hi> bey ſich fuͤhlten.</p><lb/>
+<p>Dieſe Verlegung der Roͤmiſchen Kriegs - Schulen von denen Staͤdten<lb/>
+giebt uns allhier Anlaß von denen Adelichen und buͤrgerlichen <hi rendition="#aq">Seminariis,</hi> ob<lb/>
+ſolche in oder auſſerhalb denen groſſen Staͤdten angeleget ſeyn ſolten, etwas we-<lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom">niges</fw><lb/>
+<pb n="34" facs="#f0034"/>
+niges zu reden, die Rationes, welche vor das Anlegen in denen Staͤdten ſeyn, be-<lb/>
+ſtehen darinn, daß der Land - und Krieges - Herr die auf ſeine und des Landes<lb/>
+Koſten unterhaltene <hi rendition="#aq">Cadets</hi> und <hi rendition="#aq">Tirones</hi> dadurch immer vor Augen haben, und<lb/>
+taͤglich erfahren koͤnne, wie ihre <hi rendition="#aq">Conduite</hi> oder Auffuͤhrung beſchaffen ſey, und wie<lb/>
+ihre <hi rendition="#aq">Education</hi> und <hi rendition="#aq">Information</hi> von ſtatten gehe, ingletchen daß man ſich ſolcher<lb/>
+(ſonderlich der Adelichen <hi rendition="#aq">Cadets</hi>) bey gewiſſen zu Hof oder in der Stadt vorge-<lb/>
+henden <hi rendition="#aq">Solenni</hi>taͤten und Aufzuͤgen zur <hi rendition="#aq">Parade,</hi> wie auch taͤglich zum Aufziehen<lb/>
+auf die Wacht, ſonderlich auf gewiſſe <hi rendition="#aq">honorables</hi> Poſten, als bey Hof und dem<lb/>
+<hi rendition="#aq">Gouvernement</hi> gebrauchen, und ihnen ſolchergeſtalt nach und nach die Kriegs-<lb/>
+<hi rendition="#aq">Exercitia</hi> in <hi rendition="#aq">Praxi</hi> angewoͤhnen koͤnte, uͤberdem ſo <hi rendition="#aq">profiti</hi>rte die vornehme und<lb/>
+Adeliche Stadt - Jugend, welche vor ihr Geld in den <hi rendition="#aq">Cadets-Seminario</hi> oder<lb/>
+Ritter-<hi rendition="#aq">Academie</hi> die <hi rendition="#aq">Exercitia</hi> mit erlernen wolte, von der, darzu vor der Thuͤr<lb/>
+habenden Gelegenheit, und konte indeſſen bey ihren Eltern und Freunden be-<lb/>
+wohnen bleiben, welches aber nicht alſo ſeyn koͤnte, wann dergleichen <hi rendition="#aq">Caſtra</hi><lb/>
+weit von denen Staͤdten entfernet ſeyn ſolten, durchgehends haͤtten auch die in<lb/>
+denen Staͤdten in ihren <hi rendition="#aq">Academi</hi>en einquartirte <hi rendition="#aq">Tyrones</hi> ſo wohl buͤrgerliche als<lb/>
+Adeliche ihre Freunde bey der Hand, welche ihnen in ein und andern Leibs-Be-<lb/>
+duͤrffnißen, ſonderlich in Kranckheits - Faͤllen Handreichung thun koͤnten, wel-<lb/>
+ches abermahls in denen weit von der Stadt entfernten <hi rendition="#aq">Caſtris</hi> nicht angienge,<lb/>
+uͤberdem ſo haͤtten auch beyderley <hi rendition="#aq">Tyrones</hi> an der Stadt - <hi rendition="#aq">Guarniſon</hi> und<lb/>
+deren militariſchen <hi rendition="#aq">Occupationibus</hi> mit <hi rendition="#aq">Paradi</hi>ren, auf die Wacht ziehen, <hi rendition="#aq">Exerci-</hi><lb/>
+ren, auch an denen offtmahls vorkommenden militariſchen Straf-<hi rendition="#aq">Executionibus</hi><lb/>
+lebendige Vorſpiele und <hi rendition="#aq">Exempla</hi> vor Augen, was der <hi rendition="#aq">Militair</hi> - Stand, in deſſen<lb/>
+Lehre ſie jetzt ſtuͤnden, und welchen ſie ſích gewiedmet haͤtten, auf ſich habe, und<lb/>
+vor Pflichten mit ſich ſuͤhre, es mangelte ja auch nicht an <hi rendition="#aq">Exemplis,</hi> daß derglei-<lb/>
+chen Ritter- und <hi rendition="#aq">Cadets - Academi</hi>en ſchon in groſſen Reſidentz - Staͤdten, <hi rendition="#i">(</hi>als<lb/>
+Dreßden und Berlin ſeyn,) waͤren angeleget worden, und noch biß <hi rendition="#aq">dato</hi> daſelbſt<lb/>
+ſtattlich <hi rendition="#aq">flori</hi>rten.</p><lb/>
+<p>Welchen an ſich ſelbſt recht wichtigen und vernuͤnfftigen <hi rendition="#aq">Rationibus,</hi> an-<lb/>
+dere hingegen die vor die Entfernung ſolcher Kriegs-Schulen von denen groſſen<lb/>
+Staͤdten <hi rendition="#aq">porti</hi>ret ſeyn, folgendes entgegen ſetzen, nemlich. daß ſchon die Roͤmer<lb/>
+zu ihrer Zeit und obgedachter maßen, aus denen dabey gefuͤgten Urſachen vor<lb/>
+beſſer gefunden, ihre <hi rendition="#aq">Angarias</hi> auſſerhalb denen Staͤdten anzulegen, und uns<lb/>
+deßfalls mit guten Exempeln vorgegangen waren, welches auch in juͤngern<lb/>
+Zeiten die <hi rendition="#aq">Fundatores</hi> der <hi rendition="#aq">Univerſi</hi>taͤten und <hi rendition="#aq">Gymnaſiorum,</hi> ſonderlich der ſo ge-<lb/>
+nannten Fuͤrſten-Schulen, wohl bedacht, indem ſie ſolche mehrentheils an ſtille<lb/>
+und weit von dem Hof-Leben entfernte Herter verleget, wie alſo Koͤnig <hi rendition="#aq">Friede-<lb/>
+<supplied>r</supplied>icus II.</hi> in Daͤnemarck mit kiner in <hi rendition="#aq">Sora A.</hi> 1623. aufgerichteten Ritter-<hi rendition="#aq">Aca-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">demie</hi></fw><lb/>
+<pb n="35" facs="#f0035"/>
+<hi rendition="#aq">demie</hi> gethan, dahero ſoíche auch <hi rendition="#i">(</hi>wegen der durch die Einſamkeit befoͤrderten Ge-<lb/>
+legenheit zum Studieren) viel Jahre lang in guten Flor geſtanden, Engeland<lb/>
+haͤtte ſein <hi rendition="#aq">Invalid</hi>en - Hauß und <hi rendition="#aq">Collegium,</hi> in welchen auch die zur <hi rendition="#aq">Marine de-<lb/>
+ſtini</hi>rte Jugend in allerhand darzu gehoͤrigen Wiſſenſchafften unterrichtet wuͤrde,<lb/>
+zu <hi rendition="#aq">Chelſev,</hi> eine Meile von Londen, an der <hi rendition="#aq">Tems</hi> angeleget.</p><lb/>
+<p>Wann auch ein ſolches <hi rendition="#aq">Seminarium</hi> der vielen darzu gehoͤrigen Gebaͤu<lb/>
+wegen, einen groſſen Raum erforderte, ſolcher aber in Reſidentz - und andern<lb/>
+groſſen Staͤdten mehrentheils ſehr koſtbar waͤre, uͤberdem auch die <hi rendition="#aq">Victuali</hi>en<lb/>
+in ſolchen weit theurer als auf dem Land und in kleinen <hi rendition="#aq">Provinzi</hi>en ſeyn, in groſſen<lb/>
+Staͤdten auch die zu militariſchen <hi rendition="#aq">Studiis</hi> und <hi rendition="#aq">Exercitiis</hi> gewiedmete Jugend,<lb/>
+weit mehr durch allerhand Geſellſchafften und <hi rendition="#aq">Objecta,</hi> von ihren Haupt - Zweck<lb/>
+als auf dem Land <hi rendition="#aq">diſtrahi</hi>ret wuͤrde, als waͤren ſolches ebenfalls ſchon Beweg-<lb/>
+Urſachen, warum man dergleichen <hi rendition="#aq">Seminaria</hi> und <hi rendition="#aq">Academi</hi>en nicht ſo ſuͤglich in<lb/>
+denen Staͤdten, als auf dem Land anlegen ſolte.</p><lb/>
+<p>Allein wer ſiehet nicht hieraus, daß dieſe vor das Entfernen der Ritter-<lb/>
+und <hi rendition="#aq">Cadets - Academi</hi>en von denen groſſen Staͤdten angefuͤhrte <hi rendition="#aq">Rationes,</hi> bey<lb/>
+weiten nicht denen vorigen, die das Gegentheil behaupten, die Wage halten<lb/>
+koͤnnen, dann was kuͤrtzlich die angeſuͤhrte Roͤmiſche <hi rendition="#aq">Angarias</hi> betrifft, ſo waren<lb/>
+ſolche bey dieſer groſſen Weltbeherrſcherin der Stadt Rom, mit etlich tauſend<lb/>
+<hi rendition="#aq">Tyronibus</hi> angeſuͤllet, dagegen in unſern heutigen <hi rendition="#aq">Academi</hi>en derſelben kaum<lb/>
+etliche hundert ſeyn, welche auch uͤberdem gantz andere und hoͤhere <hi rendition="#aq">Studia</hi> <hi rendition="#i">(</hi>zu-<lb/>
+mahl bey jetzund ſo hoch geſtiegener Kriegs-Kunſt und <hi rendition="#aq">Exercitiis,</hi>) als jene<lb/>
+treiben muͤſſen, dannenhero auch gantz andere Gebaͤude und Zimmer als jene<lb/>
+darzu noͤthig haben, der Einwurff von denen Fuͤrſten-Schulen, die vornehm-<lb/>
+lich auff die <hi rendition="#aq">Humaniora</hi> eingerichtet, <hi rendition="#aq">item</hi> von faſt eben zu dergleichen Zweck<lb/>
+angeſtellten <hi rendition="#aq">Academi</hi>en, zu welchen hernach nur etliche Adeliche <hi rendition="#aq">Exercitia</hi> gefuͤ-<lb/>
+get worden, beantwortet ſich damit, daß hier die Abſicht mehr auff <hi rendition="#aq">Militaria</hi><lb/>
+und was einen kuͤnfftigen zu des Vaterlandes Dienſten gewiedmeten Soldaten<lb/>
+an Kriegs-<hi rendition="#aq">Studiis</hi> und <hi rendition="#aq">Exercitiis</hi> zu wiſſen noͤthig, als auff <hi rendition="#aq">Civilia</hi> gerichtet ſey,<lb/>
+und endlich faͤllt auch der Einwurff von denen <hi rendition="#aq">Invaliden</hi> (die freylich nicht in<lb/>
+groſſe Staͤdte, wie kuͤnfftig in einen beſondern <hi rendition="#aq">Tractat</hi> ſoll gewieſen werden,<lb/>
+gehoͤren,) gantz weg, weil wir hier mit geſunder friſcher Jugend deren Thun<lb/>
+und Laſſen man allezeit vor Augen haben muß, nicht aber mit alten <hi rendition="#aq">Emeritis</hi><lb/>
+und preßhafften Leuten zu thun haben, was auch wegen des groſſen Raums,<lb/>
+welchen eine ſolche <hi rendition="#aq">Cadets-Academie</hi> einnehmen mochte, will vorgewendet wer-<lb/>
+den, ſo darff man nur die heutige bequeme und <hi rendition="#aq">compendieuſ</hi>e Bau-Art, die in<lb/>
+dergleichen <hi rendition="#aq">Militair</hi>-Gebaͤuden gehalten wird, vornehmlich aber die allhier in<lb/>
+Alt-Dreßden an einem ſtillen, geſunden und luſtigeu Orte, angelegte Ritter-<lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">und</fw><lb/>
+<pb n="36" facs="#f0036"/>
+und <hi rendition="#aq">Cadets - Academie</hi> mit Verwundern, als eines der <hi rendition="#aq">magniſique</hi>ſten und an-<lb/>
+ſehnlichſten in Europa beſindlichen Gebaͤuden anſehen, da man ſo gleich befin-<lb/>
+den wird, daß alle auch <hi rendition="#aq">ex hoc paſſu,</hi> gegen das Verlegen der Ritter- und<lb/>
+<hi rendition="#aq">Cadets - Academi</hi>en in die Staͤdte gebrauchte <hi rendition="#aq">Objectiones</hi> von ſich ſelbſt weg-<lb/>
+fallen, und was zuletzt von denen ſchaͤdlichen Ausſchweiffungen der <hi rendition="#aq">Academi-</hi><lb/>
+ſten in denen Staͤdten geſaget werden will, nach genauer <hi rendition="#aq">Inſpection</hi> des in ob-<lb/>
+beſagter Dreßdniſcher, Berliniſchen und andern dergleichen loblichen <hi rendition="#aq">Academiis</hi><lb/>
+gemachten heilſamen <hi rendition="#aq">Reglement</hi>s und Verfaſſung, auch keinen Platz finde, und<lb/>
+alſo keineswegs, zumahl bey wohl <hi rendition="#aq">moraliſirt</hi>er Chriſtlicher Jugend und edlen<lb/>
+Gemuͤthern hieher zu ziehen ſey.</p><lb/>
+<p>Damit aber auch der geneigte Leſer von dem Gebaͤu der alten Roͤmer ih-<lb/>
+rer <hi rendition="#aq">Angariarum</hi> und <hi rendition="#aq">Cadets - Academi</hi>en ſelbſt eine kurtze Hiſtoriſche Nachricht<lb/>
+haben moͤge, ſo diene zu wiſſen, daß ſolche ihrer Kriegs - <hi rendition="#aq">Scribent</hi>en Beſchrei-<lb/>
+bung nach einen gar groſſen Umbfang gehabt, dahero ſie freylich beſſer weit hin-<lb/>
+aus vor der Stadt, und zwar an der Tiber oder an andern Fluͤſſen angeleget<lb/>
+worden, theils damit ſie deſto beſſere Zufuhr zu Waſſer, als auch die <hi rendition="#aq">Tirones</hi><lb/>
+dabey Gelegenheit ſich in Schwimmen zu uͤben haben moͤchten.</p><lb/>
+<p>Sie waren aber mehrentheils nur von Holtz und Brettern auffgebauet, und<lb/>
+mit Stroh-oder Schilff-Rohr bedecket, welchen Bau die <hi rendition="#aq">Tyrones</hi> ſelbſt vernich-<lb/>
+ten muſten, und zwar mehrentheils darum, damit ihnen, wann ſie einmal ins<lb/>
+Feld kommen ſolten, die Hand-Arbeit (zumal bey erheiſchenden Rothfall) nicht<lb/>
+ſpaniſch vorkommen moͤchte, weil es ein groſſer Unterſchied zwiſchen einen ſtillen<lb/>
+buͤrgerlichen und den Soldaten - Leben iſt, und moͤchte man bey ſolchen denen,<lb/>
+welchenicht wiſſen, wie es dabey zugehet, gar wohl zuruffen: <hi rendition="#aq">Dulce Bellum in-<lb/>
+expertis,</hi> der Soldaten - Stand kommet denen ſuͤß vor, die niemahls darinn ge-<lb/>
+weſen ſeyn.</p><lb/>
+<p>Es beſtanden aber in denen <hi rendition="#aq">Angariis</hi> der <hi rendition="#aq">Tyronum</hi> zu Fuß, ihre Huͤtten oder<lb/>
+<hi rendition="#aq">Baraqu</hi>en in vier Claſſen, jede von ſechs Reyhen hinter einander, jede Reyhe hat-<lb/>
+te 17. Huͤtten, und in jeder Huͤtte <hi rendition="#aq">logi</hi>rten zehen <hi rendition="#aq">Tyrones</hi> oder Kriegs-Schuͤ-<lb/>
+ler, die ſich zuſamm <hi rendition="#aq">Contubernales</hi> nennten, welches Wort noch auf <hi rendition="#aq">Univerſi-</hi><lb/>
+taͤten unter denen Purſchen die zuſamm auf einer Stuben wohnen, gebraͤuchlich<lb/>
+iſt, daß alſo in einer <hi rendition="#aq">Angaria</hi> 4080. <hi rendition="#aq">Tyrones</hi> waren.</p><lb/>
+<p>Die zu Pferd oder von der <hi rendition="#aq">Cavallerie</hi> hatten ebenfalls 4. <hi rendition="#aq">Claſſes,</hi> und in je-<lb/>
+der Claß nur 4. Reyhen Huͤtten oder <hi rendition="#aq">Baraqu</hi>en hinter einander, in denen erſten<lb/>
+und dritten Reyhen jeder Claß <hi rendition="#aq">logi</hi>rten die <hi rendition="#aq">Tyrones</hi> ſelbſt, und hinter ihnen in<lb/>
+der 2. und 4. Reyhe ſtanden ihre Pferde eben wie noch heutigs Tags in unſern<lb/>
+Feld-Laͤgern bey der <hi rendition="#aq">Cavallerie</hi> gebraͤuchlich iſt.</p><lb/>
+<p>Auf beyden Seiten der <hi rendition="#aq">Tyronum</hi> zu Fuß ihren Huͤtten waren die <hi rendition="#aq">Baraqu</hi>en<lb/>
+der <hi rendition="#aq">Armidoctorum, Campidoctorum</hi> und <hi rendition="#aq">Armimagiſtrorum.</hi></p><lb/>
+<fw type="catch" place="bottom">Und</fw><lb/>
+<pb n="37" facs="#f0037"/>
+<p>Und ſo auch neben denen Reuter - <hi rendition="#aq">Baraqu</hi>en ihrer Lehrmeiſter ihre Woh-<lb/>
+nungen.</p><lb/>
+<p>Ferner waren um dieſes Schul - Lager zu ſehen (1) <hi rendition="#aq">Baſilica pedeſtris</hi> der<lb/>
+<hi rendition="#aq">Infanterie,</hi> nemlich ihr Fecht - Boden, Trill - oder <hi rendition="#aq">Exerciti</hi>en - Hauß, ingleichen<lb/>
+(2) <hi rendition="#aq">Baſilica Equeſtris.</hi> die Schul vor die <hi rendition="#aq">Exercitia</hi> zu Pferd, dieſe war 400. Schuh<lb/>
+lang und 80. breit, und ſtanden in ſolcher mehr als 100. hoͤltzerne <hi rendition="#aq">Voltigier-</hi><lb/>
+Pferd, auf welchen die <hi rendition="#aq">Tyrones,</hi> wann es regnigt Wetter war, ſich in <hi rendition="#aq">Voltigi</hi>ren<lb/>
+uͤben muſten.</p><lb/>
+<p>Der <hi rendition="#aq">Tyronum</hi> zu Fuß ihre war eben ſo groß und weit als jene, und waren in<lb/>
+ſolcher die hoͤltzerne Pfaͤle aufgerichtet, wider welche ſie ſich mit Schwerdtern und<lb/>
+Wurff- Pfeilen uͤben muſten.</p><lb/>
+<p>Nach dieſen ſahe man (3) deß <hi rendition="#aq">Rectoris</hi> Wohnung, (4) das Nicht - Hauß, (5)<lb/>
+der Roͤmiſchen <hi rendition="#aq">Legat</hi>en oder Raths- <hi rendition="#aq">Deputi</hi>rten Zimmer, wann ſolche der <hi rendition="#aq">Tyro-<lb/>
+num</hi> ihre <hi rendition="#aq">Academiam,</hi> und wie ſie darinn ihre <hi rendition="#aq">Exercitia</hi> trieben, beſuchten, (6) der<lb/>
+Burgermeiſter <hi rendition="#aq">Logement,</hi> wann ſelbige ebenfalls dieſe Kriegs - Schul ihrer Be-<lb/>
+ſuchung wuͤrdigten, (7) das Ruͤſt - Hauß zu denen Waͤgen. (8) Der Elephanten<lb/>
+Stall. (9) Die Schuppen zu denen Streit-Waͤgen, (10) der <hi rendition="#aq">Tyronum</hi> zu Fuß<lb/>
+ihr <hi rendition="#aq">Proviant,</hi> und (11) ihr Ruͤſt-oder Zeug-Hauß, und ſo auch (12) und (13) der<lb/>
+zu Pferde ihre, (14) die Werckſtaͤtte der Schmidte und Zimmerleut, (15) der <hi rendition="#aq">Ty-<lb/>
+ronum</hi> ihre Handmuͤhlen, auf welchen ſie ſelber ihr Brod - Korn, ſo man ihnen<lb/>
+in <hi rendition="#aq">Natura</hi> zu ihren Unterhalt gab, mahlen muſten. Endlich ſo hatten ſie auch<lb/>
+ihre freye Tummel-Plaͤtze, und rund herum um dieſe <hi rendition="#fr">Lager - Schul</hi> ihre aufge-<lb/>
+worffene Graͤben, uͤber welche ſie ſich zu ſpringen taͤglich uͤben muſten, auch war<lb/>
+nicht weit davon die Tyber oder ein anderer Fluß entfernet, der ihnen, um ſich<lb/>
+in Schwimmen zu uͤben, dienen knnte. jn jeder Huͤtte waren 10. Schlaf-<lb/>
+Baͤncke, da auf dem bloßen Holtz oder harten Banck die <hi rendition="#fr">Tyrones</hi> ohne etwas<lb/>
+weiches unter ſich zu haben, ſchlaffen muſten, daß ſie ſich alſo fein zeitlich der<lb/>
+Weichlichkeit entwoͤhnen, die Kriegs-<hi rendition="#aq">Fatiqu</hi>en aber angewoͤhnen muſten, eine ſol-<lb/>
+che Huͤtte rechnete man 60. Schuh lang, und 10. breit, das gantze mit einen Gra-<lb/>
+ben umgebene Kriegs- Schul - Lager aber von einer <hi rendition="#aq">Circumferen</hi>tz von 9000.<lb/>
+Schuh, deren 24000. auf eine Meilwegs gehen.</p><lb/>
+<p>Bey dieſer kurtzen Beſchreibung der Roͤmiſchen Kriegs- Schulen bemercken<lb/>
+wir, daß alles darinnen <hi rendition="#aq">Martiali</hi>ſch ausgeſehen, und die Zaͤrtlichkeit der Buͤrger-<lb/>
+Haͤuſer in denen Staͤdten weit davon entfernet geweſen, daß auch die <hi rendition="#aq">Præceptores,</hi><lb/>
+Lehr-und <hi rendition="#aq">Exerciti</hi>en-Meiſters ihre Lehr - Schuͤler ſtets vor Augen gehabt und auf<lb/>
+dero <hi rendition="#aq">Conduite</hi> Achtung geben koͤnnen.</p><lb/>
+<p>Die <hi rendition="#aq">Tyrones</hi> wurden auch ſehr offt von des Roͤmiſchen Raths - <hi rendition="#aq">Deputi</hi>rten,<lb/>
+oder auch von Burgermeiſtern ſelbſt beſuchet, in deren Gegenwart gemuſtert und<lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">exer-</fw><lb/>
+<pb n="38" facs="#f0038"/>
+<hi rendition="#aq">exerci</hi>ret, und die ſich darinn wohl verhalten, beſchencket, es waren aber ſolche<lb/>
+<hi rendition="#aq">Præmia militaria, vel majora vel minora,</hi> dieſe waren die <hi rendition="#aq">Centurionatus, Decu-<lb/>
+rionatus &amp; Præfecturæ,</hi> daß man wohlverdiente Soldaten zu Haupt - Leuten oder<lb/>
+von gemeinen zu Unter-<hi rendition="#aq">Offici</hi>ern, auch etwan zu Amt- Leuten machte, ihnen ihren<lb/>
+Sold verbeſſerte, ſie unter die Leib - <hi rendition="#aq">Guarde</hi> nahm, ihnen Geld - Geſchencke, neue<lb/>
+Kleider und Waffen gab, oder ſie gar, wann ſie groſſe <hi rendition="#aq">Præmia</hi> durch Wohlver-<lb/>
+halten verdienet, mit Cronen beſchenckte, welches aber eigentlich zu denen <hi rendition="#aq">Tyro-<lb/>
+nibus</hi> noch nicht gehoͤret, ſondern ſchon von rechten ausgemachten alten Soldaten,<lb/>
+die unter denen <hi rendition="#aq">Legio</hi>nen ſtanden, zu verſtehen iſt.</p></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">CAPUT</hi> IV.</hi></hi></head><lb/>
+<argument><p><hi rendition="#c"><hi rendition="#b">Von der alten Roͤmer ihren Kriegs - <hi rendition="#aq">Exercitiis,</hi> welche ſie<lb/>
+mit ihren <hi rendition="#aq">Tyronibus</hi> und Soldaten vorgenommen, und wie weit<lb/>
+ſolche heutigs Tags von denen unſrigen <hi rendition="#aq">differi</hi>ren, auch in<lb/>
+vielen Stuͤcken uͤbertroffen werden.</hi></hi></p></argument><lb/>
+<p><hi rendition="#in">A</hi>Nfaͤnglich wurde denen neu - angekommenen <hi rendition="#aq">Tyronibus</hi> oder Kriegs-<lb/>
+Schuͤlern in der unterſten Claß angewieſen, hurtig und in guter Ord-<lb/>
+nung einherzugehen, Reyhe und Glieder zu halten, und des <hi rendition="#aq">Marchi</hi>ren in<lb/>
+Schlacht-Ordnung: Erſtlich Schritt vor Schritt zu gewoͤhnen, zu welchen Ende<lb/>
+man ſie taͤglich des Sommers erſtlich in 5. Stunden Zeit 20. tauſend Schritt<lb/>
+<hi rendition="#aq">marchi</hi>ren ließ, wann ſie hernach in ſolchen Gehen geuͤbt waren, ſo muſte die<lb/>
+<hi rendition="#aq">Diſtan</hi>tz in eben ſolcher Zeit vergroͤſſert, und 24. tauſend Schritt ohne Abſetzen<lb/>
+oder Ruhen gegangen werden, ſobald als ſie auch in ſolchen fertig waren, ſo un-<lb/>
+terrichtete man ſie in Lauffen, damit ſie ſich deſſen ſowohl gegen den Feind, <hi rendition="#i">(</hi>um<lb/>
+ſolchen einen Vortheil abzugewinnen, als ihn mit Ungeſtuͤmm anzulauffen, ſelbi-<lb/>
+gen den Paß zu verrennen, den Wall hinauf zu klettern, auch wann ſie etwan<lb/>
+fluͤchtig werden ſolten, und ſich <hi rendition="#aq">reteri</hi>ren muſten, gebrauchen koͤnten, auf dieſes<lb/>
+<hi rendition="#fr">Lauffen</hi> folgete hernach die Ubung in Springen uͤber die Graͤben und auf die<lb/>
+aufgeworffene Waͤlle und Hoͤhen, damit ſie auch durch Springen die Feinde de-<lb/>
+ſto hurtiger angreiffen, und ſie dadurch <hi rendition="#aq">confus</hi> und erſchrocken machen moͤch-<lb/>
+ten. Zu dieſem Ende wurden 12. Schuh breit Graͤben aufgeworffen, daruͤber<lb/>
+der Hauptmann oder <hi rendition="#aq">Centurio</hi> einer <hi rendition="#aq">Compagnie Cadets</hi> oder Kriegs - Schuͤler<lb/>
+zu erſt, und dann alle ſeine hundert Untergebene, und zwar mit dem Gewehr in<lb/>
+der Hand, ihme nachſpringen muſten, wann dieſes geſchehen, ſo muſten ſie ebenfalls<lb/>
+mit vollen Gewehr und Ruͤſtung gegen einen aufgeworffenen Wall, <hi rendition="#fr">an/</hi> und ſo<lb/>
+auch wieder <hi rendition="#fr">zuruͤck</hi> lauffen, und hierauf <hi rendition="#aq">Compagni</hi>en oder <hi rendition="#aq">Centuri</hi>en- weiß mit<lb/>
+hoͤltzern Wurff-Pfeilen, die nicht ſpitzig waren, gegen einander <hi rendition="#aq">char gi</hi>ren, und ſich<lb/>
+mit ihren Schilden bedecken.</p><lb/>
+<fw type="catch" place="bottom">Alle</fw><lb/>
+<pb n="39" facs="#f0039"/>
+<p>Alle dieſe <hi rendition="#aq">Exercitia</hi> geben ſich heutigs Tags bey unſerer Teutſchen Militz<lb/>
+von ſich ſelbſt, durch das ſtetige <hi rendition="#aq">Exercir</hi>en mit der Flinten, welches von denen<lb/>
+Neugeworbenen an, biß auff die alte ſchon geuͤbte Soldaten <hi rendition="#aq">incluſivè,</hi> vielfaͤl-<lb/>
+tig, ſonderlich bey langen Sommer-Tagen vorgenommen wird, und wuͤrde ſich<lb/>
+dermahlen ein alter Roͤmiſcher Soldat oder Kriegs-Held, wanns auch <hi rendition="#aq">Julius<lb/>
+Cæſar,</hi> oder <hi rendition="#aq">Pompejus</hi> ſelbſt waͤre, (welche doch die Kriegs-Ubungen ihrer Zeit,<lb/>
+ſehr wohl verſtanden haben,) hoͤchlich verwundern, wann er alle die <hi rendition="#aq">Exercitia,</hi><lb/>
+die mit unſern <hi rendition="#aq">Muſqueti</hi>rern und <hi rendition="#aq">Grenadir</hi>en, mit <hi rendition="#aq">Compagni</hi>en, <hi rendition="#aq">Bataillon</hi>en, und<lb/>
+Regimentern, auch gantzen <hi rendition="#aq">Diviſion</hi>en und <hi rendition="#aq">Armeen</hi> vorgenommen werden, und<lb/>
+wie <hi rendition="#aq">accurat</hi> alles dabey auff einen <hi rendition="#aq">Tempo,</hi> in der ſchoͤnſten Ordnung und <hi rendition="#aq">Accu-<lb/>
+rateſſe</hi> zugehe, anſehen ſolte, indeſſen hat d<supplied>e</supplied>r Roͤmer ihr <hi rendition="#aq">Exercir</hi>en, in <hi rendition="#aq">Marchi-</hi><lb/>
+ren, Lauffen und <hi rendition="#aq">Chargi</hi>ren auch ſchon ſeinen Nutzen gehabt, alſo, daß auch ſol-<lb/>
+ches gewiſſer maſſen unſern <hi rendition="#aq">Seminariis</hi> gleich dem was hernach folgen wird, je-<lb/>
+des in ſeiner Art zur Auffmunternng und <hi rendition="#aq">Imitation</hi> dienen kan.</p><lb/>
+<p>Auff ſolches Lauffen folgte hernach die Ubung in den Schwimmen, wel-<lb/>
+ches zur Sommers-Zeit mit denen <hi rendition="#aq">Tironibus</hi> in dem zunaͤchſt an den <hi rendition="#aq">Campo<lb/>
+Martio</hi> (auff welchen die Kriegs-<hi rendition="#aq">Exercitia</hi> geſchahen,) vorbey lauffenden Ti-<lb/>
+ber-Fluß vorgenommen wurde, da ſie Erſtlich nur zu Fuß gehend, und ihre<lb/>
+<hi rendition="#aq">Bagage</hi> auff dem Kopffe oder Buckel tragend, an denen Orten, wo die Tiber<lb/>
+ſeicht war, ſelbige durchwaden muſten, hierauff fuͤhrte man ſie weiter hin,<lb/>
+wo man nicht durchwaden konte, ſondern der Tieffe wegen ſchwimmen mu-<lb/>
+ſte, hierzu muſten ſie ſich nun nackend ausziehen, und jeder ein Buͤndelein Rei-<lb/>
+ſig bey ſich habe<supplied>n</supplied>, auff welchen er ſeine <hi rendition="#aq">Bagage</hi> an Kleidern und Waffen legen<lb/>
+kunte, dieſes Buͤndelein band er hernach mit einen duͤnnen Strick an ſeinen<lb/>
+Halß, und ſchleppte es alſo mit ſich ſchwimmende fort uͤber den Fluß, wor-<lb/>
+auff er ſich wann er ans Land kam, wieder ankleidete, und ſeine Ruͤſtung zu<lb/>
+ſich nahm.</p><lb/>
+<p>Daß auch unſern Kriegs-Schuͤlern dieſes <hi rendition="#aq">Exercitium</hi> des Schwimmens<lb/>
+hoͤchſt uoͤthig waͤre, laͤſt ſich daraus bewaͤhren, weil manchmahl das Fuß-<lb/>
+Volck uͤber Fluͤſſe zu ſetzen hat, worzu nicht eben gleich <hi rendition="#aq">Pontons</hi> oder Bruͤcken<lb/>
+(als welche gemeiniglich der Feind hinter ſich abwirfft,) vorhanden ſeyn, wer<lb/>
+auch nur ein wenig in unſern neuen Kriegs-Geſchichten bewandert iſt, der wird<lb/>
+bald daraus ſehen, wie viel Kriegs-Stuͤcklein und <hi rendition="#aq">Stratagemata</hi> durch Soldaten,<lb/>
+die gut ſchwimmen koͤnnen, (auff ihrer <hi rendition="#aq">commandir</hi>enden <hi rendition="#aq">Officier Ordre,</hi> und<lb/>
+zuweilen auch gegen reichliche Bezahlung<hi rendition="#i">)</hi> ausgefuͤhret worden.</p><lb/>
+<p>Die Dritte Ubung der Roͤmiſchen <hi rendition="#aq">Tironum</hi> war das Laſt- und Buͤrde-<lb/>
+tragen, da ſie angehalten wurden, Erſtlich leichte Waffen und Kriegs-Geraͤth-<lb/>
+ſchafften, hierauff ſchwerere, und Drittens nechſt ihren Proviant auff etliche<lb/>
+<fw type="catch" place="bottom">Tage,</fw><lb/>
+<pb n="40" facs="#f0040"/>
+Tage, auch gantze Laſten von Holtz, Eiſen, Steinen, und Waſſer, <hi rendition="#aq">item</hi> Stroh<lb/>
+und Heu zum Lager zu tragen. Jhre eigene Geraͤthſchafften beſtanden in ei-<lb/>
+nen Mehl-Sack, und den darinn befindlichen Proviant, in einer Pfanne, ihre<lb/>
+Kuchen und Brodt darinn zu backen, ferner in einen Beil, Waſſer-Krug, lan-<lb/>
+gen Strick, einer Schauffel oder Schuͤppe, und einer Kette, damit des Nachts<lb/>
+das Lager geſchloſſen und umbgeben war, einige waren auch mit Pfaͤlen oder<lb/>
+<hi rendition="#aq">Paliſſad</hi>en, ledigen Koͤrben, Saͤgen und Sicheln, auch wohl mit einen Pferd-<lb/>
+Zaum belaſtet, diejenige Pferde, welche ſie etwan ins Feindes Lande erbeuten<lb/>
+wuͤrden, damit zu bezaͤumen.</p><lb/>
+<p>Unſern heutigen Soldaten ſchenckt man desfalls in ſolchen Laſt-tragen<lb/>
+(wann zumahl die Noth an Mann tritt,) auch nichts, wiewohl ſie auch in<lb/>
+<hi rendition="#aq">March</hi> ſo viel als es die Gelegenheit leiden will, durch Nachfuhr der <hi rendition="#aq">Bagage<lb/>
+ſoulagir</hi>et werden, indeſſen iſt es bey Verſchantzungen und Belaͤgerungen auch<lb/>
+kein geringes, wann die <hi rendition="#aq">Fachin</hi>en und Sand-Saͤcke, Kugeln und <hi rendition="#aq">Munition,<lb/>
+Fourage</hi> und andere Kriegs-<hi rendition="#aq">Requi<supplied>ſ</supplied>ta</hi> von weiten her muͤſſen geholt und zuge-<lb/>
+tragen, und ſonderlich in Geſicht der Belaͤgerten, das Geſchuͤtz auff die <hi rendition="#aq">Batte-<lb/>
+ri</hi>en geſchleppet, und andere dergleichen beſchwerliche und gefaͤhrliche Arbeiten<lb/>
+mehr verrichtet werden.</p><lb/>
+<p>Fuͤnfftens ſo muſten auch die Roͤmiſchen jungen Soldaten taͤglich graben<lb/>
+und ſchantzen, das Beveſtigen der Laͤger dadurch zu erlernen, zu welcher Ar-<lb/>
+beit ſie durch unterſchiedliche <hi rendition="#aq">Gradus</hi> angefuͤhret worden, als Erſtlich bloſſe Gra-<lb/>
+ben zu machen, (2) Waͤlle dabey auffzufuͤhren, (3) in Mangel der Erde,<lb/>
+Sand-Saͤcke zu fuͤllen, und einen Wall davon zu machen, (4) Waͤlle von<lb/>
+Reiß Werck und Baum-Aeſten zu flechten, (5) dieſe Waͤlle mit eingeſteckten<lb/>
+Pfaͤlen zu beveſtigen, (6) einen Lauff-Graben zu machen, und (7) unter-<lb/>
+irrdiſche Minen oder Untergrabungen zu verfertigen.</p><lb/>
+<p>Dergleichen Schantz-und Graben-Arbeit findet ſich bey unſrer heutigen<lb/>
+Militz eben ſo und noch viel ordentlicher, als bey der Roͤmiſchen, nachdem<lb/>
+unſer <hi rendition="#aq">Fortificiren</hi> und Verſchantzen auff einen gantz andern Fuß als es zu ihrer<lb/>
+Zeit geweſen, geſetzet worden.</p><lb/>
+<p>Sechſtens ſo war auch eine <hi rendition="#aq">Occupation</hi> der Roͤmiſchen Kriegs-Schuͤler,<lb/>
+Holtz-Waͤllen oder <hi rendition="#aq">Fachin</hi>en und Baͤume abzuhauen, und dieſes umb neuner-<lb/>
+ley Urſachen willen, als Erſtlich umb ſich anzugewoͤhnen, die von dem Feinde<lb/>
+durch Buͤſch und Waͤlder verhauene <hi rendition="#aq">Paſſage</hi> wieder zu eroͤffnen, (2) ſolche ver-<lb/>
+hauene Waͤlder hinter ſich zu laſſen, damit ihnen der Feind nicht nachfolgen<lb/>
+koͤnte, (3) weil zur Beveſtigung des Lagers Holtz und Palliſaden noͤthig wa-<lb/>
+ren, (4) ſolche geſpalten, und (5) behauen ſeyn muſten, dahero die <hi rendition="#aq">Tiro-<lb/>
+nes</hi> ſchon in die Zunmermanns-Arbeit hinein gefuͤhrt wurden, (6) muſten<lb/>
+<fw type="catch" place="bottom">ſie</fw><lb/>
+<pb n="41" facs="#f0041"/>
+ſie <hi rendition="#aq">Fachin</hi>en machen, die Waͤlle damit zu beveſtigen, (7) groſſe und kleine<lb/>
+Hurden, und (8) Zaͤune flechten, und (9) damit ſie Brenn-Holtz im La-<lb/>
+ger haben moͤchten.</p><lb/>
+<p>Siebendens, ſo wurden auch die <hi rendition="#aq">Tyrones</hi> in Steinwerffen und Schleu-<lb/>
+dern geuͤbet, welches ſchon bey denen Juͤden ein gebraͤuchliches Gewehr geweſen<lb/>
+iſt, wie ſolches aus dem, was Cap. 1. dieſes <hi rendition="#aq">Tractat</hi>s von der Juͤden ihren Kriegs-<lb/>
+<hi rendition="#aq">Exercitiis</hi> geſaget worden, zu erſehen. Es gaben auch die Einwohner der <hi rendition="#aq">Baleari-</hi><lb/>
+ſchen Jnſuln ihren Kindern und <hi rendition="#aq">Tyronibus</hi> nicht ehe zu eſſen, biß ſie zuvor die<lb/>
+Speiſe mit einer Schleuder getroffen hatten, bey denen Koͤmern wurden ihre<lb/>
+Kriegs-Schuͤler erſtlich geuͤbet ſchwere Steine aus freyer Hand gegen ihre<lb/>
+Feinde zu werffen, (2) durch Schleudern vermittelſt einer Hand, und hernach ver-<lb/>
+mittelſt zweyer Haͤnde, dergleichen Schleudern noch hin und wieder in denen <hi rendition="#aq">An-<lb/>
+tiqui</hi>taͤten-Zimmern, da ſie zur <hi rendition="#aq">Curioſi</hi>taͤt verwahret werden, anzutreffen ſeyn.</p><lb/>
+<p>Heutigs Tags hat man an der Schleudern Stelle das <hi rendition="#aq">Granat</hi>enwerffen,<lb/>
+welches mehrern <hi rendition="#aq">Effect</hi> als die Steine thut, ſintemahl ſolche zerſpringen, und<lb/>
+mit um ſich Schlagen viel Leute zuſchanden machen, da hingegen die Steine,<lb/>
+wann ſie zumal fehl gehen, leichtlich wieder koͤnnen aufgenommen, und auf dem,<lb/>
+der ſie geworffen, zuruͤck geworffen werden, indeſſen waͤre es doch nicht uͤbel,<lb/>
+wann man auch unſere <hi rendition="#aq">Cadets</hi> und Kriegs-Schuͤler ſich in Schleudern <hi rendition="#aq">exerci-</hi><lb/>
+ren ließ, es waͤre zum wenigſten ein Zeitvertreib, ſo ebenfalls zu ſeiner Zeit und<lb/>
+an ſeinen Ort ſeinen Nutzen haben koͤnte, alle alte Gebraͤuche ſeynd darum nicht<lb/>
+ſo gar abzuſchaffen, weil ſie alt ſeyn, indem ſie zum wenigſten zu fernern <hi rendition="#aq">Spe-<lb/>
+culationibus</hi> Anlaß geben koͤnnen, wann man auch die unterſchiedliche <hi rendition="#aq">Tempo-<lb/>
+ra,</hi> welche die Roͤmer in dem <hi rendition="#aq">Exercitio</hi> mit der Schleuder in acht nehmen muͤſ-<lb/>
+ſen, anſiehet, wird man befinden, daß unſer heutiges <hi rendition="#aq">Exerci</hi>ren mit dem <hi rendition="#aq">Granat</hi>en-<lb/>
+werffen, eine groſſe Verwandſchafft mit denſelben habe.</p><lb/>
+<p>Dieſes waͤren alſo die <hi rendition="#aq">Exercitia,</hi> welche mit denen Roͤmiſchen <hi rendition="#aq">Tyronibus</hi><lb/>
+in der erſten Claß vorgenommen worden, wann ſie ſich nun in ſolchen wohl ver-<lb/>
+halten, und man daraus abmercken kunte, daß ſie mit der Zeit gute Kriegs-Leu-<lb/>
+te werden, und dem Vaterland nuͤtzliche Dienſte leiſten wuͤrden, ſo wurden ſie<lb/>
+hierauf unter die Roͤmiſche Militz, vermoͤg eines ihnen auf den Arm mit einen<lb/>
+gluͤenden Eiſen gebrandten Zeichens, ſo <hi rendition="#aq">Sacramentum militare</hi> genenn<supplied>e</supplied>t wurde,<lb/>
+eingeſchrieben, es beſtand aber ſolches Zeichen in zwey Buchſtaben <hi rendition="#aq">M. R.</hi> welches<lb/>
+ſo viel als <hi rendition="#aq">Miles Romanus</hi> heißen ſolte, dieſes <hi rendition="#aq">Stygma</hi> oder Brand-Zeichen behielt<lb/>
+man ſo lang bey, als die Buͤrgermeiſter regierten, nachdem aber die Kayſer an<lb/>
+ihre Stelle kamen, wurden die angehende Soldaten, mit ihrer der Kayſer Nah-<lb/>
+mens Anfangs-Buchſtaben, ober auch ſonſt einer andern <hi rendition="#aq">Marque,</hi> nachdem es<lb/>
+nemlich dem Feld-Herrn beliebte, bezeichnet.</p><lb/>
+<fw type="sig" place="bottom">F</fw><fw type="catch" place="bottom">Es</fw><lb/>
+<pb n="42" facs="#f0042"/>
+<p>Es geſchahe aber ſolche Brandmarckung der Roͤmiſchen Soldaten vierer-<lb/>
+ley Urſachen halber, einmahl damit keiner laͤugnen kunte, er ſey nicht zu der <hi rendition="#aq">Re-<lb/>
+public</hi> Soldaten und Kriegs-Schuͤler eingeſchrieben, zweytens damit man auch<lb/>
+daraus wiſſen koͤnne, wem die <hi rendition="#aq">Republic</hi> die Kriegs-<hi rendition="#aq">Exercitia</hi> habe lernen laſſen,<lb/>
+und ihme ſo lang Unterhalt und freye <hi rendition="#aq">Information</hi> gegeben, drittens, damit her-<lb/>
+nach ein ſolcher, wann er aus dem Krieg entlief, deſto eher moͤchte gekannt wer-<lb/>
+den, und vierdtens, daß ihn auch ſolches Brandmarck, wann er etwan in der<lb/>
+Schlacht umkommen ſolte, auf der Wahlſtatt ſo viel eher als einen Roͤmiſchen<lb/>
+Soldaten von andern todten Coͤrpern unterſcheiden moͤchte, und man ihme alſo die<lb/>
+letzte Ehre einer praͤchtigen Begraͤbniß koͤnte wiederfahren laſſen.</p><lb/>
+<p>Die Zeichners waren ihre, der <hi rendition="#aq">Tyronum</hi> eigene Lehrmeiſters, (<hi rendition="#aq">Armi - Do-<lb/>
+ctores</hi> oder <hi rendition="#aq">Armi - Magiſtri</hi> genannt,) vor welchen der <hi rendition="#aq">Tyro</hi> erſt alle <hi rendition="#aq">Exercitia</hi><lb/>
+der erſten oder unterſten Claß machen muſte, ehe er zu der Ehre der Zeichnung<lb/>
+und <hi rendition="#aq">Enrolli</hi>rung gelangen koͤnte, die Zeichen-Tage ſelbſt kamen nur zu gewiſſen<lb/>
+Zeiten, da man etlich hundert <hi rendition="#aq">Tyrones</hi> zuſamm in die Muſterung nahm, und<lb/>
+ſolche hernach einen nach dem andern fortzeichnete, die Ungeſchickte, Traͤge, und<lb/>
+bey welchen man wenig <hi rendition="#aq">Courage</hi> und <hi rendition="#aq">Adreſſe</hi> vermerckte, wurden ausgemuſtert,<lb/>
+und kunten nicht der Ehre, ein Roͤmiſcher Soldat zu ſeyn, faͤhig werden.</p><lb/>
+<p>Belangend die <hi rendition="#aq">Tyrones</hi> der zweyten Claß, ſo wurden dieſelbe in ſolcher zu<lb/>
+folgenden <hi rendition="#aq">Exercitiis</hi> angefuͤhret, als erſtlich muſten ſie wider hoͤltzerne in die Er-<lb/>
+den gegrabene Pfaͤle fechten, womit es alſo zugienge.</p><lb/>
+<p>Man gab ihnen von Weiden-Holtz wie eine Hurte rund geflochtene Schil-<lb/>
+de, die jedoch zweymal ſchwerer an Gewicht als ihre, ſonſt gewoͤhnliche waren,<lb/>
+dieſen hielt der Kriegs-Schuͤler in der einen, und das Schwerdt in der andern<lb/>
+Hand, und <hi rendition="#aq">avanci</hi>rte damit gegen den Pfal, den er bald oben in den Knopff,<lb/>
+bald in die Seite, bald wieder unten an Fuß hiebe, anders nicht als wann er<lb/>
+einen Menſchen vor ſich haͤtte, an dem er ſeine Streiche gebrauchen ſolte, wobey<lb/>
+dann der <hi rendition="#aq">Armi - Magiſter</hi> mit zugegen war, und ihnen anwieß, wie ſie geſchicklich<lb/>
+auf ihren Feind loßgehen, ihre Streiche gluͤcklich anbringen, und ſich vor Gegen-<lb/>
+Streichen hinter ihren Schilden beſchirmen ſolten. Es muſten auch wohl zwey<lb/>
+<hi rendition="#aq">Tyrones</hi> ſelbſt gegen einander mit hoͤltzern Duſecken und ihren Weidenen Schil-<lb/>
+den in der Hand fechten, und eben wie bey unſern Klopff-Fechtern gebraͤuch-<lb/>
+lich, ſich einander ſuchen Streiche und Stoͤſſe beyzubringen. Weil auch die Roͤ-<lb/>
+mer in Krieg mehr von Stechen als Hauen hielten, indem durch das Stechen<lb/>
+ein Menſch eher als durch Hauen kunte ums Leben gebracht werden, als muſten<lb/>
+die <hi rendition="#aq">Tyrones</hi> eben ſo, wie mit dem Hieb, alſo auch mit dem Stich auf den Pfal<lb/>
+lotzgehen, und ſelbigen Stiche anzubringen ſich befteißigen, heutigs Tags iſt vor<lb/>
+dieſes Roͤmiſche gegen den Pfal-Fechten, unſer <hi rendition="#aq">Quintan -</hi> Rennen eingefuͤhret, in-<lb/>
+<fw type="catch" place="bottom">gleichen</fw><lb/>
+<pb n="43" facs="#f0043"/>
+gleichen wann man die Anfaͤnger auf den Fecht - Boden gegen die Wand aus-<lb/>
+ſtoſſen laͤſt, damit ſie in Stoſſen gewiß werden, bey der Pique aber und dem<lb/>
+<hi rendition="#aq">Exerci</hi>ren mit denen auf die Flinte aufgeſteckten <hi rendition="#aq">Baguenett</hi>en, das <hi rendition="#aq">Avanci</hi>ren<lb/>
+und Anſchlagen auf den halben Mann, und dergleichen <hi rendition="#aq">Exercitia</hi> mehr ihnen<lb/>
+beybringet.</p><lb/>
+<p>Nach der Ubung gegen dem Pfal mit Hauen und Stechen muſten ſie ſich<lb/>
+auch in Pfeil-und Wurff-Pfeil-Schieſſen uͤben, als mit welchen die Roͤmer wie<lb/>
+<hi rendition="#aq">Cato</hi> in ſeinen Buͤchern von der Kriegs - <hi rendition="#aq">Diſciplin</hi> meldet) jederzeit viel gegen<lb/>
+ihre Feinde ausgerichtet, wie dann <hi rendition="#aq">Scipio Africanus</hi> ſeine vielfaͤltige wider die<lb/>
+<hi rendition="#aq">Numantier</hi> befochtete Siege, denen in ſeiner <hi rendition="#aq">Armée</hi> gehabten Pfeil-Schuͤtzen zu<lb/>
+dancken hatte. Dieſes Wurff - Pfeil - Schieſſen kommt ebenfalls in unſern<lb/>
+<hi rendition="#aq">Quintan -</hi> Rennen vor, im Krieg hat es aber keinen weitern Gebrauch, und ſeynd<lb/>
+dafuͤr die Hand - <hi rendition="#aq">Granat</hi>en beſſer.</p><lb/>
+<p>Ferner muſten die Roͤmiſche <hi rendition="#aq">Tyrones</hi> ſich auch angewoͤhnen, mit ſchwerer<lb/>
+Ruͤſtung gewaffnet in Schlacht - Ordnung zu <hi rendition="#aq">marchi</hi>ren, dann auf koſtbare<lb/>
+<hi rendition="#aq">Chamari</hi>rung von Gold und Silber hielte man nicht viel, ſondern es muſte alles<lb/>
+<hi rendition="#aq">martiali</hi>ſch und Soldatiſch bey ihnen ausſehen, und wolten die alte Roͤmer lie-<lb/>
+ber uͤber Leute, die viel Gold und Silber beſaͤſſen, herrſchen, als ſolches ſelbſt<lb/>
+an und um ſich haben. Da nun unter andern ihren <hi rendition="#aq">Armatu</hi>ren auch die Schil-<lb/>
+de und lange Spieſſe waren, als lernte man ihnen, wie ſie mit ihren Schilden<lb/>
+ſich zuſamm ſchlieſſen, dahinter bedecken, auch ſolche ſo auf einander fuͤgen ſol-<lb/>
+ten, daß ſie endlich gantze Mauren, hohe Geruͤſte davon machen, und uͤber<lb/>
+ſolche Sturm - lauffen kunten, welches heutigs Tags bey unſern <hi rendition="#aq">Breche</hi>ſchieſſen<lb/>
+nicht mehr noͤthig iſt, ob aber auch nicht noch zu gewiſſer Zeit und in gewiſſen<lb/>
+Kriegs-Faͤllen, die Schilde etlichermaßen nuͤtzlich zu gebrauchen waͤren, davon<lb/>
+wollen wir dieſes Orts unſere Meynung zuruͤck halten.</p><lb/>
+<p>Nicht weniger hielt man auch die Kriegs-Schuͤler an, Sturm - Leitern zu<lb/>
+tragen, und dieſelbe an die Mauren auzubringen, <hi rendition="#aq">item</hi> Sand- Saͤcke, Balcken<lb/>
+und Reiſig - Holtz herbey zu ſchaffen, und damit die Graben auszufuͤllen, auch<lb/>
+in vollen Harniſch und Ruͤſtung Berg auf - und abzulauffen, ingleichen auf denen<lb/>
+gepflantzten Leitern, die Mauren der Staͤdte zu uͤberſteigen.</p><lb/>
+<p>Die <hi rendition="#aq">Exercitia</hi> der <hi rendition="#aq">Tyronum</hi> zu Pferd beſtanden in der crſten, zweyten und<lb/>
+dritten Claß in folgenden: Erſtlich muſten ſie und ſo auch alle Roͤmiſche Sol-<lb/>
+daten lernen gantz leicht und unbewaffnet auf ein zu dieſen Ende hingeſetzten<lb/>
+hoͤltzern <hi rendition="#aq">Voltigier -</hi> Pferd auf - und abſpringen, wann ſie dieſes <hi rendition="#aq">perfect</hi> kunten,<lb/>
+muſten ſie es auch mit voller Ruͤſtung angethan, und zwar rechts und lincks er-<lb/>
+lernen, und noch darzu Spieß und Schwerdter in der Hand halten, wann ſie<lb/>
+auch darinn fertig, ſo ſetzte man ſie auf rechte Pferde, auf welche ſie in Ermang-<lb/>
+<fw type="sig" place="bottom">F 2</fw><fw type="catch" place="bottom">lung</fw><lb/>
+<pb n="44" facs="#f0044"/>
+lung der Saͤttel und Steig - Buͤgel ebenfalls bewaffnet und unbewaffnet bald<lb/>
+auf der rechten bald auf der lincken Seiten auffſpringen, hierauf in vollen <hi rendition="#aq">Cur-<lb/>
+rier,</hi> <hi rendition="#i">(</hi>nach der Weiſe unſers heutigen <hi rendition="#aq">Quintan -</hi> Rennens<hi rendition="#i">)</hi> auf die in dem <hi rendition="#aq">Mar-<lb/>
+tis -</hi> Feld gepflantzte Pfaͤle loßrennen, und auf ſelbige ihre Wurff - und andere<lb/>
+Pfeile, (daß ſolche darinn beſtecken blieben,) loßſchieſſen, ſich hierauf mit dem<lb/>
+Pferd wenden, und von hinterwaͤrts ein gleiches ſowohi mit Werffen als Schieſſen<lb/>
+der Pfeile verrichten muſten.</p><lb/>
+<p>Es beſtand aber die Roͤmiſche <hi rendition="#aq">Cavallerie</hi> in zweyerley Reutern, als (1) in<lb/>
+leichten und (2) in ſchwehren, jene waren nicht gewaffnete und hießen <hi rendition="#aq">Velites Ja-<lb/>
+<supplied>c</supplied>latores</hi> und <hi rendition="#aq">Sagittarii,</hi> dieſe hingegen warenuͤber und uͤber geharniſcht und hieſ-<lb/>
+ſen <hi rendition="#aq">Cataphracti,</hi> hiebey muſten ſie auch lernen zu Wagen ſtreiten, vor welchen 2. 3.<lb/>
+biß 4. Pferde neben einander geſpannet waren, dieſe muſten in vollen <hi rendition="#aq">Courier</hi> von<lb/>
+den <hi rendition="#aq">Tyrone</hi> in einem groſſen <hi rendition="#aq">Circo</hi> oder Kreiß herum gejaget, und noch wohl dabey<lb/>
+ein Wurff-Pfeil, wie man heutigs Tags bey unſern <hi rendition="#aq">Carouſeln</hi> ſiehet, geworffen<lb/>
+werden, oder ſo er einen Kutſcher hatte, der die Pferde in vollen <hi rendition="#aq">Courier</hi> zu lauffen<lb/>
+antrieb, muſte der in den Streit-Wagen aufrecht ſtehende <hi rendition="#aq">Tyro,</hi> doch auf dem ih-<lb/>
+me entgegen rennenden andern <hi rendition="#aq">Tyronem,</hi> einen Pfeil abſchieſſen, und des <hi rendition="#aq">adverſa-<lb/>
+rii</hi> abgeſchoſſenen Pfeil mit ſeinen Schild aufffangen, es gehoͤrten aber dieſe <hi rendition="#aq">Exerci-<lb/>
+tia</hi> ſchon in die vierdte und fuͤnffte Claß.</p><lb/>
+<p>Jn der ſechſten Claß muſten ſie lernen auf Elephanten wider ihre Feinde<lb/>
+ſtreiten, dann obgleich die Roͤmer anfaͤnglich mit dieſen ungeheuren Thieren nicht<lb/>
+umzugehen gewuſt, ſelbige auch vor des Koͤnigs <hi rendition="#aq">Pyrrhi</hi> Ankunfft in Jtalien nie-<lb/>
+mahls geſehen, nach der Zeit aber als <hi rendition="#aq">Hannibal,</hi> deren viele mit ſich brachte,<lb/>
+<hi rendition="#aq">Antiochus</hi> auch in Orient und Jugurtha in Numidien ſelbige ſtarck in denen<lb/>
+Schlachten gebrauchte, viel Schaden von dieſen Beſtien erlitten hatten, ſo wur-<lb/>
+den ſie endlich ihrer auch gew ohnt, alſo daß ſie ſolche ebenfalls in Krieg gegen<lb/>
+ihre Feinde gebrauchten, und dahero auch ihre <hi rendition="#aq">Tyrones</hi> darinn <hi rendition="#aq">exerci</hi>ren ließen.</p><lb/>
+<p>Nicht weniger wurde auch bey ihren <hi rendition="#aq">Exerci</hi>ren, das Springen mit denen<lb/>
+Pferden uͤber hole Graͤben, Berg auf und ab zu <hi rendition="#aq">galoppi</hi>ren, und mit ſolchen uͤber<lb/>
+einen Fluß zu ſchwimmen, ſehr ſtarck getrieben, welches Uberſetzen auf zweyerley<lb/>
+Art geſchahe, nemlich einmal daß der angehende Reuter oder Lehr - Schuͤler kni-<lb/>
+end oder ſitzend auf dem Pferd mit ſolchen durchfchwemmete, oder da es denen<lb/>
+Pferden zu ſchwer wurde, und das Waſſer breit war, ſo muſten ſie ſich na-<lb/>
+ckend ausziehen, ibre <hi rendition="#aq">Bagage</hi> an Harniſch, Waffen und Kleidern auf Binſen oder<lb/>
+Reiſig - Buͤſchel legen, ſelbige mit kleinen Stricklein an ihre Pferde binden, und<lb/>
+ſie die <hi rendition="#aq">Tyrones</hi> ſelbſt ſich an des Pferdes Maͤhne haltend, nebenſt demſelben<lb/>
+durchſchwimmen, welches ſchwehre <hi rendition="#aq">Exercitinm</hi> ſie doch ſo <hi rendition="#aq">perfect</hi> gelernet, daß<lb/>
+es ihnen hernach in unterſchiedlichen Kriegen wohl zu ſtatten gekommen.</p><lb/>
+<fw type="catch" place="bottom">Ein</fw><lb/>
+<pb n="45" facs="#f0045"/>
+<p>Ein ander <hi rendition="#aq">Exercitium</hi> war dieſes, daß die Fußgaͤnger in Schlacht - Ordnung<lb/>
+angefuͤhret, 5. Mann hoch gegen vorgeſetzte mit Stroh - bewundene Pfaͤle, (als<lb/>
+wann ſolches eine feindliche Schlacht-Ordnung waͤre,) fechten muſten, da dann<lb/>
+das letzte Glied auf denen Knien hinter ihren Schilden verdeckt lag, das andere<lb/>
+Glied hatte Wurff - Pfeile, welche es auf die feindliche Stroh - Garben loß-<lb/>
+ſchoß, hinter dieſen waren in dritten Glied die Schuͤtzen mit den Bogen, in vier-<lb/>
+ten diejenige, die Steine aus der Hand wurffen, und in fuͤnfften die Schleu-<lb/>
+derer.</p><lb/>
+<p>Endlich ſo war auch dieſes der ſaͤmtlichen <hi rendition="#aq">Tyronum</hi> beydes der <hi rendition="#aq">Infanterie</hi><lb/>
+als <hi rendition="#aq">Cavallerie</hi> ihr Haupt - <hi rendition="#aq">Exercitium,</hi> daß man ſie in voller Schlacht - Ordnung<lb/>
+uͤber zehen tauſend Schritt weit <hi rendition="#aq">Compagni</hi>en und Squadronen - weiß abge-<lb/>
+theilet, <hi rendition="#aq">marchi</hi>ren ließ, alle in voller Ruͤſtung, da dann die Reuterey bald vor, bald<lb/>
+hinter, bald auch zur Seiten der <hi rendition="#aq">Infanterie marchi</hi>ren, zuweilen auch auf ebenen<lb/>
+Feld oder auch Berg auf, Berg ab, in vollen <hi rendition="#aq">Currier</hi> einen Anfall thun, ſich wieder<lb/>
+ſchwencken, und in Summa diejenige <hi rendition="#aq">Exercitia</hi> thun muſte, welche bey heutigs<lb/>
+Tags verbeſſerter Kriegs-Kunſt, ebenfalls, wiewol weit in hoͤhern Grad, von un-<lb/>
+ſern <hi rendition="#aq">Arméen</hi> vorgenommen werden.</p></div><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">CAPUT</hi> V.</hi></hi></head><lb/>
+<argument><p><hi rendition="#c"><hi rendition="#b">Was vor Wiſſenſchafften und <hi rendition="#aq">Exercitia</hi> in unſern heutigen<lb/>
+Ritter-und <hi rendition="#aq">Cadets-Academi</hi>en, mit denen darinn befindlichen <hi rendition="#aq">Aca-<lb/>
+demiſt</hi>en und <hi rendition="#aq">Seminariſt</hi>en am meiſten getrieben, und vor <hi rendition="#aq">Profeſſo-<lb/>
+res,</hi> Lehr - und <hi rendition="#aq">Exerciti</hi>en - Meiſter darzu erfordert und gehalten<lb/>
+werden, auch wie die Einrichtung der <hi rendition="#aq">Oeconomie</hi> dabey<lb/>
+beſtellet ſey.</hi></hi></p></argument><lb/>
+<p><hi rendition="#in">D</hi>Jeſe drey <hi rendition="#aq">Puncta</hi> deſto deutlicher abzuhandeln, ſo geben wir erſtlich billich<lb/>
+Achtung auf den Unterſchied ſolcher Ritter- <hi rendition="#aq">Academi</hi>en ſelbſt und dann<lb/>
+auch auf der darinn ſtudirenden Jugend ihre <hi rendition="#aq">Condition, Scopum</hi> oder<lb/>
+Abſicht, und Vermoͤgen. Das erſte nemlich den Unterſchied ſolcher <hi rendition="#aq">Academi</hi>en<lb/>
+betreffend, ſo ſeynd bißanhero die in Europa am beruͤhmteſten geweſene Ritter-<lb/>
+<hi rendition="#aq">Academi</hi>en, am meiſten auf ſolche <hi rendition="#aq">Studia</hi> und <hi rendition="#aq">Exercitia</hi> gegangen, welche einen<lb/>
+jungen <hi rendition="#aq">Cavalier</hi> oder vornehmen und reichen Manns Sohn (der zumal wohl er-<lb/>
+zogen, von guten <hi rendition="#aq">Naturel, Conſ<supplied>ti</supplied>tution</hi> und <hi rendition="#aq">Capaci</hi>taͤt des Verſtands geweſenl<lb/>
+auch zu Hauß oder auf andern Schulen ſchon in <hi rendition="#aq">Humanioribus</hi> und andern nuͤtz<supplied>li-</supplied><lb/>
+<fw type="sig" place="bottom">F 3</fw><fw type="catch" place="bottom">chen</fw><lb/>
+<pb n="46" facs="#f0046"/>
+chen Wiſſenſchafften ziemlich zugerichtet worden, dannenhero etwan nur <hi rendition="#aq">en paſſant</hi><lb/>
+auf ſeinen Reiſen, noch ein oder 2. Jahr ſich ferner darinn umſehen und <hi rendition="#aq">perfectio-<lb/>
+ni</hi>ren wollen,) dermaleins der <hi rendition="#aq">Republic</hi> zu dienen, und das <hi rendition="#aq">Prædicat</hi> eines geſchick-<lb/>
+ten Menſchens zu erwerben <hi rendition="#aq">capable</hi> machen moͤchten, man nennte ſolches bey de-<lb/>
+nen noch etwas roh und jung in ſolche <hi rendition="#aq">Academi</hi>en kommende, <hi rendition="#aq">Cultivier l’Eſprit,</hi><lb/>
+nemlich durch die mit ihm getriebene <hi rendition="#aq">Studia, Dreſſer le Corps,</hi> durch die <hi rendition="#aq">Exercitia,</hi><lb/>
+als Reuten, Fechten, Tantzen, und <hi rendition="#aq">regler les Moeurs</hi> durch den Umgang mit vie-<lb/>
+len <hi rendition="#aq">moraliſi</hi>rten und <hi rendition="#aq">civiliſi</hi>rten Leuten, welche dreyerley <hi rendition="#aq">Requiſita</hi> ſo leicht nie-<lb/>
+mand, er ſey ſo reich und ſo vornehm als er wolle, bey der <hi rendition="#aq">Privat - Education</hi> ſeiner<lb/>
+Kinder auf den Land und auch ſelten in denen Staͤdtiſchen <hi rendition="#aq">Gymnaſii,</hi> oder <hi rendition="#aq">Trivial-</hi><lb/>
+Schulen, (wann ſie nicht <hi rendition="#aq">Academie -</hi> maͤßig eingerichtet ſeyn,) erlangen kan, dan-<lb/>
+nenhero auch hohe Landes-Regenten aus vielerhand loͤbl. Abſichten, (die wir in un-<lb/>
+ſern <hi rendition="#aq">Tractat</hi> von Reiſen in frembde Laͤnder angefuͤhret,) ſehr wohl thun, wann ſie<lb/>
+dergleichen Ritter-Schulen in ihren Land anrichten, dadurch Kuͤnſte und Wiſſen-<lb/>
+ſchafften befoͤrdern, ihren <hi rendition="#aq">Vaſall</hi>en und Unterthanen aber viel tauſend Thaler in<lb/>
+Beutel erſparen, welche ſonſt (und zwar vielmahls <hi rendition="#aq">mal a propos</hi>) vor dergleichen<lb/>
+Dinge in der frembde zu erlernen, aus dem Land getragen werden, ja es ſeynd ſol-<lb/>
+che Ritter-Schulen hernach auch unter denen, anderwaͤrts von uns erwoͤhnten na-<lb/>
+tuͤrlichen und politiſchen Mitteln, durch welche jaͤhrlich ein groſſes Geld von aus-<lb/>
+waͤrtigen kan ins Land gezogen werden, weil aus dem, was geſagt worden, ſchon<lb/>
+<hi rendition="#aq">præſumi</hi>ret wird, daß ein ſolcher <hi rendition="#aq">Academiſt,</hi> der in eine ſolche Ritter-Schule ver-<lb/>
+langet, Geld haben muͤſſe, indem ihme nichts umſonſt darinn gegeben wird, ſon-<lb/>
+dern Hauß, Koſt und <hi rendition="#aq">Information</hi> zu ſchaffen, dem <hi rendition="#aq">Academie -</hi> Herrn Geld<lb/>
+koſtet.</p><lb/>
+<p>Ene andere Beſchaffenheit hingegen hat es mit denen oͤffentlichen Lands-<lb/>
+Fuͤrſten Frey-und Genaden - Schulen, da bekannter maßen von gantzen Land-<lb/>
+ſchafften, Staͤdten und <hi rendition="#aq">Republiqu</hi>en, auch wohl von groſſen Herrn, ingleichen rei-<lb/>
+chen Stands-und <hi rendition="#aq">Privat-</hi>Leuten gantz allein, ſolche Schulen geſtifftet worden, in<lb/>
+welchen die Jugend freye <hi rendition="#aq">Information,</hi> auch noch wohl freye Koſt darzu bekom̃en<lb/>
+kan, wiwohl ſolches ein <hi rendition="#aq">Beneficium</hi> vor die arme Einlaͤndiſche iſt, und dahero von<lb/>
+Reichen <supplied>u</supplied>nd Auslaͤndiſchen gantz nicht erſchlichen oder erbettelt werden muß, es<lb/>
+werden auch auf ſolchen Schulen nur ſolche Sachen <hi rendition="#aq">tracti</hi>ret, welche zwar eben-<lb/>
+falls dem <hi rendition="#aq">Publico</hi> kuͤnfftig geſchickte Leute zu bereiten, von dem aber doch, was man<lb/>
+<choice><sic>Ritterliſ</sic><corr>Ritterliſch</corr></choice> <hi rendition="#aq">Academi</hi>ſch heiſet, gar weit unterſchieden ſeyn, dahero dieſen letzern die<lb/>
+bißheronegenannte <hi rendition="#aq">Cadets - Academi</hi>en weit gleicher kommen, als in welchen ne-<lb/>
+b<supplied>e</supplied>nſt def- Ritterlichen <hi rendition="#aq">Exercitiis</hi> auch andere einen <hi rendition="#aq">Cavalier</hi> und kuͤnfftigen Welt-<lb/>
+und Ho, Mann, nothwendige <hi rendition="#aq">Studia</hi> mit getrieben werden, jedoch mit dieſen Un-<lb/>
+terſchied daß, weil ſolche <hi rendition="#aq">Corpora</hi> mehrentheils auf dem <hi rendition="#aq">Militair -</hi> Stand geſtiff-<lb/>
+<fw type="catch" place="bottom">tet,</fw><lb/>
+<pb n="47" facs="#f0047"/>
+tet, die mit ſolchen und der Kriegs-Kunſt einige Verwandniß habende <hi rendition="#aq">Studia</hi> mehr<lb/>
+als andere, <hi rendition="#i">(</hi>bey denen Staats - oder Ritter-<hi rendition="#aq">Academi</hi>en eingefuͤhrte) getrie-<lb/>
+ben werden, wobey noch dieſes Haupt - <hi rendition="#aq">Momentum</hi> zu <hi rendition="#aq">conſideri</hi>ren, daß die<lb/>
+darinn erzogene <hi rendition="#aq">Cadets</hi> aus Urſachen, die in dieſen gantzen <hi rendition="#aq">Tractat,</hi> und ſon-<lb/>
+derlich deſſen erſten Capitel angefuͤhret worden, alles frey an Koſt, Kleider,<lb/>
+und <hi rendition="#aq">Information</hi> haben, eben wie der Roͤmer ihre <hi rendition="#aq">Tyrones</hi> oder zum Krieg ge-<lb/>
+wiedmete Jugend ſolches in ihren <hi rendition="#aq">Angariis</hi> gehabt, dafuͤr aber hernach auch der<lb/>
+<hi rendition="#aq">Republic</hi> in Kriegen zu dienen verbunden ſeyn, dergleichen <hi rendition="#aq">Vinculum</hi> andere vor<lb/>
+ihr Geld in denen <hi rendition="#aq">Academi</hi>en oder Ritter-Schulen ſtudirende <hi rendition="#aq">Academiſt</hi>en nicht<lb/>
+auff ſich haben, (auſſer was das natuͤrliche iſt, mit welchen ein jeder <hi rendition="#aq">Vaſall</hi> und<lb/>
+Unterthan ſeinen Herrn und Vaterland in aͤuſerſten Nothfall mit Gut und Blut<lb/>
+zu dienen verbunden iſt,) daß alſo der Unterſchied zwiſchen beyden <hi rendition="#aq">Academi</hi>en,<lb/>
+was den Bezahlungs- oder Freyheits-<hi rendition="#aq">Paſſum</hi> betrifft, <hi rendition="#aq">item</hi> auch die in der einen<lb/>
+mehr als in der andern <hi rendition="#aq">cultivir<supplied>t</supplied></hi>e beſondere <hi rendition="#aq">Studia,</hi> wohl bleiben wird, jedoch auch<lb/>
+durch ein kluges <hi rendition="#aq">Directorium</hi> dieſe <hi rendition="#aq">Harmonie</hi> zwiſchen beyden eingefuͤhret wer-<lb/>
+den kan, daß beyde <hi rendition="#aq">Civil-</hi> und <hi rendition="#aq">Militair - Academiſt</hi>en, gewiſſe Lehr - Stunden,<lb/>
+<hi rendition="#aq">Studia</hi> und <hi rendition="#aq">Exercitia</hi> miteinander gemein haben, und von ſolchen und denen darinn<lb/>
+<hi rendition="#aq">docir</hi>enden Lehr-Meiſtern zugleich <hi rendition="#aq">participir</hi>en und <hi rendition="#aq">profitir</hi>en koͤnnen, was her-<lb/>
+nach ſolche <hi rendition="#aq">Lectiones</hi> ſeyu, welche vor die Erſte allein ausgeſetzt, koͤnnen ſolche<lb/>
+auff die Stunden verſchoben werden, in welchen die letztere ihre <hi rendition="#aq">militari</hi>ſche<lb/>
+<hi rendition="#aq">Functiones</hi> auſſerhalb Hauſes in der Stadt oder bey Hof, auff der <hi rendition="#aq">Parade</hi> oder<lb/>
+<hi rendition="#aq">Exercir -</hi> Platz abwarten muͤſſen, indeſſen genieſſen ſie doch beyde eines Hauſes<lb/>
+und Obdachs, wann daſſelbe zumahl mit einer ſolchen Geraum- und Bequem-<lb/>
+lichkeit, ſchoͤner Ordnung und Zierlichkeit, (als das allhier in Alt - Dreßden<lb/>
+neu - errichtete Ritter- und <hi rendition="#aq">Cadets - Academie -</hi> Hauß) auffgefuͤhret iſt.</p><lb/>
+<p>Der <hi rendition="#aq">Academiſt</hi>en beyderley Sorten <hi rendition="#aq">Lectiones</hi> und <hi rendition="#aq">Exercitia</hi> betreffend,<lb/>
+ſeynd ſelbige entweder ſolche, die ſie beyde unter ſich gemein haben, oder auch<lb/>
+ſolche, denen eine Parthey mehr als die andere obliegen muß, die beyden Thei-<lb/>
+len gemein ſeynde, ſeynd die <hi rendition="#aq">Pietät</hi> und <hi rendition="#aq">Moralität</hi> oder <hi rendition="#aq">Ethica,</hi> das Leſen, Schrei-<lb/>
+ben und Rechnen, die <hi rendition="#aq">Geometria, Geographia, Hiſtoria,</hi> das <hi rendition="#aq">Jus Naturæ, Civile<lb/>
+Militəre</hi> und <hi rendition="#aq">Publicum,</hi> einige Theile der <hi rendition="#aq">Mathematic,</hi> ſonderlich der <hi rendition="#aq">Civil - Ar-<lb/>
+chitectur,</hi> und <hi rendition="#aq">Mechanic,</hi> ferner das Zeichnen, die Frantzoͤſiſch und Jtaliaͤniſche<lb/>
+Sprachen, oder was ſonſt vor eine Sprach der gegenwaͤrtige <hi rendition="#aq">Status Patriæ Po-<lb/>
+liticus</hi> erfordern moͤchte, von <hi rendition="#aq">Exercitiis</hi> aber ſeynd es Fechten, Reiten und Tan-<lb/>
+tzen, von welchen allen die <hi rendition="#aq">M<supplied>i</supplied>litairi</hi>ſche <hi rendition="#aq">Cadets</hi> (die <hi rendition="#aq">Geographiam</hi> und <hi rendition="#aq">Geome-<lb/>
+triam</hi> und aus denen Theilen der <hi rendition="#aq">Matheſin,</hi> die <hi rendition="#aq">Fortification, Navigation, Ar-<lb/>
+tiglerie,</hi> aus dem <hi rendition="#aq">Jure</hi> ihres und anderer Laͤnder Kriegs-Rechte, aus der Hi-<lb/>
+ſtoria, was die vornehmſten Kriegs-Geſchichte, <hi rendition="#aq">Maximes</hi> und <hi rendition="#aq">Stratagemata</hi> ſeyn,<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="48" facs="#f0048"/>
+und ſo auch von <hi rendition="#aq">Exercitiis</hi> das Fechten, <hi rendition="#aq">Voltigir</hi>en, item ein Pferd auff gut<lb/>
+<choice><sic><supplied>￼</supplied>goldatiſch</sic><corr>ſoldatiſch</corr></choice> zu reuten, <hi rendition="#aq">Piqu</hi>en, Fahnen-ſchwingen, und dergleichen,<hi rendition="#i">)</hi> vor denen<lb/>
+S<hi rendition="#aq">iliſt</hi>en am ſtaͤrckſten treiben muͤſſen, hingegen muͤſſen ſich dieſe mehr auff das<lb/>
+us <hi rendition="#aq">Civile</hi> und <hi rendition="#aq">Publicum, item</hi> auff ſolche Sprachen, die beydes zur Gelehrſam-<lb/>
+eit dienen, als <hi rendition="#aq">Uſuales</hi> ſeyn, ferner auff die <hi rendition="#aq">Partes ſublimiores</hi> der <hi rendition="#aq">Matheſin,</hi><lb/>
+vrnehmlich auff <hi rendition="#aq">Aſtronomiam, Opticam, Perſpectivam</hi> und <hi rendition="#aq">Mechanicam,</hi> in-<lb/>
+leichen auff das <hi rendition="#aq">Studium Genealogicum, Chronologicum</hi> und <hi rendition="#aq">Heraldicum</hi> von<lb/>
+<hi rendition="#aq">ixercitiis</hi> aber ebenfalls auff das Fechten und Tantzen, ſonderlich aber auff die<lb/>
+ey Hoff und <hi rendition="#aq">Solennität</hi>en beliebte Theile der zierlichen Reit-Kunſt legen, worzu<lb/>
+hernach geſchickte Lehr-Meiſters und <hi rendition="#aq">Profeſſores</hi> in <hi rendition="#aq">Hiſloricis, Geographicis</hi> und<lb/>
+<hi rendition="#aq">Mathematicis,</hi> vornehmlich in der Kriegs-Bau-Kunſt, in Sprachen und <hi rendition="#aq">Exer-<lb/>
+citiis</hi> <hi rendition="#i">(</hi>dergleichen das loͤbliche <hi rendition="#aq">Corps</hi> der Adelichen <hi rendition="#aq">Cadets</hi> in Dreßden, ſchon<lb/>
+von vielen Jahren her in allen ihnen zu <hi rendition="#aq">docir</hi>en obliegenden Wiſſenſchafften und<lb/>
+<hi rendition="#aq">Exercitiis</hi> vortreffliche aufzuweiſen hat,) die beſte <hi rendition="#aq">Method</hi>en durch lange Ubung her,<lb/>
+werden zu gebrauchen wiſſen, was hierauff ferner noch von neuen und mehrern<lb/>
+Wiſſenſchafften und <hi rendition="#aq">Exercitiis</hi> einzufuͤhren ſeyn moͤchte, dafuͤr traͤgt hernach bey<lb/>
+groſſen und neu-anzulegenden Ritter-Schulen, ein hohes <hi rendition="#aq">Directorium</hi> die ge-<lb/>
+buͤhrende Vorſorg, daß an <hi rendition="#aq">habil</hi>en <hi rendition="#aq">Docentibus,</hi> <hi rendition="#i">(</hi>zumahl bey dem in Teutſch-<lb/>
+Land davon zu findenden groſſen <hi rendition="#aq">Numero</hi>) kein Mangel erſcheinen moͤge.</p><lb/>
+<p>Endlich ſo kommt auch der <hi rendition="#aq">Oeconomie</hi> wegen, bey ſolchen groſſen und<lb/>
+koſtbaren <hi rendition="#aq">Inſtitutis</hi> (dergleichen Zahlreiche Ritter- und <hi rendition="#aq">Cadets- Academi</hi>en ſeyn,)<lb/>
+dieſer Unterſcheid in <hi rendition="#aq">Conſideration,</hi> daß eine andere Speiß-Ordnung bey denen<lb/>
+auff des Landes Unkoſten unterhaltenen, eine andere bey denen vor ihr Geld in<lb/>
+der <hi rendition="#aq">Academie</hi> lebenden einzufuͤhren ſey, wie aber in beyden das rechte Maaß zu<lb/>
+treffen, ſolches will allhier weiter auszufuͤhren die Zeit und der Raum nicht lei-<lb/>
+den, wir werden uns aber ſolches kuͤnfftig zu thun vorbehalten, und ſonderlich<lb/>
+bey ſolcher Gelegenheit anweiſen, wie dergleichen Ritter-<hi rendition="#aq">Academi</hi>en in <hi rendition="#aq">perpe-<lb/>
+tuir</hi>lichen <hi rendition="#aq">Flor</hi> zu erhalten, die <hi rendition="#aq">Statuta Leges</hi> und Ordnungen derſelben, wie auch<lb/>
+die <hi rendition="#aq">Collegia</hi> und <hi rendition="#aq">Lectiones</hi> wohl einzurichten, und endlich diejenige Klippen,<lb/>
+<hi rendition="#c">bey welchen etwan vormahls ein und andere Auslaͤndiſche Schiff-<lb/>
+bruch gelitten, gluͤcklich zu <hi rendition="#aq">evitir</hi>en ſeyn.</hi></p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</body></text> </TEI>

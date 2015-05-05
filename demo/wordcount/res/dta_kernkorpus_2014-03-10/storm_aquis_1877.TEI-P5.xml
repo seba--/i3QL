@@ -1,0 +1,3856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Aquis submersus</title>
+<title type="sub">Novelle</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118618725">
+<surname>Storm</surname>
+<forename>Theodor</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">179</measure>
+<measure type="tokens">24183</measure>
+<measure type="types">5433</measure>
+<measure type="characters">158478</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:22Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/storm_aquis_1877</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/storm_aquis_1877</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/storm_aquis_1877</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/storm_aquis_1877</idno>
+<idno type="DTADirName">storm_aquis_1877</idno>
+<idno type="DTAID">16219</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905196084</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Storm, Theodor: Aquis submersus. Berlin, 1877.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Aquis submersus</title>
+<title level="m" type="sub">Novelle</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118618725">
+<surname>Storm</surname>
+<forename>Theodor</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">158 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Paetel</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1877</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Yx 17809&lt;a&gt; R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=55201849X</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Novelle</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#aq">AQUIS SUBMERSUS</hi>.<lb/>
+</titlePart> </docTitle> <milestone unit="section" rendition="#hr"/><lb/>
+</titlePage>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<pb facs="#f0010"/>
+<div type="frontispiece"> <figure/> </div>
+<pb facs="#f0011"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#aq">AQUIS SUBMERSUS.</hi><lb/>
+</titlePart> <milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="sub">Novelle<lb/>
+</titlePart> </docTitle> <byline>von<lb/>
+<docAuthor>Theodor Storm.<lb/>
+</docAuthor> </byline> <milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="desc"> <hi rendition="#g">Mit einem Titelbilde</hi><lb/>
+von<lb/>
+Paul Meyerheim.<lb/>
+</titlePart> <figure/><lb/>
+<docImprint> <pubPlace>Berlin<lb/>
+</pubPlace> <publisher> <hi rendition="#g">Verlag von Gebrüder Paetel.</hi><lb/>
+</publisher> <docDate>1877.<lb/>
+</docDate> </docImprint> </titlePage>
+<pb facs="#f0012"/>
+<div type="copyright"> <p rendition="#c">Alle Rechte vorbehalten.<lb/>
+</p> </div>
+<pb facs="#f0013"/>
+<div type="dedication"> <p rendition="#c">Seinem Landsmann<lb/>
+<hi rendition="#g">Wilhelm Jenſen</hi><lb/>
+ſendet dieſes Buch<lb/>
+<hi rendition="#g">als Gruß aus der Heimath</hi><lb/>
+der Verfaſſer.</p><lb/>
+</div>
+<pb facs="#f0014"/>
+</front>
+<pb n="[1]" facs="#f0015"/>
+<body> <p> <hi rendition="#in">I</hi>n unſerem zu dem früher herzoglichen Schloſſe<lb/>
+gehörigen, ſeit Menſchengedenken aber ganz<lb/>
+vernachläſſigten „Schloßgarten“ waren ſchon in<lb/>
+meiner Knabenzeit die einſt im altfranzöſiſchen<lb/>
+Stile angelegten Hagebuchenhecken zu dünnen, ge¬<lb/>
+ſpenſtiſchen Alleen ausgewachſen; da ſie indeſſen<lb/>
+immerhin noch einige Blätter tragen, ſo wiſſen<lb/>
+wir Hieſigen, durch Laub der Bäume nicht ver¬<lb/>
+wöhnt, ſie gleichwol auch in dieſer Form zu<lb/>
+ſchätzen; und zumal von uns nachdenklichen Leu¬<lb/>
+ten wird immer der Eine oder Andere dort zu<lb/>
+treffen ſein. Wir pflegen dann unter dem dürf¬<lb/>
+tigen Schatten nach dem ſogenannten „Berg“<lb/>
+zu wandeln, einer kleinen Anhöhe in der nord¬<lb/>
+weſtlichen Ecke des Gartens oberhalb dem aus¬<lb/>
+getrockneten Bette eines Fiſchteiches, von wo aus<lb/>
+der weiteſten Ausſicht nichts im Wege ſteht.</p><lb/>
+<fw type="sig" place="bottom">Storm, <hi rendition="#aq">Aquis submersus.</hi> 1<lb/>
+</fw>
+<pb n="2" facs="#f0016"/>
+<p>Die Meiſten mögen wol nach Weſten blicken,<lb/>
+um ſich an dem lichten Grün der Marſchen und<lb/>
+darüberhin an der Silberfluth des Meeres zu<lb/>
+ergötzen, auf welcher das Schattenſpiel der lang¬<lb/>
+geſtreckten Inſel ſchwimmt; meine Augen wenden<lb/>
+unwillkürlich ſich nach Norden, wo, kaum eine<lb/>
+Meile fern, der graue, ſpitze Kirchthurm aus<lb/>
+dem höher belegenen, aber öden Küſtenlande auf¬<lb/>
+ſteigt; denn dort liegt eine von den Stätten<lb/>
+meiner Jugend.</p><lb/>
+<p>Der Paſtorsſohn aus jenem Dorfe beſuchte<lb/>
+mit mir die „Gelehrtenſchule“ meiner Vaterſtadt,<lb/>
+und unzählige Male ſind wir am Sonnabend¬<lb/>
+nachmittage zuſammen dahinausgewandert, um<lb/>
+dann am Sonntagabend oder Montags früh zu<lb/>
+unſerem Nepos, oder ſpäter zu unſerem Cicero<lb/>
+nach der Stadt zurückzukehren. Es war damals<lb/>
+aus der Mitte des Weges noch ein gut Stück<lb/>
+ungebrochener Haide übrig, wie ſie ſich einſt nach<lb/>
+der einen Seite bis faſt zur Stadt, nach der<lb/>
+anderen ebenſo gegen das Dorf erſtreckt hatte.<lb/>
+Hier ſummten auf den Blüthen des duftenden<lb/>
+<pb n="3" facs="#f0017"/>
+Haidekrauts die Immen und weißgrauen Hum¬<lb/>
+meln und rannte unter den dürren Stengeln<lb/>
+deſſelben der ſchöne, goldgrüne Laufkäfer; hier<lb/>
+in den Duftwolken der Eriken und des harzigen<lb/>
+Gagelſtrauches ſchwebten Schmetterlinge, die nir¬<lb/>
+gends ſonſt zu finden waren. Mein ungeduldig<lb/>
+dem Elternhauſe zuſtrebender Freund hatte oft<lb/>
+ſeine liebe Noth, ſeinen träumeriſchen Genoſſen<lb/>
+durch all' die Herrlichkeiten mit ſich fort zu bringen;<lb/>
+hatten wir jedoch das angebaute Feld erreicht,<lb/>
+dann ging es auch um deſto munterer vorwärts,<lb/>
+und bald, wenn wir nur erſt den langen Sand¬<lb/>
+weg hinaufwateten, erblickten wir auch ſchon über<lb/>
+dem dunklen Grün einer Fliederhecke den Giebel<lb/>
+des Paſtorhauſes, aus dem das Studirzimmer<lb/>
+des Paſtors mit ſeinen kleinen, blinden Fenſter¬<lb/>
+ſcheiben auf die bekannten Gäſte hinabgrüßte.</p><lb/>
+<p>Bei den Paſtorsleuten, deren einziges Kind<lb/>
+mein Freund war, hatten wir allezeit, wie wir<lb/>
+hier zu ſagen pflegen, fünf Quartier auf der<lb/>
+Elle, ganz abgeſehen von der wunderbaren Natu¬<lb/>
+ralverpflegung. Nur die Silberpappel, der einzig<lb/>
+<fw type="sig" place="bottom">1 *<lb/>
+</fw>
+<pb n="4" facs="#f0018"/>
+hohe und alſo auch einzig verlockende Baum des<lb/>
+Dorfes, welche ihre Zweige ein gut Stück ober¬<lb/>
+halb des bemooſten Strohdaches rauſchen ließ,<lb/>
+war gleich dem Apfelbaum des Paradieſes uns<lb/>
+verboten und wurde daher nur heimlich von uns<lb/>
+erklettert; ſonſt war, ſo viel ich mich entſinne,<lb/>
+Alles erlaubt und wurde je nach unſerer Alters¬<lb/>
+ſtufe beſtens von uns ausgenutzt.</p><lb/>
+<p>Der Hauptſchauplatz unſerer Thaten war die<lb/>
+große „Prieſterkoppel“, zu der ein Pförtchen aus<lb/>
+dem Garten führte. Hier wußten wir mit dem<lb/>
+den Buben angebornen Inſtincte die Neſter der<lb/>
+Lerchen und der Grauammern aufzuſpüren, denen<lb/>
+wir dann die wiederholteſten Beſuche abſtatteten,<lb/>
+um nachzuſehen, wie weit in den letzten zwei<lb/>
+Stunden die Eier oder die Jungen nun gediehen<lb/>
+ſeien; hier auf einer tiefen und, wie ich jetzt<lb/>
+meine, nicht weniger als jene Pappel gefährlichen<lb/>
+Waſſergrube, deren Rand mit alten Weiden¬<lb/>
+ſtümpfen dicht umſtanden war, fingen wir die<lb/>
+flinken ſchwarzen Käfer, die wir „Waſſerfranzoſen“<lb/>
+nannten, oder ließen wir ein ander Mal unſere<lb/>
+<pb n="5" facs="#f0019"/>
+auf einer eigens angelegten Werft erbaute Kriegs¬<lb/>
+flotte aus Wallnußſchaalen und Schachteldeckeln<lb/>
+ſchwimmen. Im Spätſommer geſchah es dann<lb/>
+auch wol, daß wir aus unſerer Koppel einen<lb/>
+Raubzug nach des Küſters Garten machten, wel¬<lb/>
+cher gegenüber dem des Paſtorates an der an¬<lb/>
+deren Seite der Waſſergrube lag; denn wir hatten<lb/>
+dort von zwei verkrüppelten Apfelbäumen unſeren<lb/>
+Zehnten einzuheimſen, wofür uns freilich gelegent¬<lb/>
+lich eine freundſchaftliche Drohung von dem gut¬<lb/>
+müthigen alten Manne zu Theil wurde. — So<lb/>
+viele Jugendfreuden wuchſen auf dieſer Prieſter¬<lb/>
+koppel, in deren dürrem Sandboden andere Blu¬<lb/>
+men nicht gedeihen wollten; nur den ſcharfen<lb/>
+Duft der goldknopfigen Rainfarren, die hier<lb/>
+haufenweis auf allen Wällen ſtanden, ſpüre ich<lb/>
+noch heute in der Erinnerung, wenn jene Zeiten<lb/>
+mir lebendig werden.</p><lb/>
+<p>Doch alles Dieſes beſchäftigte uns nur vor¬<lb/>
+übergehend; meine dauernde Theilnahme dagegen<lb/>
+erregte ein Anderes, dem wir ſelbſt in der Stadt<lb/>
+nichts an die Seite zu ſetzen hatten. — Ich meine<lb/>
+<pb n="6" facs="#f0020"/>
+damit nicht etwa die Röhrenbauten der Lehm¬<lb/>
+wespen, die überall aus den Mauerfugen des<lb/>
+Stalles hervorragten, obſchon es anmuthig genug<lb/>
+war, in beſchaulicher Mittagsſtunde das Aus-<lb/>
+und Einfliegen der emſigen Thierchen zu beob¬<lb/>
+achten; ich meine den viel größeren Bau der<lb/>
+alten und ungewöhnlich ſtattlichen Dorfkirche.<lb/>
+Bis an das Schindeldach des hohen Thurmes<lb/>
+war ſie von Grund auf aus Granitquadern auf¬<lb/>
+gebaut und beherrſchte, aus dem höchſten Punkt<lb/>
+des Dorfes ſich erhebend, die weite Schau über<lb/>
+Haide, Strand und Marſchen. — Die meiſte<lb/>
+Anziehungskraft für mich hatte indeß das Innere<lb/>
+der Kirche; ſchon der ungeheure Schlüſſel, der<lb/>
+von dem Apoſtel Petrus ſelbſt zu ſtammen ſchien,<lb/>
+erregte meine Phantaſie. Und in der That er¬<lb/>
+ſchloß er auch, wenn wir ihn glücklich dem alten<lb/>
+Küſter abgewonnen hatten, die Pforte zu manchen<lb/>
+wunderbaren Dingen, aus denen eine längſt ver¬<lb/>
+gangene Zeit hier wie mit finſteren, dort mit<lb/>
+kindlich frommen Augen, aber immer in geheim¬<lb/>
+nißvollem Schweigen zu uns Lebenden aufblickte.<lb/>
+<pb n="7" facs="#f0021"/>
+Da hing mitten in die Kirche hinab ein ſchrecklich<lb/>
+übermenſchlicher Crucifixus, deſſen hagere Glieder<lb/>
+und verzerrtes Antlitz mit Blute überrieſelt waren;<lb/>
+dem zur Seite an einem Mauerpfeiler haftete<lb/>
+gleich einem Neſt die braungeſchnitzte Kanzel, an<lb/>
+der aus Frucht- und Blattgewinden allerlei Thier-<lb/>
+und Teufelsfratzen ſich hervorzudrängen ſchienen.<lb/>
+Beſondere Anziehung aber übte der große, ge¬<lb/>
+ſchnitzte Altarſchrank im Chor der Kirche, auf<lb/>
+dem in bemalten Figuren die Leidensgeſchichte<lb/>
+Chriſti dargeſtellt war; ſo ſeltſam wilde Geſichter,<lb/>
+wie das des Kaiphas oder die der Kriegsknechte,<lb/>
+welche in ihren goldenen Harniſchen um des<lb/>
+Gekreuzigten Mantel würfelten, bekam man<lb/>
+draußen im Alltagsleben nicht zu ſehen; tröſtlich<lb/>
+damit contraſtirte nur das holde Antlitz der am<lb/>
+Kreuze hingeſunkenen Maria; ja, ſie hätte leicht<lb/>
+mein Knabenherz mit einer phantaſtiſchen Neigung<lb/>
+beſtricken können, wenn nicht ein Anderes mit<lb/>
+noch ſtärkerem Reize des Geheimnißvollen mich<lb/>
+immer wieder von ihr abgezogen hätte.</p><lb/>
+<p>Unter all' dieſen ſeltſamen oder wol gar<lb/>
+<pb n="8" facs="#f0022"/>
+unheimlichen Dingen hing im Schiff der Kirche<lb/>
+das unſchuldige Bildniß eines todten Kindes,<lb/>
+eines ſchönen, etwa fünfjährigen Knaben, der,<lb/>
+aus einem mit Spitzen beſetzten Kiſſen ruhend,<lb/>
+eine weiße Waſſerlilie in ſeiner kleinen, bleichen<lb/>
+Hand hielt. Aus dem zarten Antlitz ſprach neben<lb/>
+dem Grauen des Todes, wie hülfeflehend, noch<lb/>
+eine letzte holde Spur des Lebens; ein unwider¬<lb/>
+ſtehliches Mitleid befiel mich, wenn ich vor dieſem<lb/>
+Bilde ſtand.</p><lb/>
+<p>Aber es hing nicht allein hier; dicht daneben<lb/>
+ſchaute aus dunklem Holzrahmen ein finſterer<lb/>
+ſchwarzbärtiger Mann in Prieſterkragen und<lb/>
+Sammar. Mein Freund ſagte mir, es ſei der<lb/>
+Vater jenes ſchönen Knaben; dieſer ſelbſt, ſo<lb/>
+gehe noch heute die Sage, ſolle einſt in der<lb/>
+Waſſergrube unſerer Prieſterkoppel ſeinen Tod<lb/>
+gefunden haben. Auf dem Rahmen laſen wir<lb/>
+die Jahrzahl 1666; das war lange her. Immer<lb/>
+wieder zog es mich zu dieſen beiden Bildern;<lb/>
+ein phantaſtiſches Verlangen ergriff mich, von<lb/>
+dem Leben und Sterben des Kindes eine nähere<lb/>
+<pb n="9" facs="#f0023"/>
+wenn auch noch ſo karge Kunde zu erhalten; ſelbſt<lb/>
+aus dem düſtern Antlitz des Vaters, das trotz<lb/>
+des Prieſterkragens mich faſt an die Kriegsknechte<lb/>
+des Altarſchranks gemahnen wollte, ſuchte ich ſie<lb/>
+herauszuleſen.</p><lb/>
+<p>— — Nach ſolchen Studien dem Dämmer¬<lb/>
+licht der alten Kirche erſchien dann das Haus<lb/>
+der guten Paſtorsleute nur um ſo gaſtlicher.<lb/>
+Freilich war es gleichfalls hoch zu Jahren, und<lb/>
+der Vater meines Freundes hoffte, ſo lange ich<lb/>
+denken konnte, auf einen Neubau; da aber die<lb/>
+Küſterei an derſelben Altersſchwäche litt, wurde<lb/>
+weder hier noch dort gebaut. — Und doch, wie<lb/>
+freundlich waren trotzdem die Räume des alten<lb/>
+Hauſes; im Winter die kleine Stube rechts, im<lb/>
+Sommer die größere links vom Hausflur, wo<lb/>
+die aus den Reformationsalmanachen herausge¬<lb/>
+ſchnittenen Bilder in Mahagonirähmchen an der<lb/>
+weißgetünchten Wand hingen, wo man aus dem<lb/>
+weſtlichen Fenſter nur eine ferne Windmühle,<lb/>
+außerdem aber den ganzen weiten Himmel vor<lb/>
+ſich hatte, der ſich Abends in roſenrothem Schein<lb/>
+<pb n="10" facs="#f0024"/>
+verklärte und das ganze Zimmer überglänzte!<lb/>
+Die lieben Paſtorsleute, die Lehnſtühle mit den<lb/>
+rothen Plüſchkiſſen, das alte tiefe Sopha, auf<lb/>
+dem Tiſch beim Abendbrod der traulich ſauſende<lb/>
+Theekeſſel, — es war Alles helle, freundliche<lb/>
+Gegenwart. Nur eines Abends — wir waren<lb/>
+derzeit ſchon Secundaner — kam mir der Ge¬<lb/>
+danke, welch' eine Vergangenheit an dieſen Räu¬<lb/>
+men hafte, ob nicht gar jener todte Knabe einſt mit<lb/>
+friſchen Wangen hier leibhaftig umhergeſprungen<lb/>
+ſei, deſſen Bildniß jetzt wie mit einer wehmüthig<lb/>
+holden Sage den düſteren Kirchenraum erfüllte.</p><lb/>
+<p>Veranlaſſung zu ſolcher Nachdenklichkeit mochte<lb/>
+geben, daß ich am Nachmittage, wo mir auf<lb/>
+meinen Antrieb wieder einmal die Kirche beſucht<lb/>
+hatten, unten in einer dunkelen Ecke des Bildes<lb/>
+vier mit rother Farbe geſchriebene Buchſtaben<lb/>
+entdeckt hatte, die mir bis jetzt entgangen waren.</p><lb/>
+<p>„Sie lauten <hi rendition="#aq">C. P. A. S.</hi>“, ſagte ich zu dem<lb/>
+Vater meines Freundes; „aber wir können ſie<lb/>
+nicht enträthſeln.“</p><lb/>
+<p>„Nun,“ erwiederte dieſer; „die Inſchrift iſt<lb/>
+<pb n="11" facs="#f0025"/>
+mir wohl bekannt; und nimmt man das Gerücht<lb/>
+zu Hülfe, ſo möchten die beiden letzten Buchſtaben<lb/>
+wol mit ‚<hi rendition="#aq">Aquis Submersus</hi>‘, alſo mit ‚Ertrunken‘<lb/>
+oder wörtlich ‚Im Waſſer verſunken‘ zu deuten<lb/>
+ſein; nur mit dem vorangehenden <hi rendition="#aq">C</hi>. <hi rendition="#aq">P</hi>. wäre<lb/>
+man dann noch immer in Verlegenheit! Der<lb/>
+junge Adjunctus unſeres Küſters, der einmal die<lb/>
+Quarta paſſirt iſt, meint zwar, es könne ‚<hi rendition="#aq">Casu<lb/>
+Periculoso</hi>‘, ‚Durch gefährlichen Zufall‘ heißen;<lb/>
+aber die alten Herren jener Zeit dachten logiſcher;<lb/>
+wenn der Knabe dabei ertrank, ſo war der Zu¬<lb/>
+fall nicht nur blos gefährlich.“</p><lb/>
+<p>Ich hatte begierig zugehört. „<hi rendition="#aq">Casu</hi>“ ſagte<lb/>
+ich; „es könnte auch wol ‚<hi rendition="#aq">Culpa</hi>‘ heißen?“</p><lb/>
+<p>„<hi rendition="#aq">Culpa</hi>?“ wiederholte der Paſtor. „Durch<lb/>
+Schuld? — aber durch weſſen Schuld!“</p><lb/>
+<p>Da trat das finſtere Bild des alten Predigers<lb/>
+mir vor die Seele, und ohne viel Beſinnen rief<lb/>
+ich: „Warum nicht: ‚<hi rendition="#aq">Culpa Patris</hi>?‘“</p><lb/>
+<p>Der gute Paſtor war faſt erſchrocken. „Ei, ei,<lb/>
+mein junger Freund,“ ſagte er und erhob war¬<lb/>
+nend den Finger gegen mich. „Durch Schuld<lb/>
+<pb n="12" facs="#f0026"/>
+des Vaters? — So wollen wir trotz ſeines düſteren<lb/>
+Anſehens meinen ſeligen Amtsbruder doch nicht<lb/>
+beſchuldigen. Auch würde er dergleichen wol<lb/>
+ſchwerlich von ſich haben ſchreiben laſſen.“</p><lb/>
+<p>Dies Letztere wollte auch meinem jugendlichen<lb/>
+Verſtande einleuchten; und ſo blieb denn der<lb/>
+eigentliche Sinn der Inſchrift nach wie vor ein<lb/>
+Geheimniß der Vergangenheit.</p><lb/>
+<p>Daß übrigens jene beiden Bilder ſich auch<lb/>
+in der Malerei weſentlich vor einigen alten<lb/>
+Predigerbildniſſen auszeichneten, welche gleich<lb/>
+daneben hingen, war mir ſelbſt ſchon klar ge¬<lb/>
+worden; daß aber Sachverſtändige in dem Maler<lb/>
+einen tüchtigen Schüler altholländiſcher Meiſter<lb/>
+erkennen wollten, erfuhr ich freilich jetzt erſt durch<lb/>
+den Vater meines Freundes. Wie jedoch ein<lb/>
+ſolcher in dieſes arme Dorf verſchlagen worden,<lb/>
+oder woher er gekommen und wie er geheißen<lb/>
+habe, darüber wußte auch er mir nichts zu ſagen.<lb/>
+Die Bilder ſelbſt enthielten weder einen Namen,<lb/>
+noch ein Malerzeichen.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="13" facs="#f0027"/>
+<p>Die Jahre gingen hin. Während wir die<lb/>
+Univerſität beſuchten, ſtarb der gute Paſtor, und<lb/>
+die Mutter meines Schulgenoſſen folgte ſpäter<lb/>
+ihrem Sohne auf deſſen inzwiſchen anderswo er¬<lb/>
+reichte Pfarrſtelle; ich hatte keine Veranlaſſung<lb/>
+mehr, nach jenem Dorfe zu wandern. — Da, als<lb/>
+ich ſelbſt ſchon in meiner Vaterſtadt wohnhaft<lb/>
+war, geſchah es, daß ich für den Sohn eines<lb/>
+Verwandten ein Schülerquartier bei guten Bür¬<lb/>
+gersleuten zu beſorgen hatte. Der eigenen Jugend¬<lb/>
+zeit gedenkend, ſchlenderte ich im Nachmittags¬<lb/>
+ſonnenſcheine durch die Straßen, als mir an der<lb/>
+Ecke des Marktes über der Thür eines alten,<lb/>
+hochgegiebelten Hauſes eine plattdeutſche Inſchrift<lb/>
+in die Augen fiel, die verhochdeutſcht etwa lauten<lb/>
+würde:</p><lb/>
+<lg type="poem"> <l>Gleich ſo wie Rauch und Staub verſchwindt,</l><lb/>
+<l>Alſo ſind auch die Menſchenkind'.</l><lb/>
+</lg> <p>Die Worte mochten für jugendliche Augen<lb/>
+wol nicht ſichtbar ſein; denn ich hatte ſie nie<lb/>
+bemerkt, ſo oft ich auch in meiner Schulzeit mir<lb/>
+einen Heißewecken bei dem dort wohnenden Bäcker<lb/>
+<pb n="14" facs="#f0028"/>
+geholt hatte. Faſt unwillkürlich trat ich in das<lb/>
+Haus; und in der That, es fand ſich hier ein<lb/>
+Unterkommen für den jungen Vetter. Die Stube<lb/>
+ihrer alten „Mödderſch“ (Mutterſchweſter) — ſo<lb/>
+ſagte mir der freundliche Meiſter —, von der ſie<lb/>
+Haus und Betrieb geerbt hätten, habe ſeit Jahren<lb/>
+leer geſtanden; ſchon lange hätten ſie ſich einen<lb/>
+jungen Gaſt dafür gewünſcht.</p><lb/>
+<p>Ich wurde eine Treppe hinaufgeführt, und<lb/>
+wir betraten dann ein ziemlich niedriges, alter¬<lb/>
+thümlich ausgeſtattetes Zimmer, deſſen beide<lb/>
+Fenſter mit ihren kleinen Scheiben auf den ge¬<lb/>
+räumigen Marktplatz hinausgingen. Früher, er¬<lb/>
+zählte der Meiſter, ſeien zwei uralte Linden vor<lb/>
+der Thür geweſen; aber er habe ſie ſchlagen<lb/>
+laſſen, da ſie allzuſehr in's Haus gedunkelt und<lb/>
+auch hier die ſchöne Ausſicht ganz verdeckt hätten.</p><lb/>
+<p>Ueber die Bedingungen wurden wir bald in<lb/>
+allen Theilen einig; während wir dann aber noch<lb/>
+über die jetzt zu treffende Einrichtung des Zim¬<lb/>
+mers ſprachen, war mein Blick auf ein im<lb/>
+Schatten eines Schrankes hängendes Oelgemälde<lb/>
+<pb n="15" facs="#f0029"/>
+gefallen, das plötzlich meine ganze Aufmerkſam¬<lb/>
+keit hinwegnahm. Es war noch wohl erhalten<lb/>
+und ſtellte einen älteren, ernſt und milde blicken¬<lb/>
+den Mann dar, in einer dunklen Tracht, wie in<lb/>
+der Mitte des ſiebzehnten Jahrhunderts ſie die¬<lb/>
+jenigen aus den vornehmeren Ständen zu tragen<lb/>
+pflegten, welche ſich mehr mit Staatsſachen oder<lb/>
+gelehrten Dingen, als mit dem Kriegshandwerke<lb/>
+beſchäftigten.</p><lb/>
+<p>Der Kopf des alten Herrn, ſo ſchön und an¬<lb/>
+ziehend und ſo trefflich gemalt er immer ſein<lb/>
+mochte, hatte indeſſen nicht dieſe Erregung in<lb/>
+mir hervorgebracht; aber der Maler hatte ihm<lb/>
+einen blaſſen Knaben in den Arm gelegt, der in<lb/>
+ſeiner kleinen ſchlaff herabhängenden Hand eine<lb/>
+weiße Waſſerlilie hielt; — und dieſen Knaben<lb/>
+kannte ich ja längſt. Auch hier war es wol der<lb/>
+Tod, der ihm die Augen zugedrückt hatte.</p><lb/>
+<p>„Woher iſt dieſes Bild?“ fragte ich endlich,<lb/>
+da ich plötzlich inne wurde, daß der vor mir<lb/>
+ſtehende Meiſter mit ſeiner Auseinanderſetzung<lb/>
+innegehalten hatte.</p><lb/>
+<pb n="16" facs="#f0030"/>
+<p>Er ſah mich verwundert an. „Das alte<lb/>
+Bild? Das iſt von unſerer Mödderſch,“ erwie¬<lb/>
+derte er: „es ſtammt von ihrem Urgroßonkel,<lb/>
+der ein Maler geweſen und vor mehr als hun¬<lb/>
+dert Jahren hier gewohnt hat. Es ſind noch<lb/>
+andre Siebenſachen von ihm da.“</p><lb/>
+<p>Bei dieſen Worten zeigte er nach einer kleinen<lb/>
+Lade von Eichenholz, aus welcher allerlei geo¬<lb/>
+metriſche Figuren recht zierlich eingeſchnitten waren.</p><lb/>
+<p>Als ich ſie von dem Schranke, auf dem ſie<lb/>
+ſtand, herunternahm, fiel der Deckel zurück, und<lb/>
+es zeigten ſich mir als Inhalt einige ſtark ver¬<lb/>
+gilbte Papierblätter mit ſehr alten Schriftzügen.</p><lb/>
+<p>„Darf ich die Blätter leſen?“ fragte ich.</p><lb/>
+<p>„Wenn's Ihnen Plaiſir macht,“ erwiederte<lb/>
+der Meiſter, „ſo mögen Sie die ganze Sache mit<lb/>
+nach Hauſe nehmen; es ſind ſo alte Schriften;<lb/>
+Werth ſteckt nicht darin.“</p><lb/>
+<p>Ich aber erbat mir und erhielt auch die Er¬<lb/>
+laubniß, dieſe werthloſen Schriften hier an Ort<lb/>
+und Stelle leſen zu dürfen; und während ich<lb/>
+mich dem alten Bilde gegenüber in einen mäch¬<lb/>
+<pb n="17" facs="#f0031"/>
+tigen Ohrenlehnſtuhl ſetzte, verließ der Meiſter<lb/>
+das Zimmer, zwar immer noch erſtaunt, doch<lb/>
+gleichwol die freundliche Verheißung zurücklaſſend,<lb/>
+daß ſeine Frau mich bald mit einer guten Taſſe<lb/>
+Kaffee regaliren werde.</p><lb/>
+<p>Ich aber las, und hatte im Leſen bald Alles<lb/>
+um mich her vergeſſen.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">S</hi>o war ich denn wieder daheim in unſerm<lb/>
+Holſtenlande; am Sonntage Cantate war es<lb/>
+<hi rendition="#aq">anno</hi> 1661! — Mein Malgeräth und ſonſtiges<lb/>
+Gepäcke hatte ich in der Stadt zurückgelaſſen und<lb/>
+wanderte nun fröhlich fürbaß, die Straße durch<lb/>
+den maiengrünen Buchenwald, der von der See<lb/>
+in's Land hinaufſteigt. Vor mir her flogen ab<lb/>
+und zu ein paar Waldvöglein und letzeten ihren<lb/>
+Durſt an dem Waſſer, ſo in den tiefen Rad¬<lb/>
+geleiſen ſtund; denn ein linder Regen war gefallen<lb/>
+über Nacht und noch gar früh am Vormittage,<lb/>
+<fw type="sig" place="bottom">Storm, <hi rendition="#aq">Aquis submersus</hi>. 2<lb/>
+</fw>
+<pb n="18" facs="#f0032"/>
+ſo daß die Sonne den Waldesſchatten noch nicht<lb/>
+überſtiegen hatte.</p><lb/>
+<p>Der helle Droſſelſchlag, der von den Lich¬<lb/>
+tungen zu mir ſcholl, fand ſeinen Widerhall in<lb/>
+meinem Herzen. Durch die Beſtellungen, ſo mein<lb/>
+theurer Meiſter van der Helſt im letzten Jahre<lb/>
+meines Amſterdamer Aufenthalts mir zugewendet,<lb/>
+war ich aller Sorge quitt geworden; einen guten<lb/>
+Zehrpfennig und einen Wechſel auf Hamburg<lb/>
+trug ich noch itzt in meiner Taſchen; dazu war<lb/>
+ich ſtattlich angethan: mein Haar fiel auf ein<lb/>
+Mäntelchen mit feinem Grauwerk, und der Lütticher<lb/>
+Degen fehlte nicht an meiner Hüfte.</p><lb/>
+<p>Meine Gedanken aber eileten mir voraus;<lb/>
+immer ſah ich Herrn Gerhardus, meinen edlen<lb/>
+großgünſtigen Protector, wie er von der Schwelle<lb/>
+ſeines Zimmers mir die Hände würd' entgegen¬<lb/>
+ſtrecken, mit ſeinem milden Gruße: „So ſegne<lb/>
+Gott Deinen Eingang, mein Johannes!“</p><lb/>
+<p>Er hatte einſt mit meinem lieben, ach, gar<lb/>
+zu früh in die ewige Herrlichkeit genommenen<lb/>
+Vater zu Jena die Rechte ſtudiret und war auch<lb/>
+<pb n="19" facs="#f0033"/>
+nachmals den Künſten und Wiſſenſchaften mit<lb/>
+Fleiße obgelegen, ſo daß er dem Hochſeligen<lb/>
+Herzog Friedrich bei ſeinem edlen, wiewol wegen<lb/>
+der Kriegsläufte vergeblichen Beſtreben um Er¬<lb/>
+richtung einer Landesuniverſität ein einſichtiger<lb/>
+und eifriger Berather geweſen. Obſchon ein<lb/>
+adeliger Mann, war er meinem lieben Vater<lb/>
+doch ſtets in Treuen zugethan blieben, hatte auch<lb/>
+nach deſſen ſeligem Hintritt ſich meiner ver¬<lb/>
+waiſeten Jugend mehr, als zu verhoffen, ange¬<lb/>
+nommen und nicht allein meine ſparſamen Mittel<lb/>
+aufgebeſſert, ſondern auch durch ſeine fürnehme<lb/>
+Bekanntſchaft unter dem Holländiſchen Adel es<lb/>
+dahin gebracht, daß mein theurer Meiſter van<lb/>
+der Helſt mich zu ſeinem Schüler angenommen.</p><lb/>
+<p>Meinte ich doch zu wiſſen, daß der verehrte<lb/>
+Mann unverſehrt auf ſeinem Herrenhofe ſitze;<lb/>
+wofür dem Allmächtigen nicht genug zu danken;<lb/>
+denn, derweilen ich in der Fremde mich der<lb/>
+Kunſt befliſſen, war daheim die Kriegsgreuel<lb/>
+über das Land gekommen; ſo zwar, daß die<lb/>
+Truppen, die gegen den kriegswüthigen Schweden<lb/>
+<fw type="sig" place="bottom">2 *<lb/>
+</fw>
+<pb n="20" facs="#f0034"/>
+dem Könige zum Beiſtand hergezogen, faſt ärger<lb/>
+als die Feinde ſelbſt gehauſet, ja ſelbſt der<lb/>
+Diener Gottes mehrere in jämmerlichen Tod<lb/>
+gebracht. Durch den plötzlichen Hintritt des<lb/>
+Schwediſchen Carolus war nun zwar Friede;<lb/>
+aber die grauſamen Stapfen des Krieges lagen<lb/>
+überall; manch' Bauern- oder Käthnerhaus, wo<lb/>
+man mich als Knaben mit einem Trunke ſüßer<lb/>
+Milch bewirthet, hatte ich auf meiner Morgen¬<lb/>
+wandrung niedergeſenget am Wege liegen ſehen<lb/>
+und manches Feld in ödem Unkraut, darauf<lb/>
+ſonſt um dieſe Zeit der Roggen ſeine grünen<lb/>
+Spitzen trieb.</p><lb/>
+<p>Aber ſolches beſchwerete mich heut nicht all¬<lb/>
+zuſehr; ich hatte nur Verlangen, wie ich dem<lb/>
+edlen Herrn durch meine Kunſt beweiſen möchte,<lb/>
+daß er Gab' und Gunſt an keinen Unwürdigen<lb/>
+verſchwendet habe; dachte auch nicht an Strolche<lb/>
+und verlaufen Geſindel, das vom Kriege her<lb/>
+noch in den Wäldern Umtrieb halten ſollte.<lb/>
+Wol aber tückete mich ein Anderes, und das<lb/>
+war der Gedanke an den Junker Wulf. Er<lb/>
+<pb n="21" facs="#f0035"/>
+war mir nimmer hold geweſen, hatte wol gar,<lb/>
+was ſein edler Vater an mir gethan, als einen<lb/>
+Diebſtahl an ihm ſelber angeſehen; und manches<lb/>
+Mal, wenn ich, wie öfters nach meines lieben<lb/>
+Vaters Tode, im Sommer die Vacanz auf dem<lb/>
+Gute zubrachte, hatte er mir die ſchönen Tage<lb/>
+vergället und verſalzen. Ob er anitzt in ſeines<lb/>
+Vaters Hauſe ſei, war mir nicht kund geworden,<lb/>
+hatte nur vernommen, daß er noch vor dem<lb/>
+Friedensſchluſſe bei Spiel und Becher mit den<lb/>
+Schwediſchen Offiziers Verkehr gehalten, was<lb/>
+mit rechter Holſtentreue nicht zu reimen iſt.</p><lb/>
+<p>Indem ich dieß bei mir erwog, war ich aus<lb/>
+dem Buchenwalde in den Richtſteig durch das<lb/>
+Tannenhölzchen geſchritten, das ſchon dem Hofe<lb/>
+nahe liegt. Wie liebliche Erinnerung umhauchte<lb/>
+mich der Würzeduft des Harzes; aber bald trat<lb/>
+ich aus dem Schatten in den vollen Sonnenſchein<lb/>
+hinaus; da lagen zu beiden Seiten die mit<lb/>
+Haſelbüſchen eingehegten Wieſen, und nicht lange,<lb/>
+ſo wanderte ich zwiſchen den zwo Reihen gewal¬<lb/>
+tiger Eichbäume, die zum Herrenſitz hinaufführen.</p><lb/>
+<pb n="22" facs="#f0036"/>
+<p>Ich weiß nicht, was für ein bang' Gefühl<lb/>
+mich plötzlich überkam, ohn' alle Urſach', wie ich<lb/>
+derzeit dachte; denn es war eitel Sonnenſchein<lb/>
+umher, und vom Himmel herab klang ein gar<lb/>
+herzlich und ermunternd Lerchenſingen. Und ſiehe,<lb/>
+dort auf der Koppel, wo der Hofmann ſeinen<lb/>
+Immenhof hat, ſtand ja auch noch der alte Holz¬<lb/>
+birnenbaum und flüſterte mit ſeinen jungen<lb/>
+Blättern in der blauen Luft.</p><lb/>
+<p>„Grüß dich Gott!“ ſagte ich leis, gedachte<lb/>
+dabei aber weniger des Baumes, als vielmehr<lb/>
+des holden Gottesgeſchöpfes, in dem, wie es ſich<lb/>
+nachmals fügen mußte, all' Glück und Leid, und<lb/>
+auch all' nagende Buße meines Lebens beſchloſſen<lb/>
+ſein ſollte, für jetzt und alle Zeit. Das war des<lb/>
+edlen Herrn Gerhardus Töchterlein, des Junkers<lb/>
+Wulfen einzig Geſchwiſter.</p><lb/>
+<p> <hi rendition="#aq">Item</hi>, es war bald nach meinem lieben Vaters<lb/>
+Tode, als ich zum erſten Mal die ganze Vacanz<lb/>
+hier verbrachte; ſie war derzeit ein neunjährig<lb/>
+Dirnlein, die ihre braunen Zöpfe luſtig fliegen<lb/>
+ließ; ich zählte um ein paar Jahre weiter. So<lb/>
+<pb n="23" facs="#f0037"/>
+trat ich eines Morgens aus dem Thorhaus; der<lb/>
+alte Hofmann Dietrich, der ober der Einfahrt<lb/>
+wohnt, und neben dem als einem getreuen Mann<lb/>
+mir mein Schlafkämmerlein eingeräumt war,<lb/>
+hatte mir einen Eſchenbogen zugerichtet, mir auch<lb/>
+die Bolzen von tüchtigem Blei dazu gegoſſen,<lb/>
+und ich wollte nun auf die Raubvögel, deren<lb/>
+genug bei dem Herrenhaus umherſchrieen; da<lb/>
+kam ſie vom Hofe auf mich zugeſprungen.</p><lb/>
+<p>„Weißt Du, Johannes,“ ſagte ſie; „ich zeig'<lb/>
+Dir ein Vogelneſt; dort in dem hohlen Birn¬<lb/>
+baum; aber das ſind Rothſchwänzchen, die darfſt<lb/>
+Du ja nicht ſchießen!“</p><lb/>
+<p>Damit war ſie ſchon wieder vorausgeſprungen;<lb/>
+doch eh' ſie noch dem Baum auf zwanzig Schritte<lb/>
+nah' gekommen, ſah ich ſie jählings ſtille ſtehn.<lb/>
+„Der Buhz, der Buhz!“ ſchrie ſie und ſchüttelte<lb/>
+wie entſetzt ihre beiden Händlein in der Luft.</p><lb/>
+<p>Es war aber ein großer Waldkauz, der ober<lb/>
+dem Loche des hohlen Baumes ſaß und hinab¬<lb/>
+ſchauete, ob er ein ausfliegend Vögelein erhaſchen<lb/>
+möge. „Der Buhz, der Buhz!“ ſchrie die Kleine<lb/>
+<pb n="24" facs="#f0038"/>
+wieder. „Schieß, Johannes, ſchieß!“ — Der<lb/>
+Kauz aber, den die Freßgier taub gemacht, ſaß<lb/>
+noch immer und ſtierete in die Hohlung. Da<lb/>
+ſpannte ich meinen Eſchenbogen und ſchoß, daß<lb/>
+das Raubthier zappelnd auf dem Boden lag;<lb/>
+aus dem Baume aber ſchwang ſich ein zwit¬<lb/>
+ſchernd Vöglein in die Luft.</p><lb/>
+<p>Seit der Zeit waren Katharina und ich zwei<lb/>
+gute Geſellen miteinander; in Wald und Garten,<lb/>
+wo das Mägdlein war, da war auch ich. Darob<lb/>
+aber mußte mir gar bald ein Feind erſtehen;<lb/>
+das war Kurt von der Riſch, deſſen Vater eine<lb/>
+Stunde davon auf ſeinem reichen Hofe ſaß. In<lb/>
+Begleitung ſeines gelahrten Hofmeiſters, mit<lb/>
+dem Herr Gerhardus gern der Unterhaltung pflag,<lb/>
+kam er oftmals auf Beſuch; und da er jünger<lb/>
+war, als Junker Wulf, ſo war er wol auf mich<lb/>
+und Katharinen angewieſen; inſonders aber ſchien<lb/>
+das braune Herrentöchterlein ihm zu gefallen.<lb/>
+Doch war das ſchier umſonſt; ſie lachte nur über<lb/>
+ſeine krumme Vogelnaſe, die ihm, wie bei faſt<lb/>
+Allen des Geſchlechtes, unter buſchigem Haupt¬<lb/>
+<pb n="25" facs="#f0039"/>
+haar zwiſchen zwo merklich runden Augen ſaß.<lb/>
+Ja, wenn ſie ſeiner nur von fern gewahrte, ſo<lb/>
+reckte ſie wol ihr Köpfchen vor und rief: „Jo¬<lb/>
+hannes der Buhz! der Buhz!“ Dann verſteckten<lb/>
+wir uns hinter den Scheunen oder rannten wol<lb/>
+auch ſpornſtreichs in den Wald hinein, der ſich<lb/>
+in einem Bogen um die Felder und danach wieder<lb/>
+dicht an die Mauern des Gartens hinanzieht.</p><lb/>
+<p>Darob, als der von der Riſch deß inne<lb/>
+wurde, kam es oftmals zwiſchen uns zum Haar¬<lb/>
+raufen, wobei jedoch, da er mehr hitzig denn ſtark<lb/>
+war, der Vortheil meiſt in meinen Händen blieb.</p><lb/>
+<p>Als ich, um von Herrn Gerhardus Urlaub zu<lb/>
+nehmen, vor meiner Ausfahrt in die Fremde<lb/>
+zum letzten Mal, jedoch nur kurze Tage, hier<lb/>
+verweilte, war Katharina ſchon faſt wie eine<lb/>
+Jungfrau; ihr braunes Haar lag itzt in einem<lb/>
+goldnen Netz gefangen; in ihren Augen, wenn<lb/>
+ſie die Wimpern hob, war oft ein ſpielend<lb/>
+Leuchten, das mich ſchier beklommen machte.<lb/>
+Auch war ein alt' gebrechlich Fräulein ihr zur<lb/>
+Obhut beigegeben, ſo man im Hauſe nur „Baſ'<lb/>
+<pb n="26" facs="#f0040"/>
+Urſel“ nannte; ſie ließ das Kind nicht aus den<lb/>
+Augen und ging überall mit einer langen Trico¬<lb/>
+tage neben ihr.</p><lb/>
+<p>Als ich ſo eines Octobernachmittags im Schat¬<lb/>
+ten der Gartenhecken mit Beiden auf und ab<lb/>
+wandelte, kam ein lang aufgeſchoſſener Geſell,<lb/>
+mit ſpitzenbeſetztem Lederwamms und Federhut<lb/>
+ganz <hi rendition="#aq">à la mode</hi> gekleidet, den Gang zu uns<lb/>
+herauf; und ſiehe da, es war der Junker Kurt,<lb/>
+mein alter Widerſacher. Ich merkte allſogleich,<lb/>
+daß er noch immer bei ſeiner ſchönen Nachbarin<lb/>
+zu Hofe ging; auch, daß inſonders dem alten<lb/>
+Fräulein ſolches zu gefallen ſchien. Das war<lb/>
+ein „Herr Baron“ auf alle Frag' und Antwort;<lb/>
+dabei lachte ſie höchſt <hi rendition="#aq">obligeant</hi> mit einer widrig<lb/>
+feinen Stimme und hob die Naſe unmäßig in<lb/>
+die Luft; mich aber, wenn ich ja ein Wort da¬<lb/>
+zwiſchen gab, nannte ſie ſtetig „Er“ oder kurzweg<lb/>
+auch „Johannes“, worauf der Junker dann ſeine<lb/>
+runden Augen einkniff und im Gegentheile that,<lb/>
+als ſähe er auf mich herab, obſchon ich ihn um<lb/>
+halben Kopfes Länge überragte.</p><lb/>
+<pb n="27" facs="#f0041"/>
+<p>Ich blickte auf Katharinen; die aber kümmerte<lb/>
+ſich nicht um mich, ſondern ging ſittig neben dem<lb/>
+Junker, ihm manierlich Red' und Antwort ge¬<lb/>
+bend; den kleinen rothen Mund aber verzog mit¬<lb/>
+unter ein ſpöttiſch ſtolzes Lächeln, ſo daß ich<lb/>
+dachte: „Getröſte Dich, Johannes; der Herren¬<lb/>
+ſohn ſchnellt itzo deine Wage in die Luft!“<lb/>
+Trotzig blieb ich zurück und ließ die andern Dreie<lb/>
+vor mir gehen. Als aber dieſe in das Haus<lb/>
+getreten waren und ich davor noch an Herrn<lb/>
+Gerhardus' Blumenbeeten ſtand, darüber brütend,<lb/>
+wie ich, gleich wie vormals, mit dem von der<lb/>
+Riſch ein tüchtig Haarraufen beginnen möchte,<lb/>
+kam plötzlich Katharina wieder zurückgelaufen,<lb/>
+riß neben mir eine Aſter von den Beeten und<lb/>
+flüſterte mir zu: „Johannes, weißt Du was?<lb/>
+Der Buhz ſieht einem jungen Adler gleich; Baſ'<lb/>
+Urſel hat's geſagt:“ Und fort war ſie wieder,<lb/>
+eh' ich mich's verſah. Mir aber war auf ein¬<lb/>
+mal all' Trotz und Zorn wie weggeblaſen. Was<lb/>
+kümmerte mich itzund der Herr Baron! Ich lachte<lb/>
+hell und fröhlich in den güldnen Tag hinaus;<lb/>
+<pb n="28" facs="#f0042"/>
+denn bei den übermüthigen Worten war wieder<lb/>
+jenes ſüße Augenſpiel geweſen. Aber dieß Mal<lb/>
+hatte es mir gerad' in's Herz geleuchtet.</p><lb/>
+<p>Bald danach ließ mich Herr Gerhardus auf ſein<lb/>
+Zimmer rufen; er zeigte mir auf einer Karte<lb/>
+noch einmal, wie ich die weite Reiſe nach Amſter¬<lb/>
+dam zu machen habe, übergab mir Briefe an<lb/>
+ſeine Freunde dort und ſprach dann lange mit<lb/>
+mir, als meines lieben ſeligen Vaters Freund.<lb/>
+Denn noch ſelbigen Abends hatte ich zur Stadt<lb/>
+zu gehen, von wo ein Bürger mich auf ſeinem<lb/>
+Wagen mit nach Hamburg nehmen wollte.</p><lb/>
+<p>Als nun der Tag hinabging, nahm ich Ab¬<lb/>
+ſchied. Unten im Zimmer ſaß Katharina an<lb/>
+einem Stickrahmen; ich mußte der Griechiſchen<lb/>
+Helena gedenken, wie ich ſie jüngſt in einem<lb/>
+Kupferwerk geſehen; ſo ſchön erſchien mir der<lb/>
+junge Nacken, den das Mädchen eben über ihre<lb/>
+Arbeit neigte Aber ſie war nicht allein; ihr<lb/>
+gegenüber ſaß Baſ' Urſel und las laut aus<lb/>
+einem franzöſiſchen Geſchichtenbuche. Da ich<lb/>
+näher trat, hob ſie die Naſe nach mir zu: „Nun,<lb/>
+<pb n="29" facs="#f0043"/>
+Johannes,“ ſagte ſie, „Er will mir wol Ade<lb/>
+ſagen! So kann Er auch dem Fräulein gleich<lb/>
+ſeine Reverenze machen!“ Da war ſchon<lb/>
+Katharina von ihrer Arbeit aufgeſtanden; aber,<lb/>
+indem ſie mir die Hand reichte, traten die Junker<lb/>
+Wulf und Kurt mit großem Geräuſch in's Zim¬<lb/>
+mer; und ſie ſagte nur: „Lebwohl, Johannes!“<lb/>
+Und ſo ging ich fort.</p><lb/>
+<p>Im Thorhaus drückte ich dem alten Dieterich<lb/>
+die Hand, der Stab und Ranzen ſchon für mich<lb/>
+bereit hielt; dann wanderte ich zwiſchen den<lb/>
+Eichbäumen auf die Waldſtraße zu. Aber mir<lb/>
+war dabei, als könne ich nicht recht fort, als<lb/>
+hätt' ich einen Abſchied noch zu Gute, und ſtand<lb/>
+oft ſtill und ſchaute hinter mich. Ich war auch<lb/>
+nicht den Richtweg durch die Tannen, ſondern,<lb/>
+wie von ſelber, den viel weiteren auf der großen<lb/>
+Fahrſtraße hingewandert. Aber ſchon kam vor<lb/>
+mir das Abendroth überm Wald herauf, und ich<lb/>
+mußte eilen, wenn mich die Nacht nicht überfallen<lb/>
+ſollte. „Ade, Katharina, ade!“ ſagte ich leiſe<lb/>
+und ſetzte rüſtig meinen Wanderſtab in Gang.</p><lb/>
+<pb n="30" facs="#f0044"/>
+<p>Da, an der Stelle, wo der Fußſteig in die<lb/>
+Straße mündet — in ſtürmender Freude ſtund<lb/>
+das Herz mir ſtill — plötzlich aus dem Tannen¬<lb/>
+dunkel war ſie ſelber da; mit glühenden Wangen<lb/>
+kam ſie hergelaufen, ſie ſprang über den trocknen<lb/>
+Weggraben, daß die Fluth des ſeidenbraunen<lb/>
+Haars dem güldnen Netz entſtürzete; und ſo<lb/>
+fing ich ſie in meinen Armen auf. Mit glän¬<lb/>
+zenden Augen, noch mit dem Odem ringend,<lb/>
+ſchaute ſie mich an. „Ich — ich bin ihnen fort¬<lb/>
+gelaufen!“ ſtammelte ſie endlich; und dann, ein<lb/>
+Päckchen in meine Hand drückend, fügte ſie leis<lb/>
+hinzu: „Von mir, Johannes! Und du ſollſt es<lb/>
+nicht verachten!“ Auf einmal aber wurde ihr<lb/>
+Geſichtchen trübe; der kleine ſchwellende Mund<lb/>
+wollte noch was reden, aber da brach ein Thränen¬<lb/>
+quell aus ihren Augen, und wehmüthig ihr<lb/>
+Köpfchen ſchüttelnd, riß ſie ſich haſtig los. Ich<lb/>
+ſah ihr Kleid im finſtern Tannenſteig verſchwin¬<lb/>
+den; dann in der Ferne hört' ich noch die Zweige<lb/>
+rauſchen, und dann ſtand ich allein. Es war ſo<lb/>
+ſtill, die Blätter konnte man fallen hören. Als<lb/>
+<pb n="31" facs="#f0045"/>
+ich das Päckchen aus einander faltete, da war's<lb/>
+ihr güldner Pathenpfennig, ſo ſie mir oft ge¬<lb/>
+zeiget hatte; ein Zettlein lag dabei, das las ich<lb/>
+nun beim Schein des Abendrothes. „Damit Du<lb/>
+nicht in Noth geratheſt,“ ſtund darauf geſchrie¬<lb/>
+ben. — Da ſtreckt' ich meine Arme in die leere<lb/>
+Luft: „Ade, Katharina, ade, ade!“ wol hundert<lb/>
+Mal rief ich es in den ſtillen Wald hinein; —<lb/>
+und erſt mit ſinkender Nacht erreichte ich die Stadt.</p><lb/>
+<p>— — Seitdem waren faſt fünf Jahre dahin¬<lb/>
+gegangen. — Wie würd' ich heute Alles wieder¬<lb/>
+finden?</p><lb/>
+<p>Und ſchon ſtund ich am Thorhaus, und ſah<lb/>
+drunten im Hof die alten Linden, hinter deren<lb/>
+lichtgrünem Laub die beiden Zackengiebel des<lb/>
+Herrenhauſes itzt verborgen lagen. Als ich aber<lb/>
+durch den Thorweg gehen wollte, jagten vom<lb/>
+Hofe her zwei fahlgraue Bullenbeißer mit Stachel¬<lb/>
+halsbändern gar wild gegen mich heran; ſie er¬<lb/>
+huben ein erſchreckliches Geheul und der eine<lb/>
+ſprang auf mich und fletſchete ſeine weißen Zähne<lb/>
+dicht vor meinem Antlitz. Solch' einen Will¬<lb/>
+<pb n="32" facs="#f0046"/>
+kommen hatte ich noch niemalen hier empfangen.<lb/>
+Da, zu meinem Glück, rief aus den Kammern<lb/>
+ober dem Thore eine rauhe, aber mir gar traute<lb/>
+Stimme: „Halloh!“ rief ſie; „Tartar, Türk!“<lb/>
+Die Hunde ließen von mir ab, ich hörte es die<lb/>
+Stiege herabkommen, und aus der Thür, ſo unter<lb/>
+dem Thorgang war, trat der alte Dieterich.</p><lb/>
+<p>Als ich ihn anſchaute, ſahe ich wol, daß ich<lb/>
+lang in der Fremde geweſen ſei; denn ſein Haar<lb/>
+war ſchloweiß geworden und ſeine ſonſt ſo luſtigen<lb/>
+Augen blickten gar matt und betrübſam auf mich<lb/>
+hin. „Herr Johannes!“ ſagte er endlich und<lb/>
+reichte mir ſeine beiden Hände.</p><lb/>
+<p>„Grüß ihn Gott, Dieterich!“ entgegnete ich.<lb/>
+„Aber ſeit wann haltet Ihr ſolche Bluthunde<lb/>
+auf dem Hof, die die Gäſte anfallen gleich den Wölfen?“</p><lb/>
+<p>„Ja, Herr Johannes,“ ſagte der Alte, „die<lb/>
+hat der Junker hergebracht.“</p><lb/>
+<p>„Iſt denn der daheim?“</p><lb/>
+<p>Der Alte nickte.</p><lb/>
+<p>„Nun,“ ſagte ich; „die Hunde mögen ſchon<lb/>
+<pb n="33" facs="#f0047"/>
+vonnöthen ſein; vom Krieg her iſt noch viel ver¬<lb/>
+laufen Volk zurückgeblieben.“</p><lb/>
+<p>„Ach, Herr Johannes!“ Und der alte Mann<lb/>
+ſtund immer noch, als wolle er mich nicht zum<lb/>
+Hof hinauflaſſen. „Ihr ſeid in ſchlimmer Zeit<lb/>
+gekommen!“</p><lb/>
+<p>Ich ſah ihn an, ſagte aber nur: „Freilich,<lb/>
+Dieterich; aus mancher Fenſterhöhlung ſchaut<lb/>
+ſtatt des Bauern itzt der Wolf heraus; hab'<lb/>
+dergleichen auch geſehen; aber es iſt ja Frieden<lb/>
+worden, und der gute Herr im Schloß wird<lb/>
+helfen, ſeine Hand iſt offen.“</p><lb/>
+<p>Mit dieſen Worten wollte ich, obſchon die<lb/>
+Hunde mich wieder anknurreten, auf den Hof<lb/>
+hinausgehen; aber der Greis trat mir in den<lb/>
+Weg. „Herr Johannes,“ rief er, „ehe Ihr<lb/>
+weiter gehet, höret mich an! Euer Brieflein iſt<lb/>
+zwar richtig mit der Königlichen Poſt von Ham¬<lb/>
+burg kommen; aber den rechten Leſer hat es<lb/>
+nicht mehr finden können.“</p><lb/>
+<p>„Dieterich!“ ſchrie ich. „Dieterich!“</p><lb/>
+<p>„— Ja, ja, Herr Johannes! hier iſt die<lb/>
+<fw type="sig" place="bottom">Storm, <hi rendition="#aq">Aquis submersus.</hi> 3<lb/>
+</fw>
+<pb n="34" facs="#f0048"/>
+gute Zeit vorbei; denn unſer theurer Herr Ger¬<lb/>
+hardus liegt aufgebahret dort in der Kapellen,<lb/>
+und die Gueridons brennen an ſeinem Sarge.<lb/>
+Es wird nun anders werden auf dem Hofe;<lb/>
+aber — ich bin ein höriger Mann, mir ziemet<lb/>
+Schweigen.“</p><lb/>
+<p>Ich wollte fragen: „Iſt das Fräulein, iſt<lb/>
+Katharina noch im Hauſe?“ Aber das Wort<lb/>
+wollte nicht über meine Zunge.</p><lb/>
+<p>Drüben, in einem hinteren Seitenbau des<lb/>
+Herrenhauſes war eine kleine Kapelle, die aber,<lb/>
+wie ich wußte, ſeit lange nicht benutzt war.<lb/>
+Dort alſo ſollte ich Herrn Gerhard ſuchen.</p><lb/>
+<p>Ich fragte den alten Hofmann: „Iſt die Ka¬<lb/>
+pelle offen?“ und als er es bejahete, bat ich ihn,<lb/>
+die Hunde anzuhalten; dann ging ich über den<lb/>
+Hof, wo Niemand mir begegnete; nur einer Gras¬<lb/>
+mücke Singen kam oben aus den Lindenwipfeln.</p><lb/>
+<p>Die Thür zur Kapellen war nur angelehnt,<lb/>
+und leis und gar beklommen trat ich ein. Da<lb/>
+ſtund der offene Sarg, und die rothe Flamme<lb/>
+der Kerzen warf ihr flackernd Licht auf das edle<lb/>
+<pb n="35" facs="#f0049"/>
+Antlitz des geliebten Herrn; die Fremdheit des<lb/>
+Todes, ſo darauf lag, ſagte mir, daß er itzt<lb/>
+eines andern Land's Genoſſe ſei. Indem ich<lb/>
+aber neben dem Leichnam zum Gebete hinknieen<lb/>
+wollte, erhub ſich über den Rand des Sarges<lb/>
+mir genüber ein junges blaſſes Antlitz, das<lb/>
+aus ſchwarzen Schleiern faſt erſchrocken auf mich<lb/>
+ſchaute.</p><lb/>
+<p>Aber nur, wie ein Hauch verweht, ſo blickten<lb/>
+die braunen Augen herzlich zu mir auf, und es<lb/>
+war faſt wie ein Freudenruf: „O, Johannes,<lb/>
+ſeid Ihr's denn! Ach, Ihr ſeid zu ſpät gekom¬<lb/>
+men!“ Und über dem Sarge hatten unſere<lb/>
+Hände ſich zum Gruß gefaßt; denn es war Ka¬<lb/>
+tharina, und ſie war ſo ſchön geworden, daß<lb/>
+hier im Angeſicht des Todes ein heißer Puls<lb/>
+des Lebens mich durchfuhr. Zwar, das ſpielende<lb/>
+Licht der Augen lag itzt zurückgeſchrecket in der<lb/>
+Tiefe; aber aus dem ſchwarzen Häubchen dräng¬<lb/>
+ten ſich die braunen Löcklein, und der ſchwellende<lb/>
+Mund war um ſo röther in dem blaſſen Antlitz.</p><lb/>
+<p>Und faſt verwirret auf den Todten ſchauend<lb/>
+<fw type="sig" place="bottom">3 *<lb/>
+</fw>
+<pb n="36" facs="#f0050"/>
+ſprach ich: „Wol kam ich in der Hoffnung, an<lb/>
+ſeinem lebenden Bilde ihm mit meiner Kunſt zu<lb/>
+danken, ihm manche Stunde genüber zu ſitzen<lb/>
+und ſein mild und lehrreich Wort zu hören.<lb/>
+Laßt mich denn nun die bald vergehenden Züge<lb/>
+feſtzuhalten ſuchen.“</p><lb/>
+<p>Und als ſie unter Thränen, die über ihre<lb/>
+Wangen ſtrömten, ſtumm zu mir hinüber nickte,<lb/>
+ſetzte ich mich in ein Geſtühlte und begann auf<lb/>
+einem von den Blättchen, die ich bei mir führte,<lb/>
+des Todten Antlitz nachzubilden. Aber meine<lb/>
+Hand zitterte; ich weiß nicht, ob alleine vor der<lb/>
+Majeſtät des Todes.</p><lb/>
+<p>Während dem vernahm ich draußen vom<lb/>
+Hofe her eine Stimme, die ich für die des Junker<lb/>
+Wulf erkannte; gleich danach ſchrie ein Hund<lb/>
+wie nach einem Fußtritt oder Peitſchenhiebe;<lb/>
+und dann ein Lachen und einen Fluch von einer<lb/>
+andern Stimme, die mir gleicherweiſe bekannt<lb/>
+deuchte.</p><lb/>
+<p>Als ich auf Katharinen blickte, ſah ich ſie<lb/>
+mit ſchier entſetzten Augen nach dem Fenſter<lb/>
+<pb n="37" facs="#f0051"/>
+ſtarren; aber die Stimmen und die Schritte gingen<lb/>
+vorüber. Da erhub ſie ſich, kam an meine Seite<lb/>
+und ſahe zu, wie des Vaters Antlitz unter mei¬<lb/>
+nem Stift entſtund. Nicht lange, ſo kam draußen<lb/>
+ein einzelner Schritt zurück; in demſelben Augen¬<lb/>
+blick legte Katharina die Hand auf meine Schulter<lb/>
+und ich fühlte, wie ihr junger Körper bebte.</p><lb/>
+<p>Sogleich auch wurde die Kapellenthür auf¬<lb/>
+geriſſen; und ich erkannte den Junker Wulf, ob¬<lb/>
+ſchon ſein ſonſten bleiches Angeſicht itzt roth und<lb/>
+aufgedunſen ſchien.</p><lb/>
+<p>„Was huckſt Du allfort an dem Sarge!“<lb/>
+rief er zu der Schweſter. „Der Junker von der<lb/>
+Riſch iſt da geweſen, uns ſeine Condolenze zu<lb/>
+bezeigen; Du hätteſt ihm wol den Trunk kre¬<lb/>
+denzen mögen!“</p><lb/>
+<p>Zugleich hatte er meiner wahrgenommen und<lb/>
+bohrete mich mit ſeinen kleinen Augen an. —<lb/>
+„Wulf,“ ſagte Katharina, indem ſie mit mir zu<lb/>
+ihm trat; „es iſt Johannes, Wulf.“</p><lb/>
+<p>Der Junker fand nicht vonnöthen, mir die Hand<lb/>
+zu reichen; er muſterte nur mein violenfarben<lb/>
+<pb n="38" facs="#f0052"/>
+Wamms und meinte: „Du trägſt da einen bun¬<lb/>
+ten Federbalg; man wird Dich ‚Sieur‘ nun titu¬<lb/>
+liren müſſen!“</p><lb/>
+<p>„Nennt mich, wie's Euch gefällt!“ ſagte ich,<lb/>
+indem wir auf den Hof hinaustraten. „Obſchon<lb/>
+nur dorten, von wo ich komme, das ‚Herr‘ vor<lb/>
+meinem Namen nicht gefehlet, — Ihr wißt wol,<lb/>
+Eueres Vaters Sohn hat großes Recht an mir.“</p><lb/>
+<p>Er ſah mich was verwundert an, ſagte dann<lb/>
+aber nur: „Nun wol, ſo magſt Du zeigen, was<lb/>
+Du für meines Vaters Gold erlernet haſt; und<lb/>
+ſoll dazu der Lohn für Deine Arbeit Dir nicht<lb/>
+verhalten ſein.“</p><lb/>
+<p>Ich meinete, was den Lohn anginge, den<lb/>
+hätte ich längſt voraus bekommen; da aber der<lb/>
+Junker entgegnete, er werd' es halten, wie ſich's<lb/>
+für einen Edelmann gezieme, ſo fragte ich, was<lb/>
+für Arbeit er mir aufzutragen hätte.</p><lb/>
+<p>„Du weißt doch,“ ſagte er, und hielt dann<lb/>
+inne, indem er ſcharf aus ſeine Schweſter blickte —<lb/>
+„wenn eine adelige Tochter das Haus verläßt,<lb/>
+ſo muß ihr Bild darin zurückbleiben.“<lb/>
+</p>
+<pb n="39" facs="#f0053"/>
+<p>Ich fühlte, daß bei dieſen Worten Katharina,<lb/>
+die an meiner Seite ging, gleich einer Taumeln¬<lb/>
+den nach meinem Mantel haſchte; aber ich ent¬<lb/>
+gegnete ruhig: „Der Brauch iſt mir bekannt;<lb/>
+doch, wie meinet Ihr denn, Junker Wulf?“</p><lb/>
+<p>„Ich meine,“ ſagte er hart, als ob er einen<lb/>
+Gegenſpruch erwarte; „daß Du das Bildniß der<lb/>
+Tochter dieſes Hauſes malen ſollſt!“</p><lb/>
+<p>Mich durchfuhr's faſt wie ein Schrecken; weiß<lb/>
+nicht, ob mehr über den Ton oder die Deutung<lb/>
+dieſer Worte; dachte auch, zu ſolchem Beginnen<lb/>
+ſei itzt kaum die rechte Zeit.</p><lb/>
+<p>Da Katharina ſchwieg, aus ihren Augen<lb/>
+aber ein flehentlicher Blick mir zuflog, ſo ant¬<lb/>
+wortete ich: „Wenn Eure edle Schweſter es mir<lb/>
+vergönnen will, ſo hoffe ich Eueres Vaters Pro¬<lb/>
+tection und meines Meiſters Lehre keine Schande<lb/>
+anzuthun. Räumet mir nur wieder mein Käm¬<lb/>
+merlein ober dem Thorweg bei dem alten Die¬<lb/>
+terich, ſo ſoll geſchehen, was Ihr wünſchet.“</p><lb/>
+<p>Der Junker war das zufrieden, und ſagte auch<lb/>
+<pb n="40" facs="#f0054"/>
+ſeiner Schweſter, ſie möge einen Imbiß für mich<lb/>
+richten laſſen.</p><lb/>
+<p>Ich wollte über den Beginn meiner Arbeit<lb/>
+noch eine Frage thun; aber ich verſtummte<lb/>
+wieder, denn über den empfangenen Auftrag<lb/>
+war plötzlich eine Entzückung in mir aufgeſtiegen,<lb/>
+daß ich fürchtete, ſie könne mit jedem Wort her¬<lb/>
+vorbrechen. So war ich auch der zwo grimmen<lb/>
+Köter nicht gewahr worden, die dort am Brun¬<lb/>
+nen ſich auf den heißen Steinen ſonnten. Da<lb/>
+wir aber näher kamen, ſprangen ſie auf und<lb/>
+fuhren mit offenem Rachen gegen mich, daß Ka¬<lb/>
+tharina einen Schrei that, der Junker aber einen<lb/>
+ſchrillen Pfiff, worauf ſie heulend ihm zu Füßen<lb/>
+krochen. „Beim Höllenelemente,“ rief er lachend,<lb/>
+„zwo tolle Kerle; gilt ihnen gleich, ein Sau¬<lb/>
+ſchwanz oder Flandriſch Tuch!“</p><lb/>
+<p>„Nun, Junker Wulf,“ — ich konnte der Rede<lb/>
+mich nicht wohl enthalten — „ſoll ich noch ein¬<lb/>
+mal Gaſt in Eueres Vaters Hauſe ſein, ſo möget<lb/>
+Ihr Euere Thiere beſſere Sitte lehren!“</p><lb/>
+<p>Er blitzte mich mit ſeinen kleinen Augen an<lb/>
+<pb n="41" facs="#f0055"/>
+und riß ſich ein paar Mal in ſeinen Zwickelbart.<lb/>
+„Das iſt nur ſo ihr Willkommsgruß, Sieur Jo¬<lb/>
+hannes;“ ſagte er dann, indem er ſich bückte,<lb/>
+um die Beſtien zu ſtreicheln. „Damit Jedweder<lb/>
+wiſſe, daß ein ander Regiment allhier begonnen;<lb/>
+denn — wer mir in die Quere kommt, den hetz'<lb/>
+ich in des Teufels Rachen!“</p><lb/>
+<p>Bei den letzten Worten, die er heftig aus¬<lb/>
+geſtoßen, hatte er ſich hoch aufgerichtet; dann<lb/>
+pfiff er ſeinen Hunden und ſchritt über den Hof<lb/>
+dem Thore zu.</p><lb/>
+<p>Ein Weilchen ſchaute ich hinterdrein; dann<lb/>
+folgte ich Katharinen, die unter dem Linden¬<lb/>
+ſchatten ſtumm und geſenkten Hauptes die Frei¬<lb/>
+treppe zu dem Herrenhaus emporſtieg; eben ſo<lb/>
+ſchweigend gingen wir mitſammen die breiten<lb/>
+Stufen in das Oberhaus hinauf, allwo wir in<lb/>
+des ſeligen Herrn Gerhardus Zimmer traten. —<lb/>
+Hier war noch Alles, wie ich, es vordem geſehen;<lb/>
+die goldgeblümten Ledertapeten, die Karten an<lb/>
+der Wand, die ſaubern Pergamentbände auf den<lb/>
+Regalen, über dem Arbeitstiſche der ſchöne Wald¬<lb/>
+<pb n="42" facs="#f0056"/>
+grund von dem älteren Ruysdael — und dann<lb/>
+davor der leere Seſſel. Meine Blicke blieben<lb/>
+daran haften; gleich wie drunten in der Kapellen<lb/>
+der Leib des Entſchlafenen, ſo ſchien auch dieß<lb/>
+Gemach mir itzt entſeelet, und, obſchon vom Walde<lb/>
+draußen der junge Lenz durch's Fenſter leuchtete,<lb/>
+doch gleichſam von der Stille des Todes wie<lb/>
+erfüllet.</p><lb/>
+<p>Ich hatte auch Katharinen in dieſem Augen¬<lb/>
+blicke faſt vergeſſen. Da ich mich umwandte,<lb/>
+ſtand ſie ſchier reglos mitten in dem Zimmer,<lb/>
+und ich ſah, wie unter den kleinen Händen, die<lb/>
+ſie darauf gepreßt hielt, ihre Bruſt in ungeſtümer<lb/>
+Arbeit ging. „Nicht wahr,“ ſagte ſie leiſe, „hier<lb/>
+iſt itzt Niemand mehr; Niemand, als mein Bruder<lb/>
+und ſeine grimmen Hunde?“</p><lb/>
+<p>„Katharina!“ rief ich; „was iſt Euch? Was<lb/>
+iſt das hier in Eueres Vaters Haus?“</p><lb/>
+<p>„Was es iſt, Johannes?“ und faſt wild er¬<lb/>
+griff ſie meine beiden Hände; und ihre jungen<lb/>
+Augen ſprühten wie in Zorn und Schmerz.</p><lb/>
+<p>„Nein, nein; laß erſt den Vater in ſeiner<lb/>
+<pb n="43" facs="#f0057"/>
+Gruft zur Ruhe kommen! Aber dann — Du ſollſt<lb/>
+mein Bild ja malen, Du wirſt eine Zeit lang<lb/>
+hier verweilen — dann, Johannes, hilf mir;<lb/>
+um des Todten willen, hilf mir!“</p><lb/>
+<p>Auf ſolche Worte, von Mitleid und von Liebe<lb/>
+ganz bezwungen, fiel ich vor der Schönen, Süßen<lb/>
+nieder und ſchwur ihr mich und alle meine<lb/>
+Kräfte zu. Da löſete ſich ein ſanfter Thränen¬<lb/>
+quell aus ihren Augen, und wir ſaßen neben<lb/>
+einander und ſprachen lange zu des Entſchlafenen<lb/>
+Gedächtniß.</p><lb/>
+<p>Als wir ſodann wieder in das Unterhaus<lb/>
+hinabgingen, fragte ich auch dem alten Fräulein<lb/>
+nach.</p><lb/>
+<p>„O,“ ſagte Katharina, „Baſ' Urſel! Wollt<lb/>
+Ihr ſie begrüßen? Ja, die iſt auch noch da;<lb/>
+ſie hat hier unten ihr Gemach; denn die Treppen<lb/>
+ſind ihr ſchon längſthin zu beſchwerlich.“</p><lb/>
+<p>Wir traten alſo in ein Stübchen, das gegen<lb/>
+den Garten lag, wo auf den Beeten vor den<lb/>
+grünen Heckenwänden ſo eben die Tulpen aus<lb/>
+der Erde brachen. Baſ' Urſel ſaß, in der ſchwarzen<lb/>
+<pb n="44" facs="#f0058"/>
+Tracht und Krebbhaube nur wie ein ſchwindend<lb/>
+Häuschen anzuſchauen, in einem hohen Seſſel<lb/>
+und hatte ein Nonnenſpielchen vor ſich, das, wie<lb/>
+ſie nachmals mir erzählte, der Herr Baron —<lb/>
+nach ſeines Vaters Ableben war er ſolches itzund<lb/>
+wirklich — ihr aus Lübeck zur Verehrung mit¬<lb/>
+gebracht.</p><lb/>
+<p>„So,“ ſagte ſie, da Katharina mich genannt<lb/>
+hatte, indeß ſie behutſam die helfenbeinern Pflöck¬<lb/>
+lein umeinander ſteckte, „iſt Er wieder da, Jo¬<lb/>
+hannes? — Nein, es geht nicht aus! <hi rendition="#aq">Oh</hi>, <hi rendition="#aq">c'est<lb/>
+un jeu très compliqué</hi>!“</p><lb/>
+<p>Dann warf ſie die Pflöcklein übereinander<lb/>
+und ſchauete mich an. „Ei,“ meinte ſie; „Er iſt<lb/>
+gar ſtattlich angethan; aber weiß Er denn nicht,<lb/>
+daß Er in ein Trauerhaus getreten iſt?“</p><lb/>
+<p>„Ich weiß es, Fräulein; entgegnete ich; „aber<lb/>
+da ich in das Thor trat, wußte ich es nicht.“</p><lb/>
+<p>„Nun,“ ſagte ſie und nickte gar begütigend;<lb/>
+„ſo eigentlich gehöret Er ja auch nicht zur Diener¬<lb/>
+ſchaft.“</p><lb/>
+<p>Ueber Katharinens blaſſes Antlitz flog ein<lb/>
+<pb n="45" facs="#f0059"/>
+Lächeln, wodurch ich mich jeder Antwort wol<lb/>
+enthoben halten mochte. Vielmehr rühmte ich<lb/>
+der alten Dame die Anmuth ihres Wohngemaches;<lb/>
+denn auch der Epheu von dem Thürmchen, das<lb/>
+draußen an der Mauer aufſtieg, hatte ſich nach<lb/>
+dem Fenſter hingeſponnen und wiegete ſeine<lb/>
+grünen Ranken vor den Scheiben.</p><lb/>
+<p>Aber Baſ' Urſel meinete, ja, wenn nur nicht<lb/>
+die Nachtigallen wären, die ißt ſchon wieder an¬<lb/>
+hüben mit ihrer Nachtunruhe; ſie könne ohnedem<lb/>
+den Schlaf nicht finden; und dann auch ſei es<lb/>
+ſchier zu abgelegen; das Geſinde ſei von hier<lb/>
+aus nicht im Aug' zu halten; im Garten draußen<lb/>
+aber paſſire eben nichts, als etwan, wann der<lb/>
+Gärtnerburſche an den Hecken oder Buxrabatten<lb/>
+putze.</p><lb/>
+<p>— Und damit hatte der Beſuch ſeine End¬<lb/>
+ſchaft; denn Katharina mahnte, es ſei nachgerade<lb/>
+an der Zeit, meinen wegemüden Leib zu ſtärken.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="46" facs="#f0060"/>
+<p>Ich war nun in meinem Kämmerchen ober<lb/>
+dem Hofthor einlogiret, dem alten Dieterich zur<lb/>
+ſondern Freude; denn am Feyerabend ſaßen wir<lb/>
+auf ſeiner Tragkiſt', und ließ ich mir, gleichwie<lb/>
+in der Knabenzeit, von ihm erzählen. Er rauchte<lb/>
+dann wol eine Pfeife Tabak, welche Sitte durch<lb/>
+das Kriegsvolk auch hier in Gang gekommen<lb/>
+war, und holete allerlei Geſchichten aus den<lb/>
+Drangſalen, ſo ſie durch die fremden Truppen<lb/>
+auf dem Hof und unten in dem Dorf erleiden<lb/>
+müſſen; einmal aber, da ich ſeine Rede auf das<lb/>
+gute Frölen Katharina gebracht und er erſt nicht<lb/>
+hatt' ein Ende finden können, brach er gleichwol<lb/>
+plötzlich ab und ſchauete mich an.</p><lb/>
+<p>„Wiſſet Ihr, Herr Johannes,“ ſagte er, „'s<lb/>
+iſt grauſam Schad', daß Ihr nicht auch ein<lb/>
+Wappen habet gleich dem von der Riſch da<lb/>
+drüben!“</p><lb/>
+<p>Und da ſolche Rede mir das Blut in's Ge¬<lb/>
+ſicht jagete, klopfte er mit ſeiner harten Hand<lb/>
+mir auf die Schulter, meinend: „Nun, nun,<lb/>
+Herr Johannes; 's war ein dummes Wort von<lb/>
+<pb n="47" facs="#f0061"/>
+mir; wir müſſen freilich bleiben, wo uns der<lb/>
+Herrgott hingeſetzet.“</p><lb/>
+<p>Weiß nicht, ob ich derzeit mit Solchem ein¬<lb/>
+verſtanden geweſen, fragete aber nur, was der<lb/>
+von der Riſch denn itzund für ein Mann ge¬<lb/>
+worden.</p><lb/>
+<p>Der Alte ſah mich gar pfiffig an und paffte<lb/>
+aus ſeinem kurzen Pfeiflein, als ob das theure<lb/>
+Kraut am Feldrain wüchſe, „Wollet Ihr's wiſſen,<lb/>
+Herr Johannes?“ begann er dann. „Er gehöret<lb/>
+zu denen muntern Junkern, die im Kieler Umſchlag<lb/>
+den Bürgersleuten die Knöpfe von den Häuſern<lb/>
+ſchießen; Ihr möget glauben, er hat treffliche<lb/>
+Piſtolen! Auf der Geigen weiß er nicht ſo gut<lb/>
+zu ſpielen; da er aber ein luſtig Stücklein liebt,<lb/>
+ſo hat er letzthin den Rathsmuſikanten, der<lb/>
+über'm Holſtenthore wohnt, um Mitternacht mit<lb/>
+ſeinem Degen aufgeklopfet, ihm auch nicht Zeit<lb/>
+gelaſſen, ſich Wamms und Hoſen anzuthun.<lb/>
+Statt der Sonnen ſtand aber der Mond am<lb/>
+Himmel, es war <hi rendition="#aq">octavis trium regum</hi>, und fror<lb/>
+Pickelſteine; und hat alſo der Muſikante, den<lb/>
+<pb n="48" facs="#f0062"/>
+Junker mit dem Degen hinter ſich, im blanken<lb/>
+Hemde vor ihm durch die Gaſſen geigen müſſen!<lb/>
+— — Wollet Ihr mehr noch wiſſen, Herr Jo¬<lb/>
+hannes?“</p><lb/>
+<p>„— Zu Haus bei ihm freuen ſich die Bauern,<lb/>
+wenn der Herrgott ſie nicht mit Töchtern geſegnet;<lb/>
+und dennoch — — aber nach ſeines Vaters Tode<lb/>
+hat er Geld, und unſer Junker, Ihr wiſſet's<lb/>
+wol, hat ſchon vorher von ſeinem Erbe auf¬<lb/>
+gezehrt.“</p><lb/>
+<p>Ich wußte freilich nun genug; auch hatte<lb/>
+der alte Dietrich ſchon mit ſeinem Spruche:<lb/>
+‚Aber ich bin nur ein höriger Mann', ſeiner<lb/>
+Rede Schluß gemacht.</p><lb/>
+<p>— — Mit meinem Malgeräth war auch<lb/>
+meine Kleidung aus der Stadt gekommen, wo<lb/>
+ich im goldenen Löwen Alles abgeleget, ſo daß<lb/>
+ich anitzt, wie es ſich ziemete, in dunkler Tracht<lb/>
+einherging. Die Tagesſtunden aber wandte ich<lb/>
+zunächſt in meinen Nutzen. Nämlich, es befand<lb/>
+ſich oben im Herrenhauſe neben des ſeligen Herrn<lb/>
+Gemach ein Saal, räumlich und hoch, deſſen<lb/>
+<pb n="49" facs="#f0063"/>
+Wände faſt völlig von lebensgroßen Bildern<lb/>
+verhänget waren, ſo daß nur noch neben dem<lb/>
+Kamin ein Platz zu zweien offen ſtund. Es waren<lb/>
+das die Voreltern des Herrn Gerhardus, meiſt<lb/>
+ernſt und ſicher blickende Männer und Frauen, mit<lb/>
+einem Antlitz, dem man wol vertrauen konnte;<lb/>
+er ſelbſten in kräftigem Mannesalter und Katha¬<lb/>
+rinens frühverſtorbene Mutter machten dann den<lb/>
+Schluß. Die beiden letzten Bilder waren gar<lb/>
+trefflich von unſerem Landsmanne, dem Eider¬<lb/>
+ſtedter Georg Ovens, in ſeiner kräftigen Art ge¬<lb/>
+malet; und ich ſuchte nun mit meinem Pinſel<lb/>
+die Züge meinem edlen Beſchützers nachzuſchaffen;<lb/>
+zwar in verjüngtem Maaßſtabe und nur mir<lb/>
+ſelber zum Genügen; doch hat es ſpäter zu einem<lb/>
+größeren Bildniß mir gedienet, das noch itzt hier<lb/>
+in meiner einſamen Kammer die theuerſte Geſell¬<lb/>
+ſchaft meines Alters iſt. Das Bildniß ſeiner<lb/>
+Tochter aber lebt mit mir in meinem Innern.</p><lb/>
+<p>Oft, wenn ich die Palette hingelegt, ſtand ich<lb/>
+noch lange vor den ſchönen Bildern. Katharinens<lb/>
+Antlitz fand ich in dem der beiden Eltern wieder:<lb/>
+<fw type="sig" place="bottom">Storm, <hi rendition="#aq">Aquis submersus</hi>. 4<lb/>
+</fw>
+<pb n="50" facs="#f0064"/>
+des Vaters Stirn, der Mutter Liebreiz um die<lb/>
+Lippen; wo aber war hier der harte Mund¬<lb/>
+winkel, das kleine Auge des Junker Wulf? —<lb/>
+Das mußte tiefer aus der Vergangenheit herauf¬<lb/>
+gekommen ſein! Langſam ging ich die Reih'<lb/>
+der älteren Bildniſſe entlang, bis über hundert<lb/>
+Jahre weit hinab. Und ſiehe, da hing im ſchwar¬<lb/>
+zen, von den Würmern ſchon zerfreſſenen Holz¬<lb/>
+rahmen ein Bild, vor dem ich ſchon als Knabe,<lb/>
+als ob's mich hielte, ſtillgeſtanden war. Es<lb/>
+ſtellete eine Edelfrau von etwa vierzig Jahren<lb/>
+vor; die kleinen grauen Augen ſahen kalt und<lb/>
+ſtechend aus dem harten Antlitz, das nur zur<lb/>
+Hälfte zwiſchen dem weißen Kinntuch und der<lb/>
+Schleierhaube ſichtbar wurde. Ein leiſer Schauer<lb/>
+überfuhr mich vor der ſo lang ſchon heimge¬<lb/>
+gangenen Seele; und ich ſprach zu mir: „Hier,<lb/>
+dieſe iſt's! Wie räthſelhafte Wege gehet die<lb/>
+Natur! Ein <hi rendition="#aq">saeculum</hi> und drüber rinnt es heim¬<lb/>
+lich wie unter einer Decke im Blute der Ge¬<lb/>
+ſchlechter fort; dann, längſt vergeſſen, taucht es<lb/>
+plötzlich wieder auf, den Lebenden zum Unheil.<lb/>
+<pb n="51" facs="#f0065"/>
+Nicht vor dem Sohn des edlen Gerhardus; vor<lb/>
+dieſer hier und ihres Blutes nachgeborenem Spröß¬<lb/>
+ling ſoll ich Katharinen ſchützen.“ Und wieder<lb/>
+trat ich vor die beiden jüngſten Bilder, an denen<lb/>
+mein Gemüthe ſich erquickte.</p><lb/>
+<p>So weilte ich derzeit in dem ſtillen Saale,<lb/>
+wo um mich nur die Sonnenſtäublein ſpielten,<lb/>
+unter den Schatten der Geweſenen.</p><lb/>
+<p>Katharinen ſah ich nur beim Mittagstiſche,<lb/>
+das alte Fräulein und den Junker Wulf zur<lb/>
+Seiten; aber wofern Baſ' Urſel nicht in ihren<lb/>
+hohen Tönen redete, ſo war es ſtets ein ſtumm<lb/>
+und betrübſam Mahl, ſo daß mir oft der Biſſen<lb/>
+im Munde quoll. Nicht die Trauer um den<lb/>
+Abgeſchiedenen war deß Urſach, ſondern es lag<lb/>
+zwiſchen Bruder und Schweſter, als ſei das Tiſch¬<lb/>
+tuch durchgeſchitten zwiſchen ihnen, Katharina,<lb/>
+nachdem ſie faſt die Speiſen nicht berührt, ent¬<lb/>
+fernte ſich allzeit bald, mich kaum nur mit den<lb/>
+Augen grüßend; der Junker aber, wenn ihm die<lb/>
+Laune ſtund, ſuchte mich dann beim Trunte feſt¬<lb/>
+zuhalten; hatte mich alſo hiegegen und, ſo ich<lb/>
+<fw type="sig" place="bottom">4 *<lb/>
+</fw>
+<pb n="52" facs="#f0066"/>
+nicht hinaus wollte über mein geſtecktes Maaß,<lb/>
+überdem wider allerart Flosculn zu wehren,<lb/>
+welche gegen mich geſpitzet wurden.</p><lb/>
+<p>Inzwiſchen, nachdem der Sarg ſchon mehrere<lb/>
+Tage geſchloſſen geweſen, geſchahe die Beiſetzung<lb/>
+des Herrn Gerhardus drunten in der Kirche des<lb/>
+Dorfes, allwo das Erbbegräbniß iſt, und wo itzt<lb/>
+ſeine Gebeine bei denen ſeiner Voreltern ruhen,<lb/>
+mit denen der Höchſte ihnen dereinſt eine fröhliche<lb/>
+Urſtänd wolle beſcheeren!</p><lb/>
+<p>Es waren aber zu ſolcher Trauerfeſtlichkeit<lb/>
+zwar mancherlei Leute aus der Stadt und den<lb/>
+umliegenden Gütern gekommen, von Angehörigen<lb/>
+aber faſt wenige und auch dieſe nur entfernte,<lb/>
+maaßen der Junker Wulf der Letzte ſeines Stam¬<lb/>
+mes war und des Herrn Gerhardus Ehgemahl<lb/>
+nicht hieſigen Geſchlechts geweſen; darum es auch<lb/>
+geſchahe, daß in der Kürze Alle wieder abge¬<lb/>
+zogen ſind.</p><lb/>
+<p>Der Junker drängte nun ſelbſt, daß ich mein<lb/>
+aufgetragen Werk begönne, wozu ich droben<lb/>
+in dem Bilderſaale an einem nach Norden zu<lb/>
+<pb n="53" facs="#f0067"/>
+belegenen Fenſter mir ſchon den Platz erwählet<lb/>
+hatte. Zwar kam Baſ' Urſel, die wegen ihrer<lb/>
+Gicht die Treppen nicht hinauf konnte, und<lb/>
+meinete, es möge am Beſten in ihrer Stuben<lb/>
+oder im Gemach daran geſchehen, ſo ſei es uns<lb/>
+beiderſeits zur Unterhaltung; ich aber, ſolcher<lb/>
+Gevatterſchaft gar gern entrathend, hatte an der<lb/>
+dortigen Weſtſonne einen rechten Malergrund<lb/>
+dagegen, und konnte alles Reden ihr nicht nützen.<lb/>
+Vielmehr war ich am andern Morgen ſchon dabei,<lb/>
+die Nebenfenſter des Saales zu verhängen und<lb/>
+die hohe Staffelei zu ſtellen, ſo ich mit Hülfe<lb/>
+Dieterichs mir ſelber in den letzten Tagen an¬<lb/>
+gefertigt.</p><lb/>
+<p>Als ich eben den Blendrahmen mit der Leine¬<lb/>
+wand darauf gelegt, öffnete ſich die Thür aus<lb/>
+Herrn Gerhardus' Zimmer, und Katharina trat<lb/>
+herein. — Aus was für Urſach', wäre ſchwer zu<lb/>
+ſagen; aber ich empfand, daß wir uns diesmal<lb/>
+faſt erſchrocken gegenüberſtanden; aus der ſchwar¬<lb/>
+zen Kleidung, die ſie nicht abgeleget, ſchaute das<lb/>
+junge Antlitz in gar ſüßer Verwirrung zu mir auf.</p><lb/>
+<pb n="54" facs="#f0068"/>
+<p>„Katharina,“ ſagte ich, „Ihr wiſſet, ich ſoll<lb/>
+Euer Bildniß malen; duldet Ihr's auch gern?“</p><lb/>
+<p>Da zog ein Schleier über ihre braunen Augen¬<lb/>
+ſterne und ſie ſagte leiſe: „Warum doch fragt<lb/>
+Ihr ſo, Johannes?“</p><lb/>
+<p>Wie ein Thau des Glückes ſank es in mein<lb/>
+Herz. „Nein, nein, Katharina! Aber ſagt, was<lb/>
+iſt, worin kann ich Euch dienen? — Setzet Euch,<lb/>
+damit wir nicht ſo müßig überraſcht werden,<lb/>
+und dann ſprecht! Oder vielmehr, ich weiß es<lb/>
+ſchon. Ihr braucht mir's nicht zu ſagen!“</p><lb/>
+<p>Aber ſie ſetzte ſich nicht, ſie trat zu mir heran.<lb/>
+„Denket Ihr noch, Johannes, wie Ihr einſt den<lb/>
+Buhz mit Euerem Bogen niederſchoſſet? Das<lb/>
+thut diesmal nicht noth, obſchon er wieder ob<lb/>
+dem Neſte lauert; denn ich bin kein Vöglein, das<lb/>
+ſich von ihm zerreißen läßt. Aber, Johannes, —<lb/>
+ich habe einen Blutsfreund! — Hilf mir wider<lb/>
+den!“</p><lb/>
+<p>„Ihr meinet Eueren Bruder, Katharina!“</p><lb/>
+<p>— „Ich habe keinen andern. — — Dem<lb/>
+Manne, den ich haſſe, will er mich zum Weibe<lb/>
+<pb n="55" facs="#f0069"/>
+geben! Während unſeres Vaters langem Siech¬<lb/>
+bett habe ich den ſchändlichen Kampf mit ihm<lb/>
+geſtritten, und erſt an ſeinem Sarg hab' ich's<lb/>
+ihm abgetrotzt, daß ich in Ruhe um den Vater<lb/>
+trauern mag; aber ich weiß, auch das wird er<lb/>
+nicht halten.“</p><lb/>
+<p>Ich gedachte eines Stiftsfräuleins zu Preetz,<lb/>
+Herrn Gerhardus' einzigen Geſchwiſters, und mei¬<lb/>
+nete, ob die nicht um Schutz und Zuflucht anzu¬<lb/>
+gehen ſei.</p><lb/>
+<p>Katharina nickte. „Wollt Ihr mein Bote<lb/>
+ſein, Johannes? — Geſchrieben habe ich ihr<lb/>
+ſchon, aber in Wulf's Hände kam die Antwort,<lb/>
+und auch erfahren habe ich ſie nicht; nur die<lb/>
+ausbrechende Wuth meines Bruders, die ſelbſt<lb/>
+das Ohr des Sterbenden erfüllet hätte, wenn es<lb/>
+noch offen geweſen wäre für den Schall der<lb/>
+Welt; aber der gnädige Gott hatte das geliebte<lb/>
+Haupt ſchon mit dem letzten Erdenſchlummer zu¬<lb/>
+gedecket.“</p><lb/>
+<p>Katharina hatte ſich nun doch auf meine<lb/>
+Bitte mir genüber geſetzet, und ich begann<lb/>
+<pb n="56" facs="#f0070"/>
+die Umriſſe aus die Leinewand zu zeichnen. So<lb/>
+kamen wir zu ruhiger Berathung; und da ich,<lb/>
+wenn die Arbeit weiter vorgeſchritten, nach Ham¬<lb/>
+burg mußte, um bei dem Holzſchnitzer einen Rah¬<lb/>
+men zu beſtellen, ſo ſtelleten nur feſt, daß ich<lb/>
+alsdann den Umweg über Preetz nähme und<lb/>
+alſo meine Botſchaft ausrichtete. Zunächſt jedoch<lb/>
+ſei emſig an dem Werk zu fördern.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Es iſt gar oft ein ſeltſam Widerſpiel im<lb/>
+Menſchenherzen. Der Junker mußte es ſchon<lb/>
+wiſſen, daß ich zu ſeiner Schweſter ſtand; gleich¬<lb/>
+wol — hieß nun ſein Stolz ihn mich gering zu<lb/>
+ſchätzen oder glaubte er mit ſeiner erſten Drohung<lb/>
+mich genug geſchrecket — was ich beſorget, traf<lb/>
+nicht ein; Katharina und ich waren am erſten<lb/>
+wie an den andern Tagen von ihm ungeſtöret.<lb/>
+Einmal zwar trat er ein und ſchalt mit Katha¬<lb/>
+rinen wegen ihrer Trauerkeidung, warf aber<lb/>
+dann die Thür hinter ſich, und wir hörten ihn<lb/>
+bald auf dem Hofe ein Reiterſtücklein pfeifen.<lb/>
+<pb n="57" facs="#f0071"/>
+Ein ander Mal noch hatte er den von der Riſch<lb/>
+an ſeiner Seite. Da Katharina eine heftige Be¬<lb/>
+wegung machte, bat ich ſie, auf ihrem Platz zu<lb/>
+bleiben, und malete ruhig weiter. Seit dem<lb/>
+Begräbnißtage, wo ich einen fremden Gruß mit<lb/>
+ihm getauſchet, hatte der Junker Kurt ſich auf dem<lb/>
+Hofe nicht gezeigt; nun trat er näher und be¬<lb/>
+ſchauete das Bild und redete gar ſchöne Worte,<lb/>
+meinete aber auch, weshalb das Fräulein ſich ſo<lb/>
+ſehr vermummet und nicht vielmehr ihr ſeidig<lb/>
+Haar in feinen Locken auf den Nacken habe wallen<lb/>
+laſſen; wie es ein Engelländiſcher Poet ſo trefflich<lb/>
+ausgedrücket, „rückwärts den Winden leichte Küſſe<lb/>
+werfend?“ Katharina aber, die bisher geſchwiegen,<lb/>
+wies auf Herrn Gerhardus' Bild und ſagte:<lb/>
+„Ihr wiſſet wol nicht mehr, daß das mein Vater<lb/>
+war!“</p><lb/>
+<p>Was Junker Kurt hierauf entgegnete, iſt mir<lb/>
+nicht mehr erinnerlich; meine Perſon aber ſchien<lb/>
+ihm ganz nicht gegenwärtig oder doch nur gleich<lb/>
+einer Maſchine, wodurch ein Bild ſich auf die<lb/>
+Leinewand malete. Von letzterem begann er<lb/>
+<pb n="58" facs="#f0072"/>
+über meinen Kopf hin dies und jenes noch zu<lb/>
+reden; da aber Katharina nicht mehr Antwort<lb/>
+gab, ſo nahm er alsbald ſeinen Urlaub, der<lb/>
+Dame angenehme Kurzweil wünſchend.</p><lb/>
+<p>Bei dieſem Wort jedennoch ſah ich aus ſeinen<lb/>
+Augen einen raſchen Blick gleich einer Meſſer¬<lb/>
+ſpitzen nach mir zücken.</p><lb/>
+<p>— — Wir hatten nun weitere Störniß nicht<lb/>
+zu leiden, und mit der Jahreszeit rückte auch die<lb/>
+Arbeit vor. Schon ſtand auf den Waldkoppeln<lb/>
+draußen der Roggen in ſilbergrauem Bluhſt und<lb/>
+unten im Garten brachen ſchon die Roſen auf;<lb/>
+wir beide aber — ich mag es heut wol nieder¬<lb/>
+ſchreiben — wir hätten itzund die Zeit gern ſtille<lb/>
+ſtehen laſſen; an meine Botenreiſe wagten, auch<lb/>
+nur mit einem Wörtlein, weder ſie noch ich zu<lb/>
+rühren. Was wir geſprochen, wüßte ich kaum<lb/>
+zu ſagen, nur daß ich von meinem Leben in der<lb/>
+Fremde ihr erzählte und wie ich immer heim¬<lb/>
+gedacht; auch daß ihr güldener Pfennig mich in<lb/>
+Krankheit einſt vor Noth bewahrt, wie ſie in<lb/>
+ihrem Kinderherzen es damals fürgeſorget, und<lb/>
+<pb n="59" facs="#f0073"/>
+wie ich ſpäter dann geſtrebt und mich geängſtet,<lb/>
+bis ich das Kleinod aus dem Leihhaus mir zurück¬<lb/>
+gewonnen hatte. Dann lächelte ſie glücklich; und<lb/>
+dabei blühete aus dem dunkeln Grund des Bildes<lb/>
+immer ſüßer das holde Antlitz auf; mir ſchien's,<lb/>
+als ſei es kaum mein eigenes Werk. — Mit¬<lb/>
+unter war's, als ſchaue mich etwas heiß aus<lb/>
+ihren Augen an; doch wollte ich es dann faſſen,<lb/>
+ſo floh es ſcheu zurück; und dennoch floß es durch<lb/>
+den Pinſel heimlich auf die Leinewand, ſo daß<lb/>
+mir ſelber kaum bewußt ein ſinneberückend Bild<lb/>
+entſtand, wie nie zuvor und nie nachher ein<lb/>
+ſolches aus meiner Hand gegangen iſt. — —<lb/>
+Und endlich war's doch an der Zeit und feſt¬<lb/>
+geſetzet, am andern Morgen ſollte ich meine Reiſe<lb/>
+antreten.</p><lb/>
+<p>Als Katharina mir den Brief an ihre Baſe<lb/>
+eingehändiget, ſaß ſie noch einmal mir genüber.<lb/>
+Es wurde heute mit Worten nicht geſpielet; wir<lb/>
+ſprachen ernſt und ſorgenvoll mitſammen; in¬<lb/>
+deſſen ſetzete ich noch hie und da den Pinſel an,<lb/>
+mitunter meine Blicke auf die ſchweigende Geſell¬<lb/>
+<pb n="60" facs="#f0074"/>
+ſchaft an den Wänden werfend, deren ich in<lb/>
+Katharinens Gegenwart ſonſt kaum gedacht hatte.</p><lb/>
+<p>Da, unter dem Malen, fiel mein Auge auch<lb/>
+auf jenes alte Frauenbildniß, das mir zur Seite<lb/>
+hing und aus den weißen Schleiertüchern die<lb/>
+ſtechend grauen Augen auf mich gerichtet hielt.<lb/>
+Mich fröſtelte, ich hätte nahezu den Stuhl ver¬<lb/>
+rücket.</p><lb/>
+<p>Aber Katharinens ſüße Stimme drang mir<lb/>
+in das Ohr: „Ihr ſeid ja faſt erbleichet; was<lb/>
+flog Euch über's Herz, Johannes?“</p><lb/>
+<p>Ich zeigte mit dem Pinſel auf das Bild.<lb/>
+„Kennet ihr die, Katharine? Dieſe Augen haben<lb/>
+hier all' die Tage auf uns hingeſehen.“</p><lb/>
+<p>„Die da? — Vor der hab' ich ſchon als Kind<lb/>
+eine Furcht gehabt, und gar bei Tage bin ich<lb/>
+oft wie blind hier durchgelaufen. Es iſt die<lb/>
+Gemahlin eines früheren Gerhardus; vor weit<lb/>
+über hundert Jahren hat ſie hier gehauſet.“</p><lb/>
+<p>„Sie gleicht nicht Euerer ſchönen Mutter,“<lb/>
+entgegnete ich; „dies Antlitz hat wol vermocht,<lb/>
+einer jeden Bitte nein zu ſagen.“<lb/>
+</p>
+<pb n="61" facs="#f0075"/>
+<p>Katharina ſah gar ernſt zu mir herüber.<lb/>
+„So heißt's auch,“ ſagte ſie; „ſie ſoll ihr einzig<lb/>
+Kind verfluchet haben; am andern Morgen aber<lb/>
+hat man das blaſſe Fräulein aus einem Garten¬<lb/>
+teich gezogen, der nachmals zugedämmet iſt.<lb/>
+Hinter den Hecken, dem Walde zu, ſoll es ge¬<lb/>
+weſen ſein.“</p><lb/>
+<p>„Ich weiß, Katharina; es wachſen heut noch<lb/>
+Schachtelhalm und Binſen aus dem Boden.“</p><lb/>
+<p>„Wiſſet Ihr denn auch, Johannes, daß eine<lb/>
+unſeres Geſchlechtes ſich noch immer zeigen ſoll,<lb/>
+ſobald dem Hauſe Unheil droht? Man ſieht ſie<lb/>
+erſt hier an den Fenſtern gleiten, dann draußen<lb/>
+in dem Gartenſumpf verſchwinden.“</p><lb/>
+<p>Ohnwillens wandten meine Augen ſich wieder<lb/>
+auf die unbeweglichen des Bildes. „Und weß¬<lb/>
+halb,“ fragte ich, „verfluchete ſie ihr Kind?“</p><lb/>
+<p>„Weßhalb?“ — Katharina zögerte ein Weil¬<lb/>
+chen und blickte mich faſt verwirret an mit allem<lb/>
+ihrem Liebreiz. „Ich glaub', ſie wollte den Vetter<lb/>
+ihrer Mutter nicht zum Ehgemal.“</p><lb/>
+<p>— „War's denn ein gar ſo übler Mann?“<lb/>
+</p>
+<pb n="62" facs="#f0076"/>
+<p>Ein Blick faſt wie ein Flehen flog zu mir<lb/>
+herüber, und tiefes Roſenroth bedeckte ihr Antlitz.<lb/>
+„Ich weiß nicht,“ ſagte ſie beklommen; und leiſer,<lb/>
+daß ich's kaum vernehmen mochte, ſetzte ſie hinzu:<lb/>
+„Es heißt, ſie hab' einen Andern lieb gehabt;<lb/>
+der war nicht ihres Standes.“</p><lb/>
+<p>Ich hatte den Pinſel ſinken laſſen; denn ſie<lb/>
+ſaß vor mir mit geſenkten Blicken; wenn nicht<lb/>
+die kleine Hand ſich leis aus ihrem Schooße auf<lb/>
+ihr Herz geleget, ſo wäre ſie ſelber wie ein leb¬<lb/>
+los Bild geweſen.</p><lb/>
+<p>So hold es war, ich ſprach doch endlich:<lb/>
+„So kann ich ja nicht malen; wollet Ihr mich<lb/>
+nicht anſehen, Katharina?“</p><lb/>
+<p>Und als ſie nun die Wimpern von den<lb/>
+braunen Augenſternen hob, da war kein Hehlens<lb/>
+mehr; heiß und offen ging der Strahl zu meinem<lb/>
+Herzen. „Katharina!“ Ich war aufgeſprungen.<lb/>
+„Hätte jene Frau auch Dich verflucht?“</p><lb/>
+<p>Sie athmete tief auf. „Auch mich, Johan¬<lb/>
+nes!“ — Da lag ihr Haupt an meiner Bruſt,<lb/>
+und feſt umſchloſſen ſtanden wir vor dem Bild<lb/>
+<pb n="63" facs="#f0077"/>
+der Ahnfrau, die kalt und feindlich auf uns<lb/>
+niederſchauete.</p><lb/>
+<p>Aber Katharina zog mich leiſe fort. „Laß<lb/>
+uns nicht trotzen, mein Johannes!“ ſagte ſie. —<lb/>
+Mit Selbigem hörte ich im Treppenhauſe ein<lb/>
+Geräuſch, und war es, als wenn etwas mit<lb/>
+dreien Beinen ſich mühſelig die Stiegen herauf¬<lb/>
+arbeitete. Als Katharina und ich uns deshalb<lb/>
+wieder an unſern Platz geſetzet und ich Pinſel<lb/>
+und Palette zur Hand genommen hatte, öffnete<lb/>
+ſich die Thür, und Baſ' Urſel, die wir wol zu¬<lb/>
+letzt erwartet hätten, kam an ihrem Stock herein¬<lb/>
+gehuſtet. „Ich höre,“ ſagte ſie, „Er will nach<lb/>
+Hamburg, um den Rahmen zu beſorgen: da muß<lb/>
+ich mir nachgerade doch Sein Werk beſehen!“</p><lb/>
+<p>Es iſt wol männiglich bekannt, daß alte<lb/>
+Jungfrauen in Liebesſachen die allerfeinſten Sinne<lb/>
+haben und ſo der jungen Welt gar oft Bedrang<lb/>
+und Trübſal bringen. Als Baſ' Urſel auf Ka¬<lb/>
+tharinens Bild, das ſie bislang noch nicht ge¬<lb/>
+ſehen, kaum einen Blick geworfen hatte, zuckte<lb/>
+ſie gar ſtolz empor mit ihrem runzeligen Angeſicht<lb/>
+<pb n="64" facs="#f0078"/>
+und frug mich allſogleich: „Hat denn das Fräu¬<lb/>
+lein Ihn ſo angeſehen, als wie ſie da im Bilde<lb/>
+ſitzet?“</p><lb/>
+<p>Ich entgegnete, es ſei ja eben die Kunst der<lb/>
+edlen Malerei, nicht bloß die Abschrift des Ge¬<lb/>
+ſichts zu geben. Aber ſchon mußte an unſern<lb/>
+Augen oder Wangen ihr Sonderlichem aufgefallen<lb/>
+ſein, denn ihre Blicke gingen ſprühend hin und<lb/>
+wieder: „Die Arbeit iſt wol bald am Ende?“<lb/>
+ſagte ſie dann mit ihrer höchſten Stimme.<lb/>
+„Deine Augen haben kranken Glanz, Katharina;<lb/>
+das lange Sitzen hat Dir nicht wohl gedienet.“</p><lb/>
+<p>Ich entgegnete, das Bild ſei bald vollendet,<lb/>
+nur an dem Gewande ſei noch hie und da zu<lb/>
+ſchaffen.</p><lb/>
+<p>„Nun, da braucht Er wol des Fräuleins<lb/>
+Gegenwart nicht mehr dazu! — Komm, Katha¬<lb/>
+rina, Dein Arm iſt beſſer, als der dumme Stecken<lb/>
+hier!“</p><lb/>
+<p>Und ſo mußt' ich von der dürren Alten<lb/>
+meines Herzens holdſelig Kleinod mir entführen<lb/>
+ſehen, da ich es eben mir gewonnen glaubte;<lb/>
+<pb n="65" facs="#f0079"/>
+kaum daß die braunen Augen mir noch einen<lb/>
+ſtummen Abſchied ſenden konnten.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Am andern Morgen, am Montage vor Jo¬<lb/>
+hannis, trat ich meine Reiſe an. Auf einem<lb/>
+Gaule, den Dieterich mir beſorget, trabte ich in<lb/>
+der Frühe aus dem Thorweg; als ich durch die<lb/>
+Tannen ritt, brach einer von des Junkers Hunden<lb/>
+herfür und fuhr meinem Thiere nach den Flechſen,<lb/>
+wann ſchon ſelbiges aus ihrem eigenen Stalle<lb/>
+war; aber der oben im Sattel ſaß, ſchien ihnen<lb/>
+allzeit noch verdächtig. Kamen gleichwol ohne<lb/>
+Bleſſur davon, ich und der Gaul, und langeten<lb/>
+Abends bei guter Zeit in Hamburg an. Am<lb/>
+andern Vormittage machte ich mich auf und be¬<lb/>
+fand auch bald einen Schnitzer, ſo der Bilder¬<lb/>
+leiſten viele fertig hatte, daß man ſie nur zu¬<lb/>
+ſammenzuſtellen und in den Ecken die Zierrathen<lb/>
+darauf zu thun brauchte. Wurden alſo handels¬<lb/>
+einig, und verſprach der Meiſter, mir das Alles<lb/>
+wohlverpacket nachzuſenden.</p><lb/>
+<fw type="sig" place="bottom">Storm, <hi rendition="#aq">Aquis submersus</hi>. 5<lb/>
+</fw>
+<pb n="66" facs="#f0080"/>
+<p>Nun war zwar in der berühmten Stadt vor<lb/>
+einen Neubegierigen gar Vieles zu beſchauen:<lb/>
+ſo in der Schiffer-Geſellſchaft des Seeräubern<lb/>
+Störtebeker ſilberner Becher, welcher das zweite<lb/>
+Wahrzeichen der Stadt genennet wird, und ohne<lb/>
+den geſehen zu haben, wie es in einem Buche<lb/>
+heißet, Niemand ſagen dürfe, daß er in Hamburg<lb/>
+ſei geweſen; ſodann auch der Wunderfiſch mit<lb/>
+eines Adlers richtigen Krallen und Fluchten, ſo<lb/>
+eben um dieſe Zeit in der Elbe war gefangen<lb/>
+worden und den die Hamburger, wie ich nach¬<lb/>
+malen hörete, auf einen Seeſieg wider die tür¬<lb/>
+kiſchen Piraten deuteten; allein, obſchon ein<lb/>
+rechter Reiſender ſolcherlei Seltſamkeiten nicht<lb/>
+vorbeigehen ſoll, ſo war doch mein Gemüthe,<lb/>
+beides, von Sorge und von Herzensſehnen, allzu¬<lb/>
+ſehr beſchweret, Derohalben, nachdem ich bei<lb/>
+einem Kaufherrn noch meinen Wechſel umgeſetzet<lb/>
+und in meiner Nachtherbergen Richtigkeit getroffen<lb/>
+hatte, beſtieg ich um Mittage wieder meinen<lb/>
+Gaul und hatte allſobald allen Lärmen des<lb/>
+großen Hamburg hinter mir.</p><lb/>
+<pb n="67" facs="#f0081"/>
+<p>Am Nachmittage danach langete ich in Preetz<lb/>
+an, meldete mich im Stifte bei der hochwürdigen<lb/>
+Dame und wurde auch alsbald vorgelaſſen. Ich<lb/>
+erkannte in ihrer ſtattlichen Perſon allſogleich die<lb/>
+Schweſter meines theueren ſeligen Herrn Ger¬<lb/>
+hardus; nur, wie es ſich an unverehelichten<lb/>
+Frauen oftmals zeiget, waren die Züge des<lb/>
+Antlitzes gleichwol ſtrenger, als die des Bruders.<lb/>
+Ich hatte, ſelbſt nachdem ich Katharinens Schrei¬<lb/>
+ben überreichet, ein lang und hart Examen zu<lb/>
+beſtehen; dann aber verhieß ſie ihren Beiſtand<lb/>
+und ſetzete ſich zu ihrem Schreibgeräthe, indeß<lb/>
+die Magd mich in ein ander Zimmer führen<lb/>
+mußte, allwo man mich gar wohl bewirthete.</p><lb/>
+<p>Es war ſchon ſpät am Nachmittage, da ich<lb/>
+wieder fortritt; doch rechnete ich, obſchon mein<lb/>
+Gaul die vielen Meilen hinter uns bereits ver¬<lb/>
+ſpürete, noch gegen Mitternacht beim alten Die¬<lb/>
+terich anzuklopfen. — Das Schreiben, das die<lb/>
+alte Dame mir für Katharinen mitgegeben, trug<lb/>
+ich wohlverwahret in einem Ledertäſchlein unterm<lb/>
+Wammſe auf der Bruſt. So ritt ich fürbaß in<lb/>
+<fw type="sig" place="bottom">5 *<lb/>
+</fw>
+<pb n="68" facs="#f0082"/>
+die aufſteigende Dämmerung hinein; gar bald<lb/>
+an ſie, die Eine, nur gedenkend, und immer<lb/>
+wieder mein Herz mit neuen lieblichen Gedanken<lb/>
+ſchreckend.</p><lb/>
+<p>Es war aber eine lauwarme Juninacht; von<lb/>
+den dunkelen Feldern erhub ſich der Ruch der<lb/>
+Wieſenblumen, aus den Knicken duftete das Geiß¬<lb/>
+blatt; in Luft und Laub ſchwebete ungeſehen das<lb/>
+kleine Nachtgeziefer oder flog auch wol ſurrend<lb/>
+meinem ſchnaubenden Gaule an die Nüſtern;<lb/>
+droben aber an der blauſchwarzen ungeheueren<lb/>
+Himmelsglocke über mir ſtrahlte im Süd-Oſt das<lb/>
+Sternenbild des Schwanes in ſeiner unberührten<lb/>
+Herrlichkeit.</p><lb/>
+<p>Da ich endlich wieder aus Herrn Gerhardus'<lb/>
+Grund und Boden war, reſolvirte ich mich ſofort,<lb/>
+noch nach dem Dorfe hinüberzureiten, welches<lb/>
+ſeitwärts von der Fahrſtraßen hinterm Wald<lb/>
+belegen iſt. Denn ich gedachte, daß der Krüger<lb/>
+Hans Ottſen einen paßlichen Handwagen habe;<lb/>
+mit dem ſolle er morgen einen Boten in die<lb/>
+Stadt ſchicken, um die Hamburger Kiſte für mich<lb/>
+<pb n="69" facs="#f0083"/>
+abzuholen; ich aber wollte nur an ſein Kammer¬<lb/>
+fenſter klopfen, um ihm ſolches zu beſtellen.</p><lb/>
+<p>Alſo ritte ich am Waldesrande hin, die Augen<lb/>
+faſt verwirret von den grünlichen Johannis¬<lb/>
+fünkchen, die mit ihren ſpieleriſchen Lichtern mich<lb/>
+hier umflogen. Und ſchon ragete groß und<lb/>
+finſter die Kirche vor mir auf, in deren Mauern<lb/>
+Herr Gerhardus bei den Seinen ruhte; ich hörte,<lb/>
+wie im Thurm ſo eben der Hammer ausholete,<lb/>
+und von der Glocken ſcholl die Mitternacht in's<lb/>
+Dorf hinunter. „Aber ſie ſchlafen Alle;“ ſprach<lb/>
+ich bei mir ſelber, „die Todten in der Kirchen<lb/>
+oder unter dem hohen Sternenhimmel hieneben<lb/>
+auf dem Kirchhof, die Lebenden noch unter den<lb/>
+niedern Dächern, die dort ſtumm und dunkel vor<lb/>
+Dir liegen.“ So ritt ich weiter. Als ich jedoch<lb/>
+an den Teich kam, von wo aus man Hans Ott¬<lb/>
+ſens Krug gewahren kann, ſahe ich von dorten<lb/>
+einen dunſtigen Lichtſchein auf den Weg hinaus¬<lb/>
+brechen, und Fiedeln und Klarinetten ſchalleten<lb/>
+mir entgegen.</p><lb/>
+<p>Da ich gleichwol mit dem Wirthe reden wollte,<lb/>
+<pb n="70" facs="#f0084"/>
+ſo ritt ich herzu und brachte meinen Gaul im<lb/>
+Stalle unter. Als ich danach auf die Tenne<lb/>
+trat, war es gedrangvoll von Menſchen, Män¬<lb/>
+nern und Weibern, und ein Geſchrei und wüſt'<lb/>
+Getreibe, wie ich ſolches, auch beim Tanz, in<lb/>
+früheren Jahren nicht vermerket. Der Schein<lb/>
+der Unſchlittkerzen, ſo unter einem Balken auf<lb/>
+einem Kreuzholz ſchwebten, hob manch' bärtig<lb/>
+und verhauen Antlitz aus dem Dunkel, dem man<lb/>
+lieber nicht allein im Wald begegnet wäre. —<lb/>
+Aber nicht nur Strolche und Bauernburſche ſchie¬<lb/>
+nen hier ſich zu vergnügen; bei den Muſikanten,<lb/>
+die drüben vor der Döns auf ihren Tonnen<lb/>
+ſaßen, ſtund der Junker von der Riſch; er hatte<lb/>
+ſeinen Mantel über dem einen Arm, an dem<lb/>
+andern hing ihm eine derbe Dirne. Aber das<lb/>
+Stücklein ſchien ihm nicht zu gefallen; denn er<lb/>
+riß dem Fiedler ſeine Geigen aus den Händen,<lb/>
+warf eine Hand voll Münzen auf ſeine Tonne<lb/>
+und verlangte, daß ſie ihm den neumodiſchen<lb/>
+Zweitritt aufſpielen ſollten. Als dann die Mu¬<lb/>
+ſikanten ihm gar raſch gehorchten und wie toll<lb/>
+<pb n="71" facs="#f0085"/>
+die neue Weiſe klingen ließen, ſchrie er nach<lb/>
+Platz und ſchwang ſich in den dichten Haufen;<lb/>
+und die Bauerburſchen glotzten drauf hin, wie<lb/>
+ihm die Dirne im Arme lag, gleich einer Tauben<lb/>
+vor dem Geier.</p><lb/>
+<p>Ich aber wandte mich ab und trat hinten in<lb/>
+die Stube, um mit dem Wirth zu reden. Da<lb/>
+ſaß der Junker Wulf beim Kruge Wein und<lb/>
+hatte den alten Ottſen neben ſich, welchen er<lb/>
+mit allerhand Späßen in Bedrängniß brachte;<lb/>
+ſo drohete er, ihm ſeinen Zins zu ſteigern, und<lb/>
+ſchüttelte ſich vor Lachen, wenn der geängſtete<lb/>
+Mann gar jämmerlich um Gnad' und Nachſicht<lb/>
+ſupplicirte. — Da er mich gewahr worden, ließ<lb/>
+er nicht ab, bis ich ſelb dritt mich an den Tiſch<lb/>
+geſetzet; frug nach meiner Reiſe und ob ich in<lb/>
+Hamburg mich auch wol vergnüget; ich aber<lb/>
+antwortete nur, ich käme eben von dort zurück,<lb/>
+und werde der Rahmen in Kürze in der Stadt<lb/>
+eintreffen, von wo Hans Ottſen ihn mit ſeinem<lb/>
+Handwäglein leichtlich möge holen laſſen.</p><lb/>
+<p>Indeß ich mit Letzterem ſolches nun verhan¬<lb/>
+<pb n="72" facs="#f0086"/>
+delte, kam auch der von der Riſch hereingeſtürmet<lb/>
+und ſchrie dem Wirthe zu, ihm einen kühlen<lb/>
+Trunk zu ſchaffen. Der Junker Wulf aber, dem<lb/>
+bereits die Zunge ſchwer im Munde wühlete,<lb/>
+faßte ihn am Arm und riß ihn auf den leeren<lb/>
+Stuhl hernieder.</p><lb/>
+<p>„Nun Kurt!“ rief er. „Biſt Du noch nicht<lb/>
+ſatt von Deinen Dirnen! Was ſoll die Katha¬<lb/>
+rina dazu ſagen? Komm, machen <hi rendition="#aq">alamode</hi><lb/>
+ein ehrbar <hi rendition="#aq">hazard</hi> mitſammen!“ Dabei hatte er<lb/>
+ein Kartenſpiel unterm Wamms hervorgezogen.<lb/>
+„<hi rendition="#aq">Allons donc</hi>! — <hi rendition="#aq">Dix et dame</hi>! — <hi rendition="#aq">dame et<lb/>
+valet</hi>!“</p><lb/>
+<p>Ich ſtand noch und ſah dem Spiele zu, ſo<lb/>
+dermalen eben Mode worden; nur wünſchend,<lb/>
+daß die Nacht vergehen und der Morgen kommen<lb/>
+möchte. — Der Trunkene ſchien aber dieſes Mal<lb/>
+des Nüchternen Uebermann; dem von der Riſch<lb/>
+ſchlug nach einander jede Karte fehl.</p><lb/>
+<p>„Tröſte Dich Kurt!“ ſagte der Junker Wulf,<lb/>
+indeß er ſchmunzelnd die Speciesthaler auf einen<lb/>
+Haufen ſcharrte:</p><lb/>
+<pb n="73" facs="#f0087"/>
+<lg type="poem"> <l>„Glück in der Lieb'</l><lb/>
+<l>Und Glück im Spiel,</l><lb/>
+<l>Bedenk, für Einen</l><lb/>
+<l>Iſt's zuviel!</l><lb/>
+</lg> <p>Laß den Maler Dir hier von Deiner ſchönen<lb/>
+Braut erzählen! Der weiß ſie auswendig; da<lb/>
+kriegſt Du's nach der Kunſt zu wiſſen.“</p><lb/>
+<p>Dem Andern, wie mir am beſten kund war,<lb/>
+mochte aber noch nicht viel von Liebesglück be¬<lb/>
+wußt ſein; denn er ſchlug fluchend auf den Tiſch<lb/>
+und ſah gar grimmig auf mich her.</p><lb/>
+<p>„Ei, Du biſt eiferſüchtig, Kurt;“ ſagte der<lb/>
+Junker Wulf vergnüglich, als ob er jedes Wort<lb/>
+auf ſeiner ſchweren Zunge ſchmeckete; „aber ge¬<lb/>
+tröſte Dich, der Rahmen iſt ſchon fertig zu dem<lb/>
+Bilde; Dein Freund der Maler kommt eben erſt<lb/>
+von Hamburg.“</p><lb/>
+<p>Bei dieſem Worte ſahe ich den von der Riſch<lb/>
+aufzucken gleich einem Spürhund bei der Witte¬<lb/>
+rung. „Von Hamburg heut? — So muß er<lb/>
+Fauſti Mantel ſich bedienet haben; denn mein<lb/>
+Reitknecht ſah ihn heut zu Mittag noch in<lb/>
+<pb n="74" facs="#f0088"/>
+Preetz! Im Stift, bei Deiner Baſe iſt er auf<lb/>
+Beſuch geweſen.“</p><lb/>
+<p>Meine Hand fuhr unverſehens nach der Bruſt,<lb/>
+wo ich das Täſchlein mit dem Brief verwahret<lb/>
+hatte; denn die trunkenen Augen des Junkers<lb/>
+Wulf lagen auf mir; und war mir's nicht an¬<lb/>
+ders, als ſähe er damit mein ganz Geheimniß<lb/>
+offen vor ſich liegen. Es währete auch nicht<lb/>
+lange, ſo flogen die Karten klatſchend auf den<lb/>
+Tiſch. „Oho!“ ſchrie er. „Im Stift, bei meiner<lb/>
+Baſe! Du treibſt wol gar doppelt Handwerk,<lb/>
+Burſch! Wer hat Dich auf den Botengang ge¬<lb/>
+ſchickt?“</p><lb/>
+<p>„Ihr nicht, Junker Wulf!“ entgegnet' ich;<lb/>
+„und das muß Euch genug ſein!“ — Ich wollt'<lb/>
+nach meinem Degen greifen; aber er war nicht<lb/>
+da; fiel mir auch bei nun, daß ich ihn an den<lb/>
+Sattelknopf gehänget, da ich vorhin den Gaul<lb/>
+zu Stalle brachte.</p><lb/>
+<p>Und ſchon ſchrie der Junker wieder zu ſeinem<lb/>
+jüngeren Kumpan; „Reiß ihm das Wamms auf,<lb/>
+Kurt! Es gilt den blanken Haufen hier, Du<lb/>
+<pb n="75" facs="#f0089"/>
+findeſt eine ſaubere Briefſchaft, die Du ungern<lb/>
+möchteſt beſtellet ſehen!“</p><lb/>
+<p>Im ſelbigen Augenblick fühlte ich auch ſchon<lb/>
+die Hände des von der Riſch an meinem Leibe,<lb/>
+und ein wüthend Ringen zwiſchen uns begann.<lb/>
+Ich fühlte wol, daß ich ſo leicht, wie in der<lb/>
+Bubenzeit, ihm nicht mehr über würde; da aber<lb/>
+fügete es ſich zu meinem Glücke, daß ich ihm<lb/>
+beide Handgelenke packte, und er alſo wie ge¬<lb/>
+feſſelt vor mir ſtund. Es hatte keiner von uns<lb/>
+ein Wort dabei verlauten laſſen; als wir uns<lb/>
+aber itzund in die Augen ſahen, da wußte Jeder<lb/>
+wol, daß er's mit ſeinem Todtfeind vor ſich habe.</p><lb/>
+<p>Solches ſchien auch der Junker Wulf zu<lb/>
+meinen; er ſtrebte von ſeinem Stuhl empor, als<lb/>
+wolle er dem von der Riſch zu Hülfe kommen;<lb/>
+mochte aber zu viel des Weins genoſſen haben,<lb/>
+denn er taumelte auf ſeinen Platz zurück. Da<lb/>
+ſchrie er, ſo laut ſeine lallende Zung es noch<lb/>
+vermochte: „He, Tartar! Türk! Wo ſteckt ihr!<lb/>
+Tartar, Türk!“ Und ich wußte nun, daß die<lb/>
+zwo grimmen Köter, ſo ich vorhin auf der Tenne<lb/>
+<pb n="76" facs="#f0090"/>
+an dem Ausſchank hatte lungern ſehen, mir an<lb/>
+die nackte Kehle ſpringen ſollten. Schon hörete<lb/>
+ich ſie durch das Getümmel der Tanzenden daher<lb/>
+ſchnaufen, da riß ich mit einem Rucke jählings<lb/>
+meinen Feind zu Boden, ſprang dann durch eine<lb/>
+Seitenthür aus dem Zimmer, die ich ſchmetternd<lb/>
+hinter mir zuwarf, und gewann alſo das Freie.</p><lb/>
+<p>Und um mich her war plötzlich wieder die<lb/>
+ſtille Nacht und Mond- und Sternenſchimmer.<lb/>
+In den Stall zu meinem Gaul wagt' ich nicht<lb/>
+erſt zu gehen, ſondern ſprang flugs über einen<lb/>
+Wall und lief über das Feld dem Walde zu.<lb/>
+Da ich ihn bald erreichet, ſuchte ich die Richtung<lb/>
+nach dem Herrenhoſe einzuhalten; denn es zieht<lb/>
+ſich die Holzung bis hart zur Gartenmauer.<lb/>
+Zwar war die Helle der Himmelslichter hier<lb/>
+durch das Laub der Bäume ausgeſchloſſen; aber<lb/>
+meine Augen wurden der Dunkelheit gar bald<lb/>
+gewohnt, und da ich das Täſchlein ſicher unter<lb/>
+meinem Wammſe fühlte, ſo tappte ich rüſtig vor¬<lb/>
+wärts; denn ich gedachte den Reſt der Nacht<lb/>
+noch einmal in meiner Kammer auszuruhen, dann<lb/>
+<pb n="77" facs="#f0091"/>
+aber mit dem alten Dieterich zu berathen, was<lb/>
+allfort geſchehen ſolle; maaßen ich wol ſahe, daß<lb/>
+meines Bleibens hier nicht fürder ſei.</p><lb/>
+<p>Bisweilen ſtund ich auch und horchte; aber<lb/>
+ich mochte bei meinem Abgang wol die Thür<lb/>
+in's Schloß geworfen und ſo einen guten Vor¬<lb/>
+ſprung mir gewonnen haben: von den Hunden<lb/>
+war kein Laut vernehmbar. Wol aber, da ich<lb/>
+eben aus dem Schatten auf eine vom Mond er¬<lb/>
+hellete Lichtung trat, hörete ich nicht gar fern die<lb/>
+Nachtigallen ſchlagen; und von wo ich ihren<lb/>
+Schall hörte, dahin richtete ich meine Schritte;<lb/>
+denn mir war wohl bewußt, ſie hatten hier herum<lb/>
+nur in den Hecken des Herrengartens ihre Neſter;<lb/>
+erkannte nun auch, wo ich mich befand, und daß<lb/>
+ich bis zum Hofe nicht gar weit mehr hatte.</p><lb/>
+<p>Ging alſo dem lieblichen Schallen nach, das<lb/>
+immer heller vor mir aus dem Dunkel drang.<lb/>
+Da plötzlich ſchlug was Anderes an mein Ohr,<lb/>
+das jählings näher kam und mir das Blut er¬<lb/>
+ſtarren machte. Nicht zweifeln konnt' ich mehr,<lb/>
+die Hunde brachen durch das Unterholz; ſie<lb/>
+<pb n="78" facs="#f0092"/>
+hielten feſt auf meiner Spur, und ſchon hörete<lb/>
+ich deutlich hinter mir ihr Schnaufen und ihre<lb/>
+gewaltigen Sätze in dem dürren Laub des Wald¬<lb/>
+bodens. Aber Gott gab mir ſeinen gnädigen<lb/>
+Schutz; aus dem Schatten der Bäume ſtürzte ich<lb/>
+gegen die Gartenmauer und an eines Flieder¬<lb/>
+baums Geäſte ſchwang ich mich hinüber. — Da<lb/>
+ſangen hier im Garten immer noch die Nachti¬<lb/>
+gallen; die Buchenhecken warfen tiefe Schatten.<lb/>
+In ſolcher Mondnacht war ich einſt vor meiner<lb/>
+Ausfahrt in die Welt mit Herrn Gerhardus hier<lb/>
+gewandelt. „Sieh Dir's noch einmal an, Jo¬<lb/>
+hannes!“ hatte dermalen er geſprochen; „es<lb/>
+könnt' geſchehen, daß Du bei Deiner Heimkehr<lb/>
+mich nicht daheim mehr fändeſt, und daß als¬<lb/>
+dann ein Willkomm nicht für Dich am Thor ge¬<lb/>
+ſchrieben ſtünde; — ich aber möcht' nicht, daß<lb/>
+Du dieſe Stätte hier vergäßeſt.“</p><lb/>
+<p>Das flog mir itzund durch den Sinn, und<lb/>
+ich mußte bitter lachen; denn nun war ich hier<lb/>
+als ein gehetzet Wild; und ſchon hörete ich die<lb/>
+Hunde des Junker Wulf gar grimmig draußen<lb/>
+<pb n="79" facs="#f0093"/>
+an der Gartenmauer rennen. Selbige aber war,<lb/>
+wie ich noch Tags zuvor geſehen, nicht überall<lb/>
+ſo hoch, daß nicht das wüthige Gethier hinüber<lb/>
+konnte; und rings im Garten war kein Baum,<lb/>
+nichts als die dichten Hecken und drüben gegen<lb/>
+das Haus die Blumenbeete des ſeligen Herrn.<lb/>
+Da, als eben das Bellen der Hunde wie ein<lb/>
+Triumphgeheule innerhalb der Gartenmauer ſcholl,<lb/>
+erſahe ich in meiner Noth den alten Epheu-<lb/>
+Baum, der ſich mit ſtarkem Stamme an dem<lb/>
+Thurm hinaufreckt; und da dann die Hunde aus<lb/>
+den Hecken auf den mondhellen Platz hinaus¬<lb/>
+raſeten, war ich ſchon hoch genug, daß ſie mit<lb/>
+ihrem Anſpringen mich nicht mehr erreichen konn¬<lb/>
+ten; nur meinen Mantel, ſo von der Schulter<lb/>
+geglitten, hatten ſie mit ihren Zähnen mir herab¬<lb/>
+geriſſen.</p><lb/>
+<p>Ich aber, alſo angeklammert und fürchtend,<lb/>
+es werde das nach oben ſchwächere Geäſte mich<lb/>
+auf die Dauer nicht ertragen, blickte ſuchend um<lb/>
+mich, ob ich nicht irgend beſſern Halt gewinnen<lb/>
+möchte; aber es war nichts zu ſehen, als die<lb/>
+<pb n="80" facs="#f0094"/>
+dunklen Epheublätter um mich her. — Da, in<lb/>
+ſolcher Noth, hörete ich ober mir ein Fenſter<lb/>
+öffnen, und eine Stimme ſcholl zu mir herab —<lb/>
+möcht' ich ſie wieder hören, wenn Du, mein<lb/>
+Gott, mich bald nun rufen läßt aus dieſem<lb/>
+Erdenthal! — „Johannes!“ rief ſie; leis doch<lb/>
+deutlich hörete ich meinen Namen, und ich klet¬<lb/>
+terte höher an dem immer ſchwächeren Gezweige,<lb/>
+indeß die ſchlafenden Vögel um mich auffuhren,<lb/>
+und die Hunde von unten ein Geheul herauf¬<lb/>
+ſtießen. — „Katharina! Biſt Du es wirklich,<lb/>
+Katharina?“</p><lb/>
+<p>Aber ſchon kam ein zitternd Händlein zu mir<lb/>
+herab und zog mich gegen das offene Fenſter;<lb/>
+und ich ſah in ihre Augen, die voll Entſetzen in<lb/>
+die Tiefe ſtarrten.</p><lb/>
+<p>„Komm!“ ſagte ſie. „Sie werden Dich zer¬<lb/>
+reißen.“ Da ſchwang ich mich in ihre Kammer. —<lb/>
+Doch als ich drinnen war, ließ mich das Händlein<lb/>
+los, und Katharina ſank auf einen Seſſel, ſo am<lb/>
+Fenſter ſtund, und hatte ihre Augen dicht ge¬<lb/>
+ſchloſſen. Die dicken Flechten ihres Haares lagen<lb/>
+<pb n="81" facs="#f0095"/>
+über dem weißen Nachtgewand bis in den Schooß<lb/>
+hinab; der Mond, der draußen die Gartenhecken<lb/>
+überſtiegen hatte, ſchien voll herein und zeigete<lb/>
+mir Alles. Ich ſtund wie feſt gezaubert vor<lb/>
+ihr; ſo lieblich fremde und doch ſo ganz mein<lb/>
+eigen ſchien ſie mir; nur meine Augen tranken<lb/>
+ſich ſatt an all' der Schönheit. Erſt als ein<lb/>
+Seufzen ihre Bruſt erhob, ſprach ich zu ihr:<lb/>
+„Katharina, liebe Katharina, träumet Ihr denn?“</p><lb/>
+<p>Da flog ein ſchmerzlich Lächeln über ihr<lb/>
+Geſicht: „Ich glaub' wol faſt, Johannes! —<lb/>
+Das Leben iſt ſo hart; der Traum iſt ſüß!“</p><lb/>
+<p>Als aber von unten aus dem Garten das<lb/>
+Geheul auf's Neu heraufkam, fuhr ſie erſchreckt<lb/>
+empor. „Die Hunde, Johannes!“ rief ſie. „Was<lb/>
+iſt das mit den Hunden?“</p><lb/>
+<p>„Katharina,“ ſagte ich, „wenn ich Euch dienen<lb/>
+ſoll, ſo glaub' ich, es muß bald geſchehen; denn<lb/>
+es fehlt viel, daß ich noch einmal durch die Thür<lb/>
+in dieſes Haus gelangen ſollte.“ Dabei hatte ich<lb/>
+den Brief aus meinem Täſchlein hervorgezogen<lb/>
+<fw type="sig" place="bottom">Storm, <hi rendition="#aq">Aquis submersus</hi>. 6<lb/>
+</fw>
+<pb n="82" facs="#f0096"/>
+und erzählete auch, wie ich im Kruge drunten<lb/>
+mit den Junkern ſei in Streit gerathen.</p><lb/>
+<p>Sie hielt das Schreiben in den hellen Mon¬<lb/>
+denſchein und las; dann ſchaute ſie mich voll<lb/>
+und herzlich an, und wir beredeten, wie wir uns<lb/>
+morgen in dem Tannenwalde treffen wollten;<lb/>
+denn Katharina ſollte noch zuvor erkunden, auf<lb/>
+welchen Tag des Junker Wulfen Abreiſe zum<lb/>
+Kieler Johannismarkte feſtgeſetzet ſei.</p><lb/>
+<p>„Und nun, Katharina,“ ſprach ich; „habt Ihr<lb/>
+nicht etwas, das einer Waffe gleichſieht, ein<lb/>
+eiſern Ellenmaaß oder ſo dergleichen, damit ich der<lb/>
+beiden Thiere drunten mich erwehren könne?“</p><lb/>
+<p>Sie aber ſchrak jäh wie aus einem Traum<lb/>
+empor: „Was ſprichſt Du, Johannes!“ rief ſie;<lb/>
+und ihre Hände, ſo bislang in ihrem Schooß;<lb/>
+geruhet, griffen nach den meinen. „Nein, nicht<lb/>
+fort, nicht fort! da drunten iſt der Tod; und<lb/>
+gehſt Du, ſo iſt auch hier der Tod!“</p><lb/>
+<p>Da war ich vor ihr hingeknieet und lag an<lb/>
+ihrer jungen Bruſt, und wir umfingen uns in<lb/>
+großer Herzensnoth. „Ach, Käthe,“ ſprach ich,<lb/>
+<pb n="83" facs="#f0097"/>
+„was vermag die arme Liebe denn! Wenn auch<lb/>
+Dein Bruder Wulf nicht wäre; ich bin kein<lb/>
+Edelmann, und darf nicht um Dich werben.“</p><lb/>
+<p>Sehr ſüß und ſorglich ſchauete ſie mich an;<lb/>
+dann aber kam es wie Schelmerei aus ihrem<lb/>
+Munde: „Kein Edelmann, Johannes? — Ich<lb/>
+dächte, Du ſeieſt auch das! Aber — ach nein!<lb/>
+Dein Vater war nur der Freund des meinen —<lb/>
+das gilt der Welt wol nicht!“</p><lb/>
+<p>„Nein, Käthe; nicht das, und ſicherlich nicht<lb/>
+hier;“ entgegnete ich und umfaßte feſter ihren<lb/>
+jungfräulichen Leib; „aber drüben in Holland,<lb/>
+dort gilt ein tüchtiger Maler wol einen deutſchen<lb/>
+Edelmann; die Schwelle von Minheer van Dyks<lb/>
+Pallaſte zu Amſterdam iſt wol dem Höchſten<lb/>
+ehrenvoll zu überſchreiten. Man hat mich drüben<lb/>
+halten wollen, mein Meiſter van der Helſt und<lb/>
+Andre! Wenn ich dorthin zurückginge, ein Jahr<lb/>
+noch oder zwei; dann — wir kommen dann ſchon<lb/>
+von hier fort; bleib mir nur feſte gegen Eure<lb/>
+wüſten Junker!“</p><lb/>
+<p>Katharinens weiße Hände ſtrichen über meine<lb/>
+<fw type="sig" place="bottom">6 *<lb/>
+</fw>
+<pb n="84" facs="#f0098"/>
+Locken; ſie herzete mich und ſagte leiſe: „Da ich<lb/>
+in meine Kammer Dich gelaſſen, ſo werd' ich<lb/>
+doch Dein Weib auch werden müſſen.“</p><lb/>
+<p>— — Ihr ahnete wol nicht, welch' einen<lb/>
+Feuerſtrom dieß Wort in meine Adern goß,<lb/>
+darin ohnedieß das Blut in heißen Pulſen ging.<lb/>
+— Von dreien furchtbaren Dämonen, von Zorn<lb/>
+und Todesangſt und Liebe ein verfolgter Mann,<lb/>
+lag nun mein Haupt in des vielgeliebten Weibes<lb/>
+Schooß.</p><lb/>
+<p>Da ſchrillte ein geller Pfiff; die Hunde drun¬<lb/>
+ten wurden jähling ſtille, und da es noch ein¬<lb/>
+mal gellte, hörete ich ſie wie toll und wild davon<lb/>
+rennen.</p><lb/>
+<p>Vom Hofe her wurden Schritte laut; wir<lb/>
+horchten auf, daß uns der Athem ſtille ſtund.<lb/>
+Bald aber wurde dorten eine Thür erſt auf-,<lb/>
+dann zugeſchlagen und dann ein Riegel vorge¬<lb/>
+ſchoben „Das iſt Wulf,“ ſagte Katharina leiſe;<lb/>
+„er hat die beiden Hunde in den Stall geſperrt.“<lb/>
+— Bald hörten wir auch unter uns die Thür<lb/>
+des Hausflurs gehen, den Schlüſſel drehen, und<lb/>
+<pb n="85" facs="#f0099"/>
+danach Schritte in dem untern Corridor, die ſich<lb/>
+verloren, wo der Junker ſeine Kammer hatte.<lb/>
+Dann wurde Alles ſtill.</p><lb/>
+<p>Es war nun endlich ſicher, ganz ſicher; aber<lb/>
+mit unſerm Plaudern war es mit einem Male<lb/>
+ſchier zu Ende. Katharina hatte den Kopf zurück¬<lb/>
+gelehnt; nur unſer Beider Herzen hörete ich<lb/>
+klopfen. — „Soll ich nun gehen, Katharina?‘<lb/>
+ſprach ich endlich.</p><lb/>
+<p>Aber die jungen Arme zogen mich ſtumm zu<lb/>
+ihrem Mund empor; und ich ging nicht.</p><lb/>
+<p>Kein Laut war mehr, als aus des Gartens<lb/>
+Tiefe das Schlagen der Nachtigallen und von<lb/>
+fern das Rauſchen des Wäſſerleins, das hinten<lb/>
+um die Hecken fließt. — —</p><lb/>
+<p>Wenn, wie es in den Liedern heißt, mitunter<lb/>
+noch in Nächten die ſchöne heidniſche Frau Venus<lb/>
+auferſteht und umgeht, um die armen Menſchen¬<lb/>
+herzen zu verwirren, ſo war es dazumalen eine<lb/>
+ſolche Nacht. Der Mondſchein war am Himmel<lb/>
+ausgethan, ein ſchwüler Ruch von Blumen<lb/>
+hauchte durch das Fenſter und dorten überm<lb/>
+<pb n="86" facs="#f0100"/>
+Walde ſpielete die Nacht in ſtummen Blitzen. —<lb/>
+O Hüter, Hüter, war Dein Ruf ſo fern?</p><lb/>
+<p>— — Wol weiß ich noch, daß vom Hofe<lb/>
+her plötzlich ſcharf die Hähne krähten, und daß<lb/>
+ich ein blaß und weinend Weib in meinen Ar¬<lb/>
+men hielt, die mich nicht laſſen wollte, unachtend,<lb/>
+daß überm Garten der Morgen dämmerte und<lb/>
+rothen Schein in unſre Kammer warf. Dann<lb/>
+aber, da ſie deß' inne wurde, trieb ſie, wie von<lb/>
+Todesangſt geſchreckt, mich fort.</p><lb/>
+<p>Noch einen Kuß, noch hundert; ein flüchtig<lb/>
+Wort noch: wann für das Geſind zu Mittage<lb/>
+geläutet würde, dann wollten wir im Tannen¬<lb/>
+wald uns treffen; und dann — ich wußte ſelber<lb/>
+kaum, wie mir's geſchehen — ſtund ich im Garten,<lb/>
+unten in der kühlen Morgenluft.</p><lb/>
+<p>Noch einmal, indem ich meinen von den Hun¬<lb/>
+den zerfetzten Mantel aufhob, ſchaute ich empor<lb/>
+und ſah ein blaſſes Händlein mir zum Abſchied<lb/>
+winken. Nahezu erſchrocken aber wurd' ich, da<lb/>
+meine Augen bei einem Rückblick aus dem Garten¬<lb/>
+ſteig von ungefähr die unteren Fenſter neben<lb/>
+<pb n="87" facs="#f0101"/>
+dem Thurme ſtreiften; denn mir war, als ſähe<lb/>
+hinter einem derſelbigen ich gleichfalls eine Hand;<lb/>
+aber ſie drohete nach mir mit aufgehobenem<lb/>
+Finger und ſchien mir farblos und knöchern<lb/>
+gleich der Hand des Todes. Doch war's nur<lb/>
+wie im Huſch, daß ſolches über meine Augen<lb/>
+ging; dachte zwar erſtlich des Märleins von<lb/>
+der wiedergehenden Urahne; redete mir dann<lb/>
+aber ein, es ſeien nur meine eigenen aufgeſtörten<lb/>
+Sinne, die ſolch' Spiel mir vorgegaukelt hätten.</p><lb/>
+<p>So, deß' nicht weiter achtend, ſchritt ich eilends<lb/>
+durch den Garten, merkete aber bald, daß in der<lb/>
+Haſt ich auf den Binſenſumpf gerathen; ſank<lb/>
+auch der eine Fuß bis über's Aenkel ein, gleich¬<lb/>
+ſam als ob ihn was hinunterziehen wollte. „Ei,“<lb/>
+dachte ich, „faßt das Hausgeſpenſte doch nach<lb/>
+Dir!“ Machte mich aber auf und ſprang über<lb/>
+die Mauer in den Wald hinab.</p><lb/>
+<p>Die Finſterniß der dichten Bäume ſagte<lb/>
+meinem träumenden Gemüthe zu; hier um mich<lb/>
+her war noch die ſelige Nacht, von welcher<lb/>
+meine Sinne ſich nicht löſen mochten. — Erſt da<lb/>
+<pb n="88" facs="#f0102"/>
+ich nach geraumer Zeit vom Waldesrande in<lb/>
+das offene Feld hinaustrat, wurd' ich völlig wach.<lb/>
+Ein Häuflein Rehe ſtund nicht fern im ſilber¬<lb/>
+grauen Thau, und über mir vom Himmel ſcholl<lb/>
+das Tageslied der Lerche. Da ſchüttelte ich all'<lb/>
+müßig Träumen von mir ab; im ſelbigen Augen¬<lb/>
+blick ſtieg aber auch wie heiße Noth die Frage<lb/>
+mir in's Hirn: „Was weiter nun Johannes?<lb/>
+Du haſt ein theures Leben an Dich riſſen;<lb/>
+nun wiſſe, daß Dein Leben nichts gilt, als nur<lb/>
+das ihre!“</p><lb/>
+<p>Doch was ich ſinnen mochte, es deuchte mir<lb/>
+allfort das Beſte, wenn Katharina im Stifte<lb/>
+ſichern Unterſchlupf gefunden, daß ich dann zu¬<lb/>
+rück nach Holland ginge, mich dort der Freundes¬<lb/>
+hülf' verſicherte und alſobald zurückkäm', um ſie<lb/>
+nachzuholen. Vielleicht, daß ſie gar der alten<lb/>
+Baſe Herz erweichet; und ſchlimmſten Falles —<lb/>
+es mußt' auch gehen ohne das!</p><lb/>
+<p>Schon ſahe ich uns auf einem fröhlichen<lb/>
+Barkſchiff die Wellen des grünen Zuiderſees be¬<lb/>
+fahren, ſchon hörete ich das Glockenſpiel vom<lb/>
+<pb n="89" facs="#f0103"/>
+Rathhausthurme Amſterdams und ſah am Hafen<lb/>
+meine Freunde aus dem Gewühl hervorbrechen<lb/>
+und mich und meine ſchöne Frau mit hellem<lb/>
+Zuruf grüßen und im Triumph nach unſerem<lb/>
+kleinen, aber trauten Heim geleiten. Mein Herz<lb/>
+war voll von Muth und Hoffnung; und kräftiger<lb/>
+und raſcher ſchritt ich aus, als könnte ich bälder<lb/>
+ſo das Glück erreichen.</p><lb/>
+<p>— Es iſt doch anders kommen.</p><lb/>
+<p>In meinen Gedanken war ich allmählich in<lb/>
+das Dorf hinabgelanget und trat hier in Hans<lb/>
+Ottſens Krug, von wo ich in der Nacht ſo jäh¬<lb/>
+lings hatte flüchten müſſen. — „Ei, Meiſter<lb/>
+Johannes,“ rief der Alte auf der Tenne mir<lb/>
+entgegen; „was hattet Ihr doch geſtern mit un¬<lb/>
+ſeren geſtrengen Junkern? Ich war juſt draußen<lb/>
+bei dem Ausſchank; aber da ich wieder eintrat,<lb/>
+flucheten ſie ſchier grauſam gegen Euch; und<lb/>
+auch die Hunde raſeten an der Thür, die Ihr<lb/>
+hinter Euch in's Schloß geworfen hattet.“</p><lb/>
+<p>Da ich aus ſolchen Worten abnahm, daß<lb/>
+der Alte den Handel nicht wohl begriffen habe,<lb/>
+<pb n="90" facs="#f0104"/>
+ſo entgegnete ich nur: „Ihr wiſſet, der von der<lb/>
+Riſch und ich, wir haben uns ſchon als Jungen<lb/>
+oft einmal gezauſet; da mußt's denn geſtern<lb/>
+noch ſo einen Nachſchmack geben.“</p><lb/>
+<p>„Ich weiß, ich weiß!“ meinete der Alte;<lb/>
+„aber der Junker ſitzt heut auf ſeines Vaters<lb/>
+Hof; Ihr ſolltet Euch hüten, Herr Johannes;<lb/>
+mit ſolchen Herren iſt nicht ſauber Kirſchen eſſen.“</p><lb/>
+<p>Dem zu widerſprechen hatte ich nicht Urſach',<lb/>
+ſondern ließ mir Brod und Frühtrunk geben und<lb/>
+ging dann in den Stall, wo ich mir meinen<lb/>
+Degen holete, auch Stift und Skizzenbüchlein<lb/>
+aus dem Ranzen nahm.</p><lb/>
+<p>Aber es war noch lange bis zum Mittag¬<lb/>
+läuten. Alſo bat ich Hans Ottſen, daß er den<lb/>
+Gaul mit ſeinem Jungen mög' zum Hofe bringen<lb/>
+laſſen, und als er nur ſolches zugeſaget, ſchritt<lb/>
+ich wieder hinaus zum Wald. Ich ging aber<lb/>
+bis zu der Stelle aus dem Heidenhügel, von wo<lb/>
+man die beiden Giebel des Herrenhauſes über<lb/>
+die Gartenhecken ragen ſieht, wie ich ſolches ſchon<lb/>
+für den Hintergrund zu Katharinens Bildniß<lb/>
+<pb n="91" facs="#f0105"/>
+ausgewählet hatte. Nun gedachte ich, daß, wann<lb/>
+in zu verhoffender Zeit ſie ſelber in der Fremde<lb/>
+leben und wol das Vaterhaus nicht mehr be¬<lb/>
+treten würde, ſie ſeines Anblicks doch nicht ganz<lb/>
+entrathen ſolle; zog alſo meinen Stift herfür<lb/>
+und begann zu zeichnen, gar ſorgſam jedes Win¬<lb/>
+kelchen, woran ihr Auge einmal mocht' gehaftet<lb/>
+haben. Als farbig Schilderei ſollt' es dann in<lb/>
+Amſterdam gefertigt werden, damit es ihr ſofort<lb/>
+entgegengrüße, wann ich ſie dort in unſre Kam¬<lb/>
+mer führen würde.</p><lb/>
+<p>Nach ein paar Stunden war die Zeichnung<lb/>
+fertig. Ich ließ noch wie zum Gruß ein zwit¬<lb/>
+ſchernd Vögelein darüber fliegen; dann ſuchte ich<lb/>
+die Lichtung auf, wo wir uns finden wollten,<lb/>
+und ſtreckte mich nebenan im Schatten einer<lb/>
+dichten Buche; ſehnlich verlangend, daß die Zeit<lb/>
+vergehe.</p><lb/>
+<p>Ich mußte gleichwol darob eingeſchlummert<lb/>
+ſein; denn ich erwachte von einem fernen Schall<lb/>
+und wurd' deß inne, daß es das Mittagläuten<lb/>
+von dem Hofe ſei. Die Sonne glühte ſchon<lb/>
+<pb n="92" facs="#f0106"/>
+heiß hernieder und verbreitete den Ruch der Him¬<lb/>
+beeren, womit die Lichtung überdeckt war. Es<lb/>
+fiel mir bei, wie einſt Katharina und ich uns<lb/>
+hier bei unſern Waldgängen ſüße Wegzehrung<lb/>
+geholet hatten; und nun begann ein ſeltſam<lb/>
+Spiel der Phantaſie: bald ſahe ich drüben<lb/>
+zwiſchen den Sträuchen ihre zarte Kindsgeſtalt,<lb/>
+bald ſtund ſie vor mir, mich anſchauend mit den<lb/>
+ſeligen Frauenaugen, wie ich ſie letztlich erſt ge¬<lb/>
+ſehen, wie ich ſie nun gleich, im nächſten Augen¬<lb/>
+blicke ſchon leibhaftig an mein klopfend Herze<lb/>
+ſchließen würde.</p><lb/>
+<p>Da plötzlich überfiel mich's wie ein Schrecken.<lb/>
+Wo blieb ſie denn? Es war ſchon lang, daß<lb/>
+es geläutet hatte. Ich war aufgeſprungen, ich<lb/>
+ging umher, ich ſtund und ſpähete ſcharf nach<lb/>
+aller Richtung durch die Bäume; die Angſt kroch<lb/>
+mir zum Herzen; aber Katharina kam nicht; kein<lb/>
+Schritt im Laube raſchelte; nur oben in den Buchen¬<lb/>
+wipfeln rauſchte ab und zu der Sommerwind.</p><lb/>
+<p>Böſer Ahnung voll ging ich endlich fort und<lb/>
+nahm einen Umweg nach dem Hofe zu. Da ich<lb/>
+<pb n="93" facs="#f0107"/>
+unweit dem Thore zwiſchen die Eichen kam, be¬<lb/>
+gegnete mir Dieterich. „Herr Johannes,“ ſagte<lb/>
+er und trat haſtig auf mich zu: „Ihr ſeid die<lb/>
+Nacht ſchon in Hans Ottſens Krug geweſen; ſein<lb/>
+Junge brachte mir Euren Gaul zurück; — was<lb/>
+habet Ihr mit unſern Junkern vorgehabt?“</p><lb/>
+<p>„Warum fragſt Du, Dieterich?“</p><lb/>
+<p>— „Warum, Herr Johannes? — Weil ich<lb/>
+Unheil zwiſchen Euch verhüten möcht'.“</p><lb/>
+<p>„Was ſoll das heißen, Dieterich?“ frug ich<lb/>
+wieder; aber mir war beklommen, als ſollte<lb/>
+das Wort mir in der Kehle ſticken.</p><lb/>
+<p>„Ihr werdet's ſchon ſelber wiſſen, Herr Jo¬<lb/>
+hannes!“ entgegnete der Alte. „Mir hat der<lb/>
+Wind nur ſo einen Schall davon gebracht; vor<lb/>
+einer Stunde mag's geweſen ſein; ich wollte den<lb/>
+Burſchen rufen, der im Garten an den Hecken<lb/>
+putzte. Da ich an den Thurm kam, wo droben<lb/>
+unſer Fräulein ihre Kammer hat, ſah ich dorten<lb/>
+die alte Baſ' Urſel mit unſerem Junker dicht<lb/>
+beiſammen ſtehen. Er hatte die Arme unter¬<lb/>
+ſchlagen und ſprach kein einzig Wörtlein; die<lb/>
+<pb n="94" facs="#f0108"/>
+Alte aber redete einen um ſo größeren Haufen<lb/>
+und jammerte ordentlich mit ihrer feinen Stimme.<lb/>
+Dabei wies ſie bald nieder auf den Boden, bald<lb/>
+hinauf in den Epheu, der am Thurm hinauf¬<lb/>
+wächſt. — Verſtanden, Herr Johannes, hab' ich<lb/>
+von dem Allen nichts; dann aber, und nun<lb/>
+merket wohl auf, hielt ſie mit ihrer knöchern<lb/>
+Hand, als ob ſie damit drohete, dem Junker<lb/>
+was vor Augen; und da ich näher hinſah, war's<lb/>
+ein Fetzen Grauwerk, juſt wie Ihr's da an<lb/>
+Euerem Mantel traget.“</p><lb/>
+<p>„Weiter, Dieterich!“ ſagte ich; denn der Alte<lb/>
+hatte die Augen auf meinen zerriſſenen Mantel,<lb/>
+den ich auf dem Arme trug.</p><lb/>
+<p>„Es iſt nicht viel mehr übrig;“ erwiederte<lb/>
+er; „denn der Junker wandte ſich jählings nach<lb/>
+mir zu und frug mich, wo Ihr anzutreffen wäret.<lb/>
+Ihr möget mir es glauben, wäre er in Wirk¬<lb/>
+lichkeit ein Wolf geweſen, die Augen hätten<lb/>
+blutiger nicht funkeln können.“</p><lb/>
+<p>Da frug ich: „Iſt der Junker im Hauſe,<lb/>
+Dieterich?“<lb/>
+</p>
+<pb n="95" facs="#f0109"/>
+<p>— „Im Haus? Ich denke wol; doch was<lb/>
+ſinnet Ihr, Herr Johannes?“</p><lb/>
+<p>„Ich ſinne, Dieterich, daß ich allſogleich mit<lb/>
+ihm zu reden habe.“</p><lb/>
+<p>Aber Dieterich hatte bei beiden Händen mich<lb/>
+ergriffen. „Gehet nicht, Johannes,“ ſagte er<lb/>
+dringend; „erzählet mir zum wenigſten, was<lb/>
+geſchehen iſt; der Alte hat Euch ja ſonſt guten<lb/>
+Rath gewußt!“</p><lb/>
+<p>„Hernach, Dieterich, hernach!“ entgegnete ich.<lb/>
+Und alſo mit dieſen Worten riß ich meine Hände<lb/>
+aus den ſeinen.</p><lb/>
+<p>Der Alte ſchüttelte den Kopf. „Hernach, Jo¬<lb/>
+hannes,“ ſagte er, „das weiß nur unſer Herrgott!“</p><lb/>
+<p>Ich aber ſchritt nun über den Hof dem Hauſe<lb/>
+zu. — Der Junker ſei eben in ſeinem Zimmer,<lb/>
+ſagte eine Magd, ſo ich im Hausflur drum be¬<lb/>
+fragte.</p><lb/>
+<p>Ich hatte dieſes Zimmer, das im Unterhauſe<lb/>
+lag, nur einmal erſt betreten. Statt wie bei<lb/>
+ſeinem Vater ſeel. Bücher und Karten, war hier<lb/>
+vielerlei Gewaffen, Handröhre und Arkebuſen,<lb/>
+<pb n="96" facs="#f0110"/>
+auch allerart Jagdgeräthe an den Wänden an¬<lb/>
+gebracht; ſonſt war es ohne Zier und zeigete an<lb/>
+ihm ſelber, daß Niemand auf die Dauer und mit<lb/>
+ſeinen ganzen Sinnen hier verweile.</p><lb/>
+<p>Faſt wär' ich an der Schwelle noch zurück¬<lb/>
+gewichen, da ich auf des Junkers „herein“ die<lb/>
+Thür geöffnet; denn, als er ſich vom Fenſter zu<lb/>
+mir wandte, ſahe ich eine Reiterpiſtole in ſeiner<lb/>
+Hand, an deren Radſchloß er handtirete. Er<lb/>
+ſchauete mich an, als ob ich von den Tollen<lb/>
+käme. „So!“ ſagte er gedehnet; „wahrhaftig,<lb/>
+Sieur Johannes, wenn's nicht ſchon ſein Ge¬<lb/>
+ſpenſte iſt!“</p><lb/>
+<p>„Ihr dachtet, Junker Wulf,“ entgegnet' ich,<lb/>
+indem ich näher zu ihm trat, „es möcht' der<lb/>
+Straßen noch andre für mich geben, als die in<lb/>
+Euere Kammer führen!“</p><lb/>
+<p>— „So dachte ich, Sieur Johannes! Wie<lb/>
+Ihr gut rathen könnt! Doch immerhin, Ihr<lb/>
+kommt mir eben recht; ich hab' Euch ſuchen laſſen!“</p><lb/>
+<p>In ſeiner Stimme bebte was, das wie ein<lb/>
+lauernd Raubthier auf dem Sprunge lag, ſo<lb/>
+<pb n="97" facs="#f0111"/>
+daß die Hand mir unverſehens nach dem Degen<lb/>
+fuhr. Jedennoch ſprach ich: „Höret mich und<lb/>
+gönnet mir ein ruhig Wort, Herr Junker!“</p><lb/>
+<p>Er aber unterbrach meine Rede: „Du wirſt<lb/>
+gewogen ſein, mich erſtlich auszuhören! Sieur<lb/>
+Johannes,“ — und ſeine Worte, die erſt langſam<lb/>
+waren, wurden allmählich gleichwie ein Gebrüll<lb/>
+— „vor ein paar Stunden, da ich mit ſchwerem<lb/>
+Kopf erwachte, da fiel's mir bei und reuete mich<lb/>
+gleich einem Narren, daß ich im Rauſch die<lb/>
+wilden Hunde Dir auf die Ferſen geſetzet hatte;<lb/>
+— ſeit aber Baſ' Urſel mir den Fetzen vorge¬<lb/>
+halten, den ſie Dir aus Deinem Federbalg ge¬<lb/>
+riſſen, — beim Höllenelement! mich reut's nur<lb/>
+noch, daß mir die Beſtien ſolch' Stück Arbeit<lb/>
+nachgelaſſen!“</p><lb/>
+<p>Noch einmal ſuchte ich zu Worte zu kommen;<lb/>
+und, da der Junker ſchwieg, ſo dachte ich, daß er<lb/>
+auch hören würde. „Junker Wulf,“ ſagte ich,<lb/>
+„es iſt ſchon wahr, ich bin kein Edelmann; aber<lb/>
+ich bin kein geringer Mann in meiner Kunſt und<lb/>
+hoffe, es auch wol noch einmal den Größeren<lb/>
+<fw type="sig" place="bottom">Storm, <hi rendition="#aq">Aquis submersus</hi>. 7<lb/>
+</fw>
+<pb n="98" facs="#f0112"/>
+gleich zu thun; ſo bitte ich Euch geziementlich,<lb/>
+gebet Eure Schweſter Katharina mir zum Eh¬<lb/>
+gemahl“ — —</p><lb/>
+<p>Da ſtockte mir das Wort im Munde. Aus<lb/>
+ſeinem bleichen Antlitz ſtarrten mich die Augen<lb/>
+des alten Bildes an; ein gellend Lachen ſchlug<lb/>
+mir in das Ohr, ein Schuß — — — dann<lb/>
+brach ich zuſammen und hörete nur noch, wie<lb/>
+mir der Degen, den ich ohn' Gedanken faſt ge¬<lb/>
+zogen hatte, klirrend aus der Hand zu Boden fiel.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Es war manche Woche danach, daß ich in<lb/>
+dem ſchon bleicheren Sonnenſchein auf einem<lb/>
+Bänkchen vor dem letzten Haus des Dorfes ſaß;<lb/>
+mit matten Blicken nach dem Wald hinüber¬<lb/>
+ſchauend, an deſſen jenſeitigem Rande das Herren¬<lb/>
+haus belegen war. Meine thörichten Augen<lb/>
+ſuchten ſtets auf's Neue den Punkt, wo, wie ich<lb/>
+mir vorſtellete, Katharinens Kämmerlein von drü¬<lb/>
+ben aus die ſchon herbſtlich gelben Wipfel ſchaue;<lb/>
+denn von ihr ſelber hatte ich keine Kunde.</p><lb/>
+<pb n="99" facs="#f0113"/>
+<p>Man hatte mich mit meiner Wunde in dieß<lb/>
+Haus gebracht, das von des Junkers Waldhüter<lb/>
+bewohnt wurde; und außer dieſem Mann und<lb/>
+ſeinem Weibe und einem mir unbekannten Chi¬<lb/>
+rurgus war während meines langen Lagers Nie¬<lb/>
+mand zu mir kommen. — Von wannen ich den<lb/>
+Schuß in meine Bruſt erhalten, darüber hat mich<lb/>
+Niemand befragt, und ich habe Niemandem Kunde<lb/>
+gegeben; des Herzogs Gerichte gegen Herrn Ger¬<lb/>
+hardus' Sohn und Katharinens Bruder anzurufen,<lb/>
+konnte nimmer mir zu Sinne kommen. Er mochte<lb/>
+ſich deſſen auch wol getröſten; noch glaubhafter<lb/>
+jedoch, daß er allen dieſen Dingen trotzete.</p><lb/>
+<p>Nur einmal war mein guter Dieterich da¬<lb/>
+geweſen; er hatte mir in des Junkers Auftrage<lb/>
+zwei Rollen Ungariſcher Dukaten überbracht als<lb/>
+Lohn für Katharinens Bild, und ich hatte das<lb/>
+Geld genommen, in Gedanken, es ſei ein Theil<lb/>
+von deren Erbe, von dem ſie als mein Weib wol<lb/>
+ſpäter nicht zu viel empfahen würde. Zu einem<lb/>
+traulichen Geſpräch mit Dieterich, nach dem mich<lb/>
+ſehr verlangete, hatte es mir nicht gerathen<lb/>
+<fw type="sig" place="bottom">7 *<lb/>
+</fw>
+<pb n="100" facs="#f0114"/>
+wollen, maaßen das gelbe Fuchsgeſicht meines<lb/>
+Wirthes allaugenblicks in meine Kammer ſchaute;<lb/>
+doch wurde ſo viel mir kund, daß der Junker<lb/>
+nicht nach Kiel gereiſet, und Katharina ſeither<lb/>
+von Niemandem weder in Hof noch Garten war<lb/>
+geſehen worden; kaum konnte ich noch den Alten<lb/>
+bitten, daß er dem Fräulein, wenn ſich's treffen<lb/>
+möchte, meine Grüße ſage, und daß ich bald nach<lb/>
+Holland zu reiſen, aber bälder noch zurückzukom¬<lb/>
+men dächte, was alles in Treuen auszurichten er<lb/>
+mir dann gelobete.</p><lb/>
+<p>Ueberfiel mich aber danach die allergrößeſte<lb/>
+Ungeduld, ſo daß ich gegen den Willen des Chi¬<lb/>
+rurgus und bevor im Walde drüben noch die<lb/>
+letzten Blätter von den Bäumen fielen, meine<lb/>
+Reiſe in's Werk ſetzete; langete auch ſchon nach<lb/>
+kurzer Friſt wohlbehalten in der Holländiſchen<lb/>
+Hauptſtadt an, allwo ich von meinen Freunden<lb/>
+gar liebreich empfangen wurde, und mochte es<lb/>
+auch ferner vor ein glücklich Zeichen wol erkennen,<lb/>
+daß zwo Bilder, ſo ich dort zurückgelaſſen, durch<lb/>
+die hülfsbereite Vermittelung meines theueren<lb/>
+<pb n="101" facs="#f0115"/>
+Meiſters van der Helſt beide zu anſehnlichen<lb/>
+Preiſen verkaufet waren. Ja, es war deſſen noch<lb/>
+nicht genug: ein mir ſchon früher wohlgewogener<lb/>
+Kaufherr ließ mir ſagen, er habe nur auf mich<lb/>
+gewartet, daß ich für ſein nach dem Haag verheira¬<lb/>
+thetes Töchterlein ſein Bildniß malen möge; und<lb/>
+wurde mir auch ſofort ein reicher Lohn dafür ver¬<lb/>
+ſprochen. Da dachte ich, wenn ich ſolches noch<lb/>
+vollendete, daß dann genug des helfenden Me¬<lb/>
+talles in meinen Händen wäre, um auch ohne<lb/>
+andere Mittel Katharinen in ein wohlbeſtellet<lb/>
+Heimweſen einzuführen.</p><lb/>
+<p>Machete mich alſo, da mein freundlicher<lb/>
+Gönner deſſelbigen Sinnes war, mit allem Eifer<lb/>
+an die Arbeit, ſo daß ich bald den Tag meiner<lb/>
+Abreiſe gar fröhlich nah und näher rücken ſahe,<lb/>
+unachtend, mit was vor üblen Anſtänden ich<lb/>
+drüben noch zu kämpfen hätte.</p><lb/>
+<p>Aber des Menſchen Augen ſehen das Dunkel<lb/>
+nicht, das vor ihm iſt. — Als nun das Bild<lb/>
+vollendet war und reichlich Lob und Gold um<lb/>
+deſſen willen mir zu Theil geworden, da konnte<lb/>
+<pb n="102" facs="#f0116"/>
+ich nicht fort. Ich hatte in der Arbeit meiner<lb/>
+Schwäche nicht geachtet, die ſchlecht geheilte<lb/>
+Wunde warf mich wiederum danieder. Eben<lb/>
+wurden zum Weihnachtsfeſte auf allen Straßen¬<lb/>
+plätzen die Waffelbuden aufgeſchlagen, da begann<lb/>
+mein Siechthum und hielt mich länger als das<lb/>
+erſte Mal gefeſſelt. Zwar der beſten Arztes¬<lb/>
+kunſt und liebreicher Freundespflege war kein<lb/>
+Mangel, aber in Aengſten ſahe ich Tag um<lb/>
+Tag vergehen, und keine Kunde konnte von ihr,<lb/>
+keine zu ihr kommen.</p><lb/>
+<p>Endlich nach harter Winterzeit, da der Zuider¬<lb/>
+ſee wieder ſeine grünen Wellen ſchlug, geleiteten<lb/>
+die Freunde mich zum Hafen; aber ſtatt des<lb/>
+frohen Muthes nahm ich itzt ſchwere Herzenſorge<lb/>
+mit an Bord. Doch ging die Reiſe raſch und<lb/>
+gut von Statten.</p><lb/>
+<p>Von Hamburg aus fuhr ich mit der König¬<lb/>
+lichen Poſt; dann, wie vor nun faſt einem<lb/>
+Jahre hiebevor, wanderte ich zu Fuße durch den<lb/>
+Wald, an dem noch kaum die erſten Spitzen<lb/>
+grüneten. Zwar probten ſchon die Finken und<lb/>
+<pb n="103" facs="#f0117"/>
+die Ammern ihren Lenzgeſang; doch was küm¬<lb/>
+merten ſie mich heute! — Ich ging aber nicht<lb/>
+nach Herrn Gerhardus' Herrengut; ſondern, ſo<lb/>
+ſtark mein Herz auch klopfete, ich bog ſeitwärts<lb/>
+ab und ſchritt am Waldesrand entlang dem<lb/>
+Dorfe zu. Da ſtund ich bald in Hans Ottſens<lb/>
+Krug und ihm gar ſelber gegenüber.</p><lb/>
+<p>Der Alte ſah mich ſeltſam an, meinete aber<lb/>
+dann, ich laſſe ja recht munter. „Nur,“ fügte<lb/>
+er bei, „mit Schießbüchſen müſſet Ihr nicht<lb/>
+wieder ſpielen; die machen ärgere Flecken, als ſo<lb/>
+ein Malerpinſel.“</p><lb/>
+<p>Ich ließ ihn gern bei ſolcher Meinung, ſo,<lb/>
+wie ich wol merkete, hier allgemein verbreitet<lb/>
+war, und that vor's Erſte eine Frage nach dem<lb/>
+alten Dieterich.</p><lb/>
+<p>Da mußte ich vernehmen, daß er noch vor<lb/>
+dem erſten Winterſchnee, wie es ſo ſtarken Leuten<lb/>
+wol paſſiret, eines plötzlichen wenn auch gelinden<lb/>
+Todes verfahren ſei. „Der freuet ſich,“ ſagte<lb/>
+Hans Ottſen, „daß er zu ſeinem alten Herrn da<lb/>
+droben kommen; und iſt für ihn auch beſſer ſo.“<lb/>
+</p>
+<pb n="104" facs="#f0118"/>
+<p>„Amen!“ ſagte ich; „mein herzlieber alter<lb/>
+Dieterich!“</p><lb/>
+<p>Indeß aber mein Herz nur, und immer<lb/>
+banger, nach einer Kundſchaft von Katharinen<lb/>
+ſeufzete, nahm meine furchtſame Zunge einen<lb/>
+Umweg, und ich ſprach beklommen: „Was machet<lb/>
+denn Euer Nachbar, der von Riſch?“</p><lb/>
+<p>„Oho,“ lachte der Alte; „der hat ein Weib<lb/>
+genommen, und eine, die ihn ſchon zu Nichte<lb/>
+ſetzen wird.“</p><lb/>
+<p>Nur im erſten Augenblick erſchrak ich; denn<lb/>
+ich ſagte mir ſogleich, daß er nicht ſo von Katha¬<lb/>
+rinen reden würde; und da er dann den Namen<lb/>
+nannte, ſo war's ein ältlich' aber reiches Fräulein<lb/>
+aus der Nachbarſchaft; forſchete alſo muthig<lb/>
+weiter, wie's drüben in Herrn Gerhardus' Haus<lb/>
+beſtellet ſei, und wie das Fräulein und der<lb/>
+Junker mit einander hauſeten.</p><lb/>
+<p>Da warf der Alte mir wieder ſeine ſeltſamen<lb/>
+Blicke zu. „Ihr meinet wol,“ ſagte er, „daß<lb/>
+alte Thürm' und Mauern nicht auch plaudern<lb/>
+könnten!“</p><lb/>
+<pb n="105" facs="#f0119"/>
+<p>„Was ſoll's der Rede?“ rief ich; aber ſie<lb/>
+fiel mir centnerſchwer auf's Herz.</p><lb/>
+<p>„Nun, Herr Johannes,“ und der Alte ſahe<lb/>
+mir gar zuverſichtlich in die Augen, „wo das<lb/>
+Fräulein hinkommen, das werdet doch Ihr am<lb/>
+beſten wiſſen! Ihr ſeid derzeit im Herbſt ja nicht<lb/>
+zum Letzten hier geweſen; nur wundert's mich,<lb/>
+daß Ihr noch einmal wiederkommen; denn Junker<lb/>
+Wulf wird, denk' ich, nicht eben gute Mien' zum<lb/>
+böſen Spiel gemachet haben.“</p><lb/>
+<p>Ich ſahe den alten Menſchen an, als ſei ich<lb/>
+ſelber hinterſinnig worden; dann aber kam mir<lb/>
+plötzlich ein Gedanke. „Unglücksmann!“ ſchrie<lb/>
+ich! „Ihr glaubet doch nicht etwan, das Fräu¬<lb/>
+lein Katharina ſei mein Eheweib geworden?“</p><lb/>
+<p>„Nun, laſſet mich nur los!“ entgegnete der<lb/>
+Alte — denn ich ſchüttelte ihn an beiden Schul¬<lb/>
+tern. — „Was geht's mich an! Es geht die<lb/>
+Rede ſo! Auf alle Fäll'; ſeit Neujahr iſt das<lb/>
+Fräulein im Schloß nicht mehr geſehen worden.“</p><lb/>
+<p>Ich ſchwur ihm zu, derzeit ſei ich in Holland<lb/>
+krank gelegen; ich wiſſe nichts von alle dem.</p><lb/>
+<pb n="106" facs="#f0120"/>
+<p>Ob er's geglaubet, weiß ich nicht zu ſagen;<lb/>
+allein er gab nur kund, es ſolle dermalen ein<lb/>
+unbekannter Geiſtlicher zur Nachtzeit und in<lb/>
+großer Heimlichkeit auf den Herrenhof gekommen<lb/>
+ſein; zwar habe Bas' Urſel das Geſinde ſchon<lb/>
+zeitig in ihre Kammern getrieben; aber der<lb/>
+Mägde eine, ſo durch den Thürſpalt gelauſchet,<lb/>
+wolle auch mich über den Flur nach der Treppe<lb/>
+haben gehen ſehen; dann ſpäter hätten ſie deut¬<lb/>
+lich einen Wagen aus dem Thorhaus fahren<lb/>
+hören, und ſeien ſeit jener Nacht nur noch<lb/>
+Baſ' Urſel und der Junker in dem Schloß<lb/>
+geweſen.</p><lb/>
+<p>— — Was ich von nun an Alles und immer<lb/>
+doch vergebens unternommen, um Katharinen<lb/>
+oder auch nur eine Spur von ihr zu finden, das<lb/>
+ſoll nicht hier verzeichnet werden. Im Dorfe<lb/>
+war nur das thörichte Geſchwätz, davon Hans<lb/>
+Ottſen mich die Probe ſchmecken laſſen; darum<lb/>
+machete ich mich auf nach dem Stifte zu Herrn<lb/>
+Gerhardus' Schweſter; aber die Dame wollte mich<lb/>
+nicht vor ſich laſſen; wurde im Uebrigen mir<lb/>
+<pb n="107" facs="#f0121"/>
+auch berichtet, daß keinerlei junges Frauenzimmer<lb/>
+bei ihr geſehen worden. Da reiſete ich wieder<lb/>
+zurück und demüthigte mich alſo, daß ich nach<lb/>
+dem Hauſe des von der Riſch ging und als ein<lb/>
+Bittender vor meinen alten Widerſacher hintrat.<lb/>
+Der ſagte höhniſch, es möge wol der Buhz das<lb/>
+Vöglein ſich geholet haben; er habe dem nicht<lb/>
+nachgeſchaut; auch halte er keinen Aufſchlag mehr<lb/>
+mit denen von Herrn Gerhardus' Hofe.</p><lb/>
+<p>Der Junker Wulf gar, der davon vernommen<lb/>
+haben mochte, ließ nach Hans Ottſens Kruge<lb/>
+ſagen, ſo ich mich unterſtünde, auch zu ihm zu<lb/>
+dringen, er würde mich noch einmal mit den<lb/>
+Hunden hetzen laſſen. — Da bin ich in den Wald<lb/>
+gegangen und hab' gleich einem Strauchdieb am<lb/>
+Weg auf ihn gelauert; die Eiſen ſind von der<lb/>
+Scheide bloß geworden; wir haben gefochten, bis<lb/>
+ich die Hand ihm wund gehauen und ſein Degen<lb/>
+in die Büſche flog. Aber er ſahe mich nur mit<lb/>
+ſeinen böſen Augen an; geſprochen hat er nicht.<lb/>
+— Zuletzt bin ich zu längerem Verbleiben nach<lb/>
+Hamburg kommen, von wo aus ich ohne Anſtand<lb/>
+<pb n="108" facs="#f0122"/>
+und mit größerer Umſicht meine Nachforſchungen<lb/>
+zu betreiben dachte.</p><lb/>
+<p>Es iſt Alles doch umſonſt geweſen.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Aber ich will vor's Erſte nun die Feder<lb/>
+ruhen laſſen. Denn vor mir liegt Dein Brief,<lb/>
+mein lieber Joſias; ich ſoll Dein Töchterlein,<lb/>
+meiner Schweſter ſeel. Enkelin, aus der Taufe<lb/>
+heben. — Ich werde auf meiner Reiſe dem<lb/>
+Walde vorbeifahren, ſo hinter Herrn Gerhardus'<lb/>
+Hof belegen iſt. Aber das Alles gehört ja der<lb/>
+Vergangenheit.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Hier ſchließt das erſte Heft der Handſchrift. —<lb/>
+Hoffen wir, daß der Schreiber ein fröhliches Tauf¬<lb/>
+feſt gefeiert und inmitten ſeiner Freundſchaft an<lb/>
+friſcher Gegenwart ſein Herz erquickt habe!</p><lb/>
+<p>Meine Augen ruhten auf dem alten Bild mir<lb/>
+gegenüber: ich konnte nicht zweifeln, der ſchöne<lb/>
+ernſte Mann war Herr Gerhardus. Wer aber<lb/>
+war jener todte Knabe, den ihm Meiſter Johannes<lb/>
+<pb n="109" facs="#f0123"/>
+hier ſo ſanft in ſeinen Arm gebettet hatte? —<lb/>
+Sinnend nahm ich das zweite und zugleich letzte<lb/>
+Heft, deſſen Schriftzüge um ein Weniges unſicherer<lb/>
+erſchienen. Es lautete, wie folgt:</p><lb/>
+<lg type="poem"> <l><hi rendition="#in">G</hi>eliek as Rook un Stoof verſwindt,</l><lb/>
+<l>Alſus ſind ock de Minſchenkind.</l><lb/>
+</lg> <p>Der Stein, darauf dieſe Worte eingehauen<lb/>
+ſtehen, ſaß ob dem Thürſims eines alten Hauſes.<lb/>
+Wenn ich daran vorbei ging, mußte ich allezeit<lb/>
+meine Augen dahin wenden, und auf meinen<lb/>
+einſamen Wanderungen iſt dann ſelbiger Spruch<lb/>
+oft lange mein Begleiter blieben. Da ſie im<lb/>
+letzten Herbſte das alte Haus abbrachen, habe<lb/>
+ich aus den Trümmern dieſen Stein erſtanden,<lb/>
+und iſt er heute gleicherweiſe ob der Thüre<lb/>
+meinem Hauſes eingemauert worden, wo er nach<lb/>
+mir noch Manchen, der vorübergeht, an die<lb/>
+Richtigkeit des Irdiſchen erinnern möge. Mir<lb/>
+aber ſoll er eine Mahnung ſein, ehbevor auch<lb/>
+an meiner Uhr der Weiſer ſtille ſteht, mit der<lb/>
+Aufzeichnung meines Lebens fortzufahren. Denn<lb/>
+<pb n="110" facs="#f0124"/>
+Du, meiner lieben Schweſter Sohn, der Du nun<lb/>
+bald mein Erbe ſein wirſt, mögeſt mit meinem<lb/>
+kleinen Erdengute dann auch mein Erdenleid da¬<lb/>
+hin nehmen, ſo ich bei meiner Lebzeit Nieman¬<lb/>
+dem, auch, aller Liebe ohnerachtet, Dir nicht habe<lb/>
+anvertrauen mögen.</p><lb/>
+<p> <hi rendition="#aq">Item; anno</hi> 1666 kam ich zum erſten Mal in<lb/>
+dieſe Stadt an der Nordſee; maaßen von einer<lb/>
+reichen Branntweinbrenner-Wittwen mir der Auf¬<lb/>
+trag worden, die Auferweckung Lazari zu malen,<lb/>
+welches Bild ſie zum ſchuldigen und freundlichen<lb/>
+Gedächtniß ihres Seligen, der hieſigen Kirchen<lb/>
+aber zum Zierrath zu ſtiften gedachte, allwo es<lb/>
+denn auch noch heute über dem Taufſteine mit<lb/>
+den vier Apoſteln zu ſchauen iſt. Daneben<lb/>
+wünſchte auch der Bürgermeiſter, Herr Titus<lb/>
+Axen, ſo früher in Hamburg Thumherr und mir<lb/>
+von dort bekannt war, ſein Contrefey von mir<lb/>
+gemalet, ſo daß ich für eine lange Zeit allhier<lb/>
+zu ſchaffen hatte. — Mein Loſament aber hatte<lb/>
+ich bei meinem einzigen und älteren Bruder, der<lb/>
+ſeit lange ſchon das Sekretariat der Stadt be¬<lb/>
+<pb n="111" facs="#f0125"/>
+kleidete; das Haus, darin er als unbeweibter<lb/>
+Mann lebte, war hoch und räumlich, und war<lb/>
+es daſſelbig' Haus mit den zwo Linden an der<lb/>
+Ecken von Markt und Krämerſtraße, worin ich,<lb/>
+nachdem es durch meines lieben Bruders Hin¬<lb/>
+tritt mir angeſtorben, anitzt als alter Mann noch<lb/>
+lebe und der Wiedervereinigung mit den voran¬<lb/>
+gegangenen Lieben in Demuth entgegenharre.</p><lb/>
+<p>Meine Werkſtätte hatte ich mir in dem großen<lb/>
+Peſel der Wittwe eingerichtet; es war dorten ein<lb/>
+gutes Oberlicht zur Arbeit und bekam Alles ge¬<lb/>
+macht und geſtellet, wie ich es verlangen mochte.<lb/>
+Nur daß die gute Frau ſelber gar zu gegen¬<lb/>
+wärtig war; denn allaugenblicklich kam ſie draußen<lb/>
+von ihrem Schenktiſch zu mir hergetrottet mit<lb/>
+ihren Blechgemäßen in der Hand; drängte mit<lb/>
+ihrer Wohlbeleibtheit mir aus den Malſtock und<lb/>
+roch an meinem Bild herum; gar eines Vor¬<lb/>
+mittages, da ich ſo eben den Kopf des Lazarus<lb/>
+untermalet hatte, verlangte ſie mit viel über¬<lb/>
+flüſſigen Worten, der auferweckte Mann ſolle das<lb/>
+Antlitz ihres Seligen zur Schau ſtellen, obſchon<lb/>
+<pb n="112" facs="#f0126"/>
+ich dieſen Seligen doch niemalen zu Geſicht be¬<lb/>
+kommen, von meinem Bruder auch vernommen<lb/>
+hatte, daß ſelbiger, wie es die Brenner pflegen,<lb/>
+das Zeichen ſeines Gewerbes als eine blaurothe<lb/>
+Naſen im Geſicht herumgetragen; da habe ich<lb/>
+denn, wie man glauben mag, dem unvernünftigen<lb/>
+Weibe gar hart den Daumen gegenhalten müſſen.<lb/>
+Als dann von der Außendiele her wieder neue<lb/>
+Kundſchaft nach ihr gerufen und mit den Ge¬<lb/>
+mäßen auf den Schank geklopfet und ſie endlich<lb/>
+von mir laſſen müſſen, da ſank mir die Hand<lb/>
+mit dem Pinſel in den Schooß, und ich mußte<lb/>
+plötzlich des Tages gedenken, da ich eines gar<lb/>
+andern Seligen Antlitz mit dem Stifte nachge¬<lb/>
+bildet, und wer da in der kleinen Kapelle ſo ſtill<lb/>
+bei mir geſtanden ſei. — Und alſo rückwärts<lb/>
+ſinnend ſetzete ich meinen Pinſel wieder an; als<lb/>
+aber ſelbiger eine gute Weile hin und wieder<lb/>
+gegangen, mußte ich zu eigener Verwunderung<lb/>
+gewahren, daß ich die Züge des edlen Herrn<lb/>
+Gerhardus in des Lazari Angeſicht hineingetragen<lb/>
+hatte. Aus ſeinem Lailach blickte des Todten<lb/>
+<pb n="113" facs="#f0127"/>
+Antlitz gleichwie in ſtummer Klage gegen mich,<lb/>
+und ich gedachte: ſo wird er dir einſtmals in<lb/>
+der Ewigkeit entgegentreten!</p><lb/>
+<p>Ich konnte heute nicht weiter malen; ſondern<lb/>
+ging fort und ſchlich auf meine Kammer ober<lb/>
+der Hausthür, allwo ich mich an's Fenſter ſetzte<lb/>
+und durch den Ausſchnitt der Lindenbäume auf<lb/>
+den Markt hinabſah. Es gab aber groß' Gewühl<lb/>
+dort, und war bis drüben an die Rathswage<lb/>
+und weiter bis zur Kirchen Alles voll von Wagen<lb/>
+und Menſchen; denn es war ein Donnerstag und<lb/>
+noch zur Stunde, daß Gaſt mit Gaſte handeln<lb/>
+durfte, alſo daß der Stadtknecht mit dem Griper<lb/>
+müßig auf unſeres Nachbaren Beiſchlag ſaß,<lb/>
+maaßen es vor der Hand keine Brüchen zu er¬<lb/>
+haſchen gab. Die Oſtenfelder Weiber mit ihren<lb/>
+rothen Jacken, die Mädchen von den Inſeln mit<lb/>
+ihren Kopftüchern und feinem Silberſchmuck, da¬<lb/>
+zwiſchen die hochgethürmeten Getreidewagen und<lb/>
+darauf die Bauern in ihren gelben Lederhoſen —<lb/>
+dies Alles mochte wol ein Bild für eines Malers<lb/>
+Auge geben, zumal wenn ſelbiger, wie ich, bei<lb/>
+<fw type="sig" place="bottom">Storm, <hi rendition="#aq">Aquis submersus</hi>. 8<lb/>
+</fw>
+<pb n="114" facs="#f0128"/>
+den Holländern in die Schule gegangen war;<lb/>
+aber die Schwere meines Gemüthes machte das<lb/>
+bunte Bild mir trübe. Doch war es keine Reu',<lb/>
+wie ich vorhin an mir erfahren hatte; ein ſeh¬<lb/>
+nend Leid kam immer gewaltiger über mich; es<lb/>
+zerfleiſchete mich mit wilden Krallen und ſah mich<lb/>
+gleichwol mit holden Augen an. Drunten lag<lb/>
+der helle Mittag auf dem wimmelnden Markte;<lb/>
+vor meinen Augen aber dämmerte ſilberne Mond¬<lb/>
+nacht, wie Schatten ſtiegen ein paar Zacken¬<lb/>
+giebel auf, ein Fenſter klirrte, und gleich wie aus<lb/>
+Träumen ſchlugen leis und fern die Nachtigallen.<lb/>
+O du mein Gott und mein Erlöſer, der du die<lb/>
+Barmherzigkeit biſt, wo war ſie in dieſer Stunde,<lb/>
+wo hatte meine Seele ſie zu ſuchen? — —</p><lb/>
+<p>Da hörete ich draußen unter dem Fenſter von<lb/>
+einer harten Stimme meinen Namen nennen,<lb/>
+und als ich hinausſchaute, erſahe ich einen großen<lb/>
+hageren Mann in der üblichen Tracht eines<lb/>
+Predigers, obſchon ſein herriſch und finſter Antlitz<lb/>
+mit dem ſchwarzen Haupthaar und dem tiefen<lb/>
+Einſchnitt ob der Naſe wol eher einem Kriegs¬<lb/>
+<pb n="115" facs="#f0129"/>
+mann angeſtanden wäre. Er wies ſo eben einem<lb/>
+andern, unterſetzten Manne von bäueriſchem<lb/>
+Ausſehen, aber gleich ihm in ſchwarzwollenen<lb/>
+Strümpfen und Schnallenſchuhen, mit ſeinem<lb/>
+Handſtocke nach unſerer Hausthür zu, indem er<lb/>
+ſelbſt zumal durch das Marktgewühle von dannen<lb/>
+ſchritt.</p><lb/>
+<p>Da ich dann gleich darauf die Thürglocke<lb/>
+ſchellen hörte, ging ich hinab und lud den Frem¬<lb/>
+den in das Wohngemach, wo er von dem Stuhle,<lb/>
+darauf ich ihn genöthigt, mich gar genau und auf¬<lb/>
+merkſam betrachtete.</p><lb/>
+<p>Alſo war ſelbiger der Küſter aus dem Dorfe<lb/>
+norden der Stadt, und erfuhr ich bald, daß man<lb/>
+dort einen Maler brauche, da man des Paſtors<lb/>
+Bildniß in die Kirche ſtiften wolle. Ich forſchete<lb/>
+ein wenig, was für Verdienſt um die Gemeine<lb/>
+dieſer ſich erworben hätte, daß ſie ſolche Ehr'<lb/>
+ihm anzuthun gedächten, da er doch ſeines Alters<lb/>
+halben noch nicht gar lang im Amte ſtehen<lb/>
+könne; der Küſter aber meinete, es habe der<lb/>
+Paſtor freilich wegen eines Stück Ackergrundes<lb/>
+<fw type="sig" place="bottom">8 *<lb/>
+</fw>
+<pb n="116" facs="#f0130"/>
+einmal einen Proceß gegen die Gemeinde ange¬<lb/>
+ſtrenget, ſonſt wiſſe er eben nicht, was Sondres<lb/>
+könne vorgefallen ſein; allein es hingen allbereits<lb/>
+die drei Amtsvorweſer in der Kirchen, und da<lb/>
+ſie, wie er ſagen müſſe, vernommen hätten, ich<lb/>
+verſtünde das Ding gar wohl zu machen, ſo<lb/>
+ſollte der guten Gelegenheit wegen nun auch der<lb/>
+vierte Paſtor mit hinein; dieſer ſelber freilich<lb/>
+kümmere ſich nicht eben viel darum.</p><lb/>
+<p>Ich hörete dem Allen zu; und da ich mit<lb/>
+meinem Lazarus am liebſten auf eine Zeit pau¬<lb/>
+ſiren mochte, das Bildniß, des Herrn Titus Axen<lb/>
+aber wegen eingetretenen Siechthums deſſelbigen<lb/>
+nicht beginnen konnte, ſo hub ich an, dem Auf¬<lb/>
+trage näher nachzufragen.</p><lb/>
+<p>Was mir an Preis für ſolche Arbeit nun<lb/>
+geboten wurde, war zwar gering, ſo daß ich<lb/>
+erſtlich dachte: ſie nehmen Dich für einen Pfennig¬<lb/>
+maler, wie ſie im Kriegstroſſe mitziehen, um die<lb/>
+Soldaten für ihre heimgebliebenen Dirnen ab¬<lb/>
+zumalen; aber es muthete mich plötzlich an, auf<lb/>
+eine Zeit allmorgentlich in der goldnen Herbſtes¬<lb/>
+<pb n="117" facs="#f0131"/>
+ſonne über die Haide nach dem Dorf hinauszu¬<lb/>
+wandern, das nur eine Wegſtunde von unſerer<lb/>
+Stadt belegen iſt. Sagete alſo zu, nur mit dem<lb/>
+Beding, daß die Malerei draußen auf dem Dorfe<lb/>
+vor ſich ginge, da hier in meines Bruders Hauſe<lb/>
+paßliche Gelegenheit nicht befindlich ſei.</p><lb/>
+<p>Deß ſchien der Küſter gar vergnügt, meinend,<lb/>
+das ſei Alles hiebevor ſchon fürgeſorget; der<lb/>
+Paſtor hab' ſich ſolches gleichfalls ausbedungen;<lb/>
+<hi rendition="#aq">item</hi>, es ſei dazu die Schulſtube in ſeiner Küſterei<lb/>
+erwählet; ſelbige ſei das zweite Haus im Dorfe<lb/>
+und liege nah am Paſtorate, nur hintenaus durch<lb/>
+die Prieſterkoppel davon geſchieden, ſo daß alſo<lb/>
+auch der Paſtor leicht hinübertreten könne. Die<lb/>
+Kinder, die im Sommer doch nichts lernten,<lb/>
+würden dann nach Haus geſchicket.</p><lb/>
+<p>Alſo ſchüttelten wir uns die Hände, und da<lb/>
+der Küſter auch die Maaße des Bildes fürſorglich<lb/>
+mitgebracht, ſo konnte alles Malgeräth, deß ich<lb/>
+bedurfte, ſchon Nachmittages mit der Prieſterfuhr<lb/>
+hinausbefördert werden.</p><lb/>
+<p>Als mein Bruder dann nach Hauſe kam —<lb/>
+<pb n="118" facs="#f0132"/>
+erſt ſpät am Nachmittage; denn ein Ehrſamer<lb/>
+Rath hatte dermalen viel Bedrängniß von einer<lb/>
+Schinder-Leichen, ſo die ehrlichen Leute nicht zu<lb/>
+Grabe tragen wollten — meinete er, ich bekäme<lb/>
+da einen Kopf zu malen, wie er nicht oft auf<lb/>
+einem Prieſterkragen ſitze, und möchte mich mit<lb/>
+Schwarz und Braunroth wohl verſehen; erzählete<lb/>
+mir auch, es ſei der Paſtor als Feldcapellan<lb/>
+mit den Brandenburgern hier in's Land gekom¬<lb/>
+men, als welcher er's faſt wilder als die Offiziers<lb/>
+getrieben haben ſolle; ſei übrigens itzt ein ſcharfer<lb/>
+Streiter vor dem Herrn, der ſeine Bauern gar<lb/>
+meiſterlich zu packen wiſſe. — Noch merkete mein<lb/>
+Bruder an, daß bei deſſelbigen Amtseintritt in<lb/>
+unſerer Gegend adelige Fürſprach' eingewirket<lb/>
+haben ſolle, wie es heiße, von drüben aus dem<lb/>
+Holſteiniſchen her; der Archi-Diakonus habe bei<lb/>
+der Kloſterrechnung ein Wörtlein davon fallen<lb/>
+laſſen. War jedoch Weiteres meinem Bruder<lb/>
+darob nicht kund geworden.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="119" facs="#f0133"/>
+<p>So ſahe mich denn die Morgenſonne des<lb/>
+nächſten Tages rüſtig über die Haide ſchreiten,<lb/>
+und war mir nur leid, daß letztere allbereits ihr<lb/>
+rothes Kleid und ihren Würzeduft verbrauchet<lb/>
+und alſo dieſe Landſchaft ihren ganzen Sommer¬<lb/>
+ſchmuck verloren hatte, denn von grünen Bäumen<lb/>
+war weithin nichts zu erſehen; nur der ſpitze<lb/>
+Kirchthurm des Dorfes, dem ich zuſtrebte — wie<lb/>
+ich bereits erkennen mochte, ganz von Granit¬<lb/>
+quadern auferbauet — ſtieg immer höher vor<lb/>
+mir in den dunkelblauen Oktoberhimmel. Zwiſchen<lb/>
+den ſchwarzen Strohdächern, die an ſeinem Fuße<lb/>
+lagen, krüppelte nur niedrig Buſch- und Baum¬<lb/>
+werk; denn der Nordweſtwind, ſo hier friſch von<lb/>
+der See herauf kommt, will freien Weg zu fahren<lb/>
+haben.</p><lb/>
+<p>Als ich das Dorf erreichet und auch alsbald<lb/>
+mich nach der Küſterei gefunden, ſtürzete mir ſo¬<lb/>
+fort mit luſtigem Geſchrei die ganze Schul' ent¬<lb/>
+gegen; der Küſter aber hieß an ſeiner Hausthür<lb/>
+mich willkommen. „Merket Ihr wol, wie gern<lb/>
+ſie von der Fibel laufen!“ ſagte er. „Der eine<lb/>
+<pb n="120" facs="#f0134"/>
+Bengel hatte Euch ſchon durch's Fenſter kommen<lb/>
+ſehen.“</p><lb/>
+<p>In dem Prediger, der gleich danach in's Haus<lb/>
+trat, erkannte ich denſelbigen Mann, den ich ſchon<lb/>
+Tags zuvor geſehen hatte. Aber auf ſeine fin¬<lb/>
+ſtere Erſcheinung war heute gleichſam ein Licht<lb/>
+geſetzet; das war ein ſchöner blaſſer Knabe, den<lb/>
+er an der Hand mit ſich führete; das Kind<lb/>
+mochte etwan vier Jahre zählen und ſahe faſt<lb/>
+winzig aus gegen des Mannes hohe knochige<lb/>
+Geſtalt.</p><lb/>
+<p>Da ich die Bildniſſe der früheren Prediger<lb/>
+zu ſehen wünſchte, ſo gingen wir mitſammen in<lb/>
+die Kirche, welche alſo hoch belegen iſt, daß man<lb/>
+nach den anderen Seiten über Marſchen und<lb/>
+Haide, nach Weſten aber auf den nicht gar fer¬<lb/>
+nen Meeresſtrand hinunterſchauen kann. Es<lb/>
+mußte eben Fluth ſein; denn die Watten waren<lb/>
+überſtrömet und das Meer ſtund wie ein lichtes<lb/>
+Silber. Da ich anmerkete, wie oberhalb deſſelben<lb/>
+die Spitze des Feſtlandes und von der andern<lb/>
+Seite diejenige der Inſel ſich gegen einander<lb/>
+<pb n="121" facs="#f0135"/>
+ſtrecketen, wies der Küſter auf die Waſſerfläche,<lb/>
+ſo dazwiſchen liegt. „Dort,“ ſagte er, „hat einſt<lb/>
+meiner Eltern Haus geſtanden; aber <hi rendition="#aq">anno</hi> 34 bei<lb/>
+der großen Fluth trieb es gleich hundert anderen<lb/>
+in den grimmen Waſſern; auf der einen Hälfte<lb/>
+des Daches ward ich an dieſen Strand geworfen,<lb/>
+auf der anderen fuhren Vater und Bruder in<lb/>
+die Ewigkeit hinaus.“</p><lb/>
+<p>Ich dachte: „So ſtehet die Kirche wol am<lb/>
+rechten Ort; auch ohne den Paſtor wird hier<lb/>
+vernehmentlich Gottes Wort geprediget.“</p><lb/>
+<p>Der Knabe, welchen Letzterer auf den Arm<lb/>
+genommen hatte, hielt deſſen Nacken mit beiden<lb/>
+Aermchen feſt umſchlungen und drückte die zarte<lb/>
+Wange an das ſchwarze bärtige Geſicht des<lb/>
+Mannes, als finde er ſo den Schutz vor der ihn<lb/>
+ſchreckenden Unendlichkeit, die dort vor unſeren<lb/>
+Augen ausgebreitet lag.</p><lb/>
+<p>Als wir in das Schiff der Kirche eingetreten<lb/>
+waren, betrachtete ich mir die alten Bildniſſe und<lb/>
+ſahe auch einen Kopf darunter, der wol eines<lb/>
+guten Pinſels werth geweſen wäre; jedennoch<lb/>
+<pb n="122" facs="#f0136"/>
+war es Alles eben Pfennigmalerei, und ſollte<lb/>
+demnach der Schüler van der Helſts hier in gar<lb/>
+ſondere Geſellſchaft kommen.</p><lb/>
+<p>Da ich ſolches eben in meiner Eitelkeit be¬<lb/>
+dachte, ſprach die harte Stimme des Paſtors<lb/>
+neben mir: „Es iſt nicht meines Sinnes, daß<lb/>
+der Schein des Staubes dauere, wenn der Odem<lb/>
+Gottes ihn verlaſſen; aber ich habe der Gemeine<lb/>
+Wunſch nicht widerſtreben mögen; nur, Meiſter,<lb/>
+machet es kurz; ich habe beſſeren Gebrauch für<lb/>
+meine Zeit.“</p><lb/>
+<p>Nachdem ich dem finſteren Manne, an deſſen<lb/>
+Antlitz ich gleichwol für meine Kunſt Gefallen<lb/>
+fand, meine beſte Bemühung zugeſaget, fragete<lb/>
+ich einem geſchnitzten Bilde der Maria nach,<lb/>
+ſo von meinem Bruder mir war gerühmet<lb/>
+worden.</p><lb/>
+<p>Ein faſt verachtend Lächeln ging über des<lb/>
+Predigers Angeſicht. „Da kommet Ihr zu ſpät,“<lb/>
+ſagte er, „es ging in Trümmer, da ich's aus der<lb/>
+Kirche ſchaffen ließ.“</p><lb/>
+<p>Ich ſah ihn faſt erſchrocken an. „Und wolltet<lb/>
+<pb n="123" facs="#f0137"/>
+Ihr des Heilands Mutter nicht in Euerer Kirche<lb/>
+dulden?“</p><lb/>
+<p>„Die Züge von des Heilands Mutter,“ ent¬<lb/>
+gegnete er, „ſind nicht überliefert worden.“</p><lb/>
+<p>— „Aber wollet Ihr's der Kunſt mißgönnen,<lb/>
+ſie in frommem Sinn zu ſuchen?“</p><lb/>
+<p>Er ſahe eine Weile finſter auf mich herab;<lb/>
+denn, obſchon ich zu den Kleinen nicht zu zählen,<lb/>
+ſo überragte er mich doch um eines halben Kopfes<lb/>
+Höhe; — dann ſprach er heftig: „Hat nicht der<lb/>
+König die holländiſchen Papiſten dort auf die<lb/>
+zerriſſene Inſel herberufen; nur um durch das<lb/>
+Menſchenwerk der Deiche des Höchſten Straf¬<lb/>
+gericht zu trotzen? Haben nicht noch letztlich die<lb/>
+Kirchenvorſteher drüben in der Stadt ſich zwei<lb/>
+der Heiligen in ihr Geſtühlte ſchnitzen laſſen?<lb/>
+Betet und wachet! Denn auch hier geht Satan<lb/>
+noch von Haus zu Haus! Dieſe Marienbilder<lb/>
+ſind nichts als Säugammen der Sinnenluſt und<lb/>
+des Papismus; die Kunſt hat allezeit mit der<lb/>
+Welt gebuhlt!“</p><lb/>
+<p>Ein dunkles Feuer glühte in ſeinen Augen,<lb/>
+<pb n="124" facs="#f0138"/>
+aber ſeine Hand lag liebkoſend auf dem Kopf des<lb/>
+blaſſen Knaben, der ſich an ſeine Kniee ſchmiegte.</p><lb/>
+<p>Ich vergaß darob des Paſtors Worte zu er¬<lb/>
+widern; mahnete aber danach, daß wir in die<lb/>
+Küſterei zurückgingen, wo ich alsdann meine edele<lb/>
+Kunſt an ihrem Widerſacher ſelber zu erproben<lb/>
+anhub.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Alſo wanderte ich faſt einen Morgen um den<lb/>
+andern über die Haide nach dem Dorfe, wo ich<lb/>
+allezeit den Paſtor ſchon meiner harrend antraf.<lb/>
+Geredet wurde wenig zwiſchen uns; aber das<lb/>
+Bild nahm deſto raſcheren Fortgang. Gemeiniglich<lb/>
+ſaß der Küſter neben uns und ſchnitzete allerlei<lb/>
+Geräthe gar ſäuberlich aus Eichenholz, dergleichen<lb/>
+als eine Hauskunſt hier überall betrieben wird;<lb/>
+auch habe ich das Käſtlein, woran er derzeit ar¬<lb/>
+beitete, von ihm erſtanden und darin vor<lb/>
+Jahren die erſten Blätter dieſer Niederſchrift<lb/>
+hinterleget, alswie denn auch mit Gotteswillen<lb/>
+dieſe letzten darin ſollen beſchloſſen ſein.</p><lb/>
+<pb n="125" facs="#f0139"/>
+<p>— In des Predigers Wohnung wurde ich<lb/>
+nicht geladen und betrat ſelbige auch nicht; der<lb/>
+Knabe aber war allzeit mit ihm in der Küſterei;<lb/>
+er ſtand an ſeinen Knieen oder er ſpielte mit<lb/>
+Kieſelſteinchen in der Ecke des Zimmers. Da ich<lb/>
+ſelbigen einmal fragte, wie er heiße, antwortete<lb/>
+er: „Johannes!“ — „Johannes?“ entgegnete ich,<lb/>
+„ſo heiße ich ja auch!“ — Er ſah mich groß an,<lb/>
+ſagte aber weiter nichts.</p><lb/>
+<p>Weßhalb rühreten dieſe Augen ſo an meine<lb/>
+Seele? — Einmal gar überraſchete mich ein<lb/>
+finſterer Blick des Paſtors, daß ich den Pinſel<lb/>
+müſſig auf der Leinewand ruhen ließ. Es war<lb/>
+etwas in dieſes Kindes Antlitz, das nicht aus<lb/>
+ſeinem kurzen Leben kommen konnte; aber es<lb/>
+war kein froher Zug. So, dachte ich, ſieht ein<lb/>
+Kind, das unter einem kummerſchweren Herzen<lb/>
+ausgewachſen. Ich hätte oft die Arme nach ihm<lb/>
+breiten mögen; aber ich ſcheuete mich vor dem<lb/>
+harten Manne, der es gleich einem Kleinod zu<lb/>
+behüten ſchien. Wol dachte ich oft: „Welch<lb/>
+eine Frau mag dieſes Knaben Mutter ſein?“ —</p><lb/>
+<pb n="126" facs="#f0140"/>
+<p>Des Küſters alte Magd hatte ich einmal nach<lb/>
+des Predigers Frau befraget; aber ſie hatte mir<lb/>
+kurzen Beſcheid gegeben: „Die kennt man nicht;<lb/>
+in die Bauernhäuſer kommt ſie kaum, wenn<lb/>
+Kindelbier und Hochzeit iſt.“ — Der Paſtor ſelbſt<lb/>
+ſprach nicht von ihr. Aus dem Garten der<lb/>
+Küſterei, welcher in eine dichte Gruppe von Flie¬<lb/>
+derbüſchen ausläuft, ſahe ich ſie einmal langſam<lb/>
+über die Prieſterkoppel nach ihrem Hauſe gehen;<lb/>
+aber ſie hatte mir den Rücken zugewendet, ſo<lb/>
+daß ich nur ihre ſchlanke jugendliche Geſtalt ge¬<lb/>
+wahren konnte, und außerdem ein paar gekräu¬<lb/>
+ſelte Löckchen, in der Art, wie ſie ſonst nur von<lb/>
+den Vornehmeren getragen werden, und die der<lb/>
+Wind von ihren Schläfen wehte. Das Bild<lb/>
+ihres finſteren Ehgeſponſen trat mir vor die<lb/>
+Seele, und mir ſchien, es paſſe dieſes Paar nicht<lb/>
+wohl zuſammen.</p><lb/>
+<p>— — An den Tagen, wo ich nicht da draußen<lb/>
+war, hatte ich auch die Arbeit an meinem Lazarus<lb/>
+wieder aufgenommen, ſo daß nach einiger Zeit<lb/>
+dieſe Bilder mit einander nahezu vollendet waren.</p><lb/>
+<pb n="127" facs="#f0141"/>
+<p>So ſaß ich eines Abends nach vollbrachtem<lb/>
+Tagewerke mit meinem Bruder unten in unſerem<lb/>
+Wohngemache. Auf dem Tiſch am Ofen war die<lb/>
+Kerze faſt herabgebrannt und die holländiſche<lb/>
+Schlaguhr hatte ſchon auf Eilf gewarnt; wir<lb/>
+aber ſaßen am Fenſter und hatten der Gegen¬<lb/>
+wart vergeſſen; denn wir gedachten der kurzen<lb/>
+Zeit, die wir mitſammen in unſerer Eltern Haus<lb/>
+verlebet hatten; auch unſeres einzigen lieben<lb/>
+Schweſterleins gedachten wir, das im erſten<lb/>
+Kindbette verſtorben und nun ſeit lange ſchon<lb/>
+mit Vater und Mutter einer fröhlichen Aufer¬<lb/>
+ſtehung entgegenharrete. — Wir hatten die Läden<lb/>
+nicht vorgeſchlagen; denn es that uns wohl,<lb/>
+durch das Dunkel, ſo draußen auf den Erden¬<lb/>
+wohnungen der Stadt lag, in das Sternenlicht<lb/>
+des ewigen Himmels hinaufzublicken.</p><lb/>
+<p>Am Ende verſtummeten wir Beide in uns<lb/>
+ſelber, und wie aus einem dunklen Strome<lb/>
+trieben meine Gedanken zu ihr, bei der ſie allzeit<lb/>
+Raſt und Unraſt fanden. — — Da, gleich einem<lb/>
+Stern aus unſichtbaren Höhen, fiel es mir jäh¬<lb/>
+<pb n="128" facs="#f0142"/>
+lings in die Bruſt: Die Augen des ſchönen<lb/>
+blaſſen Knaben, es waren ja ihre Augen! Wo<lb/>
+hatte ich meine Sinne denn gehabt! — — Aber<lb/>
+dann, wenn ſie es war, wenn ich ſie ſelber ſchon<lb/>
+geſehen! — Welch' ſchreckbare Gedanken ſtürmten<lb/>
+auf mich ein!</p><lb/>
+<p>Indem legte ſich die eine Hand meines Bru¬<lb/>
+ders mir auf die Schulter, mit der andern wies<lb/>
+er auf den dunkeln Markt hinaus, von wannen<lb/>
+aber itzt ein heller Schein zu uns herüberſchwankte.<lb/>
+„Sieh nur!“ ſagte er. „Wie gut, daß wir das<lb/>
+Pflaſter mit Sand und Haide ausgeſtopfet haben!<lb/>
+Die kommen von des Glockengießers Hochzeit;<lb/>
+aber an ihren Stockleuchten ſieht man, daß ſie<lb/>
+gleichwol hin und wieder ſtolpern.“</p><lb/>
+<p>Mein Bruder hatte Recht. Die tanzenden<lb/>
+Leuchten zeugeten deutlich von der Trefflichkeit<lb/>
+des Hochzeitſchmauſes; ſie kamen uns ſo nahe,<lb/>
+daß die zwei gemalten Scheiben, ſo letzlich von<lb/>
+meinem Bruder als eines Glaſers Meiſterſtück<lb/>
+erſtanden waren, in ihren ſatten Farben wie in<lb/>
+Feuer glühten. Als aber dann die Geſellſchaft<lb/>
+<pb n="129" facs="#f0143"/>
+an unſerem Hauſe laut redend in die Krämer¬<lb/>
+ſtraße einbog, hörete ich Einen unter ihnen ſagen:<lb/>
+„Ei freilich; das hat der Teufel uns verpurret!<lb/>
+Hatte mich leblang darauf geſpitzet, einmal eine<lb/>
+richtige Hex' ſo in der Flammen ſingen zu hören!“</p><lb/>
+<p>Die Leuchten und die luſtigen Leute gingen<lb/>
+weiter, und draußen die Stadt lag wieder ſtill<lb/>
+und dunkel.</p><lb/>
+<p>„O weh!“ ſprach mein Bruder; „den trübet,<lb/>
+was mich tröſtet.“</p><lb/>
+<p>Da fiel es mir erſt wieder bei, daß am näch¬<lb/>
+ſten Morgen die Stadt ein grauſam Spektakul<lb/>
+vor ſich habe. Zwar war die junge Perſon, ſo<lb/>
+wegen einbekannten Bündniſſen mit dem Satan<lb/>
+zu Aſchen ſollte verbrannt werden, am heutigen<lb/>
+Morgen vom Frohne todt in ihrem Kerker auf¬<lb/>
+gefunden worden; aber dem todten Leibe mußte<lb/>
+gleichwol ſein peinlich Recht geſchehen.</p><lb/>
+<p>Das war nun vielen Leuten gleich einer kalt<lb/>
+geſtellten Suppen. Hatte doch auch die Buch¬<lb/>
+führer-Wittwe Liebernickel, ſo unter dem Thurm<lb/>
+der Kirche den grünen Bücherſchranken hat, mir<lb/>
+<fw type="sig" place="bottom">Storm, <hi rendition="#aq">Aquis submersus</hi>. 9<lb/>
+</fw>
+<pb n="130" facs="#f0144"/>
+am Mittage, da ich wegen der Zeitung bei ihr<lb/>
+eingetreten, auf's Heftigſte geklaget, daß nun das<lb/>
+Lied, ſo ſie im Voraus darüber habe anfertigen<lb/>
+und drucken laſſen, nur kaum noch paſſen werde,<lb/>
+wie die Fauſt auf's Auge. Ich aber, und mit<lb/>
+mir mein viel lieber Bruder, hatte ſo meine<lb/>
+eigenen Gedanken von dem Hexenweſen; und<lb/>
+freuete mich, daß unſer Herrgott — denn der<lb/>
+war es doch wol geweſen — das arme junge<lb/>
+Menſch ſo gnädiglich in ſeinen Schooß genom¬<lb/>
+men hatte.</p><lb/>
+<p>Mein Bruder, welcher weichen Herzens war,<lb/>
+begann gleichwol der Pflichten ſeines Amts ſich<lb/>
+zu beklagen; denn er hatte drüben von der Rath¬<lb/>
+haustreppe das Urthel zu verleſen, ſobald der<lb/>
+Racker den todten Leichnam davor aufgefahren,<lb/>
+und hernach auch der Juſtification ſelber zu aſſi¬<lb/>
+ſtiren. „Es ſchneidet mir ſchon itzund in das<lb/>
+Herz;“ ſagte er, „das greuelhafte Gejohle, wenn<lb/>
+ſie mit dem Karren die Straße herabkommen;<lb/>
+denn die Schulen werden ihre Buben und die<lb/>
+Zunftmeiſter ihre Lehrburſchen loslaſſen. — An<lb/>
+<pb n="131" facs="#f0145"/>
+Deiner Statt,“ fügete er bei, „der Du ein freier<lb/>
+Vogel biſt, würde ich auf's Dorf hinausmachen,<lb/>
+und an dem Conterfey des ſchwarzen Paſtors<lb/>
+weiter malen!“</p><lb/>
+<p>Nun war zwar feſtgeſetzet worden, daß ich<lb/>
+am nächſtfolgenden Tage erſt wieder hinauskäme;<lb/>
+aber mein Bruder redete mir zu, unwiſſend, wie<lb/>
+er die Ungeduld in meinem herzen ſchürete;<lb/>
+und ſo geſchah es, daß Alles ſich erfüllen mußte,<lb/>
+was ich getreulich in dieſen Blättern nieder¬<lb/>
+ſchreiben werde.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Am andern Morgen, als drüben vor meinem<lb/>
+Kammerfenſter nur kaum der Kirchthurmhahn in<lb/>
+rothem Frühlicht blinkte, war ich ſchon von mei¬<lb/>
+nem Lager aufgeſprungen; und bald ſchritt ich<lb/>
+über den Markt, allwo die Bäcker, vieler Käufer<lb/>
+harrend, ihre Brodſchragen ſchon geöffnet hatten;<lb/>
+auch ſahe ich, wie an dem Rathhauſe der Wacht¬<lb/>
+meiſter und die Fußknechte in Bewegung waren,<lb/>
+und hatte Einer bereits einen ſchwarzen Teppich<lb/>
+<fw type="sig" place="bottom">9 *<lb/>
+</fw>
+<pb n="132" facs="#f0146"/>
+über das Geländer der großen Treppe aufge¬<lb/>
+hangen; ich aber ging durch den Schwiebbogen,<lb/>
+ſo unter dem Rathhauſe iſt, eilends zur Stadt<lb/>
+hinaus.</p><lb/>
+<p>Als ich hinter dem Schloßgarten auf dem<lb/>
+Steige war, ſahe ich drüben bei der Lehmkuhle,<lb/>
+wo ſie den neuen Galgen hingeſetzet, einen mäch¬<lb/>
+tigen Holzſtoß aufgeſchichtet. Ein paar Leute<lb/>
+handtirten noch daran herum, und mochten das<lb/>
+der Frohn und ſeine Knechte ſein, die leichten<lb/>
+Brennſtoff zwiſchen die Hölzer thaten; von der<lb/>
+Stadt her aber kamen ſchon die erſten Buben<lb/>
+über die Felder ihnen zugelaufen. — Ich achtete<lb/>
+deß nicht weiter, ſondern wanderte rüſtig fürbaß,<lb/>
+und da ich hinter den Bäumen hervortrat, ſahe<lb/>
+ich mir zur Linken das Meer im erſten Sonnen¬<lb/>
+ſtrahl entbrennen, der im Oſten über die Haide<lb/>
+emporſtieg. Da mußte ich meine Hände falten:</p><lb/>
+<lg type="poem"> <l>„O Herr, mein Gott und Chriſt,</l><lb/>
+<l>Sei gnädig mit uns Allen,</l><lb/>
+<l>Die wir in Sünd' gefallen,</l><lb/>
+<l>Der Du die Liebe biſt!“ — —</l><lb/>
+</lg>
+<pb n="133" facs="#f0147"/>
+<p>Als ich draußen war, wo die breite Land¬<lb/>
+ſtraße durch die Haide führt, begegneten mir<lb/>
+viele Züge von Bauern; ſie hatten ihre kleinen<lb/>
+Jungen und Dirnen an den Händen und zogen<lb/>
+ſie mit ſich fort.</p><lb/>
+<p>„Wohin ſtrebet Ihr denn ſo eifrig?“ fragte<lb/>
+ich den einen Haufen; „es iſt ja doch kein Markt¬<lb/>
+tag heute in der Stadt.“</p><lb/>
+<p>Nun, wie ich's wol zum Voraus wußte, ſie<lb/>
+wollten die Hexe, das junge Satansmenſch, ver¬<lb/>
+brennen ſehen.</p><lb/>
+<p>— „Aber die Hexe iſt ja todt!“</p><lb/>
+<p>„Freilich, das iſt ein Verdruß;“ meineten ſie;<lb/>
+„aber es iſt unſerer Hebamme, der alten Mutter<lb/>
+Siebzig, ihre Schweſtertochter; da können wir<lb/>
+nicht außen bleiben und müſſen mit dem Reſte<lb/>
+ſchon fürlieb nehmen.“</p><lb/>
+<p>— — Und immer neue Schaaren kamen daher;<lb/>
+und itzund taucheten auch ſchon Wagen aus dem<lb/>
+Morgennebel, die ſtatt mit Kornfrucht heut mit<lb/>
+Menſchen vollgeladen waren. — Da ging ich<lb/>
+abſeits über die Haide, obwol noch der Nacht¬<lb/>
+<pb n="134" facs="#f0148"/>
+thau von dem Kraute rann; denn mein Gemüth<lb/>
+verlangte nach der Einſamkeit; und ich ſahe von<lb/>
+fern, wie es den Anſchein hatte, das ganze Dorf<lb/>
+des Weges nach der Stadt ziehen. Als ich auf<lb/>
+dem Hünenhügel ſtund, der hier inmitten der<lb/>
+Haide liegt, überfiel es mich, als müſſe auch ich<lb/>
+zur Stadt zurückkehren oder etwan nach links<lb/>
+hinab an die See gehen, oder nach dem kleinen<lb/>
+Dorfe, das dort unten hart am Strande liegt;<lb/>
+aber vor mir in der Luft ſchwebete etwas, wie<lb/>
+ein Glück, wie eine raſende Hoffnung, und es<lb/>
+ſchüttelte mein Gebein, und meine Zähne ſchlugen<lb/>
+aneinander. „Wenn ſie es wirklich war, ſo letzt¬<lb/>
+lich mit meinen eigenen Augen ich erblicket, und<lb/>
+wenn dann heute“ — — Ich fühlte mein Herz<lb/>
+gleich einem Hammer an den Rippen; ich ging<lb/>
+weit um durch die Haide; ich wollte nicht ſehen,<lb/>
+ob auf der Wagen einem auch der Prediger nach<lb/>
+der Stadt fahre. — Aber ich ging dennoch end¬<lb/>
+lich ſeinem Dorfe zu.</p><lb/>
+<p>Als ich es erreichet hatte, ſchritt ich eilends<lb/>
+nach der Thür des Küſterhauſes. Sie war ver¬<lb/>
+<pb n="135" facs="#f0149"/>
+ſchloſſen. Eine Weile ſtund ich unſchlüſſig; dann<lb/>
+hub ich mit der Fauſt zu klopfen an. Drinnen<lb/>
+blieb Alles ruhig; als ich aber ſtärker klopfte,<lb/>
+kam des Küſters alte halbblinde Trienke aus<lb/>
+einem Nachbarhauſe.</p><lb/>
+<p>„Wo iſt der Küſter?“ fragte ich.</p><lb/>
+<p>— „Der Küſter? Mit dem Prieſter in die<lb/>
+Stadt gefahren.“</p><lb/>
+<p>Ich ſtarrete die Alte an; mir war, als ſei<lb/>
+ein Blitz durch mich dahin geſchlagen.</p><lb/>
+<p>„Fehlet Euch etwas, Herr Maler?“ fragte ſie.</p><lb/>
+<p>Ich ſchüttelte den Kopf und ſagte nur: „So<lb/>
+iſt wol heute keine Schule, Trienke?“</p><lb/>
+<p>— „Bewahre! Die Hexe wird ja verbrannt!“</p><lb/>
+<p>Ich ließ mir von der Alten das Haus auf¬<lb/>
+ſchließen, holte mein Malergeräthe und das faſt<lb/>
+vollendete Bildniß aus des Küſters Schlafkammer<lb/>
+und richtete, wie gewöhnlich, meine Staffelei in<lb/>
+dem leeren Schulzimmer. Ich pinſelte etwas an<lb/>
+der Gewandung; aber ich ſuchte damit nur mich<lb/>
+ſelber zu belügen: ich hatte keinen Sinn zum<lb/>
+<pb n="136" facs="#f0150"/>
+Malen; war ja um deſſen willen auch nicht hieher<lb/>
+gekommen.</p><lb/>
+<p>Die Alte kam hereingelaufen, ſtöhnte über die<lb/>
+arge Zeit und redete über Bauern- und Dorf¬<lb/>
+ſachen, die ich nicht verſtund; mich ſelber drän¬<lb/>
+gete es, ſie wieder einmal nach des Predigers<lb/>
+Frau zu fragen, ob ſelbige alt oder jung, und<lb/>
+auch, woher ſie gekommen ſei; allein ich brachte<lb/>
+das Wort nicht über meine Zungen. Dagegen<lb/>
+begann die Alte ein lang Geſpinnſte von der<lb/>
+Hex' und ihrer Sippſchaft hier im Dorfe und<lb/>
+von der Mutter Siebenzig, ſo mit Vorſpuk-Sehen<lb/>
+behaftet ſei; erzählete auch, wie ſelbige zur Nacht,<lb/>
+da die Gicht dem alten Weibe keine Ruh' ge¬<lb/>
+laſſen, drei Leichlaken über des Paſtors Haus¬<lb/>
+dach habe fliegen ſehen; es gehe aber ſolch'<lb/>
+Geſichte allzeit richtig aus, und Hofart komme<lb/>
+vor dem Falle; denn ſei die Frau Paſtorin bei<lb/>
+aller ihrer Vornehmheit doch nur eine blaſſe und<lb/>
+ſchwächliche Kreatur.</p><lb/>
+<p>Ich mochte ſolch' Geſchwätz nicht fürder hören;<lb/>
+ging daher aus dem Hauſe und auf dem Wege<lb/>
+<pb n="137" facs="#f0151"/>
+herum, da wo das Paſtorat mit ſeiner Fronte<lb/>
+gegen die Dorfſtraße liegt; wandte auch unter<lb/>
+bangem Sehnen meine Augen nach den weißen<lb/>
+Fenſtern, konnte aber hinter den blinden Scheiben<lb/>
+nichts gewahren, als ein paar Blumenſcherben,<lb/>
+wie ſie überall zu ſehen ſind. — Ich hätte nun<lb/>
+wol umkehren mögen; aber ich ging dennoch<lb/>
+weiter. Als ich auf den Kirchhof kam, trug von<lb/>
+der Stadtſeite der Wind ein wimmernd Glocken¬<lb/>
+läuten an mein Ohr; ich aber wandte mich und<lb/>
+blickte hinab nach Weſten, wo wiederum das<lb/>
+Meer wie lichtes Silber am Himmelsſaume hin¬<lb/>
+floß, und war doch ein tobend Unheil dort ge¬<lb/>
+weſen, worin in einer Nacht des Höchſten Hand<lb/>
+viel tauſend Menſchenleben hingeworfen hatte.<lb/>
+Was krümmete denn ich mich ſo gleich einem<lb/>
+Wurme? — Wir ſehen nicht, wie ſeine Wege<lb/>
+führen!</p><lb/>
+<p>Ich weiß nicht mehr, wohin mich damals<lb/>
+meine Füße noch getragen haben; ich weiß nur,<lb/>
+daß ich in einem Kreis gegangen bin; denn da<lb/>
+die Sonne faſt zur Mittagshöhe war, langete ich<lb/>
+<pb n="138" facs="#f0152"/>
+wieder bei der Küſterei an. Ich ging aber nicht<lb/>
+in das Schulzimmer an meine Staffelei, ſondern<lb/>
+durch das Hinterpförtlein wieder zum Hauſe<lb/>
+hinaus. — —</p><lb/>
+<p>Das ärmliche Gärtlein iſt mir unvergeſſen,<lb/>
+obſchon ſeit jenem Tage meine Augen es nicht<lb/>
+mehr geſehen. — Gleich dem des Predigerhauſes<lb/>
+von der anderen Seite, trat es als ein breiter<lb/>
+Streifen in die Prieſterkoppel; inmitten zwiſchen<lb/>
+beiden aber war eine Gruppe dichter Weiden¬<lb/>
+büſche, welche zur Einfaſſung einer Waſſergrube<lb/>
+dienen mochten; denn ich hatte einmal eine Magd<lb/>
+mit vollem Eimer wie aus einer Tiefe daraus<lb/>
+hervorſteigen ſehen.</p><lb/>
+<p>Als ich ohne viel Gedanken, nur mein Ge¬<lb/>
+müthe erfüllet von nicht zu zwingender Unraſt,<lb/>
+an des Küſters abgeheimſeten Bohnenbeeten hin¬<lb/>
+ging, hörete ich von der Koppel draußen eine<lb/>
+Frauenſtimme von gar holdem Klang, und wie<lb/>
+ſie liebreich einem Kinde zuſprach.</p><lb/>
+<p>Unwillens ſchritt ich ſolchem Schalle nach;<lb/>
+ſo mochte einſt der griechiſche Heidengott mit<lb/>
+<pb n="139" facs="#f0153"/>
+ſeinem Stabe die Todten nach ſich gezogen haben.<lb/>
+Schon war ich am jenſeitigen Rande des Hollun¬<lb/>
+dergebüſches, das hier ohne Verzäunung in die<lb/>
+Koppel ausläuft, da ſahe ich den kleinen Johan¬<lb/>
+nes mit einem Aermchen voll Moos, wie es<lb/>
+hier in dem kümmerlichen Graſe wächſt, gegen¬<lb/>
+über hinter die Weiden gehen; er mochte ſich<lb/>
+dort damit nach Kinderart ein Gärtchen angeleget<lb/>
+haben. Und wieder kam die holde Stimme an<lb/>
+mein Ohr: „Nun heb nur an; nun haſt du<lb/>
+einen ganzen Haufen! Ja, ja; ich ſuch' derweil<lb/>
+noch mehr; dort am Hollunder wächſt genug!“</p><lb/>
+<p>Und dann trat ſie ſelber hinter den Weiden<lb/>
+hervor; ich hatte ja längſt ſchon nicht gezweifelt.<lb/>
+— Mit den Augen auf dem Boden ſuchend,<lb/>
+ſchritt ſie zu mir her, ſo daß ich ungeſtöret ſie<lb/>
+betrachten durfte; und mir war, als gliche ſie<lb/>
+nun gar ſeltſam dem Kinde wieder, das ſie einſt<lb/>
+geweſen war, für das ich den „Buhz“ einſt von<lb/>
+dem Baum herabgeſchoſſen hatte; aber dieſes<lb/>
+Kinderantlitz von heute war bleich, und weder<lb/>
+Glück noch Muth darin zu leſen.</p><lb/>
+<pb n="140" facs="#f0154"/>
+<p>So war ſie mählich näher kommen, ohne<lb/>
+meiner zu gewahren: dann knieete ſie nieder an<lb/>
+einem Streifen Moos, der unter den Büſchen<lb/>
+hinlief; doch ihre Hände pflückten nicht davon;<lb/>
+ſie ließ das Haupt auf ihre Bruſt ſinken, und<lb/>
+es war, als wolle ſie nur ungeſehen vor dem<lb/>
+Kinde in ihrem Leide ausruhen.</p><lb/>
+<p>Da rief ich leiſe: „Katharina!“</p><lb/>
+<p>Sie blickte auf; ich aber ergriff ihre Hand<lb/>
+und zog ſie gleich einer Willenloſen zu mir unter<lb/>
+den Schatten der Büſche. Doch als ich ſie end¬<lb/>
+lich alſo nun gefunden hatte und keines Wortes<lb/>
+mächtig vor ihr ſtund, da ſahen ihre Augen weg<lb/>
+von mir, und mit faſt einer fremden Stimme<lb/>
+ſagte ſie: „Es iſt nun einmal ſo, Johannes!<lb/>
+Ich wußte wol, Du ſeieſt der fremde Maler;<lb/>
+ich dachte nur nicht, daß Du heute kommen<lb/>
+würdeſt.“</p><lb/>
+<p>Ich hörete das, und dann ſprach ich es aus:<lb/>
+„Katharina, — — — ſo biſt Du des Predigers<lb/>
+Eheweib?“</p><lb/>
+<p>Sie nickte nicht; ſie ſah mich ſtarr und<lb/>
+<pb n="141" facs="#f0155"/>
+ſchmerzlich an. „Er hat das Amt dafür bekom¬<lb/>
+men,“ ſagte ſie, „und Dein Kind den ehrlichen<lb/>
+Namen.“</p><lb/>
+<p>— „Mein Kind, Katharina?“</p><lb/>
+<p>„Und fühlteſt Du das nicht? Er hat ja doch<lb/>
+auf Deinem Schooß geſeſſen; einmal doch, er<lb/>
+ſelbſt hat es mir erzählet.“</p><lb/>
+<p>— — Möge keines Menſchen Bruſt ein ſolches<lb/>
+Weh zerfleiſchen! — „Und Du, Du und mein<lb/>
+Kind, Ihr ſolltet mir verloren ſein!“</p><lb/>
+<p>Sie ſah mich an, ſie weinte nicht, ſie war<lb/>
+nur gänzlich todtenbleich.</p><lb/>
+<p>„Ich will das nicht!“ ſchrie ich; „ich will“ . . .<lb/>
+Und eine wilde Gedankenjagd raſete mir durch's<lb/>
+Hirn.</p><lb/>
+<p>Aber ihre kleine Hand hatte gleich einem<lb/>
+kühlen Blatte ſich auf meine Stirn gelegt, und<lb/>
+ihre braunen Augenſterne aus dem blaſſen Antlitz<lb/>
+ſahen mich flehend an. „Du, Johannes,“ ſagte<lb/>
+ſie, „Du wirſt es nicht ſein, der mich noch elender<lb/>
+machen will.“</p><lb/>
+<p>— „Und kannſt denn Du ſo leben, Katharina?“<lb/>
+</p>
+<pb n="142" facs="#f0156"/>
+<p>„Leben? — — Es iſt ja doch ein Glück dabei;<lb/>
+er liebt das Kind; — was iſt denn mehr noch zu<lb/>
+verlangen?“</p><lb/>
+<p>— „Und von uns, von dem, was einſt ge¬<lb/>
+weſen iſt, weiß er denn?“ — —</p><lb/>
+<p>„Nein, nein!“ rief ſie heftig. „Er nahm die<lb/>
+Sünderin zum Weibe: mehr nicht. O Gott, iſt's<lb/>
+denn nicht genug, daß jeder neue Tag ihm angehört!“</p><lb/>
+<p>In dieſem Augenblicke tönete ein zarter Geſang<lb/>
+zu uns herüber.— „Das Kind,“ ſagte ſie. „Ich muß<lb/>
+zu dem Kinde; es könnte ihm ein Leids geſchehen!“</p><lb/>
+<p>Aber meine Sinne zieleten nur auf das Weib,<lb/>
+das ſie begehrten. „Bleib doch;“ ſagte ich, „es<lb/>
+ſpielet ja fröhlich dort mit ſeinem Mooſe.“</p><lb/>
+<p>Sie war an den Rand des Gebüſches getreten<lb/>
+und horchete hinaus. Die goldene Herbſtſonne ſchien<lb/>
+ſo warm hernieder, nur leichter Hauch kam von der<lb/>
+See herauf. Da höreten wir von jenſeit durch<lb/>
+die Weiden das Stimmlein unſeres Kindes ſingen:</p><lb/>
+<lg type="poem"> <l>„Zwei Englein, die mich decken,</l><lb/>
+<l>Zwei Englein, die mich ſtrecken,</l><lb/>
+<l>Und zweie ſo mich weiſen,</l><lb/>
+<l>In das himmliſche Paradeiſen.“</l><lb/>
+</lg>
+<pb n="143" facs="#f0157"/>
+<p>Katharina war zurückgetreten und ihre Augen<lb/>
+ſahen groß und geiſterhaft mich an. „Und nun<lb/>
+leb' wohl, Johannes,“ ſprach ſie leiſe; „auf Nim¬<lb/>
+merwiederſehen hier auf Erden!“</p><lb/>
+<p>Ich wollte ſie an mich reißen; ich ſtreckte<lb/>
+beide Arme nach ihr aus; doch ſie wehrete mich<lb/>
+ab und ſagte ſanft: „Ich bin des anderen Man¬<lb/>
+nes Weib; vergiß das nicht.“</p><lb/>
+<p>Mich aber hatte auf dieſe Worte ein faſt<lb/>
+wilder Zorn ergriffen. „Und weſſen, Katharina,“<lb/>
+ſprach ich hart, „biſt Du geweſen, ehe bevor Du<lb/>
+ſein geworden?“</p><lb/>
+<p>Ein weher Klaglaut brach aus ihrer Bruſt:<lb/>
+ſie ſchlug die Hände vor ihr Angeſicht und rief:<lb/>
+„Weh wir! O wehe, mein entweihter armer<lb/>
+Leib!“</p><lb/>
+<p>Da wurd' ich meiner ſchier unmächtig; ich<lb/>
+riß ſie jäh an meine Bruſt, ich hielt ſie wie mit<lb/>
+Eiſenklammern und hatte ſie endlich, endlich<lb/>
+wieder! Und ihre Augen ſanken in die meinen,<lb/>
+und ihre rothen Lippen duldeten die meinen; wir<lb/>
+umſchlangen uns inbrünſtiglich; ich hätte ſie<lb/>
+<pb n="144" facs="#f0158"/>
+ödten mögen, wenn wir alſo miteinander hätten<lb/>
+ſterben können. Und als dann meine Blicke voll<lb/>
+Seligkeit auf ihrem Antlitz weideten, da ſprach<lb/>
+ſie, faſt erſtickt von meinen Küſſen: „Es iſt ein<lb/>
+langes, banges Leben! O, Jeſu Chriſt, vergieb<lb/>
+mir dieſe Stunde!“</p><lb/>
+<p>— — Es kam eine Antwort; aber es war<lb/>
+die harte Stimme jenes Mannes, aus deſſen<lb/>
+Munde ich itzt zum erſten Male ihren Namen<lb/>
+hörte. Der Ruf kam von drüben aus dem<lb/>
+Predigergarten, und noch einmal und härter rief<lb/>
+es: „Katharina!“</p><lb/>
+<p>Da war das Glück vorbei; mit einem Blicke<lb/>
+der Verzweiflung ſahe ſie mich an; dann ſtille<lb/>
+wie ein Schatten war ſie fort.</p><lb/>
+<p>— — Als ich in die Küſterei trat, war auch<lb/>
+ſchon der Küſter wieder da. Er begann ſofort<lb/>
+von der Juſtification der armen Hexe auf mich<lb/>
+einzureden „Ihr haltet wol nicht viel davon;“<lb/>
+ſagte er; „ſonſt wäret Ihr heute nicht auf's<lb/>
+Dorf gegangen, wo der Herr Paſtor gar die<lb/>
+Bauern und ihre Weiber in die Stadt getrieben.“<lb/>
+</p>
+<pb n="145" facs="#f0159"/>
+<p>Ich hatte nicht die Zeit zur Antwort; ein<lb/>
+gellender Schrei durchſchnitt die Luſt; ich werde<lb/>
+ihn leblang in den Ohren haben.</p><lb/>
+<p>„Was war das Küſter?“ rief ich.</p><lb/>
+<p>Der Mann riß ein Fenſter auf und horchete<lb/>
+hinaus; aber es geſchah nichts weiter. „So mir<lb/>
+Gott,“ ſagte er, „es war ein Weib, das ſo ge¬<lb/>
+ſchrieen hat; und drüben von der Prieſterkoppel<lb/>
+kam's.“</p><lb/>
+<p>Indem war auch die alte Trienke in die<lb/>
+Thür gekommen. „Nun, Herr?“ rief ſie mir zu.<lb/>
+„Die Leichlaken ſind auf des Paſtors Dach ge¬<lb/>
+fallen!“</p><lb/>
+<p>— „Was ſoll das heißen, Trienke?“</p><lb/>
+<p>„Das ſoll heißen, daß ſie des Paſtors kleinen<lb/>
+Johannes ſo eben aus dem Waſſer ziehen.“</p><lb/>
+<p>Ich ſtürzete aus dem Zimmer und durch den<lb/>
+Garten auf die Prieſterkoppel; aber unter den<lb/>
+Weiden fand ich nur das dunkle Waſſer und<lb/>
+Spuren feuchten Schlammes daneben auf dem<lb/>
+Graſe. — Ich bedachte mich nicht, es war ganz<lb/>
+wie von ſelber, daß ich durch das weiße Pförtchen<lb/>
+<fw type="sig" place="bottom">Storm, <hi rendition="#aq">Aquis submersus</hi>. 10<lb/>
+</fw>
+<pb n="146" facs="#f0160"/>
+in des Paſtors Garten ging. Da ich eben in's<lb/>
+Haus wollte, trat er ſelber mir entgegen.</p><lb/>
+<p>Der große knochige Mann ſah gar wüſte aus;<lb/>
+ſeine Augen waren geröthet und das ſchwarze<lb/>
+Haar hing wirr ihm in's Geſicht. „Was wollt<lb/>
+Ihr?“ ſagte er.</p><lb/>
+<p>Ich ſtarrete ihn an; denn mir fehlete das<lb/>
+Wort. Was wollte ich denn eigentlich?</p><lb/>
+<p>„Ich kenne Euch!“ fuhr er fort. „Das Weib<lb/>
+hat endlich Alles ausgeredet.“</p><lb/>
+<p>Das machte mir die Zunge frei. „Wo iſt<lb/>
+mein Kind?“ rief ich.</p><lb/>
+<p>Er ſagte: „Die beiden Eltern haben es er¬<lb/>
+trinken laſſen.“</p><lb/>
+<p>— „So laßt mich zu meinem todten Kinde!“</p><lb/>
+<p>Allein, da ich an ihm vorbei in den Hausflur<lb/>
+wollte, drängete er mich zurück. „Das Weib,“<lb/>
+ſprach er, „liegt bei dem Leichnam und ſchreit zu<lb/>
+Gott aus ihren Sünden. Ihr ſollt nicht hin,<lb/>
+um ihrer armen Seelen Seligkeit!“</p><lb/>
+<p>Was dermalen ſelber ich geſprochen, iſt mir<lb/>
+ſchier vergeſſen; aber des Predigers Worte gruben<lb/>
+<pb n="147" facs="#f0161"/>
+ſich in mein Gedächtniß. „Höret mich!“ ſprach<lb/>
+er. „So von Herzen ich Euch haſſe, wofür der¬<lb/>
+einſt mich Gott in ſeiner Gnade wolle büßen<lb/>
+laſſen, und Ihr vermuthendlich auch mich, —<lb/>
+noch iſt Eines uns gemeinſam. — Geht itzo heim<lb/>
+und bereitet eine Tafel oder Leinewand! Mit<lb/>
+ſolcher kommet morgen in der Frühe wieder und<lb/>
+malet darauf des todten Knaben Antlitz. Nicht<lb/>
+mir oder meinem Hauſe; der Kirchen hier, wo<lb/>
+er ſein kurz unſchuldig Leben ausgelebet, möget<lb/>
+Ihr das Bildniß ſtiften. Mög' es dort die<lb/>
+Menſchen mahnen, daß vor der knöchern' Hand<lb/>
+des Todes Alles Staub iſt!“</p><lb/>
+<p>Ich blickte auf den Mann, der kurz vordem<lb/>
+die edle Malerkunſt ein Buhlweib mit der Welt<lb/>
+geſcholten; aber ich ſagte zu, daß Alles ſo ge¬<lb/>
+ſchehen möge.</p><lb/>
+<p>— — Daheim indeſſen wartete meiner eine<lb/>
+Kunde, ſo meines Lebens Schuld und Buße gleich<lb/>
+einem Blitze jählings aus dem Dunkel hob, ſo<lb/>
+daß ich Glied um Glied die ganze Kette vor<lb/>
+mir leuchten ſahe.</p><lb/>
+<fw type="sig" place="bottom">10 *<lb/>
+</fw>
+<pb n="148" facs="#f0162"/>
+<p>Mein Bruder, deſſen ſchwache Conſtitution<lb/>
+von dem abſcheulichen Spectakul, dem er heute<lb/>
+aſſiſtiren müſſen, hart ergriffen war, hatte ſein<lb/>
+Bette aufgeſucht. Da ich zu ihm eintrat, richtete<lb/>
+er ſich auf. „Ich muß noch eine Weile ruhen;“<lb/>
+ſagte er, indem er ein Blatt der Wochenzeitung<lb/>
+in meine Hand gab: „aber lies doch dieſes! Da<lb/>
+wirſt Du ſehen, daß Herrn Gerhardus' Hof in<lb/>
+fremde Hände kommen, maaßen Junker Wulf<lb/>
+ohn' Weib und Kind durch eines tollen Hundes<lb/>
+Biß gar jämmerlichen Todes verfahren iſt.“</p><lb/>
+<p>Ich griff nach dem Blatte, das mein Bruder<lb/>
+mir entgegenhielt; aber es fehlte nicht viel, daß<lb/>
+ich getaumelt wäre. Mir war's bei dieſer<lb/>
+Schreckenspoſt, als ſprängen des Paradieſes<lb/>
+Pforten vor mir auf; aber ſchon ſahe ich am<lb/>
+Eingange den Engel mit dem Feuerſchwerdte<lb/>
+ſtehen, und aus meinem Herzen ſchrie es wieder:<lb/>
+O Hüter, Hüter, war Dein Ruf ſo fern! — —<lb/>
+Dieſer Tod hätte uns das Leben werden können;<lb/>
+nun war's nur ein Entſetzen zu den andern.</p><lb/>
+<p>Ich ſaß oben auf meiner Kammer. Es wurde<lb/>
+<pb n="149" facs="#f0163"/>
+Dämmerung, es wurde Nacht; ich ſchaute in die<lb/>
+ewigen Geſtirne, und endlich ſuchte auch ich mein<lb/>
+Lager. Aber die Erquickung des Schlafes ward<lb/>
+mir nicht zu Theil. In meinen erregten Sinnen<lb/>
+war es mir gar ſeltſamlich, als ſei der Kirch¬<lb/>
+thurm drüben meinem Fenſter nah gerückt; ich<lb/>
+fühlte die Glockenſchläge durch das Holz der<lb/>
+Bettſtatt dröhnen, und ich zählete ſie alle die<lb/>
+ganze Nacht entlang. Doch endlich dämmerte<lb/>
+der Morgen. Die Balken an der Decke hingen<lb/>
+noch wie Schatten über mir, da ſprang ich auf,<lb/>
+und ehbevor die erſte Lerche aus den Stoppel¬<lb/>
+feldern ſtieg, hatte ich allbereits die Stadt im<lb/>
+Rücken.</p><lb/>
+<p>Aber ſo frühe ich auch ausgegangen, ich traf<lb/>
+den Prediger ſchon auf der Schwelle ſeines<lb/>
+Hauſes ſtehen. Er geleitete mich auf den Flur<lb/>
+und ſagte, daß die Holztafel richtig angelanget,<lb/>
+auch meine Staffelei und ſonſtiges Malergeräth<lb/>
+aus dem Küſterhauſe herübergeſchaffet ſei. Dann<lb/>
+legte er ſeine Hand auf die Klinke einer Stuben¬<lb/>
+thür.</p><lb/>
+<pb n="150" facs="#f0164"/>
+<p>Ich jedoch hielt ihn zurück und ſagte: „Wenn<lb/>
+es in dieſem Zimmer iſt, ſo wollet mir vergönnen,<lb/>
+bei meinem ſchweren Werk allein zu ſein!“</p><lb/>
+<p>„Es wird Euch Niemand ſtören;“ entgegnete<lb/>
+er und zog die Hand zurück. „Was Ihr zur<lb/>
+Stärkung Eures Leibes bedürfet, werdet Ihr<lb/>
+drüben in jenem Zimmer finden.“ Er wies auf<lb/>
+eine Thür an der anderen Seite des Flures;<lb/>
+dann verließ er mich.</p><lb/>
+<p>Meine Hand lag itzund ſtatt der des Predigers<lb/>
+auf der Klinke. Es war todtenſtill im Hauſe;<lb/>
+eine Weile mußte ich mich ſammeln, bevor ich<lb/>
+öffnete.</p><lb/>
+<p>Es war ein großes, faſt leeres Gemach, wol<lb/>
+für den Confirmanden-Unterricht beſtimmt, mit<lb/>
+kahlen weißgetünchten Wänden; die Fenſter ſahen<lb/>
+über öde Felder nach dem fernen Strand hinaus.<lb/>
+Inmitten des Zimmers aber ſtund ein weißes<lb/>
+Lager aufgebahret. Auf dem Kiſſen lag ein<lb/>
+bleiches Kinderangeſicht; die Augen zu; die klei¬<lb/>
+nen Zähne ſchimmerten gleich Perlen aus den<lb/>
+blaſſen Lippen.</p><lb/>
+<pb n="151" facs="#f0165"/>
+<p>Ich fiel an meines Kindes Leiche nieder und<lb/>
+ſprach ein brünſtiglich Gebet. Dann rüſtete ich<lb/>
+Alles, wie es zu der Arbeit nöthig war; und<lb/>
+dann malte ich; — raſch, wie man die Todten<lb/>
+malen muß, die nicht zum zweiten Mal daſſelbig'<lb/>
+Antlitz zeigen. Mitunter wurd' ich wie von der<lb/>
+andauernden großen Stille aufgeſchrecket; doch<lb/>
+wenn ich inne hielt und horchte, ſo wußte ich<lb/>
+bald, es ſei nichts dageweſen. Einmal auch war<lb/>
+es, als drängen leiſe Odemzüge an mein Ohr. —<lb/>
+Ich trat an das Bette des Todten, aber da ich<lb/>
+mich zu dem bleichen Mündlein niederbeugete,<lb/>
+berührte nur die Todeskälte meine Wangen.</p><lb/>
+<p>Ich ſahe um mich; es war noch eine Thür<lb/>
+im Zimmer; ſie mochte zu einer Schlafkammer<lb/>
+führen, vielleicht daß es von dort gekommen war!<lb/>
+Allein ſo ſcharf ich lauſchte, ich vernahm nichts<lb/>
+wieder; meine eigenen Sinne hatten wol ein<lb/>
+Spiel mit mir getrieben.</p><lb/>
+<p>So ſetzete ich mich denn wieder, ſahe auf den<lb/>
+kleinen Leichnam und malete weiter; und da ich<lb/>
+die leeren Händchen anſahe, wie ſie auf dem<lb/>
+<pb n="152" facs="#f0166"/>
+Linnen lagen, ſo dachte ich: „Ein klein Geſchenk<lb/>
+doch mußt du deinem Kinde geben!“ Und ich<lb/>
+malete auf ſeinem Bildniß ihm eine weiße Waſſer-<lb/>
+Lilie in die Hand, als ſei es ſpielend damit ein¬<lb/>
+geſchlafen. Solcher Art Blumen gab es ſelten<lb/>
+in der Gegend hier, und mocht es alſo ein er¬<lb/>
+wünchet Angebinde ſein.</p><lb/>
+<p>Endlich trieb mich der Hunger von der Arbeit<lb/>
+auf, mein ermüdeter Leib verlangte Stärkung.<lb/>
+Legete ſonach den Pinſel und die Palette fort<lb/>
+und ging über den Flur nach dem Zimmer, ſo<lb/>
+der Prediger mir angewieſen hatte. Indem ich<lb/>
+aber eintrat, wäre ich vor Ueberraſchung bald<lb/>
+zurückgewichen; denn Katharina ſtund mir gegen¬<lb/>
+über, zwar in ſchwarzen Trauerkleidern, und doch<lb/>
+in all' dem Zauberſchein, ſo Glück und Liebe in<lb/>
+eines Weibes Antlitz wirken mögen.</p><lb/>
+<p>Ach, ich wußte es nur zu bald; was ich hier<lb/>
+ſahe, war nur ihr Bildniß, das ich ſelber einſt<lb/>
+gemalet. Auch für dieſes war alſo nicht mehr<lb/>
+Raum in ihres Vaters Haus geweſen. — Aber<lb/>
+wo war ſie ſelber denn? Hatte man ſie fort¬<lb/>
+<pb n="153" facs="#f0167"/>
+gebracht oder hielt man ſie auch hier gefangen?<lb/>
+— Lang, gar lange ſahe ich das Bildniß an;<lb/>
+die alte Zeit ſtieg auf und quälete mein Herz.<lb/>
+Endlich, da ich mußte, brach ich einen Biſſen<lb/>
+Brod und ſtürzete ein paar Gläſer Wein hinab;<lb/>
+dann ging ich zurück zu unſerem todten Kinde.</p><lb/>
+<p>Als ich drüben eingetreten und mich an die<lb/>
+Arbeit ſetzen wollte, zeigete es ſich, daß in dem<lb/>
+kleinen Angeſicht die Augenlider um ein Weniges<lb/>
+ſich gehoben hatten. Da bückete ich mich hinab,<lb/>
+im Wahne, ich möchte noch einmal meines Kindes<lb/>
+Blick gewinnen; als aber die kalten Augenſterne<lb/>
+vor mir lagen, überlief mich Grauſen; mir war,<lb/>
+als ſähe ich die Augen jener Ahne des Geſchlech¬<lb/>
+tes, als wollten ſie noch hier aus unſeres Kindes<lb/>
+Leichenantlitz künden: „Mein Fluch hat doch<lb/>
+Euch Beide eingeholet!“ — Aber zugleich — ich<lb/>
+hätte es um alle Welt nicht laſſen können —<lb/>
+umfing ich mit beiden Armen den kleinen blaſſen<lb/>
+Leichnam und hob ihn auf an meine Bruſt und<lb/>
+herzete unter bitteren Thränen zum erſten Male<lb/>
+mein geliebtes Kind. „Nein, nein, mein armer<lb/>
+<pb n="154" facs="#f0168"/>
+Knabe, Deine Seele, die gar den finſtern Mann<lb/>
+zur Liebe zwang, die blickte nicht aus ſolchen<lb/>
+Augen; was hier herausſchaut, iſt alleine noch<lb/>
+der Tod. Nicht aus der Tiefe ſchreckbarer Ver¬<lb/>
+gangenheit iſt es heraufgekommen; nichts Anderes<lb/>
+iſt da, als Deines Vaters Schuld; ſie hat uns<lb/>
+alle in die ſchwarze Fluth hinabgeriſſen.“</p><lb/>
+<p>Sorgſam legte ich dann wieder mein Kind in<lb/>
+ſeine Kiſſen und drückte ihm ſanft die beiden<lb/>
+Augen zu. Dann tauchete ich meinen Pinſel in<lb/>
+ein dunkles Roth und ſchrieb unten in den<lb/>
+Schatten des Bildes die Buchſtaben: <hi rendition="#aq">C. P. A. S.</hi><lb/>
+Das ſollte heißen: <hi rendition="#aq">Culpa Patris Aquis Submer¬<lb/>
+sus</hi>, „Durch Vaters Schuld in der Fluth ver¬<lb/>
+ſunken.“ — Und mit dem Schalle dieſer Worte<lb/>
+in meinem Ohre, die wie ein ſchneidend Schwert<lb/>
+durch meine Seele fuhren, malete ich das Bild<lb/>
+zu Ende.</p><lb/>
+<p>Während meiner Arbeit hatte wiederum die<lb/>
+Stille im Hauſe fortgedauert, nur in der letzten<lb/>
+Stunde war abermalen durch die Thür, hinter<lb/>
+welcher ich eine Schlafkammer vermuthet hatte,<lb/>
+<pb n="155" facs="#f0169"/>
+ein leiſes Geräuſch hereingedrungen. — War<lb/>
+Katharina dort, um ungeſehen bei meinem<lb/>
+ſchweren Werk mir nah zu ſein? — Ich konnte<lb/>
+es nicht enträthſeln.</p><lb/>
+<p>Es war ſchon ſpät. Mein Bild war fertig,<lb/>
+und ich wollte mich zum Gehen wenden; aber<lb/>
+mir war, als müſſe ich noch einen Abſchied<lb/>
+nehmen, ohne den ich nicht von hinnen könne. —<lb/>
+So ſtand ich zögernd und ſchaute durch das<lb/>
+Fenſter auf die öden Felder draußen, wo ſchon<lb/>
+die Dämmerung begunnte ſich zu breiten; da<lb/>
+öffnete ſich vom Flure her die Thür, und der<lb/>
+Prediger trat zu mir herein.</p><lb/>
+<p>Er grüßte ſchweigend; dann mit gefalteten<lb/>
+Händen blieb er ſtehen und betrachtete wechſelnd<lb/>
+das Antlitz auf dem Bilde und das des kleinen<lb/>
+Leichnams vor ihm, als ob er ſorgſame Ver¬<lb/>
+gleichung halte. Als aber ſeine Augen auf die<lb/>
+Lilie in der gemalten Hand des Kindes fielen,<lb/>
+hub er wie im Schmerze ſeine beiden Hände auf,<lb/>
+und ich ſahe, wie ſeinen Augen jählings ein<lb/>
+reicher Thränenquell entſtürzete.</p><lb/>
+<pb n="156" facs="#f0170"/>
+<p>Da ſtreckte auch ich meine Arme nach dem<lb/>
+Todten und rief überlaut: „Lebwohl, mein Kind!<lb/>
+O mein Johannes, lebewohl!“</p><lb/>
+<p>Doch in demſelben Augenblicke vernahm ich<lb/>
+leiſe Schritte in der Nebenkammer; es taſtete wie<lb/>
+mit kleinen Händen an der Thür; ich hörte<lb/>
+deutlich meinen Namen rufen — oder war es<lb/>
+der des todten Kindes? — Dann rauſchte es wie<lb/>
+von Frauenkleidern hinter der Thüre nieder, und<lb/>
+das Geräuſch vom Falle eines Körpers wurde<lb/>
+hörbar.</p><lb/>
+<p>„Katharina!“ rief ich. Und ſchon war ich<lb/>
+hinzugeſprungen und rüttelte an der Klinke der<lb/>
+feſtverſchloſſenen Thür; da legte die Hand des<lb/>
+Paſtors ſich auf meinen Arm. „Das iſt meines<lb/>
+Amtes!“ ſagte er. „Gehet itzo! Aber gehet in<lb/>
+Frieden; und möge Gott uns allen gnädig ſein!“</p><lb/>
+<p>— — Ich bin dann wirklich fortgegangen;<lb/>
+ehe ich es ſelbſt begriff, wanderte ich ſchon draußen<lb/>
+auf der Haide auf dem Weg zur Stadt.</p><lb/>
+<p>Noch einmal wandte ich mich um und ſchaute<lb/>
+nach dem Dorf zurück, das nur noch wie Schatten<lb/>
+<pb n="157" facs="#f0171"/>
+aus dem Abenddunkel ragte. Dort lag mein<lb/>
+todtes Kind — Katharina — Alles, Alles! —<lb/>
+Meine alte Wunde brannte mir in meiner<lb/>
+Bruſt; und ſeltſam, was ich niemals hier ver¬<lb/>
+nommen, ich wurde plötzlich mir bewußt, daß<lb/>
+ich vom fernen Strand die Brandung toſen<lb/>
+hörete. Kein Menſch begegnete mir, keines<lb/>
+Vogels Ruf vernahm ich; aber aus dem dumpfen<lb/>
+Brauſen des Meeres tönete es mir immerfort,<lb/>
+gleich einem finſteren Wiegenliede: <hi rendition="#aq">Aquis sub¬<lb/>
+mersus — aquis submersus</hi>!<lb/>
+— — — — — — — — — — — — — —</p><lb/>
+<p>Hier endete die Handſchrift.</p><lb/>
+<p>Deſſen Herr Johannes ſich einſtens im Voll¬<lb/>
+gefühle ſeiner Kraft vermeſſen, daß er's wol<lb/>
+auch einmal in ſeiner Kunſt den Größeren gleich<lb/>
+zu thun verhoffe, das ſollten Worte bleiben, in<lb/>
+die leere Luft geſprochen.</p><lb/>
+<p>Sein Name gehört nicht zu denen, die ge¬<lb/>
+nannt werden, kaum dürfte er in einem Künſtler¬<lb/>
+lexikon zu finden ſein; ja ſelbſt in ſeiner engeren<lb/>
+Heimath weiß Niemand von einem Maler ſeines<lb/>
+<pb n="158" facs="#f0172"/>
+Namens. Des großen Lazarus-Bildes thut zwar<lb/>
+noch die Chronik unſerer Stadt Erwähnung,<lb/>
+das Bild ſelbſt aber iſt zu Anfang dieſes Jahr¬<lb/>
+hunderts nach dem Abbruch unſerer alten Kirche<lb/>
+gleich den anderen Kunſtſchätzen derſelben ver¬<lb/>
+ſchleudert und verſchwunden.</p><lb/>
+<p> <hi rendition="#aq">Aquis submersus.</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/> </body> <back> <div type="imprint"> <p>Pierer'ſche Hofbuchdruckerei. Stephan Geibel &amp; Co. in Altenburg.</p><lb/>
+</div>
+<pb facs="#f0173"/>
+<div type="advertisement"> <gap/>
+<pb facs="#f0174"/>
+<gap/>
+<pb facs="#f0175"/>
+<gap/>
+<pb facs="#f0176"/>
+<gap/> </div>
+<pb facs="#f0177"/>
+<pb facs="#f0178"/>
+<pb facs="#f0179"/>
+</back> </text> </TEI>

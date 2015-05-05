@@ -1,0 +1,1719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Ueber die bildende Nachahmung des Schönen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118584162">
+<surname>Moritz</surname>
+<forename>Karl Philipp</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">61</measure>
+<measure type="tokens">10183</measure>
+<measure type="types">2023</measure>
+<measure type="characters">71116</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:07Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/moritz_nachahmung_1788</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/moritz_nachahmung_1788</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/moritz_nachahmung_1788</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/moritz_nachahmung_1788</idno>
+<idno type="DTADirName">moritz_nachahmung_1788</idno>
+<idno type="DTAID">16472</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194077</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Moritz, Karl Philipp: Über die bildende Nachahmung des Schönen. Braunschweig, 1788.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Ueber die bildende Nachahmung des Schönen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118584162">
+<surname>Moritz</surname>
+<forename>Karl Philipp</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">52 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Schul-Buchandlung</name></publisher>
+<pubPlace>Braunschweig</pubPlace>
+<date type="publication">1788</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Zentral- und Landesbibliothek Berlin</repository>
+<idno>
+<idno type="shelfmark">Berlin ZLB, ¤ IV 4210</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#g">Ueber<lb/>
+die</hi><lb/>
+<hi rendition="#b">bildende Nachahmung</hi><lb/>
+<hi rendition="#g">des<lb/>
+Schönen.</hi></titlePart> </docTitle><lb/>
+<milestone rendition="#hr" unit="section"/><lb/>
+<byline> <hi rendition="#g">von</hi><lb/>
+<docAuthor> <hi rendition="#g">Karl Philipp Moritz.</hi></docAuthor> </byline><lb/>
+<milestone rendition="#hr" unit="section"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#g">Braunſchweig</hi></pubPlace> <docDate> <hi rendition="#g">1788</hi>.</docDate><lb/>
+<publisher> <hi rendition="#g">In der Schul-Buch</hi><supplied><hi rendition="#g">h</hi></supplied><hi rendition="#g">andlung</hi>. </publisher> </docImprint><lb/>
+</titlePage>
+<pb facs="#f0008"/>
+</front>
+<pb facs="#f0009"/>
+<body> <p> <hi rendition="#in">W</hi>enn der griechiſche Schauſpieler, in der Komö¬<lb/>
+die des Ariſtophanes dem Sokrates auf dem Schauplatze,<lb/>
+und der Weiſe ihm im Leben nachahmt: ſo iſt das<lb/>
+Nachahmen von beiden ſo ſehr verſchieden, daſs es<lb/>
+nicht wohl mehr unter einer und eben derſelben Be¬<lb/>
+nennung begriffen werden kann: wir ſagen daher der<lb/>
+Schauſpieler parodierte den Sokrates, und der Weiſe<lb/>
+ahmt ihm nach.</p><lb/>
+<p>Dem Schauſpieler war es freilich nicht darum zu<lb/>
+thun, dem Sokrates im Ernſt nachzuahmen, ſondern<lb/>
+vielmehr nur, das Eigenthümliche desſelben, oder<lb/>
+ſeine Individualität in Gang, Miene, Stellung und<lb/>
+Gebehrden, auf eine gewisſe übertriebne Art, wo¬<lb/>
+durch ſie bei dem Zuſchauer lächerlich werden ſollte,<lb/>
+nachzubilden. Weil dieſs nun der Schauſpieler mit<lb/>
+Bewuſstſeyn, und gleichſam im Scherz that, ſo ſagen<lb/>
+wir: er parodierte den Sokrates.<lb/>
+</p> <fw type="catch" place="bottom">Wäre<lb/>
+</fw> <fw type="sig" place="bottom">A 2<lb/>
+</fw>
+<pb n="4" facs="#f0010"/>
+<p>Wäre aber der Schauſpieler, den wir hier vor<lb/>
+uns ſehen, nicht Schauſpieler, ſondern irgend einer aus<lb/>
+dem Volke, der dem Sokrates, welchem er ſich in¬<lb/>
+nerlich ſchon ähnlich dünckte, nun auch im Aeusfern,<lb/>
+in Gang, Stellung und Gebehrden, im Ernſt nach¬<lb/>
+zuahmen ſuchte; ſo würden wir von dieſem Thoren<lb/>
+ſagen: er äfft dem Sokrates nach; oder, er verhält<lb/>
+ſich zum Sokrates ohngefähr ſo, wie der Affe, in ſei¬<lb/>
+nen posſierlichen Stellungen und Gebehrden, ſich zum<lb/>
+Menſchen verhält.</p><lb/>
+<p>Der Schauſpieler alſo ſchlieſst den Weiſen aus,<lb/>
+und parodiert nur den Sokrates; denn die Weisheit<lb/>
+läſst ſich nicht parodieren: der Weiſe ſchlieſst in ſei¬<lb/>
+ner Nachahmung den Sokrates aus, und ahmt in ihm<lb/>
+nur den Weiſen nach; denn die Individualität des So¬<lb/>
+krates kann wohl parodiert und nachgeäfft, aber nie<lb/>
+nachgeahmt werden. Der Thor hat keinen Sinn für<lb/>
+die Weisheit und hat doch Nachahmungstrieb: er er¬<lb/>
+greift alſo, was ihm am nächſten liegt; äfft nach, um<lb/>
+nicht nachahmen zu dürfen; trägt die ganze Oberflä¬<lb/>
+che einer fremden Individualität auf die ſeinige über,<lb/>
+und die Baſis oder das Selbſtgefühl dazu legt ihm ſeine<lb/>
+Thorheit unter.</p><lb/>
+<p>Wir ſehen alſo aus dem Sprachgebrauch, daſs Nach¬<lb/>
+ahmen, im edlern moraliſchen Sinn, mit den Begrif¬<lb/>
+fen von nachſtreben und wetteifern faſt gleichbedeu¬<lb/>
+tend wird; weil die Tugend, welche ich z. B. in ei¬<lb/>
+nem gewisſen Vorbilde nachahme, etwas Allgemein¬<lb/>
+nes, über die Individualität Erhabnes iſt, das von jeder¬<lb/>
+<fw type="catch" place="bottom">mann,<lb/>
+</fw>
+<pb n="5" facs="#f0011"/>
+mann, der darnach ſtrebt, und alſo auch von mir ſo¬<lb/>
+wohl, als von meinem Vorbilde, mit dem ich zu<lb/>
+wetteifern ſuche, erreicht werden kann. Weil ich<lb/>
+aber dieſem Vorbilde doch einmal nachſtehe, und ein<lb/>
+gewisſer Grad von edler Geſinnung und Handlungs¬<lb/>
+weiſe mir ohne dasſelbe vielleicht nicht ſo bald, oder<lb/>
+gar nie denkbar geworden wäre: ſo nenne ich mein<lb/>
+Streben nach einem gemeinſchaftlichen Gute, daſs auch<lb/>
+von meinem Vorbilde erſt muſste errungen werden,<lb/>
+eine Nachahmung dieſes Vorbildes.</p><lb/>
+<p>Ich ahme meinem Vorbilde nach; ich ſtrebe ihm<lb/>
+nach; ich ſuche mit ihm zu wetteifern. — Durch<lb/>
+mein Vorbild iſt mir bloſs das Ziel höher, als von mir<lb/>
+ſelbſt, hinaufgeſteckt. Nach dieſem Ziele muſs ich nun,<lb/>
+nach meinen Kräften, auf meine Weiſe, ſtreben; zu¬<lb/>
+letzt mein Vorbild ſelbſt vergeſſen, und ſuchen, wenn<lb/>
+es möglich wäre, das Ziel noch weiter hinaus zu<lb/>
+ſtecken.</p><lb/>
+<p>Durch dieſe Geſinnung muſs das Nachahmen im<lb/>
+edlern moraliſchen Sinn erſt ſeinen eigentlichen Werth<lb/>
+erhalten. — Und es frägt ſich nun: wie von dieſem<lb/>
+Nachahmen im moraliſchen Sinn, das Nachahmen in<lb/>
+den ſchönen Künſten, oder von der Nachahmung des<lb/>
+Guten und Edlen, die Nachahmung des Schönen un¬<lb/>
+terſchieden ſey? —</p><lb/>
+<p>Dieſe Frage muſs ſich alsdann von ſelbſt beantwor¬<lb/>
+ten, wenn wir die Begriffe von Schön und Gut, wie¬<lb/>
+derum nach dem Sprachgebrauch, gehörig unterſchei¬<lb/>
+den: denn daſs dieſer ſie oft verwechſelt, darf uns<lb/>
+<fw type="sig" place="bottom">A 3<lb/>
+</fw> <fw type="catch" place="bottom">hier<lb/>
+</fw>
+<pb n="6" facs="#f0012"/>
+hier nicht kümmern, wo es beym Nachdenken über<lb/>
+die Sache bloſs aufs Unterſcheiden ankömmt; und<lb/>
+nothwendig, ſo wie auf dem Globus, gewisſe feſte<lb/>
+Grenzlinien, die in der Natur ſelbſt nicht Statt finden,<lb/>
+gezogen werden müsſen, wenn die Begriffe ſich nicht<lb/>
+wiederum eben ſo, wie ihre Gegenſtände, unmerklich<lb/>
+in einander verlieren und verſchwimmen ſollen: ein<lb/>
+getreuerer Abdruck der Natur können ſie in dieſem<lb/>
+letztern Falle ſeyn, aber das eigentliche Denken, wel¬<lb/>
+ches nun einmal im Unterſcheiden beſteht, hört auf.</p><lb/>
+<p>Nun ſchlieſst ſich aber im Sprachgebrauch das<lb/>
+Gute und Nützliche, ſo wie das Edle und Schöne,<lb/>
+natürlich aneinander; und dieſe vier verſchiednen Aus¬<lb/>
+drücke bezeichnen eine ſo feine Abſtufung der Begriffe,<lb/>
+und bilden ein ſo zartes Ideenſpiel, daſs es dem Nach¬<lb/>
+denken ſchwer werden muſs, das immer ineinander<lb/>
+ſich unmerklich wieder Verlierende gehörig auseinan¬<lb/>
+der zu halten, und es einzeln und abgeſondert zu be¬<lb/>
+trachten. So viel fällt demohngeachtet deutlich in<lb/>
+die Augen, daſs das bloſs Nützliche dem Schönen und<lb/>
+Edlen, mehr als das Gute, entgegenſtehe; weil durch<lb/>
+das Gute vom bloſs Nützlichen zum Schönen und Ed¬<lb/>
+len ſchon der Uebergang gemacht wird.</p><lb/>
+<p>Wir denken uns z. B. unter einem nützlichen Men¬<lb/>
+ſchen einen ſolchen, der nicht ſowohl an und für ſich<lb/>
+ſelbſt, als vielmehr nur in Beziehung auf irgend einen<lb/>
+Zuſammenhang von Dingen ausſer ihm, unſre Auf¬<lb/>
+merkſamkeit verdienet: der gute Menſch hingegen<lb/>
+fängt ſchon an und für ſich ſelbft betrachtet, an, un¬<lb/>
+<fw type="catch" place="bottom">fre<lb/>
+</fw>
+<pb n="7" facs="#f0013"/>
+ſre Aufmerkſamkeit auf ſich zu ziehen und unſre Liebe<lb/>
+zu gewinnen; in ſo fern wir uns nehmlich denken,<lb/>
+daſs er, ſeinem innern Fond von Güte nach, uns nie<lb/>
+durch Eigennutz und Selbſtſucht ſchaden, in den Zu¬<lb/>
+ſammenhang von Dingen, worinn wir uns befinden,<lb/>
+nicht leicht disharmoniſch eingreifen, kurz, unſern<lb/>
+Frieden nicht ſtören wird. — Der edle Menſch aber,<lb/>
+zieht, für ſich ganz allein, unſre ganze Aufmerk¬<lb/>
+ſamkeit und Bewundrung auf ſich; ohne alle Rückſicht<lb/>
+auf irgend etwas ausſer ihm, oder auf irgend einen<lb/>
+Vortheil, der uns für unſre eigne Perſon aus ſeinem<lb/>
+Daſeyn erwachſen könnte.</p><lb/>
+<p>Und weil nun der edle Menſch, um edel zu ſeyn,<lb/>
+der körperlichen Schönheit nicht bedarf, ſo ſcheiden<lb/>
+ſich hier wiederum die Begriffe von Schön und Edel,<lb/>
+indem durch das letztre die innre Seelenſchönheit, im<lb/>
+Gegenſatz gegen die Schönheit auf der Oberfläche, be¬<lb/>
+zeichnet wird. In ſo fern nun aber die äusſre Schön¬<lb/>
+heit zugleich mit ein Abdruck der innern Seelenſchön¬<lb/>
+heit iſt, faſst ſie auch das Edle in ſich, und ſollte es,<lb/>
+ihrer Natur nach, eigentlich ſtets in ſich fasſen. Hie¬<lb/>
+durch hebt ſich aber demohngeachtet der Unterſchied<lb/>
+zwiſchen ſchön und edel nicht wieder auf. Denn un¬<lb/>
+ter einer edlen Stellung denken wir uns z. B. eine<lb/>
+ſolche, die zugleich eine gewisſe innere Seelenwürde<lb/>
+bezeichnet: irgend eine leidenſchaftliche Stellung aber<lb/>
+kann demohngeachtet immer noch eine ſchöne Stellung<lb/>
+ſeyn, wenn gleich nicht eine ſolche innere Seelenwür¬<lb/>
+<fw type="catch" place="bottom">de<lb/>
+</fw> <fw type="sig" place="bottom">A 4<lb/>
+</fw>
+<pb n="8" facs="#f0014"/>
+de ausdrücklich dadurch bezeichnet wird; nur darf<lb/>
+ſie einem gewisſen Grade von innerer Würde nie<lb/>
+geradezu widerſprechen; ſie darf nie unedel ſeyn.</p><lb/>
+<p>Hieraus erklärt ſich nun zugleich beiläufig der Be¬<lb/>
+griff vom edlen Stil in Kunſtwerken jeder Art, wel¬<lb/>
+cher kein andrer iſt, als derjenige, der zugleich mit<lb/>
+eine innre Seelenwürde des hervorbringenden Genies<lb/>
+bezeichnet. Ob nun gleich dieſer edle Stil die andern<lb/>
+untergeordneten Arten des Schönen nicht vom Gebiet<lb/>
+des Schönen ausſchlieſst, ſo ſchneidet er doch alles,<lb/>
+was ihm geradezu entgegenſteht, davon ab; er ſchlieſst<lb/>
+das Unedle aus.</p><lb/>
+<p>In ſo fern nun unter dem Edlen, im Gegenſatz<lb/>
+gegen das äusſre Schöne, bloſs die innre Seelenſchön¬<lb/>
+heit verſtanden wird, können wir es auch, ſo wie das<lb/>
+Gute, in uns ſelbſt nachbilden. — Das Schöne aber,<lb/>
+in ſo fern es ſich dadurch vom Edlen unterſcheidet,<lb/>
+daſs, im Gegenſatz gegen das Innre, bloſs das äusſre<lb/>
+Schöne darunter verſtanden wird, kann durch die Nach¬<lb/>
+ahmung nicht in uns herein, muſs, wenn es<lb/>
+von uns nachgeahmt werden ſoll, nothwendig wieder<lb/>
+aus uns herausgebildet werden.</p><lb/>
+<p>Der bildende Künſtler kann z. B. die innre See¬<lb/>
+lenſchönheit eines Mannes, den er ſich in ſeinem Wan¬<lb/>
+del zum Vorbilde nimmt, ihm nachahmend in ſich<lb/>
+übertragen. Wenn aber eben dieſer Künſtler ſich ge¬<lb/>
+drungen fühlte, die innre Seelenſchönheit ſeines Vor¬<lb/>
+bildes, in ſo fern ſie ſich in desſen Geſichtszügen ab¬<lb/>
+drückt, nachzuahmen: ſo müsſte er ſeinen Begriff da¬<lb/>
+<fw type="catch" place="bottom">von<lb/>
+</fw>
+<pb n="9" facs="#f0015"/>
+von nothwendig aus ſich herauszubilden und ausſer<lb/>
+ſich darzuſtellen ſuchen; indem er nehmlich dieſe Ge¬<lb/>
+ſichtszüge nicht geradezu nachbildete, ſondern ſie<lb/>
+gleichſam nur zu Hülfe nähme, um die in ſich em¬<lb/>
+pfundne Seelenſchönheit eines fremden Weſens auch<lb/>
+ausſer ſich wieder darzuſtellen.</p><lb/>
+<p>Die eigentliche Nachahmung des Schönen unter¬<lb/>
+ſcheidet ſich alſo zuerſt von der moraliſchen Nachah¬<lb/>
+mung des Guten und Edlen dadurch, daſs ſie, ihrer<lb/>
+Natur nach, ſtreben muſs, nicht, wie dieſe, in ſich<lb/>
+hinein, ſondern aus ſich heraus zu bilden.</p><lb/>
+<p>Wenden wir nun die Begriffe von Gut, Schön<lb/>
+und Edel wiederum auf den Begriff von Handlung an;<lb/>
+ſo denken wir uns unter einer guten Handlung eine<lb/>
+ſolche, die nicht allein um ihrer Folgen, ſondern zu¬<lb/>
+gleich um ihrer Beweggründe willen, unſre Aufmerk¬<lb/>
+ſamkeit erregen, und unſern Beifall verdienen kann:<lb/>
+bei der Schätzung einer edlen Handlung vegesſen wir<lb/>
+ganz die Folge, und ſie ſcheinet uns allein ſchon um<lb/>
+ihrer Beweggründe, das iſt, um ihrer ſelbſt willen,<lb/>
+unſrer Bewundrung werth. Betrachten wir nun eine<lb/>
+ſolche Handlung nach ihrer Oberfläche, von der ſie<lb/>
+einen ſanften Schein in unſre Seele wirft, oder nach<lb/>
+der angenehmen Empfindung, die ihre blosſe Betrach¬<lb/>
+tung in uns erweckt; ſo nennen wir ſie eine ſchöne<lb/>
+Handlung: wollen wir aber ihren innern Werth aus¬<lb/>
+drücken, ſo nennen wir ſie edel. Jede ſchöne Hand¬<lb/>
+lung aber muſs nothwendig auch edel ſeyn: das Edle<lb/>
+iſt bei ihr die Baſis oder der Fond des Schönen, durch<lb/>
+<fw type="sig" place="bottom">A 5<lb/>
+</fw> <fw type="catch" place="bottom">wel¬<lb/>
+</fw>
+<pb n="10" facs="#f0016"/>
+welches ſie in unſer Auge leuchtet. Durch den Mittel¬<lb/>
+begriff des Edeln alſo wird der Begriff des Schönen<lb/>
+wieder zum Moraliſchen hinübergezogen und gleichſam<lb/>
+daran feſtgekettet. Wenigſtens werden dem Schönen<lb/>
+dadurch die Grenzen vorgeſchrieben, die es nicht über¬<lb/>
+ſchreiten darf.</p><lb/>
+<p>Da wir nun einmal genöthigt ſind, uns den Be¬<lb/>
+griff von der Nachahmung des eigentlichen Schönen,<lb/>
+den wir nicht haben, aus dem Begriff von der mora¬<lb/>
+liſchen Nachahmung des Guten und Edlen, den wir<lb/>
+haben, zu entwickeln; und, da wir uns die eigent¬<lb/>
+liche Nachahmung des Schönen, ausſer dem Genuſs<lb/>
+der Werke ſelbſt, die dadurch entſtanden ſind, gar<lb/>
+nicht anders denken können, als in ſo fern ſie ſich<lb/>
+von der bloſs moraliſchen Nachahmung des Guten und<lb/>
+Edlen unterſcheidet: ſo müſſen wir nun ſchon die Be¬<lb/>
+griffe von nützlich, gut, ſchön, und edel, noch wei¬<lb/>
+ter in ihre feinern Abſtufungen zu verfolgen ſuchen.</p><lb/>
+<p>Dadurch alſo, daſs z. B. die That des Mutius Scae¬<lb/>
+vola erwünſchte Folgen hatte, wurde ſie nicht im ge¬<lb/>
+ringſten edler, als ſie war; und würde auch, ohne<lb/>
+den Erfolg, von ihrem innern Werth nichts verlohren<lb/>
+haben: ſie brauchte nicht nützlich zu ſeyn, um edel<lb/>
+zu ſeyn; bedurfte des Erfolges nicht, eben weil ſie<lb/>
+ihren innern Werth in ſich ſelber hatte: und wodurch<lb/>
+anders hatte ſie dieſen Werth, als durch ſich ſelbſt,<lb/>
+durch ihr Daſeyn?</p><lb/>
+<p>Das Edle und Grosſe der Handlung lag ja eben<lb/>
+darinn, daſs der junge Held, auf jeden Erfolg gefaſst.<lb/>
+<fw type="catch" place="bottom">das<lb/>
+</fw>
+<pb n="II" facs="#f0017"/>
+das alleräusſerſte wagte, und, da es ihm miſslang,<lb/>
+ohne Bedenken ſeine Hand in die lodernde Flamme<lb/>
+ſtreckte, ohne noch zu wisſen, was ſein Feind, in des¬<lb/>
+ſen Gewalt er war, über ihn verhängen würde. —<lb/>
+So kann nur der handeln, welcher eine grosſe That,<lb/>
+deren Erfolg ſo äusſerſt ungewiſs iſt, um dieſer That<lb/>
+ſelbſt willen unternimmt, wovon allein ſchon das<lb/>
+grosſe Bewuſstſeyn ihn für jeden miſslungnen Verſuch<lb/>
+ſchadlos hält.</p><lb/>
+<p>Wäre Mutius, unter andern Umſtänden, bloſs das<lb/>
+Werkzeug eines Andern, dem er aus Pflicht gehorchte,<lb/>
+zu einer ähnlichen That geweſen, und hätte ſie, mir<lb/>
+Beiſtimmung ſeines Herzens, vortreflich, und ſo wie<lb/>
+er ſollte, ausgeführt: ſo hätte er zwar noch nicht<lb/>
+edel, aber gut gehandelt: denn obgleich ſeine Hand¬<lb/>
+lung auch ſchon vielen Werth in ſich ſelber hat, ſo<lb/>
+wird doch immer ihre Güte zugleich mit durch den Er¬<lb/>
+folg beſtimmt.</p><lb/>
+<p>Hätte aber eben dieſer Mutius den Angriff auf den<lb/>
+Feind ſeines Vaterlandes, meuchelmörderiſcher Weiſe,<lb/>
+aus Privatrache und perſönlichem Haſs gethan, und ſie<lb/>
+wäre ihm nicht miſslungen: ſo hätte ſie ſeinem Vater¬<lb/>
+lande, ohne gut und edel zu ſeyn, dennoch genützt,<lb/>
+und hätte, ohne den mindeſten innern Werth zu ha¬<lb/>
+ben, dennoch durch den Erfolg, eine Art von äus¬<lb/>
+ſrem Werth erhalten.</p><lb/>
+<p>Wie nun das Gute zum Edlen, eben ſo muſs das<lb/>
+Schlechte zum Unedlen ſich verhalten: das Unedle iſt<lb/>
+der Anfang des Schlechten, ſo wie das Gute der An¬<lb/>
+<fw type="catch" place="bottom">fang<lb/>
+</fw>
+<pb n="12" facs="#f0018"/>
+fang des Schönen und Edlen iſt; und ſo wie eine bloſs<lb/>
+gute, noch keine edle, ſo iſt eine bloſs unedle des¬<lb/>
+wegen noch keine ſchlechte Handlung. Und wie das<lb/>
+Nützliche zum Guten, eben ſo verhält wiederum das<lb/>
+Unnütze ſich zum Schlechten; das Schlechte iſt gleich¬<lb/>
+ſam der Anfang des Unnützen, ſo wie das Nützliche<lb/>
+ſchon der Anfang des Guten iſt. Wie das bloſs Nütz¬<lb/>
+liche deswegen noch nicht gut iſt, ſo iſt auch das bloſs<lb/>
+Schlechte deswegen noch nicht unnütz.</p><lb/>
+<p>Nun ſteigen die Begriffe von unedel, ſchlecht, und<lb/>
+unnütz, eben ſo herab, wie die Begriffe von nützlich,<lb/>
+gut, und ſchön heraufſteigen. Von den heraufſtei¬<lb/>
+genden Begriffen ſteht das Edle und Schöne auf der<lb/>
+niedrigſten Stufe. Von allen dieſen Begriffen nun,<lb/>
+ſtehen der vom Schönen, und der vom Unnützen am<lb/>
+weiteſten voneinander ab, und ſcheinen ſich am ſtärk¬<lb/>
+ſten entgegengeſetzt zu ſeyn; da wir doch vorher ge¬<lb/>
+ſehen haben, daſs das Schöne und Edle ſich eben<lb/>
+dadurch vom Guten unterſcheidet, daſs es nicht nütz¬<lb/>
+lich ſeyn darf, um ſchön zu ſeyn, und alſo der Be¬<lb/>
+griff vom Schönen mit dem Begriff vom Unnützen oder<lb/>
+nicht Nützlichen ſehr wohl müſste zuſammen beſtehen<lb/>
+können.</p><lb/>
+<p>Hier zeigt es ſich nun, wie ein Zirkel von Be¬<lb/>
+griffen zuletzt ſich wieder in ſich ſelbſt verliert, in¬<lb/>
+dem ſeine beiden äusſerſten Enden gerade da wie¬<lb/>
+der zuſammenſtosſen, wo, wenn ſie nicht zuſammen¬<lb/>
+ſtiesſen, von einem zum andern der weiteſte Weg ſeyn<lb/>
+würde.<lb/>
+</p> <fw type="catch" place="bottom">Der<lb/>
+</fw>
+<pb n="13" facs="#f0019"/>
+<p>Der Begriff vom Unnützen nehmlich, in ſo fern es<lb/>
+gar keinen Zweck, keine Abſicht ausſer ſich hat, war¬<lb/>
+um es da iſt, ſchlieſst ſich am willigſten und nächſten<lb/>
+an den Begriff des Schönen an, in ſo fern dasſelbe auch<lb/>
+keines Endzwecks, keiner Abſicht, warum es da iſt,<lb/>
+ausſer ſich bedarf, ſondern ſeinen ganzen Werth, und<lb/>
+den Endzweck ſeines Daſeyns in ſich ſelber hat.</p><lb/>
+<p>In ſo fern aber nun das Unnütze nicht zugleich<lb/>
+auch ſchön iſt, fällt es auf einmal wieder am aller¬<lb/>
+weiteſten vom Begriff des Schönen bis unter das<lb/>
+Schlechte hinab, weil es nun weder in ſich noch ausſer<lb/>
+ſich, eine Abſicht hat, warum es da iſt, und ſich alſo<lb/>
+gleichſam ſelbſt aufhebt. Iſt aber das Unnütze, oder<lb/>
+dasjenige, was ausſer ſich keinen Endzweck ſeines<lb/>
+Daſeyns hat, zugleich auch ſchön, ſo ſteigt es plötzlich<lb/>
+auf die höchſte Stufe der Begriffe bis über das Nütz¬<lb/>
+liche und Gute empor, indem es eben deswegen kei¬<lb/>
+nes Endzwecks ausſer ſich bedarf, weil es in ſich ſo<lb/>
+vollkommen iſt, daſs es den ganzen Endzweck ſeines<lb/>
+Daſeyns in ſich ſelbſt hat.</p><lb/>
+<p>Die drei aufſteigenden Begriffe von nützlich, gut<lb/>
+und ſchön, und die drei abſteigenden von unedel,<lb/>
+ſchlecht und unnütz, bilden alſo aus dem Grunde ei¬<lb/>
+nen Zirkel, weil die beiden äusſerſten Begriffe vom<lb/>
+Unnützen und vom Schönen ſich gerade am wenigſten<lb/>
+einander ausſchliesſen; und der Begriff des Unnützen<lb/>
+von dem einen, für den Begriff des Schönen vor dem<lb/>
+<fw type="catch" place="bottom">an¬<lb/>
+</fw>
+<pb n="14" facs="#f0020"/>
+andern Ende, gleichſam die Fuge wird, in die es ſich<lb/>
+am leichteſten hineinſtehlen, und unmerklich ſich darin<lb/>
+verlieren kann.</p><lb/>
+<p>Steigen wir nun die Leiter der Begriffe herab, ſo<lb/>
+verträgt ſich ſchön und edel zwar mit unnütz, aber nicht<lb/>
+mit ſchlecht und unedel; gut verträgt ſich mit unedel,<lb/>
+aber nicht mit ſchlecht und unnütz; nützlich mit<lb/>
+ſchlecht und unedel, aber nicht mit unnütz; unedel<lb/>
+mit gut und nützlich, aber nicht mit ſchön; ſchlecht<lb/>
+mit nützlich, aber nicht mit ſchön und gut; unnütz<lb/>
+mit ſchön, aber nicht mit gut und nützlich. — Die<lb/>
+Begriffe müsſen ſich immer gerade da wieder entgegen<lb/>
+kommen, wo ſie am weiteſten von einander abzuwei¬<lb/>
+chen, und ſich zu verlasſen ſcheinen.</p><lb/>
+<p>Allein wir dürfen itzt dieſs Ideenſpiel nur ſo weit<lb/>
+verfolgen, als es unſerm Zweck uns näher führt,<lb/>
+Unſre Vorſtellung von der Nachahmung des Schönen,<lb/>
+durch den Begriff des Schönen aufzuhellen. Nun kann<lb/>
+aber nur die Vorſtellung von dem, was das Schöne<lb/>
+nicht zu ſeyn braucht, um ſchön zu ſeyn, und was<lb/>
+als überflüsſig davon betrachtet werden muſs, uns auf<lb/>
+einen nicht unrichtigen Begriff des Schönen führen, in¬<lb/>
+dem wir uns alles, was nicht dazu gehört, um das¬<lb/>
+ſelbe her hinweg, und alſo wenigſtens den wahren<lb/>
+Umriſs des leeren Raumes denken, wohinein das von<lb/>
+uns Geſuchte, wenn es poſitiv von uns gedacht wer¬<lb/>
+den könnte, nothwendig pasſen müſste.</p><lb/>
+<p>Da nun aus der vorhergegangenen Nebeneinander¬<lb/>
+ſtellung klar iſt, daſs die Begriffe von ſchön und un¬<lb/>
+<fw type="catch" place="bottom">nütz<lb/>
+</fw>
+<pb n="15" facs="#f0021"/>
+nütz nicht nur einander nicht ausſchliesſen, ſondern<lb/>
+ſogar ſich willig ineinander fügen: ſo muſs das Nütz¬<lb/>
+liche offenbar an dem Schönen als überflüsſig, und wenn<lb/>
+es ſich daran befindet, doch als zufällig, und als nicht<lb/>
+dazu gehörig betrachtet werden, weil die wahre<lb/>
+Schönheit, eben ſo wie das Edle in der Handlung,<lb/>
+durch das Nützliche dabei weder vermehrt, noch durch<lb/>
+den Mangel desſelben auf irgend eine Weiſe vermin¬<lb/>
+dert werden kann.</p><lb/>
+<p>Wir können alſo das Schöne im Allgemeinen auf<lb/>
+keine andre Weiſe erkennen, als in ſo fern wir es dem<lb/>
+Nützlichen entgegenſtellen, und es davon ſo ſcharf<lb/>
+wie möglich unterſcheiden. Eine Sache wird nehm¬<lb/>
+lich dadurch noch nicht ſchön, daſs ſie nicht nützlich<lb/>
+iſt, ſondern dadurch, daſs ſie nicht nützlich zu ſeyn<lb/>
+braucht. Um nun aber die Frage zu beantworten,<lb/>
+wie denn eine Sache beſchaffen ſeyn müsſe, damit ſie<lb/>
+nicht nützlich zu ſeyn brauche, müsſen wir wieder¬<lb/>
+um erſt den Begriff des Nützlichen noch mehr zu ent¬<lb/>
+wickeln ſuchen.</p><lb/>
+<p>Unter Nutzen denken wir <choice><sic>nns</sic><corr>uns</corr></choice> nehmlich die Be¬<lb/>
+ziehung eines Dinges, als Theil betrachtet, auf einen<lb/>
+Zuſammenhang von Dingen, den wir uns als ein Gan¬<lb/>
+zes denken. Dieſe Beziehung muſs nehmlich von der<lb/>
+Art ſeyn, daſs der Zuſammenhang des Ganzen beſtän¬<lb/>
+dig dadurch gewinnt und erhalten wird: je mehrere<lb/>
+ſolcher Beziehungen nun eine Sache auf den Zuſam¬<lb/>
+menhang, worinn ſie ſich befindet, hat, um deſto nütz¬<lb/>
+licher iſt dieſelbe.<lb/>
+</p> <fw type="catch" place="bottom">Jeder<lb/>
+</fw>
+<pb n="16" facs="#f0022"/>
+<p>Jeder Theil eines Ganzen muſs auf die Weiſe mehr<lb/>
+oder weniger Beziehung auf das Ganze ſelbſt haben:<lb/>
+das Ganze, als Ganzes betrachtet, hingegen, braucht<lb/>
+weiter keine Beziehung auf irgend etwas ausſer ſich<lb/>
+zu haben. So muſs jeder Bürger eines Staats eine ge¬<lb/>
+wisſe Beziehung auf den Staat haben, oder dem Staate<lb/>
+nützlich ſeyn; der Staat ſelbſt aber braucht in ſo fern<lb/>
+er in ſich allein ein Ganzes bildet, weiter keine Be¬<lb/>
+ziehung auf irgend etwas ausſer ſich zu haben, und<lb/>
+braucht alſo auch nicht weiter nützlich zu ſeyn.</p><lb/>
+<p>Hieraus ſehen wir alſo, daſs eine Sache, um nicht<lb/>
+nützlich ſeyn zu dürfen, nothwendig ein für ſich be¬<lb/>
+ſtehendes Ganze ſeyn müsſe, und daſs alſo mit dem Be¬<lb/>
+griff des Schönen der Begriff von einem für ſich beſte¬<lb/>
+henden Ganzen unzertrennlich verknüpft iſt. — Daſs<lb/>
+aber dieſs demohngeachtet noch nicht zum Begriff des<lb/>
+Schönen hinreicht, ſehen wir daraus, weil wir z. B.<lb/>
+mit dem Begriff vom Staat, ob derſelbe gleich ein für<lb/>
+ſich beſtehendes Ganze iſt, dennoch den Begriff<lb/>
+der Schönheit nicht wohl verknüpfen können, in¬<lb/>
+dem derſelbe in ſeinem ganzen Umfange, weder in<lb/>
+unſern äusſern Sinn fällt, noch von der Einbildungs¬<lb/>
+kraft umfaſst, ſondern bloſs von unſerm Verſtande ge¬<lb/>
+dacht werden kann.</p><lb/>
+<p>Aus eben dem Grunde können wir auch mit dem<lb/>
+ganzen Zuſammenhange der Dinge den Begriff von<lb/>
+Schönheit nicht eigentlich verknüpfen, eben weil dieſer<lb/>
+Zuſammenhang, in ſeinem ganzen Umfange, weder<lb/>
+in unſre Sinnen fällt, noch von unſrer Einbildungs¬<lb/>
+<fw type="catch" place="bottom">kraft<lb/>
+</fw>
+<pb n="17" facs="#f0023"/>
+kraft umfaſst werden kann, geſetzt daſs er auch von<lb/>
+unſerm Verſtande gedacht werden könnte.</p><lb/>
+<p>Zu dem Begriff des Schönen, welches uns daraus<lb/>
+entſprungen iſt, daſs es nicht nützlich zu ſeyn braucht,<lb/>
+gehört alſo noch, daſs es nicht nur oder nicht ſowohl,<lb/>
+ein für ſich beſtehendes Ganze wirklich ſey, als viel¬<lb/>
+mehr nur wie ein für ſich beſtehendes Ganze, in<lb/>
+unſre Sinne fallen, oder von unſrer Einbildungs¬<lb/>
+kraft umfaſst werden könne.</p><lb/>
+<p>Und ſo wie nun das Nützliche ſeine Grade hat,<lb/>
+eben ſo muſs ſie auch das Schöne haben: je mehr Zu¬<lb/>
+ſammenhang beförndernde Beziehungen nämlich eine<lb/>
+nützliche Sache auf den Zuſammenhang, worinn ſie<lb/>
+ſich befindet, hat, um deſto nützlicher iſt ſie; und je<lb/>
+mehrere ſolcher Beziehungen eine ſchöne Sache von<lb/>
+ihren einzelnen Theilen zu ihrem Zuſammenhange,<lb/>
+das iſt, zu ſich ſelber, hat, um deſto ſchöner iſt ſie.</p><lb/>
+<p>So wie nun das Schöne, unbeſchadet ſeiner Schön¬<lb/>
+heit auch nützen kann, ob es gleich nicht um zu<lb/>
+nützen da iſt; ſo kann das Nützliche auch, unbeſcha¬<lb/>
+det ſeines Nutzens, in einem gewiſſen Grade ſchön<lb/>
+ſeyn, ob es gleich nur um zu nutzen da iſt.</p><lb/>
+<p>Allein es darf die Linie um kein Haarbreit über¬<lb/>
+ſchreiten; ſo bald der Zweck des Nützlichen, wozu<lb/>
+es da iſt, unter der angemaſsten Schönheit leidet,<lb/>
+bleibt es weder ſchön noch nützlich mehr, ſinkt unter<lb/>
+ſich ſelbſt herab, und hebt ſich ſelber auf.</p><lb/>
+<p>Wenn das Schöne ſich an dem Nützlichen be¬<lb/>
+findet, muſs es ſich auch dem Nützlichen unterordnen<lb/>
+<fw type="sig" place="bottom">B<lb/>
+</fw> <fw type="catch" place="bottom">— es<lb/>
+</fw>
+<pb n="18" facs="#f0024"/>
+— es iſt nicht um ſein ſelbſt willen da — es dient<lb/>
+das Nützliche aufzuſchmücken — ſteigt alſo ſelbſt zum<lb/>
+Nützlichen herab, und flieſst mit ihm zuſammen —<lb/>
+Es giebt ſeine Anſprüche mit ſeinem Nahmen auf;<lb/>
+tritt in gemesſene Schranken; wird zur beſcheidnen<lb/>
+Zierde, zur ſimplen Eleganz.</p><lb/>
+<p>Aus der höchſten Miſchung des Schönen mit dem<lb/>
+Edlen, da wo das äusſere Schöne ganz in Ausdruck<lb/>
+innrer Würde und Hohheit übergeht, erwächſt der<lb/>
+Begriff des Majeſtätiſchen — Denken wir uns das<lb/>
+Majeſtätiſche belebt, ſo muſs es die Welt beherrſchen,<lb/>
+der Dinge Zuſammenhang in ſich faſſen; der Erdkreis<lb/>
+muſs vor ihm ſich beugen.</p><lb/>
+<p>Wenn wir das Edle in Handlung und Geſinnung;<lb/>
+mit dem Unedlen mesſen, ſo nennen wir das Edle<lb/>
+groſs, das Unedle klein. — Und mesſen wir wie¬<lb/>
+der das Grosſe, Edle und Schöne nach der Höhe, in der<lb/>
+es über uns, unſrer Fasſungskraft kaum noch erreich¬<lb/>
+bar iſt, ſo geht der Begriff des Schönen in den Begriff<lb/>
+des Erhabnen über.</p><lb/>
+<p>In ſo fern aber nun in einem ſchönen Werke die<lb/>
+mannichfaltigen Beziehungen der einzelnen Theile<lb/>
+zum Ganzen, nicht nur oder nicht ſowohl von un¬<lb/>
+ſerm Verſtande gedacht werden, als vielmehr nur in<lb/>
+unſern äusſren Sinn fallen, oder von unſrer Einbil¬<lb/>
+dungskraft umfaſst Werden müsſen, in ſo fern ſchrei¬<lb/>
+ben unſre Empfindungswerkzeuge dem Schönen wie¬<lb/>
+der ſein Maaſs vor.<lb/>
+</p> <fw type="catch" place="bottom">Sonſt<lb/>
+</fw>
+<pb n="19" facs="#f0025"/>
+<p>Sonſt würde freilich der Zuſammenhang der gan¬<lb/>
+zen Natur, welcher zu ſich ſelber, als zu dem gröſs¬<lb/>
+ten uns denkbaren Ganzen, die meiſten Beziehungen<lb/>
+in ſich faſst, auch für uns das höchſte Schöne ſeyn,<lb/>
+wenn derſelbe nur einen Augenblick von unſrer Ein¬<lb/>
+bildungskraft umfaſst werden könnte.</p><lb/>
+<p>Denn dieſer grosſe Zuſammenhang der Dinge iſt<lb/>
+doch eigentlich das einzige, wahre Ganze; jedes ein¬<lb/>
+zelne Ganze in ihm, iſt, wegen der unauflöſslichen<lb/>
+Verkettung der Dinge, nur eingebildet — aber auch<lb/>
+ſelbſt dies Eingebildete muſs ſich dennoch, als Gan¬<lb/>
+zes betrachtet, jenem grosſen Ganzen in unſrer Vor¬<lb/>
+ſtellung ähnlich, und nach eben den ewigen, feſten<lb/>
+Regeln bilden, nach welchen dieſes ſich von allen Sei¬<lb/>
+ten auf ſeinen Mittelpunkt ſtützt, und auf ſeinem eig¬<lb/>
+nen Daſeyn ruht.</p><lb/>
+<p>Jedes ſchöne Ganze aus der Hand des bildenden<lb/>
+Künſtlers, iſt daher im Kleinen ein Abdruck des höch¬<lb/>
+ſten Schönen im grosſen Ganzen der Natur; welche<lb/>
+das noch mittelbar durch die bildendende Hand des<lb/>
+Künſtlers nacherſchafft, was unmittelbar nicht in ih¬<lb/>
+ren grosſen Plan gehörte.</p><lb/>
+<p>Wem alſo von der Natur ſelbſt, der Sinn für ihre<lb/>
+Schöpfungskraft in ſein ganzes Weſen, und das Maaſs<lb/>
+des Schönen in Aug' und Seele gedrückt ward, der<lb/>
+begnügt ſich nicht, ſie anzuſchauen; er muſs ihr<lb/>
+nachahmen, ihr nachſtreben, in ihrer geheimen Werk¬<lb/>
+ſtatt ſie belauſchen, und mit der lodernden Flamm' im<lb/>
+Buſen bilden und ſchaffen, ſo wie ſie: —<lb/>
+</p> <fw type="catch" place="bottom">In¬<lb/>
+</fw> <fw type="sig" place="bottom">B 2<lb/>
+</fw>
+<pb n="20" facs="#f0026"/>
+<p>Indem ſeine glühende Spähungskraft in das Innre<lb/>
+der Weſen dringt, bis auf den Quell der Schönheit<lb/>
+ſelbſt, die feinſten Fugen löſet; und auf der Oberfläche<lb/>
+ſie ſchöner wieder fügend, ihre edle Spur in weichen<lb/>
+Ton eindrückt, in harten Stein ſie bildet; oder auf<lb/>
+flachem Grunde, mit trennender Spitze die Geſtalt aus<lb/>
+ihren Umgebungen ſondert; durch kühnen Farbenan¬<lb/>
+ſtrich die Masſe ſelbſt nachahmt; und durch Miſchung<lb/>
+von Licht und Schatten die Fläche dem Auge entge¬<lb/>
+gen rückt.</p><lb/>
+<p>Die Realität muſs unter der Hand des bildenden<lb/>
+Künſtlers zur Erſcheinung werden; indem ſeine durch<lb/>
+den Stoff gehemmte Bildungskraft von innen, und ſeine<lb/>
+bildende Hand von ausſen, auf der Oberfläche der<lb/>
+lebloſen Masſe zuſammentreffen, und auf dieſe Ober¬<lb/>
+fläche nun alles das hinübertragen, was ſonſt gröſs¬<lb/>
+tentheils vor unſern Augen ſich in die Hülle der Exi¬<lb/>
+ſtenz verbirgt, die durch ſich ſelbſt ſchon jede Er¬<lb/>
+ſcheinung aufwiegt.</p><lb/>
+<p>Von dem reellen und vollendeten Schönen alſo, was<lb/>
+unmittelbar ſich ſelten entwickeln kann, ſchuf die Na¬<lb/>
+tur doch mittelbar den Wiederſchein durch Weſen in<lb/>
+denen ſich ihr Bild ſo lebhaft abdrückte, daſs es ſich<lb/>
+ihr ſelber in ihre eigene Schöpfung wieder entgegen¬<lb/>
+warf. — Und ſo brachte ſie, durch dieſen verdop¬<lb/>
+pelten Wiederſchein ſich in ſich ſelber ſpiegelnd, über<lb/>
+ihrer Realität ſchwebend und gauckelnd, ein Blend¬<lb/>
+werk hervor, das für ein ſterbliches Auge noch rei¬<lb/>
+zender, als ſie ſelber iſt.<lb/>
+</p> <fw type="catch" place="bottom">Und<lb/>
+</fw>
+<pb n="21" facs="#f0027"/>
+<p>Und obgleich auch der Menſch an ſeinem Platze<lb/>
+in der Reihe der Dinge ſo beſchränkt wie möglich iſt,<lb/>
+damit über ihm und unter ihm ſich noch ſo viele ver¬<lb/>
+ſchiedne Arten des Daſeyns, wie nur möglich ſind,<lb/>
+drängen mögen; ſo gab ihm dennoch die Natur, da¬<lb/>
+mit er in ſeiner Art ſo vollkommen wie möglich ſey,<lb/>
+ausſer dem Genuſs noch Bildungskraft; lieſs ihn mit<lb/>
+ſich ſelbſt wetteifern, und ſich von ihm, damit keine<lb/>
+Kraft in ihm unentwickelt bliebe, ſogar dem Scheine<lb/>
+nach, übertreffen.</p><lb/>
+<p>Der Sinn aber für das höchſte Schöne in dem har¬<lb/>
+moniſchen Bau des Ganzen, das die vorſtellende Kraft<lb/>
+des Menſchen nicht umfaſst, liegt unmittelbar in der<lb/>
+Thatkraft ſelbſt, die nicht ehr ruhen kann, bis ſie<lb/>
+das, was in ihr ſchlummert, wenigſtens irgend einer<lb/>
+der vorſtellenden Kräfte genähert hat. — Sie greift<lb/>
+daher in der Dinge Zuſammenhang, und was ſie faſst,<lb/>
+will ſie der Natur ſelbſt ähnlich, zu einem eigenmäch¬<lb/>
+tig für ſich beſtehenden Ganzen bilden. — Die Rea¬<lb/>
+lität der Dinge, deren Weſen und Wirklichkeit eben<lb/>
+in ihrer Einzelnheit beſteht, wiederſtrebt ihr lange,<lb/>
+bis ſie das innre Weſen, in die Erſcheinung aufgelöſt,<lb/>
+ſich zu eigen macht, und eine eigne Welt ſich ſchafft,<lb/>
+worin gar nichts Einzelnes mehr ſtatt findet, ſondern<lb/>
+jedes Ding in ſeiner Art ein für ſich beſtehendes Gan¬<lb/>
+ze iſt.</p><lb/>
+<p>Die Natur konnte aber den Sinn für das höchſte<lb/>
+Schöne nur in die Thatkraft pflanzen, und durch die¬<lb/>
+ſelbe erſt mittelbar einen Abdruck dieſes höchſten Shö¬<lb/>
+<fw type="catch" place="bottom">nen<lb/>
+</fw> <fw type="sig" place="bottom">B 3<lb/>
+</fw>
+<pb n="22" facs="#f0028"/>
+nen der Einbildungskraft faſsbar, dem Auge ſichtbar,<lb/>
+dem Ohre hörbar, machen; weil der Horizont der<lb/>
+Thatkraft mehr umfaſst, als der äusſre Sinn, und Ein¬<lb/>
+bildungs- und Denkkraft fasſen kann.</p><lb/>
+<p>In der Thatkraft liegen nämlich ſtets die Anläsſe<lb/>
+und Anfänge zu ſo vielen Begriffen, als die Denkkraft<lb/>
+nicht auf einmal einander unterordnen; die Einbil¬<lb/>
+dungskraft nicht auf einmal neben einander ſtellen,<lb/>
+und der äusſre Sinn noch weniger auf einmal in der<lb/>
+Wirklichkeit ausſer ſich fasſen kann.</p><lb/>
+<p>Die Denkkraft muſs ſich, um dem, was die thätige<lb/>
+Kraft in dunkler Ahndung auf einmal faſst, nachzu¬<lb/>
+kommen, ſo oft wiederholen, bis ſie den ganzen Fonds<lb/>
+von Anfängen und Anläsſen zu Begriffen, der in der<lb/>
+Thatkraft ihr unterliegt, erſchöpft hat, und alsdann<lb/>
+den Kreislauf von neuem beginnen kann. — Die Ein¬<lb/>
+bildungskraft muſs noch weit öfter ſich wiederholen,<lb/>
+weil ſie nicht in einander- ſondern nebeneinanderſtel¬<lb/>
+lend, jedesmal um ſo weniger fasſen kann. — Der<lb/>
+äusſre Sinn iſt ein immerwährendes Wiederholen ſei¬<lb/>
+ner ſelbſt, weil er jedesmal nur ſo viel faſst, als in<lb/>
+dem Horizonte, der undurchdringlich ihn umſchlieſst,<lb/>
+wirklich neben einander ſteht. — So wenig faſst der<lb/>
+äusſre Sinn, daſs, um dem reichen Fonds von Anläs¬<lb/>
+ſen zu Begriffen, die in der Thatkraft ſchlummern,<lb/>
+nachzukommen, und alle zum Anſchaun und zur Wirk¬<lb/>
+lichkeit zu bringen, kein Leben hinreicht, und ſo<lb/>
+lange wir athmen, das Auge ſich nimmer ſatt ſieht,<lb/>
+das Ohr ſich nimmer ſatt hört.<lb/>
+</p> <fw type="catch" place="bottom">Je<lb/>
+</fw>
+<pb n="23" facs="#f0029"/>
+<p>Je lebhafter ſpiegelnd nun das Organ von der dun¬<lb/>
+kelahndenden Thatkraft, durch die unterſcheiden¬<lb/>
+de Denkkraft, bis zu dem hellſehenden Auge, und<lb/>
+deutlich vernehmenden Ohre, wird; um deſto<lb/>
+vollſtändiger und lebendiger werden zwar die Begriffe,<lb/>
+aber um deſtomehr verdrängen ſie ſich auch, und<lb/>
+ſchliesſen einander aus. — Wo ſie ſich alſo am<lb/>
+wenigſten einander ausſchliesſen, und ihrer am mei¬<lb/>
+ſten neben einander beſtehen können, das kann nur<lb/>
+da ſeyn, wo ſie am unvollſtändigſten ſind, wo bloſs<lb/>
+ihre Anfänge oder erſten Anläsſe zuſammentreffen,<lb/>
+die eben durch ihr Mangelhaftes und Unvollſtändiges,<lb/>
+in ſich ſelber den immerwährenden, unwiderſtehli¬<lb/>
+chen Reiz bilden, der ſie zur vollſtändigen Wirklich¬<lb/>
+keit bringt.</p><lb/>
+<p>Der Horizont der thätigen Kraft aber muſs bei<lb/>
+dem bildenden Genie ſo weit, wie die Natur ſelber,<lb/>
+ſeyn: das heiſst, die Organiſation muſs ſo fein ge¬<lb/>
+webt ſeyn, und ſo unendlich viele Berührungs¬<lb/>
+punkte der allumſtrömenden Natur darbieten, daſs<lb/>
+gleichſam die äusſerſten Enden von allen Verhältnis¬<lb/>
+ſen der Natur im Groſsen, hier im Kleinen ſich ne¬<lb/>
+beneinander ſtellend, Raum genug haben, um ſich<lb/>
+einander nicht verdrängen zu dürfen.</p><lb/>
+<p>Wenn nun eine Organiſation von dieſem feinern<lb/>
+Gewebe, bei ihrer völligen Entwicklung, auf einmal<lb/>
+in der dunklen Ahndung ihrer thätigen Kraft, ein<lb/>
+Ganzes faſst, das weder in ihr Auge noch in ihr Ohr,<lb/>
+weder in ihre Einbildungskraft noch in ihre Gedanken<lb/>
+<fw type="catch" place="bottom">kam;<lb/>
+</fw> <fw type="sig" place="bottom">B 4<lb/>
+</fw>
+<pb n="24" facs="#f0030"/>
+kam; ſo muſs nothwendig eine Unruhe, ein Miſsver¬<lb/>
+hältniſs zwiſchen den ſich wägenden Kräften ſo lange<lb/>
+entſtehen, bis ſie wieder in ihr Gleichgewicht kommen.</p><lb/>
+<p>Bei einer Seele, deren bloſs thätige Kraft ſchon<lb/>
+das edle, grosſe Ganze der Natur in dunkler Ahn¬<lb/>
+dung faſst, kann die deutlich erkennende Denkkraft,<lb/>
+die noch lebhafter darſtellende Einbildungskraft, und<lb/>
+der am hellſten ſpiegelnde äusſre Sinn, mit der Be¬<lb/>
+trachtung des Einzelnen im Zuſammenhange der Na¬<lb/>
+tur, ſich nicht mehr begnügen.</p><lb/>
+<p>Alle die in der thätigen Kraft bloſs dunkel geahn¬<lb/>
+deten Verhältnisſe jenes grosſen Ganzen, müsſen<lb/>
+nothwendig auf irgend eine Weiſe entweder ſichtbar,<lb/>
+hörbar, oder doch der Einbildungskraft faſsbar wer¬<lb/>
+den: und um dieſs zu werden, muſs die Thatkraft,<lb/>
+worinn ſie ſchlummern, ſie nach ſich ſelber, aus<lb/>
+ſich ſelber bilden. — Sie muſs alle jenen Verhält¬<lb/>
+nisſe des grosſen Ganzen, und in ihnen das höchſte<lb/>
+Schöne, wie an den Spitzen ſeiner Strahlen, in einen<lb/>
+Brennpunkt fasſen. — Aus dieſem Brennpunkte muſs<lb/>
+ſich, nach des Auges gemesſener Weite, ein zartes<lb/>
+und doch getreues Bild des höchſten Schönen ründen,<lb/>
+das die vollkommenſten Verhältnisſe des grosſen Gan¬<lb/>
+zen der Natur, eben ſo wahr und richtig, wie ſie<lb/>
+ſelbſt, in ſeinen kleinen Umfang faſst.</p><lb/>
+<p>Weil nun aber dieſer Abdruck des höchſten Schö¬<lb/>
+nen nothwendig an etwas haften muſs, ſo wählt die<lb/>
+bildende Kraft, durch ihre Individualität beſtimmt,<lb/>
+irgend einen ſichtbaren, hörbaren, oder doch der Ein¬<lb/>
+<fw type="catch" place="bottom">bil¬<lb/>
+</fw>
+<pb n="25" facs="#f0031"/>
+bildungskraft faſsbaren Gegenſtand, auf den ſie den<lb/>
+Abglanz des höchſten Schönen im verjüngenden<lb/>
+Maasſtabe überträgt. — Und weil dieſer Gegen¬<lb/>
+ſtand wiederum, wenn er wirklich, was er darſtellt,<lb/>
+wäre, mit dem Zuſammenhange der Natur, die aus¬<lb/>
+ſer ſich ſelber kein wirklich eigemächtiges Ganze dul¬<lb/>
+det, nicht ferner beſtehen könnte: ſo führet uns dies<lb/>
+auf den Punkt, wo wir ſchon einmal waren: daſs je¬<lb/>
+desmal das innre Weſen erſt in die Erſcheinung ſich<lb/>
+verwandeln müsſe, ehe es, durch die Kunſt, zu ei¬<lb/>
+nem für ſich beſtehenden Ganzen gebildet werden, und<lb/>
+ungehindert die Verhältnisſe des grosſen Ganzen der<lb/>
+Natur, in ihrem völligen Umfange ſpiegeln kann.</p><lb/>
+<p>Da nun aber jene grosſen Verhältnisſe, in deren<lb/>
+völligen Umfange eben das Schöne liegt, nicht mehr<lb/>
+unter das Gebiet der Denkkraft fallen; ſo kann auch<lb/>
+der lebendige Begriff von der bildenden Nachahmung<lb/>
+des Schönen, nur im Gefühl der thätigen Kraft, die<lb/>
+es hervorbringt, im erſten Augenblick der Entſtehung<lb/>
+ſtatt finden, wo das Werk, als ſchon vollendet, durch<lb/>
+alle Grade ſeines allmähligen Werdens, in dunkler<lb/>
+Ahndung, auf einmal vor die Seele tritt, und in die¬<lb/>
+ſem Moment der erſten Erzeugung gleichſam vor ſeinem<lb/>
+wirklichen Daſeyn, da iſt; wodurch alsdann auch<lb/>
+jener unnennbare Reiz entſteht, welcher das ſchaffen¬<lb/>
+de Genie zur immerwährenden Bildung treibt.</p><lb/>
+<p>Durch unſer Nachdenken über die bildende Nach¬<lb/>
+ahmung des Schönen, mit dem reinen Genuſs der ſchö¬<lb/>
+nen Kunſtwerke ſelbſt, vereint, kann zwar etwas je¬<lb/>
+<fw type="sig" place="bottom">B 5<lb/>
+</fw> <fw type="catch" place="bottom">nem<lb/>
+</fw>
+<pb n="26" facs="#f0032"/>
+nem lebendigen Begriff näherkommendes in uns ent¬<lb/>
+ſtehn, das den Genuſs der ſchönen Kunſtwerke uns<lb/>
+erhöht. — Allein da unſer höchſter Genuſs des Schö¬<lb/>
+nen dennoch ſein werden aus unſrer eignen Kraft<lb/>
+unmöglich mit in ſich fasſen kann — ſo bleibt der<lb/>
+einzige höchſte Genuſs desſelben immer dem ſchaffen¬<lb/>
+den Genie, das es hervorbringt, ſelber; und das Schöne<lb/>
+hat daher ſeinen höchſten Zweck, in ſeiner Entſte¬<lb/>
+hung, in ſeinem Werden ſchon erreicht: unſer Nach¬<lb/>
+genuſs desſelben iſt nur eine Folge ſeines Daſeyns —<lb/>
+Und das bildende Genie iſt daher im grosſen Plane der<lb/>
+Natur, zuerſt um ſein ſelbſt, und dann erſt um un¬<lb/>
+ſertwillen da; weil es nun einmal ausſer ihm noch<lb/>
+Weſen giebt, die ſelbſt nicht ſchaffen und bilden, aber<lb/>
+doch das Gebildete, wenn es einmal hervorgebracht<lb/>
+iſt, mit ihrer Einbildungskraft umfasſen können.</p><lb/>
+<p>Die Natur des Schönen beſteht ja eben darinn,<lb/>
+daſs ſein innres Weſen ausſer den Grenzen der Denk¬<lb/>
+kraft, in ſeiner Entſtehung in ſeinem eignen Werden<lb/>
+liegt. Eben darum, weil die Denkkraft beim Schö¬<lb/>
+nen nicht mehr fragen kann, warum es ſchön ſey?<lb/>
+iſt es ſchön. — Denn es mangelt ja der Denkkraft<lb/>
+völlig an einem Vergleichungspunkte, wornach ſie<lb/>
+das Schöne beurtheilen, und betrachten könnte. Was<lb/>
+giebt es noch für einen Vergleichungspunkt für das<lb/>
+ächte Schöne, als mit dem Inbegriff aller harmoniſchen<lb/>
+Verhältnisſe des grosſen Ganzen der Natur, die keine<lb/>
+Denkkraft umfasſen kann? Alles einzelne hin und<lb/>
+her in der Natur zerſtreute Schöne, iſt ja nur in ſo<lb/>
+<fw type="catch" place="bottom">fern<lb/>
+</fw>
+<pb n="27" facs="#f0033"/>
+fern ſchön, als ſich dieſer Inbegriff aller Verhältnisſe<lb/>
+jenes grosſen Ganzen mehr oder weniger darinn offen¬<lb/>
+bahrt. — Es kann alſo nie zum Vergleichungspunkte<lb/>
+für das Schöne der bildenden Künſte, eben ſo wenig<lb/>
+als der wahren Nachahmung des Schönen zum Vor¬<lb/>
+bilde dienen; weil das höchſte Schöne im Einzelnen<lb/>
+der Natur immer noch nicht ſchön genug für<lb/>
+die ſtolze Nachahmung der grosſen und majeſtätiſchen<lb/>
+Verhältnisſe des allumfasſenden Ganzen der Natur<lb/>
+iſt. — Das Schöne kann daher nicht erkannt, es<lb/>
+muſs hervorgebracht — oder empfunden werden.</p><lb/>
+<p>Denn weil in gänzlicher Ermanglung eines Ver¬<lb/>
+gleichungspunktes, einmal das Schöne kein Gegen¬<lb/>
+ſtand der Denkkraft iſt, ſo würden wir, in ſo fern<lb/>
+wir es nicht ſelbſt hervorbringen können, auch ſeines<lb/>
+Genusſes ganz entbehren müsſen, indem wir uns nie<lb/>
+an etwas halten könnten, dem das Schöne näher kä¬<lb/>
+me, als das Minderſchöne — wenn nicht etwas die<lb/>
+Stelle der hervorbringenden Kraft in uns erſetzte, das<lb/>
+ihr ſo nahe wie möglich kömmt, ohne doch ſie ſelbſt<lb/>
+zu ſeyn: — dieſs iſt nun, was wir Geſchmack<lb/>
+oder Empfindungsfähigkeit für das Schöne nennen, die,<lb/>
+wenn ſie in ihren Grenzen bleibt, den Mangel des hö¬<lb/>
+hern Genusſes bei der Hervorbringung des Schönen,<lb/>
+durch die ungeſtörte Ruhe der ſtillen Betrachtung er¬<lb/>
+ſetzen kann.</p><lb/>
+<p>Wenn nämlich das Organ nicht fein genug ge¬<lb/>
+webt iſt, um dem einſtrömenden Ganzen der Natur ſo<lb/>
+viele Berührungspunkte darzubieten, als nöthig ſind,<lb/>
+<fw type="catch" place="bottom">um<lb/>
+</fw>
+<pb n="28" facs="#f0034"/>
+um alle ihre grosſen Verhältnisſe vollſtändig im Klei¬<lb/>
+nen abzuſpiegeln, und uns noch ein Punkt zum völli¬<lb/>
+gen Schluſs des Zirkels fehlt; ſo können wir ſtatt der<lb/>
+Bildungskraft nur Empfindungsfähigkeit für das Schö¬<lb/>
+ne, haben: jeder Verſuch, es ausſer uns wieder dar¬<lb/>
+zuſtellen, würde uns miſslingen, und uns deſto un¬<lb/>
+zufriedner mit uns ſelber machen, je näher unſer Em¬<lb/>
+pfindungsvermögen für das Schöne an das uns man¬<lb/>
+gelnde Bildungsvermögen grenzt.</p><lb/>
+<p>Weil nämlich das Weſen des Schönen eben in ſei¬<lb/>
+ner Vollendung in ſich ſelbſt beſteht, ſo ſchadet ihm<lb/>
+der letzte fehlende Punkt, ſo viel als tauſend, denn<lb/>
+er verrückt alle übrigen Punkte aus der Stelle, in wel¬<lb/>
+che ſie gehören. — Und iſt dieſer Vollendungs¬<lb/>
+punkt einmal verfehlt, ſo verlohnt ein Werk der<lb/>
+Kunſt der Mühe des Anfangs und der Zeit ſeines Wer¬<lb/>
+dens nicht; es fällt unter das ſchlechte bis zum Un¬<lb/>
+nützen herab, und ſein Daſeyn muſs nothwendig durch<lb/>
+die Vergesſenheit, worinn es ſinkt, ſich wieder auf¬<lb/>
+heben.</p><lb/>
+<p>Eben ſo ſchadet auch dem in das feinere Gewebe<lb/>
+der Organiſation gepflanzten Bildungsvermögen, der<lb/>
+letzte zu ſeiner Vollſtändigkeit fehlende Punkt, ſoviel<lb/>
+als tauſend. — Den höchſten Werth, den es als<lb/>
+Empfindungsvermögen haben könnte, kömmt bei ihm,<lb/>
+als Bildungskraft, eben ſo wenig wie der geringſte,<lb/>
+in Betrachtung. Auf dem Punkte, wo das Empfin¬<lb/>
+dungsvermögen ſeine Grenzen überſchreitet, muſs es<lb/>
+<fw type="catch" place="bottom">noth¬<lb/>
+</fw>
+<pb n="29" facs="#f0035"/>
+nothwendig unter ſich ſelber ſinken, ſich aufheben,<lb/>
+und vernichten.</p><lb/>
+<p>Je vollkommner das Empfindungsvermögen für eine<lb/>
+gewisſe Gattung des Schönen iſt, um deſto mehr iſt<lb/>
+es in Gefahr ſich zu täuſchen, ſich ſelbſt für Bildungs¬<lb/>
+kraft zu nehmen, und auf die Weiſe durch tauſend<lb/>
+miſslungne Verſuche, ſeinen Frieden mit ſich ſelbſt<lb/>
+zu ſtören.</p><lb/>
+<p>Es blickt z. B. beim Genuſs des Schönen in irgend<lb/>
+einem Werke der Kunſt zugleich durch das Werden<lb/>
+desſelben, in die bildende Kraft, die es ſchuf, hin¬<lb/>
+durch; und ahndet dunkel den höhern Grad des Ge¬<lb/>
+nusſes eben dieſes Schönen, im Gefühl der Kraft, die<lb/>
+mächtig genug war, es aus ſich ſelbſt hervorzu¬<lb/>
+bringen.</p><lb/>
+<p>Um ſich nun dieſen höhern Grad des Genusſes,<lb/>
+welchen ſie an einem Werke, das einmal ſchon da iſt,<lb/>
+unmöglich haben kann, auch zu verſchaffen; ſtrebt<lb/>
+die einmal zu lebhaft gerührte Empfindung vergebens<lb/>
+etwas Aehnliches, aus ſich ſelbſt hervorzubringen;<lb/>
+haſst ihr eignes Werk, verwirft es, und verleidet ſich<lb/>
+zugleich den Genuſs alle des Schönen, das ausſer ihr<lb/>
+ſchon da iſt, und woran ſie nun eben deswegen, weil<lb/>
+es ohne ihr Zuthun da iſt, keine Freude findet. —</p><lb/>
+<p>Ihr einziger Wunſch und Streben iſt, des ihr ver¬<lb/>
+ſagten, höhern Genusſes, den ſie nur dunkel ahndet,<lb/>
+theilhaftig zu werden: in einem ſchönen Werke, das<lb/>
+ihr ſein Daſeyn dankt, mit dem Bewuſstſeyn von eig¬<lb/>
+ner Bildungskraft, ſich ſelbſt zu ſpiegeln. —<lb/>
+</p> <fw type="catch" place="bottom">Al¬<lb/>
+</fw>
+<pb n="30" facs="#f0036"/>
+<p>Allein ſie wird ihres Wunſches ewig nicht gewährt,<lb/>
+weil Eigennutz ihn erzeugte; und das Schöne ſich<lb/>
+nur um ſein ſelbſt willen von der Hand des Künſtlers<lb/>
+greifen, und willig und folgſam von ihm ſich bil¬<lb/>
+den läſst.</p><lb/>
+<p>Wo ſich nun in den ſchaffenwollenden Bildungs¬<lb/>
+trieb, ſogleich die Vorſtellung vom Genuſs des Schö¬<lb/>
+nen miſcht, den es, wenn es vollendet iſt, gewäh¬<lb/>
+ren ſoll; und wo dieſe Vorſtellung der erſte und ſtärk¬<lb/>
+ſte Antrieb unſrer Thatkraft wird, die ſich zu dem,<lb/>
+was ſie beginnt, nicht in und durch ſich ſelbſt ge¬<lb/>
+drungen fühlt; da iſt der Bildungstrieb gewiſs nicht<lb/>
+rein: der Brennpunkt oder Vollendungspunkt des Schö¬<lb/>
+nen fällt in die Wirkung über das Werk hinaus; die<lb/>
+Strahlen gehen auseinander; das Werk kann ſich nicht<lb/>
+in ſich ſelber ründen.</p><lb/>
+<p>Dem höchſten Genuſs des aus ſich ſelbſt hervorge¬<lb/>
+brachten Schönen ſich ſo nah zu dünken, und doch<lb/>
+darauf Verzicht zu thun, ſcheint freilich ein harter<lb/>
+Kampf — der dennoch äusſerſt leicht wird; wenn<lb/>
+wir aus dieſem Bildungstriebe, den wir uns einmal<lb/>
+zu beſitzen ſchmeicheln, um doch ſein Weſen zu ver¬<lb/>
+edeln, jede Spur des Eigennutzes, die wir noch fin¬<lb/>
+den, tilgen; und jede Vorſtellung des Genuſses, den<lb/>
+uns das Schöne, das wir hervorbringen wollen, wenn<lb/>
+es nun da ſeyn wird, durch das Gefühl von unſrer<lb/>
+eignen Kraft, gewähren ſoll, ſo viel wie möglich,<lb/>
+zu verbannen ſuchen: ſo daſs, wenn wir auch mit<lb/>
+<fw type="catch" place="bottom">dem<lb/>
+</fw>
+<pb n="31" facs="#f0037"/>
+dem letzten Athemzuge es erſt vollenden könnten, es<lb/>
+dennoch zu vollenden ſtrebten. —</p><lb/>
+<p>Behält alsdann das Schöne, das wir ahnden, bloſs<lb/>
+an und für ſich ſelbſt, in ſeiner Hervorbringung, noch<lb/>
+Reiz genug unſre Thatkraft zu bewegen; ſo dürfen<lb/>
+wir getroſt unſerm Bildungstriebe folgen, weil er<lb/>
+ächt und rein iſt. —</p><lb/>
+<p>Verliert ſich aber, mit der gänzlichen Hin¬<lb/>
+wegdenkung des Genusſes und der Wirkung, auch<lb/>
+der Reiz — ſo bedarf es ja keines Kampfes<lb/>
+weiter — der Frieden in uns iſt hergeſtellt — und<lb/>
+das nun wieder in ſeine Rechte getretne Empfindungs¬<lb/>
+vermögen eröfnet ſich, zum Lohne für ſein beſcheid¬<lb/>
+nes Zurücktreten in ſeine Grenzen, dem reinſten Ge¬<lb/>
+nuſs des Schönen, der mit der Natur ſeines Weſens<lb/>
+beſtehen kann.</p><lb/>
+<p>Freilich kann nun der Punkt, wo Bildungs- und<lb/>
+Empfindungskraft ſich ſchneidet, ſo äusſerſt leicht ver¬<lb/>
+fehlt und überſchritten werden, daſs es gar nicht zu<lb/>
+verwundern iſt, wenn immer tauſend falſche, ange¬<lb/>
+maaſste Abdrücke des höchſten Schönen, gegen einen<lb/>
+ächten, durch den falſchen Bildungstrieb, in den Wer¬<lb/>
+ken der Kunſt entſtehen.</p><lb/>
+<p>Denn da die ächte Bildungskraft, ſogleich bei der<lb/>
+erſten Entſtehung ihres Werks, auch ſchon den erſten,<lb/>
+höhſten Genuſs desſelben, als ihren ſichern Lohn, in<lb/>
+ſich ſelber trägt; und ſich nur dadurch von dem fal¬<lb/>
+ſchen Bildungstriebe unterſcheidet, daſs ſie den aller¬<lb/>
+erſten Moment ihres Anſtosſes durch ſich ſelber, und<lb/>
+<fw type="catch" place="bottom">nicht<lb/>
+</fw>
+<pb n="32" facs="#f0038"/>
+nicht durch die Ahndung des Genusſes von ihrem<lb/>
+Werke, erhält; und weil in dieſem Moment der Lei¬<lb/>
+denſchaft die Denkkraft ſelbſt kein richtiges Urtheil<lb/>
+fällen kann, ſo iſt es faſt unmöglich, ohne eine An¬<lb/>
+zahl mislungner Verſuche, dieſer Selbſttäuſchung zu<lb/>
+entkommen.</p><lb/>
+<p>Und ſelbſt auch dieſe miſslungnen Verſuche ſind<lb/>
+noch nicht immer ein Beweiſs von Mangel an Bildungs¬<lb/>
+kraft, weil dieſe ſelbſt da, wo ſie ächt iſt, oft eine<lb/>
+ganz falſche Richtung nimmt, indem ſie vor ihre Ein¬<lb/>
+bildungskraft ſtellen will, was vor ihr Auge, oder<lb/>
+vor ihr Auge, was vor ihr Ohr gehört.</p><lb/>
+<p>Eben weil die Natur die inwohnende Bildungs¬<lb/>
+kraft nicht immer zur völligen Reife und Entwicklung<lb/>
+kommen oder ſie einen falſchen Weg einſchlagen läſst,<lb/>
+auf dem ſie ſich nie entwickeln kann; ſo bleibt das<lb/>
+ächte ſchöne ſelten.</p><lb/>
+<p>Und weil ſie auch aus dem angemaſsten Bildungs¬<lb/>
+triebe das Gemeine und Schlechte ungehindert entſte¬<lb/>
+hen läſst, ſo unterſcheidet ſich eben dadurch das ächte<lb/>
+Schöne und Edle, durch ſeinen ſeltnen Werth, vom<lb/>
+Schlechten und Gemeinen. —</p><lb/>
+<p>In dem Empfindungsvermögen bleibt alſo ſtets die<lb/>
+Lücke, welche nur durch das Reſultat der Bildungs¬<lb/>
+kraft ſich ausfüllt. — Bildungskraft und Empfindungs¬<lb/>
+fähigkeit verhalten ſich zu einander, wie Mann und<lb/>
+Weib. Denn auch die Bildungskraft iſt bei der erſten<lb/>
+Entſtehung ihres Werks, im Moment des höchſten Ge¬<lb/>
+nusſes, zugleich Empfindungsfähigkeit, und erzeugt,<lb/>
+<fw type="catch" place="bottom">wie<lb/>
+</fw>
+<pb n="33" facs="#f0039"/>
+wie die Natur, den Abdruck ihres Weſens aus ſich<lb/>
+ſelber.</p><lb/>
+<p>Empfindungsvermögen ſowohl als Bildungskraft<lb/>
+ſind alſo in den feinern Gewebe der Organiſation ge¬<lb/>
+gründet, inſo fern dieſelbe in allen ihren Berührungs¬<lb/>
+punkten von den Verhältnisſen des grosſen Ganzen<lb/>
+der Natur ein vollſtändiger oder doch faſt vollſtändiger<lb/>
+Abdruck iſt.</p><lb/>
+<p>Empfindungskraft ſowohl als Bildungskraft um¬<lb/>
+fasſen mehr als Denkkraft, und die thätige Kraft,<lb/>
+worinn ſich beide gründen, faſst zugleich auch alles<lb/>
+was die Denkkraft faſst, weil ſie von allen Begriffen,<lb/>
+die wir je haben können, die erſten Anläsſe, ſtets ſie<lb/>
+aus ſich herausſpinnend, in ſich trägt,</p><lb/>
+<p>In ſofern nun dieſe thätige Kraft alles, was nicht<lb/>
+unter das Gebiet der Denkkraft fällt, hervor dringend<lb/>
+in ſich faſst, heisſet ſie Bildungskraft: und in ſofern<lb/>
+ſie das, was ausſer den Grenzen der Denkkraft liegt,<lb/>
+der Hervorbringung ſich entgegen neigend in ſich<lb/>
+begreift, heiſst ſie Empfindungskraft.</p><lb/>
+<p>Bildungskraft kann nicht ohne Empfindung und<lb/>
+thätige Kraft, die bloſs thätige Kraft hingegen kann<lb/>
+ohne eigentliche Empfindungs- und Bildungskraft, wo¬<lb/>
+von ſie nur die Grundlage iſt, für ſich allein ſtatt finden.</p><lb/>
+<p>In ſofern nun dieſe bloſs thätige Kraft ebenfalls in<lb/>
+dem feinern Gewebe der Organiſation ſich gründet,<lb/>
+darf das Organ nur überhaupt in alle ſeinen Berüh¬<lb/>
+rungspunkten ein Abdruck der Verhältnisſe des grosſen<lb/>
+Ganzen ſeyn, ohne daſs eben der Grad der Vollſtän¬<lb/>
+<fw type="sig" place="bottom">C<lb/>
+</fw> <fw type="catch" place="bottom">dig¬<lb/>
+</fw>
+<pb n="34" facs="#f0040"/>
+digkeit erfordert würde, welche die Empfindungs- und<lb/>
+Bildungskraft vorausſetzt.</p><lb/>
+<p>Von den Verhältnisſen des grosſen Ganzen, das<lb/>
+uns umgiebt, treffen nämlich immer ſo viele in allen<lb/>
+Berührungspunkten unſres Organs zuſammen; daſs wir<lb/>
+dies grosſe Ganze dunkel in uns fühlen, ohne es doch<lb/>
+ſelbſt zu ſeyn: die in unſer Weſen hineingeſponnenen<lb/>
+Verhältnisſe jenes Ganzen ſtreben, ſich nach allen Sei¬<lb/>
+ten wieder auszudehnen: das Organ wünſcht, ſich<lb/>
+nach allen Seiten bis ins Unendliche fortzuſetzen. Es<lb/>
+will das umgebende Ganze nicht nur in ſich ſpiegeln,<lb/>
+ſondern ſo weit es kann, ſelbſt dies umgebende Ganze<lb/>
+ſeyn.</p><lb/>
+<p>Daher ergreift jede höhere Organiſation, ihrer<lb/>
+Natur nach, die ihr untergeordnete, und trägt ſie in<lb/>
+ihr Weſen über. Die Pflanze den unorganiſierten Stoff,<lb/>
+durch bloſes Werden und Wachſen — das Thier die<lb/>
+Pflanzen durch Werden, Wachſen und Genuſs —<lb/>
+der Menſch verwandelt nicht nur Thier und Pflanze,<lb/>
+durch Werden Wachſen und Genuſs in ſein innres We¬<lb/>
+ſen; ſondern faſst zugleich alles, was ſeiner Organi¬<lb/>
+ſation ſich unterordnet, durch die unter allen am hell¬<lb/>
+ſten geſchliffne, ſpiegelnde Oberfläche ſeines Weſens,<lb/>
+in den Umfang ſeines Daſeyns auf, und ſtellt es, wenn<lb/>
+ſein Organ ſich bildend in ſich ſelbſt vollendet, ver¬<lb/>
+ſchönert auſser ſich wieder dar.</p><lb/>
+<p>Wo nicht, ſo muſs er das, was um ihn her iſt,<lb/>
+durch Zerſtöhrung in den Umfang ſeines wirklichen<lb/>
+Daſeyns ziehn, und verheerend um ſich greifen, ſo<lb/>
+<fw type="catch" place="bottom">weit<lb/>
+</fw>
+<pb n="35" facs="#f0041"/>
+weit er kann; da einmal die reine unſchuldige Be¬<lb/>
+ſchauung ſeinen Durſt nach ausgedehntem wirklichen<lb/>
+Daſeyn nicht erſetzen kann.</p><lb/>
+<p>Mit dem ſich angeſchliffnen Stahle ſeines einge¬<lb/>
+ſchränkten Daſeyns nicht mehr froh, ſtrebt er, ausſer<lb/>
+ſich ſelber, ein grösſeres Ganze, als er ſelbſt, zu<lb/>
+ſeyn; ſtellt ſich, zu einem Volk, zu einem Staat ſich<lb/>
+bildend, mit Weſen ſeiner Art zuſammen, um Weſen<lb/>
+ſeines gleichen, die ſich ihm unterordnend ihm nicht<lb/>
+dienen, mit ihm nicht eins ſeyn wollen, zu zerſtören. —</p><lb/>
+<p>Er ſteht auf dem höchſten Punkte ſeiner Wirk¬<lb/>
+ſamkeit; der Krieg, die Wuth, das Feldgeſchrei, das<lb/>
+höchſte Leben, iſt nah an den Grenzen ſeiner Zer¬<lb/>
+ſtörung da. —</p><lb/>
+<p>Kommen dann endlich die ſtrebende Kräfte wieder<lb/>
+in ein glückliches Gleichgewicht; und macht die un¬<lb/>
+ruhige Wirkſamkeit der ſtillen Beſchauung Platz: ſo<lb/>
+muſs nothwendig in dem zum erſtenmal in ſich ver¬<lb/>
+ſunknen Menſchen der Sinn für die umgebende Natur<lb/>
+erwachen, die nie zerſtört, als wo ſie muſs, und ſcho¬<lb/>
+net, wo ſie kann. — Er lernt allmälig das Einzelne<lb/>
+im Ganzen, und in Beziehung auf das Ganze, ſehen;<lb/>
+fängt die grosſen Verhältnisſe dunkel an zu ahnden, nach<lb/>
+welchen unzählige Weſen auf und ab, ſo wenig wie<lb/>
+möglich ſich verdrängen, und doch ſo nah wie mög¬<lb/>
+lich an einanderſtosſen. —</p><lb/>
+<p>Dann ſteigt in ſeinen ruhigſten Momenten die Ge¬<lb/>
+ſchichte der Vorwelt, das ganze wunderbare Gewebe<lb/>
+des Menſchenlebens in alle ſeinen Zweigen vor ihm<lb/>
+<fw type="sig" place="bottom">C 2<lb/>
+</fw> <fw type="catch" place="bottom">auf. —<lb/>
+</fw>
+<pb n="36" facs="#f0042"/>
+auf. — In allen, was ſeine ruhige Einbildungskraft<lb/>
+ihm ſpiegelt, ſondert ſich das Grosſe und Edle vom<lb/>
+Gemeinen, nach einem dunkelempfundnen Maaſsſtabe<lb/>
+in ihm ſelber ab, und ſtrebt aus ihm heraus. —</p><lb/>
+<p>So geht die um ſich greifende, zerſtörende That¬<lb/>
+kraft, ſich auf ſich ſelber ſtützend, in die ſanfte<lb/>
+ſchaffende Bildungskraft, durch ruhiges Selbſtgefühl,<lb/>
+hinüber, und ergreift den lebloſen Stoff, und haucht<lb/>
+ihm Leben ein.</p><lb/>
+<p>Auf die Weiſe bildete unter jedem Himmelsſtrich<lb/>
+die Natur das Schöne, ſich in den reinſten Seelen in<lb/>
+ihren ruhigſten Momenten ſpiegelnd. —</p><lb/>
+<p>Sie allein führt an ihrer Hand den bildenden Künſt¬<lb/>
+ler, den Dichter, in ihr innerſtes Heiligthum, wo<lb/>
+ſie dem ſich neu entwickelnden Bildungstriebe, ſchon<lb/>
+ſeit Jahrhunderten vorgearbeitet, und ſeine Bahn ihm<lb/>
+vorgezeichnet hat.</p><lb/>
+<p>Denn alles, was die Vorwelt erfunden, iſt ja in<lb/>
+den Umfang der Natur zurücktretend, mit ihr eins<lb/>
+geworden, und ſoll mit ihr vereint, harmoniſch auf<lb/>
+uns wirken. — — Das Schöne der bildenden Künſte<lb/>
+ſteht, ſobald es einmal da iſt, mit auf ihrer grosſen<lb/>
+Stufenleiter, und will nicht mit ihr in ihren einzelnen<lb/>
+Theilen verglichen, ſondern in ihrem ganzen Unfange,<lb/>
+als zu ihr gehörend, mitgedacht und empfunden ſeyn.</p><lb/>
+<p>Unſer Naturgenuſs ſoll durch die Betrachtung des<lb/>
+Schönen in der Kunſt, verfeinert; und unſer Gefühl<lb/>
+für das Schöne in der Kunſt ſoll wechſelſeitig durch<lb/>
+<fw type="catch" place="bottom">den<lb/>
+</fw>
+<pb n="37" facs="#f0043"/>
+den Genuſs der ſchönen Natur geſtärkt, und zugleich<lb/>
+ſeine Grenzen ihm vorgezeichnet werden.</p><lb/>
+<p>Strömt dann das Maaſs der Empfindung über, und<lb/>
+wird zur Bildungskraft, ſo ahmt es in jedem Einzel¬<lb/>
+nen der Natur nicht mehr das Einzelne, und in dem<lb/>
+höchſten Kunſtwerke, nicht das Kunſtwerk, ſondern<lb/>
+die grosſe Harmonie des mitempfundnen Ganzen nach,<lb/>
+das ſich in beiden abdrückt.</p><lb/>
+<p>Der einmal aufgeweckte, ächte Bildungstrieb fin¬<lb/>
+det nichts Einzelnes in der Natur, das ganz ihm<lb/>
+gnügte; auch ſelber das höchſte Kunſtwerk nicht, das,<lb/>
+als der erſte Abdruck des höchſten Schönen, doch immer<lb/>
+nur Abdruck bleibt.</p><lb/>
+<p>Das bildende Genie will, wo möglich, alle die in<lb/>
+ihm ſchlummerden Verhältnisſe jener grosſen Harmonie,<lb/>
+deren Umfang grösſer, als ſeine eigne Individualität<lb/>
+iſt, ſelbſt umfasſen: das kann es nun nicht anders,<lb/>
+als in verſchiednen Momenten, ſchaffend, bildend,<lb/>
+aus ſeiner eignen eingeſchränkten Individualität gleich¬<lb/>
+ſam heraus, in ein Werk, das ausſer ihm ſich dar¬<lb/>
+ſtellt, hinüberſchreitend, und mit dieſem Werke nun<lb/>
+das umfasſend, was ſeine Ichheit ſelber vorher nicht<lb/>
+fasſen konnte.</p><lb/>
+<p>Allein der Anblick von dem reinſten Abdruck des<lb/>
+höchſten Schönen in dem vollkommenſten Kunſtwerke,<lb/>
+muſste dem Bildungstriebe den erſten Anſtoſs geben,<lb/>
+bloſs durch Gefühl der Möglichkeit, ſich in einem<lb/>
+Kunſtwerke auſser ſich ſelbſt zu ſtellen, und das in<lb/>
+einer Folge von Momenten bildend und ſchaffend zu<lb/>
+<fw type="sig" place="bottom">C 3<lb/>
+</fw> <fw type="catch" place="bottom">um¬<lb/>
+</fw>
+<pb n="38" facs="#f0044"/>
+umfasſen, was keine Empfindung auffaſst, wofür<lb/>
+das Selbſtgefühl zu beſchränkt iſt, und die Ichheit<lb/>
+keinen Raum hat.</p><lb/>
+<p>Und jeder Stoff, den dann die Bildungskraft er¬<lb/>
+greift, wird jeden nachfolgenden Verſuch vereiteln,<lb/>
+denſelben Stoff zu einem neuen Werke noch einmal<lb/>
+eben ſo ſchön zu bilden.</p><lb/>
+<p>Je mehrere Reize der Stoff an ſich hat, um de¬<lb/>
+ſtomehr wird es den nachfolgenden Bildungstrieb in<lb/>
+Verzweiflung ſetzen. Der falſche Bildungstrieb wird<lb/>
+am erſten darnach haſchen; Anfang, Mittel, und<lb/>
+Ende tauſchen; und dieſs verzerrte, entſtellte Ganze,<lb/>
+das unverzerrt und unentſtellt vor ihm ſchon da war,<lb/>
+als ſein eignes Werk betrachten, das ihm ſein Daſeyn<lb/>
+dankt.</p><lb/>
+<p>Dergleichen Nachäffungen des ächten Schönen<lb/>
+könnten nie Beifall finden, wenn Empfindungsfähig¬<lb/>
+keit und Bildungskraft bei ihrer Entwicklung immer<lb/>
+gleichen Schritt hielten, und nicht eins der andern<lb/>
+ängſtlich nach oder vorzukommen ſtrebte: denn da das<lb/>
+Empfindungsvermögen, ſeiner Natur nach, ſo nah an<lb/>
+die Bildungskraft grenzt, daſs dieſe nur gleichſam die<lb/>
+letzte Lücke ausfüllt, deren Ausfüllung dem Ge¬<lb/>
+ſchmack zur eignen Hervorbringung des Schönen aus<lb/>
+ſich ſelber fehlt; ſo muſs auch die Empfindungsfähig¬<lb/>
+keit ſelbſt ſchon den Sinn für das Schöne haben, das<lb/>
+die Bildungskraft hervorbringen ſoll; ſie muſs ſich mit<lb/>
+dieſer zugleich, in ihrem Maasſe, auf gleiche Art<lb/>
+entwickeln.<lb/>
+</p> <fw type="catch" place="bottom">Das<lb/>
+</fw>
+<pb n="39" facs="#f0045"/>
+<p>Das Schöne will eben ſowohl bloſs um ſein ſelbſt<lb/>
+willen betrachtet und empfunden, als hervorgebracht<lb/>
+ſeyn. — Wir betrachten es, weil es da iſt, und<lb/>
+mit in der Reihe der Dinge ſteht; und weil wir ein¬<lb/>
+mal betrachtende Weſen ſind, bei denen die unruhige<lb/>
+Wirkſamkeit auf Momente der ſtillen Beſchauung Platz<lb/>
+macht.</p><lb/>
+<p>Betrachten wir das Schöne nicht um ſein ſelbſt<lb/>
+willen, ſondern um erſt unſern Geſchmack dafür zu<lb/>
+bilden, ſo bekömmt ja eben dadurch unſre Betrach¬<lb/>
+tung ſchon eine eigennützige Richtung. Unſer Ur¬<lb/>
+theil iſt uns alsdann mehr werth, als die Sache, wor¬<lb/>
+über wir urtheilen: und ſtatt daſs alſo unſre Beurthei¬<lb/>
+lungskraft, durch ruhige Betrachtung, ſich erweitern<lb/>
+ſollte, wird vielmehr der Geſichtspunkt für das Schöne<lb/>
+nach den zu engen Grenzen unſrer Fasſungskraft ſich<lb/>
+verſchieben müsſen.</p><lb/>
+<p>Der Geſchmack, oder die Beurtheilung des Schö¬<lb/>
+nen, gehört ja eben ſo, wie das Schöne ſelbſt, zu den<lb/>
+Sachen, die wir nicht brauchen, ſobald wir ſie nicht<lb/>
+kennen, und nicht entbehren, ſobald wir ſie nicht<lb/>
+haben; deren Bedürfniſs erſt durch den Beſitz entſteht,<lb/>
+wo es ſich durch ſich ſelbſt befriedigt: geht alſo das<lb/>
+Bedürfniſs vor dem Beſitz vorher, ſo kann es nicht<lb/>
+anders als eingebildet und erkünſtelt ſeyn.</p><lb/>
+<p>Was uns daher allein zum wahren Genuſs des<lb/>
+Schönen bilden kann, iſt das, wodurch das Schöne<lb/>
+ſelbſt entſtand; vorhergegangne ruhige Betrach¬<lb/>
+tung der Natur und Kunſt, als eines einzigen<lb/>
+<fw type="sig" place="bottom">C 4<lb/>
+</fw> <fw type="catch" place="bottom">gros¬<lb/>
+</fw>
+<pb n="40" facs="#f0046"/>
+grosſen Ganzen, das in allen ſeinen Theilen ſich in<lb/>
+ſich ſelber ſpiegelnd, da den reinſten Abdruck läſst,<lb/>
+wo alle Beziehung aufhört, in dem ächten Kunſtwerke,<lb/>
+das, ſo wie ſie, in ſich ſelbſt vollendet, den Endzweck<lb/>
+und die Abſicht ſeines Daſeyns in ſich ſelber hat. —<lb/>
+</p> <p>Auf die Weiſe entſtand, ohne alle Rückſicht auf<lb/>
+Nutzen oder Schaden, den es ſtiften könnte, das<lb/>
+Schöne der bildenden Künſte in jeder Art, bloſs um<lb/>
+ſein ſelbſt und ſeiner Schönheit willen; und konnte<lb/>
+auf keine andere Weiſe entſtehen, weil der Begriff<lb/>
+der Schönheit ſelbſt ſchon jede Rückſicht auf Nutzen<lb/>
+oder Schaden, ſeiner Natur nach, ausſchlieſst; und<lb/>
+der Begriff des Schädlichen auch bei der wirklichen<lb/>
+Hervorbringung des Schönen ſich von ſelbſt aufhebt.</p><lb/>
+<p>Denn ſuchen wir uns nun noch zuletzt den Be¬<lb/>
+griff des Schädlichen näher zu entwickeln, ſo iſt nur<lb/>
+jede unvollkommnere Sache in ſofern ſchädlich, als<lb/>
+eine vollkommnere darunter leidet. — Das wirklich<lb/>
+Vollkommnere kann daher nie dem Unvollkommnern;<lb/>
+dem weniger Organiſirten nie das höher Organiſirte<lb/>
+ſchaden.</p><lb/>
+<p>Wir ſagen: es iſt ſchade um den Theil der Pflan¬<lb/>
+zenwelt, den die hereinbrechende Fluth verſchlingt;<lb/>
+aber nicht um den, der, von der lebenden Welt zer¬<lb/>
+ſtöhrt, in eine höhere Organiſation hinüber geht: denn<lb/>
+weit mehr Schade, als um die Pflanzenwelt, wäre es<lb/>
+um die lebende Welt, wenn ſie deswegen aufhören<lb/>
+ſollte, damit die ganze Pflanzenwelt unbeſchädigt<lb/>
+bliebe. —<lb/>
+</p> <fw type="catch" place="bottom">Und<lb/>
+</fw>
+<pb n="41" facs="#f0047"/>
+<p>Und weit mehr Schade, als um die unterjochte<lb/>
+Thierwelt, wäre es wieder um die Menſchenwelt,<lb/>
+wenn dieſe deſswegen nicht ſtatt finden ſollte, damit<lb/>
+alles übrige in dem Zuſtande ſeiner natürlichen Frei¬<lb/>
+heit bliebe. —</p><lb/>
+<p>So liesſe ſich nun weiter ſchliesſen, daſs es in<lb/>
+der Menſchenwelt auch mehr Schade um die überwie¬<lb/>
+gende Stärke wäre, wenn dieſe deswegen nicht ſtatt<lb/>
+finden ſollte, damit die Schwäche ihre Schwachheit<lb/>
+nicht gewahr werde; als es um den ſchwächern Theil<lb/>
+der Menſchen ſchade iſt, daſs ſie der Obermacht des<lb/>
+Stärkern weichen, und ihre Schwäche empfinden<lb/>
+müsſen. —</p><lb/>
+<p>Und daſs es folglich auch wieder um das Schöne,<lb/>
+welches am meiſten um ſein ſelbſt willen da iſt, weit<lb/>
+mehr Schade wäre, wenn es deswegen vertilgt ſeyn<lb/>
+ſollte, damit keine unbefriedigte Sehnſucht dadurch<lb/>
+entſtehn, und keine thätige Kraft darunter erliegen<lb/>
+könne; als es um die thätige Kraft ſchade iſt, die<lb/>
+unter der unbefriedigten Sehnſucht endlich erliegen<lb/>
+muſs; —</p><lb/>
+<p>Da überdem das Schöne mit dem Leiden, das ſein<lb/>
+verſagter Genuſs erweckt, zuſammengenommen, in<lb/>
+unſrer Vorſtellung erſt ſeinen höchſten Reiz erhält,<lb/>
+dem durch kein ſchöneres Opfer, als dieſes, kann ge¬<lb/>
+huldigt werden. —<lb/>
+</p> <fw type="sig" place="bottom">C 5<lb/>
+</fw> <fw type="catch" place="bottom">Denn<lb/>
+</fw>
+<pb n="42" facs="#f0048"/>
+<p>Denn ſo wie die Liebe die höchſte Vollendung<lb/>
+unſres empfindenden Weſens iſt, ſo iſt die Hervor¬<lb/>
+bringung des Schönen die höchſte Vollendung unſrer<lb/>
+thätigen Kraft — und die höchſte Liebe muſs wie¬<lb/>
+der in Hervorbringung, in Zeugung, wo nicht in die<lb/>
+ſüsſeſte Auflöſung des liebenden Weſens hinüber<lb/>
+gehn. —</p><lb/>
+<p>Nun ſind freilich die Begriffe von Aufopferung,<lb/>
+Liebe und Sehnſucht ſelber viel zu ſüſs, als daſs wir<lb/>
+ſie wieder entbehren könnten, ſobald wir ſie einmal<lb/>
+haben, oder ihr Daſeyn nicht wünſchen ſollten, ſo¬<lb/>
+bald wir ſie einmal kennen. —</p><lb/>
+<p>Es ſcheint nichts Höheres zu geben, dem die<lb/>
+Aufopferung ſelbſt wieder müſste aufgeopfert wer¬<lb/>
+den. — Und das Schöne hinwegwünſchen, weil<lb/>
+unter ihm die Stärke erliegt, hiesſe auch, die Stärke<lb/>
+hinweg wünſchen, weil unter ihm die Schwäche er¬<lb/>
+liegt; den Menſchen, weil er mit zerſtöhrender Hand<lb/>
+die freie Thierwelt ſich unterjocht; die ganze lebende<lb/>
+Welt, weil ſie unaufhörlich die unſchuldige Pflanzen¬<lb/>
+welt zerſtöhrt; und zuletzt auch die lebloſe Pflanzen¬<lb/>
+welt, weil ſie die unzerſtöhrbaren Theile des organi¬<lb/>
+ſirten Stoffs, aus ihrer natürlichen Gleichheit reiſst,<lb/>
+und ſie, durch die trügeriſche Bildung und Form zum<lb/>
+erſtenmale der Zerſtöhrung unterwirft.</p><lb/>
+<p>Das einfachſte Pflanzengewebe muſs für ſeinen<lb/>
+Raub an den noch einfachern Elementen, ſchon durch<lb/>
+<fw type="catch" place="bottom">Auf¬<lb/>
+</fw>
+<pb n="43" facs="#f0049"/>
+Auflöſung und Verwelkung; das geringſte Lebende<lb/>
+für ſeinen Raub an dem Organiſirten, mit körperli¬<lb/>
+chen Schmerzen und dem Tode; und die Menſchheit<lb/>
+für den Raub ihres höhern Daſeyns, an der ganzen<lb/>
+umgebenden Natur, mit den Leiden der Seele büs¬<lb/>
+ſen. — Und das Individuum, muſs dulden, wenn die<lb/>
+Gattung ſich erheben ſoll.</p><lb/>
+<p>Die Menſchengattung aber muſs ſich heben, weil<lb/>
+ſie den Endzweck ihres Daſeyns nicht mehr ausſer<lb/>
+ſich, ſondern in ſich hat; und alſo auch durch die<lb/>
+Entwicklung aller in ihr ſchlummernden Kräfte, bis<lb/>
+zur Empfindung und Hervorbringung des Schönen,<lb/>
+ſich in ſich ſelber vollenden muſs. — Zu dieſer<lb/>
+Vollendung aber gehört das duldende Individuum ſel¬<lb/>
+ber mit; desſen Duldung eben, wenn ſie vorüber iſt,<lb/>
+durch die Darſtellung zugleich in den höchſten Vol¬<lb/>
+lendungspunkt des Schönen mit hinüber geht. —</p><lb/>
+<p>So löſst ſich die Duldung in die Erſcheinung auf,<lb/>
+indem ſie da, wo ſie wirklich geduldet ward, nicht<lb/>
+mehr empfunden, nicht mehr geduldet wird. —</p><lb/>
+<p>Das individuelle Leiden in der Darſtellung, geht<lb/>
+in das erhabnere Mitleiden über, wodurch eben das<lb/>
+Individuum aus ſich ſelbſt gezogen, und die Gattung<lb/>
+wieder in ſich ſelber vollendet wird.</p><lb/>
+<p>Höher aber kann die Menſchheit ſich nicht heben,<lb/>
+als bis auf den Punkt hin, wo ſie durch das Edle in<lb/>
+<fw type="catch" place="bottom">der<lb/>
+</fw>
+<pb n="44" facs="#f0050"/>
+der Handlung, und das Schöne in der Betrachtung,<lb/>
+das Individuum ſelbſt aus ſeiner Individualität heraus¬<lb/>
+ziehend, in den ſchönen Seelen ſich vollendet, die fä¬<lb/>
+hig ſind, aus ihrer eingeſchränkten Ichheit, in das<lb/>
+Interesſe der Menſchheit hinüber ſchreitend, ſich in<lb/>
+die Gattung zu verlieren.</p><lb/>
+<p>Ehe ſie aber bis dahin ſich erhebt, muſs die Dul¬<lb/>
+dung des Einzelnen vorhergehn. — Die Gattung iſt<lb/>
+mit dem Individuum, die Erſcheinung mit der Wirk¬<lb/>
+lichkeit im ewigen Kampfe. —</p><lb/>
+<p>Sobald die Erſcheinung in der Gattung, über die<lb/>
+Wirklichkeit in dem Individuum geſiegt hat, geht das<lb/>
+bitterſte Leiden, durch das über die Individualität er¬<lb/>
+habne Mitleid, in die ſüsſeſte Wehmuth über; und<lb/>
+der Begriff des höchſten Schädlichen in der Wirklich¬<lb/>
+keit, löſst ſich in den Begriff des höchſten Schönen in<lb/>
+der Erſcheinung, auf.</p><lb/>
+<p>Und ſo wie jedes Schöne in der Erſcheinung nur<lb/>
+in dem Maasſe ſchön iſt, als es nicht nützlich zu<lb/>
+ſeyn braucht, ſo iſt es auch nur in dem Maasſe ſchön,<lb/>
+als es, wenn es wirklich wäre, ſchädlich ſeyn wür¬<lb/>
+de; und doch auch wieder nicht ſchädlich ſeyn würde —<lb/>
+in ſofern das Wort ſchädlich von untergeordneten,<lb/>
+ſelbſt der Schönheit huldigenden Weſen ausgeſprochen<lb/>
+wird, die nicht wünſchen können, daſs das Schöne<lb/>
+vertilgt ſeyn mögte, damit es keine Zerſtöhrung an¬<lb/>
+<fw type="catch" place="bottom">rich¬<lb/>
+</fw>
+<pb n="45" facs="#f0051"/>
+richte; ſondern die Schuld der Zerſtöhrung von der<lb/>
+Schönheit ab, auf die Nothwendigkeit der Dinge,<lb/>
+oder höhere Mächte wälzen: wie der Greis Priamus<lb/>
+beim Homer, der die erhabne, ſelbſt über den durch<lb/>
+ſie geſtifteten Jammer weinende Schönheit, mit ſanf¬<lb/>
+ten Worten tröſtet:</p><lb/>
+<lg>     <l>Tochter, du biſt nicht, die unſterblichen Götter ſind ſchuldig,</l><lb/>
+<l>Welche den traurigen Krieg mir mit Achaja erregten.</l></lg><lb/>
+<p>Und die zürnenden Trojaner, welche die ver¬<lb/>
+derbliche Urſach des Krieges laut verwünſchen, kön¬<lb/>
+nen ſich nicht enthalten, bei der Ankunft des göttli¬<lb/>
+chen Weibes, ſich ins Ohr zu flüſtern:</p><lb/>
+<lg> <l>Wahrlich, ſie ſind nicht zu ſchelten, die ſchön geſtiefelten Griechen,</l><lb/>
+<l>Und die Trojaner, um ſolch ein Weib ſo vieles zu dulden:</l><lb/>
+<l>Denn den Unſterblichen gleicht ſie an Wuchs und ſchöner Gebehrde.</l></lg><lb/>
+<p>Der Kampf muſs alſo durchgekämpft, das grosſe<lb/>
+Opfer muſs dargebracht werden. — Das Geklirr<lb/>
+der Waffen, und das Geſchrei der Sterbenden muſs<lb/>
+gen Himmel tönen — Hektor muſs fallen, und He¬<lb/>
+kuba ihr Haar zerraufen. —</p><lb/>
+<p>Hat dann die Zeit über die Zerſtöhrung ihre Fur¬<lb/>
+che hingezogen; ſo nimmt die Nachwelt den Jammer<lb/>
+der Vorwelt in ihren Buſen auf, und macht ihn, wie<lb/>
+ein köſtliches Kleinod, ſich zu eigen, durch welches<lb/>
+der Menſchheit ihr dauernder Werth geſichert, und<lb/>
+ihre edelſte zarteſte Bildung vollendet wird.<lb/>
+</p> <fw type="catch" place="bottom">Denn<lb/>
+</fw>
+<pb n="46" facs="#f0052"/>
+<p>Denn in der Duldung liegt der Kern zu jeder hö¬<lb/>
+hern Entwicklung; und die Freude ſelbſt nimmt, wo<lb/>
+ſie am höchſten ſteigt, von der jungfräulichen Hoff¬<lb/>
+nung und dem geliebten Kummer, mit ſüsſen Thränen,<lb/>
+Abſchied. — Der freudige Stoff der Dichtkunſt löſst<lb/>
+ſich in ſich ſelber, der tragiſche in der Veredlung un¬<lb/>
+ſres Weſens durch das Mitleid, auf.</p><lb/>
+<p>Je weniger wir nämlich das ſchadende und ver¬<lb/>
+nichtende ſelbſt vertilgt wünſchen, und uns dennoch<lb/>
+nicht enthalten können, vor der nahen, unvermeidlichen<lb/>
+Vernichtung eines Weſens unſrer Art, zu zittern, um<lb/>
+deſto edler und reiner muſs unſer Mitleid werden, weil<lb/>
+es mit keiner Bitterkeit und keinem Haſs gegen die<lb/>
+zerſtöhrende Obermacht mehr vermiſcht iſt, ſondern<lb/>
+ganz in ſich ſelbſt verſunken, ſich zu der unaufhalt¬<lb/>
+baren Thräne ründet, worinn unſer ganzes mitleiden¬<lb/>
+des Weſen, aus ſeinem zarteſten Vollendungspunkte,<lb/>
+ſich aufzulöſen und zu zerfliesſen ſtrebt.</p><lb/>
+<p>Wir können aber das vernichtende Vollkommnere<lb/>
+in ſofern nicht vertilgt wünſchen, als wir uns zugleich<lb/>
+ſelbſt in ihm doppelt vernichtet fühlen würden. —</p><lb/>
+<p>Denn in ſofern das Schöne alles Mangelhafte von<lb/>
+ſich ausſchlieſst, begreift es auch alles Wirkliche in<lb/>
+ſich, das bloſs durch ſein Mangelhaftes ſich von dem<lb/>
+Schönen unterſcheidet, und eben deswegen ſich un¬<lb/>
+widerſtehlich von ihm angezogen fühlt, und mit ihm<lb/>
+<fw type="catch" place="bottom">eins<lb/>
+</fw>
+<pb n="47" facs="#f0053"/>
+eins zu ſeyn ſtrebt, weil es in dem Schönen das<lb/>
+Ganze erkennt, von dem es ſelber nur ein Theil iſt.</p><lb/>
+<p>Indem nun aber das Schöne alles Mangelhafte von<lb/>
+ſich ausſchlieſst, und alles Wirkliche in ſich begreift,<lb/>
+ohne doch alles Wirkliche ſelbſt zu ſeyn, findet es,<lb/>
+ſelbſt da, wo es wirklich iſt, für jedes Individuum,<lb/>
+das mit ihm nicht eins werden kann, immer nur in<lb/>
+der Erſcheinung ſtatt.</p><lb/>
+<p>Wenn nun bei dieſem Individuum die Empfindung<lb/>
+die Thatkraft überwiegt, und alſo die Thatkraft durch<lb/>
+Zerſtöhrung ſich nicht rächen kann; ſo muſs das Indivi¬<lb/>
+duum für den Raub, den es durch die Erkenntniſs<lb/>
+des ihm unerreichbaren Schönen, an ſeiner Individua¬<lb/>
+lität begangen hat, mit Höllenquaalen büsſen.</p><lb/>
+<p>Syſiphus wälzt den Stein — Tantalus lechzt nach<lb/>
+der von ſeinen Lippen ewig weichenden Fluth. —</p><lb/>
+<p>Allein die Qualen ſind nur dem Individuum ſchreck¬<lb/>
+lich, und werden in der Gattung ſchön ſobald</p><lb/>
+<p>daher die Gattung in dem Individuum ſich vollendet,<lb/>
+löſst ſein Leiden ſich von ihm ab, und geht in die Er¬<lb/>
+ſcheinung, die Empfindung geht in die Bildung<lb/>
+über — was von dem bildenden Weſen ſich zerſtöhrt,<lb/>
+iſt ſein Phantom — das veredelte Daſeyn bleibt zurück.<lb/>
+</p> <fw type="catch" place="bottom">Eben<lb/>
+</fw>
+<pb n="48" facs="#f0054"/>
+<p>Eben dieſe Erſcheinung aber faſst das alles in ſich,<lb/>
+was die Wirklichkeit hätte zerſtöhren müsſen, wenn<lb/>
+ſie nicht die Macht gehabt hätte, es von ſich abzulö¬<lb/>
+ſen, und bildend ausſer ſich darzuſtellen. — So wie<lb/>
+jedes vollkommne Kunſtwerk ſeinen Urheber, oder<lb/>
+was ihn umgiebt, würde zernichtet haben, wenn es<lb/>
+ſich aus ſeiner Kraft nicht hätte entwickeln können.</p><lb/>
+<p>In dieſem Punkte treffen alſo Zerſtöhrung und Bil¬<lb/>
+dung in eins zuſammen — Denn das höchſte Schöne<lb/>
+der bildenden Künſte, faſst dieſelbe Summe der Zer¬<lb/>
+ſtöhrung, in einander gehüllt, auf einmal in ſich,<lb/>
+welche die erhabenſte Dichtkunſt, nach dem Maaſs des<lb/>
+Schönen, auseinander gehüllt, in furchtbarer Folge<lb/>
+uns vor Augen legt.</p><lb/>
+<p>Iſt es nicht die immerwährende Zerſtöhrung des<lb/>
+Einzelnen, wodurch die Gattung in ewiger Jugend<lb/>
+und Schönheit ſich erhält?</p><lb/>
+<p>Und iſt es nicht die durch die reinſte Imagination<lb/>
+zum Gott verkörperte Jugend und Schönheit ſelbſt,<lb/>
+welche mit ſanftem Geſchoſs die Menſchen tödtet; oder<lb/>
+mit Köcher und Bogen zürnend einher tritt, düſter und<lb/>
+furchtbar, wie Schrecken der Nächte — den ſilbernen<lb/>
+Bogen ſpannt — und die verderbenden Pfeile in das<lb/>
+Lager der Griechen ſendet? —</p><lb/>
+<p>Sobald nämlich in der vollendeten Schönheit die<lb/>
+Gattung ſich ſelbſt erblickt, kann ſie das, worinn ſie<lb/>
+<fw type="catch" place="bottom">eigent¬<lb/>
+</fw>
+<pb n="49" facs="#f0055"/>
+eigentlich erſt ſich ſelbſt beſitzt, nicht anders, als für<lb/>
+das gröſste Kleinod halten, welches in ſofern es nicht<lb/>
+als Erſcheinung, ſondern als wirklich betrachtet wird,<lb/>
+alles Einzelne aufwiegt.</p><lb/>
+<p>Weil es nun von jedem als wirklich betrachtet wer¬<lb/>
+den kann, ſo wird das Einzelne dadurch gezwungen,<lb/>
+ſich wieder unter einander aufzuwiegen, damit ſein<lb/>
+verhältniſsmäsſiger Werth gegen das Schöne ſichtbar<lb/>
+werde, der ſich nicht anders, als durch die Zerſtöh¬<lb/>
+rung des Schwächern durch das Stärkre, und des Un¬<lb/>
+vollkommnern, durch das Vollkommnere, zeigen kann.</p><lb/>
+<p>Auf die Weiſe ſchreibt die Schönheit der Zerſtöh¬<lb/>
+rung ſelbſt ihr edles Maaſs vor — wo nicht, ſo regen<lb/>
+die Zähne des Drachen ſich in der lockern Erde — die<lb/>
+Saat des Kadmus keimt in geharniſchten Männern auf,<lb/>
+die ihre Schwerdter gegen einander kehren, und ehe<lb/>
+vom Streit nicht ruhn, bis ihre Leiber wieder den Bo¬<lb/>
+den küsſen. —</p><lb/>
+<p>Weil nun durch die Erſcheinung der individuellen<lb/>
+Schönheit dieſelbe Summe der Zerſtöhrung des Einzel¬<lb/>
+nen, in einem kürzern Zeitraume, ſichtbar wird, wel¬<lb/>
+che zur Erhaltung der immerwährenden Jugend und<lb/>
+Schönheit, in der Gattung überhaupt, durch Alter und<lb/>
+Krankheit, faſt unmerklich ihren Fortſchritt hält:<lb/>
+</p> <fw type="sig" place="bottom">D<lb/>
+</fw> <fw type="catch" place="bottom">Und<lb/>
+</fw>
+<pb n="30" facs="#f0056"/>
+<p>Und weil wir dieſe Zerſtöhrung mit der individuel¬<lb/>
+len Schönheit, durch welche ſie unmittelbar bewirkt<lb/>
+wird, uns zuſammen denken:</p><lb/>
+<p>So giebt das Schöne, in welches die Zerſtöhrung<lb/>
+ſelbſt ſich wieder auflöſst, uns gleichſam ein Vorge¬<lb/>
+fühl von jener grosſen Harmonie, in welche Bildung<lb/>
+und Zerſtöhrung einſt Hand in Hand, hinüber gehn.</p><lb/>
+<p>Und die immerwährende Zerſtöhrung des Schwä¬<lb/>
+chern durch das Stärkre, und des Unvollkommnern<lb/>
+durch das Vollkommnere, ſcheint uns in eben dem<lb/>
+Maasſe, wie die unaufhörliche Bildung des Unvoll¬<lb/>
+kommnern zum Vollkommern, dem ewigen Schönen<lb/>
+nachzuahmen, das, über Zerſtöhrung und Bildung<lb/>
+ſelbſt erhaben, in der Himmelswölbung und auf der<lb/>
+ſtillen Meeresfläche ruhend, ſich uns am reinſten dar¬<lb/>
+ſtellt. —</p><lb/>
+<p>Allein unſer Begriff des Schönen verliert ſich zu¬<lb/>
+letzt doch immer wieder in den Begriff der Nachah¬<lb/>
+mung von etwas, worinn das Vollendete ſich wieder<lb/>
+zu vollenden, und unſer eignes Weſen, in jeder Aeuſs¬<lb/>
+rung ſeines Daſeyns, uns unbewuſst, ſich aufzulöſen<lb/>
+ſtrebt.</p><lb/>
+<p>Wo nun die Auflöſung eines Weſens unſrer Art,<lb/>
+an unmittelbarſten durch die ſchönen Verhältnisſe des<lb/>
+Ganzen ſelbſt bewirkt wird, und in der edelſten Bil¬<lb/>
+<fw type="catch" place="bottom">dung<lb/>
+</fw>
+<pb n="51" facs="#f0057"/>
+dung dieſes Weſens ſelbſt ſich gründet, da ſcheinet in<lb/>
+der Darſtellung ſeiner Leiden, die immerwährende<lb/>
+Auflöſung unſres eignen Weſens, auf einige Augen¬<lb/>
+blicke, uns bewuſst zu werden, indem uns dünkt, als<lb/>
+ob, im ſchönen Wiederſchein herbeigezaubert, ein<lb/>
+Stück aus jenem grosſen Zirkel vor uns ſchwebte,<lb/>
+in welchen unſre kleinere Laufbahn ſich einſt verlieren<lb/>
+wird. —</p><lb/>
+<p>So vollendet die Liebe unſer Weſen — das erhab¬<lb/>
+nere Mitleid aber blickt thränend auf die Vollendung<lb/>
+ſelbſt herab — Weil es Aufhören und Werden, Zer¬<lb/>
+ſtöhrung und Bildung in eins zuſammenfaſst.</p><lb/>
+<p>Und wenn jemals ein ſchwacher Schimmer des<lb/>
+über Zerſtöhrung und Bildung erhabnen Schönen ſich<lb/>
+uns zeigen kann, ſo muſs es auf dem Punkte ſeyn, wo<lb/>
+es aus der über unſerm Haupte ſchwebenden Zerſtöh¬<lb/>
+rung ſelbſt uns wieder entgegen lächelt. —</p><lb/>
+<p>Das Auge blickt dann, ſich ſelber ſpiegelnd, aus<lb/>
+der Fülle des Daſeyns auf. —</p><lb/>
+<p>Die Erſcheinung iſt mit der Wirklichkeit, die Gat¬<lb/>
+tung mit dem Individuum eins geworden. —</p><lb/>
+<p>Tod und Zerſtöhrung ſelbſt verlieren ſich in den<lb/>
+Begriff der ewig bildenden Nachahmung des über<lb/>
+<fw type="catch" place="bottom">die<lb/>
+</fw> <fw type="sig" place="bottom">D 2<lb/>
+</fw>
+<pb n="52" facs="#f0058"/>
+die Bildung ſelbſt erhabnen Schönen, dem nicht<lb/>
+anders als, durch immerwährend ſich verjüngen¬<lb/>
+des Daſeyn, nachgeahmt werden kann.</p><lb/>
+<p>Durch dieſs ſich ſtets verjüngende Daſeyn, ſind<lb/>
+wir ſelber.</p><lb/>
+<p>Daſs wir ſelber ſind, iſt unſer höchſter und edel¬<lb/>
+ſter Gedanke. —</p><lb/>
+<p>Und von ſterblichen Lippen, läſst ſich kein erhab¬<lb/>
+neres Wort vom Schönen ſagen, als: es iſt!</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0059"/>
+<pb facs="#f0060"/>
+<pb facs="#f0061"/>
+</body> </text> </TEI>

@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Max und Moritz</title>
+<title type="sub">eine Bubengeschichte in sieben Streichen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118517880">
+<surname>Busch</surname>
+<forename>Wilhelm</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">119</measure>
+<measure type="tokens">2234</measure>
+<measure type="types">976</measure>
+<measure type="characters">15241</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:42Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/busch_max_1865</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/busch_max_1865</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/busch_max_1865</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/busch_max_1865</idno>
+<idno type="DTADirName">busch_max_1865</idno>
+<idno type="DTAID">16419</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-20090519738</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Busch, Wilhelm: Max und Moritz. München, 1865.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Max und Moritz</title>
+<title level="m" type="sub">eine Bubengeschichte in sieben Streichen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118517880">
+<surname>Busch</surname>
+<forename>Wilhelm</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">53 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Braun und Schneider</name></publisher>
+<pubPlace>München</pubPlace>
+<date type="publication">1865</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, B III b, 2287 R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=026778564</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Kinderliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Kinderliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b">Max und Moritz</hi><lb/>
+</titlePart> <titlePart type="sub"> <hi rendition="#b">eine<lb/>
+Bubengeſchichte<lb/>
+in<lb/>
+ſieben Streichen.</hi></titlePart> </docTitle><lb/>
+<byline> von<lb/>
+<docAuthor> Wihelm Busch.<lb/>
+</docAuthor> </byline> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <publisher> <hi rendition="#b">München</hi>,<lb/>
+Verlag von Braun und Schneider.<lb/>
+</publisher> </docImprint> </titlePage>
+<pb facs="#f0008"/>
+</front>
+<pb facs="#f0009"/>
+<body> <div n="1"> <head> <hi rendition="#b #g">Vorwort.</hi><lb/>
+</head> <lg type="poem"> <l>Ach, was muß man oft von böſen</l><lb/>
+<l>Kinder<supplied>n</supplied> hören oder leſen!</l><lb/>
+<l>Wie zum Beiſpiel hier von dieſen,</l><lb/>
+<figure/><lb/>
+<l>Welche Max und Moritz hießen.</l><lb/>
+<l>Die, anſtatt durch weiſe Lehren</l><lb/>
+<l>Sich zum Guten zu bekehren,</l><lb/>
+<l>Oftmals noch darüber lachten</l><lb/>
+<l>Und ſich heimlich luſtig machten. —</l><lb/>
+<l>— Ja, zur Uebelthätigkeit,</l><lb/>
+<l>Ja, dazu iſt man bereit! —</l><lb/>
+<l>— Menſchen necken, Thiere quälen;</l><lb/>
+<l>Aepfel, Birnen, Zwetſchgen ſtehlen —</l><lb/>
+<l>Das iſt freilich angenehmer</l><lb/>
+<l>Und dazu auch viel bequemer,</l><lb/>
+<l>Als in Kirche oder Schule</l><lb/>
+<l>Feſtzuſitzen auf dem Stuhle. —</l><lb/>
+<l>— Aber wehe, wehe, wehe!</l><lb/>
+<l>Wenn ich auf das Ende ſehe!! —</l><lb/>
+<l>— Ach, das war ein ſchlimmes Ding,</l><lb/>
+<l>Wie es Max und Moritz ging.</l><lb/>
+<l>— Drum iſt hier, was ſie getrieben,</l><lb/>
+<l>Abgemalt und aufgeſchrieben.</l> </lg><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb facs="#f0010"/>
+<pb facs="#f0011"/>
+<div n="1"> <head> <hi rendition="#b">Erſter Streich.</hi><lb/>
+</head> <lg type="poem"> <l>Mancher giebt ſich viele Müh'</l><lb/>
+<l>Mit dem lieben Federvieh;</l><lb/>
+<l>Eines Theils der Eier wegen,</l><lb/>
+<l>Welche dieſe Vögel legen,</l><lb/>
+<l>Zweitens: weil man dann und wann</l><lb/>
+<l>Einen Braten eſſen kann;</l><lb/>
+<l>Drittens aber nimmt man auch</l><lb/>
+<l>Ihre Federn zum Gebrauch</l><lb/>
+<l>In die Kiſſen und die Pfühle,</l><lb/>
+<l>Denn man liegt nicht gerne kühle. —</l><lb/>
+<figure/> <l>Seht, da iſt die Wittwe Bolte,</l><lb/>
+<l>Die das auch nicht gerne wollte.</l><lb/>
+<fw type="sig" place="bottom">1<lb/>
+</fw>
+<pb facs="#f0012"/>
+<pb n="2" facs="#f0013"/>
+<figure/> <l>Ihrer Hühner waren drei</l><lb/>
+<l>Und ein ſtolzer Hahn dabei. —</l><lb/>
+<l>Max und Moritz dachten nun:</l><lb/>
+<l>Was iſt hier jetzt wohl zu thun? —</l><lb/>
+<l>— Ganz geſchwinde eins, zwei drei</l><lb/>
+<l>Schneiden ſie ſich Brot entzwei,</l><lb/>
+<l>In vier Theile, jedes Stück</l><lb/>
+<l>Wie ein kleiner Finger dick.</l><lb/>
+<l>Dieſe binden ſie an Fäden,</l><lb/>
+<l>Ueber's Kreuz, ein Stück an jeden</l><lb/>
+<figure/> <l>Und verlegen ſie genau</l><lb/>
+<l>In den Hof der guten Frau. —</l><lb/>
+<fw type="sig" place="bottom">1*<lb/>
+</fw>
+<pb facs="#f0014"/>
+<pb n="3" facs="#f0015"/>
+<figure/> <l>Kaum hat dies der Hahn geſehen</l><lb/>
+<l>Fängt er auch ſchon an zu krähen:</l><lb/>
+<l>Kikeriki! Kikikerikih!! —</l><lb/>
+<l>Tak, tak, tak! — da kommen ſie.</l><lb/>
+<figure/> <l>Hahn und Hühner ſchlucken munter</l><lb/>
+<l>Jedes ein Stück Brot hinunter;</l><lb/>
+<pb facs="#f0016"/>
+<pb n="4" facs="#f0017"/>
+<figure/> <l>Aber als ſie ſich beſinnen</l><lb/>
+<l>Konnte keines recht von hinnen.</l><lb/>
+<figure/> <l>In die Kreuz und in die Quer</l><lb/>
+<l>Reißen ſie ſich hin und her,</l><lb/>
+<pb facs="#f0018"/>
+<pb n="5" facs="#f0019"/>
+<figure/> <l>Flattern auf und in die Höh,</l><lb/>
+<l>Ach herjeh, herjemineh!</l><lb/>
+<figure/> <l>Ach, ſie bleiben an dem langen</l><lb/>
+<l>Dürren Aſt des Baumes hangen. —</l><lb/>
+<l>— Und ihr Hals wird lang und länger,</l><lb/>
+<l>Ihr Geſang wird bang und bänger,</l><lb/>
+<pb facs="#f0020"/>
+<pb n="6" facs="#f0021"/>
+<figure/> <l>Jedes legt noch ſchnell ein Ei</l><lb/>
+<l>Und dann kommt der Tod herbei. —</l><lb/>
+<figure/> <l>Wittwe Bolte, in der Kammer,</l><lb/>
+<l>Hört im Bette dieſen Jammer;</l><lb/>
+<pb facs="#f0022"/>
+<pb n="7" facs="#f0023"/>
+<figure/> <l>Ahnungsvoll tritt ſie heraus:</l><lb/>
+<l>Ach, was war das für ein Graus!</l><lb/>
+<figure/> <l>„Fließet aus dem Aug' ihr Thränen!</l><lb/>
+<l>„All mein Hoffen, all mein Sehnen,</l><lb/>
+<l>„Meines Lebens ſchönſter Traum</l><lb/>
+<l>„Hängt an dieſem Apfelbaum!“</l><lb/>
+<pb facs="#f0024"/>
+<pb n="8" facs="#f0025"/>
+<figure/> <l>Tiefbetrübt und ſorgenſchwer</l><lb/>
+<l>Kriegt ſie jetzt das Meſſer her,</l><lb/>
+<l>Nimmt die Todten von den Strängen,</l><lb/>
+<l>Daß ſie ſo nicht länger hängen,</l> <lb/>
+<figure/><lb/>
+<cb type="start"/>
+<l>Und mit ſtummen Trauerblick</l><lb/>
+<l>Kehrt ſie in ihr Haus zurück.</l> <cb/>
+<l>Dieſes war der erſte Streich</l><lb/>
+<l>Doch der zweite folgt ſogleich.</l> </lg> <cb type="end"/>
+<lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0026"/>
+<pb n="9" facs="#f0027"/>
+</div> <div n="1"> <head> <hi rendition="#b">Zweiter Streich.</hi><lb/>
+</head> <lg type="poem"> <l>Als die gute Wittwe Bolte</l><lb/>
+<l>Sich von ihrem Schmerz erholte,</l><lb/>
+<l>Dachte ſie ſo hin und her,</l><lb/>
+<l>Daß es wohl das Beſte wär,</l><lb/>
+<l>Die Verſtorb'nen, die hienieden</l><lb/>
+<l>Schon ſo frühe abgeſchieden,</l><lb/>
+<l>Ganz im Stillen und in Ehren</l><lb/>
+<l>Gut gebraten zu verzehren. —</l><lb/>
+<l>— Freilich war die Trauer groß,</l><lb/>
+<l>Als ſie nun ſo nackt und bloß</l><lb/>
+<l>Abgerupft am Heerde lagen,</l><lb/>
+<l>Sie, die einſt in ſchönen Tagen</l><lb/>
+<l>Bald im Hofe, bald im Garten</l><lb/>
+<l>Lebensfroh im Sande ſcharrten. —</l><lb/>
+<figure/> <l>Ach, Frau Bolte weint auf's Neu,</l><lb/>
+<l>Und der Spitz ſteht auch dabei.</l><lb/>
+<fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb facs="#f0028"/>
+<pb n="10" facs="#f0029"/>
+<l>Max und Moritz rochen dieſes;</l><lb/>
+<l>„Schnell auf's Dach gekrochen!“ hieß es.</l><lb/>
+<figure/> <l>Durch den Schornſtein mit Vergnügen</l><lb/>
+<l>Sehen ſie die Hühner liegen,</l><lb/>
+<l>Die ſchon ohne Kopf und Gurgeln</l><lb/>
+<l>Lieblich in der Pfanne ſchmurgeln. —</l><lb/>
+<figure/> <fw type="sig" place="bottom">2*<lb/>
+</fw>
+<pb facs="#f0030"/>
+<pb n="11" facs="#f0031"/>
+<l>Eben geht mit einem Teller</l><lb/>
+<l>Wittwe Bolte in den Keller,</l><lb/>
+<figure/> <l>Daß ſie von dem Sauerkohle</l><lb/>
+<l>Eine Portion ſich hole,</l><lb/>
+<l>Wofür ſie beſonders ſchwärmt,</l><lb/>
+<l>Wenn er wieder aufgewärmt. —</l><lb/>
+<l>— Unterdeſſen auf dem Dache</l><lb/>
+<l>Iſt man thätig bei der Sache.</l><lb/>
+<l>Max hat ſchon mit Vorbedacht</l><lb/>
+<l>Eine Angel mitgebracht.</l><lb/>
+<pb facs="#f0032"/>
+<pb n="12" facs="#f0033"/>
+<figure/> <l>Schnupdiwup! Da wird nach oben</l><lb/>
+<l>Schon ein Huhn herauf gehoben;</l><lb/>
+<pb facs="#f0034"/>
+<pb n="13" facs="#f0035"/>
+<l>Schnupdiwup! Jetzt Numro zwei;</l><lb/>
+<l>Schnupdiwup! Jetzt Numro drei;</l><lb/>
+<l>Und jetzt kommt noch Numro vier:</l><lb/>
+<l>Schnupdiwup! Dich haben wir! —</l><lb/>
+<l>— Zwar der Spitz ſah es genau,</l><lb/>
+<l>Und er bellt: Rawau! Rawau!</l><lb/>
+<figure/> <l>Aber ſchon ſind ſie ganz munter</l><lb/>
+<l>Fort und von dem Dach herunter. —</l><lb/>
+<l>— Na! Das wird Spektakel geben,</l><lb/>
+<l>Denn Frau Bolte kommt ſoeben; —</l><lb/>
+<l>— Angewurzelt ſtand ſie da,</l><lb/>
+<l>Als ſie nach der Pfanne ſah.</l><lb/>
+<pb facs="#f0036"/>
+<pb n="14" facs="#f0037"/>
+<figure/> <l>Alle Hühner waren fort,</l><lb/>
+<l>Spitz! — Das war ihr erſtes Wort.</l><lb/>
+<figure/> <l>Oh, du Spitz, du Ungethüm!</l><lb/>
+<l>Aber wart! ich komme ihm!</l><lb/>
+<pb facs="#f0038"/>
+<pb n="15" facs="#f0039"/>
+<figure/> <l>Mit dem Löffel, groß und ſchwer,</l><lb/>
+<l>Geht es über Spitzen her;</l><lb/>
+<l>Laut ertönt ſein Wehgeſchrei,</l><lb/>
+<l>Denn er fühlt ſich ſchuldenfrei.</l><lb/>
+<figure/> <l>Max und Moritz im Verſtecke,</l><lb/>
+<l>Schnarchen aber an der Hecke,</l><lb/>
+<l>Und vom ganzen Hühnerſchmaus</l><lb/>
+<l>Guckt nur noch ein Bein heraus.</l><lb/>
+<milestone unit="section" rendition="#hr"/> <l>Dieſes war der zweite Streich,</l><lb/>
+<l>Doch der dritte folgt ſogleich.</l> </lg><lb/>
+<pb facs="#f0040"/>
+<pb n="16" facs="#f0041"/>
+</div> <div n="1"> <head> <hi rendition="#b">Dritter Streich.</hi><lb/>
+</head> <lg type="poem"> <l>Jedermann im Dorfe kannte</l><lb/>
+<l>Einen, der ſich Böck benannte.</l><lb/>
+<figure/> <l>Alltagsröcke, Sonntagsröcke,</l><lb/>
+<l>Lange Hoſen, ſpitze Fräcke,</l><lb/>
+<l>Weſten mit bequemen Taſchen,</l><lb/>
+<l>Warme Mäntel und Gamaſchen —</l><lb/>
+<l>Alle dieſe Kleidungsſachen</l><lb/>
+<l>Wußte Schneider Böck zu machen. —</l><lb/>
+<l>Oder wäre was zu flicken,</l><lb/>
+<l>Abzuſchneiden, anzuſtücken,</l><lb/>
+<l>Oder gar ein Knopf der Hoſe</l><lb/>
+<l>Abgeriſſen oder loſe —</l><lb/>
+<l>Wie und wo und was es ſei,</l><lb/>
+<l>Hinten, vorne, einerlei —</l><lb/>
+<l>Alles macht der Meiſter Böck,</l><lb/>
+<l>Denn das iſt ſein Lebenszweck. —</l><lb/>
+<l>D'rum ſo hat in der Gemeinde</l><lb/>
+<l>Jedermann ihn gern zum Freunde. —</l><lb/>
+<l>— Aber Max und Moritz dachten,</l><lb/>
+<l>Wie ſie ihn verdrießlich machten.</l><lb/>
+<pb facs="#f0042"/>
+<pb n="17" facs="#f0043"/>
+<l>Nämlich vor des Meiſters Hauſe</l><lb/>
+<l>Floß ein Waſſer mit Gebrauſe.</l><lb/>
+<figure/> <l>Ueber's Waſſer führt ein Steg</l><lb/>
+<l>Und darüber geht der Weg.</l><lb/>
+<figure/> <l>Max und Moritz, gar nicht träge,</l><lb/>
+<l>Sägen heimlich mit der Säge,</l><lb/>
+<l>Ritzeratze! voller Tücke,</l><lb/>
+<l>In die Brücke eine Lücke.</l><lb/>
+<fw type="sig" place="bottom">3<lb/>
+</fw>
+<pb facs="#f0044"/>
+<pb n="18" facs="#f0045"/>
+<l>Als nun dieſe That vorbei,</l><lb/>
+<l>Hört man plötzlich ein Geſchrei:</l><lb/>
+<figure/> <l>„He, heraus! du Ziegen-Böck!</l><lb/>
+<l>Schneider, Schneider, meck, meck, meck!“ —</l><lb/>
+<l>— Alles konnte Böck ertragen,</l><lb/>
+<l>Ohne nur ein Wort zu ſagen;</l><lb/>
+<l>Aber wenn er dies erfuhr,</l><lb/>
+<l>Gings ihm wider die Natur.</l><lb/>
+<figure/> <l>Schnelle ſpringt er mit der Elle</l><lb/>
+<l>Ueber ſeines Hauſes Schwelle,</l><lb/>
+<l>Denn ſchon wieder ihm zum Schreck</l><lb/>
+<l>Tönt ein lautes: „Meck, meck, meck!“</l><lb/>
+<fw type="sig" place="bottom">3*<lb/>
+</fw>
+<pb facs="#f0046"/>
+<pb n="19" facs="#f0047"/>
+<figure/> <l>Und ſchon iſt er auf der Brücke,</l><lb/>
+<l>Kracks! Die Brücke bricht in Stücke;</l><lb/>
+<figure/> <l>Wieder tönt es: „Meck, meck, meck!“</l><lb/>
+<l>Plums! Da iſt der Schneider weg!</l><lb/>
+<pb facs="#f0048"/>
+<pb n="20" facs="#f0049"/>
+<l>Grad als dieſes vorgekommen</l><lb/>
+<l>Kommt ein Gänſepaar geſchwommen,</l><lb/>
+<figure/> <l>Welches Böck in Todeshaſt</l><lb/>
+<l>Krampfhaft bei den Beinen faßt.</l><lb/>
+<figure/> <l>Beide Gänſe in der Hand,</l><lb/>
+<l>Flattert er auf trocknes Land.</l><lb/>
+<pb facs="#f0050"/>
+<pb n="21" facs="#f0051"/>
+<figure/> <l>Uebrigens bei Alle dem</l><lb/>
+<l>Iſt ſo etwas nicht bequem;</l><lb/>
+<figure/> <figure/> <figure/> <figure/> <l>Wie denn Böck von der Geſchichte</l><lb/>
+<l>Auch das Magendrücken kriegte.</l><lb/>
+<pb facs="#f0052"/>
+<pb n="22" facs="#f0053"/>
+<figure/> <l>Hoch iſt hier Frau Böck zu preiſen!</l><lb/>
+<l>Denn ein heißes Bügeleiſen,</l><lb/>
+<l>Auf den kalten Leib gebracht,</l><lb/>
+<l>Hat es wieder gutgemacht.</l><lb/>
+<figure/> <cb type="start"/>
+<l>— Bald im Dorf hinauf, hinunter,</l><lb/>
+<l>Hieß es, Böck iſt wieder munter!</l><lb/>
+<cb/>
+<l>Dieſes war der dritte Streich,</l><lb/>
+<l>Doch der vierte folgt ſogleich.</l> <cb type="end"/>
+</lg><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0054"/>
+<pb n="23" facs="#f0055"/>
+</div> <div n="1"> <head> <hi rendition="#b">Vierter Streich.</hi><lb/>
+</head> <lg type="poem"> <l>Alſo lautet ein Beſchluß:</l><lb/>
+<l>Daß der Menſch was lernen muß. —</l><lb/>
+<l>Nicht allein das A-B-C</l><lb/>
+<l>Bringt den Menſchen in die Höh';</l><lb/>
+<l>Nicht allein in Schreiben, Leſen</l><lb/>
+<l>Uebt ſich ein vernünftig Weſen;</l><lb/>
+<l>Nicht allein in Rechnungsſachen</l><lb/>
+<l>Soll der Menſch ſich Mühe machen;</l><lb/>
+<l>Sondern auch der Weisheit Lehren</l><lb/>
+<l>Muß man mit Vergnügen hören. —</l><lb/>
+<figure/> <l>Daß dies mit Verſtand geſchah,</l><lb/>
+<l>War Herr Lehrer Lämpel da. —</l><lb/>
+<l>— Max und Moritz, dieſe beiden,</l><lb/>
+<l>Mochten ihn darum nicht leiden;</l><lb/>
+<l>Denn wer böſe Streiche macht</l><lb/>
+<l>Giebt nicht auf den Lehrer Acht.</l><lb/>
+<pb facs="#f0056"/>
+<pb n="24" facs="#f0057"/>
+<l>Nun war dieſer brave Lehrer</l><lb/>
+<l>Von dem Tabak ein Verehrer,</l><lb/>
+<l>Was man ohne alle Frage</l><lb/>
+<l>Nach des Tages Müh und Plage</l><lb/>
+<l>Einem guten alten Mann</l><lb/>
+<l>Auch von Herzen gönnen kann. —</l><lb/>
+<l>— Max und Moritz, unverdroſſen,</l><lb/>
+<l>Sinnen aber ſchon auf Poſſen,</l><lb/>
+<l>Ob vermittelſt ſeiner Pfeifen</l><lb/>
+<l>Dieſer Mann nicht anzugreifen. —</l><lb/>
+<l>— Einſtens, als es Sonntag wieder,</l><lb/>
+<l>Und Herr Lämpel brav und bieder,</l><lb/>
+<figure/> <l>In der Kirche mit Gefühle</l><lb/>
+<l>Saß vor ſeinem Orgelſpiele,</l><lb/>
+<pb facs="#f0058"/>
+<pb n="25" facs="#f0059"/>
+<l>Schlichen ſich die böſen Buben</l><lb/>
+<l>In ſein Haus und ſeine Stuben,</l><lb/>
+<l>Wo die Meerſchaumpfeife ſtand;</l><lb/>
+<l>Max hält ſie in ſeiner Hand;</l><lb/>
+<figure/> <l>Aber Moritz aus der Taſche</l><lb/>
+<l>Zieht die Flintenpulverflaſche,</l><lb/>
+<l>Und geſchwinde, ſtopf, ſtopf, ſtopf!</l><lb/>
+<l>Pulver in den Pfeifenkopf. —</l><lb/>
+<l>Jetzt nur ſtill und ſchnell nach Haus,</l><lb/>
+<l>Denn ſchon iſt die Kirche aus. —</l><lb/>
+<figure/> <l>Eben ſchließt in ſanfter Ruh</l><lb/>
+<l>Lämpel ſeine Kirche zu;</l><lb/>
+<fw type="sig" place="bottom">4<lb/>
+</fw>
+<pb facs="#f0060"/>
+<pb n="26" facs="#f0061"/>
+<l>Und mit Buch und Notenheften,</l><lb/>
+<l>Nach beſorgten Amtsgeſchäften</l><lb/>
+<figure/> <l>Lenkt er freudig ſeine Schritte</l><lb/>
+<l>Zu der heimathlichen Hütte,</l><lb/>
+<figure/> <l>Und voll Dankbarkeit ſodann</l><lb/>
+<l>Zündet er ſein Pfeifchen an.</l><lb/>
+<fw type="sig" place="bottom">4*<lb/>
+</fw>
+<pb facs="#f0062"/>
+<pb n="27" facs="#f0063"/>
+<figure/> <l>„Ach!“ — ſpricht er — „die größte Freud'</l><lb/>
+<l>Iſt doch die Zufriedenheit!“</l><lb/>
+<figure/> <l>Rums! Da geht die Pfeife los</l><lb/>
+<l>Mit Getöſe, ſchrecklich groß.</l><lb/>
+<l>Kaffeetopf und Waſſerglas,</l><lb/>
+<l>Tabaksdoſe, Dintenfaß,</l><lb/>
+<l>Ofen, Tiſch und Sorgenſitz —</l><lb/>
+<l>Alles fliegt im Pulverblitz.</l><lb/>
+<pb facs="#f0064"/>
+<pb n="28" facs="#f0065"/>
+<figure/> <l>Als der Dampf ſich nun erhob,</l><lb/>
+<l>Sieht man Lämpel, der Gottlob!</l><lb/>
+<l>Lebend auf dem Rücken liegt;</l><lb/>
+<l>Doch er hat was abgekriegt.</l><lb/>
+<figure/> <l>Naſe, Hand, Geſicht und Ohren</l><lb/>
+<l>Sind ſo ſchwarz als wie die Mohren,</l><lb/>
+<l>Und des Haares letzter Schopf</l><lb/>
+<l>Iſt verbrannt bis auf den Kopf.</l><lb/>
+<pb facs="#f0066"/>
+<pb n="29" facs="#f0067"/>
+<l>Wer ſoll nun die Kinder lehren</l><lb/>
+<l>Und die Wiſſenſchaft vermehren?</l><lb/>
+<l>Wer ſoll nun für Lämpel leiten</l><lb/>
+<l>Seine Amtesthätigkeiten?</l><lb/>
+<l>Woraus ſoll der Lehrer rauchen,</l><lb/>
+<l>Wenn die Pfeife nicht zu brauchen?</l><lb/>
+<figure/> <cb type="start"/>
+<l>Mit der Zeit wird alles heil,</l><lb/>
+<l>Nur die Pfeife hat ihr Theil.</l><lb/>
+<cb/>
+<l>Dieſes war der vierte Streich,</l><lb/>
+<l>Doch der fünfte folgt ſogleich.</l> <cb type="end"/>
+<lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0068"/>
+<pb n="30" facs="#f0069"/>
+</lg> </div> <div n="1"> <head> <hi rendition="#b">Fünfter Streich.</hi><lb/>
+</head> <lg type="poem"> <l>Wer im Dorfe oder Stadt</l><lb/>
+<l>Einen Onkel wohnen hat,</l><lb/>
+<l>Der ſei höflich und beſcheiden,</l><lb/>
+<l>Denn das mag der Onkel leiden. —</l><lb/>
+<l>— Morgens ſagt man: „Guten Morgen!</l><lb/>
+<l>Haben Sie was zu beſorgen?“</l><lb/>
+<l>Bringt ihm was er haben muß:</l><lb/>
+<l>Zeitung, Pfeife, Fidibus. —</l><lb/>
+<l>Oder ſollt es wo im Rücken</l><lb/>
+<l>Drücken, beißen oder zwicken,</l><lb/>
+<l>Gleich iſt man mit Freudigkeit</l><lb/>
+<l>Dienſtbefliſſen und bereit. —</l><lb/>
+<l>Oder ſei's nach einer Priſe,</l><lb/>
+<l>Daß der Onkel heftig nieſe,</l><lb/>
+<l>Ruft man „Proſit!“ allſogleich,</l><lb/>
+<l>„Danke, wohl bekomm es Euch!“ —</l><lb/>
+<l>Oder kommt er ſpät nach Haus,</l><lb/>
+<l>Zieht man ihm die Stiefel aus,</l><lb/>
+<l>Holt Pantoffel, Schlafrock, Mütze,</l><lb/>
+<l>Daß er nicht im Kalten ſitze —</l><lb/>
+<l>Kurz man iſt darauf bedacht,</l><lb/>
+<l>Was dem Onkel Freude macht. —</l><lb/>
+<l>— Max und Moritz ihrerſeits</l><lb/>
+<l>Fanden darin keinen Reiz. —</l><lb/>
+<l>— Denkt euch nur, welch' ſchlechten Witz</l><lb/>
+<l>Machten ſie mit Onkel Fritz! —</l><lb/>
+<pb facs="#f0070"/>
+<pb n="31" facs="#f0071"/>
+<l>Jeder weiß was ſo ein Mai-</l><lb/>
+<l>Käfer für ein Vogel ſei. —</l><lb/>
+<figure/> <l>In den Bäumen hin und her</l><lb/>
+<l>Fliegt und kriecht und krabbelt er.</l><lb/>
+<figure/> <l>Max und Moritz, immer munter,</l><lb/>
+<l>Schütteln ſie vom Baum herunter.</l><lb/>
+<pb facs="#f0072"/>
+<pb n="32" facs="#f0073"/>
+<figure/> <l>In die Düte von Papiere</l><lb/>
+<l>Sperren ſie die Krabbelthiere.</l><lb/>
+<figure/> <l>Fort damit, und in die Ecke</l><lb/>
+<l>Unter Onkel Fritzen's Decke!</l><lb/>
+<pb facs="#f0074"/>
+<pb n="33" facs="#f0075"/>
+<figure/> <figure/> <l>Bald zu Bett geht Onkel Fritze</l><lb/>
+<l>In der ſpitzen Zippelmütze;</l><lb/>
+<l>Seine Augen macht er zu,</l><lb/>
+<l>Hüllt ſich ein und ſchläft in Ruh.</l><lb/>
+<figure/> <fw type="sig" place="bottom">5<lb/>
+</fw>
+<pb facs="#f0076"/>
+<pb n="34" facs="#f0077"/>
+<figure/> <l>Doch die Käfer, kritze kratze!</l><lb/>
+<l>Kommen ſchnell aus der Matratze.</l><lb/>
+<figure/> <l>Schon faßt einer, der voran,</l><lb/>
+<l>Onkel Fritzen's Naſe an.</l><lb/>
+<fw type="sig" place="bottom">5 *<lb/>
+</fw>
+<pb facs="#f0078"/>
+<pb n="35" facs="#f0079"/>
+<figure/> <l>„Bau!“ ſchreit er — „Was iſt das hier?“</l><lb/>
+<l>Und erfaßt das Ungethier.</l><lb/>
+<figure/> <l>Und den Onkel, voller Grauſen,</l><lb/>
+<l>Sieht man aus dem Bette ſauſen.</l><lb/>
+<pb facs="#f0080"/>
+<pb n="36" facs="#f0081"/>
+<figure/> <l>„Autſch!“ — Schon wieder hat er einen</l><lb/>
+<l>Im Genicke, an den Beinen;</l><lb/>
+<figure/> <l>Hin und her und rund herum</l><lb/>
+<l>Kriecht es, fliegt es mit Gebrumm.</l><lb/>
+<pb facs="#f0082"/>
+<pb n="37" facs="#f0083"/>
+<figure/> <l>Onkel Fritz, in dieſer Noth,</l><lb/>
+<l>Haut und trampelt alles todt.</l><lb/>
+<figure/> <l>Guckſte wohl! Jetzt iſt's vorbei</l><lb/>
+<l>Mit der Käferkrabbelei!</l><lb/>
+<pb facs="#f0084"/>
+<pb n="38" facs="#f0085"/>
+<figure/> <cb type="start"/>
+<l>Onkel Fritz hat wieder Ruh</l><lb/>
+<l>Und macht ſeine Augen zu.</l><lb/>
+<cb/>
+<l>Dieſes war der fünfte Streich,</l><lb/>
+<l>Doch der ſechste folgt ſogleich.</l> <cb type="end"/>
+</lg><lb/>
+<milestone unit="section" rendition="#hr"/> </div> <div n="1"> <head> <hi rendition="#b">Sechster Streich.</hi><lb/>
+</head> <lg type="poem"> <l>In der ſchönen Oſterzeit,</l><lb/>
+<l>Wenn die frommen Bäckersleut</l><lb/>
+<l>Viele ſüße Zuckerſachen</l><lb/>
+<l>Backen und zurechte machen,</l><lb/>
+<l>Wünſchten Max und Moritz auch</l><lb/>
+<l>Sich ſo Etwas zum Gebrauch.</l><lb/>
+<pb facs="#f0086"/>
+<pb n="39" facs="#f0087"/>
+<figure/> <l>Doch der Bäcker, mit Bedacht,</l><lb/>
+<l>Hat das Backhaus zugemacht.</l><lb/>
+<figure/> <l>Alſo will hier Einer ſtehlen,</l><lb/>
+<l>Muß er durch den Schlot ſich quälen.</l><lb/>
+<pb facs="#f0088"/>
+<pb n="40" facs="#f0089"/>
+<figure/> <l>Ratſch! Da kommen die zwei Knaben</l><lb/>
+<l>Durch den Schornſtein, ſchwarz wie Raben.</l><lb/>
+<figure/> <l>Puff! Sie fallen in die Kiſt',</l><lb/>
+<l>Wo das Mehl darinnen iſt.</l><lb/>
+<pb facs="#f0090"/>
+<pb n="41" facs="#f0091"/>
+<figure/> <l>Da! Nun ſind ſie alle beide</l><lb/>
+<l>Rund herum ſo weiß wie Kreide.</l><lb/>
+<figure/> <l>Aber ſchon mit viel Vergnügen</l><lb/>
+<l>Sehen ſie die Bretzeln liegen.</l><lb/>
+<fw place="bottom" type="sig">6<lb/>
+</fw>
+<pb facs="#f0092"/>
+<pb n="42" facs="#f0093"/>
+<figure/> <l>Knacks! — Da bricht der Stuhl entzwei;</l><lb/>
+<figure/> <l>Schwapp! — Da liegen ſie im Brei.</l><lb/>
+<fw type="sig" place="bottom">6*<lb/>
+</fw>
+<pb facs="#f0094"/>
+<pb n="43" facs="#f0095"/>
+<figure/> <l>Ganz von Kuchenteig umhüllt</l><lb/>
+<l>Steh'n ſie da als Jammerbild. —</l><lb/>
+<figure/> <l>Gleich erſcheint der Meiſter Bäcker</l><lb/>
+<l>Und bemerkt die Zuckerlecker.</l><lb/>
+<pb facs="#f0096"/>
+<pb n="44" facs="#f0097"/>
+<figure/> <l>Eins, zwei, drei! — eh' man's gedacht,</l><lb/>
+<l>Sind zwei Brote d'raus gemacht.</l><lb/>
+<figure/> <l>In dem Ofen glüht es noch —</l><lb/>
+<l>Ruff! — damit in's Ofenloch!</l><lb/>
+<pb facs="#f0098"/>
+<pb n="45" facs="#f0099"/>
+<figure/> <l>Ruff! — man zieht ſie aus der Gluht;</l><lb/>
+<l>Denn nun ſind ſie braun und gut. —</l><lb/>
+<figure/> <l>Jeder denkt, die ſind perdü!</l><lb/>
+<l>Aber nein! — noch leben ſie.</l><lb/>
+<pb facs="#f0100"/>
+<pb n="46" facs="#f0101"/>
+<figure/> <l>Knusper, Knasper! — wie zwei Mäuſe</l><lb/>
+<l>Freſſen ſie durch das Gehäuſe;</l><lb/>
+<figure/> <cb type="start"/>
+<l>Und der Meiſter Bäcker ſchrie:</l><lb/>
+<l>„Ach herjeh! da laufen ſie!“</l><lb/>
+<cb/>
+<l>Dieſes war der ſechste Streich,</l><lb/>
+<l>Doch der letzte folgt ſogleich.</l> <cb type="end"/>
+</lg><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0102"/>
+<pb n="47" facs="#f0103"/>
+</div> <div n="1"> <head> <hi rendition="#b">Letzter Streich.</hi><lb/>
+</head> <lg type="poem"> <l>Max und Moritz, wehe euch!</l><lb/>
+<l>Jetzt kommt euer letzter Streich!</l><lb/>
+<figure/> <l>Wozu müſſen auch die beiden</l><lb/>
+<l>Löcher in die Säcke ſchneiden?</l><lb/>
+<figure/> <l>Seht, da trägt der Bauer Mecke</l><lb/>
+<l>Einen ſeiner Malterſäcke.</l><lb/>
+<pb facs="#f0104"/>
+<pb n="48" facs="#f0105"/>
+<figure/> <l>Aber kaum daß er von hinnen,</l><lb/>
+<l>Fängt das Korn ſchon an zu rinnen.</l><lb/>
+<figure/> <l>Und verwundert ſteht und ſpricht er:</l><lb/>
+<l>„Sapperment! Das Ding wird lichter!“</l><lb/>
+<pb facs="#f0106"/>
+<pb n="49" facs="#f0107"/>
+<figure/> <l>Hei! Da ſieht er voller Freude</l><lb/>
+<l>Max und Moritz im Getreide.</l><lb/>
+<figure/> <l>Rabs! — in ſeinen großen Sack</l><lb/>
+<l>Schaufelt er das Lumpenpack.</l><lb/>
+<fw type="sig" place="bottom">7<lb/>
+</fw>
+<pb facs="#f0108"/>
+<pb n="50" facs="#f0109"/>
+<figure/> <l>Max und Moritz wird es ſchwüle,</l><lb/>
+<l>Denn nun geht es nach der Mühle. —</l><lb/>
+<figure/> <l>„Meiſter Müller, he, heran!</l><lb/>
+<l>Mahl er das, ſo ſchnell er kann!“</l><lb/>
+<fw type="sig" place="bottom">7 *<lb/>
+</fw>
+<pb facs="#f0110"/>
+<pb n="51" facs="#f0111"/>
+<figure/> <l>„Her damit!“ Und in den Trichter</l><lb/>
+<l>Schüttelt er die Böſewichter. —</l><lb/>
+<figure/> <l>Rickeracke! Rickeracke!</l><lb/>
+<l>Geht die Mühle mit Geknacke.</l><lb/>
+<pb facs="#f0112"/>
+<pb n="52" facs="#f0113"/>
+<figure/> <l>Hier kann man ſie noch erblicken</l><lb/>
+<l>Fein geſchroben und in Stücken.</l><lb/>
+<figure/> <l>Doch ſogleich verzehret ſie</l><lb/>
+<figure/> <l>Meiſter Müllers Federvieh.</l> </lg><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0114"/>
+<pb n="53" facs="#f0115"/>
+</div> <div n="1"> <head> <hi rendition="#b #g">Schluß.</hi><lb/>
+</head> <lg type="poem"> <l>Als man dies im Dorf erfuhr</l><lb/>
+<l>War von Trauer keine Spur. —</l><lb/>
+<l>— Wittwe Bolte, mild und weich,</l><lb/>
+<l>Sprach: „Sieh da, ich dacht es gleich!“ —</l><lb/>
+<l>— „Ja, ja, ja!“ rief Meiſter Böck —</l><lb/>
+<l>„Bosheit iſt kein Lebenszweck!“ —</l><lb/>
+<l>— Drauf ſo ſprach Herr Lehrer Lämpel:</l><lb/>
+<l>„Dies iſt wieder ein Exempel!“ —</l><lb/>
+<l>— „Freilich!“ meint der Zuckerbäcker</l><lb/>
+<l>„Warum iſt der Menſch ſo lecker!“ —</l><lb/>
+<l>— Selbſt der gute Onkel Fritze</l><lb/>
+<l>Sprach: „Das kommt von dumme Witze!“ —</l><lb/>
+<l>— Doch der brave Bauersmann</l><lb/>
+<l>Dachte: „Wat geiht meck dat an!“ —</l><lb/>
+<l>— Kurz im ganzen Ort herum</l><lb/>
+<l>Ging ein freudiges Gebrumm:</l><lb/>
+<l>„Gott ſei Dank! Nun iſt's vorbei</l><lb/>
+<l>Mit der Uebelthäterei!!“</l> </lg><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">7*<lb/>
+</fw> </div>
+<pb facs="#f0116"/>
+<pb facs="#f0117"/>
+<pb facs="#f0118"/>
+<pb facs="#f0119"/>
+</body> </text> </TEI>

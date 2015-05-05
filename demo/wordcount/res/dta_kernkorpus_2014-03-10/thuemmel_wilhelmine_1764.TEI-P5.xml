@@ -1,0 +1,2286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Wilhelmine oder der vermählte Pedant</title>
+<title type="sub">ein prosaisch comisches Gedicht</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118622358">
+<surname>Thümmel</surname>
+<forename>Moritz August von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">104</measure>
+<measure type="tokens">11832</measure>
+<measure type="types">4267</measure>
+<measure type="characters">86669</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:08:20Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/thuemmel_wilhelmine_1764</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/thuemmel_wilhelmine_1764</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/thuemmel_wilhelmine_1764</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/thuemmel_wilhelmine_1764</idno>
+<idno type="DTADirName">thuemmel_wilhelmine_1764</idno>
+<idno type="DTAID">20609</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905198102</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">[Thümmel, Moritz August von]: Wilhelmine oder der vermählte Pedant. 1764.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Wilhelmine oder der vermählte Pedant</title>
+<title level="m" type="sub">ein prosaisch comisches Gedicht</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118622358">
+<surname>Thümmel</surname>
+<forename>Moritz August von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">96 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>N. N.</name></publisher>
+<pubPlace>N. N.</pubPlace>
+<date type="publication">1764</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>HAB Wolfenbüttel</repository>
+<idno>
+<idno type="shelfmark">HAB Wolfenbüttel, M: Lo 7535</idno>
+<idno type="URLCatalogue">Dig: http://diglib.hab.de/drucke/lo-7535/start.htm</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb n="[1]" facs="#f0005"/>
+<front> <titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b">Wilhelmine</hi><lb/>
+oder<lb/>
+<hi rendition="#b">der vermaͤhlte Pedant.</hi><lb/>
+</titlePart> </docTitle> <milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="sub"> ein<lb/>
+proſaiſch comiſches Gedicht.<lb/>
+</titlePart> <figure/> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><docDate><hi rendition="#g">1764</hi></docDate>.</docImprint><lb/>
+</titlePage> </front><body>
+<pb n="[2]" facs="#f0006"/>
+<pb n="[3]" facs="#f0007"/>
+<figure/> <div n="1"><head><hi rendition="#b">Erſter Geſang.</hi></head><lb/>
+<p><hi rendition="#in">J</hi>ch ſinge das Abentheuer, das ein<lb/>
+Dorfpfarr der Liebe wegen erdul-<lb/>
+den muſte, ehe ſie ihn mit dem er-<lb/>
+ſeufzten Beſitze ſeiner Geliebten belohnte.</p><lb/>
+<p>Feindlich empoͤrten ſich die langſam ath-<lb/>
+mende Schwermuth, die froͤhliche Thorheit,<lb/>
+die Jntrique des Hofs und der baͤuriſche<lb/>
+Bloͤdſinn, wider die ruhigen Tage des Pa-<lb/>
+ſtors; doch ſeine Standhaftigkeit ſiegt’ end-<lb/>
+lich durch die Huͤlfe des Amors, und ſein<lb/>
+ausgeſtandnes Leiden verſchoͤnert ſeinen<lb/>
+Triumph.</p><lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="4" facs="#f0008"/>
+<p>Der groſſe Gedanke, der ſonſt die deutſchen<lb/>
+Dichter erhitzt, daß ſie die Freuden des Tags<lb/>
+und die Erquickung der Nacht; daß ſie<lb/>
+die Peiniger der menſchlichen Natur, Hun-<lb/>
+ger und Durſt, und die groͤßern Quaalen der<lb/>
+Dichter, den Spott der Satyre und die Fauſt<lb/>
+des Kunſtrichters verachten — Dieſer groſ-<lb/>
+ſe Gedanke: <hi rendition="#fr">Einſt wird die Nachwelt<lb/>
+mich leſen</hi> — hat keinen Antheil an mei-<lb/>
+nen Geſaͤngen. Dein belohnendes Laͤcheln<lb/>
+allein, comiſche Muſe! reizet mich an, dieſen<lb/>
+neuen Sieg der Liebe zu ſingen; und will ja<lb/>
+die Goͤttinn des Ruhms der ſuͤſſen Bemuͤ-<lb/>
+hung des Dichters noch eine Belohnung hin-<lb/>
+zu thun, ſo ſey es der theure Beyfall meiner<lb/>
+Caroline! Sie leſe dieß Lied, das ich, ent-<lb/>
+fernt von Jhr, aus Einſamkeit ſang, mei-<lb/>
+nen Geiſt zu ermuntern! Jhr harmoniſches<lb/>
+Herz ſchwell auf; Unwillig uͤber den Einfluß<lb/>
+des gluͤcklichen Dichters, in ihr jugendlich<lb/>
+wallendes Blut, verſchlucke Sie dann eine<lb/>
+<fw type="catch" place="bottom">dop-</fw><lb/>
+<pb n="5" facs="#f0009"/>
+doppelte Doſin Bezoarpulver, und ſeufze nach<lb/>
+meiner Zuruͤckkunft!</p><lb/>
+<p>Nah an der glaͤnzenden Reſidenz eines<lb/>
+gluͤcklichen Fuͤrſten, nicht fern von der ſchiff-<lb/>
+baren Elbe, verbreiteten ſich in dem anmu-<lb/>
+thigſten Thale, hundert kleine Wohnungen<lb/>
+froͤhlicher Landleute. Junge Haſelſtauden<lb/>
+und wohlriechende Birken verbauten diß Land-<lb/>
+gut in Schatten, und verſuͤßten dem fleißigen<lb/>
+Tagloͤhner die entkraͤftende Arbeit, wenn der<lb/>
+Hundsſtern wuͤthete, und entblaͤttert vom<lb/>
+Boreas flammte dieß nutzbare Gebuͤſch in<lb/>
+wohlthaͤtigen Oefen, wenn der Winter das<lb/>
+Thal mit Schnee fuͤllte, und nun ein Nach-<lb/>
+bar zum andern ſchlich, um die vielen muͤßi-<lb/>
+gen Stunden etwan durch die Thaten eines<lb/>
+preußiſchen Helden oder eines freygebigen Ko-<lb/>
+bolts zu verkuͤrzen, oder auch uͤber die Po-<lb/>
+lizeybefehle der Regierung zu ſpotten. So<lb/>
+lebten dieſe Huͤttenbewohner ruhig und mit<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">jeder</fw><lb/>
+<pb n="6" facs="#f0010"/>
+jeder Jahrszeit zufrieden. Ein exemplariſcher<lb/>
+Pfarrer und ein friedfertiger Schulze waren<lb/>
+ihre einzigen Beherrſcher; denn der Junker<lb/>
+des Dorfs verbrauſte ſeine Renten in dem<lb/>
+comiſchen Frankreich; haͤtt’ ihm das holde<lb/>
+Geſicht der Tochter ſeines Verwalters nur<lb/>
+ein einziges mal geglaͤnzt, er wuͤrde gewiß<lb/>
+nicht mit ſeiner Unterthanen Tribut eine ab-<lb/>
+gedankte Opernprinzeßinn ernaͤhren; ach! er<lb/>
+haͤtte gewis zu ſeiner Landsmaͤnnin Ehre, als<lb/>
+ein edles Geſpann, ihren Siegeswagen ge-<lb/>
+zogen!</p><lb/>
+<p>Aber niemand bewunderte noch Wilhel-<lb/>
+minen. Schon der ſechzehnte Fruͤhling hatte<lb/>
+ihre Wangen mit einer hoͤhern Roͤthe be-<lb/>
+mahlt, ihre Augen funkelnder gemacht und<lb/>
+ihr Haar ſchwaͤrzer gefaͤrbt. Jhr Halstuch<lb/>
+erhob und ſenkte ſich ſchon, und keiner —<lb/>
+Jſts moͤglich? keiner von den hartherzigen<lb/>
+Bauern gab Achtung darauf. Sie ſelbſt<lb/>
+<fw type="catch" place="bottom">wußte</fw><lb/>
+<pb n="7" facs="#f0011"/>
+wußte noch nicht uͤber ſuͤße Gedanken der Lie-<lb/>
+be zu erroͤthen, ihr Herz klopfte in immer ru-<lb/>
+higen Pulſen, wenn ſie einſam das verdeckte<lb/>
+Veilchen aus dem hohen Rietgraſe hervor-<lb/>
+pfluͤckte, ein wahres Bildniß Jhres eignen<lb/>
+jungfraͤulichen Schickſals, oder wenn Sie an<lb/>
+dem Ufer des klaren Bachs ſitzend die bunte<lb/>
+Forelle mit geſchwinden Augen verfolgte,<lb/>
+und indeß den ſchoͤnen Gegenſtand der Na-<lb/>
+tur, Jhr wiederſcheinendes Geſicht, aus der<lb/>
+Acht ließ. Jhr freundlichen Nymphen, die<lb/>
+ihr ſo oft das maͤchtige Vergnuͤgen eures ei-<lb/>
+genen Anſchauens genoſſen habt! bedauert<lb/>
+dieſe Ungluͤckliche — aber noch eifriger wer-<lb/>
+det ihr Sie bedauren, ihr maͤnnlichen Ken-<lb/>
+ner der Schoͤnheit! denn niemand — ich<lb/>
+wiederhol es mit Jammer, niemand als ein<lb/>
+frommer ſchuͤchterner Mann, der Magiſter,<lb/>
+hatte bis itzt den feinen Verſtand gehabt, Jh-<lb/>
+re Reize zu bemerken, und nur von ihm ward<lb/>
+Sie heimlich geliebet. Mit welchem zittern-<lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">den</fw><lb/>
+<pb n="8" facs="#f0012"/>
+den Vergnuͤgen empfieng er nicht den Decem<lb/>
+von ihren ſchmeichelnden Haͤnden, und mit<lb/>
+welcher ſuͤßen Betaͤubung unterſchied er nicht<lb/>
+ihre liebliche Stimme, wenn das andaͤchtige<lb/>
+Geſchrey der Gemeinde durch die Sacriſtey<lb/>
+in ſein lauſchendes Ohr drang. Wie gluͤck-<lb/>
+lich konnte nicht die Liebe ihn machen! Aber<lb/>
+zwo andere Leidenſchaften, faſt eben ſo maͤch-<lb/>
+tig als jene, ſtritten heftig in ſeiner theologi-<lb/>
+ſchen Seele, jagten die Liebe heraus und leg-<lb/>
+ten den Grund zu dem grauſamen Schickſale<lb/>
+des Paſtors. Der Stolz war es und die Be-<lb/>
+gierde nach einem bequemlichen Leben! Denn<lb/>
+wenn ihn auf der einen Seite ſeines hinfaͤlli-<lb/>
+gen Herzeus die Tochter des vornehmen Kir-<lb/>
+chenraths mit ihrer Neigung verfolgte, ſo be-<lb/>
+ſtritt es auf der andern die Ausgeberinn des<lb/>
+Praͤſidenten. Jhre Wahl war der gewiſſe<lb/>
+Beruf zum Vorſteher der Kirche. Als Su-<lb/>
+perintendent konnt’ er alsdann eines langen<lb/>
+ruhigen Lebens genießen, von den Truthhaͤh-<lb/>
+<fw type="catch" place="bottom">nen</fw><lb/>
+<pb n="9" facs="#f0013"/>
+nen ſeiner freygebigen Dioͤces und den Com-<lb/>
+plimenten gemeiner Pfarrherren gemaͤſtet.<lb/>
+So wird oft ein Knabe geaͤngſtet, wenn ihm<lb/>
+ſein lachender Vater ein Stuͤck kraͤftiges<lb/>
+Brod und eine einzelne wohlriechende Erd-<lb/>
+beere vorlegt. Was ſoll er waͤhlen? Sein<lb/>
+Gaum verwirft, was ſein hungriger Magen<lb/>
+verlangt; doch ſeine minutenlange Naͤſche-<lb/>
+rey verachtet das Elend des ganzen Tages —<lb/>
+Kurz entſchloſſen verſchluckt er die Erdbeere-<lb/>
+und uͤbertaͤubt das Murren ſeines Magens<lb/>
+durch erzwungene Geſaͤnge. Eben ſo gewis<lb/>
+wuͤrde auch endlich der verliebte Magiſter<lb/>
+ſeine kleine Wilhelmine gewaͤhlt haben, wenn<lb/>
+nicht das feindliche Ohngefehr und der haͤ-<lb/>
+miſche Neid den Unentſchloſſenen uͤberraſcht<lb/>
+und vier lange Jahre ſeine Liebe getaͤuſcht<lb/>
+haͤtten.</p><lb/>
+<p>Ein Spuͤrhund der Schoͤnheit, ein leicht-<lb/>
+fertiger Page, der einſt in ſeinem Muͤßig-<lb/>
+gange dieſe laͤndliche Venus erblickte, prahl-<lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">te</fw><lb/>
+<pb n="10" facs="#f0014"/>
+te ſo laut mit ſeiner Entdeckung, daß ſein<lb/>
+verliebtes Geſchwaͤtz durch funfzig Thuͤren in<lb/>
+die Ohren des aufmerkſamen Hofmarſchalls<lb/>
+erſcholl, der ſogleich den ſultaniſchen Ent-<lb/>
+ſchluß faßte, mit den Reizungen der holden<lb/>
+Wilhelmine den Hofſtaat zu verſchoͤnern, und<lb/>
+ſie dem unſaubern Dorfe und der Liſt eines<lb/>
+Pagen zu entziehen. Wenn die weibliche<lb/>
+Aelſter in der Mitte des Weinbergs eine volle<lb/>
+Traube entdeckt, die von hundert Blaͤttern<lb/>
+beſchuͤtzt die letzte Zeit ihrer Reife erlangt<lb/>
+hat: ſo erweckt oft diß prophetiſche Geſchrey<lb/>
+bey dem reiſenden Handwerksmann ein dur-<lb/>
+ſtiges Nachdenken — Er erſteigt den Wein-<lb/>
+berg und entzieht dem Stocke und der ver-<lb/>
+jagten Schwaͤtzerinn die vortrefflichſten Bee-<lb/>
+ren.</p><lb/>
+<p>Der entſchloßne Hofmarſchall fuhr, von<lb/>
+der Cabale, ſeiner beſtaͤndigen Schutzgoͤt-<lb/>
+tinn, begleitet, in hoher Perſon zu Niklas,<lb/>
+dem Verwalter, uͤberſah mit geſchwind for-<lb/>
+<fw type="catch" place="bottom">ſchen-</fw><lb/>
+<pb n="11" facs="#f0015"/>
+ſchenden Blicken die Schoͤnheit des ver-<lb/>
+ſchaͤmten Landmaͤgdchens, und es waͤhrte nicht<lb/>
+lange, ſo hatte er ſeine grosmuͤthige Abſicht<lb/>
+eroͤffnet. ”Jch will, ſagte er freundlich zu<lb/>
+”dem Alten, eure ſchoͤne Tochter in den<lb/>
+”glaͤnzenden Poſten einer fuͤrſtlichen Kam-<lb/>
+”merjungfer erheben: Diß iſt die Urſache<lb/>
+”meines Beſuchs ‒ ‒ ‒</p><lb/>
+<p>Betaͤubt von der hoͤflichen Rede des vor-<lb/>
+nehmen Herrn ſtund der alte Verwalter<lb/>
+vor ihm, ſtrich ungeſchickt mit dem Fuße aus<lb/>
+und fuͤhlte aͤngſtlich ſeine Verwirtung. Der<lb/>
+feine Hofmarſchall ließ ihm Zeit, Athem zu<lb/>
+holen, und verſuchte indeß mit Wilhelminen<lb/>
+zu ſprechen: aber die Schoͤne verſtummte,<lb/>
+blinzte mit den Augen, und ihr Bloͤdſinn<lb/>
+zeigte ihm eine ſo weiße Reihe von Zaͤhnen,<lb/>
+die ihm noch nie die vornehme Sucht zu ge-<lb/>
+fallen, in dem langen Laufe ſeines Lebens<lb/>
+verrieth. Die Verlegenheit der Tochter<lb/>
+weckte zuletzt den Alten aus ſeiner Betaͤu-<lb/>
+<fw type="catch" place="bottom">bung</fw><lb/>
+<pb n="12" facs="#f0016"/>
+bung. Er nahm ſtotternd das Wort, und<lb/>
+als Vater geboth er der Schoͤne, Sie moͤch-<lb/>
+te, weil einmal ihr gutes Gluͤck es verlang-<lb/>
+te, zur Reiſe nach Hofe ſich geſchickt ma-<lb/>
+chen; und uͤber den guͤtigen Herrn ſchuͤttete<lb/>
+ſeine ſchwere Zunge tauſend unvollendete<lb/>
+Wuͤnſche und abgebrochene Dankſagungen<lb/>
+aus, und beredtere Thraͤnen ſtroͤmten von ſei-<lb/>
+nen bleichen Wangen herunter. Damals<lb/>
+waren noch zwanzig Minuten genug, die<lb/>
+Schoͤne in ihren beſten Putz zu kleiden; als-<lb/>
+denn hob ſie der vergoldete Herr in ſeine<lb/>
+verhenkte Caroſſe, und ſechs wiehernde Heng-<lb/>
+ſte jagten durch die Reihen unzaͤhlicher<lb/>
+Bauern, denen das ſtarre Erſtaunen die wei-<lb/>
+ten Maͤuler geoͤffnet. Aber welche Muſe be-<lb/>
+ſchreibt das Entſetzen des ſtudierenden Ma-<lb/>
+giſters, als in ſein duͤſtres Muſaͤum der freu-<lb/>
+dige Niklas hereintrat und ihm das wun-<lb/>
+derbare Schickſal entdeckte, das ſeine arme<lb/>
+Wilhelmine zu einer hochfuͤrſtlichen Kam-<lb/>
+<fw type="catch" place="bottom">mer-</fw><lb/>
+<pb n="13" facs="#f0017"/>
+merjungfer erhoben! Ohne Gedanken hoͤrt’<lb/>
+er die dreymal wiederholte Geſchichte des<lb/>
+Verwalters, der ihn endlich unachtſam ver-<lb/>
+ließ, ſein haͤusliches Gluͤck den Gevattern,<lb/>
+und der Verſammlung der Schenke zu ver-<lb/>
+kuͤndigen. Wie ſchien ſich doch alles zur<lb/>
+Feyer dieſes ſeines gluͤcklichen Tages zu ver-<lb/>
+binden! Er hoͤrte ſchon von weitem den<lb/>
+Schall einer muthigen Fiedel. Jn der Freu-<lb/>
+de ſeines Herzens vergaß er ſein Alter und<lb/>
+tanzte mit Jauchzen der harmoniſchen Schen-<lb/>
+ke entgegen. Ein ungewoͤhnlicher Schimmer<lb/>
+umleuchtete heute ihre roſtigen Waͤnde —<lb/>
+denn das Schickſal vergoͤnnte dieſen Abend<lb/>
+den froͤhlichen Bauern ein ſeltnes Vergnuͤ-<lb/>
+gen. Die Schauſpielkunſt war vor kurzem<lb/>
+mit allem dem Pomp ihrer erſten Erfindung<lb/>
+eingezogen. Welch ein frohes Getuͤmmel!<lb/>
+Welch eine Luſt! Ein vielſtimmiger Mann<lb/>
+ſchwebte wie Jupiter unſichtbar uͤber eine laͤr-<lb/>
+mende thoͤrichte Welt, lenkte mit ſeiner Rech-<lb/>
+<fw type="catch" place="bottom">ten</fw><lb/>
+<pb n="14" facs="#f0018"/>
+ten ganze tragiſche Jahrhunderte, und regir-<lb/>
+te mit gegenwaͤrtigem Geiſte die ſchrecklich-<lb/>
+ſten Begebenheiten und Veraͤnderungen der<lb/>
+Dinge, uͤber welche die weiſeſten Menſchen<lb/>
+erſtaunen. Jtzt ſah man hochmuͤthige Staͤd-<lb/>
+te, wie ſie ſich uͤber die Doͤrfer erheben —<lb/>
+und augenblicklich darauf eingeaͤſchert oder<lb/>
+in einem Erdbeben verſunken; Rom und<lb/>
+Carthago, Troja und Liſſabon, wurden zer-<lb/>
+ſtoͤhrt, und der Helleſpont ſchlug uͤber ihre<lb/>
+ſtolzen Thuͤrme ſeine Wellen zuſammen!<lb/>
+Was hilft es euch, ihr Tyrannen, daß ihr<lb/>
+uͤber Laͤnder geherrſcht, arme Bauern ge-<lb/>
+druͤckt, und Nationen elend gemacht habt?<lb/>
+denkt ihr wohl der Strafe des Zers zu ent-<lb/>
+fliehen? Ja, da ſieht mans — Hier liegt<lb/>
+nun der grauſame Nero in ſeinem Blute<lb/>
+und wird von ſeinen eigenen Grenadiren zer-<lb/>
+treten! Bald wird es auch an dich kommen,<lb/>
+du uͤbermuͤthiger Mann! Heliogabalus!<lb/>
+Pompejus! oder wie du ſonſt heißen magſt —<lb/>
+<fw type="catch" place="bottom">Seht</fw><lb/>
+<pb n="15" facs="#f0019"/>
+Seht nur, wie ſtolz er einhergeht und alle Leu-<lb/>
+te verachtet; aber Jupiter winkt — und<lb/>
+nun wird er unter Donner und Blitzen von<lb/>
+den Saracenen ermordet. Doch wer kann ſie<lb/>
+alle zaͤhlen — die Wuͤthriche, die hier fallen;<lb/>
+und wo wollte ich Worte hernehmen, die blu-<lb/>
+tigen Scenen zu beſchreiben, die die geruͤhr-<lb/>
+ten Zuſchauer mit lautem Lachen beehren?<lb/>
+Jtzt ſah man auch das bedraͤngte Friedrichs-<lb/>
+hall von Carln dem Zwoͤlften belagert!<lb/>
+Schon war die Piſtole geſpannt, die dieſem<lb/>
+ſchrecklichen Helden das Leben endigen wird —<lb/>
+und ſchon wurden die Laufgraͤben geoͤffnet und<lb/>
+alles war voller Erwartung, als — der alte<lb/>
+Verwalter herein trat. Bey ſeiner laͤngſt<lb/>
+gewuͤnſchten Ankunft verſtummte die Fiedel<lb/>
+— Die große Verſammlung der Zuſchauer<lb/>
+hob ſich von ihrem Sitze — ſchmiß eine all-<lb/>
+gemeine Bank um und gruͤßte freundlich den<lb/>
+Alten — Eine Ehre, die vor ihm noch kein<lb/>
+Sterblicher genoß — als allein der ehrwuͤr-<lb/>
+<fw type="catch" place="bottom">dige</fw><lb/>
+<pb n="16" facs="#f0020"/>
+dige Cato — und die vielleicht nach ihm kei-<lb/>
+ner wieder genießen wird! Dieſer Zufall<lb/>
+ſchob die Belagerung auf — eine gluͤckliche<lb/>
+Pauſe fuͤr Carln! und ſelbſt der Regierer der<lb/>
+Welt ſtieg itzt in ſeinen Cothurnen von dem<lb/>
+hohen Sitz des Olymps herunter, und ein<lb/>
+ernſthaftes Stillſchweigen der ganzen Natur<lb/>
+forderte den Alten auf, ſeine gluͤckliche Ge-<lb/>
+ſchichte zu erzaͤhlen. Er that es mit vertrau-<lb/>
+licher Beredſamkeit, und man hoͤrete ihm zu<lb/>
+mit ſichtbarem Erſtaunen, und ſtaͤmmte die<lb/>
+Haͤnde in die Seite, und ſchuͤttelte mit bedenk-<lb/>
+lichen Minen die Koͤpfe. Aber was leideſt<lb/>
+du nicht indeß bey dieſem algemeinen Ju-<lb/>
+bel, o du armer Verlaſſener! Welche Men-<lb/>
+ge von vielſagenden Seufzern, und welch eine<lb/>
+Fluth von bittern Thraͤnen wurden nicht taͤg-<lb/>
+lich von dir der erzuͤrnten Liebe geopfert; aber<lb/>
+ſie blieb unerbittlich, und der klaͤgliche Lieb-<lb/>
+haber bezeichnete dieſen ſchrecklichen Zeitpunkt<lb/>
+ſeines Verluſts mit den groͤßten Trophaͤen<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="17" facs="#f0021"/>
+der Schwermuth — mit rothgeweinten Au-<lb/>
+gen und zerrungenen Haͤnden. Und wenn<lb/>
+er die ganze Woche hindurch in der Einſam-<lb/>
+keit ſeiner verrußten Clauſe getrauert hatte,<lb/>
+dann winſelte er am Sonntage der ſchlafen-<lb/>
+den Gemeinde unleidliche Reden vor, und<lb/>
+ſelbſt bey dem theuer bezahlten Leichenſermon<lb/>
+verließ ihn ſeine ſonſt maͤnnliche Stimme.<lb/>
+Vier Jahrgaͤnge hatte er alſo beſchloſſen.<lb/>
+Mit zitternden Haͤnden geſchrieben und auf<lb/>
+einen Haufen geſammelt lagen ſie in einem<lb/>
+verriegelten Schranke, oft von andaͤchtigen<lb/>
+Wuͤrmern beſucht, die hoͤflicher fuͤr die dank-<lb/>
+bare Nachwelt ſorgten und alle Buchſtaben<lb/>
+zerfraßen, als der betrogene Buchhaͤndler,<lb/>
+der ſo oft mit drolligten Poſtillen den einfaͤlti-<lb/>
+gen Freygeiſt beluſtigt. Aber die comiſche<lb/>
+Muſe huͤpft aͤngſtlich uͤber den heiligen Staub<lb/>
+und uͤber die traurigen Scheduln des Paſtors.<lb/>
+Sie ſoll den gluͤcklichen Traum erzaͤhlen, der<lb/>
+ihn, bewillkommend an der letzten Stufe des<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">Jahrs,</fw><lb/>
+<pb n="18" facs="#f0022"/>
+Jahrs, mit dem Beſitze ſeiner Geliebten und<lb/>
+dem Ende ſeines ſchwindſuͤchtigen Kummers<lb/>
+ſchmeichelte.</p><lb/>
+<p>Jn der zwoͤlften Stunde der Nacht, da-<lb/>
+mals, als ſich das zwey und ſechzigſte blutige<lb/>
+Jahr des achtzehnten Seculs von wenig<lb/>
+Minuten loszuarbeiten ſuchte, um ſich an die<lb/>
+Reihe ſo vieler vergangenen Jahrtauſende zu<lb/>
+haͤngen: So wie der furchtbare Nachtvogel <note place="foot" n="*">S. Roͤſels Jnſecten-Beluſtigung.</note><lb/>
+auf deſſen Ruͤcken die Natur einen Todten-<lb/>
+kopf gebildet, ſich muͤhſam aus dem Gefaͤng-<lb/>
+niſſe ſeiner Puppe herauswindet, ſeine ſchwe-<lb/>
+ren Fluͤgel verſucht — und verſchwinden<lb/>
+wuͤrde, wenn nicht ein naturforſchender Roͤ-<lb/>
+ſel ſein Leben verfolgte — Der pfaͤhlt ihn<lb/>
+mit einem gluͤhenden Pfriemen gleich nach<lb/>
+ſeiner Geburt, und ſetzt dieſen graͤulichen Vo-<lb/>
+gel in die bunte Geſellſchaft der Schmetter-<lb/>
+linge, Heuſchrecken und Kaͤfer.</p><lb/>
+<fw type="catch" place="bottom">Da</fw><lb/>
+<pb n="19" facs="#f0023"/>
+<p>Da erſchien dem eingeſchlummerten Dorf-<lb/>
+pfarr jener große Verfolger des Pabſts, der<lb/>
+herzhafte Doctor Martinus — lebhaft er-<lb/>
+ſchien er ihm, wie ihn fuͤr alle kuͤnftige Zei-<lb/>
+ten Lucas von Kranach gemahlt hat. Sein<lb/>
+alter getreuer Mantel, wie ihn die Schloß-<lb/>
+kirche zu Wittenberg ſehen laͤßt, hieng ihm<lb/>
+uͤber die Schultern — er aber floß ihm nicht<lb/>
+mehr wie ehmals ehrwuͤrdig am Ruͤcken her-<lb/>
+ab; denn der Aberglaube hatte davon mehr<lb/>
+Stuͤcken geriſſen, als die alles verderbende<lb/>
+Zeit und die Zaͤhne der Motten. Und noch<lb/>
+vor kurzem raubte ein unternehmender Schul-<lb/>
+meiſter den halben Kragen des Mantels;<lb/>
+Jn enthuſiaſtiſchem Hochmuthe glaubt er ſchon<lb/>
+die Kraͤfte ſeiner Eroberung, den Zuwachs<lb/>
+neuer Verdienſte und den Antheil an Luthers<lb/>
+unerſchrocknem Geiſte zu fuͤhlen — Freudig<lb/>
+und dumm geht er zuruͤck in das Dorf,<lb/>
+ſchimpft ungerochen den Pabſt, und nun ver-<lb/>
+ſucht er es auch zuverſichtlich an ſeinem Ge-<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">richts-</fw><lb/>
+<pb n="20" facs="#f0024"/>
+richtsherrn. Doch ſiehe da! der arme Be-<lb/>
+trogene wird bald von ſeinem eigenen Gevat-<lb/>
+ter, dem Schoͤppen, ins Trillhaus gefuͤhret,<lb/>
+von allen den jauchzenden Jungen verfolgt,<lb/>
+die nun Feyertage auf eine ganze Woche be-<lb/>
+kommen.</p><lb/>
+<p>Und der Schatten ſprach alſo zu dem traͤu-<lb/>
+menden Magiſter: „Lieber Herr Amtsbru-<lb/>
+”der! Oft habe ich mit deinen Thraͤnen mei-<lb/>
+”ne beſten Schriften befleckt geſehen und dei-<lb/>
+”ne verliebten Seufzer gehoͤret, wenn dein<lb/>
+”Fleiß bald eine Stelle der Erbauung aus<lb/>
+”meinen Briefen, bald aus meinen Tiſchre-<lb/>
+”den eine luſtige Geſchichte ausſchrieb, wo-<lb/>
+”mit du die gaͤhnenden Bauern zu rechter<lb/>
+”Zeit wieder erweckteſt. Warum erroͤtheſt<lb/>
+”du? O ſchaͤme dich nicht, mir deine keu-<lb/>
+”ſche Liebe zu geſtehn! War ich nicht ſelbſt<lb/>
+”der erſte unter den Prieſtern, der es auf<lb/>
+”Paulus Verantwortung wagte, ein zaͤrtli-<lb/>
+”ches Weib zu nehmen? Sollte einem Ken-<lb/>
+<fw type="catch" place="bottom">”ner</fw><lb/>
+<pb n="21" facs="#f0025"/>
+”ner der Kirchengeſchichte, ſollte dir unbe-<lb/>
+”kannt ſeyn, wie ich einſt dem neidiſchen<lb/>
+”Kloſter das ſchoͤnſte Fraͤulein entriß? Ach<lb/>
+”Catharina, Catharina von Bora! wie ſehr<lb/>
+”begluͤckte deine Liebe mein einſames Leben!<lb/>
+”Und du — du verzagſt, dem Hofe ein<lb/>
+”Maͤgdchen zu eutziehn, das von keiner ei-<lb/>
+”ſernen Thuͤre verſchloſſen, von keiner Aebtiſ-<lb/>
+”ſinn bewacht, und von der Kloſtergeluͤbde<lb/>
+”weit entfernt iſt, eine ewige Jungfer zu<lb/>
+”bleiben? Hoͤre meinen liebreichen Rath:<lb/>
+”Morgen wird die reizende Wilhelmine ih-<lb/>
+”ren Vater beſuchen. Von keinem Hoͤflinge<lb/>
+”begleitet, wird ſie des Mittags zu ihm fah-<lb/>
+”ren — Welch ein bedeutender Wink, den<lb/>
+”die Liebe dir giebt — Folg ihm — erhebe<lb/>
+”dich in Wilhelminens Geſellſchaft, und er-<lb/>
+”oͤffne ihr deine brennende Neigung! Sie —<lb/>
+”die gleich einem leichten Federballe von Hand<lb/>
+”in Hand geworfen — in der Hoͤhe des Hofs<lb/>
+”flatterte — oft mit Schwindel herabfiel<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">”und</fw><lb/>
+<pb n="22" facs="#f0026"/>
+”und wieder in die Hoͤhe gejagt ward —<lb/>
+”Sie — die von den Zofen des ganzen Landes<lb/>
+”verfolgt der Ruh entgegen ſeufzt — Sie,<lb/>
+”ich ſchmeichle dir nicht, wird froh ſeyn, an<lb/>
+”deiner ehrwuͤrdigen Hand den Widerwaͤr-<lb/>
+”tigkeiten der großen Welt zu entwiſchen —<lb/>
+”und ehe dieſe Neujahrswoche verlaͤuft, kannſt<lb/>
+”du fuͤr deine treue Liebe belohnt ſeyn — aber<lb/>
+”verſaͤume — verſaͤume dieſe unwiederbring-<lb/>
+”liche Zeit nicht!“</p><lb/>
+<p>Dieß ſagte er; und wie der ſcherzende<lb/>
+Ovid oft aus den Haͤnden des geiſtlichen<lb/>
+Studenten den heiligen Cyprian verdraͤngt,<lb/>
+ſo verſchwand itzt der Wittenbergiſche Dok-<lb/>
+tor, und Amor erſchien an eben der Stelle,<lb/>
+und fieng laͤchelnd die letztern Worte des<lb/>
+geiſtlichen Schattens auf: ”Aber verſaͤume<lb/>
+”dieſe unwiederbringliche Zeit nicht, ehe der<lb/>
+”feindliche Hofmarſchall ſeine Brunnencur<lb/>
+”ſchließt, und die Schoͤnheiten wieder auf-<lb/>
+”ſucht, die itzt ſein durchwaͤſſertes Herz medi-<lb/>
+<fw type="catch" place="bottom">”ciniſch</fw><lb/>
+<pb n="23" facs="#f0027"/>
+”einiſch verachtet. Waſche dich — pudere<lb/>
+”deine beſte Peruͤcke; dein ſchwarzer Rock<lb/>
+”ſoll dir in deiner Eroberung nicht ſchaden:<lb/>
+”nur ſey ſo dreuſt und munter wie ein Kam-<lb/>
+”merjunker; dieſer ſiegt oft auch in der Trauer<lb/>
+”des Hofs, nicht immer im froͤhlichen Jagd-<lb/>
+”kleide.”</p><lb/>
+<p>Nach dieſen Worten verſchwand der wahr-<lb/>
+heitliebende Amor, und die an Wiederholen<lb/>
+gewoͤhnte Seele des theuren Magiſters wie-<lb/>
+derkaͤuete noch dreymal dieſen gluͤcklichen<lb/>
+Traum, und er hatte ihn im friſchen Gedaͤcht-<lb/>
+niß, als er aufwachte.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Zweyter Geſang.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>ie neue Sonne rollte den jungen Tag<lb/>
+des Jahres herauf. Jhr ungewohnter<lb/>
+Blick uͤberſah ſchuͤchtern die Planeten, die ſie<lb/>
+beſcheinen ſollte, und nun wandte Sie auch<lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">ihr</fw><lb/>
+<pb n="24" facs="#f0028"/>
+ihr unſchuldiges Geſicht zu unſerer Erdku-<lb/>
+gel. Ein Heer vorausbezahlter Gratulanten<lb/>
+jauchzt ihr entgegen; andere — ungluͤckli-<lb/>
+cher, zerriſſen das Neujahrsgedicht, ſeit dem<lb/>
+froſtigen September geſchmiedet; denn ihr<lb/>
+alter Maͤcen iſt den heiligen Abend vorher<lb/>
+geſtorben, und hinterlaͤßt geitzige Erben, die<lb/>
+den Apoll ſamt den Muſen verachten und un-<lb/>
+geheißene Arbeiten niemals großmuͤthig be-<lb/>
+lohnen. Verjaͤhrte Rechte, drohende Wech-<lb/>
+ſelbriefe, erfuͤllte Hoffnungen und erſeufzte<lb/>
+Majorennitaͤten draͤngten ſich auf den Strah-<lb/>
+len des neuen Lichts in das beunruhigte Herz<lb/>
+der erwachten Sterblichen. Aber friedliebend<lb/>
+und ſanft wirkt ſie, die maͤchtige Sonne,<lb/>
+auf die Felſenherzen der Großen und in die<lb/>
+morſchen Gebeine der Helden, die itzt voller<lb/>
+Neigung zur Ruhe ſich beſchwerlich von ih-<lb/>
+ren Lagern erheben, um ihre Wunden ver-<lb/>
+binden und die Merkmaale ihrer Tapferkeit<lb/>
+vernaͤhen zu laſſen. Stolz auf ihr Elend be-<lb/>
+<fw type="catch" place="bottom">haͤn-</fw><lb/>
+<pb n="25" facs="#f0029"/>
+haͤngen ſie den kruͤpplichen Koͤrper mit den<lb/>
+bunten Zeichen des gnaͤdigen Spottes der<lb/>
+Fuͤrſten, mit dem theuren Spielwerke von<lb/>
+Kreuzen und Baͤndern; und die Empfindung<lb/>
+ihres Heldenlebens wuͤthet in jeglicher Nerve.<lb/>
+Betaͤubt von den murrenden Wuͤnſchen der<lb/>
+Thorheit und von den lauten Seufzern des<lb/>
+Ungluͤcks ſtund die Sonne in wehmuͤthiger<lb/>
+Schoͤnheit am Himmel, fuͤrchtete ſich, laͤnger<lb/>
+herab zu ſchanen, und verſteckte ſich oft hin-<lb/>
+ter ein truͤbes Gewoͤlke. So ſteht ein bluͤ-<lb/>
+hendes unſchuldiges Maͤgdchen, zu arm ihr<lb/>
+junges Leben zu erhalten, vor der verſammel-<lb/>
+ten Schule der Mahler, und verraͤth die ge-<lb/>
+heimſten Schoͤnheiten der Natur, fuͤr einen<lb/>
+geringen unbilligen Preis, der Betrachtung<lb/>
+der Kunſt. Jn ſchamhafter Einfalt verſteckt<lb/>
+ſie ihre maͤchtigen Augen hinter einer ihrer<lb/>
+jungfraͤulichen Haͤnde, indem ſie mit der an-<lb/>
+dern das letztere neidiſche Gewand von ſich<lb/>
+legt, das ihre Reize verbarg, und nun —<lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">aͤngſt-</fw><lb/>
+<pb n="26" facs="#f0030"/>
+aͤngſtlich erwartet ſie nun den Verlauf der<lb/>
+verkauften Stunde. Die geſchickteſten Juͤng-<lb/>
+linge zittern bey dem Anblicke der unverhuͤll-<lb/>
+ten ſchoͤnen Natur, und ihre ſonſt gewiſſe<lb/>
+Hand zeichnet Fehler auf das geſpannte Pa-<lb/>
+pier. Der minderjaͤhrige Knabe allein uͤber-<lb/>
+trifft hier ſeinen Meiſter; denn in ſeinem klei-<lb/>
+nen noch fuͤhlloſen Herzen liegen jene ſympa-<lb/>
+thetiſchen Trieb’ unentwickelt, und ſeine Hand<lb/>
+lernt’ eher der Kunſt, als jenes der Liebe ge-<lb/>
+horchen. Und der hoffende Pfarrherr gieng<lb/>
+in der Fruͤhe zu Niklas, dem Verwalter,<lb/>
+wuͤnſchte ihm ein froͤhliches Neuesjahr und<lb/>
+ließ ſich wieder eins wuͤnſchen; dann erzaͤhl-<lb/>
+te er ihm ſeinen naͤchtlichen Traum buͤndig<lb/>
+und kuͤrzlich — denn die gebiethenden Glocken<lb/>
+hatten ſchon zum drittenmale gelaͤutet, und die<lb/>
+geputzte Gemeinde ſah ſehnlich ihrem Herrn<lb/>
+Paſtor mit ſeinem Neujahrswunſche entgegen.<lb/>
+Ach wie froͤhlich klopfte nicht Niklas dem<lb/>
+Herrn Magiſter die Achſel, und zweifelte gar<lb/>
+<fw type="catch" place="bottom">nicht</fw><lb/>
+<pb n="27" facs="#f0031"/>
+nicht an der Erfuͤllung des Traums. Hurtig<lb/>
+beſtellt’ er die Kuͤche, damit ſie, wuͤrdig des<lb/>
+lieben Beſuchs, viele ſchmackhafte Gerichte<lb/>
+den Mittag zu liefern vermoͤchte. Er bath auch<lb/>
+den wertheſten Traͤumer zur Tafel, und gieng<lb/>
+an ſeiner rechten Seite mit ihm vertraulich<lb/>
+zur Kirche. Der kuͤnftige Herr Schwiegerſohn<lb/>
+hielt eine erbauliche Predigt, bis unter Sin-<lb/>
+gen und Bethen die Mittagsſonne hervortrat.<lb/>
+Schon eilte die buntſchaͤckige Gemeinde mit<lb/>
+geſaͤttigter Seele und hungrigem Magen nach<lb/>
+Hauſe, als die gehoffte Caroſſe zur Hoͤhe des<lb/>
+Dorfs hereinſchimmerte. Wie eilte nicht der<lb/>
+rappenfaͤrbichte Herr, den ſechs Schimmeln<lb/>
+vorzukommen, um auf Befehl des Traums<lb/>
+die Schoͤne aus dem Wagen zu heben. Kei-<lb/>
+chend ſchmaͤhlt er auf ſich, daß er ſo lange ge-<lb/>
+predigt, aber dennoch uͤberholt’ er die rollende<lb/>
+Kutſche, und er empfieng die holde Willhelmi-<lb/>
+ne an der Thuͤr ihrer vormaligen Wohnung.<lb/>
+Von dem Zuruf ihrer herzugelaufenen Be-<lb/>
+<fw type="catch" place="bottom">kann-</fw><lb/>
+<pb n="28" facs="#f0032"/>
+kannten begruͤßt reichte ſie, nicht mehr als<lb/>
+eine Nymphe des Dorfs, ihrem unerkann-<lb/>
+ten Liebhaber die Hand mit koſtbaren Ringen<lb/>
+gezieret, und ſagte hoͤflich zu ihm: Wie<lb/>
+geht es, werther Herr Paſtor? Darauf<lb/>
+umarmte ſie ihren alten weinenden Vater,<lb/>
+der vor der Hofſtimme ſeiner Tochter er-<lb/>
+ſchrack und nicht wuſte, ob er mit ſeiner baͤu-<lb/>
+riſchen Sprache ihre Ohren beleidigen duͤrf-<lb/>
+te. Noch ſcheuer und in einem unaufhoͤrli-<lb/>
+chen Buͤcklinge ſtund ihr Liebhaber vor ihr,<lb/>
+und huſtete immer und ſprach nichts. Lange<lb/>
+getraute er ſich auch nicht, ſie anzublicken;<lb/>
+denn ihr huͤpfender Buſen, von keinem laͤnd-<lb/>
+lichen Halstuche bedeckt, war ein zu unge-<lb/>
+woͤhnlicher Anblick fuͤr ihn, und ſetzte ſeine<lb/>
+Nerven in ein fleberhaftes Erzittern. Mit<lb/>
+zufriednem Mirleiden beobachtete Wilhelmi-<lb/>
+ne den Einfluß ihrer Perſon, und riß end-<lb/>
+lich Vater und Liebhaber aus ihrer Betaͤu-<lb/>
+bung. Jhre harmoniſche Stimme bildete<lb/>
+<fw type="catch" place="bottom">man-</fw><lb/>
+<pb n="29" facs="#f0033"/>
+manche vertraute Erzaͤhlung, bald von den<lb/>
+Freuden des Hofs, von engliſchen Taͤnzen<lb/>
+und uͤberirdiſchen Opern und von den unnuͤ-<lb/>
+tzen Verfolgungen ihrer Amanten; bald aber<lb/>
+auch bejammerte ſie mit nachdenkender Stirne<lb/>
+den ſteten Wechſel des Hofs und den Ekel,<lb/>
+der, ein unermuͤdeter Verfolger aller rau-<lb/>
+ſchenden Ergetzungen, hinterliſtig dem tau-<lb/>
+melnden Hoͤflinge nachſchleicht — und da<lb/>
+wuͤnſchte ſie ſich — Welch ein Vergnuͤgen<lb/>
+fuͤr den horchenden Prieſter! einſt wieder<lb/>
+mit Ehren zur gluͤcklichen Stille des Landes<lb/>
+zuruͤck. Unter dieſen anmuthigen Geſpraͤ-<lb/>
+chen, wovon meine Muſe nicht die Haͤlfte<lb/>
+verraͤth, ſetzte ſich dieſe liebe Geſellſchaft ver-<lb/>
+traulich und ohne Gebethe zu Tiſche. Er-<lb/>
+ſchrocken dachte zwar der Magiſter daran,<lb/>
+doch durft’ er es itzo nicht wagen, ſich wider<lb/>
+die Gewohnheiten des Hofs zu empoͤren.<lb/>
+Um das Mittagsmahl zu verherrlichen, hatte<lb/>
+die ſchoͤne Tochter des Hauſes vier Flaſchen<lb/>
+<fw type="catch" place="bottom">koͤſt-</fw><lb/>
+<pb n="30" facs="#f0034"/>
+koͤſtlichen Weins mitgebracht. Sie oͤffnete<lb/>
+eine davon, und ſchenkte mit wohlthaͤtigen<lb/>
+Haͤnden ihrem Liebhaber und Vater ſchaͤu-<lb/>
+mende Glaͤſer ein. Lange beſah der Magiſter<lb/>
+das unbekannte Getraͤnke, koſtete es mit der<lb/>
+Mine des Kenners, und ließ doch ſein Feuer<lb/>
+verrauchen! Endlich fragte er pedantiſch:<lb/>
+liebe Mamſel, fuͤr was kann ich das eigent-<lb/>
+lich trinken? Laͤchelnd antwortete ſie: Es<lb/>
+iſt von unſerm Burgunder. Nach ihm<lb/>
+ſetzte man auch eine langhaͤlſichte Flaſche des<lb/>
+ſtillſcheinenden bleichen Champagners auf<lb/>
+die Tafel. Schon ganz freundlich durch den<lb/>
+Burgunder reichte ſie der Magiſter den be-<lb/>
+fehlenden Haͤnden der Schoͤne; aber er waͤ-<lb/>
+re bald vor Schrecken verſunken, als der be-<lb/>
+truͤgeriſche Wein den Stoͤpſel an die Wand<lb/>
+ſchmiß, und wie der vogelfreye Spion, der<lb/>
+ſich einſant und ſicher in dem Walde geglaubt<lb/>
+hat, durch den Moͤrſer eines feindlichen<lb/>
+Hinterhalts aus ſeiner Ruhe geſchreckt wird,<lb/>
+<fw type="catch" place="bottom">ſo</fw><lb/>
+<pb n="31" facs="#f0035"/>
+— ſo betaͤubte der ſchreckliche Knall die Oh-<lb/>
+ren des zitternden Paſtors. Erſt auf lan-<lb/>
+ges Zureden und hundert Betheurungen der<lb/>
+Schoͤne trank er den tuͤckiſchen Wein, und<lb/>
+er empfand bald deſſen feurige Wirkung;<lb/>
+denn nun oͤffnete der laute Scherz und der<lb/>
+wiederkehrende Witz ſeine geiſtigen Lippen.<lb/>
+Antitheſen und Wortſpiele jagten einander,<lb/>
+und da gewann er auf einmal den ganzen<lb/>
+Beyfall der artigen Wilhelmine, wie ihm<lb/>
+ſein wahrhafter Traum vorher verkuͤndigt<lb/>
+hatte. Jtzt erſchrack er nicht mehr vor dem<lb/>
+aufrichtigen Buſen, den er ſelbſt belebender<lb/>
+fand, als den brauſenden Champagner.<lb/>
+Dreymal hatte er mit luͤſternen Augen hin-<lb/>
+geſchielt, da ward er ſo dreuſt und wagte es,<lb/>
+von dem alten Verwalter unterſtuͤtzt, das<lb/>
+Herz der engliſchen Kammerjungſer zu be-<lb/>
+ſtuͤrmen. So viel Waffen der Liebe als<lb/>
+nur ſeine unerfahrne Hand regieren konn-<lb/>
+te; ſo viel als ihm nur zaͤrtliche Blicke<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="32" facs="#f0036"/>
+und gefaͤlliges Laͤcheln zu Gebothe ſtehen<lb/>
+wollte, verwendete er auf die Hoffnung ei-<lb/>
+ner geſchwinden Eroberung. Welch eine<lb/>
+Verſchwendung von ſuͤßen zaͤrtlichen Wor-<lb/>
+ten! Erſtaunt ſah Wilhelmine ihren drin-<lb/>
+genden Feind an, und dreymal wankte ſie;<lb/>
+aber ein geheimer Stolz und die Ruͤckſicht<lb/>
+auf den praͤchtigen Hof erhielt ſie noch,<lb/>
+bis ihr endlich Vater und Liebhaber, im-<lb/>
+mer einander unterbrechend, das Wunder<lb/>
+des Traums entdeckten. Denn da erkann-<lb/>
+te ſie ſelbſt in allem die ſichtbaren Wege des<lb/>
+Himmels und ihren Beruf, und durch die<lb/>
+Beredſamkeit des Paſtors bekehrt, entfern-<lb/>
+te ſie allen Zwang des Hofs von ihren offen-<lb/>
+herzigen Lippen: Wohlan! ſagte ſie, nach-<lb/>
+dem ſie in einer kleinen freundlichen Pauſe<lb/>
+die Beſchwerden und die Vortheile des Hy-<lb/>
+men gegen einander gehalten, und noch die<lb/>
+reife Ueberlegung auf ihrer hohen Stirne<lb/>
+ſaß: ”Wohlan! ich unterwerfe mich den<lb/>
+<fw type="catch" place="bottom">”Be-</fw><lb/>
+<pb n="33" facs="#f0037"/>
+”Befehlen meines Schickſals; ja, ich will<lb/>
+”ſelbſt mit Vergnuͤgen das unruhige Leben<lb/>
+”des Hofes mit den Freuden meines Ge-<lb/>
+”burtsorts vertauſchen, und da Sie mich ein-<lb/>
+”mal lieben, Herr Paſtor, ſo wuͤrd’ es un-<lb/>
+”zeitig ſeyn, ſproͤde zu thun — ich ſehe die<lb/>
+”Ungedult Jhrer Neigung auf Jhrem Ge-<lb/>
+”ſichte! Kommen Sie her, mein Gelieb-<lb/>
+”ter, und” — Welch ein Triumph fuͤr ei-<lb/>
+nen Unerfahrenen, der nie den Ovid und<lb/>
+das Syſtem einer verſuchten klugen Len-<lb/>
+clos geleſen — ”kuͤſſen Sie mich, und neh-<lb/>
+”men Sie zum Zeichen unſerer Verſpre-<lb/>
+”chung dieſen Ring an!” Und mit unaus-<lb/>
+ſprechlichem Vergnuͤgen kam der ſchwerfaͤlli-<lb/>
+ge Liebhaber geſtolpert — kuͤßte ſie drey-<lb/>
+mal, und macht’ es zur Probe recht ar-<lb/>
+tig. Sie ſteckt’ ihm einen Demant, in<lb/>
+Form eines flammenden Herzens, an das<lb/>
+kleinſte Glied ſeines Fingers, und Er —<lb/>
+welcher Tauſch, haͤtt’ ihn nicht die dulden-<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">de</fw><lb/>
+<pb n="34" facs="#f0038"/>
+de Liebe gerechtfertigt — uͤberreichte Jhr<lb/>
+einen ziegelfarbenen Carniol, worein ein An-<lb/>
+ker gegraben. Nun brachte jede Minute<lb/>
+neuen Zuwachs an Liebe und Vertrauen<lb/>
+in ihre verbundene Geſellſchaft, und frohe<lb/>
+Geſpraͤche von ihrer baldigen Hochzeit be-<lb/>
+ſchaͤfftigten ihre unermuͤdete Lippen. Da<lb/>
+ſagte Wilhelmine dieſe merkwuͤrdigen Wor-<lb/>
+te: „Morgen, wenn die Goͤttinn der Ca-<lb/>
+”bale auf den feuchten balſamiſchen Wol-<lb/>
+”ken des dampfenden Theen nachdenkend<lb/>
+”an den koſtbaren Plafonds herumzieht und<lb/>
+”ihre Anbether ermuntert, und wenn die<lb/>
+”eigenſinnige Goͤttinn der Mode ihren Lieb-<lb/>
+”ling, den Schneider, zu wichtigen Confe-<lb/>
+”renzen der Staatsraͤthe geleitet, oder da-<lb/>
+”mit Sie mich deutlich verſtehen: Mor-<lb/>
+”gen, wenn es fruͤh Zehne geſchlagen, ſo ruͤ-<lb/>
+”ſten Sie ſich, mein Geliebter, und ma-<lb/>
+”chen Sie Jhre ſchuldige Aufwartung bey un-<lb/>
+”ſerm Hofmarſchall; Bitten Sie ihn in de-<lb/>
+<fw type="catch" place="bottom">”muͤ-</fw><lb/>
+<pb n="35" facs="#f0039"/>
+”muͤthiger Stellung um die Erlaubniß zu<lb/>
+”meiner baldigen Heyrath! Jch ſelbſt will<lb/>
+”ihn noch heute zu dieſem Jhrem Beſuche<lb/>
+”bereiten, und ſo werden Sie dann mor-<lb/>
+”gen gar keine Schwierigkeit finden. Er iſt<lb/>
+”der beſte Herr von der Welt; und wenn<lb/>
+”meine Bitten, wie ich aus guten Gruͤnden<lb/>
+”mir ſchmeichle, etwas bey ihm vermoͤgen,<lb/>
+”ſo geben Sie Achtung, er ſoll ſelbſt bey<lb/>
+”unſerer Hochzeit erſcheinen, und durch ſei-<lb/>
+”ne ehrende Gegenwart unſer Feſt anſehnli-<lb/>
+”cher machen. Jtzt aber theilen Sie ohne<lb/>
+”Complimente den Platz in meinem zwey-<lb/>
+”ſitzigen Wagen, damit Jhnen der Weg<lb/>
+”nach einem fuͤrſtlichen Hofe nicht eben ſo<lb/>
+”ſauer ankommen moͤge, als der benebelte<lb/>
+”Steinweg zu Jhrem Filiale!„ Zaͤrtlich<lb/>
+und ſuͤß verſprach der gehorſame Liebhaber<lb/>
+ihr in allem zu folgen, und an der Hand<lb/>
+ſeiner Geliebten verließ er itzt ſein trauriges<lb/>
+Kirchſpiel. Wer weiß, wie viele nicht in-<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">deſſen</fw><lb/>
+<pb n="36" facs="#f0040"/>
+deſſen dieß Dorf und die Welt ohne ſeinen<lb/>
+Abſchied verlaſſen, und wie viele darinnen<lb/>
+ankommen, die bey ihrer Geburt weder von<lb/>
+dem Laͤcheln einer Melpomene, noch von<lb/>
+dem ſtaͤrkenden Anblick des Paſtors, begruͤßt<lb/>
+werden!</p><lb/>
+<p>Nach drey kurzen hinweg geplauderten<lb/>
+Stunden waren die beyden Verliebten in<lb/>
+den Mauern der Reſidenz. Der ehrwuͤr-<lb/>
+dige Fremde begab ſich unter den Schutz<lb/>
+des wirthbaren Hirſches, und Braut und<lb/>
+Braͤutgam trennten ſich hier bis auf ein<lb/>
+gluͤckliches Wiederſehn mit hoͤchſt zaͤrtlichen<lb/>
+Kuͤſſen. Welche triumphirende Freude durch-<lb/>
+ſtroͤmte nicht itzt das Herz des verliebten<lb/>
+Magiſters, als er ſich, ſeinen Betrachtun-<lb/>
+gen uͤberlaſſen, in dem weiten Zimmer des<lb/>
+Gaſthofs allein ſah! — Eine ganz andere<lb/>
+Empfindung ſeines Gluͤcks, als er ſelbſt an<lb/>
+dem vergnuͤgten Tage ſeines uͤberſtandenen<lb/>
+Examens nicht gefuͤhlt hatte! Denn damals<lb/>
+<fw type="catch" place="bottom">mach-</fw><lb/>
+<pb n="37" facs="#f0041"/>
+machte der Praͤſident ſeinem ſtotternden Ge-<lb/>
+ſchwaͤtze durch ein ungehofftes Bene ein<lb/>
+freudiges Ende, und die gelehrten Herren<lb/>
+Beyſitzer widerſprachen es nicht. Sollten ſie<lb/>
+etwan durch lange Unterſuchungen ſich um<lb/>
+die kurzen Luſtbarkeiten der Meſſe und den<lb/>
+ſchwitzenden Candidaten ums Amt bringen?<lb/>
+O nein! Aus Menſchenliebe hofften ſie, er<lb/>
+wuͤrd’ es ſchon loͤblich verwalten, und ſie<lb/>
+uͤberließen die Seelen der Bauern ſeiner Treue<lb/>
+und Gottes Barmherzigkeit. Mit meh-<lb/>
+rerm Rechte freut’ er ſich itzt, und ſchmei-<lb/>
+chelhaft fragt’ er ſich: Jſt es nicht dein ei-<lb/>
+genes Verdienſt, das ſproͤdeſte Maͤgdchen in<lb/>
+einem Nachmittage beſiegt zu haben? Wie<lb/>
+wohl that ich, daß ich meinem prophetiſchen<lb/>
+Traume zufolge mich ſo dreuſt und mun-<lb/>
+ter bezeigte, wie die vornehme Welt es ver-<lb/>
+langt. Ach welch eine Liebe fuͤr mich muß<lb/>
+nicht in der Bruſt meiner Wilhelmine er-<lb/>
+wacht ſeyn, da ſie ſich ſo eilig entſchließt,<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">den</fw><lb/>
+<pb n="38" facs="#f0042"/>
+den praͤchtigen Hof zu verlaſſen, um einem<lb/>
+armen Dorfprediger zu folgen, deſſen alt-<lb/>
+fraͤnkiſche Wohnung — wer weiß wie man-<lb/>
+che Reformation uͤberlebt hat.</p><lb/>
+<p>Schon toͤnte der Waͤchter ſeinen letzten<lb/>
+Nachtgeſang, in einem tiefen verungluͤckten<lb/>
+Baß — huͤllte ſich in ſeinen Schafpelz und<lb/>
+beurlaubte ſich von der Stadt. Jn gehoͤri-<lb/>
+ger Entfernung ſchlichen die Spoͤtter ſeiner<lb/>
+Aufſicht, die gluͤcklichen Diebe, ihm nach,<lb/>
+weckten den Thorſchreiber auf, und erreichten<lb/>
+bald das ſichere Gehoͤlze: Und am Horizont<lb/>
+fieng ſchon der Tag an zu grauen, eh’ unſer<lb/>
+Verliebter einſchlafen konnte. Wie war es<lb/>
+auch moͤglich? Auf allen Seiten verfolgten ihn<lb/>
+Unruh und Schrecken. Gleich hoͤlliſchen Ge-<lb/>
+ſpenſtern raſſelt’ unter ihm mit Ketten der boͤh-<lb/>
+miſche Fuhrmann: doch Gedanken der Liebe<lb/>
+machten noch einen groͤßern Tumult in ſeinem<lb/>
+zerruͤtteten Herzen. Aus Mattigkeit fiel er<lb/>
+endlich in die Arme des Schlafs. Doch auch<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="39" facs="#f0043"/>
+der Schlaf eines Verliebten iſt Unruh; denn<lb/>
+ſobald er das Bellen der Hunde und das Ra-<lb/>
+ſen des Windes nicht mehr deutlich vernahm,<lb/>
+ſo bemaͤchtigten aͤngſtliche Ahndungen ſich ſei-<lb/>
+nes Gefuͤhls. Bald traͤumt’ er, ſeine be-<lb/>
+rauſchte Seele erhuͤbe ſich uͤber das Zenith<lb/>
+und begruͤßte unbekannte Gefilde. Dann<lb/>
+glaubte er wieder in einen bodenloſen Abgrund<lb/>
+zu ſtuͤrzen, ſchrie, ſtraͤubte ſich, ſtieß ſich an<lb/>
+den ſchlafenden Scheitel, und erwachte in ei-<lb/>
+nem ploͤtzlichen Schrecken. So ſteigt ein lu-<lb/>
+ſtiger Schwaͤrmer durch die dunkle Nacht in<lb/>
+einem Wirbel empor, wirft freundliche Stern-<lb/>
+chen von ſich, und brauſet unter den Wolken;<lb/>
+bald darauf ſinkt er — nun ſinkt er, endet<lb/>
+ſein kurzes Geraͤuſch, und zerplatzt mit einem<lb/>
+laͤcherlichen Knall.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom"><hi rendition="#b">Drit-</hi></fw><lb/>
+<pb n="40" facs="#f0044"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Dritter Geſang.</hi></head><lb/>
+<p><hi rendition="#in">S</hi>chon blitzten die Strahlen der Sonne,<lb/>
+ein Schauſpiel unſerer itzt lebenden<lb/>
+Neutons, auf dem leeren Kopfe des Thur-<lb/>
+mes und der geputzten Coquette, die wie ein<lb/>
+wachſamer Feldherr ſchon fruͤh mit den ſor-<lb/>
+genden Gedanken ausgieng, welchen Poſten<lb/>
+ſie heute beſetzen, und welches Bollwerk ſie<lb/>
+heut erſtuͤrmen ſolte. Alle beruͤhmten Schlaͤ-<lb/>
+fer der Reſidenz, alle Hofjunker und Staats-<lb/>
+raͤthe waren erwacht. Einige verſchluckten<lb/>
+levantiſchen Coffee und blaͤtterten im <hi rendition="#b">Herrn<lb/>
+und Diener</hi> <note place="foot" n="*">Eine bekannte Schrift des Hrn von Moſer.</note>, oder bezeichneten, um nach<lb/>
+vollbrachtem Tage weiter zu leſen, dankbar<lb/>
+die ruͤhrende Stelle, bey der ihnen den Abend<lb/>
+vorher — die Gedanken in Schlaf uͤbergien-<lb/>
+gen. Mit edeln Eifer uͤbten ſich andere im<lb/>
+<fw type="catch" place="bottom">Stil-</fw><lb/>
+<pb n="41" facs="#f0045"/>
+Stillen die Zahlen der Wuͤrfel zu lenken,<lb/>
+oder durch geſchwinde Folten (ein myſtiſches<lb/>
+Wort) ſich uͤber allen Wechſel des Gluͤcks zu<lb/>
+erheben. Die von fluͤchtigerm Gebluͤte flat-<lb/>
+terten ſchon uͤber das Pflaſter, um die blaſ-<lb/>
+ſen Fraͤuleins an der Toilette zu beſuchen,<lb/>
+und ihnen durch maͤchtige Scherze rothe<lb/>
+Wangen zu ſchaffen. Aber noch immer<lb/>
+ſchnarchte der muͤde Magiſter; ja, er wuͤrde<lb/>
+gewis den Endzweck ſeiner Reiſe, den ſo<lb/>
+wichtigen Beſuch bey dem Hofmarſchall,<lb/>
+verſchlafen haben, haͤtte ihn nicht die kaͤufi-<lb/>
+ſche Stimme eines baͤrtigen Juden erweckt,<lb/>
+der dreymal ſchon vergebens an die Stuben-<lb/>
+thuͤre klopfte.</p><lb/>
+<p>Haben Sie etwas zu ſchachern? ſchrie der<lb/>
+Ebraͤer gewaltig hinein, daß die Fenſter<lb/>
+erklangen, und der betaͤubte Magiſter in<lb/>
+die Hoͤhe fuhr. Der Unglaͤubige floh; er-<lb/>
+ſchrocken ſah der ſchlaͤfrige Chriſt nach ſeiner<lb/>
+tombackenen Uhr, erſtaunte, daß es ſo ſpaͤt<lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">war,</fw><lb/>
+<pb n="42" facs="#f0046"/>
+war, und warf ſich ſchleunig in ſeinen bepu-<lb/>
+derten Schwarzrock. Halb traͤumend lief er<lb/>
+uͤber die Gaſſen und ohne Vorbereitung, den<lb/>
+Complimenten des Hofmarſchalls entgegen.<lb/>
+Aber welche Muſe beſchreibt mir den Einzug<lb/>
+des frommen Pedanten in das vergoldete<lb/>
+Zimmer des glaͤnzenden Weltmanns? Jn<lb/>
+einem Schlafrocke von Stoffe, der, o Wun-<lb/>
+der! von eben dem Stuͤcke war, das auch<lb/>
+Wilhelminen ein Brautkleid geliefert, em-<lb/>
+pfieng er den Paſtor mit offner Stirne und<lb/>
+ſatyriſcher Mine, die ſein ſchlauer Diener<lb/>
+verſtund, der hinter dem Ruͤcken des armen<lb/>
+Magiſters die galante Falſchheit wiederlaͤ-<lb/>
+chelnd bewunderte. Mit Huſten und Scharr-<lb/>
+fuͤßen ſuchte der Supplicant den Eingang zur<lb/>
+Rede; aber als Ceremonienmeiſter trat der<lb/>
+bellende Melampus ihm entgegen, noͤ-<lb/>
+thigte ihn ſtille zu ſtehen, und zerſtreuete<lb/>
+die hervorquellenden Worte, daß ſie un-<lb/>
+gehoͤrt vom Hofmarſchall ſich an den Spie-<lb/>
+<fw type="catch" place="bottom">geln</fw><lb/>
+<pb n="43" facs="#f0047"/>
+geln zerſtießen, und ihr Wiederhall den<lb/>
+bethenden Pfarrherrn in Angſt und Schre-<lb/>
+cken verſetzte. Endlich legte des Hofmanns<lb/>
+maͤchtige Stimme dem ergrimmten Cerbe-<lb/>
+rus Stillſchweigen auf. Gehorſam kroch<lb/>
+er zu den Fuͤßen ſeines Herrn, und leckte<lb/>
+ſchmeichelnd den ſaffianen Pantoffel. Dar-<lb/>
+auf wandte ſich die Rede zu dem immer<lb/>
+ſich buͤckenden Verliebten: „Jch weiß ſchon<lb/>
+”Jhr Anbringen, lieber Herr Paſtor, iſt<lb/>
+”es nicht wahr? Sie wollen uns unſere<lb/>
+”Willhelmine entziehen? das ſchoͤnſte und<lb/>
+”ehrlichſte Maͤgdchen in dieſem ganzen Ge-<lb/>
+”biethe! Habe ich es nicht errathen, Herr<lb/>
+”Paſtor? Schon geſtern hat ſie mir ſelbſt<lb/>
+”Jhre Lieb’ eroͤffnet, und mit verſchaͤmtem<lb/>
+”Geſichte um den gluͤcklichen Abſchied ge-<lb/>
+”bethen. Wohlan! Jch werde kein Hinder-<lb/>
+”niß ihrer Neigung und beſcheidenen Bit-<lb/>
+”te in den Weg legen, wenn Sie mir<lb/>
+”anders eine kleine Bedingung verſprechen.<lb/>
+<fw type="catch" place="bottom">”Wer-</fw><lb/>
+<pb n="44" facs="#f0048"/>
+”— Werden Sie nicht unruhig, Herr<lb/>
+”Paſtor! Es hat mich unſere Wilhelmi-<lb/>
+”ne gebethen, morgen ſelbſt bey Jhrer<lb/>
+”Hochzeit zu erſcheinen — Mit Vergnuͤ-<lb/>
+”gen will ich auch kommen, und will ſelbſt<lb/>
+”eine Geſellſchaft verſammeln, die Jhren<lb/>
+”Ehrentag glaͤnzender machen wird, als ei-<lb/>
+”ne Kirchmeß — eine Geſellſchaft, die mei-<lb/>
+”nem Stande gemaͤß iſt — wenn Sie<lb/>
+”— Denn dieß ſey die Bedingung —<lb/>
+”Wenn Sie die Tochter des alten Grafen<lb/>
+”von Nimmer vermoͤgen, dieſes Feſt zu be-<lb/>
+”leben. Er — der Jhr Nachbar iſt, und<lb/>
+”oft vor Jhrer Kanzel erſcheinet, wird ſich<lb/>
+”nicht weigern, ſeine holde Clariſſe auf<lb/>
+”die Hochzeit eines erbaulichen Predigers<lb/>
+”fahren zu laſſen — Der Comteſſe aber<lb/>
+”ſagen Sie heimlich: Jch wuͤrde darbey<lb/>
+”ſeyn. Auf meinen Befehl, der uͤber die<lb/>
+”fuͤrſtliche Kuͤche gebiethet, ſollen alsdann<lb/>
+”hundert fette Gerichte Jhre hochzeitliche<lb/>
+<fw type="catch" place="bottom">”Ta-</fw><lb/>
+<pb n="45" facs="#f0049"/>
+”Tafel ſchmuͤcken, und Maderg — Rhein-<lb/>
+”wein — Champagner und aͤchte Heremi-<lb/>
+”tage ſollen in Ueberfluß fließen, wie in<lb/>
+”der heiligen Verſammlung der Cardinaͤle,<lb/>
+”wenn ſie eine ganze lange Woche hindurch<lb/>
+”in dem einſamen Conclave ſich weiſe gehun-<lb/>
+”gert, und nun das Oberhaupt der Kirche<lb/>
+”durch ein entſcheidendes <hi rendition="#aq">Habet — habet</hi> —<lb/>
+”gewaͤhlt iſt.”</p><lb/>
+<p>Wie vergnuͤgt hoͤrte nicht der Verliebte<lb/>
+dieſe freundlichen Reden! Gern und oh-<lb/>
+ne Anſtand verſprach er, dieſen leichten Be-<lb/>
+fehlen zu folgen, und ſich der hohen Eh-<lb/>
+re und Gnade wuͤrdig zu machen. Dar-<lb/>
+auf nahm er Abſchied, und ſchnappte nach<lb/>
+dem Zipfel des Schlafrocks; aber mit hoͤfli-<lb/>
+chen geuͤbten Haͤnden ſchlug der Hofmar-<lb/>
+ſchall beyde Theile zuruͤck, ſtrich mit dem<lb/>
+Fuße aus, und empfohl ſich dem Schwarz-<lb/>
+rocke. Bald nach ihm trat Wilhelmine her-<lb/>
+ein, und brachte ihrem gnaͤdigen Goͤnner<lb/>
+<fw type="catch" place="bottom">Cho-</fw><lb/>
+<pb n="46" facs="#f0050"/>
+Chocolade mit perlendem Schaume; da gab<lb/>
+ihr der Marſchall das Document ihrer Tu-<lb/>
+gend, den ehrlichſten Abſchied, ſauber auf<lb/>
+Pergament geſchrieben, und ſiehe da! wel-<lb/>
+che großmuͤthige Gnade! Er umarmte ſie<lb/>
+mit gefaͤlligen Haͤnden, und kuͤßte ſie zaͤrt-<lb/>
+lich. Eine ganze ſapphiſche Empfindung<lb/>
+ſtroͤmte durch ihr dankbares Herz, und trieb<lb/>
+ihren wallenden Buſen empor, daß der<lb/>
+blaßrothe Atlas zu kniſtern anfieng, der ihn<lb/>
+weit unter die Haͤlfte umſpannte. Ach welch<lb/>
+ein reizender Buſen! o ſcherzhafte Muſe,<lb/>
+beſchreib ihn! Auf ſeiner linken Erhoͤhung<lb/>
+lag ein mondfoͤrmiges Schoͤnfleckchen an-<lb/>
+geheftet durch Gummi, von dem ein klei-<lb/>
+ner Liebesgott, immer mit drollichten Re-<lb/>
+verenzen die Blicke der Grafen und Laͤu-<lb/>
+fer — Laquayen und Freyherren, auf ſich<lb/>
+zog. Aber itzt erhob ſich dreymal die war-<lb/>
+me bebende Bruſt, und trennte die ge-<lb/>
+doͤrrte Muſche vom Gummi. Der kleine<lb/>
+<fw type="catch" place="bottom">Lie-</fw><lb/>
+<pb n="47" facs="#f0051"/>
+Liebesgott, mit ſammt ſeinem Geruͤſte,<lb/>
+fiel — zwiſchen der Schnuͤrbruſt — un-<lb/>
+aufhaltſam hinunter, daß die Schoͤne ſchrie,<lb/>
+und der ernſthafte Hofmarſchall wirklich zu<lb/>
+lachen anfieng. So faͤllt ein prahlender<lb/>
+Zahnarzt unter die morſchen Truͤmmer ſei-<lb/>
+nes Theaters, indem er mit ſtampfender Be-<lb/>
+redtſamkeit dem Poͤbel winkt, ſein Rattenpul-<lb/>
+ver zu kaufen. Sein erbaͤrmlich Geſchrey<lb/>
+und das laute Lachen des Volks betaͤuben den<lb/>
+Jahrmarkt, wenn ihn nun aus dem theuren<lb/>
+Schutte ſein buntſchaͤckichter Diener hervor-<lb/>
+zieht.</p><lb/>
+<p>Mit einer bedeutenden Roͤthe rauſchte<lb/>
+bald die ſchoͤne Verlobte in die Verſamm-<lb/>
+lung der uͤbrigen Zofen des Hofs, die<lb/>
+ſchon ihre gluͤhenden Wangen beneiden,<lb/>
+aber Wilhelmine vollendet ihrer aller Ver-<lb/>
+zweiflung, als ſie ihnen den papierenen<lb/>
+Triumph zeigt, den ſie itzt vom Hofmar-<lb/>
+ſchall erhalten. Aeußerlich klagen ſie zwar<lb/>
+<fw type="catch" place="bottom">ihre</fw><lb/>
+<pb n="48" facs="#f0052"/>
+ihre verkaufte Geſpielin: „Ach du armes ver-<lb/>
+”blendetes Maͤgdchen! So willſt du denn<lb/>
+”fern von den Freuden des Hofs, und fern<lb/>
+”von deinem verbraͤmten Amanten, in der<lb/>
+”Einoͤde des Landes dein junges Leben ver-<lb/>
+”ſeufzen — und nur von Bauern bewundert,<lb/>
+”den ſtolzen Buſen erheben? So willſt du<lb/>
+”denn in einer dunkeln geiſtlichen Huͤtte als<lb/>
+”Frau Magiſterin wirthſchaften? Ach du ar-<lb/>
+”mes verblendetes Maͤgdchen!”</p><lb/>
+<p>So klagten alle die Zofen den Abſchied der<lb/>
+erweichten Willhelmine, aber heimlichwuͤnſch-<lb/>
+te ſich jede, bald auch ſo beweinet zu werden,<lb/>
+und in den ſichern Armen des weiblichen<lb/>
+Schutzgottes, des Hymen, den Wechſel des<lb/>
+falſchen Hofes zu lachen.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Vier-</hi></fw><lb/>
+<pb n="49" facs="#f0053"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Vierter Geſang.</hi></hi></head><lb/>
+<p><hi rendition="#in">A</hi>uf den Uhren war ſchon der Mittag vor-<lb/>
+uͤber, aber in den Haͤuſern der Groſ-<lb/>
+ſen brach er erſt mit feſtlichem Pomp’ aus<lb/>
+der Kuͤchen hervor — Hekatomben rauchten<lb/>
+ihm — Denn die mittaͤgliche Sonne hat<lb/>
+noch nicht ihre Anbether verloren — Mit<lb/>
+mehrerm Eifer, als wohl jemals ein aͤgy-<lb/>
+ptiſcher Prieſter gehabt, feyern ſie taͤglich<lb/>
+ihr Feſt, mit ſonnenrothen Geſichtern, bis<lb/>
+das wohlthaͤtige Licht den Kreis verlaͤßt, und<lb/>
+nun die ſtille Venus vom naͤchtlichen Him-<lb/>
+mel herabbiikt. Da erhub der geſaͤttigte<lb/>
+Pfarrherr ſeine geſtiefelten Beine, und trat<lb/>
+mit zerſtreuten Gedanken ſeinen beſtimmten<lb/>
+zwo Meilen langen Weg an; Die alles<lb/>
+vermoͤgende Liebe hatt’ itzt den gelehrten Ma-<lb/>
+giſter zu einem gemeinen Bothenlaͤufer ernie-<lb/>
+drigt, und er mußte, welche ſonderbare Be-<lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">din-</fw><lb/>
+<pb n="50" facs="#f0054"/>
+dingung — als ſein eigner Hochzeitbitter,<lb/>
+noch ein zweytes Jawort erbetteln, ehe ſie<lb/>
+ihn gluͤcklich zu machen verſprach. Der hoch-<lb/>
+beſchneyte Weg ermuͤdete ſeine Knie, und<lb/>
+die duftende Kaͤlte candirte ſeinen ſchwarzen<lb/>
+Bart, und bracht’ ihm Zahnweh. Aber<lb/>
+noch ein groͤßeres Uebel, als Zahnweh und<lb/>
+Muͤdigkeit, lauerte in dem nahen Walde<lb/>
+auf ihn. Welcher boshafte Genius war es,<lb/>
+der in Geſtalt eines Holzhackers dem Prie-<lb/>
+ſter entgegen kam? Ein unſchuldiges unbe-<lb/>
+kuͤmmertes Geſicht, die Larve der Heuche-<lb/>
+ley, betrogen den heiligen Wanderer. ”Gu-<lb/>
+”ter Freund! redete er ihn vertraulich an,<lb/>
+”ſagt mir doch, iſt dieſes die rechte Straſ-<lb/>
+”ſe nach Rennsdorf, dem Ritterſitze des al-<lb/>
+”ten Grafen von Nimmer?” Ehrerbiethig<lb/>
+nahm itzt der Boshafte vor dem Schwarz-<lb/>
+rocke den Huth ab und ſagte: ”Wer Sie<lb/>
+”auch ſind — ehrwuͤrdiger lieber Herr,<lb/>
+”ſo beklage ich Sie doch herzlich; denn die-<lb/>
+<fw type="catch" place="bottom">”ſer</fw><lb/>
+<pb n="51" facs="#f0055"/>
+”ſer falſche Holzweg, auf welchem Sie<lb/>
+”wandeln, wird Sie weit von Rennsdorf<lb/>
+”ablocken; und wenn endlich ſich die Schreck-<lb/>
+”niſſe der Nacht uͤber dieſe Heyde verbrei-<lb/>
+”ten, ſo muͤſſen Sie Jhren ermuͤdeten Koͤr-<lb/>
+”per einer abgelegenen Schenke — einer<lb/>
+”Spitzbubenherberge vertrauen.” Da ſchlug<lb/>
+der erſchrockene Magiſter ſeine haarichten<lb/>
+Faͤuſte zuſammen. Lieber wuͤrd’ er auf ei-<lb/>
+nem Ameishaufen geſchlafen, oder wie ein<lb/>
+Zigeuner, den Anbruch ſeines Hochzeitfeſtes<lb/>
+in einer hohlen Weide erwartet haben, als<lb/>
+daß er einer Schenke das Vorrecht ge-<lb/>
+goͤnnt haͤtte, ſeine geweiheten Glieder zu<lb/>
+bedecken. ”O mein Freund, rief er, den<lb/>
+”mir noch zu rechter Zeit ein guter En-<lb/>
+”gel entgegen ſchickt, ach entfernt mich doch<lb/>
+”eilig von dieſem Fußſteige, der meine Ge-<lb/>
+”beine umſonſt ermuͤdet, und zeigt mir<lb/>
+”den richtigen Weg, und nehmt im vor-<lb/>
+”aus fuͤr eure Bemuͤhung ein dankbares<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">”Trink-</fw><lb/>
+<pb n="52" facs="#f0056"/>
+”Trinkgeld an!” Hier zog er — gleich<lb/>
+einer alchymiſtiſchen Phiole, einen langen<lb/>
+Beutel heraus, der in der Farbe der Hoff-<lb/>
+nung kuͤnſtlich geſtrickt war. Ein billiger<lb/>
+Zwiſchenraum ſcheidete dreyßig Ephraimi-<lb/>
+ten von einer guͤldenen Madona. Jhres<lb/>
+innern Werthes gewiß, erwartete ſie ruhig<lb/>
+ihr verzoͤgerndes Schickſal, da ſich indeß<lb/>
+der juͤdiſche Haufe mit Geraͤuſche bis an<lb/>
+die Muͤndung des Beutels draͤngte, um<lb/>
+bald erloͤſet zu werden, und in einem un-<lb/>
+gewiſſen Courſe betruͤgeriſch zu wuchern.<lb/>
+Doch — indem n<supplied>oc</supplied>h der Paſtor die groß-<lb/>
+muͤthige Belohnung und das Verdienſt ei-<lb/>
+nes Wegweiſers berechnet, ſo verſchwindet<lb/>
+Baarſchaft — Tageloͤhner und Beutel,<lb/>
+und der Gott der Kaufleute und Diebe,<lb/>
+verbirgt den Raub und den hurtigen Raͤu-<lb/>
+ber in den Finſterniſſen des Waldes. Nun<lb/>
+erfuͤllt’ eine lange unharmoniſche Klage des<lb/>
+armen Magiſters die Luft: ”O du treu-<lb/>
+<fw type="catch" place="bottom">”loſer</fw><lb/>
+<pb n="53" facs="#f0057"/>
+”loſer Verraͤther, ſo ſchrie er, wenn du<lb/>
+”auch — der du einen Prieſter berau-<lb/>
+”beſt, den Dreyangel des Galgens, der<lb/>
+”Kuͤhhaut und den gluͤhenden Zangen ent-<lb/>
+”fliehſt — ſo wird dich doch dein boͤſes<lb/>
+”Gewiſſen und mein Fluch verfolgen, daß,<lb/>
+”wenn das eiskalte Fieber deine Glieder<lb/>
+”zerruͤttet, dir keine bittere Eſſenz, und kein<lb/>
+”Kirchengebeth helfen ſoll, wenn du es<lb/>
+”auch mit einem Gulden bezahlteſt. Un-<lb/>
+”andaͤchtig geſprochen, wird es in der<lb/>
+”Atmoſphaͤre der Kanzel zerflattern, wie<lb/>
+”unſer Gebeth fuͤr den Roͤmiſchen Kaiſer<lb/>
+”und aller weltlichen Obrigkeit.” So ſchrie<lb/>
+er und erholte ſich langſam unter einer<lb/>
+uͤberhangenden Eiche. Ungewiß durch die<lb/>
+Luͤgen des Raͤubers, ob dieſes der rechte<lb/>
+Weg ſey, uͤberließ er ſich furchtſam ſei-<lb/>
+nem Verhaͤngniſſe: doch die troͤſtende Lie-<lb/>
+be leitete ſeine zweifelhaften Fuͤße durch die<lb/>
+finſtere Nacht gluͤcklich in das labyrin-<lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">thiſche</fw><lb/>
+<pb n="54" facs="#f0058"/>
+thiſche Schloß des Grafen. Der zeitige<lb/>
+Schlaf, und ein ſuͤßer Traum von einem<lb/>
+Capaune mit Auſtern, beherrſchte ſchon den<lb/>
+alten Gerichtsherrn, und es ſchliefen auch<lb/>
+ſchon ſeine alten Bediente, ob es gleich<lb/>
+erſt Neune geſchlagen. Des ankommenden<lb/>
+Fremdlings ehrwuͤrdige Krauſe floͤßte dem<lb/>
+Waͤchter des Hofs die ſchuldige Achtung<lb/>
+ein, daß er ihn, nachdem er ſein Ver-<lb/>
+langen erforſcht, bis an die Stube der<lb/>
+jungen Graͤfinn begleitete. Mit ihrer ver-<lb/>
+trauten Zofe, Sibylle genannt, ſaß die<lb/>
+muntere Comteſſe, den einen ihrer niedli-<lb/>
+chen Aerme auf ihrer verſchobenen Toilet-<lb/>
+te gelehnt, und in der andern hielt ſie ei-<lb/>
+nen vergoldeten zaͤrtlichen Brief, den ſie<lb/>
+erſt itzt an den Hofmarſchall, ihren Ge-<lb/>
+liebten, geſchrieben. Sie las ihn mit ge-<lb/>
+daͤmpfter Stimme ihrer critiſchen Freun-<lb/>
+dinn vor, die aufmerkſam zuzuhoͤren ſchien,<lb/>
+und unmerklich nur gaͤhnte. Aber wer<lb/>
+<fw type="catch" place="bottom">kann</fw><lb/>
+<pb n="55" facs="#f0059"/>
+kan das Schrecken beſchreiben, das die-<lb/>
+ſe zwo weiblichen Seelen ergriff, als der<lb/>
+gekruͤmmte Zeigefinger des verſpaͤteten Pa-<lb/>
+ſtors an die Stubenthuͤre donnerte. Sie<lb/>
+glaubten gewiß, ein prophetiſcher Verdacht<lb/>
+habe die zaͤnkiſche Gouvernanntinn erweckt,<lb/>
+die wie ein Policeyverwalter alles Unrecht<lb/>
+entdeckte, und dem alten Grafen verrieth.<lb/>
+Mit angenommener Freymuͤthigkeit, geboth<lb/>
+die betroffene Comteſſe ihrer Zofe, die ver-<lb/>
+ſchloſſene Kammerthuͤre hurtig zu oͤffnen:<lb/>
+doch ihr furchtſamer Wink widerſprach ih-<lb/>
+rem geſchwinden Befehle — Die kluge Si-<lb/>
+bylle verſtund ihn, gieng langſam zu Wer-<lb/>
+ke, klapperte ſcheinbar an der Thuͤre, und<lb/>
+ſchmaͤhlte entſetzlich auf das ſtrenge ver-<lb/>
+roſtete Schloß, da indeß ihre Gebietherinn<lb/>
+die noͤthige Zeit gewann, mit <hi rendition="#aq">Eau de<lb/>
+Levante</hi> ihre Haͤnde zu waſchen, die hier<lb/>
+und da von der verraͤtheriſchen Dinte noch<lb/>
+glaͤnzten, und auch den anklagenden Brief<lb/>
+<fw type="sig" place="bottom">D 4</fw><fw type="catch" place="bottom">aus</fw><lb/>
+<pb n="56" facs="#f0060"/>
+aus dem Wege zu ſchaffen. Mit gegen-<lb/>
+waͤrtigem Geiſte, o wie liebenswuͤrdig! er-<lb/>
+griff ſie ihn, zerquetſchte ſeinen durchſichti-<lb/>
+gen Cavalier und das Poſthorn, und klein<lb/>
+gedruͤckt, wie eine uͤbelſchmeckende Pille,<lb/>
+warf ſie ihn hurtig unter das Bette; Aber<lb/>
+wie dauerte ihr nicht der wohlgeſchriebene<lb/>
+Brief, als nur der nachbarliche Herr Pa-<lb/>
+ſtor zur Kammerthuͤre hereintrat. Einen<lb/>
+ſolchen Wechſel von heftigem Schrecken<lb/>
+und ſtiller Betruͤbniß empfand einſt der<lb/>
+freygeiſtiſche Desbarraux, als er ſich zur<lb/>
+Faſtenzeit einen Eyerkuchen erlaubte: Schon<lb/>
+hatte ſein erzkatholiſcher Diener, blaß wie<lb/>
+der Tod, das verbothene Gericht auf die<lb/>
+einſame Tafel geſetzt, als ein geſchwindes<lb/>
+Gewitter am Himmel heraufzog, und ein<lb/>
+erſchrecklicher Schlag die naͤſchichte Seele<lb/>
+betaͤubte, und ihm den erſten Biſſen im<lb/>
+Munde zu Galle verwandelte. Was das<lb/>
+fuͤr ein Laͤrmen um einen Eyerkuchen iſt!<lb/>
+<fw type="catch" place="bottom">ſchrie</fw><lb/>
+<pb n="57" facs="#f0061"/>
+ſchrie er halb unwillig, halb furchtſam; er-<lb/>
+griff das rauchende Eſſen, und warf es<lb/>
+im Eifer auf die beregnete Gaſſe; Aber<lb/>
+wie dauerte ihm nicht das verlohrne gute<lb/>
+Gericht, als das Gewitter voruͤber gieng!<lb/>
+Beſchaͤmt warf er ſich ſeine zaghafte Eil-<lb/>
+fertigkeit vor, und quaͤlte aufs neue den<lb/>
+aberglaͤubiſchen Koch, ihm ein anderes zu<lb/>
+backen.</p><lb/>
+<p>Kaum hatte der keichende Pfarrherr ſei-<lb/>
+ne ermuͤdeten Fuͤße von dem niedrigen Arm-<lb/>
+ſtuhle geſtreckt, und mit gnaͤdiger Erlaub-<lb/>
+niß die beklemmende Weſte geoͤffnet, ſo<lb/>
+verrichtete er ſeinen Auftrag mit der un-<lb/>
+noͤthigen Vorſicht eines Pedanten; Er li-<lb/>
+ſpelte heimlich der Graͤfinn und ihrer Ver-<lb/>
+trauten dieß anbefohlne Geheimniß ins Ohr:<lb/>
+Der gnaͤdige Herr Hofmarſchall werde da-<lb/>
+bey ſeyn — und keine, nein keine, als die<lb/>
+gegenwaͤrtigen Seelen, konnten dieſe myſti-<lb/>
+ſchen Worte vernehmen.</p><lb/>
+<fw type="sig" place="bottom">D 5</fw><fw type="catch" place="bottom">Welch</fw><lb/>
+<pb n="58" facs="#f0062"/>
+<p>Welch ein Tiefſinn bedeckt’ itzt mit den<lb/>
+Fittichen der Mitternacht das Cabinet der<lb/>
+ſchoͤnen Clariſſe! Jhre erfindungsreiche Lie-<lb/>
+be ſtritt immer mit der ſchwerfaͤlligen Ein-<lb/>
+ſicht des Magiſters: doch beyde mußten<lb/>
+ſich der Erfahrung eines grauen Kam-<lb/>
+mermaͤgdchens unterwerfen. Anſchlaͤge wur-<lb/>
+den gefaßt, unterſucht, und durch neue ver-<lb/>
+draͤngt! Lange gieng das wichtige Project,<lb/>
+wie ein Wuͤrfel im Kreislaufe herum,<lb/>
+ehe die aͤltliche Zofe mit der verſchmitzten<lb/>
+hohen Mine eines verſuchten Miniſters,<lb/>
+ihre Gedanken in folgenden klugen Wor-<lb/>
+ten entdeckte! „Jtzt, ehrwuͤrdiger Herr, da<lb/>
+”ſich Jhre Augen nach Ruhe ſehnen, ſo<lb/>
+”hoͤren Sie kuͤrzlich meinen unmaßgeblichen<lb/>
+”Vorſchlag: Meine willige Stimme ſoll itzt<lb/>
+”dem Waͤchter des Hofes befehlen, daß ſein<lb/>
+”ſicheres Geleite Sie, den Windhunden vor-<lb/>
+”bey, in die Stube fuͤhre, die unſer Haus-<lb/>
+”hofmeiſter bewohnet. Dieſer wird gern ei-<lb/>
+<fw type="catch" place="bottom">”ne</fw><lb/>
+<pb n="59" facs="#f0063"/>
+”ne Nacht ſein Bette mit Jhnen theilen,<lb/>
+”und morgen meldet er Sie bey dem gnaͤ-<lb/>
+”digen Grafen. Dann gehen Sie nur un-<lb/>
+”erſchrocken zu dem alten Papa; er wird<lb/>
+”Sie gewiß Jhrer Bitte gewaͤhren; denn<lb/>
+”er liebet Sie von Herzen, und Jhre kla-<lb/>
+”genden Jahrgaͤnge haben ſeine hypochon-<lb/>
+”driſche Bruſt mit Ehrfurcht fuͤr Sie, Herr<lb/>
+”Paſtor, erfuͤllet. Alſo ſchlafen Sie ſanft!<lb/>
+”bis die Morgenroͤthe Jhre geſtaͤrkten Glie-<lb/>
+”der zum froͤhlichen Hochzeitfeſte erweckt!„<lb/>
+Ein guͤtiger Lobſpruch aus dem roſenfar-<lb/>
+benen Munde der Graͤfinn belohnte die<lb/>
+Einſicht der Zofe — Auch der Magiſter<lb/>
+wollte ihr gern ſeinen Beyfall daruͤber be-<lb/>
+zeigen, aber ſeine Worte verwandelten ſich<lb/>
+in gaͤhnenden Mislaut, daß er zur Huͤl-<lb/>
+fe ein beredtes Kopfnicken rief. Jn we-<lb/>
+nig Minuten war jeder wichtige Umſtand<lb/>
+nach Sibyllens Sinne geendet. Der Haus-<lb/>
+hofmeiſter beherbergte den ſchnarchenden<lb/>
+<fw type="catch" place="bottom">Magi-</fw><lb/>
+<pb n="60" facs="#f0064"/>
+Magiſter, und die dunkelbraune Nacht ver-<lb/>
+barg ſeine heimliche Ankunft unter ihrem<lb/>
+Schleyer vor der mistrauiſchen Gouvernan-<lb/>
+tinn und vor dem murrenden Hofhunde.</p><lb/>
+<p>Der volle Morgen hatte den hochgebohr-<lb/>
+nen Gerichtsherrn erweckt. Jtzt uͤberdenkt er<lb/>
+noch im Bette den Zuſtand ſeines Magens<lb/>
+und fordert mit ſchwelgeriſcher Neugier den<lb/>
+fruͤhen Kuͤchenzettel — Da tritt der Haushof-<lb/>
+meiſter herein, und meldet ihm die Beherber-<lb/>
+gung des verſpaͤteten Pfarrherrn, und wie er<lb/>
+itzt, voller Verlangen, Jhro Graͤfliche Gnaden<lb/>
+zu ſprechen, vor der Kammerthuͤre lauſchte.<lb/>
+„Je, willkommen, werther Herr Paſtor, will-<lb/>
+”kommen!„ ſchrie der Graf dem Verliebten<lb/>
+entgegen! Buͤckend trat dieſer vor das Vor-<lb/>
+hangbette des Grafen, und ſein ſchwerer Athem<lb/>
+blies ſogleich die hochzeitliche Bitte hervor, die<lb/>
+er mit einer Menge von Wuͤnſchen beſchloß,<lb/>
+worzu ihm der Wechſel der Zeit die beſte Ge-<lb/>
+legenheit darboth. Bey ſtarkem ungeduldi-<lb/>
+<fw type="catch" place="bottom">gem</fw><lb/>
+<pb n="61" facs="#f0065"/>
+gem Herzklopfen wartete er nun, bis der Mor-<lb/>
+genhuſten des ſtotternden Grafen ſich legte —<lb/>
+als er auf einmal dieſe deutliche Antwort ver-<lb/>
+nahm: „O ſehr gern will ich meiner Tochter<lb/>
+”das Vergnuͤgen erlauben, an Jhrem Ehren-<lb/>
+”tage, lieber Herr Paſtor, im ſchoͤnſten Putze<lb/>
+”zu glaͤnzen. Der prieſterlichen Aufſicht uͤber-<lb/>
+”laſſen, iſt ihre Tugend ſicherer, als unter<lb/>
+”meinem eigenen Dache. Ja, mein Freund,<lb/>
+”verlaſſen Sie ſich darauf, ſie ſoll Nachmit-<lb/>
+”tags mit ſechs ruͤſtigen Pferden vor Jhrer<lb/>
+”Hausthuͤre erſcheinen, und das Hochzeitge-<lb/>
+”ſchenk will ich ſelber beſorgen. Damit aber<lb/>
+”auch Sie, mein Lieber, ſich nicht vor Jhrer<lb/>
+”nahen Hochzeit ermuͤden, oder wieder be-<lb/>
+”ſtohlen werden, und ſich im Walde verirren,<lb/>
+”ſo ſoll meine geſchwinde Jagdchaiſe Sie itzt<lb/>
+”Jhren erwartenden Geſchaͤften zuruͤck fuͤh-<lb/>
+”ren, und meine aufrichtigen Wuͤnſche ſollen<lb/>
+”Jhnen folgen.„ Da ergriff der entzuͤckte<lb/>
+Magiſter die ſchwere Hand des Grafen von<lb/>
+<fw type="catch" place="bottom">Nim-</fw><lb/>
+<pb n="62" facs="#f0066"/>
+mer, kuͤßte ſie hundertmal, und benetzte ſie mit<lb/>
+Thraͤnen der Freude, die uͤber ſeinen ſtachlich-<lb/>
+ten Bart herunter rollten, wie ein ploͤtzlicher<lb/>
+Sonnenregen uͤber die glaͤnzenden Stoppeln<lb/>
+der Felder. Wie rechtmaͤßig war dieſe Freu-<lb/>
+de; denn nach dieſem Orakelſpruche endigte<lb/>
+ſich alle ſein Leiden. Halb war nun ſchon<lb/>
+die Bedingung des Hofmarſchalls erfuͤllt, und<lb/>
+fuͤr die andere Haͤlfte wird die ſchoͤne Clariſſe<lb/>
+ſchon ſorgen. Mit einem ſegnenden Compli-<lb/>
+mente verließ er die Stube des Grafen. An<lb/>
+der Treppe lauerte die verſchmitzte Sibylle<lb/>
+auf ihn, und erforſchte den Ausgang der<lb/>
+Sache. Mit zwey kurzen Worten entdeckt’<lb/>
+er ihr die gnaͤdige Erlaubniß ſeines Patrons;<lb/>
+und indem er ſich in die Chaiſe warf, flog<lb/>
+die erfreute Zofe zu ihrer Gebieterinn. Nun<lb/>
+beſchaͤftigte die Wahl eines reizenden Putzes<lb/>
+den ganzen Vormittag beyde weibliche Her-<lb/>
+zen, und alles lag ſchon in der ſchoͤnſten Ord-<lb/>
+nung, ehe der langſame Alte ſeiner Tochter<lb/>
+<fw type="catch" place="bottom">die</fw><lb/>
+<pb n="63" facs="#f0067"/>
+die Bitte des Braͤutigams, und ſeine eigene<lb/>
+vaͤterliche Erlaubniß anzukuͤndigen glaubte.<lb/>
+Sie hoͤrte ihn an, als ob ſie von nichts wuͤßte,<lb/>
+und bedankte ſich gleichguͤltig fuͤr die vergoͤnn-<lb/>
+te Spatzierfahrt — und leichtfertig erkundig-<lb/>
+te ſie ſich nach den uͤbrigen Gaͤſten der prie-<lb/>
+ſterlichen Hochzeit: doch der gute Alte wußte<lb/>
+ihr keine Nachricht zu geben. „Wer wird<lb/>
+”dabey ſeyn, ſprach er, als ſeine Confratres<lb/>
+”vom Lande!„ Jndeſſen klopfte das Herz der<lb/>
+jungen Graͤfinn ungeduldig nach ihrem lie-<lb/>
+ben Hofmarſchalle, bis der geſchaͤfftige Putz<lb/>
+die langen Minuten vertrieb, und ein ſanf-<lb/>
+ter Wagen die freundliche Goͤttinn, nebſt ihrer<lb/>
+vielfarbichten Jris aufnahm, und zu dem Ho-<lb/>
+fe des traurigen Schloſſes hinaus flog.</p><lb/>
+<figure/></div> <fw type="catch" place="bottom"><hi rendition="#b">Fuͤnfter</hi></fw><lb/>
+<pb n="64" facs="#f0068"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Fuͤnfter Geſang.</hi></hi></head><lb/>
+<p><hi rendition="#in">D</hi>er gluͤcklich angelangte Magiſter fand<lb/>
+ſeine beroſtete Pfarre zu einem Pala-<lb/>
+ſte verwandelt, als er hinein trat. Ein Du-<lb/>
+tzend Bediente ſeines gnaͤdigen Goͤnners hat-<lb/>
+ten in ſeiner Abweſenheit die herkuliſche Ar-<lb/>
+beit unternommen, Stuben und Kammer zu<lb/>
+ſaͤubern, und in der Kuͤche herrſchte ein an-<lb/>
+ſehnlicher Koch, deſſen eigenſinnige Befehle<lb/>
+tauſend Geraͤthe verlangten, deren Namen<lb/>
+noch nie in dieſem Dorfe waren gehoͤrt wor-<lb/>
+den. Seine donnernden Fluͤche flogen in der<lb/>
+heiligen Kuͤche herum, daß der erſchrockene<lb/>
+Pfarrherr mit einem Schauer vorbey gieng,<lb/>
+ſich in ſein ruhiges Muſeum ſetzte, und das<lb/>
+Geſangbuch zur Hand nahm. Als ein Fremd-<lb/>
+ling in ſeiner eigenen Behauſung, getraute er<lb/>
+ſich nicht, itzt von dem vornehmen Koche et-<lb/>
+was zu eſſen zu fordern; lieber verſaͤumte er<lb/>
+<fw type="catch" place="bottom">das</fw><lb/>
+<pb n="65" facs="#f0069"/>
+das Mittagsmahl, und troͤſtete ſich politiſch mit<lb/>
+dem froͤhlichen Soupe.</p><lb/>
+<p>Die dritte critiſche Stunde des Nachmit-<lb/>
+tags brach an, und lud durch ihren Glanz den<lb/>
+Neid des ungebethenen Superintendenten und<lb/>
+aller Amtsbruͤder auf den Hals des armen<lb/>
+Verlobten. Strenge dich an, Muſe! und<lb/>
+hilf mir das Gewuͤhl der Vornehmen beſchrei-<lb/>
+ben, die ſich itzt in das Haus des Pfarrherrn<lb/>
+ſammelten. Zuerſt erſchien der lackirte Schlit-<lb/>
+ten des Hofmarſchalls, an der Spitze vieler<lb/>
+andern. Vier deutſche Hengſte, chineſiſch ge-<lb/>
+ſchmuͤckt, zogen ihn, und ein vergoldeter Ju-<lb/>
+piter regierte den Kutſcher — Ein muſikali-<lb/>
+ſches Silbergelaͤute huͤpfte auf dem Ruͤcken<lb/>
+der Pferde, indem unter ihren ſtampfenden<lb/>
+Fuͤßen die froͤhliche Erde davon flog. Schon<lb/>
+von ferne erkannte der zitternde Pfarrherr ſei-<lb/>
+nen Goͤnner, und an ſeiner Rechten die geputzte<lb/>
+Braut. Mit unbedachtſamer Hoͤflichkeit gieng<lb/>
+er dem fliegenden Schlitten entgegen — aber<lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom">ſein</fw><lb/>
+<pb n="66" facs="#f0070"/>
+ſein ſchnurbaͤrtiger Fuͤhrer wendete mit ſeinen<lb/>
+vier Schimmeln in vollem Trabe um, daß der<lb/>
+Magiſter, mit verzerrtem Geſichte, eilig wie-<lb/>
+der zuruͤck ſprang. Mit majeſtaͤtiſchem An-<lb/>
+ſtande ſtieg nun die einnehmende Willhelmine<lb/>
+von dem ſammtenen Sitze. Zum erſten-<lb/>
+male — aber auch zum letzten, verrieth ſich<lb/>
+der kleine vorgeſtreckte Fuß bis an die Hoͤhe<lb/>
+des geſtickten Strumpfbandes; denn ſo bald<lb/>
+ſie ausgeſliegen war, umrauſchte ein buntfar-<lb/>
+biger Stoff die verdeckten Schoͤnheiten. Ei-<lb/>
+ne ſchneeweiße tuͤrkiſche Feder blaͤhte ſich auf<lb/>
+ihre gekraͤuſelten Haare, und bog ſich neugie-<lb/>
+rig uͤber ihren wallenden Buſen, der unter<lb/>
+den feinen Spitzen aus Brabant hervorblickte,<lb/>
+wie der volle Mond hinter den Sproͤßlingen<lb/>
+eines jungen Orangenwaͤldchens. Nach ihr<lb/>
+ſprang der anſehnliche Hofmarſchall unter die<lb/>
+Menge der erſtaunten Bauern, die heute Ar-<lb/>
+beit und Tagelohn vergaßen, um das Feſt ihres<lb/>
+Hirten zu begaffen. Ein gewaͤſſertes Band<lb/>
+hieng ſchief uͤber den Lazurblauen Sammt ſei-<lb/>
+<fw type="catch" place="bottom">nes</fw><lb/>
+<pb n="67" facs="#f0071"/>
+nes Kleides; und der milde Einfluß ſeines Ge-<lb/>
+ſtirns zeigte ſich auf allen Geſichtern, und<lb/>
+noͤthigte dem unhoͤflichſten Treſcher den Huth<lb/>
+ab. Alle Blicke wandten ſich itzt einzig auf<lb/>
+den geſtirnten Herrn — nicht einer fiel mehr<lb/>
+auf Willhelminen. Dieſe werden wir noch<lb/>
+oft, dachten die Bauern, als Frau Magiſte-<lb/>
+rinn bewundern, aber einen Hofmarſchall ſieht<lb/>
+man nicht alle Tage. So vergißt man das<lb/>
+alles beſcheinende Licht des Olymps, wenn eine<lb/>
+ſeltene Nebenſonne erſcheint, die ploͤtzlich ent-<lb/>
+ſteht und verſchwindet.</p><lb/>
+<p>Ein anderer Schlitten, unter dem Zeichen<lb/>
+des Mars, der (eine ſeltſame Erfindung des<lb/>
+witzigen Bildhauers) auf einem Ladeſtock ritt,<lb/>
+lieferte zween aufgeduͤnſtete Muͤßiggaͤnger am<lb/>
+Hofe, Kammerherren genannt. Einſt hatten<lb/>
+ſie in ihrer Jugend als hitzige Krieger einen<lb/>
+einzeln furchtſamen Raͤuber verjagt, und ſich<lb/>
+und dem geaͤngſteten Prinzen das Leben er-<lb/>
+rettet. Zur Belohnung hatten ſie ſich dieſes<lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">unthaͤ-</fw><lb/>
+<pb n="68" facs="#f0072"/>
+unthaͤtige Leben erwaͤhlt, genoſſen einer feiſt-<lb/>
+machenden Penſion, erzaͤhlten immer die große<lb/>
+That ihres Soldatenſtandes — und goͤnnten<lb/>
+gern ihre laͤrmende Gegenwart einem jeglichen<lb/>
+Schmauſe. So lebten einſt die Erhalter des<lb/>
+Capitols, die dummen Gaͤnſe, von den Wohl-<lb/>
+thaten der dankbaren Roͤmer; ohne Furcht,<lb/>
+geſchlachtet zu werden, fraßen ſie den ausge-<lb/>
+ſuchteſten Waizen von Latiums Feldern, fuͤr<lb/>
+einen wichtigen Dienſt, den eine jede andere<lb/>
+ſchnatternde Gans mit eben der Treue verrich-<lb/>
+tet haͤtte. Der fluͤchtige Mercur und vier<lb/>
+ſchnaubende Rappen brachten die pygmaͤiſche<lb/>
+Figur eines affectirten Kammerjunkers gefah-<lb/>
+ren. Stolz auf einen eingebildeten guten Ge-<lb/>
+ſchmack, erſetzten ſeine reichen Kleider den Man-<lb/>
+gel ſeines Verſtandes. Zuverſichtlich beſah<lb/>
+er heut eine glaͤnzende Weſte, die, wie die weiſ-<lb/>
+ſe Wamme eines drollichten Eichhoͤrnchens,<lb/>
+unter ſeinem rothpluͤſchnen Rocke hervorleuch-<lb/>
+tete; und troͤſtlich dacht’ er an die Verdienſte<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="69" facs="#f0073"/>
+der weit koſtbarern zuruͤck, die ſich noch in ſei-<lb/>
+ner Garderobe befanden. Ein paar blitzen-<lb/>
+de Steinſchnallen, und eine Doſe von Saint-<lb/>
+Martin erſchaffen, waren ihm das, was einem<lb/>
+rechtſchaffenen Manne ein gutes Gewiſſen<lb/>
+iſt — ſie machten ihn zufrieden mit ſich ſelbſt,<lb/>
+und dreuſt in jeder Geſellſchaft. Jtzt lief er<lb/>
+gebuͤckt in die Pfarre hinein; gebuͤckt, als ob<lb/>
+ſein kleiner Koͤrper befuͤrchtete, an die altvaͤte-<lb/>
+riſche Hausthuͤre zu ſtoßen, die gothiſches<lb/>
+Schnitzwerk verbraͤmte. Nun aber kam un-<lb/>
+ter der Anfuͤhrung einer gefaͤlligen Minerva<lb/>
+ein einzelner vernuͤnftiger Mann gefahren, der<lb/>
+wenig geachtet von den Weiſen des Hofs den<lb/>
+Befehlen ſeines Herzens mit ſtrengem Eigen-<lb/>
+ſinne folgte. Nie erniedrigte er ſich zu der<lb/>
+Schmeicheley, und nie folgte er der Mode des<lb/>
+Hofes, die das Hauptlaſter des Fuͤrſten zu ei-<lb/>
+ner Tugend erhebt, und durch Nachahmung<lb/>
+billigt; Vergebens — (Konnt’ es wohl anders<lb/>
+ſeyn?) hofft’ er in dieſem Getuͤmmel ein nahes<lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">Gluͤck,</fw><lb/>
+<pb n="70" facs="#f0074"/>
+Gluͤck, hier wo man nur durch feine Raͤnke<lb/>
+gewinnt, und wo die Blicke der Großen mehr<lb/>
+gelten, als ein richtiger Verſtand und Tugend<lb/>
+und Wahrheit. Ziſchet ihn aus — ihr Lieb-<lb/>
+linge des Hofes! Was helfen ihm alle ſeine<lb/>
+Verdienſte? Daß ſie einſt vielleicht, in Stein<lb/>
+gehauen, auf ſeinem Grabmaale ſitzen und<lb/>
+weinen? O wie thoͤricht! den Gebothen des<lb/>
+Himmels zu gehorchen, wo ein Fuͤrſt befiehlt,<lb/>
+und auf dem einſamen Wege der Tugend zu<lb/>
+wandeln, wo noch kein Hofmann eine fette<lb/>
+Pfruͤnde erreicht hat. Wenn eine falſche<lb/>
+ſchwankende Uhr des Stadthauſes den Vor-<lb/>
+urtheilen der Buͤrger gebiethet, ſo betriegt uns<lb/>
+oft unſere wahre Kenntniß der Zeit um ihren<lb/>
+Gebrauch; denn hier, wo ein jedes dem all-<lb/>
+gemeinen Jrrthume folget, den eine ſummen-<lb/>
+de Glocke ausbreitet, und die entfernte Sonne<lb/>
+fuͤr nichts achtet, was hilft es hier dem gewiſ-<lb/>
+ſen Sternſeher, daß er ſich allein nach ihren<lb/>
+Befehlen richtet — und den Wahn der Stadt<lb/>
+<fw type="catch" place="bottom">verlachet</fw><lb/>
+<pb n="71" facs="#f0075"/>
+verlachet — und ſeine Stunden nach der Na-<lb/>
+tur mißt? Mit allen ſeinen Calendern wird<lb/>
+er bald ſein Mittagsmahl — bald den Beſuch<lb/>
+bey ſeiner Geliebten und bald den Thor-<lb/>
+ſchluß verſaͤumen.</p><lb/>
+<p>Zween wuͤrdige Geſellſchafter beſchloſſen den<lb/>
+Einzug in einem alten Schlitten, den ein<lb/>
+unſcheinbares Bildniß beſchwerte — Ob es<lb/>
+einen nervigten Vulcan oder einen aufgeblaͤh-<lb/>
+ten Midas vorſtellte, war fuͤr die Kunſtrichter<lb/>
+ein Raͤtzel. Ein halbgelehrter Patritius, eh-<lb/>
+maliger Hofmeiſter des Marſchalls, am Stan-<lb/>
+de, ſo wie an Wiſſenſchaft, weder Pferd noch<lb/>
+Eſel — nahm die eine Haͤlfte des bretternen<lb/>
+Sitzes ein, und auf der andern ſaß ein grauge-<lb/>
+wordener Hofnarr, der muͤhſam den ganzen<lb/>
+Weg hindurch auf Einfaͤlle dachte, in Verſen<lb/>
+und Proſa, die hohe Geſellſchaft zu erluſtigen:<lb/>
+aber ſein leerer Kopf blieb ohne Erfindung.<lb/>
+Oft weinte der Arme, daß ſein Alter ihm das<lb/>
+Ruder aus den Haͤnden wand, das er ſo lange<lb/>
+<fw type="sig" place="bottom">E 4</fw><fw type="catch" place="bottom">gluͤck-</fw><lb/>
+<pb n="72" facs="#f0076"/>
+gluͤcklich regieret, und um welches ſich itzt der<lb/>
+fuͤrſtliche Laͤufer, der Oberſchenk und eine dicke<lb/>
+Tyrolerinn riſſen.</p><lb/>
+<p>Niemand ward mehr erwartet, als die jun-<lb/>
+ge Comteſſe. Der Hofmarſchall ſtund unbe-<lb/>
+weglich an dem offenen Fenſter, und ſeine feu-<lb/>
+rigen Blicke fuhren, durch ein ungeduldiges<lb/>
+Fernglas, auf den Weg hin, wo die ſchoͤne<lb/>
+Clariſſe herkommen ſollte. Wimmernd rang<lb/>
+der angſtvolle Magiſter die Haͤnde, und ver-<lb/>
+ſicherte ohn’ Aufhoͤren den argwoͤhniſchen Hof-<lb/>
+mann: „Die junge Dame werde gewiß kom-<lb/>
+”men. Ach! ſagte er, ſie hat mir ja mit der<lb/>
+”aufrichtigſten Mine verſprochen, meine ſchwe-<lb/>
+”re Bedingung erfuͤllen zu helfen, und ſie wird<lb/>
+”mich gewiß nicht in meinen Noͤthen verlaſſen.„<lb/>
+Unterdeſſen war auch ſchon der theure Mann<lb/>
+angelanget, der dieß Brautpaar feſter verbin-<lb/>
+den ſollte. Auf dem benachbarten Dorfe, wo<lb/>
+niemand die Reizungen einer Willhelmine<lb/>
+kannte, hatt’ er von den drey Seiten ſeiner<lb/>
+<fw type="catch" place="bottom">hoͤlzer-</fw><lb/>
+<pb n="73" facs="#f0077"/>
+hoͤlzernen Kanzel trotzig gefragt: Ob jemand<lb/>
+wider das Aufgeboth ſeines Freundes etwas<lb/>
+einzuwenden haͤtte? Und dreymal hatt’ er die<lb/>
+Verleumdung mit dieſen maͤchtigen Worten ge-<lb/>
+bannt: Der ſchweige nachmals ſtille! Sein<lb/>
+frommfarbichter Mantel bedeckt’ ein wildes<lb/>
+Herz; ohne Neigung war er ein Geiſtlicher,<lb/>
+und ward ſelbſt in einem Amte mager, das ſeit<lb/>
+dreyhundert Jahren die Schwindſuͤchtigen fett<lb/>
+gemacht hatte. Mosheim und Cramern kannt’<lb/>
+er nicht: er ſprach aber gern von dem Gene-<lb/>
+ral Ziethen und von dem Treffen bey Roßbach.<lb/>
+Seine Bauern, wild wie er ſelbſt, konnt’ er<lb/>
+lange nicht durch die Bibel bezaͤhmen — denn<lb/>
+er verſtund ſie nicht — aber es gluͤckte ihm<lb/>
+nach einer neuern Methode. Denn eh’ er ſei-<lb/>
+nen Rednerſtuhl beſtieg, beſah er ſein floren-<lb/>
+tiniſches Wetterglas, und rief prophetiſch alle<lb/>
+die Veraͤnderungen von ſeiner Kanzel, die es<lb/>
+ihm ankuͤndigte. Bald wahrſagt’ er der un-<lb/>
+gezogenen Gemeinde Regen und Wind in der<lb/>
+<fw type="sig" place="bottom">E 5</fw><fw type="catch" place="bottom">Heu-</fw><lb/>
+<pb n="74" facs="#f0078"/>
+erndte: bald aber begluͤckt’ er ſie, zum Troſte,<lb/>
+mit einem warmen Sonnenſchein in der Wein-<lb/>
+leſe. Die geruͤhrten Bauern bewunderten den<lb/>
+neuen Propheten, beſſerten ihr Leben, und be-<lb/>
+ſetzten ſeit dem alle Stuͤhle der Kirche. Nach<lb/>
+einer langen gefeyerten Pauſe — erſchien end-<lb/>
+lich die erſeufzte Goͤttinn, koͤſtlich in ihrem<lb/>
+Schmucke, und wunderſchoͤn von Natur; und<lb/>
+welch ein Gluͤck fuͤr den Hofmarſchall! ohne<lb/>
+Gouvernantinn erſchien ſie. Die Furcht vor<lb/>
+einem Hochzeitgeſchenke hatte dieſe geizige See-<lb/>
+le zuruͤck gehalten; und die ſonſt nie von der<lb/>
+Seite ihrer jungen Dame wich, uͤberließ heute<lb/>
+zum erſtenmale den langbewahrten Schatz ei-<lb/>
+nem liſtigen Geliebten, der als ein alter Poli-<lb/>
+ticus, die Zeit zu gebrauchen weis. Mit<lb/>
+funkelnden Augen empfieng er die Schoͤne, auf<lb/>
+deren Wangen ſich eine warme Roͤthe verbrei-<lb/>
+tete, da ſie ihm die glaßirte Hand reichte, die<lb/>
+auch ſchon in dem Augenblicke zaͤrtlich gedruͤckt<lb/>
+war. Und nun war die ganze Bedingung<lb/>
+<fw type="catch" place="bottom">erfuͤllt,</fw><lb/>
+<pb n="75" facs="#f0079"/>
+erfuͤllt, die das Schickſal des armen Dorf-<lb/>
+pfarrn beſtimmte. Die vornehme Verſamm-<lb/>
+lung begleitete ihn zur vollen Kirche, wo er<lb/>
+durch ein vielbedeutendes Ja! vor der ganzen<lb/>
+Gemeinde geſprochen, von ſeiner reizenden<lb/>
+Braut alle die myſtiſchen Rechte der Ehe, und<lb/>
+das beſchloſſene Gluͤck und Ungluͤck ſeines ge-<lb/>
+feſſelten Lebens, mit Freuden empfieng.<lb/>
+Mit zuruͤckhaltender Beſcheidenheit, erhielt<lb/>
+auch Sie von ſeinen Lippen das Blanket der<lb/>
+Liebe, worauf die eigenſinnige Zeit ihre<lb/>
+Befehle ſchreiben wird, die kein Thraͤnen-<lb/>
+guß ausloͤſcht. Ein geheimer Neid ſaß in<lb/>
+den glatten Stirnen und in den Runzeln<lb/>
+der weiblichen Gemeinde: aber die Maͤn-<lb/>
+ner blickten ihren beweibten Hirten mit laͤ-<lb/>
+chelndem Mitleid an; denn die Erinne-<lb/>
+rung ihres ehmaligen gluͤcklichen Traums,<lb/>
+der heut’ auch uͤber ihrem Pfarrherrn ſchweb-<lb/>
+te — und das wache Bewußtſeyn ihres<lb/>
+itzigen Schickſals bracht’ ein ernſthaftes<lb/>
+<fw type="catch" place="bottom">Nach-</fw><lb/>
+<pb n="76" facs="#f0080"/>
+Nachdenken in ihre Gemuͤther. Und nun<lb/>
+beſaß der Begluͤckte ſeine Beute, die ihm<lb/>
+kein Sterblicher wieder entreiſſen konnte.<lb/>
+Nun hab’ ich ſie endlich erhaſcht, die froͤh-<lb/>
+lichen Minuten, dacht’ er, die mir vier<lb/>
+Jahre lang entwiſcht waren; und voll Em-<lb/>
+pfindung ſeines Gluͤcks, druͤckt’ er oft ſei-<lb/>
+ner angetrauten Willhelmine die kleine<lb/>
+Hand, und fuͤhrte ſie mit triumphirender<lb/>
+Naſe nach Hauſe. Aber ein wunderlicher<lb/>
+unverſehner Gedanke, der ſich wider alles<lb/>
+Vergnuͤgen auflehnte, ſtieg itzt aus dem<lb/>
+klopfenden Herzen der armen Verlobten<lb/>
+empor — Jſt dieß nicht, ſeufzte ſie bey<lb/>
+ſich ſelbſt, das Leichengepraͤnge deiner Schoͤn-<lb/>
+heit? Klaͤgliches Geſchenk der Natur, das<lb/>
+keinem weniger hilft, als der es beſitzt!<lb/>
+Was fuͤr unruhige Tage haſt du mir nicht<lb/>
+verurſacht! und itzt begraͤbſt du mich ſo-<lb/>
+gar in einer ſchmutzigen Pfarre? Wie ver-<lb/>
+ſchieden waren hier nicht die Begriffe der<lb/>
+<fw type="catch" place="bottom">Schoͤ-</fw><lb/>
+<pb n="77" facs="#f0081"/>
+Schoͤne und ihres Vermaͤhlten! Wo ſoll ich<lb/>
+ein Gleichniß hernehmen, ihren Eigenſinn und<lb/>
+ſeine gierige Liebe deutlicher zu machen? Meine<lb/>
+Muſe hilft mir — Hier iſt es: So uͤberholt<lb/>
+ein unermuͤdeter Windhund die abgemattete<lb/>
+Haͤſinn, wenn er ſie von der Seite ihres ver-<lb/>
+liebten Ramlers geſtoͤrt, und durch Buͤſche und<lb/>
+Suͤmpfe verfolgt hat — und ſo faͤllt ſie — die<lb/>
+arme Haͤſinn, und ſieht noch, mit ſterbenden<lb/>
+Augen, manchen ſtattlichen Jaͤger ſich um ihr<lb/>
+Wildpret verſammlen — Einer betrachtet es<lb/>
+noch mit ſpottenden Minen; ein anderer be-<lb/>
+fuͤhlt es, und da daͤchte ſie, wenn Haͤſinnen<lb/>
+denken koͤnnten, gewiß: Welch ein trauriges<lb/>
+Verdienſt iſt es — ſchmackhaft zu ſeyn! Wuͤr-<lb/>
+de wohl mein kurzes Leben, durch hundert Re-<lb/>
+viere gejagt, noch endlich unter dem Biſſ’ eines<lb/>
+duͤrren Windhundes verfliegen, wenn ich kei-<lb/>
+ne Haͤſinn waͤr’, und kein beſſer Fleiſch beſaͤß,<lb/>
+als ein Maulwurf.</p><lb/>
+<p>Ein mathematiſcher Furier hatt’ indeß die<lb/>
+<fw type="catch" place="bottom">hochzeit-</fw><lb/>
+<pb n="78" facs="#f0082"/>
+hochzeitliche Tafel geordnet. Ehe man ſich<lb/>
+ſetzte, bewunderte man ſeinen Geſchmack in ei-<lb/>
+ner minutenlangen. Stille, und faltete dabey<lb/>
+die Haͤnde. Schimmernder Wein, der, wie<lb/>
+die Begeiſterung der Liebe, nicht beſchrieben,<lb/>
+nur empfunden werden muß, blickte durch den<lb/>
+geruchvollen Dampf der theuern Gerichte, wie<lb/>
+das Abendroth unter dem aufſteigenden Ne-<lb/>
+bel hervor.</p><lb/>
+<p>Jtzt ergriff der geſtirnte Hofmarſchall die<lb/>
+warme weiche Hand der blauaͤugichten Will-<lb/>
+helmine, fuͤhrte ſie an die oberſte Stelle der<lb/>
+Tafel, und bath den dankbaren Schwarzrock,<lb/>
+ſich neben ſeiner Goͤttinn zu ſetzen, und nicht<lb/>
+durch den Zwang eines Neuvermaͤhlten die<lb/>
+Freuden der Tafel zu ſtoͤren. Ach! wie giebt<lb/>
+hier die veraͤnderliche Zeit ihr Recht zu erken-<lb/>
+nen! Er — der ehemals dem weinenden Pfarr-<lb/>
+herrn ſeine Geliebte entzog, giebt ſie ihm itzt<lb/>
+bey einem freygebigen Gaſtmahle geputzt und<lb/>
+artig wieder zuruͤck, und macht ihm alle ſein<lb/>
+<fw type="catch" place="bottom">ausge-</fw><lb/>
+<pb n="79" facs="#f0083"/>
+ausgeſtandenes Leiden vergeſſen. So uͤber-<lb/>
+ſchickt’ einſt der große Agamemnon ſeine Chri-<lb/>
+ſeis dem belorberten Prieſter des Apoll, die<lb/>
+der koͤnigliche Liebhaber der vaͤterlichen Sehn-<lb/>
+ſucht lange Zeit vorenthielt. Praͤchtige Ge-<lb/>
+ſchenke, und eine Hekatombe mußten den Alten<lb/>
+troͤſten, und ſeinen Gott verſoͤhnen, und in ho-<lb/>
+hen Toͤnen beſang der Dichter der Jlias dieſe<lb/>
+Geſchichte, wie ich itzt die Hochzeit eines Ma-<lb/>
+giſters beſinge:</p><lb/>
+<p>Der Schmaus gieng an! Ein koͤſtliches Ge-<lb/>
+richt verdraͤngte das andere, und Bachus und<lb/>
+Ceres tanzten um den Tiſch her. Der frey-<lb/>
+muͤthige Scherz, die feine Spoͤtterey, und das<lb/>
+froͤhliche Laͤcheln, vertrieben unbemerkt die tau-<lb/>
+melnden Stunden des Nachmittags, und der<lb/>
+Geiſt der Comteſſe und des Champagners<lb/>
+durchbrauſte die fuͤhlbaren Herzen der Gaͤſte.<lb/>
+Alles war munter und froͤhlichen Muths. Nur<lb/>
+der Magiſter und der Hofnarr — immer ihres<lb/>
+Amtes eingedenk, ſaßen unruhig an der frohen<lb/>
+<fw type="catch" place="bottom">Tafel</fw><lb/>
+<pb n="80" facs="#f0084"/>
+Tafel. Den einen uͤberfiel bald ein theologi-<lb/>
+ſcher Serupel, bald ein Gedanke ſeiner kuͤnfti-<lb/>
+gen Liebe; und der andere aͤngſtete ſich heim-<lb/>
+lich, daß es in ſeinem Gehirne ſo finſter, wie<lb/>
+eine durchnebelte Winternacht, ausſah. Wie<lb/>
+oft buhlt’ er vergebens um das belohnende<lb/>
+Laͤcheln des Marſchalls, und wie oft verfolgte<lb/>
+ſein ſchwerer Witz die fluͤchtigen Reden des luſti-<lb/>
+gen Kammerjunkers! aber eh’ er ſie erreichte,<lb/>
+waren ſie von der Geſellſchaft und von dem Red-<lb/>
+ner ſelber vergeſſen, und mit Verdruſſe nahm<lb/>
+er wahr, daß niemand ſeine Einfaͤlle begriff,<lb/>
+und alle ſeine witzige Muͤhe verloren gieng.<lb/>
+Ein alter hungriger Wolf ſchleicht ſo dem Fuch-<lb/>
+ſe nach, der unbekuͤmmert durchs Gras ſcherzt,<lb/>
+den verdruͤßlichen Raͤuber bald nach dieſer bald<lb/>
+nach jener Seite hinlockt, und endlich doch ſei-<lb/>
+ner groben Tatze entwiſchet. Zur Erholung<lb/>
+der geſaͤttigten Gaͤſte, deren immer ſich anſtren-<lb/>
+gender Witz manchmal ſchlaff zu werden be-<lb/>
+gonnte, rief der kluge Hofmarſchall den Ver-<lb/>
+<fw type="catch" place="bottom">ſtand</fw><lb/>
+<pb n="81" facs="#f0085"/>
+ſtand des ſinnreichen Conditors zur Huͤlfe, der<lb/>
+ſo oft ſeine Wirkung zeigt, wenn die langwei-<lb/>
+ligen Reden des Fuͤrſten ſeinen Hof einzuwie-<lb/>
+gen bedrohen — Und — Auf einmal reizt’ eine<lb/>
+uͤberzuckerte Welt die weiten Augen der Gaͤ-<lb/>
+ſte. Faunen und Liebesgoͤtter und nackende<lb/>
+Maͤgdchens, in einem poetiſchen Brennofen<lb/>
+gebildet, ſcherzten ohn’ Aufhoͤren im funkeln-<lb/>
+den Graſe. Jn der Mitten entdeckte ſich ei-<lb/>
+ne lachende Scene, unter einer hohen arkadi-<lb/>
+ſchen Laube, von ewigem Wintergruͤn: Die<lb/>
+porzelane Zeit war es, die mit einer furchtba-<lb/>
+ren Hippe den zerbrechlichen Amor in der Lau-<lb/>
+be herumjagte — O wie wird es ihm gehen,<lb/>
+wenn er ſich einholen laͤßt! denn der kleine loſe<lb/>
+Dieb hat der Zeit ihr Stundenglas liſtig ent-<lb/>
+wendet, und ſchuͤttelt den Sand darinnen un-<lb/>
+ter einander, woruͤber die hohe Geſellſchaft ſich<lb/>
+inniglich freute. Ein voller Teller luſtiger Ein-<lb/>
+faͤlle, in buntem Kraftmehle gebacken, ſtreute<lb/>
+neues Vergnuͤgen uͤber die Tafel. Welche<lb/>
+<fw type="sig" place="bottom">F</fw><fw type="catch" place="bottom">Ver-</fw><lb/>
+<pb n="82" facs="#f0086"/>
+Vermiſchung von Dingen! Stiefeln und Un-<lb/>
+terroͤcke, Fernglaͤſer und Schnuͤrbruͤſte, Kuͤ-<lb/>
+raß’ und Palatins, Spiegel und Larven, klap-<lb/>
+perten unter einander. Jedes oͤfnet’ eine Fi-<lb/>
+gur, die ihm das Ohngefaͤr oder ſeine Neigung<lb/>
+in die Hand gab; und die ausgewickelten O-<lb/>
+rakelſpruͤche wurden laut geleſen. Ein Putz-<lb/>
+kopf lieferte dem Hofmarſchal eine feurige Lie-<lb/>
+beserklaͤrung — Laͤchelnd ſah er ſeine graͤfliche<lb/>
+Nachbarin an, und uͤberreichte ihr die bunten<lb/>
+Looſe. Sie ergrif einen Federhuth, und las<lb/>
+ſtotternd eine prophetiſche Beſchreibung des<lb/>
+verliebten Meineids ab. Furchtſam gab ſie<lb/>
+den Teller von ſich — Ein ungeſalznes Epi-<lb/>
+gramm auf den Hymen, lag in einem Stroh-<lb/>
+huthe gehuͤllt, und ward von dem Kammer-<lb/>
+junker aus ſeinem Staube gezogen, und mit<lb/>
+lautem Lachen ausgepoſaunt — Die loſe Will-<lb/>
+helmine zerrieb eine Knotenperuͤcke, die in<lb/>
+Knittelverſen den Kammerjunker wuͤrdig wi-<lb/>
+derlegte — Nach ihr ergrif, aus verliebter<lb/>
+<fw type="catch" place="bottom">Ahn-</fw><lb/>
+<pb n="83" facs="#f0087"/>
+Ahndung, der Magiſter ein ſchneeweiſſes Herz,<lb/>
+worein eine witzige 3 geaͤtzt war. Bedaͤcht-<lb/>
+lich oͤfnet’ er es, und fand dieſe wenigen Wor-<lb/>
+te: Jch liebe einen um den andern — Wer<lb/>
+haͤtt’ es dieſem falſchen Herzen anſehen ſollen,<lb/>
+rief er voller Verwunderung, und klebte muͤh-<lb/>
+ſam die beiden Haͤlften wieder zuſammen.<lb/>
+Alle noch uͤbrige Deviſen wurden von den<lb/>
+beiden Kammerherren und dem Hofnarren<lb/>
+zerknickt, die ganz ſtill die noch verborgenen<lb/>
+Schaͤtze des Witzes fuͤr ſich einſammelten, wie<lb/>
+der Geizhals das wohlfeile Korn auf die<lb/>
+theuren Zeiten der Zukunft.</p><lb/>
+<p>Die verdriesliche Langeweile fieng wieder<lb/>
+an, den angenehmen Laͤrm der Geſellſchaft zu<lb/>
+unterdruͤcken, als der ſchlaue Hofmarſchal es<lb/>
+zeitig bemerkte, und ein frohmachendes Hoch-<lb/>
+zeitgeſchenk aus ſeiner Taſche hervorzog. Er<lb/>
+wickelt’ es aus dem umhuͤllten Papier, und<lb/>
+ermunterte die uͤbrigen Gaͤſte, ſeinem Beiſpie-<lb/>
+<fw type="sig" place="bottom">F 2</fw><fw type="catch" place="bottom">le</fw><lb/>
+<pb n="84" facs="#f0088"/>
+le zu folgen. Ungezwungen ſtellt’ er ſich hin-<lb/>
+ter den Stuhl der angenehmen Braut, und<lb/>
+hieng ihr ein demantenes Kreuz um, das an<lb/>
+einem ſchwarzmoornen Bande zwiſchen dem<lb/>
+ſchoͤnen Buſen hinunter rollte — O was fuͤr<lb/>
+ein Bewußtſeyn durchſtroͤmt’ itzt die blutvol-<lb/>
+len Wangen der Schoͤne! Mit ungewiſſer<lb/>
+Stimme dankte ſie dem galanten Herrn.<lb/>
+Lange konte ſie nicht ihre widerſtrebende Au-<lb/>
+gen in die Hoͤhe ſchlagen, und die unzeitige<lb/>
+Schaam brachte ſie in eine kleine Verwirrung.<lb/>
+Ein ſolches Gefuͤhl durchdringt oft die treu-<lb/>
+loſe Bruſt eines Hofmannes, wenn ſie nun<lb/>
+zum erſtenmale unter dem gnaͤdigſt ertheilten<lb/>
+Ordensſterne klopfet. Furchtſam glaubt’ er,<lb/>
+die Gemahlin des Fuͤrſten moͤchte das Ver-<lb/>
+dienſt errathen, das ihm dies Ehrenzeichen er-<lb/>
+warb. Selbſt denen ihm unbekanten laconi-<lb/>
+ſchen Worten des Sterns trauet er nicht, und<lb/>
+er wird es nicht eher wagen, ſich unter ſeine<lb/>
+Neider zu bruͤſten, bis ihm ſein troſtreicher<lb/>
+<fw type="catch" place="bottom">Schrei-</fw><lb/>
+<pb n="85" facs="#f0089"/>
+Schreiber die goldenen friedlichen Buchſta-<lb/>
+ben verſtaͤndlich gemacht hat.</p><lb/>
+<p>Was fuͤr koͤſtliche Geſchenke haͤuften ſich<lb/>
+nicht in dem Schooſe der gluͤcklichen Wilhel-<lb/>
+mine — Spitzen und Ringe und Doſen und<lb/>
+kuͤnſtliche Blumen — Ach dachte der Paſtor<lb/>
+— Ach! ſo viel Reichthum habe ich ja in<lb/>
+meinem zehnjaͤhrigen beſchwerlichen Amte<lb/>
+nicht geſammelt — und wie wunderbar! als<lb/>
+Herr ſeines Weibes dankt’ Er — auch Er!<lb/>
+ſeinen grosmuͤthigen Goͤnnern fuͤr dieſe Ge-<lb/>
+ſchenke. Man ſah’ es an dem ſatyriſchen Laͤ-<lb/>
+cheln der Gaͤſte, wie gut ſeine froͤlichen Dank-<lb/>
+ſagungen angebracht waren.</p><lb/>
+<figure/></div> <fw type="sig" place="bottom">F 3</fw><fw type="catch" place="bottom"><hi rendition="#b">Sech-</hi></fw><lb/>
+<pb n="86" facs="#f0090"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Sechſter Geſang.</hi></hi></head><lb/>
+<p><hi rendition="#in">S</hi>o endigte ſich das froͤhliche Hochzeitmahl.<lb/>
+Die trunkenen Gaͤſte taumelten in dem<lb/>
+kleinen Raume des Zimmers immer wider ein-<lb/>
+ander. Ein Evan Evoe umſchallte die Waͤn-<lb/>
+de, Leuchter und Stuͤhle drehten ſich in einem<lb/>
+Kreis herum, und unvollendete Lieder und<lb/>
+halbgeſtohlne Kuͤſſe erfuͤllten die Luft. Die<lb/>
+zerſtreuten Kammerherren, ohne Gedanken,<lb/>
+in welchem frommen Hauſe ſie lebten, riefen<lb/>
+nach einer Karte zum Pharao — Die junge<lb/>
+Comteſſe, ihres jungfraͤulichen Zwanges, und<lb/>
+ihrer Gouvernantin uneingedenk, ſtelte ſich<lb/>
+mit dem geſtirnten Hofmarſchal in den einſa-<lb/>
+men Bogen des Fenſters, und dieſer genos<lb/>
+der ſuͤſſen Betaͤubung der Schoͤnen, ſo gut,<lb/>
+als er vermochte. Der kindiſche Kammer-<lb/>
+junker verſuchte ſeinen Witz an dem ſchlaͤfrigen<lb/>
+Hofnarren, und alle Vortheile, die er uͤber ihn<lb/>
+<fw type="catch" place="bottom">er-</fw><lb/>
+<pb n="87" facs="#f0091"/>
+erhielt, erzaͤhlt’ er mit lautem Triumphe der<lb/>
+unaufmerkſamen Geſellſchaft — Aber alle<lb/>
+verachteten die harmoniſche Erinnerung des<lb/>
+Nachtwaͤchters, und uͤberſahen das politiſche<lb/>
+Gaͤhnen des Neuvermaͤhlten, und lachten alle<lb/>
+den Mond an. So taumeln oft die ver-<lb/>
+mumten Geſchoͤpfe einer Maskerade wider-<lb/>
+ſinniſch unter einander, vergeſſen ihre Ver-<lb/>
+kleidung, um nach dem Trieb ihrer Sinne<lb/>
+zu handeln — Rabbi Moſes zieht die verkap-<lb/>
+te Nonne zum ſchwaͤbiſchen Tanz auf, oder<lb/>
+fordert ein Stuͤck ſchmackhafte Cervelatwurſt.<lb/>
+Der lange Tuͤrke trinkt im falben Burgunder<lb/>
+die Geſundheit des allerchriſtlichſten Koͤnigs,<lb/>
+und die ſtroherne Pyramide faͤngt an, Knaſter<lb/>
+zu rauchen.</p><lb/>
+<p>Jtzt gieng der ungeduldige Ehmann in ſeine<lb/>
+einſame Studierſtube — verwuͤnſchte ſeine<lb/>
+laͤrmenden Gaͤſte, und rief alſo zum Amor:<lb/>
+„O du maͤchtiger Sohn der Cythere! haſt du<lb/>
+”mir deinen Schutz nur darum angebothen,<lb/>
+<fw type="sig" place="bottom">F 4</fw><fw type="catch" place="bottom">”und</fw><lb/>
+<pb n="88" facs="#f0092"/>
+”und mich deines Rathes gewuͤrdiget, um<lb/>
+”mich itzt deſto mehr zu kraͤnken, und mein<lb/>
+”dankbares Herz wider dich zu empoͤren?<lb/>
+”Was hilft es, daß du mich nach den Reizun-<lb/>
+”gen meiner Wilhelmine haſt ſchmachten ge-<lb/>
+”lehret, und daß du mich durch ihr melodi-<lb/>
+”ſches Jawort begluͤckt haſt — Was hilft es,<lb/>
+”daß mir dieſer Tag in der ſchoͤnſten Feyer<lb/>
+”entflohen iſt, wenn meine erſte Brautnacht<lb/>
+”langweilig und ungefeyert davon zieht? Die<lb/>
+”laͤchelnde Morgenroͤthe wird mich ſpottend<lb/>
+”an die neue Bekanntſchaft einer Freud’ er-<lb/>
+”innern, die wider mein Verſchulden mir fremd<lb/>
+”geblieben iſt, und Wilhelmine wird mir mit<lb/>
+”ernſthaftem Laͤcheln in das Geſicht ſehn,<lb/>
+”wenn ſie die gluͤckwuͤnſchenden Bauern, Frau<lb/>
+”Magiſterinn, gruͤßen. Dieſe Nacht, o Sohn<lb/>
+”der Venus, nur dieſe einzige Nacht, beherr-<lb/>
+”ſcheſt du noch mit dem Hymen in gemein-<lb/>
+”ſchaftlicher Ehre — So laß mir doch nicht<lb/>
+”durch das wilde Getoͤſe der geputzten Hoͤflin-<lb/>
+<fw type="catch" place="bottom">”ge,</fw><lb/>
+<pb n="89" facs="#f0093"/>
+”ge, und durch das Wiehern ihrer Pferde,<lb/>
+”dieſe gluͤcklichen Stunden entziehen, die keine<lb/>
+”Macht vermoͤgend iſt, mir wieder zuruͤck zu<lb/>
+”fuͤhren, ſolten ſie einmal davon ſeyn!„ Alſo<lb/>
+ſagte der klagende Magiſter, und brachte den<lb/>
+Stolz des kleinen Gottes in Bewegung.<lb/>
+Er freute ſich, daß der dankbare Vermaͤhlte,<lb/>
+nicht trotzig auf die dienſtbare Huͤlfe des Hy-<lb/>
+men, des Amors Freundſchaft noch ſuchte;<lb/>
+(o wuͤrde doch von keinem Vermaͤhlten des<lb/>
+Amors Freundſchaft fuͤr entbehrlich gehal-<lb/>
+ten.) Guͤtig entſchloß er ſich, dem Verliebten<lb/>
+zu helfen, und den Jupiter und des Pantheons<lb/>
+verirrte Bewohner und Ritter und Pferde<lb/>
+hinaus zum Dorfe zu jagen. Welch ein he-<lb/>
+roiſch Unternehmen — Welch eine That!</p><lb/>
+<p>Recht zu gelegener Zeit fiel dem kleinen Hel-<lb/>
+den der Trojaniſche Brand ein, der die trotzige<lb/>
+Garniſon der Griechen noͤthigte, den flam-<lb/>
+menden Platz zu verlaſſen, und dieſe ſo oft<lb/>
+<fw type="sig" place="bottom">F 5</fw><fw type="catch" place="bottom">be-</fw><lb/>
+<pb n="90" facs="#f0094"/>
+beſungene ſchreckliche Geſchichte, gab ihm eine<lb/>
+ſinnreiche Kriegsliſt an die Hand, die er mit<lb/>
+Gluͤck und Tapferkeit ausfuͤhrte. Er drehet<lb/>
+aus den Haͤnden des gefeſſelten Hymen die<lb/>
+hochzeitliche Fackel, die lichterloh brante, und<lb/>
+ſtahl ſich unvermerkt in die geruchduftende<lb/>
+Kuͤche des Pfarrherrn. Von der edlen Koch-<lb/>
+kunſt verlaſſen, die vor kurzem zwanzig ſchoͤ-<lb/>
+pferiſche Haͤnde darinnen beſchaͤftigte, ruht itzt<lb/>
+eine finſtere Traurigkeit unter ihren Gewoͤl-<lb/>
+ben. Auf dem warmen Heerde lag eine un-<lb/>
+gebrauchte Speckſeite in der aufgehaͤuften<lb/>
+Aſche verborgen, woran die ganze groſſe ge-<lb/>
+ſchwaͤnzte Armee des ſcherzhaften Maͤonides<lb/>
+ſich haͤtte ſaͤttigen koͤnnen. Dieſes ungeheure<lb/>
+Magazin ſteckte der freybeutiſche Amor, mit<lb/>
+abwaͤrts geſenkter Fackel in Brand. Auf<lb/>
+einmal flog es, durch die fettige Flamme be-<lb/>
+lebt, in die ſchwarze Eſſe, die ſich rauſchend<lb/>
+entzuͤndete — und ihr blutrothes Feuer dem<lb/>
+hohen Firmamente zuwaͤlzte — Es war ge-<lb/>
+<fw type="catch" place="bottom">ſchehen</fw><lb/>
+<pb n="91" facs="#f0095"/>
+ſchehen — Amor ſchuͤttelte ſeine Fluͤgel und<lb/>
+floh, und ſtelte ſich auf die knarrende Fahne<lb/>
+des Kirchthurms. Hier ſtund er, wie Nero,<lb/>
+als er mit grauſamer Wolluſt ſeine Reſidenz<lb/>
+brennen ſah, und freute ſich ſeines gelunge-<lb/>
+nen Anſchlags, und erwartete den erſchreckli-<lb/>
+chen Ausgang — Und nun — o Muſe! hilf mir<lb/>
+das Getuͤmmel beſchreiben, das in dem Hauſe<lb/>
+des Magiſters entſtund, als die graͤßliche feuer-<lb/>
+ſchreiende Stimme ſich uͤber das aufgeſchreckte<lb/>
+Dorf ausbreitete! Das hohle furchtbare Ge-<lb/>
+toͤne der ſtuͤrmenden Glocken, die ein angſtvoller<lb/>
+Cantor unermuͤdet laͤutete — verkuͤndigten<lb/>
+den verzagten Matronen ihren Untergang,<lb/>
+und das Geſchrey der Kinder, und das Po-<lb/>
+chen der Nachbarn und das Bellen der Hun-<lb/>
+de, machten die finſtere ungluͤckliche Nacht<lb/>
+noch ſchrecklicher. Von dem ſtummen Entſe-<lb/>
+tzen gefuͤhrt, kam die verlorne Nuͤchternheit<lb/>
+itzt wieder in die Verſamlung der Hochzeit-<lb/>
+<fw type="catch" place="bottom">gaͤſte</fw><lb/>
+<pb n="92" facs="#f0096"/>
+gaͤſte zuruͤck. Doch kaum begriffen ſie das<lb/>
+drohende Ungluͤck ihres betruͤbten Wirths,<lb/>
+ſo flohen ſie ihn, als wahre Hofleute mit ei-<lb/>
+lenden Fuͤſſen, und nach einem kurzen gleich-<lb/>
+guͤltigen Lebewohl! verlieſſen ſie alle das neue<lb/>
+Ehepaar in Thraͤnen. Aber, wie ehemals der<lb/>
+junge Aeneas ſeinen alten frommen Vater aus<lb/>
+dem flammenden Troja trug, ſo umfaſt itzt<lb/>
+der getreue Hofmarſchal ſeine weinende Cla-<lb/>
+riſſe, und durch die Liebe geſtaͤrkt, verachtete er<lb/>
+alle Gefahren. Das Feuer praſſelt’ uͤber ſein<lb/>
+Haupt, und die Wellen des Fiſchbeinrocks<lb/>
+ſchlugen uͤber ſeine zerrißnen Haarlocken zuſam-<lb/>
+men — dennoch bracht’ er ſie gluͤcklich an ihre<lb/>
+ſichere Caroſſe, und uͤbergab ſie den Haͤnden<lb/>
+ihrer ſchuͤtzenden Zofe. Und wie der uner-<lb/>
+ſchrockene Weiſe gegenwaͤrtig in den groͤſten<lb/>
+Bedraͤngniſſen, ſich noch um Kleinigkeiten des<lb/>
+Lebens bekuͤmmert, oder ſo, wie der groſſe Lips<lb/>
+Tullian auf dem Richtplatze, da ſchon der<lb/>
+Stab gebrochen iſt, noch fuͤr ſeine Naſe be-<lb/>
+<fw type="catch" place="bottom">ſorgt,</fw><lb/>
+<pb n="93" facs="#f0097"/>
+ſorgt, um eine Priſe Rappee bat. Noch<lb/>
+ſchnupft’ er ihn mit ſuͤſſer Empfindung, in die-<lb/>
+ſer entſcheidenden furchtbaren Minute — reck-<lb/>
+te darauf mit einem Seufzer den Hals dar —<lb/>
+und befand ſich in der andern Welt, eh’ er nie-<lb/>
+ſen konte. Eben ſo nahm noch itzt der Hof-<lb/>
+marſchal drey verliebte Kuͤſſe von ſeiner beaͤng-<lb/>
+ſteten Schoͤne, und warf ſich mit unterdruͤck-<lb/>
+ter Sehnſucht in ſeinen fortſchallenden Schlit-<lb/>
+ten. Das Zeichen war gegeben, und nun<lb/>
+flogen alle die unbaͤndigen Pferde mit ihren<lb/>
+Rittern davon, die mit ſtillem Vergnuͤgen<lb/>
+uͤber ihre Sicherheit, oft nach der brennenden<lb/>
+Pfarre zuruͤck ſahn.</p><lb/>
+<p>Kaum war die laͤrmende Verſammlung der<lb/>
+Goͤtter- und Menſchengeſtalten zum Dorfe<lb/>
+hinaus, ſo geboth Amor, das Feuer ſolte ver-<lb/>
+loͤſchen — und es verloſch. Zwar verkannte<lb/>
+der blinde Poͤbel die Huͤlfe des Amors, und<lb/>
+jauchzend dankten die Bauern ihre Rettung<lb/>
+<fw type="catch" place="bottom">einem</fw><lb/>
+<pb n="94" facs="#f0098"/>
+einem ſchwarzen Daͤmon, der es gewagt hatte,<lb/>
+aufs prieſterliche Dach zu ſteigen, wo er, dem<lb/>
+Feuer zum Opfer, eine arme geraubte Najade<lb/>
+der Elbe, in den ſchwarzen Abgrund hinunter<lb/>
+ſties, daß ihre zerſchmetterten Glieder in einer<lb/>
+ſchmutzigen Kuͤche ein unbekantes Grabmaal<lb/>
+bedeckte.</p><lb/>
+<p>Nun brachte der Gott der Liebe dem Hy-<lb/>
+men die hochzeitliche Lunte wieder zuruͤck;<lb/>
+darauf gieng er Hand in Hand mit ihm, zu<lb/>
+dem getroͤſteten Verliebten, und ſammelte<lb/>
+ſeine entzuͤckten Dankſagungen in den leeren<lb/>
+Koͤcher; denn der kleine Held hatte den Tag<lb/>
+uͤber, alle ſeine Pfeile verſchoſſen. Die noch<lb/>
+uͤbrige Nacht hindurch wachte ſeine hohe Per-<lb/>
+ſon an dem rauſchenden Brautbett’, und da<lb/>
+der Morgen anbrach, erhob er ſich froͤlich in<lb/>
+den Olymp auf den Strahlen der Sonne, die<lb/>
+zuerſt dem frohen Magiſter die Miſchung von<lb/>
+Schaam und gedemuͤthigter Sproͤdigkeit, auf<lb/>
+<fw type="catch" place="bottom">den</fw><lb/>
+<pb n="95" facs="#f0099"/>
+den Wangen ſeiner zufriedenen Schoͤne ſicht-<lb/>
+bar machten, und ihn zu neuen Morgenkuͤſſen<lb/>
+erweckten. Wie reizend blickte nicht die vol-<lb/>
+lendete Braut ihrem gluͤcklichen Sieger in<lb/>
+das maͤnliche Geſicht! Gleich einer jungen<lb/>
+Roſe, die ſich unter dem ſchwarzen Gefieder<lb/>
+einer einzigen balſamiſchen Nacht entfaltet.<lb/>
+Der uͤberhangende Phoͤbus trift ſie in ihrem<lb/>
+vollen Schmucke an, und vergebens bemuͤhen<lb/>
+ſich ſeine brennenden Strahlen, ſie noch<lb/>
+mehr zu entwickeln.</p><lb/>
+<p>Jtzt ſtund der kleine Amor vor ſeiner freund-<lb/>
+lichen Mutter, und erzaͤhlt’ ihr in ſcherzhafter<lb/>
+Prahlerey ſeine Kriegsliſt und ſeinen Triumph,<lb/>
+daß ſeine Stimme durch den Olymp ſchallte,<lb/>
+und ſelbſt die beſcheidenen Muſen ihm Bey-<lb/>
+fall zuwinkten. Jhr Laͤcheln loͤſte ſich in ei-<lb/>
+nem ſanften geiſtiſchen Sonnenſcheine auf,<lb/>
+wovon ein goldener Blick in die Welt drang,<lb/>
+und unter ſo vielen tauſend poetiſchen Seelen<lb/>
+<fw type="catch" place="bottom">die</fw><lb/>
+<pb n="96" facs="#f0100"/>
+die Meinige allein begeiſterte. Jch habe al-<lb/>
+les gethan, was meine Muſe befahl; ich ha-<lb/>
+be das Elend des verliebten Magiſters, und<lb/>
+ſeine froͤliche Hochzeit beſungen, und hab’ ein<lb/>
+Werk verrichtet, das durch eine ſchoͤne Druk-<lb/>
+kerpreſſe vervielfaͤltigt, der Vergaͤnglichkeit<lb/>
+trotzen kan.</p><lb/>
+<p><hi rendition="#c"><hi rendition="#b"><hi rendition="#g">ENDE.</hi></hi></hi></p><lb/>
+<figure/></div>
+<pb n="[97]" facs="#f0101"/>
+<pb n="[98]" facs="#f0102"/>
+<pb n="[99]" facs="#f0103"/>
+<pb n="[100]" facs="#f0104"/>
+</body></text> </TEI>

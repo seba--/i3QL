@@ -1,0 +1,1812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Theorie der Verbreitung des Schalles für Baukünstler</title>
+<author>
+<persName ref="http://d-nb.info/gnd/100322689">
+<surname>Rhode</surname>
+<forename>Johann Gottlieb</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">95</measure>
+<measure type="tokens">7914</measure>
+<measure type="types">1884</measure>
+<measure type="characters">56659</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:17Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/rhode_schall_1800</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/rhode_schall_1800</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/rhode_schall_1800</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/rhode_schall_1800</idno>
+<idno type="DTADirName">rhode_schall_1800</idno>
+<idno type="DTAID">16462</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194927</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Rhode, Johann Gottlieb: Theorie der Verbreitung des Schalles für Baukünstler. Berlin, 1800.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Theorie der Verbreitung des Schalles für Baukünstler</title>
+<author>
+<persName ref="http://d-nb.info/gnd/100322689">
+<surname>Rhode</surname>
+<forename>Johann Gottlieb</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">82 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Frölich</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1800</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Nz 1721</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=692124349</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Physik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Physik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2sub">Architektur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#g">Theorie<lb/>
+der</hi><lb/>
+Verbreitung des Schalles<lb/>
+<hi rendition="#g">für<lb/>
+Baukünſtler</hi></titlePart> </docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<byline> <hi rendition="#g">von</hi><lb/>
+<docAuthor> <hi rendition="#g">J. G. Rhode</hi>.</docAuthor><lb/>
+</byline> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#g">Berlin</hi></pubPlace> <docDate>1800.</docDate><lb/>
+<publisher> <hi rendition="#g">bei Heinrich Frölich.</hi> </publisher> </docImprint><lb/>
+</titlePage>
+<pb facs="#f0008"/>
+</front>
+<pb facs="#f0009"/>
+<body> <div n="1"> <head> <hi rendition="#g">Theorie<lb/>
+der</hi><lb/>
+Verbreitung des Schalles.<lb/>
+</head> <milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">A 2<lb/>
+</fw>
+<pb facs="#f0010"/>
+<pb facs="#f0011"/>
+<div n="2"> <head> <hi rendition="#g">Einleitung</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">D</hi>er Baukünſtler braucht von der The¬<lb/>
+orie des Schalles überhaupt, nur die Ge¬<lb/>
+ſetze zu wiſſen, nach welchen ſich der¬<lb/>
+ſelbe verbreitet, um die Mittel auffinden<lb/>
+zu können, welche in der Anlage und<lb/>
+Einrichtung eines Gebäudes in welchem<lb/>
+der Schall ſich verbreiten ſoll, zu dieſem<lb/>
+Zwecke förderlich ſind, oder die Hinder¬<lb/>
+niſſe zu entdecken welche derſelben im<lb/>
+Wege ſtehn. Weiſs er dieſes, ſo iſt ihm<lb/>
+<pb n="6" facs="#f0012"/>
+die Unterſuchung über die Natur des<lb/>
+Schalles gleichgültig, ſo wie die ſchwie¬<lb/>
+rige Lehre von den Modificationen,<lb/>
+welche er von der zufälligen Beſchaffen¬<lb/>
+heit der Luft erhält, überflüſsig. Der<lb/>
+Architect hält ſich bloſs an jene Ge¬<lb/>
+ſetze der Verbreitung, und vermag bei<lb/>
+einer richtigen Anwendung derſelben<lb/>
+auf den Zweck ſeines Gebäudes, auch<lb/>
+die ſchwierigſte Aufgabe aufzulöſen.</p><lb/>
+<p>Ich weiſs wohl, daſs man gewöhn¬<lb/>
+lich glaubt, jene Geſetze wären noch zu<lb/>
+wenig bekannt, und zu unbeſtimmt, um<lb/>
+ſie mit Sicherheit anwenden zu können,<lb/>
+und unſere neueſten Schauſpielhäuſer<lb/>
+Muſikſäle u. ſ. w. beweiſen in der That,<lb/>
+daſs ihre Erbauer jene Geſetze entwe¬<lb/>
+der gar nicht kannten, oder wenigſtens<lb/>
+keine richtige Anwendung davon zu<lb/>
+machen wuſsten.</p><lb/>
+<p>Die Phyſiker behaupten zwar, daſs<lb/>
+<pb n="7" facs="#f0013"/>
+ſie jene Geſetze hinlänglich kennen, aber der<lb/>
+Baukünſtler bezweifelt es. Den Grund<lb/>
+dieſes Zweifels nimmt er aus der Er¬<lb/>
+fahrung. Er glaubt ſeine Gebäude,<lb/>
+z. B. die Schauſpielhäuſer ganz nach<lb/>
+jenen, von dem Phyſiker aufgeſtellten<lb/>
+Geſetzen, einzurichten, und dennoch ent¬<lb/>
+ſpricht der gewöhnliche Erfolg ſeinen<lb/>
+Erwartungen ſo wenig, daſs oft das<lb/>
+Gegentheil von dem eintrift, was er be¬<lb/>
+abſichtigte. Da er nun in <hi rendition="#g">die Rich¬<lb/>
+tigkeit ſeiner Anwendung jener<lb/>
+Geſetze keinen Zweifel ſetzt</hi>, <hi rendition="#g">ſo<lb/>
+bezweifelt er die Geſetze ſelbſt</hi><lb/>
+und behauptet: der Schall müſse ſich<lb/>
+auf eine noch unbekannte Art, und<lb/>
+nach noch unentdeckten Geſetzen verbrei¬<lb/>
+ten. Es iſt der Zweck gegenwärtiger<lb/>
+Schrift, das Gegentheil dieſer Behauptung<lb/>
+zu beweiſen, und darzuthuen: <hi rendition="#g">daſs der<lb/>
+ſchlechte Erfolg bei den Abſich¬<lb/>
+ten unſrer Baumeiſter nicht in</hi><lb/>
+<pb n="6" facs="#f0014"/>
+jenen Geſetzen ſelbſt, ſondern al¬<lb/>
+lein in einer verkehrten Anwen¬<lb/>
+dung derſelben ſeinen Grund<lb/>
+habe.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb facs="#f0015"/>
+<div n="2"> <head> <hi rendition="#g">Erſter Theil</hi>.<lb/>
+</head> <milestone unit="section" rendition="#hr"/> <argument> <p rendition="#c">Geſetze nach welchen der Schall<lb/>
+ſich verbreitet.</p> </argument><lb/>
+<p>Der Schall verbreitet ſich</p><lb/>
+<list>         <item>I. <hi rendition="#g">in gerader Richtung wie das<lb/>
+Licht</hi>, <hi rendition="#g">und wird</hi></item><lb/>
+<item>II. <hi rendition="#g">von Widerſtand leiſtenden<lb/>
+Körpern unter eben dem<lb/>
+Winkel zurückgebrochen in<lb/>
+welchem er auffällt</hi>.</item></list><lb/>
+<p>Ich könnte hier dieſe beiden Ge¬<lb/>
+ſetze als angenommen vorausſetzen,<lb/>
+da ſowohl alle unſre Phyſiker, als auch<lb/>
+die beſten Baukünſtler ſie als erwieſen be¬<lb/>
+<pb n="10" facs="#f0016"/>
+trachten. Ja ich kann zugeben daſs der<lb/>
+Satz: <hi rendition="#g">der Schall verbreitet ſich<lb/>
+wie das Licht</hi>, nur eine Hypotheſe<lb/>
+ſei, und doch jene beiden aus ihm.<lb/>
+herflieſsenden Geſetze zur Grundlage die¬<lb/>
+ſer Theorie machen, indem ſtreng er¬<lb/>
+weislich iſt, daſs alle auch noch ſo ſon¬<lb/>
+derbar ſcheinende Wahrnehmungen bei<lb/>
+der Verbreitung des Schalles, nicht allein<lb/>
+befriedigend aus ihnen erklärt werden<lb/>
+können, ſondern auch gerade hin darauf<lb/>
+leiten.</p><lb/>
+<p>Ich will indeſs die Hauptgründe, wo¬<lb/>
+rauf ſie ruhen, hier kurz anführen.</p><lb/>
+<p>Die Erfahrung lehrt, daſs der Schall<lb/>
+ſich von dem Orte wo er entſteht nach<lb/>
+allen Seiten zu, wie von dem Mittel¬<lb/>
+punct einer Kugel nach der Oberfläche<lb/>
+hin, verbreitet, und daſs dieſe Verbrei¬<lb/>
+<pb n="12" facs="#f0017"/>
+tung mittelſt einer <hi rendition="#g">Erſchütterung<lb/>
+der Luft</hi> geſchiehet. Dieſe Erſchütte¬<lb/>
+rung iſt ſehr bemerklich, vorzüglich<lb/>
+wenn der Schall heftig iſt, als bei ſtar¬<lb/>
+ken Donnerſchlägen wo die Häuſer be¬<lb/>
+ben und die Fenſter zerſpringen. Bei<lb/>
+geringerm Schall, wenn er zum Beiſpiel<lb/>
+durch Bewegung harter Körper hervorge¬<lb/>
+bracht wird, iſt dieſe Erſchütterung<lb/>
+in den ſchallenden Körpern ſelbſt<lb/>
+ſichtbar, z. B. auf dem Reſonanzboden<lb/>
+eines Klaviers, wenn man ihn mit far¬<lb/>
+bigem Sande beſtreut, und an der tönen¬<lb/>
+den Saite ſelbſt. Daſs dieſe Bewegung<lb/>
+nun ſich der Luft mittheilt und dadurch<lb/>
+den hervorgebrachten Schall verbreitet, iſt<lb/>
+dadurch erweislich, daſs eine tönende Saite<lb/>
+z. B. eine andre die mit ihr gleich geſtimmt<lb/>
+iſt, durch bloſse Erſchütterung der Luft<lb/>
+in Bewegung ſetzen und mittönen ma¬<lb/>
+chen kann; und was endlich die Sache<lb/>
+auſser Zweifel ſetzt, iſt, daſs in einem<lb/>
+<pb n="9" facs="#f0018"/>
+luftleeren Raume der Schall ſich über¬<lb/>
+all nicht verbreitet.</p><lb/>
+<p>Es iſt alſo erwieſen, daſs die Ver¬<lb/>
+breitung des Schalles in einer Bewegung<lb/>
+der Luft beſteht, welche ſie durch ei¬<lb/>
+nen Stoſs des ſchallenden Körpers em¬<lb/>
+pfängt. Die Frage iſt nun noch, ob dieſe<lb/>
+Bewegung ſich in <hi rendition="#g">gerader Rich¬<lb/>
+tung</hi> fortſetzt? Daſs die Bewegung nach<lb/>
+empfangenem Stoſs in gerader Richtung<lb/>
+fortgeſetzt wird, bis ein zweiter nach ei¬<lb/>
+ner andern Direction wirkender Stoſs ſie<lb/>
+verändert, iſt ein allgemeines Geſetz der<lb/>
+Bewegung überhaupt, und keine Erfah¬<lb/>
+rung, von der Bombe an bis zu den<lb/>
+Schwingungen der Lichttheile, hat einen<lb/>
+Zweifel dagegen erregen können. Man<lb/>
+iſt alſo gezwungen dies Geſetz bei der<lb/>
+Fortbewegung des Schalles durch die<lb/>
+Luft im voraus anzunehmen; und mit<lb/>
+ihm zugleich die <hi rendition="#g">Brechung nach<lb/>
+<pb n="10" facs="#f0019"/>
+dem Einfallswinkel</hi>, weil ſie<lb/>
+ein nothwendiges Reſultat aus je¬<lb/>
+nem iſt.</p><lb/>
+<p>Es frägt ſich nun: ob alle Wahr¬<lb/>
+nehmungen bei der Erſcheinung der<lb/>
+Verbreitung des Schalles aus jenen Ge¬<lb/>
+ſetzen erklärlich ſind oder nicht? Ob<lb/>
+ſie nicht — wenigſtens gewiſse Modifi¬<lb/>
+cationen leiden, die uns noch unbe¬<lb/>
+kannt ſind, und folglich die Anwen¬<lb/>
+dung derſelben noch nicht ſicher iſt?<lb/>
+Ich geſtehe, daſs mir keine Wahrneh¬<lb/>
+mung bekannt iſt, die dergleichen be¬<lb/>
+weiſen könnte. Doch will ich einige<lb/>
+ſcheinbare Einwürfe zu heben ſuchen.</p><lb/>
+<p>Das Licht, ſagt man, verbreitet ſich<lb/>
+in geraden Strahlen, und eine nothwen¬<lb/>
+dige Folge davon iſt, daſs man keinen<lb/>
+Gegenſtand ſehen kann, von dem nicht<lb/>
+ein gerader Lichtſtrahl in unſer Auge<lb/>
+fällt; den Schall aber hört man überall.<lb/>
+<pb n="14" facs="#f0020"/>
+wenn es gleich unmöglich iſt, daſs ir¬<lb/>
+gend ein gerader Schallſtrahl von dem<lb/>
+ſchallenden Körper in unſer Ohr trift.<lb/>
+Der Einwurf iſt ſcheinbar, aber über¬<lb/>
+aus leicht zu heben. Das Licht am<lb/>
+Tage hat offenbar ſeinen Urſprung in<lb/>
+den Sonnenſtrahlen, welche ſich von<lb/>
+einem Mittelpunkt aus in gerader Rich¬<lb/>
+tung nach der Erde bewegen — (wie<lb/>
+die Strahlen des Schalles von dem ſchal¬<lb/>
+lenden Körper). Nun kann man gleich¬<lb/>
+wohl am Tage überall, auch da ſehen,<lb/>
+wo es unmöglich iſt, daſs ein Sonnen¬<lb/>
+ſtrahl in gerader Richtung hindringen<lb/>
+könnte; allein die nach unendlichen<lb/>
+Richtungen geſchehene Brechung der<lb/>
+Sonnenſtrahlen verbreiten ſich überall:<lb/>
+und wenn wir in einem Zimmer nicht<lb/>
+alles auf einmal ſehen was darin iſt, ſo<lb/>
+liegt die Schuld nicht, an dem allenthal¬<lb/>
+ben verbreiteten Lichte, ſondern an dem<lb/>
+<pb n="15" facs="#f0021"/>
+<hi rendition="#g">Bau unſres Auges</hi>, welches einem<lb/>
+kleinen Tubus gleicht, und nur dieje¬<lb/>
+nigen Strahlen aufnimmt, welche in<lb/>
+einer geraden Richtung einfallen. Stän¬<lb/>
+den unſere Augen nicht an einer Seite<lb/>
+des Kopfes ſondern gegen einander¬<lb/>
+über, und wäre die äuſsere Haut des<lb/>
+Auges (die Hornhaut) überall fähig die<lb/>
+auffallenden Strahlen nach dem Mitelpunkte<lb/>
+hin zu brechen; ſo würden wir um uns<lb/>
+her alles eben ſo ſehen, wie wir hören.<lb/>
+Unſere Ohren ſtehen an zwei ſich entge¬<lb/>
+gengeſetzten Seiten des Kopfes, und ſind<lb/>
+ſo gebaut, daſs ſie jeden einfallenden<lb/>
+Schallſtrahl nach dem Empfindungs¬<lb/>
+punkte des Gehörs hinbrechen. Wir<lb/>
+müſsen alſo von allen Seiten her hö¬<lb/>
+ren, weil von den nach unendlichen<lb/>
+Richtungen zerbrochnen Schallſtrahlen<lb/>
+nothwendig immer einige unſere Oh¬<lb/>
+ren treffen müſsen. In freiem Felde,<lb/>
+<pb n="15" facs="#f0022"/>
+wo kein merklich hervorragender Gegen¬<lb/>
+ſtand befindlich iſt, an welchem der<lb/>
+Schall gebrochen werden könnte, ſind<lb/>
+die nach allen Richtungen erfolgten Re¬<lb/>
+flectionen von der Erde ſelbſt dazu hin¬<lb/>
+reichend; woraus zugleich erklärlich iſt,<lb/>
+warum man im Freien einen fernen Schall<lb/>
+deutlicher hört, wenn man das Ohr<lb/>
+nahe gegen die Erde richtet. Der Un¬<lb/>
+terſchied zwiſchen <hi rendition="#g">Hören</hi> und <hi rendition="#g">Sehen</hi><lb/>
+gründet ſich alſo nicht auf verſchiedene<lb/>
+Geſetze in der Verbreitung des Lichtes<lb/>
+und des Schalles, ſondern auf die Ver¬<lb/>
+ſchiedenheit der Einrichtung unſerer Sin¬<lb/>
+nenwerkzeuge, wodurch wir beide em¬<lb/>
+pfinden.</p><lb/>
+<p>Man ſagt ferner das Licht durch¬<lb/>
+dringt nur ſehr wenige Körper, (die<lb/>
+Glasartigen) der Schall auſserdem noch<lb/>
+ſehr viele, als Metall, Holz, Steine u. ſ. w.<lb/>
+und ſollte dies nicht eine Verſchieden¬<lb/>
+<pb n="17" facs="#f0023"/>
+heit in den Verbreitungsgeſetzen bei¬<lb/>
+den andeuten? Keineswegs; ſondern<lb/>
+nur eine Verſchiedenheit des Mediums<lb/>
+durch welches die Verbreitung eines je¬<lb/>
+den geſchieht. Das Licht ſcheint eine<lb/>
+eigne Materie vorauszuſetzen, der Schall<lb/>
+bloſs die Luft. Das Weſentliche in der<lb/>
+Verbreitung beider iſt <hi rendition="#g">Bewegung</hi>, und<lb/>
+auf dieſe allein gründen ſich die oben<lb/>
+angegebenen Geſetze. Die Unterſuchung<lb/>
+über die Aehnlichkeit und Verſchieden¬<lb/>
+heit der Materie des Lichts und der<lb/>
+Luft, und der daraus entſpringenden Ver¬<lb/>
+ſchiedenheit der Fortpflanzung beider,<lb/>
+liegt auſser dem Zwecke dieſer Schrift,<lb/>
+indem durch ſie in jenen Geſetzen ſelbſt<lb/>
+nichts weſentlich geändert wird. Ich<lb/>
+will hier nur noch einige Erfahrungsſätze<lb/>
+folgen laſſen, welche die Anwendung<lb/>
+jener Geſetze dem Baukünſtler ſehr er¬<lb/>
+leichtern.</p><lb/>
+<fw type="sig" place="bottom">B<lb/>
+</fw>
+<pb n="18" facs="#f0024"/>
+<div n="3"> <head> <hi rendition="#g">Erſter Erfahrungsſatz</hi>.<lb/>
+</head> <p> <hi rendition="#g">Jeder Schall durchdringt‚ nach<lb/>
+Verhältniſs der Stärke welche ihn<lb/>
+hervorbringt</hi>, <hi rendition="#g">einen beſtimmten<lb/>
+Raum</hi>, <hi rendition="#g">wird dann immer ſchwä</hi>¬<lb/>
+<hi rendition="#g">cher</hi>, <hi rendition="#g">und endlich unvernehmbar</hi>.</p><lb/>
+<p>Nach genauen Beobachtungen hat<lb/>
+man bemerkt, daſs eine deut¬<lb/>
+lich geſprochene Rede im Freien,<lb/>
+wo der Verbreitung nichts im<lb/>
+Wege ſteht <hi rendition="#g">auf</hi> 70 <hi rendition="#g">Fuſsverſtänd¬<lb/>
+lich bleibt</hi>. Dies iſt für den<lb/>
+Baukünſtler eine wichtige Beob¬<lb/>
+achtung, indem er bis zu die¬<lb/>
+ſer Weite auf die natürliche Ver¬<lb/>
+breitung des Schalles rechnen<lb/>
+kann.</p><lb/>
+</div> <div n="3"> <head> <hi rendition="#g">Zweiter Erfahrungsſatz</hi>.<lb/>
+</head> <p> <hi rendition="#g">Wenn der Schall in dem<lb/>
+Raume wo er noch vernehmlich<lb/>
+<pb n="19" facs="#f0025"/>
+iſt</hi>, <hi rendition="#g">auf eine ihm gerade entgegen¬<lb/>
+geſetzte Fläche trift</hi>, <hi rendition="#g">ſo wird er<lb/>
+zurückgebrochen und es entſteht<lb/>
+ein Wiederhall</hi>, <hi rendition="#g">oder Echo</hi>.</p><lb/>
+<list>     <item>Man hat durch genaue Beobachtun¬<lb/>
+gen herausgebracht, daſs der Wie¬<lb/>
+derhall nicht eher als in einer<lb/>
+Entfernung <hi rendition="#g">über 60 Fuſs be¬<lb/>
+merkbar</hi> wird; indem die Rück¬<lb/>
+wirkung in einer kleinern Ent¬<lb/>
+fernung ſo ſchnell erfolgt, daſs ſie<lb/>
+von dem erſten Schalle nicht zu<lb/>
+unterſcheiden iſt. Auch dieſe<lb/>
+Beobachtung iſt, wie wir in der<lb/>
+Folge ſehen werden, für den Bau¬<lb/>
+künſtler von der äuſserſten Wich¬<lb/>
+tigkeit.</item> </list><lb/>
+</div> <div n="3"> <head> <hi rendition="#g">Dritter Erfahrungsſatz</hi>.<lb/>
+</head> <p> <hi rendition="#g">Wenn der Schall in dem<lb/>
+Raume wo er noch vernehmlich<lb/>
+<pb n="20" facs="#f0026"/>
+iſt</hi>, <hi rendition="#g">auf eine ſchiefe Fläche trift</hi>,<lb/>
+<hi rendition="#g">ſo</hi> <choice><sic><hi rendition="#g">wie</hi></sic><corr><hi rendition="#g">wird</hi></corr></choice> <hi rendition="#g">der unter den Einfallswin¬<lb/>
+kel von dem ſchallenden Körper<lb/>
+weggebrochen</hi>, <hi rendition="#g">und da er von dem<lb/>
+brechenden Körper einen neuen<lb/>
+Stoſs erhält</hi>, <hi rendition="#g">durch einen gröſ¬<lb/>
+sern Raum verbreitet</hi>, <hi rendition="#g">als den<lb/>
+er ohne die Brechung hätte<lb/>
+durchdringen können</hi>.</p><lb/>
+<list><item>Beweiſe zu dieſem Satze liefert die<lb/>
+<hi rendition="#g">Kommunicationsröhre</hi> und<lb/>
+das <hi rendition="#g">Sprachrohr</hi>.</item></list><lb/>
+</div> <div n="3"> <head> <hi rendition="#g">Vierter Erfahrungsſatz</hi>.<lb/>
+</head> <p> <hi rendition="#g">Wenn der Schall ſich zwi¬<lb/>
+ſchen zwei Parallellinien fortbe¬<lb/>
+wegt</hi>, <hi rendition="#g">ſo wird er durch einen ſehr<lb/>
+groſsen Raum</hi>, <hi rendition="#g">in derſelben Stärke<lb/>
+verbreitet</hi>, <hi rendition="#g">die er anfangs hatte</hi>.</p><lb/>
+<list><item>Den Beweis liefert die <hi rendition="#g">Com¬<lb/>
+munikationsröhre</hi>. Wenn<lb/>
+<pb n="21" facs="#f0027"/>
+man auch noch ſo leiſe zu dem<lb/>
+einen Ende hineinſpricht, ſo ver¬<lb/>
+ſteht man am andern alles ſo ge¬<lb/>
+nau, als ob man das Ohr an<lb/>
+den Mund des Sprechenden<lb/>
+legte.</item></list><lb/>
+</div> <div n="3"> <head> <hi rendition="#g">Fünfter Erfahrungsſatz</hi>.<lb/>
+</head> <p> <hi rendition="#g">Wenn der Schall ſich zwi¬<lb/>
+ſchen zwei Linien fort bewegt</hi>,<lb/>
+<hi rendition="#g">die an dem Orte wo er entſteht<lb/>
+unter einem ſpitzigen Winkel zu¬<lb/>
+ſammen laufen</hi>; <hi rendition="#g">ſo wird er nicht<lb/>
+allein durch einen gröſsern Raum<lb/>
+verbreitet ſondern auch ver¬<lb/>
+ſtärkt</hi>.</p><lb/>
+<p>Den Beweis liefert das, jedermann<lb/>
+bekannte Sprachrohr; welches um¬<lb/>
+gekehrt als Höhrrohr, dieſelbe Wir¬<lb/>
+kung hervorbringt, wenn das Ohr<lb/>
+<pb n="22" facs="#f0028"/>
+ſich nehmlich in dem Punkte be¬<lb/>
+findet, wo die beiden Seiten ſich<lb/>
+durchſchneiden würden, welche<lb/>
+dem Scheine nach ſich widerſpre¬<lb/>
+chende Wahrnehmungen, ſich je¬<lb/>
+doch aus dem Brechungsgeſetze be¬<lb/>
+friedigend erklären laſſen.</p><lb/>
+</div> <div n="3"> <head> <hi rendition="#g">Sechſter Erfahrungsſatz</hi>.<lb/>
+</head> <p> <hi rendition="#g">Wenn ein ſchallender Körper<lb/>
+ſich in der Nähe eines andern<lb/>
+Körpers befindet</hi>, <hi rendition="#g">welcher</hi>, <hi rendition="#g">wenn<lb/>
+er in Bewegung geſetzt iſt</hi>, <hi rendition="#g">einen<lb/>
+gleichen Schall hervorbringt</hi>; <hi rendition="#g">ſo<lb/>
+iſt die bloſse Erſchütterung der<lb/>
+Luft hinreichend</hi>, <hi rendition="#g">ihn in Bewe¬<lb/>
+gung zu ſetzen und</hi> <hi rendition="#g #i">mitſchal¬<lb/>
+lend</hi> <hi rendition="#g">zu machen</hi>.</p><lb/>
+<p>Den Beweis liefern zwei gleichge¬<lb/>
+ſtimmte Saiten in einer Entfer¬<lb/>
+nung von einander, weil, wenn<lb/>
+<pb n="23" facs="#f0029"/>
+eine angeſchlagen wird, <hi rendition="#g">die an</hi>¬<lb/>
+<hi rendition="#g">dre von ſelbſt mittönt</hi>. Die<lb/>
+Erfahrung iſt für den Baukünſt¬<lb/>
+ler ſehr wichtig, weil die Alten<lb/>
+die Erfindung ihrer Schallgefäſse<lb/>
+darauf gründeten, und in unſern<lb/>
+Schauſpielhäuſern zum Theil mit<lb/>
+der Nachhall, welcher oft Rede<lb/>
+und Muſik undeutlich macht, aus<lb/>
+ähnlichen Urſachen entſpringt.</p><lb/>
+<p>Ob die Alten die wahre Theorie des<lb/>
+Schalles gekannt haben, iſt zweifelhaft.<lb/>
+Man kann wohl als gewiſs annehmen,<lb/>
+daſs Vitruv alles gekannt habe, was ſie<lb/>
+über dieſen Gegenſtand wuſsten. Vitruv<lb/>
+aber nimmt an: der Schall verbreite ſich<lb/>
+auf eben die Weiſe, wie die Kreiſe auf<lb/>
+einer ruhigen Waſſerfläche, wenn man<lb/>
+etwas hineingeworfen hat; nur daſs die¬<lb/>
+ſe Verbreitung nach allen Seiten, wie ge¬<lb/>
+gen die Oberfläche einer Kugel zu, erfolge.<lb/>
+<pb n="24" facs="#f0030"/>
+„Steht, fährt Vitruv fort, einem Kreiſe<lb/>
+auf der Waſſerfläche etwas entgegen, ſo<lb/>
+entſteht durch den Anſchlag ein neuer<lb/>
+Kreis, der dem erſten entgegenſtrebt<lb/>
+und beide gerathen in Unordnung; ſo iſt<lb/>
+es auch mit dem Schalle.“</p><lb/>
+<p>Er kannte alſo offenbar die Verbrei¬<lb/>
+tung des Schalles, durch eine Erſchüt¬<lb/>
+terung der Luft nach gerader Richtung,<lb/>
+ſo wie die Rückwirkung derſelben, den<lb/>
+Wiederhall; ſo wohl nach ſeinen nach¬<lb/>
+theiligen Folgen, wie das eben angeführ¬<lb/>
+te Beiſpiel beweiſt, als nach ſeinen Vor¬<lb/>
+theilen, wie aus der Vorſchrift erhellt,<lb/>
+welche er an einem andern Orte giebt,<lb/>
+in zu hohen Gebäuden einen Kranz<lb/>
+umher zu bauen, damit der Schall ſich<lb/>
+nicht zu ſehr nach oben hin verliere.</p><lb/>
+<p>Dagegen ſcheint es ziemlich gewiſs<lb/>
+zu ſeyn daſs er die Brechung des Schal¬<lb/>
+<pb n="25" facs="#f0031"/>
+les nach dem Auffallswinkel nicht ge¬<lb/>
+kannt habe, weil er ſonſt unfehlbar die<lb/>
+groſsen Vortheile berührt haben würde,<lb/>
+welche der Baukünſtler aus dieſer Lehre<lb/>
+ziehen kann. Auch beweiſt die Form der<lb/>
+Theater der Alten, wie ich in der Fol¬<lb/>
+ge zeigen werde, daſs ſie auf die Bre¬<lb/>
+chung des Schalles nichts rechneten, ſon¬<lb/>
+dern bloſs auf die natürliche Verbreitung<lb/>
+deſſelben ſahen. In ihren Baſiliken fand<lb/>
+allerdings eine vortheilhafte Brechung<lb/>
+ſtatt; dieſe Gebäude haben ihre Form<lb/>
+offenbar der Bequemlichkeit in Rückſicht<lb/>
+ihres Zweckes zu danken‚ und das<lb/>
+Vortheilhafte dieſer Form für die Ver¬<lb/>
+breitung des Schalles ſcheint bloſs zufäl¬<lb/>
+lig zu ſeyn, indem Vitruv dieſes Vortheils<lb/>
+gar nicht erwähnt.</p><lb/>
+<p>Ich gehe jetzt zur Anwendung je¬<lb/>
+ner Geſetze über, und beſchränke mich,<lb/>
+um nicht zu weitläuftig zu werden, al¬<lb/>
+<pb n="26" facs="#f0032"/>
+lein <hi rendition="#g">auf den Schauſpielhausbau</hi><lb/>
+ein, theils weil man es von Schauſpiel¬<lb/>
+häuſern vorzüglich verlangt, daſs ſie zur<lb/>
+Verbreitung des Schalles zweckmäſsig<lb/>
+eingerichtet ſein ſollen, theils weil der<lb/>
+Baukünſtler die Anwendung der Geſetze,<lb/>
+wenn ſie einmahl gezeigt iſt, überall<lb/>
+leicht finden wird.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="27" facs="#f0033"/>
+<milestone unit="section" rendition="#hr"/> </div> </div> <div n="2"> <head> <hi rendition="#g">Zweiter Theil.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <argument> <p rendition="#c">Anwendung dieſer Geſetze auf den<lb/>
+Schauſpielhausbau.</p> </argument><lb/>
+<p>Die Aufgabe beim Bau eines Schau¬<lb/>
+ſpielhauſes iſt: es ſo einzurichten, daſs</p><lb/>
+<p>I) die Stimme der Schauſpieler auf<lb/>
+den Sitzen der Zuſchauer überall<lb/>
+deutlich gehört werden könne.</p><lb/>
+<p>II) daſs man von allen Sitzen die Büh¬<lb/>
+ne ganz überſehen könne.</p><lb/>
+<p>III) daſs die Sitze bequem, d. i. ſo an¬<lb/>
+gelegt werden, daſs die Zuſchauer<lb/>
+<pb n="28" facs="#f0034"/>
+beim Herein- und Hinausgehen ſich<lb/>
+nicht hindern, und kein Gedrän¬<lb/>
+ge entſteht, und</p><lb/>
+<p>IV) daſs bei dem allen die architectoni¬<lb/>
+ſche Schönheit beobachtet wird,<lb/>
+und dem Auge eine gefällige Form<lb/>
+darbietet.</p><lb/>
+<p>Eigentlich habe ich es hier bloſs mit<lb/>
+dem erſten Punkte dieſer Forderungen zu<lb/>
+thun, und werde auf die andern nur ſo<lb/>
+viel Rückſicht nehmen, als nöthig iſt<lb/>
+zu zeigen daſs die Beobachtung der Ge¬<lb/>
+ſetze des Schalles beim Bau ihnen nicht<lb/>
+nur nicht ſchädlich, ſondern ſehr vor¬<lb/>
+theilhaft iſt.</p><lb/>
+<p>In Rückſicht dieſer Geſetze ſind die<lb/>
+Schauſpielhäuser eingerichtet</p><lb/>
+<p>1. auf <hi rendition="#g">natürliche</hi> Verbreitung des<lb/>
+Schalles, und<lb/>
+<pb n="29" facs="#f0035"/>
+2. auf <hi rendition="#g">künſtliche</hi> Verbreitung deſſel¬<lb/>
+ben.</p><lb/>
+<p>Die künſtliche Verbreitung ſucht man<lb/>
+hervorzubringen.</p><lb/>
+<p> <hi rendition="#i">A</hi>) durch <hi rendition="#g">Verſtärkung</hi> und</p><lb/>
+<p> <hi rendition="#i">B</hi>) durch <hi rendition="#g">Brechung</hi> des Schalles.</p><lb/>
+<p>Die Brechung des Schalles geſchieht<lb/>
+wieder.</p><lb/>
+<p> <hi rendition="#i">a</hi>) <hi rendition="#g">nach der Bühne zurück</hi>, <hi rendition="#g">oder</hi></p><lb/>
+<p> <hi rendition="#i">b</hi>) <hi rendition="#g">von der Bühne weg</hi>.</p><lb/>
+<p>Ob nun ein Schauſpielhaus zu die¬<lb/>
+ſer oder jener Abtheilung gehört, hängt<lb/>
+von ſeiner innern <hi rendition="#g">Form und Einrich¬<lb/>
+tung ab</hi>. Ich werde daher die Form<lb/>
+und Einrichtung der verſchiedenen Klas¬<lb/>
+ſen, nach dem hier angegebenen Charak¬<lb/>
+<pb n="30" facs="#f0036"/>
+ter beſtimmen, und die Tauglichkeit<lb/>
+derſelben, der Aufgabe gemäſs, nach dem<lb/>
+Zwecke der Schauſpielhäuſer überhaupt<lb/>
+unterſuchen.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="31" facs="#f0037"/>
+<div n="3"> <head> <hi rendition="#g">Erſter Abſchnitt</hi>.<lb/>
+</head> <argument> <p rendition="#c">Von Schauſpielhäuſern, welche bloſs auf na¬<lb/>
+türliche Verbreitung des Schalles berech¬<lb/>
+net ſind.</p> </argument><lb/>
+<p>Der Werth dieſer Maxime beim<lb/>
+Schauſpielhausbau iſt einleuchtend, weil<lb/>
+ſie die ſicherſte von allen, und keinem<lb/>
+Miſslingen unterworfen iſt. Sie iſt in¬<lb/>
+deſs auf Gebäude nicht anwendbar, wel¬<lb/>
+che eine groſse Anzahl Zuhörer faſsen<lb/>
+ſollen, da der Schall ohne Verſtärkungs¬<lb/>
+mittel ſich nicht ſehr weit fortpflanzt,<lb/>
+mithin der Raum, welchen eine gewöhn¬<lb/>
+liche Stimme durchdringt‚ nicht ſehr<lb/>
+groſs iſt. Da indeſs‚ nach <hi rendition="#g">Saunders</hi><lb/>
+ſorgfältigen Beobachtungen, eine gewöhn¬<lb/>
+liche Stimme geradehin noch auf 70<lb/>
+Fuſs verſtändlich bleibt, ſo könnte man<lb/>
+Theater für <hi rendition="#g">zweitauſend Zuſchauer</hi><lb/>
+noch füglich nach dieſer Maxime ein¬<lb/>
+<pb n="32" facs="#f0038"/>
+richten. Die einzig paſſende Form für<lb/>
+dieſe Einrichtung iſt der <hi rendition="#g">Halbkreis</hi>.</p><lb/>
+<p>Wenn ein Theater ſo klein iſt, daſs<lb/>
+der Zuſchauer überall unter 60 Fuſs von<lb/>
+dem Sprechenden entfernt iſt, ſo iſt die<lb/>
+innere Form im Grunde für den Schall<lb/>
+gleichgültig, weil er den Raum ſo ſchnell<lb/>
+durchdringt, daſs man das falſche Bre¬<lb/>
+chen und den nachtheiligen Wiederhall<lb/>
+nicht gewahr wird. Iſt der Raum aber<lb/>
+über 60 Fuſs, ſo wird die Rückbrechung<lb/>
+ſchon ſo bemerklich, daſs ſie fähig iſt ei¬<lb/>
+nen Wiederhall zu bilden, oder wenig¬<lb/>
+ſtens durch Verlängerung der Töne das<lb/>
+Nachhallen — die Rede undeutlich zu<lb/>
+machen. Der Umſtand, daſs man auch<lb/>
+in Theatern, welche viel kleiner ſind‚<lb/>
+bald beſſer oder ſchlechter hört, rührt<lb/>
+von den <hi rendition="#g">Hinderniſſen</hi> her, welche<lb/>
+man der natürlichen Verbreitung des<lb/>
+Schalles minder in den Weg ſetzt. z. B.<lb/>
+<pb n="33" facs="#f0039"/>
+durch den Bau der Seitenlogen, oder<lb/>
+ein zu niedriges Parterre u. ſ. w.</p><lb/>
+<p>Alle Regeln welche Vitruv für den<lb/>
+Bau der Theater giebt, beziehen ſich bloſs<lb/>
+<hi rendition="#g">auf die Vermeiduing dieſer Hinder¬<lb/>
+niſſe</hi>; wie denn die Theater der Alten<lb/>
+bloſs auf <hi rendition="#g">natürliche Verbreitung<lb/>
+des Schalles</hi> berechnet waren. Dies<lb/>
+mögte bei der ungeheuern Gröſse ih¬<lb/>
+rer Schauplätze auffallend ſcheinen, al¬<lb/>
+lein es iſt ſo wohl aus der bekannten<lb/>
+Einrichtung derſelben, als aus dem was<lb/>
+Vitruv darüber ſagt, durchaus erweis¬<lb/>
+lich. Die Verſtärkungsmittel, welche ſie<lb/>
+durch ihre Schallgefäſse aufſtellten, gehö¬<lb/>
+ren unter die Ausnahmen: man weiſs<lb/>
+in wie wenig Theatern ſie zu finden<lb/>
+waren, und ich werde in der Folge mehr<lb/>
+darüber ſagen.<lb/>
+</p> <fw type="sig" place="bottom">C<lb/>
+</fw>
+<pb n="34" facs="#f0040"/>
+<p>Daſs man bei der Gröſse der alten<lb/>
+Schauplätze doch überall auf den Sitzen<lb/>
+der Zuſchauer hören konnte, wird we¬<lb/>
+niger auffallen, wenn man bedenkt: daſs<lb/>
+die Alten den eigendlichen Converſa¬<lb/>
+tionston auf ihren Bühnen gar nicht<lb/>
+kannten, daſs zu ihrer künſtlichen, faſt<lb/>
+an Geſang grenzenden Deklamation eine<lb/>
+gröſsere Anſtrengung der Stimme erfor¬<lb/>
+dert wurde, und die Schauspieler nur<lb/>
+auf einer kleinen etwas erhöhten Stelle<lb/>
+der Bühne ihre Rollen recitirten, folg¬<lb/>
+lich ſich nicht weit vom Mittelpunkt des<lb/>
+Zirkels entfernen konnten. Ueberdem<lb/>
+ſprach in groſsen Theatern der darſtel¬<lb/>
+lende Schauſpieler nicht einmal ſelbſt, ſon¬<lb/>
+dern ein andrer, der ſich in dem eigent¬<lb/>
+lichen Schallpunkte befand, alle ſeine<lb/>
+Aufmerkſamkeit auf die Stimme und<lb/>
+Deutlichkeit der Ausſprache wandte, und<lb/>
+den Mund gerade gegen den vollen Halb¬<lb/>
+kreis gewandt hatte. Und bei dem allen<lb/>
+<pb n="35" facs="#f0041"/>
+iſt es ſo ausgemacht noch nicht einmal,<lb/>
+daſs man überall in ihren Theatern, und<lb/>
+vorzüglich auf den obern Sitzen deut¬<lb/>
+lich gehört habe; viel mehr ſcheinen<lb/>
+die künſtlichen Mittel welche ſie anwand¬<lb/>
+ten den Schall zu verſtärken — ihre<lb/>
+Schallgefäſse — das Gegentheil anzudeu¬<lb/>
+ten. —</p><lb/>
+<p>In dem Maſs nun, da unſere darſtel¬<lb/>
+lende Kunſt in dem genannten Umſtän¬<lb/>
+den von der Kunſt der Alten abweicht,<lb/>
+da wir von dem Schauſpieler Converſa¬<lb/>
+tionston, und keine erzwungene Anſtren¬<lb/>
+gung fordern; da er <hi rendition="#g">überall</hi> auf der<lb/>
+Bühne ſprechen darf wo es die Situa¬<lb/>
+tion erfordert — muſs ſich auch der<lb/>
+Raum der Theater verkleinern, in wel¬<lb/>
+chen die Stimmen hörbar ſind, und man<lb/>
+hat Unrecht, wenn man dem Bau der<lb/>
+Häuſer zuſchreibt, was in der Art der<lb/>
+Kunſtübung ſelbſt liegt.<lb/>
+<fw type="sig" place="bottom">C 2<lb/>
+</fw>
+<pb n="36" facs="#f0042"/>
+Man könnte einwenden: daſs es unmög¬<lb/>
+lich ſei, in einem Theater auf die Rück¬<lb/>
+wirkung, und dadurch erfolgte Verſtär¬<lb/>
+kung des Schalles nicht zu rechnen, in¬<lb/>
+dem dieſe nothwendig von ſelbſt erfolgt.<lb/>
+— Dieſem ſcheinbaren Einwurf hab' ich<lb/>
+folgendes entgegen zu ſetzen: Der Wie¬<lb/>
+derhall könnte nur in <hi rendition="#g">einem Falle<lb/>
+den Ton</hi> verſtärken, wenn nehmlich<lb/>
+der wiederhallende Körper ſo nahe iſt, daſs<lb/>
+der Wiederhall in Rückſicht der Zeit ſo<lb/>
+<hi rendition="#g">ſchnell auf den erſten Ton<lb/>
+folgt</hi>, <hi rendition="#g">daſs er durch das Gehör<lb/>
+nicht davon zu unterſcheiden iſ</hi>t.<lb/>
+Iſt dies nicht der Fall, iſt die Zeit der<lb/>
+Rückwirkung bemerklich, ſollte es auch<lb/>
+nur in der <hi rendition="#g">Verlängerung</hi> des Tons<lb/>
+beſtehen, ſo iſt ſie <hi rendition="#g">nachtheilig</hi>, weil<lb/>
+ſie den Schall, ſtatt ihn zu verſtärken,<lb/>
+<hi rendition="#g">verwirrt</hi>, einen Ton in den andern<lb/>
+überzieht, und die Rede undeutlich<lb/>
+macht. Es iſt hier indeſs vorzüglich<lb/>
+<pb n="37" facs="#f0043"/>
+zu unterſuchen: ob in einem Kreisförmi¬<lb/>
+gen Theater, in welchem die Sitze ſtufen¬<lb/>
+weiſe über einander angelegt ſind,<lb/>
+<hi rendition="#g">überhaupt eine Rückwirkung<lb/>
+des Schalles bemerklich<lb/>
+ſein könne</hi>? welches ich gerade¬<lb/>
+zu leugne. Der Schall findet in dem¬<lb/>
+ſelben nirgens in <hi rendition="#g">einem Zeitmo¬<lb/>
+ment</hi> eine Widerſtandsmaſſe, von der<lb/>
+eine ſo ſtarke Rückwirkung möglich wä¬<lb/>
+re, daſs ſie dem Gehör bemerklich<lb/>
+würde. Er ſchlägt <hi rendition="#g">früher</hi> an die er¬<lb/>
+ſte Sitzreihe, als an die zweite, und<lb/>
+die <hi rendition="#g">Rückwirkung der erſtern iſt<lb/>
+verloren</hi>, <hi rendition="#g">ehe die der zweiten<lb/>
+Reihe entſteht</hi>, <hi rendition="#g">und ſo bis oben<lb/>
+hin</hi>. Die Alten konnten dieſem zufolge;<lb/>
+da ihre Theater alle dieſe Einrichtung<lb/>
+hatten, auf die Rückwirkung des Schal¬<lb/>
+les nichts rechnen.<lb/>
+</p>
+<pb n="38" facs="#f0044"/>
+<p>Wenn ich nun für Schauſpielhäuſer<lb/>
+dieſer Art den <hi rendition="#g">Halbkreis als die</hi> b<hi rendition="#g">e¬<lb/>
+ſte Form empfehle</hi>, ſo geſchieht es<lb/>
+bloſs unter der Bedingung <hi rendition="#g">daſs die Siz¬<lb/>
+ze der Zuhörer amphitheatraliſch</hi>:<lb/>
+<hi rendition="#g">d</hi>. <hi rendition="#g">i</hi>. <hi rendition="#g">Stufenweiſe über einander<lb/>
+angelegt werden</hi>. Geſchieht dies<lb/>
+nicht ſo hat der Halbkreis auch nichts<lb/>
+Unterſcheidendes, von jeder andern run¬<lb/>
+den oder eckigen Form. Denn bei der<lb/>
+gewöhnlichen Einrichtung der Logen,<lb/>
+findet der Schall überall Maſſen, welche<lb/>
+eine ſehr bemerkbare Rückwirkung her¬<lb/>
+vorbringen hönnen. Nun geſchieht dieſe<lb/>
+entweder ſo ſchnell, daſs ſie von dem er¬<lb/>
+ſten Tone nicht zu unterſcheiden iſt; dann<lb/>
+hat der Zirkel keinen Vorzug; oder ſie<lb/>
+iſt zu unterſcheiden, ſo verwirrt der Zir¬<lb/>
+kel die Töne ſo gut wie jede andre<lb/>
+Form. Der Umſtand, daſs im Zirkel alle<lb/>
+Strahlen welche aus dem Mittelpunkt<lb/>
+auf die Peripherie fallen, nach dem Mit¬<lb/>
+<pb n="39" facs="#f0045"/>
+telpunkt zurück gebrochen werden, ver¬<lb/>
+dient hier gar keiner Erwähnung, in¬<lb/>
+dem die Töne — bei der Rede der<lb/>
+Schauſpieler nicht aus dem Mittelpunkt<lb/>
+kommen können, und wenn dies auch<lb/>
+der Fall wäre der entſtehende Wiederhall,<lb/>
+ſo bald er bemerklich würde, die Tön¬<lb/>
+ne nur verwirrt.</p><lb/>
+<p>Es entſteht indeſs bei der Kreisform<lb/>
+in Rückſicht der Bequemlichkeit und<lb/>
+Zweckmäſsigkeit der Einrichtung eine<lb/>
+Schwierigkeit, welche eigendlich die Ur¬<lb/>
+ſach zu ſeyn ſcheint, warum die neuern<lb/>
+Baumeiſter dieſe Form, welche von den<lb/>
+Alten überall gebraucht wurde mit der<lb/>
+ovalen Form vertauſcht haben. Soll das<lb/>
+Theater eine auch nur etwas groſse An¬<lb/>
+zahl Zuhörer faſsen, ſo wird der Durch¬<lb/>
+meſſer des Zirkels ſo groſs, daſs die,<lb/>
+dieſem Durchmeſſer entſprechende Sce¬<lb/>
+ne, für unſere Decorationsart der Büh¬<lb/>
+<pb n="40" facs="#f0046"/>
+ne, und die ganze Oeconomie unſrer<lb/>
+Schauſpiele, zweckwidrig wird. Es ſcheint,<lb/>
+daſs man die Oefnung der Bühne, oh¬<lb/>
+ne der <hi rendition="#g">Beleuchtung zu ſchaden</hi>,<lb/>
+und eine Menge Unbequemlichkeiten<lb/>
+hervorzubringen, nicht wohl über 50<lb/>
+Fuſs groſs machen dürfe. Wie klein iſt<lb/>
+aber der Halbkreis der ſich vor dieſer<lb/>
+Linie beſchreiben läſst, und wie wenig Zu¬<lb/>
+ſchauer könnte er faſſen! Um mehr<lb/>
+Raum zu gewinnen, zog man nun den<lb/>
+Zirkel in die Länge und ſo entſtand die<lb/>
+jetzt allgemein übliche ovale Form. Hät¬<lb/>
+te man indeſs die Geſetze des Schalles,<lb/>
+oder auch nur die Monumente der Al¬<lb/>
+ten genauer ſtudirt, ſo würde dieſe<lb/>
+Schwierigkeit ſich auf eine weit zweck¬<lb/>
+mäſsigere Weiſe haben heben laſsen.</p><lb/>
+<p>Die Alten, vorzüglich die Römer,<lb/>
+fanden zu vielen ihrer Spiele die weiten<lb/>
+Oeffnungen der Scene eher vortheilhaft<lb/>
+<pb n="41" facs="#f0047"/>
+als nahtheilig, und wo ſie auch die Sce¬<lb/>
+ne zuſammenzogen, kümmerten ſie ſich<lb/>
+nicht um den Umſtand, daſs von ei¬<lb/>
+ner Menge Sitzen an beiden Seiten der<lb/>
+Bühne weder geſehn noch gehört wer¬<lb/>
+den konnte. In Athen findet ſich indeſs<lb/>
+die Ruine eines nicht gar groſsen grie¬<lb/>
+chiſchen Theaters, in welchem dieſe<lb/>
+Schwierigkeit ungemein glücklich geho¬<lb/>
+ben iſt. Man hat nehmlich das eigent¬<lb/>
+liche Theater, die Sitze der Zuſchauer<lb/>
+nach einem weit gröſsern Zirkel ange¬<lb/>
+legt, als die Oefnung der Bühne giebt,<lb/>
+denſelben indeſs nach der Richtung der<lb/>
+Seitenwände der Bühne, an beiden Sei¬<lb/>
+ten abgeſchnitten. (Siehe Fig. 1.) Da<lb/>
+durch dieſe zweckmäſsige Form an bei¬<lb/>
+den Seiten der Scene <hi rendition="#g">gerade leere<lb/>
+Wände</hi> entſtehen, und dieſe, wie ich<lb/>
+in der Folge zeigen werde, die vorzüg¬<lb/>
+lichſten Mittel zur Verſtärkung des Schal<lb/>
+les überhaupt ſind, ſo kann in dieſer<lb/>
+<pb n="42" facs="#f0048"/>
+Form der Raum ungemein vergröſsert<lb/>
+werden, ohne daſs man fürchten dürfe<lb/>
+dem Schall nachtheilig zu werden.</p><lb/>
+<p>Es wäre mithin dieſe Form für al¬<lb/>
+le Schauſpielhäuſer, welche nach dieſer<lb/>
+Maxime aufgeführt werden, <hi rendition="#g">die beſte<lb/>
+von allen</hi>; da auſserdem auch die Be¬<lb/>
+quemlichkeit der Sitze und die archi¬<lb/>
+tectoniſche Schönheit des Ganzen ſehr<lb/>
+zu empfehlen iſt.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="43" facs="#f0049"/>
+</div> <div n="3"> <head> <hi rendition="#g">Zweiter Abſchnitt</hi>.<lb/>
+</head> <argument> <p>Von Schauſpielhäuſern welche suf künſtliche<lb/>
+Verbreitung des Schalles berechnet ſind.</p> </argument><lb/>
+<p>Unter künſtlicher Verbreitung des<lb/>
+Schalles verſteht man, wenn der Schall<lb/>
+durch künſtliche Hülfsmittel da noch<lb/>
+hörbar und verſtändlich gemacht wird,<lb/>
+wo er nach ſeiner natürlichen Verbreitung<lb/>
+nicht mehr hörbar oder verſtändlich<lb/>
+ſeyn würde. Die Hülfsmittel, welche<lb/>
+man dazu anwendet ſind 1) Verſtärkung<lb/>
+des Schalles, und 2) Brechung des Schal¬<lb/>
+les. Ich will hier der Deutlichkeit wegen<lb/>
+den Unterſchied zwiſchen beiden, ob er<lb/>
+gleich aus der Theorie ſchon verſtändlich<lb/>
+iſt, genau auseinander ſetzen.<lb/>
+</p>
+<pb n="44" facs="#f0050"/>
+<p>Der Schall wird durch Schwingun¬<lb/>
+gen des ſchallenden Körpers hervorge¬<lb/>
+bracht. Dieſe Schwingungen theilen der<lb/>
+Luft eine Erſchütterung mit, welche den<lb/>
+Schall verbreitet. Treffen dieſe Erſchüt¬<lb/>
+terungen auf elaſtiſche Körper, welche<lb/>
+in Bewegung geſetzt, eben ſolche Schwin¬<lb/>
+gungen hervorbringen, als der Körper<lb/>
+welcher der Luft die Erſchütterung mit¬<lb/>
+theilte, ſo gerathen ſie bſoſs durch dieſe<lb/>
+Erſchütterung der Luft in Bewegung,<lb/>
+und bringen einen ähnlichen, obgleich<lb/>
+ſchwächern Ton hervor, wodurch der<lb/>
+erſte <hi rendition="#g">verſtärkt</hi> und weiter verbreitet<lb/>
+wird.</p><lb/>
+<p>Treffen die Erſchütterungen der Luft<lb/>
+indeſs auf andre elaſtiſche Körper, wel¬<lb/>
+che in ihren Schwingungen von jenem<lb/>
+der den Schall hervorbrachte verſchie¬<lb/>
+den ſind, ſo prallt die Erſchütterung,<lb/>
+ohne einen Ton hervor zu bringen, zu¬<lb/>
+rück, wird gebrochen.<lb/>
+</p>
+<pb n="45" facs="#f0051"/>
+<p>Die Alten ſuchten in ihren Theatern<lb/>
+den Schall durch die erſt genannte Eigen¬<lb/>
+ſchaft ſchallender Körper, durch ihre<lb/>
+<hi rendition="#g">Schallgefäſse</hi>, zu verſtärken, welches<lb/>
+bei der amphitheatraliſchen Einrichtung<lb/>
+ihrer Schauplätze das einzige Mittel war,<lb/>
+in dem wie wir geſehen haben, auf<lb/>
+Brechung des Schalls in denſelben ei¬<lb/>
+gendlich nichts zu rechnen iſt. Sie<lb/>
+machten Gefäſse von dünnen Kupfer,<lb/>
+welche einen reinen Klang gaben und<lb/>
+ſo eingerichtet wurden, daſs ſie zu der<lb/>
+Tonleiter, in welcher der Schauſpieler<lb/>
+ſprach, gerade paſsten, und jeder Ton<lb/>
+den er ſprach wenigſtens eins oder zwei<lb/>
+Gefäſse fand, welche die Erſchütterung<lb/>
+der Luft auffingen, und ihn durch Her¬<lb/>
+vorbringung eines ähnlichen Tons ver¬<lb/>
+ſtärkten.</p><lb/>
+<p>Man hat ſich über die Art wie die¬<lb/>
+ſe Schallgefäſse zur Verſtärkung des Tons<lb/>
+<pb n="46" facs="#f0052"/>
+mitwirkten, häufig geſtritten, und den<lb/>
+Nutzen derſelben bald behauptet, bald<lb/>
+verworfen. Man ſagt gewöhnlich, daſs<lb/>
+die Alten, wenn ihr Nutzen ſo entſchie¬<lb/>
+den geweſen wäre, als Vitruv ihn angiebt,<lb/>
+ſie unſtreitig häufiger gebraucht haben<lb/>
+würden — allein dieſer Einwurf ſagt<lb/>
+nichts. Einmahl entſcheidet ein ſolcher,<lb/>
+aus dem Gebrauch hergenommener Grund<lb/>
+in wisſenſchaftlichen Dingen gar nichts,<lb/>
+und zweitens haben wir geſehen, daſs<lb/>
+die Alten ihre Schauplätze eigendlich<lb/>
+auf natürliche Fortpflanzung des Schal¬<lb/>
+les berechneten, und folglich dergleichen<lb/>
+künſtliche Mittel nicht immer bedurften.<lb/>
+Die übrigen Einwürfe entſpringen faſt.<lb/>
+ſämmtlich aus einem unrichtigen Erklä¬<lb/>
+rungsgrunde, indem man ihren Nutzen<lb/>
+aus der Brechung des Schalles herlei¬<lb/>
+ten, oder beſtreiten will, und ſelbſt Vitruv<lb/>
+ſcheint in dieſem Irrthum zu ſtehen,<lb/>
+indem er zum Beweiſe ihrer Nutzbar¬<lb/>
+<pb n="47" facs="#f0053"/>
+keit das Beiſpiel einer Wand anführt,<lb/>
+welche den Ton durch Wiederhall ver¬<lb/>
+ſtärkt.</p><lb/>
+<p>Bei unſrer jetzigen Einrichtung der<lb/>
+Schauſpielhäuſer und der Gewohnheit<lb/>
+der Seitenlogen würden dieſe Gefäſse<lb/>
+offenbar mehr ſchaden als nutzen, und<lb/>
+das wirklich hervorbringen, was Barte¬<lb/>
+lemy vielleicht mit Unrecht von ihnen<lb/>
+in den griechiſchen Theatern befürchtet,<lb/>
+ein <hi rendition="#g">Nachſummen</hi> welches der Deut¬<lb/>
+lichkeit der Töne ſchadet.</p><lb/>
+<p>Ich komme jetzt auf</p><lb/>
+<div n="4"> <head> <hi rendition="#g">die Brechung des Schalles</hi><lb/>
+</head>     <argument><p rendition="#c">als eines künſtlichen Mittels zur Verbreitung<lb/>
+deſſelben.</p></argument><lb/>
+<p>Ich habe ſchon geſagt, daſs der<lb/>
+Schall entweder <hi rendition="#g">nach der Bühne zu¬<lb/>
+rück</hi>, oder <hi rendition="#g">von ihr weg</hi> gebrochen<lb/>
+<pb n="48" facs="#f0054"/>
+wird. Ich werde alſo zuerſt von den<lb/>
+Schauſpielhäuſern handeln, in welchen<lb/>
+der Schall gegen die Buhne zurück gebro¬<lb/>
+chen wird.</p><lb/>
+<p>Es iſt dabei in der That eine der<lb/>
+ſonderbarſten Erſcheinungen, in dem Ge¬<lb/>
+biete der Wiſſenſchaften überhaupt, daſs<lb/>
+alle Erbauer von Theatern und alle mir<lb/>
+bekannte Schriftſteller, welche dieſen Ge¬<lb/>
+genſtand abhandeln, (Saunders ausgenom¬<lb/>
+men, welcher nur von der natürlichen<lb/>
+Fortpflanzung des Schalles in ſeinem Pla¬<lb/>
+ne ausgeht, aber nichts durch ſeinen<lb/>
+Grundſatz gewinnt, weil er in der Form<lb/>
+von der gewöhnlichen nicht abgeht.)<lb/>
+glauben: <hi rendition="#g">der Ton in einem<lb/>
+Schauſpielhauſe müſse dadurch<lb/>
+verſtärkt werden</hi>, <hi rendition="#g">daſs die Rück¬<lb/>
+wirkung deſſelben</hi>, <hi rendition="#g">die Brechung</hi>,<lb/>
+<hi rendition="#g">gegen die Bühne hin geſchehe</hi>;<lb/>
+<hi rendition="#g">wie dieſs in allen runden</hi>, <hi rendition="#g">elip¬<lb/>
+<pb n="49" facs="#f0055"/>
+tiſchen und paraboliſchen For¬<lb/>
+men der Fall iſt</hi>; da doch klar zu<lb/>
+beweiſen ſteht;</p><lb/>
+<p> <hi rendition="#g">„Daſs alles Zurückbrechen,<lb/>
+des Schalles gegen die Büh¬<lb/>
+ne hin, nachtheilig iſt, und<lb/>
+das Gegentheil von dem be¬<lb/>
+wirkt was man beabſichtigt,<lb/>
+mithin alle runden Formen<lb/>
+verwerflich ſind</hi> (verſteht ſich<lb/>
+ohne ſtufenförmge Einrichtung<lb/>
+der Sitze, da bei dieſer, wie ſchon<lb/>
+gezeigt iſt, die Rückwirkung unbe¬<lb/>
+merklich iſt).</p><lb/>
+<p>Die Gründe ſind evident; denn<lb/>
+1) iſt der Raum des Theaters <hi rendition="#g">unter</hi><lb/>
+60 <hi rendition="#g">Fuſs</hi> in der weiteſten Entfernung<lb/>
+von der Bühne, ſo braucht auf die Rück¬<lb/>
+wirkung gar nicht gerechnet zu wer¬<lb/>
+<fw type="sig" place="bottom">D<lb/>
+</fw>
+<pb n="50" facs="#f0056"/>
+den, weil 1) die natürliche Fortpflanzung<lb/>
+des Schalles auf 75 Fuſs hinreicht<lb/>
+2) die Rückwirkung ſo ſchnell erfolgt,<lb/>
+daſs ſie unmerklich iſt.</p><lb/>
+<p>2) Der Raum iſt über 60 Fuſs ausge¬<lb/>
+dehnt, und die Rückwirkung wird be¬<lb/>
+merklich; es entſteht <hi rendition="#g">Wiederhall</hi><lb/>
+und <hi rendition="#g">Nachhall</hi> zugleicher Zeit: <hi rendition="#g">Ver¬<lb/>
+ſtärkt kann der Ton dadurch<lb/>
+nicht werden</hi>, <hi rendition="#g">weil die Wirkung<lb/>
+des erſten wirklichen Tons im<lb/>
+Ohr ſchon vorüber iſt</hi>; <hi rendition="#g">wenn die<lb/>
+Rückwirkung es erreicht</hi>. <hi rendition="#g">Der<lb/>
+Ton wird alſo nur verlängert</hi>,<lb/>
+<hi rendition="#g">und ſchwindet</hi>, <hi rendition="#g">da auch die<lb/>
+Rückwirkungen des Wiederhalls<lb/>
+und Nachhalls wieder bemerk¬<lb/>
+lich werden</hi>, <hi rendition="#g">nach und nach<lb/>
+hin</hi>. Die Rede der Schauſpieler muſs<lb/>
+durch dieſen Umſtand nothwendig <hi rendition="#g">un¬<lb/>
+verſtändlich</hi> werden, da die Rück¬<lb/>
+<pb n="51" facs="#f0057"/>
+wirkung des erſten Tons mit dem zwei¬<lb/>
+ten Tone <hi rendition="#g">zu gleicher Zeit das<lb/>
+Ohr erreicht</hi>, und ſich folglich un¬<lb/>
+ter einander verwirren.</p><lb/>
+<p>Die Beobachtung, daſs das hier Ge¬<lb/>
+ſagte ſich wirklich in der Natur ſo verhal¬<lb/>
+te, kann man in jedem groſsen Theater<lb/>
+von runder, oder ovaler Form machen.<lb/>
+Man hört auf entfernten Sitzen nichts<lb/>
+als einen unverſtändlichen Hall, weil<lb/>
+die natürliche Fortpflanzung des Schalls<lb/>
+der Rede entweder nicht bis dahin reicht,<lb/>
+oder ſie von dem ſich immer durchkreu¬<lb/>
+zenden Wiederhall und Nachhall in Un¬<lb/>
+ordnung gebracht oder gar verſchlungen<lb/>
+wird: Da indeſs unter der Menge von<lb/>
+Theatern, in Europa nur wenige ſo groſs<lb/>
+ſind daſs dieſe nachtheilige Wirkung des<lb/>
+Wiederhalls in Ihnen bemerklich wer¬<lb/>
+den könnte, und man doch in ſehr<lb/>
+vielen kleinern Theatern faſt eben jene<lb/>
+Nachtheile verſpührt, muſs es noch an¬<lb/>
+<pb n="52" facs="#f0058"/>
+dere Gründe geben, woraus ein Theil<lb/>
+derſelben herzuleiten iſt, die ich auch<lb/>
+in einem beſondern Abſchnitt erläutern<lb/>
+werde.</p><lb/>
+<p> <hi rendition="#g">Stieglitz</hi> giebt in ſeiner <hi rendition="#g">Encyklo¬<lb/>
+pädie der bürgerlichen Baukunſt</hi>,<lb/>
+fünf verſchiedene Plane an, nach wel¬<lb/>
+chen alle ihm bekannten Schauſpiel¬<lb/>
+häuſer erbaut, und die von Bauverſtän¬<lb/>
+digen vorgeſchlagen ſind. Zwei davon<lb/>
+gehören der eigentlichen Anlage nach<lb/>
+nicht unter dieſe Klaſſe, als der Halb¬<lb/>
+zirkel, welcher unter die vorige gehört,<lb/>
+und der Halbzirkel mit verlängerten Sei¬<lb/>
+ten, welcher unter die folgende Klaſſe<lb/>
+gehört; da aber bei beiden der <hi rendition="#g">Seiten¬<lb/>
+logenbau empfohlen</hi>, und die <hi rendition="#g">ſtu¬<lb/>
+fenförmigen Sitze verworfen</hi> wer¬<lb/>
+den; ſo haben ſie den Vortheil nicht der<lb/>
+aus ihrer Form entſpringt; und zwar<lb/>
+verliehrt der Halbzirkel dadurch <hi rendition="#g">alles</hi>,<lb/>
+<pb n="53" facs="#f0059"/>
+und die zweite Form, wo dem Halbzir¬<lb/>
+kel noch gerade fortlaufende Seitenwände<lb/>
+gegeben werden, <hi rendition="#g">vieles</hi>.</p><lb/>
+<p>Die übrigen Formen, als</p><lb/>
+<p>1) Der Plan, welchen Stieglitz <hi rendition="#g">Cochin</hi><lb/>
+zuſchreibt. Er beſteht in einem <hi rendition="#g">Oval</hi><lb/>
+deſſen längerer Durchmeſſer mit der<lb/>
+Bühne paralel läuft (Fig. 2). Der erſte<lb/>
+welcher dieſe Form angab war unſtrei¬<lb/>
+tig <hi rendition="#g">Palladio</hi>, welcher das ſogenannte<lb/>
+Olympiſche Theater in Vicenza in<lb/>
+derſelben erbaute. Der bekannte <hi rendition="#g">Le<lb/>
+Roi</hi> machte von dieſer Form des<lb/>
+Pallidio Gebrauch, und gründete da¬<lb/>
+rauf ſeinen Vorſchlag zu einem Schau¬<lb/>
+ſpielhauſe, welches den Anmerkungen<lb/>
+des Abts <hi rendition="#g">Laugier</hi> über die Baukunſt,<lb/>
+angehangen iſt. Der Plan hat aller¬<lb/>
+dings Vorzüge vor dem Oval, deſſen<lb/>
+kleinerer Durchmeſſer mit der Bühne<lb/>
+paralel läuft, in Rückſicht des <hi rendition="#g">Hörens</hi><lb/>
+<pb n="54" facs="#f0060"/>
+weil die Zuſchauer nicht ſo weit von<lb/>
+der Sceue entfernt ſind. Allein 1)<lb/>
+wird die Form der Scene dadurch<lb/>
+äuſserſt unbequem, indem ſie faſt in<lb/>
+einem Halbkreiſe vorſpringt, und die<lb/>
+Schauſpieler ganz an die Peripherie<lb/>
+deſſelben vortreten müſsen, wenn ſie<lb/>
+aus den Seitenlogen geſehen werden<lb/>
+ſollen. Die Decoration der eigendli¬<lb/>
+chen Scene geht dadurch für die meh¬<lb/>
+reſten Zuſchauer gänzlich verloren.<lb/>
+2) iſt die Form auch nur in kleinen<lb/>
+Häuſern anwendbar, wo noch kein<lb/>
+Wiederhall möglich iſt; denn findet<lb/>
+dieſer ſtatt, ſo muſs dieſe Form nach¬<lb/>
+theiliger als die übrigen ſeyn.</p><lb/>
+<p>2) Der Plan des <hi rendition="#g">Pattes</hi>, welcher in ei¬<lb/>
+nem Oval beſteht deſſen kürzerer<lb/>
+Durchmeſſer mit der Bühne paralel<lb/>
+läuft (Fig. 3). Dieſe Bauart iſt, we¬<lb/>
+gen der Bequehmlichkeit in der An¬<lb/>
+<pb n="55" facs="#f0061"/>
+lage, faſt allgemein befolgt, da man<lb/>
+in derſelben aber, ſo bald das Theater<lb/>
+groſs iſt, die nachtheiligen Folgen des<lb/>
+Wiederhalls bemerkte, oder überall<lb/>
+nicht deutlich hören konnte, ſo kün¬<lb/>
+ſtelte man an dieſer Form nach Mög¬<lb/>
+lichkeit. Einige wählten die Elypſe,<lb/>
+und legten den einen Brennpunkt der¬<lb/>
+ſelben auf die Scene, andere zogen<lb/>
+die Parabel vor, weil alle Schallſtrah¬<lb/>
+len welche in derſelben auffallen ge¬<lb/>
+rade nach der Bühne zurückgebrochen<lb/>
+werden. Beide Formen, auch wenn<lb/>
+der Baumeiſter ein Oval wählt das<lb/>
+von beiden Linien abweicht, ſind we¬<lb/>
+gen des Zurückbrechens des Schalles<lb/>
+nach der Bühne in groſsen Häuſern<lb/>
+verwerflich.</p><lb/>
+<p>3) Der Plan des Saunders. Dieſer<lb/>
+Architect gab ſich viele Mühe die<lb/>
+beſte Form eines Theaters aus Verſu¬<lb/>
+<pb n="56" facs="#f0062"/>
+chen zu beſtimmen. Er zog daher<lb/>
+in <hi rendition="#g">freien Felde</hi> einen Kreis, deſſen<lb/>
+Durchmeſſer 100 Fuſs betrug. Auf<lb/>
+dieſem Kreiſe ſtellte er allenthalben<lb/>
+Menſchen umher, und lieſs im Mittel¬<lb/>
+punkt jemanden reden. Man verſtand ihn<lb/>
+in dem ganzen vordern Halbkreiſe. Nun<lb/>
+lieſs er den Sprecher zurückgehn, und<lb/>
+fand, wenn derſelbe 25 Fuſs vom Mit¬<lb/>
+telpunkt entfernt, und gegen die Pe¬<lb/>
+ripherie rückwärts gegangen war, man<lb/>
+ihm auf dem ganzen Kreiſe des Zir¬<lb/>
+kels ſehr gut verſtehen konnte. Er<lb/>
+gab nun ſeinem Theater die Form ei¬<lb/>
+nes Kreiſes, der in der Hälfte des Ra¬<lb/>
+dius von der Scene durchſchnitten<lb/>
+wird. (Fig. 4). Allein nicht zu erwäh¬<lb/>
+nen, daſs alle Zuſchauer welche in den<lb/>
+Seitenlogen ſind, von der Bühne faſt<lb/>
+gar nichts ſehen können, brachte<lb/>
+Sanders den Wiederhall gar nicht in<lb/>
+Anſchlag, welcher ſich in dieſer<lb/>
+<pb n="57" facs="#f0063"/>
+Form ſtärker als in allen übrigen er¬<lb/>
+zeugt.</p><lb/>
+<p>Alle dieſe vorgeſchlagene Formen ſind<lb/>
+alſo ſchlechthin verwerflich, weil ſie<lb/>
+entweder auf die Geſetze des Schalles<lb/>
+entweder gar nicht Rückſicht nehmen<lb/>
+wie <hi rendition="#g">Saunders</hi>, oder ſie verkehrt an¬<lb/>
+wenden, wie <hi rendition="#g">le Roi</hi> und <hi rendition="#g">Pattes</hi>;<lb/>
+und folglich in ihren Gebäuden eine<lb/>
+Wirkung hervorgebracht wird, welche<lb/>
+das Gegentheil von dem enthält was<lb/>
+ſie beabſichtigten.</p><lb/>
+<p>Ich komme jetzt auf</p><lb/>
+<p>Die Schauſpielhäuſer in welchen der Schall<lb/>
+von der Bühne weggebrochen wird.</p><lb/>
+<p>Wenn der Schall von dem Orte wo<lb/>
+er entſteht weggebrochen wird, ſo lehrt<lb/>
+die Erfahrung daſs er dadurch auf eine<lb/>
+<pb n="58" facs="#f0064"/>
+groſse Weite fortgeflanzt werden kann,<lb/>
+wohin er bei natürlicher Verbreitung<lb/>
+nicht gekommen ſein würde, ja daſs er<lb/>
+durch dieſe Mittel ſich ſehr verſtärken<lb/>
+läſst. Die Beweiſe liefern die Kommu¬<lb/>
+nikationsröhre und das Sprachrohr. Durch<lb/>
+erſtere wird der Schall in eben der<lb/>
+Stärke fortgepflanzt wie er entſteht, durch<lb/>
+das zweite wird er verſtärkt. Der<lb/>
+Grund des Unterſchiedes von beiden<lb/>
+Wirkungen liegt wie in der Theorie an¬<lb/>
+gezeigt iſt, in der Richtung der Wände<lb/>
+zwiſchen welchen der Ton fortgebrochen<lb/>
+wird.</p><lb/>
+<p>Es iſt faſt unbegreiflich wie man<lb/>
+dieſen ſo allgemein bekannten Erfah¬<lb/>
+rungen nicht auf den Bau der Schau¬<lb/>
+ſpielhäuſer angewandt hat, da das Vor¬<lb/>
+theilhafte dieſer Anwendung nicht allein<lb/>
+aus dem bloſsen Grundſatze von ſelbſt<lb/>
+einleuchtet, ſondern auch die Erfahrung<lb/>
+<pb n="59" facs="#f0065"/>
+und Verſuche welche zu machen faſt in<lb/>
+jedermanns Gewalt ſtehn, beweiſen, daſs<lb/>
+man nicht unrichtig geſchloſsen habe.</p><lb/>
+<p>Jeder bewundert die deutliche und<lb/>
+klare Verbreitung des Schalles in den<lb/>
+Baſiliken der Alten, in welchen man<lb/>
+überall jedes Wort hört, das an einem<lb/>
+Ende, wo die Richter ſich aufhielten,<lb/>
+geſprochen wird; und doch iſt die Er¬<lb/>
+ſcheinung ſo leicht und beſtimmt zu<lb/>
+erklären: indem der Schall in denſelben<lb/>
+von dem Sprechenden weg, (nach den<lb/>
+Geſetzen der Kommunikationsröhre) ge¬<lb/>
+brochen wird. In dieſer verbreitet ſich<lb/>
+der Schall nicht allein in gerader Rich¬<lb/>
+tung wie er einfällt, ſondern auch alle<lb/>
+an die Seiten anſchlagende Schallſtrah¬<lb/>
+len werden unter den Einfallwinkel von<lb/>
+dem Sprechenden weggebrochen, ſo<lb/>
+daſs jeder Strahl das andere Ende der<lb/>
+Röhre erreicht.<lb/>
+</p>
+<pb n="60" facs="#f0066"/>
+<p>Daher kommt es, daſs, wenn z. B.<lb/>
+in eine 20 bis 30 Fuſs lange Röhrenoch ſo<lb/>
+leiſe geſprochen wird, man am andern Ende<lb/>
+alles eben ſo deutlich vernimmt, als<lb/>
+ob man das Ohr unmittelbar an den<lb/>
+Mund des Sprechenden legte.</p><lb/>
+<p>Nach eben dieſen Geſetzen wird in<lb/>
+den Baſiliken der Schall an den Seiten¬<lb/>
+wänden und der Decke weggebrochen,<lb/>
+und bis ans Ende des Gebäudes fortge¬<lb/>
+tragen. Eben dieſe Erſcheinung gewäh¬<lb/>
+ren alle gut gebauten Kirchen, wenn<lb/>
+ſie nicht zu <hi rendition="#g">breit</hi>, oder zu <hi rendition="#g">hoch</hi>, oder<lb/>
+durch <hi rendition="#g">unzweckmäſsige Logen</hi> ver¬<lb/>
+baut ſind. Was indeſs die Baukünſtler<lb/>
+noch eher hätte auf dieſe Bauart auf¬<lb/>
+merkſam machen ſollen, iſt das Schau¬<lb/>
+ſpielhaus in <hi rendition="#g">Parma</hi>. Es wird faſt in<lb/>
+allen Schriften, in welchen über den<lb/>
+Schauſpielhausbau geſprochen wird, als<lb/>
+eine merkwürdige Erſcheinung angeführt,<lb/>
+<pb n="61" facs="#f0067"/>
+indem man in demſelben überall auf<lb/>
+allen Sitzen, jedes Wort der Schauſpie¬<lb/>
+ler deutlich hören kann. Es iſt ſon¬<lb/>
+derbar, aus welchen Gründen ſelbſt<lb/>
+ſcharfſinnige Baukünſtler dieſe Eigen¬<lb/>
+ſchaft haben erklären wollen, da der<lb/>
+wahre unleugbare Grund ſo nahe liegt.<lb/>
+Es hat nehmlich <hi rendition="#g">paralel fortlau¬<lb/>
+fende Seitenwände</hi>, welche unten<lb/>
+mit einen Halbzirkel geſchloſſen ſind.<lb/>
+(Fig. 5). Der Schdll pflanzt ſich alſo in<lb/>
+denſelben nach dem Geſetze der Kom¬<lb/>
+munikationsröhre fort, und muſs noth¬<lb/>
+wendig die Eigenſchaft hervorbringen<lb/>
+welche man davon rühmt. Ein ſonder¬<lb/>
+barer Erklärungsgrund der ſchönen Ver¬<lb/>
+breitung des Schalles in dieſem Hauſe, iſt<lb/>
+der welchen Stieglitz (Encyklop: 614 im<lb/>
+4. Theil) wenn ich nicht irre aus Saunders<lb/>
+anführt daſs das mehrſte dazu die Bretter<lb/>
+beitrügen mit welchen überall die Wände<lb/>
+getäfelt ſind. Die Bretter können nicht<lb/>
+<pb n="62" facs="#f0068"/>
+mehr wirken als jede glatte Kalkwand,<lb/>
+nehmlich den Schall fortbrechen, und<lb/>
+wenn ſie mehr thun, wenn ſie ſelbſt in<lb/>
+Schwingung gerathen und — gleich ei¬<lb/>
+nem Reſonanzboden mittönen, ſchaden<lb/>
+ſie, wie ich in der Folge zeigen werde,<lb/>
+offenbar der Deutlichkeit.</p><lb/>
+<p>Es iſt alſo der Bau mit paralelen<lb/>
+Wänden, und einer nicht zu hohen, mit<lb/>
+den Boden paralel laufenden Decke, ohne<lb/>
+alle Beſorgniſs des Miſslingens zu em¬<lb/>
+pfehlen, da der Erfolg dem Zweck durch¬<lb/>
+aus entſprechen muſs. Das einzige wo¬<lb/>
+vor der Baukünſtler ſich hüten muſs,<lb/>
+iſt: daſs nicht von der, der Bühne ge¬<lb/>
+genüberliegenden Wand eine <hi rendition="#g">Rückwir¬<lb/>
+kung des Schalles</hi> ein <hi rendition="#g">Brechen<lb/>
+nach der Bühne zurück</hi>, entſtehe.<lb/>
+Das einzige Mittel dies zu verhüten iſt:<lb/>
+ſie ſo anzulegen, daſs der Schall in kei¬<lb/>
+nen Zeitmoment eine ſo groſse Wieder¬<lb/>
+<pb n="63" facs="#f0069"/>
+ſtands-Maſſe finde, von welcher die<lb/>
+Rückwirkung bemerklich werden könnte<lb/>
+Dies erreicht der Baumeiſter, wenn er<lb/>
+die Schluſswand in einen <hi rendition="#g">halben Zir¬<lb/>
+kel verwandelt</hi>, <hi rendition="#g">und die Sitze ſtu¬<lb/>
+fenförmig über einander anlegt</hi>;<lb/>
+wie im erſten Abſchnitt erwieſen<lb/>
+worden.</p><lb/>
+<p>Was man gegen dieſe Bauart ein¬<lb/>
+werfen könnte iſt die Unbequemlich¬<lb/>
+keit der Seitenſitze, wie ſie in Parma<lb/>
+wirklich ſtatt findet, weil die Zuſchauer<lb/>
+ſich ganz auf die Seite wenden müſsen,<lb/>
+um nach der Bühne zu ſehen. Allein<lb/>
+dem allen iſt abgeholfen, wenn man<lb/>
+nach den Beiſpiel des Serlio in Vicenza<lb/>
+gar keine Seitenſitze anlegt, ſondern die<lb/>
+geſammten Sitze von der Bühne an,<lb/>
+mit der hintern Schluſswand paralel in<lb/>
+Halbkreiſen, und ſtuffenförmig erbaut.<lb/>
+Es wird dadurch nicht allein kein Platz<lb/>
+<pb n="64" facs="#f0070"/>
+velohrnern ſondern vielmehr gewonnen<lb/>
+und jeder Zuſchauer hat die Bühne<lb/>
+rade vor ſich.</p><lb/>
+<p>Auch in Hinſicht der Architectoni¬<lb/>
+ſchen Schönheit der Einrichtung ver¬<lb/>
+dient dieſe Bauart den Vorzug, indem<lb/>
+die leeren Seitenwände, wie dies in<lb/>
+Parma der Fall iſt, vortrefflich decorirt<lb/>
+werden können.</p><lb/>
+<p>Dieſe Decorationen dürfen indeſs<lb/>
+nicht in ſtarken Erhöhungen oder Ver¬<lb/>
+tiefungen der Wand beſtehen, wenn ſie<lb/>
+den vortheilhaften Wirkungen derſelben<lb/>
+nicht ſchädlich werden ſollen. Jede<lb/>
+ſtarke Hervorſpringung hemmt das Weg¬<lb/>
+brechen der Schallſtrahlen von der Bühne,<lb/>
+und wenn ſie auch nicht im Stande iſt<lb/>
+Wiederhall hervorzubringen, ſo ſteht ſie<lb/>
+doch der freien Verbreitung im Wege;<lb/>
+eben ſo verſchluckt jede Vertiefung die<lb/>
+<hi rendition="#right">Strahlen</hi><lb/>
+<pb n="65" facs="#f0071"/>
+welche hineinfallen, ohne ſie weiter zu<lb/>
+brechen. Je ebner die Wand iſt, je<lb/>
+vortheilhafter wirkt ſie für den Schall'<lb/>
+und die Decoration derſelben müſste<lb/>
+alſo vorzüglich in <hi rendition="#g">Mahlerei</hi> beſte¬<lb/>
+hen.</p><lb/>
+<p>Ich komme jetzt auf Schauſpiel¬<lb/>
+häuſer, in welchen der Schall</p><lb/>
+<p> <hi rendition="#g">nach den Geſetzen des Sprach¬<lb/>
+rohrs verbreitet wird, und de¬<lb/>
+ren Seitenwände folglich<lb/>
+nach der Bühne zu in einen<lb/>
+ſpitzigen Winkel zuſammen¬<lb/>
+laufen</hi>.</p><lb/>
+<p>Von allen mir bekannten Theatern<lb/>
+ſind die Ruinen des alten Theaters zu<lb/>
+Athen, deren ich ſchon im erſten Ab¬<lb/>
+ſchnitt erwähnt habe, der einzige Beweis<lb/>
+<fw type="sig" place="bottom">E<lb/>
+</fw>
+<pb n="66" facs="#f0072"/>
+von einem Baue nach dieſen Geſetzen.<lb/>
+Da der Schall in einem Gebäude dieſer<lb/>
+Art nicht allein fortgebrochen, ſondern<lb/>
+überdies auch verſtärkt wird; ſo iſt es<lb/>
+in die Augen fallend, wie vortheilhaft<lb/>
+für groſse Schauplätze dieſe Form ſeyn<lb/>
+müſse.</p><lb/>
+<p>Je mehr indeſs auf die Fortpflan¬<lb/>
+zung des Schalles durch Wegbrechung<lb/>
+von den Sprechenden gerechnet wird, je<lb/>
+ſorgfältiger muſs alles vermieden wer¬<lb/>
+den was irgend eine Rückwirkung, oder<lb/>
+Wiederhall hervorbringen könnte: weil<lb/>
+dadurch aller Vortheil wieder vernichtet<lb/>
+würde, der aus der Wahl der Form ent¬<lb/>
+ſpringt. Es bleibt alſo für die, nach ei¬<lb/>
+nem ſpitzigen Winkel auseinander lau¬<lb/>
+fenden Seitenwände eines Hauſes nichts<lb/>
+übrig, als ſie — nach dem Beiſpiel je¬<lb/>
+nes griechiſchen Theaters — mit einem<lb/>
+Halbzirkel zu ſchlieſsen, und die Sitze<lb/>
+<pb n="67" facs="#f0073"/>
+der Zuſchauer in demſelben ſtufenförmig<lb/>
+über einander anzulegen. Die Beweiſe für<lb/>
+das Vortheilhafte dieſer Einrichtung ſind<lb/>
+bereits in den vorigen Abſchnitten an¬<lb/>
+geführt worden.</p><lb/>
+<p>Zum Schluſs bemerke ich nun noch,<lb/>
+daſs für groſse Theater dieſe Form allen<lb/>
+übrigen vorzuziehen ſei, indem eine ge¬<lb/>
+wöhnliche Stimme in derſelben für<lb/>
+zwanzigtauſend und mehrere Zuhörer<lb/>
+verſtändlich bleiben muſs.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">E 2<lb/>
+</fw>
+<pb n="68" facs="#f0074"/>
+</div> </div> <div n="3"> <head> <hi rendition="#g">Dritter Abſchnitt</hi>.<lb/>
+</head> <argument>     <p rendition="#c">Von den Hinderniſſen insbeſondere, welche<lb/>
+in Schauspielhäuſern der Verbreitung des<lb/>
+Schalles im Wege ſtehn.</p> </argument><lb/>
+<p>Dieſe Hinderniſſe finden ſich theils<lb/>
+im <hi rendition="#g">Theater</hi> (dem Raume, welchen die<lb/>
+Zuſchauer einnehmen) theils auf der<lb/>
+<hi rendition="#g">Bühne</hi>. Ich werde von beiden beſon¬<lb/>
+ders reden.</p><lb/>
+<div n="4"> <head> <hi rendition="#g">Im Theater</hi> </head><lb/>
+<p>rühren ſie entweder von der <hi rendition="#g">Form der<lb/>
+Einrichtung</hi>, oder von dem <hi rendition="#g">Mittö¬<lb/>
+nen ſchallender Körper her</hi>. Die<lb/>
+erſtern ſind in den vorigen Abſchnitten<lb/>
+deutlich gezeigt, ich will hier noch auf<lb/>
+einiges aufmerkſam machen, was ich<lb/>
+vorhin nur andeuten konnte.</p><lb/>
+<p>Es darf 1) der <hi rendition="#g">natürlichen Ver¬<lb/>
+breitung des Schalles nichts in<lb/>
+<pb n="69" facs="#f0075"/>
+den Weg geſetzt werden</hi>, wodurch<lb/>
+ſie aufgehalten wird. Aus dieſem Fehler<lb/>
+wird erklärlich, wie man im Parterre,<lb/>
+auch in kleinen Schauſpielhäuſern nicht<lb/>
+wohl hört, wenn der Boden eine zu <hi rendition="#g">ho¬<lb/>
+rizontale Richtung hat</hi>, <hi rendition="#g">und ſich<lb/>
+hinten nicht genug hebt</hi>. Die<lb/>
+vordern Zuſchauer ſtehn der Verbrei¬<lb/>
+tung des Schalles nach hinten zu im<lb/>
+Wege, der Schall kann nur durch Bre¬<lb/>
+chung von den Seiten und von oben<lb/>
+dahin gelangen und muſs folglich<lb/>
+ſchwach und unverſtändlich ſeyn.<lb/>
+Man ſieht auch hieraus, wie zweckmä¬<lb/>
+ſsig die ſtufenförmige Einrichtung der<lb/>
+Sitze, nach Art der alten Theater ſei.</p><lb/>
+<p>Die nachtheilige Wirkung der Quer¬<lb/>
+wände in den Seitenlogen, iſt gleichfalls<lb/>
+hieraus deutlich. Sie hemmen überall<lb/>
+die natürliche Verbreitung des Schalles<lb/>
+und befördern überdies auch den <hi rendition="#g">Wie¬<lb/>
+derhall</hi>, und in der Vermeidung des¬<lb/>
+<pb n="70" facs="#f0076"/>
+ſelben beſteht die 2te Hauptregel. Es<lb/>
+iſt bereits erwieſen worden, daſs die<lb/>
+gänzliche Vermeidung des Wiederhalls<lb/>
+nur durch die Einrichtung der Stufen¬<lb/>
+förmigen Sitze für die Zuſchauer mög¬<lb/>
+lich iſt, indem die Seitenlogen überall<lb/>
+dem Schalle ſo groſse Maſsen entgegen<lb/>
+ſetzen, welche nothwendig eine Rück¬<lb/>
+wirkung hervorbringen müſsen. Die<lb/>
+Seitenlogen wären mithin ganz verwerf¬<lb/>
+lich; wenn die Erſpahrung des Raumes<lb/>
+an manchen Orten ſie nicht durchaus<lb/>
+nothwendig machte; indem bei der Ein¬<lb/>
+richtung der ſtufenförmigen Sitze das<lb/>
+ganze Haus nur ſo viel Zuſchauer faſst,<lb/>
+als bei der Logeneinrichtung — der un¬<lb/>
+tere Raum, Parket und Parterre faſst.<lb/>
+Man müſste ſie alſo nur ſo <hi rendition="#g">unſchäd¬<lb/>
+lich als möglich</hi> zu machen ſuchen.<lb/>
+Dies müſste durch ihre Einrichtung er¬<lb/>
+reicht werden, wobei ich zugleich auf<lb/>
+das zweite <hi rendition="#g">Haupthinderniſs</hi>, das<lb/>
+<pb n="71" facs="#f0077"/>
+<hi rendition="#g">Mittſchallen</hi> gewiſser Körper, Rück¬<lb/>
+ſicht nehmen werde.</p><lb/>
+<p>Die Erfahrung lehrt, daſs faſst un¬<lb/>
+ter allen Körpern <hi rendition="#g">dünne Bretter</hi> an<lb/>
+leichteſten durch die Erſchütterung der<lb/>
+Luft beim Schalle in Bewegung, und<lb/>
+folglich zum Mittönen gebracht werden<lb/>
+können. Nun ſind die Logen faſst über¬<lb/>
+all mit dergleichen Brettern bekleidet,<lb/>
+und dieſem Umſtande iſt allein das<lb/>
+<hi rendition="#g">Nachhallen und Summen</hi> des Tons<lb/>
+in kleinen Schauſpielhäuſern zu zuſchrei¬<lb/>
+ben, da ſie zur Entſtehung des Wieder¬<lb/>
+halls nicht Raum genug haben. Um<lb/>
+dieſem Uebel abzuhelfen, müſsten die<lb/>
+Logen an der Rückſeite eine Steinwand<lb/>
+haben, der Boden müſste von ſtarkem<lb/>
+Holz, und die Bruſtlehne, wenn ſie ja<lb/>
+von Holz ſeyn ſoll, nicht von zuſam¬<lb/>
+menhangenden Brettern, ſondern <hi rendition="#g">unter¬<lb/>
+brochen</hi>, von <hi rendition="#g">Docken</hi> erbaut werden.<lb/>
+<pb n="72" facs="#f0078"/>
+Am zweckmäſsigſten würde ſie aus Ei¬<lb/>
+ſen, nach der Art wie die Geländer an<lb/>
+Balkons u. ſ. w. gemacht werden kön¬<lb/>
+nen. Die Abſonderungswände der Lo¬<lb/>
+gen müſsen ganz wegfallen, oder dürfen<lb/>
+nur wie die Bruſtlehne, angelegt werden.<lb/>
+Die Sitze auf den Logen ſelbſt müſsten<lb/>
+ſtufenförmig über einander gebaut ſeyn,<lb/>
+welches auch das bequeme Sehen ſehr<lb/>
+befördern würde.</p><lb/>
+<p>Einen Einwurf, welchen man oft<lb/>
+der Stuffenförmigen Einrichtung der<lb/>
+Sitze im Theater überhaupt entgegen¬<lb/>
+ſetzt, muſs ich kurz berühren. Man<lb/>
+ſagt es lieſsen ſich bei derſelben nicht<lb/>
+wohl ausgezeichnete Plätze, z. B. für<lb/>
+fürſtliche Familien u. ſ. w. anbringen.<lb/>
+Allein der Bau einer oder etlicher Lo¬<lb/>
+gen in der Mitte des Hauſes, hindert<lb/>
+den Vortheilen der Einrichtung im Gan¬<lb/>
+zen durchaus nicht, und hat was die Plätze<lb/>
+<pb n="73" facs="#f0079"/>
+ſelbſt betrift, ungemein viel vor der jet¬<lb/>
+zigen Einrichtung voraus. Denn 1) kä¬<lb/>
+men dieſe Logen der Bühne viel näher<lb/>
+welches bei etwas groſsen Häuſern ein<lb/>
+bedeutender Vortheil wäre, und 2) ge¬<lb/>
+währte der freie Ueberblick der geſamm¬<lb/>
+ten Zuſchauer ein neues Vergnügen.</p><lb/>
+<p>Um dieſe Idee noch anſchauli¬<lb/>
+cher zu machen, füge ich in Fig: 6<lb/>
+den Aufriſs einer ſolchen Einrichtung<lb/>
+bei.</p><lb/>
+<p>Es verſteht ſich übrigens von ſelbſt,<lb/>
+daſs dieſer Logen nicht viel ſein, und<lb/>
+daſs ſie, was ihren Bau und vorzüglich<lb/>
+die Bruſtlehne betrift, eben ſo eingerich¬<lb/>
+tet ſeyn müſsten, wie vorher angegeben<lb/>
+worden, nur daſs die ſttufenförmigen<lb/>
+Sitze wegfielen.<lb/>
+</p>
+<pb n="74" facs="#f0080"/>
+<p>Ich komme jetzt auf die Hinder¬<lb/>
+niſse, welche der Verbreitung des Schal¬<lb/>
+les ſchon</p><lb/>
+</div> <div n="4"> <head> <hi rendition="#g">auf der Bühne</hi><lb/>
+</head> <p>im Wege ſtehen. Nach der gewöhnli¬<lb/>
+chen Einrichtung der Bühne haben die<lb/>
+Seitenwände derſelben eine ganz andere<lb/>
+Richtung äls die Wände des Theaters;<lb/>
+ja die Richtung der Couliſſen iſt ſo, daſs<lb/>
+<hi rendition="#g">überall kein Schall von ihnen<lb/>
+nach dem Theater hin gebrochen<lb/>
+werden kann</hi>; ſie verſchlucken ihn<lb/>
+vielmehr, wenn der Schauſpieler etwas<lb/>
+von der Oefnung der Scene zurück<lb/>
+ſpricht, und laſsen nichts von ihm übrig<lb/>
+als was gerade in das Theater hinein¬<lb/>
+ſchallt.</p><lb/>
+<p>Es früge ſich nun, <hi rendition="#g">ob dieſe durch</hi>¬<lb/>
+<hi rendition="#g">brochene Seitenwände auf der<lb/>
+Bühne nothwendig ſind</hi>, <hi rendition="#g">ob ſie<lb/>
+<pb n="75" facs="#f0081"/>
+ſich nicht mit einer andern</hi>, <hi rendition="#g">der<lb/>
+Verbreitung des Schalles vortheil¬<lb/>
+haftern Einrichtung vertauſchen<lb/>
+lieſsen</hi>?</p><lb/>
+<p>Die Gründe welche man für die<lb/>
+Einrichtung mit Couliſsen anführen<lb/>
+kann, ſind folgende:</p><lb/>
+<p>1) <hi rendition="#g">Die gröſsere Bequemlichkeit<lb/>
+bei Verwandlung der Scenen</hi>.<lb/>
+Eine ganze feſte Wand mit einer an¬<lb/>
+dern zu vertauſchen, iſt ſchwieriger,<lb/>
+als wenn dieſe Wand in kleinere<lb/>
+Theile zerlegt wird. Jeder Theil kann<lb/>
+dann beſonders gewechſelt, und ſo<lb/>
+das Ganze ohne viel Umſtände verän¬<lb/>
+dert werden. Ich werde in der Folge<lb/>
+einen Vorſchlag zur Einrichtung der<lb/>
+Bühnen thun, welcher dieſen <hi rendition="#g">Vortheil<lb/>
+in einen viel höhern Grade ge¬<lb/>
+währt</hi>, <hi rendition="#g">ohne den Nachtheil für<lb/>
+<pb n="76" facs="#f0082"/>
+die Verbreitung des Schalles zu<lb/>
+haben</hi>, <hi rendition="#g">der von den Coulifsen<lb/>
+unzertrennlich ift</hi>.</p><lb/>
+<p>2) <hi rendition="#g">Die Beleuchtung der Bühne</hi>.<lb/>
+Es iſt in der That mit groſsen Schwie¬<lb/>
+rigkeiten verbunden, die Bühne gehö¬<lb/>
+rig zu erhellen, wenn die Seitenwände<lb/>
+nicht durchbrochen ſind. Allein dieſe<lb/>
+Schwierigkeiten vermindern ſich, wenn<lb/>
+man annimmt, daſs gerade die <hi rendition="#g">gan¬<lb/>
+zen Seitenwände nicht feſt zu<lb/>
+ſeyn brauchen</hi>, ſondern nur längſt<lb/>
+dem Raume in welchem gewöhnlich ge¬<lb/>
+handelt wird. Man ſucht dies zwar<lb/>
+durch die Proſcenien zu bewirken,<lb/>
+aber dieſe ſind theils zu klein, um die¬<lb/>
+ſem Zwecke zu entſprechen, theils<lb/>
+werden ſie wieder durch die in ihnen<lb/>
+angebrachten Logen unwirkſam ge¬<lb/>
+macht.<lb/>
+</p>
+<pb n="77" facs="#f0083"/>
+<p>Es ſcheint dem nach, daſs man an<lb/>
+die Stelle der Couliſsen die bekann¬<lb/>
+ten <hi rendition="#g">Drehmaſchinen</hi> der Alten<lb/>
+mit ſichtbarem Vortheil ſetzen könn¬<lb/>
+te. Dieſe Maſchinen waren drei¬<lb/>
+eckig, und die Seiten derſelben, wie die<lb/>
+Couliſſen bemahlt. Sie bildeten die Sei¬<lb/>
+tenwände der Bühne, und da ſie mit<lb/>
+der gröſsten Leichtigkeit herum gedreht<lb/>
+werden konnten, war die Veränderung<lb/>
+der Scene mit der möglichſten Geſchwin¬<lb/>
+digkeit ausgeführt; wobei noch der Vor¬<lb/>
+theil ſtatt findet, daſs keine Irrung in<lb/>
+den Decorationen entſtehen kann, wie<lb/>
+bei den beſten Maſchinerien nach der<lb/>
+jetzigen Einrichtung ſo oft der Fall iſt,<lb/>
+da ein Baum in einem Zimmer oder<lb/>
+ein Stück Wand in einem Walde ſicht¬<lb/>
+bar wird.</p><lb/>
+<p>Dieſe Drehmaſchinen, welche un¬<lb/>
+ten und oben mit einer eiſernen An¬<lb/>
+<pb n="78" facs="#f0084"/>
+gel verſehen ſind, müſsen zwiſchen zwei<lb/>
+drei bis ſechs Fuſs breit, bis ſo ein¬<lb/>
+gerichtet ſein, daſs man auf die<lb/>
+Seiten die auf Rahmen geſpannte<lb/>
+und bemahlte Leinewand leicht weg¬<lb/>
+nehmen, und eine andre an die Stelle<lb/>
+ſetzen kann. Soll die Scene ein Zim¬<lb/>
+mer vorſtellen, ſo können ſie gedreht<lb/>
+werden, daſs ſie eine <hi rendition="#g">feſte Wand</hi> bil¬<lb/>
+den, in welcher ordentliche Thüren an¬<lb/>
+gebracht werden können. Stellt die<lb/>
+Scene eine freie Gegend vor; ſo können<lb/>
+wenigſtens die der Oefnung der Scene<lb/>
+am nächſten ſtehenden Maſchinen eine<lb/>
+feſte Wand bilden, (Siehe Fig: 7) und<lb/>
+die hinteren, der Beleuchtung oder andrer<lb/>
+Urſachen wegen, Durchgänge zwiſchen<lb/>
+ſich laſſen. In dieſem letztern Falle<lb/>
+würde von der Beleuchtung kein Grund<lb/>
+gegen den Vorſchlag herzunehmen ſeyn,<lb/>
+wohl aber wenn die Wände ganz feſt<lb/>
+ſeyn ſollten. Es würde dann ſchwer<lb/>
+<pb n="79" facs="#f0085"/>
+werden die Bühne ganz zu erhellen;<lb/>
+doch auch dies wäre, wenn man etwas<lb/>
+Koſten nicht ſcheute, durch mehrere mit<lb/>
+Spiegeln verſehene Lampen über der<lb/>
+Oefnung der Scene zu bewerkſtelligen.</p><lb/>
+<p>Dieſe Beleuchtungsart würde noch<lb/>
+den Vortheil haben, daſs das Licht den<lb/>
+Schauſpieler hebt, und der Umſtand nicht<lb/>
+eintritt, der bei der jetzigen Einrichtung<lb/>
+ihm oft ſo nachtheilig wird, daſs nehm¬<lb/>
+lich die Bühne hinten ungleich heller<lb/>
+iſt als vorne, und er als eine dunkle Fi¬<lb/>
+gur ſich vor dem leichten Hintergrunde<lb/>
+bewegt. Erforderte auch die Decoration<lb/>
+z. B. in einer freien Gegend hinten ein<lb/>
+ſtarkes Licht, ſo wird ihn doch die von<lb/>
+vorn einfallende ſtarke Beleuchtung nicht<lb/>
+ſinken laſsen, und wenigſtens ſein Mi¬<lb/>
+nenſpiel und ſeine feinere Mimik immer<lb/>
+ſichtbar erhalten.</p><lb/>
+<p>Sollten groſse Säle u. s. w. vorgeſtellt<lb/>
+werden, ſo würde ja auch die llluſion<lb/>
+<pb n="80" facs="#f0086"/>
+nicht geſtöhrt werden, wenn die Beleuch¬<lb/>
+tung durch Kronenleuchter, und Lichte<lb/>
+auf der Bühne ſelbſt verſtärkt würde.<lb/>
+Ueberhaupt bekäme man dadurch das<lb/>
+Licht mehr in ſeine Gewalt, und es würde<lb/>
+eine Art von Schatten bilden, welches<lb/>
+die mahleriſche Wirkung einer Gruppe<lb/>
+ungemein erhöhn müſste</p><lb/>
+<p>Ich habe indeſs dieſe Einrichtung<lb/>
+der Bühne hier nur in Rückſicht des<lb/>
+Vortheils für die Verbreitung des Schal¬<lb/>
+les angegeben, und einige der Haupt¬<lb/>
+ſchwierigkeiten zu heben geſucht, welche<lb/>
+man ihm entgegenſetzen könnte. Es<lb/>
+liegt alſo auſser meinem Zwecke, hier<lb/>
+die mannigfaltigen Modificationen dieſer<lb/>
+Einrichtung, in Betref der Schönheit<lb/>
+und des Täuſchenden der Decorationen,<lb/>
+die ſchnellere Verwandlung der Bühne<lb/>
+welche dadurch möglich wird, und end¬<lb/>
+lich <hi rendition="#g">die groſse Erſpahrung der</hi><lb/>
+<fw type="catch" place="bottom">Koſten<lb/>
+</fw>
+<pb n="81" facs="#f0087"/>
+Koſten in Betref des Maſchinenweſens<lb/>
+überhaupt auszuführen.</p><lb/>
+<p>Der, für die Verbreitung des Schal¬<lb/>
+les aus dieſer Einrichtung entſpringende,<lb/>
+Vortheil iſt, alles zuſammengenommen,<lb/>
+folgender:</p><lb/>
+<p>„<hi rendition="#g">Man kann den Seitenwänden der<lb/>
+Scene eine Richtung geben,<lb/>
+welche der Richtung der Sei¬<lb/>
+tenwände des Theaters ent¬<lb/>
+ſpricht</hi>, <hi rendition="#g">und durch die feſte<lb/>
+Einrichtung derſelben es mög¬<lb/>
+lich machen</hi>, <hi rendition="#g">daſs der Schall<lb/>
+ſchon von der Bühne weg in<lb/>
+das Theater hin gebrochen</hi>,<lb/>
+<hi rendition="#g">und dadurch die Verbreitung<lb/>
+deſſelben ungemein befördert<lb/>
+wird</hi>.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">F<lb/>
+</fw>
+<pb n="82" facs="#f0088"/>
+<p>Ich habe dieſen nicht unwichtigen<lb/>
+Theil der, dem Baukünſtler nöthigen<lb/>
+Wiſſenſchaft, in einem ſo <hi rendition="#g">kurzen Grund¬<lb/>
+riſse</hi> vorgelegt, um ihm die Ueberſicht<lb/>
+des Ganzen zu erleichtern. Er wird ſich<lb/>
+nach einer aufmerkſamen Durchleſung<lb/>
+in Stand geſezt finden, den Gegenſtand<lb/>
+richtig zu beurtheilen, und die angege¬<lb/>
+benen Regeln auf hundert Fälle anwen¬<lb/>
+den können, die ich nicht anführen<lb/>
+durfte, ohne weitläufrig zu werden; ſich<lb/>
+auch bei der Klarheit der Sache ſelbſt<lb/>
+manchen Einwurf beantworten, den ich<lb/>
+überging, und übergehen muſste, wenn<lb/>
+ich die mir einmahl vorgeſchriebenen<lb/>
+Grenzen nicht überſchreiten wollte.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0089"/>
+<figure/> <figure/> <figure/> <figure/> <figure/> <figure/> <figure/> </div> </div> </div> </div>
+<pb facs="#f0090"/>
+<pb facs="#f0091"/>
+<pb facs="#f0092"/>
+<pb facs="#f0093"/>
+<pb facs="#f0094"/>
+<pb facs="#f0095"/>
+</body> </text> </TEI>

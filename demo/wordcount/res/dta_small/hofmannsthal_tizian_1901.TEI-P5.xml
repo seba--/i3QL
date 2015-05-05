@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Tod des Tizian</title>
+<title type="sub">Ein dramatisches Fragment</title>
+<title type="sub">Aufgeführt als Totenfeier für Arnold Böcklin im Künstlerhause zu München den 14. Februar 1901</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118552759">
+<surname>Hofmannsthal</surname>
+<forename>Hugo von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">37</measure>
+<measure type="tokens">3075</measure>
+<measure type="types">1313</measure>
+<measure type="characters">19655</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-05T10:02:06Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/hofmannsthal_tizian_1901</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/hofmannsthal_tizian_1901</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/hofmannsthal_tizian_1901</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/hofmannsthal_tizian_1901</idno>
+<idno type="DTADirName">hofmannsthal_tizian_1901</idno>
+<idno type="DTAID">16464</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905192653</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Hofmannsthal, Hugo von: Tod des Tizian. Berlin, 1902.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Tod des Tizian</title>
+<title level="m" type="sub">Ein dramatisches Fragment</title>
+<title level="m" type="sub">Aufgeführt als Totenfeier für Arnold Böcklin im Künstlerhause zu München den 14. Februar 1901</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118552759">
+<surname>Hofmannsthal</surname>
+<forename>Hugo von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">22 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Insel</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1892</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Ys 27520&lt;a&gt; (RARA)</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=448289717</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Drama</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Drama</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="halftitle"><docTitle><titlePart type="main">DER TOD DES TIZIAN</titlePart><lb/>
+<titlePart type="sub">EIN DRAMATISCHES FRAGMENT</titlePart></docTitle><lb/>
+<byline>VON <docAuthor>HUGO VON HOFMANNSTHAL</docAuthor><lb/>
+GESCHRIEBEN 1892</byline><lb/>
+<titlePart type="desc">AUFGEFUEHRT ALS TOTENFEIER FUER<lb/>
+ARNOLD BOECKLIN IM KUENSTLERHAUSE<lb/>
+ZU MUENCHEN DEN 14. FEBRUAR 1901.</titlePart></titlePage><lb/>
+<pb facs="#f0008"/>
+<pb n="[1]" facs="#f0009"/>
+<figure/>
+<pb n="[2]" facs="#f0010"/>
+<div type="imprint"><p>ERSCHIENEN IM VERLAGE DER INSEL BEI<lb/>
+SCHUSTER &amp; LOEFFLER BERLIN SW 46.<lb/>
+GEDRUCKT IN DER OFFICIN W. DRUGULIN<lb/>
+LEIPZIG.</p></div><lb/>
+<pb n="[3]" facs="#f0011"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b">DER TOD DES TIZIAN</hi></titlePart><lb/>
+<titlePart type="sub">EIN DRAMATISCHES FRAGMENT</titlePart></docTitle><lb/>
+<byline>VON <docAuthor>HUGO VON HOFMANNSTHAL</docAuthor><lb/>
+GESCHRIEBEN 1892</byline><lb/>
+<titlePart type="desc">AUFGEFUEHRT ALS TOTENFEIER FUER<lb/>
+ARNOLD BOECKLIN IM KUENSTLERHAUSE<lb/>
+ZU MUENCHEN DEN 14. FEBRUAR 1901.</titlePart></titlePage></front><body><lb/>
+<pb n="[4]" facs="#f0012"/>
+<pb n="5" facs="#f0013"/>
+<castList><head><hi rendition="#c">DRAMATIS PERSONAE.</hi></head><lb/>
+<castItem><role xml:id="PROLOG"><hi rendition="#g">Der Prolog</hi>.</role></castItem><lb/>
+<castItem><role xml:id="TIZI">Filippo Pomponio Vecellio, genannt <hi rendition="#g">Tizianello,</hi><lb/>
+des Meisters Sohn.</role></castItem><lb/>
+<castItem><role xml:id="GIO"><hi rendition="#g">Giocondo</hi>.</role></castItem><lb/>
+<castItem><role xml:id="DES"><hi rendition="#g">Desiderio</hi>.</role></castItem><lb/>
+<castItem><role xml:id="GIA"><hi rendition="#g">Gianino,</hi> er ist 16 Jahre und sehr schön.</role></castItem><lb/>
+<castItem><role xml:id="BAT"><hi rendition="#g">Batista</hi>.</role></castItem><lb/>
+<castItem><role xml:id="ANT"><hi rendition="#g">Antonio</hi>.</role></castItem><lb/>
+<castItem><role xml:id="PAR"><hi rendition="#g">Paris</hi>.</role></castItem><lb/>
+<castItem><role xml:id="LAV"><hi rendition="#g">Lavinia,</hi> eine Tochter des Meisters.</role></castItem><lb/>
+<castItem><role xml:id="CAS"><hi rendition="#g">Cassandra</hi>.</role></castItem><lb/>
+<castItem><role xml:id="LIS"><hi rendition="#g">Lisa</hi>.</role></castItem></castList><lb/>
+<p>Spielt im Jahre 1576, da Tizian neunundneunzigjährig starb.</p><lb/>
+<pb n="6" facs="#f0014"/>
+<stage><hi rendition="#in">D</hi>ER Vorhang, ein Gobelin, ist herabgelassen. Im Proscenium<lb/>
+steht die Büste Böcklins auf einer Säule; zu deren Fuss ein<lb/>
+Korb mit Blumen und blühenden Zweigen.<lb/>
+In die letzten Takte der Symphonie tritt der Prolog auf, seine<lb/>
+Fackelträger hinter ihm.<lb/>
+Der Prolog ist ein Jüngling; er ist venezianisch gekleidet, ganz<lb/>
+in schwarz, als ein Trauernder.</stage><lb/>
+<sp who="#PROLOG"><speaker><hi rendition="#g">Der Prolog:</hi></speaker><lb/>
+<p>Nun schweig, Musik! nun ist die Scene mein,<lb/>
+Und ich will klagen, denn mir steht es zu!<lb/>
+Von dieser Zeiten Jugend fliesst der Saft<lb/>
+In mir; und er, dess Standbild auf mich blickt,<lb/>
+War meiner Seele so geliebter Freund!<lb/>
+Und dieses Guten hab ich sehr bedurft,<lb/>
+Denn Finsternis ist viel in dieser Zeit,<lb/>
+Und wie der Schwan, ein selig schwimmend Tier,<lb/>
+Aus der Najade triefend weissen Händen<lb/>
+Sich seine Nahrung küsst, so bog ich mich<lb/>
+In dunklen Stunden über seine Hände<lb/>
+Um meiner Seele Nahrung: tiefen Traum.</p><lb/>
+<pb n="7" facs="#f0015"/>
+<p>Schmück ich dein Bild mit Zweig und Blüten nur?<lb/>
+Und du hast mir das Bild der Welt geschmückt,<lb/>
+Und aller Blütenzweige Lieblichkeit<lb/>
+Mit einem solchen Glanze überhöht,<lb/>
+Dass ich mich trunken an den Boden warf<lb/>
+Und jauchzend fühlte, wie sie ihr Gewand<lb/>
+Mir sinken liess, die leuchtende Natur!</p><lb/>
+<p>Hör mich, mein Freund! ich will nicht Herolde<lb/>
+Aussenden, dass sie deinen Namen schrein<lb/>
+In die vier Winde, wie wenn Könige sterben:<lb/>
+Ein König lässt dem Erben seinen Ruf<lb/>
+Und einem Grabstein seines Namens Schall. —<lb/>
+Doch du warst solch ein grosser Zauberer,<lb/>
+Dein Sichtbares ging fort, doch weiss ich nicht<lb/>
+Was da und dort nicht alles von dir bleibt,<lb/>
+Mit heimlicher fortlebender Gewalt<lb/>
+Sich dunklen Auges aus der nächtigen Flut<lb/>
+Zum Ufer hebt — oder sein haarig Ohr<lb/>
+Hinter dem Epheu horchend reckt,<lb/>
+drum will ich<lb/>
+Nie glauben, dass ich irgendwo allein bin,<lb/>
+Wo Bäume oder Blumen sind, ja selbst<lb/>
+Nur schweigendes Gestein und kleine Wölkchen<lb/>
+Unter dem Himmel sind: leicht dass ein Etwas,<lb/>
+Durchsichtiger wie Ariel, mir im Rücken<lb/>
+Hingaukelt, denn ich weiss: geheimnisvoll<lb/>
+War zwischen dir und mancher Creatur<lb/>
+<pb n="8" facs="#f0016"/>
+Ein Bund geknüpft, ja! und des Frühlings Au<lb/>
+Siehe, sie lachte dir so wie ein Weib<lb/>
+Den anlacht, dem sie in der Nacht sich gab!</p><lb/>
+<p>Ich meint’ um dich zu klagen; und mein Mund<lb/>
+Schwillt an von trunkenem und freudigem Wort:<lb/>
+Drum ziemt mir nun nicht länger hier zu stehen.<lb/>
+Ich will den Stab dreimal zu Boden stossen<lb/>
+Und dies Gezelt mit Traumgestalten füllen.<lb/>
+Die will ich mit der Last der Traurigkeit<lb/>
+So überbürden, dass sie schwankend gehn,<lb/>
+Damit ein jeder weinen mag und fühlen:<lb/>
+Wie grosse Schwermut allem unsren Thun<lb/>
+Ist beigemengt.</p><lb/>
+<p>Es weise euch ein Spiel<lb/>
+Das Spiegelbild der bangen, dunklen Stunde<lb/>
+Und grossen Meisters trauervollen Preis<lb/>
+Vernehmet nun aus schattenhaftem Munde!</p></sp><lb/>
+<stage>Er geht ab, die Fackelträger hinter ihm. Das Proscenium liegt<lb/>
+in Dunkel. Die Symphonie fällt wieder ein. Das Standbild ver-<lb/>
+schwindet.<lb/>
+Darauf ertönt das dreimalige Niederstossen eines Stabes. Der<lb/>
+Gobelin teilt sich und enthüllt die Scene.</stage><lb/>
+<stage>Die Scene ist auf der Terrasse von Tizians Villa, nahe bei<lb/>
+Venedig. Die Terrasse ist nach rückwärts durch eine steinerne,<lb/>
+durchbrochene Rampe abgeschlossen, über die in der Ferne die<lb/>
+<pb n="9" facs="#f0017"/>
+Wipfel von Pinien und Pappeln schauen. Links rückwärts läuft<lb/>
+eine (unsichtbare) Treppe in den Garten; ihr Ausgang vor der<lb/>
+Rampe ist durch zwei Marmorvasen markiert. Die linke Seite<lb/>
+der Terrasse fällt steil gegen den Garten ab. Hier überklettern<lb/>
+Epheu- und Rosenranken die Rampe und bilden mit hohem Ge-<lb/>
+büsch des Gartens und hereinhangenden Zweigen ein undurch-<lb/>
+dringliches Dickicht.<lb/>
+Rechts füllen Stufen fächerförmig die rückwärtige Ecke aus und<lb/>
+führen zu einem offenen Altan. Von diesem tritt man durch<lb/>
+eine Thür, die ein Vorhang schliesst, ins Haus. Die Wand des<lb/>
+Hauses, von Reben und Rosen umsponnen, mit Büsten geziert,<lb/>
+Vasen an den Fenstersimsen, aus denen Schlingpflanzen quellen,<lb/>
+schliesst die Bühne nach rechts ab.</stage><lb/>
+<stage>Spätsommermittag. Auf Polstern und Teppichen lagern auf den<lb/>
+Stufen, die rings zur Rampe führen, Desiderio, Antonio, Ba-<lb/>
+tista und Paris. Alle schweigen. Der Wind bewegt leise den<lb/>
+Vorhang der Thür. Tizianello und Gianino kommen nach einer<lb/>
+Weile aus der Thür rechts. Desiderio, Antonio, Batista und<lb/>
+Paris treten ihnen besorgt und fragend entgegen und drängen<lb/>
+sich an sie. — Nach einer kleinen Pause:</stage><lb/>
+<sp who="#PAR"><speaker><hi rendition="#g">Paris:</hi></speaker> <p>Nicht gut?</p></sp><lb/>
+<sp who="#GIA"><speaker><hi rendition="#g">Gianino,</hi></speaker> <stage>mit erstickter Stimme:</stage><lb/>
+<p>Sehr schlecht.</p><lb/>
+<stage>Zu Tizianello, der in Thränen ausbricht:</stage><lb/>
+<p>Mein armer, lieber Pippo!</p></sp><lb/>
+<sp who="#BAT"><speaker><hi rendition="#g">Batista:</hi></speaker> <p>Er schläft?</p></sp><lb/>
+<pb n="10" facs="#f0018"/>
+<sp who="#GIA"><speaker><hi rendition="#g">Gianino:</hi></speaker> <p>Nein. Er ist wach und phantasiert<lb/>
+Und hat die Staffelei begehrt.</p></sp><lb/>
+<sp who="#ANT"><speaker><hi rendition="#g">Antonio:</hi></speaker> <p>Allein<lb/>
+Man darf sie ihm nicht geben, nicht wahr, nein?</p></sp><lb/>
+<sp who="#GIA"><speaker><hi rendition="#g">Gianino:</hi></speaker> <p>Ja, sagt der Arzt. Wir wollen ihn nicht quälen<lb/>
+Und geben, was er will, in seine Hände.</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello,</hi></speaker> <stage>ausbrechend:</stage><lb/>
+<p>Heut oder morgen ist’s ja doch zu Ende!</p></sp><lb/>
+<sp who="#GIA"><speaker><hi rendition="#g">Gianino:</hi></speaker> <p>Er darf uns länger, sagt er, nicht verhehlen …</p></sp><lb/>
+<sp who="#PAR"><speaker><hi rendition="#g">Paris:</hi></speaker> <p>Nein, sterben, sterben kann der Meister nicht!<lb/>
+Da lügt der Arzt, er weiss nicht, was er spricht.</p></sp><lb/>
+<sp who="#DES"><speaker><hi rendition="#g">Desiderio:</hi></speaker> <p>Der Tizian sterben, der das Leben schafft!<lb/>
+Wer hätte dann zum Leben Recht und Kraft?</p></sp><lb/>
+<sp who="#BAT"><speaker><hi rendition="#g">Batista:</hi></speaker> <p>Doch weiss er selbst nicht, wie es um ihn steht?</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello:</hi></speaker> <p>Im Fieber malt er an dem neuen Bild,<lb/>
+In atemloser Hast, unheimlich wild:<lb/>
+Die Mädchen sind bei ihm und müssen stehn,<lb/>
+Uns aber hiess er aus dem Zimmer gehn.</p></sp><lb/>
+<sp who="#ANT"><speaker><hi rendition="#g">Antonio:</hi></speaker> <p>Kann er denn malen, hat er denn die Kraft?</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello:</hi></speaker> <p>Mit einer rätselhaften Leidenschaft,<lb/>
+Die ich beim Malen nie an ihm gekannt,<lb/>
+Von einem martervollen Zwang gebannt …</p></sp><lb/>
+<stage>Ein Page kommt aus der Thür rechts, hinter ihm Diener. Alle<lb/>
+erschrecken.</stage><lb/>
+<sp who="#TIZI #GIA #PAR">         <speaker><hi rendition="#g">Tizianello:<lb/>
+Gianino:<lb/>
+Paris:</hi>         </speaker>         <p rendition="#leftBraced">Was ist?</p></sp>     <lb/>
+<pb n="11" facs="#f0019"/>
+<sp who="#PAG"><speaker><hi rendition="#g">Page:</hi></speaker> <p>Nichts, nichts. Der Meister hat befohlen,<lb/>
+Dass wir vom Gartensaal die Bilder holen.</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello:</hi></speaker> <p>Was will er denn?</p></sp><lb/>
+<sp who="#PAG"><speaker><hi rendition="#g">Page:</hi></speaker> <p>Er sagt, er muss sie sehen …<lb/>
+„Die alten, die erbärmlichen, die bleichen,<lb/>
+Mit seinem neuen, das er malt, vergleichen …<lb/>
+Sehr schwere Dinge seien ihm jetzt klar,<lb/>
+Es komme ihm ein unerhört Verstehen,<lb/>
+Dass er bis jetzt ein matter Stümper war …“<lb/>
+Soll man ihm folgen?</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello:</hi></speaker> <p>Gehet, gehet, eilt!<lb/>
+Ihn martert jeder Pulsschlag, den ihr weilt.</p></sp><lb/>
+<stage>Die Diener sind indessen über die Bühne gegangen. An der<lb/>
+Treppe holt sie der Page ein. Tizianello geht auf den Fuss-<lb/>
+spitzen, leise den Vorhang aufhebend, hinein. Die Andern gehen<lb/>
+unruhig auf und nieder.</stage><lb/>
+<sp who="#ANT"><speaker><hi rendition="#g">Antonio,</hi></speaker> <stage>halblaut:</stage><lb/>
+<p>Wie fürchterlich, das Letzte, wie unsäglich …<lb/>
+Der Göttliche, der Meister, lallend, kläglich …</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello,</hi></speaker> <stage>zurückkommend:</stage><lb/>
+<p>Jetzt ist er wieder ruhig. Und es strahlt<lb/>
+Aus seiner Blässe, und er malt und malt.<lb/>
+In seinen Augen ist ein guter Schimmer,<lb/>
+Und mit den Mädchen plaudert er wie immer.</p></sp><lb/>
+<sp who="#ANT"><speaker><hi rendition="#g">Antonio:</hi></speaker> <p>So legen wir uns auf die Stufen nieder<lb/>
+Und hoffen bis zum nächsten Schlimmern wieder.</p></sp><lb/>
+<stage>Sie lagern sich auf den Stufen. Tizianello spielt mit Gianinos<lb/>
+Haar, die Augen halb geschlossen.</stage><lb/>
+<pb n="12" facs="#f0020"/>
+<sp who="#BAT"><speaker><hi rendition="#g">Batista,</hi></speaker> <stage>halb für sich:</stage><lb/>
+<p>Das Schlimmre … dann das Schlimmste endlich …<lb/>
+nein.<lb/>
+Das Schlimmste kommt, wenn gar nichts Schlimmres<lb/>
+mehr.<lb/>
+Das tote, taube, dürre Weitersein …<lb/>
+Heut ist es noch, als ob’s undenkbar wär …<lb/>
+Und wird doch morgen sein.</p></sp><lb/>
+<stage>Pause.</stage><lb/>
+<sp who="#GIA"><speaker><hi rendition="#g">Gianino:</hi></speaker> <p>Ich bin so müd.</p></sp><lb/>
+<sp who="#PAR"><speaker><hi rendition="#g">Paris:</hi></speaker> <p>Das macht die Luft, die schwüle und der Süd.</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello,</hi></speaker> <stage>lächelnd:</stage><lb/>
+<p>Der Arme hat die ganze Nacht gewacht!</p></sp><lb/>
+<sp who="#GIA"><speaker><hi rendition="#g">Gianino,</hi></speaker> <stage>auf den Arm gestützt:</stage><lb/>
+<p>Ja, du … die erste, die ich ganz durchwacht.<lb/>
+Doch woher weisst denn du’s?</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello:</hi></speaker> <p>Ich fühlt es ja,<lb/>
+Erst war dein stilles Atem meinem nah,<lb/>
+Dann standst du auf und sassest auf den Stufen …</p></sp><lb/>
+<sp who="#GIA"><speaker><hi rendition="#g">Gianino:</hi></speaker> <p>Mir war, als ginge durch die blaue Nacht,<lb/>
+Die atmende, ein rätselhaftes Rufen.<lb/>
+Und nirgends war ein Schlaf in der Natur.<lb/>
+Mit Atemholen tief und feuchten Lippen,<lb/>
+So lag sie, horchend in das grosse Dunkel,<lb/>
+Und lauschte auf geheimer Dinge Spur.<lb/>
+Und sickernd, rieselnd kam das Sterngefunkel<lb/>
+<pb n="13" facs="#f0021"/>
+Hernieder auf die weiche, wache Flur.<lb/>
+Und alle Früchte schweren Blutes schwollen<lb/>
+Im gelben Mond und seinem Glanz, dem vollen,<lb/>
+Und alle Brunnen glänzten seinem Ziehn,<lb/>
+Und es erwachten schwere Harmonien.<lb/>
+Und wo die Wolkenschatten hastig glitten,<lb/>
+War wie ein Laut von weichen, nackten Tritten …<lb/>
+Leis stand ich auf — ich war an dich geschmiegt —</p><lb/>
+<stage>Er steht erzählend auf, zu Tizianello geneigt:</stage><lb/>
+<p>Da schwebte durch die Nacht ein süssen Tönen,<lb/>
+Als hörte man die Flöte leise stöhnen,<lb/>
+Die in der Hand aus Marmor sinnend wiegt<lb/>
+Der Faun, der da im schwarzen Lorbeer steht,<lb/>
+Gleich nebenan, beim Nachtviolenbeet.<lb/>
+Ich sah ihn stehen still und marmorn leuchten;<lb/>
+Und um ihn her im silbrig Blauen, Feuchten,<lb/>
+Wo sich die offenen Granaten wiegen,<lb/>
+Da sah ich deutlich viele Bienen fliegen,<lb/>
+Und viele saugen, auf das Rot gesunken,<lb/>
+Von nächtgem Duft und reifem Safte trunken.<lb/>
+Und wie des Dunkels leiser Atemzug<lb/>
+Den Duft des Gartens um die Stirn mir trug,<lb/>
+Da schien es mir, wie das Vorüberschweifen<lb/>
+Von einem weichen, wogenden Gewand<lb/>
+Und die Berührung einer warmen Hand.<lb/>
+In weissen, seidig weissen Mondesstreifen<lb/>
+War liebestoller Mücken dichter Tanz,<lb/>
+Und auf dem Teiche lag ein weicher Glanz<lb/>
+<pb n="14" facs="#f0022"/>
+Und plätscherte und blinkte auf und nieder.<lb/>
+Ich weiss es heut nicht, ob’s die Schwäne waren,<lb/>
+Ob badender Najaden weisse Glieder,<lb/>
+Und wie ein süsser Duft von Frauenhaaren<lb/>
+Vermischte sich dem Duft der Aloë …<lb/>
+Und was da war, ist mir in eins verflossen:<lb/>
+In eine überstarke, schwere Pracht,<lb/>
+Die Sinne stumm und Worte sinnlos macht.</p></sp><lb/>
+<sp who="#ANT"><speaker><hi rendition="#g">Antonio:</hi></speaker> <p>Beneidenswerter, der das noch erlebt<lb/>
+Und solche Dinge in das Dunkel webt!</p></sp><lb/>
+<sp who="#GIA"><speaker><hi rendition="#g">Gianino:</hi></speaker> <p>Ich war in halbem Traum bis dort gegangen,<lb/>
+Wo man die Stadt sieht, wie sie drunten ruht,<lb/>
+Sich flüsternd schmieget in das Kleid von Prangen,<lb/>
+Das Mond um ihren Schlaf gemacht und Flut.<lb/>
+Ihr Lispeln weht manchmal der Nachtwind her,<lb/>
+So geisterhaft, verlöschend leisen Klang.<lb/>
+Beklemmend seltsam und verlockend bang.<lb/>
+Ich hört es oft, doch niemals dacht ich mehr …<lb/>
+Da aber hab ich plötzlich viel gefühlt:<lb/>
+Ich ahnt’ in ihrem steinern stillen Schweigen,<lb/>
+Vom blauen Strom der Nacht emporgespült,<lb/>
+Des roten Bluts bacchantisch wilden Reigen,<lb/>
+Um ihre Dächer sah ich Phosphor glimmen,<lb/>
+Den Widerschein geheimer Dinge schwimmen.<lb/>
+Und schwindelnd überkam’s mich auf einmal:<lb/>
+Wohl schlief die Stadt: es wacht der Rausch, die<lb/>
+Qual,<lb/>
+<pb n="15" facs="#f0023"/>
+Der Hass, der Geist, das Blut: das Leben wacht.<lb/>
+Das Leben, das lebendige, allmächtge —<lb/>
+Man kann es haben und doch sein’ vergessen! …</p><lb/>
+<stage>Er hält einen Augenblick inne.</stage><lb/>
+<p>Und alles das hat mich so müd gemacht:<lb/>
+Es war so viel in dieser einen Nacht.</p></sp><lb/>
+<sp who="#DES"><speaker><hi rendition="#g">Desiderio,</hi></speaker> <stage>an der Rampe, zu Gianino:</stage><lb/>
+<p>Siehst du die Stadt, wie jetzt sie drunten ruht?<lb/>
+Gehüllt in Duft und goldne Abendglut<lb/>
+Und rosig helles Gelb und helles Grau,<lb/>
+Zu ihren Füssen schwarzer Schatten Blau,<lb/>
+In Schönheit lockend, feuchtverklärter Reinheit.<lb/>
+Allein in diesem Duft, dem ahnungsvollen,<lb/>
+Da wohnt die Hässlichkeit und die Gemeinheit,<lb/>
+Und bei den Tieren wohnen dort die Tollen;<lb/>
+Und was die Ferne weise dir verhüllt,<lb/>
+Ist ekelhaft und trüb und schaal erfüllt<lb/>
+Von Wesen, die die Schönheit nicht erkennen<lb/>
+Und ihre Welt mit unsren Worten nennen …<lb/>
+Denn unsre Wonne oder unsre Pein<lb/>
+Hat mit der ihren nur das Wort gemein …<lb/>
+Und liegen wir in tiefem Schlaf befangen,<lb/>
+So gleicht der unsre ihrem Schlafe nicht:<lb/>
+Da schlafen Purpurblüten, goldne Schlangen,<lb/>
+Da schläft ein Berg, in dem Titanen hämmern — —<lb/>
+Sie aber schlafen, wie die Austern dämmern.</p></sp><lb/>
+<sp who="#ANT"><speaker><hi rendition="#g">Antonio,</hi></speaker> <stage>halb aufgerichtet:</stage><lb/>
+<p>Darum umgeben Gitter, hohe schlanke,<lb/>
+<pb n="16" facs="#f0024"/>
+Den Garten, den der Meister liess erbauen,<lb/>
+Darum durch üppig blumendes Geranke<lb/>
+Soll man das Aussen ahnen mehr als schauen.</p></sp><lb/>
+<sp who="#PAR"><speaker><hi rendition="#g">Paris,</hi></speaker> <stage>ebenso:</stage><lb/>
+<p>Das ist die Lehre der verschlungnen Gänge.</p></sp><lb/>
+<sp who="#BAT"><speaker><hi rendition="#g">Batista,</hi></speaker> <stage>ebenso:</stage><lb/>
+<p>Das ist die grosse Kunst des Hintergrundes<lb/>
+Und das Geheimnis zweifelhafter Lichter.</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello,</hi></speaker> <stage>mit geschlossenen Augen:</stage><lb/>
+<p>Das macht so schön die halbverwehten Klänge,<lb/>
+So schön die dunklen Worte toter Dichter<lb/>
+Und alle Dinge, denen wir entsagen.</p></sp><lb/>
+<sp who="#PAR"><speaker><hi rendition="#g">Paris:</hi></speaker> <p>Das ist der Zauber auf versunknen Tagen<lb/>
+Und ist der Quell des grenzenlosen Schönen,<lb/>
+Denn wir ersticken, wo wir uns gewöhnen.</p></sp><lb/>
+<stage>Alle verstummen. Pause. Tizianello weint leise vor sich hin.</stage><lb/>
+<sp who="#GIA"><speaker><hi rendition="#g">Gianino,</hi></speaker> <stage>schmeichelnd:</stage><lb/>
+<p>Du darfst dich nicht so trostlos drein versenken,<lb/>
+Nicht unaufhörlich an das Eine denken.</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello,</hi></speaker> <stage>traurig lächelnd:</stage><lb/>
+<p>Als ob der Schmerz denn etwas andres wär<lb/>
+Als dieses ewige dran-denken-müssen,<lb/>
+Bis es am Ende farblos wird und leer …<lb/>
+So lass mich nur in den Gedanken wühlen,<lb/>
+Denn von den Leiden und von den Genüssen<lb/>
+Hab längst ich abgestreift das bunte Kleid,<lb/>
+<pb n="17" facs="#f0025"/>
+Das um sie webt die Unbefangenheit,<lb/>
+Und einfach hab ich schon verlernt zu fühlen.</p></sp><lb/>
+<stage>Pause. Gianino ist seitwärts auf den Stufen, den Kopf auf den<lb/>
+Arm geschmiegt, eingeschlummert.</stage><lb/>
+<sp who="#PAR"><speaker><hi rendition="#g">Paris:</hi></speaker> <p>Wo nur Giocondo bleibt?</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello:</hi></speaker> <p>Lang vor dem Morgen<lb/>
+— Ihr schlieft noch — schlich er leise durch die<lb/>
+Pforte,<lb/>
+Auf blasser Stirn den Kuss der Liebessorgen<lb/>
+Und auf den Lippen eifersüchtge Worte …</p></sp><lb/>
+<stage>Pagen tragen zwei Bilder über die Bühne (die Venus mit den<lb/>
+Blumen und das grosse Bacchanal). Die Schüler erheben sich<lb/>
+und stehen, solange die Bilder vorübergetragen werden, mit ge-<lb/>
+senktem Kopf, das Barett in der Hand.</stage><lb/>
+<stage>Nach einer Pause (Alle stehen):</stage><lb/>
+<sp who="#DES"><speaker><hi rendition="#g">Desiderio:</hi></speaker> <p>Wer lebt nach ihm, ein Künstler und Lebendiger,<lb/>
+Im Geiste herrlich und der Dinge Bändiger<lb/>
+Und in der Einfalt weise wie das Kind?</p></sp><lb/>
+<sp who="#ANT"><speaker><hi rendition="#g">Antonio:</hi></speaker> <p>Wer ist, der seiner Weihe freudig traut?</p></sp><lb/>
+<sp who="#BAT"><speaker><hi rendition="#g">Batista:</hi></speaker> <p>Wer ist, dem nicht vor seinem Wissen graut?</p></sp><lb/>
+<sp who="#PAR"><speaker><hi rendition="#g">Paris:</hi></speaker> <p>Wer will uns sagen, ob wir Künstler sind?</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello:</hi></speaker> <p>Er hat den regungslosen Wald belebt:<lb/>
+Und wo die braunen Weiher murmelnd liegen<lb/>
+Und Epheuranken sich an Buchen schmiegen,<lb/>
+Da hat er Götter in das Nichts gewebt:<lb/>
+Den Satyr, der die Syrinx tönend hebt,<lb/>
+<pb n="18" facs="#f0026"/>
+Bis alle Dinge in Verlangen schwellen<lb/>
+Und Hirten sich den Hirtinnen gesellen …</p></sp><lb/>
+<sp who="#BAT"><speaker><hi rendition="#g">Batista:</hi></speaker> <p>Er hat den Wolken, die vorüberschweben,<lb/>
+Den wesenlosen, einen Sinn gegeben:<lb/>
+Der blassen weissen schleierhaftes Dehnen<lb/>
+Gedeutet in ein blasses, süsses Sehnen;<lb/>
+Der mächt’gen goldumrundet schwarzes Wallen<lb/>
+Und runde, graue, die sich lachend ballen,<lb/>
+Und rosig silberne, die abends ziehn:<lb/>
+Sie haben Seele, haben Sinn durch ihn.<lb/>
+Er hat aus Klippen, nackten, fahlen, bleichen,<lb/>
+Aus grüner Wogen brandend weissem Schäumen,<lb/>
+Aus schwarzer Haine regungslosen Träumen<lb/>
+Und aus der Trauer blitzgetroffner Eichen<lb/>
+Ein Menschliches gemacht, das wir verstehen,<lb/>
+Und uns gelehrt, den Geist der Nacht zu sehen.</p></sp><lb/>
+<sp who="#PAR"><speaker><hi rendition="#g">Paris:</hi></speaker> <p>Er hat uns aufgeweckt aus halber Nacht<lb/>
+Und unsre Seelen licht und reich gemacht:<lb/>
+Und uns gewiesen, jedes Tages Fliessen<lb/>
+Und Fluten als ein Schauspiel zu geniessen,<lb/>
+Die Schönheit aller Formen zu verstehen<lb/>
+Und unsrem eignen Leben zuzusehen.<lb/>
+Die Frauen und die Blumen und die Wellen<lb/>
+Und Seide, Gold und bunter Steine Strahl<lb/>
+Und hohe Brücken und das Frühlingsthal<lb/>
+Mit blonden Nymphen an krystallnen Quellen,<lb/>
+Und was ein Jeder nur zu träumen liebt,<lb/>
+Und was uns wachend Herrliches umgiebt:<lb/>
+<pb n="19" facs="#f0027"/>
+Hat seine grosse Schönheit erst empfangen,<lb/>
+Seit es durch Seine Seele durchgegangen.</p></sp><lb/>
+<sp who="#ANT"><speaker><hi rendition="#g">Antonio:</hi></speaker> <p>Was für die schlanke Schönheit Reigentanz,<lb/>
+Was Fackelschein für bunten Maskenkranz,<lb/>
+Was für die Seele, die im Schlafe liegt,<lb/>
+Musik, die wogend sie in Rhythmen wiegt,<lb/>
+Und was der Spiegel für die junge Frau<lb/>
+Und für die Blüten Sonne licht und lau:<lb/>
+Ein Auge, ein harmonisch Element,<lb/>
+In dem die Schönheit erst sich selbst erkennt —<lb/>
+Das fand Natur in seines Wesens Strahl.<lb/>
+„Erweck uns, mach aus uns ein Bacchanal!“<lb/>
+Rief alles Lebende, das ihn ersehnte<lb/>
+Und seinem Blick sich stumm entgegendehnte.</p></sp><lb/>
+<stage>Während Antonio spricht, sind die drei Mädchen leise aus der<lb/>
+Thür getreten und zuhörend stehen geblieben. Nur Tizianello,<lb/>
+der zerstreut und teilnahmslos etwas abseits rechts steht, scheint<lb/>
+sie zu bemerken. Lavinia trägt das blonde Haar im Goldnetz<lb/>
+und das reiche Kleid einer venezianischen Patrizierin. Cassandra<lb/>
+und Lisa, etwa 19- und 17jährig, tragen Beide ein einfaches<lb/>
+Gewand aus weissem, anschmiegendem, flutendem Stoff; nackte<lb/>
+Arme mit goldenen Schlangenreifen am Oberarm; Sandalen,<lb/>
+Gürtel aus Goldstoff. Cassandra ist aschblond, Lisa hat eine<lb/>
+gelbe Rosenknospe im schwarzen Haar. Irgend etwas an ihr<lb/>
+erinnert ans Knabenhafte, wie irgend etwas an Gianino ans<lb/>
+Mädchenhafte erinnert. Hinter ihnen tritt ein Page aus der Thür,<lb/>
+der einen getriebenen, silbernen Weinkrug und Becher trägt.</stage><lb/>
+<pb n="20" facs="#f0028"/>
+<sp who="#ANT"><speaker><hi rendition="#g">Antonio:</hi></speaker> <p>Dass uns die fernen Bäume lieblich sind,<lb/>
+Die träumerischen, dort im Abendwind …</p></sp><lb/>
+<sp who="#PAR"><speaker><hi rendition="#g">Paris:</hi></speaker> <p>Und dass wir Schönheit sehen in der Flucht<lb/>
+Der weissen Segel in der blauen Bucht …</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello,</hi></speaker> <stage>zu den Mädchen, die er mit einem leichten Nicken<lb/>
+begrüsst hat. — Alle Andern drehen sich um:</stage><lb/>
+<p>Und dass wir eures Haares Duft und Schein<lb/>
+Und eurer Formen mattes Elfenbein<lb/>
+Und goldne Gürtel, die euch weich umwinden,<lb/>
+So wie Musik und wie ein Glück empfinden —<lb/>
+Das macht: Er lehrte uns die Dinge sehen …</p><lb/>
+<stage>Bitter:</stage><lb/>
+<p>Und das wird man da drunten nie verstehen!</p></sp><lb/>
+<sp who="#DES"><speaker><hi rendition="#g">Desiderio,</hi></speaker> <stage>zu den Mädchen:</stage><lb/>
+<p>Ist er allein? Soll Niemand zu ihm gehen?</p></sp><lb/>
+<sp who="#LAV"><speaker><hi rendition="#g">Lavinia:</hi></speaker> <p>Bleibt Alle hier. Er will jetzt Niemand sehen.</p></sp><lb/>
+<sp who="#TIZI"><speaker><hi rendition="#g">Tizianello:</hi></speaker> <p>O, käm ihm jetzt der Tod, mit sanftem Neigen,<lb/>
+In dieser schönen Trunkenheit, im Schweigen!</p></sp><lb/>
+<stage>Alle schweigen.<lb/>
+Gianino ist erwacht und hat sich während der letzten Worte<lb/>
+aufgerichtet. Er ist nun sehr blass. Er blickt angstvoll von<lb/>
+einem zum andern.<lb/>
+Alle schweigen.<lb/>
+Gianino thut einen Schritt auf Tizianello zu. Dann hält er inne,<lb/>
+zusammenschaudernd; plötzlich wirft er sich vor Lavinia hin,<lb/>
+die vorne allein steht und drückt den Kopf an ihr Knie.</stage><lb/>
+<pb n="21" facs="#f0029"/>
+<sp who="#GIA"><speaker><hi rendition="#g">Gianino:</hi></speaker> <p>Der Tod! Lavinia, mich fasst ein Grausen!<lb/>
+Ich war ihm nie so nah! Ich werde nie,<lb/>
+Nie mehr vergessen können, dass wir sterben!<lb/>
+Ich werde immer stumm daneben stehn<lb/>
+Wo Menschen lachen, und mit starrem Blick<lb/>
+Dies denken: dass wir alle sterben müssen!<lb/>
+Ich sah einmal: sie brachten mit Gesang<lb/>
+Einen geführt, dem war bestimmt zu sterben.<lb/>
+Er schwankte hin und sah die Menschen alle<lb/>
+Und sah die Bäume, die im leisen Wind<lb/>
+Die süssen Schattenzweige schaukelten.<lb/>
+Lavinia, <hi rendition="#g">wir</hi> gehen solchen Weg!</p><lb/>
+<p>Lavinia, ich schlief nur eine Weile<lb/>
+Dort auf den Stufen, und das erste Wort,<lb/>
+Da ich die Augen aufschlug, war der Tod!</p><lb/>
+<stage>Schaudernd:</stage><lb/>
+<p>Ein solches Dunkel senkt sich aus der Luft!</p></sp><lb/>
+<stage>Lavinia steht hochaufgerichtet, den Blick auf den völlig hellen<lb/>
+Himmel geheftet. Sie streift mit der Hand über Gianinos Haar.</stage><lb/>
+<sp who="#LAV"><speaker><hi rendition="#g">Lavinia:</hi></speaker> <p>Ich seh kein Dunkel. Ich seh einen Falter<lb/>
+Dort schwirren, dort entzündet sich ein Stern<lb/>
+Und drinnen geht ein alter Mann zur Ruh.<lb/>
+Der letzte Schritt schafft nicht die Müdigkeit,<lb/>
+Er lässt sie fühlen.</p></sp><lb/>
+<stage>Indem sie spricht, und der Thür des Hauses den Rücken wendet,<lb/>
+hat dort eine unsichtbare Hand den Vorhang lautlos aber heftig<lb/>
+<pb n="22" facs="#f0030"/>
+zur Seite gezogen. Und alle, Tizianello voran, drängen lautlos<lb/>
+und atemlos die Stufen empor, hinein.</stage><lb/>
+<sp who="#LAV"><speaker><hi rendition="#g">Lavinia,</hi></speaker> <stage>ruhig weitersprechend, immer gehobener:</stage><lb/>
+<p>Grüsse du das Leben!<lb/>
+Wohl dem der von des Daseins Netz gefangen<lb/>
+Tief atmend und nicht grübelnd, wie ihm sei,<lb/>
+Hingiebt dem schönen Strom die freien Glieder,<lb/>
+Und schönen Ufern trägt es ihn —</p></sp><lb/>
+<stage>Sie hält plötzlich inne und sieht sich um. Sie begreift was ge-<lb/>
+schehen ist und folgt den andern.</stage><lb/>
+<sp who="#GIA"><speaker><hi rendition="#g">Gianino,</hi></speaker> <stage>noch auf den Knieen, schaudernd vor sich hin:</stage><lb/>
+<p>Vorbei!</p></sp><lb/>
+<stage>Er richtet sich auf und folgt den andern.</stage><lb/>
+<stage><hi rendition="#c">Der Vorhang fällt.</hi></stage><lb/>
+<pb facs="#f0031"/>
+<pb facs="#f0032"/>
+<pb facs="#f0033"/>
+<pb facs="#f0034"/>
+<pb facs="#f0035"/>
+<pb facs="#f0036"/>
+<pb facs="#f0037"/>
+</body></text> </TEI>

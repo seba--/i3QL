@@ -1,0 +1,1445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Der tolle Invalide auf dem Fort Ratonneau</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118504177">
+<surname>Arnim</surname>
+<forename>Achim von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">57</measure>
+<measure type="tokens">7942</measure>
+<measure type="types">2379</measure>
+<measure type="characters">52313</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:37Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/arnima_invalide_1818</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/arnima_invalide_1818</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/arnima_invalide_1818</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/arnima_invalide_1818</idno>
+<idno type="DTADirName">arnima_invalide_1818</idno>
+<idno type="DTAID">16278</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-2009051993</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="DS">Arnim, Achim von: Der tolle Invalide auf dem Fort Ratonneau. In: Gaben der Milde. Bd. 4. Berlin, 1818, S. 75-124.</bibl>
+<biblFull>
+<titleStmt>
+<title level="a" type="main">Der tolle Invalide auf dem Fort Ratonneau</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118504177">
+<surname>Arnim</surname>
+<forename>Achim von</forename>
+</persName>
+</author>
+<editor>
+<persName>
+<surname>Gubitz</surname>
+<forename>Friedrich Wilhelm</forename>
+</persName>
+</editor>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">50 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Selbstverlag</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1818</date>
+</publicationStmt>
+<seriesStmt>
+<title level="s" type="main">Gaben der Milde</title>
+<biblScope unit="volume">4</biblScope>
+<biblScope unit="pages">S. 75-124</biblScope>
+</seriesStmt>
+<notesStmt>
+<note type="remarkSource">Achim von Arnims Erzählung „Der tolle Invalide auf dem Fort Ratonneau“ erschien zuerst in dem 1818 von Friedrich Wilhelm Gubitz herausgegebenen Almanach „Gaben der Milde“. Den DTA-Leitlinien entsprechend wurde der Text nach dieser Erstauflage digitalisiert.</note>
+</notesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Zentral- und Landesbibliothek Berlin</repository>
+<idno>
+<idno type="shelfmark">Berlin ZLB, III 20011</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Novelle</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#g">Gaben der Milde</hi>.</titlePart> </docTitle><lb/>
+<titlePart type="volume"> <hi rendition="#g">Viertes Bändchen</hi>.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<byline> <hi rendition="#g">Mit Beiträgen<lb/>
+von</hi><lb/>
+L. <hi rendition="#g">Achim von Arnim</hi>, F. W. <hi rendition="#g">Gubitz</hi>,<lb/>
+<hi rendition="#g">Heraklius</hi>, C. F. E. <hi rendition="#g">Ludwig</hi>. <hi rendition="#g">Wilh</hi>.<lb/>
+<hi rendition="#g">Müller</hi>, L. <hi rendition="#g">Velhar</hi> und <hi rendition="#g">Julius<lb/>
+von Voß</hi>. </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="desc">Für die Bücher-Verlooſung „zum Vortheil hülfloſer Krie¬<lb/>
+ger“ herausgegeben von F. W. <hi rendition="#g">Gubitz</hi>.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#g">Berlin</hi>,</pubPlace> <docDate> <hi rendition="#g">1818</hi>.</docDate><lb/>
+</docImprint> </titlePage>
+<pb facs="#f0006"/>
+</front>
+<pb facs="#f0007"/>
+<body> <milestone unit="section" rendition="#hr"/> <div n="1"> <head>Der tolle Invalide auf dem Fort<lb/>
+Ratonneau.<lb/>
+</head> <p rendition="#c"> <hi rendition="#g">Erzählung<lb/>
+von</hi><lb/>
+L. <hi rendition="#g">Achim von Arnim</hi>.</p><lb/>
+<p> <hi rendition="#in">G</hi>raf Dürande, der gute alte Komman¬<lb/>
+dant von Marſeille, ſaß einſam frierend an<lb/>
+einem kalt ſtürmenden Oktoberabende bei<lb/>
+dem ſchlecht eingerichteten Kamine ſeiner<lb/>
+prachtvollen Kommandantenwohnung und<lb/>
+rückte immer näher und näher zum Feuer,<lb/>
+während die Kutſchen zu einem großen<lb/>
+Balle in der Straße vorüber rollten, und<lb/>
+ſein Kammerdiener Baſſet, der zugleich ſein<lb/>
+liebſter Geſellſchafter war, im Vorzimmer<lb/>
+heftig ſchnarchte. Auch im ſüdlichen Frank¬<lb/>
+reich iſt es nicht immer warm, dachte der<lb/>
+alte Herr, und ſchüttelte mit dem Kopfe, die<lb/>
+<pb n="76" facs="#f0008"/>
+Menſchen bleiben auch da nicht immer jung,<lb/>
+aber die lebhafte geſellige Bewegung nimmt<lb/>
+ſo wenig Rückſicht auf das Alter, wie die<lb/>
+Baukunſt auf den Winter. Was ſollte er,<lb/>
+der Chef aller Invaliden, die damals (wäh¬<lb/>
+rend des ſiebenjährigen Krieges) die Beſa¬<lb/>
+tzung von Marſeille und ſeiner Forts aus¬<lb/>
+machten, mit ſeinem hölzernen Beine auf<lb/>
+dem Balle, nicht einmal die Lieutenants<lb/>
+ſeines Regiments waren zum Tanze zu brau¬<lb/>
+chen. Hier am Kamine ſchien ihm dagegen<lb/>
+ſein hölzernes Bein höchſt brauchbar, weil<lb/>
+er den Baſſet nicht wecken mochte, um den<lb/>
+Vorrath grüner Olivenäſte, den er ſich zur<lb/>
+Seite hatte hinlegen laſſen, allmählig in die<lb/>
+Flamme zu ſchieben. Ein ſolches Feuer hat<lb/>
+großen Reitz; die kniſternde Flamme iſt mit<lb/>
+dem grünen Laube wie durchflochten, halb¬<lb/>
+brennend, halbgrünend erſcheinen die Blät¬<lb/>
+ter wie verliebte Herzen. Auch der alte Herr<lb/>
+dachte dabei an Jugendglanz und vertiefte<lb/>
+ſich in den Conſtructionen jener Feuerwerke,<lb/>
+die er ſonſt ſchon für den Hof angeordnet<lb/>
+hatte und ſpeculirte auf neue, noch mannig¬<lb/>
+<pb n="77" facs="#f0009"/>
+fachere Farbenſtrahlen und Drehungen,<lb/>
+durch welche er am Geburttage des Königs<lb/>
+die Marſeiller überraſchen wollte. Es ſah<lb/>
+nun leerer in ſeinem Kopfe als auf dem<lb/>
+Balle aus. Aber in der Freude des Gelin¬<lb/>
+gens, wie er ſchon alles ſtrahlen, ſauſen,<lb/>
+praſſeln, dann wieder alles in ſtiller Größe<lb/>
+leuchten ſah, hatte er immer mehr Oliven¬<lb/>
+äſte ins Feuer geſchoben und nicht bemerkt,<lb/>
+daß ſein hölzernes Bein Feuer gefangen<lb/>
+hatte und ſchon um ein Drittheil abgebrannt<lb/>
+war. Erſt jetzt, als er aufſpringen wollte,<lb/>
+weil der große Schluß, das Aufſteigen von<lb/>
+tauſend Raketen ſeine Einbildungskraft be¬<lb/>
+flügelte und entflammte, bemerkte er, in¬<lb/>
+dem er auf ſeinen Polſterſtuhl zurück ſank,<lb/>
+daß ſein hölzernes Bein verkürzt ſey und daß<lb/>
+der Reſt auch noch in beſorglichen Flammen<lb/>
+ſtehe. In der Noth, nicht gleich aufkommen<lb/>
+zu können, rückte er ſeinen Stuhl wie einen<lb/>
+Piekſchlitten mit dem flammenden Beine bis<lb/>
+in die Mitte des Zimmers, rief ſeinen Die¬<lb/>
+ner und dann nach Waſſer. Mit eifrigem Be¬<lb/>
+mühen ſprang ihm in dieſem Augenblicke<lb/>
+<pb n="78" facs="#f0010"/>
+eine Frau zu Hülfe, die in das Zimmer ein¬<lb/>
+gelaſſen, lange durch ein beſcheidnes Huſten<lb/>
+die Aufmerkſamkeit des Kommandanten auf<lb/>
+ſich zu ziehen geſucht hatte, doch ohne Er¬<lb/>
+folg. Sie ſuchte das Feuer mit ihrer Schürze<lb/>
+zu löſchen, aber die glühende Kohle des<lb/>
+Beins ſetzte die Schürze in Flammen und<lb/>
+der Kommandant ſchrie nun in wirklicher<lb/>
+Noth nach Hülfe, nach Leuten. Bald dran¬<lb/>
+gen dieſe von der Gaſſe herein, auch Baſ¬<lb/>
+ſet war erwacht; der brennende Fuß, die<lb/>
+brennende Schürze brachte alle ins Lachen,<lb/>
+doch mit dem erſten Waſſereimer, den Baſ¬<lb/>
+ſet aus der Küche holte, war alles ge¬<lb/>
+löſcht und die Leute empfahlen ſich. Die<lb/>
+arme Frau triefte vom Waſſer, ſie konnte<lb/>
+ſich nicht gleich vom Schrecken erholen, der<lb/>
+Kommandant ließ ihr ſeinen warmen Rocke¬<lb/>
+lor umhängen, und ein Glas ſtarken Wein<lb/>
+reichen. Die Frau wollte aber nichts nehmen<lb/>
+und ſchluchzte nur über ihr Unglück und<lb/>
+bat den Kommandanten: mit ihm einige<lb/>
+Worte ins Geheim zu ſprechen. So ſchickte<lb/>
+er ſeinen nachläſſigen Diener fort und ſetzte<lb/>
+<pb n="79" facs="#f0011"/>
+ſich ſorgſam in ihre Nähe. Ach, mein Mann,<lb/>
+ſagte ſie in einem fremden deutſchen Dialeckte<lb/>
+des Franzöſiſchen, mein Mann kommt von Sin¬<lb/>
+nen, wenn er die Geſchichte hört; ach, mein<lb/>
+armer Mann, da ſpielt ihm der Teufel ſicher<lb/>
+wieder einen Streich! Der Kommandant<lb/>
+fragte nach dem Manne und die Frau ſagte<lb/>
+ihm: daß ſie eben wegen dieſes ihres lieben<lb/>
+Mannes zu ihm gekommen, ihm einen Brief<lb/>
+des Oberſten vom Regiment Pikardie zu<lb/>
+überbringen. Der Oberſte ſetzte die Brille<lb/>
+auf, erkannte das Wappen ſeines Freundes<lb/>
+und durchlief das Schreiben, dann ſagte er: Al¬<lb/>
+ſo Sie ſind jene Roſalie, eine geborne Demoiſelle<lb/>
+Lilie aus Leipzig, die den Sergeanten Fran¬<lb/>
+coeur geheirathet hat, als er am Kopf ver¬<lb/>
+wundet in Leipzig gefangen lag? Erzählen<lb/>
+ſie, das iſt eine ſeltne Liebe! Was waren<lb/>
+ihre Eltern, legten die ihnen kein Hinderniß<lb/>
+in den Weg? Und was hat denn ihr Mann<lb/>
+für ſcherzhafte Grillen als Folge ſeiner Kopf¬<lb/>
+wunde behalten, die ihn zum Felddienſte un¬<lb/>
+tauglich machen, obgleich er als der bravſte<lb/>
+und geſchickteſte Sergeant, als die Seele des Re¬<lb/>
+<pb n="80" facs="#f0012"/>
+giments geachtet wurde? Gnädiger Herr, ant¬<lb/>
+wortete die Frau mit neuer Betrübniß, meine<lb/>
+Liebe trägt die Schuld von allem dem Un¬<lb/>
+glück, ich habe meinen Mann unglücklich<lb/>
+gemacht und nicht jene Wunde; meine Liebe<lb/>
+hat den Teufel in ihn gebracht und plagt<lb/>
+ihn und verwirrt ſeine Sinne. Statt mit<lb/>
+den Soldaten zu exercieren, fängt er zuwei¬<lb/>
+len an, ihnen ungeheure, ihm vom Teufel<lb/>
+eingegebene Sprünge vor zu machen, und<lb/>
+verlangt; daß ſie ihm dieſe nach machen:<lb/>
+oder er ſchneidet ihnen Geſichter<supplied>,</supplied> daß ihnen<lb/>
+der Schreck in alle Glieder fährt, und<lb/>
+verlangt, daß ſie ſich dabei nicht rühren<lb/>
+noch regen und neulich, was endlich dem<lb/>
+Faſſe den Boden ausſchlug, warf er den<lb/>
+kommandirenden General, der in einer Affäre<lb/>
+den Rückzug des Regiments befahl, vom<lb/>
+Pferde, ſetzte ſich darauf und nahm mit dem<lb/>
+Regimente die Batterie fort. — Ein Teufels¬<lb/>
+kerl, rief der Kommandant, wenn doch ſo<lb/>
+ein Teufel in alle unſre kommandirende Ge¬<lb/>
+nerale führe, ſo hätten wir kein zweites<lb/>
+Roßbach zu fürchten, iſt ihre Liebe <hi rendition="#g">ſolche</hi><lb/>
+<fw type="catch" place="bottom">Teufels¬<lb/>
+</fw>
+<pb n="81" facs="#f0013"/>
+Teufelsfabrik, ſo wünſchte ich: ſie liebten un¬<lb/>
+ſre ganze Armee. — Leider im Fluche mei¬<lb/>
+ner Mutter, ſeufzte die Frau. Meinen Va¬<lb/>
+ter habe ich nicht gekannt. Meine Mutter<lb/>
+ſah viele Männer bei ſich, denen ich auf¬<lb/>
+warten mußte, das war meine einzige Ar¬<lb/>
+beit. Ich war träumerig und achtete gar<lb/>
+nicht der freundlichen Reden dieſer Männer,<lb/>
+meine Mutter ſchützte mich gegen ihre Zu¬<lb/>
+dringlichkeit. Der Krieg hatte dieſe Herren<lb/>
+meiſt zerſtreut, die meine Mutter beſuchten<lb/>
+und bei ihr Hazardſpiele heimlich ſpielten;<lb/>
+wir lebten zu ihrem Aerger ſehr einſam.<lb/>
+Freund und Feind waren ihr darum gleich<lb/>
+verhaßt, ich durfte keinem eine Gabe brin¬<lb/>
+gen, der verwundet oder hungrig vor dem<lb/>
+Hauſe vorüberging. Das that mir ſehr leid<lb/>
+und einſtmals war ich ganz allein und be¬<lb/>
+ſorgte unſer Mittagseſſen, als viele Wagen<lb/>
+mit Verwundeten vorüberzogen, die ich an<lb/>
+der Sprache für Franzoſen erkannte, die<lb/>
+von den Preußen gefangen worden. Im¬<lb/>
+mer wollte ich mit dem fertigen Eſſen zu<lb/>
+jenen hinunter, doch ich fürchtete die Mut¬<lb/>
+<fw type="sig" place="bottom">IV. [6]<lb/>
+</fw>
+<pb n="82" facs="#f0014"/>
+ter, als ich aber Francoeur mit verbundenem<lb/>
+Kopfe auf dem letzten Wagen liegen geſe¬<lb/>
+hen, da weiß ich nicht wie mir geſchah; die<lb/>
+Mutter war vergeſſen, ich nahm Suppe und<lb/>
+Löffel, und, ohne unſre Wohnung abzuſchlie¬<lb/>
+ßen, eilte ich dem Wagen nach in die Plei¬<lb/>
+ßenburg. Ich fand ihn; er war ſchon ab¬<lb/>
+geſtiegen, dreiſt redete ich die Aufſeher an,<lb/>
+und wußte dem Verwundeten gleich das<lb/>
+beſte Strohlager zu erflehen. Und als er<lb/>
+darauf gelegt, welche Seligkeit, dem Noth¬<lb/>
+leidenden die warme Suppe zu reichen! Er<lb/>
+wurde munter in den Augen und ſchwor<lb/>
+mir, daß ich einen Heiligenſchein um mei¬<lb/>
+nen Kopf trage. Ich antwortete ihm, daß<lb/>
+ſei meine Haube, die ſich im eiligen Bemü¬<lb/>
+hen um ihn aufgeſchlagen. Er ſagte: der<lb/>
+Heiligenſchein komme aus meinen Augen!<lb/>
+Ach, das Wort konnte ich gar nicht vergeſ¬<lb/>
+ſen, und hätte er mein Herz nicht ſchon ge¬<lb/>
+habt, ich hätte es ihm dafür ſchenken müſ¬<lb/>
+ſen. Ein wahres, ein ſchönes Wort! ſagte<lb/>
+der Kommandant, und Roſalie fuhr fort:<lb/>
+Das war die ſchönſte Stunde meines Le¬<lb/>
+<pb n="83" facs="#f0015"/>
+bens, ich ſah ihn immer eifriger an, weil<lb/>
+er behauptete, daß es ihm wohlthue und als<lb/>
+er mir endlich einen kleinen Ring an den<lb/>
+Finger ſteckte, fühlte ich mich ſo reich, wie<lb/>
+ich noch niemals geweſen. In dieſe glück¬<lb/>
+liche Stille trat meine Mutter ſcheltend und<lb/>
+fluchend ein; ich kann nicht nachſagen, wie<lb/>
+ſie mich nannte, ich ſchämte mich auch nicht,<lb/>
+denn ich wußte, daß ich ſchuldlos war und<lb/>
+daß er Böſes nicht glauben würde. Sie<lb/>
+wollte mich fortreiſſen, aber er hielt mich<lb/>
+feſt und ſagte ihr: daß wir verlobt wären,<lb/>
+ich trüge ſchon ſeinen Ring. Wie verzog ſich<lb/>
+das Geſicht meiner Mutter; mir wars, als<lb/>
+ob eine Flamme aus ihrem Halſe brenne,<lb/>
+und ihre Augen kehrte ſie in ſich, ſie ſahen<lb/>
+ganz weiß aus; ſie verfluchte mich und über¬<lb/>
+gab mich mit feierlicher Rede dem Teufel.<lb/>
+Und wie ſo ein heller Schein durch meine<lb/>
+Augen am Morgen gelaufen, als ich Fran¬<lb/>
+coeur geſehen, ſo war mir jetzt als ob eine<lb/>
+ſchwarze Fledermaus ihre durchſichtigen Flü¬<lb/>
+geldecken über meine Augen legte; die Welt<lb/>
+war mir halb verſchloſſen, und ich gehörte<lb/>
+<pb n="84" facs="#f0016"/>
+mir nicht mehr ganz. Mein Herz verzwei¬<lb/>
+felte und ich mußte lachen. Hörſt du, der<lb/>
+Teufel lacht ſchon aus dir! ſagte die Mut¬<lb/>
+ter und ging triumphirend fort, während<lb/>
+ich ohnmächtig niederſtürzte. Als ich wieder<lb/>
+zu mir gekommen, wagte ich nicht zu ihr<lb/>
+zu gehen und den Verwundeten zu verlaſ¬<lb/>
+ſen, auf den der Vorfall ſchlimm gewirkt<lb/>
+hatte; ja ich trotzte heimlich der Mutter we¬<lb/>
+gen des Schadens, den ſie dem Unglückli¬<lb/>
+chen gethan. Erſt am dritten Tage ſchlich<lb/>
+ich, ohne es Francoeur zu ſagen, Abends nach<lb/>
+dem Hauſe, wagte nicht an zu klopfen, end¬<lb/>
+lich trat eine Frau die uns bedient hatte,<lb/>
+heraus und berichtete, die Mutter habe<lb/>
+ihre Sachen ſchnell verkauft, und ſei mit<lb/>
+einem fremden Herrn, der ein Spieler ſein<lb/>
+ſollte, fortgefahren, und niemand wiſſe wo¬<lb/>
+hin. So war ich nun von aller Welt aus¬<lb/>
+geſtoſſen es that mir wohl, ſo entfeſſelt<lb/>
+von jeder Rückſicht in die Arme meines<lb/>
+Francoeur zu fallen. Auch meine jugendli¬<lb/>
+chen Bekanntinnen in der Stadt wollten mich<lb/>
+nicht mehr kennen, ſo konnte ich ganz ihm<lb/>
+<pb n="85" facs="#f0017"/>
+und ſeiner Pflege leben. Für ihn arbeitete<lb/>
+ich; bisher hatte ich nur mit dem Spitzenklöp¬<lb/>
+peln zu meinem Putze geſpielt, ich ſchämte<lb/>
+mich nicht, dieſe meine Handarbeiten zu ver¬<lb/>
+kaufen, ihm brachte es Bequemlichkeit und<lb/>
+Erquickung. Aber immer mußte ich der<lb/>
+Mutter denken, wenn ſeine Lebendigkeit im<lb/>
+Erzählen mich nicht zerſtreute; die Mutter<lb/>
+erſchien mir ſchwarz mit flammenden Au¬<lb/>
+gen, immer fluchend vor meinen inneren<lb/>
+Augen und ich konnte ſie nicht los werden.<lb/>
+Meinem Francoeur wollte ich nichts ſagen,<lb/>
+um ihm nicht das Herz ſchwer zu machen;<lb/>
+ich klagte über Kopfweh, <choice><sic>daß</sic><corr>das</corr></choice> ich nicht hatte,<lb/>
+über Zahnweh, das ich nicht fühlte, um<lb/>
+weinen zu <choice><sic>kennen</sic><corr>können</corr></choice> wie ich mußte. Ach hätte<lb/>
+ich damals mehr Vertrauen zu ihm gehabt,<lb/>
+ich hätte ſein Unglück nicht gemacht, aber<lb/>
+jedesmal, wenn ich ihm erzählen wollte: daß<lb/>
+ich durch den Fluch der Mutter vom Teufel<lb/>
+beſeſſen zu ſeyn glaubte, ſchloß mir der Teufel<lb/>
+den Mund, auch fürchtete ich, daß er mich dann<lb/>
+nicht mehr lieben könne, daß er mich ver¬<lb/>
+laſſen würde und den bloßen Gedanken<lb/>
+<pb n="86" facs="#f0018"/>
+konnte ich kaum überleben. Dieſe innere<lb/>
+Qual, vielleicht auch die angeſtrengte Ar¬<lb/>
+beit zerrüttete endlich meinen Körper, heftige<lb/>
+Krämpfe, die ich ihm verheimlichte, drohten<lb/>
+mich zu erſticken, und Arzeneien ſchienen<lb/>
+dieſe Uebel nur zu mehren. Kaum war er<lb/>
+hergeſtellt, ſo wurde die Hochzeit von ihm<lb/>
+angeordnet. Ein alter Geiſtlicher hielt eine<lb/>
+feierliche Rede, in der er meinem Francoeur<lb/>
+alles ans Herz legte, was ich für ihn ge¬<lb/>
+than, wie ich ihm Vaterland, Wohlſtand<lb/>
+und Freundſchaft zum Opfer gebracht, ſelbſt<lb/>
+den mütterlichen Fluch auf mich geladen, alle<lb/>
+dieſe Noth müſſe er mit mir theilen, alles<lb/>
+Unglück gemeinſam tragen. Meinem Manne<lb/>
+ſchauderte bei den Worten, aber er ſprach<lb/>
+doch ein vernehmliches Ja, und wir wurden<lb/>
+vermählt. Selig waren die erſten Wochen,<lb/>
+ich fühlte mich zur Hälfte von meinen Lei¬<lb/>
+den erleichtert und ahnete nicht gleich, daß<lb/>
+eine Hälfte des Fluchs zu meinem Manne<lb/>
+übergegangen ſei. Bald aber klagte er, daß<lb/>
+jener Prediger in ſeinem ſchwarzen Kleide<lb/>
+ihm immer vor Augen ſtehe und ihm drohe,<lb/>
+<pb n="87" facs="#f0019"/>
+daß er dadurch einen ſo heftigen Zorn und<lb/>
+Widerwillen gegen Geiſtliche, Kirchen und<lb/>
+heilige Bilder empfinde, daß er ihnen flu¬<lb/>
+chen müſſe und wiſſe nicht warum, und um<lb/>
+ſich dieſen Gedanken zu entſchlagen, überlaſſe<lb/>
+er ſich jedem Einfall, er tanze und trinke<lb/>
+und ſo in dem Umtriebe des Bluts werde<lb/>
+ihm beſſer. Ich ſchob alles auf die Gefan¬<lb/>
+genſchaft, obgleich ich wohl ahnete, daß<lb/>
+es der Teufel ſei, der ihn plage. Er wurde<lb/>
+ausgewechſelt durch die Vorſorge ſeines<lb/>
+Oberſten, der ihn beim Regimente wohl ver¬<lb/>
+mißt hatte, denn Francoeur iſt ein außeror¬<lb/>
+dentlicher Soldat. Mit leichtem Herzen zo¬<lb/>
+gen wir aus Leipzig und bildeten eine ſchöne<lb/>
+Zukunft in unſern Geſprächen aus. Kaum<lb/>
+waren wir aber aus der Noth, ums tägli¬<lb/>
+che Bedürfniß, zum Wohlleben der gut ver¬<lb/>
+ſorgten Armee in die Winterquartiere ge¬<lb/>
+kommen, ſo ſtieg die Heftigkeit meines Man¬<lb/>
+nes mit jedem Tage, er trommelte Tage¬<lb/>
+lang, um ſich zu zerſtreuen, zankte, machte<lb/>
+Händel, der Oberſt konnte ihn nicht begrei¬<lb/>
+fen; nur mit mir war er ſanft wie ein Kind.<lb/>
+<pb n="88" facs="#f0020"/>
+Ich wurde von einem Knaben entbunden,<lb/>
+als der Feldzug ſich wieder eröffnete, und<lb/>
+mit der Qual der Geburt ſchien der Teufel,<lb/>
+der mich geplagt, ganz von mir gebannt.<lb/>
+Francoeur wurde immer muthwilliger und<lb/>
+heftiger. Der Oberſte ſchrieb mir: er ſei toll¬<lb/>
+kühn wie ein Raſender, aber bisher immer<lb/>
+glücklich geweſen; ſeine Kammeraden mein¬<lb/>
+ten, er ſei zuweilen wahnſinnig und er fürchte<lb/>
+ihn unter die Kranken oder Invaliden ab¬<lb/>
+geben zu müſſen. Der Oberſt hatte einige<lb/>
+Achtung gegen mich, er hörte auf meine<lb/>
+Vorbitte, bis endlich ſeine Wildheit gegen den<lb/>
+kommandirenden General dieſer Abtheilung,<lb/>
+die ich ſchon erzählte, ihn in Arreſt brachte,<lb/>
+wo der Wundarzt erklärte, er leide wegen<lb/>
+der Kopfwunde, die ihm in der Gefangenſchaft<lb/>
+vernachläßigt worden, an Wahnſinn und<lb/>
+müſſe wenigſtens ein paar Jahre im war¬<lb/>
+men Klima bei den Invaliden zubringen,<lb/>
+ob ſich dieſes Uebel vielleicht ausſcheide.<lb/>
+Ihm wurde geſagt, daß er zur Strafe we¬<lb/>
+gen ſeines Vergehens unter die Invaliden<lb/>
+komme und er ſchied mit Verwünſchungen<lb/>
+<pb n="89" facs="#f0021"/>
+vom Regimente. Ich bat mir das Schrei¬<lb/>
+ben vom Oberſten aus, ich beſchloß ihnen<lb/>
+zutraulich alles zu eröffnen, damit er nicht<lb/>
+nach der Strenge des Geſetzes, ſondern nach<lb/>
+ſeinem Unglück, deſſen einzige Urſache meine<lb/>
+Liebe war, beurtheilt werde, und daß ſie ihn zu<lb/>
+ſeinem Beſten in eine kleine abgelegene Ort¬<lb/>
+ſchaft legen, damit er hier in der großen<lb/>
+Stadt nicht zum Gerede der Leute wird.<lb/>
+Aber, gnädiger Herr, ihr Ehrenwort darf<lb/>
+eine Frau ſchon fordern, die ihnen heut einen<lb/>
+kleinen Dienſt erwieſen, daß Sie dies Ge¬<lb/>
+heimniß ſeiner Krankheit, welches er ſelbſt<lb/>
+nicht ahnet, und das ſeinen Stolz empö¬<lb/>
+ren würde, unverbrüchlich bewahren. Hier<lb/>
+meine Hand, rief der Kommandant, der die<lb/>
+eifrige Frau mit Wohlgefallen angehört<lb/>
+hatte, noch mehr, ich will ihre Vorbitte<lb/>
+dreimal erhören, wenn Francoeur dumme<lb/>
+Streiche macht. Das Beſte aber iſt, dieſe<lb/>
+zu vermeiden, und darum ſchicke ich ihn<lb/>
+gleich zur Ablöſung nach einem Fort, das<lb/>
+nur drei Mann Beſatzung braucht; ſie fin¬<lb/>
+den da für ſich und für ihr Kind eine be¬<lb/>
+<pb n="90" facs="#f0022"/>
+queme Wohnung, er hat da wenig Veran¬<lb/>
+laſſung zu Thorheiten, und die er begeht<lb/>
+bleiben verſchwiegen. Die Frau dankte für<lb/>
+dieſe gütige Vorſorge, küßte dem alten Herrn<lb/>
+die Hand und er leuchtete ihr dafür, als ſie<lb/>
+mit vielen Knixen die Treppe hinunter ging.<lb/>
+Das verwunderte den alten Kammerdiener<lb/>
+Baſſet, und es fuhr ihm durch den Kopf,<lb/>
+was ſeinem Alten ankomme: ob der wohl<lb/>
+gar mit der brennenden Frau eine Liebſchaft<lb/>
+geſtiftet habe, die ſeinem Einfluſſe nachthei¬<lb/>
+lig werden könne. Nun hatte der alte Herr<lb/>
+die Gewohnheit, Abends im Bette, wenn er<lb/>
+nicht ſchlafen konnte, alles was am Tage<lb/>
+geſchehen, laut zu überdenken, als ob er<lb/>
+dem Bette ſeine Beichte hätte abſtatten müſ¬<lb/>
+ſen. Und während nun die Wagen vom Balle<lb/>
+zurück rollten und ihn wach erhielten, lau¬<lb/>
+erte Baſſet im andern Zimmer, und hörte<lb/>
+die ganze Unterredung, die ihm um ſo wich¬<lb/>
+tiger ſchien, weil Francoeur ſein Landsmann<lb/>
+und Regimentskammerad geweſen, obgleich<lb/>
+er viel älter als Francoeur war. Und nun<lb/>
+dachte er gleich an einen Mönch den er<lb/>
+<pb n="91" facs="#f0023"/>
+kannte, der ſchon manchem den Teufel aus¬<lb/>
+getrieben hatte und zu dem wollte er Fran¬<lb/>
+coeur bald hinführen; er hatte eine rechte<lb/>
+Freude am Quackſalbern und freute ſich ein¬<lb/>
+mal wieder: einen Teufel austreiben zu ſe¬<lb/>
+hen. Roſalie hatte, ſehr befriedigt über den<lb/>
+Erfolg ihres Beſuchs, gut geſchlafen; ſie kaufte<lb/>
+am Morgen eine neue Schürze und trat<lb/>
+mit dieſer ihrem Manne entgegen, der mit<lb/>
+entſetzlichem Geſange ſeine müden Invaliden<lb/>
+in die Stadt führte. Er küßte ſie; hob ſie<lb/>
+in die Luft und ſagte ihr: Du riechſt nach<lb/>
+dem trojaniſchen Brande, ich habe dich<lb/>
+wieder, ſchöne Helena! — Roſalie entfärbte<lb/>
+ſich und hielt es für nöthig, als er fragte,<lb/>
+ihm zu eröffnen: daß ſie wegen der Woh¬<lb/>
+nung beim Oberſten geweſen, daß dieſem<lb/>
+gerade das Bein in Flammen geſtanden,<lb/>
+und daß ihre Schürze verbrannt. Ihm war<lb/>
+es nicht recht, daß ſie nicht bis zu ſeiner<lb/>
+Ankunft gewartet habe, doch vergaß er das<lb/>
+in tauſend Späßen über die brennende<lb/>
+Schürze. Er ſtellte darauf ſeine Leute dem<lb/>
+Kommandanten vor, rühmte alle ihre leib¬<lb/>
+<pb n="92" facs="#f0024"/>
+lichen Gebrechen und geiſtigen Tugenden ſo<lb/>
+artig, das er des alten Herrn Wohlwollen<lb/>
+erwarb, der ſo in ſich meinte: die Frau liebt<lb/>
+ihn, aber ſie iſt eine Deutſche und verſteht<lb/>
+keinen Franzoſen; ein Franzoſe hat immer<lb/>
+den Teufel im Leibe! — Er ließ ihn ins Zim¬<lb/>
+mer kommen, um ihn näher kennen zu ler¬<lb/>
+nen, fand ihn im Befeſtigungsweſen wohl<lb/>
+unterrichtet, und was ihn noch mehr ent¬<lb/>
+zückte: er fand in ihm einen leidenſchaftlichen<lb/>
+Feuerkünſtler, der bei ſeinem Regimente<lb/>
+ſchon alle Arten Feuerwerke ausgearbeitet<lb/>
+hatte. Der Kommandant trug ihm ſeine<lb/>
+neue Erfindung zu einem Feuerwerke am<lb/>
+Geburttage des Königs vor, bei welcher<lb/>
+ihn geſtern der Beinbrand geſtört hatte und<lb/>
+Francoeur ging mit funkelnder Begeiſterung<lb/>
+darauf ein. Nun eröffnete ihm der Alte, daß er<lb/>
+mit zwei andern Invaliden die kleine Beſatzung<lb/>
+des Forts Ratonneau ablöſen ſollte, dort<lb/>
+ſei ein großer Pulvervorrath und dort ſolle<lb/>
+er mit ſeinen beiden Soldaten fleißig Rake¬<lb/>
+ten füllen, Feuerräder drehen und Frö¬<lb/>
+ſche binden. Indem der Kommandant ihm<lb/>
+<pb n="93" facs="#f0025"/>
+den Schlüſſel des Pulverthurms und das<lb/>
+Inventarium reichte, fiel ihm die Rede der<lb/>
+Frau ein und er hielt ihn mit den Worten<lb/>
+noch feſt: Aber euch plagt doch nicht der<lb/>
+Teufel und ihr ſtiftet mir Unheil? — Man<lb/>
+darf den Teufel nicht an die Wand ma¬<lb/>
+len, ſonſt hat man ihn im Spiegel, ant¬<lb/>
+wortete Francoeur mit einem gewiſſen Zu¬<lb/>
+trauen. Das gab dem Kommandanten Ver¬<lb/>
+trauen, er reichte ihm den Schlüſſel, das<lb/>
+Inventarium und den Befehl an die jetzige<lb/>
+kleine Garniſon, auszuziehn. So wurde er<lb/>
+entlaſſen und auf dem Hausflur fiel ihm<lb/>
+Baſſet um den Hals, ſie hatten ſich gleich<lb/>
+erkannt und erzählten einander in aller Kürze,<lb/>
+wie es ihnen ergangen. Doch weil Fran¬<lb/>
+coeur an große Strenge in allem Militäri¬<lb/>
+ſchen gewöhnt war, ſo riß er ſich los, und<lb/>
+bat ihn auf den nächſten Sonntag, wenn er<lb/>
+abkommen könnte, zu Gaſt nach dem Fort<lb/>
+Ratonneau, zu deſſen Kommandanten, der<lb/>
+er ſelbſt zu ſeyn die Ehre habe.</p><lb/>
+<p>Der Einzug auf dem Fort war für<lb/>
+alle gleich fröhlich, die abziehenden Invali¬<lb/>
+<pb n="94" facs="#f0026"/>
+den hatten die ſchöne Ausſicht auf Marſeille<lb/>
+bis zum Ueberdruß genoſſen, und die Ein¬<lb/>
+ziehenden waren entzückt über die Ausſicht,<lb/>
+über das zierliche Werk, über die bequemen<lb/>
+Zimmer und Betten; auch kauften ſie von den<lb/>
+Abziehenden ein paar Ziegen, ein Tauben¬<lb/>
+paar, ein Dutzend Hühner und die Kunſt¬<lb/>
+ſtücke, um in der Nähe einiges Wild in al¬<lb/>
+ler Stille belauern zu können; denn müſſige<lb/>
+Soldaten ſind ihrer Natur nach Jäger.<lb/>
+Als Francoeur ſein Kommando angetreten,<lb/>
+befahl er ſogleich ſeinen beiden Soldaten,<lb/>
+Brunet und Teſſier, mit ihm den Pulver¬<lb/>
+thurm zu eröffnen, das Inventarium durch¬<lb/>
+zugehen, um dann einen gewiſſen Vorrath<lb/>
+zur Feuerwerkerarbeit in das Laboratorium<lb/>
+zu tragen. Das Inventarium war richtig<lb/>
+und er beſchäftigte gleich einen ſeiner bei¬<lb/>
+den Soldaten mit den Arbeiten zum<lb/>
+Feuerwerk; mit dem andern ging er zu al¬<lb/>
+len Kanonen und Mörſern, um die metall¬<lb/>
+nen zu poliren, und die eiſernen ſchwarz<lb/>
+anzuſtreichen. Bald füllte er auch eine hin¬<lb/>
+längliche Zahl Bomben und Granaten, ord¬<lb/>
+<pb n="95" facs="#f0027"/>
+nete auch alles Geſchütz ſo, wie es ſtehen mußte,<lb/>
+um den einzigen Aufgang nach dem Fort<lb/>
+zu beſtreichen. Das Fort iſt nicht zu neh¬<lb/>
+men! rief er einmal über das andre begei¬<lb/>
+ſtert. Ich will das Fort behaupten, auch<lb/>
+wenn die Engländer mit hundert tauſend<lb/>
+Mann landen und ſtürmen! Aber die Un¬<lb/>
+ordnung war hier groß! So ſieht es über¬<lb/>
+all auf den Forts und Batterien aus, ſagte<lb/>
+Teſſier, der alte Kommandant kann mit ſei¬<lb/>
+nem Stelzfuß nicht mehr ſo weit ſteigen,<lb/>
+und Gottlob! bisjetzt iſt es den Engländern<lb/>
+noch nicht eingefallen zu landen. — Das<lb/>
+muß anders werden, rief Francoeur, ich will<lb/>
+mir lieber die Zunge verbrennen, ehe ich<lb/>
+zugebe, daß unſre Feinde Marſeille einä¬<lb/>
+ſchern oder wir ſie doch fürchten müſſen.</p><lb/>
+<p>Die Frau mußte ihm helfen das Mau¬<lb/>
+erwerk von Gras und Moos zu reinigen,<lb/>
+es abzuweiſſen und die Lebensmittel in den<lb/>
+Kaſematten zu lüften. In den erſten Tagen<lb/>
+wurde faſt nicht geſchlafen, ſo trieb der un¬<lb/>
+ermüdliche Francoeur zur Arbeit und ſeine<lb/>
+geſchickte Hand fertigte in dieſer Zeit, wozu<lb/>
+<pb n="96" facs="#f0028"/>
+ein anderer wohl einen Monat gebraucht<lb/>
+hätte. Bei dieſer Thätigkeit ließen ihn ſeine<lb/>
+Grillen ruhen; er war haſtig, aber alles zu<lb/>
+einem feſten Ziele, und Roſalie ſegnete den<lb/>
+Tag, der ihn in dieſe höhere Luftregion ge¬<lb/>
+bracht, wo der Teufel keine Macht über<lb/>
+ihn zu haben ſchien. Auch die Witterung<lb/>
+hatte ſich durch Wendung des Windes er¬<lb/>
+wärmt und erhellt, daß ihnen ein neuer<lb/>
+Sommer zu begegnen ſchien; täglich liefen<lb/>
+Schiffe im Hafen ein und aus, grüßten und<lb/>
+wurden begrüßt von den Forts am Meere.<lb/>
+Roſalie, die nie am Meere geweſen, glaubte<lb/>
+ſich in eine andere Welt verſetzt, und ihr<lb/>
+Knabe freute ſich, nach ſo mancher harten<lb/>
+Einkerkerung auf Wagen und in Wirths¬<lb/>
+ſtuben, der vollen Freiheit in dem eingeſchloſ¬<lb/>
+ſenen kleinen Garten des Forts, den die frü¬<lb/>
+heren Bewohner nach Art der Soldaten,<lb/>
+beſonders der Artilleriſten, mit den künſtlich¬<lb/>
+ſten mathematiſchen Linienverbindungen in<lb/>
+Buchsbaum geziert hatten. <supplied>Ihn</supplied><choice><sic>Ueberflatterte</sic><corr>überflatterte</corr></choice><lb/>
+die Fahne mit den Lilien, der Stolz Fran¬<lb/>
+coeurs, ein ſegenreiches Zeichen der Frau,<lb/>
+<fw type="catch" place="bottom">die<lb/>
+</fw>
+<pb n="97" facs="#f0029"/>
+die eine geborne Lilie, die liebſte Unterhaltung<lb/>
+des Kindes. So kam der erſte Son<supplied>n</supplied>tag von Al¬<lb/>
+len geſegnet und Francoeur befahl ſeiner Frau:<lb/>
+für den Mittag ihm etwas Gutes zu beſor¬<lb/>
+gen, wo er ſeinen Freund Baſſet erwarte,<lb/>
+insbeſondre machte er Anſpruch auf einen<lb/>
+guten Eierkuchen, denn die Hüner des Forts<lb/>
+legten fleißig, lieferte auch eine Zahl wilder<lb/>
+Vögel, die Brunet geſchoſſen hatte, in die<lb/>
+Küche. Unter dieſen Vorbereitungen kam<lb/>
+Baſſet hinaufgekeucht und war entzückt über<lb/>
+die Verwandlung des Forts erkundigte ſich<lb/>
+auch im Namen des Kommandanten nach<lb/>
+dem Feuerwerke und erſtaunte über die<lb/>
+große Zahl fertiger Raketen und Leuchtku¬<lb/>
+geln. Die Frau ging nun an ihre Küchen¬<lb/>
+arbeit, die beiden Soldaten zogen aus um<lb/>
+Früchte zur Mahlzeit zu holen, Alle woll¬<lb/>
+ten an dem Tage recht ſelig ſchwelgen und<lb/>
+ſich die Zeitung vorleſen laſſen, die Baſſet<lb/>
+mitgebracht hatte. Im Garten ſaß nun Baſ¬<lb/>
+ſet dem Francoeur gegenüber und ſah ihn ſtill¬<lb/>
+ſchweigend an, dieſer fragte nach der Urſa¬<lb/>
+che. Ich meine, ihr ſeht ſo geſund aus wie<lb/>
+<fw type="sig" place="bottom">IV. [7]<lb/>
+</fw>
+<pb n="93" facs="#f0030"/>
+ſonſt und Alles was ihr thut, iſt ſo vernünf¬<lb/>
+tig. — Wer zweifelt daran? fragte Fran¬<lb/>
+coeur mit einer Aufwallung, das will ich<lb/>
+wiſſen! — Baſſet ſuchte um zu lenken, aber<lb/>
+Francoeur hatte etwas Furchtbares in ſei¬<lb/>
+nem Weſen, ſein dunkles Auge befeuerte<lb/>
+ſich, ſein Kopf erhob ſich, ſeine Lippen dräng¬<lb/>
+ten ſich vor. Das Herz war ſchon dem ar¬<lb/>
+men Schwätzer Baſſet gefallen, er ſprach,<lb/>
+dünnſtimmig wie eine Violine, von Gerüch¬<lb/>
+ten beim Kommandanten: er ſei vom Teu¬<lb/>
+fel geplagt, von ſeinem guten Willen ihn<lb/>
+durch einen Ordensgeiſtlichen, den Vater<lb/>
+Philip exorciren zu laſſen, den er deswegen<lb/>
+vor Tiſche hinaufbeſtellt habe, unter dem<lb/>
+Vorwande, daß er eine Meſſe der vom Got¬<lb/>
+tesdienſt entfernten Garniſon in der kleinen<lb/>
+Kapelle leſen müſſe. Francoeur entſetzte ſich<lb/>
+über die Nachricht, er ſchwur, daß er ſich<lb/>
+blutig an dem rächen wolle, der ſolche Lüge<lb/>
+über ihn ausgebracht, er wiſſe nichts vom<lb/>
+Teufel und wenn es gar keinen gebe, ſo<lb/>
+habe er auch nichts dagegen einzuwenden,<lb/>
+denn er habe nirgends die Ehre ſeiner Be¬<lb/>
+<pb n="99" facs="#f0031"/>
+kanntſchaft gemacht. Baſſet ſagte: er ſey<lb/>
+ganz unſchuldig, er habe die Sache vernom¬<lb/>
+men, als der Kommandant mit ſich laut ge¬<lb/>
+ſprochen habe, auch ſei ja dieſer Teufel die<lb/>
+Urſache, warum Francoeur vom Regimente<lb/>
+fortgekommen. Und wer brachte dem Kom¬<lb/>
+mandanten die Nachricht? fragte Francoeur<lb/>
+zitternd. Eure Frau, antwortete Jener, aber<lb/>
+in der beſten Abſicht, um Euch zu entſchul¬<lb/>
+digen, wenn ihr hier wilde Streiche mach¬<lb/>
+tet. Wir ſind geſchieden! ſchrie Francoeur<lb/>
+und ſchlug ſich vor den Kopf, ſie hat mich<lb/>
+verrathen, mich vernichtet, hat Heimlichkei¬<lb/>
+ten mit dem Kommandanten, ſie hat unend¬<lb/>
+lich viel für mich gethan und gelitten, ſie<lb/>
+hat mir unendlich wehe gethan, ich bin ihr<lb/>
+nichts mehr ſchuldig, wir ſind geſchieden! —<lb/>
+Allmählig ſchien er ſtiller zu werden, je lau¬<lb/>
+ter es in ihm wurde; er ſah wieder den ſchwar¬<lb/>
+zen Geiſtlichen vor Augen, wie die vom tol¬<lb/>
+len Hunde gebiſſenen den Hund immer zu<lb/>
+ſehen meinen, da trat Vater Philip in den<lb/>
+Garten und er ging mit Heftigkeit auf ihn<lb/>
+zu, um zu fragen, was er wolle. Dieſer<lb/>
+<pb n="100" facs="#f0032"/>
+meinte ſeine Beſchwörung anbringen zu<lb/>
+müſſen, redete den Teufel heftig an, indem<lb/>
+er ſeine Hände in kreutzenden Linien über<lb/>
+Francoeur bewegte. Das Alles empörte Fran¬<lb/>
+coeur, er gebot ihm, als Kommandant des<lb/>
+Forts, den Platz ſogleich zu verlaſſen. Aber<lb/>
+der unerſchrockne Philip eiferte um ſo hef¬<lb/>
+tiger gegen den Teufel in Francoeur und<lb/>
+als er ſogar ſeinen Stab erhob, ertrug<lb/>
+Francoeurs militäriſcher Stolz dieſe Drohung<lb/>
+nicht. Mit wüthender Stärke ergriff er den<lb/>
+kleinen Philip bei ſeinem Mantel und warf<lb/>
+ihn über das Gitter, das den Eingang ſchützte,<lb/>
+und wäre der gute Mann nicht an den<lb/>
+Spitzen des Thürgitters mit dem Mantel<lb/>
+hängen geblieben, er hätte einen ſchweren<lb/>
+Fall die ſteinerne Treppe hinunter gemacht.<lb/>
+Nahe dieſem Gitter war der Tiſch gedeckt,<lb/>
+das erinnerte Francoeur an das Eſſen. Er<lb/>
+rief nach dem Eſſen und Roſalie brachte es,<lb/>
+etwas erhitzt vom Feuer, aber ſehr fröh¬<lb/>
+lich, denn ſie bemerkte nicht den Mönch auſ¬<lb/>
+ſer dem Gitter, der ſich kaum vom erſten<lb/>
+Schrecken erholt hatte und ſtill vor ſich be¬<lb/>
+<pb n="101" facs="#f0033"/>
+tete, um neue Gefahr abzuwenden; kaum<lb/>
+beachtete ſie, daß ihr Mann und Baſſet je¬<lb/>
+ner finſter, dieſer verlegen nach dem Tiſche<lb/>
+blickten. Sie fragte nach den beiden Sol¬<lb/>
+daten, aber Francoeur ſagte: Sie können<lb/>
+nacheſſen, ich habe Hunger, daß ich die Welt<lb/>
+zerreiſſen könnte. Darauf legte ſie die Suppe<lb/>
+vor, und gab Baſſet aus Artigkeit das<lb/>
+Meiſte, dann ging ſie nach der Küche, um den<lb/>
+Eierkuchen zu backen. Wie hat denn meine<lb/>
+Frau dem Kommandanten gefallen? fragte<lb/>
+Francoeur. Sehr gut, antwortete Baſſet, er<lb/>
+wünſchte: daß es ihm in der Gefangenſchaft<lb/>
+ſo gut geworden wäre wie euch. Er ſoll<lb/>
+ſie haben! antwortete er! Nach den beiden<lb/>
+Soldaten, die fehlen, fragte ſie, was mir fehlt,<lb/>
+das fragte ſie nicht; euch ſuchte ſie als ei¬<lb/>
+nen Diener des Kommandanten zu gewin¬<lb/>
+nen, darum füllte ſie euren Teller, daß er<lb/>
+überfloß, euch bot ſie das größte Glas<lb/>
+Wein an, gebt Achtung, ſie bringt euch auch<lb/>
+das größte Stück Eierkuchen. Wenn das der<lb/>
+Fall iſt, dann ſtehe ich auf, dann führt ſie<lb/>
+nur fort, und laßt mich hier allein. — Baſ¬<lb/>
+<pb n="102" facs="#f0034"/>
+ſet wollte antworten, aber im Augenblicke<lb/>
+trat die Frau mit dem Eierkuchen herein.<lb/>
+Sie hatte ihn ſchon in drei Stücke ge¬<lb/>
+ſchnitten, ging zu Baſſet und ſchob ihm ein<lb/>
+Stück mit den Worten auf den Teller: Ei¬<lb/>
+nen beſſern Eierkuchen findet ihr nicht beim<lb/>
+Kommandanten, ihr müßt mich rühmen! —<lb/>
+Finſte<supplied>r</supplied> blickte Francoeur in die Schüſſel, die<lb/>
+Lücke war faſt ſo groß wie die beiden Stücke,<lb/>
+die noch blieben, er ſtand auf und ſagte:<lb/>
+Es iſt nicht anders, wir ſind geſchieden!<lb/>
+Mit dieſen Worten ging er nach dem Pul¬<lb/>
+verthurme, ſchloß die eiſerne Thüre auf, trat<lb/>
+ein und ſchloß ſie wieder hinter ſich zu. Die<lb/>
+Frau ſah ihm verwirrt nach und ließ die Schüſſel<lb/>
+fallen. Gott, ihn plagt der Böſe; wenn er nur<lb/>
+nicht Unheil ſtiftet im Pulverthurm. — Iſt das<lb/>
+der Pulverthurm? rief Baſſet, er ſprengt ſich in<lb/>
+die Luft, rettet euch und euer Kind! Mit dieſem<lb/>
+Worte lief er fort, auch der Mönch wagte<lb/>
+ſich nicht wieder herein, und lief ihm nach.<lb/>
+Roſalie eilte in die Wohnung zu ihrem Kinde,<lb/>
+riß es aus dem Schlafe, aus der Wiege,<lb/>
+ſie wußte nichts mehr von ſich, bewußtlos<lb/>
+<pb n="103" facs="#f0035"/>
+wie ſie Francoeur einſt gefolgt, ſo entfloh<lb/>
+ſie ihm mit dem Kinde und ſagte vor ſich<lb/>
+hin: Kind, das thue ich nur deinetwegen,<lb/>
+mir wäre beſſer mit ihm zu ſterben; Hagar,<lb/>
+du haſt nicht gelitten wie ich, denn ich ver¬<lb/>
+ſtoße mich ſelbſt! — Unter ſolchen Gedan¬<lb/>
+ken kam ſie herab auf einem falſchen Wege<lb/>
+und ſtand am ſumpfigen Ufer des Fluſſes.<lb/>
+Sie konnte aus Ermattung nicht mehr ge¬<lb/>
+hen und ſetzte ſich deswegen in einen Na¬<lb/>
+chen, der, nur leicht ans Ufer gefahren, leicht<lb/>
+abzuſtoſſen war und ließ ſich den Fluß her¬<lb/>
+abtreiben; ſie wagte nicht umzublicken, wenn<lb/>
+am Hafen ein Schuß geſchah, meinte ſie:<lb/>
+das Fort ſei geſprengt, und ihr halbes Le¬<lb/>
+ben verloren, ſo verfiel ſie allmählig in ei¬<lb/>
+nen dumpfen fieberartigen Zuſtand.</p><lb/>
+<p>Unterdeſſen waren die beiden Soldaten,<lb/>
+mit Aepfeln und Trauben bepackt, in die<lb/>
+Nähe des Forts gekommen, aber Francoeurs<lb/>
+ſtarke Stimme rief ihnen, indem er eine Flin¬<lb/>
+tenkugel über ihre Köpfe abfeuerte: Zurück!<lb/>
+dann ſagte er durch das Sprachrohr: An<lb/>
+der hohen Mauer werde ich mit euch reden,<lb/>
+<pb n="104" facs="#f0036"/>
+ich habe hier allein zu befehlen und will<lb/>
+auch allein hier leben, ſo lange es dem<lb/>
+Teufel gefällt! Sie wußten nicht was das<lb/>
+bedeuten ſolle, aber es war nichts anders<lb/>
+zu thun, als dem Willen des Sergeanten<lb/>
+Folge zu leiſten. Sie gingen herab zu<lb/>
+dem ſteilen Abhange des Forts, welcher<lb/>
+die hohe Mauer hieß, und kaum wa¬<lb/>
+ren ſie dort angelangt, ſo ſahen ſie Roſa¬<lb/>
+liens Bette und des Kindes Wiege an einem<lb/>
+Seile niederſinken, dem folgten ihre Betten<lb/>
+und Geräthe und Francoeur rief durch das<lb/>
+Sprachrohr: Das Eurige nehmt; Bette<lb/>
+Wiege und Kleider meiner entlaufenen Frau<lb/>
+bringt zum Kommandanten, da werdet ihr<lb/>
+ſie finden; ſagt: das ſchicke ihr Satanas,<lb/>
+und dieſe alte Fahne, um ihre Schande<lb/>
+mit dem Kommandanten zu zu decken! Bei<lb/>
+dieſen Worten warf er die große franzöſi¬<lb/>
+ſche Flagge, die auf dem Fort geweht hatte,<lb/>
+herab und fuhr fort: dem Kommandanten<lb/>
+laſſe ich hierdurch Krieg erklären, er mag<lb/>
+ſich waffnen bis zum Abend, dann werde ich<lb/>
+mein Feuer eröffnen; er ſoll nicht ſchonen<lb/>
+<pb n="105" facs="#f0037"/>
+denn ich ſchone ihn beym Teufel nicht; er<lb/>
+ſoll alle ſeine Hände ausſtrecken, er wird<lb/>
+mich doch nicht fangen; er hat mir den<lb/>
+Schlüſſel zum Pulverthurm gegeben, ich will<lb/>
+ihn brauchen, und wenn er mich zu faſſen<lb/>
+meint, fliege ich mit ihm gen Himmel, vom<lb/>
+Himmel in die Hölle, das wird Staub ge¬<lb/>
+ben. — Brunet wagte endlich zu reden und<lb/>
+rief hinauf: Gedenkt an unſern gnädigſten<lb/>
+König, daß der über euch ſteht, ihm werdet<lb/>
+ihr doch nicht widerſtreben. Dem antwortete<lb/>
+Francoeur: In mir iſt der König aller Kö¬<lb/>
+nige dieſer Welt, in mir iſt der Teufel und im<lb/>
+Namen des Teufels ſage ich euch, redet<lb/>
+kein Wort, ſonſt zerſchmettere ich euch! —<lb/>
+Nach dieſer Drohung packten beide ſtill¬<lb/>
+ſchweigend das Ihre zuſammen und lieſſen<lb/>
+das Uebrige ſtehen; ſie wußten daß oben<lb/>
+große Steinmaſſen angehäuft waren, die<lb/>
+unter der ſteilen Felswand alles zerſchmet¬<lb/>
+tern konnten. Als ſie nach Marſeille zum<lb/>
+Kommandanten kamen, fanden ſie ihn ſchon<lb/>
+in Bewegung, denn Baſſet hatte ihn von<lb/>
+Allem unterrichtet; er ſendete die beiden An¬<lb/>
+<pb n="106" facs="#f0038"/>
+kommenden mit einem Wagen nach dem<lb/>
+Fort, um die Sachen der Frau gegen den<lb/>
+drohenden Regen zu ſichern, Andere ſandte<lb/>
+er aus, um die Frau mit dem Kinde auf<lb/>
+zu finden, während er die Offiziere bei ſich<lb/>
+verſammelte, um mit ihnen zu überlegen,<lb/>
+was zu thun ſei? Die Beſorgniß dieſes Kriegs¬<lb/>
+raths richtete ſich beſonders auf den Ver¬<lb/>
+luſt des ſchönen Forts, wenn es in die Luft<lb/>
+geſprengt würde; bald kam aber ein Abge¬<lb/>
+ſandter der Stadt, wo ſich das Gerücht ver¬<lb/>
+breitet hatte, und ſtellte den Untergang des<lb/>
+ſchönſten Theiles der Stadt als ganz un¬<lb/>
+vermeidlich dar. Es wurde allgemein aner¬<lb/>
+kannt, daß mit Gewalt nicht verfahren wer¬<lb/>
+den dürfe, denn Ehre ſei nicht gegen einen<lb/>
+einzelnen Menſchen zu erringen, wohl aber<lb/>
+ein ungeheuerer Verluſt durch Nachgiebig¬<lb/>
+keit abzuwenden; der Schlaf werde die Wuth<lb/>
+Francoeurs doch endlich überwinden, dann<lb/>
+ſollten entſchloſſene Leute das Fort erklettern<lb/>
+und ihn feſſeln. Dieſer Rathſchluß war<lb/>
+kaum gefaßt, ſo wurden die beiden Solda¬<lb/>
+ten eingeführt, welche Roſaliens Betten und<lb/>
+<pb n="107" facs="#f0039"/>
+Geräth zurückgebracht hatten. Sie hatten<lb/>
+eine Beſtellung Francoeurs zu überbringen,<lb/>
+daß ihm der Teufel verrathen: ſie wollten<lb/>
+ihn im Schlafe fangen, aber er warne ſie<lb/>
+aus Liebe zu einigen Teufelskammeraden,<lb/>
+die zu dem Unternehmen gebraucht werden<lb/>
+ſollten, denn er werde ruhig in ſeinem ver¬<lb/>
+ſchloſſenen Pulverthurme mit geladenen Ge¬<lb/>
+wehren ſchlafen und ehe ſie die Thüre erbre¬<lb/>
+chen könnten, wäre er längſt erwacht und<lb/>
+der Thurm, mit einem Schuſſe in die Pul¬<lb/>
+verfäſſer, zerſprengt. Er hat recht, ſagte der<lb/>
+Kommandant, er kann nicht anders han¬<lb/>
+deln, wir müſſen ihn aushungern. — Er<lb/>
+hat den ganzen Wintervorrath für uns Alle<lb/>
+hinaufgeſchafft, bemerkte Brunet, wir müſ¬<lb/>
+ſen wenigſtens ein halbes Jahr warten,<lb/>
+auch ſagte er, daß ihm die vorbeifahrenden<lb/>
+Schiffe, welche die Stadt verſorgen, reich¬<lb/>
+lichen Zoll geben ſollten, ſonſt bohre er ſie<lb/>
+in den Grund, und zum Zeichen daß nie¬<lb/>
+mand in der Nacht fahren ſollte, ohne ſeine<lb/>
+Bewilligung, werde er am Abend einige Ku¬<lb/>
+geln über den Fluß ſauſen laſſen. Wahrhaf¬<lb/>
+<pb n="108" facs="#f0040"/>
+tig, er ſchießt! rief einer der Offiziere und<lb/>
+Alle liefen nach einem Fenſter des obern<lb/>
+Stockwerks. Welch ein Anblick! an allen<lb/>
+Ecken des Forts eröffneten die Kanonen ih¬<lb/>
+ren feurigen Rachen, die Kugeln ſauſten<lb/>
+durch die Luft, in der Stadt verſteckte ſich<lb/>
+die Menge mit großem Geſchrei und nur<lb/>
+Einzelne wollten ihren Muth im kühnen<lb/>
+Anſchauen der Gefahr beweiſen. Aber ſie<lb/>
+wurden auch reichlich dafür belohnt, denn<lb/>
+mit hellem Lichte ſchoß Francoeur einen<lb/>
+Bündel Raketen aus einer Haubitze in die<lb/>
+Luft, und einen Bündel Leuchtkugeln aus<lb/>
+einem Mörſer, denen er aus Gewehren un¬<lb/>
+zählige andre nachſandte. Der Komman¬<lb/>
+dant verſicherte, dieſe Wirkung ſei treflich,<lb/>
+er habe es nie gewagt, Feuerwerke mit<lb/>
+Wurfgeſchütz in die Luft zu treiben, aber<lb/>
+die Kunſt werde dadurch gewiſſermaſſen zu<lb/>
+einer meteoriſchen, der Francoeur verdiene<lb/>
+ſchon deswegen begnadigt zu werden.</p><lb/>
+<p>Dieſe nächtliche Erleuchtung hatte eine<lb/>
+andre Wirkung, die wohl in keines Men¬<lb/>
+ſchen Abſicht lag; ſie rettete Roſalien und<lb/>
+<pb n="109" facs="#f0041"/>
+ihrem Kinde das Leben. Beide waren in<lb/>
+dem ruhigen Treiben des Kahnes einge¬<lb/>
+ſchlummert und Roſalie ſah im Traume<lb/>
+ihre Mutter von innerlichen Flammen durch¬<lb/>
+leuchtet und verzehrt und fragte ſie: War¬<lb/>
+um ſie ſo leide? Da war’s als ob eine laute<lb/>
+Stimme ihr in die Ohren rief: Mein Fluch<lb/>
+brennt mich wie dich, und kannſt du ihn<lb/>
+nicht löſen, ſo bleib ich eigen allem Böſen.<lb/>
+Sie wollte noch mehr ſprechen, aber Roſa¬<lb/>
+lie war ſchon aufgeſchreckt, ſah über ſich<lb/>
+den Bündel Leuchtkugeln im höchſten Glanze,<lb/>
+hörte neben ſich einen Schiffer rufen: Steu¬<lb/>
+ert links, wir fahren ſonſt ein Boot in den<lb/>
+Grund, worin ein Weib mit einem Kinde<lb/>
+ſitzt. Und ſchon rauſcht die vordere Spitze<lb/>
+eines groſſen Flußſchiffes wie ein geöffneter,<lb/>
+Wallfiſchrachen hinter ihr, da wandte er<lb/>
+ſich links, aber ihr Nachen wurde doch ſeit¬<lb/>
+wärts nachgeriſſen. Helft meinem armen<lb/>
+Kinde! rief ſie und der Haken eines Stan¬<lb/>
+genruders verband ſie mit dem großen<lb/>
+Schiffe das bald darauf Ancker warf. Wäre<lb/>
+das Feuerwerk auf dem Fort Ratonneau<lb/>
+<pb n="110" facs="#f0042"/>
+nicht aufgegangen, rief der eine Schiffer,<lb/>
+ich hätte euch nicht geſehen und wir hätten<lb/>
+euch ohne böſen Willen in den Grund geſe¬<lb/>
+gelt, wie kommt ihr ſo ſpät und allein aufs<lb/>
+Waſſer, warum habt ihr uns nicht ange¬<lb/>
+ſchrieen? Roſalie beantwortete ſchnell die<lb/>
+Fragen und bat nur dringend, ſie nach dem<lb/>
+Hauſe des Kommandanten zu bringen. Der<lb/>
+Schiffer gab ihr aus Mitleid ſeinen Jungen<lb/>
+zum Führer.</p><lb/>
+<p>Sie fand Alles in Bewegung beim Kom¬<lb/>
+mandanten, ſie bat ihn ſeines Verſprechens<lb/>
+eingedenk zu ſein, daß er ihrem Manne<lb/>
+drei Verſehen verzeihen wolle. Er leugnete,<lb/>
+daß von ſolchen Verſehen die Rede gewe¬<lb/>
+ſen, es ſei über Scherz und Grillen geklagt<lb/>
+worden, das ſey aber ein teufliſcher Ernſt. — So<lb/>
+iſt das Unrecht auf eurer Seite, ſagte die<lb/>
+Frau gefaßt, denn ſie fühlte ſich nicht mehr<lb/>
+ſchickſallos, auch habe ich den Zuſtand des<lb/>
+armen Mannes angezeigt und doch habt<lb/>
+ihr ihm einen ſo gefährlichen Poſten ver¬<lb/>
+traut, ihr habt mir Geheimniß angelobt,<lb/>
+und doch habt ihr alles an Baſſet, euren<lb/>
+</p> <p>
+<pb n="—111—" facs="#f0043"/>
+Diener erzählt, der uns mit ſeiner thörigten<lb/>
+Klugheit und Vorwitzigkeit in das ganze<lb/>
+Unglück geſtürzt hat; nicht mein armer<lb/>
+Mann, ihr ſeid an allem Unglück ſchuld,<lb/>
+ihr müßt dem Könige davon Rechenſchaft<lb/>
+geben. — Der Kommandant vertheidigte<lb/>
+ſich gegen den Vorwurf, daß er etwas dem<lb/>
+Baſſet erzählt habe, dieſer geſtand: daß er<lb/>
+ihn im Selbſtgeſpräche belauſcht, und ſo<lb/>
+war die ganze Schuld auf ſeine Seele ge¬<lb/>
+ſchoben. Der alte Mann ſagte: daß er den<lb/>
+andern Tag ſich vor dem Fort wolle todt¬<lb/>
+ſchieſſen laſſen, um ſeinem Könige die Schuld<lb/>
+mit ſeinem Leben abzuzahlen, aber Roſalie<lb/>
+bat ihn, ſich nicht zu übereilen, er möge be¬<lb/>
+denken, daß ſie ihn ſchon einmal aus dem<lb/>
+Feuer gerettet habe. Ihr wurde ein Zim¬<lb/>
+mer im Hauſe des Kommandanten ange¬<lb/>
+wieſen und ſie brachte ihr Kind zur Ruhe,<lb/>
+während ſie ſelbſt mit ſich zu Rathe ging<lb/>
+und zu Gott flehte, ihr anzugeben, wie ſie<lb/>
+ihre Mutter den Flammen und ihren Mann<lb/>
+dem Fluche entreiſſen könne. Aber auf ihren<lb/>
+Knieen verſank ſie in einen tiefen Schlaf<lb/>
+<pb n="112" facs="#f0044"/>
+und war ſich am Morgen keines Traumes,<lb/>
+keiner Eingebung bewußt. Der Komman¬<lb/>
+dant, der ſchon früh einen Verſuch gegen<lb/>
+das Fort gemacht hatte, kam verdrießlich<lb/>
+zurück. Zwar hatte er keine Leute verloren,<lb/>
+aber Francoeur hatte ſo viele Kugeln mit<lb/>
+ſolcher Geſchicklichkeit links und rechts und<lb/>
+über ſie hinſauſen laſſen, daß ſie ihr Leben<lb/>
+nur ſeiner Schonung dankten. Den Fluß<lb/>
+hatte er durch Signalſchüſſe geſperrt, auch<lb/>
+auf der Chauſſee durfte niemand fahren,<lb/>
+kurz, aller Verkehr der Stadt war für die¬<lb/>
+ſen Tag gehemmt und die Stadt drohete,<lb/>
+wenn der Kommandant nicht vorſichtig ver¬<lb/>
+fahre, ſondern wie in Feindes Land ihn zu<lb/>
+belagern denke, daß ſie die Bürger aufbieten<lb/>
+und mit den Invaliden ſchon fertig wer¬<lb/>
+den wolle.</p><lb/>
+<p>Drei Tage ließ ſich der Commandant<lb/>
+ſo hinhalten, jeden Abend verherrlichte ein<lb/>
+Feuerwerk, jeden Abend erinnerte Roſalie<lb/>
+an ſein Verſprechen der Nachſicht. Am drit¬<lb/>
+ten Abend ſagte er ihr: der Sturm ſei<lb/>
+auf den andern Mittag feſtgeſetzt, die Stadt<lb/>
+<fw type="catch" place="bottom">gebe<lb/>
+</fw>
+<pb n="113" facs="#f0045"/>
+g<supplied>e</supplied>be nach, weil aller Verkehr geſtört ſey,<lb/>
+und endlich Hungersnoth ausbrechen könne.<lb/>
+Er werde den Eingang ſtürmen, während<lb/>
+ein andrer Theil von der andern Seite heim¬<lb/>
+lich anzuklettern ſuche, ſo daß dieſe vielleicht<lb/>
+früher ihrem Manne in den Rücken kämen, ehe<lb/>
+er nach dem <choice><sic>Pnlverthurm</sic><corr>Pulverthurm</corr></choice> ſpringen könne; es<lb/>
+werde Menſchen koſten, der Ausgang ſey<lb/>
+ungewiß, aber er wolle den Schimpf von<lb/>
+ſich ablenken daß durch ſeine Feigheit ein<lb/>
+toller Menſch zu dem Dünkel gekommen:<lb/>
+einer ganzen Stadt zu trotzen, das größte<lb/>
+Unglück ſei ihm lieber, als dieſer Verdacht,<lb/>
+er habe ſeine Angelegenheiten mit der Welt<lb/>
+und vor Gott zu ordnen geſucht, Roſalie<lb/>
+und ihr Kind würden ſich in ſeinem Teſta¬<lb/>
+mente nicht vergeſſen finden. Roſalie fiel<lb/>
+ihm zu Füßen und fragte: was denn das<lb/>
+Schickſal ihres Mannes ſey, wenn er im<lb/>
+Sturme gefangen würde? Der Kommandant<lb/>
+wendete ſich ab und ſagte leiſe: der Tod un¬<lb/>
+ausbleiblich, auf Wahnſinn würde von kei¬<lb/>
+nem Kriegsgerichte erkannt werden, es iſt<lb/>
+zu viel Einſicht, Vorſicht und Klugheit in<lb/>
+<fw type="sig" place="bottom">IV. [8]<lb/>
+</fw>
+<pb n="114" facs="#f0046"/>
+der ganzen Art, wie er ſich nimmt; der Teu¬<lb/>
+fel kann nicht vor Gericht gezogen werden,<lb/>
+er muß für ihn leiden. — Nach einem Strome<lb/>
+von Thränen erholte ſich Roſalie und ſagte:<lb/>
+Wenn ſie das Fort, ohne Blutvergieſſen,<lb/>
+ohne Gefahr, in die Gewalt des Komman¬<lb/>
+danten brächte, würde dann ſein Vergehen<lb/>
+als ein Wahnſinn Begnadigung finden? —<lb/>
+Ja, ich ſchwör’s! rief der Kommandant, aber<lb/>
+es iſt vergeblich, euch haßt er vor Allen,<lb/>
+und rief geſtern einem unſrer Vorpoſten<lb/>
+zu, er wolle das Fort übergeben, wenn wir<lb/>
+ihm den Kopf ſeiner Frau ſchicken könnten.<lb/>
+Ich kenne ihn, ſagte die Frau, ich will den<lb/>
+Teufel beſchwören in ihm, ich will ihm Frie¬<lb/>
+den geben, ſterben würde ich doch mit ihm,<lb/>
+alſo iſt nur Gewinn für mich, wenn ich<lb/>
+von ſeiner Hand ſterbe, der ich vermählt<lb/>
+bin durch den heiligſten Schwur. — Der<lb/>
+Kommandant bat ſie, ſich wohl zu beden¬<lb/>
+ken, erforſchte ihre Abſicht, widerſtand aber<lb/>
+weder ihren Bitten, noch der Hoffnung, auf<lb/>
+dieſem Wege dem gewiſſen Untergange zu<lb/>
+entgehen.</p><lb/>
+<pb n="115" facs="#f0047"/>
+<p>Vater Philip hatte ſich im Hauſe ein¬<lb/>
+gefunden und erzählte: der unſinnige Fran¬<lb/>
+coeur habe jetzt eine große weiße Flagge<lb/>
+ausgeſteckt, auf welcher der Teufel gemahlt<lb/>
+ſey, aber der Kommandant wollte nichts<lb/>
+von ſeinen Neuigkeiten wiſſen, und befahl<lb/>
+ihm: zu Roſalien zu gehen, die ihm beichten<lb/>
+wolle. Nachdem Roſalie ihre Beichte in al¬<lb/>
+ler Ruhe eines gottergebnen Gemüthes ab¬<lb/>
+gelegt hatte, bat ſie den Vater Philip: ſie<lb/>
+nur bis zu einem ſichern Steinwalle zu be¬<lb/>
+gleiten, wo keine Kugel ihn treffen könne,<lb/>
+dort wolle ſie ihm ihr Kind und Geld zur<lb/>
+Erziehung deſſelben übergeben, ſie könne ſich<lb/>
+noch nicht von dem lieben Kinde trennen.<lb/>
+Er verſprach es ihr zögernd, nachdem er<lb/>
+ſich im Hauſe erkundigt hatte: ob er auch<lb/>
+dort noch ſicher gegen die Schüſſe ſei, denn<lb/>
+ſein Glaube, Teufel austreiben zu können,<lb/>
+hatte ſich in ihm ganz verloren, er geſtand,<lb/>
+was er bisher ausgetrieben hätte, möchte<lb/>
+wohl der rechte Teufel nicht geweſen ſein,<lb/>
+ſondern ein geringerer Spuk.</p><lb/>
+<p>Roſalie kleidete ihr Kind noch einmal<lb/>
+<pb n="116" facs="#f0048"/>
+unter mancher Thräne weiß mit rothen<lb/>
+Bandſchleifen an, dann nahm ſie es auf<lb/>
+den Arm und ging ſchweigend die Treppe<lb/>
+hinunter. Unten ſtand der alte Komman¬<lb/>
+dant und konnte ihr nur die Hand drücken<lb/>
+und mußte ſich umwenden, weil er ſich der<lb/>
+Thränen vor den Zuſchauern ſchämte. So<lb/>
+trat ſie auf die Straße, Keiner wußte ihre<lb/>
+Abſicht, Vater Philip blieb etwas zurück, weil<lb/>
+er des Mitgehens gern überhoben geweſen,<lb/>
+dann folgte die Menge müſſiger Menſchen<lb/>
+auf den Straßen, die ihn fragten: was es<lb/>
+bedeute? Viele fluchten auf Roſalien, weil<lb/>
+ſie Francoeurs Frau war, aber dieſer Fluch<lb/>
+berührte ſie nicht.</p><lb/>
+<p>Der Kommandant führte unterdeſſen<lb/>
+ſeine Leute auf verborgenen Wegen nach<lb/>
+den Plätzen, von welchen der Sturm eröff¬<lb/>
+net werden ſollte, wenn die Frau den Wahn¬<lb/>
+ſinn des Mannes nicht beſchwören könnte.</p><lb/>
+<p>Am Thore ſchon verließ die Menge<lb/>
+Roſalien, denn Francoeur ſchoß von Zeit<lb/>
+zu Zeit über dieſe Fläche, auch Vater Phi¬<lb/>
+lip klagte, daß ihm ſchwach werde, er müſſe<lb/>
+<pb n="117" facs="#f0049"/>
+ſich niederlaſſen. Roſalie bedauerte es und<lb/>
+zeigte ihm den Felſenwall, wo ſie ihr Kind<lb/>
+noch einmal ſtillen und es dann in den<lb/>
+Mantel nieder legen wollte, dort möge es<lb/>
+geſucht werden, da liege es ſicher aufbe¬<lb/>
+wahrt, wenn ſie nicht zu ihm zurück kehren<lb/>
+könne. Vater Philip ſetzte ſich betend hin¬<lb/>
+ter den Felſen und Roſalie ging mit feſtem<lb/>
+Schritt dem Steinwalle zu, wo ſie ihr Kind<lb/>
+tränkte und ſegnete, es in ihren Mantel<lb/>
+wickelte und in Schlummer brachte. Da ver¬<lb/>
+ließ ſie es mit einem Seufzer, der die Wolken<lb/>
+in ihr brach, daß blaue Hellung und das ſtär¬<lb/>
+kende Sonnenbild ſie beſtrahlten. Nun war<lb/>
+ſie dem harten Manne ſichtbar, als ſie am<lb/>
+Steinwalle heraustrat, ein Licht ſchlug am<lb/>
+Thore auf, ein Druck, als ob ſie umſtür¬<lb/>
+zen müßte, ein Rollen in der Luft, ein Sau¬<lb/>
+ſen, daß ſich damit miſchte, zeigten ihr an:<lb/>
+daß der Tod nahe an ihr vorüber gegan¬<lb/>
+gen. Es wurde ihr aber nicht mehr bange,<lb/>
+eine Stimme ſagte ihr innerlich: daß nichts<lb/>
+untergehen könne, was dieſen Tag beſtan¬<lb/>
+den und ihre Liebe zum Manne, zum Kinde<lb/>
+<pb n="118" facs="#f0050"/>
+regte ſich noch in ihrem Herzen, als ſie ihren<lb/>
+Mann vor ſich auf dem Feſtungswerke ſte¬<lb/>
+hen und laden, das Kind hinter ſich ſchreien<lb/>
+hörte; ſie thaten ihr Beide mehr leid<lb/>
+als ihr eignes Unglück, und der ſchwere<lb/>
+Weg war nicht der ſchwerſte Gedanke ihres<lb/>
+Herzens. Und ein neuer Schuß betäubte<lb/>
+ihre Ohren und ſchmetterte ihr Felsſtaub ins<lb/>
+Geſicht, aber ſie betete und ſah zum Him¬<lb/>
+mel. So betrat ſie den engen Felsgang,<lb/>
+der wie ein verlängerter Lauf, für zwei mit<lb/>
+Kartätſchen geladene Kanonen mit bos¬<lb/>
+haftem Geize die Maſſe des verderblichen<lb/>
+Schuſſes gegen die Andringenden zuſammen<lb/>
+zu halten beſtimmt war. — Was ſiehſt du<lb/>
+Weib! brüllte Francoeur, ſieh nicht in die<lb/>
+Luft, deine Engel kommen nicht, hier ſteht<lb/>
+dein Teufel und dein Tod. — Nicht Tod,<lb/>
+nicht Teufel trennen mich mehr von dir,<lb/>
+ſagte ſie getroſt, und ſchritt weiter hinauf<lb/>
+die großen Stufen. Weib, ſchrie er, du haſt<lb/>
+mehr Muth als der Teufel, aber es ſoll dir<lb/>
+doch nichts helfen. — Er blies die Lunte<lb/>
+an, die eben verlöſchen wollte, der Schweis<lb/>
+<pb n="119" facs="#f0051"/>
+ſtand ihm hellglänzend über Stirn und<lb/>
+Wangen, es war als ob zwei Naturen in<lb/>
+ihm rangen. Und Roſalie wollte nicht die¬<lb/>
+ſen Kampf hemmen und der Zeit vorgrei¬<lb/>
+fen, auf die ſie zu vertrauen begann; ſie<lb/>
+ging nicht vor, ſie kniete auf die Stufe nie¬<lb/>
+der, als ſie drei Stufen von den Kanonen<lb/>
+entfernt war, wo ſich das Feuer kreutzte.<lb/>
+Er riß Rock und Weſte an der Bruſt auf,<lb/>
+um ſich Luft zu machen, er griff in ſein<lb/>
+ſchwarzes Haar, das verwildert in Locken<lb/>
+ſtarrte und riß es ſich wüthend aus. Da öff¬<lb/>
+nete ſich die Wunde am Kopfe in dem wil¬<lb/>
+den Erſchüttern durch Schläge, die er an<lb/>
+ſeine Stirn führte, Thränen und Blut löſch¬<lb/>
+ten den brennenden Zundſtrick, ein Wirbel¬<lb/>
+wind warf das Pulver von den Zündlö¬<lb/>
+chern der Kanonen und die Teufelsflagge<lb/>
+vom Thurm. Der Schornſteinfeger macht<lb/>
+ſich Platz, er ſchreit zum Schornſtein hin¬<lb/>
+aus! rief er, und deckte ſeine Augen. Dann<lb/>
+beſann er ſich, öffnete die Gitterthüre, ſchwankte<lb/>
+zu ſeiner Frau, hob ſie auf, küßte ſie, end¬<lb/>
+lich ſagte er: Der ſchwarze Bergmann hat<lb/>
+<pb n="120" facs="#f0052"/>
+ſich durchgearbeitet, es ſtrahlt wieder Licht<lb/>
+in meinen Kopf und Luft zieht hindurch<lb/>
+und die Liebe ſoll wieder ein Feuer zünden,<lb/>
+daß uns nicht mehr friert. Ach Gott, was<lb/>
+hab' ich in dieſen Tagen verbrochen. Laß<lb/>
+<choice><sic>nns</sic><corr>uns</corr></choice> nicht feiern, ſie werden mir nur wenig<lb/>
+Stunden noch ſchenken, wo iſt mein Kind,<lb/>
+ich muß es küſſen, weil ich noch frei bin;<lb/>
+was iſt ſterben? Starb' ich nicht ſchon ein¬<lb/>
+mal, als du mich verlaſſen und nun kommſt<lb/>
+du wieder und dein Kommen giebt mir<lb/>
+mehr, als dein Scheiden mir nehmen konnte,<lb/>
+ein unendliches Gefühl meines Daſeins, deſ¬<lb/>
+ſen Augenblicke mir genügen. Nun lebte ich<lb/>
+gern mit dir und wäre deine Schuld noch<lb/>
+größer als meine Verzweiflung geweſen,<lb/>
+aber ich kenne das Kriegsgeſetz und ich kann<lb/>
+nun Gottlob in Vernunft als ein reuiger<lb/>
+Chriſt ſterben. — Roſalie konnte in ihrer<lb/>
+Entzückung, von ihren Thränen faſt er¬<lb/>
+ſtickt, kaum ſagen, daß <hi rendition="#g">ihm</hi> verziehen, daß<lb/>
+<hi rendition="#g">ſie</hi> ohne Schuld und ihr Kind nahe ſey.<lb/>
+Sie verband ſeine Wunde in Eile, dann zog<lb/>
+ſie ihn die Stufen hinunter bis hin zu dem<lb/>
+<pb n="121" facs="#f0053"/>
+Steinwalle, wo ſie das Kind verlaſſen. Da fan¬<lb/>
+den ſie den guten Vater Philip bei dem Kinde,<lb/>
+der allmählig hinter Felsſtücken zu ihm hin¬<lb/>
+geſchlichen war, und das Kind ließ etwas<lb/>
+aus den Händen fliegen, um nach dem Va¬<lb/>
+ter ſie auszuſtrecken. Und während ſich alle<lb/>
+drei umarmt hielten, erzählte Vater Philip,<lb/>
+wie ein Taubenpaar vom Schloß herunter<lb/>
+geflattert ſei und mit dem Kinde artig ge¬<lb/>
+ſpielt, ſich von ihm habe anrühren laſſen,<lb/>
+und es gleichſam in ſeiner Verlaſſenheit ge¬<lb/>
+tröſtet habe. Als er das geſehen, habe er<lb/>
+ſich dem Kinde zu nahen gewagt. Sie wa¬<lb/>
+ren, wie gute Engel, meines Kindes Spiel¬<lb/>
+kammeraden auf dem Fort geweſen, ſie ha¬<lb/>
+ben es treulich aufgeſucht, ſie kommen ſicher<lb/>
+wieder und werden es nicht verlaſſen. Und<lb/>
+wirklich umflogen ſie die Tauben freundlich<lb/>
+und trugen in ihren Schnäbeln grüne Blät¬<lb/>
+ter. Die Sünde iſt uns geſchieden, ſagte<lb/>
+Francoeur nie will ich wieder auf den Frie¬<lb/>
+den ſchelten, der Friede thut mir ſo gut.</p><lb/>
+<p>Inzwiſchen hatte ſich der Kommandant<lb/>
+mit ſeinen Offizieren genähert, weil er den<lb/>
+<pb n="122" facs="#f0054"/>
+glücklichen Ausgang durch ſein Fernrohr<lb/>
+geſehen. <choice><sic>Fraucoeur</sic><corr>Francoeur</corr></choice> übergab ihm ſeinen De¬<lb/>
+gen, er kündigte Francoeur Verzeihung an,<lb/>
+weil ſeine Wunde ihn des Verſtandes be¬<lb/>
+raubt gehabt und befahl einem Chirurgen:<lb/>
+dieſe Wunde zu unterſuchen und beßer zu ver¬<lb/>
+binden. Francoeur ſetzte ſich nieder und ließ<lb/>
+ruhig Alles mit ſich geſchehen, er ſah nur Frau<lb/>
+und Kind an. Der Chirurg wunderte ſich,<lb/>
+daß er keinen Schmerz zeigte, er zog ihm<lb/>
+einen Knochenſplitter aus der Wunde, der<lb/>
+rings umher eine Eiterung hervorgebracht<lb/>
+hatte; es ſchien als ob die gewaltige Natur<lb/>
+Francoeurs ununterbrochen und allmählig an<lb/>
+der Hinausſchaffung gearbeitet habe, bis ihm<lb/>
+endlich äußere Gewalt, die eigne Hand ſeiner<lb/>
+Verzweiflung die äußere Rinde durchbro¬<lb/>
+chen. Er verſicherte, daß ohne dieſe glückliche<lb/>
+Fügung ein unheilbarer Wahnſinn den un¬<lb/>
+glücklichen Francoeur hätte aufzehren müſ¬<lb/>
+ſen. Damit ihm keine Anſtrengung ſchade,<lb/>
+wurde er auf einen Wagen gelegt und ſein<lb/>
+Einzug in Marſeille glich unter einem Volke,<lb/>
+das Kühnheit immer mehr als Güte zu<lb/>
+<pb n="123" facs="#f0055"/>
+achten weiß, einem Triumphzuge; die Frauen<lb/>
+warfen Lorbeerkränze auf den Wagen, Alles<lb/>
+drängte ſich den ſtolzen <choice><sic>Böſewich t</sic><corr>Böſewicht</corr></choice> kenne<supplied>n</supplied><lb/>
+zu lernen, der ſo viele tauſend Menſchen<lb/>
+während drei Tage beherrſcht hatte. Die<lb/>
+Männer aber reichten ihre Blumenkränze<lb/>
+Roſalien und ihrem Kinde und rühmten ſie<lb/>
+als <choice><sic>Brfreierin</sic><corr>Befreierin</corr></choice> und ſchwuren ihr und dem<lb/>
+Kinde reichlich zu vergelten, daß ſie ihre<lb/>
+Stadt vom Untergange gerettet habe.</p><lb/>
+<p>Nach ſolchem Tage läßt ſich in <hi rendition="#g">einem</hi><lb/>
+Menſchenleben ſelten noch etwas erleben,<lb/>
+was der Mühe des Erzählens werth wäre,<lb/>
+wenn gleich die Wiederbeglückten, die Fluch¬<lb/>
+befreiten, erſt in dieſen ruhigeren Jahren<lb/>
+den ganzen Umfang des gewonnenen Glücks<lb/>
+erkannten. Der gute alte Kommandant nahm<lb/>
+Francoeur als Sohn an und konnte er ihm<lb/>
+auch nicht ſeinen Namen übertragen, ſo ließ<lb/>
+er ihm doch einen Theil ſeines Vermögens<lb/>
+und ſeinen Segen. Was aber Roſalie noch<lb/>
+inniger berührte, war ein Bericht, der erſt<lb/>
+nach Jahren aus Prag einlief, in welchem<lb/>
+ein Freund der Mutter anzeigte, daß dieſe<lb/>
+<pb n="124" facs="#f0056"/>
+wohl ein Jahr, unter verzehrenden Schmer¬<lb/>
+zen, den Fluch bereut habe, den ſie über<lb/>
+ihre Tochter ausgeſtoſſen, und, bei dem ſehn¬<lb/>
+lichen Wunſche nach Erlöſung des Leibes<lb/>
+und der Seele, ſich und der Welt zum Ueber¬<lb/>
+druß bis zu dem Tage gelebt habe, der<lb/>
+Roſaliens Treue und Ergebenheit in Gott<lb/>
+gekrönt, an dem Tage ſei ſie, durch einen<lb/>
+Strahl aus ihrem Innern beruhigt, im<lb/>
+gläubigen Bekenntniß des Erlöſers ſelig ent¬<lb/>
+ſchlafen.</p><lb/>
+<lg type="poem"> <l> <hi rendition="#g">Gnade</hi> löſt den Fluch der <hi rendition="#g">Sünde</hi>,<lb/>
+Liebe treibt den <hi rendition="#g">Teufel</hi> aus.</l> </lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</div>
+<pb facs="#f0057"/>
+</body> </text> </TEI>

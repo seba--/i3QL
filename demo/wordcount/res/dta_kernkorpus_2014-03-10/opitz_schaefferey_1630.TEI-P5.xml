@@ -1,0 +1,2187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Schäfferey Von der Nimfen Hercinie</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118590111">
+<surname>Opitz</surname>
+<forename>Martin</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">72</measure>
+<measure type="tokens">16636</measure>
+<measure type="types">4414</measure>
+<measure type="characters">112242</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:59Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/opitz_schaefferey_1630</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/opitz_schaefferey_1630</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/opitz_schaefferey_1630</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/opitz_schaefferey_1630</idno>
+<idno type="DTADirName">opitz_schaefferey_1630</idno>
+<idno type="DTAID">20445</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905197863</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Opitz, Martin: Schäfferey Von der Nimfen Hercinie. Breslau, 1630.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Schäfferey Von der Nimfen Hercinie</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118590111">
+<surname>Opitz</surname>
+<forename>Martin</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">66 S., [1] Bl.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Müller</name></publisher>
+<publisher><name>Gründer</name></publisher>
+<pubPlace>Breslau</pubPlace>
+<pubPlace>Brieg</pubPlace>
+<date type="publication">1630</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>HAB Wolfenbüttel</repository>
+<idno>
+<idno type="shelfmark">HAB Wolfenbüttel, A: 50.13 Poet. (9)</idno>
+<idno type="URLCatalogue">Dig: http://diglib.hab.de/drucke/50-13-poet-9/start.htm</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Schäferdichtung</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb n="[1]" facs="#f0001"/>
+<titlePage type="main"><byline><docAuthor><hi rendition="#b">Martin Opitzen</hi></docAuthor></byline><lb/>
+<docTitle><titlePart type="main">Schaͤfferey<lb/>
+Von der Nimfen Hercinie.</titlePart></docTitle><lb/>
+<docImprint>Gedruckt zum Brieg/<lb/>
+<publisher><hi rendition="#b">In verlegung David Muͤllers Buch-</hi><lb/>
+handlers </publisher><pubPlace>in Breßlaw.</pubPlace> <docDate>1630.</docDate></docImprint></titlePage><lb/>
+<pb n="[2]" facs="#f0002"/>
+<pb n="3" facs="#f0003"/>
+<div n="1"><head><hi rendition="#b">Dem Hochwolgebornen Herrn/<lb/>
+Herrn Hanſen Vlrichen/ Schaff-<lb/>
+Gotſch genant/ des Heiligen Roͤmiſchen</hi><lb/>
+Reiches Semper-Freyen/ von vnd auff Kinaſt/ Greif-<lb/>
+fenſtein vnd Kemnitz/ Frey Herrn auff Trachenberg/ Herrn zur<lb/>
+Praußnitz vnd Schmiedeberg/ auff Gierßdorff/ Hertwigswalde<lb/>
+vnd Rauſchke; Roͤm. Kayſ. auch zue Hungarn vnd Boͤhaimb<lb/>
+Koͤn. Maͤy. Cammerern/ Kriegesrhate/ vnd Obriſten/<lb/>
+meinem Gnaͤdigen Herren.</head><lb/>
+<p><hi rendition="#in">H</hi>Ochwolgeborner Herr/ Gnaͤdiger Herr vndt<lb/>
+Obriſter; Die Deutſche ſprache/ von welcher etzliche jhare<lb/>
+her hoffnung geweſen/ daß ſie/ ſonderlich durch vermittelung Poͤe-<lb/>
+tiſcher ſchrifften/ des eingemengten weſens der außlaͤnder ehiſt<lb/>
+moͤchte befreyet/ vnd in jhre alte ziehr vnd reinigkeit wiederumb<lb/>
+eingeſetzt werden/ hatt zu jhrem vngluͤcke gleich eine ſolche zeit an-<lb/>
+getroffen/ da nicht die gewalt der waffen/ die auff landt vndt leute<lb/>
+vndt nicht auff beſtreitung der wißenſchafft angeſehen/ ſondern die<lb/>
+menſchen aller tugendt dermaßen gehaͤßig ſindt/ daß guete gemuͤ-<lb/>
+ter/ ſo hierbey das jhrige zue thun ſich vnterwunden/ nichts anders<lb/>
+als einen theils verachtung/ andern theils mißgunſt darvon getra-<lb/>
+gen haben Dieſem ſchreibet man zu tunckel/ jenem gar zue deutſch:<lb/>
+welche bedencken moͤchten/ daß der/ den die warheit in die augen<lb/>
+ſticht/ ſeynes wandels vnd lebens wegen jhm nicht muße wol be-<lb/>
+wußt ſein; die andern aber/ ſich nicht vber die vnverſtaͤndtligkeit<lb/>
+derer die ſchreiben/ ſondern vber den vnverſtandt beklagen ſolten/<lb/>
+daß ſie nichts gelernet haben. Mitt denen/ welche fůr geben/ man<lb/>
+<fw type="sig" place="bottom">A ij</fw><fw type="catch" place="bottom">koͤnne</fw><lb/>
+<pb n="4" facs="#f0004"/>
+koͤnne gleichwol der frembden woͤrter/ bey hofe vndt anderer gele-<lb/>
+genheit/ in ſatzſchrifften/ vnterredungen vndt auffwarten/ uͤbel ent-<lb/>
+beren/ wil ich es faſt darumb halten/ daß ſich zue beſorgen/ ſolte<lb/>
+man die Welſchen vndt Frantzoͤſiſchen ſachen alle außmuſtern/ ſo<lb/>
+wuͤrden beydes jhre hochgefaͤhrliche reiſen zue lande vndt ſee/ die<lb/>
+zue erlernung der ſprachen fuͤrnemlich gerichtet geweſen/ den groͤſ-<lb/>
+ſeſten theil jhres nutzens nicht erlangen/ vndt dann jhr anſehen/<lb/>
+daß nemlich auff einwerffung ſolcher hoͤffligkeiten nicht wenig be-<lb/>
+ruhet/ vmb ein merckliches geſchmaͤlert werden.</p><lb/>
+<p>Etzliche vernichten die Poeterey gar miteinander: die als leute<lb/>
+von keiner vernunfft/ auch keiner antwort wuͤrdig ſindt. Etzliche/<lb/>
+vndt dieſe die kluͤgeſten/ geſtehen zwar/ daß hierdurch die ſprache<lb/>
+mercklich verbeßert/ die beredtſamkeit in ſchwang gebracht/ vndt<lb/>
+viel guetes herfuͤr geſucht werde ſagen aber/ es geſchehe doch nicht<lb/>
+ohn verletzung der alten einfalt/ vndt deutſchen fromen ſitten:<lb/>
+weil in dieſer art buͤchern gleichwol nicht wenig zue finden ſey/ daß<lb/>
+aͤrgerniß zue vermeiden wol koͤndte nachbleiben. Wie nun frey-<lb/>
+lich zue wuͤndtſchen were/ daß edele gemůter jhre ſtattliche beſchaf-<lb/>
+fenheiten lieber an ſonſt etwas/ als eine vndt andere außſchrei-<lb/>
+tung verwenden vndt anlegen wolten ſo mußen wir doch auch ge-<lb/>
+ſtehen/ daß eben in ſolchen weltlichen ſchrifften (der heiligen lobge-<lb/>
+ſaͤnge/ der buͤcher von Kriegesthaten vndt friedenskuͤnſten/ der<lb/>
+gluͤckwůndtſchungen/ der troſtgetichte/ der naturbeſchreibungen/<lb/>
+vndt was dergleichen iſt/ zue geſchweigen) viel herrliche exempel/<lb/>
+lehren vndt vnterweiſungen herfuͤr leuchten/ vmb derer willen<lb/>
+man wol ein auge zuedrucken/ vndt einen ſolchen dornſtrauch/ an-<lb/>
+geſehen daß er viel liebliche roſen tregt/ vnaußgerottet laßen kan.<lb/>
+Dieſes buch/ Gnaͤdiger Herr/ wie es dem erſten anſehen nach auch<lb/>
+mitt einer vberbleibung der jugendt bekleidet zue ſein ſcheinet; alſo<lb/>
+<fw type="catch" place="bottom">wirdt</fw><lb/>
+<pb n="5" facs="#f0005"/>
+wirdt es in der that viel ein anders erweiſen/ wann es jhm zuevor<lb/>
+durch erwehnung einer liebe/ die ich fuͤglicher mir/ wiewol ſie mir<lb/>
+niemals in den ſinn iſt kommen/ als einem andern antichten wol-<lb/>
+len/ die liebe des leſers (weil man ie heutiges tages der eitelkeit ſo<lb/>
+gern augen vndt hertze goͤnnet) wirdt erbuhlet haben. Der jnnhalt<lb/>
+beruhet kuͤrtzlich darauff: Es befinden ſich bey anbrechen der mor-<lb/>
+genroͤthe drey gelehrte Poeten/ von denen der eine dem Hochfuͤrſt-<lb/>
+lichen Hauſe Lignitz vndt Briegk nicht weniger als ich verbunden/<lb/>
+vndt E. Gn. wol bekandt iſt/ nebenſt mir/ der ich mehr den namen<lb/>
+als das verdienſt habe/ vmb die luſtigen berge/ waͤlder vndt wieſen<lb/>
+ſo E. Gn. gehoͤrig ſindt/ reden vnter geſtalt der hirten (wie vorzei-<lb/>
+ten Theocritus/ Virgilius/ Nemeſianus/ Calpurnius/ heutiges<lb/>
+tages Sannazar/ Balthaſar Caſtilion/ Laurentz Gambara/ Rit-<lb/>
+ter Sidney/ Der von Vrfe vndt andere/ gethan haben) von tu-<lb/>
+gendt/ von reiſen vndt dergleichen ſo lange/ biß ſie vnter dem Rie-<lb/>
+ſengefilde vndt Flintzberge an der luſtigen bach des Zackens auff<lb/>
+die werthe Nimfe Hercinie treffen/ welche jhnen in den hoͤlen vnd<lb/>
+kluͤfften der erden die vrſpruͤnge der fluͤße hieſiger gegendt/ jhre<lb/>
+vndt jhrer ſchweſtern gemaͤcher vndt luſtige grotten hoͤfflich zeiget/<lb/>
+fuͤr allen dingen aber E. Gn. vndt derſelbten hochrhuͤmlichen Vor-<lb/>
+fahren thaten vndt gedaͤchtniß entwirfft vnd zeiget. Hierauff ſie<lb/>
+nach enturlaubung ſich ſelbiger orten weiter vmbſehen/ vndt nechſt<lb/>
+anderem verlauffe/ auch betrachtung des Warmen Brunnens/<lb/>
+welchen E. Gn. newlicher zeit durch jhren artlichen baw noch an-<lb/>
+genemer gemacht hatt/ mitt dem tage vndt abſchiede der Sonnen<lb/>
+jhre vnterredung beſchließen. Wie ich die erfindung an ſeinem ort/<lb/>
+vndt dem vrtheile des Leſers anheimgeſtellet ſein laße; alſo wirdt<lb/>
+ſie doch zum wenigſten anderen/ denen beßere gaben vndt mehr<lb/>
+zeit als mir verlihen ſindt/ hoffentlich anlaß reichē/ vnſere ſprache/<lb/>
+<fw type="sig" place="bottom">A iij</fw><fw type="catch" place="bottom">darinnen</fw><lb/>
+<pb n="6" facs="#f0006"/>
+darinnen ſich vormals keiner dergleichen zue erdencken/ bemuͤhet<lb/>
+hatt/ auch mit dieſer nicht weniger nutzbaren als luſtigen art ſchrif-<lb/>
+ten mehr vndt mehr zue bereichern E. Gn. belangendt/ Gnaͤdiger<lb/>
+Herr/ halte ich mich wol verſichert/ wie von Deroſelbten eine ge-<lb/>
+raume zeit her ich allen gnaͤdigen willen vndt wolmeinen geſpuͤret;<lb/>
+alſo werde E. Gn. auch meiner Hereinien vorwitze verzeihen/ vndt<lb/>
+hieſige Schrifft/ ſo zue E Gn. wolverdientem lobe vndt vnſterb-<lb/>
+ligkeit angeſehen iſt/ Ihrer gnaͤdigen augen wuͤrdigen/ ſolche auch<lb/>
+zum wenigſten ein geringes pfandt vndt anzeigung ſein laßen/ daß/<lb/>
+Gnaͤdiger Herr/ ich jederzeit ſey vndt verbleibe</p><lb/>
+<closer><salute>E. Gn.</salute></closer><lb/>
+<dateline>Glatz/ zue außgange<lb/>
+des 1629 Ihares.</dateline><lb/>
+<closer><salute><hi rendition="#et">gehorſamber Diener<lb/>
+<hi rendition="#b">Martin Opitz.</hi></hi></salute></closer><lb/>
+<fw type="catch" place="bottom">Mar-</fw></div></front><body><lb/>
+<pb n="7" facs="#f0007"/>
+<div n="1"><head><hi rendition="#b">Martin Opitzen Schaͤfferey<lb/>
+von der Nimfen Hercinie.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>S lieget dißeits dem Sudetiſchen gefilde/ wel-<lb/>
+ches Boͤhaimb von Schleſien trennet/ vnter dem anmuti-<lb/>
+gen Rieſenberge ein thal/ deßen weitſchweiffiger vmbkreiß einem<lb/>
+halben zirckel gleichet/ vndt mitt vielen hohen warten/ ſchoͤnen<lb/>
+baͤchen/ doͤrffern/ maierhoͤfen vndt ſchaͤffereyen erfuͤllet iſt. Du<lb/>
+koͤndteſt es einen wohnplatz aller frewden/ eine froͤliche einſamkeit/<lb/>
+ein luſthauß der Nimfen vndt Feldtgoͤtter/ ein meiſterſtuͤcke der<lb/>
+Natur nennen. Daſelbſt befandt ich mich/ nach dem ich die zeit<lb/>
+zue vertreiben/ vndt meinen gedancken deſto freyer nach zue hen-<lb/>
+gen/ vor zweyen tagen von einem andern orte/ welcher eben mitt<lb/>
+dieſem gebirge graͤntzet/ vndt des außgeſtandenen vbels wegen<lb/>
+bey jtzo ſchwebenden jaͤmmerlichen kriegen/ nicht vnbekandt iſt/<lb/>
+entwiechen war.<lb/>
+<lg type="poem"><l><hi rendition="#fr">Der Monde machte gleich mehr ſtunden zue den traͤwmen/</hi></l><lb/>
+<l><hi rendition="#fr">Der ſtock ſtundt ohne wein/ das obſt war von den baͤwmen/</hi></l><lb/>
+<l><hi rendition="#fr">Der ſtrenge Nortwindt nam den puͤſchen jhre ziehr/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt auff die Wage tratt der Scorpion herfuͤr;</hi></l></lg><lb/>
+Mitt einem worte: Es war zue ende des Weinmonats/ als die hir-<lb/>
+ten im felde ein fewer zue machen/ vndt der ackersmann/ welcher<lb/>
+nun vber winter außgeſeet/ ſeinen rock herfuͤr zue ſuchen begundte.<lb/>
+Ich war vorige nacht auß muͤdigkeit beydes von ſorgen vndt dem<lb/>
+wege ſo harte entſchlaffen/ daß ich nicht erwachte/ biß die muter<lb/>
+der geſtirne die Nacht verruckt war/ vndt die ſchoͤne Morgenroͤthe<lb/>
+anfieng ſich vndt zuegleich alles mitt jhr zue zeigen.</p><lb/>
+<p>Vndt kanſt du dennoch/ fieng ich wieder mich ſelbſt an/ der-<lb/>
+<fw type="catch" place="bottom">maßen</fw><lb/>
+<pb n="8" facs="#f0008"/>
+maßen auff guetes vertrawen ruhen/ nach dem du zu gehorſamben<lb/>
+dem jenigen/ dem du freylich das beſte theil deiner wolfarth zue-<lb/>
+dancken haſt/ der dich ſingen leßt was du wilt/ von derſelbten ge-<lb/>
+wiechen biſt/ ohn welche dich keine froͤligkeit ergetzte/ vndt mitt<lb/>
+welcher dich kein vnfall betruͤbete? Oder/ ſchlaͤffeſt du darumb/ da-<lb/>
+mit ſie dir/ weil du jhrer gegenwart nicht genießen kanſt/ zum min-<lb/>
+ſten durch die wolthaten eines trawmes koͤnne gezeiget werden?<lb/>
+Vnter dieſer rede ſprang ich auff/ vnd gruͤßete die lieblichen ſtra-<lb/>
+len der Sonnen/ welche von den ſpitzen der berge herab blincketen/<lb/>
+vndt mich gleichſam zue troͤſten ſchienen; woruͤber ich dann in mei-<lb/>
+nung mir ſelber ein hertze zue machen/ auff dieſe worte gerhiete:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Weil mein Verhengniß wil/ vndt leſt mir nicht das gluͤcke</hi></l><lb/>
+<l><hi rendition="#fr">Bey dir/ mein Augen troſt/ zue leben nur allein/</hi></l><lb/>
+<l><hi rendition="#fr">So giebet zwar mein ſinn ſich mitt gedult darein/</hi></l><lb/>
+<l><hi rendition="#fr">Doch ſehnt vndt wuͤndtſchet er auch ſtuͤndtlich ſich zueruͤcke.</hi></l><lb/>
+<l><hi rendition="#fr">Es iſt ja lauter nichts wo dieſe ſchoͤne blicke/</hi></l><lb/>
+<l><hi rendition="#fr">Diß liecht das mich verblendt/ des guͤldnen haares ſchein</hi></l><lb/>
+<l><hi rendition="#fr">Das mein gemuͤte bindt/ diß lachen nicht kan ſein/</hi></l><lb/>
+<l><hi rendition="#fr">Der mundt/ vndt alles das wormit ich mich erquicke.</hi></l><lb/>
+<l><hi rendition="#fr">Die Sonne macht mir kalt/ der tag verfinſtert mich;</hi></l><lb/>
+<l><hi rendition="#fr">Ich geh’/ vndt weiß nicht wie; ich geh’vndt ſuche dich</hi></l><lb/>
+<l><hi rendition="#fr">Wohin du nie gedenckſt. was macht mein trewes lieben?</hi></l><lb/>
+<l><hi rendition="#fr">Ich ſeh’ vndt finde nichts; der mangel deiner ziehr</hi></l><lb/>
+<l><hi rendition="#fr">Hatt alles weggeraubt: zwey dinge ſindt noch hier:</hi></l><lb/>
+<l><hi rendition="#fr">Das elendt nur/ vndt ich der ich darein vertrieben.</hi></l></lg><lb/>
+<p>Aber/ ſagte ich weiter/ was beſchuldige ich mein Verhengniß?<lb/>
+fliehe ich nicht auß eigener wahl fuͤr jhr/ vndt fuͤr mir ſelbſt? Wo-<lb/>
+ferren du mir meine augen/ ſo durch die deinigen geraubet<lb/>
+ſindt/ wiedergiebeſt/ verhoffe ich/ mein Liecht/ dich zue ſehen/ ehe<lb/>
+noch das auge der welt die Sonne in das herzueruͤckende jhar ſe-<lb/>
+<fw type="catch" place="bottom">hen wirdt.</fw><lb/>
+<pb n="9" facs="#f0009"/>
+hen wirdt. Was fuͤr ein Verhengniß aber wil ich kurtz hernach an-<lb/>
+klagen? was fuͤr eine huͤlle werde ich finden/ zue bedeckung deßen<lb/>
+verbrechens/ daß ich mein Vaterlandt mitt ſo weit entlegenen<lb/>
+Provinzen vertauſchen/ die meinigen ſampt dem groͤßeren theile<lb/>
+meines hertzens hinter laßen/ vndt mich in ein freywilliges elendt<lb/>
+verjagen wil? Es iſt eine boͤſe gewohnheit/ das wir menſchen ge-<lb/>
+meiniglich auff das gluͤck ſchelten/ welches wir vns doch auff dem<lb/>
+eigenen amboß vnſerer boßheit geſchmiedet haben: oder wollen<lb/>
+die zeitfuͤr gerichte laden/ die/ wann ſie ie was boͤſes begehen kan/<lb/>
+nichts aͤrgers thut/ alß daß ſie ſich vns ſo reichlich vndt milte ver-<lb/>
+leihet. Armer ſchaͤffer! Wilt du lieben/ warumb bleibſt du nicht wo<lb/>
+du wirſt geliebet? Oder gedenckeſt du der liebe zue entfliehen/ ſo<lb/>
+entfleuch erſtlich deiner eigenen perſon/ vndt laß das gemuͤte zue<lb/>
+lieben daheimbe; wo du anders nicht einen krancken mitt dir fuͤh-<lb/>
+ren/ vndt ſeine ſiecheit durch die bewegung mehr erwecken wilt.<lb/>
+Soll dir ie die freyheit/ welche dir von kindtheit an gefallen/ zue<lb/>
+theile werden/ ſo ſey nicht allein anderswo/ ſondern auch anders/<lb/>
+vndt ſegele mitt gebundenen augen vndt verſtopfften ohren zue der<lb/>
+gedult dem hafen des kummers/ welche dich ſampt jhrer muter der<lb/>
+zeit in gewuͤndtſchte ſicherheit ſetzen kan.</p><lb/>
+<p>Mitt ſolchen vndt dergleichen gedancken ſchlug ich mich eine<lb/>
+lange weile/ biß ich in dem hin vndt wieder gehen nahe bey einem<lb/>
+klaren quelle/ das mitt anmutigem rauſchen vndt murmeln von<lb/>
+einer klippen herab fiel/ zue einer glatten vndt hohen tannen kam/<lb/>
+die mir dann bequem zue ſein ſchiene/ ein gedaͤchtnuͤß meiner ſor-<lb/>
+gen zue verwahren. Schnitte ich alſo auff jhre rinde nachfol-<lb/>
+gendts</p><lb/>
+<lg type="poem"><head>Sonnet.</head><lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">Es iſt</fw><lb/>
+<pb n="10" facs="#f0010"/>
+<lg n="1"><l><hi rendition="#fr">Es iſt gewagt; ich bin doch gantz entſchloßen<lb/>
+Jetzt noch ein mal zue laßen vnſer landt/<lb/>
+Vndt hin zue ziehn wo auch iſt mordt vndt brandt/<lb/>
+Wo auch das feldt mitt blute wirdt begoßen.</hi></l></lg><lb/>
+<lg n="2"><l><hi rendition="#fr">Es iſt gewagt: heißt aber diß genoßen<lb/>
+Der liebe frucht <supplied>?</supplied>iſt diß des feſte bandt<lb/>
+Der waren gunſt? ſchlaͤfft deine trewe handt?<lb/>
+Iſt deiner luſt gedaͤchtniß gantz beifloßen?</hi></l></lg><lb/>
+<lg n="3"><l><hi rendition="#fr">Wo bleibet dann der mundt/ die augen/ dieſes haa<supplied>r</supplied><lb/>
+Vndt was ſonſt mehr dein troſt vndt kummer war?<lb/>
+Was thue ich dann? ich bin ſelbſelbſt verlohren</hi></l></lg><lb/>
+<lg n="4"><l><hi rendition="#fr">Verlier ich ſie: verbleib’ ich dann allhier<lb/>
+So iſt doch nichts als wanckelmuth an mir:<lb/>
+Ich habe recht den wolff jetzt bey den ohren.</hi></l></lg></lg><lb/>
+<p>Ich ſchnitzte noch uͤber dem letzten worte/ als mir ein lieblich-<lb/>
+es gethoͤne vnterſchiedener querpfeiffen vndt wolklingender muſic<lb/>
+zue ohren kam. Wiewol ich mich nun beſorgete/ daß durch ſolche<lb/>
+ankunfft anderer mir meine einſamkeit/ bey der ich mir jetziger be-<lb/>
+ſchaffenheit nach nicht ließ uͤbel ſein/ moͤchte abgeſtrickt werden: ſo<lb/>
+zwang mich doch die begiehr die jenigen zue erkennen/ welche der<lb/>
+ſchoͤnen einſtimmung wegen entweder der Muſen ſoͤhne/ oder<lb/>
+auch die Muſen ſelbſt zue ſein ſchienen/ daß ich jhrer/ weil ſie ſon-<lb/>
+derlich gerichts auff mich zue giengen/ erwartete. Wie ein ploͤtz-<lb/>
+liehes vndt großes liecht die augen fuͤr ſeinem ſchimmern nicht ſe-<lb/>
+hen leßt/ alſo blendete vndt verwirrete mir die vnverhoffte doch ge-<lb/>
+wuͤndtſchte gegenwart der berhuͤmbten hirten/ vndt meiner vor<lb/>
+dieſem liebſten mitgeſellen/ Nuͤßlers/ Buchners vndt Venators/<lb/>
+hertze vndt ſinnen. Seidt jhr es/ ſagte ich; oder muß auch ewer<lb/>
+ſchaten mein faſterliegendes gemuͤte auff zue richten an dieſen<lb/>
+ort kommen/ dahin ich nicht allein von allen menſchen/ ſondern<lb/>
+<fw type="catch" place="bottom">auch</fw><lb/>
+<pb n="11" facs="#f0011"/>
+auch von allen geſchaͤfften entwiechen bin? Ja/ wir ſindt es/ hub<lb/>
+Venator an/ vndt ich fůr meine perſon/ habe endtlich zue wercke<lb/>
+gerichtet/ was ich dir laͤngſt gedrewet; auch vnſerem Buchner/ wie-<lb/>
+wol er kuͤmmerlich einen gefunden/ dem er ſeine herde indeßen ver-<lb/>
+trawen koͤnnen/ dennoch anlaß gegeben/ dich vndt deinen Nuͤßler/<lb/>
+der ſich dir zue gefallen auch mitt vns hieherwerts erhaben hatt<lb/>
+heim zue ſuchen.</p><lb/>
+<p>Hieruͤber empfingen wir einander ſaͤmptlich. Vndt du Bru-<lb/>
+der/ fieng ich wieder Buchnern an/ biſt mir ein angenemer gaſt in<lb/>
+dieſen orten. Ich zweiffele nicht/ ſagte er; aber du mir ein fluͤchti-<lb/>
+ger wirth. Jetzt habe ich erfahren/ daß der jenige niergendt ſey/ der<lb/>
+allenthalben iſt. Es hatt ſeinen ort/ ſagte Nuͤßler/ daß du dem/ der<lb/>
+es ſo gnaͤdig mitt dir meinet/ folge zue leiſten/ von den gruͤnen wie-<lb/>
+ſen vndt fruchtbaren feldern vnſerer Hauptſtadt dahin gewiechen<lb/>
+biſt/ wo wir dich ehegeſtern geſucht/ vndt von dannen wir der trifft<lb/>
+nach hieherwerts gegangen ſindt. Welche notwendigkeit aber le-<lb/>
+get dir auff/ die zeit dermaßen abſonderlich zue verſchließen/ vndt<lb/>
+in ſolcher einſamkeit herumb zue wandern? Du weißeſt wol/ gab<lb/>
+ich zur antwort/ daß ein menſch der gedancken hatt/ niemals we-<lb/>
+niger allein iſt/ als wann er allein iſt. Vnd was ſindt es fuͤr gedan-<lb/>
+cken? ſprach Venator: ſolten ſie wol an jener tannen ſtehen? (dann<lb/>
+ſie hatten mir von ferren zuegeſehen.) Wie gern ich ſie auff was<lb/>
+anders leiten wollen/ traten ſie dennoch hinan/ vndt laſen. Zwey<lb/>
+wiederwertige dinge/ ſagte eben er Venator; lieben/ vndt reiſen.<lb/>
+Ich habe freylich gehoͤret/ daß du deinem Vaterlande auff etzliche<lb/>
+monat guete nacht geben/ vndt in dem koͤnigreiche darauß ich new-<lb/>
+lich abgereiſet bin/ die ziehr der ſtaͤdte/ die ſchule der leutſeligkeit/<lb/>
+die muter der gueten ſitten auff der inſel der Seyne begruͤßen wilt.<lb/>
+Es wirdt dich aber der ſtrenge dienſt/ in dem du dich befindeſt/<lb/>
+<fw type="sig" place="bottom">B ij</fw><fw type="catch" place="bottom">nicht</fw><lb/>
+<pb n="12" facs="#f0012"/>
+nicht weit kommen laßen. Der jenige gab ich zur antwort/ dem ich<lb/>
+getre wlich auff zue warten verbunden bin/ iſt ſo gar mitt mir zue<lb/>
+frieden/ daß er mir nicht allein dieſen ſpatzierweg zue erlauben/ ſon-<lb/>
+dern auch allen gnaͤdigen vorſchub zu thun auß gewoͤhnlicher leut-<lb/>
+ſeligkeit vndt liebe gegen mir verheißen hatt. Hieran iſt kein zweif-<lb/>
+fel/ ſagte er; wann ich aber dem bawme gegenuͤber glauben ſoll/ ſo<lb/>
+ſteckeſt du in einer ſolchen dienſtbarkeit/ welche dir dem beduͤncken<lb/>
+nach ſo angenem iſt/ daß du jhr deine freyheit/ wie hoch du ſie/<lb/>
+vndt billich von jugendt an gehalten haſt/ willig auffopfferſt. Ich<lb/>
+lachte/ vndt Die warheit zue bekennen/ gab ich zur antwort/ du<lb/>
+koͤmpſt faſt auff die meinung meines nechſten liedes. Ey laß es vns<lb/>
+doch auch hoͤren/ ſprach er; gefelt vns der innhalt nicht/ ſo ergetzen<lb/>
+vns doch die worte. Vieleicht auch dieſe ſchwerlich/ ſagte ich; dann<lb/>
+ſie nicht wenig von der einfalt an ſich haben/ welche ſie loben. So<lb/>
+iſt es auch jetzundt nicht zeit zue ſingen/ weil vns Gott vndt das ge-<lb/>
+neigte Glůck erſt zueſammen fůgen. Doch dein weiteres guetach-<lb/>
+ten herauß zue locken/ ſoll mich die muͤhe nicht rewen. Sang ich<lb/>
+derowegen/ ſo guet ich es gelernet/ folgender maßen:</p><lb/>
+<lg type="poem"><lg n="1"><l><hi rendition="#fr">Iſt mein hertze gleich verliebet<lb/>
+In ein ſchlechtes maͤgdelein/<lb/>
+Die mich troͤſtet vndt betruͤbet/<lb/>
+Soll ich darumb vnrecht ſein?<lb/>
+Liebſte/ deiner ſchoͤnheit liecht<lb/>
+Mindert ſich durch einfalt nicht.</hi></l></lg><lb/>
+<lg n="2"><l><hi rendition="#fr">Was das Gluͤcke dir nicht ſchencket/<lb/>
+Das verdient doch deine ziehr/<lb/>
+Vndt worauff mein hertze dencker<lb/>
+Solches haſt du gantz bey dir;<lb/>
+Was mein hertze denckt haſt du/<lb/>
+Vndt das hertze ſelbſt darzue.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">Ein</fw><lb/>
+<pb n="13" facs="#f0013"/>
+<lg n="3"><l><hi rendition="#fr">Ein beſtendiges gemuͤte/<lb/>
+Das auß keiner furchte weicht/<lb/>
+Sucht jhm gleichfalls ein gebluͤte/<lb/>
+Eine ſeele die jhm gleicht/<lb/>
+Sieht fuͤr allen dingen an<lb/>
+Trew auff die es bawen kan.</hi></l></lg><lb/>
+<lg n="4"><l><hi rendition="#fr">Niemandt wirdt mir vnrecht geben;<lb/>
+Gohe brunſt bringt furcht vndt neidt;<lb/>
+Deiner liebe frucht/ mein Leben/<lb/>
+Iſt begabt mitt ſicherheit/<lb/>
+Die ich einig mir erkieſt/<lb/>
+Vndt mein reiches ermutt iſt.</hi></l></lg><lb/>
+<lg n="5"><l><hi rendition="#fr">Dich mitt rhue beſitzen koͤnnen<lb/>
+Iſt mein troſt vndt gantze luſt:<lb/>
+Bleib auff deinen trewen ſinnen/<lb/>
+Liebſte/ wie du jetzundt thuſt;<lb/>
+Meine freyheit ſoll allein<lb/>
+Deiner liebe dienſtbar ſein.</hi></l></lg></lg><lb/>
+<p>Der liebe dienſtbar ſein/ hub Venator an/ heißet die liebe zum<lb/>
+herren haben: dann welcher dienet/ muß einen herren haben dem<lb/>
+er dienet. Iſt jhm nicht alſo? Ja ſagte ich. Ein herr redte er weiter/<lb/>
+iſt der jenige/ der das was er wil/ oder nicht wil/ zue thun oder zue<lb/>
+laßen macht hatt. Wirdt dich nun die liebe zue halten begehren/<lb/>
+die mehr einem tyrannen als einem herren aͤhnlich ſiehet/ weil ſie<lb/>
+nicht allein den leib/ ſondern auch das freye theil des menſchen das<lb/>
+gemuͤte zum ſclaven macht/ ſo ſchawe du/ wie es vmb deinen vor-<lb/>
+ſatz ſtehen wirdt. Gehe aber in dich/ vndt bedencke/ ob du mehr vr-<lb/>
+ſache haſt/ dieſem vnbarmhertzigen herren zue dienen; oder mehr<lb/>
+vermoͤgen/ jhn ſelbſt dienſtbar zue machen. Wann die liebe der-<lb/>
+gleichen beſchaffenheit an ſich hette/ wie wir vns einbilden/ vndt<lb/>
+nicht vnter jhrem ſcheinbaren glantze ein greifflicher betrug ſteckte/<lb/>
+<fw type="sig" place="bottom">B iij</fw><fw type="catch" place="bottom">ſo koͤn-</fw><lb/>
+<pb n="14" facs="#f0014"/>
+ſo koͤndten wir ſie fuͤr einen regenten paßiren laßen; angeſehen/<lb/>
+daß ſie uͤber alle furcht vndt notwendigkeit ſitzen/ vndt jhre frey-<lb/>
+heit vnbeleidigt wißen wil. Sie verwundert ſich uͤber kein reich-<lb/>
+thumb/ ſie fuͤrchtet keinen koͤnig/ ſchewet kein gerichte/ vndt pfle-<lb/>
+get keinen todt zue fliehen. Sie leßt ſich durch kein fewer/ kein waß-<lb/>
+ſer/ keinen degen/ kein thier noch menſchen/ keine hoffnung des<lb/>
+gluͤckes/ noch verluſt der wolfarth von jhrem vorſatze bringen.<lb/>
+Was andere meiden das verachtet ſie; vndt was andern ſchwer<lb/>
+fuͤrkompt/ das macht ſie jhr leichte. Sie ſchwimmet durch die teuf-<lb/>
+fe der fluͤße/ ſe gelt im vngewitter/ vndt klettert uͤber alle berge. Sie<lb/>
+hatt alles in jhrer gewalt/ vndt macht jhr alle gewalt vnterwuͤrf-<lb/>
+fig. Ein herrliches weſen/ wann diß alles auß einem muthe der tu-<lb/>
+gendt/ vndt nicht auß verwegenheit/ offtmals auch auß verzweiffe-<lb/>
+lung/ herrhuͤrete; wann jhre endturſache mitt den vmbſtaͤnden uͤ-<lb/>
+berein ſtimmete/ ja wann ſie nicht eben die jenige were/ daruͤber ſo<lb/>
+viel hirtengetichte ſchreyen/ welche auff allen ſchawplaͤtzen gezei-<lb/>
+get/ vndt in allen fabeln verklaget wirdt; voll wuͤtens/ voll vnge-<lb/>
+dult/ voll weinens vndt jammers iſt. Worzue wirdt ſie dann dar-<lb/>
+zue verurſacht? Durch die ſchoͤnheit; wirft du ſagen. Wo<supplied>l</supplied> es iſt<lb/>
+natuͤrlich/ daß ein menſch ſich an natuͤrlichen ſachen erluſtige Ich<lb/>
+zweiffele aber ſehr/ ob es mitt einer ſolchen ſchoͤnheit/ die von<lb/>
+denen welche mitt der rechten Schoͤnheit vnbekandt ſindt<lb/>
+dermaßen geprieſen wirdt/ nicht eben bewandt ſey wie mitt<lb/>
+den Egyptiſchen tempeln vorzeiten; die zwar an ſich ſelber koſt-<lb/>
+bar vndt praͤchtig erbawt geweſen: hetteſt du aber einen gott da-<lb/>
+rinnen geſucht/ ſo wuͤrdeſt du an ſiat ſeiner etwan einen bock/ einen<lb/>
+affen/ oder eine katze gefunden haben. Wilt du ſehen was ſchoͤn-<lb/>
+heit iſt/ ſo mußt du die augen der vernunfft zue rhate nemen/ vndt<lb/>
+jhr die vnbaͤndige begiehr der liebe/ wie das pferdt dem zaume/ den<lb/>
+bogen dem ſchuͤtzen/ das ſchiff dem ſtewerruder/ das werckzeug end-<lb/>
+<pb n="15" facs="#f0015"/>
+lich dem meiſter vnterwuͤrffig machen. Dann wie die vernunfft<lb/>
+ohn die liebe vnvollkommen iſt alſo iſt die liebe faſt vnbeſonnen/<lb/>
+wann ſie der vernunfft nicht gehorchet. Dieſer gehorſa<supplied>me</supplied> man<lb/>
+iſt nichts anders als der vernunfft vndt liebe vermaͤhlung/ die kue-<lb/>
+gleich vndt mitteinander hitzig vnd in einem rennen auff die ſchoͤn-<lb/>
+heit zue eilen. Welcher nun dieſelbte in dem leibe/ in den vmb-<lb/>
+ſchweiffenden augen/ gebleichten haaren/ gemahlten wangen/<lb/>
+vndt was dem anhengig iſt/ ſuchen wil/ der findet eußerlich eine<lb/>
+ſchnoͤde vergengligkeit/ ein zerbrechliches guet/ einen ſtuͤndtlichen<lb/>
+raub/ einen piltz der zuegleich leuchtet vndt vergehet; inwendig a-<lb/>
+ber offtmals wanckelmuth/ betrug/ vndt wie etwan vnſere Poͤeten<lb/>
+am beſten hiervon zue reden wißen. Von denen ich gleichwol ei-<lb/>
+nen/ doßen name aber nicht verhanden iſt/ kaum loben kan/ der ein<lb/>
+wenig zue ſehr vber die ſchnur haͤwet/ vnd gar ſagen darff:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Vertrawe dich der ſee/ dem Frawenzimmer nicht;</hi></l><lb/>
+<l><hi rendition="#fr">Die weil kein glaß ſo baldt als jhre gunſt zerbricht.</hi></l><lb/>
+<l><hi rendition="#fr">Kein weib iſt guet/ vndt iſt ja eines oder zwey/</hi></l><lb/>
+<l><hi rendition="#fr">So weiß ich nicht wie guet auß bòſem worden ſey.</hi></l></lg><lb/>
+<p>Andere ſprechen:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Wer jhnen glaubt fengt windt auff mitt der handt/</hi></l><lb/>
+<l><hi rendition="#fr">Pfluͤgt in das meer/ vndt ſeet in den ſandt;</hi></l></lg><lb/>
+<p>welche worte ich ſie dann verfechten laße. Wiewol auch eine ſtol-<lb/>
+tze abgefuͤhrte Dame/ (dann alſo nennen ſievnſere auffwarter)<lb/>
+die niergendt ſchoͤner iſt als in jhrem eigenen ſpiegel/ offtmals mit<lb/>
+gleicher muͤntze bezahlt wirdt/ als in welcher kundtſchafft ſich ein-<lb/>
+heimbiſche vndt frembde zue ſpielen pflegen/ nicht liebe zue ſuchen/<lb/>
+welche bey einem vnbeſtendigen weibe nur uͤbel angeleget iſt/ ſon-<lb/>
+dern ſich mitt jhrem anmutigen geſpreche vndt buhleriſchen ſitten<lb/>
+zue erlůſtigen. Dieſe aber wie klug ſie auch iſt/ mercket doch nicht/<lb/>
+<fw type="catch" place="bottom">daß jhr</fw><lb/>
+<pb n="16" facs="#f0016"/>
+daß jhr ſolche hoͤffligkeit mehr der ergetzung/ als liebe wegen er-<lb/>
+zeigt werde. Darumb wie ſie durch jhr taͤgliches auffnemen vndt<lb/>
+taͤgliches verſtoßen andere ſchertzet/ alſo wirdt ſie von andern wie-<lb/>
+der geſchertzt. Ein mal iſt es gewiß/ daß eine ſolche liebe gemeinig-<lb/>
+lich eine arbeit des muͤßigganges/ eine hoffnung der vnbedachtſam-<lb/>
+keit/ vndt darumb eine beherrſcherinn eines knechtiſchen hertzens<lb/>
+iſt/ weil dieſe fluͤchtige ſchoͤnheit mehrmals mitt ſo vielem auffwar-<lb/>
+ten/ flehen/ weinen vndt fußfallen/ dergleichen zue thun ein edeles<lb/>
+gemuͤte in reiffes bedencken nimpt/ wil bedienet werden. Soll a-<lb/>
+ber je die liebe recht antreffen/ ſo muß ſie die vernunfft zum gefehr-<lb/>
+ten haben/ muß den eußerlichen ſinnen/ ſonderlich aber den augen/<lb/>
+welche als zwey vnachtſame thuͤrhuͤter zum offtern allerhandt fal-<lb/>
+ſche meinungen zue dem gemuͤte einlaßen/ den muth brechen/ vndt<lb/>
+durch vrtheil vndt verſtandt von der außwendigen ſchoͤnheit zue<lb/>
+der inwendigen/ welche durch dieſe angenemer gemacht wirdt/<lb/>
+dringen koͤnnen. Wie die blumen ſo an ſich ſelber ſchoͤne ſindt/<lb/>
+dennoch anmutiger zue ſein ſcheinen/ wann ſie vnter einem klaren<lb/>
+waßer herfuͤr leuchten: alſo iſt die bluͤte des gemuͤtes/ wann ſie mitt<lb/>
+einem ſchoͤnen leibe vmbhuͤllet iſt. So ſoll nun die ſchoͤnheit des<lb/>
+leibes nichts anders ſein als ein fůrfechter der bluͤte der tugendt/<lb/>
+vndt als ein heroldt einer groͤßeren ſchoͤnheit weder ſie nicht iſt: als<lb/>
+wie der glantz/ welcher ſich dieſen morgen von hieſigem gefilde<lb/>
+blicken ließ/ ein vorbote der guͤldenen Sonnen war. Wie ferner<lb/>
+Pythagoras die Sonne fuͤr einen gott/ Anaxagoras fuͤr einen<lb/>
+ſtein anſahe; alſo wirdt die ſchoͤnheit anders von den begierden/<lb/>
+anders von der vernunfft angeſehen/ welche auch von dieſer jnner-<lb/>
+lichen ſchoͤnheit allgemach zue der jenigen ſteigen lernet/ die dem<lb/>
+was allenthalben iſt ſeine ſchoͤnheit verliehen hatt. Alß dann wie-<lb/>
+derfehret vns wie etwan menſchen/ welche jhre gantze lebenszeit in<lb/>
+<fw type="catch" place="bottom">einer</fw><lb/>
+<pb n="17" facs="#f0017"/>
+einer finſteren hoͤlen zuegebracht/ vndt an ſtat des liechtes nur ei-<lb/>
+nen ſchatten der coͤrper vndt dinge die bey vns auff erden ſindt er-<lb/>
+kieſet/ dieſelbten auch fuͤr die rechten vndt warhafftigen gehalten<lb/>
+haben. Dann wie es vermuthlich iſt/ wann ſie auß dem tunckelen<lb/>
+an das klare lietht kommen ſolten/ daß ſie nicht allein alles was ſie<lb/>
+zuevor geſehen/ ſondern auch ſich ſelbſt als betrogene leute verach-<lb/>
+ten wuͤrden: alſo auch vnſere gemůter/ wann ſie der vergenglichen<lb/>
+ſchoͤnheit entronnen/ vndt durch die ſchoͤnheit der tugendt einen<lb/>
+weg zue der goͤttlichen gefunden haben/ ſo fangen ſie jhren eitelen<lb/>
+wahn vndt vorige thorheit von hertzen an zue verdammen. Wie<lb/>
+nun ein menſch in einem bilde die kunſt/ vndt nicht das bildt/ in ei-<lb/>
+ner pflantze die frucht/ vndt nicht die pflantze/ liebet: alſo mußen<lb/>
+wir in einem ſchoͤnen frawenzimmer nicht die geſtalt/ ſondern/ wo<lb/>
+ſie verhanden iſt/ die ſchoͤnheit des gemuͤtes/ vndt in dem gemuͤte<lb/>
+die ſchoͤnheit deßen von dem ſie hergerhuͤret/ erheben vndt hoch-<lb/>
+halten. Vndt hergegen/ wie wir den vrſprung aller ſchoͤnheit uͤber<lb/>
+alles zue ehren ſchuldig ſindt/ alſo ſollen wir ſeinenthalben auch die<lb/>
+ſchoͤnheit des gemuͤtes/ vndt dieſer wegen die ſchoͤnheit des leibes<lb/>
+lieben; weil ſie ſich nicht weniger zueweilen darinnen blicken leßt/<lb/>
+als die edelſten fluͤße/ die wann ſie ſich in das meer außgießen/<lb/>
+den vorigen ſuͤßen geſchmack vndt lautere farbe in dem geſaltzenen<lb/>
+waßer dennoch nicht baldt verlieren. Das uͤbrige/ was von eite-<lb/>
+len gedancken geſucht wirdt/ iſt nicht eine liebe/ ſondern eine begier:<lb/>
+dann die liebe ſiehet auff die ſchoͤnheit/ die begier auff die wolluſt/<lb/>
+welche wann ſie herr/ vndt die vernunfft knecht iſt/ ſo mußt du jhr<lb/>
+folgen/ ſie befehle was ſie wolle. Kanſt du aber der wolluſt ie nicht<lb/>
+entberen/ ſo wiße daß keine groͤßere als ein befiendiges gemuͤte iſt/<lb/>
+das mitt einem gueten gewißen begleitet wirdt. Daßelbige leßt<lb/>
+ſich keine liebe/ keine falſche luſt/ keine betruͤbende froͤligkeit/ keine<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">furchte</fw><lb/>
+<pb n="18" facs="#f0018"/>
+furchte noch hoffnung vonſeinem ehrlichen vorſatze dringen. Was<lb/>
+wilt du doch der jenigen dienen/ welther du zue gebieten haſt? welche<lb/>
+du mitt dem zaume der vernunfft anhalten/ mitt der ſchaͤrffe einer<lb/>
+freyen entſchließung als eine leibeigene magdt von dir verſtoßen<lb/>
+kanſt? Die frucht der ſchoͤnheit/ die im gemuͤte beſtehet/ die nicht<lb/>
+zuegleich mitt den zaͤhnen wurmſtichig/ mitt den haaren greiß/ mitt<lb/>
+der ſtirnen geruntzelt/ mitt den wangen bleich/ mitt den augen<lb/>
+trieffendt vndt tunckel wirdt/ die mitt der zeit gewalt nichts zue<lb/>
+thun hatt/ dieſelbte wirdt dich uͤber landt vnd ſee/ durch waßer vndt<lb/>
+waffen/ in gluͤck vndt wiederwertigkeit begleiten. Iſt dir aber vn-<lb/>
+moͤglich der jenigen liebe zue hinterlaßen/ die vieleicht in deinen<lb/>
+augen ſchoͤner iſt/ als in anderer leute/ vndt die wir drey auch nur<lb/>
+nicht zue kennen begehren; ſo kanſt du bey glauben ſicherer hier<lb/>
+bleiben; dann eine ſolche luſt wird nur uͤbel ſein fort zue bringen.</p><lb/>
+<p>Eine ſtattliche rede/ mein Bruder/ ſagte ich/ vndt die leicht-<lb/>
+lich zue erkennen giebt/ in was fůr einer ſchulen/ bey was du fuͤr ei-<lb/>
+nem manne (der allein exempels genung iſt/ daß ein weißer<lb/>
+mann dem gluͤcke die wage halten/ vndt dem vngeſtirne der zeiten<lb/>
+gebieten kan) an den trechtigen feldern des Reines/ wo die Elle<lb/>
+vndt Breuſche von jhm verſchluckt werden/ vorwiechener zeit ge-<lb/>
+lebet haſt deiner eigenen geſchickligkeit/ welcher Apollo vndt der<lb/>
+himmel nichts verſaget/ zue geſchweigen es leßt ſich aber derglei-<lb/>
+chen viel behertzter reden/ als in das werck richten. Doch verhoffe<lb/>
+ich eine ſolche maͤßigkeit in der liebe zue treffen/ daß ſie mich an<lb/>
+meinem fuͤrhaben dennoch nicht verhindern ſoll. Wer ſeinem la-<lb/>
+ſter/ gab Venator zur antwort/ eine maße ſucht/ iſt eben als wolle<lb/>
+er glauben/ einer der ſich von jenem gaͤhen felſen ſtůrtzete/ koͤnne<lb/>
+ſich wann es jhm geliebte im herab fallen beſinnen vndt wieder-<lb/>
+halten. Dann wie diß zue thun vnmoͤglich; alſo kan ein verwirrtes<lb/>
+<fw type="catch" place="bottom">vndt</fw><lb/>
+<pb n="19" facs="#f0019"/>
+vndt erhitztes gemuͤte ſich weder hinterziehen/ noch an dem orte<lb/>
+wo es wil verbleiben. Es weiß auch derjenige/ welcher allbereit lie-<lb/>
+bet/ ſo wenig mitt was maße er heben ſoll; als wenig einer/ dem<lb/>
+man die augen außgeßochen hatt/ weiß wo er hin ſoll gehen.</p><lb/>
+<p>Ich muß jhn gleichwol nicht gar huͤlffloß laßen/ fieng Nuͤß-<lb/>
+ler an/ vndt bilde mir gaͤntzlich ein/ daß er jhm auff der Poeten art/<lb/>
+welche/ der Natur nichts nach zue geben/ offtmals ſachen erden-<lb/>
+cken/ die nie geweſen ſindt/ noch ſein werden/ eine liebe mache/ die<lb/>
+er nie in denn ſinn gebracht/ vndt zum theile anderer leute buhl-<lb/>
+ſchafften/ eitelkeiten vndt můßige vnrhue durch ſeine ertichtete fuͤr-<lb/>
+bilden/ zum theile die einſamkeit/ darinnener ſich dieſer zeit befin-<lb/>
+det/ lieber mitt dieſem/ als mitt nichts thun erleichtern wolle.<lb/>
+Steckt aber auch etwas von dem anmutigen uͤbel bey jhm/ das<lb/>
+vnſeren ſtandes leuten nicht vngemein iſt/ ſo ſchaͤtze ich jhn freilich<lb/>
+weniger gluͤckſelig als die jenige/ welcher er mitt ſeiner Poeterey<lb/>
+ein vnſterbliches lob vndt geruͤchte vervrſachen wirdt; wiewol das<lb/>
+Frawenzimmer dergleichen offtmals entweder nicht verſiehet/ o-<lb/>
+der vnſere getichte lieber als vns hatt. Ich hoffe aber gaͤntzlich/<lb/>
+das reiſen/ darzue mir bißher niemals der wille/ ſondern das gluͤck<lb/>
+vndt die vmbſtaͤnde meiner gantzen wolfahrt gemangelt haben/<lb/>
+werde jhm in kůrtzen was anders an die handt geben.</p><lb/>
+<p>Vndt ob ich wol/ liebſter mittgeſelle/ ſagte er zue mir/ deine<lb/>
+abweſenheit kaum mitt gedultigem hertzen werde ertragen koͤn-<lb/>
+nen/ ſo finde ich doch nicht/ wann ich meine ergetzligkeit deinem<lb/>
+fromen nachſetzen wil/ was ich dir aller beſchaffenheit nach beß-<lb/>
+ſers rhaten/ oder auch wuͤndtſchen ſolle. Wie ein waßer das nie-<lb/>
+mals gereget wirdt/ endtlich anfengt zue faulen vndt ſtincken: alſo<lb/>
+werden auch vnſere gemuͤter durch vbermaͤßige rhue traͤge vndt<lb/>
+verdroßen gemacht; welche weil ſie etwas himmliſches ſindt/ ſo<lb/>
+<fw type="sig" place="bottom">C ij</fw><fw type="catch" place="bottom">ſollen</fw><lb/>
+<pb n="20" facs="#f0020"/>
+ſollen ſie auch billich dem himmel/ der ohn vnterlaß in bewegung<lb/>
+iſt/ nachfolgen. Vndt wann du dieſen großen menſchen die welt<lb/>
+anſieheſt/ was leßt darinnen vngereiſet? Die Sonne vmbwan-<lb/>
+dert den erdenkreiß alle tage: der Monde/ vndt der gantze poͤfel des<lb/>
+geſtirnes/ haben jhre wanderſchafft/ troͤſten durch jhr liebliches an-<lb/>
+blicken die vmbſchweiffenden/ vndt zeigen den jrrenden haͤuſern<lb/>
+den ſchiffen wo ſie hin ſollen. Haſt du nie geſehen/ wie die ſee von<lb/>
+jhrem vfer zue rechter zeit hinweg geflohen/ vndt auff gewiße ſtun-<lb/>
+de allzeit iſt zueruͤck gekehret? Die vierfuͤßigen thiere lauffen von<lb/>
+einer wildtniß in die andere; die fiſche ſteigen auß der ſee in die<lb/>
+flůße; die voͤgel/ welche jetzundt hauffen weiſe in jhr winterquartir<lb/>
+geflogen ſindt/ werden mitt dem anbrechenden fruͤlinge wieder hie-<lb/>
+her vndt zue felde kommen. Ja die gantze Natur giebt vns anlaß<lb/>
+zum reiſen/ vndt wil vns gleichſam zeigen/ daß wir auff ein vater-<lb/>
+landt gedencken ſollen/ welches nicht krieget noch bekrieget wirdt/<lb/>
+vndt die ſtete herbrige aller fromen wandersleute iſt. Zwar wir pfle<lb/>
+gen von Natur das jenige landt zue lieben/ deßen athem wir erſt-<lb/>
+lich geſchoͤpfft/ das wir zum erſten getreten/ dem wir vnſere kindt-<lb/>
+heit vndt aufferziehung zue dancken haben/ vndt darinnen vns<lb/>
+lufft/ waßer/ flůße/ aͤcker vndt alle gelegenheit am beſten bekandt<lb/>
+ſindt wir reiſen aber darumb/ daß wir jhm nach vnſerer zueruͤck-<lb/>
+kunfft/ vndt erlernung frembder voͤlcker ſprachen vndt ſitten/ deſto<lb/>
+rhuͤmlicher ſein moͤgen/ vndt mitt dem was wir auff gemerckt zue<lb/>
+ſtaten kommen. Dann mitt dieſem bedinge/ mein Bruder/ wirſt<lb/>
+du hinweg gelaßen/ daß du/ wann der außgang dem vorſatze uͤber-<lb/>
+ein ſtimmet/ vns deiner uͤber die zeit nicht entberen laßeſt. Ander-<lb/>
+werts den fuß ein zue ſetzen/ verurſacht ein ſtetes verlangen nach<lb/>
+den ſeinigen/ vndt gemeiniglich einen neidt bey denen/ wohin wir<lb/>
+vnſeren zueſtandt gepflantzt haben. Wiewol auch nicht ohn vrſach:<lb/>
+<fw type="catch" place="bottom">dann</fw><lb/>
+<pb n="21" facs="#f0021"/>
+Dann durch befoͤderung frembder bleiben die einheimiſchen da-<lb/>
+hinden ſtehen; vndt wann ſolches nicht maͤßig geſchiehet/ muß<lb/>
+endtlich mißvertrawen/ vnrhue/ auch wol gar verenderung des<lb/>
+allgemeinen weſens darauß erwachſen: welches die alten Roͤmer<lb/>
+wol wußten/ vndt heutiges tages die klugen fiſcher in der Adria-<lb/>
+tiſchen ſee zimlich in acht nemen. Zur Peſtzeit/ wann die todten-<lb/>
+graͤber in ein hauß gehen/ ſo kan man leicht gedencken/ daß je-<lb/>
+mandt darinnen geſtorben ſey: alſo zeiget die einnemung der auß-<lb/>
+laͤnder (welches aber allein von der uͤberhaͤufften menge zue ver-<lb/>
+ſtehen iſt) daß nur der gemeine nutz in letzten zuͤgen liegt.</p><lb/>
+<p>Von dir wil ich mir nicht einbilden/ daß du dich eines vndt<lb/>
+anderes truͤbes woͤlcklein vnſers Vaterlandes vertreiben laßeſt;<lb/>
+dann du ja auß der aſchen in das fewer/ vndt an die jenigen orte<lb/>
+gedenckeſt/ wohin das freßende wuͤten der waffen/ vndt die rache<lb/>
+der geſuchten beleidigung/ ſich auß hieſigen winckeln erſt recht zue<lb/>
+wenden/ vndt alles auff eine merckliche verenderung angeſehen<lb/>
+zue ſein ſcheinet. Ich mache mir viel mehr rechnung/ daß die lie-<lb/>
+be der deinigen/ vndt die rhue welche dir bißher ſo gnaͤdig iſt ver-<lb/>
+liehen worden/ deinen fuß offtermals zueruͤcke ziehen/ vndt dei-<lb/>
+ner entſchließung dieſes vndt jenes in den weg wollen werffen.<lb/>
+Wie nun freylich ein freundt ein lebendiger ſchatz iſt/ der lange ge-<lb/>
+ſucht/ kaum gefunden/ vndt ſchwerlich verwahret wirdt: ſo iſt<lb/>
+doch die vngefaͤrbte liebe an keinen ort gebunden/ vndt jhre ab-<lb/>
+weſenheit wirdt zum theil durch das gedaͤchtniß voriger geſell-<lb/>
+ſchafft/ zum theil durch ſchreiben/ welches die rechten fußſtapffen<lb/>
+vndt kennezeichen trewer gemuͤter ſindt/ nicht wenig ertraͤglicher<lb/>
+gemacht. So weiß ich auch nicht/ wie gar zue ſiete gemeinſchafft<lb/>
+vns gemeiniglich zart/ vndt auch deßen uͤberdruͤßig macht/ was<lb/>
+<fw type="sig" place="bottom">C iij</fw><fw type="catch" place="bottom">im</fw><lb/>
+<pb n="22" facs="#f0022"/>
+im leben das beſte iſt. Zue geſchweigen/ was du auch an jenem<lb/>
+orte entweder allbereit fuͤr groſſe berhuͤmbte leute zu freunden haſt/<lb/>
+oder doch bekommen wirſt: welche nur zue ſehen ich fuͤr ein theil<lb/>
+meiner gluͤckſeligkeit ſchaͤtzen wolte. Iſt ferner etwas dergleichen/<lb/>
+weßen dich Venator beſchuldiget/ vndt liebeſt der ſchoͤnheit we-<lb/>
+gen/ ſo wirdt auch ſolches verlangen eher verſchwinden als du jetzt<lb/>
+vermeinen magſt. Eines fuchsſchwaͤntzers freundtſchafft beſteht<lb/>
+nicht lange/ weil die heucheley vndt anmaßung der falſchen war-<lb/>
+heit durch die zeit verzehret wirdt: wer nun der ſchoͤnheit oder ziehr<lb/>
+wegen liebet/ der giebet nur einen ſchmarotzer bey dem welchen er<lb/>
+liebet/ vndt ſindt alſo ſeine guete worte auff kein ewiges angeſe-<lb/>
+hen. So mußt du auch wißen/ ob du wieder geliebet wirſt/ oder<lb/>
+nicht: dann ich wil nicht hoffen/ daß du auß der jenigen zahl ſey-<lb/>
+eſt/ welche ſich ſelbſt einer gegenliebe bereden wo ſie nirgendt iſt/<lb/>
+vndt wie jener ſindt/ der jhm in ſeiner froͤlichen bloͤdigkeit einbil-<lb/>
+dete/ alle ſchiffe die auß Indien ſegelten weren ſeine; gieng an den<lb/>
+port/ frewete ſich uͤber jhrer gueten ankunfft/ hieß außladen/ vnd<lb/>
+was der narrheit mehr war: auch uͤber diß mit ſeinem bruder zůrn-<lb/>
+te/ daß er jhm durch die aͤrtzte von ſolcher reichen thorheit abhelf-<lb/>
+fen laſſen/ vndt jhn ſeiner beſten luſt beraubet hette.</p><lb/>
+<p>So biſt du in aller zeiten hiſtorien vndt exempeln dermaßen<lb/>
+durchtrieben/ daß du wol weißeſt/ wie das frawenzimmer nicht<lb/>
+allein offtmals die wangen/ ſondern auch die worte zue faͤrben<lb/>
+pfleget/ vndt daß kein waßer geſchwinder eintrucknet als weiber-<lb/>
+threnen. Wie ich dir ferner mitt trawrigen augen nachſchawe/ ſo<lb/>
+bin ich der hoffnung/ der wahren welche du zue holen außzeuchſt/<lb/>
+die kein Zoͤllner anhalten/ kein ſeerauber verſencken/ kein fewer<lb/>
+verzehren kan/ ehiſt durch dich zue genießen. Du biſt in dem alter/<lb/>
+da die beſten reiſegeſellen wahl vndt vrtheil mitt dir ziehen/ vndt<lb/>
+<fw type="catch" place="bottom">wirſt</fw><lb/>
+<pb n="23" facs="#f0023"/>
+wirſt nicht nach art etlicher jungen leute/ an ſiat der tugendt eine<lb/>
+nichtige wißenſchafft/ einen leichten ſchatten der hoͤffligkeit vndt<lb/>
+gueter uͤbungen ertappen; weßen die außlaͤnder/ welchen man jh-<lb/>
+re leichtfertigkeit/ laſter vndt gauckeley thewer genung bezahlen<lb/>
+muß/ in die fauſt hinein lachen. Von welcher jungen purß new-<lb/>
+lich einer ſagte; ſie kaͤmen jhm fuͤr/ wie wann man etwan eine<lb/>
+wandt anſiehet/ vndt auß tunckelen ſtriechen vndt zuͤgen vermei-<lb/>
+net/ als ob koͤpffe von thieren/ waßer vndt waͤlder daran ſtuͤnden/<lb/>
+da doch nichts dergleichen verhanden were: dann alle gebrechen<lb/>
+mußten in jhren augen eine tugendt ſein/ alſo daß ſie eine hofferti-<lb/>
+gen Spanier anders nicht als ehrbahr/ einen vnverſchaͤmten<lb/>
+Welſchen freundtlich/ einen leichtſinnigen Frantzoſen behertzt/<lb/>
+einen ſpringeriſchen Engellaͤnder hurtig/ vndt einen verſoffenen<lb/>
+Deutſchen luſtig vnd vertraͤwlich zue nennen pflegeten. Du haſt<lb/>
+die ſitten der hoͤfe/ da ſo viel much vndt ſchmincke verkaufft wirdt/<lb/>
+zimlich erfahren; vndt wirſt wißen/ daß wie daſelbſt/ alſo auch<lb/>
+auff reiſen eine ſparſame Zunge/ vndt ein verſchloßenes hertz hoch<lb/>
+von noͤthen ſindt. Letzlich wann dich der fahrmann des leibes das<lb/>
+gemuͤte/ durch ſo viel feſtungen/ ſtaͤdte vndt Laͤnder fuͤhren wirdt/<lb/>
+wann du augen vndt ſinnen zum genuͤgen fuͤllen/ vndt die muͤdig-<lb/>
+keit des weges mitt ergetzung/ dieſe mitt jener vermengen wirſt/<lb/>
+ſo ſchawe zue/ daß du die ſegel deines lebens nach dem leitſterne<lb/>
+der vnvergaͤngligkeit allzeit wendeſt/ vndt die weltlichen dinge al-<lb/>
+ſo anſeheſt/ daß du betrachteſt/ es beherrſche ſie keiner nicht beßer/<lb/>
+als der jenige welcher ſie verachten kan.</p><lb/>
+<p>Aber/ ſagte Nuͤßler/ was halten wir vnſere gaͤſte mitt ande-<lb/>
+ren reden auff/ weil jhnen vieleicht lieber wore/ in dieſen plaͤtzen<lb/>
+vndt gefilden ſich vmb zue ſchawen? Sie ließen es jhnen belieben/<lb/>
+ſatzten ſich zuvor etwas vnter den ſchatten der hohen baͤwme/ vndt<lb/>
+<fw type="catch" place="bottom">erzehl-</fw><lb/>
+<pb n="24" facs="#f0024"/>
+erzehlten von dieſem vndt jenem/ was es theils in eines jeglichen<lb/>
+ſeinem vaterlande/ theils mitt jhrem eigenen zueſtande fuͤr beſchaf-<lb/>
+fenheit hette. Als ſie nachmals vermeinten weiter zue gehen/ vndt<lb/>
+die gelegenheit ſelbiger orte zue beſichtigen/ kamen ſie ohn gefehr<lb/>
+an eine ſchoͤne bach/ die mitt jhrem ſilberglaͤntzenden waßer die au-<lb/>
+gen/ vndt mitt dem lieblichen geraͤuſche ohren vnd ſinnen ergetzete.<lb/>
+Ein edeles fluͤßlein/ fieng Venator an/ vndt weil die berge dermaſ-<lb/>
+ſen nahe ſindt/ ſo muß es nicht weit hiervon entſpringen. Laßt<lb/>
+vns/ ſagte Buchner/ ein wenig daran hinauff ſpatzieren. Wir wa-<lb/>
+ren faſt an den wurtzeln des ſchneegebirges/ als wir einer Nimfe/<lb/>
+die an einer friſchen grotte oder hoͤle auff den lincken arm gelehnet<lb/>
+lag/ gewahr worden/ welche mitt einem ſubtilen durch ſcheinen-<lb/>
+den ſchleyer bekleidet war/ die haare/ ſo mitt einem gruͤnen krantze<lb/>
+geziehret/ auff eine frembde art auffgebunden hatte/ vnd vnter der<lb/>
+rechten handt ein geſchirr von dem weißeſten marmor hielte/ dar-<lb/>
+auß das quell des baͤchleins geronnen kam. Wiewol wir nun uͤber<lb/>
+dem ploͤtzlichen anſchawen nicht allein erſchracken/ ſondern auch<lb/>
+im zweiffel ſtunden/ ob wir ſtehen ſolten oder lauffen/ fieng doch<lb/>
+die ſchoͤneſte creatur/ oder viel mehr goͤttinn/ mitt anmutiger ſtim-<lb/>
+me alſo an zue ſingen:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Ihr hirten/ die jhr kompt zue ſchawen</hi></l><lb/>
+<l><hi rendition="#fr">Die quelle/ dieſe berg’ vndt awen/</hi></l><lb/>
+<l><hi rendition="#fr">Ihr hirten/ lauffer nicht vor mir/</hi></l><lb/>
+<l><hi rendition="#fr">Ich bin des ortes Nimfe hier.</hi></l><lb/>
+<l><hi rendition="#fr">Der Zacken den jhr mich ſeht gießen/</hi></l><lb/>
+<l><hi rendition="#fr">Der minſte von den kleinen fluͤßen/</hi></l><lb/>
+<l><hi rendition="#fr">Fuͤhrt oben ſilber klare flut/</hi></l><lb/>
+<l><hi rendition="#fr">Sein reiner ſandt tregt goldt vndt guet.</hi></l><lb/>
+<l><hi rendition="#fr">Warumb ſich freundt vndt feinde neiden/</hi></l><lb/>
+<l><hi rendition="#fr">Darbey koͤnnt jhr die ſchaffe weiden.</hi></l><lb/>
+<fw type="catch" place="bottom">Wer</fw><lb/>
+<pb n="25" facs="#f0025"/>
+<l><hi rendition="#fr">Wer goldt zue waſchen erſt gelehrt/</hi></l><lb/>
+<l><hi rendition="#fr">Hatt ja die menſchen hoch verſehrt!</hi></l><lb/>
+<l><hi rendition="#fr">Die goͤtter lieben ſolche ſinnen/</hi></l><lb/>
+<l><hi rendition="#fr">Die guͤldinn’ einfalt lieben koͤnnen;</hi></l><lb/>
+<l><hi rendition="#fr">So kompt/ jhr hirten/ ſchawet an/</hi></l><lb/>
+<l><hi rendition="#fr">Was ich/ vndt kein menſch zeigen kan.</hi></l></lg><lb/>
+<p>Wir ſtunden verwundert vnd beſtuͤrtzt/ weren auch auß ſchre-<lb/>
+cken zueruͤck gelauffen/ wann ſie mich nicht mit hoͤfflicher demut<lb/>
+bey der handt genommen/ vndt die andern zue folgen vermahnet<lb/>
+hette. Als wir in die hoͤle hinein kamen/ ſahen wir nichts fuͤr vns<lb/>
+als ein lauteres waßer/ das ſich gegen jhr wie ein berg aufflehne-<lb/>
+te/ vnd wir alſo trucken hindurch giengen. Von dannen befunden<lb/>
+wir vns in einer faſt kůhlen grotte/ auß welcher nicht allein dieſes<lb/>
+waßer ſaͤmptlich gefloßen kam/ ſondern auch andere ſtroͤme durch<lb/>
+verborgene gaͤnge vndt adern der felſen hinauß drungen. Diß iſt/<lb/>
+ſagte ſie/ die ſpringkammer der flůße/ darvon ſo viel felder be-<lb/>
+feuchtet/ ſo viel flecken vndt ſtaͤdte verſorget werden. Dieſe kleine-<lb/>
+re bach (darauff ſie dann mit jhren ſchneeweißen fingern zeigete)<lb/>
+iſt auch ein theil des Zackens an dem jhr hieher gegangen ſeidt/<lb/>
+vndt wirdt nicht ferren von dem gebirge mitt dem andern vermen-<lb/>
+get. Hier zur ſeiten ſehet jhr den vrſprung desfiſchreichē klaren Bo-<lb/>
+bers/ der jhm in einem ſchattichten walde ſein thor geſucht hatt/ da-<lb/>
+rauß er ſich durch berg vndt thal zwinget vndt windet/ vndt/ nach<lb/>
+dem er bey Hirſchberg den Zacken in ſich geſchluckt/ auch etzliche<lb/>
+ſtaͤdte/ darunter/ ſagte ſie zue mir/ dein nicht allein dir ſondern<lb/>
+auch vns Nimfen liebes/ aber erſchoͤpfftes Vaterlandt iſt/ be-<lb/>
+gruͤßet hatt/ endtlich an dem ende des landes Schleſien ſeinen<lb/>
+ſtrom vndt namen der Oder/ dem haupte vndt regentinn der<lb/>
+Schleſiſchen flůße/ zuegleich einantwortet. Wie dann die goldt-<lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">fůhrende</fw><lb/>
+<pb n="26" facs="#f0026"/>
+fůhrende wilde Katzbach/ derer brunnen nechſt darbey herauß<lb/>
+quillet/ nicht weit von Parchwitz dergleichen thut. Stracks ober-<lb/>
+halb dieſer krieget der durchbrechende Queiß/ da zur ſeiten die<lb/>
+hochfallende Aupe/ vndt/ wo jhr den glatten kieß ſehet/ die Iſer<lb/>
+jhren vrſprung; welcher wir zwar wenig waßer/ dennoch aber ſo<lb/>
+viel andere reiche gaben verliehen/ daß ſie den mangel des gewaͤſ-<lb/>
+ſers darmit wol erſetzen kan. Ich hette aus beg<supplied>i</supplied>ehr faſt angefan-<lb/>
+gen zue fragen: ſie aber/ die es mir am geſichte anſahe; dieſer<lb/>
+große ſtrom/ ſprach ſie/ der gerichts fuͤr euch mitt ſolchem ſtru-<lb/>
+deln vndt prauſen herauff ſteiget/ iſt die Elbe/ ſo von jhrer ge-<lb/>
+burtsſtat den hohen Alben die wir uͤber vns haben den namen be-<lb/>
+kommen hatt.</p><lb/>
+<p>Wie wir vns nun uͤber den ſeltzamen dingen der Natur ver-<lb/>
+wunderten/ vndt den vnerſchoͤpfften lauff der gewaͤßer beſtuͤrtzt in<lb/>
+augenſchein genommen/ auch von wegen des großen gethoͤnes<lb/>
+vndt rauſchens der auffſpringenden fluten faſt das gehoͤr verloh-<lb/>
+ren hatten/ gieng ſie durch ein weißes thor/ welches vns von mar-<lb/>
+morſtein zue ſein beduͤnckte/ fůr vns her/ vndt; Beſchawet nun/<lb/>
+ſagte ſie/ das ort/ welches fuͤr mannes augen zwar ſonſt verſchloſ-<lb/>
+ſen iſt. In dieſem Erdengemache pflege ich ſampt meinen ſchwe-<lb/>
+ſtern der Thalien/ Arethuſen/ Cydippen/ Opis vndt den andern<lb/>
+die zeit zue vertreiben. Dieſe anmutige hoͤle war nach art der al-<lb/>
+ten tempel zirckelrundt/ vndt in zimlicher hoͤhe. Ringes vmbher<lb/>
+ſtunden gefrorene criſtallen ſaͤulen/ welche von der gruͤnen bewach-<lb/>
+ſenen erden biß an die decke reichten/ vndt mitt jhrem durchſichti-<lb/>
+gen glantze das gantze zimmer erleuchteten. Mitten innen ſaßen<lb/>
+die Nimfen/ alle bluͤende vndt jung von antlitz/ auff gruͤnen tep-<lb/>
+pichen in einem kreiße vmbher/ ſponnen/ ſtickten vndt neheten an<lb/>
+der ſubtileſten leinwadt/ hatten allerhandt liebliche geſpreche/ vndt<lb/>
+<fw type="catch" place="bottom">erwehnte</fw><lb/>
+<pb n="27" facs="#f0027"/>
+erwehnete gleich damals eine/ wie die ſtoltze weberinn Arachne der<lb/>
+Minerven kampff angeboten; weil aber jhre arbeit der himmli-<lb/>
+ſchen nicht zuegeſagt/ ſich ſelbſt erhenckt habe/ vndt nachmals in<lb/>
+eine ſpinne verwandelt worden ſey: daß ſie nunmehr als ein bey-<lb/>
+ſpiel der vermeßenheit fuͤr den augen aller welt wircken vndt weben<lb/>
+muße. Wer ſeine hoffart an den vnſterblichen außlaßen wil/ fieng<lb/>
+eine braͤunlichte an/ ſo Lycorias ſein ſolte (vnſere begleiterian a-<lb/>
+ber hieße Hereinie) dem bekoͤmpt es ja allzeit uͤbel; vndt erzehlte<lb/>
+wie der naͤrriſche Midas mitt ſeiner blockpfeiffen den Apollo auß-<lb/>
+gefodert/ vndt endtlich nicht allein nicht den danck/ ſondern auch<lb/>
+gar eſelsohren davon bekommen habe: welches er zwar/ gemei-<lb/>
+nem gebrauche der menſchen nach/ verbergen wollen/ ſolches<lb/>
+auch ſeinem diener zue offenbahren verboten habe. Dieſer aber/<lb/>
+dem gaͤntzlich zue ſchweigen vnmoͤglich geweſen/ were zue einem<lb/>
+ſchilffichten orte gegangen/ hette ſeine heimligkeit den rhoren ver-<lb/>
+trawet/ die/ wann der windt daran geſchlagen/ nachmals alle<lb/>
+zue ſchreyen angefangen: <hi rendition="#fr">Midas hatt eſelsohren</hi>. Sie<lb/>
+lachten/ vndt; Es moͤgen wol rhore ſein/ fieng eine andere an/<lb/>
+darmit gelehrte leute ſchreiben/ vndt die jenigen fuͤr der gantzen<lb/>
+welt zue ſchanden machen/ welche mitt jhrem vnbeſonnenen vr-<lb/>
+theile von hurtigen vndt gelehrten gemuͤtern wol zue erkennen ge-<lb/>
+ben/ daß ſie Midas gleichen ſindt.</p><lb/>
+<p>Nicht weit von jhnen lagen etzliche lauten/ geigen vndt<lb/>
+andere muſicaliſche inſtrumente; auch koͤcher vndt pfeile/ die ſie/<lb/>
+wann ſie nebenſt den Waldtgoͤtinnen vndt Bergnimfen ſich mitt<lb/>
+dem geſaͤgdte ergetzen/ zue gebrauchen pflegen. An der wandt wa-<lb/>
+ren vnterſchiedene hiſtorien mitt kleinen muſcheln vndt kleinen<lb/>
+ſteinlein/ vndt zwar ſo kuͤnſtlich/ eingelegt/ daß wir hinzu giengen/<lb/>
+<fw type="sig" place="bottom">D ij</fw><fw type="catch" place="bottom">vndt</fw><lb/>
+<pb n="28" facs="#f0028"/>
+vndt es mehr fuͤr eines Apellens werck als fuͤr ſonſt etwas anſa-<lb/>
+hen. Vnter andern ſtundt die geſchichte/ wie der Jupiter/ welchen<lb/>
+ſein Vater Saturn freßen wollen/ dem aber die Muter Rhea ei-<lb/>
+nen ſtein in die windeln gewickelt/ vndt zue verſchlucken gegeben<lb/>
+habe/ von jhren der Nimfen ſchweſtern ſey erhalten/ vndt durch<lb/>
+einen adler bedienet worden. Baldt darneben/ wie andere auß jh-<lb/>
+nen den Bacchus bey Niſa in Aſien erzogen/ welche Jupiter<lb/>
+nachmals zur danckbarkeit hinauff genommen/ vndt zue den Hya-<lb/>
+den/ dem ſchoͤnen geſtirne/ das vns gemeiniglich regen ankuͤndi-<lb/>
+get/ gemacht habe. An einem andern orte/ wie die Nimfen Erato/<lb/>
+Pemfredo vndt Dino dem Perſeus flůgel vndt taſche (welche<lb/>
+jhm gleichwol von den mahlern der himmliſchen bilder abgeſtrickt<lb/>
+wirdt) geliehen/ durch derer hůlffe er der Meduſen das haupt ab-<lb/>
+geſchlagen/ vndt endtlich die Andromeden/ der ſtoltzen Caßiopeen<lb/>
+tochter/ von dem grawſamen meerwunder erloͤſet. Ferner wie die<lb/>
+Syrinx/ als ſie fůr dem Pan geflohen/ in die pfeiffe ſo Mercurius<lb/>
+nachmals gebraucht; wie andere Flußnimfen von dem erzuͤrnten<lb/>
+Achelous in die Echinadiſchen inſeln verwandelt worden; vndt<lb/>
+was allhier zue erzehlen nicht gelegenheit iſt.</p><lb/>
+<p>Kompt weiter/ ſagte Hereinie/ vndt beſchawet die wohnung<lb/>
+Thetis der vnſterblichen muter der Nimfen/ wann ſie durch die<lb/>
+verborgenen gaͤnge des erdtreichs mitt jhren ſeeroßen hieher zue<lb/>
+fahren/ vndt vns zue beſuchen pfleget. Wir giengen in begleitung<lb/>
+aller anderen Najaden/ denen die gelben haare vmb den zarten<lb/>
+halß vndt bruͤſte/ vndt die duͤnnegewebten maͤntel vmb jhre bloße<lb/>
+leiber flogen/ durch eine aͤrtzinne pforte/ vndt kamen in einen koͤſt-<lb/>
+lichen ſaal von großer laͤnge vndt breite. Der boden war an ſich<lb/>
+ſelbſt criſtallinn/ vndt mitt allerhandt ſchlangen/ fiſchen vndt meer<lb/>
+wundern von anderer art berhůmbten ſteinen dermaßen eingefuͤ-<lb/>
+<fw type="catch" place="bottom">get</fw><lb/>
+<pb n="29" facs="#f0029"/>
+get/ daß wir im erſten anſchawen faſt nicht trawen vndt aufftre-<lb/>
+ten wolten; deßen dann die Nimfen mitt einem ſuͤßen anblicke<lb/>
+ſaͤmptlich lachten. An der gewoͤlbeten decke/ die mitt blawen lazur-<lb/>
+ſteinen uͤber vnd ůber belegt war/ vnd durch welche auß zweyen run-<lb/>
+den criſtalliñen fenſtern der anmutige tag den gantzẽ platz von oben<lb/>
+her beleuchtete/ ſchiene nicht weniger von eben dieſer koͤſtlichen ar-<lb/>
+beit das gefluͤgel als in den wolcken herumb ſchweben/ vndt man-<lb/>
+gelte/ vnſers beduͤnckens/ nichts als die ſtimme. Auff beyden ſeiten<lb/>
+ſtunden in gleicher zahl vndt abtheilung ſeßel von agſteine/ deren<lb/>
+einer vmb den andern roth oder gelbe war. Hinten/ wie auch ge-<lb/>
+gen der foͤderthůr zue/ waren zwey verguͤldete altare/ auff deren ei-<lb/>
+nem dem großen Ocean/ auff dem andern der Thetis geopffert<lb/>
+wardt. Nicht weit von einem jeglichen ſprungen auß zweien wei-<lb/>
+ten ſilbernen becken oder ſchalen/ ſo ingleichen von ſilbernen Si-<lb/>
+renen gehalten worden/ ſehr anmutige quelle/ die eine blancke me-<lb/>
+talline kugel in die hoͤhe trieben/ vndt darmit ſpieleten; auch gleich<lb/>
+wieder herab fielen/ vndt von ſich ſelbſt verſchluckt vndt ſtets wie-<lb/>
+derumb auffgeſtoßen worden. In der mitten war eine lange tafel<lb/>
+von polirtem ſteine/ an welche Thetis mitt jhnen ſpeiſe vndt tranck<lb/>
+zue nemen pfleget.</p><lb/>
+<p>Ihr hirten/ fieng Hereinie an/ wir wißen was der himmel<lb/>
+vndt die Muſen euch verliehen/ vndt mitt was fuͤr begiehr der wiſ-<lb/>
+ſenſchafft jhr behafftet ſeidt. So laßet euch nun/ indeßen das mei-<lb/>
+ne Schweſtern den Vnſterblichen jhren dienſt erzeigen/ vnd jhr<lb/>
+gebůrliches opffer fuͤrtragen/ von mir zeigen/ was die gemelde vnd<lb/>
+ſchrifften an den waͤnden allhier in ſich halten. Wißet/ ſagte ſie<lb/>
+ferner/ daß alles was jhr biß anher geſehen vndt noch ſehen wer-<lb/>
+det/ in heimiſche außbeute/ in dieſen gruͤnden geſeiffet/ in dieſen<lb/>
+waͤßern gewaſchen/ hier gefunden vndt gearbeitet ſey. Der weiße<lb/>
+<fw type="sig" place="bottom">D iij</fw><fw type="catch" place="bottom">chalce-</fw><lb/>
+<pb n="30" facs="#f0030"/>
+chalcedonier/ der ſchwartze criſtall/ der violbraune amethiſt/ der<lb/>
+blawe ſaffir/ der ſtriemichte jaſpis/ die tunckelrothen granaten/ der<lb/>
+fleiſchfarbene carniol/ der rothgelbe gifftfeindt der hyacinth/ der<lb/>
+gelbichte beryll/ der vielfaͤrbichte achat/ der gelbe topazier/ welchen<lb/>
+jhr in der handt jenes adlers (vndt zeigte einen adler an der de-<lb/>
+cken darauff Ganymedes ſaß) als einen plitz fuͤnckeln ſehet/ der<lb/>
+helle demant/ ſindt alle hier zue hauſe. Dieſe perlen/ dieſes ſilber/<lb/>
+diß goldt iſt in floͤtzen vndt quaͤrtzen/ flaͤmmicht vndt koͤrnicht in<lb/>
+hieſigen reichen gefilden vndt gegenden an zue treffen; des zinnes/<lb/>
+kupffers/ eiſens glaſes vndt allen deßen was die magdt des hoͤch-<lb/>
+ſten Gottes vndt die guͤtige muter der menſchen die Natur ſonſt<lb/>
+gebiehret/ zue geſchweigen. Hiermit fuhrte ſie vns erſtlich wiede-<lb/>
+rumb der pforten zue/ daruͤber folgende reime ſtunden:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Ihr blinden ſterblichen/ was zieht jhr vndt verreiſt</hi></l><lb/>
+<l><hi rendition="#fr">In beydes Indien? was wagt jhr ſeel vndt geiſt</hi></l><lb/>
+<l><hi rendition="#fr">Fuͤr jhren knecht den leib? jhr holet krieg vndt ſtreit/</hi></l><lb/>
+<l><hi rendition="#fr">Bringt auß der newen welt auch eine weltvoll leidt.</hi></l><lb/>
+<l><hi rendition="#fr">Ihr pfluͤgt die wilde ſee/ vergeßet ewer landt/</hi></l><lb/>
+<l><hi rendition="#fr">Sucht goldt das eiſern macht/ vndt habt es bey der handt.</hi></l><lb/>
+<l><hi rendition="#fr">Den demant findet kaum der ſchwartze Moor ſo weiß/</hi></l><lb/>
+<l><hi rendition="#fr">Der jaſpis iſt vns ſchlecht/ die perlen tregt der Queiß.</hi></l><lb/>
+<l><hi rendition="#fr">Gieher menſch/ die Natur/ die Erde tuffet dir:</hi></l><lb/>
+<l><hi rendition="#fr">Wohin? nach guete: bleib: warumb? du haſt es hier.</hi></l></lg><lb/>
+<p>Nechſt dieſen Verſen/ die in eine ſchwartze ſteinerne platten<lb/>
+gehawen waren/ folgeten auff der einen ſeiten viel hiſtorien vndt<lb/>
+bilder von erſchaffung der welt; von der guͤldenen/ ſilbernen/ irr-<lb/>
+denen vndt letzlich eiſernen zeit; von dem himmelſtuͤrmeriſchen Gi-<lb/>
+ganten; der uͤberſchwemmung des erdtbodens; alles in der ordnung<lb/>
+wie es Heſiodus/ Apollodorus/ Hyginus vndt andere/ ſonderlich<lb/>
+der ſinnreicheſte vnter allen Poeten in ſeinen verwandelungsbuͤch-<lb/>
+<fw type="catch" place="bottom">ern</fw><lb/>
+<pb n="31" facs="#f0031"/>
+ern (darumb es allhier zue wiederholen vnnoͤtig iſt) verzeichnet<lb/>
+haben. Auff der andern ſeiten ſtundt erſtlich eine landttafel/ darin-<lb/>
+nen vnterſchiedene berge/ ſchloͤßer/ flůße vndt felder zue ſehen wa-<lb/>
+ren. Dieſes/ ſagte ſie/ iſt die gelegenheit hieſiger orte/ deren groͤße-<lb/>
+ſtes theil von langer zeit her die edelen Schaffgotſchen/ weßen ge-<lb/>
+ſchlechtes verlauff jhr in folgenden gemelden vndt ſchrifften biß<lb/>
+auff jetzigen werthen helden vernemen ſollet/ beherrſchen Ihr vhr-<lb/>
+altes gebluͤte/ jhre tugendt/ jhre loͤbliche thaten/ vndt ſonderlich die<lb/>
+ſtille rhue/ welcher wir vnter jhnen als gleichſam ſchutzgoͤttern biß-<lb/>
+anhero genoßen/ hatt verdienet/ jhnen bey vns allhier diß gedaͤcht-<lb/>
+niß auff zue richten. Damit ich aber euch/ als denen ſo zue nach-<lb/>
+ſuchung der alten zeiten ſonderlich luſt tragen/ etwas außfuͤhrung<lb/>
+thue/ ſo wißet daß wie hieſiges hohe riſengefilde/ hieſiger flintzberg<lb/>
+vndt ſchneegebirge anfaͤnglich von natůrlichen erburſprůnglichen<lb/>
+deutſchen/ den Mareomannen/ Marſingern vndt dergleichen be-<lb/>
+wohnt/ alſo auch von jhnen zueweilen der Hartz oder Hereini-<lb/>
+ſche waldt/ darvon ich heiße/ zueweilen das Sudeten oder Sud-<lb/>
+oͤden gebirge ſey genennt worden: biß die Sarmatiſchen Win-<lb/>
+den (nicht die Wandaliſchen Voͤlcker) jhre Viſtul oder Weixel<lb/>
+uͤberſchritten/ vndt ſich dieſer vndt anderer lande bemaͤchtigt ha-<lb/>
+ben. Daß aber dennoch allzeit etwas von Deutſchen uͤbrig ver-<lb/>
+blieben ſey/ koͤnnet jhr dannenher von euch ſelbſt ſchließen/ daß der<lb/>
+name Boͤmen/ welcher allbereit vor anderthalb tauſendt jharen<lb/>
+vndt viel zeiten vor der Winden einfall berhůmbt geweſen/ noch<lb/>
+heutiges tages nicht verloſchen iſt; wie dann auch ein theil dieſer<lb/>
+berge die Alpe oder Elbe vndt dergleichen/ bey jhren altern woͤr-<lb/>
+tern biß anjetzo verblieben ſindt. Hetten ewere Deutſchen mit ſol-<lb/>
+chem fleiße denckwůrdige große thaten auffſchreiben/ als verrich-<lb/>
+ten koͤnnen/ oder die blutigen kriege fuͤr etzlichen hundert jharen<lb/>
+<fw type="catch" place="bottom">mitt</fw><lb/>
+<pb n="32" facs="#f0032"/>
+mitt den leuten nicht auch zuegleich das gedaͤchtniß derſelbten vndt<lb/>
+alle geſchickligkeit außgerottet/ ſo koͤndte der edelen Schoffe (dann<lb/>
+alſo worden ſie vormals genennet) werther name/ vndt die tapf-<lb/>
+ferkeit welche ſie zue beſchuͤtzung des vaterlandes angewendet/ euch<lb/>
+mehr vor augen geſtellet werden: bey vns haben wir jhren rhum<lb/>
+allein von der zeit auffgemercket/ ſeidt vnſere baͤche vnter jhrem<lb/>
+ſchirme ruhig gefloßen/ vndt ſie beſitzer der orte/ die zum theile<lb/>
+hier entworffen ſtehen/ geweſen ſindt.</p><lb/>
+<p>Hieruͤber trat ſie fort/ vndt; Dieſer/ ſagte ſie/ welchen jhr in<lb/>
+gantzem kuͤriß ſtehen ſehet/ iſt der frey werthe heldt Gothardt/ o-<lb/>
+der/ wie damals den alten zue reden beliebet hatt/ Gotſche Schoff/<lb/>
+der ſeinen kindeskindern mitt dem groͤßeren lobe vndt auffnemen<lb/>
+auch ſeinen namen/ deßen ſie ſich ſaͤmptlich rhůmen/ uͤbergeben<lb/>
+hatt. Wir wißen nicht anders/ als daß ſein vater Vlrich Schoff<lb/>
+geheißen/ vndt faſt fuͤr dreyhundert jharen Burggraff zue Kinſ-<lb/>
+berg geweſen ſey. Edele Nimfe/ fieng ich an/ wann ein menſch ei-<lb/>
+ne goͤttin zue fragen macht hatt/ warumb daß ſeine rechte fauſt<lb/>
+gleichſam blutig abgebildet iſt? Vor Erfurt/ gab ſie zur antwort/<lb/>
+hielte er ſich bey gelegenheit eines außfalles ſo wol/ das jhn der<lb/>
+Feldherr/ keyſer Carl der vierdte/ alßbaldt fuͤr ſich fodern ließ/ jhm<lb/>
+ſeine wolverdiente gnade perſoͤnlich an zue tragen/ vndt die handt<lb/>
+zue bieten. Er aber/ der vom wuͤrgen der feinde erſt zuruͤck gekehret/<lb/>
+hatt die blutigen finger an ſeine blancke ruͤſtung gewiſcht/ vndt al-<lb/>
+ſo den Keyſer mitt dieſer werthen fauſt geehret; welcher jhn dann<lb/>
+zum ritter geſchlagen/ vndt das hochadliche wapen mit vier rothen<lb/>
+ſtriechen deßentwegen geziehret hatt/ daß ſeine nachkommenen<lb/>
+nicht allein wißen moͤchten/ wie jhr adel/ der vor alter von treffli-<lb/>
+chen thaten hergerhuͤret/ ingleichen von trefflichen thaten ver-<lb/>
+mehrt worden ſey: ſondern auch durch dieſes zeichen als einen leb-<lb/>
+<fw type="catch" place="bottom">hafftigen</fw><lb/>
+<pb n="33" facs="#f0033"/>
+hafftigen zunder zue dergleichen ſolten angeregt/ vndt auffgemun-<lb/>
+tert werden. Wannenher aber iſt der gruͤne bawm in eben dieſem<lb/>
+wapen? fragte ich. Der ſieghaffte Bolco/ ſagte ſie/ Hertzog zur<lb/>
+Schweidnitz vndt Jawer/ deßen bruders tochter Carl der vierdte<lb/>
+zur ehe hatte/ liebte jetzt erwehnten Gothardt Schoff ſeinen waf-<lb/>
+fentraͤger des loͤblichen verhaltens vndt vieler hohen lugenden we-<lb/>
+gen dermaßen/ daß er jhm hieſigen rieſenberg/ die traͤchtige Iſer<lb/>
+ſampt angraͤntzenden boͤhaimbiſchen walde/ das birgguet Schmie-<lb/>
+deberg neben aller zuegehoͤr/ wie auch das feſte ſchloß oder berg-<lb/>
+hauß Kinaſt/ auß fuͤrſtlicher miltigkeit zue erbeigen uͤbergab vndt<lb/>
+verehrete; darumb dann der Kieferbawm oder Kinaſt zue dem vhr-<lb/>
+alten wapen iſt gezogen worden. Mitt Friedeberg aber/ das jhr in<lb/>
+der tafel gegen dem gebirge zue am Queiße liegen ſehet/ wie auch<lb/>
+mitt der ſtadt Greiffenberg/ welche der himmliſchen weberinn Mi-<lb/>
+nerven dermaßen lieb iſt/ vndt der feſtung oder dem berghauſe<lb/>
+Greiffenſtein/ ſo hertzog Boleſlaus der Heiligen Hedwigen Soh-<lb/>
+nes Sohn erbawet/ hatt jhn vorbemeldeter Keyſer beſchencket;<lb/>
+daß alſo die beſitzung hieſiger orte ein lauteres verdienſt der tu-<lb/>
+gendt iſt.</p><lb/>
+<p>Allerſchoͤneſte Nimfe/ ſagte Nuͤßler/ wir mußen gleichwol<lb/>
+die reime darbey vngeleſen nicht laßen. Sie ſtellete es vns an-<lb/>
+heim/ vndt gab ſo viel zueverſtehen/ ſie weren darumb eingehaw-<lb/>
+en. Ritters Gotſchen uͤberſchifft war dieſe:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Ich werde recht von dir mein werther ſtamm geehret/</hi></l><lb/>
+<l><hi rendition="#fr">Weil ich dir namen/ rhum vndt wapen hoch vermehret;</hi></l><lb/>
+<l><hi rendition="#fr">Die roten ſtriche hatt kein geldt noch gunſt erdacht/</hi></l><lb/>
+<l><hi rendition="#fr">Der Keyſer hatt ſie nur gelobt/ der feindt gemacht.</hi></l></lg><lb/>
+<p>Vnter dem wapen neben ſeiner tafel:</p><lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom">Schaw</fw><lb/>
+<pb n="34" facs="#f0034"/>
+<lg type="poem"><l><hi rendition="#fr">Schaw hier den edlen ſchildt als ie der tag beſchienen:</hi></l><lb/>
+<l><hi rendition="#fr">Was zeigt der friſche bawm? die tugendt muß ſiets gruͤnen:</hi></l><lb/>
+<l><hi rendition="#fr">Vndt was das ſchaff? ein menſch ſoll guer vndt guetig ſein;</hi></l><lb/>
+<l><hi rendition="#fr">Das blut? wo guet nicht hilfft/ ſchlag mitt der fauſt darein.</hi></l></lg><lb/>
+<p>Nachfolgende drey/ redte Hercinie ferner/ ſindt ritter Got-<lb/>
+hardts Soͤhne. Der erſte zur rechten handt eben des namens;<lb/>
+deßen drey Soͤhne/ Vlrich/ Gotſche vndt Hans/ welcher faſt<lb/>
+fuͤr anderthalb hundert jharen geſtorben/ gleich vnter jhm ſindt.<lb/>
+Der dritte/ ſo zur lincken/ Henrich oder Hentze Schoff auff Kem-<lb/>
+nitz/ deßen zwey Soͤhne/ Henrich vndt Peter/ auch vnter jhm<lb/>
+ſtehen. Der andere/ in der mitten/ iſt Hans Schoffgotſche auff<lb/>
+Kinaſt/ den wir in ſeinen nachkommenen noch anietzo bluͤhen vnd<lb/>
+wachſen ſehen. Die ſechſe/ wie jhr ſie ordentlich nacheinander<lb/>
+allhier geſetzt findet/ ſindt ſeine Soͤhne. Der aͤltere iſt Chriſtoff/<lb/>
+den ein anderer edelmann wenig adeſich vnverſehens erſchoſſen<lb/>
+hatt. Der andere Ernſt des namens/ welcher darumb ein zue-<lb/>
+ſammen gerolltes ſchreiben in der fauſt hatt/ weil er der Fuͤrſten-<lb/>
+thuͤmber Schweidnitz vndt Jawer Cantzler geweſen; wie dann<lb/>
+ſolche Cantzelley nebenſt dem ampte des Hoffrichters zur Schweid<lb/>
+nitz/ von etzlichen hundert jharen an den Herren Schaffgotſchen<lb/>
+eigenthuͤmblich hatt zuegehoͤrt. Der dritte iſt Jeronymus der<lb/>
+bloͤdtſinnige. Der vierdte Antonius. Er ſiehet ſchwartz auß;<lb/>
+ſagte einer von vns. Man hatt jhn auch/ gab Hercinie zur ant-<lb/>
+wort/ wie er ſich dann ſelbſt/ den Reppelgotſchen geheißen/ iſt<lb/>
+ein ſtatlicher mann/ vndt mitt einer gebornen Freyinn von<lb/>
+Schumburg vermaͤhlt geweſen. Der fuͤnffte Caſpar. Der letz-<lb/>
+te Vlrich/ ein ſtreitbarer mann/ der mitt ſeiner ſtrengen fauſt die<lb/>
+ritterſchafft auff der Buntzliſchen heiden gewonnen; wie auff ſei-<lb/>
+nem ſchwerdte/ das noch verhanden/ zu leſen iſt. Doch beſagt es<lb/>
+auch die uͤberſchrifft:</p><lb/>
+<fw type="catch" place="bottom">Des</fw><lb/>
+<pb n="35" facs="#f0035"/>
+<lg type="poem"><l><hi rendition="#fr">Des ritters rhuͤm ich mich/ die weil ich obgeſieget:</hi></l><lb/>
+<l><hi rendition="#fr">Ich bin kein kriegesinann der niemals hatt gekrieget/</hi></l><lb/>
+<l><hi rendition="#fr">Kein ritter ohne feindt/ kein reuter ohne pferdt;</hi></l><lb/>
+<l><hi rendition="#fr">Wer von mir wißen wil/ der frage noch mein ſchwerdt.</hi></l></lg><lb/>
+<p>Wie nun Chriſtoff/ Jeronymus vndt Ernſt leibeserben nicht<lb/>
+gelaßen; alſo ſehet jhr vnter einem ieglichen der andern jhre Soͤh-<lb/>
+ne. Des Antons ſindt Fridrich/ Ernſt/ Vlrich/ Ritter Anton/<lb/>
+welcher mitt einer ketten vmb die armen abgebildet/ weil er von<lb/>
+den Saracenen gefangen/ an den pflug geſpannet vndt ſehr uͤbel<lb/>
+gehalten worden/ wie wol er endtlich in ſeinem Vaterlande ver-<lb/>
+ſchieden; Ritter Hans Kayſerljcher Rhat vnd Caͤmmerer/ vndt<lb/>
+Bernardt auff Rurlach; deren kindeskinder theils noch bey leben.<lb/>
+Vber dem Anton waren dieſe worte eingegraben:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Ich wardt gefangem zwar/ vndt habe viell erlitten/</hi></l><lb/>
+<l><hi rendition="#fr">Du wilder Saracen/ nach dem ich dich beſtritten:</hi></l><lb/>
+<l><hi rendition="#fr">Doch was dann haſt du jetzt von mir in deiner handt?</hi></l><lb/>
+<l><hi rendition="#fr">Der himmel hatt den geiſt/ den leib das Vaterlandt.</hi></l></lg><lb/>
+<p>Caſpar/ redete Hereinie weiter/ wie jhr ſehet/ hatt fuͤnff Soͤh-<lb/>
+ne hinterlaßen: Watzlawen/ der jhm durch reiſen vndt geſchicklig-<lb/>
+keit großes anſehen gemacht/ Hanſen/ Chriſtoffen/ Caſparn<lb/>
+(deßen einiger Sohn Adam/ Freyherr auff Trachenberg vndt<lb/>
+Praußnitz/ wiewol er zwey gem<supplied>a</supplied>hlinn/ deren die letzte eine Graͤf-<lb/>
+finn war/ gehabt/ ohn erben geſtorben iſt) vndt Balthaſern/ der<lb/>
+vier Soͤhne erzeuget: wie dann der letzte ritterliche heldt Vlrich/<lb/>
+der faſt vierzig jhar uͤber die Fuͤrſtenthuͤmber Schweidtnitz vndt<lb/>
+Jawer Hauptmann geweſen/ vndt in die neunzig jhar alt worden/<lb/>
+Wolffen vndt Hanſen erzeuget/ deßen Wolffens Sohnes Sohn<lb/>
+Vlrich oder Vdalrich (vielmehr Adelreich) zu ſeiner Vorfah-<lb/>
+ren thaten auch die liebe der weißheit gebracht/ vndt einen artli-<lb/>
+<fw type="sig" place="bottom">E ij</fw><fw type="catch" place="bottom">chen</fw><lb/>
+<pb n="36" facs="#f0036"/>
+chen Poeten gegeben hatt; wie er ſelbſt von ſich redendt allhier ein-<lb/>
+gefuͤhrt wirdt:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Soll ich mich ſchaͤmen dann des namens der Poeten?</hi></l><lb/>
+<l><hi rendition="#fr">Iſt kunſt vndt wißenſchafft dem adel nicht von noͤthen?</hi></l><lb/>
+<l><hi rendition="#fr">Standt bluͤet durch verſtandt: hett ich nicht ſtandt gehabt/</hi></l><lb/>
+<l><hi rendition="#fr">So hette mich verſtandt mitt adel doch begabt.</hi></l></lg><lb/>
+<p>Obberhuͤrte vier des Herrn Balthaſars Soͤhne/ Freyher-<lb/>
+ren/ ſindt der zur rechten Herr Balthaſar auff Langenaw/ der zur<lb/>
+lincken handt Herr Caſpar zue Trachenberg/ der neben dieſem<lb/>
+Herr Watzlaw auff Bernßdorff/ vndt der in der mitten oben an<lb/>
+der in krieges vndt friedens tugenden erfahrene Herr/ Herr<lb/>
+Chriſtoff/ vnter deßen Sohne/ dem Hoch wolgebornen Herrn/<lb/>
+Herrn Hanſen Vlrichen/ dem freyen vnverzagten helden/ dieſes<lb/>
+vorgebirge/ dieſe waͤlder vndt brunnen/ vndt wir Nimfen ſolcher<lb/>
+thue/ ſolchen friedens genießen/ daß wir die angraͤntzenden fewer<lb/>
+der blutigen Bellonen/ dieſes klaͤgliche getuͤmel der waffen biß an-<lb/>
+hero zwar von ferren angeſchawet haben vndt gehoͤret/ aber<lb/>
+(welches zue einer gueten ſtunden geredet ſey) nie erfahren<lb/>
+duͤrffen.</p><lb/>
+<p>Hierauff ſchwiege die leutſelige Hercinie etwas ſtille; ich aber<lb/>
+laſe die reimen/ ſo bey Herren Chriſtoffen ſeliger gedaͤchtniß ver-<lb/>
+zeichnet waren:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">An tugendt bin ich recht/ vndt linckiſch auch/ geweſen:</hi></l><lb/>
+<l><hi rendition="#fr">Warumb? dieweil ich diß geſchrieben vndt geleſen</hi></l><lb/>
+<l><hi rendition="#fr">Was thaten wuͤrdig iſt/ vndt gleichfals diß gethan</hi></l><lb/>
+<l><hi rendition="#fr">Was der ſo thaten lobt gar wol beſchreiben kan.</hi></l></lg><lb/>
+<p>In deßen fragen die andern wegen der ſachen die nach jhm<lb/>
+ſtunden. Hier zue nechſie/ fieng ſie an/ iſt ſeine tapffere/ hoffverſtaͤn<lb/>
+dige gemahlinn/ des vhralten geſchlechtes der Freyherren von<lb/>
+Promnitz/ welcher vnſterbligkeit vndt verdienſt eine groͤßere zeit<lb/>
+<fw type="catch" place="bottom">bedoͤrffen/</fw><lb/>
+<pb n="37" facs="#f0037"/>
+bedoͤrffen/ als daß ſie allhier koͤnnen erzehlt werden. Sehet aber<lb/>
+jhre uͤberſchrifft.</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Ich bin in dieſe welt von heldenſtamme kommen/</hi></l><lb/>
+<l><hi rendition="#fr">Die ziehr der helden hatt zur ehe mich genommen/</hi></l><lb/>
+<l><hi rendition="#fr">Ein heldt der kam auß mir an dieſes liechtes ſchein/</hi></l><lb/>
+<l><hi rendition="#fr">Wie ſolte dann nicht ich auch eine heldinn ſein?</hi></l></lg><lb/>
+<p>Von jetzigem erſt gemeldeten regenten/ ſagte die Nimfe/ koͤn-<lb/>
+net jhr den inhalt folgen der tafeln weitleufftig vernemen. Seine<lb/>
+hohe beſchaffen heiten/ ſein verſtandt in anſchlaͤgen/ ſein muth im<lb/>
+ſtreiten/ ſeine ritterliche thaten verdienten zwar von allen edelen<lb/>
+gemuͤtern ſinnreicher Poeten in das regiſter der ewigkeit eingetra-<lb/>
+gen zue werden/ er aber/ als ein vollkommener Heldt/ iſt auch mitt<lb/>
+ſolcher demut begabet/ daß er nicht gern von jhm rhuͤmen leßt/ was<lb/>
+doch die that vndt warheit ſelber redet. Was jhr aber allhier ſehet/<lb/>
+haben die Parcen/ Clotho/ Lacheſis vndt Atropos/ als ſie jhm auff<lb/>
+befehl des himmels die faden des lebens geſponnen/ ein helliglich<lb/>
+geſungen/ vndt mitt buchſiaben von demant dem roſte der zeit zue-<lb/>
+gegen in dleſen ſchwartzen criſtall verſetzt. Wir verwunderten vns<lb/>
+nicht ſo ſehr uͤber der menge der edelen geſteine/ als uͤber der fuͤr-<lb/>
+trefflichen arbeit/ welche von ſolcher kuͤnſt vndt ſchoͤnheit war/ das<lb/>
+wir wol abnemen kundten/ menſchen haͤnde wuͤrden dergleichen<lb/>
+nach zue thun ſich vmbſunſt bemuͤhet haben. Das getichte aber<lb/>
+vndt weißagung der Parcen waren von worte zue worte<lb/>
+dieſe:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Brich an/ du ſchoͤner tag/ vndt komm/ du edles kindt/</hi></l><lb/>
+<l><hi rendition="#fr">Dem goͤtter/ vndt das hauß der goͤtter günſtig ſindt/</hi></l><lb/>
+<l><hi rendition="#fr">Der himmel/ vndt auch wir. wir haben zwar gewunden</hi></l><lb/>
+<l><hi rendition="#fr">Ein garn/ ein weißes garn zue ſeines lebens ſtunden;</hi></l><lb/>
+<l><hi rendition="#fr">Wo iſt die farbe hin? die faden werden goldt.</hi></l><lb/>
+<l><hi rendition="#fr">Brich an tag/ komm o kindt! die goͤtter ſindt dir holdt/</hi></l><lb/>
+<fw type="sig" place="bottom">E iij</fw><fw type="catch" place="bottom">Ihr</fw><lb/>
+<pb n="38" facs="#f0038"/>
+<l><hi rendition="#fr">Ihr himmel/ vndt wir auch: ſie wollen dich begaben/</hi></l><lb/>
+<l><hi rendition="#fr">Dir ſchencken diß was viel wol wuͤndtſchen/ wenig haben.</hi></l><lb/>
+<l><hi rendition="#fr">Mars ſeinen großen muth/ vndt Jupiter verſtandt.</hi></l><lb/>
+<l><hi rendition="#fr">Komm an/ dein guͤldnes garn das waͤchſt vns in der handt/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt ſpinnt ſich ſelber auff. ſchaw hier die ſchoͤnen blicke</hi></l><lb/>
+<l><hi rendition="#fr">Der heldinn welche dich mitt ſolchem gueten gluͤcke</hi></l><lb/>
+<l><hi rendition="#fr">Der liechten Sonnen zeigt/ der heldinn die jetzt dir</hi></l><lb/>
+<l><hi rendition="#fr">Das leben/ vndt hernach des lebens beſte ziehr</hi></l><lb/>
+<l><hi rendition="#fr">Die tugendt geben wirdt du wirſt zwar waiſe werden</hi></l><lb/>
+<l><hi rendition="#fr">Durch deines Vatern todt/ der kuͤrtzlich dieſer erden</hi></l><lb/>
+<l><hi rendition="#fr">Soll geben guete nacht/ wie vnſer buch vermag;</hi></l><lb/>
+<l><hi rendition="#fr">Doch die durch welche du gebracht wirſt an den tag</hi></l><lb/>
+<l><hi rendition="#fr">Wirdt nicht nur muter ſein/ wirdt auch mitt vaterſinnen</hi></l><lb/>
+<l><hi rendition="#fr">Zur waren tugendt luſt dich baldt gewehnen koͤnnen/</hi></l><lb/>
+<l><hi rendition="#fr">Dir zeigen einen weg wohin der gehen ſoll/</hi></l><lb/>
+<l><hi rendition="#fr">Stracks wann er gehen leint/ der edlen lobes voll</hi></l><lb/>
+<l><hi rendition="#fr">Wil brechen durch die zeit du wirſt fuͤr allen dingen</hi></l><lb/>
+<l><hi rendition="#fr">Auff jhrem armen noch am liebſten hoͤren klingen</hi></l><lb/>
+<l><hi rendition="#fr">Die trummel vndt trompet/ wirſt reißen mitt der handt</hi></l><lb/>
+<l><hi rendition="#fr">Auff einen degen zue/ der etwan an der wandt</hi></l><lb/>
+<l><hi rendition="#fr">Mag auffgehend er ſein. das mittel dich zue ſchweigen</hi></l><lb/>
+<l><hi rendition="#fr">Wirdt ſein ein blanckes helm/ ein ſchoͤnes roß zue zeigen/</hi></l><lb/>
+<l><hi rendition="#fr">Die lantz vndt rennebahn. ein ſolches tocken ſpiel</hi></l><lb/>
+<l><hi rendition="#fr">Liebt erſtlich baldt ein kindt das nicht verſa wern wil</hi></l><lb/>
+<l><hi rendition="#fr">In ſeiner muter ſchoß. wann dann zue deinen tagen</hi></l><lb/>
+<l><hi rendition="#fr">Die ſprache kommen wirdt/ ſo wirſt du lernen fragen</hi></l><lb/>
+<l><hi rendition="#fr">Nach dem was ritterſchafft vndt lob der ahnen ziehrt;</hi></l><lb/>
+<l><hi rendition="#fr">Wirſt werden zue der luſt der weißheit angefuͤhrt/</hi></l><lb/>
+<l><hi rendition="#fr">Kein feindt der buͤcher ſein. wirſt Rom begierig hoͤren</hi></l><lb/>
+<l><hi rendition="#fr">In jhrer ſprache ſelbſt/ dich laßen von jhr lehren</hi></l><lb/>
+<l><hi rendition="#fr">Durch was fuͤr witz/ vndt krafft ſie jhr die gantze welt/</hi></l><lb/>
+<l><hi rendition="#fr">Was Titan uͤberſcheint/ zum fuͤßen hatt gefellt.</hi></l><lb/>
+<fw type="catch" place="bottom">Es</fw><lb/>
+<pb n="39" facs="#f0039"/>
+<l><hi rendition="#fr">Es wirdt von rapfferkeit/ von ſtrengem kriegesweſen</hi></l><lb/>
+<l><hi rendition="#fr">Dir Leipzig/ Tuͤbingen vndt Altorff weiter leſen/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt ſagen/ daß ein heldt der große thaten liebt/</hi></l><lb/>
+<l><hi rendition="#fr">Den thaten noch mehr ſchein durch kunſt vndt klugheit giebt.</hi></l><lb/>
+<l><hi rendition="#fr">Biß daß der hohe ſinn dich vber berge tieget/</hi></l><lb/>
+<l><hi rendition="#fr">Wo Freyheit jhren grundt tieff in die ſee geleget</hi></l><lb/>
+<l><hi rendition="#fr">Von langen zeiten an/ vndt Nereus eine ſtadt/</hi></l><lb/>
+<l><hi rendition="#fr">Die aber laͤnder zwingt/ zue ſeinem weibe hatt.</hi></l><lb/>
+<l><hi rendition="#fr">Dann wirft du nechſt darbey ein gaſt Antendrs werden/</hi></l><lb/>
+<l><hi rendition="#fr">So lange Cynthia ſechs mal den kreiß der erden</hi></l><lb/>
+<l><hi rendition="#fr">Mitt gantzem liechte fuͤllt: du wirſt hier deinen ſtandt/</hi></l><lb/>
+<l><hi rendition="#fr">Dein edles ritterblut/ auch zeigen mitt der handt/</hi></l><lb/>
+<l><hi rendition="#fr">Die offtmals ſagen muß was mancher fuͤhrt im hertzen;</hi></l><lb/>
+<l><hi rendition="#fr">Wirſt kunſt zur mannheit thun/ vndt mitt dem degen ſchertzen/</hi></l><lb/>
+<l><hi rendition="#fr">Induͤnfftig ernſt zue ſein; wirſt legen deine zeit/</hi></l><lb/>
+<l><hi rendition="#fr">Die zeit ſo guͤldinn iſt/ an guͤldne tapfferkeit/</hi></l><lb/>
+<l><hi rendition="#fr">An ſprachen vndt verſtandt. wirſt hin nach Rom verreiſen/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt an den Tiberſtrom daſelbſt dir laßen weiſen</hi></l><lb/>
+<l><hi rendition="#fr">Wo Rom geweſen ſey: hier ſtundt die ziehr der welt/</hi></l><lb/>
+<l><hi rendition="#fr">Wirdt ſprechen wer dich fuͤhrt; hier war der tugendt feldt/</hi></l><lb/>
+<l><hi rendition="#fr">Das ort von dem ſich ließ der erdenkreiß beſchoͤnen.</hi></l><lb/>
+<l><hi rendition="#fr">Auff dieſes ſolt du ſehn die muter der Sitenen/</hi></l><lb/>
+<l><hi rendition="#fr">Der welt Sirene ſelbſt; vndt Bajas/ vndt jhr badt/</hi></l><lb/>
+<l><hi rendition="#fr">Was Cuma/ was Puzol fuͤr luſt vndt wunder hatt/</hi></l><lb/>
+<l><hi rendition="#fr">Der ſchaw platz der natur. dich wirdt zue roße ſetzen</hi></l><lb/>
+<l><hi rendition="#fr">Das bluͤende Florentz; es ſoll ſich ſelbſt ergetzen</hi></l><lb/>
+<l><hi rendition="#fr">Der weißen Nimfen ſchar am hohen Apennin/</hi></l><lb/>
+<l><hi rendition="#fr">Wann deine freye fauſt des pferdes ſtoltzen ſinn</hi></l><lb/>
+<l><hi rendition="#fr">Wirdt brechen durch den zaum/ baldt ſichet laßen fliegen</hi></l><lb/>
+<l><hi rendition="#fr">Mitt ſchaͤumender begier/ den winden ob zue ſiegen.</hi></l><lb/>
+<l><hi rendition="#fr">Dann leßeſt du die flut der ſee dich nach Meßan/</hi></l><lb/>
+<l><hi rendition="#fr">Von hier nach Malta zue/ von Malta auff Drapan</hi></l><lb/>
+<fw type="catch" place="bottom">Den</fw><lb/>
+<pb n="40" facs="#f0040"/>
+<l><hi rendition="#fr">Den Lilibeer port mitt vollem ſegel tragen/</hi></l><lb/>
+<l><hi rendition="#fr">Darffſt gegen Africa nach Tunis zue dich wegen/</hi></l><lb/>
+<l><hi rendition="#fr">Machſt die Tyrrhener ſee dir weit vndt breit bekandt/</hi></l><lb/>
+<l><hi rendition="#fr">Biß Napolis dich ſetzt noch ein mal an ſein landt/</hi></l><lb/>
+<l><hi rendition="#fr">Das reiche Napolis/ vndt dann auff Piſa ſendet/</hi></l><lb/>
+<l><hi rendition="#fr">Diß wieder nach Florentz/ wo zwar der weg ſich endet/</hi></l><lb/>
+<l><hi rendition="#fr">Nicht aber auch der fleiß; du wirſt auffs newe hier</hi></l><lb/>
+<l><hi rendition="#fr">Die gantze ſommers zeit vermehren deine ziehr</hi></l><lb/>
+<l><hi rendition="#fr">Durch ſprachen vndt verſtandt. hierauff nach Luca ziehen/</hi></l><lb/>
+<l><hi rendition="#fr">Von dar nach Genua wo krieg vndt friede bluͤhen/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt auff Minerven ſtadt das kuͤnſtliche Milan/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt was die tafel hier ſonſt mehr nicht faßen kan:</hi></l><lb/>
+<l><hi rendition="#fr">Biß endtlich Spanien dir in den ſinn wirdt kommen/</hi></l><lb/>
+<l><hi rendition="#fr">Das nunmehr beydes hauß der Sonnen eingenommen/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt jhm verbunden hatt: dein weg ſoll Franckreich ſein/</hi></l><lb/>
+<l><hi rendition="#fr">Der ſitten meiſterinn/ der kuͤnſte liecht vndt ſchein/</hi></l><lb/>
+<l><hi rendition="#fr">An vieh vndt leuten reich/ das weit vndt breit beſchloßen</hi></l><lb/>
+<l><hi rendition="#fr">Mitt ſtarcken klippen ſteht/ mitt waͤßern gantz vmbfloßen;</hi></l><lb/>
+<l><hi rendition="#fr">Verwahret mitt der ſee. du wirſt durch Delſinat</hi></l><lb/>
+<l><hi rendition="#fr">Hin auff Marſilien/ von da auff Arelat/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt ferner an den fuß der ſchneeichten Pirenen/</hi></l><lb/>
+<l><hi rendition="#fr">Die jhre ſpitzen faſt biß an die wolcken lehnen/</hi></l><lb/>
+<l><hi rendition="#fr">Wo du begruͤßen ſolt zum erſten Arragon/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt dann nicht ohn gefahr das ſtoltze Barcelon/</hi></l><lb/>
+<l><hi rendition="#fr">Tottoſa vndt Sagunt berhuͤmbt vom hungerleiden/</hi></l><lb/>
+<l><hi rendition="#fr">Die Koͤniginn Valentz/ wo Duria viel weiden/</hi></l><lb/>
+<l><hi rendition="#fr">Viel blumen/ graß vndt waldt vmb ſeine ſtroͤme hegt/</hi></l><lb/>
+<l><hi rendition="#fr">Biß dich ein langer weg hin nach Toledo tregt/</hi></l><lb/>
+<l><hi rendition="#fr">Von dannen nach Madrid/ auß denen jenes eiſen</hi></l><lb/>
+<l><hi rendition="#fr">Vndt ſtahl/ diß weißheit hatt. dann wirſt du ruͤckwerts reiſen</hi></l><lb/>
+<l><hi rendition="#fr">Da wo der Iber fleußt auff Saragoſa hin/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt auß der Sonnen brunſt in beßer wetter ziehn.</hi></l><lb/>
+<fw type="catch" place="bottom">Wie</fw><lb/>
+<pb n="41" facs="#f0041"/>
+<l><hi rendition="#fr">Wie nun dir Spanien gegeben witz zue hoͤren</hi></l><lb/>
+<l><hi rendition="#fr">Vndt ſchweigen/ alſo wirdt dich Franckreich reden lehren/</hi></l><lb/>
+<l><hi rendition="#fr">Der außzug aller luſt/ der edlen demut landt/</hi></l><lb/>
+<l><hi rendition="#fr">In welcher jederman geehrt wirdt vndt bekandt</hi></l><lb/>
+<l><hi rendition="#fr">Der tugendt leiden kan. die erſte rhue vndt wonne</hi></l><lb/>
+<l><hi rendition="#fr">Das wirdt Toloſa ſein am ſtrande der Garonne;</hi></l><lb/>
+<l><hi rendition="#fr">Auff dieſe Bordeaux; Roſchelle nechſt nach jhr/</hi></l><lb/>
+<l><hi rendition="#fr">Das Mars liebt vndt Neptun; hierauff der Muſen ziehr</hi></l><lb/>
+<l><hi rendition="#fr">Vndt kuͤnſtmarckt Poictiers: dann wirſt du ſampt den fluͤßen</hi></l><lb/>
+<l><hi rendition="#fr">Der gelben Loir Angiers/ vndt Toous/ vndt Blois begruͤßen/</hi></l><lb/>
+<l><hi rendition="#fr">Nicht minder Orleans das Bacchus alſo liebt/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt dem Mercur das lob der reinen ſprache giebt.</hi></l><lb/>
+<l><hi rendition="#fr">Wo laßen wir Paris? hier wirſt du auch verbleiben/</hi></l><lb/>
+<l><hi rendition="#fr">Wo alle weißheit wohnt/ wirſt deine zeit vertreiben</hi></l><lb/>
+<l><hi rendition="#fr">Mitt uͤbung die ein heldt vndt ritter haben muß.</hi></l><lb/>
+<l><hi rendition="#fr">Nach Franckreich/ wann du nun der ſtoltzen Seyne fluß/</hi></l><lb/>
+<l><hi rendition="#fr">Den faulen gang der Ar/ des Rhodans ſchnelles fliehen</hi></l><lb/>
+<l><hi rendition="#fr">Geſehen haſt/ wirſt du dann auch an die Temſe ziehen</hi></l><lb/>
+<l><hi rendition="#fr">Dem wolgebawren ſtrom/ beſchawen Engellandt/</hi></l><lb/>
+<l><hi rendition="#fr">Das durch den Ocean von vns iſt abgetrannt/</hi></l><lb/>
+<l><hi rendition="#fr">Dein ruͤckweg ſollen ſein die ſtarcken Niederlande/</hi></l><lb/>
+<l><hi rendition="#fr">Oſtende/ Brug vndt Schluys/ vndt Gendt am Scheldeſtrande/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt Bruͤßel/ vndt was mehr des Zepters willen hoͤrt</hi></l><lb/>
+<l><hi rendition="#fr">Das gegen Oſt vndt Weſt gehorſamb wirdt geehrt/</hi></l><lb/>
+<l><hi rendition="#fr">Nicht nur von einer welt: dann ſeine gegen wercke/</hi></l><lb/>
+<l><hi rendition="#fr">Die nun ſo lange zeit mitt großer liſt vndt ſtaͤrcke</hi></l><lb/>
+<l><hi rendition="#fr">Sich wieder jhn geſetzt. hier halt die fluͤgel an;</hi></l><lb/>
+<l><hi rendition="#fr">Hier ſchawe wieder heim; es iſt genung gethan;</hi></l><lb/>
+<l><hi rendition="#fr">Die deinen ruffen dich/ du blum vndt ziehr der jugendt;</hi></l><lb/>
+<l><hi rendition="#fr">Sie wollen nunmehr ſehn das reichthumb deiner tugendt/</hi></l><lb/>
+<l><hi rendition="#fr">Der reiſe newe frucht. was wirdt fuͤr wonne hier</hi></l><lb/>
+<l><hi rendition="#fr">Bey deinen quellen ſein/ wann du/ jhr troſt vndt ziehr/</hi></l><lb/>
+<fw type="sig" place="bottom">F</fw><fw type="catch" place="bottom">An</fw><lb/>
+<pb n="42" facs="#f0042"/>
+<l><hi rendition="#fr">An beute reicher noch als Jaſon heim wirſt kommen/</hi></l><lb/>
+<l><hi rendition="#fr">Nach dem du alles das in augenſchein genommen</hi></l><lb/>
+<l><hi rendition="#fr">Was ſehens wuͤrdig iſt/ vndt nicht nur feldt vndt landt</hi></l><lb/>
+<l><hi rendition="#fr">Vndt ſtaͤdte/ ſondern auch die leute haſt erkandt</hi></l><lb/>
+<l><hi rendition="#fr">Die Phebus oder Mars begreifft in ſeinem orden;</hi></l><lb/>
+<l><hi rendition="#fr">Wann dir der Muſen volck zue freunde wirdt ſein worden/</hi></l><lb/>
+<l><hi rendition="#fr">Zue Londen Caſaubon/ vndt zue Paris Thuan/</hi></l><lb/>
+<l><hi rendition="#fr">Zue Leiden Scaliger/ vndt was man nennen kan</hi></l><lb/>
+<l><hi rendition="#fr">Fuͤr etwan einen geiſt der nicht auß ſchlechter erden</hi></l><lb/>
+<l><hi rendition="#fr">Vom Titan iſt gedreht. die gruͤnen wieſen werden</hi></l><lb/>
+<l><hi rendition="#fr">Sich frewen vmb vndt vmb/ es wirdt thal/ puſch vndt feldt</hi></l><lb/>
+<l><hi rendition="#fr">Ein gruͤnes kleidt anziehn/ es werden dir/ o heldt/</hi></l><lb/>
+<l><hi rendition="#fr">Die klaren baͤche hier mitt luſt entgegen fließen/</hi></l><lb/>
+<l><hi rendition="#fr">Die felſen hoͤher ſtehn/ der Nimfen ſchai dich gruͤßen/</hi></l><lb/>
+<l><hi rendition="#fr">Der zarten Nimfen ſchar von dreyerley geſtalt/</hi></l><lb/>
+<l><hi rendition="#fr">Als denen heilig ſindt die fluͤße berg vndt waldt/</hi></l><lb/>
+<l><hi rendition="#fr">Bey welchen wir diß liedt in demant einverleiben/</hi></l><lb/>
+<l><hi rendition="#fr">Damit es von der zeit mag vnberaſtet bleiben/</hi></l><lb/>
+<l><hi rendition="#fr">Mag ſein ein ſtetes pfandt des himmels der dich liebt/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt vns noch mehr befehl alſo zue ſetzen giebt:</hi></l><lb/>
+<l><hi rendition="#fr">Ihr ſchoͤnes himmel volck/ jhr glatten Oreaden/</hi></l><lb/>
+<l><hi rendition="#fr">Du der Napeen herr/ jhr fluͤchtigen Dryaden/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt jhr Najaden auch/ du Echo die du nicht</hi></l><lb/>
+<l><hi rendition="#fr">Was anders ſagen kanſt als was man zue dir ſpricht/</hi></l><lb/>
+<l><hi rendition="#fr">Ihr ſuͤßen Gratien/ du Pales/ du Diane/</hi></l><lb/>
+<l><hi rendition="#fr">Seidt guͤnſtig wann er hier auff einem gruͤnen plane/</hi></l><lb/>
+<l><hi rendition="#fr">Auff ewre puͤſche zue/ vmb ewer edles feldt/</hi></l><lb/>
+<l><hi rendition="#fr">Bey dieſer einſamkeit nach ſchnellem wilde ſtellt/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt ſucht ergetzt zue ſein. er wirdt die waͤlder ziehren</hi></l><lb/>
+<l><hi rendition="#fr">Mitt ſeiner gegenwart/ wirdt an den wilden thieren/</hi></l><lb/>
+<l><hi rendition="#fr">Ein newer Hercules/ verſuchen ſeine krafft/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt diß nach dem er hatt die ſorgen abgeſchafft</hi></l><lb/>
+<fw type="catch" place="bottom">Fuͤr</fw><lb/>
+<pb n="43" facs="#f0043"/>
+<l><hi rendition="#fr">Fuͤr ſeine leut’ vndt landt. man muß die arbeit mengen</hi></l><lb/>
+<l><hi rendition="#fr">Mitt einer freyen luſt/ vndt auch der rhue verhengen/</hi></l><lb/>
+<l><hi rendition="#fr">Wie ſelbſt thut die Natur/ die nie ſtets winter macht/</hi></l><lb/>
+<l><hi rendition="#fr">Stets ſommer/ oder lentz; ſtets regen/ oder nacht.</hi></l><lb/>
+<l><hi rendition="#fr">Dein bogen/ Delia/ wirdt gleichfalls abgelaßen;</hi></l><lb/>
+<l><hi rendition="#fr">Es pfleget Jupiter den becher an zue faßen</hi></l><lb/>
+<l><hi rendition="#fr">Mitt eben dieſer handt in der er donner tregt:</hi></l><lb/>
+<l><hi rendition="#fr">So wirdt der heldt auch thun nach dem er abgelegt</hi></l><lb/>
+<l><hi rendition="#fr">Des Vaterlandes laſt/ fuͤr welches er ſoll ſtreiten</hi></l><lb/>
+<l><hi rendition="#fr">Mitt ritterlicher fauſt/ wann gar in kurtzen zeiten</hi></l><lb/>
+<l><hi rendition="#fr">Auch diß ort/ welches jetzt der werthe friede ziehrt/</hi></l><lb/>
+<l><hi rendition="#fr">Auff krieg ohn alle ſchuldt wirdt werden angefuͤhrt.</hi></l><lb/>
+<l><hi rendition="#fr">Als wie des windes zorn die eiche nicht kan ſpalten/</hi></l><lb/>
+<l><hi rendition="#fr">Wie eine klippe pflegt die wellen auff zue halten/</hi></l><lb/>
+<l><hi rendition="#fr">So wirdt er vnverzagt auch eine kecke ſchar</hi></l><lb/>
+<l><hi rendition="#fr">Den kuͤrtzern lehren ziehn/ wirdt ſuchen die gefahr</hi></l><lb/>
+<l><hi rendition="#fr">Durch die erwachſen ſoll: jhm wirdt der hauffe weichen/</hi></l><lb/>
+<l><hi rendition="#fr">Als wie das ſchoͤne volck der ſternen muß verbleichen</hi></l><lb/>
+<l><hi rendition="#fr">Wann et wan Cynthia das gantze liecht bekoͤmpt/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt einen vollen glantz von jhrem bruder nimpt</hi></l><lb/>
+<l><hi rendition="#fr">Der gegenuͤber ſteht; der ſtarcke loͤwe zeiget</hi></l><lb/>
+<l><hi rendition="#fr">Vmbſonſt die gelbe mahn/ die Thracer leyer ſchweiget/</hi></l><lb/>
+<l><hi rendition="#fr">Orion drewet ſchwach/ das groß’ vndt kleine thier</hi></l><lb/>
+<l><hi rendition="#fr">Schawt tunckel vmb ſich her/ vndt blickt kaum halb herfuͤr</hi></l><lb/>
+<l><hi rendition="#fr">Auß einer hellen lufft. er wirdt dem feinde weiſen</hi></l><lb/>
+<l><hi rendition="#fr">Wie ſchlechtes gluͤcke hatt wer hunger/ glut vndt eiſen</hi></l><lb/>
+<l><hi rendition="#fr">Zue frembden leuten tregt/ vndt bringt ein armes landt</hi></l><lb/>
+<l><hi rendition="#fr">Vmb freyheit/ recht vndt heil ohn vrſach vndt verſtandt.</hi></l><lb/>
+<l><hi rendition="#fr">Damitt er rhuͤmlich auch mag nach dem tode leben/</hi></l><lb/>
+<l><hi rendition="#fr">So wirdt der himmel jhm viel edle zweige geben</hi></l><lb/>
+<l><hi rendition="#fr">Durch einen werthen ſtamm/ den du/ o heldt Piaſt/</hi></l><lb/>
+<l><hi rendition="#fr">Mitt Zepter vndt gew alt ſo weit erhaben haſt;</hi></l><lb/>
+<fw type="sig" place="bottom">F ij</fw><fw type="catch" place="bottom">Den</fw><lb/>
+<pb n="44" facs="#f0044"/>
+<l><hi rendition="#fr">Den eine goͤttin ſelbſt zum himmel auffgefuͤhret</hi></l><lb/>
+<l><hi rendition="#fr">Mitt jhrer froͤmigkeit; den Henrich hoch geziehret</hi></l><lb/>
+<l><hi rendition="#fr">Mitt blute fuͤr ſein landt; dem ſeine gruͤne frucht</hi></l><lb/>
+<l><hi rendition="#fr">Kein wetter dieſer zeit/ vndt keiner jhare flucht</hi></l><lb/>
+<l><hi rendition="#fr">Wirdt legen vnter ſich auch dieſer heldt ſoll ſchawen</hi></l><lb/>
+<l><hi rendition="#fr">Sich ſelbſt in ſeiner art/ ſoll ſchoͤne pflantzen bawen</hi></l><lb/>
+<l><hi rendition="#fr">Von aller tugendt ziehr/ die luſt vndt froͤligkeit</hi></l><lb/>
+<l><hi rendition="#fr">Vndt rhum jhm machen wirdt die gantze lebenszeit.</hi></l><lb/>
+<l><hi rendition="#fr">Genung; was ſonſt allhier iſt vnverzeichnet blieben/</hi></l><lb/>
+<l><hi rendition="#fr">Das iſt mitt golde doch in vnſer buch geſchrieben.</hi></l></lg><lb/>
+<p>Wir hatten vns an der ſchoͤnen tafel die angen/ an der weißa-<lb/>
+gung aber/ welche wir nun mehrentheilserfuͤllet zue ſein wußten/<lb/>
+auch das hertze erquickt/ vnd wuͤnſchten dem Helden ſolche erſproͤß-<lb/>
+liche wolfarth/ wie jhm allhier zue ende angekuͤndigt wuͤrde. Die<lb/>
+andern Nunfen hatten ſich vnter dem leſen alle hinauß verlohren/<lb/>
+Hercinie aber; Ihr hirten/ ſagte ſie/ ſo viel iſt menſchlichen augen<lb/>
+allhier zue beſichtigen erlaubet/ vndt jhr werdet mitt meiner vndt<lb/>
+meiner ſchweſtern anjetzo erzeigten gunſt vergnuͤget ſein. Alſo<lb/>
+fuhrte ſie vns durch ein anderes thor in eine newe hoͤle/ die zue wei-<lb/>
+len ſo enge war daß wir faſt nach der ſeiten durch gehen mußten/<lb/>
+zueweilen aber viel thaͤler vndt berge in ſich zue halten ſchiene.<lb/>
+Nach dem wir eine guete weile alſo gegangen waren/ kamen wir<lb/>
+an einen faſt heißen ort/ voll ſchweffelichten dampffes/ zue deßen<lb/>
+beyden ſeiten ein knallen vndt prauſen gleichſam eines auffkochen-<lb/>
+den waßers/ vndt ich wußte nicht was fuͤr ein gethoͤne gehoͤret<lb/>
+wardt. Vns war nicht aller maßen wol bey der ſache; Ich habe/<lb/>
+fieng aber die Nimfe an/ euch nicht ohn vrſach an dieſes ort gefuͤh-<lb/>
+ret. Wißet daß Sicilien nicht allein Cyclopen/ vndt Theßalien<lb/>
+Titanen getragen hatt; es liegen allhier zweene maͤchtige Gigan-<lb/>
+ten/ welche ſich eben wie jene an dem himmel zue vergreiffen vnter<lb/>
+<fw type="catch" place="bottom">ſtan-</fw><lb/>
+<pb n="45" facs="#f0045"/>
+ſtanden/ vndt von den goͤttern vnter dieſe kluͤfften ſindt verſtoßen<lb/>
+worden. Sie haben den geſchmack des ſchwefels noch anjetzo nicht<lb/>
+verlohren/ vndt riechen nach dem plitze vndt donner/ darmit ſie<lb/>
+Jupiter hatt herab geſtuͤrtzt. Auß jhren rachen lauffen ſtarcke vndt<lb/>
+hitzige ſtroͤme/ die dennoch auß gnaͤdiger verordnung der Vnſterb-<lb/>
+lichen zum beſten der menſchen gereichen/ vndt nicht weit von hier<lb/>
+mitt zweyen heilſamen quellen in dem gebiete jetztgemeldeten Hel-<lb/>
+dens entſpringen mußen. Es ſolte mir auch vnſchwer ſein/ euch zue<lb/>
+jhren vngehewren coͤrpern zue fuͤhren/ wann ewere bloͤde augen<lb/>
+vndt ohren das ſcheutzliche anſchawen vndt bruͤllen vertragen koͤn-<lb/>
+ten. Lernet aber gleichwol/ daß die jenigen die ſich den himmel an<lb/>
+zue taſten vermeßen/ von dem himmel verſtoßen/ vndt von der er-<lb/>
+den verſchlungen werden.</p><lb/>
+<p>Als wir nun vnter wehrendem geſpreche gleichſam bergan ge-<lb/>
+gangen waren/ kamen wir an den außgang einer hoͤle/ darein der<lb/>
+tag ſeine ſtralen mitt vollem ſcheine fallen ließ; Hereinie aber ver-<lb/>
+ſchwandt ehe wir es gewar worden/ vndt kam vns weiter nicht zue<lb/>
+geſichte. Wir wendeten vns gegen der grotten/ vndt ehrten die<lb/>
+Nimfe vndt den ort/ darinnen wir ſo merckliche vndt wunderbare<lb/>
+ſachen geſehen vndt erfahren. Ob vns auch zwar die gelegenheit<lb/>
+des gefildes da wie herauß gegangen etwas ſeltzam fuͤrkam/ ſo kun-<lb/>
+ten wir doch aller beſchaffenheit nach faſt erkennen/ daß wir eben<lb/>
+an der andern ſeiten des berges/ wo wir zuevor hinein gelaßen wor-<lb/>
+den/ ſein mußten/ ſtiegen alſo gemach vndt gemach gegen der ſpitz-<lb/>
+en zue. Wir waren noch zimlich ferren von der hoͤhe/ als ſich bey ſo<lb/>
+lieblichem wetter dennoch ein duͤnner ſchnee ſehen ließ/ der aber<lb/>
+auff der erden alſobaldt zue tawe vndt waßer wardt. Weiter hin-<lb/>
+auff war es gantz heiter vndt ſtille; da wir dann nachfolgendes ge-<lb/>
+luͤbde in einen lindenbawm eingeſchnitten funden:</p><lb/>
+<fw type="sig" place="bottom">F iij</fw><fw type="catch" place="bottom">Du</fw><lb/>
+<pb n="46" facs="#f0046"/>
+<lg type="poem"><l><hi rendition="#fr">Du geiſt der du allhier bewohnſt den oͤden plan/</hi></l><lb/>
+<l><hi rendition="#fr">Du ſeiſt auch wer du wilt/ wann ich vollbringen kan</hi></l><lb/>
+<l><hi rendition="#fr">Was mein gemuͤte ſucht durch deine kunſt vndt rhat/</hi></l><lb/>
+<l><hi rendition="#fr">So wil ich dir allhier an dieſer gruͤnen ſtat</hi></l><lb/>
+<l><hi rendition="#fr">Erhoͤhen ein altar/ darauff zur danckbarkeit</hi></l><lb/>
+<l><hi rendition="#fr">Ein opffer das du liebſt ſoll brennen iederzeit.</hi></l><lb/>
+<l><hi rendition="#fr">Du rieſenherr/ du artzt/ du berggott/ komm herfuͤr;</hi></l><lb/>
+<l><hi rendition="#fr">Der jene ſo dich ehrt erwartet deiner hier.</hi></l></lg><lb/>
+<p>Dieſer/ fieng Nuͤßler an/ hatt ſich auch bereden laßen/ es ſey<lb/>
+ein Ruͤbezal allhier/ wie jhn die jenigen nennen/ die jhn nie geſe-<lb/>
+hen haben. Wir ſindt eben auff dem rechten orte/ gab ich zur ant-<lb/>
+wort/ da er ſein ſoll/ vndt nicht iſt. Ich habe gleichwol vernom-<lb/>
+men/ jhr Schleſier/ ſagte Venator/ es ſolle nicht gar richtig bey<lb/>
+euch ſein. Freylich nicht/ fieng ich an; dann es liegt einer hier o-<lb/>
+ben begraben der nicht mehr lebet. Ich weiß wol/ redte Buchner<lb/>
+darzwiſchen/ daß jhr alle drey dem hauffen zuegethan ſeidt der<lb/>
+nichts uͤbrigs glaubet: was aber durch lange erfahrung beſtetigt<lb/>
+iſt/ vndt die augen ſelbſt ſehen/ das kan das hertze ja glauben.<lb/>
+Mitt einem ſtinckenden aaße/ ſagt Nuͤßler/ iſt wol ſonſt wenig an<lb/>
+zue fangen. Darwieder bin ich auch nicht/ ſpricht Buchner; wie-<lb/>
+wol manches ehe verdirbet als ein anders. Ich habe viel mal ge-<lb/>
+hoͤret/ wann einen der donner erſchlagen hatt/ daß ſein coͤrper<lb/>
+nicht verfaulen; vndt wann einem mitt giffte vergeben iſt/ daß das<lb/>
+hertze vnvertorben bleiben ſoll. Ein menſch der maͤßig gelebet hat/<lb/>
+wirdt nicht ſo baldt verweſen/ als einer ſo durch ſchwelgen vndt<lb/>
+vollbretigkeit ſeinen leib zue einer pfuͤtzen gemacht hatt/ da alle<lb/>
+feuchtigkeit vndt fluͤße hinein geronnen. Habt jhr nie geſehen/<lb/>
+daß den todten die haare vndt naͤgel gewachſen ſindt/ ſonderlich<lb/>
+den jenigen die Jupiter abwaͤſcht/ Apollo ſalbet vndt trucknet.<lb/>
+Welchen/ fragt Venator? Den gehangenen/ meine ich/ ſpricht<lb/>
+<fw type="catch" place="bottom">Buchner/</fw><lb/>
+<pb n="47" facs="#f0047"/>
+Buchner/ denen die geiſter ploͤtzlich vmbzwenget vndt zuegeknuͤpfft<lb/>
+werden. Hiervon nun kan man mehrentheils natuͤrliche vrſachen<lb/>
+geben: daß aber der menſchen ſeelen ſich in geſtalt der verbliche-<lb/>
+nen leiber ſehen laßen/ iſt dermaßen klar/ daß es keiner laugnen<lb/>
+kan/ der gleich noch weniger als jhr glaubet. Doch wollen wir<lb/>
+den birgmann Ruͤbezal in dieſe zahl nicht ſetzen: dann angeſehen<lb/>
+daß er durch zauberey geruffen wirdt/ ſo muß er weder eine frome/<lb/>
+noch eine verdammte ſeele ſein; weil ſie beyde biß zue ſeiner zeit vn-<lb/>
+ter der handt des Gottes aller goͤtter ſindt/ der ſich mitt beſchwe-<lb/>
+rungen nicht zwingen leßt. So muß es dann der teuffel ſein/ fang<lb/>
+ich an. Recht ſo; ſagt Buchner: er iſts leibhafftig; wiewol nicht<lb/>
+alles baldt der teuffel iſt/ worfuͤr man ſich ſonderlich bey nachte<lb/>
+zue entſetzen pfleget. Natuͤrlich ſindt die flammen oder irrwiſche<lb/>
+vmb die geſuͤmpffe; natuͤrlich die duͤnſte/ ſo offtmals in der hoͤhe<lb/>
+wie menſchen/ wie thiere vndt andere ſachen herumb wandern;<lb/>
+natuͤrlich in den leibern/ ſonderlich gewißen frawenzimmers/ das<lb/>
+ſeltzame kurren/ ziſchen/ krehen/ bellen/ das nach geſtalt der ſa-<lb/>
+chen vndt gaͤnge von der durchdringenden lufft alſo geartet wirdt/<lb/>
+vndt vnerfahrenen aͤrtzten eine naſe zue drehen pflegt; vndt was<lb/>
+dergleichen mehr iſt.</p><lb/>
+<p>Wo bleiben dann die ſaͤuffer/ ſagt Venator/ die ſo vngewiſ-<lb/>
+ſer augen/ vnſtetigen ganges/ vndt ſeltzamer einbildungen ſindt?<lb/>
+Wann ſie den kopff fallen laßen/ ſo koͤmpt es jhnen bißweilen fuͤr<lb/>
+ſie verſincken; vndt wann die ſtube ein radt mitt jhnen macht/ ſo<lb/>
+legen ſie ſich nieder/ vndt erwiſchen mitt beyden haͤnden den bo-<lb/>
+den: baldt erhebt ſich ein ſturm in jhren ohren/ daß ſie meinen ſie<lb/>
+ſindt zur ſee/ vndt ſchawen wie weit es noch zue lande iſt; ſpringen<lb/>
+wol uͤber jhren eigenen ſchatten/ vndt ſehen jhn fuͤr einen graben/<lb/>
+eine katze fuͤr einen loͤwen an; in ſumma/ ſchlaffen wachende/ vndt<lb/>
+<fw type="catch" place="bottom">fechten</fw><lb/>
+<pb n="48" facs="#f0048"/>
+fechten ſchlaffende; ſchreyen nach pflaſtern/ vndt wollen ſich ver-<lb/>
+binden laßen.</p><lb/>
+<p>Auff dieſe weiſe wirdt mancher bezaubert/ ſagt Buchner: a-<lb/>
+ber ohn ſchertz/ jhr bruͤder/ von andern geſpenſten redet die gantze<lb/>
+welt/ vndt von dieſem viel leute die hierumb wohnen; die jhn zue<lb/>
+weilen in form eines ſchoͤnen roßes/ einer kroͤten/ eines rabens/<lb/>
+einer nachteule/ eines bergmaͤnnlins/ eines moͤnches vndt derglei-<lb/>
+chen geſehen haben. Eines moͤnches? ſagt Venator. Warumb<lb/>
+nicht/ giebt Buchner zur antwort? Pflegt ſich nicht der teuffel in<lb/>
+einen engel des liechts zue verkehren/ vndt haſt du nie gehoͤrt/ daß<lb/>
+er dem heiligen Martin in geſtalt des Heilandes der welt erſchie-<lb/>
+nen ſey? Muß er dann eben/ ſpricht Nuͤßler/ vmb dieſe felſen vnd<lb/>
+tunckele hoͤlen ſeinen wohnplatz haben? Er iſt/ antwortet Buch-<lb/>
+ner/ ein Vater der trawrigkeit/ vndt bezeuget ſolches mitt den<lb/>
+einoͤden trawrigen oͤrtern/ da er zue niſten pfleget. Vieleicht wil<lb/>
+er jhm hierdurch ein groͤßer anſehen machen/ fange ich an/ weil<lb/>
+jhm nicht vnwißendt/ daß der ſo uͤber vns iſt an den ſtillen<lb/>
+vndt einfaltigen orten mitt einfaltigem hertzen vndt ruhi-<lb/>
+gem gewißen von allen zeiten her hatt wollen geehret ſein. Sol-<lb/>
+ches begehrten die vngoͤttlichen goͤtter/ Ruͤbezales gleichen/ daß<lb/>
+man jhnen nicht weniger erzeigen ſolte; wie dann die alten nicht ſo<lb/>
+ſehr helffenbeinerne vndt guͤldene bilder/ als dicke puͤſche vndt das<lb/>
+geheime ſtillſchweigen darinnen angebetet/ ja waͤlder/ wieſen vndt<lb/>
+ſee geheiliget/ vndt ſie mitt namen der goͤtter genennt haben. Die<lb/>
+Dacier auch berge/ hebt Buchner an. Freylich/ ſage ich/ berge/<lb/>
+vndt die jenigen ſo einen ſchein der goͤttligkeit zue erlangen ſich da-<lb/>
+rein verborgen/ als Zamolxes vndt andere. Ich meinte/ ſagt<lb/>
+Venator/ du wuͤrdeſt vns dergleichen in deinen weitleufftigen be-<lb/>
+richten von den Daciern außfuͤhrlich machen. Zwar ich weiß<lb/>
+<fw type="catch" place="bottom">nicht/</fw><lb/>
+<pb n="49" facs="#f0049"/>
+nicht/ ob es mir wie jenen bergen gehen moͤchte/ gebe ich zur ant-<lb/>
+wort/ die nach langem geberen eine mauß zur welt brachten: wie<lb/>
+ich mich aber anietzo mitt meinem zueſtande vndt der zeit gelegen-<lb/>
+heit genungſam geſchuͤtzt zue ſein befinde/ ſo hoffe ich/ ſoll ich le-<lb/>
+ben/ ich wil erweiſen/ daß ein hirte mehr als weiden/ vndt ein<lb/>
+Poet mehr als luͤgen kan.</p><lb/>
+<p>Vnter wehrendem reden/ als wir zwiſchen der trennung zwey-<lb/>
+er huͤgel/ dahin wir vns durch hecken vndt geſtaͤude mehr einen<lb/>
+weg gemacht/ als gefunden hatten/ gerichts eingiengen/ erblick-<lb/>
+ten wir hinter den birckenbaͤwmen vnd eichen eine gruͤne wieſe/ auff<lb/>
+welcher von einem andern orte her ein altes weib/ mitt grawem<lb/>
+haupte/ zitterndem gange/ krummen ruͤcken vndt einem korbe da-<lb/>
+rauff/ faſt gekrochen kam. Wir winckten einander/ vndt legten<lb/>
+vns vnvermerckt in die ſtraͤuche nieder/ zue erfahren was die redli-<lb/>
+che muter guetes machen wuͤrde. Sie war faſt in die mitten an<lb/>
+einen ſcheideweg zweyer engen ſiege kommen/ da ließ ſie jhre ge-<lb/>
+flickte ſchauben fallen/ ſtriech die haͤgeren armen auff/ vndt fieng<lb/>
+mitt klingender ſtimme alſo an zue ruffen:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Iſt dann kein mittel nicht zue zwingen den geſellen</hi></l><lb/>
+<l><hi rendition="#fr">Der eine jungfraw fleucht? ſoll dann das heil der hoͤllen</hi></l><lb/>
+<l><hi rendition="#fr">Erſt ſein herfuͤr geſucht? es muß je ſonſten mir</hi></l><lb/>
+<l><hi rendition="#fr">Gehorchen was die welt in ſee/ in lufft vndt hier</hi></l><lb/>
+<l><hi rendition="#fr">In jhrer ſchoß verbirgt: die ſternen mußen ſchwitzen;</hi></l><lb/>
+<l><hi rendition="#fr">Der monde ſtille ſtehn/ vndt ſeinen wagen ſtuͤtzen;</hi></l><lb/>
+<l><hi rendition="#fr">Der Nort windt legt den ſturm zue meinen fuͤßen hin;</hi></l><lb/>
+<l><hi rendition="#fr">Der ſommer ſchneyet mir: es machen wo ich bin</hi></l><lb/>
+<l><hi rendition="#fr">Die todten ſich herzue; auff mein geheiße gehen</hi></l><lb/>
+<l><hi rendition="#fr">Die ſtarcken eichen fort; die fluͤße bleiben ſtehen;</hi></l><lb/>
+<l><hi rendition="#fr">Die klippen ſencken ſich; die ſaate reiffet nicht;</hi></l><lb/>
+<l><hi rendition="#fr">Die thaͤler ſteigen auff; der ſchlangen leib zerbricht;</hi></l><lb/>
+<fw type="sig" place="bottom">G</fw><fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="50" facs="#f0050"/>
+<l><hi rendition="#fr">Die loͤwen werden zahm was gilt ich wil was finden/</hi></l><lb/>
+<l><hi rendition="#fr">Den wilden tigerſinn genungſam zue entzuͤnden!</hi></l><lb/>
+<l><hi rendition="#fr">Du dreykopff/ Hecate/ die aͤlter iſt als ich;</hi></l><lb/>
+<l><hi rendition="#fr">Du geiſt der dieſen berg beherrſcher hoͤre mich;</hi></l><lb/>
+<l><hi rendition="#fr">O Pluto/ komm herauff; ich achte nicht der ſachen</hi></l><lb/>
+<l><hi rendition="#fr">Die meines alters volck zue langſam reicher machen;</hi></l><lb/>
+<l><hi rendition="#fr">Ich ſuche nicht metall/ nicht jaſpis/ nicht demant;</hi></l><lb/>
+<l><hi rendition="#fr">Ein feſter hertz’ als er ſoll werden vmb gewandt.</hi></l><lb/>
+<l><hi rendition="#fr">Die weil kein kroͤtenblut/ noch drummel in den thoren/</hi></l><lb/>
+<l><hi rendition="#fr">Noch federn ſo die eul hatt vmb ein grab verlohren/</hi></l><lb/>
+<l><hi rendition="#fr">Noch heiße pfeidebrunſt/ kein weſterhembde nicht/</hi></l><lb/>
+<l><hi rendition="#fr">Kein nagel von der handt/ kein haar/ kein blut/ kein liecht</hi></l><lb/>
+<l><hi rendition="#fr">Zue rhaten deiner trew/ o jungfraw/ derer ſchmertzen/</hi></l><lb/>
+<l><hi rendition="#fr">Wie hart’ vndt raw ich bin/ mir dringen ſelbſt zue hertzen/</hi></l><lb/>
+<l><hi rendition="#fr">Bey jhm verfangen wil/ vndt ich vmbſonſt gethan</hi></l><lb/>
+<l><hi rendition="#fr">Was menſchen klugheit weiß/ ſo helffe was da kan.</hi></l></lg><lb/>
+<p>Der glantz des himmels die Sonne/ welche/ wie wir auß vn-<lb/>
+ſerem ſchatten abnemen kundten/ den tag biß uͤber die helffte ge-<lb/>
+bracht hatte/ ſchiene fuͤr ſchrecken zue erbleichen/ kein gefluͤgel<lb/>
+hoͤrte man ſingen/ es regte ſich nichts als das zittern der baͤwme/<lb/>
+vndt wir ſelber zweiffelten welches ſicherer were/ zue lauffen oder<lb/>
+zue bleiben. Sie zohe den lincken ſchuch auß/ nam ein tuch uͤber<lb/>
+den kopff/ kehrte ſich zwey mal gegen morgen/ vndt zwey mal ge-<lb/>
+gen Niedergang/ grub mitt einer ſichel ein loch in die erden/ vndt<lb/>
+machte darauff einen zirckel vmb ſich her/ murmelte auch eine gu-<lb/>
+te weile eines vndt anders was wir nicht verſtehen kundten. Hier-<lb/>
+nach brachte ſie auß jhrem korbe allerhandt kraͤuter/ welche ſie<lb/>
+vermutlich bey vollem mondenſcheine vndt fuͤr auffgange der<lb/>
+Sonnen/ auch ſonſt zue gewißen jhareszeiten mitt der lincken<lb/>
+handt eingeleſen hatte/ mengete etzliche ſteinlein/ wie auch gebei-<lb/>
+ne von den todten darzue/ vndt rhuͤrete mitt einer ruten alles durch<lb/>
+<fw type="catch" place="bottom">ein-</fw><lb/>
+<pb n="51" facs="#f0051"/>
+einander. Alſo legte ſie es auff wacholterholtz vndt eiſenkraut/<lb/>
+darbey vngebrauchter ſchwefel vndt weyrauch war/ zuͤndete es<lb/>
+auff/ vndt wie der loh in die hoͤhe ſchlug/ redete ſie folgende worte:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">So mußen gleichfalls auch deßelbten ſinnen brennen/</hi></l><lb/>
+<l><hi rendition="#fr">Der von ſich ſelbſt nicht wil den trewen ſinn erkennen.</hi></l></lg><lb/>
+<p>Ferner knuͤpffte ſie einen haarlocken vmb drey federn von vn-<lb/>
+gleicher farben/ vndt ſprach:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Diß ſindt die federn hier ſo ich zue dieſem weſen/</hi></l><lb/>
+<l><hi rendition="#fr">Auß dreyen neſtern zwar/ vmb mitternacht erleſen</hi></l><lb/>
+<l><hi rendition="#fr">Vom vogel den ich weiß; diß iſt ſein eignes haar</hi></l><lb/>
+<l><hi rendition="#fr">Das bey dem lincken ohr ein falſches zeichen war</hi></l><lb/>
+<l><hi rendition="#fr">Der liebe die er fleucht: die feder leßt das fliegen;</hi></l><lb/>
+<l><hi rendition="#fr">Sein haar wirdt jetzt ein bandt; er ſoll mir auch erliegen.</hi></l></lg><lb/>
+<p>Auff diß ſpruͤtzete ſie drey mal in jhre ſchoß/ nam ein bildlein<lb/>
+von jungfrawenwachſe in die handt/ beraucherte daßelbte/ bandt<lb/>
+jhm drey woͤllene faden von dreyerley farben vmb den halß/ vndt<lb/>
+ſagte:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Vngrad iſt den goͤttern lieb; dreymal iſt er auch gebunden;</hi></l><lb/>
+<l><hi rendition="#fr">Dreyer farben faden ſindt vmb den harten halß gewunden.</hi></l></lg><lb/>
+<p>Vnter ſolcher rede ſtach ſie mitt einer langen nadel drey mal<lb/>
+hinein/ vndt fieng an:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Alſo geh’ es auch dem hertzen</hi></l><lb/>
+<l><hi rendition="#fr">Das ein weibes bildr barff ſchertzen.</hi></l></lg><lb/>
+<p>warff es hieruͤber in das ſewer mitt dieſem worte:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Wie das reine wachs muß rinnen/</hi></l><lb/>
+<l><hi rendition="#fr">Soll jhm ſchmeltzen muth vndr ſinnen.</hi></l></lg><lb/>
+<p>Nach dem nun alles nieder gebrennet war/ grieff ſie auff die<lb/>
+erden/ warff die aſche drey mal uͤber den kopff/ ſahe nicht hinter<lb/>
+ſich/ vndt hub wie erſtlich mitt verbrochenen worten an zue mur-<lb/>
+meln. Sie hatte jhre ſchreckliche beſchwerungen in dem maule<lb/>
+herumb zue werffen nicht recht angefangen/ als ſich ein maͤchtiges<lb/>
+<fw type="sig" place="bottom">G ij</fw><fw type="catch" place="bottom">wetter/</fw><lb/>
+<pb n="52" facs="#f0052"/>
+wetter/ ſchloß/ hagel vndt krachen erregete.</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Das liecht wardt ſchwartze nacht; der himmel lieff zueſammen</hi></l><lb/>
+<l><hi rendition="#fr">Zn dickes finſterniß; die wolcken gaben flammen</hi></l><lb/>
+<l><hi rendition="#fr">Vndt eilten hefftig fort; man ſahe keinen tag</hi></l><lb/>
+<l><hi rendition="#fr">Als wann der grimme plitz durch einen donneiſchlag</hi></l><lb/>
+<l><hi rendition="#fr">Vorher geſendet kam; der winde ſtarckes prauſen</hi></l><lb/>
+<l><hi rendition="#fr">Bewegte waldt vndt berg mitt ſeinem wilden ſauſen;</hi></l><lb/>
+<l><hi rendition="#fr">Die lufft wardt lauter ſee; der hoͤllen gantzes reich</hi></l><lb/>
+<l><hi rendition="#fr">Erregte ſeine krafft; die baͤwme wurden bleich;</hi></l></lg><lb/>
+<p>vndt was mich das ſchrecken noch jetzo nicht erzehlen leßt. Ich/<lb/>
+wie ich zuevor am letzten mich niederlegen/ vndt dieſer vierdten<lb/>
+Furie zuehoͤren wollen; alſo war ich der erſte ſo von dannen vndt<lb/>
+auff die nechſte ſtraße zue lieff. Die andern kamen hernach geren-<lb/>
+net/ vndt hatten mitt dem athem auch faſt die ſprache verlohren/<lb/>
+wolten den blaͤttern der eſpen ſo vmbher ſtunden am zittern nichts<lb/>
+bevor geben. Eine ſeltzame ſache: es ſtundt der huͤgel/ auff dem<lb/>
+wir vns damals befunden/ ſo ferren nicht von dem vorigen orte/<lb/>
+dennoch blickte vns die Sonne mitt ſo einem gnaͤdigen auge an/<lb/>
+vndt das graß vmbher war dermaßen trucken/ daß wir leicht ver-<lb/>
+ſtehen kundten/ wie der teuffel nicht allenthalben zue gebieten hatt;<lb/>
+vndt alſo in dem gruͤnen ein wenig rhue zue nemen veranlaßt wor-<lb/>
+den.</p><lb/>
+<p>Als wir nun beydes von dem verlauffe ietziger ſchrecklichen<lb/>
+kuͤnſte/ vndt ſonſten dieſem vndt jenem vnterredung hielten/ gefiel<lb/>
+vns die landtart gegenuͤber liegenden Koͤnigreiches ſonderlich/ als<lb/>
+deßen ebene von dem gemach vndt gemach auffſteigenden gebirge<lb/>
+gleich wie von einem krantze vmbgeben iſt/ vndt daß außſehen eines<lb/>
+kuͤnſtlichen ſchawplatzes hatt/ darinnen etwan die alten jhre ſpiele<lb/>
+zue zeigen gewohnt geweſen. Hieruͤber dann meine drey mitgeſel-<lb/>
+len/ in erwegung ietziger betruͤbter laͤufften/ auff folgendes hirten-<lb/>
+liedt oder geſpreche geriehten.</p><lb/>
+<fw type="catch" place="bottom">Vena-</fw><lb/>
+<pb n="53" facs="#f0053"/>
+<sp who="#Ven"><speaker>Venator.</speaker><lb/>
+<lg n="1"><l><hi rendition="#fr">Iſt jenes dann das feldt/ liegt dahinein das landt/<lb/>
+Wo vnlengſt eine glut ſo hoch iſt auffgebrandt/<lb/>
+Darvon wir ſchaͤffer auch bey vnſerm klaren Reine/<lb/>
+Sindt worden angeſteckt? wir ſaßen vor im weine/<lb/>
+Das vieh gieng in das graß biß an den bauch hinein;<lb/>
+Jetzt ſehen wir den krieg fuͤr ſchaffe/ blut fuͤr wein.</hi></l></lg></sp><lb/>
+<sp who="#Buch"><speaker>Buchner.</speaker><lb/>
+<lg n="2"><l><hi rendition="#fr">Hatt diß gebirge dann den namen von den rieſen?<lb/>
+Entſpringt mein Landesſtrom vmb dieſe ſchoͤne wieſen?<lb/>
+Du ſuchſt dir ja den weg zur Mulde gar zur weit/<lb/>
+Vndt haſt auß jhr geſchoͤpfft/ o Elbe/ noth vndt ſtreit.</hi></l></lg></sp><lb/>
+<sp who="#Nu"><speaker>Nuͤßler.</speaker><lb/>
+<lg n="3"><l><hi rendition="#fr">Diß iſt der Boͤhmerwaldt/ das heißen die Sudeten;<lb/>
+Wie hoch ſie aber gehn/ ſo ſindt doch angſt vndt noͤthen<lb/>
+Geflogen vber ſie. du haſt nur vnſer landt<lb/>
+Vergebens/ o natur/ von dieſem abgetrannt.</hi></l></lg></sp><lb/>
+<sp who="#Ven"><speaker>Venator.</speaker><lb/>
+<lg n="4"><l><hi rendition="#fr">Wer hette diß gedacht! noch iſt es ſo weit kommen/<lb/>
+Ein frembdes gluͤcke hatt den Neckar eingenommen/<lb/>
+Sampt vnſer hirtentrifft/ vndt mich hinweg gejagt<lb/>
+Von deßen buͤhels rhue wo Jette wargeſagt.</hi></l></lg></sp><lb/>
+<sp who="#Buch"><speaker>Buchner.</speaker><lb/>
+<lg n="5"><l><hi rendition="#fr">Ich hette doch vermeint/ es ſolte ja dein ſingen/<lb/>
+Dein edler ſchaͤffer thon/ dir gunſt vndt liebe bringen/<lb/>
+Vndt freye ficherhen.</hi></l></lg></sp><lb/>
+<sp who="#Nu"><speaker>Nuͤßler.</speaker><lb/>
+<lg n="6"><l><hi rendition="#fr">der Muſen ſeiten ſpiel/<lb/>
+Es ſey ſo guet es kan/ ſchafft eben alſo viel<lb/>
+Bey einer heereskrafft/ als etwan eine taube<lb/>
+Fuͤr einem adler gilt der außfleugt nach dem raube.</hi></l></lg></sp><lb/>
+<sp who="#Ven"><speaker>Venator.</speaker><lb/>
+<fw type="sig" place="bottom">G iij</fw><fw type="catch" place="bottom">Es iſt</fw><lb/>
+<pb n="54" facs="#f0054"/>
+<lg n="7"><l><hi rendition="#fr">Es iſt ein berg bey vns/ vom Neckar nicht ſehr weit/<lb/>
+Der heißt der koͤnigſtul/ da hatt zue mancher zeit/<lb/>
+Von einer eichen her/ die ſchildtkrae angek uͤndet<lb/>
+Was eben ietzt mein landt (nicht ietzt mein landt) empfindet:<lb/>
+Sie hatt vns wol geſagt: jhr ſchaͤffer/ ſeht euch fuͤr:<lb/>
+Nun milckt man vnſer vieh auff eine ſtunde zwier;<lb/>
+Die euter werden ſchlaff.</hi></l></lg></sp><lb/>
+<sp who="#Buch"><speaker>Buchner.</speaker><lb/>
+<lg n="8"><l><hi rendition="#fr">es bleibet nichts beſtehen<lb/>
+In dieſer gantzen welt: muß doch zue ruͤſte gehen/<lb/>
+So offr es abendt wirdt/ der ſchoͤne himmelsſchildt.</hi></l></lg></sp><lb/>
+<sp who="#Nu"><speaker>Nuͤßler.</speaker><lb/>
+<lg n="9"><l><hi rendition="#fr">Wo haͤuſer ſindt war feldt: es leufft viel mal ein wildt/<lb/>
+Da etwan fuͤr der zeit iſt eine ſtadt geweſen.</hi></l></lg></sp><lb/>
+<sp who="#Ven"><speaker>Venator.</speaker><lb/>
+<lg n="10"><l><hi rendition="#fr">Das obſt iſt abgerupfft/ der reiffe wein geleſen;<lb/>
+Die eicheln fallen ſeibſt; die zarten bircken hier/<lb/>
+Die fichten laßen gehn jhr laub die gruͤne ziehr.</hi></l></lg></sp><lb/>
+<sp who="#Buch"><speaker>Buchner.</speaker><lb/>
+<lg n="11"><l><hi rendition="#fr">Die blumen werden welck/ die weide muß verterben.</hi></l></lg></sp><lb/>
+<sp who="#Nu"><speaker>Nuͤßler.</speaker><lb/>
+<lg n="12"><l><hi rendition="#fr">Man ſchlacht’ es oder nicht/ ſo muß das vieh doch ſterben.</hi></l></lg></sp><lb/>
+<sp who="#Ven"><speaker>Venator.</speaker><lb/>
+<lg n="13"><l><hi rendition="#fr">Den leichten voͤgeln wirdt jhr leben gar nicht ſchwer;<lb/>
+Sie fiſchen in der lufft geſichert hin vndt her/<lb/>
+Vndt koͤnnen ſtets daheim vndt in dem jhren reiſen;<lb/>
+Ein quell giebt jhnen tranck/ der puſch vndt acker ſpeiſen;<lb/>
+Doch mußen ſie dar von.</hi></l></lg></sp><lb/>
+<sp who="#Buch"><speaker>Buchner.</speaker><lb/>
+<lg n="14"><l><hi rendition="#fr">der rawen kaͤlte zeit<lb/>
+Die dringt vns auff den halß</hi></l></lg></sp><lb/>
+<sp who="#Nu"><speaker>Nuͤßler.</speaker><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wann</hi></fw><lb/>
+<pb n="55" facs="#f0055"/>
+<lg n="15"><l><hi rendition="#fr">wann alles uͤberſchneyt<lb/>
+Wndt zue gewintert iſt/ ſo koͤmpt der fruͤling wieder.</hi></l></lg></sp><lb/>
+<sp who="#Ven"><speaker>Venator.</speaker><lb/>
+<lg n="16"><l><hi rendition="#fr">Dann hoͤrt man durch die lufft der voͤgel ſchoͤne lieder.</hi></l></lg></sp><lb/>
+<sp who="#Buch"><speaker>Buchner;</speaker><lb/>
+<lg n="17"><l><hi rendition="#fr">Das vieh verleßt den ſtall.</hi></l></lg></sp><lb/>
+<sp who="#Nu"><speaker>Nuͤßler.</speaker><lb/>
+<lg n="18"><l><hi rendition="#fr">die weide wirdt derjuͤngt.</hi></l></lg></sp><lb/>
+<sp who="#Ven"><speaker>Venator.</speaker><lb/>
+<lg n="19"><l><hi rendition="#fr">Die blumen finden ſich.</hi></l></lg></sp><lb/>
+<sp who="#Buch"><speaker>Buchner.</speaker><lb/>
+<lg n="20"><l><hi rendition="#fr">Cibelens fichte bringt<lb/>
+Ein newes laub herfuͤr.</hi></l></lg></sp><lb/>
+<sp who="#Nu"><speaker>Nuͤßler.</speaker><lb/>
+<lg n="21"><l><hi rendition="#fr">die frome bircke bluͤher.</hi></l></lg></sp><lb/>
+<sp who="#Ven"><speaker>Venator.</speaker><lb/>
+<lg n="22"><l><hi rendition="#fr">Die eiche ſchlaͤget auß.</hi></l></lg></sp><lb/>
+<sp who="#Buch"><speaker>Buchner.</speaker><lb/>
+<lg n="23"><l><hi rendition="#fr">der ſuͤße weinſtock ſiehet<lb/>
+Sich nach den augen vmb.</hi></l></lg></sp><lb/>
+<sp who="#Nu"><speaker>Nuͤßler.</speaker><lb/>
+<lg n="24"><l><hi rendition="#fr">der obſtbawm zeucht ſein kleidt<lb/>
+Die blaͤtter wieder an.</hi></l></lg></sp><lb/>
+<sp who="#Ven"><speaker>Venator.</speaker><lb/>
+<lg n="25"><l><hi rendition="#fr">das ſtadtvolck iſt erfrewt.</hi></l></lg></sp><lb/>
+<sp who="#Buch"><speaker>Buchner.</speaker><lb/>
+<lg n="26"><l><hi rendition="#fr">Das dorff geht auff das feldt.</hi></l></lg></sp><lb/>
+<sp who="#Nu"><speaker>Nuͤßler.</speaker><lb/>
+<lg n="27"><l><hi rendition="#fr">ſo laßt vns dem vertrawen<lb/>
+Der doiff/ ſtadt/ obſt vndt wein/ der baͤwme/ feldt vndt awen/<lb/>
+Der vieh vndt vogel hegt; ſein werther ſonnenſchein<lb/>
+Wirdt nach der ſtrengen lufft vns deſto lieber ſein.</hi></l></lg></sp><lb/>
+<pb n="56" facs="#f0056"/>
+<p>Diß hirtengetichte ermunterte mich/ nicht gar leer auß zue<lb/>
+gehen: damit ich aber nicht auß meiner alten gewohnheit ſchritte/<lb/>
+fieng ich alſo an zue ſingen:</p><lb/>
+<lg type="poem"><lg n="1"><l><hi rendition="#fr">Meine Frewde die mich bindet<lb/>
+Iſt der liſt vndt kraͤuter frey:<lb/>
+Zwar ſie hatt mich angezuͤndet/<lb/>
+Doch ohn alle Zauberey:<lb/>
+Daß mein ſinn ſich jhr ergiebt/<lb/>
+Koͤmpt daher weil ſie mich liebt.</hi></l></lg><lb/>
+<lg n="2"><l><hi rendition="#fr">Dieſe Circe hatt beyſammen<lb/>
+Ihrer augen plitz vndt glantz/<lb/>
+Des geſichtes helle flammen<lb/>
+Das mir meines nicht leßt gantz;<lb/>
+Ihre woͤrter die ſie weiß<lb/>
+Nemen aller kunſt den preiß.</hi></l></lg><lb/>
+<lg n="3"><l><hi rendition="#fr">Ihre ziehr darff nichts begehren<lb/>
+Was man ſonſt zue huͤlffe rufft/<lb/>
+Darff den monden nicht beſchweren/<lb/>
+Rhat nicht ſuchen bey der lufft:<lb/>
+Lufft vndt monden darff nicht ſein/<lb/>
+Wo ſchon iſt jhr tageſchein.</hi></l></lg><lb/>
+<lg n="4"><l><hi rendition="#fr">Welchem nicht zue hertzen ſteigen<lb/>
+Dieſer wangen milch vndt blut/<lb/>
+Dieſes reden/ dieſes ſchweigen/<lb/>
+Dieſe jugendt/ dieſer muth<lb/>
+Der mir meinen muth zerbricht/<lb/>
+Den bekehrt kein Zaubern nicht.</hi></l></lg></lg><lb/>
+<p>Hiernach ſtunden wir auff/ vndt wanderten allgemach durch<lb/>
+die gefilde vndt wieſen dißeits vndt nach mitternacht zue/ wo wir<lb/>
+erſtlich hieſiger orte einander angetroffen. Im herunter ſteigen<lb/>
+ſahen wir zwilchen den felſen vndt huͤgeln drey tieffe thaͤler/ darin-<lb/>
+<fw type="catch" place="bottom">nen</fw><lb/>
+<pb n="57" facs="#f0057"/>
+nen der ſchnee/ welcher niemals ab zue gehen pflegt/ vns dermaſ-<lb/>
+ſen in die augen glaͤntzte/ daß wir gleichſam darvon geblendet wur-<lb/>
+den. Wir gerhieten auch an einem heckichten vndt wuͤſten orte<lb/>
+zue einein ſee/ deßen ſchwartzes vndt finſteres waßer/ darinnen<lb/>
+weder fiſch noch gefluͤgel geſpuͤret wardt/ vns faſt ein grauſen ver-<lb/>
+urſachte. Kurtz darauff giengen wir durch ein luſtiges puͤſchlein/<lb/>
+deßen gelegenheit/ wegen der naͤhe noch eines andern kleineren<lb/>
+ſees/ der gruͤnen baͤwme/ berg ab rauſchenden baͤche/ vndt ſon-<lb/>
+derlichen anmutigkeit eine herbrige der Waldtnimfen/ eine rhue<lb/>
+der hirten/ eine gelehrte entweichung der Poeten/ ein ſpatzierplatz<lb/>
+der liebhabenden gemuͤter zue ſein ſchiene: wie wir dann an den<lb/>
+ſtaͤmmen der hohen baͤwme vnterſchiedene gedancken vndt tichtun-<lb/>
+gen ſinnreicher geiſter eingeſchnitten funden. Wir kundten vns<lb/>
+mitt leſen kaum ſaͤttigen/ vndt zwar ſchiene ſich nichts beßer zue<lb/>
+reimen als die vngereimte folgende</p><lb/>
+<lg type="poem"><head><hi rendition="#fr">Sechſtine.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#fr">Wo iſt mein auffenthalt/ mein troſt vndt ſchoͤnes liecht?<lb/>
+Der truͤbe winter koͤmpt/ die nacht verkuͤrtzt den tag:<lb/>
+Ich irre gantz betruͤbt vmb dieſen oͤden waldt:<lb/>
+Doch were gleich ietzt lentz/ vndt tag ohn alle nacht/<lb/>
+Vndt hett’ ich fuͤr den waldt die luſt der gantzen welt/<lb/>
+Was iſt welt tag vndt lentz/ wo nicht iſt meine ziehr?</hi></l></lg><lb/>
+<lg n="2"><l><hi rendition="#fr">Ein ſchoͤnes friſches quell giebt blumen jhre ziehr/<lb/>
+Dem ſtarcken adler iſt nichts liebers als das liecht/<lb/>
+Die ſuͤße nachtigal ſingt froͤlich auff den tag/<lb/>
+Die lerche ſucher korn/ die ringeltaube waldt/<lb/>
+Der reiger einen teich/ die eule truͤbe nacht;<lb/>
+Mein Lieb/ ich ſuche dich fuͤr allem auff der welt.</hi></l></lg><lb/>
+<lg n="3"><l><hi rendition="#fr">So lange biſt du mir das liebſte von der welt/<lb/>
+So lange Pales hegt der gruͤnen weide ziehr/</hi><lb/>
+<fw type="sig" place="bottom">H</fw><fw type="catch" place="bottom">So</fw><lb/>
+<pb n="58" facs="#f0058"/>
+<hi rendition="#fr">So lange Cucifer entdeckt das klare liecht/<lb/>
+So lange Tuans glantz beſcheint den hellen tag/<lb/>
+So lange Bacchus liebt den wein/ vndt Pan den waldt/<lb/>
+So lange Cynthia vns leuchtet bey der nacht.</hi></l></lg><lb/>
+<lg n="4"><l><hi rendition="#fr">Die ſchnelle hindinn ſucht den hirſchen in der nacht/<lb/>
+Was ſchwimmt/ vndt geht/ vndt kreucht liebt durch die gantze welt/<lb/>
+Die grimme woͤlffinn ſchaͤtzt den wolff fuͤr jhre ziehr/<lb/>
+Die ſternen leihen vns zum lieben ſelbſt jhr liecht;<lb/>
+Ich aber gehe nun allhier ſchon manchen tag/<lb/>
+O Schweſter/ ohne dich durch herge/ wildt vndt waldt.</hi></l></lg><lb/>
+<lg n="5"><l><hi rendition="#fr">Was iſt wo du nicht biſt? ſo viel der kuͤhle waldt<lb/>
+Ein ſandtfeldt uͤbettrifft/ der morgen fuͤr der nacht<lb/>
+Vns angenemer iſt/ der mahler dieſer welt<lb/>
+Der lentz fuͤr winterlufft/ ſo viel iſt deine ziehr/<lb/>
+Die ſchoͤnheit/ dieſe luſt mir lieber/ o mein liecht/<lb/>
+Als das ſo weit vndt breit beſtralt wirdt durch den tag.</hi></l></lg><lb/>
+<lg n="6"><l><hi rendition="#fr">Der troſt erquickt mich doch es komme faſt der tag<lb/>
+Da ich nicht werde mehr bewohnen berg vndt waldt/<lb/>
+Da deine gegenwart/ vndt die gewuͤndtſchte nacht<lb/>
+Der trew noch lohnen ſoll: in deßen wirdt die welt<lb/>
+Vergeßen jhrer ſelbſt/ eh’ als ich deiner ziehr/<lb/>
+Mein hoͤchſter auffenthalt/ mein troſt vndt ſchoͤnes liecht.</hi></l></lg><lb/>
+<lg n="7"><l><hi rendition="#fr">Laß wachſen/ edler waldt/ mitt dir mein trewes liecht/<lb/>
+Die liebſte von der welt; es ſchade deiner zieht/<lb/>
+O bawm/ kein heißer tag/ vndt keine kalte nacht.</hi></l></lg></lg><lb/>
+<p><hi rendition="#et">Sie andern drey lobten das</hi></p><lb/>
+<lg type="poem"><head><hi rendition="#fr">Sonnet</hi><lb/>
+uͤber die augen der Aſtree.</head><lb/>
+<lg n="1"><l><hi rendition="#fr">Diß ſindt die augen: was? die goͤtter; ſie gewinnen<lb/>
+Der helden krafft vndt muth mitt jhrer ſchoͤnheit macht:<lb/>
+Nicht goͤtter; himmel mehr; dann jhrer farbe pracht<lb/>
+Iſt himmelblaw/ jhr lauff iſt uͤber menſchen ſinnen:</hi></l></lg><lb/>
+<fw type="catch" place="bottom">Nicht</fw><lb/>
+<pb n="59" facs="#f0059"/>
+<lg n="2"><l><hi rendition="#fr">Nicht himmel; ſonnen ſelbſt/ die alſo blenden koͤnnen<lb/>
+Daß wir vmb mittagszeit nur ſehen lauter nacht:<lb/>
+Nicht ſonnen; ſondern plitz/ der ſchnell vndt vnbedacht<lb/>
+Herab ſchlegt wann es ie zue donnern wil beginnen.</hi></l></lg><lb/>
+<lg n="3"><l><hi rendition="#fr">Doch keines: goͤtter nicht/ die boͤſes nie begehen;<lb/>
+Nicht himmel/ dann der lauff des himmels wancker nicht;<lb/>
+Nicht ſonnen/ dann es iſt nur einet Sonne liecht;</hi></l></lg><lb/>
+<lg n="4"><l><hi rendition="#fr">Plitz auch nicht/ weil kein plitz ſo lange kan beſtehen:<lb/>
+Zedennoch ſiehet ſie des volckes blinder wahn<lb/>
+Fuͤr himmel/ ſonnen/ plitz vndt goͤtter ſelber an.</hi></l></lg></lg><lb/>
+<p>Die vnterſchrifft war: Der vnwuͤrdig Gekroͤnte zue ehren dem<lb/>
+<hi rendition="#fr">Nutzbaren.</hi> Daher wir abnemen kundten/ daß es auff perſonen<lb/>
+auß dem edelen mittel der vnſterblichen Fruchtbringenden Geſell-<lb/>
+ſchafft gemeinet were. Ob wir nun gleich des kletterns vndt ſtei-<lb/>
+gens halben faſt muͤde waren/ ſchaͤtzten wir doch den gang von die-<lb/>
+ſer luſt wol bezahlt zue ſein; namen vns aber fuͤr/ nunmehr ohn<lb/>
+vmbſchweiff gerichts ein zue gehen/ vndt den tag mitt beſichtigung<lb/>
+des warmen brunnens/ deßen vrſprung vns von der holdtſeligen<lb/>
+Hercinie erzehlt wurden/ zue beſchließen. Vnter weges hielten<lb/>
+wir allerhandt geſpreche/ von der miltreichen verſehung vndt guͤte<lb/>
+Gottes/ deßen gnaͤdigſte außtheilung ein landt mitt dieſer/ das<lb/>
+andere mitt jener eigenſchafft vndt guͤte begabet hatt.<lb/>
+<lg type="poem"><l><hi rendition="#fr">Hier waͤchſet gerne korn/ da obſt/ vndt dorte wein/</hi></l><lb/>
+<l><hi rendition="#fr">Sabéa ſchickt geruch/ der Inde helffenbein;</hi></l></lg><lb/>
+ſagte Nuͤßler. Sonderlich/ fleng Buchner an/ hatt ſich die<lb/>
+magdt des Hoͤchſten/ die guͤtige natur/ an der ſee/ den fluͤßen vnd<lb/>
+quellen außgelaßen/ vndt ihr beſtes meiſterſtuͤck erwieſen. Das<lb/>
+meer iſt ein ſtetswehrender gefaͤhrte des Mondens/ waͤchſt mitt<lb/>
+jhm auff/ vndt wirdt auch mitt jhm alt: des waßers gaben aber<lb/>
+ſindt ſo vielfaͤltig/ daß es vom Thales das ſtaͤrckſte element/ aller<lb/>
+<fw type="sig" place="bottom">H ij</fw><fw type="catch" place="bottom">dinge</fw><lb/>
+<pb n="60" facs="#f0060"/>
+dinge vrſprung/ eine geſeelete welt/ die voller geiſter ſey/ iſt ge-<lb/>
+nennt worden. In Beotien ſollen zwey fluͤße ſein/ deren einer al-<lb/>
+le ſchaffe ſo darauß trincken ſchwartz/ der andere weiß macht. In<lb/>
+der ſtadt Garamant ſoll der brunnen Dubris des tages zehen mal<lb/>
+eißkalt/ vndt des nachts zehen mal ſiedendt heiß ſein. In der La-<lb/>
+rinenſiſchen gegendt ſindt zwey brunnen nahe beyſammen/ von<lb/>
+denen der eine alles in ſich ſchluckt/ der andere alles außwirfft.<lb/>
+Welcher auß dem Clitoriſchen brunnen trincket/ ſoll auch den<lb/>
+wein nur nicht riechen koͤnnen. In Teno iſt ein quell/ deßen waſ-<lb/>
+ſer ſich vnter keinen wein mengen leßt; vndt ich moͤchte leiden/ daß<lb/>
+alle waͤßer dieſer art weren.</p><lb/>
+<p>Man ſagt von einem brunnen in vnſerm Deutſchlande/ daß<lb/>
+wann iemandt eine henne hinein ſteckt die er mitt guetem titul be-<lb/>
+kommen/ ſo ſollen jhr die federn ſtracks gebruͤhet werden vndt ab-<lb/>
+gehen; hatt er ſie aber geſtolen/ ſo bleibe ſie wie ſie zuevor gewe-<lb/>
+len. Vnſere reiſeleute auß Italien wißen von den zweyen brun-<lb/>
+nen zue ſagen/ in deren einem ein hundt ſtracks ſterben/ in dem an-<lb/>
+dern baldt wiederumb lebendig werden ſoll. In Schottlandt ſoll<lb/>
+ſich ein waßer in ſtein verwandeln. Das habe ich/ fieng ich an/<lb/>
+im Zips an etlichen brunnen mitt meinen augen geſehen. Doch<lb/>
+iſt mir noch ſeltzamer fuͤrkommen die pfuͤtze oder das ſee bey Thor-<lb/>
+da in Siebenbuͤrgen/ welches/ ob es zwar von vnglaublicher tief-<lb/>
+fe iſt/ dennoch keinen menſchen vnterſincken leßt/ er kan ſchwim-<lb/>
+men oder nicht.</p><lb/>
+<p>Dieſes ſindt kunſtwaͤßer/ ſagte Nuͤßler/ derer eigenſchafften<lb/>
+auch jhrer natuͤrlichen vrſachen ſonder zweiffel nicht mangeln/<lb/>
+wiewol ſie bey einem leichter zue ergruͤnden ſindt als bey dem an-<lb/>
+dern; aber dennoch kommen ſie der fabel des elendes dem menſchen<lb/>
+alſo nicht zue ſtaten wie andere/ denen die Goͤttinn Higia vndt die<lb/>
+<fw type="catch" place="bottom">heil-</fw><lb/>
+<pb n="61" facs="#f0061"/>
+heilſamen Nimfen eine ſolche krafft vndt art eingepflantzet/ wel-<lb/>
+che nutzbarkeit vndt fromen bringt. Auß denen auch iſt das liebli-<lb/>
+che augenquell bey Cicerons Mayerguete ſo Academie geheißen/<lb/>
+darvon ſein frey gelaßener Laurea Tullius faſt deßen innhalts ge-<lb/>
+ſchrieben:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Du Hochberedter mann/ dem Rom muß ſchuldig ſein</hi></l><lb/>
+<l><hi rendition="#fr">Die freyheit/ vndt ſich ſelbſt/ vndt alle ſein Latein/</hi></l><lb/>
+<l><hi rendition="#fr">Der waldt hier der durch dich in newen baw iſt kommen/</hi></l><lb/>
+<l><hi rendition="#fr">Diß Vorwerg wo du dir zue ſchreiben fuͤrgenommen/</hi></l><lb/>
+<l><hi rendition="#fr">Zue ſuchen deine rhue/ iſt ſchoner als zuevor:</hi></l><lb/>
+<l><hi rendition="#fr">Vndt diß noch nicht genung; es ſpringt ein quell empor/</hi></l><lb/>
+<l><hi rendition="#fr">Ein newes wunderquell/ das vnter andern ſachen</hi></l><lb/>
+<l><hi rendition="#fr">Ein bloͤdes angeſicht kan klar vndt lauter machen.</hi></l><lb/>
+<l><hi rendition="#fr">Der ort/ o Cicero/ thut dieſes alles dir/</hi></l><lb/>
+<l><hi rendition="#fr">Der edle brunnen quillet nur wegen dein herfuͤr:</hi></l><lb/>
+<l><hi rendition="#fr">Dann weil man weit vndt breit dich leſen wirdt auff erden/</hi></l><lb/>
+<l><hi rendition="#fr">So muß das waßer auch der augen artzney werden.</hi></l></lg><lb/>
+<p>Zur Schmelnitz/ fieng ich an/ etzliche meilen von Caſchaw<lb/>
+wirdt das eiſen durch ein quell inner halb wenig ſtunden in ſchlich/<lb/>
+vndt dieſer in kupffer verwandelt. Aber wir haben faſt gewonnen;<lb/>
+redte ich weiter. Schawet das feſte ſchloß zur rechten handt auff<lb/>
+dem hohen berge iſt vorgemeldeter Kinaſt; dort hinein zur lincken<lb/>
+liegt die Kemnitz/ welche Ihr Gn. Herr Obriſter Schaffgotſch<lb/>
+mitt einem herrlichen hauſe vndt luſtigen gebaͤwden nicht wenig<lb/>
+geziehret hatt. Gleich fuͤr vns iſt der Warme brunnen/ den wir<lb/>
+vns zue beſuchen fuͤrgenommen. Ihr koͤnnet auß der luſtigen ge-<lb/>
+legenheit des ortes/ wo nicht ferren ſo fruchtbare berge vndt huͤ-<lb/>
+gel ringes herumb/ da zue nechſt der Zacken/ hier die gruͤnen wie-<lb/>
+ſen ſich anmutig zeigen/ leichtlich abſehen/ daß die natur diß heil-<lb/>
+ſame waßer in ſo ein koͤſtliches landt/ als einen fuͤrnemen ſtein in<lb/>
+<fw type="sig" place="bottom">H iij</fw><fw type="catch" place="bottom">einen</fw><lb/>
+<pb n="62" facs="#f0062"/>
+einen guͤldenen ring/ habe verſetzen wollen. Von ſeiner art vndt<lb/>
+eigenſchafft laße ich die jenigen reden/ denen der geneigte Phebus<lb/>
+die geſchickligkeit ſolcher dinge verliehen hatt: es komme auch gleich<lb/>
+dieſe waͤrme entweder von einem verborgenen kalckſteine/ oder<lb/>
+von dem durchdringenden zwange der winde/ oder von beſtralung<lb/>
+der Sonnen vndt des geſtirnes/ oder von der ſchnellen fortſchieſ-<lb/>
+ſung vndt gaͤhem abfall/ oder von dem heimlichen fewer des erdt-<lb/>
+reichs daruͤber das waßer lauffen muß/ oder von andern vrſachen<lb/>
+her; ſo geben doch die kraͤfftigen vndt heilſamen wirckungen/ daß<lb/>
+es der geſundtheit des menſchen (welcher wegen auch ſo viel blu-<lb/>
+men vndt kraͤuter wachſen mußen/ da wir jhr doch mitt einem ei-<lb/>
+nigen gewaͤchſe am meiſten ſchaden) fuͤrnemlich zum beſten ge-<lb/>
+ſchehe. Taug diß waßer wol zue trincken/ ſagte Venator. Des<lb/>
+erdtbeches/ ſaltzes vndt ſchwefels halben den es fuͤhret/ iſt der ge-<lb/>
+ſchmack etwas wiederwertig/ gab ich zur antwort/ auch den au-<lb/>
+gen nicht allermaßen dienſtlich. Die jenigen aber/ welche ſich et-<lb/>
+wan an vnreinen weibesbildern verbrennt haben/ wil es gar nicht<lb/>
+leiden: vndt melancholiſchen oder choleriſchen leuten bringt es<lb/>
+mehr ſchaden als fromen.</p><lb/>
+<p>Du biſt/ fieng Buchner zue mir an/ dieſer orten nicht vnbe-<lb/>
+kandt. Freylich nicht/ ſagte ich; ich habe mich vor etzlichen jharen<lb/>
+bey einer hochanſehlichen geſellſchafft zwey monat vber allhier<lb/>
+zimlich wol befunden/ vndt nicht allein das leben des ſtattlichen<lb/>
+krieges heldens Seyfriedens von Promnitz/ darvon Venator ein<lb/>
+vrtheil zue fellen pfleget deßen meine wißenſchafft nicht wuͤrdig iſt/<lb/>
+ſondern auch vnterſchiedene getichte/ mehrentheils aber in dem<lb/>
+waͤldichinn an dem vfer dortoben/ das nechſt dem ſiege iſt/ auffge-<lb/>
+ſetzt: daß ich alſo erfahren/ wie auch vnſere Muſen bey den zarten<lb/>
+Najaden nicht vnangenem ſindt.</p><lb/>
+<fw type="catch" place="bottom">Vnter</fw><lb/>
+<pb n="63" facs="#f0063"/>
+<p>Vnter wehrendem geſpreche kamen wir durch daß dorff<lb/>
+an den brunnen von dem wir reden; betrachteten die newe art des<lb/>
+bawes/ der ſeiner runde vndt anderer weiſe halben einem heidn i-<lb/>
+ſchen tempel nicht vngleich ſahe/ inwendig aber mitt gemaͤchern<lb/>
+vndt ſtuben alſo eingetheilet war/ daß jhrer mehr zue ſein ſchienen/<lb/>
+weder faſt der raum des ortes ſolte leiden koͤnnen. Mitten innen<lb/>
+nun war das berhuͤmbte quell ſelbſt/ daß im auffſchießen viel kleine<lb/>
+blaſen empor warff/ an der farbe aber helle/ durchſcheinendt vndt<lb/>
+auff art eines weißen ſaffirs etwas blaͤwlicht an zue ſchawen war.<lb/>
+Nach dem wir vns nun genungſam erſehen/ vndt an dem wunder-<lb/>
+wercke der natur augen vndt gemuͤte geſaͤttigt hatten/ ehreten wir<lb/>
+des gluͤckſeligen quelles halben die einheimiſchen Nimfen vnde<lb/>
+waßergoͤttinnen dieſes ortes/ des ſchoͤnen bawes wegen aber den<lb/>
+Hochwolgebornen vndt werthen Helden Hanſen Vlrichen von<lb/>
+Schaffgotſch; zue deßen billichem lobe wir folgenden innhalts ta-<lb/>
+feln an die eußere wandt des edelen bawes auff zue hencken/ bey vn-<lb/>
+ſerem abſchiede/ welchen die nunmehr anbrechende Nacht verur-<lb/>
+ſachte/ ſaͤmptlich gelobeten.</p><lb/>
+<lg type="poem"><head><hi rendition="#aq">I.</hi><lb/>
+<hi rendition="#fr">Nuͤßler.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#fr">Hier wo das klare quell mitt einfalt war vmbringet/<lb/>
+Das ſeiner adern krafft in vnſern adern regt/<lb/>
+Vndt beydes ſinnen troſt vndt leibes wolfarth hegt/<lb/>
+Hier wo jhr Naja des in ſchlechter einfalt gienget/</hi></l></lg><lb/>
+<lg n="2"><l><hi rendition="#fr">Vndt ewren jaͤgerzeug an faule waͤnde hienget/<lb/>
+Iſt worden vmb euch her ein newer grundt gelegt/<lb/>
+Der jetzt das edle hauß zue ewren ehren tregt/<lb/>
+Vndt der Natur auch ſelbſt nicht wenig ſchoͤnheit bringet.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">Diß</fw><lb/>
+<pb n="64" facs="#f0064"/>
+<lg n="3"><l><hi rendition="#fr">Diß hatt der heldt gethan dem dieſes ort gehoͤret/<lb/>
+Der ſeinen namen zwar mitt großen thaten mehret/<lb/>
+Doch gleichwol wirdt von jhm nicht minder auff die noth</hi></l></lg><lb/>
+<lg n="4"><l><hi rendition="#fr">Vndt luſt der lebens zeit durch dieſes werck geſchawet.<lb/>
+Fragt jhr/ warumb er es nach tempelsart gebawet?<lb/>
+<supplied>E</supplied>r meint goſundtheit ſey der ſiechen leute Gott.</hi></l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#aq">II.</hi><lb/>
+<hi rendition="#fr">An Ihr Fuͤrſtliche Gnaden/<lb/>
+Ihr Gn. Gemahlinn.<lb/>
+Buchner.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#fr">Solt ich das große lob/ den Koͤniglichen ſchein/</hi></l><lb/>
+<l><hi rendition="#fr">Die thaten vndt verdienſt/ ſo von dem werthen ſtande/</hi></l><lb/>
+<l><hi rendition="#fr">Der dich erzeuget hatt/ durch alle ferne lande</hi></l><lb/>
+<l><hi rendition="#fr">Am liechten tage ſindt/ recht preiſen koͤnnen? nein;</hi></l></lg><lb/>
+<lg n="2"><l><hi rendition="#fr">Mir ſey die fauſt dann ſtahl/ die feder demantſtein/</hi></l><lb/>
+<l><hi rendition="#fr">Die tinte hergeholt von dem gelehrten ſtrande</hi></l><lb/>
+<l><hi rendition="#fr">Der beym Parnaß entſpringt: mein ſchiff bleibt an dem rande/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt leßt ſich kuͤhnlich nicht in ſolche wellen ein.</hi></l></lg><lb/>
+<lg n="3"><l><hi rendition="#fr">Wann einer ferner auch die ſitten/ den verſtandt/</hi></l><lb/>
+<l><hi rendition="#fr">Die tugendt ſo du haſt/ der edlen gaben pfandt</hi></l><lb/>
+<l><hi rendition="#fr">Die dir der himmel ſchenckt/ der gantzen welt wil zeigen/</hi></l></lg><lb/>
+<lg n="4"><l><hi rendition="#fr">Muß hoͤher gehn als ich/ wiewol Apollo mir</hi></l><lb/>
+<l><hi rendition="#fr">Mitt milden handen reicht die leyer meine ziehr/</hi></l><lb/>
+<l><hi rendition="#fr">Muß/ heldinn/ uͤberauß wol ſingen oder ſchweigen.</hi></l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#aq">III.</hi><lb/>
+<hi rendition="#fr">Venator.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#fr">Ihr Schweſtern/ derer geiſt auff vns Poeten ſchwebet/</hi></l><lb/>
+<l><hi rendition="#fr">Anietzt begehr ich nicht zue ewrem Helicon;</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Ihr</hi></fw><lb/>
+<pb n="65" facs="#f0065"/>
+<l><hi rendition="#fr">Ihr Waßernimfen kompt/ ſucht einen ſuͤßen thon/</hi></l><lb/>
+<l><hi rendition="#fr">Damit jhr deßen rhum der euch auch ziehrt erhebet.</hi></l></lg><lb/>
+<lg n="2"><l><hi rendition="#fr">Ihm dancket daß jhr ietzt das quell noch ſchoͤner gebet/</hi></l></lg><lb/>
+<lg n="3"><l><hi rendition="#fr">Seht jung auß wie jhr ſeidt/ beſitzet einen thron</hi></l><lb/>
+<l><hi rendition="#fr">Der ſcha wens wuͤrdig iſt/ da Venus vndt jhr Sohn/</hi></l><lb/>
+<l><hi rendition="#fr">Vndt alle Gratien/ vndt rhue/ vndt frewde lebet.</hi></l></lg><lb/>
+<lg n="4"><l><hi rendition="#fr">Du heldt/ dem dieſes Badt von alters zuegehoͤrt/</hi></l><lb/>
+<l><hi rendition="#fr">Du haſt jhm ſeine ziehr durch deinen baw vermehrt/</hi></l><lb/>
+<l><hi rendition="#fr">Drumb hebt ein weiſer ſinn dich billich hoch auff erden.</hi></l></lg><lb/>
+<lg n="5"><l><hi rendition="#fr">Nach dem durch dein verdienſt/ durch thaten/ durch verſtandt/</hi></l><lb/>
+<l><hi rendition="#fr">Dein ſchuldner worden iſt das gantze Vaterlandt/</hi></l><lb/>
+<l><hi rendition="#fr">So muß das waßer auch von dir begabet werden.</hi></l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#aq">IIII.</hi><lb/>
+<hi rendition="#fr">Opitz.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#fr">Auff jhr klugen Pierinnen/<lb/>
+Laßet vns ein liedt beginnen<lb/>
+Einem Helden der euch liebt/<lb/>
+Der bey ſeinen ſchoͤnen fluͤßen/<lb/>
+Welche ſich herumb ergießen/<lb/>
+Vns auch eine ſtelle giebt.</hi></l></lg><lb/>
+<lg n="2"><l><hi rendition="#fr">Weiß er gleich mitt ritterſachen<lb/>
+Ihm ein ſolches lob zue machen<lb/>
+Das der alten namen gleicht/<lb/>
+So erkennt er doch daß thaten<lb/>
+In die lange nacht gerhaten/<lb/>
+Wann jhr nicht die haͤnde reicht.</hi></l></lg><lb/>
+<lg n="3"><l><hi rendition="#fr">Keine heereskrafft kan ſtreiten<lb/>
+Wieder die gewalt der zeiten;</hi><lb/>
+<fw type="sig" place="bottom">J</fw><fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="66" facs="#f0066"/>
+<hi rendition="#fr">Das metall vndt eiſen bricht;<lb/>
+Kron vndt Zepter legt ſich nieder;<lb/>
+Aber ewre ſchoͤne lieder<lb/>
+Wißen von dem tode nicht.</hi></l></lg><lb/>
+<lg n="4"><l><hi rendition="#fr">Herr/ wo ſindt die ſtrengen kriege<lb/>
+Deiner Ahnen? jhre ſiege/<lb/>
+Ihr verdienſt liegt vnbeklagt.<lb/>
+Was ſchon bleibet vnbeſungen<lb/>
+Von der ſchweſtern weiſer zungen/<lb/>
+Wirdt nicht lange nachgeſagt.</hi></l></lg><lb/>
+<lg><l><hi rendition="#fr">Vnſer Phebus muß es bringen/<lb/>
+Vndt mitt gruͤner jugendt dringen<lb/>
+Durch der eitelkeiten wahn/<lb/>
+Phebus der mich angetrieben<lb/>
+Daß ich diß von dir geſchrieben<lb/>
+Was des grabes lachen kan.</hi></l></lg><lb/>
+<lg n="5"><l><hi rendition="#fr">Deine bluͤte/ deine wercke/<lb/>
+Dieſe ritterliche ſtaͤrcke<lb/>
+Fuͤhlet endtlich doch die zeit:<lb/>
+Komm/ Heldt/ friſte dir das leben/<lb/>
+Komm/ Thalia wirdt dir geben<lb/>
+Einen krantz der ewigkeit.</hi></l></lg></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb facs="#f0067"/>
+</body><back> <milestone unit="section" rendition="#hr"/><lb/>
+<div type="imprint"><p><hi rendition="#c"><hi rendition="#b">Gedruckt in der Fuͤrſt-<lb/>
+lichen Stadt Brieg/ durch</hi><lb/>
+Auguſtinum Gruͤndern.<lb/>
+<hi rendition="#i"><hi rendition="#aq">A. C.</hi> 1630.</hi></hi></p></div><lb/>
+<figure/><lb/>
+<pb facs="#f0068"/>
+<pb facs="#f0069"/>
+<pb facs="#f0070"/>
+<pb facs="#f0071"/>
+<pb facs="#f0072"/>
+</back>
+</text> </TEI>

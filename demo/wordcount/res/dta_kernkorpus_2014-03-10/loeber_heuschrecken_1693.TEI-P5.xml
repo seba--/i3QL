@@ -1,0 +1,1614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Eigentliche Beschreibung Des Entsetzlich-grossen Heuschrecken-Heers Welches Jm Avgvsto, A. C. M DC XCIII. Bey und unweit Jena Jn denen Fürstlichen Aemtern Orlamünda/ Roda/ und Leuchtenburg mit iedermans Bestürtzung erschienen</title>
+<title type="sub">Aus eingezogener gründlicher Nachricht und selbsteigener Erfahrung Verfasset/ und mit allerhand denckwürdigen und nützlichen Anmmerckungen erleutert</title>
+<author>
+<persName ref="http://d-nb.info/gnd/100370446">
+<surname>Loeber</surname>
+<forename>Christoph Heinrich</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">52</measure>
+<measure type="tokens">10422</measure>
+<measure type="types">3298</measure>
+<measure type="characters">72405</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:15:05Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/loeber_heuschrecken_1693</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/loeber_heuschrecken_1693</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/loeber_heuschrecken_1693</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/loeber_heuschrecken_1693</idno>
+<idno type="DTADirName">loeber_heuschrecken_1693</idno>
+<idno type="DTAID">20879</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Loeber, Christoph Heinrich: Eigentliche Beschreibung Des Entsetzlich-grossen Heuschrecken-Heers Welches [...] Bey und unweit Jena [...] erschienen. Jena, [1693].</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Eigentliche Beschreibung Des Entsetzlich-grossen Heuschrecken-Heers Welches Jm Avgvsto, A. C. M DC XCIII. Bey und unweit Jena Jn denen Fürstlichen Aemtern Orlamünda/ Roda/ und Leuchtenburg mit iedermans Bestürtzung erschienen</title>
+<title level="m" type="sub">Aus eingezogener gründlicher Nachricht und selbsteigener Erfahrung Verfasset/ und mit allerhand denckwürdigen und nützlichen Anmmerckungen erleutert</title>
+<author>
+<persName ref="http://d-nb.info/gnd/100370446">
+<surname>Loeber</surname>
+<forename>Christoph Heinrich</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">47 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Bielcke</name></publisher>
+<pubPlace>Jena</pubPlace>
+<date type="publication">1693</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Universitäts- und Landesbibliothek Halle</repository>
+<idno>
+<idno type="shelfmark">ULB Halle, Pon Yd 4832 QK (2)</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Zoologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Zoologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front><lb/>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb n="[1]" facs="#f0003"/>
+<titlePage type="main"><docTitle><titlePart type="main">Mit GOtt!<lb/>
+Eigentliche Beſchreibung<lb/>
+Des<lb/>
+Entſetzlich-groſſen<lb/>
+<hi rendition="#b">Heuſchrecken-Heers</hi></titlePart><lb/>
+<titlePart type="desc">Welches<lb/>
+Jm <hi rendition="#aq"><hi rendition="#g">AVGVSTO</hi>, A. C. cIↄ Iↄc XCIII</hi>.<lb/>
+<hi rendition="#b">Bey und unweit Jena<lb/>
+Jn denen Fuͤrſtlichen Aemtern<lb/>
+Orlamuͤnda/ Roda/ und Leuchtenburg</hi><lb/>
+mit iedermans Beſtuͤrtzung erſchienen</titlePart></docTitle><lb/>
+<byline>Aus<lb/>
+eingezogener gruͤndlicher Nachricht und ſelbſt-<lb/>
+eigener Erfahrung<lb/>
+Verfaſſet/ und mit allerhand denckwuͤrdigen und nuͤtzlichen<lb/>
+Anmmerckungen<lb/>
+erleutert<lb/>
+von<lb/>
+<docAuthor><hi rendition="#aq"><hi rendition="#k"><hi rendition="#g">Christoph. Heinrico</hi></hi></hi> Loͤbern</docAuthor><lb/>
+Unwuͤrdigen Diener am Worte/ und <hi rendition="#aq">Superint</hi>.<lb/>
+zu Orlamuͤnda.</byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace><hi rendition="#g">JENA</hi></pubPlace><lb/>
+Zu finden bey <publisher>Johann Bielcken.</publisher></docImprint></titlePage><lb/>
+<pb n="[2]" facs="#f0004"/>
+</front><body>
+<pb n="3" facs="#f0005"/>
+<figure/> <div n="1"> <p><hi rendition="#fr">Das walte der groſſe und ſtarcke GOtt/ der<lb/>
+<hi rendition="#et">zwar vielerley Heer hat/ ſo Er ausſendet/<lb/>
+uns uͤmb unſerer Suͤnde willen heimzuſu-<lb/>
+chen/ iedoch auch aus vaͤterlicher Barm-<lb/>
+hertzigkeit ſein Abſehen dahin richtet/ uns<lb/>
+zur wahren Buſſe zu locken; wie Er denn<lb/>
+der Bußfertigen Hertzen ihr Gebet nicht<lb/>
+verſchmaͤhet/ noch ſeine Guͤte von uns wen-<lb/>
+det! Seinem heiligen Nahmen ſey Ehr<lb/>
+und Lob/ von nun an/ biß in Ewigkeit/ Amen.</hi></hi></p><lb/>
+<p><hi rendition="#c">§. 1.</hi></p><lb/>
+<p><hi rendition="#in">E</hi>S hat dem Allerhoͤchſten gefallen/ im Mo-<lb/>
+nat Auguſto/ dieſes lauffenden 1693. Jahres/<lb/>
+unſer Land und Gegend mit Heuſchrecken<lb/>
+heimzuſuchen. Weiln denn ſolches ein gantz<lb/>
+ungewoͤhnliches Werck GOttes iſt/ davon<lb/>
+nicht allein iederman redet/ ſondern auch von<lb/>
+vielen ein ungegruͤndeter Zuſatz gemachet/ hingegen aber<lb/>
+von andern einen gruͤndlichen Nachricht zu haben/ ver-<lb/>
+langet wird; hiernechſt auch dieſe Geſchicht wohl wehrt<lb/>
+iſt/ daß ſie fleißig erforſchet und beſchrieben werde/ das<lb/>
+Gedaͤchtnis der goͤttlichen Wunder zu erhalten/ und da-<lb/>
+mit nicht nur denen/ ſo anitzo leben/ ſondern auch der<lb/>
+Nachwelt zu dienen; Zugleich auch die Erſchrocknen aus<lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">Got-</fw><lb/>
+<pb n="4" facs="#f0006"/>
+GOttes Wort aufzurichten/ und die ſichern und rohen<lb/>
+Gemuͤther zu heiligen Gedancken und gottſeeligen Wan-<lb/>
+del anzufriſchen; Als habe ich mir die Muͤhe genommen/<lb/>
+und an alle Diener Gottes/ ſo der hieſigen <hi rendition="#aq">Inſpection</hi> un-<lb/>
+tergeben/ deßwegen geſchrieben/ damit ſie darvon aus-<lb/>
+fuͤhrlichen Bericht erſtatten moͤchten/ was ſich dißfals an<lb/>
+einem und andern Orte zugetragen. Woraus denn/<lb/>
+ſo wohl aus dem/ was ich ſelbſten geſehen/ und von andern<lb/>
+gewiſſen Leuten erfahren koͤnnen/ ich gegenwaͤrtige Nach-<lb/>
+richt verfaſſen/ und mit mancherley Anmerckungen/ und<lb/>
+Erinnerungen erlaͤutern wollen: mit dem inniglichen<lb/>
+Wundſche/ daß er vielen zu erwuͤndſchter Beſſerung die-<lb/>
+nen moͤge!</p><lb/>
+<p>§. 2. Damit aber der geneigte Leſer den Jnnhalt<lb/>
+gegenwaͤrtigen Berichts kuͤrtzlich vor ſich haben moͤge/ ſo<lb/>
+ſoll von folgenden ſieben Puncten gehandelt werden:<lb/>
+<hi rendition="#aq">I</hi>. Von der Art und eigentlichen Beſchaffenheit unſerer<lb/>
+Heuſchrecken. <hi rendition="#aq">II</hi>. Von der Zeit ihrer Ankunfft. <hi rendition="#aq">III</hi>. Von<lb/>
+der Art und Weiſe ihres Zuges. <hi rendition="#aq">IV</hi>. Von dem Sch<supplied>a</supplied>den/<lb/>
+den ſie angerichtet. <hi rendition="#aq">V</hi>. Woher es eigentlich ruͤhre/ daß<lb/>
+dergle<supplied>i</supplied>chen Heer-Zuͤge geſchehen? <hi rendition="#aq">VI</hi>. Was ſie wohl be-<lb/>
+deuten und nach ſich ziehen moͤchten? Und endlich <hi rendition="#aq">VII</hi>.<lb/>
+Was denn vor Mittel/ wieder ſolch Heer/ und anderes<lb/>
+Ubel/ ſo darauskommen moͤchte/ zu ergreiffen?</p><lb/>
+<p>§. 3. Bey dem erſten/ der gemeinen Schul-Art<lb/>
+nach/ von dem Nahmen der <hi rendition="#fr">Heuſchrecken</hi> anzufahen/ ſo<lb/>
+moͤgen ſie wohl mit dieſen Nahmen beleget werden/ von<lb/>
+wegen des <hi rendition="#fr">Schreckens</hi> und Schadens/ den ſie in dem<lb/>
+<hi rendition="#fr">Heu</hi> anrichten. Wiewohl der gelehrte <hi rendition="#aq">Matthias Marti-<lb/>
+nius</hi> in ſeinem <hi rendition="#aq">Lexico Philologico</hi> in dem Worte <hi rendition="#aq">Locuſta</hi> an-<lb/>
+mercket/ daß diß Wort eigentlich herſtamme/ von dem<lb/>
+<fw type="catch" place="bottom">Wort</fw><lb/>
+<pb n="5" facs="#f0007"/>
+Wort <hi rendition="#fr">Schricken</hi>/ welches zwar bey uns nicht im Ge-<lb/>
+brauch iſt/ doch ſo viel bedeuten ſoll/ als <hi rendition="#aq">ſubſilire, paſſum,<lb/>
+facere</hi>, <hi rendition="#fr"> huͤpffen und fortſchreiten</hi>; (mit welchen das<lb/>
+Griechiſche Wort <gap reason="fm" unit="chars"/>, <hi rendition="#aq">ſalire</hi>, ziemlich uͤbereinkoͤmmet)<lb/>
+und koͤmt alſo diß Wort den Heuſchrecken zu: <hi rendition="#aq">quia locuſtæ<lb/>
+in fœno ſaltitant</hi> weiln die Heuſchrecken im Heu und Graß<lb/>
+heruͤmb huͤpffen. Davon vielleicht herruͤhret/ daß man<lb/>
+dergleichen Ungeziefer/ mit Verſetzung zweyer Buchſta-<lb/>
+ben pfleget <hi rendition="#fr">Schircken</hi> zu benamſen. Die Lateiner brau-<lb/>
+chen das Wort <hi rendition="#aq">locuſta, à locis urendis</hi>, weil die Heuſchre-<lb/>
+cken nicht nur im Graſe huͤpffen/ ſondern es an manchen<lb/>
+Orte ſo zurichten/ als wenn es abgeſenget und verbrennet<lb/>
+were; wovon an dem angefuͤhrten Orte ein mehrers/ wie<lb/>
+auch von mehrern Nahmen in all<supplied>e</supplied>rley Sprachen kan<lb/>
+nachgeleſen werden.</p><lb/>
+<p>§. 4. Wie vielerley Arten der Heuſchrecken gefun-<lb/>
+den werden moͤgen/ ſolches uͤberlaſſen wir denen Natur-<lb/>
+kuͤndigern zu genauerer Erkundigung. Unterdeß/ was<lb/>
+dieſe unſere neue Gaͤſte anlanget/ ſo haben ſie eine ziemli-<lb/>
+che Verwantnis mit denen jenigen gruͤnen Heuſchrecken/<lb/>
+ſo ſich jaͤhrlich bey uns in dem Graſe und in dem Getreide<lb/>
+zu befinden pflegen/ und ingemein <hi rendition="#fr">Gratzhaͤuer</hi> genen-<lb/>
+net werden/ ſind aber gleichwohl von denenſelben in vielen<lb/>
+Stuͤcken unterſchieden.</p><lb/>
+<p>§. 5. Denn was der Heuſchrecken ihre Groͤſſe anlan-<lb/>
+get ſo ſind ſie ingemein ſo groß odeꝛ ein weniges groͤſſer/ als<lb/>
+die groͤſten Graßhauer: Wie denn/ wenn man ſie tod gegen<lb/>
+einander wieget/ ſie im Gewicht faſt uͤber einkem̃en/ uñ die<lb/>
+Heuſchrecken jene/ wenn ſie wegerer/ nur uͤmb ein gerin-<lb/>
+ges uͤberwiegen. Sie haben/ gleich jenen/ ſechs Beine/<lb/>
+vier kurtze/ und hinden naus zwey ſehr lange ſo zu Ende<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">gel-</fw><lb/>
+<pb n="6" facs="#f0008"/>
+gelbe und voll ziemlich groſſer Zacken ſind/ womit ſie denn<lb/>
+groſſe Lufftſpruͤnge verrichten koͤnnen. Auch haben ſie<lb/>
+vier Fluͤgel/ wie die Graßhaͤuer. Und ſtelle ich dahin/<lb/>
+wie <hi rendition="#aq">Plinius</hi> zuverſtehen und wovon er redet/ wenn er ſchrei-<lb/>
+bet: <hi rendition="#aq">inſectum infirmis pennis alatum</hi>, die Heuſchrecke ſey ein<lb/>
+Thier/ <hi rendition="#fr">ſo mit ſchwachen Federn befluͤgelt iſt.</hi> Viel-<lb/>
+leicht eignet er ihnen die Federn nur Gleichnisweiſe zu/ wie<lb/>
+der Fiſche ihre Ruder Floßfedern genennet werden. Un-<lb/>
+ſerer Heuſchrecken ihre Fluͤgel ſind nur eine ſubtile Haut/<lb/>
+darinnen ſtarcke Adern Striche machen/ und ſie gleichſam<lb/>
+in Felder abtheilen. Auf ieder Seiten ſtehen zween Fluͤ-<lb/>
+gel/ zu erſt ein ſchmal und langer/ darnach ein breiterer/<lb/>
+welche ſie/ wenn ſie ruhen/ uͤbereinanderlegen/ wie auch die<lb/>
+Graßhaͤuer thun; geſtallt ſie auch nicht viel laͤnger ſind/<lb/>
+als dieſer ihre Fluͤgel zu ſeyn pflegen. Und wie die gemei-<lb/>
+nen Heuſchrecken oben am Halſe einen ziemlichen Dalar<lb/>
+oder Umbſchlag faſt <hi rendition="#fr">wie eine Muͤnchs-Kappe</hi> haben/<lb/>
+dadurch das Haupt und der Ruͤcken an einander ver-<lb/>
+knuͤpffet ſind; ebener maſſen iſt bey unſern Gaͤſten derglei-<lb/>
+chen zu finden; doch iſts auch etwas groͤſſer/ als bey<lb/>
+jenen.</p><lb/>
+<p>§. 6. Gleichwohl haben ſie hinden am Leibe kein<lb/>
+ſolch Schwerd oder Schwantz/ wie die gemeinen Heu-<lb/>
+ſchrecken oder Graßhaͤuer haben; ſind am hinder Theil<lb/>
+des Leibes etwas ſchwaͤcher/ doch uͤmb die Bruſt (ſo unten<lb/>
+<hi rendition="#aq">villoſum</hi> und mit Faſen bewachſen) viel ſtaͤrcker und brei-<lb/>
+ter. Sie ſind auch ſtaͤrcker am Haupte und Gebiſſe.<lb/>
+Sintemahl/ wie dergleichen Ungeziefer auf ieder Seiten<lb/>
+einen ſolchen Kinnbacken zu haben pfleget/ ſo inwendig ge-<lb/>
+kerbet/ und in der That ein einiger Zahn iſt: alſo haben die-<lb/>
+ſe unſere Gaͤſte auch auf ieder Seite einen ſolchen Zahn/ ſo<lb/>
+<fw type="catch" place="bottom">ſchwartz</fw><lb/>
+<pb n="7" facs="#f0009"/>
+ſchwartz oder blau von Farbe/ doch uͤmb ein merckliches<lb/>
+ſtaͤrcker und groͤſſer iſt/ als die gemeinen Heuſchrecken ha-<lb/>
+ben. Sind alſo von GOtt darzu ſonderlich gewaffnet<lb/>
+und geruͤſtet/ daß ſie mit ſolchen ihren Zaͤhnen harte Koͤr-<lb/>
+ner zu malmen/ und gar leicht groſſen Schaden anrichten<lb/>
+koͤnnen. Wie denn ſolches deſto beſſer zu <hi rendition="#aq">effectui</hi>ren/ die<lb/>
+Natur ihnen ein ſonderlich groſſes <hi rendition="#aq">receptaculum</hi> verliehen/<lb/>
+indem die Speiſe gleich durch den Schlund in einen wei-<lb/>
+ten/ langen Darm faͤllet/ ſo in einer Gleiche biß hinden an<lb/>
+reichet. <hi rendition="#aq">Mox à ventre inteſtinum rectà in caudam finit, quà<lb/>
+excrementa emittunt; Ariſtot. I. 4. Hiſt. Anim. c. 2</hi>.</p><lb/>
+<p>§. 7. Die ſo genannten Graßhaͤuer pflegen oben<lb/>
+gantz gruͤn zu ſeyn/ aber mit der Farbe der Heuſchrecken<lb/>
+befindet ſichs etwas anders. Es ſind zwar auch mit un-<lb/>
+ter ſolchen/ welche am Haupte/ Halſe und ſonſten etwas<lb/>
+gruͤn ſeyn/ die meiſten aber haben andere Farben/ als roͤth-<lb/>
+licht/ ſchwartzlicht ꝛc. Gleichergeſtalt ſchreibet <hi rendition="#aq">Krenzhe-<lb/>
+mius (citante Dn. Hoffm. in chronotaxi Apocal. p. 232.)</hi> von<lb/>
+den Heuſchrecken <hi rendition="#aq">Anni 1542. varii fuiſſe coloris &amp; quatuor<lb/>
+habuiſſe alas</hi>, ſie ſeyn <hi rendition="#fr">von mancherley Farben geweſen/<lb/>
+und haben vier Fluͤgel gehabt</hi>. Wie denn <hi rendition="#aq">curieuſe</hi><lb/>
+Leute gar vielerley Arten der Farben an ihnen gezehlet ha-<lb/>
+ben: daß alſo die Heuſchrecken ein <hi rendition="#fr">ſolch Heer <hi rendition="#aq">repræſenti-</hi><lb/>
+ren/ welches aus Leuten von mancherley Nationen<lb/>
+und L<supplied>i</supplied>bereyen beſtehet</hi>. Doch ſcheinen die beyden ge-<lb/>
+meineſten Farben gelb und braun zu ſeyn/ alſo/ daß etli-<lb/>
+che am Haupte/ Bruſt und Leibe gelb und am Bauche ſil-<lb/>
+berfarben; etliche aber am Bauche Leberfarb/ und ſonſt<lb/>
+ſchwartz braunlicht ſeyn: davon hernach ein mehrers.<lb/>
+Die Fluͤgel ſind bey allen ſchier uͤberein/ nemlich Silber-<lb/>
+farb/ oder dunckel-weiß/ oder dunckel-gelbicht: dero Fel-<lb/>
+<fw type="catch" place="bottom">der-</fw><lb/>
+<pb n="8" facs="#f0010"/>
+dergen mit ſchwartzen Puncten und Strichlein gar art-<lb/>
+lich ausgezieret ſind.</p><lb/>
+<p>§. 8. Der ſeelige Herr <hi rendition="#aq">Johann Möllerus in Allegor.<lb/>
+profano-ſacris part. 1. c. 1. §. 14</hi>. fuͤhret aus andern <hi rendition="#aq">Autoribus</hi><lb/>
+an/ daß einſten in Engeland/ meiſtlich uͤmb North Folth/<lb/>
+das Getveide von ſolchen Heuſchrecken abgefreſſen/ und<lb/>
+die Erndte verderbet worden/ auf dero Fluͤgel einem das<lb/>
+Wort <hi rendition="#aq">I. R. A</hi>. auf den andern <hi rendition="#aq">D. E. I</hi>. das iſt/ <hi rendition="#fr">GOttes<lb/>
+Zorn</hi> geſtanden. Gleichergeſtalt iſt bey uns hin und<lb/>
+wieder ausgeſprenget worden/ als ſtuͤnde eine frembde<lb/>
+Schrifft auf den Fluͤgeln der Heuſchrecken. Welches<lb/>
+ſich aber/ bey genauerer Betrachtung/ zur Zeit nicht hat<lb/>
+finden wollen/ dargegen aber Puncte und Strichlein wo-<lb/>
+mit die Fluͤgel/ wie gedacht/ gezieret und ſchattiret ſeyn.</p><lb/>
+<p>§. 9. Sonſt fuͤhret der ſeel. <hi rendition="#aq">D. Wolffg. Franzius in<lb/>
+Hiſt. Animal. part. 4. c. 10. p. 812</hi>. aus andern <hi rendition="#aq">Autoribus</hi> an/<lb/>
+daß A. C. 1549. in Ungern eines von Adel ſein groſſer<lb/>
+Weitzen-Schober gantz voll Scorpionen geweſen/ daß<lb/>
+man auch die Garben nicht habe ſicherlich zum dreſchen<lb/>
+hinwegnehmen koͤnnen. Weil man denn endlich <hi rendition="#aq">reſolvi-</hi><lb/>
+ret/ den gantzen Hauffen zu verbrennen/ ſo habe ſich ein<lb/>
+groſſer Scorpion oben drauf geſtellet/ und geruffen: <hi rendition="#aq">Deſi-<lb/>
+nite, non ſponte huc venimus, ſed à Deo, in veſtram pœnam<lb/>
+huc misſi</hi>, <hi rendition="#fr">das iſt/ laſſet nach! denn wir ſind nicht von<lb/>
+uns hieher kommen/ ſondern GOtt hat uns zu eu-<lb/>
+rer Straffe hieher geſendet</hi>. Ob nun wohl unſere<lb/>
+Heuſchrecken nicht alſo ruffen/ auch die Strichlein an ih-<lb/>
+ren Fluͤgeln nichts ſonderliches bedeuten moͤchten/ ſo wird<lb/>
+doch ein Verſtaͤndiger leicht glauben/ daß ſie von GOTT<lb/>
+uns nicht darzu geſendet werden/ daß ſie was gutes ſtiff-<lb/>
+ten/ und dem Lande Nutzen bringen ſolten: davon hernach<lb/>
+mit mehrern wird zuhandeln ſeyn.</p><lb/>
+<fw type="catch" place="bottom">§. 10.</fw><lb/>
+<pb n="9" facs="#f0011"/>
+<lb/>
+<p>§. 10. Aber wieder auf die Beſchreibung der Heu-<lb/>
+ſchrecken zukommen/ ſo lieſet man/ daß wohl ehe dieſelben<lb/>
+von groſſen Winden in ein Land gefuͤhret werden. Wie<lb/>
+denn/ als Egypten ſolte geplagt werden/ der Oſtwind die<lb/>
+Heuſchrecken herzufuͤhrete/ <hi rendition="#aq">Exod. 10, v. 13</hi>. dennoch/ ſo be-<lb/>
+duͤrffen unſere Gaͤſte zu ihrem Zuge und Fluge keines<lb/>
+Windes. Da die gemeinen Heuſchrecken nur etliche we-<lb/>
+nige Schritte fliegen/ und darnach zur Erden fallen/ ſo<lb/>
+fliegen hingegen dieſe/ auch in der ſtillen Lufft/ und wieder<lb/>
+den Wind (wie dieſer Tage etliche mahl geſchehen) mit ih-<lb/>
+ren Fluͤgeln/ als ein Vogel/ iedoch nicht in ſolcher Ge-<lb/>
+ſchwindigkeit/ dahin. Dabey einige in acht genommen/<lb/>
+daß ſie im fliegen mit ihren Leibern nicht die gerade Linie<lb/>
+ihres Fluges halten/ ſondern den Leib im fliegen etwas<lb/>
+ſchieff fuͤhren. Sind demnach dißfalß von den hielaͤndi-<lb/>
+ſchen gruͤnen Heuſchrecken unterſchieden/ wie etwa die<lb/>
+wilden Gaͤnſe und Enten von den zamen; als welche es<lb/>
+jenen im fliegen auch nicht gleich thun koͤnnen. Wenn ſie<lb/>
+dann in ſtarcken Hauffen fliegen/ ſo gibts ein Geraͤuſche<lb/>
+und Getoͤſe/ da ſie ſonſten/ und ſonderlich/ wenn man ſie<lb/>
+etwas hart angreiffet/ nicht anders/ als ein Vogel oder<lb/>
+Heime zu zwitzſchern pflegen.</p><lb/>
+<p>§. 11. Die Art und Weiſe der Vermehrung be-<lb/>
+ſchiehet durch Zuſammenhaltung beyderley Geſchlechts/<lb/>
+des Maͤnnleins/ und Weibleins/ alſo daß davon in dem<lb/>
+Leibe des Weibleins/ Eyer <hi rendition="#aq">generi</hi>ret werden/ welche es<lb/>
+hernach ſetzet und von ſich leget/ damit ſie durch Wiꝛckung<lb/>
+der Sonnen ausgebruͤtet werden.</p><lb/>
+<p>§. 12. Unterſchiedliche Scribenten ſind der Mei-<lb/>
+nung/ es ſey zu dero Vermehrung/ die Zuthuung des<lb/>
+Maͤnnleins nicht vonnoͤhten. Unter andern ſchreibet der<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">Bi-</fw><lb/>
+<pb n="10" facs="#f0012"/>
+ſchoff/ <hi rendition="#aq">Simon Majolus</hi>, in ſeinen <hi rendition="#aq">diebus canicularibus, colloq.<lb/>
+5.p. 188</hi>. alſo: <hi rendition="#aq">Locuſta etiam à fœminâ, absque maſculo gi-<lb/>
+gnitur. Id habet Ariſtoteles, quem retulit Vinc. Hiſt. natu-<lb/>
+ral. l. 20. c. 140. locuſtam (inquit) vociferantem habuit mu-<lb/>
+lier quædam, eamque nutrivit parvam: cum autem crevit,<lb/>
+ipſam per ſe imprægnatam invenit, &amp; hoc argumentum, quod<lb/>
+fœmina quælibet ſperma naturaliter habet. Id affirmat etiam<lb/>
+Albertus Magnus animal. l. 1. tract. 1. c. 3</hi>. Aber es ſcheinet<lb/>
+dieſer Beweiß nicht allerdings richtig und bindig zu ſeyn.<lb/>
+Geſetzt/ daß eine Heuſchrecke/ ohne Beywohnung eines<lb/>
+Maͤnnleins Eyer in ſich haben koͤnne/ ſo wuͤrden doch ſol-<lb/>
+ches zur Vermehrung untuͤchtige Eyer ſeyn. Gleichwie<lb/>
+die Huͤner/ Tauben ꝛc. Wenn ſie alleine geſtallet ſind/<lb/>
+auch Eyer legen/ aus welchen aber keine Jungen koͤnnen<lb/>
+gebruͤtet werden.</p><lb/>
+<p>§. 13. Unterdeß/ nachdem die Heuſchrecken/ ſich uͤ-<lb/>
+ber Vermuthen/ ziemlich lange in hieſiger Gegend aufge-<lb/>
+halten/ und deſto genauer haben betrachtet werden koͤn-<lb/>
+nen/ ſo iſt man gewar worden/ daß ſie von ſehr geiler Art<lb/>
+ſeyn/ alſo daß/ wenn ſie ſich ſetzen/ ſie ſich haͤuffig gatten/<lb/>
+und ſo feſt zuſammen halten/ daß ſie auch wohl ehe/ ſich<lb/>
+mit einander haben laſſen aufjagen.</p><lb/>
+<p>§. 14. Daruͤber man denn die Maͤnnlein und<lb/>
+Weiblein hat kennen und von einander unterſcheiden ler-<lb/>
+nen. Nemlich die Maͤnnlein ſind ingemein gelbicht/ und<lb/>
+die Weiblein braͤunlicht; ſo ſind auch dieſe ingemein was<lb/>
+groͤſſer und ſtaͤrcker/ als jene/ zumahln/ wenn ſie mit Ey-<lb/>
+ern angefuͤllet ſeyn. (<hi rendition="#aq">Sunt enim mares, in eo genere, mino-<lb/>
+res, quàm fœminæ</hi>; ſagt <hi rendition="#aq">Ariſtoteles l. 5. Hiſt. animal. c. 28</hi>.)<lb/>
+So ſollen auch der Weiblein viel mehr ſeyn/ als der Maͤñ-<lb/>
+lein/ damit alſo dieſes Ungeziefer ſich deſto haͤufiger ver-<lb/>
+mehren koͤnne.</p><lb/>
+<fw type="catch" place="bottom">§. 15.</fw><lb/>
+<pb n="11" facs="#f0013"/>
+<p>§. 15. Jm Anfange/ als ſie zu uns kamen/ funde<lb/>
+man/ bey dero Eroͤffnung/ daß der Darm oder Wanſt<lb/>
+von forne biß hinden aus mit Freſſen ſtarck angefuͤllet/<lb/>
+und ſo dicke geweſen/ daß er den meiſten Theil des Leibes<lb/>
+ausgefuͤllet. Dabey lagen etwa ein paar laͤnglichte<lb/>
+Stuͤcklein/ der dicke nach/ wie eine ziemliche Kaͤſe-Made/<lb/>
+doch nicht gar ſo lang/ und ſo ſchoͤne gelbe/ als ein Eyer-<lb/>
+Dotter/ beneben etlichen <hi rendition="#aq">ſubti</hi>len weiſen Faͤdgen/ ſo von<lb/>
+Natur zertheilet/ und nicht aneinander zu hangen ſchie-<lb/>
+nen. Doch hat man in Ermangelung eines <hi rendition="#aq">Microſcopii</hi>,<lb/>
+ſolche <hi rendition="#aq">particulas</hi> nicht beurtheilen koͤnnen. Nachdem a-<lb/>
+ber die Heuſchrecken eine ziemliche Zeit in hieſiger Gegend<lb/>
+verblieben/ und von vielen Leuten zerriſſen und genau be-<lb/>
+trachtet worden/ ſo iſt man endlich gewar worden/ daß er-<lb/>
+meldte laͤnglichte und gelbe <hi rendition="#aq">particulæ, ovula</hi>, Eyer oder<lb/>
+Brut ſeyn/ und ſich zeithero ſehr ſtarck vermehret haben.<lb/>
+So iſt man auch zu Reinſtad/ Keßlar/ Croͤbitz und der Or-<lb/>
+ten gewar worden/ daß von gedachten ſubtilen Faͤdgen ei-<lb/>
+nige das Leben haben. Man hat ſie laͤnger als eines Fin-<lb/>
+gers/ ja faſt einer Hand lang befunden/ und wenn man ſie<lb/>
+auf den Tiſch geleget/ ſo haben ſie ein ſchwartz Koͤpffgen in<lb/>
+die Hoͤhe gerecket/ und wie eine Otter getragen/ ſich auch<lb/>
+ſonſt gekruͤmmet und zuſammen geſchlungen/ wie eine<lb/>
+Otter oder Schlange zu thun pfleget/ und ſind etwa nach<lb/>
+einer guten viertel oder halben Stunde geſtorben.</p><lb/>
+<p>§. 16. Als mir ſolches berichtet/ auch ſolche zuſam-<lb/>
+mengeſchlungene Wuͤrmlein zugeſendet morden/ ſo habe<lb/>
+ich am 2. Septembr. unterſchiedliche Heuſchrecken holen/<lb/>
+und eroͤffnen laſſen/ da ſichs denn befunden (1) daß der<lb/>
+Wanſt nicht ſo mit Freſſen angefuͤllet geweſen/ als vor die-<lb/>
+ſen; Hingegen (2) daß in den Weiblein nicht nur etliche we-<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">nige</fw><lb/>
+<pb n="12" facs="#f0014"/>
+nige <hi rendition="#aq">ovula</hi>, oder Eyer/ ſondern eine groſſe Menge/ zu 60.<lb/>
+70. 80. vorhanden geweſen; neben welchen (3) in dem ei-<lb/>
+nen/ ein obbeſchrieben weiſes Faͤdgen/ das Leben hatte/<lb/>
+und in deꝛ That/ als eine zarte weiſſe Otter anzuſehen war.</p><lb/>
+<p>§. 17. Jhre <hi rendition="#aq">excrementa</hi>, ſo durch ihren groſſen<lb/>
+Darm von ihnen gehen/ ſind ſo groß/ als ziemlich ſtarcker<lb/>
+Maͤuſe ihre/ vielmahl faſt wie Wildhaber anzuſehen/ doch<lb/>
+von unterſchiedner Farbe/ nach dem Unterſcheid des Fut-<lb/>
+ters/ ſo ſie verzehret/ ſchwaͤrtzlicht/ gruͤnlicht/ grau oder<lb/>
+weißlicht. Ein mehrers/ ſo von dieſen Thieren zu melden/<lb/>
+wird bey folgenden Puncten zu finden ſeyn.</p><lb/>
+<p>§. 18. Vors andere nun von der Zeit zu handeln/<lb/>
+wenn dieſe Gaͤſte in hieſige Gegend gekommen. So die-<lb/>
+net vor allen Dingen zur Nachricht/ daß man/ wie der<lb/>
+ſeel. Herr <hi rendition="#aq">Lutherus Tom. 6. Altenb. fol. 923</hi>. in der Ausle-<lb/>
+gung uͤber den Propheten Joel beglaubiget/ von dieſer<lb/>
+Plage hiebevor in viel hundert Jahren (nemlich in<lb/>
+Deutſchland) nicht gehoͤret. Aber im vorigen <hi rendition="#aq">Seculo</hi> ha-<lb/>
+ben ſich die Heuſchrecken auch in unſern Landen ſehen laſ-<lb/>
+ſen. Wie denn <hi rendition="#aq">Sleidanus</hi> in ſeinem 14. Buch <hi rendition="#aq">ad annum<lb/>
+1542</hi>. in der deutſchen <hi rendition="#aq">edition in folio p. 242. fac. b</hi>. ſchreibet:<lb/>
+<hi rendition="#fr">Jm Sommer dieſes Jahres flohe ein maͤchtiger<lb/>
+Hauffe Heuſchrecken durch Deutſchland und Lom-<lb/>
+bardey/ waren treffendlich groß/ und wie ſie ſich<lb/>
+niederlieſſen/ aͤtzten ſie alles auf dem Felde abe</hi>. Und<lb/>
+der ſeel. <hi rendition="#aq">Lutherus c. l</hi>. erzehlet folgendes: <hi rendition="#aq">Anno 1544</hi>. <hi rendition="#fr">Hat<lb/>
+man geſehen an viel Enden in Deutſchland/ viel un-<lb/>
+zehliche groſſe Hauffen/ ungewoͤhnlicher Heuſchre-<lb/>
+cken/ gleich als mit Muͤnchs-Kappen/ gruͤn/ gelb<lb/>
+und ſchwartz die weit und breit die Saat auf den<lb/>
+Aeckern/ die Fruͤchte auf dem Felde auffraſſen und<lb/>
+<fw type="catch" place="bottom">ver-</fw><lb/>
+<pb n="13" facs="#f0015"/>
+verderbeten. Und in vergangenen Jahre/ das iſt<lb/>
+im</hi> 46. (oder vielleicht 45. <hi rendition="#aq">Hic numerus 46. habetur etiam,<lb/>
+in latinâ editione, quæ non habetur T. 3. Lat. Jenenſ. velut in<lb/>
+margine notatur, fed T. 4. fol. 645. Sed oportet eſſe vel<lb/>
+ſcribentis aut Typothetæ errorem, vel novam adjectionem:<lb/>
+quia Lutherus ipſo Anno 1546. d. 18. Februar. ex vivis<lb/>
+exceſſit</hi> <hi rendition="#fr">haben ſie etliche Laͤnder/ ſo an Jtalien ſtoſ-<lb/>
+ſen/ bey Trient/ und an dem Orte im Land zu<lb/>
+Sachſen daß an die Schleſien ſtoͤſſet/ mit groſſen<lb/>
+Hauffen geplaget und Schaden gethan/ und ſind<lb/>
+kom̃en biß gen Koͤnigsberg/ ſo im Lande zu Fran-<lb/>
+cken lieget</hi>.</p><lb/>
+<p>§. 19. Jch bin auch glaubhafftig berichtet/ daß ohn-<lb/>
+gefehr umbs Jahr 1653. ein ſolch ſchaͤdlich Heer aus Boͤh-<lb/>
+men/ oben im Marck grafthum/ auf den Rhein und die<lb/>
+Schweitz zu ſolle gezogen ſeyn. So hat man auch <hi rendition="#aq">A. C.<lb/>
+1685</hi>. bey Wien dergleichen geſehen; wird auch von dan-<lb/>
+nen <hi rendition="#aq">de dato</hi> am <hi rendition="#aq">15. Auguſti ſt. n. 93</hi>. geſchrieben: <hi rendition="#fr">Geſtern<lb/>
+Abends hat man bey dieſer Stadt eine unbe-<lb/>
+ſchreibliche Menge Heuſchrecken/ welche ſich in der<lb/>
+Lufft/ wie ein Nebel zuſammen gezogen/ geſehen</hi>.</p><lb/>
+<p>§. 20. Daß eben dergleichen Zug durchs Chur-<lb/>
+Saͤchſiche Voigtland und unſer Thuͤringen iemahl ge-<lb/>
+gangen ſeyn ſolte/ davon habe ich keine Nachricht. Jch<lb/>
+gedencke <supplied>n</supplied>un durch Gottes Seegen ſelbſten uͤber 50.<lb/>
+Jahr/ h<supplied>ab</supplied>e aber dergleichen nie geſehen noch davon etwas<lb/>
+gehoͤret weiß mich auch nicht zu entſinnen/ daß ich von<lb/>
+meinen Eltern und andern Leuten (welche in meiner Kind-<lb/>
+heit von vielerley Geſchichten zu reden wuſten) ſolches we-<lb/>
+re berichtet worden. Daher ich ſchlieſſe/ daß wenn ja vor<lb/>
+dieſen ſolche Heere in hieſiger und angraͤntzender Gegend<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">ſol-</fw><lb/>
+<pb n="14" facs="#f0016"/>
+ſolten geſehen worden ſeyn/ ſolches dennoch zum wenigſten<lb/>
+in dieſem lauffenden Jahrhundert nicht geſchehen.</p><lb/>
+<p>§. 21. Voritzo aber ſind ſie zu erſt/ in der mir an-<lb/>
+vertrauten <hi rendition="#aq">Inſpection</hi>, am <hi rendition="#aq">17. Auguſti</hi> dieſes lauffenden 93.<lb/>
+Jahres/ war der Donnerſtag nach Maria Himmelfahrt/<lb/>
+und zwar in den beyden Fuͤrſtl. Aemtern Roda und Leuch-<lb/>
+tenburg erſchienen/ und denn weiter ins Amt Orlamuͤn-<lb/>
+da geruͤcket/ in ſolcher Ordnung und Menge/ wie bald her-<lb/>
+nach mit mehrern ſoll berichtet werden.</p><lb/>
+<p>§. 22. Dannenhero vors dritte/ auf die Art des Zu-<lb/>
+ges zu kommen/ deſſen ſich diß Ungeziefer bedienet/ ſo ſteht<lb/>
+im 30. Cap. der Spruͤche Salomonis v. 27. <hi rendition="#fr">Heuſchrecken<lb/>
+haben keinen Koͤnig/ dennoch ziehen ſie aus gantz<lb/>
+mit Hauffen <hi rendition="#aq">egreditur, dimidians totum ipſum, i. e. ut ha-<lb/>
+bet vulgata, egreditur univerſa per turmas ſuas</hi>, ſie verthei-<lb/>
+len ſich/ wie in Schlacht-Ordnungen</hi>/ lautet des<lb/>
+ſeel. Herrn <hi rendition="#aq">Calovii</hi> Auslegung. Darmit denn angezeigt<lb/>
+wird die uͤberaus groſſe Menge/ in welcher die Heuſchre-<lb/>
+cken anzukommen und zu ziehen; darneben ſich gleichſam<lb/>
+in Regimenter und Schwadronen zuvertheilen pfle-<lb/>
+gen.</p><lb/>
+<p>§. 23. Von dero ſehr groſſen Menge und Hauffen<lb/>
+haben wir allbereit aus <hi rendition="#aq">Luthero, Sleidano &amp;c.</hi> Bericht ein-<lb/>
+genom̃en/ man findet ſolches auch alſo in den uhralten uñ<lb/>
+andern Geſchichten/ daß ſie in unbeſchreiblicher großer<lb/>
+Menge anzukommen pflegen/ alſo daß ſie das Land/ in<lb/>
+welches ſie kommen/ bedecken/ und wenn ſie fliegen/ die<lb/>
+Sonne/ wie eine dicke Wolcke verdunckeln. Wie denn<lb/>
+auch/ als ſie in Egypten geſendet wurden/ ihrer ſo ſehr viel<lb/>
+waren/ <hi rendition="#fr">daß ſie das Land bedeckten und verfinſter-<lb/>
+ten</hi>/ <hi rendition="#aq">Exod. 10. v. 14. 15</hi>. Dannenhero auch in Beſchrei-<lb/>
+<fw type="catch" place="bottom">bung</fw><lb/>
+<pb n="15" facs="#f0017"/>
+bung eines groſſen Kriegs-Heeres/ die Vergleichung wird<lb/>
+von den Heuſchrecken hergenommen. Denn im B. der<lb/>
+Richter Cap. 6. v. 5. ſtehet von den Midianitern/ die da-<lb/>
+mahl im Lande Jſrael Meiſter ſpieleten: <hi rendition="#fr">Sie kamen<lb/>
+herauf mit ihrem Vieh und Hirten/ wie eine groſſe<lb/>
+Menge Heuſchrecken</hi>. Und die Midianiter und Ama-<lb/>
+lekiter/ und alle aus dem Morgenlande hatten ſich nieder-<lb/>
+gelegt im Grunde/ <hi rendition="#fr">wie eine Menge Heuſchrecken/ und<lb/>
+ihre Camele waren nicht zu zehlen fuͤr der Menge/<lb/>
+wie der Sand am Ufer des Meeres</hi>; ſteht c. 7. v. 12.<lb/>
+wie denn die Gelehrten auch anmercken/ daß das Ebrei-<lb/>
+ſche Wort <gap reason="fm" unit="chars"/> dem Urſprunge nach/ ein ſolch Gethierig<lb/>
+bedeute/ welches in groſſer Menge daher zu ziehen pflegt/<lb/>
+<hi rendition="#aq">à Rad. <gap reason="fm" unit="chars"/> multus ſuit, quod multæ ſemper ſint</hi>.</p><lb/>
+<p>§. 24. Und erinnere ich mich hierbey/ was ich vor<lb/>
+dieſen in des weltberuͤhmten Herrn Ludolfs ſeiner latei-<lb/>
+niniſchen Beſchreibung Abyßinten geleſen/ und wie er aus<lb/>
+bewehrten Scribenten darthut/ daß wohl ehe in den Mor-<lb/>
+genlaͤndern/ Heuſchrecken in unglaublicher Menge/ ver-<lb/>
+mittelſt des Windes/ einen groſſen Weg uͤber das Meer<lb/>
+her gebracht werden/ und ſich auf viel Meilen ausbreiten;<lb/>
+daß ſie offt eines Fußes hoch lebendig uͤbereinander liegen/<lb/>
+von Weibern und Kindern genommen/ an der Hitze ge-<lb/>
+doͤrret/ im Rauch getrocknet/ oder eingeſaltzen/ und her-<lb/>
+nach von den Leuten mit guten Appetit geſſen werden.<lb/>
+Wiewohl dieſe Art der Heuſchrecken/ davon belobter Herr<lb/>
+<hi rendition="#aq">Autor</hi> redet/ von einer ſonderlichen Art/ und Eße-Heu-<lb/>
+ſchrecken ſeyn/ welche etwa der S. Johannes der Taͤuffer<lb/>
+zu ſeiner Speiſſe mag gebrauchet haben. Ja von welchen<lb/>
+er ſelbſt davor haͤlt/ daß ſolche durch das unbekannte Wort<lb/>
+<gap reason="fm" unit="chars"/> <hi rendition="#aq">Exod. 16. v. 13. Num. 11. v. 31</hi>. verſtanden werden/ und<lb/>
+<fw type="catch" place="bottom">es</fw><lb/>
+<pb n="16" facs="#f0018"/>
+es die Voͤgel geweſen/ damit GOtt die Kinder Jſrael in<lb/>
+der Wuͤſten geſpeiſſet; welches wir an ſeinen Ore geſtellet<lb/>
+ſeyn laſſen.</p><lb/>
+<p>§. 25. Unterdeß ſagt doch auch <hi rendition="#aq">Ariſtoteles</hi> von den<lb/>
+Heuſchrecken l. 8. <hi rendition="#aq">Hiſt. Animal. c. 30. tunc optimæ ſunt, cum<lb/>
+gravidæ</hi>, <hi rendition="#fr">wenn ſie traͤchtig und ſchwanger ſind/ ſind<lb/>
+ſie am beſten</hi>. Es iſt aber an ihnen/ wie ſie bey uns er-<lb/>
+ſchienen ſind, nichts ſonderliches zu finden/ ſo zur Speiſe<lb/>
+dienen koͤnte/ es wird auch nicht leicht iemand es verſu-<lb/>
+chen/ ob etwas davon zu genieſſen; wir habens auch/ Gott<lb/>
+Lob/ zur Zeit nicht Urſach/ es zu verſuchen. Doch machẽ ſich<lb/>
+die Raub-Voͤgel und Sperlinge an ſie/ und lauffen ihnen<lb/>
+die welſchen Huͤner und die Schweine ſehr nach. Derglei-<lb/>
+chen ſollen auch etliche Hunde thun; wie mir denn von ei-<lb/>
+nem bekannten Manne vor gewiß berichtet worden/ daß<lb/>
+ſein/ zwar duͤrr geweſener Hund/ ſich ſtarck und fett dar-<lb/>
+an gefreſſen haben ſolle.</p><lb/>
+<p>§. 26. Wiederum auf die groſſe Menge der Heu-<lb/>
+ſchrecken/ und dero Art zu ziehen zu kommen/ ſo bin ich vor<lb/>
+gewiß berichtet/ von ſolchen Leuten/ ſo gar genau auf ihr<lb/>
+Thun Achtung gegebẽ/ daß ob ſie ſchon/ wie Salomo ſaget/<lb/>
+keinen Koͤnig haben/ dennoch wenn ſie auf ſeyn wollen/<lb/>
+etliche wenige in die Hoͤhe fahren/ und mit den Fluͤgeln/<lb/>
+wie die Tauben klatſchen/ und denn der helle Hauffe auf-<lb/>
+ſtehe und fortfliege. Wie denn/ auch/ wenn ſie ſich legen<lb/>
+wollen/ etliche/ ſo ein wenig unter den Hauffen fliegen/<lb/>
+auch der gleichen Zeichen geben ſollen; worauf alles auf<lb/>
+einmahl niederfaͤllet.</p><lb/>
+<p>§. 27. Obbelobter <hi rendition="#aq">Franzius</hi> ſchreibet: <hi rendition="#aq">p. 807. No-<lb/>
+cturno tempore torpent, &amp; in æſtu meridiano vigent</hi>, das iſt/<lb/>
+<hi rendition="#fr">bey naͤchtlicher weile ſind ſie ganz ſchlaff und traͤ-<lb/>
+<fw type="catch" place="bottom">ge/</fw><lb/>
+<pb n="17" facs="#f0019"/>
+ge/ aber bey der Mittags-Hitze ſind ſie hurtig und<lb/>
+gleichſam recht lebendig</hi>. Und <hi rendition="#aq">pag. 811. Ante ortum,<lb/>
+ſolis à loco, cui inſederant, non movebantur, orto ſole de-<lb/>
+mum per cohortes ſuas proficiſcebantur</hi>, das iſt/ <hi rendition="#fr">vor der<lb/>
+Sonnen Aufgang bewegten ſie ſich nicht von dem<lb/>
+Orte/ dahin ſie ſich geſetzt hatten/ aber nach der<lb/>
+Sonnen Aufgang zogen ſie in groſſen Hauffen und<lb/>
+Trupweiſe fort</hi>. Eben dieſes haben wir voritzo auch<lb/>
+erfahren. Nemlich: wenn ſie ſich gegen Abend beginnen<lb/>
+zu lagern/ ſo ſitzen und liegen ſie gantz ſtille/ als ermuͤdet uñ<lb/>
+ſchlafftruncken von ihrer gethanen Reiſe/ alſo daß man ſie<lb/>
+treten/ haſchen und zuſammen raffen kan. Und ſo blei-<lb/>
+ben ſie auch des folgenden Tages gleichſam unmuths lie-<lb/>
+gend oder henckend/ wenn naß oder truͤbe Wetter iſt/ be-<lb/>
+ginnet aber die Sonne heiß zu ſcheinen/ ſo werden ſie gegen<lb/>
+9. oder 10. Uhr gleichſam lebendig und fluͤchtig/ daß man<lb/>
+ſie ſo leicht nicht ergreiffen kan. Und wenn ſie denn einem<lb/>
+etwas zu nahe kommen/ ſo ſiehets/ als wenn die Lufft mit<lb/>
+groſſen Schnee-Flocken angefuͤllet were. Sind ſie aber<lb/>
+etwas ferne/ ſo hat es ein Anſehen/ wie ein groſſer Staub<lb/>
+oder Nebel/ oder auch wie ein feuriger Rauch.</p><lb/>
+<p>§. 28. Es ſind aber dieſe Thiere/ wie die Novellen<lb/>
+und Reiſende berichten/ uͤber Eger/ und Plauen aus Boͤh-<lb/>
+men/ und an obbemeldtem <hi rendition="#aq">17. Auguſti</hi> fruͤhe gegen<lb/>
+9. Uhr/ in unſer Nachbarſchafft zur Neuſtadt an der Or-<lb/>
+la/ mit groſſen Entſetzen der Buͤrgerſchafft/ in unbeſchreib-<lb/>
+licher Menge/ ankommen/ alſo daß diejenigen/ ſo es von<lb/>
+ferne geſehen/ anders nicht gemeinet/ als ſtuͤnde die gantze<lb/>
+Neuſtadt in vollem Feuer. Und hat ſich dieſer Hauffe<lb/>
+allda in zwey Heer zuſchlagen/ und iſt das eine auf die<lb/>
+Gaſſen der Stadt gefallen/ davon viele ſich den Marck-<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">Leu-</fw><lb/>
+<pb n="18" facs="#f0020"/>
+Leuten an die Kleider gehangen/ und denen/ die barfuß ge-<lb/>
+weſen/ die Beine gezwicket. Das andere aber hat ſich auf<lb/>
+die Wieſen gegen Neuhoffen gelagert. Gegen 12. Uhren<lb/>
+ſind ſie wieder aufgebrochen/ und haben ſich zwiſchen Suͤ-<lb/>
+den und Weſten/ in hieſige <hi rendition="#aq">Inſpection</hi>, in die Fuͤrſtl. Aem-<lb/>
+ter Roda und Leuchtenburg gewendet.</p><lb/>
+<p>§. 29. Man hat Anfangs gemeinet/ als kaͤme noch<lb/>
+ein ander Heer von Buͤrgel heruͤber/ und zwar auf Schloͤ-<lb/>
+ben zu/ allwo ſie gegen 3. Uhr ſelbiges Tages auch in ent-<lb/>
+ſetzlicher Menge erſchienen. Es iſt aber ſint dem Nach-<lb/>
+richt eingelauffen/ daß damahl zu Buͤrgel noch keine gewe-<lb/>
+ſen. Hingegen wollen andere <hi rendition="#aq">obſervi</hi>ret haben/ daß die-<lb/>
+ſes Heer oben her von Roda und Gernewitz kommen/ und<lb/>
+ſich theils in derſelben Gegend gelagert/ theils ſich weiter<lb/>
+ausgebreitet. Allem Anſehen nach ſind noch andere<lb/>
+Heere geweſen/ welche ſie zur Neuſtadt nicht inne worden.<lb/>
+Wie denn ſchon uͤmb 12. Uhr eines zu Taudendorff erſchie-<lb/>
+nen/ und von dannen fortgetrieben worden.</p><lb/>
+<p>§. 30. Der Flug ins Roͤdiſche iſt ſo ſtarck geweſen/<lb/>
+daß es uͤber dem Holtze bey Troͤbnitz und Geißenhain/ als<lb/>
+eine ſchwarze Wolcke geſchwebet/ und einem groſſen Rau-<lb/>
+che nicht ungleich geſchienen. Daher die Poſt nach Ro-<lb/>
+da kommen/ als ſey Feuer im Walde/ daruͤber auch mit al-<lb/>
+len Glocken geſtuͤrmet/ das Volck beruffen/ und in den<lb/>
+Wald in der Meuſebacher Revier/ allda zu leſchen/ <hi rendition="#aq">com-<lb/>
+mandi</hi>ret worden. Selbigen Tages haben ſich die Heu-<lb/>
+ſchrecken in ermeldten Aemtern hin und wieder gelagert/<lb/>
+ſonderlich aber in Thaͤlern um Ottendorff und Eineborn;<lb/>
+Jngleichen in dem Kirchſpiel Schloͤben/ Greben und<lb/>
+Drackendorff/ da das Lager faſt an Lobeda gereichet/ wei-<lb/>
+ter uͤmb Schieblau/ Oelcknitz/ Jaͤgersdorff/ Bockedra/<lb/>
+<fw type="catch" place="bottom">Un-</fw><lb/>
+<pb n="19" facs="#f0021"/>
+<lb/>
+Unter-und Ober-Gneuß/ Bodnitz/ Seidenbruͤck und<lb/>
+Truckenborn. Da hin und wieder die Aecker/ Wieſen<lb/>
+und Waͤlder erſchrecklicher Weiſe angefuͤllet worden/ al-<lb/>
+ſo daß ſie ſo dicke gelegen/ als wenn ſie mit Fleiß an einan-<lb/>
+der geleget worden/ und man den Erdboden nicht davor<lb/>
+ſehen koͤnnen. Ja an manchen Orten haben ſie/ ſonder-<lb/>
+lich gegen Abend/ ſich ſo dicke gelagert/ daß ſie wohl einer<lb/>
+viertel Ehlen hoch uͤber einander gelegen. Haben ſich<lb/>
+auch mit unten an die Buͤſche/ Hecken und Baͤume gehen-<lb/>
+get/ und zwar bißweilen in ſolcher Menge/ daß ziemliche<lb/>
+ſtarcke Aeſte/ von wegen der Laſt zerbrochen ſind. Und<lb/>
+alſo iſt es auch an andern Orten/ wo ſie hernach ihre La-<lb/>
+gerſtaͤdte geſuchet/ befunden worden.</p><lb/>
+<p>§. 31. Hat ſich alſo dieſes erſte Lager/ ſo in ſehr vie-<lb/>
+len Schwadronen beſtanden/ dieſes Tages uͤber der Saa-<lb/>
+len gehalten/ und uͤber eine gute Meile in die Laͤnge und<lb/>
+Breite/ erſtrecket.</p><lb/>
+<p>§. 32. Den <hi rendition="#aq">18. Auguſti</hi> ſind ſie ſtille gelegen/ doch al-<lb/>
+ſo/ daß ein ziemliches <hi rendition="#aq">detachement</hi> uͤber die Welniſe auf<lb/>
+Großloͤbichau zugangen/ und etliche zu Jena ankommen.<lb/>
+Den <hi rendition="#aq">19. ejusdem</hi> ſind ſie auch meiſtentheils ſtille gelegen.<lb/>
+Gleichwohl iſt aus der Schloͤbiſchen Revier ein groſſer<lb/>
+Hauffe gegen Gleina/ und von dannen in den Buͤrgeli-<lb/>
+ſchen und Großloͤbichauer Grund gezogen. Nicht weni-<lb/>
+ger haben ſich diejenigen/ ſo uͤmb Schieblau/ Zoͤllnitz und<lb/>
+der Orten gelegen/ <hi rendition="#aq">movi</hi>ret/ und ſind mit hellen Hauffen<lb/>
+auf Lichtenhan und Jena zugangen.</p><lb/>
+<p>§. 33. Am <hi rendition="#aq">20. ejusdem</hi> war gleich der zehende Soñ-<lb/>
+tag <hi rendition="#aq">Trinitatis</hi>, an welchen man von der erbaͤrmlichen Zer-<lb/>
+ſtoͤrung der Stadt Jeruſalem zu predigen pfleget/ iſt der<lb/>
+Aufbruch der uͤbrigen hin und her geſchehen/ und iſt meiſt-<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">lich</fw><lb/>
+<pb n="20" facs="#f0022"/>
+lich heruͤber uͤber die Saale gangen/ und hat ſich der Zug<lb/>
+in der Breite von Rotenſtein biß hieher nach Orlamuͤnda/<lb/>
+und alſo eine deutſche Meile weit erſtrecket. Wiewol ſie<lb/>
+bey Rotenſtein damahl von ſich ſelbſt fortgezogen/ auch bey<lb/>
+uns fortgetrieben worden/ daß man nicht gewuſt/ wo ſie<lb/>
+ſich des Nachts gelagert. Der meiſte Theil der andern<lb/>
+hat ſich an dem Galgen-Berge bey Cahla und auf denen<lb/>
+Eichenbergiſchen/ Altenbergiſchen/ Schirnewitzen und an-<lb/>
+graͤntzenden Hoͤhen gelagert. Gleichwohl iſts uͤber der<lb/>
+Saale nicht gaͤntzlich rein worden/ indem einige Hauffen<lb/>
+nachgezogen/ und ſonderlich dero ein groſſes Heer am <hi rendition="#aq">21.<lb/>
+ejusdem</hi> uͤber Moͤrsdorff und Dorna/ nach Ruttersdorff<lb/>
+und dero Gegend; von dannen aber noch ſelbiges Tages<lb/>
+gegen den Saalſtrom fortgewandert. Auch von Sonn-<lb/>
+tags an/ etliche Hauffen von Bodnitz und Bockedra uͤber<lb/>
+Oelcknitz und Rotenſtein hingezogen. Überdiß iſt nach ver-<lb/>
+gangenem <hi rendition="#aq">26. dito</hi> ein groſſer Schwall in den Thaͤlern/<lb/>
+und ſonderlich uͤmb Ottendorff; ingleichen am 28. und 29.<lb/>
+uͤmb die Stadt Roda geweſen.</p><lb/>
+<p>§. 34. Anlangend diejenigen/ ſo ſich gegen Lichten-<lb/>
+han und Jena gelagert/ ſo haben ſie auch am 20. und 21.<lb/>
+<hi rendition="#aq">Auguſti</hi> angefangen/ und zwar gegen Magdala und ſelbi-<lb/>
+ge Gegend fortzuziehen. Da ſich aber ein Theil zur lin-<lb/>
+cken Seite/ auf Schorba/ Croͤbitz und ſo weiter/ geſchla-<lb/>
+gen/ die uͤbrigen zur Rechten fortgezogen. Wie ſie denn<lb/>
+auch den 21. allbereit bey Weimar ankommen.</p><lb/>
+<p>§. 35. Und ſolches fortwandern hat uns nicht ge-<lb/>
+ringe Hoffnung gemachet/ es wuͤrde diß Heer diſſeits der<lb/>
+Saalen/ in den Aemtern Orlamuͤnda und Leuchtenburg<lb/>
+ihr Lager bald aͤndern/ und in kurtzen gar von uns ziehen.<lb/>
+Geſtalt denn auch viele aus der Altenburgiſchen Revier<lb/>
+<fw type="catch" place="bottom">ſich</fw><lb/>
+<pb n="21" facs="#f0023"/>
+ſich bey Zeiten <hi rendition="#aq">movi</hi>ret/ und auf die Hoͤhe gegen Croͤbitz<lb/>
+zu/ andere aber den Reinſteder Grund hinauf/ und endlich<lb/>
+gegen das Keßleriſche Kirchſpiel/ Moͤckefeld und Mulda<lb/>
+gezogen; andere haben ſich von Bibra auf Eichenberg;<lb/>
+und denn ferner auf Dinſtaͤdt; darauf weiter in den En-<lb/>
+gerdiſchen Grund/ auf Heilingen/ Dorndorff/ Roͤdelwitz/<lb/>
+Engerda und Schmiden; ſonderlich auch auf die Hoͤhe<lb/>
+des Buchbergs und auf den Spaal gewendet. Allein/ es<lb/>
+hat mit ihren fortziehen nicht fortgewolt/ ob ſchon viele<lb/>
+Tage gut Wetter geweſen; ja es hat geſchienen/ ob noch<lb/>
+mehr von Magdala heruͤberwaͤrts gekommen; und ob ſie<lb/>
+ſchon einen oder den andern Ort verlaſſen/ ſo haben ſie ſich<lb/>
+doch hernach wieder dahin ausgebreitet/ alſo daß ſie bey<lb/>
+Anfange des <hi rendition="#aq">Septembris</hi> faſt an Orlamuͤnda gereichet.<lb/>
+Daß es alſo ſcheinet/ weil die Naͤchte kalt werden/ und der<lb/>
+Regen ſich mitunter einſtellet/ es doͤrfften dieſe Gaͤſte gu-<lb/>
+ten Theils in dieſer Gegend verbleiben. Sonſt iſt an-<lb/>
+faͤnglich zwiſchen hieſigem und dem Rudelſtaͤdiſchen <hi rendition="#aq">terri-<lb/>
+torio</hi> Ulſtaͤdt und Neuſitz gleichſam die Graͤntze geweſen.<lb/>
+Ob ſie aber neulich dieſelbe noch uͤberſchritten/ ingleichen/<lb/>
+wohin das gegen Weimar geflogene Heer hinkom̃en ſey/<lb/>
+ſolches wird kuͤnfftig zu erfahren ſtehen.</p><lb/>
+<p>§. 36. Hierauf nun vors Vierdte von dem Scha-<lb/>
+den zu handeln/ welchen die Heuſchrecken anzurichten pfle-<lb/>
+gen/ und bey uns angerichtet haben/ ſo iſt allbereit oben an-<lb/>
+gefuͤhret/ daß ſie von GOtt alſo geſchaffen und zugerichtet<lb/>
+ſind/ daß ſie mit wegfreſſen/ zumahl ſie in groſſer Menge<lb/>
+anzukommen pflegen/ uͤberaus groſſen Schaden thun<lb/>
+koͤnnen. Hat alſo GOtt nicht nur groſſe grimmige freſ-<lb/>
+ſende und reiſſende Thiere/ als Loͤwen/ Baͤren/ Woͤlffe<lb/>
+und dergleichen; Jtem wilde Schweine/ Hirſche und an-<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">der</fw><lb/>
+<pb n="22" facs="#f0024"/>
+der Wildpret (welche wenn ſie/ als offt geſchiehet/ von<lb/>
+groſſen Herren geheget werden/ vielmahl die Feld-Fruͤch-<lb/>
+te alſo zurichten/ daß es ein Jammer iſt/ anzuſehen) ſon-<lb/>
+dern auch kleine und unanſehnliche Creaturen darzu aus-<lb/>
+geruͤſtet/ daß ſie allerley Fruͤchte verderben/ und uns uͤmb<lb/>
+der Suͤnden willen groſſen Schaden zufuͤgen koͤnnen.</p><lb/>
+<p>§. 37. Wie ſie vor alten Zeiten in Egypten gehauſ-<lb/>
+ſet/ da ſie <hi rendition="#fr">alles Kraut im Lande aufgefreſſen/ und al-<lb/>
+le Fruͤchte auf den Baͤumen/ ſo von dem Hagel wa-<lb/>
+ren uͤberblieben/ und nichts gruͤnes an den Baͤumen/<lb/>
+und am Kraut auf dem Felde in ganz Egypten-<lb/>
+Lande/ uͤbrig gelaſſen</hi>; iſt bekannt aus dem 2. B. Mo-<lb/>
+ſe am 10. v. 15. daher der Koͤnig Pharao die Heuſchrecken/<lb/>
+wegen des entſetzlichen Schadens den ſie gethan/ <hi rendition="#fr">einen<lb/>
+Tod</hi> nennet/ wenn er v. 17. zu Moſe und Aaron ſaget:<lb/>
+<hi rendition="#fr">Bittet den HErrn euren GOtt/ daß er doch nur<lb/>
+dieſen Tod von mir nehme</hi>! von welchem Schaden<lb/>
+auch David redet und GOtt preißet/ daß er damit ſeine<lb/>
+Macht an den Egyptiern/ den Jſraeliten zu gute/ erwieſen/<lb/>
+im 78. Pf. v. 47. und Pf. 105. v. 34.</p><lb/>
+<p>§. 38. Zu Zeiten Joels war auch durch ſolch Unge-<lb/>
+ziefer groſſer Schaden geſchehen/ alſo daß er ſaget Cap. 2.<lb/>
+v. 4. <hi rendition="#fr">Was die Raupen laſſen/ das freſſen die Heu-<lb/>
+ſchrecken/ und was die Heuſchrecken laſſen/ das freſ-<lb/>
+ſen die Kaͤfer/ und was die Kaͤfer laſſen/ das friſ-<lb/>
+ſet das Geſchmeiß</hi>. Wie auch die Heuſchrecken hiebe-<lb/>
+vor in Deutſchland an manchen Orten alles weggefreſ-<lb/>
+ſen/ iſt oben aus <hi rendition="#aq">Luthero</hi> und <hi rendition="#aq">Sleidano</hi> angefuͤhret wor-<lb/>
+den.</p><lb/>
+<p>§. 39. Ein mehrers vor itzo nicht zu erzehlen/ ſon-<lb/>
+dern nur auf den Schaden zukommen/ welchen die itzigen<lb/>
+<fw type="catch" place="bottom">Heu-</fw><lb/>
+<pb n="23" facs="#f0025"/>
+Heuſchrecken angerichtet/ ſo mag er/ wie Reiſende erzeh-<lb/>
+len/ in Boͤhmen/ und ſonſt unter Wegens/ da ſie geweſen/<lb/>
+ehe ſie zu uns kommen/ durchgehends ſehr groß ſeyn. Bey<lb/>
+uns zwar iſt es/ GOtt Lob/ an vielen Oertern/ da ſie nicht<lb/>
+lange blieben/ oder an wuͤſte und abgeraͤumete Oerter an-<lb/>
+gefallen/ ohne Schaden abgangen; gleichwol iſt auch an<lb/>
+vielen Oertern derſelbe nicht geringe/ indem die Heuſchre-<lb/>
+cken/ was ſie an Getraidig/ ſonderlich an Hirſchen/ Hanf/<lb/>
+Haber/ Gerſte/ Erbſen/ Bohnen/ Sommerkorn und Wi-<lb/>
+cken angetroffen/ in geſchwinder Eil weggefreſſen/ oder<lb/>
+doch ſehr verderbet. So haben ſie auch an vielen Orten<lb/>
+den Halm/ ſonderlich von unreiffen Haber das Graß/ ja<lb/>
+die Stoppeln auf dem Felde/ oder doch das darzwiſchen<lb/>
+ſtehende Graß/ alſo weggeaͤtzet/ daß es an manchen Orten<lb/>
+ſoll ausſehen/ als wenn alles weggeſenget und weggebren-<lb/>
+net were. Dergleichen denn ſonderlich die Gegend uͤmb<lb/>
+Ottendorff/ Roda/ Schloͤben/ Bockedra/ Jaͤgersdorff/<lb/>
+Bodnitz/ Truckenborn/ Seidenbruͤck ꝛc. Jngleichen das<lb/>
+Altenbergiſche/ uͤmb Zwabitz/ <hi rendition="#aq">item</hi> Dinſtaͤd/ den Buch-<lb/>
+berg/ den Engerdiſchen Grund den Spaal/ Keßlau/ Droͤß-<lb/>
+nitz/ Moͤckefeld/ Mulda/ Croͤbitz ꝛc. ſehr/ und zwar diſſeits<lb/>
+der Saalen/ ingemein/ haͤrter betroffen/ als jenſeits.</p><lb/>
+<p>§. 40. Doch iſt verwunderlich was von allen Or-<lb/>
+ten beſtaͤrcket wird/ daß dieſe Thiere des gruͤnen und ſuͤſſen<lb/>
+Graſſes/ ſonderlich an unſerm Saal Strome/ geſchonet/<lb/>
+hingegen aber/ wo es ſauer Graß/ ingleichen duͤrre Raͤn-<lb/>
+der/ <hi rendition="#aq">item</hi> in den Hecken alt und duͤrr Graß/ wie auch<lb/>
+Schilff/ Binſen und dergleichen angetroffen/ mit aller Ge-<lb/>
+walt angefallen. Den Hopffen haben ſie uͤmb Jena ab-<lb/>
+gebiſſen/ als wenn er were abgepflicket worden/ davon ſie<lb/>
+aber allem Anſehen nach nicht gezehret/ ſondern ihn auf<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="24" facs="#f0026"/>
+der Erden liegen laſſen. So wil man auch an keinem Or-<lb/>
+te/ wo Wein waͤchſet/ zur Zeit davon wiſſen/ daß ſie ſol-<lb/>
+ten die Trauben oder Stoͤcke beſchaͤdiget haben. Man<lb/>
+findet auch zur Zeit nichts an den Baͤumen/ ohne daß an<lb/>
+etlichen Hecken etwas von Laube weggezehret worden.<lb/>
+Von den Baum-Fruͤchten kan man nichts ſagen/ weil hin<lb/>
+und wieder faſt keine Fruͤchte anzutreffen. So ſind auch<lb/>
+Ruͤben/ Moͤhren und Kraut unbeſchaͤdiget blieben; wo-<lb/>
+fuͤr billig GOtt zu dancken/ der auch ferner gnaͤdiglich<lb/>
+helffen wolle.</p><lb/>
+<p>§. 41. Weiter/ ſo fraget man zum Fuͤnfften nicht<lb/>
+unbillig von den Haupt-Urſachen dieſer Heer-Zuͤge/ und<lb/>
+woher es eigentlich ruͤhre/ daß ſolche Heere uns mit groſ-<lb/>
+ſem Schaden uͤberziehen? Sichere und rohe Hertzen ha-<lb/>
+ben die Einbildung/ als ſey ſolches ein bloſſes natuͤrliches<lb/>
+Werck/ und ruͤhre aus lauter natuͤrlichen Urſachen. Um<lb/>
+des willen man ſich nicht eben mehr zu entſetzen habe/ als<lb/>
+wenn etwa Regen und Sonnenſchein/ helle und truͤbe<lb/>
+Wetter mit einander abwechſeln/ ob man ſchon die natuͤr-<lb/>
+lichen Urſachen ſo genau nicht ergruͤnden koͤnne.</p><lb/>
+<p>§. 42. Aber die vernuͤnfftigen Heyden haben viel<lb/>
+verſtaͤndiger davon geurtheilet/ und bey ſolchen Heerzuͤ-<lb/>
+gen ein <gap reason="fm" unit="chars"/> erkennet/ das iſt/ daß GOtt darbey nicht als ei-<lb/>
+ne bloſſe <hi rendition="#aq">cauſa univerſalis</hi>, und nach bloſſen ordentlichen<lb/>
+Lauffe der Natur handele: ſondern/ aus gerechtem Zorn<lb/>
+gleichſam mit ſeiner ſtarcken Hand in die Natur greiffe/<lb/>
+und ſie uͤbernatuͤrlicher Weiſe darzu brauche und antrei-<lb/>
+be/ welches ſie vor ſich nicht verrichten und ausuͤben<lb/>
+wuͤrde. Dannenhero ſie auch die Heuſchrecken <hi rendition="#aq">peſtem<lb/>
+Deorum</hi> und <hi rendition="#aq">iram Deorum</hi> eine ſonderliche Straffe und<lb/>
+Zorn Gottes genennet.</p><lb/>
+<fw type="catch" place="bottom">§. 43.</fw><lb/>
+<pb n="25" facs="#f0027"/>
+<p>§. 43. Deſſ<supplied>e</supplied>n wir auch aus der H. Schrifft <choice><sic>gnng-<lb/>
+ſam</sic><corr>gnug-<lb/>
+ſam</corr></choice> verſichert. Als die Egyptier mit Heuſchrecken ge-<lb/>
+plagt wurden/ ſo war es eine ſonderliche Straffe GOttes/<lb/>
+<hi rendition="#fr">die er mit einem ſtarcken Oſt-Wind uͤber ſie fuͤhrete</hi>.<lb/>
+Dieſer allgewaltige HErr drohet auch ſeinem Volck/<lb/>
+<hi rendition="#aq">Deut. 28. v. <supplied>3</supplied>8</hi>. <hi rendition="#fr">Du wirſt viel Saamens ausfuͤhren<lb/>
+auf das Feld/ und wenig einſammlen/ denn die Heu-<lb/>
+ſchrecken werdens abfreſſen</hi>. Bey dem Propheten<lb/>
+Joel am 2. v. 25. laͤßt Gott von den Heuſchrecken/ Kaͤ-<lb/>
+fern/ Geſchmeiß und Raupen ſagen: <hi rendition="#fr">Die mein groſſes<lb/>
+Heer waren ſo ich unter euch ſchicket</hi>.</p><lb/>
+<p>§. 44. Hieher gehoͤret auch wie Amos am 7. v. 1.2.<lb/>
+der HErr dem Amos ein Geſichte gezeiget/ und ſiehe/ <hi rendition="#fr">da<lb/>
+ſtand einer/ der machte Heuſchrecken/ im Anfang/<lb/>
+da das Grummet aufgieng/ welche das Kraut im<lb/>
+Lande gar auffreſſen ſolten</hi>. Dieſer <hi rendition="#aq">fictorlocuſtæ</hi>, ſo<lb/>
+dem Amos erſchienen/ war keine Creatur/ als welche nicht<lb/>
+vermag/ eine lebendige Creatur zu erſchaffen/ ſondern<lb/>
+Gott ſelbſten. Daher es <hi rendition="#aq">Cornelius à Lapide</hi> nicht uneben<lb/>
+<hi rendition="#aq">periphraſi</hi>ret: <hi rendition="#aq">Vide Deum quaſi plaſten fingere &amp; formare<lb/>
+ingens examen locuſtarum, ipſumque examen ab eo jam for-<lb/>
+matum &amp; productum invadere terram Israël</hi>, das iſt/ <hi rendition="#fr">ſiehe/<lb/>
+wie <hi rendition="#g">GOTT</hi>/ als ein Kuͤnſtler einen groſſen<lb/>
+Schwarm von Heuſchrecken bilde und zubereite/<lb/>
+und das von Jhm zubereitete Heer das Land Jſ-<lb/>
+rael anfalle</hi>. Daruͤmb/ ſo offt wir ſehen Heuſchre-<lb/>
+cken kommen/ oder auch die Raupen und derglei-<lb/>
+chen Geſchmeiß ſich Hauffenweiſe an die Frucht ſetzen/ ſo<lb/>
+ſollen wir an GOtt gedencken/ es vor ſeinen Finger hal-<lb/>
+ten/ und gedencken mit dem Propheten Amos: <hi rendition="#fr">Jch ſahe</hi><lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">(in</fw><lb/>
+<pb n="26" facs="#f0028"/>
+(in meinem Hertzen) einen/ <hi rendition="#fr">der machte Heuſchrecken</hi>/<lb/>
+Raupen/ Zwiefelter und andere.</p><lb/>
+<p>§. 45. Weiln denn nun vors Sechſte/ Gottes ſon-<lb/>
+derbare Wercke ingemein auch was anders nach ſich zie-<lb/>
+hen/ und zu bedeuten haben/ ſo iſt faſt maͤnniglich beſorget/<lb/>
+was doch dieſer Heeres-Zug der Heuſchrecken bedeuten/<lb/>
+und nach ſich ziehen moͤchte? Die meiſten beſorgen nichts<lb/>
+gutes/ und verſtaͤndige Chriſten beten mit den frommen<lb/>
+Juͤden/ <hi rendition="#aq">2. Macc. c. 5. v. 4</hi>. <hi rendition="#fr">daß es ja nichts boͤſes bedeu-<lb/>
+ten moͤge</hi>.</p><lb/>
+<p>§. 46. Zwar/ es muß iedermann geſtehen/ daß nie-<lb/>
+mand unter uns Menſchen ſo weiſe und verſtaͤndig ſey/<lb/>
+daß er Gottes Anſchlaͤge ergruͤnden/ und was er vorha-<lb/>
+be/ errathen koͤnne. Jedoch/ wenn man die Geſchichte<lb/>
+voriger Zeiten/ ingleichen die heutigen Welt-Laͤuffte/ ne-<lb/>
+ben ein und anderer natuͤrlichen Urſachen/ mit Fleiß uͤ-<lb/>
+berleget/ ſo kan man gar warſcheinlich muthmaſſen/ daß<lb/>
+nichts gutes auf dieſen Zug erfolgen werde.</p><lb/>
+<p>§. 47. Vors Erſte/ iſt das ſonſt die gemeine Mey-<lb/>
+nung/ wie <hi rendition="#aq">Buchnerus in voce locuſta</hi> anfuͤhret: <hi rendition="#aq">Earum appul-<lb/>
+ſum fames comitatur</hi>, <hi rendition="#fr">daß auf dergleichen Zuͤge der<lb/>
+Heuſchrecken theure Zeit und Hungers-Noth er-<lb/>
+folge</hi>. Wie denn auch die alten Egyptier/ in ihren Bil-<lb/>
+der-Schrifften (<hi rendition="#aq">Hieroglyphicis</hi>) durch die Heuſchrecken<lb/>
+theure Zeit und Hungers Noth abgebildet haben. Und<lb/>
+das hat ſeine natuͤrliche Urſachen. Denn/ wenn das Un-<lb/>
+geziefer das Getraide wegfriſſet/ und das Land verwuͤſtet/<lb/>
+wo wil hernach der Vorrath und gute Zeiten herkom-<lb/>
+men?</p><lb/>
+<p>§. 48. Nun koͤnnen wir zwar Gott nicht gnugſam<lb/>
+<fw type="catch" place="bottom">ver-</fw><lb/>
+<pb n="27" facs="#f0029"/>
+verdancken/ daß er diß Freß-Heer ſo ferne auſſer unſern<lb/>
+Graͤntzen abgehalten/ biß die Erndte bey uns/ ſonderlich<lb/>
+am Saalſtrome/ meiſt voruͤber/ und das Winter-Getrai-<lb/>
+de und Gerſte/ ſambt andern Fruͤchten/ mehrentheils ein-<lb/>
+geerndtet geweſen. Denn were es drey oder vier Wo-<lb/>
+chen eher ankommen/ ſo wuͤrde der Schade und das E-<lb/>
+lend, ſo uns wuͤrde betroffen haben/ unbeſchreiblich wor-<lb/>
+den ſeyn.</p><lb/>
+<p>§. 49. Unterdeß iſt doch gleichwohl an den Orten/<lb/>
+ſo etwas kalt/ und entweder im oder am Walde/ oder<lb/>
+ſonſt was hoch liegen/ noch ein ziemlicher Vorrath/ ſon-<lb/>
+derlich an Haber auf dem Felde geweſen/ und vernichtet<lb/>
+worden. Nun machet ſich ohne dem das liebe Getraide/<lb/>
+wegen der ſtarcken Abfuhre/ zu dem Kriegs-Heer am<lb/>
+Rhein und Neckar/ ſo theuer/ daß es ſcheinet/ es doͤrffte der<lb/>
+Preiß ſo hoch ſteigen/ als er in dieſen Landen von A. C.<lb/>
+1640. her nicht geweſen. Welche Theurung denn gar<lb/>
+leicht durch den/ von den Heuſchrecken geſchehenen Scha-<lb/>
+den/ kan vermehret werden. Sonderlich doͤrffte das lie-<lb/>
+be Armuth/ wegen des Graßes und andern Futters/ zu<lb/>
+Hinbringung des Viehes/ ein ſchweres Jahr haben. Und<lb/>
+gebe nur Gott/ daß die Heuſchrecken nicht Saamen in dem<lb/>
+Lande laſſen/ der zur Fruͤhlings-Zeit lebendig werde.</p><lb/>
+<p>§. 50. Denn es ſagt <hi rendition="#aq">Ariſtoteles I. 5. Hiſt. Animal. c.<lb/>
+28</hi>. von den Heuſchrecken: <hi rendition="#aq">pariunt ſua ova in rimis, quæ du-<lb/>
+rant hyeme: in terrâ ineunte æſtate proveniunt ex fœtu anni<lb/>
+ſuperioris locuſtæ</hi>, das iſt/ <hi rendition="#fr">ſie legen ihre Eyer in die<lb/>
+Gluntzen/ ſo den Winter uͤber dauren/ und wenn<lb/>
+der Sommer angehet/ ſo kommen die Heuſchrecken/<lb/>
+aus der Brut des vorigen Jahres</hi>. Nun ſind un-<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">ſere</fw><lb/>
+<pb n="28" facs="#f0030"/>
+ſere Heuſchrecken von Eyern vor itzo ganz dicke und voll/<lb/>
+ſo etliche unbeſchreibliche Heere verurſachen koͤnten; Wo-<lb/>
+fern nicht etwa GOtt in Gnaden dieſelben daͤmpfen ſol-<lb/>
+te/ ehe ſie alles ſetzen/ oder die Brut durch Naͤſſe und Kaͤl-<lb/>
+te des Winters verderben. Zwar es wil zur Zeit nie-<lb/>
+mand ſolche Eyer gefunden haben. Allein/ die Heuſchrecken<lb/>
+muͤſſen doch ſchon haben angefangen zu leichen/ indem<lb/>
+ſchon kleine Heuſchrecken unter ihnen fliegen. Davon ich<lb/>
+am 2. Septembr ſelbſten zwey zu ſehen bekom̃en. Und wie<lb/>
+dem allen? Wer findet itzo/ was unſere gruͤne Heuſchre-<lb/>
+cken leichen/ und woraus ſie im Fruͤlinge wieder wachſen?<lb/>
+Solte nun/ da GOtt in Gnaden vor ſey/ von dieſen un-<lb/>
+ſern frembden Gaͤſten/ ein ſolcher verborgener Saamen/<lb/>
+in den Buͤſchen/ Hecken/ Raͤndern/ Wieſen und Feldern<lb/>
+bleiben/ ſo wuͤrde hernach des S<supplied>a</supplied>ame<supplied>n</supplied>s/ Saat und Ern-<lb/>
+de in groͤſter Gefahr ſtehen/ und die Theurung mit Ge-<lb/>
+walt zunehmen.</p><lb/>
+<p>§. 51. Vors andere/ ſo ziehet der Heuſchrecken-<lb/>
+Zug auch gerne eine <hi rendition="#aq">Infection</hi> und Sterben nach ſich. Vor-<lb/>
+belobter <hi rendition="#aq">Buchnerus</hi> beruͤhret ſolches auch/ wenn er weiter<lb/>
+anfuͤhret: <hi rendition="#aq">Earum appulſum fames comitatur, &amp; peſtis, ſi<lb/>
+computruerint</hi>, das iſt <hi rendition="#fr">wenn die Heuſchrecken an einem<lb/>
+Orte verfaulen/ ſo kommet gerne die Peſt darauf</hi>.<lb/>
+Solten nun die Heuſchrecken (wie es endlich kommen<lb/>
+muß) durch die annaͤhernde Kaͤlte alſo getoͤdtet werden/<lb/>
+daß ſie an manchem Orte in groſſer Menge und Dicke<lb/>
+auf einander liegen blieben/ und bald Hitze einfiele/ ſo ſie<lb/>
+zur Faͤulung braͤchte/ ſo koͤnte leicht von dem Geſtanck die<lb/>
+Lufft <hi rendition="#aq">infici</hi>ret/ und gifftige Kranckheiten verurſachet wer-<lb/>
+den zumahln ohne dem hin und wieder allerley Fieber im<lb/>
+Schwange gehen.</p><lb/>
+<fw type="catch" place="bottom">§. 52.</fw><lb/>
+<pb n="29" facs="#f0031"/>
+<lb/>
+<p>§. 52. Darbey auch nicht zu uͤbergehen/ was<lb/>
+<hi rendition="#aq">Franzius</hi> ſchreibet <hi rendition="#aq">p. 807. 808. Dum omnia lambunt, abra-<lb/>
+dunt, detondent, depaſcunt, vaſtant, corrumpunt, intra ſe in<lb/>
+immunditiem &amp; mucum convertunt &amp; vicisſim impurisſi-<lb/>
+mam materiam ſuper terram &amp; res ex terrâ naſcentes, ſpuunt,<lb/>
+excacant, omnia inficiunt</hi>, das iſt/ <hi rendition="#fr">indem ſie alles bena-<lb/>
+ſchen/ bebeiſſen/ freſſen/ abnagen/ verwuͤſten und<lb/>
+verderben/ ſo verwandeln ſie ſolches in ihrem Leibe<lb/>
+in einen Rotz und garſtigen Unflat und ſpeyen und<lb/>
+ſchmeiſſen ein garſtiges und ſehr unreines Weſen<lb/>
+auf die Erde und dero Fruͤchte/ wordurch ſie alles<lb/>
+<hi rendition="#aq">infici</hi>ren und verunreinigen</hi>. Vielleicht hat er auch gele-<lb/>
+ſen was <hi rendition="#aq">Simon Majolus in diebus canicularibus, colloq 5</hi>. aus<lb/>
+dem <hi rendition="#aq">Surio</hi> von den Heuſchrecken <hi rendition="#aq">anni</hi> 1542. anfuͤhret: <hi rendition="#aq">Habe-<lb/>
+bant ventres obeſos &amp; ſanie refertos. Itaq; extictæ, intolera-<lb/>
+bili fœ, aërem corruperunt, ut etiam corvi, cornices, acci-<lb/>
+pitres, aliæque aves cadaveribus alio qui in hiantes, ferre nequi-<lb/>
+verint</hi>, <hi rendition="#fr">das iſt/ ſie hatten ſtarcke und mit Eiter angefuͤl-<lb/>
+lete Leiber. Daher haben ſie nach ihrem Sterben die<lb/>
+Lufft durch einen unertraͤglichen Geſtanck <hi rendition="#aq">infici</hi>ret/<lb/>
+daß auch die Raben/ Kraͤhen/ Geier und andere<lb/>
+Voͤgel/ ſo dem Aas nachſtreben/ ſolchen nicht ver-<lb/>
+tragen koͤnnen</hi>. Jch ſtelle dahin/ ob nicht in ſolchen<lb/>
+Worten etwas uͤber die Schnur gehauen/ und Unwar-<lb/>
+heit mit eingemiſchet werde. Vielleicht haben dazumahl<lb/>
+einige die im Leibe liegende Eyer zerdruͤcket/ und dieſelben<lb/>
+vor einen ſolchen unreinen Schleim angeſehen.</p><lb/>
+<p>§. 53. Unterdeß findet ſich/ GOtt Lob/ bey unſern<lb/>
+Heuſchrecken dergleichen noch nicht. Daß ſie auch zur<lb/>
+Zeit keinen Gifft muͤſſen bey ſich haben/ erhellet daraus/<lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">weil</fw><lb/>
+<pb n="30" facs="#f0032"/>
+weil unterſchiedliche Thiere ſich daran <hi rendition="#aq">delecti</hi>ren/ und da-<lb/>
+von keinen Schaden empfinden/ ſondern vielmehr gemaͤ-<lb/>
+ſtet werden. Sonſten/ ob man eben an ihnen nichts uͤ-<lb/>
+bels riechet/ wenn man ſie einzeln hat/ ſo bezeigen doch un-<lb/>
+terſchiedliche/ daß ſie an ſolchen Orten/ wo ſie in der Men-<lb/>
+ge geweſen/ einen uͤbelen Geruch von ſich gegeben. Es<lb/>
+wurde auch von Bodnitz geſchrieben/ daß diß Ungeziefer<lb/>
+<hi rendition="#fr">einen ſehr grauſamen Geſtanck</hi> von ſich gegeben. Wel-<lb/>
+ches denn zur <hi rendition="#aq">Infici</hi>rung der Lufft auch leichte was beytra-<lb/>
+gen/ und die Pfeile/ ſo im Finſtern gehen ſtaͤrcken und ver-<lb/>
+mehren koͤnte. Uberdiß weiß man noch nicht/ was etwa<lb/>
+die <hi rendition="#aq">excrementa</hi> nach ſich ziehen moͤchten/ die an manchen<lb/>
+Orten ſo dicke liegen/ daß man ſie mit Beſemen koͤnte zu-<lb/>
+ſammen kehren. Viel Hausvaͤter ſind deßwegen beſor-<lb/>
+get/ es moͤchten Schaffe und Rinder/ wenn ſie an ſolche<lb/>
+Oerter kommen wuͤrden/ angeſtecket werden; welches de-<lb/>
+ſto leichter geſchehen koͤnte/ wenn der liebe Regen in die<lb/>
+Laͤnge auſſenbleiben/ und nicht ein und anders unflaͤtiges<lb/>
+Weſen abwaſchen ſolte. Solte nun/ da GOtt vor ſey/<lb/>
+es alſo erfolgen/ ſo wuͤrde es mancher ſehr empfinden/ und<lb/>
+koͤnte leicht von dem Viehe auch eine <hi rendition="#aq">Infection</hi> auf die<lb/>
+Menſchen kommen.</p><lb/>
+<p>§. 54. Vors Dritte/ ſo ſind nicht Wenige in Sor-<lb/>
+gen/ es moͤchten der Heuſchrecken Heere groſſe feindliche<lb/>
+Heere bedeuten/ welche in unſere Laͤnder bald kommen<lb/>
+moͤchten. Denn es iſt der Chriſtlichen Ausleger faſt ge-<lb/>
+meine Meinung/ daß durch die Heer der Heuſchrecken<lb/>
+feindliche Heere abgebildet und vorbedeutet werden. Der<lb/>
+ſeel. Herr <hi rendition="#aq">Lutherus</hi>, wenn er/ ob angezogener Maſſen uͤber<lb/>
+den Propheten Joel/ der Heuſchrecken/ ſo im vorigen <hi rendition="#aq">Se-<lb/>
+<fw type="catch" place="bottom">culo</fw><lb/>
+<pb n="31" facs="#f0033"/>
+culo</hi> gekommen/ erwehnet/ ſo ſetzet er folgende Wort hin-<lb/>
+zu: <hi rendition="#fr">Nachdem aber dieſe Plage ungebraͤuchlich/ und<lb/>
+in ſo viel hundert Jahren zuvor niemahls erhoͤret<lb/>
+iſt/ habens fromme Gottfuͤrchtige Herzen fuͤr ein<lb/>
+Zeichen gehalten und angenommen/ damit GOtt<lb/>
+anzeigte die kuͤnfftige Plagen/ durch einen auslaͤn-<lb/>
+diſchen gottloſen/ wuͤſten wilden Hauffen Kriegs-<lb/>
+Volck. Wie denn auch bey den Juͤden/ nach ſol-<lb/>
+cher Verwuͤſtung der Aecker und der Fruͤchte/ eine<lb/>
+ſchwere grauſame Verwuͤſtung folgete/ durch den<lb/>
+Koͤnig zu Babel/ welcher das Land viel haͤrter ge-<lb/>
+plaget und verderbet hat/ denn zuvor ſolche Wuͤr-<lb/>
+mer</hi>. <hi rendition="#aq">Qvod horum inſectorum copia ſæpè portendat non<lb/>
+ſolum famem, peſtem, ſed maximè bellum, probat multis<lb/>
+hiſtoriis Aldrovandus in Locuſta; &amp; recens exemplum extat<lb/>
+de anno 1545. quod pluribus perſequitur Moſes Pflacherus p.<lb/>
+27. ſignificabatur locuſtarum copiâ bellum proreſtantium</hi>,<lb/>
+ſchreibet der ſeel. Herr <hi rendition="#aq">Johann Tarnovius ad v. 4. cap. 1. Joe-<lb/>
+lis</hi>, das iſt/ <hi rendition="#fr">daß die Menge dieſes Geſchmeiſſes offt<lb/>
+nicht nur theure Zeit und Peſtilentz/ ſondern auch<lb/>
+Krieg bedeute/ ſolches erweiſet <hi rendition="#aq">Aldrovandus</hi> mit vie-<lb/>
+len Geſchichten. Und haben wir im vorigen Jahr-<lb/>
+hundert ein Exempel gehabt/ welches <hi rendition="#aq">Moſes Pflache-<lb/>
+rus</hi> ausfuͤhret/ da die Menge der Heuſchrecken 1545.<lb/>
+den Schmalkaldiſchen Krieg bedeutet haben</hi>.</p><lb/>
+<p>§. 55. Wer kan uns demnach davor gut ſeyn/<lb/>
+daß der Heuſchrecken-Heer voritzo nicht auch auf derglei-<lb/>
+chen deute? zumahln da es gar leicht geſchehen kan/ weil<lb/>
+<hi rendition="#aq">Hannibal ad portas</hi>, und ein ſo maͤchtiger Feind auf des<lb/>
+Roͤmiſchen Reiches Boden Krieg fuͤhret/ da GOtt gar<lb/>
+<fw type="catch" place="bottom">leicht</fw><lb/>
+<pb n="32" facs="#f0034"/>
+leicht verhangen koͤnte/ daß ihm GOtt einen Eingang in<lb/>
+unſer liebes Vaterland eroͤffnete. So ſind auch andere<lb/>
+Kriegs-Feuer unter der Aſche/ welche leichtlich in eine groſ-<lb/>
+ſe Flamme auflodern/ und die benachbarte <hi rendition="#aq">Provinci</hi>en mit<lb/>
+anzuͤnden koͤnnen. Und wer weiß/ was wir bey beſorgen-<lb/>
+den Durchzuͤgen dererjenigen/ ſo unſere Freunde heiſſen<lb/>
+wollen noch auszuſtehen haben? Wie es denn GOTT/<lb/>
+wenn er ſtraffen wil/ ein gar leichtes iſt/ boͤſen und verkehr-<lb/>
+ten Angebern den Zuͤgel zu laſſen/ ihren Muthwillen aus-<lb/>
+zuuͤben.</p><lb/>
+<p>§. 56. Dabey nicht zu uͤbergehen/ daß man an et-<lb/>
+lichen Orten wil <hi rendition="#aq">obſervi</hi>ret haben/ daß/ wie es unter keiner<lb/>
+<hi rendition="#aq">Compagnie</hi> im Felde/ nicht gar ohne Zanck/ Rauffen und<lb/>
+Schlagen abgehet/ alſo auch die Heuſchrecken bißweilen<lb/>
+unter einander partheyiſch werden/ einander Wunden/<lb/>
+die Beine ab und ſich wohl gar zu tode beiſſen; <hi rendition="#aq">Item</hi>/ wenn<lb/>
+eines von ihnen ertreten oder ſonſt getoͤdtet wird/ daſſelbe<lb/>
+verzehren und auffreſſen. Doch iſt ſolches gleichſam als<lb/>
+nur ein gering Mißverſtaͤndnis/ ſo ihre Einigkeit nicht ſon-<lb/>
+derlich zerſtoͤret.</p><lb/>
+<p>§. 57. Wie denn auch aus ihren Heeres-Zuͤgen<lb/>
+eine ſonderliche <hi rendition="#aq">Harmonie</hi> und gute Einigkeit zu ſchlieſſen.<lb/>
+Und daher <hi rendition="#aq">Corn. à Lap. ad Prov. 30. v. 27. noti</hi>ret: <hi rendition="#aq">tertia ſpe-<lb/>
+cies eſt locuſtarum turmatim, <hi rendition="#i">ordinatè, quietè, &amp; concorditer</hi><lb/>
+procedentium</hi>, das iſt/ <hi rendition="#fr">daß die Heuſchrecken in guter<lb/>
+Ordnung und Einigkeit fortziehen</hi>. Daher viel<lb/>
+von der Heuſchrecken guten Einigkeit eine nuͤtzliche Lehre<lb/>
+nehmen/ welche der ſeel. Herr <hi rendition="#aq">Oſiander</hi> uͤber <hi rendition="#aq">Prov. 30. v. 27</hi>.<lb/>
+anfuͤhret: <hi rendition="#aq">Hæc beſtiola nos admonet concordiæ, ut con-<lb/>
+junctis animis communibus hoſtibus nos opponamus</hi>, <hi rendition="#fr">dieſes<lb/>
+<fw type="catch" place="bottom">Thier-</fw><lb/>
+<pb n="33" facs="#f0035"/>
+Thiergen ſoll uns der Einigkeit erinnern/ daß<lb/>
+wir mit zuſam̃en geſetzten Gemuͤthern uns dem<lb/>
+gemeinen Feinde wiederſetzen</hi>. Und unſer Er-<lb/>
+neſtiniſche Bibel <hi rendition="#aq">glosſi</hi>ret alſo; <hi rendition="#fr">von denſelben ſoll<lb/>
+man lernen Eintraͤchtigkeit und Friedfertigkeit<lb/>
+untereinander</hi>. Wir nehmen darbey Gelegenheit/<lb/>
+zu wuͤnſchen/ daß der Schwindelgeiſt unter unſere<lb/>
+Feinde kommen/ und eines Schwerd wieder den an-<lb/>
+dern ſeyn moͤge; Darneben vor unſere Chriſtliche<lb/>
+hohe Haͤupter zu ſeuffzen und zu beten/ daß ſie GOtt<lb/>
+mit dem Geiſt der Eintraͤchtigkeit beſeeligen/ und<lb/>
+Gnade verleihen wolle/ damit ſie unter einander in<lb/>
+guten Verſtaͤndnis leben/ und mit zuſammen geſetz-<lb/>
+ter Hand und Rath den gemeinen Feinden muthig<lb/>
+entgegen gehen/ und vor Wiederbringung und Erhal-<lb/>
+tung allgemeiner Ruhe aufrichtig ſorgen moͤgen. Wo<lb/>
+dieſes von GOtt zu erhalten/ ſo wuͤrden wir uns de-<lb/>
+ſtoweniger vor Landverderblichen Durchzuͤgen/ und<lb/>
+feindlichen Streiffereyen und Einfaͤllen zu beſorgen<lb/>
+haben.</p><lb/>
+<p>§. 58. Zum Vierdten/ ſo ziehet man auch bil-<lb/>
+lig in Betrachtung/ was droben angefuͤhret/ daß die<lb/>
+Heuſchrecken ſubtile lebendige Wuͤrmer im Leibe fuͤh-<lb/>
+ren/ nicht ungleich denen Ottern oder Schlangen.<lb/>
+Sind alſo die Heuſchrecken dißfalls ein Bild der heu-<lb/>
+tigen Potentaten/ welche in ihrem Buſen/ und faſt<lb/>
+in ihrem Leibe/ das iſt/ unter ihren vertrauteſten<lb/>
+Dienern vielmahl/ doch unvermerckt/ Schlangen/<lb/>
+das iſt/ Frantzoͤſiſche Spionen und Verraͤther he-<lb/>
+gen. Sie ſind auch ein Bild ſolcher untreuer Die-<lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom">ner</fw><lb/>
+<pb n="34" facs="#f0036"/>
+ner ſelbſten/ welche unter euſſerlicher ſeiner Farbe/<lb/>
+das iſt/ unter ſcheinbarer Treue und Redligkeit/<lb/>
+Schlangen hegen/ und voller Untreu und anderer<lb/>
+boͤſen Anſchlaͤgen ſeyn: dero boͤſe Anſchlaͤge GOtt zu<lb/>
+nichte machen wolle! Unterdeß hat es das uͤble An-<lb/>
+ſehen/ als wenn dieſe Thiere auch zu dem Ende von<lb/>
+GOtt geſendet weren/ daß ſie mit der Zeit das Land<lb/>
+mit Schlangen und andern gifftigen Wuͤrmen ſolten<lb/>
+anfuͤllen/ (welches denn auch nicht wuͤrde ohne groſ-<lb/>
+ſen Schaden abgehen) Geſtallt auch in gemeinem<lb/>
+Geſchrey allbereit erſchollen/ als wenn an den Oer-<lb/>
+tern/ da die Heuſchrecken vor etlichen Wochen geweſen/<lb/>
+hernach Schlangen ſich eingeſtellet. Ob dem aber alſo/<lb/>
+oder ob andere dieſe Wuͤrmer ſchon hiebevor <hi rendition="#aq">obſervi</hi>ret/<lb/>
+und ſich aus einer Vermuthung/ dieſes Geruͤchte ent-<lb/>
+ſponnen/ kan ich nicht wiſſen.</p><lb/>
+<p>§. 59. Endlich iſt nicht mit Stillſchweigen zu<lb/>
+uͤbergehen/ daß etliche bey dieſem Heers-Zuge der<lb/>
+Heuſchrecken/ ſich eine gute Hoffnung machen doͤrf-<lb/>
+ten/ und zwar durch Veranlaſſung des 9. Capitels<lb/>
+der Offenbahrung Johannis/ in welchen <hi rendition="#aq">v. 3. &amp; ſeqq</hi>.<lb/>
+zu leſen/ wie der H. Johannes habe aus dem Rau-<lb/>
+che ſehen ſchreckliche und ſchaͤdliche Heuſchrecken auf<lb/>
+Erden kommen/ <hi rendition="#fr">welche Macht hatten</hi>/ 5. (engli-<lb/>
+ſche) <hi rendition="#fr">Monat</hi>/ das iſt 150. Jahr/ <hi rendition="#fr">die Menſchen zu<lb/>
+beleidigen</hi>.</p><lb/>
+<p>§. 60. Die Papiſten pflegen zu lehren/ als ſey<lb/>
+durch dieſe Heuſchrecken/ der ſeel. Herr <hi rendition="#aq">Lutherus</hi> mit<lb/>
+ſeinen treuen Nachfolgern zu verſtehen; wie darvon<lb/>
+<hi rendition="#aq">Bellarminus Tom. 1. Controverſ. lib. 3. de Romano Ponti-<lb/>
+<fw type="catch" place="bottom">fice,</fw><lb/>
+<pb n="35" facs="#f0037"/>
+fice, c. 23. fol. m. 307. lit. C</hi>. zu leſen. Wir ſind aber in<lb/>
+unſern Gewiſſen gnugſam verſichert/ daß wir durch<lb/>
+ſolche Heuſchrecken nicht koͤnnen verſtanden werden.<lb/>
+Denn weil wir bey dem reinen und unverfaͤlſchten<lb/>
+Worte GOttes verbleiben/ und mit allem Fleiße be-<lb/>
+muͤhet ſeyn/ allen falſchen Lehren zu ſteuren und zu<lb/>
+wehren/ die Jrrende und Verfuͤhrte zu rechte zu wei-<lb/>
+ſen/ und die erſchrockene und betruͤbte Gewiſſen zu<lb/>
+troͤſten und aufzurichten/ wie mag uns denn mit<lb/>
+Recht beygemeſſen werden/ daß wir die Menſchen<lb/>
+zu ihrem Verderben beleidigen und quaͤlen?</p><lb/>
+<p>§. 61. Hingegen fuͤhret der ſeel. Herr <hi rendition="#aq">Matthæus<lb/>
+Hoffmannus</hi> in ſeiner <hi rendition="#aq">Chronotaxi Apocalypticâ cap. 12</hi>.<lb/>
+weitleufftig aus/ daß durch dieſe Heuſchrecken die<lb/>
+Geſellſchafft der Jeſuiten zu verſtehen ſey. Und wenn<lb/>
+man mit Fleiß uͤberleget/ wie ſie der H. Johannes<lb/>
+beſchreibet/ ſo iſts offenbar/ daß ſolches denen Jeſui-<lb/>
+ten allerdings zukomme. Es gehet aber der ſeelige<lb/>
+Mann noch weiter/ und haͤlt davor/ weil dieſe hoͤchſt-<lb/>
+ſchaͤdliche Geſellſchafft A. C. 1540. vom <hi rendition="#aq">Paulo III</hi>. die<lb/>
+erſte <hi rendition="#aq">confirmation</hi>; und A. C. 1543. voͤlligere Macht/<lb/>
+ſich zu vermehren und auszubreiten erlanget/ es muͤſſe<lb/>
+ihr Untergang vor der Thuͤr ſeyn/ und etwa <hi rendition="#aq">Anno</hi><lb/>
+1690. oder 93. erfolgen. So haͤlt er auch davor/ es<lb/>
+ſey nicht <hi rendition="#aq">ſine omine</hi> geſchehen/ daß eben zu der Zeit/<lb/>
+da ſolche geiſtliche Heuſchrecken aufkommen/ und ſich<lb/>
+zu verſtaͤrcken angefangen/ nemlich A. C. 1542 <supplied>( ja</supplied><lb/>
+auch folgende Jahre) Deutſchland/ Jtalien und Po-<lb/>
+len/ mit groſſen Hauffen Heuſchrecken uͤberzogen<lb/>
+worden.</p><lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">§. 62.</fw><lb/>
+<pb n="36" facs="#f0038"/>
+<p>§. 62. Dannenhero moͤchte jemand bey dem<lb/>
+itzigen Heerzuge der Heuſchrecken auf die Gedancken<lb/>
+kommen/ weil eben in dieſem von <hi rendition="#aq">Hoffmanno omi-<lb/>
+nir</hi>ten und nunmehro zu Ende lauffenden 93. Jahre<lb/>
+derſelbe beſchehen/ ob etwa GOtt damit wolle andeu-<lb/>
+ten/ daß der ermeldten geiſtlichen Heuſchrecken ihr<lb/>
+Fall vor der Thuͤr ſey. Dahin fuͤhret mich/ was ei-<lb/>
+ner unter meinen Herren <hi rendition="#aq">Confratribus (M. J. S.)</hi> in ſei-<lb/>
+nem Berichte ſchreibet: <hi rendition="#aq">Et profectò eſt, quod no<supplied>t</supplied>etur,<lb/>
+quòd paulò ante Jeſuiticum exordium, ſimilis ferè fari-<lb/>
+næ, 1542. ſe cum ſtupore videntibus exhibuerint, quales<lb/>
+jam (utinam ante exodium Jeſuiticum) oculo luſtravi-<lb/>
+mus</hi>.</p><lb/>
+<p>§. 63. Alleine es iſt mit ſolchen <hi rendition="#aq">apocalypti</hi>ſchen<lb/>
+Zeit-Rechnungen/ ſo auf zukuͤnfftige Dinge gehen/<lb/>
+ein mißlich Werck/ darauf nicht allerdings zu bau-<lb/>
+en. Geſtalt denn auch der ſeelige Herr Caſpar Heu-<lb/>
+niſch in ſeinem <hi rendition="#aq">Clave apocalypticâ p. 83</hi>. Die beruͤhr-<lb/>
+ten fuͤnff Monat etwas anders/ nemlich auf 147.<lb/>
+Sonnen-Jahre rechnet/ welche ſolten A. C. 1687. zu<lb/>
+Ende lauffen/ da zum wenigſten der Jeſuiten ihr<lb/>
+Fall ſolte angehen. So hat es auch bißhero ein<lb/>
+ſchlecht Anſehen darzu gehabt; wiewohl man gleich-<lb/>
+wohl auch nicht wiſſen kan/ was GOtt thun moͤch-<lb/>
+te/ ehe wirs uns verſehen. Unterdeß/ weil doch<lb/>
+dieſe Heuſchrecken-Geſellſchafft vornehmlich zu dem<lb/>
+Ende <hi rendition="#aq">confirmi</hi>ret iſt/ daß ſie das Paͤbſtliche Reich<lb/>
+unterſtuͤtzen/ und uns Lutheraner/ und alſo die rei-<lb/>
+ne Evangeliſche Warheit verfolgen/ druͤcken und<lb/>
+ausrotten ſoll/ ſo gehet gottſeeligen Hertzen ihr Ge-<lb/>
+<fw type="catch" place="bottom">bet</fw><lb/>
+<pb n="37" facs="#f0039"/>
+bet/ wider das Pabſtthum/ vornemlich mit/ wi-<lb/>
+der der Jeſuiten ihre gottloſe/ gefaͤhrliche und blut-<lb/>
+duͤrſtige Anſchlaͤge/ daß GOtt dieſelben zernichten/<lb/>
+oder doch denenſelben/ nach ſeiner groſſen Barmher-<lb/>
+tzigkeit ſteuren und wehren wolle; welches auch/ biß-<lb/>
+anhero nicht ohne Krafft geweſen/ auch/ ob GOtt<lb/>
+wil/ ferner ſeine Krafft haben wird.</p><lb/>
+<p>§. 64. Jch habe hingegen bey dieſem Heu-<lb/>
+ſchrecken-Zuge/ wegen der ermeldten geiſtlichen Heu-<lb/>
+ſchrecken ſorgliche Gedancken/ daß nemlich derſelbe<lb/>
+bey der Kirchen GOttes groſſen Schaden nach ſich<lb/>
+ziehen werde/ welchen die Jeſuiten und ihr Anhang<lb/>
+anrichten doͤrfften. Denn/ wie ſie bißanhero zu dem<lb/>
+entſtandenen und leider! noch anhaltenden Krieges-<lb/>
+Feuer und Verfolgungen/ mehr denn zu viel beyge-<lb/>
+tragen/ auch alle Gelegenheit/ im Truͤben zu fi-<lb/>
+ſchen/ ſorgfaͤltig zu beobachten wiſſen: alſo ſtehet zu<lb/>
+beſorgen/ daß ſie/ wenn ja/ wie wir wuͤnſchen und<lb/>
+hoffen/ der liebe <hi rendition="#aq">politiſ</hi>che Friede ſolte bald wieder ge-<lb/>
+bracht werden/ ſie an vielen Oertern/ wo Evange-<lb/>
+liſche Kirchen geſtanden/ zufahren doͤrfften/ ihrem<lb/>
+Gott Mauſim neue Gebaͤude aufrichten/ und die<lb/>
+weitere Ubung der reinen Lehre verhindern.</p><lb/>
+<p>§. 65. Endlich ſo fragt ſichs nun: was denn<lb/>
+vor Mittel wieder dieſes Heer zu ergreiffen/ und wie<lb/>
+etwa daſſelbe und auch wohl dasjenige/ ſo dadurch<lb/>
+abgebildet und bedeutet wird/ abzuwenden?</p><lb/>
+<p>§. 66. Jn der Heiligen Schrifft werden die<lb/>
+Heuſchrecken als <hi rendition="#fr">furchtſame Thiere</hi> beſchrieben/<lb/>
+<fw type="sig" place="bottom">E3</fw><fw type="catch" place="bottom">wel-</fw><lb/>
+<pb n="38" facs="#f0040"/>
+welche leicht zu verſcheichen und zu verjagen. Denn<lb/>
+ſagt GOtt der HErr zu dem wohlgeplagten Hiob;<lb/>
+<hi rendition="#fr">Kanſt du das Roß ſchrecken/ wie die Heu-<lb/>
+ſchrecken</hi>: Hiob 39. v. 23. Und David klagt im 103.<lb/>
+Pſalm v. 23. <hi rendition="#fr">Jch werde verjagt/ wie die Heu-<lb/>
+ſchrecken</hi>. Und dieſes moͤchte wohl ingemein von<lb/>
+denen hielaͤndiſchen Heuſchrecken geſagt werden/ aber<lb/>
+was dieſe frembde Gaͤſte anbelanget/ ſo koͤnnen ſie ſo<lb/>
+leicht nicht verſcheichet werden.</p><lb/>
+<p>§. 67. Zwar an vielen Orten iſt es geſchehen/<lb/>
+wenn ſie bey Sonnenſchein an einem Orte ankom-<lb/>
+men/ und ſich die Leute mit ſchieſſen/ ſchreyen/ klin-<lb/>
+gen/ Jtem mit Strohwiſchen/ Reiſern und Stan-<lb/>
+gen an ſie gemachet/ daß ſie ſich verjagen laſſen: wie<lb/>
+denn am 10. Sonntage Trinitatis allhier ſelbſten der-<lb/>
+gleichen geſchehen. Geſtalt denn auch/ als ein groſ-<lb/>
+ſer Trupp ſich hinder das Rathhaus in ein Stuͤck<lb/>
+Gerſte niedergelaſſen/ und die Leute darzukommen/<lb/>
+ſie ſich gantz furchtſam erwieſen/ und bald wieder<lb/>
+auftreiben laſſen. Doch wo die Menge gar zu groß/<lb/>
+und der Leute etwas wenig geweſen/ ſo hat ſich die-<lb/>
+ſes nicht <hi rendition="#aq">practici</hi>ren laſſen. Ja es iſt mir glaubwuͤr-<lb/>
+dig erzehlet worden/ daß wenn man in dem Haber/<lb/>
+darinnen ſie geweſen/ mit Senſen gehauen/ ſie zwar<lb/>
+geſchwinde dem Hiebe ausgewichen/ nichts deſto<lb/>
+minder aber ſich bald wieder niedergeſetzet/ und ihr<lb/>
+Freß-Handwerck fortgetrieben. Jnſonderheit/ wie<lb/>
+auch oben angefuͤhret/ wenn es noch fruͤhe oder truͤ-<lb/>
+be Wetter iſt/ ſo ſind ſie nicht fortzubringen/ ſon-<lb/>
+dern viel ehe zu erſchlagen oder zu ergreiffen.</p><lb/>
+<fw type="catch" place="bottom">§. 68.</fw><lb/>
+<pb n="39" facs="#f0041"/>
+<lb/>
+<p>§. 68. Daher wird auch gemeldet/ als A. C.<lb/>
+1542. ſolche Heuſchrecken-Zuͤge vorgegangen/ und<lb/>
+Welſchland mit beruͤhret/ daß die Heuſchrecken auf<lb/>
+Befehl des Hertzogs zu Meiland zuſammen geleſen/<lb/>
+und damit bey zwoͤlff tauſend Saͤcke angefuͤllet wor-<lb/>
+den. So lieſet man auch in den alten Hiſtorien/<lb/>
+daß wohl ehe bald gantze Laͤnder aufgeboten worden/<lb/>
+ſolchem Libel zu ſteuren. Jn Ungern ſollen ſie dieſe<lb/>
+Thiere mit groſſen Acker-Waltzen auf dem Felde tod<lb/>
+machen/ indem ſie dieſelben daruͤber her ſchleif-<lb/>
+fen.</p><lb/>
+<p>§. 69. Wiewohl nun dergleichen natuͤrliche<lb/>
+Mittel nicht zu verachten/ ſo ſind ſie doch vor ſich<lb/>
+nicht zulaͤnglich/ den Schaden von dem Lande abzu-<lb/>
+wenden. Wiewohl ehe beſchwerliche Heuſchrecken/<lb/>
+Froͤſche und andere geringe Thiere durch Menſchen<lb/>
+nicht haben moͤgen gedaͤmpffet werden/ iſt aus der<lb/>
+Hiſtoria von den Egyptiſchen Plagen bekannt. Es<lb/>
+kan auch davon geleſen werden <hi rendition="#aq">Philip. Camerarius in<lb/>
+oper. hor. ſucciſ. part. 2. cap. 13.</hi> Da er auch der Deut-<lb/>
+ſchen Sprichwort anfuͤhret: <hi rendition="#fr">Wenn GOtt in ſei-<lb/>
+nem Zorn aufbe<supplied>u</supplied>t/ ſo ſtehen alſobald alle Crea-<lb/>
+turen im Harniſch und Waffen.</hi> Man hat diß<lb/>
+Jahr groſſen Fleiß angewendet/ die Raupen von den<lb/>
+Baͤumen zu bringen/ es ſind auch die Baͤume gluͤck-<lb/>
+lich gereiniget worden/ da wohl ehe hiebevor das<lb/>
+Raupen gar nicht oder doch gar wenig geholffen;<lb/>
+Unterdeß haben wir gleichwohl den Schaden von den<lb/>
+Bluͤthen nicht abwenden koͤnnen/ ſondern es iſt al-<lb/>
+les/ durch eine kalte Lufft/ verderbet und hingerich-<lb/>
+<fw type="catch" place="bottom">tet</fw><lb/>
+<pb n="40" facs="#f0042"/>
+tet worden. Alſo iſt es dem <hi rendition="#aq">fictori locuſtæ</hi>, dem Al-<lb/>
+lerhoͤchſten gar ein leichtes/ wenn gleich ein Heuſchre-<lb/>
+cken-Heer verjaget oder gedaͤmpffet/ ein anders zu<lb/>
+machen/ oder eine andere Art der Straffe uͤber ein<lb/>
+Land zu fuͤhren.</p><lb/>
+<p>§. 70. Solches haben auch die vernuͤnfftigen<lb/>
+Heiden einiger Maſſen erkennet/ und geſchloſſen/<lb/>
+das ſey das beſte Mittel diß Ungeziefer zu vertreiben/<lb/>
+den erzuͤrneten GOtt mit ihrem vermeinten Gottes-<lb/>
+Dienſt zu verſoͤhnen. Wie ſie denn deßwegen oͤffent-<lb/>
+liche Gebete/ Heuſchrecken-Feſte und dergleichen an-<lb/>
+geſtellet; wie beym <hi rendition="#aq">Franzio p. 808.</hi> und <hi rendition="#aq">Martinio c. l.</hi><lb/>
+angefuͤhret wird.</p><lb/>
+<p>§. 71. Uns Chriſten iſt unter andern ſehr troͤſt-<lb/>
+lich/ und dienet zur Lehre/ was bey dem Prophe-<lb/>
+ten Amos am 7. v. 2. ſtehet/ nemlich/ als die Heu-<lb/>
+ſchrecken das Kraut im Lande gar abfreſſen wollen/<lb/>
+<hi rendition="#fr">ſprach ich</hi>: <hi rendition="#fr">Ach HErr/ HErr/ ſey gnaͤ-<lb/>
+dig/ wer wil Jacob wieder auf helffen?<lb/>
+denn er iſt ja geringe. Da reuet es den<lb/>
+HErrn/ und ſprach: Wohlan/ es ſoll<lb/>
+nicht geſchehen.</hi></p><lb/>
+<p>§. 72. Sehr troͤſtlich/ ſag ich/ iſt es/ daß durch<lb/>
+das Gebet des Propheten denen Heuſchrecken ge-<lb/>
+ſteuret und gewehret worden. Daher nehmen wir die-<lb/>
+ſe Lehre/ daß das gewiſſeſte und kraͤfftigſte Mittel<lb/>
+wieder die Heuſchrecken/ und alles boͤſe/ ſo ſie be-<lb/>
+<fw type="catch" place="bottom">deuten</fw><lb/>
+<pb n="41" facs="#f0043"/>
+deuten und nach ſich ziehen moͤchten/ das liebe Ge-<lb/>
+bet ſey; daß man ſich mit demſelben <hi rendition="#fr">zu dem keh-<lb/>
+re/ der uns ſchlaͤget/ und nach dem<lb/>
+HErren Zebaoth frage</hi>/ <hi rendition="#aq">Eſ. 9. v. I3.</hi></p><lb/>
+<p>§. 73. Es muß demnach das Gebet nicht bloß<lb/>
+mit dem Munde geſchehen/ wie die Plapperer und<lb/>
+Heuchler zu beten pflegen/ ſondern von Grund der<lb/>
+Seelen/ da ein reuiges/ zerſchlagenes und demuͤthi-<lb/>
+ges Hertze/ auf ſeinen GOtt und ſeinen einigen Mitt-<lb/>
+ler und Heyland JEſum Chriſtum ſein hertzliches<lb/>
+Vertrauen ſetzet/ und durch Wirckung des H. Gei-<lb/>
+ſtes/ uͤmb Rettung und Huͤlffe zu ſeuffzen, nicht muͤ-<lb/>
+de wird.</p><lb/>
+<p>§. 74. Und eben an dieſem Mittel und dem<lb/>
+rechten Gebrauch deſſelben/ wil es uns Deutſchen/<lb/>
+auch mitten in der Evangeliſchen Kirchen/ leider! all-<lb/>
+zu ſehr mangeln. Denn es iſt wohl vor dieſen unter<lb/>
+Chriſten nicht erhoͤret worden/ wie es heutiges Ta-<lb/>
+ges zugehet. Es iſt ja bey vielen groſſen Herren und<lb/>
+Welt-Leuten/ ja auch bey vielen Gelehrten dahin<lb/>
+kommen/ daß ſie die <hi rendition="#aq">Religion</hi> nur vor eine <hi rendition="#aq">politi</hi>ſche<lb/>
+<hi rendition="#aq">Invention</hi>, und was vom Glauben und guten Ge-<lb/>
+wiſſen geprediget wird; ja GOtt ſelbſten/ vor einen<lb/>
+Spott halten. Es bleibet ſolche verfluchte Atheiſte-<lb/>
+rey nicht nur in ihren Hertzen/ ſondern wird offter-<lb/>
+mahls/ ohne allen Scheu/ oͤffentlich ausgebreitet.<lb/>
+Der meiſte Hauffe derer/ die ſich euſſerlich zur wah-<lb/>
+ren <hi rendition="#aq">Religion</hi> bekennen/ iſt voll erſchrecklicher Sicher-<lb/>
+heit/ und haben das alte Lied in ihrem Hertzen:<lb/>
+<fw type="sig" place="bottom">F</fw><fw type="catch" place="bottom">Es</fw><lb/>
+<pb n="42" facs="#f0044"/>
+<hi rendition="#fr">Es iſt Friede/ und hat keine Gefahr.</hi><lb/>
+Es ſprechen zwar alle: Jch bin ein Suͤnder! wir<lb/>
+ſind alle arme Suͤnder! Aber in der That fehlet es<lb/>
+dennoch bey den meiſten an aufrichtiger und reuiger<lb/>
+Erkaͤntnis ihrer Suͤnden.</p><lb/>
+<p>§. 75. Wie ſchwer das zugehe/ daß man den-<lb/>
+jenigen/ der in offenbarer Ungerechtigkeit/ Voͤllerey/<lb/>
+Hurerey/ Luͤgen und andern abſcheulichen Suͤnden<lb/>
+lebet/ berede/ daß er GOtt die Ehre gebe/ und nur<lb/>
+geſtehe/ was man doch ſiehet und hoͤret; wie ſchwer<lb/>
+es zugehe/ die Frevel-Suͤnder dahin zu bringen/ daß<lb/>
+ſie ablaſſen/ ihre boͤſe Stuͤcke zu bemaͤnteln und zu<lb/>
+entſchuldigen; Wie ſchwer es zugehe/ daß die Chriſt-<lb/>
+liche liebe Jugend fleißig zur Schulen und wahren<lb/>
+Gottesfurcht auferzogen werde; Wie ſchwer es zuge-<lb/>
+he/ jungen Leuten aͤrgerliche Exempel/ aus ihrem<lb/>
+Hertzen und Gemuͤthe zu bringen; Wie ſchwer es zuge-<lb/>
+he/ bey denen Erwachſenen/ auch oͤffters bey ſolchen/<lb/>
+die in den geiſtlichen Stand getreten ſind/ ihre ange-<lb/>
+woͤhnete boͤſe Sitten/ Unrecht und Heuchel-Chriſten-<lb/>
+thum abzugewoͤhnen; und ſie zu ungefaͤrbter Gott-<lb/>
+ſeeligkeit zu bereden; Solches alles liegt am Tage/<lb/>
+und erfahrens diejenigen uͤberfluͤßig/ die/ Amts- und<lb/>
+Gewiſſens wegen/ davor zu ſorgen/ und darauf zu<lb/>
+ſehen/ auch von GOtt die Gnade und den Trieb<lb/>
+haben/ ſolches/ in Aufrichtigkeit ihres Hertzens/ zu<lb/>
+beobachten. Was kan man nun von ſolcher Chri-<lb/>
+ſten ihrem Gebet halten/ und was ſolte man ſich gu-<lb/>
+tes darzu zu verſehen haben?</p><lb/>
+<fw type="catch" place="bottom">§. 76.</fw><lb/>
+<pb n="43" facs="#f0045"/>
+<p><hi rendition="#fr">§. 76. Wolte demnach GOtt/ daß nie-<lb/>
+mand ſeine Ohren/ wie eine Otter zuſtopf-<lb/>
+fen/ ſondern ein ieglicher hohes und niedriges<lb/>
+Standes/ Gelehrte und Ungelehrte/ Geiſt-<lb/>
+liche und Weltliche/ Junge und Alte ſich zu<lb/>
+Hertzen gehen lieſſen/ was der Mund des<lb/>
+HErrn redet: <hi rendition="#in">W</hi>aſchet euch/ reiniget<lb/>
+euch/ thut euer boͤſes <hi rendition="#in">W</hi>eſen von mei-<lb/>
+nen <hi rendition="#in">A</hi>ugen. <hi rendition="#in">L</hi>aſſet ab vom Boͤſen/ ler-<lb/>
+net gutes thun/ trachtet nach Recht. Helf-<lb/>
+fet den <hi rendition="#in">U</hi>nterdruͤckten/ ſchaffet den Wai-<lb/>
+ſen Recht/ und helffet deꝛ Witben Sachen/</hi><lb/>
+Eſ. i. v. 16. 17. Damit man koͤnne auf-<lb/>
+heben <hi rendition="#fr">heilige Haͤnde/ ohne <hi rendition="#in">Z</hi>orn und<lb/>
+<hi rendition="#in">Z</hi>weiffel/</hi> 1. Tim. 2. v. 8. So dann wuͤr-<lb/>
+de uns der Heuſchrecken/ gifftiger Seuchen/<lb/>
+und aller Feinde ihr Wuͤten und Toben nicht<lb/>
+viel ſchaden koͤnnen. Denn/ <hi rendition="#fr">wolte mein<lb/>
+Volck mir gehorſam ſeyn/ und auf mei-<lb/>
+nem <hi rendition="#in">W</hi>ege gehen/ ſo wolte ich ihre<lb/>
+<hi rendition="#in">F</hi>einde bald daͤmpffen/ und meine<lb/>
+Hand uͤber ihre Wiederwaͤrtige wenden;</hi><lb/>
+ſpricht: GOtt im 81. Pſalm/ v. 14. 15.</p><lb/>
+<fw type="sig" place="bottom">F 2</fw><fw type="catch" place="bottom">§. 77.</fw><lb/>
+<pb n="44" facs="#f0046"/>
+<p><hi rendition="#fr">§. 77. Wil aber ja der meiſte Theil nicht<lb/>
+zu Hertzen nehmen/ was zu ſeinem Friede die-<lb/>
+net/ ſo wird dennoch GOtt heiligen Saa-<lb/>
+men laſſen uͤberbleiben/ und hier und dar et-<lb/>
+wa zehen/ ja ſeine fuͤnff tauſend/ uͤbrig behal-<lb/>
+ten/ derer Mund der Epicurer und ſichern<lb/>
+Hertzen Baal nicht kuͤſſen/ ſondern dem wah-<lb/>
+ren GOtt Jſra∼lis mit reinen Hertzen die-<lb/>
+nen/ und zu Jhm ſchreyen Tag und Nacht.<lb/>
+Das wird denn auch nicht vergeblich ſeyn/<lb/>
+ſondern der HErr wird uͤmb ihren willen der<lb/>
+boͤſen Welt gutes thun/ſie aber erretten/<lb/>
+in einer Kuͤrtze/</hi>Amen.</p><lb/>
+<p>§. 78. Schluͤßlich ſoll das aller/ die die-<lb/>
+ſes leſen werden/ ihr hertzlicher Seuffzer zu<lb/>
+GOtt dem barmhertzigen himmliſchen Vater<lb/>
+ſeyn/ daß er doch bey Zeiten den Kriegen in<lb/>
+aller Welt ſteuren/ und allen verkehrten und<lb/>
+Blut-triefenden Anſchlaͤgen wehren wolle/<lb/>
+<hi rendition="#fr">damit in unſerm Lande Ehre wohne/ daß<lb/>
+Guͤte und Treue einander begegnen/ Ge-<lb/>
+rechtigkeit und Friede ſich kuͤſſen. Daß<lb/>
+Treue auf der Erden wachſe/ vnd Gerech-<lb/>
+tigkeit vom Himmel ſchaue. <hi rendition="#in">D</hi>aß uns</hi><lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="45" facs="#f0047"/>
+<hi rendition="#fr">der HErr gutes thue/ damit unſer Land<lb/>
+ſein Gewaͤchs gebe/ daß Gerechtigkeit<lb/>
+dennoch fuͤꝛ Jhm bleibe/ und im Schwan-<lb/>
+ge gehe.</hi> Darzu ſetzen wir auch den Seuffzer<lb/>
+der Chriſtlichen Kirchen:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Heuſchrecken und Raupen ſind</hi></l><lb/>
+<l><hi rendition="#fr">Deine Ruth/</hi></l><lb/>
+<l><hi rendition="#fr">Alles was Schaden an Fruͤchten</hi></l><lb/>
+<l><hi rendition="#fr">thut/</hi></l><lb/>
+<l><hi rendition="#fr"><hi rendition="#in">S</hi>olch <hi rendition="#in">U</hi>ngeziefer/ <hi rendition="#in">H</hi>Err/ ver-</hi></l><lb/>
+<l><hi rendition="#in">treib/</hi></l><lb/>
+<l><hi rendition="#in"><hi rendition="#in">D</hi>aß Dein Gab' unbeſchaͤdigt bleib/</hi></l><lb/>
+<l><hi rendition="#in"><hi rendition="#g">AMEN</hi>.</hi></l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">F 3</fw><fw type="catch" place="bottom">Zugabe.</fw><lb/>
+<pb n="46" facs="#f0048"/>
+<div n="1"><head><hi rendition="#b">Zugabe.</hi></head><lb/>
+<p><hi rendition="#in">V</hi>on den Heuſchrecken iſt noch zu gedencken/ daß<lb/>
+es ſcheine/ als haben ſie nunmehro gleichſam die<lb/>
+Winter Quartier bezogen/ doch alſo/ daß ſie ſich viel<lb/>
+weiter aus einander begeben/ als bey ihrer Ankunfft/<lb/>
+und an vielen Orten ziemlich duͤnne liegen. Bey der<lb/>
+Mitte des <hi rendition="#aq">Septembris</hi> halten ſich nicht wenig noch jen-<lb/>
+ſeit der Saalen/ ſonderlich in dem Rodiſchen Bezir-<lb/>
+cke/ auf: Diſſeits aber reichen ſie von dem Heilin-<lb/>
+ger Grunde/ biß gegen Burgau und Wintzurle/ und<lb/>
+alſo/ in der Breite/ bey zwey Meilen weit. Von dan-<lb/>
+nen gehet ihr Strich gegen Weimar/ und hinder den<lb/>
+Ettersberg/ faſt auf Buttſtedt/ und alſo von der<lb/>
+Saalen an uͤber vier Meilen/ in die Laͤnge. Jn ih-<lb/>
+ren Leibern findet man die langen weiſen lebenden<lb/>
+Wuͤrme hin und wieder; welches ob es nur eine Art<lb/>
+der <hi rendition="#aq">lumbricorum</hi>, oder ob was ſchaͤdliches draus kom-<lb/>
+men moͤchte/ die Zeit eroͤffnen wird. Wenn man<lb/>
+ſie laͤſſet aufſieden/ ſo ſind ſie/ an rother Farbe und<lb/>
+Geruche/ denen geſottenen Krebſen nicht ungleich:<lb/>
+Doch wils zur Zeit niemand verſuchen/ ob ſie zu<lb/>
+menſchlicher Speiſe dienen/ gleich wie diejenigen/ ſo<lb/>
+in den Morgen-und Mittags Laͤndern gefunden wer-<lb/>
+den/ ſondern es wird ſolche <hi rendition="#aq">delicateſſe</hi> denen Huͤnern/<lb/>
+Gaͤnſen/ Hunden/ Schweinen und andern Thieren<lb/>
+uͤberlaſſen/ welche ihnen mit ſonderlichem Appetit<lb/>
+nachgehen. Und wie die Sonne/ mit ihrem Schein<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="47" facs="#f0049"/>
+und Waͤrme ſie gleichſam lebend machet: alſo haben<lb/>
+ſie in bißheriger Kaͤlte und Regen/ ſich/ bey erſchei-<lb/>
+nenden Sonnen-Blicken/ gar wenig in der Hoͤhe/ mit<lb/>
+fliegen ſehen laſſen/ ſondern ſich meiſtlich mit ſprin-<lb/>
+gen beholffen/ doch daß ſie allenthalben Gelegenheit<lb/>
+geſuchet/ ſich von der feuchten Erden abe zu ziehen/<lb/>
+und ſich an hohe Stoppeln/ Diſteln und andere Stoͤ-<lb/>
+rel/ ingleichen an Kraut und Ruͤben/ <hi rendition="#aq">item</hi> niedrige<lb/>
+Buͤſche/ Dornhecken/ Zaunſtecken und duͤrre Rei-<lb/>
+ſer zu hengen. So hat man auch nicht mercken<lb/>
+koͤnnen/ daß ſie/ bey ſolchem Wetter/ ſtarck gezehret:<lb/>
+geſtalt denn auch von vielen <hi rendition="#aq">probi</hi>ret worden/ daß ſie<lb/>
+etliche Tage eingeſperret/ gantz ohne Futter/ auch biß<lb/>
+in die dritte Woche leben koͤnnen. Aber ſolte der<lb/>
+Herbſt warm werden/ ſo duͤrfften ſie auch wieder<lb/>
+munter werden/ die junge Winter-Saat abznaͤtzen.<lb/>
+Unterdeß/ ob ſie ſchon bißher nicht ſonderlich gezeh-<lb/>
+ret/ ſo ſind ſie doch bey ihrer geilen Art verblieben/<lb/>
+und gatten ſich haͤufig. So findet man auch nun<lb/>
+hin und wieder in den Hecken/ ſonderlich an den<lb/>
+Blaͤttern/ wie ſie ihre Eyer geleget/ ſo in ziemlicher<lb/>
+Menge an einander kleben: Welche GOtt/ beneben<lb/>
+dieſem Geſchmeiß balden tilgen/ und alles beſorgende<lb/>
+<hi rendition="#c">Ungluͤck von unſerm lieben Vaterlande<lb/>
+abwenden wolle.</hi></p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</body>
+<pb n="[48]" facs="#f0050"/>
+<pb n="[49]" facs="#f0051"/>
+<pb n="[50]" facs="#f0052"/>
+</text> </TEI>

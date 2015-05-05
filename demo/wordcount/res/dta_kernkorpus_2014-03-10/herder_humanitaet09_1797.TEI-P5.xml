@@ -1,0 +1,3807 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Briefe zu Beförderung der Humanität</title>
+<title type="volume" n="9">Neunte Sammlung</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118549553">
+<surname>Herder</surname>
+<forename>Johann Gottfried von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">187</measure>
+<measure type="tokens">21400</measure>
+<measure type="types">5304</measure>
+<measure type="characters">149083</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:14:59Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/herder_humanitaet09_1797</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/herder_humanitaet09_1797</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/herder_humanitaet09_1797</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/herder_humanitaet09_1797</idno>
+<idno type="DTADirName">herder_humanitaet09_1797</idno>
+<idno type="DTAID">16692</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905192401</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Herder, Johann Gottfried von: Briefe zu Beförderung der Humanität. Bd. 9. Riga, 1797.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Briefe zu Beförderung der Humanität</title>
+<title level="m" type="volume" n="9">Neunte Sammlung</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118549553">
+<surname>Herder</surname>
+<forename>Johann Gottfried von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">178 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Hartknoch</name></publisher>
+<pubPlace>Riga</pubPlace>
+<date type="publication">1797</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, 301005-9/10 R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=875067875</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb n="[1]" facs="#f0008"/>
+<titlePage type="halftitle"><docTitle><titlePart type="main"><hi rendition="#g">Briefe</hi><lb/>
+zu<lb/>
+Befoͤrderung der Humanitaͤt.</titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</titlePage>
+<pb n="[2]" facs="#f0009"/>
+<pb n="[3]" facs="#f0010"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#g">Briefe</hi><lb/>
+zu<lb/>
+Befoͤrderung der Humanitaͤt.</titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<byline>Herausgegeben<lb/>
+von<lb/>
+<docAuthor>J. G. <hi rendition="#g">Herder</hi></docAuthor>.</byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="volume">Neunte Sammlung.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace>Riga, </pubPlace><docDate>1797.</docDate><lb/>
+<hi rendition="#g">bei</hi> <publisher><hi rendition="#g">Johann Friedrich Hartknoch</hi>.</publisher></docImprint></titlePage><lb/>
+<pb n="[4]" facs="#f0011"/>
+</front>
+<pb n="[5]" facs="#f0012"/>
+<body> <div n="1"><head>108.</head><lb/>
+<p><hi rendition="#in">I</hi>n den <hi rendition="#g">Fragmenten uͤber die Poe</hi>-<lb/>
+<hi rendition="#g">ſie der neueren Voͤlker</hi>, <hi rendition="#g">als einer<lb/>
+Foͤrdrerin der Humanitaͤt</hi>, <note place="foot" n="*)">S Briefe zu Befoͤrderung der Humanitaͤt.<lb/>
+Th. 7. 8.</note> fan-<lb/>
+den unſre Freunde manches bedenklich. A.<lb/>
+glaubte, daß ſeiner Lieblingsnation, den<lb/>
+Franzoſen, B. daß ſeinem beguͤnſtigten<lb/>
+Volk, den Britten, im Anſchlage ihres<lb/>
+Verdienſtes nicht Gnuͤge geſchehen ſey.<lb/>
+<pb n="6" facs="#f0013"/>
+C. meinte, daß die Poeſie der Trobadoren<lb/>
+ſich anders woher leite, und daß man auch<lb/>
+dem Reim nicht gnug Gerechtigkeit wie-<lb/>
+derfahren laſſen; er ſei wirklich ein Zu-<lb/>
+wachs des Wohlklanges und der Schoͤn-<lb/>
+heit. D. E. F. ſind der Meinung, daß<lb/>
+die Verdienſte unſres Vaterlandes gegen<lb/>
+andre Voͤlker viel zu hoch geſetzt ſeyn und<lb/>
+daß ein unverdientes Lob dieſer Art nur<lb/>
+den Bettel- und Bauernſtolz unſrer Lands-<lb/>
+leute naͤhre. Sie haͤtten, meinte F., bei<lb/>
+der ungeheuren <hi rendition="#g">Gutmuͤthigkeit</hi>, die<lb/>
+Sie den Deutſchen als einen Grundzug<lb/>
+ihres Charakters zuſchreiben, auch die ih-<lb/>
+nen angebohrne <hi rendition="#g">Luſt zu dienen</hi>, gefaͤlli-<lb/>
+ge Sklaven, und mit ganzer Gutmuͤthig-<lb/>
+keit freudige Werkzeuge der Gewaltthaͤtig-<lb/>
+keit, des Uebermuths zu ſeyn, nicht ver-<lb/>
+geſſen ſollen. Da er Europa durchreiſet<lb/>
+hat, ſo fuͤhrt er ein langes Regiſter der<lb/>
+<pb n="7" facs="#f0014"/>
+Ehrennamen an, die alle civiliſirte und un-<lb/>
+civiliſirte Nationen, nah und fern, Italiaͤ-<lb/>
+ner, Spanier, Franken, Britten, Daͤnen,<lb/>
+Schweden, ſelbſt Ruſſen, Wenden, Liwen,<lb/>
+Eſthen und Pohlen den Deutſchen geben.<lb/>
+Woruͤber ganz Europa einig ſei, meint<lb/>
+er, muͤſſe doch wohl etwas Wahres in ſich<lb/>
+enthalten. Geſchichte, Spruͤchwoͤrter, ſelbſt<lb/>
+der Staatskalender zu <hi rendition="#g">Peking</hi> ſtanden<lb/>
+ihm dabei zu Huͤlfe, in welchem letzten die<lb/>
+Deutſchen als ein Volk charakteriſirt ſeyn<lb/>
+ſollen, das in aller Voͤlker Dienſten iſt,<lb/>
+und zwiſchen zwei Federbetten ſchlaͤft. —<lb/>
+G. wunderte ſich, warum Sie die Politik<lb/>
+von der Poeſie ausgeſchloſſen haben woll-<lb/>
+ten, da dem was die Menſchen humaniſi-<lb/>
+re, <hi rendition="#g">jedes</hi> Feld offen, <hi rendition="#g">jede</hi> Materie zu<lb/>
+Gebot ſtehen muͤſſe. H. begrif nicht recht,<lb/>
+wohin Sie fuͤr die Poeſie mit Ihrer <hi rendition="#g">Ein</hi>-<lb/>
+<hi rendition="#g">falt</hi> und <hi rendition="#g">Wahrheit</hi> wollten, ſo daß es<lb/>
+<pb n="8" facs="#f0015"/>
+noch lebendige, abwechſelnd-reiche Poeſie<lb/>
+bliebe? Und J. fragte, woher unſern<lb/>
+Dichtern dieſe Einfalt und Wahrheit<lb/>
+kommen ſolle? Antworten Sie ihren<lb/>
+Freunden.</p></div><lb/>
+<pb n="9" facs="#f0016"/>
+<div n="1"><head>109.</head><lb/>
+<p><hi rendition="#in">K</hi>ein Vorwurf iſt druͤckender als der,<lb/>
+fremden Nationen Unrecht gethan zu ha-<lb/>
+ben; zumal wenn ſie in Werken des Gei-<lb/>
+ſtes unſre Wohlthaͤterinnen waren; er muß<lb/>
+alſo zuerſt abgewaͤlzt ſeyn.</p><lb/>
+<p>Daß es ſchwer ſey, eine Nation in ei-<lb/>
+nem ſo vielumfaſſenden, feinen und vielſei-<lb/>
+tigen Geſchaͤft als das Humaniſiren durch<lb/>
+Sprache und Werke des Geſchmacks iſt,<lb/>
+mittelſt einiger Worte zu charakteriſiren,<lb/>
+<pb n="10" facs="#f0017"/>
+haben Fragmente und Briefe gern und<lb/>
+oft geſtanden. Eher koͤnnte man alle Ge-<lb/>
+ſtalten <hi rendition="#g">Proteus</hi> in Ein Wort, alle Ver-<lb/>
+wandlungen <hi rendition="#g">Ovids</hi> in Ein Bild faſſen,<lb/>
+als mit ein paar Worten den Geiſt der<lb/>
+verſchiedenſten Voͤlker, wie er ſich Jahr-<lb/>
+hunderte hinab erwieſen, darſtellend zu<lb/>
+zeichnen. In dieſer Verlegenheit zeichnet<lb/>
+man eine Außenlinie von innen mit weni-<lb/>
+gen Zuͤgen, und uͤberlaͤßt es dem Gemuͤth<lb/>
+des Anſchauenden, dieſes <hi rendition="#g">Sbozzo</hi> zu er-<lb/>
+gaͤnzen. Die Geſchichte des Volks, ſeine<lb/>
+Geiſtesproducte muͤſſen ihm bekannt ſeyn;<lb/>
+ſonſt war fuͤr ihn der Umriß vergebens ge-<lb/>
+zeichnet.</p><lb/>
+<p>Was man bei ſolchen Charakterzeich-<lb/>
+nungen nicht angiebt, laͤugnet man deß-<lb/>
+halb noch nicht. Vielleicht ward es vor-<lb/>
+ausgeſetzt, vielleicht folgets; nur als der<lb/>
+erſte hervorſpringende Charakterzug konnte<lb/>
+<pb n="11" facs="#f0018"/>
+es nicht angefuͤhrt werden, weil es dieſer<lb/>
+— nicht war.</p><lb/>
+<p>Wenn z. B. der Franzoͤſiſchen Nation<lb/>
+eine vorzuͤgliche Ausbildung ihrer Sprache<lb/>
+zur <hi rendition="#g">Klarheit</hi>, zur <hi rendition="#g">Praͤciſion</hi>, zur <hi rendition="#g">Po</hi>-<lb/>
+<hi rendition="#g">liteſſe</hi>, als ein Lob angerechnet wird;<lb/>
+ſollte damit geſagt ſeyn, mit dieſer hellen,<lb/>
+praͤciſen, politen Sprache koͤnne ſie nicht<lb/>
+<hi rendition="#g">ruͤhren</hi>? In eines jeden großen Schrift-<lb/>
+ſtellers Haͤnden iſt die Sprache ein eigenes<lb/>
+Ding: er braucht und formt ſie nach ſei-<lb/>
+nem Gefallen; ſein Charakter, ſein Geiſt,<lb/>
+ſein Herz belebt ſie. <hi rendition="#g">Montaigne</hi>'s und<lb/>
+<hi rendition="#g">Roußeau</hi>'s, <hi rendition="#g">Paſkal</hi> und <hi rendition="#g">Diderots</hi>,<lb/>
+<hi rendition="#g">Voltaire</hi> und <hi rendition="#g">Fenelons</hi> Schreibart iſt<lb/>
+dem <hi rendition="#g">Charakter</hi> nach gewiß nicht dieſel-<lb/>
+be; und doch ſchrieben ſie in der, auch zu<lb/>
+<hi rendition="#g">Corneille</hi> und <hi rendition="#g">Boßvets</hi> Pracht, zu des<lb/>
+<hi rendition="#g">Racine</hi> empfindlichen Zartheit, zu <hi rendition="#g">Fon</hi>-<lb/>
+<hi rendition="#g">tenelle</hi>'s witzigen Nettigkeit ausgearbei-<lb/>
+<pb n="12" facs="#f0019"/>
+teten Sprache. Kann man der Rede uͤber-<lb/>
+haupt ein groͤßeres Lob beilegen, als daß<lb/>
+ſie ſich der Klarheit und Praͤciſion, der<lb/>
+Gewandtheit und Artigkeit befleißiget? In<lb/>
+einer ſolchen Sprache wird ſich Alles aus-<lb/>
+druͤcken laſſen. Wie ſie zu unſerm Ver-<lb/>
+ſtande ſpricht, wird ſie auch zu unſerm<lb/>
+Herzen zu ſprechen wiſſen und dies, als<lb/>
+waͤre es der Verſtand, ſanft uͤberreden,<lb/>
+verſtaͤndig ruͤhren.</p><lb/>
+<p>Als aus der alten Romaniſchen Spra-<lb/>
+che die Franzoͤſiſche ſich mit ihren Schwe-<lb/>
+ſtern, der Italiaͤniſchen, Caſtilianiſchen,<lb/>
+Galliciſchen u. f. bildete, zeigte ſich bald<lb/>
+ihr Charakter. Nach dem Verfall des Roͤ-<lb/>
+miſchen Reichs, unter den Koͤnigen des er-<lb/>
+ſten und zweiten Stammes war ſie jenen<lb/>
+ihren Schweſtern noch ſehr aͤhnlich; all-<lb/>
+maͤlich aber legte ſie die Feſſeln, ſelbſt der<lb/>
+Harmonie, des Italiaͤniſch-Caſtilianiſchen<lb/>
+<pb n="13" facs="#f0020"/>
+Wohllauts ab, wo er ihr eine ſchwere<lb/>
+Ruͤſtung duͤnkte; ſie warf Buchſtaben, Syl-<lb/>
+ben, ganze Worte hinweg, und flog leicht<lb/>
+in die Luͤfte. Man erzaͤhlte, ſang, ſprach,<lb/>
+lachte, geſticulirte. Als die Scholaſtik auf-<lb/>
+kam, diſputirte man; die Abſtractionen des<lb/>
+lateiniſchen Schulgeiſtes gingen in die ver-<lb/>
+wandte Sprache des Landes und Volks<lb/>
+unvermerkt uͤber. Einer Sprache, die<lb/>
+Zweideutigkeiten unablaͤßig ausgeſetzt iſt,<lb/>
+mußte man, als ſie ſich regelte, durch eine<lb/>
+deſto genauere Conſtruction und Wortord-<lb/>
+nung helfen. Keinem Volk waͤre dies ein-<lb/>
+gefallen, dem nicht ſchon eine Art <hi rendition="#g">ſpre</hi>-<lb/>
+<hi rendition="#g">chender Vernunft</hi> zur Regel geworden<lb/>
+war; und ſo wurde die Franzoͤſiſche Spra-<lb/>
+che was ſie iſt, eine an leichten Abſtrac-<lb/>
+tionen reiche Sprache, die ſich durch Ord-<lb/>
+nung, durch Wendungen helfen mußte, und<lb/>
+zur Ehre des Geiſtes der Nation tauſend-<lb/>
+<pb n="14" facs="#f0021"/>
+fach geſchickt aushalf. Welch einen be-<lb/>
+daͤchtigern Gang nahmen die Italiaͤniſche,<lb/>
+Spaniſche, und welchen ſchwereren die<lb/>
+Deutſche Sprache! Man entnimmt einer<lb/>
+Nation nichts, wenn man ihr das <hi rendition="#g">Eigen</hi>-<lb/>
+<hi rendition="#g">thuͤmliche</hi> ihrer Ausbildung zum Ruhme<lb/>
+anrechnet.</p><lb/>
+<p>Dahin gehoͤrt auch, daß ſie gern <hi rendition="#g">re</hi>-<lb/>
+<hi rendition="#g">praͤſentire</hi>. „Was heißt hier repraͤſen-<lb/>
+tiren?“ fragt unſer Freund. Ich antwor-<lb/>
+te: aus ſich ſelbſt etwas machen, ſich werth<lb/>
+halten und ein natuͤrliches Beſtreben aͤu-<lb/>
+ßern, daß auch der andre unſern Werth<lb/>
+anerkenne; mit Einem Wort, <hi rendition="#g">ſich ihm<lb/>
+vorſtellen</hi>, <hi rendition="#g">vorſpiegeln</hi>. Wenn die-<lb/>
+ſe Selbſtſchaͤtzung auf etwas Wahres und<lb/>
+Gutes geht, iſt ſie nicht verwerflich; man-<lb/>
+cher andern Nation moͤchte man wuͤnſchen,<lb/>
+daß ſie ſich ſelbſt mehr anerkennt und ehre.<lb/>
+Auch die Tendenz, in andrer Augen zu<lb/>
+<pb n="15" facs="#f0022"/>
+ſeyn, was man gern ſeyn moͤchte, iſt auf-<lb/>
+munternd, ein Sporn zu vielem auszeich-<lb/>
+nend-Guten und Edeln. Nenne mans<lb/>
+Eitelkeit, Selbſtliebe; dieſe Eitelkeit, die<lb/>
+uns mit andern bindet, ſie zum Spiegel<lb/>
+unſrer Vorzuͤge macht, iſt, ohne Aufdring-<lb/>
+lichkeit und Arroganz, ein ſehr verzeihlicher<lb/>
+Fehler. Wer kann es laͤugnen, daß die<lb/>
+Franzoͤſiſche Nation, ſo oft ſie konnte, der<lb/>
+Welt <hi rendition="#g">ein Schauſpiel gab</hi>, daß ſie im-<lb/>
+mer gern die zuͤndende Lunte vortrug, und<lb/>
+aufregte? War ſie es nicht, die unter<lb/>
+Karl dem großen die alte Roͤmermacht in<lb/>
+gothiſcher Form zuruͤckbringen wollte und<lb/>
+auf kurze Zeit wirklich zuruͤckbrachte? War<lb/>
+ſie es nicht, die mit ihrem Rittergeiſt ganz<lb/>
+Europa zum heiligen Grabe trieb? Fran-<lb/>
+zoͤſiſche Familien waren es, die zu Jeru-<lb/>
+ſalem und eine Zeitlang in Conſtantinopel<lb/>
+herrſchten. Ein Franzoͤſiſcher Koͤnig war<lb/>
+<pb n="16" facs="#f0023"/>
+es, der ſiebenzig Jahre lang Rom nach<lb/>
+Avignon verlegte und durch dieſen Zug<lb/>
+im Schachſpiel die Paͤbſte zu ſeinen folg-<lb/>
+ſamen Dienern machte. Nach Frankreich<lb/>
+wanderten Jahrhunderte lang Edle und<lb/>
+Fuͤrſten, um dort die Ritterſitte, das Hof-<lb/>
+cerimoniel, die leichteſte und beſte Lebens-<lb/>
+art zu lernen, bis endlich von Paris und<lb/>
+Verſailles aus der Franzoͤſiſche Ton, die<lb/>
+Franzoͤſiſche Sprache <hi rendition="#g">als Mode</hi> ſich uͤber<lb/>
+die Welt ausgoß. Sein Kleinſtes hat<lb/>
+Frankreich bemerkbar zu machen geſucht;<lb/>
+in allen Staatsveraͤnderungen und Unter-<lb/>
+handlungen hatte lange es die Hand und<lb/>
+trat gern hervor zu ſagen: „ſehet, daß ich<lb/>
+dabin! und wie <hi rendition="#g">ichs</hi> treibe. Hieße dieß<lb/>
+nicht repraͤſentiren? Der Ton der guten<lb/>
+Erziehung, des Unterſchiedes der Staͤnde,<lb/>
+der anſtaͤndigen Lebensart, des hoͤflichen<lb/>
+Ausdrucks, der ganze Charakter der Fran-<lb/>
+<fw type="catch" place="bottom">zoͤſiſchen</fw><lb/>
+<pb n="17" facs="#f0024"/>
+zoͤſiſchen Sprache, iſt eine Art Repraͤſenta-<lb/>
+tion. Selbſt wenn der Franzoſe mit Gott<lb/>
+ſpricht; er repraͤſentiret.</p><lb/>
+<p>Aber auch dieſe Eigenheit iſt kein Vor-<lb/>
+wurf. Denn bei dem Scheinen kann man<lb/>
+ja auch <hi rendition="#g">ſeyn</hi>, beym Repraͤſentiren auch<lb/>
+<hi rendition="#g">leiſten</hi>. Außer den Griechen iſt mir kein<lb/>
+Volk der Geſchichte bekannt, das beide Ei-<lb/>
+genſchaften ſo leicht zu verbinden, ſo un-<lb/>
+vermerkt zu verſchmelzen wußte, als die-<lb/>
+ſes. Das Spruͤchwort ſagt: der Franzoſe<lb/>
+<hi rendition="#g">ſcheint</hi> oft kluͤger, als er iſt, der Spa-<lb/>
+nier <hi rendition="#g">iſt</hi> oft kluͤger als er ſcheinet.</p><lb/>
+<p>Mit dem Wort Repraͤſentation auf dem<lb/>
+Theater, in Geſellſchaften, bei Aufzuͤgen,<lb/>
+Feierlichkeiten ſollte gar nichts Nachtheili-<lb/>
+ges geſagt ſeyn. Einmal ſind die Helden<lb/>
+des <hi rendition="#g">Corneille</hi> und <hi rendition="#g">Racine</hi> keine Roͤ-<lb/>
+miſche Helden; das Franzoͤſiſche Theater<lb/>
+<hi rendition="#g">ſollte</hi> kein Griechiſches, ſondern ein Fran-<lb/>
+<fw type="sig" place="bottom">Neunte Sammlung. B</fw><lb/>
+<pb n="18" facs="#f0025"/>
+zoͤſiſches Theater ſeyn; wer haͤtte etwas da-<lb/>
+gegen? Die Nation war uͤber die Regeln<lb/>
+des Geſchmacks, der guten Lebensart, des<lb/>
+Ausdrucks der Empfindungen mit ſich ſelbſt<lb/>
+<hi rendition="#g">uͤbereingekommen</hi>; welcher Auslaͤnder<lb/>
+haͤtte Recht, dies zu tadeln? Er doͤrfte<lb/>
+ja nicht hingehen, um jene Repraͤſentation<lb/>
+des Hofes, der Akademieen, des Theaters,<lb/>
+der Oper, der Parlemente, der Luſtſchloͤſſer<lb/>
+und Gaͤrten zu <hi rendition="#g">bewundern</hi>. An ihnen,<lb/>
+auch in ihren Fehlern, zu lernen blieb ihm<lb/>
+ein weites Feld.</p><lb/>
+<p>Eben nun in dies Feld lockt die <hi rendition="#g">all</hi>-<lb/>
+<hi rendition="#g">gemeine Charakteriſtik der Voͤl</hi>-<lb/>
+<hi rendition="#g">ker</hi>. Daß jede Nation zu ihrer Zeit, auf<lb/>
+ihrer Stelle nur das war, was ſie ſeyn<lb/>
+konnte; das wiſſen wir alle, damit aber<lb/>
+wiſſen wir noch wenig. Was jede in Ver-<lb/>
+gleich der andern war, wie ſie auf einan-<lb/>
+der wirkten und fehlwirkten, einander nutz-<lb/>
+<pb n="19" facs="#f0026"/>
+ten oder ſchadeten, aus welchen Zuͤgen<lb/>
+nach und nach das Bild zuſammengefloſ-<lb/>
+ſen ſei, das wir als die Tendenz unſres<lb/>
+<hi rendition="#g">geſammten Geſchlechts</hi>, als die hoͤch-<lb/>
+ſte Bluͤthe der Schoͤnheit, Wahrheit und<lb/>
+Guͤte <hi rendition="#g">unſrer Natur</hi> verehren, das iſt<lb/>
+die Frage.</p></div><lb/>
+<fw type="sig" place="bottom">B 2</fw><lb/>
+<pb n="20" facs="#f0027"/>
+<div n="1"><head>110.</head><lb/>
+<p><hi rendition="#in">D</hi>a wendet ſich nun freilich das Blatt.<lb/>
+<hi rendition="#g">Germanus</hi> fragt nicht, was Nachbar<lb/>
+<hi rendition="#g">Gallus</hi> ihm dem Gallus, ſondern <hi rendition="#g">ihm<lb/>
+dem Germanus</hi> geweſen ſei, ſeyn koͤn-<lb/>
+ne und ſeyn doͤrfe? Und hieruͤber giebt<lb/>
+die Geſchichte klare Auskunft.</p><lb/>
+<p>Die alten Gallier und Germanen wol-<lb/>
+len wir ruhen laſſen. Sie waren gegen<lb/>
+einander bald Freunde, bald Feinde, die<lb/>
+Germanen das rohere Volk, beide aber<lb/>
+<pb n="21" facs="#f0028"/>
+nicht von Einerley Stammesart, Sprache,<lb/>
+Sitten und Gebraͤuchen. Von Karl dem<lb/>
+großen faͤngt die ungluͤckliche Vereinigung<lb/>
+an, die Deutſchland Leides genug gebracht<lb/>
+hat, ob Karl gleich ſelbſt ein <hi rendition="#g">Frank</hi> und<lb/>
+<hi rendition="#g">Deutſcher</hi> war und in beſter Abſicht<lb/>
+ſeine Anſtalten machte. Ihm ſind wir<lb/>
+die dreiſſigjaͤhrigen blutigen Kriege und<lb/>
+Verheerungen des damaligen Sachſenlan-<lb/>
+des, ihm die Unterjochung Deutſchlands<lb/>
+bis uͤber die Elbe zur Ungriſchen Grenze<lb/>
+hin, ihm die erſte Zerſtoͤrung der alten<lb/>
+germaniſchen Verfaſſung, die den Roͤmern<lb/>
+nie hatte gelingen wollen, die Einfuͤhrung<lb/>
+des Roͤmiſch-Galliſchen Chriſtenthums, ihm<lb/>
+und ſeinen Nachkommen die Pflanzung<lb/>
+ſo vieler Biſchoͤfsſitze, Domkapitel und Ab-<lb/>
+teien laͤngs dem Rhein und der Donau,<lb/>
+ihm und ihnen die Suͤndfluth von Uebeln<lb/>
+ſchuldig, unter denen Germanien endlich<lb/>
+<pb n="22" facs="#f0029"/>
+zum ſtehenden und abgeſtandenen, verwach-<lb/>
+ſenen Teich ward. Die kurze Verbindung<lb/>
+Germaniens mit der Fraͤnkiſchen Monar-<lb/>
+chie hat Deutſchland in ein Labyrinth ge-<lb/>
+zogen, aus welchem es der Lauf tauſend<lb/>
+folgender Jahre nicht hat erretten moͤgen.<lb/>
+Sobald beide Reiche getrennt wurden,<lb/>
+ſuchte Frankreich ſich zu conſolidiren;<lb/>
+Deutſchland blieb von außen und innen<lb/>
+im ewigen Streit mit einer furchtbaren,<lb/>
+der geiſtlichen Macht, die es im Namen<lb/>
+der Chriſtenheit in Schranken halten ſoll-<lb/>
+te, wenn es daruͤber auch ſelbſt zu Grun-<lb/>
+de ginge und ſich ganz und gar vergaͤße.<lb/>
+Dies Amt hatte ihm das galliſche Chri-<lb/>
+ſtenthum, die Fraͤnkiſche Monarchie aufge-<lb/>
+buͤrdet; ein Deutſcher Kopf haͤtte ſchwerlich<lb/>
+nach ſolchem gefaͤhrlichen Diadem geſtrebet.</p><lb/>
+<p>An den Ritter- und Kreuzzuͤgen, die<lb/>
+Frankreich ausbrachte, hat kein Land ſo<lb/>
+<pb n="23" facs="#f0030"/>
+viel Theil und ſo viel Schaden genommen,<lb/>
+als Deutſchland. Jene Cultur, die man<lb/>
+Bluͤthe des Rittergeiſtes nennt, ließ ſich<lb/>
+durch Kreuzzuͤge nicht erringen, wenn der<lb/>
+Saame dazu nicht in den Menſchen ſelbſt<lb/>
+vorhanden war; leider aber haben der<lb/>
+Franzoͤſiſche und Deutſche Ritter ſich im-<lb/>
+mer weſentlich unterſchieden. Was in dem<lb/>
+Einem Lande zur Verfeinerung der Sitten,<lb/>
+zur Veredlung gereichte, ging in dem an-<lb/>
+dern auf Pluͤnderung und Unterdruͤckung,<lb/>
+zuletzt aufs rohe Fauſtrecht hinaus. Um<lb/>
+Franzoͤſiſche Ritter auf den Thronen Pa-<lb/>
+laͤſtina's aufrecht zu erhalten, zogen Deut-<lb/>
+ſche Kaiſer mit gewaltigen Heeren gerade<lb/>
+in einem Zeitalter aus, da ihre Anweſen-<lb/>
+heit in Deutſchland am noͤthigſten war;<lb/>
+denn nachdem andre Laͤnder in ihrer inne-<lb/>
+ren Verfaſſung und Conſolidation ſtark<lb/>
+vorgeſchritten waren, ſollte eben die Zeit<lb/>
+<pb n="24" facs="#f0031"/>
+der Schwaͤbiſchen Kaiſer fuͤr Deutſchland<lb/>
+entſcheiden. Sie entſchied ſo, daß nach<lb/>
+dem Tode des letzten Kreuzziehenden Kai-<lb/>
+ſers Friedrich II. das Deutſche Reich drei<lb/>
+und zwanzig Jahre lang oͤffentlich ausge-<lb/>
+boten ward, und faſt niemand eine ſo<lb/>
+druͤckende Krone annehmen wollte.</p><lb/>
+<p>Wie oft zog auch in den folgenden Zei-<lb/>
+ten Frankreichs truͤgender Glanz die Deut-<lb/>
+ſchen an ſich, um ſie angenehm zu vergol-<lb/>
+den! Wer will uns eine Geſchichte der<lb/>
+Fuͤrſten, Prinzen, Grafen und Ritter ge-<lb/>
+ben, die Jahrhunderte hinab in Frankreich<lb/>
+Bildung, Fortkommen, Ehre ſuchten, und<lb/>
+getaͤuſcht zuruͤckkamen? <note place="foot" n="*)" xml:id="note-0031" next="note-0032">„Die den Deutſchen ohnehin ſeit langer<lb/>
+Zeit eigene Nachahmungsſucht erhielt unge-<lb/>
+meine Nahrung durch das immer mehr zur<lb/>
+Gewohnheit werdende Reiſen. Man wird<lb/>
+kaum die Lebensbeſchreibung eines etwas be-</note> Die Univerſi-<lb/>
+<pb n="25" facs="#f0032"/>
+taͤt zu Paris, zu der man eben ſo gewal-<lb/>
+tig hinſtroͤmte, hat in Vielem eben alſo die<lb/>
+Welt getaͤuſchet.</p><lb/>
+<p>Als endlich die Sonne des Franzoͤſi-<lb/>
+ſchen Hofes in ihrem Mittage ſtrahlte, als<lb/>
+<note place="foot" n="*)" xml:id="note-0032" prev="note-0031">deutenden Mannes vom Adel der damaligen<lb/>
+Zeiten finden, wo nicht ſeiner gethanen Rei-<lb/>
+ſen Erwaͤhnung geſchaͤhe. Fremde Sprachen,<lb/>
+Sitten und Moden waren dasjenige, wor-<lb/>
+aus ihre Landesleute nach der Heimkunft<lb/>
+ſchließen ſollten, was ſie fuͤr einen Mann vor<lb/>
+ſich haͤtten. Selbſt die vielen vom Adel ſo-<lb/>
+wohl als dem Volk, die wegen der Kriegs-<lb/>
+dienſte ſo haͤufig nach Frankreich und den<lb/>
+Niederlanden zogen, brachten meiſtens anſtatt<lb/>
+des fremden Geldes, das ſie zu erhaſchen ge-<lb/>
+glaubt, nichts zuruͤck als fremde Moden und<lb/>
+Grimaſſen. Dadurch ward der Abſtand von<lb/>
+den vorigen Sitten in kurzer Zeit ſo groß,<lb/>
+daß mehrere Deutſche Fuͤrſten ſelbſt in ihren<lb/>
+Teſtamenten ihre Soͤhne vor fremder Pracht<lb/>
+warnten. <hi rendition="#g">Schmidts</hi> Geſchichte der Deut-<lb/>
+ſchen, Th. 9. S. 129.</note><lb/>
+<pb n="26" facs="#f0033"/>
+die Sprache, die Sitten, die Verhandlun-<lb/>
+gen deſſelben faſt allenthalben in Europa<lb/>
+den Ton angeben wollten; wer iſt, inſon-<lb/>
+derheit ſeit dem Weſtphaͤliſchen Frieden,<lb/>
+dadurch mehr zu kurz gekommen, als<lb/>
+Deutſchland? Jeder kleine Hof ſollte ein<lb/>
+Verſailles, jede adliche Geſellſchaft ein Cir-<lb/>
+kel Franzoͤſiſcher <hi rendition="#aq">Ducs et Marquis, Prin-<lb/>
+cesses et Comtesses</hi> werden. In Erzie-<lb/>
+hung, Sitten, Sprache, Lebenszweck und<lb/>
+Lebensfuͤhrung trenneten ſich die Staͤnde.<lb/>
+Was dieſe uͤber ein Jahrhundert fortdau-<lb/>
+rende Franzoͤſiſche <hi rendition="#g">Propaganda</hi> und<lb/>
+<hi rendition="#g">Propagata</hi> den Deutſchen fuͤr Unheil<lb/>
+gebohren, davon ſoll ein andrer Brief re-<lb/>
+den. Beſchaͤmt und verwirrt lege ich die<lb/>
+Feder nieder; ſpreche daruͤber ein Fran-<lb/>
+zoſe ſelbſt:</p></div><lb/>
+<pb n="27" facs="#f0034"/>
+<div n="1"><head><hi rendition="#g">Premontval</hi> gegen die Gallicomanie,<lb/>
+und<lb/>
+den falſch-franzoͤſiſchen Geſchmack. <note place="foot" n="*)">Geleſen in der Akademie der Wiſſenſchaften<lb/>
+zu Berlin, 1759.</note></head><lb/>
+<milestone unit="section" rendition="#hr"/> <p>— „<hi rendition="#in">D</hi>ie <hi rendition="#g">Gallicomanie</hi> oder der falſch-<lb/>
+franzoͤſiſche Geſchmack, worauf hat er ſich<lb/>
+nicht heut zu Tage faſt durch ganz Europa<lb/>
+verbreitet? Sitten, Gebraͤuche, Moden, Klei-<lb/>
+der, Manieren, Fantaſieen, Capricen; in alle<lb/>
+dieſem, wie viel ungeſchickte Affen, wie viel<lb/>
+ſchlechte Copien, von leidlichen Originalen<lb/>
+giebts nicht allenthalben! Man hat nicht<lb/>
+ohne Grund geſagt, daß der Franzoſe mei-<lb/>
+ſtens nur laͤcherlich ſey, indeß der Fremde, der<lb/>
+ihn in ſeinem Laͤcherlichen nachahmt, aufs aͤu-<lb/>
+ßerſte widrig und abgeſchmackt werde. Wollte<lb/>
+ich dieſe Wahrheit verfolgen und die zahllo-<lb/>
+ſen Portraͤte zeichnen, die ſie ſehr ſinnlich<lb/>
+<pb n="28" facs="#f0035"/>
+machen, welch ein weites Feld laͤge vor mir!<lb/>
+Ich will mich aber nur an die <hi rendition="#g">Franzoͤſi</hi>-<lb/>
+<hi rendition="#g">ſche Sprache und Literatur</hi> halten.</p><lb/>
+<div n="2"><head>1. Woher der Franzoͤſiſche Geſchmack in<lb/>
+Deutſchland?</head><lb/>
+<p>„Unter allen Europaͤiſchen Nationen iſts<lb/>
+ohne Widerrede die Deutſche Nation, die ſich<lb/>
+am meiſten beſtrebt, unſern Geſchmack nachzu-<lb/>
+ahmen; bei ihr hat ſich unſre Sprache am<lb/>
+allgemeinſten verbreitet. Und das aus ver-<lb/>
+ſchiedenen Urſachen. Die <hi rendition="#g">erſte</hi> iſt ihr ge-<lb/>
+meinſchaftlicher Urſprung. Beide Nationen<lb/>
+koͤnnen ſich als Schweſtern anſehen, oder die<lb/>
+Deutſche kann ſogar mit einigem Wohlgefal-<lb/>
+len die Franzoͤſiſche als eine Tochter betrach-<lb/>
+ten, die ihr oft Ehre gemacht hat. Die<lb/>
+<hi rendition="#g">zweite</hi> Urſache iſt die nahe Nachbarſchaft<lb/>
+beider Nationen. Keine unerſteiglichen Ber-<lb/>
+ge, kein Gefahrvolles Meer trennet ſie, ſon-<lb/>
+dern ein bloßer Strom, mit Staͤdten beſetzt,<lb/>
+<pb n="29" facs="#f0036"/>
+in welchen man zum Theil ſchon beide Spra-<lb/>
+chen redet. Auch giebt es <hi rendition="#g">drittens</hi> keine<lb/>
+Rivalitaͤt und Eiferſucht zwiſchen beiden Voͤl-<lb/>
+kern. Nie haben ſie ſo lange, grauſame,<lb/>
+und große Angelegenheiten betreffende Kriege<lb/>
+gegen einander gefuͤhrt, als z. B. Frankreich<lb/>
+mit England und Spanien. Dazu kommt<lb/>
+<hi rendition="#g">viertens</hi>, daß unſre Armeen, entweder als<lb/>
+Freunde oder als Feinde zu verſchiednen Zei-<lb/>
+ten in alle Theile von Deutſchland gedrungen<lb/>
+ſind und die Voͤlker mit unſern Gebraͤuchen<lb/>
+und mit unſrer Sprache bekannt gemacht ha-<lb/>
+ben. Auch findet die Deutſche Nation Ge-<lb/>
+ſchmack am Reiſen und reiſet gewoͤhnlich zu-<lb/>
+erſt nach Frankreich. <hi rendition="#g">Fuͤnftens</hi> hat die<lb/>
+Auswanderung der <hi rendition="#aq">refugiés</hi> unſere Buͤrger,<lb/>
+unſre Manufacturen, unſre Kuͤnſte, unſern<lb/>
+Geſchmack, unſre Gebraͤuche, unſre Sprache<lb/>
+nirgend ſo leicht verbreitet, nirgend ſo viel und ſo<lb/>
+zahlreiche Colonieen geſtiftet, als in Deutſchland.</p><lb/>
+<p>„Darf ich noch hinzuſetzen, daß die große<lb/>
+Anzahl von Hoͤfen und <hi rendition="#aq">Souverains,</hi> die den<lb/>
+<pb n="30" facs="#f0037"/>
+Deutſchen Staatskoͤrper theilen, auch Eine<lb/>
+der Urſachen geweſen, die zu Verbreitung des<lb/>
+Franzoͤſiſchen Geſchmacks in Deutſchland maͤch-<lb/>
+tig gewirket? Nichts iſt gewiſſer, als dieſes.“</p><lb/>
+<p>„In Deutſchland giebts große und kleine<lb/>
+Hoͤfe, dieſe in einer großen Anzahl, von je-<lb/>
+nen acht oder neun. Beide haben hiebei auf<lb/>
+verſchiedene Art mitgewirket. Die kleinen<lb/>
+<hi rendition="#aq">Souverains,</hi> Prinzen, Grafen, Barons, ſe-<lb/>
+tzen eine Ehre darinn, wie Perſonen von nie-<lb/>
+derm Range zu reiſen, ja mehr als dieſe ge-<lb/>
+reiſet zu ſeyn. Faſt alle gehen nach Frank-<lb/>
+reich, faſt alle bringen ganze Jahre zu Paris<lb/>
+oder am Hofe zu, mit einem anſehnlichen<lb/>
+Gefolge. Werden ſie nicht ihren dort ange-<lb/>
+nommenen Geſchmack in ihre Reſidenzen, d. i.<lb/>
+in hundert und hundert Orte in Deutſchland<lb/>
+mitnehmen? Dieſen theilen ſie ſodann zuerſt<lb/>
+ihren kleinen Hoͤfen und Unterthanen durch<lb/>
+den Einfluß mit, den jeder <hi rendition="#aq">Souverain,</hi> groß<lb/>
+oder klein, uͤber die Geiſter derer hat, die in<lb/>
+ſeiner Dependenz ſind. Von da aus verbrei-<lb/>
+<pb n="31" facs="#f0038"/>
+tet ſich dieſer Geſchmack mit Huͤlfe des Trie-<lb/>
+bes, den alle Menſchen zur Nachahmung ha-<lb/>
+ben, allmaͤlich weiter.. Das alles waͤre nicht<lb/>
+ſo, wenn dieſe kleine <hi rendition="#aq">Souverains</hi> nur reiche<lb/>
+Hofleute, <hi rendition="#aq">(grands Seigneurs)</hi> waͤren, die<lb/>
+nach ihrer Ruͤckkunft aus Frankreich ſich in ei-<lb/>
+ner Hauptſtadt, wie <hi rendition="#g">Madrid</hi>, <hi rendition="#g">London</hi> u. f.<lb/>
+ſich in einer Menge verloͤren. An einem Ho-<lb/>
+fe, wo ein Einzelner fuͤr ſeine Perſon wenig<lb/>
+bedeutet, im Ganzen aber ein feſtgeſetzter, be-<lb/>
+ſtimmter Ton und Charakter herrſchet, wird<lb/>
+ein Engliſcher Lord, ein Spaniſcher Grand<lb/>
+den Firniß, den er nachahmend auf Reiſen<lb/>
+an ſich gezogen hatte, bald wegthun, und zwar<lb/>
+aus eben demſelben Principium der Nachah-<lb/>
+mung. Er wird ſich mit andern, die ihn<lb/>
+umgeben, in Uniſon ſetzen, oder wenigſtens<lb/>
+wird ſein Reſtchen fremder Farbe keinen gro-<lb/>
+ßen Einfluß haben. — Gluͤckes gnug, wenn<lb/>
+man ihn nicht laͤcherlich findet.“</p></div><lb/>
+<pb n="32" facs="#f0039"/>
+<div n="2"><head>2. Folgen der Gallicomanie in Deutſchland.</head><lb/>
+<p>— „Der <hi rendition="#g">erſte</hi> Misbrauch, der aus die-<lb/>
+ſem verbreiteten Franzoͤſiſchen Geſchmack ent-<lb/>
+ſpringt, iſt daß man ſeine eigne Sprache ver-<lb/>
+nachlaͤßigt; (woran man gewiß Unrecht hat;<lb/>
+ich kann es nicht gnug wiederholen!) ein<lb/>
+ſchreiender Misbrauch. Mit einem Wort, es<lb/>
+geht ſo weit, daß eine ungeheure Menge von<lb/>
+Perſonen <hi rendition="#g">ſich piquirt</hi>, nur franzoͤſiſch zu<lb/>
+leſen, und daß ſie es endlich ſo weit bringen,<lb/>
+ihre eigne Schriftſteller nicht mehr verſtehen<lb/>
+zu koͤnnen. Ich habe, ja ich habe Deutſche<lb/>
+gekannt, Leute von Geiſt und Verdienſt, die<lb/>
+das beſte, das wir in unſrer Sprache pro-<lb/>
+ſaiſch und poetiſch haben, mit Nutzen laſen,<lb/>
+und geſtanden, daß ſie die Dichter ihrer eig-<lb/>
+nen Sprache durchaus nicht verſtuͤnden, ſo<lb/>
+gar behaupteten, daß die Schuld hiebei an den<lb/>
+Dichtern, nicht an ihnen ſelbſt liege. Ich<lb/>
+mußte ihnen zeigen, daß an ihrer Seite die<lb/>
+Schuld ſei, da ihnen alle Uebung und Be-<lb/>
+<fw type="catch" place="bottom">kannt-</fw><lb/>
+<pb n="33" facs="#f0040"/>
+kanntſchaft mit einer Sprache fehle, die ſich<lb/>
+uͤber die gemeine Volksſprache nur etwas er-<lb/>
+hebet. Sie verwunderten ſich, wenn ich ih-<lb/>
+nen verſicherte, daß mich dieſe Sprache nicht<lb/>
+abſchreckte, daß ſie mir vielmehr leichter wuͤr-<lb/>
+de, als die platte, ſchwatzhafte Proſe der Zei-<lb/>
+tungsſchreiber. Dieſe voͤllige Unbekanntſchaft<lb/>
+mit den Dichtern ihrer eignen Nation iſt in<lb/>
+Deutſchland der Fall bei ſo vielen Perſonen,<lb/>
+daß es ein wahres Wunder iſt, daß man in<lb/>
+dieſem Lande dennoch die Muſen cultiviret.<lb/>
+Sehr wenige Deutſche alſo <hi rendition="#g">wiſſen</hi> ihre<lb/>
+Sprache (außer einem gewiſſen Geſchwaͤtz des<lb/>
+taͤglichen gemeinen Lebens) denn man <hi rendition="#g">weiß</hi><lb/>
+eine Sprache nicht, deren Dichter man nicht<lb/>
+verſtehet. Und da der ausſchweifende Ge-<lb/>
+ſchmack an der Franzoͤſiſchen Litteratur daran<lb/>
+Schuld iſt, ſo wundert mich der Verdruß und<lb/>
+Unwille nicht, mit dem ihm mehrere Gelehrte<lb/>
+Deutſchlands begegnen.“</p><lb/>
+<p>„Ein <hi rendition="#g">andrer</hi> nicht weniger empfindlicher<lb/>
+Misbrauch, der die Deutſchen von Einſicht<lb/>
+<fw type="sig" place="bottom">Neunte Sammlung. C</fw><lb/>
+<pb n="34" facs="#f0041"/>
+aufbringt, iſt die tolle Wut, jeden Augenblick<lb/>
+Franzoͤſiſche Worte und Redarten im Deut-<lb/>
+ſchen anzubringen; eine Raſerei, die auch die<lb/>
+beſitzt, die ſelbſt kein Franzoͤſiſch wiſſen. Un-<lb/>
+ſre Sprache, wer ſollte es glauben? die Spra-<lb/>
+che eines Volks, das der Pedanterei ſo feind iſt,<lb/>
+iſt zur andringlichſten, unausſtehlichſten Pedan-<lb/>
+terei ſelbſt bei der Deutſchen Nation worden.“</p><lb/>
+<p>— „Alles dies iſt <hi rendition="#g">biſarr</hi> und dient zu<lb/>
+nichts Gutem. Beide Sprachen leiden dabei,<lb/>
+ſelbſt wenn man die Eine und die Andre<lb/>
+Sprache vollkommen inne hat; meiſtens faͤhrt<lb/>
+Eine von beiden dabei ſehr uͤbel. Ein <hi rendition="#aq">Jargon</hi><lb/>
+wird daraus, unwuͤrdig jedes verſtaͤndigen und<lb/>
+vernuͤnftigen Weſens! In Wahrheit, der<lb/>
+Geſchmack fuͤr die Franzoͤſiſche Sprache hat<lb/>
+der Deutſchen Nation einen uͤbeln Dienſt ge-<lb/>
+than, und zum Ungluͤck darf man kaum hof-<lb/>
+fen, einem ſo tief eingewurzelten Uebel abzu-<lb/>
+helfen. Ich ſage dies alles gegen meinen<lb/>
+Privatvortheil: denn ich verſtehe das Deut-<lb/>
+ſche nur in Buͤchern.</p><lb/>
+<pb n="35" facs="#f0042"/>
+<p>Die beiden Misbraͤuche, deren aͤußerſtes<lb/>
+Uebermaas ich bemerkt habe, gereichen beiden<lb/>
+Sprachen, der erſte der Deutſchen, der zwei-<lb/>
+te der Deutſchen und Franzoͤſiſchen unendlich<lb/>
+zum Schaden; ſie ſind aber nichts gegen einen<lb/>
+<hi rendition="#g">dritten</hi> Nachtheil, der auf nichts geringeres<lb/>
+ausgeht, als den Geiſt und Geſchmack der<lb/>
+Nation ſelbſt im Grunde zu verderben. Und<lb/>
+dies geſchieht unfehlbar durch die Wahl einer<lb/>
+uͤblen Lectur und durch den ſchlechten Ge-<lb/>
+brauch der beſten Schriften. Glaube man<lb/>
+doch nicht, daß dieſe uͤbertriebnen Liebhaber<lb/>
+der Franzoͤſiſchen Sprache, die ſie radebrechen,<lb/>
+ihre wahre Schoͤnheiten und die in ihr ge-<lb/>
+ſchriebenen ſchaͤtzbarſten Werke je gekannt ha-<lb/>
+ben? Sind ſie dazu faͤhig? Guter Gott!<lb/>
+Die Geiſtesgeſtalt, die ihnen die Schoͤnheiten<lb/>
+ihrer eignen Sprache ſo ganz und gar mis-<lb/>
+kenntlich macht, daß ſie ſie vernachlaͤßigen<lb/>
+und auf die erbaͤrmlichſte Art verderben; dieſe<lb/>
+Geiſtesbildung, oder vielmehr dieſe fuͤr jede<lb/>
+<fw type="sig" place="bottom">C 2</fw><lb/>
+<pb n="36" facs="#f0043"/>
+Sprache, fuͤr jede Literatur misgebildete<lb/>
+Schiefheit und Unform, bringt zu unſern<lb/>
+Schriftſtellern eine Grundlage von Pedante-<lb/>
+rei, die ein wahrer Antipode von aller Deli-<lb/>
+cateſſe des wahren Franzoͤſiſchen Geſchmacks<lb/>
+iſt. Oder ſie bringen einen Leichtſinn zu ih-<lb/>
+nen, der nur den Namen des ſchlechteſten, ei-<lb/>
+nes falſchen Franzoͤſiſchen Geſchmacks verdie-<lb/>
+net. Wiſſen ſie nur einmal, was es ſei, gute<lb/>
+Schriftſteller leſen? Wiſſen ſie, daß es nicht<lb/>
+zu viel iſt, ſie zehn, zwanzig, dreißig mal mit<lb/>
+Geſchmack, mit Fleiß und Anſtrengung leſen,<lb/>
+um ſie zu verdauen, um ihren Inhalt in<lb/>
+Blut und Saft zu verwandeln? Nichts we-<lb/>
+niger, als dieſes. Eine einmalige fluͤchtige<lb/>
+Lectur, und weſſen? einer kleinen Zahl<lb/>
+von Werken, die den meiſten Ruf, die<lb/>
+man ſich ruͤhmen will geleſen zu haben; ein<lb/>
+Zwanzig vielleicht, von denen ihnen nichts<lb/>
+blieb, ſelbſt die bekanntſten Anſpielungen nicht,<lb/>
+die in der Geſellſchaft oder in den Schrift-<lb/>
+<pb n="37" facs="#f0044"/>
+ſtellern vorkommen <note place="foot" n="*)">Viele große Liebhaber der Franzoͤſiſchen Lec-<lb/>
+ture wußten nicht, wer <hi rendition="#aq">Cotin</hi> ſei, und ver-<lb/>
+wandelten ihn ſehr gelehrt in <hi rendition="#aq">Catin.</hi></note>. Endlich nur neue Buͤ-<lb/>
+cher, nur Zeitſchriften!“</p><lb/>
+<p>„In Frankreich unterſcheidet man gute und<lb/>
+ſchlechte Buͤcher; man tadelt den falſchen Ge-<lb/>
+ſchmack und ſeufzet uͤber den Verfall der Wiſ-<lb/>
+ſenſchaft, indeß in Deutſchland die Verfechter<lb/>
+der Franzoͤſiſchen Literatur weit entfernt ſind,<lb/>
+ſo etwas auch nur zu vermuthen. Leute von<lb/>
+Geſchmack wiſſen es und ſchweigen, man<lb/>
+ſchwimmt nicht gern gegen den Strom. Und<lb/>
+ich, der ich es zuerſt wage, welchen Wider-<lb/>
+ſpruͤchen und <hi rendition="#g">Tracaßerien</hi> ſetze ich mich<lb/>
+aus! Welch eines Muths, welcher Geduld<lb/>
+habe ich noͤthig!“</p><lb/>
+<p>„Woher kommts, daß in England der<lb/>
+falſch-franzoͤſiſche Geſchmack die boͤſen Wir-<lb/>
+kungen nicht hervorgebracht hat, wie in Deutſch-<lb/>
+land? Die Urſache iſt klar. Die Neigung<lb/>
+<pb n="38" facs="#f0045"/>
+fuͤr unſre Literatur und Sprache war da<lb/>
+viel gemaͤßigter. Der Nationalhaß erregte<lb/>
+Mitbewerbung; man las nicht ſinnlos, man<lb/>
+ſtarrte nicht bewundernd an, ſondern eiferte<lb/>
+nach und voran. Dieſe Eiferſucht, ſo unge-<lb/>
+recht ſie manchmal war, hatte fuͤr die Nation<lb/>
+eine gute Wirkung. Man ließ ſich nicht un-<lb/>
+terjochen, am wenigſten ſo weit, daß man ſei-<lb/>
+ne eigne Sprache aufgegeben, die Werke ſei-<lb/>
+ner Mitbuͤrger verachtet und dieſe durch den<lb/>
+Mangel an Aufmerkſamkeit fuͤr ihre Bemuͤ-<lb/>
+hungen ganz muthlos gemacht haͤtte, wie man<lb/>
+es in Deutſchland gethan hat; und am Ende<lb/>
+wozu gethan hat? Um eine fremde Sprache<lb/>
+ſchlecht zu verſtehen, ſie noch ſchlechter zu<lb/>
+ſprechen und in ihr nichts als Thorheiten zu<lb/>
+leſen. Schoͤner Gewinn dafuͤr, daß man in<lb/>
+ſeinem Lande ein doppelter Barbar wird!<lb/>
+Lohnte dies der Muͤhe, ſich mit unſrer Lite-<lb/>
+ratur zu uͤberſtopfen, geſetzt dieſe haͤtte auch<lb/>
+tauſendmal mehr Verdienſt, als man ihr zu-<lb/>
+geſteht, um ſolchen Preis?“</p><lb/>
+<pb n="39" facs="#f0046"/>
+<p>„Verhehlen kann man ſichs alſo auch nicht,<lb/>
+daß der Fortgang beider Nationen, der Eng-<lb/>
+liſchen und Deutſchen, ſich wie ihr verſchiede-<lb/>
+nes Betragen verhalte. Hier entſcheidet die<lb/>
+That; ich will und kann nicht entſcheiden.<lb/>
+Daß die Engliſche Literatur die Deutſche an<lb/>
+Verdienſt uͤbertreffe, erweiſet ſich augenſchein-<lb/>
+lich dadurch, daß man in Deutſchland, wie in<lb/>
+ganz Europa, Engliſche Werke ſucht und lie-<lb/>
+ſet, da hingegen England ſowohl als ganz<lb/>
+Europa um Deutſche Werke ſehr unbekuͤm-<lb/>
+mert iſt. Gegen dieſen Beweis laͤßt ſich nichts<lb/>
+einwenden; die Deutſche Nation giebt hier<lb/>
+ihre Stimme wider ſich ſelbſt. — Uebrigens<lb/>
+bin ich weit entfernt zu glauben, daß es zwi-<lb/>
+ſchen den Nationen weſentliche Verſchieden-<lb/>
+heit, unabhaͤngig von ihrer Geiſtescultur gebe.<lb/>
+Der Deutſche wird Delicateſſe zeigen, wie<lb/>
+der Franzoſe, Tiefſinn und Erhabenheit wie<lb/>
+der Englaͤnder, wenn er auf dem rechten<lb/>
+Wege ſeyn wird; er iſt aber noch nicht dar-<lb/>
+auf. Und die Urſache davon liegt, wie ich<lb/>
+<pb n="40" facs="#f0047"/>
+glaube, in ſeiner Leidenſchaft nicht fuͤr die<lb/>
+Franzoͤſiſche allein, ſondern fuͤr jede Sprache,<lb/>
+ſobald ſie nur nicht die ſeinige iſt. Nur in<lb/>
+dieſer falſchen und ſchiefen Neigung liegt es.<lb/>
+Seine Sprache iſt jedes Ausdrucks empfaͤn-<lb/>
+gig; warum bauet er ſie nicht an, wie er ſoll-<lb/>
+te? Meinethalb lerne er auch Franzoͤſiſch;<lb/>
+nur auf eine Art, die ihm Ehre bringe und<lb/>
+nicht gar laͤcherlich macht. Er halte ſich in<lb/>
+ihr an die unſterblichen Werke, die den Ruhm<lb/>
+Frankreichs ausmachen, und naͤhre ſich in ih-<lb/>
+nen mit Geſchmack. Geiſtige wie koͤrperliche<lb/>
+Nahrung, wenn ſie gedeihen ſoll, will geko-<lb/>
+ſtet, genoſſen werden. Man muß zu ihr von<lb/>
+einer Begierde, einem Hunger getrieben wer-<lb/>
+den, der nicht erkuͤnſtelt, nicht der Appetit ei-<lb/>
+ner verdorbenen Geſundheit ſei. Die Deut-<lb/>
+ſche Nation, im Grund' eine Nation von<lb/>
+veſtem und edeln Sinn; (ein veſter Sinn<lb/>
+aber haßt Frivolitaͤt, ſo wie ein edler Sinn<lb/>
+jedes Niedertraͤchtigen Feind iſt) um dieſen<lb/>
+lobenswuͤrdigen Eigenſchaften treu zu bleiben<lb/>
+<pb n="41" facs="#f0048"/>
+laſſe der Deutſche fortan und immer ſowohl<lb/>
+jene nichtswuͤrdige falſchſchimmernde Franzoͤ-<lb/>
+ſiſche Schoͤngeiſterei, als jene unfoͤrmliche<lb/>
+Plattheiten, deren vieljaͤhrige Geltung ihm<lb/>
+gnugſam zeiget, in welchem Irrthum er ſei<lb/>
+und mit welchem Uebel, von welchem er nicht<lb/>
+die geringſte Ahnung hat, er behaftet gewe-<lb/>
+ſen.“ So weit <hi rendition="#g">Premontval</hi>. <note place="foot" n="*)">Lange vor <hi rendition="#g">Premontval</hi> hatten Deutſche<lb/>
+uͤber dieſen Misbrauch geklagt; eine Biblio-<lb/>
+thek von Beſchwerden der Deutſchen und<lb/>
+Spoͤttereien der Auslaͤnder waͤre hieruͤber<lb/>
+anzufuͤhren. <hi rendition="#g">Piccart</hi>, ein eben ſo geſchei-<lb/>
+ter als gelehrter Mann, <hi rendition="#aq">(Obſervat. hiſtor.<lb/>
+politic. Dec. III. Cap. 10.)</hi> zeigt, wie an-<lb/>
+ders Griechen und Roͤmer uͤber den Gebrauch<lb/>
+fremder Sprachen in ihrem Vaterlande ge-<lb/>
+dacht haben. Deßgleichen viele andre. Was<lb/>
+half aber alles dieſes? <hi rendition="#aq">Gens peregrinandi avi-<lb/>
+da et exterorum morum, dum ſe receperit<lb/>
+domum, aut ſimulatrix aut retinens,</hi> ſagt<lb/>
+<hi rendition="#g">Barclai</hi> in ſeinem <hi rendition="#aq">Icon animorum, (c. 5.)</hi><lb/>
+wo er die Deutſchen ſeiner Zeit in mehreren<lb/>
+Zuͤgen treffend ſchildert. A. d. H.</note></p></div></div><lb/>
+<pb n="42" facs="#f0049"/>
+<div n="1"><head><hi rendition="#aq">III.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>ine viel tiefere Wunde hat uns die<lb/>
+<hi rendition="#g">Gallicomanie</hi> (<hi rendition="#g">Franzoſen</hi>-<hi rendition="#g">Sucht</hi><lb/>
+muͤßte ſie Deutſch heißen) geſchlagen, als<lb/>
+der gute <hi rendition="#g">Premontval</hi> angiebt. An ſei-<lb/>
+nem Ort konnte er nicht mehr ſagen, und<lb/>
+hatte gewiß ſchon zu viel geſaget.</p><lb/>
+<p>Wenn Sprache <hi rendition="#g">das Organ unſrer<lb/>
+Seelenkraͤfte</hi>, <hi rendition="#g">das Mittel unſrer<lb/>
+innerſten Bildung und Erziehung</hi><lb/>
+iſt: ſo koͤnnen wir nicht anders als in der<lb/>
+<pb n="43" facs="#f0050"/>
+Sprache unſres Volks und Landes gut er-<lb/>
+zogen werden; eine ſogenannte <hi rendition="#g">Franzoͤ</hi>-<lb/>
+<hi rendition="#g">ſiſche Erziehung</hi>, (wie man ſie auch<lb/>
+wirklich nannte) <hi rendition="#g">in Deutſchland</hi> muß<lb/>
+Deutſche Gemuͤther nothwendig mißbilden<lb/>
+und irre fuͤhren. Mich duͤnkt, dieſer Satz<lb/>
+ſtehe ſo hell da, als die Sonne am Mit-<lb/>
+tage.</p><lb/>
+<p>Von wem und fuͤr wen ward die Fran-<lb/>
+zoͤſiſche Sprache gebildet? Von Franzo-<lb/>
+ſen, fuͤr Franzoſen. Sie druckt Begriffe<lb/>
+und Verhaͤltniſſe aus, die in <hi rendition="#g">ihrer</hi> Welt,<lb/>
+im Lauf <hi rendition="#g">ihres</hi> Lebens liegen; ſie bezeich-<lb/>
+net ſolche auf eine Weiſe, wie ſie ihnen<lb/>
+dort jede Situation, der fluͤchtige Augen-<lb/>
+blick, und die ihnen eigne Stimmung der<lb/>
+Seele in dieſem Augenblick angiebt. Au-<lb/>
+ßer dieſem Kreiſe werden die Worte halb<lb/>
+oder gar nicht verſtanden, uͤbel angewandt,<lb/>
+oder ſind, wo die Gegenſtaͤnde fehlen, gar<lb/>
+<pb n="44" facs="#f0051"/>
+nicht anwendbar, mithin Nutzlos gelernet.<lb/>
+Da nun in keiner Sprache ſo ſehr die<lb/>
+<hi rendition="#g">Mode</hi> herrſcht, als in der Franzoͤſiſchen,<lb/>
+da keine Sprache ſo ganz das Bild der<lb/>
+Veraͤnderlichkeit, eines wechſelnden Farben-<lb/>
+ſpiels in Sitten, Meinungen, Beziehungen<lb/>
+iſt, als ſie; da keine Sprache wie ſie leich-<lb/>
+te Schatten bezeichnet und auf einem Far-<lb/>
+benclavier glaͤnzender Lufterſcheinungen und<lb/>
+Stralenbrechungen ſpielet; was iſt ſie zur<lb/>
+Erziehung Deutſcher Menſchen in <hi rendition="#g">ihrem</hi><lb/>
+Kreiſe? Nichts, oder ein Irrlicht. Sie<lb/>
+laͤßt die Seele leer von Begriffen, oder<lb/>
+giebt ihr fuͤr die wahren und weſentlichen<lb/>
+Beziehungen unſres Vaterlandes falſche<lb/>
+Ausdruͤcke, ſchiefe Bezeichnungen, fremde<lb/>
+Bilder und Affectationen. Aus ihrem<lb/>
+Kreiſe geruͤckt, <hi rendition="#g">muß</hi> ſie ſolche, und waͤre<lb/>
+ſie eine Engelsſprache, geben. Alſo iſt es<lb/>
+gar nicht vermeſſen zu ſagen, daß ſie un-<lb/>
+<pb n="45" facs="#f0052"/>
+ſrer Nation, in den Staͤnden, wo ſie die<lb/>
+Erziehung leitete, oder vielmehr die ganze<lb/>
+Erziehung war, den Verſtand verſchoben,<lb/>
+das Herz veroͤdet, uͤberhaupt aber die See-<lb/>
+le an dem Weſentlichſten leer gelaſſen hat,<lb/>
+was dem Gemuͤth Freude an ſeinem Ge-<lb/>
+ſchlecht, an ſeiner Lage, an ſeinem Beruf<lb/>
+giebt; und ſind dies nicht die ſuͤßeſten<lb/>
+Freuden? haben Sie je den Cours einer<lb/>
+Deutſch-Franzoͤſiſchen Erziehung kennen ge-<lb/>
+lernt? Fuͤr Deutſche eine ſchoͤne Einoͤde<lb/>
+und Wuͤſte! —</p><lb/>
+<p>Und doch beſtehet der ganze <hi rendition="#g">Werth</hi> ei-<lb/>
+nes Menſchen, ſeine buͤrgerliche <hi rendition="#g">Nutzbar</hi>-<lb/>
+<hi rendition="#g">keit</hi>, ſeine menſchliche und buͤrgerliche<lb/>
+<hi rendition="#g">Gluͤckſeligkeit</hi> darinn, daß er von Ju-<lb/>
+gend auf den Kreis <hi rendition="#g">ſeiner Welt</hi>, ſeine<lb/>
+Geſchaͤfte und Beziehungen, die Mittel und<lb/>
+Zwecke derſelben, genau und aufs reinſte<lb/>
+kennen lerne, daß er uͤber ſie im eigenſten<lb/>
+<pb n="46" facs="#f0053"/>
+Sinn geſunde Begriffe, herzliche froͤhliche<lb/>
+Neigungen gewinne, und ſich in ihnen un-<lb/>
+geſtoͤrt, unverruͤckt, ohne ein untergelegtes<lb/>
+fremdes und falſches Ideal, ohne Schielen<lb/>
+auf auswaͤrtige Sitten und Beziehungen<lb/>
+<hi rendition="#g">uͤbe</hi>. Wem dies Gluͤck nicht zu Theil<lb/>
+ward, deſſen Denkart wird verſchraubt,<lb/>
+ſein Herz bleibt kalt fuͤr die Gegenſtaͤnde,<lb/>
+die ihn umgeben; oder vielmehr von einer<lb/>
+fremden Buhlerin wird ihm in jugendli-<lb/>
+chem Zauber auf Lebenslang ſein Herz <hi rendition="#g">ge</hi>-<lb/>
+<hi rendition="#g">ſtohlen</hi>.</p><lb/>
+<p>Hat Ihnen das Gluͤck nie einen Deutſch-<lb/>
+Franzoͤſiſchen Liebesbriefwechſel zugefuͤhret?<lb/>
+Vielleicht die ſchoͤnſte Blumenleſe auswaͤr-<lb/>
+tiger Empfindungen; auf Deutſchem Bo-<lb/>
+den duͤrres Heu, mit verwelkten Blumen.<lb/>
+Jetzt muß man lachen, jetzt ſich ver-<lb/>
+wundern, am Ende aber moͤchte man<lb/>
+uͤber die nicht ausgebrannte, ſondern ſo<lb/>
+<pb n="47" facs="#f0054"/>
+fruͤh ausgeſpuͤlte, flache Sentimentalitaͤt<lb/>
+weinen.</p><lb/>
+<p>Kennen Sie <hi rendition="#g">Swifts</hi> <hi rendition="#aq">Tea-table Miſ-<lb/>
+cellanies?</hi> Gehen Sie in die galanten<lb/>
+Cirkel der Deutſch-Franzoͤſiſchen Conver-<lb/>
+ſation; und ſuchen Gedanken, ſuchen wah-<lb/>
+re und angenehme Unterhaltung; Sie wer-<lb/>
+den den alten <hi rendition="#g">Swift</hi> in Leerheit ſowohl<lb/>
+als anmuthigen Fortleitungen des Ge-<lb/>
+ſpraͤchs uͤbertroffen finden. „Deutſch ſpre-<lb/>
+che ich nicht in dieſer Geſellſchaft: im<lb/>
+Deutſchen ſagt man immer zu viel, und<lb/>
+hier will ich nichts ſagen. Wir zaͤhlen einan-<lb/>
+der Zahlpfennige zu; die Deutſche Sprache<lb/>
+will wahre Muͤnze. Sie iſt ſo ehrlich, ſo herz-<lb/>
+lich wie eine Bauerdirne. Wir ſind hier in<lb/>
+guter, d. i. leerer Geſellſchaft.“ Ein ſolches<lb/>
+Leben, ein ſolcher Ton der Seele, eine Ge-<lb/>
+wohnheit dieſer Art, von Kindheit auf ſich zur<lb/>
+Form gemacht; ſind ſie nicht traurig?</p><lb/>
+<pb n="48" facs="#f0055"/>
+<p>Was haben wir denn in der Welt ſchaͤtz-<lb/>
+bareres als die <hi rendition="#g">wahre</hi> Welt wirklicher<lb/>
+Herzen und Geiſter? Daß wir unſre Ge-<lb/>
+danken und Gefuͤhle in ihrer eigenſten<lb/>
+Geſtalt anerkennen und ſie andern auf die<lb/>
+treueſte, unbefangenſte Art aͤußern, daß<lb/>
+andre dagegen uns <hi rendition="#g">ihre</hi> Gedanken, <hi rendition="#g">ihre</hi><lb/>
+Empfindungen wiedergeben, kurz, daß je-<lb/>
+der Vogel ſinge, wie die Natur ihn ſingen<lb/>
+hieß? Iſt dies Licht erloͤſcht, dieſe Flam-<lb/>
+me erſtickt, dies urſpruͤngliche Band zwi-<lb/>
+ſchen den Gemuͤthern zerriſſen oder verzau-<lb/>
+ſet; ſtatt des allen ſagen wir auswendig-<lb/>
+gelernte, fremde, armſelige Phraſeologieen<lb/>
+her; o des Jammers! der ewigen Flach-<lb/>
+heit und Falſchheit! Eine Geiſt- und Herz-<lb/>
+austrocknende Duͤrre und Kaͤlte. Den ei-<lb/>
+gentlichen Beſitzern dieſer Sprache gnuͤgt<lb/>
+ſolche: denn ſie leben in ihr; ſie beleben<lb/>
+ſie mit ihrer froͤhlichen Leichtigkeit und<lb/>
+<fw type="catch" place="bottom">Sprach-</fw><lb/>
+<pb n="49" facs="#f0056"/>
+Sprachſeligen Anmuth. Wir Deutſche<lb/>
+aber, mit <hi rendition="#g">unſrer</hi> Leichtigkeit? mit <hi rendition="#g">un</hi>-<lb/>
+<hi rendition="#g">ſerm</hi> Franzoͤſiſchen Scherz? O alle Gra-<lb/>
+zien und Muſen! —</p><lb/>
+<p>Jedermann muß bemerkt haben, daß es<lb/>
+im ganzen Europa keine verſchiedenere<lb/>
+Denk- und Mundarten gebe, als die Fran-<lb/>
+zoͤſiſche und Deutſche, ſo nachbarlich ſie<lb/>
+wohnen. Aus keiner Sprache iſt ſo ſchwer<lb/>
+zu uͤberſetzen, als aus der Franzoͤſiſchen,<lb/>
+wenn der Deutſchen Sprache ihr Recht,<lb/>
+ihre urſpruͤngliche Art bleiben ſoll; vol-<lb/>
+lends das Eigenſte derſelben, ihr Geiſt<lb/>
+und Scherz, ihre fluͤchtigen Malereien und<lb/>
+Bezeichnungen, Spiele der Phantaſie und<lb/>
+der leichteſten Bemerkung ſind uns ganz<lb/>
+fremde. Wie ſchwerfaͤllig geht die Fran-<lb/>
+zoͤſiſche Comoͤdie auf unſern Theatern ein-<lb/>
+her! wie hoͤlzern klingen im Deutſchen ihre<lb/>
+froͤhlichſten Geſellſchaftslieder! Und ihre<lb/>
+<fw type="sig" place="bottom">Neunte Sammlung D</fw><lb/>
+<pb n="50" facs="#f0057"/>
+Verſification, der Ton ihrer <hi rendition="#aq">Contes à rire,</hi><lb/>
+ihre tauſend Uebereinkommniſſe uͤber das<lb/>
+Schickliche und Unſchickliche im Ausdruck,<lb/>
+(welches alles ſie <hi rendition="#g">Regeln des Ge</hi>-<lb/>
+<hi rendition="#g">ſchmacks</hi> zu nennen belieben;) wem iſt<lb/>
+es fremder als der Deutſchen Sprache und<lb/>
+Denkart? Viel leichter koͤnnen wir uns<lb/>
+unter Griechen und Roͤmer, unter Spa-<lb/>
+nier, Italiaͤner und Englaͤnder verſetzen,<lb/>
+als in <hi rendition="#g">ihren</hi> Kreis anmuthiger Frivoli-<lb/>
+taͤten und Wortſpiele. Geſchieht dies end-<lb/>
+lich, zwingen wir uns von Jugend an die-<lb/>
+ſe Form auf, gelangen wir mit ſaurer<lb/>
+Muͤhe zu der Vortreflichkeit, wozu wenige<lb/>
+gelangen, Franzoͤſiſch zu denken, zu ſcher-<lb/>
+zen und zu amphiboliſiren; was haben wir<lb/>
+gewonnen? Daß der Franzoſe den Deut-<lb/>
+ſchen <hi rendition="#g">Ungeſchmack</hi>, die Tudeſke Muſe,<lb/>
+lobend verhoͤhnet, und wir unſre natuͤrliche<lb/>
+Denkart einbuͤßten. Schwerlich giebt es<lb/>
+<pb n="51" facs="#f0058"/>
+eine ſchimpflichere Sklaverei, als die Dienſt-<lb/>
+barkeit unter Franzoͤſiſchem Witz und Ge-<lb/>
+ſchmack, in Franzoͤſiſchen Wortfeſſeln.</p><lb/>
+<p>Und ſie macht uns andrer, ſtaͤrkerer<lb/>
+Eindruͤcke ſo unfaͤhig, ſo in uns ſelbſt er-<lb/>
+ſtorben! Sagen Sie einer flachen Seele<lb/>
+von Deutſch-Franzoͤſiſcher Erziehung das<lb/>
+Staͤrkſte, das Beſte in einer andern Spra-<lb/>
+che; man verſteht ſie <hi rendition="#g">Franzoͤſiſch</hi>. Laſ-<lb/>
+ſen Sie es ſich wieder ſagen, und Sie wer-<lb/>
+den ſich vor Ihrem eignen Gedanken oft<lb/>
+ſchaͤmen. Die Sprachrichtigſten Franzoſen,<lb/>
+wie interpretiren ſie die Alten? wie uͤber-<lb/>
+ſetzen ſie aus neueren Sprachen? Laͤſe<lb/>
+ſich <hi rendition="#g">Horaz</hi> in einer Franzoͤſiſchen Ueber-<lb/>
+ſetzung, was wuͤrde er ſagen? Da nun<lb/>
+die Deutſche Sprache, (ohne alle Ruhm-<lb/>
+redigkeit ſei es geſagt) gleichſam nur <hi rendition="#g">Herz<lb/>
+und Verſtand</hi> iſt, und ſtatt feiner Zier-<lb/>
+de Wahrheit und Innigkeit liebet; ſo zer-<lb/>
+<fw type="sig" place="bottom">D 2</fw><lb/>
+<pb n="52" facs="#f0059"/>
+<supplied>ſt</supplied>aͤubt ihr Nachdruck einem gemeinen Fran-<lb/>
+zoͤſiſchen Ohr, wie der fallende Strom, der<lb/>
+ſich in Nebel aufloͤſet. Wie manchen ho-<lb/>
+hen Begriff, wie manches edle Wort auch<lb/>
+der alten Roͤmerſprache hat die Galliſche<lb/>
+Eitelkeit geſchminkt, entnervt, verderbet!</p><lb/>
+<p>Wenn ſich nun, wie offenbar iſt, durch<lb/>
+dieſe thoͤrichte Gallicomanie in Deutſchland<lb/>
+ſeit einem Jahrhunderte her <hi rendition="#g">ganze Staͤn</hi>-<lb/>
+<hi rendition="#g">de und Volksclaſſen von einander<lb/>
+getrennt haben</hi>; mit wem man Deutſch<lb/>
+ſprach, der war <hi rendition="#aq">Domestique,</hi> (nur mit<lb/>
+denen von gleichem Stande ſprach man<lb/>
+Franzoͤſiſch, und foderte von ihnen dieſen<lb/>
+<hi rendition="#aq">jargon</hi> als ein Zeichen des Eintritts in die<lb/>
+Geſellſchaft von guter Erziehung, als ein<lb/>
+Standes-Ranges- und Ehrenzeichen;) zur<lb/>
+Dienerſchaft ſprach man wie man zu Knech-<lb/>
+ten und Maͤgden ſprechen muß, ein<lb/>
+<hi rendition="#g">Knecht</hi>- <hi rendition="#g">und Maͤgde</hi>-<hi rendition="#g">Deutſch</hi>, weil<lb/>
+<pb n="53" facs="#f0060"/>
+man ein edleres, ein beſſeres Deutſch nicht<lb/>
+verſtand und uͤber ſie in dieſer Denkart<lb/>
+dachte; wenn dies ein ganzes reines Jahr-<lb/>
+hundert ungeſtoͤrt, mit wenigen Ausnah-<lb/>
+men, ſo fortging; doͤrfen wir uns wohl<lb/>
+wundern, warum die Deutſche Nation ſo<lb/>
+nachgeblieben, ſo zuruͤckgekommen, und gan-<lb/>
+zen Staͤnden nach ſo leer und veraͤchtlich<lb/>
+worden iſt, als wir ſie leider nach dem Ge-<lb/>
+ſammt-Urtheil andrer Nationen im Ange-<lb/>
+ſicht Europa's finden? Bis auf die Zei-<lb/>
+ten <hi rendition="#g">Maximilians</hi> war die Deutſche<lb/>
+Nation, ſo oft auch ihre Ehrlichkeit ge-<lb/>
+mißbraucht ward, dennoch eine <hi rendition="#g">geehrte</hi><lb/>
+Nation; ſtandhaft in ihren Grundſaͤtzen,<lb/>
+bieder in ihrer Denkart und Handlungs-<lb/>
+weiſe. Seit fremde Voͤlker mit ihren<lb/>
+Sitten und Sprachen ſie beherrſchten, von<lb/>
+Karl dem fuͤnften an, ging ſie hinunter.<lb/>
+Die Reformation trennte, das politiſche<lb/>
+<pb n="54" facs="#f0061"/>
+Intereſſe trennte. Zuerſt kam Spaniſches<lb/>
+Cerimoniel zu uns; bald ſchrieben die Fuͤr-<lb/>
+ſten, Prinzen, Generale Italiaͤniſch, bis<lb/>
+ſeit dem Glorreichen dreißigjaͤhrigen Kriege<lb/>
+nach und nach faſt das ganze Reich an<lb/>
+Hoͤfen und in den obern Staͤnden eine<lb/>
+Provinz des Franzoͤſiſchen Geſchmacks ward.<lb/>
+Hinweg war jetzt in dieſen Staͤnden der<lb/>
+Deutſche Charakter! Frankreich ward die<lb/>
+gluͤckliche Geburtsſtaͤte der Moden, der Ar-<lb/>
+tigkeit, der Lebensweiſe. An Hoͤfen bekam<lb/>
+Alles andre Namen; in manchen Laͤndern<lb/>
+ward die ganze Landesverwaltung Franzoͤ-<lb/>
+ſiſch eingerichtet. Den Landesherrn, die<lb/>
+voreinſt Deutſche Fuͤrſten und Landesver-<lb/>
+walter waren, ward jetzt wohl, wenn ſie<lb/>
+ſich unter ihres Gleichen durch eine frem-<lb/>
+de Sprache in einem andern Lande finden<lb/>
+konnten, und an Geſchaͤfte nur von einer<lb/>
+abgeſonderten Claſſe Menſchen, (der Na-<lb/>
+<pb n="55" facs="#f0062"/>
+tion, die ſie naͤhrte,) in grobem Deutſch<lb/>
+erinnert werden dorften. Die Edeln und<lb/>
+Ritter folgten ihnen; der weibliche Theil<lb/>
+unſrer, <hi rendition="#g">nicht mehr unſrer</hi> Nation<lb/>
+(denn von den Muͤttern haͤngt doch faſt<lb/>
+aller gute oder ſchlechte Geſchmack der Er-<lb/>
+ziehung ab) uͤbertraf beide. So geſchah,<lb/>
+was geſchehen iſt; Adel und Franzoͤſiſche<lb/>
+Erziehung wurden Eins und Daſſelbe; man<lb/>
+ſchaͤmte ſich der Deutſchen Nation, wie<lb/>
+man ſich eines Fleckens in der Familie<lb/>
+ſchaͤmet. Deutſche Buͤcher, Deutſche Lite-<lb/>
+ratur in dieſen obern Staͤnden — wie nie-<lb/>
+drig, wie ſchimpflich! Der maͤchtigſte,<lb/>
+wohlhabendſte, Einflußreichſte Theil der<lb/>
+Nation war alſo fuͤr die thaͤtige Bildung<lb/>
+und Fortbildung der Nation <hi rendition="#g">verlohren</hi>;<lb/>
+ja er hinderte dieſe, wie er ſie etwa hin-<lb/>
+dern konnte, ſchon durch ſein Daſeyn.<lb/>
+Denn wenn man nur mit Gott und mit<lb/>
+<pb n="56" facs="#f0063"/>
+ſeinem Pferde Deutſch ſprach; ſo ſtellten<lb/>
+ſich aus Pflicht und Gefaͤlligkeit auch die,<lb/>
+mit denen man alſo ſprach, als Pferde.</p><lb/>
+<p>Werden Sie nicht muͤde, meine Jere-<lb/>
+miade auszuhoͤren; ich ſchreibe ſie nicht<lb/>
+aus Haß und Groll, wozu ich perſoͤnlich<lb/>
+nie die mindeſte Urſache gehabt habe, ſon-<lb/>
+dern mit reinem Gemuͤth, aus dem Welt-<lb/>
+bekannten Buch der Zeiten und — ſie iſt<lb/>
+bald zu Ende.</p><lb/>
+<p>Nachdem alſo der Theil der Nation,<lb/>
+der ſich das Haupt und Herz derſelben<lb/>
+nennet, ihr entwendet war, was ſollten die<lb/>
+armen Schriftſteller thun? Sie betrugen<lb/>
+ſich auf verſchiedene Weiſe. Ein Theil<lb/>
+fuhr fort, lateiniſch zu ſchreiben; und wie-<lb/>
+wohl der Deutſchen Sprache hiedurch <hi rendition="#g">ihr</hi><lb/>
+Beitrag zur Cultur abging, ſo gewann die<lb/>
+Wiſſenſchaft dennoch mehr, als wenn ſie<lb/>
+damals, in der ſeit <hi rendition="#g">Luther</hi> ſehr verfalle-<lb/>
+<pb n="57" facs="#f0064"/>
+nen Sprache, Deutſch geſchrieben haͤtten.<lb/>
+Auch anmuthige Sachen, auch Gedichte<lb/>
+ſchrieben ſie lateiniſch, deren wir aus den<lb/>
+beiden letztvergangnen Jahrhunderten viele<lb/>
+gute, einige vortrefliche haben. Andre,<lb/>
+edle Gemuͤther, ſuchten die Deutſche Spra-<lb/>
+che empor zu bringen; ſie ahmten aus<lb/>
+fremden Sprachen nach, was ſich nachah-<lb/>
+men ließ; ſo erſchienen <hi rendition="#g">Opitz</hi>, <hi rendition="#g">Logau</hi>,<lb/>
+und andre Schleſier, die wenigſtens ver-<lb/>
+hinderten, daß die Deutſche Sprache nicht<lb/>
+ganz und gar zum poͤbelhaften Streitge-<lb/>
+waͤſch damaliger Zeit, oder zur erbaͤrmli-<lb/>
+chen Canzleiſprache herabſank. Einige Fuͤr-<lb/>
+ſten <note place="foot" n="*)" xml:id="note-0064" next="note-0065">Z. B. von <hi rendition="#g">Anhalt</hi>, von <hi rendition="#g">Weimar</hi>, von<lb/>
+<hi rendition="#g">Braunſchweig</hi>, von <hi rendition="#g">Liegnitz</hi> u. f. Ei-<lb/>
+nige derſelben uͤberſetzten ſelbſt, und zwar<lb/>
+ſehr gute Buͤcher, aus dem Italiaͤniſchen,<lb/>
+Franzoͤſiſchen, Spaniſchen. Mehrere Fuͤrſtin-</note> hatten ein Ohr fuͤr ſie; und ſuch-<lb/>
+<pb n="58" facs="#f0065"/>
+ten ihr durch Geſellſchaften, ſogar durch<lb/>
+eigne Arbeiten aufzuhelfen. Andre, ſchlech-<lb/>
+tere Geſellen, ahmten den Franzoͤſiſchen<lb/>
+Witz nach, und ſo entſtand jene Zunft<lb/>
+<hi rendition="#g">Schulfuͤchſe</hi>, die nicht nur beide Spra-<lb/>
+chen erbaͤrmlich mengten, ſondern auch um<lb/>
+ſich ihren aͤltern Bruͤdern gefaͤllig zu ma-<lb/>
+chen, galant wie <hi rendition="#g">Voiture</hi>, affectirt wie<lb/>
+<hi rendition="#g">Balzac</hi>, erhaben wie <hi rendition="#g">Corneille</hi> ſchrie-<lb/>
+ben. Wie ſchaͤmt ſich ein Deutſcher, der,<lb/>
+nicht Franzoͤſiſch erzogen, Alt-Deutſcher<lb/>
+Scham noch faͤhig iſt, wenn er die Deutſch-<lb/>
+franzoͤſiſchen witzigen Schriften dieſes Zeit-<lb/>
+raums mit der Denk- und Schreibart<lb/>
+<hi rendition="#g">Kaiſersbergs</hi>, <hi rendition="#g">Luthers</hi>, <hi rendition="#g">Hans</hi><lb/>
+<note place="foot" n="*)" xml:id="note-0065" prev="note-0064">nen ſahen das Uebel und flehten, und warn-<lb/>
+ten. S. <hi rendition="#g">Moſers</hi> Patriotiſches Archiv der<lb/>
+Deutſchen, und ſeine andern Schriften hin<lb/>
+und wieder.<lb/>
+A. d. H.</note><lb/>
+<pb n="59" facs="#f0066"/>
+<hi rendition="#g">Sachſe</hi> (in ſeinen proſaiſchen Aufſaͤtzen <note place="foot" n="*)">Es waͤre zu wuͤnſchen, daß dieſe Aufſaͤtze,<lb/>
+kurze Geſpraͤche, von <hi rendition="#g">Haͤßlein</hi> oder von<lb/>
+einem andern Kenner der Sprache geſamm-<lb/>
+let, oder im <hi rendition="#g">Bragur</hi> wieder erſchienen.<lb/>
+Sie ſinds werth.<lb/>
+A. d. H.</note>)<lb/>
+uͤberhaupt mit allem, was vor dem Aus-<lb/>
+gange des ſechzehnten Jahrhunderts ge-<lb/>
+ſchrieben ward, vergleichet! — Endlich<lb/>
+blieb uns nichts als die <hi rendition="#g">Fluͤßigkeit</hi>;<lb/>
+und noch jetzt ruͤhmen ſich alle Deutſche<lb/>
+Canzleien, die Regensburgiſche nicht aus-<lb/>
+genommen, daß ſie, der wahren <hi rendition="#aq">Courtoisie</hi><lb/>
+getreu, außerordentlich einnehmend, kurz<lb/>
+und <hi rendition="#g">fluͤßig</hi> ſchreiben. Wer ſollte es glau-<lb/>
+ben? Unſre Canzlei-Courtoiſie, meynen<lb/>
+wir, iſt echt Franzoͤſiſch.</p><lb/>
+<p>Da that ſich endlich (denn die Barm-<lb/>
+herzigkeit wollte, daß es mit uns nicht<lb/>
+<pb n="60" facs="#f0067"/>
+gar aus wuͤrde) ferne vom Hof- und<lb/>
+Schul-Geſchmack hie und da Einer her-<lb/>
+vor, der glaubte, daß auch in Deutſchland<lb/>
+die Sonne ſcheine und die Natur regiere.<lb/>
+<hi rendition="#g">Brockes</hi> waͤhlte den Garten zu ſeinem<lb/>
+Hofe; <hi rendition="#g">Bodmer</hi> ſtahl ſich uͤber die Al-<lb/>
+pen und koſtete einen Athemzug Italiaͤni-<lb/>
+ſcher Luft; kurz, man wagte den kuͤhnen<lb/>
+Gedanken, daß Deutſchland auch außer<lb/>
+den franzoͤſirenden Hoͤfen <hi rendition="#g">Etwas</hi> ſei,<lb/>
+und ſchrieb und ſtritt und dichtete, ſo gut<lb/>
+man konnte. Fuͤr wen? darauf ward An-<lb/>
+fangs nicht gerechnet; es ſchloß ſich aber<lb/>
+bald ein Kreis von Freunden und Feinden.<lb/>
+Die echten Gottſchedianer waren jetzt hin-<lb/>
+ter <hi rendition="#g">Neukirch</hi>, <hi rendition="#g">Heraͤus</hi> und <hi rendition="#g">Koͤnig</hi><lb/>
+der Hofgeſchmack; ſie ſchrieben <hi rendition="#g">fluͤßig</hi>;<lb/>
+was irgend <hi rendition="#aq">myſtere</hi> und <hi rendition="#aq">Tibere</hi> reimen<lb/>
+konnte, war <hi rendition="#g">fuͤr</hi> ſie. Gewiß, wir ſind<lb/>
+undankbar gegen den unbelohnten und un-<lb/>
+<pb n="61" facs="#f0068"/>
+belohnbaren Eifer, von dem damals eini-<lb/>
+ge beſſere Koͤpfe fuͤr einen beſſeren Ge-<lb/>
+ſchmack brannten. Welche Muͤhe uͤbernah-<lb/>
+men ſie! welchen Befehdungen ſetzten ſie<lb/>
+ſich aus! Und wie wenige Luſt, wie we-<lb/>
+nig aͤußere Vortheile ſie dabei eingeerntet<lb/>
+haben, erweiſet die Privatgeſchichte ihres<lb/>
+Lebens.</p><lb/>
+<p><hi rendition="#g">Nachſchrift</hi>. Neulich ſind mir eini-<lb/>
+ge Blaͤtter zu Haͤnden gekommen, der<lb/>
+Auszug aus den Schriften eines Mannes,<lb/>
+der von 1729. bis 1781. lebte und gewiß<lb/>
+mehr als Jemand dazu beigetragen hat,<lb/>
+daß Deutſchland ſich einſt (wir wollen es<lb/>
+hoffen,) ruͤhmen kann, einen eigenen Ge-<lb/>
+ſchmack gewonnen zu haben. Die Blaͤt-<lb/>
+ter nennen ſich</p><lb/>
+<p><hi rendition="#g">Funken</hi>:<lb/>
+wahrſcheinlich, weil Der, den ſie redend<lb/>
+einfuͤhren, Eine ſeiner Schriften ſelbſt<lb/>
+<pb n="62" facs="#f0069"/>
+<hi rendition="#aq">fermenta cognitionis</hi> nannte; uͤberdem war<lb/>
+der Name <hi rendition="#g">Funken</hi> <hi rendition="#aq">(<choice><sic>ſcintillac</sic><corr>ſcintillae</corr></choice>)</hi> in den<lb/>
+mittleren Zeiten ſehr gewoͤhnlich. Mir<lb/>
+ſind ſie geweſen, was ſie dem Sinn des<lb/>
+Sammlers nach ſeyn ſollten, ein <hi rendition="#g">Charak</hi>-<lb/>
+<hi rendition="#g">terbild</hi> vom Leben des vielverdienten<lb/>
+Mannes, und ich ſtelle mir einen Juͤng-<lb/>
+ling des neunzehnten Jahrhunderts vor,<lb/>
+der mit Claſſiſchen Kaͤnntniſſen in der<lb/>
+Schule ausgeruͤſtet, ehe er die Akademie be-<lb/>
+ſchreitet, dieſe <hi rendition="#g">Funken</hi>, nachher auch mit<lb/>
+Ordnung und Wahl die mannichfaltigen<lb/>
+Schriften dieſes vielverdienten, gewandten<lb/>
+Schriftſtellers ſelbſt lieſet; was wird er<lb/>
+ſagen? — „Wie? wird er ſagen, lebte die-<lb/>
+ſer Mann in einer Wuͤſte? Bei ſeinem<lb/>
+muͤhſamen, fuͤr ſein Vaterland ruͤhmlichen,<lb/>
+gleichſam allbeſtrebenden Gange war denn<lb/>
+niemand, der ihm half? der ſeinen Ideen,<lb/>
+deren Nuͤtzlichkeit jedermann lobpries, ei-<lb/>
+<pb n="63" facs="#f0070"/>
+nen Spielraum, ſeinen Faͤhigkeiten, die je-<lb/>
+dermann anerkannte, Wirkſamkeit und ihm<lb/>
+nur einige Bequemlichkeit verſchaffte, die-<lb/>
+ſe Ideen auszubilden, auszufuͤhren?“ —<lb/>
+Ich wage es nicht, dieſe Fragen zu beant-<lb/>
+worten; mir iſts gnug, den <hi rendition="#g">maͤnnlichen<lb/>
+Verſtand</hi>, die <hi rendition="#g">biedere Denkart</hi> zu<lb/>
+bemerken, die ſich in jedem ſeiner Lebens-<lb/>
+zeichen aͤußert. Heil dem Juͤnglinge, der<lb/>
+ſich dieſe Bogen zum <hi rendition="#g">Kanon ſeines<lb/>
+Geſchmacks</hi> waͤhlet und zugleich fruͤhe<lb/>
+lernet, was er zu thun und zu vermeiden,<lb/>
+endlich auch was er von ſeinem Vaterlan-<lb/>
+de zu erwarten habe.</p></div><lb/>
+<pb n="64" facs="#f0071"/>
+<div n="1"><head><hi rendition="#g">Funken</hi>,<lb/>
+<hi rendition="#g">aus der Aſche eines Todten</hi>.</head><lb/>
+<milestone unit="section" rendition="#hr"/> <p>1.</p><lb/>
+<p>„<hi rendition="#in">I</hi>n dem engen Bezirk einer kloſtermaͤßigen<lb/>
+Schule waren <hi rendition="#g">Theophraſt</hi>, <hi rendition="#g">Plautus</hi> und<lb/>
+<hi rendition="#g">Terenz</hi> meine Welt, die ich mit aller Be-<lb/>
+quemlichkeit ſtudirte. — Wie gern wuͤnſchte<lb/>
+ich mir dieſe Jahre zuruͤck, die einzigen, in<lb/>
+welchen ich gluͤcklich gelebt habe!“ <note place="foot" n="*)"><hi rendition="#g">Leßings</hi> ſaͤmmtliche Schriften, Berlin 1792.<lb/>
+Th. 8. S. 44.</note></p><lb/>
+<p>2.</p><lb/>
+<p>„Ich kam jung von Schulen, in der ge-<lb/>
+wiſſen Ueberzeugung, daß mein ganzes Gluͤck<lb/>
+in den Buͤchern beſtehe. Stets bei den Buͤ-<lb/>
+chern, nur mit mir ſelbſt beſchaͤftigt, dachte<lb/>
+ich eben ſo ſelten an die uͤbrigen Menſchen,<lb/>
+<fw type="catch" place="bottom">als</fw><lb/>
+<pb n="65" facs="#f0072"/>
+als vielleicht an Gott. Doch es dauerte nicht<lb/>
+lange, ſo gingen mir die Augen auf. Ich<lb/>
+lernte einſehen, die Buͤcher wuͤrden mich wohl<lb/>
+gelehrt, aber nimmermehr zu einem Menſchen<lb/>
+machen. Ich wagte mich von meiner Stube<lb/>
+unter meines Gleichen. Guter Gott! was<lb/>
+wurde ich fuͤr eine Ungleichheit zwiſchen mir<lb/>
+und andern gewahr! Ich empfand eine<lb/>
+Schaam, die ich niemals empfunden habe und<lb/>
+die Wirkung derſelben war der veſte Entſchluß<lb/>
+mich hierin zu beſſern, es koſte, was es<lb/>
+wolle.“ <note place="foot" n="*)">Leßings Leben, Th. 1. S. 82.</note> —</p><lb/>
+<p>3.</p><lb/>
+<p>„Mein Koͤrper war durch Leibesuͤbungen<lb/>
+geſchickter geworden und ich ſuchte Geſellſchaft,<lb/>
+um auch leben zu lernen. Ich legte die ernſt-<lb/>
+haften Buͤcher eine Zeitlang auf die Seite,<lb/>
+um mich in denjenigen umzuſehen, die weit<lb/>
+angenehmer und vielleicht eben ſo nuͤtzlich ſind.<lb/>
+<fw type="sig" place="bottom">Neunte Sammlung. E</fw><lb/>
+<pb n="66" facs="#f0073"/>
+Die Komoͤdien kamen mir zuerſt in die Hand.<lb/>
+Es mag unglaublich vorkommen, wem es<lb/>
+will; mir haben ſie große Dienſte gethan.<lb/>
+Ich lernte daraus eine artige und gezwungene,<lb/>
+eine grobe und natuͤrliche Auffuͤhrung unter-<lb/>
+ſcheiden. Ich lernte, wahre und falſche Tu-<lb/>
+gend daraus kennen, und die Laſter eben ſo<lb/>
+ſehr wegen ihres Laͤcherlichen als wegen ihres<lb/>
+Schaͤndlichen fliehen. Ich lernte mich ſelbſt<lb/>
+kennen, und ſeit der Zeit habe ich gewiß uͤber<lb/>
+niemanden mehr gelacht und geſpottet, als<lb/>
+uͤber mich ſelbſt.“ <note place="foot" n="*)">Leßings Leben, Th. 1. S. 84.</note></p><lb/>
+<p>4.</p><lb/>
+<p>„Man darf mich nur in einer Sache loben,<lb/>
+wenn man haben will, daß ich ſie mit meh-<lb/>
+rerem Ernſt treiben ſoll. Ich ſann daher<lb/>
+Tag und Nacht, wie ich in einer Sache eine<lb/>
+Staͤrke zeigen moͤchte, in der, wie ich glaub-<lb/>
+<pb n="67" facs="#f0074"/>
+te, noch kein Deutſcher ſich ſehr hervorge-<lb/>
+than hat.“ <note place="foot" n="*)">Leßings Leben, Th. 1, S. 85.</note></p><lb/>
+<p>5.</p><lb/>
+<p>„Wenn man nicht verſucht, welche Sphaͤ-<lb/>
+re uns eigentlich zukommt, ſo wagt man ſich<lb/>
+oͤfters in eine falſche, wo man ſich kaum uͤber<lb/>
+das Mittelmaͤßige erheben kann, da man ſich<lb/>
+in einer andern vielleicht zu einer bewun-<lb/>
+dernswuͤrdigen Hoͤhe haͤtte ſchwingen koͤnnen.<lb/>
+Meine Neigung war, mich in <hi rendition="#g">allen</hi> Arten<lb/>
+der Poeſie zu verſuchen, und ward muͤde<lb/>
+mich blos in Kleinigkeiten zu uͤben.“ <note place="foot" n="**)">Leben S. 95.</note></p><lb/>
+<p>6.</p><lb/>
+<p>„Seneka giebt den Rath: <hi rendition="#aq">omnem ope-<lb/>
+ram impende, vt te aliqua dote notabilem<lb/>
+facias.</hi> <note place="foot" n="***)">„Wende alle Muͤhe an, daß du dich in<lb/>
+Etwas merkbar macheſt.“</note> Aber es iſt ſehr ſchwer, ſich in<lb/>
+<fw type="sig" place="bottom">E 2</fw><lb/>
+<pb n="68" facs="#f0075"/>
+einer Wiſſenſchaft notabel zu machen, worinn<lb/>
+ſchon allzuviele excellirt haben. Habe ich alſo<lb/>
+ſehr uͤbel gethan, daß ich zu meinen Jugend-<lb/>
+arbeiten etwas gewaͤhlt, worinn noch ſehr we-<lb/>
+nige meiner Landsleute ihre Kraͤfte verſucht<lb/>
+haben? Und waͤre es nicht thoͤricht, eher auf-<lb/>
+zuhoͤren, als bis man Meiſterſtuͤcke von mir<lb/>
+geleſen hat?“ <note place="foot" n="*)">Leben S. 96.</note></p><lb/>
+<p>7.</p><lb/>
+<p>„Man darf nicht glauben, daß ich meine<lb/>
+Lieder <hi rendition="#g">Kleinigkeiten</hi> nennte, damit ich der<lb/>
+Critik mit Hoͤflichkeit den Dolch aus den<lb/>
+Haͤnden winden moͤchte. Ich erklaͤrte, daß ich<lb/>
+der erſte ſeyn wolle, zu verdammen, was ſie<lb/>
+verdammt; ſie, der zum Verdruß ich wohl ei-<lb/>
+nige mittelmaͤßige Stuͤcke koͤnnte gemacht ha-<lb/>
+ben; der zum Trotz aber ich nie dieſe mittel-<lb/>
+maͤßige Stuͤcke fuͤr ſchoͤn erkennen wuͤrde.<lb/>
+Ich habe geaͤndert, ich habe weggeworfen.<lb/>
+<pb n="69" facs="#f0076"/>
+Das Elende ſtreicht ſich ſelbſt durch, und<lb/>
+ſchlechte Verſe, die niemand lieſet, ſind ſo gut<lb/>
+als waͤren ſie nicht gemacht worden.“ <note place="foot" n="*)">Saͤmmtl. Schr. Th. 8. S. 30. 31.</note></p><lb/>
+<p>8.</p><lb/>
+<p>„Den wenigen Oden gebe ich nur mit<lb/>
+Zittern dieſen Namen. Sie ſind zwar von<lb/>
+einem ſtaͤrkern Geiſt als die Lieder und haben<lb/>
+ernſthaftere Gegenſtaͤnde; allein ich kenne die<lb/>
+Muſter in dieſer Art gar zu gut, als daß ich<lb/>
+nicht einſehen ſollte, wie tief mein Flug un-<lb/>
+ter dem ihrigen iſt. Und wenn zum Ungluͤck<lb/>
+nur das Oden ſeyn ſollte, was ich, der ſchma-<lb/>
+len Zeilen ohngeachtet, fuͤr Lehrgedichte halte,<lb/>
+die man anſtatt der Paragraphen in Stro-<lb/>
+phen eingetheilt hat; ſo werde ich vollends<lb/>
+Urſache mich zu ſchaͤmen haben.“ <note place="foot" n="**)" xml:id="note-0076" next="note-0077">Meines Erachtens verdienen Leßings weni-<lb/>
+ge Oden dieſen Namen ſehr wohl; ſie haben<lb/>
+ihren eignen Gang und Charakter. In die<lb/>
+vollſtaͤndige Sammlung ſeiner Schriften iſt<lb/>
+ein neues ſchaͤtzbares Stuͤck gekommen, <hi rendition="#g">der</hi></note></p><lb/>
+<pb n="70" facs="#f0077"/>
+<p>9.</p><lb/>
+<p>„In <hi rendition="#g">Sinngedichten</hi> erkenne ich kei-<lb/>
+nen andern Lehrmeiſter als den <hi rendition="#g">Martial</hi>; es<lb/>
+muͤßten denn die ſeyn, die er fuͤr die ſeinigen<lb/>
+erkannt hat, und von welchen uns die Antho-<lb/>
+logie einen ſo vortreflichen Schatz derſelben<lb/>
+aufbehalten. Daß ich zu beißend und zu frei<lb/>
+darin bin, wird man mir wohl nicht vorwer-<lb/>
+fen koͤnnen, ob ich gleich beinah in der Mey-<lb/>
+nung ſtehe, daß man beides in Sinnſchriften<lb/>
+nicht gnug ſeyn kann.“ <note place="foot" n="*)">Saͤmmtl. Schr. Th. 8. S. 37.</note></p><lb/>
+<p>10.</p><lb/>
+<p>„Man nenne mir doch diejenigen Geiſter,<lb/>
+auf welche die komiſche Muſe Deutſchlands<lb/>
+<note place="foot" n="**)" xml:id="note-0077" prev="note-0076"><hi rendition="#g">Eintritt des Jahrs 1754</hi>. <hi rendition="#g">in Ber</hi>-<lb/>
+<hi rendition="#g">lin</hi>, (Th. 2. S. 31.) und vier <hi rendition="#g">Entwuͤr</hi>-<lb/>
+<hi rendition="#g">fe zu Oden</hi> (S. 202 - 12.) durch die<lb/>
+man den Geiſt der Horaziſchen Ode, „<hi rendition="#g">den<lb/>
+Flug</hi>, <hi rendition="#g">der irrt und ſich nicht verir</hi>-<lb/>
+<hi rendition="#g">ret</hi>,“ vielleicht beſſer kennen lernt, als<lb/>
+durch lange Commentare uͤber den Roͤmiſchen<lb/>
+Dichter. A. d. H.</note><lb/>
+<pb n="71" facs="#f0078"/>
+ſtolz ſeyn koͤnnte! Was herrſcht auf unſern<lb/>
+gereinigten Theatern? Iſt es nicht lauter<lb/>
+auslaͤndiſcher Witz, den, ſo oft wir ihn bewun-<lb/>
+dern, eine Satyre uͤber den unſrigen macht?<lb/>
+Aber wie kommt es, daß nur hier die Deut-<lb/>
+ſche Nacheiferung zuruͤckbleibt? Sollte wohl<lb/>
+die Art ſelbſt, wie man unſre Buͤhne hat ver-<lb/>
+beſſern wollen, daran Schuld ſeyn? Sollte<lb/>
+wohl die Menge von Meiſterſtuͤcken, die man<lb/>
+auf einmal, beſonders den Franzoſen abborgte,<lb/>
+unſre urſpruͤnglichen Dichter niedergeſchlagen<lb/>
+haben? Man zeigte ihnen auf einmal, ſo zu<lb/>
+reden, alles erſchoͤpft und ſetzte ſie auf einmal<lb/>
+in die Nothwendigkeit, nicht blos etwas Gu-<lb/>
+tes ſondern etwas Beſſeres zu machen. Die-<lb/>
+ſer Sprung war ohne Zweifel zu arg; die<lb/>
+Kunſtrichter konnten ihn wohl befehlen, aber<lb/>
+die, die ihn wagen ſollten, blieben aus.“ <note place="foot" n="*)">Geſchrieben im Jahr 1754. Saͤmmtl. Schr.<lb/>
+Th. 8. S. 47.</note></p><lb/>
+<pb n="72" facs="#f0079"/>
+<p>11.</p><lb/>
+<p>„Wenn ich von den allweiſen Einrichtun-<lb/>
+gen der Vorſehung weniger ehrerbietig zu re-<lb/>
+den gewohnt waͤre, ſo wuͤrde ich keck ſagen,<lb/>
+daß ein gewiſſes neidiſches Geſchick uͤber die<lb/>
+Deutſchen <hi rendition="#g">Genies</hi>, welche ihrem Vaterlan-<lb/>
+de Ehre machen koͤnnten, zu herrſchen ſcheine.<lb/>
+Wie viele derſelben fallen in ihrer Bluͤthe da-<lb/>
+hin! Sie ſterben reich an Entwuͤrfen, und<lb/>
+ſchwanger mit Gedanken, denen zu ihrer Groͤ-<lb/>
+ße nichts als die Ausfuͤhrung fehlt. Sollte<lb/>
+es aber ſchwer ſeyn, eine natuͤrliche Urſache<lb/>
+hievon anzugeben? Wahrhaftig, ſie iſt ſo<lb/>
+klar, daß ſie nur derjenige nicht ſieht, der ſie<lb/>
+nicht ſehen will. Nehmen Sie an, daß ein<lb/>
+ſolches <hi rendition="#g">Genie</hi> in einem gewiſſen Stande ge-<lb/>
+bohren wird, der, ich will nicht ſagen der<lb/>
+elendeſte, ſondern nur zu mittelmaͤßig iſt, als<lb/>
+daß er noch zu der ſogenannten goldnen Mit-<lb/>
+telmaͤßigkeit zu rechnen waͤre. Und Sie wiſ-<lb/>
+ſen wohl, die Natur hat einen Wohlgefallen<lb/>
+dran, aus eben dieſem immer mehr große Gei-<lb/>
+<pb n="73" facs="#f0080"/>
+ſter hervor zu bringen, als aus irgend einem<lb/>
+andern. Nun uͤberlegen Sie, was fuͤr Schwie-<lb/>
+rigkeiten dieſes <hi rendition="#g">Genie</hi> in einem Lande als<lb/>
+Deutſchland, wo faſt alle Arten von Ermun-<lb/>
+terungen unbekannt ſind, zu uͤberſteigen habe.<lb/>
+Bald wird es von dem Mangel der noͤthigſten<lb/>
+Huͤlfsmittel zuruͤckgehalten; bald von dem Nei-<lb/>
+de, welcher die Verdienſte auch ſchon in ihrer<lb/>
+Wiege verfolgt, unterdruͤckt; bald in muͤhſa-<lb/>
+men und ſeiner unwuͤrdigen Geſchaͤften ent-<lb/>
+kraͤftet. Iſt es ein Wunder, daß es nach auf-<lb/>
+geopferten Jugendkraͤften dem erſten ſtarken<lb/>
+Sturme unterliegt? Iſt es ein Wunder, daß<lb/>
+Armuth, Aergerniß, Kraͤnkung, Verachtung<lb/>
+endlich uͤber einen Koͤrper ſiegen, der ohnedem<lb/>
+der ſtaͤrkſte nicht iſt, weil er kein Koͤrper eines<lb/>
+Holzhackers werden ſollte. In dieſem Fall<lb/>
+war M. oder es iſt nie einer darinn ge-<lb/>
+weſen.“ <note place="foot" n="*)">B. 8. S. 58. Wie viele, viele andre!</note></p><lb/>
+<pb n="74" facs="#f0081"/>
+<p>„— Das iſt ſein Lebenslauf. Ein Le-<lb/>
+benslauf, ohne Zweifel, in welchem das Ende<lb/>
+das ungluͤcklichſte nicht iſt. Und doch behaupte<lb/>
+ich, daß er mehr darin geleiſtet hat, als tau-<lb/>
+ſend andere in ſeinen Umſtaͤnden nicht wuͤr-<lb/>
+den geleiſtet haben. Der Tod hat ihn fruͤh,<lb/>
+aber nicht ſo fruͤh uͤberraſcht, daß er <hi rendition="#g">keinen<lb/>
+Theil</hi> ſeines Namens vor ihm in Sicherheit<lb/>
+haͤtte bringen koͤnnen. — Er gewinnet im<lb/>
+Verlieren, und iſt vielleicht eben jetzt beſchaͤf-<lb/>
+tiget, mit erleuchteten Augen zu unterſuchen,<lb/>
+ob <hi rendition="#g">Newton</hi> gluͤcklich gerathen und <hi rendition="#g">Brad</hi>-<lb/>
+<hi rendition="#g">ley</hi> genau gemeſſen habe. Er weiß ohne<lb/>
+Zweifel ſchon mehr, als er jemals auf der<lb/>
+Welt haͤtte begreifen koͤnnen.“ <note place="foot" n="*)">Schriften B. 8. S. 60. 61.</note></p><lb/>
+<p>12.</p><lb/>
+<p>„Ein gutes Genie iſt nicht allemal ein gu-<lb/>
+ter Schriftſteller, und es iſt oft eben ſo un-<lb/>
+billig, einen Gelehrten nach ſeinen Schriften<lb/>
+<pb n="75" facs="#f0082"/>
+zu beurtheilen, als einen Vater nach ſeinen<lb/>
+Kindern. Der rechtſchaffenſte Mann hat oft<lb/>
+die nichtswuͤrdigſten, und der kluͤgſte die<lb/>
+duͤmmſten; ohne Zweifel weil dieſer nicht die<lb/>
+gelegenſte Stunde zu ihrer Bildung, und je-<lb/>
+ner nicht den noͤthigen Fleiß zu ihrer Erzie-<lb/>
+hung angewendet hat. Der geiſtliche Vater<lb/>
+kann oft in eben dieſem Fall ſeyn, beſonders<lb/>
+wenn ihn aͤußerliche Umſtaͤnde noͤthigen, den<lb/>
+Gewinnſt ſeine Minerva, und die Nothwen-<lb/>
+digkeit ſeine Begeiſterung ſeyn zu laſſen. Ein<lb/>
+ſolcher iſt alsdann meiſtentheils gelehrter als<lb/>
+ſeine Buͤcher, anſtatt daß die Buͤcher derjeni-<lb/>
+gen, welche ſie mit aller Muße und mit An-<lb/>
+wendung aller Huͤlfsmittel ausarbeiten koͤnnen,<lb/>
+nicht ſelten gelehrter als ihre Verfaſſer zu<lb/>
+ſeyn pflegen.“ <note place="foot" n="*)">Schriften B. 8. S. 62. 63.</note></p><lb/>
+<p>13.</p><lb/>
+<p>„Warum giebt es gewiſſe, ſchwer zu ver-<lb/>
+gnuͤgende Kunſtrichter, die zum <hi rendition="#g">Luſtſpiel</hi><lb/>
+<pb n="76" facs="#f0083"/>
+eine anſtaͤndige Dichtung, wahre Sitten, eine<lb/>
+maͤnnliche Moral, eine feine Satyre, eine leb-<lb/>
+hafte Unterredung, und ich weiß nicht, was<lb/>
+ſonſt noch mehr verlangen? — Und ich weiß<lb/>
+uͤberhaupt nicht, was ich von der Satyre ſa-<lb/>
+gen ſoll, die ſich an ganze Staͤnde wagt. Doch<lb/>
+Galle, Ungerechtigkeit und Ausſchweifung ha-<lb/>
+ben nie ein Buch um die Leſer gebracht, wohl<lb/>
+aber manchem Buche zu Leſern verholfen.“ <note place="foot" n="*)">Schriften Th. 8. S. 76. 77.</note></p><lb/>
+<p>14.</p><lb/>
+<p>„Den ſchoͤnen Wiſſenſchaften ſollte nur ein<lb/>
+Theil unſrer Jugend gehoͤren; wir haben uns<lb/>
+in wichtigern Dingen zu uͤben, ehe wir ſterben.<lb/>
+Ein Alter, der ſeine ganze Lebenszeit uͤber<lb/>
+nichts als gereimt hat, und ein Alter, der ſei-<lb/>
+ne ganze Lebenszeit uͤber nichts gethan, als<lb/>
+daß er ſeinen Athem in ein Holz mit Loͤchern<lb/>
+gelaſſen: von ſolchen Alten zweifle ich ſehr, ob<lb/>
+ſie ihre Beſtimmung erreicht haben.“ <note place="foot" n="**)">Th. 28. S. 245.</note></p><lb/>
+<pb n="77" facs="#f0084"/>
+<p>15.</p><lb/>
+<p>Auch Freunde ſind Guͤter des Gluͤcks, die<lb/>
+ich lieber finden als ſuchen will.“ <note place="foot" n="*)">Th. 27. S. 4.</note></p><lb/>
+<p>16.</p><lb/>
+<p>„Geſegnet ſei Ihr Entſchluß, ſich ſelbſt zu<lb/>
+leben. Um ſeinen Verſtand auszubreiten, muß<lb/>
+man ſeine Begierden einſchraͤnken. Wenn<lb/>
+Sie leben koͤnnen, ſo iſt es gleichviel, ob Sie<lb/>
+von maͤßigen oder großen Einkuͤnften leben.<lb/>
+Wie viel lieber wollte ich kuͤnftigen Sommer<lb/>
+mit Ihnen und unſerm Freunde zubringen,<lb/>
+als in England! Vielleicht lerne ich da wei-<lb/>
+ter nichts, als daß man eine Nation bewun-<lb/>
+dern und haſſen kann.“ <note place="foot" n="**)">Th. 27. S. 429.</note></p><lb/>
+<p>17.</p><lb/>
+<p>„O was iſt unſer Grenadier <note place="foot" n="***)" xml:id="note-0084" next="note-0085">Verfaſſer der Preußiſchen Kriegslieder.<lb/>
+Die Vorrede, mit der Leßing dieſe Lieder</note> fuͤr ein<lb/>
+vortreflicher Mann! Zu einer ſolchen unan-<lb/>
+<pb n="78" facs="#f0085"/>
+ſtoͤßigen Verbindung der erhabenſten und laͤ-<lb/>
+cherlichſten Bilder war nur Er geſchickt! Nur<lb/>
+Er konnte die Strophen<lb/>
+<hi rendition="#et">Gott aber wog bei Sternenklang —</hi><lb/>
+und<lb/>
+<hi rendition="#et">Dem Schwaben, der mit Einem Sprung —</hi><lb/>
+machen und ſie beide in Ein Ganzes brin-<lb/>
+gen. Was wollte ich nicht darum geben,<lb/>
+wenn man das ganze Lied ins Franzoͤſiſche<lb/>
+uͤberſetzen koͤnnte! Aber wollen wir unſern<lb/>
+Grenadier nicht nun bald avanciren laſſen?<lb/>
+Verſichern Sie ihn, daß ich von Tag zu Tage<lb/>
+ihn mehr bewundere, und daß er alle meine<lb/>
+Erwartung ſo zu uͤbertreffen weiß, daß er das<lb/>
+Neueſte, was er gemacht hat, immer fuͤr das<lb/>
+<note place="foot" n="***)" xml:id="note-0085" prev="note-0084">geſammlet herausgab, iſt ein Muſter von<lb/>
+Beſtimmung des Werths und des Charakters<lb/>
+dieſer Gedichte, als einer neuen individuellen<lb/>
+Gattung, die ſie auch ſind. Die ganze Vor-<lb/>
+rede verdiente hergeſetzt zu werden; ſie traͤgt<lb/>
+den Charakter der Lieder ſelbſt. S. Leßings<lb/>
+Schriften Th. 8. S. 98.<lb/>
+A. d. H.</note><lb/>
+<pb n="79" facs="#f0086"/>
+Beſte halten muß. Ein Bekenntniß, zu dem<lb/>
+mir noch kein einziger Dichter Gelegenheit<lb/>
+gegeben hat. <note place="foot" n="*)">Th. 29. S. 24 30.</note></p><lb/>
+<p>18.</p><lb/>
+<p>„Der Grenadier erlaubt es doch noch,<lb/>
+daß ich eine Vorrede dazu machen darf? Ich<lb/>
+habe verſchiednes von den alten Kriegsliedern<lb/>
+geſammlet; zwar ungleich mehr von den Kriegs-<lb/>
+liedern der Barden und Skalden als der Grie-<lb/>
+chen. <note place="foot" n="**)">Das bekannte Heldenlied der Spartaner:<lb/>
+<hi rendition="#et">Streitbare Maͤnner waren wir<lb/>
+Streitbare Maͤnner ſind wir u. f.</hi><lb/>
+von <hi rendition="#g">Leßing</hi> uͤberſetzt, ſteht jetzt in dieſer<lb/>
+vollſtaͤndigen Sammlung ſeiner Schriften<lb/>
+Th. Th. 2. S. 195.<lb/>
+A. d. H.</note> Der alten Siegslieder wegen habe<lb/>
+ich ſogar das alte Heldenbuch durchgeleſen,<lb/>
+und dieſe Lecture hat mich hernach weiter auf<lb/>
+die zwei ſogenannten Heldengedichte aus dem<lb/>
+<pb n="80" facs="#f0087"/>
+Schwaͤbiſchen Jahrhunderte gebracht, welche<lb/>
+die Schweizer jetzt herausgegeben haben. Ich<lb/>
+habe verſchiedene Zuͤge daraus angemerkt, die<lb/>
+wenigſtens von dem kriegeriſchen Geiſte zeu-<lb/>
+gen, der unſre Vorfahren zu einer Nation<lb/>
+von Helden machte. — Die griechiſche Grab-<lb/>
+ſchrift, die ich dem Grenadier geſetzt habe, <note place="foot" n="*)">Am Schluß der Vorr. der Kriegslieder.</note><lb/>
+ſind zwei alte Verſe, die bereits <hi rendition="#g">Archilochus</hi><lb/>
+von ſich geſagt hat: <hi rendition="#g">Ich bin ein Knecht<lb/>
+des Enyaliſchen Koͤnigs</hi>, (des Mars)<lb/>
+<hi rendition="#g">und habe die liebliche Gabe der Mu</hi>-<lb/>
+<hi rendition="#g">ſen gelernt</hi>. Wuͤrden ſie nicht auch vor-<lb/>
+treflich unter das Bildniß unſers <hi rendition="#g">Kleiſts</hi><lb/>
+paſſen?“ <note place="foot" n="**)">Th. 29. S. 31. 55.</note></p><lb/>
+<p>19.</p><lb/>
+<p>„Vielleicht zwar iſt auch der <hi rendition="#g">Patriot</hi><lb/>
+bei mir nicht ganz erſtickt, obgleich das Lob<lb/>
+<fw type="catch" place="bottom">eines</fw><lb/>
+<pb n="81" facs="#f0088"/>
+eines eifrigen Patrioten, nach meiner Den-<lb/>
+kungsart, das allerletzte iſt, wornach ich geizen<lb/>
+wuͤrde; des Patrioten nehmlich, der mich ver-<lb/>
+geſſen lehrte, daß ich ein <hi rendition="#g">Weltbuͤrger</hi> ſeyn<lb/>
+ſollte. Ich habe uͤberhaupt von der Liebe des<lb/>
+Vaterlandes (es thut mir leid, daß ich Ih-<lb/>
+nen vielleicht meine Schande geſtehen muß)<lb/>
+keinen Begriff, und ſie ſcheint mir aufs hoͤch-<lb/>
+ſte eine heroiſche Schwachheit, die ich recht<lb/>
+gern entbehre. <note place="foot" n="*)">Th. 29. S. 65. 77.</note></p><lb/>
+<p>20.</p><lb/>
+<p>„Der Krieg hat ſeine blutigſte Buͤhne un-<lb/>
+ter uns aufgeſchlagen, und es iſt eine alte<lb/>
+Klage, daß das zu nahe Geraͤuſch der Waffen<lb/>
+die Muſen verſcheucht. Verſcheucht es ſie nun<lb/>
+aus einem Lande, wo ſie nicht recht viele,<lb/>
+recht feurige Freunde haben, wo ſie ohnedies<lb/>
+nicht die beſte Aufnahme erhielten: ſo koͤnnen<lb/>
+ſie auf eine lange Zeit verſcheucht bleiben.<lb/>
+<fw type="sig" place="bottom">Neunte Sammlung. F</fw><lb/>
+<pb n="82" facs="#f0089"/>
+Der Friede wird ohne ſie wiederkommen; ein<lb/>
+trauriger Friede, von dem einzigen melancho-<lb/>
+liſchen Vergnuͤgen begleitet, uͤber verlohrne<lb/>
+Guͤter zu weinen.“ <note place="foot" n="*)">Literaturbr. Br. 1.</note></p><lb/>
+<p>21.</p><lb/>
+<p>„Man behauptet, der Kunſtrichter muͤſſe<lb/>
+nur die Schoͤnheiten eines Werks aufſuchen,<lb/>
+und die Fehler deſſelben eher bemaͤnteln als<lb/>
+blosſtellen. In zwei Faͤllen bin ich ſelbſt der<lb/>
+Meinung. Einmal, wenn der Kunſtrichter Wer-<lb/>
+ke von einer ausgemachten Guͤte vor ſich hat;<lb/>
+die beſten Werke der Alten, z. E. Zweitens,<lb/>
+wenn der Kunſtrichter nicht ſowohl gute Schrift-<lb/>
+ſteller als nur blos gute Leſer bilden will. <note place="foot" n="**)" xml:id="note-0089" next="note-0090">Sollte dies bei der ganzen Kunſtrichterei<lb/>
+nicht das erſte Erforderniß ſeyn? Der<lb/>
+Schriftſteller ſchreibt <hi rendition="#g">fuͤr Leſer</hi>; ſind dieſe<lb/>
+verdorben, ſo ſchreibt jener und der Verle-<lb/>
+ger verlegt fuͤr ihren verdorbenen Geſchmack.<lb/>
+Die vielen ſchlechten Schriftſteller Deutſch-</note><lb/>
+<pb n="83" facs="#f0090"/>
+Die Guͤte eines Werks beruhet nicht auf ein-<lb/>
+zeln Schoͤnheiten; dieſe einzeln Schoͤnheiten<lb/>
+muͤſſen ein ſchoͤnes Ganze ausmachen, oder<lb/>
+der Kenner kann ſie nicht anders, als mit ei-<lb/>
+nem zuͤrnenden Mißvergnuͤgen leſen. Nur<lb/>
+wenn das Ganze untadelhaft befunden wird,<lb/>
+muß der Kunſtrichter von einer nachtheiligen<lb/>
+Zergliederung abſtehen und das Werk, ſo wie<lb/>
+der Philoſoph die Welt betrachten.“ <note place="foot" n="*)" xml:id="note-0090a" next="note-0091">Wenn iſt dies? Hier ſchleicht ſich eben die<lb/>
+ſchaͤdlichſte Partheilichkeit ein. Will man<lb/>
+ein Werk ſchoͤn finden, ſo ſingt man Theodi-</note></p><lb/>
+<fw type="sig" place="bottom">F 2</fw><lb/>
+<note place="foot" n="**)" xml:id="note-0090" prev="note-0089">lands ſchreiben alle <hi rendition="#g">fuͤr ihr Publikum</hi><lb/>
+und kennen es ſehr gut; eben ſo auch die<lb/>
+Verleger. <hi rendition="#g">Leſer zu bilden</hi> muß alſo der<lb/>
+Kunſtrichter erſte Beſtrebung ſeyn; die<lb/>
+Schriftſteller werden ſelbſt wider Willen fol-<lb/>
+gen. In den hoͤheren Wiſſenſchaften wird<lb/>
+jeder Stuͤmper ausgeziſcht und verachtet:<lb/>
+denn ſein kleines, aber beſtimmtes Publikum<lb/>
+iſt der Sache verſtaͤndig.<lb/>
+A. d. H.</note><lb/>
+<pb n="84" facs="#f0091"/>
+<p>22.</p><lb/>
+<p>„Kommt es denn bei unſern Handlungen<lb/>
+blos auf die Vielheit der Bewegungsgruͤnde<lb/>
+an? Beruhet nicht weit mehr auf der In-<lb/>
+tenſion derſelben? Kann nicht ein einziger<lb/>
+Bewegungsgrund, dem ich lange und ernſtlich<lb/>
+<note place="foot" n="*)" xml:id="note-0091" prev="note-0090a">ceen und bemaͤntelt die Fehler. — Ueber-<lb/>
+haupt iſt das Gleichniß von der Welt, wie<lb/>
+ſie der Philoſoph betrachtet, auf Werke der<lb/>
+Menſchen, zumal auf Kunſtwerke unanwend-<lb/>
+bar. Iſt das Ganze ſchoͤn: ſo kann die<lb/>
+ſtrengſte Zergliederung ihm keinen Nachtheil<lb/>
+bringen: denn ein lebendiges Ganze beſtehet<lb/>
+nur in Theilen; und daß bei dieſem ſchoͤnen<lb/>
+Ganzen die mangelhaften Theile mit ſtrenger<lb/>
+Unpartheilichkeit bemerkt werden, iſt um ſo<lb/>
+nothwendiger, weil in ihnen das Fehlerhafte<lb/>
+und Uebertriebene gewoͤhnlich zuerſt Nachah-<lb/>
+mer findet. Zwiefaches Maas und Gewicht<lb/>
+iſt wie allenthalben ſo auch in der Kritik der<lb/>
+Gerechtigkeit ein Graͤuel und der Sache des<lb/>
+Ganzen aͤußerſt verderblich.<lb/>
+A. d. H.</note><lb/>
+<pb n="85" facs="#f0092"/>
+nachgedacht habe, eben ſo viel ausrichten, als<lb/>
+zwanzig Bewegungsgruͤnde, deren jedem ich<lb/>
+den zwanzigſten Theil von jenem Nachdenken<lb/>
+geſchenkt habe?“</p><lb/>
+<p>23.</p><lb/>
+<p>„Die edelſten Woͤrter ſind eben deßwegen<lb/>
+weil ſie die edelſten ſind, faſt niemals zugleich<lb/>
+diejenigen, die uns in der Geſchwindigkeit be-<lb/>
+ſonders im Affecte zuerſt beifallen. Sie ver-<lb/>
+rathen die vorhergegangene Ueberlegung, ver-<lb/>
+wandeln die Helden in Declamatoren und ſtoͤ-<lb/>
+ren dadurch die Illuſion. Es iſt daher ſogar<lb/>
+ein großes Kunſtſtuͤck eines tragiſchen Dichters,<lb/>
+wenn er, beſonders die erhabenſten Gedanken,<lb/>
+in die gemeinſten Worte kleidet, und im Af-<lb/>
+fect nicht das edelſte ſondern das nachdruͤck-<lb/>
+lichſte Wort, wenn es auch ſchon einen et-<lb/>
+was niedrigen Nebenbegrif mit ſich fuͤhren<lb/>
+ſollte, ergreifen laͤßt. Von dieſem Kunſtſtuͤcke<lb/>
+werden aber freilich diejenigen nicht wiſſen<lb/>
+wollen, die nur an einem correcten <hi rendition="#g">Racine</hi><lb/>
+<pb n="86" facs="#f0093"/>
+Geſchmack finden und ſo ungluͤcklich ſind, kei-<lb/>
+nen <hi rendition="#g">Shakeſpear</hi> zu kennen.“ <note place="foot" n="*)">Th. 26. S. 184.</note></p><lb/>
+<p>24.</p><lb/>
+<p>„Ueberhaupt glaube ich, daß der Name<lb/>
+eines <hi rendition="#g">wahren Geſchichtſchreibers</hi> nur<lb/>
+demjenigen zukommt, der die Geſchichte ſeiner<lb/>
+Zeiten und ſeines Landes beſchreibt. Denn<lb/>
+nur der kann ſelbſt als Zeuge auftreten, und<lb/>
+darf hoffen, auch von der Nachwelt als ein<lb/>
+ſolcher geſchaͤtzt zu werden, wenn alle Andre,<lb/>
+die ſich nur als Abhoͤrer der eigentlichen Zeu-<lb/>
+gen erweiſen, nach wenig Jahren von ihres-<lb/>
+gleichen gewiß verdraͤngt ſind. Die ſuͤße Ueber-<lb/>
+zeugung, von dem gegenwaͤrtigen Nutzen, den<lb/>
+ſie ſtiften, muß ſie allein wegen der kurzen<lb/>
+Dauer ihres Ruhms ſchadlos halten. Und<lb/>
+kann ein ehrlicher Mann mit dieſer Schadlos-<lb/>
+haltung auch nicht zufrieden ſeyn?“ <note place="foot" n="**)">Litt. Br. 52.</note></p><lb/>
+<pb n="87" facs="#f0094"/>
+<p>25.</p><lb/>
+<p>„Krank will ich wohl einmahl ſeyn; aber<lb/>
+ſterben will ich deßwegen noch nicht. Alle<lb/>
+Veraͤnderungen unſeres Temperaments, glau-<lb/>
+be ich, ſind mit Handlungen unſrer animali-<lb/>
+ſchen Oekonomie verbunden. Die ernſtliche<lb/>
+Epoche meines Lebens nahet heran! ich begin-<lb/>
+ne ein Mann zu werden, und ſchmeichle mir,<lb/>
+daß ich in dieſem hitzigen Fieber den letzten<lb/>
+Reſt meiner jugendlichen Thorheiten verra-<lb/>
+ſet habe. Gluͤckliche Krankheit! Aber ſoll-<lb/>
+ten ſich wohl Dichter eine athletiſche Geſund-<lb/>
+heit wuͤnſchen? Sollte der Phantaſie, der<lb/>
+Empfindung nicht ein gewiſſer Grad von Un-<lb/>
+paͤßlichkeit weit zutraͤglicher ſeyn? Wuͤnſchen<lb/>
+Sie mich alſo geſund, aber wo moͤglich mit<lb/>
+einem kleinen Denkzeichen, das dem Dich-<lb/>
+ter von Zeit zu Zeit den hinfaͤlligen Menſchen<lb/>
+empfinden laſſe, und ihm zu Gemuͤth fuͤhre,<lb/>
+daß nicht alle Tragici mit dem Sophokles<lb/>
+neunzig Jahr werden; aber, wenn ſie es auch<lb/>
+wuͤrden, daß Sophokles auch an die neunzig<lb/>
+<pb n="88" facs="#f0095"/>
+Trauerſpiele, und ich erſt ein einziges gemacht.<lb/>
+Neunzig Trauerſpiele! Auf einmal uͤberfaͤllt<lb/>
+mich ein Schwindel!“ <note place="foot" n="*)">Th. 27. S. 23.</note></p><lb/>
+<p>26.</p><lb/>
+<p>„Ihnen geſtehe ich es am allerungernſten,<lb/>
+daß ich bisher nichts weniger als zufrieden<lb/>
+geweſen bin. Ich muß es Ihnen aber geſte-<lb/>
+hen, weil es die einzige Urſache iſt, warum<lb/>
+ich ſo lange nicht an Sie geſchrieben habe.</p><lb/>
+<p>Nein, das hatte ich mir nicht vorgeſtellt!<lb/>
+aus dieſem Ton klagen alle Narren. Ich<lb/>
+haͤtte mir es vorſtellen ſollen und koͤnnen, daß<lb/>
+unbedeutende Beſchaͤftigungen mehr ermuͤden<lb/>
+muͤßten, als das anſtrengendſte Studiren;<lb/>
+daß in dem Cirkel, in welchen ich mich hin-<lb/>
+einzaubern laſſen, erlogene Vergnuͤgen und<lb/>
+Zerſtreuungen uͤber Zerſtreuungen die ſtumpf-<lb/>
+gewordene Seele zerruͤtten wuͤrden; daß —</p><lb/>
+<p>Ihr <hi rendition="#g">Leßing</hi> iſt verlohren. In Jahr und<lb/>
+Tag werden Sie ihn nicht mehr kennen. Er<lb/>
+<pb n="89" facs="#f0096"/>
+ſich ſelbſt nicht mehr. O meine Zeit, meine<lb/>
+Zeit, mein Alles was ich habe — ſie ſo, ich<lb/>
+weiß nicht was fuͤr Abſichten aufzuopfern!<lb/>
+Hundertmal habe ich ſchon den Einfall ge-<lb/>
+habt, mich mit Gewalt aus dieſer Verbin-<lb/>
+dung zu reiſſen. Doch kann man einen un-<lb/>
+beſonnenen Streich mit dem andern wieder<lb/>
+gut machen?“ <note place="foot" n="*)">Th. 28. S. 292.</note></p><lb/>
+<p>27.</p><lb/>
+<p>„Meine Eltern betrachten mich, als wenn<lb/>
+ich hier ſchon etablirt waͤre; und dieſes bin<lb/>
+ich doch ſo wenig, daß ich gar leicht meine<lb/>
+laͤngſte Zeit hier geweſen ſeyn doͤrfte. Ich<lb/>
+warte nur noch einen einzigen Umſtand ab,<lb/>
+und wenn dieſer nicht nach meinem Willen<lb/>
+ausfaͤllt, ſo kehre ich zu meiner alten Lebens-<lb/>
+art wieder zuruͤck. Ich habe mit dieſen<lb/>
+Nichtswuͤrdigkeiten nun ſchon mehr als drei<lb/>
+Jahr verlohren. Es iſt Zeit, daß ich wieder<lb/>
+<pb n="90" facs="#f0097"/>
+in mein Geleiſe komme. Alles was ich durch<lb/>
+meine jetzige Lebensart intendirte, das habe<lb/>
+ich erreicht; ich habe meine Geſundheit ſo<lb/>
+ziemlich wieder hergeſtellt, ich habe ausgeru-<lb/>
+het — — Ich bin uͤber die Haͤlfte meines<lb/>
+Lebens und wuͤßte nicht, was mich noͤthigen<lb/>
+koͤnnte, mich auf den kuͤrzeren Reſt deſſelben<lb/>
+noch zum Sklaven zu machen. — Wie es wei-<lb/>
+ter werden wird, iſt mein geringſter Kummer.<lb/>
+Wer geſund iſt und arbeiten will, hat in der<lb/>
+Welt nichts zu fuͤrchten. Langwierige Krank-<lb/>
+heiten und ich weiß nicht was fuͤr Umſtaͤnde<lb/>
+befuͤrchten, die außer Stand zu arbeiten ſetzen<lb/>
+koͤnnen, zeigt ein ſchlechtes Vertrauen auf die<lb/>
+Vorſehung. Ich habe ein beſſeres, und habe<lb/>
+Freunde.“ <note place="foot" n="*)">Leben und Nachlaß Th. 1. S. 250.</note></p><lb/>
+<p>28.</p><lb/>
+<p>„Fragen Sie mich nicht, auf was ich<lb/>
+nach H. gehe. Eigentlich auf nichts. Wenn<lb/>
+<pb n="91" facs="#f0098"/>
+ſie mir in H. nur nichts nehmen, ſo geben ſie<lb/>
+mir eben ſo viel als ſie mir hier gegeben ha-<lb/>
+ben. Doch Ihnen brauche ich nichts zu ver-<lb/>
+hehlen. Ich habe allerdings mit dem dorti-<lb/>
+gen neuen Theater und den Entrepreneurs<lb/>
+deſſelben eine Art von Abkommen getroffen,<lb/>
+welches mir auf einige Jahre ein ruhiges und<lb/>
+angenehmes Leben verſpricht. Als ich mit<lb/>
+ihnen ſchloß, fielen mir die Worte aus dem<lb/>
+Juvenal bei:</p><lb/>
+<p><hi rendition="#aq">Quod non dant proceres, dabit hiſtrio</hi> <note place="foot" n="*)">„Was die Großen nicht geben wollen, moͤ-<lb/>
+ge das Schauſpiel geben.“</note> —</p><lb/>
+<p>Ich will meine theatraliſchen Werke, welche<lb/>
+laͤngſt auf die letzte Hand gewartet haben,<lb/>
+daſelbſt vollenden und auffuͤhren laſſen. Sol-<lb/>
+che Umſtaͤnde waren nothwendig, die faſt erlo-<lb/>
+ſchene Liebe zum Theater wieder bei mir zu<lb/>
+entzuͤnden. Ich fing eben an, mich in andre<lb/>
+Studien zu verlieren, die mich gar bald zu<lb/>
+<pb n="92" facs="#f0099"/>
+aller Arbeit des Genies wuͤrden unfaͤhig ge-<lb/>
+macht haben. Mein <hi rendition="#g">Laokoon</hi> iſt nun wie-<lb/>
+der die Nebenarbeit. Mich duͤnkt, ich komme<lb/>
+mit der Fortſetzung deſſelben fuͤr den großen<lb/>
+Haufen unſrer Leſer auch noch immer fruͤh<lb/>
+genug. Die wenigen, die mich jetzt leſen, ver-<lb/>
+ſtehen von der Sache eben ſo viel wie ich,<lb/>
+und mehr.“ <note place="foot" n="*)">Th. 29. S. 141.</note></p><lb/>
+<p>29.</p><lb/>
+<p>„Und hat es nicht das Publikum in ſei-<lb/>
+ner Gewalt, was es an Geſchmack und Ein-<lb/>
+ſicht beim Theater mangelhaft finden ſollte,<lb/>
+abſtellen und verbeſſern zu laſſen? Es kom-<lb/>
+me nur, und ſehe und hoͤre, und pruͤfe und<lb/>
+richte. Seine Stimme ſoll nie geringſchaͤtzig<lb/>
+verhoͤret, ſein Urtheil ſoll nie ohne Unterwer-<lb/>
+fung vernommen werden.</p><lb/>
+<p>Nur daß ſich nicht jeder kleine Kritikaſter<lb/>
+fuͤr das Publikum halte, und derjenige, deſſen<lb/>
+<pb n="93" facs="#f0100"/>
+Erwartungen getaͤuſcht werden, auch ein we-<lb/>
+nig mit ſich ſelbſt zu Rathe gehe, von wel-<lb/>
+cher Art ſeine Erwartungen geweſen. Nicht<lb/>
+jeder Liebhaber iſt Kenner; nicht jeder, der die<lb/>
+Schoͤnheiten Eines Stuͤcks, das richtige Spiel<lb/>
+Eines Akteurs empfindet, kann darum auch<lb/>
+den Werth aller andern ſchaͤtzen. Man hat<lb/>
+keinen Geſchmack, wenn man nur einen ein-<lb/>
+ſeitigen Geſchmack hat; aber oft iſt man de-<lb/>
+ſto partheiiſcher. Der wahre Geſchmack iſt<lb/>
+der allgemeine, der ſich uͤber Schoͤnheiten von<lb/>
+jeder Art verbreitet, aber von keiner mehr<lb/>
+Vergnuͤgen und Entzuͤcken erwartet, als ſie<lb/>
+nach ihrer Art gewaͤhren kann.</p><lb/>
+<p>Der Stufen ſind viel, die eine <hi rendition="#g">werden</hi>-<lb/>
+<hi rendition="#g">de</hi> Buͤhne bis zum Gipfel der Vollkommen-<lb/>
+heit zu durchſteigen hat; aber eine <hi rendition="#g">verderb</hi>-<lb/>
+<hi rendition="#g">te</hi> Buͤhne iſt von dieſer Hoͤhe, natuͤrlicher<lb/>
+Weiſe, noch weiter entfernt: und ich fuͤrchte<lb/>
+ſehr, daß die Deutſche mehr dieſes als jenes iſt.</p><lb/>
+<p>Alles kann folglich nicht auf einmal ge-<lb/>
+ſchehen. Doch was man nicht wachſen ſieht,<lb/>
+<pb n="94" facs="#f0101"/>
+findet man nach einiger Zeit gewachſen. Der<lb/>
+Langſamſte, der ſein Ziel nur nicht aus den<lb/>
+Augen verlieret, geht noch immer geſchwinder,<lb/>
+als der ohne Ziel herumirret.“ <note place="foot" n="*)">Ankuͤndigung der <hi rendition="#g">Dramaturgie</hi>, des<lb/>
+reichſten kritiſchen Werks Leßings. Aus dem<lb/>
+reichſten Vorrathe ſind hier nur wenige Stel-<lb/>
+len gewaͤhlt, die Leßings Charakter naͤher<lb/>
+zeigen; ſeinen durchdringenden, ſchneidenden<lb/>
+Verſtand, ſo wie ſeine Billigkeit und Scho-<lb/>
+nung beweiſet die Dramaturgie von Anfange<lb/>
+bis zum Ende.<lb/>
+A. d. H.</note></p><lb/>
+<p>30.</p><lb/>
+<p>„Die Namen von Fuͤrſten und Helden koͤn-<lb/>
+nen einem Stuͤck Pomp und Majeſtaͤt geben;<lb/>
+aber zur Ruͤhrung tragen ſie nichts bei. Das<lb/>
+Ungluͤck derjenigen, deren Umſtaͤnde den unſri-<lb/>
+gen am naͤchſten kommen, muß natuͤrlicher<lb/>
+Weiſe am tiefſten in unſre Seele dringen;<lb/>
+und wenn wir mit Koͤnigen Mitleiden haben,<lb/>
+<pb n="95" facs="#f0102"/>
+ſo haben wir es mit ihnen als mit Menſchen,<lb/>
+nicht als mit Koͤnigen. Macht ihr Stand<lb/>
+ſchon oͤfters ihre Unfaͤlle wichtiger, ſo macht<lb/>
+er ſie darum nicht intereſſanter. Immerhin<lb/>
+moͤgen ganze Voͤlker darein verwickelt werden;<lb/>
+unſre Sympathie erfordert einen einzelnen<lb/>
+Gegenſtand, und ein Staat iſt ein viel zu<lb/>
+abſtrakter Begrif fuͤr unſre Empfindung.“ <note place="foot" n="*)">Dramat. St. 14.</note></p><lb/>
+<p>31.</p><lb/>
+<p>„Wenn die <hi rendition="#g">Belagerung von Ca</hi>-<lb/>
+<hi rendition="#g">lais</hi> <note place="foot" n="**)">Ein bekanntes Drama von <hi rendition="#g">Du Belloy</hi>.</note> nicht verdiente, daß die Franzoſen<lb/>
+einen ſolchen Laͤrmen damit machten, ſo ge-<lb/>
+reicht doch dieſer Laͤrmen ſelbſt den Franzoſen<lb/>
+zur Ehre. Er zeigt ſie als ein Volk, das auf<lb/>
+ſeinen Ruhm eiferſuͤchtig iſt; auf das die gro-<lb/>
+ßen Thaten ſeiner Vorfahren den Eindruck<lb/>
+nicht verlohren haben; das, von dem Werth<lb/>
+eines Dichters und von dem Einfluß des<lb/>
+<pb n="96" facs="#f0103"/>
+Theaters auf Tugend und Sitten uͤberzeugt,<lb/>
+jenen nicht zu ſeinen unnuͤtzen Gliedern rech-<lb/>
+net, dieſes nicht zu den Gegenſtaͤnden zaͤhlt,<lb/>
+um die ſich nur geſchaͤftige Muͤßiggaͤnger be-<lb/>
+kuͤmmern. Wie weit ſind wir Deutſchen in<lb/>
+dieſem Stuͤck noch hinter den Franzoſen. Es<lb/>
+gerade herauszuſagen: wir ſind gegen ſie noch<lb/>
+die wahren Barbaren! Barbariſcher, als un-<lb/>
+ſre barbariſchten Voreltern, denen ein Lieder-<lb/>
+ſaͤnger ein ſehr ſchaͤtzbarer Mann war, und<lb/>
+die, bey aller ihrer Gleichguͤltigkeit gegen<lb/>
+Kuͤnſte und Wiſſenſchaften, die Frage, ob ein<lb/>
+Barde, oder einer der mit Baͤrenfellen und<lb/>
+Bernſtein handelt, der nuͤtzlichere Buͤrger waͤ-<lb/>
+re? ſicherlich fuͤr die Frage eines Narren ge-<lb/>
+halten haͤtten. — Ich mag mich in Deutſch-<lb/>
+land umſehen, wo ich will, die Stadt ſoll<lb/>
+noch gebauet werden von der ſich erwarten<lb/>
+ließe, daß ſie nur den tauſendſten Theil der<lb/>
+Achtung und Erkenntlichkeit gegen einen Deut-<lb/>
+ſchen Dichter haben wuͤrde, die <hi rendition="#g">Calais</hi> gegen<lb/>
+den <hi rendition="#g">Du Belloi</hi> gehabt hat. Man erkenne<lb/>
+<fw type="catch" place="bottom">es</fw><lb/>
+<pb n="97" facs="#f0104"/>
+es immer fuͤr Franzoͤſiſche Eitelkeit: wie weit<lb/>
+haben wir noch hin, ehe wir zu ſo einer Ei-<lb/>
+telkeit faͤhig ſeyn werden! Was Wunder<lb/>
+auch? Unſre Gelehrten ſelbſt ſind klein ge-<lb/>
+nug, die Nation in der Geringſchaͤtzung alles<lb/>
+deſſen zu beſtaͤrken, was nicht geradezu den<lb/>
+Beutel fuͤllet. Man ſpreche von einem Wer-<lb/>
+ke des Genies, von welchem man will; man<lb/>
+rede von der Aufmunterung der Kuͤnſtler;<lb/>
+man aͤußere den Wunſch, daß eine reiche bluͤ-<lb/>
+hende Stadt der anſtaͤndigſten Erholung fuͤr<lb/>
+Maͤnner, die in ihren Geſchaͤften des Tages<lb/>
+Laſt und Hitze getragen, und der nuͤtzlichſten<lb/>
+Zeitkuͤrzung fuͤr andre, die gar keine Geſchaͤf-<lb/>
+te haben wollen, durch ihre bloße Theilneh-<lb/>
+mung aufhelfen moͤge: — und ſehe und hoͤre<lb/>
+um ſich.“ <note place="foot" n="*)">Dramat. St. 18.</note></p><lb/>
+<p>32.</p><lb/>
+<p>„Es iſt einem jeden vergoͤnnt, ſeinen eig-<lb/>
+nen Geſchmack zu haben; und es iſt ruͤhmlich,<lb/>
+<fw type="sig" place="bottom">Neunte Sammlung. G</fw><lb/>
+<pb n="98" facs="#f0105"/>
+ſich von ſeinem eignen Geſchmack Rechenſchaft<lb/>
+zu geben ſuchen. Aber den Gruͤnden, durch<lb/>
+die man ihn rechtfertigen will, eine Allgemein-<lb/>
+heit ertheilen, die, wenn es ſeine Richtigkeit<lb/>
+damit haͤtte, ihn zu dem einzigen wahren Ge-<lb/>
+ſchmack machen muͤßte, heißt aus den Gren-<lb/>
+zen des forſchenden Liebhabers herausgehen,<lb/>
+und ſich zu einem eigenſinnigen Geſetzgeber<lb/>
+aufwerfen. Der wahre Kunſtrichter folgert<lb/>
+keine Regeln aus ſeinem Geſchmack, ſondern<lb/>
+hat ſeinen Geſchmack nach den Regeln gebil-<lb/>
+det, welche die Natur der Sache erfordert.“ <note place="foot" n="*)">Dramat. St. 19.</note></p><lb/>
+<p>33.</p><lb/>
+<p>„Ich weiß einem Kuͤnſtler nur eine einzige<lb/>
+Schmeichelei zu machen; und dieſe beſteht<lb/>
+darinn, daß ich annehme, er ſei von aller ei-<lb/>
+teln Empfindlichkeit entfernt, die Kunſt gehe<lb/>
+bei ihm uͤber alles, er hoͤre gern frei und laut<lb/>
+uͤber ſich urtheilen, und wolle ſich lieber auch<lb/>
+<pb n="99" facs="#f0106"/>
+dann und wann falſch, als ſeltner beurtheilt<lb/>
+wiſſen. Wer dieſe Schmeichelei nicht verſteht,<lb/>
+bei dem erkenne ich mich gar bald irre, und<lb/>
+er iſt nicht werth, daß wir ihn ſtudiren. Der<lb/>
+wahre Virtuoſe glaubt es nicht einmal, daß<lb/>
+wir ſeine Vollkommenheit einſehen und em-<lb/>
+pfinden, wenn wir auch noch ſo viel Geſchrei<lb/>
+davon machen, ehe er nicht merkt, daß wir<lb/>
+auch Augen und Gefuͤhl fuͤr ſeine Schwaͤche<lb/>
+haben. Er ſpottet bei ſich uͤber jede uneinge-<lb/>
+ſchraͤnkte Bewunderung, und nur das Lob<lb/>
+desjenigen freuet ihn, von dem er weiß, daß<lb/>
+er auch das Herz hat, ihn zu tadeln.“ <note place="foot" n="*)">Dramat. St. 25.</note></p><lb/>
+<p>34.</p><lb/>
+<p>„Wie ſchwach muß der Eindruck ſeyn, den<lb/>
+das Werk gemacht hat, wenn man in eben<lb/>
+dem Augenblick auf nichts begieriger iſt, als<lb/>
+die Figur des Meiſters dagegen zu halten?<lb/>
+<fw type="sig" place="bottom">G 2</fw><lb/>
+<pb n="100" facs="#f0107"/>
+Das wahre Meiſterſtuͤck, duͤnkt mich, erfuͤlle<lb/>
+uns ſo ganz mit ſich ſelbſt, daß wir des Ur-<lb/>
+hebers daruͤber vergeſſen; daß wir es nicht<lb/>
+als das Produkt eines einzelnen Weſens,<lb/>
+ſondern der allgemeinen Natur betrachten.<lb/>
+<hi rendition="#g">Young</hi> ſagt von der Sonne, es waͤre Suͤn-<lb/>
+de in den Heiden geweſen, ſie nicht anzubeten.<lb/>
+Wenn Sinn in dieſer Hyperbel liegt, ſo iſt er<lb/>
+dieſer: der Glanz, die Herrlichkeit der Son-<lb/>
+ne iſt ſo groß, ſo uͤberſchwenglich, daß es dem<lb/>
+roheren Menſchen zu verzeihen, daß es ſehr<lb/>
+natuͤrlich war, wenn er ſich keine groͤßere<lb/>
+Herrlichkeit, keinen Glanz denken konnte, von<lb/>
+dem jener nur ein Abglanz ſei, wenn er ſich<lb/>
+alſo in der Bewunderung der Sonne ſo ſehr<lb/>
+verlohr, daß er an den Schoͤpfer der Sonne<lb/>
+nicht dachte. Ich vermuthe, die wahre Urſa-<lb/>
+che, warum wir ſo wenig Zuverlaͤſſiges von<lb/>
+der Perſon und den Lebensumſtaͤnden des<lb/>
+<hi rendition="#g">Homer</hi> wiſſen, iſt die Vortrefflichkeit ſeiner<lb/>
+Gedichte ſelbſt. Wir ſtehen voller Erſtaunen<lb/>
+an dem breiten rauſchenden Fluſſe, ohne an<lb/>
+<pb n="101" facs="#f0108"/>
+ſeine Quelle im Gebirge zu denken. Wir<lb/>
+wollen es nicht wiſſen, wir finden unſre Rech-<lb/>
+nung dabei es zu vergeſſen, daß Homer, der<lb/>
+blinde Bettler, eben der Homer iſt, der uns<lb/>
+in ſeinen Werken ſo entzuͤckt. Er bringt uns<lb/>
+unter Goͤtter und Helden; wir muͤßten in die-<lb/>
+ſer Geſellſchaft viel Langeweile haben, um<lb/>
+uns nach dem Thuͤrſteher ſo genau zu erkun-<lb/>
+digen, der uns hereingelaſſen. Die Taͤuſchung<lb/>
+muß ſehr ſchwach ſeyn, man muß wenig Na-<lb/>
+tur, aber deſto mehr Kuͤnſtelei empfinden,<lb/>
+wenn man ſo neugierig nach dem Kuͤnſt-<lb/>
+ler iſt.“ <note place="foot" n="*)">Dramat. St. 36.</note></p><lb/>
+<p>35.</p><lb/>
+<p>„Kann es nicht eben ſowohl ſeyn, daß der<lb/>
+Dichter und Kuͤnſtler das, was ich fuͤr Fle-<lb/>
+cken halte, fuͤr keine haͤlt? Und iſt es nicht<lb/>
+ſehr wahrſcheinlich, daß er mehr Recht hat,<lb/>
+als ich? Ich bin uͤberzeugt, daß das Auge<lb/>
+<pb n="102" facs="#f0109"/>
+des Kuͤnſtlers groͤßtentheils viel ſcharfſichtiger<lb/>
+iſt, als das ſcharfſichtigſte ſeiner Betrachter.<lb/>
+Unter zwanzig Einwuͤrfen, die ihm dieſe ma-<lb/>
+chen, wird er ſich von neunzehn erinnern, ſie<lb/>
+waͤhrend der Arbeit ſich ſelbſt gemacht, und<lb/>
+ſie auch ſchon ſich ſelbſt beantwortet zu haben.<lb/>
+Gleichwohl wird er nicht ungehalten ſeyn, ſie<lb/>
+auch von andern machen zu hoͤren: denn er<lb/>
+hat es gern, daß man uͤber ſein Werk ur-<lb/>
+theilet; ſchal oder gruͤndlich, links oder rechts,<lb/>
+gutartig oder haͤmiſch, alles gilt ihm gleich;<lb/>
+und auch das ſchalſte, linkſte, haͤmiſchſte Ur-<lb/>
+theil iſt ihm lieber als kalte Bewunderung.<lb/>
+Jenes wird er auf die eine oder die andre<lb/>
+Art in ſeinen Nutzen zu verwenden wiſſen;<lb/>
+aber was faͤngt er mit dieſer an? Verach-<lb/>
+ten moͤchte er die guten ehrlichen Leute nicht<lb/>
+gern, die ihn fuͤr ſo etwas Außerordentli-<lb/>
+ches halten: und doch muß er die Achſeln<lb/>
+uͤber ſie zucken. Er iſt nicht eitel, aber er<lb/>
+iſt gemeiniglich ſtolz; und aus Stolz moͤch-<lb/>
+te er zehnmal lieber einen unverdienten Ta-<lb/>
+<pb n="103" facs="#f0110"/>
+del, als ein unverdientes Lob auf ſich ſitzen<lb/>
+laſſen.“ <note place="foot" n="*)">Dramat. 73.</note></p><lb/>
+<p>36.</p><lb/>
+<p>„Der Gedanke iſt an und fuͤr ſich ſelbſt<lb/>
+graͤßlich, daß es Menſchen geben kann, die<lb/>
+ohne alle ihre Schuld ungluͤcklich ſind. Die<lb/>
+Heiden haͤtten dieſen graͤßlichen Gedanken ſo<lb/>
+weit von ſich zu entfernen geſucht als moͤg-<lb/>
+lich; und wir wollten ihn naͤhren? wir woll-<lb/>
+ten uns an Schauſpielen vergnuͤgen, die ihn<lb/>
+beſtaͤtigen? wir? die Religion und Vernunft<lb/>
+uͤberzeugt haben ſollte, daß er eben ſo unrich-<lb/>
+tig als gotteslaͤſterlich iſt.“ <note place="foot" n="**)">Dramat. St. 82.</note></p><lb/>
+<p>37.</p><lb/>
+<p>„Ich bin weder Schauſpieler noch Dich-<lb/>
+ter. Man erweiſet mir zwar manchmal die<lb/>
+Ehre mich fuͤr den letztern zu erkennen; aber<lb/>
+<pb n="104" facs="#f0111"/>
+nur weil man mich verkennt. Aus einigen<lb/>
+dramatiſchen Verſuchen, die ich gewagt habe,<lb/>
+ſollte man nicht ſo freigebig folgern. Nicht<lb/>
+jeder, der den Pinſel in die Hand nimmt<lb/>
+und Farben verquiſtet, iſt ein Mahler. Die<lb/>
+aͤlteſten von jenen Verſuchen ſind in den Jah-<lb/>
+ren hingeſchrieben, in welchen man Luſt und<lb/>
+Leichtigkeit ſo gern fuͤr Genie haͤlt. Was in<lb/>
+den neuern Ertraͤgliches iſt, davon bin ich mir<lb/>
+bewußt, daß ich es einzig und allein der Kri-<lb/>
+tik zu verdanken habe. Ich fuͤhle die leben-<lb/>
+dige Quelle nicht in mir, die durch eigne Kraft<lb/>
+ſich empor arbeitet, durch eigne Kraft in ſo<lb/>
+reichen, ſo friſchen, ſo reinen Stralen auf-<lb/>
+ſchießt, ich muß alles durch Druckwerk und<lb/>
+Roͤhren bei mir heraufpreſſen. Ich wuͤrde ſo<lb/>
+arm, ſo kalt, ſo kurzſichtig ſeyn, wenn ich<lb/>
+nicht einigermaßen gelernt haͤtte, fremde Schaͤ-<lb/>
+tze beſcheiden zu borgen, an fremdem Feuer<lb/>
+mich zu waͤrmen und durch die Glaͤſer der<lb/>
+Kunſt mein Auge zu ſtaͤrken. Ich bin daher<lb/>
+immer beſchaͤmt oder verdrießlich geworden,<lb/>
+<pb n="105" facs="#f0112"/>
+wenn ich zum Nachtheil der Kritik etwas las<lb/>
+oder hoͤrte. Sie ſoll das Genie erſticken:<lb/>
+und ich ſchmeichelte mir, etwas von ihr zu<lb/>
+erhalten, was dem Genie ſehr nahe kommt.<lb/>
+Ich bin ein Lahmer, den eine Schmaͤhſchrift<lb/>
+auf die Kruͤcke unmoͤglich erbauen kann.“ <note place="foot" n="*)" xml:id="note-0112" next="note-0113">Sollte dieſe beſcheidne Aeußerung Leßings<lb/>
+nicht etwas ungerecht gegen ihn ſelbſt ſeyn?<lb/>
+Jeder muß ſich am beſten kennen, und Leßing<lb/>
+war kein Demuͤthiger, der durch eine falſche<lb/>
+Beſcheidenheit ein groͤßeres Lob zu erjagen<lb/>
+ſuchte, noch ein Fauler, der Talente in ſich<lb/>
+ablaͤugnete, um ſie nicht brauchen zu doͤrfen.<lb/>
+Nichts aber iſt truͤglicher, als die Meinung,<lb/>
+die wir von uns ſelbſt in <hi rendition="#g">einzelnen Le</hi>-<lb/>
+<hi rendition="#g">bensperioden</hi> faſſen und hegen; wir brin-<lb/>
+gen die Umſtaͤnde außer uns oft zu wenig, oft<lb/>
+zu viel in Anſchlag. Setzet Leßing in ein Land,<lb/>
+an einen Ort, in Umſtaͤnde, unter denen die<lb/>
+lebendige Quelle von Jugend auf ſich em-<lb/>
+porarbeiten konnte, wo ihr tauſend lebendige<lb/>
+Kraͤfte, ungeſehen und unbemerkt halfen; er<lb/>
+haͤtte weniger des Druckwerks, der Roͤhren<lb/>
+noͤthig gehabt, aus ſich heraus zu preſſen,</note></p><lb/>
+<pb n="106" facs="#f0113"/>
+<p>„Doch freilich; wie die Kruͤcke dem Lahmen<lb/>
+wohl hilft, ſich von einem Ort zum andern<lb/>
+<note place="foot" n="*)" xml:id="note-0113" prev="note-0112" next="note-0114">was von ſelbſt mit reichen, friſchen, reinen<lb/>
+Stralen aufgeſchoſſen waͤre. Nicht die Kri-<lb/>
+tik, ſondern der leere Luftraum erſtickt und<lb/>
+toͤdtet. Er preſſet unter Beduͤrfniſſen, unter<lb/>
+Verhaͤltniſſen, die dem Geiſt keinen Tropfen<lb/>
+Erquickung <hi rendition="#aq">(pabulum vitae)</hi> geben, und<lb/>
+jagt zuletzt den Verzweifelnden hie und dort<lb/>
+hin, allenthalben an flache Waͤnde. Leßings<lb/>
+Lebensumſtaͤnde dringen dem Verwundernden<lb/>
+die Frage ab: nicht, warum er nicht mehr<lb/>
+hervorgebracht? ſondern wie er in ſeinen La-<lb/>
+gen Das und So viel und ſo kraͤftig habe<lb/>
+hervorbringen koͤnnen, was er geleiſtet. Dazu<lb/>
+half ihm, wie er ſagt, <hi rendition="#g">Kritik</hi>; aber Kritik<lb/>
+kann Kraͤfte nicht geben, ſondern nur regeln,<lb/>
+ordnen. Alſo war die Kaͤnntniß der Alten,<lb/>
+die Bekanntſchaft mit fremden Sprachen,<lb/>
+mit gluͤcklichern Genies unter lebhaftern Voͤl-<lb/>
+kern in beſſern Zeiten das Feuer, daran er<lb/>
+ſich waͤrmte, das kuͤnſtliche Glas, wodurch er<lb/>
+ſein Auge ſtaͤrkte. Und wehe dem beſten<lb/>
+Deutſchen Kopf, der ſich nicht aus ſeiner, in<lb/>
+dieſe alte, oder fremde Welt zuweilen zu ſe-</note><lb/>
+<pb n="107" facs="#f0114"/>
+zu bewegen, aber ihn nicht zum Laͤufer ma-<lb/>
+chen kann, ſo auch die Kritik. Wenn ich<lb/>
+mit ihrer Huͤlfe etwas zu Stande bringe,<lb/>
+welches beſſer iſt, als es einer von meinen Ta-<lb/>
+lenten ohne Kritik machen wuͤrde: ſo koſtet es<lb/>
+mir ſo viel Zeit, ich muß von andern Geſchaͤf-<lb/>
+ten ſo frei, von unwillkuͤhrlichen Zerſtreuun-<lb/>
+gen ſo ununterbrochen ſeyn, ich muß meine<lb/>
+ganze Beleſenheit ſo gegenwaͤrtig haben, ich<lb/>
+muß bei jedem Schritte alle Bemerkungen,<lb/>
+die ich jemals uͤber Sitten und Leidenſchaften<lb/>
+gemacht, ſo ruhig durchlaufen koͤnnen; daß zu<lb/>
+einem Arbeiter, der ein Theater mit Neuig-<lb/>
+<note place="foot" n="*)" xml:id="note-0114" prev="note-0113">tzen weiß! Er wird und muß in die Zunft<lb/>
+jener Geſchoͤpfe gerathen, die, (S. Dramat.<lb/>
+Bl. 22.) in Deutſcher Alltagskleidung, in ei-<lb/>
+ner engen Sphaͤre kuͤmmerlicher Umſtaͤnde in-<lb/>
+nerhalb ihrer viel Pfaͤhle herumtraͤumen.<lb/>
+Alle wiſſen wir, welche Witterung es ſei,<lb/>
+die die Senne des beſten Bogens er-<lb/>
+ſchlafft und die gefuͤllteſte Maſchiene ihrer<lb/>
+elektriſchen Kraft ſanft entladet.<lb/>
+A. d. H.</note><lb/>
+<pb n="108" facs="#f0115"/>
+keiten unterhalten ſoll, niemand in der Welt<lb/>
+ungeſchickter ſeyn kann als ich.</p><lb/>
+<p>Was <hi rendition="#g">Goldoni</hi> fuͤr das italiaͤniſche Thea-<lb/>
+ter that, der es in Einem Jahre mit dreizehn<lb/>
+neuen Stuͤcken bereicherte, das muß ich fuͤr<lb/>
+das deutſche zu thun folglich bleiben laſſen.<lb/>
+Ja das wuͤrde ich bleiben laſſen, wenn ich es<lb/>
+auch koͤnnte. Ich bin mißtrauiſcher gegen alle<lb/>
+erſte Gedanken, als <hi rendition="#g">de la Caſa</hi> und der<lb/>
+alte <hi rendition="#g">Shandy</hi> nur immer geweſen ſind.<lb/>
+Denn wenn ich ſie auch ſchon nicht fuͤr Ein-<lb/>
+gebungen des boͤſen Feindes, weder des eigent-<lb/>
+lichen noch des allegoriſchen halte: ſo denke<lb/>
+ich doch immer, daß die erſten Gedanken die<lb/>
+erſten ſind. Meine erſten Gedanken ſind ge-<lb/>
+wiß kein Haar beſſer, als Jedermanns erſte<lb/>
+Gedanken; und mit Jedermanns Gedanken<lb/>
+bleibt man am kluͤgſten zu Hauſe.“</p><lb/>
+<p>38.</p><lb/>
+<p>„Seines Fleißes darf ſich Jedermann ruͤh-<lb/>
+men: ich glaube die dramatiſche Dichtkunſt<lb/>
+<pb n="109" facs="#f0116"/>
+ſtudirt zu haben, ſie mehr ſtudirt zu haben,<lb/>
+als zwanzig die ſie ausuͤben. Ich verlange<lb/>
+auch nur eine Stimme unter uns, wo ſo man-<lb/>
+cher ſich eine anmaaßt, der, wenn er nicht<lb/>
+dem oder jenem Auslaͤnder nachplaudern ge-<lb/>
+lernt haͤtte, ſtummer ſeyn wuͤrde, als ein<lb/>
+Fiſch. — Aber man kann ſtudiren und ſich<lb/>
+tief in den Irrthum hineinſtudiren. Was<lb/>
+mich alſo verſichert, daß mir dergleichen nicht<lb/>
+begegnet ſei, daß ich das Weſen der dramati-<lb/>
+ſchen Dichtkunſt nicht verkenne, iſt dieſes, daß<lb/>
+ich es vollkommen ſo erkenne, wie es <hi rendition="#g">Ariſto</hi>-<lb/>
+<hi rendition="#g">teles</hi> aus den unzaͤhligen Meiſterſtuͤcken der<lb/>
+griechiſchen Buͤhne abſtrahirt hat. Ich ſtehe<lb/>
+nicht an, zu bekennen (und ſollte ich in die-<lb/>
+ſen erleuchteten Zeiten auch daruͤber ausgelacht<lb/>
+werden!) daß ich ſie fuͤr ein eben ſo unfehl-<lb/>
+bares Werk halte, als die Elemente des <hi rendition="#g">Eu</hi>-<lb/>
+<hi rendition="#g">klides</hi> nur immer ſind. Ihre Grundſaͤtze<lb/>
+ſind eben ſo wahr und gewiß, nur freilich nicht<lb/>
+ſo faßlich, und daher mehr der Chikane aus-<lb/>
+geſetzt, als alles was dieſe enthalten.</p><lb/>
+<pb n="110" facs="#f0117"/>
+<p>Ich wage es hier eine Aeußerung zu thun,<lb/>
+man mag ſie doch nehmen, wofuͤr man will!<lb/>
+— Man nenne mir das Stuͤck des großen<lb/>
+<hi rendition="#g">Corneille</hi>, welches ich nicht beſſer machen<lb/>
+wollte. Was gilt die Wette? —</p><lb/>
+<p>Man merke aber wohl, was ich hinzuſetze:<lb/>
+Ich werde es zuverlaͤßig beſſer machen und<lb/>
+doch lange kein <hi rendition="#g">Corneille</hi> ſeyn und doch<lb/>
+lange kein Meiſterſtuͤck gemacht haben. Ich<lb/>
+werde es beſſer machen und mir doch wenig<lb/>
+darauf einbilden doͤrfen. Ich werde nichts ge-<lb/>
+than haben, als was jeder thun kann, der ſo<lb/>
+feſt an den <hi rendition="#g">Ariſtoteles</hi> glaubt, wie ich.“ <note place="foot" n="*)">Dramat. St. 101 — 104.</note></p><lb/>
+<p>39.</p><lb/>
+<p>„Ich gehe kuͤnftigen — von — weg. Und<lb/>
+wohin? Geraden Weges nach Rom. Was<lb/>
+ich in Rom will, werde ich Ihnen aus Rom<lb/>
+ſchreiben.<note place="foot" n="**)">O daß er gegangen waͤre! damals gegan-<lb/>
+gen waͤre! Er lebte vielleicht noch.</note> Von hier aus kann ich Ihnen<lb/>
+<pb n="111" facs="#f0118"/>
+nur ſo viel ſagen, daß ich in Rom wenigſtens<lb/>
+eben ſo viel zu ſuchen und zu erwarten habe<lb/>
+als an einem Orte in Deutſchland. So viel<lb/>
+kann ich ungefaͤhr noch mithinbringen, um ein<lb/>
+Jahr da zu leben; wenn das alle iſt, nun ſo<lb/>
+waͤre es auch hier alle, und ich bin gewiß ver-<lb/>
+ſichert, daß es ſich luſtiger und erbaulicher in<lb/>
+Rom muß hungern und betteln laſſen als in<lb/>
+Deutſchland.“ <note place="foot" n="*)">Th. 27. S. 159.</note></p><lb/>
+<p>40.</p><lb/>
+<p>„Noch erwartet man vielleicht vom Verf.<lb/>
+(der antiquariſchen Briefe) daß er ſich uͤber<lb/>
+den Ton erklaͤre, den er in ihnen genommen.<lb/>
+— <hi rendition="#aq">Vide quam sim antiquorum homi-<lb/>
+num!</hi> <note place="foot" n="**)">Siehe, wie ſehr ich ein Mann aus der al-<lb/>
+ten Welt bin.</note> antwortete Cicero dem lauen Atti-<lb/>
+cus, der ihm vorwarf, daß er ſich uͤber et-<lb/>
+was waͤrmer, rauher und bitterer ausgedruͤckt<lb/>
+<pb n="112" facs="#f0119"/>
+habe, als man von ſeinen Sitten erwarten<lb/>
+koͤnnen.</p><lb/>
+<p>Der ſchleichende ſuͤße Complimentirton<lb/>
+ſchickte ſich weder zu dem Vorwurfe, noch zu<lb/>
+der Einkleidung. Auch liebt ihn der Verfaſſer<lb/>
+uͤberhaupt nicht, der mehr das Lob der Be-<lb/>
+ſcheidenheit als der Hoͤflichkeit ſucht. Die<lb/>
+Beſcheidenheit richtet ſich genau nach dem<lb/>
+Verdienſte, das ſie vor ſich hat; ſie giebt je-<lb/>
+dem, was jedem gebuͤhret. Aber die ſchlaue<lb/>
+Hoͤflichkeit giebt allen alles, um von allen al-<lb/>
+les wieder zu erhalten. Die Alten kannten<lb/>
+das Ding nicht, was wir Hoͤflichkeit nennen.<lb/>
+Ihre Urbanitaͤt war von ihr eben ſo weit<lb/>
+als von der Grobheit entfernt.</p><lb/>
+<p>Der Neidiſche, der Haͤmiſche, der<lb/>
+Rangſuͤchtige, der Verhetzer iſt der wah-<lb/>
+re Grobe; er mag ſich noch ſo hoͤflich aus-<lb/>
+druͤcken.</p><lb/>
+<p>Doch es ſei, daß jene gothiſche Hoͤflich-<lb/>
+keit eine unentbehrliche Tugend des heutigen<lb/>
+Umganges iſt. Soll ſie darum unſere Schrif-<lb/>
+<fw type="catch" place="bottom">ten</fw><lb/>
+<pb n="113" facs="#f0120"/>
+ten eben ſo ſchal und falſch machen, als un-<lb/>
+ſern Umgang?“ <note place="foot" n="*)">Vorrede zu den Antiquar. Briefen.</note></p><lb/>
+<p>41.</p><lb/>
+<p>„Die wahre Beſcheidenheit eines Gelehrten<lb/>
+beſtehet darinn, daß er genau die Schranken<lb/>
+ſeiner Kenntniſſe und ſeines Geiſtes kennet,<lb/>
+innerhalb deren er ſich zu halten hat; daß er<lb/>
+fuͤr jeden Schriftſteller ſo viel Achtung hegt,<lb/>
+ihm nicht eher zu widerſprechen, als bis er<lb/>
+ihn verſtanden; daß er in den Streitigkeiten,<lb/>
+die er ſich ſelbſt zuziehet, rund zu Werk geht,<lb/>
+nicht tergiverſirt u. f. Mit ſolchen Wendun-<lb/>
+gen macht ſich nur die beleidigte Eitelkeit aus<lb/>
+dem Staube; und ein eitler Mann iſt zwar<lb/>
+hoͤflich, aber nie beſcheiden.“ <note place="foot" n="**)">Antiqu. Br. 51.</note></p><lb/>
+<p>42.</p><lb/>
+<p>„Jeder Tadel, jeder Spott, den der<lb/>
+Kunſtrichter mit dem kritiſirten Buche in der<lb/>
+Hand gutmachen kann, iſt dem Kunſtrichter<lb/>
+<fw type="sig" place="bottom">Neunte Sammlung. H</fw><lb/>
+<pb n="114" facs="#f0121"/>
+erlaubt. Auch kann ihm niemand vorſchrei-<lb/>
+ben, wie ſanft oder wie hart, wie lieblich<lb/>
+oder wie bitter er die Ausdruͤcke eines ſolchen<lb/>
+Tadels oder Spottes waͤhlen ſoll. Er muß<lb/>
+wiſſen, welche Wirkung er damit hervorbrin-<lb/>
+gen will, und es iſt nothwendig, daß er ſeine<lb/>
+Worte nach dieſer Wirkung abwaͤget.</p><lb/>
+<p>Aber ſobald der Kunſtrichter verraͤth, daß<lb/>
+er von ſeinem Autor mehr weiß, als ihm die<lb/>
+Schriften deſſelben ſagen koͤnnen; ſo bald er<lb/>
+ſich aus dieſer naͤhern Kenntniß des gering-<lb/>
+ſten nachtheiligen Zuges wider ihn bedienet:<lb/>
+ſogleich wird ſein Tadel perſoͤnliche Beleidi-<lb/>
+gung. Er hoͤret auf Kunſtrichter zu ſeyn und<lb/>
+wird — das veraͤchtlichſte, was ein vernuͤnfti-<lb/>
+ges Geſchoͤpf werden kann — Klaͤtſcher, An-<lb/>
+ſchwaͤrzer, Pasquillant.<note place="foot" n="*)">Antiquar. B. 57.</note></p><lb/>
+<p>43.</p><lb/>
+<p>„Es thut mir leid, wenn mein Styl ir-<lb/>
+gendwo blos ſatyriſch iſt. Meinem Vorſatze<lb/>
+<pb n="115" facs="#f0122"/>
+nach ſoll er allezeit mehr als ſatyriſch ſeyn.<lb/>
+Und was ſoll er mehr ſeyn als ſatyriſch?<lb/>
+<hi rendition="#g">Treffend</hi>.</p><lb/>
+<p>„Aber die Hoͤflichkeit iſt doch eine ſo ar-<lb/>
+tige Sache — Gewiß! denn ſie iſt eine ſo<lb/>
+kleine!</p><lb/>
+<p>Aber ſo artig, wie man will: die Hoͤflich-<lb/>
+keit iſt keine Pflicht; und nicht hoͤflich ſeyn,<lb/>
+iſt noch lange nicht, grob ſeyn. Hingegen,<lb/>
+zum Beſten der Mehrern, freimuͤthig ſeyn, iſt<lb/>
+Pflicht; ſogar es mit Gefahr ſeyn, daruͤber<lb/>
+fuͤr ungeſittet und boͤsartig gehalten zu wer-<lb/>
+den, iſt Pflicht.</p><lb/>
+<p>Wenn ich Kunſtrichter waͤre, wenn ich mir<lb/>
+getraute, das Kunſtrichterſchild aushaͤngen zu<lb/>
+koͤnnen; ſo wuͤrde meine Tonleiter dieſe ſeyn.<lb/>
+Gelinde und ſchmeichelnd gegen den Anfaͤnger;<lb/>
+mit Bewunderung zweifelnd, mit Zweifel be-<lb/>
+wundernd gegen den Meiſter; abſchreckend<lb/>
+und poſitiv gegen den Stuͤmper; hoͤhniſch ge-<lb/>
+gen den Prahler; und ſo bitter als moͤglich<lb/>
+gegen den Cabalenmacher.</p><lb/>
+<fw type="sig" place="bottom">H 2</fw><lb/>
+<pb n="116" facs="#f0123"/>
+<p>Der Kunſtrichter, der gegen alle nur Einen<lb/>
+Ton hat, haͤtte beſſer gar keinen. Und beſon-<lb/>
+ders der, der gegen alle nur hoͤflich iſt, iſt im<lb/>
+Grunde gegen die er hoͤflich ſeyn koͤnnte,<lb/>
+grob.“ <note place="foot" n="*)">Br. 57.</note></p><lb/>
+<p>44.</p><lb/>
+<p>„Gewiſſe Dinge verdienten freilich <hi rendition="#g">nie</hi><lb/>
+geſagt zu werden; und doch muͤſſen ſie wenig-<lb/>
+ſtens <hi rendition="#g">Einmal</hi> geſagt werden.</p><lb/>
+<p>Die perſoͤnlichen Verhaͤltniſſe der Schrift-<lb/>
+ſteller gegen einander intereſſiren kaum den<lb/>
+kleinſten Theil des zeitverwandten Publici.<lb/>
+Welcher wuͤnſcht, daß ſein Buch auch bei<lb/>
+der Nachwelt nicht ganz vergeſſen ſei —<lb/>
+und welcher ſollte es nicht wuͤnſchen? —<lb/>
+muß uͤber nichts ſtreiten, was nur ihn ſelbſt<lb/>
+angeht.“ <note place="foot" n="**)">Th. 12. S. 169.</note></p><lb/>
+<pb n="117" facs="#f0124"/>
+<p>45.</p><lb/>
+<p>„Er ſei ein Deutſcher, ein Wahle, oder<lb/>
+was er will, geweſen; er war Einer von den<lb/>
+ganz gemeinen Leuten, die mit halboffnen Au-<lb/>
+gen, wie im Traum ihren Weg ſo fortſchlen-<lb/>
+dern. Entweder weil ſie nicht ſelbſt denken<lb/>
+koͤnnen, oder aus Kleinmuth nicht ſelbſt den-<lb/>
+ken zu doͤrfen vermeinen, oder aus Gemaͤch-<lb/>
+lichkeit nicht wollen, halten ſie feſt an dem,<lb/>
+was ſie in ihrer Kindheit gelernt haben: und<lb/>
+gluͤcklich gnug, wenn ſie nur von andern nicht<lb/>
+verlangen, daß ſie ihrem Beiſpiel hierinn fol-<lb/>
+gen ſollen.“ <note place="foot" n="*)">Berengar. Turon. Th. 13. S. 11.</note></p><lb/>
+<p>„Das Ding, das man Ketzer nennt, hat<lb/>
+eine ſehr gute Seite. Es iſt ein Menſch, der<lb/>
+mit ſeinen eignen Augen wenigſtens ſehen <hi rendition="#g">wol</hi>-<lb/>
+<hi rendition="#g">len</hi>. Die Frage iſt nur, ob es gute Augen<lb/>
+geweſen, mit welchen er ſelbſt ſehen wollen.<lb/>
+Ja in gewiſſen Jahrhunderten iſt der Name<lb/>
+Ketzer die groͤßte Empfehlung, die von einem<lb/>
+<pb n="118" facs="#f0125"/>
+Gelehrten auf die Nachwelt gebracht werden<lb/>
+koͤnnen: noch groͤßer als der Name Zauberer,<lb/>
+Magus, Teufelsbanner; denn unter dieſen<lb/>
+laͤuft doch mancher Betruͤger mit unter.“</p><lb/>
+<p>46.</p><lb/>
+<p>„Ich weiß nicht, ob es Pflicht iſt, Gluͤck<lb/>
+und Leben der Wahrheit aufzuopfern; wenig-<lb/>
+ſtens ſind Muth und Entſchloſſenheit, welche<lb/>
+dazu gehoͤren, keine Gaben, die wir uns ſelbſt<lb/>
+geben koͤnnen. Aber das, weiß ich, iſt Pflicht,<lb/>
+wenn man Wahrheit lehren will, ſie ganz<lb/>
+oder gar nicht zu lehren; ſie klar und rund,<lb/>
+ohne Raͤthſel, ohne Zuruͤckhaltung, ohne Miß-<lb/>
+trauen in ihre Kraft und Nuͤtzlichkeit zu leh-<lb/>
+ren; und die Gaben, welche dazu erfodert<lb/>
+werden, ſtehen in unſrer Gewalt. Wer die<lb/>
+nicht erwerben, oder, wenn er ſie erworben,<lb/>
+nicht brauchen will, der macht ſich um den<lb/>
+menſchlichen Verſtand nur ſchlecht verdient,<lb/>
+wenn er grobe Irrthuͤmer uns benimmt, die<lb/>
+volle Wahrheit aber vorenthaͤlt und mit einem<lb/>
+<pb n="119" facs="#f0126"/>
+Mitteldinge von Wahrheit und Luͤge uns be-<lb/>
+friedigen will. Denn je groͤber der Irrthum,<lb/>
+deſto kuͤrzer und gerader der Weg zur Wahr-<lb/>
+heit; da hingegen der verfeinerte Irrthum uns<lb/>
+auf ewig von der Wahrheit entfernt halten<lb/>
+kann, je ſchwerer uns einleuchtet, daß er Irr-<lb/>
+thum iſt.</p><lb/>
+<p>Der Mann, der bei drohenden Gefahren<lb/>
+der Wahrheit untreu wird, kann die Wahr-<lb/>
+heit doch ſehr lieben; und die Wahrheit ver-<lb/>
+giebt ihm ſeine Untreue, um ſeiner Liebe<lb/>
+willen. Aber wer nur darauf denkt, die<lb/>
+Wahrheit unter allerlei Larven und Schmin-<lb/>
+ke an den Mann zu bringen, der moͤchte<lb/>
+wohl gern ihr Kuppler ſeyn, nur ihr Liebha-<lb/>
+ber iſt er nie geweſen. Ich wuͤßte kaum et-<lb/>
+was Schlechteres als einen ſolchen <hi rendition="#g">Kuppler<lb/>
+der Wahrheit</hi>.“ <note place="foot" n="*)">Th. 13. S. 26.</note></p><lb/>
+<pb n="120" facs="#f0127"/>
+<p>47.</p><lb/>
+<p>Wozu die fruchtloſen Unterſuchungen der<lb/>
+Wahrheit, wenn ſich uͤber die Vorurtheile un-<lb/>
+ſrer erſten Erziehung doch kein dauerhafter<lb/>
+Sieg erhalten laͤßt? wenn dieſe nie auszurot-<lb/>
+ten, ſondern hoͤchſtens nur in eine kuͤrzere oder<lb/>
+laͤngere Flucht zu bringen ſind, aus welcher<lb/>
+ſie wiederum auf uns zuruͤckſtuͤrzen, eben wenn<lb/>
+uns ein andrer Feind die Waffen entriſſen<lb/>
+oder unbrauchbar gemacht hat, deren wir uns<lb/>
+ehedem gegen ſie bedienten? Nein, nein;<lb/>
+einen ſo grauſamen Spott treibt der Schoͤ-<lb/>
+pfer mit uns nicht. Wer daher in Beſtrei-<lb/>
+tung aller Arten von Vorurtheilen niemals<lb/>
+ſchuͤchtern, niemals laß zu werden wuͤnſchet,<lb/>
+der beſiege ja dieſes Vorurtheil zuerſt, daß die<lb/>
+Eindruͤcke unſrer Kindheit nicht zu vernichten<lb/>
+waͤren. Die Begriffe, die uns von Wahrheit<lb/>
+und Unwahrheit in unſrer Kindheit beige-<lb/>
+bracht werden, ſind gerade die allerflachſten,<lb/>
+die ſich am allerleichteſten durch ſelbſterwor-<lb/>
+<pb n="121" facs="#f0128"/>
+bene Begriffe auf ewig uͤberſtreichen laſſen:<lb/>
+und diejenigen, bei denen ſie in einem ſpaͤ-<lb/>
+tern Alter wieder zum Vorſchein kommen,<lb/>
+legen dadurch wider ſich ſelbſt das Zeugniß<lb/>
+ab, daß die Begriffe, unter welche ſie jene<lb/>
+begraben wollen, noch flacher, noch ſeichter,<lb/>
+noch weniger ihr Eigenthum geweſen, als<lb/>
+die Begriffe ihrer Kindheit. Nur von ſol-<lb/>
+chen Menſchen koͤnnen alſo auch die graͤßli-<lb/>
+chen Erzaͤhlungen von ploͤtzlichen Ruͤckfaͤllen<lb/>
+in laͤngſt abgelegte Irrthuͤmer auf dem Tod-<lb/>
+bette, wahr ſeyn, mit welchen man jeden<lb/>
+kleinmuͤthigeren Freund der Wahrheit zur Ver-<lb/>
+zweiflung bringen koͤnnte. Freilich muß ein<lb/>
+hitziges Fieber aus dem Spiele bleiben; und<lb/>
+was noch ſchrecklicher iſt als ein hitziges Fie-<lb/>
+ber, Einhalt und Heuchelei muͤſſen das Bet-<lb/>
+te des Sterbenden nicht belagern, und ihm<lb/>
+ſo lange zuſetzen, bis ſie ihm ein paar zwei-<lb/>
+deutige Worte ausgemergelt, mit welchen<lb/>
+der arme Kranke ſich bloß die Erlaub-<lb/>
+<pb n="122" facs="#f0129"/>
+niß erkaufen wollte, ruhig ſterben zu koͤn-<lb/>
+nen. — “ <note place="foot" n="*)">Th. 13. S. 45.</note></p><lb/>
+<p>48.</p><lb/>
+<p>„Was ich Ihnen nicht verzeihe, iſt, daß<lb/>
+Sie nicht vergnuͤgt ſind. Alles in der Welt<lb/>
+hat ſeine Zeit, alles iſt zu uͤberſtehen und zu<lb/>
+uͤberſehen, wenn man nur geſund iſt. — Ich<lb/>
+ſelbſt ſpiele jetzt eine traurige Rolle in meinen<lb/>
+Augen und dennoch, bin ich verſichert, wird<lb/>
+ſich und muß ſich alles um mich herum wie-<lb/>
+der aufheitern; ich will nur immer vor mich<lb/>
+weg und ſo wenig als moͤglich hinter mich zu-<lb/>
+ruͤckſehen. Thun Sie ein Gleiches. Vergnuͤgt<lb/>
+wird man unfehlbar, wenn man ſich nur im-<lb/>
+mer vorſetzt, vergnuͤgt zu ſeyn.“ <note place="foot" n="**)">Freundſchaftl. Briefwechſel. S. 26. 37.</note></p><lb/>
+<p>49.</p><lb/>
+<p>„Sie werden ſagen, daß ich eine beſonde-<lb/>
+re Gabe habe, etwas Gutes an etwas Schlech-<lb/>
+<pb n="123" facs="#f0130"/>
+tem zu entdecken. Die habe ich allerdings;<lb/>
+und ich bin ſtolzer darauf, als auf alles, was<lb/>
+ich weiß und kann. Nichts kann uns mit<lb/>
+der Welt zufriedner machen, als eben dieſe<lb/>
+Gabe. — Faſt fange ich an zu zweifeln, ob<lb/>
+man, ſie in Ausuͤbung zu bringen, in * * eben<lb/>
+mehr Gelegenheit hat, als an andern Or-<lb/>
+ten. — Wie ich hier lebe, wundern ſich mehr<lb/>
+Leute, daß ich nicht vor langer Weile und<lb/>
+Unluſt umkomme, als ſich wundern wuͤrden,<lb/>
+wenn ich wirklich umkaͤme. <note place="foot" n="*)">S. 52. 100.</note></p><lb/>
+<p>50.</p><lb/>
+<p>„Was kann ich fuͤr Luſt haben, an Leute<lb/>
+zu ſchreiben, mit denen ich nur ſehr ſelten Luſt<lb/>
+haben wuͤrde, zu ſprechen? Sie wiſſen, was<lb/>
+ich Ihnen oft geſtanden habe, daß ich es auf<lb/>
+die Laͤnge unmoͤglich hier aushalten kann. Ich<lb/>
+werde in der Einſamkeit, in der ich hier leben<lb/>
+muß, von Tag zu Tag duͤmmer und ſchlimmer.<lb/>
+<pb n="124" facs="#f0131"/>
+Ich muß wieder unter Menſchen, von denen<lb/>
+ich hier ſo gut als gaͤnzlich abgeſondert bin.<lb/>
+Beſuche ſind kein Umgang, und ich fuͤhle es,<lb/>
+daß ich nothwendig Umgang, Umgang mit<lb/>
+Leuten haben muß, die mir nicht gleichguͤltig<lb/>
+ſind, wenn noch ein Funken Gutes an mir<lb/>
+bleiben ſoll. <note place="foot" n="*)">Freundſch. Briefw. Th. 2. S. 15.</note></p><lb/>
+<p>Ich kann es mir leider nicht bergen, daß<lb/>
+ich hypochondriſcher bin, als ich je zu werden<lb/>
+geglaubt habe. So bald ich aus dem ver-<lb/>
+wuͤnſchten Schloſſe wieder unter Menſchen<lb/>
+komme, ſo geht es wieder eine Weile. Und<lb/>
+denn ſage ich mir: Warum auch laͤnger auf<lb/>
+dieſem verwuͤnſchten Schloſſe bleiben? Wenn<lb/>
+ich noch der alte Sperling auf dem Dache waͤre,<lb/>
+ich waͤre ſchon hundertmal wieder fort.“ <note place="foot" n="**)">Th. 2. S. 49.</note></p><lb/>
+<p>51.</p><lb/>
+<p>„Ich habe uͤber keine Zeile meiner neuen<lb/>
+Tragoͤdie weder hier, noch in * * eine Seele<lb/>
+<pb n="125" facs="#f0132"/>
+koͤnnen zu Rathe ziehn; gleichwohl muß man<lb/>
+wenigſtens uͤber ſeine Arbeit mit Jemand<lb/>
+ſprechen koͤnnen, wenn man nicht ſelbſt dar-<lb/>
+uͤber einſchlafen ſoll. Die bloße Verſicherung,<lb/>
+welche die eigne Kritik uns gewaͤhrt, daß man<lb/>
+auf dem rechten Wege iſt und bleibt, wenn ſie<lb/>
+auch noch ſo uͤberzeugend waͤre, iſt doch ſo<lb/>
+kalt und unfruchtbar, daß ſie auf die Ausar-<lb/>
+beitung keinen Einfluß hat.“ <note place="foot" n="*)">Th. 30. S. 167.</note></p><lb/>
+<p>52.</p><lb/>
+<p>„Wer wird durch Mittheilung und Freund-<lb/>
+ſchaft die Sphaͤre ſeines Lebens zu erweitern<lb/>
+ſuchen, wenn ihm beinah des ganzen Lebens<lb/>
+eckelt? Oder wer hat Luſt nach vergnuͤgten<lb/>
+Empfindungen in der Ferne umherzujagen,<lb/>
+wenn er in der Naͤhe nichts um ſich ſieht,<lb/>
+was ihm deren auch nur Eine gewaͤhren koͤnn-<lb/>
+te. Ich habe gearbeitet, mehr als ich ſonſt<lb/>
+zu arbeiten gewohnt bin. Aber lauter Dinge,<lb/>
+<pb n="126" facs="#f0133"/>
+die, ohne mich zu ruͤhmen, auch wohl ein<lb/>
+groͤßerer Stuͤmper eben ſo gut haͤtte machen<lb/>
+koͤnnen. — Solche trockne Arbeit laͤßt ſich ſo<lb/>
+recht huͤbſch hinſchreiben, ohne alle Theilneh-<lb/>
+mung, ohne die geringſte Anſtrengung des<lb/>
+Geiſtes. Dabei kann ich mich noch immer<lb/>
+mit dem Troſt beruhigen, daß ich meinem Amt<lb/>
+Genuͤge thue, und manches dabei lerne; ge-<lb/>
+ſetzt auch, daß nicht das Hundertſte von die-<lb/>
+ſem Manchen werth waͤre, gelernt zu werden.<lb/>
+Doch ich will mich gern noch weit mehr aller<lb/>
+Geſellſchaft entziehen, um hier in der Einſam-<lb/>
+keit zu kahlmaͤuſern und zu buͤffeln, wenn ich<lb/>
+nur ſonſt von einer andern Seite meine Ruhe<lb/>
+wieder damit gewinnen kann.“ <note place="foot" n="*)">Th. 30. S. 215.</note></p><lb/>
+<p>53.</p><lb/>
+<p>„Daß ich etwas wieder fuͤr das Theater<lb/>
+machen ſollte, will ich wohl bleiben laſſen.<lb/>
+Kein Menſch unterzieht ſich gern Arbeiten,<lb/>
+<pb n="127" facs="#f0134"/>
+von welchen er ganz und gar keinen Vortheil<lb/>
+hat, weder Geld noch Ehre noch Vergnuͤgen.<lb/>
+In der Zeit, die mir ein Stuͤck von zehn<lb/>
+Bogen koſtet, koͤnnte ich gut und gern mit<lb/>
+weniger Muͤhe hundert andre Bogen ſchrei-<lb/>
+ben. Zwar habe ich, nach meinem letzten<lb/>
+Ueberſchlage, wenigſtens zwoͤlf Stuͤcke, Komoͤ-<lb/>
+dien und Tragoͤdien zuſammengerechnet, deren<lb/>
+jedes ich innerhalb ſechs Wochen fertig machen<lb/>
+koͤnnte. Aber wozu mich, fuͤr nichts und wie-<lb/>
+der fuͤr nichts, ſechs Wochen auf die Folter<lb/>
+ſpannen? Jeder Kuͤnſtler ſetzt ſeine Preiſe;<lb/>
+jeder Kuͤnſtler ſucht ſo gemaͤchlich von ſeinen<lb/>
+Werken zu leben, als moͤglich: warum denn<lb/>
+nun nicht auch der Dichter? Wenn meine<lb/>
+Stuͤcke nicht hundert Louisd'or werth ſind; ſo<lb/>
+ſagt mir lieber gar nichts mehr davon: denn<lb/>
+ſie ſind ſodann gar nichts mehr werth. Fuͤr<lb/>
+die Ehre meines lieben Vaterlandes will ich<lb/>
+keine Feder anſetzen, und wenn ſie auch in<lb/>
+dieſem Stuͤck auf immer einzig und allein von<lb/>
+meiner Feder abhangen ſollte. Fuͤr meine<lb/>
+<pb n="128" facs="#f0135"/>
+Ehre aber iſt es mir gnug, wenn man nur<lb/>
+ungefaͤhr ſieht, daß ich allenfalls in dieſem Fa-<lb/>
+che etwas zu thun im Stande geweſen waͤre.<lb/>
+Alſo Geld fuͤr die Fiſche — oder bekoͤſtigt<lb/>
+euch noch lange mit Operetten.</p><lb/>
+<p>Es waͤre auch naͤrriſch, wenn ich den ein-<lb/>
+zigen Weg, Geld zu verdienen, mir wenig-<lb/>
+ſtens nicht offen halten und das Publikum<lb/>
+erſt mit meinen Stuͤcken ſaͤttigen wollte. Das<lb/>
+Geld iſt gerade das, was mir fehlt; und mir<lb/>
+mehr fehlt, als es mir jemals gefehlt hat. Ich<lb/>
+will ſchlechterdings in Jahr und Tag keinem<lb/>
+Menſchen mehr etwas ſchuldig ſeyn, und dazu<lb/>
+gehoͤrt ein beſſerer Gebrauch meiner Zeit als<lb/>
+fuͤr das Theater.“ <note place="foot" n="*)">Th. 30. S. 224.</note></p><lb/>
+<p>54.</p><lb/>
+<p>„Mein Stillſchweigen hat noch immer<lb/>
+die nehmliche Urſache. Ich bin aͤrgerlich und<lb/>
+<fw type="catch" place="bottom">arbeite,</fw><lb/>
+<pb n="129" facs="#f0136"/>
+arbeite, weil Arbeiten doch das einzige Mit-<lb/>
+tel iſt, um einmal aufzuhoͤren, jenes zu ſeyn.<lb/>
+Ich bin in meinem Leben ſchon in ſehr elen-<lb/>
+den Umſtaͤnden geweſen, aber doch nie in ſol-<lb/>
+chen, wo ich im eigentlichen Verſtande um<lb/>
+Brodt geſchrieben haͤtte. Ich habe meine<lb/>
+<hi rendition="#g">Beitraͤge</hi> <note place="foot" n="*)">Beitraͤge zur Geſchichte und Literatur aus<lb/>
+den Schaͤtzen der Herzogl. Bibliothek zu Wol-<lb/>
+fenbuͤttel. 1773.</note> blos darum angefangen, weil<lb/>
+dieſe Arbeit foͤrdert, indem ich nur einen Wiſch<lb/>
+nach dem andern in die Druckerei ſchicken<lb/>
+darf, und ich doch dafuͤr von Zeit zu Zeit ein<lb/>
+Paar Louisd'or bekomme, um von einem Tage<lb/>
+zum andern zu leben. Wer nun noch daran<lb/>
+zweifelt, daß es die abſolute Unmoͤglichkeit iſt,<lb/>
+warum ich gewiſſe Pflichten nicht erfuͤlle,<lb/>
+mein Verſprechen in gewiſſen Dingen nicht<lb/>
+halte, den bin ich ſehr geneigt, eben ſo ſehr<lb/>
+zu verkennen als er mich verkennt. <note place="foot" n="**)">Th. 30. S. 236.</note></p><lb/>
+<fw type="sig" place="bottom">Neunte Sammlung. J</fw><lb/>
+<pb n="130" facs="#f0137"/>
+<p>Vor einiger Zeit ließ es ſich hier an, als<lb/>
+ob man mir gluͤcklichere Ausſichten machen<lb/>
+wollte. Aber ich ſehe wohl, daß man mir nur<lb/>
+das Maul ſchmieren wollen. Denkt man gar<lb/>
+nicht oder nicht ſo bald darauf, ſo koͤnnen ſie<lb/>
+ſehr verſichert ſeyn, daß ich fuͤr nichts in der<lb/>
+Welt mich hier halten laſſe; und in Jahr und<lb/>
+Tag laͤngſtens ſchreibe ich Dir aus einem an-<lb/>
+dern Ort. — Es iſt ohnedies zwar recht gut,<lb/>
+eine Zeitlang in einer großen Bibliothek zu ſtu-<lb/>
+diren; aber ſich darinn vergraben iſt eine Raſe-<lb/>
+rei. Ich merke es ſo gut als andre, daß die Ar-<lb/>
+beiten, die ich jetzt thue, mich ſtumpf machen.<lb/>
+Aber daher will ich auch je eher je lieber mit ih-<lb/>
+nen fertig ſeyn und meine Beitraͤge, ununterbro-<lb/>
+chen, bis auf die letzte Armſeeligkeit, die nach<lb/>
+meinem erſten Plan hineinkommen ſoll, fortſe-<lb/>
+tzen und ausfuͤhren. Dieſes nicht thun, wuͤrde<lb/>
+heißen, die drei Jahre, die ich nun hier zuge-<lb/>
+bracht, muthwillig verlieren wollen.“ <note place="foot" n="*)">Th. 30. S. 238.</note></p><lb/>
+<pb n="131" facs="#f0138"/>
+<p>55.</p><lb/>
+<p>„Hier haben Sie einen ganzen Miſtwagen<lb/>
+voll Moos und Schwaͤmme. <note place="foot" n="*)">Ebengenannte Beitraͤge aus den Schaͤtzen<lb/>
+der Wolfenbuͤttelſchen Bibliothek. 1772.</note> Eine Frage<lb/>
+faͤllt mir dabei ein, die Sie mir gelegentlich<lb/>
+beantworten koͤnnen. — Iſt es die Eiche, oder<lb/>
+iſt es der Boden, worinn die Eiche ſteht,<lb/>
+welcher das Moos und die Schwaͤmme um<lb/>
+und an der Eiche hervorbringt? — Iſt es<lb/>
+der Boden? was kann die Eiche dafuͤr, wenn<lb/>
+endlich des Mooſes und der Schwaͤmme ſo<lb/>
+viel wird, daß ſie alle Nahrung an ſich<lb/>
+ziehen, und der Gipfel der Eiche daruͤ-<lb/>
+ber verdorret? — Doch er verdorre immer-<lb/>
+hin! Die Eiche, ſo lange ſie lebt, lebt<lb/>
+nicht durch ihren Gipfel, ſondern durch ihre<lb/>
+Wurzeln.“ <note place="foot" n="**)">Th. 29. S. 385.</note></p><lb/>
+<fw type="sig" place="bottom">J 2</fw><lb/>
+<pb n="132" facs="#f0139"/>
+<p>56.</p><lb/>
+<p>„Mit dem <hi rendition="#g">Ferguſon</hi> <note place="foot" n="*)">Wahrſcheinlich <hi rendition="#g">uͤber die buͤrgerliche<lb/>
+Geſellſchaft</hi>.</note> will ich mir ein<lb/>
+eigentliches Studium machen. Ich ſehe ſchon<lb/>
+aus dem vorgeſetzten Inhalte, daß es ein<lb/>
+Buch iſt, wie mir hier gefehlt hat, wo ich<lb/>
+groͤßtentheils nur ſolche Buͤcher habe, die uͤber<lb/>
+lang oder kurz, den Verſtand, ſo wie die Zeit<lb/>
+toͤdten. Wenn man lange nicht denkt, ſo<lb/>
+kann man am Ende nicht mehr denken. Iſt<lb/>
+es aber auch wohl gut, Wahrheiten zu den-<lb/>
+ken, ſich ernſtlich mit Wahrheiten zu beſchaͤf-<lb/>
+tigen, in deren beſtaͤndigem Widerſpruch wir<lb/>
+nun ſchon einmal leben, und zu unſrer Ruhe<lb/>
+beſtaͤndig fortleben muͤſſen? Und von derglei-<lb/>
+chen Wahrheiten ſehe ich in dem Englaͤnder<lb/>
+ſchon manche von weitem.</p><lb/>
+<p>„Wie auch ſolche, die ich laͤngſt fuͤr keine<lb/>
+Wahrheiten mehr gehalten. Doch ich beſorge<lb/>
+es nicht erſt ſeit geſtern, daß, indem ich ge-<lb/>
+<pb n="133" facs="#f0140"/>
+wiſſe Vorurtheile weggeworfen, ich ein wenig<lb/>
+zu viel mit weggeworfen habe, was ich werde<lb/>
+wiederholen muͤſſen. Daß ich es zum Theil<lb/>
+nicht ſchon gethan, daran hat mich nur die<lb/>
+Furcht verhindert, nach und nach den gan-<lb/>
+zen Unrath wieder in das Haus zu ſchleppen.<lb/>
+Es iſt unendlich ſchwer zu wiſſen, wenn und<lb/>
+wo man ſtehen bleiben ſoll, und Tauſenden<lb/>
+fuͤr Einen iſt das Ziel ihres Nachdenkens<lb/>
+die Stelle, wo ſie des Nachdenkens muͤde ge-<lb/>
+worden.“ <note place="foot" n="*)">Th. 28. S. 329.</note></p><lb/>
+<p>57.</p><lb/>
+<p>„<hi rendition="#g">Die Ode an die Koͤnige</hi> <note place="foot" n="**)"><hi rendition="#g">Von Rammler</hi>.</note> will ich<lb/>
+mir dreimal laut vorſagen, ſo oft ich werde<lb/>
+Luſt haben, an meiner antityranniſchen Tra-<lb/>
+goͤdie zu arbeiten. Ich hoffe mit Huͤlfe<lb/>
+derſelben aus dem <hi rendition="#g">Spartacus</hi> einen Hel-<lb/>
+den zu machen, der aus andern Augen<lb/>
+<pb n="134" facs="#f0141"/>
+ſieht, als der beſte Roͤmiſche. Aber wenn!<lb/>
+wenn!“ <note place="foot" n="*)">Th. 27. S. 36.</note></p><lb/>
+<p>„Kritik, will ich Ihnen nur vertrauen, iſt<lb/>
+das einzige Mittel, mich zu mehrerem aufzu-<lb/>
+friſchen, oder vielmehr aufzuhetzen. Denn da<lb/>
+ich die Kritik nicht zu dem kritiſirten Stuͤcke<lb/>
+anzuwenden im Stande bin, da ich zum Ver-<lb/>
+beſſern uͤberhaupt ganz verdorben bin; ſo nutze<lb/>
+ich die Kritik zuverlaͤſſig zu etwas Neuem.<lb/>
+Alſo wenn auch Sie es wollen, daß ich wie-<lb/>
+der einmal etwas Neues in dieſer Art machen<lb/>
+ſoll; ſo ſehen Sie, worauf es dabei mit an-<lb/>
+kommt — mich durch Tadel zu reizen, nicht<lb/>
+dieſes Nehmliche beſſer, ſondern uͤberhaupt et-<lb/>
+was Beſſeres zu machen. Und wenn auch <hi rendition="#g">die</hi>-<lb/>
+<hi rendition="#g">ſes</hi> Beſſere ſodann nothwendig noch ſeine<lb/>
+Maͤngel haben muß: ſo iſt dieſes allein der<lb/>
+Ring durch die Naſe, an dem man mich in<lb/>
+immerwaͤhrendem Tanze erhalten kann.“ <note place="foot" n="**)">Th. 27. S. 39.</note></p></div><lb/>
+<pb n="135" facs="#f0142"/>
+<div n="1"><head>58.</head><lb/>
+<p>„Die oͤftere Abaͤnderung der Arbeit iſt noch<lb/>
+das Einzige, was mich erhaͤlt. Freilich wird<lb/>
+ſo viel angefangen und wenig vollendet. Aber<lb/>
+was ſchadet das? Wenn ich auch nichts in<lb/>
+meinem Leben mehr vollendete, ja nie etwas<lb/>
+vollendet haͤtte, waͤre es nicht eben das? —<lb/>
+Vielleicht wirſt Du auch dieſe Geſinnung ein<lb/>
+wenig miſanthropiſch finden, welches Du mich<lb/>
+in Anſehung der Religion zu ſeyn im Ver-<lb/>
+dacht haſt. Ohne nun aber zu unterſuchen,<lb/>
+wie viel oder wie wenig ich mit meinem Ne-<lb/>
+benmenſchen zufrieden zu ſeyn Urſache habe,<lb/>
+muß ich Dir doch ſagen, daß Du mein ganzes<lb/>
+Betragen in Anſehung der Orthodoxie ſehr<lb/>
+unrecht verſtehſt. Ich ſollte es der Welt miß-<lb/>
+goͤnnen, daß man ſie mehr aufzuklaͤren ſuche?<lb/>
+Ich ſollte es nicht von Herzen wuͤnſchen, daß<lb/>
+ein jeder uͤber die Religion vernuͤnftig denken<lb/>
+moͤge? Ich wuͤrde mich verabſcheuen, wenn<lb/>
+ich ſelbſt bei meinen Sudeleien einen andern<lb/>
+Zweck haͤtte, als jene große Abſichten befoͤr-<lb/>
+<pb n="136" facs="#f0143"/>
+dern zu helfen. Laß mir aber doch nur meine<lb/>
+eigne Art, wie ich dieſes thun zu koͤnnen<lb/>
+glaube. Und was iſt ſimpler als dieſe Art?<lb/>
+Nicht das unreine Waſſer, welches laͤngſt nicht<lb/>
+mehr zu brauchen, will ich beibehalten wiſſen;<lb/>
+ich will es nur nicht eher weggegoſſen wiſſen,<lb/>
+als bis man weiß, woher reineres zu nehmen;<lb/>
+ich will nur nicht, daß man es ohne Beden-<lb/>
+ken weggieße, und ſollte man auch das Kind<lb/>
+hernach in Miſtjauche baden. Und was iſt<lb/>
+ſie anders, unſre neumodiſche Theologie gegen<lb/>
+die Orthodoxie als Miſtjauche gegen unreines<lb/>
+Waſſer.</p><lb/>
+<p>„Mit der Orthodoxie war man, Gott ſei<lb/>
+Dank, ziemlich zu Rande; man hatte zwiſchen<lb/>
+ihr und der Philoſophie eine Scheidwand ge-<lb/>
+zogen, hinter welcher jede ihren Weg fortge-<lb/>
+hen konnte, ohne die andre zu hindern. Aber<lb/>
+was thut man nun? Man reißt dieſe Schei-<lb/>
+dewand nieder, und macht uns unter dem<lb/>
+Vorwande, uns zu vernuͤnftigen Chriſten zu<lb/>
+machen, zu hoͤchſt unvernuͤnftigen Philoſo-<lb/>
+<pb n="137" facs="#f0144"/>
+phen. Ich bitte Dich, erkundige Dich doch<lb/>
+nur nach dieſem Puncte genauer, und ſiehe<lb/>
+etwas weniger auf das, was unſre neuen<lb/>
+Theologen verwerfen, als auf das, was ſie<lb/>
+dafuͤr in die Stelle ſetzen wollen. Ich moͤch-<lb/>
+te nicht mit Dir ſagen, daß unſer altes Re-<lb/>
+ligionsſyſtem ein Flickwerk von Stuͤmpern<lb/>
+und Halbphiloſophen ſei; ich weiß kein Ding<lb/>
+in der Welt, an welchem ſich der menſchliche<lb/>
+Scharfſinn mehr gezeigt und geuͤbt haͤtte, als<lb/>
+an ihm. Flickwerk von Stuͤmpern und Halb-<lb/>
+philoſophen iſt das Religionsſyſtem, welches<lb/>
+man jetzt an die Stelle des alten ſetzen<lb/>
+will; und mit weit mehr Einfluß auf Ver-<lb/>
+nunft und Philoſophie, als ſich das alte an-<lb/>
+maaßt. Und doch verdenkſt Du es mir, daß<lb/>
+ich dies alte vertheidige? Meines Nachbars<lb/>
+Haus drohet ihm den Einſturz. Wenn es<lb/>
+mein Nachbar abtragen will, ſo will ich ihm<lb/>
+redlich helfen. Aber er will es nicht abtra-<lb/>
+gen, ſondern er will es, mit gaͤnzlichem Ruin<lb/>
+meines Hauſes ſtuͤtzen und unterbauen. Das<lb/>
+<pb n="138" facs="#f0145"/>
+ſoll er bleiben laſſen, oder ich werde mich ſei-<lb/>
+nes einſtuͤrzenden Hauſes ſo annehmen als<lb/>
+meines eigenen.“ <note place="foot" n="*)">Wie nimmt man ſich ſeines eignen baufaͤlli-<lb/>
+gen Hauſes an? Man beſſert es ernſtlich<lb/>
+oder reißt es nieder und bauet ein andres:<lb/>
+in beiden Faͤllen aber erkundigt man ſich,<lb/>
+was denn eigentlich Schadhaftes an ihm ſei.<lb/>
+Der Ungenannte gab vieles dafuͤr aus, was<lb/>
+es nicht iſt; Leßing nahm vieles, was er da-<lb/>
+fuͤr erkannte, Gewandsweiſe, gymnaſtiſch in<lb/>
+ſeinen Schutz. Dies iſt nicht der reine Weg<lb/>
+zur Wahrheit, obgleich darauf ſehr viel Scharf-<lb/>
+ſinn, hie und da unnoͤthig, angewandt wor-<lb/>
+den iſt. Ich kann alſo den Weg, den <hi rendition="#g">Leßing</hi><lb/>
+in Fuͤhrung dieſer Streitigkeit nahm, nicht<lb/>
+ganz billigen, wie er denn auch ſeine eigentli-<lb/>
+che Abſicht nicht erreicht hat.<lb/>
+A. d. H.</note></p><lb/>
+<p>59.</p><lb/>
+<p>„Da ich es nur allzu ſehr empfinde, wie<lb/>
+viel trockner und ſtumpfer ich an Geiſt und<lb/>
+Sinnen dieſe vier Jahre geworden bin: ſo<lb/>
+<pb n="139" facs="#f0146"/>
+moͤchte ich es um alles in der Welt willen<lb/>
+nicht noch vier Jahre thun. Aber ich muß es<lb/>
+auch nicht Ein Jahr mehr thun, wenn ich<lb/>
+noch ſonſt etwas in der Welt thun will. Hier<lb/>
+iſt es aus; hier kann ich nichts mehr thun.<lb/>
+Du wirſt dieſe Meſſe auch nichts von mir le-<lb/>
+ſen; denn ich habe den ganzen Winter nichts<lb/>
+gethan, und bin ſehr zufrieden, daß ich nur<lb/>
+das Eine große Werk von Philoſophie (oder<lb/>
+Poltronnerie) zu Stande gebracht, — daß ich<lb/>
+noch lebe. Gott helfe mir in dieſem edlen<lb/>
+Werke weiter, welches wohl werth iſt, daß<lb/>
+man alle Tage darum ißt und trinkt. —</p><lb/>
+<p>„Ich haſſe alle die Leute, welche Sekten<lb/>
+ſtiften wollen, von Grund meines Herzens.<lb/>
+Denn nicht der Irrthum, ſondern der ſektiri-<lb/>
+ſche Irrthum, ja ſogar die ſektiriſche Wahr-<lb/>
+heit machen das Ungluͤck der Menſchen; oder<lb/>
+wuͤrden es machen, wenn die Wahrheit eine<lb/>
+Sekte ſtiften wollte.“ <note place="foot" n="*)">Th. 30. S. 309. 10.</note></p><lb/>
+<pb n="140" facs="#f0147"/>
+<p>60.</p><lb/>
+<p>„Faſt koͤnnte ich Sie beneiden, daß Sie<lb/>
+noch Blumen leſen, da ich verdammt bin,<lb/>
+nichts als Dornen zu ſammeln. Das iſt Ihre<lb/>
+Schuld! werden Sie ſagen. Ich ſollte nicht<lb/>
+meynen. Ich ſehe auf meinem ganzen Felde<lb/>
+nichts als Dornen; und einmal iſt es nun<lb/>
+mein Feld. Umſonſt erinnern Sie mich un-<lb/>
+ſrer gemeinſchaftlichen Entſchluͤſſe, ein blumen-<lb/>
+reicheres anzubauen. Es hat nicht ſeyn ſol-<lb/>
+len! Mit mir iſt es aus; und jeder dichteri-<lb/>
+ſche Funken, deren ich ohnedies nicht viel hat-<lb/>
+te, iſt in mir erloſchen. Leiſten Sie allein,<lb/>
+was wir zuſammen leiſten wollten. — Ich,<lb/>
+der ich die ganze Welt ausreiſen wollte, wer-<lb/>
+de, allem Anſehen nach, in dem kleinen W.<lb/>
+unter Schwarten vermodern.“ <note place="foot" n="*)">Th. 27. S. 42.</note></p><lb/>
+<p>61.</p><lb/>
+<p>„Von gewiſſen Dingen laͤßt ſich gar nicht<lb/>
+ſprechen; ſprechen zwar wohl, aber nicht ſchrei-<lb/>
+<pb n="141" facs="#f0148"/>
+ben. Man ſchreibt immer zu wenig oder zu<lb/>
+viel, wenn man bei ſich ſelbſt noch kein Re-<lb/>
+ſultat gezogen. Im Sprechen kann man ſich<lb/>
+alle Augenblick corrigiren, welches im Schrei-<lb/>
+ben nicht angeht. So viel duͤrfte ich Dir im<lb/>
+Vertrauen doch faſt ſagen, daß auch dieſe<lb/>
+Reiſe noch bis jetzt unter die Erfahrungen ge-<lb/>
+hoͤrt, daß das deutſche Theater mir fatal iſt;<lb/>
+daß ich mich nie mit ihm, es ſei auch noch<lb/>
+ſo wenig, bemengen kann, ohne Verdruß und<lb/>
+Unkoſten davon zu haben.</p><lb/>
+<p>„Und Du verdenkſt es mir noch, daß ich<lb/>
+mich dafuͤr lieber in die Theologie werfe? —<lb/>
+Freilich, wenn mir am Ende die Theologie<lb/>
+eben ſo lohnt, als das Theater.“ <note place="foot" n="*)">Th. 30. S. 391. 392.</note></p><lb/>
+<p>62.</p><lb/>
+<p>„Will es denn Eine Klaſſe von Leuten<lb/>
+nie lernen, daß es ſchlechterdings nicht wahr<lb/>
+iſt, daß jemals ein Menſch wiſſentlich und<lb/>
+<pb n="142" facs="#f0149"/>
+vorſetzlich ſich ſelbſt verblendet habe? Es iſt<lb/>
+nicht wahr, ſag' ich, aus keinem andern Grund-<lb/>
+de, als weil es nicht moͤglich iſt. Was wol-<lb/>
+len ſie denn alſo mit ihrem Vorwurfe muth-<lb/>
+williger Verſtockung, gefliſſentlicher Verhaͤr-<lb/>
+tung, mit Vorbedacht gemachter Plane, Luͤ-<lb/>
+gen auszuſtaffiren, die man Luͤgen zu ſeyn<lb/>
+weiß? Was wollen ſie damit? <note place="foot" n="*)">Daß es leichtſinnige ſo wie muthwillige<lb/>
+Verblendungen aus gewohnten Vorurtheilen,<lb/>
+ja aus mancherlei Leidenſchaften einen bittern<lb/>
+Haß gegen die Wahrheit, oder gegen ernſte<lb/>
+Unterſuchungen der Wahrheit nicht nur ge-<lb/>
+ben koͤnne, ſondern wirklich gebe, hat L. nicht<lb/>
+laͤugnen wollen, und auf ſeinem Lebenswege<lb/>
+ſelbſt erfahren.<lb/>
+A. d. H.</note> Was an-<lb/>
+ders, als — — Weil ich <hi rendition="#g">auch ihnen</hi> dieſe<lb/>
+Wahrheit muß zu gute kommen laſſen, weil<lb/>
+ich auch von <hi rendition="#g">ihnen</hi> glauben muß, daß ſie<lb/>
+vorſetzlich und wiſſentlich kein falſches verleum-<lb/>
+deriſches Urtheil faͤllen koͤnnen: ſo ſchweige ich<lb/>
+und enthalte mich alles Wiederſcheltens.</p><lb/>
+<pb n="143" facs="#f0150"/>
+<p>„Nicht die Wahrheit, in deren Beſitz ir-<lb/>
+gend ein Menſch iſt oder zu ſeyn vermeynet,<lb/>
+ſondern die aufrichtige Muͤhe, die er ange-<lb/>
+wandt hat, hinter die Wahrheit zu kommen,<lb/>
+macht den Werth des Menſchen. Denn nicht<lb/>
+durch den Beſitz, ſondern durch die Nachfor-<lb/>
+ſchung der Wahrheit erweitern ſich ſeine Kraͤf-<lb/>
+te, worinn allein ſeine immer wachſende Voll-<lb/>
+kommenheit beſtehet. Der Beſitz macht ru-<lb/>
+hig, traͤge, ſtolz — </p><lb/>
+<p>Wenn Gott in ſeiner Rechten alle Wahr-<lb/>
+heit, und in ſeiner Linken den einzigen immer<lb/>
+regen Trieb nach Wahrheit, obſchon mit dem<lb/>
+Zuſatz, mich immer und ewig zu irren, <note place="foot" n="*)">D. i. der Wahrheit immer zu nahen: denn<lb/>
+das ſchließt der Trieb nach Wahrheit und<lb/>
+ihr Begriff ſelbſt ein.<lb/>
+A. d. H.</note> ver-<lb/>
+ſchloſſen hielte und ſpraͤche zu mir: waͤhle!<lb/>
+Ich fiele ihm mit Demuth in ſeine Linke, und<lb/>
+<pb n="144" facs="#f0151"/>
+ſagte: Vater gieb! die reine Wahrheit iſt ja<lb/>
+doch nur fuͤr dich allein!“ <note place="foot" n="*)">Th. 5. S. 145.</note></p><lb/>
+<p>63.</p><lb/>
+<p>„Wenn wird man aufhoͤren, an den Fa-<lb/>
+den einer Spinne nichts weniger als die gan-<lb/>
+ze Ewigkeit haͤngen zu wollen? <note place="foot" n="**)">Er ſpricht von kleinen hiſtoriſchen Umſtaͤn-<lb/>
+den der Geſchichte des Chriſtenthums, im<lb/>
+Anfange derſelben.<lb/>
+A. d. H.</note></p><lb/>
+<p>„Welcher Thor wuͤhlt neugierig in dem<lb/>
+Grunde ſeines Hauſes, blos um ſich von der<lb/>
+Guͤte des Grundes ſeines Hauſes zu uͤberzeu-<lb/>
+gen? Setzen mußte ſich das Haus freilich erſt,<lb/>
+an dieſem und jenem Orte. — Aber daß der<lb/>
+Grund gut iſt, weiß ich nunmehr, da das<lb/>
+Haus ſo lange Zeit ſteht, uͤberzeugender, als<lb/>
+es die wiſſen konnten, die ihn legen ſahen.</p><lb/>
+<p>„Ich lobe mir, was uͤber der Erde ſteht,<lb/>
+und nicht, was unter der Erde verborgen<lb/>
+<fw type="catch" place="bottom">liegt.</fw><lb/>
+<pb n="145" facs="#f0152"/>
+liegt. — Vergieb es mir, lieber Baumeiſter,<lb/>
+als daß ich von dieſem weiter nichts wiſſen<lb/>
+mag, als daß es gut und veſt ſeyn muß:<lb/>
+denn es traͤgt und haͤlt ſo lange. An der<lb/>
+Schoͤnheit des Ganzen will ich meine Be-<lb/>
+trachtungen weiden; in dieſer, in dieſer will<lb/>
+ich dich preiſen, lieber Baumeiſter!“ <note place="foot" n="*)">Th. 5. S. 160. u. f.</note></p><lb/>
+<p>64.</p><lb/>
+<p>„Luther, Du! Großer, verkannter Mann!<lb/>
+Du haſt uns von dem Joche der Tradition<lb/>
+erloͤſet; wer erloͤſet uns von dem unertraͤgli-<lb/>
+chern Joche des Buchſtabens? <note place="foot" n="**)">Leßing wollte damit nicht ſagen, daß wir<lb/>
+den Buchſtaben d. i. den literaren Sinn<lb/>
+nach ſeiner wahren, Zeitmaͤßigen, ungezwei-<lb/>
+felten Bedeutung nicht kennen lernen ſollten.<lb/>
+Eben dieſen, mithin den Geiſt der Schriften<lb/>
+des Chriſtenthums ſollten wir kennen lernen.<lb/>
+A. d. H.</note> Wer bringt<lb/>
+uns endlich ein Chriſtenthum, wie du es jetzt<lb/>
+lehren wuͤrdeſt; wie es Chriſtus ſelbſt lehren<lb/>
+wuͤrde? Wer —</p><lb/>
+<fw type="sig" place="bottom">Neunte Sammlung. K</fw><lb/>
+<pb n="146" facs="#f0153"/>
+<p>Der wahre Lutheraner will nicht bei Lu-<lb/>
+thers Schriften, er will bei Luthers Geiſte<lb/>
+geſchuͤtzt ſeyn; und Luthers Geiſt erfordert<lb/>
+ſchlechterdings, daß man keinen Menſchen, in<lb/>
+der Erkenntniß der Wahrheit nach ſeinem eig-<lb/>
+nen Gutduͤnken fortzugehen, hindern muß.<lb/>
+Aber man hindert Alle daran, wenn man auch<lb/>
+nur Einem verbieten will, ſeinen Fortgang in<lb/>
+der Erkenntniß andern mitzutheilen. Denn<lb/>
+ohne dieſe Mittheilung im Einzeln iſt kein<lb/>
+Fortgang im Ganzen moͤglich.“ <note place="foot" n="*)">Th. 6. S. 23. 162.</note></p><lb/>
+<p>65.</p><lb/>
+<p>„Jeder Menſch hat ſeinen eignen Styl;<lb/>
+was kann ich dafuͤr, daß ich nun einmal kei-<lb/>
+nen andern Styl habe? Daß ich ihn nicht<lb/>
+erkuͤnſtle, bin ich mir bewußt. — Es kommt<lb/>
+wenig darauf an, wie wir ſchreiben; aber viel,<lb/>
+wie wir denken. Man wird doch wohl nicht<lb/>
+behaupten, daß unter verbluͤmten Bilderreichen<lb/>
+Worten nothwendig ein ſchwankender, ſchiefer<lb/>
+<pb n="147" facs="#f0154"/>
+Sinn liegen muß? daß niemand richtig und<lb/>
+beſtimmt denken kann, als wer ſich des<lb/>
+eigentlichſten, gemeinſten, platteſten Ausdrucks<lb/>
+bedienet? daß, den kalten ſymboliſchen Ideen<lb/>
+auf irgend eine Art etwas von der Waͤrme<lb/>
+und dem Leben natuͤrlicher Zeichen zu geben<lb/>
+ſuchen, der Wahrheit ſchlechterdings ſchade?</p><lb/>
+<p>Wie laͤcherlich, die Tiefe einer Wunde nicht<lb/>
+dem ſcharfen, ſondern dem blanken Schwerdt<lb/>
+zuzuſchreiben? Wie laͤcherlich alſo auch, die<lb/>
+Ueberlegenheit, welche die Wahrheit einem<lb/>
+Gegner uͤber uns giebt, einem blendenden<lb/>
+Style deſſelben zuzuſchreiben! Ich kenne kei-<lb/>
+nen blendenden Styl, der ſeinen Glanz nicht<lb/>
+von der Wahrheit mehr oder weniger entleh-<lb/>
+net. Wahrheit allein giebt echten Glanz; und<lb/>
+muß auch bei Spoͤtterei und Poſſe, wenig-<lb/>
+ſtens als Folie, unterliegen. Alſo von der<lb/>
+Wahrheit laſſet uns ſprechen und nicht vom<lb/>
+Styl. Den Meinen gebe ich aller Welt Preis. <note place="foot" n="*)">Th. 6. S. 174. f.</note></p><lb/>
+<fw type="sig" place="bottom">K 2</fw><lb/>
+<pb n="148" facs="#f0155"/>
+<p>Allerdings ſuche ich durch die Phantaſie<lb/>
+mit auf den Verſtand meiner Leſer zu wir-<lb/>
+ken. Ich halte es nicht allein fuͤr nuͤtzlich,<lb/>
+ſondern auch fuͤr nothwendig, Gruͤnde in<lb/>
+Bilder zu kleiden; und alle die Nebenbegrif-<lb/>
+fe, welche die einen oder die andern erwecken,<lb/>
+durch Anſpielungen zu bezeichnen. Wer hie-<lb/>
+von nichts weiß oder verſtehet, muͤßte ſchlech-<lb/>
+terdings kein Schriftſteller werden wollen;<lb/>
+denn alle gute Schriftſteller ſind es nur<lb/>
+auf dieſem Wege geworden. Der Begrif<lb/>
+iſt der Mann; das ſinnliche Bild des Be-<lb/>
+griffes iſt das Weib; und die Worte ſind<lb/>
+die Kinder, welche beide hervorbringen. Ein<lb/>
+ſchoͤner Held, der ſich mit Bildern und Wor-<lb/>
+ten herumſchlaͤgt, und immer thut, als ob er<lb/>
+den Begriff nicht ſaͤhe! oder immer ſich einen<lb/>
+Schatten von Mißbegriff ſchafft, an dem er<lb/>
+zum Ritter werde!“ <note place="foot" n="*)">Th. 6. S. 261.</note></p><lb/>
+<pb n="149" facs="#f0156"/>
+<p>66.</p><lb/>
+<p>„Meine Frau iſt todt; und dieſe Erfahrung<lb/>
+habe ich nun auch gemacht. Ich freue mich,<lb/>
+daß mir viele dergleichen Erfahrungen nicht<lb/>
+mehr uͤbrig ſeyn koͤnnen zu machen; und bin<lb/>
+ganz leicht. — Wenn ich noch mit einer Haͤlf-<lb/>
+te meiner uͤbrigen Tage das Gluͤck erkaufen<lb/>
+koͤnnte, die andre Haͤlfte in Geſellſchaft dieſer<lb/>
+Frau zu verleben; wie gern wollt ich es thun!<lb/>
+Aber das geht nicht; und ich muß nur wie-<lb/>
+der anfangen, meinen Weg allein ſo fortzu-<lb/>
+duſeln. <note place="foot" n="*)">Th. 27. S. 72 - 75.</note></p><lb/>
+<p>67.</p><lb/>
+<p>„Vor allen Dingen laß mich Deinen Erſt-<lb/>
+gebohrnen mit meinem beſten Seegen hienie-<lb/>
+den bewillkommen! Er werde beſſer und<lb/>
+gluͤcklicher, als alle ſeines Namens. <note place="foot" n="**)">An ſeinen Bruder, Th. 30. S. 463.</note></p><lb/>
+<pb n="150" facs="#f0157"/>
+<p>„Jetzt iſt man hier auf meinen Nathan<lb/>
+geſpannt und beſorgt ſich davon ich weiß nicht<lb/>
+was. Es wird nichts weniger, als ein ſaty-<lb/>
+riſches Stuͤck, um den Kampfplatz mit Hohn-<lb/>
+gelaͤchter zu verlaſſen. Es wird ein ſo ruͤh-<lb/>
+rendes Stuͤck, als ich nur immer gemacht<lb/>
+habe. Spott und Lachen wuͤrde ſich zu dem<lb/>
+Tone nicht ſchicken, den ich in meinem letzten<lb/>
+Blatt angeſtimmt habe; du wirſt ſehen, daß<lb/>
+ich meiner eignen Sache durch dieſen drama-<lb/>
+tiſchen Abſprung im geringſten nicht ſchade.“ <note place="foot" n="*)">Th. 30. S. 464.</note></p><lb/>
+<p>68.</p><lb/>
+<p>„Mein Nathan iſt ein Stuͤck, welches ich<lb/>
+ſchon vor drei Jahren vollends aufs Reine<lb/>
+bringen und drucken laſſen wollen. Mit un-<lb/>
+ſern jetzigen Schwarzroͤcken hat es nichts zu<lb/>
+thun; und ich will ihm den Weg nicht ſelbſt<lb/>
+verhauen, endlich doch einmal aufs Theater<lb/>
+<pb n="151" facs="#f0158"/>
+zu kommen, wenn es auch erſt nach hundert<lb/>
+Jahren waͤre. Mit dem Praͤnumeriren moͤch-<lb/>
+te ich gern nichts zu thun haben. Denn wenn<lb/>
+ich nun ploͤtzlich ſtuͤrbe? So bliebe ich viel-<lb/>
+leicht tauſend Leuten einem jeden einen Gul-<lb/>
+den ſchuldig, deren jeder fuͤr zehn Thaler auf<lb/>
+mich ſchimpfen wuͤrde. <note place="foot" n="*)">Th. 30. S. 471.</note> Nach meinem er-<lb/>
+ſten Anſchlage ſollte noch ein Nachſpiel dazu<lb/>
+kommen, genannt der <hi rendition="#g">Derwiſch</hi>, welches<lb/>
+auf eine neue Art den Faden der Epiſode des<lb/>
+Stuͤcks ſelbſt wieder aufnaͤhme und zu Ende<lb/>
+braͤchte. Aber auch das muß wegbleiben.“ <note place="foot" n="**)">Th. 30. S. 490.</note> —</p><lb/>
+<p>69.</p><lb/>
+<p>„Wenn man ſagen wird, daß ein Stuͤck<lb/>
+von ſo eigner Tendenz nicht reich genug an<lb/>
+eigner Schoͤnheit ſei: ſo werde ich ſchweigen,<lb/>
+aber mich nicht ſchaͤmen. Ich bin mir eines<lb/>
+<pb n="152" facs="#f0159"/>
+Ziels bewußt, unter dem man auch noch viel<lb/>
+weiter mit allen Ehren bleiben kann.</p><lb/>
+<p>Noch kenne ich keinen Ort in Deutſch-<lb/>
+land, wo dieſes Stuͤck ſchon jetzt aufgefuͤhrt<lb/>
+werden koͤnnte. Aber Heil und Gluͤck dem,<lb/>
+wo es zuerſt aufgefuͤhrt wird.“ <note place="foot" n="*)">Leben und Nachlaß Th. 1. S. 410.</note></p><lb/>
+<p>70.</p><lb/>
+<p>„Mein <hi rendition="#g">Ungenannter</hi> ſcheint ein wenig<lb/>
+Luft zu bekommen. Nun wird er ſich ſchon<lb/>
+von ſelbſt ſo weit helfen, als er ſich, nach den<lb/>
+Geſetzen einer hoͤhern Haushaltung helfen<lb/>
+ſoll. Auf mein eignes Glaubensbekenntniß<lb/>
+habe ich mich bereits eingelaſſen; wenigſtens<lb/>
+mich daruͤber <hi rendition="#g">ausgelaſſen</hi>. Denn zum<lb/>
+<hi rendition="#g">Einlaſſen</hi> gehoͤren zwei; und nachdem ich<lb/>
+es als ein ehrlicher Mann gethan, hat nie-<lb/>
+mand davon etwas weiter zu wiſſen verlangt.<lb/>
+Vermuthlich weil es noch zu orthodox war,<lb/>
+<pb n="153" facs="#f0160"/>
+und hierdurch weder der einen noch der an-<lb/>
+dern Parthei gelegen kam. Iſt er noch ſo<lb/>
+weit zuruͤck? dachten die einen. Wenn er nur<lb/>
+das will, dachten die andern, was haben wir<lb/>
+denn fuͤr einen Lermen uͤber ihn angefangen?“</p><lb/>
+<p>„Die Verſatilitaͤt des Geiſtes verliert ſich,<lb/>
+glaube ich, von ſeinen Eigenſchaften am er-<lb/>
+ſten. Es koſtet ſo viel Arbeit mich umwaͤlzen<lb/>
+zu laſſen, daß es kaum mehr der Muͤhe ver-<lb/>
+lohnt, wenn ich nicht eine geraume Zeit in der<lb/>
+neuen Lage wieder verweilen kann.“ <note place="foot" n="*)">Th. 29. S. 496.</note></p><lb/>
+<p>71.</p><lb/>
+<p>„Der Reiſende, den Sie mir vor einiger Zeit<lb/>
+zuſchickten, waͤr ein <hi rendition="#g">neugieriger Reiſen</hi>-<lb/>
+<hi rendition="#g">der</hi>. Der mit dem ich Ihnen jetzt antworte,<lb/>
+iſt ein <hi rendition="#g">emigrirender</hi>. Dieſe Claſſe von<lb/>
+Reiſenden findet ſich unter <hi rendition="#g">Yoriks</hi> Claſſen<lb/>
+nun zwar nicht; unter dieſen waͤre nur der<lb/>
+<pb n="154" facs="#f0161"/>
+<hi rendition="#g">ungluͤckliche und unſchuldige Reiſen</hi>-<lb/>
+<hi rendition="#g">de</hi>, der hier allenfalls paßte. Doch warum<lb/>
+nicht lieber eine neue Claſſe gemacht, als ſich<lb/>
+mit einer beholfen, die eine ſo unſchickli-<lb/>
+che Benennung hat? Denn es iſt nicht<lb/>
+wahr, daß der Ungluͤckliche ganz unſchuldig<lb/>
+iſt. An Klugheit hat er es wohl immer feh-<lb/>
+len laſſen.</p><lb/>
+<p>Dieſer Emigrant will von Ihnen nichts,<lb/>
+als daß Sie ihm den kuͤrzeſten und ſicherſten<lb/>
+Weg nach dem europaͤiſchen Lande vorſchla-<lb/>
+gen, wo es weder Chriſten noch Juden giebt.<lb/>
+Ich verliere ihn ungern; aber ſobald er gluͤck-<lb/>
+lich da angelangt iſt, bin ich der erſte, der<lb/>
+ihm folgt.</p><lb/>
+<p>An Ihrem Briefchen kaue und <hi rendition="#g">nutſche</hi><lb/>
+ich noch. (Das ſaftigſte Wort iſt hier<lb/>
+das edelſte.) Und wahrlich, ich brauche ſo<lb/>
+ein Briefchen von Zeit zu Zeit ſehr noͤthig,<lb/>
+wenn ich nicht ganz mißmuͤthig werden ſoll.<lb/>
+Ich glaube nicht, daß Sie mich als einen<lb/>
+Menſchen kennen, der nach Lobe heißhungrig<lb/>
+<pb n="155" facs="#f0162"/>
+iſt. Aber die Kaͤlte, mit der die Welt gewiſ-<lb/>
+ſen Leuten zu bezeugen pflegt, daß ſie ihr auch<lb/>
+gar nichts recht machen, iſt, wenn nicht toͤd-<lb/>
+tend, doch erſtarrend. <note place="foot" n="*)">Auf Lob der Journale zielet dieſes nicht,<lb/>
+ſondern auf die ganze Wirkung, die L. mit<lb/>
+ſeinen letzten Bemuͤhungen zu machen hoffte,<lb/>
+und die er freilich zu kurz nahm. Alles hat<lb/>
+ſeine Wirkung gethan und wird ſie thun,<lb/>
+ſeine Beitraͤge, ſeine Schriften uͤber die Frag-<lb/>
+mente, ſein <hi rendition="#g">Nathan</hi>; in der Hand der Vor-<lb/>
+ſehung iſt nichts verlohren. Nur ſeine Lauf-<lb/>
+bahn war vor der Zeit zu Ende; er ver-<lb/>
+lechzte.</note></p><lb/>
+<p>Daß <hi rendition="#g">Ihnen nicht Alles</hi> gefallen, was<lb/>
+ich ſeit einiger Zeit geſchrieben, das wundert<lb/>
+mich gar nicht. Ihnen haͤtte gar nichts ge-<lb/>
+fallen muͤſſen: denn fuͤr Sie war nichts ge-<lb/>
+ſchrieben. Hoͤchſtens hat Sie die Erinnerung<lb/>
+an <hi rendition="#g">unſre beſſeren Tage</hi> noch etwa bei der<lb/>
+und jener Stelle taͤuſchen koͤnnen. Auch ich<lb/>
+war damals ein geſundes ſchlankes Baͤum-<lb/>
+<pb n="156" facs="#f0163"/>
+chen; und bin jetzt ein ſo fauler knorrichter<lb/>
+Stamm! Ach, lieber Freund, dieſe Scene<lb/>
+iſt aus! Gern moͤchte ich Sie freilich noch<lb/>
+einmal ſprechen!“ <note place="foot" n="*)">Geſchrieben den 19. Dec. 1780. — (Th. 28.<lb/>
+S 355.) Der letzte ſeiner gedruckten Briefe<lb/>
+iſt vom 26. Jan. 1781. (Th. 29. S. 498.)<lb/>
+Er ſtarb den 15. Febr. 1781.</note></p><lb/>
+<p><hi rendition="#g">Leßing</hi>.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Und ſo fiel er, der edle Hirſch, vielver-<lb/>
+wundet, und unuͤberwunden. Da wo er er-<lb/>
+ſtarrte, ſagt man, ſtehe ſein Bild in Stein.</p></div><lb/>
+<pb n="157" facs="#f0164"/>
+<div n="1"><head>112.</head><lb/>
+<p><hi rendition="#in">D</hi>ie <hi rendition="#g">Funken aus der Aſche eines<lb/>
+Todten</hi> haben mich wie ein ſtummes<lb/>
+Trauerſpiel im Innerſten geruͤhret. <hi rendition="#g">Das</hi><lb/>
+alſo war <hi rendition="#g">Leßings</hi> Privatleben! ſo leitete<lb/>
+es ſich fort! ſo hat es geendet!</p><lb/>
+<p>Dank ſeinem Bruder und deſſen Ge-<lb/>
+huͤlfen, daß ſie uns eine Sammlung <hi rendition="#g">Le</hi>-<lb/>
+<hi rendition="#g">ßing</hi>ſcher Schriften gegeben, wie wir ſie<lb/>
+noch von keinem Deutſchen Schriftſteller<lb/>
+gehabt haben. Wuͤnſchten wir nicht alle,<lb/>
+<pb n="158" facs="#f0165"/>
+daß <hi rendition="#g">Leibnitz</hi> einen ſolchen Herausgeber<lb/>
+gehabt haͤtte? Ueber die Art der Heraus-<lb/>
+gabe hat er ſich, meinem Beduͤnken nach,<lb/>
+gnugſam gerechtfertigt. <note place="foot" n="*)">S. Vorrede zum 2ten Th. Leßingſcher<lb/>
+Schriften Berl. 1784.</note> Die Wahl der<lb/>
+Maͤnner, die ihm beiſtanden, ganz und voͤl-<lb/>
+lig endlich rechtfertigt ihn die oft und frei<lb/>
+bekannte Denkart ſeines Bruders. „Ein-<lb/>
+mal, ſagt dieſer, <note place="foot" n="**)">Anti-Goͤtze, 6. Leßings Schr. Th. S. 233.</note> habe ich nun eine ganz<lb/>
+aberglaͤubiſche Achtung gegen jedes geſchrie-<lb/>
+bene und nur geſchrieben vorhandene Buch,<lb/>
+von welchem ich erkenne, daß der Verfaſ-<lb/>
+ſer die Welt damit belehren oder vergnuͤ-<lb/>
+gen <hi rendition="#g">wollen</hi>. Es jammert mich, wenn ich<lb/>
+ſehe, daß Tod oder andre dem thaͤtigen<lb/>
+Mann nicht mehr und nicht weniger will-<lb/>
+kommene Urſachen ſo viel gute Abſichten<lb/>
+<pb n="159" facs="#f0166"/>
+vereiteln koͤnnen; und ich fuͤhle mich ſofort<lb/>
+in der Befaſſung, in welcher ſich jeder<lb/>
+Menſch, der dieſes Namens noch wuͤrdig<lb/>
+iſt, bei Erblickung eines ausgeſetzten Kin-<lb/>
+des befindet. Er begnuͤgt ſich nicht, ihm<lb/>
+nur nicht vollends den Garaus zu machen,<lb/>
+es unbeſchaͤdigt und ungeſtoͤrt da liegen zu<lb/>
+laſſen, wo er es findet; er ſchafft oder<lb/>
+traͤgt es in das Findelhaus, damit es we-<lb/>
+nigſtens Taufe und Namen erhalte. Gera-<lb/>
+de ſo wuͤnſchte ich wenigſtens (denn was waͤ-<lb/>
+re es nun, wenn auch darum noch ſo viel<lb/>
+Lumpen mehr dergeſtalt verarbeitet werden<lb/>
+muͤßten, daß ſie Spuren eines unſterblichen<lb/>
+Geiſtes zu tragen faͤhig wuͤrden?) wuͤnſchte<lb/>
+ich wenigſtens alle und jede ausgeſetzte<lb/>
+Geburten des Geiſtes mit eins in das gro-<lb/>
+ße fuͤr ſie beſtimmte Findelhaus der Dru-<lb/>
+ckerei bringen zu koͤnnen: und wenn ich<lb/>
+deren ſelbſt nur wenige wirklich dahin<lb/>
+<pb n="160" facs="#f0167"/>
+bringe, ſo liegt die Schuld gewiß nicht an<lb/>
+mir allein. Ich thue was ich kann, und<lb/>
+jeder thue nur eben ſo viel.</p><lb/>
+<p>So dachte <hi rendition="#g">Leßing</hi> und ſo habe Ers<lb/>
+denn ſeiner eignen <hi rendition="#g">Nemeſis</hi> Dank, daß<lb/>
+nach dem Maas, nach dem er fremde<lb/>
+Handſchriften hervorzog, die Seinigen auch<lb/>
+ans Licht geſtellt werden. Ehre gnug fuͤr<lb/>
+Jeden, Schriftſteller oder nicht, deſſen klein-<lb/>
+ſtes Blaͤttchen, deſſen eiligſter Brief mit ſo<lb/>
+viel Ehre ans Licht treten darf!</p><lb/>
+<p><hi rendition="#aq">Gens sui tantum similis,</hi> ein gar <hi rendition="#g">ab</hi>-<lb/>
+<hi rendition="#g">ſunderliches</hi> Volk ſind wir Deutſche.<lb/>
+Unſre Nachbarn <hi rendition="#g">ruͤhmen</hi> ſich ihrer<lb/>
+Schriftſteller; ſie ſammlen ihre Werke,<lb/>
+Aufſaͤtze, Briefe, Fragmente mit groͤßeſtem<lb/>
+Fleiß und ſetzen darin ein edles Eigen-<lb/>
+thum, eine Nationalehre. So ſind (nur<lb/>
+wenige anzufuͤhren,) in Frankreich die Wer-<lb/>
+ke nicht etwa nur der <hi rendition="#g">Corneille</hi>, <hi rendition="#g">Ra</hi>-<lb/>
+<fw type="catch" place="bottom"><hi rendition="#g">cine</hi>,</fw><lb/>
+<pb n="161" facs="#f0168"/>
+<hi rendition="#g">cine</hi>, <hi rendition="#g">Moliere</hi>, <hi rendition="#g">Voltaire</hi>, <hi rendition="#g">Rouſ</hi>-<lb/>
+<hi rendition="#g">ſeau</hi>, <hi rendition="#g">Fenelon</hi>, <hi rendition="#g">Boßvet</hi> ſondern auch<lb/>
+der <hi rendition="#g">Motte le Vayer</hi>, <hi rendition="#g">Motte Hou</hi>-<lb/>
+<hi rendition="#g">dart</hi> u. f. in England <hi rendition="#g">Shakeſpear</hi>'s,<lb/>
+<hi rendition="#g">Bacon</hi>'s, <hi rendition="#g">Milton</hi>'s, <hi rendition="#g">Swift</hi>'s, <hi rendition="#g">Po</hi>-<lb/>
+<hi rendition="#g">pe</hi>'s, <hi rendition="#g">Hume</hi>'s Werke, zum Theil mit<lb/>
+einer Pracht erſchienen, mit welcher der<lb/>
+eitelſte Schriftſteller ſelbſt zuweilen unzu-<lb/>
+frieden ſeyn wuͤrde; und wo irgend ein<lb/>
+Brief, ein Einfall, eine Anekdote von die-<lb/>
+ſem oder jenem aufgegriffen ward, wird er<lb/>
+bekannt gemacht und verherrlichet. Unſre<lb/>
+Deutſche Journale ſagen nach, ruͤhmen und<lb/>
+preiſen. Nur gegen unſre eigenſten Verdien-<lb/>
+ſte ſind wir undankbar, verachten was nach<lb/>
+der ſorgfaͤltigſten Bearbeitung in der beſchei-<lb/>
+denſten Tracht vor uns tritt, und entziehen<lb/>
+ſelbſt dem Todten, was ihm gebuͤhret. —</p><lb/>
+<p>Fuͤr Hoͤfe ſchrieb <hi rendition="#g">Leßing</hi> nicht; auch<lb/>
+nicht fuͤr den großen Maasſtab alles Ge-<lb/>
+<fw type="sig" place="bottom">Neunte Sammlung. L</fw><lb/>
+<pb n="162" facs="#f0169"/>
+ſchmacks, den Geſchmack der Franzoſen.<lb/>
+Gegen dieſen ſchreibt man ihm vielmehr,<lb/>
+(obwohl meines Erachtens mit Unrecht)<lb/>
+einen ungerechten Widerwillen zu; ſie moͤ-<lb/>
+gen ihn alſo nicht leſen. <note place="foot" n="*)">Ueber das Mikrologiſche mancher ſeiner Un-<lb/>
+terſuchungen ſo wie uͤberhaupt uͤber die Bil-<lb/>
+dung ſeines Styls hat Leßing ſich frank und<lb/>
+frei erklaͤret. S. Saͤmmtliche Schriften B.<lb/>
+13. Vorr. IX. S. 390. B. 6. S. 174. f.</note> Wir Deut-<lb/>
+ſche wollen ihn leſen; theoretiſch und prak-<lb/>
+tiſch war er der Sprache Meiſter. Wenn<lb/>
+es auch keine Deutſche Nation gaͤbe, die<lb/>
+ſich um Dies oder Jenes, woruͤber er ge-<lb/>
+ſchrieben hat, kuͤmmerte: ſo ſollte es, duͤnkt<lb/>
+mich, Deutſche Gelehrte geben, denen Dies<lb/>
+und Jenes nicht gleichguͤltig ſeyn darf, und<lb/>
+der <hi rendition="#g">verſtaͤndige Mann</hi> in <hi rendition="#g">ſeiner<lb/>
+Sinnes</hi>- <hi rendition="#g">und Denkart</hi>, iſt fuͤr einen<lb/>
+gebildeten Mann bei jedem Schriftſteller<lb/>
+das Wichtigſte, das Beßte.</p><lb/>
+<pb n="163" facs="#f0170"/>
+<p>Auch ich ſtelle mir Ihren Juͤngling<lb/>
+vor, der „mit claſſiſchen Kaͤnntniſſen in<lb/>
+„der Schule ausgeruͤſtet, ehe er die Aka-<lb/>
+„demie beſchreitet,“ eben auf dieſe Samm-<lb/>
+lung Leßingſcher Schriften geriethe. Na-<lb/>
+tuͤrlich wird er vieles in ihnen uͤberſchla-<lb/>
+gen; wobei er aber verweilet, an den Wer-<lb/>
+ken ſeines Genius, an den Grundſaͤtzen<lb/>
+und Urtheilen ſeiner Kritik, an ſeinen un-<lb/>
+vollendeten Entwuͤrfen, an ſeinen hie und<lb/>
+da kaum genannten Vorſaͤtzen, an ſeinen<lb/>
+Meynungen uͤber das was ihm leicht und<lb/>
+ſchwer, nothwendig oder erlaͤßlich ſchien,<lb/>
+an ſeiner Waage des Billigen und Rech-<lb/>
+ten, des Zweckmaͤßigen, Edlen und Schoͤ-<lb/>
+nen; an ſeiner Kunſt zu diſputiren, nach<lb/>
+Ort und Zeit zu reden, Wahrheit zu ver-<lb/>
+huͤllen ohne ſie zu beleidigen, ſie nicht im-<lb/>
+mer unmittelbar ſondern auf gewaͤhlten<lb/>
+Umwegen geſchickt zu befoͤrdern; vor Allem<lb/>
+<fw type="sig" place="bottom">L 2</fw><lb/>
+<pb n="164" facs="#f0171"/>
+an ſeinem veſten und beſcheidnen Charak-<lb/>
+ter, der nie mehr von ſich hielt als ſich ge-<lb/>
+buͤhrt zu halten, der auch im Spiele ernſt,<lb/>
+auch gegen Feinde gerecht, uͤber die menſch-<lb/>
+liche Beſtimmung rein und ſicher, uͤber das<lb/>
+menſchliche Wiſſen und Beſtreben demuͤthig<lb/>
+und beſcheiden, ſeinen Grundſaͤtzen treu<lb/>
+blieb und in den widrigſten Faͤllen des Le-<lb/>
+bens den herben Apfel oft mit Scherz, im-<lb/>
+mer aber mit maͤnnlicher Heiterkeit koſtete;<lb/>
+an dieſem Mann und Schriftſteller wird<lb/>
+er viel zu lernen finden! Seine Winke,<lb/>
+ſeine Fehler werden ihn das Wichtigſte<lb/>
+lehren; er wird ihn <hi rendition="#g">hochſchaͤtzen</hi> und<lb/>
+<hi rendition="#g">bedauren</hi>. <hi rendition="#g">Hochſchaͤtzen</hi>, daß er ſich<lb/>
+in ſo Vieles wohlgeruͤſtet, muthig und<lb/>
+gluͤcklich warf; wo es ihm mißlang, ſich<lb/>
+am Ziel ſelbſt nicht irre machen ließ, ſon-<lb/>
+dern es auf andern Bahnen ſuchte. <hi rendition="#g">Be</hi>-<lb/>
+<hi rendition="#g">dauern</hi> wird er ihn —</p><lb/>
+<pb n="165" facs="#f0172"/>
+<p>Doch wozu die Nutzloſe Wiederholung?<lb/>
+Mit <hi rendition="#g">Leßing</hi> iſt das Problem abermals<lb/>
+aufgeloͤſet. Gebt dieſem reinen Stahl in<lb/>
+dephlogiſirter Luft nur Einen Funken, welch<lb/>
+Schauſpiel einer herrlichen Flamme an<lb/>
+Glanz und Farbe werdet ihr erblicken bis<lb/>
+zum letzten Moment der Erſcheinung. Bringt<lb/>
+dieſe helle Flamme dagegen — Der be-<lb/>
+ſcheidne <hi rendition="#g">Leßing</hi> erwartete von ſeinem Va-<lb/>
+terlande Nichts; das ſchmerzlichſte aller<lb/>
+Gefuͤhle, das Gefuͤhl der Kraͤnkung maͤßig-<lb/>
+te er, ſelbſt wenn man ihn <hi rendition="#g">taͤuſchte</hi>.<lb/>
+„Noch ſind mir, ſagte er <note place="foot" n="*)">Leß. Schr. B. 25. S. 376.</note> in meinem<lb/>
+Leben alle Beſchaͤftigungen ſehr gleichguͤl-<lb/>
+tig geweſen: ich habe mich nie zu einer<lb/>
+gedrungen oder nur erboten; aber auch die<lb/>
+geringfuͤgigſte nicht von der Hand gewie-<lb/>
+ſen, zu der ich mich aus einer Art von<lb/>
+<pb n="166" facs="#f0173"/>
+Praͤdilection erleſen zu ſeyn glauben konn-<lb/>
+te.“ Seine erſte Jugendrede (1743) han-<lb/>
+delte von der <hi rendition="#g">Gleichheit eines Jahrs<lb/>
+mit dem Andern</hi> <note place="foot" n="*)">Leben und Nachlaß Th. 2. S. 103.</note>; in Anſehung ſei-<lb/>
+ner Erwartungen ſcheint er dieſer Jugend-<lb/>
+philoſophie Zeitlebens treu geblieben zu ſeyn.<lb/>
+Kurz, das Trauerſpiel <hi rendition="#g">Spartakus</hi>, das<lb/>
+er uns auf der Buͤhne nicht geben konnte,<lb/>
+hat er uns durch ſeinen Lebenslauf gege-<lb/>
+ben. — Fahren Sie mit Ihrer Geſchichte<lb/>
+der <hi rendition="#g">Franzoͤſiſchen Propaganda in<lb/>
+Deutſchland</hi> fort. Was iſt zu thun?<lb/>
+was wird werden?</p></div><lb/>
+<pb n="167" facs="#f0174"/>
+<div n="1"><head>113.</head><lb/>
+<p>„<hi rendition="#in">W</hi>as iſt zu thun? was wird werden?“<lb/>
+Da wir die ſieben Weiſen Griechenlands<lb/>
+nicht aufrufen koͤnnen, ſo duͤnkt mich</p><lb/>
+<p>1. Laſſet geſchehen ſeyn, was geſchehen<lb/>
+iſt; es iſt geſchehen. Haͤtten die obern<lb/>
+Staͤnde Deutſchlands ſich in den Kopf<lb/>
+geſetzt, ſtatt Franzoͤſiſch, Kalmuckiſch zu<lb/>
+ſprechen; (das Mangoliſche iſt auch eine<lb/>
+ſehr ausgebildete Sprache;) was wolltet<lb/>
+ihr dagegen? Die Jahrhunderte ſind <hi rendition="#g">ver</hi>-<lb/>
+<pb n="168" facs="#f0175"/>
+<hi rendition="#g">lohren</hi>; und nicht ihr, ſondern ſie tra-<lb/>
+gen die Schuld.</p><lb/>
+<p>2. Ihr ſehet, daß die Zeit das Blatt<lb/>
+wendet. Ein Theil des Franzoͤſiſchen Ge-<lb/>
+ſchmacks, der <hi rendition="#g">Hofgeſchmack</hi> naͤmlich, iſt<lb/>
+bei den Franzoſen ſelbſt <hi rendition="#g">antiquiret</hi>.<lb/>
+Wartet, ob ihn die Deutſchen beibehalten;<lb/>
+oder ob ſie gar <hi rendition="#g">aus Mode</hi> Republikaner<lb/>
+werden. Deutſch-Franzoͤſiſche Republika-<lb/>
+nerinnen und Republikaner!</p><lb/>
+<p>3. Schmaͤht nicht; ſondern bemitleidet,<lb/>
+ſchweiget, ehret; und wenn ihr es koͤnnt,<lb/>
+belehret. Es iſt ein poͤbelhafter Wahn,<lb/>
+daß wir der obern Staͤnde <hi rendition="#g">nicht bedoͤr</hi>-<lb/>
+<hi rendition="#g">fen</hi>; wir bedoͤrfen ihrer, wie ſie unſer be-<lb/>
+doͤrfen. Wir ſollen ihr Auge, wir muͤſſen<lb/>
+ihre Hand ſeyn; ſie hingegen ſinds, von<lb/>
+deren Willen und Meinung im Guten und<lb/>
+Boͤſen faſt Alles abhaͤngt. Zum Wohl<lb/>
+des Ganzen ſind ſie unentbehrlich. — Eben<lb/>
+<pb n="169" facs="#f0176"/>
+ſo falſch iſt die andre Behauptung, daß es<lb/>
+Deutſchland vortheilhaft ſei, wenn Schrift-<lb/>
+ſteller <hi rendition="#g">blos fuͤr Schriftſteller</hi> ſchrei-<lb/>
+ben. Der Koch kocht fuͤr Gaͤſte, nicht fuͤr<lb/>
+Koͤche; und wenn Koͤche ſich in Deutſch-<lb/>
+land zu Haͤuptern einer gelehrten Republik<lb/>
+aufwerfen und ſtatt der von ihnen verach-<lb/>
+teten Hoͤfe ſchmaͤhende <hi rendition="#g">Jahrs</hi>- <hi rendition="#g">und Mo</hi>-<lb/>
+<hi rendition="#g">natsbuden</hi> errichten; ſo iſt die oͤffentli-<lb/>
+che Kritik, die jeder Nation ein Palladium<lb/>
+des guten Geſchmacks, des geſunden und<lb/>
+redlichen Urtheils ſeyn ſollte, in Deutſch-<lb/>
+land dazu geworden, wozu ſie Weltleute,<lb/>
+mit verachtendem Spott aus innrer Ab-<lb/>
+neigung gegen alles Deutſche Buͤcherwe-<lb/>
+ſen nur wuͤnſchen mochten. Welcher Mann,<lb/>
+ich will nicht ſagen, von Stande, ſondern<lb/>
+nur von Achtung fuͤr ſeinen Namen wird<lb/>
+ſich in eine Geſellſchaft miſchen, die auf<lb/>
+ſolche Art <hi rendition="#g">fuͤr ſich ſelbſt</hi> ſchreibet?</p><lb/>
+<pb n="170" facs="#f0177"/>
+<p>4. Glaube man nicht, daß die <hi rendition="#g">unter</hi>-<lb/>
+<hi rendition="#g">ſten Staͤnde</hi> die obern erſetzt haben, ſo-<lb/>
+bald irgend nur das <hi rendition="#g">Product</hi> abgeht.<lb/>
+Der groͤßte Theil Deutſcher Schriftſteller<lb/>
+ſchreibt jetzt fuͤr <hi rendition="#g">Leſegeſellſchaften</hi>,<lb/>
+und manche derſelben ſcheinen ſich an die-<lb/>
+ſen das <hi rendition="#g">Geſinde</hi> der Deutſchen Nation<lb/>
+zu denken, fuͤr welches ihre <hi rendition="#g">Producte</hi> ge-<lb/>
+wiß auch die unterhaltendſten ſind. Da-<lb/>
+durch beſſern wir unſern Geſchmack nicht;<lb/>
+dadurch erwerben wir keine Ehre. Der<lb/>
+Namenloſe, der ſolche Werke ſchrieb, ſchaͤm-<lb/>
+te ſich ihrer zuerſt ſelbſt, bis er, (denn<lb/>
+man gewoͤhnt ſich an jedes Handwerk) in<lb/>
+Kurzem auch die Schaam ablegte. Er<lb/>
+<hi rendition="#g">weiß</hi>, daß er die Nation mit ſeinen Hefen<lb/>
+der Aufklaͤrung verderbe; die <hi rendition="#g">Hefenfa</hi>-<lb/>
+<hi rendition="#g">brik</hi> aber bringt ihm Geld und iſt gut zu<lb/>
+<hi rendition="#g">Leihbibliotheken</hi> der großen Geſind-<lb/>
+ſtube des Deutſchen Witzes und Unraths.</p><lb/>
+<pb n="171" facs="#f0178"/>
+<p>5. Wir haben Gaͤſte um uns, deren<lb/>
+manche endlich ſchon ſich entſchließen, das<lb/>
+barbariſche Deutſche zu lernen, die alſo<lb/>
+(bei Franzoſen kann es nicht fehlen) uns<lb/>
+bald in die Schule nehmen werden. Schon<lb/>
+hat Einer den Anfang gemacht <note place="foot" n="*)"><hi rendition="#g">Humaniora</hi> St. 2. oder 3. des Jahrs<lb/>
+1796.</note> und<lb/>
+uns verwieſen, daß wir „ſogern <hi rendition="#g">Origi</hi>-<lb/>
+<hi rendition="#g">nale</hi> und <hi rendition="#g">Fuͤrſtenſklaven</hi>“ ſeyn moͤ-<lb/>
+gen, daß es uns an <hi rendition="#g">Woͤrterbuͤchern</hi>,<lb/>
+an einer richtigen <hi rendition="#g">Orthographie</hi> und<lb/>
+an <hi rendition="#g">lateiniſchen Lettern</hi> mangle; ſol-<lb/>
+cher Belehrer werden ſich mehrere finden.<lb/>
+Und mit Verehrung werden die Deutſchen<lb/>
+Zeitſchriften dieſe Seltenheiten aufnehmen,<lb/>
+nicht gnug zu ruͤhmen wiſſen, wie ſehr<lb/>
+unſre Literatur dadurch in Aufnahme kom-<lb/>
+me, indem ſogar Auslaͤnder ſich endlich<lb/>
+<pb n="172" facs="#f0179"/>
+um ſie bekuͤmmern. Jeder, dem ſein Va-<lb/>
+terland lieb iſt, huͤte ſich vor ihren beſchaͤ-<lb/>
+menden Schmeicheleien; und mache ſich<lb/>
+eben ſo viel aus dergleichen laͤngſtbekann-<lb/>
+ten <hi rendition="#g">Rathſchlaͤgen</hi>. Was von Franzo-<lb/>
+ſen uͤber unſre Literatur geſagt werden<lb/>
+kann, iſt hundertfach geſagt; wir aber wiſ-<lb/>
+ſen ſelbſt am beſten, wo uns der Schuh<lb/>
+druͤckt, woran das Uebel liege. Ich ſchaͤm-<lb/>
+te mich, wenn die beſten Deutſchen Schrift-<lb/>
+ſteller ſich aus einem Lobe wie z. B. im<lb/>
+<hi rendition="#aq">Journal etranger</hi> ſo viel machten, und die<lb/>
+Reſervationen nicht bemerkten, mit denen<lb/>
+jedes Lob geſagt war. Behuͤte Gott je-<lb/>
+den Deutſchen, daß er nicht um Franzoͤſi-<lb/>
+ſchen und Engliſchen Ruhm ſchreibe! Wo<lb/>
+die Natur durch Sprache, Sitten und Cha-<lb/>
+rakter die Voͤlker geſchieden; da wolle man<lb/>
+ſie doch nicht durch <hi rendition="#g">Artefacta</hi> und <hi rendition="#g">chemi</hi>-<lb/>
+<hi rendition="#g">ſche Operationen</hi> in Eins verwandeln.</p><lb/>
+<pb n="173" facs="#f0180"/>
+<p>6. Mich duͤnkt, wir bleiben auf unſerm<lb/>
+Wege, und machen aus uns, was ſich ma-<lb/>
+chen laͤßt. Sage man uͤber unſre Nation,<lb/>
+Literatur und Sprache Boͤſes und Gutes;<lb/>
+ſie ſind einmal die <hi rendition="#g">Unſern</hi>. Mit der<lb/>
+Franzoͤſiſchen Sprache wollen wir nicht<lb/>
+tauſchen, ihr auch nicht beneiden, daß ſie<lb/>
+die Sprache der Welt ſei. <hi rendition="#g">Buͤſch</hi> hat die<lb/>
+Frage: „gewinnt ein Volk in Abſicht auf<lb/>
+ſeine Aufklaͤrung, wenn ſeine Sprache zur<lb/>
+Univerſalſprache wird? ſcharfſinnig und<lb/>
+meinem Beduͤnken nach wahr beantwor-<lb/>
+tet.“ <note place="foot" n="*)">Berlin, 1787.</note> Als demuͤthige Deutſche wollen<lb/>
+wir das geſammte Univerſum noch nicht<lb/>
+lehren, ſondern von jeder Nation, von der<lb/>
+wir lernen koͤnnen, lernen. Von den Alt-<lb/>
+franzoſen ſowohl als von den Neufranken<lb/>
+wollen wir fortfahren zu lernen: denn eben<lb/>
+<pb n="174" facs="#f0181"/>
+von jenen iſt uns, ihrer boͤſen Einfuͤhrung<lb/>
+wegen, unpartheiiſch betrachtet, noch vieles<lb/>
+zu lernen uͤbrig. Der Eine Theil unſrer<lb/>
+Nation nahm ſie, ohne alles Verhaͤltniß<lb/>
+zu unſrem Daſeyn, mit blinder Verehrung<lb/>
+auf, und, gewann an ihnen gerade das<lb/>
+lieb, was fuͤr uns nicht diente, Plaiſante-<lb/>
+rien uͤber die Religion, und Zoten; der<lb/>
+andere verabſcheuete ſie um ſo mehr und<lb/>
+betrug ſich uͤberhaupt etwas pedantiſch.<lb/>
+Vielleicht waren wir zum richtigen Em-<lb/>
+pfang und zu Beurtheilung dieſer man-<lb/>
+nichfaltigen Zeit- und Geiſtesprodukte an<lb/>
+beiden Theilen noch zu ſehr im Nebel.<lb/>
+Jetzt hat ſich die Wolke zertheilt; Frank-<lb/>
+reich ſelbſt hat die Folgen vom Misbrauch<lb/>
+mehrerer Grundſaͤtze <hi rendition="#g">Roußeau</hi>'s, <hi rendition="#g">Vol</hi>-<lb/>
+<hi rendition="#g">taire</hi>, <hi rendition="#g">Helvetius</hi> gekoſtet; die Zeit hat<lb/>
+uͤber ſie gerichtet und der Zuſchauer Urtheil<lb/>
+gereifet. — Selbſt uͤber <hi rendition="#g">Montesquieu</hi><lb/>
+<pb n="175" facs="#f0182"/>
+ſind wir noch in Schulden: denn mir iſt<lb/>
+kein Deutſches Werk bekannt, daß das<lb/>
+Franzoͤſiſche fuͤr uns brauchbar oder ent-<lb/>
+behrlich gemacht haͤtte. Die ganze aͤltere<lb/>
+Franzoͤſiſche Literatur erwartet zur Anwen-<lb/>
+dung fuͤr uns noch ein ruhiges Auge.</p><lb/>
+<p>7. Bei allen Misleitungen einer ſo<lb/>
+vielfach-zertheilten Nation, wie die Deut-<lb/>
+ſche iſt, bei Verirrungen, die Jahrhunderte<lb/>
+lang gedauert haben und ſich noch jetzt<lb/>
+faſt in jedes Urtheil miſchen, muͤſſen wir<lb/>
+am meiſten auf die große <hi rendition="#g">Alliirte</hi>, die<lb/>
+weiſe Lenkerinn menſchlicher Thorheiten,<lb/>
+die <hi rendition="#g">Providenz</hi> rechnen. Ihr wollen<lb/>
+wirs zuglauben, daß auch die Gallicoma-<lb/>
+nie der Deutſchen, die laͤcherlichſte Thorheit,<lb/>
+deren ſich ein ernſthaftes Volk bewußt ſeyn<lb/>
+kann, ihr Gutes haben werde; waͤre es<lb/>
+auch kein Anderes als Fehler zu entbloͤ-<lb/>
+ßen, die man noch lange verſchleiert haͤtte<lb/>
+<pb n="176" facs="#f0183"/>
+und gegen welche kein Salz der Comoͤdie<lb/>
+wirkſam geweſen waͤre. Die Mutter,<lb/>
+<hi rendition="#g">Zeit</hi> hat entſchleiert; das Salz iſt geko-<lb/>
+ſtet; thue es die beſte Wirkung! Den gan-<lb/>
+zen Gallicismus unſrer oberen Staͤnde ge-<lb/>
+linde abzufuͤhren, und den kalten beſonne-<lb/>
+nen Deutſchen den Satz begreiflich zu ma-<lb/>
+chen, daß wir nirgend anders als in un-<lb/>
+ſerm <hi rendition="#g">Ulubraͤ</hi>, nach Deutſcher Weiſe, mit<lb/>
+der Nation, die die unſrige iſt, wo nicht<lb/>
+witzig, ſo doch vernuͤnftig und gluͤcklich<lb/>
+ſeyn ſollen. Jedes Andre, fremde Alfan-<lb/>
+zerei, iſt vom Daͤmon. —</p><lb/>
+<p>Noch ſollte ich mich uͤber den Vorwurf,<lb/>
+als ob wir Deutſche die Englaͤnder nicht<lb/>
+gnug geehrt haͤtten, rechtfertigen; der aber<lb/>
+widerlegt ſich ſelbſt. Mit den Britten ſte-<lb/>
+hen wir in reinerem Verhaͤltniß; wir eh-<lb/>
+ren ſie aus Neigung <hi rendition="#g">uͤber Gebuͤhr</hi> von<lb/>
+ihnen keine Ehre erwartend. Unſer Herz<lb/>
+<fw type="catch" place="bottom">ſagt</fw><lb/>
+<pb n="177" facs="#f0184"/>
+ſagt uns naͤmlich, „auch wir haͤtten in den<lb/>
+vorigen Jahrhunderten einen <hi rendition="#g">Bacon</hi>,<lb/>
+<hi rendition="#g">Shakeſpear</hi>, <hi rendition="#g">Milton</hi> haben koͤnnen;“<lb/>
+wir fuͤhlen ſie als Gebein von unſerm Ge-<lb/>
+bein, als Menſchen unſrer Art; ſie ſind<lb/>
+die auf eine Inſel verpflanzten Deutſchen.<lb/>
+Daher ſind von den Englaͤndern ſelbſt ihre<lb/>
+treflichſten Schriftſteller kaum mit ſo re-<lb/>
+ger, treuer Waͤrme aufgenommen worden,<lb/>
+als von uns <hi rendition="#g">Shakeſpear</hi>, <hi rendition="#g">Milton</hi>,<lb/>
+<hi rendition="#g">Addiſon</hi>, <hi rendition="#g">Swift</hi>, <hi rendition="#g">Thomſon</hi>, <hi rendition="#g">Ster</hi>-<lb/>
+<hi rendition="#g">ne</hi>, <hi rendition="#g">Hume</hi>, <hi rendition="#g">Robertſon</hi>, <hi rendition="#g">Gibbon</hi> auf-<lb/>
+genommen ſind. <hi rendition="#g">Richardſon</hi>'s drei Ro-<lb/>
+mane haben in Deutſchland ihre goldne Zeit<lb/>
+erlebet; <hi rendition="#g">Youngs</hi> Nachtgedanken, <hi rendition="#g">Tom</hi>-<lb/>
+<hi rendition="#g">Jones</hi>, der <hi rendition="#g">Landprieſter</hi> haben in<lb/>
+Deutſchland Sekten geſtiftet; in Engliſchen<lb/>
+<hi rendition="#g">Zeitſchriften</hi> haben wir bewundert,<lb/>
+ſelbſt was wir nicht verſtanden, was fuͤr<lb/>
+uns nicht geſchrieben war. Und wer waͤre<lb/>
+<fw type="sig" place="bottom">Neunte Sammlung. M</fw><lb/>
+<pb n="178" facs="#f0185"/>
+es, der die Schotten <hi rendition="#g">Ferguſon</hi>, <hi rendition="#g">Smith</hi>,<lb/>
+<hi rendition="#g">Stewart</hi>, <hi rendition="#g">Millar</hi>, <hi rendition="#g">Blair</hi> nicht ehrte?<lb/>
+Auf dieſem demuͤthigen Wege wollen wir<lb/>
+bleiben, und nicht erwarten, daß man uns<lb/>
+verſtehe und ehre. Der Nationalruhm iſt<lb/>
+ein taͤuſchender Verfuͤhrer. Zuerſt lockt er<lb/>
+und muntert auf; hat er eine gewiſſe Hoͤhe<lb/>
+erreicht, ſo umklammert er den Kopf mit<lb/>
+einer ehernen Binde. Der Umſchloſſene<lb/>
+ſieht im Nebel nichts als ſein eigenes Bild,<lb/>
+keiner fremden neuen Eindruͤcke mehr faͤ-<lb/>
+hig. Behuͤte der Himmel uns vor <hi rendition="#g">ſol</hi>-<lb/>
+<hi rendition="#g">chem Nationalruhm</hi>; wir ſind noch<lb/>
+nicht, und wiſſen, warum wir noch nicht<lb/>
+ſind? wir ſtreben aber und wollen werden.</p></div><lb/>
+<pb n="[179]" facs="#f0186"/>
+</body><back>     <div type="contents"><head>Inhalt.</head><lb/>
+<list><item>Brief 108. Einwuͤrfe gegen die Schaͤtzung aus-<lb/>
+waͤrtiger Nationen und das den<lb/>
+Deutſchen zugebilligte Lob. Name<lb/>
+der Deutſchen bei auswaͤrtigen Na-<lb/>
+tionen. Mehrere Einwuͤrfe. <ref>Seite  5</ref></item><lb/>
+<item>Br. 109. Wie ſchwer es ſei, allgemein zu<lb/>
+charakteriſiren. Lob einer zur Klar-<lb/>
+heit und Praͤciſion gebildeten Spra-<lb/>
+che. Was repraͤſentiren ſei? Wie<lb/>
+ſehr die Franzoͤſiſche Nation Re-<lb/>
+praͤſentation liebe. <ref>S.  9</ref></item><lb/>
+<item>Br. 110. Was die Franzoͤſiſche Nation der<lb/>
+Deutſchen im Lauf der Geſchichte ge-<lb/>
+weſen. Karl der Große. Die Kreuz-<lb/>
+zuͤge. Das Ritterweſen. Seit dem<lb/>
+Weſtphaͤliſchen Frieden. — <hi rendition="#g">Pre</hi>-<lb/>
+<hi rendition="#g">montval</hi> gegen die Gallicomanie,<lb/>
+und den falſch-Franzoͤſiſchen Ge-<lb/>
+ſchmack. <ref>S.  20</ref></item><lb/>
+<item>Br. 111. Folgen der Gallicomanie — fuͤr<lb/>
+Deutſchland. Ob die Franzoͤſiſche<lb/>
+<fw type="sig" place="bottom">Neunte Sammlung,</fw><lb/>
+<pb n="[180]" facs="#f0187"/>
+<fw type="sig" place="top"><hi rendition="#g">Inhalt</hi>.</fw><lb/>
+Sprache fuͤr uns gebildet ſei? Was<lb/>
+ſie gewaͤhre und nehme. Verſchie-<lb/>
+denheit beider Nationen in ihrer<lb/>
+ganzen Denkart. Trennung der<lb/>
+Staͤnde durch die Gallicomanie in<lb/>
+Deutſchland. Verſchiednes Betragen<lb/>
+der Schriftſteller dabei. Verdienſt<lb/>
+derer, die dem Charakter unſres<lb/>
+Volks zu Huͤlfe kamen. <ref>S.  42</ref></item><lb/>
+<item><hi rendition="#g">Funken aus der Aſche eines<lb/>
+Todten</hi>; ein Kanon des Geſchmacks<lb/>
+fuͤr mancherlei Wiſſenſchaften, fuͤr<lb/>
+die Kritik, und fuͤr Erwartungen<lb/>
+der Muſe in Deutſchland. <ref>S.  64</ref></item><lb/>
+<item>Br. 112. Von der vollſtaͤndigen Ausgabe<lb/>
+Leßingſcher Schriften. Was ein<lb/>
+Juͤngling aus und an ihm zu lernen<lb/>
+habe. <ref>S.  157</ref></item><lb/>
+<item>Br. 113. Rathſchlaͤge uͤber unſer Verhaͤlt-<lb/>
+niß zur Franzoͤſiſchen Literatur.<lb/>
+Von unſrer Neigung fuͤr die Brit-<lb/>
+ten. Achtung, die man ihnen er-<lb/>
+wieſen. <ref>S.  167</ref></item></list></div></back><lb/>
+</text> </TEI>

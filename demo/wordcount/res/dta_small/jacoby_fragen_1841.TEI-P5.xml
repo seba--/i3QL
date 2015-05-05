@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Vier Fragen beantwortet von einem Ostpreußen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118556436">
+<surname>Jacoby</surname>
+<forename>Johann</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">57</measure>
+<measure type="tokens">7704</measure>
+<measure type="types">2843</measure>
+<measure type="characters">60541</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:15:00Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/jacoby_fragen_1841</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/jacoby_fragen_1841</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/jacoby_fragen_1841</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/jacoby_fragen_1841</idno>
+<idno type="DTADirName">jacoby_fragen_1841</idno>
+<idno type="DTAID">17197</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905192874</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Jacoby, Johann: Vier Fragen, beantwortet von einem Ostpreußen. Mannheim, 1841.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Vier Fragen beantwortet von einem Ostpreußen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118556436">
+<surname>Jacoby</surname>
+<forename>Johann</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">47 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Hoff</name></publisher>
+<pubPlace>Mannheim</pubPlace>
+<date type="publication">1841</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Bibl. Varnhagen 1204</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=416309399</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Journalismus</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Gesellschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Gesellschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2main">Zeitung</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b">Vier Fragen</hi><lb/>
+<hi rendition="#g">beantwortet</hi><lb/>
+von<lb/>
+<hi rendition="#b">einem Oſtpreußen.</hi></titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace><hi rendition="#b">Mannheim</hi></pubPlace>.<lb/>
+<publisher><hi rendition="#g">Bei</hi> H. <hi rendition="#g">Hoff</hi></publisher>.<lb/>
+<docDate><hi rendition="#b">1841.</hi></docDate></docImprint></titlePage><lb/>
+<pb n="[2]" facs="#f0008"/>
+<pb n="[3]" facs="#f0009"/>
+<div type="dedication"><p><hi rendition="#c"><hi rendition="#b">Preußens<lb/>
+Provinzialſtänden</hi><lb/>
+gewidmet</hi><lb/>
+<hi rendition="#et"><hi rendition="#g">vom Verfaſſer.</hi></hi></p></div><lb/>
+<pb n="[4]" facs="#f0010"/>
+<div n="1"><cit><quote>
+ <p><hi rendition="#et">Schreibt ins Denkbuch, ihr Nachkommen, daß noch nie<lb/>
+ein Fall war, wo freie hiſtoriſche Publicitaͤt geſchadet<lb/>
+habe, und nie noch wieder ein Fall war, wo <hi rendition="#g">unter</hi>-<lb/>
+<hi rendition="#g">druͤckte</hi> <choice><sic>Publicität</sic><corr>Publicitaͤt</corr></choice> auch nur ſcheinbar genuͤtzt haͤtte. —</hi></p></quote><lb/>
+<bibl><hi rendition="#g">Spittler</hi>.</bibl><lb/>
+</cit>
+ <milestone unit="section" rendition="#hr"/>
+ <cit><quote>
+ <p><hi rendition="#et">Der Wille freier Menſchen iſt der unerſchuͤtterliche<lb/>
+Pfeiler jedes Throns.</hi></p></quote><lb/>
+<bibl>v. <hi rendition="#g">Stein</hi>'s polit. Teſtament</bibl><lb/>
+</cit></div>
+ </front><body>
+<pb n="[5]" facs="#f0011"/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#i">Facta loquuntur.</hi></hi></head><lb/>
+<p>Die Sprache der Ereigniſſe — gleich vernehmlich<lb/>
+fuͤr Jeden — iſt nicht immer und Jedem verſtaͤndlich.<lb/>
+Aus derſelben eindringlich und ſinngetreu in die Sprache<lb/>
+des Volkes zu uͤberſetzen, iſt die Aufgabe des Publiciſten.<lb/>
+Wir werden in dieſen Blaͤttern</p><lb/>
+<p><hi rendition="#b">die politiſche That des oſtpreußiſchen Huldi-<lb/>
+gungs-Land-Tags</hi></p><lb/>
+<p>dergeſtalt zu uͤbertragen verſuchen.</p><lb/>
+<p><hi rendition="#b">Was wünſchten die Stände?<lb/>
+Was berechtigte ſie?<lb/>
+Welcher Beſcheid ward ihnen?<lb/>
+Was bleibt ihnen zu thun übrig?</hi></p><lb/>
+<p>Jeder Preuße leſe und pruͤfe unſere Antwort. —</p><lb/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#aq">I.</hi><lb/>
+Was wünſchten die Stände?</hi></head><lb/>
+<p>Geſezmaͤßige Theilnahme der <hi rendition="#g">ſelbſtaͤndigen</hi> Buͤr-<lb/>
+ger an den Angelegenheiten des Staates.</p><lb/>
+<pb n="6" facs="#f0012"/>
+<p>Die ſtaͤndiſche Denkſchrift, von dem uͤblichen Rede-<lb/>
+ſchmucke entkleidet, lautet:</p><lb/>
+<p>Wir verzichten auf die „in veralteten Formen ſich<lb/>
+ſchwer bewegende Vertretung einzelner und bevorrechteter<lb/>
+Staͤnde“; wir wuͤnſchen dagegen „eine Vertretung des<lb/>
+<hi rendition="#g">geſammten</hi> preußiſchen Landes“ und hoffen, daß der<lb/>
+Koͤnig die von ſeinem Vater am 22. Mai 1815 verhei-<lb/>
+ßene Verſammlung der Landes-Repraͤſentanten dem Volke<lb/>
+zuzuſichern nicht anſtehen werde. —</p><lb/>
+<p>Theilnahme des Volkes — Leidende ſowohl als<lb/>
+mitwirkende — findet in <hi rendition="#g">jedem</hi> Staate, ſelbſt den des-<lb/>
+potiſchen, ſtatt; gering oft und unſcheinbar im Frieden,<lb/>
+tritt dieſer Einfluß des Volkes (wir haben's erlebt) zur<lb/>
+Zeit der Noth offen und maͤchtig hervor. Nicht dieſe<lb/>
+allgemeine durch Naturnothwendigkeit bedingte Theilnah-<lb/>
+me kommt hier in Betracht, ſondern allein die durch<lb/>
+das <hi rendition="#g">Geſez</hi> feſtgeſtellte. Der Meinungs-Kampf uͤber<lb/>
+conſtitutionelle und abſolute Regierungsform loͤßt ſich in<lb/>
+die einfache Frage auf:</p><lb/>
+<p>ſoll die Regierung allein in den Haͤnden abhaͤngiger,<lb/>
+beſoldeter Beamten (Koͤnigl. oder Staatsdiener) ſein;<lb/>
+oder</p><lb/>
+<p>ſoll geſetzlich auch den ſelbſtſtaͤndigen Buͤrgern wahr-<lb/>
+hafte Einſicht und Theilnahme zuſtehen?</p><lb/>
+<p>So allgemein gefaßt laͤßt dieſe Frage ſich nicht beant-<lb/>
+worten, weil der zur Entſcheidung erforderliche Maasſtab:<lb/>
+der ſittlich-intellectuelle Standpunkt des Volks in jedem<lb/>
+<pb n="7" facs="#f0013"/>
+Lande und zu jeder Zeit ein verſchiedener iſt. Wie nun aber<lb/>
+verhaͤlt es ſich hiermit im <hi rendition="#g">preußiſchen</hi> Vaterlande?</p><lb/>
+<p>Welche Cultur-Stufe hat hier das Volk erreicht?<lb/>
+Welchen Antheil an den oͤffentlichen Angelegenheiten<lb/>
+gewaͤhrt ihm das Geſez?</p><lb/>
+<p>Steht dieſer Antheil mit dem Culturgrade in richti-<lb/>
+gem Verhaͤltniſſe oder nicht? —</p><lb/>
+<p>Man darf dreiſt behaupten, daß unſer Vaterland<lb/>
+(und wir nehmen hier <hi rendition="#g">keine</hi> Provinz aus) an ſittlicher<lb/>
+und geiſtiger Bildung ſeiner Bewohner, keinem Lande<lb/>
+Europa's nachſtehe. Selbſt von den eifrigſten Gegnern,<lb/>
+von Franzoſen und Englaͤndern wird Preußen mit ſeinen<lb/>
+ſieben Univerſitaͤten, ſeinen 20,085 Schulen und ſeiner<lb/>
+volksbildenden Militair-Verfaſſung als ein bisher uner-<lb/>
+reichtes Vorbild gruͤndlicher Volkserziehung geprieſen.</p><lb/>
+<p>Wo hat die deutſche Literatur eine reichere Quelle,<lb/>
+wo einen eintraͤglicheren Markt als in Preußen? Wo<lb/>
+wird jeder wahre Fortſchritt der Zeit mit groͤßerem In-<lb/>
+tereſſe begruͤßt, jedes politiſche Ereigniß vorurtheilsfreier<lb/>
+beurtheilt als in Preußen? welche Nation hat im Un-<lb/>
+gluͤcke ſoviel ſittliche Kraft, im Gluͤcke und mitten unter<lb/>
+allgemeiner Voͤlkergaͤhrung ſoviel Maͤßigung offenbart,<lb/>
+als die preußiſche? doch wozu hier an die Jahre 1807,<lb/>
+1813 und 1830 erinnern. Erſt vor wenigen Tagen<lb/>
+ſprach Friedrich Wilhelm <hi rendition="#aq">IV</hi>. in Koͤnigsberg oͤffentlich zu<lb/>
+ſeinem Volke, und die Art wie er ſprach, die Aufnahme<lb/>
+<pb n="8" facs="#f0014"/>
+die ſeine Worte fanden waren eine herrliche Anerkennung,<lb/>
+ein lautes Zeugniß fuͤr die Bildungsſtufe des Volkes.</p><lb/>
+<p>Und welchen Antheil an der Regierung hat dieſes<lb/>
+an Sitte und Intelligenz ſo hoch ſtehende Volk? Erroͤthend<lb/>
+muͤſſen wir geſtehen: kaum den allergeringſten. Leider<lb/>
+wird es nur zu leicht dieſe Antwort zu begruͤnden.</p><lb/>
+<p>In zwiefacher Form kann die Theilnahme des Volks<lb/>
+an den oͤffentlichen d. h. <hi rendition="#g">ſeinen</hi> Angelegenheiten ſich kund<lb/>
+und geltend machen, durch die <hi rendition="#g">Preſſe</hi> und durch <hi rendition="#g">Ver-<lb/>
+tretung</hi>. Die ſchlimmſten Feinde beider: Cenſur und<lb/>
+Scheinvertretung walten in Preußen.</p><lb/>
+<p><hi rendition="#et"><quote>„Die Publicitaͤt iſt fuͤr die Regierung und die Un-<lb/>
+terthanen die ſicherſte Buͤrgſchaft gegen die Nachlaͤſſigkeit<lb/>
+und den boͤſen Willen der Beamten, die ohne ſie eine <hi rendition="#g">be-<lb/>
+denkliche Eigenmacht</hi> erhalten wuͤrden (!); ohne ſie<lb/>
+wuͤrde kein Mittel uͤbrig bleiben, um hinter die Pflicht-<lb/>
+widrigkeiten untergeordneter Behoͤrden zu kommen. Sie<lb/>
+verdient daher auf alle Weiſe gefoͤrdert und geſchuͤtzt zu<lb/>
+werden.“</quote></hi></p><lb/>
+<p>Vom Koͤnige Friedrich Wilhelm <hi rendition="#aq">III</hi>., der ſicher das<lb/>
+Gute <hi rendition="#g">wollte</hi>, ruͤhren dieſe Worte her. — Wie das da-<lb/>
+rin ausgeſprochene Princip aber auf die Wirklichkeit an-<lb/>
+gewendet werde, weiß Jeder, der auch nur in die entfernt-<lb/>
+ſte Beruͤhrung mit der <hi rendition="#g">preußiſchen Cenſur</hi> gekommen iſt.<lb/>
+Bekanntlich darf bei uns weder der kleinſte Zeitungs-Arti-<lb/>
+kel noch Schriften uͤber 20 Druckbogen ohne Cenſur-Pruͤ-<lb/>
+<pb n="9" facs="#f0015"/>
+fung erſcheinen; iſt der Gegenſtand ein politiſcher, ſo faͤllt<lb/>
+meiſtens die Pruͤfung einem Polizeiagenten anheim, der<lb/>
+bei den vagen Beſtimmungen des Cenſurreglements (vom<lb/>
+18. October 1819) ſich allein nach den beſonderen In-<lb/>
+ſtructionen des Miniſters zu richten hat. Vom Miniſter<lb/>
+vollkommen abhaͤngig und nur dem Miniſter verantwort-<lb/>
+lich, iſt dieſer Cenſor alles zu ſtreichen gezwungen, was<lb/>
+den individuellen Anſichten und Abſichten ſeines Obern nicht<lb/>
+genehm iſt. Fuͤhrt der Verfaſſer gegen ihn Klage, ſo wird er<lb/>
+in der Regel abſchlaͤgig beſchieden, oder erhaͤlt ſein Recht erſt<lb/>
+nach ſo langer Zeit, daß er keinen Gebrauch mehr davon<lb/>
+machen kann. Wie waͤre es ſonſt auch moͤglich, daß ſeit<lb/>
+jenem im Jahre 1804 ausgeſprochenen Lobe anſtaͤndiger<lb/>
+Publicitaͤt man in keiner preußiſchen Zeitung, in keinem<lb/>
+hier gedruckten Buche auch nur den leiſeſten Tadel uͤber<lb/>
+das Verfahren des untergeordnetſten Beamten findet, daß<lb/>
+jede das oͤffentliche Intereſſe nur entfernt beruͤhrende An-<lb/>
+deutung (die Rubrik Inland der Staats-Zeitung wird<lb/>
+wohl Niemand hierher rechnen), um veroͤffentlicht zu wer-<lb/>
+den ſich erſt außerhalb der preußiſchen Grenzen fluͤchten<lb/>
+muß! Und auch hier ſelbſt iſt ſie nicht ſicher vor jener<lb/>
+bedenklichen Beamten-Eigenmacht, welche mit Recht<lb/>
+Friedrich Wilhelm <hi rendition="#aq">III</hi>. als die nothwendige Folge unter-<lb/>
+druͤckter Publicitaͤt bezeichnete, damit auch durch auslaͤndi-<lb/>
+ſche Zeitungen kein unguͤnſtiges Urtheil uͤber Beamten-<lb/>
+Handlungen, keine irgend freimuͤthige Beleuchtung unſerer<lb/>
+Zuſtaͤnde nach Preußen gelange, werden dergleichen Blaͤt-<lb/>
+ter entweder verboten, oder deren Redactionen durch wohl-<lb/>
+<pb n="10" facs="#f0016"/>
+bekannte Mittel fuͤgſam gemacht. Wir uͤbertreiben leider!<lb/>
+nicht. Die franzoͤſiſchen Zeitungen ſind freilich erlaubt,<lb/>
+die meiſten aber duͤrfen nicht unter Kreuzband nach Preu-<lb/>
+ßen kommen, ſo daß Ein ſolches Blatt mehr als 400<lb/>
+Thaler an jaͤhrlichem Poſtporto koſten wuͤrde; nur der<lb/>
+Schein iſt gewahrt, der Sache nach aber eine ſolche Er-<lb/>
+laubniß und ein Verbot ein und daſſelbe. Anders ver-<lb/>
+faͤhrt man mit den <hi rendition="#g">deutſchen</hi> Zeitungen. Sind deren<lb/>
+Redacteure nicht ſchon in ihrem <hi rendition="#g">eigenen</hi> wohlverſtande-<lb/>
+nen Intereſſe auf ihrer Hut, nehmen ſie uͤber Preußen oder<lb/>
+preußiſche Beamte einen in Berlin mißfaͤlligen Artikel auf,<lb/>
+ſo werden an ſie von Seiten des preußiſchen Miniſteri-<lb/>
+ums (dem Zweifler ſind wir dies durch Actenſtuͤcke dar-<lb/>
+zuthun bereit) Vorwuͤrfe und Reclamationen gerichtet,<lb/>
+Angabe ihrer Correspondenten drohend verlangt und nur<lb/>
+unter demuͤthigenden Bedingungen der eintraͤgliche preußi-<lb/>
+ſche Markt ihnen fernerhin offen gelaſſen.</p><lb/>
+<p>Die <hi rendition="#g">praͤventive</hi> (vorkehrende) Cenſur hat vernuͤnf-<lb/>
+tiger Weiſe nur das zu ſtreichen, was der Richter, wenn's<lb/>
+gedruckt waͤre, beſtrafen wuͤrde. Eine Cenſur aber, die<lb/>
+alſo wie in unſerem Vaterlande gehandhabt wird, hoͤrt<lb/>
+auf eine rein praͤventive zu ſein: ſie wird zu einer anmaßenden<lb/>
+Bevormundung, zu einer wahrhaften Unterdruͤckung der<lb/>
+oͤffentlichen Meinung und fuͤhrt endlich zu einer — hoͤchſt<lb/>
+bedenklichen, dem Volke und dem Koͤnige gleich gefaͤhrli-<lb/>
+chen Eigenmacht der Beamten.</p><lb/>
+<pb n="11" facs="#f0017"/>
+<p>Wie es in einem Lande, wo man ſo peinlich jede der<lb/>
+Regierung mißliebige Aeußerung bewacht, mit der<lb/>
+<hi rendition="#et"><hi rendition="#g">Vertretung des Volkes</hi></hi><lb/>
+ſtehe, laͤßt ſich leichtlich errathen. Wenn man die unbe-<lb/>
+dingten (meiſt beamteten) Vertheidiger des Beſtehenden<lb/>
+fragt, jene Schriftſteller, deren Dienſtbefliſſenheit es ſo<lb/>
+trefflich verſteht Muͤcken zu ſeigen und Kameele zu ver-<lb/>
+ſchlucken, ſo hoͤrt man alsbald die Communal-Verfaſſung,<lb/>
+die Kreis- und Provinzial-Staͤnde als repraͤſentirende Or-<lb/>
+gane des Volksbewußtſeins, als genuͤgende Garantien der<lb/>
+Zukunft lobpreiſen. Daß dieſe Einrichtungen aber, ſo<lb/>
+lange ſie nicht in oͤffentlich berathenden <hi rendition="#g">Reichsſtaͤnden</hi><lb/>
+ihre nothwendige Ergaͤnzung erhalten, ſchlimmer als gar<lb/>
+keine Vertretung, naͤmlich bloße <hi rendition="#g">Schein</hi>vertretung ſind,<lb/>
+wird aus dem Folgenden ſich nur zu augenfaͤllig ergeben.</p><lb/>
+<p>In Betracht der <hi rendition="#g">Communal-Verfaſſung</hi> muß<lb/>
+vor allem die Staͤdte-Ordnung von 1808 von der revi-<lb/>
+dirten des Jahres 1831 wohl unterſchieden werden. Er-<lb/>
+ſtere traͤgt den <choice><sic>lieberalen</sic><corr>liberalen</corr></choice> Charakter der damaligen Zeit<lb/>
+und achtet der Buͤrger Selbſtſtaͤndigkeit; die zweite wird<lb/>
+uͤberall von der Jetzt-Regierung beguͤnſtigt und den Staͤd-<lb/>
+ten dringend anempfohlen.</p><lb/>
+<p>Waͤhrend man 1808 keinem unbeſcholtenen Einwohner<lb/>
+der Stadt das Buͤrgerrecht verſagte (§. 19. d. St.-Ord.),<lb/>
+wird von der revidirten Staͤdte-Ordnung (§. 14. 15.)<lb/>
+ein nicht unbedeutender Cenſus verlangt; waͤhrend 1808<lb/>
+<pb n="12" facs="#f0018"/>
+die Wahl der Stadt-Verordneten nach Zuͤnften und Cor-<lb/>
+porationen ausdruͤcklich verboten wurde (§. 73.), ordnet<lb/>
+das neue Geſetz eine derartige Wahl foͤrmlich an (§. 51.<lb/>
+u. 52.). Waͤhrend die aͤltere Staͤdte-Ordnung jeden ſtimm-<lb/>
+berechtigten Buͤrger fuͤr waͤhlbar erklaͤrt (§. 84.), verlangt<lb/>
+die revidirte in kleineren Staͤdten ein Einkommen von<lb/>
+200 Thlr., in groͤßeren von 1200 Thlr. (§. 56. u. f.)<lb/>
+Waͤhrend die Veraͤußerung ſtaͤdtiſcher Grundſtuͤcke fruͤher<lb/>
+von den Stadtverordneten allein abhing (§. 189.), macht<lb/>
+die Staͤdte-Ordnung von 1831 ſelbſt hierzu die Erlaub-<lb/>
+niß der Regierung nothwendig (§. 117.); der Magiſtrat,<lb/>
+nach dem aͤlteren Geſetze eine allein ſtaͤdtiſche Behoͤrde, iſt<lb/>
+nach dem neuen vorwaltend ein von der Regierung durch-<lb/>
+aus abhaͤngiges „Organ der <hi rendition="#g">Staats</hi>gewalt“ (§. 84,<lb/>
+104 u. 105); die Regierung d. h. die Miniſter koͤnnen,<lb/>
+durch kein Geſetz beſchraͤnkt, die Wahlen der Buͤrger an-<lb/>
+nulliren und bei „Unangemeſſenheit“ (!) oder „Verzoͤgerung“<lb/>
+der Wahl die Stellen auf Stadt-Koſten commiſſariſch<lb/>
+verwalten laſſen (§. 93.). Die Regierung d. h. die Mi-<lb/>
+niſter koͤnnen die Magiſtrats-Mitglieder wegen „mangel-<lb/>
+hafter Dienſtfuͤhrung“ (!) abſetzen und alsdann die Groͤße<lb/>
+ihrer Penſion beſtimmen (§. 99. 100.); — der Buͤrger-<lb/>
+meiſter, deſſen Stelle im Falle „unangemeſſener“ Wahl<lb/>
+von der Regierung beſetzt wird (§. 93.), iſt befugt die<lb/>
+Beſchluͤſſe des Magiſtrats zu ſuspendiren und daruͤber nur<lb/>
+der Regierung d. h. den Miniſtern Verantwortlichkeit ſchul-<lb/>
+dig (§. 108.); endlich ſteht es gar den Miniſtern (das<lb/>
+Geſetz ſagt: dem Koͤnige) frei die Stadtverordneten-Ver-<lb/>
+<pb n="13" facs="#f0019"/>
+ſammlung „bei Parheiungen in derſelben“ (!) aufzuloͤſen,<lb/>
+oder die Schuldigen auszuſchließen (§. 83.), ja ſelbſt un-<lb/>
+ter Umſtaͤnden den Gemeinden die Staͤdte-Ordnung ganz<lb/>
+zu entziehen (§. 139.). Von allem Dieſem enthielt die<lb/>
+aͤltere Staͤdte-Ordnung kein Wort.</p><lb/>
+<p>Die genannten und viele andere Unterſchiede der bei-<lb/>
+den Geſetze wuͤrden von ſelbſt in die Augen fallen, wenn<lb/>
+man bei der Zuſammenherausgabe beider die einzelnen §§.<lb/>
+dem <hi rendition="#g">Inhalte</hi> nach, nicht — wie weislich geſchehen —<lb/>
+der <hi rendition="#g">Zahl</hi> nach gegenuͤber geſtellt haͤtte; eine Vergleichung<lb/>
+beider Ordnungen waͤre dann aber freilich dem Leſer zu leicht<lb/>
+geworden und haͤtte einen zu factiſchen Pruͤfſtein fuͤr die<lb/>
+Beurtheilung der damaligen und jetzigen Richtung darge-<lb/>
+boten. —</p><lb/>
+<p>Wo die Staͤdte-Ordnung von 1831 gilt (und nur<lb/>
+dieſe darf jetzt neu eingefuͤhrt werden), iſt nach Obigem<lb/>
+der geſetzliche Einfluß des Cabinets ſchon maͤchtig genug;<lb/>
+anders dagegen in Staͤdten, die das Geſetz von 1808<lb/>
+noch nicht mit dem revidirten vertauſcht haben: da hier<lb/>
+das Recht der Regierung großen Theils nur auf die Ein-<lb/>
+ſicht der Rechnungs-Extracte beſchraͤnkt iſt, muß man<lb/>
+freilich der Gleichfoͤrmigkeit wegen auf allmaͤhlige Erwei-<lb/>
+terung der Schranken bedacht ſein. Erwaͤgt man außer-<lb/>
+dem, daß in großen Staͤdten beſondere, nur von dem<lb/>
+Miniſter abhaͤngige Polizeydirectionen angeſtellt ſind, in<lb/>
+kleinern Stadt- und Dorfgemeinden die Ortsbehoͤrden ſich<lb/>
+unter unmittelbarer Aufſicht von der Regierung beſoldeter<lb/>
+<pb n="14" facs="#f0020"/>
+und oftmals auch von ihr ernannter Landraͤthe befinden;<lb/>
+erwaͤgt man die den ſtaͤdtiſchen Verhandlungen vollkom-<lb/>
+men entzogene Oeffentlichkeit, die daher ruͤhrende bei Wah-<lb/>
+len wie uͤberall ſich offenbarende Gleichguͤltigkeit der ge-<lb/>
+bildeten Claſſen, endlich die zweimal (im Jahre 1826 und<lb/>
+1833) von den liberalen rheinpreuſſiſchen Staͤnden erfolgte<lb/>
+Ablehnung einer derartigen Gemeindeverfaſſung: — ſo wird<lb/>
+man wohl ſchwerlich geneigt ſein die vielgeruͤhmte preus-<lb/>
+ſiſche Staͤdte-Ordnung als Gegengewicht des ſelbſtſtaͤndi-<lb/>
+gen Volksbewußtſeins gegen Miniſterwillkuͤhr, geſchweige,<lb/>
+als ein Surrogat conſtitutioneller Vertretung gelten zu<lb/>
+laſſen. — </p><lb/>
+<p>Sehen wir, ob etwa<lb/>
+<hi rendition="#et"><hi rendition="#g">die Provinzial-Staͤnde</hi></hi><lb/>
+das Vermißte darbieten. Im Sinn des Geſetzes vom 22.<lb/>
+Mai 1815 lag es allerdings, daß dies Inſtitut durch all-<lb/>
+maͤhlige Entwickelung zu einer wahrhaft volksthuͤmlichen<lb/>
+Repraͤſentation heranreifen ſollte. Fuͤnf und zwanzig Frie-<lb/>
+densjahre ſind ſeitdem verfloſſen; die Einrichtung der Land-<lb/>
+tage iſt unveraͤndert dieſelbe geblieben, wie ſie bei der er-<lb/>
+ſten des Jahres 1824 war, und dieſe 16jaͤhrige Dauer<lb/>
+duͤrfte wohl als ein genuͤgender Zeitraum erſcheinen, um<lb/>
+nach den Fruͤchten ihrer Arbeit zu fragen. Die Volks-<lb/>
+ſtimme hat bereits das Urtheil geſprochen; kaum wird<lb/>
+man ein Inſtitut auffinden koͤnnen, das eine geringere Po-<lb/>
+pularitaͤt zu beklagen hat, das von dem geſunden Volks-<lb/>
+<pb n="15" facs="#f0021"/>
+verſtande als eine unnuͤtzere Laſt betrachtet wird, als die<lb/>
+Provinzial-Staͤnde. Gern wird man uns der Muͤhe uͤber-<lb/>
+heben, aus den bisherigen Landtagsabſchieden den Nach-<lb/>
+weis zu fuͤhren, daß unter allen dort erledigten Gegen-<lb/>
+ſtaͤnden ſich auch nicht ein einziger von allgemeinem Intereſſe<lb/>
+befindet, daß kein nur einigermaßen erheblicher Mißbrauch<lb/>
+abgeſtellt, keiner Beamten-Willkuͤhr entgegengetreten, daß<lb/>
+die ganze Wirkſamkeit zahlreicher Seſſionen ſich auf Er-<lb/>
+richtung von Zucht- und Correctionshaͤuſern, von Taub-<lb/>
+ſtummen-, Irren- und Feuerverſicherungs-Anſtalten, auf<lb/>
+Geſetze uͤber neue Straßen, Wagengeleiſe, Hundeſteuer u.<lb/>
+dgl. m. beſchraͤnkt habe: — Gegenſtaͤnde, die, großen-<lb/>
+theils von der Regierung ſelbſt proponirt, auch eben ſo<lb/>
+gut mit Zuziehung einiger Sachverſtaͤndigen durch die ge-<lb/>
+woͤhnlichen Provinzialbehoͤrden haͤtten vermittelt werden<lb/>
+koͤnnen.</p><lb/>
+<p>Nicht fuͤr die wuͤrdigen Mitglieder der Staͤnde-Ver-<lb/>
+ſammlung ſoll dies ein Vorwurf ſein. Duͤrfen ſie doch<lb/>
+geſetzlich <hi rendition="#g">nur</hi> uͤber die Propoſitionen des Miniſteriums<lb/>
+und uͤber rein locale Angelegenheiten berathen, wird ihnen<lb/>
+doch ſelbſt jede Bitte oder Beſchwerde, die ſich nicht auf<lb/>
+das Sonderintereſſe der <hi rendition="#g">Provinz</hi> bezieht, jede Mitthei-<lb/>
+lung an die andern Provinzial-Landtage ſtreng unterſagt,<lb/>
+iſt doch endlich, um auch die bloße Aeußerung uͤber Staats-<lb/>
+weſen und Geſetzgebung im Allgemeinen unmoͤglich zu ma-<lb/>
+chen, der vom Miniſterium ernannte Landtagsmarſchall<lb/>
+nach Willkuͤhr jede derartige Berathung zuruͤckzuweiſen<lb/>
+ermaͤchtigt.</p><lb/>
+<pb n="16" facs="#f0022"/>
+<p>Eine Verſammlung die ſo mißtrauiſch in ihrer Thaͤ-<lb/>
+tigkeit uͤberwacht wird, die alles bei geſchloſſenen Thuͤren<lb/>
+verhandelt und ihre Vortraͤge und Beſchluͤſſe nicht einmal<lb/>
+veroͤffentlichen darf, kann wohl fuͤr Alles eher als fuͤr ein<lb/>
+adaͤquates Organ der Volksbeduͤrfniſſe gehalten werden.<lb/>
+Es waͤre uͤberfluͤſſig von ihrem vornaͤmlich auf <hi rendition="#g">Grund-<lb/>
+beſitz</hi> geſtuͤtzten Wahlprincipe, von der verhaͤltnißmaͤßig<lb/>
+geringen Beruͤckſichtigung der Land- und Stadt-Gemeinden<lb/>
+und von der voͤlligen Ausſchließung der <hi rendition="#g">geiſtlichen Staͤnde</hi><lb/>
+zu ſprechen. Wenn nach allem Dieſem noch irgend ein<lb/>
+Zweifel uͤber die voͤllige Richtigkeit des Inſtituts in Be-<lb/>
+zug auf die allgemeine Wohlfahrt uͤbrig bleibt, dem ſeien<lb/>
+hier zwei Auctoritaͤten angefuͤhrt, wie man ſie gewichtiger<lb/>
+kaum erlangen kann: der Staatskanzler <hi rendition="#g">Hardenberg</hi> und<lb/>
+die oſtpreußiſchen Staͤnde ſelbſt. Letztere nennen in ihrer<lb/>
+Denkſchrift vom 7. September 1840 die Provinzial-Staͤnde<lb/>
+<hi rendition="#et">„eine in hemmenden Schranken veralteter Formen ſich<lb/>
+ſchwer bewegende Vertretung einzelner und bevorrechte-<lb/>
+ter Staͤnde, auf welche ſie zum Wohle gemeinſamen<lb/>
+Rechtes zu verzichten bereit ſind.“</hi><lb/>
+und <hi rendition="#g">Hardenberg</hi> ſagt in einer Rede an die interemiſtiſchen<lb/>
+Repraͤſentanten:</p><lb/>
+<p><hi rendition="#et">„Waͤre es moͤglich geweſen die im Edict vom 27. Oc-<lb/>
+tober 1810 zugeſagte Repraͤſentation des Volks ſchnell<lb/>
+genug zu Stande zu bringen, wodurch allein <hi rendition="#g">ein</hi> Geiſt,<lb/>
+<hi rendition="#g">ein</hi> Nationalintereſſe, an die Stelle ihrer Natur nach<lb/>
+<pb n="17" facs="#f0023"/>
+immer einſeitiger Provinzialanſichten treten kann; —<lb/>
+ſo wuͤrde der Koͤnig gern die Meinung der Repraͤſen-<lb/>
+tanten der Nation uͤber das Steuerſyſtem gehoͤrt haben.<lb/>
+Eine Berathung mit den jetzt beſtehenden Provinzial-<lb/>
+ſtaͤnden <hi rendition="#g">wuͤrde aber weder dazu gefuͤhrt haben<lb/>
+die Meinung der Nation zu erfahren</hi>, noch<lb/>
+haͤtte ſie ein den Zweck erfuͤllendes Reſultat liefern koͤn-<lb/>
+nen. <hi rendition="#g">Dies bedarf wohl keiner Auseinander-<lb/>
+ſetzung</hi>.“ —</hi></p><lb/>
+<p>Nicht minder als die Geſezgebende iſt auch die<lb/>
+<hi rendition="#g">richterliche und verwaltende Staats-Thaͤtigkeit</hi><lb/>
+der Einſicht wie der Mitwirkung des Volkes gaͤnzlich ent-<lb/>
+zogen. Das Gerichtsverfahren iſt in Preußen von Anfang<lb/>
+bis zu Ende ein heimliches und einzig und allein in Haͤn-<lb/>
+den beſoldeter, vom Cabinet eingeſetzter Beamten. Die<lb/>
+Unpartheilichkeit wird bei gewoͤhnlichen Faͤllen nicht leicht<lb/>
+fehlen, wo aber irgend die Miniſter, oder was ſie den<lb/>
+Staat nennen betheiligt iſt, duͤrfte dieſe Richtertugend in<lb/>
+eine harte Colliſion mit den perſoͤnlichen Intereſſen gera-<lb/>
+then; denn — abgeſehen von dem ſubordinirten Verhaͤlt-<lb/>
+niſſe — iſt Gehaltserhoͤhung, Befoͤrderung, Verſetzung<note place="foot" n="*)" xml:id="note-0023" next="note-0024">Bis zum J. 1832 konnte kein Juſtizbeamter wider<lb/>
+ſeinen Willen verſetzt werden. Seitdem aber wird in den Be-<lb/>
+ſtallungs-Patenten nicht mehr wie fruͤher der <hi rendition="#g">Ort</hi> ihrer kuͤnf-<lb/>
+tigen Wirkſamkeit genannt, ſondern es erfolgt die Anſtellung</note>,<lb/>
+<fw type="sig" place="bottom">2</fw><lb/>
+<pb n="18" facs="#f0024"/>
+die ganze Zukunft jedes Juſtizdieners von dem Willen des<lb/>
+Miniſters abhaͤngig: Conduitenliſten, von den oberen Be-<lb/>
+amten uͤber die unteren gefuͤhrt, muͤſſen alljaͤhrlich den<lb/>
+Miniſterien eingeſchickt werden, und nur der willenloſe<lb/>
+Gehorſam, das unbedingte Eingehen in Anſichten, Mei-<lb/>
+nungen und Wuͤnſche der Miniſter darf auf Belohnung,<lb/>
+aͤußere Ehre, Foͤrderung rechnen. So weit geht in Preuſ-<lb/>
+ſen die Unterordnung der richterlichen Gewalt unter die<lb/>
+ausuͤbende, daß alle Erkenntniſſe in Unterſuchungen wegen<lb/>
+Hochverraths, Landesverraͤtherei oder <hi rendition="#g">beleidigter Ma-<lb/>
+jeſtaͤt</hi> und uͤber alle Verbrechen, wenn auf Ehrenverluſt,<lb/>
+Todesſtrafe, oder lebenswieriges (fruͤher ſelbſt auf mehr<lb/>
+als drei Jahre) Gefaͤngniß erkannt worden, — der <hi rendition="#g">mi-<lb/>
+niſteriellen</hi> Beſtaͤtigung unterliegen und vor derſelben,<lb/>
+„weil ſie bis dahin nur als <hi rendition="#g">Gutachten</hi> anzuſehen“, zur<lb/>
+Publikation nicht geeignet ſind. Werden die zur Beſtaͤti-<lb/>
+gung <choice><sic>eingehendenden</sic><corr>eingehenden</corr></choice> <choice><sic>Urtel</sic><corr>Urteile</corr></choice> nach dem Gutachten eines <hi rendition="#g">An-<lb/>
+dern</hi> Gerichtshofes abgeaͤndert, ſo fertigt dieſer ein Er-<lb/>
+kenntniß „im <hi rendition="#g">Auftrage des Juſtiz-Miniſteriums</hi>“<lb/>
+<note place="foot" n="*)" xml:id="note-0024" prev="note-0023">„<hi rendition="#g">fuͤr die ganze preußiſche Monarchie</hi>“; ſonach ſind ſie<lb/>
+nicht mehr gegen willkuͤhrliche Verſetzung geſchuͤtzt. — Die<lb/>
+<hi rendition="#g">Dienſtentlaſſung</hi> der Juſtizbeamten kann in Preußen frei-<lb/>
+lich nicht ohne richterliches Erkenntniß ſtattfinden, ausgenommen<lb/>
+davon ſind jedoch die, welche als Vertheidiger der Angeklagten<lb/>
+gerade die freiſte und unabhaͤngigſte Stellung einnehmen ſollten,<lb/>
+<hi rendition="#g">die Juſtiz-Commiſſarien</hi>. Dieſe koͤnnen jetzt auch <hi rendition="#g">ohne</hi><lb/>
+vorangegangenen Rechtsſpruch auf bloß adminiſtrativem Wege<lb/>
+(d. h. durch die Miniſter) außer Thaͤtigkeit geſetzt werden.</note><lb/>
+<pb n="19" facs="#f0025"/>
+aus, das dem erſten Gerichtshofe zur Publication uͤber-<lb/>
+ſendet wird. (Ergaͤnzung. z. Pr. Cr. R. herausgegeben<lb/>
+v. Graͤff, Koch etc. 1838. <hi rendition="#aq">I</hi>. pag. 155-157.) Die<lb/>
+Cabinets-Ordre v. 25. Januar 1823 befiehlt ferner, daß<lb/>
+— wenn bei Prozeſſen zwiſchen Privatleuten, oder zwi-<lb/>
+ſchen Privaten und dem Staate (!) eine in Staatsver-<lb/>
+traͤgen enthaltene Beſtimmung zur Entſcheidung der Sache<lb/>
+beitraͤgt, die Gerichte „<hi rendition="#g">ohne Unterſchied</hi>, <hi rendition="#g">ob der preu</hi>-<lb/>
+<hi rendition="#g">ßiſche Staat bei Abfaſſung der Vertraͤge con</hi>-<lb/>
+<hi rendition="#g">currirt oder nicht</hi>,“ „<hi rendition="#g">vor Abfaſſung des Er</hi>-<lb/>
+<hi rendition="#g">kenntniſſes</hi>“ die Aeußerung des Miniſters einholen<lb/>
+und bei der Entſcheidung lediglich darnach zu achten ha-<lb/>
+ben (ſiehe Kluͤber Selbſtſtaͤndigkeit des Richteramts etc.) —</p><lb/>
+<p>Und trotz alledem mißtraut man der richterlichen<lb/>
+Willfaͤhrigkeit; denn nicht ſelten (wie bei ſog. Staats-<lb/>
+vergehen) werden Special-Commiſſionen ernannt oder wohl<lb/>
+gar polizeylich-adminiſtrative Maßregeln beliebt. Hieher<lb/>
+gehoͤrt z. B. das Gebot fuͤr die rheiniſchen Juſtizbehoͤr-<lb/>
+den, ſich in die Verhaftungen von Demagogen nicht eher<lb/>
+zu miſchen, als bis die <hi rendition="#g">Adminiſtration</hi> die Sache dem<lb/>
+Gerichte uͤbergeben werde. (Cab. Ordr. v. 21 Augſt.<lb/>
+1819, nie foͤrmlich publicirt und erſt im Jahre 1824<lb/>
+durch Lottners Sammlung <hi rendition="#aq">III</hi>. 569, bekannt geworden).<lb/>
+Eine fernere Cab. Ord. v. 15. Januar 1825 ermaͤchtigt<lb/>
+die rheiniſchen <hi rendition="#g">Polizeibehoͤrden</hi>, nach den Geſezen der<lb/>
+alten Provinzen zu verfahren und mit Gefaͤngniß oder<lb/>
+Zwangsarbeit von 8 Tagen bis 4 Wochen (ohne Con-<lb/>
+curenz der <hi rendition="#g">Juſtiz</hi>) zu ſtrafen.</p><lb/>
+<fw type="sig" place="bottom">2*</fw><lb/>
+<pb n="20" facs="#f0026"/>
+<p>Wenn demungeachtet nicht geleugnet werden kann, daß<lb/>
+der Preuße im Allgemeinen Vertrauen zu ſeiner Juſtiz<lb/>
+hege, ſo iſt daſſelbe wohl mehr auf Glauben als auf<lb/>
+Ueberzeugung, mehr auf Perſonen als Verhaͤltniſſe ge-<lb/>
+gruͤndet. —</p><lb/>
+<p>So viel von Preußens-Rechtspflege. Ueber die<lb/>
+<hi rendition="#g">Adminiſtration des Staats</hi> ruht gleichfalls ein dem<lb/>
+Volke undurchſichtbarer Schleier des tiefſten Geheimniſ-<lb/>
+ſes; jede derartige Veroͤffentlichung, ja jede Mittheilung<lb/>
+wird als eine ſtrafbare Amtsuntreue angeſehn und ſo dem<lb/>
+Volke mit der Einſicht zugleich jede Controlle uͤber den<lb/>
+Stand ſeiner eigenen Angelegenheiten unmoͤglich gemacht.<lb/>
+Selbſt die Verausgabung der erhobenen Steuern geſchieht<lb/>
+ohne Rechnungsablage. Zwar beſtimmt eine Cab. Ord.<lb/>
+vom 17 Janu. 1820, daß „der Haupt-Finanzetat von<lb/>
+drei zu drei Jahren zur oͤffentlichen Kenntniß kommen<lb/>
+ſoll,“ allein ſeit 1820 bis jetzt, alſo in 20 Jahren iſt<lb/>
+dies nur dreimal (1821, 1829 und 1832) geſchehen,<lb/>
+und auch da nur in ſolcher Unvollſtaͤndigkeit und Ober-<lb/>
+flaͤchlichkeit, <note place="foot" n="*)">Siehe Hanſemann Preußen und Frankreich. Leipzig, <hi rendition="#aq">II</hi>.<lb/>
+Auflage. — Das den franzoͤſiſchen Kammern jaͤhrlich vorgelegte<lb/>
+Budget fuͤllt einen ſtarken Octavband; das preußiſche kaum<lb/>
+eine Octavſeite.</note> daß wohl ſchwerlich daraus, wie es in<lb/>
+jenem Edict heißt, „jeder Buͤrger ſich vollſtaͤndig uͤberzeu-<lb/>
+gen koͤnne, daß nichts mehr als das ſtrengſt Nothwen-<lb/>
+<pb n="21" facs="#f0027"/>
+dige zum Staatshaushalte an Abgaben gefordert werde.“</p><lb/>
+<p>— — Die Miniſter und deren Beamte allein ſind in<lb/>
+das Geheimniß der Verwaltung eingeweiht; ſie ſelber<lb/>
+ſchweigen aber und — <hi rendition="#g">wer</hi> ſpraͤche ohne ihren Willen?!<lb/>
+wie hier ſo uͤberall iſt Wiſſen und Handeln Monopol<lb/>
+der Miniſter; ihr ergebenes Dienerpaar Cenſur und Poli-<lb/>
+zey wacht daruͤber, daß keine andere Meinung, keine an-<lb/>
+dere Thaͤtigkeit ſich geltend mache, als die ihrige; ihnen<lb/>
+untergeordnet iſt Alles; Geſetzgebung wie Rechtspflege,<lb/>
+Schule wie Kirche, Steuereinnahme wie Steuerverwen-<lb/>
+dung; in ihnen ſammelt, regt und verzehrt ſich das ganze<lb/>
+Leben des Staats. Das Volk — ohne thaͤtigen An-<lb/>
+theil an dieſem Leben, ohne Einſicht und Controlle der<lb/>
+ſein Eigenthum, ſeine Perſon und ſein Wohl betreffende<lb/>
+Verhandlungen muß in der Oeffentlichkeit fremdlaͤndiſcher<lb/>
+Zuſtaͤnde Befriedigung fuͤr ſeinen politiſchen Lebensdrang<lb/>
+ſuchen; die außerbeamtliche Intelligenz — ſtets bevormun-<lb/>
+det und ausgeſchloſſen von jeder Einwirkung auf die Ver-<lb/>
+haͤltniſſe des Vaterlands — wendet ſich mit immer rege-<lb/>
+rer Theilnahme der ſtaatlichen Entwickelung Englands<lb/>
+und Frankreichs zu, und buͤßt ſo nothwendig immer mehr<lb/>
+des nationalen Selbſtgefuͤhls ein. — —</p><lb/>
+<p>Bedarf es nun noch unſerer Antwort auf die obige<lb/>
+Frage, ob der politiſche Antheil des preußiſchen Volkes<lb/>
+mit ſeinem Culturgrade im richtigen Verhaͤltniſſe ſtehe? —</p><lb/>
+<p>Das unleugbare Mißverhaͤltniß zu beſchoͤnigen, pflegen<lb/>
+offizielle Apologeten eben dieſe muſterhafte Volksbildung<lb/>
+<pb n="22" facs="#f0028"/>
+als ein Verdienſt der jetzigen Regierungsform und daher<lb/>
+die unveraͤnderte Fortdauer derſelben als wuͤnſchenswerth<lb/>
+anzuſprechen; ſie uͤberſehen aber daß ſelbſt die beſte Schule<lb/>
+ihre Zoͤglinge nicht fuͤr immer behalten kann, vielmehr<lb/>
+je reifer ſie ſind deſto eher ſie zur Selbſtſtaͤndigkeit zu<lb/>
+entlaſſen verpflichtet iſt. Und iſt's denn wirklich das<lb/>
+<hi rendition="#g">gegenwaͤrtige</hi> Staatsregiment, dem wir die hohe Cul-<lb/>
+turſtufe verdanken? Von der in Preußen vorhandenen<lb/>
+<hi rendition="#g">politiſchen</hi> Bildung wird dieß wohl Niemand behaupten;<lb/>
+und auch die ſonſtige — ſittliche wie geiſtige — Volks-<lb/>
+bildung, iſt ſie nicht vielmehr Folge jener großartigen,<lb/>
+fuͤr Preußen ſo uͤberaus wichtigen Erziehungs- und Ge-<lb/>
+ſezgebungs-Epoche der Jahre 1807 bis 1819? ſind die<lb/>
+<hi rendition="#g">damaligen</hi> liberalen Principien noch die der jezigen<lb/>
+Regierung? Hat man die volksthuͤmlichen Inſtitutionen<lb/>
+jener Zeit weiter entwickelt, oder war man ſie zuruͤckzuſchrau-<lb/>
+ben bedacht? Iſt ſeit dem die Mitwirkung der ſelbſtſtaͤn-<lb/>
+digen Buͤrger erweitert oder beſchraͤnkt worden? — Wir<lb/>
+haben ſchon oben dieſe Frage durch <hi rendition="#aq"><hi rendition="#i">Facta</hi></hi> beantwortet<lb/>
+und wollen zur Bekraͤftigung hier nur noch die Worte<lb/>
+eines Mannes anfuͤhren, der — wenn irgend einer —<lb/>
+die vaterlaͤndiſchen Zuſtaͤnde zu durchſchauen geeignet iſt.<lb/>
+„Wir werden,“ ſo ſchildert der Staatsminiſter v. <hi rendition="#g">Stein</hi><lb/>
+Preußens Gegenwart, — „wir werden von <hi rendition="#g">beſoldeten<lb/>
+Buchgelehrten</hi>, <hi rendition="#g">intereſſenloſen ohne Eigenthum<lb/>
+ſeienden</hi> Bureauliſten regiert; — das geht ſo lange es<lb/>
+geht. — Dieſe vier Worte enthalten den Geiſt unſerer<lb/>
+und aͤhnlicher geiſtloſen Regierungsmaſchienen. <hi rendition="#g">Beſoldet</hi>,<lb/>
+<pb n="23" facs="#f0029"/>
+alſo Streben nach Erhaltenen und Vermehren der Beſolde-<lb/>
+ten; — <hi rendition="#g">buchgelehrt</hi>, alſo lebend in der Buchſtaben-<lb/>
+welt und nicht in der wirklichen; — <hi rendition="#g">intereſſenlos</hi>, denn<lb/>
+ſie ſtehen mit keiner der den Staat ausmachenden Buͤrger-<lb/>
+klaſſe in Verbindung; ſie ſind eine Claſſe fuͤr ſich, die<lb/>
+Schreiberkaſte; — <hi rendition="#g">eigenthumslos</hi>, alſo alle Bewegun-<lb/>
+gen des Eigenthums treffen ſie nicht? es regne oder ſchei-<lb/>
+ne die Sonne, die Abgaben ſteigen oder fallen, man zer-<lb/>
+ſtoͤre alte hergebrachte Rechte, oder laſſe ſie beſtehen, —<lb/>
+alles das kuͤmmert ſie nicht. Sie erheben ihren Gehalt<lb/>
+aus der Staatskaſſe und ſchreiben, ſchreiben, ſchreiben im<lb/>
+ſtillen mit wohlverſchloſſenen Thuͤren verſehenen Buͤreau<lb/>
+unbekannt, unbemerkt, ungeruͤhmt und ziehen ihre Kinder<lb/>
+wieder zugleich brauchbaren Schreibmaſchienen an.“ —</p><lb/>
+<p>„Eine Maſchienerie (die militairiſche) ſah ich fallen<lb/>
+1806 den 14. October, vielleicht wird auch die Schreib-<lb/>
+maſchinerie ihren 14. October haben! — —</p><lb/>
+<p>Das iſt das Gebrechen des theuern Vaterlandes:<lb/>
+<hi rendition="#g">Beamtenallgewalt</hi> und <hi rendition="#g">politiſche Nichtigkeit ſei</hi>-<lb/>
+<hi rendition="#g">ner ſelbſtſtaͤndigen Buͤrger</hi>. Wie uͤber die Krank-<lb/>
+heit, ſo iſt auch uͤber das Heilmittel bei den Vaterlands-<lb/>
+freunden kein Zweifel: <hi rendition="#g">Oeffentlichkeit</hi> heißt es und<lb/>
+<hi rendition="#b">wahre</hi> <hi rendition="#g">Vertretung</hi>! —</p><lb/>
+<p>Und <hi rendition="#g">das</hi> iſt es eben, was der oſtpreußiſche Poſtu-<lb/>
+laten-Landtag ſeinem Koͤnige offen und maͤnnlich aus-<lb/>
+ſprach. Die Staͤnde entſagen der veralteten Form die<lb/>
+<pb n="24" facs="#f0030"/>
+ihnen nur einen Scheinantheil an den oͤffentlichen Angele-<lb/>
+genheiten verſtattet; im Bewußtſein der eigenen Reife<lb/>
+wollen ſie <hi rendition="#g">wahrhaft</hi> Theil haben am Leben des Staa-<lb/>
+tes — mitwiſſend und mitwirkend. Nicht um eine Ga-<lb/>
+rantie bloß iſt's ihnen zu thun, ſondern um Befriedigung<lb/>
+eines tief gefuͤhlten Beduͤrfniſſes. Dem Koͤnige vertraut<lb/>
+das Volk; denn es weiß, daß <hi rendition="#g">er</hi> nur das Gute will.<lb/>
+Nicht alſo den Miniſtern. Ob mit oder ohne Grund —<lb/>
+allgemein iſt im Lande die Meinung verbreitet, das ſie<lb/>
+der Oeffentlichkeit und dem politiſchen Fortſchritte feind —<lb/>
+mehr in dem Gehorſame der Beamten als in der Liebe<lb/>
+ſelbſtſtaͤndiger Buͤrger die Stuͤtze des Thrones ſuchen;<lb/>
+man iſt beſorgt wegen ihrer Liebe fuͤr laͤngſt verjaͤhrte<lb/>
+Inſtitutionen, wegen ihrer Neigung zum Pietismus, der<lb/>
+dem geſunden religioͤſen Sinne des Volkes nicht zuſagt;<lb/>
+man fuͤrchtet Bevorzugung einer Provinz vor der andern,<lb/>
+Ueberſchaͤtzung der eigenen Staatsweisheit und Intoleranz<lb/>
+gegen Jeden, der (um die Worte eines preußiſchen Mini-<lb/>
+ſters zu brauchen) „der Maasſtab ſeiner geringen Ein-<lb/>
+ſicht an die Befehle der von Gott eingeſetzten Obrigkeit<lb/>
+anzulegen ſich erdreiſtet.“ Nur freie Publicitaͤt und Ver-<lb/>
+tretung koͤnnen uͤber die Wahrheit oder Unwahrheit jener<lb/>
+patriotiſchen Befuͤrchtungen Aufſchluß geben. Wenn die<lb/>
+Beduͤrfniſſe, Wuͤnſche und Beſchwerden des Volkes durch<lb/>
+ſelbſtſtaͤndige Vertreter <hi rendition="#g">unmittelbar</hi> zum Throne gelan-<lb/>
+gen, dann erſt iſt Koͤnig und Volk ſicher vor jener Be-<lb/>
+amten Eigenmacht, die Friedrich Wilhelm <hi rendition="#aq">III</hi>. ſo treffend<lb/>
+geſchildert, dann erſt wird Fuͤrſt und Volk Eins, und<lb/>
+<pb n="25" facs="#f0031"/>
+Preußen die ſeiner Bildung angemeſſene Stelle im Ge-<lb/>
+ſammtvaterlande erhalten und behaupten. Geſtaͤrkt durch<lb/>
+das Vertrauen des conſtitutionellen Deutſchlands, wird es<lb/>
+jeder feindlichen Macht gegenuͤber feſt und wuͤrdig da-<lb/>
+ſtehen, — eine unbezwingliche Waffe gegen die hereindrin-<lb/>
+gende Barbarei des Nordens, ein Meduſenſchild gegen die<lb/>
+Uebergriffe des Weſtens.</p><lb/>
+<p><hi rendition="#g">Das</hi> iſt es, was die oſtpreußiſchen Staͤnde wollten<lb/>
+und in ihren Denkſchriften — ſo deutlich es einem Koͤ-<lb/>
+nige gegenuͤber ziemte — auszuſprechen den Muth hatten. —</p></div><lb/>
+<pb n="26" facs="#f0032"/>
+<div n="2"><head><hi rendition="#aq"><hi rendition="#b">II.</hi></hi><lb/>
+<hi rendition="#b">Was berechtigte die Stände zu<lb/>
+ſolchem Verlangen?</hi></head><lb/>
+<p>Das Bewußtſein eigener Muͤndigkeit und ihre am<lb/>
+22. Mai 1815 factiſch und geſezlich erfolgte Muͤndig-<lb/>
+ſprechung. —</p><lb/>
+<p>Die Reife des Volks fuͤr eine Geſammtvertretung<lb/>
+haben wir ſchon oben dargethan. Hier daher nur einige<lb/>
+Worte uͤber die <hi rendition="#g">hiſtoriſche</hi> Berechtigung.</p><lb/>
+<p>Es iſt oftmals ausgeſprochen worden, Preußens Be-<lb/>
+ſtimmung ſei die Fruͤchte der franzoͤſiſchen Revolution auf<lb/>
+<hi rendition="#g">friedlichem</hi> Wege ſich anzueignen. Im gleichen Sinne<lb/>
+und mit groͤßerem Rechte koͤnnte man es Preußens Be-<lb/>
+ſtimmung nennen, dem deutſchen Volke <hi rendition="#g">das</hi>, was es durch<lb/>
+fruͤhere Umwaͤlzungen verloren hat, wiederzugeben: denn<lb/>
+der Grundgedanke neuerer Repraͤſentativverfaſſung: <hi rendition="#g">kein<lb/>
+Geſetz ohne Zuſtimmung der Volksvertreter</hi>!<lb/>
+liegt ſchon baar und klar in dem altdeutſchen Rechtsſatze:<lb/>
+„<hi rendition="#g">wo wir nicht mitrathen, wollen wir auch nicht<lb/>
+mitthaten</hi>“.</p><lb/>
+<pb n="27" facs="#f0033"/>
+<p>Die Geſchichte lehrt, daß die Preuſſen unter ihren<lb/>
+Kurfuͤrſten und unter Friedrich <hi rendition="#aq"><hi rendition="#b">II.</hi></hi> mehr als irgend ein<lb/>
+anderer Stamm zur Aufloͤſung deutſcher Einheit beitrug;<lb/>
+die <hi rendition="#g">Zukunft</hi> wird lehren, ob ſie fuͤr das Zerſtoͤrte den<lb/>
+deutſchen Bruͤdern einen <hi rendition="#g">geiſtigen</hi> Erſatz zu bieten be-<lb/>
+ſtimmt ſind. —</p><lb/>
+<p>Das Jahr 1807 zertruͤmmerte die preuſſiſche Mo-<lb/>
+narchie. Der Gedanke, daß dazu <hi rendition="#g">eine einzige</hi> Schlacht<lb/>
+— nicht ſo entſcheidend wie die bei Kunersdorf — hin-<lb/>
+reichte, mußte das Gemuͤth jedes Vaterlandsfreundes er-<lb/>
+ſchuͤttern und ſeinen Blick auf die Gebrechen lenken, durch<lb/>
+welche ſo unglaubliche Folgen moͤglich geworden. Da<lb/>
+offenbarte ſich, was bisher dem Lande gefehlt und was<lb/>
+allein es zu retten im Stande war. Mit dem Edelſten,<lb/>
+was ihr verblieb, fluͤchtete die Monarchie zu ihrer Wiege,<lb/>
+um neuverherrlicht wieder zu erſtehen.</p><lb/>
+<p>In der Stadt, wo Kant die Welt erleuchtete, wo<lb/>
+annoch ſeine Freunde, Maͤnner von Tiefſinn und hoher<lb/>
+Rechtlichkeit weilten, fand der ungluͤckliche Koͤnig jene er-<lb/>
+habene Weltanſicht, welche die fuͤrchterlichſten Bedruͤckun-<lb/>
+gen nur als einen nothwendigen Uebergang betrachten laͤßt,<lb/>
+— fand Stein jene edle Genoſſenſchaft, die ihm in der<lb/>
+Wiedergeburt des Staates thatkraͤftig zur Seite ſtand.<lb/>
+Fuͤrſt und Volk — bisher von einander getrennt durch<lb/>
+ein ſtehendes Soldaten- und Beamtenheer — mußten in<lb/>
+gegenſeitiger Liebe vereint, der unterdruͤckte Nationalgeiſt be-<lb/>
+lebt, die thaͤtigſte Mitwirkung der freien Buͤrger in An-<lb/>
+<pb n="28" facs="#f0034"/>
+ſpruch genommen werden. Große Reformen wurden da-<lb/>
+mals mit Bedacht erwogen und mit Schnelligkeit ausge-<lb/>
+fuͤhrt. Durch das Geſetz vom 9. October 1807, betreffend<lb/>
+den erleichterten Beſitz und freien Gebrauch des Grund-<lb/>
+eigenthums wurden nicht nur die zeitherigen Feſſeln der<lb/>
+Erbunterthaͤnigkeit geloͤſt, ſondern auch eine factiſche<lb/>
+<hi rendition="#g">Gleichſtellung aller Staͤnde bewirkt</hi>. — Die<lb/>
+Staͤdteordnung vom 19. November 1808 hob die jeden<lb/>
+Gemeinſinn ertoͤdtende Bevormundung der Communen auf<lb/>
+und erklaͤrte den Buͤrger fuͤr ſelbſtſtaͤndig und muͤndig. —<lb/>
+Das Geſetz vom 26. December 1808 wegen verbeſſerter<lb/>
+Einrichtung der Provinzial-, Polizey- und Finanz-Be-<lb/>
+hoͤrden ſchaͤrfte den Verwaltungsbeamten das Bewußtſein,<lb/>
+daß „ſie ſelber Buͤrger ſind und bleiben, auch wenn ihnen<lb/>
+Staatsaͤmter vertraut worden; daß auf der Wohlfahrt<lb/>
+ihrer Mitbuͤrger nur die Wohlfahrt des Staats und des<lb/>
+Regenten beruht.“ Auch landſtaͤndiſche Repraͤſentanten<lb/>
+ſollten „<hi rendition="#g">mit voller Stimme</hi>“ an den Regierungsge-<lb/>
+ſchaͤften Theil nehmen, „um den Geſchaͤftsbetrieb mehr zu<lb/>
+beleben und durch ihre Sach- und Perſonen-Kenntniß zu<lb/>
+vereinfachen. Sie ſollten ſich ſelber von der Rechtlichkeit<lb/>
+und Ordnung der oͤffentlichen Staatsverwaltung naͤher uͤber-<lb/>
+zeugen und dieſe Ueberzeugung in der Nation gleichfalls<lb/>
+erwecken und befeſtigen.“. (ſ. Sammlung preuſſ. Geſ. und<lb/>
+Verordng. v. 1806 bis 1810. Berlin 1822). Iſt gleich<lb/>
+die hier ausgeſprochene Theilnahme landſtaͤndiſcher Repraͤ-<lb/>
+ſentanten nicht in Ausfuͤhrung gekommen, ſo lebt doch<lb/>
+ihre Beſtimmung in dem Bewußtſein der Oſtpreußen fort:<lb/>
+<pb n="29" facs="#f0035"/>
+die Regierung kann, was ſie Freiſinniges geweckt, unter-<lb/>
+druͤcken, aber nicht ertoͤdten.</p><lb/>
+<p>Dieſe drei wichtigen, im Verlauf weniger Monate er-<lb/>
+laſſenen Geſetze waren ganz dazu geeignet, eine tuͤchtige Na-<lb/>
+tionalrepraͤſentation vorzubereiten, — eine Nationalrepraͤ-<lb/>
+ſentation, welche das Band zwiſchen Fuͤrſten und Volk<lb/>
+feſter knuͤpfen und dem zertruͤmmerten Vaterlande ſeine<lb/>
+Bedeutſamkeit im europaͤiſchen Staatenbunde wiedererrin-<lb/>
+gen ſollte. Daß dies <hi rendition="#g">Stein</hi>'s Abſicht geweſen, geht au-<lb/>
+genfaͤllig aus dem Circularſchreiben <note place="foot" n="*)">Der Entwurf zu dieſem ſogenannten <hi rendition="#g">Stein</hi>'ſchen<lb/>
+Teſtament iſt von der Hand des jetzigen Oberpraͤſidenten<lb/>
+v. <hi rendition="#g">Schoͤn</hi>.</note> hervor, welches er<lb/>
+kurz vor ſeinem durch Napoleon gebotenen Abgange (Ende<lb/>
+November 1808) an die oberſten Behoͤrden der Preußiſchen<lb/>
+Monarchie erließ. Folgende Stelle dieſes merkwuͤrdigen<lb/>
+Actenſtuͤckes moͤge hier einen Platz finden:</p><lb/>
+<p>„Eine allgemeine Nationalrepraͤſentation iſt erforder-<lb/>
+lich. Heilig war mir und bleibe das Recht und die Ge-<lb/>
+walt unſeres Koͤnigs. Aber damit dieſes Recht und dieſe<lb/>
+unumſchraͤnkte Gewalt das Gute wirken kann, was in ihr<lb/>
+liegt, ſchien es mir nothwendig, der hoͤchſten Gewalt ein<lb/>
+Mittel zu geben, <hi rendition="#g">wodurch ſie die Wuͤnſche des Volks<lb/>
+kennen lernen</hi> und ihren Beſtimmungen Leben geben<lb/>
+kann. Wenn dem Volke alle Theilnahme an den Opera-<lb/>
+tionen des Staats entzogen wird, kommt es bald dahin,<lb/>
+<pb n="30" facs="#f0036"/>
+die Regierung theils gleichguͤltig, theils in Oppoſition mit<lb/>
+ſich zu betrachten. Daher der Widerſtreit oder wenigſtens<lb/>
+Mangel bei Aufopferung fuͤr die Exiſtenz des Staats.<lb/>
+Wo Repraͤſentation des Volks unter uns bisher ſtattfand,<lb/>
+war ſie hoͤchſt unvollkommen eingerichtet. Mein Plan war<lb/>
+daher:<lb/>
+<hi rendition="#et">jeder active Staatsbuͤrger, er beſitze 100 Hufen oder<lb/>
+eine, er treibe Landwirthſchaft oder Fabrikation; er<lb/>
+habe ein buͤrgerliches Gewerbe oder ſei durch <hi rendition="#g">geiſtige<lb/>
+Bande</hi> an den Staat geknuͤpft, habe ein Recht zur<lb/>
+Repraͤſentation.</hi></p><lb/>
+<p>Mehre mir eingereichte Plane ſind von mir vorge-<lb/>
+legt. Von der Ausfuͤhrung oder Beſeitigung eines Plans<lb/>
+<hi rendition="#g">haͤngt Wohl und Wehe unſeres Staats ab</hi>; denn<lb/>
+<hi rendition="#g">auf dieſem Wege allein</hi> kann der Nationalgeiſt er-<lb/>
+weckt und belebt werden.“ —</p><lb/>
+<p>Auf demſelben Wege, den <hi rendition="#g">Stein</hi> gebahnt, ſchritt<lb/>
+<hi rendition="#g">Hardenberg</hi> wieder entſchieden vor; er uͤbertrug auf<lb/>
+den ganzen Staat, was ſeinem Vorgaͤnger nur fuͤr<lb/>
+Oſtpreußen und Litthauen zu thun verſtattet war. In<lb/>
+ſchneller Folge wurde dem Adel die Steuerfreiheit genom-<lb/>
+men (27. October 1810), die geiſtlichen Guͤter zur Til-<lb/>
+gung der Staatsſchuld eingezogen (30. October 1810),<lb/>
+allgemeine Gewerbfreiheit ſtatt des fruͤheren Zunftzwanges<lb/>
+eingefuͤhrt (2. November 1810) und durch das denkwuͤr-<lb/>
+dige Geſetz vom 14. September 1811 (uͤber Abloͤsbarkeit<lb/>
+<pb n="31" facs="#f0037"/>
+der Frohnen) die Bauern zu freien Eigenthuͤmern gemacht.<lb/>
+Daß bei allen dieſen Einrichtungen <hi rendition="#g">Hardenberg</hi>, ebenſo<lb/>
+wie ſein Vorgaͤnger, ſtets eine kuͤnftige <hi rendition="#g">Volksvertre</hi>-<lb/>
+<hi rendition="#g">tung</hi> im Auge hatte, ſpricht das von ihm gegengezeich-<lb/>
+nete Finanz-Edict vom 27. October 1810 klar aus. In<lb/>
+demſelben ſagt der Koͤnig: „Wir behalten uns vor, der<lb/>
+Nation eine zweckmaͤßig eingerichtete Repraͤſentation, <hi rendition="#g">ſo</hi>-<lb/>
+<hi rendition="#g">wohl in den Provinzen als fuͤr das Ganze</hi> zu<lb/>
+geben, deren Rath wir gern benutzen und in der wir un-<lb/>
+ſeren Unterthanen die <hi rendition="#g">Ueberzeugung</hi> fortwaͤhrend <hi rendition="#g">geben<lb/>
+werden</hi>, <hi rendition="#g">daß der Zuſtand des Staats und der<lb/>
+Finanzen ſich beſſere</hi>“ u. ſ. w.</p><lb/>
+<p>Und ſo wurde ſchon im Februar 1811 eine interi-<lb/>
+miſtiſche Volksrepraͤſentation in <hi rendition="#g">Berlin</hi> verſammelt, un-<lb/>
+ter deren Mitwirkung eine Reihe der freiſinnigſten orga-<lb/>
+niſchen Geſetze zu Stande kam. <hi rendition="#g">Hardenberg's</hi> am 23.<lb/>
+Februar 1811 im Namen des Koͤnigs gehaltene Eroͤff-<lb/>
+nungsrede<note place="foot" n="*)">Eine Stelle aus dieſer denkwuͤrdigen Rede, die<lb/>
+Unzulaͤnglichkeit der Provinzialſtaͤnde mit <hi rendition="#g">blos berathender</hi><lb/>
+Stimme betreffend, haben wir ſchon oben angefuͤhrt. —</note> begann mit den Worten:</p><lb/>
+<p>„Wie ein guter Vater von ſeinen Kindern, fordert<lb/>
+der Koͤnig von ſeinen treuen Unterthanen nicht bloß Ge-<lb/>
+horſam, er <hi rendition="#g">wuͤnſcht Ueberzeugung bei ihnen her</hi>-<lb/>
+<hi rendition="#g">vor zu bringen</hi>, daß ſeine Verfuͤgungen nur ihr wah-<lb/>
+res Wohl bezielen; — er will <hi rendition="#g">ſeine Anordnungen<lb/>
+<pb n="32" facs="#f0038"/>
+lieber hierauf begruͤndet ſehen</hi>, <hi rendition="#g">als auf ſeinen<lb/>
+Willen</hi>“ u. ſ. w. —</p><lb/>
+<p>Nach Beendigung der Arbeiten (im September d. J.)<lb/>
+ſprach im Namen ſaͤmmtlicher Deputirten Graf v. <hi rendition="#g">Hen</hi>-<lb/>
+<hi rendition="#g">kel</hi>-<hi rendition="#g">Donnersmark</hi>:</p><lb/>
+<p>„Je wichtiger die Gegenſtaͤnde ſind, die jetzt entſchie-<lb/>
+den wurden, um ſo dankbarer erkennen wir die Gnade,<lb/>
+mit welcher Se. Majeſtaͤt <hi rendition="#g">durch</hi> <hi rendition="#b">Gewährung</hi> <hi rendition="#g">einer<lb/>
+Nationalrepraͤſentation</hi> uns bewieſen haben“ u.ſ.w.</p><lb/>
+<p>So wurde Preußen durch ſein Geſchick ſelbſt auf<lb/>
+die Bahn <hi rendition="#g">conſtitutioneller</hi> Entwickelung gedraͤngt;<lb/>
+der Erfolg ward durch die Geſchichte der naͤchſten Jahre<lb/>
+in ſeiner vollen ſittlichen Kraft dargethan. Als die Stunde<lb/>
+des Schickſals ſchlug, ſtand Oſtpreußen mit ſeinem Tu-<lb/>
+gendbunde, ſeiner Landwehr gewaffnet und geruͤſtet da;<lb/>
+es erhob ſich zuerſt, es erhob ſich in froher Begeiſterung,<lb/>
+das gekraͤnkte Koͤnigshaus zu raͤchen und das Fremdenjoch<lb/>
+vom Vaterlande abzuwaͤlzen. Fuͤrſt und Volk ward wie-<lb/>
+der Eins, wie in jenen gewaltigen Urzeiten, der altger-<lb/>
+maniſche Geiſt erwachte und — die ungerechte Macht fand<lb/>
+ihren Untergang.</p><lb/>
+<p>Nach der Siegesfreude hoffte vor allem Preußen ei-<lb/>
+ner ſchoͤnen Zukunft entgegen zu gehen. Unter den Fuͤrſten<lb/>
+Deutſchlands hatte Friedrich Wilhelm allein Alles ſeinem<lb/>
+Volke und dieſes wiederum ihm ſeine nationale Selbſt-<lb/>
+ſtaͤndigkeit, die Bedingung jeder weitern Fortbildung, zu<lb/>
+<pb n="33" facs="#f0039"/>
+verdanken. Vor allen Staaten Deutſchlands war <hi rendition="#g">Preu</hi>-<lb/>
+<hi rendition="#g">ßen</hi> in ſeiner inneren Entwickelung am weiteſten vorge-<lb/>
+ſchritten, vor allen Staaten Deutſchlands ſtellte Preußen<lb/>
+auf dem Wiener Congreſſe die freiſinnigſten Antraͤge und<lb/>
+drang am eifrigſten auf Volksrepraͤſentation. In dem<lb/>
+am 13. September 1814 dem Fuͤrſten <hi rendition="#g">Metternich</hi> von<lb/>
+<hi rendition="#g">Hardenberg</hi> mitgetheilten Entwurfe einer deutſchen<lb/>
+Verfaſſung heißt es (Art. 7.) von den Landſtaͤnden: „ihre<lb/>
+Befugniſſe ſollen zugleich ſein ein naͤher zu beſtimmender<lb/>
+Antheil an der Geſetzgebung, Verwilligung der Landes-<lb/>
+abgaben, Vertretung der Verfaſſung bei den Landesherrn<lb/>
+und <hi rendition="#g">bei dem Bunde</hi>“ (!). —</p><lb/>
+<p>Und dieſes Wort ward in Preußen zur <hi rendition="#g">That</hi>.<lb/>
+Friedrich Wilhelm der Gerechte, eingedenk ſeines Verſpre-<lb/>
+chens von 1810, eingedenk der Verſammlung interemiſti-<lb/>
+ſcher Repraͤſentanten von 1811, gab<lb/>
+<hi rendition="#et"><hi rendition="#g">unterm 22. Mai 1815 die allbekannte Ver-<lb/>
+ordnung uͤber die zu bildende Repraͤſentation<lb/>
+des Volks</hi>.</hi></p><lb/>
+<p>Sie lautet:</p><lb/>
+<list><item>§. 1. Es ſoll eine Repraͤſentation des Volkes gebildet<lb/>
+werden.</item><lb/>
+<item>§. 2. Zu dieſem Zwecke ſind die Provinzialſtaͤnde u. ſ. w.</item><lb/>
+<item>§. 3. Aus den Provinzialſtaͤnden wird die <hi rendition="#g">Verſamm-<lb/>
+lung der Landesrepraͤſentanten</hi> gewaͤhlt, <hi rendition="#g">die in<lb/>
+Berlin ihren Sitz haben ſoll</hi>.</item><lb/>
+<fw type="sig" place="bottom">3</fw><lb/>
+<pb n="34" facs="#f0040"/>
+<item>§. 4. Die Wirkſamkeit der Landesrepraͤſentanten erſtreckt<lb/>
+ſich auf die Berathung <hi rendition="#g">uͤber alle Gegenſtaͤnde der<lb/>
+Geſezgebung</hi> — —, mit Einſchluß der <hi rendition="#g">Beſteuerung</hi>.</item><lb/>
+<item>§. 5. Es iſt <hi rendition="#g">ohne Zeitverluſt</hi> eine Comiſſion in Ber-<lb/>
+lin niederzuſetzen, die aus einſichtsvollen Staatsbeam-<lb/>
+ten und <hi rendition="#g">Eingeſeſſenen</hi> der Provinzen beſtehen ſoll.</item><lb/>
+<item>§. 6. Dieſe Commiſſion ſoll ſich beſchaͤftigen:<lb/>
+<list><item>a) mit der Organiſation der Provinzialſtaͤnde;</item><lb/>
+<item>b) mit der Organiſation der <hi rendition="#g">Landesrepraͤſen-<lb/>
+tanten</hi>;</item><lb/>
+<item>c) mit der Ausarbeitung einer <hi rendition="#g">Verfaſſungsur-<lb/>
+kunde</hi> nach den aufgeſtellten Grundſaͤtzen. —</item></list></item><lb/>
+<item>§. 7. Sie ſoll den 1. <hi rendition="#g">September</hi> d. Jahres zuſam-<lb/>
+mentreten.</item></list><lb/>
+<p>Man beachte es wohl! nicht ein bloßes Verſprechen<lb/>
+liegt uns hier vor, ſondern ein nicht umzudeutentes Koͤ-<lb/>
+nigswort, — ein <hi rendition="#b"><hi rendition="#g">Geſez</hi></hi>. —</p><lb/>
+<p>Auf den 22. Mai 1815 folgen truͤbe Jahre, uͤber<lb/>
+welche wir ſo ſchnell als moͤglich hinwegeilen. Im Mi-<lb/>
+niſterio entſtand — man ſagt, das Oeſtrereich ſeine Be-<lb/>
+ſorgniß vor zu kraͤftiger Geiſtesbewegung geltend machte<lb/>
+— eine Reactionsparthei; die Deputirten, welche ſich am<lb/>
+1. September in Berlin verſammeln ſollten, wurden nicht<lb/>
+einberufen; das Verfaſſungswerk ruhte trotz der dem<lb/>
+Bundestage uͤbergebenen Note v. 5. Febr. 1818, und die<lb/>
+von <hi rendition="#g">Goͤrres</hi> uͤberreichte Mahn-Adreſſe der rheiniſchen<lb/>
+Landſchaft (12. Januar 1818) ward bei Hofe ſehr miß-<lb/>
+<pb n="35" facs="#f0041"/>
+faͤllig aufgenommen. Durch die Cabinets-Ord. v. 31.<lb/>
+Maͤrz 1817 (Einſetzung des Staatsraths) wurde die Ent-<lb/>
+werfung einer Verfaſſungsurkunde befohlen, dieſelbe aber<lb/>
+— im Widerſtreit mit dem §. 5 des Edicts v. 22.<lb/>
+Mai — nur Staatsbeamten uͤbertragen. Im Juli 1819<lb/>
+vollendet, blieb ſie ununterzeichnet in der Staats-Canz-<lb/>
+lei; ſtatt der allgemeinen erwarteten Bekanntmachung er-<lb/>
+folgten polizeiliche Verhaftungen, Inquiſitionen wegen<lb/>
+demagogiſcher „Umtriebe“ und — die Karlsbader Be-<lb/>
+ſchluͤſſe; Cenſur-Edicte unterdruͤckten die oͤffentliche Stim-<lb/>
+me und das freiere Wort verhallte in Gefaͤngniſſen. —</p><lb/>
+<p>Erſt 1823 — acht Jahre nach der Verordnung<lb/>
+uͤber die „ohne Zeitverluſt“ zu bildende Volksrepraͤſenta-<lb/>
+tion — erſchien das Geſez uͤber Errichtung der Provinzi-<lb/>
+alſtaͤnde; Reichsſtaͤnde wurden darin als bevorſtehend an-<lb/>
+gekuͤndet. Siebenzehn neue Jahre verfloſſen, — die Pro-<lb/>
+vinzialſtaͤnde warteten vergebens auf ihre geſezliche Er-<lb/>
+gaͤnzung: die Reichsſtaͤnde. Stimmen des Mißbehagens<lb/>
+uͤber buͤreaukratiſche Erſtarrung wurden indeſſen laut, und<lb/>
+der weſtphaͤliſche Landtag erinnerte (i. J. 1830) <hi rendition="#g">einſtim-<lb/>
+mig</hi>, an das unvollendete Verfaſſungswerk; — die reich-<lb/>
+ſtaͤndiſche Verſammlung unterblieb nach wie vor. Das<lb/>
+Edict v. 17. Januar 1820 hatte die Staatsſchuld wie<lb/>
+jede <hi rendition="#g">kuͤnftige</hi> Anleihe „unter die Garantie der Reichs-<lb/>
+ſtaͤnde“ geſtellt; — Die garantirenden Reichsſtaͤnde aber<lb/>
+exiſtirten und exiſtiren noch immer — nur allein <hi rendition="#g">in</hi> der<lb/>
+<hi rendition="#g">Geſezſammlung</hi> und <hi rendition="#g">in der Hoffnung</hi> des preußi-<lb/>
+ſchen Volkes.</p><lb/>
+<fw type="sig" place="bottom">3*</fw><lb/>
+<pb n="36" facs="#f0042"/>
+<p>Und dieſe Hoffnung des preußiſchen Volkes auszu-<lb/>
+ſprechen, — wer war mehr dazu geeignet als der Koͤ-<lb/>
+nigsberger-Huldigungslandtag?! Von ſeinem Koͤnige auf-<lb/>
+gefordert, nach altherkoͤmmlichem Brauche „die Beſtaͤti-<lb/>
+gung etwa noch beſtehender Privilegien in Antrag zu<lb/>
+bringen,“ beſchloß der Landtag mit 87 Stimmen gegen<lb/>
+5, die Verfaſſungsrechte zu wahren und Sr. Maj. an<lb/>
+die bereits durch das Edict v. 22. Mai 1815 <hi rendition="#g">geſezlich</hi><lb/>
+gewaͤhrte, aber factiſch noch immer nicht ins Leben getre-<lb/>
+tene Volksrepraͤſentation zu erinnern. Oſtpreußen arm<lb/>
+und wenig beachtet, noch wund von jenen ungluͤcklichen<lb/>
+Kriegsjahren hat nicht ſeine Leiden geklagt, vielmehr ſeine<lb/>
+Noth anſtaͤndig verhuͤllend die Sache des <hi rendition="#g">geſammten</hi><lb/>
+Vaterlandes in freier, maͤnnlich-loyaler Rede gefuͤhrt.<lb/>
+Seit drei Jahrzehnten deuten Preußens Geſchichte und<lb/>
+Preußens-Geſetzgebung gleich unabweisbar auf die Noth-<lb/>
+wendigkeit einer Volksvertretung hin; nur durch ſie kann<lb/>
+der Beamten-Willkuͤr Einhalt geſchehn, nur durch ſie kann<lb/>
+des Volkes Stimme zum Throne gelangen und zwiſchen<lb/>
+Regierung und Regierten <hi rendition="#g">das</hi> Vertrauen wieder her-<lb/>
+geſtellt werden, welches allein bei kuͤnftigen politiſchen<lb/>
+Stuͤrmen (und ſchon ziehen die Wolken dicht zuſammen)<lb/>
+das Land vor dem Schickſale des Jahres 1807 zu ſchuͤ-<lb/>
+tzen vermag. Nicht bloß <hi rendition="#g">berechtigt</hi> war der Huldigungs-<lb/>
+landtag zu ſolcher Mahnung, er erfuͤllte dadurch eine<lb/>
+<hi rendition="#g">Pflicht</hi> gegen das Vaterland und gegen den Koͤnig. —</p></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="37" facs="#f0043"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#aq">III.</hi><lb/>
+Welcher Beſcheid ward den Ständen?</hi></head><lb/>
+<p>Anerkennung ihrer treuen Geſinnung, Abweiſung der<lb/>
+geſtellten Antraͤge und troͤſtende Hindeutung auf einen<lb/>
+kuͤnftigen unbeſtimmten Erſatz.</p><lb/>
+<p>Der Landtagsabſchied vom 9. September 1840 be-<lb/>
+ſagt, Friedrich Wilhelm <hi rendition="#aq">III</hi>.<lb/>
+<quote><hi rendition="#et">habe wegen der Ereigniſſe, die er bald nach Erlaß der<lb/>
+Verordnung vom 22. Mai 1815 in <hi rendition="#g">andern</hi> Laͤndern<lb/>
+wahrnahm, die Deutung, welche mit ſeinen Worten<lb/>
+verbunden wurde, in reifliche Ueberlegung gezogen. Von<lb/>
+den herrſchenden Begriffen ſogenannter allgemeiner Volks-<lb/>
+vertretung ſich fern haltend, habe er den auf geſchichtlicher<lb/>
+Entwickelung beruhenden, der deutſchen Volksthuͤmlich-<lb/>
+keit entſprechenden Weg eingeſchlagen und ſeinem Lande<lb/>
+die <hi rendition="#g">Provinzialverfaſſung</hi> verliehen. <hi rendition="#g">Dieſes</hi> Werk<lb/>
+ſolle auch in Zukunft treu gepflegt und einer erſprieß-<lb/>
+licheren Entwickelung entgegengefuͤhrt werden. —</hi></quote></p><lb/>
+<p>1. Inſofern „die bald nach der Verordnung vom<lb/>
+22. Mai 1815 wahrgenommenen Ereigniſſe“ in dem Land-<lb/>
+<pb n="38" facs="#f0044"/>
+tagsabſchiede nicht naͤher bezeichnet worden, duͤrfte auch<lb/>
+jedes Urtheil uͤber die Bedeutſamkeit derſelben hier unzu-<lb/>
+laͤſſig erſcheinen. Vorgaͤnge in den <hi rendition="#g">deutſchen</hi> Kam-<lb/>
+mern koͤnnen wohl ſchwerlich gemeint ſein. Die ſeit dem<lb/>
+erſten Pariſer Frieden zunehmende Unzufriedenheit Deutſch-<lb/>
+lands wollen wir zwar — zur Ehre unſeres Volkscha-<lb/>
+rakters — keineswegs in Abrede ſtellen. Wenn aber auch<lb/>
+in Folge derſelben ſich hie und da Irrungen zwiſchen Fuͤr-<lb/>
+ſten und Staͤnden erhoben, ſo geſchah dies doch weder in<lb/>
+ſo kurzen Zwiſchenraͤumen noch in ſolcher Ausdehnung,<lb/>
+daß man darauf eine Rechtsverweigerung gruͤnden konnte.<lb/>
+„ Wir“, — ſagt Herr v. <hi rendition="#g">Gagern</hi> — , „wir Edelleute<lb/>
+haben einiges Recht, die deutſchen Repraͤſentativverfaſſungen<lb/>
+anzuklagen, die Fuͤrſten nicht, nicht ohne Undank. In<lb/>
+Muͤnchen, Karlsruhe, Stuttgart iſt man ihnen mit Liebe<lb/>
+nicht nur, ſondern mit Enthuſiasmus entgegengekommen.<lb/>
+Mit dieſem Enthuſiasmus hat man die Civiliſten behan-<lb/>
+delt. So wenig — ein engliſches Parlament nach den Re-<lb/>
+densarten des Lord <hi rendition="#g">Cochrane</hi> oder Sir <hi rendition="#g">Francis Bur-<lb/>
+dett</hi> zu beurtheilen iſt, ſo wenig unſere Kammer nach<lb/>
+dieſer oder jener iſolirten Aeußerung. Die ſo urtheilen,<lb/>
+haben nicht den entfernteſten Begriff von unſeren <hi rendition="#g">fruͤhern</hi><lb/>
+landſtaͤndiſchen Verhandlungen, ſo oft voll Sinn, Nachdruck<lb/>
+und Vaterlandsliebe.“</p><lb/>
+<p>Allein die Unterſuchung, welche Ereigniſſe gemeint<lb/>
+ſeien, iſt auch <hi rendition="#g">unnoͤthig</hi>, da ſie <hi rendition="#g">Preußen</hi> wieder bis<lb/>
+zum 1. September 1815 (dem Termine der einzuberufen-<lb/>
+<pb n="39" facs="#f0045"/>
+den Reichsſtaͤnde) noch ſpaͤter betrafen. Welchen Mißbrauch<lb/>
+auch immerhin „in <hi rendition="#g">andern</hi> Laͤndern“ das Repraͤſentativ-<lb/>
+ſyſtem erfahren, in Preußen war die Regierung zu weit<lb/>
+vorgeſchritten, um die Stimme freier Diskuſſion zu ſcheuen,<lb/>
+in Preußen war der Koͤnig von der Treue ſeines<lb/>
+Volkes zu feſt uͤberzeugt, um durch irgend welche Befuͤrch-<lb/>
+tung ſich von der Erfuͤllung ſeines Verſprechens abhalten<lb/>
+zu laſſen. —</p><lb/>
+<p>2. Schwieriger noch iſt die Aufgabe, „die Mißdeu-<lb/>
+tung, welche mit den koͤniglichen Worten verbunden wurde“,<lb/>
+nachzuweiſen. Oeffentliche Mißdeutung durch die Preſſe<lb/>
+iſt uns nicht bekannt, eben ſo wenig eine berichtigende<lb/>
+Erklaͤrung die von Seiten des Staatsoberhaupts gegen<lb/>
+ſolchen Frevel noͤthig geworden. Wo uͤberhaupt mit dem<lb/>
+Worte zugleich die <hi rendition="#g">Sache</hi> ſo <hi rendition="#g">ſcharf</hi> und <hi rendition="#g">beſtimmt</hi> ge-<lb/>
+geben iſt, wie in §. 3 und 4 des genannten Edicts:<lb/>
+<hi rendition="#et"><quote>— „Aus den Provinzialſtaͤnden wird die Verſammlung<lb/>
+der Landesrepraͤſentanten gewaͤhlt, die in Berlin ihren<lb/>
+Sitz haben ſoll und deren Wirkſamkeit ſich auf die Be-<lb/>
+rathung uͤber alle Gegenſtaͤnde der Geſetzgebung u. ſ. w.<lb/>
+erſtreckt“ — ;</quote></hi><lb/>
+da muß wohl jede Deutung — ſie mag ein Mehr oder<lb/>
+Weniger erzielen — nothwendig fortfallen. Den einzig<lb/>
+moͤglichen Sinn jener Worte findet man wiederholentlich<lb/>
+in dem Finanz-Edict vom 17. Januar 1820, in der<lb/>
+Verordnung uͤber die zu errichtenden Provinzialſtaͤnde (v.<lb/>
+<pb n="40" facs="#f0046"/>
+5. Juni 1823) und in vielen nachfolgenden Geſezen aus-<lb/>
+gedruͤckt; zum deutlichen Beweiſe, daß der gewiſſenhafte<lb/>
+Koͤnig durch Anordnung der <hi rendition="#g">Provinzial</hi>ſtaͤnde ſich keines-<lb/>
+wegs ſeines unter den dringlichſten Umſtaͤnden gegebenen<lb/>
+Verſprechens entbunden glaubte.</p><lb/>
+<p><hi rendition="#et">„Ein <hi rendition="#g">Koͤnig</hi> ſagt nicht, wie gemeine Menſchen,<lb/>
+Verlegen zu, daß er den Bittenden<lb/>
+Auf einen Augenblick entferne; noch<lb/>
+Verſpricht er auf den Fall, den er nicht hofft: —<lb/>
+Dann fuͤhlt er erſt die Hoͤhe ſeiner Wuͤrde,<lb/>
+Wenn er den Harrenden begluͤcken kann.“ —</hi></p><lb/>
+<p>Und in eben demſelben nicht <hi rendition="#g">umzudeutenden Sinne</hi><lb/>
+hat der oſtpreußiſche Huldigungslandtag das Edict vom<lb/>
+22. Mai 1815 verſtanden, indem er ſo beſcheiden als<lb/>
+klar darauf antrug, den Provinzialſtaͤnden ihre <hi rendition="#g">geſetz</hi>-<lb/>
+<hi rendition="#g">maͤßige</hi> Beſtimmung zu geben, d. i. die Verſammlung<lb/>
+der „Landesrepraͤſentanten“ aus ihnen erwaͤhlen zu laſſen.</p><lb/>
+<p>3. Unzweifelhaft iſt's, daß das Inſtitut der Pro-<lb/>
+vinzialſtaͤnde ſowohl „auf geſchichtlicher Entwickelung be-<lb/>
+ruht, als auch der deutſchen Volksthuͤmlichkeit entſpricht.“<lb/>
+Die Geſchichte lehrt, daß die fruͤheren Staͤnde ſehr <hi rendition="#g">aus</hi>-<lb/>
+<hi rendition="#g">gedehnte Freiheiten</hi>, wie das volle Recht der Steuer-<lb/>
+verwilligung, beſaßen und in Preußen ſogar (kurfuͤrſtliche<lb/>
+Aſſecuration vom 12. Maͤrz 1663) uͤber Krieg und Frie-<lb/>
+den entſchieden. Die fruͤheren deutſchen Landtage, —<lb/>
+lehrt gleichfalls die Geſchichte, — hatten die Aufgabe,<lb/>
+<pb n="41" facs="#f0047"/>
+<hi rendition="#g">beſondere Rechte und Privilegien geſchloſſener<lb/>
+Staͤnde</hi> zu vertheidigen; die daſelbſt zwiſchen Fuͤrſten<lb/>
+und Staͤnden gepflogenen Verhandlungen glichen (wie<lb/>
+Buͤlau es treffend ausdruͤckt) „einem Congreſſe zweier<lb/>
+Maͤchte, die uͤber ihre collidirenden Intereſſen einen Ver-<lb/>
+gleich ſchließen.“ Daß aber jene Staͤnde fuͤr ein allge-<lb/>
+meineres Volksintereſſe, fuͤr die heilige Unantaſtbarkeit des<lb/>
+Vaterlands und eine glorreiche Einheit deſſelben aufgetre-<lb/>
+ten, davon ſind die Beiſpiele zu zaͤhlen. Zur Zeit wird<lb/>
+wohl weder Fuͤrſt noch Volk eine Entwickelung erſprieß-<lb/>
+lich finden, welche den jetzigen Staͤnden die Bedeutung<lb/>
+und Wirkſamkeit ihrer Vorgaͤnger ertheilte. Will man<lb/>
+nun einmal nicht anders als mit ruͤckwaͤrts gewendetem<lb/>
+Blicke vorſchreiten, ſo vergeſſe man doch nicht, daß in<lb/>
+Deutſchland<lb/>
+<hi rendition="#et">das Princip „<hi rendition="#g">allgemeiner Volksvertretung</hi>“</hi><lb/>
+bei weitem aͤlter und volksthuͤmlicher iſt, als das der<lb/>
+Land-Standſchaft.<note place="foot" n="*)">Hiſtoriſche Zeugen deſſen ſind <hi rendition="#aq">Moeser, Zachariae,<lb/>
+Welcker, Mittermaier, Feuerbach</hi> u. v. A. — <hi rendition="#aq"><hi rendition="#g">Tamdiu</hi><lb/>
+Germania vincitur</hi>! ſo klagt <hi rendition="#g">Tacitus</hi> uͤber die ſtets erfolg-<lb/>
+loſen Triumpfe der Roͤmer. <hi rendition="#aq">Tamdiu Germania <hi rendition="#g">vincitur</hi>!</hi><lb/>
+wie den Roͤmern wird es allen Feinden germaniſcher Freiheit<lb/>
+ergehen. —</note> — Freiheit der Gemeinde, Verant-<lb/>
+wortlichkeit der von derſelben erkorenen Obrigkeit und eine<lb/>
+auf Gleichheit der Gemeinderechte beruhende (<hi rendition="#g">nicht oc</hi>-<lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="42" facs="#f0048"/>
+<hi rendition="#g">troyirte</hi>) Volksrepraͤſentation findet man bei den Deut-<lb/>
+ſchen und uͤberall wo Deutſche hingekommen, lange <hi rendition="#g">vor</hi><lb/>
+der Entſtehung des Feudalweſens. Werden wir auf die<lb/>
+Vergangenheit hingewieſen, ſo wollen wir uns lieber auf<lb/>
+die freie deutſche Eiche ſtuͤtzen, als den hiſtoriſchen Wur-<lb/>
+zeln mittelalterlichen Feudalitaͤt nachgraben. —</p><lb/>
+<p>4. <hi rendition="#g">Der Reichsſtaͤnde</hi> erwaͤhnt der Landtagsabſchied<lb/>
+gar nicht, verſpricht aber dafuͤr eine „erſprießlichere Ent-<lb/>
+wickelung der Provinzialverfaſſung.“ — Zu der Weisheit<lb/>
+des neuen Regenten herrſcht gewiß das unbedingteſte<lb/>
+Zutrauen, aber es liegt nicht in der Macht eines Einzi-<lb/>
+gen, Inſtitutionen, die ſich bereits uͤberlebt haben, ihre<lb/>
+zukuͤnftige Entwickelung vorzuſchreiben. Erwaͤgt man die<lb/>
+juͤngſten Standeserhoͤhungen und die darin liegende Sug-<lb/>
+geſtion zu Majoratsſtiftungen, ſo koͤnnte man die Abſicht<lb/>
+einer <hi rendition="#g">Pairieſchoͤpfung</hi> nach engliſchem Vorbilde ver-<lb/>
+muthen, — eine Schoͤpfung, die gerade in Preußen auf<lb/>
+unuͤberſteigliche Hinderniſſe ſtoßen und ein ganz fremdar-<lb/>
+tiges Element in das unariſtokratiſche Inſtitut der Pro-<lb/>
+vinzial-Landtage bringen wuͤrde. — Preußen, von drei<lb/>
+Großmaͤchten eingeſchloſſen, kann mit ſeinen 14 Millionen<lb/>
+und ſeiner allgemeinen Wahrhaftigkeit uͤberall hin den<lb/>
+Ausſchlag geben, und empfaͤngt nur dieſer Stellung wegen<lb/>
+das Compliment der Ebenmaͤchtigkeit. Wie aber, wenn<lb/>
+es <hi rendition="#g">fuͤr ſich allein ſteht</hi>? Seine Volkseinheit iſt bis<lb/>
+jetzt mehr mechaniſch als organiſch geweſen; denn nicht<lb/>
+von jeder der acht Provinzen kann mit Gewißheit ausge-<lb/>
+<pb n="43" facs="#f0049"/>
+ſagt werden, daß ſie, — durch außerordentliche Ereigniſſe<lb/>
+vom Ganzen getrennt — ſich als ein von ſeinem Koͤrper<lb/>
+losgeriſſenes Glied empfinden wuͤrde; eine ſolche Gliederung<lb/>
+giebt es bei uns von Saarlouis bis Memel nicht. Jede<lb/>
+einſeitige Ausbildung der Provinzial-Verfaſſung <hi rendition="#g">ohne<lb/>
+Reichsſtaͤnde</hi> waͤre daher eine Gefahr fuͤr die Zukunft;<lb/>
+ſtatt eines organiſch gegliederten Staates wuͤrden wir<lb/>
+nach wie vor ein Aggregat von Provinzen ausmachen,<lb/>
+deren jede nur ihr Sonderintereſſe im Auge haͤtte; an un-<lb/>
+ſerm theuern Vaterlande wuͤrde ſich im Kleinen wieder-<lb/>
+holen, was wir im Großen an Deutſchland erfahren.<lb/>
+Untergang der Einheit, mit ihr Verluſt der buͤrgerlichen<lb/>
+Freiheit und auslaͤndiſche Unterjochung. — — Wir fuͤr<lb/>
+unſer Theil kennen nur Eine erſprießliche und volksthuͤm-<lb/>
+liche Entwickelung der zeitigen Provinzialſtaͤnde, — die<lb/>
+<hi rendition="#g">durch Koͤnigswort und Geſez verbuͤrgte Ent-<lb/>
+wickelung zu</hi> <hi rendition="#b">Reichsſtänden.</hi> — —</p><lb/>
+<p>Die Unbeſtimmtheit des koͤniglichen Beſcheides mußte<lb/>
+nothwendig mehrfache Deutung veranlaſſen: einige fanden<lb/>
+darin eine abweiſende „Berichtigung der in der ſtaͤndiſchen<lb/>
+Denkſchrift ausgeſprochenen Anſichten; die meiſten aber,<lb/>
+die geiſt- und gemuͤthvollen Worte des Koͤnigs fuͤr eine<lb/>
+— nur noch nicht deutlich ausgedruͤckte Gewaͤhrung hal-<lb/>
+tend, gaben ſich einem patriotiſchen Enthuſiasmus hin, wie<lb/>
+er, „in der Geſchichte unſerer Landtage nicht nachzuweiſen<lb/>
+iſt.“ Dadurch wurde die erlaͤuternde <hi rendition="#g">Cabinets</hi>-<hi rendition="#g">Ordre<lb/>
+vom</hi> 4. <hi rendition="#g">October 1840</hi> erforderlich. In Folge eines<lb/>
+<pb n="44" facs="#f0050"/>
+Berichtes des Miniſters v. <hi rendition="#g">Rochow</hi> erklaͤrt ſich darin<lb/>
+der Koͤnig gegen die Mißdeutung, welche ſeinen ſchriftli-<lb/>
+chen und muͤndlichen Aeußerungen eine „Zuſtimmung zu<lb/>
+dem in der Denkſchrift enthaltenen Antrage auf Entwik-<lb/>
+kelung der Landesverfaſſung <hi rendition="#g">im Sinne der Verord-<lb/>
+nung vom</hi> 22. <hi rendition="#g">Mai 1815</hi>“ unterlaͤge. — Friedrich<lb/>
+Wilhelm <hi rendition="#aq"><hi rendition="#b">IV.</hi></hi> ehrt das freie Wort und achtet auch die<lb/>
+ihm entgegenſtehende Anſicht, wenn ſie in beſcheidener<lb/>
+Weiſe ſich kund giebt. Unumwunden geſtehen wir daher,<lb/>
+daß die an den Miniſter v. <hi rendition="#g">Rochow</hi> gerichtete Cab.-<lb/>
+Ordre an vielen Orten den traurigſten Eindruck machte,<lb/>
+jenen vorgreifenden Enthuſiasmus daͤmpfte und manche<lb/>
+ſchoͤne buͤrgerliche Hoffnung zerſtoͤrte.</p><lb/>
+<p>Iſt nun aber — und dieſe Frage muß uns hier be-<lb/>
+ſonders intereſſiren — iſt durch den Landtagsabſchied und<lb/>
+durch den berichtigenden Commentar v. 4. October. 1840.</p><lb/>
+<p><hi rendition="#et"><quote>Das Edict v. 22. Mai 1815 aufgehoben, oder beſteht<lb/>
+es nach wie vor in ſeiner vollen geſezlichen Geltung?</quote></hi></p><lb/>
+<p>1. Es iſt ſchon dargethan worden, daß das ge-<lb/>
+nannte Edict nicht <hi rendition="#g">vereinzelt</hi> daſtehe, vielmehr inden<lb/>
+mit dem Staate vorgenommenen Veraͤnderungen wurzelnd<lb/>
+ſich mit vielfachen Zweigen in die ganze nachfolgende<lb/>
+Geſezgebung verbreite. Nicht ohne Zerſtoͤrung dieſer<lb/>
+Wurzeln und Zweige koͤnnte es aufgehoben werden, wenn<lb/>
+anders nicht eine Rechtsungewißheit, wie bereits ein an-<lb/>
+derer deutſcher Staat ſie beklagt, entſtehen ſoll. Um<lb/>
+<pb n="45" facs="#f0051"/>
+ſchon mehrmals Geſagtes nicht von neuem zu wiederholen,<lb/>
+gedenken wir hier nur des Staatsſchulden-Edicts vom<lb/>
+17. Januar 1820, in welchem die Staatsſchuld und alle<lb/>
+kuͤnftigen Anleihen unter „<hi rendition="#g">Garantie der Reichs-<lb/>
+ſtaͤnde</hi>“ geſtellt werden. Wie ſollte zur Zeit gemeinſa-<lb/>
+mer Noth der Staat, ſo lange er der Reichsſtaͤnde ent-<lb/>
+behrt, ohne <hi rendition="#g">Umgehung des Geſezes</hi> eine neue Anleihe<lb/>
+machen? Wahrlich! Die Staatsglaͤubiger wuͤrden, braͤche<lb/>
+fruͤh oder ſpaͤt ein Krieg aus, deſſen Chancen doch nicht<lb/>
+zu beſtimmen ſind, durch das Edict v. 17. Januar eine<lb/>
+noch geringere Garantie haben, als in den Jahren 180<formula notation="TeX">\frac{6}{7}</formula><lb/>
+an den in der Berliner Bank deponirten Wittwen- und<lb/>
+Waiſengeldern. —</p><lb/>
+<p>2. Was aber bei Entſcheidung der Frage noch von<lb/>
+groͤßerm Gewicht iſt, auch an der erforderlichen <hi rendition="#g">Rechts-<lb/>
+form</hi> wuͤrde es einer derartigen Aufhebung des Geſezes<lb/>
+v. 22. Mai 1815 gebrechen.</p><lb/>
+<p>„Alle Menſchen,“ — ſagt Juſtus Moͤſer der rechts-<lb/>
+eifrige <hi rendition="#aq">advocatus patriae</hi>, — „alle Menſchen koͤnnen<lb/>
+irren, der Koͤnig wie der Philoſoph, und letztere vielleicht<lb/>
+am erſten, da ſie beide zu hoch ſtehen und von der Menge<lb/>
+der Sachen, die vor ihren Augen ſchweben, keine einzige<lb/>
+vollkommen ruhig und genau betrachten koͤnnen. Dieſer-<lb/>
+wegen haben es ſich alle Nationen zur <hi rendition="#g">Grundfeſte ih-<lb/>
+rer Freiheit</hi> und ihres Eigenthums gemacht, daß dasje-<lb/>
+nige was ein Menſch fuͤr Recht oder Wahrheit erkennt,<lb/>
+<pb n="46" facs="#f0052"/>
+„nie eher als Recht <hi rendition="#g">gelten</hi> ſolle, bevor es nicht das<lb/>
+<hi rendition="#g">Siegel der Form</hi> erhalten“. —</p><lb/>
+<p>Nun beſtimmt aber das allgemeine <hi rendition="#g">preuß</hi>. Landrecht<lb/>
+Einleitung.</p><lb/>
+<list><item>§. 59. Geſeze behalten ſo lange ihre Kraft, bis ſie<lb/>
+von dem Geſezgeber <hi rendition="#g">ausdruͤcklich</hi> wird aufgehoben<lb/>
+werden.</item><lb/>
+<item>§. 60. So wenig durch Gewohnheiten, Meinungen<lb/>
+der Rechtslehrer oder durch die in einzelnen Faͤllen er-<lb/>
+gangenen <hi rendition="#g">Verordnungen</hi> neue Geſeze eingefuͤhrt<lb/>
+werden koͤnnen, ebenſowenig koͤnnen ſchon vorhandene<lb/>
+Geſeze <hi rendition="#g">auf dergl. Art</hi>wieder aufgehoben werden.</item><lb/>
+<item>§. 61. Statuten und Provinzialgeſeze werden durch<lb/>
+neuere allgemeine Geſeze nicht aufgehoben, wenn nicht<lb/>
+in letzteren <hi rendition="#g">die Aufhebung der erſteren deutlich<lb/>
+verordnet</hi> iſt. —</item></list><lb/>
+<p>Da dieſe zur Aufhebung eines Geſezes erforderlichen Be-<lb/>
+dingungen — das Siegel der Rechtsform — dem Land-<lb/>
+tagsabſchiede, wie der Cab. Ordre v. 4. October abge-<lb/>
+hen; ſo folgt daraus, daß der Koͤnig dadurch keineswegs<lb/>
+das Edict v. 22. Mai 1815 zuruͤckzunehmen gewillt<lb/>
+war. Es beſteht daſſelbe nach wie vor in ſeiner <hi rendition="#g">vollen</hi><lb/>
+geſetzlichen Kraft und die Befugniß, ja die Pflicht der<lb/>
+Staͤnde, auf die Vollziehung deſſelben zu beharren, iſt<lb/>
+<pb n="47" facs="#f0053"/>
+außer Zweifel geſtellt. Die vierte Frage erledigt ſich<lb/>
+dadurch von ſelbſt. —</p></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+ <div n="2"><head><hi rendition="#aq">IV.</hi><lb/>
+<hi rendition="#b">Was bleibt der Ständeverſammlung<lb/>
+zu thun übrig?</hi></head><lb/>
+<p>Das, was ſie bisher als Gunſt erbeten, nunmehr<lb/>
+als erwieſenes Recht in Anſpruch zu nehmen. —</p><lb/>
+<p>Der Stamm, welcher Erbe hat an dem Hauſe<lb/>
+<hi rendition="#aq">Jsais,</hi> hat zuerſt geſprochen, — und nicht werden die<lb/>
+uͤbrigen ſich zu ihren Huͤtten heben. —</p><lb/>
+<p><hi rendition="#g">Koͤnigsberg</hi>, am Kroͤnungstage 1841.</p></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+ </body><back>
+<pb facs="#f0054"/>
+<pb facs="#f0055"/>
+<pb facs="#f0056"/>
+<pb facs="#f0057"/>
+</back>
+ </text>
+ </TEI>

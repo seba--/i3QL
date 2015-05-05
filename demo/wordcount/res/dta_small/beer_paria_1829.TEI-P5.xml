@@ -1,0 +1,1568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Der Paria</title>
+<title type="sub">Trauerspiel in einem Aufzuge</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118657887">
+<surname>Beer</surname>
+<forename>Michael</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">75</measure>
+<measure type="tokens">6607</measure>
+<measure type="types">2309</measure>
+<measure type="characters">44830</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:04:43Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/beer_paria_1829</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/beer_paria_1829</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/beer_paria_1829</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/beer_paria_1829</idno>
+<idno type="DTADirName">beer_paria_1829</idno>
+<idno type="DTAID">17225</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-20090519278</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Beer, Michael: Der Paria. Stuttgart u. a., 1829.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Der Paria</title>
+<title level="m" type="sub">Trauerspiel in einem Aufzuge</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118657887">
+<surname>Beer</surname>
+<forename>Michael</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">62 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Cotta</name></publisher>
+<pubPlace>Stuttgart</pubPlace>
+<pubPlace>Tübingen</pubPlace>
+<date type="publication">1829</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Ys 5591</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=461702592</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Drama</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Drama</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="halftitle"><docTitle><titlePart type="main"> <hi rendition="#b"><hi rendition="#g">Der Paria</hi>.</hi></titlePart><lb/>
+<milestone unit="section" rendition="#hr"/> <titlePart type="sub"><hi rendition="#g">Trauerſpiel in einem Aufzuge</hi></titlePart></docTitle><lb/>
+<byline><hi rendition="#g">von</hi><lb/>
+<docAuthor><hi rendition="#g">Michael Beer</hi>.</docAuthor></byline></titlePage><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<titlePage type="main"><docTitle><titlePart type="main"> <hi rendition="#g"><hi rendition="#b">Der Paria.</hi></hi></titlePart><lb/>
+<titlePart type="sub"><hi rendition="#g">Trauerſpiel in einem Aufzuge</hi></titlePart></docTitle><lb/>
+<byline>von<lb/>
+<docAuthor><hi rendition="#g">Michael Beer.</hi></docAuthor></byline><lb/>
+<milestone unit="section" rendition="#hr"/> <titlePart type="desc">Zum Erſtenmale dargeſtellt auf dem koͤniglichen<lb/>
+Theater zu Berlin, den 22. December 1825.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/> <docImprint><pubPlace><hi rendition="#g">Stuttgart und Tuͤbingen</hi>,</pubPlace><lb/>
+<publisher>Verlag der J. G. Cotta’ſchen Buchhandlung.</publisher><lb/>
+<docDate><hi rendition="#g">1829.</hi></docDate></docImprint></titlePage><lb/>
+<pb facs="#f0010"/>
+<pb n="[1]" facs="#f0011"/>
+<div type="dedication"><p><hi rendition="#g">Seiner geliebten Mutter<lb/>
+<hi rendition="#b">Amalia Beer</hi><lb/>
+gewidmet<lb/>
+vom<lb/>
+Verfaſſer.</hi></p></div><lb/>
+<pb n="[2]" facs="#f0012"/>
+<pb n="[3]" facs="#f0013"/>
+</front><body> <div n="1"><head><hi rendition="#b"><hi rendition="#g">Der Paria.<lb/>
+Trauerſpiel in einem Aufzuge.</hi></hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">Beer’s Paria. 1</fw><lb/>
+<pb n="[4]" facs="#f0014"/>
+<castList><head><hi rendition="#g">Perſonen.</hi></head><lb/>
+<castItem><role xml:id="GAD"><hi rendition="#g">Gadhi,</hi> ein Paria.</role></castItem><lb/>
+<castItem><role xml:id="MAJ"><hi rendition="#g">Maja,</hi> ſein Weib.</role></castItem><lb/>
+<castItem><role xml:id="KIND"><hi rendition="#g">Ihr Kind.</hi></role></castItem><lb/>
+<castItem><role xml:id="BEN"><hi rendition="#g">Benascar.</hi></role></castItem><lb/>
+<castItem><role xml:id="BRA"><hi rendition="#g">Ein Bramine.</hi></role></castItem><lb/>
+<castItem><role xml:id="IND"><hi rendition="#g">Indianer.</hi></role></castItem><lb/>
+<p><hi rendition="#g">Ort:</hi> Huͤtte des Paria.</p></castList><lb/>
+<pb n="[5]" facs="#f0015"/>
+<stage>Das Innere der aͤrmlichen Huͤtte des Paria. Der Stamm einer<lb/>
+Banane iſt ſichtbar, an welche ſich die Huͤtte lehnt. Die mit<lb/>
+Moos belegten Wurzeln bilden einen Sitz. Links eine mit Matten<lb/>
+belegte Ruhebank. Im Hintergrunde eine niedrige Thuͤre. Die<lb/>
+zeltartige Seitenwand laͤßt rechts noch einen zweyten Raum ver-<lb/>
+muthen. Es iſt Nacht. Eine am Baumſtamme befeſtigte bren-<lb/>
+nende Fackel erhellt das duͤrftige Gemach. — Wenn der Vorhang<lb/>
+aufgezogen iſt, herrſcht mehrere Sekunden lang eine tiefe Stille<lb/>
+auf dem Theater; dann folgt ein ſtarker Blitz, begleitet von einem<lb/>
+heftigen Donnerſchlage.</stage><lb/>
+<div n="2"><head><hi rendition="#g">Erſter Auftritt.</hi></head><lb/>
+<stage><hi rendition="#g">Gadhi. Maja.</hi></stage><lb/>
+<stage>(<hi rendition="#g">Gadhi</hi> iſt beſchaͤftigt, mit Matten und Buſchwerk eine Luͤcke<lb/>
+der Hinterwand zu verſtopfen).</stage><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(erſchreckt und aͤngſtlich ausrufend).</stage><lb/>
+<p>Mein Kind!</p><lb/>
+<stage>(Sie eilt in die Kammer, und kommt bald etwas beruhigter zuruͤck).</stage></sp><lb/>
+<pb n="6" facs="#f0016"/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p><hi rendition="#et">Geliebtes Weib! ſchlaͤft unſer Knabe?</hi></p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>Er ſchlaͤft. Horch, wie die Stuͤrme brauſen!<lb/>
+Fuͤrchterlich<lb/>
+Draͤut das Gewitter, und der Regen gießt<lb/>
+In Stroͤmen nieder. Was die ſchwache Hand<lb/>
+Des Menſchen baut, kann heute nicht beſchuͤtzen.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p>Wie ich’s vermocht, hab’ ich die Wand geſichert<lb/>
+Ein ew’ges Dach woͤlbt uns der heil’ge Baum;<lb/>
+Sein greiſes Haupt hat oft das Flammenauge<lb/>
+Des Blitzes unverſehrt geſchaut. Der Donner<lb/>
+Rollt machtlos uͤber ihm, — ich zittre nicht.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>O waͤr’ ich ſtark wie Du, und ſchluͤge frey<lb/>
+Sich keiner Schuld bewußt dieß bange Herz!<lb/>
+Dein edler Blick, der in die reinen Tiefen<lb/>
+Der eignen Bruſt geſchaut, darf muthgeſtaͤhlt<lb/>
+Sich zu des Himmels dunkelm Antlitz wenden.<lb/>
+Ich aber zittre, wenn die Erde zittert;<lb/>
+Und wie der Sturmwind durch die Wipfel ſauſt,<lb/>
+Bewegt ein nimmer ſchlummerndes Gefuͤhl<lb/>
+Dieß ſchuld’ge Herz. —</p></sp><lb/>
+<pb n="7" facs="#f0017"/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p><hi rendition="#et">Geliebte, frevle nicht!</hi><lb/>
+Wer nennt ſich rein, wenn Du dein edles Selbſt<lb/>
+Mit ſtrengem Worte unbedachtſam ſchmaͤhſt?<lb/>
+Nicht, was Du Frevel nennſt, erſchuͤttert Dich<lb/>
+Bey dieſes Donners Schlaͤgen; nicht den Muth,<lb/>
+Der freudlos mich beſeelt, erſehne Dir.<lb/>
+Den herben Keim zu dieſer bittern Frucht<lb/>
+Hat Schmach geſaͤt auf oͤden Lebens-Steppen.<lb/>
+Ihr Thau ſind Thraͤnen, und dem Jammer nur<lb/>
+Waͤchst ſie zum blutigen Genuß empor.<lb/>
+Nicht die gemeinen Schrecken der Natur,<lb/>
+Gleichmaͤßig draͤuend jeglichem Geſchoͤpf,<lb/>
+Nicht feindlich offene Gewalt befuͤrcht’ ich.<lb/>
+Hinausgetrieben aus des Lebens Reihen,<lb/>
+Geſchleudert aus der Welt geſell’gem Strome,<lb/>
+Bin ich befreundet in der Waͤlder Nacht,<lb/>
+Wo die Hyaͤne und das Panterthier<lb/>
+In friedlich blutiger Gemeinſchaft hauſen.<lb/>
+Mein Leben wag’ ich taͤglich, es zu friſten,<lb/>
+Und furchtlos, nicht der Felſen ſteile Hoͤh’,<lb/>
+Nicht liſt’ger Tiger blut’ge Naͤhe ſcheuend,<lb/>
+Jag’ ich der Beute nach: doch tief entſetzt<lb/>
+Erbebt mein Herz, wenn des Maquarah Schall<lb/>
+In dieſem graͤßlich ungeheuern Kampf<lb/>
+Des Menſchen fuͤrchterliche Naͤh’ verkuͤndigt,<lb/>
+Die Trommel droͤhnt, und von verborgner Senne<lb/>
+<pb n="8" facs="#f0018"/>
+Des liſt’gen Jaͤgers ſchwirrt der ehrne Pfeil,<lb/>
+Das Unthier ſchreckend mit durchbohrten Weichen<lb/>
+Da theilt’s noch einmal die bewegten Luͤfte,<lb/>
+Ein zweyter Pfeil, — er trifft mein zuckend Herz —<lb/>
+Der Jaͤger jauchzt und ſchlaͤgt den Freudenwirbel;<lb/>
+Denn Brama laͤchelt, wenn ein Paria faͤllt.</p><lb/>
+<stage>(Heftiger Blitz und Donner).</stage></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>O Gadhi! Donn’re nicht, gewalt’ger Gott!<lb/>
+Dein Zorn iſt furchtbar.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p><hi rendition="#et">Furchtbar! Weine, weine,</hi><lb/>
+Ungluͤcklich Weib, und dank dem Himmel noch,<lb/>
+Daß er Dir Thraͤnen ließ, — ich habe keine.<lb/>
+Mein Leben iſt ein elendes Gewimmer,<lb/>
+Der leiſe Seufzer des getretnen Wurms,<lb/>
+Den vor dem Daſeyn ſchon ein ew’ger Fluch<lb/>
+Verdammt, im Staub ſich aͤchzend hinzuwenden,<lb/>
+Indeß vor ſeinem Blick in Sonnenhoͤhe<lb/>
+Die Mitgeſchoͤpfe, reich befluͤgelt, ſchwinden<lb/>
+Laß dieſe Thraͤnen der Erinnrung fließen;<lb/>
+Einſt haſt auch Du des Lebens Glanz geſchaut,<lb/>
+Und deine Kindheit ſah begluͤckte Tage.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>Nicht jene Tage ſehn’ ich mir zuruͤck;<lb/>
+<pb n="9" facs="#f0019"/>
+Dein iſt dieß Leben, das Du mir gerettet;<lb/>
+Und ſaͤh’ ich Dich zufrieden, waͤhnſt Du wohl,<lb/>
+Mich druͤckten dieſe niedrigen Beſchwerden?<lb/>
+Was kuͤmmert mich der aͤußern Guͤter Schein?<lb/>
+Des Weibes Herz kennt nur ein Gluͤck auf Erden;<lb/>
+Dieß Gluͤck heißt: lieben und geliebt zu ſeyn.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p>O meine Liebe iſt ein elend Gluͤck!<lb/>
+Verworfen —</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p><hi rendition="#c">Du — verworfen? —</hi></p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p><hi rendition="#et">Bin ich’s nicht?</hi><lb/>
+Iſt’s nicht das Kind, das deine Bruͤſte ſaͤugten? —<lb/>
+Wird’s nicht der Enkel mit gebeugtem Haupt,<lb/>
+Wird’s nicht mit heißen Thraͤnen der Bedruͤckung<lb/>
+Ein ganzes folgendes Geſchlecht beweinen,<lb/>
+Daß unſre Liebe ihm das Daſeyn gab? —<lb/>
+Wenn deine Stimme Donner iſt, dein Name<lb/>
+Gerechtigkeit und Langmuth, großer Brama,<lb/>
+Gieb Antwort: warum folgt dein ew’ger Haß<lb/>
+Dem ungluͤckſel’gen Stamm, der mich erzeugt?<lb/>
+Weil einſt vielleicht in grauer Fabelzeit<lb/>
+Ein Paria die Huld’gung Dir geweigert,<lb/>
+Den Gott verhoͤhnt, der zu der Erde Pruͤfung<lb/>
+<pb n="10" facs="#f0020"/>
+Sein lichtes Daſeyn mit Geſtalt umguͤrtet,<lb/>
+Lehrt Deiner Prieſter Schaar, ſo weit die Fluth<lb/>
+Des Ganges wogt, daß unſre Naͤhe ſchaͤndet,<lb/>
+Daß ſich allein von uns in Zornes Gluth<lb/>
+Dein heilig, Gnade ſtroͤmend Antlitz wendet.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>Nein, nein! das Meiſterwerk der Schoͤpfung iſt<lb/>
+Ein Herz, das edel fuͤhlt wie Deines. — Der Schoͤpfer<lb/>
+nicht<lb/>
+Wird ſolch ein Herz mit ſeinen Fluͤchen druͤcken;<lb/>
+Die Prieſter luͤgen.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p><hi rendition="#et">Ja, ſie luͤgen, Maja,</hi><lb/>
+Und glaubt’ ich’s nicht, mein Glaube wuͤrde irr’<lb/>
+An dem, dem ihre Opfer Laͤſtrung dampfen.<lb/>
+Brama iſt gut und freundlich: ſtroͤmt ſein Blick<lb/>
+Nicht den befruchtend ſegensreichen Strahl?<lb/>
+Hat ſeine Hand mit ſturmesfeſten Zweigen<lb/>
+Nicht der Banane ſchuͤtzend Dach gewoͤlbt?<lb/>
+Iſt er der Vater nicht der ew’gen Mutter,<lb/>
+Der allumfaſſend liebenden Natur?<lb/>
+Ihr heiliges Geſetz heißt Lieb’ und Duldung,<lb/>
+Und was ſie gleich gebildet an Geſtalt,<lb/>
+Knuͤpft friedlich auch ein gleiches Band der Seele.<lb/>
+In ihrem Reich iſt nichts gering und fremd:<lb/>
+Das weite Meer verſchmaͤht den Tropfen nicht,<lb/>
+<pb n="11" facs="#f0021"/>
+Den dieſer Regen gießt aus truͤben Wolken;<lb/>
+Mit bruͤderlichen Armen waͤlzt der Strom<lb/>
+Ihn fort und fort in ſeinen ew’gen Wellen,<lb/>
+Gleich ſeiner bergentſtuͤrzten Silberfluth.<lb/>
+Der Menſch allein zerſtoͤrt mit frecher Hand<lb/>
+Den gleichen Spiegel ſeines edeln Weſens,<lb/>
+Und Glauben, — Glauben nennt er ſeinen Wahn.<lb/>
+Doch Brama laͤchelt ſchonend, ſich in’s Licht<lb/>
+Der Wahrheit tauchend, bis auch wir zum Tag<lb/>
+Des Wiſſens aus der Nacht des Irrthums ſcheiden.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>So will ich Dich, mein Gadhi! Du entbehrſt<lb/>
+Das Schlechtre nur; des Lebens beßre Guͤter<lb/>
+Sind Dein in unvergaͤnglichem Beſitze?<lb/>
+Dein edler Glaube und mein treues Herz,<lb/>
+Das mit Dir fuͤhlt und mit Dir glaubt und leidet.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(ſie umfaſſend).</stage><lb/>
+<p>Zwey Edelſteine unſchaͤtzbaren Werths,<lb/>
+Die ich gefunden in dem Schacht des Elends.<lb/>
+Ihr Glanz erleuchtet meine dunkle Bahn,<lb/>
+Begluͤckt mein Herz, erfuͤllt, was ich bedarf<lb/>
+Als Menſch; doch ich bin Mann — der Mann will mehr.<lb/>
+Im Maͤnnerbuſen draͤngend wohnt die Kraft,<lb/>
+Die nur am Licht der That ſich kann entfalten.<lb/>
+Duͤrft’ ich nur Menſch ſeyn unter Menſchen! — ach!<lb/>
+<pb n="12" facs="#f0022"/>
+Es iſt ſo wenig doch begehrt, ſo wenig!<lb/>
+Sie ſchmeicheln ihrem Hund und ihrem Roſſe<lb/>
+Und ſcheuen uns, als haͤtt’ uns die Natur<lb/>
+Zur Larve Menſchenbildung nur gegeben.<lb/>
+Stellt mich Euch gleich und ſeht, ob ich Euch gleiche!</p><lb/>
+<stage>(Mit ſteigender Kraft).</stage><lb/>
+<p>Ich hab’ ein Vaterland, ich will’s beſchuͤtzen.<lb/>
+Gebt mir ein Leben und ich zahl’s mit Wucher,<lb/>
+Wo die Gefahr der Schlacht mit ehrnen Zungen<lb/>
+Die Opfer heiſcht, und an des Lebens Fuͤlle<lb/>
+Sich bis zur Ueberſaͤtt’gung naͤhrt und ſtirbt.<lb/>
+Wagt’s und erprobt des Unterdruͤckten Kraft!<lb/>
+Schon ſeh’ ich mich mit thatenſuͤcht’gem Muth<lb/>
+Hinſtuͤrzen in das toͤdtlichſte Gewuͤhl,<lb/>
+Umſaust von Speeren und umblitzt von Pfeilen,<lb/>
+Feſt ſteh’ ich, wie beym Donner des Gewoͤlk’s.<lb/>
+Mir nach, mir nach! — Seht Ihr den Knaben mir<lb/>
+Zur Seite ſtehn? Das iſt mein Kind — mein Kind!<lb/>
+Aus meinem Blut iſt er entſproſſen; ſeht,<lb/>
+Wie er die Lanzen wirft! getroffen ſinkt<lb/>
+Der Feind, ihm fluchend: — ſegn’ ihn, Vaterland,<lb/>
+Es iſt mein Kind; es hat fuͤr dich geſtritten,<lb/>
+Sein Vater iſt fuͤr dich gefallen. —</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p><hi rendition="#et">Nein,</hi><lb/>
+Du bleibſt — verlaß mich nicht — Du kannſt nicht fort,<lb/>
+Und wenn Du’s koͤnnteſt, nimmer ſollteſt Du’s.</p></sp><lb/>
+<pb n="13" facs="#f0023"/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p>Was iſt Dir, Maja? was ergreift Dich?</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p><hi rendition="#et">Weh!</hi></p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p>Dich aͤngſtet nur ein Traum — ein Paria bin ich,<lb/>
+Ich darf nicht ſtreiten fuͤr mein Vaterland.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>Kein Traum — mich aͤngſtet Wirklichkeit — ich kann<lb/>
+Ich darf Dir’s laͤnger nicht verſchweigen — mich<lb/>
+Ergreift die Ahnung von Gefahren —</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p><hi rendition="#et">Rede, rede!</hi></p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>Erzitt’re und vergieb mir, mein Geliebter. — —<lb/>
+Dieß Felſenthal, das unſre Huͤtt’ umſchließt —</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p>Das ich Dich nimmer zu verlaſſen bat?</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>Verlaſſen hab ich es —</p></sp><lb/>
+<pb n="14" facs="#f0024"/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(in hoͤchſter Angſt).</stage><lb/>
+<p><hi rendition="#et">Und wardſt geſehen.</hi></p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(bejaht es ſchweigend).</stage></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(wendet ſich mit einem Laute des Entſetzens ab).</stage></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(nach einer Pauſe).</stage><lb/>
+<p>Kaum ſind ſechs Sonnen unter — und ich ging<lb/>
+In’s nahe Gaͤrtchen, Fruͤchte ſuchend. Ruhig<lb/>
+Ließ ich den Knaben, auf der Matte ſchlummernd,<lb/>
+In unſrer Huͤtte. — Als ich wiederkehre,<lb/>
+Iſt Matt’ und Huͤtte leer, das Kind iſt fort.<lb/>
+Umſonſt durchſuch’ ich Thal und Garten, ruf’ umſonſt<lb/>
+Den theuren Namen, leer bringt mir die Luft<lb/>
+Die eignen Jammertoͤne nur zuruͤck.<lb/>
+Da, mich ergriff die fuͤrchterlichſte Angſt,<lb/>
+Mit ſcheuem Blick rings an der Felswand ſpaͤh’ ich —</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p>Wir ſind verloren!</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p><hi rendition="#et">Wir? Fragt eine Mutter,</hi><lb/>
+<pb n="15" facs="#f0025"/>
+Was außer ihrem Kind noch lebt und wuͤnſcht,<lb/>
+Wenn ſie ihr Kind vermißt? — Ein ſteiler Pfad<lb/>
+Fuͤhrt aufwaͤrts; raſchen Schritts erklimm’ ich ihn,<lb/>
+Und finde jenſeits mich des Thals, umſchattet<lb/>
+Von einem Hain, der ſeine Palmendaͤcher<lb/>
+Weit uͤber viel verſchlungnen Wegen breitet.<lb/>
+Nicht Muͤhe ſcheu’ ich noch Gefahren, winde<lb/>
+Mit durch’s Gebuͤſch, und ploͤtzlich vor mir ſeh’ ich<lb/>
+Mein Kind — und einen Jaͤger neben ihm<lb/>
+Vom Stamm der Rajahs, Fruͤchte mit ihm theilend.<lb/>
+Hin ſtuͤrz’ ich, meinen Knaben feſt umſchlingend,<lb/>
+Und halt’ ihn lang’ — bis des Entzuͤckens Gluth<lb/>
+Den Quell des Aug’s, den mir die Angſt erſtarrte,<lb/>
+In reichen Stroͤmen heißer Thraͤnen loͤste.<lb/>
+Aufblickend endlich trifft mein feuchtes Auge<lb/>
+Das gluͤhende des Jaͤgers; Angſt ergreift mich;<lb/>
+Dank ſtammelnd, meinen Knaben faſſend, will<lb/>
+Ich fliehn; er aber, feſt mich haltend, ruft:<lb/>
+„Weib! wunderbar ergriff dein Anblick mich,<lb/>
+„Mein Herz durchzucken nie gefuͤhlte Flammen,<lb/>
+„Wer Du auch ſeyſt — Du folgeſt mir.“</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p><hi rendition="#et">Hoͤrſt du’s, Brama!</hi></p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>Ich aber ihm erwiedernd: „Herr! mein harrt<lb/>
+„Und meines Kindes der beſorgte Gatte<lb/>
+<pb n="16" facs="#f0026"/>
+„In ferner Huͤtte“ — will entwinden mich<lb/>
+Den ſtarken Armen, doch nur feſter druͤckt<lb/>
+Der Raſende mich an ſein wallend Herz,<lb/>
+Beſtuͤrmend mich mit frechen Liebesworten.<lb/>
+Die Angſt der Mutter — jetzt der Gattin Qual —<lb/>
+Ein Nebel deckte mir die Sinne — da<lb/>
+Ziſcht eine Natter aus dem Graſe auf,<lb/>
+Die giftigſte von allen — ſtreckt das Haupt<lb/>
+Mit Gier nach dem Kinde aus: ich ſeh’s,<lb/>
+Und Mutterliebe giebt mir Rieſenkraft.<lb/>
+Weit von mir ſchleudr’ ich den gewalt’gen Mann,<lb/>
+Und hoch mein Kind mit beyden Haͤnden ſchwingend,<lb/>
+Flieh’ ich das Unthier deutend dem Verwegnen.<lb/>
+Nichts hemmt die Eil’ der Flucht, und als ich ſcheu<lb/>
+Die Blicke wende, den Verfolger fuͤrchtend,<lb/>
+War er entſchwunden in der Nacht des Waldes.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p>Entſchwunden! wenn er’s nicht auf immer waͤre?<lb/>
+Wenn ihn die Liſt der wuͤthenden Begier<lb/>
+Den Weg zu unſrer Huͤtte finden lehrte!<lb/>
+Halt’ feſt, mein Herz — ich kenne dieſe Rajahs,<lb/>
+Sie ſcheuen uns, gleich wie der Peſt Beruͤhren;<lb/>
+Doch wallt ihr Blut von frecher Luſt durchgluͤht,<lb/>
+Gleich gilt es dieſem raſenden Geſchlecht,<lb/>
+Ob es Befried’gung findet im Pallaſt,<lb/>
+Ob in des Paria fluchbeladner Huͤtte.</p></sp><lb/>
+<pb n="17" facs="#f0027"/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>Er komme nur — er wag’ es nur zu nahen!</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p>Es raͤcht ein Gott mit unverhofften Blitzen,<lb/>
+Doch wenn er dem verworfnen Bettler droht<lb/>
+Sein letztes Gut zu rauben — —</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(ihm in die Arme ſinkend).</stage><lb/>
+<p><hi rendition="#et">Soll’s der Tod</hi><lb/>
+Eh’ als der Raͤuber unſers Gluͤcks beſitzen.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p>Mein Weib! mein theures, heißgeliebtes Weib!</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(aus ſeinen Armen aufſchreckend).</stage><lb/>
+<p>Horch, Gadhi! hoͤrſt Du nichts?</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p><hi rendition="#et">Das dumpfe Rollen</hi><lb/>
+Des fernen Donners.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p><hi rendition="#et">Schrecklicher als Donner</hi><lb/>
+Schallt’s naͤher mir und naͤher —</p></sp><lb/>
+<fw type="sig" place="bottom">Beer’s Paria. 2</fw><lb/>
+<pb n="18" facs="#f0028"/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p><hi rendition="#et">Stimmen! horch,</hi><lb/>
+Und Tritte naher Menſchen!</p></sp><lb/>
+<sp who="#STI"><speaker><hi rendition="#g">Stimmen</hi></speaker><lb/>
+<stage>(von Außen).</stage><lb/>
+<p><hi rendition="#et">Hierher! Licht!</hi></p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>Wir ſind verloren! ſchuͤtz’ uns, großer Brama!</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p>In jener Kammer, theures Weib, verbirg Dich.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p>Nicht ohne Dich.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p><hi rendition="#c">Hier will ich weilen.</hi></p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p><hi rendition="#et">Nimmer!</hi><lb/>
+Schnell reizt die Rohen der unſel’ge Anblick<lb/>
+Des Paria zu raſcher Wuth. — Verbirg Dich!<lb/>
+Ein Blick auf dieſe Huͤtte wird ſie’s lehren,<lb/>
+Wer ſie bewohnt, und wenn ihr Auge nicht<lb/>
+Dem Wirth begegnet, fliehn ſie raſch von dannen.</p></sp><lb/>
+<pb n="19" facs="#f0029"/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p>Wenn ſie verirrt —</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja.</hi></speaker><lb/>
+<p><hi rendition="#et">Nicht der erzuͤrnte Himmel,</hi><lb/>
+Nicht das Entſetzen oͤder Wildniß ſchreckt<lb/>
+Sie mehr, als deine unheilvolle Naͤhe.<lb/>
+Hinweg! ſie nah’n! Dort ſind wir ſicher.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(ihr mit Widerſtreben folgend).</stage><lb/>
+<p><hi rendition="#et">Sicher?</hi><lb/>
+Entſetzenvolle Sicherheit der Schmach!</p><lb/>
+<stage>(Beyde ab ins zweyte Gemach).</stage></sp></div><lb/>
+<div n="2"><head><hi rendition="#g">Zweiter Auftritt.</hi></head><lb/>
+<stage>Man hoͤrt von Außen ein verworrenes Geraͤuſch; kurz darauf<lb/>
+ſtuͤrzen mehrere Indianer, einer nach dem andern, in die Huͤtte,<lb/>
+ſcheu umherblickend.</stage><lb/>
+<stage><hi rendition="#g">Indianer.</hi> Gleich darauf <hi rendition="#g">Benascar.</hi></stage><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Erſter Indianer</hi></speaker><lb/>
+<stage>(hereinſtuͤrzend).</stage><lb/>
+<p>Hier Licht und Niemand hier — kommt alle — kommt!</p></sp><lb/>
+<pb n="20" facs="#f0030"/>
+<sp who="#IND"><speaker><hi rendition="#g">Zweyter Indianer.</hi></speaker><lb/>
+<p>Wir ſind geborgen.</p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Erſter Indianer</hi></speaker><lb/>
+<stage>(nachdem er ſich umgeſehen und die Bauart genau betrachtet).</stage><lb/>
+<p><hi rendition="#et">Fort, wir ſind verloren!</hi><lb/>
+Hier wohnt ein Paria.</p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Zweyter Indianer.</hi></speaker><lb/>
+<p><hi rendition="#et">Hilf, Brama, hilf!</hi></p></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi></speaker><lb/>
+<stage>(gegen den Eingang fliehend).</stage><lb/>
+<p>Ein Paria! ein Paria!</p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Erſter Indianer</hi></speaker><lb/>
+<stage>(an der Thuͤre).</stage><lb/>
+<p>Flieh’, Herr! hier muß ein Paria hauſen.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(von zwey Indianern gefuͤhrt, am linken Arm verwundet, erſchoͤpft<lb/>
+eintretend).</stage><lb/>
+<p><hi rendition="#et">Laßt mich!</hi><lb/>
+Und muͤßt’ ich auch hier begegnen<lb/>
+Dem Geiſt des Unheils ſelbſt; ich kann nicht weiter,<lb/>
+Mein Blut entſtroͤmt und meine Kraft verlaͤßt mich.</p><lb/>
+<stage>(Er ſinkt auf den Sitz ermattet nieder).</stage></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Erſter Indianer.</hi></speaker><lb/>
+<p>Schmerzt dich die Wunde, Herr?</p></sp><lb/>
+<pb n="21" facs="#f0031"/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar.</hi></speaker><lb/>
+<p><hi rendition="#et">Sie brennt wie Feuer.</hi></p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Erſter Indianer.</hi></speaker><lb/>
+<p>Die Jagd war heiß, und grimmig war der Tiger.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar.</hi></speaker><lb/>
+<p>Fehl ging des Speeres Wurf, und gierig ſchnappte<lb/>
+Das Unthier nach der vorgeſtreckten Rechten;<lb/>
+Ich ſtieß dafuͤr ihm bis an’s Heft das Schwert<lb/>
+In den verruchten Schlund.</p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Erſter Indianer.</hi></speaker><lb/>
+<p><hi rendition="#et">Er ſank getroffen —</hi></p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar.</hi></speaker><lb/>
+<p>Und ſank, denk’ ich, nie wieder aufzuſtehn.<lb/>
+Jetzt aber geht und ſchaut, wohin die Nacht<lb/>
+Die dunkelſtuͤrmende uns irr’ geleitet.<lb/>
+Die Haͤlfte Eurer Schaar umſtellt die Huͤtte,<lb/>
+Daß ſie mich ſchuͤtze vor Verrath; die andre<lb/>
+Durchſtreife ſpaͤhend dieſer Felſen Grund;<lb/>
+Und bietet Euch ein Mann von reinem Stamm<lb/>
+Ein gaſtlich Dach, ſo fleht fuͤr mich um Huͤlfe.</p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Erſter Indianer.</hi></speaker><lb/>
+<p>Hier willſt Du weilen, Herr?</p></sp><lb/>
+<pb n="22" facs="#f0032"/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar.</hi></speaker><lb/>
+<p><hi rendition="#et">Ich kann nicht weiter.</hi><lb/>
+Doch nicht um meinetwillen ſollt Ihr Euch<lb/>
+Beflecken mit des gottverhaßten Naͤhe.<lb/>
+Ich ſelber will — wenn anders nicht der Tod<lb/>
+Den Willen mit dem morſchen Leben bricht —<lb/>
+Mich neunmal tauchen in die heil’gen Fluthen<lb/>
+Und ſtreng’ es buͤßen, wie man’s buͤßen kann,<lb/>
+Daß ich geruht, wo die Verworfnen ruhten.</p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Erſter Indianer.</hi></speaker><lb/>
+<p>Doch Herr! allein, verlaſſen —</p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Zweyter Indianer.</hi></speaker><lb/>
+<p><hi rendition="#et">Krank und huͤlflos —</hi></p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar.</hi></speaker><lb/>
+<p>Geht, ſag’ ich, geht! — jedweder Augenblick<lb/>
+Haͤuft Eure Schmach und mein Vergehn an Euch.<lb/>
+Thut, wie ich Euch geſagt — ich bleibe hier.</p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Die Indianer</hi></speaker><lb/>
+<stage>(ziehen ſich beſorgt zuruͤck).</stage></sp></div><lb/>
+<pb n="23" facs="#f0033"/>
+<div n="2"><head><hi rendition="#g">Dritter Auftritt.</hi></head><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(allein).</stage><lb/>
+<p>Wenn Du’s beſchloſſen, Brama, jetzt die Bluͤthe<lb/>
+Des Lebens, eh’ ſie Fruͤchte trug, zu brechen,<lb/>
+Wenn mir der Tod bereitet iſt, — er komme!<lb/>
+Nicht ſcheut’ ich ihn in dem Gewuͤhl der Schlachten;<lb/>
+Doch eins nur fleh’ ich, eins, Gewaltiger:<lb/>
+In deinem Zorn nicht rufe mich zu Dir,<lb/>
+Nicht in des Paria Huͤtte laß mich ſterben!<lb/>
+Weh’! welche Schmerzen, wehe! wehe! weh’!</p></sp></div><lb/>
+<div n="2"><head><hi rendition="#g">Vierter Auftritt.</hi></head><lb/>
+<stage><hi rendition="#g">Gadhi. Benascar.</hi></stage><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(leiſe auftretend).</stage><lb/>
+<p>Fort ſind ſie alle, und doch ſchien es mir,<lb/>
+Als hoͤrt’ ich aͤchzen —</p><lb/>
+<pb n="24" facs="#f0034"/>
+<stage>(<hi rendition="#g">Benascar</hi> erblickend und den Bogen ſpannend).</stage><lb/>
+<p><hi rendition="#et">Ha! dort! dort — ein Kranker,</hi><lb/>
+Verwundet, huͤlflos und allein. — Hinab<lb/>
+In deinen Abgrund, dunkler Geiſt der Rache!</p><lb/>
+<stage>(die Senne abſpannend).</stage><lb/>
+<p>Hernieder perlenhelles Mitleid, loͤſche<lb/>
+Mit Himmelsthau die Flammen dieſer Bruſt.<lb/>
+Vergebung, Herr — —</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar.</hi></speaker><lb/>
+<p><hi rendition="#et">Fort, Ungeheuer! Fort!</hi><lb/>
+Nimm dieß fuͤr deine gottverhaßte Bruſt!</p><lb/>
+<stage>(Er ſchleudert einen Dolch nach ihm, der vor <hi rendition="#g">Gahdi</hi> niederfaͤllt).</stage></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(den Dolch emporhebend).</stage><lb/>
+<p>Sieh, Herr! ſo ſchwach, ſo machtlos biſt Du, daß<lb/>
+Des Haſſes Waffe, die mich toͤdten ſollte,<lb/>
+Zur Wehr in meiner Hand wird gegen Dich.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar.</hi></speaker><lb/>
+<p>Mit dieſen Faͤuſten ſelbſt zerreiß’ ich Dich,<lb/>
+Wenn Du dich nahſt.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p><hi rendition="#et">Befuͤrcht’ es nicht, Du ſollſt</hi><lb/>
+Mit meinem Blute nicht die Hand beflecken.</p><lb/>
+<pb n="25" facs="#f0035"/>
+<stage>(Ihm den Dolch zuruͤckſchleudernd).</stage><lb/>
+<p>Nimm deinen Stahl zuruͤck und lohn’ mit Mord<lb/>
+Dem Wirth, der Dir ein gaſtlich Dach gewaͤhrt.<lb/>
+Vergebend ſcheidet er, und ſeine Rache<lb/>
+Traͤgt in ſich ſelbſt des Undanks ſchwarze That.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(der ſich aufrichtete, den Dolch zu verbergen, ſinkt nun in großer<lb/>
+Erſchoͤpfung auf den Sitz zuruͤck).</stage></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p>Du zitterſt und erbleichſt; der nahe Tod<lb/>
+Loͤſcht von den Wangen deines Zornes Gluth.<lb/>
+Sey mild und ſcheide mit verſoͤhntem Blick.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar.</hi></speaker><lb/>
+<p>Ich lebe noch; willſt Du mich hoͤhnen?</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi.</hi></speaker><lb/>
+<p><hi rendition="#et">Hoͤhnen?</hi><lb/>
+Dir helfen moͤcht’ ich, wenn — —</p><lb/>
+<stage>(er hat ſich <hi rendition="#g">Benascar</hi> genaͤhert und ſeinen Arm ergriffen).</stage><lb/>
+<p><hi rendition="#et">Ja, noch, ich ſeh’ es,</hi><lb/>
+Gelobt ſey Brama! noch iſt Huͤlfe moͤglich;<lb/>
+Noch rettet Dich ein Balſam, den mein Weib<lb/>
+Aus ſegensvollem Kraut des Thals bereitet.<lb/>
+In wen’gen Augenblicken iſt’s zu ſpaͤt,<lb/>
+Schon faͤrbt dein Blut ein Tod verkuͤndend Schwarz.</p></sp><lb/>
+<pb n="26" facs="#f0036"/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Wenn Du zu retten mich vermagſt, — ſo rette.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(fuͤr ſich).</stage><lb/>
+<p>Nicht Edelmuth und Wohlthat nicht verkehrt<lb/>
+Zu Taubenſinn der Schlangen gift’ge Art.<lb/>
+Dem Feinde meines Stamms erzeig’ ich Gutes!<lb/>
+Ob’s weiſ’, ob’s thoͤricht iſt, ich weiß es nicht;<lb/>
+Doch folgen muß ich dem gewalt’gen Drang,<lb/>
+Dem lauten Schlag des tiefbewegten Herzens.</p><lb/>
+<stage>(Er eilt in die Kammer).</stage></sp></div><lb/>
+<div n="2"><head><hi rendition="#g">Fuͤnfter Auftritt</hi>.</head><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(allein).</stage><lb/>
+<p>Er geht, und —</p><lb/>
+<stage>(ſich muͤhſam emporrichtend und in die Scene rufend).</stage><lb/>
+<p><hi rendition="#c">Auf! Gefaͤhrten!</hi></p></sp><lb/>
+<sp who="#STI"><speaker><hi rendition="#g">Stimmen</hi></speaker><lb/>
+<stage>(von Außen).</stage><lb/>
+<p><hi rendition="#et">Herr!</hi></p></sp><lb/>
+<pb n="27" facs="#f0037"/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Seyd wachſam,</hi><lb/>
+Gewaͤrtig meines Rufs — mir droht Verrath!</p><lb/>
+<stage>(Man hoͤrt zum Zeichen der Antwort Schwerter an einander ſchlagen).</stage></sp></div><lb/>
+<div n="2"><head><hi rendition="#g">Sechster Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Gadhi</hi> tritt ein, <hi rendition="#g">Maja</hi> fuͤhrend, die verſchleyert iſt, und ein<lb/>
+Gefaͤß und Linnen in der Hand traͤgt).</stage><lb/>
+<stage><hi rendition="#g">Benascar. Gadhi. Maja</hi>.</stage><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(zu <hi rendition="#g">Gadhi</hi>).</stage><lb/>
+<p>Was thateſt Du! wenn’s jener Fremdling —</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">Straft</hi><lb/>
+Mit gleichem Blitz der Himmel Schuld und Wohlthat?<lb/>
+Ich will’s nicht denken — nein — er wird’s nicht ſeyn.</p><lb/>
+<stage>(zu <hi rendition="#g">Benascar</hi>).</stage><lb/>
+<p>Sieh, Herr, mein Weib, das mit dem kund’gen Blick<lb/>
+Das Kraut erſpaͤht, das heilende, im Thale;<lb/>
+Sie wird den Balſam traͤufeln in die Wunde<lb/>
+Und Dich mit ſanfter Hand vom Schmerz befreyn.</p></sp><lb/>
+<pb n="28" facs="#f0038"/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>So komm!</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(fuͤr ſich).</stage><lb/>
+<p><hi rendition="#et">Er iſt’s! gerechter Brama! Faſſung!</hi></p><lb/>
+<stage>(Sie ermannt ſich und geht mit ſchnellen Schritten zu <hi rendition="#g">Benascar</hi>,<lb/>
+der auf dem Sitze ruht, indeß ſie vor ihm hinknieet und die Wunde<lb/>
+verbindet).</stage></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Wenn Ihr Verrath und Liſt, Verworfne, ſinnt,<lb/>
+Und jetzt vielleicht mit heißem Gift mein Blut<lb/>
+Zu Leben freſſender Empoͤrung reizt,<lb/>
+So wiſſet: eine Schaar umſtellt die Huͤtte,<lb/>
+Mir unterthan, die das Verbrechen raͤcht<lb/>
+Und Euern Mord mit tauſendfachem Tod<lb/>
+Euch lohnen wird.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">Sucht den Verrath bey Euch!</hi><lb/>
+Verworfen nennt Ihr uns — erkennet jetzt,<lb/>
+Ob wir es ſind.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(zu <hi rendition="#g">Maja</hi>, die von ſichtbarer Angſt bewegt wird).</stage><lb/>
+<p><hi rendition="#c">Was zitterſt Du? —</hi></p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(hat den Verband vollendet und will ſich entfernen).</stage></sp><lb/>
+<pb n="29" facs="#f0039"/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(ihre Hand ergreifend).</stage><lb/>
+<p><hi rendition="#et">Dein Balſam</hi><lb/>
+Kuͤhlt lindernd mir den Schmerz; doch fuͤhl’ ich mich<lb/>
+Erſchoͤpft, mich duͤrſtet. — Ach! nur einen Trunk!</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(will gehen).</stage></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Weh’ mir! Verworfner, bleib! der Trank,<lb/>
+Den Du mir reichſt, kann mir nicht Labſal ſeyn.<lb/>
+Die Quelle iſt verflucht, aus der Du ſchoͤpfſt,<lb/>
+Und die kryſtallene Erquickung truͤbt<lb/>
+Zu ſchnoͤdem Gift ſich in verworfner Hand.<lb/>
+Dank ſey’s dem Himmel! hier bewahr’ ich mir<lb/>
+Noch eine Frucht, die ich im Walde pfluͤckte;<lb/>
+Sie labe mich —</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(ihm die Frucht entreißend).</stage><lb/>
+<p><hi rendition="#et">Ungluͤcklicher, halt ein!</hi><lb/>
+Du biſt des Todes! giftig iſt die Frucht.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Was hoͤr’ ich! welche Stimme! Ja, ſie iſt’s!<lb/>
+Das iſt die hohe, reizende Geſtalt!<lb/>
+Den Schleyer nieder, daß ich bebend ſchaue<lb/>
+<pb n="30" facs="#f0040"/>
+Den Blick der, wie der Sonn’ umwoͤlktes Licht<lb/>
+Das Leben weckt im tiefen Schoos der Erde,<lb/>
+Von Thraͤnen ſchwer, dieß Herz entflammend traf.<lb/>
+Herab den Schleyer —</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">Was ergreift Dich, Herr?</hi><lb/>
+Dieß iſt mein Weib!</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Dein Weib, Verworfner? Fort!</hi><lb/>
+Den Schleyer nieder —</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#c">Gadhi, ſchuͤtze mich!</hi><lb/>
+Er iſt’s.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">Der Fremdling.</hi></p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Wehe! weh! er iſt’s.</hi></p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Du biſt’s, und wieder kennſt Du mich, und birgſt<lb/>
+Voll Schauder dein Geſicht? Ich habe Dein<lb/>
+In flammend heißer Sehnſucht ſtets gedacht,<lb/>
+Und will Dich ſchauen, koſtet es mein Leben.</p></sp><lb/>
+<pb n="31" facs="#f0041"/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>Hinweg, ſag’ ich, Verwegener! dieß Weib<lb/>
+Iſt mein, und keiner ſoll es wagen<lb/>
+Die freche Hand an dieſes Haupt zu legen.<lb/>
+Es gab den Schwaͤchſten Waffen die Natur,<lb/>
+Und dieſe ſchwache Hand hier wird zur Keule,<lb/>
+Die Dich zerſchmettern ſoll, wenn Du dich nahſt.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Mir trotzeſt Du, Verworfner, feiger Sclave!<lb/>
+So nimm den Tod —</p><lb/>
+<stage>(er will den Dolch nach ihm ſchleudern).</stage></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(ſich zwiſchen Beyde werfend).</stage><lb/>
+<p><hi rendition="#et">Halt’ ein! mich ſchauen willſt Du?</hi></p><lb/>
+<stage>(ſich entſchleyernd).</stage><lb/>
+<p>So ſchaue, Wuͤth’rich, die unſel’gen Zuͤge;<lb/>
+Und legte jetzt erbarmend die Natur<lb/>
+Des Baſilisken Mord-Kraft mir in’s Auge,<lb/>
+Erwidern wollt’ ich Dir mit raſchem Blick<lb/>
+Die freche Gluth, die Dich durchflammt.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Sie iſt’s!</hi><lb/>
+Und Liebe fordert mit gewalt’gem Schlag<lb/>
+Dieß tief bewegte Herz.</p></sp><lb/>
+<pb n="32" facs="#f0042"/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Begehrſt Du Liebe,</hi><lb/>
+Du — Du von mir, Wahnwitz’ger, ſo vernimm,<lb/>
+Daß ich Dich haſſe wie die Nacht der Suͤnde.<lb/>
+Und wie ich hier mit bangen Armen feſt<lb/>
+Den Heißgeliebten an den Buſen druͤcke,<lb/>
+So bin ich ſein auf ewig. Meine Liebe<lb/>
+Folgt treu, nach Bramas heiligem Gebot,<lb/>
+Wie durch das Leben ihm, bis in den Tod.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Wie dieſes Zornes Purpur, gleich dem Roth<lb/>
+Des Morgens, das der Sonne Glanz erhoͤht,<lb/>
+Mit unnenbarem Reize Dich verklaͤrt!<lb/>
+Wie ſchoͤn biſt Du! wie fuͤhl’ ich ganz zu Dir<lb/>
+Mit ſchwellendem Gefuͤhl mich hingezogen!</p><lb/>
+<stage>(Mit erwachendem Stolze).</stage><lb/>
+<p>Doch war’s nicht Haß, was Du mir zugeſchworen?<lb/>
+Verſchmaͤhſt Du nicht des freyen Mannes Triebe?<lb/>
+So ſiege denn Gewalt, wenn nicht die Liebe!<lb/>
+Zu meiner Sclavin hab’ ich Dich erkoren!</p><lb/>
+<stage>(In die Scene rufend):</stage><lb/>
+<p>Herbey, Gefaͤhrten!</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Was beginnt er —</hi></p></sp><lb/>
+<pb n="33" facs="#f0043"/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(mit einem Blick gen Himmel).</stage><lb/>
+<p><hi rendition="#et">Brama!</hi><lb/>
+Jetzt waͤr’s zu donnern Zeit — und Du biſt ſtumm!</p></sp></div><lb/>
+<div n="2"><head><hi rendition="#g">Siebenter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Die Indianer. Die Vorigen</hi>.</stage><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(zu den eintretenden Indianern, die ſich beym Anblick des Paria<lb/>
+nicht zu naͤhern wagen).</stage><lb/>
+<p>Ergreift dieß Weib!</p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Erſter Indianer</hi>.</speaker><lb/>
+<p><hi rendition="#c">Des Paria Weib?!</hi></p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Wer murrt hier?</hi><lb/>
+Zum Sclavendienſt erkor ich ſie. Hinweg!</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(zu <hi rendition="#g">Maja</hi>).</stage><lb/>
+<p>Umklammre Dich nur feſter, feſter noch.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(zu den Indianern, indem er <hi rendition="#g">Maja</hi> aus ihres Gatten Armen reißt).</stage><lb/>
+<p>Was zoͤgert Ihr!</p></sp><lb/>
+<fw type="sig" place="bottom">Beer’s Paria. 3</fw><lb/>
+<pb n="34" facs="#f0044"/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(vor ihm niederſtuͤrzend).</stage><lb/>
+<p><hi rendition="#et">Barmherzigkeit! ich flehe;</hi><lb/>
+Ich lieg’ im Staub vor meines Gluͤckes Raͤuber.<lb/>
+Ich habe Haß mit Liebe Dir vergolten,<lb/>
+Und wie vergiltſt Du meine Liebe mir?<lb/>
+Eindringſt Du in des Bettlers arme Huͤtte,<lb/>
+Das letzte Kleinod ihm hinweg zu ſtehlen.<lb/>
+Nichts nenn’ ich mein auf dieſer weiten Welt,<lb/>
+Als dieß geliebte Weib — —</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Du nennſt nichts Dein!</hi><lb/>
+Du biſt ein Paria.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">Ha! iſt’s dieß allein,</hi><lb/>
+Was Dir zur Schandthat Muth gibt, ſo vernimm —</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(zu <hi rendition="#g">Gadhi</hi>).</stage><lb/>
+<p>Was willſt Du thun?</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">Dich retten und mich toͤdten.</hi><lb/>
+Vernehmt, ſie iſt aus meinem Stamme nicht.<lb/>
+Frey laßt ſie, Sclaven, werft Euch bebend nieder<lb/>
+Und fleht im Staube, daß ſie Euch vergebe:<lb/>
+Denn eines Rajahs Tochter nennt ſie ſich.</p></sp><lb/>
+<pb n="35" facs="#f0045"/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Was hoͤr’ ich! —</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">Wahrheit — und die Wahrheit toͤdtet:</hi><lb/>
+Denn wie die Flamme der verſchwiegnen Erde<lb/>
+Den Mutterſchooß zerberſtend auf ſich waͤlzt,<lb/>
+So wird das Wort der lang verſchloßnen Bruſt,<lb/>
+Das jetzt verraͤthriſch von den Lippen flieht,<lb/>
+Mich ſelbſt verdammend, mir den Tod bereiten.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Sprich! ſprich! mich foltert grauenvolle Ahnung.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>Ihr ſeht dieß Weib —</p><lb/>
+<stage>(von Ruͤhrung uͤberwaͤltigt).</stage><lb/>
+<p><hi rendition="#et">O komm an dieſes Herz!</hi><lb/>
+Vergoͤnnt mir nur noch einmal ſie zu druͤcken<lb/>
+An dieſe Bruſt.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#c">O mein geliebter Freund!</hi></p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>Mein Weib! — einſt hatt’ ich Muth, Dich zu erretten;<lb/>
+Dich zu verlieren, fuͤhl’ ich mich zu ſchwach.</p><lb/>
+<pb n="36" facs="#f0046"/>
+<stage>(gefaßter zu <hi rendition="#g">Benascar</hi>).</stage><lb/>
+<p>Verflucht iſt mein Geſchlecht. Wo ſich das Leben<lb/>
+In friedlicher Gemeinſchaft froͤhlich eint,<lb/>
+Wo Haus an Haus, wo Menſch an Menſch ſich reiht,<lb/>
+Wo ſich der Tempel heil’ge Daͤcher woͤlben,<lb/>
+Darf nimmer ein Verworfener ſich nahn.<lb/>
+Mir hat der Tag nur in der Waͤlder Nacht,<lb/>
+Nur in der Hoͤhlen dunkelm Grund geleuchtet,<lb/>
+Doch draͤngend zog mich’s zu des Lebens Freuden;<lb/>
+Denn menſchlich wie mein Antlitz iſt mein Herz<lb/>
+Und wenn des Tags verraͤtheriſcher Glanz<lb/>
+Erloſch, die Nacht ſich huͤllend niederſenkte,<lb/>
+Dann ſchlich ich bebend in der Staͤdte Naͤhe<lb/>
+Und weilte gern, wo auf dem Feld des Friedens<lb/>
+Die Menſchen ſchlummern ſonder Lieb und Haß,<lb/>
+Den Schlaf des Todes in dem dunkeln Bette.<lb/>
+Einſt — —</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Weh’ uns!</hi></p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">Heil uns, ruf’ ich, Heil!</hi><lb/>
+Wir haben einen kurzen Tag gelebt,<lb/>
+Doch war’s ein Tag an heißer Liebe reich.<lb/>
+Einſt ruht’ ich ſo; die Nacht war rein und mild,<lb/>
+Und vor den Blicken weitgebreitet lag<lb/>
+Das herrliche Benares, leicht verhuͤllt<lb/>
+<pb n="37" facs="#f0047"/>
+Vom Silberſchleyer der geſtirnten Nacht.<lb/>
+Erſtorben war das toſende Gewuͤhl,<lb/>
+Und tiefe Stille herrſchte rings umher.<lb/>
+Selbſt die geſchwaͤtz’ge Luft entfuͤhrte leiſe<lb/>
+Dem vollen Kelche reich durchwuͤrzte Duͤfte.<lb/>
+Nur ferne her aus leuchtenden Pagoden<lb/>
+Klang der Braminen naͤchtliches Gebet,<lb/>
+Und friedlich an die bluͤhnden Ufer trieb<lb/>
+Des Ganges edler Strom die Silberwellen,<lb/>
+Treu in der vielbewegten Wogenbruſt<lb/>
+Das ew’ge Bild des bleichen Lichtes tragend.<lb/>
+So trug auch ich ein ewiges Gefuͤhl<lb/>
+In dem zerrißnen Herzen. Sehnſucht war’s<lb/>
+Nach Liebe und Erbarmen. Dieſe Schoͤpfung,<lb/>
+Die mich verwarf, war ſo unendlich ſchoͤn!<lb/>
+Ich war ein Fremdling unter gleichen Weſen,<lb/>
+Und doch vertilget, wie mit einem Hauch,<lb/>
+War all mein Haß — mein ganzes Weſen Liebe.<lb/>
+Ein Thraͤnenſtrom drang aus dem heißen Aug’,<lb/>
+Da blickt ich auf, und vor mir hingegoſſen<lb/>
+In tiefem Schmerz, auf einem Grabe ſeh’ ich<lb/>
+In namenloſer Schoͤnheit — dieſes Weib.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Halt ein!</hi><lb/>
+Die Wunden bluten der gequaͤlten Bruſt.<lb/>
+Entſetzliche Erinn’rung! Meine Mutter!<lb/>
+Auf ihrem Grabe war’s, wo er mich ſah.<lb/>
+<pb n="38" facs="#f0048"/>
+Verloren fruͤh hatt’ ich die Eltern beyde,<lb/>
+Und war verbunden einem greiſen Gatten,<lb/>
+Dem Pflicht, nicht Liebe mich zu eigen gab.<lb/>
+Krank lag er mir daheim. Ein graͤßlich Uebel<lb/>
+Brach ihm die morſchen Glieder, und der Tod<lb/>
+Traf uns, nach furchtbarem Geſetz, vereint.<lb/>
+Ich ſah das Flammengrab, die friſche Jugend<lb/>
+Dahingegeben graͤßlicher Verweſung,<lb/>
+Und in der ſtillen Nacht, mit heißen Thraͤnen,<lb/>
+Verzweiflungsvoll, netzt’ ich der Mutter Grab.<lb/>
+Da ſah ich ihn. — Nur einen Augenblick<lb/>
+Entſetzte mich die angeborne Scheu<lb/>
+Vor der Verworfnen Stamm. Der Wahrheit Licht<lb/>
+Traf ſonnenhell den nachtumhuͤllten Blick.<lb/>
+Bald, bald erkannt’ ich dieſes ſchoͤne Herz.<lb/>
+Und wie den innerſten Gedanken ſchnell<lb/>
+Das Wort zuruͤckgibt mit beredtem Fluͤgel,<lb/>
+So leuchtete die Liebe wahr und hell<lb/>
+Aus ſeines Auges demantreinem Spiegel.<lb/>
+Allnaͤchtlich ſchmuͤckt’ er mir mit friſchen Blumen<lb/>
+Der Mutter theu’res Grab, und bebend wand ich,<lb/>
+Bethaut vom Perlenſchmucke meines Jammers,<lb/>
+Die ſtillen Zeichen edler Lieb’ zum Kranz,<lb/>
+Mein elend Haupt zu kroͤnen in der Stunde,<lb/>
+Die mich zum Tode rief mit gluͤhndem Munde.<lb/>
+Neun Naͤchte harrt’ ich — und die Stunde kam,<lb/>
+Mein Gatte ſtarb —</p></sp><lb/>
+<pb n="39" facs="#f0049"/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Und Du, Ungluͤckliche,</hi><lb/>
+Du lebſt?</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">Entſetzlicher! klagſt Du ſie an,</hi><lb/>
+Daß ſie des Daſeyns allgewalt’gem Ruf,<lb/>
+Dem ew’gen Trieb gehorcht der ird’ſchen Bruſt?<lb/>
+Durchſpaͤhe die Natur: welch ein Geſchoͤpf<lb/>
+Verlaͤugnete in wuͤthender Verblendung<lb/>
+Der Selbſterhaltung angeborne Wehr? —<lb/>
+Sie kam in jener Nacht, ein bleiches Bild<lb/>
+Des bluͤhenden Entſetzens. Dunkle Locken,<lb/>
+Geloͤst von der Verzweiflung Schreckenshand,<lb/>
+Umſchlugen Geißeln aͤhnlich ihr die Bruſt,<lb/>
+Und hoch auf wallte der empoͤrte Buſen,<lb/>
+Und ſchlug im Wettſtreit mit den frechen Luͤften<lb/>
+Zuruͤck des Hauptes feſſelloſe Zier.<lb/>
+Das gluͤh’nde Auge ſtarrte kalt und todt<lb/>
+In die erhellte Nacht, und lautlos zuckten<lb/>
+Die bleichen Lippen — da erblickt ſie mich,<lb/>
+Und ploͤtzlich in gewalt’gen Jammerſchrey<lb/>
+Loͤst ſich der ſtarre Schmerz — „Mein Gatte ſtarb!“<lb/>
+Ruft die Ungluͤckliche — „und ich, Geliebter,<lb/>
+Ich ſterbe mit ihm!“</p><lb/>
+<stage>(zu <hi rendition="#g">Benascar</hi>).</stage><lb/>
+<p><hi rendition="#et">Zuͤcke deinen Dolch,</hi><lb/>
+<pb n="40" facs="#f0050"/>
+Zeig mir den Tod in jeglicher Geſtalt;<lb/>
+Was ich empfand bey jenem Schreckenswort,<lb/>
+Empfind’ ich nie mehr — nie. Kein Laut, kein Wort,<lb/>
+Erſchuͤtterte die grauenvolle Nacht;<lb/>
+Mit ſtummen Thraͤnen netzten wir das Grab.<lb/>
+Da ſchwand das Dunkel, — und mit gluͤhnden Sohlen<lb/>
+Und Purpurwangen, wie ein feſtlich Kind<lb/>
+Beſchritt der Tag die Hoͤhn, mit heißen Lippen<lb/>
+Hinweg die naͤcht’gen Thraͤnen alle kuͤſſend<lb/>
+Der lichtberaubten Erde. Wir allein<lb/>
+Wir blickten weinend noch empor — da ſtrahlte<lb/>
+Mit blut’gem Schein, das heitre Licht entſetzend,<lb/>
+Ein zweyter, ferner, dampfumhuͤllter Tag.<lb/>
+Der Holzſtoß flammte, er ſchlug empor,<lb/>
+Und ſchien hochlodernd zu begehren<lb/>
+Die koͤſtliche Beute zu verzehren. —<lb/>
+Schauerlich hallten die Todtengeſaͤnge,<lb/>
+Aber ſchon wogte in graͤßlichem Chor<lb/>
+Fernher die Opfer ſuchende Menge<lb/>
+Liſtige Prieſter mit heiligem Munde<lb/>
+Luden ſegnend zum feurigen Bunde,<lb/>
+Und die Weiber mit jubelndem Schreyn,<lb/>
+Drangen ſich in die entſetzlichen Reihn,<lb/>
+Alle umſchlungen die wallenden Locken<lb/>
+Mit dem froͤhlichen Immergruͤn.<lb/>
+Aber wir ſehen ſie naͤher ziehn,<lb/>
+Und fuͤhlen das Blut uns wie Flammen gluͤhn,<lb/>
+<pb n="41" facs="#f0051"/>
+Und fuͤhlen’s wie Eis in den Adern ſtocken.<lb/>
+Sie erbleichte und wankte und ſtoͤhnte: „Erbarmen!“<lb/>
+Da rief ich ihr zu: „Genuͤgt Dir ein Herz<lb/>
+Voll unendlicher Lieb’ und ein Daſeyn voll Schmerz,<lb/>
+So trag’ ich Dich fort mit maͤnnlichen Armen.“<lb/>
+Sie blickte empor, ſie ſprach keinen Laut,<lb/>
+Doch fuͤhlt’ ich’s lebendig, ſie hatte vertraut,<lb/>
+Feſt umſchlang ich den ſinkenden Leib,<lb/>
+Rettend entfuͤhrt’ ich die Flammengeweihte,<lb/>
+Und mir gehoͤrte, mir die Befreyte,<lb/>
+Sie ward mein — ward mein liebendes Weib.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Sie ward dein Weib, und Bramas Rache ſchwieg!<lb/>
+Wie durch des Himmels Plan die Wetterwolke,<lb/>
+Durchzieht ein Unheil kuͤndendes Gefuͤhl<lb/>
+Die ahnungsvolle Bruſt. — Verworfner, nenne<lb/>
+Den Namen ihres Vaters mir —</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Halt ein!</hi><lb/>
+In dunkeln Kreiſen waͤlzet nah und naͤher<lb/>
+Sich die Erinn’rung lang vergangner Zeit.<lb/>
+Die Ahnung iſt ein draͤuendes Geſpenſt,<lb/>
+Sie iſt der Tod, wenn ſie die Wahrheit iſt.<lb/>
+O ſchweig’, Geliebter! nenn’ den Namen nicht!</p></sp><lb/>
+<pb n="42" facs="#f0052"/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(zu <hi rendition="#g">Gadhi</hi>).</stage><lb/>
+<p>Nenn’ ihn! ſoll ich nicht eitel Truggeſpinnſt<lb/>
+Die liſt’ge Rede halten.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">So vernimm:</hi><lb/>
+Die ich mein Weib mit ſtolzer Liebe nenne,<lb/>
+Des Rajahs Tochter iſt’s — Delhi-Benascar.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(ſtoͤßt einen Schrey des Entſetzens aus).</stage></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Die Indianer</hi></speaker><lb/>
+<stage>(wenden ſich beſtuͤrzt ab).</stage></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(verhuͤllt ſich).</stage></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(zu <hi rendition="#g">Benascar</hi>).</stage><lb/>
+<p>So groß einſt — jetzt ſo elend, und Du willſt<lb/>
+Sie tiefer ſtuͤrzen in unnennbar Leid?<lb/>
+Dich ruͤhrt, ich ſeh’s, der Treue heil’ge Macht,<lb/>
+Du biſt geruͤhrt —</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Geruͤhrt? — es iſt die Wuth</hi><lb/>
+Die auf den Lippen mir das Wort erſtarrt.</p><lb/>
+<pb n="43" facs="#f0053"/>
+<stage>(zu <hi rendition="#g">Maja</hi>).</stage><lb/>
+<p>Verruchte, rede: lebt denn keiner Dir,<lb/>
+Der Rechenſchaft von deinem Handeln fordern<lb/>
+Und deiner Vaͤter Ehre raͤchen darf?</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Was fragſt Du?</hi><lb/>
+Die Eltern ſtarben fruͤh; den einz’gen Bruder<lb/>
+Entfuͤhrte mir in fruͤher Kindheit ſchon<lb/>
+Ein ferner Krieg, ich ſah ihn niemals wieder.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Wenn Du ihn wiederſaͤheſt, wenn er kaͤme<lb/>
+Und fragte: „Weib! was haſt Du mir gethan?<lb/>
+Wo iſt das Kleinod meiner Ehre? wo<lb/>
+Der unbefleckte Name meiner Vaͤter?</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p>Mein Blut erſtarrt.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Laß ſeine rothen Wellen</hi><lb/>
+Den Froſt des Todes uͤberfliegen. Rede,<lb/>
+Gieb Antwort, wenn Du kannſt, — ich bin dein Bruder.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(ſtuͤrzt zu Boden).</stage></sp><lb/>
+<pb n="44" facs="#f0054"/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(nach einer Pauſe zu <hi rendition="#g">Benascar</hi>).</stage><lb/>
+<p>Herr, ich bin ſchuldig, toͤdte mich!</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Das will ich.</hi></p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>Doch raſch, eh’ ſie erwacht!</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Der Rath iſt gut,</hi><lb/>
+Er ſey dein letztes Wort!</p><lb/>
+<stage>(Indem er mit gezuͤcktem Dolche auf <hi rendition="#g">Gadhi</hi> eindringen will, er-<lb/>
+wacht <hi rendition="#g">Maja</hi>).</stage></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(abweſend, ſtarr auf <hi rendition="#g">Benascar</hi> blickend).</stage><lb/>
+<p><hi rendition="#et">Wo bin ich? weh!</hi><lb/>
+Die Graͤber geben ihren Raub zuruͤck,<lb/>
+Mit bleichem Antlitz, zuͤrnend naht mein Vater,<lb/>
+Das iſt ſein Geiſt!</p><lb/>
+<stage>(mit zuruͤckkehrendem Bewußtſeyn).</stage><lb/>
+<p><hi rendition="#et">Mein Bruder — ja — mein Bruder!</hi><lb/>
+O wie ſo ſuͤß der ungewohnte Klang<lb/>
+Des theuern Namens mir zum Herzen dringt!<lb/>
+Mein Bruder, Du wirſt menſchlich ſeyn —</p><lb/>
+<stage>(den Dolch in ſeiner Hand erblickend).</stage><lb/>
+<p><hi rendition="#et">Weh’ mir!</hi><lb/>
+<pb n="45" facs="#f0055"/>
+Dein Herz iſt Eiſen, deine Blicke Mord,<lb/>
+Und dein Umfangen Tod.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(zu <hi rendition="#g">Benascar</hi>).</stage><lb/>
+<p><hi rendition="#et">Was zoͤgerſt Du?</hi><lb/>
+Ich bin bereit zu ſterben.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Ich zu toͤdten.</hi><lb/>
+Empfange deinen Lohn!</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(ſich zwiſchen Beyde werfend).</stage><lb/>
+<p><hi rendition="#et">Entſetzlicher!</hi><lb/>
+Halt’ ein! was willſt Du thun?</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Die Gottheit raͤchen,</hi><lb/>
+Die Du geſchaͤndet haſt, wie meine Ehre.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p>Entweiht’ ich dieſen Gott durch Lieb’ und will<lb/>
+Er Blut dafuͤr, ſo ſag’ Dich los von ihm<lb/>
+Und ſtell’ Dir in dein goldnes Heiligthum<lb/>
+Ein friedlich Lamm, es knieend anzubeten.<lb/>
+<pb n="46" facs="#f0056"/>
+Es iſt mehr Goͤttliches in ihm, als in<lb/>
+Dem Racheduͤrſtenden, den Du verehrſt.</p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Die Indianer</hi>.</speaker><lb/>
+<p>Weh!</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Fluch Dir!</hi></p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Ja, auf mich die Fluͤche!</hi><lb/>
+Auf mich die Rache! mein iſt das Verbrechen!<lb/>
+Und freveln werd’ ich, iſt die Liebe Suͤnde,<lb/>
+So lang’ ein Hauch des Lebens mich beſeelt!<lb/>
+Denn dieſes Herz iſt ein unſterblich Buch,<lb/>
+Deß voller Inhalt Liebe iſt fuͤr ihn,<lb/>
+Fuͤr ihn, fuͤr den Verworfnen. Hoͤrſt Du’s, Bruder?<lb/>
+Triff raſch und raͤche deine Schmach.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(zu <hi rendition="#g">Benascar</hi>).</stage><lb/>
+<p><hi rendition="#et">Sie raſ’t.</hi><lb/>
+O hoͤre ſie nicht an! Mein iſt der Frevel.<lb/>
+Beredet hab’ ich ſie und uͤberliſtet,<lb/>
+Verfuͤhrt zum Bruch des heiligen Geſetzes,<lb/>
+Gekettet an mich mit den Zauberbanden<lb/>
+Verwegner Lieb’, und deiner Rache Donner.<lb/>
+<pb n="47" facs="#f0057"/>
+Entlade ſich auf dieſes Haupt. Sey gnaͤdig<lb/>
+Und toͤdte raſch!</p><lb/>
+<stage>(Er wirft ſich vor ihm nieder).</stage></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(ſich ebenfalls vor <hi rendition="#g">Benascar</hi> hinwerfend).</stage><lb/>
+<p><hi rendition="#et">Du wirſt barmherzig ſeyn</hi><lb/>
+Und nicht die einz’ge Gunſt der Schweſter weigern.<lb/>
+Der Raſende mit thatenſuͤcht’ger Wuth<lb/>
+Stuͤrzt ſich in dieſen Tod: ich aber lebe,<lb/>
+Ein traurig Angedenken deiner Schmach.<lb/>
+Du biſt entehrt, wenn nicht im ſtummen Grabe<lb/>
+Mit meinem Daſeyn meine Schande ſchlaͤft<lb/>
+Drum end’ es, — waͤhle — —</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(einfallend).</stage><lb/>
+<p><hi rendition="#et">Waͤhle mich zum Opfer.</hi></p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p>Ich bin’s, nur ich bin ſchuldig.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Beyde ſeyd Ihr’s.</hi></p><lb/>
+<stage>(zu <hi rendition="#g">Maja</hi>).</stage><lb/>
+<p>Draͤngſt Du dich zu dem Tod der Schande? Lebe,<lb/>
+<pb n="48" facs="#f0058"/>
+Ein ſtilles Leben reuevoller Buße,<lb/>
+Und dank’ es meiner unnennbaren Liebe,<lb/>
+Dem maͤchtig ungeheueren Gefuͤhl,<lb/>
+Das auf fuͤr Dich in dieſem Buſen flammte,<lb/>
+Seit ich zum erſten Mal Dich ſah.</p><lb/>
+<stage>(zu <hi rendition="#g">Gadhi</hi>).</stage><lb/>
+<p><hi rendition="#et">Du ſtirbſt!</hi><lb/>
+Und wie ſich hier vor den Gefaͤhrten frey<lb/>
+Die Schmach enthuͤllt, die mein Geſchlecht getroffen,<lb/>
+So will ich auch, daß ſichtbar jedem Auge<lb/>
+Das Schreckensbeyſpiel meiner Rache ſey.</p><lb/>
+<stage>(zu ſeinen Gefaͤhrten).</stage><lb/>
+<p>Nicht mich allein, Gott ſelbſt hat er geſchaͤndet,<lb/>
+Und wenn er faͤllt, und wenn er blutig endet,<lb/>
+Sey’s am Altare durch des Prieſters Beil.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi> und <hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(ſinken einander in die Arme und halten ſich feſt umſchlungen).</stage></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(zu den Indianern).</stage><lb/>
+<p>Der Morgen graut. Ihr eilt hinweg und ſucht<lb/>
+Den Diener Brama’s in dem nahen Tempel.<lb/>
+Beſcheidet ihn hierher; aus meiner Hand<lb/>
+Empfang’ er dieſes Opfer.</p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Die Indianer</hi></speaker><lb/>
+<stage>(gehen ab).</stage></sp><lb/>
+<pb n="49" facs="#f0059"/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(fuͤr ſich).</stage><lb/>
+<p><hi rendition="#et">Faſſung, Herz!</hi><lb/>
+Er iſt gekaͤmpft, der ſchwere Kampf der Pflicht.</p></sp></div><lb/>
+<div n="2"><head><hi rendition="#g">Achter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Gadhi. Maja. Benascar</hi>.</stage><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(zu <hi rendition="#g">Maja</hi>).</stage><lb/>
+<p>Ungluͤckliche.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Kein Wort des Troſtes, Bruder!</hi><lb/>
+Geſchehen muß, ich fuͤhl’ es, was geſchieht.<lb/>
+Nur eine Bitte hab’ ich. Ich bin Mutter.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>O woran mahnſt Du mich! mein Kind! mein Sohn!</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p>Sein Sohn — doch auch der meine. Rett’ ihn mir.<lb/>
+Du wirſt ihm Vater werden, wirſt ihn lehren<lb/>
+Erkennen deinen Gott und ſein Erbarmen<lb/>
+<fw type="sig" place="bottom">Beer’s Paria. 4</fw><lb/>
+<pb n="50" facs="#f0060"/>
+Mein Gatte ſterbe, nur den Knaben nicht<lb/>
+Gieb Preis dem opferlechzenden Braminen.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>Was willſt Du ihm ein traurig Leben friſten?<lb/>
+Laß den Verwaisten ſterben.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Nein, er lebe!</hi><lb/>
+Ich ſoll ja leben; goͤnne mir den Troſt.</p><lb/>
+<stage>(zu <hi rendition="#g">Benascar</hi>).</stage><lb/>
+<p>Dort ſchlaͤft das Kind den ſorgenloſen Schlummer.<lb/>
+Und ahnet nicht, daß um die bluͤhnde Stirne<lb/>
+Der Todesengel ſchon den Fittig ſchlaͤgt.<lb/>
+O ſey barmherzig, Bruder, rett’ ihn mir;<lb/>
+Durch treue Diener ſend’ ihn raſch hinweg,<lb/>
+Eh’ der Bramine naht.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Welch ein Gefuͤhl</hi><lb/>
+Hat in der ſtarken Bruſt mein Herz gewandelt! —</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p>Die Stimme der Natur, der Menſchlichkeit<lb/>
+Spricht laut zu Dir; vernimm den heil’gen Ruf<lb/>
+Und rette mir den Sohn.</p></sp><lb/>
+<pb n="51" facs="#f0061"/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(in die Kammer eilend).</stage><lb/>
+<p><hi rendition="#et">Ich will ihn retten.</hi></p></sp></div><lb/>
+<div n="2"><head><hi rendition="#g">Neunter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Vorige</hi>, ohne <hi rendition="#g">Benascar</hi>.</stage><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>Was thateſt Du!</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(die ſich mit der Freude eines gelungenen Entwurfes aus ihres<lb/>
+Gatten Arm geriſſen).</stage><lb/>
+<p><hi rendition="#et">Was mir der Himmel eingab.</hi></p><lb/>
+<stage>(Die brennende Fackel vom Baumſtamme reißend).</stage><lb/>
+<p>Die Fackel ſchleudern will ich in die Kammer,<lb/>
+Und Vater, Mutter, Kind und Feind verderben.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(ihr die Fackel entreißend).</stage><lb/>
+<p>Weh’ Dir! das iſt des Ungluͤcks hoͤchſter Jammer,<lb/>
+Daß es zur Rettung das Verbrechen ruft.</p><lb/>
+<pb n="52" facs="#f0062"/>
+<stage>(die Fackel umſtuͤrzend).</stage><lb/>
+<p>Stirb, Flamme! wie ich lebte, will ich ſterben.<lb/>
+Verſoͤhnt und rein geh’ ich hinab zur Gruft.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p>Großherziger! Gewalt’ger!</p><lb/>
+<stage>(Die giftige Frucht am Boden erblickend; fuͤr ſich):</stage><lb/>
+<p><hi rendition="#et">Dank dir, Himmel!</hi><lb/>
+So bleibt ein andres Mittel, wir ſind frey.</p><lb/>
+<stage>(Sie verbirgt die Frucht, ohne daß es <hi rendition="#g">Gadhi</hi> bemerkt).</stage></sp></div><lb/>
+<div n="2"><head><hi rendition="#g">Zehnter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Vorige. Das Kind. Benascar</hi>.</stage><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(von Innen).</stage><lb/>
+<p>Wer loͤſcht das Licht?</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">Der Tag iſt angebrochen,</hi><lb/>
+Die Nacht iſt aus, was braucht’s der Leuchte mehr?</p></sp><lb/>
+<pb n="53" facs="#f0063"/>
+<sp who="#KIND"><speaker><hi rendition="#g">Das Kind</hi></speaker><lb/>
+<stage>(vor <hi rendition="#g">Benascar</hi> fliehend).</stage><lb/>
+<p>O! Vater! Mutter!</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p>Gott! mein Kind!</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#c">Mein Sohn!</hi></p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Schnell! Schnell!</hi><lb/>
+Verzug iſt Tod, nur Eile rettet.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(den Knaben feſt umklammernd).</stage><lb/>
+<p><hi rendition="#et">Weh’ mir!</hi></p></sp><lb/>
+<sp who="#KIND"><speaker><hi rendition="#g">Das Kind</hi>.</speaker><lb/>
+<p>Ich will nicht mit dem fremden Manne.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">Folg’ ihm:</hi><lb/>
+Er fuͤhrt Dich in das helle, gruͤne Thal<lb/>
+Des Lebens ein. Wie hold es iſt und ſchoͤn,<lb/>
+Weiß der allein, der es verlaſſen ſoll.</p></sp><lb/>
+<pb n="54" facs="#f0064"/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(hat ſich indeſſen entfernt und kehrt nun zuruͤck).</stage></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(ihn erblickend).</stage><lb/>
+<p>Er kommt! er kommt! er will ihn mir entreißen.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Der Tag bricht an, und Bramas Diener naht:<lb/>
+Gebt mir den Knaben.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(niederſinkend und das Kind an ſich preſſend).</stage><lb/>
+<p><hi rendition="#et">Meine Kraft verlaͤßt mich.</hi></p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(ihr den Knaben entreißend).</stage><lb/>
+<p>So toͤdteſt Du dein Kind.</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Mein Kind!</hi></p><lb/>
+<stage>(<hi rendition="#g">Benascar</hi> mit dem Knaben ab).</stage></sp></div><lb/>
+<pb n="55" facs="#f0065"/>
+<div n="2"><head><hi rendition="#g">Eilfter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Gadhi. Maja</hi>.</stage><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(auſſpringend).</stage><lb/>
+<p><hi rendition="#et">Jetzt Muth!</hi></p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>Was haſt Du vor?</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(ihm die Frucht zeigend).</stage><lb/>
+<p><hi rendition="#et">Sieh, Gadhi, dieſe Frucht:</hi><lb/>
+Entriſſen hab’ ich ſie dem Wuͤtherich,<lb/>
+Den die Natur zum Bruder mir gegeben.<lb/>
+Mitleidig goͤnnt’ ich ihm ein feindlich Leben.<lb/>
+Ich ſaͤ’te Liebe, und ich aͤrnte Tod.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>Verſteh’ ich Dich —</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Du waͤhnteſt doch wohl nicht,</hi><lb/>
+Ich koͤnnte leben ohne Dich? mein Freund,<lb/>
+<pb n="56" facs="#f0066"/>
+Das — ſage nein — das haſt Du nie geglaubt.<lb/>
+In dieſer kleinen Frucht iſt fuͤr uns Beyde<lb/>
+Des Todes gnug. Ich theile ſie mit Dir.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>Weib! heldenmuͤth’ges Weib! Und ich — ich murrte.<lb/>
+Wem neid’ ich jetzt das ſchoͤnſte Daſeyn noch,<lb/>
+Wenn ſolch ein Tod der Wonne mir beſchieden!</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(hat den Saft der Frucht in einen Becher gedruͤckt; ihn emporhebend).</stage><lb/>
+<p>Willkommen, Tod der Wonne! nur die Schuld<lb/>
+Erbleicht, wenn ſich die dunkle Stunde naht.<lb/>
+Mit hellem Blick und muthvoll ſtirbt die Treue<lb/>
+Auf Wiederſehn, mein Freund!</p><lb/>
+<stage>(Sie trinkt).</stage></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">O Gott!</hi></p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(ihm den Becher reichend).</stage><lb/>
+<p><hi rendition="#et">Und dieß fuͤr Dich.</hi></p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(leert den Becher).</stage><lb/>
+<p>Dank!</p><lb/>
+<stage>(Sie ſinken einander in die Arme).</stage></sp></div><lb/>
+<pb n="57" facs="#f0067"/>
+<div n="2"><head><hi rendition="#g">Zwoͤlfter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Vorige. Benascar</hi>.</stage><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p>Geborgen iſt der Knab’ —</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">So fliege muthig</hi><lb/>
+Aus deiner dunkeln Haft, gebeugte Seele,<lb/>
+Du wandelſt Dich zu glaͤnzender Geſtalt,<lb/>
+Und ſchwebſt mit ſchuͤtzend hellen Fluͤgeln dann<lb/>
+Um des geliebten Kindes Haupt.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Jetzt — trennt Euch!</hi><lb/>
+Der Prieſter naht, und Eurer Huͤtte Wand<lb/>
+Stuͤrzt nieder unter ſchnell geſchaͤft’ger Art;<lb/>
+Daß nicht beflecke auf verworfner Schwelle<lb/>
+Den reinen Fuß der Diener des Gewalt’gen<lb/>
+Der neunmal deinem Stamm und Dir geflucht.</p></sp><lb/>
+<pb n="58" facs="#f0068"/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>Dein Gott des Fluches iſt ein Gott des Abſcheus.<lb/>
+Ich glaub’ an ſeine Lieb’; von ſeinem Haß<lb/>
+Spricht Bloͤdſinn, Habgier oder Frevel nur.<lb/>
+Wer ſich’s von ſeinen Prieſtern uͤberliefern,<lb/>
+Von ihren Ammenmaͤhrchen lehren laͤßt,<lb/>
+Was Glaube ſey und Gott, der ſchmaͤht ſich ſelbſt.<lb/>
+Er iſt unlaͤugbar, wie ſein himmliſch Licht;<lb/>
+Des eignen Buſens flammende Erkenntniß.<lb/>
+Macht ſeine Welt zum Spiegel ſeines Weſens.<lb/>
+Und haſt Du ihn erkannt, — mußt Du ihn — glauben;<lb/>
+Nothwendiger iſt Daſeyn nicht und Tod.<lb/>
+Ich war verworfen, und mit reinem Herzen<lb/>
+Blick’ ich zuruͤck auf meines Lebens Bahn.<lb/>
+Gefunden hab’ ich, was des Bettlers Huͤtte<lb/>
+Zum Paradieſe ſtiller Luſt geſchaffen;<lb/>
+In treuer Bruſt fuͤr mich ein gluͤhend Herz …</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(droht zu ſinken).</stage></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>Weh’ mir!</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#c">Die Gluth wird kalt.</hi></p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Wie bleich Du wirſt!</hi></p></sp><lb/>
+<pb n="59" facs="#f0069"/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi></speaker><lb/>
+<stage>(zu <hi rendition="#g">Benascar</hi>).</stage><lb/>
+<p>Was ſtarrſt Du ſo? es war dein eigner Wille.<lb/>
+Du waͤhnſt, ich liebte, und ich koͤnnte nicht<lb/>
+Fuͤr meine Liebe ſterben — —</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Welche Ahnung!</hi></p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p>Die Frucht — die gift’ge —</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Die Du mir entriſſen?</hi></p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadht</hi>.</speaker><lb/>
+<p>Sie giebt uns Beyden jetzt den Tod.</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(zu <hi rendition="#g">Gadhi</hi>).</stage><lb/>
+<p>Ha, Ungeheuer! das haſt Du gethan!</p></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p>Ich ſelbſt — ich ſelbſt — oh, wie das ſchmerzt — wie’s<lb/>
+brennt!</p><lb/>
+<pb n="60" facs="#f0070"/>
+<stage>(Schleyer und Stirnband abreißend).</stage><lb/>
+<p>Hinab den ird’ſchen Tand — ah! Freyheit! Luft!<lb/>
+Das Leben iſt ein Feuermeer und ſprengt<lb/>
+Gewaltſam mir die Adern, um hinaus,<lb/>
+Hinauszuſtroͤmen in die ew’gen Luͤfte.<lb/>
+Mir wird die Welt zu eng.</p></sp><lb/>
+<sp who="#IND"><speaker><hi rendition="#g">Indianer</hi></speaker><lb/>
+<stage>(in die Huͤtte ſtuͤrzend).</stage><lb/>
+<p>Nieder mit des Paria Huͤtte!<lb/>
+Nieder mit dem Paria ſelbſt!<lb/>
+Heil Brama! Heil!</p><lb/>
+<stage>(Die Huͤtte wird niedergeriſſen. Man erblickt ein reizendes Thal.<lb/>
+Morgenroͤthe. Aus dem Hintergrunde naht langſam, unter rau-<lb/>
+ſchender Muſik der Zug mit dem <hi rendition="#g">Braminen</hi>).</stage></sp><lb/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p><hi rendition="#et">Mein theurer Freund,</hi><lb/>
+Du ſchauderſt! — O geliebte Sonne, komm,<lb/>
+Laß Deiner goldnen Wangen Purpurglanz<lb/>
+Erroͤthen mir das bleiche Angeſicht;<lb/>
+Daß ihn der Tod, den er erleiden ſoll,<lb/>
+In dieſer Ungeſtalt nicht ſchrecke.</p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p><hi rendition="#et">Gott!</hi></p></sp><lb/>
+<pb n="61" facs="#f0071"/>
+<sp who="#MAJ"><speaker><hi rendition="#g">Maja</hi>.</speaker><lb/>
+<p>Es war ein kurzer Kampf — es iſt vorbey!<lb/>
+Kein Schmerz — Entzuͤcken — Freyheit — Licht —<lb/>
+Mein Gadhi — folge mir — —</p><lb/>
+<stage>(Sie ſtirbt).</stage></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi>.</speaker><lb/>
+<p>Ich folge bald — ich fuͤhle ſchon — den Tod. — —<lb/>
+So recht — laßt unter dieſem Dach das Leben<lb/>
+Sich ſchmerzenfreyer loͤſen; dieſe Luft<lb/>
+Und dieſes Licht iſt allen gleiche Wohlthat. Ueberall<lb/>
+Nur Liebe, Lieb’ — und Ihr ſeyd nichts als Haß.<lb/>
+So dunkel — Nacht — dort! dort! das Licht,<lb/>
+Und alle — alle — gleich — mein Kind —</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi></speaker><lb/>
+<stage>(an <hi rendition="#g">Maja’s</hi> Leiche, von ſeinem Gefuͤhl uͤberwaͤltigt, ihm die<lb/>
+Hand reichend).</stage><lb/>
+<p><hi rendition="#et">Ich ſchuͤtz’ es Dir.</hi></p></sp><lb/>
+<sp who="#GAD"><speaker><hi rendition="#g">Gadhi</hi></speaker><lb/>
+<stage>(heftet den Blick ſtarr auf ihn und ſtirbt).</stage></sp></div><lb/>
+<pb n="62" facs="#f0072"/>
+<div n="2"><head><hi rendition="#g">Letzter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Vorige</hi>. Der Zug mit dem <hi rendition="#g">Braminen</hi>, der auf einem Palankin<lb/>
+getragen wird, iſt in den Vorgrund gekommen.</stage><lb/>
+<sp who="#BRA"><speaker><hi rendition="#g">Bramine</hi>.</speaker><lb/>
+<p>Wo iſt das Opfer?</p></sp><lb/>
+<sp who="#BEN"><speaker><hi rendition="#g">Benascar</hi>.</speaker><lb/>
+<p><hi rendition="#et">Zwey fuͤr eins, Bramin’:</hi><lb/>
+Frag’ Deinen Brama, ob ſie ihm gefallen!</p></sp></div></div><lb/>
+<milestone unit="section" rendition="#hr"/> <milestone unit="section" rendition="#hr"/> </body><back><div type="imprint"><p>Druck der J. G. <hi rendition="#g">Cotta</hi>’ſchen Buchdruckerey.</p></div><lb/>
+<pb facs="#f0073"/>
+<pb facs="#f0074"/>
+<pb facs="#f0075"/>
+</back>
+</text> </TEI>

@@ -1,0 +1,2575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Geister und Geisterseher oder Leben und frühes Ende eines Nekromantisten</title>
+<title type="sub">Eine warnende Anekdote unsrer Zeit</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118637266">
+<surname>Zschokke</surname>
+<forename>Heinrich</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">100</measure>
+<measure type="tokens">13208</measure>
+<measure type="types">4246</measure>
+<measure type="characters">93934</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:15:18Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/zschokke_geister_1789</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/zschokke_geister_1789</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/zschokke_geister_1789</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/zschokke_geister_1789</idno>
+<idno type="DTADirName">zschokke_geister_1789</idno>
+<idno type="DTAID">20886</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">[Zschokke, Heinrich]: Geister und Geisterseher oder Leben und frühes Ende eines Nekromantisten. Küstrin, 1789.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Geister und Geisterseher oder Leben und frühes Ende eines Nekromantisten</title>
+<title level="m" type="sub">Eine warnende Anekdote unsrer Zeit</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118637266">
+<surname>Zschokke</surname>
+<forename>Heinrich</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">92 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Oehmigke</name></publisher>
+<pubPlace>Küstrin </pubPlace>
+<date type="publication">1789</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Universitäts- und Landesbibliothek Halle</repository>
+<idno>
+<idno type="shelfmark">ULB Halle, Goe 3178</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front><lb/>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb n="[1]" facs="#f0004"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#g"><hi rendition="#b">Geiſter</hi><lb/>
+und<lb/>
+<hi rendition="#b">Geiſterſeher</hi><lb/>
+oder</hi><lb/>
+Leben und fruͤhes Ende<lb/>
+<hi rendition="#g">eines<lb/>
+<hi rendition="#b">Nekromantiſten.</hi></hi></titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docTitle><titlePart type="sub"><hi rendition="#g">Eine<lb/>
+warnende Anekdote unſrer Zeit</hi></titlePart></docTitle><lb/>
+<byline><hi rendition="#g">von</hi><lb/>
+<docAuthor>J. H. <hi rendition="#g">Zſch***</hi>.</docAuthor></byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace><hi rendition="#g">Kuͤſtrin</hi></pubPlace>,<lb/>
+bey <publisher>Ferdinand Oehmigke</publisher>. <docDate>1789</docDate>.</docImprint></titlePage><lb/>
+</front><body>
+<pb n="[2]" facs="#f0005"/>
+<pb n="[3]" facs="#f0006"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head>Wilhelm Walter <note place="foot" n="*)">Theils aus den eigenen Papieren und Briefen<lb/>
+dieſes ungluͤcklichen Mannes, theils aus muͤnd-<lb/>
+lichen Erzaͤlungen und Nachrichten ſeiner ehma-<lb/>
+ligen Freunde iſt dieſe Geſchichte genommen,<lb/>
+die, wenn ſie auch mit hunderten dieſes und<lb/>
+des vorigen Jahrhunderts viel Aehnlichkei-<lb/>
+ten beſizt, dennoch bekannter zu werden ver-<lb/>
+dient, und neugierige Forſcher zu warnen, ſich<lb/>
+weder in das Gewebe <hi rendition="#fr">geheimer Geſellſchaften</hi>,<lb/>
+noch in andere Spiegelfechtereien der Magie<lb/>
+verflechten zu laſſen.</note>.</head><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p><hi rendition="#in">W</hi>ir verlachen herzlich die Albernheiten<lb/>
+voriger Zeiten, und doch ſind die un-<lb/>
+ſrigen nicht minder reich daran. Wir zaͤlen<lb/>
+<hi rendition="#fr">Mesmers, Gasners, Wunderdoktoren</hi><lb/>
+und <hi rendition="#fr">Proſelitenmacher</hi> zu unſern Zeitgenoſ-<lb/>
+ſen, ungeachtet ſich die weiſeſten Maͤnner,<lb/>
+die Hyder des Aberglaubens zu bekaͤmpfen,<lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">das</fw><lb/>
+<pb n="4" facs="#f0007"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+das Angelegentlichſte ſein lieſſen. Wir hat-<lb/>
+ten Warnung und unſre Vorfahren ſtatt deſ-<lb/>
+ſen Aufmunterung und verdoppelten Reiz;<lb/>
+bei ihnen trug jede Wiſſenſchaft, jeder Um-<lb/>
+ſtand, jeder geringe Zufall ſein Quantum zur<lb/>
+Vermehrung des Hanges zu geheimen Wiſ-<lb/>
+ſenſchaften bei. Alles beſas Myſterien, af-<lb/>
+fektirte ſie wenigſtens zu beſizzen; alles<lb/>
+ſprach in dunkeln Reden, die der Zuhoͤrer<lb/>
+nur halb verſtehen duͤrfte, und der Redner<lb/>
+ſelbſt nur halb verſtand.</p><lb/>
+<p>Die Theologen traten hin und ſprachen:<lb/>
+das Gebet wirkt uͤberirrdiſche Dinge; ent-<lb/>
+zuͤkt uns; klaͤrt unſre truͤben Blikke; erhebt<lb/>
+zum Anſchaun der Gottheit, macht zu Heili-<lb/>
+gen; giebt todten ohnmaͤchtigen Gegenſtaͤn-<lb/>
+den eine magiſche, verborgene Kraft, Zei-<lb/>
+chen und Wunder zu thun. Die Chemiſten<lb/>
+hingegen benuzten den Hang zum Sinnlichen,<lb/>
+welcher tief den Menſchenherzen eingepflanzt<lb/>
+iſt; ſchufen vielſagende Karaktere; machten<lb/>
+durchſchimmernde Vorſpieglungen luͤſtern<lb/>
+nach den verborgnen Geheimniſſen der Na-<lb/>
+<fw type="catch" place="bottom">tur;</fw><lb/>
+<pb n="5" facs="#f0008"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+tur; ermunterten tiefer einzudringen in die<lb/>
+dunkle Werkſtatt derſelben; ſprachen vom<lb/>
+Stein der Weiſen, von niegeſehenen Schaͤz-<lb/>
+zen; vom Schluͤſſel zur Herſchaft uͤber das<lb/>
+aͤtheriſche Reich der Geiſter; ruͤmten nahe da-<lb/>
+ran zu ſein, mit einem Blik die ganze weite<lb/>
+Schoͤpfung zu uͤberſpannen und zu durch-<lb/>
+ſpaͤhn, und waren vielleicht noch eben ſo<lb/>
+weit von ihren ſuͤſſen Jdealen am Ende ihres<lb/>
+Lebens entfernt, als damals, da ſie begon-<lb/>
+nen noch den Fantomen zu haſchen. — Der<lb/>
+Aſtronom ſchwieg auch nicht, machte auf-<lb/>
+merkſamer aller Augen auf die Konſtellazio-<lb/>
+nen des Himmels; enthuͤllte die unbekann-<lb/>
+ten, allmaͤchtigen Jnfluenzen der Geſtirne<lb/>
+auf Laͤnder und Menſchenſchikſale, weiſſagte<lb/>
+iedermann und den Goͤttern der Erde die<lb/>
+Stunde des Todes u. ſ. m. vorher aus den<lb/>
+geheimen Zuͤgen der Sterne; eine halbe Welt<lb/>
+bebte, da der Aſtrolog <hi rendition="#fr">Stoͤffler</hi> 1524 allge-<lb/>
+meine Suͤndflut predigte. — Die Alter-<lb/>
+thumsforſcher fanden in den Schriften und<lb/>
+Denkmaͤlern der Vorzeit vorhandne, untruͤg-<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">liche</fw><lb/>
+<pb n="6" facs="#f0009"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+liche Spuren, daß die Welt mit noch uner-<lb/>
+forſchten Myſterien angefuͤllt ſei; aus dem<lb/>
+<hi rendition="#fr">Orfeus, Homer, Virgil</hi> ꝛc. zogen ſie Zau-<lb/>
+berſpruͤche und behaupteten ſtreng, daß ſchon<lb/>
+Weiſe im Dunkeln exiſtiret haͤtten, welche<lb/>
+die Kraͤfte der Natur in Haͤnden gehabt. —<lb/>
+Pilgrimme kehrten von ihren Fahrten heim,<lb/>
+erzaͤlten viel von Abentheuern in Hoͤlen; von<lb/>
+ihren wunderbaren Schiffarthen; vom Ruͤ-<lb/>
+bezal und der Lapplaͤndiſchen Zaubertrom-<lb/>
+mel, — alles horchte, alles ſtaunte, und<lb/>
+leichtglaͤubige Unwiſſenheit, die damalige<lb/>
+Philoſophie iaͤhnte von Herzen ihr: Amen!<lb/>
+dazu. Trete nun einer auf, und ſpreche,<lb/>
+was konnten die guten Leute in ſolcher Ver-<lb/>
+faſſung anders thun, <hi rendition="#fr">als glauben</hi>? —</p><lb/>
+<p>Der Wahn der vergangenen Zeiten hat<lb/>
+ſich fortgepflanzt bis auf unſre Tage; er<lb/>
+naͤhrt ſich im Verborgnen noch und wird<lb/>
+nicht ausgerottet werden koͤnnen, weil nicht<lb/>
+der gemeine Mann allein, ſondern auch ge-<lb/>
+lehrte Leute ihn zu ihrer <hi rendition="#fr">geheimen Lieb-<lb/>
+lingsbeſchaͤftigung</hi> machen. — Jch ken-<lb/>
+<fw type="catch" place="bottom">ne</fw><lb/>
+<pb n="7" facs="#f0010"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+ne einen ſehr wuͤrdigen, groſſen Gelehrten,<lb/>
+welcher ſelbſt zur Steuer des Aberglaubens<lb/>
+ſchrieb, und dennoch mir behauptete, daß<lb/>
+Gott ein uͤberirrdiſches, unbekanntes Et-<lb/>
+was durch alle Koͤrper gegoſſen haben muͤſ-<lb/>
+ſe, durch welches, wer es zu ergruͤbeln faͤ-<lb/>
+hig waͤre, man ungeheure Kenntniſſe uͤber<lb/>
+das allgemeine Ganze zu ſeiner Selbſtver-<lb/>
+vollkommnerung erhalten, ſich uͤber ſeine<lb/>
+Menſchenſphaͤre erheben und etwa zu einem<lb/>
+naͤhern, vertrauten Umgang mit hoͤhern<lb/>
+Weſen faͤhig machen koͤnnte! — —</p><lb/>
+<p>Kein Wunder, daß, wenn ſelbſt Maͤnner<lb/>
+bereichert mit Erfarung und weitumfaſſender<lb/>
+Wiſſenſchaft, an ſolchen truͤglichen Jdeen zu<lb/>
+ſaugen ſich nicht erbloͤden, auch andre mit<lb/>
+maͤſſigen Einſichten darnach forſchen, und ihre<lb/>
+geſunde Vernunft berauſchen, wo nicht toͤd-<lb/>
+ten. — Das Beiſpiel <hi rendition="#fr">Walters,</hi> der nun<lb/>
+ſeit etlichen Jahren ſchon unter der Erde<lb/>
+ſchlummert, aber deſſen Familie noch exi-<lb/>
+ſtirt, mag warnende Lehre den Unerfahr-<lb/>
+nen ſein!</p><lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="8" facs="#f0011"/>
+<lb/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>Er wurde im Jahre 1759 in einer mit-<lb/>
+telmaͤſſigen Stadt im Reiche geboren; verlor<lb/>
+fruͤh ſeinen Vater und behielt nur ſeine Mut-<lb/>
+ter noch, die ihn zum Studieren beſtimmte.<lb/>
+Mit der Beihuͤlfe einiger wolthaͤtiger Goͤn-<lb/>
+ner, war er in ſeinem zwanzigſten Jahre nach<lb/>
+durchwanderten Schulen, fuͤr die Univerſitaͤt<lb/>
+geſchikt; darum ſaͤumte er nicht laͤnger, ſon-<lb/>
+dern verlies die Vaterſtadt und reiſete mit<lb/>
+geringer Baarſchaft nach H**, wo er bald<lb/>
+neue Freunde, neue Unterſtuͤzzung fand und<lb/>
+mit unermuͤdendem Eifer ſeine Studien fort-<lb/>
+ſezte. — Er gewann auch fuͤr ſchoͤne Wiſſen-<lb/>
+ſchaften und Lektuͤre neuerer Schriftſteller Ge-<lb/>
+ſchmack und Gefuͤl, da er ſich bisher auf<lb/>
+Schulen nur immer mit Sprachen beſchaͤftigt<lb/>
+hatte und ſich wenig oder gar nicht nach Er-<lb/>
+werbung anderer Kenntniſſe bemuͤhen konn-<lb/>
+te. Beſonders gefielen ihm die Feenmaͤrchen<lb/>
+Gallands, die Perſiſchen Erzaͤlungen u. ſ. w.<lb/>
+in denen wolthaͤtige Feen die Menſchen be-<lb/>
+gluͤkken und der Weiſe durch anhaltendes For-<lb/>
+ſchen es dahin bringt, daß Weſen hoͤherer<lb/>
+<fw type="catch" place="bottom">Art</fw><lb/>
+<pb n="9" facs="#f0012"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+Art ſeinem Winke gehorchen, ſeine Befehle<lb/>
+vollfuͤhren, daß er, geſchaͤrften Blikkes, ſogar<lb/>
+die Geſchichten der Zukunft aus dem Buche<lb/>
+des ewigen Schickſals leſen kann. — Dies<lb/>
+gab Walters Fantaſie den Stos, gab Sporn<lb/>
+und Fittige ſeinem ſchmachtenden Geiſte; er<lb/>
+hing ganz mit ſeiner Seele an den lieblichen<lb/>
+Schimaͤren, und fand ſich dann gluͤklich.</p><lb/>
+<p>Seine Notdurft zu haben, muſte er fuͤr ſei-<lb/>
+ne reichern Mitſtudierenden Kollegien ſchrei-<lb/>
+ben oder Noten; er lebte immer einſam, ent-<lb/>
+ſagte allem Vergnuͤgen des akademiſchen Le-<lb/>
+bens; hatte nur einige Freunde und auch von<lb/>
+dieſen ward er nur aͤuſſerſt ſelten beſucht.<lb/>
+Sich alſo beſtaͤndig ſelbſt uͤberlaſſen, gieng<lb/>
+ſeine ehmalige frohe Stimmung, welche er<lb/>
+noch aus den Kinderiahren mit her gebracht<lb/>
+hatte, zur ſtillen Schwermuth uͤber; wenn<lb/>
+ſein Geiſt abgemattet war vom ununterbroch-<lb/>
+nen Studieren, ſezte er ſich hin, vergrub er<lb/>
+ſich in ſich ſelbſt, beweinte er ſein Schikſal<lb/>
+und die truͤben Ausſichten in die Zukunft,<lb/>
+welche duͤſter ſich vor ihm hinlagerte, vergroͤſ-<lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">ſerte</fw><lb/>
+<pb n="10" facs="#f0013"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+ſerte ſein Leiden, welches er nur ſich ſelbſt<lb/>
+klagte. — Was Leidende in ſolchen Stun-<lb/>
+den allein noch fuͤr ihr Gluͤk halten, und was<lb/>
+es vielleicht allein auch nur noch etwa ſein<lb/>
+kann, iſt, daß ſie ſich beßre Tage, beßre<lb/>
+Welten fantaſiren. Da iſt ewiger Maien-<lb/>
+himmel; kein ſtummer Harm entpreßt ihnen<lb/>
+Thraͤnen da; ſie fuͤhlen ſich ſelig, und ſehen<lb/>
+ihre Bruͤder umher gluͤklich. Dies war auch<lb/>
+Walters angenemſter Troſt. Um dieſe Zeit<lb/>
+fieng er an den <hi rendition="#fr">Tauſend und einen Tag,<lb/>
+Tauſend und eine Nacht, Tauſend und<lb/>
+eine Viertelſtunde</hi>, und wie die Konſorten<lb/>
+dieſer Romanenrace ſich ſonſt noch nennen<lb/>
+moͤgen, zu leſen; er empfand dabei ein nie-<lb/>
+gefuͤhltes Vergnuͤgen und ergoͤzte ſich beſon-<lb/>
+ders uͤber die dienſtbaren Genien und Schuz-<lb/>
+geiſter. Er wuͤnſchte ſich nicht ſelten Ala-<lb/>
+dins Lampe zu beſizzen, und was man ſich<lb/>
+Suͤſſes, Seelenerquikkendes in ſolcher Lage<lb/>
+dabei traͤumen kann, traͤumte ſich dann<lb/>
+Walter.</p><lb/>
+<fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="11" facs="#f0014"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>Er ging bald aber weiter.</p><lb/>
+<p>Sollte es, dachte er oft, nicht irgend<lb/>
+moͤglich ſein, daß in verborgenen, unbekann-<lb/>
+ten Gegenſtaͤnden uͤbernatuͤrliche Kraͤfte und<lb/>
+Eigenſchaften laͤgen? — Der Menſch iſt ein<lb/>
+ſo ſehr erhabenes Geſchoͤpf, ſollte er nicht<lb/>
+auch Mittel durch ſeine Vernunft auffinden<lb/>
+koͤnnen, wodurch er ſich noch eine untere<lb/>
+Klaſſe der Geiſter, welche vielleicht nur zum<lb/>
+<hi rendition="#fr">Dienſte der Sterblichen erſchaffen</hi> wurden,<lb/>
+unterwuͤrfig zu machen vermoͤgte? Und wa-<lb/>
+rum ſprechen die alten Weltweiſen <hi rendition="#fr">ſo viel</hi><lb/>
+von dieſem noch zu <hi rendition="#fr">wenig</hi> beſegelten Reiche<lb/>
+der Schoͤpfung? Die Kraͤfte ihres Nachſin-<lb/>
+nens, welche bei uns auf ſo vielerlei Wiſ-<lb/>
+ſenſchaften verwandt werden muͤſſen, konnten<lb/>
+bei ihnen nur <hi rendition="#fr">einen</hi> groſſen Punkt zum Ziel<lb/>
+der Erforſchung waͤlen; viel von denſelben<lb/>
+widmeten ſich alſo vielleicht ganz nur der Er-<lb/>
+werbung groſſer, geheimer Weisheit. Ganz<lb/>
+wahrſcheinlich hatte dieſe Wiſſenſchaft bei ih-<lb/>
+nen ſchon einen gewiſſen Grad der Vollkom-<lb/>
+menheit erreicht; aber ſie wurde vernachlaͤſ-<lb/>
+<fw type="catch" place="bottom">ſigt</fw><lb/>
+<pb n="12" facs="#f0015"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+ſigt von den Enkeln, deren Aufmerkſamkeit<lb/>
+allmaͤlig auf mehrere Gegenſtaͤnde gezogen,<lb/>
+ſich zerſtreute; wurde von andern wieder, als<lb/>
+ein lautrer, lichter Silberquell mit Schlamm<lb/>
+verunreint, gemisbraucht, ſo, daß er ganz<lb/>
+endlich vergeſſen ward und dieſe erhabene<lb/>
+Wiſſenſchaft fuͤr uns verloren ging. (Siehe<lb/>
+den Brief eines Landprieſters uͤber die Worte,<lb/>
+was heißt es, <hi rendition="#fr">mit Zungen reden</hi>? in Goͤ-<lb/>
+thens Schriften!) Zwar ruͤmten ſich in den<lb/>
+folgenden Jahrhunderten noch manche den<lb/>
+Schaz dieſer goͤttlichen Kenntniſſe zu beſizzen<lb/>
+und hatten doch nur leere Worte — aber<lb/>
+ſollte nicht hin und wieder ein einſamer<lb/>
+Denker durch vieles Forſchen und Streben<lb/>
+wieder gefunden haben das Verlorne? ſollte<lb/>
+auch mir es nicht moͤglich ſein es wieder zu<lb/>
+finden, und hoͤhere Einſichten in erhabnern<lb/>
+Regionen der erſchaffnen Welt zu erklimmen,<lb/>
+wenn ich ganz die Kraͤfte meines Verſtandes<lb/>
+der verlorengegangenen Wiſſenſchaft widme;<lb/>
+wenn ich die einzelnen Spuren aufforſche,<lb/>
+welche noch hin und wieder vorhanden ſind,<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="13" facs="#f0016"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+und ihnen mit ſtrenger Vorſicht durch die ver-<lb/>
+wilderten Labyrinte folge? — Jch will's —<lb/>
+wer weiß es, wozu mich das Schikſal aufge-<lb/>
+ſpart hat; dort bluͤht vielleicht mein Gluͤk,<lb/>
+wo daſſelbe von mir am wenigſten geahndet<lb/>
+wird. —</p><lb/>
+<p>Dies mag ohngefaͤhr ein Abris von<lb/>
+Walters Gedanken ſein; wie eine Jdee<lb/>
+bei ihm aus der zweiten entſprang, und<lb/>
+ſo ſich am Ende ein vollkommnes Ganze<lb/>
+ausbildete. —</p><lb/>
+<p>Er gab ſich von dieſer Zeit an alle Muͤhe<lb/>
+vor's erſte Materialien zu ſammeln; keine<lb/>
+Buͤcheraukzion, keine alte Bibliothek oder<lb/>
+derlei Gelegenheiten aͤltere, ſeltne Werke auf-<lb/>
+zuhaſchen, durften ihm bekannt werden, ſo<lb/>
+war er da, ſie zu benuzzen. Seine Mitbur-<lb/>
+ſche pflegten ihn deswegen ſpottweiſe den<lb/>
+Nekromantiſten zu nennen; er aber hoͤrte<lb/>
+ſie nicht, wandelte entſchloſſen ſeine vorgeſezte<lb/>
+Straſſe und offenbarte niemanden etwas von<lb/>
+dem, was er ſich vorgenommen hatte. —<lb/>
+Er beſas wirklich nach einigen Monaten eine<lb/>
+<fw type="catch" place="bottom">klei-</fw><lb/>
+<pb n="14" facs="#f0017"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+kleine, auserleſene Bibliothek von den be-<lb/>
+kannteſten Werken, welche die magiſchen<lb/>
+Wiſſenſchaften behandeln, und ich will nur<lb/>
+folgende von ihnen, als die vorzuͤglichſten,<lb/>
+auszeichnen. Sein Lieblingswerk war vor<lb/>
+allen <hi rendition="#aq">Philoſophia occulta</hi> des Kornelius Heinr.<lb/>
+<hi rendition="#fr">Agrippa</hi>, ſonſt las er auch fleiſſig <hi rendition="#fr">Wiers</hi><lb/>
+Buch <hi rendition="#aq">de praeſtigiis et incantationibus</hi><note place="foot" n="*)">Man lernt hieraus <hi rendition="#fr">Geiſterbeſchwoͤrungen</hi> im<lb/>
+Groſſen und Kleinen, die Hoͤlle wird hierin um-<lb/>
+ſtaͤndlich geſchildert, man findet zugleich auch<lb/>
+die Zunamen der 572 hoͤlliſchen Fuͤrſten und der<lb/>
+7405926 geringern Geiſter.</note>, <hi rendition="#fr">Alk-<lb/>
+tzendi</hi> <hi rendition="#aq">de theoria magicarum artium, Mſcrpt.<lb/>
+<hi rendition="#i">Hieron. Cardani</hi> liber de ſubtilitate, <hi rendition="#i">Al-<lb/>
+berti Magni</hi> liber de mirabilibus; <hi rendition="#i">J. Gaffa-<lb/>
+relli</hi> curioſitates inauditae; <hi rendition="#i">Trithemii</hi> Stega-<lb/>
+nographia</hi> und viel andre.</p><lb/>
+<p>Unaufhoͤrlich ſas er nun bei dieſen Schrif-<lb/>
+ten; Tag und Nacht verſchwendete er bei<lb/>
+ihrer Durchleſung, und wirklich glaubte er<lb/>
+naͤher ſeinem Zwekke zu kommen. Man<lb/>
+ſprach von ihm in der ganzen Stadt, denn<lb/>
+er ſah ſich ſelbſt nicht mehr aͤhnlich; ſeine<lb/>
+<fw type="catch" place="bottom">Mie-</fw><lb/>
+<pb n="15" facs="#f0018"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+Mienen waren verzogen und blas; er ſprach<lb/>
+vor ſich ſelber und mit Muͤhe nur entlokten<lb/>
+ihm ſeine beſten Freunde dann und wann ein<lb/>
+Wort. — Mit jedem Tage verſtaͤrkte ſich<lb/>
+ſein Glaube an Magie und immer tiefer drang<lb/>
+er in das Reich derſelben ein. Er war feſt<lb/>
+von der Exiſtenz der Daͤmonen uͤberzeugt;<lb/>
+verfocht die Allgewalt der Beſchwoͤrungen uͤber<lb/>
+dieſelben; und wagte ſelbſt einige Schritte<lb/>
+weiter noch, als er Vorgaͤnger hatte. —<lb/>
+Anderthalb Jahre waren ihm bei dieſen Be-<lb/>
+ſchaͤftigungen wie anderthalb Stunden ver-<lb/>
+floſſen; er fuͤlte ſich genug eingeweiht in die<lb/>
+groſſen Myſterien der Magie und nahm ſich<lb/>
+ſogar vor, um ſeine Einſichten in die Ge-<lb/>
+heimniſſe der Geiſterwelt thaͤtiger zu zei-<lb/>
+gen. — Er wollte den Schatten eines Ver-<lb/>
+ſtorbenen aus dem Grabe hervorrufen; eines<lb/>
+Verſtorbenen, welchen er im Leben perſoͤnlich<lb/>
+gekannt hatte, und der war ſein Vater.</p><lb/>
+<p>Er beſtimmte die Sylveſternacht zu dieſem<lb/>
+ſchauerlichen Experimente, zu welchem ſchon<lb/>
+alle Vorbereitungen gemacht worden waren.</p><lb/>
+<fw type="catch" place="bottom">„Den</fw><lb/>
+<pb n="16" facs="#f0019"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>„Den ganzen Abend uͤber, habe ich, „ſag-<lb/>
+te er nachgehends in einem Briefe an ſeinen<lb/>
+Freund S**,“ allein auf meinem Zimmer<lb/>
+geſeſſen; gebetet und die Bitten an die heil.<lb/>
+Korona durchgeblaͤttert. Jch mus es geſte-<lb/>
+hen, daß mich ein kalter Graus anwandelte,<lb/>
+welches mir doch noch nie geſchehen war, als<lb/>
+die Kirchenglocke ein Uhr ſchlug; denn zu eben<lb/>
+dieſer Stunde wollte und mußte ich die <hi rendition="#aq">In-<lb/>
+cantationes</hi> anheben, wenn ich nicht meinen<lb/>
+Vorſaz, wie er war, aufgeben wollte. Jch<lb/>
+that ein andaͤchtiges Gebet zu dem allerhoͤch-<lb/>
+ſten Beherrſcher der Geiſter, Menſchen und<lb/>
+anderen Geſchoͤpfe, ſtund zitternd auf und<lb/>
+ſtieg in den Kreis, welcher ſchon ſeit zwo<lb/>
+Stunden fertig war. Jch weiß aber nicht,<lb/>
+wie mir es ward; denn meine Kraͤfte ver-<lb/>
+lieſſen mich ſehr, daß ich kaum die zwote Be-<lb/>
+ſchwoͤrung vollenden konnte. Als ich dieſe<lb/>
+gluͤklich beendiget hatte und ich alle mein<lb/>
+Vermoͤgen ſammlete, auch die dritte und lezte<lb/>
+anzufangen, hoͤrte ich ein fernes, wiewohl<lb/>
+vernehmliches Rauſchen uͤber den Saal, als<lb/>
+<fw type="catch" place="bottom">wie</fw><lb/>
+<pb n="17" facs="#f0020"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+wie wenn man einen großen Baum mit ſei-<lb/>
+nen Zweigen auf dem Erdboden hinter ſich<lb/>
+her zoͤge, welches Geraͤuſch immer naͤher<lb/>
+herbei kam, ſo daß ich feſt uͤberzeuget gewe-<lb/>
+ſen bin, es ſeye die Anweſenheit eines andern<lb/>
+Weſens geweſen, welches durch die Kraft der<lb/>
+Beſchwoͤrung angezogen worden iſt. Aber<lb/>
+mich uͤberfiel ein groſſer Schrekken, alſo, daß<lb/>
+ich zur Erden ſtuͤrzte und erſt gegen Morgen<lb/>
+zu mir ſelber kam. Weil es um mich dun-<lb/>
+kel war und ich mich kaum habe beſinnen<lb/>
+koͤnnen, legte ich mich uͤber das Bette in den<lb/>
+Kleidern und erwachte erſt um neun Uhr<lb/>
+des andern Tages. Jch fand alles unver-<lb/>
+ſehrt und das Licht war in der Nacht abge-<lb/>
+brannt.“ — —</p><lb/>
+<p>Ohne uns nun damit zu befaſſen, wel-<lb/>
+ches Bewandnis es mit dem Geraͤuſche ge-<lb/>
+habt habe, wollen wir zu einer merkwuͤr-<lb/>
+digern Begebenheit Walters uͤbergehn, der<lb/>
+ſich noch nicht durch den erſten, fruchtlos ab-<lb/>
+gelaufnen Verſuch ſchrekken lies, ſondern kuͤh-<lb/>
+ner vielmehr noch andre wichtigere Schritte<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">zu</fw><lb/>
+﻿
+<pb n="18" facs="#f0021"/>
+<lb/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+zu wagen ſich vorgeſezt hatte, als urploͤzlich<lb/>
+ein Brief aus der Vaterſtadt erſchien, in<lb/>
+welchem er nach Hauſe gerufen wurde, den<lb/>
+lezten Willen ſeiner ſterbenden Mutter anzuhoͤ-<lb/>
+ren. — Er ſaͤumte nicht, brachte ſeine Geſchaͤf-<lb/>
+te noch an eben dem Tage, als er die Hiobsbot-<lb/>
+ſchaft erhielt, in Ordnung und machte ſich fruͤh<lb/>
+des folgenden Morgens zu Fus auf die Reiſe.</p><lb/>
+<p>Es war am Pfingſtmontage Abends ziem-<lb/>
+lich ſpaͤt, als er die erſte Tagereiſe vollbracht,<lb/>
+in ein an der Landſtraſſe belegenes Wirths-<lb/>
+haus einkehrte und Nachtlager und Abend-<lb/>
+eſſen verlangte. Der Wirth gewilligte ihm<lb/>
+beides und er legte ſein Reiſebuͤndel ab, luͤf-<lb/>
+tete ſich, und miſchte ſich, aufgeheitert durch<lb/>
+den ſchoͤnen Abend und die ungewohnte Lei-<lb/>
+besbewegung, zu den Gaͤſten, die bei ihrem<lb/>
+Bierkruge viel uͤber Staͤdte und Schloͤſſer,<lb/>
+Kaiſer und Fuͤrſten ſprachen, wohinzu er<lb/>
+auch ſein Scherflein fuͤgte. Der freundliche<lb/>
+Wirth ermunterte die ganze Geſellſchaft durch<lb/>
+ſeine Wizreden, und davor lieſſen ſich die Gaͤ-<lb/>
+ſte fein fleiſſig die Kruͤge fuͤllen.</p><lb/>
+<fw type="catch" place="bottom">Wal-</fw><lb/>
+<pb n="19" facs="#f0022"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>Walter aber fiel allen beſonders auf, daß<lb/>
+er mit ſeinen Worten ſo kaͤrglich umging, un-<lb/>
+geachtet er ziemlich heiter zu ſein ſchien; der<lb/>
+Wirth fragte ihn deswegen offenherzig und<lb/>
+Walter beantwortete alles. Jndem aber<lb/>
+ſprang ein kleines unanſehnliches Maͤnnchen,<lb/>
+das immer unbemerkt in einem Winkel geſeſſen<lb/>
+hatte, hervor; ſtellte ſich vor Waltern hin; —<lb/>
+die Geſellſchaft beobachtete ein feierliches<lb/>
+Stillſchweigen; der Mann im grauen Rokke,<lb/>
+mit ungeheurem Hoͤker auf dem Ruͤkken ſchien<lb/>
+etwas ſagen zu wollen, aber — er trat<lb/>
+wieder zuruͤk, wurde blutrot im Geſicht,<lb/>
+ſazte ſich wieder in den vorigen Winkel und<lb/>
+ſprach kein halbes Woͤrtchen. Die Anwe-<lb/>
+ſenden verwunderten ſich hoch darob; ſie ſahn<lb/>
+ſich an; lachten und vergaſſen des ſonderba-<lb/>
+ren Schwanks, ohne weiter neugierig dar-<lb/>
+nach zu forſchen.</p><lb/>
+<p>Aber gemach wurde das Frohgeſpraͤch<lb/>
+leiſer — einer nach dem andern nam Ab-<lb/>
+ſchied — es war die Mitternachtsſtunde;<lb/>
+auch Walter legte ſich zur Ruhe und erwachte<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">fol-</fw><lb/>
+<pb n="20" facs="#f0023"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+folgenden Tags nicht eher, als bis ihn die<lb/>
+Morgenſonne durch die runden Fenſterſchei-<lb/>
+ben blendete und Waͤrme uͤber ihn gos.</p><lb/>
+<p>Er gieng zum Wirth, bezalte ſeine<lb/>
+Schuld und wollte ſchon ſeiner Straſſe ziehn,<lb/>
+als ihm leiſe der Bukklichte im grauen Rokke<lb/>
+beim Aermel zupfte und zu ihm ſprach: Herr,<lb/>
+ein Woͤrtchen mit Jhnen im Vertraun; es<lb/>
+ſoll Sie nicht gereun, wenn Sie etliche<lb/>
+Minuten bei mir zu verweilen haben!“ Er<lb/>
+fuͤhrte ihn darauf abſeits und ſagte: Herr, es<lb/>
+waltet unter den Menſchen ein Gewiſſes ob,<lb/>
+was ſie mit einander verbindet, wie mit<lb/>
+Demantketten und ihr Leben mit Freude<lb/>
+wuͤrzt. — Dies Etwas pflegen wir Sym-<lb/>
+pathie zu nennen und eben dies iſt es, wel-<lb/>
+ches Sie mir beim erſten Augenblik empfal. —<lb/>
+Verachten Sie mich nicht wegen meiner aͤrm-<lb/>
+lichen Figur etwa, ich bin nicht das, was ich<lb/>
+ſcheine. Empfinden Sie Luſt zu wiſſen, wer<lb/>
+ich ſei, ſo folgen Sie mir!“</p><lb/>
+<p>Walter ſah den Fremden ſchweigend an<lb/>
+und konnte ſich nicht in die offne Dreiſtigkeit<lb/>
+<fw type="catch" place="bottom">deſ-</fw><lb/>
+<pb n="21" facs="#f0024"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+deſſelben finden; doch entſchlos er ſich ihm<lb/>
+zu folgen und hies ihm, voran zu gehen;<lb/>
+iener that's und er wanderte ihm gedankenvoll<lb/>
+nach. Der Wirth zerklopfte ſeine Fenſter-<lb/>
+ſcheiben faſt; pfiff, biſchte, umſonſt; Wal-<lb/>
+ter vertieft in ſeinen Gedanken, hoͤrte die<lb/>
+Warnungen des wolmeinenden Wirthes<lb/>
+nicht.</p><lb/>
+<p>Der Weg ſchlaͤngelte ſich einem kleinen<lb/>
+Luftholze entgegen, und es verflos keine Vier-<lb/>
+telſtunde, ſo befanden ſich unſre beiden mit-<lb/>
+ten in demſelben, auf einem gruͤnen Bezirk,<lb/>
+dicht mit hohen Baͤumen umgeben. — Der<lb/>
+Fremde fing hier an ſich zu entkleiden; ſeinen<lb/>
+Hoͤker abzunemen, welcher aus verſchiednen<lb/>
+Materialien, zwo Schmelztigeln, Zinnble-<lb/>
+chen und etlichen Rollen von Louisd'oren be-<lb/>
+ſtand; dann auch ein verpfropftes Glaͤschen<lb/>
+hervorzuziehn, in welchem ein haͤslicher ſtal-<lb/>
+gruͤn ſchimmernder Kaͤfer hauſete. Walter<lb/>
+ſah mit den Aeuſſerungen des groͤſten Erſtau-<lb/>
+nens alle dem zu, war eben entſchloſſen das<lb/>
+lange Schweigen durch ein halb Duzzend<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">Fra</fw><lb/>
+<pb n="22" facs="#f0025"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+Fragen zu brechen, als iener ihm ſeiner Muͤ-<lb/>
+he uͤberhob.</p><lb/>
+<p>„Sie werden ſich freylich uͤber mein ſon-<lb/>
+derbares Betragen gewundert haben, mein<lb/>
+Herr; aber die Notwendigkeit heiſchte es<lb/>
+von mir, daß ich uͤber alles dies Jhnen nicht<lb/>
+eher als iezt Aufſchluß gab. — Mein Na-<lb/>
+me iſt R**, bin ein geborner, Franzoͤſi-<lb/>
+ſcher Graf; leidenſchaftliche Spielſucht mach-<lb/>
+te mich arm — ich wurde von meinen Freun-<lb/>
+den, nach der Mode unſrer Zeitgenoſſen,<lb/>
+verlaſſen, da ich ihrer am meiſten vonnoͤthen<lb/>
+hatte; mir blieb deswegen nichts uͤbrig, als<lb/>
+mich ſchaamvoll in die Einſamkeit zuruͤkzu-<lb/>
+ziehn. Hier fing ich an zu ſchriftſtellern,<lb/>
+um mir Lebensunterhalt zu erwerben, und<lb/>
+vorzuͤglich waren <hi rendition="#fr">Voltairens</hi> Werke, die<lb/>
+man bei ihren erſten Ausgaben gierig ver-<lb/>
+ſchlang, hizzig verfocht' und tadelte, neuer<lb/>
+Stoff fuͤr die meinen; ob ich den Mann<lb/>
+gleich im Herzen verehrte, verachtete ich doch<lb/>
+heftig ſeine Schriften um — mir dadurch<lb/>
+ein gutes Honorar zu erwuchern. Unter<lb/>
+<fw type="catch" place="bottom">an-</fw><lb/>
+<pb n="23" facs="#f0026"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+andern ſeiner Aufſaͤzze war mir der uͤber die<lb/>
+Genien merkwuͤrdiger, als alle; denn er<lb/>
+fuͤhrte mich auf ernſtere Gedanken. Jch hatte<lb/>
+es mir einmal feſtgeſezt dem Voltaire in al-<lb/>
+lem zu wiederſprechen; hier mußt' ich nun die<lb/>
+Schuzgeiſter vertheidigen; ich ſtudierte des-<lb/>
+wegen alte Folianten von vorigen Jahrhun-<lb/>
+derten, um aus ihnen guͤltige Beweiſe und<lb/>
+Gruͤnde zu ſaugen — aber ich lernte unver-<lb/>
+mutet mehr aus ihnen; wurde eingenom-<lb/>
+men fuͤr nekromantiſche und alchemiſtiſche<lb/>
+Wiſſenſchaften, und die zwoͤlf Jahre, welche<lb/>
+ich auf ihr Studium verwandte, haben mich<lb/>
+noch nicht gereut, denn ſie machten mich<lb/>
+zum Gebieter in der Region der Geiſter,<lb/>
+zum Eigenthuͤmer des <hi rendition="#aq">Lapis philoſophorum</hi>,<lb/>
+zu mehr, als einem Fuͤrſten. Sie werden<lb/>
+meinen Worten nicht glauben koͤnnen und<lb/>
+doch iſt es alſo; ich ziehe izt in Geſchaͤften<lb/>
+des hohen <hi rendition="#fr">Alhaazeel</hi> umher <note place="foot" n="*)">Da <hi rendition="#fr">Kaglioſtro</hi> bei der verehrungswuͤrdigen<lb/>
+Frau <hi rendition="#fr">Graͤfin von Medem</hi> ſein Gaukelſpiel trieb,<lb/>
+gab er vor, in Geſchaͤften ſeiner Obern nach Nor-<lb/>
+den reiſen zu muͤſſen.</note>, verkleide<lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">mich</fw><lb/>
+<pb n="24" facs="#f0027"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+mich in ein ſchlechtes Gewand, um deſto<lb/>
+unbelauſchter die Falten des menſchlichen<lb/>
+Herzens erforſchen zu koͤnnen. Jch finde<lb/>
+Sie hier — ein geheimer, ſympathetiſcher<lb/>
+Zug reißt mich fuͤr Sie hin — ich will Sie<lb/>
+gluͤklich machen und einweihen in das dunkle<lb/>
+Allerheiligſte des Myſtizismus, wozu Sie<lb/>
+ſchon ſeit anderthalb Jahren den Grundſtein<lb/>
+gelegt haben. — Sie ſtaunen, woher ich<lb/>
+dies weis? ſehn Sie dieſen Kaͤfer im Glaſe,<lb/>
+er iſt ein ungezogner Daͤmon; der offenbart<lb/>
+mir die tiefſten Geheimniſſe des Koͤniglichen<lb/>
+Kabinets; auch <hi rendition="#fr">Jhre</hi> Schikſale hat er mir<lb/>
+kund gethan!“<note place="foot" n="*)" xml:id="seg2pn_1_1" next="#seg2pn_1_2"><p>Daß der Teufel, oder will man ihn feiner be-<lb/>
+nennen, der <hi rendition="#fr">Daͤmon</hi> nicht ſelten das Schikſal<lb/>
+hatte in Glaͤſern und Kruͤgen logiren zu muͤſſen,<lb/>
+will ich meinen Leſern aus folgender, allerdings<lb/>
+glaubwuͤrdigen Legende beweiſen. Der Teufel<lb/>
+und der <hi rendition="#fr">heil. Lupus</hi> waren einander erklaͤrte<lb/>
+Feinde, wo ſie ſich alſo einen Poſſen ſpielen<lb/>
+konnten, geſchah's, wie man denken kann, nur<lb/>
+zu gern. Da einſt der Heilige bis in ſpaͤter<lb/>
+Nacht im Gebet verharrete, wurde er auf Anſtel-<lb/>
+lung des Teufels durſtig, ſo daß er friſches</p><lb/>
+<fw type="catch" place="bottom">Waſ-</fw></note></p><lb/>
+<fw type="catch" place="bottom">„Mei-</fw><lb/>
+<pb n="25" facs="#f0028"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>„Meine Schikſale?“ fragte Walter<lb/>
+erſtaunt.</p><lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">Ohne</fw><lb/>
+<p><note place="foot" n="*)" xml:id="seg2pn_1_2" prev="#seg2pn_1_1" next="#seg2pn_1_3"><p>Waſſer verlangte, welches man ihm gab. Der<lb/>
+ſchlaue Feind benuzte dieſe Gelegenheit in den<lb/>
+heiligen Mann fahren zu koͤnnen; kroch hurtig<lb/>
+in den Krug um von ienem mit dem Waſſer<lb/>
+verſchlukt zu werden; welcher aber Unrath wit-<lb/>
+terte, den Krug mit ſeinem Kiſſen bedekte und —<lb/>
+ſo den armen Teufel gefangen hielt! die ganze<lb/>
+Nacht muſt' er drinnen heulen; erſt am Tage<lb/>
+lies er ihn heraus, <hi rendition="#fr">auf daß er ſollt zu Schanden<lb/>
+werden vor jederman, die weilen er ihn heim-<lb/>
+lich betriegen hette woͤllen</hi> — O kranker Moͤnchs-<lb/>
+kopf! ſiehe <hi rendition="#aq">Casp. Finckii Cen<supplied>t</supplied>ur. II legendo-<lb/>
+rum papiſticorum p. 64.</hi> —</p><lb/>
+<p>So wie ſich unſre Damen izt Puzzen und<lb/>
+neue Moden von <hi rendition="#fr">Paris</hi> und <hi rendition="#fr">Lion</hi> verſchrei-<lb/>
+ben, <hi rendition="#fr">verſchrieb</hi> man ſich ehmals kleine <hi rendition="#fr">Teufel-<lb/>
+chen</hi> (<hi rendition="#aq">ſpiritus Familiares</hi>, Geheimgeiſter) aus<lb/>
+Jtalien, Frankreich und Spanien. Die alten<lb/>
+Skribenten behaupten einhellig, daß auf ſolche<lb/>
+Art, leider! viel dergleichen Thierchen nach<lb/>
+Deutſchland gekommen ſein. <hi rendition="#fr">Phil. von Sitt-<lb/>
+waldt</hi> (im <hi rendition="#aq">Ruperto experto</hi>) erzaͤlt uns, daß,<lb/>
+als er mit zwei jungen von Adel nach Jtalien<lb/>
+reiſete, einem von dieſen von einem guten Freun-<lb/>
+de 12 Kronen gegeben worden waͤren, von daher<lb/>
+einen allerliebſten Daͤmon mitzubringen. — —<lb/>
+Jm Jahre 1450 wollte ein Augſpurgiſcher<lb/>
+Kaufmann ſogar aus Teufeln einen Handlungs-</p><lb/>
+<fw type="catch" place="bottom">zweig</fw></note></p><lb/>
+<pb n="26" facs="#f0029"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>Ohne eine Antwort zu geben faßte der<lb/>
+Nekromantiſt, oder aus welchem Lichte er dem<lb/>
+guten Walter in dem Augenblik ſonſt erſchienen<lb/>
+ſein mag? die Hand deſſelben, ſah ihm ernſt,<lb/>
+mit ſtarren durchdringenden Blikken in's Auge,<lb/>
+ſtand zwei Minuten lang unbeweglich vor<lb/>
+ihm und begann darauf mit halbleiſer, feier-<lb/>
+licher Stimme unſern Novize in der Magie<lb/>
+ſein Leben ohne des mindeſten Umſtandes zu<lb/>
+<fw type="catch" place="bottom">ver-</fw><lb/>
+<note place="foot" n="*)" xml:id="seg2pn_1_3" prev="#seg2pn_1_2"><p>zweig machen und (eigne Worte des Autors)<lb/>
+<hi rendition="#fr">ſolche ſaubere Dingerchen in Glaͤſern wie Flie-<lb/>
+gen oder Ameiſen auf die Leipziger Meſſe ver-<lb/>
+ſenden</hi>. Allein ahndete es ihm oder ſagten es<lb/>
+ihm ſeine Teufelchen ſelbſt, daß er dieſer Kraͤme-<lb/>
+rei willen Verantwortung haben duͤrfte, es un-<lb/>
+terblieb. — — <hi rendition="#fr">Zeiler</hi> berichtet uns (in ſeiner<lb/>
+<hi rendition="#fr">Schazkammer goͤldner Sendſchreiben</hi> <hi rendition="#aq">p</hi>. 813.)<lb/>
+unter andern mit vertraulicher Miene, daß wei-<lb/>
+land ein Edelmann in der Pikkardie bei Villiers<lb/>
+Koßeret einen <hi rendition="#aq"><supplied>ſ</supplied>piritum Familiarem</hi> in einem<lb/>
+Ringe gehabt habe, welchen er ſehr ſklaviſch<lb/>
+hielt, weil er ihn von einem Spanier glaubte<lb/>
+zu theuer gekauft zu haben. Da er ihn endlich<lb/>
+gar ins Feuer warf fuhr der Teufel aus dem<lb/>
+Ringe in den Herrn Ritter, und dieſer ward<lb/>
+toll. Der <hi rendition="#aq">Diable boiteux</hi> des Herrn <hi rendition="#fr">le Sage</hi><lb/>
+war gewis auch von der Race. —</p></note><lb/>
+<pb n="27" facs="#f0030"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+vergeſſen, durchaus hiſtoriſch und kronologiſch-<lb/>
+richtig zu erzaͤlen und dann ihm, zu noch groͤſ-<lb/>
+ſerm Staunen des leztern, ſeine kuͤnftigen Be-<lb/>
+gebenheiten zu weiſſagen, die theils noch ſehr<lb/>
+unwahrſcheinlich, theils auch ſchon ſehr<lb/>
+wahrſcheinlich waren.</p><lb/>
+<p>Walter war auſſer ſich — zweifelnd<lb/>
+ſtand er da, ob er den guͤtigen, freund-<lb/>
+ſchaftlichen Mann, welcher fuͤr ihn, als ei-<lb/>
+nen Unbekannten, ſo viel that, umarmen,<lb/>
+oder dem groſſen unendlich weiſen Mann vol-<lb/>
+ler Ehrfurcht zu Fuͤſſen fallen ſollte.</p><lb/>
+<p>„<hi rendition="#fr">Flammel, Lulle</hi> und <hi rendition="#fr">Treviſano</hi> haben<lb/>
+den Stein der Weiſen, fuhr iener laͤchelnd<lb/>
+fort, nachdem ſie uͤber ein halbes Jahrhun-<lb/>
+dert vergebens darnach ſuchten, gefunden —<lb/>
+auch ich beſizze das groſſe Geheimnis, halte es<lb/>
+aber vor das geringſte von allen denen, mit wel-<lb/>
+chen mich die hohen Unſterblichen begabten —<lb/>
+denn nur den Ungeweihten, den niedern Poͤ-<lb/>
+bel kann todtes Gold blenden, und der Wei-<lb/>
+ſe macht nur in ſo fern davon Gebrauch, als<lb/>
+er es bedarf, ſeine Abſichten bei den Sterbli-<lb/>
+<fw type="catch" place="bottom">chen</fw><lb/>
+﻿
+<pb n="28" facs="#f0031"/>
+<lb/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+chen zu erreichen denn dieſe ſind in ſeinen<lb/>
+Augen dem groͤſten Theile nach nur Mario-<lb/>
+netten auf der Buͤhne — man zieht den Fa-<lb/>
+den, und ſie bewegen ſich! — Jch kenne<lb/>
+Jhre duͤrftigen Umſtaͤnde, mein Herr, und<lb/>
+eben deswegen bin ich ſo frei Jhnen dieſe<lb/>
+Rolle von Louisd'oren zum Geſchenk anzu-<lb/>
+bieten; bedienen Sie ſich derſelben nach ihrer<lb/>
+Lage und ihren Beduͤrfniſſen, ohne dabei den<lb/>
+Geber zu vergeſſen.“</p><lb/>
+<p>Der entzuͤkkte Juͤngling warf ſich in eben<lb/>
+dieſem Augenblikke dem Grosmuͤthigen zu<lb/>
+Fuͤſſen — er dankte ihm tauſendmal fuͤr ſei-<lb/>
+ne Liebe und weinte. R** hob ihn aber ſanft-<lb/>
+laͤchelnd auf; verbat ſich ieden Dank, form-<lb/>
+te ſeinen Hoͤker wieder, zog den entſtellen-<lb/>
+den Graurok an, nam Waltern bei der Hand<lb/>
+und fuͤhrte denſelben aus dem Walde.</p><lb/>
+<p>Unterwegs ſprachen ſie beide viel von<lb/>
+uͤberirrdiſcher Lebensweisheit und Geiſterun-<lb/>
+terwerfung — Walter lernte aus dieſem<lb/>
+Geſpraͤche doppelt ſoviel, als er ſeit andert-<lb/>
+halb Jahren aus ſeinen Folianten gelernt hatte.</p><lb/>
+<fw type="catch" place="bottom">„Es</fw><lb/>
+<pb n="29" facs="#f0032"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>„Es ſind Dinge zwiſchen dem Mond und<lb/>
+der Erde, ſprach R** unter andern, von denen,<lb/>
+wie Hamlet ſagt, unſer Kompendium nichts<lb/>
+weis. Er hat Recht! — Freund, ſollten<lb/>
+Jhnen die Schuppen vom Auge geriſſen, ſoll-<lb/>
+te Jhnen die Welt in ihrer wahren Geſtalt,<lb/>
+unbeſchleiert, gezeigt werden, ſie wuͤrden<lb/>
+ausrufen: Himmel, was ſind wir; wie tief<lb/>
+geſunken; wie große Sklaven der Unvollkom-<lb/>
+menheit; wie tief beugen wir uns unter ei-<lb/>
+nem Tyranniſchen Joche, welches wir mit<lb/>
+jeder Stunde abwerfen koͤnnten — und<lb/>
+welchen unbeſchreiblich hoͤhern Grad irrdiſcher<lb/>
+und geiſtiger Vollkommenheit koͤnnen wir<lb/>
+erlangen!“</p><lb/>
+<p>„Aber warum, wenn ich fragen darf,<lb/>
+gegenredete Walter, zeigen die Weiſen nicht<lb/>
+ihren Bruͤdern die Mittel, durch welche man<lb/>
+dies Joch abzuſchuͤtteln vermoͤgte?“</p><lb/>
+<p>„Lieber Freund, dies erfordert unnenn-<lb/>
+bare Vorbereitungen, die nur dem bekannt<lb/>
+ſind, welcher mit ſeinem Blik das allgemei-<lb/>
+ne Ganze auf einmal uͤberfluͤgeln kann. Ne-<lb/>
+<fw type="catch" place="bottom">men</fw><lb/>
+<pb n="30" facs="#f0033"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+men Sie einen Knaben und zeigen Sie ihm<lb/>
+die groſſen Vortheile der Algebra fuͤr den<lb/>
+menſchlichen Verſtand — wird er Sie ver-<lb/>
+ſtehn? — Erſt durch viele verworne Zuͤge<lb/>
+und muͤhſame Wege fuͤhren Sie ihn zum<lb/>
+Anſchaun und zur großen Erkenntniß. —<lb/>
+Die geometriſchen Anfangsgruͤnde ihm alſo<lb/>
+beizubringen, gilt die mehrſte Muͤhe. —<lb/>
+Schade, daß nur zu oft die mehrſten, bei<lb/>
+aller ihrer Neugierde das Allerheiligſte der<lb/>
+Magie zu erkennen, dennoch auf dem Pfade<lb/>
+dahin ermuͤden.“</p><lb/>
+<p>„Jch wuͤrd' es unmoͤglich!“</p><lb/>
+<p>„Wol, mein Herr, ich begleite Sie<lb/>
+mit zu Jhrer Vaterſtadt; beſtehen Sie die<lb/>
+Pruͤfungen, find ich Sie als ein wuͤrdiges<lb/>
+Subiekt fuͤr die myſtiſche Weisheit, ſo ſein<lb/>
+Sie uͤberzeugt, ich werde Sie an meiner<lb/>
+Hand dahin leiten. — Aber keine neu-<lb/>
+gierige, vorwitzige Frage — nur Glau-<lb/>
+be und That macht hier gluͤkklich! denn ich<lb/>
+wuͤrde ſie Jhnen mit nichts andern beant-<lb/>
+worten koͤnnen, als was man dem Knaben<lb/>
+<fw type="catch" place="bottom">ant-</fw><lb/>
+<pb n="31" facs="#f0034"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+antwortet, wenn er fraͤgt: wozu der viele<lb/>
+unnuͤtze Wirwar von dieſem und ienem? ich<lb/>
+will nicht dies, ſondern die Algebra lernen.</p><lb/>
+<p>Erſt am Abend des folgenden Tages ka-<lb/>
+men beide in der Heimath an — Walter<lb/>
+eilte zu ſeiner Mutter und fand ſie ſchon ge-<lb/>
+ſtorben. Seine Gefuͤle fuͤr andre Gegenſtaͤnde<lb/>
+auſer der heiligen Magie, und wenn ſie die<lb/>
+auffallendſten, ruͤhrendſten in dieſem Erdele-<lb/>
+ben geweſen waͤren, waren durch ſeinen al-<lb/>
+zugroſen Hang nach dem einzigen, Groſen<lb/>
+ganz abgeſtumpft — er konnte nicht weinen,<lb/>
+nicht Mitleid empfinden; troknen Auges ſah<lb/>
+er ſie auf dem Stroh liegen — er ging von<lb/>
+ihr und durchſuchte die hinterlaſſene Erb-<lb/>
+ſchaft, welche an baarem Gelde in 200 Rthlr.<lb/>
+beſtand. Er war zufrieden; und waͤr es<lb/>
+noch weniger geweſen, er haͤtte ſich das nicht<lb/>
+kuͤmmern laſſen — ſo ſehr war er hingeriſſen<lb/>
+fuͤr ſein Jdeal, nach dem all ſein Streben<lb/>
+ging, nach welchem er immer und vergebens<lb/>
+haſchte, wie in der Fabel der Knabe nach<lb/>
+dem Regenbogen. Er lies ſeine Mutter zur<lb/>
+<fw type="catch" place="bottom">Erde</fw><lb/>
+<pb n="32" facs="#f0035"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+Erde beſtatten, und wollte, nachdem er ſich<lb/>
+endlich aus den Unruhen, welche ihm das<lb/>
+Begraͤbnis erregte, geriſſen hatte, ſchon wi-<lb/>
+der zuruͤk nach H** gehn, um da die be-<lb/>
+gonnenen Studien zu enden, als er ploͤzlich,<lb/>
+ohne darnach ſich bemuͤht zu haben, vom<lb/>
+Magiſtrat zum Stadtſekretair gemacht wur-<lb/>
+de. — Er war's zufrieden und ſuchte ſich<lb/>
+durch Treue und Fleis dieſes Amtes werth zu<lb/>
+machen; lies von H** ſeine magiſche<lb/>
+Bibliothek heruͤberkommen und lebte von nun<lb/>
+an ſeine Tage ſuͤſſer und behaglicher in der<lb/>
+kleinen Vaterſtadt, als ie.</p><lb/>
+<p>Was den Nekromantiſt anbetrift, ſo lies<lb/>
+er ſich anfaͤnglich bei ihm nur ſehr ſelten<lb/>
+ſehn — allein, da Walters haͤusliche Um-<lb/>
+ſtaͤnde erſt zur beſſern Ordnung gediehen<lb/>
+waren, wurden ſeine Viſiten haͤufiger und<lb/>
+dem Stadtſekretair von Tage zu Tage ange-<lb/>
+nehmer. R** ging itz nicht mehr wie auf<lb/>
+ſeiner Reiſe im grauem Kittel und mit dem<lb/>
+Goldmacherhoͤker; ſondern zu Walters Ver-<lb/>
+wunderung ungemein wolgekleidet; er trug<lb/>
+<fw type="catch" place="bottom">ein</fw><lb/>
+<pb n="33" facs="#f0036"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+ein blaues Kleid mit ſchmalen, goldnen Treſ-<lb/>
+ſen; auf der Seite einen Stuzzerdegen und<lb/>
+Chapeau-bas. Er war in den vornemſten<lb/>
+Geſellſchaften willkommen; hatte mit den er-<lb/>
+ſten Magiſtratsperſonen einen ſehr vertrauten<lb/>
+Umgang und that, als haͤtte er ſie ſchon ſeit<lb/>
+langer Zeit gekannt. So ſehr Waltern dies<lb/>
+auffiel, wollte er doch nie durch eine Frage<lb/>
+dem raͤtſelhaften Magiker ſeine Neugierde<lb/>
+verraten; ſondern begnuͤgte ſich damit, wenn<lb/>
+iener ihn nur recht oft beſuchte und in der<lb/>
+geheimen Wiſſenſchaft unterrichtete</p><lb/>
+<p>Von Tage zu Tage fuͤhlte er ſich voll-<lb/>
+kommner, ward aber auch tiefſinniger;<lb/>
+ſelten ſprach er, arbeitete beſtaͤndig in einem<lb/>
+verſchloſſenen Zimmer; ſprach ſehr wenig<lb/>
+mit andern, vieles aber vor ſich. Er ſchrieb<lb/>
+vieles von ſeinen Experimenten und Selbſt-<lb/>
+erfarungen nieder, aber in einer ganz unbe-<lb/>
+kannten Sprache und Schrift, und damit<lb/>
+auch nichts von dieſem etwa in ungerechte<lb/>
+Haͤnde ſich verirrte, ſo warf er es iedesmal<lb/>
+ſorgfaͤltig — ins Feuer.</p><lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">„Das</fw><lb/>
+<pb n="34" facs="#f0037"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>„Das ganze Weltall betracht' ich izt,<lb/>
+ſagte er einmal, aus einem ganz andern Ge-<lb/>
+ſichtspunkte; das Weſen meiner Seele; die<lb/>
+hohen Eigenſchaften des dreieinigen Gottes;<lb/>
+die geheimen Kraͤfte der Natur; die ſichtbare<lb/>
+und geiſtige Welt, alles liegt unverhuͤllter vor<lb/>
+meinen Blikken. Alle Dinge ſind von der<lb/>
+Gottheit ſelbſt durch ein uͤberirrdiſches Band<lb/>
+zuſammengekettet; ieder Sterbliche iſt darin<lb/>
+ein Glied und ein Sterblicher kann daher die<lb/>
+Kette der ganzen menſchlichen <hi rendition="#fr">Geſellſchaft</hi><lb/>
+willkuͤhrlich in <hi rendition="#fr">Bewegung</hi> ſezzen. Es liegt<lb/>
+in der heiligen Werkſtatt der Natur eine<lb/>
+<hi rendition="#fr">Subſtanz</hi> verborgen, welche mit zum Ur-<lb/>
+ſtof aller Elemente gehoͤrt, in den Tempera-<lb/>
+menten aller Sterblichen wohnt und nur von<lb/>
+dem hermetiſchen Weiſen ausgefunden wer-<lb/>
+den kann. Dieſes Weſen iſt von Gott durch<lb/>
+alle moͤgliche Koͤrper gewebt; kann von den<lb/>
+<hi rendition="#fr">Geiſtern</hi> empfunden werden und haͤlt die<lb/>
+ganze Koͤrperwelt wie Glieder eines Leibes<lb/>
+zuſammen. Es aͤuſſert ſich oft, ohne daß wir<lb/>
+es wiſſen. Wenn z.B. ein Menſch im To-<lb/>
+<fw type="catch" place="bottom">des</fw><lb/>
+<pb n="35" facs="#f0038"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+deskampfe ringt und ſeine Seele halb losge-<lb/>
+riſſen von ihrer Huͤlle iſt; dann kann ſie ſich<lb/>
+einer andern Seele fuͤlbar machen, welche<lb/>
+dadurch ſehr beaͤngſtigt wird und dies pflegen<lb/>
+wir <hi rendition="#fr">Ahndungen</hi> zu nennen. Dieſe Ahndun-<lb/>
+gen entſtehen durch den <hi rendition="#fr">ſympathetiſchen Zu-<lb/>
+ſammenhang aller Glieder in der Koͤrper-<lb/>
+welt</hi>, in welcher das eine nicht leiden kann,<lb/>
+ohne daß das andere den Schmerz mit<lb/>
+empfindet. — Eben hierdurch koͤnnen Er-<lb/>
+ſcheinungen bewirkt werden, die ſchlechter-<lb/>
+dings nicht zu laͤugnen ſind, weil ſie ſich auf<lb/>
+zuviel glaub- und merkwuͤrdige Erfahrungen<lb/>
+gruͤnden; eben hierdurch kann man ſich uͤber<lb/>
+ſich ſelbſt und zum Umgang andrer denken-<lb/>
+den, freien Weſen <hi rendition="#fr">erhoͤhen</hi>, welche noch etwa<lb/>
+mit in dies ſympathetiſche Band verflochten<lb/>
+ſind. Der Weiſe, welcher nun den Weg<lb/>
+gefunden hat, wodurch er ſich dem Urquell<lb/>
+von dieſem allen naͤhert, aus welchem er zu-<lb/>
+gleich auch die wahren Mittel, ſich aller in<lb/>
+den Stoffen der Welt ausgeſtreuten ſympa-<lb/>
+hetiſchen Kraͤfte nach eigenmaͤchtigem Willen<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">zu</fw><lb/>
+<pb n="36" facs="#f0039"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+zu bedienen ſchoͤpfen kann, der hat eine hohe<lb/>
+Staffel der magiſchen Weisheit erſtiegen;<lb/>
+kann aller Herzen nach ſeinen Abſichten lenken;<lb/>
+kann im Verborgenen den wichtigſten Einflus<lb/>
+auf das Wol einer halben Welt haben; kann<lb/>
+die groͤſten Revoluzionen in den Staaten er-<lb/>
+zeugen; kann ſelbſt Geiſter von der niedern<lb/>
+Klaſſe, durch Beruͤhrung dieſes ſympatheti-<lb/>
+ſchen Bandes unaufhoͤrlich an ſeinen Willen<lb/>
+feſſeln, welches ſonſt auf keine andre Art<lb/>
+moͤglich iſt. — Moſes lebte lang im Ver-<lb/>
+borgenen, ehe er aufſtand um einen ganzen<lb/>
+Staat zu veraͤndern; er ſtudierte die gehei-<lb/>
+men Werke der aͤgyptiſchen Weiſen, welche<lb/>
+ſich damals faſt einzig nur, angereizt durch<lb/>
+das Vorſpiel der Kaldaͤer, die ſehr viel am<lb/>
+Hofe galten, der heiligen Magie gewidmet<lb/>
+hatten. Dann trat er auf, und lies den<lb/>
+Voͤlkern ſeinen verborgenen Einflus fuͤh-<lb/>
+len. — <hi rendition="#fr">Jeſus Chriſtus</hi> wurde erſt kurz vor<lb/>
+ſeinem dreiſigſten Jahre etwas merkwuͤrdi-<lb/>
+ger; ſeine Geſchichte vor dieſer Zeit iſt uns<lb/>
+unbekannt, wahrſcheinlich verlebte er ſie in-<lb/>
+<fw type="catch" place="bottom">nerhalb</fw><lb/>
+<pb n="37" facs="#f0040"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+nerhalb ſeines Zimmers, umringt von den<lb/>
+Werken aller auslaͤndiſcher Weltweiſen. Er<lb/>
+hat in der Zeit beſonders auch die Juͤdiſche<lb/>
+Kabala ſtudiert, und ſie von den vielen Feh-<lb/>
+lern und Unreinigkeiten derer Unwiſſenden ge-<lb/>
+ſaͤubert; durch ſie lernte er die ganze Fuͤlle<lb/>
+des Goͤttlichen Namens und die groſen Ge-<lb/>
+heimniſſe ſeiner Eigenſchaften; durch ſie er-<lb/>
+hob er ſich hoͤher, indem er den wahren Geiſt<lb/>
+derſelben nachforſchte und ſich nicht an die<lb/>
+Zeremonien und niedern Zuſaͤzze der Unver-<lb/>
+ſtaͤndigen band; durch ſie gewann er den<lb/>
+groſen Einflus auf Menſchen und Religions-<lb/>
+verbeſſerung. Auch <hi rendition="#fr">Apollon von Tyana</hi> war<lb/>
+ein Geſchwiſter der heiligen Magie, nur auf ei-<lb/>
+ner etwas niedern Stufe, denn Chriſtus. — —<lb/>
+Das groſe Myſterium und den lichtloſen Pfad<lb/>
+dahin zu finden, iſt <hi rendition="#fr">nicht ſo ſehr ſchwer</hi>. Man<lb/>
+mus zuerſt die geheimen Werke der Philoſo-<lb/>
+fen und deren reinen Sinn ſtudieren; iede<lb/>
+ſeiner Leidenſchaften daͤmpfen, ſeinen Willen<lb/>
+brechen, ſich kalt und fuͤhllos gegen alle<lb/>
+Ereigniſſe machen, keine Wuͤnſche nach irrdi-<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">ſchen</fw><lb/>
+﻿
+<pb n="38" facs="#f0041"/>
+<lb/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+ſchen Gluͤk kennen, Freude und Traurigkeit<lb/>
+wegbannen und uͤberhaupt ſo viel als moͤglich<lb/>
+ſich von menſchlichen Schwachheiten reinigen.<lb/>
+Dann vorzuͤglich iede Arten von Menſchen-<lb/>
+karaktern ausforſchen, pruͤfen und durch<lb/>
+ſtrenge Faſten ſich vollkomner machen um<lb/>
+der Gemeinſchaft andrer Weſen theilhaftig<lb/>
+zu werden.“ — —</p><lb/>
+<p>Walter konnte nicht ermuͤden immer<lb/>
+tiefer einzudringen; iedes Hinderniß, welches<lb/>
+ſich ihm in den Weg lagerte, war ihm nur<lb/>
+Sporn es zu uͤberſteigen, ſtatt daß er davor<lb/>
+zuruͤk wich. —</p><lb/>
+<p>An einem Sonntage Nachmittags kam<lb/>
+R** mit einer ungewoͤhnlichen Heiterkeit zu<lb/>
+ihm; erzaͤhlte dies und das, fragte um ver-<lb/>
+ſchiedene Sachen und rief endlich aus:<lb/>
+„Freund, Sie ſind mein! Sie ſind gepruͤft<lb/>
+von mir — ich fuͤhre Sie eine Stufe hoͤ-<lb/>
+her! — Zwar noch nicht die allerhoͤchſte<lb/>
+werden Sie beſteigen; aber doch ſollen Sie<lb/>
+unendlich zufrieden mit ihrer baldigen Wuͤr-<lb/>
+de ſein.“</p><lb/>
+<fw type="catch" place="bottom">„Wie</fw><lb/>
+<pb n="39" facs="#f0042"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>„Wie ſo, mein Herr? — ich wuͤſte nicht<lb/>
+wie ſehr ich Jhnen dankbar ſein wuͤrde, wenn<lb/>
+Sie Jhr hohes Verſprechen, welches Sie<lb/>
+mir bei unſerer erſteu Bekantwerdung tha-<lb/>
+ten, hielten?“</p><lb/>
+<p>„Jch will Sie in einen Orden, in wel-<lb/>
+chem die groͤſten Weiſen Geweihte ſind, hin-<lb/>
+fuͤhren — Sie ſollen ein Freimaurer wer-<lb/>
+den.“</p><lb/>
+<p>„Lang hab ich mich darnach geſehnt, die<lb/>
+Geheimniſſe dieſes groſen Orden zu wiſ-<lb/>
+ſen. — Vielleicht fuͤhrten ſie mich naͤher zum<lb/>
+einzigen Zwek.“</p><lb/>
+<p>„Daran zweifeln Sie nicht!“</p><lb/>
+<p>„Doch hab ich gefunden, daß es in un-<lb/>
+ſern Tagen der ſogenannten <hi rendition="#fr">Winkellogen</hi><lb/>
+ſehr viel geben ſoll“ — —</p><lb/>
+<p>„Leider!“</p><lb/>
+<p>„Und woran erkennt man nun die Aecht-<lb/>
+heit derſelben?“</p><lb/>
+<p>„Sie werden es erfahren, wenn ſie mit<lb/>
+Aufmerkſamkeit meine Worte anhoͤren wollen.<lb/>
+Wol der Menſchheit und Selbſterhebung iſt<lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">die</fw><lb/>
+<pb n="40" facs="#f0043"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+die groſe Abſicht des Ordens, welcher in<lb/>
+den fruͤheſten Zeiten ſchon ſeinen Urſprung<lb/>
+nam, aber nach und nach, beſonders in den<lb/>
+Jahrhunderten der allgemeinen Unwiſſenheit<lb/>
+ſo tief ſank durch die Jgnoranz ſeiner Glie-<lb/>
+der, daß nur in wenigen Logen noch die ein-<lb/>
+zige hohe Weisheit, zu welcher man ſich in<lb/>
+ſiebenfachen Staffeln emporarbeitet, zu fin-<lb/>
+den iſt. Die <hi rendition="#fr">Loge der Dreifaltigkeit</hi> iſt die,<lb/>
+zu welcher ich mich zaͤle, und welche noch<lb/>
+das wahre, heilige Arkanum beſizt — ich<lb/>
+will Jhnen von ihrer innern Einrichtung nur<lb/>
+folgendes wenige ſagen, damit ich Sie in<lb/>
+den Stand ſezze, ſich einen klaren Begrif<lb/>
+vom Zwekke und der Wuͤrde derſelben bilden<lb/>
+zu koͤnnen. — — Die Welt iſt anizt alſo<lb/>
+beſchaffen, daß man nur den Mann nach<lb/>
+Kleidern und Titeln zu ſchaͤzzen pflegt; bei-<lb/>
+des ſind dem wahren Weiſen Taͤndeleien,<lb/>
+aber mehr ſind ſie ihm <hi rendition="#fr">alsdann</hi>, wenn ſie<lb/>
+zu <hi rendition="#fr">Mitteln</hi> werden, wodurch <hi rendition="#fr">groſe Jdeen<lb/>
+zur Wirklichkeit gebracht werden</hi>. Die ge-<lb/>
+weihten Bruͤder der Dreifaltigkeit uͤben alſo<lb/>
+<fw type="catch" place="bottom">ge-</fw><lb/>
+<pb n="41" facs="#f0044"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+gegen ſich die erſte Pflicht der Menſchheit,<lb/>
+Liebe aus; und befoͤrdern ſich ſelbſt allmaͤlig<lb/>
+zu des Staates unentbehrlichſten Poſten, denn<lb/>
+von hier aus erhalten ſie zugleich fuͤr ihre<lb/>
+edeln Abſichten einen ausgedehntern Wir-<lb/>
+kungskreis. Sie wurden z.B. Stadtſekretair;<lb/>
+doch will ich es Jhnen dieſen Abend noch be-<lb/>
+weiſen, daß es durch uns geſchah. — Die-<lb/>
+ſer Orden iſt durch Jtalien, Frankreich,<lb/>
+Deutſchland, Daͤnnemark und Polen verbrei-<lb/>
+tet und in <hi rendition="#fr">drei Graden abgetheilt</hi>, zu wel-<lb/>
+chen man nicht durch andre erhoben wird,<lb/>
+ſondern ſich ſelbſt mit anhaltendem Fleis im<lb/>
+Forſchen der urerſten <hi rendition="#fr">Warheit</hi> empor-<lb/>
+ſchwingt, wozu die aͤltern Logenbruͤder nur<lb/>
+Fingerzeig und Anweiſung geben. Der <hi rendition="#fr">hoͤch-<lb/>
+ſte Grad</hi> der Dreifaltigkeit iſt von den we-<lb/>
+nigſten Gliedern beſezt; aber die Geheimniſſe,<lb/>
+welche dort enthalten ſind, uͤberſteigen den<lb/>
+Glauben des Eingeweihten. — Jhre Kent-<lb/>
+niſſe begraͤnzen die Kentniſſe <hi rendition="#fr">eines Engels</hi>;<lb/>
+ſie ſizzen bald am Staatenruder, bald ver-<lb/>
+borgen in einer willkuͤhrlich erwaͤlten einſa-<lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">men</fw><lb/>
+<pb n="42" facs="#f0045"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+men Huͤtte. Sie kennen das Weſen der Gott-<lb/>
+heit und beherrſchen die menſchlichen Herzen<lb/>
+am <hi rendition="#fr">Zaume der Temperamente</hi>; die ver-<lb/>
+ſchwiegenſten Geheimniſſe der goͤttlichen<lb/>
+Schoͤpfung ſind vor ihren Augen aufgethan;<lb/>
+ſie haben eine <hi rendition="#fr">magiſche Gewalt uͤber die<lb/>
+Geiſter</hi> ieglicher Klaſſe bis zur <hi rendition="#fr">unterſten<lb/>
+Engelklaſſe</hi> hinan: ſie ſind faͤhig <hi rendition="#fr">ihre Seele<lb/>
+aus den Nerven des Koͤrpers zu ziehen</hi><lb/>
+und in andre Regionen <hi rendition="#fr">erſcheinen</hi> zu laſſen:<lb/>
+ſie wiſſen um den Urquell aller menſchlichen<lb/>
+Sprachen, ihre Worte ſind <hi rendition="#fr">nicht artiku-<lb/>
+lirte Toͤne</hi> und dennoch mit uͤberirrdiſcher<lb/>
+Kraft verſehen, ſo daß ſie von Maͤnnern ie-<lb/>
+des Volkes verſtanden werden koͤnnen; ſie<lb/>
+ſehn die Zukunft allwiſſend vorher, ohne<lb/>
+aſtrologiſche Thorheiten deswegen zu Huͤlfe<lb/>
+zu nemen, denn ſie uͤberſehen den ganzen<lb/>
+Zuſammenhang aller vergangenen Begeben-<lb/>
+heiten mit einem Blikke und ſehen daraus ſo<lb/>
+untruͤglich ſich Folge um Folge entwikkeln,<lb/>
+wie wir es voraus wiſſen, daß, wenn wir<lb/>
+ein Saitenſpiel beruͤhren, es toͤnen mus.<lb/>
+<fw type="catch" place="bottom">Mit</fw><lb/>
+<pb n="43" facs="#f0046"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+Mit einem Worte, lieber Walter, ihr Geiſt<lb/>
+iſt zu Geheimniſſen gelangt, die zu bezeich-<lb/>
+nen die deutſche Sprache zu unfaͤhig iſt, und<lb/>
+es der <hi rendition="#fr">heiligen Sprache der groſſen Frei-<lb/>
+maurer</hi> ſelbſt bedarf. — Jm zwoten Grade<lb/>
+der Dreifaltigkeit ſtehen wir; doch giebt es<lb/>
+auch in dieſen noch unzaͤlige hoͤhere oder nie-<lb/>
+dere Stufen. Uns liegt die Propagazion<lb/>
+des Ordens ob und unſre Mitbruͤder empor-<lb/>
+zuhelfen; wir muͤſſen in das fuͤrſtliche Ka-<lb/>
+binet, in die Weinſchenke des Poͤbels und in<lb/>
+das Sinedrium der Klerifei dringen; wir<lb/>
+muͤſſen ieden <hi rendition="#fr">Misbrauch</hi> im Staate ausſpuͤ-<lb/>
+ren und mit vereinten Kraͤften ihn abzukeh-<lb/>
+ren ſtreben; wir kennen das Jntreſſe der<lb/>
+Monarchen; kennen die Zal der Weiſen in<lb/>
+einem Volke; kennen ihre Talente und Faͤ-<lb/>
+higkeiten, ihre Karaktere und Schikſale, ſo<lb/>
+daß wir uns, ohne uns ihnen zu entdekken,<lb/>
+ihrer nach unſern geheimen Abſichten bedie-<lb/>
+nen und die dem Orden faͤhigſten auswaͤ-<lb/>
+len. — Nie mit Gewalt, ſondern immer<lb/>
+im Verborgnen und allmaͤlig ſuchen wir gro-<lb/>
+<fw type="catch" place="bottom">ſen</fw><lb/>
+<pb n="44" facs="#f0047"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+ſen Uebeln, welche zum Schaden des allge-<lb/>
+meinen Menſchenwols ſind, zu wehren und<lb/>
+wenn auch funfzig und mehrere Jahre daruͤ-<lb/>
+ber verfloͤſſen. Wir beſizzen Geheimniſſe,<lb/>
+doch der eine mehr, der andre weniger; alle<lb/>
+ſtreben wir die Geſezze der Natur und Pfade<lb/>
+der heiligen Magie zu erforſchen. — Unſre<lb/>
+<hi rendition="#fr">Religion iſt: ſich weiſer</hi> und <hi rendition="#fr">andre gluͤkli-<lb/>
+cher</hi> zu machen; keine andere kennen wir;<lb/>
+ſie iſt verfeinert genug und doch beſizzen die<lb/>
+Glieder des erſten Grads der Dreifaltigkeit<lb/>
+eine noch heiligere, beſſere. Wir ſind daher<lb/>
+weder Lutheraner, noch Arianer, noch Ka-<lb/>
+tholiken, noch Mennoniten, doch iſt es uns<lb/>
+Pflicht, daß ſich ieder oͤffentlich zu einer Haupt-<lb/>
+ſekte bekennt. Religion iſt das Gaͤngelband,<lb/>
+in welchem man von Anbeginn her Voͤlker lei-<lb/>
+tete, und dieienige iſt dem groſſen Haufen<lb/>
+die angenemſte, welche des meiſten Zeremo-<lb/>
+niels voll iſt, daher die <hi rendition="#fr">Katholiſche</hi> noch<lb/>
+immer die groͤßte Zal der Anhaͤnger beſizt.<lb/>
+Dieſe iſt die tuͤchtigſte von allen das Volk<lb/>
+im Zaum zu halten, daß es nicht in trun-<lb/>
+<fw type="catch" place="bottom">kenen</fw><lb/>
+<pb n="45" facs="#f0048"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+kenen Ausſcheifungen ſeinem eignen Wol auf<lb/>
+Jahrhunderte ſchade, wenn wir <hi rendition="#fr">dieſer beſonders</hi><lb/>
+alſo <hi rendition="#fr">nebenbei mit aufzuhelfen</hi> uns bemuͤhn,<lb/>
+ſo helfen wir das Gluͤk des Volkes empor. —<lb/>
+Denn <hi rendition="#fr">zu groſſe Aufklaͤrung</hi> des gemeinen<lb/>
+Mannes iſt, wie ieder Vernuͤnftige es weis,<lb/>
+<hi rendition="#fr">Gift</hi> fuͤr den Staat. — Um unſern Wir-<lb/>
+kungskreis zu erweitern, nemen wir auch<lb/>
+aus der Mitte des Volks Mitglieder an,<lb/>
+die wir aber zum dritten Grade beſtimmen,<lb/>
+welche von wenigen, oder gar keinen My-<lb/>
+ſterien wiſſen und mit leeren, auffallenden<lb/>
+Zeremonien und den fuͤrchterlichſten Schwuͤ-<lb/>
+ren an uns gekettet werden. — Wir kennen<lb/>
+zu genau den Karakter des gemeinen Hau-<lb/>
+fens; wir koͤnnen von ihm nicht verraten<lb/>
+werden, weil er keine Geheimniſſe kennt und<lb/>
+doch ein ſuͤſſes, wiewol eitles Vergnuͤgen da-<lb/>
+ran findet, mit denſelben zu pralen und ſie<lb/>
+zu verfechten. Mehr ſag ich Jhnen nicht,<lb/>
+ob es mir gleich nicht verboten worden iſt —<lb/>
+empfinden Sie aber Hang zu unſern Orden<lb/>
+uͤberzugehen, ſo entdekken Sie ſich.“</p><lb/>
+<fw type="catch" place="bottom">Wal-</fw><lb/>
+<pb n="46" facs="#f0049"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>Walter, der bis dahin ſtill und ernſt die<lb/>
+Worte ſeines Freundes anhoͤrte, ſtrekte ſeine<lb/>
+Hand aus und ſagte: „topp! ich bin euer.“ —<lb/>
+Die glaͤnzenden Vorſpieglungen von magiſcher<lb/>
+Vollkommenheit; ſein groſſer Hang nach<lb/>
+allem was Geheimnis hies; ſeine melankoli-<lb/>
+ſche Laune verfuͤhrten ihn zu dieſem Schritt<lb/>
+— er nannte den Tag den gluͤklichſten ſeines<lb/>
+Lebens, ungeachtet er der Quell alles ſeines<lb/>
+erfolgenden Ungluͤks war. —</p><lb/>
+<p>Der Abend kam und R** fuͤhrte ſeinen<lb/>
+Rekruten in die verſammelte Loge, welche<lb/>
+erſt ſehr ſpaͤt in der Nacht wieder auseinan-<lb/>
+der gelaſſen wurde. Zwar kann man nicht<lb/>
+mit Gewisheit ſagen, was Walter hier that,<lb/>
+und vielleicht zu thun gezwungen war, doch<lb/>
+mus ſeine Sucht nach Myſterien hier volle<lb/>
+Befriedigung erhalten haben; denn er kam<lb/>
+auſſerordentlich froh zu Hauſe, lies ſich Licht<lb/>
+anzuͤnden und arbeitete in ſeinem Studier-<lb/>
+zimmer die Nacht hindurch bis an den fol-<lb/>
+genden Morgen. — War er vorher ein<lb/>
+Schwaͤrmer geweſen, ſo war er's iezt dop-<lb/>
+<fw type="catch" place="bottom">pelt;</fw><lb/>
+<pb n="47" facs="#f0050"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+pelt; — traͤumend nur verrichtete er die<lb/>
+Geſchaͤfte, welche ſein Amt von ihm heiſchte;<lb/>
+er kannte keinen ſeiner Freunde und Bekann-<lb/>
+ten mehr; lag Tag und Nacht unter ſeinen<lb/>
+myſtiſchen Schriften vergraben — und kei-<lb/>
+ner, als etwa R**, welchen er gewoͤhnlich<lb/>
+den Vertrauten der Geiſter zu nennen pfleg-<lb/>
+te, hatte Zutritt zu ihm.</p><lb/>
+<p>Laͤnger vermochte aber ſeine Natur, die<lb/>
+ohnedem nur von ſehr wandelbarer Konſi-<lb/>
+ſtenz war, nicht die unendlichen Strapazen,<lb/>
+Faſten, Nachtwachen, Geiſtesanſtrengungen<lb/>
+zu ertragen; ſie erlag und er verfiel in eine<lb/>
+ſchwere Krankheit, welche zulezt in ein hiz-<lb/>
+ziges Fieber uͤberging. Jedermann verzwei-<lb/>
+felte an ſeinem Leben, nur er blieb ruhig und<lb/>
+behauptete von ſeinem Genius zu wiſſen, daß<lb/>
+er noch nicht ſterben wuͤrde; man nam zween<lb/>
+Aerzte zur Wiederherſtellung ſeiner Geſund-<lb/>
+heit an — es verfloſſen zwei Vierteliahre,<lb/>
+ehe es ſich mit ihm zur Beſſrung anlies und<lb/>
+er wollte in dieſer Zeit oft Erſcheinungen<lb/>
+von Daͤmonen gehabt haben.</p><lb/>
+<fw type="catch" place="bottom">Ge-</fw><lb/>
+<pb n="48" facs="#f0051"/>
+<lb/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>Gemach aber kehrten ſeine verſchwun-<lb/>
+denen Kraͤfte wieder zuruͤck, ſo daß er wieder<lb/>
+umher gehn und vernuͤnftig denken konnte;<lb/>
+allein die Aerzte unterſagen ihm die gewohn-<lb/>
+te Lektuͤre, auch ſorgten ſeine Freunde davor,<lb/>
+daß ihm keines ſeiner alten Buͤcher vor die<lb/>
+Augen kam; ia, man ging ſoweit, alles<lb/>
+was nur myſtiſch roch und mit unverſtaͤnd-<lb/>
+lichen Karakteren bemalt war, in's Feuer<lb/>
+zu werfen. Man ſuchte das Angedenken der-<lb/>
+ſelben aus ſeiner Seele zu reiſſen, R** wur-<lb/>
+de gar nicht mehr zu ihm gelaſſen; man las<lb/>
+ihm Schriften wider Magie und Nekroman-<lb/>
+tie vor; machte allenthalben die Freimaͤu-<lb/>
+rer laͤcherlich; ſuchte ihn zu zerſtreuen und<lb/>
+ſeinen Stoizismus durch Freude und Scherz<lb/>
+zu verbannen. Es gelang ihnen in der That<lb/>
+endlich, daß er ſelbſt theilnehmend und em-<lb/>
+pfindſam gegen Freundſchaft und Liebe und<lb/>
+ſeine Seele fuͤr Harm und Wonne empfaͤng-<lb/>
+lich wurde. Er lachte, koſ'te — fing ſogar<lb/>
+an unterweilen auf Myſtik zu ſpoͤtteln und<lb/>
+die Geheimniſſe der Magie ein <hi rendition="#fr">Schatten-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">ſpiel</hi></fw><lb/>
+<pb n="49" facs="#f0052"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<hi rendition="#fr">ſpiel an der Wand</hi> zu nennen. Jn ſolch<lb/>
+einer Stunde brachte man ihm es bei, wie<lb/>
+man mit ſeiner Bibliothek verfaren haͤtte;<lb/>
+allein dieſe Nachricht war Donnerſchlag in<lb/>
+ſeine Seele. Er aͤuſſerte zwar ſeinen Ver-<lb/>
+drus uͤber dieſe That nicht; doch ſahe man es<lb/>
+wie ſehr er ſich bemuͤhte ihn in ſeinem Buſen<lb/>
+zu verbergen. An eben dem Tage verlies<lb/>
+er zum erſtenmale wieder nach der halbiaͤh-<lb/>
+rigen Krankheit ſeine Wohnung; er that ei-<lb/>
+nen Spaziergang nach einem oͤffentlichen Ort<lb/>
+des Vergnuͤgens, auſſer der Stadt; ver-<lb/>
+traͤumte da in der heimgekehrten, ſpleene-<lb/>
+tiſchen Laune den ganzen Tag und dachte<lb/>
+am ſpaͤten Abend noch nicht wieder an die<lb/>
+Ruͤkkehr. Es war ſchon dunkel; der Mond<lb/>
+ſchien ſehr hell am wolkenloſen Himmel, als<lb/>
+er eine herrliche Lindenallee heraufgewandelt<lb/>
+kam, und, ungeſtoͤrter ſeinen tiefſinnigen<lb/>
+Betrachtungen nachzuhaͤngen, ſich auf eine<lb/>
+bequeme Raſenbank ſezzen wollte. Aber<lb/>
+o! wie ſehr erſtaunte er, als er den ver-<lb/>
+geſſenen Freund R** unverhoft erblikte,<lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">nur</fw><lb/>
+<pb n="50" facs="#f0053"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+der nur wie von ohngefaͤhr hier zu liegen<lb/>
+ſchien.</p><lb/>
+<p>Angedonnert ſtand er vor ihm, wollte<lb/>
+ſprechen und die Worte ſtarben ihm auf den<lb/>
+Lippen, iener aber zog ihn bei der Hand ne-<lb/>
+ben ſich nieder, uͤberſtroͤmte ihn mit ſeinen<lb/>
+Feuerkuͤſſen, und machte ihm zaͤrtliche Vor-<lb/>
+wuͤrfe. — Alle Szenen der Freundſchaft<lb/>
+verfloſſener Tage kehrten nun vor Waltern<lb/>
+zuruͤk, er umarmte ſeinen alten Liebling und<lb/>
+kuͤßte ihn innig wieder.</p><lb/>
+<p>„Jch glaubte, Freund, Sie wuͤrden<lb/>
+ſchon in das Reich der Schatten hinuͤber ge-<lb/>
+wandelt ſein und mus Sie noch hier ſehen?<lb/>
+deſto beſſer; wie ſtehts mit den Fortſchritten<lb/>
+auf dem Pfade der hoͤhern Weisheit?“</p><lb/>
+<p>Walter ſchwieg betroffen ſtill.</p><lb/>
+<p>„Sie ſcheinen mich nicht zu verſtehn<lb/>
+kontinuirte iener ſpoͤttiſch: — Walter, Wal-<lb/>
+ter! nimmer haͤtt ich geglaubt, daß ſie ſo<lb/>
+wankelhaft ſein und laſſ auf einer ſo himmli-<lb/>
+ſchen Bahn werden koͤnnten, die ſie ſchon<lb/>
+halb zuruͤckgelegt hatten. Verheelen Sie mir<lb/>
+<fw type="catch" place="bottom">alles</fw><lb/>
+<pb n="51" facs="#f0054"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+alles und ich weis doch ſoviel was mir ge-<lb/>
+gruͤndete Urſach giebt auf Sie recht boͤſe zu<lb/>
+ſein. Sie haben ſich durch das Gewaͤſch un-<lb/>
+wiſſender Laien bethoͤren, durch truͤgliche<lb/>
+Sofismen unverſtaͤndiger Menſchen blenden<lb/>
+laſſen; haben die Heiligtuͤmer der Magie<lb/>
+verachtet, und ſind — zum Narren moͤgt'<lb/>
+ich ſagen, herabgeſunken. Jhr Leute glaubt<lb/>
+nicht eher, bis Engel vom Himmel ſteigen<lb/>
+und Zeichen und Wunder thun; darum kom-<lb/>
+men Sie mit, ich will Jhnen beweiſen, durch<lb/>
+Thatſachen es beweiſen, daß die Myſterien<lb/>
+der Magie mehr, als <hi rendition="#fr">Schattenſpiel</hi> ſind.“</p><lb/>
+<p>Jndem fuͤhrte er ihn in eine naheſte-<lb/>
+hende Laube zog Pergamentblaͤtter aus ſeiner<lb/>
+Taſche und fing an die Hieroglyphenſchrift<lb/>
+derſelben mit lauter Stimme abzuleſen, wo-<lb/>
+bei er einen Kreis um ſich zog, in welchem<lb/>
+er mit ſeinem Stokke unterſchiedne aſtrono-<lb/>
+miſche Zeichen ſchrieb. Walter war noch<lb/>
+kaum von ſeinem Erſtaunen zu ſich ſelbſt ge-<lb/>
+kommen und ſtand harrend da, wie die Sa-<lb/>
+che verlaufen wuͤrde. Jndem wehte es kalt<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">durch</fw><lb/>
+<pb n="52" facs="#f0055"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+durch die Laube; es ſchien, als wuͤrde ſie<lb/>
+dann und wann von einem matten Schimmer<lb/>
+erhellt; ploͤtzlich rollte es wie ein fernes Don-<lb/>
+nerwetter uͤber ihn weg, es grauſte ihm das<lb/>
+Haar vor Entſezzen und vor ſeinen Augen<lb/>
+ſchwebte eine ſonderbare Figur, halb dunkel,<lb/>
+halb licht, die immer anderthalb Schritt um-<lb/>
+den magiſchen Kreis that. R** redete ſie<lb/>
+zwar an, doch hoͤrte man keine Antwort zu-<lb/>
+ruͤk; ſie glich einem Frauensbilde aus den<lb/>
+13ten und 14ten Jahrhundert, in verſchlieſſener,<lb/>
+altfraͤnkiſcher Tracht, das Geſicht ſchien nur<lb/>
+halb hinter dem grauen Schleier hervor. —<lb/>
+Zuweilen ſah ſie ſich um und hob die linke<lb/>
+Hand empor, in welcher ſie einen Zettel,<lb/>
+oder dergleichen, hielt; der Nekromantiſt frag-<lb/>
+te, wer ſie waͤre? was ſie in der Hand truͤ-<lb/>
+ge? ob ſie etwas verlangte? — Der Schat-<lb/>
+ten ſtarrte ihn aber mit holen Augen an,<lb/>
+wandte ſich und ward in eben dem Augen-<lb/>
+blikke unſichtbar.</p><lb/>
+<p>So ſehr wahrſcheinlich ſich auch dieſe<lb/>
+wunderbare Begebenheit erklaͤren lieſſe, ſo<lb/>
+<fw type="catch" place="bottom">wollen</fw><lb/>
+<pb n="53" facs="#f0056"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+wollen wir doch hiebei nicht laͤnger ſaͤu-<lb/>
+men; ein ieder Leſer mag ſie ſich ſelbſt aus-<lb/>
+einander ſezzen<note place="foot" n="*)" xml:id="seg2pn_2_1" next="#seg2pn_2_2"><p>Jch kann nicht umhin, dieſe Gelegenheit zu<lb/>
+benuzzen eine aͤhnliche Geſchichte meinen Leſern<lb/>
+mitzutheilen, die mich ſehr frappirte und auch<lb/>
+wahrſcheinlich eines ieden Aufmerkſamkeit rege<lb/>
+machen mus.</p><lb/>
+<p>Da ein beruͤmter Mann, der noch izt lebt in<lb/>
+iuͤngern Jahren auf dem halliſchen Waiſenhauſe<lb/>
+ſtudierte, erhielt er von einem ſeiner Lehrer die<lb/>
+Freiheit, die Bibliothek deſſelben durchſuchen<lb/>
+und nach Wunſch gebrauchen zu duͤrfen. Er<lb/>
+nam mit Freuden das Anerbieten an und fand<lb/>
+unter andern des Lehrers Stammbuch, in wel-<lb/>
+chem er nach einigem Durchblaͤttern auf ein ſon-<lb/>
+derbares Bild ſties. Daſſelbe ſtellte naͤmlich drei<lb/>
+iunge Maͤnner vor, in deren Mitte eine Men-<lb/>
+ſchengeſtalt, ganz rot bekleidet, mit hoher,<lb/>
+ſpizzer Muͤzze, gelben Pantoffeln und langen<lb/>
+roten Abſaͤzzen ſtand. Unter dem Bilde war<lb/>
+geſchrieben: <hi rendition="#fr">gedenk Bruder, des Mannes<lb/>
+mit den roten Hakken</hi>! unſer Schuͤler bat ſei-<lb/>
+nen Lehrer um Aufſchlus uͤber das ſonderbare Ge-<lb/>
+maͤlde und iener, anfaͤnglich etwas ungehalten auf<lb/>
+den neugierigen Blaͤtterer, ſagte ihm folgendes:<lb/>
+“Er wird, wie es anizt unter unſern iungen Ge-<lb/>
+<gap unit="chars" quantity="1" reason="illegible"/>ien Mode iſt, uͤber das, was ich ihm erzaͤlen<lb/>
+werde, freigeiſteriſch laͤcheln; aber ſei Er ver-</p><lb/>
+<fw type="catch" place="bottom">ſichert,</fw></note><lb/>
+<pb n="54" facs="#f0057"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+hatte ſie den Effekt, welchen der Nekromantiſt<lb/>
+durch ſie hervorbringen wollte. — Er um-<lb/>
+<fw type="catch" place="bottom">armte</fw><lb/>
+<note place="foot" n="*)" xml:id="seg2pn_2_2" prev="#seg2pn_2_1" next="#seg2pn_2_3"><p>ſichert, daß ich ihm keine Luͤgen ſage und daß<lb/>
+fuͤrwahr in der Natur Dinge verborgen ſind, bei<lb/>
+denen unſer Verſtand ſtille ſteht. Jch legte mich<lb/>
+in meinen Studenteniahren nebſt noch einigen<lb/>
+guten Freunden auf Nekromantiſche Wiſſen-<lb/>
+ſchaften, um zu erforſchen was dahinter ſei. Da<lb/>
+wir dies Studium lange genug getrieben zu<lb/>
+haben glaubten, wollten wir mit dem Zitiren<lb/>
+der Geiſter einen Verſuch machen und beſtimm-<lb/>
+ten uns hiezu die heil. Kriſt Nacht. — Wir<lb/>
+kamen vor dem Thore in einem nahen Walde<lb/>
+zuſammen und fingen die Beſchwoͤrungen getroſt<lb/>
+an, weil wir wuſten, daß nichts darauf erfolgen<lb/>
+konnte. Unvermuthet aber ſtand ein ſtarker<lb/>
+Mann unter uns, grade ſo gekleidet, wie auf<lb/>
+dem Bilde hier. Wir erſchraken, glaubten un-<lb/>
+ſern Augen nicht, was ſie ſahen, und einer war<lb/>
+ſo kuͤhn nach den langen Pantoffelhakken zu<lb/>
+faſſen, worauf die Erſcheinung ploͤtzlich ver-<lb/>
+ſchwand und wir erſchrokken nach Hauſe eilten.<lb/>
+Zum Beweis, fuhr der Lehrer fort, daß nicht<lb/>
+alles ſo ganz unwahr iſt, was Maͤnner leugnen<lb/>
+die ſich nicht darauf legten, naͤher die Sache<lb/>
+zu erforſchen: ſo will ich ihm Seine Schikſale<lb/>
+profezeien ꝛc. „Hierauf fing er an unſerm Ge-<lb/>
+waͤhrsmanne Dinge vorherzuſagen, die, ob ſie<lb/>
+gleich damals ſehr unwahrſcheinlich waren, in<lb/>
+dieſer Stunde mehrentheils ſchon in Erfuͤllung</p><lb/>
+<fw type="catch" place="bottom">ge-</fw></note><lb/>
+<pb n="55" facs="#f0058"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+armte ihn, bat viel um Verzeihung, gelobte<lb/>
+Beſſerung an und erbat ſich zugleich von ihm<lb/>
+ein Geſchaͤft, welches er, gleichſam als zur<lb/>
+Buſſe ſeiner Vergehung, im Namen des<lb/>
+ganzen Ordens vollbringen koͤnnte. R**<lb/>
+verſprach's ihm und trennte ſich, nach man-<lb/>
+cher Drohung und Warnung von dem guten<lb/>
+Walter, der, taub an allen Sinnen, nach<lb/>
+Hauſe taumelte und nur halb wuſte, ob er<lb/>
+traͤume oder wache? —</p><lb/>
+<p>Nach etlichen Tagen kam R** mit einer<lb/>
+ziemlich ernſten Miene zu ihm und faͤdelte<lb/>
+<fw type="sig" place="bottom">D 4</fw><fw type="catch" place="bottom">das</fw><lb/>
+<note place="foot" n="*)" xml:id="seg2pn_2_3" prev="#seg2pn_2_2"><p>gegangen ſind. Auch ſich ſelbſt weiſſagte er die<lb/>
+Hauptbegebenheiten ſeines Lebens; z.B. daß<lb/>
+er noch weit in die Welt verſchleudert und kei-<lb/>
+nes natuͤrlichen Todes ſterben wuͤrde. — Jn<lb/>
+der Folge ward er nach Rusland, und von da<lb/>
+von Jhro Maieſtaͤt der Ruſſiſchen Kaiſerin nebſt<lb/>
+andern Gelehrten zu Schiffe nach den noͤrdlichen<lb/>
+Kuͤſten Siberiens geſchikt das Land zu meſſen, aufzu-<lb/>
+nemen und von ſeinem natuͤrlichen Zuſtande Bericht<lb/>
+abzuſtatten. Vier Jahr nachher erhielten die El-<lb/>
+tern dieſes Mannes die Nachricht, daß ihr<lb/>
+Sohn auf dieſer Farth wegen der Kaͤlte ſich zu<lb/>
+ſehr dem Brantewein ergeben, und von zu<lb/>
+vielem Genus deſſelben iaͤmmerlich geſtorben ſei.</p></note><lb/>
+<pb n="56" facs="#f0059"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+das Geſpraͤch ſo ein, daß Walter nach eini-<lb/>
+gen gleichguͤltigen Fragen und Antworten<lb/>
+daſſelbe von ſelbſt auf den Hauptpunkt wen-<lb/>
+den muſte, um welchen ſich izt alle ſeine Ge-<lb/>
+danken und Empfindungen drehten. „Wie<lb/>
+ſtehts, Bruder, haben Sie ſich Muͤhe ge-<lb/>
+geben fuͤr mich ein Geſchaͤft des Ordens aus-<lb/>
+zuwuͤrken?“ — „Jch hab es<lb/>
+gethan, nur be-<lb/>
+fuͤrcht' ich, antwortete iener, daß es fuͤr Jhre<lb/>
+Schultern zu ſchwer ſei.“ — „Zu ſchwer?<lb/>
+ſobald es fuͤr meine Kraͤfte nur an Moͤg-<lb/>
+lichkeit graͤnzt, uͤbernehm ich's. Entdekken<lb/>
+Sie mir's.“</p><lb/>
+<p> R** raͤusperte ſich ſehr bedenklich, ſtarr-<lb/>
+te ihn darauf zwei ganze Minuten an und<lb/>
+ſagte: Sie haben in Jhren Geſichtslinea-<lb/>
+menten einen fatalen Zug! doch ſcheint es<lb/>
+mir vielleicht anizt nur alſo — ich liebe Sie<lb/>
+und Sie koͤnnen unmoͤglich ein Teufel ſein. —<lb/>
+Hoͤren Sie an! Unſer Orden hat anizt ein<lb/>
+groſſes, ſehr groſſes Vorhaben zur Ausfuͤh-<lb/>
+rung vor ſich; der Befehl dazu kam uns von<lb/>
+dem erſten Grade der Dreifaltigkeit, und es<lb/>
+<fw type="catch" place="bottom">er-</fw><lb/>
+<pb n="57" facs="#f0060"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+erfordert zu dieſer wichtigen Operation ver-<lb/>
+ſchiedener ſehr geſchikter Maͤnner Huͤlfe. —<lb/>
+Sie ſind erleſen einer von dieſen zu ſein, und<lb/>
+im Namen des hohen Abſtrals der uner-<lb/>
+forſchlichen Gottheit, im Namen Allaazeels<lb/>
+kuͤndige ich Jhnen an, ſich hiezu wuͤrdig zu<lb/>
+machen. Der erſte Schritt dazu iſt, daß<lb/>
+Sie ſich einer groſſen Pruͤfung freiwillig un-<lb/>
+terwerfen; beſtehen Sie dieſe, ſo wird man<lb/>
+Jhnen wichtigere Plaͤne zur Ausfuͤhrung uͤber-<lb/>
+geben, wodurch Sie ſich ewig gluͤklich ma-<lb/>
+chen und einen hoͤhern Grad der Dreifaltig-<lb/>
+keit erſchwingen koͤnnen. Faſt ſollt' ich Sie<lb/>
+beneiden, wenn ich nicht ein Maurer und<lb/>
+Jhr Bruder waͤre; aber dauren ſollten Sie<lb/>
+mich, wenn Sie die Stunden der Pruͤfung<lb/>
+zu ertragen, zu ſchwach waͤren. Dann, wiſ-<lb/>
+ſen Sie's nur, dann ſind in der Welt ge-<lb/>
+nug <hi rendition="#fr">Dolche</hi> fuͤr <hi rendition="#fr">Sie geſchliffen</hi> und <hi rendition="#fr">Aqua-<lb/>
+toffanaflaͤſchgen gefuͤllt</hi>!“</p><lb/>
+<p>„Und worin beſteht dieſe Pruͤfung?“</p><lb/>
+<p>„Der Orden wird Jhnen Briefſchaften und<lb/>
+Geheimniſſe anvertraun; damit muͤſſen Sie<lb/>
+<fw type="sig" place="bottom">D 5</fw><fw type="catch" place="bottom">nach</fw><lb/>
+<pb n="58" facs="#f0061"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+nach W.... reiſen und bei der dortigen Loge<lb/>
+gewiſſe Geſchaͤfte gut und gluͤklich expediren.“</p><lb/>
+<p>„Nicht mehr?“</p><lb/>
+<p>„Spielen Sie nicht, lieber Walter,<lb/>
+den <hi rendition="#fr">Grospraler</hi>! — mir graut ſchon izt!“</p><lb/>
+<p>Mehr ſagte er nicht, ſondern brach ſchnell<lb/>
+das Geſpraͤch ab und lenkte es auf andre<lb/>
+unbedeutende Dinge. — Es verſtrichen eini-<lb/>
+ge Wochen, ohne daß Walter mehr erfuhr;<lb/>
+indeß beſchaͤftigte er ſich aͤmſig mit ſeinem<lb/>
+Lieblingsſtudium, und war bald eben ſo ſehr<lb/>
+wieder darinnen verſunken, als vor ſeiner<lb/>
+Krankheit. Er gruͤbelte nach unerforſchten<lb/>
+Geheimniſſen, weihte ſich taͤglich mehr ein<lb/>
+in den groſſen Tempel der heiligen Magie,<lb/>
+ſchwebte mehr in der Geiſter- als Koͤrper-<lb/>
+welt umher und waͤre bei ſeinen ſpekulativen<lb/>
+Betrachtungen wieder zum ehmaligen, un-<lb/>
+empfindlichen Narren geworden, wenn die<lb/>
+Loge nicht bald ihre Hauptſizzung gehalten<lb/>
+und ihm darin gewiſſe geheime Auftraͤge an<lb/>
+eine Loge zu W... gegeben haͤtte, die man<lb/>
+von ihm aber niemals hat erfahren koͤnnen.</p><lb/>
+<fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="59" facs="#f0062"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>Er muſte zu Anfang des Julymondes<lb/>
+abreiſen und zwar unter dem Vorwande,<lb/>
+ſeine Geſundheit durch Veraͤnderung der Luft<lb/>
+zu befoͤrdern. Sein Amt ward in dieſer<lb/>
+Abweſenheit von einer andern Magiſtrats-<lb/>
+perſon verwaltet.</p><lb/>
+<p>Binnen acht Tagen war er zu W... — —</p><lb/>
+<p>Er miethete ſich ſogleich in den erſten<lb/>
+beſten Gaſthof ein; erhielt ſein eignes Zim-<lb/>
+mer und, da er am folgenden Tage von ei-<lb/>
+nem Logenbruder erfuhr, daß der Orden erſt<lb/>
+uͤber 8 Tagen groſſe Sizzung halte, nam er<lb/>
+ſich vor in dieſer Zeit die Merkwuͤrdigkeiten<lb/>
+von W..., die ihm ſo ſehr geruͤmt worden<lb/>
+waren, in Augenſchein zu nehmen. Er beſuchte<lb/>
+auch wirklich alle oͤffentliche Plaͤzze, Gebaͤude,<lb/>
+Bibliotheken, Gaͤrten u. ſ. w. und war nur<lb/>
+ſelten uͤber eine Stunde am Tage zu Hauſe.</p><lb/>
+<p>Eins Abends ſas er in Gedanken veloren<lb/>
+in einem der ſchoͤnſten Gaͤrten der Stadt,<lb/>
+als ſich ihm ein artiges, innges Maͤdchen<lb/>
+nahte, welcher frohe Unſchuld aus den Mie-<lb/>
+nen laͤchelte. — Sie ſezte ſich frei neben ihn<lb/>
+<fw type="catch" place="bottom">hin,</fw><lb/>
+<pb n="60" facs="#f0063"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+hin, taͤndelte ein Weilchen mit ihrer Buſen-<lb/>
+ſchleife, dann mit ihrem Faͤcher, endlich ſagte<lb/>
+ſie zu dem hermetiſchen Weltweiſen: „Mein<lb/>
+Herr, Sie ſind ganz in ihren Fantaſien ver-<lb/>
+tieft; ſie moͤgen freilich ſehr ſchoͤn ſein, aber<lb/>
+erlauben Sie, daß ich Sie ein paar Minu-<lb/>
+ten in denſelben ſtoͤre.“</p><lb/>
+<p>Walter hatte ſie noch nicht bemerkt, und<lb/>
+fuhr zuſammen, da er ſie gewahr ward.</p><lb/>
+<p>„Ei warhaftig, ich ſollte faſt glauben,<lb/>
+ſagte das mutwillige Maͤdchen, Sie fuͤrch-<lb/>
+teten ſich vor mir; bin ich denn ſo gar<lb/>
+haͤslich?“</p><lb/>
+<p>Walter fand nichts weniger, als dies<lb/>
+an dem Maͤdchen, vielmehr ſchien es in ſei-<lb/>
+nen Augen das Gegentheil. Sein truͤber<lb/>
+Humor ward auf einmal heiterer; ſeine<lb/>
+muͤrriſche Philoſophenlaune wandelte ſich zur<lb/>
+galanten Gefaͤlligkeit um; vielleicht hoffte er<lb/>
+bei dieſer Schoͤnen neue Karakterzuͤge und<lb/>
+geheime Falten des menſchlichen Herzens zu<lb/>
+entdekken, durch welche er zu dem groſſen<lb/>
+Urquell der allgemeinen Sympathie geleitet<lb/>
+<fw type="catch" place="bottom">wuͤrde</fw><lb/>
+<pb n="61" facs="#f0064"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+wuͤrde, denn er verwirrte ſich gar zu ſchnell<lb/>
+mit ihr in ein Geſpraͤch, aus welchem er ſich<lb/>
+hernach eben ſo wenig herauswikkeln konnte,<lb/>
+als wenn er mit dem dreifaltigen Markis<lb/>
+R** uͤber die magiſchen Koniunkzionen aller<lb/>
+vorhandenen Subſtanzen disputirt haͤtte.</p><lb/>
+<p>Das Frauenzimmer hat eine beſondre<lb/>
+Forſche den Ton eines Geſpraͤchs unvermerkt<lb/>
+nach Willkuͤhr zu ſtimmen — es weis ſich<lb/>
+geſchmeidig an die Jdeen der unbiegſamern<lb/>
+Maͤnner zu ſchmiegen und ſie nach ihren Ab-<lb/>
+ſichten zu modeln, ohne daß dieſe nur einen<lb/>
+Gedanken an Verdacht hegen — es durch-<lb/>
+ſpaͤht mit einem fluͤchtigſcheinenden Blik die<lb/>
+Tiefen und geheimen Winkel der Maͤnnerher-<lb/>
+zen und kann in den erſten Minuten der erſten<lb/>
+Konverſazion ſchon den Karakter derſelben<lb/>
+ausſtudieren. — Dieſe Wiſſenſchaft des ſchoͤ-<lb/>
+nen Geſchlechts, welches vielleicht die einzige iſt,<lb/>
+worinnen ſie die maͤnnlichen Weiſen, und haͤtten<lb/>
+ſie auch drei Univerſitaͤten bezogen oder waͤren<lb/>
+ſie Mitglieder dreier Akademien, uͤbertreffen,<lb/>
+findet man beſonders in groſſen Staͤdten und<lb/>
+<fw type="catch" place="bottom">bei</fw><lb/>
+<pb n="62" facs="#f0065"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+bei gewiſſen Demoiſellen, denen der <hi rendition="#aq">vinaigre<lb/>
+de virginité</hi><note place="foot" n="*)" xml:id="seg2pn_3_1" next="#seg2pn_3_2">Unglaublich iſt es faſt, wie hoch Luxus und<lb/>
+Ueppigkeit in unſerm Jahrhundert ſtieg; wie<lb/>
+ſehr man ſich bemuͤhte den Reiz der Wolluſt zu<lb/>
+erhoͤhn und dennoch den Schein unverlorner Tu-<lb/>
+gend zu erhalten ſtrebte. Der <hi rendition="#aq">Vinaigre de vir-<lb/>
+ginité</hi> mag Beweis davon ſein und mancher ehr-<lb/>
+liche Mann wurde durch ihn getaͤuſcht. Die<lb/>
+Kunſt die verlorne Jungfrauſchaft des Maͤdchens<lb/>
+wiederherzuſtellen, geht ſchon uͤber unſer Saͤku-<lb/>
+lum hinaus; denn im Jahre 1635 erſchien zu<lb/>
+Amſterdamm eine bogenſtarke Piece in duodez<lb/>
+unter dem Titel: <hi rendition="#aq"><hi rendition="#i">Des remedes de rendre la Vir-<lb/>
+ginité à une Filie, par Cupido</hi></hi>. Der Autor em-<lb/>
+pfielt: <hi rendition="#aq">La vapeur d'un peu de vinaigre, ou l'on<lb/>
+aura jetté un Fer ou une brique rouge; la de-<lb/>
+coction adſtringente de gland, de prunelljes<lb/>
+ſauvages, de myrrhe, de roſes de Provinz, et<lb/>
+de noix de cyptés, l'onguent adstringent de<lb/>
+Fernel, les eaux diſtillées de myrrhe, ces ſont<lb/>
+tous de remédes, qui resſerent les parties na-<lb/>
+turelles des Femmes qui ſont trop ouvertes</hi>.<lb/>
+Der Heilige <hi rendition="#fr">Hieronimus</hi> wußte ganz gewis noch<lb/>
+nichts von dieſer ſchoͤnen Kunſt, welche wahr-<lb/>
+ſcheinlich <hi rendition="#fr">Frankreich</hi> zum Vaterlande hat; denn<lb/>
+einſt ſchrieb er an ein iunges Maͤdchen <hi rendition="#fr">Euſtochian</hi><lb/>
+uͤber die Worte in der heiligen Schrift: die<lb/>
+Ruthe Jſraels iſt gefallen und keiner iſt der ſie<lb/>
+aufhebe, folgendes: <hi rendition="#fr">Jch geſtehe es frei, wer-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">thes</hi></fw></note> nicht gar unbekannt iſt, zur<lb/>
+<fw type="catch" place="bottom">voͤl-</fw><lb/>
+<pb n="63" facs="#f0066"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+voͤlligen Reife gediehen. Man darf von mir<lb/>
+nicht erwarten, daß ich hier den Grund an-<lb/>
+gebe, warum? und wodurch? ſondern ich<lb/>
+gehe zu meinem Paͤrchen zuruͤk, welches ich<lb/>
+in der vertraulichſten Situazion auf der Ra-<lb/>
+ſenbank finde. Das Obige mag dem Leſer<lb/>
+indeß ein Wink ſein, aus welchem Geſichts-<lb/>
+punkte man Walters ſchoͤne Geſellſchafterin<lb/>
+betrachten muͤſſe, welche den gutherzigen<lb/>
+Kleinſtaͤdter ſchon ſchlau in ihre Nezze ver-<lb/>
+ſtrikt und von ihm herausgelokt hatte, daß<lb/>
+er Freimaurer ſei, und an die W....ſche<lb/>
+Loge geheime Depeſchen habe. —</p><lb/>
+<sp><speaker><hi rendition="#fr">Maͤdchen</hi>.</speaker><p>Es iſt doch ſehr unartig von<lb/>
+Jhnen, daß Sie mir auch keine Sylbe ent-<lb/>
+dekken wollen — warum machten Sie mich<lb/>
+neugierig?</p></sp><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wal-</hi></fw><lb/>
+<p><note place="foot" n="*)" xml:id="seg2pn_3_2" prev="#seg2pn_3_1"><hi rendition="#fr">thes Maͤdchen, daß Gott, obwohl er allmaͤch-<lb/>
+tig iſt einem Frauenzimmer die Jungfrau-<lb/>
+ſchaft welche ſie einmal verloren hat, nicht<lb/>
+wiedergeben kann; er kann ihr die Suͤnde<lb/>
+vergeben, aber nicht wiedergeben die Blume<lb/>
+der Maͤdchenehre, welche ſie ſich hat rau-<lb/>
+ben laſſen</hi>.“</note></p><lb/>
+<pb n="64" facs="#f0067"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<sp><speaker><hi rendition="#fr">Walter</hi>.</speaker> <p>Warum? ich abtheure es Jh-<lb/>
+nen heilig, Mamſell, daß dies ſchlechterdings<lb/>
+nicht meine Abſicht war.</p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Maͤdch</hi>.</speaker><stage>(ſcherzend.)</stage> <p>Ha, ich kenne die lo-<lb/>
+ſen Maͤnner — ihre Betheurungen ſind mir<lb/>
+nur immer ſo, ſo!</p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Walter</hi>.</speaker><p>Beim heilgen Himmel! bei<lb/>
+mir nicht — denn ich mus Jhnen ſagen, daß<lb/>
+ich mehr, als mancher andre an Recht und<lb/>
+Pflicht gebunden bin.</p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Maͤdch</hi>.</speaker><p>A ha! warlich weil ſie ein<lb/>
+Freimaurer ſind; wenn alle Mitglieder<lb/>
+Jhres Ordens ſo wenig galant, als Sie<lb/>
+ſind, ſo wuͤrd' ich den ganzen Maurerorden<lb/>
+haſſen.</p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Walt</hi>.</speaker><p>Auch mich? <stage>(indem er ſchuͤchtern<lb/>
+ihre Hand faſſt und druͤkt.)</stage></p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Maͤdch</hi>.</speaker><p>Nicht anders, mein Herr —<lb/>
+machen Sie Jhr Vergehn den Augenblik<lb/>
+gut — ſonſt werd ich Sie verlaſſen.</p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Walt</hi>.</speaker> <p>Nein, bleiben Sie, meine<lb/>
+Schoͤne, und ſagen Sie mir, womit ſoll<lb/>
+ich's?</p></sp><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Maͤdch</hi>.</fw><lb/>
+<pb n="65" facs="#f0068"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<sp><speaker><hi rendition="#fr">Maͤdch</hi>.</speaker> <p>J nun, mit dem Geſtaͤndnis,<lb/>
+was das vor Geheimniſſe ſind, die Sie an<lb/>
+die hieſige Loge uͤberbringen muͤſſen?</p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Walt</hi>.</speaker> <p>Allein, warum dringen Sie ſo<lb/>
+ſehr in mich dieſelben zu erfahren?</p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Maͤdch</hi>.</speaker> <p>Weil, — weil — weil ich<lb/>
+glaubte, Sie wuͤrden unmoͤglich einem neu-<lb/>
+gierigen Maͤdchen, welches — Jhnen doch —<lb/>
+nicht ganz boͤſe iſt, eine ſo geringe Bitte ab-<lb/>
+ſchlagen koͤnnen.</p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Walt</hi>.</speaker> <p>Fuͤrwahr, keine Minute wuͤrd'<lb/>
+ich ſaͤumen Sie Jhnen zu geſtehen, wenn —<lb/>
+ich es wagen duͤrfte.</p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Maͤdch</hi>.</speaker> <p>O wagen Sie's nur immer,<lb/>
+ich gebe Jhnen meine Erlaubnis!</p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Walt</hi>.</speaker> <stage>(raͤuſpert ſich.)</stage></sp><lb/>
+<sp><speaker><hi rendition="#fr">Maͤdch</hi>.</speaker> <stage>(boͤſe und weinerlich.)</stage> <p>So werden<lb/>
+Sie ſich nicht erbitten laſſen? — wol! aber<lb/>
+warten Sie nur; ein Maͤdchen, wie ich,<lb/>
+weis ſich immer zu raͤchen, ſo unbekannt wir<lb/>
+uns auch noch ſind.</p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Walt</hi>.</speaker> <stage>(bittend.)</stage> <p>Liebe!</p></sp><lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom"><hi rendition="#fr">Maͤdch</hi>.</fw><lb/>
+<pb n="66" facs="#f0069"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<sp><speaker><hi rendition="#fr">Maͤdch</hi>.</speaker> <stage>(ſchlingt ihren Arm um ihn.)</stage> <p>Herr<lb/>
+Walter, darf ich nichts — nichts! hoffen?</p></sp><lb/>
+<sp><speaker><hi rendition="#fr">Walt</hi>.</speaker> <stage>(kuͤſſt ſie trunken.)</stage> <p>Machen Sie<lb/>
+mich nicht wanken!</p></sp><lb/>
+<p>So haderten beide noch eine Viertel-<lb/>
+ſtunde hindurch; das Maͤdchen beſtand ei-<lb/>
+genſinnig darauf die Geheimniſſe zu wiſſen und<lb/>
+Walter, eingedenk der Worte ſeines N**:<lb/>
+<hi rendition="#fr">es ſind Dolche genug geſchliffen und Aqua-<lb/>
+rofanaflaͤſchchen gefuͤllt</hi>! hielt ſich iederzeit<lb/>
+wieder ihre meiſterhaft angelegten Beſtuͤr-<lb/>
+mungen ſtandhaft.</p><lb/>
+<p>Sie ſtand endlich auf und er fuͤhrte ſie<lb/>
+am Arme einigemal durch den Garten und<lb/>
+dann nach der Stadt. Der Abend war zu<lb/>
+ſchoͤn; der Mond gos ſein Silber ſo liebreich<lb/>
+uͤber die verworrenen, abendlichen Gruppen;<lb/>
+der Wind wandelte kuͤhl und leiſe und die<lb/>
+Straſſen wimmelten von Spaziergaͤngern, ſo,<lb/>
+daß unſre beiden es einſtimmig vor Suͤnde<lb/>
+hielten, ſich fruͤher zu trennen, als es der<lb/>
+Wolſtand gebot. Sie ſchlenderten alſo, im-<lb/>
+mer in ihrem vorigen Geſpraͤch verloren, ruhig<lb/>
+<fw type="catch" place="bottom">vor-</fw><lb/>
+<pb n="67" facs="#f0070"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+vorwaͤrts und dialogiſirten ſich unvermutet<lb/>
+in ein enges Gaͤschen hinein. „Wie kom-<lb/>
+men wir hieher?“ rief ſie und ſpielte die Ver-<lb/>
+wunderte — „hier iſt meine Wohnung; —<lb/>
+wollen wir noch einmal umkehren? — nein,<lb/>
+Sie kommen auf etliche Augenblikke noch zu<lb/>
+mir hinauf; nur hurtig!“ rief's und zog<lb/>
+den beginnenden Abentheurer hinter ſich her<lb/>
+in ein niedliches Haus, welches von innen<lb/>
+noch netter in's Auge fiel. — Sie oͤffnete ihm<lb/>
+ihr Zimmer, bat ihn ſich zu ſezzen, zuͤndete<lb/>
+Licht an, hing ihre Enveloppe ab und lagerte<lb/>
+ſich nach einem Weilchen in dem allerliebſten<lb/>
+Neglige auf einer Bergere neben ihn. „Sie<lb/>
+muͤſſen verzeihen, ſagte ſie, ich liebe Kom-<lb/>
+moditaͤt! nun laſſen ſie uns beginnen, wo<lb/>
+wir zulezt in unſerm Plaudern abbrachen —<lb/>
+zuvor erfriſchen Sie ſich.“ Sie langte Wein<lb/>
+und einen Teller Konfekt hervor, fuͤllte ihm<lb/>
+ſelbſt das Glas und ſprach hernach mit einer<lb/>
+liebenswuͤrdigen Schuͤchternheit, die nur noch<lb/>
+mehr wirkte, was ihre Worte vermeiden<lb/>
+machen ſollten: „Es iſt ſchon ſpaͤt; die Uhr<lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">zeigt</fw><lb/>
+﻿
+<pb n="68" facs="#f0071"/>
+<lb/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+zeigt uͤber halb neun, und wenn man wuͤßte,<lb/>
+daß eine iunge Mannsperſon allein bei mir<lb/>
+auf meinem Zimmer waͤre, und kein Menſch<lb/>
+hier ſonſt im Hauſe ſei — ich glaube die<lb/>
+Leute wuͤrden recht was Uebels von mir den-<lb/>
+ken. Doch laſſ' ſie!“ ſezte ſie hinzu und warf<lb/>
+ſich laͤchelnd neben den verwandelten Schwarz-<lb/>
+kuͤnſtler hin, der auch deswegen nicht boͤſe<lb/>
+ward, daß er noch einige Zeit in ſolcher an-<lb/>
+genehmen Geſellſchaft verzoͤgern duͤrfte.</p><lb/>
+<p>Der Wein machte ihn lebhaft und ge-<lb/>
+ſchwaͤzzig, er ſchaͤkerte und nekte und ſie un-<lb/>
+terlies nicht wolbedaͤchtig zu gewiſſen Augen-<lb/>
+blikken ihr altes Liedchen von vorn an zu<lb/>
+repetiren.</p><lb/>
+<p>Hier werf' ich iedem meiner Leſer die kri-<lb/>
+tiſche Gewiſſensfrage auf, was er in dieſer<lb/>
+Lage gethan haben wuͤrde? — man denke ſich<lb/>
+eine iunge ſchlanke Dirne, im ſchoͤnſten Rei-<lb/>
+ze ihrer Jugendbluͤte; ſchoͤn gebaut, verfuͤh-<lb/>
+reriſch in ihren Reden, mit wolluſtſchwerem<lb/>
+Blikke um ein Geheimnis bittend, welches<lb/>
+ſie heilig zu verſchweigen beſchwor, (obgleich<lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Frauen-</hi></fw><lb/>
+<pb n="69" facs="#f0072"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<hi rendition="#fr">Frauenzimmerſchwuͤre</hi> <hi rendition="#aq">in cauſa ſilentii</hi> nur<lb/>
+<hi rendition="#fr">Nothſchwuͤre</hi> ſind, welche man brechen zu<lb/>
+duͤrfen glaubt ohne Suͤnde zu begehn!) Jch<lb/>
+bin uͤberzeugt man wuͤrde eben das fuͤlen,<lb/>
+was iener Paladin empfand, als er eine<lb/>
+nakte Nymfe (obgleich die unſre mehr, als<lb/>
+nakt war,) fand, und er ſie</p><lb/>
+<lg type="poem"><lg n="1"><l>Wie Roſ' und Lilie, wie Milch und Blut,</l><lb/>
+<l>Vom feinſten Teint und etwas abgemattet</l><lb/>
+<l>Suͤs ſchlummern ſah, halb in der lichten Flut</l><lb/>
+<l>Halb auf dem weichen Lager, Bluͤt umſchattet. —</l><lb/>
+<l>Jhr Schwanenbuſen ſtieg, als ſchwellte Zaͤrtlichkeit</l><lb/>
+<l>Und Liebe ihn, gewekt von Fantaſien</l><lb/>
+<l>Des Traums; und ſchoͤner ſah man einer Maid</l><lb/>
+<l>Noch nie die kleinen Roſenwangen gluͤhen;</l><lb/>
+<l>Und Amoretten ſpielten unſichtbar,</l><lb/>
+<l>Bald in des Buſens Schnee, bald in des Hauptes Haar.</l></lg><lb/>
+<lg n="2"><l>Nun denkt euch unſern guten Paladin,</l><lb/>
+<l>Daſtehend, gierig ieden Reiz verſchlingend</l><lb/>
+<l>Mit einem Blik der, durch des Baches Spiegel dringen<supplied>d</supplied></l><lb/>
+<l>Erſpaͤhte, was in der Kriſtallflut ſchien:</l><lb/>
+<l>Bald auf des Buſens elaſtiſchen Huͤgel,</l><lb/>
+<l>Umſeufzt von kuͤlender Weſte Fluͤgel,</l><lb/>
+<l>Die iungen purpurnen Roſenknoſpen, da</l><lb/>
+<l>Von einem Liebesgotte hingepflanzet, ſah;</l><lb/>
+<l>Bald wie die Wellen, die der Nymfe Naͤhe fuͤhlten,</l><lb/>
+<l>Wolluͤſtig um der Schenkel Ruͤndung wuͤhlten.</l></lg><lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">Bald</fw><lb/>
+<pb n="70" facs="#f0073"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<lg n="3"><l>Bald ſah den kleinen halbgeoͤffneten Mund,</l><lb/>
+<l>Jn dem zwo dichte Reihn der ſchoͤnſten Perlen ſchimmern<supplied>;</supplied></l><lb/>
+<l>Bald ein Paar Waden, nett und rund</l><lb/>
+<l>Gedrechſelt aus dem Grund des Baches flimmern:</l><lb/>
+<l>Bald ſich des Marmorleibes Gliederbau</l><lb/>
+<l>Jn ſeinen ſchoͤnen Theilen kunſtgenau</l><lb/>
+<l>Mit allen Praͤdikaten detaillirte</l><lb/>
+<l>Und was noch mangelte, hinzu ſich fantaſirte —</l><lb/>
+<l>Kurz, malt euch ganz die Gruppe, ſie und ihn:</l><lb/>
+<l>Und ſagt, was fuͤhlte hier der <hi rendition="#fr">eiſigſte</hi> Paladin</l></lg></lg><note place="foot" n="*)">Aus einem noch ungedrukten, romantiſchen Ge-<lb/>
+dichte: <hi rendition="#fr">die Helmaiden</hi>, erſtes Buch.</note><lb/>
+<p>Jch wollte darauf wetten, man wuͤrde<lb/>
+Geheimnis, Geheimnis ſein laſſen — her-<lb/>
+plaudern was man auf dem Herzen haͤtte und<lb/>
+ſich davor den Minneſold des ſchoͤnſten Maͤd-<lb/>
+chens erkaufen. — Mancher Leſer wird frei-<lb/>
+lich zuͤchtiglich laͤugnen; allein dem gebuͤrte,<lb/>
+wenn anders Narrenzuͤnfte<note place="foot" n="**)" xml:id="seg2pn_4_1" next="#seg2pn_4_2">Wer es weis, daß er ein Narr ſei, iſt es<lb/>
+ſchon weniger, als der, welcher es von ſich<lb/>
+nicht glaubt. Jn den Tagen unſrer Vaͤter war<lb/>
+Offenherzigkeit noch keine Schande und da ge-<lb/>
+ſtand man es gern; errichtete ſogar, worauf<lb/>
+der Herr Verfaſſer der Walterſchen Biografie<lb/>
+vielleicht anſpielt, im J. 1381 einen groſſen <hi rendition="#fr">Nar-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">ren</hi></fw></note> noch ſo Sitte,<lb/>
+<fw type="catch" place="bottom">als</fw><lb/>
+<pb n="71" facs="#f0074"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+als im vierzehnten Jahrhundert, waͤren, eine<lb/>
+feierliche Beſtallung zum Oberaufſeher uͤber<lb/>
+des Grosherrns naktes Serail, mit Lebens-<lb/>
+ſtrafe, wenn er ſich vergaffte.</p><lb/>
+<p>Und Walter? — ich geſteh es, war —<lb/>
+Menſch, doch zugleich Weiſer! — Er be-<lb/>
+<fw type="sig" place="bottom">E 4</fw><fw type="catch" place="bottom">haup-</fw><lb/>
+<note place="foot" n="**)" xml:id="seg2pn_4_2" prev="#seg2pn_4_1"><hi rendition="#fr">ren-Orden</hi>, in welchen ſehr viel Hohe eintraten.<lb/>
+Graf <hi rendition="#fr">Adolf von Kleve</hi> ſtiftete ihn; er hatte<lb/>
+iedesmal ſeinen Koͤnig, ſeine 6 Ratsherrn, Fi-<lb/>
+nanziers, Schazmeiſter, Maitres de Plaiſirs,<lb/>
+Kaſtellane, Feldmarſchalle u. ſ. w. Sobald man<lb/>
+einen vornehmen Thoren auswitterte, ſandte<lb/>
+man ihm die Beſtallung zu irgend einer Charge,<lb/>
+welche ſeiner Narrheit angemeſſen war, zu. Nie-<lb/>
+mand durfte ſich der Aufname weigern, wollte<lb/>
+er ſich nicht noch groͤſſern Ungelegenheiten und<lb/>
+Satyren Preis geben; ſo ward mancher gros-<lb/>
+pralender Junker, dem ſeine Heldenthaten be-<lb/>
+ſtaͤndig die Zunge beſchaͤftigten zum General-<lb/>
+feldmarſchall, ein alter Gek zum Hofnarren,<lb/>
+ein abgefeimter Heuchler zum Pater u. ſ. w. er-<lb/>
+hoben. Das auf den Kleidern eingeſtikte <hi rendition="#fr">Or-<lb/>
+denszeichen</hi> war ein Pikkelhering mit halbro-<lb/>
+ter, halb ſilbergeſtikter Kappe, gelben Schellen,<lb/>
+ſchwarzen Schuhen, einer goldnen Schuͤſſel in<lb/>
+der Hand, voller Obſt. Jm Kleviſchen Archive<lb/>
+ſoll ſich noch ein Brief befinden, den die Stifter<lb/>
+des Narrenordens (<hi rendition="#aq">Respublicae babinenſis</hi>)<lb/>
+ſaͤmtlich mit ihren Namen unterzeichnet haben.</note><lb/>
+<pb n="72" facs="#f0075"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+hauptete ſein Geheimnis, ſelbſt da die ſchoͤne<lb/>
+Prieſterin der Zythere ihm ihr Alles Preis<lb/>
+gab und davor auch Alles zu gewinnen hoff-<lb/>
+te. — Umſonſt! es ward Nacht und Wal-<lb/>
+ter lag immer noch in den Armen, am<lb/>
+Buſen der wolluͤſtigen Phryne, und ſanft<lb/>
+ſtreute Morfeus uͤber ihn ſeine Schlummer-<lb/>
+koͤrner aus.</p><lb/>
+<p>Er erwachte erſt ſehr ſpaͤt am folgenden<lb/>
+Morgen und fand alles um ſich her dunkel.<lb/>
+Er ſtand auf, tappte erſtaunt umher<lb/>
+und konnte ſich ſeine Begebenheiten bei allem<lb/>
+Nachſinnen nicht erklaͤren! denn was er bei<lb/>
+dem matten Stral des Tageslichtes, welches<lb/>
+oben durch die Dekke in diagonaler Richtung<lb/>
+in ſein unbequemes Behaͤltnis herein brach,<lb/>
+erkannte, hatte mit einem fatalen Kerker die<lb/>
+ſeltenſte Aehnlichkeit. — Er betaſtete, ganz<lb/>
+aus ſeiner ſtoiſchen Faſſungskraft gehoben,<lb/>
+die Waͤnde und fand feuchte, ausgeſchlagene<lb/>
+mit Spinneweben uͤberflorte Mauern, an<lb/>
+welchen hin und wieder ein einſames Hals-<lb/>
+eiſen nebſt Zubehoͤr hing, welches durch die<lb/>
+<fw type="catch" place="bottom">Be-</fw><lb/>
+<pb n="73" facs="#f0076"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+Beruͤhrung ihm ſchauerlich durch die Ohren<lb/>
+klirrte. Auch eine Thuͤr fand er in einem<lb/>
+Winkel, die fuͤr ihn aber ſo wenig zur Aus-<lb/>
+flucht dienſam war, als eine Eiſenmauer.<lb/>
+Niemals hatte er ſich noch in ſolcher Situa-<lb/>
+zion befunden; zwiſchen beſtaͤubten Buͤchern<lb/>
+hatte er den groͤſten Theil ſeines Lebens hin-<lb/>
+durch vegetirt; ſein Herz ſehnte ſich nimmer<lb/>
+nach Abentheuern und anizt auf einmal in<lb/>
+einer Sfaͤre, die, wer weis wie viel Delin-<lb/>
+quenten ſchon, beatmet hatten, verlaſſen und<lb/>
+ſich keines ruͤgeheiſchenden Verbrechens be-<lb/>
+wuſt! Hier ſank gaͤnzlich der durchaus er-<lb/>
+ſchuͤtterte Stoizismus ſeines Geiſtes von ſei-<lb/>
+ner Exiſtenz herab, der ſich doch in dem<lb/>
+<hi rendition="#fr">Studierzimmer</hi> ſo ſtandhaft erhalten hat-<lb/>
+te; — Angſterpreſſte Thraͤnen befluteten izt<lb/>
+die Wangen des hermetiſchen Weiſen und in<lb/>
+banger Verzweiflung rang er die Haͤnde,<lb/>
+welche einſt durch magiſche Karaktere das<lb/>
+Geiſterreich in Schrekken ſezten.</p><lb/>
+<p>Nachdem er genug geweint, genug ge-<lb/>
+iammert hatte, ohne daß er dadurch Huͤlfe<lb/>
+<fw type="sig" place="bottom">E 5</fw><fw type="catch" place="bottom">ge-</fw><lb/>
+<pb n="74" facs="#f0077"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+gewann, ſezte er ſich hin auf den Boden,<lb/>
+wo er nicht all zu ſumpfigt war, den Zu-<lb/>
+ſammenhang ſeiner Begebenheiten pragma-<lb/>
+tiſch durchzudenken, ob er nicht irgend eine<lb/>
+Grundurſach ſeiner traurigen Metamorfoſe<lb/>
+hervorklauben koͤnnte. Keine Thraͤne rann<lb/>
+nun mehr, er ward, bei allem Ungluͤk, ſtill,<lb/>
+wie es einem Weltweiſen anſtehet, denn —<lb/>
+er konnte nicht mehr weinen.</p><lb/>
+<p>Er blieb den ganzen Tag allein; man<lb/>
+ſchien von ihm und ſeinem Auffenthalt in der<lb/>
+Welt nichts zu wiſſen; alles war weit um<lb/>
+ihn her tod und ſchweigend, daß er faſt ver-<lb/>
+zweifelte. Die Nacht trat herein, mit ihr<lb/>
+erſchien ein leiſer Schlaf und der ehrliche Ge-<lb/>
+fangene benuzte denſelben, um ſich einiger-<lb/>
+maaſſen des triſten Aufenthalts und ſeines<lb/>
+nagenden Hungers vergeſſen zu machen.</p><lb/>
+<p>Es war kaum Morgen, als er von ei-<lb/>
+nem fuͤrchterlichen Kerl aus dem Schlaf ge-<lb/>
+wekt wurde, der ihm Brod und eine Flaſche<lb/>
+Bier zum Fruͤhſtuͤk brachte, dann ihn nach<lb/>
+genoſſner Malzeit mit ſich hinaus auf einen<lb/>
+<fw type="catch" place="bottom">ge-</fw><lb/>
+<pb n="75" facs="#f0078"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+geraͤumigen einſamen Hofplaz fuͤhrte, von<lb/>
+dem verſchiedne Pforten und Thuͤren den<lb/>
+Ausgang machten. Es ward geklingelt —<lb/>
+der mannhafte Kerkerretter ſties den duldenden<lb/>
+Weiſen ſehr unſchiklich einer kleinen Thuͤr zu,<lb/>
+von der eine ſchmale ſteinerne Windeltreppe<lb/>
+Waltern in einen langen Saal brachte, uͤber<lb/>
+welchen er ging und in ein angenemes Zim-<lb/>
+mer hereintrat. —</p><lb/>
+<p>„Mein Freund!“ fing ſogleich ein an-<lb/>
+ſehnlicher, vornehm gekleideter Herr an, der<lb/>
+neben einem Pater ſas: „wir bedauern Jhr<lb/>
+Schikſal, welches ſie ſich ſelbſt zuzogen;<lb/>
+thuen Sie das noch, um es etwas zu mindern,<lb/>
+und geſtehen Sie ohne Ruͤkhalt die Urſach<lb/>
+ihres Auffenthalts allhier — widrigenfalls<lb/>
+noch Mittel vorhanden ſein werden, Jhren<lb/>
+Mund zu eroͤfnen!“ —</p><lb/>
+<p>Walter ſchwieg betroffen; bat mit ſeinen<lb/>
+Blikken Gnade!</p><lb/>
+<p>„Sie haben eine hieſige Buͤrgerstochter<lb/>
+verfuͤhrt; der Vater hat Sie bei Jhrem<lb/>
+<fw type="catch" place="bottom">Ver-</fw><lb/>
+<pb n="76" facs="#f0079"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+Verbrechen ertappt und unſern Haͤnden uͤber-<lb/>
+liefert!“</p><lb/>
+<p>Erſchrokken ſtammelte der arme Jnquiſit<lb/>
+zwei Woͤrter, der ſich deſſen nicht verſah<lb/>
+und aͤngſtlich die Haͤnde rang.</p><lb/>
+<p>„Sie haben ſich gegen die Verfuͤhrte ei-<lb/>
+niger Worte von geheimen Auftraͤgen an hie-<lb/>
+ſige verborgne Geſellſchaften verlauten laſ-<lb/>
+ſen — wir verlangen dieſelben rein und un-<lb/>
+geheuchelt zu wiſſen!“ —</p><lb/>
+<p>Dieſes, geſprochen mit einem donnern-<lb/>
+den, furchtbaren Ton, dekontenenzirte Wal-<lb/>
+tern ganz. Demungeachtet laͤugnete er doch<lb/>
+alles leztere noch mit ziemlicher Hartnaͤkkig-<lb/>
+keit; wandte dies und ienes vor, und be-<lb/>
+hauptete weder von geheimen Auftraͤgen noch<lb/>
+den Geſellſchaften zu wiſſen.</p><lb/>
+<p>Allein es fruchtete nicht! — „Wir ſind,<lb/>
+ſprach unter andern der Jnquiſitor, voͤllig<lb/>
+von dem uͤberzeugt, deſſen wir Sie bezuͤchtigen;<lb/>
+wir beſizzen Jhre Briefſchaften, Jhr Alles<lb/>
+in Haͤnden — wozu denn noch die weither-<lb/>
+geholten Entſchuldigungen und Vertheidi-<lb/>
+<fw type="catch" place="bottom">gungs-</fw><lb/>
+<pb n="77" facs="#f0080"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+gungsgruͤnde, die erkuͤnſtelten, maskirten,<lb/>
+kniffigen Wendungen und Ausfluͤchte? Ent-<lb/>
+dekken Sie den geheimen Orden, geben Sie<lb/>
+der Warheit die Ehre und leiſten Sie als<lb/>
+ein braver Mann dem Staate eine groſſe<lb/>
+Pflicht. — Wir kennen keinen, fuͤr den<lb/>
+Staat und die allgemeine Ruhe gefaͤhrlichern<lb/>
+Skorpion, als derlei heimliche Brut, wel-<lb/>
+che im Dunkeln umherſchleicht, Proſeliten<lb/>
+macht, Raͤnke ſchmiedet, ſich in alle Larven,<lb/>
+alle Wuͤrden, alle Aemter hineinſchmiegt, den<lb/>
+Saamen der Jrreligion ausſtreut indem ſie<lb/>
+Aufklaͤrung zu predigen luͤgt; die nur Ver-<lb/>
+wandte ihres Gelichters liebt und andere ehr-<lb/>
+liche Leute hintanſezt; die ſich zu groſſen Po-<lb/>
+ſten im Reiche unter einander befoͤrdert, in-<lb/>
+des oft der weiſere Mann in Armut darben<lb/>
+mus, blos weil er ſich nicht zu ihrer Fahne<lb/>
+bekannte. Wie gings mit den Jeſuiten? die-<lb/>
+ſe ſpielten ihre Rollen anfangs im Dunkeln;<lb/>
+allmaͤlig erhuben ſie ihr tuͤkkiſches Haupt, ver-<lb/>
+dekt von der Demut Schleier; ſie gewannen<lb/>
+die Gemuͤter des Volks, beſoldeten Spione,<lb/>
+<fw type="catch" place="bottom">lieſ-</fw><lb/>
+﻿
+<pb n="78" facs="#f0081"/>
+<lb/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+lieſſen iede Mine ſprengen; ſtahlen dem Mo-<lb/>
+narchen den Zepter aus der Hand und lieſ-<lb/>
+ſen ihm nur die Krone; lenkten das Jntreſſe<lb/>
+des Staates zu ihrem eignen Jntreſſe; zogen<lb/>
+die Faden der Regierung abwechſelnd zu ih-<lb/>
+rem Vortheil an und bauten in der Nacht an<lb/>
+dem groſſen Werke einer allgemeinen Hie-<lb/>
+rarchie. — Muͤhſam hat man das Unkraut<lb/>
+ausgeriſſen, indes doch unaufhoͤrlich noch die<lb/>
+zerriſſnen Wurzeln fortwuchern und neue<lb/>
+Sproͤslinge nur mit <hi rendition="#fr">fremdſcheinenden Blaͤt-<lb/>
+tern</hi> liefern. Jeder geheime Orden iſt Gift<lb/>
+des allgemeinen Voͤlkergluͤks, der Staaten-<lb/>
+ruhe; darum, mein Freund, entdekken Sie,<lb/>
+was Sie wiſſen und ranzioniren ſich Jhr Le-<lb/>
+ben! — Oder koͤnnen Sie vor Gott dem<lb/>
+Allwiſſenden, vor dem alle Scheinmaͤntel<lb/>
+und Selbſtvertheidigungen blendender Sofis-<lb/>
+men, als Spinngewebe zernichtet werden,<lb/>
+ihre gaͤnzliche Unwiſſenheit von einem Orden<lb/>
+und ſeinen Mitgliedern beſchwoͤren, ſo knuͤ-<lb/>
+pfen Sie in Gottes und unſerer Gegen-<lb/>
+wart Jhre Zeitlichkeit an den Jammer einer<lb/>
+<fw type="catch" place="bottom">un-</fw><lb/>
+<pb n="79" facs="#f0082"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+unendlichen Ewigkeit, wenn Sie falſch<lb/>
+ſchwuren!“</p><lb/>
+<p>Pauſe! — es war ſchreklich, was der<lb/>
+Mann ſo feierlich-ernſt daher ſprach; auch<lb/>
+Walter zitterte; ſein Gewiſſen uͤberredete ihn<lb/>
+faſt Gott und dem Reiche dieſen verlangten<lb/>
+Dienſt zu leiſten, aber doch blieb er ſtoͤrrig,<lb/>
+ſobald er nur die Kraͤfte ſeines Geiſtes geſam-<lb/>
+melt, und an die groſſen Geheimniſſe ſeiner<lb/>
+Loge zuruͤkgedacht hatte. Sie verlangte auch<lb/>
+Standhaftigkeit in der Pruͤfungsminute, und<lb/>
+dieſe Minute iſt izt da, ſprach er bei ſich<lb/>
+ſelbſt, iſt izt da, und ich bin ſtandhaft, um<lb/>
+mich der hohen, heiligen Weisheit ganz wuͤr-<lb/>
+dig zu machen; verlache das Jrrdiſche, und<lb/>
+der Schwur der dienſtwilligen Zunge, bei<lb/>
+dem das Herz ſchweigt, kann nur fuͤr den<lb/>
+Bigotten, fuͤr Ungeweihte der groſſen Er-<lb/>
+kentnis zur Feſſel werden. — „Jch ſchwoͤre!“<lb/>
+ſagte er gefaſſt und man entband ihn des<lb/>
+ſchreklichſten, ausgekuͤnſtelten Eides. — —</p><lb/>
+<p>Er glaubte nun frei zu ſein von allem;<lb/>
+allein man lies ihn wieder zuruͤkfuͤhren in das<lb/>
+<fw type="catch" place="bottom">vorige</fw><lb/>
+<pb n="80" facs="#f0083"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+vorige Gefaͤngnis und mit Brod und Bier<lb/>
+ſpeiſen. Es iſt ſehr wahrſcheinlich, daß er<lb/>
+nach dieſem noch oͤftre, aͤhnliche Verhoͤre<lb/>
+uͤberſtehen, ia, wie ganz gewis aus ſeinen<lb/>
+Briefſchaften hervorſcheint, <hi rendition="#fr">ſelbſt Foltern<lb/>
+aushalten muͤſſen</hi>, nichts deſto weniger lokte<lb/>
+man ein Geſtaͤndnis aus ihm hervor. —</p><lb/>
+<p>Ein ganzer Monat verſtrich beinah, ohne<lb/>
+daß Walter ie nur Hoffnung zu einer Be-<lb/>
+freiung in ſich naͤhren durfte. Er war ab-<lb/>
+geſchnitten von allem menſchlichen Umgange;<lb/>
+ſas Tage und Naͤchte eingemauert in dem<lb/>
+Mittelpunkt der Erde, wo er vergeblich ſich<lb/>
+im Rufen und Wehklagen ermuͤdete, denn<lb/>
+keines Menſchen Gehoͤr reichte ſo tief hinunter.<lb/>
+Und die Urſach, welche man vorgab, war,<lb/>
+daß er einen <hi rendition="#fr">falſchen Eid</hi> geſchworen, und<lb/>
+ein <hi rendition="#fr">unſchuldiges</hi> Maͤdchen verfuͤhrt habe. —<lb/>
+Seine Vorſtellungen wurden ungehoͤrt ab-<lb/>
+gewieſen.</p><lb/>
+<p>Eines Tages trat ſein eiſenveſter Huͤter<lb/>
+abermals zu ihm herein und fuͤhrte ihn, wie<lb/>
+immer, mit wenigen Umſtaͤnden zu dem obi-<lb/>
+<fw type="catch" place="bottom">gen</fw><lb/>
+<pb n="81" facs="#f0084"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+gen Stuͤbchen. — Hier ſahe er — Gott!<lb/>
+wer ſchildert ſein Erſtaunen! — den lieben<lb/>
+Freund R** nebſt ſeinen Jnquiſitoren auf<lb/>
+einem Sofa ſizzen. Walter wollte ſchon<lb/>
+ſchaamvoll nach einer Pauſe zuruͤktreten, aber<lb/>
+R** ging laͤchelnd auf ihn zu, und zog ihn<lb/>
+an ſeine Bruſt, an ſeinen Mund. — Waltern<lb/>
+traten Thraͤnen in die Augen; mit ſtummer<lb/>
+Wehmut druͤkt er des Freundes Hand, als<lb/>
+flehte er, ein Vorwort fuͤr ihn einzulegen. —<lb/>
+„Jch werd es nicht mehr lange hinbringen<lb/>
+koͤnnen; die vielen Qualen haben meine Ge-<lb/>
+ſundheit getoͤdtet — machen Sie mich los von<lb/>
+dieſen; ich will dankbar ſein und alles Jh-<lb/>
+nen, wenn ſie es noch nicht wiſſen, nachher<lb/>
+erzaͤlen,“ — dies lispelte er ihm verſtolen<lb/>
+bei der Umarmung ins Ohr, allein R**<lb/>
+erwiederte lachend: Jch weis mehr denn du,<lb/>
+braver Junge! du biſt frei, dieſe Herren<lb/>
+ſind deine Bluts- und Seelenfreunde, und<lb/>
+zum <hi rendition="#fr">Allerheiligſten</hi> der groſſen <hi rendition="#fr">Myſtik</hi>, der<lb/>
+ewigen, allumfaſſenden Weisheit haſt du ei-<lb/>
+nen Rieſenſchritt gethan! —</p><lb/>
+<fw type="sig" place="bottom">F</fw><fw type="catch" place="bottom">Ein</fw><lb/>
+<pb n="82" facs="#f0085"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<p>Ein Traͤumender ſtand der Befreite da,<lb/>
+lies ſich bruͤnſtig von ſeinen vorigen Richtern<lb/>
+umarmen, ohne mit Gegenumarmungen ver-<lb/>
+gelten zu koͤnnen. Sein Erſtaunen laͤhmte<lb/>
+tauſend Fragen auf der Zunge — er glaubte<lb/>
+getaͤuſcht zu werden, R** aber nam ſeine<lb/>
+Furcht von ihm, indem er ihn mit ſich in<lb/>
+ſeine ſehr praͤchtige Wohnung fuͤhrte.</p><lb/>
+<p>Hier verſah ihn iener mit ſeiner, rein-<lb/>
+licher Waͤſche und Kleidung; ſtaͤrkte ihn mit<lb/>
+Suppen und Weinen, lies ihn ausruhen<lb/>
+einige Tage und in einem vertraulichen Ge-<lb/>
+ſpraͤch entdekte er ihm folgendes:</p><lb/>
+<p>„Jch haͤtt es nimmer geglaubt, daß du<lb/>
+ſoviel zu ertragen faͤhig waͤrſt; aber wol dir,<lb/>
+daß du es konnteſt; denn izt biſt du benei-<lb/>
+denswuͤrdig gluͤklich. — Du biſt gepruͤft und<lb/>
+der Verſchwiegenheit unſers Ordens treu fun-<lb/>
+den worden; deine Leiden werden dir tau-<lb/>
+ſendfach verguͤtet werden — nun will ich<lb/>
+dir uͤber die verworrenen Szenen, ſeit deiner<lb/>
+Abreiſe aus der Vaterſtadt, Licht ſtreuen. —<lb/>
+Du reiſ'teſt ab, und deiner Pruͤfung entge-<lb/>
+<fw type="catch" place="bottom">gen;</fw><lb/>
+<pb n="83" facs="#f0086"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+gen; die hieſige Loge war von dir ſchon<lb/>
+laͤngſt berichtet, und von allem, was mit<lb/>
+dir zu unternemen ſei. Das iunge Maͤdchen<lb/>
+welches dir den fatalen Streich ſpielte, war<lb/>
+erkauft und wider dich abgeſchikt; ſie mußte<lb/>
+deine Wege und Gaͤnge mit ſtrengen Augen<lb/>
+beobachten; dich ins Nez lokken und in die<lb/>
+Falle ſtuͤrzen. Du gingſt, wie gewuͤnſcht;<lb/>
+ein guter <hi rendition="#fr">Schlaftrunk</hi> hinderte, daß du nicht<lb/>
+eher, als in dem Gefaͤngniſſe erwachteſt;<lb/>
+deine Sachen wurden eingezogen und du<lb/>
+muſteſt von <hi rendition="#fr">einigen Deputirten der Loge</hi> die<lb/>
+Jnquiſitionen uͤber dich dulden, welche deinem<lb/>
+Gedaͤchtnis noch nicht entfallen ſein werden.<lb/>
+Man wandte iedes Mittel an den Grund<lb/>
+deiner Treue zu erforſchen, die dir izt die<lb/>
+Liebe der Obern und unſerer Logen gewann.<lb/>
+<hi rendition="#fr">Erprobte Verſchwiegenheit iſt zu dem wich-<lb/>
+tigen Geſchaͤfte</hi> vonnoͤten, welches dir von<lb/>
+Seiten unſers Ordens uͤbertragen werden<lb/>
+wird. Jzt wollen wir Hand in Hand den<lb/>
+Pfad der geheimen Magie wandeln; mit<lb/>
+groͤſter Bequemlichkeit ſollſt du ihre Myſte-<lb/>
+<fw type="sig" place="bottom">F 2</fw><fw type="catch" place="bottom">rien</fw><lb/>
+<pb n="84" facs="#f0087"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+rien ſtudieren; du biſt nahe an dem groſſen<lb/>
+Punkt, welcher dich unendlich erhebt, denn<lb/>
+der groͤſte Fels iſt uͤberſtiegen!“ —</p><lb/>
+<p>Jn dieſen Tagen erhielt Walter 500<lb/>
+Thaler im Golde geſchikt, ohne zu wiſſen,<lb/>
+von welcher Hand; es ſtand fuͤr ihn ein<lb/>
+ſchoͤner Englaͤnder in R**s Stall mit koſt-<lb/>
+barem Sattelzeug; die nobelſten Geſellſchafen<lb/>
+waren fuͤr ihn offen; geiſtliche und weltliche<lb/>
+Herren und Groſſe unterhielten ſich oft ſtun-<lb/>
+denlang mit ihm. Eine ſolche von der ehe-<lb/>
+maligen ſo auffallend verſchiednen Lebensart,<lb/>
+konnte ihn leicht, mit dem, was er vorher<lb/>
+gelitten hatte ausſoͤhnen, wenn es nur eben-<lb/>
+fals ſeine wankende Geſundheit vermocht<lb/>
+haͤtte, welche durch die haͤufig eingeſchlukten<lb/>
+Kerkerduͤnſte, durch den Harm, durch Nacht-<lb/>
+wachen, Abmattungen, unbekannten Leiden<lb/>
+heftige Alterazionen und ſo weiter, den lez-<lb/>
+ten, fuͤrchterlichſten Stos erhalten hatte.</p><lb/>
+<p>Er wohnte oft der W.....ſchen Logen-<lb/>
+ſeſſion bei, und ſcheint darinnen iedesmal<lb/>
+einer vorzuͤglichen Ehre genoſſen zu haben;<lb/>
+<fw type="catch" place="bottom">er</fw><lb/>
+<pb n="85" facs="#f0088"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+er erhielt von allen Seiten herrliche Geſchenke,<lb/>
+nichts aber war ihm intreſſanter als die ſelt-<lb/>
+nen Werke einiger <hi rendition="#fr">Adepten</hi> und <hi rendition="#fr">Theurgen</hi>,<lb/>
+welche er mehrentheils von ſeinem Freund<lb/>
+R** bekam, der auch hier eine ſehr glaͤn-<lb/>
+zende Rolle ſpielte. — Jndes ſehnte ſich unſer<lb/>
+Freimaurer heftig nach der Vaterſtadt, um<lb/>
+dort den geheimen Wiſſenſchaften ungeſtoͤrter<lb/>
+obliegen und ſeiner einſinkenden Geſundheit<lb/>
+pflegen zu koͤnnen. Er eroͤfnete dem Freund<lb/>
+und Bruder ſein Vorhaben, allein wie ſehr<lb/>
+beſtuͤrzte Walter, als er im Namen der<lb/>
+ganzen Dreifaltigkeitsloge den Auftrag einer<lb/>
+wichtigen Reiſe zum Nuzzen des Ordens er-<lb/>
+hielt. — Es iſt ſehr ungewis zu welchem<lb/>
+Endzwek die Reiſe unternommen werden ſolte,<lb/>
+weil man in Walters Papieren nicht eine Spur<lb/>
+davon antrift. Zuverlaͤſſiger laͤſſt ſich etwa<lb/>
+beſtimmen, daß er nach einem deutſchen Fuͤrſten-<lb/>
+hofe habe verſchikt werden und dort zum Beſten<lb/>
+des Ordens (<hi rendition="#fr">oder des Katholizismus</hi>?) wirken<lb/>
+ſollen. — Mit einem Worte, er verweigerte<lb/>
+den Schritt, indem er hiezu ſich zu wenig<lb/>
+<fw type="sig" place="bottom">F 3</fw><fw type="catch" place="bottom">kuͤhn</fw><lb/>
+<pb n="86" facs="#f0089"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+kuͤhn, und geſchikt hielt, auch ſeinen ſchwaͤch-<lb/>
+lichen Koͤrper vorſchuͤzte. — Er hatte die-<lb/>
+ſerwegen mit R** manchen Wortwechſel,<lb/>
+welcher aber bald beigelegt wurde, nachdem<lb/>
+ihm von dem Orden Konzeſſion gegeben war,<lb/>
+nach Hauſe kehren, und ſein Amt ſowol als<lb/>
+ſeine Geſundheitsumſtaͤnde beſorgen zu duͤrfen,<lb/>
+doch mit dem Beding, ſobald ſich leztere ver-<lb/>
+beſſern wuͤrden, das nur aufgeſchobene Ge-<lb/>
+ſchaͤft zu vollbringen.</p><lb/>
+<p>Walter kam in ſeiner vaͤterlichen Woh-<lb/>
+nung an, bleich, entſtellt und beſtaͤndig truͤbe.<lb/>
+Seine Worte waren mit einem gewiſſen Un-<lb/>
+willen begleitet, welcher ieden aus ſeiner<lb/>
+Geſellſchaft vertrieb, ihn in kurzer Zeit ein-<lb/>
+ſam, ſein Haus aber zur Einſiedelei machte. —<lb/>
+Er korrespondirte unterdeſſen fleiſig mit R**,<lb/>
+der ſich noch immer in W.... befand; las<lb/>
+und ſchrieb; bearbeitete auch ein Werk fuͤr den<lb/>
+Druk, von welchem ich nur noch einige Frag-<lb/>
+mente aufgefunden habe. Er betitelte es:<lb/>
+„<hi rendition="#fr">Geſtaͤndniſſe eines ehrlichen Erdenbuͤr-<lb/>
+gers, der ſich der geheimen Wiſſenſchaften</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">beflis</hi>.</fw><lb/>
+<pb n="87" facs="#f0090"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<hi rendition="#fr">beflis</hi>.“<note place="foot" n="*)">Der Herr Verfaſſer dieſer Biografie iſt ſo guͤ-<lb/>
+tig geweſen uns von den Fragmenten dieſes<lb/>
+paradoxen Werks Kopien zu uͤberſenden. Wir<lb/>
+ſagen ihm noch einmal unſern Dank und ver-<lb/>
+ſichern, ſollten ſie den Kunſtrichtern und dem<lb/>
+Publikum nicht unwilkommen ſein, in einer<lb/>
+Fortſezzung unſrer <hi rendition="#fr">Narrenkronik</hi>, Gebrauch<lb/>
+davon zu machen.</note> — Hierin kramt er nun all ſeine Kent-<lb/>
+niſſe aus; ſpricht ziemlich heterodox von <hi rendition="#fr">Gott-<lb/>
+heit, Menſchenſeele, Menſchenweſen</hi> und <hi rendition="#fr">Uni-<lb/>
+verſum;</hi> ſchildert die Verhaͤltniſſe <hi rendition="#fr">des Geiſter-<lb/>
+reichs</hi> mit dem Menſchen und in wie fern unſer<lb/>
+Geiſt mit ſeinen Bruͤdern (den Geiſtern) hoͤhrer<lb/>
+Gattung Umgang haben koͤnne. Zuweilen hat<lb/>
+er kein Unrecht; er ſezt ſich oft uͤber herr-<lb/>
+ſchende Vorurtheile hinweg und baut ſich neue<lb/>
+Syſteme zuſammen; wagt kuͤhne Hypotheſen<lb/>
+und ſpinnt Gedanken, auf die Kriſtus und<lb/>
+Schrift nur einen Fingerzeig warfen in's<lb/>
+Unendliche hinaus. Doch hat er ſein Opus-<lb/>
+kulum nicht vollenden koͤnnen.</p><lb/>
+<p>Das Uhrwerk ſeines Koͤrpers war einmal<lb/>
+zerſtoͤrt und gerieth durch die anhaltende ſiz-<lb/>
+zende Lebensart und Geiſtesanſtrengung von<lb/>
+<fw type="sig" place="bottom">F 4</fw><fw type="catch" place="bottom">neuen</fw><lb/>
+﻿
+<pb n="88" facs="#f0091"/>
+<lb/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+neuen ins Stokken. Symptome ſeiner vo-<lb/>
+rigen Krankheit zeigten ſich nur zu deut-<lb/>
+lich. — Freunde riethen ihm einen erfahrnen<lb/>
+Arzt anzunemen, daß er nicht im Sommer<lb/>
+ſeines Lebens eine Welt verlaſſen muͤſſte, in<lb/>
+der er noch Nuzzen ſchaffen ſollte und koͤnnte<lb/>
+aber er verwarf Vorſtellungen und Bitten;<lb/>
+beſtimmte ſein Teſtament; bereitete ſich ernſt-<lb/>
+lich zum Tode und betete oft zu Gott. —<lb/>
+„Warum quaͤlt ihr mich, ſprach er einſt zu<lb/>
+denen, welche ihm Arzenei empfalen; wozu<lb/>
+all die Medizin, da ich meines Todes gewis<lb/>
+bin? geht zum Arzt und fragt ihn, ob er<lb/>
+die Sonn in ihrer Bahn aufhalten koͤnne? —<lb/>
+meine Stunde iſt vorhanden, in der ich auf-<lb/>
+geloͤſet werden ſoll — es wird kein Mond<lb/>
+verflieſſen: ſo iſts geſchehn — lange ſah ich<lb/>
+das voraus!“ —</p><lb/>
+<p>Da man ſich bemuͤhte ihn von dieſen<lb/>
+duͤſtern Gedanken loszureiſſen, ſagte er mit<lb/>
+kaltlaͤchelnder Miene: Es iſt unendlich ſeltſam,<lb/>
+daß ihr Menſchen nicht des Augenbliks ge-<lb/>
+denken moͤget, der es doch am meiſten ver-<lb/>
+<fw type="catch" place="bottom">dient!</fw><lb/>
+<pb n="89" facs="#f0092"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+dient! Mitternachts zwiſchen ein und zwei<lb/>
+Uhr wird der meinige ſein!“ — —</p><lb/>
+<p>Er hatte wahr geredet. Sorgfaͤltig<lb/>
+ſammlete er vorher alle Papiere und Briefe<lb/>
+die ihm von groſſer Wichtigkeit ſchienen und<lb/>
+warf ſie mit eignen Haͤnden in die Flam-<lb/>
+me. — Er bekam fieberhafte Zufaͤlle, welche<lb/>
+doch aber abwechſelnd waren. Jn einer<lb/>
+ruhigen Stunde lag er auf dem Bette, als<lb/>
+ich einſt zu ihm hereintrat und mich nach<lb/>
+ſeinem Befinden erkundigte; er atmete auſſer-<lb/>
+ordentlich ſchnell und mit gebrochnen Worten<lb/>
+bat er mich, einen Brief an ſeinen Freund<lb/>
+R** zu W.... zu ſchreiben. Jch ſezte<lb/>
+mich und er diktirte folgendes Wenige:</p><lb/>
+<p>„Die Krankheit iſt geſtiegen bei mir und<lb/>
+ich laſſe Jhnen darum noch durch eine fremde<lb/>
+Hand mein leztes Lebewol ſchreiben. Jch<lb/>
+danke Jhnen von Herzensgrunde fuͤr iede<lb/>
+Gefaͤlligkeit, welche Sie mir bei Lebzeiten<lb/>
+erwieſen, der Sie mein einziger Freund wa-<lb/>
+ren. Leben Sie wol fuͤr dieſes Zeitliche.<lb/>
+Jch hoffe Sie wieder zu finden. Die Ant-<lb/>
+<fw type="sig" place="bottom">F 5</fw><fw type="catch" place="bottom">wort</fw><lb/>
+<pb n="90" facs="#f0093"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+wort erſparen Sie nur, weil ſie mich nicht<lb/>
+mehr lebend treffen wuͤrde. Das Uebrige<lb/>
+iſt beſorgt!“ —</p><lb/>
+<p>Fuͤnf Tage nachher, Mitternachts und<lb/>
+¾ auf zwei Uhr, im ein und dreiſſigſten<lb/>
+Jahre ſeines Lebens gab er in einem ſanften<lb/>
+erquiklichen Schlummer den Geiſt auf, nach-<lb/>
+dem er vorher zwei Tage heftig im hizzigen<lb/>
+Fieber gerungen hatte.</p><lb/>
+<p>Dies iſt das traurige Leben eines Man-<lb/>
+nes, welcher izt in andern Welten lebt; deſ-<lb/>
+ſen Karakter ohne Falſchheit und Stolz war;<lb/>
+der den Armen viel gutes that (wie er z.B.<lb/>
+ſein ganzes Vermoͤgen am baaren Gelde dem<lb/>
+Armeninſtitute ſeiner Vaterſtadt vermachte;)<lb/>
+der herrliche Anlagen und Talente beſas und<lb/>
+doch nicht die Pflichten eines redlichen Er-<lb/>
+denbuͤrgers ganz in Erfuͤllung brachte. Kei-<lb/>
+ner bezweifle die <hi rendition="#fr">Avthentizitaͤt</hi> dieſer Ge-<lb/>
+ſchichte, und ſollte man es wuͤnſchen, meinen<lb/>
+Namen, den ich guter <hi rendition="#fr">Gruͤnde</hi> willen nicht<lb/>
+<hi rendition="#fr">oͤffentlich</hi> nennen <hi rendition="#fr">mag</hi>, zu wiſſen verlangen,<lb/>
+ſo will ich ihn privatim nennen <hi rendition="#fr">dem, welcher</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">aus</hi></fw><lb/>
+<pb n="91" facs="#f0094"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+<hi rendition="#fr">aus rechtlichen Abſichten</hi> mich darum, durch<lb/>
+irgend einen Kanal, erſucht, oder erſuchen<lb/>
+laͤſſt, um ganz die Warheit der Geſchichte<lb/>
+zu verbuͤrgen. — Walters Familie lebt noch,<lb/>
+doch will ich weder das Staͤdtlein, noch<lb/>
+einige Freunde des ungluͤklichen Walters<lb/>
+namentlich bekannt machen, weil ſie mir<lb/>
+zwar ſeine Lebensumſtaͤnde, ſo weit man<lb/>
+ſie weis, doch nicht ienes, zu publiziren<lb/>
+erlaubten.</p><lb/>
+<p>Ein Wort der Warnung moͤgen dieſe<lb/>
+Blaͤtter, welche Walters Leben faſſen, fuͤr<lb/>
+dieienigen ſein, welche, wie er, nur ſuchen den<lb/>
+<hi rendition="#fr">Hang zur Magie</hi> zu befriedigen. Es iſt<lb/>
+traurig, daß in unſern hellen Tagen noch<lb/>
+des <hi rendition="#fr">Gasners, Kaglioſtros</hi> und <hi rendition="#fr">Walters</hi><lb/>
+im dunkeln ſo viel leben; daß ſo mancher<lb/>
+ehrliche Mann ſein Hab und Gut im Schmelz-<lb/>
+tiegel auffliegen laͤſſt, oder ſeine Hirnfaſern<lb/>
+bei dem myſterioͤſen Unſinn der Magie und<lb/>
+Goetie anſtrengt. Unſre Gelehrten waͤhnen<lb/>
+die Flekken des Aberglaubens ganz hinweg,<lb/>
+und das <hi rendition="#fr">achtzehnte Jahrhundert</hi> zur ſpie-<lb/>
+<fw type="catch" place="bottom">gel-</fw><lb/>
+<pb n="92" facs="#f0095"/>
+<fw type="header" place="top"><hi rendition="#g">Wilhelm Walter</hi>.</fw><lb/>
+gelhellen Flaͤche polirt zu haben, allein noch<lb/>
+ſind dunkle Flekke vorhanden, die man, ehe<lb/>
+ſie fuͤrder um ſich wuchern und einmal eine<lb/>
+zweite Finſternis zeugen, wegzuſchaffen<lb/>
+hat. — Bigotterie, Fanatismus und Aber-<lb/>
+glaube ſind noch in vielen deutſchen Staͤdten<lb/>
+herrſchend und <hi rendition="#fr">geheime Geſellſchaften</hi> ſchlei-<lb/>
+chen ſich nur zu oft unter der Kappe der<lb/>
+<hi rendition="#fr">Freimauͤrerei</hi> ein! — —</p><lb/>
+<signed><hi rendition="#et"><hi rendition="#fr">Ungenanter</hi>.</hi></signed></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb facs="#f0096"/>
+</body><back>
+<pb facs="#f0097"/>
+<pb facs="#f0098"/>
+<pb facs="#f0099"/>
+<pb facs="#f0100"/>
+</back>
+</text> </TEI>

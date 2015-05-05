@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Kunst und Proletariat</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118579975">
+<surname>Mehring</surname>
+<forename>Franz</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">21</measure>
+<measure type="tokens">2379</measure>
+<measure type="types">971</measure>
+<measure type="characters">17259</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:05Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/mehring_kunst_1896</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/mehring_kunst_1896</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/mehring_kunst_1896</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/mehring_kunst_1896</idno>
+<idno type="DTADirName">mehring_kunst_1896</idno>
+<idno type="DTAID">16402</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905193857</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="JA">Mehring, Franz: Kunst und Proletariat. Stuttgart, 1896.</bibl>
+<biblFull>
+<titleStmt>
+<title level="a" type="main">Kunst und Proletariat</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118579975">
+<surname>Mehring</surname>
+<forename>Franz</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">4</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Dietz</name></publisher>
+<pubPlace>Stuttgart</pubPlace>
+<date type="publication">1896</date>
+</publicationStmt>
+<seriesStmt>
+<title level="j" type="main">Die neue Zeit. Wochenschrift der Deutschen Sozialdemokratie</title>
+<biblScope unit="issue">I.</biblScope>
+<biblScope unit="pages">129-133</biblScope>
+</seriesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Ac7440-15,1.1896/97</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=41755267X</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Journalismus</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Gesellschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Politik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2main">Zeitung</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<pb facs="#f0010"/>
+<pb facs="#f0011"/>
+<titlePage type="series"> <docTitle> <titlePart type="main"> <hi rendition="#b">Die Neue Zeit.</hi></titlePart><lb/>
+<titlePart type="sub"> <hi rendition="#g">Revue des geiſtigen und öffentlichen Lebens.</hi></titlePart><lb/>
+</docTitle> <milestone unit="section" rendition="#hr"/><lb/>
+<byline>Unter ſtändiger Mitarbeiterſchaft<lb/>
+von<lb/>
+<hi rendition="#b">Aug. Bebel, Ed. Bernſtein, Paul Lafargue, Wilh. Liebknecht,<lb/>
+Fr. Mehring, F. A. Sorge u. A.</hi> </byline><lb/>
+<byline>redigirt<lb/>
+von<lb/>
+<hi rendition="#b">Karl Kautsky.</hi> </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="series">Fünfzehnter Jahrgang. Erſter Band.</titlePart><lb/>
+<figure/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b">Stuttgart.</hi></pubPlace><lb/>
+<publisher>Verlag von J. H. W. Dietz. </publisher><lb/>
+<docDate>1897.<lb/>
+</docDate> </docImprint> </titlePage>
+<pb facs="#f0012"/>
+<div type="imprint"> <p rendition="#c">Druck von J. H. W. Dietz in Stuttgart.</p> </div><lb/>
+<pb facs="#f0013"/>
+<div type="contents"> <head> <hi rendition="#b #g">Inhalts-Verzeichniß.</hi><lb/>
+(<hi rendition="#aq">A</hi>. bedeutet Artikel, <hi rendition="#aq">N</hi>. Notiz, <hi rendition="#aq">R</hi>. Rezenſion, die Zahlen geben die Seiten an.) </head><lb/>
+<gap/>
+<pb facs="#f0014"/>
+<fw type="header" place="top">Inhalts-Verzeichniß.<lb/>
+</fw> <gap/> </div> </front> <body>
+<pb facs="#f0015"/>
+<div n="1"> <figure/><lb/>
+<p>Nr. 5. <space dim="horizontal"/> <hi rendition="#aq">XV</hi>. Jahrgang, <hi rendition="#aq">I</hi>. Band. <space dim="horizontal"/> 1896-97.</p><lb/>
+</div> <div n="1"> <head> <hi rendition="#g">Kunſt und Proletariat</hi><hi rendition="#fr">.</hi><lb/>
+</head> <p rendition="#right">↗ <hi rendition="#g">Berlin</hi>, 21. Oktober 1896.</p><lb/>
+<p>Auf dem Gothaer Parteitag hat ſich eine lange Verhandlung über die<lb/>
+Stellung des modernen Proletariats zur modernen Kunſt entſponnen. Es war<lb/>
+gewiß nicht ein Fehler, daß ſie an einem konkreten Streitpunkt entbrannte, denn<lb/>
+ſie wurde dadurch nur um ſo belebter und eindringlicher. Aber wenn man ihr<lb/>
+eigentliches Fazit ziehen will, ſo muß man allerdings den konkreten Streitpunkt<lb/>
+mit ſeinem Für und Wider aus dem Spiele laſſen. In dieſer Beziehung<lb/>
+genügt, die Thatſache feſtzuſtellen, über die auf dem Parteitag vollkommene<lb/>
+Uebereinſtimmung herrſchte, daß ſich nämlich gegen die in der „Neuen Welt“<lb/>
+vertretene moderne Kunſt innerhalb ſehr weiter Parteikreiſe ein lebhafter Wider¬<lb/>
+ſtand geltend gemacht hat, der dieſe Kunſt als ſolche trifft. Denn über den Fleiß<lb/>
+und das Talent der Redaktion herrſchte ja gleichfalls völlige Uebereinſtimmung.</p><lb/>
+<p>Jene Thatſache ſelbſt wird Niemanden verwundert haben, der wie der<lb/>
+Schreiber dieſer Zeilen auf künſtleriſchem Gebiete jahrelang gemeinſam mit klaſſen¬<lb/>
+bewußten Arbeitern gearbeitet hat. Man kommt darüber nicht hinweg mit einer<lb/>
+angeblich konſervativen Tendenz, die viele Arbeiter trotz allem ökonomiſchen und<lb/>
+politiſchen Radikalismus in Sachen der Kunſt haben ſollen, mit ſchnellen Schlag¬<lb/>
+worten über Vorliebe für moraliſche Traktätchen und dergleichen mehr. Dieſe<lb/>
+Einwände würden zutreffen, wenn die Arbeiter irgend welches Intereſſe für die<lb/>
+Romane des Fräulein Marlitt und die Schauſpiele des Herrn Lindau bekundeten,<lb/>
+indeſſen davon haben wir nie an irgend einem Arbeiter die geringſte Spur ent¬<lb/>
+decken können. Im Gegentheil: die Sorte der Kunſt, an welcher ſich die heutige<lb/>
+Bourgeoiſie vergnügt, verachten die Arbeiter ſchlechthin, während ſie in der<lb/>
+modernen Kunſt doch immer eine ſehr beachtenswerthe Erſcheinung ſehen, wofür<lb/>
+nicht zuletzt gerade die leidenſchaftliche Heftigkeit ihres Widerſtandes ſpricht. Die<lb/>
+Streitfrage gewinnt aber ſofort ein ganz anderes Geſicht, wenn die Arbeiter den<lb/>
+Halbe und Hauptmann nicht etwa die Lindau und Marlitt, ſondern je nachdem<lb/>
+die Goethe und Schiller vorziehen.</p><lb/>
+<p>Nach unſeren praktiſchen Beobachtungen läßt ſich der Gegenſatz dahin<lb/>
+zuſammenfaſſen, daß die moderne Kunſt einen tief peſſimiſtiſchen, das moderne<lb/>
+Proletariat aber einen tief optimiſtiſchen Grundzug hat. Jede revolutionäre<lb/>
+Klaſſe iſt optimiſtiſch; ſie ſieht, wie der ſterbende Rodbertus einmal ſagte, die<lb/>
+<fw type="sig" place="bottom">1896-97. <hi rendition="#aq">I</hi>. Bd. 9<lb/>
+</fw>
+<pb n="130" facs="#f0016"/>
+<fw type="header" place="top">Die Neue Zeit.<lb/>
+</fw> Zukunft in einem wunderſam roſigen Schimmer. Das hat ſelbſtverſtändlich mit<lb/>
+irgend welchem Utopismus nichts zu thun. Der revolutionäre Kämpfer mag in<lb/>
+der nüchternſten Weiſe die Chancen des Kampfes abſchätzen: ein revolutionärer<lb/>
+Kämpfer iſt er doch nur, weil er die felſenfeſte Ueberzeugung hat, daß er eine<lb/>
+Welt umwälzen kann. In dieſem Sinne iſt jeder klaſſenbewußte Arbeiter ein<lb/>
+Optimiſt: er ſieht voll froher Hoffnung in die Zukunft, und er ſchöpft dieſe Hoff¬<lb/>
+nung gerade aus dem Elend, das ihn umgiebt.</p><lb/>
+<p>Dagegen iſt die moderne Kunſt tief peſſimiſtiſch. Sie kennt keinen Aus¬<lb/>
+weg aus dem Elend, das ſie mit Vorliebe ſchildert. Sie entſpringt aus bürger¬<lb/>
+lichen Kreiſen und iſt der Reflex eines unaufhaltſamen Verfalls, der ſich in ihr<lb/>
+getreu genug widerſpiegelt. Sie iſt in ihrer Weiſe, und ſoweit ſie nicht bloße<lb/>
+Modenarrheit iſt, ehrlich und wahr; ſie ſteht hoch über die Lindau und Marlitt,<lb/>
+aber ſie iſt durchaus peſſimiſtiſch in dem Sinne, daß ſie im Elend der Gegen¬<lb/>
+wart nur das Elend ſieht. Was ihr vollſtändig fehlt, iſt jenes freudige Kampf¬<lb/>
+element, das dem klaſſenbewußten Proletariat das Leben des Lebens iſt. Wo<lb/>
+es einmal auftaucht oder aufzutauchen ſcheint, wie in Hauptmanns „Webern“,<lb/>
+da wird es ſofort aufs Feierlichſte verleugnet. Erſt vor acht Tagen wieder hat<lb/>
+Herr Hauptmann durch ſeinen Anwalt Grelling, wie früher ſchon oft, dem Ober¬<lb/>
+verwaltungsgericht die Verſicherung abgeben laſſen, er habe mit ſeinen „Webern“<lb/>
+nur eine ſentimentale Mitleidstragödie dichten wollen, und in ſeinem „Florian<lb/>
+Geyer“ hat er, um von vornherein alle unliebſamen Mißverſtändniſſe auszu¬<lb/>
+ſchließen, die aufſtändiſchen Bauern, die in ihrer Weiſe denſelben Kampf kämpften,<lb/>
+wie das moderne Proletariat, als eine Rotte hoffnungsloſer Trottel geſchildert.<lb/>
+Wir führen hier Hauptmann an, weil er auf dem Parteitag als der größte Ver¬<lb/>
+treter der modernen Kunſt genannt worden iſt. Wäre dem ſo, was wir an ſich<lb/>
+nicht beſtreiten wollen, ſo wäre damit auch geſagt, daß die moderne Kunſt keine<lb/>
+große Kunſt iſt. Denn eine große Kunſt hat noch nie, ſo lange die Welt ſteht,<lb/>
+vor irdiſchen <choice><sic>Tribunaleu</sic><corr>Tribunalen</corr></choice> auf mildernde Umſtände für ihr Daſein plädirt.</p><lb/>
+<p>Ebenſo wenig hat ſich jemals, ſo lange die Welt ſteht, eine revolutionäre<lb/>
+Klaſſe für eine Kunſt begeiſtert, die ihr Kleid mit advokatoriſcher Bürſte von<lb/>
+jedem revolutionären Fäſerchen reinigt. Das giebt es einfach nicht. Die<lb/>
+Ariſtarche der modernen Kunſt haben gemeint, die Arbeiter wollten wohl Marx<lb/>
+und Laſſalle dramatiſirt haben, indeſſen braucht das moderne Proletariat glück¬<lb/>
+licherweiſe nicht erſt von den Herren Brahm und Schlenther eine zweifelhafte<lb/>
+Aeſthetik zu lernen. Wie wenig ſeine Abneigung gegen die moderne Kunſt mit<lb/>
+einer unkünſtleriſchen Tendenz zu thun hat, beweiſt ſeine Begeiſterung für die<lb/>
+Klaſſiker, in denen es keine Spur ſeines Klaſſenbewußtſeins, aber wohl jenes<lb/>
+freudige Kampfelement findet, das es an der modernen Kunſt vermißt. In der<lb/>
+Freien Volksbühne wurde einmal ein Drama eines jungen Anfängers aufgeführt,<lb/>
+das den proletariſchen Klaſſenkampf zu geſtalten verſuchte, aber künſtleriſch zu<lb/>
+wünſchen übrig ließ; es wurde eben nur aufgeführt, um — was auch zu den<lb/>
+Aufgaben dieſes Arbeitertheaters gehörte — ein hoffnungsvolles Talent zu fördern,<lb/>
+dem die bürgerlichen Bühnen verſchloſſen waren. Da zeigte ſich aber ſofort,<lb/>
+daß die Arbeiter weit entfernt davon ſind, über dem guten Willen die Kunſt<lb/>
+zu vernachläſſigen: das Stück brachte es nicht über den verdienten Achtungserfolg.</p><lb/>
+<p>Ein noch viel draſtiſcheres Beiſpiel läßt ſich aus den Verhandlungen des<lb/>
+Gothaer Parteitags anziehen. Es wurde dort geſagt, Hans Lands Roman „Der<lb/>
+neue Gott“, den die „Neue Welt“ veröffentlicht hat, ſei von den Arbeitern als<lb/>
+Verhöhnung ihres Klaſſenkampfes empfunden worden. Darauf erwiderte der<lb/>
+Redakteur, er habe im Gegentheil lange geſchwankt, ob er den Roman in die<lb/>
+<pb n="131" facs="#f0017"/>
+<fw type="header" place="top">Kunſt und Proletariat.<lb/>
+</fw> „Neue Welt“ aufnehmen ſolle, weil er zu tendenziös im Sinne der Sozialdemo¬<lb/>
+kratie ſei und deshalb künſtleriſche Anſprüche zu wenig befriedige. Dies Urtheil<lb/>
+ſtimmt aufs Haar. Herr Land hat den beſten Willen gehabt, einen Ausſchnitt<lb/>
+aus dem proletariſchen Klaſſenkampfe in einem dem Proletariat ſympathiſchen<lb/>
+Sinne zu geben, aber er hat keine blaſſe Ahnung davon, wie es in Arbeiter¬<lb/>
+kreiſen eigentlich hergeht; ſein Roman iſt eine romantiſche Dichtung im ver¬<lb/>
+wegenſten Sinne des Wortes. Und deshalb iſt es überaus bezeichnend, daß<lb/>
+ſo viele Arbeiter darin eine Verhöhnung ihres Emanzipationskampfes erblickt<lb/>
+haben; über dem Mangel an künſtleriſcher Geſtaltungsfähigkeit überſahen ſie voll¬<lb/>
+ſtändig die arbeiterfreundliche Tendenz des Dichters.</p><lb/>
+<p>Anders und doch wieder ähnlich mit der „Mutter Bertha“, der auf dem<lb/>
+Parteitag mit ſo geringer Galanterie begegnet worden iſt. Der Roman Hegelers<lb/>
+überragt dichteriſch den Roman Lands, und es wäre unſeres Erachtens ſehr un¬<lb/>
+gerecht, ihn nach der einen, auf dem Parteitag wörtlich verleſenen Stelle zu be-<lb/>
+und verurtheilen. Die paar Sätze hätten ruhig geſtrichen werden können, ohne<lb/>
+den Roman zu ſchädigen, aber freilich — hier liegt wieder der Haſe im Pfeffer.<lb/>
+Der moderne Arbeiter iſt nichts weniger als prüde; er läßt ſich weit ärgere<lb/>
+— im Sinne der Philiſtermoral — ärgere Dinge bieten, als in der „Mutter<lb/>
+Bertha“ vorkommen, aber alles an ſeinem Orte. Gerade weil die Vertreter der<lb/>
+modernen Kunſt derartige Natürlichkeiten an den Haaren herbeiziehen, gerade weil<lb/>
+ſie den Heldenmuth, den ſie gegenüber den großen Kämpfen der Zeit vermiſſen<lb/>
+laſſen, dadurch bezeugen wollen, daß ſie natürliche Dinge auf offener Straße<lb/>
+thun, die man ſonſt zwiſchen vier Wänden zu thun pflegt, erregen ſie herzhaften<lb/>
+Widerwillen. Im Uebrigen iſt „Mutter Bertha“ bei allem anerkennenswerthen<lb/>
+Talent des Dichters und trotz mancher vortrefflichen Kapitel doch auch eine ſehr<lb/>
+romantiſche Dame, wie denn die moderne Kunſt von der bürgerlichen Romantik<lb/>
+weit weniger frei iſt, als ſie ſelbſt glaubt.</p><lb/>
+<p>Das Ideal der „reinen Kunſt“ iſt überhaupt ein Erbtheil der reaktionär¬<lb/>
+romantiſchen Schule, das jede revolutionäre Klaſſe nur ſehr mit Vorbehalt an¬<lb/>
+treten wird. Es iſt mindeſtens ebenſo einſeitig, wie die Moralfexerei einſeitig<lb/>
+war, womit das bürgerlich-revolutionäre Drama im achtzehnten Jahrhundert<lb/>
+begann. Sollte den äſthetiſchen Anſchauungen der modernen Arbeiterklaſſe wirklich<lb/>
+noch ein kleines Moralzöpfchen hinten hängen, ſo braucht ſie ſich deſſen gar nicht<lb/>
+zu ſchämen. Sie kann ſich deshalb auf den jungen Leſſing und den jungen<lb/>
+Schiller berufen, die in der Schaubühne auch eine „moraliſche Anſtalt“ ſahen.<lb/>
+Früher waren die Vertreter der „reinen Kunſt“ auch offenherzige Reaktionäre<lb/>
+und mogelten dem lieben Publikum nicht vor, daß ſie der Himmel weiß welche<lb/>
+Revolutionäre ſeien. Der alte Vilmar verdonnert in ſeiner Literaturgeſchichte<lb/>
+vom Standpunkt der „reinen Kunſt“ Schillers „Kabale und Liebe“ als eine<lb/>
+ekelhafte Karrikatur, und das iſt vollkommen richtig, wenn anders der Standpunkt<lb/>
+der „reinen Kunſt“ richtig ſein ſoll. So lächerlich wie Herr Brahm, der „Kabale<lb/>
+und Liebe“, noch dazu in „naturaliſtiſcher“ Verhunzung, als ein prunkendes Meiſter¬<lb/>
+ſtück aufführen läßt und dabei die putzigſten Geſichter ſchneidet über die banauſiſche<lb/>
+Arbeiterklaſſe, die das „Kapital“ von Marx dramatiſirt ſehen wolle, waren die<lb/>
+alten Reaktionäre der „reinen Kunſt“ nicht. Mit dieſen gelungenen Exemplaren<lb/>
+moderner Geſinnungstüchtigkeit hat uns erſt die moderne Kunſt geſegnet.</p><lb/>
+<p>Natürlich iſt die „reine Kunſt“, indem ſie angeblich parteilos ſein will,<lb/>
+erſt recht parteiiſch. Will ſie auf einer höheren Warte ſtehen, als auf der Zinne<lb/>
+der Partei, ſo muß ſie nach rechts und nach links ſehen, ſo muß ſie nicht nur<lb/>
+die alte, vergehende, ſondern auch die neue, entſtehende Welt ſchildern. Wir<lb/>
+<pb n="132" facs="#f0018"/>
+<fw type="header" place="top">Die Neue Zeit.<lb/>
+</fw> können es nicht als zutreffend erachten, wenn auf dem Parteitag geſagt worden<lb/>
+iſt, die moderne Kunſt lebe in einer Periode des Verfalls und könne deshalb<lb/>
+auch nur den Verfall ſchildern. Die Periode des Verfalls, in der wir leben,<lb/>
+iſt zugleich eine Periode der Wiedergeburt. So ehrlich und wahr die moderne<lb/>
+Kunſt die Ruinen ſchildern mag, ſo wird ſie doch unehrlich und unwahr, indem<lb/>
+ſie das neue Leben überſieht, das aus den Ruinen blüht. Wie ſoll ſich das<lb/>
+Proletariat für eine Kunſt begeiſtern, die in ſehr unkünſtleriſcher Tendenz nichts<lb/>
+von dem wiſſen will, was ſein eigenſtes und urſprünglichſtes Leben iſt! Wes¬<lb/>
+halb ſoll es denn ſo viel demüthiger ſein als das Bürgerthum, das in ſeinen<lb/>
+kräftigen Tagen auch nie etwas von einer Kunſt wiſſen wollte, die nicht aus<lb/>
+ſeinem Geiſte geboren war?</p><lb/>
+<p>Die moderne Kunſt iſt bürgerlichen Urſprungs. Wir rechnen es ihr nicht<lb/>
+zur Schande an, daß ſie ihren Urſprung nicht verleugnet, daß ſie ſich je länger<lb/>
+je mehr in die Grenzen der bürgerlichen Geſellſchaft rückwärts konzentrirt. Man<lb/>
+kann von Niemand verlangen, daß er über ſeinen Schatten ſpringen ſoll. Was<lb/>
+wir verlangen, iſt nur, daß die ſtarken Vorbehalte, welche die arbeitende Klaſſe<lb/>
+gegen die moderne Kunſt macht, nicht an falſchem Orte geſucht werden. Sie<lb/>
+liegen nicht in irgend einer Rückſtändigkeit des Proletariats, und wir halten es<lb/>
+für eine Illuſion, die mit bitteren Enttäuſchungen enden wird, wenn das Prole¬<lb/>
+tariat zum Verſtändniß der modernen Kunſt erzogen werden ſoll. Mit dieſer<lb/>
+Art Volkspädagogik hat es überhaupt ſeine eigene Bewandtniß. Die Frage iſt<lb/>
+ja ſchon vor Jahren einmal in der „Neuen Zeit“ diskutirt worden, als die<lb/>
+Freie Volksbühne ſich zu ihrem Heile die „Erzieher“ abſchüttelte. Wir ſind<lb/>
+natürlich weit davon entfernt, die „Erziehung“, welche die Redaktion der „Neuen<lb/>
+Welt“ beabſichtigt, auf dieſelbe Stufe zu ſtellen mit dem abgeſchmackten und an¬<lb/>
+maßenden Präzeptorenthum der anarchiſtiſch-bürgerlichen Konfuſionsräthe, die ihrer<lb/>
+Zeit die Freie Volksbühne beglücken wollten. Wir beſtreiten durchaus nicht, daß<lb/>
+die äſthetiſche und literariſche Bildung der Arbeiter noch außerordentlich gefördert<lb/>
+werden kann, daß für große Schichten des Proletariats hier geradezu noch alles<lb/>
+gethan werden muß, und wir wüßten Niemanden, der für dieſe Arbeit berufener<lb/>
+wäre, als den Redakteur der „Neuen Welt“. Aber der Grundgedanke, die Ab¬<lb/>
+neigung der Arbeiter gegen die moderne Kunſt durch ihre beſſere künſtleriſche<lb/>
+Erziehung beſiegen zu wollen, iſt unſeres Erachtens verfehlt. Zugegeben, daß<lb/>
+die Arbeiter aus dieſem Erziehungskurſus viel lernen können, ſo wird es ſchließlich<lb/>
+die Geſchichte des Huhnes ſein, das die Enteneier ausbrütet. Das Proletariat<lb/>
+kann und wird ſich nie für eine Kunſt begeiſtern, die mit all' ſeinem Denken und<lb/>
+Fühlen, mit allem, was ihm das Leben lebenswerth macht, in klaffendem Wider¬<lb/>
+ſpruch ſteht.</p><lb/>
+<p>Man muß ſich auch davor hüten, die Bedeutung der Kunſt für den<lb/>
+Emanzipationskampf des Proletariats zu überſchätzen. Die Verſuchung dazu liegt<lb/>
+ja ſehr nahe, wenn man die hohe Bedeutung erwägt, welche die Kunſt für den<lb/>
+Emanzipationskampf ganz beſonders auch des deutſchen Bürgerthums gehabt hat.<lb/>
+Indeſſen wenn die bürgerliche Klaſſe in Deutſchland ihr Heldenzeitalter auf künſt¬<lb/>
+leriſchem Gebiete gehabt hat, ſo doch nur, weil ihr der ökonomiſche und politiſche<lb/>
+Kampfplatz verſchloſſen war. Dagegen ſteht dieſer Kampfplatz dem modernen<lb/>
+Proletariat wenigſtens bis zu einem gewiſſen Grade offen, und es iſt ebenſo<lb/>
+natürlich wie nothwendig, daß es hier ſeine Kräfte zuſammenfaßt. So lange es<lb/>
+in dieſem heißen Kampfe ſteht, kann und wird es keine große Kunſt aus ſeinem<lb/>
+Schooße gebären. Es würde eine eigene Abhandlung erfordern, dieſen Gedanken<lb/>
+eingehend auszuführen; hier wollen wir ihn nur durch ein Beiſpiel erläutern.<lb/>
+<pb n="133" facs="#f0019"/>
+<fw type="header" place="top">Walter Crane: William Morris.<lb/>
+</fw> Die große Rolle, die das Theater in den bürgerlichen Emanzipationskämpfen<lb/>
+geſpielt hat, iſt bekannt. Die bürgerliche Klaſſe hatte das Geld, Theater zu<lb/>
+bauen, und der alte Abſolutismus drückte ein Auge zu, gleichviel ob aus Be¬<lb/>
+rechnung oder aus Verblendung, indem er der bürgerlichen Klaſſe auf den Brettern,<lb/>
+die die Welt bedeuten, gern gewährte, was er ihr in der Wirklichkeit unerbittlich<lb/>
+verſagte und verſagen konnte. Heute hat die arbeitende Klaſſe aber kein Geld,<lb/>
+Theater zu bauen, und der moderne Abſolutismus, der ihr den Kampf auf dem<lb/>
+Gebiete der Wirklichkeit nicht mehr verſagen kann, kühlt wenigſtens ſein Müthchen,<lb/>
+indem er ihr die Welt des ſchönen Scheins hermetiſch verſchließt. Die Arbeiter¬<lb/>
+klaſſe, die auf ökonomiſchem und politiſchem Gebiete täglich neue Siege über den<lb/>
+Kapitalismus und die Polizei erficht, iſt ohnmächtig gegen dieſe erhabenen Mächte<lb/>
+auf künſtleriſchem Gebiete. Die Dinge haben ſich eben ſeit hundert Jahren voll¬<lb/>
+ſtändig umgekehrt, wenn auch gewiß nicht zum Nachtheil des Proletariats.</p><lb/>
+<p>Um nun aber auf die Verhandlungen des Parteitags zurückzukommen, ſo<lb/>
+hat er ſich wohlweislich gehütet, das Kind mit dem Bade zu verſchütten. Er<lb/>
+hat hervorgehoben, was die arbeitende Klaſſe von der modernen Kunſt trennt,<lb/>
+aber er iſt nicht ſo ungerecht geweſen, die moderne Kunſt in Bauſch und Bogen<lb/>
+zu verwerfen oder gar zu verkennen, daß ſie innerhalb der bürgerlichen Geſell¬<lb/>
+ſchaft allerdings ein Fortſchritt iſt. Einſtweilen leben wir noch in dieſer Geſell¬<lb/>
+ſchaft, und es wäre unbillig, mehr von ihr zu verlangen, als ſie leiſten kann.<lb/>
+Nur daß man das, was die moderne Arbeiterklaſſe gegen die moderne Kunſt<lb/>
+einzuwenden hat, nicht in welcher rückſtändigen Auffaſſung des Proletariats<lb/>
+ſuchen darf. Es ſteht dieſer Kunſt mit gelaſſener Kühle gegenüber, nicht weil<lb/>
+es ihre hehren Geheimniſſe nicht zu faſſen vermag, ſondern weil ſie nicht entfernt<lb/>
+heranreicht an die hiſtoriſche Größe des proletariſchen Emanzipationskampfes.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> <gap reason="insignificant"/>
+<pb facs="#f0020"/>
+<pb facs="#f0021"/>
+</body> </text> </TEI>

@@ -1,0 +1,1618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Die Erziehung des Menschengeschlechts</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118572121">
+<surname>Lessing</surname>
+<forename>Gotthold Ephraim</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">105</measure>
+<measure type="tokens">6078</measure>
+<measure type="types">1946</measure>
+<measure type="characters">43780</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:05Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/lessing_menschengeschlecht_1780</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/lessing_menschengeschlecht_1780</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/lessing_menschengeschlecht_1780</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/lessing_menschengeschlecht_1780</idno>
+<idno type="DTADirName">lessing_menschengeschlecht_1780</idno>
+<idno type="DTAID">16509</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905193599</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Lessing, Gotthold Ephraim: Die Erziehung des Menschengeschlechts. Berlin, 1780.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Die Erziehung des Menschengeschlechts</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118572121">
+<surname>Lessing</surname>
+<forename>Gotthold Ephraim</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">90 S. </measure>
+</extent>
+<publicationStmt>
+<publisher><name>Voß</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1780</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Sammlung Wolfgang Klein</repository>
+<idno>
+<idno type="shelfmark">Slg. Klein</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb n="[1]" facs="#f0004"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#g">Die Erziehung</hi><lb/>
+des<lb/>
+<hi rendition="#b">Menſchengeſchlechts.</hi></titlePart> </docTitle><lb/>
+<milestone unit="section" rendition="#hr"/> <epigraph> <cit> <quote> <hi rendition="#aq #i">omnia inde eſſe in quibusdam vera, unde in<lb/>
+quibusdam falſa ſunt.</hi> </quote> </cit><lb/>
+<bibl> <hi rendition="#right"><hi rendition="#aq">Auguſtinus.</hi></hi> </bibl> </epigraph><lb/>
+<milestone unit="section" rendition="#hr"/> <byline> <hi rendition="#g">Herausgegeben</hi><lb/>
+von<lb/>
+<docAuthor>Gotthold Ephraim Leſſing.</docAuthor> </byline><lb/>
+<milestone unit="section" rendition="#hr"/> <docImprint> <pubPlace>Berlin,</pubPlace> <docDate>1780.</docDate><lb/>
+<publisher>Bey Chriſtian Friedrich Voß und Sohn. </publisher> </docImprint> </titlePage><lb/>
+</front> <body>
+<pb n="[2]" facs="#f0005"/>
+<pb n="[3]" facs="#f0006"/>
+<div n="1"> <head>Vorbericht<lb/>
+<hi rendition="#g">des Herausgebers.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">I</hi>ch habe die erſte Haͤlfte dieſes<lb/>
+Aufſatzes in meinen <hi rendition="#fr">Beytraͤ¬<lb/>
+gen</hi> bekannt gemacht. Itzt bin ich<lb/>
+im Stande, das Uebrige nachfolgen<lb/>
+zu laſſen.</p><lb/>
+<fw type="sig" place="bottom">A 2<lb/>
+</fw> <fw type="catch" place="bottom">Der<lb/>
+</fw>
+<pb n="[4]" facs="#f0007"/>
+<p>Der Verfaſſer hat ſich darinn auf<lb/>
+einen Huͤgel geſtellt‚ von welchem er<lb/>
+etwas mehr, als den vorgeſchriebenen<lb/>
+Weg ſeines heutigen Tages zu uͤber¬<lb/>
+ſehen glaubt.</p><lb/>
+<p>Aber er ruft keinen eilfertigen Wan¬<lb/>
+derer, der nur das Nachtlager bald<lb/>
+zu erreichen wuͤnſcht‚ von ſeinem Pfa¬<lb/>
+de. Er verlangt nicht‚ daß die Aus¬<lb/>
+ſicht‚ die ihn entzuͤcket, auch jedes an¬<lb/>
+dere Auge entzuͤcken muͤſſe.</p><lb/>
+<p>Und ſo‚ daͤchte ich‚ koͤnnte man<lb/>
+ihn ja wohl ſtehen und ſtaunen laſſen‚<lb/>
+wo er ſteht und ſtaunt!</p><lb/>
+<fw type="catch" place="bottom">Wenn<lb/>
+</fw>
+<pb n="[5]" facs="#f0008"/>
+<p>Wenn er aus der unermeßlichen<lb/>
+Ferne, die ein ſanftes Abendroth ſei¬<lb/>
+nem Blicke weder ganz verhuͤllt noch<lb/>
+ganz entdeckt, nun gar einen Finger¬<lb/>
+zeig mitbraͤchte, um den ich oft ver¬<lb/>
+legen geweſen!</p><lb/>
+<p>Ich meyne dieſen. — Warum<lb/>
+wollen wir in allen poſitiven Religio¬<lb/>
+nen nicht lieber weiter nichts, als den<lb/>
+Gang erblicken, nach welchem ſich<lb/>
+der menſchliche Verſtand jedes Orts<lb/>
+einzig und allein entwickeln koͤnnen,<lb/>
+und noch ferner entwickeln ſoll; als<lb/>
+uͤber eine derſelben entweder laͤ¬<lb/>
+<fw type="catch" place="bottom">cheln,<lb/>
+</fw> <fw type="sig" place="bottom">A 3<lb/>
+</fw>
+<pb n="[6]" facs="#f0009"/>
+cheln‚ oder zuͤrnen? Dieſen unſern<lb/>
+Hohn‚ dieſen unſern Unwillen‚ ver¬<lb/>
+diente in der beſten Welt nichts: und<lb/>
+nur die Religionen ſollten ihn verdie¬<lb/>
+nen? Gott haͤtte ſeine Hand bey al¬<lb/>
+lem im Spiele: nur bey unſern Irr¬<lb/>
+thuͤmern nicht?</p><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="catch" place="bottom">Die<lb/>
+</fw> </div>
+<pb n="[7]" facs="#f0010"/>
+<div n="1"> <head> <hi rendition="#b #g">Die Erziehung</hi><lb/>
+<hi rendition="#b">des<lb/>
+Menſchengeſchlechts.</hi><lb/>
+</head> <fw type="sig" place="bottom">A 4<lb/>
+</fw>
+<pb n="[8]" facs="#f0011"/>
+<pb n="9" facs="#f0012"/>
+<div n="2"> <head>§. 1.<lb/>
+</head> <p> <hi rendition="#in">W</hi>as die Erziehung bey dem einzeln<lb/>
+Menſchen iſt, iſt die Offenbarung<lb/>
+bey dem ganzen Menſchengeſchlechte.</p><lb/>
+</div> <div n="2"> <head>§. 2.<lb/>
+</head> <p>Erziehung iſt Offenbarung, die dem ein¬<lb/>
+zeln Menſchen geſchieht: und Offenbarung<lb/>
+iſt Erziehung, die dem Menſchengeſchlechte<lb/>
+geſchehen iſt, und noch geſchieht.</p><lb/>
+</div> <div n="2"> <head>§. 3.<lb/>
+</head> <p>Ob die Erziehung aus dieſem Geſichts¬<lb/>
+punkte zu betrachten, in der Paͤdagogik<lb/>
+Nutzen haben kann, will ich hier nicht un¬<lb/>
+<fw type="catch" place="bottom">ter¬<lb/>
+</fw> <fw type="sig" place="bottom">A 5<lb/>
+</fw>
+<pb n="10" facs="#f0013"/>
+terſuchen. Aber in der Theologie kann es<lb/>
+gewiß ſehr großen Nutzen haben, und viele<lb/>
+Schwierigkeiten heben, wenn man ſich die<lb/>
+Offenbarung als eine Erziehung des Men¬<lb/>
+ſchengeſchlechts vorſtellet.</p><lb/>
+</div> <div n="2"> <head>§. 4.<lb/>
+</head> <p>Erziehung giebt dem Menſchen nichts,<lb/>
+was er nicht auch aus ſich ſelbſt haben<lb/>
+koͤnnte: ſie giebt ihm das, was er aus<lb/>
+ſich ſelber haben koͤnnte, nur geſchwinder<lb/>
+und leichter. Alſo giebt auch die Offen¬<lb/>
+barung dem Menſchengeſchlechte nichts,<lb/>
+worauf die menſchliche Vernunft, ſich<lb/>
+ſelbſt uͤberlaſſen, nicht auch kommen wuͤr¬<lb/>
+<fw type="catch" place="bottom">de:<lb/>
+</fw>
+<pb n="11" facs="#f0014"/>
+de: ſondern ſie gab und giebt ihm die<lb/>
+wichtigſten dieſer Dinge nur fruͤher.</p><lb/>
+</div> <div n="2"> <head>§. 5.<lb/>
+</head> <p>Und ſo wie es der Erziehung nicht<lb/>
+gleichguͤltig iſt, in welcher Ordnung ſie die<lb/>
+Kraͤfte des Menſchen entwickelt; wie ſie<lb/>
+dem Menſchen nicht alles auf einmal bey¬<lb/>
+bringen kann: eben ſo hat auch Gott bey<lb/>
+ſeiner Offenbarung eine gewiſſe Ordnung,<lb/>
+ein gewiſſes Maaß halten muͤſſen.</p><lb/>
+</div> <div n="2"> <head>§. 6.<lb/>
+</head> <p>Wenn auch der erſte Menſch mit einem<lb/>
+Begriffe von einem Einigen Gotte ſofort<lb/>
+ausgeſtattet wurde: ſo konnte doch dieſer<lb/>
+<fw type="catch" place="bottom">mit¬<lb/>
+</fw>
+<pb n="12" facs="#f0015"/>
+mitgetheilte, und nicht erworbene Begriff,<lb/>
+unmoͤglich lange in ſeiner Lauterkeit beſte¬<lb/>
+hen. Sobald ihn die ſich ſelbſt uͤberlaſſene<lb/>
+menſchliche Vernunft zu bearbeiten anfing,<lb/>
+zerlegte ſie den Einzigen Unermeßlichen in<lb/>
+mehrere Ermeßlichere, und gab jedem die¬<lb/>
+ſer Theile ein Merkzeichen.</p><lb/>
+</div> <div n="2"> <head>§. 7.<lb/>
+</head> <p>So entſtand natuͤrlicher Weiſe Vielgoͤt¬<lb/>
+terey und Abgoͤtterey. Und wer weiß,<lb/>
+wie viele Millionen Jahre ſich die menſch¬<lb/>
+liche Vernunft noch in dieſen Irrwegen<lb/>
+wuͤrde herumgetrieben haben; ohngeachtet<lb/>
+uͤberall und zu allen Zeiten einzelne Men¬<lb/>
+<fw type="catch" place="bottom">ſchen<lb/>
+</fw>
+<pb n="13" facs="#f0016"/>
+ſchen erkannten, daß es Irrwege waren:<lb/>
+wenn es Gott nicht gefallen haͤtte, ihr<lb/>
+durch einen neuen Stoß eine beſſere Rich¬<lb/>
+tung zu geben.</p><lb/>
+</div> <div n="2"> <head>§. 8.<lb/>
+</head> <p>Da er aber einem jeden <hi rendition="#fr">einzeln Men¬<lb/>
+ſchen</hi> ſich nicht mehr offenbaren konnte,<lb/>
+noch wollte: ſo waͤhlte er ſich ein <hi rendition="#fr">einzel¬<lb/>
+nes Volk</hi> zu ſeiner beſondern Erziehung;<lb/>
+und eben das ungeſchliffenſte, das verwil¬<lb/>
+dertſte, um mit ihm ganz von vorne an¬<lb/>
+fangen zu koͤnnen.</p><lb/>
+<fw type="catch" place="bottom">§. 9.<lb/>
+</fw>
+<pb n="14" facs="#f0017"/>
+</div> <div n="2"> <head>§. 9.<lb/>
+</head> <p>Dieß war das Iſraelitiſche Volk, von<lb/>
+welchem man gar nicht einmal weiß, was<lb/>
+es fuͤr einen Gottesdienſt in Aegypten<lb/>
+hatte. Denn an dem Gottesdienſte der<lb/>
+Aegyptier durften ſo verachtete Sklaven<lb/>
+nicht Theil nehmen: und der Gott ſeiner<lb/>
+Vaͤter war ihm gaͤnzlich unbekannt ge¬<lb/>
+worden.</p><lb/>
+</div> <div n="2"> <head>§. 10.<lb/>
+</head> <p>Vielleicht, daß ihm die Aegyptier allen<lb/>
+Gott, alle Goͤtter ausdruͤcklich unterſagt<lb/>
+hatten; es in den Glauben geſtuͤrzt hatten,<lb/>
+es habe gar keinen Gott, gar keine Goͤt¬<lb/>
+<fw type="catch" place="bottom">ter;<lb/>
+</fw>
+<pb n="15" facs="#f0018"/>
+ter; Gott, Goͤtter haben, ſey nur ein<lb/>
+Vorrecht der beſſern Aegyptier: und das,<lb/>
+um es mit ſo viel groͤßerm Anſcheine von<lb/>
+Billigkeit tyranniſiren zu duͤrfen. — Ma¬<lb/>
+chen Chriſten es mit ihren Sklaven noch<lb/>
+itzt viel anders? —</p><lb/>
+</div> <div n="2"> <head>§. 11.<lb/>
+</head> <p>Dieſem rohen Volke alſo ließ ſich Gott<lb/>
+anfangs blos als den Gott ſeiner Vaͤter an¬<lb/>
+kuͤndigen, um es nur erſt mit der Idee<lb/>
+eines auch ihm zuſtehenden Gottes bekannt<lb/>
+und vertraut zu machen.</p><lb/>
+<fw type="catch" place="bottom">§. 12.<lb/>
+</fw>
+<pb n="16" facs="#f0019"/>
+</div> <div n="2"> <head>§. 12.<lb/>
+</head> <p>Durch die Wunder, mit welchen er es<lb/>
+aus Aegypten fuͤhrte, und in Kanaan ein¬<lb/>
+ſetzte, bezeugte er ſich ihm gleich darauf<lb/>
+als einen Gott, der maͤchtiger ſey, als ir¬<lb/>
+gend ein andrer Gott.</p><lb/>
+</div> <div n="2"> <head>§. 13.<lb/>
+</head> <p>Und indem er fortfuhr, ſich ihm als den<lb/>
+Maͤchtigſten von allen zu bezeugen — wel¬<lb/>
+ches doch nur <hi rendition="#fr">einer</hi> ſeyn kann, — ge¬<lb/>
+woͤhnte er es allmaͤlig zu dem Begriffe des<lb/>
+<hi rendition="#fr">Einigen</hi><hi rendition="#b">.</hi></p><lb/>
+<fw type="catch" place="bottom">§. 14.<lb/>
+</fw>
+<pb n="17" facs="#f0020"/>
+</div> <div n="2"> <head>§. 14.<lb/>
+</head> <p>Aber wie weit war dieſer Begriff des Ei¬<lb/>
+nigen, noch unter dem wahren tranſcen¬<lb/>
+dentalen Begriffe des Einigen, welchen die<lb/>
+Vernunft ſo ſpaͤt erſt aus dem Begriffe des<lb/>
+Unendlichen mit Sicherheit ſchließen lernen!</p><lb/>
+</div> <div n="2"> <head>§. 15.<lb/>
+</head> <p>Zu dem wahren Begriffe des Einigen —<lb/>
+wenn ſich ihm auch ſchon die Beſſerern des<lb/>
+Volks mehr oder weniger naͤherten —<lb/>
+konnte ſich doch das Volk lange nicht er¬<lb/>
+heben: und dieſes war die einzige wahre<lb/>
+Urſache, warum es ſo oft ſeinen Einigen<lb/>
+Gott verließ, und den Einigen, d. i. Maͤch¬<lb/>
+<fw type="catch" place="bottom">tig¬<lb/>
+</fw> <fw type="sig" place="bottom">B<lb/>
+</fw>
+<pb n="18" facs="#f0021"/>
+tigſten, in irgend einem andern Gotte ei¬<lb/>
+nes andern Volks zu finden glaubte.</p><lb/>
+</div> <div n="2"> <head>§. 16.<lb/>
+</head> <p>Ein Volk aber, das ſo roh, ſo unge¬<lb/>
+ſchickt zu abgezognen Gedanken war, noch<lb/>
+ſo voͤllig in ſeiner Kindheit war, was war<lb/>
+es fuͤr einer <hi rendition="#fr">moraliſchen</hi> Erziehung faͤ¬<lb/>
+hig? Keiner andern, als die dem Alter<lb/>
+der Kindheit entſpricht. Der Erziehung<lb/>
+durch unmittelbare ſinnliche Strafen und<lb/>
+Belohnungen.</p><lb/>
+</div> <div n="2"> <head>§. 17.<lb/>
+</head> <p>Auch hier alſo treffen Erziehung und<lb/>
+Offenbarung zuſammen. Noch konnte<lb/>
+<fw type="catch" place="bottom">Gott<lb/>
+</fw>
+<pb n="19" facs="#f0022"/>
+Gott ſeinem Volke keine andere Religion,<lb/>
+kein anders Geſetz geben, als eines, durch<lb/>
+deſſen Beobachtung oder Nichtbeobachtung<lb/>
+es hier auf Erden gluͤcklich oder ungluͤcklich<lb/>
+zu werden hoffte oder fuͤrchtete. Denn<lb/>
+weiter als auf dieſes Leben gingen noch<lb/>
+ſeine Blicke nicht. Es wußte von keiner<lb/>
+Unſterblichkeit der Seele; es ſehnte ſich<lb/>
+nach keinem kuͤnftigen Leben. Ihm aber<lb/>
+nun ſchon dieſe Dinge zu offenbaren, wel¬<lb/>
+chen ſeine Vernunft noch ſo wenig gewach¬<lb/>
+ſen war: was wuͤrde es bey Gott anders<lb/>
+geweſen ſeyn, als der Fehler des eiteln<lb/>
+Paͤdagogen, der ſein Kind lieber uͤbereilen<lb/>
+<fw type="catch" place="bottom">und<lb/>
+</fw> <fw type="sig" place="bottom">B 2<lb/>
+</fw>
+<pb n="20" facs="#f0023"/>
+und mit ihm prahlen, als gruͤndlich unter¬<lb/>
+richten will.</p><lb/>
+</div> <div n="2"> <head>§. 18.<lb/>
+</head> <p>Allein wozu, wird man fragen, dieſe<lb/>
+Erziehung eines ſo rohen Volkes, eines<lb/>
+Volkes, mit welchem Gott ſo ganz von<lb/>
+vorne anfangen mußte? Ich antworte:<lb/>
+um in der Folge der Zeit einzelne Glieder<lb/>
+deſſelben ſo viel ſichrer zu Erziehern aller<lb/>
+uͤbrigen Voͤlker brauchen zu koͤnnen. Er<lb/>
+erzog in ihm die kuͤnftigen Erzieher des Men¬<lb/>
+ſchengeſchlechts. Das wurden Juden, das<lb/>
+konnten nur Juden werden, nur Maͤnner<lb/>
+aus einem ſo erzogenen Volke.</p><lb/>
+<fw type="catch" place="bottom">§. 19.<lb/>
+</fw>
+<pb n="21" facs="#f0024"/>
+</div> <div n="2"> <head>§. 19.<lb/>
+</head> <p>Denn weiter. Als das Kind unter<lb/>
+Schlaͤgen und Liebkoſungen aufgewachſen<lb/>
+und nun zu Jahren des Verſtandes gekom¬<lb/>
+men war, ſtieß es der Vater auf einmal<lb/>
+in die Fremde; und hier erkannte es auf<lb/>
+einmal das Gute, das es in ſeines Vaters<lb/>
+Hauſe gehabt und nicht erkannt hatte.</p><lb/>
+</div> <div n="2"> <head>§. 20.<lb/>
+</head> <p>Waͤhrend daß Gott ſein erwaͤhltes Volk<lb/>
+durch alle Staffeln einer kindiſchen Erzie¬<lb/>
+hung fuͤhrte: waren die andern Voͤlker des<lb/>
+Erdbodens bey dem Lichte der Vernunft ih¬<lb/>
+ren Weg fortgegangen. Die meiſten der¬<lb/>
+<fw type="catch" place="bottom">ſelben<lb/>
+</fw> <fw type="sig" place="bottom">B 3<lb/>
+</fw>
+<pb n="22" facs="#f0025"/>
+ſelben waren weit hinter dem erwaͤhlten<lb/>
+Volke zuruͤckgeblieben: nur einige waren<lb/>
+ihm zuvorgekommen. Und auch das ge¬<lb/>
+ſchieht bey Kindern, die man fuͤr ſich auf¬<lb/>
+wachſen laͤßt; viele bleiben ganz roh; eini¬<lb/>
+ge bilden ſich zum Erſtaunen ſelbſt.</p><lb/>
+</div> <div n="2"> <head>§. 21.<lb/>
+</head> <p>Wie aber dieſe gluͤcklichern Einige nichts<lb/>
+gegen den Nutzen und die Nothwendigkeit<lb/>
+der Erziehung beweiſen: ſo beweiſen die<lb/>
+wenigen heidniſchen Voͤlker, die ſelbſt in<lb/>
+der Erkenntniß Gottes vor dem erwaͤhlten<lb/>
+Volke noch bis itzt einen Vorſprung zu ha¬<lb/>
+ben ſchienen, nichts gegen die Offenba¬<lb/>
+<fw type="catch" place="bottom">rung.<lb/>
+</fw>
+<pb n="23" facs="#f0026"/>
+rung. Das Kind der Erziehung faͤngt mit<lb/>
+langſamen aber ſichern Schritten an; es<lb/>
+hohlt manches gluͤcklicher organiſirte Kind<lb/>
+der Natur ſpaͤt ein; aber es hohlt es doch<lb/>
+ein, und iſt alsdann nie wieder von ihm<lb/>
+einzuholen.</p><lb/>
+</div> <div n="2"> <head>§. 22.<lb/>
+</head> <p>Auf gleiche Weiſe. Daß, — die Lehre<lb/>
+von der Einheit Gottes bey Seite geſetzt,<lb/>
+welche in den Buͤchern des Alten Teſtaments<lb/>
+ſich findet, und ſich nicht findet — daß,<lb/>
+ſage ich, wenigſtens die Lehre von der Un¬<lb/>
+ſterblichkeit der Seele, und die damit ver¬<lb/>
+bundene Lehre von Strafe und Belohnung<lb/>
+<fw type="catch" place="bottom">in<lb/>
+</fw> <fw type="sig" place="bottom">B 4<lb/>
+</fw>
+<pb n="24" facs="#f0027"/>
+in einem kuͤnftigen Leben, darinn voͤllig<lb/>
+fremd ſind: beweiſet eben ſo wenig wider<lb/>
+den goͤttlichen Urſprung dieſer Buͤcher. Es<lb/>
+kann dem ohngeachtet mit allen darinn ent¬<lb/>
+haltenen Wundern und Prophezeyungen<lb/>
+ſeine gute Richtigkeit haben. Denn laßt<lb/>
+uns ſetzen, jene Lehren wuͤrden nicht allein<lb/>
+darinn <hi rendition="#fr">vermißt</hi><hi rendition="#b">,</hi> jene Lehren waͤren auch<lb/>
+ſogar <hi rendition="#fr">nicht</hi> einmal <hi rendition="#fr">wahr</hi><hi rendition="#b">;</hi> laßt uns ſe¬<lb/>
+tzen, es waͤre wirklich fuͤr die Menſchen in<lb/>
+dieſem Leben alles aus: waͤre darum das<lb/>
+Daſeyn Gottes minder erwieſen? ſtuͤnde es<lb/>
+darum Gotte minder frey, wuͤrde es dar¬<lb/>
+um Gotte minder ziemen, ſich der zeitli¬<lb/>
+<fw type="catch" place="bottom">chen<lb/>
+</fw>
+<pb n="25" facs="#f0028"/>
+chen Schickſale irgend eines Volks aus die¬<lb/>
+ſem vergaͤnglichen Geſchlechte unmittelbar<lb/>
+anzunehmen? Die Wunder, die er fuͤr die<lb/>
+Juden that, die Prophezeyungen, die er<lb/>
+durch ſie aufzeichnen ließ, waren ja nicht<lb/>
+blos fuͤr die wenigen ſterblichen Juden, zu<lb/>
+deren Zeiten ſie geſchahen und aufgezeich¬<lb/>
+net wurden: er hatte ſeine Abſichten damit<lb/>
+auf das ganze Juͤdiſche Volk, auf das<lb/>
+ganze Menſchengeſchlecht, die hier auf Er¬<lb/>
+den vielleicht ewig dauern ſollen, wenn<lb/>
+ſchon jeder einzelne Jude, jeder einzelne<lb/>
+Menſch auf immer dahin ſtirbt.</p><lb/>
+<fw type="sig" place="bottom">B 5<lb/>
+</fw> <fw type="catch" place="bottom">§. 23<lb/>
+</fw>
+<pb n="26" facs="#f0029"/>
+</div> <div n="2"> <head>§. 23.<lb/>
+</head> <p>Noch einmal. Der Mangel jener Leh¬<lb/>
+ren in den Schriften des Alten Teſtaments<lb/>
+beweiſet wider ihre Goͤttlichkeit nichts. Mo¬<lb/>
+ſes war doch von Gott geſandt, obſchon die<lb/>
+Sanktion ſeines Geſetzes ſich nur auf dieſes<lb/>
+Leben erſtreckte. Denn warum weiter?<lb/>
+Er war ja nur an das <hi rendition="#b">Iſraelitſche</hi> Volk,<lb/>
+an das <hi rendition="#b">damalige</hi> Iſraelitiſche Volk ge¬<lb/>
+ſandt: und ſein Auftrag war den Kennt¬<lb/>
+niſſen, den Faͤhigkeiten, den Neigungen die¬<lb/>
+ſes <hi rendition="#b">damaligen</hi> Iſraelitiſchen Volks, ſo<lb/>
+wie der Beſtimmung des <hi rendition="#b">kuͤnftigen</hi>, voll¬<lb/>
+kommen angemeſſen. Das iſt genug.</p><lb/>
+<fw type="catch" place="bottom">§. 24.<lb/>
+</fw>
+<pb n="27" facs="#f0030"/>
+</div> <div n="2"> <head>§. 24.<lb/>
+</head> <p>So weit haͤtte <hi rendition="#fr">Warburton</hi> auch nur<lb/>
+gehen muͤſſen, und nicht weiter. Aber<lb/>
+der gelehrte Mann uͤberſpannte den Bogen.<lb/>
+Nicht zufrieden, daß der Mangel jener Leh¬<lb/>
+ren der goͤttlichen Sendung Moſis nichts<lb/>
+ſchade: er ſollte ihm die goͤttliche Sendung<lb/>
+Moſis ſogar beweiſen. Und wenn er die¬<lb/>
+ſen Beweis noch aus der Schicklichkeit ei¬<lb/>
+nes ſolchen Geſetzes fuͤr ein ſolches Volk zu<lb/>
+fuͤhren geſucht haͤtte! Aber er nahm ſeine<lb/>
+Zuflucht zu einem von Moſe bis auf Chri¬<lb/>
+ſtum ununterbrochen fortdaurenden Wun¬<lb/>
+der, nach welchem Gott einen jeden ein¬<lb/>
+<fw type="catch" place="bottom">zeln<lb/>
+</fw>
+<pb n="28" facs="#f0031"/>
+zeln Juden gerade ſo gluͤcklich oder ungluͤck¬<lb/>
+lich gemacht habe, als es deſſen Gehorſam<lb/>
+oder Ungehorſam gegen das Geſetz verdiente.<lb/>
+Dieſes Wunder habe den Mangel jener Leh¬<lb/>
+ren, ohne welche kein Staat beſtehen koͤn¬<lb/>
+ne, erſetzt; und eine ſolche Erſetzung eben<lb/>
+beweiſe, was jener Mangel, auf den er¬<lb/>
+ſten Anblick, zu verneinen ſcheine.</p><lb/>
+</div> <div n="2"> <head>§. 25.<lb/>
+</head> <p>Wie gut war es, daß <hi rendition="#fr">Warburton</hi><lb/>
+dieſes anhaltende Wunder, in welches er<lb/>
+das Weſentliche der Iſraelitiſchen Theokra¬<lb/>
+tie ſetzte, durch nichts erhaͤrten, durch<lb/>
+nichts wahrſcheinlich machen konnte. Denn<lb/>
+<fw type="catch" place="bottom">haͤtte<lb/>
+</fw>
+<pb n="29" facs="#f0032"/>
+haͤtte er das gekonnt; wahrlich — als¬<lb/>
+denn erſt haͤtte er die Schwierigkeit unauf¬<lb/>
+loͤslich gemacht. — Mir wenigſtens. —<lb/>
+Denn was die Goͤttlichkeit der Sendung<lb/>
+Moſis wieder herſtellen ſollte, wuͤrde an der<lb/>
+Sache ſelbſt zweifelhaft gemacht haben, die<lb/>
+Gott zwar damals nicht mittheilen, aber<lb/>
+doch gewiß auch nicht erſchweren wollte.</p><lb/>
+</div> <div n="2"> <head>§. 26.<lb/>
+</head> <p>Ich erklaͤre mich an dem Gegenbilde der<lb/>
+Offenbarung. Ein Elementarbuch fuͤr Kin¬<lb/>
+der, darf gar wohl dieſes oder jenes wich¬<lb/>
+tige Stuͤck der Wiſſenſchaft oder Kunſt, die<lb/>
+es vortraͤgt, mit Stillſchweigen uͤbergehen,<lb/>
+<fw type="catch" place="bottom">von<lb/>
+</fw>
+<pb n="30" facs="#f0033"/>
+von dem der Paͤdagog urtheilte, daß es den<lb/>
+Faͤhigkeiten der Kinder, fuͤr die er ſchrieb,<lb/>
+noch nicht angemeſſen ſey. Aber es darf<lb/>
+ſchlechterdings nichts enthalten, was den<lb/>
+Kindern den Weg zu den zuruͤckbehaltnen<lb/>
+wichtigen Stuͤcken verſperre oder verlege.<lb/>
+Vielmehr muͤſſen ihnen alle Zugaͤnge zu den¬<lb/>
+ſelben ſorgfaͤltig offen gelaſſen werden: und<lb/>
+ſie nur von einem einzigen dieſer Zugaͤnge<lb/>
+ableiten, oder verurſachen, daß ſie denſel¬<lb/>
+ben ſpaͤter betreten, wuͤrde allein die Un¬<lb/>
+vollſtaͤndigkeit des Elementarbuchs zu einem<lb/>
+weſentlichen Fehler deſſelben machen.</p><lb/>
+<fw type="catch" place="bottom">§. 27.<lb/>
+</fw>
+<pb n="31" facs="#f0034"/>
+</div> <div n="2"> <head>§. 27.<lb/>
+</head> <p>Alſo auch konnten in den Schriften des<lb/>
+Alten Teſtaments‚ in dieſen Elementarbuͤ¬<lb/>
+chern fuͤr das rohe und im Denken un¬<lb/>
+geuͤbte Iſraelitiſche Volk‚ die Lehre von<lb/>
+der Unſterblichkeit der Seele und kuͤnftigen<lb/>
+Vergeltung gar wohl mangeln: aber ent¬<lb/>
+halten durften ſie ſchlechterdings nichts‚<lb/>
+was das Volk‚ fuͤr das ſie geſchrieben wa¬<lb/>
+ren‚ auf dem Wege zu dieſer großen Wahr¬<lb/>
+heit auch nur verſpaͤtet haͤtte. Und was<lb/>
+haͤtte es‚ wenig zu ſagen‚ mehr dahin<lb/>
+<hi rendition="#fr">verſpaͤtet</hi><hi rendition="#b">,</hi> als wenn jene wunderbare<lb/>
+Vergeltung in dieſem Leben darinn waͤre<lb/>
+<fw type="catch" place="bottom">ver¬<lb/>
+</fw>
+<pb n="32" facs="#f0035"/>
+verſprochen, und von dem waͤre verſpro¬<lb/>
+chen worden, der nichts verſpricht, was<lb/>
+er nicht haͤlt?</p><lb/>
+</div> <div n="2"> <head>§. 28.<lb/>
+</head> <p>Denn wenn ſchon aus der ungleichen<lb/>
+Austheilung der Guͤter dieſes Lebens, bey<lb/>
+der auf Tugend und Laſter ſo wenig Ruͤck¬<lb/>
+ſicht genommen zu ſeyn ſcheinet, eben nicht<lb/>
+der ſtrengſte Beweis fuͤr die Unſterblichkeit<lb/>
+der Seele und fuͤr ein anders Leben, in<lb/>
+welchem jener Knoten ſich aufloͤſe, zu fuͤh¬<lb/>
+ren: ſo iſt doch wohl gewiß, daß der<lb/>
+menſchliche Verſtand ohne jenem Knoten<lb/>
+noch lange nicht — und vielleicht auch<lb/>
+<fw type="catch" place="bottom">nie<lb/>
+</fw>
+<pb n="33" facs="#f0036"/>
+nie — auf beſſere und ſtrengere Beweiſe<lb/>
+gekommen waͤre. Denn was ſollte ihn<lb/>
+antreiben koͤnnen, dieſe beſſern Beweiſe zu<lb/>
+ſuchen? Die bloſſe Neugierde?</p><lb/>
+</div> <div n="2"> <head>§. 29.<lb/>
+</head> <p>Der und jener Iſraelite mochte freylich<lb/>
+wohl die goͤttlichen Verſprechungen und An¬<lb/>
+drohungen, die ſich auf den geſammten<lb/>
+Staat bezogen, auf jedes einzelne Glied<lb/>
+deſſelben erſtrecken, und in dem feſten<lb/>
+Glauben ſtehen, daß wer fromm ſey auch<lb/>
+gluͤcklich ſeyn muͤſſe, und wer ungluͤcklich<lb/>
+ſey, oder werde, die Strafe ſeiner Miſſe¬<lb/>
+that trage, welche ſich ſofort wieder in<lb/>
+<fw type="sig" place="bottom">C<lb/>
+</fw> <fw type="catch" place="bottom">Se¬<lb/>
+</fw>
+<pb n="34" facs="#f0037"/>
+Segen verkehre, ſobald er von ſeiner Miſ¬<lb/>
+ſethat ablaſſe. — Ein ſolcher ſcheinet<lb/>
+den Hiob geſchrieben zu haben; denn der<lb/>
+Plan deſſelben iſt ganz in dieſem Geiſte. —</p><lb/>
+</div> <div n="2"> <head>§. 30.<lb/>
+</head> <p>Aber unmoͤglich durfte die taͤgliche Er¬<lb/>
+fahrung dieſen Glauben beſtaͤrken: oder<lb/>
+es war auf immer bey dem Volke, das<lb/>
+dieſe Erfahrung hatte, <hi rendition="#fr">auf immer</hi> um<lb/>
+die Erkennung und Aufnahme der ihm noch<lb/>
+ungelaͤufigen Wahrheit geſchehen. Denn<lb/>
+wenn der Fromme ſchlechterdings gluͤcklich<lb/>
+war, und es zu ſeinem Gluͤcke doch wohl<lb/>
+auch mit gehoͤrte, daß ſeine Zufriedenheit<lb/>
+<fw type="catch" place="bottom">keine<lb/>
+</fw>
+<pb n="35" facs="#f0038"/>
+keine ſchrecklichen Gedanken des Todes un¬<lb/>
+terbrachen, daß er alt und <hi rendition="#fr">lebensſatt</hi><lb/>
+ſtarb: wie konnte er ſich nach einem an¬<lb/>
+dern Leben ſehnen? wie konnte er uͤber et¬<lb/>
+was nachdenken, wornach er ſich nicht ſehnte?<lb/>
+Wenn aber der Fromme daruͤber nicht nach¬<lb/>
+dachte: wer ſollte es denn? Der Boͤſe¬<lb/>
+wicht? der die Strafe ſeiner Miſſethat<lb/>
+fuͤhlte, und wenn er dieſes Leben ver¬<lb/>
+wuͤnſchte, ſo gern auf jedes andere Leben<lb/>
+Verzicht that?</p><lb/>
+</div> <div n="2"> <head>§. 31.<lb/>
+</head> <p>Weit weniger verſchlug es, daß der<lb/>
+und jener Iſraelite die Unſterblichkeit der<lb/>
+<fw type="catch" place="bottom">See¬<lb/>
+</fw> <fw type="sig" place="bottom">C 2<lb/>
+</fw>
+<pb n="36" facs="#f0039"/>
+Seele und kuͤnftige Vergeltung, weil ſich<lb/>
+das Geſetz nicht darauf bezog, gerade zu<lb/>
+und ausdruͤcklich leugnete. Das Leugnen<lb/>
+eines Einzeln — waͤre es auch ein Sa¬<lb/>
+lomo geweſen, — hielt den Fortgang des<lb/>
+gemeinen Verſtandes nicht auf, und war<lb/>
+an und fuͤr ſich ſelbſt ſchon ein Beweis,<lb/>
+daß das Volk nun einen großen Schritt der<lb/>
+Wahrheit naͤher gekommen war. Denn<lb/>
+Einzelne leugnen nur, was Mehrere in<lb/>
+Ueberlegung ziehen; und in Ueberlegung<lb/>
+ziehen, warum man ſich vorher ganz und<lb/>
+gar nicht bekuͤmmerte, iſt der halbe Weg<lb/>
+zur Erkenntniß.</p><lb/>
+<fw type="catch" place="bottom">§. 32.<lb/>
+</fw>
+<pb n="37" facs="#f0040"/>
+</div> <div n="2"> <head>§. 32.<lb/>
+</head> <p>Laßt uns auch bekennen, daß es ein he¬<lb/>
+roiſcher Gehorſam iſt, die Geſetze Gottes<lb/>
+beobachten, blos weil es Gottes Geſetze<lb/>
+ſind, und nicht, weil er die Beobachter<lb/>
+derſelben hier und dort zu belohnen ver¬<lb/>
+heiſſen hat; ſie beobachten, ob man ſchon<lb/>
+an der kuͤnftigen Belohnung ganz verzwei¬<lb/>
+felt‚ und der zeitlichen auch nicht ſo ganz<lb/>
+gewiß iſt.</p><lb/>
+</div> <div n="2"> <head>§. 33.<lb/>
+</head> <p>Ein Volk‚ in dieſem heroiſchen Gehor¬<lb/>
+ſame gegen Gott erzogen‚ ſollte es nicht<lb/>
+beſtimmt‚ ſollte es nicht vor allen andern<lb/>
+<fw type="catch" place="bottom">faͤ¬<lb/>
+</fw> <fw type="sig" place="bottom">C 3<lb/>
+</fw>
+<pb n="38" facs="#f0041"/>
+faͤhig ſeyn, ganz beſondere goͤttliche Ab¬<lb/>
+ſichten auszufuͤhren? — Laßt den Sol¬<lb/>
+daten, der ſeinem Fuͤhrer blinden Gehor¬<lb/>
+ſam leiſtet, nun auch von der Klugheit ſei¬<lb/>
+nes Fuͤhrers uͤberzeugt werden, und ſagt,<lb/>
+was dieſer Fuͤhrer mit ihm auszufuͤhren<lb/>
+ſich nicht unterſtehen darf? —</p><lb/>
+</div> <div n="2"> <head>§. 34.<lb/>
+</head> <p>Noch hatte das Juͤdiſche Volk in ſeinem<lb/>
+Jehova mehr den Maͤchtigſten, als den<lb/>
+Weiſeſten aller Goͤtter verehrt; noch hatte<lb/>
+es ihn als einen eifrigen Gott mehr ge¬<lb/>
+fuͤrchtet, als geliebt: auch dieſes zum Be¬<lb/>
+weiſe, daß die Begriffe, die es von ſeinem<lb/>
+<fw type="catch" place="bottom">hoͤch¬<lb/>
+</fw>
+<pb n="39" facs="#f0042"/>
+hoͤchſten einigen Gott hatte, nicht eben die<lb/>
+rechten Begriffe warm, die wir von Gott<lb/>
+haben muͤſſen. Doch nun war die Zeit da,<lb/>
+daß dieſe ſeine Begriffe erweitert, veredelt,<lb/>
+berichtiget werden ſollten, wozu ſich Gott<lb/>
+eines ganz natuͤrlichen Mittels bediente;<lb/>
+eines beſſern richtigern Maaßſtabes, nach<lb/>
+welchem es ihn zu ſchaͤtzen Gelegenheit<lb/>
+bekam.</p><lb/>
+</div> <div n="2"> <head>§. 35.<lb/>
+</head> <p>Anſtatt daß es ihn bisher <choice><sic>nnr</sic><corr>nur</corr></choice> gegen die<lb/>
+armſeligen Goͤtzen der kleinen benachbarten<lb/>
+rohen Voͤlkerſchaften geſchaͤtzt hatte, mit<lb/>
+welchen es in beſtaͤndiger Eiferſucht lebte:<lb/>
+<fw type="catch" place="bottom">fing<lb/>
+</fw> <fw type="sig" place="bottom">C 4<lb/>
+</fw>
+<pb n="40" facs="#f0043"/>
+fing es in der Gefangenſchaft unter dem wei¬<lb/>
+ſen Perſer an, ihn gegen das Weſen aller<lb/>
+Weſen zu meſſen, wie das eine geuͤbtere<lb/>
+Vernunft erkannte und verehrte.</p><lb/>
+</div> <div n="2"> <head>§. 36.<lb/>
+</head> <p>Die Offenbarung hatte ſeine Vernunft<lb/>
+geleitet, und nun erhellte die Vernunft auf<lb/>
+einmal ſeine Offenbarung.</p><lb/>
+</div> <div n="2"> <head>§. 37.<lb/>
+</head> <p>Das war der erſte wechſelſeitige Dienſt,<lb/>
+den beyde einander leiſteten; und dem Ur¬<lb/>
+heber beyder iſt ein ſolcher gegenſeitiger Ein¬<lb/>
+fluß ſo wenig unanſtaͤndig, daß ohne ihm<lb/>
+eines von beyden uͤberfluͤſſig ſeyn wuͤrde.</p><lb/>
+<fw type="catch" place="bottom">§. 38.<lb/>
+</fw>
+<pb n="41" facs="#f0044"/>
+</div> <div n="2"> <head>§. 38.<lb/>
+</head> <p>Das in die Fremde geſchickte Kind ſahe<lb/>
+andere Kinder, die mehr wußten, die an¬<lb/>
+ſtaͤndiger lebten, und fragte ſich beſchaͤmt:<lb/>
+warum weiß ich das nicht auch? warum<lb/>
+lebe ich nicht auch ſo? Haͤtte in meines Va¬<lb/>
+ters Hauſe man mir das nicht auch bey¬<lb/>
+bringen; dazu mich nicht auch anhalten<lb/>
+ſollen? Da ſucht es ſeine Elementarbuͤcher<lb/>
+wieder vor, die ihm laͤngſt zum Ekel ge¬<lb/>
+worden, um die Schuld auf die Elemen¬<lb/>
+tarbuͤcher zu ſchieben. Aber ſiehe! es er¬<lb/>
+kennet, daß die Schuld nicht an den Buͤ¬<lb/>
+chern liege, daß die Schuld ledig ſein ei¬<lb/>
+<fw type="catch" place="bottom">gen<lb/>
+</fw> <fw type="sig" place="bottom">C 5<lb/>
+</fw>
+<pb n="42" facs="#f0045"/>
+gen ſey, warum es nicht laͤngſt eben das<lb/>
+wiſſe, eben ſo lebe.</p><lb/>
+</div> <div n="2"> <head>§. 39.<lb/>
+</head> <p>Da die Juden nunmehr, auf Veran¬<lb/>
+laſſung der reinern Perſiſchen Lehre, in ih¬<lb/>
+rem Jehova nicht blos den groͤßten aller<lb/>
+Nationalgoͤtter, ſondern Gott erkannten;<lb/>
+da ſie ihn als ſolchen in ihren wieder her¬<lb/>
+vorgeſuchten heiligen Schriften um ſo eher<lb/>
+finden und andern zeigen konnten, als er<lb/>
+wirklich darinn war; da ſie vor allen<lb/>
+ſinnlichen Vorſtellungen deſſelben einen eben<lb/>
+ſo großen Abſcheu bezeugten, oder doch in<lb/>
+dieſen Schriften zu haben angewieſen wur¬<lb/>
+<fw type="catch" place="bottom">den,<lb/>
+</fw>
+<pb n="43" facs="#f0046"/>
+den, als die Perſer nur immer hatten:<lb/>
+was Wunder, daß ſie vor den Augen des<lb/>
+Cyrus mit einem Gottesdienſte Gnade fan¬<lb/>
+den, den er zwar noch weit unter dem<lb/>
+reinen Sabeismus, aber doch auch weit<lb/>
+uͤber die groben Abgoͤttereyen zu ſeyn er¬<lb/>
+kannte, die ſich dafuͤr des verlaßnen Lan¬<lb/>
+des der Juden bemaͤchtiget hatten?</p><lb/>
+</div> <div n="2"> <head>§. 40.<lb/>
+</head> <p>So erleuchtet uͤber ihre eignen uner¬<lb/>
+kannten Schaͤtze kamen ſie zuruͤck, und<lb/>
+wurden ein ganz andres Volk, deſſen erſte<lb/>
+Sorge es war, dieſe Erleuchtung unter<lb/>
+ſich dauerhaft zu machen. Bald war an<lb/>
+<fw type="catch" place="bottom">Ab¬<lb/>
+</fw>
+<pb n="44" facs="#f0047"/>
+Abfall und Abgoͤtterey unter ihm nicht<lb/>
+mehr zu denken. Denn man kann ei¬<lb/>
+nem Nationalgott wohl untreu werden,<lb/>
+aber nie Gott, ſo bald man ihn einmal<lb/>
+erkannt hat.</p><lb/>
+</div> <div n="2"> <head>§. 41.<lb/>
+</head> <p>Die Gottesgelehrten haben dieſe gaͤnz¬<lb/>
+liche Veraͤnderung des juͤdiſchen Volks ver¬<lb/>
+ſchiedentlich zu erklaͤren geſucht; und Ei¬<lb/>
+ner, der die Unzulaͤnglichkeit aller dieſer<lb/>
+verſchiednen Erklaͤrungen ſehr wohl ge¬<lb/>
+zeigt hat, wollte endlich „die augenſchein¬<lb/>
+„liche Erfuͤllung der uͤber die Babyloniſche<lb/>
+„Gefangenſchaft und die Wiederherſtellung<lb/>
+<fw type="catch" place="bottom">„aus<lb/>
+</fw>
+<pb n="45" facs="#f0048"/>
+„aus derſelben ausgeſprochnen und aufge¬<lb/>
+„ſchriebnen Weiſſagungen,“ fuͤr die wahre<lb/>
+Urſache derſelben angeben. Aber auch<lb/>
+dieſe Urſache kann nur in ſo fern die wahre<lb/>
+ſeyn, als ſie die nun erſt veredelten Be¬<lb/>
+griffe von Gott voraus ſetzt. Die Juden<lb/>
+mußten nun erſt erkannt haben, daß Wun¬<lb/>
+derthun und das Kuͤnftige vorherſagen, nur<lb/>
+Gott zukomme; welches beydes ſie ſonſt<lb/>
+auch den falſchen Goͤtzen beygeleget hatten,<lb/>
+wodurch eben Wunder und Weiſſagungen<lb/>
+bisher nur einen ſo ſchwachen, vergaͤngli¬<lb/>
+chen Eindruck auf ſie gemacht hatten.</p><lb/>
+<fw type="catch" place="bottom">§.42.<lb/>
+</fw>
+<pb n="46" facs="#f0049"/>
+</div> <div n="2"> <head>§. 42.<lb/>
+</head> <p>Ohne Zweifel waren die Juden unter<lb/>
+den Chaldaͤern und Perſern auch mit der<lb/>
+Lehre von der Unſterblichkeit der Seele be¬<lb/>
+kannter geworden. Vertrauter mit ihr<lb/>
+wurden ſie in den Schulen der Griechiſchen<lb/>
+Philoſophen in Aegypten.</p><lb/>
+</div> <div n="2"> <head>§. 43.<lb/>
+</head> <p>Doch da es mit dieſer Lehre, in Anſe¬<lb/>
+hung ihrer heiligen Schriften, die Bewand¬<lb/>
+niß nicht hatte, die es mit der Lehre von<lb/>
+der Einheit und den Eigenſchaften Gottes<lb/>
+gehabt hatte; da jene von dem ſinnlichen<lb/>
+Volke darinn war groͤblich uͤberſehen wor¬<lb/>
+<fw type="catch" place="bottom">den,<lb/>
+</fw>
+<pb n="47" facs="#f0050"/>
+den, dieſe aber geſucht ſeyn wollte; da<lb/>
+auf dieſe noch <hi rendition="#fr">Voruͤbungen</hi> noͤthig ge¬<lb/>
+weſen waren, und alſo nur <hi rendition="#fr">Anſpielun¬<lb/>
+gen</hi> und <hi rendition="#fr">Fingerzeige</hi> Statt gehabt hat¬<lb/>
+ten: ſo konnte der Glaube an die Unſterb¬<lb/>
+lichkeit der Seele natuͤrlicher Weiſe nie der<lb/>
+Glaube des geſammten Volks werden. Er<lb/>
+war und blieb nur der Glaube einer gewiſ¬<lb/>
+ſen Sekte deſſelben.</p><lb/>
+</div> <div n="2"> <head>§. 44.<lb/>
+</head> <p>Eine <hi rendition="#fr">Voruͤbung</hi> auf die Lehre von<lb/>
+der Unſterblichkeit der Seele, nenne ich<lb/>
+z. E. die goͤttliche Androhung, die Miſſe¬<lb/>
+that des Vaters an ſeinen Kindern bis ins<lb/>
+<fw type="catch" place="bottom">dritte<lb/>
+</fw>
+<pb n="48" facs="#f0051"/>
+dritte und vierte Glied zu ſtrafen. Dieß<lb/>
+gewoͤhnte die Vaͤter in Gedanken mit ihren<lb/>
+ſpaͤteſten Nachkommen zu leben, und das<lb/>
+Ungluͤck, welches ſie uͤber dieſe Unſchuldige<lb/>
+gebracht hatten, voraus zu fuͤhlen.</p><lb/>
+</div> <div n="2"> <head>§. 45.<lb/>
+</head> <p>Eine <hi rendition="#fr">Anſpielung</hi> nenne ich, was<lb/>
+blos die Neugierde reizen und eine Frage<lb/>
+veranlaſſen ſollte. Als die oft vorkom¬<lb/>
+mende Redensart, <hi rendition="#fr">zu ſeinen Vaͤtern<lb/>
+verſammlet werden</hi><hi rendition="#b">,</hi> fuͤr ſterben.</p><lb/>
+</div> <div n="2"> <head>§. 46.<lb/>
+</head> <p>Einen <hi rendition="#fr">Fingerzeig</hi> nenne ich, was<lb/>
+ſchon irgend einen Keim enthaͤlt, aus wel¬<lb/>
+<fw type="catch" place="bottom">chem<lb/>
+</fw>
+<pb n="49" facs="#f0052"/>
+chem ſich die noch zuruͤckgehaltne Wahr¬<lb/>
+heit entwickeln laͤßt. Dergleichen war<lb/>
+Chriſti Schluß aus der Benennung <hi rendition="#fr">Gott<lb/>
+Abrahams, Iſaacs und Jacobs.</hi><lb/>
+Dieſer Fingerzeig ſcheint mir allerdings in<lb/>
+einen ſtrengen Beweis ausgebildet werden<lb/>
+zu koͤnnen.</p><lb/>
+</div> <div n="2"> <head>§. 47.<lb/>
+</head> <p>In ſolchen Voruͤbungen, Anſpielungen,<lb/>
+Fingerzeigen beſteht die <hi rendition="#fr">poſitive</hi> Voll¬<lb/>
+kommenheit eines Elementarbuchs; ſo wie<lb/>
+die oben erwaͤhnte Eigenſchaft, daß es<lb/>
+den Weg zu den noch zuruͤckgehaltenen<lb/>
+Wahrheiten nicht erſchwere, oder ver¬<lb/>
+<fw type="sig" place="bottom">D<lb/>
+</fw> <fw type="catch" place="bottom">ſperre,<lb/>
+</fw>
+<pb n="50" facs="#f0053"/>
+ſperre, die <hi rendition="#fr">negative</hi> Vollkommenheit deſ¬<lb/>
+ſelben war.</p><lb/>
+</div> <div n="2"> <head>§. 48.<lb/>
+</head> <p>Setzt hierzu noch die Einkleidung und<lb/>
+den Stil — 1) die Einkleidung der nicht<lb/>
+wohl zu uͤbergehenden abſtrakten Wahr¬<lb/>
+heiten in Allegorieen und lehrreiche einzelne<lb/>
+Faͤlle, die als wirklich geſchehen erzaͤhlet<lb/>
+werden. Dergleichen ſind die Schoͤpfung,<lb/>
+unter dem Bilde des werdenden Tages; die<lb/>
+Quelle des moraliſchen Boͤſen, in der Er¬<lb/>
+zaͤhlung vom verbotnen Baume; der Ur¬<lb/>
+ſprung der mancherley Sprachen, in der Ge¬<lb/>
+ſchichte vom Thurmbaue zu Babel, u. ſ. w.</p><lb/>
+<fw type="catch" place="bottom">§. 49.<lb/>
+</fw>
+<pb n="51" facs="#f0054"/>
+</div> <div n="2"> <head>§. 49.<lb/>
+</head> <p>2) den Stil — bald plan und einfaͤl¬<lb/>
+tig, bald poetiſch, durchaus voll Tavto¬<lb/>
+logieen, aber ſolchen, die den Scharf¬<lb/>
+ſinn uͤben, indem ſie bald etwas anders<lb/>
+zu ſagen ſcheinen, und doch das nehmliche<lb/>
+ſagen, bald das nehmliche zu ſagen ſchei¬<lb/>
+nen, und im Grunde etwas anders bedeu¬<lb/>
+ten oder bedeuten koͤnnen: —</p><lb/>
+</div> <div n="2"> <head>§. 50.<lb/>
+</head> <p>Und ihr habt alle gute Eigenſchaften<lb/>
+eines Elementarbuchs ſowol fuͤr Kinder, als<lb/>
+fuͤr ein kindiſches Volk.</p><lb/>
+<fw type="sig" place="bottom">D 2<lb/>
+</fw> <fw type="catch" place="bottom">§. 51.<lb/>
+</fw>
+<pb n="52" facs="#f0055"/>
+</div> <div n="2"> <head>§. 51.<lb/>
+</head> <p>Aber jedes Elementarbuch iſt nur fuͤr<lb/>
+ein gewiſſes Alter. Das ihm entwachſene<lb/>
+Kind laͤnger, als die Meinung geweſen,<lb/>
+dabey zu verweilen, iſt ſchaͤdlich. Denn<lb/>
+um dieſes auf eine nur einigermaaſſen nuͤtz¬<lb/>
+liche Art thun zu koͤnnen, muß man mehr<lb/>
+hineinlegen, als darinn liegt; mehr hin¬<lb/>
+eintragen, als es faſſen kann. Man muß<lb/>
+der Anſpielungen und Fingerzeige zu viel<lb/>
+ſuchen und machen, die Allegorieen zu ge¬<lb/>
+nau ausſchuͤtteln, die Beyſpiele zu um¬<lb/>
+ſtaͤndlich deuten, die Worte zu ſtark preſ¬<lb/>
+ſen. Das giebt dem Kinde einen kleinli¬<lb/>
+<fw type="catch" place="bottom">chen,<lb/>
+</fw>
+<pb n="53" facs="#f0056"/>
+chen, ſchiefen, ſpitzfindigen Verſtand; das<lb/>
+macht es geheimnißreich, aberglaͤubiſch,<lb/>
+voll Verachtung gegen alles Faßliche und<lb/>
+Leichte.</p><lb/>
+</div> <div n="2"> <head>§. 52.<lb/>
+</head> <p>Die nehmliche Weiſe, wie die Rabbi¬<lb/>
+nen ihre heiligen Buͤcher behandelten! Der<lb/>
+nehmliche Charakter, den ſie dem Geiſte<lb/>
+ihres Volks dadurch ertheilten!</p><lb/>
+</div> <div n="2"> <head>§. 53.<lb/>
+</head> <p>Ein beſſrer Paͤdagog muß kommen,<lb/>
+und dem Kinde das erſchoͤpfte Elementar¬<lb/>
+buch aus den Haͤnden reißen. — Chri¬<lb/>
+ſtus kam.</p><lb/>
+<fw type="sig" place="bottom">D 3<lb/>
+</fw> <fw type="catch" place="bottom">§. 54.<lb/>
+</fw>
+<pb n="54" facs="#f0057"/>
+</div> <div n="2"> <head>§. 54.<lb/>
+</head> <p>Der Theil des Menſchengeſchlechts, den<lb/>
+Gott in <hi rendition="#fr">Einen</hi> Erziehungsplan hatte faſ¬<lb/>
+ſen wollen. — Er hatte aber nur den¬<lb/>
+jenigen in Einen faſſen wollen, der durch<lb/>
+Sprache, durch Handlung, durch Regie¬<lb/>
+rung, durch andere natuͤrliche und politi¬<lb/>
+ſche Verhaͤltniſſe in ſich bereits verbunden<lb/>
+war — war zu dem zweyten großen<lb/>
+Schritte der Erziehung reif.</p><lb/>
+</div> <div n="2"> <head>§. 55.<lb/>
+</head> <p>Das iſt: dieſer Theil des Menſchenge¬<lb/>
+ſchlechts war in der Ausuͤbung ſeiner Ver¬<lb/>
+nunft ſo weit gekommen, daß er zu ſeinen<lb/>
+<fw type="catch" place="bottom">mora¬<lb/>
+</fw>
+<pb n="55" facs="#f0058"/>
+moraliſchen Handlungen edlere, wuͤrdigere<lb/>
+Bewegungsgruͤnde bedurfte und brauchen<lb/>
+konnte, als zeitliche Belohnung und Stra¬<lb/>
+fen waren, die ihn bisher geleitet hatten.<lb/>
+Das Kind wird Knabe. Leckerey und<lb/>
+Spielwerk weicht der aufkeimenden Be¬<lb/>
+gierde, eben ſo frey, eben ſo geehrt, eben<lb/>
+ſo gluͤcklich zu werden, als es ſein aͤlteres<lb/>
+Geſchwiſter ſieht.</p><lb/>
+</div> <div n="2"> <head>§. 56.<lb/>
+</head> <p>Schon laͤngſt waren die Beſſern von je¬<lb/>
+nem Theile des Menſchengeſchlechts ge¬<lb/>
+wohnt, ſich durch einen <hi rendition="#fr">Schatten</hi> ſolcher<lb/>
+edlern Bewegungsgruͤnde regieren zu laſ¬<lb/>
+<fw type="catch" place="bottom">ſen.<lb/>
+</fw> <fw type="sig" place="bottom">D 4<lb/>
+</fw>
+<pb n="56" facs="#f0059"/>
+ſen. Um nach dieſem Leben auch nur in<lb/>
+dem Andenken ſeiner Mitbuͤrger fortzuleben,<lb/>
+that der Grieche und Roͤmer alles.</p><lb/>
+</div> <div n="2"> <head>§. 57.<lb/>
+</head> <p>Es war Zeit, daß ein andres <hi rendition="#fr">wah</hi><hi rendition="#b">¬</hi><lb/>
+<hi rendition="#fr">res</hi> nach dieſem Leben zu gewaͤrtigendes Le¬<lb/>
+ben Einfluß auf ſeine Handlungen ge¬<lb/>
+woͤnne.</p><lb/>
+</div> <div n="2"> <head>§. 58.<lb/>
+</head> <p>Und ſo ward Chriſtus der erſte <hi rendition="#fr">zuver¬<lb/>
+laͤſſige, praktiſche</hi> Lehrer der Unſterb¬<lb/>
+lichkeit der Seele.</p><lb/>
+<fw type="catch" place="bottom">§. 59.<lb/>
+</fw>
+<pb n="57" facs="#f0060"/>
+</div> <div n="2"> <head>§. 59.<lb/>
+</head> <p>Der erſte <hi rendition="#fr">zuverlaͤſſige</hi> Lehrer. —<lb/>
+Zuverlaͤſſig durch die Weiſſagungen, die<lb/>
+in ihm erfuͤllt ſchienen; zuverlaͤſſig durch<lb/>
+die Wunder, die er verrichtete; zuver¬<lb/>
+laͤſſig durch ſeine eigene Wiederbelebung<lb/>
+nach einem Tode, durch den er ſeine Lehre<lb/>
+verſiegelt hatte. Ob wir noch itzt dieſe<lb/>
+Wiederbelebung, dieſe Wunder beweiſen<lb/>
+koͤnnen: das laſſe ich dahin geſtellt ſeyn.<lb/>
+So, wie ich es dahin geſtellt ſeyn laſſe,<lb/>
+wer die Perſon dieſes Chriſtus geweſen.<lb/>
+Alles das kann damals zur <hi rendition="#fr">Annehmung</hi><lb/>
+ſeiner Lehre wichtig geweſen ſeyn: itzt iſt es<lb/>
+<fw type="sig" place="bottom">D 5<lb/>
+</fw> <fw type="catch" place="bottom">zur<lb/>
+</fw>
+<pb n="58" facs="#f0061"/>
+zur Erkennung der Wahrheit dieſer Lehre ſo<lb/>
+wichtig nicht mehr.</p><lb/>
+</div> <div n="2"> <head>§. 60.<lb/>
+</head> <p>Der erſte <hi rendition="#fr">praktiſche</hi> Lehrer. — Denn<lb/>
+ein anders iſt die Unſterblichkeit der Seele,<lb/>
+als eine philoſophiſche Speculation, ver¬<lb/>
+muthen, wuͤnſchen, glauben: ein anders,<lb/>
+ſeine innern und aͤuſſern Handlungen dar¬<lb/>
+nach einrichten.</p><lb/>
+</div> <div n="2"> <head>§. 61.<lb/>
+</head> <p>Und dieſes wenigſtens lehrte Chriſtus<lb/>
+zuerſt. Denn ob es gleich bey manchen<lb/>
+Voͤlkern auch ſchon vor ihm eingefuͤhrter<lb/>
+Glaube war, daß boͤſe Handlungen noch<lb/>
+<fw type="catch" place="bottom">in<lb/>
+</fw>
+<pb n="59" facs="#f0062"/>
+in jenem Leben beſtraft wuͤrden: ſo waren<lb/>
+es doch nur ſolche, die der buͤrgerlichen<lb/>
+Geſellſchaft Nachtheil brachten, und da¬<lb/>
+her auch ſchon in der buͤrgerlichen Geſell¬<lb/>
+ſchaft ihre Strafe hatten. Eine innere<lb/>
+Reinigkeit des Herzens in Hinſicht auf ein<lb/>
+andres Leben zu empfehlen, war ihm al¬<lb/>
+lein vorbehalten.</p><lb/>
+</div> <div n="2"> <head>§. 62.<lb/>
+</head> <p>Seine Juͤnger haben dieſe Lehre getreu¬<lb/>
+lich fortgepflanzt. Und wenn ſie auch<lb/>
+kein ander Verdienſt haͤtten, als daß ſie<lb/>
+einer Wahrheit, die Chriſtus nur allein<lb/>
+fuͤr die Juden beſtimmt zu haben ſchien.</p><lb/>
+<fw type="catch" place="bottom">ei¬<lb/>
+</fw>
+<pb n="60" facs="#f0063"/>
+<p>einen allgemeinern Umlauf unter mehrern<lb/>
+Voͤlkern verſchaft haͤtten: ſo waͤren ſie<lb/>
+ſchon darum unter die Pfleger und<lb/>
+Wohlthaͤter des Menſchengeſchlechts zu<lb/>
+rechnen.</p><lb/>
+</div> <div n="2"> <head>§. 63.<lb/>
+</head> <p>Daß ſie aber dieſe Eine große Lehre<lb/>
+noch mit andern Lehren verſetzten, deren<lb/>
+Wahrheit weniger einleuchtend, deren<lb/>
+Nutzen weniger erheblich war: wie konnte<lb/>
+das anders ſeyn? Laßt uns ſie darum<lb/>
+nicht ſchelten, ſondern vielmehr mit Ernſt<lb/>
+unterſuchen: ob nicht ſelbſt dieſe beyge¬<lb/>
+miſchten Lehren ein neuer <hi rendition="#fr">Richtungs</hi><hi rendition="#b">¬</hi><lb/>
+<fw type="catch" place="bottom"> <hi rendition="#fr">ſtoß</hi><lb/>
+</fw>
+<pb n="61" facs="#f0064"/>
+<hi rendition="#fr">ſtoß</hi> fuͤr die menſchliche Vernunft ge¬<lb/>
+worden.</p><lb/>
+</div> <div n="2"> <head>§. 64.<lb/>
+</head> <p>Wenigſtens iſt es ſchon aus der Erfah¬<lb/>
+rung klar, daß die Neuteſtamentlichen<lb/>
+Schriften, in welchen ſich dieſe Lehren<lb/>
+nach einiger Zeit aufbewahret fanden, das<lb/>
+zweyte beßre Elementarbuch fuͤr das Men¬<lb/>
+ſchengeſchlecht abgegeben haben, und noch<lb/>
+abgeben.</p><lb/>
+</div> <div n="2"> <head>§. 65.<lb/>
+</head> <p>Sie haben ſeit ſiebzehnhundert Jahren<lb/>
+den menſchlichen Verſtand mehr als alle<lb/>
+andere Buͤcher beſchaͤftiget; mehr als alle<lb/>
+<fw type="catch" place="bottom">an¬<lb/>
+</fw>
+<pb n="62" facs="#f0065"/>
+andere Buͤcher erleuchtet, ſollte es auch<lb/>
+nur durch das Licht ſeyn, welches der<lb/>
+menſchliche Verſtand ſelbſt hineintrug.</p><lb/>
+</div> <div n="2"> <head>§. 66.<lb/>
+</head> <p>Unmoͤglich haͤtte irgend ein ander Buch<lb/>
+unter ſo verſchiednen Voͤlkern ſo allgemein<lb/>
+bekannt werden koͤnnen: und unſtreitig<lb/>
+hat das, daß ſo ganz ungleiche Den¬<lb/>
+kungsarten ſich mit dieſem nehmlichen<lb/>
+Buche beſchaͤftigten, den menſchlichen Ver¬<lb/>
+ſtand mehr fortgeholfen, als wenn jedes<lb/>
+Volk fuͤr ſich beſonders ſein eignes Elemen¬<lb/>
+tarbuch gehabt haͤtte.</p><lb/>
+<fw type="catch" place="bottom">§. 67.<lb/>
+</fw>
+<pb n="63" facs="#f0066"/>
+</div> <div n="2"> <head>§. 67.<lb/>
+</head> <p>Auch war es hoͤchſt noͤthig, daß jedes<lb/>
+Volk dieſes Buch eine Zeit lang fuͤr das<lb/>
+<hi rendition="#aq">Non plus ultra</hi> ſeiner Erkenntniſſe halten<lb/>
+mußte. Denn dafuͤr muß auch der Knabe<lb/>
+ſein Elementarbuch vors erſte anſehen; da¬<lb/>
+mit die Ungeduld, nur fertig zu werden,<lb/>
+ihn nicht zu Dingen fortreißt, zu welchen<lb/>
+er noch keinen Grund gelegt hat.</p><lb/>
+</div> <div n="2"> <head>§. 68.<lb/>
+</head> <p> <choice><sic>Uud</sic><corr>Und</corr></choice> was noch itzt hoͤchſt wichtig iſt: —<lb/>
+Huͤte dich, du faͤhigeres Individuum, der<lb/>
+du an dem letzten Blatte dieſes Elemen¬<lb/>
+tarbuches ſtampfeſt und gluͤheſt, huͤte dich,<lb/>
+<fw type="catch" place="bottom">es<lb/>
+</fw>
+<pb n="64" facs="#f0067"/>
+es deine ſchwaͤchere Mitſchuͤler merken zu<lb/>
+laſſen, was du witterſt, oder ſchon zu<lb/>
+ſehn beginneſt.</p><lb/>
+</div> <div n="2"> <head>§. 69.<lb/>
+</head> <p>Bis ſie dir nach ſind, dieſe ſchwaͤchere<lb/>
+Mitſchuͤler; — kehre lieber noch einmal<lb/>
+ſelbſt in dieſes Elementarbuch zuruͤck, und<lb/>
+unterſuche, ob das, was du nur fuͤr Wen¬<lb/>
+dungen der Methode, fuͤr Luͤckenbuͤſſer der<lb/>
+Didaktik haͤltſt, auch wohl nicht etwas<lb/>
+Mehrers iſt.</p><lb/>
+</div> <div n="2"> <head>§. 70.<lb/>
+</head> <p>Du haſt in der Kindheit des Menſchen¬<lb/>
+geſchlechts an der Lehre von der Einheit<lb/>
+<fw type="catch" place="bottom">Got¬<lb/>
+</fw>
+<pb n="65" facs="#f0068"/>
+Gottes geſehen, daß Gott auch bloße Ver¬<lb/>
+nunftswahrheiten unmittelbar offenbaret;<lb/>
+oder verſtattet und einleitet, daß bloße<lb/>
+Vernunftswahrheiten als unmittelbar geof¬<lb/>
+fenbarte Wahrheiten eine Zeit lang gelehret<lb/>
+werden: um ſie geſchwinder zu verbreiten,<lb/>
+und ſie feſter zu gruͤnden.</p><lb/>
+</div> <div n="2"> <head>§. 71.<lb/>
+</head> <p>Du erfaͤhrſt, in dem Knabenalter<lb/>
+des Menſchengeſchlechts, an der Lehre<lb/>
+von der Unſterblichkeit der Seele, das<lb/>
+Nehmliche. Sie wird in dem zweyten<lb/>
+beſſern Elementarbuche als Offenbarung<lb/>
+<fw type="sig" place="bottom">E<lb/>
+</fw> <fw type="catch" place="bottom"><hi rendition="#fr">ge¬</hi><lb/>
+</fw>
+<pb n="66" facs="#f0069"/>
+<hi rendition="#fr">geprediget</hi>‚ nicht als Reſultat menſchli¬<lb/>
+cher Schluͤſſe <hi rendition="#fr">gelehret</hi><hi rendition="#b">.</hi></p><lb/>
+</div> <div n="2"> <head>§. 72.<lb/>
+</head> <p>So wie wir zur Lehre von der Einheit<lb/>
+Gottes nunmehr des Alten Teſtaments<lb/>
+entbehren koͤnnen; ſo wie wir allmaͤlig‚<lb/>
+zur Lehre von der Unſterblichkeit der Seele‚<lb/>
+auch des Neuen Teſtaments entbehren zu<lb/>
+koͤnnen anfangen: koͤnnten in dieſem nicht<lb/>
+noch mehr dergleichen Wahrheiten vorge¬<lb/>
+ſpiegelt werden, die wir als Offenbarun¬<lb/>
+gen ſo lange anſtaunen ſollen‚ bis ſie die<lb/>
+Vernunft aus ihren andern ausgemachten<lb/>
+<fw type="catch" place="bottom">Wahr¬<lb/>
+</fw>
+<pb n="67" facs="#f0070"/>
+Wahrheiten herleiten und mit ihnen verbin¬<lb/>
+den lernen?</p><lb/>
+</div> <div n="2"> <head>§. 73.<lb/>
+</head> <p>Z. E. die Lehre von der Dreyeinig¬<lb/>
+keit. — Wie, wenn dieſe Lehre den<lb/>
+menſchlichen Verſtand, nach unendlichen<lb/>
+Verirrungen rechts und links, nur endlich<lb/>
+auf den Weg bringen ſollte, zu erkennen,<lb/>
+daß Gott in dem Verſtande, in welchem<lb/>
+endliche Dinge <hi rendition="#fr">eins</hi> ſind, unmoͤglich <hi rendition="#fr">eins</hi><lb/>
+ſeyn koͤnne; daß auch ſeine Einheit eine<lb/>
+tranſcendentale Einheit ſeyn muͤſſe, welche<lb/>
+eine Art von Mehrheit nicht ausſchließt? —<lb/>
+<fw type="sig" place="bottom">E 2<lb/>
+</fw> <fw type="catch" place="bottom">Muß<lb/>
+</fw>
+<pb n="68" facs="#f0071"/>
+Muß Gott wenigſtens nicht die vollſtaͤn¬<lb/>
+digſte Vorſtellung von ſich ſelbſt haben?<lb/>
+d. i. eine Vorſtellung, in der ſich alles be¬<lb/>
+findet, was in ihm ſelbſt iſt. Wuͤrde ſich<lb/>
+aber alles in ihr finden, was in ihm ſelbſt<lb/>
+iſt, wenn auch von ſeiner <hi rendition="#fr">nothwendi¬<lb/>
+gen Wirklichkeit</hi><hi rendition="#b">,</hi> ſo wie von ſeinen<lb/>
+uͤbrigen Eigenſchaften, ſich blos eine Vor¬<lb/>
+ſtellung, ſich blos eine Moͤglichkeit faͤnde?<lb/>
+Dieſe Moͤglichkeit erſchoͤpft das Weſen ſei¬<lb/>
+ner uͤbrigen Eigenſchaften: aber auch ſei¬<lb/>
+ner nothwendigen Wirklichkeit? Mich<lb/>
+duͤnkt nicht. — Folglich kann entweder<lb/>
+Gott gar keine vollſtaͤndige Vorſtellung von<lb/>
+<fw type="catch" place="bottom">ſich<lb/>
+</fw>
+<pb n="69" facs="#f0072"/>
+ſich ſelbſt haben: oder dieſe vollſtaͤndige<lb/>
+Vorſtellung iſt eben ſo nothwendig wirklich‚<lb/>
+als er es ſelbſt iſt ꝛc. — Freylich iſt das<lb/>
+Bild von mir im Spiegel nichts als eine<lb/>
+leere Vorſtellung von mir‚ weil es nur das<lb/>
+von mir hat‚ wovon Lichtſtrahlen auf<lb/>
+ſeine Flaͤche fallen. Aber wenn denn nun<lb/>
+dieſes Bild <hi rendition="#fr">alles</hi>, alles ohne Ausnahme<lb/>
+haͤtte‚ was ich ſelbſt habe: wuͤrde es ſo¬<lb/>
+dann auch noch eine leere Vorſtellung‚ oder<lb/>
+nicht vielmehr eine wahre Verdopplung<lb/>
+meines Selbſt ſeyn? — Wenn ich eine<lb/>
+aͤhnliche Verdopplung in Gott zu erkennen<lb/>
+glaube: ſo irre ich mich vielleicht nicht ſo<lb/>
+<fw type="sig" place="bottom">E 3<lb/>
+</fw> <fw type="catch" place="bottom">wohl‚<lb/>
+</fw>
+<pb n="70" facs="#f0073"/>
+wohl, als daß die Sprache meinen Be¬<lb/>
+griffen unterliegt; und ſo viel bleibt doch<lb/>
+immer unwiderſprechlich, daß diejenigen,<lb/>
+welche die Idee davon populaͤr machen<lb/>
+wollen, ſich ſchwerlich faßlicher und ſchick¬<lb/>
+licher haͤtten ausdruͤcken koͤnnen, als durch<lb/>
+die Benennung eines <hi rendition="#fr">Sohnes</hi>, den Gott<lb/>
+von Ewigkeit zeugt.</p><lb/>
+</div> <div n="2"> <head>§. 74.<lb/>
+</head> <p>Und die Lehre von der Erbſuͤnde. —<lb/>
+Wie, wenn uns endlich alles uͤberfuͤhrte,<lb/>
+daß der Menſch auf der <hi rendition="#fr">erſten und nie¬<lb/>
+drigſten</hi> Stufe ſeiner Menſchheit, ſchlech¬<lb/>
+<fw type="catch" place="bottom">ter¬<lb/>
+</fw>
+<pb n="71" facs="#f0074"/>
+terdings ſo Herr ſeiner Handlungen nicht<lb/>
+ſey, daß er moraliſchen Geſetzen folgen<lb/>
+koͤnne?</p><lb/>
+</div> <div n="2"> <head>§. 75.<lb/>
+</head> <p>Und die Lehre von der Genugthuung des<lb/>
+Sohnes. — Wie, wenn uns endlich<lb/>
+alles noͤthigte, anzunehmen: daß Gott,<lb/>
+ungeachtet jener urſpruͤnglichen Unvermoͤ¬<lb/>
+genheit des Menſchen, ihm dennoch mo¬<lb/>
+raliſche Geſetze lieber geben, und ihm alle<lb/>
+Uebertretungen, in Ruͤckſicht auf ſeinen<lb/>
+<hi rendition="#fr">Sohn</hi>, d. i. in Ruͤckſicht auf den ſelbſt¬<lb/>
+ſtaͤndigen Umfang aller ſeiner Vollkommen¬<lb/>
+<fw type="catch" place="bottom">hei¬<lb/>
+</fw> <fw type="sig" place="bottom">E 4<lb/>
+</fw>
+<pb n="72" facs="#f0075"/>
+heiten, gegen den und in dem jede Unvoll¬<lb/>
+kommenheit des Einzeln verſchwindet, lie¬<lb/>
+ber verzeihen wollen; als daß er ſie ihm<lb/>
+nicht geben, und ihn von aller morali¬<lb/>
+ſchen Gluͤckſeligkeit ausſchlieſſen wollen,<lb/>
+die ſich ohne moraliſche Geſetze nicht den¬<lb/>
+ken laͤßt?</p><lb/>
+</div> <div n="2"> <head>§. 76.<lb/>
+</head> <p>Man wende nicht ein, daß dergleichen<lb/>
+Vernuͤnfteleyen uͤber die Geheimniſſe der<lb/>
+Religion unterſagt ſind. — Das Wort<lb/>
+Geheimniß bedeutete, in den erſten Zei¬<lb/>
+ten des Chriſtenthums, ganz etwas an¬<lb/>
+<fw type="catch" place="bottom">ders,<lb/>
+</fw>
+<pb n="73" facs="#f0076"/>
+ders, als wir itzt darunter verſtehen;<lb/>
+und die Ausbildung geoffenbarter Wahr¬<lb/>
+heiten in Vernunftswahrheiten iſt ſchlecht¬<lb/>
+terdings nothwendig, wenn dem menſch¬<lb/>
+lichen Geſchlechte damit geholfen ſeyn ſoll.<lb/>
+Als ſie geoffenbart wurden, waren ſie<lb/>
+freylich noch keine Vernunftswahrheiten;<lb/>
+aber ſie wurden geoffenbaret, um es zu<lb/>
+werden. Sie waren gleichſam das <hi rendition="#aq">Facit</hi>,<lb/>
+welches der Rechenmeiſter ſeinen Schuͤlern<lb/>
+voraus ſagt, damit ſie ſich im Rechnen<lb/>
+einigermaaſſen darnach richten koͤnnen.<lb/>
+Wollten ſich die Schuͤler an dem vor¬<lb/>
+aus geſagten <hi rendition="#aq">Facit</hi> begnuͤgen: ſo wuͤr¬<lb/>
+<fw type="catch" place="bottom">den<lb/>
+</fw> <fw type="sig" place="bottom">E 5<lb/>
+</fw>
+<pb n="74" facs="#f0077"/>
+den ſie nie rechnen lernen, und die Ab¬<lb/>
+ſicht‚ in welcher der gute Meiſter ihnen<lb/>
+bey ihrer Arbeit einen Leitfaden gab,<lb/>
+ſchlecht erfuͤllen.</p><lb/>
+</div> <div n="2"> <head>§. 77<lb/>
+</head> <p>Und warum ſollten wir nicht auch<lb/>
+durch eine Religion, mit deren hiſtori¬<lb/>
+ſchen Wahrheit, wenn man will‚ es<lb/>
+ſo mißlich ausſieht‚ gleichwohl auf<lb/>
+naͤhere und beſſere Begriffe vom goͤttli¬<lb/>
+chen Weſen‚ von unſrer Natur‚ von un¬<lb/>
+ſern Verhaͤltniſſen zu Gott‚ geleitet wer¬<lb/>
+den koͤnnen‚ auf welche die menſchliche<lb/>
+<fw type="catch" place="bottom">Ver¬<lb/>
+</fw>
+<pb n="75" facs="#f0078"/>
+Vernunft von ſelbſt nimmermehr gekom¬<lb/>
+men waͤre?</p><lb/>
+</div> <div n="2"> <head>§. 78.<lb/>
+</head> <p>Es iſt nicht wahr, daß Speculationen<lb/>
+uͤber dieſe Dinge jemals Unheil geſtiftet,<lb/>
+und der buͤrgerlichen Geſellſchaft nachtheilig<lb/>
+geworden. — Nicht den Speculationen:<lb/>
+dem Unſinne, der Tyranney, dieſen Spe¬<lb/>
+culationen zu ſteuern; Menſchen, die ihre<lb/>
+eigenen hatten, nicht ihre eigenen zu goͤn¬<lb/>
+nen, iſt dieſer Vorwurf zu machen.</p><lb/>
+<fw type="catch" place="bottom">§. 79.<lb/>
+</fw>
+<pb n="76" facs="#f0079"/>
+</div> <div n="2"> <head>§. 79.<lb/>
+</head> <p>Vielmehr ſind dergleichen Speculatio¬<lb/>
+nen — moͤgen ſie im Einzeln doch aus¬<lb/>
+fallen, wie ſie wollen — unſtreitig die<lb/>
+<hi rendition="#fr">ſchicklichſten</hi> Uebungen des menſchlichen<lb/>
+Verſtandes uͤberhaupt, ſo lange das<lb/>
+menſchliche Herz uͤberhaupt, hoͤchſtens nur<lb/>
+vermoͤgend iſt, die Tugend wegen ihrer ewi¬<lb/>
+gen gluͤckſeligen Folgen zu lieben.</p><lb/>
+</div> <div n="2"> <head>§. 80.<lb/>
+</head> <p>Denn bey dieſer Eigennuͤtzigkeit des<lb/>
+menſchlichen Herzens, auch den Verſtand<lb/>
+nur allein an dem uͤben wollen, was un¬<lb/>
+<fw type="catch" place="bottom">ſere<lb/>
+</fw>
+<pb n="77" facs="#f0080"/>
+ſere koͤrperlichen Beduͤrfniſſe betrift, wuͤrde<lb/>
+ihn mehr ſtumpfen, als wetzen heiſſen.<lb/>
+Er will ſchlechterdings an geiſtigen Ge¬<lb/>
+genſtaͤnden geuͤbt ſeyn, wenn er zu ſeiner<lb/>
+voͤlligen Aufklaͤrung gelangen, und dieje¬<lb/>
+nige Reinigkeit des Herzens hervorbringen<lb/>
+ſoll, die uns, die Tugend um ihrer ſelbſt<lb/>
+willen zu lieben, faͤhig macht.</p><lb/>
+</div> <div n="2"> <head>§. 81.<lb/>
+</head> <p>Oder ſoll das menſchliche Geſchlecht auf<lb/>
+dieſe hoͤchſte Stufen der Aufklaͤrung und<lb/>
+Reinigkeit nie kommen? Nie?</p><lb/>
+<fw type="catch" place="bottom">§. 82.<lb/>
+</fw>
+<pb n="78" facs="#f0081"/>
+</div> <div n="2"> <head>§. 82.<lb/>
+</head> <p>Nie? — Laß mich dieſe Laͤſterung<lb/>
+nicht denken, Allguͤtiger! — Die Erzie¬<lb/>
+hung hat ihr <hi rendition="#fr">Ziel</hi>; bey dem Geſchlechte<lb/>
+nicht weniger als bey dem Einzeln. Was<lb/>
+erzogen wird, wird zu Etwas erzogen.</p><lb/>
+</div> <div n="2"> <head>§. 83.<lb/>
+</head> <p>Die ſchmeichelnden Ausſichten, die man<lb/>
+dem Juͤnglinge eroͤfnet; die Ehre, der<lb/>
+Wohlſtand, die man ihm vorſpiegelt: was<lb/>
+ſind ſie mehr, als Mittel, ihn zum Manne<lb/>
+zu erziehen, der auch dann, wenn dieſe<lb/>
+Ausſichten der Ehre und des Wohlſtandes<lb/>
+<pb n="79" facs="#f0082"/>
+wegfallen, ſeine Pflicht zu thun vermoͤ¬<lb/>
+gend ſey.</p><lb/>
+</div> <div n="2"> <head>§. 84.<lb/>
+</head> <p>Darauf zwecke die menſchliche Erzie¬<lb/>
+hung ab: und die goͤttliche reiche <choice><sic>dahiu</sic><corr>dahin</corr></choice><lb/>
+nicht? Was der Kunſt mit dem Einzeln<lb/>
+gelingt, ſollte der Natur nicht auch mit<lb/>
+dem Ganzen gelingen? Laͤſterung! Laͤ¬<lb/>
+ſierung !</p><lb/>
+</div> <div n="2"> <head>§. 85.<lb/>
+</head> <p>Nein; ſie wird kommen, ſie wird ge¬<lb/>
+wiß kommen, die Zeit der Vollendung, da<lb/>
+<fw type="catch" place="bottom">der<lb/>
+</fw>
+<pb n="80" facs="#f0083"/>
+der Menſch, je uͤberzeugter ſein Verſtand<lb/>
+einer immer beſſern Zukunft ſich fuͤhlet,<lb/>
+von dieſer Zukunft gleichwohl Bewegungs¬<lb/>
+gruͤnde zu ſeinen Handlungen zu erborgen,<lb/>
+nicht noͤthig haben wird; da er das Gute<lb/>
+thun wird, weil es das Gute iſt, nicht<lb/>
+weil willkuͤhrliche Belohnungen darauf ge¬<lb/>
+ſetzt ſind, die ſeinen flatterhaften Blick<lb/>
+ehedem blos heften und ſtaͤrken ſollten, die<lb/>
+innern beſſern Belohnungen deſſelben zu er¬<lb/>
+kennen.</p><lb/>
+</div> <div n="2"> <head>§. 86.<lb/>
+</head> <p>Sie wird gewiß kommen, die Zeit ei¬<lb/>
+nes <hi rendition="#fr">neuen ewigen Evangeliums</hi>,<lb/>
+<fw type="catch" place="bottom">die<lb/>
+</fw>
+<pb n="81" facs="#f0084"/>
+die uns ſelbſt in den Elementarbuͤchern des<lb/>
+Neuen Bundes verſprochen wird.</p><lb/>
+</div> <div n="2"> <head>§. 87.<lb/>
+</head>     <p>Vielleicht, daß ſelbſt gewiſſe Schwaͤr¬<lb/>
+mer des dreyzehnten und vierzehnten Jahr¬<lb/>
+hunderts einen Strahl dieſes neuen ewigen<lb/>
+Evangeliums aufgefangen hatten; und nur<lb/>
+darinn irrten, daß ſie den <choice><sic>Ansbruch</sic><corr>Ausbruch</corr></choice> deſſel¬<lb/>
+ben ſo nahe verkuͤndigten.</p><lb/>
+</div> <div n="2"> <head>§. 88.<lb/>
+</head> <p>Vielleicht war ihr <hi rendition="#fr">dreyfaches Alter<lb/>
+der Welt</hi> keine ſo leere Grille; und<lb/>
+<fw type="catch" place="bottom">F<lb/>
+</fw> <fw type="sig" place="bottom">ge¬<lb/>
+</fw>
+<pb n="82" facs="#f0085"/>
+gewiß hatten ſie keine ſchlimme Abſichten,<lb/>
+wenn ſie lehrten, daß der Neue Bund<lb/>
+eben ſo wohl <hi rendition="#fr">antiquiret</hi> werden muͤſſe,<lb/>
+als es der Alte geworden. Es blieb<lb/>
+auch bey ihnen immer die nehmliche Oe¬<lb/>
+konomie des nehmlichen Gottes. Im¬<lb/>
+mer — ſie meine Sprache ſprechen zu<lb/>
+laſſen — der nehmliche Plan der all¬<lb/>
+gemeinen Erziehung des Menſchenge¬<lb/>
+ſchlechts.</p><lb/>
+</div> <div n="2"> <head>§. 89.<lb/>
+</head> <p>Nur daß ſie ihn uͤbereilten; nur daß<lb/>
+ſie ihre Zeitgenoſſen, die noch kaum der<lb/>
+<fw type="catch" place="bottom">Kind¬<lb/>
+</fw>
+<pb n="83" facs="#f0086"/>
+Kindheit entwachſen waren, ohne Auf¬<lb/>
+klaͤrung, ohne Vorbereitung, mit Eins<lb/>
+zu Maͤnnern machen zu koͤnnen glaub¬<lb/>
+ten, die ihres <hi rendition="#fr">dritten Zeitalters</hi> wuͤr¬<lb/>
+dig waͤren.</p><lb/>
+</div> <div n="2"> <head>§. 90.<lb/>
+</head> <p>Und eben das machte ſie zu Schwaͤr¬<lb/>
+mern. Der Schwaͤrmer thut oft ſehr<lb/>
+richtige Blicke in die Zukunft: aber er<lb/>
+kann dieſe Zukunft nur nicht erwarten.<lb/>
+Er wuͤnſcht dieſe Zukunft beſchleuniget;<lb/>
+und wuͤnſcht, daß ſie durch ihn beſchleu¬<lb/>
+niget werde. Wozu ſich die Natur Jahr¬<lb/>
+<fw type="catch" place="bottom">tau¬<lb/>
+</fw> <fw type="sig" place="bottom">F 2<lb/>
+</fw>
+<pb n="84" facs="#f0087"/>
+tauſende Zeit nimmt, ſoll in dem Augen¬<lb/>
+blicke ſeines Daſeyns reifen. Denn was<lb/>
+hat er davon, wenn das, was er fuͤr<lb/>
+das Beſſere erkennt, nicht noch bey ſei¬<lb/>
+nen Lebzeiten das Beſſere wird? Koͤmmt<lb/>
+er wieder? Glaubt er wieder zu kom¬<lb/>
+men? — Sonderbar, daß dieſe Schwaͤr¬<lb/>
+merey allein unter den Schwaͤrmern nicht<lb/>
+mehr Mode werden will!</p><lb/>
+</div> <div n="2"> <head>§. 91.<lb/>
+</head> <p>Geh deinen unmerklichen Schritt, ewi¬<lb/>
+ge Vorſehung! Nur laß mich dieſer Un¬<lb/>
+merklichkeit wegen an dir nicht verzwei¬<lb/>
+<fw type="catch" place="bottom">feln.<lb/>
+</fw>
+<pb n="85" facs="#f0088"/>
+feln. — Laß mich an dir nicht ver¬<lb/>
+zweifeln, wenn ſelbſt deine Schritte mir<lb/>
+ſcheinen ſollten, zuruͤck zu gehen! — Es<lb/>
+iſt nicht wahr, daß die kuͤrzeſte Linie im¬<lb/>
+mer die gerade iſt.</p><lb/>
+</div> <div n="2"> <head>§. 92.<lb/>
+</head> <p>Du haſt auf deinem ewigen Wege ſo<lb/>
+viel mitzunehmen! ſo viel Seitenſchritte<lb/>
+zu thun! — Und wie? wenn es nun gar<lb/>
+ſo gut als ausgemacht waͤre, daß das<lb/>
+große langſame Rad, welches das Ge¬<lb/>
+ſchlecht ſeiner Vollkommenheit naͤher bringt,<lb/>
+nur durch kleinere ſchnellere Raͤder in Be¬<lb/>
+<fw type="catch" place="bottom">we¬<lb/>
+</fw> <fw type="sig" place="bottom">F 3<lb/>
+</fw>
+<pb n="86" facs="#f0089"/>
+wegung geſetzt wuͤrde, deren jedes ſein<lb/>
+Einzelnes eben dahin liefert?</p><lb/>
+</div> <div n="2"> <head>§. 93.<lb/>
+</head> <p>Nicht anders! Eben die Bahn, auf<lb/>
+welcher das Geſchlecht zu ſeiner Vollkom¬<lb/>
+menheit gelangt, muß jeder einzelne<lb/>
+Menſch (der fruͤher, der ſpaͤter) erſt<lb/>
+durchlaufen haben. — „In einem und<lb/>
+„eben demſelben Leben durchlaufen haben?<lb/>
+„Kann er in eben demſelben Leben ein<lb/>
+„ſinnlicher Jude und ein geiſtiger Chriſt<lb/>
+„geweſen ſeyn? Kann er in eben demſel¬<lb/>
+„ben Leben beyde uͤberhohlet haben?“</p><lb/>
+<fw type="catch" place="bottom">§. 94.<lb/>
+</fw>
+<pb n="87" facs="#f0090"/>
+</div> <div n="2"> <head>§. 94.<lb/>
+</head> <p>Das wohl nun nicht! — Aber warum<lb/>
+koͤnnte jeder einzelne Menſch auch nicht<lb/>
+mehr als einmal auf dieſer Welt vorhanden<lb/>
+geweſen ſeyn?</p><lb/>
+</div> <div n="2"> <head>§. 95.<lb/>
+</head> <p>Iſt dieſe Hypotheſe darum ſo laͤcherlich,<lb/>
+weil ſie die aͤlteſte iſt? weil der menſchliche<lb/>
+Verſtand, ehe ihn die Sophiſterey der<lb/>
+Schule zerſtreut und geſchwaͤcht hatte,<lb/>
+ſogleich darauf verfiel?</p><lb/>
+<fw type="sig" place="bottom">F 4<lb/>
+</fw> <fw type="catch" place="bottom">§. 96.<lb/>
+</fw>
+<pb n="88" facs="#f0091"/>
+</div> <div n="2"> <head>§. 96.<lb/>
+</head> <p>Warum koͤnnte auch Ich nicht hier be¬<lb/>
+reits einmal alle die Schritte zu meiner<lb/>
+Vervollkommung gethan haben, welche<lb/>
+blos zeitliche Strafen und Belohnungen<lb/>
+den Menſchen bringen koͤnnen?</p><lb/>
+</div> <div n="2"> <head>§. 97.<lb/>
+</head> <p>Und warum nicht ein andermal alle<lb/>
+die, welche zu thun, uns die Ausſich¬<lb/>
+ten in ewige Belohnungen, ſo maͤchtig<lb/>
+helfen?</p><lb/>
+<fw type="catch" place="bottom">§. 98.<lb/>
+</fw>
+<pb n="89" facs="#f0092"/>
+</div> <div n="2"> <head>§. 98.<lb/>
+</head> <p>Warum ſollte ich nicht ſo oft wieder¬<lb/>
+kommen, als ich neue Kenntniſſe, neue<lb/>
+Fertigkeiten zu erlangen geſchickt bin?<lb/>
+Bringe ich auf Einmal ſo viel weg,<lb/>
+daß es der Muͤhe wieder zu kommen etwa<lb/>
+nicht lohnet?</p><lb/>
+</div> <div n="2"> <head>§. 99.<lb/>
+</head> <p>Darum nicht? — Oder, weil ich es<lb/>
+vergeſſe, daß ich ſchon da geweſen?<lb/>
+Wohl mir, daß ich das vergeſſe. Die<lb/>
+Erinnerung meiner vorigen Zuſtaͤnde,<lb/>
+wuͤrde mir nur einen ſchlechten Gebrauch<lb/>
+<fw type="catch" place="bottom">des<lb/>
+</fw>
+<pb n="90" facs="#f0093"/>
+des gegenwaͤrtigen zu machen erlauben.<lb/>
+Und was ich auf itzt vergeſſen <hi rendition="#fr">muß</hi>, habe<lb/>
+ich denn das auf ewig vergeſſen?</p><lb/>
+</div> <div n="2"> <head>§. 100.<lb/>
+</head> <p>Oder, weil ſo zu viel Zeit fuͤr mich<lb/>
+verloren gehen wuͤrde? — Verloren? —<lb/>
+Und was habe ich denn zu verſaͤumen?<lb/>
+Iſt nicht die ganze Ewigkeit mein?</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> </div>
+<pb facs="#f0094"/>
+<pb facs="#f0095"/>
+<pb facs="#f0096"/>
+<pb facs="#f0097"/>
+<pb facs="#f0098"/>
+<pb facs="#f0099"/>
+<pb facs="#f0100"/>
+<pb facs="#f0101"/>
+<pb facs="#f0102"/>
+<pb facs="#f0103"/>
+<pb facs="#f0104"/>
+<pb facs="#f0105"/>
+</body> </text> </TEI>

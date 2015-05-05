@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Die ostasiatischen Studien und die Sprachwissenschaft</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118688944">
+<surname>Gabelentz</surname>
+<forename>Georg von der</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">22</measure>
+<measure type="tokens">5710</measure>
+<measure type="types">2281</measure>
+<measure type="characters">42825</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:49Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/gabelentz_ostasiatische_1881</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/gabelentz_ostasiatische_1881</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/gabelentz_ostasiatische_1881</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/gabelentz_ostasiatische_1881</idno>
+<idno type="DTADirName">gabelentz_ostasiatische_1881</idno>
+<idno type="DTAID">16319</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905191489</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="JA">Gabelentz, Georg von der: Die ostasiatischen Studien und die Sprachwissenschaft. In: Unsere Zeit, Jg. 1881, Bd. 1, S. 279-291.</bibl>
+<biblFull>
+<titleStmt>
+<title level="a" type="main">Die ostasiatischen Studien und die Sprachwissenschaft</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118688944">
+<surname>Gabelentz</surname>
+<forename>Georg von der</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<publicationStmt>
+<publisher><name>Brockhaus</name></publisher>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1881</date>
+</publicationStmt>
+<seriesStmt>
+<title level="j" type="main">Unsere Zeit. Deutsche Revue der Gegenwart</title>
+<biblScope unit="volume">1881</biblScope>
+<biblScope unit="issue">1</biblScope>
+<biblScope unit="pages">S. 279-291</biblScope>
+</seriesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, in: Ac 7234&lt;a&gt;-17.1881</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=419472207</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Sprachwissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Sprachwissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<titlePage type="halftitle"> <docTitle> <titlePart type="main"> <hi rendition="#b">Unſere Zeit.</hi></titlePart><lb/>
+<titlePart type="sub"> <hi rendition="#g">Deutſche Revue der Gegenwart.</hi></titlePart> </docTitle><lb/>
+<milestone unit="section" rendition="#hr"/> </titlePage>
+<pb facs="#f0007"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b">Unſere Zeit.</hi></titlePart><lb/>
+<titlePart type="sub"> <hi rendition="#g">Deutſche Revue der Gegenwart.</hi></titlePart> </docTitle><lb/>
+<byline>Herausgegeben<lb/>
+von<lb/>
+<hi rendition="#b">Rudolf von Gottſchall.</hi> </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="volume"> <hi rendition="#g">Jahrgang 1881.</hi><lb/>
+<hi rendition="#b">Erſter Band.</hi></titlePart><lb/>
+<figure/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b">Leipzig:</hi></pubPlace><lb/>
+<publisher> <hi rendition="#g">F. A. Brockhaus.</hi> </publisher><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docDate>1881.</docDate><lb/>
+</docImprint> </titlePage> </front> <body>
+<pb facs="#f0008"/>
+<div n="1"> <head> <hi rendition="#b">Die oſtaſiatiſchen Studien und die Sprach¬<lb/>
+wiſſenſchaft.</hi><lb/>
+</head> <p rendition="#c">Von<lb/>
+Georg von der Gabelentz. <note place="foot" n="*)">Bearbeitung der vom Verfaſſer in der Aula der Univerſität zu Leipzig am 28. Juni<lb/>
+1879 gehaltenen Antrittsvorleſung.<lb/>
+</note></p><lb/>
+<p>Der Begriff der Orientaliſtik hat ſich bekanntlich in unſerm Jahrhundert ſtetig<lb/>
+um ein ſehr Bedeutendes erweitert. Noch zu unſerer Großväter Zeiten waren die<lb/>
+morgenländiſchen Studien kaum mehr als ein Nebenfach der Theologie; die Sprache<lb/>
+des Alten Teſtaments bildete ſozuſagen den Kernpunkt; andere ſemitiſche Sprachen:<lb/>
+Syriſch, Chaldäiſch, Samaritaniſch, Arabiſch und etwa noch Aethiopiſch, ſchloſſen<lb/>
+ſich in zweiter und dritter Reihe an, und da uns einmal das mohammedaniſche<lb/>
+Culturleben näher gerückt war, ſo wurden wol auch gelegentlich Türkiſch und<lb/>
+Perſiſch mit in den Bereich jener Studien gezogen, und einzelne verſtiegen ſich<lb/>
+bis ins Armeniſche und Koptiſche: ſie blieben aber eben vereinzelt. Chriſtliche<lb/>
+Sendboten, zumal die raſtlos fleißigen Jeſuiten, hatten ſchon längſt eine fremde<lb/>
+Sprache nach der andern grammatiſch und lexikaliſch bearbeitet, Reiſende hatten<lb/>
+aufgezeichnet, was ſie in fernen Landen am Wege aufgeleſen: an Stoff zum<lb/>
+Sammeln hätte es nicht gefehlt, aber es fehlte an wiſſenſchaftlichen Sammlern.<lb/>
+Wohl entſtanden polyglottiſche Sammelwerke — man weiß, welchen Antheil Leib¬<lb/>
+niz' allbefruchtender Geiſt hierbei hatte —, allein noch ähnelten ſie einigermaßen<lb/>
+den Raritätencabinets in alten Schlöſſern: unſerm Jahrhundert blieb es vor¬<lb/>
+behalten, ſie in Muſeen zu verwandeln.</p><lb/>
+<p>In der That bedurfte es hierzu einer mächtigen Anregung, und dieſe verdanken<lb/>
+wir einem glücklichen Zuſammentreffen. Die Philoſophie des vorigen Jahrhunderts<lb/>
+hatte auch die menſchliche Sprache in das Bereich ihrer Speculationen gezogen.<lb/>
+Ihr Treiben mochte ein ſehr voreiliges ſein, aber ein anregendes war es ganz<lb/>
+gewiß. Was zeither nur für die Neugier den Reiz des Abſonderlichen gehabt,<lb/>
+das lernte man nun mit ganz andern Augen betrachten: es war ein gewaltiger<lb/>
+Fortſchritt von dem „Vocabular“ Katharina's <hi rendition="#aq">II</hi>. bis zu Adelung's „Mithridates!“</p><lb/>
+<p>Dazu nun kam ein zweites. Im Jahre 1799 hatte Gyarmathi einen Theil<lb/>
+der Sprachen finniſchen (ugriſchen) Stammes auf ihre Verwandtſchaft hin gramma¬<lb/>
+<pb n="280" facs="#f0009"/>
+<fw type="header" place="top">Unſere Zeit.<lb/>
+</fw>tiſch verglichen. Daß ſein Werk nicht in ähnlicher Weiſe epochemachend wurde<lb/>
+wie bald nachher die Arbeiten Bopp's und Grimm's: das war wol nicht Schuld<lb/>
+ſeiner Leiſtung, ſondern es lag an dem gewählten Gegenſtande. Die Sache mußte<lb/>
+uns vollends zu Haus und Hof gebracht werden, ehe ſie rechten Anklang finden<lb/>
+konnte. Nun aber erſchien das Sanskrit auf der Bildfläche; mit jubelndem Er¬<lb/>
+ſtaunen ſah man ein ganz neues Licht ſich über unſere Sprachen ergießen, erkannte<lb/>
+man in dem alten Denker- und Dichtervolke ehrwürdige Verwandte unſers eigenen<lb/>
+Geſchlechts. Unſere Hochſchulen ſind ſonſt zähe; ein neuer Wiſſenszweig muß<lb/>
+kämpfen, ehe er ſich einen Lehrſtuhl erobert. Hier jedoch war nicht lange zu<lb/>
+zaudern: Bopp's Schüler nahm man mit offenen Armen auf. Es war kein<lb/>
+Zweifel, dieſer Zweig der Orientaliſtik hatte mit der Theologie nichts zu ſchaffen;<lb/>
+ſein Platz war in dem Maſſenquartier der philoſophiſchen Facultät, und dahin<lb/>
+folgten ihm denn die andern, ſoweit ſie nicht vorab der Bibelkritik dienen wollten,<lb/>
+ſo ſachte nach. Von den großen Entdeckungen auf ägyptiſchem, perſiſch-baktriſchem<lb/>
+und aſſyriſchem Gebiet will ich nicht reden. Genug, der ganze bisher beſchriebene<lb/>
+Kreis der morgenländiſchen Forſchungen zielt am Ende auf uns ſelbſt hin: woher<lb/>
+ſtammen unſere europäiſchen Völker? woher ſtammt ihre Cultur?</p><lb/>
+<p>So war es vielleicht kein Zufall, daß unſere deutſchen Univerſitäten zunächſt<lb/>
+innerhalb dieſes Kreiſes Genüge fanden. Sehe ich ab von dem, was unmittelbar<lb/>
+aufs Leben ſelbſt abzweckt, von Staats- und Wirthſchaftslehre, von Recht, Religion<lb/>
+und Geſundheitspflege: ſo wüßte ich nicht, was unſerm Intereſſe näher liegen<lb/>
+ſollte als die Frage nach unſerer eigenen Geſchichte. Frankreich freilich, auch dies¬<lb/>
+mal von raſcherm Entſchluſſe, ging ſofort noch weiter. Mehr als 10000 Bände<lb/>
+der wichtigſten chineſiſchen Bücher ſchlummerten in den Repoſitorien der pariſer<lb/>
+Bibliothek; man ahnte Schätze neuer Belehrung, und das genügte. Im Jahre<lb/>
+1814 wurde Abel R<hi rendition="#aq">é</hi>muſat zum Profeſſor der oſtaſiatiſchen Sprachen am Coll<hi rendition="#aq">é</hi>ge<lb/>
+de France ernannt, und ſeitdem haben faſt ein halbes Jahrhundert lang die fran¬<lb/>
+zöſiſchen Sinologen den Reigen geführt, bis ihnen engliſche Meiſter den Vorrang<lb/>
+ſtreitig machten. Erſt 1838 folgte Preußen mit der Berufung Schott's an die<lb/>
+berliner Univerſität, und ſeitdem hat ſich die eigenthümliche Begabung des deutſchen<lb/>
+Geiſtes auch auf dieſem Gebiete gezeigt; denn dem berliner Gelehrten verdanken<lb/>
+wir die erſte wahrhaft wiſſenſchaftlich ſyſtematiſche Grammatik der Sprache. Ein<lb/>
+zweiter Lehrſtuhl der oſtaſiatiſchen Sprachen und Literaturen beſteht ſeit 1878 an<lb/>
+der leipziger Hochſchule. Derſelbe wurde mir anvertraut, und meine Antritts¬<lb/>
+vorleſung hatte naturgemäß von den Aufgaben und der Berechtigung des neuen<lb/>
+Lehrfaches zu handeln. Letztere war freilich von ſeiten der Nächſtbetheiligten durch<lb/>
+die That anerkannt. Allein ich wiederhole es, von der zeitherigen Richtung unſerer<lb/>
+morgenländiſchen und ſprachwiſſenſchaftlichen Studien ſcheint der Gegenſtand zu<lb/>
+weit abzuliegen. Kein Zweifel, jedes wahrhaft wiſſenſchaftliche Streben iſt berech¬<lb/>
+tigt. Allein nicht jeder Zweig wiſſenſchaftlichen Forſchens iſt geeignet, in dem<lb/>
+Rahmen der Univerſitätsſtudien Aufnahme zu finden. Die Entſcheidung hierüber<lb/>
+gehört nicht ausſchließlich vor das Forum der Leute vom Fach, der Gelehrten;<lb/>
+die Frage iſt nur zur einen Hälfte eine wiſſenſchaftliche, zur andern eine prak¬<lb/>
+tiſche. Wie iſt ſie zu beantworten?</p><lb/>
+<pb n="281" facs="#f0010"/>
+<fw type="header" place="top">Die oſtaſiatiſchen Studien und die Sprachwiſſenſchaft.<lb/>
+</fw> <p>Mit dem bloßen Hinweiſe auf andere, zum Theil kleinere Länder, auf die<lb/>
+Hochſchulen Frankreichs, Englands, Rußlands, Hollands und Italiens wäre wenig<lb/>
+gedient; denn in wiſſenſchaftlichen Dingen wenigſtens pflegt es ſonſt nicht Deutſch¬<lb/>
+land zu ſein, das am Vorbilde ſeiner Nachbarn zu lernen hat. Die Aufgabe,<lb/>
+fremden Leiſtungen mit Aufmerkſamkeit zu folgen, bleibt uns darum nicht minder.<lb/>
+Es könnte ſonſt geſchehen, daß uns manche jener reichhaltigen Gänge verſchloſſen<lb/>
+blieben, aus welchen andere ihre Schätze fördern. Und wenn ich nun betrachte,<lb/>
+was die Gelehrten anderer Nationen, und was ſo mancher unſerer Landsleute<lb/>
+aus den unerſchöpflichen Fundgruben der oſtaſiatiſchen Literaturen heimgebracht:<lb/>
+dann muß ich wol wünſchen, hier recht viel deutſchen Fleiß und deutſchen Geiſt<lb/>
+in Arbeit zu ſehen. Anders als zur Zeit der Völkerwanderungen, friedlicher, aber<lb/>
+nicht minder mächtig treten heute die Völker Oſtaſiens mit der europäiſch-ameri¬<lb/>
+kaniſchen Culturwelt in Berührung. Ein Wettbewerb von ſtets zunehmender Leb¬<lb/>
+haftigkeit iſt eröffnet. Das hochbegabte, thatkräftige Japanervolk hat ſich mit<lb/>
+einem Sprunge, wie er für jede andere Nation ein <hi rendition="#aq">Salto mortale</hi> geweſen wäre,<lb/>
+mitten in europäiſches Weſen hineingeſtürzt. Der Chineſe, bisher weniger zu¬<lb/>
+gänglich für unſere Ideen als für unſer Silber, fordert zum Entgelt für die<lb/>
+Aufnahme unſerer Kaufleute, unſerer Diplomaten und Miſſionare freien Einmarſch<lb/>
+ſeiner Arbeiterbataillone in die Werkplätze unſers Gewerbfleißes. Zukunftsreicher<lb/>
+als alle andern Aſiaten treten uns heute jene Menſchen des fernſten Oſtens poli¬<lb/>
+tiſch und wirthſchaftlich viel näher als die ſinnigen, aber paſſiven Hindus oder<lb/>
+die Bekenner des Islams von ariſchem, tatariſchem oder ſemitiſchem Blute.</p><lb/>
+<p>Es gilt, ſich in ſie hineinzufinden, ihr Denken und Leben zu verſtehen. Die<lb/>
+Geſchichte der letzten Jahrhunderte hat bewieſen, wie hier jedes Misverſtändniß<lb/>
+zu den bedenklichſten Misgriffen führen könne. Hier fällt dem Gelehrten, dem<lb/>
+Völker- und Sprachenkundigen eine Pionnierrolle zu, wie ich ſie mir dankbarer<lb/>
+kaum denken kann. Kaum dankbarer und auch kaum reizvoller. Ich denke an<lb/>
+mich und mein Fach, vor allem an das Studium der chineſiſchen Geſittung, wie<lb/>
+ſie ſich in einer der intereſſanteſten Literaturen der Welt abſpiegelt. Dieſe Lite¬<lb/>
+ratur, vor mehr denn 4000 Jahren begründet, mithin unter allen lebenden die<lb/>
+älteſte, vielſeitiger als irgendeine des übrigen Orients, vielleicht bändereicher ſelbſt<lb/>
+als die meiſten europäiſchen — iſt uns kaum erſt in einigen ihrer Erzeugniſſe<lb/>
+bekannt — und wie wenig bekannt ſind noch dieſe!</p><lb/>
+<p>Es iſt ſchlimm, daß ich dies geſtehen mußte: man ſchließt zu gern aus der<lb/>
+Größe der Nachfrage auf die Güte der Waare. Jedermann weiß, wie trügeriſch<lb/>
+dieſer Schluß in literariſchen Dingen iſt. Hier iſt das Beſte für die Beſten, alſo<lb/>
+nicht allemal für die Mehrzahl, und ſelbſt das Beſte hat ſich ſeinen Platz zu<lb/>
+erkämpfen, wenn es ein Seltſames, Ueberraſchendes iſt. Man ſoll ſich keiner<lb/>
+Täuſchung hingeben: die Sinologie hat in Deutſchland einen ſchweren Stand,<lb/>
+Wir bauen auf dem Felde unſerer Orientaliſtik andere Früchte, und mit wie<lb/>
+glänzendem Erfolge! Die herrlichen Errungenſchaften unſerer indiſchen, iraniſchen,<lb/>
+ſemitiſchen und ägyptologiſchen Forſchungen werden der gebildeten Welt ſozuſagen<lb/>
+zu Haus und Hof behändigt; die Pharaonen und ihre Unterthanen, die Muſel¬<lb/>
+manen und die Brahmanen erſcheinen uns nachgerade wie alte Geſchäftsfreunde<lb/>
+<pb n="282" facs="#f0011"/>
+<fw type="header" place="top">Unſere Zeit.<lb/>
+</fw>und Vettern, mit denen man ſich nicht ſchnell genug auf Du und Du ſtellen kann<lb/>
+und deren Geſchichten man lauſcht wie Märchen aus der eigenen Kinderzeit.<lb/>
+Was zu uns aus der chineſiſchen Culturwelt herübertönt, gemahnt freilich nicht<lb/>
+an heimiſche Klänge. Die Dinge haben ſich hüben und drüben ſo ganz vonein¬<lb/>
+ander unabhängig geſtaltet, daß das beiden Theilen Gemeinſame kaum viel mehr<lb/>
+ſein kann als das allgemein Menſchliche. Und doch, wie viel iſt dies! Man<lb/>
+durchbreche die fremdartige Hülle, man dringe ein in den Sinn jener reichen<lb/>
+Poeſie, in ihre Leidenſchaften, ihre Andacht, ihre Sehnſucht, ihren Humor, ſo<lb/>
+wird man bald vergeſſen, daß man um faſt zwei Drittheile unſerer Halbkugel<lb/>
+oſtwärts gewandert iſt. Gar bald lernt unſere Phantaſie in die glatten, gelben,<lb/>
+ſchlitzäugigen Chineſengeſichter ſympathiſche Züge zeichnen, und was von fern einer<lb/>
+hölzernen Puppe glich, entpuppt ſich nun als ein warm fühlender Menſch.</p><lb/>
+<p>Oder verſuchen wir es, uns in die Geheimniſſe der chineſiſchen Philoſophie zu<lb/>
+verſenken, in ihre tiefſinnige Myſtik, ihre optimiſtiſchen und peſſimiſtiſchen, ihre<lb/>
+realiſtiſchen und idealiſtiſchen Strömungen, in die Kämpfe ihrer Syſteme, in die<lb/>
+Geſchichte ihrer ſtetigen Entwickelung — ſchließen wir aus dem Wenigen, was<lb/>
+uns heute zugänglich iſt, auf die Bedeutung jenes rieſenhaften Bücherſchatzes, von<lb/>
+welchem uns die einheimiſchen Kataloge melden: ſo werden wir ſtaunend an Stelle<lb/>
+jenes Bildes geiſtiger Uniformität, welches man uns vorgemalt hat, ein Schauſpiel<lb/>
+gewaltigen geiſtigen Ringens erblicken und auf der gelben Chineſenſtirn die tiefen<lb/>
+Furchen des Denkers gewahren. Jener wunderlich trockene Weltweiſe, deſſen Geiſt<lb/>
+ſeit mehr als zwei Jahrtauſenden ein Drittheil der Menſchheit beherrſcht, war ein<lb/>
+Chineſe; und des Confucius Lehre ſollte man kennen, ehe man über das Mittel¬<lb/>
+reich und ſeine Bewohner urtheilt.</p><lb/>
+<p>Wenn wir die Größe einer geſchichtlichen Perſönlichkeit nach der Mächtigkeit,<lb/>
+dem räumlichen und zeitlichen Umfange ihres Wirkens und Nachwirkens bemeſſen,<lb/>
+ſo iſt Confucius unter den großen Männern aller Zeiten einer der größten. Ich<lb/>
+finde aber, daß er noch vielfach arg verkannt wird. Man will ihn immer und<lb/>
+immer wieder in die Reihe der Religionsſtifter ſtellen: kein Wunder, daß er dabei<lb/>
+zu kurz kommt. Er war gewiß nicht irreligiös, wie er etwa dem oberfläch¬<lb/>
+lichen Betrachter erſcheinen könnte; er glaubte an die Heiligkeit der menſchlichen<lb/>
+Pflichten und an die Gerechtigkeit der himmliſchen Vorſehung, welche ſtraft<lb/>
+und belohnt nach Verdienſt. Aber es fehlte ſeinem Geiſte die Anlage und Neigung<lb/>
+zur Myſtik — er kannte, wenn ich den modernen Ausdruck anwenden darf, nur<lb/>
+„Gott in der Geſchichte“. Sein Sinn war überwiegend praktiſch, darum hiſtoriſch.<lb/>
+„Ich ſchaffe nichts Neues“, ſo ſagte er von ſich, „ich überliefere; ich glaube an<lb/>
+die Alten und liebe ſie.“ Allein er überlieferte nur das Bewährte; er kannte, wie<lb/>
+nicht leicht ein zweiter, ſein Volk und erkannte, was ihm in alle Ewigkeit from¬<lb/>
+men würde. Hierin erblicke ich ſeine Größe: es iſt die Größe des Staatsmannes<lb/>
+und des praktiſchen Philoſophen.</p><lb/>
+<p>Es iſt bekannt, daß kein Reich der Erde beſſer als das chineſiſche für Voll¬<lb/>
+ſtändigkeit und Zuverläſſigkeit ſeiner Geſchichtſchreibung geſorgt hat. Seit dem<lb/>
+früheſten Alterthum beſoldeten die Regierungen gelehrte Staatsmänner, deren<lb/>
+Aufgabe es war und noch iſt, jedes denkwürdigere Ereigniß ſelbſtändig zu ver¬<lb/>
+<pb n="283" facs="#f0012"/>
+<fw type="header" place="top">Die oſtaſiatiſchen Studien und die Sprachwiſſenſchaft.<lb/>
+</fw>zeichnen. Die von ihnen aufgenommenen Urkunden wurden in einem geheimen,<lb/>
+dem Fürſten und ſeinem Cabinet ſelbſt unzugänglichen Archiv aufbewahrt und erſt<lb/>
+nach dem Untergange der Dynaſtie ans Licht gezogen und verarbeitet. So ent¬<lb/>
+ſtand jenes vielhundertbändige Werk der chineſiſchen Reichsannalen, der Zeugen<lb/>
+einer viertauſendjährigen Geſchichte. Einzelwerke über Geſchichte und Landeskunde<lb/>
+der Provinzen und der Regierungsbezirke, deren eins allein 160 ſtarke Hefte füllt,<lb/>
+ebenſo gewaltige biographiſche und literaturhiſtoriſche Werke ſchließen ſich ihnen<lb/>
+ergänzend an. Und was man uns auch von dem ſtagnirenden Stillſtand des<lb/>
+Chineſenthums erzählen möge: das Reich und ſein Volk hat eine Geſchichte, in<lb/>
+welcher ſich Ideen entwickelt, Staatsformen, geſellſchaftliche Sitten und Zuſtände<lb/>
+umgeſtaltet, neue Erfindungen und Einrichtungen Bahn gebrochen haben — lang¬<lb/>
+ſamer vielleicht als bei uns, doch kaum weniger mächtig. Da erfahren wir von<lb/>
+einem allmählichen Erſtarken der feudaliſtiſchen Einzelſtaaten, von einem jahr¬<lb/>
+hundertelangen Kriegs- und Fehdezuſtande, landverwüſtend und ſittenverwildernd<lb/>
+wie unſer Dreißigjähriger Krieg; dann von der Errettung der Geſellſchaft durch<lb/>
+das reformatoriſche Wirken des Confucius und ſeiner Schule; dann wieder von<lb/>
+dem radicalen Regierungsſyſtem des Kaiſers Schi-hoang-ti, oder von jenem ephe¬<lb/>
+meren ſocialiſtiſchen Staat zur Zeit der Sung-Dynaſtie, und von ſo und ſo vielen<lb/>
+andern ſtaatsmänniſchen Experimenten, für welche die Analogien in unſerer Ge¬<lb/>
+ſchichte nicht immer weit her zu ſuchen ſind. Man wirft den Chineſen Mangel<lb/>
+an kriegeriſchem Heldenmuth vor: nicht mit Unrecht, ſo ſcheint es; denn ihre mili¬<lb/>
+täriſchen Leiſtungen gegen europäiſche Waffen waren bisher kläglich genug. Allein<lb/>
+ich könnte aus den Annalen einer einzigen Dynaſtie zwei Feldherren nennen,<lb/>
+welche mit ihren Heeren daſſelbe geleiſtet haben, was des Leonidas und ſeiner<lb/>
+Spartaner unſterblichen Ruhm begründet hat. Und Folgendes iſt ſozuſagen das<lb/>
+Formular zu einer ganzen Menge Epiſoden der chineſiſchen Geſchichte: der Kaiſer<lb/>
+gibt im Staatsrathe eine Abſicht kund, ein Miniſter widerſpricht; der Kaiſer<lb/>
+ſchenkt ſeinen Gegengründen kein Gehör, und — ſo drücken ſich die Hiſtoriker aus<lb/>
+— „der Miniſter ſtirbt“. Brauche ich nun noch zu ſagen, welche Aufklärungen<lb/>
+wir von dieſer Seite für die Geographie und Geſchichte Oſtaſiens und für die<lb/>
+Entſtehung der Völkerwanderungen zu erhoffen haben? Wir kennen die beharr¬<lb/>
+liche Ausdehnungskraft des Chineſenvolkes und dürfen ahnen, wie ſein ſtetiges<lb/>
+Vordringen gen Norden und Weſten ſich bei ſeinen nomadiſchen Nachbarn in ein<lb/>
+verheerendes Vorwärtsſtürmen umſetzen mochte.</p><lb/>
+<p>Seit dem 10. Jahrhundert unſerer Zeitrechnung wird in China die Buch¬<lb/>
+druckerei allgemein geübt. Das Volk iſt ſeitdem eins der leſe- und ſchreibluſtigſten<lb/>
+der Welt geworden; das Streben nach Bildung iſt hier verbreiteter als in manchen<lb/>
+Ländern unſers Erdtheiles; Gelehrſamkeit allein berechtigt zu Rang und Macht;<lb/>
+und ich erfahre, daß jene Aermſten des Volkes, welche in Californien ihr Glück<lb/>
+ſuchen, ihre Schulmeiſter und Buchhändler mit ſich in die neue Heimat geführt<lb/>
+haben. Alle Klaſſen, aber auch alle Provinzen und Stämme der Nation haben<lb/>
+an der ſchriftſtelleriſchen Arbeit ihren Antheil, und dem uniformirenden Einfluſſe<lb/>
+von oben wirkt von unten eine geſunde decentraliſirende Macht entgegen. Er¬<lb/>
+leuchtete Kaiſer laſſen Prachtausgaben der vorzüglichſten Werke drucken: eine der¬<lb/>
+<pb n="284" facs="#f0013"/>
+<fw type="header" place="top">Unſere Zeit.<lb/>
+</fw>ſelben in 10000 Bänden hat unlängſt die engliſche Regierung erworben. Reiche<lb/>
+Private ſetzen eine Ehre darein, auf ihre Unkoſten neue Auflagen ihrer Lieblings¬<lb/>
+bücher zu veranſtalten und um ein Spottgeld zu verbreiten. Jetzt frage ich: klingt<lb/>
+das alles nach Indolenz, nach geiſtiger Verſumpfung?</p><lb/>
+<p>Von den Leiſtungen der Chineſen für die Kunde ihrer Sprache, von ihren<lb/>
+zweihundertbändigen Wörterbüchern, ihren unermeßlichen philologiſch-kritiſchen Ar¬<lb/>
+beiten will ich meine Leſer nicht unterhalten. Wozu auch die Ziffern, die doch<lb/>
+das Beſte verſchweigen? Lieber möchte ich ihnen einen Blick in jenes heitere<lb/>
+Gebiet der üppig wuchernden neuern Belletriſtik eröffnen. Sie iſt der treueſte<lb/>
+Spiegel des heutigen Volkslebens, bunt, vielgeſtaltig, ab und zu auch unſauber<lb/>
+wie dieſes, hier pedantiſch und ſuperfein, dort in genialer Ausgelaſſenheit über den<lb/>
+Strang ſchlagend. Tollen, oft glänzenden Humor und dann wieder tiefempfundene,<lb/>
+echte Poeſie, märchenhafte Phantaſtereien und wiederum den vollkommenſten Realis¬<lb/>
+mus voll feinſter pſychologiſcher Wahrheit — alles dies beſitzt der Chineſe in jenen<lb/>
+leichteſten ſeiner Geiſteserzeugniſſe.</p><lb/>
+<space dim="vertical"/> <p>Welchen Gewinn die Kunde des Buddhismus von den chineſiſch-japaniſchen Quellen<lb/>
+zu erwarten habe, iſt heute noch nicht zu ermeſſen. Die Reiſebeſchreibungen kühner<lb/>
+Mönche, welche uns Stanislas Julien zugänglich gemacht, haben in den Kreiſen<lb/>
+der Indianiſten gebührende Beachtung gefunden; eine unlängſt nach England ge¬<lb/>
+langte Ueberſetzung des „<hi rendition="#aq">Tripitaka</hi>“ in reichlich 2000 Heften wartet noch der<lb/>
+Ausbeutung.</p><lb/>
+<p>Der Fremdherrſchaft der Mandſchu in China iſt unſere Sinologie in mehr<lb/>
+als einer Beziehung Dank ſchuldig. Nicht am mindeſten wegen der Mandſchuliteratur.<lb/>
+Dieſe iſt nicht ſehr bändereich und nur zum allerkleinſten Theile heimiſches Geiſtes¬<lb/>
+gut. Aber ihre Ueberſetzungen ſo vieler der wichtigſten chineſiſchen Werke in eine<lb/>
+leicht erlernbare Sprache mit bequemer Buchſtabenſchrift müſſen als nahezu authen¬<lb/>
+tiſche gelten und ſind, wo ſie vorhanden, uns noch heute ein unſchätzbares Hülfs¬<lb/>
+mittel. Kein europäiſcher Sinolog darf die Mandſchuſprache vernachläſſigen.</p><lb/>
+<p>Die Geiſtesarbeit des japaniſchen Schriftſtellerthums können wir eher nach<lb/>
+ihrem Inhalt und Werth beurtheilen. Eins erkennt man ſchon heute: das merk¬<lb/>
+würdige Inſelvolk, ſo begeiſtert und erfolgreich es die Bildung des Mittelreiches<lb/>
+in ſich eingeſchlürft, iſt in vielen Dingen auf ganz eigenen Wegen gewandelt.<lb/>
+Die Sinnesart beider Nationen war zu verſchieden, die der Japaner bereits zu<lb/>
+ſehr entwickelt und gefeſtigt, als das Chineſenthum eindrang; man nahm dieſes in<lb/>
+ſich auf, ſtatt ſelbſt darin aufzugehen. Eine merkwürdige Mythologie, einmündend<lb/>
+in die eigentliche Geſchichte des Landes, dann dieſe ſelbſt bilden den Inhalt der<lb/>
+älteſten ſehr anſehnlichen Schriftwerke. Bald auch zeichnete man jene anſprechenden<lb/>
+kurzen lyriſchen Gedichte auf, in welchen das ritterlich leidenſchaftliche Volk ſeine<lb/>
+Stimmungen zu äußern liebt. Das Leben ſelbſt bot der Romantik genug; es<lb/>
+galt nur, wie unſer Dichter ſagt, friſch hineinzugreifen, um Stoff zu Romanen<lb/>
+und Epopöen zu ſchöpfen. So entſtanden jene zahlloſen halbgeſchichtlichen Werke,<lb/>
+welche uns abwechſelnd mit Entzücken und mit ſchauderndem Entſetzen erfüllen,<lb/>
+jene ergreifenden „<hi rendition="#aq">Monogatari</hi>“ und die kurzen volksthümlichen Erzählungen, deren<lb/>
+<pb n="285" facs="#f0014"/>
+<fw type="header" place="top">Die oſtaſiatiſchen Studien und die Sprachwiſſenſchaft.<lb/>
+</fw>einige unlängſt der europäiſchen Leſewelt bekannt geworden ſind. Werke der reinen<lb/>
+Erfindung ſchloſſen ſich ihnen an, darunter, nach den mir vorgelegenen Proben zu<lb/>
+urtheilen, wahre Kunſtwerke. Maſſenhafte beſchreibende und belehrende Bücher,<lb/>
+meiſt mit flüchtigen, doch deutlichen Zeichnungen ausgeſtattet, führen uns in die<lb/>
+Landſchaften des herrlichen Archipels, in ſeine Fauna und Flora oder in die gewerb¬<lb/>
+liche und landwirtſchaftliche Thätigkeit ſeiner Bewohner ein.</p><lb/>
+<p>Die Werke der chineſiſchen Weiſen und die Schriften der Buddhiſten haben<lb/>
+in Japan begeiſterte Aufnahme gefunden. Für die gebildete Jugend dieſes Landes<lb/>
+waren zeither die Claſſiker des Mittelreiches genau daſſelbe, was die römiſchen<lb/>
+und griechiſchen für unſere Gymnaſiaſten ſind. Ja ſie waren noch mehr, und wir<lb/>
+werden an das Zeitalter unſers Humanismus erinnert, wenn wir erfahren, daß<lb/>
+der Altjapaner ſein Lebtag für um ſo gebildeter galt, je vertrauter er mit jener<lb/>
+fremden Literatur, je gewandter er im chineſiſchen Stil war. Ein ſolches Ab¬<lb/>
+hängigkeitsverhältniß mußte für die heimiſche Wiſſenſchaft geradezu verhängnißvoll<lb/>
+werden. Man hat, ſoviel mir bekannt, noch nichts von einem ſelbſtändigen japa¬<lb/>
+niſchen Philoſophen gehört: kein Wunder wäre es, wenn es nie einen gegeben<lb/>
+hätte. Um ſo anziehender iſt die Art, wie die Japaner ihren Landsleuten die<lb/>
+ausländiſchen Geiſtesfrüchte mundgerecht machen. Unter jenen volksthümlichen<lb/>
+Predigern, welche ſeit einer Reihe von Jahren das Land durchwandern und vor<lb/>
+Arbeitern, Frauen und Kindern die ſchönſten Sprüche aus den drei landesgültigen<lb/>
+Lehren auslegen, trifft man wahre Meiſter künſtleriſcher Erfindung und Geſtal¬<lb/>
+tung an.</p><lb/>
+<p>Die philologiſche Kritik der alten Schriftſteller blüht in Japan kaum weniger<lb/>
+als im Mittelreiche, und viel iſt für die Erforſchung der eigenen Sprache geſchehen.<lb/>
+Dieſe hat ſich raſcher entwickelt und verändert als vielleicht irgendeine der übrigen<lb/>
+Culturſprachen unſerer Erde. Die ſchriftlichen Aufzeichnungen ihrer älteſten Denk¬<lb/>
+mäler ſind derart, daß ſich nur auf dem Wege der ſcharfſinnigſten Reconſtructionen<lb/>
+zu ihrem wiſſenſchaftlichen Verſtändniſſe gelangen läßt, und was die Japaner in<lb/>
+dieſer Richtung geleiſtet haben, verdient trotz mancher Ungeheuerlichkeiten alles<lb/>
+Lob. Von ihren zahlreichen, zum Theil auch ſehr bändereichen Wörterbüchern,<lb/>
+deren Vorzüge auch der europäiſche Forſcher bald anerkennen lernt, will ich hier<lb/>
+nicht weiter reden. Wenig bekannt aber iſt der Umfang und die Bedeutung ihrer<lb/>
+grammatiſchen Werke. Indiſche Bücher, von den Buddhiſten eingeführt, mögen<lb/>
+ihnen die erſte Anregung hierzu gegeben haben; allein ihr Einfluß dürfte kaum<lb/>
+über das gebührende Maß hinausgereicht haben. Sehen wir, wie gewaltſam man<lb/>
+noch zuweilen bei uns den heterogenſten Sprachen die Glieder verrenkt, um ſie<lb/>
+in die allbeliebte Uniform der lateiniſchen Sprachen hineinzuzwängen, ſo werden<lb/>
+wir den japaniſchen Sprachforſchern Gerechtigkeit widerfahren laſſen und ihnen um<lb/>
+der Genialität ihrer grammatiſchen Auffaſſung und um ihres Sammlerfleißes willen<lb/>
+ſo manche Poſſirlichkeit verzeihen. Jetzt eben ringt auch auf dieſem Felde eine<lb/>
+europäiſirende Schule mit der bodenwüchſigen um die Palme, und unlängſt brachte<lb/>
+mir dieſelbe Poſt aus Japan zwei Elementar-Sprachlehren der beiden Parteien.<lb/>
+Wie reizvoll, einem ſolchen Kampfe beizuwohnen!<lb/>
+</p>
+<pb n="286" facs="#f0015"/>
+<fw type="header" place="top">Unſere Zeit.<lb/>
+</fw> <p>So iſt den oſtaſiatiſchen Studien ein unabſehbar weites Feld eröffnet. Ihre<lb/>
+Aufgabe iſt zunächſt eine philologiſche im weiteſten Sinne des Wortes. Aber eine<lb/>
+zweite, nicht minder wichtige reiht ſich ihr an: ich meine die linguiſtiſche, die Er¬<lb/>
+weiterung und Vertiefung unſerer Kenntniß vom Weſen der menſchlichen Sprache.</p><lb/>
+<space dim="vertical"/> <p>Es könnte ſein, daß ich inſofern mir und meiner Sache erſt recht eine Ver¬<lb/>
+antwortung ſchuldig wäre, und indem ich eine Vertheidigung unternehme, könnte<lb/>
+es ſcheinen, als erhöbe ich eine Anklage. In der That liegt mir nichts ferner<lb/>
+als dies. Ich muß von Gemeinplätzen ausgehen, um dieſen garſtigen Schein zu<lb/>
+vermeiden.</p><lb/>
+<p>Die Linguiſtik begreift die wiſſenſchaftliche Erkenntniß der menſchlichen Sprachen.<lb/>
+Soll dieſe Erkenntniß eine vollſtändige ſein, ſo muß ſie ihren Gegenſtand nach<lb/>
+allen Richtungen hin durchdringen.</p><lb/>
+<p>Jede Sprache iſt zunächſt ein Daſeiendes und auf jeder Stufe, in jedem<lb/>
+Augenblicke ſeines Daſeins ein in ſich Vollkommenes. Man hat von einem Organis¬<lb/>
+mus der Sprache geredet und dieſen Ausdruck dann wieder verworfen, weil er<lb/>
+als eigenlebiges Weſen bezeichnet, was nur eine Function iſt. Was aber nicht<lb/>
+zur Definition taugt, kann darum doch als Gleichniß dienen; und in der That<lb/>
+wüßte ich nichts, was Entwickelung und Beſchaffenheit der Sprache beſſer ver¬<lb/>
+bildlichen könnte als eben der Organismus. Hier wie dort ſind alle Glieder<lb/>
+einander und dem Ganzen nothwendig, und jede Redeäußerung iſt zugleich eine<lb/>
+Aeußerung der ganzen im Redenden vorhandenen Sprache. Man muß die Er¬<lb/>
+ſcheinungen der jetzigen Sprachperiode mit den gleichartigen früherer Entwickelungs¬<lb/>
+ſtufen vergleichen, wenn man die äußere Sprachgeſchichte erforſchen will. Man<lb/>
+muß aber alle Erſcheinungen einer und derſelben Phaſe untereinander in Beziehung<lb/>
+ſetzen, wenn man die bewegenden Urſachen der Sprachentwickelung begreifen<lb/>
+will. Es iſt von hoher Bedeutung für unſere Wiſſenſchaft, daß gerade die Indo¬<lb/>
+germaniſtik zur Zeit den ſo genannten falſchen Analogien vorzugsweiſe Beachtung<lb/>
+ſchenkt. Die Kluft, welche noch vor wenigen Jahren zwiſchen ihr und den übrigen<lb/>
+Fächern der allgemeinen Sprachwiſſenſchaft zu gähnen ſchien, iſt überbrückt, ſeit<lb/>
+ſie ihrerſeits mit jener Fülle wohlerhaltenen Beobachtungsmaterials, über welches<lb/>
+ſie gebietet, den pſychologiſchen Kräften in der Sprachenbildung nachforſcht.</p><lb/>
+<p>Daß dieſe Kluft entſtanden war, daß ihre Erweiterung der gemeinſchaftlichen<lb/>
+Sache Gefahr drohte, wer will das leugnen? Die ſprachgenealogiſchen Forſchungen<lb/>
+ſeit Bopp, durch eine Menge der bedeutendſten Kräfte gefördert, eilten allen übrigen<lb/>
+Beſtrebungen auf linguiſtiſchem Gebiete um ein Weites voraus. Bei den Indo¬<lb/>
+germaniſten müſſen wir lernen, ihre Methode, ihre Kritik müſſen wir uns aneignen,<lb/>
+wenn wir je für die Erkenntniß anderer Sprachenfamilien Aehnliches leiſten wollen,<lb/>
+wie ſie für die ihrige gethan. Dies dürfen wir nicht vergeſſen, und inſoweit, aber<lb/>
+auch nur inſoweit müſſen wir die Ueberlegenheit jener anerkennen. Wenn unſerer<lb/>
+weniger ſind, wenn wir mit beſcheidenern Mitteln arbeiten müſſen: ſo iſt dafür<lb/>
+unſere Arbeit um ſo ſchwieriger, unſer Feld um ſo größer, aber auch unſere Ernte<lb/>
+um ſo mannichfaltiger.</p><lb/>
+<p>Es iſt nun aber für denjenigen, welcher auf entlegenern Sprachgebieten genea¬<lb/>
+<pb n="287" facs="#f0016"/>
+<fw type="header" place="top">Die oſtaſiatiſchen Studien und die Sprachwiſſenſchaft.<lb/>
+</fw>logiſche Vergleichungen unternehmen will, nicht leicht, ſich mit der Indogermaniſtik<lb/>
+auseinanderzuſetzen. Die ſich immer ſteigernde Sicherheit ihrer Methode wird<lb/>
+auch ihm als Ideal vorſchweben. Will er ſich aber vorzeitig an ſie binden, ſo<lb/>
+kann ſie ihm zur hemmenden Feſſel, wo nicht zum Fallſtrick werden. Die Geſetze,<lb/>
+welche die Laut- und Formenentwickelungen bedingen, ſind ihrerſeits wiederum bedingt<lb/>
+von ſo und ſo vielen geſchichtlichen, ethnologiſchen, pſychologiſchen, vielleicht phyſio¬<lb/>
+logiſchen Vorausſetzungen. Die Sprachen unſers Stammes mögen, gut gerechnet,<lb/>
+etwa ein Zwanzigtheil aller Sprachen der Erde bilden. Wer mag nun die Kräfte<lb/>
+alle benennen und bemeſſen, welche bei ihren Spaltungen und Wandlungen mit¬<lb/>
+gewirkt haben; wer wollte behaupten, daß bei den übrigen Sprachfamilien nicht<lb/>
+noch ganz andere Kräfte hier treibend, dort hemmend gewaltet hätten? Um von<lb/>
+den Lauten zu reden: muß denn das Artikulationsvermögen überall und zu allen<lb/>
+Zeiten genau ſo ſtark geweſen ſein wie bei uns? Mich wenigſtens will bedünken,<lb/>
+der Polyneſier mit ſeinen zehn bis zwölf Conſonanten ſei hierin ärmer, und ſo<lb/>
+manches kaukaſiſche Gebirgsvolk mit der Unmaſſe ſeiner Laute und Lautverknüpfungen<lb/>
+vielleicht noch reicher als wir. Wenn wir bei uns und ſo manchen unſerer Verwandten<lb/>
+die Conjugationsformen ſchwinden ſehen, ſo können wir dafür anderwärts, z. B.<lb/>
+bei den Kalmücken, beobachten, wie Perſonalendungen am Verbum entſtehen. In<lb/>
+der That, ſtellten unſere Sprachen alle Möglichkeiten der ſprachlichen Entwickelung<lb/>
+dar, ſo würden ſie nicht einem wohlgeordneten Hausrathe gleichen, der beſtimmt<lb/>
+und geeignet iſt den Bedürfniſſen ſeiner Benutzer zu genügen, ſondern eher einem<lb/>
+rieſenhaften Muſeum, von deſſen Stücken man die Mehrzahl lieber betrachten als<lb/>
+handhaben möchte.</p><lb/>
+<p>Gerade dieſes, die Vielgeſtaltigkeit der Sprachen, wird uns gelegentlich<lb/>
+beſtritten, auch von ſolchen, die ihre Blicke über die heimiſchen Grenzen haben<lb/>
+hinausſchweifen laſſen. Noch vor wenigen Jahren las ich in dem Buche eines<lb/>
+namhaften ausländiſchen Gelehrten von einer gemeinſamen Grammatik aller aggluti¬<lb/>
+nirenden, und einer ſolchen aller iſolirenden Sprachen. Ich kenne in der That<lb/>
+zwei Mittel, ſich dieſe gemeinſamen Grammatiken anzueignen: entweder erlerne<lb/>
+man aus jeder dieſer Klaſſen nur <hi rendition="#g">eine</hi> Sprache — oder, was noch einfacher iſt<lb/>
+— man erlerne lieber gar keine! Die Wahrheit iſt, daß in beiden Klaſſen ſich<lb/>
+neben ſehr armen und rohen Sprachen andere von ungeahntem Reichthum und<lb/>
+Feinſinn vorfinden, und daß die ſo genannte agglutinirende Klaſſe kaum mehr als<lb/>
+ein <hi rendition="#aq">cache-désordre</hi>, eine große wiſſenſchaftliche Rumpelkammer iſt, in welcher die<lb/>
+grundverſchiedenſten Sprachformen vorläufig in ähnlicher Ordnung aufbewahrt<lb/>
+werden wie etwa die verſchiedenen Wieſenpflanzen im Heu.</p><lb/>
+<p>Voreiligkeiten jener Art richten ſich ſelbſt. Schwerer iſt es, einem andern<lb/>
+Einwande zu begegnen. Wozu, fragt man, die Betrachtung dieſes ganzen bunten<lb/>
+Bildes? Wenn ich eine Anzahl Sprachen aus allen Erdtheilen kenne, was beſitze<lb/>
+ich mehr als eine Art Raritätencabinet? Wo iſt das innere Band? Wo bleibt die<lb/>
+Wiſſenſchaft? — Dabei wird jedenfalls Eins zugegeben: was der Zulu oder der<lb/>
+Hottentotte, der Hurone oder der Quechuá, der Malaie oder der Auſtralneger<lb/>
+redet, alles iſt menſchliche Sprache, oder noch genauer, alles ſind verſchiedene<lb/>
+Aeußerungen des menſchlichen Sprachvermögens. Und jetzt frage ich meinerſeits:<lb/>
+<pb n="288" facs="#f0017"/>
+<fw type="header" place="top">Unſere Zeit.<lb/>
+</fw>iſt dies Sprachvermögen Gegenſtand der Linguiſtik oder nicht? Und wenn es das<lb/>
+iſt, muß es dann nicht durch die Linguiſtik definirt werden? Wie aber ſoll man<lb/>
+es definiren, ſolange man nicht den ganzen Umfang ſeiner Aeußerungen, ſolange<lb/>
+man nicht alle Möglichkeiten der Sprachentwickelung kennt? Die Naturforſcher<lb/>
+lehren uns täglich, daß die niedern Organismen für die Wiſſenſchaft nicht minder<lb/>
+belangreich ſind als die höhern; unſere Etymologen ſuchen in der höhern Sprach¬<lb/>
+form die niedere als aufgehobenes Moment zu entdecken, und wer Darwin's Lehre<lb/>
+auf die Sprachwiſſenſchaft anwenden will, der muß folgerichtig annehmen, daß<lb/>
+auch unſere Sprachen vor Jahrtauſenden nicht reicher und feiner geweſen ſeien<lb/>
+als jene der roheſten uns bekannten Völkerſchaften. Es dürfte viel Phantaſie dazu<lb/>
+gehören, ſich ohne lebende Vorbilder einen derartigen Urzuſtand zu vergegenwärtigen,<lb/>
+und unſere Sprachanatomen haben manche Anregung zu hoffen von jenen Aermſten<lb/>
+und Schwächſten der Sprachenwelt.</p><lb/>
+<p>Und muß denn eine Sprache todt ſein, damit ſie unſer Intereſſe verdiene?<lb/>
+Oder muß ihre Vorgeſchichte zugänglich ſein, damit ihre Erforſchung lohne?<lb/>
+Heutzutage veranſchlagt man das Alter des Menſchengeſchlechts ſo hoch, weiß man<lb/>
+von der verſchiedenen Lebensgeſchwindigkeit der Sprachen ſo viel, man<lb/>
+wol zweifeln darf, ob das, was vor 4000 Jahren aus unſerer Vorfahren Mund<lb/>
+erklungen, den älteſten Formen menſchlicher Rede ähnlicher geweſen als die eine<lb/>
+oder andere der jetztlebenden Sprachen oder etwa das Gelalle unſerer Kinder.<lb/>
+</p> <p>Es iſt dies ein nebenſächlicher Geſichtspunkt; denn man erforſcht nicht die eine<lb/>
+Sprachform, um dieſe oder jene andere beſſer zu begreifen, ſondern um ein reicheres,<lb/>
+volleres, wahreres Bild von der Mannichfaltigkeit der Sprachorganismen zu ge¬<lb/>
+winnen. Es leuchtet ein, daß zu dieſem Zwecke nicht ein oberflächliches Nippen<lb/>
+an dieſer oder jener Grammatik genügt. Nur wenn eine Sprache zu einem Theil<lb/>
+unſers Ich geworden iſt, können wir über ſie, über ihre Vorzüge und Schwächen<lb/>
+urtheilen. In einem ſehr beliebten und verbreiteten Buche können wir freilich das<lb/>
+Gegentheil leſen: ein Selbſtlob der Leichtfertigkeit, das ſeinesgleichen ſucht!</p><lb/>
+<p>Daß Völkerkunde und Linguiſtik eine ebenſo ſorgfältige Unterſuchung aller<lb/>
+Sprachfamilien erheiſchen, wie ſie dermalen für den indoeuropäiſchen Stamm ge¬<lb/>
+führt wird, möchte keines Beweiſes bedürfen. Namhaftes iſt in dieſer Richtung<lb/>
+bereits geleiſtet, viel mehr aber noch zu thun. Daß wir uns meiſt ohne alte<lb/>
+Sprachen behelfen müſſen, muß uns zu doppelter Vorſicht, zu einem ganz behut¬<lb/>
+ſamen Fortſchreiten vom Nächſten zum Entferntern veranlaſſen. Der Erfolg kann<lb/>
+bei ſorgſam methodiſchem Vorgehen nicht ausbleiben; der Gewinn aber wird ein<lb/>
+doppelter ſein. Zunächſt eine Vervollſtändigung und Berichtigung unſerer Kenntniß<lb/>
+von der Abgrenzung der Sprachſtämme nach außen und von ihrer Gliederung<lb/>
+nach innen. Dann aber auch, oder ich müßte mich ſehr täuſchen, eine Bereicherung<lb/>
+der Sprachphiloſophie ſelbſt. Der indogermaniſche Sprachſtamm ſcheint nämlich<lb/>
+nur einen Theil der möglichen Verwandtſchaftsverhältniſſe und Entwickelungs¬<lb/>
+richtungen darzuſtellen. Man hat, ich weiß nicht mit wie vielem Rechte, ſeine uns<lb/>
+bekannte Entwickelung eine abſteigende genannt, und man pflegt noch heute zu be¬<lb/>
+ſtreiten, daß er wirkliche Miſchſprachen enthalte. Sicher iſt, daß ſich in vielen<lb/>
+andern Sprachenfamilien ein lebendigeres Bewußtſein vom Werthe der Bildungs¬<lb/>
+<pb n="289" facs="#f0018"/>
+<fw type="header" place="top">Die oſtaſiatiſchen Studien und die Sprachwiſſenſchaft.<lb/>
+</fw>elemente bekundet als in der unſern. Und eben jetzt arbeite ich in Fortſetzung<lb/>
+der von meinem verewigten Vater eröffneten melaneſiſchen Forſchungen an einer<lb/>
+Sprachengruppe, in welcher mit den uns geläufigen Verwandtſchaftsbegriffen<lb/>
+ſchlechterdings nicht auszukommen iſt. Müſſen wir hier oder ſonſtwo echte Miſch¬<lb/>
+linge anerkennen, ſo ergibt ſich von ſelbſt die Folgerung, daß zwei Sprachen mit<lb/>
+einer dritten verwandt ſein können, ohne es untereinander zu ſein: ſprachliche Ver¬<lb/>
+ſchwägerungen, wenn der Ausdruck erlaubt iſt. Jene armen Contactſprachen,<lb/>
+welche noch heute, faſt unter unſern Augen entſtehen, das Creoliſche, Pitchen-<lb/>
+Engliſch und ſo viele andere, gewinnen ein hohes Intereſſe, wenn man zu enträthſeln<lb/>
+verſucht, warum in ihnen gerade dieſe Elemente der einen, jene der andern Sprache<lb/>
+entlehnt ſind. Es gilt hier Geſetze zu entdecken, welche der Linguiſtik mit nicht<lb/>
+minderm Rechte angehören als etwa die der Lautverſchiebungen.</p><lb/>
+<p>Die Zeit der allgemeinen oder philoſophiſchen Sprachlehren im Becker'ſchen<lb/>
+Sinne iſt vorüber. Was aber unſere Vorfahren ſpeculativ aus ihrem eigenen<lb/>
+Denken heraus ſchaffen wollten, das müſſen wir und unſere Nachfolger durch in¬<lb/>
+ductive Arbeit zu erringen ſuchen. Das Problem der allgemeinen Grammatik<lb/>
+bleibt; Arbeiten, wie wir ſie über den Dualis, die Zählmethoden, das Relativ¬<lb/>
+pronomen, das Paſſivum u. ſ. w. beſitzen, ſind Beiträge zu ſeiner Löſung. Wie<lb/>
+wenig hierbei auf aprioriſchem Wege zu erreichen iſt, dafür nur einige Beiſpiele.<lb/>
+Die Sprache der Inſulaner von Errub und Maer (Meir) kennt nur die Grund¬<lb/>
+zahlen eins und zwei und kann nur bis fünf zählen, wofür zwei-zwei-eins geſagt<lb/>
+wird. Die Chikitos in Südamerika beſitzen überhaupt gar keine Zahlen, nicht<lb/>
+einmal die Zwei. Dafür beſitzen andere melaneſiſche Sprachen neben dem Sin¬<lb/>
+gular, Dual und Plural noch einen Trialis. Die Sprachen der philippiniſchen<lb/>
+und einiger anderer malaiiſcher Völker vermögen mit ihrem dreifachen Paſſivum<lb/>
+nicht nur das Object, ſondern auch den Ort und das Werkzeug der Handlung<lb/>
+zum Subject des Satzes zu erheben. Die ſchwarzen Bewohner von Annatom,<lb/>
+einer Inſel der neuen Hebriden, conjugiren nicht das Verbum, ſondern das Pro¬<lb/>
+nomen. Und weſſen Phantaſie möchte jene Ungeheuer von Conjugationsſyſtemen<lb/>
+für möglich halten, welche uns die polyſynthetiſch-incorporirenden Sprachen ame¬<lb/>
+rikaniſcher Indianervölker oder in unſerm Erdtheile das Baskiſche aufweiſen? Um<lb/>
+nur ein Beiſpiel anzuführen: Die Tſcheroki, jenes intereſſante Indianervolk, welches<lb/>
+ſich zur Annahme europäiſcher Cultur ſo willig und befähigt gezeigt, drücken den<lb/>
+Gedanken: „Ich gehe, um wiederholt hier und da damit zu binden“, in Einem<lb/>
+Worte aus: <hi rendition="#aq">galöstisanidolega</hi>! — Um die menſchliche Sprache in dem ganzen<lb/>
+Reichthum ihrer möglichen Geſtaltungen zu begreifen, müſſen wir die lautlichen,<lb/>
+morphologiſchen und ſyntaktiſchen Mittel aller Sprachen und das Verhalten einer<lb/>
+jeden einzelnen gegenüber den logiſchen und pſychologiſchen Erforderniſſen überſchauen.</p><lb/>
+<p>Offenbar iſt dies ſeinerſeits erſt dann vollkommen zu erreichen, wenn alle oder<lb/>
+doch alle in typiſcher Hinſicht wichtigern Sprachen in erſchöpfender Weiſe grammati¬<lb/>
+kaliſch erforſcht ſein werden. Und die Aufgabe der Einzelſprachlehre kann man nicht<lb/>
+hoch genug ſtellen. Die Geſchichte unſerer eigenen Philologie mag dies bezeugen;<lb/>
+man braucht nur an die jahrhundertelange Reihe von Vorarbeiten zu denken, deren<lb/>
+<fw type="sig" place="bottom">Unſere Zeit. 1881. <hi rendition="#aq">I</hi>. 19<lb/>
+</fw>
+<pb n="290" facs="#f0019"/>
+<fw type="header" place="top">Unſere Zeit.<lb/>
+</fw> es bedurfte, ehe die lateiniſche Grammatik ihre heutige Verfaſſung erhielt. Jede<lb/>
+Form des Sprachbaues verlangt eine beſondere, ihr allein zukommende Form der<lb/>
+Darſtellung. Dieſe zu finden, ſetzt nicht nur wahres Eingelebtſein in das Idiom<lb/>
+voraus, ſondern auch, und vielleicht vornehmlich, einen ſichern und klaren ſprach¬<lb/>
+philoſophiſchen Verſtand. Wo dem Verfaſſer das eine oder das andere mangelt,<lb/>
+da eile man raſch über ſeine Arbeit hinweg und tummele ſich um ſo unbefangener<lb/>
+in der lebendigen Sprache, in der Lektüre von Texten und, wenn es ſein kann,<lb/>
+im Geſpräch.</p><lb/>
+<p>Jede Aneignung einer fremdgeiſtigen Sprache iſt zugleich eine That der Be¬<lb/>
+freiung von ſo vielen Vorurtheilen, welche uns von den früher erlernten Idiomen<lb/>
+her anhaften; man findet Sprachfactoren, die uns nutzlos erſcheinen, vermißt<lb/>
+andere, welche wir für unentbehrlich hielten. Warum das? Weil man von Haus<lb/>
+aus gewöhnt iſt, die Theile früher zu betrachten als das Ganze, die Wörter und<lb/>
+ihre Formen früher als den Satz. Solange man eine Sprache nur ſo kennt, wie<lb/>
+ſie zerſtückelt auf dem Secirtiſche vorliegt, ahnt man nimmermehr, was ſie ver¬<lb/>
+mag; da fällt man Urtheile, wie wir ſie oft genug leſen können, Urtheile, die um<lb/>
+kein Gran verſtändiger ſind als jenes: der Fiſch hat keine Lunge, folglich kann<lb/>
+er nicht athmen! Solange wir unſere Studien auf die uns geiſtig und leiblich<lb/>
+verwandten Sprachenkreiſe beſchränken, liegt die Gefahr nahe, daß wir die Be¬<lb/>
+deutung des ſyntaktiſchen Moments unterſchätzen. Allein ſchon der erſte ernſtliche<lb/>
+Schritt über dieſe Schranke hinaus wird zu der Erkenntniß führen, wie viel wir<lb/>
+bis dahin beſeſſen und unbewußt verwerthet hatten, was nun plötzlich ſeinen Dienſt<lb/>
+verſagt. Unſere Sanskritgrammatiken dürften nicht da aufhören, wo die Syntax<lb/>
+anfangen ſollte, wenn nicht die Grundgeſetze des altindiſchen Satzbaues die näm¬<lb/>
+lichen wären wie die der übrigen zur Familie gehörenden Sprachen.</p><lb/>
+<p>Ich glaube, es iſt Zeit, daß auch wir Deutſchen uns jener minder gepflegten<lb/>
+Gebiete der Sprachwiſſenſchaft annehmen. Auch ſie bedürfen der Pflege, das wird<lb/>
+niemand beſtreiten, und ich glaube, ſie dürfen dieſe Pflege erwarten an einer Hoch¬<lb/>
+ſchule erſten Ranges, deren Aufgabe und Ruhm es iſt, recht eigentlich eine <hi rendition="#aq">universitas<lb/>
+literarum</hi> zu ſein.</p><lb/>
+<p>Vielleicht bedurfte es nicht einmal dieſer Worte <hi rendition="#aq">pro domo</hi>; liegt doch die<lb/>
+Sprachwiſſenſchaft in der von mir gewünſchten Ausdehnung keinem andern Lehr¬<lb/>
+fache näher als demjenigen, welches ſelbſt die entlegenſten Sprachgebiete zum<lb/>
+Gegenſtande hat. Man kann wol Chineſiſch rein praktiſch und empiriſch erlernen<lb/>
+wie jede andere Sprache; wiſſenſchaftlich ſtudiren, begreifen kann man es aber<lb/>
+nicht ohne ſcharfes ſprachphiloſophiſches Nachdenken. Man hat dieſe Sprache eine<lb/>
+formloſe genannt, weil ſie eine iſolirende, der Flexions- und Agglutinationsmittel<lb/>
+entbehrende iſt; und wieder hat man ſie eine Formſprache genannt, weil ſie die<lb/>
+grammatiſchen Beziehungen rein und fein wie kaum eine zweite zum Ausdruck<lb/>
+zu bringen vermag. Beides iſt wahr, ſo unvereinbar es ſcheinen mag. Das<lb/>
+Chineſiſche beſitzt nur zwei grammatiſche Factoren: feſte und klare Geſetze der<lb/>
+Wortſtellung und verdeutlichende Hülfswörter. Es würde zu weit führen, wenn<lb/>
+ich auch nur andeutungsweiſe erklären wollte, wie kunſtvoll und doch natürlich<lb/>
+dieſe beiden ineinanderwirken. Genug, die Sprache, wie ſie iſt, hat ſich bewährt<lb/>
+<pb n="291" facs="#f0020"/>
+<fw type="header" place="top">Die oſtaſiatiſchen Studien und die Sprachwiſſenſchaft.<lb/>
+</fw>als Trägerin einer der bedeutendſten Literaturen, jeder logiſchen Abſtraction ge¬<lb/>
+wachſen, fähig eines reichen Periodenbaues und wieder einer wuchtigen Kürze und<lb/>
+einer rhetoriſchen Kraft und Innigkeit, wie ſie ſo vereint ſich kaum in einer andern<lb/>
+Sprache finden dürften. Die Grammatik ſtellt an das Gedächtniß des Lernenden<lb/>
+ſehr beſcheidene, an ſein logiſches Denken ſehr hohe Anforderungen. Mit dem<lb/>
+Herſagen von Paradigmen und dem Aufzählen von Unregelmäßigkeiten bleibt er<lb/>
+verſchont. Dafür muß er ſeinen Geiſt einer ihm gänzlich neuen Denkweiſe anbe¬<lb/>
+quemen; er muß dieſe in ihrer ganzen Folgerichtigkeit nicht nur begreifen, ſondern<lb/>
+geradezu erleben, und ich wüßte nicht, wo ihm die Bedeutung der Syntax deut¬<lb/>
+licher zu Tage treten ſollte als hier, wo nicht nur die Beziehungen der Wörter<lb/>
+untereinander, ſondern auch ihre Functionen als Redetheile, als Subſtantiva,<lb/>
+Adjectiva, Verba u. ſ. w. ſich lediglich aus dem Satznexus ergeben. Die An¬<lb/>
+regung mag eine einſeitige ſein, aber ſie iſt eine mächtige; wer ſie mit wiſſen¬<lb/>
+ſchaftlich empfänglichem Sinne empfunden hat, dem wird von ſelbſt nach andern<lb/>
+ähnlichen verlangen. Und kein Verlangen iſt gegründeter; denn mit jeder neuen<lb/>
+Sprache, die wir erlernen, erſchließt ſich in uns eine neue Gedankenwelt.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">19*<lb/>
+</fw> </div>
+<pb facs="#f0021"/>
+<pb facs="#f0022"/>
+</body> </text> </TEI>

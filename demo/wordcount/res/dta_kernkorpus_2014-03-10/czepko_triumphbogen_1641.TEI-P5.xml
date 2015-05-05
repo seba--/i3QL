@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Triumph Bogen</title>
+<title type="sub">welche Jhr Röm: Kayserl: auch zu Hungarn vnd Böhaimb Königl: Maytt: Ferdinand dem Dritten/ allzeit Mehrern der Reiche/ dem Fromen vnd Gerechten Fürsten vnd Vater der Deutschen Lande/ vnter dem Schutz vnd Schirm deß Wolgebornen Herren/ Herren Georg Ludwigen/ Herren von Stahremberg [et]c. aus Vnterthänigster Andacht vnd gehorsambster Demuth/ Zu Glückseligem Eintritt deß M. DC. XLI. Jahres setzet vnd heiliget</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118677640">
+<surname>Czepko</surname>
+<forename>Daniel von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">24</measure>
+<measure type="tokens">4368</measure>
+<measure type="types">1988</measure>
+<measure type="characters">28613</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:05:14Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/czepko_triumphbogen_1641</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/czepko_triumphbogen_1641</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/czepko_triumphbogen_1641</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/czepko_triumphbogen_1641</idno>
+<idno type="DTADirName">czepko_triumphbogen_1641</idno>
+<idno type="DTAID">20871</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Czepko, Daniel von: Triumph Bogen. Breslau, 1641.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Triumph Bogen</title>
+<title level="m" type="sub">welche Jhr Röm: Kayserl: auch zu Hungarn vnd Böhaimb Königl: Maytt: Ferdinand dem Dritten/ allzeit Mehrern der Reiche/ dem Fromen vnd Gerechten Fürsten vnd Vater der Deutschen Lande/ vnter dem Schutz vnd Schirm deß Wolgebornen Herren/ Herren Georg Ludwigen/ Herren von Stahremberg [et]c. aus Vnterthänigster Andacht vnd gehorsambster Demuth/ Zu Glückseligem Eintritt deß M. DC. XLI. Jahres setzet vnd heiliget</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118677640">
+<surname>Czepko</surname>
+<forename>Daniel von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[12] Bl.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Baumann</name></publisher>
+<publisher><name>Jacob</name></publisher>
+<pubPlace>Breslau</pubPlace>
+<date type="publication">1641</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>HAB Wolfenbüttel</repository>
+<idno>
+<idno type="shelfmark">HAB Wolfenbüttel, A: 132.1 Quod. 2° (3)</idno>
+<idno type="URLCatalogue">Dig: http://diglib.hab.de/drucke/132-1-quod-2f-3/start.htm</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<titlePage type="main"> <docTitle><titlePart type="main"><hi rendition="#b">Triumph Bogen/</hi><lb/>
+welche<lb/>
+Jhr Roͤm: Kayſerl: auch zu<lb/>
+Hungarn vnd Boͤhaimb<lb/>
+Koͤnigl: Maytt:<lb/>
+<hi rendition="#b">Ferdinand dem<lb/>
+Dritten/</hi><lb/>
+allzeit Mehrern der Reiche/<lb/>
+dem Fromen vnd Gerechten Fuͤrſten<lb/>
+vnd Vater der Deutſchen Lande/<lb/>
+vnter<lb/>
+dem Schutz vnd Schirm<lb/>
+deß Wolgebornen Herꝛen/ Herꝛen<lb/>
+<hi rendition="#b">Georg Ludwigen/</hi><lb/>
+Herꝛen von Stahrembergꝛc.<lb/>
+aus<lb/>
+Vnterthaͤnigſter Andacht<lb/>
+vnd gehorſambſter Demuth/<lb/>
+Zu Gluͤckſeligem Eintritt deß<lb/>
+<hi rendition="#aq">M. <hi rendition="#g">DC. XLI</hi>.</hi> Jahres<lb/>
+ſetzet vnd heiliget</titlePart></docTitle><lb/>
+<byline><docAuthor><hi rendition="#b">Daniel Czepko.</hi></docAuthor></byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint>Gedruckt zu <docDate>Breßlaw</docDate> durch <publisher>Georgium<lb/>
+Baumann</publisher>/</docImprint><lb/>
+<docTitle><titlePart type="copyright"> Jn Vorlegung Chriſtoph Jacobs<lb/>
+Buchhaͤndlers daſelbſt.<lb/>
+</titlePart></docTitle></titlePage>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<div type="dedication"><p><hi rendition="#in">D</hi>em <hi rendition="#in">W</hi>olgebornen <hi rendition="#in">H</hi>erꝛen/<lb/>
+Herꝛen<lb/>
+<hi rendition="#b"><hi rendition="#in">G</hi>eorg <hi rendition="#in">L</hi>udwig</hi><lb/>
+<hi rendition="#in">H</hi>erꝛen von <hi rendition="#in">S</hi>tahremberg vnd zu <hi rendition="#in">S</hi>choͤn-<lb/>
+bůhl/ auff Oberpeyla/ Bielitz/ Fuchßwin-<lb/>
+ckel/ Weißbach vnd Arnßdorff:<lb/>
+<hi rendition="#in">R</hi>oͤm: <hi rendition="#in">K</hi>ayſ:<lb/>
+auch zu Hungarn vnd Boͤhaimb<lb/>
+<hi rendition="#in">K</hi>onigl: <hi rendition="#in">M</hi>ay:<lb/>
+<hi rendition="#in">H</hi>ochanſehlichen <hi rendition="#in">R</hi>ath vnd <hi rendition="#in">O</hi>berſten <hi rendition="#in">K</hi>riegsbe-<lb/>
+fehlichten der Lande Schleſien/ ſo wol der Fuͤrſtenthuͤ-<lb/>
+mer Schweidnitz vnd Jawer/ vollmaͤchtigen Landeß-<lb/>
+Hauptman.<lb/>
+<hi rendition="#fr">Meinem gnaͤdigen Herren.</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><lg n="1"><l><hi rendition="#in">H</hi><hi rendition="#fr">err/</hi> ſehet dieſes Buch/ das klopfft an <hi rendition="#fr">Ewre</hi> Thuͤr/</l><lb/>
+<l>Vor welcher Tag vnd Nacht viel tauſend Sorgen ſtehen/</l><lb/>
+<l>Weil es den <hi rendition="#fr">Kayſer</hi> ſingt/ ſo laſt es vor <hi rendition="#fr">Euch</hi> gehen;</l><lb/>
+<l>Es traͤgt die <hi rendition="#fr">Majeſtaͤt</hi> auff allen Blaͤttern fuͤr.</l></lg><lb/>
+<lg n="2"><l>Die Sonne/ die nimbt zwar die dritte Jahr thuͤr ein/</l><lb/>
+<l>Seit daß bey mir das Werck voll Furchte liegt verborgen.</l><lb/>
+<l>Jtzt bricht es durch die Nacht. Der wunderſchoͤne Morgen/</l><lb/>
+<l>Den <hi rendition="#fr">Ewre</hi> Gunſt gebuͤhrt/ heiſt es ſo frewdig ſein.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#fr">Herr</hi> ſeht Jhr es vor gutt/ ſo ſeid darumb begruͤſt;</l><lb/>
+<l>Nehmt dieſes kurtze Buch/ vnd reicht es <hi rendition="#fr">denen</hi> Haͤnden/</l><lb/>
+<l>So alle Welt verehrt/ vnd ſchretbt im uͤberſenden/</l><lb/>
+<l><hi rendition="#fr">Der iſts/ den Deutſchland jtzt von ſeinem Kayſer liſt.</hi></l></lg></lg><lb/>
+<fw type="sig" place="bottom"><hi rendition="#aq">A</hi> 2</fw><fw type="catch" place="bottom"><hi rendition="#aq">Ità</hi></fw><lb/>
+</div>
+<pb facs="#f0004"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#aq">Ità<lb/>
+<hi rendition="#i">Quicunq́ Ubicunq́</hi><lb/>
+Imperatori<lb/>
+<hi rendition="#b"><hi rendition="#g">FERDINAN-<lb/>
+DO</hi> III</hi>,<lb/>
+CÆSARI AUGUSTO<lb/>
+eſtis<lb/>
+à fide<lb/>
+á conſilio<lb/>
+à cultu<lb/>
+FAVETE LINGVIS<lb/>
+&amp;, ſi vacat, inſtituti rationes<lb/>
+legite.</hi></head><lb/>
+<p><hi rendition="#aq"><hi rendition="#in">T</hi><hi rendition="#i">RI</hi>U <hi rendition="#i">MPHI</hi> olìm apud Romanos habeban-<lb/>
+tur, ſi aliquis Imperator Urbi Æternæ vel<lb/>
+ſceptra peregrina ac barbaras coronas, vel<lb/>
+pòſt <hi rendition="#i">DEOR</hi>U<hi rendition="#i">M</hi> abolita ſimulachra, ingen-<lb/>
+tes populos &amp; civitatum vectigalium inex-<lb/>
+pleta agmina, vel ipſos Naturæ limites, flu-<lb/>
+vios ſcilicer ac devictum mare adjecißet, ſubjugaßet, &amp; ad<lb/>
+precum ac ſuppliciorum extremam, Supremâ ſuffragante,</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">adduxißet</hi></fw><lb/>
+<pb facs="#f0005"/>
+<hi rendition="#aq">adduxißet necesſitatem. Subſecutura autèm inſtantis Po-<lb/>
+ſteritatis memoria, excellentius quoddam <hi rendition="#k">Triumphandi</hi><lb/>
+argumentum interpretabitur divinam <hi rendition="#k">Ferdinandorum No-<lb/>
+str.</hi> moderationem, ſi antè omnia aciem penetrantis judicii<lb/>
+in immortalia <hi rendition="#k">Illorum</hi> exempla ac incircumſcriptas Victo-<lb/>
+riarum periodos vibrabit, &amp; tanquàm ex perpetuo quodam<lb/>
+Calendario tot <hi rendition="#k">Triumphorum</hi> dies &amp; inexhauſtam Annali-<lb/>
+um vaſtitatem computabit. Expergiſcatur, ſi poteſt, au-<lb/>
+guſtisſima <hi rendition="#i">Cæſarum</hi> familia, &amp; tot glorioſos provinciarum a-<lb/>
+cervos; tot populorum ac gentium concatenata mancipia,<lb/>
+tot domitorum fluminum obſtructas ripas ac impeditos im-<lb/>
+petûs, ut priſcâ ætate ad <hi rendition="#k">Urbem,</hi> ità poſtero ævo, obtusâ ali-<lb/>
+quantiſper ſuſpiriorum atrocium ferociâ, ad <hi rendition="#k">Tantam Do-<lb/>
+mum</hi> ponat ac conſignet, quæ non tantum <hi rendition="#k">Urbi,</hi> ipsâ Ora-<lb/>
+culi ſubſcriptione Æternæ, leges præſcrip ſit, ſed &amp; de ipſo<lb/>
+Terrarum Orbi, dignas eâ Majeſtate ſuſpiciones exſuſcitare<lb/>
+poteſt. Quô cœleſti hactenùs ſucceßu omnes <hi rendition="#k">Trium-<lb/>
+phorum</hi> Romanorum ſolennitates excesſit, dùm nullas ad-<lb/>
+mitteret. Interìm, ne <hi rendition="#k">Triumphi,</hi> ab ipſis æthereis men-<lb/>
+tibus expectati, pòſt tot deſideratos hoſtium exercitûs tot<lb/>
+civitatum ſimulachra, ac cadavera &amp; fatales rerum ac mo-<lb/>
+rum corruptiones, pòſt tot Regum, inquam, ac Principum<lb/>
+exſtirpata molimina &amp; precaria fortunæ ac victoriæ arbitria,<lb/>
+in temporum vaſtitate &amp; Humani Generis Conſcientiâ, ca-<lb/>
+pitis, ut ita loquar, diminutionem patiantur &amp; deformi taci-<lb/>
+turnitate pereant, omni ratione in id incumbamus oportet,<lb/>
+ut, quos divinâ humanitate, <hi rendition="#k">Ferdinandus</hi> III, pòſt <hi rendition="#i">Paren-<lb/>
+tem ſanctisſimum</hi>, Maximus ac Optimus <hi rendition="#i">Princeps</hi> ac <hi rendition="#k">Dominus,</hi><lb/>
+invidendo ipſis æternis Geniis exemplo, oppresſit, in con-<lb/>
+ſpectum florentis ævi producantur. Noſtra quippè im-<lb/>
+mane quantum refert, ut Tanti Nominis ſublimitatem non<lb/>
+unius anni ac regionis Scriptores, ſed ignea &amp; ipſis rebus ac</hi><lb/>
+<fw type="sig" place="bottom"><hi rendition="#aq">A</hi> 3</fw><fw type="catch" place="bottom"><hi rendition="#aq">Imperio-</hi></fw><lb/>
+<pb facs="#f0006"/>
+<hi rendition="#aq">Imperiorum artibus incocta ingenia Faſtorum ac Annalium<lb/>
+indefeßâ profunditate exuperent, &amp; non verba ac voces,<lb/>
+ſed tormentorum tonitrua ac immenſas cruoris humani pa-<lb/>
+ludes Lectoribus objiciant, quibus ipſæ paginæ, ipſi mar-<lb/>
+gines alterâ facie incendi ac ardere, alterâ immergi ac ma-<lb/>
+dere prorſus videantur.</hi></p><lb/>
+<p><hi rendition="#aq">Ego certè, quantum in hoc robur, in has vires cadit, in-<lb/>
+terìm inter excelſas Eruditorum animas &amp; Veritati ac Fidei<lb/>
+obſtricta pectora, Illud DEO propinquum Numen, hâc char-<lb/>
+tâ ſupplex adoro venerorq́, &amp; vobis, Virireligione, rerum<lb/>
+uſu ac fide illuſtres, non <hi rendition="#i">Sitalcen</hi> aliquem, ſed <hi rendition="#k">Ferdinandum</hi><lb/>
+III, hoc eſt, <hi rendition="#k">Amorem</hi> &amp; <hi rendition="#k">Delicias</hi> <hi rendition="#i">populi Germani</hi>, ad animum<lb/>
+ſiſto, non inglorium forſitàn Immortalitatis Ejus inſtrumen-<lb/>
+tum. Ejus quippè Majeſtati, non tantum hos animos ac<lb/>
+lacertos, quiadhuc arma ac ferrum, ſi res &amp; conditio poſcit;<lb/>
+ferre poßunt, ſed has literas, rerum felicitèr geſtarum Vindi-<lb/>
+ces, hos ingenii erecti conatûs, ſubmisſisſimis votis obſtrin-<lb/>
+go, vel uni atq́alteri, victorioſis immixtus conflictibus in<lb/>
+primâ caſtrorum noſtrorum fronte <hi rendition="#i">caußam Auſtriacam</hi> appro-<lb/>
+baturus, vel coràm omnibus, quâ lucet, gentibus ac popu-<lb/>
+lis, æterno literarum apparatu ac publicâ Humani generis<lb/>
+acclamatione aßerturus, DEUM, DEUM, inquam, eße,<lb/>
+&amp; hactenùs quidem de ſummo Imperio cùm <hi rendition="#k"><hi rendition="#g">Pio</hi>, Justo</hi> ac<lb/>
+<hi rendition="#k">Forti Ferdinando</hi> III tranſegisſe.</hi></p><lb/>
+<p><hi rendition="#aq">Et quamvis, quovis Parente indulgentior &amp; ad ipſi-<lb/>
+us Divinæ Benignitatis Exemplar exactisſimum efformatus<lb/>
+<hi rendition="#k">Princeps</hi> ac <hi rendition="#k">Dominus Triumphos</hi> è cœlo deſtinatos ſupe-<lb/>
+riori anno continuare noluerit, ſed potiùs humanitate ac<lb/>
+Pacis quibusdam conditionibus, quostoties armis vicerat,<lb/>
+aggresſus fuerit, tota tamen ſpecto victoriarum agmina, ex<lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">alio</hi></fw><lb/>
+<pb facs="#f0007"/>
+alio quaſi Terrarum Orbe approperare, quæ non tantùm hos<lb/>
+reſiduos Germanici Belli torres ac igniculos inſtàr profuſi<lb/>
+torrentis exſtingvent, ſed &amp; ſanctæ innocentiæ, quam alii in-<lb/>
+viti, alii incauti amiſerunt, humaniter ſuppetias ibunt, &amp;, ſi<lb/>
+cœleſtes monitûs non averſabuntur, ipſos ipſo quidem Aqui-<lb/>
+lone rigidiores Suecos manſvetos reddet, quos in omnibus<lb/>
+gentibus adorabili &amp; abs ipſo æterno Numine cœlitùs deſti-<lb/>
+natâ expeditione cum omni Europâ inter Aquilas Cæſareas,<lb/>
+ſocios impoſterùm ac Commilitones probabimus, conjura-<lb/>
+tis copiis ac animis, Amurathen quendam, exitiale Chriſti-<lb/>
+ano Orbi nomen, ad incitas redacturi, &amp; Ponto Euxino Da-<lb/>
+nubio veluti Parenti quodam reſtituto, novum quoddam<lb/>
+Conſtantinopolitanum esſuſcitaturi Imperium. Quô<lb/>
+voto ardentisſimo <hi rendition="#k"><hi rendition="#g">Triumphos</hi></hi> hoſce finio &amp; centurioni-<lb/>
+bus noſtris, ſi ſpectatores &amp; monitores admittunt, ſolen-<lb/>
+nitèr acclamo, <hi rendition="#k">Repete</hi> interìm Veterane, nondùm <hi rendition="#k">Ha-<lb/>
+bes.</hi> Nondùm <hi rendition="#k">Peractum</hi> es<hi rendition="#k">t.</hi></hi></p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">A iiij</fw><fw type="catch" place="bottom">Jnhalt</fw><lb/>
+<pb facs="#f0008"/>
+<div n="1"><head><hi rendition="#b">Jnhalt</hi><lb/>
+aller vnd jeder Überſchrifften.</head><lb/>
+<lg type="poem"><l><hi rendition="#in">D</hi>en <hi rendition="#fr">Satz/</hi> deß <hi rendition="#fr">Kayſers</hi> macht/ das <hi rendition="#fr">New-<lb/>
+jahr/</hi> die <hi rendition="#fr">Gefahr/</hi></l><lb/>
+<l>Die Wallſtein ſchuff/ ſein <hi rendition="#fr">Grab/</hi> wie <hi rendition="#fr">Wir ins Feld<lb/>
+gegangen/</hi></l><lb/>
+<l>Wie <hi rendition="#fr">Regenſpurg</hi> gebebt/ ſein Pferdt/ wie <hi rendition="#fr">Horn</hi> ge-<lb/>
+fangen/</l><lb/>
+<l>Die <hi rendition="#fr">Ruͤckkunft/</hi> Sein <hi rendition="#fr">Gemahl/</hi> die <hi rendition="#fr">Wahl</hi> vnd Fůr-<lb/>
+ſten Schaar/</l><lb/>
+<l>Das <hi rendition="#fr">Ertzhaus/</hi> meine <hi rendition="#fr">Ruh/</hi> ſein <hi rendition="#fr">Lob/</hi> deß<lb/>
+<hi rendition="#fr">Vatern</hi> Schein/</l><lb/>
+<l>Der <hi rendition="#fr">Mutter</hi> Pein/ was Sie die <hi rendition="#fr">Abgeſandten</hi> bieten/</l><lb/>
+<l>Sein <hi rendition="#fr">Heil/</hi> deß <hi rendition="#fr">Brudern zug</hi> vnd Trew deß <hi rendition="#fr">Frie-<lb/>
+dens</hi> ſieten/</l><lb/>
+<l>Was Deutſchland <hi rendition="#fr">Deutſch/</hi> was mich heiſt <hi rendition="#fr">Trew</hi> vnd<lb/>
+vnd <hi rendition="#fr">Danckbar</hi> ſein;</l><lb/>
+<l>O Leſender/ diß macht dir dieſe <hi rendition="#fr">Schrifft</hi> bekant/</l><lb/>
+<l>An Blaͤttern ſchlecht vnd arm/ doch groß deß <hi rendition="#fr">Kayſers</hi><lb/>
+wegen.</l><lb/>
+<l>Jm fall den Jnhalt ich je kůrtzer ſolte legen/</l><lb/>
+<l>So ſey es der/ <hi rendition="#fr">es heiſt der Dritte Ferdinand.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">Kayſerliche</fw></div></front><body><lb/>
+<pb facs="#f0009"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Kayſerliche Triumph<lb/>
+Bogen.</hi></head><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">I.</hi></hi><lb/>
+<hi rendition="#fr">An die Clio.</hi></head><lb/>
+<lg n="1"><l>Jtzt iſt es Clio zeit/ du meine Sorg vnd Muͤh/</l><lb/>
+<l>Bewaffne deinen Mund mit Gottheit-vollen flammen/</l><lb/>
+<l>Vnd lerne heilig ſein/ vnd ſetze wol zuſammen</l><lb/>
+<l>Die Woͤrter vnd den Sinn/ vnd fall auff beyde Knie.</l></lg><lb/>
+<lg n="2"><l>Du ſolt den <hi rendition="#fr">Kayſer</hi> ehrn. Zwar wann du ruhig biſt/</l><lb/>
+<l>Wirſt auff die Axen du/ die bloß deß Himmels Ecken/</l><lb/>
+<l>Vnd nicht <hi rendition="#fr">ſein Reich</hi> zutheiln/ beruͤhmte Buͤcher ſtecken:</l><lb/>
+<l>Jtzt kuͤrtze dieſes Werck/ das jeder lieber liſt.</l></lg><lb/>
+<lg n="3"><l>Genung/ wann nur ein Satz dem <hi rendition="#fr">Kayſer</hi> wolgefellt/</l><lb/>
+<l>Vnd hoͤrt alß ein <hi rendition="#fr">Auguſt</hi> hie ſeinen <hi rendition="#fr">Maro</hi> leſen.</l><lb/>
+<l>Viel Buͤcher thun es nicht; du biſt wol dran geweſen/<lb/>
+Wann ein Wort deine Trew der Welt vor Augen ſtellt.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">II.</hi></hi><lb/>
+<hi rendition="#fr">Dem Gerechten vnd Gluͤckſeligen<lb/>
+Kayſer vnd Koͤnig<lb/>
+FERDJNAND dem<lb/>
+DRJTTEN.</hi></head><lb/>
+<fw type="catch" place="bottom">O HERR</fw><lb/>
+<pb facs="#f0010"/>
+<l><hi rendition="#in">O</hi> <hi rendition="#fr">HERR/</hi> es ſey; daß <hi rendition="#fr">Sie/</hi> darumb man <hi rendition="#fr">Sie</hi> gebethen/</l><lb/>
+<l>Den Voͤlckern hier vnd dar/ <hi rendition="#fr">Jhr Bild/</hi> den Frie-</l><lb/>
+<l><hi rendition="#fr">den leihn:</hi></l><lb/>
+<l>Es ſey; daß vor den Thron die Abgeſandten treten/</l><lb/>
+<l>Den <hi rendition="#fr">Gott</hi> nach <hi rendition="#fr">Seinem</hi> heiſt den Allerhoͤchſten ſein/</l><lb/>
+<l>Es ſey/ das <hi rendition="#fr">Sie</hi> der Welt/ die ſtrenge Guͤtt’ erweiſen/</l><lb/>
+<l>Die mehr/ alß <hi rendition="#fr">Xerxes</hi> Heer vnd <hi rendition="#fr">Cyrus</hi> Macht gethan:</l><lb/>
+<l>So hoͤrn <hi rendition="#fr">Sie</hi> ja nicht drauff/ wie ich <hi rendition="#fr">Sie</hi> werde preiſen;</l><lb/>
+<l>Der Rieß iſt vor das Volck/ das <hi rendition="#fr">Sie</hi> nicht ſehen kan.</l><lb/>
+<l>Jm fall <hi rendition="#fr">Jhr</hi> aber je <hi rendition="#fr">die Hand</hi> den Stab erkohren/</l><lb/>
+<l>Vnd diß/ was <hi rendition="#fr">Jhr</hi> gehoͤrt/ als Erd vnd Himmel/ miſt:</l><lb/>
+<l>Jm fall <hi rendition="#fr">Apollo</hi> darff/ vnd die von jhm gebohren/</l><lb/>
+<l>Vor dem <hi rendition="#fr">Geſichte</hi> ſtehn/ das ſeine Buͤcher liſt:</l><lb/>
+<l>Jm fall den <hi rendition="#fr">groſſen Sinn</hi> die Wild bahn kan ergetzen/</l><lb/>
+<l>Der dieſes Reich beherrſcht/ vnd Vns den Frieden weiſt;</l><lb/>
+<l><hi rendition="#fr">O HERR/</hi> ſo wil diß Blat ſich auch ſo ſeelig ſchaͤtzen.</l><lb/>
+<l>Es wil den <hi rendition="#fr">Kayſer</hi> ſehn/ weil es den <hi rendition="#fr">Kayſer</hi> preiſt.</l></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">III.</hi></hi><lb/>
+<hi rendition="#fr">Jhr Kayſ: May:<lb/>
+Zu gluͤckſeeligem Eintritt deſz Sechzehen<lb/>
+hundert Ein vnd Viertzigſten<lb/>
+Jahres.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">E</hi>in newes Jahr iſt da. Vnd weil ſich <hi rendition="#fr">Phoebus</hi> lenckt</l><lb/>
+<l>Auff Phryxus ſeine bahn; Wie kan/ als weit ſein Wagen</l><lb/>
+<l>Von beyden Angeln fehrt/ ein Volck was froͤmers tragen/</l><lb/>
+<l>Als wann es trewe wuͤnſch/ auff Janus Taffel henckt?</l></lg><lb/>
+<lg n="2"><l><hi rendition="#fr">O vnſer HERR vnd Haupt.</hi> Der Sterne giebel gluͤhn/</l><lb/>
+<l>Jch ſeh ein Ewigs Reich vor Frewd vnd Andacht brennen:</l><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb facs="#f0011"/>
+<l>Die Voͤlcker wollen <hi rendition="#fr">Sie/ der Erden Vater/</hi> nennen/</l><lb/>
+<l>Vnd vor die Goͤttligkeit mit heilgen Opffern knihn.</l></lg><lb/>
+<lg n="3"><l>Vnd obgleich <hi rendition="#fr">Regenſpurg</hi> vor Hohmuth ſich entbricht/</l><lb/>
+<l>Daß es den <hi rendition="#fr">Kayſer</hi> ſieht/ <hi rendition="#fr">Der</hi> vor Vns pflegt zuſorgen;</l><lb/>
+<l>Doch iſt Vns minder hie/ der <hi rendition="#fr">groſſe Troſt</hi> verborgen/</l><lb/>
+<l>Als in der reinen Lufft der Sonnen ſuͤſſes Licht.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#fr">O hohe Majeſtaͤt:</hi> Es muͤſſe Ph<hi rendition="#aq">œ</hi>bus <hi rendition="#fr">Jhr/</hi></l><lb/>
+<l>Den Thirkreiß Jahr vnd Tag <hi rendition="#fr">in Jhren</hi> Laͤndern ſchliſſen:</l><lb/>
+<l>Es muͤſſe durch die Welt ein Ewger <hi rendition="#fr">Frieden</hi> fliſſen.</l><lb/>
+<l>Vnd ſehet ein <hi rendition="#fr">Auguſt</hi> ſchleuſt Janus ſeine Thuͤr.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">IV.</hi></hi><lb/>
+<hi rendition="#fr">Bey entdeckung der Wallſteini-<lb/>
+ſchen Empoͤrung.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">N</hi>ichts ligt ſo tieff/ es ſucht zu letzte Lufft vnd Licht/</l><lb/>
+<l>Da alß vmb <hi rendition="#fr">Lůtzen</hi> liß/ doch mitten vnterm ſiegen/</l><lb/>
+<l>Jm Nebel ſeinen Leib der <hi rendition="#fr">Baltſche Mavors</hi> liegen/</l><lb/>
+<l>Stund der von <hi rendition="#fr">Friedland</hi> auff/ vergaß der Trew vnnd<lb/>
+Pflicht.</l></lg><lb/>
+<lg n="2"><l>Alſo Jhr <hi rendition="#fr">Helden;</hi> Was? Jhr fuͤhrt der Erden krafft/</l><lb/>
+<l>Jhr muͤſt ja auff vnd ab im blancken Degen reiten:</l><lb/>
+<l>Wolt Jhr jtzt wiedern <hi rendition="#fr">Thron/</hi> vor dem Jhr ſtehet/ ſtreiten.</l><lb/>
+<l>Nein/ bleibet trew vnd thut/ was <hi rendition="#fr">Gott</hi> vnd <hi rendition="#fr">Kayſer</hi> ſchafft.</l></lg><lb/>
+<lg n="3"><l>Vnd ſchawt die Sach iſt kranck: Er reißt auff <hi rendition="#fr">Eger</hi> hin/</l><lb/>
+<l>Vnd rufft den Feinden zu/ die Jhm zu langſam eilen.</l><lb/>
+<l>Er kan ja vnter Euch die <hi rendition="#fr">Majeſtaͤt</hi> nicht theilen/</l><lb/>
+<l>Sie iſt vnd bleibt bey <hi rendition="#fr">dem/ der</hi> ſie Jhm hat geliehn.</l></lg><lb/>
+<lg n="4"><l>Sey wach/ <hi rendition="#fr">O Oeſterreich/</hi> iſt gleich <hi rendition="#fr">Sejanus</hi> toth:</l><lb/>
+<l>Der dißmal falſch geſpiele/ iſt nicht ſo <hi rendition="#fr">bloß</hi> geſtanden:</l><lb/>
+<l>Wer weiß wie viel der <hi rendition="#fr">Stein</hi> in dieſem <hi rendition="#fr">Bret</hi> obhanden.</l><lb/>
+<l>Gieb Jhnen gleiche Macht/ Sie drewen gleiche Noth.</l></lg></lg><lb/>
+<fw type="catch" place="bottom">Gluͤcks</fw><lb/>
+<pb facs="#f0012"/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">V.</hi></hi><lb/>
+<hi rendition="#fr">Gluͤcks Verwandlung<lb/>
+bey deſz Hertzogs von Friedland Vn-<lb/>
+tergange.</hi></head><lb/>
+<l><hi rendition="#in">V</hi>mb deſſen Zelt vnd Hauß viel Tauſend muſten wachen:</l><lb/>
+<l>Hat keine Fauſt/ auff die ſein Todt was fuſſen kan.</l><lb/>
+<l>Der auß Jhm ſelber kont auch was er wolte machen/</l><lb/>
+<l>Kriegt ſeinen Stoß vnd Lohn vnd ligt auff offner Bahn.</l><lb/>
+<l>Der Jhm Palaͤſte ließ auß gantzen Staͤdten bawen:</l><lb/>
+<l>Dem fehlts/ was ſonſten hat/ der betteln pflegt zugehn.</l><lb/>
+<l>Der ſeine Thaten wolt in ewge Schrifften hawen;</l><lb/>
+<l>Hat ſeinen Nahmen nicht auff ſeinem Sarche ſtehn.</l><lb/>
+<l>Dem auff ſein Anbefehl die Sterne muſten lauffen;</l><lb/>
+<l>Den faͤllt aus jhrer Zunfft <hi rendition="#fr">der Man vmb vnſern Nord.</hi></l><lb/>
+<l>Der vmb viel Tonnen Gold das Gluͤck Jhm konte kauffen;</l><lb/>
+<l>Verlaͤſt nicht/ das man Jhn ſchlepp an deß Grabes Port.</l><lb/>
+<l>Du Andrer <hi rendition="#fr">Phaeton.</hi> Du wolteſt Zuͤgel faſſen/</l><lb/>
+<l>Dieweil bey dir ſo viel dein <hi rendition="#fr">Jupiter</hi> gethan.</l><lb/>
+<l>Jtzt ſihſt du/ ob dich <hi rendition="#fr">der im Himmel</hi> <note place="end" n="*" xml:id="a01" next="a02"/> nie verlaſſen/</l><lb/>
+<l><hi rendition="#fr">Daß Vnſer auff der Welt</hi> vielmehr als deiner kan.</l></lg><lb/>
+<note place="end" n="*" xml:id="a02" prev="a01"><p>Kurtz vorhin deutet der Sternſeher dem Hertzog den gefaͤhrlichen Gegenſatz<lb/>
+an/ dem er geantwortet: Mein Jupiter wird mich nicht verlaſſen.</p></note><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">VI.</hi></hi><lb/>
+<hi rendition="#fr">Als Jhr May: ins Feld<lb/>
+gezogen.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">J</hi>hr Feinde ſteht vnd ſchawt den <hi rendition="#fr">Groſſen Koͤnig</hi> an/</l><lb/>
+<l>So ſiht die <hi rendition="#fr">Themis</hi> auß/ diß ſind der <hi rendition="#fr">Pallas</hi> Wafen.</l><lb/>
+<l>Vnd ſchwiege dieſe Hand/ wuͤrd' Euch die ſache ſtraffen/</l><lb/>
+<l>Sie zoͤrnt vor ſeine Guͤtt vnd bricht dem Siege bahn.</l></lg><lb/>
+<fw type="catch" place="bottom">Jhr</fw><lb/>
+<pb facs="#f0013"/>
+<lg n="2"><l>Jhr <hi rendition="#fr">Helden</hi> faſt das Schwerd: den Feinden bleibt der Todt:</l><lb/>
+<l>Euch Schlacht vnd Feld vnd Sieg. Kein Arm kan Euch verletzen:</l><lb/>
+<l>Jhr muͤſt durch Trew den Sinn/ durch Muth den Degen wetzen:</l><lb/>
+<l>Nur fort: die Loſung heiſt: <hi rendition="#fr">die gutte ſach vnd Gott.</hi></l></lg><lb/>
+<lg n="3"><l><hi rendition="#fr">O Wien/</hi> du Andres <hi rendition="#fr">Rom/</hi> wie biſt du ſo entbrant:</l><lb/>
+<l><hi rendition="#fr">ER</hi> zeucht als <hi rendition="#fr">Koͤnig</hi> hin/ vnd wird als <hi rendition="#fr">Kayſer</hi> kommen.</l><lb/>
+<l>Kein <hi rendition="#fr">Oeſterreichſcher HERR/</hi> hat je das Schwerd genommen/</l><lb/>
+<l>Dem auch <hi rendition="#fr">Europa</hi> nicht die <hi rendition="#fr">Roͤmſche Cron</hi> erkant.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">VII.</hi></hi><lb/>
+<hi rendition="#fr">Die Eroberung der Stadt<lb/>
+Regenſpurg.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>ir ſehn am ſtraͤnden her die Tonaw ſtiller gehn/</l><lb/>
+<l>Nach <hi rendition="#fr">jhres Herꝛen</hi> art. Die ſtarcken Berg vnnd<lb/>
+<hi rendition="#c">Mawren/</hi></l><lb/>
+<l>Ob ſie verwundet ſind/ die ſiht man leichter trauren/</l><lb/>
+<l>Weil <hi rendition="#fr">Koͤnig FERDJNAND</hi> vor jhnen ſucht zuſtehn.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#fr">O Horn/</hi> jhr rechte Fauſt der letzten Rach vnd Krafft/</l><lb/>
+<l>Die in den Finnen brennt/ deß <hi rendition="#fr">Schweden</hi> todt zuſchaͤtzen:</l><lb/>
+<l>Vmb ſonſt iſt ewer Witz die Tonaw zuentſetzen/</l><lb/>
+<l>Wie ſtarck es ewer Belt vnd ſein Bootes ſchafft.</l></lg><lb/>
+<lg n="3"><l>Vnd ſchawt der Gaſſen ſchaar eilt ſaͤmtlich an das Thor/</l><lb/>
+<l>Vnd ehrt <hi rendition="#fr">die Majeſtaͤt:</hi> Der Thuͤrne giebel ſpringen/</l><lb/>
+<l>Die Stuͤcke thun es nicht/ daß Sie die Schluͤſſel bringen.</l><lb/>
+<l>Wie ſehr <hi rendition="#fr">Sein</hi> Landsknecht ſtuͤrmt/ <hi rendition="#fr">Sein</hi> Nahmen geht doch vor.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">VIII.</hi></hi><lb/>
+<hi rendition="#fr">An das Pferd/.<lb/>
+Das Jhre May:<lb/>
+Vor Noͤrdlinger Schlacht gerieten.</hi></head><lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">Pferd</fw><lb/>
+<pb facs="#f0014"/>
+<lg n="1"><l><hi rendition="#in">P</hi><hi rendition="#fr">ferd/</hi> voller Hertz vnd Muth! Obgleich die Erd erſchrickt/</l><lb/>
+<l>Wann du die Schenckel hebſt/ doch wiltu tewrer bieten/</l><lb/>
+<l>Als bald dich/ <hi rendition="#fr">Ferdinand/</hi> der kuͤhne Held beſchrieten;</l><lb/>
+<l>Dann ſchaw du fuͤhleſt auch die <hi rendition="#fr">Gottheit</hi> die dich druͤckt.</l></lg><lb/>
+<lg n="2"><l>Jſt je der Feind ſo keck/ daß er jetzt duͤrffte ſtehn/</l><lb/>
+<l>So trag den <hi rendition="#fr">Sieger</hi> fort/ wann Lufft vnd Wallſtat brennen.</l><lb/>
+<l>Dann bleibt ER vnverletzt/ ſo muͤſſen wir erkennen/</l><lb/>
+<l>Daß es vns noch einmahl wird wol auff Erden gehn.</l></lg><lb/>
+<lg n="3"><l>Vnd ach! Wie ſtoltz biſt du/ <hi rendition="#fr">Pferd</hi> voller Ehr vnd Schein/</l><lb/>
+<l>Weil du der <hi rendition="#fr">Voͤlcker Schirm</hi> ſolſt vntern Leichen tragen.</l><lb/>
+<l>Nu beyde preißte man. Jhr muͤßt nach wolbehagen/</l><lb/>
+<l>Du zwar <hi rendition="#fr">Bucephalus/ Er Alexander</hi> ſein.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">IX.</hi></hi><lb/>
+<hi rendition="#fr">Die Anſehliche Schlacht/<lb/>
+So Jhr May: bey Noͤrdlin-<lb/>
+gen erhalten.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">K</hi>ein Vogel/ der die Kreil an einen Raub geſatzt/</l><lb/>
+<l>Hat jemahls ſeinen Feind ſo duͤrffen zerrn vnd kraͤncken/</l><lb/>
+<l>Alß in die Fluͤgel ſich der <hi rendition="#fr">Adler</hi> muſte hencken/</l><lb/>
+<l>Auff die im kuͤhnen Zug er zu vnd loß geplatzt.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#fr">O HERR/ Sein</hi> grimmer plitz zubrach der Lappen Eiß</l><lb/>
+<l>Es ſchlug die Mitternacht der Mittag <hi rendition="#fr">Seiner</hi> Wafen;</l><lb/>
+<l>Dann ob durch ſtrengen Ernſt die beyden Laͤger trafen/</l><lb/>
+<l>Ward doch jhr Heer ſein Aaß/ vnd Er behilt den Preiß.</l></lg><lb/>
+<lg n="3"><l>Jtzt holt dem <hi rendition="#fr">Sieger</hi> Er des <hi rendition="#fr">Zepters</hi> hoͤchſte Zier/</l><lb/>
+<l>Aus Seines <hi rendition="#fr">Vatern</hi> Hand/ drauß ſolcher <hi rendition="#fr">Donner</hi> kommen.</l><lb/>
+<l>Das <hi rendition="#fr">Goldne Fluͤß</hi> hat zwar ſein Lob davon genommen/</l><lb/>
+<l>Doch Vnſers <hi rendition="#fr">Koͤnigs</hi> theil iſt Goldner/ als <hi rendition="#fr">Sein Thier.</hi></l></lg></lg><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">X. Jhr</hi></fw><lb/>
+<pb facs="#f0015"/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">X.</hi></hi><lb/>
+<hi rendition="#fr">Jhr May:<lb/>
+erfrewliche Zuruͤckunfft nach Wien.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">S</hi>chawt vmb den rothen Thurn gantz <hi rendition="#fr">Oeſterreich</hi> da ſtehn/</l><lb/>
+<l>Daß ſchon biß an die <hi rendition="#fr">Burg</hi> die Fenſter eingenommen;</l><lb/>
+<l>Es ſchallt der gantze Marckt; merckt auff! <hi rendition="#fr">Sie komn/</hi></l><lb/>
+<l><hi rendition="#fr">Sie kommen;</hi></l></lg><lb/>
+<lg n="2"><l>Die Stadt wil vor das Thor mit jhren Haͤuſern gehn.</l><lb/>
+<l>Doch was ſeht Jhr euch vmb? <hi rendition="#fr">Sie</hi> ſind ſchon laͤngſt voran:</l><lb/>
+<l>Der Picken duͤrrer Wald/ der ſtaub von Pferde ſohlen/</l><lb/>
+<l>Weiß Seine <hi rendition="#fr">Majeſtaͤt</hi> beruͤhmbter einzuholen:</l><lb/>
+<l>Wie ſehr vor Gluͤck zu brennt deß Pflaſters helle Bahn.</l></lg><lb/>
+<lg n="3"><l>Ob man das Deutſche Reich ſieht vnterm Throne kniehn;</l><lb/>
+<l>Ob ſelbſt der Wahltag eilt; Ob die Triones weichen:</l><lb/>
+<l>Doch kommet <hi rendition="#fr">FERDJNAND</hi> ohn alle Sieges Zeichen.</l><lb/>
+<l>Vnd alſo pflegt ein <hi rendition="#fr">Fůrſt deß Friedens</hi> einzuziehn.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq"><hi rendition="#g">XI</hi>.</hi></hi><lb/>
+<hi rendition="#fr">An die Allerdurchlauchtigſte<lb/>
+Jnfantin<lb/>
+der Reiche Hiſpanien/<lb/>
+Jhr May:<lb/>
+Vertrawte Kayſerl: Gemahlin.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi><hi rendition="#fr">ie Mutter Vnſers Kinds/</hi> das ſelbſt <hi rendition="#fr">Jhr Vater</hi> iſt/</l><lb/>
+<l>Sucht <hi rendition="#fr">Jhre Majeſtaͤt/</hi> nach <hi rendition="#fr">Jhrer</hi> zuerheben:</l><lb/>
+<l>Weil <hi rendition="#fr">Jhnen</hi> auch der ruff <hi rendition="#fr">MARJA</hi> ward gegeben;</l><lb/>
+<l><hi rendition="#g">Vnd</hi> ſchawt <hi rendition="#fr">Sie</hi> gehn Jhr nach/ ob <hi rendition="#fr">Sie</hi> die Eh’ erkieſt</l></lg><lb/>
+<lg n="2"><l>O fromes Ebenbild. Dann wie Jhm in der Welt/</l><lb/>
+<l>Jhr Ewger <hi rendition="#fr">Schoͤpffer</hi> Sie zur <hi rendition="#fr">Mutter</hi> außerkohren;</l><lb/>
+<fw type="sig" place="bottom">B ij</fw><fw type="catch" place="bottom">So hat</fw><lb/>
+<pb facs="#f0016"/>
+<l>So hat Jhn <hi rendition="#fr">Jhre</hi> Seel auß Andacht auch gebohren/</l><lb/>
+<l>Jn welcher Er <hi rendition="#fr">Sich Jhr</hi> mit Jhr entgegen ſtellt.</l></lg><lb/>
+<lg n="3"><l>Was wunder iſt es nu/ nach dem <hi rendition="#fr">Sie</hi> voller Geiſt</l><lb/>
+<l>Derſelben <hi rendition="#fr">Folgrin</hi> ſein/ die <hi rendition="#fr">Gottes Sohn</hi> getragen/</l><lb/>
+<l>Der in dem Himmel herrſcht weit vber <hi rendition="#fr">Phoebus</hi> Wagen/</l><lb/>
+<l>Wann <hi rendition="#fr">Jhre</hi> Kinder man der <hi rendition="#fr">Erden Herrſcher</hi> heiſt.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">XII.</hi></hi><lb/>
+<hi rendition="#fr">Die Roͤmiſche Croͤnung.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">A</hi>ls Deutſchland/ deſſen Macht den Roͤmern ſchrecklich war/</l><lb/>
+<l>Dir wolt/ <hi rendition="#fr">O Oeſterreich/</hi> die uͤbrge Welt beſcheiden/</l><lb/>
+<l>Legt’ vmb den <hi rendition="#fr">Roͤmſchen Sthul/</hi> Gefahr vnd Zanck</l><lb/>
+<l><hi rendition="#c">zumeiden/</hi><lb/>
+Die freyen Stimmen ab/ der Deutſchen Fuͤrſten Schaar.</l></lg><lb/>
+<lg n="2"><l>Was wolt Jhr? (ſo fieng Wien in Regenſpurg drauff an)</l><lb/>
+<l><hi rendition="#fr">O Sein/ O Codan</hi> du/ vnd Jhr <hi rendition="#fr">Antenors</hi> ſpitzen/</l><lb/>
+<l>Vnd du <hi rendition="#fr">Britanner</hi> Port vnd Jhr <hi rendition="#fr">Euxiner</hi> pfuͤtzen;</l><lb/>
+<l>Gedencket daß mein Strom bloß <hi rendition="#fr">Kayſer</hi> tragen kan.</l></lg><lb/>
+<lg n="3"><l>Dißſprach es; vnd alßbald muſt’ Vnſers <hi rendition="#fr">Koͤnigs</hi> Hand</l><lb/>
+<l>Da Ewer <hi rendition="#fr">Horn</hi> zubrach/ das Deutſche Zepter tragen:</l><lb/>
+<l>Jch glaube/ daß ſich GOtt ſelbſt zu der Wahl geſchlagen.</l><lb/>
+<l>Dann machet/ was Jhr wolt/ ſo bleibt es <hi rendition="#fr">FERDJNAND.</hi></l></lg><lb/>
+<lg n="4"><l>Die hoͤchſte Majeſtaͤt ſtimbt ja mit <hi rendition="#fr">Vnſrer</hi> ein.</l><lb/>
+<l><hi rendition="#fr">Die</hi> herrſchet in der Welt; <hi rendition="#fr">Sie</hi> in deß Himmels hoͤhen:</l><lb/>
+<l>Jedoch wo <hi rendition="#fr">Vnſre</hi> leſt: die <hi rendition="#fr">Hoͤchſte</hi> vor <hi rendition="#fr">Jhr</hi> gehen/</l><lb/>
+<l>Wird <hi rendition="#fr">Sie</hi> deß Himmels Erb/ alß wie der Erden/ ſein.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">XIII.</hi></hi><lb/>
+<hi rendition="#fr">Das Oeſtereichiſche Hauſz.</hi></head><lb/>
+<fw type="catch" place="bottom">Diß</fw><lb/>
+<pb facs="#f0017"/>
+<lg n="1"><l><hi rendition="#in">D</hi>iß iſt der <hi rendition="#fr">ewge Baum/</hi> der Deutſchland ſchatten gibt/</l><lb/>
+<l>Der Sich vom ſtillen <hi rendition="#fr">zur</hi> durch <hi rendition="#fr">Sembla</hi> weiß zuſtrecken/</l><lb/>
+<l>Vnd ſich den Himmel laͤſt vnd keine Welt bedecken;</l><lb/>
+<l>Der vnter Luna Kreiß kein <hi rendition="#fr">Aquilo</hi> betruͤbt.</l></lg><lb/>
+<lg n="2"><l>Was wilt du/ ſihſt du nicht wie Er veranckert ſteht?</l><lb/>
+<l>Stuͤrm’ jmmer rawer <hi rendition="#fr">Nord</hi> dort ann Codaner Clauſen;</l><lb/>
+<l>Du wirſt hie keinen Aſt von dieſem <hi rendition="#fr">Stamme</hi> ſauſen/</l><lb/>
+<l>Dann <hi rendition="#fr">Lytzern</hi> zeiget dir wie weit dein Zoͤrnen geht.</l></lg><lb/>
+<lg n="3"><l>Der <hi rendition="#fr">Hoͤchſte</hi> hat dieß <hi rendition="#fr">Hauß</hi> mit <hi rendition="#fr">Zweyen</hi> Ja belegt.</l><lb/>
+<l>Dann Vnſrer Reiche Schutz/ ſind nicht Gewehr vnd Waffen/</l><lb/>
+<l>Bey denen <hi rendition="#fr">Herr</hi> vnd <hi rendition="#fr">Knecht</hi> nicht allzeit ſicher ſchlaffen.</l><lb/>
+<l>Diß iſt’s/ daß dieſer <hi rendition="#fr">Baum</hi> ſtets <hi rendition="#fr">Kayſer</hi> wehlt vnd traͤgt.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">XIV.</hi></hi><lb/>
+<hi rendition="#fr">Jhr May.<lb/>
+werden von dem Erfinder vmb Ruh vnd Abwarttung<lb/>
+ſeiner Muſen Demůttigſt angeflohen.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>as <hi rendition="#fr">Gott</hi> ſonſt eintzig gibt/ der <hi rendition="#fr">Jhnen</hi> dieſe Cron/</l><lb/>
+<l>Als die Sich <hi rendition="#fr">Seiner</hi> gleicht/ in Deutſchland vbergeben/</l><lb/>
+<l>Nach dieſem fang ich an die Augen auff zuheben/</l><lb/>
+<l><hi rendition="#fr">O hohe Majeſtaͤt/</hi> vnd knie vor <hi rendition="#fr">Jhren</hi> Thron.</l></lg><lb/>
+<lg n="2"><l>Zwar meine Biete trifft dergleichen <hi rendition="#fr">Geber</hi> zu/</l><lb/>
+<l><hi rendition="#fr">Der</hi> Sie <hi rendition="#fr">Jhm</hi> ſelbſt verſagt: Ob <hi rendition="#fr">Sie</hi> gleich alles koͤnnen/</l><lb/>
+<l><hi rendition="#fr">O Kayſer/</hi> koͤnnen <hi rendition="#fr">Sie</hi> es <hi rendition="#fr">Jhnen</hi> nicht vergoͤnnen:</l><lb/>
+<l>Dann meine Muſa ſeufftzt <hi rendition="#fr">Sie</hi> an vmb ſatte Ruh.</l></lg><lb/>
+<lg n="3"><l>Doch wann ich auff diß <hi rendition="#fr">Hauß</hi> mein Augen wende hin/</l><lb/>
+<l>So heißt ein gutter Geiſt mich jmmer naͤher treten/</l><lb/>
+<l>Vnd ſpricht/ die Biet iſt groß/ die du an jtzt gebeten/</l><lb/>
+<l>Nicht <hi rendition="#fr">groͤſſer</hi> doch als <hi rendition="#fr">der/ der</hi> Sie bloß kan vollzihn.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">XV.</hi></hi><lb/>
+<hi rendition="#fr">Jhr May: Lobſpruch.</hi></head><lb/>
+<fw type="sig" place="bottom">B iij</fw><fw type="catch" place="bottom">Jch</fw><lb/>
+<pb facs="#f0018"/>
+<lg n="1"><l><hi rendition="#in">J</hi>ch bitt vmb Gnad. Jch geh’/ <hi rendition="#fr">O HERR/</hi> anjtzt nach Rom;</l><lb/>
+<l>Ob gleich <hi rendition="#fr">Jhr Hauß</hi> der Welt viel laͤnger vorgeſtanden/</l><lb/>
+<l>Vnd ſolche <hi rendition="#fr">Saͤulen</hi> zeigt die nicht zu <hi rendition="#fr">Rom</hi> verhanden/</l><lb/>
+<l>Doch leit’ ich auff <hi rendition="#fr">Jhr Wien</hi> den <hi rendition="#fr">erſten</hi> Tyberſtrom</l></lg><lb/>
+<lg n="2"><l>Dann <hi rendition="#fr">Jhre Majeſtaͤt</hi> die tritt mit glantze fuͤr/</l><lb/>
+<l>Vor dem ſich <hi rendition="#fr">Phoebus</hi> ſchaͤmbt dort vmb den rothen Morgen;</l><lb/>
+<l>Vnd wehrn die <hi rendition="#fr">Nahmen</hi> nuͤr dem Himmel abzuborgen/</l><lb/>
+<l>Die dieſe <hi rendition="#fr">Stadt</hi> erglaͤntzt/ Sie dinten <hi rendition="#fr">Jhrer</hi> Zier.</l></lg><lb/>
+<lg n="3"><l>Der <hi rendition="#fr">Varus</hi> duͤrffte nicht mehr an die <hi rendition="#fr">Weeſer</hi> ziehn/</l><lb/>
+<l>Vnd fort fuͤr fort vmbſonſt <hi rendition="#fr">Jhr</hi> Deutſchland vberwinden.</l><lb/>
+<l><hi rendition="#fr">Sybilla</hi> wuͤrde nicht die tewren <hi rendition="#fr">Buͤcher</hi> binden;</l><lb/>
+<l>Vnd <hi rendition="#fr">Numa</hi> niemahls mehr vor ſeinen Goͤttern kniehn.</l></lg><lb/>
+<lg n="4"><l>Es muͤſte kein <hi rendition="#fr">Poet</hi> vmb den <hi rendition="#fr">Auguſtus</hi> flehn:</l><lb/>
+<l><hi rendition="#fr">Camillus</hi> truͤg Vns ſelbſt die <hi rendition="#fr">Ewge Stadt</hi> entgegen;</l><lb/>
+<l>Vnd <hi rendition="#fr">Curtius</hi> ſein Pferd/ vnd <hi rendition="#fr">Craſſus</hi> ſein Vermoͤgen/</l><lb/>
+<l>Man duͤrffte den <hi rendition="#fr">Fabritz</hi> nicht hinterm Pfluge ſehn.</l></lg><lb/>
+<lg n="5"><l>Er <hi rendition="#fr">Cæſar</hi> ſtimbte wol mit dem <hi rendition="#fr">Pompejus</hi> ein;</l><lb/>
+<l>Jhr außgezognes Schwerd muͤſt vnter <hi rendition="#fr">Vnſerm</hi> liegen.</l><lb/>
+<l>Ja <hi rendition="#fr">Cato/</hi> wann er kaͤm auß <hi rendition="#fr">Ditis</hi> Reich geſtiegen/</l><lb/>
+<l>Der keiner Part gefolgt/ wuͤrd <hi rendition="#fr">Oeſtereichiſch</hi> ſein.</l></lg><lb/>
+<lg n="6"><l>Jedoch was ſuch ich hier/ <hi rendition="#fr">O Schutz vnd Heil der Welt?</hi></l><lb/>
+<l>Deß Himmels ſchoͤne Bahn/ wo <hi rendition="#fr">Jhre Vorfahrn</hi> ſtehen/</l><lb/>
+<l>Weiſt mir zu langſam ja/ wem <hi rendition="#fr">Sie</hi> ſchon oben gehen/</l><lb/>
+<l>Vnd was diß <hi rendition="#fr">groſſe Hauß</hi> von <hi rendition="#fr">Seinen Ahnen</hi> helt.</l></lg><lb/>
+<lg n="7"><l>Dein jrrthum iſt nicht ſchlecht/ <hi rendition="#fr">O Clio/</hi> meine Zier;</l><lb/>
+<l>Dann denck jhm nach/ du zeuchſt/ wilt du die <hi rendition="#fr">Roͤmer</hi> preiſen/</l><lb/>
+<l>Vnd Sie vor dieſen <hi rendition="#fr">Thron</hi> an ſtat der <hi rendition="#fr">Ahnen</hi> weiſen/</l><lb/>
+<l>Dem <hi rendition="#fr">Weltkreiß/</hi> eine Stadt/ den <hi rendition="#fr">Kayſern/</hi> Buͤrger fuͤr.</l></lg></lg><lb/>
+<l><fw type="catch" place="bottom"><hi rendition="#aq">XVI.</hi> <hi rendition="#fr">Toͤdli-</hi></fw></l><lb/>
+<pb facs="#f0019"/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">XVI.</hi></hi><lb/>
+<hi rendition="#fr">Toͤdlicher Hintrit<lb/>
+Ferdinand deſz Andern<lb/>
+Roͤmiſchen Kayſers.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi><hi rendition="#fr">er Vater</hi> dieſer Welt/ hat Sich zur Ruh gewand/</l><lb/>
+<l>Die in dem Himmel iſt/ der vor <hi rendition="#fr">Sein Reich</hi> geſtriten:</l><lb/>
+<l>Jedoch eh <hi rendition="#fr">Er</hi> begahn im Himmel zugebiten/</l><lb/>
+<l>Rufft <hi rendition="#fr">Er</hi> auff Seinen Thron den <hi rendition="#fr">Dritten Ferdinand.</hi></l></lg><lb/>
+<lg n="2"><l><hi rendition="#fr">Er</hi> wolte Deutſchland ja nicht ſonder <hi rendition="#fr">Kayſer</hi> ſehn/</l><lb/>
+<l>Daß <hi rendition="#fr">Er</hi> vor <hi rendition="#fr">Seiner</hi> Ruh/ mit ſichrer Ruh erhaben.</l><lb/>
+<l>O Gottes-voller Sinn; Dann ſchawt nach dieſen Gaben/</l><lb/>
+<l>Hieß <hi rendition="#fr">Er</hi> den letzten Schlaff <hi rendition="#fr">Sein’ Augen</hi> auff werths drehn.</l></lg><lb/>
+<lg n="3"><l>So ſtarb <hi rendition="#fr">der frome Fuͤrſt</hi> voll Witz vnd Gluͤck vnd Ehr:</l><lb/>
+<l>Es war wie abgeredt mit Gott vnd mit den Erben;</l><lb/>
+<l>Jedoch <hi rendition="#fr">Er</hi> lebet noch. Kein <hi rendition="#fr">Ferdinand</hi> kan ſterben:</l><lb/>
+<l>Der <hi rendition="#fr">Erſt’</hi> iſt ja wol fort! Kein <hi rendition="#fr">Andrer</hi> ſtirbet mehr.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">XVII.</hi></hi><lb/>
+<hi rendition="#fr">An die Allerdurchlauchtigſte Princeſin<lb/>
+Eleonora/<lb/>
+Ferdinand deſz Andern<lb/>
+Erwehlte Kayſerin vnd Gemahlin.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">O</hi> Glantz auß <hi rendition="#fr">Mantua/</hi> was flehn <hi rendition="#fr">Sie</hi> in der Nacht/</l><lb/>
+<l>Jn die die Thraͤnen <hi rendition="#fr">Sie/</hi> deß Schmertzens Toͤchter/ fuͤhren:</l><lb/>
+<l><hi rendition="#fr">Sie</hi> dencken an den Tag/ da <hi rendition="#fr">Sie</hi> der Herr wird zihren/</l><lb/>
+<l>Der Vns <hi rendition="#fr">Diß Liecht</hi> entzeucht/ daß ſo viel Heil gebracht.</l></lg><lb/>
+<lg n="2"><l>Ja der Verluſt iſt groß; Doch <hi rendition="#fr">Groͤſſer</hi> der es heiſt/</l><lb/>
+<l>Vnd ſpricht/ der <hi rendition="#fr">Kayſer</hi> ſoll ein andre Crone tragen/</l><lb/>
+<fw type="sig" place="bottom">B iiij</fw><fw type="catch" place="bottom">Die</fw><lb/>
+<pb facs="#f0020"/>
+<l>Die Vnſer Herr am Creutz’ auß Lieb vnd Trew geſchlagen/</l><lb/>
+<l>Die keiner kriegt/ dem <hi rendition="#fr">Sein’</hi> auff Erden ſchoͤner gleiſt.</l></lg><lb/>
+<lg n="3"><l>Stimbt dieſer Troſt nicht bald/ <hi rendition="#fr">O groſſe Kayſrin/</hi> ein</l><lb/>
+<l>So koͤnnen <hi rendition="#fr">Sie</hi> auch ſo diß harte Leid begraben:</l><lb/>
+<l><hi rendition="#fr">Sie</hi> ſehn/ <hi rendition="#fr">den</hi> Gott vnd <hi rendition="#fr">Er</hi> auff <hi rendition="#fr">Seinen</hi> Thron gehaben/</l><lb/>
+<l>Weil <hi rendition="#fr">Kayſer</hi> vnd auch <hi rendition="#fr">Sohn</hi> vnd endlich <hi rendition="#fr">Vater</hi> ſein.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">XVIII.</hi></hi><lb/>
+<hi rendition="#fr">Vnterſchiedliche Abſendigung.</hi></head><lb/>
+<l><hi rendition="#in">D</hi>er wilde <hi rendition="#fr">Tartar</hi> kompt von Pferde Blutt erhalten/</l><lb/>
+<l>Von fernen Tanais in vnſer Land gedrabt:</l><lb/>
+<l>Vnd der ſo zu <hi rendition="#fr">Byſantz</hi> den <hi rendition="#fr">Adler</hi> halb geſpalten/</l><lb/>
+<l>Schickt ſeine Tittull her vnd hat den Thron begabt.</l><lb/>
+<l>Der <hi rendition="#fr">Held</hi> auß <hi rendition="#fr">Cymbrien/</hi> vnd wo vmb die Trionen/</l><lb/>
+<l>Geſchneihtes Land herſchwtmbt/ ſchwimbt auch mit Seegeln her/</l><lb/>
+<l>Vnd <hi rendition="#fr">der</hi> ſo weit gebeuth/ alsweit die Menſchen wohnen/</l><lb/>
+<l>Schantz <hi rendition="#fr">Vnſrem</hi> Zepter zu/ wie <hi rendition="#fr">Seinem/</hi> Welt vnd Meer.</l><lb/>
+<l>Die am <hi rendition="#fr">Chineſer Port</hi> Vns jhre Fuͤſſe kehren/</l><lb/>
+<l>Hoͤhrn Vnſre ſtrenge Sieg auß ſichrer Mi<supplied>ß</supplied>rew an:</l><lb/>
+<l>Vnd der <hi rendition="#fr">Braſilier/</hi> der Menſchen kan verzehren/</l><lb/>
+<l>Erkennet <hi rendition="#fr">Oeſtereich</hi> vnd wird <hi rendition="#fr">Jhm</hi> vnterthan.</l><lb/>
+<l>So Barbar iſt kein <hi rendition="#fr">Herr/ O Kayſer/</hi> auff der Erden/</l><lb/>
+<l>Er bett diß <hi rendition="#fr">Ertzhauß an/</hi> dem alles iſt beſtimbt.</l><lb/>
+<l>Jſt Er nicht vnſer Freund! ſo wuͤnſcht Er es zu werden.</l><lb/>
+<l>Vnd der iſt lieb vnd werth/ der vngebeten koͤmbt.</l></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">XIX.</hi></hi><lb/>
+<hi rendition="#fr">Deſz Reiches Befeſtigung.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">O</hi> Deutſchland/ nicht der <hi rendition="#fr">Rein/</hi> noch deiner <hi rendition="#fr">Tonaw</hi> Feld/</l><lb/>
+<l>Vnd andrer Fluͤſſe Volck mit jhren ſtarcken Wercken/</l><lb/>
+<l>Beſchuͤtzen deinen Thron; Das was Jhn kan verſtercken/</l><lb/>
+<l>Jſt was deß <hi rendition="#fr">Kayſers Burg</hi> auff heilgen <hi rendition="#fr">Armen</hi> helt.</l></lg><lb/>
+<fw type="catch" place="bottom">O Croneteon</fw><lb/>
+<pb facs="#f0021"/>
+<lg n="2"><l><hi rendition="#fr">O Crone von Madritt/ Sie</hi> laſſen es geſchehn/</l><lb/>
+<l>Das Zimmer mach ich auff/ <hi rendition="#fr">Jhr</hi> Sorg vnd Trew der Erden/</l><lb/>
+<l>Wo ſolche <hi rendition="#fr">Kinder</hi> ſpieln/ die Vns beherrſchen werden;</l><lb/>
+<l>Die Welt ſteht mit mir da/ vnd wil <hi rendition="#fr">Jhr Erben</hi> ſehn.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#fr">O Kanſer vnd O Herr/ Sie</hi> ſind auch vnſre Krafft;</l><lb/>
+<l>Auch hie von <hi rendition="#fr">dieſer</hi> Schaar ſolln <hi rendition="#fr">Sie</hi> vns lieben lernen/</l><lb/>
+<l>Solln <hi rendition="#fr">Sie</hi> Vns Rah verehrn/ gleich wie <hi rendition="#fr">der uͤbern Sternen/</hi></l><lb/>
+<l><hi rendition="#fr">Der auch durch Seinen Sohn den Menſchen Frieden<lb/>
+ſchafft.</hi></l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq"><hi rendition="#g">XX</hi>.</hi></hi><lb/>
+<hi rendition="#fr">Als Jhre Durchlauchtigkeit/<lb/>
+Ertz-Hertzog Leopold/<lb/>
+zu Felde gezogen.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>a als der kalte <hi rendition="#fr">Belt/</hi> deß <hi rendition="#fr">Auſters</hi> glantz geſehn/</l><lb/>
+<l>Vnd wie Er ſpielt’ vnd warff in Deutſchland ſeine Stralen/</l><lb/>
+<l>Die voller Frieden bluͤhn/ brach Er deß Eiſſes ſchalen</l><lb/>
+<l>Vnd hieß den <hi rendition="#fr">letzten</hi> Sturm in Vnſre Laͤnder wehn.</l></lg><lb/>
+<lg n="2"><l>Es war ſchon <hi rendition="#fr">Aeolus</hi> in ſeinen ſchlauch geſackt/</l><lb/>
+<l>Doch donnert Er ſich loß/ vnd wolt im rauhen krachen/</l><lb/>
+<l>Der <hi rendition="#fr">Elbe feſten Strom</hi> noch einmahl furchtſam machen/</l><lb/>
+<l>Alß der vor ſeinem Eiß vnd Eiſen ſtarckt geknackt.</l></lg><lb/>
+<lg n="3"><l>Nu <hi rendition="#fr">Hertzog Leopold/</hi> der Helden Schutz vnd Zier/</l><lb/>
+<l>Jn dem der Waffen ſchwall ſucht alles einzuſchwemmen/</l><lb/>
+<l>Kan eintzig dieſen Bruch vnd Sturm in <hi rendition="#fr">Boͤhmen</hi> hemmen/</l><lb/>
+<l>Vnd ruͤck et jhnen bloß deß <hi rendition="#fr">Kayſers</hi> Nahmen fuͤr.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#fr">O HERR/ O Volck!</hi> Getroſt. Er wil zur <hi rendition="#fr">Weeſer</hi> gehn.</l><lb/>
+<l>Sie wird nach alter art/ vor ſeinen Fahnen ſchlucken.</l><lb/>
+<l>Dann ſchawt/ was <hi rendition="#fr">Corus</hi> ſchickt/ iſt Beiff/ iſt Schnee/ ſind Flocken.</l><lb/>
+<l>Vnd dieſes/ wie kan es vor <hi rendition="#fr">Vnſrer Sonnen</hi> ſtehn.</l></lg></lg><lb/>
+<fw type="catch" place="bottom">Frieden</fw><lb/>
+<pb facs="#f0022"/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">XXI.</hi></hi><lb/>
+<hi rendition="#fr">Frieden iſt das hoͤchſte Kleinoth<lb/>
+aller Reiche.</hi></head><lb/>
+<l><hi rendition="#in">D</hi>er Grund iſt ja gelegt. Man laß Vns jtzt verblaſen.</l><lb/>
+<l>Wir ſind ſchon arm genung. Die Welt kan nicht mehr</l><lb/>
+<l>Was vbrig bleibt vnd iſt/ das wird ja kluͤger raſen. (fort.</l><lb/>
+<l>Diß Schiff darff kurtze Ruh/ ſo trifft es ſeinen Port.</l><lb/>
+<l>Was nicht <hi rendition="#fr">Achilles</hi> Schild/ nicht <hi rendition="#fr">Alexanders</hi> Degen/</l><lb/>
+<l>Zu rechte bringt/ das thut deß <hi rendition="#fr">Friedens ſůſſer ſchein.</hi></l><lb/>
+<l>Da wohnet Gott: Da pflegt ſich Gluͤck vnd Heil zuregen/</l><lb/>
+<l>Wo man den Voͤlckern wil die alte Freyheit/ leihn.</l><lb/>
+<l>Die Lieb iſt Grund/ iſt Thron: der kan man nichts verſagen:</l><lb/>
+<l>Die thut vielmehr als Furcht vnd Haß vnd Blutt vnd Schwerd.</l><lb/>
+<l><hi rendition="#fr">O HERR/</hi> kein <hi rendition="#fr">Jaſon</hi> wird das <hi rendition="#fr">Goldne Fehl</hi> erjagen/</l><lb/>
+<l>Dann <hi rendition="#fr">Sixtus</hi> iſt ja todt/ der es vorhin begehrt.</l><lb/>
+<l>Die Bahn ſelbſt ſchleuſt ſich auff. Die <hi rendition="#fr">Welt</hi> gieng ohn beſchwerden/</l><lb/>
+<l>Auff dieſen ſchlag nach <hi rendition="#fr">Rom/</hi> vnd drauff <hi rendition="#fr">ward alles aus.</hi></l><lb/>
+<l>Der muß <hi rendition="#fr">Auguſtus</hi> ſein/ der hie wil <hi rendition="#fr">Cæſar</hi> werden.</l><lb/>
+<l>Dann geht Sie in die <hi rendition="#fr">Stadt/</hi> ſo trifft Sie auch <hi rendition="#fr">ein HAVS.</hi></l></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">XXII.</hi></hi><lb/>
+<hi rendition="#fr">An Deutſchland<lb/>
+wegen der Friedens-Handlung in Regenſpurg.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">O</hi> Deutſchland ſchaw wie trew dein <hi rendition="#fr">Haubt</hi> vor dich gewacht/</l><lb/>
+<l>Damit in Sicherheit das <hi rendition="#fr">deine</hi> moͤchte ſchlaffen;</l><lb/>
+<l>Dein <hi rendition="#fr">Kayſer iſt Gerecht/</hi> auch mitten vntern Waffen/</l><lb/>
+<l>Drumb vbergiebeſt du <hi rendition="#fr">Jhm</hi> billig alle Macht.</l></lg><lb/>
+<lg n="2"><l>Der Voͤlcker Furcht vnd Hold/ der Reiche Nutz vnd Heil/</l><lb/>
+<l>Die muͤſſen voller Frewd’ einander jtzt begegnen.</l><lb/>
+<l>Dann <hi rendition="#fr">Regenſpurg</hi> wird Vns den <hi rendition="#fr">Goldnen Frieden</hi> regnen/</l><lb/>
+<l>Vnd vntern Laͤndern hofft ein jedes ſeinen Theil.</l></lg><lb/>
+<fw type="catch" place="bottom">Du</fw><lb/>
+<pb facs="#f0023"/>
+<lg n="3"><l>Du haſt nichts eingebuͤſt/ als eintzig deine Krafft/</l><lb/>
+<l>Die dich zu Bodem ſtieß. Anjtzt kanſt du geneſen.</l><lb/>
+<l>Der Frieden iſt die Glutt/ den man Vns wird verleſen/</l><lb/>
+<l>Durch die dein alter Stand ſich auff das new erſchafft.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#fr">O Phoͤnix deines Glůcks!</hi> Jch ſehe trefflich hoch</l><lb/>
+<l>Der Wolfarth Morgenroͤth in <hi rendition="#fr">Oeſtereich</hi> entglimmen.</l><lb/>
+<l>Jch ſehe Streit vnd Schlacht die <hi rendition="#fr">Oſt See</hi> vberſchwimmen.</l><lb/>
+<l>Jtzt wirſt du Deutſch/ vor wahrſt du aller Voͤlcker Gloch.</l></lg></lg><lb/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">XXIII.</hi></hi><lb/>
+<hi rendition="#fr">Was der Erfinder von ſeinem Jupiter<lb/>
+wuͤnſchen vnd bieten wil.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>eil niemand ohn Gebeth in ſeine Tempel geht;</l><lb/>
+<l>So hoͤhr/ O bleicher Neid/ vmb was ich werde flehen/</l><lb/>
+<l>Wo mich <hi rendition="#fr">mein Jupiter</hi> vor <hi rendition="#fr">Jhm</hi> wird liegen ſehen:</l><lb/>
+<l>Dann jeder mag es hoͤhrn/ der mir zur Seiten ſteht.</l></lg><lb/>
+<lg n="2"><l>Jch rechne keine dinſt an Bley vnd Kugeln auß/</l><lb/>
+<l>Wie mancher Hertules/ der ſie noch ſoll empfangen:</l><lb/>
+<l>Jch ſuche keinen Sold/ daß ich je durchgegangen/</l><lb/>
+<l>Vnd bringe keinen Wirth vmb Leib vnd Gutt vnd Hauß.</l></lg><lb/>
+<lg n="3"><l>Jch lege keine Klag auff <hi rendition="#fr">jenes</hi> Herren Trew/</l><lb/>
+<l>Die meine Kleider koͤnt’ in ſtatlich Aembter ſetzen:</l><lb/>
+<l>Jch wil mit reicher Muͤh den Kummer nicht ergetzen/</l><lb/>
+<l>Vnd trag in Sicherheit vor groſſen ſachen ſchew.</l></lg><lb/>
+<lg n="4"><l>Jch halte dißmal nicht vmb leere Tittull an/</l><lb/>
+<l>Vnd kan den freyen Sinn ohn Goldne Kethen zwingen:</l><lb/>
+<l>Man hoͤhrt mich keine Poſt vor <hi rendition="#fr">dieſe Gottheit</hi> bringen/</l><lb/>
+<l><hi rendition="#fr">Die</hi> alles ja erhoͤhrn/ vnd auch gewehren kan.</l></lg><lb/>
+<lg n="5"><l>Jch hab/ jedoch das ſich jtzt <hi rendition="#fr">Boreas</hi> alldar</l><lb/>
+<l>Nicht auffzuhalten weiß/ wo ohne Schlacht vnd Siegen</l><lb/>
+<l>Vmb <hi rendition="#fr">Schweidnitz Wallſtein</hi> lag/ zwey ſchlechte Guͤtter liegen/</l><lb/>
+<l>Die ſind mein Koͤnigreich/ mein Herd vnd mein Altar.</l></lg><lb/>
+<lg n="6"><l>Weil ſeinen Herren numehr keines kan ernehrn/</l><lb/>
+<l>Vnd meine Muſen dar/ wie vnterm Himmel liegen/</l><lb/>
+<l>So laß/ <hi rendition="#fr">O Jupiter/</hi> den <hi rendition="#fr">Adler</hi> druͤber fliegen/</l><lb/>
+<l>Der keinen auff der Welt leſt gar zuſehr heſchwehrn.</l></lg></lg><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">XXIV.</hi> An</fw><lb/>
+<pb facs="#f0024"/>
+<lg type="poem"><head><hi rendition="#b"><hi rendition="#aq">XXIV.</hi></hi><lb/>
+<hi rendition="#fr">An die Clio.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">N</hi>u trit/ <hi rendition="#fr">O Clio/</hi> ab/ hier iſt dein End vnd Ziel;</l><lb/>
+<l>Ob vntern Sternen du der <hi rendition="#fr">Hoheit</hi> nach geſtiegen/</l><lb/>
+<l><hi rendition="#fr">Die</hi> du dir vorgeſatzt/ bleibſt du doch vnten liegen;</l><lb/>
+<l>Der Ruhm der macht dich ſtum/ der ſcham bezwingt dein Spiel.</l></lg><lb/>
+<lg n="2"><l>Vnd wo der <hi rendition="#fr">Herr der Welt/</hi> hier nach beredter Muͤh/</l><lb/>
+<l>Sein <hi rendition="#fr">Ewigs Lob</hi> beginnt/ vnd nicht nach vnſerm ſchweigen/</l><lb/>
+<l>Kanſt du die Andacht nicht/ die in dir brennt/ bezeigen/</l><lb/>
+<l>Denckſt du gleich noch ſo tieff vnd ſinckſt auff beyde Knie.</l></lg><lb/>
+<lg n="3"><l>Jch muß es ja geſtehn/ diß Werck trifft hie nicht ein/</l><lb/>
+<l>Doch wo der <hi rendition="#fr">Leſer</hi> auch diß wird dabey erwegen/</l><lb/>
+<l>Daß bey mir Marſpiter/ der wilde Gaſt/ gelegen/</l><lb/>
+<l>Als du es auff geſatzt wirſt du entſchuldigt ſein.</l></lg></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</body><back/>
+</text> </TEI>

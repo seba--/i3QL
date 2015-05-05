@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Der Frühling</title>
+<title type="sub">Ein Gedicht</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118723499">
+<surname>Kleist</surname>
+<forename>Ewald Christian von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">45</measure>
+<measure type="tokens">4588</measure>
+<measure type="types">2097</measure>
+<measure type="characters">31223</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:42Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/kleist_fruehling_1749</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/kleist_fruehling_1749</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/kleist_fruehling_1749</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/kleist_fruehling_1749</idno>
+<idno type="DTADirName">kleist_fruehling_1749</idno>
+<idno type="DTAID">20320</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Kleist, Ewald Christian von: Der Frühling. Berlin, 1749.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Der Frühling</title>
+<title level="m" type="sub">Ein Gedicht</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118723499">
+<surname>Kleist</surname>
+<forename>Ewald Christian von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">40 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>N. N.</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1749</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">SUB Göttingen, 8 P GERM III, 5679 RARA</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20P%20GERM%20III%2C%205679%20RARA</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb n="[1]" facs="#f0003"/>
+<titlePage type="main"> <docTitle><titlePart type="main">DER<lb/>
+<hi rendition="#b"><hi rendition="#g">FRÜHLING.</hi></hi></titlePart></docTitle><lb/>
+<docTitle><titlePart type="sub">EIN<lb/>
+<hi rendition="#g">GEDICHT.</hi></titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace><hi rendition="#g">BERLIN</hi></pubPlace>,<lb/>
+<docDate>1749</docDate>.</docImprint></titlePage><lb/>
+</front><body>
+<pb n="[2]" facs="#f0004"/>
+<pb n="[3]" facs="#f0005"/>
+<div n="1" type="preface"><salute>An den Leſer.</salute><lb/>
+<p rendition="#i"><hi rendition="#in">G</hi>egenwärtiges Gedicht iſt nicht ſo wohl<lb/>
+eine ausführliche Beſchreibung des<lb/>
+Frühlings, ſeiner Abwechſelungen und Wir-<lb/>
+kungen auf die Thiere, Gewächſe, u. d. gl.<lb/>
+als vielmehr eine Abbildung der Geſtalt und<lb/>
+der Bewohner der Erde wie ſie ſich an einem<lb/>
+Frühlingstage des Verfaſſers Augen darge-<lb/>
+bothen. Er hat dieſen Weg zu erwehlen<lb/>
+nöthig gehalten, um was neues zu ſagen,<lb/>
+denn auf erſtere weiſe haben ſchon viele,<lb/>
+und zwar Thomſon unnachahmbar, dieſe<lb/>
+<fw rendition="#i" type="sig" place="bottom">A 2</fw><fw rendition="#i" type="catch" place="bottom">Jahrs-</fw><lb/>
+<pb n="[4]" facs="#f0006"/>
+<hi rendition="#g">Jahrszeit</hi> beſungen. Uebrigens ver-<lb/>
+ſpricht ſich der Verfaſſer keinen allgemeinen<lb/>
+Beyfall und verlangt ihn auch nicht. <hi rendition="#et">Er</hi><lb/>
+ſagt:</p><lb/>
+<quote rendition="#i"><lg type="poem"><l>Lobt G*** und B*** nur mein neues Saytenſpiel</l><lb/>
+<l>Der ganze Helicon mag bleiben wer er will.</l></lg></quote><lb/>
+<p rendition="#i">Diejenigen denen die <hi rendition="#g">Versart</hi> nicht ge-<lb/>
+fällt werden erſucht zu vergeſſen daß es<lb/>
+Verſe ſind, und das Gedicht wie Proſe zu<lb/>
+leſen.</p><lb/>
+<fw rendition="#i" type="catch" place="bottom">DER</fw></div><lb/>
+<pb n="[5]" facs="#f0007"/>
+<div n="1"><lg type="poem"><head><hi rendition="#c">DER<lb/>
+<hi rendition="#b"><hi rendition="#g">FRÜHLING.</hi></hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">E</hi><hi rendition="#i">mpfangt mich heilige Schatten! ihr Wohnungen</hi><lb/>
+<hi rendition="#et #i">ſüſſer Entzückung</hi></l><lb/>
+<l rendition="#i">Ihr hohen Gewölbe voll Laub und dunkler ſchlafen-<lb/>
+<hi rendition="#et">der Lüfte!</hi></l><lb/>
+<l rendition="#i">Die ihr oft einſahmen Dichtern der Zukunft Fürhang zerriſſen</l><lb/>
+<fw rendition="#i" type="sig" place="bottom">A 3</fw><fw rendition="#i" type="catch" place="bottom">Oſt</fw><lb/>
+<pb n="6" facs="#f0008"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Oſt ihnen des heitern Olymps azurne Thoren eröfnet</l><lb/>
+<l rendition="#i">Und Helden und Götter gezeigt; Empfangt mich füllet die Seele</l><lb/>
+<l rendition="#i">Mit holder Wehmuth und Ruh! O daß mein Lebensbach endlich</l><lb/>
+<l rendition="#i">Von Klippen da er entſprang in euren Gründen verflöſſe!</l><lb/>
+<l rendition="#i">Führt mich in Gängen voll Nacht zum glänzenden Throne der<lb/>
+<hi rendition="#et">Tugend</hi></l><lb/>
+<l rendition="#i">Der um ſich die Schatten erhellt. Lehrt mich den Wiederhall reitzen</l><lb/>
+<l rendition="#i">Zum Ruhm der verjüngten Natur. Und ihr, ihr lachenden<lb/>
+<hi rendition="#et">Wieſen!</hi></l><lb/>
+<l rendition="#i">Ihr Labyrinthe der Bäche, bethaute Thäler voll Roſen!</l><lb/>
+<l rendition="#i">Ich will die Wolluſt in mich mit eurem Balſamhauch ziehen</l><lb/>
+<l rendition="#i">Und wenn Aurora euch weckt mit ihren Stralen ſie trinken.</l><lb/>
+<l rendition="#i">Geſtreckt im Schatten will ich in güldne Sayten die Freude</l><lb/>
+<l rendition="#i">Die in euch wohnet beſingen. Reitzt und begeiſtert die Sinnen</l><lb/>
+<l rendition="#i">Daß meine Thöne die Gegend wie Zeſirs Liſpelu erfüllen</l><lb/>
+<l rendition="#i">Der jetzt durchs Veilchen-Thal fleucht, und wie die rieſelnden<lb/>
+<hi rendition="#et">Bäche.</hi></l></lg><lb/>
+<fw rendition="#i" type="catch" place="bottom">Auf</fw><lb/>
+<pb n="7" facs="#f0009"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<lg n="2"><l rendition="#i">Auf roſenfarbnem Gewölk bekränzt mich Tulpen und Lilien</l><lb/>
+<l rendition="#i">Sank jüngſt der Frühling vom Himmel. Aus ſeinen Buſen ergoß<lb/>
+<hi rendition="#et">ſich</hi></l><lb/>
+<l rendition="#i">Die Milch der Erden in Ströhmen. Schnell glitt von murmeln-<lb/>
+<hi rendition="#et">den Klippen</hi></l><lb/>
+<l rendition="#i">Der Schnee in Bergen herab; Des Winters Gräber die Flüſſe,</l><lb/>
+<l rendition="#i">Worin Felshügel von Eis mit hohlem Getöſe ſich ſtieſſen,</l><lb/>
+<l rendition="#i">Empfingen ihn, blähten ſich auf voll ungeduldiger Hoffnung</l><lb/>
+<l rendition="#i">Durchriſſen nagend die Dämme, verſchlangen fräſſig das Ufer</l><lb/>
+<l rendition="#i">Wald, Feld und Wieſe ward Meer. Kaum ſahn die Wipfel der<lb/>
+<hi rendition="#et">Weiden</hi></l><lb/>
+<l rendition="#i">Im Thal draus wankend herfür. Gefleckte Täucher und Enten</l><lb/>
+<l rendition="#i">Verſchwanden, ſchoſſen herauf, und irrten zwiſchen den Zweigen</l><lb/>
+<l rendition="#i">Wo ſonſt für Schmerzen der Liebe im Laub die Nachtigall ſeufzte.</l><lb/>
+<l rendition="#i">Der Hirſch von Wellen verfolgt ſtreift auf unwirthbare Felſen</l><lb/>
+<l rendition="#i">Die traurig die Fluth überſahn. Ergriffene Bären durch ſtürzten</l><lb/>
+<l rendition="#i">Das anfangs ſeichte Gewäſſer voll Wuth, ſie ſchüttelten brummend</l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Die</fw><lb/>
+<pb n="8" facs="#f0010"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Die um ſich gieſſenden Zoten. Bald ſank der treuloſe Boden</l><lb/>
+<l rendition="#i">Sie ſchnoben, ſchwammen zum Wald, umſchlangen Tannen und<lb/>
+<hi rendition="#et">Eichen</hi></l><lb/>
+<l rendition="#i">Und huben ſich träufelnd empor. Hier hingen ſie ängſtlich im<lb/>
+<hi rendition="#et">Wipfel</hi></l><lb/>
+<l rendition="#i">Von reiſſenden Winden, vom Heulen der Flüſſe-ſpeyenden Klippen</l><lb/>
+<l rendition="#i">Und untern Tiefe geſcheucht. Der Büſche verſamlete Sänger</l><lb/>
+<l rendition="#i">Betrachteten traurig und ſtumm von dürren Armen der Linden</l><lb/>
+<l rendition="#i">Das vormals glückliche Thal, wo ſie den flehenden Jungen</l><lb/>
+<l rendition="#i">Im Dornſtrauch Speiſe vertheilt. Die angekommene Lerche</l><lb/>
+<l rendition="#i">Sich aufwerts ſchwingend, beſchaute die Waſſerwüſte von oben</l><lb/>
+<l rendition="#i">Und ſuchte verlaſſne Gefilde. Es floſſen Schäuren und Wände</l><lb/>
+<l rendition="#i">Und Dächer und Hütten herum. Aus Giebeln und gleitenden<lb/>
+<hi rendition="#et">Kähnen</hi></l><lb/>
+<l rendition="#i">Verſah der troſtloſe Hirt ſich einer Sündfluth, die vormals</l><lb/>
+<l rendition="#i">Die Welt umrollte, daß Gemſen in ſchlagenden Wogen verſan-<lb/>
+<hi rendition="#et">ken.</hi></l></lg><lb/>
+<fw rendition="#i" type="catch" place="bottom">Der</fw><lb/>
+<pb n="9" facs="#f0011"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<lg n="3"><l rendition="#i">Der Boden trank endlich die Fluth. Von eilenden Dünſten<lb/>
+<hi rendition="#et">und Wolken</hi></l><lb/>
+<l rendition="#i">Flohn junge Schatten umher. Den blauen Umfang des Himmels</l><lb/>
+<l rendition="#i">Durchbrach ein blitzendes Gold. Zwar ſtreute der weichende<lb/>
+<hi rendition="#et">Winter</hi></l><lb/>
+<l rendition="#i">Noch oft bey nächtlicher Umkehr von dengeſchüttelten Schwingen</l><lb/>
+<l rendition="#i">Reif, Eis und Schaure von Schnee; Noch lieſſen wütriſche Stürme</l><lb/>
+<l rendition="#i">Die rauhe dumpfigte Stimm aus Jslands Gegend erthönen</l><lb/>
+<l rendition="#i">Durchſtreiften klagende Klüfte, verheerten taumelnde Wälder</l><lb/>
+<l rendition="#i">Und blieſen Schrecken herum, und Ueberſchwemmung von Kälte;</l><lb/>
+<l rendition="#i">Bald aber ſiegte der vor noch ungeſicherte Frühling.</l><lb/>
+<l rendition="#i">Die Luft ward ſänſter; Ein Teppich geſchmückt mit Ranken und<lb/>
+<hi rendition="#et">Laubwerk.</hi></l><lb/>
+<l rendition="#i">Von Büſchen, Blumen und Klee, wallt auf Gefilden und Auen,</l><lb/>
+<l rendition="#i">Die Schatten wurden belaubt, ein ſanft Gethöne erwachte,</l><lb/>
+<l rendition="#i">Und floh und wirbelt umher im Hayn voll grünlicher Dämm-<lb/>
+<hi rendition="#et">rung</hi></l><lb/>
+<fw rendition="#i" type="sig" place="bottom">B</fw><fw rendition="#i" type="catch" place="bottom">Die</fw><lb/>
+<pb n="10" facs="#f0012"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Die Bäche färbten ſich ſilbern, im Luftr aum floſſen Gerüche</l><lb/>
+<l rendition="#i">Und Echo höret’ im Grunde die frühe Flöte des Hirten.</l></lg><lb/>
+<lg n="4"><l rendition="#i">Ihr! derenzweiſelbaft Leben gleich trüben Tagen des Winters</l><lb/>
+<l rendition="#i">Ohn Licht und Freude verflieſſt, die ihr in Höhlen des Elends</l><lb/>
+<l rendition="#i">Die finſtere Stunden verſeufzt, betrachtet die Jugend des Jahres!</l><lb/>
+<l rendition="#i">Dreht jetzt die Augen umher, laſſt tauſend farbigte Scenen</l><lb/>
+<l rendition="#i">Die ſchwarzen Bilder verfärben! Es mag die niedrige Ruhmſucht</l><lb/>
+<l rendition="#i">Die ſchwache Rachgier, der Geiz und ſeufzender Blutdurſt ſich<lb/>
+<hi rendition="#et">härmen</hi></l><lb/>
+<l rendition="#i">Ihr ſeyd zur Freude geſchaffen, der Schmerz ſchimpft Tugend<lb/>
+<hi rendition="#et">und Unſchuld.</hi></l><lb/>
+<l rendition="#i">Saugt Luſt und Anmuth in euch! ſchaut her! ſie gleitet im Luft-<lb/>
+<hi rendition="#et">Kreis</hi></l><lb/>
+<l rendition="#i">Und grünt und rieſelt im Thal. Und ihr, ihr Bilder des Früh-<lb/>
+<hi rendition="#et">lings</hi></l><lb/>
+<l rendition="#i">Ihr blühenden Schönen! flieht jetzt den athemraubenden Aushauch</l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Von</fw><lb/>
+<pb n="11" facs="#f0013"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Von güldnen Kerkern der Städte. Komt! komt! in winkende Felder</l><lb/>
+<l rendition="#i">Komt! überlaſſet dem Zefir zum Spiel die Wellen der Locken,</l><lb/>
+<l rendition="#i">Seht euch in Seen und Bächen gleich jungen Blumen des Ufers</l><lb/>
+<l rendition="#i">Pflückt Morgentulpen voll Thau, und ziert den wallenden Buſen.</l></lg><lb/>
+<lg n="5"><l rendition="#i">Hier wo zur Linken der Fels mit Strauch und Tannen be-<lb/>
+<hi rendition="#et">wachſen</hi></l><lb/>
+<l rendition="#i">Zur helfte den bläulichen Strohm, ſich drüber neigend, beſchattet,</l><lb/>
+<l rendition="#i">Will ich ins grüne mich ſetzen an weinende ſteinichte Höhen</l><lb/>
+<l rendition="#i">Und Thal und Ebne beſchauen. O welch ein frohes Gewühle</l><lb/>
+<l rendition="#i">Belebt das ſtreifichte Land! wie lichlich lächelt die Anmuth</l><lb/>
+<l rendition="#i">Aus Wald und Büſchen herfür! Ein Zaun von blühenden Dornen</l><lb/>
+<l rendition="#i">Umſchlieſſt und röthet ringsum die ſich verlierende Weite</l><lb/>
+<l rendition="#i">Vom niedrigen Himmel gedrückt. Von bunten Moonblumen laufen</l><lb/>
+<l rendition="#i">Mit grünen Weitzen verſetzt, ſich ſchmälernde Beeten ins ferne</l><lb/>
+<l rendition="#i">Durchkreutzt von blühenden Flachs. Feldroſen-Hecken und Schlee-<lb/>
+<hi rendition="#et">ſtrauch</hi></l><lb/>
+<fw rendition="#i" type="sig" place="bottom">B 2</fw><fw rendition="#i" type="catch" place="bottom">In</fw><lb/>
+<pb n="12" facs="#f0014"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">In Blüthen gleichſam gebüllt, umkränzen die Spiegel der Teiche</l><lb/>
+<l rendition="#i">Und ſebn ſich drinnen. Zur Seiten blitzt aus dem grünlichen<lb/>
+<hi rendition="#et">Meere</hi></l><lb/>
+<l rendition="#i">Ein Meer voll güldener Strahlen, durch Phöbus glänzenden Anblick,</l><lb/>
+<l rendition="#i">Es ſchimmert ſein gelbes Geſtade von Muſcheln und farbigten<lb/>
+<hi rendition="#et">Steinen</hi></l><lb/>
+<l rendition="#i">Und Lieb und Freude durchtaumelt in kleiner Fiſche Geſchwadern</l><lb/>
+<l rendition="#i">Und in den Rieſen des Waſſers die unabſehbare Fläche.</l><lb/>
+<l rendition="#i">Auf fernen Wieſen am See ſtehn majeſtätiſche Röſſe,</l><lb/>
+<l rendition="#i">Sie werfen den Nacken empor und fliehn und wiehern für Wolluſt</l><lb/>
+<l rendition="#i">Daß Hayn und Felſen erſchallt. Gefleckte Kühe durchwaten,</l><lb/>
+<l rendition="#i">Geführt vom ernſthaften Stier, des Meyerhofs büſchichte Sümpfe</l><lb/>
+<l rendition="#i">Der finſtre Linden durchſieht. Ein Gang von Eſpen und Ulmen</l><lb/>
+<l rendition="#i">Führt zu ihm, durch welchen ein Bach ſich zeigt, in Binſen ſich<lb/>
+<hi rendition="#et">windend,</hi></l><lb/>
+<l rendition="#i">Von hellen Schwänen bewohnt. Gebürge die Brüſte der Reben</l><lb/>
+<l rendition="#i">Stebn frölich um ihn herum; Sie ragen über den Buchwald</l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Des</fw><lb/>
+<pb n="13" facs="#f0015"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Des Hügels Krone, davon ein Theil im Sonnenſchein lächelt</l><lb/>
+<l rendition="#i">Und glänzt, der andere traurt im Flor vom Schatten der Wolken.</l><lb/>
+<l rendition="#i">Die Lerche ſteigt in die Luſt, ſieht unter ſich Klippen und Thäler;</l><lb/>
+<l rendition="#i">Entzückung thönet aus ihr. Der Klang des wirbelnden Liedes</l><lb/>
+<l rendition="#i">Ergötzt den ackernden Landmann. Er horcht eine Weile; Denn<lb/>
+<hi rendition="#et">lehnt er</hi></l><lb/>
+<l rendition="#i">Sich auf den gleitenden Pſlug, zieht braune Wellen im Erdreich</l><lb/>
+<l rendition="#i">Verfolgt von Krähen und Elſtern. Der Säemann ſchreitet ge-<lb/>
+<hi rendition="#et">meſſen,</hi></l><lb/>
+<l rendition="#i">Gieſſt güldne Tropfen ihm nach; Die zackichte Egde bewälzt ſie</l><lb/>
+<l rendition="#i">Mit einer ebenen Decke. O daß der mühſame Landwirth</l><lb/>
+<l rendition="#i">Für ſich den Seegen nur ſtreute! daß ihn die Weinſtöcke tränkten</l><lb/>
+<l rendition="#i">Und in den Wieſen für ihn nur bunte Wogen ſich wälzten!</l><lb/>
+<l rendition="#i">Allein der fräſſige Krieg von zähnebleckenden Hunger</l><lb/>
+<l rendition="#i">Und wilden Schaaren begleitet, verheeret oſt Arbeit und Hoffnung;</l><lb/>
+<l rendition="#i">Gleich Hagelgüſſen und Sturm zerbricht er nährende Halmen</l><lb/>
+<l rendition="#i">Reiſſt Stab und Reben zu Boden, entzündet Dörfer und Wälder</l><lb/>
+<fw rendition="#i" type="sig" place="bottom">B 3</fw><fw rendition="#i" type="catch" place="bottom">Für</fw><lb/>
+<pb n="14" facs="#f0016"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Für ſich zum flammenden Luſtſpiel. Denn fliegt ein mördriſch<lb/>
+<hi rendition="#et">Gethöne</hi></l><lb/>
+<l rendition="#i">Und Tod und Jammer herum. Die Thäler blitzen von Waffen,</l><lb/>
+<l rendition="#i">Es wälzen ſich Wolken voll Feur aus tiefen Schlünden der Stücke</l><lb/>
+<l rendition="#i">Und füllen die Gegend mit Donner, mit Gluth und Saaten von<lb/>
+<hi rendition="#et">Leichen.</hi></l><lb/>
+<l rendition="#i">Das Feld voll blutiger Furchen gleicht einen wallenden Blutmeer;</l><lb/>
+<l rendition="#i">Ein Heer der furchtbarſten Thiere durch laufende Flammen ge-<lb/>
+<hi rendition="#et">ängstigt</hi></l><lb/>
+<l rendition="#i">Stürzt ſich mit hohlen Gebrüll in Uferfliehende Ströhme</l><lb/>
+<l rendition="#i">Der Wiederhall ſelber erſchrickt und klagt; Es zittern für Grauen</l><lb/>
+<l rendition="#i">Die wilden Felſen und heulen. Des Himmels leuchtendes Auge</l><lb/>
+<l rendition="#i">Schlieſſt ſich die Grauſamkeit ſcheuend; Mit blauer Finſterniß<lb/>
+<hi rendition="#et">füllen</hi></l><lb/>
+<l rendition="#i">Sich aufwerts drehende Dämpfe gleich dickem Nebel den Luftkreis</l><lb/>
+<l rendition="#i">Der oft vom Wiederſchein blitzt. Wie, wann der Rachen des<lb/>
+<hi rendition="#et">Etna</hi></l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Mit</fw><lb/>
+<pb n="15" facs="#f0017"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Mit ängſtlich wildem Geſchrey, daß Meer und Klippen es hören,</l><lb/>
+<l rendition="#i">Umlegne Dörfer und Städte, vom untern Donner zerrüttet,</l><lb/>
+<l rendition="#i">Mit Schrecken und Tod überſpeyt und einer flammenden Sünd-<lb/>
+<hi rendition="#et">fluth.</hi></l></lg><lb/>
+<lg n="6"><l rendition="#i">Ihr! denen zwangloſe Völker das Steur der Herrſchaft<lb/>
+<hi rendition="#et">vertrauen</hi></l><lb/>
+<l rendition="#i">Führt ihr durch Flammen und Blut ſie zur Glückſeligkeit Hafen?</l><lb/>
+<l rendition="#i">Was wünſcht ihr Väter der Menſchen noch mehrere Kinder! Iſts<lb/>
+<hi rendition="#et">wenig</hi></l><lb/>
+<l rendition="#i">Viel Millionen beglücken? Erfordert: wenige Mühe?</l><lb/>
+<l rendition="#i">O mehrt derjenigen Heil die eure Fittige ſuchen!</l><lb/>
+<l rendition="#i">Deckt ſie gleich brütenden Adlern; Verwandelt die Schwerdter<lb/>
+<hi rendition="#et">in Sicheln,</hi></l><lb/>
+<l rendition="#i">Belohnt mit Ehren und Gunſt die, deren nächtliche Lampe</l><lb/>
+<l rendition="#i">Den ganzen Erdball erleuchtet; Setzt Gärtner zur Baumſchul<lb/>
+<hi rendition="#et">der Menſchen</hi></l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Laſſt</fw><lb/>
+<pb n="16" facs="#f0018"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Laſſt güldne Wogen im Meer, fürs Land, durch Schiffarth ſich<lb/>
+<hi rendition="#et">thürmen,</hi></l><lb/>
+<l rendition="#i">Erhebt die Weisheit im Kittel, und trocknet die Zähren der Tugend.</l></lg><lb/>
+<lg n="7"><l rendition="#i">Wohin verführt mich der Schmerz; Weicht, weicht, ihr<lb/>
+<hi rendition="#et">traurigen Bilder,</hi></l><lb/>
+<l rendition="#i">Kom Muſe! laß uns die Wohnung und häusliche Wirthſchaft des<lb/>
+<hi rendition="#et">Landmanns</hi></l><lb/>
+<l rendition="#i">Und viehzucht und Gärte betrachten. Hier ſteigt kein Marmor<lb/>
+<hi rendition="#et">aus Bergen</hi></l><lb/>
+<l rendition="#i">Und zeuget Kämpfer, kein Taxus ſpitzt ſich vor Schlöſſern, kein<lb/>
+<hi rendition="#et">Waſſer</hi></l><lb/>
+<l rendition="#i">Folgt hier dem Zuruf der Kunſt. Verſchränkte wölkichte Wipſel</l><lb/>
+<l rendition="#i">Von hohen Linden, beſchatten ein Haus von Reben umkrochen</l><lb/>
+<l rendition="#i">Durch Dorn und Hecken beveſtigt. Ein Teich glänzt mitten in<lb/>
+<hi rendition="#et">Hoſe</hi></l><lb/>
+<l rendition="#i">Mit grünem Flos-Kraut beſtreut, wodurch aus ſcheinbarer Tiefe</l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Des</fw><lb/>
+<pb n="17" facs="#f0019"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Des Himmels Ebenbild blinkt. Er wimmelt von zahmen Bewohnern.</l><lb/>
+<l rendition="#i">Die Henne jammert ums Ufer, und ruft die gleitenden Entchen</l><lb/>
+<l rendition="#i">Die ſie gebrütet; Sie fliehn der Stiefmutter Stimme, durch plät-<lb/>
+<hi rendition="#et">ſchern</hi></l><lb/>
+<l rendition="#i">Die Fluth, und nagen am Schilff. Mit vorgebogenen Hälſen</l><lb/>
+<l rendition="#i">und ziſchernd, treiben die Gänſe fern von der Luſtbahn der Jungen</l><lb/>
+<l rendition="#i">Den ſchwimmenden Schießhund. Denn ſpielen die haarigten Kin-<lb/>
+<hi rendition="#et">der, ſie tauchen</hi></l><lb/>
+<l rendition="#i">Den Kopf ins Waſſer und ſchnattern, ſie hängen im Gleichgewicht<lb/>
+<hi rendition="#et">abwerts</hi></l><lb/>
+<l rendition="#i">Und zeigen die rudernden Füſſe. Hier lockt das Mägdchen die<lb/>
+<hi rendition="#et">Hüner</hi></l><lb/>
+<l rendition="#i">Zum Hüner-Korbe, ſie eilen, durchſchlupfen die Sproſſen des Tiſch-<lb/>
+<hi rendition="#et">ſaals</hi></l><lb/>
+<l rendition="#i">Und fordern Nahrung. Die Wirthin ſich drüber neigend, be-<lb/>
+<hi rendition="#et">gieſſt ſie</hi></l><lb/>
+<l rendition="#i">Mit einem Regen von Korn, und ſieht ſie picken und zanken.</l><lb/>
+<fw rendition="#i" type="sig" place="bottom">C</fw><fw rendition="#i" type="catch" place="bottom">Dort</fw><lb/>
+<pb n="18" facs="#f0020"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Dort lauſcht das weiſſe Kaninchen in dunkler Höhle; Es drehet</l><lb/>
+<l rendition="#i">Die rothen Augen herum, ſpringt endlich ſurchtſahm zum Zaune</l><lb/>
+<l rendition="#i">Und reiſſt an ſtaudichten Pappeln. Aus ſeines Wohnhauſes Fenſter</l><lb/>
+<l rendition="#i">Sieht ſich das Lachtäubchen um, kratzt den roth-ſilbernen Nacken</l><lb/>
+<l rendition="#i">Und fliegt zum Liebling aufs Dach. Er zürnt ob deſſen Verweilen</l><lb/>
+<l rendition="#i">Und dreht ſich um ſich und ſchilt; Bald rührt ihn das Schmei-<lb/>
+<hi rendition="#et">cheln der Schönen</hi></l><lb/>
+<l rendition="#i">Viel Küſſe werden verſchwendet, bis ſie mit ſchnellen Gefieder</l><lb/>
+<l rendition="#i">Die Luft durchliſpeln, und aufwerts ſich zu Geſpielen geſellen</l><lb/>
+<l rendition="#i">Die blitzend im Sonnenglanz ſchwärmen. Von blühenden Frucht-<lb/>
+<hi rendition="#et">bäumen ſchimmert</hi></l><lb/>
+<l rendition="#i">Der Garten, die kreutzende Gänge mit rother Dunkelheit füllen</l><lb/>
+<l rendition="#i">Und Zefir gaukelt umher, treibt Wolken von Blüthen zur Höhe</l><lb/>
+<l rendition="#i">Die ſich ergieſſen und regnen. Zwar hat hier Wolluſt und Hoch-<lb/>
+<hi rendition="#et">muth</hi></l><lb/>
+<l rendition="#i">Nicht Nahrung von Mohren entlehnt und ſie gepflanzet; Nicht<lb/>
+<hi rendition="#et">Myrthen</hi></l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Nicht</fw><lb/>
+<pb n="19" facs="#f0021"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Nicht Aloen blicken durch Fenſter. Das nutzbare Schöne ver-<lb/>
+<hi rendition="#et">gnüget</hi></l><lb/>
+<l rendition="#i">Den Landmann, und etwan ein Kranz. Durch lange Gewölbe von<lb/>
+<hi rendition="#et">Nuß-Strauch</hi></l><lb/>
+<l rendition="#i">Zeigt ſich voll laufender Wolken der Himmel und ferne Gefilde</l><lb/>
+<l rendition="#i">Voll Seen und büſchichter Thäler umringt mit blauen Gebürgen.</l><lb/>
+<l rendition="#i">Das Auge durchirret den Auftrit bis ihn ein näherer ſchlieſſet.</l><lb/>
+<l rendition="#i">Die Fürſtin der Blumen die Lilie erhebt die Krone zur Seiten</l><lb/>
+<l rendition="#i">Hoch über ſtreifichte Tulpen. Seht! wie die Kinder des Früh-<lb/>
+<hi rendition="#et">lings</hi></l><lb/>
+<l rendition="#i">Liebkoſend winken; Wie glänzt der Grund von lebenden Stoffen!</l><lb/>
+<l rendition="#i">Die holde Mayblume drengt die Silberglöckchen durch Blätter</l><lb/>
+<l rendition="#i">Und manche Roſe durchbricht ſchon ungeduldig die Knoſpe.</l><lb/>
+<l rendition="#i">Es ſteigt unſehbarer Regen von lieblichen Düften zur Höhe</l><lb/>
+<l rendition="#i">Und füllt die Lüfte mit Balſam. Die Nacht-Viole läſſt immer</l><lb/>
+<l rendition="#i">Die ſtölzere Blumen den Duft verhauchen; Voll Edelmuth<lb/>
+<hi rendition="#et">ſchlieſſt ſie</hi></l><lb/>
+<fw rendition="#i" type="sig" place="bottom">C 2</fw><fw rendition="#i" type="catch" place="bottom">Ihn</fw><lb/>
+<pb n="20" facs="#f0022"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Ihn ein, im Vorſatz den Abend noch über den Tag zu verſchönern.</l><lb/>
+<l rendition="#i">Ein Bildniß groſſer Gemüther, die nicht gleich prahlriſchen Käm-<lb/>
+<hi rendition="#et">pfern</hi></l><lb/>
+<l rendition="#i">Der Kreis von Zuſchauern reitzt, die tugendhaft wegen der Tu-<lb/>
+<hi rendition="#et">gend</hi></l><lb/>
+<l rendition="#i">In der Verborgenheit Schatten Gerüche der Wohlthaten ſtreuen.</l><lb/>
+<l rendition="#i">Seht hin! wie brüſtet der Pfau ſich dort am farbigten Beete</l><lb/>
+<l rendition="#i">Voll Eifer ſucht über dic Kleidung der frölichen Blumen ſtolzirt er,</l><lb/>
+<l rendition="#i">Kreibt rauſchend den grünlichen Schweif voll Regenbögen, und<lb/>
+<hi rendition="#et">wendet</hi></l><lb/>
+<l rendition="#i">Den farbenwechſelnden Hals. Die Schmetterlinge ſich jagend</l><lb/>
+<l rendition="#i">Umwälzen ſich über den Bäumen mit bunten Flügeln; voll Liebe</l><lb/>
+<l rendition="#i">Und unentſchloſſen im wählen beſchauen ſie Knoſpen und Blüte.</l><lb/>
+<l rendition="#i">Indeſſen impfet der Herr des Gartens Zweige von Kirſchen</l><lb/>
+<l rendition="#i">Durchſägten Schlee ſtämmen ein, die künftig über die Kinder</l><lb/>
+<l rendition="#i">Die ſie geſäuget erſtaunen. Das Bild der Anmuth die Haus-<lb/>
+<hi rendition="#et">frau</hi></l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Sitzt</fw><lb/>
+<pb n="21" facs="#f0023"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Sitzt in der Laube von Reben, pflanzt Stauden und Blumen auf<lb/>
+<hi rendition="#et">Leinwand,</hi></l><lb/>
+<l rendition="#i">Die Freude lächelt aus ihr. Ein Kind der Gratien Liebling</l><lb/>
+<l rendition="#i">Stört ſie durch Plappern, am Hals mit zarten Armen ihr hangend,</l><lb/>
+<l rendition="#i">Ein andres tändelt in Klee, ſinnt nach, und ſtammlet Gedanken.</l></lg><lb/>
+<lg n="8"><l rendition="#i">O dreymal ſeliges Volk das ohne Stürme des Unglücks</l><lb/>
+<l rendition="#i">Das Meer des Lebens durchſchifft, dem einſahm in Gründen die<lb/>
+<hi rendition="#et">Tage</hi></l><lb/>
+<l rendition="#i">Wie ſanfte Weſte verpfliegen! Laß andre, dem wimmelnden Pöbel</l><lb/>
+<l rendition="#i">Der Bäum und Dächer erſteigt zur Schau, in Siegswägen gleiſſen</l><lb/>
+<l rendition="#i">Von Elephanten gezogen; Laß ſie der Wellen Gebürge</l><lb/>
+<l rendition="#i">Mit Wolken von Seegeln bedecken, und Japan in Weſten ver-<lb/>
+<hi rendition="#et">ſetzen,</hi></l><lb/>
+<l rendition="#i">Der iſt ein Günſtling des Himmels, den, fern von Foltern der Laſter</l><lb/>
+<l rendition="#i">Die Ruh an Quellen umſchlingt. Auf ihn blickt immer die Sonne</l><lb/>
+<l rendition="#i">Von oben lieblich herab, ihm brauſt kein Unglück in Wogen</l><lb/>
+<fw rendition="#i" type="sig" place="bottom">C 3</fw><fw rendition="#i" type="catch" place="bottom">Er</fw><lb/>
+<pb n="22" facs="#f0024"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Er ſeufzt nicht thörichte Wünſche, ihn micht die Höhe nicht<lb/>
+<hi rendition="#et">ſchwindelnd,</hi></l><lb/>
+<l rendition="#i">Die Arbeit würzt ihm die Koſt, ſein Blut iſt leicht wie der Ether</l><lb/>
+<l rendition="#i">Sein Schlaf verfliegt mit der Dämmrung, ein Morgenlüftchen<lb/>
+<hi rendition="#et"><hi rendition="#et">verweht ihn.</hi></hi></l></lg><lb/>
+<lg n="9"><l rendition="#i"><hi rendition="#et">Ach! wär auch mir es vergönnt in euch, ihr holden Gefilde</hi></l><lb/>
+<l rendition="#i">Beſtürmter Tugenden Häfen! ihr ſtillen Häuſer des Friedens!</l><lb/>
+<l rendition="#i">Geſtreckt in wankende Schatten am Ufer ſchwatzhafter Bäche</l><lb/>
+<l rendition="#i">Hinfort mir ſelber zu leben, und Leid und niedrige Sorgen</l><lb/>
+<l rendition="#i">Vorüberrauſchender Luft einſt zuzuſtreuen! Ach möchte</l><lb/>
+<l rendition="#i">Doch Doris die Thränen in euch von dieſen Wangen verwiſchen</l><lb/>
+<l rendition="#i">Und bald Geſpräche mit Freunden in euch mein Leiden verſüſſen,</l><lb/>
+<l rendition="#i">Bald redende Todte mich lehren, bald tiefe Bäche der Weisheit</l><lb/>
+<l rendition="#i">Des Geiſtes Wiſſensdurſt ſtillen! Denn gönnt ich Berge von Demant</l><lb/>
+<l rendition="#i"><hi rendition="#aq">Und goldne Klüfte dem Mogol, denn möchten kriegriſche Zwerge</hi></l><lb/>
+<l rendition="#i">Fels-hohe Bilder ſich hauen, die ſteinerne Ströhme vergöſſen,</l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Ich</fw><lb/>
+<pb n="23" facs="#f0025"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Ich würde ſie nimmer beneiden. Du Meer der Liebe, o Himmel!</l><lb/>
+<l rendition="#i">Du ewger Brunnen des Heils! ſoll nie dein Ausfluß mich tränken?</l><lb/>
+<l rendition="#i">ſoll meine Blume des Lebens erſtickt von Unkraut verblühen?</l><lb/>
+<l rendition="#i">Nein, du beſeligſt dein Werk. Es liſpelt ruhige Hoffnung</l><lb/>
+<l rendition="#i">Mir Troſt und Labſal zum Herzen; Die Dämmrung flieht vor<lb/>
+<hi rendition="#et">Auroren,</hi></l><lb/>
+<l rendition="#i">Die finſtre Decke der Zukunſt wird aufgezogen, ich ſehe</l><lb/>
+<l rendition="#i">Ganz andre Scenen der Dinge und unbekannte Gefilde.</l><lb/>
+<l rendition="#i">Ich ſehe dich himmliſche Doris! du komſt aus Roſengebüſchen</l><lb/>
+<l rendition="#i">In meine Schatten, voll Glanz und majeſtätiſchem Liebreitz;</l><lb/>
+<l rendition="#i">So trit die Tugend einher, ſo iſt die Anmuth geſtaltet.</l><lb/>
+<l rendition="#i">Du ſingſt zur Cyther und Phöbus bricht ſchnell durch die Gewölke</l><lb/>
+<l rendition="#i">Die Stürme ſchweigen; Olymp merkt auf; Das Bildniß der Lieder</l><lb/>
+<l rendition="#i">Thönt ſanft in fernen Gebürgen, und Zefir weht mirs herüber.</l><lb/>
+<l rendition="#i">Und du mein redlicher Gleim du ſteigſt vom Gipfel des Homus</l><lb/>
+<l rendition="#i">Und rührſt die Tejiſchen Sayten voll Luſt. Die Thore des Him-<lb/>
+<hi rendition="#et">mels</hi></l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Gehn</fw><lb/>
+<pb n="24" facs="#f0026"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Gehn auf, es laſſen ſich Cypris und Huldgöttinnen und Amor</l><lb/>
+<l rendition="#i">Voll Glanz auf funkelnden Wolken in blauen Lüften hernieder,</l><lb/>
+<l rendition="#i">Und ſingen lieblich darein. Der Sternen weites Gewölbe</l><lb/>
+<l rendition="#i">Erſchallt vom frohen Concert. Kom bald in meine Reviere</l><lb/>
+<l rendition="#i">Kom! bring die Freude zu mir, beblüme Triften und Anger</l><lb/>
+<l rendition="#i">O Paar! Zweck meiner Begierden, du milde Gabe der Gottheit.</l><lb/>
+<l rendition="#i">Doch wie, erwach ich vom Schlaf? wo ſind die himmliſchen Bilder?</l><lb/>
+<l rendition="#i">Welch ein anmuthiger Traum betrog die wachenden Sinnen?</l><lb/>
+<l rendition="#i">Er flieht von dannen, ich ſeufze. Zuviel, zuviel vom Verhängniß</l><lb/>
+<l rendition="#i">Im Durchgang des Lebens gefodert! Solch Heil gewährt nur die<lb/>
+<hi rendition="#et">Hoffnung</hi></l><lb/>
+<l rendition="#i">Sein Schatten macht ſchon beglückt, ſelbſt wird michs nimmer er-<lb/>
+<hi rendition="#et">freuen.</hi></l></lg><lb/>
+<lg n="10"><l rendition="#i"><hi rendition="#et">Allein was quält mich die Zukunft; Weg ihr vergeblichen<lb/>
+<hi rendition="#et">Sorgen,</hi></hi></l><lb/>
+<l rendition="#i">Laß mich der Wolluſt genieſſen die jetzt der Himmel mir gönnet,</l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Laß</fw><lb/>
+<pb n="25" facs="#f0027"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Laß mich das fröliche Landvolk in dicke Haynen verfolgen</l><lb/>
+<l rendition="#i">Und mit der Nachtigall ſingen, und mich beym ſeufzenden Gies-<lb/>
+<hi rendition="#et">bach</hi></l><lb/>
+<l rendition="#i">An Zefirs Thönen ergötzen. Ihr dichten Lauben, von Händen</l><lb/>
+<l rendition="#i">Der Mutter der Dinge geflochten! ihr dunkeln einſahmen Gänge</l><lb/>
+<l rendition="#i">Die ihr das Denken erhellt, Irrgärten voller Entzückung</l><lb/>
+<l rendition="#i">Und Freude, ſeyd mir gegrüſſt! Was für ein angenehm Leiden</l><lb/>
+<l rendition="#i">Und Ruh und ſanftes Gefühl durchdringet in euch die Seele!</l><lb/>
+<l rendition="#i">Durchs hohe Laubdach der Schatten das ſtreichende Lüfte bewe-<lb/>
+<hi rendition="#et">gen,</hi></l><lb/>
+<l rendition="#i">Worunter ein ſichtbares Kühl in grünen Wogen ſich wälzet,</l><lb/>
+<l rendition="#i">Blickt hin und wieder die Sonne, und übergüldet die Blätter,</l><lb/>
+<l rendition="#i">Die holde Dämmrung durchgleiten Gerüche von Blüthen der He-<lb/>
+<hi rendition="#et">cken</hi></l><lb/>
+<l rendition="#i">Die Flügel der Weſtwinde duften. In überirrdiſcher Höhle</l><lb/>
+<l rendition="#i">Von krauſen Sträuchen gezeugt, ſitzt zwiſchen Blumen der Geiß-<lb/>
+<hi rendition="#et">hirt</hi></l><lb/>
+<fw rendition="#i" type="sig" place="bottom">D</fw><fw rendition="#i" type="catch" place="bottom">Bläſt</fw><lb/>
+<pb n="26" facs="#f0028"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Bläſt auf der hellen Schalmey, hält ein, und höret die Lieder</l><lb/>
+<l rendition="#i">Hier laut in Buchen erthönen, dort ſchwach, und endlich verlohren,</l><lb/>
+<l rendition="#i">Bläſt, und hält wiederum ein. Tief unter ihn klettern die Ziegen</l><lb/>
+<l rendition="#i">Am jähen Abſturz der Kluft, ſie reiſſen an bittern Geſtäude,</l><lb/>
+<l rendition="#i">Theils irren ſie oben im Klee des Thals; Ihr bärtiger Ehmann</l><lb/>
+<l rendition="#i">Er ſteigt die über den Teich ſich neigende Weide, beraubt ſie</l><lb/>
+<l rendition="#i">Der blänlichen Blätter und ſchaut von oben ernſthaft herunter.</l><lb/>
+<l rendition="#i">Mit leichten Läuften ſtreicht jetzt ein Heer gefleckter Hindinnen</l><lb/>
+<l rendition="#i">Und Hirſche mit Æſten gekrönt durch grüne rauſchende Büſche</l><lb/>
+<l rendition="#i">Setzt über Klüfte, Gewäſſer und Rohr. Moräſte vermiſſen</l><lb/>
+<l rendition="#i">Die Spur der fliegenden Laſt. Gereitzt vom Frühling zur Liebe</l><lb/>
+<l rendition="#i">Durchſtreichen muthige Röſſe den Wald mit flatternden Mähnen,</l><lb/>
+<l rendition="#i">Der Boden zittert und thönt, es ſtrotzen die Zweige der Adern,</l><lb/>
+<l rendition="#i">Ihr Schweif empört ſich verwildert, ſie ſchnauben Wolluſt und<lb/>
+<hi rendition="#et">Hitze</hi></l><lb/>
+<l rendition="#i">Und brechen, vom Ufer ſich ſtürzend, die Fluth der Ströme zur<lb/>
+<hi rendition="#et">Kühlung.</hi></l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Dann</fw><lb/>
+<pb n="27" facs="#f0029"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Dann ſetzen ſie über das Thal auf hohe Felſen und ſchauen</l><lb/>
+<l rendition="#i">Fern über den niedrigen Hayn aufs Feld durchſeegelnde Dünſte</l><lb/>
+<l rendition="#i">Und wiehern aus Wolken herab. Jetzt eilen Stiere vorüber,</l><lb/>
+<l rendition="#i">Aus ihrer Naſen raucht Brunſt, ſie ſpalten mit Hörnern das Erd-<lb/>
+<hi rendition="#et">reich</hi></l><lb/>
+<l rendition="#i">Und toben im Nebel von Staub. Verſchiedne taumeln in Höhlen</l><lb/>
+<l rendition="#i">Und brüllen dumpficht heraus, verſchiedne ſtürzen von Klippen.</l><lb/>
+<l rendition="#i">Aus ausgehöltem Gebürge fällt dort mit wilden Getümmel</l><lb/>
+<l rendition="#i">Ein Fluß ins büſchichte Thal reiſſt mit ſich Stücke von Felſen</l><lb/>
+<l rendition="#i">Durchrauſcht entblöſſete Wurzeln der untergrabenen Bäume</l><lb/>
+<l rendition="#i">Die über flieſſende Hügel von Schaum ſich bücken und wanken;</l><lb/>
+<l rendition="#i">Des Waldes Laubgrotten thönen umher, und klagen darüber.</l><lb/>
+<l rendition="#i">Es ſtutzt ob ſolchem Getöſe das Wild und eilet von dannen,</l><lb/>
+<l rendition="#i">Sich nahende Vögel verlaſſen, im Singen gehindert, die Gegend</l><lb/>
+<l rendition="#i">Und ſuchen ruhige Stellen, wo ſie den Gatten die Fühlung</l><lb/>
+<l rendition="#i">Verliebter Schmerzen entdecken in pyramidnem Geſträuche</l><lb/>
+<l rendition="#i">Und ſtreiten gegen einander mit Liedern von Zweigen der Buchen.</l><lb/>
+<fw rendition="#i" type="sig" place="bottom">D 2</fw><fw rendition="#i" type="catch" place="bottom">Dort</fw><lb/>
+<pb n="28" facs="#f0030"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Dort will ich lauſchen und ſie ſich freun und liebkoſen hören.</l><lb/>
+<l rendition="#i">Fließ ſanft o gläſernes Flüßchen! ſtill! ächzende Zefirs im Laube</l><lb/>
+<l rendition="#i">Schwächt nicht ihr buhlriſches Fliſtern. Schlagt laut Bewohner<lb/>
+<hi rendition="#et">der Wipfel</hi></l><lb/>
+<l rendition="#i">Schlagt, lehrt mich euren Geſang! Sie ſchlagen; Symphoniſche<lb/>
+<hi rendition="#et">Thöne</hi></l><lb/>
+<l rendition="#i">Durchfliehn von Eichen und Dorn des weiten Schattenſaals Kam-<lb/>
+<hi rendition="#et">mern</hi></l><lb/>
+<l rendition="#i">Die ganze Gegend wird Schall. Der Fink, der röthliche Hänfling</l><lb/>
+<l rendition="#i">Pfeift hell aus Buchen. Ein Heer von tulpenfarbgen Stieglitzen</l><lb/>
+<l rendition="#i">Hüpft hin und wieder auf Strauch, beſchaut die blühende Diſtel,</l><lb/>
+<l rendition="#i">Ihr Lied hüpft frölich wie ſie. Der Zeiſig klaget der Schönen</l><lb/>
+<l rendition="#i">Sein Leiden aus Zellen vom Laub. Vom Ulmbaum flötet die Amſel</l><lb/>
+<l rendition="#i">In hohlen Thönen den Baß. Nur die geflügelte Stimme</l><lb/>
+<l rendition="#i">Die kleine Nachtigall weicht aus Ruhmſucht in einſahme Gründe</l><lb/>
+<l rendition="#i">Durch dicke Wipfel umwölbt, der Traurigkeit ewige Wohnung,</l><lb/>
+<l rendition="#i">(Worinn aus Lüſten und Feld der Nacht verbreitete Schatten</l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Sich</fw><lb/>
+<pb n="29" facs="#f0031"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Sich ſcheinen verenget zu haben, als ſie Auroren entwichen)</l><lb/>
+<l rendition="#i">Und macht die ſchreckbare Wüſte zum Luftgefilde des Waldes.</l><lb/>
+<l rendition="#i"> Dort tränkt ein finſterer Teich ringsum ſich Weidengebüſche</l><lb/>
+<l rendition="#i">Auf Æſten wiegt ſie ſich da, lockt laut und ſchmettert und wirbelt</l><lb/>
+<l rendition="#i">Daß Grund und Einöde klingt. So raſen Chöre von Sayten.</l><lb/>
+<l rendition="#i">Jetzt girrt ſie ſänſter, und läuft durch tauſend zärtliche Thöne</l><lb/>
+<l rendition="#i">Jetzt ſchlägt ſie wieder mit Macht. Oft wenn ihr Liebling durch<lb/>
+<hi rendition="#et">Vorwitz</hi></l><lb/>
+<l rendition="#i">Sich in belaubten Gebaur des grauſamen Voglers gefangen</l><lb/>
+<l rendition="#i">Der fern im Lindenbuſch laurt; Denn ruhn der Luſtlieder Fugen</l><lb/>
+<l rendition="#i">Den fliegt ſie ängſtlich umher, ruft ihrer Wonne des Lebens</l><lb/>
+<l rendition="#i">Durch Klüſte, Felſen und Wald, ſeufzt unaufhörlich und jammert</l><lb/>
+<l rendition="#i">Bis ſie für Wehmuth zuletzt halbtodt zum Hecken herabfällt</l><lb/>
+<l rendition="#i">Wor auf ſie gleitet und wankt mit niederſinkenden Haupte.</l><lb/>
+<l rendition="#i">Da klaget um ſie der Schatten des todten Lieblings, da dünkt ihr</l><lb/>
+<l rendition="#i">Ihn wund und blutig zu ſehn. Bald thönt ihr Jammerlied wieder</l><lb/>
+<l rendition="#i">Sie ſetzt es Nächte lang fort und ſcheint bey jeglichen Seufzer</l><lb/>
+<fw rendition="#i" type="sig" place="bottom">D 3</fw><fw rendition="#i" type="catch" place="bottom">Aus</fw><lb/>
+<pb n="30" facs="#f0032"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Aus ſich ihr Leben zu ſeufzen. Die nahen ſträuchichten Hügel</l><lb/>
+<l rendition="#i">Hier durch zum Mitleid bewogen, erheben ein zärtlich Gewinſel.</l></lg><lb/>
+<lg n="11"><l rendition="#i"><hi rendition="#et">Allein was kollert und girrt mir hier zur Seiten vom Eichſtamm</hi></l><lb/>
+<l rendition="#i">Der halb vermodert und zweiglos von keinem Geflügel bewohnt<lb/>
+<hi rendition="#et">wird?</hi></l><lb/>
+<l rendition="#i">Teuſcht mich der Einbildung Spiel? Sieh! plötzlich flattert ein<lb/>
+<hi rendition="#et">Täubchen</hi></l><lb/>
+<l rendition="#i">Aus einen Aſtloch empor mit wandelbaren Gefieder,</l><lb/>
+<l rendition="#i">Dieß zeugte den dumpfichten Schall im Bauch der Eichen. Es gleitet</l><lb/>
+<l rendition="#i">Mit ausgeſpreiteten Flügeln ins Thal, ſucht nickend im Schatten</l><lb/>
+<l rendition="#i">Und ſchaut ſich vorſichtig um mit dürren Reiſern im Munde.</l><lb/>
+<l rendition="#i">Wer lehrt die Bürger der Zweige voll Kunſt ſich Neſter zu wölben</l><lb/>
+<l rendition="#i">Und ſie für Vorwitz und Raub, voll ſüſſen Kummers, zu ſichern?</l><lb/>
+<l rendition="#i">Welch ein verborgener Hauch füllt ihre Herzen mit Liebe?</l><lb/>
+<l rendition="#i">Durch dich iſt alles was gut iſt, unendlich wunderbar Weſen</l><lb/>
+<l rendition="#i">Beherſcher und Vater der Welt! Du biſt ſo herrlich im Vogel</l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Der</fw><lb/>
+<pb n="31" facs="#f0033"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Der niedrig in Dornſtauden hüpft, als in der Veſte des Himmels,</l><lb/>
+<l rendition="#i">In eincr kriechenden Raupe, wie in den flammenden Cherub.</l><lb/>
+<l rendition="#i">See ſonder Ufer und Grund! aus dir quillt alles, du ſelber</l><lb/>
+<l rendition="#i">Haſt keinen Zufluß in dich. Die Feuermeere der Sternen</l><lb/>
+<l rendition="#i">Sind Wiederſcheine von Tropfen des Lichts in welchem du leuch-<lb/>
+<hi rendition="#et">teſt.</hi></l><lb/>
+<l rendition="#i">Dein Wagen ſind gleitende Wolken, dein Herold geflügelte Winde</l><lb/>
+<l rendition="#i">Sie eilen und melden dich an in Thönen voll heiligen Grauens.</l><lb/>
+<l rendition="#i">Aurora dient dir zum Stuhl. Die Himmel unzehlbarer Sphären</l><lb/>
+<l rendition="#i">Mit güldnem Schimmer durchbrochen, ſind deiner Sääle Tapeten.</l><lb/>
+<l rendition="#i">Du drohſt den Stürmen, ſie ſchweigen, berührſt die Berge, ſie rau-<lb/>
+<hi rendition="#et">chen,</hi></l><lb/>
+<l rendition="#i">Das Heulen aufrühriſcher Meere die zwiſchen wäſſernen Felſen</l><lb/>
+<l rendition="#i">Den Sand des Grundes entblöſſen, iſt deiner Herrlichkeit Loblied.</l><lb/>
+<l rendition="#i">Der Donner mit Flammen beflügelt verkündigt mit brüllender<lb/>
+<hi rendition="#et">Stimme</hi></l><lb/>
+<l rendition="#i">Die hohen Thaten von dir. Für Ehrfurcht zittern die Hayne</l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Und</fw><lb/>
+<pb n="32" facs="#f0034"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Und wiederhallen dein Lob. Heerſcharen funkelnder Wächter</l><lb/>
+<l rendition="#i">Der blauen Lüſte, verbreiten in tauſend harmoniſchen Thönen</l><lb/>
+<l rendition="#i">Die Gröſſe deiner Gewalt und Huld von Pole zu Pole.</l><lb/>
+<l rendition="#i">Doch wer berechnet die Menge von deinen Wundern! wer ſchwingt<lb/>
+<hi rendition="#et">ſich</hi></l><lb/>
+<l rendition="#i">Durch deine Tiefe o Schöpfer! Vertraut euch Flügeln der Winde</l><lb/>
+<l rendition="#i">Ruht auf den Pfeilen des Blitzes, durchſtreicht den Glanzvollen<lb/>
+<hi rendition="#et">Abgrund</hi></l><lb/>
+<l rendition="#i">Der Gottheit, ihr endlichen Geiſter! durch tauſend Alter des<lb/>
+<hi rendition="#et">Weltbaus.</hi></l><lb/>
+<l rendition="#i">Ihr werdet dennoch zuletzt kein Pünktchen näher dem Grunde</l><lb/>
+<l rendition="#i">Als bey dem Ausfluge ſeyn. Verſtummt denn bebende Sayten!</l><lb/>
+<l rendition="#i">So preiſt ihr würdger den HERRN.</l></lg><lb/>
+<lg n="12"><l rendition="#i"><hi rendition="#et">Ein Fluß von lieblichem Duft den Zefir mit ſäuſelnden<lb/>
+<hi rendition="#et">Schwingen</hi></hi></l><lb/>
+<l rendition="#i">Von nahgelegener Wieſe herbeyweht, nöthigt mich zu ihr.</l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Da</fw><lb/>
+<pb n="33" facs="#f0035"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Da will ich an ſchwirrendem Rohr in ihrer Blumenſchooß ruhend</l><lb/>
+<l rendition="#i">Mit ſtarken Zügen ihn einziehn. Kom zu mir Liebling Miner-<lb/>
+<hi rendition="#et">vens</hi></l><lb/>
+<l rendition="#i">Mein treuſter - - - - durch den jüngſthin der Winter mir grünte</l><lb/>
+<l rendition="#i">Von deſſen Lippen die Freude zu meinem Buſen herabſtröhmt,</l><lb/>
+<l rendition="#i">Kom! leg dich zu mir und mach die Gegend zur himmliſchen Woh-<lb/>
+<hi rendition="#et">nung.</hi></l><lb/>
+<l rendition="#i">Laß uns der Kinder der Flora Geſtalt und Liebe bewundern</l><lb/>
+<l rendition="#i">Und ſpotten mit ihnen geſchmückt des hohen Pöbels im Purpur.</l><lb/>
+<l rendition="#i">Beſing die Schönheit der Tugend; Laß deines Mundes Geſpräche</l><lb/>
+<l rendition="#i">Mir ſüſſer als Roſenduft ſeyn. Hier iſt der Gratien Luſtplatz</l><lb/>
+<l rendition="#i">Kunſtloſe Gärte durchirrt hier die Ruh, hier rieſelt Entzückung</l><lb/>
+<l rendition="#i">Mit hellen Bächen heran. Den grünen Kleeboden ſchmücken</l><lb/>
+<l rendition="#i">Zerſtreute Wälder von Blumen. Ein Meer von holden Gerüchen</l><lb/>
+<l rendition="#i">Wallt unſichtbar über der Flur in groſſen taumelnden Wogen</l><lb/>
+<l rendition="#i">Von lauen Winden durchwühlt. Es iſt durch tauſend Bewohner</l><lb/>
+<l rendition="#i">Die bunte Gegend belebt. Hochbeinigt watet im Waſſer</l><lb/>
+<fw rendition="#i" type="sig" place="bottom">E</fw><fw rendition="#i" type="catch" place="bottom">Dort</fw><lb/>
+<pb n="34" facs="#f0036"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Dort zwiſchen Kräutern der Storch, und blickt begierig nach<lb/>
+<hi rendition="#et">Nahrung,</hi></l><lb/>
+<l rendition="#i">Dort gaukelt der Kiwitz und ſchreyt ums Haupt des müſſigen<lb/>
+<hi rendition="#et">Knaben</hi></l><lb/>
+<l rendition="#i">Der ſeinem Neſte ſich naht. Jetzt trabt er vor ihm zum Ufer</l><lb/>
+<l rendition="#i">Als hätt er das Fliegen vergeſſen, reitzt ihn durch Hinken zur<lb/>
+<hi rendition="#et">Folge</hi></l><lb/>
+<l rendition="#i">Und lockt ihn endlich ins Feld. Unzehlbare ſchimmernde Würm-<lb/>
+<hi rendition="#et">chen</hi></l><lb/>
+<l rendition="#i">Umflattern freudig den Schilf, theils laufen ſie unten im Graſe</l><lb/>
+<l rendition="#i">Durch Labyrinthe von Blumen in rothen und güldenen Schatten</l><lb/>
+<l rendition="#i">Und glauben im Haynen zu irren. Zerſtreute Heere von Bienen</l><lb/>
+<l rendition="#i">Durchſäuſeln die Lüfte, ſie fallen auf Klee und blühende Stauden</l><lb/>
+<l rendition="#i">Und hängen glänzend dar an wie Thau vom Mondſchein vergüldet;</l><lb/>
+<l rendition="#i">Denn eilen ſie wieder zur Stadt die ihnen im Winkel des Angers</l><lb/>
+<l rendition="#i">Der <choice><sic>Landmaun</sic><corr>Landmann</corr></choice> aus Körben erbaut. Rechtſchaffner Weltweiſen<lb/>
+<hi rendition="#et">Bildniſs</hi></l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Die</fw><lb/>
+<pb n="35" facs="#f0037"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Die ſich der Heymath entziehn, der Menſchheit Gefilde durchſu-<lb/>
+<hi rendition="#et">chen,</hi></l><lb/>
+<l rendition="#i">Und denn heimkehren zur Zelle mit ſüſſer Beute beladen</l><lb/>
+<l rendition="#i">Und liefern uns Honig der Weisheit. Ein See voll fliehender<lb/>
+<hi rendition="#et">Wellen</hi></l><lb/>
+<l rendition="#i">Rauſcht in der Mitte der Au, draus ſteigt ein Eiland zur Höhe</l><lb/>
+<l rendition="#i">Mit Bäumen und Hecken gekrönt, das wie vom Boden entriſſen</l><lb/>
+<l rendition="#i">Scheint gegen die Fluthen zu ſchwimmen. In einer holden Ver-<lb/>
+<hi rendition="#et">wirrung</hi></l><lb/>
+<l rendition="#i">Prangt drauf der Hanbuttenſtrauch voll feuriger Sternchen, der<lb/>
+<hi rendition="#et">Quitzbaum,</hi></l><lb/>
+<l rendition="#i">Holunder, raucher Wacholder, und ſich umarmende Palmen.</l><lb/>
+<l rendition="#i">Das Geißblat ſchmiegt ſich an Zweige der wilden Roſengebüſche,</l><lb/>
+<l rendition="#i">Aus Wolluſt küſſen einander die jungen Blüthen, und hauchen</l><lb/>
+<l rendition="#i">Mit ſüſſen Athem ſich an. Um bunte Kränze des Erdreichs</l><lb/>
+<l rendition="#i">Schleicht Brombeer langſahm im Klee, zieht grüne Netze dazwi-<lb/>
+<hi rendition="#et">ſchen</hi></l><lb/>
+<fw rendition="#i" type="sig" place="bottom">E 2</fw><fw rendition="#i" type="catch" place="bottom">Mit</fw><lb/>
+<pb n="36" facs="#f0038"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Mit ſich durchkreutzenden Ranken. Der blühnde Hagdorn am<lb/>
+<hi rendition="#et">Ufer</hi></l><lb/>
+<l rendition="#i">Bückt ſich hinüber aus Stolz und ſieht verwundernd im Waſſer</l><lb/>
+<l rendition="#i">Den weiſſen und röthlichen Schmuck. O Schauplatz der du die<lb/>
+<hi rendition="#et">Freude</hi></l><lb/>
+<l rendition="#i">Ins Herzens innerſtes mahlſt, ach! daß die Wärme die annoch</l><lb/>
+<l rendition="#i">Seitdem der Winter von uns entflohn, kein Regen gemildert</l><lb/>
+<l rendition="#i">Dich ſamt Gefilden und Gärten die nach Erfriſchung ſich ſehnen</l><lb/>
+<l rendition="#i">Doch nicht der Zierde beraubte und ſeiner Hoffnung den Land-<lb/>
+<hi rendition="#et">mann!</hi></l><lb/>
+<l rendition="#i">Er quick ſie gnädiger Himmel und über ſchütte von oben</l><lb/>
+<l rendition="#i">Mit deiner Güte die Erde. - - - Er komt! er komt! in den<lb/>
+<hi rendition="#et">Wolken</hi></l><lb/>
+<l rendition="#i">Der Seegen, dort taumelt er her, und wird ſich in Ströhmen er-<lb/>
+<hi rendition="#et">gieſſen.</hi></l><lb/>
+<l rendition="#i">Schon ſtreicht der Weſtwind voran, ſchwärmt in den Blättern der<lb/>
+<hi rendition="#et">Bäume</hi></l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Und</fw><lb/>
+<pb n="37" facs="#f0039"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Und wirbelt die Saaten wie Strudel. Die Sonn eilt hinter den<lb/>
+<hi rendition="#et">Fürhang</hi></l><lb/>
+<l rendition="#i">Von Baumwoll ähnlichem Dunſt; Es ſtirbt der Schimmer des Him-<lb/>
+<hi rendition="#et">mels</hi></l><lb/>
+<l rendition="#i">Und eine Decke von Schatten läuft über Thäler und Hügel.</l><lb/>
+<l rendition="#i">Gekrauſt durch ſilberne Zirkel die ſich vergröſſernd verſchwinden</l><lb/>
+<l rendition="#i">Verräth die Fläche des Waſſers den noch nicht ſichtbaren Regen. - - -</l><lb/>
+<l rendition="#i">Jetzt fällt er häuffiger nieder ſich wie Gewebe durchkreutzend,</l><lb/>
+<l rendition="#i">Kaum ſchützt des Erlenbaums Zelt mich für den rauſchenden<lb/>
+<hi rendition="#et">Güſſen.</hi></l><lb/>
+<l rendition="#i">Der Wind umwälzt ſich in ihm und treibt ihn vor ſich wie Seegel</l><lb/>
+<l rendition="#i">Er macht die Lüfte voll Tropfen zur See voll wallender Fluthen.</l><lb/>
+<l rendition="#i">Das Volk das kürzlich aus Wolken die Gegend mit Liedern erfüllte</l><lb/>
+<l rendition="#i">Schweigt und verbirgt ſich in Büſche. Im Lindenthal drengt ſich<lb/>
+<hi rendition="#et"><hi rendition="#et">in Kreiſen</hi></hi></l><lb/>
+<l rendition="#i">Vom Dach der Zweige bedeckt die Wollenheerde um Stämme,</l><lb/>
+<l rendition="#i">Feld, Luft und Hohen ſ<supplied>i</supplied>nd öde nur Sehwalben ſchieſſen in Schaaren</l><lb/>
+<fw rendition="#i" type="sig" place="bottom">E 3</fw><fw rendition="#i" type="catch" place="bottom">Im</fw><lb/>
+<pb n="38" facs="#f0040"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Im Regen, die Teiche beſchauend. - - - Die Augenlieder die jetzo</l><lb/>
+<l rendition="#i">Das Auge des Weltkreiſes deckten, die Dünſt’ erheben ſich plötzlich</l><lb/>
+<l rendition="#i">Nun funkelt die Bühne des Himmels, nun ſieht man hangende Meero</l><lb/>
+<l rendition="#i">In hellen Tropfen zerrinnen und aus den Lûften verſchwinden,</l><lb/>
+<l rendition="#i">Es lachen die Gründe voll Blumen, und alles freut ſich ob flöſſe</l><lb/>
+<l rendition="#i">Der Himmel ſelber zur Erden. Jedoch ſchon ſchiffen von neuem</l><lb/>
+<l rendition="#i">Beladne Wolken vom Abend und hemmen wieder das Licht</l><lb/>
+<l rendition="#i">Sie ſchütten Seen herab, und ſäugen die Felder wie Brüſte. - - -</l></lg><lb/>
+<lg n="13"><l rendition="#i"><hi rendition="#et">Auch die vergieſſen ſich endlich. Ein güldner Regen von<lb/>
+<hi rendition="#et"><hi rendition="#et">Strahlen</hi></hi></hi></l><lb/>
+<l rendition="#i">Füllt jetzo wieder die Luft; Der grüne Hauptſchmuck der Felſen,</l><lb/>
+<l rendition="#i">Voll von den Saaten der Wolken, ſpielt blendend gegen der Sonne;</l><lb/>
+<l rendition="#i">Verjüngt, voll Schimmer und lächelnd, voll Lichter Streifen und<lb/>
+<hi rendition="#et"><hi rendition="#et">Kränze</hi></hi></l><lb/>
+<l rendition="#i">Sehn die Gefilde mich an. Tauch in die Farben Aurorens</l><lb/>
+<l rendition="#i">Mahl mir die Landſchaft, o du! aus deſſen ewigen Liedern</l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Der</fw><lb/>
+<pb n="39" facs="#f0041"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Der Aare Ufer mir duften und vor den Angeſicht prangen,</l><lb/>
+<l rendition="#i">Der ſich die Pfeiler des Himmels die Alpen die er beſungen</l><lb/>
+<l rendition="#i">Zu Ehrenſäulen gemacht. Wie blitzt die ſtreifichte Wieſe</l><lb/>
+<l rendition="#i">Von Demant ähnlichen Tropfen! wie lieblich regnen ſie ſeitwerts</l><lb/>
+<l rendition="#i">Von farbigten Blumengebüſchen und blühenden Kronen der Sträuche.</l><lb/>
+<l rendition="#i">Die Kräuter ſind wieder erfriſcht und hauchen ſtärkre Gerüche,</l><lb/>
+<l rendition="#i">Der ganze Himmel iſt Duft. Getränkte Halmen erheben</l><lb/>
+<l rendition="#i">Froh ihre Häupter, und ſcheinen die Huld des Himmels zu preiſen.</l></lg><lb/>
+<lg n="14"><l rendition="#i"><hi rendition="#et">Grünt nun ihr holden Gefilde! ihr Wieſen und Schlöſſer<lb/>
+<hi rendition="#et"><hi rendition="#et">vom Laube!</hi></hi></hi></l><lb/>
+<l rendition="#i">Grünt, ſeyd die Freude des Volks! Dient meiner Unſchuld hin-<lb/>
+<hi rendition="#et"><hi rendition="#et">führo</hi></hi></l><lb/>
+<l rendition="#i">Zum Schirm, wenn Boßheit und Stolz aus Schlöſſern und Städten<lb/>
+<hi rendition="#et"><hi rendition="#et">mich treiben.</hi></hi></l><lb/>
+<l rendition="#i">Mir wehe Zefir aus euch durch Blumen und Hecken noch öfter</l><lb/>
+<l rendition="#i">Ruh und Erquickung ins Herz. Laſſt mich in euren Revieren</l><lb/>
+<fw rendition="#i" type="catch" place="bottom">Den</fw><lb/>
+<pb n="40" facs="#f0042"/>
+<fw rendition="#i" type="header" place="top">Der Frühling.</fw><lb/>
+<l rendition="#i">Den HErrn und Vater der Welt, der Seegen über euch breitet</l><lb/>
+<l rendition="#i">Im Strahlenkreiſe der Sonnen, im Thau und träuſelnden Wolken,</l><lb/>
+<l rendition="#i">Noch ferner auf Flügeln der Winde mit Augen des Geiſtes erbli-<lb/>
+<hi rendition="#et">cken</hi></l><lb/>
+<l rendition="#i">Und melden voll heiliger Regung ſein Lob antwortenden Sternen.</l><lb/>
+<l rendition="#i">Und wenn nach ſeinem Geheiß mein Ziel des Lebens herannaht,</l><lb/>
+<l rendition="#i">Denn ſey mir endlich in euch die letzte Ruhe verſtattet.</l></lg></lg></div><lb/>
+<pb n="[41]" facs="#f0043"/>
+<pb n="[42]" facs="#f0044"/>
+<pb n="[43]" facs="#f0045"/>
+</body></text> </TEI>

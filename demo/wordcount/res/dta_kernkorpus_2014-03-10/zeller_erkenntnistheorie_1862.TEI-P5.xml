@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Über Bedeutung und Aufgabe der Erkenntniss-Theorie</title>
+<title type="sub">Ein akademischer Vortrag</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118636383">
+<surname>Zeller</surname>
+<forename>Eduard</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">37</measure>
+<measure type="tokens">5282</measure>
+<measure type="types">1519</measure>
+<measure type="characters">37547</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:25Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/zeller_erkenntnistheorie_1862</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/zeller_erkenntnistheorie_1862</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/zeller_erkenntnistheorie_1862</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/zeller_erkenntnistheorie_1862</idno>
+<idno type="DTADirName">zeller_erkenntnistheorie_1862</idno>
+<idno type="DTAID">16202</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905196890</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Zeller, Eduard: Über Bedeutung und Aufgabe der Erkenntniss-Theorie. Ein akademischer Vortrag. Heidelberg, 1862.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Über Bedeutung und Aufgabe der Erkenntniss-Theorie</title>
+<title level="m" type="sub">Ein akademischer Vortrag</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118636383">
+<surname>Zeller</surname>
+<forename>Eduard</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">29 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Groos</name></publisher>
+<pubPlace>Heidelberg</pubPlace>
+<date type="publication">1862</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Zentral- und Landesbibliothek Berlin</repository>
+<idno>
+<idno type="shelfmark">Berlin ZLB, H 3715</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<titlePage type="main"> <docTitle> <titlePart type="main">Ueber<lb/>
+<hi rendition="#b">Bedeutung und Aufgabe</hi><lb/>
+der<lb/>
+<hi rendition="#b">Erkenntniss-Theorie.</hi></titlePart><lb/>
+<titlePart type="sub"> <hi rendition="#g">Ein akademischer Vortrag</hi></titlePart> </docTitle><lb/>
+<byline>von<lb/>
+<docAuthor> <hi rendition="#b">Dr. Eduard Zeller,</hi></docAuthor><lb/>
+ord. Professor der Philosophie in Heidelberg. </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b">Heidelberg.</hi></pubPlace><lb/>
+<publisher> <hi rendition="#g">Buchhandlung von Karl Groos.</hi> </publisher><lb/>
+<docDate> <hi rendition="#g">1862</hi>.</docDate> </docImprint> </titlePage><lb/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<div n="1"> <head> <hi rendition="#b">Vorbemerkung</hi>.<lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">D</hi>ie nachstehenden Blätter bringen den wesent¬<lb/>
+lichen Inhalt des Vortrags, mit dem ich meine<lb/>
+Vorlesungen über Logik und Erkenntniss-Theorie<lb/>
+an der hiesigen Universität eröffnet habe. Wenn<lb/>
+ich diesen Vortrag der Oeffentlichkeit übergebe,<lb/>
+geschieht es in der Hoffnung, dass vielleicht auch<lb/>
+Andere dadurch veranlasst werden, den hier an¬<lb/>
+geregten Fragen ihre Aufmerksamkeit zuzuwenden<lb/>
+und sie durch wissenschaftliche Besprechung zu<lb/>
+fördern. Wie wenig ich freilich in dem engen<lb/>
+Rahmen einer einzigen Vorlesung etwas Er¬<lb/>
+schöpfendes zu geben vermochte, konnte ich selbst<lb/>
+nicht übersehen; ebenso werden aber auch billige<lb/>
+Beurtheiler von derselben nicht mehr, als was die<lb/>
+Natur solcher einleitenden Erörterungen verstattet,<lb/>
+erwarten.</p><lb/>
+<p><hi rendition="#i">Heidelberg</hi>, den 26. Oktbr. 1862.</p><lb/>
+<p rendition="#right"><hi rendition="#b #i">D. V.</hi></p> </div><lb/>
+<pb facs="#f0008"/>
+</front>
+<pb facs="#f0009"/>
+<body> <div n="1"> <p>M. H.! Was ich Ihnen zur vorläufigen Orientirung<lb/>
+über den Inhalt und die Richtung der Vorträge zu sagen<lb/>
+habe, die ich heute beginne, das habe ich theilweise<lb/>
+schon in ihrer Ankündigung angedeutet. Wenn ich als<lb/>
+den Gegenstand derselben die Logik und die Erkennt¬<lb/>
+nisstheorie bezeichnete, so wollte ich damit nicht blos<lb/>
+diess ausdrücken, dass sowohl die eine als die andere<lb/>
+von diesen Wissenschaften darin besprochen werden solle;<lb/>
+sondern ich wollte auf einen inneren Zusammenhang bei¬<lb/>
+der hinweisen, ich wollte die Ueberzeugung aussprechen,<lb/>
+dass die Logik, um eine wissenschaftliche Haltung zu<lb/>
+gewinnen, sich auf die Erkenntnisstheorie gründen, die<lb/>
+Erkenntnisstheorie sich durch die Logik vollenden müsse.<lb/>
+Lassen Sie uns zunächst diesen Punkt genauer in’s Auge<lb/>
+fassen, und dann hieran einige weitere Bemerkungen<lb/>
+über die Bedeutung und die Aufgabe der philosophischen<lb/>
+Erkenntnisstheorie anknüpfen.</p><lb/>
+<p>Mit dem Namen der Logik pflegt man seit zwei¬<lb/>
+tausend Jahren das Ganze der Untersuchungen zu be¬<lb/>
+zeichnen, welche sich auf die Denkthätigkeit rein als<lb/>
+<pb n="6" facs="#f0010"/>
+solche, und abgesehen von dem bestimmten Inhalt un¬<lb/>
+seres Denkens, beziehen; sie soll die Formen und Gesetze<lb/>
+des Denkens darstellen, über die Gegenstände dagegen,<lb/>
+welche mittelst derselben erkannt werden können, nichts<lb/>
+aussagen. Dieser älteren Logik hat sich jedoch in der<lb/>
+neueren Zeit, bei <hi rendition="#g">Hegel</hi> und seinen Nachfolgern, eine<lb/>
+andere entgegengestellt. Diese will nicht blos eine Er¬<lb/>
+kenntniss der Denkformen, sondern zugleich auch eine<lb/>
+Erkenntniss des Wirklichen, das Gegenstand unseres<lb/>
+Denkens ist, gewähren; sie will nicht blos Logik, son¬<lb/>
+dern zugleich auch Metaphysik sein, und sie selbst<lb/>
+nennt sich desshalb, im Gegensatz zu der gewöhnlichen,<lb/>
+blos formalen Logik, die spekulative. Meiner Ansicht<lb/>
+nach ist diese Gleichstellung der Logik mit der Meta¬<lb/>
+physik oder dem ontologischen Theile der Metaphysik<lb/>
+nicht zulässig. Man sagt zwar, die Form lasse sich vom<lb/>
+Inhalt nicht trennen; blosse Denkformen, die auf jeden<lb/>
+beliebigen Inhalt gleich gut angewandt werden könnten,<lb/>
+wären ohne Wahrheit; nur dann werden die Formen un¬<lb/>
+seres Denkens auf objektive Gültigkeit Anspruch machen<lb/>
+können, wenn in ihnen zugleich die Grundbestimmungen<lb/>
+des Seins erkannt werden, welche als die gegenständ¬<lb/>
+lichen Begriffe das Wesen der Dinge selbst bilden. Gegen<lb/>
+diese Beweisführung lässt sich jedoch Manches einwenden.<lb/>
+Für’s Erste nämlich ist es immer uneigentlich gesprochen,<lb/>
+wenn man sagt, die Gedanken seien das Wesen der<lb/>
+Dinge, denn dieses Wesen ist wohl Gegenstand unseres<lb/>
+Denkens, aber nicht unmittelbar an sich selbst Gedanke;<lb/>
+<pb n="7" facs="#f0011"/>
+es wird durch unser Denken erkannt, aber es hat nicht<lb/>
+an unserem Denken seinen Bestand, und wird nicht durch<lb/>
+unser Denken erzeugt. Aber wollen wir auch davon<lb/>
+absehen, so folgt doch durchaus nicht, dass die Denk¬<lb/>
+formen, weil sie in der Wirklichkeit immer mit einem<lb/>
+bestimmten Inhalt erfüllt sind, nun auch nicht ohne diesen<lb/>
+Inhalt zum Gegenstand der Untersuchung gemacht wer¬<lb/>
+den können. Gerade diess ist vielmehr die Aufgabe der<lb/>
+wissenschaftlichen Analyse, dass sie die verschiedenen<lb/>
+Bestandtheile unserer Vorstellungen unterscheide, das,<lb/>
+was in der Erscheinung verknüpft und vermischt ist,<lb/>
+sondere, und uns so in den Stand setze, das Gegebene<lb/>
+aus seinen ursprünglichen Elementen zu erklären. Wenn<lb/>
+diess die Logik in Beziehung auf unser denkendes Be¬<lb/>
+wusstsein überhaupt thut, wenn sie, die allgemeinen<lb/>
+Formen unseres Denkens für sich, und abgesehen von<lb/>
+jedem bestimmten Inhalt, betrachtet, so beschäftigt sie<lb/>
+sich nicht mit etwas Unwirklichem und Unwahrem; man<lb/>
+müsste denn das Gleiche auch der Mathematik vorwerfen,<lb/>
+weil diese Wissenschaft die allgemeinen Eigenschaften<lb/>
+der Zahl ohne Rücksicht auf die nähere Beschaffenheit<lb/>
+des Gezählten, die allgemeinen Verhältnisse der räum¬<lb/>
+lichen Gestalt, abgesehen von der physikalischen Be¬<lb/>
+schaffenheit der Körper, untersucht. Sondern wie in<lb/>
+dem letzteren Fall bestimmte Seiten und Eigenschaften<lb/>
+des Wirklichen für sich herausgehoben und zum Gegen¬<lb/>
+stand der Betrachtung gemacht werden, so hat es auch<lb/>
+die formale Logik mit einem Wirklichen, mit dem Denken,<lb/>
+<pb n="8" facs="#f0012"/>
+als dieser Thatsache des menschlichen Geisteslebens, zu<lb/>
+thun; nur dass sie dasselbe blos nach der Seite seiner<lb/>
+Form, nicht nach der seines Inhalts, in Betracht zieht.<lb/>
+Diese gesonderte Behandlung der Denkformen ist aber<lb/>
+nicht allein statthaft, sondern sie ist geradezu unent¬<lb/>
+behrlich. Denn da die Ergebnisse jeder Untersuchung<lb/>
+wesentlich durch das Verfahren bedingt sind, dessen<lb/>
+man sich bei derselben bedient, so ist es unmöglich,<lb/>
+die Erforschung des Wirklichen mit wissenschaftlicher<lb/>
+Sicherheit in Angriff zu nehmen, wenn nicht zuvor die<lb/>
+Bedingungen und Formen des wissenschaftlichen Ver¬<lb/>
+fahrens festgestellt sind. Eben diess aber ist die Aufgabe<lb/>
+der Logik. Die Logik muss daher als wissenschaftliche<lb/>
+Methodologie jeder materiellen Untersuchung des Wirk¬<lb/>
+lichen vorangehen; und diess gilt nicht allein von den<lb/>
+Fächern, welche sich mit den einzelnen Gebieten des<lb/>
+Wirklichen, der Natur und dem menschlichen Geiste,<lb/>
+beschäftigen, sondern auch von der Metaphysik und dem<lb/>
+allgemeinsten Theile derselben, der Ontologie: auch diese<lb/>
+wird sich nicht mit Erfolg behandeln lassen, wenn wir<lb/>
+nicht vorher über die Art ihrer Behandlung im Reinen<lb/>
+sind, wenn wir z. B. nicht vorher wissen, ob sie durch<lb/>
+ein apriorisches oder ein aposteriorisches Verfahren,<lb/>
+durch Reflexion auf das Gegebene oder durch dialektische<lb/>
+Construction zu Stande kommt. Die Logik fällt daher<lb/>
+mit der Metaphysik so wenig, als mit irgend einem an¬<lb/>
+dern unmittelbar auf die Erkenntniss des Objekts ge¬<lb/>
+richteten Theile des philosophischen Systems zusammen,<lb/>
+<pb n="9" facs="#f0013"/>
+sondern sie geht ihr voran: jene hat die allgemeinsten<lb/>
+Bestimmungen alles Wirklichen, diese die Formen und<lb/>
+Gesetze der menschlichen Erkenntnissthätigkeit zu unter¬<lb/>
+suchen. Wie verschieden aber diese zwei Aufgaben sind,<lb/>
+diess zeigt sich auch an der Hegel’schen Logik. Weit<lb/>
+die meisten von ihren Kategorieen drücken nur Bestim¬<lb/>
+mungen des gegenständlichen Seins, ohne jede nähere<lb/>
+Beziehung zu den Denkformen aus; diejenigen umgekehrt,<lb/>
+welche eine Beschreibung der Denkformen enthalten,<lb/>
+lassen sich nur künstlich und in uneigentlichem Sinn auf<lb/>
+das Gegenständliche übertragen. Die Denkoperationen,<lb/>
+mittelst deren wir das Wesen der Dinge erkennen, sind<lb/>
+eben etwas anderes, als das, was durch sie erkannt wird;<lb/>
+nur dann könnten beide sich unmittelbar gleichgesetzt<lb/>
+werden, wenn das Objekt blos in unserem Denken exi¬<lb/>
+stirte, oder wenn es sich andererseits ohne alle Vermitt¬<lb/>
+lung unserer Selbstthätigkeit völlig unverändert darin<lb/>
+abdrückte.</p><lb/>
+<p>Nichtsdestoweniger ist der Tadel der älteren Logik,<lb/>
+dass es ihr an einer realen Grundlage fehle, nicht un¬<lb/>
+begründet. Nur wird sie diese nicht bei der Metaphysik,<lb/>
+sondern bei der Erkenntnisstheorie zu suchen haben.<lb/>
+Auf eine bestimmte Ansicht über das Objekt wird sich<lb/>
+<hi rendition="#g">die</hi> Wissenschaft, welche jeder objektiven Erkenntniss<lb/>
+vorangeht, nicht begründen lassen; wohl aber auf eine<lb/>
+Ansicht von den allgemeinen Elementen und Bedingungen<lb/>
+der Erkenntnissthätigkeit, deren besondere Formen sie<lb/>
+beschreiben und ebendamit die Regeln für ihre Anwen¬<lb/>
+<pb n="10" facs="#f0014"/>
+dung aufstellen soll. Nur von hier aus wird sich auch<lb/>
+die Logik gegen den Vorwurf des Formalismus, so weit<lb/>
+dieser Vorwurf überhaupt begründet ist, mit Erfolg<lb/>
+schützen lassen. Eine formale Wissenschaft ist die Logik<lb/>
+allerdings so gut, wie die Grammatik oder die reine<lb/>
+Mathematik, und sie muss es sein, weil sie es eben nur<lb/>
+mit den allgemeinen Formen des Erkennens, nicht mit<lb/>
+einem bestimmten Inhalt zu thun hat. Aber formalistisch<lb/>
+wird sie erst dann, wenn sie diese Formen ohne Ver¬<lb/>
+ständniss ihrer realen Bedeutung, und desshalb auch ohne<lb/>
+Unterscheidung des Wesentlichen und Unwesentlichen<lb/>
+handhabt. Ihre Bedeutung liegt aber in dem Dienst,<lb/>
+welchen sie uns für die Erkenntniss des Wirklichen lei¬<lb/>
+sten, und wie es hiemit bestellt ist, lässt sich nur nach<lb/>
+ihrem Verhältniss zu der Geistesthätigkeit beurtheilen,<lb/>
+durch welche wir ursprünglich zur Vorstellung des Wirk¬<lb/>
+lichen gelangen. Da nun diese den eigenthümlichen Ge¬<lb/>
+genstand der Erkenntnisstheorie bildet, so liegt am Tage,<lb/>
+dass es die Erkenntnisstheorie ist, auf welche die Logik<lb/>
+zurückgehen muss, wenn die Denkformen für sie zu et¬<lb/>
+was Lebendigem werden und den Schein willkührlicher<lb/>
+Formeln verlieren sollen.</p><lb/>
+<p>Es ist aber nicht blos ihr Zusammenhang mit der Logik,<lb/>
+worin die Bedeutung der philosophischen Erkenntniss¬<lb/>
+theorie zu suchen ist. Diese Wissenschaft bildet vielmehr<lb/>
+die formale Grundlage der ganzen Philosophie; sie ist<lb/>
+es, von der die letzte Entscheidung über die richtige<lb/>
+Methode in der Philosophie und in der Wissenschaft<lb/>
+<pb n="11" facs="#f0015"/>
+überhaupt ausgehen muss. Denn wie wir zu verfahren<lb/>
+haben, um richtige Vorstellungen zu gewinnen, diess<lb/>
+werden wir nur nach Maassgabe der Bedingungen be¬<lb/>
+urtheilen können, an welche die Bildung unserer Vor¬<lb/>
+stellungen durch die Natur unseres Geistes geknüpft ist;<lb/>
+diese Bedingungen aber soll eben die Erkenntnisstheorie<lb/>
+untersuchen, und hienach bestimmen, ob und unter wel¬<lb/>
+chen Voraussetzungen der menschliche Geist zur Er¬<lb/>
+kenntniss der Wahrheit befähigt ist. Das Bedürfniss<lb/>
+solcher Untersuchungen hat sich daher der Philosophie<lb/>
+aufgedrängt, seit ihr durch Sokrates die Idee eines<lb/>
+methodischen, von einer bestimmten Ueberzeugung über<lb/>
+die Natur des Wissens geleiteten Verfahrens zum Be¬<lb/>
+wusstsein gebracht worden ist. Aber erst in den letzten<lb/>
+Jahrhunderten ist ihre volle Bedeutung hervorgetreten<lb/>
+und ihre Aufgabe schärfer bestimmt worden. Schon in<lb/>
+den ersten Begründern der neueren Philosophie, in <hi rendition="#g">Baco</hi><lb/>
+und <hi rendition="#g">Descartes</hi>, traten sich die zwei wissenschaftlichen<lb/>
+Richtungen des Empirismus und des Rationalismus ge¬<lb/>
+genüber. Hatte <hi rendition="#g">Baco</hi> vorausgesetzt, dass alles Wissen<lb/>
+aus der Erfahrung entspringe, so suchte <hi rendition="#g">Hobbes</hi> ge¬<lb/>
+nauer zu zeigen, in welcher Weise unsere Vorstellungen<lb/>
+und Gedanken aus der sinnlichen Empfindung hervor¬<lb/>
+gehen; und <hi rendition="#g">Locke</hi> wies, unter ausdrücklicher Bestrei¬<lb/>
+tung der angeborenen Ideen, in der äusseren und inneren<lb/>
+Erfahrung die zwei Quellen nach, aus denen der ganze<lb/>
+Inhalt unseres Bewusstseins ausschliesslich herzuleiten sei.<lb/>
+Gegen ihn verfocht <hi rendition="#g">Leibnitz</hi> die cartesianische An¬<lb/>
+<pb n="12" facs="#f0016"/>
+nahme angeborener Ideen, und er war folgerichtig genug,<lb/>
+diese Annahme, den Forderungen seines ganzen Systems<lb/>
+entsprechend, bis zu dem Punkt fortzuführen, zu dem<lb/>
+sie schon in der cartesianischen Schule und bei <hi rendition="#g">Spinoza</hi><lb/>
+unverkennbar hingedrängt hatte, zu der Behauptung,<lb/>
+dass <hi rendition="#g">alle</hi> unsere Vorstellungen ohne Ausnahme ange¬<lb/>
+borene Ideen seien, dass alle aus unserem eigenen Geiste<lb/>
+hervorgehen und mit den äusseren Erscheinungen zwar<lb/>
+zeitlich zusammentreffen, aber nicht unmittelbar durch<lb/>
+ihre Einwirkung erzeugt werden. Zugleich fand aber<lb/>
+Leibnitz in der Unterscheidung der unbewussten und<lb/>
+der bewussten, der verworrenen und deutlichen Vor¬<lb/>
+stellungen, in der Lehre von den verschiedenen Ent¬<lb/>
+wicklungsstufen des geistigen Lebens das Mittel, die<lb/>
+Erfahrung und Sinnesempfindung selbst in diese Ent¬<lb/>
+wicklung mit aufzunehmen, und sie von seinem Stand¬<lb/>
+punkt aus zu erklären. Der Locke’sche Empirismus<lb/>
+wurde von den französischen Philosophen des 18. Jahr¬<lb/>
+hunderts zum Sensualismus, weiterhin zum Materialismus<lb/>
+fortgebildet; in England gieng aus demselben zuerst <hi rendition="#g">Ber¬<lb/>
+keley’s</hi> Idealismus, dann <hi rendition="#g">David Hume’s</hi> Skepsis<lb/>
+hervor, welcher die schottische Schule in der Hauptsache<lb/>
+doch nur die Berufung auf die Voraussetzungen und<lb/>
+Bedürfnisse des unphilosophischen Bewusstseins entge¬<lb/>
+genzustellen wusste. Auf dem gleichen Punkt war aber<lb/>
+auch die deutsche Philosophie angelangt, nachdem der<lb/>
+leibnitzische Spiritualismus bei <hi rendition="#g">Wolff</hi> in einen logischen<lb/>
+Formalismus umgeschlagen war, der seine reale Ergän¬<lb/>
+<pb n="13" facs="#f0017"/>
+zung naturgemäss nur in der Erfahrung finden konnte;<lb/>
+und ähnlich lag für die französischen Aufklärer, und vor<lb/>
+Allem für <hi rendition="#g">Rousseau</hi>, der letzte Maasstab der Wahrheit<lb/>
+in gewissen praktischen Ueberzeugungen, die ihnen vor<lb/>
+jeder wissenschaftlichen Untersuchung als unerlässliches<lb/>
+Ergebniss zum Voraus feststanden.</p><lb/>
+<p> <hi rendition="#g">Kant’s</hi> unsterbliches Verdienst ist es, dass er die<lb/>
+Philosophie aus diesem Dogmatismus herausgeführt, die<lb/>
+Frage nach dem Ursprung und der Wahrheit unserer<lb/>
+Vorstellungen nicht blos auf’s Neue in Fluss gebracht,<lb/>
+sondern sie auch gründlicher und umfassender, als irgend<lb/>
+einer von seinen Vorgängern, gelöst hat. Die letzteren<lb/>
+hatten unsere Vorstellungen einseitig <hi rendition="#g">entweder</hi> aus<lb/>
+der Erfahrung <hi rendition="#g">oder</hi> aus unserem eigenen Geist abge¬<lb/>
+leitet. Kant erkennt, dass sie sowohl aus der einen<lb/>
+als aus der andern von diesen Quellen entspringen; und<lb/>
+er behauptet diess nicht in dem eklektischen Sinn, als ob<lb/>
+ein Theil derselben empirischen, ein anderer Theil apri¬<lb/>
+orischen Ursprungs wäre; sondern seine Meinung ist die,<lb/>
+dass es keine einzige Vorstellung gebe, in der nicht beide<lb/>
+Elemente vereinigt seien. Alle erhalten ihren Inhalt,<lb/>
+wie Kant annimmt, aus der Empfindung; aber allen,<lb/>
+ohne Ausnahme, auch denen, worin wir uns scheinbar<lb/>
+nur aufnehmend verhalten, wird ihre Form durch uns<lb/>
+selbst gegeben; unser eigener Geist ist es, der den Stoff,<lb/>
+welchen die Empfindung ihm darbietet, nach den ihm<lb/>
+inwohnenden Gesetzen zu Anschauungen und Begriffen<lb/>
+verknüpft. Kant giebt also zugleich dem Empirismus<lb/>
+<pb n="14" facs="#f0018"/>
+Recht, welcher behauptet, alle Vorstellungen entspringen<lb/>
+aus der Erfahrung, und dem Rationalismus, der sie alle<lb/>
+aus unserem Innern entspringen lässt; er giebt aber kei¬<lb/>
+nem von beiden darin Recht, dass er seine Behauptung<lb/>
+mit Ausschluss der entgegengesetzten festhält; er selbst<lb/>
+weiss, indem er die Form und den Stoff unserer Vor¬<lb/>
+stellungen unterscheidet, beide Standpunkte zu verknüpfen<lb/>
+und ebendamit zu überwinden, nicht blos einen Theil<lb/>
+unserer Vorstellungen, sondern sie alle, zugleich als eine<lb/>
+Wirkung der Objekte und als ein Erzeugniss unseres<lb/>
+Selbstbewusstseins zu begreifen.</p><lb/>
+<p>Aus diesen Voraussetzungen hat nun <hi rendition="#g">Kant</hi> allerdings<lb/>
+Schlüsse gezogen, durch welche die deutsche Philosophie<lb/>
+bei aller Grossartigkeit ihrer Entwicklung doch in eine<lb/>
+einseitige und nicht ungefährliche Bahn gelenkt wurde.<lb/>
+Wenn alle Vorstellungen aus der Erfahrung entspringen,<lb/>
+so können wir uns von nichts eine Vorstellung bilden,<lb/>
+was über das Gebiet der möglichen Erfahrung hinaus¬<lb/>
+geht; wenn bei ihnen allen unsere Selbstthätigkeit mit<lb/>
+im Spiele ist, allen ein subjektives, apriorisches Element<lb/>
+beigemischt ist, so bringen sie uns die Dinge nie so zur<lb/>
+Anschauung, wie sie an sich sind, sondern immer nur<lb/>
+so, wie sie uns nach der Eigenthümlichkeit unseres Vor¬<lb/>
+stellens erscheinen. Wir sehen Alles nur in der Färbung,<lb/>
+die wir selbst ihm verleihen, und wie es sich abgesehen<lb/>
+davon ausnehmen würde, können wir schlechterdings<lb/>
+nicht wissen. Zunächst diese letztere Folgerung war es,<lb/>
+an die Kant’s Nachfolger sich hielten. Wenn ich nicht<lb/>
+<pb n="15" facs="#f0019"/>
+wissen kann, <hi rendition="#g">was</hi> die Dinge an sich sind, sagt <hi rendition="#g">Fichte</hi>,<lb/>
+so kann ich auch nicht wissen, <hi rendition="#g">ob</hi> Dinge an sich sind;<lb/>
+die Dinge sind mir nur in meinem Bewusstsein gegeben,<lb/>
+und wenn sich uns allerdings die Vorstellung derselben<lb/>
+unwiderstehlich aufdrängt, so folgt daraus doch nicht<lb/>
+im Geringsten, dass diese Vorstellung von Gegenständen<lb/>
+ausser uns herrührt. Berechtigt ist vielmehr nur der<lb/>
+Schluss, dass in der Natur unseres Geistes etwas liege,<lb/>
+was uns nöthigt, die Vorstellung von Dingen ausser<lb/>
+uns zu erzeugen, und die Aufgabe der Philosophie kann<lb/>
+nur <hi rendition="#g">die</hi> sein, diese ganze vermeintliche Aussenwelt als<lb/>
+Erscheinung des Bewusstseins, als ein Werk des unend¬<lb/>
+lichen Ich, ein Moment seiner Entwicklung zu begreifen.</p><lb/>
+<p>Dass diess freilich nicht so einfach und leicht sei,<lb/>
+musste sich bald herausstellen. Gesetzt auch, der Gegen¬<lb/>
+satz des Ich und des Nichtich sei erst ein abgeleiteter,<lb/>
+aus dem unendlichen Ich selbst erzeugter, so ist er doch<lb/>
+in unserem Bewusstsein nun einmal vorhanden, ja er ist<lb/>
+eine Grundthatsache unseres Bewusstseins, wir finden<lb/>
+uns selbst als bewusste nur in diesem Gegensatz, und<lb/>
+können nicht von ihm abstrahiren, ohne ebendamit auch<lb/>
+von der Persönlichkeit, als bewusster und bestimmter,<lb/>
+zu abstrahiren. Subjekt bin ich nur, indem ich mich<lb/>
+vom Objekt unterscheide; denke ich mir das, was diesem<lb/>
+Unterschied vorangeht, so habe ich mir weder ein Sub¬<lb/>
+jekt noch ein Objekt gedacht, sondern nur die Einheit<lb/>
+beider, nur das „Subjekt-Objekt“. Diess konnte auch<lb/>
+Fichte nicht läugnen, und er unterschied desshalb das<lb/>
+<pb n="16" facs="#f0020"/>
+empirische Ich, das Subjekt, welches im Gegensatz zum<lb/>
+Objekt steht, von dem reinen oder absoluten Ich, welches<lb/>
+diesem Gegensatz vorangeht und das Subjekt, wie das<lb/>
+Objekt, als seine Erscheinungsform erst hervorbringt.<lb/>
+Aber mit welchem Recht, fragt <hi rendition="#g">Schelling</hi> nicht ohne<lb/>
+Grund, kann dieses unendliche Wesen noch „Ich“ genannt<lb/>
+werden? Ich ist eben die selbstbewusste Persönlichkeit,<lb/>
+das Subjekt; dasjenige, was sowohl Objekt als Subjekt<lb/>
+ist, ist ebendamit weder Subjekt noch Objekt, es ist also<lb/>
+auch nicht Ich, es ist nur das Absolute als solches. So<lb/>
+bricht der Fichte'sche Begriff des absoluten Ich in der<lb/>
+Mitte auseinander: auf die eine Seite stellt sich das<lb/>
+Absolute, das weder Subjekt noch Objekt, weder Ich<lb/>
+noch nicht-Ich, sondern nur ihre absolute Identität und<lb/>
+Indifferenz ist; auf die andere das abgeleitete Sein in<lb/>
+den zwei Hauptformen des Objekts und Subjekts, der<lb/>
+Natur und des Geistes; die Sache der Philosophie ist es,<lb/>
+diese beiden Seiten denkend zu vermitteln, das Abge¬<lb/>
+leitete aus dem Ursprünglichen, Geist und Natur aus<lb/>
+dem Absoluten zu erklären.</p><lb/>
+<p>Geistvoll, aber mit mangelhafter Methode, unter<lb/>
+unruhigem Wechsel der wissenschaftlichen Form und des<lb/>
+Ausdrucks, versuchte sich <hi rendition="#g">Schelling</hi> an dieser Er¬<lb/>
+klärung; <hi rendition="#g">Hegel</hi> unternahm es, die gleiche Aufgabe in<lb/>
+geduldiger Arbeit des Gedankens mit systematischer<lb/>
+Strenge und Vollständigkeit zu lösen. Wenn sich das<lb/>
+absolute Wesen in Natur und Geist offenbart, so muss<lb/>
+die Nothwendigkeit dieser Offenbarung in ihm selbst<lb/>
+<pb n="17" facs="#f0021"/>
+liegen, sie muss zur Vollständigkeit seines eigenen Wesens<lb/>
+gehören; Natur und Geist müssen mithin wesentliche<lb/>
+Erscheinungsformen des Absoluten, unentbehrliche Mo¬<lb/>
+mente seines unendlichen Lebens, und es selbst muss<lb/>
+das durch die Gegensätze des Endlichen sich bewegende,<lb/>
+durch die Natur zum Geist sich entwickelnde Wesen,<lb/>
+der absolute Geist sein. Diese seine Offenbarung muss<lb/>
+ferner durchaus gesetzmässig, durch innere Nothwendig¬<lb/>
+keit bestimmt sein; denn eine Zufälligkeit seines Wirkens<lb/>
+und Daseins würde dem Begriff des Absoluten wider¬<lb/>
+streiten. Ist sie aber dieses, so muss es auch möglich<lb/>
+sein, sie in ihrer Gesetzmässigkeit zu erkennen, die Welt<lb/>
+in ihrem Hervorgang aus dem Absoluten zu begreifen,<lb/>
+wenn nur erst die Formel gefunden ist, nach der dieser<lb/>
+Process sich vollzieht. Diese Formel ihrerseits, worin<lb/>
+anders könnte sie liegen, als in dem Gesetz der Ent¬<lb/>
+wicklung durch Gegensätze? Wie das absolute Wesen<lb/>
+erst in die Form des natürlichen Daseins, der Endlich¬<lb/>
+keit und Aeusserlichkeit eingehen muss, um sich selbst<lb/>
+als Geist zu erfassen, so folgt jede Entwicklung dem<lb/>
+gleichen Gesetze: was sich entwickelt, das muss erst ein<lb/>
+Anderes werden, um aus dem Anderssein zu sich selbst<lb/>
+zurückzukehren, durch seine Selbstentäusserung sich mit<lb/>
+sich zu vermitteln. In der denkenden Nachbildung dieses<lb/>
+Processes besteht das dialektische Verfahren; und durch<lb/>
+die fortgesetzte Anwendung des dialektischen Verfahrens<lb/>
+muss es gelingen, die Entwicklung des Absoluten, die<lb/>
+Stufenreihe der Wesen in ihrem Hervorgang aus der<lb/>
+<fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb n="18" facs="#f0022"/>
+Gottheit wissenschaftlich zu reproduciren. Diess sind die<lb/>
+wesentlichsten von den Gedanken, welche Hegel bei<lb/>
+seinem Versuch einer dialektischen Construction des<lb/>
+Universums geleitet haben.</p><lb/>
+<p>Mag man aber auch der Grossartigkeit dieses Ver¬<lb/>
+suchs die höchste Bewunderung zollen, mag man das<lb/>
+Wahre und Berechtigte in demselben noch so bereitwillig<lb/>
+einräumen, von seiner vielfach befruchtenden Wirkung<lb/>
+noch so lebhaft überzeugt sein: das lässt sich bei vor¬<lb/>
+urtheilsfreier Prüfung nicht verkennen, dass er sein Ziel<lb/>
+nicht erreicht hat, und dass er es nicht erreichen konnte,<lb/>
+weil er die Bedingungen des menschlichen Erkennens<lb/>
+übersieht, weil er mit Einem Griffe von oben herab das<lb/>
+Ideal des Wissens erfassen will, dem wir uns in der<lb/>
+Wirklichkeit nur allmählig, durch die verwickeltste Arbeit,<lb/>
+von unten her nähern können. Ebenso klar ist jedoch<lb/>
+andererseits auch, dass das Hegel’sche System in allen<lb/>
+seinen wesentlichen Bestimmungen, und dass namentlich<lb/>
+auch Hegel’s dialektisch-constructive Methode nur das<lb/>
+natürliche Ergebniss der früheren philosophischen Ent¬<lb/>
+wicklung, nur die Vollendung jenes Idealismus ist, wel¬<lb/>
+cher aus Kant’s Kritik des Erkenntnissvermögens mit<lb/>
+vollkommener Folgerichtigkeit hervorgieng. Wenn daher<lb/>
+dieses System längere Zeit hindurch eine beherrschende<lb/>
+Stellung in der deutschen Philosophie einnahm, so wird<lb/>
+man diess vom geschichtlichen Standpunkt aus ganz in<lb/>
+der Ordnung finden müssen; und wenn es trotzdem für<lb/>
+die Dauer nicht genügen kann, so wird sich doch sein<lb/>
+<pb n="19" facs="#f0023"/>
+Zauberkreis nicht wirklich durchbrechen lassen, so lange<lb/>
+nicht die Grundlagen, die ihm mit seinen Vorgängern<lb/>
+gemeinsam sind, auf’s Neue, und gründlicher als bisher,<lb/>
+untersucht werden.</p><lb/>
+<p>Dass nämlich die bisherigen Versuche, das Hegel’¬<lb/>
+sche System zu verbessern, oder durch ein neues zu<lb/>
+ersetzen, zwar manchen werthvollen Fingerzeig, manche<lb/>
+neue und richtige Wahrnehmung an die Hand geben,<lb/>
+aber von einer wirklichen Lösung der Aufgabe noch<lb/>
+weit entfernt sind, diess kann ich hier allerdings nur als<lb/>
+meine Ueberzeugung aussprechen, nicht durch eine ein¬<lb/>
+gehendere Prüfung derselben begründen; ich kann auch<lb/>
+die entscheidenden Bedenken hier nicht darlegen, welche<lb/>
+mich von <hi rendition="#g">Herbart’s</hi> Lehre zurückhalten, so gerne ich<lb/>
+auch den Scharfsinn anerkenne, mit dem dieser Philosoph<lb/>
+noch gleichzeitig mit Hegel nicht blos gegen ihn, son¬<lb/>
+dern gegen die ganze Richtung der neueren deutschen<lb/>
+Philosophie Einsprache erhoben hat. Indessen bedarf<lb/>
+es dieser, an sich selbst freilich unerlässlichen, Kritik<lb/>
+kaum, um die vorläufige Ueberzeugung von dem Be¬<lb/>
+dürfniss einer neuen Untersuchung der Voraussetzungen<lb/>
+zu begründen, von denen die deutsche Philosophie seit<lb/>
+Kant ausgieng. Der gegenwärtige Zustand dieser Wissen¬<lb/>
+schaft in Deutschland beweist an und für sich, dass sie<lb/>
+an einem von den Wendepunkten angekommen ist, welche<lb/>
+im günstigen Fall zu einer Umbildung auf neuen Grund¬<lb/>
+lagen, im ungünstigen zu Verfall und Auflösung hinführen.<lb/>
+Statt der grossartigen und einheitlichen Systeme, welche<lb/>
+<fw type="sig" place="bottom">2*<lb/>
+</fw>
+<pb n="20" facs="#f0024"/>
+ein halbes Jahrhundert lang in rascher Folge die deutsche<lb/>
+Philosophie beherrschten, bietet sie uns im gegenwärtigen<lb/>
+Augenblick das Schauspiel einer unverkennbaren Zer¬<lb/>
+fahrenheit und Stockung, durch welche auch die ver¬<lb/>
+dienstvollsten Bestrebungen gehemmt, die scharfsinnigsten<lb/>
+Untersuchungen in ihrer Wirkung für’s Ganze gelähmt<lb/>
+werden; und ebenso ist das Verhältniss der Philosophie<lb/>
+zu den besonderen Wissenschaften, wenn wir von ein¬<lb/>
+zelnen Ausnahmen absehen, so aus dem natürlichen<lb/>
+Geleise gekommen, dass die Philosophie zwar im All¬<lb/>
+gemeinen von jenen zu lernen mehr, als vor einigen<lb/>
+Jahrzehenten, bereit ist, in ihnen dagegen sich mehr und<lb/>
+mehr das Vorurtheil festsetzt, als ob sie der Philosophie<lb/>
+für ihre Zwecke nicht bedürften, und wohl gar in ihrer<lb/>
+Arbeit durch dieselbe gestört würden. Dass diess kein<lb/>
+gesunder Zustand ist, bedarf keines Nachweises. Fragen<lb/>
+wir aber, wie er zu heilen sei, so mögen wir uns an<lb/>
+das Wort jenes geistvollen italienischen Staatsmannes<lb/>
+erinnern, der verlangt, dass die Staaten von Zeit zu Zeit<lb/>
+auf ihr Princip zurückgeführt werden. Was von den<lb/>
+Staaten gilt, gilt von jedem geschichtlichen Ganzen.<lb/>
+Ueberall, wo eine zusammenhängende Entwicklung ist,<lb/>
+tritt zeitenweise das Bedürfniss ein, zu dem Punkte zu¬<lb/>
+rückzukehren, von dem sie ausgieng, sich der ursprüng¬<lb/>
+lichen Aufgaben wieder zu erinnern, und ihre Lösung<lb/>
+in dem ursprünglichen Geiste, wenn auch vielleicht mit<lb/>
+anderen Mitteln, auf’s Neue zu versuchen. Ein solcher<lb/>
+Zeitpunkt scheint eben jetzt für die deutsche Philosophie<lb/>
+<pb n="21" facs="#f0025"/>
+gekommen zu sein. Der Anfang der Entwicklungsreihe<lb/>
+aber, in der unsere heutige Philosophie liegt, ist <hi rendition="#g">Kant</hi>,<lb/>
+und die wissenschaftliche Leistung, mit der Kant der<lb/>
+Philosophie eine neue Bahn brach, ist seine Theorie des<lb/>
+Erkennens. Auf diese Untersuchung wird Jeder, der<lb/>
+die Grundlagen unserer Philosophie verbessern will, vor<lb/>
+Allem zurückgehen, und die Fragen, welche sich Kant<lb/>
+vorlegte, im Geist seiner Kritik neu untersuchen müssen,<lb/>
+um durch die wissenschaftlichen Erfahrungen unseres<lb/>
+Jahrhunderts bereichert, die Fehler, welche Kant machte,<lb/>
+zu vermeiden.</p><lb/>
+<p>Es wird eine von den wichtigsten Aufgaben der<lb/>
+gegenwärtigen Vorlesung sein, die Ergebnisse zu be¬<lb/>
+stimmen, welche sich auf diesem Wege gewinnen lassen;<lb/>
+in dieser einleitenden Erörterung können sie nur mit<lb/>
+leichten Strichen, und ohne eine genauere wissenschaft¬<lb/>
+liche Begründung, bezeichnet werden.</p><lb/>
+<p>Die erste Frage ist die nach den Quellen, aus denen<lb/>
+unsere Vorstellungen entspringen. Die Bestimmungen,<lb/>
+welche Kant in dieser Beziehung aufgestellt hat, muss<lb/>
+ich in der Hauptsache als richtig anerkennen. Ich kann<lb/>
+nicht zugeben, dass in dem Inhalt unserer Vorstellungen<lb/>
+über das Wirkliche irgend etwas vorkommt, das nicht<lb/>
+mittelbar oder unmittelbar aus der Erfahrung, der in¬<lb/>
+neren oder der äusseren, herstammte; denn wie sollte<lb/>
+die Seele zu diesem Inhalt gelangen, und wie lässt sich<lb/>
+mit jener Annahme die Thatsache vereinigen, dass allen<lb/>
+unseren Vorstellungen ohne Ausnahme, wenn wir genauer<lb/>
+<pb n="22" facs="#f0026"/>
+zusehen, die Spuren der Erfahrungen, aus denen sie<lb/>
+herstammen, eingedrückt sind, dass umgekehrt von den<lb/>
+Dingen, worüber wir gar keine Erfahrung haben, uns<lb/>
+auch jeder Begriff fehlt? Wie sollen wir uns endlich<lb/>
+von der Wirklichkeit dessen überzeugen, dessen Vor¬<lb/>
+stellung, wie man annimmt, rein von uns selbst gebildet,<lb/>
+nicht durch eine Einwirkung des Objekts auf uns her¬<lb/>
+vorgerufen ist? Andererseits aber ist Kant ganz in<lb/>
+seinem Rechte, wenn er läugnet, dass irgend eine Vor¬<lb/>
+stellung anders, als durch Vermittlung unserer Selbst¬<lb/>
+thätigkeit und in den uns durch die Natur unseres Er¬<lb/>
+kennens vorgeschriebenen Formen, zu Stande komme.<lb/>
+Was uns unmittelbar in der Erfahrung gegeben ist, das<lb/>
+sind immer nur die einzelnen Eindrücke, diese bestimmten<lb/>
+Empfindungen, als Vorgänge in unserem Bewusstsein.<lb/>
+Schon die Art, wie wir die Einwirkung der Dinge auf¬<lb/>
+nehmen, die Qualität und die Stärke der Empfindung,<lb/>
+die sie in uns hervorbringt, ist durch die Beschaffenheit<lb/>
+unserer Sinneswerkzeuge und die Gesetze unseres Em¬<lb/>
+pfindungsvermögens bedingt; noch viel augenscheinlicher<lb/>
+ist unsere eigene Thätigkeit mit im Spiele, wenn wir<lb/>
+die Einzelempfindungen zu Gesammtbildern verbinden,<lb/>
+wenn wir das, was zunächst nur in unserem Bewusstsein<lb/>
+gegeben ist, in der Anschauung des Objekts aus uns<lb/>
+heraussetzen, wenn wir aus den Wahrnehmungen allge¬<lb/>
+meine Begriffe abstrahiren, wenn wir von den Thatsachen<lb/>
+der Erfahrung auf die Ursachen schliessen, die ihnen zu<lb/>
+Grunde liegen. Das allerdings ist nicht richtig, dass uns<lb/>
+<pb n="23" facs="#f0027"/>
+in der Empfindung, wie Kant sagt, nur ein ungeordneter<lb/>
+Stoff gegeben sei, und alle Form ausschliesslich aus uns<lb/>
+selbst stamme; denn die äusseren Eindrücke müssen uns<lb/>
+als diese bestimmten nothwendig auch in einer bestimm¬<lb/>
+ten Form und Ordnung gegeben sein. Aber da die Auf¬<lb/>
+fassung und Verknüpfung dieses Gegebenen doch immer<lb/>
+durch die Natur unseres Vorstellens bedingt ist, so wird<lb/>
+die Wahrheit der kantischen Bestimmungen durch diesen<lb/>
+Verstoss nicht erheblich beeinträchtigt. Das Wesentliche<lb/>
+bleibt immer der Satz, dass alle unsere Vorstellungen<lb/>
+ohne Ausnahme und auf allen Stufen ihrer Entwicklung<lb/>
+das zusammengesetzte Erzeugniss aus zwei Quellen, dem<lb/>
+objektiven Eindruck und der subjektiven Vorstellungs¬<lb/>
+thätigkeit, sind. In welcher Weise aber diese zwei Ele¬<lb/>
+mente zu ihrer Erzeugung zusammenwirken und welches<lb/>
+die apriorischen Gesetze unseres Vorstellens sind, diess<lb/>
+kann erst im weiteren Verlauf unserer Untersuchung<lb/>
+erörtert werden.</p><lb/>
+<p>Je unumwundener wir aber anerkennen müssen, dass<lb/>
+in allen unseren Vorstellungen ein subjektives Element<lb/>
+ist, dass sich uns die Dinge in denselben immer nur so<lb/>
+darstellen, wie diess die uns angeborenen Anschauungs-<lb/>
+und Denkformen mit sich bringen, um so unabweisbarer<lb/>
+drängt sich uns auch die Frage nach der Wahrheit der<lb/>
+Vorstellungen auf, welche wir auf diesem Wege gewinnen.<lb/>
+Mag auch unseren Vorstellungen noch so sehr etwas<lb/>
+Objektives zu Grunde liegen, wie ist es möglich, dieses<lb/>
+Objektive in seiner reinen Gestalt, das Ansich der Dinge,<lb/>
+<pb n="24" facs="#f0028"/>
+zu erkennen, wenn uns die Dinge doch immer nur in<lb/>
+den subjektiven Vorstellungsformen gegeben sind? Kant<lb/>
+antwortet, es sei unmöglich, und diese Unmöglichkeit<lb/>
+scheint ihm so einleuchtend, dass er gar keinen weiteren<lb/>
+Beweis dafür nöthig findet. Eben hier liegt aber der<lb/>
+Grundfehler des kantischen Kriticismus, der verhäng¬<lb/>
+nissvolle Schritt zu jenem Idealismus, der sich sofort bei<lb/>
+Fichte in so schroffer Einseitigkeit entwickeln sollte.<lb/>
+Wir fassen die Dinge nur unter den subjektiven Vor¬<lb/>
+stellungsformen auf, aber folgt daraus, dass wir sie nicht<lb/>
+so auffassen, wie sie an sich sind? Ist nicht auch der<lb/>
+andere Fall denkbar, dass unsere Vorstellungsformen<lb/>
+von Natur darauf angelegt sind, uns eine richtige An¬<lb/>
+sicht der Dinge möglich zu machen? Ja, muss uns diess<lb/>
+nicht zum Voraus ungleich wahrscheinlicher sein, wenn<lb/>
+wir erwägen, dass es Ein Naturganzes ist, dem die Dinge<lb/>
+und wir selbst angehören, Eine Naturordnung, aus der<lb/>
+die objektiven Vorgänge und unsere Vorstellungen von<lb/>
+diesen Vorgängen entspringen? Oder wenn wir der Sache<lb/>
+selbst näher treten wollen: es sind uns in der Erfahrung<lb/>
+zunächst allerdings immer nur Erscheinungen gegeben.<lb/>
+Vorgänge in unserem Bewusstsein, in denen die Wir¬<lb/>
+kungen der äusseren Eindrücke und die Wirkungen un¬<lb/>
+serer eigenen Vorstellungsthätigkeit ungeschieden ver¬<lb/>
+schmolzen sind. Beide Elemente mit Sicherheit zu unter¬<lb/>
+scheiden, ist unmöglich, so lange wir irgend eine einzelne<lb/>
+Erscheinung für sich nehmen, weil sie uns eben nur als<lb/>
+diese Einheit beider gegeben ist, und an keinem Punkte<lb/>
+<pb n="25" facs="#f0029"/>
+derselben die Wirkung des Objekts anders, als in der<lb/>
+subjektiven Vorstellungsform, die letztere anders, als an<lb/>
+diesem bestimmten Inhalt, in’s Bewusstsein tritt. Aber<lb/>
+was sich durch die Betrachtung der Einzelerscheinung<lb/>
+als solcher nicht erreichen lässt, das kann durch die<lb/>
+Vergleichung vieler Erscheinungen erreicht werden.<lb/>
+Wenn wir sehen, wie die verschiedensten Objekte in die<lb/>
+gleichen Vorstellungsformen gefasst werden, wie umge¬<lb/>
+kehrt dasselbe Objekt sich in verschiedener Weise und<lb/>
+aus verschiedenen Gesichtspunkten vorstellen lässt; wenn<lb/>
+wir finden, dass nicht blos die verschiedenen Sinne,<lb/>
+sondern auch die Wahrnehmung und das Denken, über<lb/>
+den gleichen Gegenstand in gewissen Beziehungen das<lb/>
+Gleiche aussagen, dass andererseits demselben Sinn eine<lb/>
+Menge der verschiedensten Wahrnehmungen sich auf¬<lb/>
+drängt, und wenn wir auf die Bedingungen achten, unter<lb/>
+denen der eine oder der andere von diesen Fällen ein¬<lb/>
+tritt, so werden wir in den Stand gesetzt werden, zu<lb/>
+bestimmen, was in unsern Erfahrungen von den Objek¬<lb/>
+ten, was von uns selbst herrührt, und wie sich dieses<lb/>
+zu jenem verhält; die objektiven Vorgänge und Eigen¬<lb/>
+schaften der Dinge, und weiterhin auch die Ursachen,<lb/>
+von denen sie abhängen, auszumitteln. Sofern aber die<lb/>
+einfache Beobachtung hiefür nicht ausreicht oder nicht<lb/>
+die nöthige Sicherheit gewährt, steht uns zur Prüfung<lb/>
+und Ergänzung ihrer Ergebnisse noch ein zweiter Weg<lb/>
+offen, derselbe, welchen die Naturwissenschaft schon<lb/>
+längst und mit dem bedeutendsten Erfolge eingeschlagen<lb/>
+<pb n="26" facs="#f0030"/>
+hat. Wie wir von den Erscheinungen durch Schluss¬<lb/>
+folgerung zu den Ursachen aufsteigen, welche ihnen zu<lb/>
+Grunde liegen, so prüfen wir umgekehrt die Richtigkeit<lb/>
+unserer Vermuthungen über die Ursachen an den Er¬<lb/>
+scheinungen. Wir bestimmen durch Schlussfolgerung,<lb/>
+und wo es sein kann, durch Rechnung, was für Er¬<lb/>
+scheinungen sich unter Voraussetzung einer gewissen<lb/>
+Ansicht über das Wesen der Dinge und die wirkenden<lb/>
+Ursachen ergeben müssen; zeigt es sich dann, dass diese<lb/>
+Erscheinungen auch wirklich, nicht blos in vereinzelten<lb/>
+Fällen, sondern regelmässig, eintreten, so ist ebendamit<lb/>
+die Richtigkeit unserer Annahmen, zeigt sich das Gegen¬<lb/>
+theil, so ist die Notwendigkeit ihrer Berichtigung dar¬<lb/>
+gethan. Seine häufigste und fruchtbarste Anwendung<lb/>
+findet dieses Verfahren da, wo wir die Erscheinungen<lb/>
+unseren Voraussetzungen gemäss selbst hervorbringen,<lb/>
+wo wir, mit anderen Worten, die Hypothesen durch<lb/>
+Versuche controliren können; welche sicheren und durch¬<lb/>
+greifenden Ergebnisse sich aber auch da, wo diess nicht<lb/>
+der Fall ist, auf diesem Wege erreichen lassen, zeigt<lb/>
+das glänzende Beispiel der Astronomie, welche nur durch<lb/>
+dieses Verfahren zu ihrer jetzigen Vollendung gelangt<lb/>
+ist. Eröffnet sich daher auch von unserer Erkennitniss¬<lb/>
+theorie aus allerdings keine Aussicht auf jenes absolute<lb/>
+Wissen, welches mehrere von den nachkantischen Sy¬<lb/>
+stemen für sich in Anspruch nahmen, so lässt sie uns<lb/>
+doch hoffen, dass es einer ausdauernden und besonnenen<lb/>
+Forschung gelingen könne, uns in allmähligem Fortschritt<lb/>
+<pb n="27" facs="#f0031"/>
+diesem Ideal näher zu bringen, unsere Kenntniss der<lb/>
+Welt und ihrer Gesetze mit der Erweiterung ihres Um¬<lb/>
+fangs zugleich auch zu immer höherer Sicherheit zu er¬<lb/>
+heben.</p><lb/>
+<p>Welche Folgerungen sich nun von hier aus zunächst<lb/>
+für die Form und Methode der Philosophie ergeben, will<lb/>
+ich zum Schlusse noch kurz andeuten. Wer annimmt,<lb/>
+dass das Wissen unserem Geiste von Hause aus inwohne,<lb/>
+und höchstens <hi rendition="#g">vermittelst</hi> der Erfahrung sich in ihm<lb/>
+entwickle, nicht <hi rendition="#g">durch</hi> die Erfahrung sich erzeuge, der<lb/>
+wird folgerichtig darauf ausgehen müssen, alle Wahrheit<lb/>
+aus den uns inwohnenden Ideen abzuleiten, welche sich<lb/>
+ihrerseits nur durch das reine Denken und die abgezogene<lb/>
+Selbstbetrachtung finden lassen; für ihn wird daher die<lb/>
+allein wahre philosophische Methode jene apriorische<lb/>
+Construction sein, deren sich <hi rendition="#g">Fichte</hi>, und mit der<lb/>
+vollendetsten Meisterschaft <hi rendition="#g">Hegel</hi> bedient hat. Wer<lb/>
+umgekehrt alle unsere Vorstellungen lediglich für ein<lb/>
+Erzeugniss der Wahrnehmung, der von den Dingen her¬<lb/>
+vorgebrachten Eindrücke hält, der dürfte sich nur auf die<lb/>
+Beobachtung verlassen, den Schlüssen dagegen, welche<lb/>
+wir aus den Beobachtungen ziehen, den Begriffen, die<lb/>
+wir aus ihnen ableiten, müsste er um so mehr misstrauen,<lb/>
+je weiter sie sich von dem unmittelbar Gegebenen ent¬<lb/>
+fernen. Haben wir uns dagegen überzeugt, dass alle<lb/>
+unsere Vorstellungen das gemeinschaftliche Produkt aus<lb/>
+den objektiven Eindrücken und der subjektiven Thätig¬<lb/>
+keit sind, mit der wir diese Eindrücke verarbeiten, so<lb/>
+<pb n="28" facs="#f0032"/>
+wird es sich für uns nicht darum handeln können, irgend<lb/>
+ein Gegebenes, sei es nun innerlich oder äusserlich ge¬<lb/>
+geben, als ein Letztes und unbedingt Sicheres zu Grunde<lb/>
+zu legen, und das Uebrige daraus abzuleiten; sondern<lb/>
+alles Gegebene gilt uns zunächst nur für eine Erschei¬<lb/>
+nung unseres Bewusstseins, deren objektive Gründe erst<lb/>
+zu untersuchen, aus der allgemeine Sätze und Begriffe<lb/>
+nur durch ein zusammengesetztes Verfahren zu gewinnen<lb/>
+sind. Unser Standpunkt ist mit Einem Wort nicht der<lb/>
+des Dogmatismus, weder des empiristischen noch des<lb/>
+spekulativen, sondern der des Kriticismus. Wir können<lb/>
+nicht erwarten, eine Erkenntniss des Wirklichen anders,<lb/>
+als von der Erfahrung aus, zu gewinnen; wir werden<lb/>
+aber ebensowenig vergessen, dass in der Erfahrung selbst<lb/>
+schon apriorische Bestandtheile enthalten sind, durch<lb/>
+deren Ausscheidung wir erst das objektiv Gegebene rein<lb/>
+erhalten, und dass die allgemeinen Gesetze und die ver¬<lb/>
+borgenen Gründe der Dinge überhaupt nicht durch die<lb/>
+Erfahrung als solche, sondern durch’s Denken erkannt<lb/>
+werden. Ist daher auch eine möglichst genaue und voll¬<lb/>
+ständige Beobachtung der erste Schritt zum Wissen, so<lb/>
+müssen sich doch hieran zwei weitere anschliessen, wenn<lb/>
+wir wirklich zu einem sicheren Wissen gelangen wollen.<lb/>
+Der erste derselben besteht in der Unterscheidung der<lb/>
+Elemente unserer Erfahrung, und umfasst alle die<lb/>
+Operationen, welche den Zweck haben, den objektiven<lb/>
+Thatbestand als solchen, von allen subjektiven Zuthaten<lb/>
+befreit, zur Anschauung zu bringen. Sind hiemit die<lb/>
+<pb n="29" facs="#f0033"/>
+wirklichen Vorgänge festgestellt, so ist dann das Nächste,<lb/>
+dass die Ursachen derselben aufgesucht werden, um sie<lb/>
+aus ihren Gründen erklären zu können, und so auf ge¬<lb/>
+netischem Wege zum Begriff ihres Wesens zu gelangen.<lb/>
+Die Methoden aber, deren wir uns hiebei zu bedienen<lb/>
+haben, die Bedeutung, welche einerseits der Induktion,<lb/>
+andererseits der Deduktion zukommt, die näheren Mo¬<lb/>
+difikationen, welche beide in der Anwendung erfahren,<lb/>
+die Notwendigkeit und die Art ihrer Verbindung, hat<lb/>
+die Logik in ihrem methodologischen Theile zu unter¬<lb/>
+suchen.</p><lb/>
+<lb/>
+<milestone unit="section" rendition="#hr"/> </div> </body> <back>
+<pb facs="#f0034"/>
+<div type="imprint"> <p rendition="#c">Gedruckt bei <hi rendition="#g">Julius Groos</hi> in Heidelberg.</p> </div><lb/>
+<pb facs="#f0035"/>
+<pb facs="#f0036"/>
+<pb facs="#f0037"/>
+</back> </text> </TEI>

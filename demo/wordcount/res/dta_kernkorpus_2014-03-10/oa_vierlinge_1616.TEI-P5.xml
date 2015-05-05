@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Historische warhaffte Relation Von einem Christlichen Eheweibe im Marggraffthumb Oberlausitz vnd Budissimschen Kreisse im Dorffe Jazeba/ welche Vier lebendige vnd wol proportionirte Töchter den 10. Januarij, Anno 1616. zur Welt geboren/ so alle die H. Tauffe erlanget/ vnd etliche Wochen gelebet haben</title>
+<title type="sub">Mit andern denckwürdigen Exempeln vnd wunderbaren Historien/ derer so viel Kinder gehabt/ illustriret, erkleret vnd in druck genommen</title>
+<author>
+<persName>
+<surname>N. N.</surname>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">20</measure>
+<measure type="tokens">3683</measure>
+<measure type="types">1557</measure>
+<measure type="characters">25837</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:15:10Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/oa_vierlinge_1616</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/oa_vierlinge_1616</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/oa_vierlinge_1616</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/oa_vierlinge_1616</idno>
+<idno type="DTADirName">oa_vierlinge_1616</idno>
+<idno type="DTAID">20885</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Historische warhaffte Relation Von einem Christlichen Eheweibe [...] welche Vier lebendige vnd wol proportionirte Töchter [...] zur Welt geboren [...]. Bautzen, 1616.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Historische warhaffte Relation Von einem Christlichen Eheweibe im Marggraffthumb Oberlausitz vnd Budissimschen Kreisse im Dorffe Jazeba/ welche Vier lebendige vnd wol proportionirte Töchter den 10. Januarij, Anno 1616. zur Welt geboren/ so alle die H. Tauffe erlanget/ vnd etliche Wochen gelebet haben</title>
+<title level="m" type="sub">Mit andern denckwürdigen Exempeln vnd wunderbaren Historien/ derer so viel Kinder gehabt/ illustriret, erkleret vnd in druck genommen</title>
+<author>
+<persName>
+<surname>N. N.</surname>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[8] Bl. : 1 Ill. (Holzschn.).</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Zipser</name></publisher>
+<pubPlace>Bautzen</pubPlace>
+<date type="publication">1616</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SLUB Dresden</repository>
+<idno>
+<idno type="shelfmark">SLUB Dresden, 3.A.8469,angeb.1</idno>
+<idno type="URLCatalogue">http://slubdd.de/katalog?TN_libero_mab2927784</idno>
+<idno type="URLCatalogue">http://katalog.slub-dresden.de/primo_library/libweb/action/search.do?dscnt=0&amp;vl(174636822UI0)=lsr04&amp;scp.scps=SemanticThirdNode&amp;frbg=&amp;tab=default_tab&amp;srt=rank&amp;ct=search&amp;mode=Basic&amp;dum=true&amp;avgl-search-only-in=search_lsr01&amp;indx=1&amp;tb=t&amp;vl(freeText0)=3.A.8469%2Cangeb.1&amp;vid=SEM&amp;fn=search</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Gesellschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Gesellschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<lb/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#c">Hiſtoriſche warhaffte<lb/>
+<hi rendition="#aq">Relation</hi><lb/>
+<hi rendition="#b">Von einem Chriſtlichen<lb/>
+Eheweibe im Marggraffthumb Oberlau-</hi><lb/>
+ſitz vnd Budiſſimſchen Kreiſſe im Dorffe Jazeba/</hi></titlePart></docTitle> <docTitle><titlePart type="desc"><hi rendition="#c">welche<lb/>
+Vier lebendige vnd wol <hi rendition="#aq">proportionirte</hi> Toͤchter den <hi rendition="#aq">10. Ja-<lb/>
+nuarij, Anno 1616</hi>. zur Welt geboren/ ſo alle die H. Tauffe<lb/>
+erlanget/ vnd etliche Wochen gelebet haben/ Mit andern denckwuͤrdigen Exem-<lb/>
+peln vnd wunderbaren Hiſtorien/ derer ſo viel Kinder gehabt/<lb/>
+<hi rendition="#aq">illuſtriret</hi>, erkleret vnd in druck<lb/>
+genommen;</hi></titlePart></docTitle><lb/>
+<figure/> <epigraph><cit><quote><hi rendition="#c"><hi rendition="#aq"><hi rendition="#g"><hi rendition="#k">Ænigma</hi></hi>.<lb/>
+<hi rendition="#i">Dic! animas Homo qvi ſimul, unô in corpore, qvinꝗ<lb/>
+Geßit; ubi emißis qvattuor, una manet?</hi></hi><lb/>
+<lg type="poem"><l><hi rendition="#in">R</hi>ath! Welch Menſch hat fuͤnff Seeln gehat</l><lb/>
+<l>Zugleich in ſeinem Leib von Gott?</l><lb/>
+<l>Vnd da vier Seeln aus ſolchem Leib</l><lb/>
+<l>Schieden/ doch ein' Seel drinnen bleib.</l></lg></hi></quote></cit></epigraph><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> Von <publisher rendition="#b #c">Nicolas Zipſern</publisher> <hi rendition="#b #c">Buchdrucker</hi><lb/>
+<hi rendition="#c">zu</hi> <pubPlace rendition="#c">Budiſſin</pubPlace>.</docImprint></titlePage><lb/>
+</front><body>
+<pb facs="#f0004"/>
+<p><hi rendition="#aq"><hi rendition="#in">A</hi>nno Chriſti 1616</hi>. <hi rendition="#fr">den</hi> <hi rendition="#aq">10. Januarij</hi> <hi rendition="#fr">Newen Ca-</hi><lb/>
+lenders/ den Sontag vor dem alten-Newen-Jahre/<lb/>
+welchen Tag der Roͤm: Kay: Mayt: Hertzallerlieb-<lb/>
+ſtes Gemahl/ von den Staͤnden der loͤblichen Kron<lb/>
+Boͤheimb zu Prage/ mit ſonderlichen <hi rendition="#aq">Solenniteten</hi> iſt gekroͤ-<lb/>
+net worden/ hat in dem Dorff Jazeba/ im Marggraffthumb<lb/>
+Oberlauſitz/ vnd Budiſſimſchen Kreiſſe in der Kirchfahrt Kluͤx<lb/>
+vnter Joachim von Schreiberßdorff <hi rendition="#aq">Jurisdiction</hi> vnd Bott-<lb/>
+meſſigkeit/ Martin Borns des Kretzſchmars Weib/ mit Namen<lb/>
+Catharina Wichorin/ vier lebendige vnd wol proportionirte<lb/>
+Toͤchter durch Gottes ſonderlichen Gnaden ſegen zur Welt<lb/>
+geboren/ als eine des Morgens fruͤhe/ da der Tag angebrochen/<lb/>
+vnd die andern 3. vngefehrlich anderthalb ſtunden vor Abends/<lb/>
+Darauff der Pfarꝛer zu Milckel <hi rendition="#aq">Georgius Crantzius</hi>, wegen<lb/>
+der gar nahen Nachbarſchafft erfordert/ vnd vmb <hi rendition="#aq">adminiſtra-<lb/>
+tion</hi> der heyligen Tauffe iſt angelanget worden/ Vnd als er<lb/>
+bald hin kom̃en/ iſt erſtlich die juͤngſte Tochter/ als die ſchwaͤchſte<lb/>
+getaufft/ vnd <hi rendition="#aq">Dorothea</hi> genant worden/ hernach die aͤltiſte mit<lb/>
+einem ſchwartzen Haͤuptlein/ ſo <hi rendition="#aq">Maria</hi> genant/ vnd letzlich ſindt<lb/>
+die Mittlerzwey/ ſo einander gar ehnlich/ vnd auff des Pfarꝛers<lb/>
+anordnung der einen ein weiſſes/ der andern aber ein rothes<lb/>
+Schnuͤrlein angebunden/ zugleich getaufft vnd die eine <hi rendition="#aq">Catha-<lb/>
+rina</hi>, die andere aber <hi rendition="#aq">Magdalena</hi> genennet worden/ hatte auch<lb/>
+eine jedere drey ſonderliche vnd vnterſchiedliche Tauff Pathen/<lb/>
+als zwey Weibes/ vnd ein Mannes Perſon/ waren alſo in der<lb/>
+anzahl zwoͤlff Tauff Pathen.</p><lb/>
+<p>Von ſolchen Kindern iſt den nachfolgenden Dinſtag den<lb/>
+<hi rendition="#aq">12. Januarij</hi> gegen Abends die juͤngſte Tochter <hi rendition="#aq">Dorothea</hi> in<lb/>
+der Mutter Haͤnden/ als welche jhr vnter andern am liebſten<lb/>
+geweſen (nach dem gemeinen Sprichwort: Daß juͤngſte das<lb/>
+<fw type="catch" place="bottom">liebſte)</fw><lb/>
+<pb facs="#f0005"/>
+liebſte) im Wochenbette geſtorben. Den Donnerſtag hernach/<lb/>
+als den <hi rendition="#aq">14. Januarij</hi>, ſtarb auch gegen Abend vnter den Mit-<lb/>
+telſten die eine/ nemlich <hi rendition="#aq">Magdalena</hi>, in gleichen auch <hi rendition="#aq">Catha-<lb/>
+rina</hi> die dritte/ am <hi rendition="#aq">19. Januarij</hi>, vnd letzlich nach 3. Wochen/<lb/>
+am Sontag <hi rendition="#aq">Septuageſima</hi> den letzten <hi rendition="#aq">Januarij, Maria</hi> die<lb/>
+aͤltiſte oder erſte. Welche alle nach Kluͤx begleitet/ vnd vom<lb/>
+Herꝛn <hi rendition="#aq">Andrea Garzero</hi> Pfarꝛern daſelbſten/ Chriſtlich ſindt<lb/>
+zur Erden beſtattet worden. <hi rendition="#aq"><hi rendition="#i">Horum memoria ſit in benedictione</hi></hi>.</p><lb/>
+<p>Sonſten hat dieſes Weib hiebevor <hi rendition="#aq">Gemellos</hi> oder Zwil-<lb/>
+lings Kinder geboren/ darvon eins noch am leben.</p><lb/>
+<p>Nun iſt kein zweiffel/ es werden hievon ſeltzame <hi rendition="#aq">Cenſuren</hi><lb/>
+vnd mancherley Splitterreden fallen/ da einer ſo/ der ander aber<lb/>
+anders <hi rendition="#aq"><hi rendition="#i">judiciren</hi></hi> vnd richten wird/ nach dem gemeinen Sprich-<lb/>
+wort: <lg type="poem"><l><hi rendition="#fr">Koͤnnen wir nicht alle Tichten/</hi></l><lb/>
+<l><hi rendition="#fr"><hi rendition="#et">Wollen wir doch alle richten.</hi></hi></l></lg></p><lb/>
+<p>Aber man ſoll wiſſen/ das Gott Wunderbarlich in alle ſei-<lb/>
+nen Wercken iſt.</p><lb/>
+<p>Denn wenn man ſich beydes in Gottes Wort vnd andern<lb/>
+glaubwuͤrdigen Hiſtorien erluſtiget vnd vmbſihet/ ſo iſt es gar<lb/>
+wunderſam vnd ſeltzam zuvernehmen/ das Gott manchen Leu-<lb/>
+ten ſehr viel Kinder gegeben und beſcheret hat.</p><lb/>
+<p><hi rendition="#aq">Zonaras</hi> ſchreibet/ das Lamech/ ſo die <hi rendition="#aq">Polygamiam</hi> auff-<lb/>
+gebracht/ von zweyen Weibern 77. Soͤhne gezeuget hat.</p><lb/>
+<p><hi rendition="#c"><hi rendition="#aq">[<hi rendition="#i">Zonaras tom. 1. an.</hi>]</hi></hi></p><lb/>
+<p>Der Rittermeſſige Held Gedeon/ ſo auch Jerobaal genant<lb/>
+wird/ hat 71. Soͤhne von mancherley Weibern gehabt.</p><lb/>
+<p>Abeſam aber 30. Soͤhne/ vnd ſo viel Toͤchter <hi rendition="#aq">[<hi rendition="#i">Iud. 8. t. 12.</hi>]</hi></p><lb/>
+<p>Achab der Koͤnig in Samaria hat 71. Soͤhne gezeuget/<lb/>
+welche die Miſſethat jhres Vatern getragen/ vnd von Jehu<lb/>
+ſindt vmbgebracht worden. <hi rendition="#aq">[<hi rendition="#i">2. Reg. 4.</hi>]</hi></p><lb/>
+<fw type="sig" place="bottom">A ij</fw><fw type="catch" place="bottom"><hi rendition="#aq">Embracius</hi></fw><lb/>
+<pb facs="#f0006"/>
+<p><hi rendition="#aq">Embracius</hi> Koͤnig in <hi rendition="#aq">Brittannien</hi> hat 25. Soͤhne vnd 30.<lb/>
+Toͤchter gehabt. <hi rendition="#aq">[<hi rendition="#i">Nauclerus.</hi>]</hi></p><lb/>
+<p><hi rendition="#aq">Scylurus</hi> der <hi rendition="#aq">Scythen</hi> oder Tartern Koͤnig/ hat nach ſei-<lb/>
+nem tode 80. Maͤnliche Soͤhne hinder ſich verlaſſen <hi rendition="#aq"><hi rendition="#i">(Plutarch.<lb/>
+de nim. loq.)</hi></hi> von dem lieſet man/ Als er jtzt hat ſterben wollen/ hat<lb/>
+er zum <hi rendition="#aq">valete</hi> vnd guter letzte/ alle ſeine Soͤhne vor ſich erfor-<lb/>
+dert/ vnd jhnen ein gebuͤndlein Pflitzſchpfeile gegeben/ mit dem<lb/>
+befehl/ ſie ſolten verſuchen/ ob ſie ſolche zubrechen koͤnten/ Als ſie<lb/>
+ſich aber mit der vnmoͤgligkeit entſchuͤldigten/ hat er zuletzt ſelbſt<lb/>
+einen Pfeil nach dem andern außgezogen/ vnd gar leichtlich zer-<lb/>
+brochen/ vnd hierdurch ſie zu Bruͤderlicher Eintrechtigkeit ver-<lb/>
+manet/ mit dieſen denckwuͤrdigen worten: <hi rendition="#aq">Si concordes eritis,<lb/>
+validi invictiꝗ́ manebitis: Contrà, ſi diſsidijs &amp; ſeditio-<lb/>
+ne diſtrahemini, imbecilles eritis, &amp; expugnatu faciles</hi>.<lb/>
+Das iſt: Werdet jhr in eintrechtigkeit oder einmuͤtiger <hi rendition="#aq">union</hi><lb/>
+beyſam̃en ſtehen/ ſo werdet jhr ſtarck vnd vnuͤberwuͤndlich ſein/<lb/>
+denen kein Feind leichtlich vbern Halß lauffen wird: Dargegen<lb/>
+ſo jhr durch Zanck vnd Hadder nicht beyſammen vnd vor einen<lb/>
+Man ſtehen werdet/ ſo werdet jhr ſchwach vnd leicht zu vber-<lb/>
+waͤltigen ſein.</p><lb/>
+<p>Alſo lieſet man auch eine ſchoͤne denckwuͤrdige Hiſtori/ vom<lb/>
+<hi rendition="#aq">Babone</hi> dem beruͤmbten Grafen zu Abenßberg vnd Rohr/ daß<lb/>
+er 32. Soͤhne vnd 8. Toͤchter gehabt/ die er alle gar loͤblich vnd<lb/>
+wol erzogen hatte. Als aber die Kaͤyſerliche Mayt: Henrichus/<lb/>
+jhn einſten mit auff die Jagt zu reiten erforderte/ jedoch daß er<lb/>
+nicht viel Diener mit brechte/ Sihe/ da hat er alle ſeine Soͤhne<lb/>
+auffs herꝛlichſte außſtaffiret vnd geputzet/ vnd einen jedern einen<lb/>
+reyſigen Knecht zugegeben/ vnd mit einem ſolchen <hi rendition="#aq">Comitat</hi><lb/>
+dem Keyſer auff den dienſt gewartet. Als aber der Keyſer jhme<lb/>
+ſolches verweiſete/ das es ſeinem befehl nicht gemeß ſey/ Er hette<lb/>
+<fw type="catch" place="bottom">ſollen</fw><lb/>
+<pb facs="#f0007"/>
+ſollen mit wenig Dienern kommen/ ſo ſehe man gar das wider-<lb/>
+ſpiel. Da antwortet der loͤbliche Grafe: Er hette nicht mehr/ als<lb/>
+einen einigen Diener bey ſich.</p><lb/>
+<p>Als aber der Keyſer <hi rendition="#aq">repliciret</hi> vnd fraget: Wer die andern<lb/>
+ſein? Antwortet der Graf <hi rendition="#aq">Babo</hi>: Aller gnedigſter Herꝛ Keyſer/<lb/>
+Es ſindt E. Keyſ: Mayt: Diener/ vnd alle meine Soͤhne/ die<lb/>
+ſchencke ich/ vnd vber antworte ſie E. Keyſ: Mayt: Gott wolle<lb/>
+gluͤck darzu geben/ daß ſie nach jhrem Stam̃en vnd Namen/<lb/>
+Ewer Keyſerlichen Mayt: im Friede eine Zier/ im Krieg vnd<lb/>
+Ernſt ein beyſtandt ſein/ wie dann Grafen und Herꝛn geziemt<lb/>
+vnd wol anſtehet/ habe ſie auch mit hoͤchſten fleiß darzu gezogen/<lb/>
+Jch hoffe ſie ſollen E. Keyſ: Mayt: lieb vnd angenehm ſein/ ge-<lb/>
+meinem Nutz zu wolfart entſpriſſen. Dem Keyſer war das eine<lb/>
+herꝛliche vnd liebe ſchenckung/ Sprach die jungen Grafen alle<lb/>
+nach einander an/ gab jhnen die Hand/ vnd vmbfing ſie/ nennet<lb/>
+ſie ſeine Soͤhne/ vnd befahl/ ſie ſolten am Keyſerlichen Hofe ſein<lb/>
+vnd bleiben. Mit der zeit begnadet der hochloͤbliche Keyſer einen<lb/>
+nach dem andern/ vnd ſchencket jhnen Schloͤſſer vnd Flecken/<lb/>
+Lehen des Reichs/ alſo daß ſie alle jhren Herꝛen Stand fuͤhren<lb/>
+koͤnten. <hi rendition="#aq">(<hi rendition="#i">Aventinus lib. 5. Prompt. Exempl. Hondorfij</hi></hi> im 9. vnd<lb/>
+10. Gebot.)</p><lb/>
+<p><hi rendition="#aq">Ludovicus Vives</hi> hat einen Bawersmann in Hiſpanien<lb/>
+geſehen/ deſſen Kinder bey ſeinen lebezeiten ein Dorff faſt von<lb/>
+hundert Haͤuſern bewohnet. <hi rendition="#aq"><hi rendition="#i">(Mornæus de verit. c. 26.)</hi></hi></p><lb/>
+<p>Vnd <hi rendition="#aq">in Eubæa</hi> iſt eine Jungfraw geweſen mit Namen<lb/>
+<hi rendition="#aq">Combe</hi>, als die mit einem Manne iſt vermaͤhlet worden/ hat<lb/>
+ſie hundert Kinder zur Welt geboren. <hi rendition="#aq"><hi rendition="#i">(Eraſm. in chil.)</hi></hi></p><lb/>
+<p><hi rendition="#aq">Artaxerxes</hi> Koͤnig in Perſien hat mit ſeinen Kebsweibern<lb/>
+115. Kinder gezeuget/ vnd noch 3. von ſeinem Ehlichen Weibe.<lb/>
+<hi rendition="#aq"><hi rendition="#i">(Iuſtin. lib. 10. Zonar. an. tom. 1.)</hi></hi></p><lb/>
+<fw type="sig" place="bottom">A iij</fw><fw type="catch" place="bottom"><hi rendition="#aq">Marcus</hi></fw><lb/>
+<pb facs="#f0008"/>
+<p><hi rendition="#aq">Marcus Paulus Venetus</hi> ſchreibet <hi rendition="#aq"><hi rendition="#i">lib. 3</hi></hi>. als er in die Pro-<lb/>
+vintz vnd Landſchafft <hi rendition="#aq">Crambe</hi> verreiſet iſt/ hat der Koͤnig allda<lb/>
+326. Soͤhne vnd Toͤchter gehabt/ vnter welchen damals jhrer<lb/>
+150. ſchon Wehrhafftig geweſen/ vnd jhre Kriegßruͤſtung fuͤh<lb/>
+ren kundten.</p><lb/>
+<p><hi rendition="#aq">Hierotymus</hi> ein Koͤnig in <hi rendition="#aq">Arabien</hi> hat von vielen Kebs-<lb/>
+Weibern 600. Soͤhne erzeuget/ dergleichen vor vnd zu ſeiner<lb/>
+zeit man von keinem erfahren hat. <hi rendition="#aq"><hi rendition="#i">(Iuſtin. lib. 39.)</hi></hi></p><lb/>
+<p>Dergleichen Exempel findet man beſchrieben von dem Koͤ-<lb/>
+nige in der Jnſul <hi rendition="#aq">Porne</hi>, welcher auch 600. Soͤhne gehabt.<lb/>
+<hi rendition="#aq"><hi rendition="#i">(Maxim. Tranſyl.)</hi></hi></p><lb/>
+<p>Anhero gehoͤret das Lobwuͤrdige Exempel des Roͤmiſchen<lb/>
+Keyſers <hi rendition="#aq">Auguſti</hi>, welcher ſeiner <hi rendition="#aq">Neptis nepotem</hi>, das iſt ſei-<lb/>
+nes Kindes-Kindes-Kindes-Kind erlebet hat. <hi rendition="#aq"><hi rendition="#i">(Plin. lib. 7. c. 13.)</hi></hi></p><lb/>
+<p>Jnmaſſen auch der loͤbliche Krieges Held vnd Graf Johan<lb/>
+von Naſſaw ſeliger/ ſeiner <hi rendition="#aq">neptium liberos</hi>, das iſt/ ſeiner<lb/>
+Kindes-Kindes-Kinder viel hat aus der Tauffe heben helffen/<lb/>
+vnd 85. Haͤupter an ſeinen Kindern/ Kindes-Kindern/ vnd Kin-<lb/>
+des-Kindes-Kindern/ zuſammen gerechnet/ erlebet hat. <hi rendition="#aq"><hi rendition="#i">(Sphinx<lb/>
+Heidelfeldii cap. 17. pag. 335.)</hi></hi></p><lb/>
+<p>Nicht vngleichmeſſige Exempel koͤnte man anziehen mit et-<lb/>
+lichen loͤblichen Adelsperſonen in Oberlauſitz/ als Herꝛn Han-<lb/>
+ſen von Noſtitz auff Kunewalda/ vnd Frawen <hi rendition="#fr">E</hi>lenen <hi rendition="#fr">E</hi>raßmi<lb/>
+von Gerßdorffs ſeligen/ auff Lauttitz hinterlaſſener Wittiben/<lb/>
+beyder in Gott ruhenden/ welche auch vnterſchiedlich viel Kin-<lb/>
+des Kinder mit groſſen ruhm erlebet haben.</p><lb/>
+<p>Sonderlich aber hat man des Goͤttlichen gnaden ſegens<lb/>
+auch ein Augenſcheinlich Exempel an vnſers jtzigen loͤblichen<lb/>
+vnd wolverdienten Herꝛn Landes Hauptmans Herꝛn Caſparn<lb/>
+von Metzradts/ Keyſerlichen Mayt: Raths/ ꝛc. lieben Herꝛn<lb/>
+<fw type="catch" place="bottom">Vater/</fw><lb/>
+<pb facs="#f0009"/>
+Vater/ Abraham von Metzradt/ Chriſtſeliger gedechtnuͤs/<lb/>
+welcher bey ſeinem leben auch 18. Kinder vnd 27. Kindes-<lb/>
+Kinder erlebet hat.</p><lb/>
+<p>Welche Exempla/ allen Chriſtlichen Eltern/ denen Gott<lb/>
+viel Kinder gegeben hat/ ſo wol ſolchen Kindern ſelbſt/ zu ſon-<lb/>
+derlichen vnd Ewigen rhum hier angezogen werden. Denn wie<lb/>
+<hi rendition="#aq">Herodotus in vita Homeri <hi rendition="#i">pag. 253.</hi></hi> ſchreibet/ ſo ſeind Kinder<lb/>
+eine Kron des Mannes/ vnd zieren ihn wie viel Thuͤrme eine<lb/>
+Stadt/ viel Roſſe das Feld/ viel Schiffe das Meer/ vnd viel<lb/>
+Haußrath das Haus zieren/ daran man ſeine liebe luſt ſihet.</p><lb/>
+<p>Gleich aber wie jtzo erzelte Hiſtorien vnd glaubwuͤrdige<lb/>
+Exempel den Leuten wunder vnd ſeltzam fuͤrkommen: Alſo viel<lb/>
+mehr pflegt man ſich uͤber alle maſſe zum hoͤchſten zuverwun-<lb/>
+dern/ wenn ein Weib mehr/ als eins/ oder zwey Kinder auff ein<lb/>
+mahl zur Welt bringet.</p><lb/>
+<p>Darmit nun abermals Maͤnniglich wiſſen moͤchte/ das<lb/>
+ſolche fruchtbare vnd vngewoͤhnliche Geburten/ von niemand<lb/>
+anders/ als von Gott dem Allmechtigen/ aus ſeinem mildreichen<lb/>
+Gnadenſegen/ ſo er uͤber das Menſchliche Geſchlecht geſprochen<lb/>
+hat (Seidt Fruchtbar vnd mehret euch) einig vnd allein herrhuͤ-<lb/>
+ren/ So wolle der Chriſtliche Leſer ferner vnbeſchweret etliche<lb/>
+andere warhaffte vnd glaubwuͤrdige nachfolgende Hiſtorias<lb/>
+vernehmen vnd anhoͤren/ da zu vnterſchiedlichen zeiten/ vnd an<lb/>
+gewiſſen oͤrtern etliche Weibesbilder/ nicht allein zu paren/ ſon-<lb/>
+dern auch zu dreyen/ vieren/ fuͤnffen/ auch wol mehr/ als zu hal-<lb/>
+ben ſchocken/ vnd etlich hundert Kindern/ auff ein mahl lebendig<lb/>
+zur Welt gebracht und geboren haben.</p><lb/>
+<p>Auff das nun aber der Chriſtliche Leſer hieran deſto weniger<lb/>
+zweiffel habe/ ſo ſchreibet der fuͤrnehme <hi rendition="#aq">Medicus</hi> vnd Naturkuͤn-<lb/>
+diger <hi rendition="#aq">Ludovicus Bonaciolus in Enneade cap. 9</hi>. mit nach-<lb/>
+folgenden worten alſo:</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq"><hi rendition="#i">Plurimis</hi></hi></fw><lb/>
+<pb facs="#f0010"/>
+<p><hi rendition="#aq"><hi rendition="#i">Plurimis namꝗ́  locis, &amp; maxima ex parte mulieres ſingulos<lb/>
+ſingulæ, duosvé pariunt. At ſolis nonnullis, (ut in AEgypto, ubi<lb/>
+fœtifer Nilus potus, id ipſum ſuapte natura imperit,) &amp; geminos &amp;<lb/>
+ter geminos, &amp; bis binos naſci, &amp; plerunꝗ, plures certum est. Ut<lb/>
+etiam Fauſta è plebe, mares duos, fœminas totidem enixa est. Sed<lb/>
+&amp; quinꝗ, jamꝗ́  hoc pluribus eveniſſe, exploratum est, quandoqui-<lb/>
+dem mulier quædam viginti puerperia partubus quatuor, quinos<lb/>
+partubus ſingulis enixa, ediderit: atꝗ́  eorum major pars enutriri<lb/>
+&amp; adoleſcere quivit. Aliam inſuper duodecim partubus, ſexagin-<lb/>
+ta infantes peperiſſe inventum est. Divo Auguſto imperante, ejus<lb/>
+quædam ancilla in agro Laurente quinꝗ́ , pueros (qui pauculos vixe-<lb/>
+rint dies) in lucem emiſit. Et in Peloponeſo binos quater, alteram<lb/>
+enixam, majorem partem ex omni ejus vixiſſe enixu, proditum est.<lb/>
+Pari uſu &amp; in AEgypto ſeptenos uno utero ſimul genitos eſſe. (Vide<lb/>
+Gyneciorum tom: 1. per Caſp: wolphium editorum Baſileæ pag. 299.)</hi></hi><lb/>
+Solche wort lauten in Deutſcher ſprache alſo:</p><lb/>
+<p>An meiſten orten vnd mehrer theils gebehren die Weiber<lb/>
+eine jeder jmmer auff einmahl nur eins/ oder zwey Kinder. Aber<lb/>
+bey etlichen ſonderlichen Weibern (als in Egypten/ da der frucht-<lb/>
+bare Fluß <hi rendition="#aq">Nilus</hi> getruncken/ durch ſein Natur vnd eigenſchafft<lb/>
+ſolches wircket) iſt es gewiß/ das ſie zu paren/ vnd drey mahl zu<lb/>
+paren/ auch zwier zu paren/ vnd gemeiniglich noch wol mehr<lb/>
+Kinder gebehren. Wie dann auch eine von dem gemeinen Poͤfel<lb/>
+mit Namen <hi rendition="#aq">Fauſta</hi>, zweene Soͤhne vnd ſo viel Toͤchter geboren<lb/>
+hat/ ja auch wol fuͤnffe. Vnd man hats nu gewiß erfahren/ das<lb/>
+es jhrer vielen alſo begegnet iſt. Sintemal ein Weib zwantzig<lb/>
+Kinder auff Vier mal/ jiñer fuͤnffe auf einmal gebracht vnd ge-<lb/>
+bohren hat/ vnter welchen der groͤßte theil aufferzogen vnd zu<lb/>
+Jahren kom̃en iſt. Vber das hat man befunden/ das eine andere<lb/>
+auff zwoͤlff mahl oder durch zwoͤlff kreiſten/ Sechzig Kinder (iſt<lb/>
+<fw type="catch" place="bottom">grade</fw><lb/>
+﻿
+<pb facs="#f0011"/>
+<lb/>
+grade ein Schock) geboren hat. Bey Regierung des hochloͤb-<lb/>
+lichſten Keyſers <hi rendition="#aq">Auguſti</hi>, hat ſeiner Maͤgde eine/ in dem Dorff<lb/>
+oder Forbrige <hi rendition="#aq">Laurente</hi>, fuͤnff Soͤhne (die wenig Tage gelebet<lb/>
+haben) ans Tageliecht gebracht oder geboren. Vnd in der Land-<lb/>
+ſchafft <hi rendition="#aq">Peloponeſo</hi> hat man erzehlet/ das eine andere/ zu vier<lb/>
+mahlen/ alle wege ein par Kinder geboren hat/ vnter welchen der<lb/>
+groͤſte theil beym leben geblieben iſt.</p><lb/>
+<p>Auff gleichmeſſige weiſe findt auch in Egypten in einer Ge-<lb/>
+burt zugleich ſieben Kinder geboren worden.</p><lb/>
+<p>Biß daher die wort des Jtalianiſchen <hi rendition="#aq">Medici</hi> von <hi rendition="#aq">Ferrar</hi>.<lb/>
+Darinnen er nicht allein viel ſeltzame und vngewoͤhnliche faͤlle<lb/>
+erzehlet/ ſondern auch auff die vrſach deutet/ dadurch ſolche viel-<lb/>
+heit der Geburten <hi rendition="#aq">cauſirt</hi> oder verurſchet worden/ nemlich durch<lb/>
+den fruchtbaren Egyptiſchen Fluß <hi rendition="#aq">Nilum</hi>. Jnmaſſen der weit-<lb/>
+beruͤhmbte <hi rendition="#aq">Philoſophus</hi> vnd Naturkuͤndiger <hi rendition="#aq">Ariſtoteles</hi> (wie<lb/>
+<hi rendition="#aq"><hi rendition="#i">Gellius</hi></hi> ſolches erzehlet <hi rendition="#aq"><hi rendition="#i">lib. 10. cap. 2.</hi></hi>) des Keyſers <hi rendition="#aq">Auguſti</hi> Magd<lb/>
+auch erwehnet vnd berichtet/ das nicht allein jhre fuͤnff Soͤhne/<lb/>
+ſo ſie auff ein mahl geboren/ wenig Tage gelebet/ Sondern mel-<lb/>
+det darneben/ daß auch ſie die Mutter bald hernach geſtorben<lb/>
+iſt/ welcher der Keyſer zum Ewigen gedechtnuͤs ein <hi rendition="#aq">Monimen-tum</hi> oder Grab-mahl in der <hi rendition="#aq">Laurentiner</hi>ſtraſſe hat auffrich-<lb/>
+ten laſſen/ daran die anzahl jhrer Kinder iſt angeſchrieben gewe-<lb/>
+ſen. Was nun aber jtzt ermelter <hi rendition="#aq">Ludov. Bonaciolus</hi> erzehlet<lb/>
+hat/ deſſen hat er noch andere vnd faſt vngleubliche Exempel<lb/>
+mehr in hernachfolgenden worten <hi rendition="#aq"><hi rendition="#i">cap. 6. pag. 278</hi></hi>. herfuͤr bracht/<lb/>
+welche von wort zu wort alſo lauten:</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#i">Numeroſitas conceptuum abortum ciet. Cujus rei mira quædam<lb/>
+referre duximus. Nam qvandam duodecim, alteram duodeviginti<lb/>
+qvatuor, ſegtuaginta alteram (omnibus efformatis) abortivos abe-<lb/>
+giſſe fabuloſum non est. At qvod penitus incredibile cenſebitur<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">(qvam-</fw><lb/>
+<pb facs="#f0012"/>
+(qvamvis medicæ rei profeſſus non ignobilis prodiderit) nobilis qvæ-<lb/>
+dam mulier unà centum &amp; qvinqvaginta efformatos vitæ compo-<lb/>
+tes ſecundis obvolutos præmaturè abortu egeßit: quæcùm vermicu-<lb/>
+los peperiſſe arbitraretur, medicum accerſitum iri jußit, qvo præſen-<lb/>
+te diruptis ſecundis magnitudine minimi digiti (compluribus motum<lb/>
+habentibus) centum &amp; qvinqvagint a partus connumerati ſunt. Sed<lb/>
+in Italia ſeptem &amp; aliam tres(qvod aßiduè accidit) qvam etiam-<lb/>
+num nos ipſi novimus, abegiſſe certum est</hi></hi>.</p><lb/>
+<p>Mit welchen worten der <hi rendition="#aq">Autor</hi> vermeldet/ daß ſichs gewiß<lb/>
+zugetragen habe/ als etliche Weiber <hi rendition="#aq">abortîret</hi>, oder es jhnen<lb/>
+vnrichtig gangen iſt/ das man bey einer 12. bey der andern 22.<lb/>
+vnd abermals bey der andern 70. Kinder/ (ſo alle wol formiret<lb/>
+geweſen) befunden habe. Ja er ſetzt noch einen andern Fall von<lb/>
+einem fuͤrnehmen <hi rendition="#aq">Medico</hi> beſchrieben/ von einer Frawen vom<lb/>
+Adel/ welcher es mit 150. Kindern/ ſo <hi rendition="#aq">efformiret</hi> geweſen/ vnd<lb/>
+das leben gehabt/ durch eine vnzeitige Geburt vnrichtig gangen<lb/>
+ſey. Vnd als ſie vormeinet/ ſie hette Wuͤrmelein geboren/ hat<lb/>
+ſie einen <hi rendition="#aq">Medicum</hi> erfordern laſſen/ in deſſen gegenwart die<lb/>
+Affterbuͤrde ſey auffgemacht worden/ do habe man 150. Leibes<lb/>
+Fruͤchte/ eines kleinen Fingers groß/ vnter welchen ſich ihrer viel<lb/>
+geregt haben/ gezehlet/ vnd in <hi rendition="#aq">Italia</hi> iſts einer mit 7. einer andern<lb/>
+mit 3. Kindern (welches offt geſchiehet) vnrichtig gangen.</p><lb/>
+<p>Darmit man aber wider <hi rendition="#aq">ad propoſitum</hi> vnd zur Hiſto-<lb/>
+riſchen erklerung kom̃e/ ſo ſindt hernach folgende Exempla aber-<lb/>
+mals wol zumercken/ damit man an des mehrgedachten Ferra-<lb/>
+riſchen <hi rendition="#aq">Medici</hi> vnd <hi rendition="#aq">Phyſici relation</hi> deſto weniger <hi rendition="#aq">dubiti-<lb/>
+ren</hi> vnd zweiffeln moͤge.</p><lb/>
+<p>Jn vnſerm Vaterlande in Oberlauſitz/ hat vor etlichen<lb/>
+Jahren in der Koͤniglichen Stadt Goͤrlitz eine Kirſchnerin 3.<lb/>
+lebendige Soͤhne geboren/ welche mit groſſem <hi rendition="#aq">comitat</hi> zur hey-<lb/>
+<fw type="catch" place="bottom">ligen</fw><lb/>
+<pb facs="#f0013"/>
+ligen Tauffe von vielen Leuten ſindt begleitet/ der Sechswoͤch-<lb/>
+nerin auch von den fuͤrnembſten Frawen/ in jhren Wochen<lb/>
+Chriſtmilde Handreichung <hi rendition="#aq">certatim</hi> erzeiget worden.</p><lb/>
+<p>Dergleichen hat auch eines armen/ jedoch ehrlichen Gaͤrt-<lb/>
+ners Weib/ die Schaͤfferin zu Lauche/ vnter der Herꝛſchafft Vn-<lb/>
+wirda/ bey der Loͤbaw/ vor wenig Jahren 3. Kinder geboren/ ſo<lb/>
+Soͤhne geweſen/ vnd getaufft worden.</p><lb/>
+<p>Jnmaſſen auch kurtzverruckter Jahre in der Koͤniglichen<lb/>
+Haupt Stadt Prage ein Weib 3. Soͤhne geboren/ ſo Caſpar/<lb/>
+Melchior vnd Balthaſar genant worden.</p><lb/>
+<p>Zu Grim̃ in Meiſſen/ da eine Churfuͤrſtliche Landſchul iſt/<lb/>
+hat bey Menſchen gedencken zu des Herꝛn <hi rendition="#aq">Adami Siberi Re-<lb/>
+ctoris</hi> zeiten ein Weib vier Kinder/ ſo getaufft worden/ geboren/<lb/>
+welche er auch in ſeinen <hi rendition="#aq">poëmatibus</hi> mit einer ſchoͤnen Grab-<lb/>
+ſchrifft gezieret hat. Ja ein fuͤrnehmer Grafe/ ſo gleich damals<lb/>
+allda geweſen/ hat mit ſeinem gantzen Hofgeſinde ſolchen Kin-<lb/>
+derlein das geleite zu jhrem Ruhebettlein/ in eigener Perſon ge-<lb/>
+geben.</p><lb/>
+<p><hi rendition="#aq">Anno 1024</hi>. hat ein Weib zu nidern Altbach in Beyern<lb/>
+auff eine Geburt 5. Kinder geboren. <hi rendition="#aq"><hi rendition="#i">(Chron. Aventini lib. 5.)</hi></hi></p><lb/>
+<p>Auff gleichen ſchlag hat <hi rendition="#aq">Ariſtoteles</hi> zum ewigen gedecht-<lb/>
+nuͤs verzeichnet/ das in Egypten ein Weib/ mit einer Geburt 5.<lb/>
+Knaben geboren habe/ <hi rendition="#aq"><hi rendition="#i">(Gellius lib. 10. c. 2.)</hi></hi> Vnd ob er wol ver-<lb/>
+meldet/ das man nicht erfahren habe/ das eine mehr als 5. Kin-<lb/>
+der geboren/ vnd darzu ſolche anzahl gar ſelten geſchehe <hi rendition="#aq"><hi rendition="#i">teſte<lb/>
+Gellio ibidem</hi></hi>: So hat man doch das <hi rendition="#aq">contrarinm</hi> vnd wider-<lb/>
+ſpiel aus dem <hi rendition="#aq">allegirten Gynæcéo</hi>, vnd hernach verzeichneten<lb/>
+Hiſtorien zuvernehmen.</p><lb/>
+<p>Vnter denen iſt nicht die geringſte/ ſo von einer Fuͤrſtin zu<lb/>
+Quernfurt geſchrieben wird/ welche auff ein mahl neun Junge<lb/>
+<fw type="sig" place="bottom">B ij</fw><fw type="catch" place="bottom">Herꝛn</fw><lb/>
+<pb facs="#f0014"/>
+Herꝛn oder lebendige Soͤhne zur Welt gebracht hat. Vnd als<lb/>
+die fromme Fuͤrſtin hieruͤber ſich hefftig entſatzt/ vnd die beyſor-<lb/>
+ge gehabt/ jhr Herꝛ Gebhard moͤchte derowegen einen argwohn<lb/>
+auff ſie werffen/ ſintemahl er aus einfalt hiebevor vor ein vn-<lb/>
+moͤglich ding es geachtet/ das eine Fraw von einem Manne/<lb/>
+mehr als ein Kind/ auff einmahl empfangen koͤnte/ So hat ſie<lb/>
+derſelben wol achte durch die Bademutter in einem Keſſel in ei-<lb/>
+nen groſſen Teich nahe beym Schloſſe vertragen laſſen.</p><lb/>
+<p>Gleich aber wie Gott Moſen/ <hi rendition="#aq">Cyrum, Romulum</hi> vnd<lb/>
+<hi rendition="#aq">Remum, &amp;c.</hi> ſo in jhrer Kindheit auch vertragen worden/ wun-<lb/>
+derbarlicher weiſe erhalten/ vnd gewaltige Helden aus jhnen ge-<lb/>
+macht hat: Alſo hat ſichs auch mit dieſen vertragenen Kindlein<lb/>
+begeben.</p><lb/>
+<p>Denn als die Bade- oder Wehemutter mit den Kindlein<lb/>
+ſchon auff dem Wege iſt/ do begegnet jhr der Sechswochnerin<lb/>
+geliebtes Herꝛns Bruder/ Biſchoff <hi rendition="#aq">Bruno</hi>, auch ein edler Herꝛ<lb/>
+zu Quernfurt/ der fraget ſie/ was ſie ſo ſchwer vnd groß truͤge:<lb/>
+Als ſie aber zur antwort gibt/ das es junge Hunde weren/ welche<lb/>
+ſie erſaͤuffen ſolte/Steiget der fromme Biſchoff ab vnd decket ſie<lb/>
+mit gewalt auff zubeſehen/ ob jrgendt einer oder der ander zur<lb/>
+zucht dienete/ darauff ſie zum hoͤchſten erſchricket/ vnd jhme den<lb/>
+gantzen handel erzehlet. Hierauff befihlet der Biſchoff dem Wei-<lb/>
+be ſtill zuſchweigen/ vnd nimpt den Keſſel ſampt den 8. Jungen<lb/>
+Herꝛlein/ vnd leſſt ſie alle in geheim Fuͤrſtlich vnd wol erziehen:<lb/>
+Als ſie aber erwachſſen/ vnd ſchoͤne luſtige Herꝛen aus jhnen<lb/>
+worden/ hat er ſie alle in geſamptem hauffen in ſchoͤnen Kleidern<lb/>
+der Mutter vorgeſtellet/ vnd den gantzen verlauff erzehlet/ welche<lb/>
+hernachmals faſt alle zu Biſchoff- vnd Fuͤrſtlichen <hi rendition="#aq">digniteten</hi><lb/>
+vnd ehren ſindt befoͤrdert worden.</p><lb/>
+<p>Deſſen zum Ewigen gedechtnuͤs hat man den Keſſel zu<lb/>
+<fw type="catch" place="bottom">Quernfurt</fw><lb/>
+<pb facs="#f0015"/>
+Quernfurt in die Pfarꝛkirchen gehengt/ daß er von Jederman<lb/>
+noch auff heutigen Tag kan geſehen werden. Man wils auch<lb/>
+dafuͤr halten/ daß das vhralte fuͤrnehme vnd Adeliche loͤbliche<lb/>
+Geſchlecht/ derer von Hund/ ſo in Schleſien ſehr wol bekant/<lb/>
+von den obbemelten loͤblichen Herꝛn entſproſſen ſein ſoll.</p><lb/>
+<p>Wie aber dieſe Fuͤrſtliche Sechswoͤchnerin vber jhren 9.<lb/>
+Kindern ſehr erſchrocken vnd beſtuͤrtzet worden iſt: Ebenmeſſi-<lb/>
+ger weiſe iſts auch ergangen <hi rendition="#aq">Anno 1533</hi>. jener loͤblichen Fuͤr-<lb/>
+ſtin/ von welcher D. Selden in beſchreibung der Stadt Wien<lb/>
+<hi rendition="#aq">fol. 3.67</hi>. meldet/ daß ſie einſten in abweſen jhres Herꝛn drey le-<lb/>
+bendige Junge Herꝛn zur Welt gebracht. Als ſie aber nicht we-<lb/>
+niger/ als vormals erzehlte Fuͤrſtliche Sechswoͤchnerin/ in hoͤch-<lb/>
+ſten kum̃er vnd betruͤbnuͤs geſtanden/ vnd ihr wegen boͤſer Leute<lb/>
+argen verdachts ſchwermuͤtige gedancken gemacht: Do iſt durch<lb/>
+Gottes ſonderliche ſchickung der hochloͤblichſte Koͤnig <hi rendition="#aq">Ferdi-<lb/>
+nandus</hi> in das Fuͤrſtliche Schloß vnangeſaget/ dieſelbe Nacht<lb/>
+mit wenig Dienern ankommen/ vnd ſich biß zu jhres Herrn an-<lb/>
+kunfft allda auffhalten laſſen. Da hat der hochloͤblichſte Koͤnig<lb/>
+in abweſen jhres Herꝛn/ jhr hertzlichen Troſt laſſen zuſprechen/<lb/>
+mit anmeldung/ das ſolches gar nicht aus ſolchen vrſachen<lb/>
+herruͤhrete/ wie ſie jhr vielleicht aus einfalt zu ſinne ziege/ vnd ſel-<lb/>
+ber ſchwermuͤtige gedancken machte/ ſo ſey es auch nicht wider<lb/>
+die Natur/ wenn eine mehr Kinder/ als eines/ zur Welt gebiere:<lb/>
+Sondern hat durch ſeinen trewen rath Herꝛn D. Moſern jhr<lb/>
+viel ſchoͤner Hiſtorien anmelden laſſen: Als die newlicht erzehlte<lb/>
+ſo zu Quernfurt ſich begeben.</p><lb/>
+<p>Jtem: Das eine junge Adeliche Fraw in Holland habe 5.<lb/>
+lebendige Soͤhne zur Welt gebracht/ vnd drey darvon erzogen.</p><lb/>
+<p>Jtem: Das eine Koͤnigin in Franckreich im 17. Jahre jhres<lb/>
+alters/ drey lebendige Soͤhne geboren vnd erzogen hab.</p><lb/>
+<fw type="sig" place="bottom">B iij</fw><fw type="catch" place="bottom">Jtem:</fw><lb/>
+<pb facs="#f0016"/>
+<p>Jtem: Das <hi rendition="#aq">Ariſtoteles</hi> ſchreibe/ das eine Edle Fraw<lb/>
+<hi rendition="#aq">Sexapis</hi> genant/ in vier Geburten 15. Kinder zur Welt ge-<lb/>
+bracht/ vnd darvon 9. erzoge habe.</p><lb/>
+<p>Vnd das <hi rendition="#aq">Plutarchus</hi> ſchreibe/ es habe eine Alexandriniſche<lb/>
+Fuͤrſtliche Fraw im 19. Jahre jhres alters fuͤnff lebendige Soͤh-<lb/>
+ne zugleich geboren. Durch welche Exempla die loͤbliche Fuͤrſt-<lb/>
+liche Sechswoͤchnerin gar herꝛlich getroͤſtet/ vnd jhres groſſen<lb/>
+kummers iſt entlediget worden.</p><lb/>
+<p>Zu dieſen mercke man auch nachfolgende Geſchichten vnd<lb/>
+Exempel.</p><lb/>
+<p><hi rendition="#aq">Cromerus</hi> ſetzt/ das vmb Crackaw ein ehrliche Matron/<lb/>
+Margaretha/ ein Gemahl <hi rendition="#aq">Virboslai Comitis</hi> 36. lebendige<lb/>
+Soͤhne auff ein mahl geboren/ vnd auff die Welt gebracht habe.<lb/>
+<hi rendition="#aq"><hi rendition="#i">(Calendarium ſanctorum Hondorffij fol. 25. a.)</hi></hi></p><lb/>
+<p>Viel wunderbarlicher aber iſt diß zuvernehmen/ ſo <hi rendition="#aq">Guic-<lb/>
+ciardinus, Lud. Vives, Erasmus</hi> vnd andere von einer Graͤ-<lb/>
+fin in Holland erzehlen/ welche auff einmal vnd in einer Geburt<lb/>
+365. lebendige Kinder/ nemlich/ ſo viel als Tage in einem Jahre<lb/>
+ſindt/ halb Soͤhne vnd halb Toͤchter zur Welt gebracht vnd<lb/>
+geboren hat/ welche auch alle Getaufft worden/ vnd hernach ge-<lb/>
+ſtorben/ auch nicht groͤſſer als die Krabben oder ein klein Finger/<lb/>
+jedoch in Menſchlicher geſtalt/ geweſen ſindt. Welches ſich<lb/>
+<hi rendition="#aq">Anno Chriſti 1276</hi>. zugetragen hat.</p><lb/>
+<p>Darneben wird auch die <hi rendition="#aq">occaſion</hi> gemeldet/ das nemlich<lb/>
+ein armes Weib/ ſo mit viel Kindern vber fallen geweſen/ eine<lb/>
+Gabe oder Allmoſen von jhr der Graͤfin gebeten hat/ Als ſie aber<lb/>
+ſo viel Kinder geſehen/ hat ſie das arme Weib greulich außge-<lb/>
+macht/ vnd einen ehrloſen Balck genennet/ mit vermeldung/ das<lb/>
+es nicht moͤglich were/ daß ſie von einem Manne ſo viel Kinder<lb/>
+zeugen koͤnte/ das arme vnſchuͤldige Weib/ bittet Gott/ daß er<lb/>
+<fw type="catch" place="bottom">jhre</fw><lb/>
+<pb facs="#f0017"/>
+jhre vnſchuld wolle an Tag bringen/ vnd do ſie vnſchuͤldig vnd<lb/>
+jhrer ehren richtig were/ ſo wolle Er der Graͤfin auff einmal ſo<lb/>
+viel Kinder geben/ als Tage im Jahre weren/ Welches auch<lb/>
+warhafftig jhr alſo widerfahren iſt.</p><lb/>
+<p>Aber wer wil doch nur alle Exempel vnd Wunderthaten<lb/>
+Gottes erzehlen oder beſchreiben? Wir muͤſſen bekennen/ das<lb/>
+Gottes Gerichte ſein vnbegreifflich/ vnd vnerforſchlich ſeine<lb/>
+Wege. <hi rendition="#aq">Rom. II.</hi></p><lb/>
+<p>Wir wollen aber nicht zweiffeln/ weil die obermelten vier<lb/>
+Kinderlein/ gleich an dem Tage zur Welt geboren worden/ als<lb/>
+der Roͤmiſchen Keyſerlichen auch zu Hnngern vnd Boͤheimb<lb/>
+Koͤniglichen Majeſtaͤt hertz allerliebſtes Gemahl/ in der Koͤnig-<lb/>
+lichen Haͤupt Stadt Prage iſt gekroͤnet worden/ das ſolches ein<lb/>
+gluͤcklichs <hi rendition="#aq">omen</hi>, vnd gute andeutung ſein werde. Vielleicht<lb/>
+wil auch der <hi rendition="#fr"><hi rendition="#g">HERR</hi></hi> Chriſtus als der Ewige Sohn Gottes/<lb/>
+hierdurch in jtziger boͤſen Welt/ vor dem Augenblicklich-vorſte-<lb/>
+henden Juͤngſten tage/ die Zahl der Außerwehleten deſto ſchleu-<lb/>
+niger erfuͤllet haben.</p><lb/>
+<p>Vnd ſo viel ſey nach anleitung beydes der H. Schrifft/ ſo<lb/>
+wol anderer fuͤrnehmer gelaͤrter Leute vnd wolbeglaubter <hi rendition="#aq">Hiſto-<lb/>
+riographorum</hi>, von den Vier Kindern/ vnſerm lieben Va-<lb/>
+<hi rendition="#c">terlande zu Rhum vnd Ehren/ vnd ſolchen nun in Gott<lb/>
+ſeliglich ruhenden Kindern zum Ewigen<lb/>
+gedechtnuͤs gemeldet.</hi></p><lb/>
+<figure/> <milestone unit="section" rendition="#hr"/><lb/>
+<pb facs="#f0018"/>
+</body><back>
+<pb facs="#f0019"/>
+<pb facs="#f0020"/>
+</back>
+</text> </TEI>

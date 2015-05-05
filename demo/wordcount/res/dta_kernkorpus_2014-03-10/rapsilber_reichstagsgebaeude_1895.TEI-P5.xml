@@ -1,0 +1,1856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Das Reichstags-Gebäude</title>
+<title type="sub">Seine Baugeschichte und künstlerische Gestaltung sowie ein Lebensabriss seines Erbauers Paul Wallot</title>
+<author>
+<persName ref="http://d-nb.info/gnd/116335270">
+<surname>Rapsilber</surname>
+<forename>Maximilian</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">97</measure>
+<measure type="tokens">13342</measure>
+<measure type="types">4445</measure>
+<measure type="characters">100293</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:17Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/rapsilber_reichstagsgebaeude_1895</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/rapsilber_reichstagsgebaeude_1895</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/rapsilber_reichstagsgebaeude_1895</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/rapsilber_reichstagsgebaeude_1895</idno>
+<idno type="DTADirName">rapsilber_reichstagsgebaeude_1895</idno>
+<idno type="DTAID">16249</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194876</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Rapsilber, Maximilian: Das Reichstags-Gebäude. Berlin, 1895.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Das Reichstags-Gebäude</title>
+<title level="m" type="sub">Seine Baugeschichte und künstlerische Gestaltung sowie ein Lebensabriss seines Erbauers Paul Wallot</title>
+<author>
+<persName ref="http://d-nb.info/gnd/116335270">
+<surname>Rapsilber</surname>
+<forename>Maximilian</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">52 S., 1 Portr., 17 Taf.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Cosmos</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1895</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Td 369 R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=404602681</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Technik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Populärwissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2sub">Architektur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="main"> <docTitle> <titlePart type="main">DAS<lb/>
+REICHSTAGS-GEBÄUDE</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="sub">SEINE BAUGESCHICHTE<lb/>
+UND KÜNSTLERISCHE GESTALTUNG<lb/>
+SOWIE EIN LEBENSABRISS<lb/>
+SEINES ERBAUERS PAUL WALLOT</titlePart> </docTitle><lb/>
+<byline>DARGESTELLT<lb/>
+VON<lb/>
+<docAuthor>M. RAPSILBER.</docAuthor> </byline><lb/>
+<titlePart type="desc">MIT 18 LICHTDRUCKEN NACH ORIGINAL-AUFNAHMEN</titlePart><lb/>
+<docImprint> <publisher>COSMOS<lb/>
+VERLAG FÜR KUNST UND WISSENSCHAFT</publisher><lb/>
+<pubPlace>BERLIN SW.</pubPlace><lb/>
+</docImprint> </titlePage>
+<pb n="[2]" facs="#f0008"/>
+<div type="imprint"> <p rendition="#c">Typ. Inst. Giesecke &amp; Devrient, Leipzig u. Berlin.</p> </div><lb/>
+</front> <body>
+<pb n="3" facs="#f0009"/>
+<p>Als das heilige römische Reich deutscher Nation, die Gründung<lb/>
+Karls des Grossen, altersmüde dahinsank, da keimte in den Herzen<lb/>
+der deutschen Jugend ein frühlingsfrisches Sehnen nach der Wieder¬<lb/>
+geburt des Vaterlandes. Der Dämon Napoleon war bezwungen, das<lb/>
+himmelanstrebende Wahrzeichen <hi rendition="#k">Erwin von Steinbach's</hi> mahnte<lb/>
+jenseits der Grenzscheide des Rheins an eine heilige Pflicht, an die<lb/>
+Erlösung eines urdeutschen Stammes aus den Fesseln der Fremd¬<lb/>
+herrschaft. Aber die Stimme <hi rendition="#k">Wilhelm von Humboldt's</hi>, des herrlichen<lb/>
+deutschen Mannes, verhallte wirkungslos, halbasiatische Willkür mischte<lb/>
+sich brutal in die vaterländischen Angelegenheiten, unter dem frostigen<lb/>
+harten Zwange neigte die Frühlingsblume der Begeisterung trauernd<lb/>
+das Haupt. Preussen, selber noch aus tausend Wunden blutend, war<lb/>
+noch nicht zu seiner grossen Mission gewappnet. Aber die Sehnsucht<lb/>
+nach der Erfüllung des Heldentraums blieb in den Tiefen der Volks¬<lb/>
+seele lebendig und die Wurzeln der vorgeahnten Machtgrösse senkten<lb/>
+sich tiefer und tiefer in den tausendjährigen Boden der deutschen<lb/>
+Kulturwelt. Das Geschlecht der Feiheitskämpfer nahm seine roman¬<lb/>
+tischen, traumschönen Ideale mit ins Grab, aber sein Vermächtniss<lb/>
+verpflanzte sich auf die folgende Generation, welche klaren Blickes,<lb/>
+nüchtern und thatenstark die Fundamente der kommenden Zeit gelegt<lb/>
+hat. Langsam, wie die Eichensaat, reifte das Geschick heran, die<lb/>
+<fw type="sig" place="bottom">1*<lb/>
+</fw>
+<pb n="4" facs="#f0010"/>
+Frucht einer mühevollen, aber gottgesegneten Arbeit. Dann aber, als<lb/>
+den Enkeln die Erfüllung kam, brauste es wie ein welterschütternder<lb/>
+Frühlingssturm durch die deutschen Lande. Die Wucht der kriegerischen<lb/>
+Ereignisse riss alle Bedenken, Zweifel und Sondergelüste mit sich fort,<lb/>
+in einem gewaltigen Anlauf drängte der Volkswille zu dem höchsten<lb/>
+Ziel, zur Errichtung des Deutschen Reichs.</p><lb/>
+<p>Jedesmal, wenn ein Volk einen Machtgipfel erstiegen, tritt sein<lb/>
+schönstes Können, das Phantasieschaffen, in die Aktion. Leicht ver¬<lb/>
+gänglich ist das Waffenglück, eine genaue Kunde von den Thaten der<lb/>
+Staatsmänner ist auf lange Zeiten in den Archiven vergraben. Der<lb/>
+Dichter und Künstler aber hat den Beruf, für die politischen Neu¬<lb/>
+bildungen die unvergänglichen Symbole zu formuliren, einen äusseren,<lb/>
+sichtbaren Ausdruck für die im Herzen des Volkes lebendige Be¬<lb/>
+geisterung, für den inneren, sittlichen Werth des Errungenen zu<lb/>
+finden. Die schöpferisch erregte Kraft einer grossen Zeit ersteigt<lb/>
+ihren Höhepunkt immer erst in den künstlerischen Thaten, die auf<lb/>
+die Kriegsstürme folgen.</p><lb/>
+<p>So hat denn das <hi rendition="#g">Deutsche Reichstagshaus</hi> ausser seiner<lb/>
+praktischen auch die ideale Bestimmung, die Siege der deutschen<lb/>
+Waffen, die neugewonnene Reichseinheit für alle Zeiten in sich zu<lb/>
+verkörpern und den fernen Geschlechtern Kunde zu geben von dem<lb/>
+Geist, welcher die Reichsgründer beseelt hat. Der Grundstein des<lb/>
+Hauses, welcher am 9. Juni 1884 von Kaiser <hi rendition="#k">Wilhelm I.</hi> gelegt ist,<lb/>
+enthält die Urkunde mit den kennzeichnenden Worten:</p><lb/>
+<p>„Unter den glorreichen Waffen-Erfolgen der vereinten Deutschen<lb/>
+Stämme ist durch Gottes Fügung das Deutsche Reich zu ungeahnter<lb/>
+Macht und Herrlichkeit erstanden. Aus der Begeisterung des Volkes<lb/>
+und aus dem gegenseitigen Vertrauen der Bundesregierungen ist für<lb/>
+Deutschland die Kraft erwachsen, seine Verfassung und seine nationale<lb/>
+Entwicklung aus eigner Macht zu schützen und die Pflege seiner<lb/>
+Wohlfahrt in die eigne Hand zu nehmen. Diesem Schutz und dieser<lb/>
+Wohlfahrt soll die Arbeit in dem Hause dienen, dessen Grundstein<lb/>
+Wir legen.</p><lb/>
+<pb n="5" facs="#f0011"/>
+<p>„Möge Friede nach Aussen und im Innern den Bau dieses<lb/>
+Hauses beschirmen! <hi rendition="#g">Auf immerdar sei das Haus ein Wahr¬<lb/>
+zeichen der unauflöslichen Bande</hi>, <hi rendition="#g">welche in grossen und<lb/>
+herrlichen Tagen die Deutschen Länder und Stämme zu<lb/>
+dem Deutschen Reich vereinigt haben</hi>!</p><lb/>
+<p>„Dazu erflehen Wir den Segen Gottes.“</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="6" facs="#f0012"/>
+<div n="1"> <head>PAUL WALLOT.<lb/>
+</head> <p>Wie die Begründung des Reiches eine neue grosse Epoche der<lb/>
+deutschen Geschichte herbeigeführt, so hat auch der Erbauer des<lb/>
+Reichstagshauses, <hi rendition="#k">Paul Wallot</hi>, mit seinem Werk in der Geschichte<lb/>
+der deutschen Kunst und des Entwicklungsganges der Stadt Berlin<lb/>
+einen weitausschauenden Markstein errichtet. Mit stolzer Genug¬<lb/>
+thuung blickt die Nation auf das vollendete Baudenkmal, welches in<lb/>
+allen seinen Theilen die Grösse, die Würde und das Glück des<lb/>
+Deutschen Reiches in hoher Kunstvollendung zur Schau trägt. Und<lb/>
+wir dürfen uns der Hoffnung hingeben, dass auch die Zukunft das<lb/>
+Reichstagshaus als die höchste künstlerische That aus der Aera des<lb/>
+ersten Hohenzollern-Kaisers anerkennt.</p><lb/>
+<p> <hi rendition="#k">Paul Wallot</hi> ist am 26. Juni 1842 in Oppenheim am Rhein<lb/>
+geboren. Er entstammt einer vor der Aufhebung des Ediktes von<lb/>
+Nantes ausgewanderten Hugenottenfamilie. Ein Vorfahr <hi rendition="#k">Antoine<lb/>
+Wallot</hi> war Arzt am Hofe <hi rendition="#k">Ludwig's XIV.</hi> und vorübergehend<lb/>
+Direktor des Jardin des Plantes. Diese letztere Stellung hatte un¬<lb/>
+mittelbar nach ihm <hi rendition="#k">Colbert</hi> als Ehrenamt inne. In den achtziger<lb/>
+Jahren des 17. Jahrhunderts siedelte sich die Familie in dem idyllischen,<lb/>
+von freundlichen Weinbergen umgürteten hessischen Rheinstädtchen<lb/>
+an und hat seitdem ununterbrochen denselben Wohnsitz behauptet<lb/>
+<pb n="7" facs="#f0013"/>
+Mit der Umbildung des ursprünglichen Namens <hi rendition="#k">Vallot</hi> in die<lb/>
+deutsche Schreibart hatte sich längst die germanische Akklimatisation<lb/>
+vollzogen. Nach dem Besuch der Realschulen in Oppenheim und<lb/>
+Darmstadt bezog <hi rendition="#k">Wallot</hi> 1860 das Polytechnikum in Hannover,<lb/>
+darauf bereitete er sich an der Universität Giessen zu dem Facultäts-<lb/>
+Examen vor, welches zum Eintritt in den hessischen Staatsdienst<lb/>
+erforderlich war. In Giessen kam <hi rendition="#k">Wallot</hi> mit dem Restaurator der<lb/>
+Wartburg, <hi rendition="#k">H. S. M. v. Ritgen</hi>, in Berührung. Ein Jahr lang war<lb/>
+<hi rendition="#k">Wallot</hi> als Bau-Accessist in seiner engeren Heimath thätig, um so¬<lb/>
+dann eine weitere Ausbildung in der Ferne zu suchen. Zuerst in<lb/>
+Berlin. Ein Semester an der Bauakademie, dann aber in den Ateliers<lb/>
+von <hi rendition="#k">Gropius</hi> und <hi rendition="#k">Hitzig</hi>. Eine weite Perspective eröffnete sich<lb/>
+ihm auf einer Studienreise durch Italien im Jahre 1867. Darauf<lb/>
+liess sich <hi rendition="#k">Wallot</hi> als Privat-Architekt dauernd in Frankfurt am Main<lb/>
+nieder. Nun folgten für <hi rendition="#k">Wallot</hi> die fruchtbaren Jahre der Kraft¬<lb/>
+spannung und der Entfaltung seiner künstlerischen Individualität. Im<lb/>
+Jahre 1872, wo die Entwürfe des ergebnisslosen ersten Preisaus¬<lb/>
+schreibens für das Reichstagshaus vorlagen, studirte <hi rendition="#k">Wallot</hi> in Italien die<lb/>
+Meisterwerke der Hochrenaissance; <hi rendition="#k">Palladio</hi> und besonders <hi rendition="#k">Sanmichele</hi><lb/>
+zogen ihn verwandtschaftlich an. Jetzt drang der Name <hi rendition="#k">Wallot's</hi><lb/>
+mehr und mehr in die Oeffentlichkeit. In einer Reihe von Wohn-<lb/>
+und Geschäftshäusern in Frankfurt traten die Hauptmerkmale seiner<lb/>
+Art, der kühne und kraftvolle Wurf in der Anlage und der blühende<lb/>
+Erfindungsreichthum, zu Tage. Nun betheiligte er sich an den grossen<lb/>
+Wettbewerben, so an dem Denkmal für den Niederwald, am Frank¬<lb/>
+furter Centralbahnhof, an der Stephanienbrücke in Wien und an der<lb/>
+Friedhofsanlage der Kreuzkirchen-Parochie in Dresden, ohne indessen<lb/>
+hierbei, trotz verschiedener Prämiirungen, mit der Ausführung betraut<lb/>
+zu werden. In diesen Zustand des Zuwartens traf nun endlich wie<lb/>
+ein elektrisirender Schlag der Ruf des Altreichskanzlers für die<lb/>
+zweite Konkurrenz um das Reichstagshaus. Im Juni 1882, in den<lb/>
+Tagen da <hi rendition="#k">Wallot</hi> das 40. Lebensjahr erreichte, wurde ihm der<lb/>
+erste Preis zugesprochen und sein Entwurf, der das Kennwort „<hi rendition="#g">Für<lb/>
+<pb n="8" facs="#f0014"/>
+Staat und Stadt</hi>“ trug, zur Grundlage weiterer Bearbeitung an¬<lb/>
+genommen.</p><lb/>
+<p>Die Baugeschichte des Reichstagshauses hatte in dem Zeitpunkt,<lb/>
+als <hi rendition="#k">Wallot</hi> an die Ausführung des Bauwerks herantrat, bereits viele<lb/>
+Stadien der Vorbereitung durchlaufen. Als der Deutsche Reichstag<lb/>
+im Frühjahr 1871 zum ersten Male zusammentrat, wurde alsbald der<lb/>
+Beschluss gefasst, dass ein der Vertretung des deutschen Volkes<lb/>
+würdiges Parlamentshaus zu erbauen sei. Der Baufonds wurde der<lb/>
+französischen Kriegsentschädigung entnommen, 1873 wurden aus der<lb/>
+letzten Rate acht Millionen Thaler zurückgelegt, deren Zinsen zu dem<lb/>
+Kapital geschlagen wurden, 1877 nahm man von dem ferneren<lb/>
+Zinsenzuschlag Abstand, da man mit der nunmehr auf 29593573 Mark<lb/>
+angewachsenen Summe die Baukosten bestreiten zu können glaubte.<lb/>
+Mittlerweile hatten sich schier unüberwindliche Schwierigkeiten der<lb/>
+Entwicklung der Angelegenheit in den Weg gestellt. Das schon im<lb/>
+Dezember 1871 erlassene Preisausschreiben hatte kein befriedigendes<lb/>
+Ergebniss zur Folge. Die Entwürfe von <hi rendition="#k">L. Bohnstedt</hi>, dem der<lb/>
+erste Preis zu Theil wurde, ferner diejenigen von <hi rendition="#k">Mylius</hi> und<lb/>
+<hi rendition="#k">Bluntschli</hi>, von <hi rendition="#k">KAYSER</hi> und <hi rendition="#k">Groszheim</hi>, von <hi rendition="#k">Ende</hi> und <hi rendition="#k">Böckmann</hi> u.a.<lb/>
+boten in keiner Weise eine geeignete Grundlage für die Ausführung.<lb/>
+Man hatte damals noch keine genaue Vorstellung von den praktischen<lb/>
+und architektonischen Erfordernissen eines Parlamentshauses, sodann<lb/>
+erschien es vortheilhaft erst abzuwarten, in welcher Weise sich die<lb/>
+neugeschaffenen parlamentarischen Verhältnisse in Deutschland ge¬<lb/>
+stalten würden, um danach von Neuem das Bauprogramm zu formu¬<lb/>
+liren. Es war vernünftig, dass man nicht hastig in's Blaue hinein<lb/>
+vorging. Insbesondere aber erregte die ungünstige Lage des Bau¬<lb/>
+platzes an der Ostseite des Königsplatzes die schwersten Bedenken.<lb/>
+Die vom Reichstag erwählte Baukommission, an deren Spitze der<lb/>
+Staatssekretär <hi rendition="#k">von Bötticher</hi> stand, erschöpfte sich im Verlauf<lb/>
+einer zehnjährigen Thätigkeit in den verschiedenartigsten Vorschlägen<lb/>
+zur Lösung der Platzfrage, um am Ende definitiv sich für den ur¬<lb/>
+sprünglich geplanten Ort zu entscheiden. Für den Grunderwerb<lb/>
+<pb n="9" facs="#f0015"/>
+wurden 7222437 Mark ausgegeben. Das am 2. Februar 1882 er¬<lb/>
+lassene zweite Preisausschreiben an alle deutsch redenden Künstler<lb/>
+hatte denn mit erheblichen Schwierigkeiten zu rechnen. Die Ab¬<lb/>
+messung des Bauplatzes, 136 : 95 m, war angesichts der unter¬<lb/>
+zubringenden Räumlichkeiten ausserordentlich knapp, die Grundfläche<lb/>
+durfte ursprünglich durch belebende und dem Verkehr dienende<lb/>
+Vorbauten nicht überschritten werden. Dazu kam eine weitere Ver¬<lb/>
+wicklung durch den Umstand, dass die Hauptfront nach dem Königs¬<lb/>
+platz, also der Stadt abgekehrt zu liegen kam. Die Haupteingänge<lb/>
+mussten daher in den Nebenfronten angeordnet werden, und das<lb/>
+trug wesentlich zur Komplikation der Planbildung bei. Und bei der<lb/>
+künstlerischen Gestaltung des Aeusseren war einerseits ein weit¬<lb/>
+gedehnter Platz zu beherrschen, andererseits war eine günstige An¬<lb/>
+sicht vom Brandenburger Thor aus zu erzielen.</p><lb/>
+<p> <hi rendition="#k">Wallot</hi> ist nun aller dieser Schwierigkeiten bereits in dem<lb/>
+ersten Entwurf Herr geworden. Die mächtige Pfeilerstruktur der<lb/>
+Fronten wirkte in grossgedachten schlichten Linien auf weite Ent¬<lb/>
+fernungen hin, die vier Eckthürme schlossen den Bauorganismus<lb/>
+wuchtig und feierlich zusammen, und eine herrliche Steinkuppel<lb/>
+dominirte nach allen Seiten hin, machtvoll über den Thürmen auf¬<lb/>
+ragend, wie das Kaiserthum über den vier Königreichen, den Eck¬<lb/>
+pfeilern der Reichseinheit, einen majestätischen Machtgipfel bildet.<lb/>
+Diese Lösung entsprach den höchsten Erwartungen. Und es ist<lb/>
+darauf hinzuweisen, dass die hochstrebende Kuppel des preisgekrönten<lb/>
+Entwurfs die perspectivische Verkürzung, in welcher man die Linien<lb/>
+der Fronten vom Brandenburger Thor aus erblickt, harmonisch<lb/>
+auflöste.</p><lb/>
+<p>Nun trat an <hi rendition="#k">Wallot</hi> die Aufgabe heran, durch wiederholte<lb/>
+Bearbeitung der Baupläne allen Anforderungen seitens der für den<lb/>
+Bau massgebenden Faktoren gerecht zu werden. Die erste Um¬<lb/>
+arbeitung des ursprünglichen Entwurfs zeigt in der Längsaxe die<lb/>
+Eingangshallen und das Foyer; die Kurzaxe, welche von Westen<lb/>
+nach Osten läuft, weist eine Eingangshalle, ein imposantes Treppenhaus<lb/>
+<pb n="10" facs="#f0016"/>
+und hinter dem Foyer den grossen Sitzungssaal auf. Die Er¬<lb/>
+frischungsräume, der Schreib- und Lesesaal sind an der Westfront<lb/>
+angeordnet und der Bundesrathssitzungssaal im südöstlichen Thurm.<lb/>
+Doch die Akademie des Bauwesens, welcher die Abgabe der Gut¬<lb/>
+achten oblag, sprach sich gegen die 10 m über dem Strassenniveau<lb/>
+emporgehobene Lage des Hauptgeschosses aus. Die durch die Tiefer¬<lb/>
+legung des Sitzungssaales bedingte zweite Umarbeitung des Entwurfs<lb/>
+vom Frühjahr 1883 reducirt das Sockelgeschoss auf 5½ m. Das<lb/>
+Treppenhaus an der Westfront wird zu einer bis zum Foyer durch¬<lb/>
+gehenden oblongen Monumentalhalle ausgestaltet. In dieser Situation<lb/>
+kam das Bauprojekt vor den Reichstag am 9. Juni 1883. Es sprach<lb/>
+so überzeugend auf die Abgeordneten ein, dass die Bauausführung<lb/>
+<hi rendition="#k">Wallot</hi> sofort übertragen wurde, obwohl noch mehrere Bedenken<lb/>
+der Bauakademie Berücksichtigung erheischten. Die Akademie be¬<lb/>
+zweifelte die genügende Beleuchtung des Sitzungssaals, die Folge<lb/>
+davon war, dass die ursprüngliche Kuppel aus dem Programm beseitigt<lb/>
+wurde. Ferner wünschte man eine besondere geräumige Eingangs¬<lb/>
+halle für den kaiserlichen Hof. Das führte eine abermalige, diesmal<lb/>
+gänzlich veränderte Umgestaltung des Bauplans herbei. An der Ost¬<lb/>
+seite wurde ein beträchtlicher Raum für das kaiserliche Vestibül in<lb/>
+Anspruch genommen. Der grosse Sitzungssaal wurde infolge dessen<lb/>
+nach Westen vorgerückt und zwar über die Längsaxe hinaus. Da¬<lb/>
+durch wurde das bisherige Foyer unmöglich gemacht, nur die nörd¬<lb/>
+liche und südliche Eingangshalle blieben. Die ehemaligen vier Binnen¬<lb/>
+höfe wuchsen zu zwei zusammen. Das Foyer wurde nun endgültig<lb/>
+durch die gewaltige 96 m lange Wandelhalle ersetzt, die hinter den<lb/>
+Repräsentationsräumen an der Westfront eingelegt und sowohl mit<lb/>
+den beiden Haupttreppen als auch den Eingangshallen in Verbindung<lb/>
+gesetzt wurde. Was auf der einen Seite an akademischer Schönheit<lb/>
+in der Planbildung geopfert werden musste, wurde andererseits durch<lb/>
+die Schaffung eines in der deutschen Profanarchitektur einzigartigen<lb/>
+Innenraums ersetzt. Und über der mit einer Flachkuppel eingedeckten<lb/>
+Rotunde in der Mitte der Wandelhalle entwarf <hi rendition="#k">Wallot</hi> höherer<lb/>
+<pb n="11" facs="#f0017"/>
+Anweisung gemäss einen schlanken Kuppelbau, der von dem ursprüng¬<lb/>
+lichen über dem Sitzungssaal gründlich abwich. Jetzt endlich, am<lb/>
+5. Dezember 1883, konnte die kaiserliche Zustimmung zu der allseitig<lb/>
+durchgebildeten Grundlage für die Bauausführung eingeholt werden.<lb/>
+Am 9. Juni 1884 fand die feierliche Grundsteinlegung statt. Doch<lb/>
+im weiteren Verlauf der Arbeiten mussten noch zwei strittige Punkte<lb/>
+erledigt werden. Gegen den zweiten Kuppelentwurf sprachen schwere<lb/>
+Bedenken. <hi rendition="#k">Wallot</hi> kam je länger je mehr zu der Ueberzeugung,<lb/>
+dass das dominirende Bauglied des Hauses einzig und allein über<lb/>
+dem grossen Sitzungssaal, dem wichtigsten Raum in dem Bauorganis¬<lb/>
+mus, eine Berechtigung habe. Nach zwei Jahre langen Bemühungen<lb/>
+gelang es <hi rendition="#k">Wallot</hi>, nachdem das Problem eines aus Eisen und Glas<lb/>
+konstruirten Saalüberbaues den Beifall der Sachkenner sich errungen,<lb/>
+die Kuppelfrage endgültig in einer würdigen Weise zu lösen. Die<lb/>
+Entscheidung fiel am 13. Januar 1890. In demselben Jahre beschloss<lb/>
+die Reichstagsbau-Kommission, die von <hi rendition="#k">Wallot</hi> geforderte Bekleidung<lb/>
+der grossen Wandelhalle mit istrischem Kalkstein abzulehnen. Es<lb/>
+handelte sich hierbei vornehmlich um die Beschleunigung der Bau¬<lb/>
+ausführung, an Stelle des echten Materials wurde ein künstlicher<lb/>
+Inkrustatstein vorgeschlagen. Gegen diese Verleugnung eines der<lb/>
+vornehmsten baukünstlerischen Principien erhob sich aus allen Theilen<lb/>
+Deutschlands ein lebhafter Protest. Doch der Reichstag entschied<lb/>
+sich in der stürmischen Sitzung am 9. Mai 1891 zu Gunsten des<lb/>
+Surrogat-Materials.</p><lb/>
+<p>Als die Gerüste vor den Façaden fielen und der innere Ausbau<lb/>
+mehr und mehr der Vollendung entgegenging, wurde dem Erbauer<lb/>
+des Reichstagshauses eine reiche Fülle der ehrenvollsten Anerkennung<lb/>
+zu Theil. Mit freudigem Staunen blickte das deutsche Volk auf die<lb/>
+zu so herrlicher Vollendung gediehene Grossthat der vaterländischen<lb/>
+Kunst, als am 5. December 1894 in der Wandelhalle die feierliche<lb/>
+Schlusssteinlegung vollzogen wurde. Die tiefen Eindrücke, welche<lb/>
+das Bauwerk hervorruft, finden in den <hi rendition="#k">Wallot</hi> erwiesenen Aus¬<lb/>
+zeichnungen ein getreues Echo. Dass die hessische Universität Giessen<lb/>
+<pb n="12" facs="#f0018"/>
+<hi rendition="#k">Wallot</hi> zum Ehrendoktor promovirte, dass ihm der Grossherzog von<lb/>
+Hessen in einem Ordensschmuck den Dank seiner engeren Heimath<lb/>
+zum Ausdruck brachte, berührte überaus wohlthuend. Ebenso, dass<lb/>
+die Berliner Akademie des Bauwesens den Reichstagsbaumeister zum<lb/>
+ausserordentlichen Mitgliede ernannt hat. Von weittragender Be¬<lb/>
+deutung für das im erfreulichsten Aufschwung begriffene Kunstleben<lb/>
+Dresdens ist die Berufung <hi rendition="#k">Wallot's</hi> an die dortige Kunstakademie.<lb/>
+Er hat die Professur für monumentale Baukunst bereits im Oktober<lb/>
+1894 angetreten. In demselben Monat wurde <hi rendition="#k">Wallot</hi> vom Berliner<lb/>
+Architekten-Verein zum Ehrenmitglied ernannt, und zwar hat der seit<lb/>
+80 Jahren bestehende Verein eine solche Auszeichnung zu verleihen<lb/>
+vorher noch niemals Veranlassung gefunden. Und der Kaiser ver¬<lb/>
+kündigte <hi rendition="#k">Wallot</hi> bei der Schlusssteinlegung die Ernennung zum<lb/>
+Geheimen Baurath. Die imposanteste aller Kundgebungen aber war<lb/>
+die am 6. Dezember 1894 veranstaltete Huldigungsfeier, welcher<lb/>
+die Künstler-, Architekten- und Ingenieur-Vereinigungen Berlins und<lb/>
+des Reiches beiwohnten, um <hi rendition="#k">Wallot</hi> bei seinem Scheiden aus Berlin<lb/>
+die Anerkennung für sein erfolggekröntes Schaffen auszusprechen und<lb/>
+ihm die Ehrenmitgliedschaft der betreffenden Verbände anzutragen.<lb/>
+Die Anschauungen und die Stimmung in den deutschen Künstler-<lb/>
+und Ingenieurkreisen traten besonders in der Ansprache des Geh.<lb/>
+Bauraths <hi rendition="#k">Hinkeldeyn</hi> zu Tage, welcher sich im Namen des Verbandes<lb/>
+deutscher Architekten- und Ingenieur-Vereine dahin äusserte: Die<lb/>
+Vollendung des Reichstagshauses erfüllt ganz Deutschland mit Freude<lb/>
+und Genugthuung. Es ist der schöpferischen Kraft des genialen<lb/>
+Baumeisters gelungen, alle Hemmnisse in muthvollem Ringen zu über¬<lb/>
+winden und sein Werk in seiner eigenartigen Würde und Schönheit<lb/>
+aus dem Geiste der Gegenwart heraus zu gestalten zum Zeugniss des<lb/>
+baukünstlerischen Schaffens unserer Tage in höchster Vollendung.<lb/>
+Der Verband erblickt in diesem Werke eine künstlerische Grossthat,<lb/>
+welche dem Vaterlande und der deutschen Kunst zu bleibender Ehre<lb/>
+gereicht.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb n="13" facs="#f0019"/>
+<div n="1"> <head>DIE BAUAUSFÜHRUNG.<lb/>
+</head> <p>Das Baubureau <hi rendition="#k">Wallot's</hi> war, nachdem seine Berufung erfolgt,<lb/>
+am 1. Juli 1883 in Thätigkeit getreten. Anfang März 1884 geschieht<lb/>
+der erste Spatenstich für die Ausschachtung des Fundamentbaues. Die<lb/>
+Fundamentirung und die Ausführung der Kellerräume nahm zwei<lb/>
+Jahre in Anspruch, 1886 und 1887 stieg das Mauerwerk bis zur<lb/>
+Hauptgesimshöhe und in den beiden darauf folgenden Jahren wurden<lb/>
+die Werksteine, welche aus den grössten deutschen Steinbrüchen<lb/>
+geliefert wurden, versetzt. Zurückgeblieben waren indessen diejenigen<lb/>
+Bautheile, welche mit der erst 1890 entschiedenen Frage der Kuppel¬<lb/>
+anlage in Zusammenhang standen. Nun aber wurden die letzten<lb/>
+wichtigen Arbeiten so schnell gefördert, dass schon am 2. September<lb/>
+1891 die Reichskrone auf der Kuppellaterne enthüllt werden konnte.<lb/>
+Hand in Hand ging damit der innere Ausbau, 1891 war bereits<lb/>
+ein grosser Theil der Innenräume geputzt und 1892 wurden die<lb/>
+Fensteröffnungen geschlossen. Die Bauausführung erforderte ein<lb/>
+Riesenmaterial. Es gelangten zur Verwendung insgesammt 1211 cbm<lb/>
+Granit aus dem Fichtelgebirge, 30583 cbm Sandsteine und zwar<lb/>
+Alt-Warthauer, vom Teutoburger Walde, Nesselberger, Burggrappacher,<lb/>
+Cudovaer und Bayersfelder, 12354 cbm Kalkstein für die Fundamente,<lb/>
+557 cbm Lesina- und Merlera-Kalksteine, 1744 Treppenstufen und<lb/>
+589 qm Treppenpodeste aus Granit, 234 laufende m Granitschwellen,<lb/>
+1710 qm Marmorplatten, 32669000 Ziegelsteine und 2700 Tonnen<lb/>
+Guss- <choice><sic>uud</sic><corr>und</corr></choice> Schweisseisen. Die bebaute Fläche bedeckt 11200 qm.<lb/>
+Die Länge des Hauses beträgt 137,40 m, die Tiefe mit den<lb/>
+Rampenanlagen an der West- und Ostseite 93,90 m. Die Höhe<lb/>
+des Gebäudes von der Oberkante des Bürgersteiges bis zum Haupt¬<lb/>
+gesims der Fronten beträgt 26,40 m, bis zum Hauptgesims der<lb/>
+Thürme 39,70 m, bis zur Plattform der Kuppel 58,70 m. Der<lb/>
+<pb n="14" facs="#f0020"/>
+höchste Punkt der Kuppellaterne liegt 74,70 m über dem Strassen¬<lb/>
+niveau. Die beiden Höfe des Gebäudes haben 28,40 m Länge und<lb/>
+15,70 m Tiefe.</p><lb/>
+<p>Ein genauer Abschluss der Kostenberechnung ist gegenwärtig<lb/>
+noch nicht möglich, da noch ein wesentlicher Theil der inneren<lb/>
+Ausschmückung des Reichstagshauses an Bildhauerwerken, Wand¬<lb/>
+malereien etc. auszuführen ist. Bisher wurden ausgegeben: für den<lb/>
+Grunderwerb 7220000 M., für die innere Ausstattung des Hauses an<lb/>
+Möbeln 600000 M., Beleuchtungskörpern 400000 M., an Teppichen,<lb/>
+Läufern, Vorhängen 275000 M. Die eigentlichen Baukosten betragen<lb/>
+nach den endgültigen Voranschlägen 21100000 M. Für die künst¬<lb/>
+lerische Ausschmückung wurden vom Reichstag bewilligt für das<lb/>
+Etatsjahr 1893–94: 340000 M., für 1894–95: 400000 M. und<lb/>
+für 1895–96: 152000 M.</p><lb/>
+<p>Vom Beginn der Bauausführung wurde <hi rendition="#k">Wallot</hi> der Bauinspektor<lb/>
+<hi rendition="#k">Haeger</hi>, der später zum Baurath befördert wurde, aggregirt. <hi rendition="#k">Haeger</hi>,<lb/>
+der sich bereits an wichtigen Aufgaben erprobt hatte, übernahm die<lb/>
+Leitung der rein geschäftlichen Angelegenheiten, also der Kosten¬<lb/>
+feststellungen, der Verdingungen etc., ferner des technischen und<lb/>
+konstruktiven Theils der Arbeiten. Und im Jahre 1890 wurde der<lb/>
+Regierungsbaumeister <hi rendition="#k">Paul Wittig</hi> als drittes Mitglied in die Reichstags¬<lb/>
+bauverwaltung berufen, einmal um den Baurath <hi rendition="#k">Haeger</hi> zu entlasten<lb/>
+und vornehmlich um den inneren Ausbau des Obergeschosses und<lb/>
+der Geschäfts- und Wirthschaftsräume des Erd- und Zwischengeschosses<lb/>
+im Einvernehmen mit dem leitenden Architekten zu entwerfen und<lb/>
+auszuführen. In den Händen <hi rendition="#k">Wallot's</hi> lag also die Leitung des<lb/>
+künstlerischen Theils. Er hatte die Entwürfe für den äusseren und<lb/>
+inneren Ausbau bis in die Einzelheiten festzulegen und die Aus¬<lb/>
+führung seinen Intentionen gemäss zu dirigiren, die Wahl der Künstler<lb/>
+und Kunsthandwerker zu treffen, denselben die Zeichnungen zu liefern<lb/>
+und gegebenen Falls die Entwürfe seiner Mitarbeiter zu korrigiren<lb/>
+und der künstlerischen Einheit des Bauwerks anzupassen. Der grosse<lb/>
+harmonische Zug, der den wunderbaren Bauorganismus bis in den<lb/>
+<pb n="15" facs="#f0021"/>
+abgelegensten Winkel durchdringt, basirt lediglich in der Persönlich¬<lb/>
+keit <hi rendition="#k">Wallot's</hi>, die Eigenart seines Naturells, eine Vereinigung von<lb/>
+packender Wucht, von Grazie und unerschöpflichem Erfindungsgenie,<lb/>
+tritt überall mit vollendetem Ausdruck zu Tage. Der individuelle<lb/>
+Charakter bedingt, wie bei allen grossen Kunſtwerken, so auch beim<lb/>
+Reichstagshause den die Jahrhunderte überdauernden Werth. Eine<lb/>
+Reihe von hervorragend begabten Architekten war in <hi rendition="#k">Wallot's</hi> Atelier<lb/>
+zur zeichnerischen Ausführung der Pläne herangezogen, so u. a. die<lb/>
+Architekten <hi rendition="#k">Fischer</hi>, <hi rendition="#k">Gramm</hi>, <hi rendition="#k">Grenander</hi>, <hi rendition="#k">Halmhuber</hi>, <hi rendition="#k">Pfann</hi>, <hi rendition="#k">Rieth</hi>,<lb/>
+<hi rendition="#k">Streiter</hi>. Hier bot sich unter dem anregenden Einfluss <hi rendition="#k">Wallot's</hi><lb/>
+eine Schulung in Aufgaben nationaler Kunst, deren segensreiche<lb/>
+Folgen sich in der architektonischen und künstlerischen Produktion<lb/>
+Deutschlands schon jetzt fühlbar machen.</p><lb/>
+<p>Gleichzeitig mit der Bauausführung wurden die Anlagen für<lb/>
+Beleuchtung, Heizung und Lüftung vollendet. Die Beleuchtung der<lb/>
+Innenräume wird ausschliesslich durch elektrisches Licht bewerkstelligt.<lb/>
+Die Berliner Elektrizitäts-Werke liefern den Strom. Die Anschlüsse<lb/>
+an das Berliner Kabelnetz erfolgen an drei verschiedenen Seiten des<lb/>
+Hauses, sodass auch beim Versagen einer der Zuleitungen die Strom¬<lb/>
+zufuhr gesichert bleibt. Die Leitung der Drähte ist durchweg in<lb/>
+schmiedeeisernen Röhren geführt und zwar derart, dass an Theilen<lb/>
+die etwaigen Reparaturen ohne Weiteres ausgeführt werden können.<lb/>
+Im Ganzen umfasst die Anlage etwa 5000 Glühlampen und 100 Bogen¬<lb/>
+lampen. Die Heizungs- und Lüftungsanlagen führte der Berliner<lb/>
+Ingenieur <hi rendition="#k">David Grove</hi> aus, welcher aus der Konkurrenz im April<lb/>
+1884 mit dem ersten Preise hervorgegangen war. Das System dieser<lb/>
+in ihrer Art grössten Anlage, die eine Schacht- und Röhrenlänge<lb/>
+von nicht weniger als 50 Kilometer besitzt, charakterisirt sich als<lb/>
+Dampfluft- und Dampfwarmwasserheizung. Das Maschinen- und<lb/>
+Kesselhaus befindet sich auf dem Hinterterrain der Sommerstrasse,<lb/>
+von wo ein mächtiger Tunnel zum Reichstagshause geführt ist.<lb/>
+Bei einem Ansatz von –20° C. als niedrigste äussere Temperatur<lb/>
+ist für die Flure und Hallen eine Erwärmung von + 10° C, für<lb/>
+<pb n="16" facs="#f0022"/>
+die sonstigen von Personen benutzten Räume von +20° C. fest¬<lb/>
+gesetzt. Die Sitzungssäle, Korridore, Treppenhäuser, Vorhallen, ferner<lb/>
+die Erfrischungssäle und der Lese- und Schreibsaal sind durch<lb/>
+Dampfluftheizung, die Sitzungssäle ausserdem noch durch Warmwasser¬<lb/>
+heizkörper in den Fensternischen erwärmt. Für den grossen Sitzungs¬<lb/>
+saal ist eine von der übrigen Anlage getrennte Dampfwarmwasser-Luft¬<lb/>
+heizung eingerichtet. Im Kellergeschoss wird der aus dem Kesselhause<lb/>
+herbeiströmende Dampf den einzelnen Heizkammern und Heizungs¬<lb/>
+kesseln zugeführt, und von diesen steigt dann die Wärmluft zu den<lb/>
+verschiedenen Räumen des Hauses empor. Für die Durchführung<lb/>
+der Lüftung sind im Keller zwölf Ventilatoren mit elektrischem Betrieb<lb/>
+aufgestellt. Diese Ventilatoren bewirken es, dass die frische Luft<lb/>
+entweder durch die grossen Zuluftöffnungen hinter der Rampe oder<lb/>
+durch die oberen Fenster der beiden West-Thürme in die einzelnen<lb/>
+Räume des Hauses eingeführt wird. Die Abluft wird nach dem<lb/>
+Keller zurückgeführt, dort durch Sammelkanäle in grosse Abluft¬<lb/>
+schlote geleitet und gelangt dann durch die beiden Thürme an der<lb/>
+Ostseite wieder ins Freie. Der grosse Sitzungssaal erhält einen<lb/>
+fünfmaligen Luftwechsel in der Stunde, für die übrigen Sitzungssäle,<lb/>
+für die Restauration und den Lesesaal ist ein zweimaliger, für die<lb/>
+Klosets und Garderoben ein zwei- bis dreimaliger, für die sonstigen<lb/>
+Räume ein einmaliger Luftwechsel in der Stunde vorgesehen.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> <div n="1"> <head>DIE RAUMVERTHEILUNG.<lb/>
+</head> <p>Das Reichstagshaus enthält fünf Geschosse und zwar ein Keller¬<lb/>
+geschoss, ein Erdgeschoss, ein Hauptgeschoss, ein Zwischen- und ein<lb/>
+Obergeschoss. Jedesmal sind grosse, logisch miteinander zusammen¬<lb/>
+hängende Raumgruppen zu wohlbedachten Einheiten vereinigt. Das<lb/>
+<pb n="17" facs="#f0023"/>
+Hauptgeschoss, welches nach den höchsten künstlerischen Gesichts¬<lb/>
+punkten ausgestattet ist, weist alle diejenigen Räume auf, welche bei<lb/>
+den Reichstagssitzungen unmittelbar in Betracht kommen. Im Herzen<lb/>
+des Geschosses liegt der grosse Sitzungssaal mit seinen Umgängen.<lb/>
+Westlich davor lagert sich die gewaltige Rotunde der Wandelhalle,<lb/>
+deren Seitenflügel sich bis zu den beiden Haupttreppen erstrecken,<lb/>
+in einer Linie die ganze Längsausdehnung des Hauses repräsentirend.<lb/>
+In inniger Verbindung mit der Wandelhalle stehen die herrlichen<lb/>
+Repräsentationsräume an der Westfront, die beiden Erfrischungssäle<lb/>
+und der Lese- und Schreibsaal, neben welchen ein Postzimmer ein¬<lb/>
+geschaltet ist. Zwei Sprechzimmer und Toiletten für die Abgeordneten<lb/>
+sind zwischen den Haupttreppen und den Eingangshallen eingefügt.<lb/>
+Alles das stellt eine festgeschlossene Gruppe für sich dar. Der<lb/>
+Bundesrathssitzungssaal im Südostthurm ist der dominirende Raum<lb/>
+für die den vereinigten deutschen Regierungen zugewiesene Gruppe.<lb/>
+Dem Bundesrath dienen ausser dem Sitzungssaal noch ein Vorzimmer<lb/>
+und ein Berathungssaal an der Südfront, während in der Rücklage<lb/>
+an der Ostfront der Reichskanzler und die Staatssekretäre fünf Räume<lb/>
+besitzen. Ebenso viel sind im nordöstlichen Gebäudetheil für den<lb/>
+Präsidenten und die Schriftführer des Reichstags vorgesehen. Zwei<lb/>
+gleichartige langgestreckte Vorsäle sind hinter den Amtsräumen des<lb/>
+Reichskanzlers und des Präsidiums eingelegt und nehmen den Verkehr<lb/>
+an diesen Stellen in sich auf. Der Nordostthurm enthält den Bücherei-<lb/>
+Lesesaal und die Handbibliothek der Abgeordneten. Und schliesslich<lb/>
+die Amtsräume des Direktors des Reichstags befinden sich an der<lb/>
+Nordfront. Das Obergeschoss enthält im Wesentlichen die Berathungs-<lb/>
+und Sitzungssäle für die Abtheilungen, die Kommissionen und Parteien<lb/>
+des Reichstags. In einer grandiosen Raumfolge erstrecken sich die<lb/>
+14 Säle mit vier dazu gehörigen Vorsälen an der West-, Süd- und<lb/>
+Ostfront des Gebäudes. Die Säle sind, je nach der Zweckbestimmung,<lb/>
+in den verschiedensten Grössenverhältnissen gehalten, die grössten<lb/>
+und bedeutungsvollsten Räume liegen an den Stellen, die auch in<lb/>
+der Aussenarchitektur hervorragend ausgebildet sind. Ferner hat im<lb/>
+<fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb n="18" facs="#f0024"/>
+Obergeschoss das grosse Büchermagazin Platz gefunden, und im<lb/>
+Nordostthurm besitzt die Bücherei-Verwaltung einen stattlichen Saal,<lb/>
+der mit dem darunter befindlichen Lesesaal der Abgeordneten in<lb/>
+Verbindung gesetzt ist. Das Erdgeschoss enthält die drei Eingangs¬<lb/>
+hallen mit zwei geräumigen Kleiderablagen. Die Vorhalle an der<lb/>
+Südseite, wo der Ausgangspunkt für die künstlerische Entwicklung<lb/>
+der Innenarchitektur zu finden ist, ist ausschliesslich zum Eingang<lb/>
+für die Abgeordneten und die Mitglieder des Bundesrathes bestimmt,<lb/>
+die mächtige Ostvorhalle öffnet sich dem kaiserlichen Hof, fürstlichen<lb/>
+Personen, der Diplomatie und dazu den Vertretern des Bundesrathes.<lb/>
+Die Nordvorhalle dient den Abgeordneten, den Beamten und dem<lb/>
+Publikum, ausserdem befindet sich hier eine Einfahrt in die beiden<lb/>
+Höfe. Unter dem Vorzimmer des Reichskanzlers hat das Erdgeschoss<lb/>
+noch ein ferneres Portal mit Einfahrt beziehungsweise Ausfahrt. An<lb/>
+der Westfront weist das Erdgeschoss einige Sitzungssäle und die in<lb/>
+acht Räume gegliederte Küchenanlage auf. In nächster Nähe der<lb/>
+Nordeingangshalle ist die Kartenausgabe für den Tribünen-Besuch<lb/>
+und die Wartehalle des Publikums anzutreffen. Und die östliche<lb/>
+Hälfte enthält die Botenmeisterei, das Botenzimmer, die Räume für<lb/>
+die Stenographen, die Hausdruckerei, die Hausverwaltung, die Feuer¬<lb/>
+wehr, die Centralstelle mit der Fernthermometer-Anlage, die den<lb/>
+Heizingenieur in den Stand setzt, die Wärmezufuhr in jedem ein¬<lb/>
+zelnen Raume des Hauses zu kontrolliren und zu reguliren. Im<lb/>
+Südostthurm befindet sich das Archiv und in nächster Nähe desselben<lb/>
+die Wohnungen der Hausbeamten. Das durch Lichtgräben erleuchtete<lb/>
+Kellergeschoss birgt die vielverzweigten Heizanlagen und ferner die<lb/>
+Kellereien für die Küche und die Wohnungen, auch das Archiv hat<lb/>
+hier unten noch einen ausgedehnten Stapelplatz für Drucksachen.<lb/>
+Und das Zwischengeschoss schliesslich, das von aussen an den drei<lb/>
+Nebenfronten in den Fensterreihen der Rücklagen sich zu erkennen<lb/>
+giebt und in der Höhe der Tribünen angelegt ist, enthält die beiden<lb/>
+Salons für den kaiserlichen Hof, die Räume, welche zu den Zuschauer¬<lb/>
+tribünen Zutritt gewähren und eine Flucht von Zimmern für die<lb/>
+<pb n="19" facs="#f0025"/>
+Vertreter der Presse. Ueber den Amtsräumen des Hauptgeschosses ist<lb/>
+die Registratur und die Kanzlei angeordnet. Vier Umkleide- und<lb/>
+zwei Sprechzimmer für die Abgeordneten stossen unmittelbar an die<lb/>
+beiden Haupttreppen, und endlich sind oberhalb der für Regierung<lb/>
+und Bundesrath bestimmten Räume sechs Zimmer für diese beiden<lb/>
+Reichsvertretungen reservirt worden.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">2 *<lb/>
+</fw> </div>
+<pb n="20" facs="#f0026"/>
+<div n="1"> <head>DIE FAÇADEN.<lb/>
+</head> <p>In ihrer Ehrfurcht gebietenden Mächtigkeit, der markigen Schlicht¬<lb/>
+heit und sieghaften Schönheit ist die äussere Erscheinung des Reichs¬<lb/>
+tagshauses ein getreues Spiegelbild jener gewaltigen Volksbewegung,<lb/>
+welcher das Deutsche Reich seinen Ursprung verdankt. Der praktische<lb/>
+wie der ideale Zweck des Hauses hat in der künstlerischen That<lb/>
+<hi rendition="#k">Wallot's</hi> einen vollendeten Ausdruck gefunden. In der Bewältigung<lb/>
+der grossen Baumassen bis hinab zur feinen Gliederung des Schmucks<lb/>
+hat <hi rendition="#k">Wallot</hi> alles indifferente Schablonenwerk ausgeschlossen, das<lb/>
+Ganze wie das Einzelne wird von einer grossen Idee beherrscht und<lb/>
+zu einem harmonischen Organismus gefügt. Die deutschen Staaten<lb/>
+und Länder, die Flüsse und Städte, sodann die Aeusserungen des<lb/>
+Volkslebens, die Träger der Kultur sind in künstlerischen Gebilden<lb/>
+an den Fronten des Reichstagshauses in die Erscheinung getreten,<lb/>
+und das einigende Band, das vom Fels zum Meer die Gaue des<lb/>
+Vaterlandes unauflöslich festgekettet, der Reichsgedanke, bildet auch<lb/>
+in der Gestaltung des Baudenkmals den alles beherrschenden Höhe¬<lb/>
+punkt, den Inbegriff des Kunstwerks. Aus diesem Grundzuge wächst<lb/>
+eine reiche Fülle genialer Neubildungen hervor, die, von einem echt<lb/>
+nationalen Geiste erfüllt, zum Ausgangspunkt einer neuen Epoche<lb/>
+deutscher Kunst geworden sind.</p><lb/>
+<pb n="21" facs="#f0027"/>
+<p>Das architektonische System der Façaden ist in den Formen<lb/>
+der Hochrenaissance durchgeführt und zwar überall in einer den<lb/>
+Anschauungen der Neuzeit entsprechenden Umbildung, in welcher<lb/>
+der persönliche Stil <hi rendition="#k">Wallot's</hi> unverkennbar zu Tage tritt, Das<lb/>
+gerade bedingt die eigenartige Schönheit des Reichstagshauses. Straff<lb/>
+und wuchtig wachsen die Flächen und Linien aus dem Boden empor,<lb/>
+in lichten und kühnen Ausladungen erhält die Silhouette des Gebäudes<lb/>
+eine charaktervolle Kraft, die Mittelrisalite der Fronten und die festen<lb/>
+Eckpfeiler des Hauses, die vier Thürme, vereinigen in den orna¬<lb/>
+mentalen Symbolen die Herrlichkeit des neuerstandenen Reiches,<lb/>
+gleichsam zu Stein gewordene Siegeshymnen, in majestätischer Monu¬<lb/>
+mentalität spannt sich die goldstrahlende Kuppel über dem Herzen<lb/>
+des Bauwerks aus, und die Reichskrone dominirt auf dem Gipfel<lb/>
+des Hauses.</p><lb/>
+<p>Das Erdgeschoss kennzeichnet sich in dem tiefgefugten Quader¬<lb/>
+werk als der Sockel des Gebäudes. Die Dreiviertelsäulen an der<lb/>
+Hauptfront und am Ostvorbau, sowie die Pfeiler an den Nebenfronten<lb/>
+bedingen die einheitliche monumentale Höhenentwicklung. Ueber<lb/>
+den herrlichen Kompositakapitälen legt sich der Architrav wie ein<lb/>
+ehernes Band rings um das Bauwerk, und die treibende Kraft der<lb/>
+Stützen schiesst über das von Konsolen getragene Hauptgesims in<lb/>
+den eigenartigen fialenähnlichen Aufsätzen empor, wie denn überhaupt<lb/>
+alle aufstrebenden Linien in vielgestaltenen Skulpturen gedankenvoll<lb/>
+und poetisch in der Höhe ausklingen.</p><lb/>
+<p>Charakteristisch für die künstlerische Art <hi rendition="#k">Wallot's</hi> ist die Be¬<lb/>
+handlung der Fenster. An den verschiedenartigen Fenstern ist die<lb/>
+Zweckbestimmung der dahinter liegenden Räume unschwer zu er¬<lb/>
+kennen. Die mächtigen Lichtöffnungen an der Westfront, in den<lb/>
+Risaliten und den Thürmen weisen auf die Repräsentationsräume hin.<lb/>
+In den Nebenfronten, wo das Zwischengeschoss eingelegt ist, ergaben<lb/>
+sich, vom Sockelbau abgesehen, drei Fensterreihen, welche die monu¬<lb/>
+mentale Wirkung der Fronten nicht beeinträchtigen durften. Sie<lb/>
+mussten schlicht behandelt werden, weil es sich hier um blosse<lb/>
+<pb n="22" facs="#f0028"/>
+Geschäftsräume handelt. Dass <hi rendition="#k">Wallot</hi> nun nicht die Versuchung<lb/>
+an sich herantreten liess, an den Nebenfronten die Fenster für<lb/>
+Haupt- und Zwischengeschoss etwa unter einem einzigen Rundbogen<lb/>
+zu vereinigen und auf diese Weise das Zwischengeschoss nach aussen<lb/>
+hin unkenntlich zu machen, spricht für seine künstlerische Ehrlichkeit,<lb/>
+die keine Umschweife und kein Atrappenwerk kennt. Und so sind<lb/>
+denn auch mit bestem Gelingen die aufeinander stossenden Höhen¬<lb/>
+unterschiede der Fensteröffnungen in der Gesammtansicht ausgeglichen.<lb/>
+Die markigen, bis zum Architrav durchgehenden Pfeiler erhalten das<lb/>
+monumentale Moment aufrecht, sodass die zahlreichen Fenster nicht<lb/>
+störend auffallen, ferner ist über den Fenstern des Obergeschosses<lb/>
+der Giebel derartig stark ausgebildet, dass er das ganze Interkolum¬<lb/>
+nium beherrscht und als eine untheilbare Einheit erscheinen lässt.<lb/>
+Und schliesslich tragen die Risalite und Eckthürme dazu bei, dass<lb/>
+die Monotonie der Fensterreihen völlig aufgehoben wird. Belebt<lb/>
+werden die Rücklagen der Nebenfacaden durch eine anmuthige Zahn¬<lb/>
+schnittlinie unter dem Obergeschoss und durch die unter Ringkronen<lb/>
+gestellten Wappen der Bundesstaaten, welche schlusssteinartig in die<lb/>
+Fenstersturze des Zwischengeschosses eingefügt sind. Nur die Wappen<lb/>
+der vier Königreiche haben an hervorragenderer Stelle Platz gefunden.<lb/>
+An der Westfront sind die Fenster des Hauptgeschosses, von Rund¬<lb/>
+bögen überspannt, möglichst hoch emporgeführt, das verleiht dem<lb/>
+Geschoss ein imposantes Gepräge. Doch die gewaltigen Fenster¬<lb/>
+öffnungen verlangten nach einer Gliederung, welche <hi rendition="#k">Wallot</hi> durch<lb/>
+die frappirenden, höchst eigenartigen steinernen Einstellungen erzielt<lb/>
+hat. Diese Einstellungen tragen die Wappen der bedeutendsten<lb/>
+deutschen Städte und erfüllen zugleich einen praktischen Zweck, in¬<lb/>
+sofern sie Fensterthüren enthalten, welche zu den balkonartigen Vor¬<lb/>
+ladungen des Erdgeschosses Zugang gewähren. In engster Verbindung<lb/>
+mit den Städten stehen die Flüsse. So sind denn in den grossen<lb/>
+Schlussstein-Köpfen der Fensterbögen die Hauptwasseradern Deutsch¬<lb/>
+lands zur Darstellung gekommen. Professor <hi rendition="#k">W. Widemann</hi> hat sie<lb/>
+modellirt. Dieser tiefangelegte Künstler, der in wunderbarer Weise<lb/>
+<pb n="23" facs="#f0029"/>
+die Intentionen <hi rendition="#k">Wallot's</hi> überall erfasst hat, ist durch seine Arbeiten<lb/>
+am Reichstagshause in die erste Reihe der deutschen Bildhauer<lb/>
+getreten.</p><lb/>
+<p>Die vier Eckthürme, welche durch alle Wandlungen der Ent¬<lb/>
+würfe in ihrer ursprünglichen Gestaltung bewahrt geblieben sind,<lb/>
+bedingen wesentlich die Würde und Schönheit des Reichstagshauses.<lb/>
+Nach allen Seiten hin schliessen sie das Gefüge des Bauwerks fest<lb/>
+zusammen, eine unerschütterliche, machtvoll aufstrebende Kraft wohnt<lb/>
+in der Struktur, und in der Höhe vergeistigt sich die Wucht und<lb/>
+der Ernst zu einem triumphirenden Jubelakkord. Wie im Organismus<lb/>
+des Deutschen Reichs die vier Königreiche als Eckpfeiler zum<lb/>
+Kaiserthum stehen, so sind die Thürme als die Trabanten der Kuppel<lb/>
+gekennzeichnet. Im kühnen Schwung reckt sich der die Fenster<lb/>
+begrenzende Bogen bis dicht unter den Architrav, aus dem Schluss¬<lb/>
+stein schauen monumentale Köpfe herab. Portalähnlich und von<lb/>
+einem Giebel gekrönt sind die Fenster des Hauptgeschosses, und in<lb/>
+dem geräumigen Fensterbogen des Obergeschosses stehen schlanke<lb/>
+Steinpfosten, ein reizvolles Motiv. Das Profil der Thürme wird durch<lb/>
+die vorgeschobenen Säulen und das 2½ m ausladende Hauptgesims<lb/>
+bedeutungsvoll verschönt. Diese Freisäulen sind als Träger des<lb/>
+Volkslebens symbolisirt, sie heben die 16 Monumentalskulpturen<lb/>
+empor, in welchen die verschiedenen Aeusserungen der deutschen<lb/>
+Kultur verkörpert sind. Am Südostthurm, wo der Bundesrath seines<lb/>
+Amtes waltet, ist die ausübende Staatsgewalt, die Rechtspflege und<lb/>
+Staatskunst, die Wehrmacht zu Land und See in den vier Meter<lb/>
+hohen Steinbildern dargestellt; am Nordostthurm, welcher die Bücher¬<lb/>
+schätze in sich birgt, halten Kunst und Literatur, Unterricht und<lb/>
+Erziehung, die Grundlagen der Volksbildung, die Wacht. Und vor<lb/>
+den nach Westen gekehrten Thürmen stehen die Repräsentanten der<lb/>
+Elektrotechnik und der Hausindustrie, des überseeischen Handels<lb/>
+und der Grossindustrie, des Weinbaues und der Bierbrauerei, des<lb/>
+Ackerbaues und der Viehzucht. Die Modelle für diese Standbilder<lb/>
+sind geliefert von den Bildhauern <hi rendition="#k">Volz, Maison, Behrens, Schierholz,<lb/>
+<pb n="24" facs="#f0030"/>
+Eberle, Eberlein, Diez</hi> und <hi rendition="#k">Lessing</hi>. Zwischen je zwei dieser Ideal¬<lb/>
+gestalten werden an der Basis der oberen Thurmkörper jedesmal<lb/>
+langgestreckte Inschrifttafeln sichtbar. Hier sind in monumentalen<lb/>
+Lettern die Namen aller während des grossen Krieges regierenden<lb/>
+Bundesfürsten eingemeisselt. Die Herrscher sind also mit den<lb/>
+wirkenden Volkskräften in eine innige Verbindung gebracht, dem<lb/>
+Geist der deutschen Verfassung entsprechend. Nun streben die<lb/>
+Thürme in markiger Gedrungenheit und in einem festlich bewegten<lb/>
+Schwung über den Dachfirst empor, Halbsäulen und Pfeiler flankiren<lb/>
+die drei Rundbogenfenster. Im Scheitel der Bögen schauen phan¬<lb/>
+tastische Masken in starrer, geheimnissvoller Ruhe in die Ferne, und<lb/>
+an den Eckpfeilern schiebt sich unterhalb des Hauptgesimses ein<lb/>
+gekrönter Löwenkopf, der durch eine Fruchtschnur mit einem am<lb/>
+Pfeilerfuss stehenden Adler verbunden ist, nach Art der mittelalter¬<lb/>
+lichen Wasserspeier vor. Ein genialer Zug, der die Silhouette<lb/>
+charaktervoll verstärkt. Und schliesslich eine auf dem Hauptgesims<lb/>
+ruhende, durch Festons und Palmettenmasken gezierte Attika bildet<lb/>
+die Basis für die wundervollen Geniengruppen mit der hoch empor¬<lb/>
+gehobenen Kaiserkrone. In anmuthiger Verschlingung treten jedes¬<lb/>
+mal die drei Putten eng zusammen, in graziöser Geschäftigkeit das<lb/>
+ihnen anvertraute Wahrzeichen zur Schau tragend. Diese Kinder¬<lb/>
+gruppen sind von <hi rendition="#k">A. Brütt</hi> modellirt. Alles in Allem sind die<lb/>
+Eckthürme des Reichstagshauses Kunstgebilde höchster Art, welche<lb/>
+die schöpferische Kraft des Meisters eindringlich darlegen. Das<lb/>
+Geheimniss ihrer überwältigenden Wirkung ruht in denselben ewigen<lb/>
+Gesetzen, nach denen das Leben eines ganzen Volkes geregelt ist.<lb/>
+In breiter Ruhe am Boden das Fundament, die Masse, aus dem<lb/>
+Mutterschooss ringen sich die Träger der volkserhaltenden Kräfte<lb/>
+empor, das aufbauende Princip, auf der normalen Höhe des Lebens<lb/>
+stehen die führenden Geister, die Repräsentanten der Stände, und<lb/>
+schliesslich über dem Höhenniveau des Hauptgesimses erblüht das<lb/>
+Reich der Ideale, in welchen von Geschlecht zu Geschlecht das<lb/>
+edle Menschenthum das Bewusstsein seiner himmelanstrebenden<lb/>
+<pb n="25" facs="#f0031"/>
+Gottähnlichkeit in den unvergänglichen Thaten der schöpferischen<lb/>
+Phantasie kundgiebt.</p><lb/>
+<p>An den Façaden sind naturgemäss die Mittelrisalite, welche die<lb/>
+Portale enthalten, künstlerisch reich ausgebildet. Am imposantesten<lb/>
+an der nach Westen gekehrten Hauptfront. Hier gipfelt das monu¬<lb/>
+mentale Gepräge des Reichstagshauses in einer grossartigen Ver¬<lb/>
+körperung des Reichs-Gedankens. Eine Rampe von über 100 m<lb/>
+Länge und eine 46stufige pompöse Freitreppe führen zu der von<lb/>
+sechs Säulen getragenen Vorhalle. In feierlich-heroischen Rhythmen<lb/>
+wachsen die machtvollen Säulen zu dem weit vorspringenden Giebel<lb/>
+empor. Auch der Skulpturenschmuck ist in grossen Dimensionen<lb/>
+gehalten. Auf den Podesten der Freitreppe sind ruhende Löwen als<lb/>
+Hüter des Eingangs geplant. Seitlich begrenzt wird der innere<lb/>
+Raum der Vorhalle durch zwei in Sandstein gemeisselte Wappen¬<lb/>
+bäume. Die deutschen Grenzströme, der Rhein und die Weichsel,<lb/>
+lagern am Fuss der Eiche und der Fichte, im Gezweig hängen die<lb/>
+Wappen der Bundesstaaten, von Wappenmännern und Genien flankirt,<lb/>
+und über dem Horst der Bäume schwebt der Adler mit der Reichs¬<lb/>
+krone in den Fängen. Dieser einzigartige Schmuck kennzeichnet<lb/>
+treffend <hi rendition="#k">Wallot's</hi> Erfindungs-Reichthum. Ueber dem Mitteleingang<lb/>
+grüsst das Symbol der Reichseinheit in der Gestalt des Patrons der<lb/>
+Deutschen, des reisigen St. Georg, der, die wallende Reichsfahne<lb/>
+und das nackte Schwert in den Händen, den Drachen der Zwietracht<lb/>
+niedergeritten hat. Die trutzig-markigen Züge des Alt-Reichskanzlers<lb/>
+verleihen dem wackeren St. Georg eine bleibende Bedeutung. Im<lb/>
+Giebelfelde der Vorhalle steht, 6 m hoch, das Hermelinwappen des<lb/>
+Reichs, zwei bewehrte Reckengestalten halten ihre Waffen schützend<lb/>
+über die friedlichen Gruppen der Kunst und Wissenschaft, des<lb/>
+Handels und Gewerbes ausgestreckt. Darunter am Architrav wird<lb/>
+demnächst die Inschrift eingemeisselt werden. Am 19. Januar 1895<lb/>
+ist der Wortlaut: DEM DEUTSCHEN REICH festgesetzt worden.<lb/>
+Die breitmassigen Eckpfeiler des Risalits begrenzen zu beiden<lb/>
+Seiten die Vorhalle, sie heben hoch über das Hauptgesims eine<lb/>
+<pb n="26" facs="#f0032"/>
+gewaltige Plattform empor und klingen in reichgegliederten, gekrönten<lb/>
+Aufsätzen aus. Aus dem Innern dieser prächtigen Gebilde greifen<lb/>
+menschliche Hände hervor, die einen Schild mit dem Namens-<lb/>
+Initial des ersten Kaisers halten. Und mitten auf der Plattform,<lb/>
+über dem Kuppelraum der Wandelhalle, ist die in den Sattel ge¬<lb/>
+hobene Germania vereint mit den Genien des Krieges und Friedens<lb/>
+aufgestellt.</p><lb/>
+<p>An der südlichen und nördlichen Schmalseite des Hauses sind<lb/>
+die Mittelrisalite gleichartig behandelt. Die im Erdgeschoss befind¬<lb/>
+lichen Eingänge sind schlicht profilirt, auf dem breit vorladenden<lb/>
+Thürsturz lagern zwei mächtige Skulpturen. An der Südseite die von<lb/>
+<hi rendition="#k">M. Klein</hi> geschaffene Allegorie der „Kraft“. Ein Riesenlöwe legt<lb/>
+seine Pranke auf eine mit dem inhaltsvollen Wort „Elsaas“ bezeichnete<lb/>
+Kugel. Neben dem königlichen Thier drei Knaben mit Lorbeer¬<lb/>
+zweigen und der Reichsfahne. Für das Nordportal hat <hi rendition="#k">A. Brütt</hi><lb/>
+die Gestalt der „Wahrheit“ geliefert, ein strenges nacktes Weib mit<lb/>
+hoch erhobener Fackel. Ueber den Gruppen erheben sich die<lb/>
+grossen Rundbogenfenster, durch welche die Eingangshallen erleuchtet<lb/>
+werden. Je zwei eng aneinander gerückte Pfeiler flankiren den Bau¬<lb/>
+theil. Darin geben sich die innig verbundenen Gewalten der Abwehr<lb/>
+zu erkennen, denn innerhalb der Pfeiler ist ein kurzes Schwert auf¬<lb/>
+gepflanzt, auf dessen Spitze eine schreckenverbreitende Medusenmaske<lb/>
+schwebt. Das Fenster des Obergeschosses ist durch zwei Steinpfosten<lb/>
+getheilt, geflügelte Löwenköpfe im Sturz sind die Konsolen der vier<lb/>
+Wappen der Königreiche. Mit ausgebreiteten Schwingen beschattet<lb/>
+der herrliche deutsche Adler im Giebelfeld den ganzen Aufbau. Und<lb/>
+abermals streben die Eckpfeiler weit über das Dach hinaus. Auf<lb/>
+die schlanken altarähnlichen Postamente haben sich flügelschlagende<lb/>
+Adler herabgelassen und zerfleischen das Schlangengezücht der Reichs¬<lb/>
+widersacher in ihren scharfen Fängen. Diese Adler sind ein be¬<lb/>
+lebendes und in der Silhouette äusserst reizvolles Motiv, einen<lb/>
+Ruhepunkt bildend in dem leeren Raum zwischen den beiden<lb/>
+Eckthürmen.</p><lb/>
+<pb n="27" facs="#f0033"/>
+<p>Der Ostvorbau entspricht in charakteristischer Weise seinem<lb/>
+Zweck. Er enthält die überdeckte Unterfahrt für den kaiserlichen<lb/>
+Hof und bringt die gewaltige Kaiserhalle nach aussen hin zu voller<lb/>
+Geltung. Die Harmonie zwischen dem Innern und dem Aeussern,<lb/>
+die in allen Theilen des Hauses erzielt ist, tritt hier besonders greif¬<lb/>
+bar zu Tage. Der Vorbau bereitet die sich nähernden fürstlichen<lb/>
+Personen darauf vor, einen wie machtvoll ausgebildeten Binnenraum<lb/>
+sie zuerst betreten werden. Dem entspricht die ganze Struktur dieses<lb/>
+nach Osten vorgeschobenen Baugliedes, die majestätische Wucht der<lb/>
+Steinmassen, Flächen und Wölbungen. Hier hat das Bauwerk zu¬<lb/>
+gleich das Rückgrat, den festen Ankerpunkt. Drei bis an's Ober¬<lb/>
+geschoss durchgehende Rundbogen, welche der Halle das Licht<lb/>
+zuführen, gliedern die Aussenseite, kassettirte Tonnenwölbungen<lb/>
+spannen sich über die Unterfahrt. Massige Steinschranken ver¬<lb/>
+schliessen den unteren Theil der Bögen gegen die Aussenwelt. Auf<lb/>
+den Postamenten der Schranken werden die sitzenden Monumental¬<lb/>
+bildnisse der drei Reichspaladine <hi rendition="#k">Bismarck</hi>, <hi rendition="#k">Moltke</hi>, <hi rendition="#k">Roon</hi> einen<lb/>
+Ehrenplatz erhalten. An den Schmalseiten des Vorbaues schauen<lb/>
+zwei von <hi rendition="#k">Widemann</hi> modellirte grosse Wappen-Reliefs von wunder¬<lb/>
+barer Wirkung auf die Rampe hinab. Die Schlusssteine der Rund¬<lb/>
+bogen sind mit Zierhelmen geschmückt, zu deren Kleinoden der<lb/>
+Hund als Sinnbild der Treue, der Adler und der Löwe als diejenigen<lb/>
+der Kühnheit und Kraft gewählt sind. Die Fenster des Obergeschosses<lb/>
+sind auch hier durch Steinpfosten getheilt. Der Vorbau wird von<lb/>
+einer kompakten Attika gekrönt, welche durch eine mit Waffenstücken<lb/>
+gezierte Pfeilerstellung in drei Felder eingetheilt ist. Darin sind die<lb/>
+Namen und Regierungszahlen der drei ersten Hohenzollern-Kaiser<lb/>
+eingemeisselt. Vier Adler sind schliesslich auf die Oberkante des<lb/>
+Vorbaues gesetzt. Den Charakter dieses Gebäudetheils vervollständigt<lb/>
+das stumpfwinklige schwere Satteldach. Gleichsam ein Pendant zu<lb/>
+der Germania werden die beiden riesigen Ritter-Herolde bilden,<lb/>
+welche oberhalb der Eckpfeiler des östlichen Mittelrisalits auf die<lb/>
+ragenden Postamente gesetzt werden. Die gepanzerten Reiter sind<lb/>
+<pb n="28" facs="#f0034"/>
+von <hi rendition="#k">Rudolf Maison</hi> modellirt, in ihnen sind Meisterwerke ersten<lb/>
+Ranges zu begrüssen, die voll und ganz von dem Geist des<lb/>
+<hi rendition="#k">Wallot'schen</hi> Werkes erfüllt sind.</p><lb/>
+<p>Auf allen Seiten das architektonische System der Fronten in<lb/>
+sich aufnehmend, ist die Kuppel die Krone und der Triumph<lb/>
+des Reichstagshauses. Wie im Innern der Sitzungssaal das Herz<lb/>
+der ganzen Anlage ist, so bildet am Aeusseren der Saalüberbau mit<lb/>
+der Kuppel den Alles zusammenfassenden Einigungspunkt. In der<lb/>
+Geschichte der Baukunst ist der Kuppel eine epochemachende Be¬<lb/>
+deutung zuzuweisen, sie bietet das erste Beispiel einer monumentalen<lb/>
+Behandlung von Glas und Eisen für die Palast-Architektur. Damit<lb/>
+hat <hi rendition="#k">Wallot</hi> der modernen Kunst eine weite Perspective eröffnet.<lb/>
+Der Saalüberbau ruht auf einem Rechteck von 35 zu 39 m und<lb/>
+misst rund 42 m in der Höhe. Von der Grösse kann man sich<lb/>
+einen annähernden Begriff machen, wenn man sich vergegenwärtigt,<lb/>
+dass die Thürme vom Strassenniveau bis zum oberen Hauptgesims<lb/>
+nur 39,68 m hoch sind. Nach den Binnenhöfen sind die durch<lb/>
+Strebepfeiler gefestigten Seitenwände des Saalüberbaues mit grossen<lb/>
+Fensteröffnungen versehen. Von den Fronten her wird nur die auf<lb/>
+ein einfaches Gesims aufsetzende Wappen-Attika von mässiger Höhe<lb/>
+sichtbar. Im preisgekrönten Entwurf war dieses eigenartige Wappen-<lb/>
+Motiv in einem Fries über dem westlichen Portal bereits vorhanden.<lb/>
+Durch kurze Pfeiler wird die Attika in sieben Felder getheilt, die<lb/>
+leeren Wappenschilde werden von ornamentalen Figuren umsäumt<lb/>
+und von stilisirten Kronen überragt, die Pfeiler endigen in schlanken<lb/>
+Aufsätzen, die wuchtigen Eckpfeiler des Saalüberbaues tragen gekrönte<lb/>
+Kugeln. Der rhythmische Wechsel von glatten und skulptirten<lb/>
+Flächen bedingt die prächtige Wirkung dieses zur Kuppel überleiten¬<lb/>
+den Bautheils. Die konstruktiven Glieder der Kuppel wachsen<lb/>
+organisch aus dem Steingefüge empor, die mächtigen walmförmig<lb/>
+geschwungenen Eckrippen wurzeln in den Eckpfeilern des Saalüber¬<lb/>
+baues und die übrigen Rippen sind eine Fortsetzung der Attika-<lb/>
+Pfeiler. In dieser genial empfundenen durchgehenden senkrechten<lb/>
+<pb n="29" facs="#f0035"/>
+Linienführung vom Fundament bis zur Reichskrone empor beruht die<lb/>
+machtvolle Einheit des Gesammtaufbaus. Die Kuppel steht auf dem<lb/>
+Gebäude-Körper wie die Blüthe auf dem Zweig. Und nun beobachte<lb/>
+man die herrliche Ideensteigerung in der Axenlinie: über dem Eingang<lb/>
+Sct. Georg, im Giebelfeld das Reichswappen, auf der Plattform die<lb/>
+Germania und unmittelbar hinter dem Reichsgenius strebt, stufenförmig<lb/>
+gegliedert, ein breiter Ornamentstreifen an der Kuppel aufwärts, in einer<lb/>
+Sonnenmaske kulminirend. Darüber baut sich die Kuppellaterne auf,<lb/>
+durchsichtig schlank und doch markig fest, die luftig vorgeschobenen<lb/>
+Säulen sind von Strahlenkörpern gekrönt und nun noch einmal rafft<lb/>
+sich die Architektur kompakt zusammen, um für die Reichskrone<lb/>
+auf dem höchsten Gipfel eine unerschütterliche Grundlage zu bilden.<lb/>
+In diesem ganzen Höhenzuge ist die Seele des Baudenkmals zum<lb/>
+Ausdruck gekommen. Und andererseits wie intensiv hat <hi rendition="#k">Wallot</hi><lb/>
+das Problem gepackt, aus Glas, Eisen und Gold eine Monumental¬<lb/>
+wirkung zu erzielen! Die Kuppel hat den Zweck, dem grossen<lb/>
+Sitzungssaal das Licht zuzuführen, eine ausgedehnte Glasfläche wurde<lb/>
+also zur Nothwendigkeit. Da aber das Glas, weil es das Licht nicht<lb/>
+reflektirt, sondern absorbirt, einen dunklen stumpfen Ton besitzt,<lb/>
+trat folgerichtig das Gold als ergänzender Faktor hinzu und zwar<lb/>
+unter demselben Gesichtspunkt, unter dem die Farbe in Binnenräumen<lb/>
+die Klarheit und die Schönheit der konstruktiven Gedanken erhöht.<lb/>
+Und ferner hat das Gold, als das edelste der Metalle, die monumentale<lb/>
+Vergeistigung der Eisenrippen zu bewirken, auf weite Entfernungen<lb/>
+hin durch seinen Glanz die tragenden und charakteristischen Theile<lb/>
+der Kuppel zu repräsentiren. Ein wie wunderbares Gefühl von<lb/>
+Sicherheit, Ruhe und eherner Spannkraft erzeugen diese aus dem<lb/>
+Herzen des Bauorganismus emporwachsenden Glanzlinien und wie<lb/>
+tiefsinnig ist die Ornamentik in den Sonnenmasken, Strahlenkörpern etc.<lb/>
+dem innersten Wesen des Goldes angepasst! Gewiss, es kann keinem<lb/>
+Zweifel unterliegen, dass <hi rendition="#k">Wallot</hi> gerade in der Kuppel den Gipfel¬<lb/>
+punkt seiner schöpferischen Kraft erreicht hat.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb n="30" facs="#f0036"/>
+<div n="1"> <head>RUNDGANG DURCH DAS<lb/>
+REICHSTAGS-GEBÄUDE.<lb/>
+</head> <p>Wie sehr die äussere Erscheinung des Hauses dem Innern<lb/>
+entspricht, wird sofort beim Eintritt an der architektonischen und<lb/>
+künstlerischen Gestaltung der Eingangshallen erkenntlich. Der erste<lb/>
+bestimmende Eindruck, den man an dem System der Façaden ge¬<lb/>
+winnt, wird im Innern erneuert und entsprechend gesteigert. Die<lb/>
+Säulenvorhalle der Westfront bereitet auf die feierliche Grösse der<lb/>
+Rotunde vor, der wuchtige Ostvorbau auf den majestätischen Ernst<lb/>
+der kaiserlichen Eingangshalle. Ebenso stimmen die Mittelrisalite der<lb/>
+Nord- und Südfront den Kommenden erwartungsvoll. In der Raum¬<lb/>
+folge des Hauptgeschosses entwickelt sich ein ganz bestimmter künst¬<lb/>
+lerischer Gedankengang, welcher im grossen Sitzungssaal gipfelt. Da<lb/>
+nun das Südportal den Abgeordneten und dem Bundesrath den<lb/>
+Haupteingang gewährt, ist es natürlich, dass in der Südvorhalle die<lb/>
+Innenarchitektur mit einem gemüthbezwingenden Eindruck bedeutungs¬<lb/>
+voll anhebt. Die Arbeit, die in diesem Hause von den Vertretern<lb/>
+des Volkes und der Regierungen geleistet wird, ist eine entscheidende<lb/>
+für die Geschicke des deutschen Volkes, das Ehrenamt der Volks¬<lb/>
+vertretung verleiht dem Träger des Mandats eine ideale Würde. Und<lb/>
+<pb n="31" facs="#f0037"/>
+so entspricht es der tiefen Auffassung, mit welcher der Reichstags¬<lb/>
+baumeister seine grossen Aufgaben allseitig erfasst, dass der Ab¬<lb/>
+geordnete beim Eintritt in das Haus, von der Weihe der Kunst<lb/>
+umfangen, losgelöst von dem kleinlichen Getriebe der Alltagswelt,<lb/>
+in eine höhere Sphäre gleichsam versetzt wird. Architektur, Bild¬<lb/>
+hauerkunst und Malerei vereinigen sich in der Vorhalle zu einem<lb/>
+Kunstwerk höchster Art. Ein grosser Zug durchdringt das Ganze,<lb/>
+die Herrlichkeit des neuen Reichs wächst aus der ruhmvollen Ver¬<lb/>
+gangenheit des deutschen Mittelalters empor. Nicht etwa, als ob<lb/>
+damit staatsrechtlich das nationale Kaiserthum als eine Fortsetzung<lb/>
+des römischen Weltkaiserreichs deutscher Nation gedeutet ist, aber<lb/>
+die Geschichte und die Kultur des Germanenthums ist seit tausend<lb/>
+Jahren ein untheilbar Ganzes und auf den wirkenden Volkskräften,<lb/>
+die die alten Kaisergeschlechter zu der glanzvollen Heldenhöhe empor¬<lb/>
+gehoben, ist auch das neuerstandene Reich gegründet, keine kurz¬<lb/>
+lebige Schöpfung, sondern von derselben dauernden Urkraft erfüllt,<lb/>
+welche der tausendjährigen Geschichte des Vaterlandes inne wohnt.<lb/>
+Und gerade die altehrwürdigen Erinnerungen, die von den Wänden<lb/>
+und Wölbungen herniedersprechen, mahnen die Vertreter des jungen<lb/>
+Reichs, dass ihr Thun und Lassen einen Faden anspinnt, der in die<lb/>
+Jahrhunderte hinausläuft, ebenso weit vorwärts strebt, wie die Gedenk¬<lb/>
+zeichen der Vergangenheit auf den Ursprung des Deutschthums zurück<lb/>
+weisen. Es liegt eine überwältigende Macht in dieser Idee, die das<lb/>
+Präludium der Innenarchitektur des Reichstagshauses bildet.</p><lb/>
+<p>Die Südvorhalle ist völlig in Bayersfelder Sandstein aus der<lb/>
+Rheinpfalz, einer Steinart von einer schönen warmgetönten gelblichen<lb/>
+Färbung, ausgebaut. Zwölf gedrungene Pfeiler tragen auf den beiden<lb/>
+Längsseiten eine mit Adlerschilden reichgeschmückte Gallerie, darüber<lb/>
+erheben sich als Träger des kassettirten Tonnengewölbes zwölf präch¬<lb/>
+tige Säulen. Die Renaissanceformen der Halle nähern sich in der<lb/>
+eigenartigen Stilisirung dem Geist des romanischen Mittelalters. Den<lb/>
+Hauptschmuck der Halle werden die acht Broncestandbilder der<lb/>
+Kaiser darstellen und zwar sind es <hi rendition="#k">Karl der Grosse</hi>, <hi rendition="#k">Heinrich I.</hi>,<lb/>
+<pb n="32" facs="#f0038"/>
+<hi rendition="#k">Otto der Grosse, Heinrich III., Friedrich I., Rudolph von Habs¬<lb/>
+burg, Karl IV</hi> und der letzte Ritter <hi rendition="#k">Maximilian I.</hi>, welche sich auf<lb/>
+niedrigen Postamenten vor den Pfeilern 2½ m hoch erheben werden.<lb/>
+Aus dem Gewölbefries oberhalb der Säulenkapitäle sind in den<lb/>
+Charakterköpfen die verschiedenen Dynastien und Kulturepochen<lb/>
+des Mittelalters gekennzeichnet. Es ist nun ein schöner Gedanke,<lb/>
+dass die Fenster, welche der vaterländischen Gedenkhalle das Licht<lb/>
+zuführen, Glasmalereien mit Motiven des neuen Reichs enthalten.<lb/>
+Ueber dem Portal thront Allmutter Germania auf dem Festhügel, ein<lb/>
+jugendschönes heroisches Weib, zu ihren Füssen der Festreigen ihrer<lb/>
+gekrönten Kinder, die mit dem Gelöbniss: „Wir wollen sein ein<lb/>
+einig Volk von Brüdern“ sich in fröhlicher Eintracht zu einem festen<lb/>
+Ring geschlossen haben. Als Symbol der Einheit umschlingt sie<lb/>
+Alle ein Band in den Reichsfarben. Zweige im Frühlingsblüthen¬<lb/>
+schmuck neigen sich herüber, und im Hintergrund dehnt sich das<lb/>
+deutsche Land vom Fels zum Meer. Im oberen Theil des Fensters<lb/>
+steht Sanct Michael, der Schutzpatron der Deutschen, und in der<lb/>
+Predella schliessen Nord und Süd mit Handschlag den ewigen Bund<lb/>
+der Treue. Um das Ganze läuft ein prächtiges Frucht- und Blumen¬<lb/>
+gewinde. Das Fenster liegt an der Sonnenseite des Hauses, die<lb/>
+Farben sind daher licht getönt, ein wunderbares Leuchten und<lb/>
+Glänzen durchwirkt den erhabenen Raum, wenn zur Mittagszeit beim<lb/>
+Beginn der Sitzungen das Tagesgestirn in den Farben des Fensters<lb/>
+spielt. Das dem Eintretenden entgegenblickende Fenster in der<lb/>
+Nordwand, zu welcher die breite Treppe emporführt, enthält den<lb/>
+Reichsadler mit den Wappen der Bundesstaaten. Ohne Zweifel die<lb/>
+bedeutendste Leistung auf heraldischem Gebiet und als Glasmalerei<lb/>
+den besten Erzeugnissen der Vergangenheit ebenbürtig. Die zahl¬<lb/>
+reich variirenden Farben der Wappenschilde sind zu schönster Har¬<lb/>
+monie vereinigt, und das einigende Band liegt hier in den riesenhaft<lb/>
+gedehnten Gliedern des Adlers, deren kraftvolles Schwarz zusammen<lb/>
+mit dem Goldgrund den dominirenden Farbenakkord bildet. Diese<lb/>
+beiden sowie die übrigen farbigen Fenster sind von dem Frankfurter<lb/>
+<pb n="33" facs="#f0039"/>
+Glasmaler <hi rendition="#k">Alexander Linnemann</hi> ausgeführt, der hiermit die höchste<lb/>
+Leistungsfähigkeit der deutschen Glasmalerei repräsentirt. Vor dem<lb/>
+Wappenfenster theilt sich die Treppe in zwei Arme und führt zu<lb/>
+den Portalen Preussen und Bayern, die zu den Räumen des Bundes¬<lb/>
+rathes und zur Wandelhalle den Eingang gewähren. An der Vierung<lb/>
+des dreiarmigen Tonnengewölbes stützen Putten in spielender Grazie<lb/>
+die zusammenstossenden Theile des Gewölbes, die Wandflächen weisen<lb/>
+vier grosse Nischen auf und über diesen ragen monumentale Köpfe<lb/>
+in den Raum hinein, die Eintracht und Gerechtigkeit, die Stärke und<lb/>
+Weisheit verkörpernd. Doch an den beiden Portalen ist die höchste<lb/>
+Steigerung des ornamentalen Schmucks inscenirt. Bis zur halben<lb/>
+Höhe der Portalpforten erheben sich reichgezierte Säulen als Posta¬<lb/>
+mente für die beiden weiblichen Figuren, in welchen die Art der<lb/>
+dominirenden deutschen Königreiche gekennzeichnet wird. Preussen<lb/>
+ruht auf den beiden Begriffen der Stärke und der Staatsklugheit und<lb/>
+Bayerns Zierden sind die Eintracht und Gerechtigkeit. Im Portal<lb/>
+Preussen kommt eine strenge Grösse, eine dräuende Wucht zum<lb/>
+Ausdruck. Das über dem Thürsturz emporgehobene breit ausladende<lb/>
+Gesims wird von dem Haupt des männermordenden Ares getragen<lb/>
+und so erscheint die über dem Kriegsgott thronende Borussia mit<lb/>
+dem Lictorenbündel als die Exekutivgewalt des Reiches, während<lb/>
+die anmuthumwobene Bavaria, die dem Haupt der Pallas Athene<lb/>
+entsprossen, die friedliche Arbeit mit einer Kranzspende lohnt. Und<lb/>
+über den Portalen ragen bis zum Scheitel der Wölbung die Monu¬<lb/>
+mentalwappen der beiden Staaten empor, dasjenige Preussens von<lb/>
+den keulenbewehrten wilden Männern mit dem Attribut des Löwen¬<lb/>
+fells flankirt, und das Wappen Bayerns halten die aufrechten Löwen.<lb/>
+Aus den Voluten der Wappen quellen üppige Fruchtgewinde hervor,<lb/>
+und ähnliches Schmuckwerk erfüllt den Portalfries. Die Bildhauer¬<lb/>
+arbeiten in der Südvorhalle sind von <hi rendition="#k">A. Vogel</hi>, einem jungen süd¬<lb/>
+deutschen Künstler, gefertigt, der überall kongenial auf die Intentionen<lb/>
+<hi rendition="#k">Wallot's</hi> eingegangen ist und an dieser wie an vielen andern Stellen<lb/>
+des Hauses Meisterwerke von bleibendem Werthe geschaffen hat.</p><lb/>
+<fw type="sig" place="bottom">3<lb/>
+</fw>
+<pb n="34" facs="#f0040"/>
+<p>Die <hi rendition="#g">nördliche Eingangshalle</hi> ist in der Anlage von der<lb/>
+südlichen abweichend gestaltet und zwar konnte wegen der hier ein¬<lb/>
+gelegten Durchfahrt eine Treppe nicht angebracht werden. Der<lb/>
+Verbindungsgang zwischen der Wandelhalle und den Präsidialräumen<lb/>
+legt sich brückenartig über die portalähnliche Durchfahrt. Das ergab<lb/>
+ein Motiv von hoher Schönheit, eine von Säulen getragene Giebel¬<lb/>
+konstruktion. Aus dem Giebelfeld strebt ein Schiffsvordertheil mit<lb/>
+einer reizvollen, zierlichen Gallionfigur hervor, auf dem Giebel lagern<lb/>
+zwei nackte weibliche Gestalten, welche, die Nord- und Ostsee ver¬<lb/>
+körpernd, die Kaiserkrone emporhalten. Diese formenschönen Skulp¬<lb/>
+turen sind von <hi rendition="#k">Hundrieser</hi> modellirt. Im Uebrigen ist die nörd¬<lb/>
+liche Vorhalle durch markige Pfeiler gegliedert. Am Fuss derselben<lb/>
+werden acht Broncestandbilder von geistigen Grössen aus dem alten<lb/>
+Kaiserthum aufgestellt werden. Diese Halle ist also als Pendant zu<lb/>
+der südlichen gedacht. Baldachinähnliche Vorsprünge mit einem<lb/>
+Löwenkopf treten oberhalb der Standbilder aus den Pfeilern und<lb/>
+darüber sind an stilisirten Pflöcken leere Wappenschilde befestigt,<lb/>
+seitwärts davon hängen originelle, kunstvoll geknotete Stricke herab.<lb/>
+Von ebenso frappirender Eigenart in der Erfindung sind die auf<lb/>
+der Höhe der Gallerie befindlichen Einstellungen zwischen den Pfeilern.<lb/>
+Dekorationsstücke aus Feldfrüchten und als Symbol der geheimnissvoll<lb/>
+wirkenden Fruchtbarkeit der norddeutschen Tiefebene schaut hinter<lb/>
+einem Blätterbündel ein menschliches Antlitz in den Raum. Das<lb/>
+Alles sind charakterische Aeusserungen des „Stil <hi rendition="#k">Wallot</hi>“, dem eine<lb/>
+epochemachende Bedeutung zuzuschreiben ist. Und es muss aus¬<lb/>
+drücklich darauf hingewiesen werden, dass die ausführenden Künstler<lb/>
+wie <hi rendition="#k">Lessing, Vogel, Widemann, Hundrieser, Klein, Brütt</hi> u. a.<lb/>
+den Gedankenreichtum <hi rendition="#k">Wallot's</hi> nach einer genau detaillirten<lb/>
+Direktive in Stein reproducirt haben, die Grenze zwischen dem<lb/>
+Schaffen der mithelfenden Künstler und demjenigen des leitenden<lb/>
+Architekten ist nicht festzulegen, das Reichstagshaus ist in der künst¬<lb/>
+lerischen Totalität absolut geistiges Eigenthum <hi rendition="#k">Wallot's</hi>. Eben nicht<lb/>
+anders ist die wunderbare Harmonie zu erklären, die den ganzen<lb/>
+<pb n="35" facs="#f0041"/>
+Bau durchdringt. Der obere Theil der nördlichen Eingangshalle, der<lb/>
+auf dem Wege durch die Kleiderablage und über die Haupttreppe<lb/>
+erreicht wird, korrespondirt in der künstlerischen Ausstattung mit<lb/>
+dem entsprechenden Theil der Südhalle. Nur sind hier die Portale<lb/>
+Sachsen und Württemberg einfacher ausgebildet. Die Wappen der<lb/>
+beiden sekundären Königreiche ruhen auf dem Kopf des Vulkan<lb/>
+und Apollo, Arbeiten, die gleichfalls von <hi rendition="#k">A. Vogel</hi> geleistet sind.<lb/>
+Die beiden zur Zeit ausgeführten Glasfenster von <hi rendition="#k">Linnemann</hi> schildern<lb/>
+den Segen der Eintracht und den Fluch der Zwietracht, dort sind<lb/>
+die Farben licht und mild, hier aber von einer unheimlich wirkenden<lb/>
+Tiefe und dämonischer Gluth, die Figuren und Ornamente sind dem<lb/>
+Gegenstand gemäss meisterhaft stilisirt.</p><lb/>
+<p>Als Hauptverkehrsader durchzieht die <hi rendition="#g">Wandelhalle</hi> das Haus<lb/>
+in seiner ganzen Länge, daran schliessen sich unmittelbar die beiden<lb/>
+Haupttreppen. Die Wandelhalle ist ohne Zweifel der grossartigste<lb/>
+Binnenraum, den die deutsche Profanarchitektur bislang aufzuweisen<lb/>
+hat. Der überwältigende Eindruck beruht nicht nur auf der kolossalen<lb/>
+Ausdehnung, sondern vielmehr noch auf der monumentalen Gliederung<lb/>
+der Architektur. Die gewaltigen Motive der Westfaçade haben hier<lb/>
+im Innern ein nicht minder imponirendes Gegenstück erhalten. Die<lb/>
+Flachkuppel der Rotunde, deren Oberlichtring 23,50 m über dem<lb/>
+Fussboden liegt, und die Tonnenwölbungen der Seitenflügel, 17,41 m<lb/>
+hoch, gehen bis zur Dachhöhe des Hauses. Die Längsaxe der<lb/>
+Wandelhalle misst 97,17 m, der Durchmesser der Rotunde 25,74 m<lb/>
+und die Hallenflügel sind mit Einschluss der Nebenschiffe 13,50 m<lb/>
+breit. Um zu vermeiden, dass die Halle bei der grossen Längs¬<lb/>
+ausdehnung und der verhältnissmässig geringen Breite schlauchartig<lb/>
+wirkt, sind zu beiden Seiten der Rotunde die Säuleneinstellungen<lb/>
+angeordnet, die dadurch erzielte Dreitheilung erhöht das rhythmische<lb/>
+Gefüge des Raums und bringt dem Auge die Länge der Halle erst<lb/>
+zu voller Anschauung. Ausserdem haben die Einstellungen insofern<lb/>
+einen praktischen Zweck, als über sie entlang eine direkte Verkehrs¬<lb/>
+verbindung zwischen den westlichen und östlichen Theilen des<lb/>
+<fw type="sig" place="bottom">3 *<lb/>
+</fw>
+<pb n="36" facs="#f0042"/>
+Obergeschosses ermöglicht ist. Die künstlerische Ausschmückung<lb/>
+der Wandelhalle ist gegenwärtig noch nicht abgeschlossen. Es fehlen<lb/>
+noch die freistehenden Skulpturen, das Kaiserstandbild über dem<lb/>
+Schlussstein des Hauses und die damit in Beziehung gesetzten Bild¬<lb/>
+werke in den Nischen der Rotunde, ferner die allegorischen Skulp¬<lb/>
+turen auf den Gallerien, ausserdem werden die Fenster farbig ver¬<lb/>
+glast und die Wölbungen sollen mit Frescogemälden bedeckt werden.<lb/>
+Die im Grundriss achteckige Rotunde wird durch vier mächtige, in<lb/>
+die Flachkuppel eingreifende Rundbogen gegliedert, in der Höhe<lb/>
+des Obergeschosses treten in diese Oeffnungen Gallerien. An den<lb/>
+vier Schmalseiten sind rund ausgewölbte und von Säulen flankirte<lb/>
+Nischen eingelassen. Die Säulen der Halle besitzen einen edlen<lb/>
+Schwung, das Kompositakapitäl ist straff profilirt, ein herrlicher<lb/>
+Architrav legt sich wie ein einigendes Band unter die Gewölbeansätze.<lb/>
+Das System der Seitenflügel der Wandelhalle ist an den Längsseiten<lb/>
+durch fünf Pfeiler charakterisirt, von denen die drei inneren durch<lb/>
+Dreiviertelsäulen verstärkt sind. Im Interkolumnium befinden sich<lb/>
+die Thüren, deren Flügel und Giebel durch Bronceornamente ver¬<lb/>
+ziert sind. Die an der Westseite fortlaufenden rundbögigen Flächen<lb/>
+zwischen den Stichkappen der Tonnenwölbung sind über dem Haupt¬<lb/>
+gesims durch reich skulptirte Städtewappen ausgefüllt, in gleicher Höhe<lb/>
+zieht sich auf der Ostseite eine Gallerie hin, die von den gewölbten<lb/>
+Seitenschiffen getragen wird. Wirkungsvoll schliesst die Wandelhalle<lb/>
+am nördlichen und südlichen Ende ab. Hier heben je zwei frei¬<lb/>
+stehende Säulen eine kompakte Gallerie empor, aus der Attika schauen<lb/>
+zwei Medusenmasken in die Weite und auf der Balustrade lagern<lb/>
+zwei geheimnissvolle, sphinxartige Fabelthiere mit Flügelhelmen. Diese<lb/>
+wunderbaren Gebilde sind von <hi rendition="#k">Widemann</hi> gefertigt. Die übrigen<lb/>
+Skulpturen der Wandelhalle hat <hi rendition="#k">O. Lessing</hi> modellirt. Unter den<lb/>
+Säuleneinstellungen treten aus der glatten, durch Scharrirung belebten<lb/>
+Wandfläche vier Medaillons hervor mit elegant stilisirten Putten, die<lb/>
+als Herolde der deutschen Königreiche aufzufassen sind. Naturgemäss<lb/>
+ist die Rotunde am reichlichsten mit Figurenschmuck bedacht. Ueber<lb/>
+<pb n="37" facs="#f0043"/>
+dem westlichen Portal schwebt in einem Marmorrelief der preussische<lb/>
+Adler mit dem Wahlspruch „Nec soli cedo“, über dem nach dem<lb/>
+Sitzungssaal führenden Portal ruht ein mächtiger Löwe, die Reichs¬<lb/>
+insignien bewachend, hinter ihm Fahnentrophäen und die Schilde<lb/>
+der drei ersten Hohenzollernkaiser. Wie eine zu Stein gewordene<lb/>
+Symphonie muthen die vier Figurengruppen an, welche oberhalb der<lb/>
+Nischen vor die Gewölbezwickel gesetzt sind. Die vier Herrscher¬<lb/>
+tugenden, die Tapferkeit, Gerechtigkeit, Weisheit und Friedensliebe,<lb/>
+sind hierin symbolisirt. Vor dem vier Mal widerkehrenden Zierschild<lb/>
+mit dem bedeutungsvollen W sitzen je zwei allegorische Gestalten,<lb/>
+in denen das Thema des Schmuckstücks zu überzeugendem Ausdruck<lb/>
+kommt. Diese Gruppen mit dem phantasievoll ausgebildeten Ornament¬<lb/>
+werk klingen zu einer machtvollen, ehrfurchterweckenden Einheit<lb/>
+zusammen. Die Architektur der Wandelhalle ist, wie schon erwähnt,<lb/>
+nicht in Stein hergestellt, sondern in Marmorputz, einer dauerhaften<lb/>
+steinharten Mischung aus englischem weissen Cement, Marmormehl,<lb/>
+Magnesiterde etc. Dieser Inkrustatstein ist auf das Backsteinmauer¬<lb/>
+werk aufgetragen und geschliffen. Die Ornamente und ein Theil<lb/>
+der figürlichen Darstellungen sind aus demselben Material, meist in<lb/>
+Formen gegossen. Der Marmorstuck hat einen zarten ätherischen<lb/>
+Ton mit einer kühlen Nüance. Der Fussboden, mit verschieden¬<lb/>
+farbenen Marmorplatten belegt, ist von prächtigster Wirkung, der<lb/>
+Farbenakkord ist weiss, grau, schwarz, gelb und roth.</p><lb/>
+<p>Im engen Zusammenhang mit der Wandelhalle stehen die an<lb/>
+der Westfront des Hauses gelegenen Erfrischungsräume, sowie der<lb/>
+Schreib- und Lesesaal der Abgeordneten. Hier ist eine Raumfolge<lb/>
+geschaffen, die in jedem Besucher einen unverlöschlichen Eindruck<lb/>
+hinterlässt. Der Ausstattung der Säle wohnt eine würdevolle Pracht<lb/>
+inne. In jeder Beziehung, in der architektonischen Gesammthaltung,<lb/>
+in den Täfelungen der Wände und Plafonds, in den Holzskulpturen,<lb/>
+den ornamentalen Malereien, in der Gestaltung und Stilisirung der<lb/>
+Beleuchtungskörper und Möbel etc. handelt es sich um Muster¬<lb/>
+leistungen deutschen Kunstschaffens, überall tritt die Eigenart <hi rendition="#k">Wallot's</hi><lb/>
+<pb n="38" facs="#f0044"/>
+in einer überraschenden, ja fast verblüffenden Ideenfülle zu Tage.<lb/>
+Ein kraftgenialisches deutsches Empfinden pulsirt in allen diesen mit<lb/>
+ihrer Zweckbestimmung so wunderbar harmonirenden Gebilden. Mit<lb/>
+dem gedankenlos vertrottelten Formenwust der hergebrachten Typen<lb/>
+ist gründlichst aufgeräumt, das Kunsthandwerk war wieder auf schlichte<lb/>
+und gediegene Einfachheit zurückzuleiten, ein mühevolles Beginnen,<lb/>
+das nur eine so durchgreifende Persönlichkeit wie <hi rendition="#k">Wallot</hi> zu voll¬<lb/>
+führen im Stande war. In den beiden Erfrischungssälen hat das<lb/>
+unverfälscht süddeutsche Naturell <hi rendition="#k">Wallot's</hi> den weitesten Spielraum<lb/>
+gefunden, und es lag auf der Hand, dass die ausführenden Künstler<lb/>
+aus München zu citiren waren. So sind die Holzarbeiten der<lb/>
+Restaurationssäle von der Firma <hi rendition="#k">Pössenbacher</hi>, die Modelle für die<lb/>
+Skulpturen von <hi rendition="#k">Vogel</hi> und <hi rendition="#k">Pruska</hi>, die Gewölbemalereien von<lb/>
+<hi rendition="#k">Otto Hupp</hi> und die freihändigen Stuckornamente von <hi rendition="#k">Biehl</hi>, sämmt¬<lb/>
+lich in München, geliefert worden. Doch die genialste aller hier zur<lb/>
+Gestaltung gekommenen Ideen ist das erstaunliche Tonnengewölbe,<lb/>
+das die Illusion eines Laubendachs hervorruft und zu einem klassischen<lb/>
+Typus in seiner Art zu werden alle Aussicht hat. Ganz schlicht und<lb/>
+glattflächig spannt sich die riesige Wölbung über die ringsumlaufende<lb/>
+Täfelung. Ein undurchdringliches Gerank einer distelartigen spät¬<lb/>
+gothisch stilisirten Pflanzentype überzieht in kühnen Windungen die<lb/>
+Fläche. Im Gewölbeansatz stehen die prachtvollen mittelalterlichen<lb/>
+Geschlechtswappen der deutschen Regentenhäuser. Das ganze Halb¬<lb/>
+rund über dem Buffet erfüllt das Stammwappen der Hohenzollern.<lb/>
+Im Scheitel der Wölbung dehnt der deutsche Reichsadler sein Riesen¬<lb/>
+gefieder, gleichsam den ganzen Raum überschattend, daher auch der<lb/>
+Sinnspruch: „Sub umbra alarum tuarum protege nos!“ Die Reichs¬<lb/>
+insignien zu Füssen und zu Häupten des Adlers schauen gleichfalls<lb/>
+aus der Wölbung herab. Von knorrigen Wurzeln und Stämmen<lb/>
+ausgehend wird das grüne Blätterwerk von einem netzförmigen braunen<lb/>
+Geäst durchsponnen, an dem rothbäckige Aepfel hängen. Fröhliche<lb/>
+Schaaren eines drolligen Puttenvölkleins treiben im Grünen ihr Wesen.<lb/>
+In origineller Art bringt sich hierbei der deutsche Humor zur Geltung.</p><lb/>
+<pb n="39" facs="#f0045"/>
+<p>Die pausbäckigen Kinder vergnügen sich nach Herzenslust, sie klettern<lb/>
+nach den Aepfeln empor, schaukeln, tanzen und wiegen sich in den<lb/>
+Zweigen, schneiden ergötzliche Grimmassen, trommeln, fiedeln und<lb/>
+pauken, reiten auf Steckenpferden einher, sie prügeln und zausen<lb/>
+sich aus allen Leibeskräften, der eine streichelt seine geschwollene<lb/>
+Backe, ein anderer zwickt mit einem zangenartigen Spielzeug einen<lb/>
+diebischen Kater in den Schwanz, andere wieder, von fröhlichem<lb/>
+Gelage heimkehrend, verüben einen tollen Fastnachtsulk, der Rädels¬<lb/>
+führer reitet auf einem feisten Mutterschwein, und voran jagt die<lb/>
+beängstigte Schaar der Ferkelchen, ob der langohrigen Narrenkappen,<lb/>
+mit denen man ihr Haupt geschmückt, auf's Höchste entsetzt. Für<lb/>
+die ausserordentliche Wölbung nun eine Wandtäfelung zu entwerfen,<lb/>
+die dem Auge eine ausreichende Tragfähigkeit darbietet, war eine<lb/>
+schwierige Aufgabe. <hi rendition="#k">Wallot</hi> löste das Problem durch eine schlichte,<lb/>
+architektonisch streng gedachte Pfeilerstruktur, die bei aller markigen<lb/>
+Gedrungenheit doch auch wieder eine festlich bewegte, graziöse<lb/>
+Leichtigkeit besitzt. In die durch die Fenster und Thüren begrenzten<lb/>
+Wandabtheilungen sind muschelartig ausgewölbte Nischen mit den<lb/>
+elektrischen Wandarmen eingelassen. Der durch die Thüren unter¬<lb/>
+brochene Architrav ist durch einen zierlichen Zahnschnitt gehoben,<lb/>
+und auf das Hauptgesims ist noch eine Attika aufgesetzt, welche die<lb/>
+Gitteröffnungen der Heizung enthält. Grotesken und Masken ver¬<lb/>
+vollständigen den Schmuck der Täfelung. Das monumentale Buffet<lb/>
+an der nördlichen Schmalseite des Saales ist gleichfalls in Eichenholz<lb/>
+geschnitzt. Es ist mit Nischen, Fächern, Karyatiden mit Weintrauben,<lb/>
+Engeln, Grotesken etc. mannigfach gegliedert, eine Kunstleistung von<lb/>
+hoher Schönheit. Die Uhr über dem Portal an der andern Schmal¬<lb/>
+seite ist durch phantastische Symbole der irdischen Vergänglichkeit<lb/>
+ausgestattet, und zwei heraldisch stilisirte aufrechte Löwen in der<lb/>
+bemalten Wandfläche flankiren bedeutungsvoll den Zeitmesser. Der<lb/>
+zweite Erfrischungssaal im südwestlichen Eckthurm weist eine acht¬<lb/>
+eckige Grundform auf bei einem Durchmesser von 13,21 m. An<lb/>
+den vier Schmalseiten und den daran grenzenden Theilen sind<lb/>
+<pb n="40" facs="#f0046"/>
+Wandtäfelungen von reicher Ausgestaltung angebracht. Das System<lb/>
+derselben ist durch zwei Pfeiler, vier Säulen und zwei Nischen jedesmal<lb/>
+bedingt. Den oberen Abschluss bilden Giebel. Durch Putten, Masken,<lb/>
+Schilde und naturalistisch erfasste Schankmädchen ist die Täfelung<lb/>
+reizvoll verschönt. Ein flaches Gewölbe legt sich kreuzartig über<lb/>
+den Raum, im Scheitel ist ein origineller Bronceschmuck, um eine<lb/>
+strahlende Sonne bewegen sich Monde in den verschiedenen Phasen.<lb/>
+Das Gewölbe ist mit zartgetönten weissen Stuckornamenten verziert,<lb/>
+kapriciös geringelte Ranken streben über die Fläche hin und um¬<lb/>
+säumen die humorvollen heraldischen Impromptus. Ueberhaupt spielen<lb/>
+die heraldischen Motive in der Ornamentik des Reichstagshauses eine<lb/>
+bedeutsame Rolle. Es lag nahe, dass die korrekten Wappen der<lb/>
+Staaten und Städte an hervorragenden Stellen des Hauses als gemein¬<lb/>
+verständliche Symbole herangezogen wurden, so gut wie das einzige<lb/>
+Mittel, für das Zusammenwirken aller Gaue des Vaterlandes an der<lb/>
+Reichseinheit einen Ausdruck zu finden. Dann aber bot das Wappen¬<lb/>
+wesen noch die Anregung, neuschöpferisch in der Verwendung von<lb/>
+heraldischen Gebilden vorzugehen, wodurch diesem auf der Kunst<lb/>
+basirenden Gebiet eine weite Perspective eröffnet wurde. Im Restau¬<lb/>
+rationssaal sind die vier Elemente heraldisch dargestellt. Die Erde<lb/>
+hat den Löwen im Schild, und als Helmzier erscheint ein mit<lb/>
+Früchten beladener Baum, die Luft wird durch einen Adler gekenn¬<lb/>
+zeichnet, ein Luftballon als Zier hebt das ganze Wappen in die<lb/>
+höchsten Regionen, die die Heraldik jemals erstiegen. Ein Fisch<lb/>
+deutet das Wappen des Wassers, und über dem Helm bäumt sich<lb/>
+ein strahlenwerfender Delphin mit dem Schwanz aufwärts, das Feuer<lb/>
+schliesslich hat ein gluthhauchendes, löwenkralliges Drachenthier im<lb/>
+Schilde, die Helmzier ist ein weihrauchduftender schlanker Dreifuss.<lb/>
+Ein imposanter Kamin mit steilem, von einer Gallerie gekröntem Dach<lb/>
+vervollständigt das herrliche Interieur dieses Saales. Die lünetten¬<lb/>
+artigen Wandflächen über den Fenstern und der Thür werden noch mit<lb/>
+Frescogemälden geschmückt, ferner sollen die oberen Theile der Fenster<lb/>
+über den zu den Balkons führenden Thüren Glasmalereien erhalten.</p><lb/>
+<pb n="41" facs="#f0047"/>
+<p>An den nördlichen Theil der Wandelhalle stossen symmetrisch<lb/>
+zu den Erfrischungsräumen die beiden Säle, die den Abgeordneten<lb/>
+zur Lektüre der politischen Tagesliteratur und zur Erledigung des<lb/>
+Briefwechsels dienen. In unmittelbarer Verbindung damit steht das<lb/>
+Postbureau. Der <hi rendition="#g">Lesesaal</hi> ist 22,80 m lang, 9,47 m breit und<lb/>
+8,50 m hoch. Eine monumentale Täfelung verleiht dem Raum ein<lb/>
+vornehm weltmännisches Gepräge. Die wuchtigen, figurenreichen<lb/>
+Holzbekleidungen der Wände lassen geräumige Flächen offen, welche,<lb/>
+gegenwärtig mit blauem Stoff bespannt, deutsche Landschaftsbilder<lb/>
+als Schmuck erhalten werden und zwar in einer bestimmten Reihen¬<lb/>
+folge vom Fels zum Meer. Unterhalb der üppig kassettirten Holz¬<lb/>
+decke zieht sich, von karyatidenähnlichen Figuren unterbrochen, ein<lb/>
+von <hi rendition="#k">Max Koch</hi> gemalter Fries hin. Farbenglühende Idylle auf<lb/>
+Goldgrund. Kartuschen, Medaillons mit Fruchtschnüren, Grotesken,<lb/>
+Masken, Karyatiden und eine prächtige Uhr, deren komplicirtes Werk<lb/>
+nicht nur Stunde und Minute, sondern auch Jahr, Tag, Monat und<lb/>
+die Mondphasen anzeigt, kennzeichnen die künstlerische Ausstattung<lb/>
+des auf ein gesättigtes Blau abgestimmten Saales. Der gravitätische<lb/>
+Ernst der schweren Eichentäfelung wird gemildert durch die Einlagen<lb/>
+aus ungarischer Esche, einer goldgelben Holzart mit anmuthig ge¬<lb/>
+welltem Aderwerk. Die schön stilisirten Zeitungsrepositorien sind an<lb/>
+den Wandflächen zwischen den Thüren und Fenstern aufgestellt.<lb/>
+Das eigentliche architektonische Leitmotiv des Hauses, das z. B. in<lb/>
+der Wandelhalle, der Restauration variirt ist, ist mit Bedacht im<lb/>
+Lesesaal nicht aufgenommen, so erhält man hier den Eindruck einer<lb/>
+ruhigen Abgeschlossenheit und einer behaglichen Abgeschiedenheit<lb/>
+von dem Lärm der Aussenwelt. Nach den Entwürfen <hi rendition="#k">Wallot's</hi><lb/>
+sind die Holzarbeiten, Möbel, Vorhänge, Thüren etc. von der<lb/>
+grossen Mainzer Firma <hi rendition="#k">A. Bembé</hi> ausgeführt, auch die Ausstattung<lb/>
+des <hi rendition="#g">Schreibsaales</hi> im Nordwestthurm. Hier bedingt der acht¬<lb/>
+eckige Grundriss die schön gegliederte Täfelung der Schmalseiten und<lb/>
+die in entsprechende Felder getheilte und durch helle Einlagen aus¬<lb/>
+gestattete Holzdecke. Künstlerisch beherrscht wird der Saal durch<lb/>
+<pb n="42" facs="#f0048"/>
+die von <hi rendition="#k">Widemann</hi> modellirten Nischenfiguren der vier Elemente,<lb/>
+von denen die Luft und die Erde durch zwei nackte Weiber, das<lb/>
+Feuer und Wasser durch Männergestalten mit den Attributen des<lb/>
+Poseidon und Hephästos dargestellt sind. In diesen herben und<lb/>
+strengen, von einer keuschen Hoheit und einer ergreifenden inner¬<lb/>
+lichen Würde durchwirkten Holzskulpturen hat <hi rendition="#k">Widemann</hi> meinem<lb/>
+Gefühl nach sein tief angelegtes, echt germanisches Naturell am erfolg¬<lb/>
+reichsten hervorgekehrt. Der einfach profilirte niedrige Kamin ist<lb/>
+aus schwarzgrünem Porte d'or-Marmor aus den Pyrenäen, einer<lb/>
+äusserst kostbaren Steinart, gefertigt. Die gewaltigen handgeknüpften<lb/>
+Smyrnateppiche in mildgetönten Farben sind aus einem Stück gearbeitet,<lb/>
+eine Riesenleistung. Durchweg von hoher Kunstvollendung und jedes¬<lb/>
+mal der Bestimmung der einzelnen Räume angepasst sind die Be¬<lb/>
+leuchtungskörper des Hauses. Der Architekt <hi rendition="#k">Dedreux</hi> hat in enger<lb/>
+Fühlung mit <hi rendition="#k">Wallot's</hi> Angaben die Zeichnungen dafür geliefert und<lb/>
+eine wahrhaft geniale Erfindungskraft bethätigt. Die Augsburger<lb/>
+Firma <hi rendition="#k">L. A. Riedinger</hi> übernahm in der Hauptsache die Ausführung.<lb/>
+Im Lese- und Schreibsaal dienen kunstvolle Ringkronen der Beleuchtung<lb/>
+in Form alter Stadtmauern mit Thoren und Wartthürmen und durch<lb/>
+Weinranken verbunden. Eine Riesenkrone mit figürlichen Darstellungen<lb/>
+wird in der Rotunde aufgehängt werden. In den Vorsälen für Bundes¬<lb/>
+rath und Reichstags-Präsidium sind die Köpfe mittelalterlicher Kur¬<lb/>
+fürsten und von historischen Persönlichkeiten auf den Gebieten der<lb/>
+Kunst und Wissenschaft zum bedeutungsvollen Schmuck der grossen<lb/>
+Beleuchtungskörper geworden. An anderen Orten treten Kugellüstres<lb/>
+auf, in den Hallen sind es kompakt profilirte Laternen. Ueberall<lb/>
+handelt es sich um Neubildungen und Musterleistungen der Würde<lb/>
+des Hauses entsprechend.</p><lb/>
+<p>Die an der Ostfront des Hauses gruppirten Räume besitzen in<lb/>
+der <hi rendition="#g">Kaiserhalle</hi> einen grossartig ausgebildeten Centralpunkt und<lb/>
+dem Verkehr dienen die an das Vestibül gereihten langgestreckten<lb/>
+Vorsäle. Die Architektur der östlichen Vorhalle ist ihrer Bestimmung<lb/>
+gemäss in majestätischen Dimensionen gehalten. Die sacht ansteigende<lb/>
+<pb n="43" facs="#f0049"/>
+dreiarmige Treppe hat eine pompöse Breite, riesige Kugeln liegen<lb/>
+auf den Geländerpfosten. An den Treppenwangen blicken strenge<lb/>
+Reliefs, Krieg und Frieden darstellend, dem Eintretenden entgegen,<lb/>
+eine Arbeit <hi rendition="#k">Widemann's.</hi> Glatt und grossflächig, mit scharfen Profilen<lb/>
+steigen die gewaltigen Wände empor, der hier verwandte Warthauer<lb/>
+Sandstein hat einen hellgrauen kalten Ton, was nicht zum Wenigsten<lb/>
+zu dem hoheitsvollen Eindruck der Halle beiträgt. Ein Sinnbild un¬<lb/>
+endlicher Kraft sind die beiden Säulenpaare seitwärts der Treppe;<lb/>
+wie das Kaiserthum auf den vier Königreichen ruht, so auch die<lb/>
+riesig gedehnte Kreuzwölbung auf den Säulen. Ein aus Schmied¬<lb/>
+eisen gefertigter Adler von prächtiger Stilisirung fesselt den Blick des<lb/>
+die Treppe Emporschreitenden, von der Höhe der Westwand schauen<lb/>
+in den ernsten Köpfen die Vertreter der Stände den kommenden<lb/>
+Fürsten, mahnend gleichsam, entgegen, und zwar die Personifikationen<lb/>
+des Handels, der Landwirtschaft, der Ritterschaft, Geistlichkeit, der<lb/>
+Wissenschaft und des Handwerks. In das Innere des Hauses führen<lb/>
+die beiden reich geschmückten Portale, deren Gepräge schon auf die<lb/>
+dahinterliegenden Räume deutet. Die die Eingänge flankirenden<lb/>
+Säulen heben als Repräsentanten der Königreiche vier Kinderfiguren<lb/>
+hoch empor, deren Obhut die Reichsinsignien anvertraut sind. Preussen<lb/>
+ist mit dem Schwert, Bayern mit der Krone, Sachsen mit dem Scepter<lb/>
+und Württemberg mit dem Reichsapfel dargestellt. Ueber dem Portal¬<lb/>
+sturz befindet sich ein Schild mit dem Reichsadler und die Reichs¬<lb/>
+krone hebt sich auf dem Gipfel des Bildwerks wirkungsvoll von der<lb/>
+den Hintergrund bildenden Fensterfläche ab. Diese Portale haben<lb/>
+<hi rendition="#k">O. Lessing</hi>, der im Gegensatz zu <hi rendition="#k">Widemann</hi> durch eine gefällige<lb/>
+Eleganz gekennzeichnet ist, zum Urheber. Der erste Blick nach dem<lb/>
+Eintritt durch die Portale fällt auf beiden Seiten auf eine zu den<lb/>
+Zuhörerlogen emporführende Treppe. Das vergoldete Geländer der¬<lb/>
+selben, nach Zeichnungen <hi rendition="#k">Wallot's</hi> ausgeführt, ist von einer geradezu<lb/>
+verblüffenden Originalität und gehört zu den geistvollsten Details des<lb/>
+Hauses. Je mehr man nun im Innern vorschreitet, um so intimer wird<lb/>
+die künstlerische Ausgestaltung. Einen Höhepunkt erreicht sie in den<lb/>
+<pb n="44" facs="#f0050"/>
+beiden Wartesälen vor den Gemächern des Bundesraths und des Prä¬<lb/>
+sidiums. Diese Vorsäle sind überwölbt und mit Oberlicht versehen, die<lb/>
+Wände bis zum Hauptgesims mit istrischem Kalkstein bekleidet, einem<lb/>
+herrlichen, warmgetönten Material von krystallinischem Gefüge. Mit<lb/>
+solchem Stein gedachte <hi rendition="#k">Wallot</hi> ursprünglich die grosse Wandelhalle auszu¬<lb/>
+statten und an den vorhandenen Proben bekommt man eine annähernde<lb/>
+Vorstellung, von wie wunderbarer Wirkung die Wandelhalle in dieser<lb/>
+Gewandung geworden wäre. Die Vorsäle, 22,67 m lang und 7,175 m<lb/>
+breit, sind gleichartig gestaltet. An der der Osthalle abgekehrten<lb/>
+Schmalseite ruht auf zwei Pfeilern eine Gallerie mit Balkon. Schild¬<lb/>
+haltende Adler mit den Wappen der Königreiche zieren den Vorsaal<lb/>
+an der Bundesrathsseite, während die Wappen der vier Hauptstädte<lb/>
+Berlin, München, Dresden und Stuttgart im anderen den korrespon¬<lb/>
+direnden Schmuck bilden. Die erwähnten Pfeiler sind an den der<lb/>
+Längsaxe parallel laufenden Flächen mit phantasievollen Reliefs aus¬<lb/>
+gestattet, üppig blühende Ranken, Grotesken und die geflügelten und<lb/>
+gekrönten Genien des Kriegs und Friedens, von denen der eine<lb/>
+machtvoll in die Tuba stösst. Die Bildhauerarbeiten sind auch hier<lb/>
+von <hi rendition="#k">Lessing</hi> modellirt, und die Uebertragung der Modelle in Stein<lb/>
+ist in ganz vortrefflicher Weise von dem Steinbildhauer <hi rendition="#k">Knoll</hi><lb/>
+geleistet worden. An den Wänden ziehen sich hochlehnige ge¬<lb/>
+schnitzte Ruhebänke mit goldgepresstem Lederbezug entlang und<lb/>
+an den zu den Korridoren überleitenden Schmalwänden werden Zier¬<lb/>
+kamine aus buntfarbigem Marmor das Interieur dieser unvergleich¬<lb/>
+lichen Räume stimmungsvoll abschliessen. Die an die Vorsäle an¬<lb/>
+grenzenden Amtszimmer sind, weil sie nicht übermässig gross sind,<lb/>
+von einem ebenso intimen wie vornehm würdigen Gepräge. Durch¬<lb/>
+gängig Eichenpaneele, kassettirte Holzdecken, gepresste Ledertapeten,<lb/>
+schwellende Teppiche und Möbel von frappirend eigenartigen Formen<lb/>
+sind ihnen allen zu Eigen. Erheblich einfacher aber doch von vor¬<lb/>
+nehmer Eleganz sind die beiden Zimmer des Direktors des Reichstags.</p><lb/>
+<p>Unmittelbar an die Zimmer der Regierung grenzt der im Süd¬<lb/>
+ostthurm belegene <hi rendition="#g">Bundesraths-Sitzungssaal</hi>, der, viereckig im<lb/>
+<pb n="45" facs="#f0051"/>
+Grundriss, einen Durchmesser von 13,21 m hat. Der eigentliche<lb/>
+ausschlaggebende Schmuck fehlt hier zur Zeit noch. Die hohe Wand¬<lb/>
+täfelung ist in straffen und fein accentuirten Linien gehalten, über<lb/>
+dem Hauptgesims, das sich in der Höhe des Schlusssteins der<lb/>
+Fensterthüren befindet, wechseln ringsumlaufend Zinnen und Rosetten<lb/>
+miteinander ab, die Rosetten, ferner die einen Fruchtkranz tragenden<lb/>
+Putten über der westlichen Thür und andere wesentliche Theile<lb/>
+werden später vergoldet werden. So auch das skulptirte Balken¬<lb/>
+gefüge der in neun polygonale Felder getheilten Holzdecke, also zu<lb/>
+einem Goldrahmen bestimmt für die hier oben noch auszuführenden<lb/>
+Plafondmalereien. Die anmuthigen Bildhauerarbeiten des Sitzungs¬<lb/>
+saals sind von <hi rendition="#k">Vogel</hi> und <hi rendition="#k">Giesecke</hi> modellirt. An Stelle des gegen¬<lb/>
+wärtig zwischen Täfelung und Decke gespannten grünen Stoffes<lb/>
+werden in der Folge deutsche Gobelins nach Entwürfen namhafter<lb/>
+Künstler treten. Es soll hierbei der Versuch gemacht werden, eine<lb/>
+edle Kunstindustrie, die bis zum dreissigjährigen Krieg in Deutsch¬<lb/>
+land geblüht hat, zu neuem Leben zu erwecken. Der Sitzungstisch<lb/>
+mit den 60 Sesseln zieht sich hufeisenförmig durch den Saal, die<lb/>
+Decke, die Polster sind in einem feinen Olivengrün, der Smyrna¬<lb/>
+teppich stimmt dazu harmonisch in einer gedämpften Nüance. Die<lb/>
+vier Ringkronen sind mit Löwenköpfen geziert, die die Krystall¬<lb/>
+glühbirnen mit dem Gebiss festhalten. An der Nordwand steigt bis<lb/>
+zur Decke ein prachtvoller Kamin aus Marzana-Kalkstein empor.<lb/>
+Ueber der Feuernische das Relief eines dämonischen feuersprühenden<lb/>
+Löwenkopfes mit geöffnetem Rachen, Feuergarben schiessen aus<lb/>
+dem Haupt des Unthiers empor, aber sie werden gebändigt durch<lb/>
+eine Kette und ein breites Band. In dem darüber aufragenden<lb/>
+rechteckigen Felde wird ein vergoldetes Broncerelief eingefügt werden<lb/>
+und zwar mit einer eigenartigen Darstellung. <hi rendition="#k">Kaiser Wilhelm I.</hi><lb/>
+reitet von einem Eichbaum an einem Kornfeld vorüber und einem<lb/>
+Lorbeerbaum entgegen. Die beiden an den Sitzungssaal anstossenden<lb/>
+Zimmer des Bundesraths, ein Vorsaal und ein Berathungssaal, sind<lb/>
+gleichfalls mit gediegener Pracht ausgestattet. Die Täfelung ist hier<lb/>
+<pb n="46" facs="#f0052"/>
+durch kannelirte Pilaster gegliedert, die Decke einfach kassettirt und<lb/>
+eine bordeaurothe Seidentapete mit Blumenmustern giebt den domi¬<lb/>
+nirenden Ton. Auch in diesen Sälen werden noch Wandmalereien<lb/>
+ausgeführt werden. Die dem Bundesrath im Zwischengeschoss reser¬<lb/>
+virten Räumlichkeiten weisen eine einfachere Ausstattung auf. Sehr<lb/>
+interessant sind Wandbekleidungen in den beiden an der Südfront<lb/>
+gelegenen Zimmern. In dem grösseren sind auf die zwischen Paneele<lb/>
+und Decke gespannte Leinwand stilisirte Weinstockranken aufgemalt,<lb/>
+zwischen welchen musicirende Satyre und heraldische Löwen eingefügt<lb/>
+sind. Im andern Zimmer ist es üppiges Distelgerank, welches das<lb/>
+Motiv der Malerei im Tonnengewölbe des Erfrischungssaales wirkungs¬<lb/>
+voll variirt. Diese stimmungsvollen dekorativen Arbeiten sind von<lb/>
+der Berliner Firma <hi rendition="#k">M. J. Bodenstein</hi> ausgeführt.</p><lb/>
+<p>Der Bibliothekslesesaal für die Abgeordneten hat im nordöst¬<lb/>
+lichen Thurm Unterkunft gefunden. Hier bietet sich Gelegenheit,<lb/>
+die aus dem Bücherspeicher entliehenen Bücher zu lesen, ausserdem<lb/>
+galt es, für die Handbibliothek der Abgeordneten einen würdigen<lb/>
+Raum zu schaffen. An den Wänden des Saales ziehen sich daher<lb/>
+bis fast zum Plafond empor die eichenen Büchergestelle. In der<lb/>
+halben Höhe des Raums läuft eine Gallerie mit fein geschnürten<lb/>
+Traillen ringsum. Frappant wirkt die zur Gallerie emporführende<lb/>
+Treppe. In breiter Spirale läuft sie um eine Säule aufwärts, das<lb/>
+durchsichtige Geländer ist graziös stilisirt, auf dem Kapitäl der<lb/>
+Treppensäule steht Pallas Athene, und am Fussende schliesst das<lb/>
+Geländer mit einem prächtigen Adlerleibe ab.</p><lb/>
+<p>Und nun schliesslich der grosse Sitzungssaal! In seiner ruhe¬<lb/>
+vollen Grösse und in den feierlichen Rhythmen des Aufbaues, in<lb/>
+seinem Kraftgefüge aus deutschem Eichenholz ist der Sitzungssaal<lb/>
+vereint mit der sich über ihm erhebenden Kuppel Höhepunkt und<lb/>
+Inbegriff des <hi rendition="#k">Wallot'schen</hi> Werkes. Die Abmessungen des Saales,<lb/>
+21,65 m Tiefe, 29 m Breite und 13,15 m Höhe, entsprechen genau<lb/>
+denjenigen des alten Sitzungssaales im provisorischen Reichstags-<lb/>
+Gebäude. Auch die Einrichtungen, die sich im alten Hause bewährt<lb/>
+<pb n="47" facs="#f0053"/>
+hatten, sind auf das neue übertragen worden. Die im Raumprogramm<lb/>
+vorgeschriebenen Grössenverhältnisse des Saales gehen bis an die<lb/>
+äusserste Grenze der Tragfähigkeit der menschlichen Stimme. Trotz¬<lb/>
+dem ist eine günstige Akustik erzielt worden. Doch die Grösse des<lb/>
+Saales möchte fast übertrieben erscheinen, wenn man sich vergegen¬<lb/>
+wärtigt, dass der englische Parlamentssaal nur halb so gross ist als der<lb/>
+deutsche, obwohl die Zahl der englischen Abgeordneten beträchtlich<lb/>
+grösser ist als die der deutschen. Ausser der erhöhten Präsidenten¬<lb/>
+tribüne mit fünf Sesseln sind auf der Estrade an der Ostwand<lb/>
+48 Plätze für Regierung, Bundesrath etc. angeordnet. Für die Ab¬<lb/>
+geordneten sind 400 Sitzplätze mit Schreibpulten geschaffen. Acht<lb/>
+grosse Radialgänge führen strahlenförmig vom Tisch des Hauses<lb/>
+durch die Sitzreihen hindurch, dazu kommen noch sieben kürzere<lb/>
+Gänge, die in der westlichen Hälfte des Saales zwischen den Haupt¬<lb/>
+linien eingelegt sind. Nirgends sind mehr als fünf Sitze zusammen¬<lb/>
+hängend. Die Steigung des Bodens ist im Verhältniss von 1 : 10<lb/>
+durchgeführt. Unmittelbar vor der Rednertribüne und hinter dem<lb/>
+Tisch des Hauses befinden sich, durch Schranken abgegrenzt, zwei<lb/>
+Pulte für sechs Stenographen, die auf einer besonderen Treppe aus<lb/>
+dem Erdgeschoss an ihren Platz gelangen, ohne, wie früher, den<lb/>
+Sitzungssaal durchqueren zu müssen. Elf Eingänge besitzt der Saal<lb/>
+zusammen. Um eine gute Akustik zu erzielen, war es nothwendig,<lb/>
+dass der Sitzungssaal mit Ausnahme natürlich der Glasdecke gänzlich<lb/>
+mit Holz bekleidet wurde. Gewählt ist Eichenholz mit Einlagen aus<lb/>
+ungarischer Esche, auch die Tribünen und die Skulpturen sind aus<lb/>
+gleichem Material. Nur an der Wand oberhalb des Präsidentenstuhls<lb/>
+sind drei grosse Flächen ausgespart, auf welchen später Fresco¬<lb/>
+gemälde mit historischen Darstellungen aus der Zeit der Reichs¬<lb/>
+gründung erstehen werden. Auffällig ist es, dass an dieser Ostseite<lb/>
+die Ausstattung weniger reich ausgebildet ist, vorläufig fehlen hier<lb/>
+noch wesentliche von <hi rendition="#k">Wallot</hi> geplante Schmuckstücke, namentlich<lb/>
+Figuren in den Nischen, Wappen, ornamentale Zierrathe für die<lb/>
+Thüren u. a. m. Die Täfelungen unterhalb der Zuhörertribünen<lb/>
+<pb n="48" facs="#f0054"/>
+sind von strenger Einfachheit, nur unterbrochen durch die prächtig<lb/>
+gegliederten Thüren, die für den sogenannten „Hammelsprung“<lb/>
+in Frage kommen. Diese einander gegenüberliegenden Eingänge<lb/>
+sind mit humorvollen Intarsien geschmückt, die Ja-Thür zeigt<lb/>
+Polyphem, seine Widder zählend, die Nein-Thür Rübezahl. Nach<lb/>
+oben aufsteigend wird die Holzarchitektur lichter und bewegter. Die<lb/>
+Tribünen springen balkonartig vor, wegen der Schallwirkung sind<lb/>
+scharfe Winkel durchweg vermieden, daher ist die Unterfläche der<lb/>
+Tribünen in einer Rundung an die Wand angebogen. Die Gliederung<lb/>
+der Tribünen ist von hoher Schönheit. An der Westseite erheben<lb/>
+sich im Mitteltheil vier Paar gekuppelte skulptirte Säulen mit ver¬<lb/>
+goldeten korinthischen Kapitalen, an der Nord- und Südwand sind<lb/>
+die Stützen Pfeiler, aus welchen Karyatiden hervorwachsen. Diese<lb/>
+verschieden charakterisirten weiblichen Gestalten haben eine alle¬<lb/>
+gorische Bedeutung. Die Ostwand ist in lebendigem Linienschwung<lb/>
+arkadenartig getäfelt und wird durch zwei Nischen begrenzt, für<lb/>
+welche Statuen der Weisheit und der Milde geplant sind. Unter<lb/>
+dem von Konsolen getragenen Hauptgesims zieht sich über den<lb/>
+Tribünen ein Triglyphenfries hin mit 30 polychromen Städtewappen.<lb/>
+Folgende Städte sind vertreten: Aachen, Strassburg, Stuttgart, Nürn¬<lb/>
+berg, Königsberg, Hannover, Frankfurt, Dresden, Köln an der Süd¬<lb/>
+seite, an der Westseite sind es Halle, Crefeld, Speyer, Düsseldorf,<lb/>
+Chemnitz, Barmen, Elberfeld, Regensburg, Metz, Mainz, Karlsruhe,'<lb/>
+Augsburg und an der Nordwand Trier, Ulm, Goslar, Göttingen'<lb/>
+Darmstadt, Worms, Erfurt, Kiel und Mülhausen. Die Wappen<lb/>
+der Königreiche und der vier Hauptstädte Berlin, München, Dresden<lb/>
+Stuttgart, die in reicherer Durchführung geplant sind, fehlen zur Zeit<lb/>
+noch im Sitzungssaal. Die von <hi rendition="#k">Linnemann</hi> gefertigte lichtgraue Glasdecke<lb/>
+des Sitzungssaales zeigt im grossen Mittelfelde einen riesigen Reichsadler<lb/>
+in diskreten Farben, und ein sanft getönter Fries in Gestalt eines Frucht¬<lb/>
+gewindes giebt der Glasfläche eine schön geschlossene Einheit. Die Farben¬<lb/>
+stimmung des Saales ist von wunderbarer Wirkung, der gelbbraune<lb/>
+Grundton wird in der Höhe durch das naturalistische Inkarnat der<lb/>
+<pb n="49" facs="#f0055"/>
+Karyatiden und durch die decente Vergoldung einzelner Ornament¬<lb/>
+theile feinsinnig variirt. Besonders hervorzuheben sind noch die<lb/>
+reichen und schweren Schnitzereien am Tisch des Hauses, an der<lb/>
+Redner- und Präsidententribüne, sowie an den Brüstungen der Estrade.<lb/>
+Von auffallender Schönheit ist der hochragende Präsidentenstuhl, an<lb/>
+der Lehne ist ein zierliches nacktes Weib, die Gerechtigkeit mit der<lb/>
+Wage in einem Relief dargestellt. Zwei Berliner Tischlerfirmen<lb/>
+haben nach den detaillirten Zeichnungen <hi rendition="#k">Wallot' s</hi> die Holzarbeiten<lb/>
+des Sitzungssaales ausgeführt, und zwar <hi rendition="#k">G. Olm</hi> die Ost- und West¬<lb/>
+wand sowie die Stühle und Pulte und Gebr. <hi rendition="#k">Lüdtke</hi> die Nord- und<lb/>
+Südwand und die Schranken der Estrade. Die Bildhauerarbeiten<lb/>
+sind von <hi rendition="#k">Vogel</hi> und <hi rendition="#k">Giesecke</hi> modellirt. Die Zuhörertribünen ent¬<lb/>
+halten an der Westseite 244 Plätze für das Publikum und die Behörden,<lb/>
+an der Südseite besitzt die Presse 81 Plätze und der Bundesrath<lb/>
+14 Sessel. Die Hof- und die Diplomatenlogen befinden sich an der<lb/>
+Nordseite, jene weist 13 und diese 19 Lehnsessel auf. In innigem<lb/>
+Zusammenhang mit der Hofloge stehen die beiden kaiserlichen Salons<lb/>
+im Zwischengeschoss. Die Ausstattung ist eine glanzvolle, ohne dass<lb/>
+das feine Maass überschritten ist. Die Wände erglänzen in mehrfarbigem<lb/>
+Stuckmarmor, die Kapitale, Embleme, Gesimse und Kartuschen sind<lb/>
+reich vergoldet und die Kamine bestehen aus Marmor. Die ge¬<lb/>
+schmackvollen Möbel von <hi rendition="#k">Ferd. Vogts &amp; Co.</hi> sind aus kostbarem<lb/>
+Neu-Guineaholz aus den deutschen Kolonien gefertigt.</p><lb/>
+<p>Die <hi rendition="#g">Nebengeschosse</hi> treten in der künstlerischen Ausstattung<lb/>
+begreiflicher Weise hinter dem Hauptgeschoss zurück. Der Regierungs¬<lb/>
+baumeister <hi rendition="#k">Paul Wittig</hi>, der, wie schon erwähnt, 1890 den inneren<lb/>
+Ausbau der Nebengeschosse übernahm, hat bei seinen Arbeiten aus<lb/>
+gebotenen Sparsamkeitsrücksichten sich nur in engen Grenzen bewegen<lb/>
+dürfen. Diese Aufgabe war insofern eine schwierige, als mit ver¬<lb/>
+hältnissmässig geringen Mitteln doch die monumentale Würde des<lb/>
+Hauses zur Geltung zu bringen war. Es ist ein hohes Verdienst<lb/>
+<hi rendition="#k">Wittig's</hi>, dass auch in den Geschäfts- und Wirthschaftsräumen der<lb/>
+grosszügige Charakter, der der <hi rendition="#k">Wallot'schen</hi> Schöpfung aufgeprägt<lb/>
+<fw type="sig" place="bottom">4<lb/>
+</fw>
+<pb n="50" facs="#f0056"/>
+ist, aufgenommen und mit bestem Gelingen durchgeführt ist. Fein¬<lb/>
+sinnig ist <hi rendition="#k">Wittig</hi> überall auf die Intentionen <hi rendition="#k">Wallot's</hi> eingegangen<lb/>
+und hat in der Lösung technischer Probleme, sowie in der Behandlung<lb/>
+der dekorativen Motive und in der Formengebung der Gebrauchs¬<lb/>
+gegenstände eine erfinderische Vielseitigkeit an den Tag gelegt. So<lb/>
+sind auch hier viele Typen von vorbildlichem Werth für das Kunst¬<lb/>
+gewerbe geschaffen. Die imposante Raumfolge der Berathungssäle<lb/>
+im Obergeschoss ist auch in der Ausstattung eine schöne Einheit<lb/>
+geworden. Paneelen aus Kiefernholz mit einem warmen Farbenton<lb/>
+sind durchgängig zur Anwendung gekommen, die Wandflächen sind<lb/>
+mit gross gedachten wechselnden Ornamentmustern bedeckt und zwar<lb/>
+in Caseinfarben, die freihändig auf den Putz aufgetragen sind. Diese<lb/>
+Arbeiten sind von dem geschätzten Dekorationsmaler <hi rendition="#k">K. Lange</hi> aus¬<lb/>
+geführt. In den grösseren Sälen sind die Plafonds aus Gründen der<lb/>
+Akustik mit Holz getäfelt, meistens in einfachen Balkenlagen, in<lb/>
+den Thurmgemächern sind es schön gegliederte Kassetten. Der<lb/>
+Berathungssaal über dem Südportal wird ornamentale Wandmalereien<lb/>
+von <hi rendition="#k">O. Rieth</hi> erhalten und den Saal über der Restauration hat<lb/>
+<hi rendition="#k">M. Seliger</hi> sehr wirkungsvoll ausgemalt. Die Beleuchtungskörper<lb/>
+sind vorwiegend Ringkronen, dazu treten auch Kugellustres auf.<lb/>
+Bemerkenswerthe Neuerungen sind schliesslich die von <hi rendition="#k">Wittig</hi> er¬<lb/>
+fundenen Typen für die Tische und Wandschränke in den Berathungs-<lb/>
+sälen. Eine überraschende Leistung ist ferner der in Eisen und Glas<lb/>
+durchgeführte <hi rendition="#g">Bücherspeicher</hi>, welcher die stattlichen Abmessungen<lb/>
+von 46,59 m Länge und 13 m Breite aufweist. Streng rhythmisch<lb/>
+und doch wieder leicht und graziös bauen sich die vier Geschosse<lb/>
+der Bücherständer auf, der schilfgrüne Anstrich der Eisengestelle<lb/>
+giebt dem ernsten Interieur eine anmuthige Wirkung. Dadurch<lb/>
+ist auch in den engen Gängen des in gedrängtem Magazinsystem<lb/>
+angelegten Bücherspeichers eine ausreichende Tagesbeleuchtung erzielt.<lb/>
+Der Speicher bietet Raum für 300000 Bände. Ebenfalls in Eisen<lb/>
+ist die Registratur ausgebaut, eine Gallerie in halber Höhe der<lb/>
+Räume ermöglicht einen bequemen Zugang zu allen Theilen der<lb/>
+<pb n="51" facs="#f0057"/>
+bis zur Decke emporreichenden Aktenbehälter. Die Arbeitszimmer<lb/>
+der Presse im Zwischengeschoss weisen eine gediegene und elegante<lb/>
+Einrichtung auf, insbesondere ist der als Erfrischungsraum dienende<lb/>
+langgestreckte Saal durch eine poesievolle farbige Behandlung des<lb/>
+Innern ausgezeichnet. Im Erdgeschoss sind die Räume für die<lb/>
+Stenographen mit einer behaglichen Eleganz höchst praktisch ein¬<lb/>
+gerichtet. Die beiden grossen Säle der Botenmeisterei erhalten<lb/>
+gleichfalls bei all der einfachen Ausstattung durch glückliche Farben¬<lb/>
+töne ein anmuthendes Gepräge. Die besondere Sehenswürdigkeit<lb/>
+des Erdgeschosses aber ist die gewaltige <hi rendition="#g">Küchenanlage</hi>, in<lb/>
+welcher <hi rendition="#k">Wittig</hi> eine Musterleistung von hervorragender Bedeu¬<lb/>
+tung geschaffen hat. Selbstverständlich sind hier die Einrichtungen<lb/>
+mit allen Errungenschaften der modernen Technik in's Werk gesetzt.<lb/>
+Der Betrieb geschieht mit Gasheizung. Die einzelnen Theile der<lb/>
+Küche greifen in einer logischen Folge in einander. Der Chef der<lb/>
+Küche besitzt einen abgesonderten, wohlig eingerichteten Raum, der<lb/>
+aus einem Comptoir und einem Kneipzimmer besteht. Von hier aus<lb/>
+sind alle Abtheilungen der Anlage bequem zu überblicken und zu<lb/>
+kontrolliren. Vom Büffetraum des Erfrischungssaales führen Treppen<lb/>
+und Aufzüge in das Erdgeschoss herab. Die Speisenabgabe erfolgt<lb/>
+an einem Schalter mit besonderen Wärmvorrichtungen. Dahinter liegt<lb/>
+der Hauptküchenraum, der, 9,19 m lang und 10,87 m tief, die Herd¬<lb/>
+anlagen mit allen Finessen der modernen Kochkunst enthält. Die<lb/>
+lichte, ebenso bequeme wie praktisch gegliederte Einrichtung verräth<lb/>
+das Walten des Architekten, der bei aller Prosa der Aufgabe doch<lb/>
+auch wieder ästhetische Gesichtspunkte sich zur Norm genommen.<lb/>
+Die Herde, Bratöfen, Bratspiess- und Roastanlagen, ferner die Back¬<lb/>
+öfen und Wärmspinden sind von <hi rendition="#k">Senking</hi> in Hildesheim, die zahl¬<lb/>
+reichen Spüleinrichtungen von <hi rendition="#k">Grove</hi>, die Eisbehälter, Weinschränke etc.<lb/>
+von <hi rendition="#k">Bertuch</hi> und die Küchenmöbel und Tischlerarbeiten von der<lb/>
+Firma <hi rendition="#k">Pfaff</hi> geliefert. Im Hintertreffen gliedern sich die Räume<lb/>
+für das Herrichten der Speisen, für das Putzen der Gemüse, das<lb/>
+Schlachten der Fische und für die Reinigung des Geschirrs. Der<lb/>
+<fw type="sig" place="bottom">4 *<lb/>
+</fw>
+<pb n="52" facs="#f0058"/>
+Küchenapparat vermag den Anforderungen von 500 Gedecken gerecht<lb/>
+zu werden.</p><lb/>
+<p>Wie es die Reichsgründer gewollt, ist in dem Monumentalbau<lb/>
+<hi rendition="#k">Wallot's</hi> ein Wahrzeichen und ein Denkmal geschaffen, welches<lb/>
+Kunde giebt von den Ruhmesthaten einer grossen Zeit. Zugleich<lb/>
+aber hat sich die vereinte deutsche Kunst unter Führung des be¬<lb/>
+rufenen Meisters in einer ungeahnten Herrlichkeit entfaltet; das Bau¬<lb/>
+werk, welches in den Tiefen des aufstrebenden germanischen Kraft¬<lb/>
+gefühls wurzelt, verkörpert die höchste Leistungsfähigkeit der Kunst<lb/>
+unserer Zeit.</p><lb/>
+<p>Die Urkunde im Schlussstein des Hauses sagt:</p><lb/>
+<p>„Zehn Jahre mühevoller Arbeit sind über der Errichtung des<lb/>
+Baues dahingegangen. Zur Ehre des geeinten Vaterlandes erhebt es<lb/>
+sich, festgefügt durch deutsche Hände, ein Zeugniss deutschen<lb/>
+Fleisses und deutscher Kraft . . . . .</p><lb/>
+<p>Es bleibe der Bau ein Denkmal der grossen Zeit, in welcher<lb/>
+als Preis des schwer errungenen Sieges das Reich zu neuer Herr¬<lb/>
+lichkeit erstanden ist, eine Mahnung den künftigen Geschlechtern zu<lb/>
+unverbrüchlicher Treue in der Pflege dessen, was die Väter mit<lb/>
+ihrem Blute erkämpft haben.</p><lb/>
+<p>Das walte Gott!“</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> </body> <back>
+<pb facs="#f0059"/>
+<figure> <head> <hi rendition="#g">Paul Wallot</hi>.<lb/>
+</head> </figure>
+<pb facs="#f0060"/>
+<pb facs="#f0061"/>
+<figure> <head>Ansicht vom Königsplatz.<lb/>
+</head> </figure>
+<pb facs="#f0062"/>
+<pb facs="#f0063"/>
+<figure> <head>Ansicht von Osten.<lb/>
+</head> </figure>
+<pb facs="#f0064"/>
+<pb facs="#f0065"/>
+<figure> <head>Ansicht vom Thiergarten.<lb/>
+</head> </figure>
+<pb facs="#f0066"/>
+<pb facs="#f0067"/>
+<figure> <head>Eingang zur Wandelhalle, Portal Bayern.<lb/>
+</head> </figure>
+<pb facs="#f0068"/>
+<pb facs="#f0069"/>
+<figure> <head> <hi rendition="#g">Wandelhalle</hi>.<lb/>
+</head> </figure>
+<pb facs="#f0070"/>
+<pb facs="#f0071"/>
+<figure> <head>Eingang zur Vorhalle des Bundesraths, Portal Preussen.<lb/>
+</head> </figure>
+<pb facs="#f0072"/>
+<pb facs="#f0073"/>
+<figure> <head>Nordeingangshalle.<lb/>
+</head> </figure>
+<pb facs="#f0074"/>
+<pb facs="#f0075"/>
+<figure> <head>Aufgang in der Osteingangshalle.<lb/>
+</head> </figure>
+<pb facs="#f0076"/>
+<pb facs="#f0077"/>
+<figure> <head>Grosser Sitzungs-Saal.<lb/>
+</head> </figure>
+<pb facs="#f0078"/>
+<pb facs="#f0079"/>
+<figure> <head>Erfrischungs-Saal.<lb/>
+</head> </figure>
+<pb facs="#f0080"/>
+<pb facs="#f0081"/>
+<figure> <head> <hi rendition="#g">Lese-Saal</hi>.<lb/>
+</head> </figure>
+<pb facs="#f0082"/>
+<pb facs="#f0083"/>
+<figure> <head>Bibliothek-Lese-Saal.<lb/>
+</head> </figure>
+<pb facs="#f0084"/>
+<pb facs="#f0085"/>
+<figure> <head>Bücher-Speicher.<lb/>
+</head> </figure>
+<pb facs="#f0086"/>
+<pb facs="#f0087"/>
+<figure> <head>Vorzimmer zur Kaiserlichen Loge.<lb/>
+</head> </figure>
+<pb facs="#f0088"/>
+<pb facs="#f0089"/>
+<figure> <head>Sitzungs-Saal des Bundesraths.<lb/>
+</head> </figure>
+<pb facs="#f0090"/>
+<pb facs="#f0091"/>
+<figure> <head>Küche.<lb/>
+</head> </figure>
+<pb facs="#f0092"/>
+<pb facs="#f0093"/>
+<figure> <head>Grundriss des Haupt-Geschosses.<lb/>
+</head> </figure>
+<pb facs="#f0094"/>
+<pb facs="#f0095"/>
+<pb facs="#f0096"/>
+<pb facs="#f0097"/>
+</back> </text> </TEI>

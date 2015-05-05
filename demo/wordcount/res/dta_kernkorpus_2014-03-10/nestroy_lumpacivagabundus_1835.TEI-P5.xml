@@ -1,0 +1,3380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Der böse Geist Lumpacivagabundus, oder: Das liederliche Kleeblatt</title>
+<title type="sub">Zauberposse mit Gesang in drei Aufzügen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118587080">
+<surname>Nestroy</surname>
+<forename>Johann</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">133</measure>
+<measure type="tokens">14155</measure>
+<measure type="types">3342</measure>
+<measure type="characters">94826</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-05T10:58:27Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/nestroy_lumpacivagabundus_1835</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/nestroy_lumpacivagabundus_1835</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/nestroy_lumpacivagabundus_1835</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/nestroy_lumpacivagabundus_1835</idno>
+<idno type="DTADirName">nestroy_lumpacivagabundus_1835</idno>
+<idno type="DTAID">16258</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194256</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Nestroy, Johann Nepomuk: Der böse Geist Lumpacivagabundus, oder: Das liederliche Kleeblatt. Wien, 1835.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Der böse Geist Lumpacivagabundus, oder: Das liederliche Kleeblatt</title>
+<title level="m" type="sub">Zauberposse mit Gesang in drei Aufzügen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118587080">
+<surname>Nestroy</surname>
+<forename>Johann</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">123 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Wallishausser</name></publisher>
+<pubPlace>Wien</pubPlace>
+<date type="publication">1835</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Ys 6115 R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=429484771</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Drama</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Drama</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="main"><docTitle><titlePart type="main">     <hi rendition="#b"><hi rendition="#g">Der böſe Geiſt</hi><lb/>
+<hi rendition="#aq">Lumpacivagabundus,</hi></hi></titlePart><lb/>
+<titlePart type="sub"><hi rendition="#g">oder</hi>:<lb/>
+<hi rendition="#b">Das liederliche Kleeblatt.</hi><lb/>
+<milestone unit="section" rendition="#hr"/> <hi rendition="#g"><hi rendition="#b">Zauberpoſſe</hi><lb/>
+mit Geſang in drei Aufzügen,</hi></titlePart></docTitle><lb/>
+<byline><hi rendition="#g">von</hi><lb/>
+<docAuthor><hi rendition="#g"><hi rendition="#b">Johann Neſtroy.</hi></hi></docAuthor></byline><lb/>
+<milestone unit="section" rendition="#hr"/> <titlePart type="desc">Muſik von Herrn Kapellmeiſter Adolf Müller.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/> <docImprint><pubPlace><hi rendition="#b">Wien,</hi></pubPlace> <docDate><hi rendition="#b">1835.</hi></docDate><lb/>
+<publisher>Gedruckt und im Verlage bei J. B. <hi rendition="#g">Wallishauſſer</hi>.</publisher></docImprint></titlePage><lb/>
+<pb n="[2]" facs="#f0008"/>
+<pb n="[3]" facs="#f0009"/>
+<castList>     <head><hi rendition="#c"><hi rendition="#b"><hi rendition="#g">Perſonen:</hi></hi></hi></head><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<castItem><role xml:id="EINR"><hi rendition="#g">Stellaris</hi>, Feenkönig.</role></castItem><lb/>
+<castItem><role xml:id="FOR"><hi rendition="#g">Fortuna</hi>, Beherrſcherin des Glückes, eine mächtige Fee.</role></castItem><lb/>
+<castItem><role xml:id="BRI"><hi rendition="#g">Brilliantine</hi>, ihre Tochter.</role></castItem><lb/>
+<castItem><role xml:id="AMO"><hi rendition="#g">Amoroſa</hi>, eine mächtige Fee, Beſchützerin der wahren<lb/>
+Liebe.</role></castItem><lb/>
+<castItem><role xml:id="MYS"><hi rendition="#g">Myſtifax</hi>, ein alter Zauberer.</role></castItem><lb/>
+<castItem><role xml:id="HIL"><hi rendition="#g">Hilaris</hi>, ſein Sohn.</role></castItem><lb/>
+<castItem><role xml:id="FLU"><hi rendition="#g">Fludribus</hi>, Sohn eines Magiers.</role></castItem><lb/>
+<castItem><role xml:id="LUM"><hi rendition="#g">Lumpacivagabundus</hi>, ein böſer Geiſt.</role></castItem><lb/>
+<castGroup rendition="#rightBraced">         <castItem><role xml:id="LEI"><hi rendition="#g">Leim</hi>, ein Tiſchlergeſell,</role></castItem><lb/>
+<castItem/><lb/>
+<castItem><role xml:id="ZWI"><hi rendition="#g">Zwirn</hi>, ein Schneidergeſell,</role></castItem><lb/>
+<castItem><role xml:id="KNI"><hi rendition="#g">Knieriem</hi>, ein Schuſtergeſell,</role></castItem>         <roleDesc>vazirende<lb/>
+Handwerksburſchen.</roleDesc>     </castGroup><lb/>
+<castItem><role xml:id="PAN"><hi rendition="#g">Pantſch</hi>, Wirth und Herbergsvater in Ulm.</role></castItem><lb/>
+<castItem><role xml:id="FAS"><hi rendition="#g">Faſſel</hi>, Oberknecht in einem Brauhauſe.</role></castItem><lb/>
+<castItem><role xml:id="NAN"><hi rendition="#g">Nannette</hi>, Tochter des Wirths.</role></castItem><lb/>
+<castGroup rendition="#rightBraced">         <castItem><role xml:id="SEP"><hi rendition="#g">Sepherl</hi>,</role></castItem><lb/>
+<castItem><role xml:id="HANN"><hi rendition="#g">Hannerl</hi>,</role></castItem>         <roleDesc>Kellnerinnen.</roleDesc>     </castGroup><lb/>
+<castItem><role xml:id="EINH">Ein <hi rendition="#g">Hauſirer</hi>.</role></castItem><lb/>
+<castItem><role xml:id="EINS">Ein <hi rendition="#g">Schuſtermeiſter</hi>.</role></castItem><lb/>
+<castItem><role xml:id="EINT">Ein <hi rendition="#g">Tiſchlergeſell</hi>.</role></castItem><lb/>
+<castGroup rendition="#rightBraced">         <castItem><role xml:id="ERSZ"><hi rendition="#g">Erſter</hi></role></castItem><lb/>
+<castItem><role xml:id="ZWEZ"><hi rendition="#g">Zweiter</hi></role></castItem><lb/>
+<castItem><role xml:id="DRI"><hi rendition="#g">Dritter</hi></role></castItem>         <roleDesc>Zunftmeiſter.</roleDesc>     </castGroup><lb/>
+<castItem><role xml:id="STR"><hi rendition="#g">Strudl</hi>, Gaſtwirth zum goldenen Nockerl in Wien.</role></castItem><lb/>
+<castItem><role xml:id="HOB"><hi rendition="#g">Hobelmann</hi>, Tiſchlermeiſter in Wien.</role></castItem><lb/>
+<castItem><role xml:id="PEP"><hi rendition="#g">Peppi</hi>, ſeine Tochter.</role></castItem><lb/>
+<castItem><role xml:id="ANA"><hi rendition="#g">Anaſtaſia Hobelmann</hi>, ſeine Nichte.</role></castItem><lb/>
+<fw type="sig" place="bottom">1 *</fw><lb/>
+<pb n="[4]" facs="#f0010"/>
+<castItem><role xml:id="EINF">Ein <hi rendition="#g">Fremder</hi>.</role></castItem><lb/>
+<castItem><role xml:id="GER"><hi rendition="#g">Gertraud</hi>, Haushälterin in Hobelmanns Hauſe.</role></castItem><lb/>
+<castItem><role xml:id="RES"><hi rendition="#g">Reſerl</hi>, Magd daſelbſt.</role></castItem><lb/>
+<castItem><role xml:id="HAC"><hi rendition="#g">Hackauf</hi>, Fleiſchermeiſter in Prag.</role></castItem><lb/>
+<castItem><role xml:id="EINM">Ein <hi rendition="#g">Maler</hi>.</role></castItem><lb/>
+<castGroup rendition="#rightBraced">         <castGroup rendition="#rightBraced">             <castItem><role xml:id="ERSB"><hi rendition="#g">Erſter</hi> </role></castItem><lb/>
+<castItem><role xml:id="ZWEB"><hi rendition="#g">Zweiter</hi></role></castItem>             <roleDesc>Bedienter</roleDesc>         </castGroup><lb/>
+<castGroup rendition="#rightBraced">             <castItem><role xml:id="ERSG"><hi rendition="#g">Erſter</hi></role></castItem><lb/>
+<castItem><role xml:id="ZWEG"><hi rendition="#g">Zweiter</hi></role></castItem>             <roleDesc>Geſelle</roleDesc>         </castGroup>         <roleDesc>bei Zwirn.</roleDesc>     </castGroup><lb/>
+<castItem><role xml:id="HERW">Herr von <hi rendition="#g">Windwachel</hi>.</role></castItem><lb/>
+<castItem><role xml:id="HERL">Herr von <hi rendition="#g">Lüftig</hi>.</role></castItem><lb/>
+<castItem><role xml:id="HERP">Herr von <hi rendition="#g">Papillon</hi>.</role></castItem><lb/>
+<castItem><role xml:id="PAL"><hi rendition="#aq">Signora Palpiti.</hi></role></castItem><lb/>
+<castGroup rendition="#rightBraced">         <castItem><role xml:id="CAM"><hi rendition="#g">Camilla</hi>,</role></castItem><lb/>
+<castItem><role xml:id="LAU"><hi rendition="#g">Laura</hi>,</role></castItem>         <roleDesc>ihre Töchter.</roleDesc>     </castGroup><lb/>
+<castGroup rendition="#rightBraced">         <castItem><role xml:id="WIR"><hi rendition="#g">Wirth</hi></role></castItem><lb/>
+<castItem><role xml:id="WIRI"><hi rendition="#g">Wirthin</hi></role></castItem>         <roleDesc>in einer Dorfſchenke unweit Wien.</roleDesc>     </castGroup><lb/>
+<castItem><role xml:id="EINRS">Ein <hi rendition="#g">Reiſender</hi>. (Stellaris.)</role></castItem><lb/>
+<castItem><role xml:id="ZAU"><hi rendition="#g">Zauberer. Magier</hi> und ihre <hi rendition="#g">Söhne. Nymphen.</hi></role></castItem><lb/>
+<castItem><role xml:id="GEN">Genien. Gäſte. Volk. Bauern.</role></castItem><lb/>
+<castItem><role xml:id="HAN"><hi rendition="#g">Handwerksleute</hi> verſchiedener Zünfte ꝛc. ꝛc.</role></castItem> </castList><lb/>
+<note>(Die Handlung ſpielt theils in Ulm, theils in Prag<lb/>
+und theils in Wien.</note><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</front><body>
+<pb n="[5]" facs="#f0011"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Erſter Aufzug</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <stage>(<hi rendition="#g">Wolken-Decoration</hi>.)</stage><lb/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Erſter Auftritt</hi>.</hi></head><lb/>
+<stage>(Mehrere alte <hi rendition="#g">Zauberer</hi> und <hi rendition="#g">Magier</hi>, darunter <hi rendition="#g">My-<lb/>
+ſtifax</hi>, treten auf und ſtellen ſich im Halbkreis, jeder<lb/>
+führt einen erwachſenen Sohn an der Hand, dar-<lb/>
+unter <hi rendition="#g">Hilaris</hi> und <hi rendition="#g">Fludribus. — Stellaris</hi><lb/>
+ſitzt auf dem Throne.)</stage><lb/>
+<sp who="#CHOZ"><speaker><hi rendition="#g">Chor der alten Zauberer</hi>.</speaker><lb/>
+<p><hi rendition="#in">W</hi>ir werden Euch ſchon Mores lehren,<lb/>
+Ihr liederlichen Burſche Ihr!<lb/>
+Was nun geſcheh’n wird, ſollt Ihr hören,<lb/>
+Der Feenkönig richtet hier.<lb/>
+Ihr kehrt im nächſten Augenblick<lb/>
+Zur Ordnung wiederum zurück.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Was verſammelt Euch ſo zahlreich an meines<lb/>
+Wohnſitzes gold’ner Pforte? Was verlangt Ihr<lb/>
+von mir?</p></sp><lb/>
+<sp who="#MYS"><speaker><hi rendition="#g">Myſtifax</hi>.</speaker><lb/>
+<p>Mächtiger Beherrſcher! wir flehen um Deine<lb/>
+<pb n="6" facs="#f0012"/>
+Hülfe. Es treibt ſich ein böſer Geiſt im Zauberlande<lb/>
+herum.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Wie heißt er?</p></sp><lb/>
+<sp who="#MYS"><speaker><hi rendition="#g">Myſtifax</hi>.</speaker><lb/>
+<p>Lumpacivagabundus.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Was that Euch dieſer böſe Geiſt?</p></sp><lb/>
+<sp who="#MYS"><speaker><hi rendition="#g">Myſtifax</hi>.</speaker><lb/>
+<p>Er hat ſich der Herzen unſerer Söhne bemäch-<lb/>
+tigt, und ſie vom Pfade der Ordnung gelockt. Sie<lb/>
+verabſcheuen jetzt jede Beſchäftigung, ſie ſpielen,<lb/>
+trinken, ſtürzen ſich in tolle Liebesabenteuer — mit<lb/>
+einem Wort, ſie ſind verloren, wenn Du den böſen<lb/>
+Geiſt nicht bannſt.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Lumpacivagabundus erſcheine!</p><lb/>
+<stage>(Muſik fällt ein, Lumpacivagabundus kommt im Vorder-<lb/>
+grunde aus der Verſenkung.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Zweiter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Lumpacivagabundus</hi>.</stage><lb/>
+<sp who="#LUM"><speaker><hi rendition="#g">Lumpaci</hi></speaker><lb/>
+<stage>(nach der Muſik).</stage><lb/>
+<p>Da bin ich! Was ſteht zu Befehl?</p></sp><lb/>
+<pb n="7" facs="#f0013"/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Du biſt Lumpacivagabundus?</p></sp><lb/>
+<sp who="#LUM"><speaker><hi rendition="#g">Lumpaci</hi>.</speaker><lb/>
+<p>Der bin ich, und zugleich Beherrſcher des luſti-<lb/>
+gen Elends, Beſchützer der Spieler, Protektor der<lb/>
+Trinker ꝛc. ꝛc.; kurzum, ich bin ein Geiſt auſ’n <hi rendition="#aq">F.</hi></p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Verwegener! der Du’s wagteſt, in das Feen-<lb/>
+reich zu dringen, ich verbanne Dich von dieſem Au-<lb/>
+genblick auf ewige Zeit.</p></sp><lb/>
+<sp who="#LUM"><speaker><hi rendition="#g">Lumpaci</hi>.</speaker><lb/>
+<p>Ha, ha, ha, ha, ha!</p> <stage>(Verſinkt lachend.)</stage></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi></speaker><lb/>
+<stage>(ehe er noch ganz verſunken iſt).</stage><lb/>
+<p>Halt!</p></sp><lb/>
+<sp who="#LUM"><speaker><hi rendition="#g">Lumpaci</hi></speaker><lb/>
+<stage>(kommt wieder in die Höhe).</stage><lb/>
+<p>Haben mir Eu’r Herrlichkeit noch was zu ſagen?</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Du haſt meinen Urtheilsſpruch mit Hohngeläch-<lb/>
+ter erwiedert?</p></sp><lb/>
+<sp who="#LUM"><speaker><hi rendition="#g">Lumpaci</hi>.</speaker><lb/>
+<p>Natürlich, weil er nichts nutzt. Ob ich da bin<lb/>
+oder nicht, dieſe jungen Herren bleiben auf alle Fäll’<lb/>
+meine getreuen Anhänger; denn meine Grundſätze<lb/>
+leben in ihnen fort.</p></sp><lb/>
+<pb n="8" facs="#f0014"/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi></speaker> <stage>(zu den Söhnen).</stage><lb/>
+<p>Wie? Ihr ſeid nicht ernſtlich entſchloſſen, zur<lb/>
+Ordnung zurückzukehren?</p></sp><lb/>
+<sp who="#FLU"><speaker><hi rendition="#g">Fludribus</hi></speaker> <stage>(vortretend).</stage><lb/>
+<p>Ich nehme im Namen meiner Kameraden das<lb/>
+Wort. Wir haben den größten Theil unſers Vermö-<lb/>
+gens durchgebracht, ob wir das Reſtel haben oder<lb/>
+nicht, das iſt uns gleichviel; darum wollen wir das<lb/>
+auch noch verjuxen.</p></sp><lb/>
+<sp who="#ALLS"><speaker><hi rendition="#g">Alle Söhne</hi>.</speaker><lb/>
+<p>Ja, wir wollen es verjuxen.</p></sp><lb/>
+<sp who="#DIEV"><speaker><hi rendition="#g">Die Väter</hi>.</speaker><lb/>
+<p>Entſetzlich!</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Und wenn Ihr nichts mehr habt, was dann?</p></sp><lb/>
+<sp who="#FLU"><speaker><hi rendition="#g">Fludribus</hi>.</speaker><lb/>
+<p>Dann machen wir Schulden.</p></sp><lb/>
+<sp who="#ALLS"><speaker><hi rendition="#g">Die Söhne</hi>.</speaker><lb/>
+<p>Wir machen Schulden!</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Und wenn Ihr nicht bezahlen könnt, was<lb/>
+dann?</p></sp><lb/>
+<sp who="#FLU"><speaker><hi rendition="#g">Fludribus</hi>.</speaker><lb/>
+<p>Dann laſſen wir uns einſperren.</p></sp><lb/>
+<sp who="#ALLS"><speaker><hi rendition="#g">Die Söhne</hi>.</speaker><lb/>
+<p>Ja, ja, wir laſſen uns einſperren.</p></sp><lb/>
+<pb n="9" facs="#f0015"/>
+<sp who="#FLU"><speaker><hi rendition="#g">Fludribus</hi>.</speaker><lb/>
+<p>Da gibt ſich hernach die Ordnung von ſelbſt.</p></sp><lb/>
+<sp who="#LUM"><speaker><hi rendition="#g">Lumpaci</hi></speaker><lb/>
+<stage>(ſich triumphirend die Hände reibend).</stage><lb/>
+<p>Das ſind meine Grundſätze.</p></sp><lb/>
+<sp who="#MYS"><speaker><hi rendition="#g">Myſtifax</hi></speaker> <stage>(zu Stellaris).</stage><lb/>
+<p>Was ſagen Euer Herrlichkeit nun dazu?</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi></speaker> <stage>(zu den Söhnen).</stage><lb/>
+<p>Wenn Ihr aber wieder bekämet, was Ihr lie-<lb/>
+derlicher Weiſe verpraßt habt, würdet Ihr dann or-<lb/>
+dentlich mit dem Eurigen haushalten?</p></sp><lb/>
+<sp who="#HIL"><speaker><hi rendition="#g">Hilaris</hi>.</speaker><lb/>
+<p>Der macht uns wieder reich.</p></sp><lb/>
+<sp who="#FLU"><speaker><hi rendition="#g">Fludribus</hi></speaker> <stage>(zu Stellaris).</stage><lb/>
+<p>Ja, wenn wir wieder reich würden, würden<lb/>
+wir auch wieder brav.</p></sp><lb/>
+<sp who="#ALLS"><speaker><hi rendition="#g">Die Söhne</hi>.</speaker><lb/>
+<p>Ja, dann würden wir brav.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Nun denn, Fortuna, nahe dich!</p><lb/>
+<stage>(Muſik. Mehrere Nymphen mit Füllhörnern treten auf,<lb/>
+zuletzt Fortuna, ihr folgt ihre Tochter Brilliantine.)</stage></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi></speaker><lb/>
+<stage>(nach der Muſik).</stage><lb/>
+<p>Fortuna, dieſe jungen Männer haben ihr Ver-<lb/>
+<pb n="10" facs="#f0016"/>
+mögen vergeudet; gib ihnen den verlornen Reich-<lb/>
+thum wieder.</p></sp><lb/>
+<sp who="#FOR"><speaker><hi rendition="#g">Fortuna</hi>.</speaker><lb/>
+<p>Beherrſcher des Feenreichs! befehlen laſſe ich<lb/>
+mir nichts, auch nicht von Dir: doch weil ich gerade<lb/>
+guter Laune bin</p> <stage>(zu Lumpacivagabundus)</stage> <p>und Dir,<lb/>
+Elender, zum Trotze, mag es ſeyn.</p> <stage>(Zu den Söhnen.)</stage><lb/>
+<p>Ich ſchütte mein Füllhorn über Euch.</p></sp><lb/>
+<sp who="#ALLS"><speaker><hi rendition="#g">Die Söhne</hi>.</speaker><lb/>
+<p>Tauſend Dank!</p></sp><lb/>
+<sp who="#LUM"><speaker><hi rendition="#g">Lumpaci</hi>.</speaker><lb/>
+<p>Ha, ha, ha! das iſt zum Todtlachen! Durch<lb/>
+die Fortuna will <hi rendition="#g">Der</hi> mir meine Anhänger ent-<lb/>
+reißen! Da werden g’rad noch ärgere Lumpen d’raus.</p></sp><lb/>
+<sp who="#HIL"><speaker><hi rendition="#g">Hilaris</hi>.</speaker><lb/>
+<p>Ich will aufrichtig ſeyn; Reichthum wird mich<lb/>
+nie beſſern.</p></sp><lb/>
+<sp who="#MYS"><speaker><hi rendition="#g">Myſtifax</hi>.</speaker><lb/>
+<p>Wie? Was? Mein Sohn, <hi rendition="#g">Du</hi> wärſt der In-<lb/>
+curabelſte von Allen?</p></sp><lb/>
+<sp who="#HIL"><speaker><hi rendition="#g">Hilaris</hi>.</speaker><lb/>
+<p>Nur <hi rendition="#g">ein</hi> Mittel gibt’s, das mich feſthalten<lb/>
+wird auf dem Pfad der Tugend: es iſt Brillianti-<lb/>
+nens Hand.</p></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Was?</p></sp><lb/>
+<pb n="11" facs="#f0017"/>
+<sp who="#HIL"><speaker><hi rendition="#g">Hilaris</hi>.</speaker><lb/>
+<p>Wir lieben uns.</p></sp><lb/>
+<sp who="#FOR"><speaker><hi rendition="#g">Fortuna</hi></speaker> <stage>(entrüſtet).</stage><lb/>
+<p>Tochter!</p></sp><lb/>
+<sp who="#BRI"><speaker><hi rendition="#g">Brilliantine</hi>.</speaker><lb/>
+<p>Verzeihung, Mutter!</p></sp><lb/>
+<sp who="#LUM"><speaker><hi rendition="#g">Lumpaci</hi></speaker><lb/>
+<stage>(auf Hilaris zeigend).</stage><lb/>
+<p>Den geb’ ich auf; die Andern alle aber ſind und<lb/>
+bleiben in meiner Macht.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Warum, Unhold?</p></sp><lb/>
+<sp who="#LUM"><speaker><hi rendition="#g">Lumpaci</hi>.</speaker><lb/>
+<p>Weil die Fee Fortuna nicht im Stand iſt, <hi rendition="#g">mir</hi><lb/>
+einen Anhänger abwendig zu machen; aber Der,</p><lb/>
+<stage>(auf Hilaris zeigend)</stage> <p>de<supplied>r</supplied> ſteht unter dem Schutz mei-<lb/>
+ner größten Feindin, die mich einzig und allein<lb/>
+überall vertreibt.</p></sp><lb/>
+<sp who="#FOR"><speaker><hi rendition="#g">Fortuna</hi></speaker> <stage>(ſtolz).</stage><lb/>
+<p>Wer iſt die Fee, die mächtiger iſt als ich?</p></sp><lb/>
+<sp who="#LUM"><speaker><hi rendition="#g">Lumpaci</hi>.</speaker><lb/>
+<p>Amoroſa iſt’s, die Beſchützerin der wahren<lb/>
+Liebe.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Amoroſa!</p><lb/>
+<stage>(Muſik fällt ein. Amoroſa ſchwebt in einer lichten Wolke,<lb/>
+mit zwei Genien hernieder.)</stage></sp><lb/>
+<pb n="12" facs="#f0018"/>
+<sp who="#LUM"><speaker><hi rendition="#g">Lumpaci</hi>.</speaker><lb/>
+<p>Sie naht ſchon, die Mächtige, die mir oft<lb/>
+meine fidelſten Brüderln entreißt. — Jetzt empfehl’<lb/>
+ich mich! Aber noch einmal, Madam Fortuna, Sie<lb/>
+fürcht’ ich nicht; denn was meine wahren Anhänger<lb/>
+ſind, die machen ſich nicht <hi rendition="#g">ſo</hi> viel aus Ihnen.<lb/>
+Kommt’s Glück einmal, ſo werfen ſie’s beim Fenſter<lb/>
+hinaus, und kommt’s zum zweitenmal, und will ſich<lb/>
+ihnen aufdringen auf eine dauerhafte Art, ſo treten<lb/>
+ſie’s mit Füßen. — So behandeln meine echten<lb/>
+Brüderln das Glück. — Gehorſamer Diener allerſeits.</p><lb/>
+<stage>(Tritt auf die Verſenkung, und verſinkt unter Muſik.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Dritter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige</hi>, ohne <hi rendition="#g">Lumpacivagabundus. Amoroſa</hi>.</stage><lb/>
+<sp who="#AMO"><speaker><hi rendition="#g">Amoroſa</hi></speaker><lb/>
+<stage>(Hilaris und Brilliantinen an der Hand faſſend,<lb/>
+und ſich Fortunen nähernd).</stage><lb/>
+<p>Fortuna! ich vereine meine Bitte mit dem Fle-<lb/>
+hen dieſer Beiden, beſelige durch günſtigen Aus-<lb/>
+ſpruch zwei Herzen, die ſich der wahren Liebe geweiht.</p></sp><lb/>
+<sp who="#FOR"><speaker><hi rendition="#g">Fortuna</hi></speaker> <stage>(zu Amoroſa).</stage><lb/>
+<p>Wie, Thörichte! Du hoffſt, ich werde mich Dei-<lb/>
+nem Wunſche fügen, in einem Augenblick, wo eben<lb/>
+ein frecher Unhold zu Deinen Gunſten mich erniedrig-<lb/>
+te, und Du mit ſtolzem Blick auf mich hernieder<lb/>
+<pb n="13" facs="#f0019"/>
+ſiehſt? Ich zerreiße das Band, das Du um dieſe<lb/>
+Herzen geſchlungen.</p></sp><lb/>
+<sp who="#BRI"><speaker><hi rendition="#g">Brilliantine</hi> und <hi rendition="#g">Hilaris</hi>.</speaker><lb/>
+<p>Weh’ uns!</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Halt ein! Bedenk’ erſt, was Du ſprichſt. Des<lb/>
+Feenreiches unumſtößliche Geſetze erlauben Dir nicht,<lb/>
+Hilaris Antrag unbedingt zu verwerfen; nur eine<lb/>
+ſchwere Bedingung feſtzuſetzen, deren Erfüllung die<lb/>
+Liebenden trennt, deren Nichterfüllung aber ſie auf<lb/>
+immer vereint, nur dieß iſt Dir geſtattet.</p></sp><lb/>
+<sp who="#FOR"><speaker><hi rendition="#g">Fortuna</hi>.</speaker><lb/>
+<p>Nun denn, ſo ſei’s. Ich will eine Bedingung<lb/>
+ſetzen, die zugleich jenen Frechen, der meine Macht<lb/>
+verſpottet, und glaubt, nur <hi rendition="#g">Du</hi></p> <stage>(zu Amoroſa)</stage> <p>ſeiſt<lb/>
+ihm gefährlich, das Gegentheil beweiſen ſoll. — Ich<lb/>
+wähle unter den Sterblichen drei ſeiner Anhänger,<lb/>
+lockere Geſellen, jedoch nur ſolche, welche ſchon der<lb/>
+Armuth drückend Los gefühlt. Dieſe will ich mit<lb/>
+Reichthum überſchütten; werfen ſie, wie er geſagt,<lb/>
+das Glück zum Fenſter hinaus, ſo dringe ich es ihnen<lb/>
+zum zweiten Male wieder auf; treten ſie es dann mit<lb/>
+Füßen, ſo erkenne ich mich als beſiegt, und Hilaris<lb/>
+werde meiner Tochter Gemahl; doch, wenn ſie, wie<lb/>
+kaum zu zweifeln iſt, das Glück mit Dank empfan-<lb/>
+gen, und aus Furcht vor neuer Dürftigkeit, mit<lb/>
+weiſer Mäßigung, es ſich für’s ganze Leben bewahren,<lb/>
+<pb n="14" facs="#f0020"/>
+und ich ſie ſo dem Lumpacivagabundus entreiße, dann<lb/>
+bin <hi rendition="#g">ich</hi> Siegerin, und Hilaris werde auf immer von<lb/>
+meiner Tochter getrennt.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Wohlan! Nur eines habe ich noch hinzu zu<lb/>
+ſetzen, es gilt für beide Theile gleich. — Gelingt es<lb/>
+Dir, dem Lumpacivagabundus von den drei lockeren<lb/>
+Geſellen auch nur Zweie zu entreißen, ſo haſt Du<lb/>
+ſchon gewonnen; treten hingegen auch nur Zwei von<lb/>
+ihnen das Glück mit Füßen, ſo haſt Du verloren.<lb/>
+Dieß beſchwöre hier vor meinem Thron.</p></sp><lb/>
+<sp who="#FOR"><speaker><hi rendition="#g">Fortuna</hi></speaker><lb/>
+<stage>(geht an die Stufen des Thrones, und erhebt die Hand<lb/>
+zum Schwur).</stage><lb/>
+<p>Ich ſchwöre!</p><lb/>
+<stage>(Drei kurze, ſtarke Accorde.)</stage></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Dein Schwur iſt angenommen.</p></sp><lb/>
+<sp who="#MYS"><speaker><hi rendition="#g">Myſtifax</hi></speaker> <stage>(zu Amoroſa).</stage><lb/>
+<p>Und für die andern verlornen Söhne hier, iſt<lb/>
+keine Rettung aus den Krallen des Lumpacivagabun-<lb/>
+dus zu hoffen?</p></sp><lb/>
+<sp who="#AMO"><speaker><hi rendition="#g">Amoroſa</hi>.</speaker><lb/>
+<p>Nicht eher, als bis wahre Liebe in ihrem Her-<lb/>
+zen Eingang gefunden.</p></sp><lb/>
+<sp who="#HIL"><speaker><hi rendition="#g">Hilaris</hi></speaker><lb/>
+<stage>(Brilliantinen umarmend).</stage><lb/>
+<p>So leb’ denn wohl auf ewig! Unmöglich<lb/>
+<pb n="15" facs="#f0021"/>
+kann <hi rendition="#g">die</hi> Bedingung zu unſerm Beſten ſich er-<lb/>
+füllen.</p></sp><lb/>
+<sp who="#AMO"><speaker><hi rendition="#g">Amoroſa</hi>.</speaker><lb/>
+<p>Verzweifelt nicht, baut auf die Beſchützerin<lb/>
+wahrer Liebe.</p> <stage>(Sie beſteigt ihren Wolkenwagen.)</stage><lb/>
+<stage>(Kurze Muſik fällt ein, Alle ziehen ſich zurück.</stage></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#g">Chor</hi>.</speaker><lb/>
+<p>So iſt in dunkler Zukunft Schoß</p><lb/>
+<p>Verborgen unſ’rer Söhne Los.</p><lb/>
+</sp><stage>(Die nächſte Decoration fällt vor.)</stage><lb/>
+<sp who="#VER"><speaker><hi rendition="#g">Verwandlung</hi>.</speaker><lb/>
+<stage>(Kurze freie Gegend, die Landſtraße vorſtellend, links eine<lb/>
+hölzerne Bank unter einem Meilenzeiger.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Vierter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Leim</hi> — dann <hi rendition="#g">Knieriem</hi> — dann <hi rendition="#g">Zwirn</hi>.</stage><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(mit einem Felleiſen, tritt gleich nach der Verwand-<lb/>
+lung auf).</stage><lb/>
+<p>Da wär’ ich beim Thor. Es iſt aber, ſo viel ich<lb/>
+merk’, eine ungefällige Stadt; denn wenn ſie gefäl-<lb/>
+lig wär’, ſo wär’ ſie mir auf halbem Weg entgegen<lb/>
+gekommen. Im Grund betracht, iſt’s a Schand, ich<lb/>
+bin ein ausgelernter Tiſchler, und es geh’n mir or-<lb/>
+dentlich d’Füß aus’n Leim. Iſt’s denn aber anders<lb/>
+möglich? Die Wirth auf der Straßen haben ja Her-<lb/>
+zen, ſo hart als ein Aſt in ein buchsbaumenen Pfo-<lb/>
+<pb n="16" facs="#f0022"/>
+ſten. Woher kommt das aber? Weil die Leut keine<lb/>
+Bildung haben auf’n Land. Und warum haben’s<lb/>
+auf’n Land keine Bildung? Weil’s lauter eichene<lb/>
+Möbeln haben, d’rum kennt das Volk keine Politur;<lb/>
+und wer keine Politur kennt iſt ein Socius. — Jetzt<lb/>
+will ich halt a biſſel ausraſten da, und nachher um<lb/>
+d’Herberg frag’n.</p> <stage>(Setzt ſich auf die Bank.)</stage><lb/>
+</sp><stage>(Das Ritornell des folgenden Liedes beginnt. <hi rendition="#g">Knie-<lb/>
+riem</hi>, ein Ränzchen auf dem Rücken, tritt auf.)</stage><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Es kommen d’Stern, es wird ſchon ſpat,<lb/>
+Zeit is, daß’s einmal da is d’Stadt,<lb/>
+Ich brauch’ ein Guld’n jetzt zum verhau’n,<lb/>
+Da muß i gleich zum Fechten ſchau’n.<lb/>
+Und wie i ein Guld’n z’ſammbettelt hab’,<lb/>
+Da laßt’s mir drei Maß Bier hinab,<lb/>
+A drei Maß Bier laßt’s mir hinab.<lb/>
+Mein Rauſch hab i Jahr aus Jahr ein,<lb/>
+Es wird doch heut kein Ausnahm ſeyn.</p><lb/>
+<stage>(Er ſetzt ſich auf die Bank rechts.)</stage><lb/>
+</sp><stage>(Die Muſik verändert ſich. <hi rendition="#g">Zwirn</hi> tritt von derſelben<lb/>
+Seite ein, er iſt abgeſchaben, aber dennoch ſo viel<lb/>
+wie möglich geputzt, und trägt ebenfalls den Wan-<lb/>
+derbündel auf dem Rücken.</stage><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(äußerſt luſtig).</stage><lb/>
+<p>D’Stadt iſt in der Näh’,<lb/>
+D’rum ſchrei’ ich Juheh!<lb/>
+Juheh! Juheh! Juheh!<lb/>
+<pb n="17" facs="#f0023"/>
+Wer d’Madeln gern hat,<lb/>
+Find’t g’nug in der Stadt,<lb/>
+Juheh! find’t g’nug in der Stadt.<lb/>
+Blauer Montag is alle Tag,<lb/>
+Darum laß ich nicht nach,<lb/>
+Bis die Sonn’ morgen ſcheint,<lb/>
+Grad’ ſo lang’ tanz i heunt;<lb/>
+Ich tanz mir doch nit gnu,<lb/>
+Darum gib ich kein Ruh’,<lb/>
+Spring wie a Gas in d’Höh,<lb/>
+Und ſchrei Juheh!</p><lb/>
+<p>Was ſitzen denn da für ein paar Maner?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ich bin ein Tiſchler.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Und i bin a Schuſter.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Seid’s ös ſchon ſo weit gangen heut, daß’s ſo<lb/>
+müd ſeid’s.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Das juſt nit, aber mit’n Eſſen hat’s ſchlecht<lb/>
+ausg’ſchaut. Ich hab’ nit mehr als zwei Meilen<lb/>
+g’macht.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Und ich hab’ mir eine halbe Stund von hier<lb/>
+ein Rauſch ausg’ſchlafen, das war aber ſchon ein<lb/>
+Millionhaarbeutel das — und was hab’ i trunken?<lb/>
+<pb n="18" facs="#f0024"/>
+Neun halbe Bier; aber ſeit dem letzten Kometen<lb/>
+greift mich Alles ſo an.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Pfui Teuxel! Schamt’s Euch nit? Auf ſo ein<lb/>
+Trümmerl Weg raſten’s aus! Ich geh’ heut’ ſchon<lb/>
+meine drei Stationen, und kann den Augenblick nit<lb/>
+erwarten, wo ich zum Tanzen komm.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Hör auf, Brüderl, Du ſchneid’ſt auf. Ich bin<lb/>
+g’wiß nit ſchlecht auf die Füß; aber drei Stationen<lb/>
+geh’n, und noch tanzen woll’n, das is g’log’n.<lb/>
+Jetzt ſchaun wir halt, daß wir g’ſchwind auf d’Her-<lb/>
+berg kommen.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich hab einen enormen Durſt.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Zuerſt geh’n wir fechten.</p> <stage>(Das Betteln parodirend.)</stage><lb/>
+<p>Euer Gnaden, ein armer reiſender Handwerksburſch<lb/>
+bitt gar ſchön um a biſſel was auf a Muſik; nachher<lb/>
+wird’s ein Leben werden heut Nacht.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Fidel muß’s zugeh’n.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich dudl mir heut ein’ an, wie ich ſeit’n letzten<lb/>
+Kometen kein g’habt hab’.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Alſo friſch in die Stadt marſchirt.</p></sp><lb/>
+<pb n="19" facs="#f0025"/>
+<sp who="#ALLD"><speaker><hi rendition="#g">Alle Drei</hi>.</speaker><lb/>
+<stage><hi rendition="#g">Lied</hi>.</stage><lb/>
+<p>Wir wollen in die Stadt marſchiren,<lb/>
+Und d<gap unit="chars" quantity="1"/>innen unſer Glück probiren.<lb/>
+Der Weg wird uns zur Herberg führen,<lb/>
+In der Herberg nacher da gehts an.<lb/>
+Was uns ’s Fechten g’winnt,<lb/>
+Durch die Gurgel rinnt,<lb/>
+Und is All’s verthan,<lb/>
+Liegt uns a nix dran;<lb/>
+Darum nicht lange ſpekuliren,<lb/>
+In der Herberg zeigt ſich was man kann.</p><lb/>
+<stage>(Gehen Arm in Arm ab.)</stage><lb/>
+<stage><hi rendition="#g">Verwandlung</hi>.</stage><lb/>
+<stage>(Schenkſtube in der Herberge.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Fünfter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Faſſel</hi>. Mehrere <hi rendition="#g">Bräuknechte</hi> und <hi rendition="#g">Hand-<lb/>
+werksburſchen</hi> von verſchiedenen Profeſſionen.<lb/>
+<hi rendition="#g">Pantſch. Nannett. Sepherl. Hannerl</hi>. —<lb/>
+Dann <hi rendition="#g">Zwirn, Leim</hi> und <hi rendition="#g">Knieriem</hi>.</stage><lb/>
+<stage>(Alle ſitzen theils an den Tiſchen und trinken, theils tan-<lb/>
+zen ſie mit Hannerl und Sepherl, Faſſel tanzt mit Nan-<lb/>
+netten.)</stage><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Vivat! der Herr Beſtgeber ſoll leben!</p></sp><lb/>
+<pb n="20" facs="#f0026"/>
+<sp who="#FAS"><speaker><hi rendition="#g">Faſſel</hi></speaker> <stage>(im Tanzen).</stage><lb/>
+<p>Ein Glas her!</p> <stage>(Pantſch gibt ihm während dem<lb/>
+Tanz eine Flaſche.)</stage> <p>Die ganze Geſellſchaft Vivat!</p><lb/>
+<stage>(Er trinkt im Tanzen die Flaſche aus, wirft ſie dann zur<lb/>
+Erde, und tanzt weiter.)</stage><lb/>
+</sp><stage>(<hi rendition="#g">Zwirn, Leim</hi> und <hi rendition="#g">Knieriem</hi> treten ein.)</stage><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Halloh! da hab’ ich a Muſik g’hört!</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Herr Vater! a Halbe, G’miſchts.</p><lb/>
+<stage>(Setzt ſich links.)</stage></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Mir eine Halbe, und eine Portion Niernd’ln.</p></sp><lb/>
+<sp who="#HANN"><speaker><hi rendition="#g">Hannerl</hi>.</speaker><lb/>
+<p>Wie ſchaffen Sie’s denn?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Mit Semmelbröſeln oder mit Sagſchaten, das<lb/>
+iſt ein hungerigen Tiſchler alles eins.</p> <stage>(Setzt ſich.)</stage><lb/>
+</sp><stage>(Die Kellnerinnen bringen das Verlangte.)</stage><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(zu einem Muſiker).</stage><lb/>
+<p>Da ſeyn acht Groſchen, jetzt machts mir einen<lb/>
+ſaubern Walzer auf.</p> <stage>(Gibt ihm Geld.)</stage></sp><lb/>
+<sp who="#FAS"><speaker><hi rendition="#g">Faſſel</hi></speaker> <stage>(bei Seite).</stage><lb/>
+<p>Das iſt ein fideler Kerl.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(zu Faſſel, neben welchem Nannette ſitzt).</stage><lb/>
+<p>Sie erlauben ſchon eine Tour. Nannette auffor-<lb/>
+<pb n="21" facs="#f0027"/>
+dernd.) Mein Fräulein, darf ich ſo frei ſeyn?</p><lb/>
+</sp><stage>(Ein Ländler beginnt, Zwirn haut auf, und <choice><sic>ſchlagt</sic><corr>ſchlägt</corr></choice> un-<lb/>
+geheure Fußtriller.)</stage><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ah wart, Schneider, du ſollſt mich nicht<lb/>
+ſpotten.</p> <stage>(Nimmt Hannerl, welche ihm das Bier bringt,<lb/>
+und tanzt mit ihr ein paarmal herum, endlich ſieht er ei-<lb/>
+nen Handwerksburſchen ſehr ärmlich und traurig da ſitzen<lb/>
+— er hört zu tanzen auf, und ſagt zu ihm)</stage> <p>Ich glaube<lb/>
+gar, das iſt ein Tiſchler?</p><lb/>
+</sp><stage>(Die Muſik hört auf)</stage><lb/>
+<sp who="#HAN"><speaker><hi rendition="#g">Handwerksburſch</hi>.</speaker><lb/>
+<p>Ja leider!</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Wo fehlt’s denn?</p></sp><lb/>
+<sp who="#HAN"><speaker><hi rendition="#g">Handwerksburſch</hi>.</speaker><lb/>
+<p>Ueberall.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Mir auch; aber wer wird denn deßwegen trau-<lb/>
+rig ſeyn? — Heda! Eing’ſchenkt da für den eine<lb/>
+Halbe Wein auf meine Rechnung.</p></sp><lb/>
+<sp who="#FAS"><speaker><hi rendition="#g">Faſſel</hi>.</speaker><lb/>
+<p>Nix, das laß ich nit angehn, heut geht Alles<lb/>
+aus mein Sack. Ich hab’ tauſend Thaler g’wonnen<lb/>
+in der Lotterie, heut traktir ich ganz allein.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Tauſend Thaler? — A Halbe G’miſcht’s!</p></sp><lb/>
+<pb n="22" facs="#f0028"/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ah ſchön! da werd’n wir ſchon ſo frei ſeyn,<lb/>
+und werden’s uns ſchmecken laſſen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Das wird ſchon ein ſchön’s Glück ſeyn; wenn<lb/>
+ich das hätt, ich ſetzet mich gar nicht mehr nieder,<lb/>
+da gings alleweil a ſo.</p> <stage>(Er haut auf.)</stage> <p>Ah verdammt!<lb/>
+ich hab’ mir den rechten Wadel überſtaucht — ich<lb/>
+muß mich ſchon niederſetzen.</p></sp><lb/>
+<sp who="#FAS"><speaker><hi rendition="#g">Faſſel</hi>.</speaker><lb/>
+<p>Warum ſetzt’s Euch denn nicht zu unſerm Tiſch,<lb/>
+Kameraden?</p></sp><lb/>
+<sp who="#LEIZWI"><speaker><hi rendition="#g">Leim</hi> und <hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Mit Verlaub.</p><lb/>
+<stage>(Setzen ſich zu Faſſel und den Brauknechten.)</stage></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Noch ein G’miſcht’s!</p> <stage>(Gibt der Kellnerin das<lb/>
+leere Zimment, und ſetzt ſich ebenfalls an dieſen Tiſch.)</stage><lb/>
+<p>Ein ſchlechter Zeitpunkt war’s halt doch, jetzt was<lb/>
+z’gwinnen.</p></sp><lb/>
+<sp who="#FAS"><speaker><hi rendition="#g">Faſſel</hi>.</speaker><lb/>
+<p>Warum?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Weil man’s nicht mehr anbringen kann. Auf’s<lb/>
+Jahr kommt der neue Komet, der die Welt z’Grund<lb/>
+richt, nacher iſt der Herr Pfutſch mit ſammt ſein<lb/>
+Treffer.</p></sp><lb/>
+<pb n="23" facs="#f0029"/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Red nit ſo dumm, gar nichts g’ſchieht, mir<lb/>
+hat’s ein Profeſſor g’ſagt.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich werd’s doch beſſer verſteh’n als ein Pro-<lb/>
+feſſor? Ich hab die Aſtronomie aus’n Büchel g’lernt,<lb/>
+und mach’ alleweil meine Beobachtungen, wenn ich<lb/>
+ham geh in der Nacht.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ja, wenn Du beſoffen biſt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Mit’n Tanzen iſt’s heut ſchon Feierabend bei mir.</p></sp><lb/>
+<sp who="#FAS"><speaker><hi rendition="#g">Faſſel</hi>.</speaker><lb/>
+<p>So ſingen wir eins, weil wir ſo in <hi rendition="#aq">carita-<lb/>
+tibus</hi> beiſammen ſitzen.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Gut is! Ich hab’ ein ſuperbes Lied g’macht.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Heraus damit!</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p><choice><sic>Oes</sic><corr>Des</corr></choice> müßt’s aber Alle mitſingen. Der Text iſt<lb/>
+von mir nach einer Rittergeſchichte frei bearbeitet.</p></sp><lb/>
+<sp who="#FAS"><speaker><hi rendition="#g">Faſſel</hi>.</speaker><lb/>
+<p>Das is recht. O ich hab’ die romantiſchen Sa-<lb/>
+chen ſo gern.</p></sp><lb/>
+<pb n="24" facs="#f0030"/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Schaut’s mir auf’s Maul, und ſingts Alle mit<lb/>
+mir zugleich.</p></sp><lb/>
+<sp who="#GES"><speaker><hi rendition="#g">Geſang</hi>.</speaker><lb/>
+<p>Eduard und Kunigunde,<lb/>
+Kunigunde und Eduard,<lb/>
+Eduard und Kunigunde<lb/>
+Kunigunde und Eduard.<lb/>
+Eduard und Kunigunde,<lb/>
+Kunigunde und Eduard.</p></sp><lb/>
+<sp who="#FAS"><speaker><hi rendition="#g">Faſſel</hi>.</speaker><lb/>
+<p>Das iſt wirklich einzig.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ordentlich rührend.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ein G’miſcht’s! — Alſo jetzt ſingen wir die<lb/>
+zweite Strophe, die is noch ſchöner.</p></sp><lb/>
+<sp who="#GES"><speaker><hi rendition="#g">Geſang</hi>.</speaker><lb/>
+<p>Eduard und Kunigunde,<lb/>
+Kunigunde und Eduard,<lb/>
+Eduard und Ku —</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Hörts auf! Das is ja allweil ’s Nämliche.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ihr wißt nicht, was ſchön iſt.</p></sp><lb/>
+<pb n="25" facs="#f0031"/>
+<sp who="#FAS"><speaker><hi rendition="#g">Faſſel</hi>.</speaker><lb/>
+<p>Halt! Ich weiß was ſchön iſt. Wir ziehen Alle<lb/>
+da in’s Kaffeehaus hinüber, und ich zahl dort ein<lb/>
+Jeden ein Glaſel Punſch. Wer mitgehn will, geht<lb/>
+mit. He, Muſikanten! Aufgrebellt!</p><lb/>
+</sp><stage>(<hi rendition="#g">Chor</hi> und <hi rendition="#g">Alle</hi> ab, bis auf)</stage></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Siebenter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Zwirn. Leim. Knieriem. Pantſch.<lb/>
+Kellnerinnen</hi>.</stage><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Dem ſähet man’s auch nicht an, daß er tauſend<lb/>
+Thaler gewonnen hat.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Warum? er ſchaut dumm genug aus.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(zum Wirth).</stage><lb/>
+<p>Wer iſt er denn?</p></sp><lb/>
+<sp who="#PAN"><speaker><hi rendition="#g">Pantſch</hi>.</speaker><lb/>
+<p>Der Oberknecht in der Bräuerei da darneben.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Da haben wir’s, ſo ungebildetes Volk hat ein<lb/>
+Glück. Ein Schneider gewinnt in ſeinem Leben nichts.</p></sp><lb/>
+<sp who="#PAN"><speaker><hi rendition="#g">Pantſch</hi>.</speaker><lb/>
+<p>Ich bin ihm d’rum gar nicht neidig, ich dank<lb/>
+<fw type="sig" place="bottom">2</fw><lb/>
+<pb n="26" facs="#f0032"/>
+Gott, daß ich die tauſend Thaler nicht g’won-<lb/>
+nen hab’.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Iſt der Herr verruckt?</p></sp><lb/>
+<sp who="#PAN"><speaker><hi rendition="#g">Pantſch</hi>.</speaker><lb/>
+<p>Könnt’s nit ſagen. Morgen Vormittag iſt die<lb/>
+Hauptziehung, da gewinnt man hunderttauſend<lb/>
+Thaler, und das wär’ ſo meine Paſſion.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Na, die Paſſion wär’ freilich nicht ſchlecht.</p></sp><lb/>
+<sp who="#PAN"><speaker><hi rendition="#g">Pantſch</hi>.</speaker><lb/>
+<p>Ich g’winn’s auch; denn meiner Frau Ahnl hat<lb/>
+ja ’s Nummero traumt.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ah, nachher iſt’s ſchon g’wiß. — Weil aber der<lb/>
+Herr heut noch kein Kapitaliſt iſt, ſo macht’s uns<lb/>
+ein Stroh herein, daß wir uns niederlegen; es wird<lb/>
+ſo bald Tag.</p></sp><lb/>
+<sp who="#PAN"><speaker><hi rendition="#g">Pantſch</hi>.</speaker><lb/>
+<p>Recht gern. O mich macht’s Glück nicht ſtolz.</p><lb/>
+<stage>(Zu den Kellnerinnen.)</stage> <p>He! laßt’s Stroh bringen.</p><lb/>
+<stage>(Ab mit Hannerl und Sepherl.)</stage></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Das iſt ein recht ein rarer Mann der Wirth,<lb/>
+er iſt gar nicht ſtolz auf den Treffer, der noch gar<lb/>
+nicht gezogen iſt.</p></sp><lb/>
+<pb n="27" facs="#f0033"/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Hunderttauſend Thaler! das gibt über eine<lb/>
+Million Maß G’miſcht’s — die kann der Menſch<lb/>
+nicht verſaufen, mit’n beſten Willen nicht. —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Schuſter, Du biſt ein gemeiner Kerl.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker> <stage>(auffahrend).</stage><lb/>
+<p>Du Schneider, trau mir nicht!</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker> <stage>(ſie beruhigend).</stage><lb/>
+<p>Seid’s ruhig — ſchamt’s Euch. — Schaut’s,<lb/>
+wenn ich mir’s recht überleg, glücklich — ſo was<lb/>
+man ſagt, recht glücklich, machet mich halt doch<lb/>
+das viele Geld nicht, wenn nicht noch etwas dabei<lb/>
+wär’ —</p> <stage>(ſeufzend)</stage> <p>ein Etwas —</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Da biſt Du ein Nimmerſatt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(zu Knieriem).</stage><lb/>
+<p>Aber merkſt denn nicht, er iſt ja verliebt.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Schwachheit.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ja wohl Schwachheit, in meiner Gegenwart<lb/>
+von Madeln und Verliebtſeyn ſprechen. Da müßt’s<lb/>
+mich erzählen laſſen, ich könnt Euch meine Amouren<lb/>
+Bataillonweis aufmarſchiren laſſen.</p></sp><lb/>
+<fw type="sig" place="bottom">2 *</fw><lb/>
+<pb n="28" facs="#f0034"/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ich war nur in ein Einzige verliebt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>In eine Einzige? Brüderl, das iſt ja gar nicht<lb/>
+der Müh’ werth, daß man davon redt. Wie ich in<lb/>
+der Lehr war, war ich ſchon in Zehne verliebt. Mein<lb/>
+erſter Meiſter, zu dem ich als G’ſell kommen bin,<lb/>
+hat ein ſchön’s jung’s Weiberl g’habt, das Weiberl<lb/>
+hat mir g’fallen, und ich ihr auch, denn ich war da-<lb/>
+mals ein ſehr ein liebenswürdiger Jüngling. —<lb/>
+Einmal gibt mir das Weiberl ein Buſſel, da kommt<lb/>
+der Meiſter dazu, und der Eſel halt ſich drüber auf,<lb/>
+daß mir ſein Weib ein Buſſel geb’n hat, und jagt<lb/>
+mich auf der Stell davon. — Mein zweiter Meiſter<lb/>
+hat fünf Töchter g’habt — das waren Zwilling — da<lb/>
+war ich Dir aber in alle fünfe zugleich verliebt. —<lb/>
+Einmal haben wir Pfänder g’ſpielt — no Du weißt,<lb/>
+das geht auch mit’n Buſſelgeben aus —</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Allemal.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wie wir die Pfänder ausg’löst haben, kommt<lb/>
+der Meiſter dazu — der geht her, gibt mir für eine<lb/>
+jede Tochter <hi rendition="#g">zwei</hi> Watſchen, und jagt mich fort.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Zwei Watſchen? Das iſt zu viel.</p></sp><lb/>
+<pb n="29" facs="#f0035"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Nicht wahr? Ich wär’ ja hinlänglich zufrieden<lb/>
+geweſen, wenn er mir für eine jede Tochter <hi rendition="#g">eine</hi><lb/>
+Watſchen gegeben hätte, aber <hi rendition="#g">zwei</hi> Watſchen, das<lb/>
+iſt ja ein offenbarer Luxus. — Mein dritter Mei-<lb/>
+ſter, der hat ein G’ſchwiſterkind g’habt von 21 Jah-<lb/>
+ren — aber hörſt, Schuſter, ſo ein ſchönes G’ſchwi-<lb/>
+ſterkind hab’ ich in meinem ganzen Leben nit g’ſehn.<lb/>
+Da hab’ ich aber hernach eine ſaubere Köchin kennen<lb/>
+g’lernt, mit der bin ich durchgangen, und ’s G’ſchwi-<lb/>
+ſterkind hab’ ich ſitzen laſſen.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Meine G’ſchicht iſt nicht ſo lang, aber äußerſt<lb/>
+tragiſch. Erſtens iſt mir meine Profeſſion z’wider,<lb/>
+ich hab’ nur Sinn für die Aſtronomie — und<lb/>
+dann hab’ ich nichts als unverſchuldete Unglücksfälle<lb/>
+g’habt. — In Budweis hab’ ich mein Meiſter<lb/>
+g’haut.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Warum denn?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Weil ich ein Rauſch g’habt hab’, alſo kann ich<lb/>
+nix davor. In Altbrünn hätt’ ich bald ein Lehrbu-<lb/>
+ben zerriſſen.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>So was iſt aber auch abſcheulich.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Aber was ſoll denn ein zerriſſener Lehrbub an-<lb/>
+<pb n="30" facs="#f0036"/>
+fangen? Und gar ein Schuſterlehrbub — kann es<lb/>
+denn etwas Zarteres geben als einen Schuſterbuben?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich hab’ damals einen unſinnigen Haarbeutel<lb/>
+g’habt, alſo kann ich nix davor. Ich ſag’ Euch, ich<lb/>
+hab ſchon ſo viel Malheur g’habt, und allzeit durch<lb/>
+meine Räuſch. Wann ich mir meinen Verdruß nit<lb/>
+verſaufet, ich müßt mich g’rad aus Verzweiflung<lb/>
+dem Trunk ergeben.</p><lb/>
+</sp><stage>(Zwei Hausknechte kommen mit Stroh, und bereiten<lb/>
+die Schlafſtellen.)</stage><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Sie, machens mir mein Bett etwas in Ent-<lb/>
+fernung von den Andern, denn ich ſchlag furchtbar<lb/>
+herum bei der Nacht.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Warum denn?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Das iſt alles mein Herzenskummer. Ihr wer-<lb/>
+det mir’s nicht glauben — ich ſeh’ einem luſtigen<lb/>
+Kerl gleich, aber das is Alles nur auswendig, inn-<lb/>
+wendig ſchaut’s famos aus bei mir. Wie ich trink,<lb/>
+glaub’ ich, ein jeder Tropfen iſt Gift — wie ich<lb/>
+iß, ſo ißt der Tod mit mir — wenn ich ſpring<lb/>
+und tanz, ſo iſt mir inwendig, als wenn ich mit<lb/>
+meiner Leich’ ging — wie ich ein Kameraden ſeh’,<lb/>
+der nix hat, ſo gib ich ihm gleich Alles, obwohl ich<lb/>
+<pb n="31" facs="#f0037"/>
+ſelbſt nix hab’, und das bloß, weil ich in Gedanken<lb/>
+alleweil mein Teſtament mach’.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ja, Brüderl, wer iſt denn Deine Geliebte,<lb/>
+daß ſie Dich gar ſo enderiſch macht?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Sie iſt eine Tiſchlermeiſteriſche.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Hat’s Laſchi?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Was? —</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Knöpf.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Wie? —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Nein, nein — er fragt, ob ſie Batzen hat.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Geld? — Freilich hat’s Geld. Sie iſt die Toch-<lb/>
+ter vom reichen Meiſter Hobelmann in Wien.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Von dem? — Schuſter, den reichen Tiſchler-<lb/>
+meiſter Hobelmann mußt ja kennen.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich bin ein Schuſter, was geht mich ein Tiſch-<lb/>
+ler an. Beleidigt’s mich nicht!</p></sp><lb/>
+<pb n="32" facs="#f0038"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wart, ich werd’ Dir gleich d’raufhelfen. Der<lb/>
+reiche Tiſchler Hobelmann logirt in — — in Wien<lb/>
+logirt er. — Du kennſt den reichen Tiſchler Hobel-<lb/>
+mann nicht?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Nein.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ich kenn’ ihn auch nicht.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker> <stage>(zu Leim).</stage><lb/>
+<p>Da weiß ich Dir ein Rath, ſchau daß Du’s<lb/>
+kriegſt.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Das hätt’ ich ſelber g’wußt; aber da iſt’s zu<lb/>
+mit’n kriegen, ich glaub’ es hat’s ſchon ein Anderer.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>So nimm Du Dir auch eine Andere.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Das bring’ ich nicht über’s Herz. O meine<lb/>
+Peppi!</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ja, mag ſie Dich, oder mag ſie Dich nicht?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Das iſt’s eben was ich nicht weiß. Ich hab’ drei<lb/>
+Jahr bei ihrem Vater gearbeitet —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Und weißt nicht, ob Dich ’s Madel mag? —<lb/>
+Tiſchler, Du haſt ja Hobelſchatten im Kopf?</p></sp><lb/>
+<pb n="33" facs="#f0039"/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Der Vater iſt reich, er lebt in Pracht und<lb/>
+Herrlichkeit, er war zwar ſelbſt immer beim Geſchäft,<lb/>
+aber die Tochter haben wir Geſellen kaum alle Mo-<lb/>
+nat einmal zu ſehen kriegt. Einmal bringt meine<lb/>
+himmliſche Peppi ihrem Vater eine Schale Kaffee in<lb/>
+die Werkſtatt — ich ſchau ſie zärtlich an, ſie laßt<lb/>
+ihre Blicke auf mich, und die Schalen auf die Erd<lb/>
+fallen — der Vater, der gähzornigſte Patron von<lb/>
+der Welt, wirft’s Stemmeiſen auf ſie — ich erſeh’<lb/>
+das, halt mich vor, und das Stemmeiſen fahrt mir<lb/>
+zolltief in die Achſel hinein.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ah Spectakel!</p> <stage>(Setzt ſich auf’s Stroh.)</stage></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Haſt’n nit g’haut den Alten? — Wann mir<lb/>
+das g’ſchehn wär!</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Warum nicht gar! Ich bin umg’fallen, und<lb/>
+wie ich wieder zu mir kommen bin, war der Alte und<lb/>
+die Peppi bei meinem Bett. Der Alte hat g’ſagt,<lb/>
+ich möcht’ das nicht übel nehmen, es war nicht ſo<lb/>
+bös gemeint.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Bedank mich.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Es wird Sein Schaden nicht ſeyn, hat er g’ſagt,<lb/>
+<pb n="34" facs="#f0040"/>
+Er hat meiner Tochter das Leben gerettet; bis Er wie-<lb/>
+der geſund iſt, wollen wir weiter reden über Sein<lb/>
+künftiges Glück.</p> <stage>(Mittlerweile hat Zwirn ſich mit einem<lb/>
+zerriſſenen Tüchel den Kopf eingebunden, ſich auf das<lb/>
+Stroh gelegt.)</stage> <p>Ein paar Wochen darauf, wie ich<lb/>
+ſchon wieder hergeſtellt war, hör’ ich auf einmal,<lb/>
+der dicke reiche Strudl, der Wirth vom goldenen<lb/>
+Nockerl, heirath — ich frag’ wem? ſo heißt’s: die<lb/>
+Hobelmanniſche. — Das hat mir den Gnadenſtoß<lb/>
+geben; denn der Meiſter Hobelmann hat keine an-<lb/>
+dere Tochter g’habt, als meine Peppi.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Na, da wirſt aber doch aus Verzweiflung<lb/>
+g’redt hab’n?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Nein — es war g’rad Samſtag, der Meiſter<lb/>
+hat uns auszahlt — da bin ich den andern Tag in<lb/>
+der Fruh aufg’ſtanden, hab’ auf ein Zettel g’ſchrie-<lb/>
+ben: »Adieu Peppi, aus Bosheit heirath ich jetzt<lb/>
+auch« — und dann bin ich fort über Berg und<lb/>
+Thal, ohne b’hüt dich Gott und ohne Allem; und<lb/>
+ſo flankir ich jetzt ſchon über zwei Jahr in der<lb/>
+Welt herum.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich hätt’ den Alten und den Wirth g’haut,<lb/>
+und ’s Mädel hätt’ ich g’heirath.</p></sp><lb/>
+<pb n="35" facs="#f0041"/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(legt ſich nieder).</stage><lb/>
+<p>Mit mir iſt’s aus, ich hab’ nichts mehr zu<lb/>
+hoffen. Ich lauf halt ſo mit, ſo lang’s ſeyn muß.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Und ich ſauf halt ſo mit, ſo lang’s geht.</p> <stage>(Zieht<lb/>
+den Rock aus.)</stage> <p>Ich hätt’ jetzt ein Guſto zu aſtrono-<lb/>
+miſchen Beobachtungen; denn mich hat’s G’miſchte<lb/>
+ein wenig duslich g’macht.</p> <stage>(Gähnt.)</stage></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ich hab’ ſchon ſeit ein paar Jahren kein Schlaf<lb/>
+mehr.</p> <stage>(Gähnt.)</stage></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker><lb/>
+<stage>(löſcht das Licht aus und legt ſich nieder).</stage></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Werd’s nit bald ſtill ſeyn?</p> <stage>(Schläft ein.)</stage></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(einſchlafend).</stage><lb/>
+<p>Peppi — Pep — pi —</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker> <stage>(eben ſo).</stage><lb/>
+<p>Noch — ein — G’miſchtes — denn der Komet —</p><lb/>
+</sp><stage>(Leiſe Muſik beginnt. Wolken ſenken ſich über den Hintergrund.<lb/>
+Nach einer Weile theilen ſich die Wolken, <hi rendition="#g">Fortuna</hi><lb/>
+wird ſichtbar mit einem Füllhorn, daraus kommt die<lb/>
+transparente Zahl 7359. — Der Schlaf der drei Geſel-<lb/>
+len wird unruhig. Die Wolken erheben ſich wieder.)</stage><lb/>
+<pb n="36" facs="#f0042"/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(ſich nach und nach ermunternd).</stage><lb/>
+<p>Ah — ah —</p> <stage>(Gähnt.)</stage> <p>Das war ein kurioſer<lb/>
+Traum — 7359. — Wenn ich’s nur nicht vergiß. —<lb/>
+Ah, ich merk’ mir’s ſchon bis morgen.</p> <stage>(Will wieder<lb/>
+ſchlafen.)</stage> <p>Es laßt mir keine Ruh’, ich muß — He,<lb/>
+Schneider! Schneider! — Der ſchlaft feſt. —<lb/>
+Landsmann!</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(ſich ermunternd).</stage><lb/>
+<p>Was iſt’s denn?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Haſt keine Kreiden?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ich glaub’ nit. — Zu was denn?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Mir hat ein Nummero traumt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(ihm eine Kreide gebend).</stage><lb/>
+<p>Ein Nummero hat Dir traumt?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ja. <hi rendition="#aq">Nro.</hi> 7359.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Und mir hat auch ein Nummero traumt —<lb/>
+es war <hi rendition="#aq">Nro.</hi> 7359.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Was? das nämliche Nummero? — Bruder,<lb/>
+<pb n="37" facs="#f0043"/>
+das hat was zu bedeuten. Nur g’ſchwind aufg’ſchrie-<lb/>
+ben.</p> <stage>(Schreibt das Nummero auf den Tiſch.)</stage><lb/>
+<stage>(Es wird von Außen ſtark geklopft.)</stage></sp><lb/>
+<sp who="#STI"><speaker><hi rendition="#g">Stimmen</hi></speaker> <stage>(von Außen).</stage><lb/>
+<p>Heda! Aufg’macht! Aufg’macht!</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Achter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Hannerl. Sepherl</hi>. Dann mehrere<lb/>
+<hi rendition="#g">Maurer, Zimmerleute, Marktweiber</hi> ꝛc.</stage><lb/>
+<sp who="#HANN"><speaker><hi rendition="#g">Hannerl</hi>.</speaker><lb/>
+<p>Ich komm ſchon!</p> <stage>(Oeffnet die Thür.)</stage></sp><lb/>
+<sp who="#SEP"><speaker><hi rendition="#g">Sepherl</hi>.</speaker><lb/>
+<p>Gar keine Ruh’ hat man!</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Kellnerin! bring Sie mir ein Spiegel und<lb/>
+ein Köllnerwaſſer.</p></sp><lb/>
+<sp who="#SEP"><speaker><hi rendition="#g">Sepherl</hi></speaker> <stage>(aufräumend).</stage><lb/>
+<p>Vor drei Uhr kommt man in kein Bett, und<lb/>
+um halber Sechſe ſoll man ſchon wieder auf’n Füßen<lb/>
+ſeyn.</p> <stage>(Sie wiſcht das Nummero aus.)</stage><lb/>
+<stage><hi rendition="#g">Leim</hi>.</stage><lb/>
+<p>Unglückliche! was haſt Du gethan?</p></sp><lb/>
+<pb n="38" facs="#f0044"/>
+<sp who="#SEP"><speaker><hi rendition="#g">Sepherl</hi></speaker> <stage>(erſchrocken).</stage><lb/>
+<p>Was ſeyn denn das für Dummheiten?</p></sp><lb/>
+<stage>(Die Eintretenden haben Schnaps ꝛc. verlangt, und ſe-<lb/>
+tzen ſich an die Tiſche.)</stage><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Schneider, da ſchau her, ’s Nummero hat ſie<lb/>
+ausg’wiſcht.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wär nicht übel! —</p> <stage>(Zu Sepherl.)</stage> <p>Sie iſt ei-<lb/>
+ne unüberlegte Perſon, ein von der Natur vernach-<lb/>
+läſſigtes Geſchöpf.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Weißt Du das Nummero noch?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Freilich weiß ich’s. Schreib auf das Nummero.<lb/>
+Es war 87 Tauſend —</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Das war’s nicht.</p></sp><lb/>
+<sp who="#HANN"><speaker><hi rendition="#g">Hannerl</hi></speaker><lb/>
+<stage>(Knieriem aufweckend).</stage><lb/>
+<p>Aber hör’ der Herr, ſchlaft man denn bis Mit-<lb/>
+tag? Sieht Er den nicht, daß ſchon wieder Gäſt<lb/>
+da ſeyn?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker><lb/>
+<stage>(ſich halb im Schlaf erhebend, lallt).</stage><lb/>
+<p>Sieben tauſend — drei hundert — neun und<lb/>
+fufzig.</p></sp><lb/>
+<pb n="39" facs="#f0045"/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(ſchnell auf ihn loßfahrend).</stage><lb/>
+<p>Brüderl was haſt g’ſagt?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Mir war im Traum, als wenn in einem gan-<lb/>
+zen Nebel von G’miſchten — iſt auf einmal erſchie-<lb/>
+nen — Nr. 7359.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Nein, das geht nicht natürlich zu, alle Drei<lb/>
+den nämlichen Traum!</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Auf d’Letzt iſt uns gar das Glück beſtimmt.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Wie können wir denn was g’winnen, wenn<lb/>
+wir kein Los haben?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Wenn’s Glück will, braucht man kein Los.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Neunter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige</hi>. Ein <hi rendition="#g">Hauſirer</hi>.</stage><lb/>
+<sp who="#EINH"><speaker><hi rendition="#g">Hauſirer</hi></speaker><lb/>
+<stage>(mit ſeinen Anhängtrüherl, worin verſchiedene Waaren<lb/>
+ſind, eintretend).</stage><lb/>
+<p>Guten Morgen allerſeits. Kaufen die Herren<lb/>
+Hoſenträger, Brieftaſchen, Pfeifenröhr’ln, Tabaks-<lb/>
+<pb n="40" facs="#f0046"/>
+beuteln — auch noch einige Lotterieloſe hab’ ich —<lb/>
+die Ziehung geht ſchon in einer Stunde vor ſich.<lb/>
+Kaufen Sie, vielleicht gewinnen Sie heut das gro-<lb/>
+ße Los, probiren Sie Ihr Glück.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Laß anſchau’n, was ſeyn’s denn für Nummern?</p></sp><lb/>
+<sp who="#EINH"><speaker><hi rendition="#g">Hauſirer</hi></speaker> <stage>(zeigt die Loſe).</stage><lb/>
+<p>Nr. 439.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Das kann ich nicht brauchen.</p></sp><lb/>
+<sp who="#EINH"><speaker><hi rendition="#g">Hauſirer</hi>.</speaker><lb/>
+<p>Nr. 8521.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Das iſt ein alt’s Nummero.</p></sp><lb/>
+<sp who="#EINH"><speaker><hi rendition="#g">Hauſirer</hi>.</speaker><lb/>
+<p>Nr. 7359.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(auf ihn losſpringend).</stage><lb/>
+<p>Der hat unſer Nummero!</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker> <stage>(zu Leim).</stage><lb/>
+<p>Frag ihn, was’s koſt’t.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(zum Hauſirer).</stage><lb/>
+<p>Was koſt’t das Los?</p></sp><lb/>
+<sp who="#EINH"><speaker><hi rendition="#g">Hauſirer</hi>.</speaker><lb/>
+<p>Sechs Gulden Silber.</p></sp><lb/>
+<pb n="41" facs="#f0047"/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(zu ſeinen Kameraden).</stage><lb/>
+<p>Sechs Gulden Silber hat er g’ſagt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Das bringen wir nit z’ſamm. — Wißt’s was<lb/>
+wir thun? — Schlag’n wir’n todt.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ah, wer wird denn ſo grob ſeyn? Ein Men-<lb/>
+ſchen, den wir ’s erſtemal ſeh’n — wir wurden aus-<lb/>
+g’richt.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ja, hing’richt wurden wir. — Ich hab da in<lb/>
+mein Bruſtfleck ein Thaler eing’naht.</p><lb/>
+<stage>(Trennt ihn heraus.)</stage></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ich hab’ auch ſechs neue Zwanziger.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Da ſeyn fünf Zwanziger — und zwei Zehnerln.</p></sp><lb/>
+<sp who="#EINH"><speaker><hi rendition="#g">Hauſirer</hi>.</speaker><lb/>
+<p>Na, wie iſt’s? kaufens die Herren?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(legt den Thaler auf das Trüherl).</stage><lb/>
+<p>Da iſt ein Thaler vom Schuſter — und da<lb/>
+ſeyn ſechs neue Zwanziger von mir.</p><lb/>
+<stage>(Wendet ſich zum Schuſter.)</stage></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Der Thaler iſt von mir, daß keine Irrung<lb/>
+g’ſchieht.</p></sp><lb/>
+<pb n="42" facs="#f0048"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(zum Hauſirer).</stage><lb/>
+<p>Der Thaler iſt vom Schuſter — und die ſechs<lb/>
+Zwanziger ſeyn vom Tiſchler.</p><lb/>
+<stage>(Steckt den Thaler in die Weſtentaſche und tritt bei Seite.)</stage></sp><lb/>
+<sp who="#EINH"><speaker><hi rendition="#g">Hauſirer</hi>.</speaker><lb/>
+<p>Ja, wo iſt denn der Thaler?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Der Thaler iſt von mir.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Da hab’ ich ihn hergelegt.</p></sp><lb/>
+<sp who="#EINH"><speaker><hi rendition="#g">Hauſirer</hi>.</speaker><lb/>
+<p>Er iſt aber nicht da.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(zieht den Zwirn herbei).</stage><lb/>
+<p>Du haſt g’ſehn, daß ich den Thaler da her<lb/>
+g’legt hab.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(verlegen).</stage><lb/>
+<p>Ja — ja — der Thaler iſt eh’nder da g’leg’n.</p></sp><lb/>
+<sp who="#EINH"><speaker><hi rendition="#g">Hauſirer</hi>.</speaker><lb/>
+<p>Aber wo iſt er denn jetzt?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wo er jetzt iſt, wollen’s wiſſen? — Eh’nder<lb/>
+iſt er da g’leg’n</p></sp><lb/>
+<sp who="#EINH"><speaker><hi rendition="#g">Hauſirer</hi>.</speaker><lb/>
+<p>Wo er aber jetzt iſt?</p></sp><lb/>
+<pb n="43" facs="#f0049"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Eh’nder iſt er da g’leg’n, und jetzt —</p> <stage>(zieht<lb/>
+den Thaler aus der Taſche)</stage> <p>iſt er da.</p> <stage>(Legt ihn hin.)</stage></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Aber Schneider!</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Wenn wir ’s Geld allein hätten, ſo därfet er<lb/>
+gar nit mit ſetzen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Nur nit kindiſch — ich hab den Thaler nur<lb/>
+wechſeln woll’n.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ja, Du biſt der, der ’s Geld wechſelt.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(zum Hauſirer).</stage><lb/>
+<p>Alſo, da iſt der Thaler vom Schuſter — da<lb/>
+da ſeyn die ſechs Zwanziger von mir — und da<lb/>
+ſeyn fünf Zwanziger und zwei Zehnerln vom Schnei-<lb/>
+der. — Jetzt her mit’n Los.</p></sp><lb/>
+<sp who="#EINH"><speaker><hi rendition="#g">Hauſirer</hi>.</speaker><lb/>
+<p>Da haben Sie’s. Ich wünſch, daß Sie damit<lb/>
+gewinnen. Schaffens ein Andermal.</p><lb/>
+<stage>(Ab.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="44" facs="#f0050"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Zehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige</hi> ohne <hi rendition="#g">Hauſirer</hi>.</stage><lb/>
+<sp who="#SEP"><speaker><hi rendition="#g">Sepherl</hi>.</speaker><lb/>
+<p>Das iſt ſtark, wie ich’s Geld ſo hinauswerfen<lb/>
+könnt!</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Das wird ſich kurios rentiren.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Aber Sie reden ja ſchon wieder d’rein?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Um wie viel Uhr iſt denn die Ziehung?</p></sp><lb/>
+<sp who="#SEP"><speaker><hi rendition="#g">Sepherl</hi>.</speaker><lb/>
+<p>Gleich nach ſechs Uhr fangt’s an, grad da drü-<lb/>
+ben, und dauert den ganzen Tag.</p></sp><lb/>
+<stage>(Man hört trommeln.)</stage><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Was trommelns denn?</p></sp><lb/>
+<sp who="#ALLW"><speaker><hi rendition="#g">Alle Weiber</hi>.</speaker><lb/>
+<p>Die Ziehung geht ſchon los.</p></sp><lb/>
+<sp who="#EINZ"><speaker><hi rendition="#g">Ein Zimmermann</hi>.</speaker><lb/>
+<p>Weiß man nicht, wer’s g’winnt?</p></sp><lb/>
+<sp who="#SEP"><speaker><hi rendition="#g">Sepherl</hi>.</speaker><lb/>
+<p>Gewiß wieder Einer der’s nicht braucht.</p></sp><lb/>
+<pb n="45" facs="#f0051"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Das könnt’ man von uns nicht ſagen, wenn<lb/>
+wir’s gewinneten.</p></sp><lb/>
+<stage>(Leim ſteht traurig und tiefſinnig.)</stage><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker> <stage>(zu Leim).</stage><lb/>
+<p>Was machſt denn Du wieder für trübſelige Fa-<lb/>
+xen? Das ärgert mich von Dir.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Meine Peppi iſt mir eing’fallen.</p> <stage>(Wieder heiter.)</stage><lb/>
+<p>Aber es macht nur ein Bremsler, ’s iſt gleich vorbei.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Eilfter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Pantſch</hi>.</stage><lb/>
+<sp who="#PAN"><speaker><hi rendition="#g">Pantſch</hi></speaker><lb/>
+<stage>(rabiat hereinſtürzend).</stage><lb/>
+<p>Das iſt entſetzlich!</p></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Was iſt’s denn?</p></sp><lb/>
+<sp who="#PAN"><speaker><hi rendition="#g">Pantſch</hi>.</speaker><lb/>
+<p>Das iſt unbegreiflich! Ich hab den Haupttref-<lb/>
+fer nicht.</p></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Iſt er ſchon da?</p></sp><lb/>
+<pb n="46" facs="#f0052"/>
+<sp who="#PAN"><speaker><hi rendition="#g">Pantſch</hi>.</speaker><lb/>
+<p>Auf’n erſten Zug war er heraus. Nr. 7359.</p></sp><lb/>
+<sp who="#LEIZWIKNI"><speaker><hi rendition="#g">Leim. Zwirn. Knieriem</hi></speaker><lb/>
+<stage>(außer ſich vor Freude).</stage><lb/>
+<p>Mich trifft der Schlag!</p><lb/>
+<stage>(Alle Drei fallen um.)</stage></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Was iſt denn das? Zu Hülf!</p></sp><lb/>
+<sp who="#LEIZWIKNI"><speaker><hi rendition="#g">Leim. Zwirn. Knieriem</hi></speaker><lb/>
+<stage>(ſpringen jubelnd auf).</stage><lb/>
+<p>Den Treffer haben wir! Den Treffer haben<lb/>
+wir! Juheh!</p></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Was? Nicht möglich!</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Da iſt’s Los, was wir grad kauft haben. —<lb/>
+Wir wollen uns luſtig machen. Alle Tiſchler von<lb/>
+der ganzen Stadt ſind eingeladen.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Herr Wirth! alle Schuſter vom ganzen Land.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Alle Schneider von der ganzen Welt!</p></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Juheh! Juheh! Juheh!</p> <stage>(Alle ab.)</stage></sp><lb/>
+<pb n="47" facs="#f0053"/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(indem er mit Zwirn und Knieriem vortritt).</stage><lb/>
+<p>Jetzt ſagt’s mir aber, Kameraden, was fangen<lb/>
+wir mit unſerm Reichthum an? Ich hab’ meinen<lb/>
+Plan.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>O ich auch. Aber nur nobel!</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich hab’ ganz eine eigene Idee.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ich reiſ’ nach Wien morgen in aller Früh;<lb/>
+find’ ich meine Peppi noch ledig, ſo bin ich der<lb/>
+glücklichſte Menſch auf der Welt; iſt ſie verheirathet,<lb/>
+dann nutzt mich mein ganzer Reichthum nichts —<lb/>
+da geh’ ich dann nach Haus, bau ein Spital für<lb/>
+unglückliche Tiſchlergeſellen, und da leg’ ich zuerſt<lb/>
+mich ſelber hinein, und ſtirb auch d’rin.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Nein, dieſer Plan iſt mir zu traurig. Ich<lb/>
+werde von nun an mehr Don Juan, als Schnei-<lb/>
+der ſeyn.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Und ich hab’ keine Leidenſchaft, als die Aſtro-<lb/>
+nomie, d’rum g’wöhn’ ich mir’s Bierſaufen ab, und<lb/>
+verleg mich von heut an bloß auf’n Wein. Auf’s<lb/>
+Jahr geht ſo die Welt zu Grund, da zieh’ ich halt<lb/>
+<pb n="48" facs="#f0054"/>
+heuer noch von einen Weinkeller in den andern her-<lb/>
+um, und führ’ ſo ein zufried’nes, häusliches Leben.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Mir iſt leid, daß wir auf die Art nicht bei-<lb/>
+ſammen bleiben können.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wir haben Jeder unſre apparte Paſſion.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Auseinander müſſen wir.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Aber, wie Einer vom Andern hört, daß er im<lb/>
+Unglück iſt —</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Von Unglück iſt gar keine Red’ nicht, wenn<lb/>
+der Menſch einen Treffer macht.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wenn’s halt aber doch der Fall iſt, ſo wollen<lb/>
+wir Einer dem Andern beiſteh’n.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Die Hand d’rauf!</p></sp><lb/>
+<sp who="#ZWIKNI"><speaker><hi rendition="#g">Zwirn</hi> und <hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Gilt allemal.</p> <stage>(Reichen ſich die Hände.)</stage></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Und heut über’s Jahr, am heutigen Tag, an<lb/>
+dem Gedächtnißtag unſers Glücks, kommen wir alle<lb/>
+Drei in W’ien zuſammen beim Meiſter Hobelmann,<lb/>
+<pb n="49" facs="#f0055"/>
+dort bin ich entweder glücklich, oder Ihr erfahrt<lb/>
+wo ich in meinem Unglück zu finden bin.</p></sp><lb/>
+<sp who="#ZWIKNI"><speaker><hi rendition="#g">Zwirn</hi> und <hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Gilt detto.</p> <stage>(Reichen ſich die Hände.)</stage><lb/>
+<stage>(Pantſch und viele Männer und Weiber treten ein.)</stage></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Wir gratuliren!</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Danke, danke! — Herr Wirth!</p></sp><lb/>
+<sp who="#PAN"><speaker><hi rendition="#g">Pantſch</hi>.</speaker><lb/>
+<p>Euer Gnaden!</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Wir geben eine Tafel bei Ihm.</p></sp><lb/>
+<sp who="#PAN"><speaker><hi rendition="#g">Pantſch</hi>.</speaker><lb/>
+<p>Euer Excellenz —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Heute iſt bei mir <hi rendition="#aq">balparée.</hi></p></sp><lb/>
+<sp who="#PAN"><speaker><hi rendition="#g">Pantſch</hi>.</speaker><lb/>
+<p>Euer Durchlaucht — mein Saal in der Vor-<lb/>
+ſtadt hab’ ich auf’s Prächtigſte neu arrangiren laſ-<lb/>
+ſen, es kann alle Stund der Ball anfangen.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<p>Und jetzt aufgrebellt, Muſikanten! Jetzt mar-<lb/>
+ſchiren wir im Zug zu der Ausſpielung, um unſer<lb/>
+Geld z’holen, und nachdem geht’s gleich ans Eſſen,<lb/>
+Trinken und Tanzen bis morgen Fruh.</p></sp><lb/>
+<fw type="sig" place="bottom">3</fw><lb/>
+<pb n="50" facs="#f0056"/>
+<sp who="#CHO"><speaker><hi rendition="#g">Chor</hi>.</speaker><lb/>
+<lg type="poem"><l>Es kommt halt das Glück</l><lb/>
+<l>Auf einmal oft dick;</l><lb/>
+<l>Die Hüt’ werft’s in d’Höh’,</l><lb/>
+<l>Schreit’s Juheh! Juheh!</l></lg><lb/>
+<stage>(Unter dem Chor Alles jubelnd ab.)</stage><lb/>
+<stage>(<hi rendition="#g">Der Vorhang fällt</hi>.)</stage><lb/>
+<stage><hi rendition="#g">Ende des erſten Aufzuges</hi>.</stage></sp></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="51" facs="#f0057"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Zweiter Aufzug</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <stage>(Die Bühne ſtellt die Tiſchlerwerkſtätte des Meiſter Hobelmann<lb/>
+in Wien vor. Mittel- und Seitenthüren.)</stage><lb/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Erſter Auftritt</hi>.</hi></head><lb/>
+<stage>Ein <hi rendition="#g">Fremder</hi>. Dann <hi rendition="#g">Gertraud</hi>.</stage><lb/>
+<sp who="#EINF"><speaker><hi rendition="#g">Fremder</hi></speaker><lb/>
+<stage>(die Werkſtätte muſternd).</stage><lb/>
+<p>Hat wirklich eine ſchöne Werkſtätte, der Mei-<lb/>
+ſter Hobelmann.</p></sp><lb/>
+<sp who="#GER"><speaker><hi rendition="#g">Gertraud</hi></speaker><lb/>
+<stage>(kommt aus der Seitenthüre rechts — im ſchwäbiſchen<lb/>
+Dialect).</stage><lb/>
+<p>Euer Gnaden, ich hab’s dem Meiſter Hobel-<lb/>
+mann ſchon geſagt, er wird gleich da ſeyn. Da kommt<lb/>
+er ſchon.</p> <stage>(Geht durch die Mittelthüre ab.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Zweiter Auftritt</hi>.</hi></head><lb/>
+<stage>Der <hi rendition="#g">Fremde. Hobelmann</hi>.</stage><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Unterthänigſter Diener, Euer Gnaden. Mit was<lb/>
+kann ich zu Dienſten ſteh’n?</p></sp><lb/>
+<fw type="sig" place="bottom">3 *</fw><lb/>
+<pb n="52" facs="#f0058"/>
+<sp who="#EINF"><speaker><hi rendition="#g">Fremder</hi>.</speaker><lb/>
+<p>Ich etablire mich hier, und habe ein großes<lb/>
+Möbelgeſchäft mit Ihm abzumachen, lieber Meiſter.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Iſt mir eine Ehr’. Aber dürft’ ich nicht bitten,<lb/>
+wenn’s möglich wär’ die Sach’ auf morgen zu ver-<lb/>
+ſchieben? Heut kann ich nicht, und wenn ich tau-<lb/>
+ſend Gulden profitiret; denn ich hab’ heut eine Hoch-<lb/>
+zeit im Haus.</p></sp><lb/>
+<sp who="#EINF"><speaker><hi rendition="#g">Fremder</hi>.</speaker><lb/>
+<p>Nach Gefallen, ich bin nicht preſſirt.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Dann hab’ ich aber noch eine Bitt. Der Hoch-<lb/>
+zeitſchmaus iſt zwar ſchon zu End’, aber ein Schal-<lb/>
+lerl Kaffee, wenn Euer Gnaden bei uns zu ſich neh-<lb/>
+men wollten — die Ehr’ müſſen Euer Gnaden der<lb/>
+Braut anthun.</p></sp><lb/>
+<sp who="#EINF"><speaker><hi rendition="#g">Fremder</hi>.</speaker><lb/>
+<p>Mit Vergnügen, lieber Meiſter.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi></speaker><lb/>
+<stage>((ruft zur Thüre hinein).</stage><lb/>
+<p>Peppi! richt den porzellanenen Weidling zum<lb/>
+Kaffee für den gnädigen Herrn.</p><lb/>
+<stage>(Beide ab.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="53" facs="#f0059"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Dritter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Leim</hi>. Etwas ſpäter <hi rendition="#g">Gertraud</hi>.</stage><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(im ſchlechten zerriſſenen Rock, den Wanderbündel auf<lb/>
+den Rücken, tritt ein).</stage><lb/>
+<p>Ich weiß nicht was das iſt, kein Menſch fragt<lb/>
+mich, zu wem ich will. In der Kuchel hab’ ich eine<lb/>
+Menge Dienſtboten g’ſeh’n, die jubeln, was’s Zeug<lb/>
+halt, und einer ſitzt vor der Thür, dem muß übel<lb/>
+ſeyn.</p> <stage>(Umherſehend.)</stage> <p>Da wär’ ich halt wieder in mei-<lb/>
+ner lieben Werkſtatt. — Das ſind Erinnerungen für<lb/>
+mich! Auf den Platz hab’ ich einen Tiſch g’macht,<lb/>
+und hab’ d’Füß’ vergeſſen; denn meine Gedanken<lb/>
+waren bei der Peppi — an dem Platz hab’ ich ein<lb/>
+Kaſtenb’ſchläg an ein Spucktrüherl g’nagelt; denn<lb/>
+meine Gedanken waren nicht bei der Arbeit. — O<lb/>
+ich war ein Stockfiſch, daß ich nie g’redt hab’, und<lb/>
+mir g’ſchähet recht, wenn ſie ſchon längſt den Wirth<lb/>
+gehei —</p></sp><lb/>
+<sp who="#GER"><speaker><hi rendition="#g">Gertraud</hi></speaker><lb/>
+<stage>(zur Mitte eintretend).</stage><lb/>
+<p>Wie kommt denn Er da herein?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Nu, wie jeder andere Menſch, bei der Thür.</p></sp><lb/>
+<sp who="#GER"><speaker><hi rendition="#g">Gertraud</hi>.</speaker><lb/>
+<p>Wann Er Arbeit ſuche thut, ſo komm Er mor-<lb/>
+ge, heut iſt’s nix, heut hanne wir Hochzeit.</p></sp><lb/>
+<pb n="54" facs="#f0060"/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(erſchrocken).</stage><lb/>
+<p>Wer hat g’heirath?</p></sp><lb/>
+<sp who="#GER"><speaker><hi rendition="#g">Gertraud</hi>.</speaker><lb/>
+<p>Der Herr Strudel, der Wirth im goldenen<lb/>
+Nockerle hat g’heirath — Vormittag war die Ko-<lb/>
+pulation.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Wem hat er g’heirath?</p></sp><lb/>
+<sp who="#GER"><speaker><hi rendition="#g">Gertraud</hi>.</speaker><lb/>
+<p>Die Mamſell Hobelmann.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(fährt auf ſie los).</stage><lb/>
+<p>Schwabin! ich bring Dich um.</p></sp><lb/>
+<sp who="#GER"><speaker><hi rendition="#g">Gertraud</hi></speaker><lb/>
+<stage>(ſchreit, indem ſie abläuft).</stage><lb/>
+<p>Zu Hülfe! zu Hülfe! er will mich verſchlage.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Vierter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Leim. Hobelmann</hi>.</stage><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>He, he! was gibt’s denn da?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Meiſter Hobelmann —</p></sp><lb/>
+<pb n="55" facs="#f0061"/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi></speaker><lb/>
+<stage>(erfreut).</stage><lb/>
+<p>Was ſeh’ ich! Leim, Er iſt wieder da? Na<lb/>
+das freut mich!</p> <stage>(Ruft in die Thüre.)</stage> <p>Peppi! Peppi<lb/>
+g’ſchwind komm, der Leim iſt da!</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Um Alles in der Welt, nein! Ich will ſie nicht<lb/>
+ſehen — ich kann ſie nicht ſehen.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Fünfter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Peppi</hi>.</stage><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi></speaker><lb/>
+<stage>(heraushüpfend, einen weißen Kranz auf dem Kopf,<lb/>
+ganz weiß gekleidet).</stage><lb/>
+<p>Ach Vater — wo — wo iſt er? — Ha! end-<lb/>
+lich kommt er wieder zurück. Iſt das auch recht,<lb/>
+daß Er ſo lange auf ſich warten ließ?</p><lb/>
+<stage>(Faßt ihn ſanft am Arme.)</stage></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(ſie in heftiger Bewegung, aber nicht unſanft abwehrend).</stage><lb/>
+<p>Zurück, junge Frau!</p></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Vater, was iſt ihm denn?</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Das wird ſich geben.</p></sp><lb/>
+<pb n="56" facs="#f0062"/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Ach Gott, Johann, ich bin ſo froh, daß Er<lb/>
+wieder da iſt, ſo froh. Das muß ich gleich dem<lb/>
+Strudl erzählen.</p> <stage>(Ins Seitenzimmer ab.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Sechster Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige</hi> ohne <hi rendition="#g">Peppi</hi>.</stage><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>O Strudl! — Der Strudl liegt mir im Ma-<lb/>
+gen, wie ein Knödel.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Er ſchaut etwas abg’ſchaben aus, mein lieber<lb/>
+Leim, Er hat nicht viel aufg’ſteckt in der Fremd.<lb/>
+Sei Er froh, daß Er wieder bei mir iſt, ich hab’<lb/>
+mit Ihm einen Plan.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>O jetzt geht der Leim aus’n Leim, für mich<lb/>
+plant ſich nichts mehr. — Meine Peppi!</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Ah, iſt es das? Sieht Er, mein lieber Johann,<lb/>
+wie Er mir damals ſo unverhofft davongegangen iſt,<lb/>
+hat Er ja geſchrieben, Er wird aus Bosheit heirathen.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Das hab’ ich nur aus Bosheit g’ſchrieben; aber<lb/>
+ich bin ſo ledig, als nur was ſeyn kann.</p></sp><lb/>
+<pb n="57" facs="#f0063"/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Ich hätt<supplied>’</supplied> vor zwei Jahren durch einen gähzor-<lb/>
+nigen Wurf meine Tochter umbracht, wenn Er nicht<lb/>
+geweſen wär, für dieſe That hat Er ſich’s Madel<lb/>
+verdient; aber Er hat ja nix g’redt — oder hat Er<lb/>
+glaubt, daß ich ihn um Gotteswillen bitten ſoll,<lb/>
+daß er’s Madel heirath?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(verzweifelnd).</stage><lb/>
+<p>O ich war ein Eſel! ſo was kommt nur alle<lb/>
+Jahrtauſend einmal auf d’Welt.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Siebenter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Strudl. Anaſtaſia. Peppi</hi>.<lb/>
+Der <hi rendition="#g">Fremde</hi>.</stage><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi></speaker> <stage>(auf Leim zeigend).</stage><lb/>
+<p>Da, meine Freunde, ſeht’s, da iſt er!</p></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Willkommen! Willkommen!</p></sp><lb/>
+<sp who="#STR"><speaker><hi rendition="#g">Strudl</hi></speaker><lb/>
+<stage>(gutmüthig zu Leim).</stage><lb/>
+<p>Das war nicht ſchön von Ihm, daß Er uns<lb/>
+ſo abg’fahren iſt.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(bei Seite grimmig).</stage><lb/>
+<p>Der Dickwammſt foppt mich noch? Das iſt zu<lb/>
+<pb n="58" facs="#f0064"/>
+viel!</p> <stage>(Grob zu Strudl.)</stage> <p>Sie haben’s nöthig, daß’s<lb/>
+mich aufzieh’n wollen. Pfui Teufel! ich ſchamet mich,<lb/>
+heirathen mit <hi rendition="#g">dem</hi> Bauch. Sie ſollten ſich lieber<lb/>
+zwiſchen Ihre Weinfäſſer ſetzen, von denen kein’s<lb/>
+ſo dick iſt, als Sie, und ſo lang trinken, bis Sie<lb/>
+liegen bleiben im Keller unten, das wär’ g’ſcheidter,<lb/>
+als auf der Welt heroben einem ehrlichen Kerl ſei-<lb/>
+ne Lieb abfiſchen.</p></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Was?</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Leim, jetzt ſei Er ſtill! Wie kann Er einen<lb/>
+ehrenfeſten Mann in meinem Hauſe ſo traktiren?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ja ehrenfeſter Mann —</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Da geh’ Er her, ich muß Ihn ja erſt bekannt<lb/>
+machen mit der ganzen Geſellſchaft.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>O, ich kenn’ Alle.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi></speaker><lb/>
+<stage>(auf Strudl zeigend).</stage><lb/>
+<p>Das iſt mein Freund Strudl, der Bräutigam,<lb/>
+jetzt eigentlich ſchon Ehmann — das</p> <stage>(auf Peppi zei-<lb/>
+gend)</stage> <p>iſt meine Tochter Peppi, die Kranzeljungfer. —</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(froh überraſcht).</stage><lb/>
+<p>Kranzel — Jungfer?</p></sp><lb/>
+<pb n="59" facs="#f0065"/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi></speaker><lb/>
+<stage>(Anaſtaſia vorführend).</stage><lb/>
+<p>Das iſt Anaſtaſia Hobelmann, die Tochter von<lb/>
+meinem verſtorbenen Bruder, gegenwärtig ehrenfeſte<lb/>
+Strudl.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(in höchſter Freude losbrechend).</stage><lb/>
+<p>Alſo die Peppi iſt nicht ſeine Frau? ſie iſt<lb/>
+noch frei?</p> <stage>(Zu Peppi eilend.)</stage> <p>Du biſt alſo noch<lb/>
+mein, Peppi? — biſt keine Strudl? —</p> <stage>(Anaſtaſien<lb/>
+die Hand küſſend.)</stage> <p>O meine Gnädige! erlauben Sie, daß<lb/>
+ich Ihnen die Hand küſſe.</p> <stage>(Zu Strudel.)</stage> <p>Und Sie,<lb/>
+mein beſter, liebſter, ſchönſter, goldener Herr von<lb/>
+Strudl, jetzt hab’ ich Ihnen ſo lieb, weil Sie nur<lb/>
+die Peppi nicht g’heirath haben. Verzeihen Sie, ich<lb/>
+war ein Flegel — ich begreif gar nicht, wie ich<lb/>
+hab’ ſchimpfen können über Ihre reſpektable Weſte-<lb/>
+gegend —</p> <stage>(Dreht ihn um, und ſtreicht über ſeinen Rü-<lb/>
+cken.)</stage> <p>Sie ſind ſo ſchön, ſo proportionirt — gar<lb/>
+kein Bauch — laſſen Sie ſich umarmen.</p> <stage>(Umarmt ihn.)</stage><lb/>
+<p>— Und Sie, Herr Schwiegerpapa —</p> <stage>(ſich zu Hobel-<lb/>
+mann wendend.)</stage></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Was? Schwiegerpapa? Er hat ja noch nicht<lb/>
+einmal mit’n Madel Richtigkeit g’macht, ſein Wort<lb/>
+angebracht, bei mir gar nicht angehalten um ſie.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>O Peppi! himmliſche Peppi!</p></sp><lb/>
+<pb n="60" facs="#f0066"/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Ich ſollt’ bös ſeyn, Johann.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Ja, ich verdien’s.</p></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Du haſt mir viel Kummer verurſacht.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Und das blos durch meine Dummheit, weil ich<lb/>
+nix g’redt hab’</p></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi></speaker><lb/>
+<stage>(ihm die Hand reichend).</stage><lb/>
+<p>Du haſt mir das Leben gerettet, ich bin Dein.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Halt! da hab’ ich auch ein Wort d’rein zu re-<lb/>
+den. Dem erſten beſten Haſenfuß, der nix iſt und<lb/>
+nix hat, kann ich meine Tochter nicht geben. In-<lb/>
+deſſen, das iſt mit Ihm anders geworden, Er iſt<lb/>
+ein Mann, der ſeine Batzen hat.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Was? Wie weiß denn der Meiſter das?</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Nu, wenn ich’s nicht wüßt, wer ſollt’s denn<lb/>
+hernach wiſſen. — Ich hab’ für Ihn damals, wie<lb/>
+Er den Wurf aufg’fangt hat, der meine Tochter<lb/>
+getroffen hätt, 500 Dukaten angelegt, die g’hören<lb/>
+ſammt Intereſſen Sein. Jetzt fang Er halt Sein<lb/>
+<pb n="61" facs="#f0067"/>
+Meiſterſtuck an, in drei Wochen iſt Er Meiſter,<lb/>
+und dann ſoll Er’s Madel haben.</p></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Wir gratuliren!</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Beſter, großmüthigſter Herr Schwiegerpapa!<lb/>
+ich nehm’s an; aber jetzt müſſen auch Sie und die<lb/>
+Peppi erlauben, daß ich das auch dazu leg’, was<lb/>
+ich hab.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Hat Er ſich auch was erſpart?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Was man ſich halt ſo erfecht auf der Straßen.<lb/>
+Ich werd gleich die Kiſten hereintragen laſſen.</p> <stage>(Läuft<lb/>
+zur Thüre.)</stage> <p>Heda, Leut’! nur herein!</p><lb/>
+<stage>(Vier Träger tragen eine große Kiſte herein).</stage></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Was iſt das?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(den Deckel aufreißend).</stage><lb/>
+<p>Das gehört Alles meiner Braut.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Lauter Geldſäck? — Was Tauſend!</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Nix tauſend — über dreißigtauſend Thaler ſind<lb/>
+da drin. Ich hab’s in der Lotterie gewonnen, ich bin<lb/>
+jetzt ein Mandel mit Kren.</p></sp><lb/>
+<pb n="62" facs="#f0068"/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi></speaker><lb/>
+<stage>(ganz verwundert).</stage><lb/>
+<p>Ah! Ah!</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Der alte zerriſſene Rock da, war nur Verſtel-<lb/>
+lung, ich hab’ Dich nur prüfen wollen, ob Du<lb/>
+mich noch liebſt.</p></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Johann! Mein Johann! ich verlang mir nichts,<lb/>
+als Dein Herz.</p> <stage>(Sinkt in ſeine Arme.)</stage></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Das Geld gehört alſo alles Sein? — Jetzt muß<lb/>
+er’s Madel nehmen!</p> <stage>(Vereinigt ihre Hände.)</stage> <p>Heut<lb/>
+vier Wochen iſt Hochzeit, da ſoll die ganze Stadt<lb/>
+reden davon.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Das Geld g’hört mein — die Peppi g’hört auch<lb/>
+mein, jetzt nimm ich mein ganze Bagage zuſamm,<lb/>
+und zieh aus.</p><lb/>
+<stage>(Er hebt Peppi in die Kiſte auf die Geldſäcke, die Träger<lb/>
+tragen ſie ab, er geht neben bei, alle Andern folgen.)</stage><lb/>
+<stage><hi rendition="#g">Verwandlung</hi>.</stage><lb/>
+<stage>(Elegantes Zimmer in Zwirns Wohnung mit Mittel- und Sei-<lb/>
+tenthüren. Im Vorgrunde rechts und links Tiſche und Stühle).</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="63" facs="#f0069"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Achter Auftritt</hi>.</hi></head><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(allein, tritt in einem modernen Palmenſchlafrock auf).</stage><lb/>
+<p>Jetzt bin ich ſchon über ein Vierteljahr hier<lb/>
+in Prag etablirt — iſt das ein Leben in dem<lb/>
+Prag, wenn der Menſch ein Geld hat. Ich betreib<lb/>
+zwar mein Handwerk auf eine noble Manier, aber<lb/>
+es bleibt halt doch Schneiderei, und mich hat die<lb/>
+Natur zu etwas Höherem beſtimmt, Alles zeigt,<lb/>
+daß ich nicht zum Schneider geboren bin.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Neunter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Zwirn</hi>. Mehrere <hi rendition="#g">Bediente</hi> und <hi rendition="#g">Geſellen</hi>,<lb/>
+(einer nach dem andern).</stage><lb/>
+<sp who="#ERSB"><speaker><hi rendition="#g">Erſter Bedienter</hi></speaker><lb/>
+<stage>(aus der Mittelthüre).</stage><lb/>
+<p>Eu’r Gnaden, es iſt eine Kundſchaft da.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ich bin heut’ nicht mehr zu ſprechen.</p></sp><lb/>
+<sp who="#ERSB"><speaker><hi rendition="#g">Erſter Bedienter</hi>.</speaker><lb/>
+<p>Sehr wohl, Eu’r Gnaden.</p> <stage>(Ab.)</stage></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Die Leut glauben grad’, ein Schneider iſt nur<lb/>
+wegen ihnen auf der Welt.</p></sp><lb/>
+<pb n="64" facs="#f0070"/>
+<sp who="#ERSG"><speaker><hi rendition="#g">Erſter Geſell</hi></speaker><lb/>
+<stage>(aus der Seitenthüre links).</stage><lb/>
+<p>Herr von Zwirn!</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Was gibt’s?</p></sp><lb/>
+<sp who="#ERSG"><speaker><hi rendition="#g">Erſter Geſell</hi>.</speaker><lb/>
+<p>Der Herr von Fidibus hat ſeinen Konto be-<lb/>
+zahlt.</p> <stage>(Will ihm Geld geben.)</stage></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(ihn ſtolz zurückweiſend).</stage><lb/>
+<p>Das geht den Buchhalter an.</p><lb/>
+<stage>(Der Geſell will gehen.)</stage></sp><lb/>
+<sp who="#ZWEG"><speaker><hi rendition="#g">Zweiter Geſell</hi></speaker><lb/>
+<stage>(ebenfalls von links kommend).</stage><lb/>
+<p>Herr Meiſter! —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Grobian! Weiß Er meinen Titel nicht?</p></sp><lb/>
+<sp who="#ERSG"><speaker><hi rendition="#g">Erſter Geſell</hi></speaker><lb/>
+<stage>(leiſe zum zweiten).</stage><lb/>
+<p>Herr von Zwirn mußt ſagen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Noch einmal das Wort Meiſter, und Du haſt<lb/>
+ausgerungen.</p></sp><lb/>
+<sp who="#ZWEG"><speaker><hi rendition="#g">Zweiter Geſell</hi>.</speaker><lb/>
+<p>Herr von Zwirn, der Konto da iſt nix nutz<lb/>
+g’ſchrieben.</p></sp><lb/>
+<pb n="65" facs="#f0071"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Man trage ihn ſchleunigſt noch einmal in die<lb/>
+Copiatur, und melde dem Kanzleixerſonale meinen<lb/>
+Zorn.</p><lb/>
+<stage>(Beide Geſellen ab.)</stage></sp><lb/>
+<sp who="#ERSB"><speaker><hi rendition="#g">Erſter Bedienter</hi></speaker><lb/>
+<stage>(durch die Seitenthüre links).</stage><lb/>
+<p>Euer Gnaden, es iſt Samſtag, die Geſellen<lb/>
+wollen ihr Geld.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Sie ſollen zu meinem Kaſſier gehen, ich beküm-<lb/>
+mere mich nicht um ſolche Gemeinheiten.</p></sp><lb/>
+<sp who="#ERSB"><speaker><hi rendition="#g">Erſter Bedienter</hi>.</speaker><lb/>
+<p>Das hab’ ich ihnen auch g’ſagt, aber ſie ſagen,<lb/>
+ſie ſeyn noch überall vom Meiſter auszahlt worden.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Zum Kaſſier hab’ ich g’ſagt. Hinaus, <hi rendition="#aq">Filou!</hi></p><lb/>
+<stage>(Erſter Bedienter ab.)</stage></sp><lb/>
+<sp who="#ZWEB"><speaker><hi rendition="#g">Zweiter Bedienter</hi></speaker><lb/>
+<stage>(durch die Mitte).</stage><lb/>
+<p>Euer Gnaden, der Maler iſt da.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Herein mit’n Maler.</p></sp><lb/>
+<sp who="#ZWEB"><speaker><hi rendition="#g">Zweiter Bedienter</hi>.</speaker><lb/>
+<p>Sehr wohl.</p> <stage>(Ab.).</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="66" facs="#f0072"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Zehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Zwirn. Maler</hi>.</stage><lb/>
+<sp who="#EINM"><speaker><hi rendition="#g">Maler</hi></speaker><lb/>
+<stage>(mit vielen Verbeugungen zur Mitte eintretend).</stage><lb/>
+<p>Wenn es gefällig wäre, mir nur noch gütigſt<lb/>
+auf ein Viertelſtündchen die Anſicht Ihrer höchſt in-<lb/>
+tereſſanten Phiſiognomie zu verſtatten.</p> <stage>(Richtet ſeinen<lb/>
+Apparat auf den Tiſch.)</stage></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Na, ein Viertelſtündchen hab’ ich grade noch<lb/>
+Zeit.</p> <stage>(Setzt ſich.)</stage> <p>Aber Sie dalken lang herum mit<lb/>
+mein Porträt.</p></sp><lb/>
+<sp who="#EINM"><speaker><hi rendition="#g">Maler</hi>.</speaker><lb/>
+<p>Heut wird der Dalk fertig.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Was? — Wie meinem Sie das?</p></sp><lb/>
+<sp who="#EINM"><speaker><hi rendition="#g">Maler</hi>.</speaker><lb/>
+<p>Ich meine meine eig’ne Wenigkeit — ich werde<lb/>
+heute fertig mit Hochdero Porträt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ah ſo!</p></sp><lb/>
+<sp who="#EINM"><speaker><hi rendition="#g">Maler</hi></speaker><lb/>
+<stage>(indem er malt).</stage><lb/>
+<p>Dieſelben hätten ſich aber doch ſollen gefälligſt<lb/>
+in Oel malen laſſen.</p></sp><lb/>
+<pb n="67" facs="#f0073"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wegen meiner, wenn wir wo ein gutes Oel<lb/>
+kriegen. — Schaun’s nur, daß’s mich gut treffen,<lb/>
+es wär’ Schad’ um ein jeden Zug, der daneben geht.</p></sp><lb/>
+<sp who="#EINM"><speaker><hi rendition="#g">Maler</hi>.</speaker><lb/>
+<p>Ihre Naſe iſt ſehr ſchwer zu treffen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Meine Naſen? Gar nicht. Schaun’s, mir hat<lb/>
+vorigen Jahr im Bierhaus Einer ein Halbglas in’s<lb/>
+G’ſicht g’haut, der hat meine Naſen ſehr gut getrof-<lb/>
+fen, ſag’ ich Ihnen.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Eilfter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Hackauf</hi>.</stage><lb/>
+<sp who="#HAC"><speaker><hi rendition="#g">Hackauf</hi></speaker><lb/>
+<stage>(zur Mittelthüre eintretend, im böhmiſchen Dialekt).</stage><lb/>
+<p>Ale Gagramente, was wär’ denn das? Sie<lb/>
+ſeyns nit auf zu Haus, und ſitzens da und laſſens<lb/>
+Ihne paladatſchete G’fries mal’n?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Hinaus!</p></sp><lb/>
+<sp who="#HAC"><speaker><hi rendition="#g">Hackauf</hi>.</speaker><lb/>
+<p>Ah, da muß ich bitten! Ich bin ich Kundſchaft,<lb/>
+die zahlte gleich. Gleich af der Stell meßt’ Er mir ein<lb/>
+Rock an.</p></sp><lb/>
+<pb n="68" facs="#f0074"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Hinaus!</p></sp><lb/>
+<sp who="#HAC"><speaker><hi rendition="#g">Hackauf</hi>.</speaker><lb/>
+<p>Was? Ich ſoll ich hinaus geh’n? —</p> <stage>(Er packt<lb/>
+Zwirn, und drängt ihn auf den Seſſel, worauf der Ma-<lb/>
+ler das Bild gelegt, — Bediente treten ein, und drän-<lb/>
+gen Hackauf zur Mittelthüre hinaus.)</stage></sp><lb/>
+<sp who="#EINM"><speaker><hi rendition="#g">Maler</hi>.</speaker><lb/>
+<p>Wo iſt denn mein Porträt?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Das hat gewiß der Fleiſchhacker mitgenommen.</p><lb/>
+<stage>(Geht an die Thüre, das Porträt klebt an ſeinem<lb/>
+Schlafrock.)</stage></sp><lb/>
+<sp who="#EINM"><speaker><hi rendition="#g">Maler</hi>.</speaker><lb/>
+<p>An Ihrem Schlafrock klebt’s.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(beſieht ſich).</stage><lb/>
+<p>Ah verflucht, jetzt hab’ ich mich auf mein Mi-<lb/>
+niaturg’ſichtl g’ſetzt.</p></sp><lb/>
+<sp who="#EINM"><speaker><hi rendition="#g">Maler</hi>.</speaker><lb/>
+<p>Das iſt hin; doch es macht nichts, Sie zahlen<lb/>
+um 50 Dukaten mehr, und ich mach’ es Ihnen von<lb/>
+Neuem.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Aber heut kann ich nicht mehr ſitzen, ich bin zu<lb/>
+alterirt.</p></sp><lb/>
+<pb n="69" facs="#f0075"/>
+<sp who="#EINM"><speaker><hi rendition="#g">Maler</hi></speaker><lb/>
+<stage>(hat ſeine Sachen zuſammengepackt).</stage><lb/>
+<p>So werd’ ich morgen die unterthänigſte Ehre<lb/>
+haben.</p><lb/>
+<stage>(Mit Verbeugung ab.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Zwölfter Auftritt</hi>.</hi></head><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(allein, ſehr erſchöpft).</stage><lb/>
+<p>Den Fleiſchhacker klag’ ich — ich muß Satis-<lb/>
+faction haben. Ich arbeit’ einmal für keine Kund-<lb/>
+ſchaft, die mir meinen Reſpekt nicht gibt, und<lb/>
+wenn’s mich zehnfach bezahlt.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Dreizehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Zwirn. Windwachel. Lüftig</hi>.</stage><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Theurer Freund! hier hab’ ich das Vergnügen,<lb/>
+Dir einen Dutzbruder von mir vorzuſtellen. Herr<lb/>
+von Lüftig.</p></sp><lb/>
+<sp who="#HERL"><speaker><hi rendition="#g">Lüftig</hi>.</speaker><lb/>
+<p>Herr von Zwirn, ich hatte ſchon lange den<lb/>
+Wunſch, den berühmten Mann kennen zu lernen —</p></sp><lb/>
+<pb n="70" facs="#f0076"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(geſchmeichelt).</stage><lb/>
+<p>Ich bitte, die Ehre iſt meinerſeits.</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Mein Freund will ſich Verſchiedenes bei Dir<lb/>
+machen laſſen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>O ich bitte, mein ganzes Magazin ſteht zu Be-<lb/>
+fehl. Belieben Sie ſich nur nach Guſto auszuſuchen.</p></sp><lb/>
+<sp who="#HERL"><speaker><hi rendition="#g">Lüftig</hi>.</speaker><lb/>
+<p>Ich brauche aber ziemlich viel.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Je mehr, deſto beſſer.</p></sp><lb/>
+<sp who="#HERL"><speaker><hi rendition="#g">Lüftig</hi>.</speaker><lb/>
+<p>Bin aber für den Augenblick nicht bei Kaſſa,<lb/>
+um gleich bezahlen zu können.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Thut nichts, ich hab’ Geld genug; übrigens<lb/>
+kennt Sie mein Freund Windwachel, und das iſt ge-<lb/>
+nug. — Spazieren Sie nur in mein Magazin.</p></sp><lb/>
+<sp who="#HERL"><speaker><hi rendition="#g">Lüftig</hi>.</speaker><lb/>
+<p>Ihr unterthänigſter Diener, Herr von Zwirn.</p><lb/>
+<stage>(Im Abgehen zu Windwachel.)</stage> <p>Der Schneider kriegt<lb/>
+keinen Kreuzer von mir.</p> <stage>(Ab.)</stage></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Jetzt ſag’ mir, Freund, kommt die Frau von<lb/>
+<hi rendition="#aq">Palpiti?</hi></p></sp><lb/>
+<pb n="71" facs="#f0077"/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Ich war heute Vormittag bei ihr, ſie nahm<lb/>
+Deine Einladung ſammt ihren beiden Töchtern mit<lb/>
+Vergnügen an.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Du haſt doch nichts merken laſſen, daß ich ein<lb/>
+Schneider bin?</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Keine Sylbe.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Haſt g’ſagt, daß ich ein Kapitaliſt bin aus —<lb/>
+aus — aus <hi rendition="#aq">Particulier?</hi></p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Freilich. — Nun hätt’ ich aber eine Bitte an<lb/>
+Dich. In Deinem Magazin iſt nicht ein Stück, was<lb/>
+mir paßt; Du mußt ſchon die Güte haben, und mir<lb/>
+ſelbſt das Maß nehmen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(ſehr bereitwillig).</stage><lb/>
+<p>Ja, Freund! mit Dir mach’ ich eine Ausnahm.</p><lb/>
+<stage>(Läutet, erſter Bedienter tritt ein.)</stage> <p>Johann, geh’ Er<lb/>
+hinüber, und hol’ er mir eine Schneidermaß.</p><lb/>
+<stage>(Bedienter ab.)</stage></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Du wirſt finden, daß ich ſeit einiger Zeit et-<lb/>
+was ſchlanker geworden bin.</p></sp><lb/>
+<pb n="72" facs="#f0078"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Es iſt wahr, Du biſt bedeutend mägerer gewor-<lb/>
+den, Du brauchſt auf ein Frack jetzt nicht mehr, als<lb/>
+anderthalb Achtel Kaſimir.</p> <stage>(Der Bediente hat das<lb/>
+Maß gebracht.)</stage> <p>Was willſt denn haben?</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Einen modernen Kaput.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(ihm Maß nehmend).</stage><lb/>
+<p>Was nehmen wir den für eine Farb?</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Ich denke, kaſtanienbraun.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Die Hand halt ſo, daß wir die Armlänge krie-<lb/>
+gen. —</p> <stage>(Nimmt ihm die Länge zu einem Schlepp.)</stage><lb/>
+<p>Was nehmen wir denn für einen Kragen?</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Schwarzblauen Sammt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>G’fallt mir nicht — ich glaubet Pomeran-<lb/>
+zengelb.</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Ah, was fallt Dir ein!</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="73" facs="#f0079"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Vierzehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige</hi>. Frau von <hi rendition="#g"><hi rendition="#aq">Palpiti,</hi> Laura, Ca-<lb/>
+milla</hi> (treten, von Beiden unbemerkt, ein).</stage><lb/>
+<sp who="#PAL"><speaker><hi rendition="#g"><hi rendition="#aq">Palpiti.</hi></hi></speaker><lb/>
+<p>Wir haben die Ehre —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>So, jetzt die Mitte.</p></sp><lb/>
+<sp who="#PAL"><speaker><hi rendition="#g"><hi rendition="#aq">Palpiti.</hi></hi></speaker><lb/>
+<p>Wir haben die Ehre —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(ſie bemerkend, wirft Maß und Schere weg).</stage><lb/>
+<p>Mich trifft der Schlag!</p></sp><lb/>
+<sp who="#PAL"><speaker><hi rendition="#g"><hi rendition="#aq">Palpiti</hi></hi>.</speaker><lb/>
+<p>Wir haben geſtört —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(ſehr verlegen).</stage><lb/>
+<p>O nein — es war — ich hab’ nur —</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Ein Scherz, weiter nichts.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ja, nur ein Geſpaß — wir wollten ſehen, wer<lb/>
+dicker iſt um die Mitte. — Ich bin noch ganz im<lb/>
+<hi rendition="#aq">Negligée,</hi> Sie erlauben ſchon — ich werd’ gleich<lb/>
+<fw type="sig" place="bottom">4</fw><lb/>
+<pb n="74" facs="#f0080"/>
+mein Sonntagskleid anleg’n. Windwachel, unter-<lb/>
+halte die Damen indeß.</p><lb/>
+<stage>(Ab in die Seitenthüre rechts.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>     <div n="2"><head><hi rendition="#b"><hi rendition="#g">Fünfzehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige</hi>, ohne <hi rendition="#g">Zwirn</hi>.</stage><lb/>
+<spGrp>             <stage rendition="#rightBraced"/>             <sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Ah, das iſt ein kurioſer Menſch.</p><lb/>
+</sp>             <sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Was iſt denn das?</p></sp>         </spGrp>         <lb/>
+<sp who="#PAL"><speaker><hi rendition="#g"><hi rendition="#aq">Palpiti</hi></hi></speaker><lb/>
+<stage>(zu Windwachel).</stage><lb/>
+<p>Sie haben uns geſagt, daß der Herr vom Haus<lb/>
+ein gebildeter Weltmann iſt. Weh’ Ihnen, wenn<lb/>
+Sie meine Töchter durch eine ignoble Bekanntſchaft<lb/>
+blamiren.</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Ich hab’ ſchon geglaubt, Sie haben uns in eine<lb/>
+Schneiderwerkſtatt geführt.</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Was fällt Ihnen ein? Der Herr vom Haus iſt<lb/>
+ein Menſch, der von ſeinem Geld lebt und viel Geld<lb/>
+hat; iſt Ihnen das nicht genug?</p></sp><lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Freilich, wenn ich an die brilliantenen Ohrrin-<lb/>
+ge denke —</p></sp><lb/>
+<pb n="75" facs="#f0081"/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Dann finden Sie, daß er eine ſcharmante Bil-<lb/>
+dung hat.</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi></speaker><lb/>
+<stage>(zu Windwachel).</stage><lb/>
+<p>Wir ſind Ihnen verbunden für die <hi rendition="#aq">Connaissan-<lb/>
+ce,</hi> zu der Sie uns verholfen haben.</p></sp><lb/>
+<sp who="#PAL"><speaker><hi rendition="#g"><hi rendition="#aq">Palpiti</hi></hi>.</speaker><lb/>
+<p>O, nicht ihm habt Ihr das zu danken, ſondern<lb/>
+nur mir; denn erſt ſeitdem Ihr nach meiner Idee<lb/>
+Euch für Italienerinnen ausgegeben, habt Ihr eini-<lb/>
+gen Anwerth.</p></sp><lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Es liegt doch nur in unſerm intereſſanten Be-<lb/>
+nehmen, daß man es uns glaubt.</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi></speaker> <stage>(zu Laura).</stage><lb/>
+<p>Meine wälliſche Ausſprach hat ſchon Manchen<lb/>
+irre geführt, bei Dir aber wird er ſich bald ausken-<lb/>
+nen, daß Du nur eine Burkersdorferin biſt.</p></sp><lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Das könnte wohl bei Dir der Fall ſeyn.</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Nur keinen Streit, meine Damen — da kommt<lb/>
+der Herr vom Haus.</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Jetzt will ich gleich Eindruck auf ſein Gemüth<lb/>
+machen.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">4 *</fw><lb/>
+<pb n="76" facs="#f0082"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Sechszehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Zwirn</hi> (nach dem neueſten Journal, aber<lb/>
+karrikirt gekleidet).</stage><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi></speaker><lb/>
+<stage>(ſich ſtellend als ob ſie weine).</stage><lb/>
+<p>O ich Unglückliche! Freund, weinen Sie mit<lb/>
+mir.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Was iſt denn geſchehn?</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Ich habe meinen Mopperl verloren.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ha, ha, ha! Iſt nicht ſchad’ um ſo ein<lb/>
+Viecherl.</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>O ich bin untröſtlich! Jetzt erſt hab’ ich den<lb/>
+Verluſt bemerkt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Er kann ja noch nicht weit ſeyn.</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Das Hunderl iſt ſicher nach Italien geloffen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Laſſen wir’n anſchlagen. Ich zahl zwanzig Du-<lb/>
+katen, wer ihn bringt. — Windwachel! — Wind-<lb/>
+wachel! hörſt denn nicht, wenn ich Dich ruf?</p></sp><lb/>
+<pb n="77" facs="#f0083"/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi></speaker><lb/>
+<stage>(der mit Frau v. <hi rendition="#aq">Palpiti</hi> geſprochen, wendet ſich zu ihm).</stage><lb/>
+<p>Was willſt denn?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Schreib eine <hi rendition="#aq">Annonce!</hi></p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Schreib ſie ſelbſt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(leiſe zu ihm).</stage><lb/>
+<p>Ich kann nicht ſchreiben.</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Ah ſo!</p> <stage>(Setzt ſich an den Tiſch).</stage></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(diktirt).</stage><lb/>
+<p>Verlorner Hund —</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Halt! das geht nicht; die <hi rendition="#aq">Annonce</hi> muß ita-<lb/>
+lieniſch ſeyn, ſonſt verſteht’s dort Niemand.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(bei Seite).</stage><lb/>
+<p>Jetzt kocht’s.</p> <stage>(Leiſe zu Windwachel.)</stage> <p>Kannſt Du<lb/>
+Wälliſch?</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Kein Wort.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Italieniſch auch nicht?</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Eben ſo wenig.</p></sp><lb/>
+<pb n="78" facs="#f0084"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(für ſich).</stage><lb/>
+<p>Ich hab’ vier Wochen in Trieſt gearbeitet, da<lb/>
+iſt ſo Manches hängen geblieben. Probir’n wir’s.</p><lb/>
+<stage>(Zu Windwachel.)</stage> <p>Schreib italieniſch.</p> <stage>(Diktirt.)</stage> <p><hi rendition="#aq">Cane<lb/>
+perdutto — Non avete veduto — cane perdut-<lb/>
+to.</hi> —</p> <stage>(Zu Camilla.)</stage> <p>War der Mopperl ein Mandel<lb/>
+oder ein Weibel?</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Er war männlichen Geſchlechts.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(diktirt).</stage><lb/>
+<p><hi rendition="#aq">Questo</hi> Mopperl — <hi rendition="#aq">un Signore.</hi></p> <stage>(Zu Camilla.)</stage><lb/>
+<p>Was für einen Charakter hat er gehabt?</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Je nun, wie alle Mopperln.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(nachdenkend).</stage><lb/>
+<p>Aha! —</p> <stage>(Diktirt.)</stage> <p><hi rendition="#aq">carattere — calfacteri-<lb/>
+stico.</hi></p> <stage>(Zu Camilla.)</stage> <p>Wie alt?</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Drei Jahr.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Drei Jahr — wie heißt denn das —</p> <stage>(Diktirt.)</stage><lb/>
+<p><hi rendition="#aq">tre cento anni vecchio.</hi> —</p> <stage>(Zu Camilla.)</stage> <p>Hatte<lb/>
+er keine beſonderen Kennzeichen?</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Er trug ein ſchwarzes Halsband.</p></sp><lb/>
+<pb n="79" facs="#f0085"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(diktirt).</stage><lb/>
+<p><hi rendition="#aq">Portate un nero cravattel.</hi></p> <stage>(Zu Camilla.)</stage> <p>Hatte<lb/>
+er abgeſchnittene Ohren?</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Natürlich, er war ja ein Mopperl.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(diktirt).</stage><lb/>
+<p>Geſtutzte <hi rendition="#aq">orrecchi.</hi></p> <stage>(Zu Camilla.)</stage> <p>War er klein<lb/>
+oder groß?</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Ein ganz kleines Hunderl.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(diktirt).</stage><lb/>
+<p><hi rendition="#aq">Piccolo</hi> Viech mit <hi rendition="#aq">quatro</hi> Haxen. — <hi rendition="#aq">Recom-<lb/>
+penza</hi> zwanzig <hi rendition="#aq">Zechini in buona moneta.</hi></p> <stage>(Läutet.)</stage><lb/>
+<p>He, Bediente!</p></sp><lb/>
+<sp who="#ERSB"><speaker><hi rendition="#g">Erſter Bedienter</hi></speaker><lb/>
+<stage>(eintretend).</stage><lb/>
+<p>Eu’r Gnaden!</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Das kommt in die Buchdruckerei.</p> <stage>(Gibt ihm das<lb/>
+Blatt.)</stage></sp><lb/>
+<sp who="#ERSB"><speaker><hi rendition="#g">Erſter Bedienter</hi>.</speaker><lb/>
+<p>Wo wird’s denn ang’ſchlagen?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>In ganz Italien.</p></sp><lb/>
+<sp who="#ERSB"><speaker><hi rendition="#g">Erſter Bedienter</hi></speaker><lb/>
+<stage>(für ſich).</stage><lb/>
+<p>Mein Herr iſt ein Narr.</p> <stage>(Ab.)</stage></sp><lb/>
+<pb n="80" facs="#f0086"/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi></speaker> <stage>(zu Zwirn).</stage><lb/>
+<p>Ich dank’ Ihnen vielmals.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>O Sie ſchöne <hi rendition="#aq">Signora,</hi> es iſt gern geſchehen.</p><lb/>
+<stage>(Sich zu Laura wendend.)</stage> <p>Haben Sie vielleicht auch<lb/>
+Etwas verloren?</p></sp><lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Und wenn ich mein <hi rendition="#g">Herz</hi> verloren hätte?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(entzückt für ſich).</stage><lb/>
+<p>Die geht ſcharf d’rein, ganz das italieniſche<lb/>
+Feuer.</p></sp><lb/>
+<sp who="#HERW"><speaker><hi rendition="#g">Windwachel</hi>.</speaker><lb/>
+<p>Die Geſellſchaft kommt.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Siebenzehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige</hi>. Mehrere geputzte <hi rendition="#g">Herren</hi> und <hi rendition="#g">Da-<lb/>
+men</hi>, unter ihnen <hi rendition="#g">Lüftig</hi> (im neuen Frack).</stage><lb/>
+<sp who="#CHO"><speaker><hi rendition="#g">Chor der Geſellſchaft</hi>.</speaker><lb/>
+<p>Geladen haben Sie uns, Herr von Zwirn,<lb/>
+Wir thun von Ihrer Güte profitir’n<lb/>
+Wer Ihre Gaſtfreiheit und Freundſchaft kennt,<lb/>
+Macht Ihnen auch ein tiefes Compliment.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>,</speaker><lb/>
+<stage>(nachdem er ſie begrüßt).</stage><lb/>
+<p>Das iſt wahr, die ganze ſchöne Welt von Prag<lb/>
+hab’ ich da verſammelt.</p></sp><lb/>
+<pb n="81" facs="#f0087"/>
+<sp who="#HERL"><speaker><hi rendition="#g">Lüftig</hi>.</speaker><lb/>
+<p>Herr von Zwirn, eine ſchönere Wohnung als<lb/>
+Sie, kann man nicht mehr haben, hier fehlt nur<lb/>
+Eins zur vollſtändigen Eleganz.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wie? bei mir fehlte noch was?</p></sp><lb/>
+<sp who="#HERL"><speaker><hi rendition="#g">Lüftig</hi>.</speaker><lb/>
+<p>Sie müſſen die Gasbeleuchtung einführen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(beleidigt).</stage><lb/>
+<p>Gasbeleuchtung? — Ich kann beleuchten mit<lb/>
+was ich will, das geht Ihnen gar nichts an.</p></sp><lb/>
+<sp who="#HERL"><speaker><hi rendition="#g">Lüftig</hi></speaker> <stage>(erſtaunt).</stage><lb/>
+<p>Ich meinte nur —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Trau’n Sie mir nicht — wenn ich meine Scher<lb/>
+erwiſch —</p> <stage>(ſich korrigirend)</stage> <p>will ich ſagen, meinen.<lb/>
+Degen wenn ich erwiſch —</p></sp><lb/>
+<sp who="#HERL"><speaker><hi rendition="#g">Lüftig</hi>.</speaker><lb/>
+<p>Sie ſind ein Narr!</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Marſchiren Sie, ſonſt wirf ich Ihnen ein Bö-<lb/>
+geleiſen nach!</p></sp><lb/>
+<sp who="#HERL"><speaker><hi rendition="#g">Lüftig</hi>.</speaker><lb/>
+<p>Adieu, Sie Herr Zwirn Sie.</p><lb/>
+<stage>(Mit Windwachel ab.)</stage></sp><lb/>
+<pb n="82" facs="#f0088"/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi></speaker> <stage>(zu Zwirn).</stage><lb/>
+<p>Sie haben Verdruß gehabt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(ſich faſſend).</stage><lb/>
+<p>Das eben nicht, aber —</p></sp><lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Kann theilnehmende Freundſchaft Sie wieder<lb/>
+erheitern?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Freundſchaft? — Nein, die Liebe könnte das<lb/>
+viel beſſer.</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Die Liebe, glauben Sie?</p></sp><lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Je nun —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(Beide in die Wangen kneipend).</stage><lb/>
+<p>O Ihr ſeid Beide ein paar liebenswürdige<lb/>
+Schnecken!</p><lb/>
+<stage><hi rendition="#b"><hi rendition="#g">Quodlibet. Terzett mit Chor</hi>.</hi></stage></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Wie mich der Mann betrachtet,<lb/>
+Ach, das iſt ſtark, auf Ehr.</p></sp><lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Auf mich allein er ſchmachtet,<lb/>
+Es iſt kein Zweifel mehr.</p></sp><lb/>
+<pb n="83" facs="#f0089"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker> <stage><hi rendition="#g">Recitativ</hi>.</stage><lb/>
+<p>Allen Zwei’n möcht’ ich zugleich ein Buſſel geben,<lb/>
+Ich weiß nicht wie mir g’ſchieht,<lb/>
+Ich fühl’ mein Herz hier erbeben.<lb/>
+Ich möcht’ ein kleines Hüttchen nur<lb/>
+Wo hab’n auf einer ſtillen Flur,<lb/>
+Bei dieſem Hüttchen fließt ein Bach,<lb/>
+Und dieſem Bach fließt Liebe nach.</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Der Geſang, zart und ſtill,<lb/>
+Weckt Liebesqual;<lb/>
+Daß ich für einen Mann was fühl’,<lb/>
+Iſt’s erſtemal.</p></sp><lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>O fließt ihr Thränen,<lb/>
+Ertönt ihr Klagen,<lb/>
+Vergeblich Sehnen<lb/>
+Nach ſel’gen Tagen,<lb/>
+Des Herzens Bangen<lb/>
+Kennt kein Verlangen,<lb/>
+Als nur den Tod allein.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Welch’ ein Reiz in ihren Tönen,<lb/>
+Thränen ſelbſt ſie noch verſchönen,<lb/>
+Neu entflammt der Liebe Glut.</p></sp><lb/>
+<pb n="84" facs="#f0090"/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Wo die Donau brav rauſcht,<lb/>
+Und kein Stadtherr nit plauſcht,<lb/>
+Viel Meil’n weit von hier,<lb/>
+Möcht’ ich ſchmachten mit Dir.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wenn mir Dein Auge ſtrahlet,<lb/>
+Iſt mir ſo leicht, ſo gut.</p></sp><lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Und meine Wangen malet<lb/>
+Noch nie gefühlte Glut.</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>O weile!</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Laß mich!</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Weile!</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Laß mich;</p><lb/>
+<p>Dort hinten bei der Linden<lb/>
+Sitzt ein unbekanntes Reh,<lb/>
+Das ſchaut kerzengrad in d’Höh.<lb/>
+Auf der G’ſtetten war’s a Metten,<lb/>
+Auf der Gſtetten ſitzt a Mann,<lb/>
+Der hat ein Pudel und ein Hahn;<lb/>
+Und weil’s dort gar ſo zieht,<lb/>
+Hat der Pudel d’Strauchen kriegt,<lb/>
+<pb n="85" facs="#f0091"/>
+Da wird deſparat der Mann,<lb/>
+Frißt g’ſchwind ſeinen Hahn.</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Willſt Du kalt mir widerſtreben,<lb/>
+Ach, dann end’ auch mein Leben.<lb/>
+Kannſt Du mir nicht Liebe geben,<lb/>
+Ja, dann weih’ ich mich dem Grab.</p></sp><lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Ei! —</p><lb/>
+<p>Nun, Schweſter! was ſagſt Du denn?<lb/>
+Er kann nicht länger widerſteh’n,<lb/>
+Er find’t mich einmal gar zu ſchön.</p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Du glaubſt, es ſeyn alle Leut<lb/>
+In Dich verliebt, na, da hat’s Zeit.<lb/>
+Verſteht ſich, da hat’s Zeit,</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Halt!</p><lb/>
+<p>In dieſen heil’gen Hallen,<lb/>
+Kennt man die Rache nicht,<lb/>
+Und iſt a Menſch hier gefallen,<lb/>
+Das wär’ a verfluchte G’ſchicht.</p></sp><lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p><hi rendition="#aq">O caro, caro mio!</hi></p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p><hi rendition="#aq">Con te felice son io.</hi></p></sp><lb/>
+<pb n="86" facs="#f0092"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Nehmt’s mir’s nit krumm<lb/>
+Ich bin nit ſo dumm,<lb/>
+Die wälliſche Sprach<lb/>
+Bringt mi a no nit um.<lb/>
+<hi rendition="#aq">Cara ade a tendi mi,<lb/>
+Prove soave palpiti,<lb/>
+Ch’ esprimere non sò non sò<lb/>
+Non sò non sò non sò.</hi></p></sp><lb/>
+<sp who="#CAM"><speaker><hi rendition="#g">Camilla</hi>.</speaker><lb/>
+<p>Es iſt doch ein Glück<lb/>
+Ein Berliner zu ſeyn.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#g">Chor</hi>.</speaker><lb/>
+<p>Ja, ja, ein Berliner zu ſeyn.</p></sp><lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Wir ſind mit den Männern<lb/>
+Stets pfiffig und fein.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#g">Chor</hi>.</speaker><lb/>
+<p>Ja, wir ſind pfiffig und fein.</p><lb/>
+<stage>(Laura dudelt.)</stage></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#g">Chor</hi>.</speaker><lb/>
+<p>Es geht ihm die Arbeit<lb/>
+So flink wie das Maul,<lb/>
+Auch iſt er beim Eſſen<lb/>
+Und Trinken nicht faul.</p><lb/>
+<pb n="87" facs="#f0093"/>
+<stage><hi rendition="#g">Alle</hi> mit <hi rendition="#g">Chor</hi> zuſammen.</stage><lb/>
+</sp>     <spGrp>         <stage rendition="#rightBraced"/>         <sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Laſſet jeden Streit uns enden.</p><lb/>
+</sp>         <sp who="#CHO"><speaker><hi rendition="#g">Chor</hi>.</speaker><lb/>
+<p>Wie die Schweſtern ſich verſöhnen ꝛc.</p></sp>     </spGrp>     <lb/>
+<sp who="#LAU"><speaker><hi rendition="#g">Laura</hi>.</speaker><lb/>
+<p>Mag er ſich zu Einer wenden,<lb/>
+Räumt die And’re dann gern das Feld,<lb/>
+Viel tauſend Männer gibt’s auf der Welt.<lb/>
+Ja, es wird mir doch gelingen,<lb/>
+Ihn gewiß in’s Netz zu bringen.<lb/>
+Einen reichen Mann zu fangen,<lb/>
+Darnach gehet mein Verlangen.</p></sp><lb/>
+<sp who="#ZWILAUCAM"><speaker><hi rendition="#g">Zwirn. Laura. Camilla</hi>.</speaker><lb/>
+<p>Ja, es wird mir ſchon gelingen ꝛc.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#g">Chor</hi></speaker> <stage>(fällt mit ein).</stage><lb/>
+<p>Täuſchet nur nicht leerer Schein,<lb/>
+Welche Freude wird das ſeyn.</p></sp><lb/>
+<stage>(<hi rendition="#g">Der Vorhang fällt</hi>.)</stage><lb/>
+<stage><hi rendition="#g">Ende des zweiten Aufzuges</hi>.</stage> </div></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="88" facs="#f0094"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Dritter Aufzug</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <stage>(Die Bühne ſtellt ein nobles Zimmer im Erdgeſchoß in Meiſter<lb/>
+Hobelmanns und Meiſter Leims Hauſe in Wien vor, mit<lb/>
+Mittel- und Seitenthüren, und zwei praktikablen Fen-<lb/>
+ſtern im Hintergrunde; durch welche man auf die Stra-<lb/>
+ße ſieht.)</stage><lb/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Erſter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Gertraud. Reſerl</hi>.</stage><lb/>
+<sp who="#GER"><speaker><hi rendition="#g">Gertraud</hi>.</speaker><lb/>
+<p>Alſo heut iſt der g’wiſſe Jahrestag, wo’s zu-<lb/>
+ſammenkommen ſollen alle drei Brüderln.</p></sp><lb/>
+<sp who="#RES"><speaker><hi rendition="#g">Reſerl</hi>.</speaker><lb/>
+<p>Ich hör’ einen Wagen, mir ſcheint, es kommt<lb/>
+ſchon Einer ang’fahren.</p></sp><lb/>
+<sp who="#GER"><speaker><hi rendition="#g">Gertraud</hi>.</speaker><lb/>
+<p>Ja, mir ſcheint auch.</p><lb/>
+<stage>(Beide eilen an das Fenſter rechts im Hintergrunde, und<lb/>
+ſchauen rechts in die Scene.)</stage></sp><lb/>
+<sp who="#RES"><speaker><hi rendition="#g">Reſerl</hi>.</speaker><lb/>
+<p>Nein, das iſt der gnädige Herr, der da dane-<lb/>
+ben wohnt im erſten Stock.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="89" facs="#f0095"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Zweiter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Zwirn</hi><lb/>
+(kommt ärmlich und abgeriſſen, aber wohlgemuth zur<lb/>
+Mittelthüre herein).</stage><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Schön guten Abend wünſch ich. Logirt da nicht<lb/>
+der Meiſter Hobelmann?</p></sp><lb/>
+<sp who="#GER"><speaker><hi rendition="#g">Gertraud</hi>.</speaker><lb/>
+<p>Ja. Und was will Er?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Sagens nur, der Zwirn iſt da, wegen dem<lb/>
+Jahrestag.</p></sp><lb/>
+<sp who="#BEI"><speaker><hi rendition="#g">Beide</hi>.</speaker><lb/>
+<p>Wie? Was?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ja, ſo ſchaut ein Zwirn aus, dem der Zwirn<lb/>
+ausgangen iſt.</p></sp><lb/>
+<sp who="#GER"><speaker><hi rendition="#g">Gertraud</hi>.</speaker><lb/>
+<p>Sie machen ein Spaß — ſo ein reicher Herr,<lb/>
+der ſo viel g’wonnen hat, in der Maskerade.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>O nix Maskerade, das iſt mein ſchönſter, mein<lb/>
+einziger Anzug, denn ich hab’ gar kein andern.</p></sp><lb/>
+<sp who="#RES"><speaker><hi rendition="#g">Reſerl</hi>.</speaker><lb/>
+<p>Hörens auf!</p></sp><lb/>
+<pb n="90" facs="#f0096"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Auf Ehr, wenn ich auf einen Baum ſteig, ſo<lb/>
+hab’ ich nix zu ſuchen herunt auf der Erd.</p></sp><lb/>
+<sp who="#GER"><speaker><hi rendition="#g">Gertraud</hi>.</speaker><lb/>
+<p>O du blau’s Herrgottle, das iſt kaum zum<lb/>
+glauben.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Unter andern, war noch kein Schuſter da?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker> <stage>(von Außen).</stage><lb/>
+<p>Fixſtern, Kometen! Wenn ich nicht bald ein<lb/>
+Schnaps krieg, ſo —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ach, da kommt er ſchon.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Dritter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Knieriem</hi>.</stage><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker><lb/>
+<stage>(ebenfalls zur Mitte eintretend, ſehr abgeſchaben).</stage><lb/>
+<p>Iſt das die Boutique, wo der Herr Hobelmann<lb/>
+logirt?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Brüderl, kennſt mich nicht?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Halloh! der Zwirn!</p><lb/>
+<stage>(Umarmen ſich.)</stage></sp><lb/>
+<pb n="91" facs="#f0097"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(betrachtet ihn von oben bis unten).</stage><lb/>
+<p>Armer Menſch, wie ſiehſt Du aus!</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Du haſt’s Urſach, daß Dich wunderſt, wie ein<lb/>
+Anderer ausſchaut.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Kamerad, mir ſcheint, wir ſeyn alle Zwei mit<lb/>
+unſern Kapitalien in Ordnung. — Du, mir iſt’s<lb/>
+noch ſchlecht gangen.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Mir iſt’s auf die Letzt gar nicht mehr gangen;<lb/>
+denn ich bin g’ſeſſen, zwei Monat in Arreſt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Aber nobel hab’ ich das Meinige durchgebracht,<lb/>
+das braucht einmal nix.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich hab a Reiſ’ am Rhein g’macht — da ſind<lb/>
+gar kurioſe Weinkeller — ſo oft ich zu viel trunken<lb/>
+hab, allemal war meine Brieftaſchen weg. Unbegreif-<lb/>
+lich! Dann hab’ ich im Rauſch immer Händel an-<lb/>
+g’fangt, Straf zahlen müſſen, wie ich nix mehr<lb/>
+g’habt hab, habens mich eing’ſperrt — mit einem<lb/>
+Wort, nichts als unverſchuldete Unglücksfälle!</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wir ſeyn halt jetzt alle Zwei betteltutti.</p></sp><lb/>
+<pb n="92" facs="#f0098"/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Bei uns heißt’s: gleiche Brüder, gleiche Kappen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Aber dabei immer Allegro und fidel.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Allemal!</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Vierter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Hobelmann</hi>.</stage><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi></speaker><lb/>
+<stage>(iſt ſchon früher aus der Seitenthüre rechts getreten).</stage><lb/>
+<p>No brav, da hör’ ich ja recht auferbauliche<lb/>
+Sachen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(Hobelmann ſein Compliment machend).</stage><lb/>
+<p>Hab’ ich die Ehr’, den Herrn von Hobelmann<lb/>
+zu ſprechen?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Seyn Sie der, der ſeiner Tochter einmal ’s<lb/>
+Stemmeiſen nachg’worfen hat?</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Der bin ich. — Ihr habt es aber weit ge-<lb/>
+bracht mit Eurem Geld.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Grad ſo weit, als das Geld g’lengt hat.</p></sp><lb/>
+<pb n="93" facs="#f0099"/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Ihr habt Euer Glück zum Fenſter hinaus-<lb/>
+g’worfen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Deßwegen wird aber doch der Jahrstag celebrirt.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Gebens nur ein Schnaps her.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Vor allem Andern, was macht denn der Bru-<lb/>
+der Leim?</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Da müßt’s mich nicht drum fragen.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Iſt er nicht Ihr Schwiegerſohn?</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Laſſen wir das. Mit einem Wort, er iſt nach<lb/>
+und nach um Alles kommen —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ich kann nicht begreifen, wie der Menſch ſo<lb/>
+liederlich ſeyn kann.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Und wie’s Geld weg war, bis auf zweihun-<lb/>
+dert Thaler, da hat er hundert Thaler bei mir zu-<lb/>
+rückg’laſſen, und mit die andern hundert iſt er auf’s<lb/>
+Gerathewohl fort in die weite Welt. Heut hab’ ich<lb/>
+glaubt, er wird ſich wieder einfinden, aber ſtatt ſei-<lb/>
+ner iſt der Brief da kommen, an Euch Zwei adreſſirt.</p></sp><lb/>
+<pb n="94" facs="#f0100"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>An uns Zwei? Ah da bin ich neugierig.</p> <stage>(Nimmt<lb/>
+den Brief und öffnet ihn.)</stage> <p>Du, Schuſter, biſt Du<lb/>
+auch neugierig?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Freilich bin ich neugierig.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>No da haſt, lies!</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Weißt — ich leſ’ nicht gern.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ich leſet wieder für mein Leben gern, aber ich<lb/>
+kann nit leſen.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Bei mir iſt das der nämliche Fall.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Mir fallt was ein, ich probirs!</p> <stage>(Geht zu Ho-<lb/>
+belmann.)</stage> <p>Herr Hobelmann, Sie ſcheinen ein ver-<lb/>
+nünftiger Mann zu ſeyn — obwohl der Schein<lb/>
+manchmal trügt.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Nein, nein! diesmal trügt er nicht.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Sie werden wiſſen, ein Unterſchied der Stän-<lb/>
+de <hi rendition="#g">muß</hi> ſeyn. — Sie ſind Meiſter, wir zwei Ge-<lb/>
+ſellen —</p> <stage>(ihm den offenen Brief reichend)</stage> <p>leſen Sie!</p></sp><lb/>
+<pb n="95" facs="#f0101"/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Recht gern will ich Euch den Gefallen thun.</p><lb/>
+<stage>(Liest.)</stage> <p>»Liebe Freunde und Brüder! Wie gern wär’<lb/>
+»ich heut bei Euch, aber —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ehre dem Ehre gebührt.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>No ja, ich leſ’ ja recht gern, ich fühl mich auch<lb/>
+geehrt.</p> <stage>(Lies’t.)</stage> <p>»Wie gern wär’ ich heute bei Euch«—</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Das werden Sie gar nie erleben, daß ich in<lb/>
+Ihrer Gegenwart leſen werd’.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Wann Er’s ſo fortmacht, ſo wird auch Er nicht<lb/>
+erleben, daß ich in Seiner Gegenwart leſen werd’. —<lb/>
+Alſo —</p> <stage>(lies’t.)</stage> <p>»Wie gerne wäre ich heute bei Euch,<lb/>
+aber —</p><lb/>
+<stage>(Zwirn murmelt Etwas vor ſich hin.)</stage></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Was murmelt Er denn da?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Jetzt, Schuſter, ſei einmal ſtill.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich hab’ kein Wort g’redt.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Der Schuſter red’t ja gar nichts.</p></sp><lb/>
+<pb n="96" facs="#f0102"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>O, Sie kennen ihn nicht ſo, wie ich ihn<lb/>
+kenn.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Aber er hat ja gar nichts g’redt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Aber er hätt’ was reden können. — Das kommt<lb/>
+grad’ ſo heraus, als wenn Sie unſer Narr wären.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Jetzt ſei Er einmal ſtill, ſonſt leg’ ich den<lb/>
+Brief nieder, nachher kann <hi rendition="#g">Er</hi> leſen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Nachher kann ich leſen, wenn Sie den Brief<lb/>
+niederlegen?</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Ich mein’, daß Er hernach gar nicht erfahret,<lb/>
+was in dem Brief ſteht, weil Er ſelber nicht leſen<lb/>
+kann. — Kann Er denn nicht zwei Minuten ſtill<lb/>
+ſeyn?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>O, auch noch länger.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Alſo ſchweig er.</p> <stage>(Lieſ’t.)</stage> <p>»Wie gern wär’ ich<lb/>
+heute bei Euch, aber —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Herr von Hobelmann, ich werd’ Ihnen einen<lb/>
+Vorſchlag machen. Damit Sie im Leſen nicht mehr<lb/>
+<pb n="97" facs="#f0103"/>
+können unterbrochen werden, ſo leſen Sie uns den<lb/>
+Brief g’ſchwind vor, und wir Zwei gehen derweil<lb/>
+hinaus.</p> <stage>(Geht gegen die Thür.)</stage></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Aber wie dalket! Wie kann Er denn hör’n, was<lb/>
+ich da herin leſ’ wenn er draußt iſt?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Dableib’n müſſen wir.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Richtig — das hab’ ich nicht überlegt.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Jetzt ſei Er einmal ruhig.</p> <stage>(Lieſ’t.)</stage> <p>»Wie gern<lb/>
+wär’ ich heute bei Euch, aber meine traurige Lage<lb/>
+macht es unmöglich. Ich bin krank —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Da ſollten’s doch mit ein Doktor reden.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Warum denn?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Sie ſagen ja, Sie ſeyn krank.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Das ſchreibt ja der Leim, der iſt krank.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ja, von wem iſt denn der Brief?</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Von Leim.</p></sp><lb/>
+<fw type="sig" place="bottom">5</fw><lb/>
+<pb n="98" facs="#f0104"/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Von Leim.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ah ſo — von Leim.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi></speaker> <stage>(lieſ’t weiter).</stage><lb/>
+<p>»Ich bin kränk und liege in Nürnberg im Spi-<lb/>
+tal« —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Herr Hobelmann, foppen müſſens mich nicht!<lb/>
+ich kann auch grob ſeyn. Wie können’s denn ſagen,<lb/>
+Sie liegen in Nürnberg im Spital, und ſtehen da<lb/>
+neben meiner?</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Aber den Brief ſchreibt ja der Leim.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Der Leim.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ah ſo — der Leim.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi></speaker><lb/>
+<stage>(lieſ’t).</stage><lb/>
+<p>»Ich habe vor vier Monaten, wie ich von Wien<lb/>
+fort bin, Herrn Hobelmann hundert Thaler zurück-<lb/>
+laſſen —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wer?</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>No, der Leim.</p></sp><lb/>
+<pb n="99" facs="#f0105"/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Der Leim.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Aha, der Leim.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi></speaker><lb/>
+<stage>(lieſ’t).</stage><lb/>
+<p>»Herrn Hobelmann hundert Thaler zurücklaſ-<lb/>
+ſen —</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Alſo zweihundert Thaler.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Nein, nur einhundert Thaler.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Verzeihen Sie, Sie haben vorhin geleſen: ich<lb/>
+habe Herrn Hobelmann hundert Thaler zurücklaſſen —<lb/>
+dann haben Sie wieder geleſen: ich habe Herrn Ho-<lb/>
+belmann hundert Thaler zurücklaſſen — ſeyn alſo zwei<lb/>
+hundert.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Wie ich das erſte Hundert geleſen hab, hat Er<lb/>
+mich unterbrochen, dann hab’ ich’s repetirt, und ſo<lb/>
+iſt das zweite Hundert herauskommen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Das müſſen Sie ſich abgewöhnen.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>So muß Er mich nicht immer unterbrechen.</p> <stage>(Lieſ’t)</stage><lb/>
+<p>»Herrn Hobelman hundert Thaler zurückgelaſſen —</p></sp><lb/>
+<fw type="sig" place="bottom">5 *</fw><lb/>
+<pb n="100" facs="#f0106"/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Jetzt ſeyn’s drei.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi></speaker><lb/>
+<stage>(böſe).</stage><lb/>
+<p>Es gilt nur einhundert Thaler, ich halte mich<lb/>
+an das, was in dem Brief ſteht.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Nein, nein, es gilt nur hundert Thaler.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>So müſſen Sie alſo nicht mehr herausleſen, als<lb/>
+drin ſteht, Sie ſtürzen ſich ſonſt in eine Schuldenlaſt.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Jetzt laß Er mich einmal zum Schluß kom-<lb/>
+men.</p> <stage>(Lieſ’t.)</stage> <p>„zurück laſſen, für den Fall, daß<lb/>
+Ihr ebenfalls Nichts mehr haben ſolltet, und ein<lb/>
+Reiſegeld braucht. Ich hoff’ Euch daher vor meinem<lb/>
+Ende noch zu ſehen.“ — Euer Bruder<lb/>
+<hi rendition="#et">Johann Leim.</hi></p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Herr Hobelmann, jetzt gebens nur g’ſchwind die<lb/>
+hundert Thaler her.</p></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi>.</speaker><lb/>
+<p>Da könnt’s Euch einen frohen Tag d’rum an-<lb/>
+thun.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ja, das wollen wir auch.</p></sp><lb/>
+<pb n="101" facs="#f0107"/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Aber auf eine andere Art, als der Herr Hobel-<lb/>
+mann glaubt. Wir bringen ihm das Geld in’s Spi-<lb/>
+tal, und nichts wird davon verſoffen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<p>Wir wollen unter Wegs Erdäpfel eſſen, daß<lb/>
+uns der Staub bei die Ohren heraus fahrt.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Fünfter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Leim</hi>.</stage><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(gut gekleidet, aber häuslich, ſtand ſchon etwas früher<lb/>
+unter der Thüre, und ſtürzt auf ſie zu).</stage><lb/>
+<p>Brüderln! laßt’s Euch umarmen!</p> <stage>(Umarmt Beide.)</stage><lb/>
+<p>Ihr ſeyd’s Lumpen, aber treue Seelen, wahre Gold-<lb/>
+kerls.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wa — was iſt denn das?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Iſt da drin Dein Spital?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Der ganze Brief iſt erlogen. Ich bin geſund,<lb/>
+glücklich, und mein Reichthum hat ſich noch um Vie-<lb/>
+les vermehrt in dem Jahr. Den Brief hab’ ich nur<lb/>
+geſchrieben, um zu ſehen, ob bei Euch’s Herz auf’n<lb/>
+<pb n="102" facs="#f0108"/>
+rechten Fleck ſitzt, und davon hab’ ich mich jetzt voll-<lb/>
+kommen überzeugt. Daß ſich bei Euch das Geld nicht<lb/>
+halten wird, das hab’ ich im Voraus g’wußt; aber<lb/>
+es freut mich, daß ich jetzt in der Lag bin, Euch<lb/>
+dauerhaft glücklich zu machen.</p> <stage>(Zu Gertraud und Re-<lb/>
+ſerl, die nach Leim herausgetreten ſind.)</stage> <p>Geht’s und holt’s<lb/>
+Wein und Braten.</p> <stage>(Die Mädchen ab.)</stage></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich trink keinen Wein mehr, ich trink jetzt nur<lb/>
+Schnapps. — Apropos! wie iſt’s mit der Peppi?<lb/>
+Haſt Du’s.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Freilich hab’ ich’s.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Führ’ ſie uns auf.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(öffnet die Thüre rechts).</stage><lb/>
+<p>Peppi! Peppi!</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Sechster Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Peppi</hi>.</stage><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Da ſchau her, das ſeyn meine Kameraden, die<lb/>
+das große Loos mit mir g’wonnen haben — reiche<lb/>
+Kerls, man ſieht’s ihnen an.</p></sp><lb/>
+<pb n="103" facs="#f0109"/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Es freut mich herzlich, die alten Freunde mei-<lb/>
+nes Mannes kennen zu lernen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(ſehr galant).</stage><lb/>
+<p>Erlauben Sie mir Ihre ſchöne Hand zu küſ-<lb/>
+ſen — und daß die andere Hand nicht böſe wird —<lb/>
+und daß das liebe Goſcherl da nicht böſe wird. —</p><lb/>
+<stage>(Will ſie küſſen.)</stage></sp><lb/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi></speaker><lb/>
+<stage>(ſpringt dazwiſchen).</stage><lb/>
+<p>He, Schneider!</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Zwirn! was treibſt denn?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Sei nicht kindiſch, Bruder, wir ſeyn ja Ka-<lb/>
+meraden.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(zu Zwirn).</stage><lb/>
+<p>Du, Zwirn, mit Dir hab’ ich aparte eine<lb/>
+Menge zu reden.</p> <stage>(Zu Gertraud und Reſerl, wel-<lb/>
+che mittlerweile Braten und Wein gebracht haben.)</stage><lb/>
+<p>Bringt’s uns die Sachen in mein Zimmer. — Komm<lb/>
+Zwirn, komm mit mir.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(zu Reſerl, die er in die Backen kneipt, indem er mit Leim<lb/>
+in die Seitenthüre links abgeht).</stage><lb/>
+<p>O Du lieber Schneck Du!</p><lb/>
+<stage>(Die Mädchen tragen Braten und Wein links hinein, kom-<lb/>
+men zurück, und gehen rechts ab.)</stage></sp><lb/>
+<pb n="104" facs="#f0110"/>
+<sp who="#HOB"><speaker><hi rendition="#g">Hobelmann</hi></speaker><lb/>
+<stage>(zu Peppi, auf Knieriem zeigend).</stage><lb/>
+<p>Mach’ ihn nur gleich vorläufig mit unſern Plan<lb/>
+bekannt.</p> <stage>(Rechts ab.)</stage></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Schon recht, Vater.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Siebenter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Peppi. Knieriem</hi>.<lb/>
+(Peppi ſchenkt ihm Roſoglio in ein Gläschen und reicht<lb/>
+es ihm.)</stage><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich bitt, haben’s kein anders Glas.</p></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Warum denn? das gehört ja zum Roſoli.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ah nein — da ſeh’ ich ein Stutzen.</p> <stage>(Nimmt<lb/>
+ein großes Glas vom Tiſch.)</stage> <p>Bei die klein Gläſer<lb/>
+plagt man ſich mit’n Einſchenken z’viel.</p> <stage>(Schenkt ſich<lb/>
+ein und trinkt.)</stage></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Nun, mein lieber Freund! ich hoffe, daß Er<lb/>
+von nun an ein beſtändiger Freund unſers Hauſes<lb/>
+ſeyn wird. Er muß ſich hier anſäßig machen, muß<lb/>
+Meiſter werden.</p></sp><lb/>
+<pb n="105" facs="#f0111"/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Meiſter ſoll ich werden?</p></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Freilich. — Wie ſchmeckt der Liqeur?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Gut, recht gut. Aber eine Bitt’ hätt<supplied>’</supplied> ich halt.</p></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Was denn?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Wenn Sie mir einen Zwanziger ſchenken möch-<lb/>
+ten, daß ich in’s Branntweinhaus geh’n könnt.</p></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Wozu denn das? Er bekommt ja bei uns Alles<lb/>
+viel beſſer.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Madam, das verſteh’n Sie nicht. Im Haus<lb/>
+ſchmeckt einem der beſte Trunk nicht; im Wirthshaus<lb/>
+muß man ſeyn, das iſt der Genuß, da iſt das ſchlech-<lb/>
+teſte G’ſäuf ein <hi rendition="#aq">haut goût</hi>.</p></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<stage>(gibt ihm Geld).</stage><lb/>
+<p>Nun, da hat Er. Ich muß Ihm aber ſagen,<lb/>
+daß mich das recht verdrießt von Ihm.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<stage>(nimmt das Geld).</stage><lb/>
+<p>Ich küß die Hand.</p></sp><lb/>
+<pb n="106" facs="#f0112"/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Er muß ſolid werden, Er muß ſich beſſern.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Nein, das thu’ ich nicht. — Es iſt nicht der<lb/>
+Müh’ werth wegen der kurzen Zeit. In ein Jahr<lb/>
+kommt der Komet, nachher geht eh’ die Welt<lb/>
+z’Grund.</p></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Hör’ Er auf mit ſolchen Albernheiten. — Ich<lb/>
+weiß ſchon ein Mittel, Ihn auf andere Gedanken<lb/>
+zu bringen: Er muß heirathen. Da iſt z. B. die<lb/>
+Witwe Leiſt, eine recht hübſche Frau, mit der be-<lb/>
+kommt Er gleich das G’werb.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich brauch’ kein Weib und kein G’werb. Zu<lb/>
+was ſoll ich mich noch plag’n im letzten Jahr? Es<lb/>
+rentirt ſich nicht mehr.</p></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Mit Ihm iſt nichts anzufangen, Er iſt und<lb/>
+bleibt ein Bruder Liederlich.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Madam, denken Sie an den Kometen —</p></sp><lb/>
+<sp who="#PEP"><speaker><hi rendition="#g">Peppi</hi>.</speaker><lb/>
+<p>Hör’ Er auf mit ſein dalketen Kometen.</p> <stage>(Im<lb/>
+Abgehen für ſich.)</stage> <p>Ueber den muß ich meinen Vater<lb/>
+ſchicken, der bringt ihn doch noch zur Raiſon.</p><lb/>
+<stage>(Ab Rechts.)</stage></sp><lb/>
+<pb n="107" facs="#f0113"/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Madam, der Komet —</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Achter Auftritt</hi>.</hi></head><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker> <stage>(allein).</stage><lb/>
+<p>Die glaubt nicht an den Kometen, die wird<lb/>
+Augen machen. — Ich hab’ die Sach’ ſchon lang’<lb/>
+heraus. Das Aſtralfeuer des Sonnenzirkels iſt in<lb/>
+der goldnen Zahl des Urions von dem Sternbild<lb/>
+des Planetenſyſtems in das Univerſum der <hi rendition="#aq">Paralaxe,</hi><lb/>
+mittelſt des Fixſtern-Quadranten, in die <hi rendition="#aq">Elipse</hi><lb/>
+der <hi rendition="#aq">Ecliptik</hi> gerathen; folglich muß durch die <hi rendition="#aq">Dia-<lb/>
+gonale</hi> der <hi rendition="#aq">Approximation</hi> der perpendikulären<lb/>
+Zirkeln, der nächſte Komet die Welt zuſammſtoßen.<lb/>
+Dieſe Berechnung iſt ſo klar wie Schuhwix. Frei-<lb/>
+lich hat nicht Jeder die Wiſſenſchaft ſo im klein<lb/>
+Finger als wie ich; aber auch der minder Gebildete<lb/>
+kann alle Tag Sachen genug bemerken, welche<lb/>
+deutlich beweiſen, daß die Welt nicht lang mehr<lb/>
+ſteht. Kurzum, oben und unten ſieht man, es geht<lb/>
+rein auf’n Untergang los.</p><lb/>
+<stage><hi rendition="#g">Lied</hi>.</stage><lb/>
+<lg type="poem"><lg n="1"><l>Es is kein Ordnung mehr jetzt in die Stern,</l><lb/>
+<l>D’Kometen müßten ſonſt verboten wer’n:</l><lb/>
+<l>Ein Komet reiſ’t ohne Unterlaß</l><lb/>
+<l>Um am Firmament, und hat kein Paß,</l><lb/>
+<pb n="108" facs="#f0114"/>
+<l>Und jetzt richt a ſo a Vagabund</l><lb/>
+<l>Uns die Welt bei Butz und Stingel z’Grund;</l><lb/>
+<l>Aber laß’n ma das wie’s oben ſteht,</l><lb/>
+<l>Auch unt ſieht man, daß’s auf’n Ruin los geht.</l><lb/>
+<l>Abends traut man in’s zehnte G’wölb ſich nicht hinein</l><lb/>
+<l>Vor Glanz, denn ſie richten’s wie d’Fee’ntempel ein;</l><lb/>
+<l>Der Zauberer Luxus ſchaut blendend hervor,</l><lb/>
+<l>Die böſe Fee Crida ſperrt nacher ’s G’wölb zur.</l><lb/>
+<l>Da wird einem halt angſt und bang,</l><lb/>
+<l>Die Welt ſteht auf kein Fall mehr lang.</l></lg><lb/>
+<lg n="2"><l>Am Himmel is die Sonn jetzt voll Kapriz,</l><lb/>
+<l>Mitten in die Hundstag gibt’s kein Hitz;</l><lb/>
+<l>Und der Mond geht auf ſo roth auf Ehr’,</l><lb/>
+<l>Nicht anderſter, als wann er b’ſoffen wär.</l><lb/>
+<l>Die Millichſtraßen die verliert ihr’n Glanz,</l><lb/>
+<l>Die Milliweiber ob’n verpantſchens ganz;</l><lb/>
+<l>Aber laß’n ma das, herunt geht’s z’bunt,</l><lb/>
+<l>Herunt ſchon ſieht man’s klar, die Welt geht z’Grund.</l><lb/>
+<l>Welche hätt’ ſo ein g’ſchecketen Wickler einſt mög’n,</l><lb/>
+<l>A Harlekin is ja g’rad nur a Spitzbub dageg’n;</l><lb/>
+<l>Im Sommer trag’ns Stiefeln, <hi rendition="#aq">àjour</hi>-Strümpf im</l><lb/>
+<l>Schnee,</l><lb/>
+<l>Und ſtatt Haub’n hab’ns gar Backenbärt von <hi rendition="#aq">tull</hi></l><lb/>
+<l><hi rendition="#aq">anglais</hi>.</l><lb/>
+<l>Da wird einem halt angſt und bang,</l><lb/>
+<l>J ſag’ d’Welt ſteht auf kein Fall mehr lang.</l></lg><lb/>
+<pb n="109" facs="#f0115"/>
+<lg n="3"><l>Der Mondſchein, da mög’ns einmal ſag’n was woll’n,</l><lb/>
+<l>Ich ſind’ er is auf einer Seiten g’ſchwoll’n.</l><lb/>
+<l>Die Stern wer’n ſich verkühl’n, ich ſag’s voraus,</l><lb/>
+<l>Sie ſetzen ſich zu ſtark der Nachtluft aus.</l><lb/>
+<l>Der Sonn’ ihr G’ſundheit is jetzt a ſchon weg,</l><lb/>
+<l>Durch’n Tubus ſieht man’s klar, ſie hat die Fleck;</l><lb/>
+<l>Aber laß’n das was oben g’ſchiecht,</l><lb/>
+<l>Herunt ſchon ſieht man, ’s thuts in d’Länge nicht.</l><lb/>
+<l>Sie hab’n Zeitungen jetzt, da das Pfennig-Magazin,</l><lb/>
+<l>Da is um ein Pfennig all’s Mögliche d’rin;</l><lb/>
+<l>Jetzt kommt g’wiß bald a Zeitſchrift heraus, i parier,</l><lb/>
+<l>Da krieg’n d’Pränumeranten umſonſt Koſt und</l><lb/>
+<l>Quartier.</l><lb/>
+<l>Da wird einem halt angſt und bang,</l><lb/>
+<l>Die Welt ſteht auf kein Fall mehr lang.</l></lg></lg><lb/>
+<stage><hi rendition="#g">Repetition</hi>.</stage><lb/>
+<lg type="poem"><lg n="1"><l>Die Fixſtern ſag’ns ſeyn allweil auf ein Fleck,</l><lb/>
+<l>’s is erlog’n beim Tag ſey’ns alle weg;</l><lb/>
+<l>’s bringt jetzt der allerbeſte Aſtronom</l><lb/>
+<l>Kein ſaubre Sonnenfinſterniß mehr z’ſamm.</l><lb/>
+<l>Die Venus kriegt auch ganz ein and’re G’ſtalt,</l><lb/>
+<l>Wer kann davor, ſie wird halt a ſchon alt;</l><lb/>
+<l>Aber wenn auch ob’n ſchon Alles kracht,</l><lb/>
+<l>Herunt iſt was, was mir noch Hoffnung macht.</l><lb/>
+<l>Wenn auch ’s Meiſte verkehrt wird, bald drent und</l><lb/>
+<l>bald drüb’n,</l><lb/>
+<l>Ihre Güte iſt ſtets unverändert geblieb’n;</l><lb/>
+<pb n="110" facs="#f0116"/>
+<l>D’rum ſag’ i, aus ſein Gleis wird erſt dann Alles</l><lb/>
+<l>flieg’n,</l><lb/>
+<l>Wenn Sie Ihre Nachſicht und Huld uns entzieh’n.</l><lb/>
+<l>Da wurd’ ein erſt recht angſt und bang,</l><lb/>
+<l>Denn dann ſtund d’Welt g’wiß nicht mehr lang.</l></lg></lg><lb/>
+<stage>(Ab.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Neunter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Zwirn</hi>. Gleich darauf <hi rendition="#g">Reſerl</hi>.</stage><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(aus der Seitenthüre links).</stage><lb/>
+<p>Der Leim gibt mir nichts als lauter gute Leh-<lb/>
+ren — gute Lehren hab’ ich in der Schul ſchon<lb/>
+kriegt, wenn ich’s hätt befolgen wollen.</p></sp><lb/>
+<sp who="#RES"><speaker><hi rendition="#g">Reſerl</hi></speaker><lb/>
+<stage>(aus der Seitenthüre rechts, und will zur Mitte hinaus).</stage><lb/>
+<p>Gleich den Augenblick. —</p> <stage>(Für ſich.)</stage> <p>Das iſt<lb/>
+doch ein beſtändiges Befehlen in dem Haus.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(hält ſie auf).</stage><lb/>
+<p>Da geblieben, liebenswürdiger Dienſtbot!</p></sp><lb/>
+<sp who="#RES"><speaker><hi rendition="#g">Reſerl</hi>.</speaker><lb/>
+<p>Ah gehens, Ihnen iſt auch nicht zu trau’n.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Was fallt Dir ein! Die Treu von ein Schnei-<lb/>
+der halt feſter als eine doppelte Naht.</p></sp><lb/>
+<pb n="111" facs="#f0117"/>
+<sp who="#RES"><speaker><hi rendition="#g">Reſerl</hi></speaker> <stage>(kokett).</stage><lb/>
+<p>Ja, wenn ich mich d’rauf verlaſſen könnt!</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ein Mann ein Wort — ſchlag ein!</p> <stage>(Hält die<lb/>
+Hand hin.)</stage></sp><lb/>
+<sp who="#RES"><speaker><hi rendition="#g">Reſerl</hi></speaker> <stage>(einſchlagend).</stage><lb/>
+<p>Na, meinetwegen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Jetzt ſeyn wir in Ordnung bis auf’s Durch-<lb/>
+gehn. — Ich muß Dir aufrichtig ſagen, mich hätt’s<lb/>
+ohnehin nicht lang gelitten in dem Haus.</p></sp><lb/>
+<sp who="#RES"><speaker><hi rendition="#g">Reſerl</hi>.</speaker><lb/>
+<p>Nicht wahr, das is ein fades Leben da?</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Da thun’s nix als arbeiten, eſſen, trinken<lb/>
+und ſchlafen — is das eine Ordnung? — Da wird<lb/>
+nicht angeig’nt, nicht aufg’haut, nicht Zitter g’ſchlag’n.</p></sp><lb/>
+<sp who="#RES"><speaker><hi rendition="#g">Reſerl</hi>.</speaker><lb/>
+<p>O ich kenn das — ich war ja ſelbſt einige Jahr<lb/>
+Kellnerin.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(entzückt).</stage><lb/>
+<p>Kellnerin warſt Du? — Jetzt hab’ ich Dich<lb/>
+nochmal ſo lieb, jetzt ſeyn unſ’re Herzen zuſamm-<lb/>
+g’naht, kein Teufel trennt ſie mehr auf. — Morgen<lb/>
+fruh, wenn Du’s Obers holſt, paſchen wir ab mit-<lb/>
+einander.</p></sp><lb/>
+<pb n="112" facs="#f0118"/>
+<sp who="#RES"><speaker><hi rendition="#g">Reſerl</hi>.</speaker><lb/>
+<p>Warum denn abpaſchen? Sie können’s ja Ih-<lb/>
+ren Freund den Herrn Leim ſagen, daß Sie mich<lb/>
+mitnehmen.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Das mag ich nicht. Laß mir dieſe Grille, ich<lb/>
+will Dich entführen.</p></sp><lb/>
+<sp who="#RES"><speaker><hi rendition="#g">Reſerl</hi>.</speaker><lb/>
+<p>Hörens auf, Sie ſeyn doch ein rechter Voka-<lb/>
+tivus.</p><lb/>
+<stage>(Ab zur Mitte.)</stage></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Jetzt geh ich gleich hinein zum Leim, und ſag<lb/>
+ihm, daß ich nicht da bleib — Ah, da iſt er ſelbſt.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Zehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Zwirn. Leim</hi> (von Links).</stage><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Du biſt ein Lump in Folio, Du trittſt Dein<lb/>
+Glück mit Füßen. Wegen meiner, wenn Du die<lb/>
+guten Tag nicht ertragen kannſt, ſo geh hin wo<lb/>
+der Pfeffer wachſt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Bruder Leim, Du mußt nicht bös ſeyn. Schau,<lb/>
+ich blieb gern bei Dir, aber ich halt’s nicht aus.<lb/>
+<pb n="113" facs="#f0119"/>
+Ich hab’ eine Herzensangſt in mir, eine Bangig-<lb/>
+keit — mit einem Wort, Bruder, ich halt’s nicht<lb/>
+aus.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Schau, damit Du ſiehſt, daß ich Dein wah-<lb/>
+rer Freund bin, ſo leg ich für Dich hundert Duka-<lb/>
+ten an; die kriegſt aber nicht eher, als bis Du<lb/>
+Dich feſt und ordentlich wo anſäßig machſt. Außer-<lb/>
+dem haſt Du keinen Groſchen von mir zu erwarten.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wann krieg ich die hundert Dukaten?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Wenn Du ordentlich und fleißig geworden biſt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker> <stage>(für ſich).</stage><lb/>
+<p>Da krieg ich mein Leben keinen Kreuzer.</p> <stage>(Laut.)</stage><lb/>
+<p>Ich will Dir einen Vorſchlag machen: gib Du<lb/>
+mir jetzt 4 oder 5 Dukaten, das iſt mir lieber,<lb/>
+als wenn Du mir nachher 1000 gibſt.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Keinen Kreuzer eher, als bis Du brav und<lb/>
+ordentlich geworden biſt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Na ſo b hüth Dich Gott.</p> <stage>(Für ſich.)</stage> <p>Jetzt weiß<lb/>
+ich nicht ſoll ich ihm was ſagen davon, daß ich ihm<lb/>
+ſeinen Dienſtboten entwend’? — Nein — zu was<lb/>
+braucht er das zu wiſſen. —</p> <stage>(Laut.)</stage> <p>Bruder Leim,<lb/>
+<pb n="114" facs="#f0120"/>
+der Abſchied von Dir fallt mir ſchwer — aber —<lb/>
+ich halt’s nicht aus.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Da kriegſt Alles, wenn Du fleißig, brav und<lb/>
+arbeitſam geworden biſt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Das halt’ ich nicht aus.</p> <stage>(Läuft ab.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Eilfter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Leim</hi>, gleich darauf <hi rendition="#g">Knieriem</hi>.</stage><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Er halt’s nicht aus, ſagt er. Hätt’ der Kerl<lb/>
+Alles bei mir, was ſein Herz verlangt, er kann’s<lb/>
+aber nicht erwarten, bis er wieder draußen im<lb/>
+Elend iſt.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker><lb/>
+<stage>(ſehr betrunken, kommt von außen an’s Fenſter).</stage><lb/>
+<p>Bruder — mach die Thür auf.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Da iſt die Thür. — Nu, der hat ſchön auf-<lb/>
+geladen, ſieht der ’s Fenſter für die Thür an.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker> <stage>(tritt ein.)</stage><lb/>
+<p>Kamerad — laß Dich umarmen.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Du haſt ſchwer g’laden.</p></sp><lb/>
+<pb n="115" facs="#f0121"/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Bruder, gib mir die Hand?</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Na da — da iſt meine Hand.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker><lb/>
+<p>Einen Kuß — Bruder, meinſt du’s auch ehr-<lb/>
+lich mit mir? — Bru —</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Du bleibſt bei mir ſo lang Du lebſt, was<lb/>
+willſt denn mehr?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Du mußt es aber auch aufrichtig mit mir mei-<lb/>
+nen, ſonſt geh’ ich fort.</p><lb/>
+<stage>(Wankt zur Thüre.)</stage></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(ihn aufhaltend).</stage><lb/>
+<p>Wo willſt denn hin?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>In’s Wirthshaus. Einen Brannt — wein muß<lb/>
+<hi rendition="#g">ich</hi> haben.</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi></speaker><lb/>
+<stage>(ſetzt ihn auf den Stuhl).</stage><lb/>
+<p>Da bleibſt — da drin haſt ein Schaffel<lb/>
+Waſſer, das kannſt trinken.</p> <stage>(Verſperrt die Thüre.)</stage><lb/>
+<p>So — jetzt geh in’s Wirthshaus, wenn Du kannſt.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Er hat mich eing’ſperrt.</p></sp><lb/>
+<pb n="116" facs="#f0122"/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Aſtronom, ſchau daß bei Dir einmal ein trocke-<lb/>
+nes Viertel eingeht.</p><lb/>
+<stage>(Ab in die Seitenthüre rechts.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Zwölfter Auftritt</hi>.</hi></head><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker> <stage>(allein).</stage><lb/>
+<p>Was iſt das? — er hat — hat — mich einge-<lb/>
+ſperrt? — Das hat er nicht nöthig — ich <hi rendition="#g">war</hi><lb/>
+ſchon eingeſperrt — wie er noch Lehrbub war, war<lb/>
+ich ſchon eingeſperrt. Bruder, das iſt ſchä — ſchänd-<lb/>
+lich von dir.</p> <stage>(Es blitzt und donnert.)</stage> <p>Ich weiß, was<lb/>
+ich thu — ich ſteig beim Fenſter hinaus.</p> <stage>(Er ſchlägt<lb/>
+das Fenſter ein.)</stage> <p>Ich muß ein Branntwein haben.</p><lb/>
+<stage>(Steigt hinaus.)</stage><lb/>
+<stage>(Einige Takte Gewittermuſik fällt ein, bis Knieriem<lb/>
+gänzlich vom Fenſter verſchwunden iſt.)</stage><lb/>
+<stage><hi rendition="#g">Verwandlung</hi>.</stage><lb/>
+<stage>(Beleuchtete Bauern-Wirthsſtube.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Dreizehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Wirthin. Stellaris</hi> (als Reiſender).</stage><lb/>
+<sp who="#WIRI"><speaker><hi rendition="#g">Wirthin</hi></speaker><lb/>
+<stage>(indem ſie den Fremden hereinführt).</stage><lb/>
+<p>Ich hab’ leider kein anderes Zimmer, als das<lb/>
+<pb n="117" facs="#f0123"/>
+da daneben, und da wird’s halt unruhig ſeyn,<lb/>
+denn die Bauern kommen vom heutigen Wettren-<lb/>
+nen zurück, ſie werden bald kommen, und da gibt’s<lb/>
+Lärm.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Das macht nichts.</p> <stage>(Bei Seite.)</stage> <p>Dieſe Geſtalt<lb/>
+hab’ ich gewählt, um mich von dem Treiben der drei<lb/>
+lockeren Geſellen zu überzeugen. Faſt fürchte ich,<lb/>
+Fortuna möchte Siegerin in dieſem Kampfe bleiben.</p><lb/>
+<stage>(Die Wirthin geht mit einem Licht in die Seitenthüre<lb/>
+rechts ab.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Vierzehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige. Knieriem</hi>.</stage><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ein armer reiſender Handwerksburſch thät bit-<lb/>
+ten um eine kleine Unterſtützung.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Da hat Er ein paar Kreuzer.</p> <stage>(Gibt ihm Geld.)</stage><lb/>
+<p>Er ſieht ja elend aus.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ich küß die Hand — ich werd’ fleißig d’rum be-<lb/>
+ten. Frau Wirthin, ein Schnapps!</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Da hat Er auch eine Weſte und ein Hemd<lb/>
+von mir.</p></sp><lb/>
+<pb n="118" facs="#f0124"/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>O ich küß’s Kleid, das iſt Alles zu viel.</p><lb/>
+<stage>(Stellaris geht in die Seitenthüre rechts ab, tritt aber<lb/>
+bald darauf, die Handwerksburſche beobachtend, aus der<lb/>
+Thüre.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Fünfzehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Vorige</hi> ohne <hi rendition="#g">Stellaris</hi>. Gleich darauf<lb/>
+<hi rendition="#g">Bauern, Muſikanten</hi> und <hi rendition="#g">Zwirn</hi>.</stage><lb/>
+<sp who="#WIRI"><speaker><hi rendition="#g">Wirthin</hi>.</speaker><lb/>
+<p>Aha, da kommen die Bauern ſchon.</p></sp><lb/>
+<sp who="#ALLB"><speaker><hi rendition="#g">Alle Bauern</hi>.</speaker><lb/>
+<p>Juhe! das Wettrennen iſt heut prächtig aus-<lb/>
+g’fallen.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Ah, Muſik, jetzt wird’s erſt fidel da.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(welcher tanzend herein kommt, erblickt Knieriem).</stage><lb/>
+<p>Was Teuxel, Brüderl, was machſt denn Du da?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker><lb/>
+<stage>(ſein Glas Schnapps nehmend).</stage><lb/>
+<p>Juhe, der Zwirn! Du, ich geh’ jetzt betteln.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ich auch. — Aber Du, im Gmeinhaus drüben<lb/>
+geht’s fidel zu.</p></sp><lb/>
+<pb n="119" facs="#f0125"/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Gehen wir hinüber.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Wenn ich da zahl, kann ich drüben nicht zahln.</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Da zahl ich.</p> <stage>(Zur Wirthin.)</stage> <p>Wir haben kein<lb/>
+Geld bei uns, da nehmens die Weſte, das iſt für<lb/>
+uns Zwei mit einander.</p><lb/>
+<stage>(Gibt ihr die Weſte, die er von Stellaris bekam.)</stage></sp><lb/>
+<sp who="#WIRI"><speaker><hi rendition="#g">Wirthin</hi></speaker> <stage>(es nehmend).</stage><lb/>
+<p>Das werden Doch ein paar ſchöne Lumpen ſeyn.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ein Tanz möcht’ ich haben!</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker><lb/>
+<stage>(wirft den Muſikanten das Hemd hin).</stage><lb/>
+<p>Aufg’haut, Muſikanten! da iſt bezahlt.</p><lb/>
+<stage>(Muſik beginnt, Zwirn und Knieriem wollen Tanzen,<lb/>
+zwiſchen ihnen und den Bauern im Hintergrunde fällt<lb/>
+eine Wolken-Decoration vor.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Sechszehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Zwirn. Knieriem. Stellaris</hi> (im Ornat).</stage><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi></speaker><lb/>
+<stage>(mit ſtarker Stimme).</stage><lb/>
+<p>Halt!</p></sp><lb/>
+<pb n="120" facs="#f0126"/>
+<sp who="#ZWIKNI"><speaker><hi rendition="#g">Zwirn</hi> und <hi rendition="#g">Knieriem</hi></speaker> <stage>(erſchrocken).</stage><lb/>
+<p>Was iſt das?</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Unglaublich ſchien mir der Grad der Liederlich-<lb/>
+keit, den Ihr Beide erreicht habt — verfallen ſeid<lb/>
+Ihr ganz dem böſen Geiſt Lumpacivagabundus —<lb/>
+nun denn, ſo verbann’ ich Euch zur Strafe Eures<lb/>
+Wandels in den Abgrund, wo der ganze Troß der<lb/>
+böſen Geiſter hauſt.</p><lb/>
+<stage>(Er winkt. Muſik fällt ein, die beiden Seitenverſenkungen<lb/>
+öffnen ſich, auf jeder Seite kommen 2 Furien herauf.)</stage></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(in größter Angſt, zu Stellaris Füßen).</stage><lb/>
+<p>Gnade! Barmherzigkeit!</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker> <stage>(ebenfalls zu ſeinen Füßen).</stage><lb/>
+<p>Ich werd’ mich beſſern.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ich bin ſchon gebeſſert.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Es iſt zu ſpät. — Fort mit Beiden!</p><lb/>
+<stage>(Muſik fällt ein, die Furien packen Zwirn und Knieriem,<lb/>
+und verſinken zu beiden Seiten mit ihnen.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="121" facs="#f0127"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Siebenzehnter Auftritt</hi>.</hi></head><lb/>
+<stage><hi rendition="#g">Stellaris. Fortuna. Amoroſa. Hilaris.<lb/>
+Brilliantine</hi>.</stage><lb/>
+<sp who="#FOR"><speaker><hi rendition="#g">Fortuna</hi>.</speaker><lb/>
+<p>Ich bin beſiegt. Amoroſa, ich erkenne Deine<lb/>
+Macht für höher, als die meine; Du biſt die Sie-<lb/>
+gerin. Hilaris werde meiner Tochter Gemahl.</p><lb/>
+<stage>(Sie fügt die Hände der Liebenden zuſammen)</stage></sp><lb/>
+<sp who="#HIL"><speaker><hi rendition="#g">Hilaris</hi></speaker><lb/>
+<stage>(Brilliantinen umarmend).</stage><lb/>
+<p>Ich bin überglücklich!</p></sp><lb/>
+<sp who="#AMO"><speaker><hi rendition="#g">Amoroſa</hi></speaker> <stage>(zu Stellaris).</stage><lb/>
+<p>Mächtiger Herrſcher! Auch die verirrten Söhne<lb/>
+des Feenreichs habe ich auf den rechten Pfad zurück-<lb/>
+geführt, und ſo iſt Lumpacivagabundus gebannt<lb/>
+auf immerdar.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Nimm meinen Dank!</p></sp><lb/>
+<sp who="#AMO"><speaker><hi rendition="#g">Amoroſa</hi>.</speaker><lb/>
+<p>Hab’ ich ihn verdient, ſo überlaſſe mir die<lb/>
+beiden lockern Geſellen, die Du zu ſtreng beſtraft.</p></sp><lb/>
+<sp who="#EINR"><speaker><hi rendition="#g">Stellaris</hi>.</speaker><lb/>
+<p>Es ſey!</p></sp><lb/>
+<sp who="#AMO"><speaker><hi rendition="#g">Amoroſa</hi>.</speaker><lb/>
+<p>Wohlan, ſo folget mir, ich will ſie Euch durch<lb/>
+meine Macht nun gebeſſert und glücklich zeigen.</p><lb/>
+<stage>(Alle ab.)</stage><lb/>
+<fw type="sig" place="bottom">6</fw><lb/>
+<pb n="122" facs="#f0128"/>
+<stage><hi rendition="#g">Verwandlung</hi>.</stage><lb/>
+<stage>(Der Wolkenproſpekt erhebt ſich, man ſieht im Hintergrunde<lb/>
+in einer ſich öffnenden etwas tieferen Wolkengruppe das<lb/>
+Haus, welches <hi rendition="#g">Leim, Zwirn</hi> und <hi rendition="#g">Knieriem</hi> be-<lb/>
+wohnen. Zu ebener Erde iſt die Tiſchler-Werkſtatt,<lb/>
+in welcher Leim mit den Geſellen ihre Arbeit beendigen.<lb/>
+Leim zur Seite ſteht <hi rendition="#g">Peppi</hi>. Im erſten Stockwert<lb/>
+ſieht man durch ein offenes Fenſter Knieriem auf dem<lb/>
+Dreifuß arbeiten, indem er dabei immer zärtlich nach<lb/>
+einem ihm zur Seite ſtehenden jungen Weibe, in bür-<lb/>
+gerlicher Hauskleidung, blickt. — Bei dem andern Fen-<lb/>
+ſter des erſten Stockwerkes ſieht man Zwirn, wie er mit<lb/>
+großem Fleiße biegelt, und dazwiſchen immer ein ne-<lb/>
+ben ihm nähendes junges Weib umarmt. In beiden<lb/>
+Zimmern ſieht man mehrere Kinder.)</stage></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi></speaker><lb/>
+<stage>(zu ſeinem Weibe).</stage><lb/>
+<p>Iſt das ein Glück, Weib! der Komet is aus-<lb/>
+blieb’n, d’Welt ſteht alleweil noch, und wir ſtehn<lb/>
+mitten drauf mit unſerer unſinnigen Familie.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi></speaker><lb/>
+<stage>(ruft aus dem Fenſter hinüber).</stage><lb/>
+<p>Du, Knieriem, wir ſeyn eing’laden beim Bru-<lb/>
+der Leim; biſt bald fertig?</p></sp><lb/>
+<sp who="#KNI"><speaker><hi rendition="#g">Knieriem</hi>.</speaker><lb/>
+<p>Den Augenblick; die Tiſchler machen eh gleich<lb/>
+Feierabend unt.</p></sp><lb/>
+<sp who="#ZWI"><speaker><hi rendition="#g">Zwirn</hi>.</speaker><lb/>
+<p>Ich muß nur noch mit der Meinigen die<lb/>
+klein Kinder einſchlafern.</p><lb/>
+<stage>(Es ſchlägt 7 Uhr.)</stage></sp><lb/>
+<pb n="123" facs="#f0129"/>
+<sp who="#ALLG"><speaker><hi rendition="#g">Alle Geſellen</hi>.</speaker><lb/>
+<p>Feierabend! Feierabend!</p></sp><lb/>
+<sp who="#LEI"><speaker><hi rendition="#g">Leim</hi>.</speaker><lb/>
+<p>Kommts herunter, Kameraden! Nach vollbrach-<lb/>
+tem Tagwerk ſchmeckt eim der Feierabend, die Luſt-<lb/>
+barkeit geht los.</p></sp><lb/>
+<sp who="#ALL"><speaker><hi rendition="#g">Alle</hi>.</speaker><lb/>
+<p>Juheh!</p><lb/>
+<stage>(Die Geſellen und Hausmädchen reihen ſich zum Tanz.<lb/>
+Knieriem und Zwirn, mit ihren Weibern und Kindern,<lb/>
+kommen herab).</stage></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#g">Chor</hi>.</speaker><lb/>
+<p>Jeder hat nun ſeine Arbeit gethan,<lb/>
+Jetzt bricht ein fröhlicher Fei’rabend an;<lb/>
+Häuslich und arbeitſam — ſo nur allein<lb/>
+Kann man des Lebens ſich dauernd erfreu’n.</p><lb/>
+<stage>(<hi rendition="#g">Tanz beginnt</hi>.)</stage><lb/>
+<stage>(Unter paſſender Gruppe, und Beleuchtung mit griechi-<lb/>
+ſchem Feuer, fällt der Vorhang.)</stage><lb/>
+<stage><hi rendition="#g">Ende</hi>.</stage></sp></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0130"/>
+<pb facs="#f0131"/>
+<pb facs="#f0132"/>
+<pb facs="#f0133"/>
+</body></text> </TEI>

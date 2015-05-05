@@ -1,0 +1,1386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Lieder für Kinder</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118630563">
+<surname>Weiße</surname>
+<forename>Christian Felix</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">84</measure>
+<measure type="tokens">4580</measure>
+<measure type="types">1730</measure>
+<measure type="characters">28924</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:43:31Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/weisse_lieder_1767</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/weisse_lieder_1767</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/weisse_lieder_1767</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/weisse_lieder_1767</idno>
+<idno type="DTADirName">weisse_lieder_1767</idno>
+<idno type="DTAID">20643</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Weiße, Christian Felix: Lieder für Kinder. Leipzig, 1767.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Lieder für Kinder</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118630563">
+<surname>Weiße</surname>
+<forename>Christian Felix</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[2] Bl., 66 S. : Frontispiz (Kupferst.), Ill. (Kupferst.)</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Weidmann</name></publisher>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1767</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">SUB Göttingen, 8 P GERM IV, 440</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20P%20GERM%20IV%2C%20440</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<figure/><lb/>
+<pb facs="#f0009"/>
+<titlePage type="main"><docTitle><titlePart type="main"> <hi rendition="#g"><hi rendition="#b">Lieder</hi><lb/>
+fuͤr<lb/>
+<hi rendition="#b">Kinder.</hi></hi></titlePart></docTitle><lb/>
+<figure/><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace><hi rendition="#g">Leipzig,</hi></pubPlace><lb/>
+<publisher>bey M. G. Weidmanns Erben und Reich.</publisher><lb/>
+<docDate><hi rendition="#g">1767.</hi></docDate></docImprint></titlePage><lb/>
+<pb facs="#f0010"/>
+</front><body>
+<pb n="1" facs="#f0011"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head>Zuſchrift<lb/>
+<hi rendition="#b">an ein paar Kinder.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">J</hi>hr fodert huͤpfend eine Gabe</l><lb/>
+<l>Mir, kleinen Schmeichler, ab?</l><lb/>
+<l>Hier habt Jhr alles, was ich habe,</l><lb/>
+<l>Und mir die Muſe gab.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">D</hi>ie Muſe — doch ich hoͤr Euch fragen,</l><lb/>
+<l>Welch Wunderding dieß iſt?</l><lb/>
+<l>Jch will es im Vertraun Euch ſagen:</l><lb/>
+<l>So bald ich Euch gekuͤßt.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">E</hi>s iſt die vaͤterliche Liebe,</l><lb/>
+<l>Der jede Liebe weicht,</l><lb/>
+<l>Und der bey mir nichts, als die Liebe</l><lb/>
+<l>Fuͤr Eure Mutter gleicht.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">L</hi>aßt ſie Euch dieſe Lehren geben,</l><lb/>
+<l>Durch Harmonie verſuͤßt:</l><lb/>
+<l>Weit kraͤftiger lehrt Euch ihr Leben,</l><lb/>
+<l>Das lauter Wohllaut iſt.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">A</fw><fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="2" facs="#f0012"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Der junge Baum.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>as liebe kleine Baͤumchen hier,</l><lb/>
+<l>Das einſt gepflanzet ward mit mir,</l><lb/>
+<l>Traͤgt ſchon ſo jung und zart</l><lb/>
+<l>Die Fruͤchte von der beſten Art.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">E</hi>s lohnt des Gaͤrtners froher Hand,</l><lb/>
+<l>Den Fleiß, den er darauf verwandt:</l><lb/>
+<l>Was wird, ihn zu erfreun,</l><lb/>
+<l>Es nicht erſt einſt erwachſen ſeyn!</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">O</hi> bin ich nicht dem Baͤumchen gleich?</l><lb/>
+<l>Zwar itzt nur noch an Hoffnung reich.</l><lb/>
+<l>Doch will ich nicht nur bluͤhn,</l><lb/>
+<l>Nein, einſt von goldnen Fruͤchten gluͤhn.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Lob</fw><lb/>
+<pb n="3" facs="#f0013"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Lob der Unſchuld.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>u, der Unſchuld ſuͤße Ruh,</l><lb/>
+<l>O wie lieblich ſchmeichelſt du</l><lb/>
+<l>Unſern Seelen!</l><lb/>
+<l>Eitle Wolluſt fleucht vor dir,</l><lb/>
+<l>Und doch laͤſſeſt du es mir</l><lb/>
+<l>Nicht an Wolluſt fehlen.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">D</hi>u ſtreuſt Roſen und Jesmin</l><lb/>
+<l>Auf die ſichern Pfade hin,</l><lb/>
+<l>Die ich gehe.</l><lb/>
+<l>Jch bin ganz Zufriedenheit,</l><lb/>
+<l>Wenn ich dich voll Heiterkeit</l><lb/>
+<l>Auf mich laͤcheln ſehe.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">O</hi>hne Kummer, ohne Reu,</l><lb/>
+<l>Fuͤhrſt du ſie vor mir vorbey</l><lb/>
+<l>Meine Tage.</l><lb/>
+<l>Meine Muͤh machſt du mir leicht,</l><lb/>
+<l>Und in meine Spiele ſchleicht</l><lb/>
+<l>Sich nicht ſpaͤte Klage.</l></lg><lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">Laß</fw><lb/>
+<pb n="4" facs="#f0014"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg n="4"><l><hi rendition="#in">L</hi>aß mein Herz ſich deiner freun,</l><lb/>
+<l>Dich noch, werd ich aͤlter ſeyn,</l><lb/>
+<l>Freundinn nennen.</l><lb/>
+<l>Jn dem Ungluͤck troͤſte mich,</l><lb/>
+<l>Und nie laß mich ohne dich</l><lb/>
+<l>Eine Freude kennen.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="5" facs="#f0015"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Das Veilchen.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>arum, geliebtes Veilchen, bluͤhſt</l><lb/>
+<l>Du ſo entfernt im Thal?</l><lb/>
+<l>Verſteckſt dich unter Blaͤttern, fliehſt</l><lb/>
+<l>Der ſtolzern Blumen Zahl?</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">U</hi>nd doch voll Liebreiz dufteſt du,</l><lb/>
+<l>So bald man dich nur pfluͤckt,</l><lb/>
+<l>Uns ſuͤßre Wohlgeruͤche zu,</l><lb/>
+<l>Als manche, die ſich ſchmuͤckt.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">D</hi>u biſt der Demuth Ebenbild,</l><lb/>
+<l>Die in der Stille wohnt,</l><lb/>
+<l>Und den, der ihr Verdienſt enthuͤllt,</l><lb/>
+<l>Mit frommen Dank belohnt.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">Schoͤn-</fw><lb/>
+<pb n="6" facs="#f0016"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Schoͤnheit und Stolz.</hi></head><lb/>
+<head>Phillis.</head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>u lobeſt Chloen? nennſt ſie ſchoͤn?</l><lb/>
+<l>O ſieh doch mir erſt ins Geſicht!</l><lb/>
+<l>Wie ich, das mußt du mir geſtehn,</l><lb/>
+<l>So ſchoͤn iſt Chloe nicht.</l></lg><lb/>
+<lb/>
+<lg n="2"><head>Damon.</head><l><hi rendition="#in">J</hi>a, Phillis, daß du ſchoͤner biſt,</l><lb/>
+<l>Geſteh ich dir gar gerne zu:</l><lb/>
+<l>Doch iſt ſie nicht ſo ſchoͤn, ſo iſt</l><lb/>
+<l>Sie nicht ſo ſtolz, als du.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="7" facs="#f0017"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der May.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">E</hi>s laͤchelt aufs neu</l><lb/>
+<l>Der froͤhliche May</l><lb/>
+<l>Jn buntem feſtlichen Kleide.</l><lb/>
+<l>Von Hoͤhen und Thal</l><lb/>
+<l>Toͤnt uͤberall</l><lb/>
+<l>Die ſuͤße Stimme der Freude.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">J</hi>n Wieſen und Flur</l><lb/>
+<l>Giebt uns die Natur</l><lb/>
+<l>Die ſchoͤnſten Blumen zu pfluͤcken.</l><lb/>
+<l>Drum will ich zum Tanz</l><lb/>
+<l>Mit einem Kranz</l><lb/>
+<l>Die blonden Haare mir ſchmuͤcken.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">D</hi>och ſollt ich nicht den,</l><lb/>
+<l>Der alles ſo ſchoͤn</l><lb/>
+<l>Erſchuf, erſt bruͤnſtig erheben?</l><lb/>
+<l>Durch Jubelgeſang</l><lb/>
+<l>Preis ihn mein Dank,</l><lb/>
+<l>Doch mehr: mein kuͤnftiges Leben!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="8" facs="#f0018"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der Tod.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">E</hi>s ſterben Greiſe,</l><lb/>
+<l>Und ſind nicht weiſe,</l><lb/>
+<l>Und wenn man ſie nunmehr begraͤbt,</l><lb/>
+<l>Wird ſie kein Edler klagen;</l><lb/>
+<l>Denn man weiß nichts zu ſagen,</l><lb/>
+<l>Als daß ſie lang genug gelebt.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">S</hi>ollt ich nicht ſtreben</l><lb/>
+<l>Alſo zu leben,</l><lb/>
+<l>Daß, wenn man mich auch jung begraͤbt,</l><lb/>
+<l>Die Frommen bey mir klagen,</l><lb/>
+<l>Und zu einander ſagen:</l><lb/>
+<l>O haͤtt er laͤnger doch gelebt!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="9" facs="#f0019"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der Apfel.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">A</hi>ls juͤngſt Haͤnschen in dem Gras</l><lb/>
+<l>Sich ein Blumenſtraͤuschen las,</l><lb/>
+<l>Fand er, welch Vergnuͤgen!</l><lb/>
+<l>Einen Apfel liegen.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">H</hi>aͤnschen huͤpfte froh daher;</l><lb/>
+<l>„Ey wie wunderſchoͤn iſt er!„</l><lb/>
+<l>Sprach er; meinem Magen</l><lb/>
+<l>Soll er wohl behagen.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">V</hi>oll Begierde biß er zu —</l><lb/>
+<l>Haͤnschen, o was ſprudelſt du?</l><lb/>
+<l>Will dem kleinen Gecken</l><lb/>
+<l>Nicht der Apfel ſchmecken?</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">O</hi> ſprach er: „der Wurm iſt drinn,„</l><lb/>
+<l>Und warf ihn entruͤſtet hin:</l><lb/>
+<l>„Eine ſchoͤne Luͤgen</l><lb/>
+<l>Laß ich mich betruͤgen!„</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="10" facs="#f0020"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Die Freyheit.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>arum, du kleine Nachtigall,</l><lb/>
+<l>Hoͤr ich nicht deiner Stimme Schall</l><lb/>
+<l>Mehr der Natur zu Ehren?</l><lb/>
+<l>Du ſangſt in Straͤuchen ja zuvor</l><lb/>
+<l>So wunderſchoͤn, daß aller Voͤgel Chor</l><lb/>
+<l>Schwieg, wenn du ſangſt, um dich zu</l><lb/>
+<l><hi rendition="#et">hoͤren.</hi></l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">J</hi>m goldnen Bauer ſitzeſt du;</l><lb/>
+<l>Jch trage dir die Speiſe zu</l><lb/>
+<l>Schon mit dem fruͤhſten Morgen.</l><lb/>
+<l>Kein Sturm und Regen ſchadet dir;</l><lb/>
+<l>Doch du ſingſt nicht, und ſitzeſt traurig</l><lb/>
+<l><hi rendition="#et">hier,</hi></l><lb/>
+<l>Als haͤtteſt du recht ſchwere Sorgen.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">W</hi>ie, ſollt es dich vielleicht gereun,</l><lb/>
+<l>Bey mir hier eingeſperrt zu ſeyn?</l><lb/>
+<l>Da flieg in Freyheit wieder!</l><lb/>
+<l>O ja, du ſingſt, ſchon hoͤr ich dich</l><lb/>
+<l>Vom naͤchſten Baum, und du belohneſt</l><lb/>
+<l><hi rendition="#et">mich</hi></l><lb/>
+<l>Dafuͤr durch deine beſten Lieder!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="11" facs="#f0021"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Die wahre Groͤße.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>er Krieger duͤrſtet nach Ehre</l><lb/>
+<l>Jn eiſernem Feld,</l><lb/>
+<l>Und glaubt, er bau ihr Altaͤre,</l><lb/>
+<l>Wenn mancher edle Held</l><lb/>
+<l>Von ſeinem Schwerdtſtreich faͤllt.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">U</hi>nd wenn er Laͤnder verwuͤſtet</l><lb/>
+<l>Und Staͤdte verbrannt,</l><lb/>
+<l>Und ſich auf Leichen gebruͤſtet</l><lb/>
+<l>Mit Blut beſpritzter Hand;</l><lb/>
+<l>Wird er oft <hi rendition="#fr">Groß</hi> genannt.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">D</hi>och wer ſich ſelber beſtreitet,</l><lb/>
+<l>Die Tugend verehrt,</l><lb/>
+<l>Um ſich das Gluͤcke verbreitet,</l><lb/>
+<l>Und durch ſein Beyſpiel lehrt,</l><lb/>
+<l>Jſt nur des Ramens werth.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="12" facs="#f0022"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Das Kartenhaͤuschen.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">L</hi>acht nur, guten Leute, lacht,</l><lb/>
+<l>Daß mein Haus, das ich gemacht,</l><lb/>
+<l>Eine leichte Luft zerſtoͤrt.</l><lb/>
+<l>Jſt dieß lachens werth?</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">O</hi>! ihr baut auch oft in Wind!</l><lb/>
+<l>Sagt, was eure Schloͤſſer ſind,</l><lb/>
+<l>Die ihr euch ſo hoch erbaut,</l><lb/>
+<l>Und mit Stolz beſchaut?</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">W</hi>erden ſie noch morgen ſtehn?</l><lb/>
+<l>Ja — vielleicht — wir wollen ſehn.</l><lb/>
+<l>Stoͤrt nicht oft ein Augenblick</l><lb/>
+<l>Unſer ganzes Gluͤck?</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="13" facs="#f0023"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Der wahre Reichthum.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>arum durchirrt nach Gut und Geld</l><lb/>
+<l>Der Menſch die fernſten Meere,</l><lb/>
+<l>Als ob fuͤr ihn nicht eine Welt</l><lb/>
+<l>Schon groß genug waͤre?</l><lb/>
+<l>Doch, wenn er, was er wuͤnſcht, beſitzt,</l><lb/>
+<l>So ſtirbt er, ohne daß ers nuͤtzt.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">D</hi>ieß koͤnnen nicht die Guͤter ſeyn,</l><lb/>
+<l>Die man ſich ſoll erwerben.</l><lb/>
+<l>Ein Weiſer ſammlet Schaͤtze ein,</l><lb/>
+<l>Die nie mit ihm ſterben.</l><lb/>
+<l>Die Tugend iſts; nach dieſer Zeit</l><lb/>
+<l>Folgt ſie ihm in die Ewigkeit.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="14" facs="#f0024"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Der Fiſch an der Angel.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>as kleine Fiſchgen ſpielet hier</l><lb/>
+<l>Jn ſilbernem Bach,</l><lb/>
+<l>Und haͤngt, voll luͤſterner Begier,</l><lb/>
+<l>Bloß ſeinen Freuden nach.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">E</hi>s merket nicht die blutge Liſt,</l><lb/>
+<l>Den freundlichen Feind,</l><lb/>
+<l>Der deſto mehr zu fuͤrchten iſt,</l><lb/>
+<l>Je guͤtiger er ſcheint.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">D</hi>ie Ruthe mit der Angel ſpielt</l><lb/>
+<l>Schon uͤber ihn hin,</l><lb/>
+<l>Und voller Neubegierde ſchielt</l><lb/>
+<l>Es bloß nach dem Gewinn.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">E</hi>s naht ſich ſchon — itzt ſchnappt es zu!</l><lb/>
+<l>Was haſt du gethan?</l><lb/>
+<l>Du bluteſt, armes Thierchen du,</l><lb/>
+<l>O biſſeſt du nicht an! —</l></lg><lb/>
+<lg n="5"><l><hi rendition="#in">M</hi>ich reiße nie, was mir gefaͤllt,</l><lb/>
+<l>Unpruͤfend dahin!</l><lb/>
+<l>Dein Beyſpiel lehre mich die Welt</l><lb/>
+<l>Und ihre Reizung fliehn!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="15" facs="#f0025"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Die Seifenblaſe.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>ie ſpielt die ſchoͤne Blaſe nicht</l><lb/>
+<l>So bunt am goldnen Sonnenlicht?</l><lb/>
+<l>Allein, ein Hauch! weg iſt die Pracht,</l><lb/>
+<l>Und ihrer wird nicht mehr gedacht.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">J</hi>hr iſt ein junges Herrchen gleich,</l><lb/>
+<l>Stolz auf ſein Kleid, vom Golde reich,</l><lb/>
+<l>Selbſt aber an Verdienſten leer:</l><lb/>
+<l>Man nehm es ihm, ſo bleibt nichts mehr.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="16" facs="#f0026"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Die kleinen Leute.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">J</hi>n Lilliput, ich glaub es kaum,</l><lb/>
+<l>Doch Swift erzaͤhlts, ſind Leute</l><lb/>
+<l>So groß, als ungefaͤhr mein Daum:</l><lb/>
+<l>Man denk erſt in der Weite!</l><lb/>
+<l>Da muͤſſen ſie gewiß ſo klein,</l><lb/>
+<l>Als bey uns eine Muͤcke ſeyn.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">O</hi> waͤr ich dort, wie groß waͤr ich!</l><lb/>
+<l>Man nennte mich den Rieſen,</l><lb/>
+<l>Und mit den Fingern wuͤrd auf mich,</l><lb/>
+<l>Wo man mich ſaͤh, gewieſen!</l><lb/>
+<l>Dort, ſpraͤchen ſie, dort gehet er!</l><lb/>
+<l>Und vor mir gieng das Schrecken her.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">D</hi>och wenn ich nun nicht kluͤger waͤr,</l><lb/>
+<l>Als itzt; ſie aber waͤren</l><lb/>
+<l>Geſitteter, verſtaͤndiger,</l><lb/>
+<l>Wie! wuͤrden ſie mich ehren?</l><lb/>
+<l>Jch glaube kaum. Sie wuͤrden ſchreyn:</l><lb/>
+<l>Groß an Geſtalt, am Geiſte klein!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="17" facs="#f0027"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Die Muͤcke.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>es Lichtes Glanz in dunkler Nacht</l><lb/>
+<l>Reizt einer Muͤcke Unbedacht:</l><lb/>
+<l>Sie ſpielt und nimmt nicht die Gefahr,</l><lb/>
+<l>Die ihr das Leben koſtet, wahr.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">O</hi> ladet mich der goldne Schein</l><lb/>
+<l>Der Wolluſt dieſes Lebens ein:</l><lb/>
+<l>So denke ſtets mein Herz daran,</l><lb/>
+<l>Wie leicht ihr Reiz verderben kann!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="18" facs="#f0028"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der Vorſatz.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>eil ich jung bin, ſoll mein Fleiß</l><lb/>
+<l>Eifrig ſich beſtreben,</l><lb/>
+<l>Daß ich moͤg einſt, als ein Greis,</l><lb/>
+<l>Recht zufrieden leben.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">Z</hi>war will ich mich jugendlich</l><lb/>
+<l>Meiner Tage freuen;</l><lb/>
+<l>Doch nie alſo, daß es mich</l><lb/>
+<l>Darf im Alter reuen.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="19" facs="#f0029"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Die Sonne.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">G</hi>egruͤßet ſeyſt du, edles Licht,</l><lb/>
+<l>O Sonne, die mein Angeſicht</l><lb/>
+<l>Aufs neu jetzund erhellet!</l><lb/>
+<l>Wie groß iſt der, der dich gemacht,</l><lb/>
+<l>Und deine Majeſtaͤt und Pracht</l><lb/>
+<l>Ans Firmament geſtellet!</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">A</hi>us deinem Feuermeere fließt</l><lb/>
+<l>Die Waͤrm in alles, was da iſt,</l><lb/>
+<l>Jhm Kraft und Glanz zu geben.</l><lb/>
+<l>Der Eichbaum und das kleinſte Gras</l><lb/>
+<l>Empfaͤngt von dir in gleichem Maas</l><lb/>
+<l>Flor, Wachsthum, Reife, Leben.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">D</hi>u biſt des frommen Weiſen Bild,</l><lb/>
+<l>Der ſtets, mit Menſchenlieb erfuͤllt,</l><lb/>
+<l>Vertheilt, was er beſitzet.</l><lb/>
+<l>Den Bloͤden leuchtet ſein Verſtand,</l><lb/>
+<l>Jndem die immer offne Hand</l><lb/>
+<l>Wohlthaͤtig andern nuͤtzet.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="20" facs="#f0030"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Die Kleiderpracht.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">T</hi>ulipanen prangen ſchoͤn</l><lb/>
+<l>Jn den Farben, die ſie ſchmuͤcken;</l><lb/>
+<l>Doch man laͤßt ſie traurig ſtehn,</l><lb/>
+<l>Da ſie ſonſt durch nichts entzuͤcken.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">A</hi>ller Kleider Herrlichkeit</l><lb/>
+<l>Mag ſich auch ein Geck verſchaffen;</l><lb/>
+<l>Man verkennt im bunten Kleid</l><lb/>
+<l>Doch nicht den geputzten Affen.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="21" facs="#f0031"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Der Sperling und das Tur-<lb/>
+teltaͤubchen.</hi></head><lb/>
+<head>Der Sperling.</head><lb/>
+<lg n="1"><l><hi rendition="#in">J</hi>ch armer Schelm! wie geht es mir!</l><lb/>
+<l>Du biſt geliebt: ich bin verachtet!</l><lb/>
+<l>Was denkt der Menſch wohl, daß er dir</l><lb/>
+<l>Weit <hi rendition="#fr">minder nach dem</hi> Leben trachret?</l><lb/>
+<l>Bin ich, geſteh es mir nur zu,</l><lb/>
+<l>Nicht zehnmal liſtiger, als du?</l></lg><lb/>
+<lb/>
+<lg n="2"><head>Das Turteltaͤubchen.</head><l><hi rendition="#in">D</hi>as macht, daß du ein Raͤuber biſt;</l><lb/>
+<l>Jch nehme bloß, was er mir ſchenket,</l><lb/>
+<l>Und habe noch durch Trug und Liſt</l><lb/>
+<l>Jhn nie an ſeinem Gut gekraͤnket.</l><lb/>
+<l>Was hilfts, wenn man Verſtand beſitzt,</l><lb/>
+<l>Und nicht zu guten Thaten nuͤtzt!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="22" facs="#f0032"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Das Clavier.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">S</hi>uͤßertoͤnendes Clavier,</l><lb/>
+<l>Welche Freuden ſchaffſt du mir!</l><lb/>
+<l>Jn der Einſamkeit gebricht</l><lb/>
+<l>Mir es an Ergoͤtzen nicht;</l><lb/>
+<l>Du biſt, was ich ſelber will,</l><lb/>
+<l>Bald Erweckung und bald Spiel.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">S</hi>cherz ich, ſo ertoͤnet mir</l><lb/>
+<l>Ein ſcherzhaftes Lied von dir;</l><lb/>
+<l>Will ich aber traurig ſeyn,</l><lb/>
+<l>Klagend ſtimmſt du mit mir ein;</l><lb/>
+<l>Heb ich fromme Lieder an,</l><lb/>
+<l>Wie erhaben klingſt du dann!</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">N</hi>iemals oͤffne meine Bruſt</l><lb/>
+<l>Sich der Lockung falſcher Luſt!</l><lb/>
+<l>Meine Freuden muͤſſen rein,</l><lb/>
+<l>So wie deine Saiten ſeyn,</l><lb/>
+<l>Und mein ganzes Leben nie</l><lb/>
+<l>Ohne ſuͤße Harmonie.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="23" facs="#f0033"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Die Freundſchaft.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>er Freund, der mir den Spiegel zeiget,</l><lb/>
+<l>Den kleinſten Flecken nicht ver-</l><lb/>
+<l><hi rendition="#et">ſchweiget,</hi></l><lb/>
+<l>Mich freundlich warnt, mich ernſtlich</l><lb/>
+<l><hi rendition="#et">ſchilt,</hi></l><lb/>
+<l>Wenn ich nicht meine Pflicht erfuͤllt:</l><lb/>
+<l>Das iſt ein Freund,</l><lb/>
+<l>So wenig er es ſcheint!</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">D</hi>och der, der mich ſtets ſchmeichelnd</l><lb/>
+<l><hi rendition="#et">preiſet,</hi></l><lb/>
+<l>Mir alles lobt, nie was verweiſet;</l><lb/>
+<l>Zu Fehlern mir die Haͤnde beut,</l><lb/>
+<l>Und mir vergiebt, eh ich bereut:</l><lb/>
+<l>Das iſt ein Feind,</l><lb/>
+<l>So freundlich er auch ſcheint!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">An</fw><lb/>
+<pb n="24" facs="#f0034"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">An den Schlaf.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">K</hi>omm, ſuͤßer Schlaf, erquicke mich!</l><lb/>
+<l>Mein muͤdes Auge ſehnet ſich</l><lb/>
+<l>Der Ruhe zu genießen,</l><lb/>
+<l>Komm, ſanft es zuzuſchließen!</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">W</hi>ie aber, Freund, o ſchloͤſſeſt du</l><lb/>
+<l>Von nun an es auf ewig zu,</l><lb/>
+<l>Und dieſe Augenlieder</l><lb/>
+<l>Saͤhn nie den Morgen wieder?</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">S</hi>o weis ich, daß ein ſchoͤnres Licht</l><lb/>
+<l>Einſt meinen Schlummer unterbricht,</l><lb/>
+<l>Und einen Tag mir goͤnnet,</l><lb/>
+<l>Der keinen Abend kennet.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="25" facs="#f0035"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Die Zeit.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">S</hi>o wie ein Tropfen in dem Bach,</l><lb/>
+<l>Folgt in der Zeit</l><lb/>
+<l>Ein Augenblick dem andern nach</l><lb/>
+<l>Jns Meer der Ewigkeit.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">D</hi>er jetzt noch gegenwaͤrtig war,</l><lb/>
+<l>(Schon jetzt nicht mehr!)</l><lb/>
+<l>Entflieht fuͤr mich auf immerdar</l><lb/>
+<l>Ohn alle Wiederkehr.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">W</hi>ie muß mir jeder Augenblick</l><lb/>
+<l>Unſchaͤtzbar ſeyn!</l><lb/>
+<l>Leg ich ihn ungenuͤtzt zuruͤck,</l><lb/>
+<l>So bring ich nie ihn ein.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">W</hi>ie viel verſcherzt ich ſchon, wie viel!</l><lb/>
+<l>Sie ſind dahin!</l><lb/>
+<l>Weg Taͤndeley und Puppenſpiel,</l><lb/>
+<l>Da ich kein Kind mehr bin.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="26" facs="#f0036"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Die Furcht.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">H</hi>ier in dieſen dunkeln Straͤuchen</l><lb/>
+<l>Will ich, ganz allein,</l><lb/>
+<l>Meine Grillen mir verſcheuchen,</l><lb/>
+<l>Mich des Fruͤhlings freun.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">P</hi>hilomele ſoll mich lehren</l><lb/>
+<l>Was ſie ſingen kann;</l><lb/>
+<l>Und ich ſtimm auch ihr zu Ehren</l><lb/>
+<l>Wohl ein Liedgen an! —</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">D</hi>och was hoͤr ich ſich bewegen?</l><lb/>
+<l>Ah! was rauſchet dort? —</l><lb/>
+<l>Schrecklich rauſcht es mir entgegen, —</l><lb/>
+<l>Waͤr ich dießmal fort! —</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">O</hi>! ich zittre! ich vergehe,</l><lb/>
+<l>Weh mir Armen! Weh!</l><lb/>
+<l>Jetzund kommt es — ja, ich ſehe —</l><lb/>
+<l>Ach! — ein kleines Reh.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="27" facs="#f0037"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Die Dohle und die Nachtigall.</hi></head><lb/>
+<head><hi rendition="#g">Dohle.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">K</hi>leiner Schreyhals ſage mir,</l><lb/>
+<l>Ey, wie koͤmmts, daß Menſchen dir</l><lb/>
+<l>So viel Beyfall gern gewaͤhren?</l><lb/>
+<l>Gleichwohl ſchweigt oft dein Geſang:</l><lb/>
+<l>Jch! ich ſchwatze Tage lang,</l><lb/>
+<l>Und mich wuͤnſcht kein Menſch zu hoͤren!</l></lg><lb/>
+<lb/>
+<lg n="2"><head><hi rendition="#g">Nachtigall.</hi></head><l><hi rendition="#in">K</hi>oͤmmt es denn aufs Schwatzen an?</l><lb/>
+<l>Dem, der niemals ſchweigen kann,</l><lb/>
+<l>Wird kein Kluger Lob gewaͤhren.</l><lb/>
+<l>Du ſprichſt ohne Unterlaß,</l><lb/>
+<l>Jmmer einerley, und was?</l><lb/>
+<l>Nichts. Das wuͤnſcht man auch zu hoͤren!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="28" facs="#f0038"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der Neid.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">M</hi>an lobt den kleinen Fritzen ſehr,</l><lb/>
+<l>Er ſey gehorſam und beſcheiden,</l><lb/>
+<l>Verſtaͤndig, fleißig, lerne mehr,</l><lb/>
+<l>Als ich? ihn ſollt ich wohl beneiden.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">A</hi>llein was hilft mein Neid mir nun?</l><lb/>
+<l>Wird er dann weniger erhoben?</l><lb/>
+<l>Weit beſſer, es ihm vorzuthun!</l><lb/>
+<l>So muß man mich noch weit mehr loben.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="29" facs="#f0039"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Der arme Mann.</hi><lb/>
+<hi rendition="#g">Bruder und Schweſter.</hi></head><lb/>
+<head><hi rendition="#b">Schweſter.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">B</hi>ruder! ſieh den armen Mann</l><lb/>
+<l>Doch nicht in der Naͤh ſo an!</l><lb/>
+<l>Wie verhungert! wie zerriſſen!</l><lb/>
+<l>Nein, mich ſchaudert hinzugehn! —</l><lb/>
+<l>Aber du? — ſo moͤcht ich wiſſen,</l><lb/>
+<l>Was du willſt an ihm erſehn!</l></lg><lb/>
+<lb/>
+<lg n="2"><head><hi rendition="#b">Bruder.</hi></head><l><hi rendition="#in">L</hi>aß mich immer naͤher gehn,</l><lb/>
+<l>Und ſein ganzes Elend ſehn!</l><lb/>
+<l>Man lernt nie ſein Gluͤck erkennen,</l><lb/>
+<l>Wenn man nicht das Elend kennt,</l><lb/>
+<l>Noch fuͤr den voll Dank entbrennen,</l><lb/>
+<l>Der uns dieſes Gluͤck gegoͤnnt.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Eitle</fw><lb/>
+<pb n="30" facs="#f0040"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Eitle Schoͤnheit.</hi></hi><lb/>
+Der Knabe vor dem Spiegel.</head><lb/>
+<head><hi rendition="#b">Der Bruder.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">O</hi>! ich bin doch ein ſchoͤner Knabe!</l><lb/>
+<l>Das iſt gewiß!</l><lb/>
+<l>Der Spiegel, den ich vor mir habe</l><lb/>
+<l>Verraͤth mir dieß!</l><lb/>
+<l>Wie ſanft iſt mein Geſicht! wie rund!</l><lb/>
+<l>Die blauen Augen ſchmachten!</l><lb/>
+<l>Und dieſer kleine rothe Mund</l><lb/>
+<l>Jſt auch nicht zu verachten.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">S</hi>o bald ich freundlich laͤchle, prangen</l><lb/>
+<l>Die Zaͤhn, als Elfenbein,</l><lb/>
+<l>Auf Ros und Lilien vollen Wangen</l><lb/>
+<l>Druͤckt ſich ein Gruͤbchen ein,</l><lb/>
+<l>Und ach! das guͤldne Haar: ſo ſoll</l><lb/>
+<l>Ein paar der ſchoͤnſten Goͤtterknaben,</l><lb/>
+<l>(Sie hießen Bacchus und Apoll)</l><lb/>
+<l>Es einſt getragen haben.</l></lg></lg><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Die</hi></fw><lb/>
+<pb n="31" facs="#f0041"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Die Schweſter.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">M</hi>ein lieber Bruder, vor dem Jahre</l><lb/>
+<l>War ich, wie du, ſo ſchoͤn!</l><lb/>
+<l>Was hatt ich da fuͤr ſchwarze Haare?</l><lb/>
+<l>Du haſt ſie noch geſehn.</l><lb/>
+<l>Da lobte jedes dieß Geſicht</l><lb/>
+<l>Bewundernd um die Wette,</l><lb/>
+<l>Und ſchwur, es ſey kein Maͤdchen nicht</l><lb/>
+<l>So ſchoͤn, als Henriette.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">A</hi>llein die Schoͤnheit iſt vergangen.</l><lb/>
+<l>Da kam der Blattern Wuth,</l><lb/>
+<l>Zerriß mir dieſe glatten Wangen,</l><lb/>
+<l>Loͤſcht aus der Augen Gluth:</l><lb/>
+<l>Doch glaube nicht, daß michs verdruͤßt.</l><lb/>
+<l>Nein, es hat mich gelehret,</l><lb/>
+<l>Daß das nur wahre Schoͤnheit iſt,</l><lb/>
+<l>Was keine Zeit zerſtoͤret.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="32" facs="#f0042"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der Greiß.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>ort fiel ein armer alter Greiß!</l><lb/>
+<l>Sein Haupt war wie ein Silber</l><lb/>
+<l><hi rendition="#et">weiß,</hi></l><lb/>
+<l>Und ihm verſagt ſein zitternd Knie,</l><lb/>
+<l>Und ach — die boͤſen Knaben die,</l><lb/>
+<l>Wie lachten ſie!</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">M</hi>ich dauert dieſer gute Mann!</l><lb/>
+<l>Wer eines Alten ſpotten kann,</l><lb/>
+<l>Jſt der wohl werth, ietzt jung zu ſeyn?</l><lb/>
+<l>Jſt der wohl werth, einſt alt zu ſeyn?</l><lb/>
+<l>Wahrhaftig, nein!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="33" facs="#f0043"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der Fleiß.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">S</hi>uͤßer, angenehmer Fleiß!</l><lb/>
+<l>O wie herrlich iſt der Preiß,</l><lb/>
+<l>Den er jedem Juͤngling beut,</l><lb/>
+<l>Der ihm ſeine Kraͤfte weiht.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">W</hi>enn die Langenweile gaͤhnt</l><lb/>
+<l>Und ſich krank nach Poſſen ſehnt,</l><lb/>
+<l>Huͤpft in froher Thaͤtigkeit</l><lb/>
+<l>Die ihm nie zu lange Zeit.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">J</hi>a, auf ſeidnen Schwingen fliehn</l><lb/>
+<l>Seine Stunden vor ihm hin:</l><lb/>
+<l>Den verlohrnen Augenblick,</l><lb/>
+<l>Nichts ſonſt, wuͤnſcht er ſich zuruͤck.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">E</hi>r iſt ſtark, geſund und friſch,</l><lb/>
+<l>Arbeit wuͤrzet ihm den Tiſch,</l><lb/>
+<l>Und kein kranker Ekel ſchleicht</l><lb/>
+<l>Sich zu ſeiner Mahlzeit leicht.</l></lg><lb/>
+<lg n="5"><l><hi rendition="#in">W</hi>enn er winkt, druͤckt ihm die Ruh</l><lb/>
+<l>Seine Augen willig zu:</l><lb/>
+<l>Nie hat ihn ein Traum geweckt,</l><lb/>
+<l>Der im Schlummer ihn geſchreckt.</l></lg><lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="43[34]" facs="#f0044"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg n="6"><l><hi rendition="#in">E</hi>r begegnet allemal</l><lb/>
+<l>Fruͤh dem erſten Sonnenſtral,</l><lb/>
+<l>Wenn er, munterm Fleiß geneigt,</l><lb/>
+<l>Von den Bergen nieder ſteigt.</l></lg><lb/>
+<lg n="7"><l><hi rendition="#in">J</hi>n der Jahre reifern Lauf</l><lb/>
+<l>Suchen Ehr und Wuͤrd ihn auf:</l><lb/>
+<l>Gluͤck und Seegen warten ſein,</l><lb/>
+<l>Um ſein Alter zu erfreun.</l></lg><lb/>
+<lg n="8"><l><hi rendition="#in">A</hi>ller Orten trifft er dann</l><lb/>
+<l>Fruͤchte ſeiner Arbeit an,</l><lb/>
+<l>Keinen Augenblick der Zeit,</l><lb/>
+<l>Die er nun umſonſt bereut.</l></lg><lb/>
+<lg n="9"><l><hi rendition="#in">A</hi>uch im Alter, auch als Greiß</l><lb/>
+<l>Jſt er munter und voll Fleiß,</l><lb/>
+<l>Und ihn traͤgt kein falſcher Stab</l><lb/>
+<l>An ſein ruhigs, ſpaͤtes Grab.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="35" facs="#f0045"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Die Eule.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>ie Eule ſcheut das Sonnenlicht</l><lb/>
+<l>Und kriecht in finſtre Hoͤhlen.</l><lb/>
+<l>Warum? weil ihre Werke nicht</l><lb/>
+<l>Den Menſchen ſich empfehlen.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">M</hi>ich uͤbereile keine That,</l><lb/>
+<l>Die ich einſt muß bereuen!</l><lb/>
+<l>Denn wer ein gut Gewiſſen hat,</l><lb/>
+<l>Braucht nie den Tag zu ſcheuen.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="36" facs="#f0046"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Das aͤußerliche Anſehn.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">U</hi>nter ſchoͤn gewachsnen Baͤumen</l><lb/>
+<l>Stand ein niedrer krummer Baum:</l><lb/>
+<l>Sie in ihrer Hoheit Traͤumen,</l><lb/>
+<l>Goͤnnten ihm das Leben kaum:</l><lb/>
+<l>O koͤmmt nur der Zimmermann,</l><lb/>
+<l>Sprachen ſie, ſo muß du dran!</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">D</hi>och ſchon koͤmmt er angeſtiegen, —</l><lb/>
+<l>Wie? was faͤllt dem Thoren ein?</l><lb/>
+<l>Sie bemerkt er mit Vergnuͤgen,</l><lb/>
+<l>Sollts auf ſie gemuͤnzet ſeyn?</l><lb/>
+<l>Himmel! alle haut er um,</l><lb/>
+<l>Dieſer bleibt, denn er war krumm.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg n="3"><l><hi rendition="#in">O</hi> man trotze nicht auf Erden</l><lb/>
+<l>Auf Geſtalt und aͤußre Pracht:</l><lb/>
+<l>Das kann oft zum Fall uns werden,</l><lb/>
+<l>Was uns ſtolz und eitel macht.</l><lb/>
+<l>Wer nicht ſehr ins Auge faͤllt,</l><lb/>
+<l>Den beneidet nicht die Welt.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Klage-</fw><lb/>
+<pb n="37" facs="#f0047"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Klagelied eines Knaben</hi><lb/>
+auf ein junges Maͤdchen.</head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>ieß bange Klaggetoͤne</l><lb/>
+<l>Gilt das Amalien?</l><lb/>
+<l>Wie hab ich nicht die Schoͤne</l><lb/>
+<l>Vor kurzem noch geſehn?</l><lb/>
+<l>O ja, mit ihren Schweſtern</l><lb/>
+<l>Gieng ſie noch ehegeſtern,</l><lb/>
+<l>Zum frohen Tanz</l><lb/>
+<l>Jn einem Blumenkranz.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">W</hi>ie die Orangenbluͤte,</l><lb/>
+<l>So glaͤnzt ihr Angeſicht,</l><lb/>
+<l>Und ſelbſt die Roſe gluͤhte</l><lb/>
+<l>Darunter ſchoͤner nicht:</l><lb/>
+<l>Am Abend von dem Tage,</l><lb/>
+<l>War ihre letzte Klage,</l><lb/>
+<l>Daß ganz und gar</l><lb/>
+<l>Jhr Kranz entblaͤttert war.</l></lg><lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">Wer</fw><lb/>
+<pb n="38" facs="#f0048"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg n="3"><l><hi rendition="#in">W</hi>er haͤtt ihr ſollen ſagen,</l><lb/>
+<l>Daß wir in naͤchſter Nacht</l><lb/>
+<l>Sie wuͤrden ſo beklagen,</l><lb/>
+<l>Wie ſie des Kranzes Pracht.</l><lb/>
+<l>Die Blume — unter allen</l><lb/>
+<l>Die ſchoͤnſte iſt gefallen —</l><lb/>
+<l>Sie faͤllt herab,</l><lb/>
+<l>So fruͤh verwelkt, ins Grab!</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">W</hi>o ſeyd ihr ſuͤßen Roſen,</l><lb/>
+<l>Wo ſeyd ihr hingeflohn?</l><lb/>
+<l>Statt euch noch lieb zu koſen,</l><lb/>
+<l>Eilt man behend davon.</l><lb/>
+<l>Wie ſchlecht ſchmuͤckt ſie die Seide</l><lb/>
+<l>Von ihrem Sterbekleide,</l><lb/>
+<l>Und dieß iſt doch</l><lb/>
+<l>An ihr das ſchoͤnſte noch.</l></lg><lb/>
+<fw type="catch" place="bottom">Bald</fw><lb/>
+<pb n="39" facs="#f0049"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg n="5"><l><hi rendition="#in">B</hi>ald wird man den Gebeinen</l><lb/>
+<l>Den letzten Dienſt verleihn,</l><lb/>
+<l>Um ſie nicht weiter weinen</l><lb/>
+<l>Und ſie vergeſſen ſeyn!</l><lb/>
+<l>Jch will ihr Blumen ſtreuen,</l><lb/>
+<l>So oft ſie ſich verneuen —</l><lb/>
+<l>Doch wer ſagt mir,</l><lb/>
+<l>Wie lange bin ich hier!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="40" facs="#f0050"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Das Geſchenk.</hi></hi><lb/>
+Der Bruder an die Schweſter.</head><lb/>
+<lg n="1"><l><hi rendition="#in">S</hi>ieh! kann ein Apfel ſchoͤner ſeyn?</l><lb/>
+<l>Ja Schweſter, eine Augenweide!</l><lb/>
+<l>Wie muß nicht ſein Geſchmack erfreun,</l><lb/>
+<l>Macht ſchon ſein Anblick ſolche Freude.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">S</hi>ein lieblicher Geruch, wie hold!</l><lb/>
+<l>Jn gelben roth durchſtreiften Schaalen,</l><lb/>
+<l>Glaͤnzt ein Rubin gefaßt in Gold:</l><lb/>
+<l>Kein Maler kann den Apfel malen.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">D</hi>u moͤchteſt ihn? ich geb ihn dir,</l><lb/>
+<l>Ja, haͤtt ich auch noch ſchoͤnre Sachen!</l><lb/>
+<l>Schoͤn iſt es, gluͤcklich ſeyn: Doch mir</l><lb/>
+<l>Jſt es weit ſchoͤner, gluͤcklich machen.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="41" facs="#f0051"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Der Vorwitz das Kuͤnftige<lb/>
+zu wiſſen.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">G</hi>uͤtig huͤllt in Finſterniſſen</l><lb/>
+<l>Gott die Zukunft ein:</l><lb/>
+<l>Deutlich ſie voraus zu wiſſen</l><lb/>
+<l>Wuͤrde Strafe ſeyn.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">S</hi>aͤh ich Gluͤck auf meinem Wege;</l><lb/>
+<l>Wuͤrd ich ſtolz mich blaͤhn,</l><lb/>
+<l>Und leichtſinnig oder traͤge</l><lb/>
+<l>Meinen Zweck verſehn.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">S</hi>aͤh ich Ungluͤck; wuͤrd ich zittern:</l><lb/>
+<l>Und die kuͤnftge Zeit</l><lb/>
+<l>Wuͤrde mir das Gluͤck verbittern,</l><lb/>
+<l>Das mich ietzt erfreut.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">W</hi>as ich habe, will ich nuͤtzen,</l><lb/>
+<l>Fernen Gram nicht ſcheun:</l><lb/>
+<l>Und ſoll ich ein Gluͤck beſitzen,</l><lb/>
+<l>Meines Gluͤcks mich freun.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">Unuͤber-</fw><lb/>
+<pb n="42" facs="#f0052"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Unuͤberlegter Wunſch.</hi><lb/>
+Der Mann und der Knabe.</head><lb/>
+<head><hi rendition="#b">Der Knabe.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>ieß braune Pferd — welch ſchoͤnes</l><lb/>
+<l><hi rendition="#et">Thier!</hi></l><lb/>
+<l>O lieber Mann, erlaubet mir</l><lb/>
+<l>Ein wenig drauf herum zu traben,</l><lb/>
+<l>Was wollt ich nicht fuͤr Freude haben!</l></lg><lb/>
+<lg n="2"><head><hi rendition="#b">Der Mann.</hi></head><lb/>
+<l><hi rendition="#in">P</hi>ruͤf deine Kraͤfte dich zuvor,</l><lb/>
+<l>Eh du was wuͤnſcheſt, kleiner Thor!</l><lb/>
+<l>Weiſt du ein Pferd auch zu regieren,</l><lb/>
+<l>Um nicht dein Leben zu verlieren?</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="43" facs="#f0053"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der Seiltaͤnzer.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">J</hi>ch hab ihn geſehen,</l><lb/>
+<l>Den kuͤnſtlichen Mann,</l><lb/>
+<l>Auf einem Seile gehen,</l><lb/>
+<l>So gut ichs auf der Ebne kann.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">J</hi>ch muß es wohl ſagen,</l><lb/>
+<l>Das fordert viel Muͤh:</l><lb/>
+<l>Doch moͤcht ich etwas fragen:</l><lb/>
+<l>Die ſeltne Kunſt — was nuͤtzet ſie?</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="44" facs="#f0054"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Das Lamm.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>ie nah, du armes Laͤmmgen, du,</l><lb/>
+<l>Wie nahe gehſt du mir!</l><lb/>
+<l>Noch ſpielſt du ſorglos und in Ruh,</l><lb/>
+<l>Und ach! was drohet dir!</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">D</hi>en, der dir ietzt das Futter giebt,</l><lb/>
+<l>Haͤltſt du fuͤr einen Freund? —</l><lb/>
+<l>Dich liebt er, weil er ſich nur liebt</l><lb/>
+<l>Und iſt dein aͤrgſter Feind!</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">D</hi>ie rothe Schleife, welche ſich</l><lb/>
+<l>Jetzt um dein Haͤlschen ſchlingt,</l><lb/>
+<l>Ach! iſt das Band, woran man dich</l><lb/>
+<l>Zum Tode morgen bringt.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">U</hi>nd dieſe Hand — mit ſanftem Muth</l><lb/>
+<l>Wird ſie von dir gekuͤßt?</l><lb/>
+<l>O! wuͤßteſt du, daß morgen Blut,</l><lb/>
+<l>Dein Blut von dieſer fließt!</l></lg><lb/>
+<lg n="5"><l><hi rendition="#in">W</hi>ohl dir! genieß in Gluͤck und Ruh</l><lb/>
+<l>Der kurzen Lebensfriſt:</l><lb/>
+<l>Was huͤlf es dir: ach wuͤßteſt du,</l><lb/>
+<l>Was dir beſchieden iſt!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="45" facs="#f0055"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Das groͤßte Gluͤck.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">V</hi>on dem Gluͤcke alle Gaben,</l><lb/>
+<l>Reichthum, Ehr und Schaͤtze haben,</l><lb/>
+<l>Dieß iſt zwar, ich muß geſtehn,</l><lb/>
+<l>Wuͤnſchenswerth und wunderſchoͤn.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">D</hi>och das groͤßte Gluͤck auf Erden,</l><lb/>
+<l>Das uns kann zu Theile werden,</l><lb/>
+<l>Jſt des Gluͤcks, deß wir uns freun,</l><lb/>
+<l>Ja, des groͤßten wuͤrdig ſeyn.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Ein</fw><lb/>
+<pb n="46" facs="#f0056"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Ein kleines Unrecht.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">M</hi>einen Vetter Chriſtian</l><lb/>
+<l>Wagts ein Bienchen einſt zu ſtechen:</l><lb/>
+<l>Zornig ſprach der kleine Mann,</l><lb/>
+<l>Wart, nur wart, ich will mich raͤchen!</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">P</hi>loͤtzlich brach mit kuͤhner Hand,</l><lb/>
+<l>Er vom naͤchſten Buſche Reiſer,</l><lb/>
+<l>Schlug, und warf mit unter Sand</l><lb/>
+<l>An der armen Bienen Haͤuſer.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">D</hi>och der kleinen Voͤgel Heer</l><lb/>
+<l>Ließ die Schmach nicht ungerochen,</l><lb/>
+<l>Alles fiel ihn an, und er</l><lb/>
+<l>Wurde jaͤmmerlich zerſtochen.</l></lg><lb/>
+<lg n="4"><l>„<hi rendition="#in">D</hi>ieß war, rief er, deine Schuld,</l><lb/>
+<l>&amp;q;Wird mein Jnformator ſagen:</l><lb/>
+<l>&amp;q;Lerne kuͤnftig in Geduld</l><lb/>
+<l>&amp;q;Ein geringes Unrecht tragen!„</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="47" facs="#f0057"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Der Schneemann.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>er ſchoͤne Schneemann — ey wie</l><lb/>
+<l><hi rendition="#et">groß,</hi></l><lb/>
+<l>Ein rieſenmaͤßiger Coloß!</l><lb/>
+<l>Doch ach! die liebe Sonne ſcheint,</l><lb/>
+<l>Und er zerrinnt, eh mans gemeint.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">J</hi>hm gleicht ein eitler leerer Kopf,</l><lb/>
+<l>Von weitem glaͤnzt der arme Tropf,</l><lb/>
+<l>Doch der Verſtand beleucht ihn nur,</l><lb/>
+<l>So ſchmilzt die ſchimmernde Figur.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="48" facs="#f0058"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der Mond.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>ie ſuͤß und freundlich lacht</l><lb/>
+<l>Des Monden ſtille Pracht,</l><lb/>
+<l>Den ich von jener Hoͤh</l><lb/>
+<l>Heruͤber ſteigen ſeh.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">J</hi>ch ſehe glaͤnzend ihn</l><lb/>
+<l>Auf jenen Baͤumen gluͤhn,</l><lb/>
+<l>So wie der Phoͤnix ruht</l><lb/>
+<l>Jn ſeinem Reſt voll Gluth.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">A</hi>llein ſein ſilbern Bild</l><lb/>
+<l>Jſt ruhig, lieblich, mild,</l><lb/>
+<l>Er laͤchelt jedem Ruh</l><lb/>
+<l>Und ſuͤße Stille zu.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">D</hi>ie Weisheit gleichet ihm,</l><lb/>
+<l>Nie wild und ungeſtuͤm,</l><lb/>
+<l>Die jedem, der ſie liebt,</l><lb/>
+<l>Auch gleiche Sanftmuth giebt.</l></lg><lb/>
+<fw type="catch" place="bottom">Sein</fw><lb/>
+<pb n="49" facs="#f0059"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg n="5"><l><hi rendition="#in">S</hi>ein liebreich Angeſicht</l><lb/>
+<l>Faͤrbt ſich vom Sonnenlicht,</l><lb/>
+<l>Warum denn? ohne dieß</l><lb/>
+<l>Bedeckt es Finſterniß.</l></lg><lb/>
+<lg n="6"><l><hi rendition="#in">S</hi>o muß der Tugend Schein</l><lb/>
+<l>Der Weisheit Glanz verleihn —</l><lb/>
+<l>Dich, Weisheit, ſuch auch ich,</l><lb/>
+<l>Doch, Tugend, bloß durch dich!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">An</fw><lb/>
+<pb n="50" facs="#f0060"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">An die Lerchen.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">H</hi>immel, ach! iſt das der Dank?</l><lb/>
+<l>Kann der reizende Geſang,</l><lb/>
+<l>Den, wenn ſich der Lenz verjuͤngt,</l><lb/>
+<l>Jhr der frohen Erde bringt,</l><lb/>
+<l>Euch fuͤr dieſe Wuth nicht buͤrgen,</l><lb/>
+<l>Daß die Menſchen Euch erwuͤrgen?</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">A</hi>rme kleine Lerchen, ach!</l><lb/>
+<l>Jch, ich fuͤhle Eure Schmach:</l><lb/>
+<l>Fiel es mir auch zehnmal ein,</l><lb/>
+<l>Nie will ich ſo grauſam ſeyn —</l><lb/>
+<l>Doch, bald haͤtt ich es vergeſſen,</l><lb/>
+<l>Daß wir heute Lerchen eſſen.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="51" facs="#f0061"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der Gehorſam.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">M</hi>ein Hundchen iſt ein gutes Thier,</l><lb/>
+<l>So bald ich rufe, folgt er mir,</l><lb/>
+<l>Doch koͤmmt er nicht, wenn ichs ihm ſage,</l><lb/>
+<l>So iſt er werth, daß ich ihn ſchlage.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">B</hi>eſtrafet mich mein Vater nun,</l><lb/>
+<l>Will ich nicht ſeinen Willen thun,</l><lb/>
+<l>Darf ich es denn ſo uͤbel nehmen? —</l><lb/>
+<l>Mich wuͤrde ja mein Hund beſchaͤmen.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="52" facs="#f0062"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Der thoͤrichte Wunſch.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">O</hi> daß ich nicht ein Vogel bin,</l><lb/>
+<l>So ſchnell und federleicht,</l><lb/>
+<l>Der uͤber Berg und Thaͤler hin</l><lb/>
+<l>Jn Augenblicken ſtreicht.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">D</hi>ann floͤh ich uͤber Land und See,</l><lb/>
+<l>Durchreiſte jeden Ort,</l><lb/>
+<l>Waͤr bald im Thal, bald in der Hoͤh,</l><lb/>
+<l>Bald hier, bald wieder dort.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">D</hi>ann ſucht ich ſtets den Ort mir aus,</l><lb/>
+<l>Wo Lenz und Sommer bluͤhn,</l><lb/>
+<l>Und baute mir mein fluͤchtig Haus</l><lb/>
+<l>An ſchoͤnſten Oertern hin.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">B</hi>ald ſchwaͤng ich mit der Lerche Schall</l><lb/>
+<l>Jn Luͤften mich empor:</l><lb/>
+<l>Bald ſchluͤg ich, wie die Nachtigall,</l><lb/>
+<l>Aus dunkeln Straͤuchen vor.</l></lg><lb/>
+<fw type="catch" place="bottom">Bald</fw><lb/>
+<pb n="53" facs="#f0063"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg n="5"><l><hi rendition="#in">B</hi>ald floͤg ich, wie ein Adler fliegt —</l><lb/>
+<l>Doch — welch ein Schuß geſchah?</l><lb/>
+<l>O weh! ein armer Vogel liegt</l><lb/>
+<l>Jn ſeinem Blute da.</l></lg><lb/>
+<lg n="6"><l><hi rendition="#in">W</hi>ohl mir! daß nicht mein Wunſch</l><lb/>
+<l><hi rendition="#et">gelang,</hi></l><lb/>
+<l>Wie ſollt es mich gereun!</l><lb/>
+<l>Wie groß iſt, Gott, Gott ſey es Dank!</l><lb/>
+<l>Das Gluͤck ein Menſch zu ſeyn!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="54" facs="#f0064"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der Schatten.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>a laͤuft mein Schatten vor mir hin:</l><lb/>
+<l>O ſeht doch! ſeht! wie groß ich bin!</l><lb/>
+<l>Mich wagt man Klein zu nennen? —</l><lb/>
+<l>Doch ach! weg war ich! ſeh ichs nicht,</l><lb/>
+<l>Ein Woͤlkchen deckt der Sonne Licht?</l><lb/>
+<l>So kann man ſich verkennen!</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">D</hi>er Herr dort, der ſich vornehm</l><lb/>
+<l><hi rendition="#et">blaͤht,</hi></l><lb/>
+<l>Lacht: doch wer weiß, wies ihm ergeht,</l><lb/>
+<l>So groß wir ihn ietzt nennen.</l><lb/>
+<l>Es nehme nur ein neidiſch Gluͤck</l><lb/>
+<l>Den guͤldnen Sonnenſchein zuruͤck:</l><lb/>
+<l>So wird man ihn nicht kennen!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="55" facs="#f0065"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Die Bienen.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">T</hi>ragt nur in die Zellen ein,</l><lb/>
+<l>Kleine Honigſammlerinnen:</l><lb/>
+<l>Jetzt bey warmen Sonnenſchein</l><lb/>
+<l>Sucht Jhr Schaͤtze zu gewinnen:</l><lb/>
+<l>Muͤßiggaͤnger haßt man hier;</l><lb/>
+<l>Fleiß und Arbeit ſind Euch Freude,</l><lb/>
+<l>Und das Beſte ſammelt Jhr</l><lb/>
+<l>Auf der blumenvollen Weide.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">W</hi>enn dann einſt der rauhe Nord</l><lb/>
+<l>Ueber jene Huͤgel ſtreichet</l><lb/>
+<l>Und der Flora Kinder dort,</l><lb/>
+<l>Von der bunten Flur verſcheuchet;</l><lb/>
+<l>Dann ſitzt Jhr in Sicherheit:</l><lb/>
+<l>Voll ſind Eure Vorrathskammern,</l><lb/>
+<l>Und Euch lehrt die Duͤrftigkeit</l><lb/>
+<l>Nicht vor andern Thuͤren jammern.</l></lg><lb/>
+<fw type="sig" place="bottom">D 4</fw><fw type="catch" place="bottom">Doch</fw><lb/>
+<pb n="56" facs="#f0066"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg n="3"><l><hi rendition="#in">D</hi>och Jhr ſorgt nicht nur fuͤr Euch:</l><lb/>
+<l>Nein, bey Eurem ſuͤßen Fleiße</l><lb/>
+<l>Seyd Jhr auch fuͤr andre reich,</l><lb/>
+<l>Dankbegierig, milde, weiſe:</l><lb/>
+<l>Jhr verzinnßt das kleine Haus</l><lb/>
+<l>Reichlich dem, der es erbauet,</l><lb/>
+<l>Und der leiht mit Wucher aus,</l><lb/>
+<l>Der Euch in der Theurung trauet.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">E</hi>uer bluͤhendes Geſchlecht</l><lb/>
+<l>Moͤge jaͤhrlich ſich vermehren,</l><lb/>
+<l>Und das weiſe Buͤrgerrecht</l><lb/>
+<l>Nie ein falſcher Fremdling ſtoͤren!</l><lb/>
+<l>Blumen will ich pflanzen, hier</l><lb/>
+<l>Jedes Bluͤmchens ſorgſam ſchonen,</l><lb/>
+<l>Und Jhr ſollet mich dafuͤr</l><lb/>
+<l>Einſt mit Honigſeim belohnen.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="57" facs="#f0067"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Die Lieblings Leidenſchaft.</hi></head><lb/>
+<head>Schweſter.</head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>u kleiner Trommelſchlaͤger Du,</l><lb/>
+<l>Wenn hoͤrſt Du einmal auf zu</l><lb/>
+<l><hi rendition="#et">ſchwaͤrmen?</hi></l><lb/>
+<l>So ſitze doch einmal in Ruh!</l><lb/>
+<l>Kein Ende hat das Stunden lange Laͤrmen.</l></lg><lb/>
+<lg n="2"><head>Bruder.</head><lb/>
+<l><hi rendition="#in">D</hi>u kleine Puppentaͤndlerinn,</l><lb/>
+<l>Du haſt auch wohl zu reden Ehre:</l><lb/>
+<l>Du bringſt die Zeit mit Puppen hin,</l><lb/>
+<l>Als ob dieß nicht ſo gut als Trommeln</l><lb/>
+<l><hi rendition="#et">waͤre.</hi></l></lg><lb/>
+<lg n="3"><head>Schweſter.</head><lb/>
+<l><hi rendition="#in">S</hi>ich zu vergnuͤgen iſt auch Pflicht;</l><lb/>
+<l>Doch werd ich damit niemand plagen,</l><lb/>
+<l>Fuͤr mich ſchickt ſich das Trommeln nicht:</l><lb/>
+<l>Doch Puppenſpiel; das mußt du ſelber</l><lb/>
+<l><hi rendition="#et">ſagen.</hi></l></lg><lb/>
+<fw type="sig" place="bottom">D 5</fw><fw type="catch" place="bottom">Bru-</fw><lb/>
+<pb n="58" facs="#f0068"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg n="4"><head>Bruder.</head><lb/>
+<l><hi rendition="#in">J</hi>ch ſag, eins iſt das andre werth,</l><lb/>
+<l>Du biſt ſo klug, als ich mir ſcheine;</l><lb/>
+<l>Ein jedes liebt ſein Steckenpferd:</l><lb/>
+<l>Die Pupp iſt deins, die Trommel iſt das</l><lb/>
+<l><hi rendition="#et">meine.</hi></l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="59" facs="#f0069"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Der Schmetterling.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">O</hi> ſeht den bunten Schmetterling,</l><lb/>
+<l>Welch glaͤnzend allerliebſtes Ding!</l><lb/>
+<l>Wie iſt ihm doch geſchehen!</l><lb/>
+<l>Als ich ihn kuͤrzlich noch geſehen,</l><lb/>
+<l>War es ein kriechend garſtges Thier,</l><lb/>
+<l>Nur Ekel macht es mir.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">D</hi>ieß ſoll mir eine Lehre ſeyn,</l><lb/>
+<l>Nie auf den aͤußerlichen Schein</l><lb/>
+<l>Blos mein Vertraun zu ſetzen.</l><lb/>
+<l>Der, den wir ietzt veraͤchtlich ſchaͤtzen,</l><lb/>
+<l>Vielleicht wird das ein groͤßrer Mann,</l><lb/>
+<l>Als ich nie werden kann.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="60" facs="#f0070"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der Kraͤuſel.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">M</hi>ein Kraͤuſel huͤpfet froh umher,</l><lb/>
+<l>Wenn ich ihn fleißig treibe,</l><lb/>
+<l>Doch ganz unthaͤtig lieget er,</l><lb/>
+<l>Wenn ich in Ruhe bleibe.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">W</hi>er ſtets dem Gluͤck im Schooße</l><lb/>
+<l><hi rendition="#et">ruht,</hi></l><lb/>
+<l>Wird oft zur Tugend traͤge:</l><lb/>
+<l>Doch er wird thaͤtig, weiſe, gut,</l><lb/>
+<l>Fuͤhlt er des Ungluͤcks Schlaͤge.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="61" facs="#f0071"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Der Morgen.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>illkommen ſchoͤner Morgen!</l><lb/>
+<l>Wie groß iſt deine Pracht!</l><lb/>
+<l>Sie bliebe mir verborgen,</l><lb/>
+<l>Waͤr ich nicht fruͤh erwacht:</l><lb/>
+<l>Luſt, Wunder und Entzuͤcken</l><lb/>
+<l>Begegnen meinen Blicken,</l><lb/>
+<l>Wohin ich immer ſeh,</l><lb/>
+<l>Jm Thal und auf der Hoͤh.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">E</hi>s gluͤhn der Berge Spitzen</l><lb/>
+<l>Von guͤldnem Sonnenſtrahl;</l><lb/>
+<l>Von Diamanten blitzen</l><lb/>
+<l>Die Pflaͤnzgen uͤberall.</l><lb/>
+<l>Jn Luft und auf der Weide</l><lb/>
+<l>Ertoͤnt das Lied der Freude,</l><lb/>
+<l>Und weckt in ſuͤßem Schall</l><lb/>
+<l>Den dankbarn Wiederhall.</l></lg><lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom">Jhr</fw><lb/>
+<pb n="62" facs="#f0072"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg n="3"><l><hi rendition="#in">J</hi>hr wißt nicht, reiche Praſſer,</l><lb/>
+<l>Was ihr fuͤr Gluͤck verſchlaft?</l><lb/>
+<l>Seyd eure eignen Haſſer,</l><lb/>
+<l>Und durch euch ſelbſt beſtraft!</l><lb/>
+<l>Verſchlaft die ſchoͤnſten Stunden,</l><lb/>
+<l>Nie ſey von euch empfunden,</l><lb/>
+<l>Was dieſe ſchoͤne Welt</l><lb/>
+<l>Fuͤr Wunder in ſich haͤlt.</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">J</hi>ch will es aber fuͤhlen. —</l><lb/>
+<l>Jndem die Weſte mir</l><lb/>
+<l>Jn Locken lieblich ſpielen,</l><lb/>
+<l>Sitz und betracht ich hier.</l><lb/>
+<l>Gott! iſt mein irrdiſch Leben</l><lb/>
+<l>Mit ſo viel Gluͤck umgeben,</l><lb/>
+<l>Was wird der Wohnplatz ſeyn,</l><lb/>
+<l>Der uns dort ſoll erfreun!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="63" facs="#f0073"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b"><hi rendition="#g">Das Vogelneſt.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>a hab ich es, das Haͤnflingsneſt!</l><lb/>
+<l>Nun iſt mirs endlich doch gelungen:</l><lb/>
+<l>Das ganze Neſt und mit vier Jungen: —</l><lb/>
+<l>Ja ſtraͤubt Euch nur, ich halt Euch feſt.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">D</hi>och wie barmt nicht der Aeltern</l><lb/>
+<l><hi rendition="#et">Paar!</hi></l><lb/>
+<l>Soll oder ſoll ich ſie nicht nehmen?</l><lb/>
+<l>Nein, nein, deß muͤßt ich mich ja ſchaͤmen,</l><lb/>
+<l>Jch handelte, wie ein Barbar.</l></lg><lb/>
+<lg n="3"><l><hi rendition="#in">W</hi>ie oft hat mich nicht ihr Geſang,</l><lb/>
+<l>Lag ich im Graſe dort geſtrecket,</l><lb/>
+<l>Zu Harmonie und Luſt erwecket,</l><lb/>
+<l>Und dieß waͤr nun der ganze Dank?</l></lg><lb/>
+<lg n="4"><l><hi rendition="#in">J</hi>ch riß ihr armes Haͤuschen ab,</l><lb/>
+<l>Das ſie nach Gaſtrecht mir vertrauet,</l><lb/>
+<l>Von Moos und Stroh ſich ſelbſt erbauet,</l><lb/>
+<l>Zu dem ich nicht ein Haͤlmchen gab.</l></lg><lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">Wenn</fw><lb/>
+<pb n="64" facs="#f0074"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg n="5"><l><hi rendition="#in">W</hi>enn eine raͤuberiſche Hand</l><lb/>
+<l>Mich meinen Aeltern nun entriſſen?</l><lb/>
+<l>Was wuͤrden da fuͤr Thraͤnen fließen,</l><lb/>
+<l>Wie jammervoll waͤr unſer Stand!</l></lg><lb/>
+<lg n="6"><l><hi rendition="#in">N</hi>ein, liebe Saͤnger, bleibt in Ruh,</l><lb/>
+<l>Hier habt Jhr Eure Kinder wieder:</l><lb/>
+<l>Vervielfacht ſingt Jhr Eure Lieder,</l><lb/>
+<l>Mir dann aufs naͤchſte Fruͤhjahr zu.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Ermah-</fw><lb/>
+<pb n="65" facs="#f0075"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg type="poem"><head><hi rendition="#b">Ermahnung an zwey<lb/>
+Kinder.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">S</hi>uͤßes Maͤdchen, holder Knabe!</l><lb/>
+<l>Spielt nur, ſpielt in meinem Schooß!</l><lb/>
+<l>Wenn ich Euch in Armen habe,</l><lb/>
+<l>Bin ich wie ein Koͤnig groß.</l><lb/>
+<l>Euer Stammeln, Euer Lallen,</l><lb/>
+<l>Jſt fuͤr mich Beredſamkeit:</l><lb/>
+<l>Euer Wunſch, mir zu gefallen,</l><lb/>
+<l>Wolluſt und Zufriedenhelt.</l></lg><lb/>
+<lg n="2"><l><hi rendition="#in">W</hi>enn mich Eure Haͤndchen ſtreicheln,</l><lb/>
+<l>Sanft mir Euer Auge lacht:</l><lb/>
+<l>O ſo hab ich auf das Schmeicheln</l><lb/>
+<l>Einer ganzen Welt nicht Acht.</l><lb/>
+<l>Gern miſch ich in Eure Spiele</l><lb/>
+<l>Mich mit froher Nachſicht ein.</l><lb/>
+<l>O des Gluͤcks! daß ich dann fuͤhle</l><lb/>
+<l>Wieder einmal Kind zu ſeyn.</l></lg><lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">Ja,</fw><lb/>
+<pb n="66" facs="#f0076"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <lg n="3"><l><hi rendition="#in">J</hi>a, geliebte, zarte Beyde,</l><lb/>
+<l>Tauſendmal umarm ich Euch!</l><lb/>
+<l>Jmmerdar ſey Eure Freude</l><lb/>
+<l>Eurer jetzgen Freude, gleich.</l><lb/>
+<l>Unſchuld wohn in Euern Herzen,</l><lb/>
+<l>Keine Bosheit komm in ſie!</l><lb/>
+<l>Jhr koͤnnt ſingen, tanzen, ſcherzen,</l><lb/>
+<l>Nur verſcherzt die Tugend nie!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<figure/><lb/>
+<pb facs="#f0077"/>
+<pb facs="#f0078"/>
+<pb facs="#f0079"/>
+<pb facs="#f0080"/>
+<pb facs="#f0081"/>
+<pb facs="#f0082"/>
+<pb facs="#f0083"/>
+<pb facs="#f0084"/>
+</body>
+</text> </TEI>

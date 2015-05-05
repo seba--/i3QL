@@ -1,0 +1,2885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Phantasien im Bremer Rathskeller</title>
+<title type="sub">ein Herbstgeschenk für Freunde des Weines</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118546864">
+<surname>Hauff</surname>
+<forename>Wilhelm</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">141</measure>
+<measure type="tokens">16971</measure>
+<measure type="types">4420</measure>
+<measure type="characters">113909</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:53Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/hauff_phantasien_1827</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/hauff_phantasien_1827</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/hauff_phantasien_1827</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/hauff_phantasien_1827</idno>
+<idno type="DTADirName">hauff_phantasien_1827</idno>
+<idno type="DTAID">17173</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905192063</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Hauff, Wilhelm: Phantasien im Bremer Rathskeller. Stuttgart, 1827.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Phantasien im Bremer Rathskeller</title>
+<title level="m" type="sub">ein Herbstgeschenk für Freunde des Weines</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118546864">
+<surname>Hauff</surname>
+<forename>Wilhelm</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">132 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Franckh</name></publisher>
+<pubPlace>Stuttgart</pubPlace>
+<date type="publication">1827</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">Göttingen SUB, 8 FAB VI, 5007</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20FAB%20VI%2C%205007</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Novelle</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="halftitle"> <docTitle> <titlePart type="main"> <hi rendition="#b #g">Phantaſien</hi><lb/>
+im<lb/>
+<hi rendition="#g">Bremer Rathskeller.</hi><lb/>
+</titlePart> </docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<epigraph> <cit> <quote>„Guter Wein iſt ein gutes, geſelliges Ding, und<lb/>
+„jeder Menſch kann ſich wohl einmal davon begei¬<lb/>
+„ſtern laſſen.“<lb/>
+</quote> <bibl><hi rendition="#right">Shakeſpeare.</hi><lb/>
+</bibl> </cit> </epigraph><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</titlePage>
+<pb n="[2]" facs="#f0008"/>
+<pb n="[3]" facs="#f0009"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#g">Phantaſien<lb/>
+im<lb/>
+Bremer Rathskeller;</hi><lb/>
+</titlePart> <titlePart type="sub">ein<lb/>
+Herbſtgeſchenk fuͤr Freunde des Weines<lb/>
+</titlePart> </docTitle> <byline>von<lb/>
+<docAuthor> <hi rendition="#g">Wilhelm Hauff</hi>.<lb/>
+</docAuthor> </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#g">Stuttgart,</hi><lb/>
+</pubPlace> <publisher> <hi rendition="#g">bei Gebruͤder Franckh.</hi><lb/>
+</publisher> <docDate> <hi rendition="#g">1827.</hi><lb/>
+</docDate> </docImprint> </titlePage>
+<pb n="[4]" facs="#f0010"/>
+<lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div type="imprint"> <p rendition="#c">Gedruckt bei Heinrich Mäntler <hi rendition="#aq">jun</hi>.<lb/>
+</p> </div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="[5]" facs="#f0011"/>
+<div type="dedication"> <p rendition="#c"> <hi rendition="#g">Den<lb/>
+zwoͤlf Apoſteln</hi><lb/>
+im<lb/>
+<hi rendition="#g">Rathskeller zu Bremen</hi><lb/>
+in<lb/>
+<hi rendition="#g">dankbarer Erinnerung</hi></p><lb/>
+<p rendition="#right">der Verfaſſer.</p><lb/>
+<p>Im Herbſt 1827.</p><lb/>
+</div>
+<pb n="[6]" facs="#f0012"/>
+</front> <body> <div n="1">
+<pb n="[7]" facs="#f0013"/>
+<lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>„Mit <hi rendition="#g">dem</hi> Menſchen iſt nicht auszukom¬<lb/>
+men,“ ſagten ſie, als ſie in meinem Gaſthof<lb/>
+die Treppe hinabſtiegen, und ich konnte es noch<lb/>
+deutlich hoͤren. „Jetzt will er wieder ſchlafen<lb/>
+von neun Uhr an, und leben wie ein Murmel-<lb/>
+Thier; wer haͤtte das gedacht vor vier Jahren!“</p><lb/>
+<p>Sie hatten nicht Unrecht, die Freunde, daß<lb/>
+ſie mich in Unmuth verließen. Gab es ja doch<lb/>
+heute Abend eines der glaͤnzendſten, muſikali¬<lb/>
+ſchen, tanzenden und declamirenden Butter¬<lb/>
+brode in der Stadt und hatten ſie ſich nicht alle<lb/>
+moͤgliche Muͤhe gegeben, mir, dem Landfrem¬<lb/>
+den, einen angenehmen Abend dort zu ver¬<lb/>
+ſchaffen? Aber es war wahrhaftig unmoͤglich;<lb/>
+ich konnte nicht gehen. Warum ſollte ich einen<lb/>
+tanzenden Thee beſuchen, wo <hi rendition="#g">ſie</hi> nicht tanzte,<lb/>
+<pb n="8" facs="#f0014"/>
+warum ein ſingendes Butterbrod, wo ich, (ich<lb/>
+wußte es zum Voraus) haͤtte ſingen muͤſſen,<lb/>
+ohne von ihr gehoͤrt zu werden; warum einen<lb/>
+trauten Kreis von Freunden durch Truͤbſinn<lb/>
+und finſteres Weſen ſtoͤren, das ich nun heute<lb/>
+nicht verbannen konnte. O Gott! ! ich wollte<lb/>
+ja lieber, daß ſie mir auf der Treppe einige<lb/>
+Secunden fluchten, als daß ſie ſich von 9 Uhr<lb/>
+bis 1 Uhr langweilten, wenn ſie nur mit mei¬<lb/>
+nem Koͤrper ſich unterhielten und bei der Seele<lb/>
+umſonſt anfragten, die einige Straßen weiter auf<lb/>
+Unſerer Lieben Frauen-Kirchhof nachtwandelte.</p><lb/>
+<p>Aber das that mir wehe, daß mich die gu¬<lb/>
+ten Geſellen fuͤr ein Murmelthier hielten und<lb/>
+dem Drang nach Schlafe zuſchrieben, was aus<lb/>
+Freude am Wachen geſchah. O nur Du, ehr¬<lb/>
+licher Hermann, wußteſt es mehr zu wuͤrdigen.<lb/>
+Hoͤrte ich denn nicht, wie Du unten auf dem<lb/>
+Domhof ſagteſt, „Schlaf iſt es nicht, denn<lb/>
+ſeine Augen leuchten. Aber entweder hat er<lb/>
+<pb n="9" facs="#f0015"/>
+wieder zu viel oder zu wenig Wein getrunken,<lb/>
+das heißt, er trinkt noch welchen und — al¬<lb/>
+leine.“</p><lb/>
+<p>Wer verlieh Dir denn dieſe prophetiſche<lb/>
+Kraft? oder konnteſt Du ahnen, daß meine<lb/>
+Augen wacker waren, weil ſie heute Nacht al¬<lb/>
+ten Rheinwein ſchauen ſollten, konnteſt Du<lb/>
+wiſſen, daß ich gerade heute von dem Patent<lb/>
+und Erlaubnißſchein, vom Rathe auf meine<lb/>
+Perſon ausgeſtellt, Gebrauch machen werde, um<lb/>
+die Roſe und eure zwoͤlf Apoſtel zu begruͤßen?<lb/>
+Und uͤberdieß, war denn heute nicht mein<lb/>
+Schalttag?</p><lb/>
+<p>Meines Erachtens iſt es reine uͤble Ge¬<lb/>
+wohnheit, die ich von meinem Großvater an¬<lb/>
+genommen, naͤmlich hie und da Einſchnitte zu<lb/>
+machen in den Baum des Jahres und ſinnend<lb/>
+dabei zu verweilen. Wenn der Menſch nur<lb/>
+Neujahr und Oſtern, nur Chriſtfeſt oder Pfing¬<lb/>
+ſten feiert, ſo kommen ihm endlich dieſe Ruhe¬<lb/>
+<pb n="10" facs="#f0016"/>
+punkte in der Geſchichte ſeines Lebens ſo all¬<lb/>
+taͤglich vor, daß er daruͤber hinweg gleitet ohne<lb/>
+Erinnerung. Und doch iſt es gut, wenn die<lb/>
+Seele, ſonſt immer nach auſſen gerichtet, auch<lb/>
+einmal auf ein paar Stunden einkehrt im ei¬<lb/>
+genen Gaſthof ihrer Bruſt, ſich bewirthet an<lb/>
+der langen Table d'Hôte der Erinnerung und<lb/>
+nachher gewiſſenhaft die Rechnung <hi rendition="#aq">ad notam</hi><lb/>
+ſchreibt, wie Frau Hurtig dem Ritter. Der<lb/>
+Großvater nannte ſolche Tage ſeine Schalttage.<lb/>
+Nicht daß er etwa ein Banket veranſtaltete mit<lb/>
+ſeinen Freunden, oder den Tag luſtig und in<lb/>
+Freuden lebte, in Saus und Brauß; nein, er<lb/>
+kehrte ein bei ſich, und ſeine Seele ſchmaußte<lb/>
+in der Kammer, die ſie ſeit fuͤnf und ſiebzig<lb/>
+Jahre kannte. Noch jetzt, da er laͤngſt im kuͤh¬<lb/>
+len Friedhof ruht, noch jetzt kann ich es ſeinem<lb/>
+hollaͤndiſchen Horaz anſehen, welche Stellen<lb/>
+er an ſolchen Tagen geleſen; noch jetzt, als<lb/>
+waͤre es geſtern geſchehen, ſehe ich ſein großes<lb/>
+<pb n="11" facs="#f0017"/>
+blaues Auge ſinnend auf den vergelbten Blaͤt¬<lb/>
+tern ſeines Stammbuchs weilen; und wie deut¬<lb/>
+lich ſehe ich, wie dieſes Auge nach und nach<lb/>
+ſich fuͤllt, wie eine Thraͤne in den grauen Wim¬<lb/>
+pern zittert, wie der gebietende Mund ſich zu¬<lb/>
+ſammenpreßt, wie der alte Herr langſam und<lb/>
+zoͤgernd die Feder ergreift und „einem ſeiner<lb/>
+Bruͤder, der geſchieden,“ das ſchwarze Kreuz<lb/>
+unter den Namen malt.</p><lb/>
+<p>„Der Herr haͤlt ſeinen Schalttag,“ pflegten<lb/>
+die Diener uns zuzuwiſpern, wenn wir Enkel<lb/>
+laut und froͤhlich wie gewoͤhnlich die Treppe<lb/>
+hinanſtuͤrmten; „der Großvater haͤlt ſeinen<lb/>
+Schalttag,“ fluͤſterten wir uns zu, und glaub¬<lb/>
+ten nicht anders, als er beſcheere ſich ſelbſt<lb/>
+den heiligen Chriſt, weil er ja doch niemand<lb/>
+habe, der ihm den Chriſtbaum anzuͤnde. Und<lb/>
+war es nicht ſo, wie wir in kindiſcher Einfalt<lb/>
+glaubten? Zuͤndete er nicht den Chriſtbaum<lb/>
+ſeiner Erinnerung an, flammten nicht tauſend<lb/>
+<pb n="12" facs="#f0018"/>
+flimmernde Kerzen auf, die Lieblingsſtunden<lb/>
+eines langen Lebens, und ſchien er nicht, wenn<lb/>
+er am Abend des Schalttags ſtill und ruhig<lb/>
+im Seſſel ſaß, ſich kindlich zu freuen an den<lb/>
+Gaben der Vergangenheit?</p><lb/>
+<p>Es war ſein Schalttag wieder eingetreten,<lb/>
+als ſie ihn hinaustrugen. Ich mußte weinen,<lb/>
+als ich dachte, daß der alte Mann ſeit langer<lb/>
+Zeit zum erſtenmal wieder in die freie Luft<lb/>
+komme. Sie fuͤhrten ihn den Weg, auf dem<lb/>
+ich ſo oft an ſeiner Seite gegangen war. Aber<lb/>
+nicht lange, ſo beugten ſie uͤber die ſchwarze<lb/>
+Bruͤcke, und legten ihn tief in die Erde. „Nun<lb/>
+haͤlt er ſeinen rechten Schalttag,“ dachte ich,<lb/>
+„aber wundern ſoll es mich doch, wie der alte<lb/>
+Herr wieder da herauf kommen will, denn ſie<lb/>
+haben doch viele Steine und Raſen auf ihn<lb/>
+hinab geworfen.“ Er kam nicht wieder. Aber<lb/>
+ſein Bild blieb in meinem Gedaͤchtniß, und<lb/>
+als ich herangewachſen war, gehoͤrte es zu mei¬<lb/>
+<pb n="13" facs="#f0019"/>
+nen liebſten Beſchaͤftigungen, ſeine feine, offene<lb/>
+Stirne, das klare Auge, den gebietenden und<lb/>
+doch ſo freundlichen Mund mir vorzumalen.<lb/>
+Mit ſeinem Bilde ſtiegen tauſend Erinnerungen<lb/>
+auf, und ſeine Schalttage waren mir die Lieb¬<lb/>
+lingsſtuͤcke in der langen Bildergallerie.</p><lb/>
+<p>Und iſt denn heute nicht der erſte September,<lb/>
+den auch ich mir zum Schalttag erwaͤhlte? Und<lb/>
+ich ſollte Butterbrod verzehren in ſeiner Ge¬<lb/>
+ſellſchaft und allerlei Arien abſingen hoͤren mit<lb/>
+beigefuͤgtem Applaus und Gezwitſcher? Nein!<lb/>
+Heraus mit dir, koͤſtliches Recept, das kein<lb/>
+Arzt der Erde ſo koͤſtlich miſcht! Hinab zu dir,<lb/>
+alte, wahrhaftige Apotheke, um „nach Vor¬<lb/>
+ſchrift, jedesmal einen <hi rendition="#g">Roͤmer</hi> voll zu neh¬<lb/>
+men.“</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Es ſchlug 10 Uhr, als ich die breiten Stu¬<lb/>
+fen des Rathskellers hinabſtieg; ich durfte hof¬<lb/>
+<pb n="14" facs="#f0020"/>
+fen, keinen Zecher mehr zu finden, denn es<lb/>
+war Werktag bei andern Leuten und drauſſen<lb/>
+heulte der Sturm, die Windfahnen ſtimmten<lb/>
+ſonderbare Weiſen an und der Regen rauſchte<lb/>
+auf das Pflaſter des Domhofs. Aber der Raths¬<lb/>
+diener maß mich mit fragenden Blicken vom<lb/>
+Kopf bis zum Fuß, als ich ihm die Anweiſung<lb/>
+auf einigen Wein darreichte.</p><lb/>
+<p>„So ſpaͤt noch, und heute, in <hi rendition="#g">dieſer</hi><lb/>
+Nacht?“ rief er.</p><lb/>
+<p>„Mir iſt es vor zwoͤlf Uhr nie zu ſpaͤt,“<lb/>
+entgegnete ich, „und nachher iſt es wohl fruͤhe<lb/>
+genug am Tage.“</p><lb/>
+<p>„Aber muß es denn —“ wollte er eben<lb/>
+fragen, doch Sigill und Handſchrift ſeiner<lb/>
+Obern fiel ihm wieder ins Auge, und ſchweigend,<lb/>
+aber nicht ohne Zoͤgern ſchritt er voraus durch<lb/>
+die Hallen. Welch' herzerquickender Anblick,<lb/>
+wenn ſein Windlicht uͤber die lange Reihe der<lb/>
+Faͤßer hinſtreifte, welch' ſonderbare Formen<lb/>
+<pb n="15" facs="#f0021"/>
+und Schatten, wenn es an den Schwibbogen<lb/>
+des Kellers zitterte und die Saͤulen im dunkeln<lb/>
+Hintergrunde wie geſchaͤftige Kuͤper um die<lb/>
+Faͤßer ſchwebten! Er wollte mir eines jener<lb/>
+kleineren Gemaͤcher aufſchließen, wo hoͤchſtens<lb/>
+6—8 Freunde, eng zuſammen geruͤckt, den Be¬<lb/>
+cher kreiſen laſſen koͤnnen. Doch, mit trauten<lb/>
+Geſellen liebe ich ein ſolches heimliches Plaͤtz¬<lb/>
+chen; der enge Raum draͤngt Mann an Mann,<lb/>
+und die Toͤne, die hier nicht verhallen koͤnnen,<lb/>
+klingen traulicher; aber allein und einſam<lb/>
+liebe ich freiere Raͤume, wo der Gedanke, gleich<lb/>
+den Athemzuͤgen, ſich freier ausdehnt. Ich<lb/>
+waͤhlte einen alten gewoͤlbten Saal, den groͤß¬<lb/>
+ten in dieſen unterirdiſchen Raͤumen zu mei¬<lb/>
+nem einſamen Gelage.</p><lb/>
+<p>„Erwarten Sie Geſellſchaft?“ fragte der<lb/>
+Mann an meiner Seite.</p><lb/>
+<p>„Ich bin allein.“</p><lb/>
+<p>„Sie koͤnnten ungebeten welche haben,“<lb/>
+<pb n="16" facs="#f0022"/>
+ſetzte er hinzu, indem er ſich ſcheu nach den<lb/>
+Schatten umſah, die ſeine Lampe warf.</p><lb/>
+<p>„Wie meint Ihr das?“ fragte ich ver¬<lb/>
+wundert.</p><lb/>
+<p>„Ich meinte nur ſo;“ antwortete er, in¬<lb/>
+dem er einige Kerzen anzuͤndete und einen gro¬<lb/>
+ßen Roͤmer vor mich hinſetzte. „Man ſpricht<lb/>
+mancherlei vom erſten September, der Herr<lb/>
+Senator D. waren uͤbrigens ſchon vor zwei<lb/>
+Stunden da und ich erwartete Sie nicht mehr.“</p><lb/>
+<p>„Der Herr Senator D.? warum? fragte er<lb/>
+nach mir?“</p><lb/>
+<p>„Nein, er hieß mich nur die Proben her¬<lb/>
+ausnehmen.“</p><lb/>
+<p>„Welche Proben, mein Freund?“</p><lb/>
+<p>„Nun die von den Zwoͤlfen und der Roſe;“<lb/>
+erwiederte der alte Mann, indem er anfing,<lb/>
+einige niedliche Flaͤſchchen mit langen Papier¬<lb/>
+ſtreifen an den Haͤlſen hervor zu ziehen.</p><lb/>
+<pb n="17" facs="#f0023"/>
+<p>„Wie! rief ich, man ſagte mir ja, ich<lb/>
+koͤnnte den Wein von den Faͤßern ſelbſt trinken.“</p><lb/>
+<p>„Ja, aber nur im Beiſeyn eines Herrn<lb/>
+vom Senat. Darum hieß mich der Herr<lb/>
+Doctor die Zungenproͤbchen herausnehmen und<lb/>
+ſo will ſie Ihnen einſchenken, wenn's ge¬<lb/>
+faͤllig.“</p><lb/>
+<p>„Nicht einen Tropfen,“ unterbrach ich<lb/>
+ihn, „hier kein Glas voll; nein, das iſt der<lb/>
+aͤchte Genuß <hi rendition="#g">vom Faß</hi> zu trinken, und iſt<lb/>
+es mir nicht mehr moͤglich, ſo will ich doch<lb/>
+am Faße trinken. Kommt Alter, nehmet<lb/>
+die Proben mit, ich will das Licht tragen.“</p><lb/>
+<p>Ich ſtand ſchon einige Minuten und ſah<lb/>
+dem wunderlichen Treiben des alten Dieners<lb/>
+zu. Bald ſtand er ſtill, ſah auf mich und<lb/>
+raͤuſperte ſich, als wollt er ſprechen, bald<lb/>
+nahm er die Proben vom Tiſche und packte ſie<lb/>
+in ſeine weiten Taſchen , bald nahm er ſie zoͤ¬<lb/>
+gernd wieder heraus um ſie auf den Tiſch zu<lb/>
+<fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb n="18" facs="#f0024"/>
+ſetzen. Es ermuͤdete mich; „nun, ſollen wir<lb/>
+bald gehen?“ rief ich voll Sehnſucht nach dem<lb/>
+Apoſtelkeller; „wie lange wollt Ihr noch an<lb/>
+Euren Glaͤschen hier aus- und einpacken?“</p><lb/>
+<p>Der ernſte Ton, in welchem ich dieß<lb/>
+ſagte, ſchien ihm Muth zu machen. Ziemlich<lb/>
+beſtimmt antwortete er, „es geht nicht, —<lb/>
+nein! heute geht es nicht mehr, Herr!“</p><lb/>
+<p>Ich glaubte hierin einen jener gewoͤhnlichen<lb/>
+Kniffe zu ſehen, womit Hausverwalter, Ca¬<lb/>
+ſtellane oder Kellermeiſter dem Fremden Geld<lb/>
+abzuzwacken ſuchen, druͤckte ihm ein hinlaͤng¬<lb/>
+liches Geldſtuͤck in die Hand, und nahm ihn<lb/>
+beim Arm, ihn fortzuziehen.</p><lb/>
+<p>„Nein, ſo war es nicht gemeint,“ ent¬<lb/>
+gegnete er, indem er das Geldſtuͤck zuruͤckzu¬<lb/>
+ſchieben ſuchte; „ſo nicht, fremder Herr! ich<lb/>
+will es nur gerade heraus ſagen; mich bringt<lb/>
+man nicht mehr in den Apoſtelkeller in dieſer<lb/>
+<pb n="19" facs="#f0025"/>
+Nacht, denn wir ſchreiben heute den erſten Sep¬<lb/>
+tember.“</p><lb/>
+<p>„Und welche Thorheit wollt Ihr daraus<lb/>
+folgern?“</p><lb/>
+<p>„Nun, in Gottes Namen, Sie koͤnnen<lb/>
+denken davon was ſie wollen; es iſt dort nicht<lb/>
+geheuer in dieſer Nacht, das macht, es iſt der<lb/>
+Jahrestag <hi rendition="#g">der Roſe</hi>.“</p><lb/>
+<p>Ich lachte, daß die Halle droͤhnte. „Nein!<lb/>
+in meinem Leben habe ich doch ſo manchen<lb/>
+Spuck erzaͤhlen gehoͤrt, aber einen Weinſpuck<lb/>
+nie! Schaͤmt Ihr Euch nicht mit Euern weißen<lb/>
+Haaren, noch ſolches Zeug zu ſchwatzen? Doch<lb/>
+hier iſt nicht lange zu ſpaßen. Hier iſt die<lb/>
+Vollmacht des Senats; im Keller darf ich<lb/>
+trinken heute Nacht, ohne nach Zeit und Raum<lb/>
+zu fragen. Darum im Namen des Rathes<lb/>
+heiß' ich Euch folgen. Schließe den <hi rendition="#g">Keller<lb/>
+des Bachus</hi> auf.“</p><lb/>
+<p>Dieß wirkte; unwillig, aber ohne etwas<lb/>
+<pb n="20" facs="#f0026"/>
+zu entgegnen nahm er die Kerzen und winkte<lb/>
+mir zu folgen. Es ging zuerſt wieder durch<lb/>
+den großen Keller, dann durch kleinere, bis<lb/>
+der Weg in einem engern ſchmalen Gang zu¬<lb/>
+ſammenlief. Dumpf toͤnten unſere Schritte<lb/>
+in dieſem Hohlweg, und unſere Athemzuͤge<lb/>
+toͤnten, wenn ſie an den Mauern ſich brachen,<lb/>
+wie fernes Gefluͤſter. Endlich ſtanden wir vor<lb/>
+einer Thuͤre, die Schluͤſſel raſſelten, ſie gaͤhn¬<lb/>
+te aͤchzend auf, der Schein der Lichter fiel<lb/>
+in das Gewoͤlbe, mir gegenuͤber ſaß Freund<lb/>
+Bachus auf einem maͤchtigen Weinfaß. Er¬<lb/>
+quickender Anblick! Sie hatten ihn nicht zart<lb/>
+und fein dargeſtellt, die alten Bremer Kuͤnſt¬<lb/>
+ler, nicht zierlich als einen griechiſchen Juͤng¬<lb/>
+ling; ſie hatten ihn nicht alt und trunken ſich<lb/>
+gedacht, mit graͤßlichem Bauch, verdrehten<lb/>
+Augen und haͤngender Zunge, wie ihn die ge¬<lb/>
+mein gewordene Mythe hin und wieder got¬<lb/>
+teslaͤſterlich abconterfeit. Schmaͤchlicher An¬<lb/>
+<pb n="21" facs="#f0027"/>
+thropomorphismus; blinde Thorheit des Men¬<lb/>
+ſchen! weil einige ſeiner, im Dienſt ergrauten<lb/>
+Prieſter alſo einhergehen, weil ihnen voll<lb/>
+guten Muthes der Leib anſchwoll, die Naſe<lb/>
+von dem brennenden Wiederſchein der dunkel¬<lb/>
+rothen Fluth ſich faͤrbte, das in ſtummer<lb/>
+Wonne aufwaͤrts gerichtete Auge ſtehen blieb,<lb/>
+— ſo legten ſie dem Gott bei, was ſeine Diener<lb/>
+ſchmuͤckt!</p><lb/>
+<p>Anders die Maͤnner von Bremen. Wie froͤh¬<lb/>
+lich und munter reitet der alte Knabe auf dem<lb/>
+Faß! das runde, bluͤhende Geſicht, die klei¬<lb/>
+nen muntern Weinaͤuglein, die ſo klug und<lb/>
+neckend herab ſehen, der breite, laͤchelnde Mund,<lb/>
+der ſich an mancher Kanne ſchon verſuchte;<lb/>
+der kurze kraͤftige Hals, das ganze Koͤrperchen<lb/>
+von behaglichem, gutem Leben ſtrotzend! Ganz<lb/>
+beſondere Kunſt hat aber der Meiſter, der dich<lb/>
+geſchaffen, auf Arme und Beinchen gelegt.<lb/>
+Meint man nicht, dein kraͤftiges Aermlein<lb/>
+<pb n="22" facs="#f0028"/>
+werde ſich bewegen, du werdeſt mit den run¬<lb/>
+den Fingerchen ein Schnippchen ſchlagen, und<lb/>
+der breite, laͤchelnde Mund werde ſich aufthun<lb/>
+zu einem munteren Juheiſa, Heiſa, He!<lb/>
+„Iſt man nicht verſucht zu glauben, du wer¬<lb/>
+deſt im tollen Weinmuth die runden Knie beu¬<lb/>
+gen, den Waden anlegen, mit dem Ferſen<lb/>
+ſtauchen und das alte Mutterfaß in Galopp<lb/>
+ſetzen, daß alle Roſen, Apoſtel und andere<lb/>
+gemeinere Faͤßer mit Huſſa und Halloh dir<lb/>
+nachjagen durch den Keller?“</p><lb/>
+<p>„Herr des Himmels!“ rief der Rathsdie¬<lb/>
+ner, indem er ſich an mir feſt klammerte,<lb/>
+„ſeht Ihr nicht wie er die Augen verdreht und<lb/>
+mit dem Fuͤßchen baumelt?“</p><lb/>
+<p>„Alter, Ihr ſeyd verruͤckt!“ ſagte ich,<lb/>
+einen ſcheuen Blick nach dem hoͤlzernen Wein¬<lb/>
+gott werfend, „es iſt der Schein der Kerzen,<lb/>
+der an ihm hin und her flackert.“ Dennoch<lb/>
+war mir wunderlich zu Muthe, ich folgte<lb/>
+<pb n="23" facs="#f0029"/>
+dem Alten aus dem Bachus-Keller. Und war<lb/>
+es denn auch der Schein der Kerzen, war es<lb/>
+auch Taͤuſchung, als ich mich umſah? Nickte<lb/>
+er mir nicht mit dem runden Koͤpfchen, ſtreckte<lb/>
+er mir nicht das eine ſeiner Beinchen nach und<lb/>
+ſchuͤttelte und kruͤmmte ſich vor heimlichem La¬<lb/>
+chen? Ich rannte unwillkuͤhrlich dem Alten<lb/>
+nach und ſchloß mich dicht hinter ihm an.</p><lb/>
+<p>„Jetzt zu den zwoͤlf Apoſteln,“ ſprach ich<lb/>
+zu ihm, „wie ſollen uns dort die Proben mun¬<lb/>
+den!“</p><lb/>
+<p>Er antwortete nichts; kopfſchuͤttelnd ging<lb/>
+er weiter. Man ſteigt vom Keller einige Stu¬<lb/>
+fen aufwaͤrts, zum kleinen Kellerlein, zum<lb/>
+unterirdiſchen Himmelsgewoͤlbe, zum Sitz der<lb/>
+Seligkeit, wo <hi rendition="#g">die Zwoͤlfe</hi> hauſen. Was<lb/>
+ſeyd ihr Trauergewoͤlbe und Gruͤfte alter Koͤ¬<lb/>
+nigshaͤuſer gegen <hi rendition="#g">dieſe</hi> Katacomben! Pflan¬<lb/>
+zet Saͤrge neben Saͤrge, ruͤhmet auf ſchwar¬<lb/>
+zem Marmor die Verdienſte des Mannes,<lb/>
+<pb n="24" facs="#f0030"/>
+der hier einer „froͤhlichen Urſtaͤnd“ entgegen¬<lb/>
+ſchlaͤft, ſtellt einen ſchwazhaften Cicerone an,<lb/>
+in Trauermantel und florumhaͤngtem Hute,<lb/>
+laßt ihn die abſonderliche Herrlichkeit dieſes<lb/>
+oder jenes Staubes ruͤhmen, laßt ihn erzaͤh¬<lb/>
+len von den trefflichen Tugenden eines Prin¬<lb/>
+zen, der in der Bataille ſo und ſo gefallen,<lb/>
+von der holden Schoͤnheit einer Fuͤrſtin, auf<lb/>
+deren Sarge die jungfraͤuliche Myrthe ſich<lb/>
+um die kaum erbluͤhte Roſenknospe ſchlingt<lb/>
+— es wird euch an die Sterblichkeit mahnen,<lb/>
+es wird euch vielleicht eine Thraͤne koſten;<lb/>
+aber kann es euch alſo ruͤhren, wie der Anblick<lb/>
+dieſer Schlafkammer eines Jahrhunderts, die¬<lb/>
+ſer Ruheſtaͤtte eines herrlichen Geſchlechtes?<lb/>
+Da liegen ſie in ihren dunkelbraunen Saͤrgen,<lb/>
+ſchmucklos, ohne Glanz und Flitter. Kein<lb/>
+Marmor ruͤhmt ihr ſtilles Verdienſt, ihre an¬<lb/>
+ſpruchloſe Tugend, ihren vortrefflichen Cha¬<lb/>
+rakter; aber welcher Mann von einigem Ge¬<lb/>
+<pb n="25" facs="#f0031"/>
+fuͤhl fuͤr Tugenden dieſer Art fuͤhlt ſich nicht<lb/>
+innig bewegt, wenn der alte Rathsdiener,<lb/>
+dieſer Aufwaͤrter in den Katacomben, dieſer<lb/>
+Kuͤſter der unterirdiſchen Kirche, die Kerzen<lb/>
+auf die Saͤrge ſtellt, wenn dann das Licht auf<lb/>
+die erhabenen Namen der großen Todten faͤllt!<lb/>
+Wie regierende Haͤupter fuͤhren auch ſie keine<lb/>
+langen Titel und Zunamen; einfach und groß<lb/>
+ſtehen die Namen auf ihren braunen Saͤrge<lb/>
+geſchrieben. Dort Andreas, hier Johannes,<lb/>
+in jener Ecke Judas, in dieſer Petrus. Wen<lb/>
+ruͤhrt es nicht, wenn er dann hoͤrt: dort liegt<lb/>
+der Edle von Nierenſtein, geboren 1718, hier<lb/>
+der von Ruͤdesheim, geboren 1726. Rechts<lb/>
+Paulus, links Jacob, der gute Jacob!</p><lb/>
+<p>Und ihre Verdienſte? Ihr fraget? Seht<lb/>
+ihr denn nicht, wie er eingießt in den gruͤnen<lb/>
+Roͤmer, wie er das herrliche Blut des Apo¬<lb/>
+ſtels mir darreicht? Gleich dunkelrothem Golde<lb/>
+blinkt es im Glaſe. Als ihn die Sonne auf¬<lb/>
+<pb n="26" facs="#f0032"/>
+zog auf den Huͤgeln von St. Johannes, da<lb/>
+war er blond und helle; <hi rendition="#g">ein Jahrhundert</hi><lb/>
+hat ihn gefaͤrbt. Welche Wuͤrze des Geruches!<lb/>
+welche Namen leg' ich dir bei, du lieblicher<lb/>
+Duft, der aus dem Roͤmer aufſteigt? Nehmet<lb/>
+alle Bluͤthen von den Baͤumen, pfluͤcket alle<lb/>
+Blumen in den Fluren, fuͤhrt Indiens Ge¬<lb/>
+wuͤrz herbei, beſprengt mit Ambra dieſe kuͤh¬<lb/>
+len Keller, loͤſet den Bernſtein in blaͤuliche<lb/>
+Woͤlkchen auf — miſchet aus ihnen alle die<lb/>
+feinſten Duͤfte, wie die Biene ihren Honig<lb/>
+aus den Bluͤthen ſaugt, wie ſchlecht, wie ge¬<lb/>
+mein, wie unwuͤrdig gegen die zarte Blume<lb/>
+deines Kelches, mein <hi rendition="#g">Bingen</hi> und <hi rendition="#g">Lauben¬<lb/>
+heim</hi>, gegen <hi rendition="#g">deine</hi> Duͤfte Johannes und<lb/>
+Nierenſtein von 1718!</p><lb/>
+<p>„Ihr ſchuͤttelt den Kopf, Alter? tadelt Ihr<lb/>
+meine Freude an euren alten Geſellen? Da,<lb/>
+nimm dieſen Roͤmer, alter Menſch, trink auf<lb/>
+<pb n="27" facs="#f0033"/>
+das Wohlſeyn dieſer Zwoͤlfe! Komm, ſtoß an,<lb/>
+ſie ſollen leben!“</p><lb/>
+<p>„Gott ſoll mich bewahren, daß ich einen<lb/>
+Tropfen trinke in <hi rendition="#g">dieſer</hi> Nacht,“ erwiederte er,<lb/>
+„man ſoll mit dem Teufel kein Spiel treiben.<lb/>
+Aber wenn Ihr ſie alle durchgekoſtet, wollen<lb/>
+wir weiter gehen. Mir graut in dieſem<lb/>
+Keller.“</p><lb/>
+<p>„Gute Nacht denn, Ihr alten Herren vom<lb/>
+Rheine, gute Nacht und herzlichen Dank fuͤr<lb/>
+euer Labſal. Und wenn ich dir, mein ern¬<lb/>
+ſter feuriger Judas, wenn ich dir, mein<lb/>
+ſanfter, lieblicher Andreas, dir, mein Jo¬<lb/>
+hannes, dienen kann, ſo kommt, kommt zu<lb/>
+mir.“</p><lb/>
+<p>„Herr des Himmels!“ unterbrach mich<lb/>
+der Alte, und ſchlug die Thuͤre zu und drehte<lb/>
+haſtig die Schluͤſſel um, „ſeyd Ihr von den<lb/>
+Paar Tropfen ſchon betrunken, daß Ihr den<lb/>
+Teufel heraufſchwoͤrt?! Wißt Ihr denn nicht,<lb/>
+<pb n="28" facs="#f0034"/>
+daß die Weingeiſter aufſtehen dieſe Nacht und<lb/>
+einander beſuchen, wie immer am erſten Sep¬<lb/>
+tember? Und ſollt' ich meinen Dienſt ver¬<lb/>
+lieren, ich laufe davon, wenn Ihr noch ſolche<lb/>
+Worte ſprecht. Noch iſt es nicht zwoͤlf Uhr,<lb/>
+aber kann denn nicht alle Augenblicke einer<lb/>
+aus dem Faß kriechen mit graͤulichem Ge¬<lb/>
+ſicht und uns zu Tode ſchrecken?“</p><lb/>
+<p>„Alter, du faſelſt! Doch ſey ruhig; ich<lb/>
+will kein Wort mehr ſprechen, daß deine<lb/>
+Weingeſpenſter nicht wach werden. Doch jetzt<lb/>
+fuͤhre mich zur Roſe.“ Wir gingen weiter,<lb/>
+wir traten ein in das Gewoͤlbe, in das Ro¬<lb/>
+ſengaͤrtlein von Bremen. Da lag ſie, die<lb/>
+alte <hi rendition="#g">Roſe</hi>; groß, ungeheuer, mit einer Art<lb/>
+von gebietender Hoheit. Welch ungeheures<lb/>
+Faß; und jeder Roͤmer ein Stuͤck Goldes werth!<lb/>
+Anno 1615! wo ſind die Haͤnde, die dich<lb/>
+pflanzten! wo die Augen, die ſich an deiner<lb/>
+Bluͤthe erfreuten? wo die froͤhlichen Menſchen<lb/>
+<pb n="29" facs="#f0035"/>
+alle, die dir zujauchzten, edle Traube, als<lb/>
+man dich abſchnitt auf den Hoͤhen des Rhein¬<lb/>
+gaus, als man deine Huͤllen abſtreifte und<lb/>
+du als goldener Born in die Kufe ſtroͤmteſt?<lb/>
+Sie ſind dahin, wie die Wellen des Stro¬<lb/>
+mes, der an deinem Rebenhuͤgel hinabzog.<lb/>
+Wo ſind ſie, jene alten Herren der Hanſa,<lb/>
+jene wuͤrdigen Senatoren dieſer alten Stadt,<lb/>
+die dich pfluͤckten, duftende Roſe, dich ver¬<lb/>
+pflanzten in dieſe kuͤhlen Raͤume zum Lab¬<lb/>
+ſal ihrer Enkel? Gehet hinaus auf Angarii<lb/>
+Friedhof, gehet hinauf zur Kirche Unſerer lie¬<lb/>
+ben Frauen, und gießet Wein auf ihre Grab¬<lb/>
+ſteine! Sie ſind hinunter, und zwei Jahrhun¬<lb/>
+derte mit ihnen!</p><lb/>
+<p>Nun, auf euer Wohlſeyn, alte Herren von<lb/>
+Anno 1615, und auf das Wohl eurer wuͤrdigen<lb/>
+Enkel, die ſo gaſtfreundlich dem Fremdling<lb/>
+die Hand und dieſes Labſal boten!</p><lb/>
+<pb n="30" facs="#f0036"/>
+<p>„So! Und jetzt gute Nacht, Frau Roſe;“<lb/>
+ſetzte der alte Diener freundlicher hinzu, in¬<lb/>
+dem er ſein Koͤrbchen zuſammen raͤumte; „jetzt<lb/>
+gute Nacht und Gott befohlen; hier heraus,<lb/>
+nicht dort um die Ecke, hier heraus geht der<lb/>
+Weg aus dem Keller, werthgeſchaͤtzter Herr.<lb/>
+Kommt, ſtoßet Euch nicht hier an die Faͤſſer,<lb/>
+ich will Euch leuchten.“</p><lb/>
+<p>„Mit nichten, Alter, erwiederte ich, jetzt<lb/>
+geht das Leben erſt recht an. Das alles war<lb/>
+nur der Vorſchmack. Gib mir zweiundzwanz'¬<lb/>
+ger Ausſtich, ſo etwa zwei bis drei Flaſchen,<lb/>
+in das große Gemach dort hinten. Ich hab'<lb/>
+ihn gruͤnen ſehen dieſen Wein, und war dabei<lb/>
+als ſie ihn kelterten; hab ich das Alter bewun¬<lb/>
+dert, ſo muß ich <hi rendition="#g">meiner</hi> Zeit nicht minder<lb/>
+ihr Recht anthun.“</p><lb/>
+<p>Er ſtand da mit weit geoͤffneten Augen,<lb/>
+der Jammermenſch; er ſchien ſeinen Ohren nicht<lb/>
+zu trauen. „Herr,“ ſprach er dann feierlich,<lb/>
+<pb n="31" facs="#f0037"/>
+„ſprechet nicht ſolch' gottloſen Scherz. Heute<lb/>
+Nacht wird nun und nimmermehr was dar¬<lb/>
+aus; ich bleibe um keine Seligkeit.“</p><lb/>
+<p>„Und wer ſagt denn, daß du bleiben ſollſt?<lb/>
+Dort ſetze den Wein hinein und dann mach'<lb/>
+in Gottes Namen, daß du fortkoͤmmſt; ich<lb/>
+will nun einmal dieſe Gedaͤchtnißnacht hier<lb/>
+feiern und habe mir deinen Keller auserſehen;<lb/>
+dich habe ich nicht von Noͤthen.“</p><lb/>
+<p>„Aber ich darf Euch nicht allein im Keller<lb/>
+laſſen,“ entgegnete er, „ich weiß wohl, nehmt<lb/>
+mir nicht unguͤtig, daß Ihr den Keller nicht<lb/>
+beſtehlet, aber es iſt einmal gegen die Ord¬<lb/>
+nung.“</p><lb/>
+<p>„Nun, ſo ſchließe mich ein in jenes Gemach;<lb/>
+haͤnge ein Schloß davor, ſo ſchwer als du<lb/>
+willſt, daß ich nimmer heraus kann, und mor¬<lb/>
+gen fruͤh um ſechs Uhr kannſt du mich auf¬<lb/>
+wecken und dein Schlafgeld holen.“</p><lb/>
+<pb n="32" facs="#f0038"/>
+<p>Der Mann des Kellers verſuchte noch man¬<lb/>
+cherlei Einreden, doch umſonſt; er ſetzte end¬<lb/>
+lich drei Flaſchen und neun Kerzen vor mich<lb/>
+hin, wiſchte den Roͤmer aus, ſchenkte mir den<lb/>
+zweiundzwanziger Ausſtich ein und wuͤnſchte<lb/>
+mir, wie es ſchien mit ſchwerem Herzen, gute<lb/>
+Nacht. Richtig ſchloß er auch die Thuͤre zwei¬<lb/>
+mal ab, und haͤngte, wie es mir ſchien, mehr<lb/>
+aus zaͤrtlicher Angſt fuͤr mich als aus Vor¬<lb/>
+liebe fuͤr ſeine Keller noch ein Haͤngeſchloß<lb/>
+vor. Eben ſchlug die Glocke halb Zwoͤlf. Ich<lb/>
+hoͤrte ihn ein Gebet ſprechen und davon eilen.<lb/>
+Seine Schritte hallten immer ferner und fer¬<lb/>
+ner im Gewoͤlbe; doch als er oben das Auſſen¬<lb/>
+thor des Kellers zuſchlug, hallte es wie Ka¬<lb/>
+nonendonner durch die Gaͤnge und Hallen.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>So waͤre ich denn allein mit dir, meine<lb/>
+Seele, tief unten im Schooße der Erde. Oben<lb/>
+<pb n="33" facs="#f0039"/>
+aus der Erde ſchlafen ſie jetzt und traͤumen,<lb/>
+und auch hier unten, rings um mich her,<lb/>
+ſchlummern ſie in ihren Saͤrgen, die Geiſter<lb/>
+des Weines. Ob ſie wohl traͤumen, von<lb/>
+ihrer kurzen Kindheit traͤumen, und der fernen<lb/>
+Berge, der Heimath, gedenken, wo ſie groß<lb/>
+wurden, und des Stromes, des alten Vaters<lb/>
+Rhein, der ihnen allnaͤchtlich freundlich ein Wie¬<lb/>
+genlied murmelte?</p><lb/>
+<p>Gedenket ihr der wonnigen Tage, da die<lb/>
+milde Mutter, die Sonne, euch aus dem Schlum¬<lb/>
+mer kuͤßte, da ihr in klarer Fruͤhlingsluft die<lb/>
+Aeuglein oͤffnetet zum Erſtenmal, und hinab¬<lb/>
+ſchautet ins herrliche Rheingau? Und als der<lb/>
+Mai einzog in ſein deutſches Paradies, ge¬<lb/>
+denket ihr noch wie euch die Mutter anthat<lb/>
+mit gruͤnen Kleidchen von Laubwerk, und wie<lb/>
+der alte Vater baß ſich deſſen freute, herauf<lb/>
+lugte aus ſeinem gruͤnen Bette und euch zu¬<lb/>
+winkte und munter rauſchte am <hi rendition="#g">Lurlei</hi>?</p><lb/>
+<fw type="sig" place="bottom">3<lb/>
+</fw>
+<pb n="34" facs="#f0040"/>
+<p>Und gedenkſt denn auch du der Roſentage<lb/>
+deiner Jugend, o Seele? der ſanften Reben¬<lb/>
+huͤgel der Heimath, des blauen Stromes und<lb/>
+der bluͤhenden Thaͤler des Schwabenlandes?<lb/>
+O Wonnezeit voll holder Traͤume! wie reich<lb/>
+biſt du behaͤngt mit Bilderbuͤchern, Chriſt¬<lb/>
+baͤumen, Mutterliebe, Oſterwochen und Oſter¬<lb/>
+eiern, mit Blumen und Voͤgeln, Armeen aus<lb/>
+Blei und Papier und den erſten Hoͤs'chen und<lb/>
+Collet'chen, in welche ſich deine kleine ſterb¬<lb/>
+liche Huͤlle, ſtolz auf ihre Groͤße, kleiden ließ.<lb/>
+Und wie dich der ſelige Vater auf den Knieen<lb/>
+ſchaukelte, und dir der Großvater gerne das lange<lb/>
+Meerrohr mit dem goldenen Knopf abtrat,<lb/>
+um es dir als Reitpferd zu leihen!</p><lb/>
+<p>Und ruͤcke mit dem naͤchſten Glaſe um<lb/>
+einige Jahre vorwaͤrts! Erinnerſt du dich des<lb/>
+Morgens, als ſie dich hineinfuͤhrten zu einem<lb/>
+wohlbekannten Mann, deſſen Geſicht ſo blaß<lb/>
+geworden war, deſſen Hand du weinend kuͤß¬<lb/>
+<pb n="35" facs="#f0041"/>
+teſt, weinend ohne zu wiſſen warum? denn<lb/>
+konnteſt du glauben, daß die harten Maͤnner,<lb/>
+die ihn in einen Schrank legten und mit ſchwar¬<lb/>
+zen Tuͤchern zudeckten, konnteſt du glauben,<lb/>
+daß ſie ihn nicht mehr zuruͤckbringen wuͤrden?<lb/>
+Sey ruhig, auch er ſchlummert nur ein Weil¬<lb/>
+chen. — Und gedenkſt du des geheimnißvollen<lb/>
+Freudelebens ins Großvaters Buͤcherſaal? Ach,<lb/>
+damals kannteſt du noch keine Buͤcher als den<lb/>
+ſchnoͤden kleinen Broͤder, deinen aͤrgſten Feind;<lb/>
+wußteſt nicht, daß jene Folianten noch zu<lb/>
+etwas anderem in Leder gebunden ſeyen, als<lb/>
+um Huͤtten und Staͤlle daraus zu erbauen fuͤr<lb/>
+dich und dein Vieh?</p><lb/>
+<p>Gedenkſt du noch des Frevels, wie roh<lb/>
+du mit der deutſchen Literatur, in kleinerem<lb/>
+Format, umgingſt? Haſt du nicht deinem Bru¬<lb/>
+der den Leſſing an den Kopf geworfen, wo¬<lb/>
+fuͤr er dich freilich mit Sophiens Reiſen von<lb/>
+Memel nach Sachſen erbaͤrmlich zudeckte? Da¬<lb/>
+<pb n="36" facs="#f0042"/>
+mals dachteſt du freilich nicht daran, daß du<lb/>
+einſt ſelbſt Buͤcher machen werdeſt!</p><lb/>
+<p>Tauchet auch ihr auf, aus dem Nebel<lb/>
+verſchwundener Jahre, ihr Mauern des alten<lb/>
+Schloſſes; wie oft dienten deine halbverfal¬<lb/>
+lenen Gaͤnge, dein Keller, dein Zwinger,<lb/>
+deine Verließe der froͤhlichen Schaar zum Tum¬<lb/>
+melplatz ihrer Spiele! Soldaten und Raͤuber,<lb/>
+Nomaden und Caravanen! Wie wohl war<lb/>
+uns oft in der untergeordneten Rolle eines<lb/>
+Koſacken, waͤhrend Andere — Generale, Pla¬<lb/>
+tow's, Bluͤcher's, Napoleon und dergleichen<lb/>
+vorſtellten und ſich pruͤgelten? Ja, waren<lb/>
+wir nicht zu Zeiten ſogar ein Pferd, dem<lb/>
+Freunde zu gefallen? O Himmel, wie ſchoͤn<lb/>
+ließ es ſich dort ſpielen!</p><lb/>
+<p>Wo ſind ſie hin, die Geſpielen deiner<lb/>
+Kindheit, die Genoßen jener goldenen Tage,<lb/>
+wo kein Rang, kein Stand, kein Anſehn<lb/>
+gilt; Grafen und Barone machen jetzt wohl<lb/>
+<pb n="37" facs="#f0043"/>
+die große Tour, oder dienen an Hoͤfen als<lb/>
+Kammerherren; arme Teufel pilgern als Hand¬<lb/>
+werksburſche durch's Reich, den ſchweren Buͤn¬<lb/>
+del auf dem Ruͤcken, ohne Schuhe an den<lb/>
+Fuͤßen, haſchen nach Pfennigen aus dem<lb/>
+Kutſchenſchlag, die ſie mit dem vom Regen<lb/>
+gebraͤunten Hut kuͤnſtlich aufzufaſſen wiſſen;<lb/>
+und die Liebe druͤckt ſie oft noch ſchwerer als<lb/>
+das Buͤndel auf dem Ruͤcken. Andere Kame¬<lb/>
+raden, Seelen, die ſich in der Schule durch<lb/>
+geordneten Fleiß in Humanioribus hervorge¬<lb/>
+than, ſitzen jetzt ſchon auf einer Pfarre, im<lb/>
+Schlaf- oder Chorrock bei der Frau Liebſten.<lb/>
+Andere ſind Amtleute, wieder andere Apothe¬<lb/>
+ker, einige Referendaͤre und dergleichen, und<lb/>
+nur wir beide, ausſchweifend aus dem ge¬<lb/>
+woͤhnlichen Gang der Dinge, ſitzen hier im<lb/>
+Bremer Rathskeller und thun uns guͤtlich im<lb/>
+Weine. Und was ſind denn wir abſonder¬<lb/>
+liches geworden? Doctor? Das kann Jeder<lb/>
+<pb n="38" facs="#f0044"/>
+werden, der vernuͤnftig genug iſt eine Diſſer¬<lb/>
+tation zu ſchreiben.</p><lb/>
+<p>Doch ich trinke das vierte Glas, Seele.<lb/>
+Das vierte! Fuͤhlſt Du nicht einen gewiſſen<lb/>
+Nexus zwiſchen dem Wein und der Zunge?<lb/>
+zwiſchen der Zunge und dem Gaumen? hier,<lb/>
+behaupte ich, iſt ein Scheideweg und daran<lb/>
+ein Wegezeiger aufgeſtellt. Naͤmlich auf der<lb/>
+einen Seite ſteht „<hi rendition="#g">Weg nach dem Magen</hi>.“<lb/>
+Eine breite fahrbare Straße; es geht ſo ſchnell,<lb/>
+ſo glitſchend bergab! daher auch der gemeinere<lb/>
+Stoff gewoͤhnlich dieſen Weg nimmt. Der<lb/>
+andere Arm des Zeigers heißt: „<hi rendition="#g">in den<lb/>
+Kopf</hi>.“ Dahin ziehen die Geiſter, die ſich<lb/>
+ſchon im Faß lange genug bei dem ſchnoͤden<lb/>
+gemeineren Stoff gelangweilt haben, und jetzt,<lb/>
+da ſie freien Lauf nehmen koͤnnen, ſchielen ſie<lb/>
+nach dem Wegezeiger rechts hinauf. Waͤhrend<lb/>
+die Maſſe links hinabſtroͤmt, ſteigen ſie auf¬<lb/>
+waͤrts und finden ſich im Wirthshaus zur Zir¬<lb/>
+<pb n="39" facs="#f0045"/>
+beldruͤſe wieder zuſammen. Es ſind friedliche,<lb/>
+verſtaͤndige Leute, dieſe Geiſter. Sie erhellen<lb/>
+dein Haus, o Seele, ſo lang ihrer vier oder<lb/>
+fuͤnf beiſammen ſind, nachher moͤchte ich wohl<lb/>
+fuͤr nichts ſtehen, denn ſie raufen ſich dann<lb/>
+und treiben allerhand Unfug im Gehirn.</p><lb/>
+<p>Wie ſchoͤn iſt die vierte Lebensperiode, die<lb/>
+wir mit dem vierten Glas beginnen wollen!<lb/>
+Du biſt vierzehn Jahre alt, o Seele! Aber<lb/>
+was iſt mit dir vorgegangen in der kurzen<lb/>
+Zeit? Du ſpielſt keine Knabenſpiele mehr,<lb/>
+Soldaten und alles dieſes Gezeuge liegt hinter<lb/>
+dir, und du ſcheinſt mir viel zu leſen. Du biſt<lb/>
+hinter Goͤthe und Schiller gerathen und ver¬<lb/>
+ſchlingſt ſie, ohne alles zu verſtehen; oder<lb/>
+wie? du verſtehſt <hi rendition="#g">jetzt ſchon</hi> alles? du willſt<lb/>
+meinen, du koͤnneſt Liebe verſtehen, weil du<lb/>
+im letzten Sonntagsklubb Elvire hinter der<lb/>
+Commode im Dunkeln gekuͤßt, und Emmas<lb/>
+Zaͤrtlichkeit zuruͤckgewieſen haſt? Barbar! ahneſt<lb/>
+<pb n="40" facs="#f0046"/>
+du nicht, daß dieſes dreizehenjaͤhrige Herz auch<lb/>
+den Werther und ſogar etwas von Clauren geleſen<lb/>
+haben kann, und Liebe fuͤr dich fuͤhlt? Aber die<lb/>
+Scene aͤndert ſich. Sey mir gegruͤßt, Du Fel¬<lb/>
+ſenthal der Alb! Du blauer Strom, an wel¬<lb/>
+chem ich drei lange Jahre hauste. Die Jahre<lb/>
+lebte, die den Knaben zum Juͤngling machen.<lb/>
+Sey mir gegruͤßt, du kloͤſterliches Dach, du<lb/>
+Kreuzgang mit den Bildern verſtorbener Aebte,<lb/>
+du Kirche mit dem wundervollen Hochaltar,<lb/>
+ihr Bilder alle in ſchoͤnes Gold des Morgen¬<lb/>
+roths getaucht! Seyd mir gegruͤßt, ihr Schloͤßer<lb/>
+auf den Felſen, ihr Hoͤhlen, ihr Thaͤler, ihr<lb/>
+gruͤnen Waͤlder. Jene Thaͤler, jene Kloſter¬<lb/>
+mauern waren das enge Neſt, das uns aufzog,<lb/>
+bis wir fluͤgge waren, und ihrer rauhen Albluft<lb/>
+danken wir es, daß wir nicht verweichlichten.</p><lb/>
+<p>Ich komme ans <hi rendition="#g">fuͤnfte</hi> Glas, ins fuͤnfte<lb/>
+Seculum unſeres Lebens. Ich ſchluͤrfe euch<lb/>
+ein, lieblichen Erinnerungen, wie ich dieß Glas<lb/>
+<pb n="41" facs="#f0047"/>
+edeln Rheinweins ſchluͤrfe; ihr duftet auf in<lb/>
+herrlicher Schoͤne, Jahre meiner Jugend, wie<lb/>
+das Aroma aufſteigt aus dem Roͤmer; mein<lb/>
+Auge wird wacker, o Seele, denn ſie ſind um<lb/>
+mich, die Freunde meiner Jugend! Wie ſoll<lb/>
+ich dich nennen, du hohes, edles, rohes, bar¬<lb/>
+bariſches, liebliches, unharmoniſches, geſang¬<lb/>
+volles, zuruͤckſtoßendes und doch ſo mild er¬<lb/>
+quickendes Leben der Burſchenjahre? Wie ſoll<lb/>
+ich euch beſchreiben, ihr goldenen Stunden,<lb/>
+ihr Feierklaͤnge der Bruderliebe? Welche Toͤne<lb/>
+ſoll ich euch geben, um mich verſtaͤndlich zu<lb/>
+machen? welche Farben Dir, du nie begriffe¬<lb/>
+nes Chaos! Ich ſoll dich beſchreiben? Nie!<lb/>
+Deine laͤcherliche Auſſenſeite liegt offen, die ſieht<lb/>
+der Laie, die kann man ihm beſchreiben, aber<lb/>
+deinen innern, lieblichen Schmelz kennt nur<lb/>
+der Bergmann, der ſingend mit ſeinen Bruͤdern<lb/>
+hinabfuhr in den tiefen Schacht. Gold bringt er<lb/>
+herauf, reines, lauteres Gold, viel oder wenig,<lb/>
+<pb n="42" facs="#f0048"/>
+gilt gleich viel. Aber dieß iſt nicht ſeine ganze<lb/>
+Ausbeute. Was er geſchaut, mag er dem<lb/>
+Laien nicht beſchreiben, es waͤre allzu ſonderbar<lb/>
+und doch zu koͤſtlich fuͤr ſein Ohr. Es leben<lb/>
+Geiſter in der Tiefe, die ſonſt kein Ohr erfaßt,<lb/>
+kein Auge ſchaut. Muſik ertoͤnt in jenen Hal¬<lb/>
+len, die jedem nuͤchternen Ohr leer und bedeu¬<lb/>
+tungslos ertoͤnt. Doch dem, der <hi rendition="#g">mit</hi> gefuͤhlt<lb/>
+und <hi rendition="#g">mit</hi> geſungen, gibt ſie eine eigene Weihe,<lb/>
+wenn er auch uͤber das Loch in ſeiner Muͤtze<lb/>
+laͤchelt, das er als Symbolum zuruͤckgebracht.<lb/>
+Alter Großvater! jetzt weiß ich, was Du vor¬<lb/>
+nahmſt, wenn „der Herr ſeinen Schalttag<lb/>
+feierte.“ Auch du hatteſt deine trauten Geſellen<lb/>
+ſeit den Tagen deiner Jugend, und das Waſſer<lb/>
+ſtand dir in den grauen Wimpern, wenn du<lb/>
+einen beiſetzteſt im Stammbuch. Sie leben!</p><lb/>
+<p>Wirf die Flaſche weg, Menſch, ſtich eine<lb/>
+neue an zu neuer Freude. Das ſechste! Wer<lb/>
+kann dich berechnen, o Liebe?</p><lb/>
+<pb n="43" facs="#f0049"/>
+<p>Es ging uns, wie es ſo manchem Erden¬<lb/>
+ſohn ergeht. Wir laſen von Liebe und glaub¬<lb/>
+ten zu lieben. Das wunderbarſte und doch<lb/>
+natuͤrlichſte an der Sache war, daß die Perio¬<lb/>
+den oder Grade dieſer Art Liebe ſich nach un¬<lb/>
+ſerer Lectuͤre richteten. Haben wir nicht Vergiß¬<lb/>
+meinnicht und Ranunkeln gebrochen, und des<lb/>
+Doktors Tochter in G. verſchaͤmt uͤberreicht,<lb/>
+und uns einige Thraͤnen ausgepreßt, weil wir<lb/>
+laſen: „das ſchoͤnſte ſucht er auf den Fluren,<lb/>
+womit er ſeine Liebe ſchmuͤckt“— „aus ſeinen<lb/>
+Augen brechen Thraͤnen?“ haben wir nicht <hi rendition="#aq">à la</hi><lb/>
+Wilhelm Meiſter geliebt, d. h. wir wußten<lb/>
+nicht mehr, war es Emeline oder Camilla, die<lb/>
+Zarte, oder gar Ottilie? Haben nicht alle drei<lb/>
+in zierlichen Schlafmuͤtzen hinter den Jalouſien<lb/>
+hervorgeſchaut, wenn wir Staͤndchen brach¬<lb/>
+ten im Winter, und die Guitarre weidlich<lb/>
+ſchlugen, obgleich uns der Froſt die Finger<lb/>
+krumm bog? Und nachher, als es ſich zeigte,<lb/>
+<pb n="44" facs="#f0050"/>
+wie ſie alle nur ſchnoͤde Coquetten ſeyen, haben<lb/>
+wir da nicht die Liebe thoͤrigter Weiſe verſchwo¬<lb/>
+ren, und uns vorgenommen, erſt dann zu<lb/>
+heirathen, wenn die Schwaben klug werden,<lb/>
+d. h. im vierzigſten?</p><lb/>
+<p>Wer kann dich berechnen, verſchwoͤren, o<lb/>
+Liebe? Du tauchſt nieder aus dem Auge der<lb/>
+Geliebten und ſchluͤpfſt durch unſer Auge ver¬<lb/>
+ſtohlen in das Herz. Und dennoch ſo kalt<lb/>
+konnteſt du bleiben, wenn ich meine Lieder<lb/>
+ſang, wollteſt den Blick nicht erwiedern, den<lb/>
+ich ſo oft nach dir ausſandte? Ich moͤchte ein<lb/>
+General ſeyn, nur daß ſie meinen Namen in<lb/>
+der Zeitung laͤſe, daß es ihr bange wuͤrde, wenn<lb/>
+ſie laͤſe: „der General Hauff hat ſich in der<lb/>
+letzten Schlacht bedeutend hervorgethan, und<lb/>
+acht Kugeln ins Herz bekommen, — woran<lb/>
+er aber nicht geſtorben.“ Ich moͤchte ein Tam¬<lb/>
+bour ſeyn, nur daß ich vor ihrem Haus mei¬<lb/>
+nen Schmerz auslaſſen und fuͤrchterlich trom¬<lb/>
+<pb n="45" facs="#f0051"/>
+meln koͤnnte, und faͤhrt ſie dann erſchrocken mit<lb/>
+dem Koͤpfchen durchs Fenſter, ſo will ich gerade<lb/>
+das Gegentheil ruſſiſcher Fellraßler machen und<lb/>
+vom Fortiſſimo abwaͤrts trommeln und piano<lb/>
+und im leiſen Adagio-Wirbel ihr zufluͤſtern,<lb/>
+„ich liebe dich.“ Ein beruͤhmter Menſch moͤchte<lb/>
+ich ſeyn, nur daß ſie von mir hoͤrte und ſtolz<lb/>
+zu ſich ſagte: „<hi rendition="#g">der</hi> hat dich einſt geliebt;“<lb/>
+aber leider reden die Leute nicht von mir, hoͤch¬<lb/>
+ſtens wird man ihr morgen ſagen: „geſtern<lb/>
+Nacht iſt er auch wieder bis Mitternacht im<lb/>
+Weinkeller gelegen!“ Und wenn ich vollends<lb/>
+ein Schuſter oder Schneider waͤre! doch dieß<lb/>
+iſt ein gemeiner Gedanke und deiner unwuͤrdig,<lb/>
+Adelgunde!</p><lb/>
+<p>Jetzt wacht wohl keiner mehr, als der Hoͤch¬<lb/>
+ſte und Niedrigſte dieſer Stadt, naͤmlich der<lb/>
+Thurmwaͤchter hoch oben auf der Domkirche<lb/>
+und ich tief unten im Rathskeller. Waͤr' ich<lb/>
+doch der auf dem Thurme! in jeder Stunde<lb/>
+<pb n="46" facs="#f0052"/>
+wollte ich das Sprachrohr anſetzen und dir ein<lb/>
+Lied hinabſingen ins Schlafkaͤmmerlein; doch<lb/>
+nein! das wuͤrde ja den ſuͤßen Engel aus ſei¬<lb/>
+nem Schlummer wecken, aus ſeinen holden,<lb/>
+lieblichen Traͤumen. Doch hier unten hoͤrt<lb/>
+mich niemand, da will ich eines ſingen. Seele!<lb/>
+komme ich mir denn nicht gerade vor, wie ein<lb/>
+Soldat auf dem Poſten, dem das Heimweh<lb/>
+recht ſchwer und tief im Herzen liegt? Und hat<lb/>
+nicht einer meiner Freunde dieß Lied gedichtet?</p><lb/>
+<lg type="poem"> <lg n="1"> <l rendition="#et">Steh' ich in finſtrer Mitternacht</l><lb/>
+<l>So einſam auf der fernen Wacht,</l><lb/>
+<l>Dann denk' ich an mein fernes Lieb',</l><lb/>
+<l>Ob es mir treu und hold verblieb.</l><lb/>
+</lg> <lg n="2">     <l rendition="#et">Als ich zur Fahne fortgemuͤßt,</l><lb/>
+<l>Hat ſie ſo herzlich mich gekuͤßt,</l><lb/>
+<l>Mit Baͤndern meinen Hut geſchmuͤckt,</l><lb/>
+<l>Und weinend mich ans Herz gedruͤckt.</l><lb/>
+</lg> <lg n="3">     <l rendition="#et">Sie liebt mich noch, ſie iſt mir gut,</l><lb/>
+<l>Drum bin ich froh und wohlgemuth,</l><lb/>
+<l>Mein Herz ſchlaͤgt warm in kalter Nacht,</l><lb/>
+<l>Wenn es ans ferne Lieb' gedacht.</l><lb/>
+</lg>
+<pb n="47" facs="#f0053"/>
+<lg n="4">     <l rendition="#et">Jetzt bei der Lampe mildem Schein</l><lb/>
+<l>Gehſt du wohl in dein Kaͤmmerlein,</l><lb/>
+<l>Und ſchickſt dein Nachtgebet zum Herrn</l><lb/>
+<l>Auch fuͤr den Liebſten in der Fern'.</l><lb/>
+</lg> <lg n="5">     <l rendition="#et">Doch wenn du traurig biſt und weinſt,</l><lb/>
+<l>Mich von Gefahr umrungen meinſt;</l><lb/>
+<l>Sey ruhig; ſteh' in Gottes Hut,</l><lb/>
+<l>Er liebt ein treu Soldaten-Blut.</l><lb/>
+</lg> <lg n="6">     <l rendition="#et">Die Glocke ſchlaͤgt, bald naht die Rund,</l><lb/>
+<l>und loͤst mich ab zu dieſer Stund':</l><lb/>
+<l>Schlaf wohl im fernen Kaͤmmerlein</l><lb/>
+<l>Und denk' in deinen Traͤumen mein!</l><lb/>
+</lg> </lg> <p>Und denkt ſie auch wohl meiner in ihren<lb/>
+Traͤumen? Die Glocken ſummten dumpf auf<lb/>
+den Thuͤrmen, ſie begleiteten meinen Geſang.<lb/>
+Schon Mitternacht? Dieſe Stunde traͤgt eige¬<lb/>
+nen, geheimnißvollen Schauer in ſich; es iſt,<lb/>
+als zittere die Erde leiſe, wenn ſich die ſchlum¬<lb/>
+mernden Menſchen unter ihr auf die andere<lb/>
+Seite legen, die ſchwere Decke ſchuͤtteln und<lb/>
+den Nachbar im Kaͤmmerlein neben an fragen,<lb/>
+„iſts noch nicht Morgen?“ Wie ſo ganz an¬<lb/>
+<pb n="48" facs="#f0054"/>
+ders zittert der Ton dieſer Mitternachtsglocke<lb/>
+zu mir hernieder, als wenn er am Mittag<lb/>
+durch die hellen klaren Luͤfte ſchallt. Horch!<lb/>
+ging da nicht im Keller eine Thuͤre? Sonder¬<lb/>
+bar; wenn ich nicht ſo ganz allein hier unten<lb/>
+waͤre, wenn ich nicht wuͤßte, daß die Menſchen<lb/>
+nur oben wandeln, ich wuͤrde glauben, es<lb/>
+toͤnen Schritte durch dieſe Hallen. — Ha! es<lb/>
+iſt ſo; es koͤmmt naͤher; es taſtet an der Thuͤre<lb/>
+hin und her, es faßt und ſchuͤttelt die Klinge;<lb/>
+doch die Thuͤre iſt verſchloſſen und mit Riegeln<lb/>
+verhaͤngt; mich ſtoͤrt heute Nacht <hi rendition="#g">kein Sterb¬<lb/>
+licher</hi> mehr. Ha, was iſt das? die Thuͤre<lb/>
+ſpringt auf! Entſetzen! —</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Vor der Thuͤre ſtanden zwei Maͤnner, und<lb/>
+machten gegenſeitig Complimente uͤber den Vor¬<lb/>
+tritt; der eine war ein langer, hagerer Mann,<lb/>
+trug eine große, ſchwarze Lockenperuͤcke, einen<lb/>
+<pb n="49" facs="#f0055"/>
+dunkelrothen Rock nach altfraͤnkiſchem Schnitt,<lb/>
+uͤberall mit goldenen Treſſen und goldgeſpon¬<lb/>
+nenen Knoͤpfen beſetzt; ſeine ungeheuer langen<lb/>
+und duͤnnen Beine ſtacken in engen Beinklei¬<lb/>
+dern von ſchwarzem Sammt mit goldenen<lb/>
+Schnallen am Knie; daran ſchloßen ſich rothe<lb/>
+Struͤmpfe und auf den Schuhen trug er goldene<lb/>
+Schnallen. Den Degen mit einem Griff von<lb/>
+Porzellain hatte er durch die Hoſentaſche ge¬<lb/>
+ſteckt; er ſchwenkte, wenn er ein Compliment<lb/>
+machte, einen dreiſpitzigen kleinen Hut von<lb/>
+Seide, und die Lockenſchwaͤnze ſeiner Peruͤcke<lb/>
+rauſchten dann wie Waſſerfaͤlle uͤber die Schul¬<lb/>
+tern herab. Der Mann hatte ein bleiches, ab¬<lb/>
+gehaͤrmtes Geſicht, tiefliegende Augen und eine<lb/>
+große feuerrothe Naſe. Ganz anders war der<lb/>
+kleinere Geſelle anzuſchauen, dem jener den<lb/>
+Vortritt goͤnnen wollte. Seine Haare waren<lb/>
+feſt an den Kopf geklebt mit Eiweiß und nur<lb/>
+an den Seiten waren ſie in zwei Rollen gleich<lb/>
+<fw type="sig" place="bottom">4<lb/>
+</fw>
+<pb n="50" facs="#f0056"/>
+Piſtolenhalftern gewickelt; ein ellenlanger Zopf<lb/>
+ſchlaͤngelte ſich uͤber ſeinen Ruͤcken; er trug ein<lb/>
+ſtahlgraues Roͤcklein, roth aufgeſchlagen, ſtack<lb/>
+unten in großen Reiterſtiefeln und oben in<lb/>
+einer reichgeſtickten Bratenweſte, die uͤber ſein<lb/>
+wohlgenaͤhrtes Baͤuchlein bis auf die Knie her¬<lb/>
+abfiel, und hatte einen ungeheuern Raufdegen<lb/>
+umgeſchnallt. Er hatte etwas Gutmuͤthiges<lb/>
+in ſeinem feiſten Geſichte, beſonders in den<lb/>
+Aeuglein, die ihm wie einem Hummer hervor¬<lb/>
+ſtanden. Seine Manoeuvres fuͤhrte er mit<lb/>
+einem ungeheuern Filshut aus, der auf zwei<lb/>
+Seiten aufgeklappt war.</p><lb/>
+<p>Ich hatte, nachdem ich mich von dem er¬<lb/>
+ſten Schrecken erholt, Zeit genug, dieſe Be¬<lb/>
+merkungen zu machen, denn die beiden Herren<lb/>
+machten wohl mehrere Minuten lang vor der<lb/>
+Schwelle die zierlichſten Pas. Endlich riß der<lb/>
+Lange auch den zweiten Fluͤgel der Thuͤre auf,<lb/>
+nahm den Kleinen unter dem Arm und fuͤhrte<lb/>
+<pb n="51" facs="#f0057"/>
+ihn in mein Gemach. Sie hingen ihre Huͤte<lb/>
+an die Wand, ſchnallten die Degen ab, und<lb/>
+ſetzten ſich, ohne mich zu beachten, ſtillſchwei¬<lb/>
+gend an den Tiſch. „Iſt denn heute Faſtnacht<lb/>
+in Bremen?“ ſprach ich zu mir, indem ich<lb/>
+uͤber die ſonderbaren Gaͤſte nachdachte; und<lb/>
+doch kam mir ihre ganze Erſcheinung ſo un¬<lb/>
+heimlich vor, beſonders wußte ich mich in ihre<lb/>
+ſtarren Blicke, in ihr Schweigen nicht zu fin¬<lb/>
+den; ich wollte mir eben ein Herz faſſen und<lb/>
+ſie anreden, als ein neues Geraͤuſch im Keller<lb/>
+entſtand. Schritte toͤnten naͤher, die Thuͤre<lb/>
+ging auf und vier andere Herren, nach derſel¬<lb/>
+ben alten Mode wie die erſten gekleidet, traten<lb/>
+ein. Mir fiel beſonders der eine auf, der wie<lb/>
+ein Jaͤger gekleidet war, denn er trug Hetz¬<lb/>
+peitſche und Jagdhorn, und ſchaute ungemein<lb/>
+froͤhlich um ſich.</p><lb/>
+<p>„Gott gruͤß Euch, Ihr Herren vom Rhei¬<lb/>
+ne!“ ſprach der Lange im rothen Rocke im<lb/>
+<pb n="52" facs="#f0058"/>
+tiefen Baß, indem er aufſtand und ſich ver¬<lb/>
+beugte. „Gott gruͤß Euch,“ quickte der Kleine<lb/>
+dazu, „haben uns lange nicht geſehen, Herr<lb/>
+Jacobus!“</p><lb/>
+<p>„Friſch auf! hollah und guten Morgen,<lb/>
+Herr Matthaͤus, rief der Jaͤger dem Klei¬<lb/>
+nen zu, und auch Euch guten Morgen, Herr<lb/>
+Judas! Aber was iſt das? wo ſind die Roͤmer,<lb/>
+wo Pfeifen und Tabak? iſt der alte Mauereſel<lb/>
+noch nicht wach aus ſeinem Suͤndenſchlaf?“</p><lb/>
+<p>„Die Schlafmuͤtze!“ erwiederte der Kleine,<lb/>
+„der ſchlaͤferige Bengel, droben liegt er noch<lb/>
+in Unſer lieben Frauen-Kirchhof, aber das Don¬<lb/>
+nerwetter, ich will ihn heraus ſchellen!“ Da¬<lb/>
+bei ergriff er eine große Glocke, die auf dem<lb/>
+Tiſche ſtand, und klingelte und lachte in grel¬<lb/>
+len, ſchneidenden Toͤnen. Auch die drei an¬<lb/>
+dern Herren hatten Huͤte, Stock und Degen<lb/>
+in die Ecken geſtellt, ſich gegenſeitig gegruͤßt<lb/>
+und an den Tiſch geſetzt. Zwiſchen dem Jaͤger<lb/>
+<pb n="53" facs="#f0059"/>
+und dem rothen Judas ſaß einer, den ſie An¬<lb/>
+dreas nannten. Es war ein uͤberaus zierlicher<lb/>
+und feiner Herr, auf ſeinen ſchoͤnen, noch ju¬<lb/>
+gendlichen Zuͤgen lag ein wehmuͤthiger Ernſt<lb/>
+und um die zarten Lippen ſchwebte ein mildes<lb/>
+Laͤcheln; er trug eine blonde Peruͤcke mit vie¬<lb/>
+len Locken, was mit ſeinen großen braunen<lb/>
+Augen einen auffallenden, aber angenehmen<lb/>
+Contraſt bildete. Dem Jaͤger gegenuͤber ſaß<lb/>
+ein großer wohlgemaͤſteter Mann, mit roth¬<lb/>
+ausgeſchlagenem Geſicht und einer Purpurnaſe.<lb/>
+Er hatte die Unterlippe weit herabhaͤngen und<lb/>
+trommelte mit den Fingern auf ſeinem dicken<lb/>
+Bauch, ſie hießen ihn Philippus.</p><lb/>
+<p>Ein ſtarkknochiger Mann, faſt wie ein<lb/>
+Krieger anzuſchauen, ſaß neben ihm; ein mu¬<lb/>
+thiges Feuer brannte in ſeinen dunkeln Augen,<lb/>
+ein kraͤftiges Roth ſchmuͤckte ſeine Wangen und<lb/>
+ein dichter Bart umſchattete den Mund. Er<lb/>
+hieß Herr Petrus.</p><lb/>
+<pb n="54" facs="#f0060"/>
+<p>Wie unter aͤchten alten Trinkern, ſo wollte<lb/>
+unter dieſen Gaͤſten das Geſpraͤch nicht recht<lb/>
+fortgehen ohne Wein; da erſchien eine neue<lb/>
+Geſtalt in der Thuͤre. Es war ein kleines,<lb/>
+altes Maͤnnlein mit ſchlotternden Beinen und<lb/>
+grauem Haar; ſein Kopf ſah aus wie ein Tod¬<lb/>
+tenkopf, uͤber den man eine duͤnne Haut ge¬<lb/>
+ſpannt, und ſeine Augen lagen truͤbe in den<lb/>
+tiefen Hoͤhlen; er ſchleppte keuchend einen gro¬<lb/>
+ßen Korb herbei, und gruͤßte die Gaͤſte demuͤ¬<lb/>
+thig.</p><lb/>
+<p>„Ha! ſiehe da, der alte Kellermeiſter Bal¬<lb/>
+thaſar, riefen die Gaͤſte ihm entgegen; friſch<lb/>
+heran, Alter, ſetz' die Roͤmer auf und bring'<lb/>
+uns Pfeifen! Wo ſteckſt Du nur ſo lang, es<lb/>
+iſt laͤngſt Zwoͤlf voruͤber.“</p><lb/>
+<p>Der alte Mann gaͤhnte einigemal etwas<lb/>
+unanſtaͤndig und ſah uͤberhaupt aus wie einer,<lb/>
+der zu lange geſchlafen. „Haͤtte beinahe den er¬<lb/>
+ſten September verſchlafen, kraͤchzte er, ich ſchlief<lb/>
+<pb n="55" facs="#f0061"/>
+ſo hart, und ſeitdem ſie den Kirchhof gepflaſtert<lb/>
+haben, hoͤre ich auch ziemlich ſchlecht. Wo<lb/>
+ſind denn aber die andern Herren? fuhr er<lb/>
+fort, indem er Pocale von wunderlicher Form<lb/>
+und anſehnlicher Groͤße aus dem Korb nahm<lb/>
+und auf den Tiſch ſetzte, wo ſind denn die an¬<lb/>
+dern? Ihr ſeyd erſt eurer ſechs und die alte<lb/>
+Roſe fehlt auch noch.“</p><lb/>
+<p>„Setze nur die Flaſchen her, rief Judas,<lb/>
+daß wir endlich was zu trinken bekommen;<lb/>
+und dann gehe hinuͤber, ſie liegen noch im Faß,<lb/>
+poch' an mit deinen duͤrren Knochen und heiße<lb/>
+ſie aufſtehen, ſage, wir ſitzen ſchon alle hier.“</p><lb/>
+<p>Aber kaum hatte Herr Judas alſo geſpro¬<lb/>
+chen, als ein großes Geraͤuſch und Gelaͤchter<lb/>
+vor der Thuͤre entſtand. „Jungfer Roſe hoch,<lb/>
+huſſa, hoch! und ihr Schatz, der Bachus hoch!“<lb/>
+hoͤrte man von mehreren Stimmen rufen; die<lb/>
+Thuͤre flog auf, die geſpenſtigen Geſellen am<lb/>
+<pb n="56" facs="#f0062"/>
+Tiſche ſprangen in die Hoͤhe und ſchrieen, „ſie<lb/>
+iſts, ſie iſts, Jungfer Roſe und Bachus und<lb/>
+die Andern, hollah! jetzt geht das Freudenle¬<lb/>
+ben erſt recht an;“ und dabei ſtießen ſie<lb/>
+die Roͤmer zuſammen, lachten, und der Dicke<lb/>
+ſchlug ſich auf den Bauch und der blaße Keller¬<lb/>
+meiſter warf die Muͤtze geſchickt zwiſchen den<lb/>
+Beinen durch an die Decke und ſtimmte ein in<lb/>
+das Jucheiſa, heiſa he! daß mir die Ohren<lb/>
+gellten. Welch ein Anblick! der hoͤlzerne Ba¬<lb/>
+chus, ſo auf dem Faß im Keller geritten, war<lb/>
+herabgeſtiegen, nackt, wie er war; mit ſeinem<lb/>
+breiten freundlichen Geſicht, mit den klaren<lb/>
+Aeuglein gruͤßte er das Volk und trippelte auf<lb/>
+kleinen Fuͤßchen in das Zimmer; an ſeiner<lb/>
+Hand fuͤhrte er ganz ehrbarlich wie ſeine Braut<lb/>
+eine alte Matrone von hoher Geſtalt und weid¬<lb/>
+licher Dicke. Noch weiß ich nicht bis dato,<lb/>
+wie es moͤglich war, daß dieß alles ſo geſche¬<lb/>
+hen, aber damals war es mir ſogleich klar,<lb/>
+<pb n="57" facs="#f0063"/>
+daß dieſe Dame niemand anders ſey, als die<lb/>
+alte Roſe, das ungeheure Faß im Roſenkeller.</p><lb/>
+<p>Und wie hatte ſie ſich koͤſtlich aufgeputzt, die<lb/>
+alte Rheinlaͤnderin! Sie mußte in der Jugend<lb/>
+einmal recht ſchoͤn geweſen ſeyn, denn wenn<lb/>
+auch die Zeit einige Runzeln um Stirne und<lb/>
+Mund gelegt hatte, wenn auch das friſche Roth<lb/>
+der Jugend von ihren Wangen verſchwunden<lb/>
+war, zwei Jahrhunderte konnten die edlen<lb/>
+Zuͤge des feinen Geſichtes nicht voͤllig verwiſchen.<lb/>
+Ihre Augbraunen waren grau geworden, und<lb/>
+einige unziemliche graue Barthaare wuchſen<lb/>
+auf ihrem ſpitzigen Kinn, aber die Haare, die<lb/>
+um die Stirne ſchoͤn geglaͤttet lagen, waren<lb/>
+nußbraun und nur etwas weniges mit ſilber¬<lb/>
+grau gemiſcht. Auf dem Kopf trug ſie eine<lb/>
+ſchwarze Sammtmuͤtze, die ſich enge an die<lb/>
+Schlaͤfe anſchloß; dazu hatte ſie ein Wamms<lb/>
+vom feinſten ſchwarzen Tuche an und das Mie¬<lb/>
+der von rothem Sammt, das darunter hervor¬<lb/>
+<pb n="58" facs="#f0064"/>
+ſchaute, war mit ſilbernen Hacken und Ketten<lb/>
+geſchnuͤrt. Um den Hals trug ſie ein breites<lb/>
+Halsband von blitzenden Granaten, woran eine<lb/>
+goldene Schaumuͤnze befeſtigt; ein weiter fal¬<lb/>
+tenreicher Rock von braunem Tuch fiel um ihre<lb/>
+wohlbeleibte Geſtalt, und ein kleines weißes<lb/>
+Schuͤrzchen mit feinen Spitzen beſetzt, wollte<lb/>
+ſich recht ſchalkhaft ausnehmen. An der einen<lb/>
+Seite hing ihr eine große lederne Taſche von<lb/>
+Leder, an der andern ein Buͤndel gewaltiger<lb/>
+Schluͤſſel — kurz, ſie war eine ſo ehrbare Frau,<lb/>
+als je eine Anno 1618 in Coͤlln oder Mainz<lb/>
+uͤber die Straße ging.</p><lb/>
+<p>Aber hinter der Frau Roſe kamen noch ſechs<lb/>
+jubelnde Geſellen, die Dreiſpitzenhuͤte ſchwin¬<lb/>
+gend, die Peruͤcken ſchief auf den Kopf ge¬<lb/>
+ſetzt, mit weitſchoͤßigen Roͤcken und langen,<lb/>
+reich geſtickten Weſten angethan.</p><lb/>
+<p>Ehrbarlich und ſittſam fuͤhrte unter dem<lb/>
+allgemeinen Jubel <hi rendition="#g">Bachus</hi> ſeine Roſe oben<lb/>
+<pb n="59" facs="#f0065"/>
+an die Tafel; ſie verbeugte ſich mit großem<lb/>
+Anſtand gegen die Geſellſchaft und ließ ſich<lb/>
+nieder, an ihrer Seite nahm der hoͤlzerne Ba¬<lb/>
+chus Platz, und Balthaſar, der Kellermeiſter,<lb/>
+hatte ihm ein tuͤchtiges Polſter untergeſchoben,<lb/>
+weil er ſonſt gar klein und niedrig dageſeſſen<lb/>
+haͤtte. Auch die andern ſechs Geſellen nahmen<lb/>
+Platz, und ich merkte jetzt, daß es wohl die<lb/>
+zwoͤlf Apoſtel vom Rheine ſeyen, die hier um<lb/>
+die Tafel ſaßen, ſonſt aber im Apoſtelkeller in<lb/>
+Bremen liegen.</p><lb/>
+<p>„Da waͤren wir ja,“ ſagte Petrus, nach¬<lb/>
+dem der Jubel etwas nachgelaſſen, „da waͤren<lb/>
+wir ja, wir junges munteres Volk von 1700,<lb/>
+und alle wohlbehalten wie ſonſt. Nun auf<lb/>
+gutes Wohlſeyn, Jungfer Roſe, auch Sie hat<lb/>
+gar nicht gealtert und iſt noch ſo ſtattlich und<lb/>
+huͤbſch wie vor fuͤnfzig Jahren, gutes Wohl¬<lb/>
+ſeyn, Sie ſoll leben und Ihr Liebſter Herr<lb/>
+<hi rendition="#g">Bachus</hi> daneben.“</p><lb/>
+<pb n="60" facs="#f0066"/>
+<p>„Soll leben, die alte Roſe ſoll leben!“<lb/>
+riefen ſie und ſtießen an und tranken; Herr<lb/>
+Bachus aber, der aus einem großen ſilbernen<lb/>
+Humpen trank, ſchluckte zwei Maas rheiniſch<lb/>
+ohne viele Beſchwerden hinunter, und er ward<lb/>
+zuſehends dicker davon und groͤßer, wie eine<lb/>
+Schweinsblaſe, die man mit Luft fuͤllt.</p><lb/>
+<p>„Mich gehorſamſt zu bedanken, werthge¬<lb/>
+ſchaͤtzte Herrn Apoſtel und Vettern, antwortete<lb/>
+Frau Roſalia, in dem ſie ſich freundlich ver¬<lb/>
+neigte; ſeyd Ihr noch immer ſolch ein loſer<lb/>
+Schaͤcker, Herr Petrus? ich weiß von keinem<lb/>
+Schatz nicht, und Ihr muͤßt ein ſittſam Maͤgd¬<lb/>
+lein nicht ſo in Verlegenheit ſetzen.“ Sie<lb/>
+ſchlug die Augen nieder als ſie dieß ſagte,<lb/>
+und trank ein maͤchtiges Paßglas aus.</p><lb/>
+<p>„Schatz,“ erwiederte ihr Bachus, indem<lb/>
+er ſie aus ſeinen Aeuglein zaͤrtlich anblickte<lb/>
+und ihre Hand faßte, „Schatz, ziere dich doch<lb/>
+nicht ſo; du weißt ja wohl, daß dir mein<lb/>
+<pb n="61" facs="#f0067"/>
+Herz zugethan ſchon ſeit zweihundert Herbſten,<lb/>
+und daß ich dich carreſſire vor allen andern.<lb/>
+Sag an, wann wollen wir endlich feiern das<lb/>
+Beilager?“</p><lb/>
+<p>„Ach, Ihr loſer Schalk,“ antwortete die<lb/>
+alte Jungfrau und wandte ſich erroͤthend von<lb/>
+ihm ab. „Man kann ja nicht neben Euch<lb/>
+ſitzen eine Viertelſtunde, ohne daß Ihr anfan¬<lb/>
+get mit Euren Carreſſen. Und ein ehrbares<lb/>
+Maͤdchen muß ſich ja ſchaͤmen, wenn man<lb/>
+Euch nur anſieht. Was laufet Ihr denn faſt<lb/>
+nackt im Keller? Haͤttet wohl ein Paar Bein¬<lb/>
+kleider entlehnen koͤnnen auf heute. Da Bal¬<lb/>
+thaſar, rief ſie, indem ſie ihre weiße Schuͤrze<lb/>
+abband, lege dem Herrn dieſe Schuͤrze um,<lb/>
+es iſt gar zu unanſtaͤndig!“</p><lb/>
+<p>„Wenn Du mir einen Kuß gibſt, Roͤs¬<lb/>
+chen,“ rief Bachus in verliebter Laune, „ſo<lb/>
+laß ich mir den Fetzen um den Leib binden,<lb/>
+obgleich es ein ſchlimmer Verſtoß gegen mein<lb/>
+<pb n="62" facs="#f0068"/>
+Coſtuͤm iſt; aber was laͤßt man ſich nicht ge¬<lb/>
+fallen ſchoͤner Frauen wegen?“</p><lb/>
+<p>Balthaſar hatte ihm die Schuͤrze umgebun¬<lb/>
+den und er neigte ſich zaͤrtlich gegen die Roſe,<lb/>
+„wenn nur das junge Volk hier nicht dabei<lb/>
+waͤre,“ fluͤſterte ſie beſchaͤmt, indem ſie ſich<lb/>
+halb zu ihm neigte; — aber unter dem Ju¬<lb/>
+beln und Jauchzen der Zwoͤlfe hatte der Wein¬<lb/>
+gott ſein Schuͤrzenſtipendium nebſt Zinſen ein¬<lb/>
+genommen. Dann leerte er ſeinen Humpen<lb/>
+wieder, und ward um zwei Faͤuſte breiter und<lb/>
+groͤßer, und hub an mit einer rauhen Wein¬<lb/>
+ſtimme zu ſingen:</p><lb/>
+<lg type="poem"> <lg n="1"> <l>Vor allen Schloͤſſern dieſer Zeit</l><lb/>
+<l rendition="#et">Lob' ich ein Schloß zu Bremen,</l><lb/>
+<l>An ſeinen Hallen hoch und weit</l><lb/>
+<l rendition="#et">Darf ſich kein Kaiſer ſchaͤmen;</l><lb/>
+<l>Gar ſeltſam iſt es ausſtaffirt,</l><lb/>
+<l>Mit ſchmuckem Hausrath ausgeziert,</l><lb/>
+<l rendition="#et">Doch hat daſelbſt vor allen</l><lb/>
+<l rendition="#et">Eine Jungfrau mir gefallen.</l><lb/>
+</lg>
+<pb n="63" facs="#f0069"/>
+<lg n="2"> <l>Ihr Auge blinkt wie klarer Wein</l><lb/>
+<l rendition="#et">Ihre Wangen ſind nicht bleiche‚</l><lb/>
+<l>Wie praͤchtig ihre Kleider ſeyn,</l><lb/>
+<l rendition="#et">Von lauter ſchwerem Zeuche;</l><lb/>
+<l>Von Eichenholz iſt ihr Gewand</l><lb/>
+<l>Von Birkenreifen ihre Band',</l><lb/>
+<l rendition="#et">Das Mieder, das ſie zieret.</l><lb/>
+<l rendition="#et">Mit Eiſen iſt geſchnuͤret</l><lb/>
+</lg> <lg n="3"> <l>Doch ach, man hat ihr Schlafcloſett</l><lb/>
+<l rendition="#et">Mit Riegeln wohl verſehen,</l><lb/>
+<l>Dort ſchlummert ſie im Roſenbett,</l><lb/>
+<l rendition="#et">Und ich muß drauſſen ſtehen;</l><lb/>
+<l>Drum poch' ich an die Kammerthuͤr,</l><lb/>
+<l>Steh auf mein Schatz und komm herfuͤr,</l><lb/>
+<l rendition="#et">Damit ich mit dir koſe,</l><lb/>
+<l rendition="#et">Mach auf herzliebe Roſe.</l><lb/>
+</lg> <lg n="4"> <l>So ſteig ich jede Mitternacht</l><lb/>
+<l rendition="#et">Zu ihrer Kammer nieder;</l><lb/>
+<l>Nur einmal hat ſie aufgemacht</l><lb/>
+<l rendition="#et">Jetzt will ſie nimmer wieder;</l><lb/>
+<l>Und ſeit ich einmal ſie gekuͤßt</l><lb/>
+<l>Mein Herz von Sehnſucht trunken iſt,</l><lb/>
+<l rendition="#et">Nur einmal Roſamunde ,</l><lb/>
+<l rendition="#et">Kuͤß mich, daß es geſunde.</l><lb/>
+</lg> </lg>
+<pb n="64" facs="#f0070"/>
+<p>„Ihr ſeyd ein Schaͤcker, Herr Bachus,“<lb/>
+ſagte Roſa, als er mit einem zaͤrtlichen Triller<lb/>
+geendet hatte. „Ihr wißt wohl, daß mich<lb/>
+Buͤrgermeiſter und Rath unter gar ſtrenger<lb/>
+Clauſur halten und nicht erlauben, daß ich mit<lb/>
+jedwedem mich einlaſſe.“</p><lb/>
+<p>„Aber mir koͤnnteſt du doch zuweilen das<lb/>
+Kaͤmmerlein oͤffnen, lieb Roͤſchen!“ fluͤſterte<lb/>
+Bachus; „mich geluͤſtet nach der ſuͤßen Speiſe<lb/>
+deines Mundes.“</p><lb/>
+<p>„Ihr ſeyd ein Schelm,“ rief ſie lachend,<lb/>
+„Ihr ſeyd ein Tuͤrke und habt es mit vielen<lb/>
+zugleich; meinet Ihr ich wiſſe nicht, wie Ihr<lb/>
+mit der leichtfertigen Franzoͤſin ſcharmirt, mit<lb/>
+dem Fraͤulein von Bourdeaux, und mit dem<lb/>
+Kreidengeſicht, der Champagnerin; geht, geht,<lb/>
+Ihr habt einen ſchlechten Charakter und ver¬<lb/>
+ſtehet Euch nicht auf treue deutſche Minne.“</p><lb/>
+<p>„Ja, das ſag ich auch! rief Judas, und<lb/>
+fuhr mit der langen knoͤchernen Hand nach der<lb/>
+<pb n="65" facs="#f0071"/>
+Hand der Jungfer Roſe, das ſag ich auch;<lb/>
+drum nehmet mich zu Eurem Galan, liebwer¬<lb/>
+theſte Jungfer, und laſſet den kleinen, nack¬<lb/>
+ten Kerl ſeiner Franzoͤſin nachziehen.“</p><lb/>
+<p>„Was?“ ſchrie der Hoͤlzerne und trank<lb/>
+im Zorn einige Maas Wein, „was? mit dem<lb/>
+jungen Fant von 1726 willſt du dich abgeben,<lb/>
+Roͤschen? Pfui, ſchaͤme dich; was mein nacktes<lb/>
+Coſtuͤm betrifft, Herr Naſeweis, ſo kann ich<lb/>
+eben ſo gut, wie Er, eine Peruͤcke aufſetzen,<lb/>
+einen Rock umhaͤngen und einen Degen an<lb/>
+die Seite ſtecken; aber ich trage mich ſo, weil<lb/>
+ich Feuer im Leibe habe und mich nicht friert<lb/>
+im Keller. Und was Sie da ſagt, Jungfer<lb/>
+Roſe, mit den Franzoͤſinnen, ſo iſt das gaͤnz¬<lb/>
+lich erlogen. Beſucht habe ich ſie zuweilen<lb/>
+und mich an ihrem Geiſte erluſtirt, aber weiter<lb/>
+gar nichts; dir bin ich treu, liebſter Schatz,<lb/>
+und dir gehoͤrt mein Herz.“</p><lb/>
+<fw type="sig" place="bottom">5<lb/>
+</fw>
+<pb n="66" facs="#f0072"/>
+<p>„Eine ſchoͤne Treue, Gott erbarm's!“ er¬<lb/>
+wiederte die Dame; „was hoͤrt man nur aus<lb/>
+Spanien, wie Ihr es dort mit dem Frauen¬<lb/>
+zimmer habt. Von der ſuͤßlichen Metze der<lb/>
+Xeres will ich gar nichts ſagen, das iſt eine<lb/>
+bekannte Geſchichte, aber wie iſt es denn mit<lb/>
+der Jungfer <hi rendition="#g">Dentilla di Rota</hi>, und mit<lb/>
+der von <hi rendition="#g">San Lucas</hi>? Und dann mit der<lb/>
+<hi rendition="#g">Sennora Pietro Ximenes</hi>?“</p><lb/>
+<p>„Alle Teufel, Ihr treibt die Eiferſucht auch<lb/>
+gar zu weit,“ rief er aͤrgerlich, „man kann<lb/>
+doch alte Verbindungen nicht ganz aufgeben.<lb/>
+Und was die <hi rendition="#g">Sennora Pietro Ximenes</hi><lb/>
+betrifft, ſo ſeyd Ihr ſehr ungerecht, ich be¬<lb/>
+ſuche ſie ja nur aus Freundſchaft fuͤr Euch,<lb/>
+weil ſie Eure Verwandte iſt.“</p><lb/>
+<p>„Was macht Ihr da fuͤr Fabeln? unſere<lb/>
+Verwandte? murmelten Roſe und die Zwoͤlfe<lb/>
+untereinander, wie das?“</p><lb/>
+<pb n="67" facs="#f0073"/>
+<p>„Wißt Ihr denn nicht,“ fuhr er fort, „daß<lb/>
+dieſe Sennora eigentlich eine Rheinlaͤnderin<lb/>
+iſt? Der ehrſame Don Pietro Ximenes hat<lb/>
+ſie heimgefuͤhrt als blutjunges Rebſtoͤcklein aus<lb/>
+dem Rheingau nach ſeiner Heimath Spanien,<lb/>
+und dort hat ſie ſich angeſiedelt und ſeinen Fa¬<lb/>
+milien-Namen angenommen. Noch jetzt, ob¬<lb/>
+gleich ſie den ſuͤßen, ſpaniſchen Charakter<lb/>
+angenommen, noch jetzt hat ſie große Aehn¬<lb/>
+lichkeit mit Euch, wie die Grundzuͤge des Ge¬<lb/>
+ſichtes ſich in der Familie nicht ganz verlieren.<lb/>
+Dieſelbe Farbe und jener ſuͤße Duft, jenes<lb/>
+feine Aroma iſt ihr eigen und macht ſie zu<lb/>
+Eurer wuͤrdigen Baaſe, werthgeſchaͤtzte Jung¬<lb/>
+fer Roſe.“</p><lb/>
+<p>„Sie ſoll leben, ſoll leben!“ riefen die<lb/>
+Apoſtel und ſtießen an, „Baaſe Ximenes in<lb/>
+Hiſpanien ſoll leben!“</p><lb/>
+<p>Jungfer Roſe mochte ihrem Galan nicht<lb/>
+ganz trauen und ſtieß mit bitter ſuͤßer Miene<lb/>
+<pb n="68" facs="#f0074"/>
+an; doch ſchien ſie nicht ferner mit ihm ha¬<lb/>
+dern zu wollen, ſondern ſprach weiter:</p><lb/>
+<p>„Und auch ihr, meine lieben Vetter vom<lb/>
+Rhein, ſeyd ihr alle hier? Ja, da iſt ja mein<lb/>
+zarter, feiner Andreas, mein muthiger Judas,<lb/>
+mein feuriger Petrus. Guten Abend, Johan¬<lb/>
+nes, wiſche dir den Schlaf fein aus den Aeug¬<lb/>
+lein, du ſiehſt noch ganz truͤbſelig aus. Bar¬<lb/>
+tholomaͤus, du biſt unmaͤßig dick geworden<lb/>
+und ſcheinſt traͤge zu ſeyn. Ha, mein mun¬<lb/>
+terer Paulus, und wie froͤhlich Jacobus um<lb/>
+ſich ſchaut, noch immer der Alte. Aber wie,<lb/>
+Ihr ſeyd ja zu Dreizehn am Tiſche, wer iſt<lb/>
+denn <hi rendition="#g">der</hi> dort in fremder Kleidung, wer hat<lb/>
+ihn hieher gebracht?“</p><lb/>
+<p>Gott, wie erſchrack ich! Sie ſchauten alle<lb/>
+verwundert auf mich und ſchienen mit meiner<lb/>
+Anweſenheit nicht ganz zufrieden. Aber ich<lb/>
+faßte mir ein Herz und ſagte: „Mich gehor¬<lb/>
+ſamſt der werthen Geſellſchaft zu empfehlen.<lb/>
+<pb n="69" facs="#f0075"/>
+Ich bin eigentlich nichts weiter als ein zum<lb/>
+Doctor der Philoſophie graduirter Menſch, und<lb/>
+halte mich gegenwaͤrtig hieſigen Orts in dem<lb/>
+Wirthshauſe zur Stadt Frankfurt auf.“</p><lb/>
+<p>„Wie wagſt Du es aber, hieher zu kom¬<lb/>
+men in dieſer Stunde, graduirtes Menſchen¬<lb/>
+kind?“ ſprach Petrus ſehr ernſt, indem er<lb/>
+Blitze aus ſeinen Feueraugen auf mich ſpruͤhte.<lb/>
+„Du haͤtteſt wohl denken koͤnnen, daß Du<lb/>
+nicht in dieſe noble Societaͤt gehoͤrſt.“</p><lb/>
+<p>„Herr Apoſtel,“ antwortete ich, und weiß<lb/>
+noch heute nicht, woher ich den Muth bekam,<lb/>
+wahrſcheinlich aus dem Wein; „Herr Apoſtel,<lb/>
+das <hi rendition="#g">Du</hi> verbitte ich mir vor's Erſte, bis wir<lb/>
+weiter bekannt ſind. Und was die noble So¬<lb/>
+cietaͤt betrifft, in die ich gekommen ſeyn ſoll,<lb/>
+ſo kam ſie zu mir, nicht ich zu ihr, denn ich<lb/>
+ſitze ſchon ſeit drei Stunden in dieſem Gemach,<lb/>
+Herr!“</p><lb/>
+<pb n="70" facs="#f0076"/>
+<p>„Was thut Ihr aber ſo ſpaͤt noch im Raths¬<lb/>
+keller, Herr Doctor,“ fragte Bachus etwas<lb/>
+ſanfter als der Apoſtel, „um dieſe Zeit pflegt<lb/>
+ſonſt das Erdenvolk zu ſchlafen.“</p><lb/>
+<p>„Euer Excellenz,“ erwiederte ich, „das<lb/>
+hat ſeinen guten Grund. Ich bin ein portirter<lb/>
+Freund des edlen Getraͤnkes, das man hier<lb/>
+unten verzapft, habe auch durch die Verguͤn¬<lb/>
+ſtigung eines wohledlen Senats die Permiſſion<lb/>
+erhalten, denen Herren Apoſteln und der Jung¬<lb/>
+frau Roſe meinen Beſuch abzuſtatten, was ich<lb/>
+auch geziemendſt gethan.“</p><lb/>
+<p>„Alſo Ihr trinkt gerne Rheinwein?“ fuhr<lb/>
+Bachus fort; „nun das iſt eine gute Eigen¬<lb/>
+ſchaft und ſehr zu loben in dieſer Zeit, wo die<lb/>
+Menſchen ſo kalt geworden ſind gegen dieſe<lb/>
+goldene Quelle.“</p><lb/>
+<p>„Ja, der Teufel hole ſie All'!“ rief Judas,<lb/>
+„keiner will mehr einige Maas Rheinwein trin¬<lb/>
+ken, außer hie und da ſolch' ein fahrender<lb/>
+<pb n="71" facs="#f0077"/>
+Doctor oder vacirender Magiſter, und dieſe<lb/>
+Hungerleider laſſen ſich ihn erſt noch aufwich¬<lb/>
+ſen.“</p><lb/>
+<p>„Muß ganz gehorſamſt depreciren, Herr<lb/>
+von Judas,“ unterbrach ich den ſchrecklichen<lb/>
+Rothrock. „Nur einige kleine Verſuche habe<lb/>
+ich gethan mit dero Rebenblut von 1700 und<lb/>
+etlichen Jahren, und den hat mir allerdings<lb/>
+der wackere Buͤrgermeiſter einſchenken laſſen;<lb/>
+was Sie aber hier ſehen, iſt etwas neuer und<lb/>
+in baarer Muͤnze von mir bezahlt.“</p><lb/>
+<p>„Doctor, ereifert Euch nicht,“ ſagte Frau<lb/>
+Roſe, „er meint's nicht ſo boͤſe, der Judas,<lb/>
+und er aͤrgert ſich nur und mit Recht, daß<lb/>
+die Zeiten ſo lau geworden.“</p><lb/>
+<p>„Ja!“ rief Andreas, der feine, ſchoͤne<lb/>
+Andreas,“ ich glaube, dieſes Geſchlecht fuͤhlt,<lb/>
+daß es keines edlen Trankes mehr werth iſt,<lb/>
+drum ſollen ſie hier ein Geſoͤff von allerlei<lb/>
+Schnaps und Syrup brauen, heißen es Ch<hi rendition="#aq">â</hi>teau<lb/>
+<pb n="72" facs="#f0078"/>
+Marget, Sillery, St. Julien und ſonſt<lb/>
+nach allerlei pompoͤſen Namen, und credenzen<lb/>
+es bei ihren Gaſtmahlen, und wenn ſie es ſau¬<lb/>
+fen, bekommen ſie rothe Ringe um den Mund,<lb/>
+dieweil der Wein gefaͤrbt war, und Kopfweh<lb/>
+den andern Tag, weil ſie ſchnoͤden Schnaps<lb/>
+getrunken.“</p><lb/>
+<p>„Ha, was war das fuͤr ein anderes Leben,“<lb/>
+fuͤhrte Johannes die Rede fort, „als wir noch<lb/>
+junge, blutjunge Geſellen waren, Anno 19<lb/>
+und 26. Auch Anno 50 ging es noch hoch her<lb/>
+in dieſen ſchoͤnen Hallen. Jeden Abend, es<lb/>
+mochte die Sonne ſcheinen in hellem Fruͤhling,<lb/>
+oder ſchneien und regnen im Winter, jeden<lb/>
+Abend waren die Stuͤbchen dort gefuͤllt mit<lb/>
+frohen Gaͤſten. Hier, wo wir jetzt ſitzen, ſaß<lb/>
+in Wuͤrde und Hoheit der <hi rendition="#g">Senat von Bre¬<lb/>
+men</hi>. Stattliche Peruͤcken auf dem Haupt,<lb/>
+die Wehre an der Seite, Muth im Herzen und<lb/>
+jeder einen Roͤmer vor ſich.</p><lb/>
+<pb n="73" facs="#f0079"/>
+<p>„Hier, hier, nicht oben auf der Erde, hier<lb/>
+war ihr Rathhaus, hier die Halle des Senats;<lb/>
+denn hier beim kuͤhlen Weine beriethen ſie ſich<lb/>
+uͤber das Wohl der Stadt, uͤber ihre Nachbarn<lb/>
+und dergleichen. Wenn ſie uneinig in der<lb/>
+Meinung waren, ſo ſtritten ſie ſich nicht mit<lb/>
+boͤſen Worten, ſondern tranken einander wa¬<lb/>
+cker zu, und wenn der Wein ihre Herzen er¬<lb/>
+waͤrmt hatte, wenn er froͤhlich durch ihre Adern<lb/>
+huͤpfte, da war der Beſchluß ſchnell zur Reife<lb/>
+gediehen, ſie druͤckten ſich die Haͤnde, ſie waren<lb/>
+und blieben immer Freunde, weil ſie Freunde<lb/>
+waren des edlen Weines. Am andern Morgen<lb/>
+aber war ihnen ihr Wort heilig, und was ſie<lb/>
+Abends ausgemacht im Keller, das fuͤhrten ſie<lb/>
+oben im Gerichtsſaal aus.“</p><lb/>
+<p>„Schoͤne, alte Zeiten!“ rief Paulus; „da¬<lb/>
+her koͤmmt es auch, daß noch heut zu Tage<lb/>
+jeder vom Rath ein eigenes Trinkbuͤchlein, eine<lb/>
+jaͤhrliche Weinrechnung hat. Den Herren, die<lb/>
+<pb n="74" facs="#f0080"/>
+alle Abende hier ſaßen und tranken, war es<lb/>
+nicht genehm, allemal in die Taſche zu fahren<lb/>
+und ihr Geldſeckelein heraus zu kriegen. Aufs<lb/>
+Kerbholz ließen ſie es ſchreiben und am Neu¬<lb/>
+jahr ward Abrechnung gehalten, und es gibt<lb/>
+einige wackere Herren, die noch jetzt oft Ge¬<lb/>
+brauch davon machen, aber es ſind deren we¬<lb/>
+nige.“</p><lb/>
+<p>„Ja, ja, Kinder,“ ſprach die alte <hi rendition="#g">Roſe</hi>,<lb/>
+„ſonſt war es anders, ſo vor fuͤnfzig, hundert,<lb/>
+zweihundert Jahren. Da brachten ſie Abends<lb/>
+ihre Weiber und Maͤdchen mit in den Keller,<lb/>
+und die ſchoͤnen Bremerkinder tranken Rhein¬<lb/>
+wein oder von unſerem Nachbar Moſeler, und<lb/>
+waren weit und breit beruͤhmt durch ihre bluͤ¬<lb/>
+henden Wangen, durch ihre purpurrothen Lip¬<lb/>
+pen, durch ihre herrlichen blitzenden Augen;<lb/>
+jetzt trinken ſie allerlei miſerables Zeug, als<lb/>
+Thee und dergleichen, was weit von hier bei<lb/>
+den Chineſen wachſen ſoll und was zu meiner<lb/>
+<pb n="75" facs="#f0081"/>
+Zeit die Frauen tranken, wenn ſie ein Huͤſtlein<lb/>
+oder ſonſtige Beſchwer hatten. Rheinwein,<lb/>
+aͤchten gerechten Rheinwein koͤnnen ſie gar nicht<lb/>
+mehr vertragen; denkt Euch ums Himmels<lb/>
+Willen, ſie gießen ſpaniſchen Suͤßen darunter,<lb/>
+daß er ihnen munde, ſie ſagen, er ſey zu ſauer.“</p><lb/>
+<p>Die Apoſtel ſchlugen ein großes Gelaͤchter<lb/>
+auf, in das ich unwillkuͤhrlich einſtimmen<lb/>
+mußte, und Bachus lachte ſo graͤßlich, daß<lb/>
+ihn der alte Balthaſar halten mußte.</p><lb/>
+<p>„Ja die guten alten Zeiten!“ rief der dicke<lb/>
+Bartholomaͤus; „ſonſt trank ein Buͤrger ſeine<lb/>
+zwei Maas, und es war als haͤtt' er Waſſer<lb/>
+getrunken, ſo nuͤchtern blieb er, jetzt wirft ſie<lb/>
+ein Roͤmer um. Sie ſind aus der Uebung ge¬<lb/>
+kommen.“</p><lb/>
+<p>„Da trug ſich vor vielen Jahren eine ſchoͤne<lb/>
+Geſchichte zu,“ ſagte Fraͤulein Roſe und laͤchelte<lb/>
+vor ſich hin.</p><lb/>
+<p>„Erzaͤhle, erzaͤhle, Jungfer Roſe, die Ge¬<lb/>
+<pb n="76" facs="#f0082"/>
+ſchichte!“ baten alle; ſie aber trank bedeutend<lb/>
+viel Wein, damit ſie eine glatte Kehle bekam,<lb/>
+und hub an:</p><lb/>
+<p>„Anno 1600 und einige zwanzig, dreißig<lb/>
+Jahre war ein großer Krieg in deutſchen Lan¬<lb/>
+den von wegen des Glaubens; die einen woll¬<lb/>
+ten ſo und die andern anders, und ſtatt daß<lb/>
+ſie bei einem Glaſe Wein die Sache vernuͤnftig<lb/>
+beſprochen haͤtten, ſchlugen ſie ſich die Schaͤdel<lb/>
+ein. Albrecht von Wallenſtein, des Kaiſers<lb/>
+General-Feldmarſchall, hauste ſchrecklich in<lb/>
+proteſtantiſchen Landen. Deß erbarmte ſich der<lb/>
+Schweden Koͤnig, Guſtav Adolph, und kam<lb/>
+mit vieler Mannſchaft zu Roß und zu Fuß.<lb/>
+Es wurden viele Bataillen geliefert, ſie hetzten<lb/>
+ſich herum am Rhein und an der Donau, ge¬<lb/>
+ſchah aber weiter nicht viel, weder vor- noch<lb/>
+ruͤckwaͤrts. Zu der Zeit war Bremen und die<lb/>
+andern Hanſeſtaͤdte neutral, und wollten es<lb/>
+mit keiner Parthei verderben. Dem Schweden<lb/>
+<pb n="77" facs="#f0083"/>
+lag aber daran, durch ihr Gebiet zu ziehen und<lb/>
+ſich freundlich mit ihnen einzulaſſen, darum<lb/>
+wollte er einen Geſandten an ſie ſchicken. Weil<lb/>
+aber im Reich bekannt war, daß man in Bre¬<lb/>
+men alles im Weinkeller verhandle, und die<lb/>
+Rathsherren und Buͤrgermeiſter einen guten<lb/>
+Schluck haͤtten, ſo fuͤrchtete ſich der Schweden¬<lb/>
+koͤnig, ſie moͤchten ſeinem Geſandten gar ſehr<lb/>
+zuſetzen mit Wein, daß er endlich betrunken<lb/>
+wuͤrde und ſchlechte Bedingungen einginge fuͤr<lb/>
+die Schweden.“</p><lb/>
+<p>„Nun befand ſich aber im ſchwediſchen La¬<lb/>
+ger ein Hauptmann vom gelben Regiment, der<lb/>
+ganz erſchrecklich trinken konnte. Zwei, drei<lb/>
+Maas zum Fruͤhſtuͤck war ihm ein Kleines, und<lb/>
+oft hat er Abends zum Zuſpitzen ein halb Imi<lb/>
+getrunken und nachher gut geſchlafen. Als nun<lb/>
+der Koͤnig voll Beſorgniß war, ſie moͤchten<lb/>
+im Bremer Rathskeller ſeinem Geſandten allzu<lb/>
+ſehr zuſetzen, ſo erzaͤhlte ihm der Kanzler Oxen¬<lb/>
+<pb n="78" facs="#f0084"/>
+ſtierna von dem Hauptmann, <hi rendition="#g">Gutkunſt</hi> hieß<lb/>
+er, der ſo viel trinken koͤnne. Deß freute ſich<lb/>
+der Koͤnig und ließ ihn vor ſich kommen.“</p><lb/>
+<p>„Da brachten ſie einen kleinen, hageren<lb/>
+Mann, der war ganz bleich im Geſicht, hatte<lb/>
+aber eine große, kupferrothe Naſe und hell¬<lb/>
+blaue Lippen, was ganz wunderlich anzuſehen<lb/>
+war. Der Koͤnig fragte ihn, wie viel er ſich<lb/>
+wohl zu trinken getraue, wenn es recht ernſt¬<lb/>
+lich zuginge. „O Herr und Koͤnig, antwortete<lb/>
+er, ſo ernſtlich bin ich noch nie daran gekom¬<lb/>
+men, habe mich bis dato auch noch nicht ge¬<lb/>
+eicht; der Wein iſt nicht wohlfeil, und man<lb/>
+kann taͤglich nicht uͤber ſieben, acht Maas trin¬<lb/>
+ken, ohne in Schulden zu gerathen.“ — „Nun,<lb/>
+wie viel meinſt Du denn fuͤhren zu koͤnnen?“<lb/>
+fragte der Koͤnig weiter. Er aber antwortete<lb/>
+unerſchrocken: „wenn Euer Majeſtaͤt bezahlen<lb/>
+wollen, moͤchte ich wohl einmal zwoͤlf Maͤs¬<lb/>
+chen trinken, mein Reitknecht, der Balthaſar<lb/>
+<pb n="79" facs="#f0085"/>
+Ohnegrund, kann es aber noch beſſer.“ Da<lb/>
+ſchickte der Koͤnig auch nach Balthaſar Ohne¬<lb/>
+grund, dem Knecht des Hauptmann Gutkunſt,<lb/>
+und war der Herr ſchon blaß geweſen und ma¬<lb/>
+ger, ſo war es der Diener noch mehr, der ganz<lb/>
+aſchenfarb ausſah, als haͤtt' er ſein Lebenlang<lb/>
+Waſſer getrunken.“</p><lb/>
+<p>„Da ließ nun der Koͤnig den Hauptmann<lb/>
+und Ohnegrund, den Reitknecht, in ein Zelt<lb/>
+ſetzen und einige Faͤßlein alten Hochheimer<lb/>
+und Nierenſteiner anfahren, und wollte haben,<lb/>
+die beiden ſollten ſich eichen laſſen. Sie tran¬<lb/>
+ken von Morgens eilf Uhr bis Abends vier Uhr<lb/>
+ein Imi Hochheimer und anderthalb Imi Nie¬<lb/>
+renſteiner, und der Koͤnig ging voll Verwunde¬<lb/>
+rung zu ihnen ins Zelt, um zu ſehen, wie es<lb/>
+mit ihnen ſtehe. Die beiden Geſellen waren<lb/>
+aber wohl auf und der Hauptmann ſagte: „ſo,<lb/>
+jetzt will ich einmal die Degenkuppel abſchnal¬<lb/>
+<pb n="80" facs="#f0086"/>
+len, dann geht's beſſer;“ Ohnegrund machte<lb/>
+aber drei Knoͤpfe an ſeinem Koller auf.</p><lb/>
+<p>Da entſatzten ſich alle, die dieß ſahen, der<lb/>
+Koͤnig aber ſprach: „kann ich beſſere Geſandte<lb/>
+finden nach der froͤhlichen Stadt Bremen als<lb/>
+dieſe?“ Und alſobald ließ er dem Hauptmann<lb/>
+praͤchtige Kleider und Waffen geben, wie auch<lb/>
+Ohnegrund, dem Reitknecht, denn dieſer ſollte<lb/>
+den Schreiber des Geſandten vorſtellen. Der<lb/>
+Koͤnig und der Kanzlar unterrichteten den Haupt¬<lb/>
+mann, was er zu ſagen haͤtte bei der Unter¬<lb/>
+handlung, und nahm beiden das Verſprechen<lb/>
+ab, daß ſie auf der ganzen Reiſe nur Waſſer<lb/>
+trinken ſollten, damit nachher das Treffen im<lb/>
+Keller um ſo glorreicher wuͤrde; Gutkunſt aber,<lb/>
+der Hauptmann, mußte ſeine rothe Naſe mit<lb/>
+einer kuͤnſtlichen Salbe anſtreichen, auf daß ſie<lb/>
+weiß ausſah, damit man nicht merke, welch'<lb/>
+ein Kunde er ſey.“</p><lb/>
+<p>„Ganz elendiglich vom vielen Waſſertrin¬<lb/>
+<pb n="81" facs="#f0087"/>
+ken kamen die beiden nach der Stadt Bremen,<lb/>
+und nachdem ſie bei dem Buͤrgermeiſter gewe¬<lb/>
+ſen, ſagte dieſer zum Senat: „o! was hat uns<lb/>
+der Schwede fuͤr zwei bleiche, magere Geſellen<lb/>
+geſchickt; heute Abend wollen wir ſie in den<lb/>
+Rathskeller fuͤhren und zudecken. Ich nehme<lb/>
+den Geſandten auf mich ganz allein, und der<lb/>
+Doctor Schnellpfeffer muß auf den Schreiber.“<lb/>
+So wurden ſie denn Abends nach der Betglocke<lb/>
+feierlichſt in den Rathskeller gefuͤhrt, der Buͤr¬<lb/>
+germeiſter fuͤhrte Gutkunſten, den Hauptmann,<lb/>
+der Doctor Schnellpfeffer, was auch ein gu¬<lb/>
+ter Trinker war, fuͤhrte den Reitknecht am<lb/>
+Arm, der als Schreiber angethan ſich recht<lb/>
+zuͤchtiglich geberdete; hinter ihnen gingen viele<lb/>
+Rathsherren, die zur Verhandlung geladen<lb/>
+waren. Hier in dieſem Gemach ſetzten ſie<lb/>
+ſich um den Tiſch und verſpeißten zuerſt Ha¬<lb/>
+ſenbraten und Schinken und Haͤringe, um ſich<lb/>
+zum Trinken zu ruͤſten. Dann wollte der Ge¬<lb/>
+<fw type="sig" place="bottom">6<lb/>
+</fw>
+<pb n="82" facs="#f0088"/>
+ſandte ganz ehrbar mit der Verhandlung an¬<lb/>
+fangen und ſein Schreiber zog Pergament und<lb/>
+Feder aus der Taſche; aber der Buͤrgermeiſter<lb/>
+ſprach: „mit nichten alſo Ihr edlen Herren; ſo<lb/>
+iſt es nicht Gebrauch in Bremen, daß man<lb/>
+die Sache alſo trocken abmacht; wollen ein¬<lb/>
+ander vorerſt auch zutrinken nach Sitte unſerer<lb/>
+Vaͤter und Großvaͤter.“ „Kann eigentlich nicht<lb/>
+viel vertragen,“ antwortete der Hauptmann,<lb/>
+„dieweil es aber ſeiner Magnificenz alſo ge¬<lb/>
+faͤllig, will ich ein Schluͤcklein zu mir neh¬<lb/>
+men.“ Nun tranken ſie ſich zu und hielten<lb/>
+ein Geſpraͤch uͤber Krieg und Frieden und uͤber<lb/>
+die Schlachten, ſo geliefert worden; die Raths¬<lb/>
+herren aber, um den Fremden mit gutem<lb/>
+Beiſpiel voranzugehen, tranken ſich weidlich<lb/>
+zu und bekamen rothe Koͤpfe. Bei jeder neuen<lb/>
+Flaſche entſchuldigten ſich die Fremden, wie<lb/>
+ſie gar den Wein nicht gewohnt waͤren und er<lb/>
+ihnen zu Kopf ſteige; deß freute ſich der Buͤr¬<lb/>
+<pb n="83" facs="#f0089"/>
+germeiſter, trank in ſeiner Herzensluſt ein Paß¬<lb/>
+glas um das andere, ſo daß er nicht mehr<lb/>
+recht wußte was zu beginnen. Aber, wie es<lb/>
+zu gehen pflegt in dieſem wunderbaren Zu¬<lb/>
+ſtand, er dachte: „jetzt iſt er betrunken,<lb/>
+der Geſandte, und auch dem Schreiber hat der<lb/>
+Doctor tuͤchtig zugeſetzt;“ und ſprach daher:<lb/>
+„Nun wollen wir anfangen mit unſerem Ge¬<lb/>
+ſchaͤft.“ Das waren die Fremden zufrieden,<lb/>
+thaten, wie wenn ſie voll Weines waͤren und<lb/>
+tranken auf ihrer Seite den Herren weidlich zu.“</p><lb/>
+<p>„Da wurde nun geſprochen und getrunken,<lb/>
+gehandelt und wieder getrunken, bis der Buͤr¬<lb/>
+germeiſter mitten im Satz einſchlief und der<lb/>
+Doctor Schnellpfeffer unter dem Tiſche lag.<lb/>
+Da kamen denn die andern Rathsherren und<lb/>
+tranken den Fremden zu und fuͤhrten die Ver¬<lb/>
+handlung fort; aber trank der Hauptmann<lb/>
+laͤſterlich, ſo machte es ſein Reitknecht nicht<lb/>
+ſchlimmer; fuͤnf Kuͤper mußten immer hin<lb/>
+<pb n="84" facs="#f0090"/>
+und herlaufen und einſchenken, denn der Wein<lb/>
+verſchwand von dem Tiſch als waͤre er in den<lb/>
+Sand gegoſſen worden. So geſchah es, daß<lb/>
+die Gaͤſte nacheinander den ganzen Rath unter<lb/>
+den Tiſch tranken bis auf Einen.“</p><lb/>
+<p>„Dieſer Eine aber war ein großer ſtarker<lb/>
+Mann, mit Namens <hi rendition="#g">Walther</hi>, von wel¬<lb/>
+chem man allerlei ſprach in Bremen, und<lb/>
+waͤre er nicht im Rath geſeſſen, man haͤtte<lb/>
+ihn laͤngſt boͤſer Kuͤnſte und Zauberei ange¬<lb/>
+klagt. Herr Walther war ſeines Zeichens ei¬<lb/>
+gentlich ein Zirkelſchmidt geweſen, hatte ſich<lb/>
+aber hervorgethan in ſeiner Gilde, war unter<lb/>
+die Aeltermaͤnner gekommen und nachher in<lb/>
+den Senat. Dieſer hielt aus bei den Gaͤſten,<lb/>
+trank zweimal ſoviel als beide, ſo daß ihnen<lb/>
+ganz unheimlich wurde, denn er war ſo ver¬<lb/>
+ſtaͤndig, wie zuvor, waͤhrend der Hauptmann<lb/>
+ſchon truͤbe Augen bekam und glaubte, es gehe<lb/>
+ihm ein Rad im Kopf herum. So oft der<lb/>
+<pb n="85" facs="#f0091"/>
+Senator Walther ein Paßglas getrunken, fuhr<lb/>
+er mit der Hand unter den Hut, und dem Reit¬<lb/>
+knecht kam es vor, als ſehe er ein blaͤuliches<lb/>
+Woͤlkchen, ganz fein wie Nebel, aus ſeinem<lb/>
+rabenſchwarzen Haar hervorſteigen. Er trank<lb/>
+wacker darauf los, bis der Hauptmann Gut¬<lb/>
+kunſt ſelig entſchlief und ſein Haupt ganz weich<lb/>
+auf des Buͤrgermeiſters Bauch legte.“</p><lb/>
+<p>„Da ſprach der Senator Walther mit ſon¬<lb/>
+derbarem Laͤcheln zu dem Schreiber des Ge¬<lb/>
+ſandten: „Lieber Geſelle, du fuͤhrſt einen maͤch¬<lb/>
+tigen Zug, ich vermeine aber, daß du mit<lb/>
+dem Roßſtriegel beſſer fortkommſt als mit der<lb/>
+Feder.“ Da erſchrack der Schreiber und ſprach:<lb/>
+„Wie meinet Ihr dieß, Herr! ich will nicht<lb/>
+hoffen, daß Ihr mir Hohn ſprechen wollt;<lb/>
+bedenket, daß ich Seiner Majeſtaͤt Geſandt¬<lb/>
+ſchafts-Schreiber bin.“</p><lb/>
+<p>„Hohoh!“ !“ rief der andere mit ſchrecklichem<lb/>
+Lachen, „ſeit wann haben denn ordentliche<lb/>
+<pb n="86" facs="#f0092"/>
+Geſandtſchafts-Schreiber ſolche Kittel an und<lb/>
+fuͤhren ſolche Federn bei der Sitzung?“ Da<lb/>
+ſah der Reitknecht auf ſein Kleid und bemerkte<lb/>
+mit großem Schrecken, daß er ſeinen gewoͤhn¬<lb/>
+lichen Stallkittel an habe, er ſah auf ſeine<lb/>
+Hand, und ſiehe da, ſtatt der Feder hielt er<lb/>
+eine ganz gemeine Krazbuͤrſte. Da entſetzte<lb/>
+er ſich und ſah ſich verrathen, und wußte nicht<lb/>
+wie ihm geſchah. Herr Walther aber laͤchelte<lb/>
+ſeltſam und hoͤhniſch, und trank ihm einen Hum¬<lb/>
+pen von anderthalb Maas zu auf einen Zug,<lb/>
+fuhr dann mit der Hand hinter die Ohren, und<lb/>
+der Reitknecht ſah ganz deutlich, wie ein fei¬<lb/>
+ner Nebel aus ſeinem Kopf kam. „Gott ſoll<lb/>
+mich bewahren, Herr! daß ich fuͤrder mit Euch<lb/>
+trinke,“ rief er; „Ihr ſeyd ein Schwarzkuͤnſt¬<lb/>
+ler, wie ich nun vermuthe, und koͤnnt mehr<lb/>
+als Brod eſſen.“</p><lb/>
+<p>„Daruͤber waͤre noch vielerlei zu ſagen,“<lb/>
+antwortete Walther ganz ruhig und freund¬<lb/>
+<pb n="87" facs="#f0093"/>
+lich, „aber es wuͤrde dir auch nicht viel hel¬<lb/>
+fen, werthgeſchaͤtzter Stallknecht und Roßkamm,<lb/>
+wenn du mir fuͤrder zuſetzteſt mit Trinken,<lb/>
+mich trinkſt du nicht unter den Tiſch, was<lb/>
+maaſen ich einen kleinen Hahnen in mein Ge¬<lb/>
+hirn geſchraubt habe, durch welchen der Wein¬<lb/>
+dunſt wieder herausfaͤhrt. Schau zu!“ Dabei<lb/>
+trank er ein großes Paßglas aus, wandte<lb/>
+ſeinen Kopf heruͤber zu dem Reitknecht Ohne¬<lb/>
+grund, ſtrich ſein Haar zuruͤck, und ſiehe da,<lb/>
+in ſeinem Kopf ſteckte ein kleiner ſilberner<lb/>
+Hahn, wie an einem Faß; da drehte er den<lb/>
+Zapfen um und ein blaͤulicher Dunſt ſtroͤmete<lb/>
+hervor, ſo daß ihm der Weingeiſt keine Be¬<lb/>
+ſchwerden machte in der Hirnkammer.“</p><lb/>
+<p>Da ſchlug der Reitknecht vor Verwunde¬<lb/>
+rung die Haͤnde zuſammen und rief: „Das<lb/>
+iſt einmal eine ſchoͤne Erfindung, Herr Zau¬<lb/>
+berer! koͤnnet Ihr mir nicht auch ſo ein Ding<lb/>
+an den Kopf ſchrauben, um Geld und gute<lb/>
+<pb n="88" facs="#f0094"/>
+Worte?“ „Nein, das geht nicht, antwortete<lb/>
+jener bedaͤchtig; da ſeyd Ihr nicht erfahren ge¬<lb/>
+nug in geheimer Wiſſenſchaft; aber ich habe<lb/>
+Euch liebgewonnen wegen Eurer abſonderlichen<lb/>
+Kunſt im Trinken, darum moͤchte ich Euch<lb/>
+gerne dienen, wo ich kann. Zum Beiſpiel, es<lb/>
+iſt gegenwaͤrtig die Stelle des Kellermeiſters<lb/>
+vacant allhier. Balthaſar Ohnegrund! ver¬<lb/>
+laß den Dienſt dieſer Schweden, wo es doch<lb/>
+mehr Waſſer als Wein gibt, und diene dem<lb/>
+wohledlen Rath dieſer Stadt; wenn wir auch<lb/>
+einige Laſten Wein mehr brauchen des Jahrs,<lb/>
+die du heimlich ſaufeſt, das thut nichts, ein<lb/>
+ſolcher Capitalkerl hat uns laͤngſt gefehlt;<lb/>
+Balthaſar Ohnegrund! ich mach' dich morgen<lb/>
+zum Kellermeiſter, wenn du willſt. Willſt du<lb/>
+nicht, ſo iſt's auch gut; dann weiß aber mor¬<lb/>
+gen die ganze Stadt, daß uns der Schwede<lb/>
+einen Reitknecht als Schreiber geſchickt.“ Die¬<lb/>
+ſer Vorſchlag mundete dem Balthaſar wie<lb/>
+<pb n="89" facs="#f0095"/>
+edler Wein; er that einen Blick in dieſes<lb/>
+unermeßliche Weinreich, ſchlug ſich auf den<lb/>
+Magen und ſagte: „ich wills thun.“ Nach¬<lb/>
+her machten ſie noch allerhand Punkte aus,<lb/>
+wie es gehalten werden ſoll nach Ohnegrunds<lb/>
+zeitlichem Hinſcheiden mit ſeiner armen Seele.<lb/>
+Er wurde Kellermeiſter, der Hauptmann Gut¬<lb/>
+kunſt aber zog mit zweideutigen Bedingun¬<lb/>
+gen ab ins ſchwediſche Lager, und als nach¬<lb/>
+her die Kaiſerlichen in die Stadt kamen, war<lb/>
+der Buͤrgermeiſter und Senat froh, daß ſie<lb/>
+ſich mit dem Schweden nicht zu tief eingelaſ¬<lb/>
+ſen, obgleich keiner recht wußte, wie es ſo<lb/>
+gekommen war.“</p><lb/>
+<p>So erzaͤhlte die Roſe, die Apoſtel und ich<lb/>
+dankten ihr und lachten ſehr uͤber die beiden<lb/>
+Geſandten, Paulus aber fragte: „und Bal¬<lb/>
+thaſar Ohnegrund, der wackere Kunde, was<lb/>
+iſt aus ihm geworden? blieb er Kellermei¬<lb/>
+ſter?“ Die Roſe aber wandte ſich um mit Laͤ¬<lb/>
+<pb n="90" facs="#f0096"/>
+cheln, deutete auf eine Ecke des Gemachs und<lb/>
+ſagte: „dort ſitzt er ja noch, wie vor zwei¬<lb/>
+hundert Jahren, der wackere Zecher.“ Mir<lb/>
+graute, als ich hinſah; eine bleiche abgehaͤrmte<lb/>
+Geſtalt ſaß in der Ecke, ſchluchzte und weinte<lb/>
+ſehr und trank dazu ſehr viel Rheinwein; aber<lb/>
+es war niemand anders, als eben der Keller¬<lb/>
+meiſter Balthaſar, der aus Unſer lieben Frauen<lb/>
+Kirchhof herabgekommen war, nachdem ihn<lb/>
+Matthaͤus aus dem Schlaf geſchellt.</p><lb/>
+<p>„Nun alter Balthaſar,“ rief ihm Jacobus<lb/>
+zu, „du haſt alſo als Reitknecht gedient beim<lb/>
+Hauptmann Gutkunſt und warſt ſogar Ge¬<lb/>
+ſandtſchaftsſchreiber oder Secretaͤr, ehe du Kel¬<lb/>
+lermeiſter wurdeſt? was machte denn der Herr,<lb/>
+ſo den Hahnen im Hirnkaſten hatte, fuͤr Be¬<lb/>
+dingniſſe?“</p><lb/>
+<p>„O Herr!“ ſtoͤhnte der alte Kellermeiſter<lb/>
+aus tiefer Seele, und es war, als ob ihn der<lb/>
+ewige Tod auf dem Fagott begleitete, ſo graͤu¬<lb/>
+<pb n="91" facs="#f0097"/>
+lich toͤnte es aus ſeiner Bruſt, „o Herr! for¬<lb/>
+dert nicht von mir, daß ich es ſage.“</p><lb/>
+<p>„'Heraus damit,“ ſchrieen die Apoſtel,<lb/>
+„was wollte der mit dem Spiritusableiter?<lb/>
+der Weingeiſtſchroͤpfer, was wollte er?“</p><lb/>
+<p>„<hi rendition="#g">Meine Seele</hi>.“</p><lb/>
+<p>„Armer Kerl,“ ſagte Petrus ſehr ernſt;<lb/>
+„und um was wollte er deine arme Seele?“</p><lb/>
+<p>„Um Wein;“ murmelte er dumpf, und<lb/>
+mir war es, als ob eine Stimme ohne Hoff¬<lb/>
+nung ſpraͤche.</p><lb/>
+<p>„Rede deutlicher, Alter, wie hat er es ge¬<lb/>
+macht mit deiner Seele?“ Er ſchwieg lange;<lb/>
+endlich ſprach er: „warum dieß erzaͤhlen, ihr<lb/>
+Herren? Es iſt grauſig, und ihr verſteht doch<lb/>
+nicht, was es heißt, eine Seele verlieren.“</p><lb/>
+<p>„Wohl wahr,“ ſprach Paulus, „wir ſind<lb/>
+froͤhliche Geiſter und ſchlummern im Weine,<lb/>
+und freuen uns ewiger ungetruͤbter Herrlichkeit<lb/>
+und Freude; darum kann uns aber auch kein<lb/>
+<pb n="92" facs="#f0098"/>
+Grauen anwandlen, denn wer hat Macht uͤber<lb/>
+uns, daß er uns elend mache oder uns ſchrecke?<lb/>
+darum erzaͤhle!“</p><lb/>
+<p>„Aber es ſitzt ein Menſch am Tiſch, der<lb/>
+kann es nicht vertragen,“ ſprach der Todte,<lb/>
+„vor ihm darf ich es nicht ſagen.“</p><lb/>
+<p>„Nur zu, immer zu,“ erwiederte ich, an<lb/>
+allen Gliedern ſchauernd, „ich kann eine hin¬<lb/>
+laͤngliche Doſis Schauerliches ertragen, und<lb/>
+was iſt es am Ende, als daß Euch der Teufel<lb/>
+geholt?“</p><lb/>
+<p>„Herr, es waͤre Euch beſſer, Ihr bete¬<lb/>
+tet,“ murmelte der Alte, „aber Ihr wollt es<lb/>
+ſo haben, ſo hoͤret: der Menſch, der in jener<lb/>
+Nacht in dieſem Zimmer bei mir ſaß, — es<lb/>
+war ein boͤſes Ding mit ihm. Der hatte ſeine<lb/>
+Seele dem Boͤſen verhandelt, und es war da¬<lb/>
+bei bedingt, daß er ſich loskaufen koͤnnte durch<lb/>
+eine andere Seele. Schon viele hatte er auf<lb/>
+dem Korn gehabt, aber allemal waren ſie i<supplied>h</supplied>m<lb/>
+<pb n="93" facs="#f0099"/>
+wieder entgangen. Mich faßte er beſſer. Ich<lb/>
+war wild aufgewachſen ohne Unterricht, und<lb/>
+das Leben im Kriege ließ mich nicht viel nach¬<lb/>
+denken; wenn ich ſo uͤber ein Schlachtfeld ritt,<lb/>
+und der Mondſchein fiel herab, und Freund<lb/>
+und Feind niedergemaͤhet da lagen, da dachte<lb/>
+ich: ſie ſind jetzt halt todt und leben nicht<lb/>
+mehr; von der Seele hielt ich nicht viel und<lb/>
+von Himmel und Hoͤlle noch weniger. Aber<lb/>
+weil man ſo kurz lebt, wollt ich's Leben recht<lb/>
+genießen, und Wein und Spiel war mein Ele¬<lb/>
+ment. Das hatte mir der Hoͤllenknecht abge¬<lb/>
+merkt und ſprach zu mir in jener Nacht: „ſo<lb/>
+zwanzig, dreißig Jahr zu leben in dieſem Kel¬<lb/>
+lerreich, in dieſem Weinhimmel zu trinken<lb/>
+nach Herzensluſt, nicht wahr, Balthaſar, das<lb/>
+muͤßt' ein Leben ſeyn?“ Ja, Herr, ſprach ich,<lb/>
+aber wie koͤnnte ich dieß verdienen? „An was<lb/>
+liegt dir mehr,“ fuhr er fort, „hier recht zu<lb/>
+leben nach Herzensluſt auf der Erde, hier im<lb/>
+<pb n="94" facs="#f0100"/>
+Keller, oder an den Geſchichten, die ſich nachher<lb/>
+begeben, wo man gar nicht weiß, ob man nur<lb/>
+noch lebt und Wein trinkt?“ Ich that einen<lb/>
+graͤßlichen Schwur und ſagte: „meine Gebeine<lb/>
+werden dahin fahren, wo die Gebeine meiner<lb/>
+Geſellen liegen; iſt der Menſch todt, ſo fuͤhlt<lb/>
+er nicht und denkt nicht; hab' es an manchem<lb/>
+Cameraden erlebt, dem die Kugel das Hirn<lb/>
+zerſchmetterte, darum will ich leben und luſtig<lb/>
+ſeyn.“ Er aber ſprach zu mir: „wenn du<lb/>
+Verzicht leiſten willſt auf das, was nachher<lb/>
+koͤmmt, ſo iſt es ein Leichtes, dich hier zum<lb/>
+Kellermeiſter zu machen, ſchreib nur deinen<lb/>
+Namen in dieß Buͤchlein und thue einen recht<lb/>
+tuͤchtigen Schwur dazu.“ „Was nachher mit<lb/>
+mir geſchieht, das kuͤmmert mich nicht,“ ſprach<lb/>
+ich; „Kellermeiſter will ich hier ſeyn immer¬<lb/>
+dar und ewiglich, ſo lang ich bin, und der<lb/>
+Teufel oder wer will kann das andere haben<lb/>
+alles, wenn ſie mich einſt einſcharren.“</p><lb/>
+<pb n="95" facs="#f0101"/>
+<p>„Als ich ſo geſprochen, waren wir nicht mehr<lb/>
+zu Zwei, ſondern ein Dritter ſaß neben mir,<lb/>
+und hielt mir das Buͤchlein hin zum Unterſchrei¬<lb/>
+ben; der aber, der dieß that, war nicht der<lb/>
+Zirkelſchmidt, ſondern ein <hi rendition="#g">Anderer</hi>.“</p><lb/>
+<p>„Wer war es denn? ſag' an!“ riefen die<lb/>
+Apoſtel ungeduldig.</p><lb/>
+<p>Die Augen des alten Kellermeiſters fun¬<lb/>
+kelten graͤulich und ſeine bleichen Lippen beb¬<lb/>
+ten; er ſetzte mehreremal an, um zu ſprechen,<lb/>
+aber ein Krampf ſchien ihm die Kehle zuzu¬<lb/>
+ſchnuͤren. Da blickte er auf einmal feſt und<lb/>
+muthig in eine dunkle Ecke, trank ſein Glas<lb/>
+aus und warf es an die Erde; „was hilft alle<lb/>
+Reue, alter Balthaſar,“ ſprach er, indem<lb/>
+große Thraͤnen in ſeinen Wimpern hingen;<lb/>
+„der bei mir ſaß — war <hi rendition="#g">der Teufel</hi>.“</p><lb/>
+<p>Es war bei dieſen Worten unheimlich, bis<lb/>
+zur Verzweiflung unheimlich in dem Gemach;<lb/>
+die Apoſtel ſchauten ernſt und ſchweigend<lb/>
+<pb n="96" facs="#f0102"/>
+in ihre Roͤmer, Bachus hatte das Geſicht in<lb/>
+die Haͤnde gedruͤckt, und die Roſe war bleich<lb/>
+und ſtille. Kein Athemzug ruͤhrte ſich, man<lb/>
+hoͤrte nur, wie in dem Todtenkopf des Alten<lb/>
+die Zaͤhne ſchaudernd aneinander klapperten.</p><lb/>
+<p>„Mein Vater hatte mich gelehrt, meinen<lb/>
+Namen zu ſchreiben, als ich noch ein kleiner,<lb/>
+frommer Knabe war; ich unterſchrieb ihn ins<lb/>
+Buch, das mir der Andere mit ſeinen Krallen<lb/>
+vorhielt. Von da an ging mir ein Leben auf in<lb/>
+Saus und Brauß; in ganz Bremen gab es<lb/>
+keinen Mann ſo froͤhlich als den Kellermeiſter<lb/>
+Balthaſar, und getrunken hab' ich, was der<lb/>
+Keller Gutes und Koͤſtliches hatte. Zur Kirche<lb/>
+ging ich nie, ſondern wenn ſie zuſammen laͤu¬<lb/>
+teten, ſchritt ich hinab zum beſten Faß und<lb/>
+ſchenkte mir ein nach Herzensluſt. Als ich<lb/>
+alt wurde, kam oft ein Grauen uͤber mich und<lb/>
+es froͤſtelte mir durch die Glieder, wenn ich<lb/>
+<pb n="97" facs="#f0103"/>
+ans Sterben dachte; hatte zwar kein Weib, das<lb/>
+um mich jammerte, aber auch keine Kinder,<lb/>
+die mich troͤſteten, da trank ich denn, wenn<lb/>
+die Todesgedanken uͤber mich kamen, bis ich<lb/>
+von Sinnen war und ſchlief. So trieb ich's<lb/>
+lange Jahre, mein Haar ward grau, meine<lb/>
+Glieder ſchwach, und ich ſehnte mich, zu ſchla¬<lb/>
+fen im Grabe. Da war mir eines Tages, als<lb/>
+ſey ich erwacht und koͤnne doch nicht recht er¬<lb/>
+wachen ; die Augen wollten ſich nicht aufthun,<lb/>
+die Finger waren ſteif, als ich mich aus dem<lb/>
+Bette heben wollte, und die Beine lagen ſtarr<lb/>
+wie ein Stuͤck Holz. An mein Bett aber tra¬<lb/>
+ten Leute, betaſteten mich und ſprachen: „der<lb/>
+alte Balthaſar iſt todt.“</p><lb/>
+<p>„Todt, dachte ich und erſchrack, todt und<lb/>
+nicht ſchlafen? todt bin ich und <hi rendition="#g">denke</hi>? Mich<lb/>
+erfaßte eine unnennbare Angſt, ich fuͤhlte, wie<lb/>
+mein Herz ſtille ſtand, und wie ſich doch etwas<lb/>
+in mir regte und in ſich zu ſammen zog und<lb/>
+<fw type="sig" place="bottom">7<lb/>
+</fw>
+<pb n="98" facs="#f0104"/>
+bange, bange war; das war mein <hi rendition="#g">Koͤrper</hi><lb/>
+nicht, denn der lag ſteif und todt, was war<lb/>
+es denn?“</p><lb/>
+<p>„Deine Seele!“ ſprach Petrus dumpf;<lb/>
+„<hi rendition="#g">Deine Seele</hi>!“ fluͤſterten die andern ihm<lb/>
+nach.</p><lb/>
+<p>„Da maßen ſie meine Laͤnge und Breite,<lb/>
+um die ſechs Brettlein fertig zu machen, und<lb/>
+legten mich hinein und ein hartes Kißen von<lb/>
+Hobelſpaͤhnen unter meinen Schaͤdel, und na¬<lb/>
+gelten die Bahre zu, und meine Seele wurde<lb/>
+immer aͤngſtlicher, weil ſie nicht ſchlafen konnte.<lb/>
+Dann hoͤrte ich die Todtenglocke laͤuten auf der<lb/>
+Domkirche, ſie hoben mich auf und kein Auge<lb/>
+weinte um mich. Sie trugen mich auf Unſer<lb/>
+lieben Frauen Kirchhof, dort hatten ſie mein<lb/>
+Grab gegraben, noch hoͤre ich die Seile ſchwir¬<lb/>
+ren, die ſie heraufzogen, als ich unten lag;<lb/>
+dann warfen ſie Steine und Erde herab und<lb/>
+es ward ſtille um mich her.“</p><lb/>
+<pb n="99" facs="#f0105"/>
+<p>„Aber meine Seele zitterte heftiger, als es<lb/>
+Abend wurde, als es zehn Uhr, eilf Uhr ſchlug<lb/>
+auf allen Glocken. Wie wird es dir gehen,<lb/>
+wie wird es dir gehen? dachte ich bei mir.<lb/>
+Ich wußte noch ein Gebetlein aus alter Zeit,<lb/>
+das wollte ich ſprechen, aber meine Lippen ſtan¬<lb/>
+den ſtill. — Da ſchlug es zwoͤlf Uhr, und mit<lb/>
+einem Ruck ward die ſchwere Grabesdecke ab¬<lb/>
+geriſſen und auf meinen Sarg geſchah ein<lb/>
+ſchrecklicher Schlag.“ —</p><lb/>
+<p>„Ein Schlag, daß die Hallen droͤhnten,<lb/>
+ſprengte jetzt eben die Thuͤre des Gemaches auf,<lb/>
+und eine große weiße Geſtalt erſchien auf der<lb/>
+Schwelle. Ich war durch Wein und die Schreck¬<lb/>
+niſſe dieſer Nacht ſo exaltirt und auſſer mir<lb/>
+ſelbſt gebracht, daß ich nicht aufſchrie, nicht<lb/>
+aufſprang, wie wohl ſonſt geſchehen waͤre, ſon¬<lb/>
+dern geduldig das Schreckliche anſtarrte, das<lb/>
+jetzt kommen ſollte; mein erſter Gedanke war<lb/>
+naͤmlich: „jetzt kommt der Teufel.“</p><lb/>
+<pb n="100" facs="#f0106"/>
+<p>Habt Ihr je im Don Juan jenen bangen<lb/>
+Moment geſchaut, wo Tritte dumpf und im¬<lb/>
+mer naͤher toͤnen, wo Leporello ſchreiend zu¬<lb/>
+ruͤckkoͤmmt und die Statue des Gouverneurs,<lb/>
+ihrem Streitroß auf dem Monument entſtiegen,<lb/>
+zum Gaſtmal koͤmmt? Rieſengroß, mit abge¬<lb/>
+meſſenem droͤhnendem Schritt, ein ungeheures<lb/>
+Schwert in der Hand, gepanzert, aber ohne<lb/>
+Helm, trat die Geſtalt ins Gemach. Sie war<lb/>
+von Stein, das Geſicht ſteif und ſeelenlos;<lb/>
+aber dennoch that ſich der ſteinerne Mund auf<lb/>
+und ſprach: „Gott gruͤß Euch, vielliebe Reben<lb/>
+vom Rheine; muß doch das ſchoͤne Nachbars¬<lb/>
+kind beſuchen an ihrem Jahrestag. Gott gruͤß<lb/>
+Euch, Jungfrau Roſe. Darf ich auch Platz<lb/>
+nehmen in Eurem Gelaggaden?“</p><lb/>
+<p>Sie ſchauten alle verwundert nach der rieſigen<lb/>
+Statue, Frau Roſe aber brach das Stillſchwei¬<lb/>
+gen, ſchlug vor Freude die Haͤnde zuſammen<lb/>
+und ſchrie: „Ei, du meine Guͤte! 's iſt ja der<lb/>
+<pb n="101" facs="#f0107"/>
+ſteinerne Roland, ſo ſeit vielen hundert Jahren<lb/>
+auf dem Domhofe in der lieben Stadt Bremen<lb/>
+ſteht. Ei, das iſt ſchoͤn, daß Ihr uns die Ehre<lb/>
+anthut, Herr Ritter; leget doch Schild und<lb/>
+Schwert ab, und machet es Euch bequem;<lb/>
+wollet Ihr Euch nicht obenan ſetzen an meine<lb/>
+Seite? O Gott, wie mich das freut!“</p><lb/>
+<p>Der hoͤlzerne Weingott, ſo indeſſen wieder<lb/>
+um ein Erkleckliches gewachſen, warf muͤrriſche<lb/>
+Blicke bald auf den ſteinernen Roland, bald<lb/>
+auf die naive Dame ſeines Herzens, die ihre<lb/>
+Freude ſo laut und unverholen ausgelaſſen.<lb/>
+Er murmelte etwas von ungebetenen Gaͤſten,<lb/>
+und ſtrampelte ungeduldig mit den Beinen.<lb/>
+Aber Roſe druͤckte ihm unter dem Tiſche die<lb/>
+Hand und beſchwichtigte ihn durch ſuͤße Blicke.<lb/>
+Die Apoſtel waren naͤher zuſammen geruͤckt<lb/>
+und hatten dem ſteinernen Gaſt einen Stuhl<lb/>
+neben dem alten Fraͤulein eingeraͤumt. Er<lb/>
+legte Schwert und Schild in die Ecke, und<lb/>
+<pb n="102" facs="#f0108"/>
+ſetzte ſich ziemlich ungelenk auf das Stuͤhlein,<lb/>
+aber ach, dieß war fuͤr ehrſame Bremer Stadt¬<lb/>
+kinder und nicht fuͤr einen ſteinernen Rieſen<lb/>
+gemacht, es knackte, als er ſich ſetzte, morſch<lb/>
+zuſammen, und ſo lang er war, lag er im<lb/>
+Gemach.</p><lb/>
+<p>„Schnoͤdes Geſchlecht, das ſolche Hitſchen<lb/>
+zimmert, worauf zu meiner Zeit nicht einmal<lb/>
+ein zartes Fraͤulein haͤtte ſitzen koͤnnen ohne<lb/>
+mit dem Sitz durchzubrechen,“ ſagte der Heros<lb/>
+und ſtand langſam auf; der Kellermeiſter Bal¬<lb/>
+thaſar aber rollte ein Halbeimerfaß herbei<lb/>
+an den Tiſch, und lud den Ritter ein Platz<lb/>
+zu nehmen. Es knackten nur ein Paar Dau¬<lb/>
+ben als er ſich ſetzte, aber das Faß hielt aus.<lb/>
+Dann bot ihm der Kellermeiſter ein großes<lb/>
+Roͤmerglas mit Wein, er faßte es mit der<lb/>
+breiten ſteinernen Fauſt, aber krach! war es<lb/>
+entzwei, daß ihm der Wein uͤber die Finger<lb/>
+lief. „Ei, Ihr haͤttet auch die Handſchuh<lb/>
+<pb n="103" facs="#f0109"/>
+von Stein fuͤglich ablegen koͤnnen,“ ſprach<lb/>
+Balthaſar aͤrgerlich, und credenzte ihm einen<lb/>
+ſilbernen Becher, ſo ein Maas hielt, und in<lb/>
+fruͤherer Zeit Tummler genannt wurde. Der<lb/>
+Ritter faßte ihn, druͤckte nur einige unbedeu¬<lb/>
+tende Buckeln in den Becher, ſperrte das ſtei¬<lb/>
+nerne Maul auf und goß den Wein hinab.</p><lb/>
+<p>„Wie mundet Euch der Wein?“ fragte<lb/>
+Bachus den Gaſt; „Ihr habt wohl lange kei¬<lb/>
+nen getrunken?“</p><lb/>
+<p>„Er iſt gut, bei meinem Schwert! ſehr<lb/>
+gut! was iſt es fuͤr Gewaͤchs?“</p><lb/>
+<p>„Rother Engelheimer, geſtrenger Herr!“<lb/>
+antwortete der Kellermeiſter.</p><lb/>
+<p>Das ſteinerne Auge des Ritters bekam Le¬<lb/>
+ben und Glanz, als er dieß hoͤrte, die gemei¬<lb/>
+ſelten Zuͤge verſchoͤnerte ein ſanftes Laͤcheln,<lb/>
+und vergnuͤglich ſchaute er in den Becher.</p><lb/>
+<p>„<hi rendition="#g">Engelheim</hi>! du ſuͤßer, trauter Name!“<lb/>
+ſprach er. „Du edle Burg meines ritterlichen<lb/>
+<pb n="104" facs="#f0110"/>
+Kaiſers; ſo nennt man alſo noch in dieſer Zeit<lb/>
+deinen Namen und die Reben bluͤhen noch,<lb/>
+die Karl einſt pflanzte in ſeinem Engelheim?<lb/>
+Weiß man denn auch von <hi rendition="#g">Roland</hi> noch et¬<lb/>
+was auf der Welt, und von dem großen <hi rendition="#g">Ka¬<lb/>
+rolus</hi>, ſeinem Meiſter?“</p><lb/>
+<p>„Das muͤßt Ihr den Menſchen dort fra¬<lb/>
+gen,“ erwiederte Judas, „wir geben uns mit<lb/>
+der Erde nicht mehr ab. Er nennt ſich Doc¬<lb/>
+tor und Magiſter, und muß Euch Beſcheid ge¬<lb/>
+ben koͤnnen uͤber ſein Geſchlecht.“</p><lb/>
+<p>Der Rieſe richtete ſein Auge fragend auf<lb/>
+mich und ich antwortete: „Edler Paladin!<lb/>
+Zwar iſt die Menſchheit in dieſer Zeit lau und<lb/>
+ſchlecht geworden, iſt mit dem hohlen Schaͤdel<lb/>
+an die Gegenwart genagelt und blickt nicht<lb/>
+vor, nicht ruͤckwaͤrts, aber ſo elend ſind wir<lb/>
+doch nicht geworden, daß wir nicht der großen,<lb/>
+herrlichen Geſtalten gedaͤchten, die einſt uͤber<lb/>
+unſere Vatererde gingen und ihren Schatten<lb/>
+<pb n="105" facs="#f0111"/>
+werfen noch bis zu uns. Noch gibt es Her¬<lb/>
+zen, die ſich hinuͤberretten in die Vergan¬<lb/>
+genheit, wenn die Gegenwart zu ſchaal und<lb/>
+truͤbe wird, die hoͤher ſchlagen bei dem Klang<lb/>
+großer Namen und mit Achtung durch die<lb/>
+Ruinen wandlen, wo einſt der große Kaiſer<lb/>
+ſaß in ſeiner Zelle, wo ſeine Ritter um ihn<lb/>
+ſtanden, wo <hi rendition="#g">Eginhart</hi> bedeutungsvolle Worte<lb/>
+ſprach und die traute Emma dem treuſten ſei¬<lb/>
+ner Paladine den Becher credenzte. Wo man<lb/>
+den Namen Eures großen Kaiſers ausſpricht,<lb/>
+da iſt auch Roland unvergeſſen, und wie Ihr<lb/>
+ihm nahe ſtandet im Leben, ſo enge ſeyd Ihr<lb/>
+mit ihm verbunden in Lied und Sage und in<lb/>
+den Bildern der Erinnerung. Der letzte Ton<lb/>
+Eures Hifthorns toͤnt noch immer aus dem<lb/>
+Thal von Ronceval durch die Erde und wird<lb/>
+toͤnen, bis er ſich in die Klaͤnge der letzten<lb/>
+Poſaune miſcht.“</p><lb/>
+<p>„So haben wir nicht vergebens gelebt,<lb/>
+<pb n="106" facs="#f0112"/>
+alter Karl!“ ſprach der Ritter, „die Nach¬<lb/>
+welt feiert unſere Namen.“</p><lb/>
+<p>„Ha!“ rief Johannes feurigen Muthes;<lb/>
+„dieſe Menſchen waͤren auch werth Waſſer aus<lb/>
+dem Rhein zu ſaufen ſtatt des Rebenblutes<lb/>
+ſeiner Huͤgel, wenn ſie den Namen des Man¬<lb/>
+nes vergeſſen haͤtten, der zuerſt die Reben<lb/>
+pflanzte im Rheingau. Auf, ihr trauten Ge¬<lb/>
+ſellen und Apoſtel, ſtoßet an, unſer herrlicher<lb/>
+Stammvater lebe, es lebe <hi rendition="#g">Kaiſer Karl<lb/>
+der Große</hi>!“</p><lb/>
+<p>Die Roͤmer klangen, aber Bachus ſprach:<lb/>
+„Ja, es war eine ſchoͤne, herrliche Zeit,<lb/>
+und ich freue mich ihrer wie vor tauſend Jah¬<lb/>
+ren. Wo jetzt die wundervollen Weingaͤrten<lb/>
+ſtehen vom Ufer bis hinauf an die Ruͤcken<lb/>
+der Berge, und hinauf und hinab im Rhein¬<lb/>
+thal Traube an Traube ſich ſchlingt, da lag<lb/>
+ſonſt wuͤſter, duͤſterer Wald. Da ſchaute einſt<lb/>
+Kaiſer Karl aus ſeiner Burg in Engelheim<lb/>
+<pb n="107" facs="#f0113"/>
+an den Bergen hin, er ſah, wie die Sonne<lb/>
+ſchon im Maͤrz ſo warm dieſen Huͤgel be¬<lb/>
+gieße und den Schnee hinabrolle in den Rhein,<lb/>
+wie ſo fruͤhe die Baͤume dort ſich belauben<lb/>
+und das junge Gras dem Fruͤhling voraneile<lb/>
+aus der Erde. Da erwachte in ihm der Ge¬<lb/>
+danke Wein zu pflanzen, wo ſonſt der Wald<lb/>
+lag.“</p><lb/>
+<p>„Und ein geſchaͤftiges Leben regte ſich im<lb/>
+Rheingau bei Engelheim, der Wald verſchwand,<lb/>
+und die Erde war bereit den Weinſtock auf¬<lb/>
+zunehmen. Da ſchickte er Maͤnner nach Un¬<lb/>
+garn und Spanien, nach Italia und Bur¬<lb/>
+gund, nach der Champagne und nach Lothrin¬<lb/>
+gen, und ließ Reben herbeibringen und ſenkte<lb/>
+die Reiſer in der Erde Schooß.“</p><lb/>
+<p>„Da freute ſich mein Herz, daß er mein<lb/>
+Reich ausbreite im deutſchen Lande, und als<lb/>
+dort die erſten Reben bluͤhten, zog ich ein im<lb/>
+Rheingau mit glaͤnzendem Gefolge; wir lager¬<lb/>
+<pb n="108" facs="#f0114"/>
+ten auf den Huͤgeln, und ſchafften in der Erde<lb/>
+und ſchafften in den Luͤften, und meine Die¬<lb/>
+ner breiteten die zarten Netze aus und fingen<lb/>
+den Fruͤhlingsthau auf, daß er den Reben<lb/>
+nicht ſchade; ſie ſtiegen hinauf und brachten<lb/>
+warme Sonnenſtrahlen nieder, die ſie ſorgſam<lb/>
+um die kleinen Beerlein goßen, ſchoͤpften Waſ¬<lb/>
+ſer im gruͤnen Rhein und traͤnkten die zarten<lb/>
+Wurzeln und Blaͤtter. Und als im Herbſt<lb/>
+das erſte zarte Kind des Rheingaues in der<lb/>
+Wiege lag, da hielten wir ein großes Feſt,<lb/>
+und luden alle Elemente zur Feier ein. Und<lb/>
+ſie brachten koͤſtliche Geſchenke und legten ſie<lb/>
+dem Kindlein als Angebinde in die Wiege.<lb/>
+Das Feuer legte ſeine Hand auf des Kindes<lb/>
+Augen und ſprach: „du ſollſt mein Zeichen<lb/>
+an dir tragen ewiglich; ein reines, mildes<lb/>
+Feuer ſoll in dir wohnen und dich werth ma¬<lb/>
+chen vor allen andern.“ Und die Luft in zar¬<lb/>
+tem, goldenem Gewande kam heran, legte<lb/>
+<pb n="109" facs="#f0115"/>
+ihre Hand auf des Kindes Haupt und ſprach:<lb/>
+„zart und licht ſey deine Farbe, wie der goldene<lb/>
+Saum des Morgens auf den Huͤgeln, wie<lb/>
+das goldene Haar der ſchoͤnen Frauen im Rhein¬<lb/>
+gau.“ Und das Waſſer rauſchte heran in ſil¬<lb/>
+bernen Kleidern, buͤckte ſich auf das Kind und<lb/>
+ſprach: „Ich will deinen Wurzeln immer nahe<lb/>
+ſeyn, daß dein Geſchlecht ewig gruͤne und<lb/>
+bluͤhe und ſich ausbreite, ſo weit mein Rhein¬<lb/>
+ſtrom reicht.“ Aber die Erde kam und kuͤßte<lb/>
+das Kindlein auf den Mund und wehte es an<lb/>
+mit ſuͤßem Athem. „Die Wohlgeruͤche meiner<lb/>
+Kraͤuter,“ ſprach ſie, „die herrlichſten Duͤfte<lb/>
+meiner Blumen habe ich fuͤr dich geſammelt<lb/>
+zum Angebinde. Die koͤſtlichſten Salben aus<lb/>
+Ambra und Myrrhen werden gering ſeyn ge¬<lb/>
+gen deine Duͤfte, und deine lieblichſten Toͤchter<lb/>
+wird man nach der Koͤnigin der Blumen<lb/>
+heißen, — die <hi rendition="#g">Roſen</hi>.“</p><lb/>
+<p>„So ſprachen die Elemente; wir aber ju¬<lb/>
+<pb n="110" facs="#f0116"/>
+belten uͤber die herrlichen Gaben, ſchmuͤckten<lb/>
+das Kindlein mit friſchem Weinlaub und ſchick¬<lb/>
+ten es dem Kaiſer in die Burg. Und er er¬<lb/>
+ſtaunte uͤber die Herrlichkeit des Rebenkindes,<lb/>
+hat es fortan gehegt und gepflegt, und die<lb/>
+Rebe am Rhein ſeinen herrlichſten Schaͤtzen<lb/>
+gleich geachtet.“</p><lb/>
+<p>„Andreas!“ rief Jungfrau Roſe, „lieber<lb/>
+Vetter, Du haſt ſolch' eine ſchoͤne zarte Stim¬<lb/>
+me, willſt du nicht ſingen zum Ruhme des<lb/>
+Rheingaues und ſeiner Weine?“</p><lb/>
+<p>„Wenn es Euch erheitert, edle Jungfrau,<lb/>
+und Euch nicht Beſchwerde macht, edler Ba¬<lb/>
+chus, wie auch Euch nicht unangenehm iſt,<lb/>
+mein Herr und Ritter <hi rendition="#g">Roland</hi>, ſo will ich<lb/>
+eins ſingen.“ Und er ſang eine ſchoͤne Weiſe<lb/>
+voll zarter Toͤne und Worte, klangvoll und<lb/>
+zierlich gefuͤget, ſo, daß man wohl merken<lb/>
+konnte, es ſey ein Lied eines alten Meiſters<lb/>
+von 1400 oder 1500. Verflogen ſind ſeine Worte<lb/>
+<pb n="111" facs="#f0117"/>
+aus meinem Gedaͤchtniß, aber ſeine Weiſe<lb/>
+moͤchte ich doch wohl finden, denn ſie war ein¬<lb/>
+fach und ſchoͤn, und Petrus begleitete ihn mit<lb/>
+einem ſonoren, herrlichen Secund. Die Luſt<lb/>
+des Geſanges ſchien uͤber alle herabzukommen,<lb/>
+denn als Andreas geendet, ſang Judas un¬<lb/>
+aufgefordert ein Lied, und ihm folgten die uͤbri¬<lb/>
+gen. Selbſt Roſe, ſo ſehr ſie ſich zierte, mußte<lb/>
+ein Lied von 1615 ſingen, was ſie mit ange¬<lb/>
+nehmer, etwas zitternder Stimme vortrug.<lb/>
+Mit droͤhnendem Baß ſang Roland eine Kriegs¬<lb/>
+hymne der Franken, von welcher ich nur einige<lb/>
+Worte verſtand, und endlich, als ſie alle ge¬<lb/>
+ſungen, ſchauten ſie auf mich, und Roſe nickte<lb/>
+mir zu etwas zu ſingen. Da hub ich denn<lb/>
+an:</p><lb/>
+<lg type="poem"> <l>Am Rhein, am Rhein, da wachſen unſre Reben,</l><lb/>
+<l rendition="#et">Da waͤchſt ein deutſcher Wein,</l><lb/>
+<l>Da wachſen ſie am Ufer hin und geben</l><lb/>
+<l rendition="#et">Uns dieſen Labewein.</l><lb/>
+</lg>
+<pb n="112" facs="#f0118"/>
+<p>Sie lauſchten, als ſie dieſe Worte hoͤrten,<lb/>
+ſie nickten ſich zu und ruͤckten naͤher zuſam¬<lb/>
+men, und die entfernteren ſtreckten die Koͤpfe<lb/>
+vor, als wollten ſie kein Wort verlieren. Mu¬<lb/>
+thiger erhob ich meine Stimme, lauter und<lb/>
+immer lauter war mein Geſang, denn es<lb/>
+wogte in mir wie Begeiſterung, vor ſolchem<lb/>
+Publicum zu ſingen. Die alte Roſe nickte<lb/>
+den Text mit dem Kopfe und ſummte den<lb/>
+Chorus leiſe, leiſe mit, und Freude und Stolz<lb/>
+blickte aus den Augen der Apoſtel. Und als<lb/>
+ich geendet, draͤngten ſie ſich zu, druͤckten mir<lb/>
+die Haͤnde, und Andreas hauchte einen Kuß<lb/>
+auf meine Lippen.</p><lb/>
+<p>„Doctor!“ rief Bachus, „Doctor, welch<lb/>
+ein Lied! wie geht einem da das Herz auf.<lb/>
+Herzens-Doctor haſt du das Lied gedichtet in<lb/>
+deinem eigenen graduirten Gehirn?“</p><lb/>
+<p>„Nein, Euer Excellenz! ſolch ein Meiſter<lb/>
+des Geſanges bin ich nicht. Aber den, der es<lb/>
+<pb n="113" facs="#f0119"/>
+gedichtet, haben ſie laͤngſt begraben; er hieß<lb/>
+Matthias Claudius!“</p><lb/>
+<p>„<hi rendition="#g">Sie haben — einen guten Mann<lb/>
+begraben</hi>,“ ſagte Paulus. „Wie klar und<lb/>
+munter iſt dieß Lied, ſo klar und helle wie<lb/>
+aͤchter Wein, ſo muthig und munter wie der<lb/>
+Geiſt, der im Weine wohnet und gewuͤrzt mit<lb/>
+Scherz und Laune, die wie ein wuͤrziger Duft<lb/>
+aus dem Roͤmer ſteigen; der Mann hat gewiß<lb/>
+verſtanden, welch' gutes Ding es um ein<lb/>
+Glas lautern Weines iſt.“</p><lb/>
+<p>„Herr, er iſt lange todt, das weiß ich,<lb/>
+aber ein anderer großer Sterblicher hat geſagt:<lb/>
+„guter Wein iſt ein gutes, geſelliges Ding,<lb/>
+und jeder Menſch kann ſich wohl einmal von<lb/>
+ihm begeiſtern laſſen!“ Und ich denke, der<lb/>
+alte <hi rendition="#g">Matthias</hi> hat auch ſo gedacht unter gu¬<lb/>
+ten Freunden, haͤtte ja ſonſt ſolch' ein ſchoͤnes<lb/>
+Lied nicht machen koͤnnen, das noch heute alle<lb/>
+<fw type="sig" place="bottom">8<lb/>
+</fw>
+<pb n="114" facs="#f0120"/>
+froͤhlichen Menſchen ſingen, die im Rheingau<lb/>
+wandeln oder edeln Rheinwein trinken.“</p><lb/>
+<p>„Singen ſie das?“ rief Bachus, „nun<lb/>
+ſeht, Doctor, das freut mich, und ſo gar<lb/>
+miſerabel muß Euer Geſchlecht doch nicht ge¬<lb/>
+worden ſeyn, wenn ſie ſo klare, ſchoͤne Lieder<lb/>
+haben und ſingen.“</p><lb/>
+<p>„Ach, Herr!“ ſprach ich bekuͤmmert; „es<lb/>
+gibt der <hi rendition="#g">Ueberſchwaͤnglichen</hi> gar viele, das<lb/>
+ſind die Pietiſten in der Poeſie, und wollen<lb/>
+ſolch' Lied gar nicht fuͤr ein Gedicht gelten<lb/>
+laſſen, wie manchen Froͤmmlern das Vater¬<lb/>
+unſer nicht myſtiſch genug zum Beten iſt.“</p><lb/>
+<p>„Es hat zu jeder Zeit Narren gegeben,<lb/>
+Herr!“ erwiederte mir Petrus, „und jeder fegt<lb/>
+am beſten vor ſeiner eigenen Thuͤre. Aber weil<lb/>
+wir gerade bei ſeinem Geſchlecht ſind, erzaͤhl'<lb/>
+Er uns doch, wie es auf der Erde ging im<lb/>
+letzten Jahr?“</p><lb/>
+<pb n="115" facs="#f0121"/>
+<p>„Wenn es die Herren und Damen intereſ¬<lb/>
+ſirt,“ — ſprach ich zoͤgernd.</p><lb/>
+<p>„Immer zu,“ rief Roland, „wegen mei¬<lb/>
+ner koͤnntet Ihr die letzten fuͤnfhundert Jahre<lb/>
+erzaͤhlen, denn auf meinem Domhof ſehe ich<lb/>
+nichts als Zigarrenmacher, Weinbrauer, Pfar¬<lb/>
+rer und alte Weiber.“ Auch die uͤbrigen ſtimm¬<lb/>
+ten mit ein, ich hub alſo an:</p><lb/>
+<p>„Was zuerſt die deutſche Literatur betrifft“ —</p><lb/>
+<p>„Halt, <hi rendition="#aq">manum de fabula</hi>!“ rief Paulus;<lb/>
+„was ſcheeren wir uns um euer miſerables<lb/>
+Geſchmier, um eure kleinlichen, eckelhaften<lb/>
+Gaßenſtreite und Kneipenraufereien, um eure<lb/>
+Poetaſter, Afterpropheten und —“</p><lb/>
+<p>Ich erſchrack; wenn dieſen Leuten nicht ein¬<lb/>
+mal unſere wunderherrliche, magnifique Litera¬<lb/>
+tur intereſſant war, was konnte ich ihnen denn<lb/>
+ſagen? Ich beſann mich und fuhr fort: „of¬<lb/>
+fenbar hat Joco im letzten Jahre, was das<lb/>
+Theater anbelangt“ —</p><lb/>
+<pb n="116" facs="#f0122"/>
+<p>„Theater? geht mir weg!“ unterbrach An¬<lb/>
+dreas, „was ſollen wir von euren Puppenſpie¬<lb/>
+len, Marionettenkomoͤdien und ſonſtigen Thor¬<lb/>
+heiten hoͤren! Meinet Ihr etwa, uns komme<lb/>
+viel darauf an, ob einer eurer Luſtſpieldichter<lb/>
+ausgepfiffen wurde oder nicht? Habt Ihr denn<lb/>
+dermalen gar nichts intereſſantes, nichts welt¬<lb/>
+hiſtoriſches, das Ihr etwa erzaͤhlen koͤnntet?“</p><lb/>
+<p>„Ach, daß Gott erbarm,“ erwiederte ich,<lb/>
+„bei uns iſt die Welthiſtorie ausgegangen, wir<lb/>
+haben in dieſem Fach nur noch den Bundestag<lb/>
+in Frankfurt. Bei unſern Nachbarn hoͤchſtens<lb/>
+gibt es noch hin und wieder etwas; zum Bei¬<lb/>
+ſpiel in Frankreich haben die Jeſuiten wieder<lb/>
+Macht gewonnen und das Scepter an ſich ge¬<lb/>
+riſſen, und in Rußland ſollte es eine Revolu¬<lb/>
+tion geben.“</p><lb/>
+<p>„Ihr verwechſelt die Namen, Freund!“<lb/>
+ſagte Judas, „Ihr wolltet ſagen, in <hi rendition="#g">Ruß¬<lb/>
+land</hi> ſind die Jeſuiten wieder eingezogen,<lb/>
+<pb n="117" facs="#f0123"/>
+und in <hi rendition="#g">Frankreich</hi> ſollte es eine Revolution<lb/>
+geben?“</p><lb/>
+<p>„Mit nichten, Herr Judas von Iſcharioth,“<lb/>
+antwortete ich, „ſo iſt es, wie ich geſagt.“</p><lb/>
+<p>„Ei der tauſend!“ murmelten ſie nachdenk¬<lb/>
+lich, „das iſt ja ganz ſonderbar und verkehrt!<lb/>
+Und,“ fragte Petrus, „keinen Krieg gibt es<lb/>
+nicht?“</p><lb/>
+<p>„Ein klein wenig, wird aber bald vollends<lb/>
+zu Ende ſeyn, in Griechenland, gegen die<lb/>
+Tuͤrken.“</p><lb/>
+<p>„Ha! das iſt ſchoͤn,“ rief der Paladin,<lb/>
+und ſchlug mit der ſteinernen Fauſt auf den<lb/>
+Tiſch; „hat mich ſchon vor vielen Jahren<lb/>
+geaͤrgert, daß die Chriſtenheit ſo ſchnoͤde zu¬<lb/>
+ſchaute, wie der Muſelmann dieß herrliche Volk<lb/>
+in Banden hielt; das iſt ſchoͤn, wahrlich! Ihr<lb/>
+lebet in einer ſchoͤnen Zeit und Euer Geſchlecht<lb/>
+iſt edler, als ich dachte. Alſo die Ritter von<lb/>
+Deutſchland und Frankreich, von Italien, Spa¬<lb/>
+<pb n="118" facs="#f0124"/>
+nien und England ſind ausgezogen, wie einſt<lb/>
+unter Richard Loͤwenherz, die Unglaͤubigen zu<lb/>
+bekaͤmpfen? Die Genueſer Flotte ſchifft im<lb/>
+Archipel, die Tauſende der Streiter <choice><sic>uͤberzuſe¬<lb/>
+ſetzen</sic><corr>uͤberzuſe¬<lb/>
+tzen</corr></choice>, die Oriflamme naht ſich Stambuls Kuͤ¬<lb/>
+ſten und Oeſterreichs Banner weht im erſten<lb/>
+Reihen? Ha! zu ſolchem Kampfe moͤchte ich<lb/>
+ſelbſt noch einmal mein Roß beſteigen, mein<lb/>
+gutes Schwert Durande ziehen und in mein<lb/>
+Hifthorn ſtoßen, daß alle Helden, die da<lb/>
+ſchlafen, aufſtuͤnden aus den Graͤbern, und<lb/>
+mit mir zoͤgen in die Tuͤrkenſchlacht.“</p><lb/>
+<p>„Edler Ritter,“ antwortete ich und erroͤ¬<lb/>
+thete vor meiner Zeit, „die Zeiten haben ſich<lb/>
+geaͤndert. Ihr wuͤrdet wahrſcheinlich als De¬<lb/>
+magoge verhaftet werden bei ſothanen Um¬<lb/>
+ſtaͤnden und Verhaͤltniſſen, denn weder Habs¬<lb/>
+burgs Banner noch die Oriflamme, weder<lb/>
+Englands Harfe noch Hiſpaniens Loͤwen ſieht<lb/>
+man in jenen Gefechten.“</p><lb/>
+<pb n="119" facs="#f0125"/>
+<p>„Wer iſt es denn, der gegen den Halb¬<lb/>
+mond ſchlaͤgt, wenn es nicht dieſe ſind?“</p><lb/>
+<p>„Die Griechen ſelbſt.“</p><lb/>
+<p>„Die Griechen? iſt es ?“ rief Jo¬<lb/>
+hannes; „und die andern Staaten, wo ſind<lb/>
+denn dieſe beſchaͤftigt?“</p><lb/>
+<p>„Noch haben ſie Geſandte bei der Pforte.“</p><lb/>
+<p>„Menſch, was ſagſt du,“ ſprach Roland<lb/>
+ſtarr vor Staunen, „kann man es ignoriren,<lb/>
+wenn ein Volk um ſeine Freiheit kaͤmpft?<lb/>
+Heilige Jungfrau, was iſt dieß fuͤr eine Welt!<lb/>
+Wahrlich, das moͤchte einen Stein erbarmen!“<lb/>
+Er quetſchte im Zorn, waͤhrend er die letzten<lb/>
+Worte ſprach, den ſilbernen Becher wie duͤn¬<lb/>
+nes Zinn zuſammen, daß der Wein darin<lb/>
+hoch an die Decke ſpritzte, fuhr raſſelnd auf<lb/>
+vom Tiſch, nahm ſeine Tartſche und ſein lan¬<lb/>
+ges Schwert, und ſchritt duͤſter mit droͤhnenden<lb/>
+Schritten aus dem Gemach.</p><lb/>
+<pb n="120" facs="#f0126"/>
+<p>„Ei, was iſt der ſteinerne Roland fuͤr ein<lb/>
+zorniger Kumpan,“ murmelte Roſe, nachdem<lb/>
+er die Pforte klirrend zugeworfen, indem ſie<lb/>
+etliche Weintropfen, die ſie benetzten, vom<lb/>
+Buſentuch abſchuͤttelte;“ will der ſteinerne Narr<lb/>
+auf ſeine alten Tage noch zu Felde ziehen!<lb/>
+wenn er ſich ſehen ließe, ſie ſteckten ihn gleich<lb/>
+ohne Barmherzigkeit als Fluͤgelmann unter<lb/>
+die Brandenburger Grenadiere, denn die Groͤße<lb/>
+hat er.“</p><lb/>
+<p>„Jungfer Roſe,“ erwiederte ihr Petrus,<lb/>
+„zornig iſt er, das iſt wahr, und er haͤtte<lb/>
+koͤnnen auf andere Weiſe davon gehen; aber<lb/>
+bedenket, daß er einſt, <hi rendition="#g">Furioſo</hi>, wahnſinnig<lb/>
+war und noch ganz andere Sachen gethan,<lb/>
+als ſilberne Becher zerquetſcht und Frauenzim¬<lb/>
+mer mit Wein beſudelt. Und genau beim<lb/>
+Lichte beſehen, kann ich ihm ſeinen Unmuth<lb/>
+auch nicht verdenken; war er doch auch ein¬<lb/>
+mal ein Menſch und dazu ein herrlicher Pa¬<lb/>
+<pb n="121" facs="#f0127"/>
+ladin des großen Kaiſers, ein tapferer Ritter,<lb/>
+der, wenn es Karl gewollt haͤtte, allein gegen<lb/>
+tauſend Muſelmannen zu Felde gezogen waͤre.<lb/>
+Da hat er ſich denn geſchaͤmt und iſt unmu¬<lb/>
+thig geworden.“</p><lb/>
+<p>„Laßt ihn laufen, den ſteinernen Recken!“<lb/>
+rief Bachus, „hat mich genirt, der Burſche,<lb/>
+hat mich genirt. Er paßt nicht unter uns,<lb/>
+der Luͤmmel von zehen Schuh, er ſah immer<lb/>
+hoͤhniſch auf mich herab. Die ganze Freudig¬<lb/>
+keit und mein Vergnuͤgen haͤtt' er geſtoͤrt. Wir<lb/>
+waͤren nicht zum Tanzen gekommen, nur weil<lb/>
+er mit ſeinen ſteifen ſteinernen Beinen keinen<lb/>
+tuͤchtigen <choice><sic>Hopfer</sic><corr>Hopſer</corr></choice> haͤtte riskiren koͤnnen, ohne<lb/>
+elend umzuſtuͤlpen.“</p><lb/>
+<p>„Ja tanzen, heiſa, tanzen!“ riefen die Apo¬<lb/>
+ſtel; „Balthaſar ſpiel auf, ſpiel auf!“</p><lb/>
+<p>Judas ſtand auf, zog ungeheure Stuͤlp¬<lb/>
+handſchuhe, die ihm beinahe bis zum Ellbo¬<lb/>
+gen reichten, trat zierlich an die Jungfrau<lb/>
+<pb n="122" facs="#f0128"/>
+heran und ſagte: „Ehrenfeſte und allerſchoͤnſte<lb/>
+Jungfer Roſe; duͤrfte ich mir die abſonderliche<lb/>
+Ehre ausbitten mit Ihr den Erſten“ —</p><lb/>
+<p>„<hi rendition="#aq">Manum de</hi>!“ — unterbrach ihn Bachus<lb/>
+pathetiſch. „Ich bin es, der den Ball arran¬<lb/>
+girt hat, und ich muß ihn eroͤffnen. Tanze<lb/>
+er, mit wem er will, Meiſter Judas, mein<lb/>
+Roͤschen tanzt mit mir. Nicht wahr, Schaͤ¬<lb/>
+zerl?“</p><lb/>
+<p>Sie machte erroͤthend einen Knix zur Be¬<lb/>
+jahung, und die Apoſtel lachten den Judas<lb/>
+aus und verhoͤhnten ihn. Mir aber winkte<lb/>
+der Weingott heroiſch zu: „Verſteht er Muſik,<lb/>
+Doctor?“ fragte er.</p><lb/>
+<p>„Ein wenig;“</p><lb/>
+<p>„Tactfeſt?“</p><lb/>
+<p>„O ja, tactfeſt wohl.“</p><lb/>
+<p>„Nun ſo nehme er dieß Faͤßlein da, ſetze<lb/>
+er ſich neben Balthaſar Ohnegrund unſeren<lb/>
+Kellermeiſter und Zinkeniſten, nehme er dieſe<lb/>
+<pb n="123" facs="#f0129"/>
+hoͤlzernen Kuͤperhaͤmmer zur Hand und be¬<lb/>
+gleite jenen mit der Trommel.“</p><lb/>
+<p>Ich ſtaunte und bequemte mich; war aber<lb/>
+ſchon meine Trommel etwas außergewoͤhnlich,<lb/>
+ſo war Balthaſars Inſtrument noch auffallen¬<lb/>
+der. Er hielt naͤmlich einen eiſernen Hahnen<lb/>
+von einem achtfuderigen Faß an Mund, wie<lb/>
+ein Klarinett. Neben mich ſetzten ſich noch<lb/>
+Bartholomaͤus und Jacobus mit ungeheuern<lb/>
+Weintrichtern, die ſie als Trompeten hand¬<lb/>
+habten und warteten des Zeichens, der Tiſch<lb/>
+wurde auf die Seite geruͤckt, Roſe und Bachus<lb/>
+ſtellten ſich zum Tanze. Er winkte und eine<lb/>
+ſchreckliche, quickende, mißtoͤnende Janitſcha¬<lb/>
+ren-Muſik brach los, zu der ich im ſechsachtel<lb/>
+Tact auf mein Faß als Tambour aufſchle¬<lb/>
+gelte. Der Hahn, den Balthaſar blies, toͤnte<lb/>
+wie eine Nachtwaͤchter-Tute und wechſelte nur<lb/>
+zwiſchen zwei Toͤnen, Grundton und abſcheu¬<lb/>
+lich hohem Falſett, die beiden Trichtertrompe¬<lb/>
+<pb n="124" facs="#f0130"/>
+ter bließen die Backen auf und lockten aus<lb/>
+ihren Inſtrumenten Angſt- und Klagelaute ſo<lb/>
+herzdurchſchneidend, wie die Toͤne der Trito¬<lb/>
+nen, wenn ſie die Meermuſcheln blaſen.</p><lb/>
+<p>Der Tanz, den die beiden auffuͤhrten,<lb/>
+mochte wohl vor ein Paar hundert Jahren<lb/>
+uͤblich geweſen ſeyn. Jungfer Roſe hatte mit<lb/>
+beiden Haͤnden ihren Rock ergriffen und ſol¬<lb/>
+chen an den Seiten weit ausgeſpannt, daß<lb/>
+ſie anzuſehen war, wie ein großes weites Faß.<lb/>
+Sie bewegte ſich nicht ſehr weit von der Stel¬<lb/>
+le, ſondern trippelte hin und her, indem ſie<lb/>
+bald auf-, bald niedertauchte und knixte. Le¬<lb/>
+bendiger war dagegen ihr Taͤnzer, der wie ein<lb/>
+Kreiſſel um ſie herfuhr, allerlei kuͤhne Spruͤnge<lb/>
+machte, mit den Fingern knallte und Heiſa,<lb/>
+Juhe! ſchrie. Wunderlich war es anzuſehen,<lb/>
+wie das kleine Schuͤrzlein der Jungfer Roſe,<lb/>
+das ihm Balthaſar umgethan, hin und her<lb/>
+flatterte in der Luft, wie ſeine Bein'chen um¬<lb/>
+<pb n="125" facs="#f0131"/>
+herbaumelten, wie ſein dickes Geſicht laͤchelte<lb/>
+vor inniger Herzensluſt und Freude.</p><lb/>
+<p>Endlich ſchien er ermuͤdet, er winkte Ju¬<lb/>
+das und Paulus herbei, und fluͤſterte ihnen<lb/>
+etwas zu; ſie banden ihm die Schuͤrze ab,<lb/>
+faßten ſolch an beiden Enden und zogen und<lb/>
+zogen, ſo daß ſie ploͤtzlich ſo groß wurde, wie<lb/>
+ein Betttuch; dann riefen ſie die anderen her¬<lb/>
+bei, ſtellten ſie rings um das Tuch und ließen<lb/>
+es anfaſſen. „Ha, dachte ich, jetzt wird wahr¬<lb/>
+ſcheinlich der alte Balthaſar ein wenig geprellt,<lb/>
+zu allgemeiner Ergoͤtzung; wenn nur das Ge¬<lb/>
+woͤlbe nicht ſo nieder waͤre, da kann er leicht<lb/>
+den Schaͤdel einſtoßen.“ Da kam Judas und<lb/>
+der ſtarke Bartholomaͤus auf uns zu und faß¬<lb/>
+ten — mich; Balthaſar Ohnegrund lachte<lb/>
+haͤmiſch; ich bebte, ich wehrte mich; es half<lb/>
+nichts, Judas faßte mich feſt an der Kehle<lb/>
+und drohte mich zu erwuͤrgen, wenn ich mich<lb/>
+ferner ſtraͤube. Die Sinne wollten mir ver¬<lb/>
+<pb n="126" facs="#f0132"/>
+gehen, als ſie mich unter allgemeinem Jauch¬<lb/>
+zen und Geſchrei auf das Tuch legten; noch<lb/>
+einmal raffte ich mich zuſammen: „nur nicht<lb/>
+zu hoch, meine werthen Goͤnner, ich renne<lb/>
+mir ſonſt das Hirn ein am Gewoͤlbe,“ rief ich<lb/>
+in der Angſt des Herzens, aber ſie lachten<lb/>
+und uͤberſchrien mich. Jetzt fingen ſie an, das<lb/>
+Tuch hin und her zu wiegen, Balthaſar blies<lb/>
+den Trichter dazu; jetzt ging es auf- und ab¬<lb/>
+waͤrts, zuerſt drei, vier, fuͤnf Schuh hoch,<lb/>
+auf einmal ſchnellten ſie ſtaͤrker, ich flog hin¬<lb/>
+auf und — wie eine Wolke that ſich die Decke<lb/>
+des Gewoͤlbes auseinander, ich flog immer<lb/>
+aufwaͤrts zum Rathdach hinaus, hoͤher, hoͤher<lb/>
+als der Thurm der Domkirche. „Ha,“ dachte<lb/>
+ich im Fliegen, „jetzt iſt es um dich ge¬<lb/>
+ſchehen, wenn du jetzt wieder faͤllſt, brichſt<lb/>
+du das Genick oder zum allerwenigſten ein<lb/>
+Paar Arme oder Beine! o Himmel, und ich<lb/>
+weiß ja, was <hi rendition="#g">ſie</hi> von einem Mann mit ge¬<lb/>
+<pb n="127" facs="#f0133"/>
+brochenen Gliedmaßen denkt! ade! mein<lb/>
+Leben, meine Liebe!“</p><lb/>
+<p>Jetzt hatte ich den hoͤchſten Punkt meines<lb/>
+Steigens erreicht, und eben ſo pfeilſchnell fiel<lb/>
+ich abwaͤrts; krach! ging es durchs Rathhaus¬<lb/>
+dach und hinab durch die Decke des Gewoͤlbes,<lb/>
+aber ich fiel nicht auf das Tuch zuruͤck, ſondern<lb/>
+gerade auf einen Stuhl, mit dem ich ruͤcklings<lb/>
+uͤber auf den Boden ſchlug.</p><lb/>
+<p>Ich lag einige Zeit betaͤubt vom Fall. Ein<lb/>
+Schmerz am Kopfe und die Kaͤlte des Bodens<lb/>
+weckten mich endlich. Ich wußte anfangs nicht,<lb/>
+war ich zu Hauſe aus dem Bette gefallen oder<lb/>
+lag ich ſonst wo? Endlich beſann ich mich, daß<lb/>
+ich irgendwo weit herabgeſtuͤrzt ſey. Ich un¬<lb/>
+terſuchte aͤngſtlich meine Glieder, es war nichts<lb/>
+gebrochen, nur das Haupt that mir weh vom<lb/>
+Fall. Ich raffte mich auf, ſah um mich; da<lb/>
+war ich in einem gewoͤlbten Zimmer, der Tag<lb/>
+ſchien matt durch ein Kellerloch herab, auf<lb/>
+<pb n="128" facs="#f0134"/>
+dem Tiſche ſpruͤhte ein Licht in ſeinem letzten<lb/>
+Leben, umher ſtanden Glaͤſer und Flaſchen,<lb/>
+und rings um die Tafel vor jedem Stuhl ein<lb/>
+kleines Flaͤſchchen mit langem Zettel am Halſe;<lb/>
+— ha; jetzt fiel mir nach und nach alles wie¬<lb/>
+der ein; ich war zu Bremen im Rathskeller;<lb/>
+geſtern Nacht war ich herein gegangen, hatte<lb/>
+getrunken, hatte mich einſchließen laſſen, da<lb/>
+war —; voll Grauen ſchaute ich um mich,<lb/>
+denn alle, alle Erinnerungen erwachten mit<lb/>
+einemmal. Wenn der geſpenſtige Balthaſar<lb/>
+noch in der Ecke ſaͤße, wenn die Weingeiſter<lb/>
+noch um mich ſchwebten?! Ich wagte verſtoh¬<lb/>
+lene Blicke in die Ecken des duͤſteren Zimmers,<lb/>
+es war leer. Oder wie? haͤtte mir dieß Alles<lb/>
+nur getraͤumt?</p><lb/>
+<p>Sinnend ging ich um die lange Tafel; die<lb/>
+Probeflaͤſchchen ſtanden wie jeder geſeſſen hatte;<lb/>
+obenan die Roſe, dann Judas, Jacobus, —<lb/>
+Johannes, ſie alle an der Stelle, wo ich ſie<lb/>
+<pb n="129" facs="#f0135"/>
+leiblich geſchaut hatte dieſe Nacht. „Nein ſo<lb/>
+lebhaft traͤumt man nicht,“ ſprach ich zu mir,<lb/>
+„dieß alles, was ich gehoͤrt, geſchaut, iſt wirk¬<lb/>
+lich geſchehen!“ Doch nicht lange hatte ich<lb/>
+Zeit zu dieſen Reflexionen; ich hoͤrte Schluͤſſel<lb/>
+raſſeln an der Thuͤre, ſie ging langſam auf<lb/>
+und der alte Rathsdiener trat gruͤßend ein.</p><lb/>
+<p>„Sechs Uhr hat es eben geſchlagen,“ ſprach<lb/>
+er, „und wie Sie befohlen, bin ich da, Sie<lb/>
+heraus zu laſſen. Nun —“ fuhr fort,<lb/>
+als ich mich ſchweigend anſchickte, ihm zu fol¬<lb/>
+gen, „nun und wie haben Sie geſchlafen dieſe<lb/>
+Nacht?“</p><lb/>
+<p>„So gut es ſich auf einem Stuhl thun<lb/>
+laͤßt, ziemlich gut.“</p><lb/>
+<p>„Herr,“ rief er aͤngſtlich und betrachtete<lb/>
+mich genauer, „Ihnen iſt etwas Unheimliches<lb/>
+paſſirt dieſe Nacht. Sie ſehen ſo verſtoͤrt und<lb/>
+bleich aus und Ihre Stimme zittert!“</p><lb/>
+<p>„Alter, was wird mir paſſirt ſeyn!“ er¬<lb/>
+<fw type="sig" place="bottom">9<lb/>
+</fw>
+<pb n="130" facs="#f0136"/>
+wiederte ich, mich zum Lachen zwingend; „wenn<lb/>
+ich bleich ausſehe und verſtoͤrt, ſo koͤmmt es<lb/>
+vom langen Wachen und weil ich nicht im Bette<lb/>
+geſchlafen.“ —</p><lb/>
+<p>„Ich ſehe, was ich ſehe,“ ſagte er kopf¬<lb/>
+ſchuͤttelnd; „und der Nachtwaͤchter war heute<lb/>
+fruͤhe auch ſchon bei mir und erzaͤhlte, wie er<lb/>
+am Kellerloch voruͤbergegangen zwiſchen 12 und<lb/>
+1 Uhr habe er allerlei Geſang und Gemurmel<lb/>
+vieler Stimmen vernommen aus dem Keller.“</p><lb/>
+<p>„Einbildungen, Poſſen! ich habe ein wenig<lb/>
+fuͤr mich geſungen zur Unterhaltung und viel¬<lb/>
+leicht im Schlaf geſprochen, das iſt alles.“</p><lb/>
+<p>„Dießmal Einen im Keller gelaſſen in ſol¬<lb/>
+cher Nacht und von nun an nie wieder,“ mur¬<lb/>
+melte er, indem er mich die Treppe hinauf<lb/>
+begleitete; „Gott weiß, was der Herr Graͤuli¬<lb/>
+ches hat hoͤren und ſchauen muͤſſen! Wuͤnſche<lb/>
+gehorſamſt guten Morgen.“</p><lb/>
+<milestone unit="section" rendition="#hr"/> <lg type="poem"> <l>„Doch hat daſelbſt von allen</l><lb/>
+<l>Eine Jungfrau mir gefallen.“</l><lb/>
+</lg> <p>Der Worte des froͤhlichen Bachus eingedenk<lb/>
+und von Sehnſucht der Liebe getrieben, ging<lb/>
+<pb n="131" facs="#f0137"/>
+ich, nachdem ich einige Stunden geſchlummert,<lb/>
+der Holden guten Morgen zu ſagen. Aber kalt<lb/>
+und zuruͤckhaltend empfing ſie mich, und als<lb/>
+ich ihr einige innige Worte zufluͤſterte, wandte<lb/>
+ſie mir laut lachend den Ruͤcken zu und ſprach:<lb/>
+„gehen Sie und ſchlafen Sie erſt fein aus,<lb/>
+mein Herr.“</p><lb/>
+<p>Ich nahm den Hut und ging, denn ſo<lb/>
+ſchnoͤde war ſie nie geweſen. Ein Freund, der<lb/>
+in einer andern Ecke des Zimmers am Clavier<lb/>
+geſeſſen, ging mir nach und ſagte, indem er<lb/>
+wehmuͤthig meine Hand ergriff: „Herzensbru¬<lb/>
+der, mit deiner Liebe iſt es rein aus auf im¬<lb/>
+merdar, ſchlage dir nur gleich alle Gedanken<lb/>
+aus dem Sinne.“</p><lb/>
+<p>„So viel ungefaͤhr konnte ich ſelbſt merken,“<lb/>
+antworte ich; „der Teufel hole alle ſchoͤne Au¬<lb/>
+gen, jeden roſigen Mund und den thoͤrigten<lb/>
+Glauben an das, was Blicke ſagen, was<lb/>
+Maͤdchenlippen ausſprechen.“</p><lb/>
+<p>„Tobe nicht ſo arg, ſie hoͤren es oben,“<lb/>
+fluͤſterte er; „aber ſag' mir um Gotteswillen,<lb/>
+iſt es denn wahr, daß Du heute die ganze<lb/>
+Nacht im Weinkeller gelegen und getrunken<lb/>
+haſt?“</p><lb/>
+<pb n="132" facs="#f0138"/>
+<p>„Nun ja und wen kuͤmmert es denn?“</p><lb/>
+<p>„Weiß der Himmel, wie ſie es gleich er¬<lb/>
+fahren hat, ſie hat den ganzen Morgen geweint<lb/>
+und nachher geſagt, vor einem ſolchen Trun¬<lb/>
+kenbold, der ganze Naͤchte beim Wein ſitze und<lb/>
+aus ſchnoͤder Trinkluſt ganz allein trinke, ſolle<lb/>
+ſie Gott behuͤten; Du ſeyſt ein ganz gemeiner<lb/>
+Menſch, von dem ſie nichts mehr hoͤren wolle.“</p><lb/>
+<p>„So?“ erwiederte ich ganz gelaſſen und<lb/>
+hatte einiges Mitleiden mit mir ſelbſt. „Nun<lb/>
+gut, geliebt hat ſie mich nie, ſonſt wuͤrde ſie<lb/>
+auch mich daruͤber hoͤren; ich laſſe ſie ſchoͤn<lb/>
+gruͤßen, Lebe wohl.“</p><lb/>
+<p>Ich rannte nach Hauſe und packte ſchnell<lb/>
+zuſammen und fuhr noch denſelben Abend von<lb/>
+dannen. Als ich an der Rolandſaͤule voruͤber<lb/>
+kam, gruͤßte ich den alten Recken recht freund¬<lb/>
+lich und zum Entſetzen meines Poſtillons nickte<lb/>
+er mir mit dem ſteinernen Haupt einen Ab¬<lb/>
+ſchiedsgruß. Dem alten Rathhaus und ſeinen<lb/>
+Kellerhallen warf ich noch einen Kuß zu, druͤckte<lb/>
+mich dann in die Ecke meines Wagens und<lb/>
+ließ die Phantaſien dieſer Nacht noch einmal<lb/>
+vor meinem Auge voruͤber gleiten.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0139"/>
+<pb facs="#f0140"/>
+<pb facs="#f0141"/>
+</div> </body> </text> </TEI>

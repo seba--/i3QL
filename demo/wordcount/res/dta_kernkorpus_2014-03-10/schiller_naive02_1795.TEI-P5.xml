@@ -1,0 +1,1873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Über naive und sentimentalische Dichtung</title>
+<title type="part" n="2">Die sentimentalischen Dichter</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118607626">
+<surname>Schiller</surname>
+<forename>Friedrich</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">65</measure>
+<measure type="tokens">13461</measure>
+<measure type="types">3162</measure>
+<measure type="characters">95303</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:07:53Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/schiller_naive02_1795</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/schiller_naive02_1795</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/schiller_naive02_1795</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/schiller_naive02_1795</idno>
+<idno type="DTADirName">schiller_naive02_1795</idno>
+<idno type="DTAID">17246</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905196905</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="JA">Schiller, Friedrich: Über naive und sentimentalische Dichtung. [Tl. 2:] Die sentimentalischen Dichter. In: Die Horen 1795, 12. St., T. I., S. 1-55.</bibl>
+<biblFull>
+<titleStmt>
+<title level="a" type="main">Über naive und sentimentalische Dichtung</title>
+<title level="a" type="part" n="2">Die sentimentalischen Dichter</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118607626">
+<surname>Schiller</surname>
+<forename>Friedrich</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">S. 1-55</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Cotta</name></publisher>
+<pubPlace>Tübingen</pubPlace>
+<date type="publication">1795</date>
+</publicationStmt>
+<seriesStmt>
+<title level="j" type="main">Die Horen. Eine Monatsschrift</title>
+<biblScope unit="volume">1</biblScope>
+<biblScope unit="issue">12</biblScope>
+<biblScope unit="pages">S. 1-55</biblScope>
+</seriesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Ac 6670&lt;a&gt;-3/4 R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=418278393</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+</front><body>
+<pb n="[1]" facs="#f0008"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Die Horen.<lb/>
+Erſter Jahrgang. Zwoͤlftes Stuͤck.</hi></hi></head><lb/>
+<head><hi rendition="#b"><hi rendition="#aq">I</hi><lb/>
+<hi rendition="#g">Die ſentimentaliſchen Dichter.</hi></hi></head><lb/>
+<p><hi rendition="#in">D</hi>er Dichter, hieß es in dem vorhergehenden Verſuch<lb/>
+uͤber das Naive <note place="foot" n="*">Man ſehe das eilfte Stuͤck der Horen.</note> <hi rendition="#g">iſt</hi> entweder Natur, oder er wird ſie<lb/>
+<hi rendition="#g">ſuchen.</hi> Jenes macht den naiven, dieſes den ſentimen-<lb/>
+taliſchen Dichter. Mit der Erklaͤrung dieſes Satzes wird<lb/>
+der gegenwaͤrtige Verſuch ſich beſchaͤftigen.</p><lb/>
+<p>Der dichteriſche Geiſt iſt unſterblich und unverlierbar<lb/>
+in der Menſchheit; er kann nicht anders als zugleich mit<lb/>
+derſelben und mit der Anlage zu ihr ſich verlieren. Denn<lb/>
+entfernt ſich gleich der Menſch durch die Freyheit ſeiner<lb/>
+Phantaſie und ſeines Verſtandes von der Einfalt, Wahr-<lb/>
+heit und Nothwendigkeit der Natur, ſo ſteht ihm doch<lb/>
+nicht nur der Pfad zu derſelben immer offen, ſondern<lb/>
+ein maͤchtiger und unvertilgbarer Trieb, der moraliſche,<lb/>
+treibt ihn auch unaufhoͤrlich zu ihr zuruͤck, und eben mit<lb/>
+dieſem Triebe ſteht das Dichtungsvermoͤgen in der engſten<lb/>
+Verwandtſchaft. Dieſes verliert ſich alſo nicht auch zu-<lb/>
+gleich mit der natuͤrlichen Einfalt, ſondern wirkt nur nach<lb/>
+einer andern Richtung.</p><lb/>
+<fw type="sig" place="bottom">Die Horen. 1795. 12tes St. 1</fw><lb/>
+<pb n="2" facs="#f0009"/>
+<p>Auch jetzt iſt die Natur noch die einzige Flamme, an<lb/>
+der ſich der Dichtergeiſt naͤhret, aus ihr allein ſchoͤpft<lb/>
+er ſeine ganze Macht, zu ihr allein ſpricht er auch in dem<lb/>
+kuͤnſtlichen, in der Kultur begriffenen Menſchen. Jede<lb/>
+andere Art zu wirken, iſt dem poetiſchen Geiſte fremd;<lb/>
+daher, beilaͤufig zu ſagen, alle ſogenannten Werke des<lb/>
+Witzes ganz mit Unrecht poetiſch heißen, ob wir ſie gleich<lb/>
+lange Zeit, durch das Anſehen der franzoͤſiſchen Littera-<lb/>
+tur verleitet, damit vermenget haben. Die Natur, ſage<lb/>
+ich, iſt es auch noch jetzt, in dem kuͤnſtlichen Zuſtande der<lb/>
+Kultur, wodurch der Dichtergeiſt maͤchtig iſt, nur ſteht<lb/>
+er jetzt in einem ganz andern Verhaͤltniß zu derſelben.</p><lb/>
+<p>So lange der Menſch noch reine, es verſteht ſich, nicht<lb/>
+rohe Natur iſt, wirkt er als ungetheilte ſinnliche Einheit,<lb/>
+und als ein harmonierendes Ganze. Sinne und Vernunft,<lb/>
+empfangendes und ſelbſtthaͤtiges Vermoͤgen, haben ſich in<lb/>
+ihrem Geſchaͤfte noch nicht getrennt, vielweniger ſtehen<lb/>
+ſie im Widerſpruch miteinander. Seine Empfindungen<lb/>
+ſind nicht das formloſe Spiel des Zufalls, ſeine Gedan-<lb/>
+ken nicht das gehaltloſe Spiel der Vorſtellungskraft; aus<lb/>
+dem Geſetz der <hi rendition="#g">Nothwendigkeit</hi> gehen jene, aus der<lb/>
+<hi rendition="#g">Wirklichkeit</hi> gehen dieſe hervor. Iſt der Menſch in<lb/>
+den Stand der Kultur getreten, und hat die Kunſt ihre<lb/>
+Hand an ihn gelegt, ſo iſt jene <hi rendition="#g">ſinnliche</hi> Harmonie in<lb/>
+ihm aufgehoben, und er kann nur noch als <hi rendition="#g">moraliſche</hi><lb/>
+Einheit, d. h. als nach Einheit ſtrebend, ſich aͤußern.<lb/>
+Die Uebereinſtimmung zwiſchen ſeinem Empfinden und<lb/>
+Denken, die in dem erſten Zuſtande <hi rendition="#g">wirklich</hi> ſtatt fand,<lb/>
+exiſtiert jetzt bloß <hi rendition="#g">idealiſch;</hi> ſie iſt nicht mehr in ihm,<lb/>
+ſondern außer ihm; als ein Gedanke, der erſt realiſiert<lb/>
+werden ſoll, nicht mehr als Thatſache ſeines Lebens.<lb/>
+<pb n="3" facs="#f0010"/>
+Wendet man nun den Begriff der Poeſie, der kein an-<lb/>
+drer iſt, als <hi rendition="#g">der Menſchheit ihren moͤglichſt<lb/>
+vollſtaͤndigen Ausdruck zu geben,</hi> auf jene bey-<lb/>
+den Zuſtaͤnde an, ſo ergiebt ſich, daß dort in dem Zuſtan-<lb/>
+de natuͤrlicher Einfalt, wo der Menſch noch, mit allen<lb/>
+ſeinen Kraͤften zugleich, als harmoniſche Einheit wirkt,<lb/>
+wo mithin das Ganze ſeiner Natur ſich in der Wirklich-<lb/>
+keit vollſtaͤndig ausdruͤkt, die moͤglichſt vollſtaͤndige <hi rendition="#g">Nach-<lb/>
+ahmung des Wirklichen</hi> — daß hingegen hier in<lb/>
+dem Zuſtande der Kultur, wo jenes harmoniſche Zuſam-<lb/>
+menwirken ſeiner ganzen Natur bloß eine Idee iſt, die<lb/>
+Erhebung der Wirklichkeit zum Ideal oder was auf eins<lb/>
+hinauslaͤuft, die <hi rendition="#g">Darſtellung des Ideals den<lb/>
+Dichter machen muß.</hi> Und dieß ſind auch die zwey<lb/>
+einzig moͤglichen Arten, wie ſich uͤberhaupt der poetiſche<lb/>
+Genius aͤuſſern kann. Sie ſind, wie man ſieht, aͤuſſerſt<lb/>
+von einander verſchieden, aber es giebt einen hoͤhern Be-<lb/>
+griff, der ſie beyde unter ſich faßt, und es darf gar<lb/>
+nicht befremden, wenn dieſer Begriff mit der Idee der<lb/>
+Menſchheit in eins zuſammentrifft.</p><lb/>
+<p>Es iſt hier der Ort nicht, dieſen Gedanken, den nur<lb/>
+eine eigene Ausfuͤhrung in ſein volles Licht ſetzen kann,<lb/>
+weiter zu verfolgen. Wer aber nur irgend, dem Geiſte<lb/>
+nach, und nicht bloß nach zufaͤlligen Formen eine Ver-<lb/>
+gleichung zwiſchen alten und modernen Dichtern <note place="foot" n="*" xml:id="seg2pn_1_1" next="#seg2pn_1_2">Es iſt vielleicht nicht uͤberfluͤſſig zu erinnern, daß, wenn<lb/>
+hier die neuen Dichter den alten entgegengeſetzt werden,<lb/>
+nicht ſowohl der Unterſchied der Zeit, als der Unterſchied<lb/>
+der Manier zu verſtehen iſt. Wir haben auch in neuern<lb/>
+ja ſogar in neueſten Zeiten naive Dichtungen in allen Klaſſen</note> an-<lb/>
+<pb n="4" facs="#f0011"/>
+zuſtellen verſteht, wird ſich leicht von der Wahrheit deſ-<lb/>
+ſelben uͤberzeugen koͤnnen. Jene ruͤhren uns durch Na-<lb/>
+tur, durch ſinnliche Wahrheit, durch lebendige Gegen-<lb/>
+wart; dieſe ruͤhren uns durch Ideen.</p><lb/>
+<p>Dieſer Weg, den die neueren Dichter gehen, iſt uͤbri-<lb/>
+gens derſelbe, den der Menſch uͤberhaupt ſowohl im Ein-<lb/>
+zelnen als im Ganzen einſchlagen muß. Die Natur macht<lb/>
+ihn mit ſich Eins, die Kunſt trennt und entzweyet ihn,<lb/>
+durch das Ideal kehrt er zur Einheit zuruͤck. Weil aber<lb/>
+das Ideal ein unendliches iſt, das er niemals erreicht,<lb/>
+ſo kann der kultivierte Menſch in <hi rendition="#g">ſeiner</hi> Art niemals<lb/>
+vollkommen werden, wie doch der natuͤrliche Menſch es<lb/>
+in der ſeinigen zu werden vermag. Er muͤßte alſo dem<lb/>
+letztern an Vollkommenheit unendlich nachſtehen, wenn<lb/>
+bloß auf das Verhaͤltniß, in welchem beide zu ihrer Art<lb/>
+und zu ihrem Maximum ſtehen, geachtet wird. Ver-<lb/>
+gleicht man hingegen die Arten ſelbſt mit einander, ſo<lb/>
+zeigt ſich, daß das Ziel, zu welchem der Menſch durch<lb/>
+Kultur <hi rendition="#g">ſtrebt,</hi> demjenigen, welches er durch Natur <hi rendition="#g">er-<lb/>
+reicht,</hi> unendlich vorzuziehen iſt. Der eine erhaͤlt alſo<lb/>
+ſeinen Werth durch abſolute Erreichung einer endlichen,<lb/>
+der andre erlangt ihn durch Annaͤherung zu einer un-<lb/>
+<note place="foot" n="*" xml:id="seg2pn_1_2" prev="#seg2pn_1_1">wenn gleich nicht mehr ganz reiner Art und unter den alten<lb/>
+lateiniſchen ja ſelbſt griechiſchen Dichtern fehlt es nicht an<lb/>
+ſentimentaliſchen. Nicht nur in demſelben Dichter, auch<lb/>
+in demſelben Werke trifft man haͤufig beyde Gattungen ver-<lb/>
+einigt an; wie zum Beyſpiel in <hi rendition="#g">Werthers Leiden,</hi><lb/>
+und dergleichen Produkte werden immer den groͤßern Effekt<lb/>
+machen.</note><lb/>
+<pb n="5" facs="#f0012"/>
+endlichen Groͤße. Weil aber nur die letztere <hi rendition="#g">Grade</hi><lb/>
+und einen <hi rendition="#g">Fortſchritt</hi> hat, ſo iſt der relative Werth<lb/>
+des Menſchen, der in der Kultur begriffen iſt, im Gan-<lb/>
+zen genommen, niemals beſtimmbar, obgleich derſelbe<lb/>
+im einzelnen betrachtet ſich in einem nothwendigen Nach-<lb/>
+theil gegen denjenigen befindet, in welchem die Natur in<lb/>
+ihrer ganzen Vollkommenheit wirkt. Inſofern aber das<lb/>
+letzte Ziel der Menſchheit nicht anders als durch jene<lb/>
+Fortſchreitung zu erreichen iſt, und der letztere nicht an-<lb/>
+ders fortſchreiten kann, als indem er ſich kultiviert und<lb/>
+folglich in den erſtern uͤbergeht, ſo iſt keine Frage, wel-<lb/>
+chem von beyden in Ruͤckſicht auf jenes letzte Ziel der<lb/>
+Vorzug gebuͤhre.</p><lb/>
+<p>Daſſelbe, was hier von den zwey verſchiedenen For-<lb/>
+men der Menſchheit geſagt wird, laͤßt ſich auch auf jene<lb/>
+beyden, ihnen entſprechenden, Dichterformen anwenden.</p><lb/>
+<p>Man haͤtte deßwegen alte und moderne — naive und<lb/>
+ſentimentaliſche — Dichter entweder gar nicht, oder nur<lb/>
+unter einem gemeinſchaftlichen hoͤhern Begriff (einen ſol-<lb/>
+chen giebt es wirklich) miteinander vergleichen ſollen.<lb/>
+Denn freylich, wenn man den Gattungsbegriff der Poeſie<lb/>
+zuvor einſeitig aus den alten Poeten abſtrahiert hat, ſo<lb/>
+iſt nichts leichter, aber auch nichts trivialer, als die mo-<lb/>
+dernen gegen ſie herabzuſetzen. Wenn man nur das Poeſie<lb/>
+nennt, was zu allen Zeiten auf die einfaͤltige Natur gleich-<lb/>
+foͤrmig wirkte, ſo kann es nicht anders ſeyn, als daß man<lb/>
+den neuern Poeten gerade in ihrer eigenſten und erhaben-<lb/>
+ſten Schoͤnheit den Nahmen der Dichter wird ſtreitig<lb/>
+machen muͤſſen, weil ſie gerade hier nur zu dem Zoͤgling<lb/>
+der Kunſt ſprechen, und der einfaͤltigen Natur nichts zu<lb/>
+<pb n="6" facs="#f0013"/>
+ſagen haben. <note place="foot" n="*"><hi rendition="#g">Moliere</hi> als naiver Dichter durfte es allenfalls auf den<lb/>
+Ausſpruch ſeiner Magd ankommen laſſen, was in ſeinen Co-<lb/>
+moͤdien ſtehen bleiben und wegfallen ſollte; auch waͤre zu<lb/>
+wuͤnſchen geweſen, daß die Meiſter des franzoͤſiſchen Ko-<lb/>
+thurns mit ihren Trauerſpielen zuweilen dieſe Probe gemacht<lb/>
+haͤtten. Aber ich wollte nicht rathen, daß mit den Klop-<lb/>
+ſtockiſchen Oden, mit den ſchoͤnſten Stellen im Meſſias, im<lb/>
+verlorenen Paradies, in Nathan dem Weiſen, und vielen<lb/>
+andern Stuͤcken eine aͤhnliche Probe angeſtellt wuͤrde. Doch<lb/>
+was ſage ich? dieſe Probe iſt wirklich angeſtellt, und die<lb/>
+<hi rendition="#g">Molieriſche Magd</hi> raiſonniert ja langes und breites in<lb/>
+unſern kritiſchen Bibliotheken, philoſophiſchen und littera-<lb/>
+riſchen Annalen und Reiſebeſchreibungen uͤber Poeſie, Kunſt<lb/>
+und dergleichen, nur, wie billig, auf deutſchem Boden ein<lb/>
+wenig abgeſchmakter als auf franzoͤſiſchem, und wie es ſich<lb/>
+fuͤr die Geſindeſtube der deutſchen Litteratur geziemt.</note> Weſſen Gemuͤth nicht ſchon zubereitet<lb/>
+iſt, uͤber die Wirklichkeit hinaus ins Ideenreich zu gehen,<lb/>
+fuͤr den wird der reichſte Gehalt leerer Schein und der<lb/>
+hoͤchſte Dichterſchwung Ueberſpannung ſeyn. Keinem<lb/>
+Vernuͤnftigen kann es einfallen, in demjenigen, worinn<lb/>
+Homer groß iſt, irgend einen Neuern ihm an die Seite<lb/>
+ſtellen zu wollen, und es klingt laͤcherlich genug, wenn<lb/>
+man einen Milton oder Klopſtock mit dem Nahmen eines<lb/>
+neuern Homer beehrt ſieht. Eben ſo wenig aber wird<lb/>
+irgend ein alter Dichter und am wenigſten Homer in dem-<lb/>
+jenigen, was den modernen Dichter charakteriſtiſch aus-<lb/>
+zeichnet, die Vergleichung mit demſelben aushalten koͤn-<lb/>
+nen. Jener, moͤchte ich es ausdruͤcken, iſt maͤchtig durch<lb/>
+<pb n="7" facs="#f0014"/>
+die Kunſt der Begrenzung, dieſer iſt es durch die Kunſt<lb/>
+des Unendlichen.</p><lb/>
+<p>Und eben daraus, daß die Staͤrke des alten Kuͤnſtlers<lb/>
+(denn was hier von dem Dichter geſagt worden, kann<lb/>
+unter den Einſchraͤnkungen, die ſich von ſelbſt ergeben,<lb/>
+auch auf den ſchoͤnen Kuͤnſtler uͤberhaupt ausgedehnt wer-<lb/>
+den) in der Begrenzung beſtehet, erklaͤrt ſich der hohe<lb/>
+Vorzug, den die bildende Kunſt des Alterthums uͤber die<lb/>
+der neueren Zeiten behauptet, und uͤberhaupt das ungleiche<lb/>
+Verhaͤltniß des Werths, in welchem moderne Dichtkunſt<lb/>
+und moderne bildende Kunſt zu beyden Kunſtgattungen<lb/>
+im Alterthum ſtehen. Ein Werk fuͤr das Auge findet nur<lb/>
+in der Begrenzung ſeine Vollkommenheit; ein Werk fuͤr<lb/>
+die Einbildungskraft kann ſie auch durch das Unbegrenzte<lb/>
+erreichen. In plaſtiſchen Werken hilft daher dem Neuern<lb/>
+ſeine Ueberlegenheit in Ideen wenig; hier iſt er genoͤthigt,<lb/>
+das Bild ſeiner Einbildungskraft auf das genaueſte <hi rendition="#g">im<lb/>
+Raum zu beſtimmen</hi>, und ſich folglich mit dem alten<lb/>
+Kuͤnſtler gerade in derjenigen Eigenſchaft zu meſſen, worinn<lb/>
+dieſer ſeinen unabſtreitbaren Vorzug hat. In poetiſchen<lb/>
+Werken iſt es anders, und ſiegen gleich die alten Dichter<lb/>
+auch hier in der Einfalt der Formen und in dem was<lb/>
+ſinnlich darſtellbar und <hi rendition="#g">koͤrperlich</hi> iſt, ſo kann der neuere<lb/>
+ſie wieder im Reichthum des Stoffes, in dem was un-<lb/>
+darſtellbar und unausſprechlich iſt, kurz, in dem was man<lb/>
+in Kunſtwerken <hi rendition="#g">Geiſt</hi> nennt, hinter ſich laſſen. <note place="foot" n="*" xml:id="seg2pn_2_1" next="#seg2pn_2_2">Individualitaͤt mit einem Wort iſt der Charakter des Al-<lb/>
+ten, und Idealitaͤt die Staͤrke des Modernen. Es iſt alſo<lb/>
+natuͤrlich, daß in allem, was zur unmittelbaren ſinnlichen<lb/>
+Anſchauung gelangen und als Individuum wirken muß,</note></p><lb/>
+<pb n="8" facs="#f0015"/>
+<p>Da der naive Dichter bloß der einfachen Natur<lb/>
+und Empfindung folgt, und ſich bloß auf Nachahmung<lb/>
+<note place="foot" n="*" xml:id="seg2pn_2_2" prev="#seg2pn_2_1" next="#seg2pn_2_3">der erſte uͤber den zweyten den Sieg davon tragen wird.<lb/>
+Eben ſo natuͤrlich iſt es auf der andern Seite, daß da wo<lb/>
+es auf geiſtige Anſchauungen ankommt und die Sinnenwelt<lb/>
+uͤberſchritten werden ſoll und darf, der erſte nothwendig<lb/>
+durch die Schranken der Materie leiden, und eben weil er<lb/>
+ſich ſtreng an dieſe bindet, hinter dem andern, der ſich da-<lb/>
+von freyſpricht, wird zuruͤckbleiben muͤſſen.<lb/>
+Nun entſteht natuͤrlicherweiſe die Frage (die wichtigſte,<lb/>
+die uͤberhaupt in einer Philoſophie der Kunſt kann aufge-<lb/>
+worfen werden) ob und in wie fern in demſelben Kunſt-<lb/>
+werke Individualitaͤt mit Idealitaͤt zu vereinigen ſey — ob<lb/>
+ſich alſo (welches auf eins hinauslaͤuft) eine Coalition des<lb/>
+alten Dichtercharakters mit dem modernen gedenken laſſe,<lb/>
+welche, wenn ſie wirklich ſtatt faͤnde, als der hoͤchſte Gipfel<lb/>
+aller Kunſt zu betrachten ſeyn wuͤrde. Sachverſtaͤndige be-<lb/>
+haupten, daß dieſes, in Ruͤckſicht auf bildende Kunſt, von<lb/>
+den Antiken gewiſſermaaßen geleiſtet ſey, indem hier wirk-<lb/>
+lich das Individuum ideal ſey und das Ideal in einem<lb/>
+Individuum <hi rendition="#g">erſcheine</hi>. Soviel iſt indeſſen gewiß, daß<lb/>
+in der Poeſie dieſer Gipfel noch keineswegs erreicht iſt;<lb/>
+denn hier fehlt noch ſehr viel daran, daß das vollkommenſte<lb/>
+Werk, der Form nach, es auch dem Inhalte nach ſey, daß<lb/>
+es nicht bloß ein wahres und ſchoͤnes <hi rendition="#g">Ganze</hi> ſondern auch<lb/>
+das moͤglichſt <hi rendition="#g">reichſte</hi> Ganze ſey. Es ſey dieß aber nun<lb/>
+erreichbar und erreicht oder nicht, ſo iſt es wenigſtens die<lb/>
+Aufgabe auch in der Dichtkunſt, das ideale zu individua-</note><lb/>
+<pb n="9" facs="#f0016"/>
+der Wirklichkeit beſchraͤnkt, ſo kann er zu ſeinem Ge-<lb/>
+genſtand auch nur ein einziges Verhaͤltniß haben, und<lb/>
+es giebt, in <hi rendition="#g">dieſer</hi> Ruͤckſicht, fuͤr ihn keine Wahl der<lb/>
+Behandlung. Der verſchiedene Eindruck naiver Dichtun-<lb/>
+gen beruht, (vorausgeſetzt, daß man alles hinweg denkt,<lb/>
+was daran dem Inhalt gehoͤrt und jenen Eindruck nur<lb/>
+als das reine Werk der poetiſchen Behandlung betrachtet)<lb/>
+beruht ſage ich bloß auf dem verſchiedenen <hi rendition="#g">Grad</hi> einer<lb/>
+und derſelben Empſindungsweiſe; ſelbſt die Verſchiedenheit<lb/>
+in den aͤuſern Formen kann in der Qualitaͤt jenes aeſtheti-<lb/>
+ſchen Eindrucks keine Veraͤnderung machen. Die Form<lb/>
+ſey lyriſch oder epiſch, dramatiſch oder beſchreibend; wir<lb/>
+koͤnnen wohl ſchwaͤcher und ſtaͤrker, aber (ſobald von<lb/>
+dem Stoff abſtrahiert wird) nie verſchiedenartig geruͤhrt<lb/>
+werden. Unſer Gefuͤhl iſt durchgaͤngig daſſelbe, ganz aus<lb/>
+Einem Element, ſo daß wir nichts darinn zu unterſcheiden<lb/>
+vermoͤgen. Selbſt der Unterſchied der Sprachen und Zeit-<lb/>
+alter aͤndert hier nichts, denn eben dieſe reine Einheit<lb/>
+ihres Urſprungs und ihres Effekts iſt ein Charakter der<lb/>
+naiven Dichtung.</p><lb/>
+<p><note place="foot" n="*" xml:id="seg2pn_2_3" prev="#seg2pn_2_2">liſieren und das individuelle zu idealiſieren. Der moderne<lb/>
+Dichter <hi rendition="#g">muß</hi> ſich dieſe Aufgabe machen, wenn er ſich<lb/>
+uͤberall nur ein hoͤchſtes und leztes Ziel ſeines Strebens<lb/>
+gedenken ſoll. Denn, da er einerſeits durch das Ideen-<lb/>
+vermoͤgen uͤber die Wirklichkeit hinausgetrieben, andrerſeits<lb/>
+aber durch den Darſtellungstrieb beſtaͤndig wieder zu der-<lb/>
+ſelben zuruͤckgenoͤthiget wird, ſo geraͤth er in einen Zwie-<lb/>
+ſpalt mit ſich ſelbſt, der nicht anders als dadurch, daß er<lb/>
+eine Darſtellbarkeit des Ideals regulativ annimmt, beyzu-<lb/>
+legen iſt.</note></p><lb/>
+<pb n="10" facs="#f0017"/>
+<p>Ganz anders verhaͤlt es ſich mit dem ſentimentaliſchen<lb/>
+Dichter. Dieſer <hi rendition="#g">reflektiert</hi> uͤber den Eindruck, den<lb/>
+die Gegenſtaͤnde auf ihn machen und nur auf jene Reflexion<lb/>
+iſt die Ruͤhrung gegruͤndet, in die er ſelbſt verſetzt wird,<lb/>
+und uns verſetzt. Der Gegenſtand wird hier auf eine<lb/>
+Idee bezogen und nur auf dieſer Beziehung beruht ſeine<lb/>
+dichteriſche Kraft. Der ſentimentaliſche Dichter hat es<lb/>
+daher immer mit zwey ſtreitenden Vorſtellungen und Em-<lb/>
+pfindungen, mit der Wirklichkeit als Grenze und mit<lb/>
+ſeiner Idee als dem Unendlichen zu thun, und das ge-<lb/>
+miſchte Gefuͤhl, das er erregt, wird immer von dieſer<lb/>
+doppelten Quelle zeugen. <note place="foot" n="*">Wer bey ſich auf den Eindruck merkt, den naive Dichtun-<lb/>
+gen auf ihn machen, und den Antheil, der dem Inhalt<lb/>
+daran gebuͤhrt, davon abzuſondern im Stand iſt, der<lb/>
+wird dieſen Eindruck, auch ſelbſt bey ſehr pathetiſchen<lb/>
+Gegenſtaͤnden, immer froͤhlich, immer rein, immer ruhig<lb/>
+finden; bey ſentimentaliſchen wird er immer etwas ernſt<lb/>
+und anſpannend ſeyn. Das macht, weil wir uns bey<lb/>
+naiven Darſtellungen, ſie handeln auch wovon ſie wollen,<lb/>
+immer uͤber die Wahrheit, uͤber die lebendige Gegenwart<lb/>
+des Objects in unſerer Einbildungskraft erfreuen, und auch<lb/>
+weiter nichts als dieſe ſuchen, bey ſentimentaliſchen hinge-<lb/>
+gen die Vorſtellung der Einbildungskraft mit einer Ver-<lb/>
+nunftidee zu vereinigen haben, und alſo immer zwiſchen<lb/>
+zwey verſchiedenen Zuſtaͤnden in Schwanken gerathen.</note> Da alſo hier eine Mehrheit<lb/>
+der Principien ſtatt findet, ſo kommt es darauf an, welches<lb/>
+von beyden in der Empfindung des Dichters und in ſeiner<lb/>
+Darſtellung <hi rendition="#g">uͤberwiegen</hi> wird, und es iſt folglich eine<lb/>
+Verſchiedenheit in der Behandlung moͤglich. Denn nun<lb/>
+<pb n="11" facs="#f0018"/>
+entſteht die Frage, ob er mehr bey der Wirklichkeit, ob<lb/>
+er mehr bey dem Ideale verweilen — ob er jene als einen<lb/>
+Gegenſtand der Abneigung, ob er dieſes als einen Gegen-<lb/>
+ſtang der Zuneigung ausfuͤhren will. Seine Darſtellung<lb/>
+wird alſo entweder <hi rendition="#g">ſatyriſch</hi> oder ſie wird (in einer<lb/>
+weitern Bedeutung dieſes Worts, die ſich nachher erklaͤ-<lb/>
+ren wird) <hi rendition="#g">clegiſch</hi> ſeyn; an eine von dieſen beyden<lb/>
+Empfindungsarten wird jeder ſentimentaliſche Dichter ſich<lb/>
+halten.</p><lb/>
+<div n="2"><head><hi rendition="#g">Satyriſche Dichtung</hi>.</head><lb/>
+<p>Satyriſch iſt der Dichter, wenn er die Entfernung von<lb/>
+der Natur und den Widerſpruch der Wirklichkeit mit dem<lb/>
+Ideale (in der Wirkung auf das Gemuͤth kommt beydes<lb/>
+auf eins hinaus) zu ſeinem Gegenſtande macht. Dieß kann<lb/>
+er aber ſowohl ernſthaft und mit Affekt, als ſcherzhaft und<lb/>
+mit Heiterkeit ausfuͤhren; je nachdem er entweder im<lb/>
+Gebiethe des Willens oder im Gebiethe des Verſtandes<lb/>
+verweilt. Jenes geſchieht durch die <hi rendition="#g">ſtrafende</hi>, oder<lb/>
+pathetiſche, dieſes durch die <hi rendition="#g">ſcherzhafte</hi> Satyre.</p><lb/>
+<p>Streng genommen vertraͤgt zwar der Zweck des Dich-<lb/>
+ters weder den Ton der Strafe noch den der Beluſtigung.<lb/>
+Jener iſt zu ernſt fuͤr das Spiel, was die Poeſie immer<lb/>
+ſeyn ſoll; dieſer iſt zu frivol fuͤr den Ernſt, der allem poe-<lb/>
+tiſchen Spiele zum Grund liegen ſoll. Moraliſche Wider-<lb/>
+ſpruͤche intereſſieren nothwendig unſer Herz, und rauben<lb/>
+alſo dem Gemuͤth ſeine Freyheit; und doch ſoll aus poeti-<lb/>
+ſchen Ruͤhrungen alles eigentliche Intereſſe, d. h. alle Be-<lb/>
+ziehung auf ein Beduͤrfniß verbannt ſeyn. Verſtandes-<lb/>
+<pb n="12" facs="#f0019"/>
+Widerſpruͤche hingegen laſſen das Herz gleichguͤltig, und<lb/>
+doch hat es der Dichter mit dem hoͤchſten Anliegen des<lb/>
+Herzens, mit der Natur und dem Ideal, zu thun. Es<lb/>
+iſt daher keine geringe Aufgabe fuͤr ihn, in der patheti-<lb/>
+ſchen Satyre nicht die poetiſche Form zu verletzen, wel-<lb/>
+che in der Freyheit des Spiels beſteht, in der ſcherzhaften<lb/>
+Satyre nicht den poetiſchen Gehalt zu verfehlen, welcher<lb/>
+immer das Unendliche ſeyn muß. Dieſe Aufgabe kann<lb/>
+nur auf eine einzige Art geloͤſet werden. Die ſtrafende<lb/>
+Satyre erlangt poetiſche Freyheit, indem ſie ins Erhabe-<lb/>
+ne uͤbergeht, die lachende Satyre erhaͤlt poetiſchen Ge-<lb/>
+halt, indem ſie ihren Gegenſtand mit Schoͤnheit behandelt.</p><lb/>
+<p>In der Satyre wird die Wirklichkeit als Mangel, dem<lb/>
+Ideal als der hoͤchſten Realitaͤt gegenuͤber geſtellt. Es iſt<lb/>
+uͤbrigens gar nicht noͤthig, daß das letztere ausgeſprochen<lb/>
+werde, wenn der Dichter es nur im Gemuͤth zu erwecken<lb/>
+weiß; diß muß er aber ſchlechterdings, oder er wird gar<lb/>
+nicht poetiſch wirken. Die Wirklichkeit iſt alſo hier ein<lb/>
+nothwendiges Objekt der Abneigung, aber worauf hier<lb/>
+alles ankoͤmmt, dieſe Abneigung ſelbſt muß wieder noth-<lb/>
+wendig aus dem entgegenſtehenden Ideale entſpringen. Sie<lb/>
+koͤnnte nehmlich auch eine bloß ſinnliche Quelle haben<lb/>
+und lediglich in Beduͤrfniß gegruͤndet ſeyn, mit welchem<lb/>
+die Wirklichkeit ſtreitet; und haͤuffig genug glauben wir<lb/>
+einen moraliſchen Unwillen uͤber die Welt zu empfinden,<lb/>
+wenn uns bloß der Widerſtreit derſelben mit unſerer Nei-<lb/>
+gung erbittert. Dieſes materielle Intereſſe iſt es, was<lb/>
+der gemeine Satyriker ins Spiel bringt, und weil es ihm<lb/>
+auf dieſem Wege gar nicht fehl ſchlaͤgt, uns in Affekt zu<lb/>
+verſetzen, ſo glaubt er unſer Herz in ſeiner Gewalt zu ha-<lb/>
+ben und im pathetiſchen Meiſter zu ſeyn. Aber jedes Pa-<lb/>
+<pb n="13" facs="#f0020"/>
+thos aus dieſer Quelle iſt der Dichtkunſt unwuͤrdig, die<lb/>
+uns nur durch Ideen ruͤhren und nur durch die Vernunft<lb/>
+zu unſerm Herzen den Weg nehmen darf. Auch wird ſich<lb/>
+dieſes unreine und materielle Pathos jederzeit durch ein<lb/>
+Uebergewicht des Leidens und durch eine peinliche Befan-<lb/>
+genheit des Gemuͤths offenbaren, da im Gegentheil das<lb/>
+wahrhaft poetiſche Pathos an einem Uebergewicht der<lb/>
+Selbſtthaͤtigkeit und an einer, auch im Affekte noch beſte-<lb/>
+henden Gemuͤthsfreyheit zu erkennen iſt. Entſpringt nehm-<lb/>
+lich die Ruͤhrung aus dem, der Wirklichkeit gegenuͤber<lb/>
+ſtehenden Ideale, ſo verliert ſich in der Erhabenheit des<lb/>
+letztern jedes einengende Gefuͤhl und die Groͤße der Idee,<lb/>
+von der wir erfuͤllt ſind, erhebt uns uͤber alle Schranken<lb/>
+der Erfahrung. Bey der Darſtellung empoͤrender Wirk-<lb/>
+lichkeit kommt daher alles darauf an, daß das Nothwen-<lb/>
+dige der Grund ſey, auf welchem der Dichter oder der<lb/>
+Erzaͤhler das Wirkliche auftraͤgt, daß er unſer Gemuͤth<lb/>
+fuͤr Ideen zu ſtimmen wiſſe. Stehen <hi rendition="#g">wir</hi> nur hoch in<lb/>
+der Beurtheilung, ſo hat es nichts zu ſagen, wenn auch<lb/>
+der Gegenſtand tief und niedrig, unter uns zuruͤckbleibt.<lb/>
+Wenn uns der Geſchichtſchreiber <hi rendition="#g">Tacitus</hi> den tiefen<lb/>
+Verfall der Roͤmer des erſten Jahrhunderts ſchildert, ſo<lb/>
+iſt es ein hoher Geiſt, der auf das Niedrige herabblickt,<lb/>
+und unſere Stimmung iſt wahrhaft poetiſch, weil nur<lb/>
+die Hoͤhe, worauf er ſelbſt ſteht und zu der er uns zu er-<lb/>
+heben wußte, ſeinen Gegenſtand niedrig machte.</p><lb/>
+<p>Die pathetiſche Satyre muß alſo jederzeit aus einem<lb/>
+Gemuͤthe flieſſen, welches von dem Ideale lebhaft durch-<lb/>
+drungen iſt. Nur ein herrſchender Trieb nach Ueberein-<lb/>
+ſtimmung kann und darf jenes tiefe Gefuͤhl moraliſcher<lb/>
+Widerſpruͤche und jenen gluͤhenden Unwillen gegen mora-<lb/>
+<pb n="14" facs="#f0021"/>
+liſche Verkehrtheit erzeugen, welcher in einem Juvenal,<lb/>
+Lucian, Dante, Swift, Young, Rouſſeau, Haller und<lb/>
+andern zur Begeiſterung wird. Die nehmlichen Dichter<lb/>
+wuͤrden und muͤßten mit demſelben Gluͤck auch in den ruͤh-<lb/>
+renden und zaͤrtlichen Gattungen gedichtet haben, wenn<lb/>
+nicht zufaͤllige Urſachen ihrem Gemuͤth fruͤhe dieſe beſtimm-<lb/>
+te Richtung gegeben haͤtten; auch haben ſie es zum Theil<lb/>
+wirklich gethan. Alle die hier genannten lebten entweder<lb/>
+in einem ausgearteten Zeitalter und hatten eine ſchauder-<lb/>
+hafte Erfahrung moraliſcher Verderbniß vor Augen, oder<lb/>
+eigene Schickſale hatten Bitterkeit in ihre Seele geſtreut.<lb/>
+Auch der philoſophiſche Geiſt, da er mit unerbittlicher<lb/>
+Strenge den Schein von dem Weſen trennt, und in die<lb/>
+Tiefen der Dinge dringet, neigt das Gemuͤth zu dieſer<lb/>
+Haͤrte und Auſteritaͤt, mit welcher Rouſſeau, Haller und<lb/>
+andre die Wirklichkeit mahlen. Aber dieſe aͤuſern und zu-<lb/>
+faͤlligen Einfluͤſſe, welche immer einſchraͤnkend wirken,<lb/>
+duͤrfen hoͤchſtens nur die Richtung beſtimmen, niemals<lb/>
+den Innhalt der Begeiſterung hergeben. Dieſer muß in<lb/>
+allen derſelbe ſeyn, und, rein von jedem aͤuſern Beduͤrf-<lb/>
+niß, aus einem gluͤhenden Triebe fuͤr das Ideal hervor-<lb/>
+flieſſen, welcher durchaus der einzig wahre Beruf zu dem ſaty-<lb/>
+riſchen wie uͤberhaupt zu dem ſentimentaliſchen Dichter iſt.</p><lb/>
+<p>Wenn die pathetiſche Satyre nur <hi rendition="#g">erhabene</hi> Seelen<lb/>
+kleidet, ſo kann die ſpottende Satyre nur einem <hi rendition="#g">ſchoͤnen</hi><lb/>
+Herzen gelingen. Denn jene iſt ſchon durch ihren ernſten<lb/>
+Gegenſtand vor der Frivolitaͤt geſichert; aber dieſe, die<lb/>
+nur einen moraliſch gleichguͤltigen Stoff behandeln darf,<lb/>
+wuͤrde unvermeidlich darein verfallen, und jede poetiſche<lb/>
+Wuͤrde verlieren, wenn hier nicht die Behandlung den<lb/>
+Innhalt veredelte und das <hi rendition="#g">Subjekt</hi> des Dichters nicht<lb/>
+<pb n="15" facs="#f0022"/>
+ſein Objekt vertraͤte. Aber nur dem ſchoͤnen Herzen iſt<lb/>
+es verliehen, unabhaͤngig von dem Gegenſtand ſeines Wir-<lb/>
+kens, in jeder ſeiner Aeußerungen ein vollendetes Bild<lb/>
+von ſich ſelbſt abzupraͤgen. Der erhabene Charakter kann<lb/>
+ſich nur in einzelnen Siegen uͤber den Widerſtand der<lb/>
+Sinne, nur in gewiſſen Momenten des Schwunges und<lb/>
+einer augenblicklichen Anſtrengung kund thun; in der ſchoͤ-<lb/>
+nen Seele hingegen wirkt das Ideal als Natur, alſo gleich-<lb/>
+foͤrmig, und kann mithin auch in einem Zuſtand der Ru-<lb/>
+he ſich zeigen.</p><lb/>
+<p>Es iſt mehrmals daruͤber geſtritten worden, welche<lb/>
+von beyden, die Tragoͤdie oder die Comoͤdie vor der an-<lb/>
+dern den Rang verdiene. Wird damit bloß gefragt, wel-<lb/>
+che von beyden das wichtigere Objekt behandle, ſo iſt kein<lb/>
+Zweifel, daß die erſtere den Vorzug behauptet; will man<lb/>
+aber wiſſen, welche von beyden das wichtigere Subjekt<lb/>
+erfodre, ſo muß der Ausſpruch eben ſo entſcheidend fuͤr die<lb/>
+letztere ausfallen. In der Tragoͤdie geſchieht ſchon durch<lb/>
+den Gegenſtand ſehr viel, in der Comoͤdie geſchieht durch<lb/>
+den Gegenſtand nichts und alles durch den Dichter. Da<lb/>
+nun bey Urtheilen des Geſchmacks der Stoff nie in Be-<lb/>
+trachtung kommt, ſo muß natuͤrlicher weiſe der aͤſthetiſche<lb/>
+Werth dieſer beyden Kunſtgattungen in umgekehrtem Ver-<lb/>
+haͤltniß zu ihrer materiellen Wichtigkeit ſtehen. Den tra-<lb/>
+giſchen Dichter traͤgt ſein Objekt, der komiſche hingegen<lb/>
+muß durch ſein Subjekt das ſeinige in der aͤſthetiſchen Hoͤ-<lb/>
+he erhalten. Jener darf einen Schwung nehmen, wozu<lb/>
+ſoviel eben nicht gehoͤret; der andre muß ſich gleich blei-<lb/>
+ben, er muß alſo ſchon dort <hi rendition="#g">ſeyn</hi> und dort zu Hauſe<lb/>
+ſeyn, wohin der andre nicht ohne einen Anlauf gelangt.<lb/>
+Und gerade das iſt es, worinn ſich der ſchoͤne Charakter<lb/>
+<pb n="16" facs="#f0023"/>
+von dem erhabenen unterſcheidet. In dem erſten iſt jede<lb/>
+Groͤße ſchon enthalten, ſie fließt ungezwungen und muͤhe-<lb/>
+los aus ſeiner Natur, er iſt, dem Vermoͤgen nach, ein<lb/>
+Unendliches in jedem Punkte ſeiner Bahn; der andere kann<lb/>
+ſich zu jeder Groͤße anſpannen und erheben, er kann durch<lb/>
+die Kraft ſeines Willens aus jedem Zuſtande der Beſchraͤn-<lb/>
+kung ſich reiſſen. Dieſer iſt alſo nur ruckweiſe und nur<lb/>
+mit Anſtrengung frey, jener iſt es mit Leichtigkeit und<lb/>
+immer.</p><lb/>
+<p>Dieſe Freyheit des Gemuͤths in uns hervorzubringen<lb/>
+und zu naͤhren, iſt die ſchoͤne Aufgabe der Comoͤdie, ſo<lb/>
+wie die Tragoͤdie beſtimmt iſt, die Gemuͤthsfreyheit, wenn<lb/>
+ſie durch einen Affekt gewaltſam aufgehoben worden, auf<lb/>
+aͤſthetiſchem Weg wieder herſtellen zu helfen. In der Tra-<lb/>
+goͤdie muß daher die Gemuͤthsfreyheit kuͤnſtlicherweiſe und<lb/>
+als Experiment <hi rendition="#g">kuͤnſtlich</hi> aufgehoben werden, weil ſie<lb/>
+in Herſtellung derſelben ihre poetiſche Kraft beweißt; in<lb/>
+der Comoͤdie hingegen muß verhuͤtet werden, daß es nie-<lb/>
+mals zu jener Aufhebung der Gemuͤthsfreyheit komme.<lb/>
+Daher behandelt der Tragoͤdiendichter ſeinen Gegenſtand<lb/>
+immer praktiſch, der Comoͤdiendichter den ſeinigen immer<lb/>
+theoretiſch; auch wenn jener (wie Leſſing in ſeinem Na-<lb/>
+than) die Grille haͤtte einen theoretiſchen, dieſer, einen<lb/>
+praktiſchen Stoff zu bearbeiten. Nicht das Gebieth aus<lb/>
+welchem der Gegenſtand genommen, ſondern das Forum<lb/>
+vor welches der Dichter ihn bringt, macht denſelben tra-<lb/>
+giſch oder komiſch. Der Tragiker muß ſich vor dem ruhi-<lb/>
+gen Raiſonnement in Acht nehmen und immer das Herz<lb/>
+intereſſieren, der Comiker muß ſich vor dem Pathos huͤten<lb/>
+und immer den Verſtand unterhalten. Jener zeigt alſo<lb/>
+durch beſtaͤndige Erregung, dieſer durch beſtaͤndige Ab-<lb/>
+<pb n="17" facs="#f0024"/>
+wehrung der Leidenſchaft ſeine Kunſt; und dieſe Kunſt iſt<lb/>
+natuͤrlich auf beyden Seiten um ſo groͤſſer, je mehr der<lb/>
+Gegenſtand des Einen abſtrakter Natur iſt, und der des<lb/>
+Andern ſich zum pathetiſchen neigt. <note place="foot" n="*">Im Nathan dem Weiſen iſt dieſes nicht geſchehen, hier hat<lb/>
+die froſtige Natur des Stoffs das ganze Kunſtwerk erkaͤltet.<lb/>
+Aber Leſſing wußte ſelbſt, daß er kein Trauerſpiel ſchrieb,<lb/>
+und vergaß nur, menſchlicher weiſe, in ſeiner eigenen Ange-<lb/>
+legenheit die in der Dramaturgie aufgeſtellte Lehre, daß der<lb/>
+Dichter nicht befugt ſey, die tragiſche Form zu einem an-<lb/>
+dern als tragiſchen Zweck anzuwenden. Ohne ſehr weſentli-<lb/>
+che Veraͤnderungen wuͤrde es kaum moͤglich geweſen ſeyn,<lb/>
+dieſes dramatiſche Gedicht in eine gute Tragoͤdie umzuſchaf-<lb/>
+fen; aber mit bloß zufaͤlligen Veraͤnderungen moͤchte es eine<lb/>
+gute Comoͤdie abgegeben haben. Dem letztern Zweck nehm-<lb/>
+lich haͤtte das Pathetiſche dem erſtern das Raiſonnierende auf-<lb/>
+geopfert werden muͤſſen, und es iſt wohl keine Frage, auf<lb/>
+welchem von beyden die Schoͤnheit dieſes Gedichts am mei-<lb/>
+ſten beruht.</note> Wenn alſo die Tra-<lb/>
+goͤdie von einem nichtigern Punkt ausgeht, ſo muß man<lb/>
+auf der andern Seite geſtehen, daß die Comoͤdie einem<lb/>
+wichtigern Ziel entgegen geht, und ſie wuͤrde, wenn ſie es<lb/>
+erreichte, alle Tragoͤdie uͤberfluͤßig und unmoͤglich machen.<lb/>
+Ihr Ziel iſt einerley mit dem hoͤchſten, wornach der Menſch<lb/>
+zu ringen hat, frey von Leidenſchaft zu ſeyn, immer klar<lb/>
+immer ruhig um ſich und in ſich zu ſchauen, uͤberall mehr<lb/>
+Zufall als Schickſal zu finden, und mehr uͤber Ungereimt-<lb/>
+heit zu lachen als uͤber Boßheit zu zuͤrnen oder zu weinen.</p><lb/>
+<fw type="sig" place="bottom">Die Horen. 1795. 12tes St. 2</fw><lb/>
+<pb n="18" facs="#f0025"/>
+<p>Wie in dem handelnden Leben ſo begegnet es auch oft<lb/>
+bey dichteriſchen Darſtellungen, den bloß leichten Sinn,<lb/>
+das angenehme Talent, die froͤhliche Gutmuͤthigkeit mit<lb/>
+Schoͤnheit der Seele zu verwechſeln, und da ſich der ge-<lb/>
+meine Geſchmack uͤberhaupt nie uͤber das Angenehme er-<lb/>
+hebt, ſo iſt es ſolchen <hi rendition="#g">niedlichen</hi> Geiſtern ein leichtes,<lb/>
+jenen Ruhm zu uſurpieren, der ſo ſchwer zu verdienen iſt.<lb/>
+Aber es giebt eine untruͤgliche Probe, vermittelſt deren<lb/>
+man die Leichtigkeit des Naturells von der Leichtigkeit<lb/>
+des Ideals, ſo wie die Tugend des Temperaments von<lb/>
+der wahrhaften Sittlichkeit des Charakters unterſcheiden<lb/>
+kann, und dieſe iſt, wenn beyde ſich an einem ſchwuͤrigen<lb/>
+und großen Objekte verſuchen. In einem ſolchen Fall geht<lb/>
+das niedliche Genie unfehlbar in das Platte, ſo wie die<lb/>
+Temperamentstugend in das Materielle, die wahrhaft ſchoͤ-<lb/>
+ne Seele hingegen geht eben ſo gewiß in die erhabene uͤber.</p><lb/>
+<p>So lange <hi rendition="#g">Lucian</hi> bloß die Ungereimtheit zuͤchtigt,<lb/>
+wie in den Wuͤnſchen, in den Lapithen, in dem Jupiter,<lb/>
+Tragoͤdus u. a. bleibt er Spoͤtter, und ergoͤtzt uns mit<lb/>
+ſeinem froͤhlichen Humor; aber es wird ein ganz anderer<lb/>
+Mann aus ihm in vielen Stellen ſeines Nigrinus, ſeines<lb/>
+Timons, ſeines Alexander, wo ſeine Satyre auch die mo-<lb/>
+raliſche Verderbniß trift. „Ungluͤckſeliger”, ſo beginnt<lb/>
+er in ſeinem Nigrinus das empoͤrende Gemaͤhlde des da-<lb/>
+maligen Roms, „warum verlieſſeſt du das Licht der Son-<lb/>
+ne, Griechenland, und jenes gluͤkliche Leben der Frey-<lb/>
+heit, und kammſt hieher in dieß Getuͤmmel von prachtvol-<lb/>
+ler Dienſtbarkeit, von Aufwartungen und Gaſtmaͤlern,<lb/>
+von Sykophanten, Schmeichlern, Giftmiſchern, Erb-<lb/>
+ſchleichern und falſchen Freunden? u. ſ. w.” Bey ſolchen<lb/>
+und aͤhnlichen Anlaͤſſen muß ſich der hohe Ernſt des Ge-<lb/>
+<pb n="19" facs="#f0026"/>
+fuͤhls offenbaren, der allem Spiele, wenn es poetiſch ſeyn<lb/>
+ſoll, zum Grunde liegen muß. Selbſt durch den boßhaf-<lb/>
+ten Scherz, womit ſowohl Lucian als Ariſtophanes den<lb/>
+Sokrates mißhandeln, blickt eine ernſte Vernunft hervor,<lb/>
+welche die Wahrheit an dem Sophiſten raͤcht, und fuͤr<lb/>
+ein Ideal ſtreitet, das ſie nur nicht immer ausſpricht.<lb/>
+Auch hat der erſte von beyden in ſeinem Diogenes und<lb/>
+Daͤmonax dieſen Charakter gegen alle Zweifel gerechtfer-<lb/>
+tigt; unter den Neuern welchen großen und ſchoͤnen Cha-<lb/>
+rakter druͤckt nicht <hi rendition="#g">Cervantes</hi> bey jedem wuͤrdigen An-<lb/>
+laß in ſeinem <hi rendition="#g">Don Quixote</hi> aus, welch ein herrliches<lb/>
+Ideal mußte nicht in der Seele des Dichters leben, der<lb/>
+einen <hi rendition="#g">Tom Jones</hi> und eine <hi rendition="#g">Sophia</hi> erſchuf, wie<lb/>
+kann der Lacher <hi rendition="#g">Yorik</hi> ſobald er will unſer Gemuͤth ſo<lb/>
+groß und ſo maͤchtig bewegen. Auch in unſerm <hi rendition="#g">Wieland</hi><lb/>
+erkenne ich dieſen Ernſt der Empfindung; ſelbſt die muth-<lb/>
+willigen Spiele ſeiner Laune beſeelt und adelt die Gra-<lb/>
+zie des Herzens; ſelbſt in den Rhythmus ſeines Geſanges<lb/>
+druͤckt ſie ihr Gepraͤg, und nimmer fehlt ihm die<lb/>
+Schwungkraft, uns, ſobald es gilt, zu dem Hoͤchſten em-<lb/>
+por zu tragen.</p><lb/>
+<p>Von der Voltairiſchen Satyre laͤßt ſich kein ſolches<lb/>
+Urtheil faͤllen. Zwar iſt es auch bey dieſem Schriftſteller<lb/>
+einzig nur die Wahrheit und Simplicitaͤt der Natur, wo-<lb/>
+durch er uns zuweilen poetiſch ruͤhrt; es ſey nun, daß<lb/>
+er ſie in einem naiven Charakter wirklich erreiche, wie<lb/>
+mehrmal in ſeinem <hi rendition="#g">Ingenu</hi>, oder daß er ſie, wie in ſei-<lb/>
+nem <hi rendition="#g">Candide</hi> u. a. ſuche und raͤche. Wo keines von<lb/>
+beyden der Fall iſt, da kann er uns zwar als witziger<lb/>
+Kopf beluſtigen, aber gewiß nicht als Dichter bewegen.<lb/>
+Aber ſeinem Spott liegt uͤberall zu wenig Ernſt zum<lb/>
+<pb n="20" facs="#f0027"/>
+Grunde, und dieſes macht ſeinen Dichterberuf mit Recht<lb/>
+verdaͤchtig. Wir begegnen immer nur ſeinem Verſtande,<lb/>
+nicht ſeinem Gefuͤhl. Es zeigt ſich kein Ideal unter je-<lb/>
+ner luftigen Huͤlle, und kaum etwas abſolut Feſtes in je-<lb/>
+ner ewigen Bewegung. Seine wunderbare Mannichfal-<lb/>
+tigkeit in aͤuſern Formen, weit entfernt fuͤr die innere<lb/>
+Fuͤlle ſeines Geiſtes etwas zu beweiſen, legt vielmehr ein<lb/>
+bedenkliches Zeugniß dagegen ab, denn ungeachtet aller<lb/>
+jener Formen hat er auch nicht Eine gefunden, worinn<lb/>
+er ein Herz haͤtte abdruͤcken koͤnnen. Beynahe muß man<lb/>
+alſo fuͤrchten, es war in dieſem reichen Genius nur die<lb/>
+Armuth des Herzens, die ſeinen Beruf zur Satyre be-<lb/>
+ſtimmte. Waͤre es anders, ſo haͤtte er doch irgend auf<lb/>
+ſeinem weiten Weg aus dieſem engen Geleiſe treten muͤſ-<lb/>
+ſen. Aber bey allem noch ſo groſen Wechſel des Stoffes<lb/>
+und der aͤuſern Form ſehen wir dieſe innere Form in<lb/>
+ewigem, duͤrftigem Einerley wiederkehren, und trotz ſei-<lb/>
+ner voluminoͤſen Laufbahn hat er doch den Kreis der<lb/>
+Menſchheit in ſich ſelbſt nicht erfuͤllt, den man in den<lb/>
+obenerwaͤhnten Satyrikern mit Freuden durchlaufen findet.</p></div><lb/>
+<div n="2"><head><hi rendition="#g">Elegiſche Dichtung</hi>.</head><lb/>
+<p>Setzt der Dichter die Natur der Kunſt und das Ideal<lb/>
+der Wirklichkeit ſo entgegen, daß die Darſtellung des erſten<lb/>
+uͤberwiegt, und das Wohlgefallen an demſelben herrſchende<lb/>
+Empfindung wird, ſo nenne ich ihn <hi rendition="#g">elegiſch</hi>. Auch dieſe<lb/>
+Gattung hat wie die Satyre zwey Klaſſen unter ſich.<lb/>
+Entweder iſt die Natur und das Ideal ein Gegenſtand<lb/>
+der Trauer, wenn jene als verloren, dieſes als unerreicht<lb/>
+dargeſtellt wird. Oder beyde ſind ein Gegenſtand der<lb/>
+<pb n="21" facs="#f0028"/>
+Freude, indem ſie als wirklich vorgeſtellt werden. Das<lb/>
+erſte giebt die <hi rendition="#g">Elegie</hi> in engerer, das andre die <hi rendition="#g">Idylle</hi><lb/>
+in weiteſter Bedeutung. <note place="foot" n="*" xml:id="seg2pn_3_1" next="#seg2pn_3_2">Daß ich die Benennungen Satyre, Elegie und Idylle in<lb/>
+einem weitern Sinne gebrauche, als gewoͤhnlich geſchieht,<lb/>
+werde ich bey Leſern, die tiefer in die Sache dringen,<lb/>
+kaum zu verantworten brauchen. Meine Abſicht dabey iſt<lb/>
+keineswegs die Grenzen zu verruͤcken, welche die bisherige<lb/>
+Obſervanz ſowohl der Satyre und Elegie als der Idylle<lb/>
+mit gutem Grunde geſteckt hat; ich ſehe bloß auf die in<lb/>
+dieſen Dichtungsarten herrſchende <hi rendition="#g">Empfindungsweiſe</hi>,<lb/>
+und es iſt ja bekannt genug, daß dieſe ſich keineswegs in<lb/>
+jene engen Grenzen einſchlieſſen laͤßt. Elegiſch ruͤhrt uns<lb/>
+nicht bloß die Elegie, welche ausſchließlich ſo genannt<lb/>
+wird; auch der dramatiſche und epiſche Dichter koͤnnen uns<lb/>
+auf elegiſche Weiſe bewegen. In der Meßiade, in Thom-<lb/>
+ſons Jahrszeiten, im verlorenen Paradieß, im befreyten<lb/>
+Jeruſalem finden wir mehrere Gemaͤhlde, die ſonſt nur der<lb/>
+Idylle, der Elegie, der Satyre eigen ſind. Eben ſo, mehr<lb/>
+oder weniger, faſt in jedem pathetiſchen Gedichte. Daß ich<lb/>
+aber die Idylle ſelbſt zur elegiſchen Gattung rechne, ſcheint<lb/>
+eher einer Rechtfertigung zu beduͤrfen. Man erinnere ſich<lb/>
+aber, daß hier nur von derjenigen Idylle die Rede iſt,<lb/>
+welche eine Species der ſentimentaliſchen Dichtung iſt, zu<lb/>
+deren Weſen es gehoͤrt, daß die Natur der Kunſt und<lb/>
+das Ideal der Wirklichkeit <hi rendition="#g">entgegen geſetzt werde</hi>.<lb/>
+Geſchieht dieſes auch nicht ausdruͤcklich von dem Dichter,<lb/>
+und ſtellt er das Gemaͤhlde der unverdorbenen Natur oder<lb/>
+des erfuͤllten Ideales rein und ſelbſtſtaͤndig vor unſere An-</note></p><lb/>
+<pb n="22" facs="#f0029"/>
+<p>Wie der Unwille bey der pathetiſchen und wie der Spott<lb/>
+bey der ſcherzhaften Satyre, ſo darf bey der Elegie die<lb/>
+Trauer nur aus einer, durch das Ideal erweckten Begei-<lb/>
+ſterung fließen. Dadurch allein erhaͤlt die Elegie poeti-<lb/>
+ſchen Gehalt, und jede andere Quelle derſelben iſt voͤllig<lb/>
+<note place="foot" n="*" xml:id="seg2pn_3_2" prev="#seg2pn_3_1">gen, ſo iſt jener Gegenſatz doch in ſeinem Herzen, und<lb/>
+wird ſich, auch ohne ſeinen Willen, in jedem Pinſelſtrich<lb/>
+verrathen. Ja waͤre dieſes nicht, ſo wuͤrde ſchon die<lb/>
+Sprache, deren er ſich bedienen muß, weil ſie den Geiſt<lb/>
+der Zeit an ſich traͤgt und den Einfluß der Kunſt erfahren,<lb/>
+uns die Wirklichkeit mit ihren Schranken, die Kultur mit<lb/>
+ihrer Kuͤnſteley in Erinnerung bringen; ja unſer eigenes<lb/>
+Herz wuͤrde jenem Bilde der reinen Natur die Erfahrung<lb/>
+der Verderbniß gegenuͤber ſtellen, und ſo die Empfindungs-<lb/>
+art, wenn auch der Dichter es nicht darauf angelegt haͤtte,<lb/>
+in uns elegiſch machen. Dieß letztere iſt ſo unvermeidlich,<lb/>
+daß ſelbſt der hoͤchſte Genuß, den die ſchoͤnſten Werke der<lb/>
+naiven Gattung aus alten und neuen Zeiten dem kultivier-<lb/>
+ten Menſchen gewaͤhren, nicht lange rein bleibt, ſondern<lb/>
+fruͤher oder ſpaͤter von einer elegiſchen Empfindung begleitet<lb/>
+ſeyn wird. Schließlich bemerke ich noch, daß die hier ver-<lb/>
+ſuchte Eintheilung, eben deßwegen weil ſie ſich bloß auf<lb/>
+den Unterſchied in der Empfindungsweiſe gruͤndet, in der<lb/>
+Eintheilung der Gedichte ſelbſt und der Ableitung der poe-<lb/>
+tiſchen Arten ganz und gar nichts beſtimmen ſoll; denn da<lb/>
+der Dichter, auch in demſelben Werke, keineswegs an<lb/>
+dieſelbe Empfindungsweiſe gebunden iſt, ſo kann jene Ein-<lb/>
+theilung nicht davon, ſondern muß von der Form der<lb/>
+Darſtellung hergenommen werden.</note><lb/>
+<pb n="23" facs="#f0030"/>
+unter der Wuͤrde der Dichtkunſt. Der elegiſche Dichter<lb/>
+fucht die Natur, aber in ihrer Schoͤnheit, nicht bloß<lb/>
+in ihrer Annehmlichkeit, in ihrer Uebereinſtimmung mit<lb/>
+Ideen, nicht bloß in ihrer Nachgiebigkeit gegen das Be-<lb/>
+duͤrfniß. Die Trauer uͤber verlorne Freuden, uͤber das<lb/>
+der Welt verſchwundene goldene Alter, uͤber das entflohene<lb/>
+Gluͤck der Jugend, der Liebe u. ſ. w. kann nur alsdann der<lb/>
+Stoff zu einer elegiſchen Dichtung werden, wenn jene<lb/>
+Zuſtaͤnde ſinnlichen Friedens zugleich als Gegenſtaͤnde mo-<lb/>
+raliſcher Harmonie ſich vorſtellen laſſen. Ich kann deß-<lb/>
+wegen die Klaggeſaͤnge des <hi rendition="#g">Ovid</hi>, die er aus ſeinem<lb/>
+Verbannungsort am <hi rendition="#g">Euxin</hi> anſtimmt, wie ruͤhrend ſie<lb/>
+auch ſind, und wie viel Dichteriſches auch einzelne Stel-<lb/>
+len haben, im Ganzen nicht wohl als ein poetiſches Werk<lb/>
+betrachten. Es iſt viel zu wenig Energie, viel zu wenig<lb/>
+Geiſt und Adel in ſeinem Schmerz. Das Beduͤrfniß,<lb/>
+nicht die Begeiſterung ſtieß jene Klagen aus; es athmet<lb/>
+darinn, wenn gleich keine gemeine Seele, doch die ge-<lb/>
+meine Stimmung eines edleren Geiſtes, den ſein Schick-<lb/>
+ſal zu Boden druͤckte. Zwar wenn wir uns erinnern, daß<lb/>
+es Rom, und das Rom des Auguſtus iſt, um das er<lb/>
+trauert, ſo verzeyhen wir dem Sohn der Freude ſeinen<lb/>
+Schmerz; aber ſelbſt das herrliche Rom mit allen ſeinen<lb/>
+Gluͤckſeligkeiten iſt, wenn nicht die Einbildungkraft es erſt<lb/>
+veredelt, bloß eine endliche Groͤße, mithin ein unwuͤrdiges<lb/>
+Objekt fuͤr die Dichtkunſt, die erhaben uͤber alles, was<lb/>
+die Wirklichkeit aufſtellt, nur das Recht hat, um das Un-<lb/>
+endliche zu trauern.</p><lb/>
+<p>Der Inhalt der dichteriſchen Klage kann alſo niemals<lb/>
+ein aͤußrer, jederzeit nur ein innerer idealiſcher Gegen-<lb/>
+ſtand ſeyn; ſelbſt wenn ſie einen Verluſt in der Wirklichkeit<lb/>
+<pb n="24" facs="#f0031"/>
+betrauert, muß ſie ihn erſt zu einem idealiſchen umſchaf-<lb/>
+fen. In dieſer Reduktion des Beſchraͤnkten auf ein Un-<lb/>
+endliches beſteht eigentlich die poetiſche Behandlung. Der<lb/>
+aͤuſſere Stoff iſt daher an ſich ſelbſt immer gleichguͤltig,<lb/>
+weil ihn die Dichtkunſt niemals ſo brauchen kann, wie ſie<lb/>
+ihn findet, ſondern nur durch das, was ſie ſelbſt daraus macht,<lb/>
+ihm die poetiſche Wuͤrde giebt. Der elegiſche Dichter<lb/>
+ſucht die Natur aber als eine Idee und in einer Vollkom-<lb/>
+menheit, in der ſie nie exiſtirt hat, wenn er ſie gleich als<lb/>
+etwas da geweſenes und nun verlorenes beweint. Wenn<lb/>
+uns Oſſian von den Tagen erzaͤhlt, die nicht mehr ſind,<lb/>
+und von den Helden, die verſchwunden ſind, ſo hat ſeine<lb/>
+Dichtungskraft jene Bilder der Erinnerung laͤngſt in Idea-<lb/>
+le, jene Helden in Goͤtter umgeſtaltet. Die Erfahrungen<lb/>
+eines beſtimmten Verluſtes haben ſich zur Idee der allge-<lb/>
+meinen Vergaͤnglichkeit erweitert, und der geruͤhrte Barde,<lb/>
+den das Bild des allgegenwaͤrtigen Ruins verfolgt,<lb/>
+ſchwingt ſich zum Himmel auf, um dort in dem Sonnen-<lb/>
+lauf ein Sinnbild des Unvergaͤnglichen zu finden. <note place="foot" n="*">Man leſe z. B. das trefliche Gedicht Charton betitelt.</note></p><lb/>
+<p>Ich wende mich ſogleich zu den neuern Poeten in der<lb/>
+elegiſchen Gattung. <hi rendition="#g">Rouſſeau</hi>, als Dichter, wie als<lb/>
+Philoſoph, hat keine andere Tendenz als die Natur ent-<lb/>
+weder zu ſuchen, oder an der Kunſt zu raͤchen. Je nach-<lb/>
+dem ſich ſein Gefuͤhl entweder bey der einen oder der an-<lb/>
+dern verweilt, finden wir ihn bald elegiſch geruͤhrt, bald<lb/>
+zu Juvenaliſcher Satyre begeiſtert, bald, wie in ſeiner<lb/>
+Julie, in das Feld der Idylle entzuͤckt. Seine Dichtun-<lb/>
+gen haben unwiderſprechlich poetiſchen Gehalt, da ſie ein<lb/>
+Ideal behandeln, nur weiß er denſelben nicht auf poetiſche<lb/>
+<pb n="25" facs="#f0032"/>
+Weiſe zu gebrauchen. Sein ernſter Charakter laͤßt ihn<lb/>
+zwar nie zur Frivolitaͤt herabſinken, aber erlaubt ihm<lb/>
+auch nicht, ſich bis zum poetiſchen Spiel zu erheben.<lb/>
+Bald durch Leidenſchaft, bald durch Abſtraktion ange-<lb/>
+ſpannt, bringt er es ſelten oder nie zu der aͤſthetiſchen<lb/>
+Freyheit, welche der Dichter ſeinem Stoff gegenuͤber<lb/>
+behaupten, ſeinem Leſer mittheilen muß. Entweder es<lb/>
+iſt ſeine kranke Empfindlichkeit, die uͤber ihn herrſchet,<lb/>
+und ſeine Gefuͤhle bis zum Peinlichen treibt; oder es<lb/>
+iſt ſeine Denkkraft, die ſeiner Imagination Feſſeln anlegt<lb/>
+und durch die Strenge des Begriffs die Anmuth des Ge-<lb/>
+maͤhldes vernichtet. Beyde Eigenſchaften, deren innige<lb/>
+Wechſelwirkung und Vereinigung den Poeten eigentlich<lb/>
+ausmacht, finden ſich bey dieſem Schriftſteller in unge-<lb/>
+woͤhnlich hohem Grad, und nichts fehlt, als daß ſie ſich<lb/>
+auch wirklich miteinander vereinigt aͤuſſerten, daß ſeine<lb/>
+Selbſtthaͤtigkeit ſich mehr in ſein Empfinden, daß ſeine<lb/>
+Empfaͤnglichkeit ſich mehr in ſein Denken miſchte. Daher<lb/>
+iſt auch in dem Ideale, das er von der Menſchheit auf-<lb/>
+ſtellt, auf die Schranken derſelben zu viel, auf ihr Ver-<lb/>
+moͤgen zu wenig Ruͤckſicht genommen, und uͤberall mehr<lb/>
+ein Beduͤrfniß nach phyſiſcher <hi rendition="#g">Ruhe</hi> als nach moraliſcher<lb/>
+<hi rendition="#g">Uebereinſtimmung</hi> darinn ſichtbar. Seine leiden-<lb/>
+ſchaftliche Empfindlichkeit iſt Schuld, daß er die Menſch-<lb/>
+heit, um nur des Streits in derſelben recht bald los zu<lb/>
+werden, lieber zu der geiſtloſen Einfoͤrmigkeit des erſten<lb/>
+Standes zuruͤckgefuͤhrt, als jenen Streit in der geiſtrei-<lb/>
+chen Harmonie einer voͤllig durchgefuͤhrten Bildung geen-<lb/>
+digt ſehen, daß er die Kunſt lieber gar nicht anfangen laſſen,<lb/>
+als ihre Vollendung erwarten will, kurz, daß er das Ziel<lb/>
+lieber niedriger ſteckt, und das Ideal lieber herabſetzt, um<lb/>
+es nur deſto ſchneller, um es nur deſto ſicherer zu erreichen.</p><lb/>
+<pb n="26" facs="#f0033"/>
+<p>Unter Deutſchlands Dichtern in dieſer Gattung will<lb/>
+ich hier nur <hi rendition="#g">Hallers, Kleiſts</hi> und <hi rendition="#g">Klopſtocks</hi> er-<lb/>
+waͤhnen. Der Charakter ihrer Dichtung iſt ſentimenta-<lb/>
+liſch; durch Ideen ruͤhren ſie uns, nicht durch ſinnliche<lb/>
+Wahrheit, nicht ſowohl weil ſie ſelbſt Natur ſind, als<lb/>
+weil ſie uns fuͤr Natur zu begeiſtern wiſſen. Was in-<lb/>
+deſſen von dem Charakter ſowohl dieſer als aller ſentimen-<lb/>
+taliſchen Dichter <hi rendition="#g">im Ganzen</hi> wahr iſt, ſchließt natuͤr-<lb/>
+licherweiſe darum keineswegs das Vermoͤgen aus, <hi rendition="#g">im<lb/>
+Einzelnen</hi> uns durch naive Schoͤnheit zu ruͤhren: ohne<lb/>
+das wuͤrden ſie uͤberall keine Dichter ſeyn. Nur ihr ei-<lb/>
+gentlicher und herrſchender Charakter iſt es nicht, mit<lb/>
+ruhigem, einfaͤltigem und leichtem Sinn zu empfangen<lb/>
+und das Empfangene eben ſo wieder darzuſtellen. Un-<lb/>
+willkuͤhrlich draͤngt ſich die Phantaſie der Anſchauung,<lb/>
+die Denkkraft der Empfindung zuvor und man verſchließt<lb/>
+Auge und Ohr, um betrachtend in ſich ſelbſt zu verſinken.<lb/>
+Das Gemuͤth kann keinen Eindruck erleiden, ohne ſogleich<lb/>
+ſeinem eigenen Spiel zuzuſehen, und was es in ſich hat,<lb/>
+durch Reflexion ſich gegenuͤber und aus ſich herauszuſtel-<lb/>
+len. Wir erhalten auf dieſe Art nie den Gegenſtand, nur<lb/>
+was der reflektierende Verſtand des Dichters aus dem Ge-<lb/>
+genſtand machte, und ſelbſt dann, wenn der Dichter ſelbſt<lb/>
+dieſer Gegenſtand iſt, wenn er uns ſeine Empfindungen<lb/>
+darſtellen will, erfahren wir nicht ſeinen Zuſtand unmit-<lb/>
+telbar und aus der erſten Hand, ſondern wie ſich derſelbe<lb/>
+in ſeinem Gemuͤth reflektiert, was er als Zuſchauer ſeiner<lb/>
+ſelbſt daruͤber gedacht hat. Wenn Haller den Tod ſeiner<lb/>
+Gattin betrauert (man kennt das ſchoͤne Lied) und folgen-<lb/>
+dermaaßen anfaͤngt:</p><lb/>
+<pb n="27" facs="#f0034"/>
+<lg type="poem"><l>Soll ich von deinem Tode ſingen</l><lb/>
+<l>O Mariane welch ein Lied!</l><lb/>
+<l>Wenn Seufzer mit den Worten ringen</l><lb/>
+<l>Und ein Begriff den andern flieht ꝛc.</l></lg><lb/>
+<p>ſo finden wir dieſe Beſchreibung genau wahr, aber wir<lb/>
+fuͤhlen auch, daß uns der Dichter nicht eigentlich ſeine<lb/>
+Empfindungen, ſondern ſeine Gedanken daruͤber mittheilt.<lb/>
+Er ruͤhrt uns deßwegen auch weit ſchwaͤcher, weil er<lb/>
+ſelbſt ſchon ſehr viel erkaͤltet ſeyn mußte, um ein Zu-<lb/>
+ſchauer ſeiner Ruͤhrung zu ſeyn.</p><lb/>
+<p>Schon der groͤßtentheils uͤberſinnliche Stoff der Hal-<lb/>
+leriſchen und zum Theil auch der Klopſtockiſchen Dichtun-<lb/>
+gen ſchließt ſie von der naiven Gattung aus; ſobald daher<lb/>
+jener Stoff uͤberhaupt nur poetiſch bearbeitet werden<lb/>
+ſollte, ſo mußte er, da er keine koͤrperliche Ratur anneh-<lb/>
+men und folglich kein Gegenſtand der ſinnlichen Anſchauung<lb/>
+werden konnte, ins Unendliche hinuͤbergefuͤhrt und zu ei-<lb/>
+nem Gegenſtand der geiſtigen Anſchauung erhoben wer-<lb/>
+den. Ueberhaupt laͤßt ſich nur in dieſem Sinne eine di-<lb/>
+daktiſche Poeſie ohne innern Widerſpruch denken; denn,<lb/>
+um es noch einmal zu wiederhohlen, nur dieſe zwey Fel-<lb/>
+der beſitzt die Dichtkunſt; entweder ſie muß ſich in der<lb/>
+Sinnenwelt oder ſie muß ſich in der Ideenwelt aufhal-<lb/>
+ten, da ſie im Reich der Begriffe oder in der Verſtandes-<lb/>
+welt ſchlechterdings nicht gedeihen kann. Noch, ich ge-<lb/>
+ſtehe es, kenne ich kein Gedicht in dieſer Gattung, weder<lb/>
+aus aͤlterer noch neuerer Litteratur, welches den Begriff,<lb/>
+den es bearbeitet, rein und vollſtaͤndig entweder bis zur<lb/>
+Individualitaͤt herab oder bis zur Idee hinaufgefuͤhrt<lb/>
+haͤtte. Der gewoͤhnliche Fall iſt, wenn es noch gluͤcklich<lb/>
+<pb n="28" facs="#f0035"/>
+geht, daß zwiſchen beyden abgewechſelt wird, waͤhrend daß<lb/>
+der abſtrakte Begriff herrſchet, und daß der Einbildungs-<lb/>
+kraft, welche auf dem poetiſchen Felde zu gebieten haben<lb/>
+ſoll, bloß verſtattet wird, den Verſtand zu bedienen. Das-<lb/>
+jenige didaktiſche Gedicht, worinn der Gedanke ſelbſt poe-<lb/>
+tiſch waͤre, und es auch bliebe, iſt noch zu erwarten.</p><lb/>
+<p>Was hier im allgemeinen von allen Lehrgedichten ge-<lb/>
+ſagt wird, gilt auch von den Halleriſchen insbeſondere.<lb/>
+Der Gedanke ſelbſt iſt kein dichteriſcher Gedanke, aber<lb/>
+die Ausfuͤhrung wird es zuweilen, bald durch den Ge-<lb/>
+brauch der Bilder bald durch den Aufſchwung zu Ideen.<lb/>
+Nur in der letztern Qualitaͤt gehoͤren ſie hieher. Kraft<lb/>
+und Tiefe und ein pathetiſcher Ernſt charakteriſiren dieſen<lb/>
+Dichter. Von einem Ideal iſt ſeine Seele entzuͤndet,<lb/>
+und ſein gluͤhendes Gefuͤhl fuͤr Wahrheit ſucht in den<lb/>
+ſt<supplied>i</supplied>llen Alpenthaͤlern die aus der Welt verſchwundene Un-<lb/>
+ſchuld. Tiefruͤhrend iſt ſeine Klage, mit energiſcher, faſt<lb/>
+bittrer Satyre zeichnet er die Verirrungen des Verſtan-<lb/>
+des und Herzens und mit Liebe die ſchoͤne Einfalt der<lb/>
+Natur. Nur uͤberwiegt uͤberall zu ſehr der Begriff in<lb/>
+ſeinen Gemaͤhlden, ſo wie in ihm ſelbſt der Verſtand uͤber<lb/>
+die Empfindung den Meiſter ſpielt. Daher <hi rendition="#g">lehrt</hi> er<lb/>
+durchgaͤngig mehr als er <hi rendition="#g">darſtellt</hi>, und ſtellt durchgaͤn-<lb/>
+gig mit mehr kraͤftigen als lieblichen Zuͤgen dar. Er iſt<lb/>
+groß, kuͤhn, feurig, erhaben; zur Schoͤnheit aber hat er<lb/>
+ſich ſelten oder niemals erhoben.</p><lb/>
+<p>An Ideengehalt und an Tiefe des Geiſtes ſteht <hi rendition="#g">Kleiſt</hi><lb/>
+dieſem Dichter um vieles nach; an Anmuth moͤchte er<lb/>
+ihn uͤbertreffen, wenn wir ihm anders nicht, wie zuwei-<lb/>
+len geſchieht, einen Mangel auf der einen Seite fuͤr eine<lb/>
+<pb n="29" facs="#f0036"/>
+Staͤrke auf der andern anrechnen. Kleiſts gefuͤhlvolle<lb/>
+Seele ſchwelgt am liebſten im Anblick laͤndlicher Scenen<lb/>
+und Sitten. Er flieht gerne das leere Geraͤuſch der Ge-<lb/>
+ſellſchaft und findet im Schooß der lebloſen Natur die<lb/>
+Harmonie und den Frieden, den er in der moraliſchen<lb/>
+Welt vermißt. Wie ruͤhrend iſt ſeine Sehnſucht nach<lb/>
+Ruhe! <note place="foot" n="*">Man ſehe das Gedicht dieſes Nahmens in ſeinen Werken.</note> Wie wahr und gefuͤhlt, wenn er ſingt:</p><lb/>
+<lg type="poem"><l>„O Welt du biſt des wahren Lebens Grab.</l><lb/>
+<l>Oft reitzet mich ein heiſſer Trieb zur Tugend,</l><lb/>
+<l>Fuͤr Wehmuth rollt ein Bach die Wang’ herab,</l><lb/>
+<l>Das Beyſpiel ſiegt und du o Feur der Jugend.</l><lb/>
+<l>Ihr trocknet bald die edeln Thraͤnen ein.</l><lb/>
+<l>Ein wahrer Menſch muß fern von Menſchen ſeyn.“</l></lg><lb/>
+<p>Aber hat ihn ſein Dichtungstrieb aus dem einengenden<lb/>
+Kreis der Verhaͤltniſſe heraus in die geiſtreiche Einſam-<lb/>
+keit der Natur gefuͤhrt, ſo verfolgt ihn auch noch biß hieher<lb/>
+das aͤngſtliche Bild des Zeitalters und leider auch ſeine<lb/>
+Feſſeln. Was er fliehet, iſt in ihm, was er ſuchet, iſt<lb/>
+ewig auſſer ihm; nie kann er den uͤblen Einfluß ſeines<lb/>
+Jahrhunderts verwinden. Iſt ſein Herz gleich feurig,<lb/>
+ſeine Phantaſie gleich energiſch genug, die todten Gebilde<lb/>
+des Verſtandes durch die Darſtellung zu beſeelen, ſo ent-<lb/>
+ſeelt der kalte Gedanke eben ſo oft wieder die lebendige<lb/>
+Schoͤpfung der Dichtungskraft, und die Reflexion ſtoͤrt<lb/>
+das geheime Werk der Empfindung. Bunt zwar und<lb/>
+prangend wie der Fruͤhling, den er beſang, iſt ſeine Dich-<lb/>
+tung, ſeine Phantaſie iſt rege und thaͤtig, doch moͤchte<lb/>
+man ſie eher veraͤnderlich als reich, eher ſpielend als<lb/>
+<pb n="30" facs="#f0037"/>
+ſchaffend, eher unruhig fortſchreitend als ſammelnd und<lb/>
+bildend nennen. Schnell und uͤppig wechſeln Zuͤge auf<lb/>
+Zuͤge, aber ohne ſich zum Individuum zu concentrieren,<lb/>
+ohne ſich zum Leben zu fuͤllen und zur Geſtalt zu runden.<lb/>
+Solange er bloß lyriſch dichtet und bloß bey landſchaft-<lb/>
+lichen Gemaͤhlden verweilt, laͤßt uns theils die groͤßere<lb/>
+Freyheit der lyriſchen Form, theils die willkuͤhrlichere<lb/>
+Beſchaffenheit ſeines Stoffs dieſen Mangel uͤberſehen,<lb/>
+indem wir hier uͤberhaupt mehr die Gefuͤhle des Dich-<lb/>
+ters als den Gegenſtand ſelbſt dargeſtellt verlangen. Aber<lb/>
+der Fehler wird nur allzu merklich, wenn er ſich, wie<lb/>
+in ſeinem <hi rendition="#g">Ciſſides</hi> und <hi rendition="#g">Paches</hi>, und in ſeinem <hi rendition="#g">Se-<lb/>
+neka</hi>, heraus nimmt, Menſchen und menſchliche Hand-<lb/>
+lung darzuſtellen; weil hier die Einbildungskraft ſich<lb/>
+zwiſchen feſten und nothwendigen Grenzen eingeſchloſſen<lb/>
+ſieht, und der poetiſche Effekt nur aus dem <hi rendition="#g">Gegenſtand</hi><lb/>
+hervorgehen kann. Hier wird er duͤrftig, langweilig,<lb/>
+mager und bis zum Unertraglichen froſtig: ein warnen-<lb/>
+des Beyſpiel fuͤr alle, die ohne innern Beruf aus dem<lb/>
+Felde muſikaliſcher Poeſie in das Gebiet der bildenden<lb/>
+ſich verſteigen. Einem verwandten Genie, dem <hi rendition="#g">Thom-<lb/>
+ſon</hi>, iſt die nehmliche Menſchlichkeit begegnet.</p><lb/>
+<p>In der ſentimentaliſchen Gattung und beſonders in<lb/>
+dem elegiſchen Theil derſelben moͤchten wenige aus den<lb/>
+neuern und noch wenigere aus den aͤltern Dichtern mit<lb/>
+unſerm <hi rendition="#g">Klopſtock</hi> zu vergleichen ſeyn. Was nur im-<lb/>
+mer, außerhalb den Grenzen lebendiger Form und außer<lb/>
+dem Gebiete der Individualitaͤt, im Felde der Idealitaͤt<lb/>
+zu erreichen iſt, iſt von dieſem muſikaliſchen Dichter ge-<lb/>
+leiſtet. <note place="foot" n="*" xml:id="seg2pn_4_1" next="#seg2pn_4_2">Ich ſage <hi rendition="#g">muſikaliſchen</hi>, um hier an die doppelte Ver-</note> Zwar wuͤrde man ihm großes Unrecht thun,<lb/>
+<pb n="31" facs="#f0038"/>
+wenn man ihm jene individuelle Wahrheit und Lebendig-<lb/>
+keit, womit der naive Dichter ſeinen Gegenſtand ſchil-<lb/>
+dert, uͤberhaupt abſprechen wollte. Viele ſeiner Oden,<lb/>
+mehrere einzelne Zuͤge in ſeinen Dramen und in ſeinem<lb/>
+Meſſias ſtellen den Gegenſtand mit treffender Wahrheit<lb/>
+und in ſchoͤner Umgrenzung dar; da beſonders, wo der<lb/>
+Gegenſtand ſein eigenes Herz iſt, hat er nicht ſelten eine<lb/>
+große Natur, eine reitzende Naivetaͤt bewieſen. Nur<lb/>
+liegt hierinn <hi rendition="#g">ſeine</hi> Staͤrke nicht, nur moͤchte ſich dieſe<lb/>
+Eigenſchaft nicht durch das Ganze ſeines dichteriſchen<lb/>
+Kreiſes durchfuͤhren laſſen. So eine herrliche Schoͤpfung<lb/>
+die Meſſiade in <hi rendition="#g">muſikaliſch</hi> poetiſcher Ruͤckſicht, nach<lb/>
+der oben gegebenen Beſtimmung, iſt, ſo vieles laͤßt ſie<lb/>
+in <hi rendition="#g">plaſtiſch</hi> poetiſcher noch zu wuͤnſchen uͤbrig, wo<lb/>
+man beſtimmte und <hi rendition="#g">fuͤr die Anſchauung beſtimmte</hi><lb/>
+Formen erwartet. Beſtimmt genug moͤchten vielleicht<lb/>
+<note place="foot" n="*" xml:id="seg2pn_4_2" prev="#seg2pn_4_1">wandtſchaft der Poeſie mit der Tonkunſt und mit der bil-<lb/>
+denden Kunſt zu erinnern. Je nachdem nehmlich die Poeſie<lb/>
+entweder einen beſtimmten <hi rendition="#g">Gegenſtand</hi> nachahmt, wie<lb/>
+die bildenden Kuͤnſte thun, oder je nachdem ſie, wie die Ton-<lb/>
+kunſt, bloß einen beſtimmten <hi rendition="#g">Zuſtand des Gemuͤths</hi><lb/>
+hervorbringt, ohne dazu eines beſtimmten Gegenſtandes noͤ-<lb/>
+thig zu haben, kann ſie bildend (<hi rendition="#g">plaſtiſch</hi>) oder muſika-<lb/>
+liſch genannt werden. Der letztere Ausdruck bezieht ſich<lb/>
+alſo nicht bloß auf dasjenige, was in der Poeſie, wirklich<lb/>
+und der Materie nach, Muſik iſt, ſondern uͤberhaupt auf<lb/>
+alle diejenigen Effekte derſelben, die ſie hervorzubringen ver-<lb/>
+mag, ohne die Einbildungskraft durch ein beſtimmtes Objekt<lb/>
+zu beſchraͤnken; und in dieſem Sinne nenne ich Klopſtock<lb/>
+vorzugsweiſe einen muſikaliſchen Dichter.</note><lb/>
+<pb n="32" facs="#f0039"/>
+noch die Figuren in dieſem Gedichte ſeyn, aber nicht fuͤr<lb/>
+die Anſchauung; nur die Abſtraktion hat ſie erſchaffen,<lb/>
+nur die Abſtraktion kann ſie unterſcheiden. Sie ſind gute<lb/>
+Exempel zu Begriffen, aber keine Individuen, keine le-<lb/>
+bende Geſtalten. Der Einbildungskraft, an die doch<lb/>
+der Dichter ſich wenden, und die er durch die durch-<lb/>
+gaͤngige Beſtimmtheit ſeiner Formen beherrſchen ſoll, iſt<lb/>
+es viel zu ſehr frey geſtellt, auf was Art ſie ſich dieſe<lb/>
+Menſchen und Engel, dieſe Goͤtter und Satane, dieſen<lb/>
+Himmel und dieſe Hoͤlle verſinnlichen will. Es iſt ein<lb/>
+Umriß gegeben, innerhalb deſſen der Verſtand ſie noth-<lb/>
+wendig denken muß, aber keine feſte Grenze iſt geſetzt,<lb/>
+innerhalb deren die Phantaſie ſie nothwendig darſtellen<lb/>
+muͤßte. Was ich hier von den Charakteren ſage, gilt von<lb/>
+allem, was in dieſem Gedichte Leben und Handlung iſt<lb/>
+oder ſeyn ſoll; und nicht bloß in dieſer Epopee, auch in<lb/>
+den dramatiſchen Poeſien unſers Dichters. Fuͤr den Ver-<lb/>
+ſtand iſt alles treflich beſtimmt und begrenzet (ich will<lb/>
+hier nur an ſeinen Judas, ſeinen Pilatus, ſeinen Philo,<lb/>
+ſeinen Salomo, im Trauerſpiel dieſes Nahmens erinnern)<lb/>
+aber es iſt viel zu formlos fuͤr die Einbildungskraft und<lb/>
+hier, ich geſtehe es frey heraus, finde ich dieſen Dichter<lb/>
+ganz und gar nicht in ſeiner Sphaͤre.</p><lb/>
+<p>Seine Sphaͤre iſt immer das Ideenreich, und ins Un-<lb/>
+endliche weiß er alles, was er bearbeitet, hinuͤber zu<lb/>
+fuͤhren. Man moͤchte ſagen, er ziehe allem, was er be-<lb/>
+handelt, den Koͤrper aus, um es zu Geiſt zu machen,<lb/>
+ſo wie andre Dichter alles geiſtige mit einem Koͤrper be-<lb/>
+kleiden. Beynahe jeder Genuß, den ſeine Dichtungen<lb/>
+gewaͤhren, muß durch eine Uebung der Denkkraft errun-<lb/>
+gen werden; alle Gefuͤhle, die er, und zwar ſo innig und<lb/>
+<pb n="33" facs="#f0040"/>
+ſo maͤchtig in uns zu erregen weiß, ſtroͤmen aus uͤberſinn-<lb/>
+lichen Quellen hervor. Daher dieſer Ernſt, dieſe Kraft,<lb/>
+dieſer Schwung, dieſe Tiefe, die alles charakteriſieren,<lb/>
+was von ihm kommt; daher auch dieſe immerwaͤhrende<lb/>
+Spannung des Gemuͤths, in der wir bey Leſung deſſelben<lb/>
+erhalten werden. Kein Dichter (<hi rendition="#g">Young</hi> etwa ausge-<lb/>
+nommen, der darinn mehr fodert als Er, aber ohne es,<lb/>
+wie er thut, zu verguͤten) duͤrfte ſich weniger zum Lieb-<lb/>
+ling und zum Begleiter durchs Leben ſchicken, als gerade<lb/>
+Klopſtock, der uns immer nur aus dem Leben heraus-<lb/>
+fuͤhrt, immer nur den Geiſt unter die Waffen ruft, ohne<lb/>
+den Sinn mit der ruhigen Gegenwart eines Objekts zu<lb/>
+erquicken. Keuſch, uͤberirrdiſch, unkoͤrperlich, heilig<lb/>
+wie ſeine Religion iſt ſeine dichteriſche Muſe, und man<lb/>
+muß mit Bewunderung geſtehen, daß er, wiewohl zuwei-<lb/>
+len in dieſen Hoͤhen verirret, doch niemals davon herab-<lb/>
+geſunken iſt. Ich bekenne daher unverhohlen, daß mir<lb/>
+fuͤr den Kopf desjenigen etwas bange iſt, der wirklich<lb/>
+und ohne Affektation dieſen Dichter zu ſeinem Lieblings-<lb/>
+buche machen kann; zu einem Buche nehmlich, bey dem<lb/>
+man zu jeder Lage ſich ſtimmen, zu dem man aus jeder<lb/>
+Lage zuruͤckkehren kann; auch, daͤchte ich, haͤtte man in<lb/>
+Deutſchland Fruͤchte genug von ſeiner gefaͤhrlichen Herr-<lb/>
+ſchaft geſehen. Nur in gewiſſen exaltierten Stimmungen<lb/>
+des Gemuͤths kann er geſucht und empfunden werden;<lb/>
+deswegen iſt er auch der Abgott der Jugend, obgleich bey<lb/>
+weitem nicht ihre gluͤcklichſte Wahl. Die Jugend, die<lb/>
+immer uͤber das Leben hinausſtrebt, die alle Form fliehet,<lb/>
+und jede Grenze zu enge findet, ergeht ſich mit Liebe und<lb/>
+Luſt in den endloſen Raͤumen, die ihr von dieſem Dich-<lb/>
+ter aufgethan werden. Wenn dann der Juͤngling Mann<lb/>
+wird, und aus dem Reiche der Ideen in die Grenzen der<lb/>
+<fw type="sig" place="bottom">Die Horen. 1795. 12tes St. 3</fw><lb/>
+<pb n="34" facs="#f0041"/>
+Erfahrung zuruͤckkehrt, ſo verliert ſich vieles, ſehr vieles<lb/>
+von jener enthuſiaſtiſchen Liebe, aber nichts von der Ach-<lb/>
+tung, die man einer ſo einzigen Erſcheinung, einem ſo<lb/>
+außerordentlichen Genius, einem ſo ſehr veredelten Ge-<lb/>
+fuͤhl, die der Deutſche beſonders einem ſo hohen Ver-<lb/>
+dienſte ſchuldig iſt.</p><lb/>
+<p>Ich nannte dieſen Dichter vorzugsweiſe in der elegi-<lb/>
+ſchen Gattung groß, und kaum wird es noͤthig ſeyn, die-<lb/>
+ſes Urtheil noch beſonders zu rechtfertigen. Faͤhig zu je-<lb/>
+der Energie und Meiſter auf dem ganzen Felde ſentimen-<lb/>
+taliſcher Dichtung kann er uns bald durch das hoͤchſte<lb/>
+Pathos erſchuͤttern, bald in himmliſch ſuͤſſe Empfindun-<lb/>
+gen wiegen; aber zu einer hohen geiſtreichen Wehmuth<lb/>
+neigt ſich doch uͤberwiegend ſein Herz, und wie erhaben<lb/>
+auch ſeine Harfe, ſeine Lyra toͤnt, ſo werden die ſchmel-<lb/>
+zenden Toͤne ſeiner Laute doch immer wahrer und tiefer<lb/>
+und beweglicher klingen. Ich berufe mich auf jedes rein<lb/>
+geſtimmte Gefuͤhl, ob es nicht alles Kuͤhne und Starke,<lb/>
+alle Fictionen, alle prachtvollen Beſchreibungen, alle<lb/>
+Muſter oratoriſcher Beredtſamkeit im Meſſias, alle ſchim-<lb/>
+mernden Gleichniſſe, worinn unſer Dichter ſo vorzuͤglich<lb/>
+gluͤcklich iſt, fuͤr die zarten Empfindungen hingeben wuͤrde,<lb/>
+welche in der Elegie an Ebert, in dem herrlichen Gedicht<lb/>
+Bardale, den fruͤhen Graͤbern, der Sommernacht, dem<lb/>
+Zuͤrcher See und mehrere andere aus dieſer Gattung<lb/>
+athmen. So iſt mir die Meſſiade als ein Schatz elegiſcher<lb/>
+Gefuͤhle und idealiſcher Schilderungen theuer, wie wenig<lb/>
+ſie mich auch als Darſtellung einer Handlung und als ein<lb/>
+epiſches Werk befriedigt.</p><lb/>
+<p>Vielleicht ſollte ich, ehe ich dieſes Gebiet verlaſſe,<lb/>
+<pb n="35" facs="#f0042"/>
+auch noch an die Verdienſte eines <hi rendition="#g">Uz, Denis, Geßner</hi><lb/>
+(in ſeinem Tod Abels) <hi rendition="#g">Jacobi</hi>, von <hi rendition="#g">Gerſtenberg</hi>,<lb/>
+eines <hi rendition="#g">Hoͤlty</hi>, von <hi rendition="#g">Goͤckingk</hi>, und mehrerer andern in<lb/>
+dieſer Gattung erinnern, welche alle uns durch Ideen<lb/>
+ruͤhren, und, in der oben feſtgeſetzten Bedeutung des<lb/>
+Worts, ſentimentaliſch gedichtet haben. Aber mein Zweck<lb/>
+iſt nicht, eine Geſchichte der deutſchen Dichtkunſt zu ſchrei-<lb/>
+ben, ſondern das oben geſagte durch einige Beyſpiele<lb/>
+aus unſrer Litteratur klar zu machen. Die Verſchieden-<lb/>
+heit des Weges wollte ich zeigen, auf welchem alte und<lb/>
+moderne, naive und ſentimentaliſche Dichter zu dem nehm-<lb/>
+lichen Ziele gehen — daß, wenn uns jene durch Natur,<lb/>
+Individualitaͤt und lebendige <hi rendition="#g">Sinnlichkeit</hi> ruͤhren,<lb/>
+dieſe durch Ideen und hohe <hi rendition="#g">Geiſtigkeit</hi> eine eben ſo<lb/>
+große, wenn gleich keine ſo ausgebreitete, Macht uͤber<lb/>
+unſer Gemuͤth beweiſen.</p><lb/>
+<p>An den bisherigen Beyſpielen hat man geſehen, wie<lb/>
+der ſentimentaliſche Dichtergeiſt einen natuͤrlichen Stoff<lb/>
+behandelt; man koͤnnte aber auch intereſſiert ſeyn zu wiſ-<lb/>
+ſen, wie der naive Dichtergeiſt mit einem ſentimentaliſchen<lb/>
+Stoff verfaͤhrt. Voͤllig neu und von einer ganz eigenen<lb/>
+Schwierigkeit ſcheint dieſe Aufgabe zu ſeyn, da in der<lb/>
+alten und naiven Welt ein ſolcher <hi rendition="#g">Stoff</hi> ſich nicht vor-<lb/>
+fand, in der neuen aber der <hi rendition="#g">Dichter</hi> dazu fehlen moͤchte.<lb/>
+Dennoch hat ſich das Genie auch dieſe Aufgabe gemacht,<lb/>
+und auf eine bewundernswuͤrdig gluͤckliche Weiſe aufge-<lb/>
+loͤßt. Ein Charakter, der mit gluͤhender Empfindung ein<lb/>
+Ideal umfaßt, und die Wirklichkeit fliehet, um nach ei-<lb/>
+nem weſenloſen Unendlichen zu ringen, der was er in ſich<lb/>
+ſelbſt unaufhoͤrlich zerſtoͤrt, unaufhoͤrlich auſſer ſich ſu-<lb/>
+chet, dem nur ſeine Traͤume das Reelle, ſeine Erfahrun-<lb/>
+<pb n="36" facs="#f0043"/>
+gen ewig nur Schranken ſind, der endlich in ſeinem eige-<lb/>
+nen Daſeyn nur eine Schranke ſieht, und auch dieſe, wie<lb/>
+billig iſt, noch einreißt, um zu der wahren Realitaͤt durch-<lb/>
+zudringen — dieſes gefaͤhrliche Extrem des ſentimentali-<lb/>
+ſchen Charakters iſt der Stoff eines Dichters geworden,<lb/>
+in welchem die Natur getreuer und reiner als in irgend<lb/>
+einem andern wirkt, und der ſich unter modernen Dich-<lb/>
+tern vielleicht am wenigſten von der ſinnlichen Wahrheit<lb/>
+der Dinge entfernt.</p><lb/>
+<p>Es iſt intereſſant zu ſehen, mit welchem gluͤcklichen<lb/>
+Inſtinkt alles was dem ſentimentaliſchen Charakter Nah-<lb/>
+rung giebt, im <hi rendition="#g">Werther</hi> zuſammengedraͤngt iſt; ſchwaͤr-<lb/>
+meriſche ungluͤckliche Liebe, Empfindſamkeit fuͤr Natur,<lb/>
+Religionsgefuͤhle, philoſophiſcher Contemplationsgeiſt,<lb/>
+endlich, um nichts zu vergeſſen, die duͤſtre, geſtaltloſe,<lb/>
+ſchwermuͤthige Oſſianiſche Welt. Rechnet man dazu, wie<lb/>
+wenig empfehlend, ja wie feindlich die Wirklichkeit da-<lb/>
+gegen geſtellt iſt, und wie von auſſen her alles ſich ver-<lb/>
+einigt, den Gequaͤlten in ſeine Idealwelt zuruͤckzudraͤngen,<lb/>
+ſo ſieht man keine Moͤglichkeit, wie ein ſolcher Charakter<lb/>
+aus einem ſolchen Kreiſe ſich haͤtte retten koͤnnen. In<lb/>
+dem <hi rendition="#g">Taſſo</hi> des nehmlichen Dichters kehrt der nehmliche<lb/>
+Gegenſatz, wiewohl in ganz verſchiedenen Charakteren;<lb/>
+ſelbſt in ſeinem neueſten <hi rendition="#g">Roman</hi> ſtellt ſich, ſo wie in<lb/>
+jenem erſten, der poetiſierende Geiſt dem nuͤchternen Ge-<lb/>
+meinſinn, das Ideale dem Wirklichen, die ſubjektive Vor-<lb/>
+ſtellungsweiſe der objektiven — — aber mit welcher Ver-<lb/>
+ſchiedenheit! entgegen: ſogar im <hi rendition="#g">Fauſt</hi> treffen wir den<lb/>
+nehmlichen Gegenſatz, freylich wie auch der Stoff dieß<lb/>
+erfoderte, auf beyden Seiten ſehr vergroͤbert und mate-<lb/>
+rialiſiert wieder an; es verlohnte wohl der Muͤhe, eine<lb/>
+<pb n="37" facs="#f0044"/>
+pſychologiſche Entwicklung dieſes auf vier ſo verſchiedene<lb/>
+Arten ſpecificierten Charakters zu verſuchen.</p><lb/>
+<p>Es iſt oben bemerkt worden, daß die bloß leichte und<lb/>
+joviale Gemuͤthsart, wenn ihr nicht eine innere Ideen-<lb/>
+fuͤlle zum Grund liegt, noch gar keinen Beruf zur ſcherz-<lb/>
+haften Satyre abgebe, ſo freygebig ſie auch im gewoͤhn-<lb/>
+lichen Urtheil dafuͤr genommen wird; eben ſo wenig Be-<lb/>
+ruf giebt die bloß zaͤrtliche Weichmuͤthigkeit und Schwer-<lb/>
+muth zur elegiſchen Dichtung. Beyden fehlt zu dem wahren<lb/>
+Dichtertalente das energiſche Princip, welches den Stoff<lb/>
+beleben muß, um das wahrhaft ſchoͤne zu erzeugen. Pro-<lb/>
+dukte dieſer zaͤrtlichen Gattung koͤnnen uns daher bloß<lb/>
+ſchmelzen und ohne das Herz zu erquicken und den Geiſt<lb/>
+zu beſchaͤftigen, bloß der Sinnlichkeit ſchmeicheln. Ein<lb/>
+fortgeſetzter Hang zu dieſer Empfindungsweiſe muß zuletzt<lb/>
+nothwendig den Charakter entnerven und in einen Zuſtand<lb/>
+der Paßivitaͤt verſenken, aus welchem gar keine Realitaͤt,<lb/>
+weder fuͤr das aͤußre noch innre Leben, hervorgehen kann.<lb/>
+Man hat daher ſehr Recht gethan, jenes Uebel der <hi rendition="#g">Em-<lb/>
+pfindeley</hi> <note place="foot" n="*">„Der Hang, wie Herr <hi rendition="#g">Adelung</hi> ſie definiert, zu ruͤbrenden<lb/>
+ſanften Empfindungen, <hi rendition="#g">ohne vernuͤnftige Abſicht</hi><lb/>
+und uͤber das gehoͤrige Maaß“ — Herr Adelung iſt ſehr<lb/>
+gluͤcklich, daß er nur aus Abſicht und gar nur aus ver-<lb/>
+nuͤnftiger Abſicht empfindet.</note> und <hi rendition="#g">weinerliche Weſen</hi>, welches durch<lb/>
+Mißdeutung und Nachaͤffung einiger vortreflichen Werke,<lb/>
+vor etwa achtzehn Jahren, in Deutſchland uͤberhand zu<lb/>
+nehmen anfieng, mit unerbittlichem Spott zu verfolgen;<lb/>
+obgleich die Nachgiebigkeit, die man gegen das nicht viel<lb/>
+beßere Gegenſtuͤck jener elegiſchen Karrikatur, gegen das<lb/>
+<pb n="38" facs="#f0045"/>
+ſpaßhafte Weſen, gegen die herzloſe Satyre, und die<lb/>
+geiſtloſe Laune <note place="foot" n="*">Man ſoll zwar gewiſſen Leſern ihr duͤrftiges Vergnuͤgen<lb/>
+nicht verkuͤmmern, und was geht es zuletzt die Critik an,<lb/>
+wenn es Leute giebt, die ſich an dem ſchmutzigen Witz<lb/>
+des Herrn <hi rendition="#g">Blumauer</hi> erbauen und erluſtigen koͤnnen.<lb/>
+Aber die Kunſtrichter wenigſtens ſollten ſich enthalten,<lb/>
+mit einer gewiſſen Achtung von Produkten zu ſprechen,<lb/>
+deren Exiſtenz dem guten Geſchmack billig ein Geheim-<lb/>
+niß bleiben ſollte. Zwar iſt weder wahres Talent noch<lb/>
+Laune darinn zu verkennen, aber deſto mehr iſt zu beklagen,<lb/>
+daß beydes nicht mehr gereiniget iſt. Ich ſage nichts<lb/>
+von unſern deutſchen Comoͤdien; die Dichter mahlen die<lb/>
+Zeit, in der ſie leben.</note> zu beweiſen geneigt iſt, deutlich ge-<lb/>
+nug an den Tag legt, daß nicht aus ganz reinen Gruͤn-<lb/>
+den dagegen geeifert worden iſt. Auf der Wage des<lb/>
+aͤchten Geſchmacks kann das eine ſo wenig als das andere<lb/>
+etwas gelten, weil beyden der aeſthetiſche Gehalt fehlt,<lb/>
+der nur in der innigen Verbindung des Geiſtes mit dem<lb/>
+Stoff und in der vereinigten Beziehung eines Produktes<lb/>
+auf das Gefuͤhlvermoͤgen und auf das Ideenvermoͤgen<lb/>
+enthalten iſt.</p><lb/>
+<p>Ueber <hi rendition="#g">Siegwart</hi> und ſeine Kloſtergeſchichte hat man<lb/>
+geſpottet, und die <hi rendition="#g">Reiſen nach dem mittaͤglichen<lb/>
+Frankreich</hi> werden bewundert; dennoch haben beyde<lb/>
+Produkte gleich großen Anſpruch auf einen gewiſſen Grad<lb/>
+von Schaͤtzung, und gleich geringen auf ein unbedingtes<lb/>
+Lob. Wahre, obgleich uͤberſpannte Empfindung macht den<lb/>
+<pb n="39" facs="#f0046"/>
+erſtern Roman, ein leichter Humor und ein aufgeweckter<lb/>
+feiner Verſtand macht den zweyten ſchaͤtzbar; aber ſo wie<lb/>
+es dem einen durchaus an der gehoͤrigen Nuͤchternheit des<lb/>
+Verſtandes fehlt, ſo fehlt es dem andern an aeſthetiſcher<lb/>
+Wuͤrde. Der erſte wird der Erfahrung gegenuͤber ein we-<lb/>
+nig laͤcherlich, der andere wird dem Ideale gegenuͤber<lb/>
+beynahe veraͤchtlich. Da nun das wahrhafte Schoͤne ei-<lb/>
+nerſeits mit der Natur und andrerſeits mit dem Ideale<lb/>
+uͤbereinſtimmend ſeyn muß, ſo kann der eine ſo wenig als<lb/>
+der andre auf den Nahmen eines ſchoͤnen Werks Anſpruch<lb/>
+machen. Indeſſen iſt es natuͤrlich und billig, und ich<lb/>
+weiß es aus eigner Erfahrung, daß der Thuͤmmeliſche<lb/>
+Roman mit großem Vergnuͤgen geleſen wird. Da er nur<lb/>
+ſolche Foderungen beleidigt, die aus dem Ideal entſprin-<lb/>
+gen, die folglich von dem groͤßten Theil der Leſer gar<lb/>
+nicht, und von den beßern gerade nicht in ſolchen Mo-<lb/>
+menten, wo man Romanen ließt, aufgeworfen werden,<lb/>
+die uͤbrigen Foderungen des Geiſtes und — des Koͤrpers<lb/>
+hingegen in nicht gemeinem Grade erfuͤllt, ſo muß er und<lb/>
+wird mit Recht ein Lieblingsbuch unſerer und aller der<lb/>
+Zeiten bleiben, wo man aeſthetiſche Werke bloß ſchreibt,<lb/>
+um zu gefallen, und bloß ließt, um ſich ein Vergnuͤgen<lb/>
+zu machen.</p><lb/>
+<p>Aber hat die poetiſche Litteratur nicht ſogar klaſſiſche<lb/>
+Werke aufzuweiſen, welche die hohe Reinheit des Ideals<lb/>
+auf aͤhnliche Weiſe zu beleidigen, und ſich durch die Ma-<lb/>
+terialitaͤt ihres Inhalts von jener Geiſtigkeit, die hier<lb/>
+von jedem aeſthetiſchen Kunſtwerk verlangt wird, ſehr<lb/>
+weit zu entfernen ſcheinen? Was ſelbſt der Dichter, der<lb/>
+keuſche Juͤnger der Muſe, ſich erlauben darf, ſollte das<lb/>
+dem Romanſchreiber, der nur ſein Halbbruder iſt und die<lb/>
+<pb n="40" facs="#f0047"/>
+Erde noch ſo ſehr beruͤhrt, nicht geſtattet ſeyn? Ich darf<lb/>
+dieſer Frage hier um ſo weniger ausweichen, da ſowohl im<lb/>
+elegiſchen als im ſatyriſchen Fache Meiſterſtuͤcke vorhanden<lb/>
+ſind, welche eine ganz andre Natur, als diejenige iſt,<lb/>
+von der dieſer Aufſatz ſpricht, zu ſuchen, zu empfehlen,<lb/>
+und dieſelbe nicht ſowohl gegen die ſchlechten als gegen<lb/>
+die guten Sitten zu vertheidigen das Anſehen haben. Ent-<lb/>
+weder muͤßten alſo jene Dichterwerke zu verwerfen oder<lb/>
+der hier aufgeſtellte Begriff elegiſcher Dichtung viel zu<lb/>
+willkuͤhrlich angenommen ſeyn.</p><lb/>
+<p>Was der Dichter ſich erlauben darf, hieß es, ſollte<lb/>
+dem proſaiſchen Erzaͤhler nicht nachgeſehen werden duͤrfen?<lb/>
+Die Antwort iſt in der Frage ſchon enthalten: was dem<lb/>
+Dichter verſtattet iſt, kann fuͤr den, der es nicht iſt,<lb/>
+nichts beweiſen. In dem Begriffe des Dichters ſelbſt und<lb/>
+nur in dieſem ligt der Grund jener Freyheit, die eine<lb/>
+bloß veraͤchtliche Licenz iſt, ſobald ſie nicht aus dem Hoͤch-<lb/>
+ſten und Edelſten, was ihn ausmacht, kann abgeleitet<lb/>
+werden.</p><lb/>
+<p>Die Geſetze des Anſtandes ſind der unſchuldigen Na-<lb/>
+tur fremd; nur die Erfahrung der Verderbniß hat ihnen<lb/>
+den Urſprung gegeben. Sobald aber jene Erfahrung ein-<lb/>
+mal gemacht worden, und aus den Sitten die natuͤrliche<lb/>
+Unſchuld verſchwunden iſt, ſo ſind es heilige Geſetze, die ein<lb/>
+ſittliches Gefuͤhl nicht verletzen darf. Sie gelten in einer<lb/>
+kuͤnſtlichen Welt mit demſelben Rechte, als die Geſetze der<lb/>
+Natur in der Unſchuldwelt regieren. Aber eben das macht<lb/>
+ja den Dichter aus, daß er alles in ſich aufhebt, was an<lb/>
+eine kuͤnſtliche Welt erinnert, daß er die Natur in ihrer<lb/>
+urſpruͤnglichen Einfalt wieder in ſich herzuſtellen weiß.<lb/>
+<pb n="41" facs="#f0048"/>
+Hat er aber dieſes gethan, ſo iſt er auch eben dadurch<lb/>
+von allen Geſetzen losgeſprochen, durch die ein verfuͤhrtes<lb/>
+Herz ſich gegen ſich ſelbſt ſicher ſtellt. Er iſt rein, er iſt<lb/>
+unſchuldig und was der unſchuldigen Natur erlaubt iſt,<lb/>
+iſt es auch ihm; biſt du, der du ihn lieſeſt oder hoͤrſt,<lb/>
+nicht mehr ſchuldlos, und kannſt du es nicht einmal mo-<lb/>
+mentweiſe durch ſeine reinigende Gegenwart werden, ſo<lb/>
+iſt es <hi rendition="#g">dein</hi> Ungluͤck und nicht das ſeine; du verlaͤſſeſt<lb/>
+ihn, er hat fuͤr dich nicht geſungen.</p><lb/>
+<p>Es laͤßt ſich alſo, in Abſicht auf Freyheiten dieſer Art<lb/>
+folgendes feſtſetzen.</p><lb/>
+<p>Fuͤrs erſte: nur die Natur kann ſie rechtfertigen. Sie<lb/>
+duͤrfen mithin nicht das Werk der Wahl und einer abſicht-<lb/>
+lichen Nachahmung ſeyn, denn dem Willen, der immer<lb/>
+nach moraliſchen Geſetzen gerichtet wird, koͤnnen wir ei-<lb/>
+ne Beguͤnſtigung der Sinnlichkeit niemals vergeben. Sie<lb/>
+muͤſſen alſo <hi rendition="#g">Naivetaͤt</hi> ſeyn. Um uns aber uͤberzeugen<lb/>
+zu koͤnnen, daß ſie dieſes wirklich ſind, muͤſſen wir ſie von<lb/>
+allem uͤbrigen, was gleichfalls in der Natur gegruͤndet iſt,<lb/>
+unterſtuͤtzt und begleitet ſehen, weil die Natur nur an der<lb/>
+ſtrengen Conſequenz, Einheit und Gleichfoͤrmigkeit ihrer<lb/>
+Wirkungen zu erkennen iſt. Nur einem Herzen, welches<lb/>
+alle Kuͤnſteley uͤberhaupt, und mithin auch da, wo ſie<lb/>
+nuͤtzt, verabſcheut, erlauben wir, ſich da, wo ſie druͤckt<lb/>
+und einſchraͤnkt, davon loszuſprechen; nur einem Herzen,<lb/>
+welches ſich allen Feßeln der Natur unterwirft, erlauben<lb/>
+wir, von den Freyheiten derſelben Gebrauch zu machen.<lb/>
+Alle uͤbrigen Empfindungen eines ſolchen Menſchen muͤſ-<lb/>
+fen folglich das Gepraͤge der Natuͤrlichkeit an ſich tragen;<lb/>
+er muß wahr, einfach, frey, offen, gefuͤhlvoll, gerade<lb/>
+<pb n="42" facs="#f0049"/>
+ſeyn; alle Verſtellung, alle Liſt, alle Willkuͤhr, alle klein-<lb/>
+liche Selbſtſucht muß aus ſeinem Charakter, alle Spu-<lb/>
+ren davon aus ſeinem Werke verbannt ſeyn.</p><lb/>
+<p>Fuͤrs zweyte: nur die <hi rendition="#g">ſchoͤne</hi> Natur kann derglei-<lb/>
+chen Freyheiten rechtfertigen. Sie duͤrfen mithin kein ein-<lb/>
+ſeitiger Ausbruch der Begierde ſeyn, denn alles, was aus<lb/>
+bloßer Beduͤrftigkeit entſpringt, iſt veraͤchtlich. Aus dem<lb/>
+Ganzen und aus der Fuͤlle menſchlicher Natur muͤſſen auch<lb/>
+dieſe ſinnlichen Energien hervorgehen. Sie muͤſſen <hi rendition="#g">Hu-<lb/>
+manitaͤt</hi> ſeyn. Um aber beurtheilen zu koͤnnen, daß<lb/>
+das Ganze menſchlicher Natur, und nicht bloß ein ein-<lb/>
+ſeitiges und gemeines Beduͤrfniß der Sinnlichkeit ſie fo-<lb/>
+dert, muͤſſen wir das Ganze, von dem ſie einen einzelnen<lb/>
+Zug ausmachen, dargeſtellt ſehen. An ſich ſelbſt iſt die<lb/>
+ſinnliche Empfindungsweiſe etwas unſchuldiges und gleich-<lb/>
+guͤltiges. Sie mißfaͤllt uns nur darum an einem Men-<lb/>
+ſchen, weil ſie thieriſch iſt, und von einem Mangel wah-<lb/>
+rer vollkommener Menſchheit in ihm zeuget: ſie beleidigt<lb/>
+uns nur darum an einem Dichterwerk, weil ein ſolches<lb/>
+Werk Anſpruch macht, uns zu gefallen, mithin auch <hi rendition="#g">uns</hi><lb/>
+eines ſolchen Mangels faͤhig haͤlt. Sehen wir aber in<lb/>
+dem Menſchen, der ſich dabey uͤberraſchen laͤßt, die Menſch-<lb/>
+heit in ihrem ganzen uͤbrigen Umfange wirken; finden<lb/>
+wir in dem Werke, worinn man ſich Freyheiten dieſer Art<lb/>
+genommen, alle Realitaͤten der Menſchheit ausgedruͤckt,<lb/>
+ſo iſt jener Grund unſers Mißfallens weggeraͤumt, und<lb/>
+wir koͤnnen uns mit unvergaͤllter Freude an dem naiven<lb/>
+Ausdruck wahrer und ſchoͤner Natur ergoͤtzen. Derſelbe<lb/>
+Dichter alſo, der ſich erlauben darf, uns zu Theilneh-<lb/>
+mern ſo niedrig menſchlicher Gefuͤhle zu machen, muß<lb/>
+uns auf der andern Seite wieder zu allem, was groß<lb/>
+<pb n="43" facs="#f0050"/>
+und ſchoͤn und erhaben menſchlich iſt, empor zu tragen<lb/>
+wiſſen.</p><lb/>
+<p>Und ſo haͤtten wir denn den Maaßſtab gefunden, dem<lb/>
+wir jeden Dichter, der ſich etwas gegen den Anſtand her-<lb/>
+ausnimmt, und ſeine Freyheit in Darſtellung der Natur<lb/>
+biß zu dieſer Grenze treibt mit Sicherheit unterwerfen<lb/>
+koͤnnen. Sein Produkt iſt gemein, niedrig, ohne alle<lb/>
+Ausnahme verwerflich, ſobald es <hi rendition="#g">kalt</hi> und ſobald es <hi rendition="#g">leer</hi><lb/>
+iſt, weil dieſes einen Urſprung aus Abſicht und aus einem<lb/>
+gemeinen Beduͤrfniß und einen heilloſen Anſchlag auf un-<lb/>
+ſre Begierden beweißt. Es iſt hingegen ſchoͤn, edel, und<lb/>
+ohne Ruͤckſicht auf alle Einwendungen einer froſtigen De-<lb/>
+cenz Beyfallswuͤrdig, ſobald es naiv iſt, und Geiſt mit<lb/>
+Herz verbindet. <note place="foot" n="*">Mit <hi rendition="#g">Herz</hi><gap unit="chars" quantity="1"/> denn die bloß ſinnliche Glut des Gemaͤhldes und<lb/>
+die uͤppige Fuͤlle der Einbildungskraft machen es noch lange<lb/>
+nicht aus. Daher bleibt <hi rendition="#g">Ardinghello</hi> bey aller ſinnlichen<lb/>
+Energie und allem Feuer des Kolorits immer nur eine ſinn-<lb/>
+liche Karrikatur, ohne Wahrheit und ohne aͤſthetiſche Wuͤr-<lb/>
+de. Doch wird dieſe ſeltſame Produktion immer als ein<lb/>
+Beyſpiel des beynahe poetiſchen Schwungs, den die <hi rendition="#g">bloße<lb/>
+Begier</hi> zu nehmen faͤhig war, merkwuͤrdig bleiben.</note></p><lb/>
+<p>Wenn man mir ſagt, daß unter dem hier gegebenen<lb/>
+Maaßſtab die meiſten franzoͤſiſchen Erzaͤhlungen in dieſer<lb/>
+Gattung, und die gluͤcklichſten Nachahmungen derſelben<lb/>
+in Deutſchland nicht zum beſten beſtehen moͤchten — daß<lb/>
+dieſes zum Theil auch der Fall mit manchen Produkten<lb/>
+unſers anmuthigſten und geiſtreichſten Dichters ſeyn duͤrf-<lb/>
+<pb n="44" facs="#f0051"/>
+te, ſeine Meiſterſtuͤcke ſogar nicht ausgenommen, ſo habe<lb/>
+ich nichts darauf zu antworten. Der Ausſpruch ſelbſt iſt<lb/>
+nichts weniger als neu, und ich gebe hier nur die Gruͤn-<lb/>
+de von einem Urtheil an, welches laͤngſt ſchon von jedem<lb/>
+feineren Gefuͤhle uͤber dieſe Gegenſtaͤnde gefaͤllt worden iſt.<lb/>
+Eben dieſe Principien aber, welche in Ruͤckſicht auf jene<lb/>
+Schriften vielleicht allzu rigoriſtiſch ſcheinen, moͤchten in<lb/>
+Ruͤckſicht auf einige andere Werke vielleicht zu liberal be-<lb/>
+funden werden; denn ich laͤugne nicht, daß die nehmli-<lb/>
+chen Gruͤnde, aus welchen ich die verfuͤhreriſchen Ge-<lb/>
+maͤhlde des <hi rendition="#g">roͤmiſchen</hi> und <hi rendition="#g">deutſchen Ovid</hi>, ſo<lb/>
+wie eines <hi rendition="#g">Crebillon, Voltaire, Marmontels</hi><lb/>
+(der ſich einen moraliſchen Erzaͤhler nennt) <hi rendition="#g">Laclos</hi> und<lb/>
+vieler andern, einer Entſchuldigung durchaus fuͤr unfaͤ-<lb/>
+hig halte, mich mit den Elegien des <hi rendition="#g">roͤmiſchen</hi> und<lb/>
+<hi rendition="#g">deutſchen Properz</hi>, ja ſelbſt mit manchem verſchrie-<lb/>
+nen Produkt des <hi rendition="#g">Diderot</hi> verſoͤhnen; denn jene ſind<lb/>
+nur witzig, nur proſaiſch, nur luͤſtern, dieſe ſind poetiſch,<lb/>
+menſchlich und naiv. <note place="foot" n="*" xml:id="seg2pn_5_1" next="#seg2pn_5_2">Wenn ich den unſterblichen Verfaſſer des Agathon, Obe-<lb/>
+ron ꝛc. in dieſer Geſellſchaft nenne, ſo muß ich ausdruͤcklich<lb/>
+erklaͤren, daß ich ihn keineswegs mit derſelben verwechſelt<lb/>
+haben will. Seine Schilderungen, auch die bedenklichſten<lb/>
+von dieſer Seite, haben keine materielle Tendenz (wie ſich<lb/>
+ein neuerer etwas unbeſonnener Critiker vor kurzem zu ſagen<lb/>
+erlaubte) der Verfaſſer von Liebe um Liebe und von ſo vie-<lb/>
+len andern naiven und genialiſchen Werken, in welchen al-<lb/>
+len ſich eine ſchoͤne und edle Seele mit unverkennbaren Zuͤ-<lb/>
+gen abbildet, kann eine ſolche Tendenz gar nicht haben. Aber<lb/>
+er ſcheint mir von dem ganz eigenen Ungluͤck verfolgt zu</note></p></div><lb/>
+<pb n="45" facs="#f0052"/>
+<div n="2"><head><hi rendition="#g">Idylle</hi>.</head><lb/>
+<p>Es bleiben mir noch einige Worte uͤber dieſe dritte<lb/>
+Species ſentimentaliſcher Dichtung zu ſagen uͤbrig, we-<lb/>
+nige Worte nur, denn eine ausfuͤhrlichere Entwicklung<lb/>
+derſelben, deren ſie vorzuͤglich bedarf, bleibt einer andern<lb/>
+Zeit vorbehalten. <note place="foot" n="*" xml:id="seg2pn_6_1" next="#seg2pn_6_2">Nochmals muß ich erinnern, daß die Satyre, Elegie und<lb/>
+Idylle, ſo wie ſie hier als die drey einzig moͤglichen Arten<lb/>
+ſentimentaliſcher Poeſie aufgeſtellt werden, mit den drey be-<lb/>
+ſondern Gedichtarten, welche man unter dieſem Nahmen<lb/>
+kennt, nichts gemein haben, als die <hi rendition="#g">Empfindungswei-</hi></note></p><lb/>
+<p><note place="foot" n="*" xml:id="seg2pn_5_2" prev="#seg2pn_5_1">ſeyn, daß dergleichen Schilderungen durch den Plan ſeiner<lb/>
+Dichtungen nothwendig gemacht werden. Der kalte Ver-<lb/>
+ſtand, der den Plan entwarf, foderte ſie ihm ab, und ſein<lb/>
+Gefuͤhl ſcheint mir ſo weit entfernt, ſie mit Vorliebe zu be-<lb/>
+guͤnſtigen, daß ich — in der Ausfuͤhrung ſelbſt immer noch<lb/>
+den kalten Verſtand zu erkennen glaube. Und gerade dieſe<lb/>
+Kaͤlte in der Darſtellung iſt ihnen in der Beurtheilung ſchaͤd-<lb/>
+lich, weil nur die naive Empfindung dergleichen Schilde-<lb/>
+rungen aͤſthetiſch ſowohl als moraliſch rechtfertigen kann.<lb/>
+Ob es aber dem Dichter erlaubt iſt, ſich bey Entwerfung<lb/>
+des Plans einer ſolchen Gefahr in der Ausfuͤhrung auszuſe-<lb/>
+tzen, und ob uͤberhaupt ein Plan poetiſch heißen kann, der,<lb/>
+ich will dieſes einmal zugeben, nicht kann ausgefuͤhrt wer-<lb/>
+den, ohne die keuſche Empfindung des Dichters ſowohl als<lb/>
+ſeines Leſers zu empoͤren, und ohne beyde bey Gegenſtaͤnden<lb/>
+verweilen zu machen, von denen ein veredeltes Gefuͤhl ſich<lb/>
+ſo gern entfernt — dieß iſt es, was ich bezweiſie und woruͤ-<lb/>
+ber ich gern ein verſtaͤndiges Urtheil hoͤren moͤchte.</note></p><lb/>
+<pb n="46" facs="#f0053"/>
+<p>Die poetiſche Darſtellung unſchuldiger und gluͤcklicher<lb/>
+Menſchheit iſt der allgemeine Begriff dieſer Dichtungsart.<lb/>
+<note place="foot" n="*" xml:id="seg2pn_6_2" prev="#seg2pn_6_1" next="#seg2pn_6_3"><hi rendition="#g">ſe</hi>, welche ſowohl jenen als dieſen eigen iſt. Daß es aber,<lb/>
+auſſerhalb den Grenzen naiver Dichtung, nur dieſe dreyfache<lb/>
+Empfindungsweiſe und Dichtungsweiſe geben koͤnne, folglich<lb/>
+das Feld ſentimentaliſcher Poeſie durch dieſe Eintheilung voll-<lb/>
+ſtaͤndig ausgemeſſen ſey, laͤßt ſich aus dem Begriff der letz-<lb/>
+tern leichtlich deducieren.<lb/>
+Die ſentimentaliſche Dichtung nehmlich unterſcheidet ſich<lb/>
+dadurch von der naiven, daß ſie den wirklichen Zuſtand, bey dem<lb/>
+die letztere ſtehen bleibt auf Ideen bezieht, und Ideen auf die<lb/>
+Wirklichkeit anwendet. Sie hat es daher immer, wie auch<lb/>
+ſchon oben bemerkt worden iſt; mit zwey ſtreitenden Objek-<lb/>
+ten, mit dem Ideale nehmlich und mit der Erfahrung, zu-<lb/>
+gleich zu thun, zwiſchen welchen ſich weder mehr noch weni-<lb/>
+ger als gerade die drey folgenden Verhaͤltniſſe denken laſſen.<lb/>
+Entweder iſt es der <hi rendition="#g">Widerſpruch</hi> des wirklichen Zuſtandes<lb/>
+oder es iſt die <hi rendition="#g">Uebereinſtimmung</hi> deſſeiben mit dem<lb/>
+Ideal, welche vorzugsweiſe das Gemuͤth beſchaͤftigt; oder<lb/>
+dieſes iſt zwiſchen beyden getheilt. In dem erſten Falle wird<lb/>
+es durch die Kraft des innern Streits, <hi rendition="#g">durch die ener-<lb/>
+giſche Bewegung</hi>, in dem andern wird es durch die<lb/>
+Harmonie des innern Lebens, <hi rendition="#g">durch die energiſche Ru-<lb/>
+he</hi> befriedigt; in dem dritten <hi rendition="#g">wechſelt</hi> Streit mit Har-<lb/>
+monie, wechſelt Ruhe mit Bewegung. Dieſer dreyfache Em-<lb/>
+pfindungszuſtand giebt drey verſchiedenen Dichtungsarten die<lb/>
+Entſtehung, denen die gebrauchten Benennungen <hi rendition="#g">Satyre,<lb/>
+Idylle, Elegie</hi> vollkommen entſprechend ſind, ſobald<lb/>
+man ſich nur an die Stimmung erinnert, in welche die, un-<lb/>
+ter dieſem Nahmen vorkommenden Gedichtarten das Gemuͤth<lb/>
+verſetzen, und von den Mitteln abſtrahiert, wodurch ſie die-<lb/>
+ſelbe bewirken.<lb/>
+Wer daher hier noch fragen koͤnnte, zu welcher von den<lb/>
+drey Gattungen ich die Epopee, den Roman, das Trauer-<lb/>
+ſpiel u. a. m. zaͤhle, der wuͤrde mich ganz und gar nicht ver-<lb/>
+ſtanden haben. Denn der Begriff dieſer letztern, als einzel-<lb/>
+ner <hi rendition="#g">Gedichtarten</hi>, wird entweder gar nicht oder doch<lb/>
+nicht allein durch die Empfindungsweiſe beſtimmt; vielmehr<lb/>
+weiß man, daß ſolche in mehr als einer Empfindungsweiſe,<lb/>
+folglich auch in mehrern der von mir aufgeſtellten Dichtungs-<lb/>
+arten koͤnnen ausgefuͤhrt werden.<lb/>
+Schließlich bemerke ich hier noch, daß, wenn man die<lb/>
+ſentimaliſche Poeſie, wie billig, fuͤr eine aͤchte Art (nicht<lb/>
+bloß fuͤr eine Abart) und fuͤr eine Erweiterung der wahren<lb/>
+Dichtkunſt zu halten geneigt iſt, in der Beſtimmung der poe-<lb/>
+tiſchen Arten ſo wie uͤberhaupt in der ganzen poetiſchen Ge-<lb/>
+ſetzgebung, welche noch immer einſeitig auf die Obſervanz<lb/>
+der alten und naiven Dichter gegruͤndet wird, auch auf ſie</note><lb/>
+<pb n="47" facs="#f0054"/>
+Weil dieſe Unſchuld und dieſes Gluͤck mit den kuͤnſtlichen<lb/>
+Verhaͤltniſſen der groͤßern Societaͤt und mit einem gewiſ-<lb/>
+ſen Grad von Ausbildung und Verfeinerung unvertraͤglich<lb/>
+ſchienen, ſo haben die Dichter den Schauplatz der Idylle<lb/>
+aus dem Gedraͤnge des buͤrgerlichen Lebens heraus in den<lb/>
+einfachen Hirtenſtand verlegt, und derſelben ihre Stelle<lb/>
+<hi rendition="#g">vor dem Anfange der Kultur</hi> in dem kindlichen Al-<lb/>
+ter der Menſchheit angewieſen. Man begreift aber wohl,<lb/>
+daß dieſe Beſtimmungen bloß zufaͤllig ſind, daß ſie nicht<lb/>
+als der Zweck der Idylle, bloß als das natuͤrlichſte Mit-<lb/>
+tel zu demſelben in Betrachtung kommen. Der Zweck ſelbſt<lb/>
+iſt uͤberall nur der, den Menſchen im Stand der Unſchuld,<lb/>
+d. h. in einem Zuſtand der Harmonie und des Friedens<lb/>
+mit ſich ſelbſt und von auſſen darzuſtellen.</p><lb/>
+<p>Aber ein ſolcher Zuſtand findet nicht bloß vor dem<lb/>
+Anfange der Kultur ſtatt, ſondern er iſt es auch, den die<lb/>
+Kultur, wenn ſie uͤberal nur eine beſtimmte Tendenz ha-<lb/>
+ben ſoll, als ihr letztes Ziel beabſichtet. Die Idee dieſes<lb/>
+Zuſtandes allein und der Glaube an die moͤgliche Realitaͤt<lb/>
+derſelben kann den Menſchen mit allen den Uebeln verſoͤh-<lb/>
+nen, denen er auf dem Wege der Kultur unterworfen iſt,<lb/>
+und waͤre ſie bloß Schimaͤre, ſo wuͤrden die Klagen derer,<lb/>
+<note place="foot" n="*" xml:id="seg2pn_6_3" prev="#seg2pn_6_2">einige Ruͤckſicht muß genommen werden. Der ſentimentali-<lb/>
+ſche Dichter geht in zu weſentlichen Stuͤcken von dem naiven<lb/>
+ab, als daß ihm die Formen, welche dieſer eingefuͤhrt, uͤber-<lb/>
+al ungezwungen anpaſſen koͤnnten. Freilich iſt es hier ſchwer,<lb/>
+die Ausnahmen, welche die Verſchiedenheit der Art erfodert,<lb/>
+von den Ausfluͤchten, welche das Unvermoͤgen ſich erlaubt,<lb/>
+immer richtig zu unterſcheiden, aber ſoviel lehrt doch die Er-<lb/>
+fahrung, daß unter den Haͤnden ſentimentaliſcher Dichter<lb/>
+(auch der vorzuͤglichſten) keine einzige Gedichtart ganz das<lb/>
+geblieben iſt, was ſie bey den Alten geweſen, und daß unter<lb/>
+den alten Nahmen oͤfters ſehr neue Gattungen ſind ausge-<lb/>
+fuͤhrt worden.</note><lb/>
+<pb n="48" facs="#f0055"/>
+welche die groͤßere Societaͤt und die Anbauung des Ver-<lb/>
+ſtandes bloß als ein Uebel verſchreyen und jenen verlaſſe-<lb/>
+nen Stand der Natur fuͤr den wahren Zweck des Menſchen<lb/>
+ausgeben, vollkommen gegruͤndet ſeyn. Dem Menſchen<lb/>
+der in der Kultur begriffen iſt, liegt alſo unendlich viel<lb/>
+daran, von der Ausfuͤhrbarkeit jener Idee in der Sin-<lb/>
+nenwelt, von der moͤglichen Realitaͤt jenes Zuſtandes eine<lb/>
+ſinnliche Bekraͤftigung zu erhalten, und da die wirkliche<lb/>
+Erfahrung, weit entfernt dieſen Glauben zu naͤhren, ihn<lb/>
+vielmehr beſtaͤndig widerlegt, ſo koͤmmt auch hier, wie<lb/>
+in ſo vielen andern Faͤllen das Dichtungsvermoͤgen der<lb/>
+Vernunft zu Huͤlfe, um jene Idee zur Anſchauung zu<lb/>
+bringen und in einem einzelnen Fall zu verwirklichen.</p><lb/>
+<p>Zwar iſt auch jene Unſchuld des Hirtenſtandes eine<lb/>
+poetiſche Vorſtellung, und die Einbildungskraft mußte ſich<lb/>
+mithin auch dort ſchon ſchoͤpferiſch beweiſen; aber auſſer-<lb/>
+dem daß die Aufgabe dort ungleich einfacher und leichter<lb/>
+zu loͤſen war, ſo fanden ſich in der Erfahrung ſelbſt ſchon<lb/>
+die einzelnen Zuͤge vor, die ſie nur auszuwaͤhlen und in<lb/>
+ein Ganzes zu verbinden brauchte. Unter einem gluͤckli-<lb/>
+chen Himmel, in den einfachen Verhaͤltniſſen des erſten<lb/>
+Standes, bey einem beſchraͤnkten Wiſſen wird die Natur<lb/>
+leicht befriedigt, und der Menſch verwildert nicht eher,<lb/>
+als biß das Beduͤrfniß ihn aͤngſtiget. Alle Voͤlker, die ei-<lb/>
+ne Geſchichte haben, haben ein Paradies, einen Stand<lb/>
+der Unſchuld, ein goldnes Alter; ja jeder einzelne Menſch<lb/>
+hat ſein Paradies, ſein goldnes Alter, deſſen er ſich, je<lb/>
+nachdem er mehr oder weniger poetiſches in ſeiner Natur<lb/>
+hat, mit mehr oder weniger Begeiſterung erinnert. Die<lb/>
+Erfahrung ſelbſt bietet alſo Zuͤge genug zu dem Gemaͤhlde<lb/>
+dar, welches die Hirtenidylle behandelt. Deßwegen bleibt<lb/>
+<pb n="49" facs="#f0056"/>
+aber dieſe immer eine ſchoͤne, eine erhebende Fiction, und<lb/>
+die Dichtungskraft hat in Darſtellung derſelben wirklich<lb/>
+fuͤr das Ideal gearbeitet. Denn fuͤr den Menſchen, der<lb/>
+von der Einfalt der Natur einmal abgewichen und der<lb/>
+gefaͤhrlichen Fuͤhrung ſeiner Vernunft uͤberliefert worden<lb/>
+iſt, iſt es von unendlicher Wichtigkeit, die Geſetzgebung<lb/>
+der Natur in einem reinen Exemplar wieder anzuſchauen,<lb/>
+und ſich von den Verderbniſſen der Kunſt in dieſem treuen<lb/>
+Spiegel wieder reinigen zu koͤnnen. Aber ein Umſtand<lb/>
+findet ſich dabey, der den aͤſthetiſchen Werth ſolcher Dich-<lb/>
+tungen um ſehr viel vermindert. <hi rendition="#g">Vor den Anfang<lb/>
+der Kultur</hi> gepflanzt ſchließen ſie mit den Nachtheilen<lb/>
+zugleich alle Vortheile derſelben aus, und befinden ſich ih-<lb/>
+rem Weſen nach, in einem nothwendigen Streit mit der-<lb/>
+ſelben. Sie fuͤhren uns alſo <hi rendition="#g">theoretiſch</hi> ruͤckwaͤrts,<lb/>
+indem ſie uns <hi rendition="#g">praktiſch</hi> vorwaͤrts fuͤhren und veredeln.<lb/>
+Sie ſtellen ungluͤcklicherweiſe das Ziel <hi rendition="#g">hinter</hi> uns, dem<lb/>
+ſie uns doch <hi rendition="#g">entgegen fuͤhren</hi> ſollten, und koͤnnen<lb/>
+uns daher bloß das traurige Gefuͤhl eines Verluſtes, nicht<lb/>
+das froͤhliche der Hofnung einfloͤßen. Weil ſie nur durch<lb/>
+Aufhebung aller Kunſt und nur durch Vereinfachung der<lb/>
+menſchlichen Natur ihren Zweck ausfuͤhren, ſo haben ſie,<lb/>
+bey dem hoͤchſten Gehalt fuͤr das <hi rendition="#g">Herz</hi>, allzuwenig fuͤr<lb/>
+den <hi rendition="#g">Geiſt</hi>, und ihr einfoͤrmiger Kreis iſt zu ſchnell geen-<lb/>
+digt. Wir koͤnnen ſie daher nur lieben und aufſuchen,<lb/>
+wenn wir der Ruhe beduͤrftig ſind, nicht wenn unſre<lb/>
+Kraͤfte nach Bewegung und Thaͤtigkeit ſtreben. Sie koͤn-<lb/>
+nen nur dem kranken Gemuͤthe <hi rendition="#g">Heilung</hi>, dem geſunden<lb/>
+keine <hi rendition="#g">Nahrung</hi> geben; ſie koͤnnen nicht beleben, nur<lb/>
+beſaͤnftigen. Dieſen in dem Weſen der Hirtenidylle ge-<lb/>
+gruͤndeten Mangel hat alle Kunſt der Poeten nicht gut ma-<lb/>
+chen koͤnnen. Zwar fehlt es auch dieſer Dichtart nicht an<lb/>
+<fw type="sig" place="bottom">Die Horen. 1795. 12tes St. 4</fw><lb/>
+<pb n="50" facs="#f0057"/>
+enthuſiaſtiſchen Liebhabern, und es giebt Leſer genug, die<lb/>
+einen <hi rendition="#g">Amintas</hi> und einen <hi rendition="#g">Daphnis</hi> den groͤßten Mei-<lb/>
+ſterſtuͤcken der epiſchen und dramatiſchen Muſe vorziehen<lb/>
+koͤnnen; aber bey ſolchen Leſern iſt es nicht ſowohl der Ge-<lb/>
+ſchmack als das individuelle Beduͤrfniß, was uͤber Kunſt-<lb/>
+werke richtet, und ihr Urtheil kann folglich hier in keine<lb/>
+Betrachtung kommen. Der Leſer von Geiſt und Empfin-<lb/>
+dung verkennt zwar den Werth ſolcher Dichtungen nicht,<lb/>
+aber er fuͤhlt ſich ſeltner zu denſelben gezogen und fruͤher<lb/>
+davon geſaͤttigt. In dem rechten Moment des Beduͤrfniſ-<lb/>
+ſes wirken ſie dafuͤr deſto maͤchtiger; aber auf einen ſol-<lb/>
+chen Moment ſoll das wahre Schoͤne niemals zu warten<lb/>
+brauchen, ſondern ihn vielmehr erzeugen.</p><lb/>
+<p>Was ich hier an der Schaͤferidylle tadle, gilt uͤbrigens<lb/>
+nur von der ſentimentaliſchen; denn der naiven kann es nie<lb/>
+an Gehalt fehlen, da er hier <hi rendition="#g">in der Form ſelbſt</hi> ſchon<lb/>
+enthalten iſt. Jede Poeſie nehmlich muß einen unendlichen<lb/>
+Gehalt haben, dadurch allein iſt ſie Poeſie; aber ſie kann<lb/>
+dieſe Foderung auf zwey verſchiedene Arten erfuͤllen. Sie<lb/>
+kann ein Unendliches ſeyn, der Form nach, wenn ſie ihren<lb/>
+Gegenſtand <hi rendition="#g">mit allen ſeinen Grenzen</hi> darſtellt, wenn<lb/>
+ſie ihn individualiſiert; ſie kann ein Unendliches ſeyn der<lb/>
+Materie nach, wenn ſie von ihrem Gegenſtand <hi rendition="#g">alle Gren-<lb/>
+zen entfernt</hi>, wenn ſie ihn idealiſiert; alſo entweder<lb/>
+durch eine abſolute Darſtellung oder durch Darſtellung<lb/>
+eines Abſoluten. Den erſten Weg geht der naive, den<lb/>
+zweyten der ſentimentaliſche Dichter. Jener kann alſo<lb/>
+ſeinen Gehalt nicht verfehlen, ſo bald er ſich nur treu<lb/>
+an die Natur haͤlt, welche immer durchgaͤngig begrenzt,<lb/>
+d. h. der Form nach unendlich iſt. Dieſem hingegen ſteht<lb/>
+die Natur mit ihrer durchgaͤngigen Begrenzung im We-<lb/>
+<pb n="51" facs="#f0058"/>
+ge, da er einen abſoluten Gehalt in den Gegenſtand legen<lb/>
+ſoll. Der ſentimentaliſche Dichter verſteht ſich alſo nicht<lb/>
+gut auf ſeinen Vortheil, wenn er dem naiven Dichter<lb/>
+ſeine <hi rendition="#g">Gegenſtaͤnde abborgt</hi>, welche an ſich ſelbſt<lb/>
+voͤllig gleichguͤltig ſind, und nur durch die Behandlung<lb/>
+poetiſch werden. Er ſetzt ſich dadurch ganz unnoͤthiger<lb/>
+Weiſe einerley Grenzen mit jenem, ohne doch die Be-<lb/>
+grenzung vollkommen durchfuͤhren und in der abſoluten<lb/>
+Beſtimmtheit der Darſtellung mit demſelben wetteifern zu<lb/>
+koͤnnen; er ſollte ſich alſo vielmehr gerade in dem Gegen-<lb/>
+ſtand von dem naiven Dichter entfernen, weil er dieſem,<lb/>
+was derſelbe in der Form vor ihm voraus hat, nur durch<lb/>
+den Gegenſtand wieder abgewinnen kann.</p><lb/>
+<p>Um hievon die Anwendung auf die Schaͤferidylle der<lb/>
+ſentimentaliſchen Dichter zu machen, ſo erklaͤrt es ſich<lb/>
+nun, warum dieſe Dichtungen bey allem Aufwand von<lb/>
+Genie und Kunſt weder fuͤr das Herz noch fuͤr den Geiſt<lb/>
+voͤllig befriedigend ſind. Sie haben ein Ideal ausgefuͤhrt<lb/>
+und doch die enge duͤrftige Hirtenwelt beybehalten, da<lb/>
+ſie doch ſchlechterdings entweder fuͤr das Ideal eine andere<lb/>
+Welt, oder fuͤr die Hirtenwelt eine andre Darſtellung<lb/>
+haͤtten waͤhlen ſollen. Sie ſind gerade ſo weit ideal, daß<lb/>
+die Darſtellung dadurch an individueller Wahrheit ver-<lb/>
+liert, und ſind wieder gerade um ſo viel individuel, daß<lb/>
+der idealiſche Gehalt darunter leidet. Ein <hi rendition="#g">Geßneriſcher</hi><lb/>
+Hirte z. B. kann uns nicht als Natur, nicht durch<lb/>
+Wahrheit der Nachahmung entzuͤcken, denn dazu iſt er<lb/>
+ein zu ideales Weſen; eben ſo wenig kann er uns als<lb/>
+ein Ideal durch das unendliche des Gedankens befriedi-<lb/>
+gen, denn dazu iſt er ein viel zu duͤrftiges Geſchoͤpf. Er<lb/>
+wird alſo zwar <hi rendition="#g">biß auf einen gewiſſen Punkt</hi> al-<lb/>
+<pb n="52" facs="#f0059"/>
+len Klaſſen von Leſern ohne Ausnahme gefallen, weil er<lb/>
+das Naive mit dem Sentimentalen zu vereinigen ſtrebt,<lb/>
+und folglich den zwey entgegengeſetzten Foderungen, die an<lb/>
+ein Gedicht gemacht werden koͤnnen, in einem gewiſſen<lb/>
+Grade Genuͤge leiſtet; weil aber der Dichter, uͤber der<lb/>
+Bemuͤhung, beydes zu vereinigen, keinem von beyden ſein<lb/>
+<hi rendition="#g">volles Recht erweißt</hi>, weder ganz Natur noch ganz<lb/>
+Ideal iſt, ſo kann er eben deßwegen vor einem ſtrengen<lb/>
+Geſchmack nicht ganz beſtehen, der in aeſthetiſchen Din-<lb/>
+gen nichts halbes verzeyhen kann. Es iſt ſonderbar, daß<lb/>
+dieſe Halbheit ſich auch biß auf die Sprache des genannten<lb/>
+Dichters erſtreckt, die zwiſchen Poeſie und Proſa unent-<lb/>
+ſchieden ſchwankt, als fuͤrchtete der Dichter in gebundener<lb/>
+Rede ſich von der wirklichen Natur zu weit zu entfernen,<lb/>
+und in ungebundener den poetiſchen Schwung zu verlie-<lb/>
+ren. Eine hoͤhere Befriedigung gewaͤhrt Miltons herr-<lb/>
+liche Darſtellung des erſten Menſchenpaares und des Stan-<lb/>
+des der Unſchuld im Paradieſe; die ſchoͤnſte, mir bekannte<lb/>
+Idylle in der ſentimentaliſchen Gattung. Hier iſt die<lb/>
+Natur edel, geiſtreich, zugleich voll Flaͤche und voll<lb/>
+Tiefe, der hoͤchſte Gehalt der Menſchheit iſt in die an-<lb/>
+muthigſte Form eingekleidet.</p><lb/>
+<p>Alſo auch hier in der Idylle wie in allen andern poe-<lb/>
+tiſchen Gattungen, muß man einmal fuͤr allemal zwiſchen<lb/>
+der Individualitaͤt und der Idealitaͤt eine Wahl treffen,<lb/>
+denn beyden Foderungen zugleich Genuͤge leiſten wollen,<lb/>
+iſt, ſolange man nicht am Ziel der Vollkommenheit ſtehet,<lb/>
+der ſicherſte Weg, beyde zugleich zu verfehlen. Fuͤhlt ſich<lb/>
+der Moderne griechiſchen Geiſtes genug, um bey aller<lb/>
+Widerſpenſtigkeit ſeines Stoffs mit den Griechen auf ih-<lb/>
+rem eigenen Felde, nehmlich im Felde naiver Dichtung,<lb/>
+<pb n="53" facs="#f0060"/>
+zu ringen, ſo thue er es ganz, und thue es ausſchließend,<lb/>
+und ſetze ſich uͤber jede Foderung des ſentimentaliſchen<lb/>
+Zeitgeſchmacks hinweg. Erreichen zwar duͤrfte er ſeine<lb/>
+Muſter ſchwerlich; zwiſchen dem Original und dem gluͤck-<lb/>
+lichſten Nachahmer wird immer eine merkliche Diſtanz<lb/>
+offen bleiben, aber er iſt auf dieſem Wege doch gewiß,<lb/>
+ein aͤcht poetiſches Werk zu erzeugen. <note place="foot" n="*">Mit einem ſolchen Werke hat Herr <hi rendition="#g">Voß</hi> noch kuͤrzlich in<lb/>
+ſeiner Luiſe unſre deutſche Litteratur nicht bloß bereichert,<lb/>
+ſondern auch wahrhaft erweitert. Dieſe Idylle, obgleich<lb/>
+nicht durchaus von ſentimentaliſchen Einfluͤſſen frey, gehoͤrt<lb/>
+ganz zum naiven Geſchlecht und ringt durch individuelle<lb/>
+Wahrheit und gediegene Natur den beſten griechiſchen Mu-<lb/>
+ſtern mit ſeltnem Erfolge nach. Sie kann daher, was ihr<lb/>
+zu hohem Ruhm gereicht, mit keinem modernen Gedicht aus<lb/>
+ihrem Fache, ſondern muß mit griechiſchen Muſtern vergli-<lb/>
+chen werden, mit welchen ſie auch den ſo ſeltenen Vorzug<lb/>
+theilt, uns einen reinen, beſtimmten und immer gleichen<lb/>
+Genuß zu gewaͤhren.</note> Treibt ihn hin-<lb/>
+gegen der ſentimentaliſche Dichtungstrieb zum Ideale,<lb/>
+ſo verfolge er auch dieſes ganz, in voͤlliger Reinheit,<lb/>
+und ſtehe nicht eher als bey dem Hoͤchſten ſtille, ohne hin-<lb/>
+ter ſich zu ſchauen, ob auch die Wirklichkeit ihm nach-<lb/>
+kommen moͤchte. Er verſchmaͤhe den unwuͤrdigen Aus-<lb/>
+weg, den Gehalt des Ideals zu verſchlechtern, um es<lb/>
+der menſchlichen Beduͤrftigkeit anzupaſſen, und den Geiſt<lb/>
+auszuſchließen, um mit dem Herzen ein leichteres Spiel<lb/>
+zu haben. Er fuͤhre uns nicht ruͤckwaͤrts in unſre Kind-<lb/>
+heit, um uns mit den koſtbarſten Erwerbungen des Ver-<lb/>
+ſtandes eine Ruhe erkaufen zu laſſen, die nicht laͤnger<lb/>
+<pb n="54" facs="#f0061"/>
+dauren kann als der Schlaf unſrer Geiſteskraͤfte; ſondern<lb/>
+fuͤhre uns vorwaͤrts zu unſrer Muͤndigkeit, um uns die<lb/>
+hoͤhere Harmonie zu empfinden zu geben, die den Kaͤmpfer<lb/>
+belohnet, die den Ueberwinder begluͤckt. Er mache ſich<lb/>
+die Aufgabe einer Idylle, welche jene Hirtenunſchuld<lb/>
+auch in Subjekten der Kultur und unter allen Bedingun-<lb/>
+gen des ruͤſtigſten feurigſten Lebens, des ausgebreitetſten<lb/>
+Denkens, der raffinirteſten Kunſt, der hoͤchſten geſell-<lb/>
+ſchaftlichen Verfeinerung ausfuͤhrt, welche mit einem<lb/>
+Wort, den Menſchen, der nun einmal nicht mehr nach<lb/>
+<hi rendition="#g">Arkadien</hi> zuruͤckkan, bis nach <hi rendition="#g">Eliſium</hi> fuͤhrt.</p><lb/>
+<p>Der Begriff dieſer Idylle iſt der Begriff eines voͤllig<lb/>
+aufgeloͤßten Kampfes ſowohl in dem einzelnen Menſchen,<lb/>
+als in der Geſellſchaft, einer freyen Vereinigung der Nei-<lb/>
+gungen mit dem Geſetze, einer zur hoͤchſten ſittlichen Wuͤrde<lb/>
+hinaufgelaͤuterten Natur, kurz, er iſt kein andrer als<lb/>
+das Ideal der Schoͤnheit auf das wirkliche Leben ange-<lb/>
+wendet. Ihr Charakter beſteht alſo darinn, daß <hi rendition="#g">aller<lb/>
+Gegenſatz der Wirklichkeit mit dem Ideale</hi>,<lb/>
+der den Stoff zu der ſatyriſchen und elegiſchen Dichtung<lb/>
+hergegeben hatte, vollkommen aufgehoben ſey, und mit<lb/>
+demſelben auch aller Streit der Empfindungen aufhoͤre.<lb/>
+<hi rendition="#g">Ruhe</hi> waͤre alſo der herrſchende Eindruck dieſer Dich-<lb/>
+tungsart, aber Ruhe der Vollendung, nicht der Traͤg-<lb/>
+heit; eine Ruhe, die aus dem Gleichgewicht nicht aus<lb/>
+dem Stillſtand der Kraͤfte, die aus der Fuͤlle nicht aus<lb/>
+der Leerheit fließt, und von dem Gefuͤhl eines unendlichen<lb/>
+Vermoͤgens begleitet wird. Aber eben darum, weil al-<lb/>
+ler Widerſtand hinwegfaͤllt, ſo wird es hier ungleich ſchwuͤ-<lb/>
+riger, als in den zwey vorigen Dichtungsarten, die <hi rendition="#g">Be-<lb/>
+wegung</hi> hervorzubringen, ohne welche doch uͤberall keine<lb/>
+<pb n="55" facs="#f0062"/>
+poetiſche Wirkung ſich denken laͤßt. Die hoͤchſte Einheit<lb/>
+muß ſeyn, aber ſie darf der Mannichfaltigkeit nichts neh-<lb/>
+men; das Gemuͤth muß befriedigt werden, aber ohne daß<lb/>
+das Streben darum aufhoͤre. Die Aufloͤſung dieſer Frage<lb/>
+iſt es eigentlich, was die Theorie der Idylle zu leiſten hat.</p><lb/>
+<trailer><hi rendition="#c">(<hi rendition="#g">Der Beſchluß im naͤchſten Stuͤck</hi>.)</hi></trailer></div></div><lb/>
+<gap reason="insignificant" unit="lines" quantity="12"/>
+<pb facs="#f0063"/>
+<pb facs="#f0064"/>
+<pb facs="#f0065"/>
+</body></text> </TEI>

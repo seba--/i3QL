@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Ça ira!</title>
+<title type="sub">Sechs Gedichte</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118535196">
+<surname>Freiligrath</surname>
+<forename>Ferdinand</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">65</measure>
+<measure type="tokens">2783</measure>
+<measure type="types">1276</measure>
+<measure type="characters">17987</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:05:30Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/freiligrath_caira_1846</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/freiligrath_caira_1846</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/freiligrath_caira_1846</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/freiligrath_caira_1846</idno>
+<idno type="DTADirName">freiligrath_caira_1846</idno>
+<idno type="DTAID">16231</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905191464</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Freiligrath, Ferdinand: Ça ira! Herisau, 1846.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Ça ira!</title>
+<title level="m" type="sub">Sechs Gedichte</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118535196">
+<surname>Freiligrath</surname>
+<forename>Ferdinand</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">53 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Literarisches Institut</name></publisher>
+<pubPlace>Herisau</pubPlace>
+<date type="publication">1846</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Zentral- und Landesbibliothek Berlin</repository>
+<idno>
+<idno type="shelfmark">Berlin ZLB, ¤ III 30050</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="main"><docTitle><titlePart type="main"> <hi rendition="#b"><hi rendition="#aq">ÇA IRA!</hi></hi></titlePart><lb/>
+<milestone unit="section" rendition="#hr"/> <titlePart type="sub"><hi rendition="#b"><hi rendition="#g">Sechs Gedichte</hi></hi></titlePart></docTitle><lb/>
+<byline>von<lb/>
+<docAuthor><hi rendition="#b">Ferdinand Freiligrath.</hi></docAuthor></byline><lb/>
+<milestone unit="section" rendition="#hr"/> <milestone unit="section" rendition="#hr"/> <docImprint><pubPlace><hi rendition="#b">Herisau.</hi></pubPlace><lb/>
+<publisher><hi rendition="#g">Druck und Verlag des literariſchen Inſtituts</hi>.</publisher><lb/>
+<docDate>1846.</docDate></docImprint></titlePage><lb/>
+<pb facs="#f0008"/>
+<gap/>
+<pb n="[1]" facs="#f0009"/>
+<div type="contents"><head><hi rendition="#c"><hi rendition="#b"><hi rendition="#g">Inhalt</hi>.</hi></hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <list><item>Vor der Fahrt <ref>5</ref></item><lb/>
+<item>Eispalaſt <ref>15</ref></item><lb/>
+<item>Von unten auf <ref>23</ref></item><lb/>
+<item>Wie man’s macht <ref>33</ref></item><lb/>
+<item>Freie Preſſe <ref>43</ref></item><lb/>
+<item>Springer <ref>51</ref></item></list></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[2]" facs="#f0010"/>
+</front>
+<pb n="[3]" facs="#f0011"/>
+<body> <div n="1"><head><hi rendition="#b">Vor der Fahrt.</hi></head><lb/>
+<pb n="[4]" facs="#f0012"/>
+<pb n="[5]" facs="#f0013"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Vor der Fahrt</hi>.</hi></head><lb/>
+<p rendition="#c">Melodie der Marſeillaiſe.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <lg type="poem"><lg n="1"><l>Jenſeits der grauen Waſſerwüſte</l><lb/>
+<l>Wie liegt die Zukunft winkend da!</l><lb/>
+<l>Eine grüne lachende Küſte,</l><lb/>
+<l>Ein geahndet Amerika!</l><lb/>
+<l>Ein geahndet Amerika!</l><lb/>
+<l>Und ob auch hoch die Waſſer ſpringen,</l><lb/>
+<l>Ob auch Sandbank uns droht und Riff:</l><lb/>
+<l>Ein erprobt und verwegen Schiff</l><lb/>
+<l>Wird die Muth’gen hinüberbringen!</l></lg><lb/>
+<lg n="2"><l>Friſch auf denn, ſpringt hinein! Friſch auf, das<lb/>
+<hi rendition="#et">Deck bemannt!</hi></l><lb/>
+<l>Stoßt ab! Stoßt ab! Kühn durch den Sturm!<lb/>
+<hi rendition="#et">Sucht Land und findet Land!</hi></l></lg><lb/>
+<pb n="6" facs="#f0014"/>
+<lg n="3"><l>O tapfer Fahrzeug! Ohne Schwanken</l><lb/>
+<l>Befährt es dreiſt die zorn’ge Fluth!</l><lb/>
+<l>Schwarz die Maſten und ſchwarz die Planken,</l><lb/>
+<l>Und die Wimpel ſind roth wie Blut!</l><lb/>
+<l>Und die Wimpel ſind roth wie Blut!</l><lb/>
+<l>Die Segel braun von Dampf und Feuer;</l><lb/>
+<l>Vom Verdeck herab ihren Blitz</l><lb/>
+<l>Sprühn Gewehre, ſprüht das Geſchütz,</l><lb/>
+<l>Und das blanke Schwert iſt ſein Steuer!</l></lg><lb/>
+<lg n="4"><l>Friſch auf denn, ſpringt hinein! Friſch auf, das<lb/>
+<hi rendition="#et">Deck bemannt!</hi></l><lb/>
+<l>Stoßt ab! Stoßt ab! Kühn durch den Sturm!<lb/>
+<hi rendition="#et">Sucht Land und findet Land!</hi></l></lg><lb/>
+<pb n="7" facs="#f0015"/>
+<lg n="5"><l>So fährt es aus zu ſeinen Reiſen,</l><lb/>
+<l>So trägt es Männer in den Streit: —</l><lb/>
+<l>Mit den Helden haben die Weiſen</l><lb/>
+<l>Seine dunkeln Borde geweiht!</l><lb/>
+<l>Seine dunkeln Borde geweiht!</l><lb/>
+<l>Ha, wie Kosciuszko dreiſt es führte!</l><lb/>
+<l>Ha, wie Washington es gelenkt!</l><lb/>
+<l>Lafayette’s und Franklin’s denkt,</l><lb/>
+<l>Und wer ſonſt ſeine Flammen ſchürte!</l></lg><lb/>
+<lg n="6"><l>Friſch auf denn, ſpringt hinein! Friſch auf, das<lb/>
+<hi rendition="#et">Deck bemannt!</hi></l><lb/>
+<l>Stoßt ab! Stoßt ab! Kühn durch den Sturm!<lb/>
+<hi rendition="#et">Sucht Land und findet Land!</hi></l></lg><lb/>
+<pb n="8" facs="#f0016"/>
+<lg n="7"><l>Ihr fragt erſtaunt: Wie mag es heißen?</l><lb/>
+<l>Die Antwort iſt mit feſtem Ton:</l><lb/>
+<l>Wie in Oeſterreich ſo in Preußen</l><lb/>
+<l>Heißt das Schiff: „Revolution!“</l><lb/>
+<l>Heißt das Schiff: „Revolution!“</l><lb/>
+<l>Es iſt die einz’ge richt’ge Fähre —</l><lb/>
+<l>Drum in See, du kecker Pirat!</l><lb/>
+<l>Drum in See, und kapre den Staat,</l><lb/>
+<l>Die verfaulte ſchnöde Galeere!</l></lg><lb/>
+<lg n="8"><l>Friſch auf denn, ſpringt hinein! Friſch auf, das<lb/>
+<hi rendition="#et">Deck bemannt!</hi></l><lb/>
+<l>Stoßt ab! Stoßt ab! Kühn durch den Sturm!<lb/>
+<hi rendition="#et">Sucht Land und findet Land!</hi></l></lg><lb/>
+<pb n="9" facs="#f0017"/>
+<lg n="9"><l>Doch erſt, bei ſchmetternden Drommeten,</l><lb/>
+<l>Noch eine zweite wilde Schlacht!</l><lb/>
+<l>Schwarzer Brander, ſchleudre Raketen</l><lb/>
+<l>In der Kirche ſcheinheil’ge Jacht!</l><lb/>
+<l>In der Kirche ſcheinheil’ge Jacht!</l><lb/>
+<l>Auf des Beſitzes Silberflotten</l><lb/>
+<l>Richte kühn der Kanonen Schlund!</l><lb/>
+<l>Auf des Meeres rottigem Grund</l><lb/>
+<l>Laß der Habſucht Schätze verrotten!</l></lg><lb/>
+<lg n="10"><l>Friſch auf denn, ſpringt hinein! Friſch auf, das<lb/>
+<hi rendition="#et">Deck bemannt!</hi></l><lb/>
+<l>Stoßt ab! Stoßt ab! Kühn durch den Sturm!<lb/>
+<hi rendition="#et">Sucht Land und findet Land!</hi></l></lg><lb/>
+<pb n="10" facs="#f0018"/>
+<lg n="11"><l>O ſtolzer Tag, wenn ſolche Siege</l><lb/>
+<l>Das Schiff des Volkes ſich erſtritt!</l><lb/>
+<l>Wenn, zu Boden ſegelnd die Lüge,</l><lb/>
+<l>Zum erſehnten Geſtad es glitt!</l><lb/>
+<l>Zum erſehnten Geſtad es glitt!</l><lb/>
+<l>Zum grünen Strand der neuen Erde,</l><lb/>
+<l>Wo die Freiheit herrſcht und das Recht,</l><lb/>
+<l>Wo kein Armer ſtöhnt und kein Knecht,</l><lb/>
+<l>Wo ſich ſelber Hirt iſt die Heerde!</l></lg><lb/>
+<lg n="12"><l>Friſch auf denn, ſpringt hinein! Friſch auf, das<lb/>
+<hi rendition="#et">Deck bemannt!</hi></l><lb/>
+<l>Stoßt ab! Stoßt ab! Kühn durch den Sturm!<lb/>
+<hi rendition="#et">Sucht Land und findet Land!</hi></l></lg><lb/>
+<pb n="11" facs="#f0019"/>
+<lg n="13"><l>Wo nur der Eintracht Fahnen wehen,</l><lb/>
+<l>Wo uns kein Hader mehr zerſtückt!</l><lb/>
+<l>Wo der Menſch von der Menſchheit Höhen</l><lb/>
+<l>Unenterbt durch die Schöpfung blickt!</l><lb/>
+<l>Unenterbt durch die Schöpfung blickt!</l><lb/>
+<l>O neue Welt, nach Sturm und Fehde</l><lb/>
+<l>Wie erquickt uns bald deine Ruh’!</l><lb/>
+<l>Alle Herzen pochen dir zu — —</l><lb/>
+<l><hi rendition="#g">Und der Brander liegt auf der Rhede</hi>!</l></lg><lb/>
+<lg n="14"><l>Friſch auf denn, ſpringt hinein! Friſch auf, das<lb/>
+<hi rendition="#et">Deck bemannt!</hi></l><lb/>
+<l>Stoßt ab! Stoßt ab! Kühn durch den Sturm!<lb/>
+<hi rendition="#et">Sucht Land und findet Land!</hi></l></lg></lg></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[12]" facs="#f0020"/>
+<pb n="[13]" facs="#f0021"/>
+<div n="1"><head><hi rendition="#b">Eispalaſt.</hi></head><lb/>
+<pb n="[14]" facs="#f0022"/>
+<pb n="15" facs="#f0023"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Eispalaſt</hi>.</hi> <note place="foot" n="*)">Das Motiv iſt einer politiſchen Fabel von Thomas<lb/>
+Moore entnommen.</note></head><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#b"><hi rendition="#aq">I.</hi></hi></head><lb/>
+<lg type="poem"><lg n="1"><l>Ihr Alle, mein’ ich, habt gehört von jenem ſeltnen</l><lb/>
+<l>Eispalaſt!</l><lb/>
+<l>Auf der gefrornen Newafluth aufſtarrte der gefrorne</l><lb/>
+<l>Glaſt!</l><lb/>
+<l>Dem Willen einer Kaiſerin, der Laune dienend</l><lb/>
+<l>einer Frau,</l><lb/>
+<l>Scholl’ über Scholle ſtand er da, gediegen Eis der</l><lb/>
+<l>ganze Bau!</l></lg><lb/>
+<pb n="16" facs="#f0024"/>
+<lg n="2"><l>Um ſeine blanken Fenſterreih’n, um ſeine Giebel</l><lb/>
+<l>pfiff es kalt:</l><lb/>
+<l>Doch innen hat ihn Frühlingsweh’n und hat ihn</l><lb/>
+<l>Blumenhauch durchwallt!</l><lb/>
+<l>Allüberall, wohin man ſchritt, Muſik und Giran-</l><lb/>
+<l>dolenglanz,</l><lb/>
+<l>Und durch der Säle bunte Flucht bewegte wirbelnd</l><lb/>
+<l>ſich der Tanz!</l></lg><lb/>
+<lg n="3"><l>Alſo, bis in den März hinein, war ſeine Herr-</l><lb/>
+<l>lichkeit zu ſchau’n;</l><lb/>
+<l>Doch — auch in Rußland kommt der Lenz, und</l><lb/>
+<l>auch der Newa Blöcke thau’n!</l><lb/>
+<l>Hui, wie bei’m erſten Sturm aus Süd der ganze</l><lb/>
+<l>ſchimmernde Koloß</l><lb/>
+<l>Hohl in ſich ſelbſt zuſammen ſank, und häuptlings</l><lb/>
+<l>in die Fluthen ſchoß!</l></lg><lb/>
+<pb n="17" facs="#f0025"/>
+<lg n="4"><l>Die Fluthen aber jauchzten auf! Ja, die der Froſt</l><lb/>
+<l>in Bande ſchlug,</l><lb/>
+<l>Die geſtern eine Hofburg noch und eines Hofes</l><lb/>
+<l>Unſinn trug,</l><lb/>
+<l>Die es noch geſtern ſchweigend litt, daß man ihr</l><lb/>
+<l>auflud Pomp und Staat,</l><lb/>
+<l>Daß eine üpp’ge Kaiſerin hoffärtig ſie mit Füßen</l><lb/>
+<l>trat: —</l></lg><lb/>
+<lg n="5"><l>Dieſelbe Newa jauchzt’ empor! Abwärts mit brau-</l><lb/>
+<l>ſendem Erguß,</l><lb/>
+<l>Abwärts durch Schnee und Schollenwerk ſchob ſich</l><lb/>
+<l>und drängte ſich der Fluß!</l><lb/>
+<l>Die letzten Spuren ſeiner Schmach malmt’ er und</l><lb/>
+<l>knirſcht’ er kurz und klein —</l><lb/>
+<l>Und ſtrömte groß und ruhig dann in’s ewig freie</l><lb/>
+<l>Meer hinein!</l></lg></lg></div><lb/>
+<fw type="sig" place="bottom">2</fw><lb/>
+<pb n="18" facs="#f0026"/>
+<div n="3"><head><hi rendition="#b"><hi rendition="#aq">II.</hi></hi></head><lb/>
+<lg type="poem"><lg n="1"><l>Die ihr der Völker heil’ge Fluth abdämmtet von</l><lb/>
+<l>der Freiheit Meer: —</l><lb/>
+<l>Ausmündend bald, der Newa gleich, braust ſie</l><lb/>
+<l>und jubelt ſie einher!</l><lb/>
+<l>Den Winterfroſt der Tyrannei ſtolz vom Genicke</l><lb/>
+<l>ſchüttelt ſie,</l><lb/>
+<l>Und ſchlingt hinab, den lang ſie trug, den Eis-</l><lb/>
+<l>palaſt der Despotie!</l></lg><lb/>
+<pb n="19" facs="#f0027"/>
+<lg n="2"><l>Noch ſchwelgt ihr in dem Blitzenden, und thut in</l><lb/>
+<l>eurem Dünkel, traun!</l><lb/>
+<l>Als käme nun und nie der Lenz, als würd’ es</l><lb/>
+<l>nun und nimmer thau’n!</l><lb/>
+<l>Doch mälig ſteigt die Sonne ſchon, und weich</l><lb/>
+<l>erhebt ſich ſchon ein Weh’n;</l><lb/>
+<l>Die Decke tropft, der Boden ſchwimmt — O,</l><lb/>
+<l>ſchlüpfrig und gefährlich Geh’n!</l></lg><lb/>
+<lg n="3"><l>Ihr aber <hi rendition="#g">wollt</hi> verſchlungen ſein! Daſteht ihr</l><lb/>
+<l>und kapitulirt</l><lb/>
+<l>Lang erſt mit jeder Scholle noch, ob ſie — von</l><lb/>
+<l>Neuem nicht gefriert!</l><lb/>
+<l>Umſonſt, ihr Herrn! Kein Halten mehr! Ihr ſprecht</l><lb/>
+<l>den Lenz zum Winter nicht,</l><lb/>
+<l>Und hat das Eis einmal gekracht, ſo glaubt mir!</l><lb/>
+<l>daß es bald auch bricht!</l></lg><lb/>
+<pb n="20" facs="#f0028"/>
+<lg n="4"><l>Dann aber heißt es wiederum: — Abwärts mit</l><lb/>
+<l>brauſendem Erguß,</l><lb/>
+<l>Abwärts durch Schnee und Schollenwerk drängt ſich</l><lb/>
+<l>und macht ſich Bahn der Fluß!</l><lb/>
+<l>Die letzten Spuren ſeiner Schmach malmt er und</l><lb/>
+<l>knirſcht er kurz und klein —</l><lb/>
+<l>Und fluthet groß und ruhig dann in’s ewig freie</l><lb/>
+<l>Meer hinein!</l></lg></lg></div></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[21]" facs="#f0029"/>
+<div n="1"><head><hi rendition="#b">Von unten auf!</hi></head><lb/>
+<pb n="[22]" facs="#f0030"/>
+<pb n="23" facs="#f0031"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Von unten auf</hi>!</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <lg type="poem"><lg n="1"><l>Ein Dämpfer kam von Bieberich: — ſtolz war</l><lb/>
+<l>die Furche, die er zog!</l><lb/>
+<l>Er qualmt’ und räderte zu Thal, daß rechts und</l><lb/>
+<l>links die Brandung flog!</l><lb/>
+<l>Von Wimpeln und von Flaggen voll, ſchoß er</l><lb/>
+<l>hinab keck und erfreut:</l><lb/>
+<l>Den König, der in Preußen herrſcht, nach ſeiner</l><lb/>
+<l>Rheinburg trug er heut!</l></lg><lb/>
+<pb n="24" facs="#f0032"/>
+<lg n="2"><l>Die Sonne ſchien wie lauter Gold! Auftauchte</l><lb/>
+<l>ſchimmernd Stadt um Stadt!</l><lb/>
+<l>Der Rhein war wie ein Spiegel ſchier, und das</l><lb/>
+<l>Verdeck war blank und glatt!</l><lb/>
+<l>Die Dielen blitzten friſch gebohnt, und auf den</l><lb/>
+<l>ſchmalen her und hin</l><lb/>
+<l>Vergnügten Auges wandelten der König und die</l><lb/>
+<l>Königin!</l></lg><lb/>
+<lg n="3"><l>Nach allen Seiten ſchaut’ umher und winkte das</l><lb/>
+<l>erhabne Paar;</l><lb/>
+<l>Des Rheingau’s Reben grüßten ſie und auch dein</l><lb/>
+<l>Nußlaub, Sankt Goar!</l><lb/>
+<l>Sie ſahn zu Rhein, ſie ſahn zu Berg: — wie</l><lb/>
+<l>war das Schifflein doch ſo nett!</l><lb/>
+<l>Es ging ſich auf den Dielen faſt, als wie auf</l><lb/>
+<l>Sansſouci’s Parket!</l></lg><lb/>
+<pb n="25" facs="#f0033"/>
+<lg n="4"><l>Doch unter all der Nettigkeit und unter all der</l><lb/>
+<l>ſchwimmenden Pracht,</l><lb/>
+<l>Da frißt und flammt das Element, das ſie von</l><lb/>
+<l>dannen ſchießen macht;</l><lb/>
+<l>Da ſchafft in Ruß und Feuersgluth, der dieſes</l><lb/>
+<l>Glanzes Seele iſt;</l><lb/>
+<l>Da ſteht und ſchürt und ordnet er — der Prole-</l><lb/>
+<l>tarier-Maſchiniſt!</l></lg><lb/>
+<lg n="5"><l>Da draußen lacht und grünt die Welt, da draußen</l><lb/>
+<l>blitzt und rauſcht der Rhein —</l><lb/>
+<l><hi rendition="#g">Er</hi> ſtiert den lieben langen Tag in ſeine Flam-</l><lb/>
+<l>men nur hinein!</l><lb/>
+<l>Im wollnen Hemde, halbernackt, vor ſeiner Eſſe</l><lb/>
+<l>muß er ſteh’n,</l><lb/>
+<l>Derweil ein König über ihm einſchlürft der Berge</l><lb/>
+<l>freies Weh’n!</l></lg><lb/>
+<pb n="26" facs="#f0034"/>
+<lg n="6"><l>Jetzt iſt der Ofen zugekeilt, und Alles geht und</l><lb/>
+<l>Alles paßt;</l><lb/>
+<l>So gönnt er auf Minuten denn ſich eine kurze</l><lb/>
+<l>Sklavenraſt.</l><lb/>
+<l>Mit halbem Leibe taucht er auf aus ſeinem lo-</l><lb/>
+<l>dernden Verſteck;</l><lb/>
+<l>In ſeiner Fallthür ſteht er da, und überſchaut ſich</l><lb/>
+<l>das Verdeck.</l></lg><lb/>
+<lg n="7"><l>Das glüh’nde Eiſen in der Hand, Antlitz und Arme</l><lb/>
+<l>roth erhitzt,</l><lb/>
+<l>Mit der gewölbten haar’gen Bruſt auf das Ge-</l><lb/>
+<l>länder breit geſtützt —</l><lb/>
+<l>So läßt er ſchweifen ſeinen Blick, ſo murrt er</l><lb/>
+<l>leis dem Fürſten zu:</l><lb/>
+<l>„Wie mahnt dies Boot mich an den Staat! Licht</l><lb/>
+<l>auf den Höhen wandelſt <hi rendition="#g">Du</hi>!</l></lg><lb/>
+<pb n="27" facs="#f0035"/>
+<lg n="8"><l>„Tief unten aber, in der Nacht und in der Arbeit</l><lb/>
+<l>dunkelm Schoos,</l><lb/>
+<l>Tief unten, von der Noth geſpornt, da ſchür’ und</l><lb/>
+<l>ſchmied’ <hi rendition="#g">ich</hi> mir mein Loos!</l><lb/>
+<l>Nicht meines nur, auch Deines, Herr! Wer hält</l><lb/>
+<l>die Räder Dir im Takt,</l><lb/>
+<l>Wenn nicht mit ſchwielenharter Fauſt der Heizer</l><lb/>
+<l>ſeine Eiſen packt?</l></lg><lb/>
+<lg n="9"><l>„Du biſt viel weniger ein Zeus, als ich, o König,</l><lb/>
+<l>ein Titan!</l><lb/>
+<l>Beherrſch’ ich nicht, auf dem Du gehſt, den all-</l><lb/>
+<l>zeit kochenden Vulkan?</l><lb/>
+<l>Es liegt an mir: — Ein Ruck von mir, Ein</l><lb/>
+<l>Schlag von mir zu dieſer Friſt,</l><lb/>
+<l>Und ſiehe, das Gebäude ſtürzt, von welchem Du</l><lb/>
+<l>die Spitze biſt!</l></lg><lb/>
+<pb n="28" facs="#f0036"/>
+<lg n="10"><l>„Der Boden birſt, aufſchlägt die Gluth und ſprengt</l><lb/>
+<l>Dich krachend in die Luft!</l><lb/>
+<l>Wir aber ſteigen feuerfeſt aufwärts an’s Licht aus</l><lb/>
+<l>unſrer Gruft!</l><lb/>
+<l>Wir ſind die Kraft! Wir hämmern jung das alte</l><lb/>
+<l>morſche Ding, den Staat,</l><lb/>
+<l>Die wir von Gottes Zorne ſind bis jetzt das Pro-</l><lb/>
+<l>letariat!</l></lg><lb/>
+<lg n="11"><l>„Dann ſchreit’ ich jauchzend durch die Welt! Auf mei-</l><lb/>
+<l>nen Schultern, ſtark und breit,</l><lb/>
+<l>Ein neuer Sankt Chriſtophorus, trag’ ich den Chriſt</l><lb/>
+<l>der neuen Zeit!</l><lb/>
+<l>Ich bin der Rieſe, der nicht wankt! Ich bin’s,</l><lb/>
+<l>durch den zum Siegesfeſt</l><lb/>
+<l>Ueber den toſenden Strom der Zeit der Heiland</l><lb/>
+<l>Geiſt ſich tragen läßt!“</l></lg><lb/>
+<pb n="29" facs="#f0037"/>
+<lg n="12"><l>So hat in ſeinen krauſen Bart der grollende Cyklop</l><lb/>
+<l>gemurrt;</l><lb/>
+<l>Dann geht er wieder an ſein Werk, nimmt ſein</l><lb/>
+<l>Geſchirr, und ſtocht und purrt.</l><lb/>
+<l>Die Hebel knirſchen auf und ab, die Flamme</l><lb/>
+<l>ſtrahlt ihm in’s Geſicht,</l><lb/>
+<l>Der Dampf rumort; — er aber ſagt: „Heut, zor-</l><lb/>
+<l>nig Element noch nicht!“</l></lg><lb/>
+<lg n="13"><l>Der bunte Dämpfer unterdeß legt vor Kapellen</l><lb/>
+<l>ziſchend an;</l><lb/>
+<l>Sechsſpännig fährt die Majeſtät den jungen Stolzen-</l><lb/>
+<l>fels hinan.</l><lb/>
+<l>Der Heizer auch blickt auf zur Burg; von ſeinen</l><lb/>
+<l>Flammen nur behorcht,</l><lb/>
+<l>Lacht er: „Ei, wie man immer doch für künftige</l><lb/>
+<l>Ruinen ſorgt!“</l></lg></lg></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[30]" facs="#f0038"/>
+<pb n="[31]" facs="#f0039"/>
+<div n="1"><head><hi rendition="#b">Wie man’s macht!</hi></head><lb/>
+<pb n="[32]" facs="#f0040"/>
+<pb n="33" facs="#f0041"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Wie man’s macht</hi>!</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <lg type="poem"><lg n="1"><l>So wird es kommen, eh’ ihr denkt: — Das Volk</l><lb/>
+<l>hat Nichts zu beißen mehr!</l><lb/>
+<l>Durch ſeine Lumpen pfeift der Wind! Wo nimmt</l><lb/>
+<l>es Brot und Kleider her? —</l><lb/>
+<l>Da tritt ein kecker Burſche vor; der ſpricht: „Die</l><lb/>
+<l>Kleider wüßt’ ich ſchon!</l><lb/>
+<l>Mir nach, wer Rock und Hoſen will! Zeug für</l><lb/>
+<l>ein ganzes Bataillon!“</l></lg><lb/>
+<fw type="sig" place="bottom">3</fw><lb/>
+<pb n="34" facs="#f0042"/>
+<lg n="2"><l>Und wie man eine Hand umdreht, ſtellt er in Rot-</l><lb/>
+<l>ten ſie und Reih’n,</l><lb/>
+<l>Schreit: „Linksum kehrt!“ und: „Vorwärts Marſch!„</l><lb/>
+<l>und führt zur Kreisſtadt ſie hinein.</l><lb/>
+<l>Vor einem ſteinernen Gebäu Halt machen läßt er</l><lb/>
+<l>trutziglich:</l><lb/>
+<l>„Seht da, mein Kleidermagazin — das Landwehr-</l><lb/>
+<l>zeughaus nennt es ſich!</l></lg><lb/>
+<lg n="3"><l>„Darinnen liegt, was ihr bedürft: Leinwand zu</l><lb/>
+<l>Hemden, derb und ſchwer!</l><lb/>
+<l>Wattirte Jacken, friſch genäht — dazu von zweier-</l><lb/>
+<l>lei Couleur!</l><lb/>
+<l>Tuchmäntel für die Regennacht! Feldmützen auch</l><lb/>
+<l>und Handſchuh’ viel,</l><lb/>
+<l>Und Alles, was ſich ſonſt gehört zu Heerſchau und</l><lb/>
+<l>Paradeſpiel!</l></lg><lb/>
+<pb n="35" facs="#f0043"/>
+<lg n="4"><l>„Ihr kennt den ganzen Rummel ja! Ob auch mit</l><lb/>
+<l>Hadern jetzt bedeckt,</l><lb/>
+<l>Haben die Meiſten doch von euch in der Monti-</l><lb/>
+<l>rung ſchon geſteckt!</l><lb/>
+<l>Wehrmänner ſeid ihr allzumal! So lange Jeder</l><lb/>
+<l>denn vom Pflock</l><lb/>
+<l>Sich ſeinen eignen Hoſenſack und ſeinen eignen</l><lb/>
+<l>blauen Rock!</l></lg><lb/>
+<lg n="5"><l>„Ja, <hi rendition="#g">ſeinen</hi> Rock! Wer faſelt noch vom Rock des</l><lb/>
+<l>Königs? — Liebe Zeit!</l><lb/>
+<l>Gabt <hi rendition="#g">ihr</hi> die Wolle doch dazu: geſchorne Schafe,</l><lb/>
+<l>die ihr ſeid!</l><lb/>
+<l>Du da — iſt nicht die Leinwand hier der Flachs,</l><lb/>
+<l>den deine Mutter ſpann,</l><lb/>
+<l>Indeß vom kummervollen Aug’ die Thrän’ ihr auf</l><lb/>
+<l>den Faden rann?</l></lg><lb/>
+<pb n="36" facs="#f0044"/>
+<lg n="6"><l>„Nehmt denn! So recht! Da prunkt ihr ja, als</l><lb/>
+<l>ging’s zu Felde morgen früh,</l><lb/>
+<l>Oder doch allerwenigſtens nach Grimlinghauſen zur</l><lb/>
+<l>Revue!</l><lb/>
+<l>Nur die Muskete fehlt euch noch! Doch ſieh’, da</l><lb/>
+<l>ſteht von ungefähr</l><lb/>
+<l>Der ganze Saal voll! Zum Verſuch: — Gewehr</l><lb/>
+<l>in Arm! Schultert’s Gewehr!</l></lg><lb/>
+<lg n="7"><l>„Ganz, wie ſich’s hört! Das nenn’ ich Schick! Am</l><lb/>
+<l>Ende … Jungens, wißt ihr was?</l><lb/>
+<l>Auch die Gewehre wandern mit! — Gewehr bei</l><lb/>
+<l>Fuß! — Das wird ein Spaß!</l><lb/>
+<l>Und würd’ es Ernſt … Nun, möglich iſt’s! Sie ma-</l><lb/>
+<l>chen immer groß Geſchrei,</l><lb/>
+<l>Und nennen dieſen Kleiderwitz vielleicht noch gar</l><lb/>
+<l>Rebellerei!</l></lg><lb/>
+<pb n="37" facs="#f0045"/>
+<lg n="8"><l>„Nennen ihn Einbruch noch und Raub! — In</l><lb/>
+<l>wenig Stunden, ſollt ihr ſeh’n,</l><lb/>
+<l>Wird uns ein Linienregiment ſchlagfertig gegenüber</l><lb/>
+<l>ſteh’n!</l><lb/>
+<l>Da heißt es denn für ſeinen Rock die Zähne weiſen!</l><lb/>
+<l>D’ran und d’rauf!</l><lb/>
+<l>Patronen her! Geladen, Kerls! Und pflanzt die</l><lb/>
+<l>Bajonette auf!</l></lg><lb/>
+<lg n="9"><l>„Stülpt auch den Tſchako auf den Kopf, und hängt</l><lb/>
+<l>den Degen vor den Steiß: —</l><lb/>
+<l>Daß ihr ihn „Käſemeſſer“ nennt, ein glückverkün-</l><lb/>
+<l>dend Omen ſei’s!</l><lb/>
+<l>Kein Hirn, will’s Gott, beſudelt ihn! Kein Herz-</l><lb/>
+<l>blut, hoff’ ich, färbt ihn roth —</l><lb/>
+<l>Für Weib und Kinder „Käſe“ nur ſoll er zerhau’n</l><lb/>
+<l>und nahrhaft Brot!</l></lg><lb/>
+<pb n="38" facs="#f0046"/>
+<lg n="10"><l>„Und nun hinaus! Tambour voran, Querpfeifer</l><lb/>
+<l>und Horniſtenpaar!</l><lb/>
+<l>Soll auch die Adlerfahne noch vorflattern, Brüder,</l><lb/>
+<l>eurer Schaar?</l><lb/>
+<l>Den Teufel auch! Was kümmert uns vergangner</l><lb/>
+<l>Zeit Raubvögelpack!</l><lb/>
+<l>Wollt ihr ein Banner: Eines nur ſchickt ſich für</l><lb/>
+<l>euch — der Bettelſack!</l></lg><lb/>
+<lg n="11"><l>„Den pflanzt auf irgend ein Gerüſt: — da, hier</l><lb/>
+<l>iſt ein Uhlanenſpeer! —</l><lb/>
+<l>Und tragt ihn, wie die Geuſen einſt, mit zorn’gem</l><lb/>
+<l>Stolze vor euch her!</l><lb/>
+<l>Ihr könnt es füglicher, als ſie! Ihr tragt den Sack</l><lb/>
+<l>nicht bloß zum Staat,</l><lb/>
+<l>Ihr ſeid nicht bloß dem Namen nach — nein, ihr</l><lb/>
+<l>ſeid Bettler in der That!</l></lg><lb/>
+<pb n="39" facs="#f0047"/>
+<lg n="12"><l>„Marſch denn, ihr Geuſen dieſer Zeit! Marſch,</l><lb/>
+<l>Proletarier-Bataillon!“ —</l><lb/>
+<l>Da naht zu Fuß und naht zu Roß die königliche</l><lb/>
+<l>Linie ſchon!</l><lb/>
+<l>„Feuer!“ befiehlt der General; „Choc!“ heißt es</l><lb/>
+<l>bei der Reiterei. —</l><lb/>
+<l>Doch, ha! Kein Renner hebt den Huf, und keine</l><lb/>
+<l>Flinte ſchickt ihr Blei!</l></lg><lb/>
+<lg n="13"><l>Ein Murren aber rollt durch’s Heer: „Auch wir</l><lb/>
+<l>ſind Volk! Was königlich!“</l><lb/>
+<l>Und plötzlich vor dem Bettelſack ſenkt tief die</l><lb/>
+<l>Adlerfahne ſich!</l><lb/>
+<l>Dann Jubelſchrei: „Wir ſind mit Euch! Denn wir</l><lb/>
+<l>ſind Ihr, und Ihr ſeid wir!“ —</l><lb/>
+<l>„Kanaille!“ ruft der Commandeur — da reißt ein</l><lb/>
+<l>Leutnant ihn vom Thier!</l></lg><lb/>
+<pb n="40" facs="#f0048"/>
+<lg n="14"><l>Und wie ein Sturm zur Hauptſtadt geht’s! An-</l><lb/>
+<l>ſchwillt ihr Zug lawinengleich!</l><lb/>
+<l>Umſtürzt der Thron, die Krone fällt, in ſeinen</l><lb/>
+<l>Angeln ächzt das Reich!</l><lb/>
+<l>Aus Brand und Blut erhebt das Volk ſieghaft</l><lb/>
+<l>ſein lang zertreten Haupt: —</l><lb/>
+<l>Wehen hat jegliche Geburt! — So wird es kommen,</l><lb/>
+<l>eh’ ihr glaubt!</l></lg></lg></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[41]" facs="#f0049"/>
+<div n="1"><head><hi rendition="#b">Freie Preſſe.</hi></head><lb/>
+<pb n="[42]" facs="#f0050"/>
+<pb n="43" facs="#f0051"/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Freie Preſſe</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <lg type="poem"><lg n="1"><l>Feſten Tons zu ſeinen Leuten ſpricht der Herr der</l><lb/>
+<l>Druckerei:</l><lb/>
+<l>„Morgen, wißt ihr, ſoll es losgeh’n, und zum</l><lb/>
+<l>Schießen braucht man Blei!</l><lb/>
+<l>Wohl, wir haben unſre Schriften: — Morgen in</l><lb/>
+<l>die Reih’n getreten!</l><lb/>
+<l>Heute Munition gegoſſen aus metall’nen Alpha-</l><lb/>
+<l>beten!</l></lg><lb/>
+<pb n="44" facs="#f0052"/>
+<lg n="2"><l>„Hier die Formen, hier die Tiegel! auch die Kohlen</l><lb/>
+<l>facht’ ich an!</l><lb/>
+<l>Und die Pforten ſind verrammelt, daß uns Nie-</l><lb/>
+<l>mand ſtören kann!</l><lb/>
+<l>An die Arbeit denn, ihr Herren! Alle, die ihr</l><lb/>
+<l>ſetzt und preßt!</l><lb/>
+<l>Helft mir auf die Beine bringen dieſes Freiheits-</l><lb/>
+<l>manifeſt!“</l></lg><lb/>
+<lg n="3"><l>Spricht’s, und wirft die erſten Lettern in den</l><lb/>
+<l>Tiegel friſcher Hand.</l><lb/>
+<l>Von der Hitze bald geſchmolzen, brodeln Perl und</l><lb/>
+<l>Diamant;</l><lb/>
+<l>Brodeln Colonel und Corpus; hier Antiqua, dort</l><lb/>
+<l>Fraktur</l><lb/>
+<l>Werfen radikale Blaſen, dreiſt umgehend die</l><lb/>
+<l>Cenſur.</l></lg><lb/>
+<pb n="45" facs="#f0053"/>
+<lg n="4"><l>Dampfend in die Kugelformen ziſcht die glüh’nde</l><lb/>
+<l>Maſſe dann: —</l><lb/>
+<l>So die ganze lange Herbſtnacht ſchaffen dieſe</l><lb/>
+<l>zwanzig Mann;</l><lb/>
+<l>Athmen rüſtig in die Kohlen; ſchüren, ſchmelzen</l><lb/>
+<l>unverdroſſen,</l><lb/>
+<l>Bis in runde, blanke Kugeln Schrift und Zeug</l><lb/>
+<l>ſie umgegoſſen!</l></lg><lb/>
+<lg n="5"><l>Wohl verpackt in grauen Beuteln liegt der Vorrath</l><lb/>
+<l>an der Erde,</l><lb/>
+<l>Fertig, daß er mit der Frühe brühwarm ausge-</l><lb/>
+<l>geben werde!</l><lb/>
+<l>Eine dreiſte Morgenzeitung! Wahrlich, gleich beherzt</l><lb/>
+<l>und kühn</l><lb/>
+<l>Sah man keine noch entſchwirren dieſer alten</l><lb/>
+<l>Offizin!</l></lg><lb/>
+<pb n="46" facs="#f0054"/>
+<lg n="6"><l>Und der Meiſter ſieht es düſter, legt die Rechte</l><lb/>
+<l>auf ſein Herz:</l><lb/>
+<l>„Daß es alſo mußte kommen, mir und Vielen</l><lb/>
+<l>macht es Schmerz!</l><lb/>
+<l>Doch — welch Mittel noch iſt übrig, und wie</l><lb/>
+<l><hi rendition="#g">kann</hi> es anders ſein? —</l><lb/>
+<l>Nur als Kugel mag die Type dieſer Tage ſich</l><lb/>
+<l>befrei’n!</l></lg><lb/>
+<lg n="7"><l>„Wohl ſoll der Gedanke ſiegen — nicht des Stoffes</l><lb/>
+<l>rohe Kraft!</l><lb/>
+<l>Doch man band ihn, man zertrat ihn, doch man</l><lb/>
+<l>warf ihn ſchnöd in Haft!</l><lb/>
+<l>Sei es denn! In die Muskete mit dem Ladſtock</l><lb/>
+<l>laßt euch rammen!</l><lb/>
+<l>Auch in ſolchem Winkelhaken ſteht als Kämpfer</l><lb/>
+<l>treu beiſammen!</l></lg><lb/>
+<pb n="47" facs="#f0055"/>
+<lg n="8"><l>„Auch aus ihm bis in die Hofburg fliegt und</l><lb/>
+<l>ſchwingt euch, trotzige Schriften!</l><lb/>
+<l>Jauchzt ein rauhes Lied der Freiheit, jauchzt und</l><lb/>
+<l>pfeift es hoch in Lüften!</l><lb/>
+<l>Schlagt die Knechte, ſchlagt die Söldner, ſchlagt</l><lb/>
+<l>den allerhöchſten Thoren,</l><lb/>
+<l>Der ſich <hi rendition="#g">dieſe</hi> freie Preſſe ſelber auf den Hals</l><lb/>
+<l>beſchworen!</l></lg><lb/>
+<lg n="9"><l>„Für die <hi rendition="#g">rechte</hi> freie Preſſe kehrt ihr heim aus</l><lb/>
+<l>dieſem Strauß:</l><lb/>
+<l>Bald aus Leichen und aus Trümmern graben wir</l><lb/>
+<l>euch wieder aus!</l><lb/>
+<l>Gießen euch aus ſtumpfen Kugeln wieder um in</l><lb/>
+<l>ſcharfe Lettern —</l><lb/>
+<l>Horch! ein Pochen an der Hausthür! und Trompeten</l><lb/>
+<l>hör’ ich ſchmettern!</l></lg><lb/>
+<pb n="48" facs="#f0056"/>
+<lg n="10"><l>„Jetzt ein Schuß! — Und wieder einer! — Die</l><lb/>
+<l>Signale ſind’s, Geſellen!</l><lb/>
+<l>Hallender Schritt erfüllt die Gaſſen, Hufe dröhnen,</l><lb/>
+<l>Hörner gellen!</l><lb/>
+<l>Hier die Kugeln! hier die Büchſen! Raſch hinab! —</l><lb/>
+<l>Da ſind wir ſchon!“</l><lb/>
+<l>Und die erſte Salve praſſelt! — Das iſt Revo-</l><lb/>
+<l>lution!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[49]" facs="#f0057"/>
+<gap/></div></div>
+<pb n="[50]" facs="#f0058"/>
+<pb n="51" facs="#f0059"/>
+<div n="1"><head/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Springer</hi>.</hi></head><lb/>
+<p><hi rendition="#c"><hi rendition="#g">(Epilog des Dichters.)</hi></hi></p><lb/>
+<milestone unit="section" rendition="#hr"/> <lg type="poem"><lg n="1"><l>Kein beſſer Schachbrett, als die Welt:</l><lb/>
+<l>Zur Limmat rück’ ich von der Schelde!</l><lb/>
+<l>Ihr ſprengt mich wohl von Feld zu Feld,</l><lb/>
+<l>Doch ſchlagt ihr mich nicht aus dem Felde!</l></lg><lb/>
+<pb n="52" facs="#f0060"/>
+<lg n="2"><l>So iſt es eben in dem Schach</l><lb/>
+<l>Der Freien wider die Despoten:</l><lb/>
+<l>Zug über Zug und Schlag auf Schlag,</l><lb/>
+<l>Und Ruh’ wird keine nicht geboten!</l></lg><lb/>
+<lg n="3"><l>Mir iſt, als müßt’ ich auch von hier</l><lb/>
+<l>Den Stab noch in die Weite ſetzen;</l><lb/>
+<l>Als würden auch aus Tell’s Revier</l><lb/>
+<l>Die Launen dieſes Spiels mich hetzen!</l></lg><lb/>
+<lg n="4"><l>Ich bin bereit! Noch braust das Meer</l><lb/>
+<l>Um Norweg’s freie Bauernſtätten;</l><lb/>
+<l>Noch raſſelt es von Frankreich her,</l><lb/>
+<l>Wie Klirren von gebrochnen Ketten!</l></lg><lb/>
+<pb n="53" facs="#f0061"/>
+<lg n="5"><l>Kein flüchtig Haupt hat Engelland</l><lb/>
+<l>Von ſeiner Schwelle noch gewieſen;</l><lb/>
+<l>Noch winkt mir eine Freundeshand</l><lb/>
+<l>Nach des Ohio luſt’gen Wieſen!</l></lg><lb/>
+<lg n="6"><l>Von Dorf zu Dorf, von Stadt zu Stadt,</l><lb/>
+<l>Von Land zu Land — mich ſchiert es wenig!</l><lb/>
+<l>Kein Zug des Schickſals ſetzt mich matt: —</l><lb/>
+<l><hi rendition="#g">Matt werden kann ja nur der König</hi>!</l></lg></lg></div></div><lb/>
+<milestone unit="section" rendition="#hr"/> </body><back>
+<pb facs="#f0062"/>
+<pb facs="#f0063"/>
+<pb facs="#f0064"/>
+<pb facs="#f0065"/>
+</back>
+</text> </TEI>

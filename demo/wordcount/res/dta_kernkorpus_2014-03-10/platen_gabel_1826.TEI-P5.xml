@@ -1,0 +1,2758 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Die verhängnißvolle Gabel</title>
+<title type="sub">Ein Lustspiel in 5 Akten</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118594869">
+<surname>Platen</surname>
+<forename>August von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">97</measure>
+<measure type="tokens">13672</measure>
+<measure type="types">4429</measure>
+<measure type="characters">91711</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:07:23Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/platen_gabel_1826</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/platen_gabel_1826</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/platen_gabel_1826</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/platen_gabel_1826</idno>
+<idno type="DTADirName">platen_gabel_1826</idno>
+<idno type="DTAID">17126</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194580</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Platen, August von: Die verhängnißvolle Gabel. Stuttgart u. a., 1826.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Die verhängnißvolle Gabel</title>
+<title level="m" type="sub">Ein Lustspiel in 5 Akten</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118594869">
+<surname>Platen</surname>
+<forename>August von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">88 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Cotta</name></publisher>
+<pubPlace>Stuttgart</pubPlace>
+<pubPlace>Tübingen</pubPlace>
+<date type="publication">1826</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, 327650</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=866263713</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Drama</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Drama</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#g">Die<lb/>
+<hi rendition="#b">verhaͤngnißvolle Gabel.</hi></hi></titlePart><lb/>
+<titlePart type="sub"><hi rendition="#g">Ein<lb/>
+Luſtſpiel in 5 Akten</hi></titlePart></docTitle><lb/>
+<byline><hi rendition="#g">von</hi><lb/>
+<docAuthor>Auguſt Grafen v. <hi rendition="#g">Platen</hi> Hallermuͤnde.</docAuthor></byline><lb/>
+<milestone unit="section" rendition="#hr"/> <docImprint><pubPlace><hi rendition="#g">Stuttgart und Tuͤbingen</hi></pubPlace><lb/>
+<publisher><hi rendition="#g">in der J. G. Cotta’ſchen Buchhandlung.</hi></publisher><lb/>
+<docDate><hi rendition="#g">1826</hi>.</docDate></docImprint></titlePage><lb/>
+<pb n="[2]" facs="#f0008"/>
+<epigraph><cit><quote><hi rendition="#c">Χαίρων εὔ τελέσειας ὁδὸν μεγάλου διὰ πόντου,<lb/>
+Καί σε Ποσειδάων χάρμα φίλοις ἀγάγου!</hi></quote><bibl/></cit></epigraph></front><body><lb/>
+<pb n="[3]" facs="#f0009"/>
+<milestone unit="section" rendition="#hr"/> <div n="1"><head><hi rendition="#b"><hi rendition="#g">Die<lb/>
+verhaͤngnißvolle Gabel</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <p><hi rendition="#c"><hi rendition="#g">1826</hi>.</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[4]" facs="#f0010"/>
+<castList><p><hi rendition="#c"><hi rendition="#g">Perſonen</hi>.</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/> <castItem><role xml:id="DAM"><hi rendition="#g">Damon</hi>, Schultheiß von Arkadien.</role></castItem><lb/>
+<castItem><role xml:id="MOP"><hi rendition="#g">Mopſus</hi>, ein Schaͤfer.</role></castItem><lb/>
+<castItem><role xml:id="SCHM"><hi rendition="#g">Schmuhl</hi>, ein Jude und Chorus der Comoͤdie.</role></castItem><lb/>
+<castItem><role xml:id="SIR"><hi rendition="#g">Sirmio</hi>, Amtsdiener.</role></castItem><lb/>
+<castItem><role xml:id="WIRTH"><hi rendition="#g">Der Wirth zur Gabel</hi>.</role></castItem><lb/>
+<castItem><role xml:id="PHY"><hi rendition="#g">Phyllis</hi>, des Mopſus Gattin.</role></castItem><lb/>
+<castItem><role xml:id="SAL"><hi rendition="#g">Salome</hi>, ein Geſpenſt.</role></castItem></castList><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[5]" facs="#f0011"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Erſter Akt</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Haus des Schultheißen</hi>.</hi></stage><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Damon, Phyllis, Sirmio</hi>.</hi></stage><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Ortsrichter bin genannt ich in Arkadien,<lb/>
+Und werde ſtreng handhaben die Gerechtigkeit:<lb/>
+Was weiß Sie Naͤheres uͤber das Entwendete?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Es war ein altes, zinnernes Service, o Herr!<lb/>
+Doch unſrer Wirthſchaft unentbehrlich Eigenthum.<lb/>
+Ihr wißt, es ſind vier Jahre nun, ſeit welchen ich<lb/>
+Den Mopſus, der ein Schaͤfer iſt, heirathete.<lb/>
+Es ward ein Dutzend Kinderchen von uns erzeugt,<lb/>
+Da Gott mich viermal ſegnete mit Drillingen.<lb/>
+Daß ich Geſchirr verbrauche, viel und mancher Art,<lb/>
+Was auf den Tiſch kommt oder anderweitigem<lb/>
+Gebrauch beſtimmt iſt, werdet ihr begreifen, Herr!<lb/>
+Darum bedien’ ich unzerbrechlichen Metalls<lb/>
+Statt irdner Waaren ſtets mich oder Porcellans.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Zur Sache, Frau! Wir leben in Arkadien,<lb/>
+Und kennen kaum, dem bloßen Namen nach, das Wort<lb/>
+Umſchweif, das nur als einen techniſchen Begriff<lb/>
+Der deutſchen Trauerſpiele wir von dort entlehnt.<lb/>
+Laßt uns zur Sache kommen!</p></sp><lb/>
+<pb n="6" facs="#f0012"/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Ja, wir muͤſſen auch<lb/>
+Zur Sache kommen; aber zur geſtohlenen.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Wann ward’s entwendet?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Heute Nacht.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Von wem und wie?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Durch einen Diebſtahl, doch von wem, iſt unbekannt.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Hat man Verdacht?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Ob man Verdacht hat, weiß ich nicht.<lb/>
+Wir haben allerdings Verdacht.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Auf wen jedoch?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Auf einen Juden, welcher geſtern ſchacherte<lb/>
+Mit meinem Manne, waͤhrend ich im Hofe war,<lb/>
+Und unſre Ferkel fuͤtterte. Des Abends nun<lb/>
+Fand ich die ganze Tafel abgeraͤumt, es blieb<lb/>
+Nur eine Gabel uͤbrig, weil die Zaͤhne juſt<lb/>
+Mein Mann mit ihr, da jener ſtahl, ſich ſtocherte.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Nur eine Gabel? Aber weilt der Jude noch<lb/>
+Hier in Arkadiens ſchaͤferlichem Paradies?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Er geht umher und handelt alte Schachteln ein.</p></sp><lb/>
+<pb n="7" facs="#f0013"/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi></hi></speaker> <stage><hi rendition="#c">(zu Sirmio).</hi></stage><lb/>
+<p>Man ſuch’ ihn auf! Ein Schilling werd’ auf ſeinen Kopf<lb/>
+Hiermit geſetzt!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Wohl! Doch den Schilling werd’ ich ihm<lb/>
+Wo anders hin verſetzen, wenn ich ihn entdeckt.</p><lb/>
+<stage><hi rendition="#right">(ab.)</hi></stage><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Damon, Phyllis</hi>.</hi></stage></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Doch ſage Sie, weswegen denn Ihr Bettgenoß<lb/>
+Den ſchlauen Dieb am Stehlen nicht verhinderte,<lb/>
+Wenn er, wie Sie behauptete, zugegen war?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Er war zugegen, aber blos als koͤrperlich,<lb/>
+Sein Geiſt befand ſich anderwaͤrts, er machte juſt<lb/>
+Die Reiſe nach der guten Hoffnung Vorgebirg.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Wie kam er dorthin?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Wißt Ihr, was Ideen ſind?</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Wie ſollt’ ich nicht?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Auch ſolche, die man fixe nennt</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Zwar ſchaͤtz’ ich mehr die Dukaten, die man Fuͤchſe nennt,<lb/>
+Doch auch von jenen weiß ich.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Dieſes iſt der Fall<lb/>
+Mit meinem Mopſus, welcher auf dem Vorgebirg<lb/>
+<pb n="8" facs="#f0014"/>
+Der guten Hoffnung mit der Zeit ein Rittergut<lb/>
+Zu kaufen wuͤnſcht, und Alles dieſem Zweck erſpart.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Wie kam er darauf?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Durch Ideenverbindungen,<lb/>
+Die oft Verſchiedenart’ges an einander reih’n,<lb/>
+Da juſt ich guter Hoffnung war, und niederkam<lb/>
+Am Tag, wo vierzig Ritter im Kalender ſtehn.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Das gaͤbe recht den deutſchen Pſychologen Stoff.<lb/>
+Doch gehe Sie zu Hauſe jetzt, beſtohlne Frau!<lb/>
+Den Juden will ich fahen laſſen, ſpaͤterhin<lb/>
+Werd’ ich Sie wieder hercitiren.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Doch bedenkt<lb/>
+Daß wir zu vierzehn Maͤulern Eine Gabel nur<lb/>
+Im Hauſe haben!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Unterdeſſen koͤnnt ihr ja<lb/>
+Mit den Fingern eſſen!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Und trinken aus dem Fingerhut,<lb/>
+Wie ein Canarienvogel? Denn es fehlen uns<lb/>
+Die Becher.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Trinkt, wie Diogenes, aus hohler Hand,<lb/>
+Aus hohler Hand zu trinken iſt naturgemaͤß.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Das leuchtet ein, Herr Schultheiß! Darum macht man auch,<lb/>
+<pb n="9" facs="#f0015"/>
+Wenn man ein Trinkgeld fordert, eine hohle Hand.<lb/>
+Ich danke fuͤr den guten Rath, geſtrenger Herr!</p> <stage>(ab.)</stage></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Ich imponire, ſeh’ ich wohl, dem Bauernvolk<lb/>
+Durch meine ſchwer erworbene Gelehrſamkeit,<lb/>
+Fuͤr die ich in Leipzig manchen Scheffel Schweiß geſchwitzt.<lb/>
+Ich koͤnnte ſelbſt ankaufen mir ein Rittergut,<lb/>
+Wenn ich verhandeln koͤnnte den Arkadiern<lb/>
+Die Excerptenſtoͤße, welche dort ich angehaͤuft.<lb/>
+Doch nicht mit Duͤnger waͤgen ſie ſie hier mir auf,<lb/>
+Und ſelbſt die Kaͤſehaͤndler ſind mit Druckpapier<lb/>
+Auf lange Zeit vom Dresdner Liederkranz verſorgt,<lb/>
+Der, wie ich hoͤre, reißende Geſchaͤfte macht;<lb/>
+Doch waͤr’ er klug, er machte blos zerreißende. —<lb/>
+Da kommt der Jude; doch ich will von fern zuerſt<lb/>
+Ausſpaͤhen ſeinen aͤußerlichen Habitus,<lb/>
+Und ob er lange Finger oder kurze hat?</p><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Damon, Sirmio, Schmuhl</hi>.</hi></stage></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Nur den Schnappſack aufgebunden! oder, Herr! ich ſchlage<lb/>
+d’rein,<lb/>
+Und mein Stock auf Seinem Ruͤcken lehr’ Ihm dann das<lb/>
+Mein und Dein!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Laß Er los mich! Ich gehoͤre nicht zum Schacherjudenpack.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Auch die beſten Juden ſchachern: nur herab den Bettelſack!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Laß Er mich, ich bin ein großer Aſtronom und Negromant,<lb/>
+Der Natur geheime Kraͤfte ſind mir alle wohlbekannt.</p></sp><lb/>
+<pb n="10" facs="#f0016"/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Ja, das will ich glauben, jeder diebiſche, geheime Kniff.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Sey Er nicht ſo grob, erheb’ Er Seine Seele zum Begriff!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Moſes ſagt: Du ſollſt nicht ſtehlen, oder du empfaͤngſt den Lohn!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>War das Moſes aus Aegypten oder Moſes Mendelſohn?</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Foppt Er mich?</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Des Juden Stimme hab’ ich irgendwo gehoͤrt.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Nur herunter mit dem Schnappſack!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Laß Er ziehn mich ungeſtoͤrt!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Was iſt d’rin? Es klirrt und klappert?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Talismane mancher Art,<lb/>
+Raritaͤten, die auf Reiſen ich geſammelt und erſpart:<lb/>
+Ein’ge Wiener Leckerbiſſen, Katechismen aus Turin,<lb/>
+Aus Morea Griechenſchaͤdel, und Scholaſtik aus Berlin.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Alle dieſe Dinge waͤren keinen halben Batzen werth,<lb/>
+Nimmer glaub’ ich, daß ein Jude ſich mit ſolchem Zeug beſchwert.<lb/>
+Zwar die Leckerei’n begreif’ ich: der nur iſt ein großer Mann,<lb/>
+Der vom Himmel nichts erbittet — außer was man eſſen kann!<lb/>
+Von den Katechismen ſchweig’ ich: denn der Glaube gilt fuͤr blind,<lb/>
+Und die Pfaffen necke keiner, weil ſie unverſoͤhnlich ſind.<lb/>
+Aber ſag’ Er, was mit Seinen Griechenſchaͤdeln ſoll geſchehn?</p></sp><lb/>
+<pb n="11" facs="#f0017"/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Doſen laſſ’ ich aus den Knochen fuͤr die Diplomaten drehn.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Aber die ſcholaſt’ſchen Phraſen?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Sag’ ich jungen Leuten her,<lb/>
+Die ſie woͤrtlich wiederholen, weil ihr Hirn gedankenleer:<lb/>
+Manche, denen nichts das Leben lehrte, ſetzen ſich in Kopf,<lb/>
+Sie begriffen Erd’ und Himmel, wenn von Worten voll ihr Kropf.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Nein! Ich halte mich nicht laͤnger. Biſt du nicht der Jude<lb/>
+Schmuhl?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Aufzuwarten.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>O der Freude! Sirmio, bring’ Er einen Stuhl!<lb/>
+Kennſt du mich noch?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Mein Gedaͤchtniß iſt verworren und verſtoͤrt.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Damon aus Arkadien bin ich, der in Leipzig Jus gehoͤrt!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Waͤr’ es moͤglich? Find’ ich einen akademiſchen Cumpan?</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Geh’ Er Sirmio! Dieſer war es nicht, die Sach’ iſt abgethan.</p><lb/>
+<stage><hi rendition="#right">(Sirmio ab.)</hi></stage><lb/>
+<p>Laß dich tauſendmal umarmen! Lege weg den Sack und Hut!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi></hi></speaker> <stage><hi rendition="#c">(bei Seite).</hi></stage><lb/>
+<p>Oefters vor Gerichte ſtand ich, ſelten lief es ab ſo gut.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Nun geſteh mir im Vertrauen, ob du der Entwender biſt?</p></sp><lb/>
+<pb n="12" facs="#f0018"/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Altes Zinn und Eiſen braucht’ ich; denn ich bin ein Alchymiſt,<lb/>
+Und ſo hoff’ ich, daß man mich der Kleinigkeiten nicht beraubt.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>O der Wiſſenſchaft iſt Alles, was ſie foͤrdern kann, erlaubt!<lb/>
+Dieſe Bauersleute nuͤtzen ihr Geraͤth zu niederm Zweck:<lb/>
+Iſt ein Teller blos vorhanden, um zu ſchneiden drauf den Speck?<lb/>
+Ward der Pfanne kein genetiſch hoͤherer Beruf beſcheert,<lb/>
+Als um Brei darin zu kochen, iſt ſie kaum des Stehlens werth!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Ja, du biſt der Alte! Du benimmſt mir eine große Laſt.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Aber eine Gabel haſt du doch vergeſſen in der Haſt.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Wenn du es erlaubſt, ſo geh’ ich auf ein Andermal darum,<lb/>
+Und ich ſchenke dieſe Gabel dir voraus als Pretium.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Guͤt’ger Freund! Doch nun erzaͤhle, wie es dir bisher erging!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Noch in Leipzig —</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Theures Leipzig, wo ich oͤfters Grillen fing!<lb/>
+Zwar in den Collegien hatten Langeweile wir genug.<lb/>
+Aber ſonderlich bei Gottſched.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Jetzo hat man ſie bei Krug.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Leipzig ſoll mir Keiner ſchimpfen!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Brave Leute fand ich dort.</p></sp><lb/>
+<pb n="13" facs="#f0019"/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Ja, die Sachſen ſollen leben! Aber fahre weiter fort.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Noch in Leipzig ergab ich mich ganz, wie du weißt, Schwarz-<lb/>
+kuͤnſten und chemiſchen Studien,<lb/>
+Und der Chiromantie und der Pyromantie und der Negroman-<lb/>
+tie des Agrippa;<lb/>
+D’rauf las ich fuͤr mich Pfaff’s Aſtrologie, und in Goͤttingen<lb/>
+trieb ich Punktirkunſt;<lb/>
+Doch trieb ich es nur insgeheim, weil dort ſchon ein denkender<lb/>
+Menſch ein Phantaſt heißt.<lb/>
+Laut ruͤhmen ſie ſich in derſelbigen Stadt, daß nie die Natur-<lb/>
+philoſophen<lb/>
+Bei ihnen gediehn, ja, daß ein Poet, wie Buͤrger, vor Hun-<lb/>
+ger beinah ſtarb.</p><lb/>
+<stage><hi rendition="#et"><hi rendition="#g">Die Vorigen. Sirmio</hi>.</hi></stage></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi></hi></speaker> <stage><hi rendition="#c">(bei Seite).</hi></stage><lb/>
+<p>Aufreizt mich der Sinn, zu belauſchen das Paar, nicht laͤnger<lb/>
+bezaͤhm’ ich die Neugier.<lb/>
+Was mag nun wohl an den Herrn Schultheiß der fatale He-<lb/>
+braͤer verſchachern?<lb/>
+Und es ſtachen ihm doch aus dem Schnappſack vor die geſtohle-<lb/>
+nen Meſſer und Gabeln.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Als einſt bei Nacht ich im Mondſchein ſaß auf der Pleſſe ro-<lb/>
+mantiſchen Truͤmmern,<lb/>
+Und ein Zephyr ſtrich durch’s Buchengezweig, und uͤber die<lb/>
+Felder der Eb’ne;<lb/>
+Da erſchien mir ein Geiſt, den lang’ ich citirt, Inhaber<lb/>
+betraͤchtlicher Schaͤtze,<lb/>
+<pb n="14" facs="#f0020"/>
+Der Salome hieß, denn es war das Geſpenſt von einer arka-<lb/>
+diſchen Ahnfrau!<lb/>
+Sie begann, und ich ſelbſt, aufhorcht’ ich genau, denn ſie<lb/>
+redete wieneriſch Hochdeutſch:<lb/>
+Du vergeudeſt die Zeit durch Goldmacherei, ſtatt wirkliche<lb/>
+Schaͤtze zu heben!<lb/>
+In Arkadien liegt ein betraͤchtliches Geld drei Schuh tief un-<lb/>
+ter der Erde;<lb/>
+Und fragſt du mich, wo? antwort’ ich, es liegt verſchloſſen in<lb/>
+eiſerner Kiſte,<lb/>
+In des Mopſus Hof, <hi rendition="#g">der</hi> Schaͤfer und Schaf, juſt unter<lb/>
+dem hoͤlzernen Hundſtall.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>O erfreuliche Poſt! Ich eile davon, um zuerſt zu ertheilen die<lb/>
+Nachricht.</p><lb/>
+<stage><hi rendition="#right">(ab.)</hi></stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Und Salome fuhr, nach kurzem Verzug, im Geſpraͤch fort<lb/>
+folgendermaßen:<lb/>
+Doch huͤte dich auch vor dem tuͤckiſchen Schatz, weil ihm un-<lb/>
+ſuͤhnbare Blutſchuld<lb/>
+Anhaftet und er mir ein Erbtheil iſt von meinem ermordeten<lb/>
+Ehherrn,<lb/>
+Den ich, ſein Weib, in die andere Welt, unſchuldiger Weiſe,<lb/>
+gefoͤrdert.<lb/>
+Von Kindheit auf, wie noch jetzt als Geiſt, fuͤhlt’ ich brech-<lb/>
+pulvrigen Abſcheu<lb/>
+Vor Spinnen, und floh dieß haͤßliche Thier noch mehr als<lb/>
+Laſter und Suͤnde.<lb/>
+Als Abends ich einſt mit meinem Gemahl, dem behaglichen,<lb/>
+ſaß an der Tafel,<lb/>
+<pb n="15" facs="#f0021"/>
+Spann ploͤtzlich, weh! ſich ein ſolches Gethuͤm von der Docke<lb/>
+herab in den Mund mir:<lb/>
+Ich ſchrie, wie am Spieß, das erraͤthſt du, doch nicht,<lb/>
+was nun mein Chegemahl that?<lb/>
+Er erſchrak und ſtach ſich die Gabel in Schlund, da er juſt<lb/>
+Kartoffelſalat aß.<lb/>
+So ſtarb er und mir blieb ſtets in der Bruſt ein grauſam<lb/>
+nagender Vorwurf,<lb/>
+Obgleich nach ihm drei Maͤnner ich noch heirathete, mich zu<lb/>
+betaͤuben.<lb/>
+Doch hinderlich ging’s mir ſtets und betruͤbt, ſeit jenem<lb/>
+erbaͤrmlichen Unfall:<lb/>
+Wenn ich am Putztiſch mich ſchminkte, <choice><sic>ve gaß</sic><corr>vergaß</corr></choice> ich gemeinig-<lb/>
+lich eine der Backen;<lb/>
+Wenn ich emſig und ſchnell Naͤhnadeln ſodann einfaͤdelte,<lb/>
+fand ich das <choice><sic>Oehe</sic><corr>Oehr</corr></choice> nicht;<lb/>
+Wenn ich mahlte Kaffee, gleich ſprangen ſofort zur Muͤhle<lb/>
+heraus mir die Bohnen;<lb/>
+Wenn ich beim Backwerk aufſtreute den Zimmt, ſo ergriff<lb/>
+ich die Buͤchſe mit Streuſand;<lb/>
+Wenn im Freien ich ſaß, hob immer den Fuß bei mir ein<lb/>
+piſſender Mops auf.<lb/>
+Kurz, Alles mißlang und das Beſte mißrieth, durch ſichtliche<lb/>
+Rache der Vorſicht;<lb/>
+Auch muß ich dafuͤr nun todt umgehn, vielleicht bis meines<lb/>
+Geſchlechtes,<lb/>
+Das viel Ungluͤck in der Gabel ererbt, letzt aͤußerſter Sproſſe<lb/>
+verſchieden.<lb/>
+Aber mein Urſohn, weh, weh, weh mir! hat zwoͤlf paus-<lb/>
+backige Kinder.<lb/>
+<pb n="16" facs="#f0022"/>
+„O greuliche Brut!“ Frau Salome ſprach’s, mit manchem<lb/>
+Da Capo von Weh mir!<lb/>
+Du hebe den Schatz, ſo befahl ſie zuletzt, mir helfe der lei-<lb/>
+dige Satan!<lb/>
+Sie verſchwand und es wich der Nachtflor ſchon, tief ſanken<lb/>
+zu Thale die Nebel,<lb/>
+Aber <hi rendition="#g">ich</hi> ließ nach Arkadien mich einſchreiben im Goͤttinger<lb/>
+Poſthaus.<lb/>
+Zwar ward ich dafuͤr vom Poſtperſonal, als tollhauswuͤrdig,<lb/>
+verſpottet;<lb/>
+Doch dacht’ ich, es ſcheint ein vorzuͤglicher Mann ſtets laͤ-<lb/>
+cherlich nuͤchternen Gecken.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>So kamſt du hieher?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>So kam ich hieher; doch nicht ohn’ alle Beſchwerde:<lb/>
+Denn in Oeſtreich ließ mich Niemand durch, im Wahn, ich<lb/>
+huͤlfe den Griechen;<lb/>
+Ich ſprach, nicht gilt’s mir Gefecht noch Kampf, mir gilt’s<lb/>
+nur leidigen Mammon;<lb/>
+Doch glaubten ſie feſt, ich wollte dahier mein Blut ver-<lb/>
+ſpritzen der Freiheit.<lb/>
+Nun <supplied>h</supplied>ilf mir, o Freund, zu erbeuten den Schatz, und das<lb/>
+Uebrige laß mich behalten!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Das findet ſich, Freund! Wir ziehen uns leicht durch Liſt<lb/>
+aus dieſer Geſchichte.<lb/>
+Doch laß uns hinein ins Tafelgemach, auf Leipzigs oder<lb/>
+auf Gottſcheds<lb/>
+<pb n="17" facs="#f0023"/>
+Wohlſeyn und Gedeihn ausleeren ein Glas und beſingen<lb/>
+die Rebe von Chios.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Zwar Gottſched ſtarb, man bewahrt nur noch in Germanien<lb/>
+ſeine Peruͤcke,<lb/>
+Doch geht ſie allda von Kopfe zu Kopf, ihr duͤrfen wir<lb/>
+bringen ein Vivat!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Wer traͤgt ſie denn jetzt?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Das haͤlt man geheim; doch wie es<lb/>
+dem Midas ergangen,<lb/>
+So ergeht’s auch hier, und ich fuͤrchte beinah, daß irgend<lb/>
+ein Badergeſelle<lb/>
+In ein Binſengebuͤſch an der Elſter und Spree ſanft liſpele:<lb/>
+Dieſem und Jenem<lb/>
+Umtrottelt das Haupt, bis faſt ans Knie, die Alongen-<lb/>
+peruͤcke von Gottſched.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Nun gehn wir hinein!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Ich folge ſogleich, ich liebe die ſuͤd-<lb/>
+lichen Weine.</p><lb/>
+<stage>(<hi rendition="#g">Damon</hi> ab. <hi rendition="#g">Schmuhl</hi> wirft Mantel und Bart weg, und<lb/>
+<hi rendition="#et">erſcheint als <hi rendition="#g">Chorus</hi>, indem er bis an den Rand des Thea-<lb/>
+ters vortritt.)</hi></stage><lb/>
+<p>Wißt ihr etwa, liebe Chriſten, was man Parabaſe heißt,<lb/>
+Und was hier der Dichter ſeiner Akte jedem angeſchweißt?<lb/>
+Sollt’ es Keiner wiſſen, jetzo kann es lernen jeder Thor:<lb/>
+Dieß iſt eine Parabaſe, was ich eben trage vor.<lb/>
+<fw type="sig" place="bottom">Die verhaͤngnißvolle Gabel. 2</fw><lb/>
+<pb n="18" facs="#f0024"/>
+Scheint ſie euch geſchwaͤtzig, laßt ſie; denn es iſt ein alter<lb/>
+Brauch,<lb/>
+Gerne plaudern ja die Baſen, und die Parabaſen auch.<lb/>
+Doch ſie wiſſen, daß in Deutſchland, wo nur Gaͤnſe wer-<lb/>
+den fett,<lb/>
+Nichts die Bretter darf betreten, was nicht hat vor’m Kopf<lb/>
+ein Brett;<lb/>
+Wiſſen alſo, daß ich nie vor euch ſie recitiren darf,<lb/>
+Darum ſind ſie um ſo kecker, um ſo mehr beſtimmt und<lb/>
+ſcharf.<lb/>
+Ja, ſie wagen euch zu tadeln, wie ihr ſeyd mit Sack<lb/>
+und Pack,<lb/>
+Euer ungewiſſes Urtheil, euern ledernen Geſchmack!<lb/>
+Mittelmaͤß’gem klatſcht ihr Beifall, duldet das Erhabne<lb/>
+blos,<lb/>
+Und verbannet faſt ſchon Alles, was nicht ganz gedankenlos.<lb/>
+Ja, in einer Stadt des Nordens, die ſo manches Uebels<lb/>
+Quell,<lb/>
+Gibt man Clauren’s Albernheiten und verbietet Schiller’s<lb/>
+Tell!<lb/>
+Schreibe nur, o Freund, das beſte, das gediegenſte Ge-<lb/>
+dicht,<lb/>
+Biet’ es aber nie der Buͤhne, denn das Beſte will ſie nicht.<lb/>
+O verſtuͤndet ihr, von bloßen Redensarten uͤberhaͤuft,<lb/>
+Geiſtigern Genuß zu ſchluͤrfen, der aus ew’gen Rhythmen<lb/>
+traͤuft!<lb/>
+O ihr wuͤrdet bald empfinden, daß man lieber hoͤrt von<lb/>
+dort,<lb/>
+Wo ihr jetzt das Leerſte hoͤret, ein mit Sinn begabtes<lb/>
+Wort!<lb/>
+Aber hoff’ ich, daß ihr jemals an ein Luſtſpiel euch gewoͤhnt,<lb/>
+<pb n="19" facs="#f0025"/>
+Das ein freies Spiel des Geiſtes, das der Zeit Gebrechen<lb/>
+hoͤhnt?<lb/>
+Nun zu euch, ihr Buͤhnendichter, ſprech’ ich, wend’ ich<lb/>
+mich fortan:<lb/>
+Wollt ihr etwas Großes leiſten, ſetzet euer Leben dran!<lb/>
+Keiner gehe, wenn er einen Lorber tragen will davon,<lb/>
+Morgens zur Kanzlei mit Akten, Abends auf den Helikon:<lb/>
+Dem ergibt die Kunſt ſich voͤllig, der ſich voͤllig ihr er-<lb/>
+gibt,<lb/>
+Der den Hunger wen’ger fuͤrchtet, als er ſeine Freiheit<lb/>
+liebt.<lb/>
+Die Geburt verleiht Talente, ruͤhmt ihr euch, ſo ſey es —<lb/>
+ja —<lb/>
+Doch die Kunſt gehoͤrt dem Leben, ſie zu lernen ſeyd ihr<lb/>
+da!<lb/>
+Muͤndig ſey, wer ſpricht vor Allen; wird er’s nie, ſo<lb/>
+ſprech’ er nie,<lb/>
+Denn was iſt ein Dichter ohne jene tiefe Harmonie,<lb/>
+Welche dem berauſchten Hoͤrer, deſſen Ohr und Sinn ſie<lb/>
+fuͤllt,<lb/>
+Eines reingeſtimmten Buſens innerſte Muſik enthuͤllt?<lb/>
+Selten zeigt ſich Einer, welchem jeder Puls wie Feuer<lb/>
+ſchlaͤgt,<lb/>
+Weil ihn die Natur als ihren Liebling auf den Haͤnden<lb/>
+traͤgt:<lb/>
+Soll’s auch Dieſem nicht mißlingen, hab’ er viel und tief<lb/>
+gedacht,<lb/>
+Aber ferne von Scholaſtik, die die Welt zur Formel macht!<lb/>
+Waͤre mit ſo leichten Griffen zu entraͤthſeln die Natur,<lb/>
+Haͤtte ſie auf euch gewartet, ihr zu kommen auf die Spur?<lb/>
+Auch das Beſte, was ihr bildet, iſt ein ewiger Verſuch,<lb/>
+<pb n="20" facs="#f0026"/>
+Nur wenn Kunſt es adelt, bleibt es ſtereotyp im Zei-<lb/>
+tenbuch.<lb/>
+Schoͤnheit iſt das Weltgeheimniß, das uns lockt in Bild<lb/>
+und Wort,<lb/>
+Wollt ihr ſie dem Leben rauben, zieht mit ihr die Liebe<lb/>
+fort:<lb/>
+Was noch athmet zuckt vor Abſcheu, Alles ſinkt in Nacht<lb/>
+und Graus,<lb/>
+Und des Himmels Lampen loͤſchen mit dem letzten Dichter<lb/>
+aus!</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[21]" facs="#f0027"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Zweiter Akt</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Platz vor dem Hauſe des Mopſus</hi>.</hi></stage><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Wer kann ſich frei erhalten von Verſuchungen,<lb/>
+Und waͤr’ er in Arkadien auch, von Wuͤnſchen frei?<lb/>
+Wenn Einer ſich in einen Zobelpelz verliebt,<lb/>
+Zieht’s ihn aus freien Stuͤcken nach Sibirien.<lb/>
+Durch mein Geluſt veroͤd’ ich dieß Elyſium,<lb/>
+Wie den Heroen bibliſcher Sylbenſtecherei<lb/>
+Das Paradies zur Wuͤſte wird durch eignen Wuſt.<lb/>
+Vergebens ſagt die Phyllis, meine Frau, zu mir:<lb/>
+Geneuß das Leben, ſpare nicht fuͤr’s Rittergut,<lb/>
+Das doch ja blos an der Hoffnung Vorgebirge liegt!<lb/>
+Was frommte dir nach einem halben Saͤculum<lb/>
+Beſtaͤndiger Entbehrungen ein Rittergut,<lb/>
+Wenn dir in ſchlaffer Hoſe knackt das morſche Knie?<lb/>
+Du ſollteſt lieber idylliſch an des kuͤhlen Quells<lb/>
+Kryſtallnen Fluthen liegen mit dem Dudelſack!<lb/>
+Doch ich entgegne meiner Frau gewoͤhniglich:<lb/>
+Sey weniger fruchtbar, oder ich ſende deine Brut<lb/>
+Ins Findelhaus, wie Rouſſeau, der Erzieher, that<lb/>
+Mit ſeines Weibs Emilen und Emilien,<lb/>
+Wovon vielleicht noch Manche lebt und unbewußt<lb/>
+Ueber ihres Rabenvaters Heloiſe gaͤhnt.</p><lb/>
+<pb n="22" facs="#f0028"/>
+<stage><hi rendition="#c"><hi rendition="#g">Mopſus, Phyllis</hi>.</hi></stage></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Ich weiß, du haſt erſpartes Geld, du beſinnſt dich ja<lb/>
+Bei jedem Heller, den du in den Haͤnden drehſt,<lb/>
+Um in die Taſche wieder ihn zuruͤckzuthun.<lb/>
+Gib nur ſo viel, daß Teller ich und ein Beſteck<lb/>
+Fuͤr unſre Wirthſchaft kaufen kann.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Wir haben ja<lb/>
+Die Gabel noch.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Das iſt was Rechtes!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>So? Es iſt<lb/>
+Ein altes Erbſtuͤck einer Ururgroßmama.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Was ſeufzeſt du?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Dieſelbige ſoll einen Schatz<lb/>
+Verſcharret haben, einer alten Schrift gemaͤß,<lb/>
+Die ich als Kind geleſen; doch vergebens grub<lb/>
+Ich nach in Hof und Garten, ich entdeckte nichts.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>So haſt du keine Wuͤnſchelruthen angewandt?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Sie kleckten nicht, ſie ſenken nach Metall ſich blos:<lb/>
+Vielleicht beſteht in Diamanten dieſer Schatz.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Vielleicht im Aberglauben blos, wer weiß, worin?<lb/>
+Doch gib das Geld her, wenigſtens das noͤthigſte!</p></sp><lb/>
+<pb n="23" facs="#f0029"/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Geld iſt ja nicht das Noͤthigſte, das Waſſer iſt’s.<lb/>
+Was waͤren ohne Waſſer wir? Bedenke nur!<lb/>
+Wo naͤhme denn die Kleriſei zur Faſtenzeit<lb/>
+Die Karpfen her? Wie wuͤrde der Kaffee gekocht?<lb/>
+Wie kaͤmen unſre Schiffe nach Amerika?<lb/>
+Fouqu<hi rendition="#aq">é</hi>’s Undine, wo geriethe dieſe hin?<lb/>
+Die Enten muͤßten ganz verzweifeln! Ja, was waͤr’s<lb/>
+Mit unſern Waͤſcherfrauen, den natuͤrlichen,<lb/>
+Und auch den metaphyſiſchen, wie Krug und Fries?<lb/>
+Trink Waſſer, Schatz! Ich werde nach den Schafen ſehn.</p><lb/>
+<stage>(ab.)</stage></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Der Grobian! Wenn unſer Schultheiß nur den Dieb<lb/>
+Indeß entdeckt! Ich ſollte wieder fragen gehn.</p><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Phyllis, Sirmio</hi>.</hi></stage></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>O Gluͤck, allein zu treffen dich, du Theuerſte,<lb/>
+Du meines Herzens erſte Liebe! Heute gilt’s<lb/>
+Ein wichtiges eleuſiſches Myſterium.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Was fluͤſtert Er von Laͤuſen und von Miſt herum?<lb/>
+Mein Mopſus iſt auf’s Feld gegangen. Sprech’ Er laut!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Heut zeige mir, daß unſre Seelen wahlverwandt.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>O ja, ſo weit es moͤglich meiner Ehepflicht.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>O weiter noch! O weiter noch um Einiges!</p></sp><lb/>
+<pb n="24" facs="#f0030"/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Was mir an Ihm gefallen koͤnnte, wuͤßt’ ich nicht.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>O ho! Ein huͤbſcher Burſche glaub’ ich doch zu ſeyn.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Wo iſt an Ihm was Huͤbſches, laß Er hoͤren, Freund!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Die rothen Haare deuten auf ein Feuerherz.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>O geh’ Er mit ſymboliſchen Beziehungen!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Des feuchten Auges ſchwaͤrmeriſcher Liebesblick.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Nach jeder Schuͤrze ſchielen ſolche Blicke gern.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Auf uͤppiger Unterlippe brennt Schoͤnheitsgefuͤhl.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Brenneſſeln alſo waͤren ſeine Lippen? Pfui!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Die robuſte Hand vermaͤnnlichet den Haͤndedruck.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Ich ziehe die weichen Haͤnde vor. Was Anderes!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Im hohlen Ruͤcken ſpiegelt ſich der ſtolze Gang.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Die hohlen Spiegel lieb’ ich nicht. Was Anderes!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Der Bauch —</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Er Unverſchaͤmteſter in der Chriſtenheit!<lb/>
+Den untern Theil begehr’ ich nicht.</p></sp><lb/>
+<pb n="25" facs="#f0031"/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Warum denn nicht?<lb/>
+Der untre Theil des Koͤrpers iſt des obern Halt:<lb/>
+Das nenn’ ich Freundſchaft, welche bis zum Nabel geht,<lb/>
+Allein der Blick der Liebe ſinkt verſchaͤmt herab.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Schon gut! Ich aber halte mir die Ohren zu.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Noch einen Vorſchlag, Theuerſte! Wir koͤnnten wohl<lb/>
+Zuſammen durchgehn heute Nacht, mitſammt dem Geld.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Mit welchem Geld?</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Das iſt ja mein Myſterium:<lb/>
+In Euerm Hof befindet ſich ein alter Schatz.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Ein alter Schatz? Waͤr’s moͤglich? Haͤtte Mopſus Recht?<lb/>
+Allein er grub den ganzen Hof umſonſt herum.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Weil er den Hundſtall wegzuthun vielleicht vergaß,<lb/>
+Denn der verhuͤllt der Eiſenkiſte Heiligthum.<lb/>
+Wenn ich ſie finde, Vielgeliebte, gehſt du durch?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Durch Feu’r und Waſſer geh’ ich, wie Pamina that,<lb/>
+Und laſſe meinem Gatten hier die Kinderchen.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Ich geh’ hinein und grabe. Halte den Mopſus hier<lb/>
+Zuruͤck, wenn heim er kehren ſollte, daß er mich<lb/>
+Im Hofe nicht ertappe, ja den Schatz zugleich<lb/>
+Entdecke, jenen koͤſtlichen, der morgen fruͤh<lb/>
+Durch Nacht und Nebel uns begleiten ſoll.</p></sp><lb/>
+<pb n="26" facs="#f0032"/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Nur fort!<lb/>
+Ich warte hier; doch nimm vor’m Hunde dich in Acht!</p><lb/>
+<stage><hi rendition="#right">(<hi rendition="#g">Sirmio</hi> ab.)</hi></stage></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Das kommt mir doch gerade recht. Der Sirmio<lb/>
+Iſt ein gewandter Junge! Meinem Geizigen<lb/>
+Laſſ’ ich die ſechs Paar Drillingsbruͤder, wie die zwoͤlf<lb/>
+Geſtirn’ im Thierkreis. Alle zwoͤlf beiſammen ſind<lb/>
+Die rechte Zahl, indeſſen man im Trauerſpiel<lb/>
+Nur fuͤnfe braucht; doch freilich wird das fuͤnfte blos<lb/>
+Als Stier bei den Hoͤrnern hergezogen; waͤhrend doch<lb/>
+Der Dichter ſelbſt das fuͤnfte waͤr’ als Waſſermann:<lb/>
+Auch iſt Elvire keine Jungfrau, denk’ ich mir.<lb/>
+Allein wohin laſſ’ ich herab mich, und warum<lb/>
+Verleih’ ich einer Albernheit Unſterblichkeit? —<lb/>
+Da kommt mein Mann. Er will doch nicht ins Haus hinein?<lb/>
+Pſt! Mopſus!</p><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Phyllis, Mopſus</hi>.</hi></stage></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Nun?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Erzaͤhle von den Schafen was,<lb/>
+Und bleib’ im Freien!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Keineswegs! Ich geh’ hinein.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Bleib, Herzensmann! Erzaͤhle von den Schafen was!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Was ſoll ich denn erzaͤhlen?</p></sp><lb/>
+<pb n="27" facs="#f0033"/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Von den Schafen was! —<lb/>
+Mir faͤllt vor Angſt nichts Beſſ’res ein — Bleib, Herzens-<lb/>
+mann!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Ich will ins Haus.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Die Stuben werden aufgefegt,<lb/>
+Du kommſt vom Felde und beſchmutzeſt Alles!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Nun, ich will<lb/>
+Die Schuhe wegthun.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Warte doch!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Warum denn das?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Die Kinder ſchlafen, morde nicht den ſuͤßen Schlaf!<lb/>
+Sonſt wird der Rittergutsherr auf dem Vorgebirg<lb/>
+Der guten Hoffnung nicht mehr ſchlafen. Glaube mir!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>So will ich auf den Zehen ſchleichen. Laß mich doch!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>O bleib! Die Scham verbietet dir hineinzugehn,<lb/>
+Weil unſre Viehmagd eben ein Klyſtier bekommt.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>So halt’ ich zu die Augen oder blinzle blos.</p> <stage>(ab.)</stage></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>O du Weltunheil! O du Schickſalstag!<lb/>
+Er enteilt, er entdeckt mir das Geld, er entdeckt<lb/>
+Mir den lieblichen Wicht!<lb/>
+<pb n="28" facs="#f0034"/>
+Und er zaust mir den Wicht und erobert das Geld,<lb/>
+Er ergreift, der Barbar, mit der Rechten den Schopf<lb/>
+Des Geliebten, o weh! und die Linke durchwuͤhlt<lb/>
+Habgierig indeß die Dukaten!</p><lb/>
+<p>Ha! Soll ich vielleicht <hi rendition="#g">ihm</hi> goͤnnen das Gluͤck?<lb/>
+Aufopfern zugleich den metallenen und<lb/>
+Rothlockigen Schatz?<lb/>
+Das geſchieht niemals! das geſchieht niemals!<lb/>
+Eh kehre zuruͤck und verderbe die Welt<lb/>
+Die titaniſche Brut, die unendliche Nacht,<lb/>
+Und das uranfaͤngliche Chaos!</p><lb/>
+<p>Wie errett’ ich das Geld dem Geliebten und mir? —<lb/>
+Es durchzuckt das Gemuͤth mir ein Graunvorſatz,<lb/>
+Ein entſetzlicher Wunſch!<lb/>
+O Medea, du ſchwebſt mir beſtaͤndig im Geiſt,<lb/>
+Du erſtachſt herzhaft dein Schlangengezuͤcht,<lb/>
+Dann ſchwangſt du dich frei in die Wolken empor,<lb/>
+Auf drachenbeſpannter Kaleſche!</p><lb/>
+<p>Doch Judith war noch kecker als du!<lb/>
+Denn es ging ja mit ihr Holofernes zu Bett,<lb/>
+Und ſie hatte den Sack<lb/>
+In Bereitſchaft ſchon fuͤr den Kopf des Gemahls.<lb/>
+Ich darf doch wohl, wie mich duͤnkt, fuͤr’s Geld<lb/>
+Und den Sirmio thun, was Judith’s Muth<lb/>
+Fuͤr bloße Hebraͤer gethan hat?</p><lb/>
+<p>Nur Sirmio darf nichts wiſſen davon,<lb/>
+Denn es iſt ſein Herz noch kindiſch und weich,<lb/>
+Aber mein Ehherr<lb/>
+<pb n="29" facs="#f0035"/>
+Soll heut mir des Nachts mit Tod abgehn!<lb/>
+Und der Hausahnfrau zweizinkiger Dolch<lb/>
+Durchbohre des Manns unerſaͤttliche Bruſt,<lb/>
+Gleich einer gebratenen Gansbruſt!</p><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Phyllis, Mopſus</hi> mit <hi rendition="#g">Sirmio</hi>.</hi></stage></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Dir fuͤhr’ ich den Dieb bei den Ohren heraus; denn du biſt<lb/>
+ſeine Genoſſin!<lb/>
+Doch im Haus, Gottlob! ſteht unverſehrt die gewichtige<lb/>
+Rieſenſchatulle.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Was ſcheltet ihr mich? Ich habt mir ja doch zu verdanken<lb/>
+die ganze Beſcheerung.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Geh heim, Gaudieb! Ich verdanke dir nichts! Mir dank’s,<lb/>
+wenn ich nicht in der Zornwuth<lb/>
+Dir die Fauſt anleg’ ans glatte Geſicht, und den Stock an<lb/>
+die zierlichen Schenkel!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#g">Phyllis</hi></speaker> <stage>(leiſe).</stage><lb/>
+<p>Geh, Sirmio, geh! denn es bleibt ja dabei, und du kommſt<lb/>
+fruͤh morgens und holſt mich.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Ach, aber das Geld!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Wir entwenden es ſchon. Laß mich nur<lb/>
+ſorgen und komm brav!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>So geſcheh’s!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>So geſcheh’s!</p></sp><lb/>
+<pb n="30" facs="#f0036"/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Was fluͤſtert ihr noch?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Geh, Sirmio, laß mir den Brummbaͤr!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Ich nehm’s mit ihm auf!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Geh!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Soll ich dem Herrn mit dem Flegel die<lb/>
+Beine befluͤgeln?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Geh!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Hab’ ich doch ſchon, an den Sohlen zumal, als Amts-<lb/>
+merkurius Fluͤgel!</p><lb/>
+<stage><hi rendition="#c">(Zur <hi rendition="#g">Phyllis</hi>.)</hi></stage><lb/>
+<p>Wir ſprechen uns noch; denn ich fuͤhre mit mir heut Abend<lb/>
+heruͤber den Schultheiß,<lb/>
+Dann muß er mich ja doch dulden, der Mops, wir aber<lb/>
+beſprechen das Weitre.</p><lb/>
+<stage><hi rendition="#right">(ab.)</hi></stage></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Xantippe, hinein!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Bin ich das, gieß’ ich auf den Schaͤdel<lb/>
+herab dir, du weißt was?</p><lb/>
+<stage><hi rendition="#right">(ab.)</hi></stage></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Abtruͤnniges Weib! O ich moͤchte vor Wuth umbiegen die<lb/>
+Pole des Himmels:<lb/>
+Phraſeologie, die im Kopf mir blieb aus einem Tragoͤdien-<lb/>
+ruͤhrei!<lb/>
+<pb n="31" facs="#f0037"/>
+Doch denk’ ich indeß an den Schatz, durchſtroͤmt mein Herz<lb/>
+unſaͤgliche Wolluſt!<lb/>
+Nur Schade, daß rings das Behaͤltniß feſt zu iſt, nicht<lb/>
+Riegel noch Oeffnung,<lb/>
+Noch Vorlegſchloß ſieht man und es iſt hermetiſch verſchloſ-<lb/>
+ſen die Kiſte;<lb/>
+Aus ſchwerem Metall aneinandergefuͤgt, ſchlitzt keiner ſo<lb/>
+leicht ihr den Bauch auf.<lb/>
+Doch hoff’ ich noch Rath. O waͤr’ ich bereits, wo mir ſtets<lb/>
+hinwinket die Hoffnung!<lb/>
+Was haͤlt mich zuruͤck in des Reichthums Schoos, da den<lb/>
+koͤſtlichen Schatz ich beſitze?<lb/>
+Soll hier ich etwa durchbringen das Geld mit den Kindern<lb/>
+und meiner Gemahlin,<lb/>
+Statt dort mir ein Gut zu erhandeln und dort zu beſchlie-<lb/>
+ßen in Ruhe das Leben?<lb/>
+Soll hier ich dafuͤr ankaufen Geraͤth’, Breinapf, Reibeiſen,<lb/>
+Kaffeezeug,<lb/>
+Und Putz fuͤr die Frau, Stecknadeln und Schawls, Tanz-<lb/>
+ſchuhe, geflitterten Unſinn?<lb/>
+Ja, waͤchst das Gezuͤcht mir heran, ſo bedarf’s noch Schul-<lb/>
+geld ſammt Abcbuch,<lb/>
+Und zuletzt noch was, wenn gelehrter ſie ſind, man nennt’s<lb/>
+Cornelius Nepos,<lb/>
+Fuͤr die Kinder ein Schreck; wir kannten doch blos, da wir<lb/>
+ſelbſt jung waren, den Wauwau. —<lb/>
+Anwandelt mich Wuth und Zerſtoͤrungstrieb, wenn ich mir<lb/>
+vorſtelle den Aufwand!<lb/>
+Waͤr’s Unrecht wohl ans herrliche Ziel, wie ein Held, uͤber<lb/>
+Leichen zu ſchreiten?<lb/>
+<pb n="32" facs="#f0038"/>
+Zwar Helden auch trifft ein entſetzliches <supplied>L</supplied>oos, Napoleon ſtarb<lb/>
+in Verbannung,<lb/>
+Und der Schiller’ſche Held, der ermordete, geht jetzt uͤber die<lb/>
+Bretter als Yngurd,<lb/>
+Zu beweiſen der Welt, was Hamlet ſagt, daß Helden gekne-<lb/>
+teter Lehm ſind.<lb/>
+Dieß ſchrecke mich nicht! Auch kommt mir in Sinn, was<lb/>
+eine Zigeunerin ſagte,<lb/>
+Nachdem ſie zuvor in die Hand mir geſehn, in die Karten<lb/>
+und ihren Kaffeeſatz:<lb/>
+Wenn du nicht umbringſt dein Ehegeſpons, Elender, ſo bringt<lb/>
+es dich ſelbſt um.<lb/>
+Ich verſtand nichts mehr, was weiter ſie ſprach; doch glaub’<lb/>
+ich, ſie wollte mir ſagen:<lb/>
+Wenn du nicht umbringſt dein Ehegeſpons, Elender, ſo bringt<lb/>
+es dich ſelbſt um<lb/>
+Kapital und Prozent. Ja, thut ſie mir das, dann bringt ſie<lb/>
+mich ſicherlich ſelbſt um.</p><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Mopſus, Schmuhl</hi> (verkleidet).</hi></stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Herr! Euch aufzuwarten wagt ein junger Mann von vielem<lb/>
+Geiſt.<lb/>
+Welcher um der guten Hoffnung Vorgebirg herumgereist.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Welche Freude! Seyd willkommen! Seyd gereist ihr rings<lb/>
+herum?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Rings herum, doch ſtets vergebens, wie das deutſche Publikum,<lb/>
+Das auf ſeinen Schaugeruͤſten einen Loͤwen hofft zu ſchau’n,<lb/>
+Aber faſt nur ſchaͤb’ge Kater ſchleichen ſieht und hoͤrt miau’n.</p></sp><lb/>
+<pb n="33" facs="#f0039"/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Innig freut mich’s, da man ſelten ſolche Reiſewunder trifft!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Ach wer haͤtte nicht zuweilen jenes Vorgebirg umſchifft?<lb/>
+Ja, vor allen faͤhrt die Liebe dieſen Klippenweg vorbei,<lb/>
+Aber unter ihren Fuͤßen geht der morſche Kahn entzwei!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Darf ich wohl um Euren Namen mich erkundigen, Musje?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Robinſon der juͤngre heiß’ ich, den ſie nennen Cruſoe.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Wie? Ihr lebtet noch? Ihr ſetzt mich wirklich in Verwunderung.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Da ich ſtets bei Kindern lebte, blieb ich etwas laͤnger jung.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>O erzaͤhlt von jenem Vorgebirg, das meiner Wuͤnſche Thron!<lb/>
+Das was ſich auf Eurer Inſel zugetragen, weiß ich ſchon.<lb/>
+Zwar es iſt des braven Ritters Erd- und Voͤlkerkunde hier,<lb/>
+Doch unbrauchbar wird ſie durch das reimeriſche Loͤſchrapier.<lb/>
+O verſetzt mich in das ſchoͤne Land, das all mein Sinn begehrt,<lb/>
+Wenn ein Adam auch, wie ich bin, keines Paradieſes werth!<lb/>
+Setzen ja die Jambenſchmierer, deren Vers den Vers zerſtoͤrt,<lb/>
+Den Spondaͤus oft an Stellen, wo er gar nicht hingehoͤrt!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Auf jenem Gebirg, wo die Hoffnung wohnt, iſt’s ganz wie im<lb/>
+Land der Schlaraffen,<lb/>
+Und der Boden wie Sammt, und der Himmel wie Glas, und<lb/>
+die Wolken wie Flocken von Purpur.<lb/>
+Und die Sonne, wie lacht ſie in Klarheit ſtets! Doch breitet<lb/>
+ſich ſchattige Woͤlbung<lb/>
+<fw type="sig" place="bottom">Die verhaͤngnißvolle Gabel. 3</fw><lb/>
+<pb n="34" facs="#f0040"/>
+Von Baume zu Baum, von Gebuͤſch zu Gebuͤſch, und es neigt<lb/>
+ſich Roſe zu Roſe.<lb/>
+Stets knoſpet’s im Laub, und es wimmel darin Papagaien und<lb/>
+bunte Faſane,<lb/>
+Stolz wandelt der Pfau durch ſilbernen Sand und ſchlaͤgt gold-<lb/>
+augige Raͤder,<lb/>
+Und es taucht ſich der Schwan und der Colibri ſchlaͤft im Kelche<lb/>
+der flammigen Tulpe,<lb/>
+Und der Harzbaum wuͤrzt die geſchwaͤngerte Luft und der feine<lb/>
+Geruch der Jasmine.<lb/>
+Nicht Fliegen erblickſt du noch Raupengezuͤcht noch Unkraut,<lb/>
+denn es vertritt hier<lb/>
+Kirſchlorber den Platz des bedornten Geſtraͤuchs, Stechpalme die<lb/>
+Stelle der Diſtel.<lb/>
+Und der Springquell fuͤllt, in beſtaͤndigem Scherz, alabaſterne<lb/>
+Becken mit Goldſchaum:<lb/>
+Dort kuͤhlt ſich im Bade der Jungfrgu’n Leib, und der Juͤng-<lb/>
+linge goͤttliche Nacktheit:<lb/>
+Hyacinthenes Haar umwuchert das Haupt und des Nackens<lb/>
+unſterbliche Bildung.<lb/>
+Es verkuͤndet der Wuchs kein irdiſches Maß und die Haltung<lb/>
+ſchwebet in Anmuth.<lb/>
+Sanft plaͤtſchert um ſie die melodiſche Fluth und es hebt ſich<lb/>
+Floͤtengeſaͤnſel,<lb/>
+Vom Winde verweht, der leiſ’ im Gefolg balſamiſcher Duͤfte<lb/>
+daherzieht,<lb/>
+Und er ſchuͤttelt vom Aſt, im Vorbeigehn mild, den vergol-<lb/>
+deten Ball der Orange,<lb/>
+Und die kuͤhlende Frucht der Granate mit ihr, fuͤr kuͤnftig<lb/>
+Durſtende ſorgend.<lb/>
+<pb n="35" facs="#f0041"/>
+Dort quaͤlt kein Schmerz, und die bitterſte Pein iſt dort wie<lb/>
+Seufzer der Liebe;<lb/>
+Dort lehnt ſich der Freund an die Schulter des Freunds, nie<lb/>
+bange vor einſtiger Trennung,<lb/>
+Und der Efeu miſcht ſein ewiges Blatt in die wallenden Locken<lb/>
+der Dichter;<lb/>
+Als Luͤge nur gilt dort Alter und Tod, das Unmoͤgliche nen-<lb/>
+nen ſie wirklich.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Das leuchtet mir ein; doch findet man dort auch Speciesthaler<lb/>
+und Mardors?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Wohl! Alles genug, und die Kieſel im Bach ſind blos Hollaͤn-<lb/>
+der Dukaten.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>O ich reiſe vielleicht noch morgen dahin, und ich bitt’ Euch,<lb/>
+mich zu begleiten!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Verbindlichen Dank! Doch habt Ihr denn auch fuͤr die Fahrt<lb/>
+hinlaͤngliches Zehrgeld?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Kommt Zeit, kommt Rath.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Bis morgen jedoch ſchlaͤgt wenige Zeit von der Thurmuhr.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Fuͤr’s Geld ſorg’ ich. Doch jetzt lebt wohl, Herr Cruſoe, weil<lb/>
+ich hinein muß.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>So vergoͤnnt, daß ich mit eingehe, damit ich im Haus Euch<lb/>
+leiſte Geſellſchaft.</p></sp><lb/>
+<pb n="36" facs="#f0042"/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Schon bin ich verſehn, denn ich habe darin zwoͤlf Kinder und<lb/>
+eine Gemahlin.<lb/>
+Lebt wohl!</p> <stage>(ab.)</stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Lebt wohl! Was haͤlt er mich denn von der Schwelle<lb/>
+zuruͤcke, der Schafpelz?<lb/>
+Wie verſchafft er ſich dann das benoͤthigte Geld, die gewaltige<lb/>
+Reiſe zu machen?<lb/>
+Waͤr’s denkbar, daß er den Schatz mir entdeckt? Unglaublich!<lb/>
+haͤtte die Ahnfrau<lb/>
+Von Goͤttingen her mich citirt, um hier es zugleich zu ver-<lb/>
+trauen dem Mopſus?<lb/>
+Wenn die Nacht einbricht, will nochmals hier ſpioniren ich,<lb/>
+ob ich den Eingang<lb/>
+Ins Haus, in den Hof frei finde, ſodann geht’s uͤber den<lb/>
+leidigen Hundſtall;<lb/>
+Jetzt muß ich indeß ein gewiſſes Geſchaͤft noch abthun hier in<lb/>
+der Eile.</p><lb/>
+<stage>(hervortretend.)</stage><lb/>
+<p>Wie kommt es, liebes Publicum, daß du die groͤßten Geiſter<lb/>
+So oft verkennſt, und ſtets verbannſt die ſonſt beruͤhmten<lb/>
+Meiſter?<lb/>
+So iſt bei dir der Kotzebue in Mißkredit gekommen,<lb/>
+Der ſonſt doch ganz allein beinah die Bretter eingenommen:<lb/>
+Du klatſchteſt ſeinen Herrn und Frau’n, du liebteſt ſeine<lb/>
+Spaͤße,<lb/>
+Er war dein Leib- und Herzpoet, der dir allein gemaͤße:<lb/>
+Was galten dir vor <hi rendition="#g">dem</hi> Apoll die Muſen alle neune?<lb/>
+Auf jeder Buͤhne fand man ihn, ja faſt in jeder Scheune:<lb/>
+<pb n="37" facs="#f0043"/>
+Deß ruͤhmt kein andrer Dichter ſich, drum weigert ihm<lb/>
+nicht laͤnger<lb/>
+Als deutſchem Sophokles den Kranz, als nationellſtem<lb/>
+Saͤnger!<lb/>
+Er ſchmierte wie man Stiefel ſchmiert, vergebt mir dieſe<lb/>
+Trope,<lb/>
+Und war ein Held an Fruchtbarkeit wie Calderon und Lope.<lb/>
+In Verſen ſchrieb er ſelten zwar; doch konnt’ euch das<lb/>
+nicht ſtoͤren:<lb/>
+Ihr ſeyd ja Menſchen, wollt ihr denn der Goͤtter Sprache<lb/>
+hoͤren?<lb/>
+Er ſprach wie ihr, das war euch recht; er nahm, um euch<lb/>
+zu ſchonen,<lb/>
+Aus eurem eignen Kreiſe ſich die fadeſten Perſonen.<lb/>
+Auch habt ihr euren Kotzebue nicht ganz und gar verlaſſen,<lb/>
+Zwar ſtarb er euch, doch blieben euch des Edlen Hinterſaſſen:<lb/>
+Der Advokat in Weiſſenfels, und aͤhnliche Geſichter,<lb/>
+Die klein wie er als Menſchen ſind und groß wie er als<lb/>
+Dichter!<lb/>
+Wir ſehen einen ſolchen Knirbs nach Lorbeerzweigen ſchielen,<lb/>
+Weil er geborgt ein Trauerſpiel aus zehen Trauerſpielen,<lb/>
+Indeß er euch nur Scheußliches und Niegeſcheh’nes zollte,<lb/>
+Das man, und waͤr’ es auch geſchehn, mit Nacht bedecken<lb/>
+ſollte!<lb/>
+Was ſind nun ſolche Koryphaͤ’n moderner Dithyramben,<lb/>
+Als Kotzebue’s im Domino, ſtaffirt in lahme Jamben?<lb/>
+Gern haͤtt’ ich Manches woͤrtlich euch aus ihnen nachgewieſen,<lb/>
+Doch ihre Verſe ſind zu ſchlecht, ſie paſſen nicht zu dieſen.<lb/>
+Wie Mancher duͤnkt ſich Virtuos und ſchlaͤgt gewalt’ge Triller,<lb/>
+Der blos als leere Phraſe driſcht, was Goethe ſprach und<lb/>
+Schiller:<lb/>
+<pb n="38" facs="#f0044"/>
+Wenn die ſich auch nur deß bedient, was Andre ſchon er-<lb/>
+worben,<lb/>
+So ſtuͤnden wir bei Ramler noch, der laͤngſt in Gott ver-<lb/>
+ſtorben!<lb/>
+Wen die Natur zum Dichter ſchuf, dem lehrt ſie auch zu<lb/>
+paaren<lb/>
+Das Schoͤne mit dem Kraͤftigen, das Neue mit dem Wahren;<lb/>
+Dem leiht ſie Phantaſie und Witz in uͤppiger Verbindung,<lb/>
+Und einen quellenreichen Strom unendlicher Empfindung;<lb/>
+Ihm dient, was hoch und niedrig iſt, das Naͤchſte wie das<lb/>
+Fernſte,<lb/>
+Im leichten Spiel ergoͤtzt er uns, und reißt uns hin im<lb/>
+Ernſte;<lb/>
+Sein Geiſt, des Protens Ebenbild, iſt tauſendfach gelaunet,<lb/>
+Und lockt der Sprache Zierden ab, daß alle Welt erſtaunet!<lb/>
+Er fuͤrchtet keinen neid’ſchen Feind und keinen tuͤck’ſchen<lb/>
+Spoͤtter,<lb/>
+Und vor dem Tode bangt ihm nicht, als einem Freund der<lb/>
+Goͤtter:<lb/>
+Er weiß, daß nach Aeonen noch, was ſein Gemuͤth erſtrebet,<lb/>
+Im Mund verliebter Juͤnglinge, geliebter Maͤdchen lebet;<lb/>
+Indeß der Zeit Pedanten laͤngſt, verwahrt in Bibliotheken,<lb/>
+Vor Staub und Schmutz vermoderten, als wurmige Schar-<lb/>
+teken.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[39]" facs="#f0045"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Dritter Akt</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Hof im Hauſe des Mopſus</hi>.</hi></stage><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi></hi></speaker> <stage><hi rendition="#c">(allein).</hi></stage><lb/>
+<p>Schon daͤmmert es rings und der Venusſtern<lb/>
+Tritt aus dem Gewoͤlk in die Nacht glorreich;<lb/>
+Zwar Sirmio fehlt und der Schultheiß fehlt,<lb/>
+Doch brennt in der Bruſt die Begierde mir ſtets<lb/>
+Nach Blut und Verderb, und der Fluchtvorſatz.<lb/>
+Wie ertrug ich ſo lang, was dieſer Gemahl<lb/>
+Aufs Herz mir gelegt, ſolch vielfach Leid?<lb/>
+In der Brautnacht ſchon, was that mir der Wicht?<lb/>
+Ich trug, wie bekannt, ringsfließendes Haar,<lb/>
+Wie ein Bandwurm lang, wie der Ruß kohlſchwarz:<lb/>
+In der Brautnacht nun, als ſchnarchend ich lag,<lb/>
+Scheert mir der Barbar das Gelocke vom Kopf,<lb/>
+Und er gibt’s zum Verkauf in der Fruͤhe ſogleich<lb/>
+An den naͤchſten Peruͤckenverfert’ger!</p><lb/>
+<p>Mit den Kindern ſodann, was denkt er zu thun?<lb/>
+Denk’ <hi rendition="#g">ich’s</hi>, uͤberlaͤuft mich die Ganshaut kalt!<lb/>
+Denn er will ja die zwoͤlf Kernjungen mir als<lb/>
+Karl Witte’s erziehn, zu gelehrten Genie’s.<lb/>
+<pb n="40" facs="#f0046"/>
+Mit denen, die juſt drei Jahr alt ſind,<lb/>
+Treibt er den Euklid und die Regel de Tri,<lb/>
+Ja, Einem, der kaum noch den Fallhut traͤgt,<lb/>
+Lehrt er das Geſetz vom beſchleunigten Fall,<lb/>
+Und mit Einem, der noch in die Windel hofirt,<lb/>
+Liest er im Virgil der Harpy’n Unart.<lb/>
+Kurz alle gedenkt er nach Deutſchland einſt<lb/>
+Zu verhandeln, um dort Profeſſores zu ſeyn<lb/>
+Im ſechsten bereits oder ſiebenten Jahr,<lb/>
+Als zwoͤlf Karl Witte die juͤngſten!</p></sp><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Phyllis, Mopſus</hi>.</hi></stage><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Deklamirſt du hier im Hofe? Geh hinein zu deinen Kindern!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Hier im Mondenſchein zu ſchwaͤrmen, ſoll mich kein Ge-<lb/>
+mahl verhindern.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Doch es hindert dich der Bullenbeißer, und vom Dach der Kater.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Dennoch will ich deklamiren; denn die Welt iſt ein Theater.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Aber das Theater ſelber, iſt es zur Tuͤrkei geworden,<lb/>
+Denn, wo ſonſt Heroen ſchritten, tummeln ſich Barbaren-<lb/>
+horden?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Stille, ſtille! lerne lieber nach des Poͤbels Pfeife tanzen,<lb/>
+Und verehre tief im Staube den Geſchmack der Intendanzen!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Freilich! Intendanten machen ſich das Schlechteſte zu Nutze,<lb/>
+Denn das Gute hilft ſich ſelber, das entzieht ſich ihrem Schutze.</p></sp><lb/>
+<pb n="41" facs="#f0047"/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Demnach aber darf das Gute deutſche Bretter nie beſteigen?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Nie, wofern es reich und kraͤftig, uͤberlegen, keck und eigen.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Wehrt denn dieſem Volk zuweilen nicht ein Fuͤrſt herab<lb/>
+vom Throne?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Schmeichler nahn ſich ihm als Flecken, truͤben den Brillant<lb/>
+der Krone:<lb/>
+Ein Poet ſtolzirt in Waffen, iſt des Helikons Beſtuͤrmer,<lb/>
+Aber Manche kriechen aufwaͤrts, wie gekruͤmmte Regen-<lb/>
+wuͤrmer,<lb/>
+Und das Publikum, das alte Hoͤckerweib, entbloͤßt von Zaͤhnen,<lb/>
+Schließt ſogleich den Mund zum Bravo, wenn er Miene<lb/>
+macht zum Gaͤhnen.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Auf die neuern Dramaturgen waͤre ſonach nichts zu halten?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Das vernein’ ich. Gutes mag ſich, doch mir unbewußt, ge-<lb/>
+ſtalten:<lb/>
+Ja, ich koͤnnte ſelbſt citiren ein’ge ſchoͤne, neu’re Data:<lb/>
+Kam nicht Herzog Ernſt aus Schwaben? Kam nicht aus<lb/>
+Burgund Renata!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Kommt nicht eben hier der Schultheiß?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Noch ſo ſpat, was kann er wollen?</p><lb/>
+<pb n="42" facs="#f0048"/>
+<stage><hi rendition="#c"><hi rendition="#g">Die Vorigen, Damon, Sirmio</hi>.</hi></stage></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Nichts als einen nachbarlichen, freundlichen Beſuch euch zollen.<lb/>
+Auch verſichr’ ich: Jener Jude, den des Diebſtahls ihr be-<lb/>
+zuͤchtigt,<lb/>
+Iſt als Ehrlichſter von allen Kindern Iſraels beruͤchtigt.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Kennt ihr nicht das alte Sprichwort, daß der Hehler wie<lb/>
+der Stehler?</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Glaubt mir, Mopſus, Dieberei iſt jenes Juden kleinſter<lb/>
+Fehler.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Nun, wer hat es denn geſtohlen?</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Stille, Phyllis, mir zu Liebe!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Soll ich meine Meinung ſagen, waren Elſtern eure Diebe.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Elſtern! Was fuͤr Maͤhrchen! Soll ich Elſtern vor Gericht<lb/>
+verklagen?</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Hat nicht auch Roſſini’s Elſter ein Beſteck davongetragen?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Ei Roſſini!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Ja, ich koͤnnt’ euch einen neuern Fall entdecken,<lb/>
+Der, als Trauerſpiel behandelt, tauſend Seufzer wuͤrde<lb/>
+wecken.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>O erzaͤhlt! Ich leſe taͤglich Meißners Kriminalgeſchichten.</p></sp><lb/>
+<pb n="43" facs="#f0049"/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Mitternacht iſt nah, da hoͤrt man Ammenmaͤhrchen gern<lb/>
+berichten.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>In Arkadien war ein Kuhhirt, welcher hieß Anarimander,<lb/>
+Er und ſeine Gattin ſchliefen eines Abends bei einander;<lb/>
+Aber neben ihr, ſo war es ihr Gebrauch, auf einem Tiſchchen<lb/>
+Lag ihr Ehering und eine Predigt, oder ſonſt ein Wiſchchen.<lb/>
+Offen ſtanden alle Fenſter, da es Sommer war, und freier<lb/>
+Luͤftete des Zephyrs Athem der Gardinen gruͤne Schleier;<lb/>
+Aber mit dem Zephyr kam ein Elſterchen herbeigeflogen,<lb/>
+Dieſes wurde durch des Ringes gelben Schimmer angezogen,<lb/>
+Flog ans Tiſchchen, ſah die Predigt, nahm jedoch den<lb/>
+Ring alleine,<lb/>
+Trug ihn fort und ließ ihn wieder fallen — auf dem Ra-<lb/>
+benſteine.<lb/>
+Weil’s vom Schickſal war beſchloſſen, daß es ſo geſchehen<lb/>
+ſollte,<lb/>
+Sieht ihn dort der Knecht des Henkers, welcher eben raͤ-<lb/>
+dern wollte,<lb/>
+Steckt ihn an die Hand; doch achtet er nicht weiter dieſes<lb/>
+Dinges.<lb/>
+Des Anarimanders Gattin merkte den Verluſt des Ringes<lb/>
+Schon am andern Tag, verſchweigt es aber weislich ihrem<lb/>
+Gatten,<lb/>
+Weil ſie hofft, der Zufall werd’ ihr ihn gewiß zuruͤcker-<lb/>
+ſtatten.<lb/>
+Doch im Stall Anarimanders, dieſes duͤrft ihr nicht ver-<lb/>
+geſſen,<lb/>
+Da’s die Quinteſſenz von Allem, war ein Ochs krepirt in-<lb/>
+deſſen:<lb/>
+<pb n="44" facs="#f0050"/>
+Nach dem Fallknecht ſchickte Jener, daß er weg den Ochſen<lb/>
+bringe,<lb/>
+Und begegnet an des Knechtes Finger ſeinem Eheringe.<lb/>
+Zwar er ſchweigt: doch kann er ſeine Wuth nur kurze Zeit<lb/>
+verſchließen.<lb/>
+Kennt ihr Eiferſucht? Was wollt’ er machen, als das Weib<lb/>
+erſchießen?<lb/>
+Er erſchießt es auch, begraͤbt es heimlich, aller Welt ver-<lb/>
+borgen,<lb/>
+Und vermaͤhlt mit einer andern Gattin ſich am andern<lb/>
+Morgen.<lb/>
+Dieſe ward ihm aber wirklich ungetreu, ſie war umrungen<lb/>
+Von Bewerbern, und erſah ſich einen allerliebſten Jungen<lb/>
+Zur Geſellſchaft. Dieſer wollte ſeiner Liebſten was verehren,<lb/>
+Und er fing ein Elſtermaͤnnchen, dem er wollte ſprechen<lb/>
+lehren.<lb/>
+Dieß gelang, es ſprach, worauf er’s ſeiner Herzenskoͤn’gin<lb/>
+ſendet;<lb/>
+Aber ach! Es war der Vogel, welcher einſt den Ring ent-<lb/>
+wendet.<lb/>
+Leider konnt’ er jetzo ſprechen! Er berichtet unbefangen<lb/>
+Dem Anarimander Alles, wie es mit dem Ring ergangen,<lb/>
+Dieſer fuͤhlt ſich, wie begreiflich, ganz von Reu’ und Leid<lb/>
+zerriſſen,<lb/>
+Malt ſich das Schaffot poetiſch, faſelt von Gewiſſensbiſſen,<lb/>
+Klagt ſich ſelbſt an, wird gerichtet auf demſelben Rabenſteine,<lb/>
+Und es raͤdert auch derſelbe Henkersknecht ihm Arm’ und<lb/>
+Beine!<lb/>
+Auch das Weib, das ungetreue, ſtarb an Champignons ver-<lb/>
+giftet,<lb/>
+Und die Elſter fiel in Wahnſinn, weil ſie all dieß angeſtiftet.</p></sp><lb/>
+<pb n="45" facs="#f0051"/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>O der herrlichen Verwicklung!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Waͤr’ es doch ſchon auf den Brettern!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Aufgeſtutzt mit Modefloskeln!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Und durchwebt mit Donnerwettern!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Welche wunderbare Fuͤgung!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Und der Rabenſtein, mir ſchaudert!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Doch der Jude ſcheint mir auch ein Elſtermaͤnnchen, wel-<lb/>
+ches plaudert.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Plaudert, aber nie geſtohlen!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#g">Phyllis</hi></speaker> <stage>(zu <hi rendition="#g">Sirmio</hi>).</stage><lb/>
+<p>Siehſt du nicht, wie Damon immer<lb/>
+Nach dem Hundſtall ſchielt hinuͤber?</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Steht der Schatz bereits im Zimmer?</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Wohlverwahrt, doch uneroͤffnet.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Morgen loͤſen wir die Siegel.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Komm nur puͤnktlich!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Mit dem Fruͤhſten.</p></sp><lb/>
+<pb n="46" facs="#f0052"/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Offen ſtehen Schloß und Riegel.<lb/>
+Aber bring’ auch einen Karr’n mit, um den Kaſten auf-<lb/>
+zuladen!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Ja doch!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Gute Nacht, ihr Leute!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Ich empfehle mich zu Gnaden.</p><lb/>
+<stage><hi rendition="#c">(<hi rendition="#g">Damon</hi> und <hi rendition="#g">Sirmio</hi> ab, von <hi rendition="#g">Mopſus</hi> begleitet.)</hi></stage></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Nun ſchleuß dich, o Herz, dem Mitleid zu!<lb/>
+Weil ſchon des Gehegs Nachtwaͤchter die Zeit<lb/>
+Der entſetzlichen That im Dorfe poſaunt,<lb/>
+Und der Schwengel ſich ſchon<lb/>
+Zwoͤlfmal in der Glocke des Thurms regt.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#et"><hi rendition="#g">Mopſus</hi></hi></speaker> <stage><hi rendition="#c">(zuruͤckkommend).</hi></stage><lb/>
+<p>Nur hinein! Nur hinein! Was willſt du noch hier?<lb/>
+Bald folg’ ich dir nach. Unheimlicher laͤßt<lb/>
+Sich die Nacht jetzt an. Nur hinein ins Haus!</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi></hi></speaker> <stage><hi rendition="#c">(bei Seite).</hi></stage><lb/>
+<p>Jetzt geh’ ich h<supplied>in</supplied>ein,<lb/>
+Bald kehr’ ich zuruͤck mit der Gabel.</p><lb/>
+<stage><hi rendition="#right">(ab.)</hi></stage></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Wie es pfeift in der Luft, wie ſo ploͤtzlich ſich das geſtirnte<lb/>
+Gewoͤlbe verfinſtert!<lb/>
+Ein Gewitter iſt nah, und im Wachſen der Sturm, und es<lb/>
+haͤuft ſich Gewoͤlk an Gewoͤlke;<lb/>
+<pb n="47" facs="#f0053"/>
+Laut bloͤckt mir das Vieh in den Stallungen rings, und der<lb/>
+Kater miaut und der Hund bellt.<lb/>
+Was deutet mir das? Und wie leg’ ich’s aus? Gibt’s Ah-<lb/>
+nungen oder was gibt’s denn?<lb/>
+Wenn die Scheere, die faͤllt, in den Boden ſich ſpießt, ſo be-<lb/>
+hauptet man, daß es Beſuch gibt;<lb/>
+Das verſchuͤttete Salz, anzeigt es Verdruß, und am Lichte<lb/>
+der Raͤuber ein Brieflein;<lb/>
+Wenn man Schafen begegnet, bedeutet’s ein Gluͤck, wenn man<lb/>
+Schweinen begegnet, ein Unheil;<lb/>
+Fuͤhlt Einer ſich krank und er ſoll abziehn, ſieht Nachts er die<lb/>
+Bahre vorbeiziehn;<lb/>
+Wird einer gekoͤpft, ein Verbrecher, ſo zuckt vorher an der<lb/>
+Manuer das Richtſchwert.<lb/>
+Was deutet <supplied>m</supplied>ir nun dieß Hundegebell? Iſt’s mein Tod oder<lb/>
+der Phyllis?</p><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Mopſus, Phyllis</hi>.</hi></stage></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Sacht ſchleich’ ich heran; doch treff’ ich ihn wohl? Wo ſteht<lb/>
+er? Ich ſehe ja keinen<lb/>
+Stich hier in der Nacht, wie ſoll ich ihm denn beibringen<lb/>
+den Stich mit der Gabel?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Es rumort in der Luft und der Donner beginnt.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>O haͤtt’ ich doch Anatomie noch<lb/>
+Als ledig ſtudirt, nun wuͤßt’ ich den Fleck, wo es ihn zu<lb/>
+verwunden am beſten!<lb/>
+<pb n="48" facs="#f0054"/>
+Wo treff’ ich das Herz? Liegts links oder rechts, daß ich<lb/>
+nicht in den Magen ihn ſtoße?<lb/>
+Sein Magen verdaut ſo entſetzlich gut, daß er koͤnnte ver-<lb/>
+dauen die Gabel.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Nun geh’ ich hinein, wo die Phyllis traͤumt, und mach’ ihr<lb/>
+im Stillen den Garaus.</p></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Jetzt wendet er ſich, jetzt eil’ ich hinzu. Stirb, Graͤßlicher!<lb/>
+Aber was iſt das?</p><lb/>
+<stage><hi rendition="#c">(Blitz und Donnerſchlag. <hi rendition="#g">Salome</hi> erſcheint mit Gepolter und<lb/>
+Flammen. <hi rendition="#g">Phyllis</hi> laͤßt die Gabel fallen und entflieht.)</hi></stage></sp><lb/>
+<sp who="#PHY"><speaker><hi rendition="#c"><hi rendition="#g">Phyllis</hi>.</hi></speaker><lb/>
+<p>Ein Geſpenſt! Ein Geſpenſt! fort eil’ ich ins Haus! Wenn<lb/>
+Gott will, frißt es den Mopſus.</p><lb/>
+<stage><hi rendition="#right">(ab.)</hi></stage></sp><lb/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>Ich rettete dich, mein Ururſohn! Heb’ auf vom Boden die<lb/>
+Gabel!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Dank beb’ ich dir zu. Wer biſt du, Geſtalt? Ein Geſchoͤpf,<lb/>
+ſprich, oder ein Unding?</p></sp><lb/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>Ein Geſchoͤpf, wie du ſelbſt, vormals theilhaft des verrin-<lb/>
+nenden Sands in der Sanduhr,<lb/>
+Jahrhunderte jetzt in entſetzlicher Haft, durch nie zu be-<lb/>
+rechnenden Zeitlauf.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Doch ſeh’ ich dich frei.</p></sp><lb/>
+<pb n="49" facs="#f0055"/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>Um zwoͤlf Uhr blos, jetzt blos, in der Mitte der Nacht blos.<lb/>
+Doch wird mir auch dieß zur entſetzlichen Qual, denn die<lb/>
+Nacht iſt ſchrecklich um <hi rendition="#g">die</hi> Zeit!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Zwar hoͤrt’ ich das oft, doch glaubt’ ich es nicht, ich hielt’s<lb/>
+fuͤr chimaͤriſchen Wahnſinn;<lb/>
+Auch hielt ich mich nicht fuͤr ein Sonntagskind, denn ich<lb/>
+bin ja geboren am Samſtag.</p></sp><lb/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>Thut nichts, da der Sabbath als Sonntag gilt, wir fuͤh-<lb/>
+ren den Judenkalender,<lb/>
+Seitdem durch Geiſt uns Geiſter beſtach der beruͤchtigte<lb/>
+Jude Spinoza.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Was waͤlzt ſich denn in der Mitte der Nacht ſo Entſetzli-<lb/>
+ches uͤber den Erdkreis?</p></sp><lb/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>O gluͤckliches Auge des Menſchengeſchlechts, das nicht ins<lb/>
+Dunkel der Nacht dringt!<lb/>
+Doch erſcheint auch euch voll Grauen die Nacht, durch Ah-<lb/>
+nung mehr als Gewißheit.<lb/>
+O koͤnntet ihr ſchau’n in den Kern der Natur mit erleuchte-<lb/>
+ten Augen um zwoͤlf Uhr!<lb/>
+Da bewegt ſich die ſubtelluriſche Macht als Windsbraut<lb/>
+unter der Erde,<lb/>
+Und ſie weht als Dunſt von der Hoͤlle herauf, kohlſchwarz<lb/>
+wie die Saͤule des Dampfboots.<lb/>
+Das iſt’s, was eben verheert die Natur, ſonſt haͤttet ihr<lb/>
+ewiges Wachsthum:<lb/>
+<fw type="sig" place="bottom">Die verhaͤngnißvolle Gabel. 4</fw><lb/>
+<pb n="50" facs="#f0056"/>
+Von der Wurzel des Baums zum Gipfel empor ſteigt’s auf<lb/>
+als Gift der Zerſtoͤrung,<lb/>
+Und es ſchleicht als Tod ins thieriſche Herz, und vermaͤhlt<lb/>
+ſich menſchlichem Odem;<lb/>
+Drum lebt auch laͤnger der Vogel als ihr, der weniger<lb/>
+klebt an der Erde,<lb/>
+Der ſeltener auch den entſetzlichen Dunſt aus hoͤherer Luft-<lb/>
+region zieht.<lb/>
+O koͤnnteſt du jetzt in der Mitte der Nacht durchſchweben<lb/>
+Gefild und Gebirge!<lb/>
+Aus Schluchten empor widerhallt das Geſtein vom Zaͤhnege-<lb/>
+klapper der Hoͤlle,<lb/>
+Und vernehmlich kraͤchzt aus Wipfel und Dach halbmenſch-<lb/>
+liche Worte der Uhu,<lb/>
+Denn es irrt die Natur, und vermiſcht graͤulvoll Labyrin-<lb/>
+thiſches untereinander!<lb/>
+Jetzt heben empor aus Quellen und Seen Meerniren ihr<lb/>
+ſchilfiges Antlitz<lb/>
+Und den ſchuppigen Leib, und ſtoͤren den Traum des Ermuͤ-<lb/>
+deten, welcher am Bach ſchlaͤft;<lb/>
+Und das Muͤhlrad peitſcht aufziſchenden Schaum in verdop-<lb/>
+pelter Schnelle wie raſend.<lb/>
+Und der Muͤhlknecht ſtuͤrzt in den Trichter hinab, wenn er<lb/>
+juſt aufgießet das Korn jetzt.<lb/>
+Auf dem Kirchhof ſtaͤubt die Gebeine herum lautſauſend ein<lb/>
+wuͤthender Windſtoß,<lb/>
+Und es knarren der Gruft Thuͤrangeln, es flammt, wie von<lb/>
+Blitzen erleuchtet, die Grabſchrift,<lb/>
+Und die Todten im Sarg, aufwachen ſie halb, und behorchen<lb/>
+mit Schauder den Holzwurm.<lb/>
+Hu, hu! Weh, weh! O Mitte der Nacht, du grauſige<lb/>
+Stunde, huhu, hu!</p></sp><lb/>
+<pb n="51" facs="#f0057"/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Ungluͤcklicher Geiſt!</p></sp><lb/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>O waͤr’ ich erloͤst! Zu betrachten das menſchliche Daſeyn<lb/>
+Iſt ſchrecklich, waͤhrend man Menſch noch iſt, iſt ſchreckli-<lb/>
+cher einem der Geiſter:<lb/>
+Die Geburt und der Tod, einander ſo nah, ſind blos durch<lb/>
+Schmerzen geſchieden,<lb/>
+Sind Schmerzen ſie ſelbſt. O trauriges Loos, wohl werth<lb/>
+unſterblicher Thraͤnen,<lb/>
+Wie ein Gott ſie geweint!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Doch ſeyd ihr erloͤst, was thut ihr, luftige Geiſter?</p></sp><lb/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>Wir tanzen den Reihn und beruͤhren im Flug mit ſchwe-<lb/>
+benden Sohlen die Sterne.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Was kann ich dir thun?</p></sp><lb/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>Viel, viel, wenn du willſt; doch halt’ ich das Beſte<lb/>
+geheim noch.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Nein, ſprich, was ich ſoll?</p></sp><lb/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>Was wollteſt du denn mit der Gabel beginnen,<lb/>
+o Mopſus?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Ich wollte damit auch Kinder und Weib dort unter die<lb/>
+Sterne verſetzen;<lb/>
+Doch tadelſt du das, ſo —</p></sp><lb/>
+<pb n="52" facs="#f0058"/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>Genire dich nicht! thu was der Inſtinkt dir gebietet!<lb/>
+Man metzelt in neuen Tragoͤdien auch ſchlechtweg, nach<lb/>
+kurzer Verſuchung.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Doch, wenn du befiehlſt —</p></sp><lb/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>O nein! wie geſagt, ich billige deine Begierden.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Doch moͤcht’ ich dich noch ausfragen, warum —</p></sp><lb/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>Jetzt nicht, da verronnen die Zeit iſt:<lb/>
+In den Kerker zuruͤck eilt jetzt mein Geiſt, und ſchmachtet ent-<lb/>
+gegen der Freiheit:<lb/>
+O Erloͤſungstag, wann ſeh’ ich entzuͤckt die Vergoldungen deiner<lb/>
+Aurora?</p><lb/>
+<stage><hi rendition="#right">(Sie verſchwindet.)</hi></stage></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Vortrefflicher Geiſt! Du erriethſt mich gleich, wohl kennſt du<lb/>
+das menſchliche Herz recht.<lb/>
+Nun koͤnnt’ ich vor Muth mein ganzes Geſchlecht, als waͤr’s<lb/>
+Pappdeckel, zerſtechen!<lb/>
+O Gabel, du biſt in der Hand mir jetzt der plutoniſche, graͤß-<lb/>
+liche Zweizack!<lb/>
+Jetzt koͤnnt’ ich mit dir, in titaniſcher Kraft, aufgabeln als Ku-<lb/>
+gel den Erdball,<lb/>
+Ihn laden, und dann todtſchießen mit ihm die geſtirnten Ar-<lb/>
+meen des Himmels!<lb/>
+Was hoͤr’ ich denn da?</p></sp><lb/>
+<pb n="53" facs="#f0059"/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus, Schmuhl</hi></hi></speaker> <stage><hi rendition="#c">(der uͤber die Mauer ſteigt).</hi></stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Wenn der Hund nicht bellt, ſo vollend’ ich<lb/>
+den herrlichen Anſchlag.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Was dringt fuͤr ein Ton durch Nebel und Nacht? Iſt denn ſchon<lb/>
+wieder ein Geiſt hier?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Wer wandelt denn dort?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>He! He da, Geſpenſt! Gib Antwort!<lb/>
+Wenn du ein Geiſt biſt,<lb/>
+So verhindre mich nicht an der loͤblichen That, und laß den ge-<lb/>
+fundenen Schatz mir!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Den gefundenen Schatz? O weh mir, weh!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Gib Antwort, wenn du ein Geiſt biſt!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Auch ohne das, Freund! Wir kennen uns ja, als kuͤnftige<lb/>
+Reiſegenoſſen.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Wie? Cruſoe, du? Wie kamſt du herein in den Hof und eben<lb/>
+um <hi rendition="#g">die</hi> Zeit?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Das Gewitter, du haſt es geſehen; es ſchlug mich ein Blitz<lb/>
+ſchnurſtracks in den Hof her.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Das wundert mich doch! Im Uebrigen kannſt du mich waͤhrend<lb/>
+der Reiſe begleiten;<lb/>
+Denn ich gehe noch heut und bedarf recht ſehr des erfahrenen<lb/>
+Wandergefaͤhrten.</p></sp><lb/>
+<pb n="54" facs="#f0060"/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Aber laß uns jetzt eintreten ins Haus, ich helfe dir packen,<lb/>
+Geliebter!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>O es iſt ſchon gepackt, nichts nehm’ ich mit mir, als eine<lb/>
+Schatulle von Eiſen.<lb/>
+Bleib hier nur im Hof, gleich kehr’ ich zuruͤck, dann koͤnnen<lb/>
+wir Alles beſprechen;<lb/>
+Jetzt laß mich hinein, ich nehme nur noch von Weib und Kin-<lb/>
+derchen Abſchied.</p><lb/>
+<stage><hi rendition="#right">(ab.)</hi></stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Abtruͤnniges Gluͤck! So muß ich mich denn mit der Haͤlfte des<lb/>
+Schatzes begnuͤgen?<lb/>
+O Geld! Was opfert das Menſchengeſchlecht nicht dir und dei-<lb/>
+nem Beſitzthum?<lb/>
+Dir wuchert der Filz, und der Saͤmann ſaͤt nur dir, es be-<lb/>
+zieht der Soldat blos<lb/>
+Die Parade fuͤr dich und ererzirt, und der Schreiber copirt,<lb/>
+und es gucken<lb/>
+Buhldirnen fuͤr dich zum Fenſter heraus, ja, Schornſteinfeger<lb/>
+zum Schornſtein!<lb/>
+Vor den Uebrigen ziehſt du das Judengemuͤth dir zu, wie ein<lb/>
+Schiff der Magnetberg.<lb/>
+Aber Eins verleihſt du, o himmliſches Geld, was Wenige, die<lb/>
+dich beſitzen,<lb/>
+Zu beſitzen verſtehn, zu genießen verſtehn, was iſt dieß Eine?<lb/>
+die Freiheit.</p><lb/>
+<stage><hi rendition="#c">(Er wirft den Mantel ab und tritt als <hi rendition="#g">Chorus</hi> an den Rand der Buͤhne. Der<lb/>
+Himmel wird wieder hell und die Geſtirne treten hervor.)</hi></stage><lb/>
+<pb n="55" facs="#f0061"/>
+<p>O goldne Freiheit, der auch ich entſtamme,<lb/>
+Die du den Aether, wie ein Zelt, entfalteſt,<lb/>
+Die du, der Schoͤnheit und des Lebens Amme,<lb/>
+Die Welt ernaͤhrſt und immer neu geſtalteſt;<lb/>
+Veſtalin, die du des Gedankens Flamme<lb/>
+Als ein Symbol der Ewigkeit verwalteſt:<lb/>
+Laß uns den Blick zu dir zu heben wagen,<lb/>
+Lehr’ uns die Wahrheit, die du kennſt, ertragen!</p><lb/>
+<p>Du wollteſt guͤtig uns das Wort verleihen,<lb/>
+Das als ein Funke deinem Herd entglommen,<lb/>
+Du, die du gibſt ihm deine ſieben Weihen,<lb/>
+Durch die’s der Menſchen Herzen eingenommen,<lb/>
+Die du es toͤnen laͤſſeſt und gedeihen<lb/>
+Vom Rednerſtuhl, dem weltlichen und frommen:<lb/>
+Leih’ auch den Genien dieſes heitern Ortes<lb/>
+Den ſchoͤnſten Ausdruck des lebend’gen Wortes!</p><lb/>
+<p>Wer hier zum Volke ſpricht in ſtolzen Toͤnen,<lb/>
+Der ſey auch wuͤrdig vor dem Volk zu ſprechen;<lb/>
+Entnervendes zu bieten ſtatt des Schoͤnen,<lb/>
+Iſt an der Zeit ein Majeſtaͤtsverbrechen.<lb/>
+Zeigt ihr der Vaͤter ſonſt’gen Ruhm den Soͤhnen,<lb/>
+So ſucht, durch ſtille Groͤße zu beſtechen,<lb/>
+Und wollt ihr treffen mit des Witzes Strale,<lb/>
+Kredenz’ euch Anmuth erſt die Zauberſchale!</p><lb/>
+<p>Doch laßt ihr ſtets euch voll Geduld beſchenken<lb/>
+Mit allen Gattungen von Mißgebilden,<lb/>
+Die hoͤchſt poſſirlich jedes Glied verrenken,<lb/>
+Um zu gefallen euch, den Allzumilden;<lb/>
+<pb n="56" facs="#f0062"/>
+Doch hoffe Keiner ohne tiefes Denken<lb/>
+Den ew’gen Stoff zur ew’gen Form zu bilden,<lb/>
+Und ſchwierig iſt’s, mit Wuͤrde ſich zu faſſen<lb/>
+Auf einem Stuhl, den Schiller leer gelaſſen.</p><lb/>
+<p>Lernt erſt das Edle kennen und erproben,<lb/>
+Und ſcheiden lernt den Schwaͤtzer vom Propheten!<lb/>
+Wie lange wollt ihr dieſe Reimer loben,<lb/>
+Die fremdes Mehl, doch ohne Wuͤrze, kneten?<lb/>
+Verlangt ihr Großes, hebt den Blick nach Oben,<lb/>
+Denn nicht herunter ſteigen die Poeten,<lb/>
+Und ſelten wird euch ſchmeicheln ihre Strenge:<lb/>
+Die Kunſt iſt keine Dienerin der Menge.</p><lb/>
+<p>Was frommt’s dem Stuͤmper, einen Kranz zu tragen,<lb/>
+Und wenn ihr braͤchtet ihn auf ſeidnem Kiſſen?<lb/>
+Im Innern muß ihn blos die Sorge nagen,<lb/>
+Ein ſo gemeines Haupt bekroͤnt zu wiſſen:<lb/>
+Wer Schoͤnes bildet, kann dem Preis entſagen,<lb/>
+Er kann ein Land, das ihn verkennt, vermiſſen:<lb/>
+Wer Dichter iſt in ſeiner Seele Tiefen,<lb/>
+Der fuͤhlt von Lorbern ſeine Schlaͤfe triefen!</p><lb/>
+<p>Der Fruͤhling kommt, ihr koͤnnt es nicht verwehren;<lb/>
+Die Luft erquickt, ihr koͤnnt ſie nicht verſchließen;<lb/>
+Der Vogel ſingt, ihr koͤnnt ihn nicht belehren;<lb/>
+Die Roſe bluͤht, es darf euch nicht verdrießen;<lb/>
+Und naht ein Dichter, eure Luſt zu mehren,<lb/>
+So lernt ihn auch im vollſten Maß genießen,<lb/>
+Anſtatt ſein Thun beſtaͤndig zu verneinen:<lb/>
+Was ſoll der Mond denn anders thun als ſcheinen?</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[57]" facs="#f0063"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Vierter Akt</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Vor dem Hauſe des Mopſus</hi>.</hi></stage><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Wie bin ich froh, daß meiner Frau Nachkommenſchaft,<lb/>
+Sie ſelbſt mit ihr, geſegnet alles Zeitliche!<lb/>
+Man wird doch vieler Sorgen mit den Kindern quitt,<lb/>
+Auch gilt als Wuͤnſchenswertheſtes ein fruͤher Tod,<lb/>
+Wie meine Kleinen fanden durch das Gaͤbelchen.<lb/>
+Dann war das Weib ein Meiſterſtuͤck von Gottes Zorn:<lb/>
+Waͤr’ ich in England, haͤtt’ ich lange ſie verkauft,<lb/>
+Was aber ſoll ich machen in Arkadien?<lb/>
+Hier ſind die Frau’n ſtets uͤber oder unterm Preis.<lb/>
+Falſch war ſie, das bezweifelt kaum ein Skeptiker:<lb/>
+Nicht falſcher iſt das rege Flammenelement,<lb/>
+Das liſtenreiche, taͤuſchende, verfaͤngliche,<lb/>
+Salamanderkoͤrperbildungenernaͤhrende!<lb/>
+Oft ſagt’ ich ihr, wenn Keiner juſt zugegen war:<lb/>
+O haͤtteſt du mehr Guͤrtel als das Guͤrtelthier,<lb/>
+Du loͤsteſt doch die ſaͤmmtlichen um Weniges!<lb/>
+Und haͤtt’ ich ſie verſchonen ſollen? Nimmermehr!<lb/>
+Die Tugend großer Seelen iſt Gerechtigkeit.<lb/>
+Doch fort ans Cap, und laſſen wir die Todten ruhn!<lb/>
+Wo aber bleibt denn Cruſoe, der Kinderfreund?</p><lb/>
+<pb n="58" facs="#f0064"/>
+<stage><hi rendition="#c"><hi rendition="#g">Mopſus, Schmuhl</hi>.</hi></stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Die Kutſche ſteht im naͤchſten Buſch bereit bereits,<lb/>
+Und auch gepackt iſt Alles.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Danke, Cruſoe!<lb/>
+Doch faͤllt in dieſem Augenblick noch Eins mir bei:<lb/>
+Du weißt doch, was die Polizei Steckbriefe nennt?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Viſitenkarten, die man an den Spiegel ſteckt?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Nicht ganz. Genug, ich fuͤrchte dieſe Briefe ſehr,<lb/>
+Und darf als Mopſus keineswegs die Reiſe thun,<lb/>
+Auch reiſen Schaͤfer ſelten in Arkadien.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Dann mußt du dich verkleiden, ſcheint’s.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Als was jedoch?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Je nun, als Muſterreiter, wenn dir das gefaͤllt.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Ich reite gar nicht, wenigſtens nicht muſterhaft.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Als Virtuos auf irgend einem Inſtrument.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Ich blaſe keins, auf welchem man Concerte gibt.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Als Einer, der Gaſtrollen ſpielt, als Buͤhnenheld.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Als Held, o Gott! Ich bin ja kaum drei Spannen lang.</p></sp><lb/>
+<pb n="59" facs="#f0065"/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Als reiſender Gelehrter willſt du nicht?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>O pfui!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Auch wohl als Handwerksburſche nicht?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Ich fechte nicht.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>So beſteig’ als Paſſagier den Hinrichs.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Was iſt das?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Ein Obertollhausuͤberſchnappungsnarrenſchiff.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Wo man den Fauſt ſcholaſtizirt? Da fahr’ ich nicht!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Nur Einer Art von Reiſenden gedenk’ ich noch.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Die iſt?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Als eine Brittin.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Wie?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Als engliſche<lb/>
+Gemahlin eines reichen Lords. Ich ſpiele gern<lb/>
+Den Kammerdiener.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Allerdings das ſcheint mir klug!<lb/>
+Ich waͤre dann aufs Sicherſte verkappt dabei,<lb/>
+<pb n="60" facs="#f0066"/>
+Und hinge ſtets den Schleier vor. Wo kriegen wir<lb/>
+Den Lord jedoch?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Wir machen uͤberall bekannt,<lb/>
+Daß er aus langer Weile juͤngſt geſtorben iſt.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Doch was den Reichthum anbelangt, ſo weißt du ja,<lb/>
+Daß ſtets die große Kiſte noch unaufgeſprengt.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Laß mich nur ſorgen! Was ich will, vermag ich auch.<lb/>
+Den Mond vom Himmel zieh’ ich, wenn es mir beliebt,<lb/>
+Als Negromant, und als ein zweiter Archimed<lb/>
+Nehm’ ich der Erde Hemigloben in die Hand!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Die Hemigloben allenfalls, worauf man ſitzt.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Die ohnedem. Der ew’gen Sphaͤren Harmonie<lb/>
+Sperr’ ich, wie ihr die Nachtigall, in Kaͤfige.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Sprich doch von dir beſcheidener, o Cruſoe!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Ein großer Menſch ſpricht edel von der Welt und ſich,<lb/>
+Ein kleiner klein und niedrig; aber das gefaͤllt,<lb/>
+Das nennen dann die Niedrigſten Beſcheidenheit.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Verſchone mit Sentenzen mich, o Cruſoe!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Genug! Ich oͤffne deinen Schatz, ich fuͤhr’ es aus,<lb/>
+Und ſollten drohn mir alle Schauder der Natur,<lb/>
+Der Tod von Baſel und der Neid von Weißenfels.</p></sp><lb/>
+<pb n="61" facs="#f0067"/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Ich geh’ in irgend eine Troͤdelbude jetzt,<lb/>
+Und ſchaffe mir die Kleider einer engliſchen<lb/>
+Milady an.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Ich eile fort und kaufe Thee,<lb/>
+Denn ohne Thee reist keine Lady.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Wehe mir!<lb/>
+Thee trinken muß ich? Kaufe doch zum wenigſten<lb/>
+Wohlfeilen ein, Hollunderthee.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Der treibt den Schweiß.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Was moͤgen erſt die andern treiben!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Schnell davon!<lb/>
+Ich hoͤre Leute kommen.</p><lb/>
+<stage><hi rendition="#c">(Beide ab.)</hi></stage><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Damon</hi> (tritt auf).</hi></stage></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Wo der Schmuhl mir bleibt,<lb/>
+Muß ich mich doch erkundigen. Wie leicht, daß ihn<lb/>
+Der rohe Mopſus, wenn er ihn ertappt, entleibt!<lb/>
+Wenn ich es wuͤnſchen koͤnnte, waͤr’ es etwa nur,<lb/>
+Um beizuſitzen einem Kriminalprozeß,<lb/>
+Was fuͤr die Menſchenkennerſchaft hoͤchſt foͤrderlich.<lb/>
+War etwa Shakeſpear irgend Kriminaljuriſt,<lb/>
+Da es heißt in den aͤſthetiſchen Compendien,<lb/>
+Daß er ein Menſchenkenner war? Doch conterfei’n<lb/>
+Ihn Andre wieder anders, und er mahlt ſich ſelbſt<lb/>
+<pb n="62" facs="#f0068"/>
+Als Einen, der die Naſe nicht in Alles ſteckt,<lb/>
+Verſchloſſen, ſtill, zartfuͤhlend bis zum Eigenſinn,<lb/>
+Und in ſich eine groͤßre Welt als außer ihm.<lb/>
+Iſt das gegruͤndet, wuͤrd’ ich, waͤr’ ich Praͤſident<lb/>
+Von einer wiſſenſchaftlichen Akademie<lb/>
+Aufſtellen als Preisfrage dieſen kurzen Satz:<lb/>
+Wo nehmen denn die Dichter die Gedanken her?<lb/>
+Viel weiß man, wenn man das nur weiß. Man ſchickte dann<lb/>
+Compilatoren, Schwaͤtzer und Pedanten hin,<lb/>
+Die voll von Mitleid auf Poeten niederſehn,<lb/>
+Und ſich ſo viel auf ihre Sitzgelehrſamkeit<lb/>
+Einbilden, um zu lernen, daß es außer dem<lb/>
+Buchſtaben noch was Andres gibt in Gottes Welt.<lb/>
+Allein, was fall’ ich aus der Rolle? Sehn wir erſt<lb/>
+Nach unſerm Schmuhl, o hieß’ es doch nach unſerm Schatz!</p><lb/>
+<stage><hi rendition="#c">(Er geht ins Haus, <hi rendition="#g">Sirmio</hi> kommt von der andern Seite.)</hi></stage></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi></hi></speaker> <stage><hi rendition="#c">(ſingend).</hi></stage><lb/>
+<p>O wonnigliche Reiſeluſt,<lb/>
+An dich gedenk’ ich fruͤh und ſpat!<lb/>
+Der Sommer naht, der Sommer naht,<lb/>
+Mai, Juni, Juli und Auguſt,<lb/>
+Da quillt empor,<lb/>
+Da ſchwillt empor<lb/>
+Das Herz in jeder Bruſt.</p><lb/>
+<p>Ein Thor, wer immer ſtille ſteht,<lb/>
+Drum Lebewohl und reiſen wir!<lb/>
+Ich lobe mir, ich lobe mir<lb/>
+Die Liebe, die auf Reiſen geht!<lb/>
+Drum ſaͤume nicht,<lb/>
+Und traͤume nicht<lb/>
+Wer meinen Wink verſteht!</p><lb/>
+<pb n="63" facs="#f0069"/>
+<stage><hi rendition="#c"><hi rendition="#g">Sirmio, Damon</hi>.</hi></stage></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Aus dem Hauſe ſtuͤrzt der Schultheiß? Was iſt das? Was iſt<lb/>
+geſchehen?</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Jammer uͤber Jammer! Wehe! Wehe mir! Was mußt’ ich<lb/>
+ſehen!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Blutig iſt er, in den Haͤnden haͤlt er eine blut’ge Gabel.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Ha! Das geht noch uͤber Kain, Kain ſchlug doch blos den Abel!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Ei, warum ſo fruͤh, Herr Schultheiß, und aus welchem In-<lb/>
+tereſſe —</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Was fuͤr Unterſuchungskoſten! Was fuͤr Kriminalprozeſſe!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Hoͤrt ihr mich denn nicht, Herr Schultheiß? Sagt mir nur,<lb/>
+woher ſo fruͤhe?</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Eile ſelbſt hinein zum Mopſus, und erſpare <supplied>mi</supplied>r die Muͤhe!</p><lb/>
+<stage><hi rendition="#right">(<hi rendition="#g">Sirmio</hi> ab.)</hi></stage></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Nein! Ich beb’ an allen Gliedern! Haͤtte Schmuhl mir das be-<lb/>
+gangen?<lb/>
+Einen Univerſitaͤtsfreund ſieht man doch nicht gern gehangen!<lb/>
+Er, der in Moralcollegien ſchlummernd neben mir geſeſſen!<lb/>
+Zwar, es kann der beſte Menſch ſich einen Augenblick vergeſſen!<lb/>
+Doch in einigen Minuten hat er das wol nicht verbrochen,<lb/>
+Stcher hat er an ſo Vielen ſtundenlang herumgeſtochen.<lb/>
+Laͤßt er nicht ſich doch vertheid’gen? Bin ich denn umſonſt beleſen?<lb/>
+<pb n="64" facs="#f0070"/>
+Ließe ſich denn nicht behaupten, daß es blos ein Spaß geweſen?<lb/>
+Daß die Kinder Wechſelbaͤlge, die zu toͤdten nur zur Ehre<lb/>
+Kann gereichen? Dann auch ſind ja Gabeln keine Mordgewehre:<lb/>
+Selbſt in Raupachs Trauerſpielen ſah man nie mit Gabeln ſpießen.<lb/>
+Weiß man, ob ſich nicht die Kleinen etwa ſelbſt zur Ader ließen?<lb/>
+Ob ſie nicht ſich duellirten, weil um’s Butterbrod ſie ſchmollten?<lb/>
+Ob ſie nicht Ideen hatten, und fuͤr dieſe ſterben wollten!<lb/>
+Iſt denn auch der Tod ein Uebel? Iſt er wirklich ein Verderben?<lb/>
+Ja, ſogar der beſte Menſch, was kann er Beſſ’res thun als<lb/>
+ſterben?</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi></hi></speaker> <stage><hi rendition="#c">(zuruͤckkehrend).</hi></stage><lb/>
+<p>Weib und Kinder! Welch Entſetzen! O weswegen kam ich ſpaͤter<lb/>
+Als der Raͤuber an, der Moͤrder? Wehe dir, verruchter Thaͤter!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Ich der Thaͤter? Rast der Burſche?</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Wer denn ſonſt? Das moͤcht’ ich wiſſen!<lb/>
+Seiner Geldbegierde wegen haben ſie ins Gras gebiſſen.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Phyllis hatte falſche Zaͤhne, ja die Kinder faſt noch keine.</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Wie? Er ſpottet noch, Verruchter? Sah man eine Schuld wie<lb/>
+Seine?<lb/>
+Doch Er ſoll mir kahler werden, als ein Vogel in der Mauſe!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Bin denn ich der Moͤrder, Gimpel?</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Nun, was that Er ſonſt im Hauſe?<lb/>
+Haͤlt Er nicht die blut’ge Gabel noch in Haͤnden? Soll ich<lb/>
+ſchweigen,<lb/>
+Geb’ Er mir den Schatz, wo nicht, ſo geh’ ich fort, es anzuzeigen.</p></sp><lb/>
+<pb n="65" facs="#f0071"/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Weiß denn der nun auch vom Schatze? Sirmio, laß mich ziehn<lb/>
+in Ruhe!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Moͤrder! Moͤrder!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Ei beileibe!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Nun, wo hat Er denn die Truhe?</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Haͤtt’ ich ſie, wie gerne theilt’ ich ſie mit dir aus alter Liebe!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Moͤrder! Moͤrder!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Ei beileibe!</p></sp><lb/>
+<sp who="#SIR"><speaker><hi rendition="#c"><hi rendition="#g">Sirmio</hi>.</hi></speaker><lb/>
+<p>Moͤrder! Moͤrder! Diebe! Diebe!</p><lb/>
+<stage><hi rendition="#right">(ab.)</hi></stage></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Daͤmoniſches Loos, das juſt jetzt mich, zur mißlichſten Stunde<lb/>
+hiehertrieb!<lb/>
+Wie errett’ ich mich nun? Wie wend’ ich von mir den Verdacht,<lb/>
+der allzuberedt ſpricht?<lb/>
+Ich ergreife die Flucht! In der Naͤhe zumal iſt ja die arkadi-<lb/>
+ſche Graͤnze.<lb/>
+Ach, aber zu Fuß, und ohne Kredit, und ohne die noͤthige<lb/>
+Baarſchaft,<lb/>
+Wie friſt’ ich das Ding, das Leben genannt wird unter den<lb/>
+Phyſiologen?<lb/>
+Mit dem Dinge vielleicht, das bei Polizeidirektorien Betteln<lb/>
+genannt wird?<lb/>
+<fw type="sig" place="bottom">Die verhaͤngnißvolle Gabel. 5</fw><lb/>
+<pb n="66" facs="#f0072"/>
+Wie romantiſch dacht’ ich mir doch vormals das gemuͤthliche Le-<lb/>
+ben der Bettler!<lb/>
+Wenn geſchaͤftslos ſie, durch Nichtsthun fett, Almoſen erzwin-<lb/>
+gen vom Mitleid,<lb/>
+Wenn ſie ſorglos ziehn in den Staͤdten umher, durch ſonnige<lb/>
+Doͤrfer und Maͤrkte,<lb/>
+Das Erhaſchte ſogleich aufzehren und nichts in den lumpigen<lb/>
+Taſchen behalten,<lb/>
+Stets leicht und vergnuͤgt und ſodann ausruhn im bluͤhenden<lb/>
+Schatten der Linde,<lb/>
+Und dabei, gleichſam wie ein ernſtes Geſchaͤft abfangen den huͤp-<lb/>
+fenden Floh ſich!<lb/>
+Aber jetzt daͤucht mich’s ein beſchwerliches Loos, um Pfennige<lb/>
+flehen mit Inbrunſt.<lb/>
+Doch muß ich daran! ja, fort! fort! fort! Sonſt koͤpfen ſie ohne<lb/>
+Verzug mich.<lb/>
+Bin ich weg, dann moͤgen ſie ohne Verzug in effigie mich an<lb/>
+den Galgen<lb/>
+Feſtnageln, wo Stoff ich liefere dann fuͤr eine Tragoͤdie Deutſch-<lb/>
+lands,<lb/>
+Auf daß des Abſurden Abſurdeſtes auch ſelbſt fuͤhle, wie ſehr es<lb/>
+abſurd iſt,<lb/>
+Und ein Volk es bewundre, vor welchem zugleich Iphigenie<lb/>
+ſteht und Pandora!<lb/>
+Jetzt fort, denn man kommt!</p><lb/>
+<stage><hi rendition="#right">(ab.)</hi></stage><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Schmuhl</hi> (tritt auf).</hi></stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>He, Damon! he! Der nimmt ja gewaltigen Reißaus;<lb/>
+Was hat er im Kopf? Doch ſey’s, wie’s ſey, <hi rendition="#g">mein</hi> Schaͤflein<lb/>
+bring’ ich ins Trockne.<lb/>
+<pb n="67" facs="#f0073"/>
+Da kommt ja der Mopſus als Lady bereits, mit ſeinem entſetz-<lb/>
+lichen Strohhut.</p><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Schmuhl, Mopſus</hi>.</hi></stage></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Hier ſteh’ ich verkappt als brittiſches Weib; doch kommt mir<lb/>
+das Engliſche hart an:<lb/>
+Kein voller Accent, und ein Sprachwirrwarr, und ſtets ein-<lb/>
+ſylbige Woͤrtlein:<lb/>
+Nie koͤnnt’ ich damit anapaͤſtiſchen Schwung in die raſchen Te-<lb/>
+trameter zaubern;<lb/>
+Da lob’ ich mir doch vielgliedrige, ja, weltkugelumſegelnde Worte.<lb/>
+Dieß fuͤhrt mich zuruͤck auf unſere Fahrt. Hier hab’ ich ein Rei-<lb/>
+ſeverzeichniß,<lb/>
+Marſchroute genannt, denn wir ziehn doch wohl durch Deutſch-<lb/>
+lands beſte Provinzen,<lb/>
+Und du wirſt mir dabei angeben, was mir Merkwuͤrdiges etwa<lb/>
+zu ſchau’n iſt.<lb/>
+Hier unten zuerſt am oͤſtlichſten Punkt ſteht Wien, Augarten<lb/>
+und Prater.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Ein bewaͤſſertes Land, von Gelehrten bewohnt, die aber dem<lb/>
+Griechiſchen abhold,<lb/>
+Und ein Volksluſtſpiel, das luſtiger iſt, als ſammtliche deutſche<lb/>
+Theater.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Das dacht’ ich mir wohl. Nach Muͤnchen ſodann —</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Dort iſt jetzt Alles in Gaͤhrung:<lb/>
+Wer weiß, was es gibt?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Ueber Augsburg dann —</p></sp><lb/>
+<pb n="68" facs="#f0074"/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Wo die Fugger zu Hauſe.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Nach Stuttgart.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Von dorther dringt ein gemuͤthlicher Ton zartfuͤhlender, heimi-<lb/>
+ſcher Lieder.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Dann zieht ſich der Weg uͤber Onolzbach —</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Dort ſiehſt du das Uziſche Denkmal.<lb/>
+Im ſelbigen Jahr, als Uz abſtarb, und zwar im herrlichen<lb/>
+Weinmond,<lb/>
+Ward dort uͤberdieß noch ein zweiter Poet hoͤchſt wuͤrdigen Ael-<lb/>
+tern geboren:<lb/>
+Doch loͤst er dem Uz ſein Schuhband kaum, und war ein ge-<lb/>
+ringer Erſatz blos.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Nach Dresden ſodann —</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Dort moͤcht’ ich, wenn dort nicht waͤ-<lb/>
+ren ſo ſchoͤne Gemaͤlde,<lb/>
+Auch gemalt nicht ſeyn.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Dann leiden wir faſt Schiffbruch im<lb/>
+berliniſchen Sandmeer.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Dort lehre man uns, wie man Sprache verdirbt, mit Schrau-<lb/>
+ben ſie foltert und radbricht:<lb/>
+Was geſchmacklos iſt, manirirt und geſucht, das ging vom<lb/>
+ſuͤßen Berlin aus.<lb/>
+<pb n="69" facs="#f0075"/>
+Beduiniſche Kunſt, kritiſirende blos kommt fort im daſigen Klima,<lb/>
+Und geſellt iſt ihr, in Geſchwiſterlichkeit deſpotiſche, ſeile Scho-<lb/>
+laſtik.<lb/>
+Doch werd’ auch dieſe ſpartaniſche Stadt durch Lob und Geſaͤnge<lb/>
+verherrlicht,<lb/>
+Denn des Volks Aufſchwung, in heroiſcher Zeit, der ging<lb/>
+vom großen Berlin aus!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Dann ſchiffen wir uns bei Hamburg ein.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Nun geht’s die veroͤdete See durch;<lb/>
+Nur treib’ uns nicht ein verdrießlicher Wind nach meiner ermuͤ-<lb/>
+denden Inſel.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Hier ſind’ ich nur noch Sankt Helena’s Strand.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Dort ſiehſt du die Stuͤrme des Weltmeers,<lb/>
+Und feierlich klingt’s, wenn die Fluth aufrauſcht, wie home-<lb/>
+riſche Heldengeſaͤnge.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Nun, Eruſoe, raſch in die Kutſche hinein!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Nur Eins noch will ich dich fragen:<lb/>
+Was thun wir zuerſt an der Hoffnung Cap?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Wir bauen ein neues Theater.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Und die Bauart ſey?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Im doriſchen Styl.</p></sp><lb/>
+<pb n="70" facs="#f0076"/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Was ſetzen wir in die Metopen?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Abbildungen wohl von den Affen des Cap’s und die Schickſals-<lb/>
+dichter dazwiſchen.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Jetzt weiß ich genug, ich folge dir nach.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>O waͤren wir uͤber der Graͤnze!</p><lb/>
+<stage><hi rendition="#right">(ab.)</hi></stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi></hi></speaker> <stage><hi rendition="#c">(als <hi rendition="#g">Chorus</hi>).</hi></stage><lb/>
+<p>Eh’ ich in den Wagen ſteige, bring’ ich euch noch hier zu Fuß<lb/>
+Unſres euch bekannten Dichters euch bereits bekannten Gruß!<lb/>
+Merkt ihr endlich, liebe Chriſten, zwiſchen dieſem ſeinem Lied<lb/>
+Und den ſonſtigen Comoͤdien einen kleinen Unterſchied?<lb/>
+Merkt ihr endlich, daß es komiſch keineswegs ihm duͤnkt und fein,<lb/>
+Euch Gemeines nur zu geben und zu geben es gemein?<lb/>
+Nein! Was haͤßlich ſcheint und niedrig, und entbloͤßt von Halt<lb/>
+und Norm,<lb/>
+Werde zierlich wie das Schoͤne, durch des Geiſtes edle Form!<lb/>
+Nichts von Allem, was das Leben euch vergiftet, fecht’ euch an,<lb/>
+Alles taucht die Hand des Dichters in der Schoͤnheit Dcean!<lb/>
+Nicht allein der Glauben iſt es, der die Welt beſiegen lehrt,<lb/>
+Wißt, daß auch die Kunſt in Flammen das Vergaͤngliche ver-<lb/>
+zehrt!<lb/>
+Widerfahre denn auch unſerm Freunde Billigkeit und Recht:<lb/>
+Seyd ihr taub, ſo hoͤre du ihn, ungeborenes Geſchlecht!<lb/>
+Denn es werden gute Geiſter ſchweben uͤber ſeinem Wort,<lb/>
+Wenn es geht von Mund zu Munde, wenn es wechſelt Ort<lb/>
+um Ort!<lb/>
+O wie manche Quaſidichter, (ſie zu nennen fehlt die Zeit,)<lb/>
+<pb n="71" facs="#f0077"/>
+Die man ihm als Muſter lobte, ließ er hinter ſich ſo weit!<lb/>
+Gerne beugt er ſich der Stirne, die ein Zweig mit Recht umlauht,<lb/>
+Beugt vor Goethe’s greiſen Schlaͤfen ein noch nicht bekraͤnztes<lb/>
+Haupt;<lb/>
+Doch vor Eingedrungnen, ſey’n ſie auch begabt mit Sinn und<lb/>
+Witz,<lb/>
+Die er nicht erkennt als Meiſter, ſpringt er nicht empor vom<lb/>
+Sitz.<lb/>
+Groͤßres wollt’ er wohl vollenden; doch die Zeiten hindern es:<lb/>
+Nur ein freies Volk iſt wuͤrdig eines Ariſtophanes.<lb/>
+Zwar der Dichter freut ſich eines großgeſinnten Koͤnigs Gunſt,<lb/>
+Doch Europa’s Seufzer ſteigen um ihn her als Nebeldunſt!<lb/>
+Da der Sonnenſtrahl der Freiheit ſeine Tage nicht erhellt,<lb/>
+Gibt er, ſtatt des Weltenbildes, nur ein Bild des Bilds der<lb/>
+Welt.<lb/>
+Mag er wiſſen, was vom deutſchen Schaugeruͤſt man ſich ver-<lb/>
+ſpricht,<lb/>
+Wie es ſteht in deutſchen Landen, frage man Poeten nicht!<lb/>
+Einem ſpaͤtern Meiſter uͤberlaͤßt er die beruͤhmte That,<lb/>
+Volk und Maͤchtige zu geißeln, ein gefuͤrchtet Haupt im Staat.<lb/>
+Zuͤrnt ihr ihm, wenn ſeine Feder, die die Buͤhne ſich als Stoff<lb/>
+Auserkoren, von Satyre, wie die Reb’ im Lenze, troff?<lb/>
+Der Begeiſterung Altaͤre ſind in Dampf gehuͤllt und Qualm,<lb/>
+Und im Pantheon der Helden ſingen Pfuſcher ihren Pſalm:<lb/>
+Wo Geſtalten ſchreiten ſollten, ſchwebeln Schatten, leer und<lb/>
+hohl,<lb/>
+Und der Dichter ſagt den Brettern ein entſchiednes Lebewohl!<lb/>
+Wehe Jedem, der vertrauend unter ein Geſchlecht ſich miſcht,<lb/>
+Welches heute klatſcht der Thorheit, und der Wahrheit morgen<lb/>
+ziſcht;<lb/>
+<pb n="72" facs="#f0078"/>
+Ein Geſchlecht, das gern die Muͤhe, Großes zu verſtehn, er-<lb/>
+ſpart,<lb/>
+Ach, und dem den Sinn des Schoͤnen nie ein Gott geoffenbart!<lb/>
+Das jedoch, mit dreiſter Stirne, Jeden gleich zu meiſtern denkt,<lb/>
+Der der Kunſt ſein tiefſtes Sinnen, ja das Leben ſelbſt geſchenkt;<lb/>
+Ein Geſchlecht, das ſtets zerriſſen, ſtets vom Halben halb er-<lb/>
+faßt,<lb/>
+Jede Seele, die als Ganzes ſich harmoniſch rundet, haßt!<lb/>
+Goͤnne das Geſchick dem Dichter nur den Wunſch, fuͤr den er<lb/>
+gluͤht,<lb/>
+Bald ſich in ein Land zu fluͤchten, wo die Kunſt ſo reich gebluͤht,<lb/>
+Bis zuletzt die deutſche Sprache ſeinen Ohren fremder toͤnt,<lb/>
+Eine Sprache, die ſich ehmals unter ſeiner Hand verſchoͤnt:<lb/>
+Ja, dann mag er ſterben, wie es ſchildert euch ein fruͤh’res Lied,<lb/>
+Lanzenſtiche viel im Herzen, als der Dichtkunſt Winkelried!</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[73]" facs="#f0079"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Fuͤnfter Akt</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Saal im Gaſthof zur Gabel</hi>.</hi></stage><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Der Wirth</hi>,</hi></speaker> <stage><hi rendition="#c">(allein).</hi></stage><lb/>
+<p>Verdaͤchtig kommt mir dieſe fremde Lady vor,<lb/>
+Die nie den Schleier luͤftet und ſo wenig ſpricht.<lb/>
+Reich mag ſie ſeyn, nach Allem, was der Diener ſagt,<lb/>
+Steinreich; doch eine Fledermaus an Haͤßlichkeit,<lb/>
+Wenn nicht was Fuͤrchterlich’res noch dahinterſteckt,<lb/>
+Man hat Exempel in der Zeit, daß Affen ſelbſt<lb/>
+Auf Reiſen gingen, Urangutangs thren Geiſt<lb/>
+Ausbildeten und hie und da ſchriftſtellerten.<lb/>
+Doch bergen Solche mit Bedacht ihr Angeſicht,<lb/>
+Und bleiben ſtets, wie Recenſenten, anonym.<lb/>
+Vielleicht auch iſt die Lady die beruͤchtigte<lb/>
+Prinzeſſin mit dem Schweineruͤſſel, welche ſich<lb/>
+Vormals in Deutſchland ſehen ließ, wiewohl man glaubt,<lb/>
+Daß eine blos ſymboliſche Perſon ſie war,<lb/>
+Des deutſchen Nationalgeſchmacks Verſinnlichung;<lb/>
+Denn blos Gemeines nutzt ſich ab in der Hand des Volks,<lb/>
+Wie wuͤrde gaͤng und gaͤbe das Erhabene?<lb/>
+Auch faͤllt noch eine dritte Moͤglichkeit mir ein:<lb/>
+Vielleicht, daß einſt der guten Lady Mutter ſich<lb/>
+An Herrn von X verſehen hat, und hinter drein<lb/>
+<pb n="74" facs="#f0080"/>
+Ein Demagogenriechernashornsangeſicht<lb/>
+Zur Welt gebracht, ein immerwaͤhrend ſchnuͤffelndes.</p><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Wirth. Schmuhl</hi>.</hi></stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Hat man der Lady Thee ſervirt?</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Drei Kannen voll;<lb/>
+Reicht’s hin?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Es reicht. Doch zuͤndet jetzt die Lichter an.</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Sogleich!</p><lb/>
+<stage><hi rendition="#c">(ab)</hi></stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Da ſteht der verwuͤnſchte Schatzbehaͤlter noch,<lb/>
+Zwar uneroͤffnet, aber ſchwer wie Blei. Ich ließ<lb/>
+Hier in den Vorſaal ſetzen ihn gefliſſentlich:<lb/>
+Vielleicht gelingt mir’s heute Nacht im Mondenſchein<lb/>
+Ihn fortzuſchaffen, waͤhrend unſre Lady ſchnarcht.</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#et"><hi rendition="#g">Wirth</hi></hi></speaker> <stage><hi rendition="#c">(zuruͤckkommend).</hi></stage><lb/>
+<p>Die Dame ſitzt ja ſtets im Schleier. Iſt ſie ſchoͤn?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Nicht eben blendend.</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Aber doch auffallend?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Ja,<lb/>
+So ziemlich.</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Das vermuth’ ich. Wird ſie reich geſchaͤtzt?</p></sp><lb/>
+<pb n="75" facs="#f0081"/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Was meint ihr, daß dem Poſtillon Trinkgeld ſie ga<supplied>b</supplied>?</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Je nun, vielleicht daſſelbige was Gellert einſt,<lb/>
+Um das Rhinoceros zu ſehen, eingeſteckt?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Ein Stuͤck Papier als unbegraͤnzten Wechſelbrief,<lb/>
+Zahlbar fuͤr Jeden, und einige Beſitzungen<lb/>
+Im Norden Groͤnlands.</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Himmliſche Verſchwenderin!<lb/>
+Den Goͤttern dank’ ich, daß ſie dich ins Haus gefuͤhrt!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Vielleicht, wenn etwa morgen ihr die Zeche macht,<lb/>
+Gibt ſie zum Angedenken euch Auſtralien.</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Wie konnte ſie ſo Vieles denn eruͤbrigen,<lb/>
+Wofern ſie nicht aus fuͤrſtlichem Gebluͤte ſtammt?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Das fragt bei Rothſchilds, oder ſonſt in Iſrael.<lb/>
+Ich lege nachgerade mich zu Bette jetzt.</p><lb/>
+<stage><hi rendition="#right">(ab.)</hi></stage></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Schlaft wohl! — das nenn’ ich einmal eine Reiſende!<lb/>
+Wenn aber dieſe Lady nicht ein Toͤchterchen<lb/>
+Von einem Dalai Lama, ja, Großmogul, iſt,<lb/>
+So will ich nicht der Speiſewirth zur Gabel ſeyn!<lb/>
+Sie iſt vielleicht dieſelbe Tibetanerin,<lb/>
+Von welcher neulich mitgetheilt ein Reiſender,<lb/>
+Daß ſie die kuͤnft’ge Heldin eines Trauerſpiels<lb/>
+Des Dichters waͤre, der die Schuld geſchneidert hat,<lb/>
+<pb n="76" facs="#f0082"/>
+Die Geſchichte war hoͤchſt tragiſch, ungefaͤhr wie folgt:<lb/>
+Ein frommer Taſchenſpieler ging als Miſſionaͤr<lb/>
+Nach Aſien und verliebte ſich mit Leidenſchaft<lb/>
+In eine junge, tibetaniſche Perſon,<lb/>
+Huͤbſch, reich, ein wahres Muſter von Vollkommenheit.<lb/>
+Doch um ſie zu beſitzen, ſoll der Braͤutigam<lb/>
+Den Glauben wechſeln, eine Sache, die vorerſt<lb/>
+Ihm nur geringe Skrupel macht. Er dachte ſo:<lb/>
+Da doch auf keine Weiſe ſich das Chriſtenthum<lb/>
+Anheiſchig macht, in dieſer Welt die Herzen ſchon<lb/>
+Zu begluͤcken, durch harmoniſche Befriedigung<lb/>
+Des ganzen Menſchen, wie es das Heidenthum gethan,<lb/>
+Da es hoͤchſt naiv jenſeitiges Gluͤck allein verſpricht,<lb/>
+So reicht’s ja hin, in der andern Welt ein Chriſt zu ſeyn,<lb/>
+In dieſer blos ein Gluͤcklicher, was Jeder wuͤnſcht.<lb/>
+So dachte dieſer Philoſoph und Proſelyt.<lb/>
+Nun aber kam das Schwerſte, was er nicht beſtand:<lb/>
+Er ſoll, um zu bewaͤhren ſich als Glaͤubiger,<lb/>
+Verzehren eine Speiſe, die, bereits verdaut,<lb/>
+Im Darm des Dalai Lama ſchon geweſen war.<lb/>
+Er ſtutzt, er kommt auf keine Weiſe zum Entſchluß:<lb/>
+Umſonſt beſchwoͤrt der Prieſter ihn, der Lama ſelbſt,<lb/>
+Die Geliebte laͤßt ihn ihre Reize hoffend ſchau’n,<lb/>
+Und bringt auf goldnem Teller ihm die Suͤßigkeit.<lb/>
+Vergebens! Stets noch zaudert er, und kehrt ſich ab,<lb/>
+Und Eckel frißt der Seele tiefſtes Mark ihm auf.<lb/>
+(Wie wird der große Dichter dieſen großen Kampf<lb/>
+Uns conterfei’n, den aͤrgſten, den ein Menſch gekaͤmpft,<lb/>
+In einem wahren Meiſterſtuͤck von Monolog!)<lb/>
+Beleidigt tritt die Tibetanerin zuletzt<lb/>
+Von ihm zuruͤck, um einem Eingeborenen<lb/>
+<pb n="77" facs="#f0083"/>
+Die Hand zu reichen. Dieſer fuͤhrt ſie zum Altar.<lb/>
+Der Miſſionaͤr verzweifelt, krampfhaft windet ſich<lb/>
+Sein Innerſtes, von eiferſuͤchtiger Qual bewegt.<lb/>
+Und horch! Auf einmal jubelt es im Tempel auf:<lb/>
+Halt! Halt! Er hat gegeſſen das Geheiligte,<lb/>
+Er iſt der Sieger ſeiner ſelbſt, bekroͤnet ihn!<lb/>
+Doch ach, zu ſpaͤt! die Beiden waren ſchon vermaͤhlt.<lb/>
+Welch eine Lage! Wehe! Welch ein tragiſches<lb/>
+Geſchick fuͤr unſern Helden! Mit den Zaͤhnen knirſcht<lb/>
+Er laut, und ſchlaͤgt die Stirne ſich, und flucht ſich ſelbſt,<lb/>
+Umſonſt vollbracht’ ich, heulet er, das Graͤßliche!<lb/>
+O wehe, wehe, wehe, wenn die Pole ſich<lb/>
+Beruͤhren, und des einen Pols Produkte durch<lb/>
+Den andern Pol verſchlungen werden, wehe dann!<lb/>
+Er ſpricht’s, und nun, in jenen widerſinnigen,<lb/>
+Hiatusreichen Halbtrochaͤ’n, die Jeder kennt,<lb/>
+Wo bald ein Reim ſich findet, bald auch wieder nicht,<lb/>
+Bricht unſer Miſſionarius den Geiſt heraus,<lb/>
+Verſteht ſich, blos den Muͤllneriſchen, doch vermiſcht<lb/>
+Mit eines Lama’s heiligem Ingrediens.</p><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Wirth, Damon</hi>.</hi></stage></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Seyd ihr der Wirth zur Gabel?</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Ja, zu dienen, Herr!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Kann ich ein Obdach finden hier, fuͤr dieſe Nacht?</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Die Stuben zwar ſind ſchon beſetzt; doch wollt ihr hier<lb/>
+Im Saale bleiben, ſchaff’ ich eine Streu herein!</p></sp><lb/>
+<pb n="78" facs="#f0084"/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Ich ziehe vor, zu ſchlafen auf dem Kanapee.</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Wie’s euch beliebt. Doch bitt’ ich, ſchnarcht mir nicht zu laut!<lb/>
+Hierneben ſchlaͤft die reichſte Lady von der Welt.<lb/>
+Seht hier die Kiſte, welche voll von Louisd’ors,<lb/>
+Doch iſt das nichts, verglichen mit dem Uebrigen!<lb/>
+Zwar ganz geheuer iſt ſie nicht, den Schleier legt<lb/>
+Sie nie von ſich, und ihre Mutter hat vielleicht<lb/>
+Sich in Berlin, wie’s haͤufig dort geſchieht, verſehn.<lb/>
+Doch geht man leicht daruͤber weg, ein Billionaͤr<lb/>
+Darf bis auf einen gewiſſen Grad unleidlich ſeyn. —<lb/>
+Doch ſeyd ihr muͤde, wie mir ſcheint, gehabt euch wohl,<lb/>
+Und macht euch hier, ſo gut ihr koͤnnt, im Saal zurecht;<lb/>
+Bis morgen raͤumt die Lady dort das Kabinet.</p><lb/>
+<stage><hi rendition="#right">(ab.)</hi></stage></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Hier waͤr’ ich nun wohl vom Galgen befreit; doch hungrig<lb/>
+und aͤrmer als Hiob!<lb/>
+Wie werd’ ich die Nacht, und den kommenden Tag, und die<lb/>
+kommenden Tage verbringen?<lb/>
+Nichts konnt’ ich mit mir fortnehmen, ja nicht einmal die<lb/>
+gelehrten Excerpten,<lb/>
+Die in Deutſchland kein Buchhaͤndler verſchmaͤht und verab-<lb/>
+ſaͤumt haͤtte, das weiß ich:<lb/>
+Was recht ſchwerfaͤllig und ledern erſcheint, das halten die<lb/>
+Deutſchen fuͤr gruͤndlich,<lb/>
+Denn dieſe Nation ſaalbadert ſo gern, ſaalbadert herab<lb/>
+von der Kanzel,<lb/>
+Saalbadert zu Haus, ſaalbadert ſodann vor Gericht, ſaal-<lb/>
+badert im Schauſpiel;<lb/>
+<pb n="79" facs="#f0085"/>
+Drum ſind auch blos Saalbader in Gunſt bei ihr, Saal-<lb/>
+bader in Achtung;<lb/>
+Drum liest ſie nur dich, ſtatt Goethe und ſtatt Jean Paul,<lb/>
+ſaalbadernder Clauren,<lb/>
+Und blaͤttert, anſtatt in der Bibel, in euch, ſaalbadernde<lb/>
+Stunden der Andacht!<lb/>
+Ach, waͤhrend der Wirth mir erzaͤhlte, befiel mich im Her-<lb/>
+zen die ſtaͤrkſte Verſuchung:<lb/>
+O haͤtt’ ich doch nur die geringſte Partie vom Rieſenver-<lb/>
+moͤgen der Lady!<lb/>
+Sie koͤnnte mir wohl abtreten ein Theil, nur ein Roͤllchen<lb/>
+Dukaten als Zehrgeld:<lb/>
+Es erfordert ja doch ein gerechtes Geſetz gleichmaͤßige Guͤ-<lb/>
+tervertheilung!<lb/>
+O koͤnnt’ ich doch nur aufſprengen dahier die gewaltige Kiſte<lb/>
+von Eiſen!<lb/>
+Aber das iſt ganz unmoͤglich, ſcheint’s, da zu ſtark und<lb/>
+feſt ſie verwahrt iſt.<lb/>
+Mag ſeyn, daß drinnen im Schlafkabinet zur Seite der<lb/>
+Lady die Boͤrſe<lb/>
+Auf dem Nachttiſch liegt, die koͤnnt’ ich ja wohl, ganz ohne<lb/>
+Gefaͤhrde, ſtipitzen.<lb/>
+Doch wuͤrde mir wach die Britannierin? Dann muͤßt’ ich<lb/>
+verſtopfen den Mund ihr.<lb/>
+Wie verhaͤngnißvoll, daß gerad’ ich noch mithabe die Gabel<lb/>
+des Mopſus!<lb/>
+Nur ein Stich, ſo ſpaziert noch heute mir durch elyſaͤiſche<lb/>
+Felder die Lady:<lb/>
+Gluͤckſeliges Loos! Auch ſagte der Wirth, ſie waͤre vermuth-<lb/>
+lich ein Scheuſal.<lb/>
+Hat Herkules nicht von ſolchem Gethuͤm die geſaͤuberten<lb/>
+Laͤnder befreit einſt?<lb/>
+<pb n="80" facs="#f0086"/>
+Und thu’ ich es auch, kann ſeyn, daß ſie mir auch Tempel<lb/>
+errichten und Statuen.<lb/>
+Nun will ich hinein, doch horch! mir ſcheint, daß eben die<lb/>
+Lady heraus will.</p><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Damon, Mopſus</hi>.</hi></stage></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Was fliehſt du mich, Schlaf? Ihr Ahnungen, ach! was legt<lb/>
+ihr euch uͤber die Bruſt mir,<lb/>
+Wie ein Alp, der feſt ſich die Klau’n einklemmt in den ath-<lb/>
+menden Buſen des Maͤgdleins?</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Das wundert mich ſehr, daß ſie Maͤgdlein iſt annoch; doch<lb/>
+ſagt ſie es ſelbſt ja.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>O mußte denn auch <hi rendition="#g">der</hi> Gaſthof juſt zur goldenen Gabel<lb/>
+getauft ſeyn!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Was fluͤſtert ſie da von der Gabel, ſie hat mich am Ende be-<lb/>
+lauſcht, die Verſchmitzte.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Abſcheulicher Traum, wie quaͤlteſt du mich! Ich ſah den le-<lb/>
+bendigen Satan;<lb/>
+Zwar Anfangs wand’ er den Ruͤcken mir zu; doch ploͤtzlich<lb/>
+ſteckte den Kopf er<lb/>
+Sich zwiſchen die Beine hindurch und beſah mich in dieſer<lb/>
+entſetzlichen Stellung,<lb/>
+Mit funkelndem Blick, und loderndem Bart, und feurigen<lb/>
+Zaͤhnen im Rachen.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Wenn ſie lange ſo fort vom Teufel erzaͤhlt, gleich faͤllt in<lb/>
+die Hoſe das Herz mir.</p></sp><lb/>
+<pb n="81" facs="#f0087"/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Dann ſah ich den Tod mit der Senſe vor mir, und er maͤhte<lb/>
+mich unter die Bettſtatt.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Jetzt ſiehſt du den Tod mit der Gabel vor dir, gib drein<lb/>
+dich, oder du ſtirbſt doch!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Wie wird mir, o Gott! Iſt’s Damon nicht? Iſt’s nicht mein<lb/>
+Richter und Schultheiß?<lb/>
+Mit der Gabel, o weh! Jetzt bin ich dahin, jetzt hat mir<lb/>
+geſchlagen das Stuͤndlein!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Was liſpelt ſie da?</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Stich zu! Stich zu! Gern ruf’ ich dem Leben Ade zu!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Wie entſchloſſen! Das iſt kein weibiſches Weib, die iſt, wie<lb/>
+Johanne, die Paͤpſtin.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Stich zu! Stich zu!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Ich getraue mich nicht, ſtich ſelbſt, hier<lb/>
+haſt du die Gabel!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Ja, ich ſterbe, ja, mich Arme druͤckt die Schuld und kneipt<lb/>
+die Suͤnde,<lb/>
+Meine Kinder ſtach ich ſelbſt ab, wie die Graͤfin Orlamuͤnde:<lb/>
+Dieſe laͤßt als weiße Frau nun ihre Schluͤſſelbuͤndel kollern,<lb/>
+Wenn ein Fleck ſich ſoll verdunkeln an der Sonne Hohenzollern!</p></sp><lb/>
+<fw type="sig" place="bottom">Die verhaͤngnißvolle Gabel. 6</fw><lb/>
+<pb n="82" facs="#f0088"/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Sagt’ ich’s nicht? Man wird poetiſch auf des Lebens letzten<lb/>
+Stadien.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Sieh mich ſterben; aber wiſſe, daß ich Mopſus aus Arkadien!</p><lb/>
+<stage><hi rendition="#right">(er erſticht ſich.)</hi></stage></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Iſt es moͤglich? Ja, die Stimme fiel mir auf, ich ruf’ um<lb/>
+Rettung:<lb/>
+Huͤlfe, Huͤlfe her!</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Vergebens! Dieß iſt des Geſchicks Ver-<lb/>
+kettung,<lb/>
+Nichts errettet mich.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Mir iſt es blos zu thun um dein Vermaͤchtniß,<lb/>
+Schenke mir vor ein’gen Zeugen deine Gelder zum Gedaͤchtniß!<lb/>
+Huͤlfe! Huͤlfe!</p><lb/>
+<stage><hi rendition="#c">Die <hi rendition="#g">Vorigen, Schmuhl,</hi> der <hi rendition="#g">Wirth, Dienerſchaft</hi>.</hi></stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Nun, was gibt es?</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Mopſus hat ſich ſelbſt erſtochen.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Du hier, Damon?</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Schmuhl, und du hier?</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Kommt die Hoheit in die Wochen?</p></sp><lb/>
+<pb n="83" facs="#f0089"/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Nein, ſie ſtirbt, doch mir vermacht ſie dieſe maͤchtige Schatulle.</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Solch ein Teſtament iſt wirklich eine wahre goldne Bulle.</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Mir gehoͤrt die Kiſte, Mopſus!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Daß der Boͤſe dich verderbe!<lb/>
+Mir gehoͤrt ſie.</p></sp><lb/>
+<sp who="#MOP"><speaker><hi rendition="#c"><hi rendition="#g">Mopſus</hi>.</hi></speaker><lb/>
+<p>Theilt euch beide bruͤderlich darein, ich ſterbe.</p><lb/>
+<stage><hi rendition="#right">(er ſtirbt.)</hi></stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Her die Kiſte!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Her die Kiſte!</p></sp><lb/>
+<sp who="#WIRTH"><speaker><hi rendition="#c"><hi rendition="#g">Wirth</hi>.</hi></speaker><lb/>
+<p>Was rumort denn drin im Kaſten?<lb/>
+Horch, es kracht, es ſpringt der Deckel, wie emporgeſprengte<lb/>
+Laſten!</p><lb/>
+<stage><hi rendition="#c">(Der Deckel ſpringt auf, <hi rendition="#g">Salome</hi> erſcheint in einer Glorie.)</hi></stage></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Was? Ein Geiſt, anſtatt des Geldes? Schafft mir ſolche<lb/>
+Schaͤtze weiter!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Das iſt Salome, doch jetzo ſcheint ſie ganz verklaͤrt und heiter.</p></sp><lb/>
+<sp who="#SAL"><speaker><hi rendition="#c"><hi rendition="#g">Salome</hi>.</hi></speaker><lb/>
+<p>Ja, gekommen iſt die Stunde, dieſe Brut iſt ausgerottet,<lb/>
+Und ihr ſeht den Geiſt erloͤſet, welcher nun der Bande ſpottet,<lb/>
+Welcher, da dieß fratzenhafte, moͤrdriſche Geſchlecht bezwun-<lb/>
+gen,<lb/>
+<pb n="84" facs="#f0090"/>
+Seinen Fittich ſtolz erhebet von der Erde Niederungen.<lb/>
+Folget ſeinem Flug und laſſet unter euch der Sorgen jede,<lb/>
+Und mit Adlerklau’n zum Himmel traͤgt er euch als Gany-<lb/>
+mede!<lb/>
+Wo die Schoͤnheit mit verſchaͤmtem Laͤcheln ſenkt den Blick,<lb/>
+den ſuͤßen,<lb/>
+Und von ſtaͤter Jugend traͤumet zu des ew’gen Vaters Fuͤßen;<lb/>
+Wo ein holder Wonnetaumel ſpielt in alle Seelentriebe,<lb/>
+Holder als ein menſchlich Auge, wenn es blickt den Blick der<lb/>
+Liebe!<lb/>
+Dort, wo Friede wohnet, moͤgt ihr ſeligen Geſaͤngen lauſchen;<lb/>
+Aber lebet wohl, es fangen meine Fluͤgel an zu rauſchen!</p><lb/>
+<stage><hi rendition="#right">(ſie verſchwindet.)</hi></stage></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Haſt du vom Galimathias dieſes Geiſts ein Wort ver-<lb/>
+ſtanden?</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Wenig gilt ein Wort im Leben, waͤre nur das Geld vor-<lb/>
+handen!</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Duͤrfen Geiſter denn betruͤgen? Welch ein ſchaͤndliches Ver-<lb/>
+fahren!</p></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Freilich, doch die Menſchen koͤdert man ſo ſelten mit dem<lb/>
+Wahren;<lb/>
+Darum lenkt als Arzt der Dichter noch am erſten ihren<lb/>
+Willen,<lb/>
+Denn in Suͤßes eingewickelt reicht er die verhaßten Pillen.</p></sp><lb/>
+<sp who="#DAM"><speaker><hi rendition="#c"><hi rendition="#g">Damon</hi>.</hi></speaker><lb/>
+<p>Wenigſtens zufrieden bin ich, daß ich vom Verdacht ge-<lb/>
+reinigt,<lb/>
+<pb n="85" facs="#f0091"/>
+Und kein Sirmio mit einem peinlichen Prozeß mich peinigt;<lb/>
+Alle ruf’ ich hier zu Zeugen wider eine ſolche Fabel!<lb/>
+Aber im Archiv bewahren werd’ ich dieſe Wundergabel.<lb/>
+Jetzo geh’ ich nach Arkadien, wo ich meine Schweine maͤſte,<lb/>
+Unterdeſſen Gott befohlen!</p><lb/>
+<stage><hi rendition="#c">(ab mit den Uebrigen, die den Leichnam wegtragen.)</hi></stage></sp><lb/>
+<sp who="#SCHM"><speaker><hi rendition="#c"><hi rendition="#g">Schmuhl</hi>.</hi></speaker><lb/>
+<p>Nun beginnt, ihr Anapaͤſte!</p><lb/>
+<stage><hi rendition="#c">(Er tritt vor.)</hi></stage><lb/>
+<p>Sein Abſchiedswort thut euch durch mich der Comoͤdiendich-<lb/>
+ter zu wiſſen,<lb/>
+Der oftmals ſchon, im Laufe des Stuͤcks, vortrat aus ſei-<lb/>
+nen Couliſſen!<lb/>
+Ueberſeht huldreich die Gebrechen an ihm, laßt euch durchs<lb/>
+Gute beſtechen!<lb/>
+Man liebt ein Gedicht, wie den Freund man liebt, ihn<lb/>
+ſelbſt mit jedem Gebrechen;<lb/>
+Denn, wolltet ihr was abziehen von ihm, dann waͤr’ es<lb/>
+derſelbe ja nicht mehr,<lb/>
+Und ein Menſch, der nichts zu verzeihen vermag, nie ſeh’<lb/>
+er ein Menſchengeſicht mehr!<lb/>
+Wohl weiß der Poet, daß dieſes Gedicht ihm Tauſende<lb/>
+werden verketzern,<lb/>
+Ja, daß es vielleicht Niemanden gefaͤllt, als etwa den Dru-<lb/>
+ckern und Setzern:<lb/>
+Es verleidet ihm auch wohl ein Freund ſein Werk, und des<lb/>
+Kritikers Laune verneint es,<lb/>
+Und der Pfuſcher vermeint, er koͤnne das auch; doch irrt<lb/>
+ſich der Gute, ſo ſcheint es.<lb/>
+Durch Deutſchland iſt, die Latern’ in der Hand, nach Men-<lb/>
+ſchen zu ſuchen ſo mißlich;<lb/>
+<pb n="86" facs="#f0092"/>
+Wohlwollende triffſt du gewiß niemals, kurzſichtige Tadler<lb/>
+gewißlich.<lb/>
+Zwar moͤch te das Volk, aus eitler Begier, an poetiſchen<lb/>
+Genien reich ſeyn,<lb/>
+Doch ſollen ſie auch Bußprediger, ja, Betſchweſtern und<lb/>
+Alles zugleich ſeyn!<lb/>
+Doch, reichten ſie nichts als milchige Koſt, als ganz un-<lb/>
+ſchuldige Speiſe,<lb/>
+Dann waͤr en ſie wohl viel weiſer als Gott, der Thoren ge-<lb/>
+ſchaffen und Weiſe.<lb/>
+Was Jede m geziemt, das uͤb’ er getroſt, mit dem Seinen<lb/>
+beſcheide ſich Jeder:<lb/>
+Im Sonn enſyſtem iſt Raum fuͤr mehr, als fuͤr des Zeloten<lb/>
+Katheder!<lb/>
+Wir ſchellten es nicht, will Einer’ die Welt und die welt-<lb/>
+lichen Dinge verpoͤnen,<lb/>
+Doch wer anſchaut die Gebilde der Kunſt, geh’ unter im<lb/>
+Geiſte des Schoͤnen!<lb/>
+Ein Pedant, den nichts zu begeiſtern im Stand, armſelig<lb/>
+ſteht er und einſam,<lb/>
+Zwar hat er vielleicht mit den Thieren den Fleiß, doch nichts<lb/>
+mit den Menſchen gemeinſam!<lb/>
+Glaubt nicht, daß unſer Poet, der gern, was krank iſt,<lb/>
+ſaͤhe geheilet,<lb/>
+Mißguͤ<supplied>nſ</supplied>tigen Sinns Eingebungen folgt, wenn er auch<lb/>
+Ohrfeigen vertheilet:<lb/>
+Wer Heiß im Gemuͤth und Bosheit traͤgt und wer unlau-<lb/>
+tere Regung,<lb/>
+Dem weigert die Kunſt jedweden Gehalt und die Grazie<lb/>
+jede Bewegung.<lb/>
+Wen k<supplied>uͤ</supplied>mmert es, was ein Poet urtheilt? Doch, zeigte ſich<lb/>
+Einer empfindlich,<lb/>
+<pb n="87" facs="#f0093"/>
+Uebertreff’ er ihn auch, denn er macht ſich dadurch zu gedieg-<lb/>
+neren Worten verbindlich.<lb/>
+Doch, kommt er kutſchirt mit leichtem Gepaͤck und gekritzel-<lb/>
+ter Stuͤmperdepeſche,<lb/>
+Gleich ſchicke man ihn uͤber Schilda zuruͤck, in des Nicolai<lb/>
+Kaleſche!<lb/>
+Euch aber, zur Gunſt und zur Liebe geneigt, weiſſage der<lb/>
+Dichter vertraulich<lb/>
+Des Gedichts Vorzug, wie er ſelbſt es verſteht, denn er<lb/>
+haͤlt es fuͤr huͤbſch und erbaulich:<lb/>
+Ihr findet darin, bei ſonſtigem Spaß, auch Rath und nuͤtz-<lb/>
+liche Lehre,<lb/>
+Und Alles zum Trotz dem Verkehrten der Zeit und dem<lb/>
+Trefflichen Alles zur Ehre.<lb/>
+Ihr findet darin manch witziges Wort und manche gefaͤllige<lb/>
+Wendung,<lb/>
+Und erfindende Kraft und Leichtigkeit und eine gewiſſe<lb/>
+Vollendung;<lb/>
+Denn, wie ſich enthuͤllt jemaliger Zeit Volksthurn in den<lb/>
+epiſchen Liedern,<lb/>
+So ſpiegelt es auch in Comoͤdien ſich, mit allen Gelenken<lb/>
+und Gliedern;<lb/>
+Drum hat der Poet euch Deutſchland ſelbſt, euch deutſche<lb/>
+Gebrechen geſchildert,<lb/>
+Doch hat er den Spott durch freundlichen Scherz, durch<lb/>
+huͤpfende Verſe gemildert.<lb/>
+Nicht wirkungslos bleibt dieſes Gedicht, das glaubt nur<lb/>
+meiner Betheurung,<lb/>
+Und der wahren Comoͤdie Sternbild ſteht im erfreulichen<lb/>
+Licht der Erneu’rung.<lb/>
+Der Aeſthetiker wird’s, da es nun da iſt, als ganz alltaͤg-<lb/>
+lich ermeſſen,<lb/>
+<pb n="88" facs="#f0094"/>
+Doch bitt’ ich, ihr Herrn, des Columbus Ei nicht ganz und<lb/>
+gar zu vergeſſen!<lb/>
+Liebhaber jedoch, gern werden ſie es anhoͤren; und gern es<lb/>
+in Lettern<lb/>
+Anſchauen ſofort, auch wuͤrden ſie gern es vernehmen herab<lb/>
+von den Brettern;<lb/>
+Laut heiſchten ſie dann, mit Heroldsruf, nach Weiſe der<lb/>
+alten Theſiden:<lb/>
+Es erſcheine der Chor, es erſcheine der Chor des gelieb-<lb/>
+ten Ariſtophaniden!<lb/>
+Wie bedarf er des Ruhms und der Liebe ſo ſehr, im Be-<lb/>
+wußtſeyn gaͤhrender Triebe,<lb/>
+Ihm werde zum Ruhm der Befreundeten Gunſt; denn<lb/>
+Ruhm iſt werdende Liebe.<lb/>
+Nun ſey es genug! Stets reiht an die Zeit des muſikauf-<lb/>
+wirbelnden Reigens<lb/>
+Sich die Stunde des Ruh’ns und ich lege ſogleich an die<lb/>
+Lippe den Finger des Schweigens;<lb/>
+Denn die Zeit iſt um, nun ſchlendert nach Haus, doch ja<lb/>
+nicht ruͤmpfet die Naſen,<lb/>
+Und begnuͤgt euch huͤbſch mit dem Luſtſpiel ſelbſt, und den<lb/>
+zierlichen Schlußparabaſen!</p></sp></div></div><milestone unit="section" rendition="#hr"/><lb/>
+</body><back>
+<pb facs="#f0095"/>
+<pb facs="#f0096"/>
+<pb facs="#f0097"/>
+</back>
+</text> </TEI>

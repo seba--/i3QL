@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Vortrag gehalten im Architekten-Verein zu Berlin am 7. October 1878</title>
+<author>
+<persName ref="http://d-nb.info/gnd/117525561">
+<surname>Hobrecht</surname>
+<forename>James</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">21</measure>
+<measure type="tokens">3890</measure>
+<measure type="types">1464</measure>
+<measure type="characters">28204</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:55Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/hobrecht_polytechnikum_1878</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/hobrecht_polytechnikum_1878</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/hobrecht_polytechnikum_1878</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/hobrecht_polytechnikum_1878</idno>
+<idno type="DTADirName">hobrecht_polytechnikum_1878</idno>
+<idno type="DTAID">16481</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905192532</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Hobrecht, James: Über die Vorbildung für den Besuch des Polytechnikums. Berlin, 1878.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Vortrag gehalten im Architekten-Verein zu Berlin am 7. October 1878</title>
+<author>
+<persName ref="http://d-nb.info/gnd/117525561">
+<surname>Hobrecht</surname>
+<forename>James</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">15 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Schade</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1878</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Nc 2836-14</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=624098036</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Technik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Technik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b">VORTRAG</hi><lb/>
+GEHALTEN IM ARCHITEKTEN-VEREIN<lb/>
+ZU BERLIN<lb/>
+<hi rendition="#b #g">AM 7. OCTOBER</hi> <hi rendition="#b">1878</hi></titlePart> </docTitle><lb/>
+<byline>VON<lb/>
+<docAuthor> <hi rendition="#b">J</hi>. <hi rendition="#b">HOBRECHT</hi>.</docAuthor> </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="desc">(ALS MANUSCRIPT GEDRUCKT.)</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b">BERLIN</hi></pubPlace> <docDate> <hi rendition="#b">1878.</hi></docDate><lb/>
+</docImprint> </titlePage>
+<pb facs="#f0006"/>
+</front>
+<pb facs="#f0007"/>
+<body> <div n="1"> <p rendition="#et"><hi rendition="#g">Meine Herren!</hi></p><lb/>
+<p>Ich habe niemals ein Hehl daraus gemacht, dass ich ein<lb/>
+Gegner der Bestrebungen war und bin, welche zum Aufgeben<lb/>
+der Bau-Akademie und zur Einrichtung eines Polytechnikums in<lb/>
+Berlin geführt haben.</p><lb/>
+<p>Doch ist diese Angelegenheit, so viel ich weiss, entschieden,<lb/>
+und es kann nicht lohnen darüber noch ein Wort zu verlieren,<lb/>
+um so mehr, als ich weiss, dass ich in dieser Frage mit der Ma¬<lb/>
+jorität des geehrten Vereins nicht übereinstimme.</p><lb/>
+<p>Doch war, m. H., bei den damaligen Berathungen der Archi¬<lb/>
+tekten-Verein nahezu einstimmig der Ansicht, dass das Polytech¬<lb/>
+nikum nur dann überhaupt segensreich wirken kann, wenn für die<lb/>
+Aufnahme in dasselbe eine gleichmässige und mindestens gleich<lb/>
+hohe Vorbildung gefordert würde, wie sie bisher bei der Aufnahme<lb/>
+in die Bau-Akademie verlangt wurde.</p><lb/>
+<p>Ich erlaube mir zum Beweise dessen die bezüglichen Stellen<lb/>
+aus der Eingabe vom 7. October 1874 zu verlesen, welche der<lb/>
+Verein dem Herrn Handelsminister mit der Bitte um Berücksichti¬<lb/>
+gung überreicht hat. Es heisst dort:</p><lb/>
+<p>„Für die Organisation der von uns zunächst für Berlin empfoh¬<lb/>
+lenen technischen Hochschule dürften die bei den Universitäten<lb/>
+gewonnenen Erfahrungen einen trefflichen Anhalt bieten, da es uns<lb/>
+<hi rendition="#g">unerlässlich</hi> erscheint, dass von den Studirenden jener Hoch¬<lb/>
+schule <hi rendition="#g">ausnahmslos dasselbe Maass</hi> allgemeiner wissenschaft¬<lb/>
+licher Vorbildung gefordert werden muss, wie von den Studirenden<lb/>
+der Universitäten. Dass der höhere Ziele erstrebende Techniker<lb/>
+eine derartige Vorbildung ebenso nöthig hat, wie der Angehörige<lb/>
+eines auf der Universität vertretenen Berufsfaches, ist eine Ueber¬<lb/>
+<pb n="4" facs="#f0008"/>
+zeugung, die in technischen Kreisen immer weiteren Eingang findet<lb/>
+und durch die Erfahrung täglich als richtig bestätigt wird. Die<lb/>
+bestehenden polytechnischen Schulen Deutschlands, Oesterreichs<lb/>
+und der Schweiz, deren Erfolge übrigens hinreichen, um die Vor¬<lb/>
+theile der empfohlenen Vereinigung für die höchsten technischen<lb/>
+Lehranstalten klar zu stellen, haben sich diese Erfolge <hi rendition="#g">leider<lb/>
+zum Theil dadurch verkümmert</hi>, <hi rendition="#g">dass sie bezüglich der<lb/>
+Vorbildung der Aufzunehmenden zu geringe und ausser¬<lb/>
+dem nicht gleichmässige Anforderungen stellen</hi>. Die<lb/>
+Gründung einer, strengere Vorbedingungen für die Aufnahme stellen¬<lb/>
+den, technischen Hochschule in Preussen, würde unzweifelhaft auf<lb/>
+diese älteren Anstalten zurückwirken und die werthvolle Möglich¬<lb/>
+keit in Aussicht stellen, für die deutschen Polytechniken allmälig<lb/>
+eine ebenso einheitliche Organisation zu erzielen, wie für die deut¬<lb/>
+schen Universitäten.</p><lb/>
+<p>Damit würde nicht nur die Gewinnung und Ausbildung von<lb/>
+Lehrkräften gefördert, sondern auch den Studirenden höchst er¬<lb/>
+wünschte Gelegenheit geboten werden, durch den Besuch verschie¬<lb/>
+dener technischer Hochschulen reichere Anschauungen zu sammeln.“</p><lb/>
+<p>Ich bin mir bei den damaligen Berathungen vollkommen klar<lb/>
+gewesen, dass die Erfüllung dieser Forderung ihre Schwierigkeiten<lb/>
+haben werde, und gerade die Besorgniss meinerseits, dass man<lb/>
+diese Schwierigkeiten nicht überwinden werde, hat mich dahin<lb/>
+geführt, mich überhaupt gegen ein Polytechnikum auszusprechen.</p><lb/>
+<p>Die Erfahrung lehrt nun, m. H., dass, wie es scheint, meine<lb/>
+Befürchtung keine unbegründete war.</p><lb/>
+<p>Wir lesen in der „Deutschen Bauzeitung“ No. 64 vom 10. Aug.<lb/>
+dieses Jahres in einem „zur Reorganisation der preussischen Ge¬<lb/>
+werbeschulen“ überschriebenen Artikel, dass am 2. und 3. Aug. a. c.<lb/>
+eine Conferenz zur Begutachtung der Reformen der nach dem<lb/>
+Plan von 1870 eingerichteten Gewerbeschulen zusammen getreten<lb/>
+sei, welche auf ihr vorgelegte Fragen beschlossen hat:</p><lb/>
+<p>1. Es soll in Zukunft zwei Gruppen von Gewerbeschulen<lb/>
+geben. Die eine als Vorbereitungsschule für das Polytechnikum.<lb/>
+Die andere als Vorbereitungsfachschule für Techniker mittleren<lb/>
+Ranges.</p><lb/>
+<p>2. Beide Gruppen sollen ihre Schüler von Sexta an aus¬<lb/>
+bilden.<lb/>
+</p>
+<pb n="5" facs="#f0009"/>
+<p>3. Die unteren (Vorklassen) sollen in Bezug auf Verwaltung<lb/>
+und Aufsicht mit den Klassen der eigentlichen Gewerbeschule in<lb/>
+einen einheitlichen Organismus verschmolzen werden.</p><lb/>
+<p>4. Die Zahl der Vorklassen soll auf 5 vervollständigt werden.</p><lb/>
+<p>5. und 6 bezieht sich lediglich auf die Gewerbeschulen für die<lb/>
+Techniker mittleren Ranges.</p><lb/>
+<p>7. Der jetzt bestehende 8jährige Cursus der Gewerbeschulen,<lb/>
+welcher für die Studien auf der technischen Hochschule (Gewerbe-<lb/>
+Akademie) vorbereiten soll, ist auf einen 9jährigen auszudehnen; die<lb/>
+Abiturienten solcher Anstalten mit 9jährigem Cursus sollen nicht<lb/>
+nur zu allen höheren <hi rendition="#g">technischen Studien</hi>, sondern <hi rendition="#g">auch zu<lb/>
+den Staatsprüfungen auf dem gesammten technischen<lb/>
+Gebiet</hi> zugelassen werden.</p><lb/>
+<p>Hiernach, m. H., soll nach den Vorschlägen der Conferenz eine<lb/>
+neue Gewerbeschule mit 9jährigem Lehrgang, d. h. <hi rendition="#g">eine neue<lb/>
+Art von Realschulen ohne Latein</hi> gebildet werden, welche<lb/>
+das Recht zum Besuch des Polytechnikums giebt, und deren Ab¬<lb/>
+solvirung das Recht zur Zulassung zu den Staatsprüfungen auf<lb/>
+dem gesammten technischen Gebiet gewährt.</p><lb/>
+<p>Niemand von Ihnen, m. H., wird bestreiten können, dass dieser<lb/>
+Antrag, über dessen Annahme, so viel ich weiss, der Herr Han¬<lb/>
+delsminister noch keineswegs entschieden hat, vitale Interessen un¬<lb/>
+seres Vereins berührt, und dass er im Widerspruch steht mit<lb/>
+derjenigen Auffassung des Architekten-Vereins, welche derselbe in<lb/>
+seinem Bericht an den Herrn Handelsminister vom 7. October 1874<lb/>
+niedergelegt hat.</p><lb/>
+<p>Hiernach scheint es mir eine unabweisliche Pflicht des Archi¬<lb/>
+tekten-Vereins zu sein, diese Angelegenheit in den Kreis seiner<lb/>
+Berathungen zu ziehen und wenn sich dabei eine Abweichung von<lb/>
+den Auffassungen der oben erwähnten Conferenz ergeben sollte,<lb/>
+hierüber dem Herrn Handelsminister ehrerbietigst seine Ansicht zur<lb/>
+Sache vorzutragen.</p><lb/>
+<p>Wenn wir nun den in der „Deutschen Bauzeitung“ mitgetheil¬<lb/>
+ten, übrigens aus dem „Deutschen Reichsanzeiger“ entnommenen,<lb/>
+Bericht, seinem Wortlaute nach, genau prüfen, so ergiebt sich<lb/>
+meines Erachtens mit unbestreitbarer Sicherheit, dass es sich keines¬<lb/>
+weges in dieser Conferenz <hi rendition="#g">darum gehandelt</hi> hat, die Interessen<lb/>
+des Berufs, dem wir alle angehören, zu fördern und zu dem Ende<lb/>
+<pb n="6" facs="#f0010"/>
+die hierauf bezüglichen Verordnungen und Bestimmungen nach<lb/>
+ihrem Werth oder Unwerth hin zu prüfen, sondern, dass es darauf<lb/>
+ankam, neue lebensfähige Gewerbeschulen oder ältere nicht lebens¬<lb/>
+fähige Gewerbeschulen lebensfähig zu machen, und dass sich aus<lb/>
+diesem Grunde und bei diesem Beginnen <hi rendition="#g">beiläufig</hi> die Nothwen¬<lb/>
+digkeit ergab, Forderungen aufzustellen, welche, wie <hi rendition="#g">Jeder</hi> zugeben<lb/>
+wird, die Interessen unseres Berufs auf’s Einschneidenste berühren,<lb/>
+und wie <hi rendition="#g">ich</hi> in diesem Augenblicke, freilich nur für mich, sagen<lb/>
+kann, <hi rendition="#g">verletzen</hi>.</p><lb/>
+<p>Aber auch der geehrte Verein wird diese meine Auffassung<lb/>
+theilen müssen, wenn er heute noch auf dem Standpunkte seines<lb/>
+Berichtes vom 7. October 1874 steht.</p><lb/>
+<p>Hätte es sich, m. H., überhaupt um eine Frage in der Conferenz<lb/>
+gehandelt, welche nicht die <hi rendition="#g">Gewerbeschulen</hi>, sondern <hi rendition="#g">uns</hi><lb/>
+betroffen hätte, so würde unzweifelhaft die Vertretung unseres<lb/>
+Berufs in der Conferenz eine andere gewesen sein.</p><lb/>
+<p>Die Herren Architekten auf der Conferenz werden uns ebenso<lb/>
+zugeben, dass wir ihnen persönlich als hochbegabte und einsichts¬<lb/>
+volle Collegen gerne den Tribut unserer Hochachtung darzubringen<lb/>
+bereit sind, wie, dass sie nicht als Vertreter unserer nach Tau¬<lb/>
+senden zählenden Fachgenossen, zumal ohne jede vorherige Rück¬<lb/>
+frage und Verständigung mit denselben, gelten können.</p><lb/>
+<p>Wenn ich dies sonach auch als einen Beweis dafür ansehe,<lb/>
+dass der Zweck der Conferenz nur die Lebendigmachung der Ge¬<lb/>
+werbeschulen war, so wird dieser Beweis noch verstärkt, wenn<lb/>
+wir uns sonst die Zusammensetzung dieser Conferenz ansehen und<lb/>
+überall in den Beschlüssen derselben das Bestreben wahrnehmen,<lb/>
+durch Verleihung von Rechten, wie desjenigen zum einjährigen<lb/>
+Militairdienst und zum Besuch des Polytechnikums, die Gewerbe¬<lb/>
+schulen besucht und lebensfähig zu machen.</p><lb/>
+<p>Ich und wir alle, m. H., anerkennen im höchsten Maasse diese<lb/>
+Bestrebungen; wenn wir aber, wie ich dies jetzt thue, uns dagegen<lb/>
+verwahren, dass wir, unser Stand, dabei nicht unter die Räder<lb/>
+eines Wagens gerathen, welcher einem andern Ziele als dem<lb/>
+unserigen, zufährt, wenn wir uns vertheidigen, aufgeschreckt durch<lb/>
+die Nachricht von einem anderweitigen Vorgehen, welches unsere<lb/>
+Verhältnisse ungehört und unseren ausgesprochenen Wünschen ent¬<lb/>
+gegen ändert — und wie ich annehme, sehr zu unserem Nachtheil,<lb/>
+<pb n="7" facs="#f0011"/>
+damit anderweitige Bestrebungen unterstützt werden, so wird man<lb/>
+uns wenigstens nicht <hi rendition="#g">den</hi> Vorwurf machen können, dass es unsere<lb/>
+<hi rendition="#g">Absicht</hi> sei, anderweitiges Gute zu hindern; wir wünschen den<lb/>
+Gewerbeschulen jedes Glück und Gedeihen; was wir aber nicht<lb/>
+wollen, ist, dass die Interessen unseres Faches in Verbindung damit<lb/>
+gebracht und verletzt werden.</p><lb/>
+<p>Was mich, m. H., seinerzeit besonders besorgt machte, als<lb/>
+es sich um die Errichtung eines Polytechnikums handelte, war,<lb/>
+dass eine solche Schule nur dann eine wirklich <hi rendition="#g">höhere</hi> Schule<lb/>
+ist, und nur dann den Charakter einer besonderen Abrichtungs¬<lb/>
+anstalt für bestimmte Fächer vermeidet, wenn sämmtliche Schüler<lb/>
+einer solchen Hochschule in Bezug auf ihre allgemein wissenschaft¬<lb/>
+liche Vorbildung und somit, in ihrer sozialen Stellung, einander<lb/>
+im Wesentlichen <hi rendition="#g">gleich</hi> stehen; dass aber dieses Ziel nicht zu<lb/>
+erreichen sei, wenn man in unnöthig harter Weise die, aus der<lb/>
+freien und selbständigen Entwickelung verschiedener Berufe histo¬<lb/>
+risch <hi rendition="#g">verschieden</hi> geformten, allgemeinen wissenschaftlichen Vor¬<lb/>
+bedingungen auf <hi rendition="#g">ein</hi> Maass zusammendrückt; wer bislang <hi rendition="#g">mehr</hi><lb/>
+leisten musste, soll fortan <hi rendition="#g">weniger</hi>, wer <hi rendition="#g">weniger</hi> leistete, <hi rendition="#g">mehr</hi><lb/>
+leisten, und warum? damit das Polytechnikum lebensfähig werde.</p><lb/>
+<p>Dieser Fall ist, m. H., jetzt eingetreten, die Gewerbeschulen<lb/>
+werden heraufgeschraubt, die Ansprüche an die wissenschaftliche<lb/>
+Vorbildung der Bautechniker sollen herabgedrückt werden.</p><lb/>
+<p>Zu einer Zeit, in welcher in fast Gefahr drohender Weise<lb/>
+sich die Spezialitäten entwickeln, um Freiheit in formeller Beziehung,<lb/>
+Gründlichkeit auf beschränkterem Gebiet zu erlangen, soll hier,<lb/>
+um alles unter einen Hut bringen zu können, die <hi rendition="#g">natürliche</hi><lb/>
+Verschiedenheit vernichtet werden; um alle unter diesen <hi rendition="#g">grossen</hi><lb/>
+Hut bringen zu können, soll der <hi rendition="#g">Kleine</hi> auf die <hi rendition="#g">Bank</hi> gestellt<lb/>
+werden und der <hi rendition="#g">Grosse gebückt</hi> stehen.</p><lb/>
+<p>Liegt nun für uns eine Veranlassung vor, uns zu bücken? war<lb/>
+das Maass unseres Wissens zu gross und das Maass unseres Könnens<lb/>
+zu klein? Ich bestreite beides. Es ist recht, wenn wir gegen uns<lb/>
+selbst eine strenge Kritik üben oder mit unseren Gesammtleistungen<lb/>
+nicht zufrieden sind, aber ich glaube, nur <hi rendition="#g">wir</hi> haben dieses Recht<lb/>
+dazu. Wie sich seit dem Anfang dieses Jahrhunderts, als in Armuth<lb/>
+und Dürftigkeit der preussische Staat darnieder lag, bei dem Anfangs<lb/>
+vollständigen Fehlen aller bedeutenden Aufgaben, deren nur die<lb/>
+<pb n="8" facs="#f0012"/>
+neuere Zeit, allerdings in steigender Progression, einige gereift hat,<lb/>
+bei der fast mehr als bescheidenen Besoldung und Honorirung<lb/>
+Angesichts der Verantwortlichkeit, die uns zufällt, das technische<lb/>
+<hi rendition="#g">Leistungsvermögen</hi> unseres Berufs entwickelt hat, die Stufe,<lb/>
+auf der wir im Hochbau, im Bau-Ingenieurwesen stehen, die Achtung,<lb/>
+welche wir uns in der treuen und gewissenhaften Verwaltung der<lb/>
+unserer Disposition unterstellten Bauten und Bausummen verschafft<lb/>
+haben, der Einfluss, den wir uns, kraft unserer wissenschaftlichen<lb/>
+Vorbildung in den eigentlichen Verwaltungskreisen gesichert haben,<lb/>
+verdient und geniesst, wie ich denke, volle Anerkennung; steht unser<lb/>
+Eisenbahnwesen etwa auf einer niedrigern Stufe in technischer Bezie¬<lb/>
+hung? haben unsere Hochbauer nicht von dem Augenblicke an, als<lb/>
+ihnen in nennenswerthem Maasse Aufgaben zu öffentlichen und<lb/>
+Privat-Bauten zufielen, ihre Leistungsfähigkeit in bester Weise und,<lb/>
+wir dürfen wohl sagen, in schnellerem Tempo entwickelt, als ihnen<lb/>
+Aufgaben gestellt wurden?</p><lb/>
+<p>Gefällt das eine oder das andere nicht, so möge man sich des<lb/>
+richtigen Sprüchwortes erinnern, dass über den Geschmack schwer<lb/>
+zu disputiren ist, auch möge man zugeben, dass manche Aufgabe<lb/>
+wohl nicht immer der richtigen Persönlichkeit gestellt sei, aber an<lb/>
+vorhandenen Männern, welche der Aufgabe gewachsen wären, hat<lb/>
+es wohl nicht gefehlt.</p><lb/>
+<p>Warum also ändern, warum herabdrücken wollen? Wenn es<lb/>
+einer Aenderung bedarf, so kann diese meines Erachtens nur darin<lb/>
+bestehen, dass die <hi rendition="#g">wissenschaftlichen</hi> Anforderungen, bezüglich<lb/>
+der Vorbildung, verschärft und nicht herabgedrückt werden, es wird<lb/>
+dadurch am ehesten vielleicht mancher gelegentlich gehörten Klage<lb/>
+über Zurücksetzung unseres Standes aus unseren eigenen Kreisen<lb/>
+ein Ende gemacht werden können.</p><lb/>
+<p>Die Forderung der Conferenz vom 3. August c. ist aber eine<lb/>
+solche Herabdrückung.</p><lb/>
+<p>Ich werde das in der Folge beweisen, möchte hier aber vor¬<lb/>
+erst von einer Richtung sprechen, welche, wie mir scheint, das<lb/>
+Vorgehen der Conferenz unterstützt; es ist dieses die rein künst¬<lb/>
+lerische Richtung, welche, mit einiger Neigung sich abzutrennen<lb/>
+von den uns allen gemeinsamen Lebens- und Strebensbedingungen<lb/>
+fast ausschliesslich als Aufgabe die Darstellung des Schönen durch<lb/>
+und in der Architektur anerkennt.<lb/>
+</p>
+<pb n="9" facs="#f0013"/>
+<p>Ich lasse es unerörtert, wie gross denn thatsächlich der Raum<lb/>
+ist, den diese ausschliessliche Richtung in unserem gemeinsamen<lb/>
+Berufsleben in Rücksicht auf unsere Armuth und auf die Entwicke¬<lb/>
+lung der übrigen freien Künste beanspruchen kann; ich lasse den<lb/>
+Widerspruch unerörtert, der gerade darin liegt, dass Männer dieser<lb/>
+Richtung einerseits die Bildung des nivellirenden Polytechnikums<lb/>
+forderten, andererseits dieselben Männer oder ihnen Nahestehende<lb/>
+in Erwägung zogen, ob es nicht rathsam sei, die eigentlichen<lb/>
+Schönbauer ganz von unserem Bildungsgange abzutrennen und sie<lb/>
+hinüber zu führen in die Akademie der Künste, wo der Schönbau<lb/>
+als freie Kunst neben Malerei und Skulptur gelehrt werden sollte;<lb/>
+darauf aber möchte ich hinweisen, dass, wenn bei unseren Schön¬<lb/>
+bauern selbst eine Unzufriedenheit mit den bezüglichen Leistungen<lb/>
+besteht, und wenn sie den Grund von ungenügenden Leistungen in<lb/>
+dem zu viel Lernen nach der einen und dem zu wenig Lernen nach<lb/>
+der anderen Seite erkennen, sie, m. H., darin irren, wenn sie glauben,<lb/>
+das eigentlich Entscheidende, das eigentlich Bedeutende für und in<lb/>
+ihrer Leistung könne überhaupt erlernt werden; Talent kann nicht<lb/>
+gelehrt werden, und kein Lehrer schafft die Genies; die künstlerische<lb/>
+Leistung ist der Gesammtausdruck des von der Natur allein ver¬<lb/>
+liehenen geistigen und ethischen Vermögens; Hülfswissenschaften,<lb/>
+Schattenconstruction und Perspective, Anatomie und Farbenmischung<lb/>
+kann man lehren, aber wer alles dieses am Schnürchen wüsste, wie<lb/>
+ein akademischer Professor es nur kann, hat sich darum auch noch<lb/>
+nicht um eines Haares Breite des Vermögens bemächtigt, <hi rendition="#g">Schönes</hi><lb/>
+darzustellen. Wenn er es gelernt hat, <hi rendition="#g">Richtiges</hi> zu schaffen, so<lb/>
+kann er dies auch auf dem Polytechnikum erreichen, eines Besuchs<lb/>
+der Kunstakademie bedarf es dazu nicht.</p><lb/>
+<p>Für die Aufgabe einer Steigerung des künstlerischen Vermögens<lb/>
+kenne ich nur einen Weg, der ein gewisses, wenn auch nur be¬<lb/>
+scheidenes Resultat verspricht; das ist nicht die Kunstakademie,<lb/>
+auch nicht das Polytechnikum, das ist die Atelierausbildung.</p><lb/>
+<p>Wirklich zu den Füssen eines Meisters sitzen, an seinen Leiden<lb/>
+und Freuden theilnehmen, seinen Stolz und seinen Kummer mit<lb/>
+empfinden, sein erstes naïves Urtheil über Kunstleistungen be¬<lb/>
+lauschen, im Gespräch, mit der Ehrfurcht des Schülers, die Ansichten<lb/>
+des Meisters über alle göttlichen und menschlichen Dinge vernehmen,<lb/>
+das kann fördern, weil es bis zu einem gewissen Grade den Schüler<lb/>
+<pb n="10" facs="#f0014"/>
+in seinem gesammten geistigen und ethischen Vermögen zu steigern<lb/>
+vermag.</p><lb/>
+<p>Ihnen also, die Sie in den Thätigkeitsgebieten unseres Berufs<lb/>
+fast nur das künstlerische Moment anerkennen wollen, rufe ich zu,<lb/>
+dass unsere Bestrebungen niemals die Ihrigen kreuzen können, dass<lb/>
+unsere <hi rendition="#g">gesteigerten</hi> wissenschaftlichen Anforderungen aber auch<lb/>
+Ihren Schülern zu Gute kommen werden.</p><lb/>
+<p>Fast könnte man sich schämen, den Gemeinplatz auszusprechen,<lb/>
+dass die Bildung den Menschen veredelt, da niemand daran zweifeln<lb/>
+wird, aber ich hoffe, es wird auch niemand daran zweifeln, dass<lb/>
+das wirkliche künstlerische Vermögen eines Menschen, ich meine<lb/>
+das <hi rendition="#g">unlehrbare</hi>, nur durch eine Gesammtveredelung des Menschen<lb/>
+gesteigert werden kann. Und so werden auch Sie mir zustimmen,<lb/>
+wenn ich die Forderung aufstelle, unsere allgemeine wissenschaft¬<lb/>
+liche Ausbildung nicht <hi rendition="#g">herabzudrücken</hi>, sondern <hi rendition="#g">ver¬<lb/>
+mehren</hi>.</p><lb/>
+<p>Ich komme nun zu der Frage, ob die neue Gewerbeschule<lb/>
+im Verhältniss zu Gymnasium und Realschule I. Ordnung einen<lb/>
+Rückgang in der allgemeinen wissenschaftlichen Ausbildung bedeutet<lb/>
+oder nicht, und ob unser Stand, welcher neben der rein künstleri¬<lb/>
+schen Richtung, den Tiefbau, das Bauingenieurwesen, das Maschinen¬<lb/>
+bauwesen, das ganze Baubeamtenthum in sich schliesst, einen Rück¬<lb/>
+gang vertragen könne.</p><lb/>
+<p>Nicht die grössere oder geringere Fülle von <hi rendition="#g">solchen</hi> Kennt¬<lb/>
+nissen, deren Besitz an sich keinen nachweisbaren Einfluss auf das<lb/>
+menschliche Gemüth ausübt, schafft Bildung.</p><lb/>
+<p>Zu wissen, dass Kochsalz Chlornatrium ist, dass die Fort¬<lb/>
+pflanzungsorgane der Sagitta so und so beschaffen sind, dass im<lb/>
+Herzen von Afrika der Tanganyika-See liegt, ist werthvoll vom<lb/>
+Standpunkt einer <hi rendition="#g">praktischen</hi> Verwerthung aus; der letzte Zweck<lb/>
+unseres Lebens aber, <hi rendition="#g">die Verschönerung unseres gesammten<lb/>
+inneren Menschen</hi>, wird damit nicht erreicht; man legt, wie<lb/>
+Sie wissen, mehr und mehr Gewicht auf die Naturgeschichte, —<lb/>
+wie aber kommt es, dass dabei das weitaus interessanteste Object<lb/>
+der Naturforschung, der menschliche <hi rendition="#g">Geist</hi>, seine Entwickelung,<lb/>
+seine Geschichte, seine Kultivirung von fast thierischer Rohheit zu<lb/>
+jenen lichtvollen Höhen, die er in verschiedenen Völkern und<lb/>
+zu verschiedenen Zeiten erklommen, in den Hintergrund gedrängt<lb/>
+<pb n="11" facs="#f0015"/>
+wird? Ist die Geschichte der Kunst, der Philosophie, der Religion<lb/>
+nicht eine Naturgeschichte des menschlichen Geistes? Ist die Staaten¬<lb/>
+geschichte, alles, was wir politische Wissenschaft nennen mögen,<lb/>
+etwas Anderes?</p><lb/>
+<p>Erinnern wir uns doch, dass das Leistungsvermögen unserer<lb/>
+Zeit, welches wahrlich kein geringes ist, ganz und gar gekeimt,<lb/>
+gewachsen und zur Blüthe gebracht worden ist auf dem Grunde<lb/>
+<hi rendition="#g">jener</hi> Bildung, welche die Kenntniss der Naturgeschichte des mensch¬<lb/>
+lichen Geistes geschaffen hat; was giebt Europa die Herrschaft über<lb/>
+die Welt, als diese Bildung; — man mag sich berauschen im Ent¬<lb/>
+zücken über japanesische Kunstleistungen und willig zugeben, dass<lb/>
+Leistungen unserer Industrie jenen weit nachstehen, aber ein Atten¬<lb/>
+tat gegen uns und unsere Geschichte ist es, daraus den Schluss zu<lb/>
+ziehen, wir müssten die Zeit, die wir bislang gewohnt waren, auf<lb/>
+die Kenntniss und das Studium der Geschichte des menschlichen<lb/>
+Geistes zu verwenden, mit Versuchen zur Hervorbringung ähnlicher<lb/>
+Formen ausfüllen; <hi rendition="#g">unsere</hi> Gesammtbildung wird Herr werden über<lb/>
+<hi rendition="#g">jene</hi> Kunstindustrie, <hi rendition="#g">umgekehrt</hi> wird es <hi rendition="#g">niemals</hi> der Fall sein.<lb/>
+So hoch wir auch den Werth einer schönen Vase taxiren wollen,<lb/>
+— und wahrlich in der Bewunderung von alten Teppichen und Ge¬<lb/>
+wandmustern, Majoliken und Bronzen leisten wir Beachtenswerthes,<lb/>
+— er kommt dem Werth leidenschaftsloser Weisheit, eines billigen<lb/>
+Urtheils, einer humanen Gesinnung nicht gleich, und hierauf soll<lb/>
+Erziehung und Lehre gerichtet sein, und hierhin soll die Bildung<lb/>
+eines Menschen gerichtet werden, so weit als möglich, <hi rendition="#g">ehe</hi> er an<lb/>
+seine Ausbildung als Künstler, Ingenieur, als Staatsmann oder<lb/>
+Teppichfabrikant geht.</p><lb/>
+<p>Wenn wir zurückblicken auf die Entwickelung unseres Volkes<lb/>
+seit den vierziger Jahren, so können wir es dem schnellen Tempo<lb/>
+dieser Entwickelung danken, dass wir Lebende noch die Erfahrung<lb/>
+machen, wie Wege, die unter allgemeinster Begeisterung als zum<lb/>
+glücklichsten Ziele führende erschienen, sich als Irrwege heraus¬<lb/>
+gestellt haben, wie wir nach gutem Wandern auf ihnen neuen Zwei¬<lb/>
+feln, neuen Hindernissen begegneten, wie wir auf manchen zur<lb/>
+Umkehr gezwungen wurden. So waren es die Realschulen, die<lb/>
+reale Ausbildung, welche dem Erziehungswesen in unserem Staate<lb/>
+eine befriedigende Lösung aller Schwierigkeiten geben sollten; statt<lb/>
+eingedenk zu sein dessen, was die Gymnasien unserer Nation ge¬<lb/>
+<pb n="12" facs="#f0016"/>
+leistet, statt die bessernde Hand anzulegen, wo sich an ihnen Mängel<lb/>
+herausstellten, brach man für einen guten Theil der Nation mit<lb/>
+ihnen und proklamirte das Evangelium der realen Wissenschaften<lb/>
+und der Realschulen. Es ist das so recht ein charakteristisches<lb/>
+Zeichen unserer Zeit; statt zu <hi rendition="#g">bessern</hi>, — in Missmuth über Un¬<lb/>
+vollkommenheiten Bestehendes aufzugeben und hastig in neuen For¬<lb/>
+men zu experimentiren, ohne zu bedenken, dass jedes neue Gute<lb/>
+auch seine neuen Mängel mit sich bringt. Ich glaube nicht Un¬<lb/>
+recht zu haben, und jedenfalls steht mir das Urtheil erfahrener<lb/>
+Fachmänner zur Seite, wenn ich sage, dass alle Experimente im<lb/>
+Unterrichtswesen, welche <hi rendition="#g">der Zeit nach</hi> der fast alleinigen Herr¬<lb/>
+schaft der Gymnasien angehören, zum mindesten weit hinter den<lb/>
+Erwartungen zurückgeblieben sind, die man an sie knüpfte. Sieht<lb/>
+nicht die vorliegende Reorganisation der Gewerbeschulen gerade so<lb/>
+aus, als wenn sie auch eine Reorganisation der Realschulen erster<lb/>
+Ordnung wäre? und würde man diese Reorganisation vornehmen,<lb/>
+wenn man zufrieden wäre? Auf alle Fälle ist, was man will, ein<lb/>
+<hi rendition="#g">neues</hi> Experiment, aber nach dem alten Grundsatze: <hi rendition="#i">„fiat experi¬<lb/>
+mentum in corpore vili“</hi>; möge man es nicht an <hi rendition="#g">uns</hi> vornehmen! —</p><lb/>
+<p>Es liegt nicht die Absicht vor, Abänderungsvorschläge zu<lb/>
+machen; ich begnüge mich vollständig mit <hi rendition="#g">der</hi> Verfassung, welche<lb/>
+für den Bildungsgang in unserm Beruf vorgeschrieben <hi rendition="#g">ist</hi>. Wenn<lb/>
+ich das Abiturientenexamen auf den Realschulen erster Ordnung<lb/>
+als ausreichend für unsern Beruf erachte, so geschieht es, weil in<lb/>
+diesen Schulen immer noch, wenn auch vielleicht nicht in ausrei¬<lb/>
+chendem Maasse, die <hi rendition="#g">lateinische Sprache</hi> betrieben wird. Ueber<lb/>
+ihre Bedeutung für die Schule äusserte sich seiner Zeit die Preussi¬<lb/>
+sche Unterrichtsverwaltung:</p><lb/>
+<p>„Diese Stellung (als integrirender und wesentlicher Theil des<lb/>
+Lehrplans) gebührt der lateinischen Sprache sowohl wegen der<lb/>
+Wichtigkeit, welche sie für die Kenntniss des Zusammenhanges der<lb/>
+neueren europäischen Cultur mit dem Alterthum hat, wie als grund¬<lb/>
+legende Vorbereitung des grammatischen Sprachstudiums überhaupt<lb/>
+und insbesondere des der neueren Sprachen, welches ohne Kennt¬<lb/>
+niss des Lateinischen immer oberflächlich bleibt.</p><lb/>
+<p>„In dieser Beziehung ist die lateinische Sprache vorzüglich ge¬<lb/>
+eignet, zur Bildung des Sinnes für scharfe Unterscheidung der<lb/>
+Formen beizutragen.“<lb/>
+</p>
+<pb n="13" facs="#f0017"/>
+<p>Ist nun dieses Ziel, wie <hi rendition="#g">Bonitz</hi> meint, bei den Realschulen<lb/>
+nicht erreicht, und verwirft die Conferenz den lateinischen Unter¬<lb/>
+richt <hi rendition="#g">überhaupt</hi> aus diesem Grunde, so scheint es mir doch<lb/>
+näher zu liegen, die Ansprüche an die Kenntnisse dieser Sprache<lb/>
+wiederum <hi rendition="#g">so weit</hi> zu steigern, dass die Absichten der Unterrichts¬<lb/>
+verwaltung <hi rendition="#g">erreicht</hi> werden, nicht aber, weil man nicht genug<lb/>
+hatte, auch noch das Wenige <hi rendition="#g">wegzuwerfen</hi>; <hi rendition="#g">sei</hi> es so mit der<lb/>
+Gewerbeschule, für die ich zu reden keinen Beruf habe; <hi rendition="#g">fort</hi> aber<lb/>
+damit für jede Schule, welche die Vorbildung für unsern Beruf ge¬<lb/>
+währen soll; von dieser verlangen wir, was <hi rendition="#g">Bonitz</hi> von dem Gym¬<lb/>
+nasium sagt:</p><lb/>
+<p>„Es ist nicht niedere Fachschule für irgend eine besondere<lb/>
+Wissenschaft, sondern hat dem aus ihr austretenden Schüler die<lb/>
+Wahl irgend einer der Wissenschaften offen zu lassen, deren Ver¬<lb/>
+einigung die Universität bildet; es hat daher durch elementare ein¬<lb/>
+dringende Beschäftigung für alle Hauptrichtungen des menschlichen<lb/>
+Wissens dasjenige auf Verständniss beruhende Interesse zu wecken,<lb/>
+von welchem aus Vertiefung in die einzelne Wissenschaft möglich<lb/>
+wird, ohne den Blick und die Werthschätzung für die nach andern<lb/>
+Zielen gehende Forschung zu verlieren. Diese Richtung auf allge¬<lb/>
+meine Bildung gegenüber der frühzeitigen Beschränkung des Blickes<lb/>
+auf ein einzelnes Gebiet, der ideale Zug zur Wissenschaft gegen¬<lb/>
+über der Beschränkung auf das unmittelbar praktisch Verwendbare<lb/>
+darf, wie er auch durch die Mängel der Ausführung getrübt sein<lb/>
+mag, als der Charakter bezeichnet werden, zu dem sich die Gym¬<lb/>
+nasien aus ihrer Aufgabe, zur Universität vorzubereiten, immer ent¬<lb/>
+schiedener entwickelt haben.“</p><lb/>
+<p> <hi rendition="#g">Bonitz</hi> spricht hier von der <hi rendition="#g">Universität</hi>. Schon Recht!<lb/>
+Aber wenn hieraus sich eine Unanwendbarkeit seiner Forderung<lb/>
+für uns ergeben sollte, so resultirt für mich nur der Schluss,<lb/>
+<hi rendition="#g">nicht</hi>, dass wir die Gymnasien entbehren könnten, sondern viel¬<lb/>
+mehr, dass die technische Hochschule, welche uns für unsern Beruf<lb/>
+vorbereitet, den Universitäten <hi rendition="#g">gleich</hi> formirt werden müsse.</p><lb/>
+<p>Die Stellung, welche unsere Berufsgenossen, wer sie auch<lb/>
+seien, im Staat, in der Gesellschaft, in der Gemeinde und im Amt,<lb/>
+auch dem Einzelnen gegenüber, einzunehmen haben, <hi rendition="#g">verträgt<lb/>
+nicht den Mangel klassischer Bildung</hi>. — Die Aufgaben,<lb/>
+welche uns gestellt werden, verlangen, dass wir in Wort und Schrift<lb/>
+<pb n="14" facs="#f0018"/>
+Herr seien über die deutsche Sprache; — ist <hi rendition="#g">der</hi> das wirklich, dem<lb/>
+die Kenntniss der lateinischen Sprache gänzlich abgeht? Sie ver¬<lb/>
+langt in Allem, was nicht rein fachlicher Natur ist, <hi rendition="#g">dieselbe</hi> Bil¬<lb/>
+dung, <hi rendition="#g">dieselbe</hi> sprachliche Gewandtheit, <hi rendition="#g">dieselbe</hi> Kenntniss der<lb/>
+Geschichte, vor Allem <hi rendition="#g">dieselbe</hi> Kenntniss der Naturgeschichte des<lb/>
+menschlichen Geistes, wie sie <hi rendition="#g">Diejenigen</hi> besitzen, mit denen<lb/>
+wir in unserm Berufsleben zu cooperiren haben, und welchen uns<lb/>
+unsere Verfassung gleichstellt. Nicht zu wissen, was Kochsalz sei,<lb/>
+oder wie ein Stern heisse, oder wie man Silber aus dem Erz ge¬<lb/>
+winne, ist für <hi rendition="#g">Keinen</hi>, ausser dem Fachmann, eine <hi rendition="#g">Unwissen¬<lb/>
+heit</hi> und ein <hi rendition="#g">Bildungsmangel</hi>; dem <hi rendition="#g">sprachlichen</hi> Schatz aber,<lb/>
+um welchen die lateinische Sprache unsere Sprache bereichert hat,<lb/>
+fremd und in etymologischer Beziehung <hi rendition="#g">hülflos</hi> gegenüber stehen,<lb/>
+ist eine <hi rendition="#g">Unbildung</hi> und in unserem vorhandenen Volksbewusst¬<lb/>
+sein für denjenigen, welcher Stellungen einnimmt, wie sie uns,<lb/>
+Dank unserer Ausbildung, jetzt zufallen, eine <hi rendition="#g">Schmach</hi>.</p><lb/>
+<p>Ich nähere mich dem Schlusse; doch wenn ich auch fürchten<lb/>
+muss, Ihre Geduld auf eine etwas harte Probe gestellt zu haben,<lb/>
+auf zwei Dinge möchte ich Ihre Aufmerksamkeit noch lenken. Ich<lb/>
+halte die Annahme des Conferenzantrages für <hi rendition="#g">unmöglich</hi>, wenn<lb/>
+unsere Fachgenossen die <hi rendition="#g">sociale</hi> Stellung beibehalten sollen, die<lb/>
+sie inne haben. Was die amtliche Stellung anbetrifft, und dies ist<lb/>
+bei der grossen Zahl von Beamten unter uns nicht ohne Bedeu¬<lb/>
+tung, so glaube ich, dass der Staat, die Kommunen, ja selbst<lb/>
+grosse Privatverwaltungen denjenigen bei Anstellungen in der Regel<lb/>
+den Vorzug geben werden, welche für ihr Fach die Vorbildung in<lb/>
+der <hi rendition="#g">bisherigen</hi> Weise genossen haben. Es wird sich dann so<lb/>
+eine Art Fachgenossen erster und zweiter Klasse ausbilden, wie<lb/>
+dies, wenigstens in den fünfziger Jahren, der Fall war, als es nach<lb/>
+<hi rendition="#g">einer</hi> und nach <hi rendition="#g">zwei</hi> Richtungen hin geprüfte Baumeister gab.<lb/>
+Auch diese Entwickelung wird, glaube ich, Ihren Beifall <hi rendition="#g">nicht</hi><lb/>
+finden.</p><lb/>
+<p>Das Andere, dessen ich erwähnen wollte, ist, dass, soviel ich<lb/>
+gehört habe, das Bergbaufach <hi rendition="#g">auch</hi> keine Neigung empfindet, die<lb/>
+Vorschläge der Conferenz für sich gelten zu lassen, dass in den<lb/>
+Ausbildungsanstalten für den <hi rendition="#g">militairischen Beruf</hi> man <hi rendition="#g">nicht</hi><lb/>
+geglaubt hat, auf das Lateinische als Unterrichtsgegenstand verzich¬<lb/>
+ten zu können, dass auf eine Anfrage des Herrn Kultusministers<lb/>
+<pb n="15" facs="#f0019"/>
+die Kommission zur Berathung der ärztlichen Prüfungsreform be¬<lb/>
+züglich der Zulassungsbedingungen zum medicinischen Studium sich<lb/>
+dahin entschieden ausgesprochen hat, dass an einer <hi rendition="#g">klassischen<lb/>
+Bildungsgrundlage</hi> für die Mediciner <hi rendition="#g">festgehalten werden<lb/>
+müsse</hi>. Es ist dies unzweifelhaft auch eine Lehre für uns.</p><lb/>
+<p>Ich schliesse. Der Weg des Polytechnikums ist betreten; seine<lb/>
+Consequenzen beginnen sich zu äussern. Möge der geehrte Verein<lb/>
+nicht unterlassen, zu thun, was er, wenn nicht zur <hi rendition="#g">Förderung</hi>,<lb/>
+so doch zur <hi rendition="#g">Sicherung</hi> unserer Berufsinteressen für <hi rendition="#g">nothwendig</hi><lb/>
+erachtet, und möge der Herr Handelsminister, wie wir es von dieser<lb/>
+hohen Stelle <hi rendition="#g">stets</hi> gewohnt gewesen sind, wenn wir uns ihr bittend<lb/>
+nahten, unseren Vorstellungen ein geneigtes Gehör schenken!</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> </body> <back> <div type="imprint"> <p rendition="#c">A W. <hi rendition="#g">Schade</hi>'s Buchdruckerei (L. <hi rendition="#g">Schade</hi>) in Berlin, Stallschreiberstr.</p> </div><lb/>
+<pb facs="#f0020"/>
+<pb facs="#f0021"/>
+</back> </text> </TEI>

@@ -1,0 +1,2181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Furni Philosophici Oder Philosophischer Oefen Fünfter Theil </title>
+<title type="sub">Darinnen von des Fünften Ofens wunderbahrlichen Natur vnnd Eigenschafft/ deßgleichen auch etlicher nothdürftigen/ zu den vorhergehenden vier Oefen gehörigen Instrumenten vnd Materialien/ leichtliche zurichtung vnd bereittung/ kürtzlich/ doch deutlich gehandelt wird</title>
+<title type="sub">Allen Liebhabern der wahren Hermetischen Medicin/ sehr nützlich vnd dienstlich zu lesen</title>
+<title type="volume" n="5">Fünfter Theil</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118695304">
+<surname>Glauber</surname>
+<forename>Johann Rudolf</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">74</measure>
+<measure type="tokens">14301</measure>
+<measure type="types">3015</measure>
+<measure type="characters">97461</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:24Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/glauber_furni05_1649</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/glauber_furni05_1649</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/glauber_furni05_1649</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/glauber_furni05_1649</idno>
+<idno type="DTADirName">glauber_furni05_1649</idno>
+<idno type="DTAID">20865</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Glauber, Johann Rudolf: Furni Philosophici. Bd. 5. Amsterdam, 1649.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Furni Philosophici Oder Philosophischer Oefen Fünfter Theil </title>
+<title level="m" type="sub">Darinnen von des Fünften Ofens wunderbahrlichen Natur vnnd Eigenschafft/ deßgleichen auch etlicher nothdürftigen/ zu den vorhergehenden vier Oefen gehörigen Instrumenten vnd Materialien/ leichtliche zurichtung vnd bereittung/ kürtzlich/ doch deutlich gehandelt wird</title>
+<title level="m" type="sub">Allen Liebhabern der wahren Hermetischen Medicin/ sehr nützlich vnd dienstlich zu lesen</title>
+<title level="m" type="volume" n="5">Fünfter Theil</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118695304">
+<surname>Glauber</surname>
+<forename>Johann Rudolf</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">56 S., [4] Bl. : Ill. (Holzschn.)</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Fabel</name></publisher>
+<pubPlace>Amsterdam</pubPlace>
+<date type="publication">1649</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, 5 in:Mu 3581</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=536936595</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Chemie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Chemie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb n="[1]" facs="#f0005"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#aq"><hi rendition="#g">FURNI PHILOSOPHICI</hi></hi><lb/>
+</titlePart> </docTitle> <docTitle> <titlePart type="sub"> Oder<lb/>
+<hi rendition="#b">Philoſophiſcher Oeſen</hi><lb/>
+</titlePart> </docTitle> <docTitle> <titlePart type="volume"> <hi rendition="#b">Fuͤnfter Theil.</hi><lb/>
+</titlePart> </docTitle> <docTitle> <titlePart type="desc"> <hi rendition="#b">Darinnen von des Fuͤnften Ofens<lb/>
+wunderbahrlichen Natur vnnd Eigenſchafft/</hi><lb/>
+deßgleichen auch etlicher nothduͤrftigen/ zu den vor-<lb/>
+hergehenden vier Oefen gehoͤrigen <hi rendition="#aq">Inſtrumen</hi>ten<lb/>
+vnd <hi rendition="#aq">Materia</hi>lien/ leichtliche zurichtung vnd bereit-<lb/>
+tung/ kuͤrtzlich/ doch deutlich ge-<lb/>
+handelt wird.<lb/>
+<hi rendition="#b">Allen Liebhabern der wahren Hermetiſchen Me-</hi><lb/>
+dicin/ ſehr nuͤtzlich vnd dienſtlich zu leſen.<lb/>
+</titlePart> </docTitle> <byline> Durch<lb/>
+<docAuthor> <hi rendition="#aq"><hi rendition="#g"><hi rendition="#k">Johannem Rudolphum<lb/>
+Glauberum.</hi></hi></hi><lb/>
+</docAuthor> </byline> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace>Amſterdam</pubPlace>/<lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Gedruckt bey <publisher>Hans Fabeln</publisher>.<lb/>
+Jm Jahr <docDate><hi rendition="#g">1649</hi></docDate>.<lb/>
+</docImprint> </titlePage> </front><body>
+<pb n="[2]" facs="#f0006"/>
+<pb n="3" facs="#f0007"/>
+<div n="1"><head><hi rendition="#b">Von bereittung des Ofens.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Jeſen Ofen anbelangend/<lb/>
+davon doch in <hi rendition="#aq">Præfatione</hi> des<lb/>
+erſten Theils dieſes Buchs im<lb/>
+geringſten kein meldung oder<lb/>
+verheiſſung gedacht worden/<lb/>
+wie ich auch nicht willens ge-<lb/>
+weſen/ deſſelben in dieſem fuͤnf-<lb/>
+ten vnnd letzten Theil zu ge-<lb/>
+dencken/ ſondern hatte mir nur<lb/>
+allein von bereittung etlicher jrdenen vnnd glaͤſernen<lb/>
+Gefaͤſen/ vnnd andern zu den vor-her-gehenden vier<lb/>
+Theilen/ nothduͤrftigen vnd gehoͤrigen dingen zu han-<lb/>
+deln vorgenommen. Weilen ich aber betrachtet vnd<lb/>
+gut gefunden/ daß ſeine ſtelle in dieſem letzten Theil/ (da<lb/>
+ich doch zuvorn ein andere darzu erwehlet hatte) vnd<lb/>
+ſonderlich darumb/ weilen keines andern Ofens hierin<lb/>
+gedacht/ nicht vbel kommen ſolte. Alſo wil ich dem<lb/>
+ſuchenden Kuͤnſtler zur nachrichtung/ ſo viel ich thun<lb/>
+darf vnd mir zu gelaſſen iſt/ ſeine vberauß wunderbahr-<lb/>
+liche arth vnd eigenſchaft zu entdecken nicht verſchwei-<lb/>
+gen. Wiewohl ich gewiß bin/ daß jhrer ſich mehr/ als<lb/>
+an allen meinen andern Schriften/ daran ſtoſſen vnd<lb/>
+aͤrgern werden/ vnnd ſonderlich die jenigen/ welche die<lb/>
+Natur noch nicht durchſucht haben; doch kan ich es<lb/>
+gleichwol nicht laſſen/ weilen ich dargegen auch nicht<lb/>
+zweifele/ daß es bey etlichen fleiſſigen Nachſuchern der<lb/>
+Natur vnnd Kunſt/ nicht vnannehmlich ſeyn wer-<lb/>
+de. Dann ich mit Warheit betaure/ daß vnter allen<lb/>
+<fw type="sig" place="bottom">A ij</fw><fw type="catch" place="bottom">meinen</fw><lb/>
+<pb n="4" facs="#f0008"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+meinen Secreten/ da ich hofnung zu etwas gutes in<lb/>
+habe/ dieſes mir am allerliebſten ſeye/ dann ich albereit<lb/>
+wunderliche dinge darin geſehen habe/ bin auch gaͤntz-<lb/>
+licher hoffnung/ daß mir Gott der Almaͤchtige weitern<lb/>
+Segen darzu verleihen werde.</p><lb/>
+<p>Was nun dieſes fuͤr ein wunderbahrlicher Ofen<lb/>
+ſeye/ wie er gemacht vnd gebraucht werde/ iſt nicht viel<lb/>
+davon zu ſchreiben/ dan er nicht wie andere Oefen auf-<lb/>
+gebawt wird/ ſondern findet ſich allenthalben von der<lb/>
+Natur bereitet/ vnnd dienet auch nur allein der Natur<lb/>
+in jhrem vorhaben/ vnd ſonſten zu gantz nichts anders/<lb/>
+dann allein ein ſolches <hi rendition="#aq">Menſtruum,</hi> welches nicht allein<lb/>
+Golt/ Silber vnd alle andere Metallen vnd Minera-<lb/>
+lien/ ja alle Edel- vnd Vnedel-geſtein/ auch das Glaß<lb/>
+ſelbſten ohne alle <hi rendition="#aq">corroſiv</hi> vnd <hi rendition="#aq">ſtrepitu</hi> auf-loͤſet/ darin<lb/>
+gemacht wird/ vnnd iſt doch der Ofen ſelber des <hi rendition="#aq">Men-<lb/>
+ſtrui,</hi> vnd das <hi rendition="#aq">Menſtruum</hi> des Ofens vrſprung vnd<lb/>
+herkommen. Was nun das fuͤr ein wunderbahrlicher<lb/>
+Ofen ſey/ der auß eigener kraft ein ſolches Koͤnigliches<lb/>
+<hi rendition="#aq">Menſtruum,</hi> (der doch zuvor ſelber das <hi rendition="#aq">Menſtruum</hi><lb/>
+geweſen iſt) ohne alle muͤhe vnnd arbeit gar bald vnnd<lb/>
+leichtlich herfuͤr bringt/ iſt leicht zu erachten/ daß es kein<lb/>
+gemeiner Ofen ſey/ dadurch man andere dinge diſtillire<lb/>
+vnd gleichwol ein ſo kraͤftiges/ doch nicht <hi rendition="#aq">corroſivi</hi>ſches<lb/>
+Waſſer dargiebet. Gewißlich muß es kein gemeines/<lb/>
+vnd von jederman bekandtes Waſſer ſeyn/ dan ſolches<lb/>
+das einige iſt/ welches mir bekant/ das nicht <hi rendition="#aq">corroſi-</hi><lb/>
+viſch/ vnd doch mehr thun kan/ als alle <hi rendition="#aq">corroſi</hi>ven/ dan<lb/>
+vnter allen <hi rendition="#aq">corroſi</hi>viſchen Waſſern/ wie ſie auch moͤ-<lb/>
+gen genennet werden/ als <hi rendition="#aq">Aqua Fortis, Aqua Regis,<lb/>
+Spiritus Vitrioli, Salis, Aluminis vel Nitri,</hi> ſo maͤchtig<lb/>
+<fw type="catch" place="bottom">nicht</fw><lb/>
+<pb n="5" facs="#f0009"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+nicht iſt/ daß es Golt vnd Silber zu gleich/ wil geſchwei-<lb/>
+gen alle andere harte/ von den ſtaͤrckeſten <hi rendition="#aq">corroſi</hi>ven/<lb/>
+vnzerſtoͤrliche dinge (wie ſie auch nahmen haben) auf-<lb/>
+loͤſe. Welches fuͤrwahr ein groſſes Wunder-werck der<lb/>
+Natur iſt/ daß ein ſolch gering-ſchaͤtzig/ vnachtſamb/<lb/>
+allenthalben findlich vñ verwuͤrflich Weſen/ ein ſolches<lb/>
+vngemeines/ viel-geſuchtes vnd wenig erlangtes Werck<lb/>
+verrichten kan. Jch weiß nicht was mich ſo kuͤhn ge-<lb/>
+macht hat/ davon zu ſchreiben/ in deme ich wol weiß/<lb/>
+daß ich bey den jenigen die es kennen/ groſſen vndanck/<lb/>
+als wann ich zu offen/ vnd bey denen/ die nichts davon<lb/>
+wiſſen/ verlaͤumbdung vnd verachtung/ (gleich als wan<lb/>
+ich keine Wahrheit geſchrieben haͤtte) erlangen werde.<lb/>
+Dieſe vrſach mich billich ſolte von ſolchem ſchreiben ab-<lb/>
+gehalten haben/ troͤſte mich aber wieder dargegen/ wei-<lb/>
+len ich ein ſehr nuͤtzlich Werck/ das manchen von ſei-<lb/>
+nem Jrthumb auf einen guten Weg bringen moͤchte/<lb/>
+gethan habe. Dan der mehren-theil vnter den <hi rendition="#aq">Chymi-<lb/>
+cis</hi> nicht glauben/ daß noch ein anders <hi rendition="#aq">Menſtruum,</hi><lb/>
+als obgedachte ſcharpffe <hi rendition="#aq">corroſi</hi>viſche <hi rendition="#aq">ſpiritus,</hi> die Me-<lb/>
+tallen darmit auf zu loͤſen/ (weilen jhnen die Natur in<lb/>
+jhrem vermoͤgen verdeckt iſt) ſeyn koͤnne. Da doch die<lb/>
+Philoſophi einhellig ruffen/ daß man durch <hi rendition="#aq">corroſi</hi>vi-<lb/>
+ſche <hi rendition="#aq">ſpiritus</hi> nichts fruchtbarlichs bey den Metallen<lb/>
+verrichten koͤnne/ ſondern ſolche nur ein verderben bey<lb/>
+jhnen verurſachen/ wie auch noch taͤglich die Erfahren-<lb/>
+heit genug bezeuget/ daß ſolche <hi rendition="#aq">ſolutiones</hi>/ die mit<lb/>
+<hi rendition="#aq">Aqua Forti</hi> oder <hi rendition="#aq">Aqua Regis,</hi> oder andern <hi rendition="#aq">ſpiritibus</hi><lb/>
+gemacht ſeyn/ alzumahl die haͤnde faͤrben/ welches ein<lb/>
+<hi rendition="#aq">vera ſolutio Philoſophica</hi> aber nicht thut/ darauß be-<lb/>
+wieſen wird/ daß ſolche <hi rendition="#aq">ſolutiones,</hi> die die haͤnde faͤr-<lb/>
+<fw type="sig" place="bottom">A iij</fw><fw type="catch" place="bottom">ben/</fw><lb/>
+<pb n="6" facs="#f0010"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+ben/ vnter die wahre Philoſophiſche <hi rendition="#aq">ſolutiones</hi> nicht<lb/>
+gehoͤren/ ſondern als ſchaͤdlich zu verwerffen/ vnd als<lb/>
+Gifft zu fliehen ſeyn.</p><lb/>
+<p>Habe derohalben vielen jrrenden zur nachrichtung<lb/>
+alhier davon etwas melden wollen. Wolle derohalben<lb/>
+jhme niemand einbilden/ als wann ein ſolch gering-<lb/>
+ſchaͤtzig Weſen nicht mehr als <hi rendition="#aq">corroſi</hi>viſche <hi rendition="#aq">ſpiritus</hi><lb/>
+verrichten ſolte; Jch/ fuͤr mein Perſohn/ habe mir ſelber<lb/>
+von erſt nicht einbilden koͤnnen/ daß in eim ſo veraͤcht-<lb/>
+lichen <hi rendition="#aq">Menſtruo</hi> ſolche kraͤften verborgen weren/ ſo<lb/>
+lang vnd viel/ biß ich durch die <hi rendition="#aq">Experien</hi>tz/ die wahrheit<lb/>
+vnd moͤglichkeit geſehen vnd erfahren habe/ vnnd gehet<lb/>
+alhier eben alſo zu/ gleich wie es nun in der gantzen<lb/>
+Welt her gehet/ nemlich/ daß von jederman nur das an-<lb/>
+ſehnliche geliebet vnd geſucht/ hergegen aber das gerin-<lb/>
+ge verworffen vnd nicht geacht wird/ da doch die Natur<lb/>
+al jhr Weſen in ſchlechtheit verrichtet/ man muß ſich<lb/>
+derowegen nicht daran kehren vnd ein ding gering ach-<lb/>
+ten/ weilen es nicht bekandt vnd groß iſt.</p><lb/>
+<p>Die Juden aͤrgerten ſich auch an Chriſto/ weilen<lb/>
+Er ſo aͤrmlich gebohren vnd gering lebete/ welcher doch<lb/>
+alles in allem war/ ſie ſahen vnd merckten wol/ daß Er<lb/>
+ſolche Zeichen vnd Wunder thaͤte/ welche kein anderer/<lb/>
+als der verheiſſene <hi rendition="#aq">Meſſias</hi> thun konte/ dannoch blieben<lb/>
+ſie bey jhrer halßſtarrigkeit beharlich/ nur darumb/ weil<lb/>
+ſeine geſtalt ſo veraͤchtlich war/ vnd ſo Er nicht menſch-<lb/>
+liche Natur vnnd eine geringe geſtalt haͤtte an ſich ge-<lb/>
+nommen/ ſo haͤtte Er vnſer Mittler vnnd Verſuͤhner<lb/>
+zwiſchen Gott nicht ſeyn koͤnnen/ dann durch den Fall<lb/>
+Adams waren wir gantz von Gott geſcheiden/ alſo daß<lb/>
+wir in Suͤnden verhartet/ vnnd der Hoͤllen vnd Tode<lb/>
+<fw type="catch" place="bottom">gantz</fw><lb/>
+<pb n="7" facs="#f0011"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+gantz ergeben/ weilen der Geiſt Gottes von vns ge-<lb/>
+wichen/ alzeit hetten verbleiben muͤſſen. Da aber das<lb/>
+ſuͤſſe Manna vnd liebliche Thau/ von Oben herab auf<lb/>
+vnſere truckene Hertzen fiele/ ſolche mit ſeinem Gnaden-<lb/>
+reichen Wort/ vnd vergieſſung ſeines theuren Bluts<lb/>
+erquickete vnd befeuchtete/ alſo balden wurden wir wie-<lb/>
+derumb bequaͤm den Geiſt Gottes zu empfangen/ wel-<lb/>
+ches vns zuvorn vnmoͤglich war: Alſo ſiehet man<lb/>
+klaͤrlich/ daß durch der allerverachteſten vnſere verſoͤh-<lb/>
+nung geſchehen muſte. Gleich wie nun die vbel-gelehr-<lb/>
+te Phariſeer vnd Hohe-prieſter/ ſich an dem armen vnd<lb/>
+vnachtſamen Zimmermans Sohn ſtieſſen/ vnnd Jhn<lb/>
+fuͤr den wahren <hi rendition="#aq">Meſſiam</hi> nicht erkennen wolten.</p><lb/>
+<p>Alſo wuͤrde es auch geſchehen/ wan man das <hi rendition="#aq">Men-<lb/>
+ſtruum univerſale</hi> mit nahmen nennete/ niemand et-<lb/>
+was davon halten wuͤrde/ weilen es von jederman vn-<lb/>
+achtſamb/ verworffen vnd allenthalben im Koth ſtecken<lb/>
+bleibt/ (wil nicht hoffen/ weilen ich die verniedrigung<lb/>
+Chriſti alhie angezogen/ daß es mir vbel auf genommen<lb/>
+werden ſolte/ dann dieſer mein Diſcurß nicht zu Chriſti<lb/>
+verkleinerung/ ſondern viel mehr zu ſeiner Ehre gerei-<lb/>
+chet/ in deme Er/ vnter allen Menſchen Kindern/ der<lb/>
+aller-aͤrmſte vnnd veraͤchtlichſte/ dannoch das gantze<lb/>
+menſchliche Geſchlaͤcht/ welches ſonſt kein anderer thun<lb/>
+konte/ von allen Banden des Tenfels erloͤſen muſte) al-<lb/>
+ſo auch der <hi rendition="#aq">Mercurius univerſalis,</hi> deme an veraͤcht-<lb/>
+lichkeit in der gantzen Welt nicht vorgehet/ wann er<lb/>
+erſt ſelber durch den magern Tod vberwunden iſt/ dem<lb/>
+Metalliſchen geſchlecht zu gut mit ſeiner herrligkeit<lb/>
+wieder auf ſtehet.</p><lb/>
+<p>Alhier koͤnte ich wol einige Gleichnuͤſſen einfuͤhren/<lb/>
+<fw type="sig" place="bottom">A iiij</fw><fw type="catch" place="bottom">meinen</fw><lb/>
+<pb n="8" facs="#f0012"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+meinen Diſcurß deſto beſſer zu erlaͤutern/ wie/ nemlich/<lb/>
+ein <hi rendition="#aq">Medium</hi> oder <hi rendition="#aq">Mediator,</hi> zwey widerwertigen na-<lb/>
+turen vereinigen kan/ als wann man/ nemlich/ vom<lb/>
+Wein oder Vrin/ ſeinen reinen <hi rendition="#aq">ſpiritum abſtrahi</hi>ret/<lb/>
+vnnd ſolchen nach der reinigung mit ſeinem eigenen<lb/>
+Saltze wiederumb vereinigen wolte/ ob ſchon beide/ ſo<lb/>
+wol der <hi rendition="#aq">ſpiritus</hi> als Saltz/ zu vorn eins herkommens/<lb/>
+dannoch dieſelbe ohne ein <hi rendition="#aq">Medium,</hi> nemlich Waſſer/<lb/>
+nimmermehr koͤnnen <hi rendition="#aq">conjun</hi>giert werden/ vnd iſt al-<lb/>
+hier das Waſſer <hi rendition="#aq">loco mediatoris.</hi> Vor dem fall A-<lb/>
+dams war Gott mit jhme/ nach vbertrettung aber ſei-<lb/>
+nes Gebotts/ wiche die gemeinſchaft Gottes wieder<lb/>
+von jhm/ vnd bliebe jhme nichts vbriges als Erden vnd<lb/>
+Koth/ welches vnterworffen iſt jammer vnd noth/ zeit-<lb/>
+lichem vnd ewigem Tode/ ſo lang bis Chriſtus Menſch<lb/>
+worden/ vnnd ſich als einen Verſoͤhner ins mittel ge-<lb/>
+legt/ haͤtte nun Chriſtus kein beide naturen gehabt/ wie<lb/>
+haͤtte Er vns vereinigen koͤnnen?</p><lb/>
+<p>Gleicher weiſe alhier/ bey oberzehlten Exempeln/ das<lb/>
+Waſſer beider naturen theilhaftig iſt/ ohne welches ſon-<lb/>
+ſten der ſubtile <hi rendition="#aq">ſpiritus</hi> mit dem fixen Saltze nicht kan<lb/>
+vereinigt werden. Wan es mir gezimbte vnd gut were/<lb/>
+viel worte davon zu machen/ ſo koͤnte ich leichtlich das<lb/>
+Philoſophiſche Werck/ mit der Empfaͤngnuß/ Menſch-<lb/>
+werdung/ Geburt/ Leben/ Leiden/ Todt vnnd Auffer-<lb/>
+ſtehung Chriſti vergleichen/ welches aber nicht noͤtig<lb/>
+iſt/ hab es doch nicht laſſen koͤnnen/ etwas davon zu<lb/>
+melden/ moͤchte wol wuͤndſchen/ daß ich die Jrdiſche<lb/>
+Wunder- wercke mit den Himliſchen nur ein wenig<lb/>
+vergleichen doͤrfte/ ich weiß dem vnglaͤubigen Thomas<lb/>
+wuͤrden die Augen geoͤffnet/ wil ſich aber nicht ſchicken/<lb/>
+<fw type="catch" place="bottom">wie</fw><lb/>
+<pb n="9" facs="#f0013"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+wie wol Moiſes/ Daniel/ Joſeph/ vnd noch etliche an-<lb/>
+dere Propheten/ der natuͤrlichen <hi rendition="#aq">Philoſophia</hi> vnd <hi rendition="#aq">Ma-<lb/>
+gia,</hi> dadurch ſo wol die Himliſche als Jrdiſche Wun-<lb/>
+der-wercke erkandt werden/ nicht vnerfahren geweſen/<lb/>
+vnnd an etlichen orthen ſich darmit haben hoͤren laſſen/<lb/>
+welches vnter tauſendten nicht einer/ der jhre Buͤcher<lb/>
+lieſet/ in acht nimbt.</p><lb/>
+<p>Beſchließlich/ daß Gott der Almechtige/ nicht nur<lb/>
+das Groſſe vnd Anſehnliche liebe/ ſondern vielmehr ni-<lb/>
+der ſtuͤrtze/ vnd das Geringe erhebe/ dan Gott traͤgt kein<lb/>
+anſehen der Perſohn oder ſeiner Creaturen/ davon viel<lb/>
+Exempel koͤnten bey- gebracht werden/ die Welt/ die<lb/>
+nur das anſehnliche ſuchet vnd liebet/ vrtheilet von al-<lb/>
+len dingen falſch/ darnach man ſich nicht richten ſoll/<lb/>
+ſondern feſtiglich glauben/ daß das aller fuͤrnembſte/<lb/>
+durch gantz geringe vnnd vnachtſame dinge/ verrichtet<lb/>
+werde.</p><lb/>
+<p>Jch haͤtte wol von dieſem Vnachtſamen <hi rendition="#aq">Menſtruo<lb/>
+univerſali</hi> ſeinem geringen herkommen/ groſſen Kraͤf-<lb/>
+ten/ vnnd wunderbarlichem Weſen/ dadurch alle Me-<lb/>
+tallen/ Mineralien/ vnd <hi rendition="#aq">Lapides,</hi> ſeine <hi rendition="#aq">ſtrepitu radica-<lb/>
+liter ſolvirt, unirt,</hi> vnd <hi rendition="#aq">figi</hi>ret werden/ deren <hi rendition="#aq">ſolutio</hi><lb/>
+die haͤnde nicht faͤrbet/ <hi rendition="#aq">conjunctio</hi> vnzertrennlich/ <hi rendition="#aq">fi-<lb/>
+xatio</hi> vnverbrennlich iſt/ ein mehrers ſchreiben koͤn-<lb/>
+nen/ weilen mir aber nicht vnbewuſt/ daß man durch<lb/>
+ſchreiben jhme nur ſelber muͤhe vnd arbeit/ ja noch wol<lb/>
+haß/ neid/ vnnd feindſchaft auf den halß ladet/ iſt es bey<lb/>
+dieſem verblieben/ dann ſo man nur die moͤglichkeit der<lb/>
+Natur vnd Kunſt meint zu entdecken/ iſt mancher nicht<lb/>
+zu frieden darmit/ ſondern meinet/ er muͤſſe alſobalden<lb/>
+alles wiſſen/ haben vnnd bey jederman bekant machen/<lb/>
+<fw type="sig" place="bottom">A v</fw><fw type="catch" place="bottom">wil</fw><lb/>
+<pb n="10" facs="#f0014"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+wil man aber nicht damit herauß/ ſo folget die feind-<lb/>
+ſchaft/ vnnd ſo ſolche Menſchen nur ein wenig wuͤſten/<lb/>
+wie vielmahl einer die haͤnde verbrennen muß/ ehe er et-<lb/>
+was gutes erlanget/ ſie wuͤrden anderſt geſinnet ſeyn/<lb/>
+als ſie thun. Wolle ſich derohalben der Kunſt-liebende<lb/>
+mit dieſem Diſcurß gnuͤgen laſſen/ vnd zu frieden ſeyn/<lb/>
+daß jhme angezeigt/ was die Kunſt mit der Natur ver-<lb/>
+mag/ vnnd ſelber in der furcht Gottes fleiſſig ſuchen/ ſo<lb/>
+zweifele ich nicht/ wan es auß guter meinung geſchicht/<lb/>
+ſeine muͤhe vnd arbeit werde jhm zu ſeiner zeit reichlich<lb/>
+belohnet werden.</p></div><lb/>
+<div n="1"><head><hi rendition="#b">Von auff-bawung der Oefen.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Je man von Steinen vnnd Laimen/ die Diſtillir-<lb/>
+oͤfen zum erſten vnd andern theil auf bawen ſolle/<lb/>
+iſt nicht noͤtig viel davon zu ſchreiben/ dan ſolcher Buͤ-<lb/>
+cher ſehr viel gefunden werden/ die weitlaͤuftig davon<lb/>
+handeln/ darumb ſolches alhier nicht wiederholet wird/<lb/>
+doch iſt/ ſo viel zu wiſſen/ daß ein vnterſcheid muß gehal-<lb/>
+ten werden in auf-bawung der Oefen/ dan ſolche Oefen<lb/>
+darinnen keine ſtarcke Fewer gemacht werden/ keine ſo<lb/>
+ſtarcke Mauren von noͤhten haben/ als die jenigen/ dar-<lb/>
+innen mit groſſem Fewer/ viel <hi rendition="#aq">ſublimi</hi>rt/ <hi rendition="#aq">diſtill</hi>irt oder<lb/>
+geſchmoltzen wird.</p><lb/>
+<p>Zum <hi rendition="#aq">ſublim</hi>iren vnnd <hi rendition="#aq">diſtilli</hi>ren kan man nur ge-<lb/>
+meine Ziegel-ſteine/ von Laimen gebrandt/ nehmen/<lb/>
+ſolche fein dicht mit gutem <hi rendition="#aq">Luto</hi> ſchlieſſend oder bindend<lb/>
+auf einander ſetzen/ vnd auch die Mauren ziemlich dick<lb/>
+machen/ auf daß ſolche die waͤrme deſto beſſer vnd laͤn-<lb/>
+ger halten vnnd vertragen koͤnne/ dann ſo man ſolches<lb/>
+<fw type="catch" place="bottom">vberſicht/</fw><lb/>
+<pb n="11" facs="#f0015"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+vberſicht/ hat man alzeit daran zu flicken/ dan die Waͤn-<lb/>
+de bekommen leichtlich ſpalten oder riſſe/ dadurch die re-<lb/>
+girung des Fewers verhindert wird/ derowegen man<lb/>
+wol thut/ wann man eiſerne reiffe oder baͤnder darumb<lb/>
+leget/ ſo hat man des aufreiſſens des Ofens nicht zu be-<lb/>
+ſorgen/ vnnd gibt langwerende vnd beſtaͤndige Oefen.<lb/>
+So man aber Schmeltz- oͤfen machen wil/ dienen dieſe<lb/>
+Steine nicht wol darzu/ dann ſie in groſſer hitze ſchmel-<lb/>
+tzen/ vnnd nicht lang beſtehen koͤnnen/ derowegen man<lb/>
+dieſelbe von guter Fewer-beſtaͤndigen Erden/ davon die<lb/>
+Schmeltz-tiegel vnd andere gefaͤſe/ die viel Fewer ver-<lb/>
+tragen muͤſſen/ davon hernach zu finden iſt/ in dazu ge-<lb/>
+machte hoͤlzerne oder blecherne formen bereiten/ vnd dar-<lb/>
+nach brennen muß/ vnnd nach deme der Ofen ſeyn ſol/<lb/>
+rund oder viereckicht/ muͤſſen auch die formen/ darein<lb/>
+die Erden gedruckt/ geſtaltet ſeyn/ alſo/ daß deren 6. oder<lb/>
+8. ein lege machen/ doch darff der gantze Ofen nicht<lb/>
+von ſolchen Steinen auf gemauret werden/ ſondern nur<lb/>
+ſo weit oder hoch als die kohlen zu liegen kommen/ das<lb/>
+vbrige kan nur mit gemeinen Steinen vollends auß ge-<lb/>
+macht werden.</p></div><lb/>
+<div n="1"><head><hi rendition="#b">Wie man den <hi rendition="#aq">Lutum</hi> zurichten ſol/ mit<lb/>
+welchem die Oefen auf-geſetzt werden.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>Jn ſolcher Laimen kan auf viel vnterſcheidliche wei-<lb/>
+ſe zugerichtet werden/ dan immer einer ſein <hi rendition="#aq">Lutum</hi><lb/>
+anders als der ander zu-bereittet: Etliche miſchen vn-<lb/>
+ter geſiebten Laimen/ geſchlagen Ochſen/ Kuͤhen oder<lb/>
+Hirſchen haar/ oder auch wol die ſprewer von Gerſten/<lb/>
+Agen von Flachs/ Scheer-Wolle/ Pferden-miſt/ vnd<lb/>
+<fw type="catch" place="bottom">dergleichen</fw><lb/>
+<pb n="12" facs="#f0016"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+dergleichen andere dinge/ die den Laimen beyſamen hal-<lb/>
+ten daß er nicht reiſſe/ darzu thun ſie auch geſiebten<lb/>
+Sand/ wann der Laimen zu fett iſt/ vnnd arbeiten ſolche<lb/>
+<hi rendition="#aq">mixtur</hi> mit Waſſer wol vnter einander/ auf ſolche haͤr-<lb/>
+te/ als zum bawen von noͤhten iſt/ vnd helt dieſe <hi rendition="#aq">mixtur</hi><lb/>
+ſehr wol vnnd reiſſet nicht/ wird aber mit der zeit gantz<lb/>
+muͤrb/ dann die haar/ oder ſprewer verbrennen ſich/ da<lb/>
+durch der Laimen luͤck vnnd bruͤchig wird/ vnnd nicht<lb/>
+lang halten kan.</p><lb/>
+<p>Etliche laſſen ſolche verbrennliche dinge herauß/ vnd<lb/>
+miſchen oder <hi rendition="#aq">temperi</hi>ren den Laimen vnnd Sand nur<lb/>
+allein mit Saltz-waſſer/ vnd bawen darmit jhre Oefen/<lb/>
+helt ſehr wol/ verbrennet nicht ſo bald/ wie der erſten/<lb/>
+vnnd reiſſet gleichwol auch nicht/ dann das Saltz bindet<lb/>
+vnd verhindert das reiſſen/ darzu iſt auch gut die Lacke<lb/>
+oder Saltz-waſſer/ welches von ein-geſaltzen Fiſch oder<lb/>
+Fleiſch vberbleibt/ weilen das Blut auch mit binden<lb/>
+hilft/ ſo man aber das <hi rendition="#aq">Caput mortuum,</hi> wie es genen-<lb/>
+net wird/ vom <hi rendition="#aq">Vitriolo</hi> oder <hi rendition="#aq">Aqua forti</hi> haben kan/ ſol-<lb/>
+ches mit Waſſer weich machet vnnd vnter den Laimen<lb/>
+vnd Sand miſchet/ thut man beſſer/ dan dieſes <hi rendition="#aq">Lutum</hi><lb/>
+gantz nicht reiſſet/ vñ ſehr wol im Fewer haͤlt/ damit man<lb/>
+auch Retorten/ Kolben von Erden/ oder Glaß <hi rendition="#aq">luti</hi>ren<lb/>
+oder beſtreichen kan/ die man zum diſtilliren gebrauchen<lb/>
+wil/ auch koͤnnen die fugen des <hi rendition="#aq">Retor</hi>ten vnd <hi rendition="#aq">Recipien-</hi><lb/>
+ten damit bewahret werden; helt wol/ vnd laͤſſt ſich/ nach<lb/>
+der <hi rendition="#aq">diſtillation,</hi> mit eim naſſen Tuch/ das man darumb<lb/>
+leget/ wieder gern erweichen vnnd abmachen/ wie auch<lb/>
+dieſer thut/ darein Saltz kommen iſt/ andere aber/ darin<lb/>
+kein Saltz komvt/ ſeind vbel zu erweichen/ vnd werden<lb/>
+bißweilen die Glaͤſer damit zerbrochen/ ſo man aber<lb/>
+<fw type="catch" place="bottom">dieſe</fw><lb/>
+<pb n="13" facs="#f0017"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+dieſe oberzehlte dinge nicht haben kan/ ſo iſt genug den<lb/>
+Laimen vnd Sand/ nur mit einem Saltz-waſſer bereit-<lb/>
+tet/ helt wol die Oefen damit auf zu bawen. Sonſten<lb/>
+thun auch etliche Hammer-ſchlag/ geſtoſſen Glaß/ Kiß-<lb/>
+ling/ vnd noch andere dergleichen dinge vnter dern Lai-<lb/>
+men/ in meinung daß er deſto beſſer im Fewer halten<lb/>
+ſoll/ iſt aber nicht noͤhtig zu den Oefen zu gebrauchen;<lb/>
+doch ſo man Glaͤſer/ darinn zu ſcheiden oder darauß zu<lb/>
+<hi rendition="#aq">diſtilli</hi>ren/ darmit beſchlagen wil/ kan es nicht ſchaden/<lb/>
+ſondern iſt gut/ dan ſonderlich der Hammerſchlag/ wei-<lb/>
+len das Saltz daran arbeitet/ wol bindet vnnd lang haͤlt.</p></div><lb/>
+<div n="1"><head><hi rendition="#b">Wie man weiters die Fugen bewahren<lb/>
+ſol/ daß die <hi rendition="#aq">ſubti</hi>le <hi rendition="#aq">ſpiritus</hi> nicht durch gehen.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Jeſes ob-beſchriebene <hi rendition="#aq">Lutum</hi> iſt gut genug/ die Fu-<lb/>
+gen an den <hi rendition="#aq">diſtill</hi>ir oder <hi rendition="#aq">ſublim</hi>ir gefaͤſen des er-<lb/>
+ſten Theils darmit zu verwahren/ da die <hi rendition="#aq">ſpiritus</hi> lufft<lb/>
+haben vnnd ſteigen koͤnnen/ derohalben nicht durch zu<lb/>
+gehen ſuchen. Bey den andern Oefen aber/ darinnen<lb/>
+<hi rendition="#aq">penetri</hi>rliche <hi rendition="#aq">ſpiritus</hi> gemacht werden/ iſt er nicht gut<lb/>
+gnug/ dan er nicht gnug haͤlt/ ſondern laͤſſet die <hi rendition="#aq">volati-<lb/>
+li</hi>ſche <hi rendition="#aq">ſpiritus</hi> durch-gehen/ welches ein groſſer Schade<lb/>
+ſeyn wuͤrde/ wan der beſte Theil verlohren ginge/ derent-<lb/>
+halben man einen andern darzu haben muß/ doch wan<lb/>
+ſolcher wol trucken worden iſt/ vnd man mit einem pin-<lb/>
+ſel/ klein gerieben oder gemahlen/ vngeloͤſchten Kalck<lb/>
+mit Lein-oͤhl daruͤber her ſtreicht/ alſo daß der luͤcke Lai-<lb/>
+men ſolches wol in ſich ſchlucke/ ſo wird das <hi rendition="#aq">Lutum</hi> da-<lb/>
+von hart/ vnnd laͤſſt keine <hi rendition="#aq">ſpiritus</hi> durch-gehen/ iſt aber<lb/>
+nach der <hi rendition="#aq">diſtillation</hi> nicht wol wieder ab zu thun/ dann<lb/>
+<fw type="catch" place="bottom">er</fw><lb/>
+<pb n="14" facs="#f0018"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+er das Waſſer nicht gern annehmen wil/ vnnd ſich er-<lb/>
+weichen laſſen/ welcher aber ſonſten ſehr wohl haͤlt/ dero-<lb/>
+wegen man nur den Laimen mit Eyer-weiß anmachen<lb/>
+kan/ auf ein Tuͤchlein ſtreichen vnnd die Fugen damit<lb/>
+verbinden; ſo man aber ein ſolche <hi rendition="#aq">diſtillation</hi> thaͤte/<lb/>
+daß der Halß des <hi rendition="#aq">Recipien</hi>ten vor groſſer hitze ſolte zu<lb/>
+heiß werden vnd die tuͤcher verbrennen/ ſo muß man ei-<lb/>
+nen halß oder roͤhren von guter Erden oder Glaß/ zwi-<lb/>
+ſchen dem <hi rendition="#aq">diſtilli</hi>r-gefaͤß vnnd <hi rendition="#aq">Recipien</hi>ten legen/ auf<lb/>
+daß das <hi rendition="#aq">Lutum</hi> nicht durch die hitze verderbe/ vnnd der<lb/>
+<hi rendition="#aq">ſpiritus</hi> außgehe vnnd verlohren werde: Auch koͤnnen<lb/>
+die Fugen mit Ochſen-blaſen/ die in geſchlagen Eyer-<lb/>
+weiß genetzet/ oder auch nur Steifſel auf Papier ge-<lb/>
+ſtrichen/ vnnd etlich mahl vber einander gebunden/ ver-<lb/>
+wahret werden/ haͤlt alle <hi rendition="#aq">ſubti</hi>le <hi rendition="#aq">ſpiritus,</hi> doch muͤſſen<lb/>
+ſie nicht <hi rendition="#aq">corroſi</hi>viſch ſeyn; zu den <hi rendition="#aq">corroſi</hi>viſchen aber<lb/>
+dienet am beſten dieſer/ darunter die Remanentz/ davon<lb/>
+ein <hi rendition="#aq">Aquafortis diſtilli</hi>ret iſt/ gemiſchet/ vnnd wann er<lb/>
+trucken/ mit Lein-oͤhl vnd Kalck vberſtriechen.</p><lb/>
+<p>Solcher vnd dergleichen werden viel vnd mancher-<lb/>
+ley gebraucht/ nach deme man jhrer vonnoͤhten hat.</p></div><lb/>
+<div n="1"><head><hi rendition="#b">Ein ander <hi rendition="#aq">Lutum,</hi> auf gebrochene<lb/>
+Glaͤſer.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>S kompt bißweilen/ daß ein Recipient oder ander<lb/>
+Glaß von ſtoſſen/ fallẽ/ oder hitze einen Riß bekompt/<lb/>
+vnd doch ſonſten noch gut iſt; ſolche ritze aber/ wann die<lb/>
+Glaͤſer hernach wieder in der <hi rendition="#aq">diſtillation</hi> warm wer-<lb/>
+den/ forth gehen/ groͤſſer werden vnnd endlich gar zer-<lb/>
+brechen/ deme vor zu kommen/ mache einen duͤnnen<lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">Lutum</hi></fw><lb/>
+<pb n="15" facs="#f0019"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+<hi rendition="#aq">Lutum</hi> von Lein-oͤhl/ vngeloͤſchten Kalck vnnd Mini/<lb/>
+ſtreich jhn auf ein tuͤchlein/ leg es daruͤber vnnd laß es<lb/>
+truckenen/ darnach wieder ein anders darauf/ vnd wan<lb/>
+der Riß groß iſt/ kan es nicht ſchaden/ daß deren tuͤchlein<lb/>
+3. oder 4. auf einander kommen/ haͤlt deſto ſtaͤrcker vnd<lb/>
+laͤſſt nicht weiters einreiſſen/ oder man kan Eyer-weiß<lb/>
+zu Waſſer klopffen/ leinen tuͤchlein darin netzen/ vnnd<lb/>
+auf den Riß legen/ dann alſo bald geſiebten guten vnge-<lb/>
+loͤſchten Kalck darauf zetteln/ mit der hand hart darauf<lb/>
+drucken/ vnnd wieder ein ander tuͤchlein/ mit Eyer-weiß<lb/>
+genetzet/ darauf/ mit Kalck beſtrewet/ alſo laſſen tru-<lb/>
+cken werden/ haͤlt auch ſehr wohl/ doch wird dieſes lie-<lb/>
+ber von den <hi rendition="#aq">corroſi</hi>viſchen <hi rendition="#aq">ſpiritibus</hi> angrieffen/ als<lb/>
+das erſte <hi rendition="#aq"><hi rendition="#k">nb.</hi></hi> Man muß den Kalck nicht mit dem Eyer-<lb/>
+weiß miſchen vnnd auf tuͤchlein ſtreichen/ wie etliche<lb/>
+thun/ es taug gantz nichts/ dann das Eyer-weiß wird<lb/>
+hart von dem Kalck/ ehe es recht vnter einander ge-<lb/>
+miſchet wird/ derohalben nicht ankleben oder halten<lb/>
+wil/ ſondern muß alſo erſt das naſſe tuͤchlein/ vnnd her-<lb/>
+nach auf das tuͤchlein der Kalck geſtraͤuet werden/ wan<lb/>
+das tuͤchlein ſchon auf dem Glaß liget/ alſo/ daß der<lb/>
+Kalck nicht auf das Glaß/ ſondern zwiſchen die beide<lb/>
+tuͤchlein komme.</p></div><lb/>
+<div n="1"><head><hi rendition="#b">Wie man die <hi rendition="#aq">ſubti</hi>le <hi rendition="#aq">ſpiritus</hi> bewahren<lb/>
+ſol/ daß dieſelben/ wan ſie bereittet ſind/<lb/>
+nicht verriechen.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Je Glaͤſer darin die <hi rendition="#aq">ſpiritus</hi> gemeinlich behalten<lb/>
+werden/ pflegt man mit einem Stoͤpffel von Kurck<lb/>
+oder Wachß/ vnd endlich mit einer Blaſen vber-bun-<lb/>
+<fw type="catch" place="bottom">den/</fw><lb/>
+<pb n="[16]" facs="#f0020"/>
+<figure/>
+<pb n="17" facs="#f0021"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+den/ zu bewahren/ iſt zwar gut zu etlichen <hi rendition="#aq">ſpiritibus,</hi> die<lb/>
+das Kurck oder Wachs nicht angreiffen/ dann alle <hi rendition="#aq">cor-<lb/>
+roſi</hi>viſche <hi rendition="#aq">ſpiritus,</hi> als <hi rendition="#aq">Vitrioli, Aluminis, Salis com-<lb/>
+munis, Salis nitri, &amp;c.</hi> zerfreſſen den Kurck/ vnnd alle<lb/>
+<hi rendition="#aq">Urino</hi>ſiſche/ als <hi rendition="#aq">Cornucervi, Tartari, Salis-armonia-<lb/>
+ci, Urinæ, Vini, &amp;c.</hi> erweichen das Wachs vnnd gehen<lb/>
+durch/ vnnd ob man ſchon noch andere ſtoͤpffel machen<lb/>
+koͤnte/ die beiderley <hi rendition="#aq">Spiritus</hi> halten koͤnten/ ſo iſt es doch<lb/>
+muͤhſamb/ alzeit ſo viel Werck zu haben/ die Glaͤſer auf<lb/>
+vnd zu zu machen. Habe derohalben den dingen beſſer<lb/>
+nach gedacht/ vnnd Glaͤſer machen laſſen/ oben mit ei-<lb/>
+nem Faltz/ darein ſich ein Deckel ſchlieſſe/ wie bey-ge-<lb/>
+ſetzte Figur außweiſet/ [als zum Exempel/ <hi rendition="#aq">A</hi> der De-<lb/>
+ckel/ <hi rendition="#aq">B</hi> das Glaß/ <hi rendition="#aq">C</hi> der Heber/ damit man die<lb/>
+<hi rendition="#aq">ſpiritus</hi> herauß hebe] in welchen Faltz man <hi rendition="#aq">Mercurium<lb/>
+currentem</hi> leget/ vnd den Deckel darauf ſetzet/ ſo laufft<lb/>
+alſobald der <hi rendition="#aq">Mercurius</hi> neben dem Deckel in dem Faltz<lb/>
+herumb/ vnd ſchleuſſt ſo dicht/ daß auch das allergering-<lb/>
+ſte nicht außriechen kan/ dann der <hi rendition="#aq">ſpiritus</hi> gehet nicht<lb/>
+durch den <hi rendition="#aq">Mercurium (<hi rendition="#k">nb.</hi>)</hi> So aber der <hi rendition="#aq">ſpiritus</hi> gar<lb/>
+zu <hi rendition="#aq">corroſi</hi>viſch were/ wuͤrde er mit der zeit den <hi rendition="#aq">Mercu-<lb/>
+rium</hi> in dem Faltz auch zu Waſſer machẽ/ welches aber<lb/>
+in langer zeit nicht geſchicht/ vnnd ſo ſolches geſchaͤhe/<lb/>
+kan er einmahl vernewert werden/ darzu iſt auch nicht<lb/>
+noͤhtig/ daß man <hi rendition="#aq">corroſi</hi>viſchen <hi rendition="#aq">ſpiritibus</hi> ſolche Ehr<lb/>
+anthue vnd ſo fleiſſig beware/ weilen dieſelben ſo koͤſtlich<lb/>
+nicht ſeyn/ die <hi rendition="#aq">volatili</hi>ſche/ welche von den <hi rendition="#aq">corroſi</hi>vi-<lb/>
+ſchen <hi rendition="#aq">abſtrahi</hi>ret ſeyn/ greiffen den <hi rendition="#aq">Mercurium</hi> nicht<lb/>
+an/ vnd noch viel weniger die <hi rendition="#aq">urinoſi</hi>ſchen/ derent-wil-<lb/>
+len mehrentheils dieſe Glaͤſer erfunden ſeyn; koͤnnen alſo<lb/>
+auf dieſe weiſe die aller-<hi rendition="#aq">ſubti</hi>leſten <hi rendition="#aq">ſpiritus,</hi> ohne einige<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">ver-</fw><lb/>
+<pb n="18" facs="#f0022"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+verliehrung jhrer kraͤften/ ſo lange man wil/ wol vnnd<lb/>
+gut behalten werden/ vnnd weil man aber auß ſolchen<lb/>
+Glaͤſern die <hi rendition="#aq">ſpiritus,</hi> wan man deren vonnoͤhten hat/<lb/>
+nicht außgieſſen kan/ dann auß dem Ranft der <hi rendition="#aq">Mercu-<lb/>
+rius</hi> mit fallen wuͤrde/ alſo muß man ein Glaͤßlein<lb/>
+darzu machen laſſen/ an geſtalt eines Hebers/ damit<lb/>
+man die Weine auß den Faͤſſern hebet/ doch kleiner/<lb/>
+mit einem Baͤuchlein vnnd ſehr ſpitzigen Muͤndlein;<lb/>
+welches Glaß man in den <hi rendition="#aq">Spiritum</hi> helt/ vnnd ſo viel<lb/>
+hinein laͤſſt gehen/ als man haben oder gebrauchen wil/<lb/>
+vnd wan man mit dem Finger das ober-theil des Glaͤß-<lb/>
+leins zu haͤlt/ ſo laͤufft nichts herauß/ vnd kan man auß<lb/>
+dem Glaͤßlein den <hi rendition="#aq">Spiritum</hi> in ein beſonder Glaͤßlein<lb/>
+lauffen laſſen vnd gebrauchen; den vbrigen <hi rendition="#aq">Spiritum</hi><lb/>
+muß man dan alſobald wieder zu decken/ ſo bleibt er al-<lb/>
+zeit gut/ vnnd ſo oft man etwas davon gebrauchen wil/<lb/>
+ſolches mit dem glaͤſern Heberlein herauß nehmen.<lb/>
+Dieſes iſt nun der beſte Weg/ der mir bewuſt/ <hi rendition="#aq">ſubti</hi>le<lb/>
+<hi rendition="#aq">ſpiritus</hi> vor <hi rendition="#aq">exhali</hi>ren zu behalten.</p><lb/>
+<p>Wie wohl dieſes auch nicht boͤß iſt/ wann man ſolche<lb/>
+in Glaͤſern bewahret/ darauf geſchlieffene Staͤmpfel<lb/>
+von Glaß gemacht ſeyn; halten auch alle <hi rendition="#aq">ſpiritus,</hi> ko-<lb/>
+ſten aber viel mehr als die erſten/ weilen das ſchleiffen<lb/>
+muͤhſam iſt/ vnd geſchicht ſolches alſo.</p></div><lb/>
+<div n="1"><head><hi rendition="#b">Wie man die Stoͤpffel von Glaß/ in<lb/>
+die Glaͤſer ſchleiffen ſol/ die <hi rendition="#aq">ſpiritus</hi><lb/>
+darin zu halten.</hi></head><lb/>
+<p><hi rendition="#in">L</hi>Aſſe dir in einer Glaß-huͤtten allerhand Flaͤſchen/<lb/>
+groß vund klein blaſen/ mit einem ſtarcken Halß vnd<lb/>
+<fw type="catch" place="bottom">Mund/</fw><lb/>
+<pb n="19" facs="#f0023"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+Mund/ darzu auch Glaͤſerne Stoͤpffel/ die ſich darein<lb/>
+ſchicken/ vnd wann du die Stoͤpffel dicht machen vnnd<lb/>
+ſchleiffen wilt/ ſo <hi rendition="#aq">accommo</hi>dire dieſelben in ein Holtz ge-<lb/>
+faſſt an ein Traͤhe-banck/ laß ſolchen vmblauffen/ vnnd<lb/>
+halte die Flaͤſche mit dem Mund dargegen/ alſo daß der<lb/>
+Stoͤpffel/ der zuvor mit gemahlen Schmirgel vnnd<lb/>
+Waſſer angefeuchtet ſey/ juſt in der Flaͤſchen Mund<lb/>
+gehe vnnd darin herumb lauffe/ vnnd muß zum oͤftern<lb/>
+die Flaͤſche/ die man in den Haͤnden hat/ von dem<lb/>
+Stoͤpffel/ der an der Traͤhe-banck feſt iſt/ abgenommen<lb/>
+werden; mit einem Pinſel oder Feder mehr angefeuch-<lb/>
+ten Schmirgel daran thun/ vnnd laſſen vmblauffen/ ſo<lb/>
+oft wiederholet das anſtreichen des Schmirgels/ biß du<lb/>
+ſieheſt/ daß der Stoͤpfel ſich wol in die Flaͤſche ſchlieſſe/<lb/>
+wan ſolches geſchehen/ ſo fege den Schmirgel mit ei-<lb/>
+nem reinen Tuͤchlein ſchoͤn vnnd ſauber auß der Flaͤ-<lb/>
+ſchen Mund vnd Stoͤpfel/ vnd ſtreiche geſchabten Trip-<lb/>
+pel oder ein ander fein geſchleimte Erden mit Waſſer<lb/>
+oder Oel angefeuchtet daran/ vnd laß wieder ſo lang<lb/>
+ſchleiffen mit oͤfterm anſtreichen des naſſen Trippels/<lb/>
+biß der Stoͤpffel gantz glat vnd hel <hi rendition="#aq">pall</hi>irt iſt; wan ſolches<lb/>
+geſchehen/ ſo binde denſelben mit eim Band an die Flaͤ-<lb/>
+ſche/ auf daß er nicht verwechſelt werde/ damit man die<lb/>
+Glaͤſer dicht zu macht/ daß kein <hi rendition="#aq">Spiritus</hi> darbey auß-<lb/>
+gehen mag.</p><lb/>
+<p>Auf daß du aber ſo viel von dem Stoͤpffel vnd Flaͤ-<lb/>
+ſchen nicht ſchleiffen darfſt/ ſo laß dir von Kupffer eine<lb/>
+Form machen/ darein der Glaͤſern Zapffen/ wann er<lb/>
+noch weich iſt/ vnd erſt auß den Ofen kompt/ geſtoſſen/<lb/>
+vnd fein rund werde; deßgleichen kan man auch ein ge-<lb/>
+gen- huͤlſen von Kupffer machen laſſen/ welchen man<lb/>
+<fw type="sig" place="bottom">B ij</fw><fw type="catch" place="bottom">in</fw><lb/>
+<pb n="20" facs="#f0024"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+in der Flaͤſchen Mund ſtecke/ vnd denſelben damit rund<lb/>
+mache/ weil er noch weich iſt/ auf daß man hernach den<lb/>
+Stoͤpffel in das Glaß deſto eher vnnd leichter dicht ma-<lb/>
+<figure/> chen koͤnne: [Als bey<lb/>
+Exempel/ <hi rendition="#aq">A</hi> der Stoͤpf-<lb/>
+fel/ <hi rendition="#aq">B</hi> das Glaß] Vnd<lb/>
+ſo du wol damit weiſt<lb/>
+vmb zu gehen/ koͤnnen ſie<lb/>
+gar geſchwind behaͤb ge-<lb/>
+macht werden: Weilen<lb/>
+aber nicht ein jedweder<lb/>
+eine Traͤhe-banck hat/<lb/>
+daran er den Stoͤpffel<lb/>
+auf das Glaß ſchleiffe/<lb/>
+ſo kan man nur alſo<lb/>
+thun/ iſt eben gut/ gehet<lb/>
+aber etwas laͤngſamer<lb/>
+zu/ iſt aber dagegen auch<lb/>
+wieder ſicherer/ als das<lb/>
+vorige mit der Banck/<lb/>
+daran bißweilen/ wann<lb/>
+man zu ſehr eilet/ die<lb/>
+Glaͤſer warm werden vnd ſpringen.</p><lb/>
+<p>Vnd geſchicht alſo; man macht ein beſonder Jnſtru-<lb/>
+ment von Holtz oder Eiſen/ darin man die Flaͤſche<lb/>
+faſſen kan/ ſetzet dieſelbe hinein/ ſchraubet das Jnſtru-<lb/>
+ment fein lind zuſamen/ auf daß die Flaͤſche/ welche in<lb/>
+Tuͤcher gewickelt/ nicht da von zerbreche/ vnnd weilen<lb/>
+das Jnſtrument auf ein Banck geſchraubet/ kan es<lb/>
+ſich nicht bewegen/ ſondern muß vnverruckt ſtehen<lb/>
+bleiben.</p><lb/>
+<fw type="catch" place="bottom">Dar-</fw><lb/>
+<pb n="21" facs="#f0025"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+<p>Darnach machet man den Zapffen in ein beſonder<lb/>
+Holtz [als bey Exempel/ <hi rendition="#aq">A</hi> der Treiber mit dem<lb/>
+<hi rendition="#aq">Recip.</hi> vnnd <hi rendition="#aq">B</hi> das Glaß mit dem andern <hi rendition="#aq">Recip.</hi>]<lb/>
+<figure/> (welches ſich in der mitte von einander thut/ vnd wieder<lb/>
+zuſchrauben laͤſſt) auch feſt/ vnd ſtreiche auf den Zapf-<lb/>
+fen Schmiergel/ mit Waſſer angefeuchtet/ wie oben ge-<lb/>
+meldet; nimbt das Jnſtrument/ darein der Zapffen ge-<lb/>
+faſſt/ mit beiden haͤnden/ vnnd reibet damit den Zapffen<lb/>
+<fw type="sig" place="bottom">B iij</fw><fw type="catch" place="bottom">in</fw><lb/>
+<pb n="22" facs="#f0026"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+in der Flaͤſchen Halß ſtaͤtig vmb vnnd vmb/ gleich als<lb/>
+wie die Kupffer-gieſſer thun/ wann ſie die Kranen dicht<lb/>
+machen/ die man in die Wein- oder Bier-faͤſſer ſtecket/<lb/>
+vnd muß ſolches vmbreiben ſo lang geſchehen/ biß der<lb/>
+Stoͤpffel wol darein ſchlieſſe; darnach aufs new wieder<lb/>
+mit Trippel gethan/ ſo wird es dicht vnd gut/ gleich als<lb/>
+wan es an einer Traͤhe-banck gethan were.</p><lb/>
+<p>Auf dieſe weiſe muͤſſen auch die groſſen Glaͤſernen<lb/>
+<hi rendition="#aq">Recipien</hi>ten/ zu dem erſten Ofen gehoͤrig/ in einander<lb/>
+geſchlieffen werden/ auf daß man dieſelben nicht verlu-<lb/>
+tiren darf/ wie oben davon gedacht worden. Deßglei-<lb/>
+chen werden auch die Stoͤffel in die Phiolen geſchliffen/<lb/>
+darin man etwas figiren wil/ auf daß man ſolche nicht<lb/>
+verlutiren darf/ ſondern nur den Stoͤpffel darein ſetzet/<lb/>
+vnd ein Bleyern huͤtlein darauf hencket/ wofern die <hi rendition="#aq">ſpi-<lb/>
+ritus</hi> durch vbel regierung des Fewers zu ſtarck getrie-<lb/>
+ben wuͤrden/ das Glaß nicht zerſpringe/ ſondern den<lb/>
+Stoͤpffel etwas aufheben vnnd luft ſchoͤpffen koͤnne/<lb/>
+weilen dan ſolcher mit einem Bleyern huͤtlein beſchwe-<lb/>
+ret iſt/ alſobald wieder darauf ſitzet vnd die Phiol wie-<lb/>
+der geſchloſſen iſt/ vnnd iſt dieſer <hi rendition="#aq">modus</hi> die Phiolen zu<lb/>
+ſtopffen/ viel beſſer/ als wann ſolches mit Kurck/<lb/>
+Wachs/ Schwefel oder andern dingen geſchehen were;<lb/>
+dann wann ja vberſehen wird/ daß das Fewer zu ſtarck<lb/>
+gehet/ gleichwol das Glaß nicht brechen kan/ ſondern<lb/>
+ſo oft der <hi rendition="#aq">ſpiritus</hi> zu viel werden/ der Stoͤpffel nur ein<lb/>
+wenig außlaͤſſt/ vnnd das Glaß gantz bleibet: Wiewol<lb/>
+nun dieſer <hi rendition="#aq">modus</hi> beſſer als der bekandte iſt/ ſo iſt doch<lb/>
+noch ein beſſerer/ die <hi rendition="#aq">ſpiritus</hi> zu halten/ vnnd doch kein<lb/>
+Glaß brechen kan. Nemblich dieſer/ daß man eine<lb/>
+trumme glaͤſerne Roͤhren machen laſſe/ nach beygeſetz-<lb/>
+<fw type="catch" place="bottom">ter Fi-</fw><lb/>
+<pb n="23" facs="#f0027"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+ter Figur; in welches<lb/>
+Bauch man ein oder<lb/>
+zwey loth <hi rendition="#aq">Mercurii vi-<lb/>
+vi</hi> leget/ vnnd ſetzet dieſe<lb/>
+Sack-roͤhren mit dem<lb/>
+<hi rendition="#aq">Mercurio</hi> auf die Phiol/<lb/>
+darin die <hi rendition="#aq">materi</hi> zu figi-<lb/>
+ren iſt/ [als zum Exem-<lb/>
+pel/ <hi rendition="#aq">A</hi> die Sack-roͤhre/<lb/>
+<hi rendition="#aq">B</hi> die Phiol/ vnnd oben<lb/>
+von dem Bleyerne huͤt-<lb/>
+lein <hi rendition="#aq">A,</hi> mit der Phiol<lb/>
+<hi rendition="#aq">B</hi> vermeldet iſt/] vnnd<lb/>
+verlutire ſolche auf die<lb/>
+Phiol/ darin deine <hi rendition="#aq">mate-<lb/>
+ri</hi> zu figiren iſt/ ſo kan die<lb/>
+Phiol nimmermehr bre-<lb/>
+chen.</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#k">nb.</hi></hi> Dieſe ob erzehlte<lb/>
+weiſe/ die Glaͤſer vor<lb/>
+dem zerbrechen zu be-<lb/>
+wahren/ ſeind zwar an<lb/>
+ſich ſelber gut/ bey denen/ <figure/><lb/>
+die auf keinem rechten Weg ſeind/ vnnd ſich mit aller-<lb/>
+hand <hi rendition="#aq">diſtilli</hi>rten <hi rendition="#aq">ſpiritibus,</hi> der Salien/ Mineralien<lb/>
+vnd Metallen zu figiren martelen vnd quaͤlen; welche/<lb/>
+ſo dieſelbe ſchon durch lange zeit/ mit vielem koſten<lb/>
+fix gemacht dannoch das jenige nicht thun/ was<lb/>
+von jhnen verhoffet wird/ in dem ſolche <hi rendition="#aq">fixationes</hi><lb/>
+durch gewalt vnd zwang geſchehen ſeyn/ die der Natur<lb/>
+entgegen; wo man aber etwas nuͤtzliches in figirung der<lb/>
+<fw type="sig" place="bottom">B iiij</fw><fw type="catch" place="bottom">Geiſter</fw><lb/>
+<pb n="24" facs="#f0028"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+Geiſter zu hoffen hat/ muß die Natur gefolgt werden/<lb/>
+vnnd nicht alſo plumb darein gedapt/ dann nur die vn-<lb/>
+weiſen in jhrer vermeinten <hi rendition="#aq">Tinctur</hi> viel Glaͤſer zer-<lb/>
+brechen die <hi rendition="#aq">Philoſophi</hi> aber nicht/ dan alles das mit ge-<lb/>
+walt geſchicht/ iſt der Natur entgegen/ vnnd alles was<lb/>
+mit der Natur gehet/ geſchicht auß liebe; derohalben all<lb/>
+die jenigen irren/ vnnd zu keinem guten Ende nimmer-<lb/>
+mehr gelangen werden/ die jhre <hi rendition="#aq">fixationes</hi> mit gewalt<lb/>
+vermeinen zu verrichten.</p><lb/>
+<p>Jch kan nicht glaͤuben/ wann man halb oder gar ge-<lb/>
+toͤdtete <hi rendition="#aq">corpora</hi> zwingen wolte/ daß dieſelben ſich mit<lb/>
+ein ander vermiſchen vnnd vermehren ſolten/ geſchehen<lb/>
+wuͤrde; das aber glaub ich wol/ wann ein lebendiger ge-<lb/>
+ſundter Man mit einem lebendigen geſunden Weib/<lb/>
+zuſamen behoͤrlich wol geſpeiſet vñ getraͤncket wuͤrden/<lb/>
+daß beider angebohrne Natur die vermiſchung vnnd<lb/>
+forth-pflantzung ſelber/ ohne zwang/ verurſachen. Ja<lb/>
+lieb vnd leid bey einander außſtehen/ vnnd bey einander<lb/>
+leben vnnd ſterben; jene aber die todt ſind/ vnnd mit<lb/>
+gewalt zuſammen gebracht/ alzeit todt bleiben wuͤrden;<lb/>
+dann ſehet doch an/ wie viel wunderbahrliche <hi rendition="#aq">Jnſtru-<lb/>
+menta</hi> von Golt/ Silber/ Kupffer/ Eiſen/ Zin vnnd<lb/>
+Bley/ wie auch von Erden/ Glaß/ Stein/ vnd andern<lb/>
+<hi rendition="#aq">Materia</hi>lien formirten geſchirren/ hat man doch ge-<lb/>
+ſucht den armen <hi rendition="#aq">Mercurium</hi> mit gemeinem Gold vnd<lb/>
+Silber zu figiren/ vnnd Fewer-beſtaͤndig zu machen/<lb/>
+aber niemahls hat gluͤcken wollen/ weilen beide nicht zu-<lb/>
+ſammen gehoͤren/ vnd keine angeborne liebe zuſammen<lb/>
+tragen; dann ob ſchon der <hi rendition="#aq">Mercurius</hi> den Metallen an-<lb/>
+haͤngt/ oder die Metallen jhme/ ſo geſchicht doch ſolches<lb/>
+nicht/ als wann dieſelben zuſammen gehoͤrten/ vnd eins<lb/>
+<fw type="catch" place="bottom">dem</fw><lb/>
+<pb n="25" facs="#f0029"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+dem andern zur verbeſſerung vnd forthpflantzung helf-<lb/>
+fen koͤnte/ gantz nicht/ weilen gnug bekant iſt/ wan ſolche<lb/>
+<hi rendition="#aq">conjunctio</hi> das Fewer empfindet/ der <hi rendition="#aq">Mercurius</hi> im<lb/>
+geringſten bey dem Golt/ Silber oder andern Metallen<lb/>
+bleiben wil/ noch kan/ ſondern ſich gaͤntzlich davon<lb/>
+ſcheidet/ welches genug anzeigt/ daß kein angebohrne<lb/>
+Liebe zur vermehrung zwiſchen jhnen ſey/ vnnd auch<lb/>
+nimmermehr werden kan; die jenige Dinge aber/ die<lb/>
+zuſammen gehoͤren/ lieben auch einander/ vnd weichen<lb/>
+nicht wieder von einander/ wann dieſelbe auch noch ſo<lb/>
+fluͤchtig weren/ gleich wie der <hi rendition="#aq">Mercurius</hi> bey dem Golt<lb/>
+vnd Silber <hi rendition="#aq">communi</hi> thut/ ſondern halten alſo zu-<lb/>
+ſammen/ daß auch das Fewer mit al ſeiner macht ſo<lb/>
+ſtarck nicht iſt/ ſolche wieder zu trennen oder ſcheiden;<lb/>
+darumb man wol in acht nehmen muß/ wann man et-<lb/>
+was figiren wil/ ob es auch zuſammen gehoͤre oder nicht/<lb/>
+findet man ſolches/ ſo darf man ſich nicht vmbſehen wo<lb/>
+man Glaͤſer mit langen haͤlſen hernehmen woͤlle/ die-<lb/>
+ſelben zu figiren/ ſie werden ſich ſelber halten vnnd bin-<lb/>
+den/ weilen eins zum andern gehoͤret; ſo du aber ſolche<lb/>
+Dinge nicht kenneſt/ ſo bleibſtu beſſer davon/ vnnd laſſe<lb/>
+dein kochen verbleiben/ dan doch nichts gutes auß kom-<lb/>
+men wird/ wie ich vnnd andere ſolches mit ſchaden ge-<lb/>
+nug erfahren haben/ vnd noch taͤglich von vnzaͤhlichen<lb/>
+erfahren wird; daß du mich aber beſſer verſteheſt was zu-<lb/>
+ſammen gehoͤre vnnd ſich im Fewer behalte/ ſo mercke<lb/>
+dieſes.</p><lb/>
+<p>Nemlich/ ſo jemand gemein regen- oder ander Waſ-<lb/>
+ſer auf Golt/ Silber oder ein ander Metall gieſſen<lb/>
+wolte/ in meinung/ ſolche beide zuſammen zu figiren;<lb/>
+wuͤrde nicht jederman ſeiner ſpotten/ vnnd ſagen/ daß er<lb/>
+<fw type="sig" place="bottom">B v</fw><fw type="catch" place="bottom">ein</fw><lb/>
+<pb n="26" facs="#f0030"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+ein naͤrriſch Werck vor haͤtte? Jch glaub ja/ er muͤſte<lb/>
+dan ſelber ein Narr ſeyn: Siehe nun/ lieber Sucher<lb/>
+der Kunſt/ wie vnverſtaͤndig doch in dieſen wichtigen<lb/>
+Dingen gehandelt wird/ dann der mehrentheil Zeit bey<lb/>
+den Gelt- geitzigen Al- gemiſten mit ſolchem lumpen<lb/>
+werck zugebracht wild/ dahero ſie auch einerndten was<lb/>
+ſie geſaͤet haben/ vnd endlich nach viel erlittener muͤhe/<lb/>
+arbeit/ geſtaͤnck vnd wachen/ das Werck als vntuͤchtig<lb/>
+muͤſſen ligen oder ſtehen laſſen. Ob nun ſchon eben<lb/>
+kein gemein Waſſer dazu genommen wird/ ſo habe ich<lb/>
+doch viel mahl geſehen vnnd gehoͤrt/ daß etliche den<lb/>
+Majen-Taw/ Schnee oder Regen/ der im Mertzen ge-<lb/>
+fallen/ Waſſer/ welches von den Stern-butzen/ etlichen<lb/>
+Kraͤutern/ Thieren vnd andern zu ſolchem Werck vn-<lb/>
+tuͤchtigen dingen gediſtillirt worden/ fuͤr jhr <hi rendition="#aq">Menſtruum</hi><lb/>
+gehalten/ vnd darin geſudelt: Wie nun dieſe oberzehlte<lb/>
+Dinge vnmoͤglich mit einem Metall <hi rendition="#aq">radicaliter</hi> zu<lb/>
+<hi rendition="#aq">conjun</hi>giren ſeyn/ alſo wird auch in ewigkeit nichts gu-<lb/>
+tes darauß koͤnnen gemacht werden/ dan ſie ſo weit von<lb/>
+einander ſeyn; vnd iſt eben als wolt einer ein hohe oder<lb/>
+lange Leiter auf ſteigen/ welche viel ſproſſen haͤtte/ vnd<lb/>
+von der vnterſten auf die oberſte ſchreitten/ welches dan<lb/>
+nicht geſchehen wuͤrde; alſo iſt auch vnmuͤglich/ Dinge<lb/>
+zuſammen zu fuͤgen/ die weit in jhrer Natur von einan-<lb/>
+der ſeyn. Gleich wie man aber algemach ohne gefahr<lb/>
+eine ſehr hohe Leiter gantz gemaͤchlich/ wan man/ nem-<lb/>
+lich/ von einem ſproſſen auf den andern ſchreittet/ auf-<lb/>
+ſteigen kan.</p><lb/>
+<p>Alſo auch geſchicht/ wann man ja die <hi rendition="#aq">extrema,</hi> wel-<lb/>
+ches doch vnnoͤtig/ wolte zuſammen bringen/ erſtlich<lb/>
+das jenige in eine ſolche <hi rendition="#aq">materi,</hi> die jhme am nechſten<lb/>
+<fw type="catch" place="bottom">verwandt/</fw><lb/>
+<pb n="27" facs="#f0031"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+verwandt/ bringen muͤſte; hernacher ſolche wieder mit<lb/>
+einer/ die jhme am naͤchſten were/ vnd alſo forthan/ ſolte<lb/>
+es wol geſchehen koͤnnen/ aber in einer ſehr langen Zeit/<lb/>
+ohne nutzen vnd gewin. Derohalben man ſolche Din-<lb/>
+ge zuſammen ſetzen ſolte/ die einander nahe verwandt<lb/>
+ſeyn/ ſo wird ſich eines des andern erfrewen/ gern em-<lb/>
+pfangen/ vberwinden vnd behalten.</p><lb/>
+<p>Als zum Exempel/ es iſt ein einiges Saltz/ welches<lb/>
+ein jedweder gemein Waſſer <hi rendition="#aq">corpora</hi>liſch zu machen/<lb/>
+vnd in ein hart <hi rendition="#aq">corpus</hi> ſelbigem Saltze gleich/ <hi rendition="#aq">coagu-</hi><lb/>
+liren vnd zu figiren macht hat/ welches ſonſten kein an-<lb/>
+der Saltz thun kan; deßgleichen kan daſſelbe Saltz nur<lb/>
+von einem einigen Mineral/ welches doch zu vorn gantz<lb/>
+vnhaͤltig/ in kurtzer zeit mit dem Mineral figiret wer-<lb/>
+den. Auch koͤnnen die Mineralien durch Metallen/<lb/>
+vnd die Metallen (dieſes letzte ich zwar noch niemahls<lb/>
+gethan) durch eine ſolche <hi rendition="#aq">materi,</hi> die beſſer iſt als ein<lb/>
+Metall/ ohne zweifel fix vnnd in allen proben beſtaͤndig<lb/>
+gemachet werden; daß es aber darumb noͤtig ſeyn ſolte/<lb/>
+wan man Mineralien oder Metallen figiren wolte/ erſt<lb/>
+zu vnterſt an zu fangen das Waſſer in ein Saltz/ vnnd<lb/>
+das Saltz in ein Mineral zu verwandeln/ nein gantz<lb/>
+nicht/ man darff ſolchen weiten Weg nicht nehmen/<lb/>
+ſondern nur anfangen/ an ſolchen Dingen/ da die Na-<lb/>
+tur albereit jhr beſtes an gethan/ vnnd daran weiters zu<lb/>
+arbeiten aufgehoͤret hat/ dann ſolte hofnung ſeyn/ wan<lb/>
+keine wider-waͤrtige Naturen zuſammen geſetzet wuͤr-<lb/>
+den/ daß etwas gutes darauß werden moͤchte/ ſonſten<lb/>
+gantz nicht/ ſiehe an/ wie gern die Natur doch helffen<lb/>
+wil/ wan jhme nur das jenige geben wird/ deme ſie helf-<lb/>
+ſen kan.</p><lb/>
+<fw type="catch" place="bottom">Als</fw><lb/>
+<pb n="28" facs="#f0032"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+<p>Als zum Exempel: Mache ein rein Saltz durch <hi rendition="#aq">ſol-<lb/>
+vi</hi>ren vnnd <hi rendition="#aq">coaguli</hi>ren auß dem gebrandten <hi rendition="#aq">Tartaro,</hi><lb/>
+(bilde dir aber nicht ein/ daß dieſes Saltz das jenige ſey/<lb/>
+davon ich kurtz oben gedacht/ gantz nicht/ dann noch ein<lb/>
+anders vnnd beſſers iſt) vnnd Waͤge ſolches nach dem<lb/>
+außgluͤen/ vnnd behalt das gewicht/ darnach gieſſe halb<lb/>
+ſo ſchwer/ als das Saltz gewogen/ rein Regen-waſſer<lb/>
+darauf/ auf daß du aber keinen arg-wohn habeſt/ daß<lb/>
+das Waſſer etwas vnreines bey ſich gehabt/ ſo diſtillire<lb/>
+ſolches zuvorn/ vnnd ſetze das Saltz mit dem Waſſer in<lb/>
+einen Sand oder <hi rendition="#aq">Balneum, abſtrahi</hi>re das Waſſer<lb/>
+fein linde davon/ gieſſe ſolches wieder darauf/ ziehe es<lb/>
+wieder davon/ vnd ſolches auf gieſſen vnd <hi rendition="#aq">abſtra</hi>hiren<lb/>
+thue ſo oft vnnd lang biß es genug iſt/ oder biß al dein<lb/>
+Waſſer verlohren iſt; dann nimb das Saltz auß dem<lb/>
+kolben/ gluͤe ſolches auß vnd waͤge es/ ſo wirſtu befinden/<lb/>
+daß es am gewicht wird zu genommen haben; vnnd iſt<lb/>
+ſolches gewicht oder zuwachs nicht anders als Waſſer<lb/>
+geweſen. <hi rendition="#aq"><hi rendition="#k">nb.</hi></hi> Die <hi rendition="#aq">coho</hi>bierung des Waſſers vber dem<lb/>
+Saltz muß aber ſehr oft geſchehen: Siehe/ alſo kan<lb/>
+durch Kunſt das Waſſer zu einem Saltz werden/ vnnd<lb/>
+ſo forth an; ſo du das nicht glauben kanſt/ daß auß ei-<lb/>
+nem greiflichen Weſen/ ein ander greifliches vnd fixers<lb/>
+werden kan/ wie ſoltu dan glauben koͤnnen/ daß ein vn-<lb/>
+greiffliches Weſen/ als die Sonn oder nur das Fewr/<lb/>
+greifflich vnnd fix/ davon in meinem Tractaͤtlein/ <hi rendition="#aq">De<lb/>
+Auro Potabili vero,</hi> etwas meldung geſchehen/ vnnd<lb/>
+hernach in <hi rendition="#aq">libro de Generatione Metallorum,</hi> ein<lb/>
+mehrers (geliebt es Gott) folgen ſoll/ werden koͤnne?</p><lb/>
+<p>Dann dieſes muſtu wiſſen/ daß ſich die <hi rendition="#aq">Elementa</hi><lb/>
+mit jhren Fruͤchten <hi rendition="#aq">circu</hi>liren/ ſich eins in das andere<lb/>
+<fw type="catch" place="bottom">verwan-</fw><lb/>
+<pb n="29" facs="#f0033"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+verwandelt/ ſich eins von dem andern nehret vnnd er-<lb/>
+haͤlt; als Erden gibt Waſſer/ Waſſer gibt Lufft/ Lufft<lb/>
+macht Fewer/ vnd Fewer wird wieder zu Erden; wann<lb/>
+es rein iſt/ wird auch ein reine Erden darauß/ ꝛc. Auf<lb/>
+daß du aber wohl verſteheſt/ wie das jenige/ das ſol fi-<lb/>
+girt werden/ muͤſſe von einem andern darzu es ſonder-<lb/>
+bahre liebe vnnd freundſchafft trage/ gehalten werden/<lb/>
+ſo mercke diß grobe/ doch dentlich Exempel: Wann ein<lb/>
+Ackerman etwas in die Erde ſaͤen wil/ daß es ſich darin<lb/>
+vermehren ſolle/ ſo iſt es jhme nicht gleich/ in was Er-<lb/>
+den er ſeinen Samen lege/ ſondern erwchlet jhme ein ſol-<lb/>
+che Erden/ die auch bequaͤm ſey zur vermehrung ſeines<lb/>
+Sahmens/ als ein ſolche/ die nicht zu trucken noch zu<lb/>
+naß ſey; dann ſo er in lautern Sand ſeinen Sahmen<lb/>
+legen wolte/ wuͤrde derſelbe darin nicht koͤnnen forth<lb/>
+kommen/ ſondern verdorren vnd gantz verderben; ſo er<lb/>
+aber ſolchen in ein Waſſer legte/ verfaulen vnd gleicher<lb/>
+weiſe verderben. Dan ein jedweders/ das ſol erhalten<lb/>
+werden vnd bleiben/ in ſeiner gleichmaͤſſigen <hi rendition="#aq">tempera-</hi><lb/>
+tur beſtehen muß/ vnd je gleichmaͤſſiger <hi rendition="#aq">tempera</hi>tur/ je<lb/>
+beſtaͤndiger Weſen.</p><lb/>
+<p>Weilen dan zu forth-wachſung vnd vermehrung der<lb/>
+<hi rendition="#aq">vegetabi</hi>lien eine feuchtigkeit noͤhtig/ ohne welches ſie<lb/>
+nicht forth-wachſen koͤnnen/ vnd ob ſchon der Same in<lb/>
+einem naſſen Sande laͤge/ vnnd hernach die warmen<lb/>
+Sonnen ſtralen hart darauf fielen/ ſo wuͤrde das Waſ-<lb/>
+ſer gar leichtlich durch die hitze derſelben auß getrieben/<lb/>
+vnnd der Samen in dem trucknen Sande verbrennen<lb/>
+vnd verderben/ weilen das Waſſer mit dem Sand kei-<lb/>
+ne gemeinſchaft hat/ vnnd von jhme nicht kan gehalten<lb/>
+werden/ dadurch der Sahmen ſeine nahrung vnnd<lb/>
+<fw type="catch" place="bottom">wachſtumb</fw><lb/>
+<pb n="30" facs="#f0034"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+wachſtumb behielte/ ſo aber in dem Sande ein bequaͤ-<lb/>
+mes Saltz iſt/ daran ſich der Regen halten/ vnd vor der<lb/>
+Sonnen hitz ohn auß getrieben bleiben kan/ ſo haͤlt der<lb/>
+Sand das Saltz/ vnnd das Saltz das Waſſer/ dadurch<lb/>
+die Frucht ſeine nahrung hat.</p><lb/>
+<p>Es gilt aber nicht gleich/ was es fuͤr ein Saltz ſeye/<lb/>
+dan ob ſchon Chriſtus bey <hi rendition="#aq">Luce 14. v. ult.</hi> ſaget: Wan<lb/>
+das Erdreich nicht geſaltzen iſt/ ſo iſt es dumm/ vnd kan<lb/>
+keine Frucht bringen; ſo iſt doch kein gemein Saltz ge-<lb/>
+meinet/ dann etliche <hi rendition="#aq">Salia,</hi> als <hi rendition="#aq">Sal commune, Vi-<lb/>
+trioli, Alumnis</hi> vnd dergleichen/ den Gewaͤchſen nicht<lb/>
+allein keinen nutzen bringen/ ſondern auch gantz ſchaͤd-<lb/>
+lich ſeyn/ vnd das wachſtumb wegen jhrer trucknen vnd<lb/>
+ſcharpffen Natur verhindern/ hergegen aber die <hi rendition="#aq">Urino-<lb/>
+ſi</hi>ſche <hi rendition="#aq">Sali</hi>en daſſelbe befoͤrderen; welches die Bauren<lb/>
+beſſer verſtehen/ als oftermahls die vermeinte <hi rendition="#aq">Philoſo-<lb/>
+phi:</hi> Dann wann ein Erdreich vnfruchtbar iſt/ wiſſen<lb/>
+ſie jhme mit den <hi rendition="#aq">Excrementis</hi> der Thieren zu helffen/<lb/>
+welches dan nichts anders iſt/ als ein <hi rendition="#aq">Urino</hi>ſich Saltz<lb/>
+mit eim Schwefel vermiſchet/ davon die Erden fett<lb/>
+vnd fruchtbar gemacht wird/ auf ſolche weiſe/ wie oben<lb/>
+gemeldet/ nemlich/ dem Regen-waſſer ein <hi rendition="#aq">vehiculum</hi><lb/>
+zu geben/ daß es ſo leichtlich nicht von der Sonnen<lb/>
+wird auß getrucknet/ vnd liebet auch ein jedweder Sah-<lb/>
+men/ welcher in einem <hi rendition="#aq">Sale urinoſo</hi> vnd <hi rendition="#aq">Sulphure</hi> be-<lb/>
+ſtehet/ gern ſeines gleichen/ davon er ſeine nahrung<lb/>
+hat vnd geneuſſt/ welches ſo wohl bey den Gelehrten als<lb/>
+Vngelehrten wenig in acht genommen wird; die Bau-<lb/>
+ren ſeind zu entſchuldigen/ daß ſie nicht mehr wiſſen/ als<lb/>
+was ſie von jhren Vorfahren geſehen/ vnnd als ein<lb/>
+Handwerck nach thun; andere aber/ deren Nahmen ich<lb/>
+<fw type="catch" place="bottom">nicht</fw><lb/>
+<pb n="31" facs="#f0035"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+nicht beſchaͤmen wil/ die ſich ruͤhmen/ vnd ein Titel fuͤh-<lb/>
+ren etwas in der Natur zu verſtehen; ſolten billig beſſer<lb/>
+vrſach vom wachſtumb aller Dingen zu geben wiſſen/<lb/>
+als ſie thun/ welches fuͤrwahr ein ſchande iſt/ daß die<lb/>
+Bauren in ſolchen Dingen mehr verſtehen als die Ge-<lb/>
+lehrten; jederman kan das wol ſagen/ der Miſt duͤnget<lb/>
+vnd macht wachſen/ aber wie er wachſen macht/ wird<lb/>
+geſchwiegen; wan kein <hi rendition="#aq">Sal-nitroſum</hi> in dem Miſt were/<lb/>
+gewißlich wuͤrde er nicht fruchtbar machen/ dann ge-<lb/>
+nugſamb bewuſt iſt/ daß auß allen <hi rendition="#aq">Excrementis anima-<lb/>
+lium,</hi> ein guter Salpeter kan gemacht werden/ beſtehet<lb/>
+alſo die gutthat des Miſts nur allein im <hi rendition="#aq">Sale urinoſo,</hi><lb/>
+welches darin iſt/ vnd nicht in dem Strohe oder Huͤlſen.</p><lb/>
+<p>Moͤchte jemand ſagen/ muß dann eben ein ſolches<lb/>
+Saltz dem wachſtumb der <hi rendition="#aq">vegetabi</hi>lien dienen vnnd<lb/>
+helffen/ das in dem Miſt der <hi rendition="#aq">Animalien</hi> iſt/ warumb<lb/>
+thut es nicht auch ein ander Saltz; darauf iſt albereit<lb/>
+ſchon oben geantwortet/ daß gleich ſeinem gleichen helf-<lb/>
+ſen kan vnd muß/ vnnd ein <hi rendition="#aq">contrarium</hi> das ander ver-<lb/>
+derbe: Dann die erfahrung bezeuget/ daß ein jedweder<lb/>
+Sahmen nicht in eim <hi rendition="#aq">Sale acido,</hi> ſondern in einem <hi rendition="#aq">Sale<lb/>
+urinoſo</hi> mit <hi rendition="#aq">Sulphure</hi> vermiſcht beſtehet/ darumb er<lb/>
+auch ſeines gleichen ſuchet vnnd liebet; der ſolches nun<lb/>
+nicht weiß oder glauben wil/ der kan es verſuchen/ vnd<lb/>
+diſtilliren <hi rendition="#aq">per Retortam,</hi> ein pfund Sahmen eines<lb/>
+Krauts/ welches er wil/ ſo wird er befinden/ daß kein<lb/>
+<hi rendition="#aq">ſpiritus acidus,</hi> ſondern ein <hi rendition="#aq">phlegma</hi> mit vielem Oel<lb/>
+vnd <hi rendition="#aq">Sale volatili</hi> vbergehet; alſo/ daß der gantze Reci-<lb/>
+pient davon weiß vberzogen wird/ welches kein Wurtzel<lb/>
+oder Stiel des Krauts thun wird; dann die edleſte<lb/>
+Kraft/ Geruch vnd Geſchmack der wachſenden Din-<lb/>
+<fw type="catch" place="bottom">gen/</fw><lb/>
+<pb n="32" facs="#f0036"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+gen gehet bey allen <hi rendition="#aq">Vegetabi</hi>lien/ <hi rendition="#aq">Anima</hi>lien vnd <hi rendition="#aq">Mi-<lb/>
+nera</hi>lien in den Sahmen/ vnd hat die vorſichtige Na-<lb/>
+tur daran jhr beſtes gethan/ daß ſie/ nemlich/ das beſte<lb/>
+theil in den Sahmen ordiniret hat/ der auch das meiſte<lb/>
+außſtehen vnd leiden muß/ vnd wird der Sahmen/ wie<lb/>
+geſagt/ von ſeines gleichen vnterhalten/ ernehret/ vnnd<lb/>
+geſpeiſet.</p><lb/>
+<p>Dieſer Diſcurs hette wohl alhier koͤnnen auſſen ge-<lb/>
+laſſen bleiben/ iſt aber nur darumb geſchehen/ auf daß<lb/>
+man des wachſens aller Dingen vrſach erkenne/ vnd<lb/>
+auch das jenige von <hi rendition="#aq">attrahi</hi>rung oder <hi rendition="#aq">figi</hi>rung aller<lb/>
+Dingen deſto beſſer koͤnnen verſtanden werden.</p><lb/>
+<p>Muͤſſen alſo zum beſchluß alle wachſende vnnd ver-<lb/>
+mehrende/ ſo wol <hi rendition="#aq">vegetabili</hi>ſche/ <hi rendition="#aq">animali</hi>ſche als <hi rendition="#aq">Mi-<lb/>
+nerali</hi>ſche Dinge auß angeborner liebe/ vnnd nicht auß<lb/>
+zwanck vnd trang/ geſchehen/ gleich bey den vermeinten<lb/>
+Chimiſten taͤglich gethan wird; vnd iſt auch kein wun-<lb/>
+der/ daß ſo viele jhr gewuͤndſchtes Ende nicht erlangen/<lb/>
+weilen ſie gegen die Natur jhr Werck anſtellen vnd zu<lb/>
+vol-fuͤhren vermeinen.</p><lb/>
+<p>Derohalben auch ein jedweder/ der etwas zu figiren<lb/>
+geſinnet iſt/ zuſehe/ was er jhme zuſetze/ dardurch ſolches<lb/>
+gehalten werde/ dann ohne ein haltung iſt es vnmoͤglich<lb/>
+das geringſte zu figiren/ das Fewer thut zwar ſein be-<lb/>
+ſtes/ aber es kan nicht helffen/ das gegen die Natur iſt;<lb/>
+vnd wann es etwas antrifft/ das nicht nach der Natur<lb/>
+<hi rendition="#aq">ordin</hi>irt oder <hi rendition="#aq">conſtru</hi>irt iſt/ verzehret vnd verderbet es<lb/>
+gaͤntzlich/ vnnd kan nichts gegen das Fewer beſtehen/<lb/>
+als allein das jenige/ das wol vnnd rechtmaͤſſig zuſam-<lb/>
+men gehoͤret; darnach ſich ein jedweder zu richten vnd<lb/>
+ſein <hi rendition="#aq">fixation</hi> an zu ſtellen (auf daß er nicht verlohren<lb/>
+muͤhe vnd arbeit zu lohn bekomme) wiſſen wird.</p></div><lb/>
+<fw type="catch" place="bottom">Wie</fw><lb/>
+<pb n="33" facs="#f0037"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+<div n="1"><head><hi rendition="#b">Wie man gute beſtaͤndige Tigel<lb/>
+machen ſol.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Eilen man zum vierten Ofen gute Tigel vonnoͤh-<lb/>
+ten hat/ vnd ſolche nicht allenthalben zu bekommen<lb/>
+ſeyn/ alſo achte ich gut jhre bereittung zu beſchreiben/<lb/>
+dann ich wol weiß/ daß manchem oftermahls ſolche<lb/>
+mangeln/ vnd ſich mit vntuͤchtigem gut behelffen muß/<lb/>
+da dann nicht allein vielmahls groſſer ſchaden gelitten<lb/>
+wird/ wann dieſelben im Fewer nicht halten/ ſondern<lb/>
+reiſſen/ vnnd das Metall außlauft/ ſondern auch gantz<lb/>
+verdrießlich iſt/ wann man das auß-gelauffene Metall<lb/>
+in der Aſchen ſuchen/ vnd ſein vorhabend Werck aufs<lb/>
+newe wieder anfangen muß.</p><lb/>
+<p>Es iſt ein groſſer Jrꝛthumb vnnd Thorheit (bey den<lb/>
+<hi rendition="#aq">Chimicis,</hi> Golt-ſchmieden/ Scheidern vnnd andern/<lb/>
+die Tigel gebrauchen) bißhero geweſen/ daß ſie/ nem-<lb/>
+lich/ jhnen eingebildet/ als wann nirgends gute Erden/<lb/>
+Tigel davon zu machen/ als in Heſſen zu bekommen<lb/>
+were; haben derohalben die Heſſiſche/ wie auch Gibſer<lb/>
+Tigel vnnd Erden mit groſſem vnkoſten hohlen laſſen/<lb/>
+vnnd nicht gedacht/ daß allenthalben dergleichen gute<lb/>
+Erden in Teutſchland mehr zu finden were/ welches<lb/>
+ein groſſe Einfaͤltigkeit der Menſchen iſt; ich muß be-<lb/>
+kennen/ daß die Heſſiſche Erden ſchr gut iſt/ Retorten/<lb/>
+Tigel/ Muͤffel/ vnnd andere Gefaͤß/ die im ſtarcken<lb/>
+Fewer halten ſollen/ davon zu machen/ wie auch die<lb/>
+Gibſer vnnd Waldenburgiſche ſehr geprieſen vnnd ge-<lb/>
+ſuchet werden: Vnd ſolches darumb/ weilen man nicht<lb/>
+gewuſt/ daß an andern oͤrthern dergleichen gute Erden<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">auch</fw><lb/>
+<pb n="34" facs="#f0038"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+auch zu finden ſeye: Nun aber vor wenig Jahren ha-<lb/>
+ben ſich einige vnterſtanden von Erden (die auß<lb/>
+Franckreich vnd Engelland in Holland gebracht wird)<lb/>
+Tigel vnnd dergleichen Gefaͤſen (die im Fewer halten<lb/>
+ſollen) zu machen; vnd ſeind nicht zu verachten/ halten<lb/>
+im Fewer ziemlich wol/ koͤnnen aber nur Metallen vnd<lb/>
+nicht wol <hi rendition="#aq">Salia</hi> (weilen ſolche nicht ſo <hi rendition="#aq">compact</hi> als die<lb/>
+Heſſiſche/ ſondern ſehr luͤck vnd <hi rendition="#aq">poroſè</hi> ſeyn) darinn ge-<lb/>
+ſchmoltzen werden/ derohalben die Heſſiſche/ wann ſie<lb/>
+am rechten Orth herkommen/ noch biß dato den preiß<lb/>
+behalten haben/ welche nicht allein die Metallen/ ſon-<lb/>
+dern auch alle <hi rendition="#aq">Salia</hi> viel beſſer halten/ vnd ob man ſchon<lb/>
+dieſelbe Erden/ davon die Tigel in Heſſen gemacht wer-<lb/>
+den/ an andere oͤhrter hat bringen laſſen/ hat es doch<lb/>
+ſolche gute Tigel nicht geben wollen/ darumb mancher<lb/>
+gemeint/ daß es der Luft vnd Gelegenheit des Landes<lb/>
+thun muͤſſe/ welches doch nicht iſt/ ſondern hat jhnen<lb/>
+nur gemangelt die bereittung vnnd brennung; dann in<lb/>
+Heſſen das Holtz ſo thewr nicht iſt/ wie in Holland/ da-<lb/>
+ſelbſten ſparen ſie kein Fewer/ jhre Tigel damit dicht<lb/>
+vnd biß auf Stein-hart zu brennen/ welches ein kleines<lb/>
+Fewer von Turff nicht thun wil. Derohalben die Ti-<lb/>
+gel/ die nicht hart genug gebrandt ſeyn/ nicht alle Dinge<lb/>
+halten koͤnnen/ wie die Heſſiſche thun.</p><lb/>
+<p>Eben ein ſolcher Jrꝛthumb wird begangen/ wegen<lb/>
+der Kannen/ Potten vnnd andern Geſchirren/ welche<lb/>
+bey Coͤlln zu Frecheimb/ Sieburg vnd andern Orthen<lb/>
+gemachet/ vnnd ſchier durch gantz <hi rendition="#aq">Europam</hi> verfuͤhret<lb/>
+werden/ in deme man jhre guͤtigkeit nur der Erden vnd<lb/>
+nicht der arbeit vnd machens zu geleget; nun aber wird<lb/>
+den ſachen beſſer nach gedacht/ vnd befunden/ daß ein<lb/>
+<fw type="catch" place="bottom">gute</fw><lb/>
+<pb n="35" facs="#f0039"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+gute Erden/ allein ſtarck durch Fewer ſeine haͤrte vnnd<lb/>
+ſteinichte Natur/ vnd nicht von dem Orth da ſie gegra-<lb/>
+ben wird/ erlangen; vnnd iſt wol glaͤublich/ daß ſolche<lb/>
+gute ſteinerne Gefaͤß mit der zeit an andern Orthen zu<lb/>
+machen/ weilen es wol thunlich iſt/ auch wird einen an-<lb/>
+fang nehmen/ dann ein jedweder Erden/ die im brennen<lb/>
+weiß bleibt/ gibt zwar in kleiner gluth nur luͤcke Tigel<lb/>
+vnd Kannen/ mit ſehr ſtarckem vnnd langwehrendem<lb/>
+Fewer aber gantz <hi rendition="#aq">compacte,</hi> einem Glaſe gleich/ dichte<lb/>
+vnnd glatte Geſchirr/ inſonderheit/ wann man gemein<lb/>
+Saltz haͤuffig darauf wirft/ wann der Ofen am aller-<lb/>
+heiſſeſten iſt/ welches Saltz dann den jrdenen Gefaͤſen/<lb/>
+(ob ſie ſchon inwendig <hi rendition="#aq">compact</hi> genug gebrandt ſeyn)<lb/>
+noch zum vberfluß außwendig eine glaͤtte/ als wann ſol-<lb/>
+che verglaſuret/ weren; die dan alle <hi rendition="#aq">Spiritus</hi> deſto beſſer<lb/>
+halten/ anbrennet.</p><lb/>
+<p>Derohalben niemand zweifeln ſol/ daß auß anderer<lb/>
+Erden/ die ſich weiß brennet/ nicht eben dergleichen gu-<lb/>
+te Geſchirr/ an allen Orthen/ mit ſehr ſtarckem Fewer<lb/>
+ſolten koͤnnen gebrandt werden/ vnnd je weiſſer ſich die<lb/>
+Erden brennet/ je beſſer Tigel vnnd ſchoͤnere Kannen<lb/>
+davon zu machen ſeyn: Weilen aber in bereittung der<lb/>
+Erden ein groſſer vnterſcheid iſt/ wann Tigel die ins<lb/>
+Fewer gehoͤren/ oder Kannen die auſſer den Fewr naſſe<lb/>
+dinge halten muͤſſen/ darauß ſollen gemacht werden/ ſo<lb/>
+wil ich beder bereittung/ nemlich/ der Kannen/ die zum<lb/>
+erſten vnnd andern Ofen/ vnd auch der Tigel/ die im<lb/>
+vierdten Ofen zu gebrauchen noͤhtig ſeyn/ beſchreiben.</p><lb/>
+<p>Welches dan alſo geſchicht/ wan man eine reine vnd<lb/>
+weiſſe Erden probiren wil ob ſie gut iſt/ vnnd ſich hart<lb/>
+brennen laſſe/ ſo muß man derſelben ein ſtuͤcklein/ eins<lb/>
+<fw type="sig" place="bottom">C ij</fw><fw type="catch" place="bottom">Huͤner-</fw><lb/>
+<pb n="36" facs="#f0040"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+Huͤner-eyes groß/ alſo vnbereittet in ein groſſe gluth<lb/>
+werffen/ vnnd darauf achtung geben/ ob dieſelbe bald<lb/>
+oder langſamb zerfelt oder zerſpringet/ bleibt ſie beyſam-<lb/>
+men/ ob ſie ſchon viel riſſe bekompt/ iſt nicht an gelegen/<lb/>
+vnd zerfellet nicht gantz in ein pulver/ ſo iſt ſolche gut zu<lb/>
+verarbeiten/ darauf man ſich verlaſſen darf/ wann die<lb/>
+<hi rendition="#aq">mixtur</hi> nur wol gemachet wird/ welches das Meiſter-<lb/>
+ſtuͤck iſt.</p><lb/>
+<p>Die Erden/ davon <hi rendition="#aq">Recipien</hi>ten/ Flaͤſchen vnnd<lb/>
+Kannen ſollen gebrandt werden/ bedarf keiner beſon-<lb/>
+derlichen bereittung/ anders/ als wie die Haͤffner al<lb/>
+jhre Erden zurichten/ nemlich/ weilen ſie gemeiniglichen<lb/>
+zu fett iſt/ mit reinem geſiebten fluͤſſigem Sande ver-<lb/>
+menget/ mit Fuͤſſen getretten vnd endlich mit den Haͤn-<lb/>
+den wieder wol durchwuͤrcket/ vnd davon gemacht was<lb/>
+man bedarf/ an der Sonnen oder an einem andern<lb/>
+warmen orth ſehr wol trucknen laſſen; darnach mit groſ-<lb/>
+ſer gewalt des Fewers/ auch ſo man wil/ mit zuwerf-<lb/>
+fung Saltzes/ 24. oder 30. ſtunden lang/ hart gebren-<lb/>
+net/ gibt ſehr gute <hi rendition="#aq">compact</hi>e Geſchirr/ welche alle naͤſ-<lb/>
+ſigkeiten/ beynahe ſo wol als Glaͤſer/ halten. Wil<lb/>
+man aber Schmeltz-tiegel/ Treib-ſcherben/ Muͤffel/<lb/>
+Deckel auf die Tigel/ oder andere Geſchirr (die groß<lb/>
+Fewer ſollen außſtehen) darauß machen/ ſo muß man<lb/>
+etwas mehr fleiß anwenden/ die Erden zu zurichten/<lb/>
+wie folget: Erſtlich muß man die Erden laſſen an der<lb/>
+Sonnen/ oder andern warmen orth/ wol trucken wer-<lb/>
+den/ mit einem hoͤltzern Hammer klein zerklopfen/ durch<lb/>
+ein groͤblicht Sieb gehen laſſen; vnd zu einem theil die-<lb/>
+ſer geſiebter Erden/ 2. 3. oder bißweilen wol 4. theil<lb/>
+(nach dem die Erde fett iſt) ſolche Erden/ welche zu<lb/>
+<fw type="catch" place="bottom">vorn</fw><lb/>
+<pb n="37" facs="#f0041"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+vorn in eim Haͤffners- Ofen gebrandt iſt/ gepuͤlvert/<lb/>
+vnter-maͤngen/ mit Waſſer anfeuchten/ vnd einen Tag<lb/>
+oder Nacht alſo ligen vnnd ſich durch-weichen laſſen;<lb/>
+darnach mit Fuͤſſen wol durch einander getretten/ vnd<lb/>
+endlich auch wol mit den Haͤnden durch-arbeitet/ ſo iſt<lb/>
+ſie fertig/ darauß zu machen was man wil/ vnnd wann<lb/>
+man Tigel vnnd Treib-ſchaͤrben darauß machen wil/<lb/>
+muß man groſſe vnnd kleine Patronen oder Formen<lb/>
+von Holtz traͤhen laſſen/ daruͤber man ſolche zurichte/<lb/>
+dann ein ſolche Erden/ die im Fewer wol halten ſol/<lb/>
+ſehr mager muß bereittet werden/ die ſich dan nicht wol<lb/>
+auf eim Stuhl wil traͤhen laſſen/ derohalben vber hoͤl-<lb/>
+tzerne Formen gemeinlich geſchlagen wird/ welches al-<lb/>
+ſo hergehet: Man trucket mit den Haͤnden ein ſtuͤck be-<lb/>
+reitter Erden vmb die Form/ welche man in der einen<lb/>
+Hand helt/ vnd mit der andern die Erden vmbſchlaͤget/<lb/>
+oder man ſetzet die Form zwiſchen die Beine/ ſo hat<lb/>
+man beide Haͤnde frey/ vnnd kan deſto beſſer den Tigel<lb/>
+vber das Holtz formen; es muß aber die hoͤltzerne Form<lb/>
+zuvorn in einem geſiebten reinen Sand vmbgewaͤltzet<lb/>
+werden/ ſonſten wuͤrde die Erden ſich hart an das<lb/>
+Holtz hencken/ vnnd der Tigel nicht gantz oder vnzer-<lb/>
+brochen davon koͤnnen abgenommen werden; vnd wan<lb/>
+die Erden wol mit den Haͤnden vber die Patron gefor-<lb/>
+met iſt/ ſo klopffet oder ſchlaͤget man ſolches weiters/ mit<lb/>
+einem darzu gemachten glatten Holtze/ beſſer vnnd fein<lb/>
+dicht daran/ von welchem ſchlagen die Tigel ſtarck vnd<lb/>
+gut werden; vnd nimmet darnach den gemachten Tigel<lb/>
+von der Patron ab/ ſetzet ſolchen auf Bretter/ erſtlich<lb/>
+an die Luft/ vnd hernach an die Sonne oder Fewer zu<lb/>
+trucknen/ vnnd endlich koͤnnen dieſelbe in der erſten<lb/>
+<fw type="sig" place="bottom">C iij</fw><fw type="catch" place="bottom">Kam-</fw><lb/>
+<pb n="36[38]" facs="#f0042"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+Kammer des Ofens/ oder bey einem Haͤffner gebrandt<lb/>
+werden; ſonſten wan man nur Metallen vnd keine <hi rendition="#aq">Salia</hi><lb/>
+darin ſchmeltzen wil/ ſo iſt es nicht noͤhtig daß ſolche ge-<lb/>
+brandt werden/ ſondern iſt genug/ daß dieſelben wol<lb/>
+trucken ſeyn; doch wan ſie vngebrandt ſollen gebraucht<lb/>
+werden/ muß man das Fewer von oben fein langſam<lb/>
+angehen laſſen/ auf daß dieſelben nicht/ wegen gehlinger<lb/>
+hitze/ zu ſtuͤcken ſpringen.</p><lb/>
+<p>Auf daß man aber nicht alzeit zu viel oder zu wenig<lb/>
+Erden vmb die Patron ſchlage/ vnnd der eine Tigel<lb/>
+dicker oder duͤnner werde als der ander/ ſo muß man<lb/>
+den erſten/ der wol gemacht iſt/ in ein Wag-ſchalen le-<lb/>
+gen/ vnnd ſo ſchwer als er waͤgt/ Erden dargegen auf-<lb/>
+ziehen vnnd abwegen/ dann wieder alſo/ ſo lang biß daß<lb/>
+man ſo viel ſtuͤcke Erden/ als man Tigel machen wil/<lb/>
+abgewogen hat/ ſo wird immer ein Tigel ſo ſtarck als<lb/>
+der ander/ vnnd darf man an der Form die Erden nicht<lb/>
+beſchneiden/ wann man zu viel daran geſchlagen hette/<lb/>
+vnd gehet auch deſto ſchneller forth.</p><lb/>
+<p>Dieſes iſt nun ein guter Weg/ ſtarcke vnd beſtaͤndi-<lb/>
+ge Tigel zu machen/ gehoͤret aber viel muͤhe vnnd arbeit<lb/>
+darzu/ derentwegen ich den ſachen beſſer nach gedacht/<lb/>
+vnd die nachfolgende weiſe erfunden/ welche der vori-<lb/>
+gen weit vor zuziehen iſt/ dann nicht allein die Tigel<lb/>
+viel beſſer vnnd ſtaͤrcker dadurch gemacht werden/ ſon-<lb/>
+dern man auch in einer ſtund mehr/ alß auf die be-<lb/>
+kante vnnd erſte weiſe im 3. oder 4. ſtunden kaum ge-<lb/>
+ſchehen/ zurichten kan; vnd geſchicht auf dieſe weiſe.</p><lb/>
+<p>Man laͤſſet eine Patron/ ſo groß der Tigel werden<lb/>
+ſol/ daruͤber ich die Tigel zu ſchlagen gelehret hab/ wie<lb/>
+die Figur mit dem Buchſtaben <hi rendition="#aq">A</hi> anzeigen wird/ von<lb/>
+<fw type="catch" place="bottom">gutem</fw><lb/>
+<pb n="[39]" facs="#f0043"/>
+<figure/>
+<pb n="40" facs="#f0044"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+gutem Moͤſſing gieſſen/ darzu auch eine Huͤlſen/ wie<lb/>
+mit <hi rendition="#aq">B</hi> angewieſen/ darin der Kern oder Patron des<lb/>
+Tigels ſchlieſſe/ doch alſo/ daß der Kern nicht zu tieff in<lb/>
+die Huͤlſen gehe/ ſondern aufs wenigſte eines fingers<lb/>
+dick/ nicht auf den grund reiche/ vnnd wann man ſehr<lb/>
+groſſe Tigel machen wil/ muͤſſen die boͤden noch dicker<lb/>
+werden/ wie dich dann die vbung lehren wird; wan man<lb/>
+nun Tigel machen wil/ ſo ſchlaͤgt man die Erden vmb<lb/>
+die Patron/ gleich oben bey der gemeinen weiß beſchrie-<lb/>
+ben iſt/ vnd nimbt ſolches wieder davon/ laͤſſt denſelben<lb/>
+an der Lufft halb trucken werden/ darnach/ wann man<lb/>
+ſolcher ſo viel hat auß dem groben gemacht/ als man<lb/>
+haben wil/ ſo macht man die Kernen von dem Sand<lb/>
+vnd Erden fein rein vnnd ſauber/ vnd ſchmieret denſel-<lb/>
+ben mit einer Speck-ſchwarten oder Schwaͤmlein/<lb/>
+welches in oͤhl genetzet ſey/ deßgleichen das euſſerſte theil<lb/>
+der Formen inwendig allenthalben wol/ vnnd ſtecket in<lb/>
+die Huͤlſen den halb außgemachten vnd halb truckenen<lb/>
+Tigel/ vnnd ſetzet den Kern darauf/ vnd ſchlaͤgt mit ei-<lb/>
+nem ſchweren hoͤltzern Hammer zwey oder drey mahl<lb/>
+hart auf den Stiel des Kerns/ ſo treibt ſich durch das<lb/>
+ſchlagen die Erden allenthalben fein dicht vnd glat in die<lb/>
+Patron/ wann ſolches geſchehen/ ſo ziehe den Kern her-<lb/>
+auß/ vnnd kehr die Huͤlfe/ darin der Tigel ſtecken bleibt/<lb/>
+vmb/ vnnd ſtoß dieſelbe ein wenig auf eine ſeiten auf die<lb/>
+Banck/ darauf du die Tigel ſchlaͤgeſt/ vnnd halt die<lb/>
+Hand vnter/ ſo faͤlt er dir darein/ welchen du hinſetzen/<lb/>
+trucknen vnnd brennen kanſt/ gleich bey dem erſten ge-<lb/>
+ſagt iſt/ gibt vber die maſſen gute/ wol geproportionirte/<lb/>
+glatte vnnd beſtaͤndige Tigel/ ſo wol allerley Metallen/<lb/>
+als Mineralien vnd <hi rendition="#aq">Sal</hi>ien/ darin fuͤglich zu ſchmeltzen/<lb/>
+<fw type="catch" place="bottom">der-</fw><lb/>
+<pb n="41" facs="#f0045"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+dergleichen an guͤte/ mir niemahln/ ſo lang ich mit Ti-<lb/>
+geln vmbgangen bin/ zuhanden kommen ſeyn/ darauf<lb/>
+man ſich wol verlaſſen mag/ wan ſie nur wol von guter<lb/>
+Erden geſchlagen ſind/ vnd kan man alhier/ gleich oben<lb/>
+bey dem erſten vermeldet/ erſtlich einen machen/ vnnd<lb/>
+denſelben in die Wage legen/ vnnd die Erden darnach<lb/>
+abwaͤgen/ formen vnd ſchlagen; laͤſſt ſich gar geſchwind<lb/>
+thun/ vnd iſt eine ſaubere vnnd luſtige arbeit/ daß man<lb/>
+ſeine Tigel alſo leichtlich/<lb/>
+ſo groß oder klein als<lb/>
+man wil/ ſelber zurichten<lb/>
+vnnd bereitten kan; deß-<lb/>
+gleichen koͤnnen auch die<lb/>
+Treib-ſchaͤrben/ in der-<lb/>
+gleichen Formen/ ſehr<lb/>
+wol vnnd gut gemacht<lb/>
+werden; doch daß der<lb/>
+Kern darnach geſtalt<lb/>
+ſey/ dann er nur flach/<lb/>
+gleich/ wie man Teſten o-<lb/>
+der Cupellen damit pflegt<lb/>
+zu ſchlagen/ vnnd nicht<lb/>
+laͤnglicht/ wie die bey-ge-<lb/>
+ſetzte Figur/ <hi rendition="#aq">A</hi> vnd <hi rendition="#aq">B,</hi><lb/>
+anzeiget/ ſeyn ſolle/ vnnd<lb/>
+koͤnnen in einer Form/<lb/>
+ſo wol die Cupellen als<lb/>
+Treib-ſchaͤrben/ geſchla-<lb/>
+gen werden: Dieſes iſt<lb/>
+aber zu mercken/ daß<lb/>
+<figure/> man die Treib-ſchaͤrben/ viel leichtlicher als die Tigel/<lb/>
+<fw type="sig" place="bottom">C v</fw><fw type="catch" place="bottom">auf</fw><lb/>
+<pb n="42" facs="#f0046"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+auf dieſe weiſe machen kan/ dann man nur die Erden<lb/>
+abwieget vnnd zuſammen gerolt an der Lufft trucknen<lb/>
+laͤſſt/ darnach immer ein ſtuͤcklein nach dem andern in<lb/>
+die Huͤlſen legeſt/ vnnd mit dem obern theil hart hinein<lb/>
+ſchlaͤgeſt/ gibt ſich genug nach dem Kern/ weilen ſolcher<lb/>
+nicht tief/ ſondern nur flag iſt/ vnd gehen auch gar gern<lb/>
+herauß/ wann man/ nemlich/ die Form vmbkehret/ vnd<lb/>
+ein wenig an einem orth auf die Banck ſtoͤſſet; doch ſo<lb/>
+man die Erden gar zu hart in die Forme ſchluͤge/ vnnd<lb/>
+ein theil derſelben ſich zwiſchen der Banck vnnd Form<lb/>
+neben herauß ſchluͤge/ ſo muß man alzeit mit einem<lb/>
+Meſſer ſolches abſchneiden/ welches/ ſo es nicht geſchaͤ-<lb/>
+he/ der Tigel oder Schaͤrben ſich an den Ring halten/<lb/>
+vnd nicht gern außgehen wuͤrde/ welches die vbung ge-<lb/>
+nug lehren wird; dann es nicht moͤglich iſt/ alles ſo gar<lb/>
+deutlich zu beſchreiben.</p><lb/>
+<p>Doch dieſes nimb wol in acht/ daß du die Tigel oder<lb/>
+Schaͤrben nicht zu weich ſchlaͤgeſt/ vnd darnach ſolche<lb/>
+nicht gantz auß der Formen bringen kanſt/ ſondern die-<lb/>
+ſelbe zu vorn halb trucken macheſt/ ſo ſchlagẽ ſich ſolche<lb/>
+deſto dichter/ vnnd gehen auch deſto lieber gantz herauß;<lb/>
+alſo/ daß man 100. kan ſchlagen/ darunter nicht einer<lb/>
+mißlinget/ wann man fleiſſig damit (nach meiner lehr)<lb/>
+vmbgehet; vnd iſt dieſes auch zu mercken/ daß man die<lb/>
+Erden/ welche man von den boͤden/ die zu viel neben<lb/>
+auß-geſchlagen iſt/ abſchneidet/ nicht vnter die andere<lb/>
+thue/ vnnd ſolche damit verderbe; dann weilen die For-<lb/>
+men mit Oehl angeſtrichen werden/ vnnd die Erden/ die<lb/>
+zwiſchen außgehet/ im ſchlagen mehr oder weniger<lb/>
+ſchmutzig davon wird/ vnnd nimmermehr ſich wieder<lb/>
+wol vereinigen laͤſſt/ ſondern im brennen von einander<lb/>
+<fw type="catch" place="bottom">gehet/</fw><lb/>
+<pb n="43" facs="#f0047"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+gehet/ vnnd nicht haͤlt/ dadurch die Tigel vngantz vnd<lb/>
+vntuͤchtig davon wuͤrden: Alſo ſol man ſolche abſchnip-<lb/>
+lein allein legen/ vnnd die Oefen darmit außflicken/<lb/>
+wan ſolche von groſſer hitze geſchmoltzen ſeyn/ oder man<lb/>
+kan Deckel auf die Tigel (auß der Hand/ oder in For-<lb/>
+men geſchlagen) darauß machen/ ſo gehet nichts ver-<lb/>
+lohren/ weilen man doch Deckel zu den Tigeln haben<lb/>
+muß/ vnd gantz nicht zu entrahten ſeyn/ wann man et-<lb/>
+was ſaubers thun wil.</p><lb/>
+<p>Anbelanget die Muͤffeln vnd ander nothwendige be-<lb/>
+reitſchaften/ zum diſtilliren oder ſchmeltzen gehoͤrig/<lb/>
+koͤnnen vber hoͤltzernen Patronen geformbt werden/<lb/>
+nemlbich alſo/ daß man von Holtz ein ſolche Patron<lb/>
+machen laſſe/ wie der Muͤffel oder ein ander Geſchirr<lb/>
+ſeyn ſol/ vnnd von wol gearbeiteter Erden/ mit einem<lb/>
+Kupffer-drath vber zwey gleiche hoͤltzer bletter ſchnei-<lb/>
+de/ auß welchen blettern hernach man mit einem Meſ-<lb/>
+ſer ein ſtuͤck Erden außſchneidet/ vnnd vber die Form<lb/>
+leget/ vnnd daruͤber erharten laͤſſt/ dann abgenommen/<lb/>
+vnd folgends hart gedrucknet vnd gebrandt/ vnd wann<lb/>
+etwas weiters/ mit außſchneiden oder anflicken/ daran<lb/>
+mehr zu thun iſt/ kan ſolches/ wann die Erden noch<lb/>
+nicht trucken/ ſondern nur ein wenig erhartet iſt/ ge-<lb/>
+ſchehen; vnd kan jhme alſo auf dieſe weiſe ein jedweder/<lb/>
+ohne groſſen koſten/ muͤhe vnnd arbeit/ alle Erden-wer-<lb/>
+cken/ die er vonnoͤhten hat/ ſelber zurichten/ bereitten<lb/>
+vnd brennen/ ſo weiß er was er hat/ vnd wie ſeine Tigel<lb/>
+gemacht ſeyn; dann die jenige/ die Tigel oder andere<lb/>
+dingen auf den kauf machen/ achten nicht ob ſie halten<lb/>
+oder nicht/ wan bißweilen/ welches ſehr oft geſchicht im<lb/>
+truͤcknen/ der Tigel ein riß oder andern mangel bekompt/<lb/>
+<fw type="catch" place="bottom">ſtreichen</fw><lb/>
+<pb n="44" facs="#f0048"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+ſtreichen ſie ſolchen mit ein wenig duͤnner Erden wie-<lb/>
+der zu/ brennens vnnd verkauffens: Wann aber ſolche<lb/>
+Tigel in die hitze kommen/ ſo koͤnnen ſie nicht halten/<lb/>
+ſondern reiſſen/ vnd lauft oftermahls/ einem zu groſſem<lb/>
+ſchaden/ ſein Metall in die Aſchen/ welches (ohne ab-<lb/>
+gang) ſchwerlich alles wieder gefunden wird/ wie fleiſ-<lb/>
+ſig man auch mit dem waſchen weiß vmb zu gehen;<lb/>
+derohalben beſſer iſt/ erſtlich etwas fleiß angewendet/<lb/>
+ſeine Tigel zu machen/ als hernach ſeine Kretz zu<lb/>
+waſchen.</p><lb/>
+<p>Doch iſt es auch nicht muͤglich/ daß alle Tigel eben<lb/>
+wol halten ſolten/ dann man nimmer ſo wol vnd fleiſſig<lb/>
+damit vmbgehet/ es mißrahten etliche/ welche man dann<lb/>
+auch zu beſondern dingen/ da ſo viel nicht an gelegen iſt/<lb/>
+vnd die beſten zu guten Metallen gebrauchen kan; auch<lb/>
+wolle jhme niemand einbilden/ als wann dieſe Tigel<lb/>
+auf ſolche weiſe (wie alhier beſchrieben) gemacht/ alle<lb/>
+dinge halten vnd vertragen ſolten/ nein/ gantz nicht/ es<lb/>
+ſind zwar die beſten/ die ich jemahln geſehen hab;<lb/>
+gleichwol iſt mir noch kein Erden zu handen kommen/<lb/>
+die mir Bley gelaͤtt/ oder aber das <hi rendition="#aq">Sal Tartari</hi> hat lang<lb/>
+im Fewer halten wollen/ dan gemeinlich alle Erden (ſo<lb/>
+viel mir bewuſt) iſt von der Gelaͤtt/ wie auch vom dem<lb/>
+<hi rendition="#aq">Sale Tartari,</hi> in groſſer hitze nicht frey iſt/ ſondern da-<lb/>
+von verſchluckt vnd durch-bohret wird/ welches zu vie-<lb/>
+len nutzbaren Wercken ein groſſer ſchaden iſt/ daß ſol-<lb/>
+che (dieſer vrſachen halben) vngethan muͤſſen liegen<lb/>
+bleiben.</p><lb/>
+<p>Dieſes ſey nun genug vom Tigel-machen gelehret/<lb/>
+einer/ deme ſeine ſachen angelegen ſeyn/ wird wol fleiß<lb/>
+anwenden/ hinfuͤrter ſeine Tigel ſelber zu machen/ dar-<lb/>
+<fw type="catch" place="bottom">auf</fw><lb/>
+<pb n="45" facs="#f0049"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+auf er ſich dan am beſten zu verlaſſen hat/ vnd jhme ſei-<lb/>
+ne muͤhe vnd arbeit/ die er daran wendet/ nicht gerewet.<lb/>
+Wie nun die Teſten vnd Cupellen in ob-beſchriebenen<lb/>
+Formen ſollen geſchlagen werden/ iſt nicht noͤtig davon<lb/>
+zu ſchreiben/ dann ſolche arbeiten (ſchon vor viel Jah-<lb/>
+ren) von vnterſcheidlichen fleiſſigen Maͤnnern/ vnd in-<lb/>
+ſonderheit von dem weit-beruͤhmten/ vnnd in ſolchen<lb/>
+dingen hoch- erfahrnen kuͤnſtlichen Probierer/ Lazaro<lb/>
+Erckern/ weit-laͤufftig vnd ſehr außfuͤhrlich geſchehen/<lb/>
+alſo daß ich jhre Schriften (in Teſten vnnd Cupellen<lb/>
+machen) nicht zu verbeſſern weiß/ ſondern den Liebha-<lb/>
+bern an ſolche <hi rendition="#aq">Auctores</hi> wil gewieſen haben; darin ein<lb/>
+jedweder traͤulichen vnterricht/ zu gutem <hi rendition="#aq">contente-<lb/>
+ment,</hi> finden wird/ doch ſeynd noch beſondere Teſten zu<lb/>
+machen/ davon vielleicht noch wenige wiſſen/ vnd gantz<lb/>
+nicht gemein ſeyn/ darauf ſich das Bley im abtreiben<lb/>
+veredelt/ wann es wieder darauß geſchmoltzen wird; da-<lb/>
+von alhier nicht zu ſagen/ ſondern der Zeit vnd <hi rendition="#aq">Fortun</hi><lb/>
+ſol vor behalten bleiben.</p></div><lb/>
+<div n="1"><head><hi rendition="#b">Vom glaſuren der Jrꝛdenen</hi> <hi rendition="#aq">Inſtru-<lb/>
+men</hi><hi rendition="#b">ten/ davon im erſten vnd andern<lb/>
+Theil gedacht worden.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Eilen man nicht allenthalben gute Glaß-huͤtten/<lb/>
+ſeine <hi rendition="#aq">Inſtrumen</hi>ten/ zum erſten Ofen gehoͤrig/ zu<lb/>
+machen/ haben kan; alſo erfordert die noth/ daß man<lb/>
+ſolche von Erden mache/ vnnd hernach wol verglaſure/<lb/>
+vnd ſind dan bißweilen dieſe von Erden beſſer/ als Glaͤ-<lb/>
+ſernen zu gebrauchen/ ſonderlich/ wann ſie von guter<lb/>
+Erden/ welche die <hi rendition="#aq">Spiritus</hi> nicht einſchlucket/ gebrandt<lb/>
+<fw type="catch" place="bottom">ſeyn;</fw><lb/>
+<pb n="46" facs="#f0050"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+ſeyn; wie dan ſolcher Erden/ welche ſich in ein ſteinicht<lb/>
+Weſen brennen laͤſſt/ allenthalben genug gefunden<lb/>
+wird/ vnd mangelt nur allein an der Erfahrenheit/ ſol-<lb/>
+che zu bereitten vnd backen; davon oben albereit etwas<lb/>
+meldung geſchehen iſt/ daß/ nemlich/ die Erden durch<lb/>
+ſtarck Fewer alſo <hi rendition="#aq">compact</hi> vnnd dicht koͤnne gebrandt<lb/>
+werden; ſo man aber zu ſolchem ſtarcken brand nicht ge-<lb/>
+langen kan/ weilen der gemeinen Haͤffners Oefen/ dar-<lb/>
+in die Koch-potten vnd ander Jrdiner Haußrath ge-<lb/>
+brand wird/ nicht darzu dienen/ weilen eine ſolche ſtarcke<lb/>
+hitze darin nicht kan gemacht werden/ vnnd auch nie-<lb/>
+mand/ vmb wenige Geſchirr (die er vonnoͤhten hat) ei-<lb/>
+nen ſolchen Ofen aufbawen wil/ welches den koſten<lb/>
+auch nicht außtragen wuͤrde; alſo iſt noch ein ander<lb/>
+guter Weg/ ein jedweder gemeine Erden (doch nicht<lb/>
+rohten Laimen) ſchoͤn glatt vnnd wohl zu glaſuren/ die<lb/>
+dann auch (wann es wol gethan iſt) nicht zu verachten<lb/>
+ſeyn/ ſonderlich wan die Glaſur von ſolchen dingen ge-<lb/>
+macht iſt/ die im kalt werden (nach dem brennen) gantz<lb/>
+bleibet/ vnnd nicht reiſſet/ vnnd von ſcharffen geiſtern<lb/>
+nicht angetaſtet wird/ wie das Bley-glaß thut/ ſondern<lb/>
+ſo wol die <hi rendition="#aq">ſubti</hi>le als <hi rendition="#aq">corroſivi</hi>ſche <hi rendition="#aq">Spiritus</hi> wol halte<lb/>
+vnd nicht durchgehen laſſe/ gleich wie die itzt new-erfun-<lb/>
+dene weiſe glaſuren/ welche in <hi rendition="#aq">Italia</hi> vnd Holland ſchon<lb/>
+gantz gemein ſeyn/ thun koͤnnen: Wann man dan ſeine<lb/>
+Erden (durch mangel des Brenn-Ofens) nicht ſtei-<lb/>
+nicht kan brennen laſſen/ ſo muß man ſolche von guter<lb/>
+Erden laſſen zu richten/ vnnd mit gutem Zin-glaß/ vnd<lb/>
+nicht mit gemeinem Pott-loth oder Bley ertz glaſuren<lb/>
+laſſen/ welches dann nicht viel koſtet/ doch jemehr man<lb/>
+Zin-aſchen vnter die Glaſur nimpt/ je beſſer ſolche<lb/>
+<fw type="catch" place="bottom">wird/</fw><lb/>
+<pb n="47" facs="#f0051"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+wird/ dann das Zin/ wan es zur Aſchen mit Bley ver-<lb/>
+brennet wird/ von den <hi rendition="#aq">corroſi</hi>viſchen geiſtern keine<lb/>
+gemeinſchaft mehr hat/ derohalben gute vnd beſtaͤndige<lb/>
+Glaſuren gibt; ſo man aber ſo viel koſten vnnd muͤhe<lb/>
+auf ſolche weiſſe Glaſur nicht wenden wil/ ſo kan man<lb/>
+nur mit gemeinem Venetiſchen gepuͤlverten Glaſe gla-<lb/>
+ſuren/ helt auch ſehr wol/ wil aber im brennen ein ziem-<lb/>
+liche hitze haben/ derohalben nicht in allen Haͤffners-<lb/>
+Oefen flieſſen wil/ darumb man ein wenig Borras vn-<lb/>
+ter das Glaß miſchen ſol/ ſo fleuſſt es hernach gern in<lb/>
+den gemeinen Haͤffners-Oefen/ vnd gibt gar eine gute<lb/>
+Glaſur/ oder man muß die Jrdene Geſchirr mit Glaß<lb/>
+allein alſo vngebrandt mit Waſſer angefeucht/ anmen-<lb/>
+gen/ vnnd damit ſelbe vbergieſſen/ auf daß das Glaß al-<lb/>
+lenthalben wol daran haͤngen bleibe/ darnach ſehr wol<lb/>
+laſſen trucken werden/ vnd auf einen hauffen fein dicht<lb/>
+vber einander legen/ oder in ein ander ſtecken/ auf daß<lb/>
+ſie keinen groſſen platz oder raum ein-nehmen/ (wie die<lb/>
+Haͤffner mit den gemeinen Potten vnd Schuͤſſeln auch<lb/>
+zu thun pflegen) vnd dann den hauffen verglaſurte Ge-<lb/>
+ſchirr/ er ſey gleich groß oder klein/ mit gebrandten<lb/>
+Maur-ſteinen rings herumb vmblegen/ doch daß oben<lb/>
+ein loch bleibe/ dadurch man kohlen werffen koͤnne; vnd<lb/>
+muͤſſen die Steine auch einer zwerch Hand-breit von<lb/>
+den Geſchirren ab-liegen/ alſo/ daß die kohlen (zwiſchen<lb/>
+den Steinen vnd Geſchirren) hinunter biß auf den bo-<lb/>
+den vnverhindert fallen koͤnnen; wann nun ſolches <hi rendition="#aq">ſpa-<lb/>
+tium</hi> mit guter truckenen Holtz- kohlen außgefuͤllet iſt/<lb/>
+ſo leget man zu oberſt auf den hauffen todter kohlen<lb/>
+etliche lebendige/ vnnd laͤſſt alſo das Fewer von oben an<lb/>
+algemach hinunter brennen/ ſo haben die Geſchirr keine<lb/>
+<fw type="catch" place="bottom">noth</fw><lb/>
+<pb n="48" facs="#f0052"/>
+<fw type="header" place="top"><hi rendition="#b">Fůnfter Theil</hi></fw><lb/>
+noth zu ſpringen/ ſonderlich/ wann ſie zuvorn wol<lb/>
+trucken ſeyn; wan nun das Fewer wol iſt angegangen/<lb/>
+ſo leget man das loch oben vber dem Ofen mit Steinen<lb/>
+zu/ vnnd laͤſſt das Fewer ſo lang brennen als es kan/<lb/>
+vnnd die Geſchirr ſo lang alſo ſtehen/ biß ſolche von ſich<lb/>
+ſelber wol erkaltet ſeyn/ darnach nimbt man ſie auß.</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#g"><hi rendition="#k">nb.</hi></hi></hi> So aber der hauffen ſehr groß were/ muͤſte man<lb/>
+noch einmahl kohlen zu werffen/ wann die erſten ver-<lb/>
+brandt ſeyn/ ſonſten wuͤrden dieſe Potten (welche in-<lb/>
+wendig geſtanden) nicht genug gebrandt/ vnd das Glaß<lb/>
+wol gefloſſen ſeyn; derohalben man ſelber zuſehen muß/<lb/>
+wie viel Fewer vonnoͤhten ſeye/ vnd wan man wol da-<lb/>
+mit vmbgehet/ ſo brennen vnnd glaſuren ſich die Ge-<lb/>
+ſchirr auf dieſe weiſe viel beſſer/ als in einem gemeinen<lb/>
+Haͤffners Ofen/ doch hat es mehr gefahr im brechen/<lb/>
+als in eim auf-gemaurten Ofen/ vnnd wann man nur<lb/>
+Tigel oder andere kleine Geſchirre von Erden brennen<lb/>
+wil/ vnd ſolcher nicht viel ſeyn/ kan man ſelbe nur in ei-<lb/>
+nem Schmeltz- oder Diſtillir- Ofen/ mit kohlen vmb-<lb/>
+ſchuͤttet/ ſetzen/ vnnd das Fewer von oben angehen laſ-<lb/>
+ſen/ brennet ſich ſehr wol; dann ich alſo bißhero noch alle<lb/>
+meine Tigel vnd andere diſtillir Geſchirr gebrandt vnd<lb/>
+verglaſuret hab/ vnnd keine bey den Haͤffnern brennen<lb/>
+laſſen. Vnd iſt alſo dieſe manier zu brennen vnd glaſu-<lb/>
+ren/ ein guter behelf/ wann man keine Oefen hat/ die<lb/>
+hitze genug geben koͤnnen/ alſo allerhand Erden-gefaͤß/<lb/>
+innerhalb drey oder vier ſtunden lang/ wohl durchauß<lb/>
+hart gebrent vnnd glat glaſuret werden; doch iſt dieſes<lb/>
+auch darbey in acht zu nehmen/ daß die Erden/ welche<lb/>
+alſo geſchwind ſol gebrandt werden/ an ſich ſelber wol<lb/>
+gut ſeye/ vnd das Fewer vertragen koͤnne/ ſonſten wuͤr-<lb/>
+<fw type="catch" place="bottom">den</fw><lb/>
+<pb n="49" facs="#f0053"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+den ein theil derſelben zerſpringen/ vnd zerbrochen auß-<lb/>
+kommen; doch wer den vierten Ofen mit Kammern<lb/>
+aufgeſetzet hat/ der gebrauche ſich derſelben/ vnd brenne<lb/>
+vnd glaſure ſolche in der erſten Kammer/ ſo gehet er<lb/>
+ſicherer/ wiewol dieſer ob erzehlter Weg/ zu brennen<lb/>
+vnd glaſuren/ auch nicht zu verwerffen iſt/ vnd alles Er-<lb/>
+den-werck (wann man vorſichtig mit dem Fewer vmb-<lb/>
+gehet) wol damit kan gebrandt vnd glaſuret werden.</p><lb/>
+<p>Wil derohalben einen jedwedern auch darbey ge-<lb/>
+warnet haben/ wann er ja auf dieſe weiſe brennen wil/<lb/>
+daß er das Fewer wol zu regiren wiſſe/ vnnd den ſachen<lb/>
+nicht zu viel oder wenig thue; vnd wann ers durch vn-<lb/>
+geſchickligkeit verſiehet/ daß jhme ſeine Gefaͤſe brechen/<lb/>
+mir die ſchuld nicht gebe/ als wann ich jhme die warheit<lb/>
+nicht geſchrieben haͤtte/ ſondern jhme ſelber den fehler<lb/>
+zu rechnen/ den ſchaden fuͤr lehr- gelt nehmen/ vnnd<lb/>
+auf ein andermahl fleiſſiger zuſehen/ was er thue vnd<lb/>
+mache.</p><lb/>
+<p>Weiters ſeind mir noch viel vnterſchiedliche andere<lb/>
+glaſuren (von ſchoͤnen farben) bekandt/ die bißhero<lb/>
+noch nicht gemein worden ſind/ vnnd auch nicht dienen<lb/>
+gemein zu machen/ dieweilen ein groſſes geheimnuͤß da-<lb/>
+hinder ſtecket; dann wer ſo weit kommen iſt/ daß er die<lb/>
+Metallen alſo weiß zu zurichten/ vnnd in ein Glaß zu<lb/>
+bringen/ welches die farb des Metals behaͤlt/ vnnd doch<lb/>
+Glaß iſt/ vnd auf der Erden gleich wie ein ander Glaß<lb/>
+haftet vnd haͤlt/ der hat fuͤrwahr kein geringes Kunſt-<lb/>
+ſtuͤck gefunden/ vnnd mag den ſachen wol fleiſſig nach<lb/>
+dencken/ vnnd ſich darin vben/ ich zweifele nicht/ wann<lb/>
+es Gott nicht ſonderlich verhindert/ jhme leichtlich ein<lb/>
+Licht moͤge aufgehen.</p><lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">Deß-</fw><lb/>
+<pb n="50" facs="#f0054"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+<p>Deßgleichen ſind auch noch andere ſchoͤne glaſuren/<lb/>
+damit man die Erden vberziehen vnnd ſchmuͤcken kan/<lb/>
+als wan ſie mit eim Edel-geſtein vberzogen weren; wei-<lb/>
+len aber itzund mein vorhaben nicht iſt von ſolchen din-<lb/>
+gen zu handeln/ ſo ſol es bey dieſem verbleiben; doch noch<lb/>
+eine Glaſur wilich den <hi rendition="#aq">Medicis</hi> offenbahren/ damit ſie/<lb/>
+ohne muͤhe vnnd arbeit/ vielen Menſchen von langwuͤ-<lb/>
+rigen kranckheiten helffen koͤnnen.</p><lb/>
+<p>Vnd geſchicht alſo: Laſſe dir von einem Haͤffner et-<lb/>
+liche kleine Becherlein (von guter weiſſer Erden) fein<lb/>
+glat zu bereitten vnnd brennen/ darnach ſoltu in einem<lb/>
+ſtarcken groſſen Tigel nachfolgends Glaß flieſſen laſſen/<lb/>
+vnd wann es wol gefloſſen iſt/ immer ein Tigelein (wel-<lb/>
+ches zuvorn in eim beſondern Oefelein gluͤent gemacht<lb/>
+ſey) hinein mit der Zangen in das gefloſſene Glaß<lb/>
+duncken/ vnd auch ein weil darin/ oder vnter dem Glaß<lb/>
+halten/ ſo zeucht ſich das Glaß wol vnd fein in die Er-<lb/>
+den/ dann außgenommen/ vnnd alſobald in das neben-<lb/>
+Oefelein/ darin es zuvorn gluͤent gemacht worden iſt/<lb/>
+ſetzen/ vnnd ein anders auch alſo einduncken/ auß-neh-<lb/>
+men vnnd in den Kuͤhl-Offen ſetzen/ ſo lang vnd oft/ biß<lb/>
+alle verglaſuret ſind; dann ſoltu das gluͤende Ofelein/<lb/>
+darin die verglaſurte Becherlein ſtehen/ all enthalben<lb/>
+wol zu machen/ daß kein Wind darein ſchlage/ vnd alſo<lb/>
+von ſich ſelber laſſen erkalten/ ſo bleibt die Glaſur ſchoͤn<lb/>
+glatt vnnd gantz; welches ſonſten nicht geſchaͤhe/ wann<lb/>
+ſolche alſobalden an die kalte Luft geſetzet wuͤrden; vnd<lb/>
+wird das Glaß alſo darzu gemacht: Nimb zwey theil<lb/>
+<hi rendition="#aq">Antimonii crudi,</hi> vñ ein theil <hi rendition="#aq">nitri puri,</hi> reib beide wol<lb/>
+vnter einander/ thue die <hi rendition="#aq">mixtur</hi> in einen Tigel/ vnnd<lb/>
+zuͤnde dieſelbe mit einem gluͤenden Eiſen an/ ſo ver-<lb/>
+<fw type="catch" place="bottom">brennet</fw><lb/>
+<pb n="51" facs="#f0055"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+brennet der Salpeter mit dem Schwefel des <hi rendition="#aq">Antimo-<lb/>
+nii,</hi> vnd wird ein braune <hi rendition="#aq">Maſſa</hi> darauß/ welche du alſo<lb/>
+warm mit eim Spatel auß dem Tigel nehmen ſolt/ vnd<lb/>
+kalt werden laſſen; darnach in einen andern ſtarcken<lb/>
+Tigel anderthalb oder ein gantze ſtund verdeckt/ wol<lb/>
+flieſſen laſſen/ ſo wird ein <hi rendition="#aq">Vitrum</hi> darauß/ darein die<lb/>
+gluͤende Tigelein/ mit jhren Deckelein darzu gemacht/<lb/>
+ſollen geſtecket vnd verglafuret werden.</p></div><lb/>
+<div n="1"><head><hi rendition="#b">Folget nun der gebrauch dieſer ver-<lb/>
+glaſurten Tigeln.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>S iſt kund genug/ daß vnter allen <hi rendition="#aq">Vomiti</hi>ven/ das<lb/>
+<hi rendition="#aq">Antimonium</hi> den preiß vnnd vorzug behalten/ dero-<lb/>
+wegen vielerhand bereittungen von den <hi rendition="#aq">Medicis</hi> erfun-<lb/>
+den/ ſolches bequaͤm zu machen/ daß es vnſchaͤdlich zu<lb/>
+gebrauchen ſey; wie wohl ich deren ſelber in dem erſten<lb/>
+vnnd andern Theil dieſes Buchs gedacht/ vnnd den<lb/>
+<hi rendition="#aq">uſum</hi> darneben etlicher Maſſen kuͤrtzlich beſchrieben/<lb/>
+wie ich dan gern bekennen wil/ daß ein Bereittung der<lb/>
+andern vor zu ziehen/ ſo beweiſſt gleichwol die Erfah-<lb/>
+renheit/ daß das <hi rendition="#aq">Antimonium,</hi> wann es in ein <hi rendition="#aq">Vitrum</hi><lb/>
+gebracht/ meiſter genug iſt/ den Magen vnd Daͤrmen<lb/>
+deß Menſchen/ von allem ſchleim vnnd boͤſen <hi rendition="#aq">humori-<lb/>
+bus,</hi> ohne gefahr/ (wann es recht gebrauchet wird) <hi rendition="#aq">per<lb/>
+vomitum &amp; ſeceſſum,</hi> genugſamb reinigen vnnd ſaͤu-<lb/>
+bern koͤnne/ dadurch dan mancher ſchweren Kranckheit<lb/>
+vor zu kommen/ vnud auch/ wann ſie ſchon vorhanden/<lb/>
+gluͤcklich kan gewehret werden.</p><lb/>
+<p>Daß aber mancher ſagen moͤchte/ daß dieſe <hi rendition="#aq">præpa-<lb/>
+ration</hi> des <hi rendition="#aq">Antimonii</hi> gar gering vnd ſchlecht/ derohal-<lb/>
+<fw type="sig" place="bottom">D ij</fw><fw type="catch" place="bottom">ben</fw><lb/>
+<pb n="52" facs="#f0056"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+ben nicht wol zu gebrauchen were/ der ſol wiſſen/ daß<lb/>
+das <hi rendition="#aq">Antimonium</hi> keiner groſſen <hi rendition="#aq">præparation</hi> vonnoͤh-<lb/>
+ten hat/ wan es <hi rendition="#aq">purg</hi>iren ſol/ dan ſo jhme ſeine wildig-<lb/>
+keit benommen/ vnd fix gemacht wird/ ſolches hernach<lb/>
+keine <hi rendition="#aq">vomitus</hi> noch <hi rendition="#aq">ſedes</hi> machen wil; darf ſich der-<lb/>
+halben niemand ſcheuhen/ die vor-geſchriebene <hi rendition="#aq">præpa-<lb/>
+ration</hi> oder Glaß-machung des <hi rendition="#aq">Antimonii</hi> zu gebrau-<lb/>
+chen; es iſt kein gefahr darbey/ alſo daß mans auch jun-<lb/>
+gen Kindern/ von ein oder zweyen Jahren/ ſicherlich<lb/>
+geben darff/ doch nicht in <hi rendition="#aq">forma pulveris,</hi> ſondern nur<lb/>
+die kraft mit Zucker/ Honig/ ſuͤſſem oder ſauren Wein/<lb/>
+zu vorn darauß <hi rendition="#aq">extrahi</hi>ret/ vnnd alſo geben/ zeucht auß<lb/>
+allen <hi rendition="#aq">Viſceribus</hi> des gantzen Leibes das ſchaͤdliche her-<lb/>
+auß/ vnnd fuͤhret ſolches entweder vber ſich oder vnter<lb/>
+ſich/ ohne nachtheil oder ſchaden/ des Leibes auß dem<lb/>
+Menſchen/ davon an andern orthen ein mehrers ge-<lb/>
+ſchrieben iſt/ vnnd alhier nicht noͤtig weiters daſſelbe zu<lb/>
+wiederholen: Wann man dann dieſe Becherlein zum<lb/>
+<hi rendition="#aq">purgi</hi>ren gebrauchen wil/ ſo geuſſt man ein oder zwey<lb/>
+vnc. Wein darin/ vnd laͤſſt denſelben an einem warmen<lb/>
+orth vber Nacht darin ſtehen/ ſo <hi rendition="#aq">extrah</hi>irt der Wein/ ſo<lb/>
+viel als noͤhtig/ auß der Glaſur/ welcher/ ſo er nuͤchtern<lb/>
+gedruncken wird/ das ſeinige eben ſo wol verrichtet/ als<lb/>
+wan der Wein vber eim gepuͤlverten <hi rendition="#aq">vitro Antimonii,</hi><lb/>
+wie es auch moͤchte gemacht ſeyn/ geſtanden hette/ vnnd<lb/>
+iſt auch viel ſaͤuberer zu gebrauchen/ als das <hi rendition="#aq">pulveri</hi>ſirt<lb/>
+<hi rendition="#aq">Vitrum Antimonii;</hi> dann ſo man jemand damit <hi rendition="#aq">purg</hi>i-<lb/>
+ren wil/ ſo ſchickt man jhme ein ſolches Baͤcherlein nach<lb/>
+Hauß/ mit befehl/ daß der Patient zwey oder drey loͤffel<lb/>
+vol ſeines <hi rendition="#aq">ordinari</hi> Trinck-weines darein gieſſen/ vnnd<lb/>
+vber Nacht an einem warmen orth ſtehen laſſen/ vnd<lb/>
+<fw type="catch" place="bottom">folgen-</fw><lb/>
+<pb n="53" facs="#f0057"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+folgenden Tag/ denſelben zuvorn lawlecht gemacht/<lb/>
+außtrincken/ vnd ſich weiters wie es gehoͤrt/ vnnd auch<lb/>
+jhme darneben ſol vor-geſagt werden/ darauf verhalten<lb/>
+wolle; welches dan dem Patienten viel annehmlicher zu<lb/>
+nehmen iſt/ wan er allein ſeinen gewoͤhnlichen Drinck-<lb/>
+wein/ der nur vber Nacht in einem reinen glatten Be-<lb/>
+cherlein (welches er ſelber zuvorn ſaͤubern kan/ ſo er<lb/>
+wil) in ſeinem Hauß geſtanden hat/ welches dann mei-<lb/>
+nes erachtens viel ſaͤuberer hergehet/ als ein groſſer<lb/>
+Becher vol vbel-riechendes Trancks/ gegen ſeinen wil-<lb/>
+len oftermahls vnachtſamlich zuſamen gebrawet/ ein-<lb/>
+zuſchwelgen; vnnd iſt ein ſolches Becherlein nicht nur<lb/>
+einmahl/ ſondern gar vielmahl zu gebrauchen; vnd wan<lb/>
+der Wein letztlich ja nicht genug <hi rendition="#aq">extrahi</hi>ren wolte/ ſo<lb/>
+kan man das Becherlein mit dem Wein in ein heiß<lb/>
+kochend Waſſer ein weil ſtehen laſſen/ ſo <hi rendition="#aq">extrah</hi>irt der<lb/>
+Wein deſto beſſer/ vnd <hi rendition="#aq">oper</hi>irt auch deſto ſtaͤrcker; wann<lb/>
+es vonnoͤhten iſt/ wie dan der jenige/ der es andern ge-<lb/>
+brauchen wil/ guten verſtand davon zu nehmen oder<lb/>
+zu geben haben ſol/ vnd iſt ein ſolches Becherlein einem<lb/>
+fuͤr ſeine gantze Hauß- haltung/ fuͤr al ſein lebtag ge-<lb/>
+nug zu gebrauchen/ doch daß ſolches nicht in allen<lb/>
+Kranckheiten/ ſondern nur bey jungen vnnd ſtarcken<lb/>
+Menſchen/ vnnd auch/ wo die innerliche <hi rendition="#aq">principal-</hi>glie-<lb/>
+der nicht verletzet ſeyn/ ſol gebraucht werden; vnnd koͤn-<lb/>
+nen auch ſolche Becherlein noch auf ein andere weiſe/<lb/>
+ohne das <hi rendition="#aq">Antimonium,</hi> verglaſurt vnd zum <hi rendition="#aq">purgi</hi>ren<lb/>
+gebraucht werden/ als folget.</p><lb/>
+<p>Man <hi rendition="#aq">ſublim</hi>irt gemein <hi rendition="#aq">Auripigmentum,</hi> in einem<lb/>
+Glaͤſern oder Jrdinen Kolben/ ſo gibt es vber die maſ-<lb/>
+ſen einen ſchoͤnen <hi rendition="#aq">ſublimat,</hi> oder <hi rendition="#aq">Flores</hi> Vranien farb/<lb/>
+<fw type="sig" place="bottom">D iij</fw><fw type="catch" place="bottom">vnd</fw><lb/>
+<pb n="54" facs="#f0058"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil</hi></fw><lb/>
+vnd wann man ſolche auf eine beſondere weiſe zuſam-<lb/>
+men weiß zu ſchmeltzen/ gibt es ein ſchoͤn roth durch-<lb/>
+ſichtig <hi rendition="#aq">Vitrum,</hi> einem <hi rendition="#aq">Orienta</hi>liſchen Rubin nicht vn-<lb/>
+gleich/ davon man kleine ſtuͤcklein brechen kan/ vnd zur<lb/>
+ziehrath etwas damit verſetzen/ ſie ſind aber nicht ſo hart<lb/>
+gleich wie ein <hi rendition="#aq">Vitrum Antimonii,</hi> ſondern ſehr muͤrb<lb/>
+vnd bruͤchig; ſolches rohte <hi rendition="#aq">Vitrum</hi> oder nur die <hi rendition="#aq">Flores,</hi><lb/>
+ehe dieſelben in ein <hi rendition="#aq">Vitrum</hi> geſchmoltzen ſeyn/ vergla-<lb/>
+ſuren die Erden vber die maſſen ſchoͤn/ roth vnnd glatt;<lb/>
+wann man dan die Becherlein damit verglaſuren wil/<lb/>
+ſo macht man ſolche in einem Kohl-fewerlein zuvor<lb/>
+gluͤend/ vnd tauchet dieſelbe in die zerfloſſene <hi rendition="#aq">Flores Au-<lb/>
+ripigmenti,</hi> zeucht es wieder herauß/ vnd laͤſſt es vnter<lb/>
+einem gluͤenden Erden/ oder einem Tiſernen Geſchirr<lb/>
+kalt werden/ ſo thun ſie eben daſſelbige was oben von den<lb/>
+Becherlein geſagt iſt/ welche mit <hi rendition="#aq">Vitro Antimonii</hi><lb/>
+verglaſuret ſeyn; vnnd darf man ſich nicht ſchewen/<lb/>
+weilen die Glaſur von einem giftigen Mineral gemacht<lb/>
+iſt/ es thut keinen ſchaden/ dann dem <hi rendition="#aq">Auripigmento</hi><lb/>
+durch die <hi rendition="#aq">ſublimation,</hi> gleich wie dem <hi rendition="#aq">Antimonio</hi><lb/>
+durch die <hi rendition="#aq">calcination</hi> ſeine Gift benommen wird; vnd<lb/>
+iſt diß zu wiſſen/ wann dem <hi rendition="#aq">Antimonio</hi> oder <hi rendition="#aq">Auripi-<lb/>
+gmento</hi> durchs Fewer oder Salpeter al ſeine Gift be-<lb/>
+nommen wird/ daß es hernach keine <hi rendition="#aq">Vomitus</hi> oder <hi rendition="#aq">ſe-<lb/>
+des</hi> machen kan.</p><lb/>
+<p>Wie dann mit nechſtem/ wann die fuͤnf Theile ver-<lb/>
+mehret/ weitlaͤuftiger ſol bewieſen werden/ was <hi rendition="#aq">purgi-</hi><lb/>
+ren ſey/ vnnd wie alle <hi rendition="#aq">purga</hi>tien jhre wuͤrckung als ein<lb/>
+Gift verrichten.</p><lb/>
+<p>Es weren zwar noch andere Glaſuren/ die nicht vbel<lb/>
+ſolten aufgenommen werden/ wan ſie beſchrieben wuͤr-<lb/>
+<fw type="catch" place="bottom">den/</fw><lb/>
+<pb n="55" facs="#f0059"/>
+<fw type="header" place="top"><hi rendition="#b">Philoſophiſcher Oefen.</hi></fw><lb/>
+den/ weil aber alhier mein Fuͤrhaben nicht iſt von <hi rendition="#aq">Me-<lb/>
+chanicis,</hi> ſondern nur allein etwas wenige zu den vor-<lb/>
+hergehenden Oefen gehoͤrige <hi rendition="#aq">Inſtrumen</hi>ten glaſurung<lb/>
+zu handeln/ ſo ſol es auf dißmahl dabey bernhen: Wann<lb/>
+mir Gott das leben wird goͤnnen/ ſo habe ich mir dieſe<lb/>
+fuͤnf Theile zu vberſehen/ <hi rendition="#aq">corrigi</hi>ren vnd <hi rendition="#aq">augmenti</hi>ren<lb/>
+vor-genommen/ da dann manches ſchoͤne <hi rendition="#aq">Secretum;</hi><lb/>
+das auf dißmahl/ wegen ſonderbahren vrſachen iſt zu-<lb/>
+ruͤck gehalten worden/ ſol beygefuͤgt werden. Wil hier-<lb/>
+mit auf dißmahl den fuͤnften Theil der Philoſophiſchen<lb/>
+Oefen beſchlieſſen/ wie wol ich gern noch etwas ſonder-<lb/>
+lichs von kuͤnſtlichen Oefen wolte eingebracht haben/<lb/>
+wil ſich aber nicht ſchicken/ ſondern ſol an einem andern<lb/>
+orth/ da von ſchmeltzung/ abtreiben vnnd ſeygerung der<lb/>
+Metallen gehandelt wird/ ein mehrers vnd beſſers fol-<lb/>
+gen/ dann der nechſte vnnd beſte Weg/ die Metallen in<lb/>
+groſſem zu ſchmeltzen noch nicht bekant iſt/ ob ſchon von<lb/>
+dem mehrentheil Berg-leuten dafuͤr gehalten wird/ daß<lb/>
+ſie keine groͤſſere Meiſter werden koͤnten; ſo wolt ich doch<lb/>
+leichtlich beweiſen/ daß nicht halb ſo viel muͤhe/ arbeit/<lb/>
+vnnd koſten/ als ſie anlegen/ mehr vnd beſſer Metall in<lb/>
+kuͤrtzerer zeit koͤnte auß den Ertzen/ zu groſſem Vortheil<lb/>
+der Berg leuten/ gebracht werden. Davon zu einer<lb/>
+gelegenen zeit ein mehrers. Wolle derhalben der guͤnſti-<lb/>
+ge Leſer/ auf dißmahl/ mit dieſem meinem kleinen <hi rendition="#aq">talen-<lb/>
+to</hi> vorlieb nehmen/ wann ich ſpuͤre/ daß diß wenige wird<lb/>
+angenehm ſeyn/ wil ich meinem Naͤchſten mit einem<lb/>
+viel beſſern vnnd angenehmern Werck zu dienen/ nicht<lb/>
+vnterlaſſen/ ſondern ſolche nuͤtzliche vnd ſchoͤne <hi rendition="#aq">ſecre</hi>ten<lb/>
+an tag geben/ daß ſich maͤnniglich darob verwundern<lb/>
+wird/ wo ſolche bißher ſolang/ entweder auß vnwiſſen-<lb/>
+<fw type="sig" place="bottom">D iiij</fw><fw type="catch" place="bottom">heit</fw><lb/>
+<pb n="56" facs="#f0060"/>
+<fw type="header" place="top"><hi rendition="#b">Fuͤnfter Theil Philoſophiſcher Oefen.</hi></fw><lb/>
+heit oder auß mißgunſt/ der Menſchen haben koͤnnen<lb/>
+verborgen bleiben.</p><lb/>
+<list><item><hi rendition="#aq">pag. 3. l. pen.</hi> bethewre.</item><lb/>
+<item><hi rendition="#aq">pag. 7. l.</hi> 9. durch den.<lb/>
+<list><item><hi rendition="#aq">l.</hi> 27. Welt nichts.</item></list></item><lb/>
+<item><hi rendition="#aq">pag. 8. l.</hi> 3. widerwertige Naturen.</item><lb/>
+<item><hi rendition="#aq">pag. 9. l. 22. ſine ſtrepitu.</hi></item><lb/>
+<item><hi rendition="#aq">pag. 25. l.</hi> 4. geringſten nicht.</item><lb/>
+<item><hi rendition="#aq">pag. 27. l. pen.</hi> jhr nur.</item><lb/>
+<item><hi rendition="#aq">p. 33. l.</hi> 19. Jbſer. 27. Jbſer.</item></list><lb/>
+<figure/> <p><hi rendition="#c">Gießbuckel zu dem vierten Ofen gehoͤrig.</hi></p></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq"><hi rendition="#g">AP-</hi></hi></fw><lb/>
+<pb n="[57]" facs="#f0061"/>
+</body><back><milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">APPENDIX</hi>.</hi></hi></head><lb/>
+<p><hi rendition="#in">N</hi><hi rendition="#b">Ach deme ich vor zwey Jahren habe an-</hi><lb/>
+gefangen meine new- erfundene Oefen zu be-<lb/>
+ſchreiben/ vnnd bekant zu machen/ in welcher<lb/>
+beſchreibung etlicher Secreten vnnd Kunſt-<lb/>
+ſtuͤcken/ (die ich doch niemahlen gemein zu machen ge-<lb/>
+ſinnet war) gedacht worden. Gleichwol ich dieſe zeit<lb/>
+hero von vielen/ wegen <hi rendition="#aq">communi</hi>cirung derſelben/ ſo<lb/>
+wol muͤndlich als ſchriftlich/ viel vnruhe vnd muͤhe hab<lb/>
+erleiden muͤſſen. Derohalben ich hiermit wil erinnert<lb/>
+vnnd ermahnet haben/ daß niemand hinfuͤrter mir/ wie<lb/>
+auch jhme ſelber weiters muͤhſamb vnd laͤſtig im ſchrei-<lb/>
+ben oder fragen ſeyn wolle/ dann ich ohne ſonderbahre<lb/>
+vrſach etwas mehrers/ als dieſe nachfolgende ſtuͤcken/<lb/>
+bekandt vnnd offenbahr zu machen nicht geſinnet bin.<lb/>
+Darnach man ſich richten vnnd die Zeit erwarten kan/<lb/>
+biß die fuͤnf Theile einmahl (geliebt es Gott) <hi rendition="#aq">corri</hi>girt/<lb/>
+verbeſſert oder vermehret werden/ herauß kommen; da<lb/>
+es dan an vielen ſchoͤnen vnd nuͤtzlichen Kunſt-ſtuͤcken/<lb/>
+welche vmb ſonderbahre vrſachen/ in dem erſten Druck<lb/>
+zu ruͤck gehalten/ nicht mangeln wird; vnd ſind dieſes die<lb/>
+Secreten/ welche ich/ meinem Naͤchſten zum beſten/ vn-<lb/>
+ter deſſen mit zu theilen habe eingewilliget/ doch mit ſol-<lb/>
+cher erinnerung/ weilen der mehrentheil derſelben alſo<lb/>
+beſchaffen/ daß man in kurtzer Zeit (wann Gott ſeinen<lb/>
+ſegen darzu giebet) einen groſſen Reichthumb/ mit eh-<lb/>
+<fw type="sig" place="bottom">D v</fw><fw type="catch" place="bottom">ren</fw><lb/>
+<pb n="[58]" facs="#f0062"/>
+<fw type="header" place="top"><hi rendition="#aq">Appendix.</hi></fw><lb/>
+ren vnnd gutem Gewiſſen/ ohne ſeines Naͤchſten nach-<lb/>
+theil vnd ſchaden/ darmit gewinnen kan; alſo wolle der<lb/>
+jenige wohl zu ſehen/ wie er damit vmbgehe vnd ſolches<lb/>
+gebrauche/ vnd fuͤr allen dingen der Armen vnd Duͤrf-<lb/>
+tigen darbey ja nicht vergeſſen/ auf daß jhme ſein Reich-<lb/>
+thumb zu Gottes Ehren vnd ſeiner Sehlen Seligkeit/<lb/>
+vnd nicht zur ewigen Verdamnuß gereichen moͤge.</p><lb/>
+<p>Alle Korn-fruͤchten/ als Habern/ Gerſten/ Rocken/<lb/>
+Weitzen/ wie auch alle Oepffel/ Bieren/ Kirſchen/<lb/>
+Pflaumen/ vnnd andere dergleichen Baum-fruͤchten/<lb/>
+durch eine beſondere <hi rendition="#aq">Fermentation</hi> zu bereitten/ daß<lb/>
+dieſelbe in der <hi rendition="#aq">diftillation</hi> einen lieblichen/ reinen vnnd<lb/>
+guten <hi rendition="#aq">Spiritum</hi> geben/ deme/ welcher auß Wein-mut-<lb/>
+ter gebrandt iſt/ an lieblichkeit vnd ſtaͤrcke nicht viel be-<lb/>
+vor giebet/ vnd ſehr wenig zu machen koſtet/ vnnd vber<lb/>
+dieſes/ wann der Brandten- wein davon diſtilliret iſt/<lb/>
+auß dem hinder-ſtelligen/ durch zuthun behoͤrlichen din-<lb/>
+gen/ iſt es Korn/ ein gut Bier/ oder Eſſig; ſind es<lb/>
+Fruͤchten/ einen guten Tranck (dem Wein gleich) zu<lb/>
+machen; alſo daß man doppelten nutzen davon zu genieſ-<lb/>
+ſen hat/ dadurch man nicht allein ſeine Nahrung reich-<lb/>
+lich haben/ ſondern auch ein Ehrliches darbey fuͤr die<lb/>
+Seinigen auf-legen kan.</p><lb/>
+<p>Auß etlichen Korn- vnd Baum-fruͤchten einen lieb-<lb/>
+lichen geſunden Tranck/ dem Frantzoͤſiſchen/ Reini-<lb/>
+ſchen/ vnd Spaniſchen Wein nicht ſehr vngleich zu<lb/>
+machen/ welcher ſich viel Jahren halten kan vnnd be-<lb/>
+ſtaͤndig bleibet.</p><lb/>
+<p>Guten Brandten-wein/ auß geringen vnd doch be-<lb/>
+kandten dingen/ zu machen/ welcher in allen Proben/<lb/>
+dem Reiniſchen oder Frantzoͤſiſchen Brande-wein<lb/>
+gleich iſt/ vnd doch nicht halb ſo viel koſtet.</p><lb/>
+<fw type="catch" place="bottom">Auß</fw><lb/>
+<pb n="[59]" facs="#f0063"/>
+<fw type="header" place="top"><hi rendition="#aq">Appendix.</hi></fw><lb/>
+<p>Auß Honig guten Zucker vnnd Weinſtein/ welcher<lb/>
+dem Zucker auß Weſt- Jndien/ vnnd dem Reiniſchen<lb/>
+Weinſtein auß Teutſchland gantz gleich iſt/ mit ſehr<lb/>
+wenig koſten zu machen; alſo daß ein Pfund Zucker<lb/>
+kaum 8. oder 10. ſtuͤber/ vnnd ein pfund groben weiſſen<lb/>
+Weinſtein kaum zwey ſtuͤber zu ſtehen kompt.</p><lb/>
+<p>Einen jedwedern ſchlechten vnreinen Weinſtein/ auf<lb/>
+eine beſondere weiſe/ ohne abgang/ zu reinigen/ vnd in<lb/>
+groſſe Cryſtallen ſchieſſen machen/ daß ein Pfund kein<lb/>
+6. ſtuͤber zu machen koſtet.</p><lb/>
+<p>Dem Honig ſeinen vnlieblichen Geruch vnd Ge-<lb/>
+ſchmack zu benehmen/ daß man hernach darauß guten<lb/>
+lieblichen Brandten-wein/ welcher gantz nicht nach dem<lb/>
+Honig ſchmecket/ diſtilliren/ vnd guten lieblichen Meth/<lb/>
+an geſchmack einem guten Wein gleich machen kan/ auß<lb/>
+welchem Wein hernach alles/ was mit einem natuͤr-<lb/>
+lichen Wein gethan wird/ kan verrichtet werden.</p><lb/>
+<p>Von Roſinen vnd Corinthen einen lieblichen/ ſchoͤ-<lb/>
+nen/ klaren vnnd viel Jahren beſtaͤndigen Meth zu ma-<lb/>
+chen/ der einem guten Seck oder andern Spaniſchen<lb/>
+Weinen in allen dingen gantz gleich iſt/ auß welchem<lb/>
+auch guter klarer Eſſig wird/ der gar wenig koſtet.</p><lb/>
+<p>An ſolchen Orthen/ da die Wein-trauben in der<lb/>
+wilde wachſen/ nicht gebawet werden vnnd ſawer blei-<lb/>
+ben/ gleichwol guten Wein vnnd Eſſig darauß zu<lb/>
+machen.</p><lb/>
+<p>Deßgleichen von Johans-traͤublein/ Saurach beer-<lb/>
+lein/ Himberen/ Bromberen/ Kraͤntz beren/ Roſen<lb/>
+vnd Hagen-dorn Putten/ vnnd andern dergleichen<lb/>
+Hecken-fruͤchten/ gute/ liebliche vnnd geſunde Ge-<lb/>
+traͤncke/ welche ſich Jahr vnd Tag halten koͤnnen/ zu<lb/>
+machen.</p><lb/>
+<fw type="catch" place="bottom">Jtem/</fw><lb/>
+<pb n="[60]" facs="#f0064"/>
+<fw type="header" place="top"><hi rendition="#aq">Appendix.</hi></fw><lb/>
+<p>Jtem/ wie man alle truͤbe/ lange/ rohte/ ſchimlichte/<lb/>
+ſaure vnd andere mangelhafte Weine/ leichtlich wieder<lb/>
+zu recht bringen ſol.</p><lb/>
+<p>Auß etlichen <hi rendition="#aq">Vegetabi</hi>lien/ die allenthalben gern<lb/>
+wachſen/ einen guten/ klahren/ lieblichen vnnd beſtaͤndi-<lb/>
+gen Eſſig/ dem Frantzoͤſiſchen nicht ſehr vngleich/ in<lb/>
+groſſer maͤnge zu machen/ daß ein Ohm nicht ein Tha-<lb/>
+ler zu ſtehen kompt.</p><lb/>
+<p>Jn den mehrentheil kalten Laͤndern <hi rendition="#aq">Europæ,</hi> (doch<lb/>
+außgenommen etliche von den kaͤlteſten) da ſonſten kein<lb/>
+Wein kan zeittig werden; gute/ liebliche/ ſuͤſſe vnd be-<lb/>
+ſtaͤndige geſunde Weine wachſen machen/ welche an-<lb/>
+dern guten Weinen/ die in warmen Laͤndern/ als<lb/>
+Teutſchland/ Franckreich/ Spanien oder Jtalien/ ge-<lb/>
+wachſen/ an guͤte/ lieblichkeit vnd beſtaͤndigkeit nicht viel<lb/>
+bevor geben.</p><lb/>
+<p>Den Wein auß Bergichten/ von den Revieren<lb/>
+weit ab gelegenen Landen/ die wegen manglung der<lb/>
+Schiffarten vnnd theurung der Axt-fuhren/ nicht koͤn-<lb/>
+nen forth gebracht werden/ mit einem ſolchen vortheil zu<lb/>
+verfuͤhren/ alſo/ daß 10. Fuder nicht ſo viel als anders<lb/>
+1. Fuder zu verfuͤhren koſtet/ damit man ein groſſes ge-<lb/>
+winnen/ vnd die Auß-laͤndiſche Weine/ in abgelegenen<lb/>
+Landen guten kauf trincken kan.</p><lb/>
+<p>Auß altem Kupffer gut Spaniſch- gruͤn/ in groſſer<lb/>
+maͤnge/ mit ſehr geringem koſten zu machen/ alſo daß<lb/>
+auch 1. pfund kaum 6. ſtuͤber zu machen koſtet.</p><lb/>
+<p>Auf eine gantz vnbekandte weiſe/ Eſſig leichtlich zu<lb/>
+diſtilliren/ alſo <hi rendition="#aq">compendioſè,</hi> daß auch eine gantze<lb/>
+Ohme keinen halben Thaler vnkoſten darzu erfordert/<lb/>
+damit man viel nuͤtzliche dinge verrichten kan/ vnd vn-<lb/>
+<fw type="catch" place="bottom">ter</fw><lb/>
+<pb n="[61]" facs="#f0065"/>
+<fw type="header" place="top"><hi rendition="#aq">Appendix.</hi></fw><lb/>
+ter ſolchen das Spaniſch- gruͤn gantz leichtlich zu <hi rendition="#aq">can-<lb/>
+diliſi</hi>ren vnd <hi rendition="#aq">Criſtalliſi</hi>ren/ daß auch ein pfund keinen<lb/>
+halben Thaler zu ſtehen kompt.</p><lb/>
+<p>Auß dem <hi rendition="#aq">Urin</hi> einen reinen vnd ſtarcken <hi rendition="#aq">Spiritum,</hi><lb/>
+ohne muͤhe/ arbeit vnnd koſten/ gantz geſchwind zu ma-<lb/>
+chen/ alſo/ daß auch 20. oder 30. pfund fuͤr einen Tha-<lb/>
+ler koͤnnen gemacht werden/ damit viel wunderliche vnd<lb/>
+nuͤtzliche dinge in <hi rendition="#aq">Medicina, Alchimia</hi> vnnd <hi rendition="#aq">Me-<lb/>
+chanicis,</hi> koͤnnen verrichtet werden; vnter andern/ ein<lb/>
+ſchoͤner Himmel- blawer <hi rendition="#aq">Vitriol</hi> von dem Kupffer/<lb/>
+zur <hi rendition="#aq">Medicina</hi> vnd <hi rendition="#aq">Alchimia</hi> dienſtlich/ vnnd das Sil-<lb/>
+ber alſo fluͤſſig darmit gemacht wird/ daß man allerhand<lb/>
+glaͤſerne Gefaͤſſe/ als Schuͤſſel/ Teller/ Leuchter/ Saltz-<lb/>
+faͤſſer/ Trinck-baͤcher/ vnd anderen Haußrath zum zie-<lb/>
+rath/ damit in- vnnd außwendig verſilbern kan; welche<lb/>
+nach dem geſicht fuͤr Silberne Geſchirr erkant werden.</p><lb/>
+<p>Den <hi rendition="#aq">Spiritum Salis</hi> in groſſer quantitaͤt zu machen/<lb/>
+mit ſehr geringem koſten/ daß auch ein pfund kaum 6.<lb/>
+ſtuͤber zu machen koſtet/ vnnd zu viel nuͤtzlichen <hi rendition="#aq">labori-<lb/>
+bus,</hi> ſo wohl in <hi rendition="#aq">Medicina, Alchimia,</hi> als andern Kuͤn-<lb/>
+ſten/ kan angewendet werden/ als vnter andern dieſe<lb/>
+folgende ſtuͤcke.</p><lb/>
+<p>Das Golt von dem Silber ab zu kochen/ daß das<lb/>
+geſchmeidt gantz bleibet; auch Silber- vnnd Kupffer-<lb/>
+haltig Golt damit zu <hi rendition="#aq">ſolvi</hi>ren vnnd ſcheiden/ rein auß<lb/>
+dem Waſſer faͤllen/ vnd das Waſſer wieder zu derglei-<lb/>
+chen arbeit mehrmahlen zu gebrauchen/ alſo/ daß vnter<lb/>
+allen ſcheidungen der Metallen im naſſen wege/ kein<lb/>
+nuͤtzlicher vnnd profitlicher zu finden iſt/ vnnd das Golt<lb/>
+auf dieſe weiſe auf den hoͤchſten halt gebracht wird.</p><lb/>
+<p>Auß allen Laͤtten vnd Sand/ wie auch auß Kißling-<lb/>
+<fw type="catch" place="bottom">ſteinen/</fw><lb/>
+<pb n="[62]" facs="#f0066"/>
+<fw type="header" place="top"><hi rendition="#aq">Appendix.</hi></fw><lb/>
+ſteinen/ Quartzen vnd andern Berg-arthen/ welche an-<lb/>
+geflogen/ flaͤmmicht vnd leicht Golt halten/ vnd derent-<lb/>
+wegen mit nutzen weder mit waſchen oder <hi rendition="#aq">Mercurio,</hi><lb/>
+noch ſchmeltzen kan auß-gebracht werden/ das Golt<lb/>
+leichtlich auß-zu-laugen vnd zu gut zu machen/ damit<lb/>
+an ſolchen orthen/ da dergleichen Sanden/ Laͤtten/ oder<lb/>
+Steine gefunden/ ein groſſes kan gewonnen werden.</p><lb/>
+<p>Auf eine beſondere/ geheime/ bißhero vnbekandte wei-<lb/>
+ſe alle wilde Berg-arthen/ wie ſie auch moͤgen nahmen<lb/>
+haben/ kuͤnſtlich zu probiren/ vnnd den rechten halt zu<lb/>
+finden/ welches auf gemeine weiſe vnmuͤglich zu thun<lb/>
+iſt/ vnd dienet ſolche Kunſt an denen Orthen/ da Berg-<lb/>
+wercke ſeyn; dan oftermahlen ein wild Golt-Ertz/ wann<lb/>
+es nach gemeiner weiſe probiret/ vñ nichts darin gefun-<lb/>
+den wird/ vngebawet ligen bleibet/ vnd niemand zu nu-<lb/>
+tzen kompt; vnd werden bißweilen auch an ſolchen Or-<lb/>
+then/ da keine Berg-wercke ſeyn/ vnterſchiedlicher arth<lb/>
+vnd ſorten glimmer/ rothe vnd weiſſe Talcken gefunden/<lb/>
+welche auf gemeine weiſe nichts oder gar wenig geben/<lb/>
+vnd gleichwol oftermahls viel Silber vnd Golt darin<lb/>
+verborgen ſtecket/ vnnd verlohren bleibet/ welches doch<lb/>
+mit groſſem nutzen koͤnte herauß geſchmeltzet werden.</p><lb/>
+<p>Ein ſchoͤn <hi rendition="#aq">compendium,</hi> vnd vber die maſſen nuͤtz-<lb/>
+liche <hi rendition="#aq">invention,</hi> welche noch bey niemand im gebrauch<lb/>
+geweſen; wie man allerhand Ertz/ auf eine ſehr profit-<lb/>
+liche weiſe/ in groſſer maͤnge ſchmeltzẽ ſol: Alſo/ daß man<lb/>
+in einem Tage in einem Stich-ofen mehr Ertz ſchmel-<lb/>
+tzen/ als auf die bekandte weiſe in acht Tagen kaum ge-<lb/>
+ſchehen kan/ dadurch viel vnkoſten erſpahret/ vnd jaͤhr-<lb/>
+lich ein groſſes/ mehr als ſonſten/ kan gewonnen werden.</p><lb/>
+<p>Deßgleichen ſolche Wercke/ die von dem ſchmeltzen<lb/>
+<fw type="catch" place="bottom">kommen/</fw><lb/>
+<pb n="[63]" facs="#f0067"/>
+<fw type="header" place="top"><hi rendition="#aq">Appendix.</hi></fw><lb/>
+kommen/ auf viel eine beſſere weiſe ab zu treiben/ vnnd<lb/>
+das Silber auß dem Bley zu ſcheiden.</p><lb/>
+<p>Auch die Ertze an ſolchen Orthen/ da keine Holtz-koh-<lb/>
+len zu bekommen/ oder wann ſie zu bekommen ſeyn/ im-<lb/>
+mer ſo wol durch Stein-kohlen/ in groſſer maͤnge/ zu<lb/>
+ſchmeltzen; ein geſchwinde vnd nuͤtzliche arbeit.</p><lb/>
+<p>Alle <hi rendition="#aq">Sulphuri</hi>ſche/ <hi rendition="#aq">Arſenicali</hi>ſche/ <hi rendition="#aq">Antimoniali</hi>ſche/<lb/>
+<hi rendition="#aq">Kobolti</hi>ſche vnnd andere giftige vnd fluͤchtige Ertzen/<lb/>
+welche/ wegen jhrer feuchtigkeit/ nicht im Fewer zu hal-<lb/>
+ten oder zu ſchmeltzen ſeyn; durch eine beſondere arth/ ei-<lb/>
+nes Cimentz oder Roſt-ofens zu binden vnd figiren/ daß<lb/>
+ſie hernach im ſchmeltzen jhr Silber vnd Golt gern von<lb/>
+ſich geben/ vnd mit groſſem nutzen erhalten werden.</p><lb/>
+<p>Durch den guß das leichte vnd flaͤmmichte Golt vnd<lb/>
+Silber auß dem Sand/ Laͤtten/ Kißling-ſteinen oder an-<lb/>
+dern armen Berg-arthen/ mit nutzen auß zu ſchmeltzen.</p><lb/>
+<p>Auß etlichen geringen oder vnvolkommenen Metal-<lb/>
+len vnd Mineralien jhr vnſichtlich Golt/ welches durch<lb/>
+gemein vnd bekandt abtreiben nicht geſpuͤret wird/ mit<lb/>
+groſſem nutzen/ auf ein beſondere vnnd geheime weiſe/<lb/>
+herauß zu ſchmeltzen.</p><lb/>
+<p>Das auß-geſchmeltzte Silber vnnd Golt/ auf eine<lb/>
+gantz geſchwinde vnnd vnkoͤſtliche weiſe/ durch den guß<lb/>
+von einander zu ſcheiden; alſo daß man in einem Tage<lb/>
+im eim Ofen/ durch eine Perſohn/ etliche 100. Marck<lb/>
+kan ſcheiden laſſen/ koſtet nicht halb ſo viel muͤhe vnd ar-<lb/>
+beit/ vnd anlag/ als durch das <hi rendition="#aq">Aq. fort</hi> oder Cimenten.</p><lb/>
+<p>Deßgleichen kan auch ander verarbeitet Golt/ als<lb/>
+Ketten vnd dergleichen ander Guͤlden-geſchmeidt/ gar<lb/>
+geſchwind auf den hoͤchſten halt/ wie auch das Golt<lb/>
+vom verguͤldeten Silber/ durch den guß geſcheiden wer-<lb/>
+<fw type="catch" place="bottom">den/</fw><lb/>
+<pb n="[64]" facs="#f0068"/>
+<fw type="header" place="top"><hi rendition="#aq">Appendix.</hi></fw><lb/>
+den/ alſo/ daß leichter 100. Marck auf dieſe weiſe/ als<lb/>
+auf die bekandte 20. mit groſſem vortheil vnnd erſpah-<lb/>
+rung vieler zeit vnd koſten/ zu ſcheiden ſeyn.</p><lb/>
+<p>Auß einem jedwedern Bley viel mehr ☽ zu ſeigern/<lb/>
+als durch die Cupellen Probe darin gefunden wird.</p><lb/>
+<p>Auß einem jedwedern alten Eiſen gut Golt auß zu<lb/>
+ſchmeltzen/ welches zwar ſo ein groſſes nicht geben kan/<lb/>
+dannoch denen/ welche mit wenig zu frieden ſeyn/ ein<lb/>
+ehrlicher vnterhalt ſeyn kan.</p><lb/>
+<p>Deßgleichen auß allem ♃ vnd ♀/ doch auß einem<lb/>
+mehr als auß dem andern/ ☽ vnd ☉ auß zu ſeigern.</p><lb/>
+<p>Alle Ertze zeitigen/ daß ſie mehr Silber vnnd Golt<lb/>
+geben im ſchmeltzen/ auß dem <hi rendition="#aq">Antimonio, Arſenico,</hi><lb/>
+vnd <hi rendition="#aq">Auripigmento</hi> jhr Silber vnd Golt außziehen.</p><lb/>
+<p><hi rendition="#aq">Ex Venere Sulphur extraneum ſepar</hi>iren/ auf<lb/>
+daß <hi rendition="#aq">Cupido,</hi> jhr Kind geboren werde.</p><lb/>
+<p>Den gebrauchten Teſten das Silber/ welches im<lb/>
+abtreiben darein gangen/ ohne ſchmeltzen oder andere<lb/>
+muͤhe vnd koſten/ zu benehmen.</p><lb/>
+<p>Jn allen Landen vnnd an allen Orthen/ vielerhand<lb/>
+ſchoͤne Erdene Geſchirr/ dem Porcellein nicht ſehr vn-<lb/>
+gleich oder geringer/ welche das Fewer vnd alle <hi rendition="#aq">Spiri-<lb/>
+tus</hi> halten/ mit wenig koſten zu machen.</p><lb/>
+<p>Ein vnbekandter Alaun/ welcher alle Farben erhoͤhet/ ſchoͤner<lb/>
+vnd beſtaͤndig machet. Jſt ſonderlich zum Carmoſſin/ Schar-<lb/>
+lacken/ vnd andern koͤſtlichen Farben zu gebrauchen. Darzu ei-<lb/>
+nen beſtaͤndigen Keſſel/ welcher die Farben nicht alterirt/ mit<lb/>
+kleinem koſten zu machen.</p><lb/>
+<p>Allerhand ſchoͤne Mahler-Farben/ auf eine vnkoͤſtliche weiſe<lb/>
+zu machen/ als <hi rendition="#aq">Purpur-lacca,</hi> von vielerley Farben/ Schmalten/<lb/>
+<hi rendition="#aq">Ultra-marinum,</hi> Cinober/ vnd inſonderheit eine ſchoͤne weiſſe<lb/>
+Farb/ dergleichen noch bey niemand geſehen/ welche den ſchoͤne-<lb/>
+ſten Perlein gleich iſt: Wie auch Golt vnnd Silber/ auf eine<lb/>
+leichte weiſe zu mahlen.</p><lb/>
+<p><hi rendition="#c"><hi rendition="#g">ENDE</hi>.</hi></p></div><lb/>
+<pb n="[65]" facs="#f0069"/>
+<pb n="[66]" facs="#f0070"/>
+<pb n="[67]" facs="#f0071"/>
+<pb n="[68]" facs="#f0072"/>
+<pb n="[69]" facs="#f0073"/>
+<pb n="[70]" facs="#f0074"/>
+</back>
+</text> </TEI>

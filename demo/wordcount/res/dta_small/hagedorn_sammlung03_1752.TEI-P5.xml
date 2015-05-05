@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Sammlung Neuer Oden und Lieder</title>
+<title type="volume" n="3">Dritter Theil</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118700421">
+<surname>Hagedorn</surname>
+<forename>Friedrich von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">61</measure>
+<measure type="tokens">2897</measure>
+<measure type="types">1350</measure>
+<measure type="characters">18799</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:31Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/hagedorn_sammlung03_1752</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/hagedorn_sammlung03_1752</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/hagedorn_sammlung03_1752</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/hagedorn_sammlung03_1752</idno>
+<idno type="DTADirName">hagedorn_sammlung03_1752</idno>
+<idno type="DTAID">20231</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Hagedorn, Friedrich von: Sammlung Neuer Oden und Lieder. Bd. 3. Hamburg, 1752.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Sammlung Neuer Oden und Lieder</title>
+<title level="m" type="volume" n="3">Dritter Theil</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118700421">
+<surname>Hagedorn</surname>
+<forename>Friedrich von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[2] Bl., 32 S. : Noten (Kupferst.)</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Bohn</name></publisher>
+<pubPlace>Hamburg</pubPlace>
+<date type="publication">1752</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Ebd 141-8</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=216819849</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<pb facs="#f0010"/>
+<pb facs="#f0011"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b"><hi rendition="#in">S</hi>ammlung<lb/>
+<hi rendition="#g"><hi rendition="#in">N</hi>euer <hi rendition="#in">O</hi>den</hi><lb/>
+und<lb/>
+<hi rendition="#g"><hi rendition="#in">L</hi>ieder.</hi></hi></titlePart></docTitle><lb/>
+<figure/><lb/>
+<docTitle><titlePart type="sub"><hi rendition="#b">Dritter Theil.</hi></titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace>Hamburg</pubPlace>, bey <publisher>Johann Carl Bohn</publisher>. <docDate>1752</docDate>.</docImprint></titlePage><lb/>
+</front><body>
+<pb facs="#f0012"/>
+<pb facs="#f0013"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div type="preface"><p><hi rendition="#in">W</hi>eil die Sammlungen neuer Oden und Lieder,<lb/>
+wovon der erſte Theil in der Bohniſchen<lb/>
+Handlung 1742. und der zweyte 1744. her-<lb/>
+ausgekommen iſt, abermals unter der Preſſe ſind, und die Liebha-<lb/>
+ber derſelben mich erſucht haben, annoch einen dritten Theil dazu zu<lb/>
+fuͤgen: So habe ich, ſolches Verlangen zu erfuͤllen, mich dazu be-<lb/>
+reden laſſen. Wir leben gegenwaͤrtig in einer Zeit, da die Lieder<lb/>
+bey uns eben ſo ſtark zur Mode geworden ſind, als bey andern<lb/>
+Voͤlkern. Und warum ſollten wir auch denenſelben den Vorzug laſ-<lb/>
+ſen, da unſere Sprache, Dichter und Tonkuͤnſtler gleiche Staͤrke<lb/>
+beſitzen? Der Vorwurf, daß unſerer Sprache eine gewiſſe Haͤrte<lb/>
+und Rauhigkeit eigen waͤre, iſt gar nicht gegruͤndet. Wenn der<lb/>
+Dichter nur die Tonkunſt verſteht; ſo wird er die Woͤrter und Aus-<lb/>
+druͤcke ſchon zu ſinden wiſſen, die dahin gehoͤren. Allein die mei-<lb/>
+<fw type="sig" place="bottom">*</fw><fw type="catch" place="bottom">ſten</fw><lb/>
+<pb facs="#f0014"/>
+ſten Dichter lieben zwar die Tonkunſt, aber ſie kennen dieſelbe nicht.<lb/>
+Wie kann es alſo anders moͤglich ſeyn, als daß mehrentheils unſing-<lb/>
+bare Oden herauskommen muͤſſen? Je kuͤrzer die Zeilen, naͤmlich<lb/>
+in Arien, je mehr Selbſtlauter, je beſſer zur Tonkunſt. Schoͤne<lb/>
+Beyſpiele ſind unter andern zu finden in den Oden und Liedern,<lb/>
+welche unſer deutſcher Horaz 1747. in fuͤnf Buͤchern dem Drucke<lb/>
+uͤberlaſſen hat. Aus dieſen Oden und Liedern ſind alſo diejenigen,<lb/>
+die in dieſem dritten Theile den Beſchluß machen. Die noch uͤbrig<lb/>
+ſind, beſtehen theils in Erzehlungen, theils in Horazianiſchen und<lb/>
+Anakreontiſchen Liedern. Von welchen ein jedes Stuͤck einige Blaͤt-<lb/>
+ter erfordert haben wuͤrde, wenn es haͤtte ſollen in die Muſik geſetzt<lb/>
+werden, welches aber gerade unſerem Zwecke entgegen waͤre. Die<lb/>
+Melodien habe ich den Liedern ſo angemeſſen, wie es die Ueberſchrift<lb/>
+und der Jnhalt mit ſich gebracht haben. Ueberhaupt, ich habe auf<lb/>
+den ganzen, und nicht auf den einzeln Ausdruck jeder Ode geſehen.<lb/>
+Das Gefaͤllige, das Reizende, das Scherzende, das Taͤndelnde, das<lb/>
+Verliebte, das Luſtige iſt in den Melodien mein Vorwurf geweſen.</p><lb/>
+<closer><salute>Hamburg, den 26 Febr. 1752.<lb/>
+<hi rendition="#et"><hi rendition="#fr">Goͤrner.</hi></hi></salute></closer></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Jnhalt</fw><lb/>
+<pb n="[1]" facs="#f0015"/>
+<div type="contents"><head><hi rendition="#c"><hi rendition="#b">Jnhalt des dritten Theils.</hi></hi></head><lb/>
+<list><item><hi rendition="#aq">I.</hi> Die Freundſchaft. <space dim="horizontal"/> Seite 3</item><lb/>
+<item><hi rendition="#aq">II.</hi> Aufmunterung zum Vergnuͤgen. <space dim="horizontal"/>〃 4</item><lb/>
+<item><hi rendition="#aq">III.</hi> Elpin. <space dim="horizontal"/>〃 6</item><lb/>
+<item><hi rendition="#aq">IV.</hi> Die Schoͤnheit. 1744. <space dim="horizontal"/>〃 8</item><lb/>
+<item><hi rendition="#aq">V.</hi> Der Wink. <space dim="horizontal"/>〃 10</item><lb/>
+<item><hi rendition="#aq">VI.</hi> Die Verliebten. <space dim="horizontal"/>〃 11</item><lb/>
+<item><hi rendition="#aq">VII.</hi> Hoheit und Liebe. <space dim="horizontal"/>〃 12</item><lb/>
+<item><hi rendition="#aq">VIII.</hi> Der Wunſch. <space dim="horizontal"/>〃 14</item><lb/>
+<item><hi rendition="#aq">IX.</hi> Phryne. <space dim="horizontal"/>〃 16</item><lb/>
+<item><hi rendition="#aq">X.</hi> Doris und der Wein. <space dim="horizontal"/>〃 18</item><lb/>
+<item><hi rendition="#aq">XI.</hi> Der May. <space dim="horizontal"/>〃 20</item><lb/>
+<item><hi rendition="#aq">XII.</hi> Die Roſe. <space dim="horizontal"/>〃 23</item><lb/>
+<item><hi rendition="#aq">XIII.</hi> Die Schule. <space dim="horizontal"/>〃 24</item><lb/>
+<item><hi rendition="#aq">XIV.</hi> Burgunder-Wein. <space dim="horizontal"/>〃 27</item><lb/>
+<item><hi rendition="#aq">XV.</hi> Leichen-Carmen. 1740. <space dim="horizontal"/>〃 28</item></list></div><lb/>
+<pb n="[2]" facs="#f0016"/>
+<div><epigraph><cit><quote><hi rendition="#aq"><hi rendition="#i"><hi rendition="#g">HORATIVS</hi>.</hi><lb/>
+Condiſce modos, amanda<lb/>
+Voce quos reddas. Minuentur atrae<lb/>
+Carmine curae.</hi></quote><bibl/></cit></epigraph><lb/>
+<pb n="3" facs="#f0017"/>
+<figure/><lb/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#b"><hi rendition="#aq">I.</hi><lb/>
+Die Freundſchaft.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>u Mutter holder Triebe,</l><lb/>
+<l>O Freunſchaft! dir zur Ehre,</l><lb/>
+<l>Dir, Freundſchaft, nicht der Liebe,</l><lb/>
+<l>Erſchallen unſre Choͤre,</l><lb/>
+<l>Und Phyllis ſtimmt mit ein:</l><lb/>
+<l>Doch ſollte das Entzuͤcken</l><lb/>
+<l>Von Phyllis Ton und Blicken</l><lb/>
+<l>Nichts mehr als Freundſchaft ſeyn?</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">A 2</fw><lb/>
+<pb n="4" facs="#f0018"/>
+<figure/><lb/>
+<pb n="5" facs="#f0019"/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#b"><hi rendition="#aq">II.</hi><lb/>
+Aufmunterung zum Vergnuͤgen.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">E</hi>rlernt von muntern Herzen</l><lb/>
+<l>Die Kunſt begluͤckt zu ſcherzen,</l><lb/>
+<l>Die Kunſt vergnuͤgt zu ſeyn.</l><lb/>
+<l>Verſucht es. Laſſt uns ſingen,</l><lb/>
+<l>Das Alter zu verjuͤngen,</l><lb/>
+<l>Die Jugend zu erfreun.</l><lb/>
+<l>Macht neue Freundſchafts-Schluͤſſe!</l><lb/>
+<l>Jhr Kinder, gebt euch Kuͤſſe!</l><lb/>
+<l>Jhr Vaͤter, gebt euch Wein!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">A 3</fw><lb/>
+<pb n="6" facs="#f0020"/>
+<figure/><lb/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#b"><hi rendition="#aq">III.</hi><lb/>
+Elpin.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>eil nach des Schickſals beſtem Schluß</l><lb/>
+<l>Die junge Welt ſich lieben muß,</l><lb/>
+<l>So ward Elpin verliebt.</l><lb/>
+<l>Auch er fand, daß es artig ſey,</l><lb/>
+<l>Wenn man, bey ſuͤſſer Schmeicheley,</l><lb/>
+<l>Den Schoͤnen Kuͤſſe giebt.</l></lg><lb/>
+<pb n="7" facs="#f0021"/>
+<lg n="2"><l>Noch hatt er nur um Pfand gekuͤſſt;</l><lb/>
+<l>Was feuerreich im Kuͤſſen iſt</l><lb/>
+<l>War ihm nur halb bewuſſt:</l><lb/>
+<l>Doch wann er bey der Chloe ſtund,</l><lb/>
+<l>Ward er bald roth wie Chloens Mund,</l><lb/>
+<l>Bald weiß wie ihre Bruſt.</l></lg><lb/>
+<lg n="3"><l>Er unterſucht ſich tauſendmal</l><lb/>
+<l>Und ſpuͤret Luſt und ſpuͤret Qual,</l><lb/>
+<l>So oft er ſich befragt.</l><lb/>
+<l>Einſt, als er ſeufzt und ihr ſich naht,</l><lb/>
+<l>Wird ihm der Kuß, um den er bat,</l><lb/>
+<l>Und auch die Hand verſagt.</l></lg><lb/>
+<lg n="4"><l>Er flieht und eilet in den Wald</l><lb/>
+<l>Und klagt, in trauriger Geſtalt,</l><lb/>
+<l>Den Eichen was ihn druͤckt.</l><lb/>
+<l>O wuͤſſt er, was ihr Herz gewinnt!</l><lb/>
+<l>Doch alles, was ſein Witz erſinnt,</l><lb/>
+<l>Wird durch die Furcht erſtickt.</l></lg><lb/>
+<lg n="5"><l>Nach langen Klagen ſchlaͤft er ein;</l><lb/>
+<l>Die Liebe will ihm guͤnſtig ſeyn,</l><lb/>
+<l>Der er die Traͤume weiht.</l><lb/>
+<l>Mit ihren Fluͤgeln weckt ſie ihn</l><lb/>
+<l>Und ſpricht: Jch wuͤnſche dir, Elpin,</l><lb/>
+<l>Nur Liſt und Wachſamkeit.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="8" facs="#f0022"/>
+<figure/><lb/>
+<pb n="9" facs="#f0023"/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#aq"><hi rendition="#g">IV</hi>.</hi><lb/>
+<hi rendition="#fr">Die Schoͤnheit.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">W</hi>ie lieblich iſt des heitern Himmels Wonne,</l><lb/>
+<l>Der reine Mond, der hellen Sterne Heer,</l><lb/>
+<l>Aurorens Licht, der Glanz der guͤldnen Sonne!</l><lb/>
+<l>Und doch ergetzt ein ſchoͤn Geſicht weit mehr.</l><lb/>
+<l>Der Tropfen Kraft, die Wald und Feld verjuͤngen,</l><lb/>
+<l>Belebt ſie kaum, wie uns ein froher Kuß,</l><lb/>
+<l>Und nimmer kann ein Vogel ſuͤſſer ſingen,</l><lb/>
+<l>Als uns ein Mund, den man verehren muß.</l></lg><lb/>
+<lg n="2"><l>Eleonor! auf Deren zarten Wangen</l><lb/>
+<l>Der Jugend Bluͤht in friſchen Roſen lacht,</l><lb/>
+<l>Und Zaͤrtlichkeit, Bewundrung und Verlangen</l><lb/>
+<l>Dir, und nur Dir ſo zeitig eigen macht;</l><lb/>
+<l>Ob Pſyche gleich die Liebe ſelbſt regierte,</l><lb/>
+<l>Als ſie, mit Recht, des Gottes Goͤttinn hieß;</l><lb/>
+<l>So glaub ich doch, daß ihn nichts ſchoͤners ruͤhrte,</l><lb/>
+<l>Als die Natur in Deiner Bildung wies.</l></lg><lb/>
+<lg n="3"><l>Dein Auge ſpielt und Deine Locken fliegen</l><lb/>
+<l>Sanft, wie die Luft im Strahl der Sonne wallt;</l><lb/>
+<l>Gefaͤlligkeit und Anmuth und Vergnuͤgen</l><lb/>
+<l>Sind ungetrennt von Deinem Aufenthalt.</l><lb/>
+<l>Dir huldigen die Herzen muntrer Jugend,</l><lb/>
+<l>Das Alter ſelbſt beneidet deinen Witz.</l><lb/>
+<l>Es wird, in Dir, der angenehmſten Tugend,</l><lb/>
+<l>Und nirgend ſonſt der angenehmſte Sitz.</l></lg><lb/>
+<lg n="4"><l>Man ſchmeichelt mir, daß, in zufriednen Stunden,</l><lb/>
+<l>Eleonor auch meine Lieder ſingt,</l><lb/>
+<l>Und manches Wort, das viele nicht empfunden,</l><lb/>
+<l>Durch Jhre Stimm’ in aller Herzen dringt.</l><lb/>
+<l>Gewaͤhre mir, den Dichter zu begluͤcken,</l><lb/>
+<l>Der edler nichts als Deinen Beyfall fand,</l><lb/>
+<l>Nur einen Blick von Deinen ſchoͤnen Blicken,</l><lb/>
+<l>Nur einen Kuß auf Deine weiſſe Hand.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">3 Th. B</fw><lb/>
+<pb n="10" facs="#f0024"/>
+<figure/><lb/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#aq">V.</hi><lb/>
+<hi rendition="#fr">Der Wink.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">J</hi>ſt gleich dein Wink verſtohlen:</l><lb/>
+<l>So find ich doch mein Gluͤcke</l><lb/>
+<l>Jn jedem deiner Blicke,</l><lb/>
+<l>Der meine Hoffnung naͤhrt.</l><lb/>
+<l>Laß ihn oft wiederholen,</l><lb/>
+<l>Dir fehle nur die Stunde,</l><lb/>
+<l>Jn der von deinem Munde</l><lb/>
+<l>Ein Kuß mir mehr erklaͤrt.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="11" facs="#f0025"/>
+<figure/><lb/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#aq"><hi rendition="#g">VI</hi>.</hi><lb/>
+<hi rendition="#fr">Die Verliebten.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">J</hi>hr, deren Witz die Sehnſucht uͤbt</l><lb/>
+<l>Und immer ſeufzet, harret, liebt,</l><lb/>
+<l>Wie ſpaͤt erreicht ihr, unbetruͤbt,</l><lb/>
+<l>Der Liebe Freuden!</l></lg><lb/>
+<lg n="2"><l>Furcht, Knechtſchaft, Unruh und Verdacht,</l><lb/>
+<l>Der wuͤſte Tag, die oͤde Nacht</l><lb/>
+<l>Sind, bis die Lieb’ euch gluͤcklich macht,</l><lb/>
+<l>Nicht zu vermeiden.</l></lg><lb/>
+<lg n="3"><l>Wie groß muß ihr Vergnuͤgen ſeyn!</l><lb/>
+<l>Wie ſehr muß ihr Genuß erfreun,</l><lb/>
+<l>Wenn edle Seelen ihre Pein</l><lb/>
+<l>So willig leiden!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">B 2</fw><lb/>
+<pb n="12" facs="#f0026"/>
+<figure/><lb/>
+<pb n="13" facs="#f0027"/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#aq"><hi rendition="#g">VII</hi>.</hi><lb/>
+<hi rendition="#fr">Hoheit und Liebe.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">M</hi>onarch im Reiche ſtolzer Thoren,</l><lb/>
+<l>Dich, hohes Gluͤck, verehr ich nicht!</l><lb/>
+<l>Mir ward in Phyllis mehr gebohren,</l><lb/>
+<l>Als alles, was dein Tand verſpricht.</l><lb/>
+<l>Der Traum der Wachenden, die Ehre,</l><lb/>
+<l>Der Sclaven-Stand der Eitelkeit,</l><lb/>
+<l>Schlieſſt dein Gefolg an Hoͤf’ und Heere,</l><lb/>
+<l>Bis es der letzte Schlaf befreyt.</l></lg><lb/>
+<lg n="2"><l>Das Recht, mein Herze zu entzuͤcken</l><lb/>
+<l>Und meiner Wuͤnſche Ziel zu ſeyn,</l><lb/>
+<l>Raͤum ich nur einer Phyllis Blicken,</l><lb/>
+<l>Nur Jhrer ſeltnen Schoͤnheit ein.</l><lb/>
+<l>Wie ſtolz war ich, Sie zu gewinnen!</l><lb/>
+<l>Auch dieſer Ruhm verewigt ſich.</l><lb/>
+<l>Beneidet Sie, ihr Koͤniginnen!</l><lb/>
+<l>Und, Koͤnige! beneidet mich.</l></lg><lb/>
+<lg n="3"><l>O Phyllis, Seele meiner Lieder!</l><lb/>
+<l>Mich reizt kein himmelhoher Flug.</l><lb/>
+<l>Mich liebeſt Du, Dich lieb ich wieder.</l><lb/>
+<l>Sind wir nicht beyde froh genug?</l><lb/>
+<l>An treuer Bruſt, an treuer Seiten</l><lb/>
+<l>Macht uns die Liebe groß und reich.</l><lb/>
+<l>Ach ſey, an wahren Zaͤrtlichkeiten,</l><lb/>
+<l>Unendlich jener Taube gleich!</l></lg><lb/>
+<lg n="4"><l>Den Adler ſah die Turteltaube,</l><lb/>
+<l>Die in der Stille girrt und liebt,</l><lb/>
+<l>Wie ihn Gewalt und Muth zum Raube</l><lb/>
+<l>Jn koͤniglichen Thaten uͤbt.</l><lb/>
+<l>Sie ſah ihn Sieg und Ehre finden,</l><lb/>
+<l>Dem Kranich ſtolz entgegen ziehn,</l><lb/>
+<l>Sich heben, kaͤmpfen, uͤberwinden,</l><lb/>
+<l>Und alle Voͤgel vor ihm fliehn.</l></lg><lb/>
+<lg n="5"><l>Sie ſprach: Jch will dich nicht beneiden:</l><lb/>
+<l>Sey immer groß und fuͤrchterlich.</l><lb/>
+<l>Gepruͤfter Liebe ſuͤſſe Freuden!</l><lb/>
+<l>Nur ihr allein begluͤcket mich.</l><lb/>
+<l>Mir will ich keinen Sieg erwerben,</l><lb/>
+<l>Als den mein Gatte mir gewaͤhrt.</l><lb/>
+<l>Mit ihm zu leben und zu ſterben</l><lb/>
+<l>Jſt alles, was mein Wunſch begehrt.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="14" facs="#f0028"/>
+<figure/><lb/>
+<pb n="15" facs="#f0029"/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#aq"><hi rendition="#g">VIII</hi>.</hi><lb/>
+<hi rendition="#fr">Der Wunſch.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>u holder Gott der ſuͤſſten Luſt auf Erden,</l><lb/>
+<l>Der ſchoͤnſten Goͤttinn ſchoͤner Sohn!</l><lb/>
+<l>Komm, lehre mich die Kunſt, geliebt zu werden;</l><lb/>
+<l>Die leichte Kunſt zu lieben weiß ich ſchon.</l></lg><lb/>
+<lg n="2"><l>Komm ebenfalls und bilde Phyllis Lachen,</l><lb/>
+<l>Cythere! gib ihr Unterricht;</l><lb/>
+<l>Denn Phyllis weiß die Kunſt verliebt zu machen;</l><lb/>
+<l>Die leichte Kunſt zu lieben weiß ſie nicht.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="16" facs="#f0030"/>
+<figure/><lb/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#aq"><hi rendition="#g">IX</hi>.</hi><lb/>
+<hi rendition="#fr">Phryne.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">A</hi>ls Phryne mit der kleinen Hand</l><lb/>
+<l>Noch um der Mutter Buſen ſpielte,</l><lb/>
+<l>Nichts als den keimenden Verſtand</l><lb/>
+<l>Und den Beruf der Sinnen fuͤhlte;</l><lb/>
+<l>Da kam ihr ſchon, an jener Bruſt,</l><lb/>
+<l>Das erſte Lallen erſter Luſt.</l></lg><lb/>
+<pb n="17" facs="#f0031"/>
+<lg n="2"><l>Sie hatte kaum das Fluͤgel-Kleid</l><lb/>
+<l>Und einen beſſern Putz empfangen;</l><lb/>
+<l>So ſcherzten Witz und Freundlichkeit</l><lb/>
+<l>Jn beyden Gruͤbchen ihrer Wangen;</l><lb/>
+<l>So ſtiegen aus der zarten Bruſt</l><lb/>
+<l>Die regen Seufzer junger Luſt.</l></lg><lb/>
+<lg n="3"><l>O wie begluͤckt ſchien ihr das Jahr,</l><lb/>
+<l>Das nun ſie in Geſellſchaft brachte,</l><lb/>
+<l>Wo ſie ſo oft die Schoͤnſte war,</l><lb/>
+<l>So reizend ſprach und ſang und lachte!</l><lb/>
+<l>Wie wuchſen ſie und ihre Bruſt,</l><lb/>
+<l>Und die Geſchwaͤtzigkeit der Luſt!</l></lg><lb/>
+<lg n="4"><l>Sie ward mit Anſtand ſtolz und frey,</l><lb/>
+<l>Und ihre Blicke pries die Liebe;</l><lb/>
+<l>Der Spiegel und die Schmeicheley</l><lb/>
+<l>Vermehrten taͤglich ihre Triebe,</l><lb/>
+<l>Und ihr gerieth, bey reifer Bruſt,</l><lb/>
+<l>Die ſanfte Sprache ſchlauer Luſt.</l></lg><lb/>
+<lg n="5"><l>Die Oper, das Concert, der Ball</l><lb/>
+<l>Erhitzten ihren Muth zum Scherzen.</l><lb/>
+<l>Nur Phryne wies ſich uͤberall,</l><lb/>
+<l>Als Meiſterinn der jungen Herzen,</l><lb/>
+<l>Und faſſte, mit belebter Bruſt,</l><lb/>
+<l>Die ganze Rede-Kunſt der Luſt.</l></lg><lb/>
+<lg n="6"><l>Doch wahre Sehnſucht nimmt ſie ein;</l><lb/>
+<l>Die Stolze laͤſſt ſich uͤberwinden.</l><lb/>
+<l>Jhr Scherz verſtummt, ihr Muth wird klein,</l><lb/>
+<l>Sie lechzt, und kann nicht Worte finden.</l><lb/>
+<l>Denn ach! es wallt in ihrer Bruſt</l><lb/>
+<l>Das Unausſprechliche der Luſt.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">3 Th. C</fw><lb/>
+<pb n="18" facs="#f0032"/>
+<figure/><lb/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#aq">X.</hi><lb/>
+<hi rendition="#fr">Doris und der Wein.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">O</hi>Anblick, der mich froͤhlich macht!</l><lb/>
+<l>Mein Weinſtock reift und Doris lacht,</l><lb/>
+<l>Und, mir zur Anmuth, wachſen beyde.</l><lb/>
+<l>Ergetzt der Wein ein menſchlich Herz,</l><lb/>
+<l>So iſt auch ſeltner Schoͤnen Scherz</l><lb/>
+<l>Der wahren Menſchlichkeit ein Grund vollkom̃ner Freude.</l></lg><lb/>
+<pb n="19" facs="#f0033"/>
+<lg n="2"><l>Was die Empfindung ſchaͤrft und uͤbt,</l><lb/>
+<l>Was Seelen neue Kraͤfte giebt,</l><lb/>
+<l>Wird unſre heiſſe Sehnſucht ſtillen.</l><lb/>
+<l>Wie reichlich will die mildre Zeit,</l><lb/>
+<l>Die ſonſt ſo ſparſam uns erfreut,</l><lb/>
+<l>Den tiefſten Kelch der Luſt fuͤr unſre Lippen fuͤllen.</l></lg><lb/>
+<lg n="3"><l>Der Wein, des Kummers Gegengift,</l><lb/>
+<l>Die Liebe, die ihn uͤbertrifft,</l><lb/>
+<l>Die werden zwiſchen uns ſich theilen.</l><lb/>
+<l>Wer mir der Weine Tropfen zaͤhlt,</l><lb/>
+<l>Nur der berechnet unverfehlt</l><lb/>
+<l>Die Kuͤſſe, die gehaͤuft zu dir, o Doris! eilen.</l></lg><lb/>
+<lg n="4"><l>Weil deine Jugend lernen muß,</l><lb/>
+<l>So laß dich meinen oͤftern Kuß</l><lb/>
+<l>Die Menge deiner Schaͤtze lehren.</l><lb/>
+<l>Gib ſeinem treuen Unbeſtand</l><lb/>
+<l>Stirn, Augen, Wangen, Mund und Hand,</l><lb/>
+<l>Und laß ihn ieden Reiz, der dich erhebt, verehren!</l></lg><lb/>
+<lg n="5"><l>Uns klopft ein Vorwitz in der Bruſt,</l><lb/>
+<l>Der ſtumme Rath ererbter Luſt,</l><lb/>
+<l>Der Liebe Leidenſchaft zu kennen.</l><lb/>
+<l>O lerne meine Holdinn ſeyn!</l><lb/>
+<l>Jch ſchwoͤre dir, bey Moſt und Wein,</l><lb/>
+<l>Mich ſoll auch Moſt und Wein von keiner Do ris trennen.</l></lg><lb/>
+<lg n="6"><l>Es moͤgen kuͤnftig Wein und Moſt</l><lb/>
+<l>Des traͤgen Alters Ernſt und Froſt</l><lb/>
+<l>Durch feuerreiche Kraft verdringen!</l><lb/>
+<l>Alsdann ertoͤnt fuͤr ſie mein Lied;</l><lb/>
+<l>Jtzt, da die Jugend noch verzieht,</l><lb/>
+<l>Will ich allein von dir, auch in der Leſe, ſingen.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">C 2</fw><lb/>
+<pb n="20" facs="#f0034"/>
+<figure/><lb/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#aq"><hi rendition="#g">XI</hi>.</hi><lb/>
+<hi rendition="#fr">Der May.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>er Nachtigall reizende Lieder</l><lb/>
+<l>Ertoͤnen und locken ſchon wieder</l><lb/>
+<l>Die froͤhlichſten Stunden ins Jahr.</l><lb/>
+<l>Nun ſinget die ſteigende Lerche,</l><lb/>
+<l>Nun klappern die reiſenden Stoͤrche,</l><lb/>
+<l>Nun ſchwatzet der gaukelnde Staar.</l></lg><lb/>
+<pb n="21" facs="#f0035"/>
+<lg n="2"><l>Wie munter ſind Schaͤfer und Herde!</l><lb/>
+<l>Wie lieblich bebluͤmt ſich die Erde!</l><lb/>
+<l>Wie lebhaft iſt itzo die Welt!</l><lb/>
+<l>Die Tauben verdoppeln die Kuͤſſe,</l><lb/>
+<l>Der Entrich beſuchet die Fluͤſſe,</l><lb/>
+<l>Der luſtige Sperling ſein Feld.</l></lg><lb/>
+<lg n="3"><l>Wie gleichet doch Zephyr der Floren!</l><lb/>
+<l>Sie haben ſich weislich erkohren,</l><lb/>
+<l>Sie waͤhlen den Wechſel zur Pflicht.</l><lb/>
+<l>Er flattert um Sproſſen und Garben;</l><lb/>
+<l>Sie liebet unzaͤhlige Farben;</l><lb/>
+<l>Und Eiferſucht trennet ſie nicht.</l></lg><lb/>
+<lg n="4"><l>Nun heben ſich Binſen und Keime,</l><lb/>
+<l>Nun kleiden die Blaͤtter die Baͤume,</l><lb/>
+<l>Nun ſchwindet des Winters Geſtalt;</l><lb/>
+<l>Nun rauſchen lebendige Quellen</l><lb/>
+<l>Und traͤnken mit ſpielenden Wellen</l><lb/>
+<l>Die Triften, den Anger, den Wald.</l></lg><lb/>
+<lg n="5"><l>Wie buhleriſch, wie ſo gelinde</l><lb/>
+<l>Erwaͤrmen die weſtlichen Winde</l><lb/>
+<l>Das Ufer, den Huͤgel, die Gruft!</l><lb/>
+<l>Die jugendlich ſcherzende Liebe</l><lb/>
+<l>Empfindet die Reizung der Triebe,</l><lb/>
+<l>Empfindet die ſchmeichelnde Luft.</l></lg><lb/>
+<lg n="6"><l>Nun ſtellt ſich die Dorfſchaft in Reihen,</l><lb/>
+<l>Nun rufen euch eure Schallmeyen,</l><lb/>
+<l>Jhr ſtampfenden Taͤnzer, hervor.</l><lb/>
+<l>Jhr ſpringet auf gruͤnender Wieſe,</l><lb/>
+<l>Der Bauerknecht hebet die Lieſe,</l><lb/>
+<l>Jn hurtiger Wendung, empor.</l></lg><lb/>
+<fw type="sig" place="bottom">C 3</fw><lb/>
+<pb n="22" facs="#f0036"/>
+<lg n="7"><l>Nicht froͤhlicher, weidlicher, kuͤhner</l><lb/>
+<l>Schwang vormals der braune Sabiner</l><lb/>
+<l>Mit maͤnnlicher Freyheit den Hut.</l><lb/>
+<l>O reizet die Staͤdte zum Neide,</l><lb/>
+<l>Jhr Doͤrfer voll huͤpfender Freude!</l><lb/>
+<l>Was gleichet dem Land-Volk an Muth?</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="23" facs="#f0037"/>
+<figure/><lb/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#aq"><hi rendition="#g">XII</hi>.</hi><lb/>
+<hi rendition="#fr">Die Roſe.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">S</hi>iehſt du jene Roſe bluͤhen,</l><lb/>
+<l>Schoͤnſte! ſo erkenne dich:</l><lb/>
+<l>Siehſt du Bienen zu ihr fliehen,</l><lb/>
+<l>Phyllis! ſo gedenk an mich.</l><lb/>
+<l>Deine Bluͤhte lockt die Triebe</l><lb/>
+<l>Auf den Reichthum der Natur,</l><lb/>
+<l>Und der Jugend ſuͤſſe Liebe</l><lb/>
+<l>Raubt dir nichts, und naͤhrt ſich nur.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="24" facs="#f0038"/>
+<figure/><lb/>
+<pb n="25" facs="#f0039"/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#aq"><hi rendition="#g">XIII</hi>.</hi><lb/>
+<hi rendition="#fr">Die Schule.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>urch tiefe Seufzer bloͤder Luſt</l><lb/>
+<l>Erklaͤrte Damie alle Triebe</l><lb/>
+<l>Seiner Liebe;</l><lb/>
+<l>Doch ruͤhrt er nicht der Schoͤnen Bruſt.</l><lb/>
+<l>Es konnt ihm durch ſein Gold ja gluͤcken;</l><lb/>
+<l>Doch ſpart’ er dieſes, und verlohr:</l><lb/>
+<l>O der Thor!</l><lb/>
+<l>Man muß ihn in die Schule ſchicken.</l></lg><lb/>
+<lg n="2"><l>Ach liebte meine Phyllis mich!</l><lb/>
+<l>Seufzt Damon, ſeine Zaͤrtlichkeiten</l><lb/>
+<l>Anzudeuten.</l><lb/>
+<l>Und Phyllis ſagt: Erklaͤre dich!</l><lb/>
+<l>Allein, bey ihren ſuͤſſen Blicken,</l><lb/>
+<l>Bringt Damon weiter nichts hervor:</l><lb/>
+<l>O der Thor!</l><lb/>
+<l>Man muß ihn in die Schule ſchicken.</l></lg><lb/>
+<lg n="3"><l>Am Abend weid’ ich bey dem Bach;</l><lb/>
+<l>Mein Polydor! ſcherzt Adelheide;</l><lb/>
+<l>Wo ich weide,</l><lb/>
+<l>Da, rath ich, ſchleiche mir nicht nach.</l><lb/>
+<l>Sie nicht ſo ſtraͤflich zu beruͤcken,</l><lb/>
+<l>Verſpricht und haͤlt ihr Polydor:</l><lb/>
+<l>O der Thor!</l><lb/>
+<l>Man muß ihn in die Schule ſchicken.</l></lg><lb/>
+<lg n="4"><l>Ein Schwindel, aber nur zum Spaß,</l><lb/>
+<l>Befiel Dorinen, als ihr Lehrer</l><lb/>
+<l>Und Verehrer,</l><lb/>
+<l>Der ſteife Cleon, bey ihr ſaß.</l><lb/>
+<l>Unwiſſend ſelbſt ſie zu erquicken</l><lb/>
+<l>Rief er die Mutter ſchnell hervor:</l><lb/>
+<l>O der Thor!</l><lb/>
+<l>Man muß ihn in die Schule ſchicken.<note place="foot" n="*"><cb/>
+Bis hieher iſt dieſes eine freye Nach-<lb/>
+ahmung der <hi rendition="#aq">Couplets,</hi> welche <hi rendition="#aq">Marivaux</hi><lb/>
+ſeiner <hi rendition="#aq">Ecole des Meres</hi> hinzugefuͤget hat,<lb/>
+<cb/>
+die im vierten Bande des <hi rendition="#aq">Nouveau<lb/>
+Théatre François</hi> befindlich iſt.</note></l></lg><lb/>
+<fw type="sig" place="bottom">3 Th. D</fw><lb/>
+<pb n="26" facs="#f0040"/>
+<lg n="5"><l>Melander, den die Schreibſucht quaͤlt,</l><lb/>
+<l>Glaubt, weil der Reim ihm treu verbleibet,</l><lb/>
+<l>Daß er ſchreibet,</l><lb/>
+<l>Und daß ihm keine Muſe fehlt.</l><lb/>
+<l>Auch er kann den Apoll entzuͤcken;</l><lb/>
+<l>Auch er ſingt mit in ſeinem Chor:</l><lb/>
+<l>O der Thor!</l><lb/>
+<l>Man muß ihn in die Schule ſchicken.</l></lg><lb/>
+<lg n="6"><l>Ein Witzling lieſt den Arouet,</l><lb/>
+<l>Und raͤth ihm, Worte, Reime, Zeilen</l><lb/>
+<l>Mehr zu feilen,</l><lb/>
+<l>Vor allen in dem Mahomet.</l><lb/>
+<l>Wie uͤbt er ſich an Meiſterſtuͤcken!</l><lb/>
+<l>Wie ſteigt ſein leichter Ruhm empor:</l><lb/>
+<l>O der Thor!</l><lb/>
+<l>Man muß ihn in die Schule ſchicken.</l></lg><lb/>
+<lg n="7"><l>Ein Neuling, der verrufen darf,</l><lb/>
+<l>Was Lehrer, die entſcheiden koͤnnen,</l><lb/>
+<l>Wahrheit nennen,</l><lb/>
+<l>Glaubt nichts, als was ſein Wahn entwarf.</l><lb/>
+<l>Sein Wahn wird einſt die Welt begluͤcken;</l><lb/>
+<l>Nun denkt ſie edler, als zuvor:</l><lb/>
+<l>O der Thor!</l><lb/>
+<l>Man muß ihn in die Schule ſchicken.</l></lg><lb/>
+<lg n="8"><l>Ein Arzt, der ſich zum Doctor prahlt,</l><lb/>
+<l>Verlaͤſſt Paris, um Deutſchlands Kreiſen</l><lb/>
+<l>Sich zu weiſen,</l><lb/>
+<l>Wagt, martert, wuͤrgt, und wird bezahlt,</l><lb/>
+<l>Nur er, den tauſend Kuͤnſte ſchmuͤcken,</l><lb/>
+<l>Stellt ſichtbar den Galenus vor:</l><lb/>
+<l>O der Thor!</l><lb/>
+<l>Man muß ihn in die Schule ſchicken.</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="27" facs="#f0041"/>
+<figure/><lb/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#aq">XIV.</hi><lb/>
+<hi rendition="#fr">Burgunder-Wein.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">D</hi>amit ich ſingen lerne,</l><lb/>
+<l>Soll mir der Saft der Reben</l><lb/>
+<l>Jtzt Muth und Toͤne geben</l><lb/>
+<l>Und neue Kunſt verleihn.</l><lb/>
+<l>Mich reizen deine Sterne,</l><lb/>
+<l>Jhr Einfluß wirket Wunder,</l><lb/>
+<l>O feuriger Burgunder,</l><lb/>
+<l>O koͤniglicher Wein!</l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">D 2</fw><lb/>
+<pb n="28" facs="#f0042"/>
+<figure/><lb/>
+<pb n="29" facs="#f0043"/>
+<lg type="poem"><head><hi rendition="#c"><hi rendition="#aq">XV.</hi><lb/>
+<hi rendition="#fr">Leichen-Carmen.</hi></hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">H</hi>err Joſt iſt todt, der reiche Mann:</l><lb/>
+<l>Waͤr er nicht reich geweſen;</l><lb/>
+<l>Wir wuͤrden, falls ich rathen kann,</l><lb/>
+<l>Auf Jhn kein Carmen leſen.</l><lb/>
+<l>Sein hocherleuchteter Papa</l><lb/>
+<l>Pflag Jhn oft ſelbſt zu wiegen;</l><lb/>
+<l>Die tugendvolle Frau Mama</l><lb/>
+<l>Erzog Jhn mit Vergnuͤgen.</l></lg><lb/>
+<lg n="2"><l>Er war ein rechter Springinsfeld</l><lb/>
+<l>Jm erſten bunten Kleide,</l><lb/>
+<l>Und ward daher der jungen Welt</l><lb/>
+<l>Und auch der Muhmen Freude.</l><lb/>
+<l>Nur ſieben Jahre war Er alt,</l><lb/>
+<l>Da wuſſt Er faſt zu leſen;</l><lb/>
+<l>Und hieraus ſieht ein jeder bald,</l><lb/>
+<l>Wie klug das Kind geweſen.</l></lg><lb/>
+<lg n="3"><l>Man hielte Seiner Jugend zart</l><lb/>
+<l>Wohl zehn Jnformatores;</l><lb/>
+<l>Die lehrten Jhn, nach mancher Art,</l><lb/>
+<l>Die Sprachen und die Mores.</l><lb/>
+<l>Es lernte Joſt ohn Unterlaß,</l><lb/>
+<l>Daß Jhm der Kopf faſt rauchte:</l><lb/>
+<l>Kein Mutter-Kind ſtudirte baß</l><lb/>
+<l>Was es zu wiſſen brauchte.</l></lg><lb/>
+<lg n="4"><l>Da eilt Er mit der jungen Magd</l><lb/>
+<l>Jn manche Claſſen eben,</l><lb/>
+<l>Und fuͤhrte, mit ihr, unverzagt,</l><lb/>
+<l>Ein exemplariſch Leben.</l><lb/>
+<l>Er glich dem edlen Garten-Klee,</l><lb/>
+<l>Der zeitig aufwaͤrts ſteiget,</l><lb/>
+<l>Und nicht der traͤgen Aloe,</l><lb/>
+<l>Die ſpaͤte Bluͤhten zeiget.</l></lg><lb/>
+<fw type="sig" place="bottom">D 3</fw><lb/>
+<pb n="30" facs="#f0044"/>
+<lg n="5"><l>Doch, weil Er viel zu ſinnreich war,</l><lb/>
+<l>Um nur gelehrt zu werden;</l><lb/>
+<l>So riß Jhn bald der Eltern Paar</l><lb/>
+<l>Aus allen Schul-Beſchwerden.</l><lb/>
+<l>Sie ſagten: Sohn! Seyd unſer Troſt!</l><lb/>
+<l>Vermehrt, was wir erworben!</l><lb/>
+<l>Dann ſeyd Jhr nicht der erſte Joſt,</l><lb/>
+<l>Der reich und ſtolz verſtorben.</l></lg><lb/>
+<lg n="6"><l>Sogleich verging Jhm aller Dunſt</l><lb/>
+<l>Lateinſcher alten Spruͤche.</l><lb/>
+<l>Er faſſte durch die Rechenkunſt</l><lb/>
+<l>Die allerſchwerſten Bruͤche.</l><lb/>
+<l>O Einmal Eins! dich ſah Er ein,</l><lb/>
+<l>So wie ein rechter Falke.</l><lb/>
+<l>Durch Handlung wirſt du gluͤcklich ſeyn,</l><lb/>
+<l>Verkuͤndigt ihm Herr Halke.</l></lg><lb/>
+<lg n="7"><l>Johannes Halke hatte Recht:</l><lb/>
+<l>Wer prophezeyt behender?</l><lb/>
+<l>Die ihr mir etwa widerſprecht,</l><lb/>
+<l>Leſt den Natur-Calender!</l><lb/>
+<l>Seht, ſeht auf unſern Ehrenmann,</l><lb/>
+<l>Den wir ſo ſchoͤn begraben;</l><lb/>
+<l>Wer ſonſt kein Beyſpiel haben kann,</l><lb/>
+<l>Wird es an dieſem haben!</l></lg><lb/>
+<lg n="8"><l>Der Wohlerblaſſte ging auch, traun!</l><lb/>
+<l>Auf nicht zu lange Reiſen;</l><lb/>
+<l>Theils um die Fremde zu beſchaun,</l><lb/>
+<l>Theils um Sich ihr zu weiſen.</l><lb/>
+<l>Jn Frankreich war Er ein Baron,</l><lb/>
+<l>Jn Holland Heer van Joſten,</l><lb/>
+<l>Und zeigte Seines Vaters Sohn</l><lb/>
+<l>Jn Suͤden, Weſten, Oſten.</l></lg><lb/>
+<pb n="31" facs="#f0045"/>
+<lg n="9"><l>Er kannte wirklich weit und breit</l><lb/>
+<l>Geheime Staats-Jntrigues,</l><lb/>
+<l>Und wuſſte ganz genau die Zeit</l><lb/>
+<l>Des dreyſſigjaͤhrgen Krieges.</l><lb/>
+<l>Herr Joſt bewies, als Knabe ſchon,</l><lb/>
+<l>Bey vier Zuſammenkuͤnften,</l><lb/>
+<l>Der Sechſte Carl ſey nicht ein Sohn</l><lb/>
+<l>Von Kaiſer Carl dem Fuͤnften.</l></lg><lb/>
+<lg n="10"><l>Er kam zuruͤck und ließ ſich ſehn,</l><lb/>
+<l>Wo man Jhn ſehen ſollte.</l><lb/>
+<l>Nun hieß Er iedem klug und ſchoͤn,</l><lb/>
+<l>Der Jhn ſo nennen wollte.</l><lb/>
+<l>Doch rieth man Jhm mit gutem Fug,</l><lb/>
+<l>Den ritterlichen Degen,</l><lb/>
+<l>Den Er an Seiner Seite trug,</l><lb/>
+<l>Nur Sonntags anzulegen.</l></lg><lb/>
+<lg n="11"><l>Das Werk der Handlung wohlgemuth</l><lb/>
+<l>Ward nun von Jhm begriffen.</l><lb/>
+<l>Jhm traͤumte nur von Geld und Guth,</l><lb/>
+<l>Von Frachten und von Schiffen.</l><lb/>
+<l>Gelehrte ſucht’ Er weiter nicht,</l><lb/>
+<l>Als etwa bey Proceſſen;</l><lb/>
+<l>Sonſt macht’ Er ihnen ein Geſicht,</l><lb/>
+<l>Als wollt’ Er alle freſſen.</l></lg><lb/>
+<lg n="12"><l>Der Reich-Entſchlafne wollte drauf</l><lb/>
+<l>Sich doppelt reich durch Ehen,</l><lb/>
+<l>Ja Sich und Seinen Lebens-Lauf</l><lb/>
+<l>Jn echten Erben ſehen.</l><lb/>
+<l>Madame ſtarb Jhm ploͤtzlich ab,</l><lb/>
+<l>Eh Er die andre freyte;</l><lb/>
+<l>Die dritte, die Sein Geld Jhm gab,</l><lb/>
+<l>Beerdiget Jhn heute.</l></lg><lb/>
+<pb n="32" facs="#f0046"/>
+<lg n="13"><l>Als Trauermann folgt Sein Herr Sohn</l><lb/>
+<l>Mit Ellen-langem Flohre;</l><lb/>
+<l>Und vor Jhm ſingt die Schule ſchon</l><lb/>
+<l>Jn dem gewohnten Chore.</l><lb/>
+<l>Der ſchwarzen Maͤntel lange Zahl</l><lb/>
+<l>Begleitet Jhn bey Paaren;</l><lb/>
+<l>Er ſtirbt, doch nur ein einzigmal,</l><lb/>
+<l>Die Koſten zu erſparen.</l></lg></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="[33]" facs="#f0047"/>
+<pb n="[34]" facs="#f0048"/>
+<pb n="[35]" facs="#f0049"/>
+<pb n="[36]" facs="#f0050"/>
+<pb n="[37]" facs="#f0051"/>
+<pb n="[38]" facs="#f0052"/>
+<pb n="[39]" facs="#f0053"/>
+<pb n="[40]" facs="#f0054"/>
+<pb n="[41]" facs="#f0055"/>
+<pb n="[42]" facs="#f0056"/>
+<pb facs="#f0057"/>
+<pb facs="#f0058"/>
+<pb facs="#f0059"/>
+<pb facs="#f0060"/>
+<pb facs="#f0061"/>
+</body></text> </TEI>

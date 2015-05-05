@@ -1,0 +1,1710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Das Nationalfest der Deutschen zu Hambach</title>
+<title type="volume" n="2"/>
+<author>
+<persName ref="http://d-nb.info/gnd/118835777">
+<surname>Wirth</surname>
+<forename>Johann Georg August</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">49</measure>
+<measure type="tokens">13063</measure>
+<measure type="types">4038</measure>
+<measure type="characters">95280</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:08:45Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/wirth_nationalfest02_1832</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/wirth_nationalfest02_1832</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/wirth_nationalfest02_1832</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/wirth_nationalfest02_1832</idno>
+<idno type="DTADirName">wirth_nationalfest02_1832</idno>
+<idno type="DTAID">17216</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905197481</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Wirth, Johann Georg August: Das Nationalfest der Deutschen zu Hambach. Heft 2. Neustadt, 1832.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Das Nationalfest der Deutschen zu Hambach</title>
+<title level="m" type="volume" n="2"/>
+<author>
+<persName ref="http://d-nb.info/gnd/118835777">
+<surname>Wirth</surname>
+<forename>Johann Georg August</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">S. 65-104</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Christmann</name></publisher>
+<pubPlace>Neustadt an der Haardt</pubPlace>
+<date type="publication">1832</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">Göttingen SUB, 8 H GERM X, 2627:2</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20H%20GERM%20X%2C%202627%3A2</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Journalismus</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Gesellschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Gesellschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2main">Zeitung</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><body>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[65]" facs="#f0007"/>
+<div n="1"><head/> <p><hi rendition="#in">S</hi>o ſey denn noch einmal freudig gegrüßt, du ſchöner Tag, an dem<lb/>
+unſere Fahne, des mächtigen Deutſchlands majeſtätiſches Panner, nach<lb/>
+langer Demüthigung zum erſten Male wieder entfaltet war. Ja es war<lb/>
+ein ſchöner, und zugleich ein ernſter Tag, wo dreißigtauſend Deutſche<lb/>
+nur von Einem Gedanken beſeelt, nur von Einer tiefen Ueberzeugung<lb/>
+durchdrungen waren, von der Ueberzeugung: »das große Vaterland<lb/>
+müße von Schimpf und Elend endlich einmal zu Ruhm und Glück auf-<lb/>
+erſtehen, Deutſchland müße bald wiedergeboren werden.« — Was die<lb/>
+Diplomaten den Völkern ſo eifrig zu verbergen ſuchen, daß die Noth<lb/>
+unſeres Landes und das Unglück des ganzen europäiſchen Welttheils nicht<lb/>
+natürlich ſey, ſondern vielmehr durch ein unſinniges und despotiſches Re-<lb/>
+gierungsſyſtem herbeigeführt werde, daß dieſes verwüſtende Syſtem,<lb/>
+welches die Bevölkerung eines ganzen Welttheils unbeſchreiblich elend<lb/>
+macht, ſeine Hauptſtütze nur in der Zerriſſenheit und der Unterdrückung<lb/>
+Deutſchlands habe, und daß wir daher unſere Freiheit und Nationalein-<lb/>
+heit nicht blos des eigenen Glückes, ſondern noch mehr der Beruhigung<lb/>
+und dauerhaften Organiſation Europa’s wegen zu erringen ſtreben müßen,<lb/>
+daß ohne die Freiheit Deutſchlands die Freiheit keines andern Volks denk-<lb/>
+bar ſey, und daß namentlich die Völker im Oſten durch uns befreit werden<lb/>
+müßen — alles dieſes hatte die große patriotiſche Verſammlung tief gefühlt<lb/>
+und klar erkannt. Daher die lebhafte Sympathie für Polen, daher die <choice><sic>ein<lb/>
+müthige</sic><corr>ein-<lb/>
+müthige</corr></choice> Ueberzeugung, daß die Sache dieſer edlen Nation von der unſri-<lb/>
+gen unzertrennlich ſey. An dem Tage, wo zur Wiederaufrichtung des<lb/>
+vereinigten freien Deutſchlands der Grundſtein gelegt wurde, mußte<lb/>
+nothwendig auch das brennende Verlangen kund werden, für die Mär-<lb/>
+tyrer der europäiſchen Freiheit, die ritterlichen Polen, nicht blos zu ſpre-<lb/>
+chen, ſondern auch einmal zu handeln. Dieſes Verlangen äußerte ins-<lb/>
+<fw type="sig" place="bottom">5</fw><lb/>
+<pb n="66" facs="#f0008"/>
+beſondere unſer wackrer <hi rendition="#g">Fitz</hi>, Bürger zu Dürkheim, in einer Rede,<lb/>
+die allgemein Anklang fand. Wir wollen daher das zweite Heft der<lb/>
+Feſtbeſchreibung mit der Rede dieſes Patrioten eröffnen:</p><lb/>
+<space dim="vertical"/> <p>So viel uns Deutſchen, im Allgemeinen, bei unſerem jetzigen Zuſtand<lb/>
+noch zu wuͤnſchen und zu erringen uͤbrig iſt, ſo muͤſſen doch alle unſre<lb/>
+Klagen und Wuͤnſche in den Hintergrund treten, wenn wir an das Schick-<lb/>
+ſal der edlen polniſchen Nation denken.</p><lb/>
+<p>Ich glaube daher, daß es ganz an ſeinem Orte iſt, bei dem heu-<lb/>
+tigen deutſchen Maifeſte, bei welchem wir mehrere der edelſten Glieder<lb/>
+dieſer Nation in unſrer Mitte erblicken, — die Frage vorzulegen und zu<lb/>
+eroͤrtern: Ob es denn, wie bisher bei uns Deutſchen, immer nur allein<lb/>
+bei der innigen Theilnahme an ihrem Schickſale verbleiben ſoll, oder<lb/>
+ob wir <hi rendition="#g">mehr</hi> fuͤr ſie thun koͤnnen und ſollen! —</p><lb/>
+<p>Es ſchwellt mir die Bruſt, wenn ich daran denke, daß der erſte feſte<lb/>
+Entſchluß, die ſchoͤnſte und edelſte Handlung zu vollbringen, — welche die<lb/>
+Muſe der Geſchichte in Erz graben, und die Choͤre der guten Geiſter in<lb/>
+dem Himmel jubelnd verkuͤnden wuͤrden, — wenn, ſage ich, der erſte<lb/>
+feſte Entſchluß, eine ſo edle That zu vollbringen, als die iſt: Polens<lb/>
+Befreiung vom Joche des Tyrannen, von der heute verſammelten Menge,<lb/>
+an dieſem feſtlichen Tage, aus Hambachs Schloß-Ruinen ausgehen<lb/>
+wuͤrde! —</p><lb/>
+<p>Denn ſo lange dieſe edle Nation unter einem ſo furchtbaren Joche<lb/>
+der Tyraney leidet, ſo lange ihre edelſten Glieder als Verbannte in<lb/>
+Frankreich leben, und ein größerer Theil in den Wuͤſten Sibiriens ſchmach-<lb/>
+ten muß, <hi rendition="#g">ſo lange</hi> kann kein andrer Gedanke in meiner Seele auf-<lb/>
+kommen, als der, — das Schickſal der ungluͤcklichen, dreimal bedauerungs-<lb/>
+werthen polniſchen Nation gemildert zu ſehen. Und ich bin gewiß, dieſes<lb/>
+Gefuͤhl theilen alle die hier ſind, und Millionen von wackern Maͤnnern<lb/>
+unſrer und andrer Nationen mit uns. — Und trotz dieſem Gefuͤhle der<lb/>
+Millionen, ſollte es blos bei dem weibiſchen Gewinſel des Mittleids<lb/>
+bleiben?! Trotz dieſen Millionen, die ſich fuͤr Polen und dadurch fuͤr<lb/>
+die Sache der ganzen Menſchheit erheben koͤnnten, — ſehen wir ruhig<lb/>
+zu, wie das Ungeheuer in Menſchengeſtalt, auf dem ruſſiſchen Throne,<lb/>
+durch ſeine Schergen, die edelſte Nation von Gottes Erde vertilgen<lb/>
+laͤßt! — ſehen zu, wie er tauſende von Familien nach Sibirien ſchickt,<lb/>
+ihnen Vermoͤgen, Namen und Ehre raubt, und ſonſtige Grauſamkeiten<lb/>
+an ihnen veruͤbt, welche auszuſprechen, ſich das menſchliche Gefuͤhl empoͤrt.<lb/>
+So daß der groͤßte Theil der Nation in eine ſolche Lage verſetzt wurde,<lb/>
+<pb n="67" facs="#f0009"/>
+wo der Tod wuͤnſchenswerther als das Leben iſt. — Und warum<lb/>
+muͤſſen ſie alles dieſes erdulden? — Weil ſie ſich von dem Joche eines<lb/>
+Tyrannen befreien wollen, der ihre heiligſten Menſchenrechte mit Fuͤßen<lb/>
+trat, der nach Laune und Willkür den Geſetzen des Landes Hohn ſprach.<lb/>
+Und dies thaten ſie in einer Zeit, wo in Frankreich durch die Juli-Re-<lb/>
+volution ein Stern der Hoffnung fuͤr alle unterdruͤckte Voͤlker aufgegan-<lb/>
+gen war. Sie thaten es zu einer Zeit, wo des Czaren Macht ſich an den<lb/>
+Grenzen Polens zuſammen gezogen hatte, um mit den Polen vereint —<lb/>
+(wie Er irrig glaubte) und vielleicht noch andern abſoluten Maͤchten,<lb/>
+Frankreich, und mit ihm alle liberalen Ideen zu bekriegen und zu unter-<lb/>
+druͤcken. — Und haͤtten dieſe Maͤchte alsdann den Sieg davon getra-<lb/>
+gen, was waͤre aus unſern conſtitutionellen Verfaſſungen geworden!? —<lb/>
+Sie waͤren uns alle genommen, und an ihrer Stelle herrſchten nun ab-<lb/>
+ſolute Gewalten, ja vielleicht die ruſſiſche Knute! —</p><lb/>
+<p>Daß es nicht geſchehen, daß wenigſtens dieſer Kampf, den wir<lb/>
+heute jeden Tag in den einzelnen Theilen von Deutſchland durch Fuͤr-<lb/>
+ſten und ihre Helfer im Kleinen fuͤhren ſehen, noch nicht in zwei Jahren im<lb/>
+Groſen begonnen, dies haben wir Polen zu verdanken. — So waren ſie<lb/>
+auch dieſesmal, wie ſchon vor 150 Jahren gegen die Tuͤrken, — unſere<lb/>
+Retter von dem Joche der Tyranney! Und wir Millionen Maͤnner<lb/>
+deutſcher und anderer Nationen ſollten ruhig zuſehen, wie man Polen<lb/>
+dem ruſſiſchen Reiche einverleibt, wie deſſen edelſte Bewohner theils im<lb/>
+Ausland darben oder in Sibirien dem Hungertode preis gegeben ſind, und wie<lb/>
+der zuruͤckgebliebene Theil durch ruſſiſche Inſtitutionen ſeiner Rationalitaͤt<lb/>
+beraubt werden ſoll. — Und wir, die den innigſten Antheil an Polens<lb/>
+traurigem Schickſal nehmen, <hi rendition="#g">wir ſollen ihnen nicht mehr als<lb/>
+Mitleid und Bewunderung zollen duͤrfen!? — weil es<lb/>
+die Politik unſrer Fuͤrſten nicht erlaubt, daß wir that-<lb/>
+kraͤftig fuͤr ſie wirken</hi>. — O! dann zieht fort ihr Polen, zieht fort<lb/>
+nach Amerika, nach dem Lande der Freiheit, wohin ſchon ſo viele freie<lb/>
+Maͤnner gezogen, die das Joch des Despotismus und der Tyranney nicht<lb/>
+ertragen konnten, und die Edelſten unſrer und andrer Nationen werden<lb/>
+euch folgen, und von dort aus ihr armes Vaterland bedauern, deſſen Be-<lb/>
+wohner nicht verdienten frei zu werden, weil ſie ein edles Volk durch<lb/>
+Tyrannen-Macht untergehen ließen, das ſie retten konnten. —</p><lb/>
+<p>Doch nein! — ſo weit wird es mit uns noch nicht gekommen ſeyn! —<lb/>
+wir wollen zuerſt unſre deutſchen Bruͤder auffordern, und die andern<lb/>
+Nationen werden uns folgen, in allen deutſchen Laͤndern Unterſchriften<lb/>
+von Maͤnnern zu ſammeln, welche bereit ſind, Gut und Blut fuͤr die Be-<lb/>
+<pb n="68" facs="#f0010"/>
+freiung Polens zu opfern, und wenn ihre Zahl groß genug geworden,<lb/>
+dann einen unſrer Fuͤrſten bitten, ſich an unſre Spitze zu ſtellen zu dem<lb/>
+Kampfe fuͤr die Rechte einer vor den Augen der civiliſirten Welt grenzen-<lb/>
+los elend gemachten Nation. — Und die Fuͤrſten muͤſſen es zulaſſen, wenn<lb/>
+noch ein Funke von Menſchlichkeit in ihrer Bruſt lodert, — ja, ich hoffe,<lb/>
+<choice><sic>u</sic><corr>zu</corr></choice> ihrem eignen Beſten, ſie werden es thun. — Denn ſorgen wir nicht in<lb/>
+Zeiten dafuͤr, daß dem Vergroͤßerungs-Syſtem des nordiſchen Coloſſes gegen<lb/>
+Weſten hin ein Damm entgegen geſetzt werde, ſo haben wir fruͤher oder<lb/>
+ſpaͤter gleiches Loos mit Polen zu erwarten. Und wie koͤnnten wir einen<lb/>
+ſtaͤrkeren Damm errichten, als wenn wir Polen wieder herzuſtellen ſuchen!<lb/>
+Daher friſch zur That! — Laſſet Adreſſen an alle deutſche Volkſtaͤmme<lb/>
+und an alle andere Nationen ergehen, worinnen ſie zur Theilnahme an<lb/>
+dieſem heiligen Kampfe aufgefordert werden, und kein Fuͤrſt wird euch<lb/>
+hierin hindern koͤnnen, noch wollen. Denn — ohne Polens Freiheit, keine<lb/>
+deutſche Freiheit! ohne Polens Freiheit kein dauernder Friede, kein Heil<lb/>
+fuͤr alle andern europaͤiſchen Voͤlker! — Drum fodert auf zum Kampfe<lb/>
+fuͤr Polens Wiederherſtellung, es iſt der Kampf des guten gegen das boͤſe<lb/>
+Princip! — es iſt der Kampf fuͤr die edle Sache der ganzen Menſchheit! —<lb/>
+Es iſt das Suͤhn-Opfer welches die civiliſirten Voͤlker jetziger Zeit, den<lb/>
+Enkeln der großen polniſchen Nation bringen muͤſſen, — um den Schand-<lb/>
+fleck wieder abzuwaſchen, welchen die ſcheußliche Politik des vorigen Jahr-<lb/>
+hunderts durch die Theilung Polens dem deutſchen Namen aufgedruͤckt hat!«</p><lb/>
+<p>Der Verſammlung ward nun die Freude zu Theil, einen edlen Po-<lb/>
+len, Franz Grzymala, auf der Rednerbühne begrüßen zu können, der<lb/>
+über den Zuſtand Europa’s und das grauſame Unterdrückungsſyſtem<lb/>
+der Könige mit ergreifender Wahrheit ſprach. Die Rede dieſes eben<lb/>
+ſo thätigen als einſichtsvollen Polen, welche uns leider bei dem Ab-<lb/>
+druck dieſes Heftes noch nicht mitgetheilt war, machte großen Eindruck<lb/>
+auf die ganze Verſammlung, insbefondere tief empfunden wurde die ge-<lb/>
+wiß wahre Behauptung: daß kein Volk reifer ſey, die freieſte Verfaſ-<lb/>
+ſung dauerhaft bei ſich zu begründen, als das deutſche Volk. Veranlaßt<lb/>
+durch die hohe ehrenvolle Erwartung eines Polen von unſerem deut-<lb/>
+ſchen Vaterlande ſprach jetzt <hi rendition="#g">Chriſt. Scharpff</hi> aus Homburg, der<lb/>
+tapfre Mitarbeiter an der deutſchen Tribüne:</p><lb/>
+<p rendition="#et"><hi rendition="#g">Deutſche Männer</hi>!</p><lb/>
+<p>Unſer Vaterland war in Schmach und politiſche Ohnmacht verſun-<lb/>
+ken; es hat die Schmach von ſich geworfen, es iſt aus dem unwürdigen<lb/>
+Schlafe erwacht, die Blicke Europa’s ſind wieder auf daſſelbe gerichtet. —<lb/>
+Die Begeiſterung, mit welcher das deutſche Volk die Revolution des<lb/>
+<pb n="69" facs="#f0011"/>
+Juli begrüßte, die Aufſtaͤnde in Heſſen, Braunſchweig, Sachſen ꝛc. ꝛc.<lb/>
+die edle Theilnahme an dem Schickſale Polens, dann die mächtig ſich<lb/>
+erhebende öffentliche Meinung, genährt durch eine entſchiedene Oppoſi-<lb/>
+tion, und zur Begeiſterung geſteigert durch die Gründung des deutſchen<lb/>
+Vaterlandsvereins, Alles dies mußte die Freunde und Vertheidiger der<lb/>
+Freiheit zu hohen, herrlichen Erwartungen berechtigen. Dieſe Erwar-<lb/>
+tungen wären jetzt ſchon erfüllt, hätten damals die Völker ihre <hi rendition="#g">vortheil-<lb/>
+hafte</hi> Stellung eben ſo ſchnell begriffen, als die Könige ihre <hi rendition="#g">mißliche</hi><lb/>
+Lage erkannten. Die Könige ſchloſſen ein enges Bündniß, ſie befürch-<lb/>
+teten: es gelte den Kampf auf Leben und Tod; — während die Völker<lb/>
+der Täuſchung ſich hingaben: die Forderungen der Vernunft und der<lb/>
+Civiliſation müßten endlich jetzt vor den Thronen Gehör finden. Und<lb/>
+ſo gelang es denn wiederum der Heuchelei der Machthaber, die Völker zu<lb/>
+betrügen, denn noch war es nicht klar geworden, daß mit dem Unſinn,<lb/>
+der auf den Thronen ſitzt, mit der künſtlich und gewaltſam vererbten<lb/>
+Barbarei aus einer Zeit, die in Ruinen liegt, — eine vernünftige und red-<lb/>
+liche Verſtändigung unmöglich ſey. — Das Volk wußte nicht, daß Ver-<lb/>
+nunft von Seiten eines legitimen Fürſten Selbſtverrath an der eigenen<lb/>
+Majeſtät wäre, deſſen ſich kein gekröntes Haupt ſchuldig machen kann. —<lb/>
+Die Machthaber ſahen den Untergang ihrer jetzigen Herrſcherweiſe vor-<lb/>
+aus, wenn ſie den Forderungen der Vernunft und der Civiliſation nach-<lb/>
+gäben: jedes Zugeſtändniß wäre ja ein Schritt näher zur Volksſouveräni-<lb/>
+tät!— Darum: wo ein Zugeſtändniß dennoch gemacht werden muß, iſt<lb/>
+es voll von Trug: die Freiheit wird zur Feſſel, ſobald das Volk ernſt-<lb/>
+lich davon Gebrauch machen will: das Volk hat keine Garantie für<lb/>
+ſeine Rechte! — So lange noch irgend ein Schein für die Möglichkeit<lb/>
+abſoluter Herrſchaft vorhanden iſt, muß die aufſtrebende Freiheit der<lb/>
+Völker im engen Zwinger veralteter Staatsformen gefeſſelt bleiben; die<lb/>
+Anerkennung des Rechts und der Vernunft, wird bis zur letzten, drin-<lb/>
+gendſten Stunde verſchoben, indeß Elend, Verarmung und Unterdrückung<lb/>
+von Millionen der morſchen Herrſchaft zur Stütze dienen. Glücklich der<lb/>
+Fürſt, hat der morſche Bau wenigſtens bis zu ſeinem Lebensende gehal-<lb/>
+ten! — Er konnte das Maas ſeiner Sünden in Ruhe häufen, er hat<lb/>
+ruhig in der ſturmbewegten Zeit <hi rendition="#g">ſein</hi> Volk und <hi rendition="#g">ſein</hi> Land regiert, er<lb/>
+kann wohlgefällig von feilen Höflingen ſich beklatſchen laſſen. — Und<lb/>
+ſollte auch, ſtatt der Thränen des Volks, der Fluch der lebenden und<lb/>
+kommenden Geſchlechter ſeinem Namen folgen, er hat genug des Ruhmes:<lb/>
+er hat zu Gunſten der meuteriſchen Canaille keines einzigen Rechtes ſeiner<lb/>
+fürſtlichen Krone ſich begeben! — Der Bund zu London, wie der Bund<lb/>
+<pb n="70" facs="#f0012"/>
+zu Frankfurt, beobachtet in dieſem Sinne jeden Schritt der unter-<lb/>
+drückten Völker und »Ruͤckwärts« ertönt der ſchmachvolle Ruf, ſobald ſie<lb/>
+erkennen, daß der Schritt ein Schritt zur Freiheit iſt: »Rückwärts«<lb/>
+iſt auch der Inhalt aller ihrer Protokolle und Beſchlüſſe, die ſanctionirt<lb/>
+durch die Macht der Bajonette, in Europa als Völkerrecht gelten ſollen.<lb/>
+Wehe dem Volke, das durch die fromme Gerechtigkeitsſprache dieſer<lb/>
+diplomatiſchen Inquiſitionsgerichte ſich täuſchen läßt! Die Emanzipation<lb/>
+der Völker zu hindern, iſt das oberſte Geſetz dieſer Verbündeten, und die<lb/>
+Zugeſtändniſſe, die Einer oder der Andre zu machen gezwungen iſt, wer-<lb/>
+den zurückgenommen, ſobald die Möglichkeit des Gewaltſtreichs erkannt<lb/>
+wird. — Aus Allem dem aber ſollten die Völker die Lehre ziehen: daß<lb/>
+ſie vom Regime des <hi rendition="#aq">bon plaisir</hi> vergeblich einen beſſern Zuſtand der<lb/>
+Dinge erwarten. — Der beſte Fürſt von Gottes-Gnaden iſt ein geborner<lb/>
+Hochverräther an der menſchlichen Geſellſchaft, und erſt dann iſt ein<lb/>
+beſſerer Zuſtand der geſellſchaftlichen Ordnung zu hoffen, wenn ſtatt der<lb/>
+Bundestags- und Conferenzmänner die Repräſentanten des befreiten<lb/>
+Deutſchlands und die Vertreter der freien, unabhängigen Völker Eu-<lb/>
+ropa’s zu Congreſſen zuſammentreten. Nichts zu hoffen aber iſt von der<lb/>
+jetzigen Kabinetspolitik und der europäiſchen Diplomatie, welche auf das<lb/>
+Recht der Bajonette geſtützt, unberufen ſich anmaßen, über das Schick-<lb/>
+ſal der Völker nach Laune und Intereſſen der einzelnen Machthaber zu<lb/>
+entſcheiden. Die Anarchie, vor der man zurückſchreckt, der traurige Zu-<lb/>
+ſtand der Verwirrung und Ungewißheit, der aller Länder Europa’s ſich<lb/>
+bemächtigt, ſie ſind die natürliche Frucht des verkehrten Syſtems dieſer<lb/>
+Gewalthaber. — Deutſche Männer, gegen Diejenigen, welche Körper<lb/>
+und Geiſt in trauriger Zwingherrſchaft gefeſſelt halten, welche durch<lb/>
+Verarmung und Verdummung die Völker zu ohnmächtiger Ruhe zwin-<lb/>
+gen wollen, gegen ſie ſprecht das »Schuldig« aus, wenn über kurz oder<lb/>
+lang, der unſelige Zuſtand Europa’s und unſers unglücklichen Vater-<lb/>
+landes, ſtatt auf dem Wege friedlicher Reform, in gewaltſamer Umwäl-<lb/>
+zung das Heilmittel ſucht. — Werft einen Blick auf die 15 Jahre der<lb/>
+Täuſchung und Unterdrückung, durch welche unſer ſchönes Deutſchland<lb/>
+verarmt und entwürdigt iſt: das freie Wort war immer verfolgt; Han-<lb/>
+del und Gewerbe ſind gefeſſelt und vernichtet, und wo etwas zu ihrem<lb/>
+Beſten geſchieht, da iſt es auf Koſten und zum Ruin des nächſten Grenz-<lb/>
+nachbars, der unſer deutſcher Mitbruder iſt (allgemeiner Beifall); der<lb/>
+Landmann, durch Steuern, Zehnten, Frohnden, Gilt und Zins für<lb/>
+kleine und große Zwingherrn, verarmt und verſchuldet, muß Hütte,<lb/>
+Acker, Heimath, wo er glücklich ſeyn könnte, verlaſſen, will er<lb/>
+<pb n="71" facs="#f0013"/>
+mit Weib und Kindern nicht Hungers ſterben. Dieſem Allen abzuhel-<lb/>
+fen verſprach die deutſche Bundesakte, verſprachen die deutſchen Fürſten<lb/>
+in den Tagen ihrer Bedrängniß, ſie wiſſen nichts mehr von den Ver-<lb/>
+ſprechungen, aber o der Schmach! achtzehn Jahre nachdem das deutſche<lb/>
+Volk Gut und Blut geopfert, dieſe Fürſten von napoleoniſchem Despo-<lb/>
+tismus zu befreien, rufen dieſelben die Ordonanzen Napoleons, mit dem<lb/>
+Blute Palms beſudelt, Napoleons nie geſetzlich ſanctionirte Decrete, die<lb/>
+den Despoten vom Throne geſtürzt haben, rufen ſie zur Unterdrückung<lb/>
+der deutſchen Preßfreiheit und perſönlichen Freiheit zurück. Dies, deutſche<lb/>
+Männer, iſt empörend und ſchmählig! — Jetzt oder nie gilt es, daß<lb/>
+Deutſchland zeige, ob es werth ſey, aus dieſem Zuſtande der Entwürdigung<lb/>
+herauszutreten, oder ob es werth ſey einer noch ſchimpflicheren Skla-<lb/>
+verei! — Durch rege allgemeine Theilnahme an der Ehrenſache des<lb/>
+Vaterlandes, an dem herrlich begonnenen Kampfe der Freiheit gegen<lb/>
+den Abſolutismus, der Volksſouveränität gegen die Souveränität der<lb/>
+Könige, kann der Zuſtand des Rechts und der Vernunft in Deutſchland<lb/>
+und durch Deutſchland in Europa begründet werden, durch Trägheit<lb/>
+und Gleichgültigkeit beim Rufe des Vaterlandes ſiegt die Sache der<lb/>
+Könige, der Zuſtand der Gewalt und der Unvernunft, in Deutſchland<lb/>
+und durch Deutſchland auch im übrigen Europa. Zwiſchen Freiheit und<lb/>
+Knechtſchaft, zwiſchen dem Zuſtand des Rechts oder der Gewalt, der<lb/>
+Vernunft oder der Unvernunft iſt die Wahl gegeben; — erkämpft das<lb/>
+deutſche Volk Freiheit, Recht und Vernunft, dann Heil unſerm Vater-<lb/>
+lande, Heil den unterdrückten auf uns vertrauenden Völkern Europa’s! —<lb/>
+Siegen Knechtſchaft, Gewalt und Unvernunft, dann iſt Unglück und<lb/>
+Schande unſer Loos. Der Genius des Vaterlandes walte, daß nicht<lb/>
+über kurz die Völker Europa’s ausrufen: Unglück und Schande über<lb/>
+Deutſchland, es iſt nicht werth der Freiheit, nicht werth eines beſſern<lb/>
+Zuſtandes, es verdient unter den Bajonetten des Abſolutismus zu ver-<lb/>
+ſtummen, es verdient unter die Knute des ruſſiſchen Czars den Nacken<lb/>
+zu beugen! Deutſche Männer, in eurer Macht liegt es zu verhüten,<lb/>
+daß dieſer ſchmachvolle Ruf nicht über unſer Vaterland ergehe! Es lebe<lb/>
+Deutſchland, das einige, ſtarke, freie Deutſchland lebe hoch!« —</p><lb/>
+<p>Nach dieſen ernſten, tiefergreifenden Worten ſprach wieder ein Pole,<lb/>
+<hi rendition="#g">Oranski</hi>:</p><lb/>
+<p>Das unläugbare Zeichen der Reife eines Volkes iſt das Bedürfniß<lb/>
+des öffentlichen Lebens. Das deutſche Volk fühlt das großartige Be-<lb/>
+<pb n="72" facs="#f0014"/>
+dürfniß, verſammelt ſich zu berathen über das Intereſſe des gemeinſamen<lb/>
+Vaterlandes. Das heutige Feſt iſt der erſte Akt der Mündigkeit des<lb/>
+deutſchen Volkes. Aber meinen Sie, daß Sie hier unbemerkt, unbe-<lb/>
+obachtet bleiben können? Feſte ſollen nur auf Befehl der Fürſten, zur<lb/>
+Ehre der Fürſten veranſtaltet werden, das Volk ſoll keinen eigenen<lb/>
+Willen, keine eigene Stimme haben. Meinen Sie, daß Sie den<lb/>
+Schutz der Geſetze gegen die Rache der beleidigten Machthaber anrufen<lb/>
+können? Die Geſetze, verfertigt von den Ariſtokraten, ſanktionirt durch<lb/>
+die Despoten, dienen nur der Uebermacht, nur den Unterdruͤckern, —<lb/>
+die Waffen ſtillen den Klageruf der Völker. Die nordiſchen Bar-<lb/>
+baren werden kommen, um die Rebellen zu züchtigen, — die wilden Hor-<lb/>
+den überſchwemmen das glückliche Land der Deutſchen, zerſtören die<lb/>
+Städte, verbrennen die Dörfer, die Hufe der koſakiſchen Pferde zer-<lb/>
+treten die blühenden Weinberge der ſtolze Sieger feiert auf demſel-<lb/>
+ben Ort das Feſt der Zerſtörung, — man verwandelt die Bühne in ein<lb/>
+Blutgerüſte. Es bleibt dann kein Mittel der Rettung, als der Auf-<lb/>
+ſtand der Völker, der freien, der mündigen Völker. Der Ruf der<lb/>
+Freiheit tödtet die Despoten, die Waffen der Söldlinge fallen vor<lb/>
+dem Angeſicht der freien Männer<choice><sic>,</sic><corr>.</corr></choice> Wie in Rom die Brutusdolche, ſo<lb/>
+müſſen alsdann die Hermannsſchwerter vor allen Tirannen blitzen, — die<lb/>
+hundert Köpfe des Ungeheuers würden dann auf einmal fallen. »Geduld«<lb/>
+war lange der Wahlſpruch des deutſchen Volkes, die Zeit des Han-<lb/>
+delns iſt da. — Dem Erwachen der muthigen Thatkraft der Völker ein<lb/>
+Lebehoch! dem heiligen Bunde der Völker ein Lebehoch!«</p><lb/>
+<p>In den Pauſen zwiſchen dem Vortrage vorſtehender Reden wurden<lb/>
+wieder verſchiedene patriotiſche Lieder geſungen. Wir theilen hier einen<lb/>
+aus dem Polniſchen überſetzten, und dann einen von dem wackern <hi rendition="#g">Fitz</hi><lb/>
+gedichteten Geſang mit:</p><lb/>
+<p><hi rendition="#c">1.<lb/>
+<hi rendition="#g">Der Polen Mai</hi>.</hi></p><lb/>
+<p><hi rendition="#c">(Ueberſetzt aus dem Polniſchen.)</hi></p><lb/>
+<lg type="poem"><lg n="1"><l>Bruͤder laßt uns geh’n mitſammen</l><lb/>
+<l>In des Fruͤhlings Blumenhain,</l><lb/>
+<l>Laſſet unſre Herzen flammen</l><lb/>
+<l>Hier im innigſten Verein.</l><lb/>
+<l>Lieber Mai, holder Mai! —</l><lb/>
+<l>Winters Herrſchaft iſt vorbei! —</l></lg><lb/>
+<pb n="73" facs="#f0015"/>
+<lg n="2"><l>Einſt in ſolchen Maientagen</l><lb/>
+<l>Ward ein Kleinod uns geſchenket,</l><lb/>
+<l>Muß das Herz nicht feurig ſchlagen</l><lb/>
+<l>Wenn es jener Zeit gedenket?</l><lb/>
+<l>Gott verleih! Gott verleih!</l><lb/>
+<l>Daß erbluͤh’ ein ſolcher Mai.</l></lg><lb/>
+<lg n="3"><l>Ach es haben Feindes Maͤchte</l><lb/>
+<l>Dieſes Kleinod uns geraubt,</l><lb/>
+<l>Von dem theuerſten der Rechte</l><lb/>
+<l>Kaum zu ſprechen uns erlaubt.</l><lb/>
+<l>Truͤber Mai, truͤber Mai! —</l><lb/>
+<l>Wenn ein Volk nicht froh, nicht frei.</l></lg><lb/>
+<lg n="4"><l>Von dem Joche des Tyrannen</l><lb/>
+<l>Suchten wir uns zu befreien,</l><lb/>
+<l>Manche Schlachten wir gewannen</l><lb/>
+<l>Glaubten ſchon daß frei wir ſeyen.</l><lb/>
+<l>Sangen frei, komm herbei</l><lb/>
+<l>Du erſehnter Freiheits-Mai.</l></lg><lb/>
+<lg n="5"><l>Doch! wir mußten unterliegen</l><lb/>
+<l>Feindes-Uebermacht und Raͤnken,</l><lb/>
+<l>Moͤge Gott, der uns zu ſiegen</l><lb/>
+<l>Nicht vergoͤnnt, den Tod uns ſchenken.</l><lb/>
+<l>Truͤber Mai, truͤber Mai! —</l><lb/>
+<l>Wenn ein Volk in Sclaverei! —</l></lg><lb/>
+<lg n="6"><l>Eine Hoffnung knuͤpft ans Leben</l><lb/>
+<l>Uns verbannte Polen wieder,</l><lb/>
+<l>Unſre Freiheit zu erſtreben</l><lb/>
+<l>Werden helfen deutſche Bruͤder!</l><lb/>
+<l>Gott verleih, daß es ſey!</l><lb/>
+<l>Dankfeſt dann dem neuen Mai!</l></lg></lg><lb/>
+<p><hi rendition="#c">2.<lb/>
+<hi rendition="#g">Deutſches Mailied</hi>.</hi></p><lb/>
+<p><hi rendition="#c">Als Erwiederung auf das polniſche Mailied.<lb/>
+(Mel.: Wo Kraft und Muth ꝛc.)</hi></p><lb/>
+<lg type="poem"><lg n="1"><l>Hoͤrt deutſche Bruͤder Polens Klage</l><lb/>
+<l>Sie dringt an jedes Mannes fuͤhlend Herz;</l><lb/>
+<l>Wem nicht der Polen trauervolle Lage</l><lb/>
+<l>Erpreſſet ein Gefuͤhl von Schaam und Schmerz,</l><lb/>
+<l>Den mag ich nimmer Bruder nennen,</l><lb/>
+<l>Er kann fuͤr Edles nie entbrennen; —</l><lb/>
+<l>Er machet Schand der deutſchen Nation,</l><lb/>
+<l>Ihm zeige jeder Biedre Spott und Hohn!</l></lg><lb/>
+<lg n="2"><l>Der Polen Hoffnung iſt auf euch gerichtet,</l><lb/>
+<l>Sie fleh’n zu euch um Huͤlf’ in ihrer Noth;</l><lb/>
+<l>Das Reich der Polen hat der Czar vernichtet,</l><lb/>
+<l>Und Tyrannei treibt mit den Edeln Spott.</l><lb/>
+<pb n="74" facs="#f0016"/>
+<l>Und deutſche Maͤnner koͤnnten ſehen</l><lb/>
+<l>Daß Polens Reich ſoll untergehen!? —</l><lb/>
+<l>Es braͤchte Schand der ganzen Nation,</l><lb/>
+<l>Die Nachwelt ſpraͤch’ von <hi rendition="#g">uns</hi> mit Spott und Hohn,</l></lg><lb/>
+<lg n="3"><l>Doch! — wer von Knechtſchaft andre will befreien</l><lb/>
+<l>Muß ſelbſt ein edler freier Mann auch ſeyn;</l><lb/>
+<l>Und viele unſrer deutſchen Bruͤder weihen</l><lb/>
+<l>Ihr Gut und Blut der Willkuͤhr falſchem Schein.</l><lb/>
+<l>Doch laß’t uns heut die Hoffnung naͤhren:</l><lb/>
+<l>Sie wird Erfahrung bald bekehren;</l><lb/>
+<l>Dann machen wir die edlen Polen frei</l><lb/>
+<l>Und bringen Fluch der Ruſſen-Tyrannei.</l></lg><lb/>
+<lg n="4"><l>O! Bruͤder naͤhrt die edlen Freiheits-Flammen,</l><lb/>
+<l>Dies edle Feuer tief in eurer Bruſt,</l><lb/>
+<l>Ja! — halten wir in Eintracht nur zuſammen,</l><lb/>
+<l>Und jeder ſey ſich ſeiner Kraft bewußt!</l><lb/>
+<l>Dann muß die gute Sache ſiegen</l><lb/>
+<l>Das Schlechte muß ihr unterliegen.</l><lb/>
+<l>Und es erſcheinet bald <choice><sic>eiu</sic><corr>ein</corr></choice> ſchoͤner Mai</l><lb/>
+<l>Wo Deutſche, Polen, jauchzen: wir ſind frei.</l></lg><lb/>
+<lg n="5"><l>O! — ſuͤße Hoffnung, du kannſt mich nicht truͤgen,</l><lb/>
+<l>Daß Deutſchland werde kraͤftig bald erſteh’n,</l><lb/>
+<l>Geſchichte muͤßte, und der Zeitgeiſt luͤgen,</l><lb/>
+<l>Wenn unſre Sache koͤnnte untergeh’n.</l><lb/>
+<l>Wir wollen Menſchen-Recht erringen</l><lb/>
+<l>Wir wollen, und es muß gelingen:</l><lb/>
+<l>Dies ſchwoͤren wir beim Deutſchen Feſt im Mai,</l><lb/>
+<l>Wir wollen — alle Voͤlker ſeyen frei.</l></lg></lg><lb/>
+<p>Jubel und Heiterkeit, gepaart mit tiefen patriotiſchen Gefuͤhlen,<lb/>
+belebte die große Verſammlung, in einzelnen Gruppen hatten belehrende<lb/>
+Unterhaltungen ſtatt, dichter aber drängten ſich die Zuhörer, wenn<lb/>
+von der Tribüne oder andern zweckmäßigen Punkten öffentlich geſprochen<lb/>
+wurde. Von den vielen Reden, die jetzt noch bis zum ſpäten Abend<lb/>
+gehalten wurden, theilen wir ferner mit:</p><lb/>
+<p><hi rendition="#c"><hi rendition="#g">Rede von Barth aus Rheinbaiern</hi>.</hi></p><lb/>
+<lg type="poem"><l>„Vor uns liegt ein gluͤcklich Hoffen,</l><lb/>
+<l>„Liegt der Zukunft goldne Zeit,</l><lb/>
+<l>„Steht ein ganzer Himmel offen</l><lb/>
+<l>„Reift der Freiheit Seeligkeit“!</l></lg><lb/>
+<p>So rief dir, mein deutſches Volk, dein gluͤhend begeiſterter, kriegeriſcher<lb/>
+Saͤnger, in einer ernſten, hohen Zeit zu; und ſie begeiſtern uns heute<lb/>
+wieder dieſe warmen anfeuerenden Toͤne, ſie erhalten einen bedeutungsvollen<lb/>
+mahnenden Klang dieſe unſterblichen Worte des deutſchen Saͤngers,<lb/>
+<pb n="75" facs="#f0017"/>
+entquollen einer Zeit, reich an Druck, Muth und vernichtenden Kaͤmpfen! —<lb/>
+„Vor uns liegt ein gluͤcklich Hoffen!“ ſo ruft der gigantiſche Geiſt der Zeit,<lb/>
+der mit erſchuͤtterndem Tritte uͤber die Erde ſchreitet, an den Huͤtten,<lb/>
+an den Pallaͤſten, an den Thronen! und der warme Menſchenfreund jaucht<lb/>
+ihm trunken entgegen, und der knirſchende Despotismus huͤllet ſich dichter<lb/>
+in den blutigen Purpur und mit ſchielendem, zitterndem Blicke, mit angſtlich<lb/>
+ſtockendem Herzen, dem Schritt des erhabnen Geiſtes folgend lauert die<lb/>
+verſchrumpfte Politik: ob durch Waffenſchall und markloſe Drohungen der<lb/>
+Gewaltige nicht betaͤubt werden koͤnnte! Und er ſteht, das gluͤhende Auge<lb/>
+in die Ferne gerichtet, den nervigen Arm emporgehoben, er ſteht harrend,<lb/>
+ob ihr ihm folget, aus dieſer truͤben, druͤckenden Daͤmmerung, in den lachen-<lb/>
+den Tag, dem er euch entgegen fuͤhren will. Mitbuͤrger! Maͤnner! Soͤhne<lb/>
+des Vaterlands! raffet euch auf mit lautern, ſtarken Herzen, pruͤfet die<lb/>
+heiligen Momente, die gewichtig in ihren Folgen wie Jahrtauſende ſind, —<lb/>
+und dann weihet euch, weihet euch auf Tod und Leben, den heiligſten<lb/>
+Intereſſen der Menſchheit! — Erkennet die Wuͤrde, den Adel eurer Be-<lb/>
+ſtimmung, der Himmel rief euch zu großen Zwecken ins Leben, er<lb/>
+erſchuf euch fuͤr dieſe Zeit! Und vor Allen du ruͤſtige, edle, begeiſterte<lb/>
+vaterlaͤndiſche Jugend, auf deren Muth, deren Thatkraft die verkuͤndete<lb/>
+gluͤckliche Zukunft gebaut iſt, mit frohen, von kuͤhnen Entſchluͤſſen geſchwell-<lb/>
+ten Herzen trete zuſammen, mit unbrechbarem diamantnem Muthe ruͤſte<lb/>
+dich! ſiehe ſchon bricht es uͤber die dunklen Berge, das Morgenroth eines<lb/>
+neuen Jahrtauſends, — das Morgenroth einer gluͤcklichen, freien, veredelten<lb/>
+<hi rendition="#g">Zeit</hi>, aber finſtere Wolken druͤcken ſich uͤber das aufſtroͤmende Licht, und<lb/>
+der Maͤnner-pruͤfende Sturm bricht in den anbrechenden Morgen. Dränge<lb/>
+deine ehernen Reihen um den heiligen Altar der Freiheit, und ſchuͤtze die<lb/>
+auflodernde Flamme, und wenn ſie nahen die finſtern Verbuͤndete des Ab-<lb/>
+grunds, dann leuchte, ein verderbender Wetterſtrahl, in ihre kalte Maſſen,<lb/>
+und ſiege mit deinem reinen Blute, in deinem menſchenbegluͤckenden geheiligten<lb/>
+Unternehmen —“</p><lb/>
+<p>Und ihr, die ihr mit Wort und That, die heiligſten Empfindungen<lb/>
+des Menſchen erweckt; die ihr dem aufſtrebenden Volke die hilfreiche Hand<lb/>
+bietet, die ihr es mit ſeinen Menſchen- und Staatsbuͤrgerrechten bekannt<lb/>
+und vertraut macht; wuͤrdige, edle Volks- und Menſchenfreunde, er-<lb/>
+hebt eure belehrende, anfeuernde Rede, ſtärker und waͤrmer, rufet auf<lb/>
+mit der Stimme der Zeit, erhaltet veredelt die erweckten Geſinnungen,<lb/>
+macht den Menſchen reif fuͤr die Opferungen, welche der große Moment<lb/>
+von ihnen fordert; — nicht mit der Sprache der Verachtung, mit der un-<lb/>
+geſchmuͤckten energiſchen Rede der Wahrheit rufet ſie hinauf in eure Rei-<lb/>
+<pb n="76" facs="#f0018"/>
+hen, ſie hoͤren, ſie folgen euch gerne. — Freiheit und Vaterland — ja ſehet<lb/>
+Kleinglaͤubige, wie die Welt bei dieſen Worten aufhorcht, wie die Herzen<lb/>
+lodern in den Huͤtten, hinter dem Pfluge. — Von dem feurigen Gallien<lb/>
+bis zum ernſten kraͤftigen Norden ſchon durchwaͤrmen dieſe großen <hi rendition="#g">Ideen</hi><lb/>
+alle Gemuͤther, Aller Bruſt! —</p><lb/>
+<p>Und auch euch gilt dieſer Ruf, Bruͤder in Preußen, die ihr lange<lb/>
+ſchon ſtolz darauf, ein beſonderes Volk zu heißen, mit dem deutſchen In-<lb/>
+treſſen nichts mehr gemein zu haben ſcheint, auch euch gilt er, euch,<lb/>
+die ihr gluͤcklich und zufrieden in einem Staate hin lebt, der euch keine<lb/>
+andre Gewaͤhr fuͤr perſoͤnliche Freiheit leiſtet, als die, welche der blinde<lb/>
+Zufall in der Perſon eines guten Fuͤrſten gibt. — Auf denn, wer unter<lb/>
+euch in koͤniglicher Demuth noch nicht vertrocknet, und in fuͤrſtlicher Gnade<lb/>
+noch nicht abgeſtorben iſt!</p><lb/>
+<p>Die Menſchheit ſchließt einen hohen, heiligen Bund, eine Gewaͤhr<lb/>
+fuͤr Licht und Freiheit, einen Vernichtungs-Bund gegen Despotismus und<lb/>
+Bonzenthum, einen Bund auf Tod und Leben, ſegnend den der die<lb/>
+heilige Zeit ergreifend, dem leidenden Volke aufhilft, verfluchend und<lb/>
+zerſchmetternd die Werke und Gebaͤude der Willkuͤhr, der blinden Unter-<lb/>
+wuͤrfigkeit, der Sclaverei und des Pfaffenthums. —</p><lb/>
+<p>Und du Geber der lichten Vernunft, der ſittlichen und <choice><sic>pernuͤnftigen</sic><corr>vernuͤnftigen</corr></choice><lb/>
+Freiheit, des ſtaͤhlernen, maͤnnlichen Muthes, ſiehe herab auf deine<lb/>
+Menſchheit, laß hervorwachſen aus unſern Handlungen, unſern Graͤbern,<lb/>
+Segen, Freiheit, Veredlung fuͤr die Folgezeit, fuͤr Jahrhunderte, Jahr-<lb/>
+tauſende, und verleih uns Kraft, auszuringen den großen heiligen Kampf,<lb/>
+bis die erſterbende Hand ſinkt, und das Auge bricht unterm Sieges-<lb/>
+Donner! —</p><lb/>
+<p>Und du erhabene, eindringende Wahrheit, du Stimme des mahnen-<lb/>
+den, ſich erhebenden Volkes, noch einmal draͤnge dich mit deinem erſchuͤt-<lb/>
+ternden Donner, an die purpurnen Ruheſtellen, an die uͤppigen Polſter<lb/>
+der ſchwelgenden Großen, in die finſtern Zellen der gleißenden Pfaffen,<lb/>
+noch einmal rufe ſie auf — im Namen der zuͤrnenden Menſchheit —<lb/>
+wegzuwenden die frevelnde Hand von den heiligſten Guͤtern des Buͤrgers,<lb/>
+einzutreten in den erhabenen Verband gegen die verruchten Waffen des<lb/>
+Despotismus und des blinden Aberglaubens. —</p><lb/>
+<p><hi rendition="#c"><hi rendition="#g">Rede von Brüggemann aus Preußen.<lb/>
+Deutſche Mitbürger</hi>!</hi></p><lb/>
+<p>Vielleicht erregt es euer Mißfallen, daß ein Jüngling ſich zur Tri-<lb/>
+büne drängt, wo ergraute Männer im Kreiſe ſitzen. — Verzeihet mir! —<lb/>
+<pb n="77" facs="#f0019"/>
+Ich will nicht eingehen in die Mängel unſrer Staatseinrichtungen, nicht<lb/>
+ſprechen über das Einzelne der Mittel ihnen abzuhelfen, das Alles ge-<lb/>
+hört nur vor den Rath erfahrungsreicher Männer. Aber es gibt<lb/>
+gewiſſe Ideen, die die Geſchichte und die Entwickelung der ganzen<lb/>
+Menſchheit beſeelen, und dieſe geben ſich oft am ungetrübteſten in der<lb/>
+hoffnungsreichen, gläubigen Seele der Jugend kund. Hat nicht wirklich<lb/>
+eine ſolche Ahnung — die ſchon lange in den Herzen der Jugend lebte —<lb/>
+jetzt die Gebildeten des ganzen Volks begeiſtert und auch dieſes be-<lb/>
+geiſternde Feſt hervorgerufen? Ich ſpreche von der <hi rendition="#g">Einheit des<lb/>
+Vaterlandes</hi>? — — Das macht mir Muth, das treibt mich unwi-<lb/>
+derſtehlich es zu wagen, und die Welt-Anſicht, die Hoffnungen der<lb/>
+deutſchen Jugend, wie ich ſie kenne und wie ſie in mir leben, an<lb/>
+dieſem Auferſtehungsfeſte meines Volkes, laut zu verkünden. Euch<lb/>
+vor allem, ältere Männer, auch euch deutſche Frauen und Jungfrauen<lb/>
+und euch ihr lieben Altersgenoſſen bitte ich um freundliche Nachſicht. —</p><lb/>
+<p>Mitbürger! Schon die Achtung vor unſrer Vernunft zwingt uns<lb/>
+eine unſterblich ſich fortbildende Menſchheit anzunehmen, damit unſer<lb/>
+Daſeyn nicht als zwecklos erſcheine. — Die Geſchichte beſtätigt dieſe<lb/>
+Anſicht. Das folgende Geſchlecht iſt der Erbe des Vorigen und was<lb/>
+wir Gutes pflanzen, das wird noch lange fortwähren zum Heil unſerer<lb/>
+Kinder und Enkel. — — Wollen wir aber dieſe unſre höhere Lebens-<lb/>
+Aufgabe vollſtändig erkennen, ſo müßen wir den Gang der Geſchichte er-<lb/>
+forſchen.</p><lb/>
+<p>In den Staaten des Alterthums war der Menſch nicht Privatmann,<lb/>
+nicht Familienglied, nur Bürger, alle ſeine Tugend hatte ihren Grund<lb/>
+im Patriotismus. — Sobald dieſe Staaten eine Beute von Tyrannen<lb/>
+wurden, waren die Völker rettungslos verloren. — Das Unglück der<lb/>
+neuern Völker entſtand aus dem andern Extrem. Zu eiferſüchtig auf<lb/>
+individuelle und häusliche Freiheit, kümmerten ſie ſich wenig um das<lb/>
+öffentliche Staatsleben. Blieb der Einzelne mit ſeiner Familie in Ruhe,<lb/>
+ſo dachte er wenig an den Staat. — Deshalb gelang es den Herrſch-<lb/>
+ſüchtigen leicht, den Völkern allmählig alle öffentliche Freiheit zu rauben,<lb/>
+und den Staat in ein Familien-Beſitzthum, den freien Mann — in einen<lb/>
+hörigen Unterthanen zu verwandeln.</p><lb/>
+<p>Die Zeiten der Feudalität ſchildere ich nicht weiter, — mögen dieſe<lb/>
+Ruinen einer in unmenſchlichem Frohndienſte erbauten Ritterburg das<lb/>
+Bild jener Zeit herauf führen. — — Allein wie Aberglauben und Un-<lb/>
+wiſſenheit ſtets Knechtſchaft, Eigennutz und Kaſten-Geiſt erhalten und<lb/>
+fördern, ſo erzeugt und fördert Aufklärung dagegen Freiheit, Gerechtig-<lb/>
+<pb n="78" facs="#f0020"/>
+keit und Vaterlandsliebe. — Als <hi rendition="#g">Reformation</hi> und <hi rendition="#g">Buchdrucker-<lb/>
+kunſt</hi> die Menſchen einigermaßen zum Nachdenken brachten, da war für<lb/>
+immer der <hi rendition="#g">blinde Glaube</hi> und <hi rendition="#g">blinde Gehorſam</hi> vernichtet;<lb/>
+und als vollends die <hi rendition="#g">freie Preſſe</hi> ihr Licht in das finſtere Staats-<lb/>
+gebäude trug, als ſie den Sinn für die öffentlichen Angelegenheiten<lb/>
+weckte, da war die Grundlage der Zukunft — der <hi rendition="#g">Volksherrligkeit</hi><lb/>
+für immer unerſchütterlich gelegt. — Zuerſt leuchteten in England die<lb/>
+Morgenſtrahlen eines ſchönern Tages, aus der Nacht des Mittelalters.<lb/>
+Aber der Tag wurde heller — dieſe ariſtokratiſche Freiheit genügte nicht<lb/>
+mehr — <hi rendition="#g">Freiheit</hi> und <hi rendition="#g">Gleichheit</hi> — ward das Loſungswort, erſt<lb/>
+in Amerika, dann in Frankreich. <hi rendition="#g">Gleichheit</hi>! mit dieſem einfachen,<lb/>
+klaren, durchgreifenden Prinzip — iſt <hi rendition="#g">Freiheit</hi> und <hi rendition="#g">Gerechtig-<lb/>
+keit</hi> erſt möglich. — Weg mit Privilegien und Vorrechten! — Weg<lb/>
+mit den Gleichgewichtstheorien und dem ſtändiſchen Wirrwarr! Der<lb/>
+Bürgerwille iſt Geſetz — dies wird vollſtrecket in der Bürger Auftrag<lb/>
+und Sold! — Begeiſtern kann die Idee der Gleichheit noch nicht, ſie<lb/>
+kann blos die Hinderniſſe des Beſſern umreißen, wahrhaft bauen, das<lb/>
+muß eine höhere, die Idee der Nationalität, der Volksherrlichkeit. —<lb/>
+Dieſe ſchließt <hi rendition="#g">Freiheit</hi> und <hi rendition="#g">Gleichheit</hi> nothwendig ſchon ein.<lb/>
+Dieſe große Idee beherrſcht unſer Jahrhundert; — ſie führte die be-<lb/>
+wunderungswürdigen polniſchen Schaaren; ſie wird Deutſchland vereini-<lb/>
+gen; ſie wird <hi rendition="#g">ganz Europa</hi> zu Freiſtaaten geſtalten: dieſer Idee hat<lb/>
+die deutſche Jugend ſich mit Gut und Blut verſchworen. —</p><lb/>
+<p>Unſer Vaterland, geehrte Mitbürger! ſcheint dazu beſtimmt, dieſe<lb/>
+Idee der Volksherrlichkeit zuerſt ins Leben zu führen. <hi rendition="#g">Deutſchland</hi>,<lb/>
+das Herz Europa’s ſoll dann, als mächtiger, volksthümlicher Freiſtaat,<lb/>
+mit ſchirmender und ſchützender Liebe über die Wiedergeburt des übri-<lb/>
+gen Europas wachen. Polen wird es herſtellen, Italiens Vereinigung<lb/>
+beſchirmen, das franzöſiſche Belgien mit Frankreich, das deutſche Elſaß<lb/>
+und Lothringen wieder mit Deutſchland verbinden, Ungarns Freiheit<lb/>
+und Selbſtſtändigkeit achten, und wird ſtolz ſeyn auf die Achtung und<lb/>
+Liebe der dankbaren Völker. Von Deutſchland aus iſt das abgelebte<lb/>
+Alterthum vernichtet; von Deutſchland aus iſt die Reformation, und<lb/>
+mit ihr die Freiheit in die neue Welt gekommen; von Deutſchland aus<lb/>
+ſoll Volksgeiſt und Vaterlandsliebe unter die Nationen gebracht werden.</p><lb/>
+<p>Von jeher war der deutſche Charakter <hi rendition="#g">feſt, innig</hi> und <hi rendition="#g">rein</hi>.<lb/>
+Schon Tacitus iſt voll von dem Lobe unſerer Vorfahren. Freiheitsſinn<lb/>
+und Tapferkeit waren ihre Tugenden, dieſe lehrten ihre Prieſter, hierin<lb/>
+<pb n="79" facs="#f0021"/>
+glänzten ihre Götter. In Volksverſammlungen ordneten ſie ihre An-<lb/>
+gelegenheiten — gerade, frei und einfach. Wenig Geſetze hatten ſie,<lb/>
+und ungehemmt wollten ſie die perſönliche Freiheit. In allen ihren Ein-<lb/>
+richtungen lag ein tiefes und ernſtes Gemüth. Vor allem war die Fa-<lb/>
+milie in Sittſamkeit und Keuſchheit eine unverſiegbare Quelle der rein-<lb/>
+ſten Freuden für den Mann, ein Wonneziel für den wehrbaren Jüng-<lb/>
+ling, das er durch würdige Thaten zu verdienen trachtete.</p><lb/>
+<p>So waren unſere Vorfahren, und noch liegen dieſelben Elemente<lb/>
+der <hi rendition="#g">Feſtigkeit</hi>, der <hi rendition="#g">Innigkeit</hi> und <hi rendition="#g">Reinheit</hi> in unſerm Volke.<lb/>
+Ich weiß es, ungläubig und zweifelnd verweiſ’t man auf die jetzige Lage<lb/>
+deſſelben. Da liegt das tapfere Volk von 30 Millionen, zerriſſen von<lb/>
+einer Handvoll emporgekommener Feudalherren, ausgeſtrichen <choice><sic>ans</sic><corr>aus</corr></choice> der<lb/>
+Reihe der Großmächte, verhöhnt von ſeinen Nachbarn; da liegt es und<lb/>
+harret geduldig, bis der Barbar längſt der Oſtſee heraufziehet und<lb/>
+Lübeck und Hamburg zu ſeinen Stapelplätzen macht, und durch die Knu-<lb/>
+tenknechte Deutſchlands Cultur zertreten läßt, da ächzet das freiſinnige<lb/>
+Volk von 30 Millionen ſtumm unter dem Befehl von einigen 30 zittern-<lb/>
+den Zwingherrn, während man ſeine Freunde in Ketten wirft und zu<lb/>
+lebenslänglichen Unterſuchungen verdammt, während man Gewerbe und<lb/>
+Handel durch Mauthen vernichtet, die Kinder gegen die Eltern bewaff-<lb/>
+net und Spionen und Maitreſſen der Bürger Schweiß und Blut ver-<lb/>
+praſſen. Ich gebe zu, Deutſchlands Volk beſitzt eine große, eine unbe-<lb/>
+greifliche Langmuth; allein Alles kündigt an, daß ſie zu Ende geht.<lb/>
+Glaubt vielleicht Jemand in Frankreich den Hoffnungsſtern erſtehen zu<lb/>
+ſehen? Frankreich mag beweglicher, raſcher zur That und weniger ge-<lb/>
+duldig ſeyn, der Deutſche aber iſt andauernder und entſchiedener, was<lb/>
+er beginnt, das vollendet er auch ganz; mag Frankreichs Bevölkerung<lb/>
+ſcheinbar politiſch gebildeter ſeyn, ſie iſt nur neugieriger; nirgends iſt<lb/>
+mehr wahre Bildung und gediegene Aufklärung als in <hi rendition="#g">Deutſchland</hi>.<lb/>
+Iſt hier erſt das öffentliche Intereſſe angeregt, ſo wirds auch ernſter<lb/>
+genommen und geſunder beurtheilt, als bei dem franzöſiſchen Volke; —<lb/>
+Mag Frankreich beſtändig von edlen Redensarten über Freiheit und Na-<lb/>
+tionalität überfließen; mag ſeine Vaterlandsliebe, ſeine Eitelkeit oft hell<lb/>
+aufflackern; des Deutſchen Gefühl iſt tiefer und nachhaltiger, ſeine<lb/>
+Vaterlandsliebe iſt eine heilige — nie verlöſchende Gluth. Die Theil-<lb/>
+nahme an dem Schickſale der Polen bezeichnet die beiden Völker. —<lb/>
+Vor allem — Mitbürger! bedenkt, welche Fortſchritte unſer Vaterland<lb/>
+in ſo kurzer Zeit gemacht hat. Noch zu Anfange dieſes Jahrhunderts<lb/>
+ſtanden wir den Franzoſen an Vaterlandsliebe unendlich nach, wenig noch<lb/>
+<pb n="80" facs="#f0022"/>
+kümmerte uns das öffentliche Wohl. — Aber ſeit 15 Jahren — welche<lb/>
+Veränderung! Freilich ſuchten die Regierungen die volksthümlichen Re-<lb/>
+gungen zu unterdrücken; — allein wie wenig iſt das gelungen! Vor<lb/>
+allem bei der Jugend hatten dieſe Gefühle tiefe Wurzel geſchlagen, und<lb/>
+ſchon 1817 gelobte ſie feierlich bei der Reformations- und Befreiungs-<lb/>
+feier — auf der Wartburg, (das Vorſpiel unſers Maifeſtes) nie dieſe<lb/>
+Gluth ausſterben zu laſſen, und immer dieſen Gedanken »der Einheit<lb/>
+des deutſchen Vaterlands« weiter und weiter zu verpflanzen, bis er endlich<lb/>
+ſiegreich ans Licht treten könne.</p><lb/>
+<p>Beinahe fünfzehn lange Jahre mußte ſie ihren heiligſten Glauben,<lb/>
+ihr heißeſtes Sehnen dem Spotte der ungläubigen Welt preis geben;<lb/>
+aber ſie verzweifelte nicht am Vaterlande. Immer troſtloſer ſchien ſich<lb/>
+für Europa Alles zu geſtalten, immer mehr wollten Zweifel die Hoffenden<lb/>
+beängſtigen; aber dieſe glaubten an eine Vorſehung, — ſie glaubten<lb/>
+an ein Fortſchreiten der Menſchheit, — ſie glaubten an eine Offenbarung<lb/>
+in der Geſchichte und wankten nicht. — Der Kanonendonner der<lb/>
+Tuillerien veränderte die ganze Ausſicht. Was im Stillen gereift war —<lb/>
+das wurde jetzt offenbar. — Die Einheit Deutſchlands, die vor kurzem<lb/>
+noch als Schwärmerei verſchrien war, iſt jetzt der Wunſch und die Hoff-<lb/>
+nung aller Gebildeten des Volkes. Auf welchen Standpunkt hat ſich<lb/>
+die öffentliche Meinung in Kurheſſen erhoben, das noch vor zwei Jahren<lb/>
+ſchlief! Wie ſchreiten Braunſchweig und Naſſau fort! Und Rhein-<lb/>
+baiern, das jetzt allen als Muſter vorleuchtet in Patriotismus, das<lb/>
+heute unſerem Volke dies herrliche Feſt bereitete, — war nicht ſelbſt dieſem<lb/>
+Rheinbaiern noch vor zwei Jahre die Idee der Volksherrlichkeit fremd?<lb/>
+glaubten nicht damals ſogar noch Viele — nur <choice><sic>dei</sic><corr>bei</corr></choice> Frankreich ſey für ſie<lb/>
+Freiheit und Glück zu finden? — So verbreitet ſich in Deutſchland die<lb/>
+politiſche Bildung mit unbegreiflicher Schnelligkeit weiter und weiter und<lb/>
+tiefer und tiefer. Welchen innigen Antheil nehmen nicht, in den geſeg-<lb/>
+neten Theilen unſers Vaterlandes, ſelbſt Frauen und Jungfrauen an<lb/>
+der Sache des Rechts und der Freiheit; mit welcher zarten Achtung<lb/>
+und innern Verehrung haben ſie die polniſchen Helden empfangen: welche<lb/>
+andächtige Sehnſucht, — welche heilige Beſorgtheit erfüllet ſie, — wenn<lb/>
+ſie von der Befreiung und Einigung des deutſchen Volkes hören! —</p><lb/>
+<p>Gewiß ein Blick auf die jetzige Lage unſeres Vaterlandes darf uns<lb/>
+nicht <choice><sic>kleinmüthtg</sic><corr>kleinmüthig</corr></choice> machen, im Gegentheil, er gibt uns neuen Muth und<lb/>
+neue Stärke. Die Jugend, die in den traurigen Jahren von 27 bis 30<lb/>
+nicht verzweifelte, ſie iſt jetzt allem Zweifel unzugaͤnglich.</p><lb/>
+<p>So alſo iſt unſre Anſicht von der Menſchheit:</p><lb/>
+<pb n="81" facs="#f0023"/>
+<p>Daß ſie im Ganzen wenigſtens immer mehr ſich entwickeln zu Tugend<lb/>
+und Gluͤck; — daß jede Zeit und jedes Volk ihre beſondere Aufgabe<lb/>
+hierbei haben; daß die Aufgabe der neuen Völker iſt — das vereinzelnde<lb/>
+Familienleben, mit einem einigenden Volksleben harmoniſch zu verbin-<lb/>
+den; daß dieſe Fortbildung hindurchgehe — durch Vernichtung des Des-<lb/>
+potismus, dann des ſtaͤndiſchen Ariſtokratismus, zur Gruͤndung der<lb/>
+Volksherrlichkeit; daß die Ernenung Europas in dieſem Sinne die Aufgabe<lb/>
+unſers Jahrhunderts, und daß <choice><sic>Deutſchlans</sic><corr>Deutſchlands</corr></choice> Einheit hiezu der Anfang<lb/>
+und die Aufgabe der jetzigen Generation ſei, woran ſie Alles unbedingt<lb/>
+zu ſetzen durchaus berufen und verpflichtet iſt. —</p><lb/>
+<p>Wie aber ſollen wir dem großen Ziele nachſtreben, auf welchem Wege<lb/>
+dahin gelangen? In den Staaten, wo es Verfaſſung und Geſetze giebt,<lb/>
+ſo lange die Machthaber die Geſetze achten und nicht verdrehen und<lb/>
+mißbrauchen — reichet der geſetzliche Weg aus. Die Aufklaͤrung iſt die<lb/>
+große Feder in der Entwickelung der Menſchheit, die freie Preſſe ihr beſtes<lb/>
+Foͤrderungs-Mittel — und die endliche Vollſtreckerin der erkannten<lb/>
+Wahrheit iſt die Allmacht der oͤffentlichen Meinung, jene wunderbare<lb/>
+Kraft, die von den Staatstheoretikern gar nicht in Anſchlag gebracht wird,<lb/>
+und doch allein Bewegung in die todte Maſchine bringt. Allein wenn<lb/>
+die freie Preſſe vernichtet, die Geſetze verhoͤhnt, und die Mittel zur<lb/>
+Menſchheitsbildung abgeſchnitten werden? — dann, ja dann iſt keine<lb/>
+Wahl mehr, jedes Zoͤgern iſt dann feiger Verrath an der Vernunft, der<lb/>
+Tugend, der Menſchheit, dann: um mit dem Koͤnig von Preußen zu<lb/>
+ſprechen: „dann iſt der Kampf ein Kampf der Nothwehr, der alle Mittel<lb/>
+heiligt, die ſchneidendſten ſind die beſten; denn ſie beenden die gerechte<lb/>
+Sache am ſiegreichſten und ſchnellſten.“</p><lb/>
+<p>Wohlan, verſammelte Mitbuͤrger! Alſo nicht allein unſer und<lb/>
+unſerer Kinder Noth in dieſem geſegneten Lande, nicht allein die empoͤren-<lb/>
+de Uebermacht unſrer Ariſtokraten und Volksverraͤther, nicht allein unſ<supplied>e</supplied>r<lb/>
+zeitlicher Vortheil und unſer gutes Recht verlangen Vernichtung dieſes<lb/>
+fluchwuͤrdigen Zuſtandes, ſondern unſre ganze Stellung in der Geſchichte,<lb/>
+unſre ganze Bedeutung in der Menſchheits-Entwickelung ſetzet uns un-<lb/>
+abweisbar die heilige Pflicht in einem freien Volksreiche die Tugend und<lb/>
+Menſchheit, die durch Tyrannei und Pfaffenthum zur Thierheit nieder-<lb/>
+gedruͤckt iſt, bei unſerm Volke zunaͤchſt, und dadurch in ganz Europa,<lb/>
+wieder aufleben zu laſſen. Was vor 15 Jahren die Jugend beſchworen,<lb/>
+das mag heute das ganze Volk beſchwoͤren: Stets die Begeiſterung<lb/>
+fuͤr die Einheit des Vaterlandes in uns lebendig zu erhalten, und nach<lb/>
+<fw type="sig" place="bottom">6</fw><lb/>
+<pb n="82" facs="#f0024"/>
+Kraͤften uͤberall bei unſern deutſchen Mitbruͤdern anzufachen; ſtets nach<lb/>
+Kraͤften ſelbſt lehrend, oder die Lehrer des Volks und die freie Preſſe<lb/>
+auf alle Weiſe unterſtuͤtzend, die ſchlichte, einfache Wahrheit, ohne Ver-<lb/>
+kruͤppelung zur Foͤrderung wahrer Aufklaͤrung zu verbreiten; ſtets mit<lb/>
+eiſerner Strenge den Luͤgengeruͤchten, den Apoſteln der Sklaverei und<lb/>
+Schlechtigkeit, den Lehren der Selbſtſucht entgegen zu treten; und ſollte<lb/>
+es zu Gewaltthaten kommen, nie im Drange der Zeiten einen deutſchen<lb/>
+Bruderſtamm zu verlaſſen, ſondern alle zu ſchuͤtzen gegen die Eingriffe ihrer<lb/>
+Gewalthaber; Uneinigkeit, Traͤgheit und Feigheit fuͤhren zur Knechtſchaft<lb/>
+Aller!</p><lb/>
+<p>Dieſen deutſchen Mai-Bund wollen wir ſchließen, hier wo des Vater-<lb/>
+lands ſchönſte Gefilde vor uns ausgebreitet liegen, hier unter dem Wehen<lb/>
+unſerer alten deutſchen Reichsfahne, und Kinder und Enkel ſollen noch<lb/>
+aus allen Gauen des freien, großen Vaterlandes hieher zur heiligen<lb/>
+Staͤtte wallfahrten!</p><lb/>
+<p><hi rendition="#c"><hi rendition="#g">Rede von Deidesheimer, Bürger aus Neuſtadt.<lb/>
+Freunde und Mitbürger</hi>!</hi></p><lb/>
+<p>Indem ich es nach ſolchen Maͤnnern, die an dieſer Stelle vor mir<lb/>
+geſprochen haben, noch wage, meine Worte an Sie zu richten, kann mich<lb/>
+nur meine glühende Liebe für geſetzliche Freiheit und für unſer deut-<lb/>
+ſches Vaterland entſchuldigen. —</p><lb/>
+<p>Und ſo rede ich denn ohne Furcht und ohne Scheu, zu Ihnen<lb/>
+meine Freunde, die, wenn auch nicht von <hi rendition="#g">gleichen</hi> Hoffnungen beſeelt,<lb/>
+doch gewiß alle im Herzen zu einem Zwecke vereint, hier auf den Trüm-<lb/>
+mern eines Denkmals der Feudalherrſchaft und des ſchrecklich richtenden<lb/>
+Bauernkriegs ein Feſt zu feiern gekommen ſind. —</p><lb/>
+<p>Ein Feſt, dem man alle nur erdenkliche Hinderniſſe in den Weg zu<lb/>
+legen ſuchte, — Hinderniſſe wahrſcheinlich entkeimend einem finſtern Bunde<lb/>
+von Menſchen, die Feind jeder Regung des freien Bürgerſinns, noch<lb/>
+im neunzehnten Jahrhunderte, eben ſo trotzig als vergeblich und nutzlos,<lb/>
+dem Geiſte der Zeit entgegenarbeiten. Wie dieſe Ruine bei ihrem Ein-<lb/>
+ſturze Einzelne beſchädigen konnte, ohne deßhalb den feſtlichen Tag zu<lb/>
+ſtören, ſo werden dieſe Freunde der Finſterniß wohl noch einzelne Ver-<lb/>
+theidiger des Lichts und der Wahrheit verfolgen, ohne aber deshalb<lb/>
+den Tag der Freiheit aufzuhalten.</p><lb/>
+<p>Ich ſpreche hier von einer Parthei, die während vierzig Jahren<lb/>
+nichts nützliches und zeitgemäßes gelernt, und keine ihrer Voreltern-<lb/>
+Thorheiten vergeſſen hat; von jener ſchädlichen Bandwurmsbrut, die<lb/>
+<pb n="83" facs="#f0025"/>
+heute noch in dem freieſten Lande Europa’s — in England — Stock-<lb/>
+prügel unter die königlichen Vorrechte gezählt wiſſen will, und die, gilt<lb/>
+es ihr <hi rendition="#g">eigne<supplied>s</supplied></hi> Intereſſe, mit lächerlicher Grimaſſe, doch geſchickt genug,<lb/>
+um den unerfahrenen Haufen zu täuſchen, ſtets Thron und Altar im<lb/>
+Munde führt.</p><lb/>
+<p>Doch, was ſage ich, ſcheinen doch ſelbſt Regierungen, die zwar<lb/>
+ſtets und überall ihre freiſinnige Handlungsweiſe hervorzuheben ſuchen,<lb/>
+den eben gerügten Grundſätzen, von denen ſie ſich durch Worte gerne<lb/>
+losſagen möchten, in der That zu huldigen. Dies bezeugt am deutlich-<lb/>
+ſten, neben allen jenen politiſchen Glaubensbekenntniſſen, und jenen halb<lb/>
+und dreiviertelsoffiziellen Machwerken, das Verbot dieſes ſchönen Feſtes<lb/>
+und die damit verbunden geweſenen empörenden Maßregeln. —</p><lb/>
+<p>Und was, frage ich, haben Regierungen, die nach feſtgeregelten und<lb/>
+feſtbeſtimmten Grundſätzen die Landesgeſchäfte zu verwalten haben, blei-<lb/>
+ben ſie nur dieſen Grundſätzen getreu, was haben ſie zu fürchten? —</p><lb/>
+<p>Betrachtet dieſe Gegend, dieſes herrliche Land, dieſe mit Städten,<lb/>
+Dörfern und Flecken beſäeten geſegneten Fluren, die wie ein Garten<lb/>
+Gottes vor unſern Blicken ſich ausbreiten, die ſo ganz dazu geſchaffen<lb/>
+ſcheinen, das Herz zu ſanftern Gefühlen zu ſtimmen; betrachtet dieſes,<lb/>
+laßt eure Blicke in die Ferne ſchweifen, wo die jenſeitigen Berge den<lb/>
+Blick auf unſer großes Vaterland weiterhin eröffnen, — wer von Euch<lb/>
+würde wohl ſo <hi rendition="#g">leichtſinnig</hi> oder <hi rendition="#g">muthwillig</hi>, wie es durch das<lb/>
+Benehmen der Regierung leicht hätte geſchehen können, die mordbrenne-<lb/>
+riſche Fackel eines Bürgerkriegs in dieſes Paradies ſchlendern wollen,<lb/>
+des verderblichſten Kriegs, der nur ein Land verwüſten kann? — Ruhig<lb/>
+ſieht wohl im Felde der Soldat ſeinen Kameraden neben ſich hinfallen,<lb/>
+ein ganz anderes aber iſt es, wenn auf öden Brandſtätten, die unbe-<lb/>
+erdigten Leichen der Bürger und Jünglinge Verweſungsgeruch verbrei-<lb/>
+ten, wenn Bäche und Flüſſe uns die ermordeten Leichen von Greiſen,<lb/>
+Kindern und Jungfrauen zuführen. — Wem graut nicht vor dieſem<lb/>
+gräßlichen Gemälde! — Kein Bürger wird <hi rendition="#g">muthwillig</hi> oder <hi rendition="#g">leicht-<lb/>
+ſinnig</hi> ſolch ſchreckliches Unglück über unſer Haupt herbeiführen! —</p><lb/>
+<p>Nein und abermals nein! — Nur ein verknöchertes Ariſtokratenherz<lb/>
+wäre dazu fähig, nur Ariſtokratenwahnſinn könnte ſolch ein hölliſches<lb/>
+Schauſpiel bereiten, — und mit Freuden ein friedliches Volk, nachdem<lb/>
+man ihm von allen Seiten «Bundesbrüderlich« ſeine beſten Erwerbsquel-<lb/>
+len verſtopft, es in ſeinen heiligſten Rechten gekränkt, vollends zur<lb/>
+Verzweiflung bringen und durch Mordknechts-Banden zur Sklaverei zu-<lb/>
+rücktreiben! —</p><lb/>
+<pb n="84" facs="#f0026"/>
+<p>Ja nur von dieſer Seite haben wir alles zu fürchten, dieſes be-<lb/>
+weiſ’t Geſchichte und Erfahrung.</p><lb/>
+<p>Sandte nicht jener kindesmörderiſche <hi rendition="#g">Philipp</hi> von Spanien den<lb/>
+ruhigen aber aufgeklärten Holländern und jenen feuerigen Flanderern<lb/>
+zuerſt einen verſchmitzten freiheitsmörderiſchen Pfaffen, den verhaßten<lb/>
+<hi rendition="#g">Granvella</hi>, und zuletzt den blutigen <hi rendition="#g">Alba</hi>, jenes Scheuſal der<lb/>
+Menſchheit?</p><lb/>
+<p>Hetzte nicht in unſern Tagen der erbärmliche Pfaffen-<hi rendition="#g">Karl</hi> von<lb/>
+Frankreich den nichtswürdigen, Vaterland und Wohlthäter verrathen-<lb/>
+den <hi rendition="#g">Marſchall</hi>, auf ſein tapferes, nur ſeine Rechte vertheidigendes<lb/>
+Volk? Darum ſehen wir uns vor, auch bei uns würden ſich bei ähn-<lb/>
+lichen Gelegenheiten, ähnliche Werkzeuge finden; auch wir könnten viel-<lb/>
+leicht <hi rendition="#g">Granvella</hi>’s, <hi rendition="#g">Alba</hi>’s und <hi rendition="#g">Raguſa</hi>’s gegen uns wüthen<lb/>
+ſehen. —</p><lb/>
+<p>Wohl ſteht mancher unſerer Fürſten weit über jenen Tyrannen, von<lb/>
+<hi rendition="#g">Gottes-Gnaden</hi> mit ihren feilen Knechten; mancher mag viel-<lb/>
+leicht, ich will es glauben, daß Beſte ſeines Volkes wollen; allein die<lb/>
+Mißgriffe, die einem Fürſten die Bahn des Ruhmes geſchloſſen, könnten<lb/>
+ihn leicht bei der Mißkennung des Volkscharakters, und den Herz und<lb/>
+Gemüth vergiftenden Einflüſterungen jener ſchädlichen Schmeißfliegen<lb/>
+des Hofs, jener unwürdigen Büdgetfreſſer, zu immer Argerem ver-<lb/>
+<supplied>l</supplied>eiten, und ſo am Ende eine Kataſtrophe herbeiführen, durch welche die<lb/>
+Perlen ſeiner Krone wahrſcheinlich auf immer erlöſchen würden. —</p><lb/>
+<p>Wie geſagt, es könnte leicht dahin kommen, auch ohne abſolut böſen<lb/>
+Willen, durch bloße Mißkennung des Volkscharakters und Mißgriffe in<lb/>
+der Regierungsweiſe. — Leicht kann man eine Heerde Schafe vor ſich<lb/>
+hertreiben, der Stier zieht ſeinen Pflug ohne Widerſtand, aber mit<lb/>
+dem Menſchen muß man menſchlich, mit einem Volke rechtlich und ſittlich<lb/>
+verfahren.</p><lb/>
+<p>Wir wünſchen unſere Verfaſſung zu erhalten, die uns Freiheit der<lb/>
+Rede und der Preſſe ſichert, und auch wohl zu Freiheit des Handels<lb/>
+und Vernichtung der Wohlſtand und Sitten verderbenden Zwiſchen-<lb/>
+Mauthen führen muß. —</p><lb/>
+<p>Darum Freunde laßt uns feſt aneinanderhalten; wird Einer in ſeinen<lb/>
+Rechten gekränket, ſo ſeyen wir es alle! —</p><lb/>
+<p>Wir wollen keine Revolution, wir wollen aber unſere Rechte —<lb/>
+unſere Freiheiten, die uns geſetzlich garantirt ſind, die auch unſer Fürſt<lb/>
+feierlich und freiwillig beſchworen hat, die wollen wir erhalten, in ihrer<lb/>
+ganzen Ausdehnung erhalten. — Wer auch nur das Kleinſte davon ver-<lb/>
+<pb n="85" facs="#f0027"/>
+letzt, der iſt meineidig, der ſey unſer gemeinſchaftlicher Feind; entſtehe<lb/>
+dann auch daraus was da wolle.</p><lb/>
+<p>Der Sieg muß uns werden, ſchließen uns auch Feinde von allen<lb/>
+Seiten ein, blitzen auch Lanzen und Schwerter fern und nah und über-<lb/>
+all. Freunde ihr kämpft dann für Eltern, Weiber, Kinder, für euere<lb/>
+Nachkommenſchaft, und ſchützet und bewahret Euer Heiligſtes, während<lb/>
+Ihr zugleich euere Güter, euere Habe vertheidiget; euere Gegner treibt<lb/>
+nur ein hohles Wort des Herrſchers und die Knute ihrer Herrn, nicht<lb/>
+ihr Gemüth. Ja noch mehr, ſelbſt aus den Reihen unſerer vermeinten<lb/>
+Gegner würden Streiter für die heilige Sache hervorgehen, denn auch<lb/>
+dort ſind viele, deren Herz beſſern Gefühlen huldigt.</p><lb/>
+<p>Vor allem aber befleißen wir uns der feſteſten Eintracht und Ord-<lb/>
+nung; dieſe zu erhalten muß unſer Streben ſeyn, um ſo mehr, da viel-<lb/>
+leicht ſo mancher es gerne ſähe, wenn Unordnung entſtände, um ſeine<lb/>
+Geſpenſter- und Gewiſſensfurcht alsdann rechtfertigen zu können.</p><lb/>
+<p>Darum ſey jetzt ſchon und bleibe immer unſer Wahlſpruch:<lb/>
+<hi rendition="#et">»Es lebe die Freiheit«<lb/>
+»Es lebe die Ordnung!«</hi></p><lb/>
+<p rendition="#c"><hi rendition="#g">Rede von Becker, Bürger aus Frankenthal</hi>.</p><lb/>
+<p rendition="#et"><hi rendition="#g">Deutſche Mitbürger</hi>!</p><lb/>
+<p><hi rendition="#g">Volksbelehrung, gegenſeitige Aufklärung, Ermun-<lb/>
+terung zur Einigkeit</hi> ſind unſere Aufgaben; dieſe zu löſen, müſſen<lb/>
+wir feſt und entſchieden wirken. Wir müſſen wachen, daß alle Verſuche,<lb/>
+die Erringung eines großen freien Deutſchlands zu hindern, vereitelt<lb/>
+werden. Wir wiſſen, daß die Umtriebe der Regierungen auf die Unter-<lb/>
+<supplied>d</supplied>rückung der Völker hinzielen; wir wiſſen, daß die Regierungen um<lb/>
+<supplied>ſ</supplied>o thätiger ſind, je dringender die Völker zeitgemäße, ihrer Würde<lb/>
+<choice><sic>intſprechende</sic><corr>entſprechende</corr></choice> Reformen verlangen; wir wiſſen, daß ſie in der Unter-<lb/>
+drückung und Entwürdigung der Menſchheit gehen ſo weit ſie <hi rendition="#g">können</hi>,<lb/>
+<choice><sic>ch</sic><corr>ich</corr></choice> ſage ſo weit ſie <hi rendition="#g">können</hi>. Fragen wir: <hi rendition="#g">wie weit können ſie</hi><lb/>
+(die Regierungen) <hi rendition="#g">gehen</hi>? ſo müſſen wir alle einſtimmig antworten<lb/>
+ſo lange die Regierungen die Geſetze ungeſtraft verhöhnen, ſie ungehindert<lb/>
+mit Füßen treten können, ſo lange unſere Forderungen unbeachtet bleiben<lb/>
+dürfen: <hi rendition="#g">ſo lange können die Regierungen gehen ſo weit ſie<lb/>
+wollen, und aus uns machen was ſie wollen</hi>. Millionen ſind<lb/>
+auf dem Wege zur Entwicklung bürgerlicher Freiheit, eine Handvoll<lb/>
+Junker wagt es, entgegen zu treten, und während die Handvoll Jun-<lb/>
+ker Gewalt über Gewalt übt, dulden es Millionen. O Schande unſerer<lb/>
+<pb n="86" facs="#f0028"/>
+Zeit! — Wir können proteſtiren, aber was nützen Proteſtationen, was<lb/>
+iſt davon zu hoffen? Die Regierungen hören eben ſo wenig auf Prote-<lb/>
+ſtationen, als auf die mächtige Oppoſition der öffentlichen Meinung.<lb/>
+Proteſtationen waffen- oder wehrloſer Bürger ſind in den Augen der<lb/>
+Regierungen nur lächerliche Vorſtellungen; wenn wir daher proteſtiren,<lb/>
+ſo muß es uns auch Ernſt ſeyn, unſere Forderungen durchzuſetzen. Die<lb/>
+gerechteſten Anſprüche der Völker werden als unſtatthaft abgewieſen,<lb/>
+und nur die hochverrätheriſchen Verfügungen der Regierungen unterthä-<lb/>
+nigſt vollzogen werden, ſo lange die Völker unbewaffnet der rohen Ge-<lb/>
+walt blosgeſtellt ſind. Zum Schutze unſrer Perſon, unſrer Ehre und<lb/>
+unſres Eigenthums, zur Erhaltung unſrer Rechte und zur Erringung<lb/>
+der wahren Würde der Menſchheit bedürfen wir nicht blos einer freien<lb/>
+Verfaſſung, ſondern auch einer kraftvollen Garantie der Verfaſſung<lb/>
+Die beſte Garantie wäre eine allgemeine Bürgerbewaffnung. Betrach-<lb/>
+ten wir den Stand der Dinge wie er jetzt iſt, ſo müſſen wir auf die<lb/>
+ſchlimmſten Fälle vorbereitet ſeyn.</p><lb/>
+<p>Mitbürger! Wenn heute die Regierungen, in der Meinung, die<lb/>
+Freiheit mit einem Streiche zu erſticken, unſre Volksmänner, die Vor-<lb/>
+kämpfer für Recht und Freiheit, mit Gewalt uns entreißen wollten,<lb/>
+könnten wir es dulden? Könnten wir es unvorbereitet mit Erfolg ver-<lb/>
+hindern? Können wir ſie, unſre Volksmänner, ſorglos den Gerichten<lb/>
+überlaſſen? Ja, wir haben herrliche Beiſpiele der Appellationsgerichte<lb/>
+in Baiern, aber kann dies uns auf die Dauer beruhigen? Sehen wir<lb/>
+nicht, wie die ehrenvollen Männer dieſer Gerichte von der ſchamloſen<lb/>
+Willkür verfolgt, abgeſetzt und verſetzt werden? Wir ſehen ihre Stellen<lb/>
+von, für die Volksſache incompetenten, für die Sache der Volksverrä-<lb/>
+ther aber competenten, Fürſtenknechten erſetzen. So iſt das Richteramt<lb/>
+dann überlaſſen dem Schläger über den Erſchlagenen, dem Verräther<lb/>
+über den Verrathenen! — Das Erhabenſte wird das Opfer launiſcher<lb/>
+Ungeheuer, das Opfer einer Höllenbrut! Wird ſich die Londoner Con-<lb/>
+ferenz eher auflöſen als bis Belgien ſeinen Todesſtoß erhalten? bis Ita-<lb/>
+lien in ſein Grab zurückgewieſen? — Und Polen? — Was nicht im ge-<lb/>
+drückten Heldenlande durch den Barbarismus, das geht im freien —<lb/>
+Frankreich durch das Juſte-Milieu zu Grunde. Dahin iſt jenes Polen,<lb/>
+das zweimal Europa gerettet, es iſt dahin! Und die undankbaren Söhne<lb/>
+Europa’s können es dulden, wie ihre Retter zu Grunde gehen! Dies<lb/>
+Mitbürger, iſt das Schickſal Einzelner, dies das Schickſal der Natio-<lb/>
+nen in den Händen der „von Gottes Gnaden“!</p><lb/>
+<p>Hoffet nichts von Fürſten, und proteſtirt nicht mehr, denn hinter<lb/>
+<pb n="87" facs="#f0029"/>
+den Verfügungen der Regierungen ſind Bajonette, hinter unſern Pro-<lb/>
+teſtationen aber iſt <hi rendition="#g">nichts. Darum können die Regierungen<lb/>
+gehen ſo weit ſie wollen und aus uns machen was ſie<lb/>
+wollen</hi>. Es bleibt klar, daß nur die Waffen der Bürger vor ſolchem<lb/>
+Unheil das Vaterland bewahren, daß nur bewaffnete Bürger compe-<lb/>
+tente Richter gegen Laune und Willkür ſeyn würden: — Die Deutſchen<lb/>
+ſind Sklaven, ſeitdem der Bürger keine Waffe mehr trägt. Die Waffe<lb/>
+war die Zierde des freien Mannes, jetzt tragen ſie nur Knechte.</p><lb/>
+<p>Sind wir bewaffnet, ſo werden die Regierungen nicht mehr ſo keck<lb/>
+ſeyn, geſetzwidrige Verfügungen zu erlaſſen. <hi rendition="#g">Dann können die Re-<lb/>
+gierungen nicht mehr gehen ſo weit ſie wollen und nicht<lb/>
+mehr aus uns machen was ſie wollen</hi>.</p><lb/>
+<p>Unſer Loſungswort ſey: <hi rendition="#g">Das Beſte hoffend, auf’s Schlimm-<lb/>
+ſte gefaßt ſeyn. Es ſteh’ Einer für Alle und Alle für<lb/>
+Einen im heiligen Kampfe</hi>!</p><lb/>
+<p>Fragen wir, meine Mitbürger, wie weit wir ſeit den Juli-Tagen<lb/>
+in der Erringung würdevoller Rechte vorwärts geſchritten oder in der<lb/>
+Erhaltung der beſtehenden geſchützt waren, ſo werden wir einſehen, daß<lb/>
+wir rückwärts gekommen. Iſt nicht bei uns im Rheinkreiſe die Preß-<lb/>
+freiheit geſetzlich garantirt? und wurde nicht die freie Preſſe, das<lb/>
+deutſche Gemeingut, vor den Augen von ganz Deutſchland in Feſſeln<lb/>
+geſchlagen? Müſſen nicht unſere Journaliſten in Baden Schutz ſuchen,<lb/>
+wo die Preßfreiheit, verglichen mit der bei uns geſetzlich beſtehenden nur<lb/>
+Preßzwang iſt. Drum, deutſche Bürger, tretet zuſammen, verlanget<lb/>
+einſtimmig die Benutzung und Handhabung der beſtehenden Geſetze, ru-<lb/>
+fet einſtimmig, deutſche Mitbürger: »Es erſcheine der Weſtbote«! »Es<lb/>
+erſcheine die Tribüne«! Auf, deutſche Bürger, und ſchwöret, daß, wenn<lb/>
+unabhängige Gerichte die Geſetze verrathen, euer competenter Arm die<lb/>
+ſelben ſchütze:</p><lb/>
+<lg type="poem"><l>»Denn unter Preßzwang geht Deutſchland verloren,</l><lb/>
+<l>Durch Freiheit der Preſſe wird’s wiedergeboren.«</l></lg><lb/>
+<p>Ja, deutſche Männer, wenn wir mit Ernſt und Beharrlichkeit,<lb/>
+mit Muth und Ueberzeugung das hohe Ziel zu erringen ſtreben, dann<lb/>
+iſt es nicht mehr fern. Keine Macht der Erde wird uns aufhalten!</p><lb/>
+<lg type="poem"><l>Alle Grau’n der Nacht verſchwinden,</l><lb/>
+<l>Wenn der Freiheit Morgenröthe glüht;</l><lb/>
+<l>Und ein Deutſchland groß und frei erblüht,</l><lb/>
+<l>Wenn die Männer kräftig ſich verbinden.</l><lb/>
+<l>Deutſchland lebe! dieſer goldne Schimmer,</l><lb/>
+<l>Seiner Freiheits-Fahne bleiche nimmer!</l><lb/>
+<l>Hoch lebe Freiheit, Deutſchland lebe hoch!“</l></lg><lb/>
+<pb n="88" facs="#f0030"/>
+<p>Dank dir, freiheitglühender Bürger Frankenthals! Denken und<lb/>
+ſprechen, nur einmal Tauſende wie du, dann iſt die Wiedergeburt<lb/>
+Deutſchlands vollendet, ein freies deutſches Vaterland errungen.</p><lb/>
+<p>Noch andere Redner hatten bald da, bald dort zahlreiche Gruppen<lb/>
+um ſich verſammelt. Man ſprach vielfach von dem jetzt lebhaft erwach-<lb/>
+ten Vertrauen auf die Kraft des deutſchen Volkes. Unter andern be-<lb/>
+merkte <hi rendition="#g">Eduard Müller</hi> aus Mainz:</p><lb/>
+<p>Was berechtigte auch zu dem Mißtrauen in unſre eigne Kraft, und zu dem<lb/>
+uͤbertriebenen Vertrauen auf ein Volk, das nach ſeinen glaͤnzenden 3<lb/>
+Juli-Tagen zuruͤck ſank, ſo ſchnell tiefer zuruͤckſank als je? Die Helden<lb/>
+des Juli, die Patrioten ſind verfolgt, in Gefaͤngniſſen vergraben; Karliſten,<lb/>
+Ariſtokraten aller Farben, unverfolgt, ſogar <choice><sic>nuterſtuͤtzt</sic><corr>unterſtuͤtzt</corr></choice>; die auffallendſten<lb/>
+Verſchwoͤrungen der Abſolutiſten ungeſtraft! Zu welchen Hoffnungen<lb/>
+berechtigen dieſe Erſcheinungen in Frankreich? Belgien, Italien, Spanien<lb/>
+ſind getaͤuſcht; Polen, das edle, ungluͤckliche Polen, das in hundert Schlach-<lb/>
+ten das Blut ſeiner Heldenſoͤhne fuͤr Frankreich vergoſſen, von Frankreichs<lb/>
+Miniſter Sebaſtiani verrathen, kann zur Lehre dienen, daß man nicht<lb/>
+feſter ſtehe, als auf eigner Kraft. Das jetzige Frankreich hat ſeine Ehre<lb/>
+im Auslande gebrandmarkt, es rette ſeine Ehre wieder, das Volk erhebe<lb/>
+aufs Neue ſeinen ſtarken Arm, ſeine Feinde zu zerſchmettern, und das Zutrauen<lb/>
+wird wiederkehren. Fern ſei von mir, daß ich eine Nation fuͤr immer<lb/>
+verdamme. Mag Frankreich von Neuem ſich befreien, dann wollen<lb/>
+wir die Franzoſen als Bruͤder umarmen, mit ihnen kaͤmpfen fuͤr die<lb/>
+hoͤchſten Guͤter, fuͤr Recht, Freiheit und Buͤrgergluͤck. Aber verſteht mich<lb/>
+wohl! — mit ihnen, nicht unter ihnen wollen wir kaͤmpfen. Jedes fuͤr<lb/>
+Freiheit kaͤmpfende Volk, ſei uns ein Brudervolk! aber ſtreng achte jedes<lb/>
+Volk die Nationalitaͤt anderer Voͤlker! Ohne Franzoſenfeind zu<lb/>
+ſein, warne ich nur vor <hi rendition="#g">unklugem</hi> Zutrauen zu unſern Nachbarn’<lb/>
+und vor entehrendem Mißtrauen in unſre eigne Kraft, in die Kraft<lb/>
+unſers eigenen Volkes.</p><lb/>
+<p>Unſer deutſches Volk, obgleich zerſplittert, zeichnete ſich ſtets aus<lb/>
+durch feſte Willenskraft, und Tapferkeit. Die Tapferkeit einzelner<lb/>
+deutſchen Volksſtaͤmme, gab den meiſten Laͤndern Europas ihre Namen.<lb/>
+Die Franken, Frankreich; die Normannen, der Normandie; die Burgun-<lb/>
+der, Burgund, die Angeln, England; die Longobarden der Lombardei<lb/>
+u. ſ. w.; Von Deutſchland ging das Licht der Reformation aus, das<lb/>
+Pfaffenthum ſtuͤrzend, oder wenigſtens ſchwaͤchend; von Deutſchland, und<lb/>
+zwar dem benachbarten Mainz, ging aus die Buchdruckerkunſt, die Licht-<lb/>
+bringerin. Die moͤrderiſchen Kaͤmpfe wurden weniger moͤrderiſch durch<lb/>
+<pb n="89" facs="#f0031"/>
+der Deutſchen Erfindung des Schießgewehrs. Wiſſenſchaft und Bildung<lb/>
+bluͤhen in Deutſchland, faſt jeder Erwachſene kann wenigſtens leſen,<lb/>
+ſchreiben, rechnen, und Kraft wohnt in uns, wenn wir nur wollen! —</p><lb/>
+<p>Wie einſt durch die Deutſchen das Roͤmerreich fiel, das der Welt<lb/>
+gebot, und in unſern Tagen die Großmacht Napoleons geſtuͤrzt wurde,<lb/>
+ſo werden auch Rußlands Knutenmacht, Preußens Pfiffigkeit und Oeſtreichs<lb/>
+Abſolutismus durch deutſche Kraft zu Schanden werden. Nur Vertrauen<lb/>
+in euch ſelbſt und vor Allem Einigkeit, und der Sieg iſt unſer gegen<lb/>
+jede deſpotiſche Macht der Erde.«</p><lb/>
+<p>Die belebten Zirkel, welche ſich während dieſer und ähnlicher pa-<lb/>
+triotiſchen Unterhaltungen gebildet hatten, wurden unter andern auch<lb/>
+durch ein von <hi rendition="#g">Chriſtian Bork</hi> in Mannheim gedichtetes Lied erfreut,<lb/>
+welches deßhalb von uns mitgetheilt wird:</p><lb/>
+<lg type="poem"><lg n="1"><l>So oft der Mai nach winterlichen Tagen,</l><lb/>
+<l>Die Fluren ſchmuͤckt mit ſeinem Bluͤthenkranz,</l><lb/>
+<l>Beginnt das Herz in froher Luſt zu ſchlagen,</l><lb/>
+<l>In jedem Auge ſtrahlt der Freude Glanz;</l><lb/>
+<l>Mit neuem Muth, mit ſeligem Behagen</l><lb/>
+<l>Draͤngt alles ſich hinaus zu Spiel und Tanz,</l><lb/>
+<l>Und jedem iſt’s Beduͤrfniß ſich des Maien</l><lb/>
+<l>In tiefer Seele herzlich zu erfreuen.</l></lg><lb/>
+<lg n="2"><l>Uns iſt ein Mai, ein herrlicher erſchienen,</l><lb/>
+<l>Der Freiheit Mai im deutſchen Vaterland.</l><lb/>
+<l>Das kahle Unrecht will er uns verſuͤhnen,</l><lb/>
+<l>Von Fruͤhlingsbluͤthen ſchimmert ſein Gewand;</l><lb/>
+<l>Soll er kein Lied, kein frohes Feſt verdienen?</l><lb/>
+<l>Die freien Buͤrger reichen ſich die Hand,</l><lb/>
+<l>Sie ſchwuren ſich mit heiligem Betheuern</l><lb/>
+<l>Dem deutſchen Mai ein herrlich Feſt zu feiern.</l></lg><lb/>
+<lg n="3"><l>Willkommen denn, ihr edlen Geiſter alle</l><lb/>
+<l>Die dieſes Feſtes hoher Sinn vereint,</l><lb/>
+<l>Euch toͤnt der Gruß im lauten Jubelſchalle,</l><lb/>
+<l>Und dieſer Gruß iſt herzlich wohl gemeint.</l><lb/>
+<l>Wir ſtehen hier in rechtbeſchirmter Halle,</l><lb/>
+<l>In die des Himmels freie Sonne ſcheint;</l><lb/>
+<l>Umſchlinget euch mit treuen Maͤnnerarmen</l><lb/>
+<l>Und laßt das Herz an ihrem Strahl erwarmen.</l></lg><lb/>
+<lg n="4"><l>Voruͤber iſt die Zeit der finſtern Maͤchte,</l><lb/>
+<l>Der ſchnoͤden Bosheit und der Tyrannei;</l><lb/>
+<l>Zu Trotz dem falſchen, heuchelnden Geſchlechte</l><lb/>
+<l>Erglaͤnzt im Morgenroth der Deutſchen Mai.</l><lb/>
+<l>Der brave Buͤrger greift nach ſeinem Rechte,</l><lb/>
+<l>Denn im Geſetz nur iſt der Buͤrger frei;</l><lb/>
+<l>Das Joch der Willkuͤhr kann er nicht mehr tragen,</l><lb/>
+<l>Er darf es nicht und galt’s ein blut’ges Wagen.</l></lg><lb/>
+<lg n="5"><l>Er will die Freiheit im Vernunft-Gewande,</l><lb/>
+<l>Nicht wie der Pobel ſeine Goͤttin malt,</l><lb/>
+<pb n="90" facs="#f0032"/>
+<l>Er ſucht ſie nicht im wilden Voͤlkerbran<supplied>de</supplied>,</l><lb/>
+<l>Die Hehre, deren Antlitz Frieden ſtrahlt,</l><lb/>
+<l>Sie wandelt ſchon im deutſchen Vaterlande,</l><lb/>
+<l>Sie hat dem Rechte ihren Zoll bezahlt,</l><lb/>
+<l>Sie traͤgt den Segen laͤngſt verblich’ner Ahnen,</l><lb/>
+<l>Und ihre Stimme iſt ein heilig Mahnen.</l></lg><lb/>
+<lg n="6"><l>Am Rechte balten, das iſt kein Vergehen,</l><lb/>
+<l>Sein Recht verlangen, ziemt dem deutſchen Mann.</l><lb/>
+<l>Es muß des Wortes Heiligkeit beſtehen,</l><lb/>
+<l>Und dem Geſetz darf keine Willkuͤhr nah’n.</l><lb/>
+<l>Feſt, wie die Berge gegen Sturmes Wehen,</l><lb/>
+<l>Stemmt ſich die Wahrheit gegen truͤben Wahn,</l><lb/>
+<l>Sie ſteigt empor aus dumpfer Nebel Grauen,</l><lb/>
+<l>Ihr herrlich Antlitz will der Deutſche ſchauen.</l></lg><lb/>
+<lg n="7"><l>Es hat der Deutſche kuͤhn das Schwert gezogen,</l><lb/>
+<l>Als Tyrannei ſein Vaterland bedroht,</l><lb/>
+<l>Gefahr und Drangſal hat er nicht erwogen,</l><lb/>
+<l>Er <choice><sic>weih te</sic><corr>weihte</corr></choice> ſich mit Stolz dem Heldentod,</l><lb/>
+<l>Und als ſo manches Fuͤrſtenwort gelogen,</l><lb/>
+<l>Trug er gedultig was die Zeit ihm bot,</l><lb/>
+<l>Verwelken ſah er ſeine Bluͤthenkraͤnze,</l><lb/>
+<l>Doch Alles in der Welt hat ſeine Grenze.</l></lg><lb/>
+<lg n="8"><l>Jetzt thut es Noth ein ernſtes Wort zu ſagen,</l><lb/>
+<l>Die Zeit der traͤgen Duldung iſt vorbei.</l><lb/>
+<l>Die Tyrannei droht an das Schwert zu ſchlagen,</l><lb/>
+<l>Die Freiheit mahnt mit himmellautem Schrei;</l><lb/>
+<l>Drob wollen wir als Deutſche nicht verzagen,</l><lb/>
+<l>Wer nur das Recht will, der iſt wirklich frei,</l><lb/>
+<l>Und freien Muth in freier Bruſt zu zwingen,</l><lb/>
+<l>Wird keiner Macht, wird keiner Liſt gelingen.</l></lg><lb/>
+<lg n="9"><l>Drum ſeid gegruͤßt, am ſchoͤnſten unſrer Tage,</l><lb/>
+<l>Es iſt ein Gruß aus warmer Freundesbruſt,</l><lb/>
+<l>Pruͤft euer Recht auf unverfaͤlſchter Wage,</l><lb/>
+<l>Und ſeid ihr ſeines vollen Werth’s bewußt</l><lb/>
+<l>Dann ſtehet feſt, beſchirmt die freie Sprache,</l><lb/>
+<l>Beſchuͤtzet ſie, nie duldet den Verluſt;</l><lb/>
+<l>Denn ſoll der Freiheit heil’ger Sieg gelingen</l><lb/>
+<l>So muß das Wort des freien Mannes klingen.</l></lg></lg><lb/>
+<p>Es wurden jetzt noch mehrere paſſende Toaſte gebracht, darunter<lb/>
+ſich folgender von <hi rendition="#g">Ludwig Frey</hi> aus Neuſtadt auszeichnete:</p><lb/>
+<p>»Der deutſchen Freiheit, der Freiheit, die Europa’s Völkern Ret-<lb/>
+tung verkündet, vor der Fürſten und deren Schergen wie Sklaven zit-<lb/>
+tern; der Freiheit, unter deren ſtolzem Panier wir heute verſammelt<lb/>
+ſind, uns zu beſprechen, zu belehren und zu berathen; der Freiheit durch<lb/>
+das große Werk der deutſchen Reform! Dieſer Freiheit ein donnerndes,<lb/>
+ein ewiges Hoch!« —</p><lb/>
+<p>Endlich ſprachen noch die unerſchrockenen Patrioten <hi rendition="#g">Hochdörfer,<lb/>
+Lobbauer, Widmann</hi> und <hi rendition="#g">Stromeyer</hi>. Wir freuen uns, auch<lb/>
+<pb n="91" facs="#f0033"/>
+die Reden von <hi rendition="#g">Widmann</hi> und <hi rendition="#g">Stromeyer</hi> hier mittheilen zu<lb/>
+können:</p><lb/>
+<p><hi rendition="#c"><hi rendition="#g">Rede von Widmann</hi>.</hi></p><lb/>
+<p>Deutſche Männer! Erlauben Sie mir, einige wenige Worte zu<lb/>
+ſprechen.</p><lb/>
+<p>Es iſt eine nur kurze Zeit, wo ſich nicht blos für Deutſchland,<lb/>
+ſondern für Europa ein beſſeres Loos zu bereiten ſchien, <hi rendition="#g">zu</hi> jener Zeit<lb/>
+nämlich, als die Juli-Sonne aufging und ihre Strahlen nicht nur<lb/>
+über Deutſchland, ſondern über ganz Europa verbreitete. So ſchien<lb/>
+es, und es war leider nur Schein! — Anſtatt daß die Freiheit er-<lb/>
+blühte, ſproßte die Knechtſchaft hervor und ſchwärzte ſich ein durch die<lb/>
+erbärmliche franzöſiſche miniſterielle Krämerpolitik. Die muthige, frei-<lb/>
+heitliebende franzöſiſche Nation hatte in den Tagen des Juli das Prin-<lb/>
+zip des göttlichen Rechtes und der Legitimität, dieſes Prinzip des Un-<lb/>
+ſinnes und der Völkerbedrückung, in ſeinen Grundfeſten erſchüttert, und<lb/>
+die Volksſouverainität, das heißt die Herrſchaft des Volkes und die<lb/>
+der Vernunft proklamirt. Dieſe Proklamation ward in England, Spa-<lb/>
+nien, Italien, Deutſchland, Polen und überall mit allgemeinem Enthu-<lb/>
+ſiasmus aufgenommen, die Völker ſtimmten aus volleſter Ueberzeugung<lb/>
+ein. Millionen waren die Verbündeten Frankreichs, in deren Herzen<lb/>
+das für Freiheit begeiſterte Feuer brannte, und der Haß grollte gegen<lb/>
+die Bedrücker und Betrüger der Menſchheit. Es galt, die Triebfedern<lb/>
+in Bewegung zu ſetzen, und die Seſſel, worauf die Junker und Ariſto-<lb/>
+kraten thronten, ſtürzten krachend zuſammen, und der Hochaltar war<lb/>
+erbaut, worauf der Göttin der Freiheit geopfert wurde. Frei wären<lb/>
+die Völker geweſen, die Freiheit hätte die Reiſe um die Welt gemacht.<lb/>
+Allein man verſtand den Augenblick nicht zu benützen; man beſtand<lb/>
+hartnäckig auf dem Frieden, die Ehre und den Ruhm der franzöſiſchen<lb/>
+Nation befleckend, das gegebene Wort, die Patrioten des Auslandes zu<lb/>
+unterſtützen, brechend, die den Polen ſchuldige Pflicht ſchnöde verläug-<lb/>
+nend, und ihre Nationalität auf mittelbare Weiſe vernichtend; man zö-<lb/>
+gerte und zauderte, bis ſich die von Furcht zuſammengeſchlagenen, mit<lb/>
+ſchwerer Schuld beladenen, von böſem Gewiſſen gefolterten Kabinette,<lb/>
+die den Kopf verloren hatten, vom Schrecken ſich erholten: ſie lagen in<lb/>
+Ohnmacht darnieder und die Kammerdiener rieben den Kabinetsprinzen-<lb/>
+Eſſig um die rathloſe Schläfe der gekrönten Häupter. Allmählich er-<lb/>
+wachten ſie aus der betäubenden Ohnmacht, und zitternd ſahen ſie, wie<lb/>
+die Völker, die die Kette von der eiſernen Stange geriſſen hatten,<lb/>
+<pb n="92" facs="#f0034"/>
+woran ſie geſchmiedet waren, flugs den Hammer ſuchten, um den Ring<lb/>
+zu zerſchlagen, der noch nicht vom Halſe geloͤst war. Nun ging die<lb/>
+Ariſtokratie raſch an das Werk, im Geheimen und Verborgenen, auf<lb/>
+<choice><sic>deu</sic><corr>den</corr></choice> erbärmlichſten Schleichwegen, um die Kette wieder zu faſſen und<lb/>
+das Volk an die alte Stange zu feſſeln. Es iſt das Streben der Ka-<lb/>
+binete, die Völker der Sklaverei zuzuführen: ich könnte Hunderte von<lb/>
+Thatſachen aufzählen, ich übergehe ſie, da ſie Allen bekannt ſind, um<lb/>
+die ſchmerzliche Wunde nicht von Neuem aufzureißen. Das Gefühl<lb/>
+empört ſich über die Weiſe, wie man die Hoheit des Menſchen mit<lb/>
+Füßen tritt. Man wird auf der betretenen Bahn fortfahren und ſich<lb/>
+beſtreben, das erſchütterte Prinzip des göttlichen Rechtes und der Le-<lb/>
+gitimität wieder feſt zu begründen, um durch daſſelbe die Völker mit<lb/>
+der Knute zu peitſchen. Nach menſchlicher Berechnung iſt der Krieg<lb/>
+unvermeidlich; Frankreich wird von dem Norden angegriffen werden,<lb/>
+um vorerſt in dieſem Lande, dann in den übrigen Ländern die Knecht-<lb/>
+ſchaft wieder einzuführen; der Krieg wird ein Kreuzzug gegen die Frei<supplied>-</supplied><lb/>
+heit aller Völker, alſo auch gegen die der Deutſchen ſeyn.</p><lb/>
+<p>Aber, Patrioten! was iſt dann unſere Pflicht? Dann umgürte ſich<lb/>
+jeder mit dem Schwerte und rufe die übrigen Patrioten zur Wehre,<lb/>
+und die Sturmglocke töne durch alle deutſche Gauen und rufe zum<lb/>
+Kampfe für Recht und für Freiheit. Fluch jedem deutſchen Manne, der<lb/>
+das Schwert ſich nicht umgürten und dadurch dem Norden die Herr-<lb/>
+ſchaft über Deutſchland verſchaffen würde. Dieſe Herrſchaft würde die<lb/>
+entſetzlichſte Bedrückung ſeyn; das Vermögen würde geplündert, die<lb/>
+Jugend in den Schlachten dahingewürgt, die Unſchuld geſchändet, der<lb/>
+freiſinnige Mann geſchoren und gezeichnet, gleich den Thieren, nach Sibi-<lb/>
+rien getrieben werden; die Freiheit wäre um Jahrhunderte zurückgeführt,<lb/>
+und die ſchwärzeſte Nacht würde die ſchändlichſten Gräuel bedecken.<lb/>
+Darum, verſammelte Patrioten! ſeyen wir ſtets wach auf dem Poſten,<lb/>
+beleben wir zugleich unſeren Sinn für alles was wahr, gut und ſittlich<lb/>
+iſt, damit wir das Erkannte mit Macht verlangen; möchte ein wahrer,<lb/>
+deutſcher Nationalſtolz in uns erſtehen, der bei Anerkennung der eigenen<lb/>
+Würde die der übrigen fremden Nationen nicht verläugnete; möchte<lb/>
+insbeſondere die Repräſentanten der öffentlichen Meinung die Ueberzeu-<lb/>
+gung durchdringen, daß die Begründung eines glücklichen materiellen<lb/>
+Wohlſtandes und einer volksthümlichen Sittlichkeit bedingt ſey durch die<lb/>
+politiſche Freiheit, durch die Freiheit Deutſchlands in föderativer re-<lb/>
+publikaniſcher Verfaſſung. Hoch lebe die Freiheit und Einheit Deutſch-<lb/>
+lands in dieſer demokratiſchen Verfaſſung!«</p><lb/>
+<pb n="93" facs="#f0035"/>
+<p><hi rendition="#c"><hi rendition="#g">Rede von Stromeyer</hi>.</hi></p><lb/>
+<p>Lange Jahre lag das Vaterland in Schmach; lag unſer Volk in<lb/>
+Finſterniß und in naͤchtlichem Schlummer. Es iſt erwacht und an lich-<lb/>
+tem Tage ſeh’ ich Tauſende teutſcher Maͤnner vor meinen hocherfreuten<lb/>
+Blicken ſich als Bruͤder, als Söhne eines gemeinſamen Vaterlandes be-<lb/>
+gruͤßen. Ja das teutſche Volk iſt ſtark und der Freiheit wuͤrdig; es waͤre<lb/>
+ungerecht, auf ſeinen Namen die Schmach zu laden, die nur eine Schuld<lb/>
+ſeiner Koͤnige iſt. Seht, ſie haben unſere heilige Vatererde in Fetzen<lb/>
+zerriſſen; ſie haben durch Mauthlinien und Grenzkordons das große Volk<lb/>
+geſchieden; ſie haben die <choice><sic>Staͤmmme</sic><corr>Staͤmme</corr></choice> des teutſchen Volkes ihrer Namen<lb/>
+beraubt, wie es der grauſame Selbſtherrſcher ſeinen polniſchen Schlacht-<lb/>
+opfern thut, bevor er ſie in Sibiriens Bergwerke ſchickt, und ſie haben<lb/>
+uns mit den Namen der Zwingherrnhaͤußer gebrandmarkt. Und dennoch<lb/>
+hat der Teutſche ſeine gemeinſame Abſtammung niemals vergeſſen! Dennoch<lb/>
+ſehen wir bei dem erſten Rufe, der im Namen der Freiheit und Nationalitaͤt<lb/>
+ergangen iſt, die Tauſende und abermals Tauſende unter dem wieder-<lb/>
+ſtandenen Banner des teutſchen Volkes ſich verſammeln! Wenn dieſer<lb/>
+Anblick uns mit der ſtarken Hoffnung von des Vaterlandes Wiedergeburt<lb/>
+erfuͤllt, ſo duͤrfen wir uns nicht verhehlen, daß er auch zu den ernſteſten<lb/>
+Betrachtungen Anlaß giebt. Nicht die Freunde allein ſehen dieſe zahlreiche<lb/>
+Verſammlung, auch die lauernden Feinde des Volkes richten hieher ihre<lb/>
+Blicke; ſie ſchaudern zuſammen vor der Kraft des wiedererwachten Volkes<lb/>
+und fuͤrchterlich hallt in ihren Ohren der Fluch, den ein von heißer Be-<lb/>
+geiſterung gluͤhender Redner an dieſem Orte uͤber ſie geſprochen; fuͤrch-<lb/>
+terlicher noch ertoͤnt in ihren Ohren der Nachruf der Tauſende, die von<lb/>
+gluͤhendem Haſſe durchdrungen ſind gegen alle, die ſie als Feinde des<lb/>
+Vaterlandes betrachten. Werden ſie nicht, wenn die verſammelten Freunde<lb/>
+in die entfernten Thaͤler ihrer Heimath zerſtreut ſind, wie damals nach<lb/>
+dem Feſte von Wartburg, neue Demagogen- Jagden anſtellen und eure<lb/>
+beſten Freunde dem politiſchen Ketzergericht und der ſichern Verdammung<lb/>
+uͤberliefern? — Wird nicht die junge wiedererwachende Freiheit in dem<lb/>
+Blute ihrer beſten Vertheidiger erſticken? —</p><lb/>
+<p>Es thut Noth, daß ihr gegen Angriffe euch verwahret, es thut des<lb/>
+Entſchluſſes Noth, die Grundſaͤtze, zu denen die Freunde der Freiheit ſich<lb/>
+mit Ueberzeugung bekennen, im eintretenden Fall auch mit Gut und Blut<lb/>
+zu vertheidigen. Wer nicht mit ganzer Seele und aus allen Kraͤften die<lb/>
+Freiheit und Wiedergeburt des Vaterlandes verlanget, der moͤge aus die-<lb/>
+ſem Kreis entſchloſſener Vaterlandsfreunde entweichen; wer aber bereit<lb/>
+iſt, das Vaterland und ſeine kraͤftigſten, waͤrmſten Freunde mit Gut und<lb/>
+<pb n="94" facs="#f0036"/>
+Blut zu beſchirmen, der erhebe mit mir ſeinen Arm und ſchwoͤre; <hi rendition="#g">daß er<lb/>
+mit Gut und Blut ſchirmen wolle das Vaterland und<lb/>
+deſſen Freunde vor jeder Gewalt von innen und außen</hi>!<lb/>
+(allgemeine Beiſtimmung mit erhobenen Armen).</p><lb/>
+<p>Solche Geſinnung und Thatkraft macht uns frei von Willkuͤhr und<lb/>
+Bedruͤckung; und da wir uns ſelbſt freigeſprochen, ſo ſeien auch fortan<lb/>
+verbannt aus dem Munde des Volkes die Namen der Zwingherrnhaͤuſer,<lb/>
+nach denen es ſich bisher benannte; — die teutſche Stimme allein gelte<lb/>
+fortan in Teutſchland; die teutſche Farbe ſei unſer Schmuck und ein einiges<lb/>
+Teutſchland unſer Ziel! Es lebe die teutſche Nation! es lebe die<lb/>
+Freiheit!« —</p><lb/>
+<p>Die große Verſammlung ſtimmte allgemein dem heiligen Gelübde<lb/>
+bei, für die geſetzliche Durchführung der Reform unſeres Vaterlandes<lb/>
+kein Opfer zu ſcheuen. — Spät am Abend begaben ſich endlich die Ver-<lb/>
+ſammlten nach Neuſtadt an der Haardt zurück, wo die Feſtlichkeiten des<lb/>
+Tages mit mehreren Bällen beendiget wurden. — Die Mehrzahl der An-<lb/>
+weſenden hatte Neuſtadt zwar am 28. Mai früh wieder verlaſſen, allein<lb/>
+das Feſt dauerte doch noch bis zum 1. Juni fort, und es waren vom<lb/>
+28. bis zum 31. Mai täglich wieder viele Tauſende auf dem Schloſſe<lb/>
+Hambach verſammelt. Auch an dieſen Tagen hörte man von mehreren<lb/>
+ausgezeichneten Männern gediegene Reden, namentlich von dem Deputir-<lb/>
+ſten <hi rendition="#g">Schüler. Es iſt eine große hiſtoriſche Merkwürdig-<lb/>
+keit, daß während aller dieſer Feſttage, bei einer Ver-<lb/>
+ſammlung von ſo vielen Tauſenden, auch nicht der kleinſte<lb/>
+Zwiſt, nicht die geringſte Unordnung vorfiel. So ſehr<lb/>
+war das Volk von der Würde und Heiligkeit des großen<lb/>
+Nationalfeſtes ergriffen und durchdrungen, ſo ſehr be-<lb/>
+währte es ſeine Mündigkeit für politiſche Einheit und<lb/>
+Volkshoheit</hi>!</p><lb/>
+<p>Am 1. Juni wurde endlich das Feſt dadurch geſchloſſen, daß die Feſt-<lb/>
+ordner, in Begleitung der Neuſtadter Bürgergarde und vieler Bürger,<lb/>
+die auf dem Schloſſe Hambach aufgeſteckten beiden Fahnen, die deutſche<lb/>
+und die polniſche, feierlich in die Stadt zurückbrachten. Es wird einſt<lb/>
+geſchichtlichen Werth erlangen, den Namen des Deutſchen zu kennen, der<lb/>
+unſere Fahne zum erſten Male wieder getragen hat; wir bemerken daher,<lb/>
+daß der Oekonom <hi rendition="#g">Abreſch</hi>, ein junger feuriger Patriot, die Ehre hatte,<lb/>
+Deutſchlands Panner zu tragen. Auch die polniſche Fahne trug ein<lb/>
+edler deutſcher Jüngling, <hi rendition="#g">Ludwig Müller</hi> aus Neuſtadt. Bei der Ab-<lb/>
+nahme der Fahnen auf dem Schloſſe Hambach hielten zwei Polen, Grzy-<lb/>
+<pb n="95" facs="#f0037"/>
+mala und Zatwarnicki, treffliche, ergreifende Reden, die wir hier mit-<lb/>
+theilen:</p><lb/>
+<p><hi rendition="#c"><hi rendition="#g">Rede von Grzymala</hi>.</hi></p><lb/>
+<p>Männer Deutſchland’s! die Ihr dieſe polniſche Fahne zur Ehre un-<lb/>
+ſeres Volkes hier aufgepflanzt habt, bewahrt dieſelbe auf! — Möge die<lb/>
+Vorſehung geſtatten, daß bald der Augenblick komme, wo wir,<lb/>
+in dem großen Kampfe der Völker gegen den Abſolutismus, von Euren<lb/>
+Händen dieſes theure Panner wieder erhalten, um unter demſelben,<lb/>
+ringend für die Freiheit, zu ſiegen oder zu ſterben. Verlaſſen und ver-<lb/>
+rathen von den Fürſten und Regierungen, (die uns unſerm rachgierigen<lb/>
+Feinde preißgegeben haben), vertrauen wir heute im Angeſichte des<lb/>
+Himmels, im Angeſicht der Repräſentanten der deutſchen Volksſtämme<lb/>
+unſere heilige Sache, die Sache der allgemeinen Freiheit, <hi rendition="#g">den Völ-<lb/>
+kern</hi>, den <hi rendition="#g">unterdrückten</hi> und nach <hi rendition="#g">wahrer Freiheit ſtre-<lb/>
+benden</hi> Völkern, und insbeſondere Euch wackere Deutſche, die Ihr ſo<lb/>
+wie wir, zu allen Opfern für die Sache der Freiheit bereit ſeyd.</p><lb/>
+<p>Es lebe die wahre Freiheit, auf die Volkshoheit geſtützt! — Es<lb/>
+lebe die brüderliche Freundſchaft aller nach Freiheit ringenden Nationen!<lb/>
+Es lebe das große vereinigte Deutſchland! —</p><lb/>
+<p><hi rendition="#c"><hi rendition="#g">Rede von Zatwarnicki</hi>.</hi></p><lb/>
+<p><hi rendition="#et"><hi rendition="#g">Deutſche</hi>!</hi></p><lb/>
+<p>Eure Liebe für die allgemeine Freiheit, euer Enthuſiasmus für alles<lb/>
+Schöne und Erhabene, dieſe entſchiedene Bereitwilligkeit, Blut und<lb/>
+Gut der Wiedergeburt Deutſchlands zum Opfer zu bringen, muß das<lb/>
+Herz und beſonders eines Polen Herz im Innerſten ergreifen. Was der<lb/>
+Pole für den Deutſchen fühlt, können Euch, meine Herren, die weni-<lb/>
+gen Worte meines edlen Landsmannes, des Kapitains Alexander <hi rendition="#g">Laski</hi><lb/>
+ſagen. —</p><lb/>
+<p>Als hier auf dieſem heiligen Berge, vor Gott und den Tauſenden,<lb/>
+die hier verſammelt waren, unſerm Vaterlande ein lautes Lebehoch ge-<lb/>
+bracht wurde, antwortete er: »Ich ſchwöre Euch, daß wir Polen bereit<lb/>
+ſind, für die deutſche Fahne unſer Blut zu vergießen.«</p><lb/>
+<p>Von den Gefühlen dieſes tapferen Bürgerſoldaten iſt jeder Pole<lb/>
+durchdrungen! — Für wahr, es wäre nicht das Erſtemal, daß Polens<lb/>
+Söhne für Deutſchlands Freiheit geblutet hätten. Die Worte hätten<lb/>
+vielleicht auch keine Kraft und Wichtigkeit, wenn ihnen nicht Thaten<lb/>
+vorangegangen wären. Brauche ich zu erinnern, daß die heutigen Polen<lb/>
+die Enkel derer ſind, welche unter Sobieski Deutſchland und die be-<lb/>
+<pb n="96" facs="#f0038"/>
+drohete Chriſtenheit gerettet haben? — Fraget die Geſchichte, und ſie<lb/>
+wird Euch überzeugen, daß Polen ein fortbrennendes Opfer auf dem<lb/>
+Altare der Menſchheit ſeit Jahrhunderten geweſen iſt. Und vor dieſem<lb/>
+letzten Kampfe, ihr wiſſet es wohl, gegen wen der Knutenkaiſer ſeine<lb/>
+Schaaren gerüſtet hatte. In der größten Gefahr befand ſich die euro-<lb/>
+päiſche Civiliſation. Polen, ſeinem heiligen Berufe folgend, warf ſich<lb/>
+in den blutigſten Kampf, und opferte ſich für Europa! Seine Kinder<lb/>
+ſchmachten jetzt in Sibirien, und in den Berggruben des grauſamſten Des-<lb/>
+poten. Einigen iſt es gelungen, der Verfolgung zu entkommen. Dieſe<lb/>
+hatten und haben noch der gaſtfreundlichſten Aufnahme ſich unter euch<lb/>
+zu erfreuen. Mit <choice><sic>Achtuug</sic><corr>Achtung</corr></choice> und Liebe kommt ihr den Unglücklichen ent-<lb/>
+gegen. Es ſind die erhabenſten Gefühle, die des Menſchen Bruſt be-<lb/>
+ſeelen, diejenigen, die Menſchen und Nationen verbrüdern. Nie waren<lb/>
+zwei Nationen eine der andern würdiger, als die Deutſche und die<lb/>
+Polniſche; nie war zwiſchen Völkern ein ſchönerer und feſterer<lb/>
+Bund geſchloſſen, als jetzt zwiſchen Deutſchen und Polen. Möge er<lb/>
+unſere ſpäteſten Nachkommen noch beglücken!« —</p><lb/>
+<p>Es war beſchloſſen worden, beide Fahnen dem älteſten der Feſtord-<lb/>
+ner, Deputirten <hi rendition="#g">Schopman</hi> zur Aufbewahrung zu übergeben.</p><lb/>
+<p>Bei dieſer Gelegenheit ſprach der für geſetzliche Freiheit wacker ar-<lb/>
+beitende Notär <hi rendition="#g">Müller</hi> aus Neuſtadt:</p><lb/>
+<p>Indem wir die Fahne, das Symbol der Einigung Deutſchlands,<lb/>
+des Geiſtes des Feſtes, abnehmen, und dem Senior der Feſtordner,<lb/>
+unſerm geachteten Mitbruder zur Verwahrung übergeben, beendigen<lb/>
+wir nur die äußere Feierlichkeit, — der Geiſt des Feſtes, wie er von<lb/>
+uns und allen aͤchten deutſchen Patrioten ausgeſprochen worden, wehe<lb/>
+immerdar, und pflanze ſich fort in jedem deutſchen Herzen und Ge-<lb/>
+muͤth, er belebe, er ſtaͤrke uns, zum muthigen ausdauernden Kampfe<lb/>
+fuͤr Freiheit und Volksrechte. — Es lebe das verbruͤderte einige, freie<lb/>
+Deutſchland!«</p><lb/>
+<p>Bei dem Empfange der glorreichen und ehrwürdigen Panner zweier<lb/>
+mächtiger Nationen hielt nun der würdige Veteran <hi rendition="#g">Schopman</hi> fol-<lb/>
+gende Rede:</p><lb/>
+<p><hi rendition="#et"><hi rendition="#g">Meine Herren</hi>!</hi></p><lb/>
+<p>So waͤre denn das Hambacher Feſt, das bei manchen Schwachen,<lb/>
+große Beſorgniß erregte, in wuͤrdiger Weiſe beſchloſſen, zur Beſchaͤmung<lb/>
+aller Derer, die demſelben unreine Zwecke unterlegen wollten.</p><lb/>
+<p>Moͤge der von allen gutgeſinnten Deutſchen hier ausgeſtreute Samen<lb/>
+<pb n="97" facs="#f0039"/>
+diejenigen Fruͤchte tragen, deren Erzielung unſer Zweck war: naͤmlich<lb/>
+moͤge der Deutſche ſich nicht mehr als Baier, Badner, Heſſe, Wuͤrtemberger,<lb/>
+Sachſe, Brandenburger ꝛc., ſondern blos als Deutſcher betrachten, und ſich<lb/>
+ſo zu der politiſchen Hoͤhe wieder erheben, die Deutſchland bei der gegen-<lb/>
+waͤrtigen Zeit ſo nothwendig iſt, und auf welcher dereinſt unſre Vaͤter<lb/>
+ſtanden.</p><lb/>
+<p>Zugleich wird das ſo eben ſich endigende Feſt Deutſchland den Charakter<lb/>
+des Rheinbaiern naͤher entwickeln; es wird daſſelbe uͤberzeugen, daß, wenn<lb/>
+man deſſen Inſtitutionen auf eine ungeſetzliche Weiſe und durch Gewalt-<lb/>
+ſtreiche verletzen wollte, er ſich maͤnnlich, ja! wenn es ſeyn muß, Ge-<lb/>
+walt mit Gewalt erwiedernd, zu vertheidigen wuͤßte; daß er aber auch<lb/>
+wenn man ſolche nicht verletzet, ſich ruhig und wuͤrdevoll zu benehmen weiß.<lb/>
+Bei der groͤßten Ordnung ſprach ſich jeder nur im Geiſte und Sinne<lb/>
+dieſes fuͤr Deutſchland ſo bedeutungsvollen Feſtes aus, <choice><sic>nnd</sic><corr>und</corr></choice> dies wird<lb/>
+der ſchoͤnſte Triumph dieſer Tage bleiben.</p><lb/>
+<p>Sie wollen mir als dem älteſten Mitglied der Feſtordner die deut-<lb/>
+ſche und die polniſche Fahne zur Aufbewahrung übergeben. Ich nehme<lb/>
+ſie an, als Zeichen der Verbrüderung der beiden Völker. Moͤge der<lb/>
+Glanz unſers Banners von nun an die Herzen aller ächten Deutſchen er-<lb/>
+leuchten und in allen Gauen Deutſchlands als Sonne aufgehen. Dieſe<lb/>
+gehe aber nicht allein über alle deutſche Männer auf<supplied>,</supplied> ſondern leuchte<lb/>
+über alle Völker Europa’s. Denn alle nehmen Antheil an den Folgen<lb/>
+des Feſtes. Hoch mögen mit Deutſchland alle Völker leben, hoch! und<lb/>
+dreimal hoch! —</p><lb/>
+<p>Zugleich wurde im Namen der bei dem Feſte anweſenden Polen noch<lb/>
+folgende Adreſſe übergeben:</p><lb/>
+<p><hi rendition="#c"><hi rendition="#g">An die deutſchen Patrioten, die das Volksfeſt auf dem<lb/>
+Schloſſe Hambach den</hi> 27. <hi rendition="#g">Mai</hi> 1832 <hi rendition="#g">gefeiert</hi>.</hi></p><lb/>
+<p>Der Polen Herzen ſind erfreut durch den neuen Beweis des Mit-<lb/>
+gefühls und der Brüderlichkeit, der nach der wahren Freiheit ringenden<lb/>
+Deutſchen. Während der großen Feier (der Wiedergeburt Deutſchlands<lb/>
+gewidmet) wehte die polniſche Nationalfahne neben der deutſchen. Tau-<lb/>
+ſende aus verſchiedenen Gauen Germaniens haben das theure Symbol<lb/>
+unſerer unglücklichen Nation mit Jubel begrüßt. Eure Redner haben<lb/>
+mit brüderlichem Mitgefühl und der dem großen Unglücke gebührenden<lb/>
+Achtung, der blutigen Aufopferung des polniſchen Volks, in dem gro-<lb/>
+ßen Kampfe für die Freiheit, erwähnt. Dieſer feierliche Akt kann in<lb/>
+uns nur die Ueberzeugung befeſtigen, daß die Deutſchen in unſerer<lb/>
+<fw type="sig" place="bottom">7</fw><lb/>
+<pb n="98" facs="#f0040"/>
+Sache ſtets die Sache der Freiheit Deutſchlands, der Freiheit Euro-<lb/>
+pa’s erblicken.</p><lb/>
+<p>Empfanget, Ihr hochherzigen Maͤnner Deutſchlands, von uns Po-<lb/>
+len, die dieſer bedeutungsvollen Volksfeier beigewohnt, in dieſen Wor-<lb/>
+ten den Ausdruck des uns erhebenden Gefühls, bei dem großen Gedan-<lb/>
+ken der Verbrüderung beider Nationen. Empfanget unſern Dank auch<lb/>
+Ihr, edle Frauen und Jungfrauen Neuſtadts für die, den Polen ſo<lb/>
+große Erinnerungen zurückrufende, Volksfahne, das ſchätzbare Werk<lb/>
+Eurer Hände, ein Wahrzeichen Eurer und aller edlen deutſchen Frauen<lb/>
+Sympathie für unſere Sache, für die Sache der Menſchheit.</p><lb/>
+<p>Neuſtadt an der Haardt, den 28. Mai 1832.</p><lb/>
+<list><item>Franz Grzymala. Cyprian Wolski (Major). B. Zatwar-<lb/>
+nicki. Michael Tadens Dembinski. Jan. Cynski. Alexandre<lb/>
+Suretoslawski. Xavier Kijenski (Kap.) Valentin<lb/>
+Krosnowski. Ignace Chodkiewicz. Edmund Korabiewicz.<lb/>
+Fergüß (Major). Leon Mazurkiewicz. Wiszkowski.<lb/>
+Alexandre Laski (Kap.) Taege. Julius Wislouch.</item></list><lb/>
+<p>Dieſe Adreſſe war mit folgendem Schreiben begleitet:</p><lb/>
+<list><item><hi rendition="#g">An die hochverehrlichen Feſtordner des deutſchen Na-<lb/>
+tionalfeſtes auf dem Schloſſe zu Hambach den</hi><lb/>
+27. <hi rendition="#g">Mai</hi> 1832.</item></list><lb/>
+<p>Beauftragt von unſern Landsleuten, die dem deutſchen Volksfeſte<lb/>
+zu Hambach beigewohnt, dieſe Adreſſe an die deutſchen Patrioten<lb/>
+zu überreichen, erachten wir für unſere Pflicht, deren Original in<lb/>
+Eure Hände niederzulegen, mit der Bitte: »dieſelbe zum Andenken an<lb/>
+»die Verbrüderung beider Nationen und Euer edles Mitgefühl für<lb/>
+»unſere Sache, neben der polniſchen Fahne, die bei dem Volksfeſte<lb/>
+»wehte, aufzubewahren.«</p><lb/>
+<p>Empfangen Sie hiemit, hochachtbare Männer, den Ausdruck unſe-<lb/>
+rer brüderlichen Hochſchätzung.</p><lb/>
+<p><hi rendition="#et">Neuſtadt an der Haardt, den 1. Juni 1832.</hi></p><lb/>
+<p rendition="#right">Franz Grzymala. B. Zatwarnicki.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="99" facs="#f0041"/>
+<p>Und ſo iſt denn das erſte große Nationalfeſt der Deut-<lb/>
+ſchen wieder gefeiert worden, gekommen iſt der ſchoͤne Tag,<lb/>
+wo Repraͤſentanten aller Buͤrderſtaͤmme vereiniget waren, um<lb/>
+uͤber die Angelegenheiten unſeres großen Vaterlandes zu be-<lb/>
+rathen. Aber was hoͤchſt wichtig iſt, nicht blos auf dem<lb/>
+Schloſſe Hambach, ſondern in mehreren deutſchen Gauen hat<lb/>
+man den 27. Mai als den Tag der Wiedergeburt des Vater-<lb/>
+landes gefeiert; ſelbſt in Paris wurde der große Tag von<lb/>
+den dort anweſenden Deutſchen, im Vereine mit gleichgeſinn-<lb/>
+ten Franzoſen, Polen, Italienern, Spaniern, Portugieſen<lb/>
+und Ungarn, unter dem Vorſitze Lafayettes feſtlich begangen.<lb/>
+Ein ſolches Ereigniß muß <choice><sic>vou</sic><corr>von</corr></choice> wichtigen Folgen fuͤr unſer<lb/>
+Volk begleitet ſeyn. Denn es iſt zur klaren Anſchauung aller<lb/>
+einſichtsvollen Patrioten gekommen, daß die Grundreform<lb/>
+Deutſchlands ein dringendes unabweisliches Beduͤrfniß ſey.<lb/>
+„Wir muͤßen die Reform bald haben, wir muͤßen ſie ſehr<lb/>
+bald haben,“ — dieß war die Ueberzeugung aller auf dem<lb/>
+Feſte zu Hambach verſammelten Vaterlandsfreunde. Eben<lb/>
+darum darf aber die Wirkung des großen Tages ſich nicht<lb/>
+blos auf die Steigerung und weitere Verbreitung patriotiſcher<lb/>
+Gefuͤhle beſchraͤnken, ſondern das bedeutungsvolle National-<lb/>
+feſt muß fuͤr die Wiedergeburt Deutſchlands ein beſtimmtes<lb/>
+poſitives Reſultat zu Tage foͤrdern. — Wir muͤßen den <choice><sic>27</sic><corr>27.</corr></choice><lb/>
+Mai als den Tag anſehen koͤnnen, an welchem zu dem kuͤnf-<lb/>
+tigen politiſchen Baue unſeres Vaterlandes der Grundſtein<lb/>
+gelegt wurde, wir muͤßen von dem 27. Mai ſagen koͤnnen,<lb/>
+daß in Folge der Ereigniſſe dieſes Tages die Patrioten aller<lb/>
+deutſchen Staͤmme bruͤderlich verbunden wurden, um eine<lb/>
+Grundform Deutſchlands auf geſetzlichem Wege durchzufuͤhren.<lb/>
+Alle Polemik zwiſchen den aufgeklaͤrten Patrioten uͤber feinere<lb/>
+Nuͤancen in den politiſchen Meinungen muß fortan verſchwin-<lb/>
+den, allen perſoͤnlichen Streitigkeiten der Volksmaͤnner ſofort<lb/>
+<pb n="100" facs="#f0042"/>
+ein Ende gemacht werden: alles ſoll nur auf <hi rendition="#g">ein Ziel</hi>, auf die<lb/>
+Grundreform Deutſchlands hinwirken: die politiſche Oppoſi-<lb/>
+tion aller deutſchen Staͤmme ſoll daher concentrirt und nach<lb/>
+einem beſtimmten Plane geregelt und geleitet werden: kein<lb/>
+deutſcher Stamm ſoll ſich ausſchließen, ein jeder ſoll viel-<lb/>
+mehr die Maͤnner ſeines Vertrauens beſtimmen, ſich mit den<lb/>
+ausgezeichnetſten Patrioten der uͤbrigen Staͤmme zu verſtaͤn-<lb/>
+digen und zu vereinigen, damit in dieſer Weiſe ein geiſti-<lb/>
+ger Centralpunkt gewonnen wuͤrde, welcher die Grundreform<lb/>
+Deutſchlands auf geſetzlichem Wege auszuwirken und zu die-<lb/>
+ſem Behufe die geſammte legale Oppoſition zu leiten geeignet<lb/>
+und berufen waͤre. Einer ſolchen Vereinigung geiſtiger Kraͤfte<lb/>
+wuͤrde dann die Macht gegeben ſeyn: 1) fuͤr die Nothwen-<lb/>
+digkeit der Grundreform Deutſchlands, durch die Preſſe, oͤffent-<lb/>
+liche Reden, oder andere erlaubte Belehrungsmittel die oͤffent-<lb/>
+liche Meinung aller deutſchen Volksſtaͤmme zu gewinnen und<lb/>
+ſodann 2) durch den Ausdruck der oͤffentlichen Meinung, ins-<lb/>
+beſondere durch Adreſſen, Motionen bei Staͤndeverſammlun-<lb/>
+gen und Provinziallandtagen, ſowie durch andere erlaubte<lb/>
+Mittel die Einwilligung der Regierenden zur Durchfuͤhrung<lb/>
+der Reform auszuwirken. Die bruͤderliche patriotiſche Verei-<lb/>
+nigung wuͤrde ſich in dieſer Weiſe gewiß bald uͤber ganz<lb/>
+Deutſchland erſtrecken, wenn alle Maͤnner ſich die Hand rei-<lb/>
+chen, die das Vertrauen der einzelnen Stämme genießen.<lb/>
+Ein aus Mitgliedern aller Bruͤderſtaͤmme zuſammen zu ſetzen-<lb/>
+des Comite koͤnnte ſodann die legale Oppoſition in allen<lb/>
+deutſchen Laͤndern, namentlich alle Oppoſitionsjournale nach<lb/>
+einem beſtimmten geregelten Plane leiten und nicht nur auf<lb/>
+Aufklaͤrung aller Volksklaſſen, ſondern auch:</p><lb/>
+<list><item>1) auf Bildung von patriotiſchen Geſellſchaften der Maͤn-<lb/>
+ner und Juͤnglinge, Frauen und Jungfrauen in allen<lb/>
+Provinzen und bedeutenden Staͤdten Deutſchlands,</item></list><lb/>
+<pb n="101" facs="#f0043"/>
+<list><item>2) auf bruͤderliche Verſtaͤndigung mit andern Voͤlkern uͤber<lb/>
+die wahren Intereſſen Europa’s und endlich</item><lb/>
+<item>3) auf großartige Vermehrung des Fonds zur Unter-<lb/>
+ſtuͤtzung der freien Preſſe, zur Verbreitung belehrender<lb/>
+Schriften und Journale, ſowie zur Befoͤrderung ande-<lb/>
+rer patriotiſcher Unternehmungen</item></list><lb/>
+<p>mit Erfolg hinweiſen. Auf ſolche Weiſe wuͤrde dann das<lb/>
+große Werk der deutſchen Reform, ohne allen Zweifel durch<lb/>
+unſere eigene Kraft ohne fremde Einmiſchung gelingen, es wuͤrde<lb/>
+insbeſondere auf voͤllig erlaubtem Wege zu Stande gebracht<lb/>
+werden. Darum wenden wir uns im Namen des Vaterlandes<lb/>
+an alle die großen Deutſchen welche das Vertrauen der ver-<lb/>
+ſchiedenen Bruͤderſtaͤmme genießen. In ihrer Hand liegt jetzt<lb/>
+das Schickſal unſeres Volkes. Die Zeit zum Handeln iſt<lb/>
+gekommen. Wollen alle die Maͤnner, die am politiſchen<lb/>
+Himmel Deutſchlands, als Sterne erſter Groͤße glaͤnzen,<lb/>
+zur Wiedergeburt des Vaterlandes in vorbemerkter Weiſe ſich<lb/>
+vereinigen, ſo iſt das Gelingen des großen Werkes verbuͤrgt.<lb/>
+Zu Euch, ihr gefeierten Maͤnner des Volkes in den verſchie-<lb/>
+denen deutſchen Wahlkammern, dann zu Euch, die ihr ſonſt<lb/>
+durch Vertheidigung der Volksſache oder durch anderes patri-<lb/>
+otiſches Wirken das Vertrauen des Volkes in den einzelnen Pro-<lb/>
+vinzen erworben habt, endlich zu allen denen, die den Willen<lb/>
+und die Kraft fuͤhlen, fuͤr das Vaterland etwas zu wirken,<lb/>
+zu Euch allen erheben wir unſere Stimme und beſchwoͤren<lb/>
+Euch zur Reform Deutſchlands, auf geſetzlichem Wege, innig<lb/>
+euch zu verbinden und dem Streben unſerer großen Zeit eine<lb/>
+feſte ſichere Richtung zu geben. Niemand iſt ſo anmaßend,<lb/>
+zu fordern, daß man beſtimmte Doctrinen blindlings unter-<lb/>
+zeichne. Ihr ſollt vielmehr erſt unter einander berathen und<lb/>
+beſchließen, welche Reform dem Vaterlande die heilſamſte ſei.<lb/>
+Eure tiefen Einſichten werden uͤber die Grundſaͤtze der Re-<lb/>
+<pb n="102" facs="#f0044"/>
+form, wie ſolche in der oͤffentlichen Meinung aller Bruͤder-<lb/>
+ſtaͤmme den meiſten Anklang finden wuͤrde, ſehr bald ſich<lb/>
+vereinigen. Ihr habt dann die Macht, die abweichenden<lb/>
+Nuͤancen in den politiſchen Anſichten zu verſchmelzen, und die<lb/>
+Mitglieder aller freiſinnigen politiſchen Confeſſionen zur plan-<lb/>
+maͤßigen Verfolgung eines gemeinſchaftlichen Zieles zu vereini-<lb/>
+gen. Deutſchland wird dann durch eigene Kraft zu Macht und<lb/>
+Groͤße emporſteigen. Das Vaterland ruft: <choice><sic>uaͤhert</sic><corr>naͤhert</corr></choice>, vereiniget<lb/>
+euch, ſetzt euch bald gegenſeitig in geiſtigen Rapport. Laßt<lb/>
+nicht von euch ſagen, daß ihr wegen Meinungsverſchieden-<lb/>
+heit oder wegen perſoͤnlichen Ruͤckſichten, vielleicht aus<lb/>
+Ängſtlichkeit, Vorliebe oder Haß, von der Vereinigung fuͤr<lb/>
+die Reform Deutſchlands abgehalten wurdet, und daß nichts<lb/>
+im Stande war, euch zu vermoͤgen, die Ereigniße mit feſter<lb/>
+Hand zu leiten und dem Streben einer großen Zeit eine ſichere<lb/>
+Richtung zu geben. Nein! ihr werdet das nicht von euch<lb/>
+ſagen laſſen. Das Vaterland darf euch vertrauen. Wir<lb/>
+duͤrfen mit freudiger Hoffnung ausrufen:</p><lb/>
+<p><hi rendition="#c"><hi rendition="#g">Es bluͤhe und gedeihe die Grundreform<lb/>
+Deutſchlands</hi>!</hi></p><lb/>
+<p>Wir ſchließen die Beſchreibung der großen Tage, die<lb/>
+in der Bruſt aller Anweſenden ſo heiße Wuͤnſche fuͤr des<lb/>
+Vaterlandes baldige Erloͤſung erweckten, am wuͤrdigſten mit<lb/>
+folgendem von <hi rendition="#g">Siebenpfeiffer</hi> gedichteten Geſange:</p><lb/>
+<lg type="poem"><lg n="1"><l>Am deutſchen Rhein, was blitzt vom Berg hernieder</l><lb/>
+<l>In’s ſchwarzumflorte Thal?</l><lb/>
+<l>Erſtand ein Chriſt, ein Völkerheiland wieder?</l><lb/>
+<l>Zuckt dort ein Himmelsſtrahl?</l></lg><lb/>
+<lg n="2"><l>Und welche Sterne locken her die Weiſen?</l><lb/>
+<l>Was lockt der Menſchen Schaar?</l><lb/>
+<l>Will ſich ein Gott im Feuerbuſche weiſen?</l><lb/>
+<l>Wird dunkle Zukunft klar?</l></lg><lb/>
+<pb n="103" facs="#f0045"/>
+<lg n="3"><l>Ein Gotteskind wohl iſt’s, trägt Vaters Stempel,</l><lb/>
+<l>Welt-Heil im Augenlicht;</l><lb/>
+<l>Geboren iſt’s im weiten Völkertempel,</l><lb/>
+<l>In Himmels Angeſicht.</l></lg><lb/>
+<lg n="4"><l>Der Freiheit Kind, dem Sklavenſchooß entwunden,</l><lb/>
+<l>Liegt, trotz dem Heil’genſchein,</l><lb/>
+<l>Ach! mit Tyrannenketten feſtgebunden,</l><lb/>
+<l>Zum Ew’gen dringt ſein Schrei’n.</l></lg><lb/>
+<lg n="5"><l>Das Kind, das, frei erzeugt, in Feſſeln ſchmachtet,</l><lb/>
+<l>Das Kind im Nachtgewand,</l><lb/>
+<l>Das trotz dem Strahlenkranz ſo tief verachtet,</l><lb/>
+<l>Iſt unſer — Vaterland.</l></lg><lb/>
+<lg n="6"><l>O Vaterland! Du biſt es, das im Glanze,</l><lb/>
+<l>Mit magiſcher Gewalt —</l><lb/>
+<l>Du biſt es, deſſen Haupt im Gotteskranze</l><lb/>
+<l>Vom Rhein ſo leuchtend ſtrahlt.</l></lg><lb/>
+<lg n="7"><l>Und was die Männer treibt aus fernen Landen,</l><lb/>
+<l>Iſt deutſche Kraft und Muth;</l><lb/>
+<l>Das Vaterland zu löſen von den Banden,</l><lb/>
+<l>Weih’n ſie ihm Hauch und Blut.</l></lg><lb/>
+<lg n="8"><l>O Ewiger! laß dieſe Sterne blitzen</l><lb/>
+<l>In Deutſchlands dunkle Nacht,</l><lb/>
+<l>Daß ſie erbeb’ auf ihren Nebelſitzen,</l><lb/>
+<l>Der Dränger finſtre Macht.</l></lg><lb/>
+<lg n="9"><l>Du ſiehſt den Bund — wer will ihn noch verdammen? —</l><lb/>
+<l>Trägt er nicht deine Spur?</l><lb/>
+<l>Keuſch iſt das Herz, rein ſind des Geiſtes Flammen,</l><lb/>
+<l>Geheiligt unſer Schwur.</l></lg><lb/>
+<lg n="10"><l>Drum wird’s vollbracht; der Männer heilig Glühen</l><lb/>
+<l>Iſt uns ein Unterpfand:</l><lb/>
+<l>Hinſinkt Gewalt, der Freiheit Funken ſprühen,</l><lb/>
+<l>Aufjauchzt das Vaterland.</l></lg><lb/>
+<pb n="104" facs="#f0046"/>
+<lg n="11"><l>Auf! auf! Ob auch die Hölle mit dir ränge,</l><lb/>
+<l>Empor, o Vaterland!</l><lb/>
+<l>Erhebe dich! hörſt du die Siegesklänge,</l><lb/>
+<l>O deutſches Vaterland?</l></lg><lb/>
+<lg n="12"><l>Erhebe dich! Ein Gott zerreißt der Knechtſchaft Bande,</l><lb/>
+<l>Wenn dein Entſchluß geſtählt:</l><lb/>
+<l>Der Deutſchen Ruhm dann tönt von Land zu Lande,</l><lb/>
+<l>Und Freiheit! jauchzt die Welt.</l></lg></lg></div><milestone unit="section" rendition="#hr"/><lb/>
+</body><back>
+<pb facs="#f0047"/>
+<pb facs="#f0048"/>
+<pb facs="#f0049"/>
+</back>
+</text> </TEI>

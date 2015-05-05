@@ -1,0 +1,2494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Die Perigenesis der Plastidule oder die Wellenerzeugung der Lebenstheilchen</title>
+<title type="sub">Ein Versuch zur mechanischen Erklärung der elementaren Entwickelungs-Vorgänge</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118544381">
+<surname>Haeckel</surname>
+<forename>Ernst</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">91</measure>
+<measure type="tokens">15402</measure>
+<measure type="types">3732</measure>
+<measure type="characters">122378</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:53Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/haeckel_plastidule_1876</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/haeckel_plastidule_1876</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/haeckel_plastidule_1876</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/haeckel_plastidule_1876</idno>
+<idno type="DTADirName">haeckel_plastidule_1876</idno>
+<idno type="DTAID">16432</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905192031</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Haeckel, Ernst: Die Perigenesis der Plastidule oder die Wellenerzeugung der Lebenstheilchen. Berlin, 1876.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Die Perigenesis der Plastidule oder die Wellenerzeugung der Lebenstheilchen</title>
+<title level="m" type="sub">Ein Versuch zur mechanischen Erklärung der elementaren Entwickelungs-Vorgänge</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118544381">
+<surname>Haeckel</surname>
+<forename>Ernst</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">79 S., Ill., Taf.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Reimer</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1876</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Li 11601</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=618664289</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Biologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Biologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="halftitle"> <docTitle> <titlePart type="main">Die<lb/>
+<hi rendition="#b">Perigenesis der Plastidule.</hi></titlePart><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">1<lb/>
+</fw> </docTitle> </titlePage>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<titlePage type="main"> <docTitle> <titlePart type="main">Die<lb/>
+Perigenesis der Plastidule<lb/>
+oder die<lb/>
+Wellenzeugung der Lebenstheilchen.</titlePart> </docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="sub">Ein Versuch zur mechanischen Erklärung der<lb/>
+elementaren Entwickelungs-Vorgänge.</titlePart><lb/>
+<byline>Von<lb/>
+<docAuthor> <hi rendition="#b">Ernst Haeckel</hi><lb/>
+Dr. phil. et med.<lb/>
+Ordentlichem Professor der Zoologie und Director des zoologischen Instituts<lb/>
+an der Universität Jena.</docAuthor> </byline><lb/>
+<titlePart type="desc">Mit einer Tafel.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b #g">Berlin</hi> <hi rendition="#b">.</hi></pubPlace><lb/>
+<publisher> <hi rendition="#g">Verlag von Georg Reimer</hi>. </publisher><lb/>
+<docDate>1876.</docDate><lb/>
+</docImprint> </titlePage>
+<pb facs="#f0010"/>
+<pb facs="#f0011"/>
+<div type="dedication"> <p rendition="#c">Dem<lb/>
+hochverdienten<lb/>
+Curator der Universität Jena<lb/>
+Herrn Geheimen Staatsrath<lb/>
+Dr. MORITZ SEEBECK<lb/>
+widmet diese Schrift am Tage der<lb/>
+fünfundzwanzigjährigen Jubelfeier<lb/>
+seiner erfolgreichen Amtsthätigkeit,<lb/>
+am 9. Mai 1876,<lb/>
+in vorzüglicher Verehrung<lb/>
+<hi rendition="#i">der Verfasser.</hi></p> </div><lb/>
+<pb facs="#f0012"/>
+</front>
+<pb facs="#f0013"/>
+<body> <div n="1"> <p> <hi rendition="#in">S</hi>eit einem Decennium macht sich in der Naturwissen¬<lb/>
+schaft mit stetig wachsender Kraft, eine, philosophische<lb/>
+Bewegung geltend, deren Wellen immer weitere Kreise<lb/>
+erregen und im Reiche der Philosophie eine entsprechende<lb/>
+naturwissenschaftliche Strömung erzeugt haben. Je gewal¬<lb/>
+tiger einerseits die Masse neuer Entdeckungen anwächst,<lb/>
+welche der emsige Fleiss zahlreicher Beobachter auf allen<lb/>
+Gebietstheilen der Naturwissenschaft zusammenhäuft, desto<lb/>
+stärker empfinden alle denkenden Naturforscher das Be¬<lb/>
+dürfniss, einheitliche philosophische Gesichtspunkte für<lb/>
+deren Verständniss zu gewinnen und von der Kenntniss<lb/>
+der Thatsachen zur Erkenntniss der Ursachen emporzu¬<lb/>
+steigen. Je weniger anderseits die zahlreichen, der Empirie<lb/>
+feindlich gegenüberstehenden Systeme der metaphysischen<lb/>
+Speculation einen bleibenden Erfolg erringen konnten, desto<lb/>
+mehr drängt sich den weiter blickenden Philosophen die<lb/>
+Ueberzeugung auf, dass nur auf der sicheren Basis jener<lb/>
+empirischen Errungenschaften ein dauerhaftes System der<lb/>
+Erkenntniss errichtet werden kann, und dass dabei noth¬<lb/>
+<pb n="8" facs="#f0014"/>
+wendig die Kenntniss der Thatsachen der Erkenntniss ihrer<lb/>
+Ursachen vorausgehen muss.</p><lb/>
+<p>Unter den mancherlei Umständen, welche diese erfreu¬<lb/>
+liche Annäherung der Philosophie und der Naturwissen¬<lb/>
+schaft herbeigeführt und begünstigt haben, ist unstreitig am<lb/>
+wichtigsten die Umgestaltung der <hi rendition="#g">Entwickelungslehre</hi>,<lb/>
+zu welcher <hi rendition="#i">Charles Darwin</hi> durch sein epochemachendes<lb/>
+Werk „über die Entstehung der Arten“ den ersten Anstoss<lb/>
+gab. Wenn dieser grosse Naturforscher es auch vorsichtig<lb/>
+vermied, seiner Selections-Theorie und der dadurch refor¬<lb/>
+mirten Descendenz-Theorie das Gewand eines philosophi¬<lb/>
+schen Systems zu geben und die damit verbundenen Con¬<lb/>
+sequenzen zu ziehen, so kann doch kein tiefer Blickender<lb/>
+mehr zweifeln, dass der beispiellose Erfolg von <hi rendition="#i">Darwin's</hi><lb/>
+Schriften nicht in dem ungeheuren Reichthum der zusam¬<lb/>
+mengestellten empirischen Thatsachen, sondern in deren<lb/>
+geistvoller Erklärung und Verknüpfung durch das gemein¬<lb/>
+same Band der Entwickelungs-Theorie liegt. Diese ein¬<lb/>
+heitliche Erklärung der verschiedenartigsten Erscheinungen<lb/>
+ist aber eine philosophische That.</p><lb/>
+<p>Den ersten umfassenden Versuch, die philosophischen<lb/>
+Grundgedanken der neu erstandenen Entwickelungslehre<lb/>
+systematisch auszubilden, und insbesondere die Wissen¬<lb/>
+schaft von den organischen Formen durch die Descendenz-<lb/>
+Theorie mechanisch zu begründen, unternahm ich vor zehn<lb/>
+Jahren in meiner „generellen Morphologie der Organismen“.<lb/>
+Wie verfehlt und übereilt dieser Versuch in vieler Beziehung<lb/>
+auch war, so haben sich doch manche darin niedergelegte<lb/>
+neue Vorstellungen inzwischen als naturgemäss und frucht¬<lb/>
+bar erwiesen. Das scheint mir namentlich von meiner Auf¬<lb/>
+<pb n="9" facs="#f0015"/>
+fassung der beiden Hauptzweige der organischen Ent¬<lb/>
+wickelungsgeschichte und des zwischen Beiden bestehenden<lb/>
+ursächlichen Zusammenhanges zu gelten.</p><lb/>
+<p>Bisher hatte man unter „Entwickelungsgeschichte“<lb/>
+schlechtweg nur diejenige der individuellen organischen<lb/>
+Formen verstanden, die sogenannte „Embryologie“ und<lb/>
+die „Metamorphologie“ (oder embryonale und postembryo¬<lb/>
+nale Entwickelungsgeschichte), die beide unter dem Be¬<lb/>
+griffe der Keimesgeschichte oder <hi rendition="#g">Ontogenie</hi> zusammen¬<lb/>
+gefasst werden können. Aber diese Ontogenie ist nur<lb/>
+ein Hauptzweig der Biogenie oder der allumfassenden<lb/>
+„Entwickelungsgeschichte der Organismen.“</p><lb/>
+<p>Als zweiter Hauptzweig steht ihr gegenüber die<lb/>
+paläontologische Entwickelungsgeschichte der organischen<lb/>
+Arten und Stämme, der Formen-Ketten welche im ununter¬<lb/>
+brochenen Zusammenhange ungezählter Generationen von<lb/>
+Anbeginn des organischen Lebens auf unserem Planeten<lb/>
+bis zur Gegenwart sich entwickelt haben. Diese Ent¬<lb/>
+wickelungsgeschichte der Generationsreihen, „Paläontologie<lb/>
+und Genealogie“ umfassend, wird am besten kurz als<lb/>
+Stammesgeschichte oder <hi rendition="#g">Phylogenie</hi> bezeichnet.</p><lb/>
+<p>Keimesgeschichte und Stammesgeschichte, Ontogenie<lb/>
+und Phylogenie, sind nach meiner Auffassung zwei Wissen¬<lb/>
+schaften, welche in dem engsten und unmittelbarsten ur¬<lb/>
+sächlichen Zusammenhang stehen. Dass Beide sich in so<lb/>
+verschiedenem Maasse entwickelten, dass die ältere Keimes¬<lb/>
+geschichte früher allein als die „eigentliche Entwickelungs¬<lb/>
+geschichte“ galt, während die jüngere Stammesgeschichte<lb/>
+erst vor zehn Jahren zu selbständiger Geltung kam und<lb/>
+selbst heute noch vielfach nicht anerkannt wird, das liegt<lb/>
+<pb n="10" facs="#f0016"/>
+einerseits an der verschiedenartigen empirischen Methode,<lb/>
+andererseits an den ungleichen theoretischen Ansprüchen<lb/>
+beider Disciplinen. Denn die individuelle Entwickelung<lb/>
+der Organismen, ihre Keimesentwickelung oder Ontogenesis,<lb/>
+ist ein rascher Bildungsprocess, welcher in kürzester Zeit<lb/>
+unter unseren Augen verläuft, und dessen äussere Er¬<lb/>
+scheinungsreihe wir unmittelbar von Anfang bis zu Ende<lb/>
+verfolgen können, meist innerhalb weniger Wochen oder<lb/>
+Monate, selten in längerer Zeit. Schritt für Schritt, und<lb/>
+Stufe für Stufe, können wir hier durch zusammenhängende<lb/>
+Beobachtung die veränderliche Formenreihe erkennen,<lb/>
+welche jedes einzelne Thier, jede einzelne Pflanze vom<lb/>
+Ei bis zur Vollendung durchläuft. Hingegen ist die<lb/>
+paläontologische Entwickelung der Organismen, ihre<lb/>
+Stammesentwickelung oder Phylogenesis, ein langsamer<lb/>
+Bildungsprocess, der ungeheuere Zeiträume erfüllt, dessen<lb/>
+einzelne Schritte nach Jahrtausenden, dessen wahrnehm¬<lb/>
+bare Wegstrecken, geologischen Formationen entsprechend,<lb/>
+nach Hunderttausenden und Millionen von Jahren zu be¬<lb/>
+messen sind. Der Unterschied zwischen einer Secunden-<lb/>
+Uhr, deren Zeiger seinen Kreislauf innerhalb einer Minute,<lb/>
+und einer Jahres-Uhr, deren Zeiger den seinigen im Verlauf<lb/>
+von 365 Tagen vollendet, ist nicht so gross, wie die<lb/>
+Differenz zwischen dem athemlosen Geschwindschritt der<lb/>
+Keimesgeschichte und dem kaum wahrnehmbaren Dahin¬<lb/>
+schleichen der Stammesgeschichte. Was aber noch viel<lb/>
+mehr ins Gewicht fällt, das ist die mangelhafte empirische<lb/>
+Basis der letzteren. Die paläontologische „Schöpfungs¬<lb/>
+urkunde“, welche uns unmittelbar in der Reihenfolge der<lb/>
+Versteinerungen die Bilder-Gallerie der ausgestorbenen<lb/>
+<pb n="11" facs="#f0017"/>
+Vorfahren unserer heutigen Organismen aufdecken sollte,<lb/>
+ist aus bekannten Gründen im höchsten Maasse unvollständig<lb/>
+und lückenhaft. Sie würde uns selbst in ihren sehr wich¬<lb/>
+tigen Rest-Fragmenten kaum verständlich sein, wenn<lb/>
+wir nicht zu ihrer Ergänzung und Ausfüllung zwei andere,<lb/>
+höchst werthvolle Urkunden besässen: Die vergleichende<lb/>
+Anatomie und Ontogenie. Welche hohe Bedeutung hier<lb/>
+insbesondere der „vergleichenden Anatomie“ zukommt, hat<lb/>
+vor Allen <hi rendition="#i">Carl Gegenbaur</hi> in seinen mustergültigen Arbeiten<lb/>
+gezeigt. Durch die gründliche Kenntniss, die denkende Ver¬<lb/>
+gleichung und die kritische Benutzung dieser drei wichtigsten<lb/>
+„Schöpfungs-Urkunden“, der vergleichenden Anatomie, On¬<lb/>
+togenie und Paläontologie, wird es uns möglich, die Grund¬<lb/>
+züge der Phylogenie oder Stammesgeschichte zu erkennen.</p><lb/>
+<p>Von der höchsten Wichtigkeit dafür ist vor Allem der<lb/>
+unmittelbare Causal-Nexus zwischen Ontogenie und Phylo¬<lb/>
+genie. Dieser bedeutungsvolle ursächliche Zusammenhang,<lb/>
+den schon die ältere Naturphilosophie vor einem halben<lb/>
+Jahrhundert ahnte, und den nächst <hi rendition="#i">Darwin</hi> vor Allen <hi rendition="#i">Fritz<lb/>
+Müller</hi> betonte, lässt sich in folgendem Satze formuliren:<lb/>
+„Die Formenreihe, welche der individuelle Organismus<lb/>
+während seiner Entwickelung von der Eizelle an bis zu<lb/>
+seinem ausgebildeten Zustande durchläuft, ist eine kurze<lb/>
+gedrängte Wiederholung der langen Formenreihe, welche<lb/>
+die thierischen Vorfahren desselben Organismus, oder die<lb/>
+Stammformen seiner Art von den ältesten Zeiten der so¬<lb/>
+genannten organischen Schöpfung an bis auf die Gegenwart<lb/>
+durchlaufen haben.“ (Vergl. die gen. Morphol., Bd. II.,<lb/>
+S. 295–300. Jenaische Zeitschr. für Naturw. Bd. VIII.,<lb/>
+S. 5; Bd. IX., S. 409; Bd. X., Suppl., S. 77.)<lb/>
+</p>
+<pb n="12" facs="#f0018"/>
+<p>Mit anderen Worten: „Die Keimesentwickelung ist ein<lb/>
+Auszug der Stammesentwickelung; um so vollständiger, je<lb/>
+mehr durch Vererbung die Auszugs-Entwickelung oder<lb/>
+Palingenesis beibehalten wird; um so weniger vollständig,<lb/>
+je mehr durch Anpassung die Fälschungs-Entwickelung<lb/>
+oder Cenogenesis eingeführt wird.“</p><lb/>
+<p>Wie dieses biogenetische Grundgesetz der wahre<lb/>
+Ariadne-Faden ist, der uns durch das verschlungene La¬<lb/>
+byrinth der Stammesgeschichte leitet, das glaube ich in<lb/>
+meiner Gastraea-Theorie an dem Beispiele der Gastrula für<lb/>
+das ganze Thierreich gezeigt zu haben. In meiner Mo¬<lb/>
+nographie der Kalkschwämme habe ich dasselbe für<lb/>
+sämmtliche stammverwandte Formen dieser kleinen Thier¬<lb/>
+gruppe auf das genaueste im Einzelnen nachgewiesen, und<lb/>
+in meiner Anthropogenie an dem besonderen Beispiele der<lb/>
+Entwickelungsgeschichte des Menschen nachzuweisen ver¬<lb/>
+sucht. Alle Vorgänge in der Keimesgeschichte sind ent¬<lb/>
+weder palingenetischer oder cenogenetischer Natur.</p><lb/>
+<p>Nachdem nun die Vererbung als die bewirkende Ur¬<lb/>
+sache der Palingenesis, die Anpassung als die „causa<lb/>
+efficiens“ der Cenogenesis und Beide zusammen als die<lb/>
+wesentlichen Factoren der Ontogenesis erwiesen waren,<lb/>
+musste, es als nächste Aufgabe erscheinen, die Vererbung<lb/>
+und Anpassung selbst als physiologische Functionen der<lb/>
+Organismen näher zu ergründen.</p><lb/>
+<p>In der „generellen Morphologie“ hatte ich die Ver¬<lb/>
+erbung mit der Fortpflanzung, die Anpassung mit der<lb/>
+Ernährung in unmittelbaren physiologischen Zusammenhang<lb/>
+gebracht und damit die Möglichkeit einer mechanischen<lb/>
+Auffassung und einer physikalisch-chemischen Erklärung<lb/>
+<pb n="13" facs="#f0019"/>
+<lb/>
+auch für jene beiden wichtigsten „formbildenden Functionen“<lb/>
+der Organismen dargethan. Denn wenn die heutige Phy¬<lb/>
+siologie mit vollem Rechte dem Vitalismus und der Tele¬<lb/>
+ologie ihre Pforte verschliesst, wenn sie jede mystische<lb/>
+und übernatürliche Action nach Art der „Lebenskraft“<lb/>
+verwirft und auf ihrem Gebiete nur physikalisch-chemische<lb/>
+— oder in weiterem Sinne „mechanische“ — Kräfte<lb/>
+wirken lässt, so muss sie auch für die beiden wichtigsten<lb/>
+Lebensthätigkeiten der Formbildung, für die Vererbung<lb/>
+und Anpassung, eine solche mechanische Erklärung suchen.<lb/>
+Und wenn unser grosser kritischer Philosoph <hi rendition="#i">Immanuel Kant</hi><lb/>
+mit vollem Rechte an die Naturwissenschaft die Forderung<lb/>
+stellt, überall mechanische Ursachen (causae efficientes) an<lb/>
+die Stelle der zweckthätigen Ursachen (causae finales) zu<lb/>
+setzen; wenn <hi rendition="#i">Kant</hi> ferner behauptet, dass der Mechanismus<lb/>
+allein eine wirkliche Erklärung der Erscheinungen ein¬<lb/>
+schliesse, und dass es „ohne das Princip des Mechanismus<lb/>
+in der Natur überhaupt keine Naturwissenschaft geben<lb/>
+könne“, so werden wir auch für unsere Entwickelungs¬<lb/>
+geschichte als echte Naturwissenschaft diesen monistischen<lb/>
+Standpunkt als den allein berechtigten anerkennen und für<lb/>
+die physikalischen Thatsachen der organischen Entwickelung<lb/>
+auch nur nach mechanischen Ursachen suchen dürfen.</p><lb/>
+<p>Nun hat aber die moderne Physiologie, der eigentlich<lb/>
+diese Aufgabe zufällt, bis heute noch nicht den Versuch<lb/>
+gewagt, die Vererbung und Anpassung in diesem Sinne<lb/>
+wirklich in Angriff zu nehmen und die Elementar-Vor¬<lb/>
+gänge in beiden physiologischen Functionen aufzusuchen.<lb/>
+Einen einzigen derartigen Versuch hat bis jetzt nur <hi rendition="#i">Charles<lb/>
+Darwin</hi> unternommen, als er 1868 seine „<hi rendition="#g">provisorische<lb/>
+<pb n="14" facs="#f0020"/>
+Hypothese der Pangenesis</hi>“ aufstellte. Es geschah<lb/>
+dies im zweiten Bande des werthvollen Werkes über „das<lb/>
+Variiren der Thiere und Pflanzen im Zustande der Do¬<lb/>
+mestication“ (27. Capitel). In der kürzlich erschienenen<lb/>
+zweiten Auflage dieses Werkes (1875) hat <hi rendition="#i">Darwin</hi> seine<lb/>
+Pangenesis-Hypothese noch ausführlicher und mit einigen<lb/>
+Modificationen vorgetragen, und ich gebe hier zunächst<lb/>
+ihren Kern mit denselben Worten, mit denen sie ihr Be¬<lb/>
+gründer daselbst zusammenfasst (Vol. II. p. 369). „Es<lb/>
+wird allgemein zugegeben, dass die Zellen oder Einheiten<lb/>
+des Körpers sich durch Selbsttheilung oder Knospung<lb/>
+vermehren, wobei sie dieselbe Natur beibehalten; und dass<lb/>
+sie schliesslich in die verschiedenen Gewebe und Substanzen<lb/>
+des Körpers verwandelt werden. Aber ausser diesen Ver¬<lb/>
+mehrungsweisen nehme ich an, dass die Einheiten (oder<lb/>
+Zellen) kleine Körnchen abgeben, welche durch das ganze<lb/>
+System (des Körpers) zerstreut werden; dass diese, wenn<lb/>
+sie mit gehöriger Nahrung versorgt werden, sich durch<lb/>
+Selbsttheilung vervielfältigen, und schliesslich zu Einheiten<lb/>
+(oder Zellen) entwickelt werden, gleich denen, von denen<lb/>
+sie ursprünglich abgeleitet sind. Diese Körnchen können<lb/>
+„Keimchen“ (oder „Gemmules“) genannt werden. Sie<lb/>
+sammeln sich aus allen Theilen des Körpers, um die Ge¬<lb/>
+schlechtselemente zusammenzusetzen, und ihre Entwickelung<lb/>
+in der nächsten Generation bildet ein neues Wesen; aber<lb/>
+sie sind gleicherweise auch fähig, in einem schlummernden<lb/>
+Zustande an künftige Generationen überliefert und dann<lb/>
+erst entwickelt zu werden. Ihre Entwickelung hängt ab<lb/>
+von ihrer Vereinigung mit anderen, theilweise entwickelten<lb/>
+oder entstehenden Zellen, welche ihnen im regelmässigen<lb/>
+<pb n="15" facs="#f0021"/>
+Verlaufe des Wachsthums vorausgehen. Warum ich den<lb/>
+Ausdruck „Vereinigung“ gebrauche, wird sich zeigen,<lb/>
+wenn wir die directe Einwirkung des Pollens auf die Ge¬<lb/>
+webe der Mutterpflanze erörtern. Es wird angenommen,<lb/>
+dass Keimchen von jeder Einheit oder Zelle nicht blos<lb/>
+während ihres erwachsenen Zustandes abgegeben werden,<lb/>
+sondern auch während jedes Entwickelungszustandes eines<lb/>
+jeden Organismus; aber nicht nothwendig während der<lb/>
+fortgesetzten Existenz derselben Zelle. Endlich nehme ich<lb/>
+an, dass die Keimchen in ihrem schlummernden Zustande<lb/>
+eine gegenseitige Verwandtschaft zu einander haben, welche<lb/>
+zu ihrer Anhäufung entweder zu Knospen oder zu Sexual-<lb/>
+Elementen führt. Daher sind es nicht die Geschlechts-<lb/>
+Organe oder die Knospen, welche neue Organismen erzeugen,<lb/>
+sondern die Einheiten oder Zellen, aus denen jedes Indi¬<lb/>
+viduum zusammengesetzt ist.“</p><lb/>
+<p>Dies ist mit kurzen Worten die „Provisorische Hypothese<lb/>
+der Pangenesis“ von <hi rendition="#i">Charles Darwin</hi>. Ihre ausführliche<lb/>
+Auseinandersetzung und Begründung, ihre Anwendung auf<lb/>
+die verschiedenen Haupterscheinungen der organischen<lb/>
+Entwickelung und namentlich ihre Benutzung zur Erklärung<lb/>
+der Vererbungs- und Anpassungs-Phänomene ist in dem<lb/>
+Original-Werke selbst nachzusehen; einem Werke, welches<lb/>
+durch die fleissige Zusammenstellung und kritische Sichtung<lb/>
+eines unendlich reichen Beobachtungs-Materials, wie durch<lb/>
+die geniale Auffassung und klare Darlegung desselben uns<lb/>
+den grossen britischen Forscher in seiner ganzen Be¬<lb/>
+deutung zeigt.</p><lb/>
+<p> <hi rendition="#i">Charles Darwin</hi> selbst hat seine „Hypothese der Pan¬<lb/>
+genesis“ von Anfang an als eine provisorische bezeichnet,<lb/>
+<pb n="16" facs="#f0022"/>
+als einen ersten Versuch, die Gesammtheit der organischen<lb/>
+Entwickelungsprocesse auf ihre elementaren Ursachen zu¬<lb/>
+rückzuführen und sie so von einem einheitlichen causalen<lb/>
+Gesichtspunkte aus zu erklären. Gleich seiner Selections-<lb/>
+Theorie hat auch diese Pangenesis-Hypothese sofort das<lb/>
+lebhafteste Interesse erweckt und von der einen Seite<lb/>
+ebenso lebhaften Beifall, als von der anderen entschiedenen<lb/>
+Widerspruch erfahren. Ich selbst habe in meinen bis¬<lb/>
+herigen Arbeiten dieselbe nicht berührt und habe so¬<lb/>
+wohl in der Natürlichen Schöpfungsgeschichte und in<lb/>
+der Anthropogenie, wie in meinen übrigen Beiträgen zur<lb/>
+Entwickelungslehre bis heute die Pangenesis absichtlich<lb/>
+mit Stillschweigen übergangen. Ich brauche wohl nicht<lb/>
+hinzuzufügen, dass weder Mangel an Interesse noch an<lb/>
+Hochachtung vor dem scharfsinnigen Autor mich zu diesem<lb/>
+Stillschweigen veranlasst hat. Vielmehr liegt der wahre<lb/>
+Grund desselben in Folgendem: von Anfang an, und sofort<lb/>
+nachdem ich vor acht Jahren mit der Pangenesis bekannt<lb/>
+geworden, habe ich mich in entschiedenem inneren Wider¬<lb/>
+spruche mit derselben befunden; einem Antagonismus, der<lb/>
+um so stärker und unüberwindlicher wurde, je mehr ich<lb/>
+durch eingehendstes Nachdenken mich mit der Pangenesis<lb/>
+zu befreunden und durch ihre Anwendung auf die ver¬<lb/>
+schiedensten Erscheinungen der Entwickelung ihre Brauch¬<lb/>
+barkeit zu erkennen suchte. Nun war ich aber stets und<lb/>
+bin auch noch heute von viel zu hoher Verehrung für<lb/>
+<hi rendition="#i">Charles Darwin</hi>, von viel zu aufrichtiger Bewunderung für<lb/>
+seine leitenden Ideen erfüllt, als dass ich einer so um¬<lb/>
+fassenden und grossartig angelegtes Hypothese hätte ent¬<lb/>
+gegentreten und ihre Widerlegung versuchen mögen, ohne<lb/>
+<pb n="17" facs="#f0023"/>
+irgend etwas Anderes an ihre Stelle setzen zu können.<lb/>
+Wenn ich nun heute diesen Versuch hier wage, so ge¬<lb/>
+schieht es, weil einige, vor zehn Jahren in der „Gene¬<lb/>
+rellen Morphologie“ niedergelegte Keime sich inzwischen<lb/>
+zu einer eigenen Hypothese entwickelt haben, welche mir<lb/>
+mehr innere Wahrscheinlichkeit als die Pangenesis zu be¬<lb/>
+sitzen scheint und von der ich selbst hoffen zu dürfen<lb/>
+glaube, dass sie sich zum Range einer genetischen Mole¬<lb/>
+cular-Theorie wird ausbilden lassen. Ich bezeichne diese<lb/>
+Hypothese als die „<hi rendition="#g">Perigenesis der Plastidule</hi>“ oder<lb/>
+um eine möglichst entsprechende deutsche Bezeichnung zu<lb/>
+versuchen, als die „<hi rendition="#g">Wellenzeugung der Lebens¬<lb/>
+theilchen</hi>.“</p><lb/>
+<p>Um Missverständnisse zu vermeiden und der irrigen,<lb/>
+gegen die Kohlenstofftheorie und gegen andere meiner<lb/>
+theoretischen Speculationen geltend gemachten Ansicht<lb/>
+vorzubeugen, dass ich ein neues „Dogma“ in die Natur¬<lb/>
+wissenschaft einführen wolle, bemerke ich zum voraus,<lb/>
+dass ich auch diese „Perigenesis der Plastidule“ zunächst<lb/>
+nur als eine „<hi rendition="#g">provisorische Hypothese</hi>“ betrachte;<lb/>
+wenngleich ich die Hoffnung hege, dass darin die Keime<lb/>
+zu einer umfassenden Theorie liegen, von der aus vielleicht<lb/>
+künftig die Gesammtheit der organischen Entwickelungs-<lb/>
+Phänomene sich streng mechanisch, aus physikalisch-che¬<lb/>
+mischen Elementar-Vorgängen wird erklären lassen. Zu¬<lb/>
+gleich erkläre ich mit Bezug auf <hi rendition="#i">Charles Darwin</hi>, meinen<lb/>
+hochverehrten Freund und Meister, dass meine Opposition<lb/>
+sich ausschliesslich auf seine „Pangenesis“ bezieht, wäh¬<lb/>
+rend ich seine übrigen theoretischen Anschauungen —<lb/>
+insbesondere sein eigenstes Werk. die Selectionstheorie mit<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Haeckel</hi>, Perigenesis der Plastidule. 2<lb/>
+</fw>
+<pb n="18" facs="#f0024"/>
+ihren Consequenzen — nach wie vor vollständig theile<lb/>
+und nach Kräften vertrete. Diese Erklärung ist sicher<lb/>
+überflüssig gegenüber <hi rendition="#i">Darwin</hi> selbst. Denn der grosse<lb/>
+britische Naturforscher, der eine neue und unendlich frucht¬<lb/>
+bare Epoche der Biologie einleitete, und dem ich selbst<lb/>
+die grösste Anregung für meine Arbeiten verdanke, ist<lb/>
+viel zu fest von meiner aufrichtigen Dankbarkeit und<lb/>
+treuen Hingebung überzeugt, als dass er durch meine Be¬<lb/>
+kämpfung der Pangenesis und die Gegenüberstellung der<lb/>
+Perigenesis irgendwie daran irre gemacht werden könnte.<lb/>
+Dagegen erscheint diese Erklärung wohl geboten durch<lb/>
+die Taktik zahlreicher Gegner der Descendenz-Theorie,<lb/>
+welche jede, im Lager ihrer Anhänger auftretende<lb/>
+Meinungsdifferenz mit Freuden als Zeichen ihrer inneren<lb/>
+Unsicherheit begrüssen. Ich hebe daher nochmals aus¬<lb/>
+drücklich hervor, dass <hi rendition="#i">Darwin</hi>'s Selections-Theorie und die<lb/>
+durch letztere neu begründete Descendenz-Theorie nach<lb/>
+meiner Ueberzeugung unerschütterlich feststehen und durch<lb/>
+die hier folgenden speculativen Erörterungen nicht im<lb/>
+Mindesten bedroht werden. Hier handelt es sich blos um<lb/>
+eine Hypothese zur mechanischen Erklärung der <hi rendition="#g">elemen¬<lb/>
+tarsten</hi> Entwickelungs-Vorgänge. Mag die Pangenesis oder<lb/>
+mag die Perigenesis richtig sein, oder mögen beide falsch<lb/>
+sein, die Descendenz-Theorie von <hi rendition="#i">Lamarck</hi> und die Selec¬<lb/>
+tions-Theorie von <hi rendition="#i">Darwin</hi> werden dadurch nicht im Ge¬<lb/>
+ringsten erschüttert.</p><lb/>
+<p>Zur Begründung unserer Perigenesis gehen wir von<lb/>
+derjenigen Anschauung der organischen Welt aus, welche<lb/>
+sich unmittelbar auf die Natur ihrer erkennbaren Ele¬<lb/>
+mentartheile stützt und welche in der herrschenden <hi rendition="#g">Zellen¬<lb/>
+<pb n="19" facs="#f0025"/>
+Theorie</hi> ihren umfassendsten Ausdruck findet. Seitdem<lb/>
+die Zellen-Theorie im Jahre 1838 hier in Jena durch<lb/>
+den genialen Botaniker <hi rendition="#i">Schleiden</hi> für das Pflanzenreich<lb/>
+begründet und im folgenden Jahre von <hi rendition="#i">Schwann</hi> auf das<lb/>
+Thierreich ausgedehnt wurde, gilt dieselbe in der Botanik<lb/>
+wie in der Zoologie, in der Morphologie wie in der Phy¬<lb/>
+siologie der Organismen mit vollem Rechte als die feste<lb/>
+Basis und als der unerschütterliche Ausgangspunkt für<lb/>
+jede elementare Untersuchung. Wie sehr auch der Be¬<lb/>
+griff der „<hi rendition="#g">Zelle</hi>“ in den seither verflossenen 38 Jahren<lb/>
+sich veränderte, wie grossartig auch die Zellen-Theorie<lb/>
+im Inneren überall ausgebaut und im Aeusseren erweitert<lb/>
+wurde, ihr Grundgedanke ist unverändert derselbe geblieben<lb/>
+und hat sich zu immer höherer Geltung erhoben. Dieser<lb/>
+Grundgedanke liegt darin, dass wir die mikroskopischen<lb/>
+Zellen als selbstständige Lebewesen, als physiologisch<lb/>
+und morphologisch autonome Organismen anzusehen haben;<lb/>
+<hi rendition="#i">Brücke</hi> hat sie deshalb passend als Elementar-Organismen<lb/>
+bezeichnet, <hi rendition="#i">Virchow</hi> als Lebensheerde. <hi rendition="#i">Darwin</hi> als Lebens¬<lb/>
+einheiten; mit Beziehung auf die übergeordneten Stufen<lb/>
+der organischen Individualität (Organ, Person, Stock)<lb/>
+habe ich sie in der generellen Morphologie als „Indi¬<lb/>
+viduen erster Ordnung“ unten an die Basis der ana¬<lb/>
+tomischen Individualitätslehre gestellt. Vor allen an¬<lb/>
+deren Naturforschern hat <hi rendition="#i">Rudolf Virchow</hi> das bleibende<lb/>
+Verdienst, in diesem Sinne die Zellenlehre nach allen<lb/>
+Richtungen hin durchgeführt und durch seine „Cellular-<lb/>
+Pathologie“ der neueren Medicin die feste histologische<lb/>
+Basis gegeben zu haben; und wenn ich selbst zum elemen¬<lb/>
+taren Ausbau der Entwickelungslehre Einiges beitragen<lb/>
+<fw type="sig" place="bottom">2*<lb/>
+</fw>
+<pb n="20" facs="#f0026"/>
+konnte, so danke Ich es zum grossen Theile den cellular¬<lb/>
+biologischen Anschauungen, mit denen mich der Unter¬<lb/>
+richt <hi rendition="#i">Virchow</hi>'s vor zwanzig Jahren in Würzburg durch¬<lb/>
+drungen hat. Seiner Anschauung folgend betrachte ich<lb/>
+jeden höheren Organismus als eine organisirte sociale<lb/>
+Einheit, als einen Staat, dessen Staatsbürger die einzelnen<lb/>
+Zellen sind. Wie in jedem civilisirten Staate die einzelnen<lb/>
+Staatsbürger zwar bis zu einem gewissen Grade selbst¬<lb/>
+ständig, aber zugleich durch die Arbeitstheilung von ein¬<lb/>
+ander abhängig und den Gesetzen des Ganzen unterworfen<lb/>
+sind, so geniessen auch im Körper jedes höheren Thieres<lb/>
+und jeder höheren Pflanze die zahllosen mikroskopischen<lb/>
+Zellen zwar bis zu einem gewissen Grade ihre individuelle<lb/>
+Selbstständigkeit, sind aber ebenso durch die Arbeits¬<lb/>
+theilung ungleichartig ausgebildet und von einander ab¬<lb/>
+hängig; zugleich werden sie durch die Gesetze des cen¬<lb/>
+tralisirten Ganzen mehr oder minder beherrscht. Dieser<lb/>
+vollkommen zutreffende und oft angewendete politische<lb/>
+Vergleich ist kein entferntes Sinnbild, sondern beansprucht<lb/>
+reale Geltung; die Zellen sind wirkliche Staatsbürger.<lb/>
+Er kann auch noch weiter dahin ausgedehnt werden, dass<lb/>
+wir den straffer centralisirten Thierkörper als eine Zellen-<lb/>
+Monarchie, den weniger centralisirten Pflanzenorganismus<lb/>
+als eine Zellen-Republik betrachten. Wie uns die ver¬<lb/>
+gleichende Staatswissenschaft in den gegenwärtig noch<lb/>
+existirenden Staatenbildungen der Menschheit eine lange<lb/>
+Reihe der aufsteigenden Vervollkommnung von den rohen<lb/>
+Horden der Wilden bis zum höchst entwickelten Cultur¬<lb/>
+staate vorführt, so zeigt uns auch die vergleichende Ana¬<lb/>
+tomie der Thiere und Pflanzen eine lange Stufenleiter<lb/>
+<pb n="21" facs="#f0027"/>
+zunehmender Vervollkommnung im Zellen-Staate. Da<lb/>
+treffen wir unten, auf der tiefsten Stufe der Association<lb/>
+und Gemeindebildung der Zellen, die niederen Algen und<lb/>
+Pilze, die Schwämme und Korallen, die mit ihrer geringen<lb/>
+Arbeitstheilung und Centralisation sich nicht über den Rang<lb/>
+roher Wildenhorden erhoben haben. Hingegen finden wir<lb/>
+oben auf der Höhe der Entwickelung die gewaltige Zellen-<lb/>
+Republik des Baumes, die bewunderungswürdige Zellen-<lb/>
+Monarchie des Wirbelthieres, in welchen die mannigfaltige<lb/>
+Ausbildung und Arbeitstheilung der constituirenden Zellen<lb/>
+zur Entstehung der verschiedensten Organe Veranlassung<lb/>
+gegeben hat, und in welchen die Coordination und Sub¬<lb/>
+ordination der Stände, das Zusammenwirken für die<lb/>
+Wohlfahrt des Ganzen, die Centralisation der Regierung,<lb/>
+kurz mit einem Worte die „Organisation“, eine erstaun¬<lb/>
+liche Höhe erreicht hat. Gewöhnlich nimmt man irrthüm¬<lb/>
+lich an, dieser grosse verwickelte Organismus mit seiner<lb/>
+„zweckmässigen Einrichtung“ könne nur durch einen vor¬<lb/>
+bedachten Schöpfungsplan ins Leben gerufen sein. Und<lb/>
+doch hat sich dieser planvoll organisirte Zellenstaat im<lb/>
+Laufe vieler Millionen Jahre ohne vorbedachten „Zweck“<lb/>
+ganz ebenso nothwendig durch das Zusammenwirken und<lb/>
+die historische Ausbildung der constituirenden Zellen ent¬<lb/>
+wickelt, wie sich der menschliche Culturstaat im Laufe<lb/>
+weniger Jahrtausende Schritt für Schritt durch die<lb/>
+Wechselwirkung und die fortschreitende Arbeitstheilung<lb/>
+der Staatsbürger entwickelt hat. Die Culturgeschichte<lb/>
+der Menschheit erklärt uns die Organisationsgeschichte<lb/>
+der vielzelligen Organismen.</p><lb/>
+<p>Dieser politische Grundgedanke der Zellen-Theorie, von<lb/>
+<pb n="22" facs="#f0028"/>
+dem das ganze Verständniss der Biologie abhängt, wird<lb/>
+durch die Entwickelungsgeschichte gerechtfertigt. Jeder<lb/>
+höhere und jeder niedere vielzellige Organismus entwickelt<lb/>
+sich ursprünglich aus einer einzigen Zelle, aus der Eizelle;<lb/>
+und wie wir diesen einzelligen Ursprung an jedem Indivi¬<lb/>
+duum unmittelbar beobachten können, so dürfen wir ihn<lb/>
+für jeden organischen Stamm, für jede Gruppe von stamm¬<lb/>
+verwandten Arten unbedenklich annehmen. Die empirisch<lb/>
+nachgewiesene einzellige Keimform ist nach unserem bio¬<lb/>
+genetischen Grundgesetze die Wiederholung einer ent¬<lb/>
+sprechenden, ausgestorbenen, unbekannten Stammform. Die<lb/>
+Beschaffenheit solcher einzelligen Stammformen wird uns<lb/>
+wieder vortrefflich erläutert durch die zahlreichen, heute<lb/>
+noch lebenden einzelligen Organismen, z.B. die Amoeben,<lb/>
+Flagellaten, Diatomeen u. s. w. Das sind wilde Einsiedler,<lb/>
+die ihr freies, selbstständiges Leben als Einzelzelle beibe¬<lb/>
+halten und sich nicht zur Association und Staatenbildung<lb/>
+entschliessen können.</p><lb/>
+<p>Festhaltend an diesem cellular-politischen Grundge¬<lb/>
+danken, der den eigentlichen Schwerpunkt für das Ver¬<lb/>
+ständniss der Zellen-Theorie bildet, müssen wir nun die<lb/>
+wichtigsten Wandelungen kurz berühren, welche die letztere<lb/>
+in neuester Zeit erlitten hat. Als folgenschwerster Fort-<lb/>
+schritt ist da zunächst die <hi rendition="#g">Protoplasma-Theorie</hi> zu er¬<lb/>
+wähnen, welche zuerst von <hi rendition="#i">Ferdinand Cohn</hi> 1850 aufgestellt.<lb/>
+dann von <hi rendition="#i">Max Schultze</hi> 1861 weiter ausgebildet wurde und<lb/>
+in England eine ähnliche Formulirung durch <hi rendition="#i">Lionel Beale</hi><lb/>
+1862 erfuhr. Ausgehend von der Aehnlichkeit, welche<lb/>
+unter dem Mikroskope die Structur des gewöhnlichen<lb/>
+Pflanzengewebes auf dem Durchschnitte mit einer Bienen¬<lb/>
+<pb n="23" facs="#f0029"/>
+wabe zeigt, hatte man die selbstständigen aber dicht an<lb/>
+einander liegenden Elementartheile des ersteren mit den<lb/>
+Honigzellen der letzteren verglichen und danach eben<lb/>
+„Zellen“ genannt. Hier wie dort schien die „Zelle“ ein<lb/>
+geschlossenes, mit Flüssigkeit erfülltes Säckchen oder<lb/>
+Bläschen zu sein. Bald aber zeigte es sich, dass bei sehr<lb/>
+vielen Zellen eine äussere, feste, umschliessende Hülle,<lb/>
+eine eigentliche Zellmembran, ganz fehlt; und dass die Zelle<lb/>
+wesentlich nur aus dem weichen, nicht flüssigen, sondern<lb/>
+festflüssigen „Zelleninhalte“, richtiger der eigentlichen<lb/>
+„Zellsubstanz“ besteht. Diese Zellsubstanz wird bald aus¬<lb/>
+schliesslich, bald zu ihrem wichtigsten Theile aus einem<lb/>
+eiweissartigen Stoffe gebildet, welchen zuerst <hi rendition="#i">Hugo v. Mohl</hi><lb/>
+erkannte und als <hi rendition="#g">Protoplasma</hi>, als „das zuerst Gebildete“<lb/>
+bezeichnete. Das Protoplasma oder die eigentliche „Zell¬<lb/>
+substanz“ im engeren Sinne ist überall eine stickstoffhaltige<lb/>
+Kohlenstoff-Verbindung von sehr verwickelter chemischer<lb/>
+Zusammensetzung: sie befindet sich an der lebenden Zelle<lb/>
+stets in einem weichen, festflüssigen Dichtigkeits- oder<lb/>
+Aggregats-Zustande; was aber das Wichtigste ist, sie<lb/>
+erscheint als der eigentliche Träger der Lebens-Erschei¬<lb/>
+nungen, als der active Factor des Zellenlebens: das Proto¬<lb/>
+plasma vollzieht die Functionen der Ernährung und Fort¬<lb/>
+pflanzung, der Empfindung und Bewegung: das Protoplasma<lb/>
+ist die eigentliche „Lebens-Substanz“, oder wie <hi rendition="#i">Huxley</hi><lb/>
+sagt: „die physikalische Basis des Lebens.“</p><lb/>
+<p>Während so das Protoplasma oder „die lebendige Zell¬<lb/>
+substanz“ in den Vordergrund der Zellen-Theorie trat,<lb/>
+wurden durch diese primäre, active Lebens-Substanz<lb/>
+bald alle anderen, noch im entwickelten Organismus be¬<lb/>
+<pb n="24" facs="#f0030"/>
+findlichen Gewebes-Elemente — insbesondere die Zellmem¬<lb/>
+branen und die Intercellular-Substanzen — als secundäre<lb/>
+accessorische Bestandtheile, als passive „Protoplasma-Pro¬<lb/>
+ducte“ in den Hintergrund gedrängt. Nur ein einziger<lb/>
+weiterer Bestandtheil machte davon eine wichtige Aus¬<lb/>
+nahme, der schon von <hi rendition="#i">Schleiden</hi> und <hi rendition="#i">Schwann</hi> hervorgehobene<lb/>
+<hi rendition="#g">Zellkern</hi> (Nucleus oder Cytoblastus): ein kleinerer, vom<lb/>
+Protoplasma umschlossener Körper, welcher diesem in<lb/>
+chemischer und physiologischer Beziehung zwar sehr nahe<lb/>
+verwandt, aber doch wesentlich davon verschieden und<lb/>
+morphologisch gesondert ist. Früher nur für einen un¬<lb/>
+wesentlichen und oft fehlenden Zellbestandtheil gehalten,<lb/>
+stellte sich der Zellkern immer mehr als ein allgemein ver¬<lb/>
+breiteter und höchst wichtiger Zellbestandtheil heraus.<lb/>
+Zuletzt ergab sich, dass jede echte Zelle entweder zeit¬<lb/>
+lebens oder doch wenigstens in ihrer frühesten Jugend<lb/>
+einen echten Zellkern besitzt und dass dieser mindestens<lb/>
+für gewisse Vorgänge des Zellenlebens, insbesondere für<lb/>
+die Zelltheilung, eine ebenso grosse oder grössere Bedeu¬<lb/>
+tung als das Protoplasma besitzt. Insbesondere haben uns<lb/>
+die ausgezeichnet sorgfältigen Untersuchungen der neuesten<lb/>
+Zeit, von <hi rendition="#i">Eduard Strasburger</hi>, <hi rendition="#i">Oscar Hertwig</hi>, <hi rendition="#i">Leopold Auer</hi>¬<lb/>
+<hi rendition="#i">bach</hi>, <hi rendition="#i">Otto Bütschli</hi> u. A. darüber die wichtigsten Aufschlüsse<lb/>
+gegeben. Ist auch im Einzelnen die wichtige Rolle des<lb/>
+Zellenkerns noch nicht ganz festgestellt, so bleibt jetzt doch<lb/>
+so viel sicher, dass der Zellenkern mit und neben dem<lb/>
+Protoplasma als wichtigster lebendiger Zellbestandtheil im<lb/>
+Vordergrund des Zellenlebens steht. Es war daher voll¬<lb/>
+kommen gerechtfertigt, wenn ich in der generellen Mor¬<lb/>
+phologie Nucleus und Protoplasma als die beiden wesent¬<lb/>
+<pb n="25" facs="#f0031"/>
+lichen, zum Begriff der Zelle unentbehrlichen Bestandtheile<lb/>
+derselben bezeichnete, und sie als <hi rendition="#g">active</hi> Zellbestandtheile<lb/>
+den <hi rendition="#g">passiven</hi> „Plasma-Producten“ gegenüberstellte.</p><lb/>
+<p>Ein weiterer Fortschritt in unserer Erkenntniss der<lb/>
+Elementar-Organe wurde durch die Entdeckung der Moneren<lb/>
+herbeigeführt. Im Jahre 1864 beobachtete ich im Mittel¬<lb/>
+meer bei Nizza zum ersten Male einen einfachsten Orga¬<lb/>
+nismus, dessen ganzer Körper nicht blos während seiner<lb/>
+Entwickelung, sondern auch in vollkommen entwickeltem<lb/>
+und frei beweglichem Zustande aus einem homogenen und<lb/>
+structurlosen Stückchen Protoplasma ohne Kern und ohne<lb/>
+alle differenten Formtheile bestand. Dieser „Protogenes<lb/>
+primordialis“ führte also zum ersten Male den Beweis,<lb/>
+dass es noch einfachere Organismen, als die einzelligen<lb/>
+giebt: Lebewesen, deren Körper noch nicht einmal den<lb/>
+Formwerth einer einfachsten Zelle erreicht, sondern in sich<lb/>
+so gleichartig und homogen erscheint, wie ein Krystall.<lb/>
+Schon im folgenden Jahre (1865) wurden zwei ähnliche<lb/>
+Organismen von <hi rendition="#i">Cienkowski</hi> im Süsswasser entdeckt und<lb/>
+als Vampyrella und Monas (richtiger: Protomonas) be¬<lb/>
+schrieben. Ich fasste darauf in der generellen Morpho¬<lb/>
+logie (Bd. I. S. 133; Bd. II. S. 22) diese niedersten Lebe¬<lb/>
+wesen, bei denen uns der lebendige Organismus „nicht<lb/>
+nur unter der einfachsten wirklich beobachteten Form,<lb/>
+sondern auch unter der einfachsten überhaupt denkbaren<lb/>
+Form entgegentritt,“ unter dem Namen Moneren (oder<lb/>
+„Einfache“) zusammen, und wies auf die hohe Bedeutung<lb/>
+hin, welche denselben gegenüber allen anderen Organismen<lb/>
+zukommt. Alle anderen Lebewesen, alle Thiere und<lb/>
+Pflanzen, und auch alle neutralen Protisten sind aus ver¬<lb/>
+<pb n="26" facs="#f0032"/>
+schiedenartigen Bestandtheilen zusammengesetzt; selbst die<lb/>
+einfachsten von ihnen, die einzelligen Formen, bestehen<lb/>
+mindestens aus zwei verschiedenen Theilen, aus dem Pro¬<lb/>
+toplasma und dem davon umschlossenen Zellkern. Einzig<lb/>
+und allein die Moneren entbehren einer solchen Zusammen¬<lb/>
+setzung vollständig; ihr protoplasmatischer Körper, ein<lb/>
+einfachstes lebendiges Schleimkügelchen, hat es noch nicht<lb/>
+einmal zur Bildung eines Nucleus gebracht; sie sind in<lb/>
+Wahrheit „Organismen ohne Organe.“ Alle Functionen<lb/>
+des Lebens, Ernährung und Fortpflanzung, Empfindung<lb/>
+und Bewegung, werden von diesen Moneren ausgeführt,<lb/>
+ohne dass irgend welche verschiedenen Theile für diese<lb/>
+verschiedenen Thätigkeiten gesondert sind. Jedes Theilchen<lb/>
+kann Alles leisten, was das Ganze leistet. Mithin ist hier,<lb/>
+wie beim Krystall, jedes kleinste Theilchen der homogenen<lb/>
+chemischen Verbindung, jedes Molekül in physiologischer<lb/>
+oder physikalisch-chemischer Beziehung gleich dem ganzen<lb/>
+Körper. Daher stehen auch die Moneren auf der Grenze<lb/>
+zwischen organischer und anorganischer, zwischen <hi rendition="#g">so¬<lb/>
+genannter</hi> „lebendiger und todter Natur.“ Daher können<lb/>
+sie allein uns auch eine Vorstellung davon geben, wie<lb/>
+ursprünglich die erstere aus der letzteren entstanden ist,<lb/>
+sie allein können uns das grosse Problem der Entstehung<lb/>
+des Lebens lösen. Nur Moneren konnten ursprünglich durch<lb/>
+Selbstzeugung oder Autogonie aus anorganischer Materie<lb/>
+entstehen (Gen. Morph. V.Capitel).</p><lb/>
+<p>Die ausserordentlich hohe morphologische und phy¬<lb/>
+siologische Bedeutung, welche demgemäss den Moneren<lb/>
+zukommt und welche ich schon 1866 in der generellen<lb/>
+Morphologie hervorgehoben hatte, führte ich dann weiter<lb/>
+<pb n="27" facs="#f0033"/>
+aus in meiner Monographie der Moneren und den daran<lb/>
+sich anschliessenden Beiträgen zur Plastiden-Theorie (1868).<lb/>
+Besondere Veranlassung dazu gaben mir weitere Beob¬<lb/>
+achtungen über einige neue Moneren, welche ich 1867 an<lb/>
+der Küste der canarischen Insel Lanzerote und an der<lb/>
+Strasse von Gibraltar anzustellen Gelegenheit hatte. Auch<lb/>
+einige Süsswasser-Moneren, welche in der Nähe von Jena<lb/>
+leben, und welche später u. A. von <hi rendition="#i">Kleinenberg</hi> untersucht<lb/>
+wurden, lieferten weitere Beiträge zur Naturgeschichte<lb/>
+dieser einfachsten Organismen. Als merkwürdigstes und<lb/>
+wichtigstes von Allen trat dann die Moneren-Masse des<lb/>
+Tiefseegrunds hinzu, welche <hi rendition="#i">Huxley</hi> 1868 unter dem Namen<lb/>
+Bathybius beschrieb und welche neuerdings wieder (1874)<lb/>
+von <hi rendition="#i">Bessels</hi> auf dem Tiefseegrunde des Nordpolar-Meeres,<lb/>
+an der Küste von Grönland, lebend beobachtet und mit<lb/>
+Bezug auf seine rhizopodenartigen Bewegungen untersucht<lb/>
+wurde. Bei den früher beobachteten Moneren erscheint<lb/>
+die gleichartige und formlose Protoplasma-Substanz des<lb/>
+Körpers meistens in der Weise individualisirt, dass die<lb/>
+einzelnen Klumpen derselben ein bestimmtes Grössenmaass<lb/>
+durch Wachsthum erreichen und erst, wenn dieses über¬<lb/>
+schritten wird, durch Theilung in zwei oder mehrere Stücke<lb/>
+zerfallen. Beim Bathybius hingegen ist noch nicht einmal<lb/>
+dieser erste Anfang der Individuation zu bemerken; sein<lb/>
+weicher formloser Protoplasma-Leib, der in ungeheuren<lb/>
+Massen die tiefsten Abgründe des Meeres bedeckt, erscheint<lb/>
+noch nicht individualisirt; die einzelnen Stücke desselben<lb/>
+scheinen keine bestimmte Grösse zu erreichen und je nach<lb/>
+Umständen sich zu vermehren, d. h. sie zerfallen in be¬<lb/>
+liebige Stücke von ungleicher Grösse, je nachdem das<lb/>
+<pb n="28" facs="#f0034"/>
+Wachsthum an dieser oder an jener Anpassungs-Bedingung<lb/>
+eine Grenze gefunden hat.</p><lb/>
+<p>Schon in der generellen Morphologie hatte ich darauf<lb/>
+hingewiesen, dass die Moneren (und ebenso auch die so¬<lb/>
+genannten „kernlosen Zellen“, die anderweitig vorkommen<lb/>
+und auf die wir gleich zurückkommen werden) in die<lb/>
+Grenzen der bisherigen Zellen-Theorie nicht mehr hinein¬<lb/>
+passen und dass diese nothwendig einer entsprechenden Er¬<lb/>
+weiterung bedürfe. Denn wenn man den Begriff der<lb/>
+„Zelle“ auch noch so sehr beschränken und aller accesso¬<lb/>
+rischen Nebendinge, aller unwesentlichen Accidenzen ent¬<lb/>
+kleiden will, so bleibt doch zuletzt immer noch die Zu¬<lb/>
+sammensetzung aus zweierlei Theilen von verschiedener<lb/>
+morphologischer und physiologischer Bedeutung übrig:<lb/>
+äussere Zellsubstanz und innerer Zellkern. Die Moneren<lb/>
+aber kennen diese Differenz, diese erste Sonderung des<lb/>
+Elementar-Organismus noch nicht. Ihr Körper ist also<lb/>
+eigentlich weder echtes Protoplasma, noch echter Nucleus;<lb/>
+vielmehr ist seine homogene Masse eine eiweissartige Sub¬<lb/>
+stanz, welche Beider Eigenschaften in sich vereinigt, sie<lb/>
+ist gleichzeitig Zellsubstanz und Zellkern: daher wird sie<lb/>
+am zweckmässigsten als Lebensstoff oder <hi rendition="#g">Bildungsstoff</hi>,<lb/>
+als <hi rendition="#g">Plasson</hi> oder Bioplasson bezeichnet. Alle sogenannten<lb/>
+„kernlosen Zellen“ aber, alle Elementar-Organismen, deren<lb/>
+activer Körper gleich dem der Moneren blos aus Plasson<lb/>
+besteht, müssen wir von den echten, kernhaltigen Zellen<lb/>
+trennen und diesen als <hi rendition="#g">Cytoden</hi> gegenübersetzen.</p><lb/>
+<p>Solche Cytoden kommen auch im Entwicklungskreise<lb/>
+anderer Organismen vor. So hat namentlich <hi rendition="#i">Eduard van<lb/>
+Beneden</hi> zuerst gezeigt, dass die Keime der einzelligen<lb/>
+<pb n="29" facs="#f0035"/>
+Gregarinen in ihrer ersten Jugend ganz einfache Cytoden<lb/>
+sind. Die Keimkügelchen derselben bestehen blos aus<lb/>
+homogenem Plasson und erst nachträglich erfolgt die Son¬<lb/>
+derung oder Differenzirung, durch welche der innere Zell¬<lb/>
+kern sich vom äusseren Zellstoff scheidet. Das „Bildende“<lb/>
+(Plasson) sondert oder differenzirt sich in das „Erstgebilde“<lb/>
+(Protoplasma) und das „Kerngebilde“ (Cytoblastus).<lb/>
+Weit wichtiger und interessanter aber noch ist die be¬<lb/>
+deutungsvolle Thatsache, dass auch jeder höhere Orga¬<lb/>
+nismus im Beginne seiner individuellen Entwicklung vor¬<lb/>
+übergehend auf der Cytoden-Stufe sich befindet. Entweder<lb/>
+schon vor der Befruchtung oder unmittelbar nach derselben<lb/>
+verliert die weibliche Eizelle ihren Kern. Der Befruch¬<lb/>
+tungsact selbst besteht in der Verschmelzung dieser „kern¬<lb/>
+losen Eizelle“ mit der männlichen Spermazelle oder Samen¬<lb/>
+zelle. Auch der Kern der letzteren löst sich in der<lb/>
+Mischung ganz oder doch grösstentheils auf. Das Product<lb/>
+dieser Verschmelzung ist aber zunächst nicht eine echte<lb/>
+Zelle, sondern eine Cytode. Da diese kernlose Cytode,<lb/>
+mit der eigentlich erst der erzeugte Organismus seine<lb/>
+individuelle Existenz beginnt, nach dem biogenetischen<lb/>
+Grundgesetze eine durch Vererbung bedingte Wiederholung<lb/>
+der uralten Moneren-<hi rendition="#g">Stammform</hi> ist, so habe ich diese<lb/>
+entsprechende <hi rendition="#g">Keimform</hi> als „<hi rendition="#g">Monerula</hi>“ bezeichnet.<lb/>
+Erst nachträglich sondert sich das Plasson dieser Mone¬<lb/>
+rula wieder in zwei verschiedene Substanzen: ein Theil der<lb/>
+inneren Moleküle gestaltet sich zum Zellkern (Nucleus)<lb/>
+und sondert sich von der umgebenden Zellsubstanz (Proto¬<lb/>
+plasma); so entsteht aus der ersten Cytode die erste Zelle.<lb/>
+Offenbar sind sowohl die Lebenserscheinungen jener selbst¬<lb/>
+<pb n="30" facs="#f0036"/>
+ständigen Moneren als auch diese ersten histologischen<lb/>
+Sonderungs-Vorgänge bei der individuellen Entwickelung<lb/>
+der höheren Organismen von fundamentaler Bedeutung.<lb/>
+Ebenso die Physiologie wie die Morphologie, ebenso die<lb/>
+Phylogenie wie die Ontogenie können daraus die wichtig¬<lb/>
+sten Schlüsse ziehen. Denn sie zeigen uns erstens, wie<lb/>
+das Leben anfänglich mit der Bildung einer homogenen,<lb/>
+form- und structurlosen Masse beginnt, die in sich so<lb/>
+gleichartig ist, wie ein Krystall; sie erläutern uns zweitens,<lb/>
+wie eine solche Cytode trotz des Mangels aller Organe<lb/>
+doch sämmtliche „Lebens-Erscheinungen“: Ernährung und<lb/>
+Fortpflanzung, Empfindung und Bewegung zu vollziehen<lb/>
+im Stande ist: sie liefern uns damit drittens den klaren<lb/>
+Beweis, dass das „Leben“ auch im engeren Sinne nicht an<lb/>
+einen bestimmt geformten und morphologisch gesonderten<lb/>
+Körper mit verschiedenen Organen, sondern an eine form¬<lb/>
+lose Substanz von bestimmter physikalischer Beschaffenheit<lb/>
+und chemischer Zusammensetzung gebunden ist; und sie<lb/>
+lehren uns viertens, wie eine solche, blos aus Plasson be¬<lb/>
+stehende Cytode sich durch Sonderung von Kern und Pro¬<lb/>
+toplasma in eine echte „Zelle“ verwandeln kann.</p><lb/>
+<p>Für die Zellen-Theorie ergiebt sich daraus zunächst<lb/>
+der wichtige Folgeschluss, dass die „Zelle“ nicht, wie man<lb/>
+gewöhnlich annahm, der einfachste, älteste und niederste<lb/>
+Elementar-Organismus ist, sondern dass der echten, kern¬<lb/>
+haltigen „Zelle“ die niedere, kernlose „Cytode“ voraus¬<lb/>
+gehen muss. Cytoden und Zellen sind die beiden Haupt¬<lb/>
+formen der „Elementar-Organismen“ oder „Lebenseinheiten.“<lb/>
+Mit der Cytode, blos aus Plasson bestehend, hat das<lb/>
+organische Leben auf unserem Erdball begonnen; indem<lb/>
+<pb n="31" facs="#f0037"/>
+sich aus diesem später Protoplasma und Nucleus sonderte,<lb/>
+entstand die Zelle. Die Cytode ist die erste und niedere,<lb/>
+die Zelle die zweite und höhere Form der Lebens-Einheit.<lb/>
+Beide zusammen habe ich in der generellen Morphologie<lb/>
+kurz als <hi rendition="#g">Bildnerinnen</hi> oder <hi rendition="#g">Plastiden</hi> bezeichnet; denn<lb/>
+sie allein sind in Wahrheit die plastischen Künstlerinnen,<lb/>
+welche durch ihre Thätigkeit das ganze wundervolle Ge¬<lb/>
+bäude des organischen Lebens errichten. Alle organischen<lb/>
+Formen verdanken allein der bildenden Thätigkeit der<lb/>
+mikroskopischen Plastiden ihre Existenz. So erweitert<lb/>
+sich die Zellen-Theorie zur <hi rendition="#g">Plastiden-Theorie</hi>. (Ver¬<lb/>
+gleiche meine biologischen „Stadien über Moneren und<lb/>
+andere Protisten“. 1870.)</p><lb/>
+<p>Wenn demnach jetzt der weitere Begriff der <hi rendition="#g">Plastide</hi><lb/>
+an die Stelle des engeren Zellenbegriffes tritt, und wenn<lb/>
+somit das ganze geheimnissvolle Problem des „Lebens“<lb/>
+auf die elementare chemische Thätigkeit des <hi rendition="#g">Plasson</hi><lb/>
+zurückgeführt wird, so muss unsere nächste Aufgabe sein,<lb/>
+eine möglichst erschöpfende Kenntniss von der Natur dieses<lb/>
+wichtigsten „Lebensstoffes“, dieser wahren „physikalischen<lb/>
+Lebens-Grundlage“ zu erlangen. Zunächst erscheint hier<lb/>
+die Chemie berufen, uns Aufschlüsse über die quantitative<lb/>
+Zusammensetzung und die qualitativen chemischen Eigen¬<lb/>
+schaften des Plasson zu geben. Leider steht aber unsere<lb/>
+chemische Kenntniss des Plasson in umgekehrtem Verhält¬<lb/>
+niss zu seiner ausserordentlichen Bedeutung. Nicht, dass<lb/>
+es an zahlreichen und emsigen Versuchen gefehlt hätte,<lb/>
+die räthselhaft chemische Constitution der zahlreichen<lb/>
+Modificationen des Plasson, des Protoplasma und des Nu¬<lb/>
+cleus zu entschleiern. Aber die Schwierigkeiten, die sich<lb/>
+<pb n="32" facs="#f0038"/>
+diesen Versuchen entgegenstellen, sind ganz ungewöhn¬<lb/>
+liche und zum Theil unüberwindliche. Zunächst ist es<lb/>
+schon unmöglich, irgend ansehnliche Quantitäten von<lb/>
+Plasson in chemisch reinem Zustande zu isoliren und zu<lb/>
+untersuchen, weil sowohl das einfache Plasson der Cyto¬<lb/>
+den, als das Protoplasma und der Nucleus der Zellen<lb/>
+mit anderen, von ihnen gebildeten Substanzen zu innig<lb/>
+gemengt und in einzelnen kleinen Quantitäten überall<lb/>
+zwischen die anderen Gewebstheile (z. B. Zell-Membranen,<lb/>
+Intercellularsubstanzen) eingestreut und verwebt sind.<lb/>
+Sodann sind aber auch die sämmtlichen Plasson-Modifica¬<lb/>
+tionen in noch höherem Maasse, als die nächstverwandten<lb/>
+übrigen Eiweisskörper, zersetzlich und veränderlich. Und<lb/>
+was vor Allem in Betracht zu ziehen ist, die Modificationen<lb/>
+und Varietäten der Plasson-Körper sind zwar unendlich<lb/>
+zahlreich und mannigfaltig, schwanken aber doch innerhalb<lb/>
+Verhältnismässig geringer Breitegrade in Bezug auf die<lb/>
+quantitative Zusammensetzung. Die groben und rohen<lb/>
+Erkenntnissmittel der heutigen Chemie sind der Lösung<lb/>
+einer so feinen und schwierigen Aufgabe nicht entfernt<lb/>
+gewachsen. Jene grenzenlose Variabilität aber, in Ver¬<lb/>
+bindung mit ihrer leichten Zersetzbarkeit und mit der Be¬<lb/>
+weglichkeit der Atome in den Plasson-Molekülen, ist von<lb/>
+der grössten Bedeutung für die Entwickelungslehre. Denn<lb/>
+sie erklärt uns, wie das Plasson durch die unendlich<lb/>
+mannigfaltigen physikalisch-chemischen Einwirkungen der<lb/>
+Aussenwelt, die bei der Ernährung stattfinden, unendlich<lb/>
+mannigfaltige leichte Abänderungen erleiden und dem¬<lb/>
+gemäss die verschiedensten organischen Formen hervor¬<lb/>
+bringen kann.<lb/>
+</p>
+<pb n="33" facs="#f0039"/>
+<p>Vom physiologisch-chemischen Gesichtspunkte aus ist<lb/>
+es daher gestattet, die sämmtlichen Plasson-Körper als<lb/>
+eine einzige grosse Gruppe nächstverwandter Verbindungen<lb/>
+anzusehen und als <hi rendition="#g">Plasson-Gruppe</hi> zusammenzufassen.<lb/>
+In dieser würden vielleicht zu unterscheiden sein: 1. das<lb/>
+<hi rendition="#g">Archiplasson</hi> als die älteste, unmittelbar durch Auto¬<lb/>
+gonie ursprünglich entstandene „Lebenssubstanz“; 2. das<lb/>
+<hi rendition="#g">Monoplasson</hi> als die Körpersubstanz der heute noch<lb/>
+lebenden Cytoden, die wahrscheinlich von jenem Archi¬<lb/>
+plasson mehr oder minder abweicht; 3. das <hi rendition="#g">Protoplasma</hi><lb/>
+oder die eigentliche „Zellsubstanz“ und 4. das <hi rendition="#g">Nuclein</hi><lb/>
+oder <hi rendition="#g">Coccoplasma</hi>, die Kernsubstanz, wie man die<lb/>
+gesammte, chemisch differente, stoffliche Grundlage des<lb/>
+Zellenkerns oder Nucleus nennen kann. Obwohl unter<lb/>
+sich nächst verwandt und durch die innigsten Be¬<lb/>
+ziehungen verbunden, erscheinen dennoch Protoplasma und<lb/>
+Coccoplasma wesentlich verschieden und besitzen charak¬<lb/>
+teristische, zum Theil entgegengesetzte Eigenschaften,<lb/>
+welche in dem Archiplasson und Monoplasson noch nicht<lb/>
+gesondert sind.</p><lb/>
+<p>Alles Wesentliche nun, was wir bisher von der<lb/>
+Plasson-Gruppe wissen, lässt sich in folgenden Sätzen<lb/>
+zusammenfassen. Die Plasson-Gruppe bildet einen Theil<lb/>
+der grösseren Gruppe der <hi rendition="#g">Eiweissstoffe</hi> (Protein-Körper<lb/>
+oder Albuminate). Gleich den übrigen Eiweiss-Körpern<lb/>
+sind auch die Plasson-Körper durch ausserordentlich ver¬<lb/>
+wickelte atomistische Zusammensetzung ausgezeichnet.<lb/>
+Immer sind wenigstens fünf Elemente in jedem Molekül<lb/>
+vereinigt und zwar durchschnittlich in folgender procen¬<lb/>
+tischer Zusammensetzung: 52—55 Procent Kohlenstoff,<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Haeckel</hi>, Perigenesis der Plastidule. 3<lb/>
+</fw>
+<pb n="34" facs="#f0040"/>
+6 — 7 Procent Wasserstoff. 15 — 17 Procent Stickstoff.<lb/>
+21 — 23 Procent Sauerstoff und 1 — 2 Procent Schwefel.<lb/>
+Die Art und Weise, in welcher die Atome dieser Elemente<lb/>
+in jedem Plasson-Molekül zur Bildung einer chemischen<lb/>
+Einheit zusammentreten, ist offenbar eine höchst ver¬<lb/>
+wickelte und eigenthümliche, und steht in directem Causal-<lb/>
+Zusammenhang mit den Lebenseigenschaften dieser wich¬<lb/>
+tigsten Verbindung. Denn die Summe von physikalischen<lb/>
+und chemischen Processen, welche wir mit einem Worte<lb/>
+<hi rendition="#g">„Leben“</hi> nennen, ist offenbar in letzter Instanz durch<lb/>
+die <hi rendition="#g">Molecular-Structur des Plasson</hi> bedingt, und<lb/>
+diese ist wiederum nach unserer Kohlenstoff-Theorie zurück¬<lb/>
+zuführen auf die einzigen und höchst merkwürdigen Fähig¬<lb/>
+keiten des Kohlenstoffs, mit den anderen genannten Ele¬<lb/>
+menten die verwickeltsten und zersetzlichsten Verbindungen<lb/>
+einzugehen. Mit vollem Rechte hat die neuere Chemie die<lb/>
+gesammte Lehre von den sogenannten „organischen“<lb/>
+Stoffen oder die früher sogenannte „organische Chemie“<lb/>
+prägnant als „die Chemie der Kohlenstoff-Verbindungen“<lb/>
+bezeichnet. Mit demselben Rechte aber betrachte ich die<lb/>
+chemische und physikalische Natur des Kohlenstoffs als<lb/>
+die letzte Ursache der Eigenthümlichkeiten, durch welche<lb/>
+sich die Organismen von den Anorganen unterscheiden,<lb/>
+oder mit einem Worte als den letzten Grund des „Lebens“.<lb/>
+Wenn man diese „Kohlenstoff-Theorie“ als ein willkür¬<lb/>
+liches und phantastisches Dogma verwirft, so leugnet man<lb/>
+damit den Causal-Zusammenhang zwischen der chemischen<lb/>
+Constitution des Plasson und den physikalischen Vor¬<lb/>
+gängen, die wir mit einem Worte als dessen „Lebens¬<lb/>
+thätigkeit“ bezeichnen.<lb/>
+</p>
+<pb n="35" facs="#f0041"/>
+<p>Unter den physikalischen Eigenschaften des Plasson<lb/>
+ist vor allen sein starkes Quellungs-Vermögen oder die<lb/>
+Imbibitionskraft hervorzuheben, die Fähigkeit, Wasser in<lb/>
+wechselnder und oft höchst beträchtlicher Quantität auf¬<lb/>
+zunehmen und gleichmässig zwischen seinen Molekülen zu<lb/>
+vertheilen. Daraus resultirt der eigenthümliche‚ weiche<lb/>
+Dichtigkeitszustand aller lebenden Gewebe, den wir als<lb/>
+den <hi rendition="#g">festflüssigen Aggregatzustand</hi> bezeichnen. Er<lb/>
+erscheint als eine nothwendige Vorbedingung aller der<lb/>
+verwickelten Molekularbewegungen, als deren Gesammt¬<lb/>
+resultat das „Leben“ sich darstellt. Die Leichtigkeit‚ mit<lb/>
+welcher das Plasson unter verschiedenen äusseren Existenz-<lb/>
+Bedingungen Wasser und wässerige Lösungen aufnimmt<lb/>
+und abgiebt‚ ist dabei von besonderer Bedeutung‚ und<lb/>
+nicht minder die ausserordentliche Neigung der meisten<lb/>
+Plasson-Arten‚ sich mit anderen Kohlenstoffverbindungen<lb/>
+(z. B. mit Fetten) sowie mit Salzen zu vermengen. Offen¬<lb/>
+bar beweisen diese und viele andere Eigenthümlichkeiten<lb/>
+der Plasson-Gruppe‚ dass wir es hier mit Kohlenstoffver¬<lb/>
+bindungen zu thun haben‚ deren Moleküle sich durch eine<lb/>
+ganz ungewöhnliche Beweglichkeit und Unbeständigkeit,<lb/>
+Zersetzbarkeit und vielseitige Wahlverwandtschaft vor allen<lb/>
+anderen auszeichnen. Diese „Plasson-Moleküle“ sind es<lb/>
+ja überhaupt‚ welche sich bei jeder tieferen Untersuchung<lb/>
+jener elementaren Verhältnisse in den Vordergrund<lb/>
+drängen und welche wir auch bei unserer Perigenesis<lb/>
+als die eigentlichen activen Elementar-Factoren auf das<lb/>
+Genaueste in's Auge zu fassen haben.</p><lb/>
+<p>Die <hi rendition="#g">Plasson-Moleküle</hi> oder die <hi rendition="#g">Plastidule‚</hi> wie<lb/>
+wir sie mit <hi rendition="#i">Elsberg</hi> kurz bezeichnen wollen‚ besitzen zu¬<lb/>
+<fw type="sig" place="bottom">3*<lb/>
+</fw>
+<pb n="36" facs="#f0042"/>
+nächst alle die Eigenschaften, welche die Physik den hy¬<lb/>
+pothetischen Molekülen oder den „zusammengesetzten Ato¬<lb/>
+men“ überhaupt zuschreibt. Mithin ist ein jedes Plastidul<lb/>
+nicht weiter in kleinere Plastidule zerlegbar, sondern kann<lb/>
+nur noch in seine constituirenden Atome zerlegt werden,<lb/>
+und zwar in Atome jener fünf vorher genannten Elemente.<lb/>
+Die Plastidule sind wahrscheinlich stets von Wasserhüllen<lb/>
+umgeben und die grössere oder geringere relative Dicke<lb/>
+dieser Wasserhüllen, die zugleich die benachbarten Plasti¬<lb/>
+dule scheiden und verbinden, bedingt den weicheren oder<lb/>
+festeren Zustand des gequollenen Plasson. Wahrschein¬<lb/>
+lich sind die Plastidule so klein, dass das kleinste Plasson-<lb/>
+Stück, welches wir noch mit Hülfe unserer schärfsten<lb/>
+Mikroskope erkennen können, ungeheure Mengen von<lb/>
+Plastidulen enthält. Was vom ursprünglichen einfachen<lb/>
+Plasson oder „Archiplasson“, das gilt natürlich auch im<lb/>
+Allgemeinen von dem Protoplasma und dem Coccoplasma,<lb/>
+welche durch Sonderung aus ersterem entstanden sind.<lb/>
+Man kann der Kürze halber die Protoplasma-Moleküle als<lb/>
+„Plasmodule“ und die Nucleus-Moleküle als „Coccodule“<lb/>
+bezeichnen. Dieselben physikalischen Eigenschaften und<lb/>
+physiologischen Functionen, welche im homogenen Plasson<lb/>
+der Cytoden die gleichartigen Plastidule zeigen, dieselben<lb/>
+finden wir in den Zellen auf die Plasmodule und die<lb/>
+Coccodule vertheilt. Die Plasmodule und Coccodule sind<lb/>
+ja erst durch Sonderung oder Differenzirung aus den Plasti¬<lb/>
+dulen entstanden.</p><lb/>
+<p>Ausser den allgemeinen physikalischen Eigenschaften,<lb/>
+welche die heutige Physik und Chemie den Molekülen der<lb/>
+Materie im Allgemeinen zuschreibt, besitzen nun die<lb/>
+<pb n="37" facs="#f0043"/>
+Plastidule noch besondere Attribute, welche ihnen aus¬<lb/>
+schliesslich eigenthümlich sind, und das sind, ganz all¬<lb/>
+gemein gesagt, die <hi rendition="#g">Lebens-Eigenschaften</hi>, durch welche<lb/>
+sich überhaupt das Lebendige vom Todten, das Organische<lb/>
+vom Anorganischen in der hergebrachten Anschauung<lb/>
+unterscheidet. Jede genauere und tiefer gehende Ver¬<lb/>
+gleichung der Organismen und der Anorgane, die sich<lb/>
+auf die breite empirische Basis der neuerdings ermittelten<lb/>
+Thatsachen stützt, vor Allem die unbefangene Vergleichung<lb/>
+der Moneren und der Krystalle, lehrt uns nun aber, dass<lb/>
+die Kluft zwischen diesen beiden Hauptgruppen von<lb/>
+Naturkörpern viel geringer ist, als man gewöhnlich an¬<lb/>
+nimmt. Ich kann in dieser Beziehung auf die ausführliche<lb/>
+Vergleichung der Organismen und Anorgane verweisen,<lb/>
+welche ich im fünften Capitel der generellen Morphologie<lb/>
+gegeben habe (Bd. I., S. 111—166). Viele Eigenschaften,<lb/>
+welche die hergebrachte oberflächliche Naturauffassung<lb/>
+nur den Organismen zuschreibt, kommen eben so gut auch<lb/>
+den Anorganen zu und sind in der That Gemeingut aller<lb/>
+Naturkörper — oder um uns genauer auszudrücken: Ge¬<lb/>
+meingut aller <hi rendition="#g">Atome</hi>, aller der kleinsten discreten Körper¬<lb/>
+theilchen, welche die neuere Chemie einstimmig als die<lb/>
+letzten Bestandtheile aller Körper betrachtet.</p><lb/>
+<p>Gleichviel, wie im Einzelnen auch die Ansichten der<lb/>
+Chemiker und Physiker über die Natur der Atome und<lb/>
+des zwischen den Massen-Atomen befindlichen Aethers<lb/>
+auseinander gehen, gewisse elementare Ansichten über<lb/>
+ihre nothwendige Beschaffenheit haben heute allgemeine<lb/>
+Geltung erlangt. Wir müssen darnach annehmen, dass<lb/>
+die Atome kleinste discrete Massen-Theilchen von unver¬<lb/>
+<pb n="38" facs="#f0044"/>
+änderlicher Beschaffenheit und durch den hypothetischen<lb/>
+Aether von einander getrennt sind. Jedes Atom besitzt<lb/>
+eine inhärente Summe von Kraft und ist in diesem Sinne<lb/>
+„beseelt.“ Ohne die Annahme einer „Atom-Seele“ sind<lb/>
+die gewöhnlichsten und allgemeinsten Erscheinungen der<lb/>
+Chemie unerklärlich. Lust und Unlust, Begierde und Ab¬<lb/>
+neigung, Anziehung und Abstossung müssen allen Massen-<lb/>
+Atomen gemeinsam sein; denn die Bewegungen der Atome,<lb/>
+die bei Bildung und Auflösung einer jeden chemischen<lb/>
+Verbindung stattfinden müssen, sind nur erklärbar, wenn<lb/>
+wir ihnen <hi rendition="#g">Empfindung</hi> und <hi rendition="#g">Willen</hi> beilegen. Worauf<lb/>
+anders beruht denn im Grunde die allgemein angenommene<lb/>
+chemische Lehre von der <hi rendition="#g">Wahlverwandtschaft</hi> der<lb/>
+Körper, als auf der unbewussten Voraussetzung, dass in<lb/>
+der That die sich anziehenden und abstossenden Atome<lb/>
+von bestimmten Neigungen beseelt sind, und dass sie,<lb/>
+diesen Empfindungen oder Trieben folgend, auch den<lb/>
+Willen und die Fähigkeit besitzen, sich zu einander hin<lb/>
+und von einander fort zu bewegen? Was <hi rendition="#i">Goethe</hi> in seinen<lb/>
+„Wahlverwandtschaften“ über diese Verhältnisse sagt und<lb/>
+von dem elementaren Seelenleben der Atome auf das<lb/>
+höchst zusammengesetzte Seelenleben des Menschen über¬<lb/>
+trägt, das besitzt volle Wahrheit; und wenn in diesem<lb/>
+classischen Roman die „Wahlverwandtschaft“ als die eigent¬<lb/>
+liche Triebfeder der menschlichen Handlungen und der aus<lb/>
+ihnen zusammengesetzten „Weltgeschichte“ hingestellt<lb/>
+wird, so ist damit von dem grossen Denker und Dichter<lb/>
+in tiefsinnigster Weise die mechanische Natur auch der<lb/>
+verwickeltsten organischen Processe treffend angedeutet.<lb/>
+Wenn der „Wille“ des Menschen und der höheren<lb/>
+<pb n="39" facs="#f0045"/>
+Thiere frei erscheint, im Gegensatz zu dem „festen“ Willen<lb/>
+der Atome, so ist das eine Täuschung, hervorgerufen<lb/>
+durch die höchst verwickelte Willensbewegung der erste¬<lb/>
+ren im Gegensatze zu der höchst einfachen Willensbewe¬<lb/>
+gung der letzteren. Die Atome wollen überall und jeder¬<lb/>
+zeit Dasselbe, weil ihre Neigung dem Atom jedes anderen<lb/>
+Elementes gegenüber eine constante und unabänderlich be¬<lb/>
+stimmte ist; jede ihrer Bewegungen ist daher determinirt.<lb/>
+Hingegen erscheint die Neigung und willkürliche Bewegung<lb/>
+der höheren Organismen frei und unabhängig, weil in dem<lb/>
+unaufhörlichen Stoffwechsel derselben die Atome beständig<lb/>
+ihre gegenseitige Lage und Verbindungsweise verändern,<lb/>
+und daher das Gesammtresultat aus den zahllosen Willens¬<lb/>
+bewegungen der constituirenden Atome ein höchst zu¬<lb/>
+sammengesetztes und unaufhörlich wechselndes ist. Daher<lb/>
+sind wir „ein Spiel von jedem Druck der Luft“.</p><lb/>
+<p>Indem wir so von dem mechanischen Standpunkte des<lb/>
+Monismus aus alle Materie als beseelt, jedes Massen-<lb/>
+Atom mit einer constanten und ewigen Atom-Seele aus¬<lb/>
+gerüstet uns vorstellen, fürchten wir nicht den Vorwurf<lb/>
+des Materialismus auf uns zu laden. Denn dieser unser<lb/>
+monistischer Standpunkt ist ebenso weit von einseitigem<lb/>
+Materialismus, wie von leerem Spiritualismus entfernt.<lb/>
+Ja wir können in ihm allein die Versöhnung der rohen<lb/>
+atomistischen und der inhaltsleeren dynamischen Welt¬<lb/>
+anschauung finden, die sich bisher so heftig bekämpft<lb/>
+haben und die in ihrer Einseitigkeit Beide dualistisch<lb/>
+sind. Wie die Masse des Atoms unzerstörbar und un¬<lb/>
+veränderlich, so ist auch die damit untrennbar verbundene<lb/>
+Atom-Seele ewig und unsterblich. Vergänglich und sterb¬<lb/>
+<pb n="40" facs="#f0046"/>
+lich sind nur die zahllosen und ewig wechselnden <hi rendition="#g">Ver¬<lb/>
+bindungen</hi> der Atome, die unendlich mannigfaltigen<lb/>
+Modalitäten, in denen sich die Atome zur Bildung von<lb/>
+Molekülen, die Moleküle zur Bildung von Krystallen und<lb/>
+Plastiden, die Plastiden zur Bildung von Organismen ver¬<lb/>
+einigen. Diese monistische Auffassung der Atome, allein<lb/>
+ist in Einklang mit den grossen Gesetzen von der „Er¬<lb/>
+haltung der Kraft“ und von der „Erhaltung des Stoffes“,<lb/>
+welche die Naturphilosophie der Gegenwart mit Recht als<lb/>
+ihre unveräusserlichen Fundamente betrachtet.</p><lb/>
+<p>Wenn wir demnach alle Materie als beseelt, jedes<lb/>
+Atom mit Empfindung und Willen begabt uns vorstellen,<lb/>
+so können wir diese beiden Eigenschaften nicht mehr, wie<lb/>
+es gewöhnlich geschieht, als ausschliessliche Vorzüge der<lb/>
+Organismen betrachten. Wir müssen also nach anderen<lb/>
+Eigenschaften suchen, welche die Organismen von den<lb/>
+Anorganen, die Plastidule von den übrigen Molekülen<lb/>
+unterscheiden und welche das Wesen des „Lebens“ im<lb/>
+engeren Sinne bilden. Als wichtigste dieser Eigenschaften<lb/>
+erscheint uns die Fähigkeit der <hi rendition="#g">Reproduction</hi> oder des<lb/>
+<hi rendition="#g">Gedächtnisses</hi>, welche bei jedem Entwickelungs-Vor¬<lb/>
+gang und namentlich bei der <hi rendition="#g">Fortpflanzung</hi> der Or¬<lb/>
+ganismen wirksam ist. Alle Plastidule besitzen Gedächt¬<lb/>
+niss; diese Fähigkeit fehlt allen anderen Molekülen.</p><lb/>
+<p>In einer ausgezeichneten, ebenso tief durchdachten als<lb/>
+klar geschriebenen Abhandlung „über das Gedächtniss als<lb/>
+eine allgemeine Function der organisirten Materie“ hat<lb/>
+1870 <hi rendition="#i">Ewald Hering</hi> dieses wichtige Verhältniss so vor¬<lb/>
+trefflich erörtert, dass wir hier auf eine eingehende Be¬<lb/>
+gründung desselben verzichten und uns einfach auf jene<lb/>
+<pb n="41" facs="#f0047"/>
+Abhandlung beziehen können. In der That überzeugt<lb/>
+uns jedes tiefere Nachdenken, dass ohne die Annahme<lb/>
+eines <hi rendition="#g">unbewussten Gedächtnisses</hi> der lebenden Ma¬<lb/>
+terie die wichtigsten Lebensfunctionen überhaupt unerklär¬<lb/>
+bar sind. Das Vermögen der Vorstellung und Begriff¬<lb/>
+bildung, des Denkens und Bewusstseins, der Uebung und<lb/>
+Gewöhnung, der Ernährung und Fortpflanzung beruht auf<lb/>
+der Function des unbewussten Gedächtnisses, dessen<lb/>
+Thätigkeit unendlich viel bedeutungsvoller ist, als die¬<lb/>
+jenige des bewussten Gedächtnisses. Mit Recht sagt<lb/>
+<hi rendition="#i">Hering</hi>, „dass es das Gedächtniss ist, dem wir fast Alles<lb/>
+verdanken, was wir sind und haben.“</p><lb/>
+<p>Nur in einem Punkte müssen wir von der Darstellung<lb/>
+<hi rendition="#i">Hering's</hi> abweichen oder vielmehr dieselbe schärfer be¬<lb/>
+grenzen. Wir dürfen das Gedächtniss nicht als eine all¬<lb/>
+gemeine Function <hi rendition="#g">aller</hi> organisirten Materie bezeichnen,<lb/>
+sondern nur der wirklich <hi rendition="#g">lebenden</hi>, des Plasson. Alle<lb/>
+Plasson-Producte, alle vom Protoplasma und vom Nucleus<lb/>
+gebildeten, selbst aber nicht activ thätigen, organisirten<lb/>
+Theile des Organismus entbehren des Gedächtnisses, eben<lb/>
+so wie alle anorganischen Materien. Genau genommen ist<lb/>
+also, unserer Plastiden-Theorie entsprechend, nur die<lb/>
+Gruppe der Plasson-Körper mit Gedächtniss begabt: <hi rendition="#g">nur<lb/>
+die Plastidule sind reproductiv</hi>, und dieses unbe¬<lb/>
+wusste Gedächtniss der Plastidule bedingt die charakte¬<lb/>
+ristische Molecularbewegung derselben.</p><lb/>
+<p>Die Unterschiede, welche das Gedächtniss oder die<lb/>
+Reproductionskraft der Plastidule zwischen Organismen<lb/>
+und Anorganen bedingt, äussern sich zunächst in der ver¬<lb/>
+schiedenen Art ihres <hi rendition="#g">Wachsthums</hi> und diese ist offenbar<lb/>
+<pb n="42" facs="#f0048"/>
+durch ihren differenten Aggregatzustand bedingt. Die<lb/>
+Anorgane wachsen durch <hi rendition="#g">Apposition</hi> oder durch äussere<lb/>
+Anlagerung der Moleküle, hingegen die Organismen durch<lb/>
+<hi rendition="#g">Intussusception</hi> oder durch innere Einlagerung der<lb/>
+Moleküle. Die vollkommenste anorganische Individualität,<lb/>
+der Krystall, wächst, indem sich Theilchen an Theilchen<lb/>
+äusserlich an den festen, schon bestehenden Krystallkörper<lb/>
+ansetzt. Die unvollkommenste organische Individualität,<lb/>
+das Moner, wächst, indem Theilchen für Theilchen von<lb/>
+aussen in das Innere hineindringt und von dem festflüssi¬<lb/>
+gen Plassonkörper „assimilirt“ wird. Diese Assimilation<lb/>
+beruht darauf, dass zwischen den vorhandenen Plastidulen<lb/>
+stets neue Plastidule aus den aufgenommenen Nährflüssig¬<lb/>
+keiten gebildet werden. Der festflüssige Aggregat-Zustand<lb/>
+der organischen Materie ist die Vorbedingung dieses<lb/>
+eigenthümlichen Wachsthums, und die Molecular-Structur<lb/>
+der Kohlenstoff-Verbindungen ihre wahre Ursache. Dieses<lb/>
+Wachsthum durch Intussusception, welches allen Organis¬<lb/>
+men zukommt und allen Anorganen fehlt, erklärt auch<lb/>
+zugleich die Ernährung und den Stoffwechsel, durch welches<lb/>
+sich die ersteren von den letzteren unterscheiden. Dieses<lb/>
+Wachsthum durch Intussusception bedingt endlich vor<lb/>
+Allem diejenige „Lebens-Erscheinung“, die als der wich¬<lb/>
+tigste Factor der organischen Entwickelung sich geltend<lb/>
+macht und die wir daher zunächst besonders betrachten<lb/>
+müssen: Die <hi rendition="#g">Fortpflanzung</hi> und die damit zusammen¬<lb/>
+hängende <hi rendition="#g">Vererbung</hi>.</p><lb/>
+<p>Unstreitig ist es die <hi rendition="#g">Fortpflanzung</hi>, welche vor<lb/>
+allen anderen Functionen die Organismen gegenüber den<lb/>
+Anorganen charakterisirt. Denn durch die Fortpflanzung<lb/>
+<pb n="43" facs="#f0049"/>
+allein, durch die Vererbung die wir nur als eine noth¬<lb/>
+wendige und integrirende Theilerscheinung der Fortpflan¬<lb/>
+zung betrachten, wird die Erhaltung der organischen Arten<lb/>
+und Stämme möglich, die in der zusammenhängenden<lb/>
+Kettenreihe der Generationen trotz des beständigen Wech¬<lb/>
+sels der Individuen bestehen bleiben. Indem kein An¬<lb/>
+organ der Fortpflanzung fähig ist, fehlt der anorganischen<lb/>
+Natur überhaupt die Stammesgeschichte, die Phylogenie,<lb/>
+welche die organische Welt charakterisirt. Die Fort¬<lb/>
+pflanzungslehre oder die <hi rendition="#g">Gonologie</hi> ist daher der noth¬<lb/>
+wendige Ausgangspunkt für das Verständniss der Phy¬<lb/>
+logenie.</p><lb/>
+<p> <hi rendition="#g">Was ist Fortpflanzung</hi>? Um zu einer richtigen<lb/>
+Antwort auf diese wichtige Frage zu gelangen, müssen<lb/>
+wir uns vor Allem der gewöhnlichen Anschauung ent¬<lb/>
+äussern, als ob die Verbindung der beiden Geschlechter<lb/>
+der wichtigste und nothwendigste Vorgang der Fortpflan¬<lb/>
+zung sei. Diese Anschauung, welche sich auf die ge¬<lb/>
+wöhnliche Fortpflanzungsweise der Personen beim Menschen<lb/>
+und bei den höheren Thieren und Pflanzen gründet, er¬<lb/>
+scheint vollkommen verkehrt, sobald wir an die unendlich<lb/>
+häufigeren ungeschlechtlichen Fortpflanzungs-Processe<lb/>
+denken, die überall und jederzeit bei der Vermehrung der<lb/>
+Plastiden stattfinden. Im Grossen und Ganzen betrachtet,<lb/>
+erscheint die geschlechtliche oder amphigone Fortpflanzung<lb/>
+mit ihren sonderbaren Eigenthümlichkeiten nur als ein be¬<lb/>
+sonderer Fall unter der Menge von Vorgängen, welche<lb/>
+wir als Fortpflanzung oder Elternzeugung zusammenfassen<lb/>
+und welche zum bei weitem grössten Theile ungeschlecht¬<lb/>
+lich erfolgen. Alle die zahllosen Milliarden von Zellen,<lb/>
+<pb n="44" facs="#f0050"/>
+welche den Körper jedes höheren Thieres, jeder höheren<lb/>
+Pflanze zusammensetzen, entstehen nicht durch geschlecht¬<lb/>
+liche, sondern durch ungeschlechtliche Zeugung, durch<lb/>
+Theilung. Alle oder doch die Meisten von den zahlreichen<lb/>
+einzelligen Wesen, die auf der Grenze von Thierreich und<lb/>
+Pflanzenreich stehen, und die wir als Protisten zusammen¬<lb/>
+fassen, vermehren sich nicht durch geschlechtliche, sondern<lb/>
+durch ungeschlechtliche Zeugung. Aber auch viele höhere<lb/>
+Thiere und Pflanzen, die sich der geschlechtlichen Zeugung<lb/>
+erfreuen, vermehren sich daneben auf ungeschlechtlichem<lb/>
+Wege, durch Theilung, Knospenbildung, Sporenbildung.<lb/>
+Bedenken wir, wie überall und jederzeit Unmassen von<lb/>
+Plastiden zu Grunde gehen und von neuen, durch Theilung<lb/>
+und Knospung entstandenen ersetzt werden, so liegt es auf<lb/>
+der Hand, dass die ungeschlechtliche Fortpflanzung die<lb/>
+allgemeine Regel und die geschlechtliche eine verhältniss¬<lb/>
+mässig seltene Ausnahme bildet. Gewiss werden wir eher<lb/>
+zu Wenig als zu Viel behaupten, wenn wir annehmen,<lb/>
+dass durchschnittlich auf jeden einzelnen geschlechtlichen<lb/>
+Zeugungs-Act in der Natur mehr als Tausend, wahrschein¬<lb/>
+lich mehr als eine Million ungeschlechtliche Zeugungs-Acte<lb/>
+kommen.</p><lb/>
+<p>Nun sind es aber gerade die einfachsten Formen der<lb/>
+ungeschlechtlichen oder monogonen Fortpflanzung, vor<lb/>
+allen die Theilung, demnächst die Knospenbildung, welche<lb/>
+uns die klarsten Aufschlüsse über das Wesen der Fort¬<lb/>
+pflanzung überhaupt geben und zum Verständniss der viel<lb/>
+schwierigeren und verwickelteren geschlechtlichen Fort¬<lb/>
+pflanzung hinführen. Von jenen einfachsten Formen der<lb/>
+Monogonie ausgehend, finden wir auf unsere Frage die<lb/>
+<pb n="45" facs="#f0051"/>
+einfachste Antwort: <hi rendition="#g">Fortpflanzung ist Wachsthum<lb/>
+des Individuums über sein individuelles Maass<lb/>
+hinaus</hi>. Wenn eine einfachste Plastide, ein homogenes<lb/>
+Moner, bis zu einer gewissen Grösse herangewachsen ist,<lb/>
+so zerfällt der structurlose Plasson-Körper bei fortdauern¬<lb/>
+dem Wachsthum in zwei gleiche Hälften, weil die Cohae¬<lb/>
+sion der Plastidule nicht mehr ausreicht, um die ganze<lb/>
+Masse zusammenzuhalten.</p><lb/>
+<p>Ebenso beruht jede gewöhnliche Zellentheilung wesent¬<lb/>
+lich auf einem fortgesetzten Wachsthum über das indivi¬<lb/>
+duelle Maass dieser Zelle hinaus. Die merkwürdigen<lb/>
+Einzelheiten des Vorganges, durch den hier aus einer<lb/>
+Mutterzelle zwei gleiche Tochterzellen entstehen, sind<lb/>
+aber erst in neuester Zeit durch <hi rendition="#i">Auerbach</hi>, <hi rendition="#i">Bütschli</hi>, <hi rendition="#i">Hertwig</hi><lb/>
+und <hi rendition="#i">Strasburger</hi> gründlicher studirt worden. Dass in<lb/>
+diesen Fällen die beiden unter sich gleichen Tochterzellen<lb/>
+die Natur ihrer gemeinsamen Mutterzelle geerbt haben,<lb/>
+erscheint selbstverständlich; denn sie sind ja gleiche Theil¬<lb/>
+hälften derselben und die Molecular-Bewegung der Plasti¬<lb/>
+dule muss in den ersteren wesentlich dieselbe sein, wie in<lb/>
+der letzteren. Die Vererbung erscheint hier als eine ein¬<lb/>
+fache und nothwendige Folge der Theilung; und zugleich<lb/>
+offenbart sie hier den tiefsten Grund ihres Wesens: <hi rendition="#g">die<lb/>
+Vererbung ist Uebertragung der Plastidul-Be¬<lb/>
+wegung</hi>, Fortpflanzung der individuellen Molecular-Be¬<lb/>
+wegung der Plastidule von der Mutter-Plastide auf die<lb/>
+Tochter-Plastide.</p><lb/>
+<p>Nun sind aber die Bedingungen, unter denen die beiden<lb/>
+gleichen Theilhälften ihr individuelles Leben weiterführen,<lb/>
+immer mehr oder weniger verschieden; insbesondere sind<lb/>
+<pb n="46" facs="#f0052"/>
+die verwickelten Verhältnisse, welche der Kampf um's<lb/>
+Dasein für die Plastiden ebenso wie für die ganzen viel¬<lb/>
+zelligen Organismen bedingt, fast immer für jedes Indivi¬<lb/>
+duum besondere. Indem diese besonderen Existenz-Bedin¬<lb/>
+gungen auf den elementaren Organismus einwirken, ver¬<lb/>
+ändern sie seine ursprüngliche Ernährung und bewirken<lb/>
+eine theilweise Abänderung der ursprünglichen Plastidul-<lb/>
+Bewegung; diese Abänderung oder Variation nennen wir<lb/>
+mit einem Worte: Anpassung. <hi rendition="#g">Die Anpassung ist Ab</hi>¬<lb/>
+<hi rendition="#g">änderung der Plastidul-Bewegung</hi>, in deren Folge<lb/>
+die Plastide neue Eigenschaften erwirbt. Wenn nun später¬<lb/>
+hin die beiden, durch Theilung einer Plastide entstandenen<lb/>
+Tochter-Plastiden wiederum herangewachsen sind und nach<lb/>
+Ueberschreitung ihrer individuellen Wachsthumsgrenze aber¬<lb/>
+mals durch Theilung in je Zwei zerfallen, so werden diese<lb/>
+vier Enkel schon nicht mehr so gleichartig sein, wie ihre<lb/>
+beiden Mutter-Plastiden. Zwar werden sie von diesen<lb/>
+noch den grössten Theil der Eigenschaften geerbt haben,<lb/>
+welche Beide von der Grossmutter überkommen hatten.<lb/>
+Daneben wird sich aber auch schon ein Theil der Eigen¬<lb/>
+thümlichkeiten geltend machen, welche jede der beiden<lb/>
+Mütter während ihres individuellen Lebens erworben hatte,<lb/>
+und endlich wird jede der vier Enkelinnen selbst wieder<lb/>
+neue Eigenheiten im Laufe ihrer individuellen Existenz<lb/>
+erwerben. Wie gering und unbedeutend nun auch diese neuen<lb/>
+Erwerbungen in jedem einzelnen Falle erscheinen mögen,<lb/>
+so ist es doch klar, dass sie schliesslich in der langen<lb/>
+Kette zahlreicher Generationen sich zu sehr beträchtlichen<lb/>
+Abweichungen der Plastidul-Bewegung von derjenigen der<lb/>
+ursprünglichen Stammform anhäufen und summiren können.<lb/>
+</p>
+<pb n="47" facs="#f0053"/>
+<p> <hi rendition="#g">Die Vererbung der Abänderungen</hi>, auf welcher<lb/>
+die ganze Stammes-Entwickelung beruht, äussert also schon<lb/>
+im Plastiden-Leben ihre volle Wirksamkeit, und erzeugt<lb/>
+eine unendliche Menge von individuell verschiedenen Plasti¬<lb/>
+dul-Bewegungen; und jede spätere Plastidul-Bewegung<lb/>
+oder mit anderen Worten das Leben jeder späteren Plastide,<lb/>
+sei es Cytode oder Zelle — setzt sich demnach zusammen<lb/>
+einerseits aus der überwiegenden Reihe der alten Plastidul-<lb/>
+Bewegungen. welche durch <hi rendition="#g">Vererbung</hi> getreu von Gene¬<lb/>
+ration zu Generation sich erhalten haben, andererseits aus<lb/>
+einem geringen Antheil von neuen Plastidul-Bewegungen,<lb/>
+welche durch <hi rendition="#g">Anpassung</hi> erworben wurden. (Vergl. die<lb/>
+angehängte Tafel nebst Erklärung.) Alle diese <hi rendition="#g">Abän¬<lb/>
+derungen der Plastidule</hi> sind natürlich durch <hi rendition="#g">Um¬<lb/>
+lagerungen der Atome</hi> in denselben bedingt: und bei<lb/>
+der unendlich verwickelten und mannichfaltigen atomistischen<lb/>
+Zusammensetzung der Plastidule, bei ihrer ausserordent¬<lb/>
+lichen Unbeständigkeit und Neigung zur Zersetzung wird<lb/>
+sich hier der Anpassung ein unbeschränktes Feld zur<lb/>
+Hervorbringung neuer Formen öffnen.</p><lb/>
+<p>Indem wir so <hi rendition="#i">Lamarck's</hi> Lehre von der <hi rendition="#g">Vererbung<lb/>
+der Abänderungen</hi> — dieser wichtigsten Voraussetzung<lb/>
+von <hi rendition="#i">Darwin's</hi> Selections-Theorie — von den grossen viel¬<lb/>
+zelligen Thieren und Pflanzen, an denen sie uns hand¬<lb/>
+greiflich vor Augen tritt, auf die Plastiden (Cytoden und<lb/>
+Zellen) und von diesen wiederum auf die sie zusammen¬<lb/>
+setzenden Plastidule übertragen, machen wir natürlich auch<lb/>
+für diese letzteren die Consequenzen geltend, welche für die<lb/>
+ersteren sich aus der Selections-Theorie ergeben. Offenbar<lb/>
+herrscht „<hi rendition="#g">der Kampf um's Dasein unter den Mole¬<lb/>
+<pb n="48" facs="#f0054"/>
+külen</hi>“‚ den <hi rendition="#i">Pfaundler</hi> 1870 zuerst beleuchtete‚ im eigent¬<lb/>
+lichsten Sinne und vor allen unter den activen Plastidulen.<lb/>
+Diejenigen Plastidule, welche den äusseren Existenz-Be¬<lb/>
+dingungen sich am besten anpassen, d. h. welche das von<lb/>
+aussen eindringende flüssige Nahrungsmaterial am leich¬<lb/>
+testen aufnehmen und die dadurch bedingte Umlagerung<lb/>
+ihrer Atome am bereitwilligsten vollziehen, werden natür¬<lb/>
+lich die stärkste Assimilation ausüben und so bei der Fort¬<lb/>
+pflanzung der Plastiden das Uebergewicht erlangen.</p><lb/>
+<p>Die nächste Folge der natürlichen Züchtung im Kampfe<lb/>
+um's Dasein ist die zunehmende Sonderung oder Differen¬<lb/>
+zirung der Formen, welche <hi rendition="#i">Darwin</hi> als „Divergenz des<lb/>
+Charakters“ bezeichnet. Ihre bekannteste Form ist die<lb/>
+Arbeitstheilung oder der Polymorphismus der Personen.<lb/>
+Bekanntlich liefert die Arbeitstheilung im Menschenleben<lb/>
+den wichtigsten Maassstab für die erreichte Culturstufe<lb/>
+und dasselbe gilt von den merkwürdigen Culturstaaten der<lb/>
+Ameisen, Bienen, Termiten u. s w. Ferner zeigt uns die<lb/>
+vergleichende Anatomie, wie die physiologische „Voll¬<lb/>
+kommenheit“ oder die Entwickelungshöhe jedes höheren<lb/>
+Thieres und jeder höheren Pflanze durch die Arbeits¬<lb/>
+theilung ihrer Organe bedingt ist. Die verwickelte Ma¬<lb/>
+schinerie, welche z. B. das höhere Wirbelthier mit seinen<lb/>
+Nerven und Sinnesorganen, Muskeln und Knochen, Darm<lb/>
+und Blutgefässen, Drüsen und Geschlechtsorganen bildet,<lb/>
+ist durch die ausserordentlich weit vorgeschrittene, aber im<lb/>
+Kampf um's Dasein stufenweis und langsam erworbene<lb/>
+Arbeitstheilung dieser Organe und ihrer einzelnen Stücke<lb/>
+bestimmt.</p><lb/>
+<p>Nun beruht aber die Arbeitstheilung der Organe wiederum<lb/>
+<pb n="49" facs="#f0055"/>
+auf derjenigen der Plastiden, der Cytoden und Zellen. Die<lb/>
+verschiedenen Gewebe, welche jenen Organen ihre phy¬<lb/>
+siologischen Eigenthümlichkeiten verleihen, sind aus ver¬<lb/>
+schiedenen Zellenarten zusammengesetzt, aus Nervenzellen,<lb/>
+Muskelzellen, Knochenzellen, Drüsenzellen, Darmzellen,<lb/>
+Geschlechtszellen u. s. w. Wie alle diese verschiedenen<lb/>
+Zellen-Species durch Arbeitstheilung aus einer einzigen,<lb/>
+einfachen, ursprünglichen Zellenform phylogenetisch ent¬<lb/>
+standen sind, das zeigt uns noch heute die individuelle<lb/>
+Entwickelung jedes höheren Thier-Eies. Denn die be¬<lb/>
+fruchtete Eizelle zerfällt zunächst durch wiederholte<lb/>
+Theilung in eine grosse Anzahl von ganz einfachen gleich¬<lb/>
+artigen Zellen. Aus diesen „Morula-Zellen“ dann<lb/>
+die beiden primären Keimblätter der Gastrula hervor, und<lb/>
+diese Sonderung in zwei verschiedene Zellenschichten ist<lb/>
+der erste Anfang der histologischen Arbeitsteilung. In¬<lb/>
+dem dann die Zellen des äusseren Keimblattes oder die<lb/>
+Exoderm-Zellen weiterhin in Hautzellen, Nervenzellen,<lb/>
+Muskelzellen u. s. w. sich sondern, und indem aus den<lb/>
+Zellen des inneren Keimblattes oder den Entoderm-Zellen<lb/>
+durch Differenzirung die Darmzellen, Drüsenzellen u. s. w.<lb/>
+entstehen, erfolgt die Gewebebildung oder die histologische<lb/>
+Differenzirung, auf der die Ausbildung der verschiedenen<lb/>
+Organe beruht. Aber die <hi rendition="#g">ontogenetische</hi> Arbeitstheilung<lb/>
+der Zellen, wie wir sie so an jedem Thier-Ei Schritt für<lb/>
+Schritt unter dem Mikroskop verfolgen können, ist nur die<lb/>
+rasche, nach dem biogenetischen Grundgesetze erfolgende<lb/>
+Wiederholung der langsamen <hi rendition="#g">phylogenetischen</hi> Gewebe¬<lb/>
+bildung, wie sie durch die active Arbeitstheilung der Zellen<lb/>
+ursprünglich bedingt wurde.<lb/>
+</p> <fw type="sig" place="bottom"> <hi rendition="#g">Haeckel</hi>, Perigenesis der Plastidule. 4<lb/>
+</fw>
+<pb n="50" facs="#f0056"/>
+<p>Wie ist nun aber diese Arbeitstheilung der Plastiden<lb/>
+möglich? Offenbar nur durch die bedingende <hi rendition="#g">Arbeits¬<lb/>
+theilung der Plastidule</hi>. Denn ganz in derselben Weise<lb/>
+und ganz nach denselben Gesetzen, nach denen der Cultur¬<lb/>
+staat durch die Arbeitstheilung der Staatsbürger, die hohe<lb/>
+Organisation des menschlichen Körpers durch diejenige<lb/>
+seiner Organe und diese wieder durch die Arbeitstheilung<lb/>
+der sie zusammensetzenden Zellen bedingt ist, ganz in der¬<lb/>
+selben Weise wird auch diese letztere durch die Arbeits¬<lb/>
+theilung der Plastidule bewirkt und ganz nach denselben<lb/>
+Gesetzen ist auch diese durch die Wechselwirkung von<lb/>
+Vererbung und Anpassung im Kampfe um's Dasein ent¬<lb/>
+standen. Die morphologischen und physiologischen Eigen¬<lb/>
+thümlichkeiten, durch welche jede Nervenzelle, jede Muskel¬<lb/>
+zelle, jede Darmzelle u. s. w. als solche charakterisirt ist,<lb/>
+sind einzig und allein dadurch bedingt, dass ihre consti¬<lb/>
+tuirenden Plastidule sich mehr oder weniger gesondert oder<lb/>
+differenzirt und so verschiedene Plasson-Arten hervorgebracht<lb/>
+haben. Wie verwickelt und wie verschiedenartig aber auch<lb/>
+die Molecular-Structur des Plasson und seine Verbindung<lb/>
+mit verschiedenartigen Plasson-Producten in den genannten<lb/>
+Zellen-Arten sein mag, dennoch stammen sie nachweislich<lb/>
+alle von den gleichartigen Morula-Zellen ab, wie diese<lb/>
+von der befruchteten Eizelle. Die phylogenetische ur¬<lb/>
+sprüngliche Arbeitstheilung der Plastidule wird so nach dem<lb/>
+biogenetischen Grundgesetze noch heute in der ontogene¬<lb/>
+tischen Differenzirung der Plastiden-Moleküle wiederholt.</p><lb/>
+<p>Eine besondere Form dieser histologischen Arbeits¬<lb/>
+theilung verdient hier unsere nähere Beachtung: das ist<lb/>
+die <hi rendition="#g">geschlechtliche Sonderung</hi>, die sexuelle Differen¬<lb/>
+<pb n="51" facs="#f0057"/>
+zirung. Wie schon vorher bemerkt, besitzt die geschlecht¬<lb/>
+liche Zeugung nicht entfernt die hohe allgemeine Bedeu¬<lb/>
+tung, welche man ihr noch heute in den weitesten Kreisen<lb/>
+zuschreibt; und das ist um so mehr hervorzuheben, als<lb/>
+einerseits dieselbe vorzugsweise gern mit dem mystischen<lb/>
+Schleier eines übernatürlichen oder höchst geheimnissvollen<lb/>
+Vorganges verhüllt wird, und als andererseits sogar viele<lb/>
+hervorragende Naturforscher die Bedeutung dieser Erschei¬<lb/>
+nung für die Entwickelungslehre ganz unverhältnissmässig<lb/>
+überschätzen. Da ist denn zunächst ausdrücklich hervor¬<lb/>
+zuheben, dass erstens eine grosse Menge von niedersten<lb/>
+Organismen, namentlich die bunte Masse der Protisten,<lb/>
+viele Protophyten und Protozoen, die geschlechtliche Zeu¬<lb/>
+gung überhaupt nicht kennen, sondern sich ausschliesslich<lb/>
+auf ungeschlechtlichem Wege fortpflanzen, (vorzugsweise<lb/>
+durch einfache Theilung, ausserdem auch durch Knospen¬<lb/>
+bildung und Sporenbildung). Zweitens ist zu bemerken,<lb/>
+dass eine scharfe Grenze zwischen geschlechtlicher Zeugung<lb/>
+(Amphigonie) und ungeschlechtlicher Zeugung (Monogonie)<lb/>
+nicht besteht, wie schon die unbeständige Conjugation und<lb/>
+Copulation bei vielen jener niedersten Organismen beweist.<lb/>
+Drittens ist sehr lehrreich die zerstreute Verbreitung der<lb/>
+Jungfernzeugung oder Parthenogenesis bei sehr verschie¬<lb/>
+denen Gruppen von höheren Thieren und Pflanzen; offenbar<lb/>
+stammen diese von Vorfahren ab, welche geschlechtlich<lb/>
+differenzirt waren; im Laufe der Zeit ist das männliche<lb/>
+Geschlecht wieder entbehrlich geworden und verloren ge¬<lb/>
+gangen. Nicht minder lehrreich ist viertens die häufige<lb/>
+Verknüpfung der geschlechtlichen und ungeschlechtlichen<lb/>
+Zeugung im Generationswechsel einer und derselben Species.<lb/>
+<fw type="sig" place="bottom">4*<lb/>
+</fw>
+<pb n="52" facs="#f0058"/>
+Fünftens endlich verliert der wesentliche Vorgang der ge¬<lb/>
+schlechtlichen Zeugung alles Wunderbare und Räthselhafte,<lb/>
+sobald wir von allen unwesentlichen und secundären Zu¬<lb/>
+thaten absehen, und nur den histologischen Kern des Pro¬<lb/>
+cesses scharf in's Auge fassen. Denn dann ist die <hi rendition="#g">ge¬<lb/>
+schlechtliche Zeugung weiter Nichts</hi>, <hi rendition="#g">als die Ver¬<lb/>
+wachsung zweier Plastiden</hi>, <hi rendition="#g">welche durch weit¬<lb/>
+gehende Arbeitstheilung ihrer Plastidule sich<lb/>
+sehr verschiedenartig entwickelt haben</hi>.</p><lb/>
+<p>In der That wird so das dunkle Mysterium der ge¬<lb/>
+schlechtlichen Fortpflanzung in der einfachsten Weise auf¬<lb/>
+geklärt, und das „wunderbare Räthsel“ der weltbewegenden<lb/>
+Liebe in der nüchternsten Form gelöst. Natürlich müssen<lb/>
+wir dabei ganz absehen von allen jenen mannichfaltigen<lb/>
+und merkwürdigen Geschlechts-Einrichtungen, welche erst<lb/>
+langsam und allmählich von den höheren Thieren und<lb/>
+Pflanzen theils unter dem allgemeinen Einflusse der natür¬<lb/>
+lichen Züchtung, theils durch die besondere Wirksamkeit<lb/>
+der geschlechtlichen Zuchtwahl erworben wurden. Ur¬<lb/>
+sprünglich finden wir weiter Nichts als zweierlei ver¬<lb/>
+schiedene Zellen: weibliche Eizellen und männliche Sperma¬<lb/>
+zellen. Diese entstehen oft nicht einmal in besonderen<lb/>
+Organen, sondern liegen einzeln zerstreut in anderen Ge¬<lb/>
+weben, die Eizellen zwischen den Epithel-Zellen des Darms,<lb/>
+die Spermazellen zwischen den Epidermiszellen der Haut:<lb/>
+so bei den Gastraeaden, Spongien, vielen Hydroiden u. s. w.<lb/>
+Der ganze Vorgang der sexuellen Verbindung beschränkt<lb/>
+sich hier darauf, dass diese beiderlei Zellen, aus dem Ver¬<lb/>
+bande des vielzelligen Organismus abgelöst und zufällig<lb/>
+im Wasser zusammengekommen, sich an einander legen<lb/>
+<pb n="53" facs="#f0059"/>
+und mit einander zu einer einzigen Plastide verschmelzen.<lb/>
+Die innige Neigung, welche durch die chemische „Wahl¬<lb/>
+verwandtschaft“ der beiden liebenden Zellen bedingt ist,<lb/>
+führt beide nothwendig zusammen. Die neu entstandene<lb/>
+Zelle ist das Kind der mütterlichen Eizelle und der väter¬<lb/>
+lichen Spermazelle: sie besteht aus den vereinigten Körpern<lb/>
+Beider. Verfolgen wir diesen höchst wichtigen, aber auch<lb/>
+höchst einfachen Fundamental-Process der Amphigonie noch<lb/>
+weiter, so finden wir, dass dabei eine völlige und innige<lb/>
+Mengung der Plastidule stattfindet, eine vollständige Ver¬<lb/>
+bindung der verschiedenen Molekular-Bewegungen in beiden<lb/>
+Plastiden. Dabei scheint gewöhnlich dem Verschmelzungs¬<lb/>
+process der beiderlei Geschlechtszellen die theilweise oder<lb/>
+vollständige Auflösung ihres Kernes vorauszugehen (— in<lb/>
+anderen Fällen vielleicht erst nachzufolgen —), so dass<lb/>
+also das neuerzeugte Individuum zunächst keine Zelle,<lb/>
+sondern eine Cytode ist, und sich erst durch Neubildung<lb/>
+eines Kernes wieder zur Zelle gestaltet. Wir haben jene<lb/>
+<hi rendition="#g">Cytode</hi> als „<hi rendition="#g">Monerula</hi>“, diese erste <hi rendition="#g">Zelle</hi> als „<hi rendition="#g">Cytula</hi>“<lb/>
+bezeichnet. Offenbar ist die individuelle Plastidul-Bewe¬<lb/>
+gung, welche dieser ersten Plastide innewohnt, und welche<lb/>
+deren ganze weitere Entwickelung bedingt, die Resultante<lb/>
+aus den beiden verschiedenen Plastidul-Bewegungen der<lb/>
+weiblichen Ei-Plastide und der männlichen Sperma-Plastide.<lb/>
+Wenn wir letztere als die beiden Seiten im Parallelogramm<lb/>
+der Kräfte betrachten, so ist die Plastidul-Bewegung der<lb/>
+Monerula und der daraus hervorgehenden Cytula deren<lb/>
+<hi rendition="#g">Diagonale</hi>. Daraus erklärt sich auch ganz einfach die<lb/>
+Thatsache der beiderseitigen oder <hi rendition="#g">amphigonen Ver¬<lb/>
+erbung</hi>, die Thatsache, dass das Kind zahlreiche Eigen¬<lb/>
+<pb n="54" facs="#f0060"/>
+schaften von <hi rendition="#g">beiden</hi> Eltern erbt. Die kindliche Lebens-<lb/>
+Bewegung ist die Diagonale zwischen der mütterlichen<lb/>
+und der väterlichen Lebens-Bewegung.</p><lb/>
+<p>Rein morphologisch betrachtet, ist jene Vermischung<lb/>
+der beiderlei Geschlechtszellen, welche einzig und allein<lb/>
+das Wesen der geschlechtlichen Zeugung bedingt, durchaus<lb/>
+kein ganz absonderlicher Vorgang; vielmehr fällt er unter<lb/>
+den weiteren Begriff der Verwachsung oder <hi rendition="#g">Concrescenz<lb/>
+der Plastiden</hi>, einen histologischen Vorgang, den wir auch<lb/>
+sonst in vielen verschiedenen Modificationen sehr verbreitet<lb/>
+antreffen; z. B. bei der Plasmodium-Bildung von Moneren<lb/>
+und Mycomyceten, bei der Bildung netzförmiger Gewebe<lb/>
+(Verschmelzung sternförmiger Muskelzellen, Nervenzellen,<lb/>
+Bindegewebszellen u. s. w.). Besonders lehrreich ist aber<lb/>
+dafür die sogenannte <hi rendition="#g">Copulation</hi> oder <hi rendition="#g">Conjugation</hi><lb/>
+zweier anscheinend gleichartiger Zellen, welche bei vielen<lb/>
+Protisten (Protophyten und Protozoen) der ungeschlecht¬<lb/>
+lichen Vermehrung durch Theilung vorausgeht (Gregarinen,<lb/>
+Infusorien, Diatomeen, Desmidiaceen etc.) Wir dürfen<lb/>
+diese Conjugation von zwei gleichartigen Plastiden als<lb/>
+die erste Einleitung zur sexuellen Differenzirung oder<lb/>
+als den Uebergang von der ungeschlechtlichen zur ge¬<lb/>
+schlechtlichen Zeugung ansehen. Da nach den bekannten<lb/>
+Erfahrungen der Inzucht ein gewisser Grad von Verschieden¬<lb/>
+heit der beiden Geschlechts-Individuen für den Erfolg<lb/>
+ihrer Verbindung und die Fruchtbarkeit ihrer Nachkommen¬<lb/>
+schaft sehr vortheilhaft ist, so wird die natürliche Züchtung<lb/>
+die Ungleichheit der beiden copulirenden Plastiden begün¬<lb/>
+stigen und durch allmähliche Häufung und Verstärkung<lb/>
+ihrer individuellen Eigenthümlichkeiten sie allmählich bis<lb/>
+<pb n="55" facs="#f0061"/>
+zu jenem Gegensatze entfernen, der uns in der verschie¬<lb/>
+denen Zusammensetzung der grossen amoeboiden Eizelle<lb/>
+und der kleinen flagellaten Spermazelle bei den meisten<lb/>
+Thieren so auffallend vor Augen liegt. Auch das ist wieder<lb/>
+nur eine besondere und stark ausgebildete Form der Ar¬<lb/>
+beitstheilung.</p><lb/>
+<p>Wenn wir uns nun wieder daran erinnern, dass ganz<lb/>
+allgemein betrachtet die Fortpflanzung nichts Anderes ist,<lb/>
+als ein „Wachsthum des Individuums über sein individuelles<lb/>
+Maass hinaus“, so werden wir auch jene Verwachsung von<lb/>
+zwei gleichartigen Zellen, welche als Copulation oder Con¬<lb/>
+jugation bezeichnet wird, und welche zuerst den phylo¬<lb/>
+genetischen Anstoss zur sexuellen Differenzirung gegeben<lb/>
+hat, nur als eine besondere, Form des Wachsthums ansehen<lb/>
+dürfen. Während bei dem gewöhnlichen einfachen Vorgang<lb/>
+der ungeschlechtlichen Fortpflanzung das vorausgehende<lb/>
+und bedingende Wachsthum (— ein totales bei der Thei¬<lb/>
+lung, ein partielles bei der Knospung —) langsam und<lb/>
+allmählich erfolgt, geschieht dasselbe hier bei der Conju¬<lb/>
+gation rasch und plötzlich. So lässt sich also auch das<lb/>
+Mysterium der <hi rendition="#g">geschlechtlichen Zeugung</hi> wieder auf<lb/>
+eine besondere Form des <hi rendition="#g">Wachsthums</hi> und der <hi rendition="#g">Arbeits¬<lb/>
+theilung</hi> der Plastiden zurückführen.</p><lb/>
+<p>Die hier dargestellte Auffassung der geschlechtlichen<lb/>
+Zeugung scheint mir für die niederen und einfacheren<lb/>
+Formen so klar auf der Hand zu liegen, dass sie wohl keiner<lb/>
+eingehenderen Begründung mehr bedarf. Aber auch für<lb/>
+die höheren und verwickelteren Formen, die zunächst da¬<lb/>
+durch nicht, vollständig aufgeklärt erscheinen, liefert sie<lb/>
+uns den Schlüssel des Verständnisses. Dazu ist erforderlich,<lb/>
+<pb n="56" facs="#f0062"/>
+dass wir erstens die physiologische Individualität des<lb/>
+Plastiden-Lebens und die active Bedeutung der dasselbe<lb/>
+bedingenden Plastidule anerkennen, und dass wir zweitens<lb/>
+dem Begriffe des <hi rendition="#g">Generationswechsels</hi> eine viel weitere<lb/>
+Ausdehnung und allgemeinere Geltung geben, als bisher ge¬<lb/>
+schehen ist. Bekanntlich beruht diese „Generatio alternans“<lb/>
+die wir mit <hi rendition="#i">Owen</hi> kurz als <hi rendition="#g">Metagenesis</hi> bezeichnen, auf<lb/>
+dem regelmässigen periodischen Wechsel von zwei oder<lb/>
+mehreren verschiedenen Generationen, von denen eine auf<lb/>
+geschlechtlichem, die übrigen auf ungeschlechtlichem Wege<lb/>
+ihre Nachkommen erzeugen. Zugleich ist mit diesem peri¬<lb/>
+odischen Zeugungswechsel eine mehr oder minder weit<lb/>
+gehende Arbeitstheilung der Personen (oder bei den Pflanzen<lb/>
+der Sprosse) verbunden, welche sich oft in einer höchst<lb/>
+auffallenden Verschiedenheit ihrer Gestaltung und Organi¬<lb/>
+sation kund giebt. So sehen wir z. B., dass aus den<lb/>
+Sporen oder Keimzellen der Farnkräuter nicht wieder ein<lb/>
+Farnkraut entsteht, sondern ein Prothallium, eine niedere<lb/>
+Pflanzenform ohne Stengel und Blätter, welche im Wesent¬<lb/>
+lichen einem Lebermose gleicht. Diese wird geschlechts¬<lb/>
+reif; sie bildet Eier und Spermazellen, und aus deren<lb/>
+Vermischung entsteht eine neue Zelle, die Cytula. Indem<lb/>
+die Cytula sich wiederholt theilt, entsteht ein kleines<lb/>
+Pflänzchen, das sich durch Sonderung vom Stengel und<lb/>
+Blättern wieder zum Farnkraut entwickelt; und an der<lb/>
+Unterseite von dessen Blättern entstehen später unge¬<lb/>
+schlechtlich die braunen Häufchen von Keimzellen oder<lb/>
+Sporen. Einem gleichen Generationswechsel begegnen wir<lb/>
+bei sehr vielen niederen Thieren. So entwickelt sich aus<lb/>
+dem befruchteten Ei der meisten Medusen nicht wieder<lb/>
+<pb n="57" facs="#f0063"/>
+eine Meduse, sondern ein festsitzender, ganz anders ge¬<lb/>
+formter Hydroid-Polyp, und dieser erzeugt erst wieder<lb/>
+(durch ungeschlechtliche Knospung) die frei schwimmenden<lb/>
+Medusen, die sich geschlechtlich sondern. Die Blattläuse<lb/>
+und viele kleine Krebse (z. B. Daphniden) pflanzen sich<lb/>
+während des Sommers ungeschlechtlich durch Partheno¬<lb/>
+genesis fort, durch unbefruchtete Keimzellen oder Sporen.<lb/>
+Erst im Herbste, kommt eine geschlechtlich differenzirte<lb/>
+Generation mit Männchen und Weibchen, und aus deren<lb/>
+befruchteten Eiern entsteht im Frühjahr wieder die erste<lb/>
+ungeschlechtliche Generation.</p><lb/>
+<p>Fassen wir nun aber unsere Plastiden als autonome<lb/>
+„Elementar-Organismen“ auf, die ihre morphologische und<lb/>
+physiologische Selbstständigkeit besitzen, und betrachten<lb/>
+wir den individuellen Entwickelungs-Process vom histo¬<lb/>
+logischen Standpunkte der Plastiden-Theorie, so werden<lb/>
+wir durch Vergleichung mit den eben angeführten Vor¬<lb/>
+gängen zu der Anschauung gelangen, dass eigentlich der<lb/>
+Generationswechsel oder die Metagenesis ein sehr all¬<lb/>
+gemein verbreiteter Vorgang ist. Denn bei der indi¬<lb/>
+viduellen Entwickelung jedes vielzelligen Thieres, jeder<lb/>
+vielzelligen Pflanze tritt zunächst eine geschlechtliche<lb/>
+Plastiden-Generation auf, repräsentirt durch die weibliche<lb/>
+Eizelle und die männliche Spermazelle. Aus deren Ver¬<lb/>
+bindung entsteht wieder eine Zelle, die Cytula, und diese<lb/>
+erzeugt auf ungeschlechtlichem Wege, durch wiederholte<lb/>
+Theilung, die Generationen von gleichartigen Zellen, welche<lb/>
+schliesslich die Morula und die daraus entstellende Blastula<lb/>
+zusammensetzen. Jetzt erst tritt zwischen diesen gleich¬<lb/>
+artigen Zellen der Blastula-Generation die erste Arbeits¬<lb/>
+<pb n="58" facs="#f0064"/>
+theilung ein, und sie sondern sich in zweierlei Zellenarten,<lb/>
+in die Zellen des inneren vegetativen und des äusseren<lb/>
+animalen Keimblattes. Jede von diesen erzeugt wieder<lb/>
+durch fortgesetzte Theilung zahlreiche Generationen, und<lb/>
+in den letzteren schreitet die Arbeitstheilung der Zellen<lb/>
+um so weiter fort, je vollkommener später die völlig ent¬<lb/>
+wickelte Person organisirt ist. Alle die zahllosen Gene¬<lb/>
+rationen von verschiedenartigen Zellen, welche deren Ge¬<lb/>
+webe und Organe zusammensetzen, vermehren sich unge¬<lb/>
+schlechtlich durch Theilung. Nur zwei von diesen poly¬<lb/>
+morphen Zellen-Generationen sondern sich wieder geschlecht¬<lb/>
+lich, die Eizellen und die Spermazellen. Kommen diese<lb/>
+später im geschlechtlichen Zeugungsacte wieder zur Ver¬<lb/>
+wachsung, so sind wir am Anfange des Zeugungskreises<lb/>
+angelangt, von welchem wir ausgingen. Der Rückschlag<lb/>
+oder <hi rendition="#g">Atavismus der Plastiden</hi> hat uns wieder bis zur<lb/>
+Cytula zurückgeführt. Es besteht also im Grunde die<lb/>
+individuelle Entwickelung jedes vielzelligen Thieres und<lb/>
+jeder vielzelligen Pflanze, die sich durch <hi rendition="#g">Hypogenesis</hi>,<lb/>
+d. h. ohne „Generationswechsel“ der <hi rendition="#g">Personen</hi>, durch<lb/>
+einen geschlechtlichen Zeugungs-Act fortpflanzt, eigentlich<lb/>
+aus einem höchst verwickelten Generationswechsel ihrer<lb/>
+constituirenden <hi rendition="#g">Zellen</hi>. Der Unterschied liegt nur darin,<lb/>
+dass die letzteren im vielzelligen Organismus eng räumlich<lb/>
+mit einander verbunden bleiben, während die Personen,<lb/>
+als Repräsentanten der verschiedenen Generationen bei der<lb/>
+eigentlichen „Metagenesis“ räumlich von einander getrennt<lb/>
+und frei sind. Um diesen Unterschied auszudrücken, habe ich<lb/>
+die Wechselzeuguug der Plastiden als <hi rendition="#g">Generationsfolge</hi><lb/>
+oder <hi rendition="#g">Strophogenesis</hi> bezeichnet, (Gen. Morph. II, 106).<lb/>
+<pb n="59" facs="#f0065"/>
+Der Begriff der Metagenesis bleibt auf die Wechsel¬<lb/>
+zeugung der Personen, als gang selbstständiger und freier<lb/>
+physiologischer Individuen beschränkt. Wie unwesentlich<lb/>
+übrigens dieser Unterschied ist, zeigen die Siphonophoren,<lb/>
+bei denen dieselben, durch Arbeitstheilung vielfach geson¬<lb/>
+derten Personen auf einem Stocke vereinigt bleiben, die<lb/>
+bei anderen Hydromedusen getrennt ihr selbstständiges<lb/>
+Leben führen. Die Arbeitstheilung der Personen, die wir<lb/>
+hier ebenso wie in den Culturstaaten der Ameisen, Bienen,<lb/>
+Termiten und Menschen finden, ist an sich betrachtet nur<lb/>
+im Grossen, was die Arbeitstheilung der Plastiden im<lb/>
+Laufe der Strophogenesis in kleinem Maassstabe darbietet;<lb/>
+und die letztere ist wieder im Grunde kein anderer Pro¬<lb/>
+cess als die im Miniaturbilde uns entgegentretende <hi rendition="#g">Ar</hi>¬<lb/>
+<hi rendition="#g">beitstheilung der Plastidule</hi>. Diese ist der Elemen¬<lb/>
+tar-Factor der fortschreitenden organischen Entwickelung,<lb/>
+der stetig zunehmenden Vollkommenheit und Mannichfaltig¬<lb/>
+keit der organischen Formen. Der Mikrokosmos wieder¬<lb/>
+holt auch hier das Bild des Makrokosmos.</p><lb/>
+<p>Suchen wir nun für die mannichfaltigen und wunder¬<lb/>
+vollen, hier kurz berührten Vorgänge der organischen<lb/>
+Zeugung und Entwickelung einen einheitlichen allgemeinen<lb/>
+Gesichtspunkt auf monistischer Basis zu gewinnen, so ist<lb/>
+dieser jedenfalls nur im Gebiete der Bewegungslehre oder<lb/>
+der <hi rendition="#g">Mechanik</hi> im engeren Sinne zu suchen. Denn der<lb/>
+ganze uns erkennbare Weltprocess in seiner unbegrenzten<lb/>
+Ausdehnung, die Gesammtentwickelung der Sonnensysteme<lb/>
+und Planeten nach <hi rendition="#i">Kant</hi>, die anorganische Entwickelung<lb/>
+des Erdballs nach <hi rendition="#i">Lyell</hi> und die organische Entwickelung<lb/>
+auf demselben nach <hi rendition="#i">Darwin</hi> sind in gleicher Weise durch<lb/>
+<pb n="60" facs="#f0066"/>
+feste und unabänderliche Gesetze der Mechanik mit Noth¬<lb/>
+wendigkeit bedingt. Und wie die gesammte Entwickelung<lb/>
+der organischen Natur auf unserer Erde‚ wie die Stammes¬<lb/>
+geschichte des Pflanzen- und Thierreichs, so ist auch die<lb/>
+Entwickelungsgeschichte der Menschheit und jedes ein¬<lb/>
+zelnen Menschen durch dieselben festen Gesetze der Be¬<lb/>
+wegungslehre geregelt. Der Unterschied ist nur der‚ dass<lb/>
+der Entwickelungs-Process der organischen Natur im<lb/>
+Ganzen‚ wie im Einzelnen unendlich viel verwickelter und<lb/>
+daher schwieriger zu erfassen ist‚ als derjenige der anor¬<lb/>
+ganischen Natur. Aber jener beruht ebenso wie dieser<lb/>
+im Grunde doch nur auf Massen-Bewegungen‚ und diese<lb/>
+Massen-Bewegungen sind sämmtlich auf Anziehungs- und<lb/>
+Abstossungs-Verhältnisse der Moleküle und der sie zu¬<lb/>
+sammensetzenden Atome‚ sowie des die Atome verbinden¬<lb/>
+den Aethers zurückzuführen.</p><lb/>
+<p>Der <hi rendition="#g">biogenetische Process</hi>‚ wie wir die Gesammt¬<lb/>
+heit der organischen Entwickelungs-Bewegungen auf un¬<lb/>
+serem Planeten kurz nennen wollen‚ ist im Einzelnen viel<lb/>
+zu verwickelt‚ die Zahl‚ Mannichfaltigkeit und Complication<lb/>
+aller ihn zusammensetzenden Einzel-Vorgänge ist viel zu<lb/>
+gross‚ als dass es möglich wäre‚ jetzt schon‚ bei unserer<lb/>
+mangelhaften und unvollkommenen Kenntniss derselben‚<lb/>
+seinem ehernen mechanischen Gang Schritt für Schritt zu<lb/>
+folgen. Trotzdem können wir behaupten‚ schon jetzt eine<lb/>
+befriedigende monistische Einsicht in sein wahres Wesen<lb/>
+gewonnen zu haben. Die Voraussetzung dieser Einsicht<lb/>
+ist die Anerkennung des biogenetischen Grundgesetzes‚<lb/>
+welches durch den Nachweis des Causalnexus zwischen<lb/>
+Ontogenie und Phylogenie allein fähig scheint‚ den über<lb/>
+<pb n="61" facs="#f0067"/>
+allen Zweigen der Biogenie lagernden Nebel zu zerstreuen.<lb/>
+Wie man auch jenen innigen ursächlichen Zusammenhang<lb/>
+zwischen Keimes- und Stammesgeschichte formuliren mag,<lb/>
+bestehen bleibt er für Jeden, der nicht durch Vorurtheile<lb/>
+geblendet, der mit den Thatsachen der organischen Ent¬<lb/>
+wickelung vertraut und der zu einem philosophischen Ur¬<lb/>
+theil über ihre Bedeutung befähigt ist.</p><lb/>
+<p>Wollen wir aber noch weiter in die Mechanik des<lb/>
+biogenetischen Processes eindringen, so müssen wir noth¬<lb/>
+wendig in die dunkele Tiefe des Plastiden-Lebens hinab¬<lb/>
+steigen und in der <hi rendition="#g">Plastidul-Bewegung</hi> die wahre<lb/>
+bewirkende Ursache desselben aufsuchen. Es bleibt also<lb/>
+hier schliesslich noch die Frage zu beantworten, ob wir<lb/>
+über die eigentliche Natur dieser molekularen Plastidul-<lb/>
+Bewegung, die unserer unmittelbaren Erkenntniss ver¬<lb/>
+schlossen ist, uns mit Hülfe der Vergleichung von analogen<lb/>
+Bewegungserscheinungen eine vorläufig befriedigende Hy¬<lb/>
+pothese zu bilden im Stande sind. Eine bejahende Ant¬<lb/>
+wort auf diese Frage versucht unsere Hypothese der<lb/>
+<hi rendition="#g">Perigenesis</hi>.</p><lb/>
+<p>Wenn wir zunächst vom höchsten und umfassendsten<lb/>
+Gesichtspunkte aus die Gesammtheit der eben betrachteten<lb/>
+organischen Entwickelungsvorgänge überschauen, so ergiebt<lb/>
+sich als allgemeinstes Resultat die Ueberzeugung, dass<lb/>
+der biogenetische Process als eine <hi rendition="#g">periodische Bewe¬<lb/>
+gung</hi> verläuft. Das anschaulichste Analogon derselben<lb/>
+finden wir im Bilde einer verwickelten <hi rendition="#g">Wellenbewegung</hi>.<lb/>
+Halten wir uns dabei zunächst nur an die unmittelbar zu<lb/>
+erkennenden und unumstösslichen Thatsachen, so können<lb/>
+wir von unserer eigenen Vorfahren-Kette ausgehen; gleich¬<lb/>
+<pb n="62" facs="#f0068"/>
+viel ob wir diese auf die sogenannte „historische Zeit“<lb/>
+beschränken, in welcher Mensch auf Mensch nachweislich<lb/>
+gefolgt ist; oder ob wir unsere Ahnenreihe, der Anthro¬<lb/>
+pogenie folgend, noch weiter hinab durch den Stamm der<lb/>
+Wirbelthiere bis zum Amphioxus, und durch die Gruppe<lb/>
+der Wirbellosen hindurch bis zur Gastraea, schliesslich<lb/>
+bis zur Amoebe und zum Moner verfolgen. Auf jeden<lb/>
+Fall lässt sich die Entwickelungsbewegung unserer Ahnen¬<lb/>
+reihe unter dem einfachsten Bilde einer <hi rendition="#g">Wellenlinie</hi><lb/>
+vorstellen, in welcher das individuelle Leben jeder einzel¬<lb/>
+nen Person einer einzelnen Welle entspricht.</p><lb/>
+<p>Beschränken wir nun aber unseren Blick nicht auf die<lb/>
+Reihe unserer directen Vorfahren, sondern erweitern wir<lb/>
+ihn und fassen wir die Gesammtheit unserer Blutsverwandten<lb/>
+zusammen, so können wir bekanntlich deren Zusammenhang<lb/>
+in der einfachen Form eines Stammbaumes klar ausdrücken.<lb/>
+Mit Rücksicht auf die Wellenbewegung der zusammen¬<lb/>
+hängenden Entwickelung können wir auch in diesem<lb/>
+Stammbaum die Entwickelungs-Bewegung jeder einzelnen<lb/>
+Person durch eine Welle andeuten. Der ganze Stamm¬<lb/>
+baum erhält so das Bild einer <hi rendition="#g">verzweigten Wellen¬<lb/>
+bewegung</hi>, einer ramificirten Undulation. (Vergl. die<lb/>
+angehängte Tafel.) Welche Vorfahren-Form wir auch<lb/>
+als Stammform für die ganze stammverwandte Gruppe des<lb/>
+Stammbaumes oder für einen Theil derselben wählen<lb/>
+mögen, immer wird sie als der Ausgangspunkt einer zu¬<lb/>
+sammenhängenden Wellenbewegung erscheinen, welche sich,<lb/>
+den Aesten und Zweigen des Stammbaumes entsprechend‚<lb/>
+vielfach ramificirt.</p><lb/>
+<p>Dasselbe Bild einer verzweigten Wellenbewegung,<lb/>
+<pb n="63" facs="#f0069"/>
+welches uns so die Entwickelungsgeschichte jeder mensch¬<lb/>
+lichen Familie, die Genealogie jeder Dynastie im Kleinen<lb/>
+darbietet, dasselbe finden wir im Grossen wieder, wenn<lb/>
+wir das natürliche System der Organismen im Lichte der<lb/>
+Descendenz-Theorie betrachten. Denn wie in jeder mensch¬<lb/>
+lichen Familie, so sind auch in jeder grösseren Gruppe<lb/>
+von blutsverwandten Thieren oder Pflanzen „alle Gestal¬<lb/>
+ten ähnlich; doch keine gleichet der anderen“. Das „ge¬<lb/>
+heime Gesetz“, das „heilige Räthsel“, auf welches dieser<lb/>
+Gestalten-Chor nach <hi rendition="#i">Goethe</hi> deutet, ist die übertragene<lb/>
+Entwickelungs-Bewegung, auf der die „Blutsverwandt¬<lb/>
+schaft“ beruht. Daher ist das „natürliche System“ nichts<lb/>
+Anderes als der wahre Stammbaum der blutsverwandten<lb/>
+Arten, und jeder einzelne Ast und Zweig desselben ent¬<lb/>
+spricht einer grösseren oder kleineren Gruppe von Des¬<lb/>
+cendenten einer gemeinsamen Stammform. Diese Einheit<lb/>
+der Abstammung vereinigt alle Formen einer Klasse,<lb/>
+Ordnung u. s. w. Indem sich jede Klasse in verschiedene<lb/>
+Ordnungen, jede Ordnung in mehrere Familien, jede Fa¬<lb/>
+milie wieder in verschiedene Gattungen, jede Gattung in<lb/>
+mehrere Arten und Varietäten spaltet, verzweigt sich die<lb/>
+Wellenbewegung, welche von der gemeinsamen Stamm¬<lb/>
+form auf die ganze Nachkommen-Gruppe übertragen wurde;<lb/>
+und jeder Wellenzweig pflanzt seine individuelle Bewegung<lb/>
+wieder in eigenthümlicher Form auf seine verschiedenen<lb/>
+Descendenten fort.</p><lb/>
+<p>Nun lehrt uns das biogenetische Grundgesetz, dass<lb/>
+sich dieser grossartige Entwickelungsgang der Stammes¬<lb/>
+geschichte im Kleinen wiederspiegelt in der Keimes¬<lb/>
+geschichte jedes einzelnen Individuums. Hier sind es die<lb/>
+<pb n="64" facs="#f0070"/>
+Lebensläufe der constituirenden Plastiden (Cytoden und<lb/>
+Zellen) welche den einzelnen Wellen entsprechen. Die<lb/>
+Cytula oder die aus dem befruchteten Ei hervorgegangene<lb/>
+„erste Furchungszelle“, aus welcher sich der vielzellige<lb/>
+Organismus entwickelt, verhält sich zu den verschiedenen<lb/>
+Zellen-Generationen, welche aus ihr durch Theilung ent¬<lb/>
+stehen und welche später durch Arbeitstheilung die ver¬<lb/>
+schiedenen Gewebe bilden, ganz genau so, wie die Stamm¬<lb/>
+form einer Klasse oder Ordnung zu den mannichfaltigen<lb/>
+Familien, Gattungen und Arten, welche von ihr abstammen<lb/>
+und sich durch Anpassung an verschiedene Existenz-Be¬<lb/>
+dingungen verschiedenartig entwickelt haben. Der ontoge¬<lb/>
+netische „Zellen-Stammbaum“ der ersteren hat ganz dieselbe<lb/>
+Form, wie der phylogenetische „Arten-Stammbaum“ der<lb/>
+letzteren. Die übertragene Entwickelungs-Bewegung,<lb/>
+welche hier von der Stammform der ganzen Arten-Gruppe,<lb/>
+dort von der Stammzelle der ganzen Zellen-Gruppe aus¬<lb/>
+geht, nimmt in beiden Fällen die gleiche Form der ver¬<lb/>
+zweigten Wellenbewegung an. Jeder, der das biogenetische<lb/>
+Grundgesetz anerkennt, wird es nur natürlich finden, dass<lb/>
+der Mikrokosmos des ontogenetischen Zellen-Stammbaumes<lb/>
+das verkleinerte und theilweise verzogene Abbild von dem<lb/>
+Makrokosmos des phylogenetischen Arten-Stammbaumes<lb/>
+darstellt. (Vergl. die angehängte Tafel.)</p><lb/>
+<p>Da wir uns jede zusammengesetzte und verwickelte<lb/>
+Erscheinung nur durch Auflösung in ihre einzelnen Be¬<lb/>
+standtheile und genaueste analytische Untersuchung dieser<lb/>
+letzteren zum Verständniss bringen und erklären können,<lb/>
+so müssen wir nothwendig auch in der mechanischen Ent¬<lb/>
+wickelungs-Theorie bis in die letzten Elementar-Vorgänge<lb/>
+<pb n="65" facs="#f0071"/>
+eindringen. Nun ist der ganze biogenetische Process das<lb/>
+höchst zusammengesetzte Resultat aus den Entwickelungs-<lb/>
+Vorgängen sämmtlicher organischen Arten. Diese setzen<lb/>
+sich wieder aus den Entwickelungs-Processen der Personen,<lb/>
+wie die letzteren aus denjenigen der constituirenden Plastiden<lb/>
+zusammen. Die Entwickelung jeder einzelnen Plastide ist<lb/>
+aber wieder nur das Product aus den activen Bewegungen<lb/>
+ihrer constituirenden Plastidule. Nun haben wir gesehen,<lb/>
+dass die Entwickelungs-Bewegung der Stämme und Klassen,<lb/>
+der Ordnungen und Familien, der Gattungen und Arten,<lb/>
+der Personen und Plastiden immer und überall die charak¬<lb/>
+teristische Grundform der verzweigten Wellenbewegung<lb/>
+hat. Demnach kann auch die molekulare Plastidul-Bewe¬<lb/>
+gung, welche allen jenen Vorgängen zu Grunde liegt, in<lb/>
+Wirklichkeit keine andere Form besitzen. Wir müssen<lb/>
+schliessen, dass auch diese Elementar-Ursache des Lebens¬<lb/>
+Processes, dass auch die unsichtbare <hi rendition="#g">Plastidul-Bewe¬<lb/>
+gung eine verzweigte Wellenbewegung ist</hi>. Diese<lb/>
+wahre und letzte „Causa efficiens“ des biogenetischen Pro¬<lb/>
+cesses nennen wir mit einem Worte <hi rendition="#g">Perigenesis</hi>, die<lb/>
+periodische Wellenzeugung der Lebenstheilchen oder Plasti¬<lb/>
+dule. In der That ist diese Hypothese die einzige, welche<lb/>
+uns jenen Process wirklich zu erklären vermag. Nehmen<lb/>
+wir als einfaches Beispiel zur Erläuterung der Perigenesis<lb/>
+den Entwickelungsgang eines monoplastiden Protisten<lb/>
+(z. B. eines monocytoden Moneres, oder einer einzelligen<lb/>
+Amoebe), das sich durch einfache Theilung fortpflanzt, und<lb/>
+verfolgen wir diesen auf der angehängten Tafel bis zur<lb/>
+fünften Generation. Auf dieser Tafel ist jede entwickelte<lb/>
+einfache Zelle durch eine einfache rothe Kugel und die<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Haeckel</hi>, Perigenesis der Plastidule. 5<lb/>
+</fw>
+<pb n="66" facs="#f0072"/>
+beiden Tochterzellen, welche bei deren Fortpflanzung durch<lb/>
+Theilung entstehen, durch zwei kleinere, unmittelbar darüber<lb/>
+befindliche rothe Kugeln angedeutet. Die rothen Wellen¬<lb/>
+linien bedeuten den individuellen Entwickelungsgang jeder<lb/>
+einzelnen Zelle mit der ihr eigenthümlichen Plastidul-<lb/>
+Bewegung, deren Richtung durch einen rothen Pfeil an¬<lb/>
+gedeutet wird. Die kleinen schwarzen Körper von ver¬<lb/>
+schiedener Form bedeuten die Summe der äusseren Existenz-<lb/>
+Bedingungen, welche die Ernährung jeder Zelle beeinflussen<lb/>
+und durch Anpassung deren ursprüngliche Plastidul-Bewe¬<lb/>
+gung abändern. Die Richtung dieser Anpassungs-Bewe¬<lb/>
+gung ist durch die schwarzen Pfeile angedeutet. Indem<lb/>
+nun in jeder einzelnen Zelle die ursprüngliche, von der<lb/>
+Mutterzelle durch <hi rendition="#g">Vererbung</hi> übertragene Plastidul-Be¬<lb/>
+wegung mit der neuen, durch <hi rendition="#g">Anpassung</hi> erworbenen<lb/>
+Plastidul-Bewegung zusammentrifft, entsteht als Diagonale<lb/>
+in diesem Parallelogramm der Kräfte eine neue Form der<lb/>
+Plastidul-Bewegung, die dieser Zelle individuell zukommt;<lb/>
+und da die Existenz-Bedingungen aller Individuen mehr<lb/>
+oder minder verschieden sind, müssen auch diese Diagonal-<lb/>
+Bewegungen mehr oder minder abweichen. Daraus folgt<lb/>
+die <hi rendition="#g">Divergenz des Charakters</hi>, welche sich bei den<lb/>
+Descendenten jeder Generation ausspricht und bei jeder<lb/>
+folgenden Generation wächst. Der ganze Entwickelungs-<lb/>
+Process stellt sich also als eine zusammengesetzte rami¬<lb/>
+ficirte Undulation der Plastidule dar, bei welcher die<lb/>
+einzelnen Wellen mehr und mehr ungleich werden. Ganz<lb/>
+dieselbe Erscheinung zeigt uns der sogenannte <hi rendition="#g">Fur¬<lb/>
+chungs-Process</hi> der Thier-Eier. Auch hier zerfällt die<lb/>
+Zelle durch wiederholte Theilung in 2, 4, 8, 16, 32 Zellen u.s.w.<lb/>
+<pb n="67" facs="#f0073"/>
+Zwar erscheinen diese äusserlich häufig gleich; allein<lb/>
+ihre (ererbte) Plastidul-Bewegung ist dennoch individuell<lb/>
+verschieden, wie aus ihrer späteren ungleichen Entwicke¬<lb/>
+lung hervorgeht. Die potentielle Ungleichheit, welche hier<lb/>
+durch Vererbung übertragen oder angeboren erscheint,<lb/>
+ist in Wahrheit ursprünglich durch Anpassung von den<lb/>
+ältesten Vorfahren des vielzelligen Organismus erworben<lb/>
+worden.</p><lb/>
+<p>Indem wir dergestalt eine ununterbrochene <hi rendition="#g">verzweigte<lb/>
+Wellenbewegung der Plastidule als die bewirkende<lb/>
+Ursache des biogenetischen Processes</hi> annehmen,<lb/>
+sehen wir die Möglichkeit ein, den unendlich verwickelten<lb/>
+Gang des letzteren auf mechanische Bewegung der Massen-<lb/>
+Atome zurückzuführen; nnd diese sind hier ebenso durch<lb/>
+chemisch-physikalische Gesetze bedingt, wie in sämmtlichen<lb/>
+Erscheinungen der anorganischen Natur. Wenn wir diese<lb/>
+verzweigte Wellenbewegung der Plastidule mit einem Worte<lb/>
+als „Perigenesis oder Wellenzeugung“ bezeichnen, so wollen<lb/>
+wir damit die characteristische Eigenthümlichkeit aus¬<lb/>
+drücken, welche dieselbe als <hi rendition="#g">verzweigte</hi> Bewegung von<lb/>
+anderen ähnlichen periodischen Processen unterscheidet.<lb/>
+Diese Eigenthümlichkeit beruht auf der Reproductionskraft<lb/>
+der Plastidule und diese ist wieder durch deren eigen¬<lb/>
+thümliche atomistische Zusammensetzung bedingt. Jene<lb/>
+Reproductionskraft, die allein die Fortpflanzung der Pla¬<lb/>
+stiden ermöglicht, ist aber gleichbedeutend mit dem Ge¬<lb/>
+dächtniss der Plastidule. Und hier kommen wir wieder<lb/>
+auf die vorher adoptirte, von <hi rendition="#i">Ewald Hering</hi> so vortrefflich<lb/>
+begründete Anschauung zurück, dass das unbewusste Ge¬<lb/>
+dächtniss die wichtigste Character-Eigenschaft der „orga¬<lb/>
+<fw type="sig" place="bottom">5 *<lb/>
+</fw>
+<pb n="68" facs="#f0074"/>
+nisirten Materie“, oder richtiger der organisirenden Pla¬<lb/>
+stidule ist. Das Gedächtniss ist ein Hauptfactor des bio¬<lb/>
+genetischen Processes. Durch das Gedächtniss der Plastidule<lb/>
+wird das Plasson befähigt, in fortdauernder periodischer<lb/>
+Bewegung seine characteristischen Eigenschaften von Ge¬<lb/>
+neration zu Generation durch <hi rendition="#g">Vererbung</hi> zu übertragen,<lb/>
+und diesen die neuen Erfahrungen einzufügen, welche die<lb/>
+Plastidule durch <hi rendition="#g">Anpassung</hi> im Laufe der Entwickelung<lb/>
+erworben halten.</p><lb/>
+<p>Wie ich schon in der generellen Morphologie ausführ¬<lb/>
+lich begründete, sind die Abänderungen der organischen<lb/>
+Formen, welche wir unter dem Begriff der <hi rendition="#g">Anpassung</hi><lb/>
+im weitesten Sinne zusammenfassen, bedingt, durch verän¬<lb/>
+derte Verhältnisse in der <hi rendition="#g">Ernährung</hi> der Plastiden.<lb/>
+Diese letzteren aber sind zurückzuführen auf chemische<lb/>
+Veränderungen in der atomistischen Zusammensetzung und<lb/>
+demgemäss in der Molekular-Bewegung der Plastidule,<lb/>
+welche bei der außerordentlichen Beweglichkeit und ver¬<lb/>
+wickelten Lagerung der constituirenden Atome unmittelbar<lb/>
+durch die veränderten Einflüsse der umgebenden Aussen¬<lb/>
+welt oder der äusseren „Existenz-Bedingungen“ herbei¬<lb/>
+geführt werden. Diese Erfahrungen vergessen die Plasti¬<lb/>
+dule nicht. Sie übertragen vielmehr dieselben als Modi¬<lb/>
+fication der ursprünglichen Plastidul-Bewegung auf die<lb/>
+Nachkommen. So erklärt sich die <hi rendition="#g">Vererbung</hi> wesentlich<lb/>
+als die Uebertragung der individuellen Plastidul-Bewegung,<lb/>
+welche mit jedem Processe der <hi rendition="#g">Fortpflanzung</hi> noth¬<lb/>
+wendig verknüpft ist.</p><lb/>
+<p>In der generellen Morphologie (Bd. I., S. 154, Bd. II.,<lb/>
+S. 297) und in der natürlichen Schöpfungsgeschichte<lb/>
+<pb n="69" facs="#f0075"/>
+(VI. Aufl., S. 226, 300) hatte ich jede einzelne organische<lb/>
+Form als das nothwendige Product aus zwei mechanischen<lb/>
+Factoren abgeleitet, die man im Sinne der älteren Biologie<lb/>
+als „Bildungskräfte“ oder „Bildungstriebe“ bezeichnen<lb/>
+kann. Der innere Bildungstrieb oder die innere Gestal¬<lb/>
+tungskraft (von <hi rendition="#i">Goethe</hi> als der centripetale oder Specifi¬<lb/>
+cationstrieb bezeichnet) ist die <hi rendition="#g">Erblichkeit</hi> oder Here¬<lb/>
+ditaet. Der äussere Bildungstrieb oder die äussere Ge¬<lb/>
+staltungskraft (von <hi rendition="#i">Goethe</hi> der centrifugale oder Meta¬<lb/>
+morphosen-Trieb genannt) ist die Anpassungsfähigkeit oder<lb/>
+<hi rendition="#g">Variabilität</hi>. Letztere, bedingt das, was <hi rendition="#i">Baer</hi> als „Grad<lb/>
+der Ausbildung“, erstere das, was <hi rendition="#i">Baer</hi> als „Typus der<lb/>
+Bildung“ gegenüberstellt. Mit Rücksicht auf die Perige¬<lb/>
+nesis können wir jetzt den Gegensatz zwischen diesen<lb/>
+beiden fundamentalen formgestaltenden Kräften der Orga¬<lb/>
+nismen schärfer dahin präcisiren, dass wir sagen: <hi rendition="#g">Die<lb/>
+Erblichkeit ist das Gedächtniss der Plastidule</hi>,<lb/>
+<hi rendition="#g">die Variabilität ist die Fassungskraft der Plasti</hi>¬<lb/>
+<hi rendition="#g">dule</hi>. Jene bewirkt die Beständigkeit, diese die Mannich¬<lb/>
+faltigkeit der organischen Formen. In sehr einfachen und<lb/>
+sehr constanten Formen haben die Plastidule, cum grano<lb/>
+salis verstanden, „Nichts gelernt und Nichts vergessen.“<lb/>
+In sehr vollkommenen und variablen organischen Formen<lb/>
+haben die Plastidule „Viel gelernt und Viel vergessen.“<lb/>
+Als Beispiel für ersteres führe ich die Keimesgeschichte<lb/>
+des Amphioxus, als Beispiel für letzteres hingegen die¬<lb/>
+jenige des Menschen an (vergl. meine Anthropogonie, VIII.<lb/>
+und XIV. Vortrag).</p><lb/>
+<p>Die Unterschiede, welche meine Hypothese der Peri¬<lb/>
+genesis von <hi rendition="#i">Darwin's</hi> Hypothese der Pangenesis trennen,<lb/>
+<pb n="70" facs="#f0076"/>
+liegen auf der Hand. So wesentlich verschieden, wie<lb/>
+<hi rendition="#i">Darwin's</hi> „Gemmulae oder Lebenskeimchen“ von unseren<lb/>
+„Plastidulen oder Lebensmolekülen“, so grundverschieden<lb/>
+sind auch die molekularen Bewegungen, welche unsere<lb/>
+beiden Hypothesen in Anspruch nehmen. Die „Gemmulae“<lb/>
+der Pangenesis sind <hi rendition="#g">Molekül-Gruppen</hi>, welche „wachsen,<lb/>
+sich ernähren und durch Theilung vervielfältigen können,<lb/>
+gleich den Zellen selbst.“ Die „Plastidule“ der Perigenesis<lb/>
+hingegen sind <hi rendition="#g">Einzel-Moleküle</hi>, welche als solche alle<lb/>
+diese Eigenschaften <hi rendition="#g">nicht</hi> besitzen. Sie können blos ihre<lb/>
+individuelle Plastidul auf die benachbarten<lb/>
+Plastidule übertragen und durch Assimilation in ihrer<lb/>
+unmittelbaren Umgebung neue Plastidule von derselben<lb/>
+Beschaffenheit bilden, wie ein wachsender Krystall in der<lb/>
+Mutterlauge; sie können ferner ihre atomistische Zusammen¬<lb/>
+setzung in Folge äusserer Einflüsse sehr leicht ändern<lb/>
+und damit auch ihre Plastidul-Bewegung. <hi rendition="#i">Darwin</hi> nimmt<lb/>
+an, dass jede Zelle Theilchen an alle Theile des Körpers<lb/>
+abgiebt und dass alle Reproductions sowohl die<lb/>
+Eizellen und Spermazellen, welche die geschlechtliche<lb/>
+Zeugung, als auch die indifferenten Zellen, welche die un¬<lb/>
+geschlechtliche Zeugung vermitteln, abgegebene Gemmulae<lb/>
+von sämmtlichen Zellen des Organismus enthalten; und<lb/>
+nicht allein dieses Organismus, sondern auch aller seiner<lb/>
+Vorfahren. Wie diese in den Reproductions-Zellen sich<lb/>
+ordnen und den neuen Organismus bilden sollen, vermag<lb/>
+ich nicht einzusehen. Ja, mir scheint eine Entwickelungs¬<lb/>
+lehre auf dieser Basis mit der Zellen-Theorie, mit der<lb/>
+Plastiden-Theorie, mit unseren Erfahrungen über die succes¬<lb/>
+sive Differenzirung und Arbeitstheilung der Zellen im<lb/>
+<pb n="71" facs="#f0077"/>
+Laufe der Ontogenese überhaupt unvereinbar. Die Ar¬<lb/>
+beitstheilung und Generationsfolge der Zellen, auf welche<lb/>
+ich das Hauptgewicht lege, und die regelmässige Periodi¬<lb/>
+cität der Plastidulbewegung, welche diesen erworbenen<lb/>
+Process der Arbeitstheilung von Zeit zu Zeit wiederholt<lb/>
+und durch neue Erwerbungen complicirt, haben in der<lb/>
+Theorie der Pangenesis keinen Platz.</p><lb/>
+<p>Hingegen gründet sich meine Hypothese von der Pe¬<lb/>
+rigenesis der Plastidule auf das <hi rendition="#g">mechanische Princip<lb/>
+der übertragenen Bewegung</hi>, welches bereits <hi rendition="#i">Aristoteles</hi><lb/>
+als die wichtigste Ursache der individuellen Entwickelung<lb/>
+betrachtete. Dieser grosse Naturphilosoph lässt bei der<lb/>
+geschlechtlichen Fortpflanzung den Anstoss und den Be¬<lb/>
+ginn oder die Erregung der Entwickelungsbewegung vom<lb/>
+männlichen Samen ausgehen und von diesem auf den weib¬<lb/>
+lichen Zeugungsstoff übertragen. Auch bekämpft er aus¬<lb/>
+drücklich die in der Pangenesis enthaltene Vorstellung,<lb/>
+dass der Same von allen Theilen des Körpers herkomme.<lb/>
+Unsere Plastidule sind die constituirenden Moleküle des<lb/>
+Plasson, welche die Plastiden-Theorie, die erweiterte<lb/>
+„Protoplasma-Theorie“, als die einzigen activen Factoren<lb/>
+des Plastiden-Lebens anerkennt, während sie den übrigen<lb/>
+Gewebs-Molekülen dabei nur eine passive Rolle zutheilt.<lb/>
+Indem die schwingende Molekular-Bewegung dieser Pla¬<lb/>
+stidule, oder die Plastidul-Bewegung, sich bei der Ver¬<lb/>
+mehrung der Plastiden als <hi rendition="#g">„Vererbung“</hi> die neuge¬<lb/>
+bildeten Plastiden überträgt, gestaltet, sie sich zu einer<lb/>
+<hi rendition="#g">verzweigten</hi> Wellenbewegung, und indem bei den ver¬<lb/>
+schiedenen Descendenten die mannichfaltigen Existenzbe¬<lb/>
+dingungen einen unmittelbaren Einfluss auf die verschiedenen<lb/>
+<pb n="72" facs="#f0078"/>
+Zweige ausüben, entstehen durch „<hi rendition="#g">Anpassung</hi>“ neue<lb/>
+Formen. Durch Vererbung dieser Anpassungen auf die<lb/>
+späteren Descendenten entsteht die <hi rendition="#g">divergente Arbeits¬<lb/>
+theilung der Plastiden</hi>, welche wir als die wichtigste<lb/>
+Ursache der weiteren Entwickelung ansehen. So werden<lb/>
+die Wellenkreise der ramificirten Undulation immer zahl¬<lb/>
+reicher, mannichfaltiger und verwickelter, je weiter wir<lb/>
+die fortschreitende Perigenesis der Plastidule verfolgen.</p><lb/>
+<p>Alle die mannichfaltigen, verwickelten und merkwür¬<lb/>
+digen Erscheinungen, des biogenetischen Processes scheinen<lb/>
+mir im Lichte dieser Perigenesis einer einfachen mecha¬<lb/>
+nischen Erklärung von einem einheitlichen Gesichtspunkte<lb/>
+aus zugänglich zu werden. Hingegen habe ich mich ver¬<lb/>
+geblich bemüht, eine solche einfache mechanische Erklärung<lb/>
+mit Hülfe der Pangenesis zu erreichen, welche <hi rendition="#i">Darwin</hi><lb/>
+selbst als eine höchst complicirte Hypothese bezeichnet.<lb/>
+Auch alle die einzelnen Haupt-Erscheinungen der Ent¬<lb/>
+wickelung, welche derselbe an der Hand der Pangenesis-<lb/>
+Hypothese zu erklären sucht: Fortpflanzung und Ver¬<lb/>
+erbung, Ernährung und Anpassung, Rückschlag und<lb/>
+Generationswechsel, Hybridismus und Regeneration schei¬<lb/>
+nen wir durch die Pangenesis der Gemmulae keine mecha¬<lb/>
+nische und mit den Thatsachen des Zellenlebens und der<lb/>
+Keimesentwickelung vereinbare Erklärung zu finden.<lb/>
+Hingegen wird eine solche durch die Perigenesis der<lb/>
+Plastidule gegeben. <hi rendition="#i">Darwin</hi> sagt ausdrücklich, dass „alle<lb/>
+Formen der Reproduction abhängen von der <hi rendition="#g">Aggregation<lb/>
+von Gemmulae</hi>, welche von <hi rendition="#g">allen</hi> Theilen des Körpers<lb/>
+abgeleitet sind.“ Wir sagen hingegen: „Alle Formen<lb/>
+der Fortpflanzung hängen ab von der <hi rendition="#g">Uebertragung<lb/>
+<pb n="73" facs="#f0079"/>
+der Plastidul-Bewegung</hi>, welche bloss von dem <hi rendition="#g">zeu¬<lb/>
+genden</hi> Theile des Körpers auf die erzeugten Plastiden<lb/>
+direct übertragen wird, aber weiterhin vermöge des Ge¬<lb/>
+dächtnisses und der Arbeitstheilung der Plastidule die<lb/>
+Wellenbewegung der Vorfahren in den Nachkommen ganz<lb/>
+oder theilweise reproduciren kann.</p><lb/>
+<p>Was ich hier gegen die geistreiche Pangenesis-Theorie,<lb/>
+<hi rendition="#i">Darwin's</hi> einwende, das gilt zum Theil auch von der<lb/>
+scharfsinnigen Entwickelungs-Theorie, welche 1874 <hi rendition="#i">Elsberg</hi><lb/>
+in New-York als die Theorie von der „Regeneration oder<lb/>
+Präservation der organischen Moleküle“ veröffentlicht hat.<lb/>
+(Proceed. of the American Association, Hartford 1874.)<lb/>
+Jedoch treten hier an die Stelle der „Gemmules“ in<lb/>
+Uebereinstimmung mit unserer Plastiden-Theorie die<lb/>
+Plastidule. In der Auffassung der Plastidule als wirk¬<lb/>
+licher activer Plasson-Moleküle und in Bezug auf die fun¬<lb/>
+damentale Bedeutung des Plasson selbst, stimmt <hi rendition="#i">Elsberg</hi><lb/>
+wesentlich mit unserer Auffassung überein. Dagegen<lb/>
+nimmt er den Grundgedanken der Pangenesis in seine<lb/>
+Regenerations-Theorie auf. Er formulirt sie selbst in<lb/>
+folgenden Worten: „Der Keim jedes erzeugten lebenden<lb/>
+Wesens enthält Plastidule seiner ganzen Vorfahren-Reihe.<lb/>
+Ich nenne sie die Regenerations-Hypothese, weil ihr zu¬<lb/>
+folge die Vorfahren bis zu einem gewissen Grade körper¬<lb/>
+lich, und also auch in jeder anderen Beziehung, in ihrer<lb/>
+Nachkommenschaft wiedergeboren werden; oder die Hypo¬<lb/>
+these der Präservation der organischen Moleküle, weil sie<lb/>
+annimmt, dass gewisse Plastidule, wenn auch nicht für<lb/>
+immer, doch für lange Zeit, aufbewahrt und von Genera¬<lb/>
+tion zu Generation übertragen werden; oder ich könnte<lb/>
+<pb n="74" facs="#f0080"/>
+sie die Hypothese der Erhaltung der organischen Kräfte<lb/>
+nennen, was nach der eben gegebenen Deutung dasselbe<lb/>
+ausdrücken würde.“</p><lb/>
+<p>Wie hieraus und aus den weiteren Ausführungen von<lb/>
+<hi rendition="#i">Elsberg</hi> klar hervorgeht, stimmt er im Wesentlichsten mit<lb/>
+der Pangenesis-Hypothese <hi rendition="#i">Darwin</hi>'s überein, insofern hier<lb/>
+wie dort die materielle Uebertragung wirklicher Moleküle<lb/>
+durch die ganze Reihe der blutsverwandten Generationen<lb/>
+und somit die materielle Zusammensetzung jedes Keimes<lb/>
+aus körperlichen Theilchen seiner sämmtlichen Vorfahren<lb/>
+behauptet wird. Gerade diesem Grundgedanken aber tritt<lb/>
+unsere Perigenesis-Hypothese entgegen. Denn wir nehmen<lb/>
+eine unmittelbare Uebertragung der körperlichen Moleküle<lb/>
+nur vom zeugenden Individuum auf das Erzeugte an, aber<lb/>
+nicht auch von der älteren Vorfahren-Reihe her. Von<lb/>
+dieser wird nur die besondere Form der <hi rendition="#g">periodischen<lb/>
+Bewegung</hi> übertragen oder „vererbt“, und nur diese<lb/>
+fortdauernde „Wellenbewegung der Plastidule“ ist es.<lb/>
+welche vermöge des Gedächtnisses derselben auch die<lb/>
+Eigenschaften der älteren Vorfahren an den späteren<lb/>
+Nachkommen wieder in die Erscheinung treten lässt. Das<lb/>
+ist, ja gerade das Charakteristische der fortschreitenden<lb/>
+<hi rendition="#g">Wellenbewegung</hi>, dass die <hi rendition="#g">Wellenformen</hi> sich vom<lb/>
+Ausgangspunkte der Bewegung oder vom „Erregungs¬<lb/>
+centrum“ aus über weite Strecken und zahllose Theile der<lb/>
+bewegten Masse fortpflanzen können, trotzdem die beweg¬<lb/>
+ten Moleküle nur innerhalb sehr enger Grenzen, nur<lb/>
+innerhalb einer Wellenlänge sich hin und her bewegen,<lb/>
+und die Wellen selbst an Ort und Stelle bleiben; in sehr<lb/>
+sinnreicher und bezeichnender Weise nennen wir deshalb<lb/>
+<pb n="75" facs="#f0081"/>
+auch die Wellenbewegung eine <hi rendition="#g">Fortpflanzung</hi> der<lb/>
+Wellen. Diesen Sprachgebrauch umkehrend, kann man<lb/>
+auch die Fortpflanzung der Organismen als eine eigen¬<lb/>
+thümliche „Wellenbewegung“ auffassen.</p><lb/>
+<p>Abgesehen von dieser Differenz scheint mir <hi rendition="#i">Elsberg</hi><lb/>
+auch darin zu weit zu gehen, dass er die Zellen-Theorie<lb/>
+durch die histologischen Anschauungen von <hi rendition="#i">Beale</hi> und<lb/>
+<hi rendition="#i">Heitzmann</hi> für überwunden erklärt und die netzförmige An¬<lb/>
+ordnung der Plastidulreihen im Plasson oder der „formen¬<lb/>
+den Substanz“ für eine allgemeine und wesentliche Eigen¬<lb/>
+schaft aller Plastiden hält. Ich fasse dagegen diese netz¬<lb/>
+förmige Anordnung der Plastidul-Reihen in der „Inter¬<lb/>
+plastidul-Substanz“ als ein secundäres Phänomen auf und<lb/>
+nehme an, dass ursprünglich (z. B. in den einfachsten<lb/>
+Moneren) die Plastidule allein, dicht an einander gelagert,<lb/>
+den ganzen Plastiden-Körper bilden. Erst in Folge ihrer<lb/>
+weiteren bildenden Thätigkeit treten sie aus einander, lagern<lb/>
+„Interplastidul-Massen“ zwischen sich ab und können die<lb/>
+netzförmige Anordnung annehmen, welche wir so weit ver¬<lb/>
+breitet (wenngleich keineswegs allgemein) in den Cytoden<lb/>
+und Zellen wahrnehmen. Jedenfalls bleibt aber <hi rendition="#i">Elsberg</hi><lb/>
+im Rechte‚ wenn er die hohe Bedeutung der Plastidule<lb/>
+betont und sie als die eigentlichen activen Factoren des<lb/>
+Lebens-Processes ansieht.</p><lb/>
+<p>Die grossen Gruppen von Thatsachen, auf welche wir<lb/>
+unsere Perigenesis-Hypothese stützen, sind als empirische<lb/>
+Grundlagen der Entwickelungs-Lehre zum grössten Theile<lb/>
+längst anerkannt, und die darauf gegründeten Theorien,<lb/>
+die wir durch die Idee der Perigenesis zu einem Ganzen<lb/>
+verbunden haben, von den meisten Biologen gegenwärtig<lb/>
+<pb n="76" facs="#f0082"/>
+angenommen. Ueber die Begründung der Zellen-Theorie‚<lb/>
+von der wir ausgegangen sind, brauchen wir kein Wort<lb/>
+zu verlieren. Dass die active formbildende Lebenssubstanz<lb/>
+der Zellen, oder die materielle Basis der Lebens-Thätig¬<lb/>
+keiten, im Protoplasma und der nahverwandten Nucleus-<lb/>
+Substanz zu suchen ist‚ und dass alle anderen Theile der<lb/>
+Gewebe passive, von jenen gebildete Bestandtheile dar¬<lb/>
+stellen, ist neuerdings ebenso zur Anerkennung gelangt.<lb/>
+Die Moneren (und die ontogenetische Keimform der Mone¬<lb/>
+rula) zeigen uns‚ dass Protoplasma und Nucleus erst durch<lb/>
+Sonderung aus dem einfachen Plasson entstanden sind.<lb/>
+Hierauf gestützt glauben wir in unserer Plastiden-Theorie<lb/>
+gezeigt zu haben, dass alle die zahllosen Arten des Pro¬<lb/>
+toplasma und des Nucleus nur Modificationen einer ein¬<lb/>
+zigen fundamentalen Bildungssubstanz, des Plasson dar¬<lb/>
+stellen, und dass demnach als die eigentlichen, molekularen<lb/>
+Factoren des biogenetischen Processes die Plasson-Moleküle<lb/>
+oder die Plastidule zu betrachten sind. Diesen müssen wir<lb/>
+nothwendig eine eigenthümliche, durch ihre atomistische<lb/>
+Constitution bedingte Molecular-Bewegung zuschreiben.<lb/>
+Dass der biogenetische Process im Grossen und Ganzen<lb/>
+ebensowohl wie in allen einzelnen Theilen eine verzweigte<lb/>
+Wellenbewegung darstellt, wird wohl allgemein zugegeben<lb/>
+werden. Da wir nun aber die bewirkende Ursache dieser<lb/>
+höchst zusammengesetzten Wellenbewegung nur in der<lb/>
+molekularen Plastidul-Bewegung finden können, so müssen<lb/>
+wir auch letztere als eine Undulation auffassen.</p><lb/>
+<p>Wollten wir von streng mechanischem Standpunkt aus<lb/>
+für unsere Perigenesis-Hypothese den Werth einer <hi rendition="#g">Theorie</hi><lb/>
+der Entwickelung in Anspruch nehmen, so würden wir<lb/>
+<pb n="77" facs="#f0083"/>
+vor Allem den Charakter der <hi rendition="#g">periodischen Massen</hi>-<lb/>
+<hi rendition="#g">Bewegung</hi>, der verzweigten Wellen-Bewegung betonen,<lb/>
+den der biogenetische Process unstreitig besitzt. Als<lb/>
+hypothetisches Element bleibt dann in der Theorie eigent¬<lb/>
+lich nur noch die Summe von Eigenschaften übrig, welche<lb/>
+wir den Plastidulen oder den Plasson Molekülen zuschreiben.<lb/>
+Wir betrachten diese „Lebenstheilchen“ als die wahren<lb/>
+activen Factoren des Lebens-Processes und schreiben ihnen<lb/>
+ausser den Eigenschaften, die allen aus Atomen zusammen¬<lb/>
+gesetzten Massentheilchen oder Molekülen zukommen, eine<lb/>
+besondere Eigenschaft zu, welche sie als vitale Moleküle<lb/>
+vor den anderen auszeichnet. Diese Eigenschaft, die recht<lb/>
+eigentlich den lebendigen Organismus von dem nicht leben¬<lb/>
+digen Anorgane unterscheidet, ist die Fähigkeit des Ge¬<lb/>
+dächtnisses oder der Reproduction. Ohne diese Hypothese<lb/>
+scheinen uns die mannichfaltigen Phänomene der Zeugung<lb/>
+und Entwickelung überhaupt nicht verständlich zu sein.<lb/>
+Wie befriedigend sich die Annahme eines solchen unbe¬<lb/>
+wussten Plastidul-Gedächtnisses begründen lässt, das hat<lb/>
+<hi rendition="#i">Ewald Hering</hi> in der mehrfach hervorgehobenen Schrift<lb/>
+einleuchtend gezeigt. Hingegen ist es mir bei eingehendem<lb/>
+Nachdenken nicht möglich gewesen, irgend einen haltbaren<lb/>
+Grund gegen diese Hypothese aufzufinden. Demnach be¬<lb/>
+trachte ich das Gedächtniss oder die Reproductionskraft<lb/>
+der Plastiden als eine Function des Plasson, welche un¬<lb/>
+mittelbar durch die atomistische Zusammensetzung der<lb/>
+Plastidule bedingt ist.</p><lb/>
+<p>Von diesem Gesichtspunkte aus dürfen wir vielleicht<lb/>
+die Perigenesis als eine „mechanische Theorie“ im weiteren<lb/>
+Sinne bezeichnen, oder wenigstens als eine Hypothese,<lb/>
+<pb n="78" facs="#f0084"/>
+welche den Keim zu einer solchen in sich trägt. Was<lb/>
+noch besonders zu ihren Gunsten sprechen dürfte, ist ihre<lb/>
+grosse Einfachheit, in der Regel das Zeichen einer natur¬<lb/>
+gemässen Theorie. Wie einfach sind die Grundgedanken<lb/>
+der Gravitations-Theorie von <hi rendition="#i">Newton</hi>, der Undulations-<lb/>
+Theorie von <hi rendition="#i">Hüyghens</hi>, der Wärme-Theorie von <hi rendition="#i">Mayer</hi>, der<lb/>
+Zellen-Theorie von <hi rendition="#i">Schleiden</hi>, der Descendenz-Theorie von<lb/>
+<hi rendition="#i">Lamarck</hi> und der Selections-Theorie von <hi rendition="#i">Darwin!</hi> Und<lb/>
+doch werden durch diese einfachen Grundgedanken die<lb/>
+grössten und umfassendsten Massen verschiedenartiger That¬<lb/>
+sachen zu einem einheitlichen Ganzen verbunden und durch<lb/>
+eine gemeinsame Ursache erklärt. Ebenso einfach ist auch<lb/>
+der Grundgedanke einer verzweigten Wellenbewegung der<lb/>
+Plastidule, die wir als bewirkende mechanische Ursache<lb/>
+des biogenetischen Processes betrachten.</p><lb/>
+<p>Wenn die monistische Naturwissenschaft der Gegen¬<lb/>
+wart an uns mit Recht die Anforderung stellt, alle Natur-<lb/>
+Erscheinungen mechanisch zu erklären und mit Ausschluss<lb/>
+jeder Teleologie auf „bewirkende Ursachen“, auf „causae<lb/>
+efficientes“ zurückzuführen, so wird dieser ersten Anfor¬<lb/>
+derung durch unsere Perigenesis-Theorie genügt. Denn<lb/>
+rein mechanisch sind die Principien von der übertragenen<lb/>
+Massenbewegung und von der Erhaltung der Kraft, welche<lb/>
+derselben zu Grunde liegen. Rein mechanisch ist auch<lb/>
+das Princip der Autogonie, welches den ersten Anstoss zu<lb/>
+dieser übertragenen Bewegung aus jenen Atom-Bewegungen<lb/>
+herleitet, die bei der Bildung der ersten Plastidule statt¬<lb/>
+finden und deren eigenthümliche Plastidul-Bewegung be¬<lb/>
+wirken. Auf die <hi rendition="#g">Uebertragung</hi> dieser Plastidul-Bewe¬<lb/>
+gung konnten wir die Vererbung, auf die <hi rendition="#g">Abänderung</hi><lb/>
+<pb n="79" facs="#f0085"/>
+derselben die Anpassung zurückführen, die beiden Haupt-<lb/>
+Factoren der organischen Formbildung. So fügt sich der<lb/>
+biogenetische Process, als eine besondere und höchst ver¬<lb/>
+wickelte Form der periodischen Massen-Bewegung, ohne<lb/>
+Zwang in den gesetzmässigen Gang des gesammten Welt¬<lb/>
+processes ein, und die bewirkende Ursache desselben ist<lb/>
+die <hi rendition="#g">Perigenesis der Plastidule</hi>.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0086"/>
+</div> </body> <back> <div type="appendix" n="1"> <head>Erklärung der Tafel. </head><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Das Schema der Perigenesis, das diese Tafel darstellt, soll in ein¬<lb/>
+fachster Form die verwickelten Beziehungen versinnlichen, welche bei<lb/>
+jedem organischen Entwickelungs-Process zwischen den Descendenten<lb/>
+einer gemeinsamen Stammform durch die Wechselwirkung der Vererbung<lb/>
+und Anpassung bedingt werden. Die übertragene Bewegung der Plasti¬<lb/>
+dule, welche die <hi rendition="#g">Vererbung</hi> bewirkte, ist durch <hi rendition="#g">rothe</hi> Wellenlinien<lb/>
+angedeutet; hingegen der Einfluss der äusseren Existenz-Bedingungen,<lb/>
+welcher durch Abänderung der übertragenen Plastidul-Bewegung die<lb/>
+<hi rendition="#g">Anpassung</hi> bewirkt, durch schwarze Wellenlinien. Die Verschieden¬<lb/>
+heit der äusseren Existenz-Bedingungen, denen jedes organische Indivi¬<lb/>
+duum sich anpassen muss, ist durch die verschiedene Form der schwarzen<lb/>
+Körper angedeutet, hingegen die dadurch bewirkte Verschiedenheit der<lb/>
+inneren Plastidul-Bewegung durch die verschiedene schwarze Schraffirung<lb/>
+der rothen Kugeln. Je zwei kleine Kugeln sind durch Theilung der<lb/>
+darunter befindlichen grossen Kugel entstanden. Dieses Verhältniss ist<lb/>
+der Einfachheit halber angenommen und bis zur fünften Generation<lb/>
+fortgeführt. Das Schema passt ebenso wohl auf die Furchungszellen,<lb/>
+welche sich bei der regelmässigen totalen Ei-Furchung durch fortgesetzte<lb/>
+Zweitheilung vermehren, wie auf die entsprechende Stammesgeschichte<lb/>
+einer einzelligen Stammform. Aber auch in dem Stammbaum jedes<lb/>
+höheren, vielzelligen Organismus erscheint ebenso die individuelle Plasti¬<lb/>
+dul-Bewegung jedes einzelnen Individuums als das Product aus der<lb/>
+durch Vererbung übertragenen und der durch Anpassung abgeänderten<lb/>
+Wellenzeugung der Lebenstheilchen.</p> </div><lb/>
+<milestone unit="section" rendition="#hr"/> <div type="imprint"> <p rendition="#c">Druck von A. <hi rendition="#g">Haack</hi> in Berlin.</p> </div><lb/>
+<pb facs="#f0087"/>
+<figure> <head>Schema der Perigenesis</head><lb/>
+</figure>
+<pb facs="#f0088"/>
+<pb facs="#f0089"/>
+<pb facs="#f0090"/>
+<pb facs="#f0091"/>
+</back> </text> </TEI>

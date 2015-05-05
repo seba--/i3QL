@@ -1,0 +1,1585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">     <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Ueber die Lautgesetze</title>
+<title type="sub">Gegen die Junggrammatiker</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118611046">
+<surname>Schuchardt</surname>
+<forename>Hugo</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">56</measure>
+<measure type="tokens">9416</measure>
+<measure type="types">3082</measure>
+<measure type="characters">68502</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T09:25:13Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/schuchardt_lautgesetze_1885</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/schuchardt_lautgesetze_1885</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/schuchardt_lautgesetze_1885</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/schuchardt_lautgesetze_1885</idno>
+<idno type="DTADirName">schuchardt_lautgesetze_1885</idno>
+<idno type="DTAID">17254</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905195595</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Schuchardt, Hugo: Ueber die Lautgesetze. Gegen die Junggrammatiker. Berlin, 1885.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Ueber die Lautgesetze</title>
+<title level="m" type="sub">Gegen die Junggrammatiker</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118611046">
+<surname>Schuchardt</surname>
+<forename>Hugo</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">VI, 39 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Oppenheim</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1885</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">Göttingen SUB, 8 LING I, 804</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20LING%20I%2C%20804</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Sprachwissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Sprachwissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text>     <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007" n="[I]"/>
+<titlePage type="main">         <docTitle>           <titlePart type="main">UEBER DIE LAUTGESETZE.<lb/>
+</titlePart>           <titlePart type="sub">GEGEN DIE JUNGGRAMMATIKER.<lb/>
+</titlePart>         </docTitle>         <lb/>
+<byline>           <hi rendition="#k">Von</hi>           <lb/>
+<docAuthor>HUGO SCHUCHARDT.</docAuthor>         </byline>         <lb/>
+<figure/>         <milestone unit="section" rendition="#hr"/>         <docImprint><pubPlace>BERLIN</pubPlace>,<lb/>
+<publisher>VERLAG VON ROBERT OPPENHEIM.</publisher><lb/>
+<docDate>1885</docDate>.</docImprint>       </titlePage>       <lb/>
+<pb n="[II]" facs="#f0008"/>
+<div type="copyright">       <figure/>         <p><hi rendition="#c">Alle Rechte vorbehalten.</hi></p>       </div>
+<pb facs="#f0009" n="[III]"/>
+<div type="dedication">         <p>           <hi rendition="#c">Dem Junggrammatiker<lb/>
+<hi rendition="#g">Gustav Meyer</hi><lb/>
+freundnachbarlichst<lb/>
+zugeeignet.</hi>         </p>       </div>       <lb/>
+<pb facs="#f0010" n="[IV]"/>
+<pb facs="#f0011" n="[V]"/>
+<div type="bibliography">         <list>           <item>               <hi rendition="#k">A. Leskien</hi>, Die Declination im Slavisch-Litauischen und Germanischen.<lb/>
+Leipzig 1876.    S. XXVIII            </item>           <lb/>
+<item>               <hi rendition="#k">H. Osthoff₁</hi>  und <hi rendition="#k">K. Brugman</hi><!-- Fehler im Original -->₁,   Morphologische Untersuchungen  auf<lb/>
+dem Gebiete  der  indogermanischen Sprachen.    I. Th.    Leipzig<lb/>
+1878.   Vorwort.           </item>           <lb/>
+<item>               <hi rendition="#k">A. Bezzenberger</hi>,  Besprechung der vorgenannten Schrift in den Gött.<lb/>
+Gel. Anz. vom 21. u. 28. Mai 1879.           </item>           <lb/>
+<item>              <hi rendition="#k">H. Collitz</hi>, desgleichen im Anz. f. d. Alt. u. d. Litt. V. Bd.   Berlin 1879.           </item>           <lb/>
+<item>              <hi rendition="#k">K. Brugman<hi rendition="#sub">2</hi></hi> in Kuhn's Zeitschr. XXIV, 4 ff.    Berlin 1879.           </item>           <lb/>
+<item>               <hi rendition="#k">A. Brückner</hi> im Archiv für slav. Philol. III, 240 ff.    Berlin 1879.           </item>           <lb/>
+<item>             <hi rendition="#k">H. Paul₁</hi> in Paul  und Braune's  Beitr. z. G. d. d. Spr. u. Lit. VI, 1 ff.<lb/>
+Halle 1879.           </item>           <lb/>
+<item>             <hi rendition="#k">H. Osthoff<hi rendition="#sub">2</hi></hi>,   Das   physiologische  und  psychologische   Moment   in  der<lb/>
+sprachlichen   Formenbildung.     [Samml.   gemeinv.   wiss.   Vortr.<lb/>
+Heft 327.]    Berlin 1879.           </item>           <lb/>
+<item>             <hi rendition="#k">L. Tobler₁</hi>,  Über  die Anwendung des  Begriffes  von Gesetzen auf die<lb/>
+Sprache. [Vierteljahrsschr. f. wiss. Philos. III. Bd. Leipzig 1879.]           </item>           <lb/>
+<item>             <hi rendition="#k">F. Misteli</hi>, Lautgesetz   und   Analogie.     [Zeitschr.   f.   Völkerpsych.   u.<lb/>
+Sprachw.   XI. u. XII. Bd.    Berlin 1880.]           </item>           <lb/>
+<item>             <hi rendition="#k">B. Delbrück₁</hi>,   Einleitung   in   das   Sprachstudium.     Leipzig   1880.   —<lb/>
+<hi rendition="#sub">2</hi>Zweite Auflage. Leipzig 1884.           </item>           <lb/>
+<item>             <hi rendition="#k">H. Paul<hi rendition="#sub">2</hi></hi>, Principien der Sprachgeschichte. Halle 1880.           </item>           <lb/>
+<item>             <hi rendition="#k">L. Tobler<hi rendition="#sub">2</hi></hi>,  Besprechung   der  vorgenannten  Schrift in Behaghel's   und<lb/>
+Neumann's Literaturblatt vom April 1881.           </item>           <lb/>
+<item>             <hi rendition="#k">G. I. Ascoli</hi>,  Una lettera glottologica S. 7 ff. [Rivista di filol. e d'istr.<lb/>
+class. X. Bd. Torino 1881.]           </item>           <lb/>
+<item>             <hi rendition="#k">F. D'Ovidio</hi>, D'un recente libro di Delbrück S. 43 ff. [ebenda.]           </item>           <lb/>
+<item>             <hi rendition="#k">J. Schmidt₁</hi>, in Kuhn's Zeitschr. XXVI, 329 ff.   Berlin 1883.           </item>           <lb/>
+<item>             <hi rendition="#k">Н. Крушевскiй, Очеркъ Науки о языкъ. Казань</hi> 1883.           </item>           <lb/>
+<item>             <hi rendition="#k">F. Masing</hi>,  Lautgesetz und Analogie in der Methode der vergleichenden<lb/>
+Sprachwissenschaft. Petersburg 1883.           </item>           <lb/>
+<item>             <hi rendition="#k">W. Wundt</hi>, Logik II, 500. 550 ff. Stuttgart 1883.           </item>           <lb/>
+<item>             <hi rendition="#k">M. Bloomfield</hi>, On the Probability  of the Existence of Phonetic Law.<lb/>
+[American Journal of Philology. V. Bd. Baltimore 1884.]           </item>           <lb/>
+<lb/>
+<pb facs="#f0012" n="[VI]"/>
+<lb/>
+<item>             <hi rendition="#k">F. Müller</hi>,  Sind die Lautgesetze Naturgesetze? [Techmer's Zeitschr.<lb/>
+I.  Bd.   Leipzig 1884.]           </item>           <lb/>
+<item>             <hi rendition="#k">G. Körting</hi>, Encyklopädie und Methodologie der romanischen Philologie<lb/>
+II,  43 ff.   Heilbronn 1884.           </item>           <lb/>
+<item>             <hi rendition="#k">F. Neumann</hi> in der Zeitschr. f. rom. Philol. VIII, 363 f. Halle 1884.           </item>           <lb/>
+<item>             <hi rendition="#k">G. Curtius</hi>, Zur Kritik der neuesten Sprachforschung. Leipzig 1885.           </item>           <lb/>
+<item>             <hi rendition="#k">J. Schmidt<hi rendition="#sub">2</hi></hi>, Besprechung der vorgenannten Schrift in der Deutschen<lb/>
+Litteraturzeitung vom 7. März 1885.           </item>           <lb/>
+<item>             <hi rendition="#k">K. Brugmann<hi rendition="#sub">3</hi></hi>, Zum heutigen Stand der Sprachwissenschaft.   Strassburg<lb/>
+1885.             <lb/>
+</item>           <item>             <hi rendition="#k">B. Delbrück<hi rendition="#sub">3</hi></hi>, Die neueste Sprachforschung.   Betrachtungen über Georg<lb/>
+Curtius' Schrift Z. Kr. d. n. Sprachf.   Leipzig 1885.           </item>           <lb/>
+<item>             <hi rendition="#k">P. Merlo</hi>,  Cenni sullo stato presente della grammatica ariana istorica e<lb/>
+preistorica  a proposito di un libro di G. Curtius. [Rivista di<lb/>
+filol. e d'istr. class. XIV. Bd. Torino 1885.]<lb/>
+</item>         </list>       </div>     </front>     <body>
+<pb facs="#f0013" n="[1]"/>
+<lb/>
+<div n="1">         <p><hi rendition="#in">D</hi>er einzige Satz den die sog. junggrammatische<lb/>
+Schule als ihr ausschliessliches Eigenthum betrachten<lb/>
+darf, ist der von der <hi rendition="#g">ausnahmslosen Wirkung<lb/>
+der Lautgesetze</hi>. Er tritt auch in Schriften auf<lb/>
+welche weniger für die Adepten als für die Lehrlinge<lb/>
+und Laien bestimmt sind, und zwar trotz des lebhaf-<lb/>
+testen dagegen erhobenen Widerspruches, ja zum Theil<lb/>
+ohne jeden Hinweis auf ihn. Immerhin würde ich<lb/>
+dem von gewisser Seite gemachten Vorschlag die<lb/>
+Streitaxt bis auf Weiteres zu vergraben, bereitwillig<lb/>
+Folge leisten, wenn sich zwei Parteien mit ganz ein-<lb/>
+heitlichen Bekenntnissformeln gegenüberstünden, es<lb/>
+also nur eines Wortes zur Kennzeichnung des eigenen<lb/>
+Standpunktes bedürfte. Dies ist nicht der Fall: die-<lb/>
+selbe Sache wird auf ziemlich verschiedene Weise ver-<lb/>
+fochten; die Discussion bewegt sich meist nicht in<lb/>
+strengen Geleisen, sondern verliert sich gern in Special-<lb/>
+fragen der indogermanischen Sprachgeschichte; Manche<lb/>
+scheinen da wo es nur eine Alternative zwischen Ja<lb/>
+und Nein gibt, eine Vermittelung für möglich zu<lb/>
+halten, Manche schwanken, Manche schweigen. Wieder-<lb/>
+holte gelegentliche Ausserungen stellen vielleicht gegen<lb/>
+die Gefahr eines falschen Verdachtes nicht hinlänglich<lb/>
+sicher, und so möge man es mir nicht verdenken dass<lb/>
+ich meinerseits  die von  allem Anfang  an  stark  em-<lb/>
+<fw type="sig" place="bottom">Schuchardt, Über die Lautgesetze. 1</fw><lb/>
+<lb/>
+<pb facs="#f0014" n="2"/>
+pfundene Abneigung gegen das junggrammatische Prin-<lb/>
+cip nun endlich zum Ausdruck bringe. Das Meiste<lb/>
+was ich sage, ist freilich schon gesagt worden, und<lb/>
+theilweise gewiss besser; indessen hoffe ich durch<lb/>
+schematische Kürze und Hervorhebung einiger mehr<lb/>
+oder minder unbeachtet gebliebenen Punkte auch auf<lb/>
+die Stellungnahme Anderer in dieser allerwichtigsten<lb/>
+Angelegenheit einen fördernden Einfluss auszuüben.<lb/>
+Die vorangesetzte Liste von Schriften und Stellen ist<lb/>
+nach keinem bestimmten Grundsatz angefertigt wor-<lb/>
+den; sie umfasst nur das was ich bei meiner Arbeit<lb/>
+gerade zu Händen gehabt habe.</p>         <lb/>
+<p>Die Natur des vorliegenden Satzes schliesst, wie<lb/>
+dies von junggrammatischer Seite selbst zugestanden<lb/>
+wird, die <hi rendition="#g">inductive</hi> Beweisführung aus. Die bis-<lb/>
+herigen Versuche einer <hi rendition="#g">deductiven</hi> aber betrachte<lb/>
+ich als misslungen; sie leiden an starken, mannig-<lb/>
+fachen Unterschiebungen: man fasst minimale Diffe-<lb/>
+renzen als Nullen, Übergänge als Gegensätze, Empi-<lb/>
+risches als Apriorisches, Complicirtes als Einfaches.<lb/>
+Dass nun bei dem deductiven Charakter der folgenden<lb/>
+Darstellung die hie und da vorgebrachten Beispiele<lb/>
+nur den Dienst der Veranschaulichung leisten, das zu<lb/>
+bemerken ist vielleicht nicht überflüssig; die Wider-<lb/>
+legung seitens der Gegner müsste sich nicht auf die<lb/>
+einzelne Thatsache, sondern auf die allgemeine Mög-<lb/>
+lichkeit beziehen.</p>         <lb/>
+<p>In dem Urtheil: „die Lautgesetze wirken aus-<lb/>
+nahmslos“, ruft sowohl das <hi rendition="#g">Subject</hi> wie das <hi rendition="#g">Prä</hi>-<lb/>
+<hi rendition="#g">dicat</hi> gewichtige Bedenken hervor.</p>         <lb/>
+<p>Wenn <hi rendition="#g">Wundt</hi> hier ein logisches Postulat erblickt,<lb/>
+so rührt dies daher dass er den Ausdruck „<hi rendition="#g">Laut</hi>-<lb/>
+<hi rendition="#g">gesetze</hi>“ schon im juuggrammatischen Sinne nimmt,<lb/>
+<lb/>
+<pb facs="#f0015" n="3"/>
+während doch so viel gesagt sein soll wie: „was man<lb/>
+bisher als Lautgesetze bezeichnet hat, das sind wirk-<lb/>
+liche, d. h. ausnahmslose Gesetze, im Sinne der Natur-<lb/>
+gesetze“. Mehr empfiehlt sich daher die Formulirung:<lb/>
+„der Lautwandel geht nach ausnahmslosen Gesetzen<lb/>
+vor sich“. Jene Zusammenfassung der Lautgesetze<lb/>
+mit den Naturgesetzen, auf welche man sich zuerst<lb/>
+soviel zu Gute that, wurde später, besonders nach der<lb/>
+vortrefflichen, leider nicht allgemein gewürdigten Dar-<lb/>
+stellung <hi rendition="#g">Tobler₁'s</hi> von den Führern wieder aufgegeben.<lb/>
+Wenn Andere, wie <hi rendition="#g">Körting</hi>, sie noch beibehalten, so<lb/>
+erscheint mir dies durchaus consequent; durch die-<lb/>
+selben Umstände durch welche die Ähnlichkeit der<lb/>
+Lautgesetze mit den Naturgesetzen, wird auch ihre<lb/>
+Ausnahmslosigkeit hinfällig. Der Ausdruck „Laut-<lb/>
+gesetze“ ist noch in einer anderen Hinsicht unzweck-<lb/>
+mässig. Obwohl ich ihn hier immer, dem allgemeinen<lb/>
+Gebrauche folgend, von Gesetzen des Lautwandels ver-<lb/>
+stehe, so kann man ihn mit gleichem oder mit grös-<lb/>
+serem Rechte auf solche des Lautbestandes beziehen.<lb/>
+Das thut <hi rendition="#g">Kruszewski</hi>, und zwar spricht er diesen, den<lb/>
+statischen Gesetzen Absolutheit zu; in Bezug auf die<lb/>
+anderen, die dynamischen erscheinen mir seine Äus-<lb/>
+serungen nicht völlig übereinstimmend.</p>         <lb/>
+<p>Das Wort „<hi rendition="#g">Ausnahme</hi>“ drückt ein ganz äusser-<lb/>
+liches Verhältniss aus, schliesst keinen Hinweis auf die<lb/>
+wirkenden Kräfte in sich; man macht darum über-<lb/>
+haupt und besonders im gegebenen Falle zwischen<lb/>
+scheinbaren und wirklichen Ausnahmen einen unbe-<lb/>
+gründeten Unterschied. Die Ausnahmen von welchen<lb/>
+bei der Ausnahmslosigkeit der Lautgesetze abgesehen<lb/>
+werden soll, bestehen in der Kreuzung mit anderen<lb/>
+Lautgesetzen, in der dialektischen Mischung und in<lb/>
+<fw type="sig" place="bottom">1*</fw><lb/>
+<lb/>
+<pb facs="#f0016" n="4"/>
+der Einwirkung begrifflicher Associationen. Von diesen<lb/>
+drei Factoren erheischt der erste für unseren Zweck<lb/>
+keine nähere Prüfung, der zweite wird eine solche<lb/>
+gelegentlich der örtlichen Begrenztheit finden, der<lb/>
+dritte sofort. Er steht im Vordergrund der jung-<lb/>
+grammatischen Ausführungen, man bringt ihn geradezu<lb/>
+in Antithese zu der lautlichen Gesetzmässigkeit, als<lb/>
+den „psychologischen" zum „physiologischen“ Factor.</p>         <lb/>
+<p>Die Frage nach der <hi rendition="#g">äusseren Beziehung</hi>,<lb/>
+dem Rangverhältniss der beiden Factoren zueinander<lb/>
+hat schon <hi rendition="#g">Tobler<hi rendition="#sub">2</hi></hi> aufgeworfen und die Schwierig-<lb/>
+keiten der Beantwortung mit feinstem Verständniss<lb/>
+dargethan. Es besteht zunächst die Möglichkeit der<lb/>
+Unterordnung: der eine Factor ist der constitutive<lb/>
+oder normale, der andere der störende oder anomale.<lb/>
+Man hat dann als den letzteren den psychologischen<lb/>
+gedacht. Allein wenn man sich hierbei auf den äusseren<lb/>
+Anschein beruft, so frägt es sich ob nicht Fälle nach-<lb/>
+zuweisen sind — <hi rendition="#g">Tobler<hi rendition="#sub">2</hi></hi> weiss Nichts davon — in<lb/>
+denen grosse analogische Gruppen durch vereinzelte<lb/>
+Wirkungen von Lautgesetzen beeinträchtigt erscheinen.<lb/>
+Im Spanischen und Portugiesischen gehen sämmtliche<lb/>
+alten Participien auf -<hi rendition="#i">udo</hi> jetzt auf -<hi rendition="#i">ido</hi> aus; konnte<lb/>
+nicht eines oder das andere aus rein lautlichem Grunde<lb/>
+bleiben, etwa <hi rendition="#i">sabudo</hi> wegen des dem <hi rendition="#i">u</hi> verwandten <hi rendition="#i">b</hi>?<lb/>
+Und haben nicht vielleicht wirklich solche „mecha-<lb/>
+nischen“ Ursachen im Verlauf dieses Processes einen<lb/>
+retardirenden Einfluss geübt? Zu dergleichen beson-<lb/>
+deren Betrachtungen tritt nun noch das allgemeine<lb/>
+Bedenken den Eingriff einer Art Caprice in eine feste<lb/>
+Ordnung zuzugeben, und so werden wir von allen<lb/>
+Seiten zu der Erkenntniss gedrängt dass Gesetzmässig-<lb/>
+keit   dem   psychologischen   wie   dem   physiologischen<lb/>
+<lb/>
+<pb facs="#f0017" n="5"/>
+Sprachprincip innewohnt, mit anderen Worten, dass<lb/>
+beide zu coordiniren sind. Die Peripherieen ihrer<lb/>
+Machtkreise durchschneiden sich vielfach; welches über<lb/>
+das andere siegt, das hängt von den jedesmaligen Um-<lb/>
+ständen ab. Zur vollständigen Lösung des Problems<lb/>
+fehlt indessen noch Eines. <hi rendition="#g">Tobler<hi rendition="#sub">2</hi></hi> weist darauf hin<lb/>
+dass „heterogene Kräfte sich nicht ausgleichen, ja<lb/>
+eigentlich überhaupt einander nirgends berühren kön-<lb/>
+nen“. Es wird kaum von vornherein die Heterogenität<lb/>
+von Kräften sich bestimmen lassen; sie ergibt sich<lb/>
+eben erst aus der absoluten Getrenntheit ihrer Wir-<lb/>
+kungen. Der Wille vermag im eigenen Körper sub-<lb/>
+stantielle Veränderungen nicht zu hemmen, wohl aber<lb/>
+Reflexbewegungen, und das erklärt sich daraus dass<lb/>
+diese weiter nichts als mechanisch gewordene Willens-<lb/>
+handlungen sind. Der Fall der uns beschäftigt, ist<lb/>
+ein ähnlicher. Wo die rein physiologische Ursache<lb/>
+einer Lautvertretung ausser Zweifel steht, als eigen-<lb/>
+thümliche Gestaltung, als natürlicher oder künstlicher<lb/>
+Defect der Sprachwerkzeuge, da sind analogische Aus-<lb/>
+nahmen unmöglich; wo wir daher solche finden, da<lb/>
+haben wir den Gedanken an rein physiologische Wir-<lb/>
+kungen aufzugeben. Der psychologische Charakter des<lb/>
+einen der sich durchkreuzenden Factoren bezeugt gerade<lb/>
+den gleichartigen Charakter des anderen; hat das etwa<lb/>
+schon G. <hi rendition="#g">Curtius</hi> gemeint, wenn er Studien z. gr. u.<lb/>
+lat. Gr. IX, 232 (1876) sagt: „Unter allen Umständen<lb/>
+muss aber die Analogie bewirkende Macht der ihrem<lb/>
+Einfluss unterliegenden sehr ähnlich sehen“?</p>         <lb/>
+<p>So verschwimmt die Antithese vor unseren Augen,<lb/>
+und das Problematische der äusseren Beziehung zwischen<lb/>
+den beiden Factoren klärt sich auf, indem wir ihre<lb/>
+<hi rendition="#g">innere Beziehung</hi> richtig erfassen. Mancher vor-<lb/>
+<lb/>
+<pb facs="#f0018" n="6"/>
+bereitende Schritt ist in dieser Richtung geschehen.<lb/>
+Obwohl <hi rendition="#g">Osthoff<hi rendition="#sub">2</hi></hi> auf's Schroffste das physiologische<lb/>
+und psychologische Moment in der formalen Sprach-<lb/>
+bildung gegeneinander hielt, so war doch schon in<lb/>
+den „Morphologischen Untersuchungen“ das Mitwir-<lb/>
+ken „psychischer Factoren“ beim Lautwandel bemerkt<lb/>
+worden. <hi rendition="#g">Misteli</hi> deckte die Widersprüche auf in die<lb/>
+sich hierbei <hi rendition="#g">Osthoff₁</hi> und <hi rendition="#g">Brugmann₁</hi> verwickelt hat-<lb/>
+ten, aber auch seiner Vertheilung lautgeschichtlicher<lb/>
+Processe zwischen Physiologie und Psychologie kann<lb/>
+ich deswegen nicht beistimmen weil sie von einem<lb/>
+opportunistischen Gesichtspunkt aus vorgenommen ist,<lb/>
+der dann in der Schlussbetrachtung noch stärker her-<lb/>
+vortritt. Das Schwanken der Junggrammatiker hat<lb/>
+sich in die Darstellung von <hi rendition="#g">Wundt</hi> verpflanzt, der ja<lb/>
+von ihnen besonders belehrt worden zu sein scheint.<lb/>
+Wenn er zuerst neben den physiologischen Bedingungen<lb/>
+des Lautwechsels „tiefer liegende psychologische Mo-<lb/>
+tive, die wahrscheinlich sogar die ursprünglicheren<lb/>
+sind“, nicht verkannt wissen will, so spricht er später<lb/>
+nur von dem Einfluss physiologischer Factoren bei den<lb/>
+Lautveränderungen; das führt ihn dazu, nachdem er<lb/>
+behauptet hat dass „die Sprache von Naturbedin-<lb/>
+gungen nicht in wesentlich anderer Weise als andere<lb/>
+historische Entwickelungen abhängig“ sei, gleich darauf<lb/>
+von einem „naturgesetzlichen Charakter“ zu reden, dem<lb/>
+„sich freilich die verschiedenen Gebiete des sprach-<lb/>
+lichen Lebens keineswegs in gleichem Grade fügen“.<lb/>
+Der Unterschied in der Charakterisirung welchen<lb/>
+dabei <hi rendition="#g">Wundt</hi> zwischen dem Gegenstand und der Me-<lb/>
+thodik der Sprachwissenschaft macht, leuchtet mir nicht<lb/>
+ein. Mit Erstaunen lese ich bei <hi rendition="#g">Brugmann<hi rendition="#sub">3</hi></hi> dass<lb/>
+„unter  denen  die  sich <hi rendition="#g">Leskien</hi> anschlossen, bis zum<lb/>
+<lb/>
+<pb facs="#f0019" n="7"/>
+Erscheinen des <hi rendition="#g">Curtius</hi>'schen Buches“ auch die psy-<lb/>
+chische Natur der Lautgesetze festgestanden habe; er<lb/>
+hat dabei vor Allem seinen Mitarbeiter <hi rendition="#g">Osthoff<hi rendition="#sub">2</hi></hi> ver-<lb/>
+gessen, und zudem dass die von diesem in so weitem<lb/>
+Umfang angenommene Unfähigkeit der Sprachwerk-<lb/>
+zeuge zur Hervorbringung gewisser Laute in geringem<lb/>
+Umfang wirklich existirt. Ich habe es eben schon<lb/>
+ausgesprochen dass diejenigen Lautgesetze welche<lb/>
+durch die Analogie gestört werden können, psycho-<lb/>
+logisch bedingt sind; dies bestätigt sich nun dadurch<lb/>
+dass zwischen den Erscheinungen der beiden Kate-<lb/>
+gorieen keine Kluft, sondern ein Übergang wahrnehm-<lb/>
+bar ist, der sich etwa in folgender Reihe romanischer<lb/>
+Beispiele andeuten lässt: <hi rendition="#i">conte</hi> = <hi rendition="#i">comite</hi>, <hi rendition="#i">dunque</hi> = <hi rendition="#i">nunc</hi>,<lb/>
+<hi rendition="#i">treatro</hi> = <hi rendition="#i">theatro</hi>, <hi rendition="#i">eglino amano</hi> = <hi rendition="#i">egli amano</hi>, <hi rendition="#i">non grieve<lb/>
+ma lieve</hi> = <hi rendition="#i">non grave magis leve</hi>. Es werden nicht<lb/>
+nur unmittelbar folgende, sondern auch entferntere<lb/>
+lautliche Vorstellungen anticipirt, und wiederum be-<lb/>
+ruhen die Analogiebildungen zum grossen Theil nicht<lb/>
+bloss auf einer ideellen, sondern auf einer thatsäch-<lb/>
+lichen Nebeneinanderstellung von Wörtern; insofern<lb/>
+können wir sie als eine höhere Ordnung von Assi-<lb/>
+milationen auffassen. Anderseits lassen sich nicht<lb/>
+selten Erscheinungen bei denen durchaus keine be-<lb/>
+grifflichen Beziehungen im Spiele sind, auf ideelle<lb/>
+Nebeneinanderstellung zurückführen, und da können<lb/>
+wir von einer niedrigeren Ordnung von Analogie-<lb/>
+bildungen reden. So begünstigt die Häufigkeit ge-<lb/>
+wisser Lautcomplexe die Neubildung identischer (z. B.<lb/>
+<hi rendition="#i">ié</hi> = <hi rendition="#i">ie</hi> in ital. <hi rendition="#i">pièta</hi>), oder die Häufigkeit eines ge-<lb/>
+wissen Lautwandels wird zur Allgemeinheit. Ich habe<lb/>
+vor langen Jahren den Gedanken geäussert dass im<lb/>
+Italienischen (und  im Romanischen überhaupt)  <hi rendition="#i">ie</hi>, <hi rendition="#i">uo</hi><lb/>
+<lb/>
+<pb facs="#f0020" n="8"/>
+= vulgärlat. <hi rendition="#i">ē̜</hi>, <hi rendition="#i">ō̜</hi> ursprünglich, wie noch jetzt in man-<lb/>
+chen Dialekten, an ein folgendes <hi rendition="#i">i</hi> oder <hi rendition="#i">u</hi> gebunden<lb/>
+war: <hi rendition="#i">vieni</hi>, <hi rendition="#i">buonu</hi>, <hi rendition="#i">buoni</hi>. Zunächst würde es durch<lb/>
+begriffliche Analogie ausgedehnt worden sein: <hi rendition="#i">viene</hi>,<lb/>
+<hi rendition="#i">buona</hi>, dann aber auch ohne eine solche: <hi rendition="#i">pietra</hi>, <hi rendition="#i">ruota</hi>,<lb/>
+und Formen wie <hi rendition="#i"><foreign xml:lang="lat">bene</foreign></hi>, <hi rendition="#i"><foreign xml:lang="lat">bove</foreign></hi> (Plur. <hi rendition="#i">buoi</hi>), <hi rendition="#i">nove</hi> (gegenüber<lb/>
+<hi rendition="#i">nuovo</hi>) würden eben die letzten uneroberten Plätze<lb/>
+bedeuten. Ich weiss nicht ob meine Annahme von<lb/>
+einer <hi rendition="#g">rein lautlichen Analogie</hi> etwas ganz Neues<lb/>
+ist; aus <hi rendition="#k">Bloomfield</hi>'s Citat zu schliessen, scheint<lb/>
+<hi rendition="#g">Easton</hi> in einem mir nicht bekannten Artikel zu ähn-<lb/>
+lichem Ergebniss gekommen zu sein. Ich bin jeden-<lb/>
+falls weit davon entfernt einen neuen Gegensatz auf-<lb/>
+zustellen, nachdem ich die Überzeugung von der Un-<lb/>
+haltbarkeit des früheren gewonnen habe; es wird sich<lb/>
+innerhalb der Gesammtheit der Analogieerscheinungen<lb/>
+die Thätigkeit begrifflicher Associationen kaum mit<lb/>
+Sicherheit begrenzen lassen. In den Sprachen in wel-<lb/>
+chen jetzt alle Wörter auf der ersten Silbe betont<lb/>
+sind, war es ursprünglich nur die Mehrzahl, insofern<lb/>
+die erste Silbe auch die bedeutungsvollste war; hat<lb/>
+nun die Mehrzahl in Bausch und Bogen auf die Minder-<lb/>
+zahl gewirkt, oder hat der Fortschritt ganz allmählich,<lb/>
+immer nur zwischen begrifflich verwandten Wörtern<lb/>
+stattgefunden? Zuweilen ist die begriffliche Beziehung<lb/>
+eine so allgemeine dass man sie leicht übersieht;<lb/>
+Manche pflegen z. B. die mehreren Sprachen gemein-<lb/>
+same Verwandlung jedes tönenden Auslautes in den<lb/>
+entsprechenden tonlosen als ein reines Lautgesetz zu<lb/>
+betrachten, während es als solches nur vor tonlosem<lb/>
+Anlaut gelten kann, und die Verallgemeinerung auf<lb/>
+der Bedeutungsidentität beruht. Über das Einzelne<lb/>
+mögen Zweifel noch obwalten; aber im Ganzen sollte<lb/>
+<lb/>
+<pb facs="#f0021" n="9"/>
+man doch die Einheitlichkeit des Sprachlebens zu-<lb/>
+geben, es sich nicht als den Widerstreit eines Ormuzd<lb/>
+und Ahriman vorstellen.</p>         <lb/>
+<p>Wenn ein Naturforscher zum ersten Mal von der<lb/>
+Ausnahmslosigkeit der Lautgesetze hört, so wird er<lb/>
+wahrscheinlich an immer und überall geltende Laut-<lb/>
+gesetze denken. Solche sind ja bei den gleichen Grund-<lb/>
+bedingungen aller Sprachthätigkeit nicht nur möglich,<lb/>
+man sollte sie geradezu erwarten. Warum hält der<lb/>
+Lautwandel nicht wenigstens im grossen Ganzen die-<lb/>
+selbe Richtung ein, sodass z. B. aus der Tenuis die<lb/>
+Media, aus dem Diphthongen der Monophthong, aber<lb/>
+nicht umgekehrt, entstehen kann? Verständigt man<lb/>
+nun jenen Laien darüber dass dergleichen allgemeine<lb/>
+Lautgesetze noch nicht entdeckt sind, dass vielmehr<lb/>
+allen bisher ermittelten Lautgesetzen eine verhältniss-<lb/>
+mässig enge räumliche und zeitliche Begrenztheit<lb/>
+eignet, so wird er hier jene absolute Nothwendigkeit<lb/>
+vermissen welche stets als Voraussetzung ausnahms-<lb/>
+loser Gesetze erscheint. Die räumliche und zeitliche<lb/>
+Relativität der Lautgesetze ist nicht einmal eine ein-<lb/>
+fache, sondern eine complicirte. Wenn z. B. innerhalb<lb/>
+<hi rendition="#i">A</hi> und <hi rendition="#i">B</hi> das Gesetz (<hi rendition="#i">r</hi>)<hi rendition="#sup">a</hi>, innerhalb <hi rendition="#i">C</hi> und <hi rendition="#i">D</hi> : (<hi rendition="#i">r</hi>)<hi rendition="#sup">b</hi>,<lb/>
+anderseits innerhalb <hi rendition="#i">A</hi> : (<hi rendition="#i">s</hi>)<hi rendition="#sup">a</hi>, innerhalb <hi rendition="#i">B</hi> und <hi rendition="#i">C</hi> : (<hi rendition="#i">s</hi>)<hi rendition="#sup">b</hi>,<lb/>
+innerhalb <hi rendition="#i">D</hi> :(<hi rendition="#i">s</hi>)<hi rendition="#sup">c</hi> herrscht, so umschliessen sich die<lb/>
+Grenzlinien der Lautgesetze für die beiden verschie-<lb/>
+denen Elemente nicht nur, sie schneiden sich auch;<lb/>
+die Beziehung der Lautgesetze zu ihrer <hi rendition="#g">äusseren<lb/>
+Ausdehnung</hi> trägt den Charakter einer wechseln-<lb/>
+den und zufälligen. In der That liegt hier die schwächste<lb/>
+Position der Junggrammatiker, hier sind sie am Ener-<lb/>
+gischsten angegriffen worden, hier wird ihre Abwehr<lb/>
+zum langsamen Rückzug.</p>         <lb/>
+<lb/>
+<pb facs="#f0022" n="10"/>
+<p>„Die Lautgesetze wirken ausnahmslos <hi rendition="#g">innerhalb<lb/>
+desselben Dialektes</hi>.“ In dem Ausdruck „ein<lb/>
+und derselbe Dialekt“ steckt eine Unklarheit; wir<lb/>
+wissen nicht ob wir ihn a priori oder a posteriori zu<lb/>
+fassen haben (ob wir z. B. sagen sollen: „im Dialekt<lb/>
+von Neapel, in dem von Rom, in dem von Florenz u. s. w.<lb/>
+ist lat. <hi rendition="#i">k</hi> vor <hi rendition="#i">e</hi> und <hi rendition="#i">i</hi> zu <hi rendition="#i">č</hi> geworden“ oder: „<hi rendition="#i">č</hi> = <hi rendition="#i">k</hi><hi rendition="#sup">e, i</hi><lb/>
+herrscht in der Sprache von ganz Süd- und Mittel-<lb/>
+italien“). Das Letztere empfiehlt der damit verbundene<lb/>
+Ausdruck „ein und dieselbe Periode“, welcher nur so<lb/>
+genommen werden kann; das Erstere aber die prin-<lb/>
+cipielle Erwägung, und so pflegt man denn in der That<lb/>
+hier unter „Dialekt“ eine ganz einheitliche Sprach-<lb/>
+gemeinschaft zu verstehen. Allein gibt es die? Selbst<lb/>
+<hi rendition="#g">Delbrück</hi> steigt, um eine wirkliche Einheitlichkeit<lb/>
+zu finden, innerhalb deren die Ausnahmslosigkeit der<lb/>
+Lautgesetze gelte, zur Individualsprache herab und<lb/>
+zwar zu deren Momentandurchschnitt. Ob diese Be-<lb/>
+schränkung des junggrammatischen Satzes nicht eigent-<lb/>
+lich ihn aufhebt, oder wenigstens seinen praktischen<lb/>
+Werth, das will ich nicht weiter untersuchen (<hi rendition="#k">Tobler₁</hi><lb/>
+schon hatte gesagt: „je enger die Kreise werden, um<lb/>
+so mehr nähern sie sich dem Individuellen, welches<lb/>
+niemals von Gesetzen erschöpft werden kann“); mir<lb/>
+aber geschieht nicht einmal damit genüge, mir scheint<lb/>
+nicht einmal in, diesem Falle nothwendige Einheitlich-<lb/>
+keit erweislich. So weit directe Beobachtung an uns<lb/>
+selbst oder an Anderen reicht, ist die Aussprache des<lb/>
+Individuums von Schwankungen nie frei, worunter<lb/>
+ich natürlich keine in strenger Gemässheit der Zeit-<lb/>
+folge auftretenden Veränderungen begreife. Mit dieser<lb/>
+endlosen Sprachspaltung geht endlose Sprachmischung<lb/>
+Hand in Hand. Die Beeinflussung des einen Dialektes<lb/>
+<lb/>
+<pb facs="#f0023" n="11"/>
+durch den anderen, welche den Junggrammatikern<lb/>
+zufolge eine Störung der ausnahmslosen Lautgesetze<lb/>
+bewirkt, und die Ausgleichung der Individualsprachen,<lb/>
+welche denselben Junggrammatikern zufolge ausnahms-<lb/>
+lose Lautgesetze erst ermöglicht, diese Processe von<lb/>
+conträrer Wirkung sind im Wesen gleich, sie sind nur<lb/>
+verschiedene Mischungsstufen. Man sieht aber nicht<lb/>
+ein warum sich aus dem beständigen Widerstreit der<lb/>
+centrifugalen und der centripetalen Kraft ein so voll-<lb/>
+ständiger Ausgleich ergeben sollte dass keine Diffe-<lb/>
+renzen übrig blieben. Ganz minimale werden aller-<lb/>
+dings von den Junggrammatikern zugestanden, aber<lb/>
+nicht in Rechnung gebracht, und damit wird in meh-<lb/>
+rerer Hinsicht ein starker Fehler begangen. Zunächst<lb/>
+steht die Existenz auch noch so kleiner Differenzen<lb/>
+der Unmöglichkeit von Differenzen entgegen, und diese<lb/>
+wird hier gefordert. Denn der junggrammatische Satz<lb/>
+bedeutet doch nicht dass die Lautgesetze thatsächlich<lb/>
+— etwa die einen aus diesem, die anderen aus jenem<lb/>
+Grunde — keine Ausnahmen haben, sondern dass sie<lb/>
+der Natur der Sache nach keine haben können. <hi rendition="#k">Paul</hi><hi rendition="#sub">2</hi><lb/>
+entfernt sich betreffs dieses Punktes von der strengen<lb/>
+Observanz; er sagt es sei nicht schwer „die Nothwen-<lb/>
+digkeit dieser Consequenz [d. h. der der Lautgesetze]<lb/>
+darzuthun oder, genauer genommen, allerdings nur die<lb/>
+Einschränkung der Abweichungen von solcher Con-<lb/>
+sequenz auf so enge Grenzen dass unser Unterschei-<lb/>
+dungsvermögen nicht mehr ausreicht“. Das hier<lb/>
+Gleichgesetzte ist für mich etwas durchaus Verschie-<lb/>
+denes; „Lautgesetze die sich beinahe mit der Con-<lb/>
+sequenz von Naturkräften geltend machen“ hat ja<lb/>
+auch <hi rendition="#k">G. Curtius</hi> (Grundzüge ⁵ 81) eingeräumt. Sehen<lb/>
+wir davon ab dass die Annahme von der  Unmerk-<lb/>
+<lb/>
+<pb facs="#f0024" n="12"/>
+lichkeit der Differenzen lediglich eine subjective; zieht<lb/>
+man denn nicht auch sonst bei der Erörterung der<lb/>
+sprachgeschichtlichen Principien das unendlich Kleine<lb/>
+in Rechnung? Man wird antworten: ja, insofern eine<lb/>
+Cumulation desselben statt findet. Nun gut, hier<lb/>
+haben wir uns von einer entsprechenden Wahrnehmung<lb/>
+bestimmen zu lassen. Die minimalen Differenzen um<lb/>
+die sich der Streit dreht, stellen nur die unterste von<lb/>
+verschiedenen Reihen immer stärkerer Differenzen<lb/>
+zwischen immer grösseren Sprachgenossenschaften dar,<lb/>
+und diese Verbindung verleiht ihnen einen reellen<lb/>
+Werth. Auch <hi rendition="#k">Paul<hi rendition="#sub">2</hi></hi> betont dass „Artunterschiede<lb/>
+und individuelle Unterschiede nicht dem Wesen, son-<lb/>
+dern nur dem Grade nach verschieden sind“, und so<lb/>
+hat denn Alles was von dem Verhältniss zwischen<lb/>
+Dialekten irgend welcher Stufe gilt, auch von dem<lb/>
+zwischen Individualsprachen zu gelten, natürlich in<lb/>
+höchster Beschränkung oder höchster Steigerung. Be-<lb/>
+sonders noch in folgender Hinsicht. Ein Latitwandel<lb/>
+findet sich oft über ein sehr weites Gebiet hin, d. h.<lb/>
+in einer Reihe zusammenhängender Dialekte; hat er<lb/>
+sich in jedem von diesen spontan ausgebildet? Nein,<lb/>
+sondern er hat sich, wie wir in vielen Fällen geschicht-<lb/>
+lich verfolgen können, strahlenförmig von einem Punkte<lb/>
+ausgebreitet. Warum soll nun ein Lautwandel in jeder<lb/>
+der Individualsprachen welche einen Dialekt aus-<lb/>
+machen, spontan entstanden sein? Wiederum ist es<lb/>
+<hi rendition="#k">Paul<hi rendition="#sub">2</hi></hi> welcher hier restringirt; nicht allen Individuen<lb/>
+einer Gruppe, nur der Majorität weist er die Spon-<lb/>
+taneität zu. Wenn er für andere Sprachveränderungen<lb/>
+diese Majorität zwar als das Regelmässige, doch nicht<lb/>
+als das schlechterdings Nothwendige betrachtet, so<lb/>
+weiss  ich nicht warum man in Bezug auf den Laut-<lb/>
+<lb/>
+<pb facs="#f0025" n="13"/>
+wandel nicht ebensoweit gehen sollte. So sagt auch<lb/>
+<hi rendition="#g">Delbrück₁<hi rendition="#sub">2</hi></hi> „dass die Veränderungen in der Aus-<lb/>
+sprache bei dem Einzelnen beginnen und sich von da<lb/>
+zu den Mehreren und den Vielen durch Nachahmung<lb/>
+von Seiten dieser fortpflanzen“. <hi rendition="#g">Merlo</hi> stellt die<lb/>
+Möglichkeit individueller Initiative sehr schlagend dar.<lb/>
+Es kann nun, den Junggrammatikern zufolge, zwischen<lb/>
+den einzelnen Gliedern einer Verkehrsgenossenschaft<lb/>
+nur hinsichtlich des Tempos in welchem der Laut-<lb/>
+wandel sich vollzieht, eine Verschiedenheit existiren;<lb/>
+niemals soll ein „klaffender Gegensatz“ hervortreten.<lb/>
+„Als deutlich ausgeprägter und somit auch zum Be-<lb/>
+wusstsein kommender Gegensatz“, sagt <hi rendition="#g">Brugmann<hi rendition="#sub">3</hi></hi>,<lb/>
+„können Altes und Neues nur so nebeneinander be-<lb/>
+stehen dass sie durch verschiedene Sprachgenossen-<lb/>
+schaften vertreten werden, zwischen denen der Ver-<lb/>
+kehr viel weniger intensiv ist als innerhalb jeder<lb/>
+einzelnen.“ Wie vereinigt sich damit <hi rendition="#g">Brugmann<hi rendition="#sub">2</hi>'s</hi><lb/>
+frühere Annahme von Mutter- und Tochterformen<lb/>
+innerhalb desselben Dialektes, ja bei denselben Indi-<lb/>
+dividuen? Das Alte und Neue erscheint aber inner-<lb/>
+halb eines Dialektes nicht bloss nach dem Alter, son-<lb/>
+dern auch nach Geschlecht, Bildung, Temperament,<lb/>
+kurz in der verschiedenartigsten Weise vertheilt.<lb/>
+Rücksichtlich der Art und Weise wie sich ein Laut-<lb/>
+wandel von Individuum auf Individuum, von Genossen-<lb/>
+schaft auf Genossenschaft überträgt, scheint auch die<lb/>
+Auffassung ziemlich auseinander zu gehen. Ich gestehe<lb/>
+dass ich hier keineswegs das ausschliessliche Spiel un-<lb/>
+bewusster Thätigkeit erblicke; wenn ich mit <hi rendition="#g">F. Müller</hi><lb/>
+die Lautgesetze nicht schlechtweg mit den Gesetzen<lb/>
+der Modetrachten vergleichen will, so scheinen sie mir<lb/>
+doch in grossem Umfang Sache der Mode, d. h. der<lb/>
+<lb/>
+<pb facs="#f0026" n="14"/>
+bewussten oder doch halbbewussten Nachahmung zu<lb/>
+sein. Da <hi rendition="#g">Schmidt<hi rendition="#sub">2</hi></hi> der Meinung ist „es herrsche,<lb/>
+<hi rendition="#g">F. Müller</hi> ausgenommen, allgemeines Einverständniss<lb/>
+darüber dass sämmtliche Lautveränderungen sich ohne<lb/>
+Bewusstsein der Sprechenden vollziehen, keine Moden<lb/>
+sind, welche der Einzelne nach Belieben mitmachen<lb/>
+oder ablehnen kann“, so stehen hier einige gegen-<lb/>
+theilige Zeugnisse. <hi rendition="#g">Th. Benfey</hi> sagt (Gött. Nachr. 1877<lb/>
+S. 556): „diese Aussprache fing an Autorität zu er-<lb/>
+langen, für richtig und schön zu gelten und ward in<lb/>
+Folge davon auch von Individuen und Complexen an-<lb/>
+genommen denen die Nöthigung welche sie herbei-<lb/>
+geführt hatte, ganz fremd gewesen sein konnte“,<lb/>
+nimmt jedoch an (S. 557) „dass die Sprechenden<lb/>
+von der Umwandelung gar kein Bewusstsein hatten“;<lb/>
+<hi rendition="#g">Bezzenberger</hi>: „der Lautwandel kann sich auch mit<lb/>
+Bewusstsein entwickeln“ — „nach der Aussprache<lb/>
+jenes einen oder jener wenigen richten sich aus Grün-<lb/>
+den des Geschmacks mehrere“; <hi rendition="#g">Collitz</hi>: „die laut-<lb/>
+liche Umwandelung gefällt denen welchen sie auf-<lb/>
+gefallen ist, sie wird Mode, sei es dass man ihr aus<lb/>
+Bequemlichkeit, aus ästhetischen Rücksichten oder aus<lb/>
+irgend einem anderen Grunde folgt; aber man folgt ihr<lb/>
+nicht unbewusst“ ; <hi rendition="#g">Delbrück₁<hi rendition="#sub">2</hi></hi> führt neben der Be-<lb/>
+quemlichkeit auch den ästhetischen Trieb als Grund<lb/>
+des Lautwandels an, er erwähnt (<hi rendition="#sub">2</hi>) eine gewisse Art<lb/>
+zu sprechen, welche sich verbreite, „weil es so Mode<lb/>
+ist und gefällt“, sieht aber als unzweifelhaft an „dass<lb/>
+alle (oder doch fast alle) diese Akte unbewusst voll-<lb/>
+zogen werden“, und dieser unbewusste Vollzug wird<lb/>
+wiederum von ihm (<hi rendition="#sub">3</hi>) unter den Argumenten zu Gunsten<lb/>
+der Gesetzmässigkeit des Lautwandels vorgebracht.<lb/>
+Ich werde daher wohl nicht fehl gehen, wenn ich mit<lb/>
+<lb/>
+<pb facs="#f0027" n="15"/>
+dem Antheil den das Bewusstsein meines Erachtens<lb/>
+am Lautwandel hat, die Ausnahmslosigkeit der Laut-<lb/>
+gesetze für unvereinbar halte. Welchen Einfluss übt<lb/>
+nicht die Schule selbst da wo der öffentliche Unter-<lb/>
+richt die bescheidenste Rolle spielt? Wie weit ver-<lb/>
+breitet ist nicht unter den Ungebildeten das Bedürfniss<lb/>
+gebildet, unter den Provincialen das hauptstädtisch<lb/>
+zu reden? Rückt nicht im Militärschritt das Berliner<lb/>
+<hi rendition="#i">j</hi> für <hi rendition="#i">g</hi> immer tiefer und breiter nach Mitteldeutsch-<lb/>
+land vor? Dass in Frankreich und Deutschland (gut-<lb/>
+turales) <hi rendition="#i">ϱ</hi> an Stelle von (dentalem) <hi rendition="#i">r</hi> seit langer Zeit<lb/>
+mehr und mehr in Mode kommt, ersehen wir aus<lb/>
+<hi rendition="#g">M. Trautmann</hi>'s detaillirten Mitteilungen in der<lb/>
+Anglia III, 214 ff. (1880); vorher war gerade <hi rendition="#i">ϱ</hi> = <hi rendition="#i">r</hi><lb/>
+von Brugmann<hi rendition="#sub">2</hi> als Beispiel für die „blinde“, d. h.<lb/>
+unbewusste Wirkung der Lautgesetze erwähnt worden.<lb/>
+Beiläufig erlaube ich mir eine Frage: <hi rendition="#g">Schmidt₁</hi> hat<lb/>
+später auch von „blind wirkenden“ Lautgesetzen ge-<lb/>
+sprochen, wie kommt gerade <hi rendition="#g">Brugmann<hi rendition="#sub">3</hi></hi>, dazu zu sagen<lb/>
+dieser Ausdruck sei ihm bisher zweideutig gewesen?<lb/>
+Modischer, d. h. also mehr oder weniger bewusster<lb/>
+oder vielleicht besser gesagt willkürlicher Lautwandel<lb/>
+hat vielfach Neuerungen im Gefolge; er kann fälsch-<lb/>
+liche Anwendung erfahren, kann selbst um eine Stufe<lb/>
+gesteigert werden, kann parallelen Lautwandel her-<lb/>
+vorrufen. Wenn endlich, wie sich ja historisch belegen<lb/>
+lässt, irgend eine Lauteigenthümlichkeit einer wirklich<lb/>
+tonangebenden Persönlichkeit, eines Fürsten, Höflings,<lb/>
+Schauspielers in deren Kreis freiwillig copirt oder<lb/>
+die eines Lehrers von diesem seinen Schülern aufge-<lb/>
+zwungen wird, so lässt sich auch die Möglichkeit<lb/>
+nicht bestreiten dass der Ursprung eines Lautwan-<lb/>
+dels ein willkürlicher sei. Individueller Lautwandel<lb/>
+<lb/>
+<pb facs="#f0028" n="16"/>
+wenigstens kann ohne Weiteres ein willkürlicher sein,<lb/>
+und aus diesem Grunde schon hilft es Nichts mit<lb/>
+<hi rendition="#g">Delbrück</hi> die Ausnahmslosigkeit der Lautgesetze auf<lb/>
+die Individualsprache einzuschränken. Kurz, ich<lb/>
+pflichte <hi rendition="#g">Bloomfield</hi> durchaus bei, wenn er in <hi rendition="#g">Whit-<lb/>
+ney</hi>'s Sinn mit Bezug auf unsere Frage bemerkt: „the<lb/>
+word »inviolable« or »infallible« in matters of gram-<lb/>
+mar is always to be deprecated, if for no other reason<lb/>
+than the one that the <hi rendition="#i">conscious will</hi> of any language-<lb/>
+user undeniably stands above phonetic facts“.</p>         <lb/>
+<p>Ich füge diesem Abschnitt ein Nachwort bei.<lb/>
+<hi rendition="#g">Sprachmischung</hi> nehme ich, wie gesagt, auch in-<lb/>
+nerhalb der homogensten Verkehrsgenossenschaft an,<lb/>
+<hi rendition="#k">Paul<hi rendition="#sub">2</hi></hi> nur bei ethnischer Mischung, und diese sei<lb/>
+etwas Exceptionelles. Auch gegen Letzteres lege ich<lb/>
+Verwahrung ein. Einerseits pflegt in jedem grösseren<lb/>
+Centrum die Bevölkerungsfluctuation eine solche zu<lb/>
+sein dass man sie wohl als eine Mischung auch im<lb/>
+engeren Sinne bezeichnen darf: und weit entfernt<lb/>
+davon dass sich da „keine Differenzen entwickeln<lb/>
+können die als solche percipirt werden“, prägen ab-<lb/>
+liegende Mundarten der centralen ihre deutlichen<lb/>
+Spuren auf, ja diese verliert zuweilen auf diesem<lb/>
+Wege vollkommen ihren ursprünglichen Charakter<lb/>
+(wie z. B. die Volkssprache Rom's heutzutage eine<lb/>
+toskanische ist, was sie vor einem halben Jahrtausend<lb/>
+keineswegs war). Besonders dürfen die nicht immer<lb/>
+sehr starken jüdischen Bruchtheile städtischer Bevöl-<lb/>
+kerungen ihrem sprachlichen Einfluss nach nicht unter-<lb/>
+schätzt werden. Anderseits ist nicht einmal der Fall<lb/>
+ein exceptioneller in welchem <hi rendition="#k">Paul<hi rendition="#sub">2</hi></hi> allein Sprach-<lb/>
+mischung annimmt, nämlich „wo in Folge besonderer<lb/>
+geschichtlicher Veranlassungen grössere Gruppen von<lb/>
+<lb/>
+<pb facs="#f0029" n="17"/>
+ihrem Wohnsitz losgelöst und mit anderen zusammen-<lb/>
+gewürfelt werden“. Von der Bildung der romanischen<lb/>
+Nationen an rückwärts bis zu den ersten Anfängen<lb/>
+des römischen Volkes nehmen wir eine fast ununter-<lb/>
+brochene Serie mannigfacher Mischungen wahr, deren<lb/>
+nicht bloss die romanische, sondern auch die lateinische<lb/>
+Grammatik eingedenk zu sein hat. <hi rendition="#k">Paul<hi rendition="#sub">2</hi></hi> glaubt den<lb/>
+Ausdruck „Dialektmischung“ in „Entlehnung eines<lb/>
+Wortes aus einem fremden Dialekt“ verbessern zu müs-<lb/>
+sen. Wir können uns allerdings fremde Wörter an-<lb/>
+eignen, aber auch die fremde Sprechweise uns ganz<lb/>
+geläufiger. Es ist eine bekannte Thatsache dass<lb/>
+Deutsche bei intensivem Verkehr mit Juden leicht in's<lb/>
+Jüdeln verfallen; wenn sich nun in Folge dessen die<lb/>
+jüdische Aussprache eines aus jüdischem Munde be-<lb/>
+sonders häufig gehörten Wortes, wie etwa <hi rendition="#i">Persent</hi> =<lb/>
+<hi rendition="#i">Perzent</hi> bei einem Deutschen festsetzt, kann man da<lb/>
+von einem Lehnwort reden? Und ebenso wenig sind<lb/>
+Lehnwörter franz. <hi rendition="#i">haut</hi>, <hi rendition="#i">gâter</hi>, <hi rendition="#i">goupil</hi>, wenn sie nämlich<lb/>
+wirklich in ihrem Anlaut durch deutsches <hi rendition="#i">hoch</hi>, <hi rendition="#i">wüsten</hi>,<lb/>
+<hi rendition="#i">Wolf</hi> beeinflusst worden, also im Munde romanisirter<lb/>
+Germanen entstanden sind; die Anlässe dieser Vor-<lb/>
+gänge freilich sind dunkel, es müsste denn etwa bei<lb/>
+dem letzten Worte die Jagdliebhaberei der Germanen<lb/>
+massgebend gewesen sein (wie der Stadtrömer viel-<lb/>
+leicht sein <hi rendition="#i">vulpes</hi> und <hi rendition="#i">lupus</hi> als ganze Wörter von<lb/>
+irgend welchen jagdfreundlichen Italikern entlehnte).</p>         <lb/>
+<p>„Die Lautgesetze wirken ausnahmslos <hi rendition="#g">innerhalb<lb/>
+derselben Periode</hi>.“ Es ist dies nur eine er-<lb/>
+gänzende Bestimmung. Innerhalb erst nachträglich<lb/>
+festzustellender zeitlicher Grenzen vollzieht sich ein<lb/>
+Lautgesetz in der ganzen Ausdehnung der Sprach-<lb/>
+genossenschaft und in der ganzen Ausdehnung des<lb/>
+<fw type="sig" place="bottom">Schuchardt, Ueber die Lautgesetze. 2</fw><lb/>
+<lb/>
+<pb facs="#f0030" n="18"/>
+Sprachmaterials. Die Eichtigkeit des ersten Punktes<lb/>
+habe ich soeben erörtert, die des zweiten werde ich<lb/>
+sogleich erörtern. Hier nur ein Wort über die Ueber-<lb/>
+gangsstadien im Allgemeinen. Dem Nachweis der-<lb/>
+selben, mag er nun diesen oder jenen Fall betreffen,<lb/>
+sucht man dadurch die Spitze abzubrechen dass man<lb/>
+das Gesetz von der Ausnahmslosigkeit der Lautgesetze<lb/>
+für die Uebergangsstadien suspendirt. Das ist durch-<lb/>
+aus unzulässig. Jedes Stadium der Sprache ist ein<lb/>
+Uebergangsstadium, ein jedes ebenso normal wie irgend<lb/>
+ein anderes; was vom Ganzen gilt, gilt auch vom Ein-<lb/>
+zelnen. Ich darf mir nicht die Sprache als ein Neben-<lb/>
+einander von fertigen und unfertigen Lautgesetzen<lb/>
+denken; das hiesse in die natürliche Betrachtung<lb/>
+teleologische Vorstellungen einmischen. Wenn auch<lb/>
+ich von Uebergangsstadien rede, so nur in relativem<lb/>
+Sinn, nur mit Bezug auf spätere schon feststehende<lb/>
+Thatsachen; irgend ein gegenwärtiges Verhältniss als<lb/>
+Uebergangsstadium zu bezeichnen, dazu haben wir<lb/>
+kein Recht.</p>         <lb/>
+<p>Wer meinen sollte dass bezüglich der äusseren<lb/>
+Ausdehnung der Lautgesetze der Unterschied zwischen<lb/>
+den Junggrammatikern und den Anderen mehr in der<lb/>
+Darstellung als in der Erkenntniss liege, selbst der<lb/>
+wird der folgenden Discussion über die <hi rendition="#g">innere<lb/>
+Ausdehnung</hi> der Lautgesetze die praktische Be-<lb/>
+deutung nicht absprechen.</p>         <lb/>
+<p>„Bei dem Lautwandel innerhalb desselben Dia-<lb/>
+lektes werden alle einzelnen Fälle in denen <hi rendition="#g">die<lb/>
+gleichen lautlichen Bedingungen</hi> vorliegen,<lb/>
+gleichmässig behandelt.“ Hält man aber die Fälle in<lb/>
+denen ein Laut überhaupt auftritt, vor und frägt<lb/>
+welche darunter die  gleichen lautlichen Bedingungen<lb/>
+<lb/>
+<pb facs="#f0031" n="19"/>
+aufweisen, also gleichmässige Behandlung, d. h. Ver-<lb/>
+harren oder Veränderung in den gleichen Laut for-<lb/>
+dern, so wird die Antwort darauf ausbleiben. Da es<lb/>
+eine Reihe von Kategorieen lautlicher Bedingungen<lb/>
+gibt, wie Accent, Silbenstellung, Beschaffenheit des<lb/>
+unmittelbar folgenden Lautes, des unmittelbar voraus-<lb/>
+gehenden, des zweitfolgenden u. s. w., so besteht in<lb/>
+jedem einzelnen Falle ein Bedingungscomplex; ver-<lb/>
+gleichen wir die Bedingungscomplexe aller Fälle mit-<lb/>
+einander so zeigt sich ein jeder von dem anderen ver-<lb/>
+schieden, oder wir haben Homonyme, die ja aber zur<lb/>
+Veranschaulichung lautgesetzlicher Wirkungen am<lb/>
+Wenigsten geeignet sind. Es kommt also nur die<lb/>
+partielle Gleichheit der Bedingungscomplexe in Be-<lb/>
+tracht; aber aus welchen und wievielen Elementen<lb/>
+muss sie bestehen um die partielle Verschiedenheit<lb/>
+zu überwiegen, mit welchen Hülfsmitteln haben wir<lb/>
+die wesentlichen Bedingungen von den accidentiellen<lb/>
+oder die Bedingungen im strengeren Sinne des Wortes<lb/>
+von den Nebenumständen zu sondern? Man, ist ge-<lb/>
+zwungen einzugestehen dass die „gleichen lautlichen<lb/>
+Bedingungen“ immer erst aus jedem Lautgesetze selbst<lb/>
+abstrahirt werden, dass ihre Verwendung als Prämisse<lb/>
+unzulässig ist, dass sie überhaupt in der Definition<lb/>
+von der Ausnahmslosigkeit der Lautgesetze keinen<lb/>
+Platz haben. Wollen wir auch von der Gleichheit<lb/>
+der lautlichen Bedingungen zwischen allen einzelnen<lb/>
+Fällen eines Lautgesetzes reden, zwischen allen ein-<lb/>
+zelnen Lautgesetzen eines Dialektes finden wir sie<lb/>
+durchaus nicht. Wir sehen z. B. dass innerhalb der<lb/>
+Kategorie des unmittelbar folgenden Lautes (und zwar<lb/>
+des auf einen Vocal folgenden Consonanten) die vier<lb/>
+Liquiden sich in  dieser Weise vertheilen: nach dem<lb/>
+<fw type="sig" place="bottom">2*</fw><lb/>
+<lb/>
+<pb facs="#f0032" n="20"/>
+einen Vocal <hi rendition="#i">l, r, n</hi> — <hi rendition="#i">m</hi>, nach dem anderen <hi rendition="#i">l, r</hi><lb/>
+— <hi rendition="#i">n, m</hi>, nach dem dritten <hi rendition="#i">l, r</hi> — <hi rendition="#i">n</hi> — <hi rendition="#i">m</hi>. Also die<lb/>
+partielle Gleichheit erstreckt sich, über die Combi-<lb/>
+nationen hinaus, auf die einzelnen Kategorieen: <hi rendition="#i">n</hi> wirkt<lb/>
+in dem angeführten Beispiel einmal als dentale<lb/>
+Liquida, dann als Nasal, endlich als dentaler Nasal.<lb/>
+Nicht selten stossen wir auf Lautgesetze in denen<lb/>
+selbst jene relative Einheitlichkeit der Bedingungen<lb/>
+nicht nachgewiesen ist. Dergleichen wenig klaren<lb/>
+„Lautgesetzen“ lassen sich ganz klare Fälle „spora-<lb/>
+dischen Lautwandels“ gegenüberstellen. Betontes <hi rendition="#i">a</hi><lb/>
+ist im heutigen Schriftportugiesisch nur einmal zu <hi rendition="#i">o</hi><lb/>
+geworden, in <hi rendition="#i">fame</hi> = <hi rendition="#i">fome</hi>. Dem Einfluss eines fol-<lb/>
+genden oder eines vorhergehenden Labialen ist nur<lb/>
+unbetontes <hi rendition="#i">a</hi> ausgesetzt (z. B. vulgärport. <hi rendition="#i">fanforrice</hi>,<lb/>
+<hi rendition="#i">charomela</hi>; s. <hi rendition="#g">J. Cornu</hi> Romania X, 340 f.); aber der<lb/>
+Einfluss eines folgenden und der eines vorhergehenden<lb/>
+zusammengenommen sind stark genug auch ein betontes<lb/>
+<hi rendition="#i">a</hi> zu assimiliren, freilich nur in diesem häufigst ge-<lb/>
+brauchten Wort (nicht in <hi rendition="#i">fava</hi> u. a. — in <hi rendition="#i">mama</hi><lb/>
+nicht wegen der Reduplication). Ein Junggrammatiker<lb/>
+würde freilich, ehe er soviel zugestünde, sich an ein<lb/>
+<hi rendition="#i">fomentar</hi> oder <hi rendition="#i">fomite</hi> anklammern. Wegen eines ana-<lb/>
+logen Verhältnisses vgl. franz. <hi rendition="#i">buvons</hi> für älteres <hi rendition="#i">be-<lb/>
+vons</hi>, daneben <hi rendition="#i">devons</hi>. Der Satz „gleiche Ursache,<lb/>
+gleiche Wirkung“ (wir bezeichnen als Ursachen beim<lb/>
+combinatorischen Lautwandel was streng genommen<lb/>
+nur permanente Bedingungen sind) lässt sich hier nicht<lb/>
+zu Gunsten der Lehre von der Ausnahmslosigkeit der<lb/>
+Lautgesetze heranziehen; es handelt sich ja um partiell<lb/>
+Gleiches, in verschiedenem Masse partiell Gleiches.<lb/>
+Der labiale Factor ist in den einzelnen Labialen nicht<lb/>
+gleich stark vertreten, mehr z. B. in <hi rendition="#i">m</hi> als in <hi rendition="#i">b</hi>; bei<lb/>
+<lb/>
+<pb facs="#f0033" n="21"/>
+der Labialisirung des benachbarten Vocals spielen daher<lb/>
+eine ganze Reihe von accessorischen Bedingungen mit.<lb/>
+<hi rendition="#g">Delbrück<hi rendition="#sub">3</hi></hi> giebt die Existenz völlig vereinzelter Fälle<lb/>
+von Lautwandel zu, die also „nicht unter den Begriff<lb/>
+des Gesetzes fallen“; wie verträgt sich das mit dem jung-<lb/>
+grammatischen Satz dass aller Lautwandel ausnahms-<lb/>
+losen Gesetzen unterliegt? — Wir haben bisher bei unse-<lb/>
+ren Erörterungen über die Gleichheit der lautlichen Be-<lb/>
+dingungen einen bestimmten zeitlichen Durchschnitt der<lb/>
+Sprache angenommen, es fragt sich nun: bleiben die laut-<lb/>
+lichen Bedingungen eines Lautgesetzes, mögen sie wie<lb/>
+immer beschaffen sein, im Laufe der Zeiten constant?<lb/>
+Ich will darauf ohne Weiteres mit einem Beispiel ant-<lb/>
+worten. Einem gallo-vulgärlat. <hi rendition="#i">ā</hi> (klassischlat. <hi rendition="#i">ā́</hi> und <hi rendition="#i">ắ</hi><lb/>
+vor einfachem Consonanten) entspricht neufranz. <hi rendition="#i">e</hi> (bald<lb/>
+offenes bald geschlossenes, doch ist dieser Unterschied<lb/>
+hier unwesentlich), also <hi rendition="#i">chef, fève, pré, tel, mer, nez,<lb/>
+ème, lène</hi> = <hi rendition="#i">caput, faba, prato, tale, mare, naso, amat,<lb/>
+lana</hi>. Der folgende Consonant erscheint hier also ganz<lb/>
+gleichgültig, nicht aber im Altfranzösischen (das sich<lb/>
+noch in der heutigen Orthographie wiederspiegelt):<lb/>
+<hi rendition="#i">chef</hi> u. s. w., jedoch <hi rendition="#i">áime, láine</hi>. Wenn nun vor <hi rendition="#i">m</hi><lb/>
+und <hi rendition="#i">n ā</hi> durch <hi rendition="#i">ai</hi> zu <hi rendition="#i">e</hi> geworden ist, kann dies nicht<lb/>
+auch vor den anderen Consonanten geschehen sein?<lb/>
+Und wenn man ursprünglich <hi rendition="#i">chaif, faive, tail, mair</hi><lb/>
+sagte, so ist wiederum für eine etwas jüngere Periode<lb/>
+<hi rendition="#i">chaif, faive, tel, mer</hi> denkbar, sodass in Beziehung auf<lb/>
+die Monophthonirung des aus <hi rendition="#i">a</hi> entstandenen <hi rendition="#i">ai</hi> ver-<lb/>
+schiedene Bedingungsstufen vorliegen würden. An-<lb/>
+dernfalls müssen wir verschiedene Lautgesetze anneh-<lb/>
+men, sodass hinter der heutigen Gleichheit sich auf<lb/>
+jeden Fall eine Verschiedenheit birgt. Wenn nun aus<lb/>
+der Gegenüberstellung von Lautformenreihen die durch<lb/>
+<lb/>
+<pb facs="#f0034" n="22"/>
+einen weiten dunkeln Zeitraum voneinander getrennt<lb/>
+sind, ein Lautgesetz gewonnen wird, welche Bürgschaft<lb/>
+ist dafür vorhanden dass es sich mit diesem nicht<lb/>
+ähnlich verhält? Man betrachte auch eine beliebige<lb/>
+Gruppe verwandter Mundarten; man wird sehen wie die<lb/>
+Bedingungskreise der Lautgesetze sich von Ort zu Ort<lb/>
+mannigfach verändern, man wird hier gleichsam die<lb/>
+räumliche Projection zeitlicher Unterschiede erkennen.<lb/>
+Der Annahme von einer Reihe verschiedener Gesetze<lb/>
+widerspricht die Continuität und Wesenseinheit. Wie<lb/>
+steht es aber dann mit der Ausnahmslosigkeit der<lb/>
+Lautgesetze? dürfen wir die Differenzen zwischen zwei<lb/>
+Bedingungskreisen die gleichsam nur zeitlich-räum-<lb/>
+liche Varianten eines einzigen sind, nicht von diesem<lb/>
+oder jenem Standpunkte aus als Ausnahmen auffassen?<lb/>
+Diese innere Erweiterung der Lautgesetze lässt sich<lb/>
+bei der Annahme lautlicher Analogie leicht begreifen.<lb/>
+Ich habe diesen Punkt oben schon berührt, indem ich<lb/>
+das Vorhandensein eines Dualismus im Sprachleben<lb/>
+bestritt; ich habe an einem Beispiele erläutert wie ein<lb/>
+combinatorischer Lautwandel zu einem freien wird.<lb/>
+Selbst der grösste Abstand zwischen den anfänglichen<lb/>
+und den schliesslichen Grenzen braucht nicht zu be-<lb/>
+fremden, sehen wir doch auch die begriffliche Ana-<lb/>
+logie oft von engstbegrenztem Gebiete aus im weitesten<lb/>
+Umfang wirken, wofür sich besonders in der Ge-<lb/>
+schichte der romanischen Participien Belege finden.<lb/>
+Ich halte es sogar nicht für unmöglich dass aus einer<lb/>
+einzigen durch begriffliche Analogie hervorgerufenen<lb/>
+Lautvertauschung ein ganzes Lautgesetz erwachse. Ich<lb/>
+sage keineswegs dass der ursächliche Bedingungskreis<lb/>
+vermittelst der lautlichen Analogie auf allen Seiten<lb/>
+zugleich überschritten würde; der Lautwandel mag<lb/>
+<lb/>
+<pb facs="#f0035" n="23"/>
+von Aehnlichem zu Aehnlichem tastend vorrücken,<lb/>
+z. B. in der Verknüpfung mit einem anderen Laut-<lb/>
+wandel, wie wenn etwa ein -<hi rendition="#i">ol</hi>- = -<hi rendition="#i">al</hi>- durch -<hi rendition="#i">or</hi>-<lb/>
+= -<hi rendition="#i">ol</hi>- zu -<hi rendition="#i">or</hi>- = <hi rendition="#i">-ar</hi>- führt. In Gröber's Zeitschrift<lb/>
+V, 319 habe ich behauptet dass wo <hi rendition="#i">s</hi> in jeder Stellung<lb/>
+zu <hi rendition="#i">h</hi> geworden, diese Schwächung zuerst als eine com-<lb/>
+binatorische aufgetreten sein muss. So mag die Brücke<lb/>
+zwischen intervoc. <hi rendition="#i">h</hi> = <hi rendition="#i">s</hi> und anl. <hi rendition="#i">h</hi> = <hi rendition="#i">s</hi> sich in dem<lb/>
+nach vocalischem Auslaut anl. <hi rendition="#i">h</hi> = <hi rendition="#i">s</hi> finden lassen<lb/>
+(-<hi rendition="#i">aha</hi>-: -<hi rendition="#i">a ha</hi>-: -<hi rendition="#i">t ha</hi>-, also hier umgekehrt wie bei<lb/>
+dem erwähnten Auslautsgesetz mit Verallgemeinerung<lb/>
+vom tönenden auf den tonlosen Laut). Aber über diese<lb/>
+Metamorphose der Lautgesetze, die meines Wissens<lb/>
+noch nie zum Gegenstand allgemeiner Erörterung ge-<lb/>
+macht worden ist, kann ich mich hier nicht weiter<lb/>
+auslassen; um so nachdrücklicher soll es schliesslich<lb/>
+geschehen. Auch auf dem Gebiete des mechanischen<lb/>
+Lautwandels, um mich der junggrammatischen Termi-<lb/>
+nologie zu bedienen, finde ich ganz Anderes als nur<lb/>
+abgeschlossene in starre Formeln zu kleidende Pro-<lb/>
+cesse, ich erblicke hier das bunte endlose Spiel un-<lb/>
+gezählter Triebe, aus dem Einzelnes heller und stärker<lb/>
+hervortritt.</p>         <lb/>
+<p>Während die Junggrammatiker die Ausnahms-<lb/>
+losigkeit der Lautgesetze von einer Gleichheit der<lb/>
+lautlichen Bedingungen abhängig machen wie sie meine<!-- s hochgestellt -->s<lb/>
+Erachtens überhaupt nicht besteht, halten sie die un-<lb/>
+mittelbar gegebene <hi rendition="#g">Verschiedenheit der Wör-<lb/>
+ter</hi> dabei für gleichgültig: „bei dem Vollzug des<lb/>
+Lautwandels ist nun gar nicht denkbar dass in ver-<lb/>
+schiedenen Wörtern verschiedene Wege eingeschlagen<lb/>
+werden“ (<hi rendition="#k">Brugmann</hi><hi rendition="#sub">3</hi>). Und zwar wird das folgender-<lb/>
+massen begründet: „Das Bewegungsgefühl bildet sich<lb/>
+<lb/>
+<pb facs="#f0036" n="24"/>
+ja nicht für jedes einzelne Wort besonders, sondern<lb/>
+überall wo in der Rede die gleichen Elemente wieder-<lb/>
+kehren, wird ihre Erzeugung auch durch das gleiche<lb/>
+Bewegungsgefühl geregelt. Verschiebt sich daher das<lb/>
+Bewegungsgefühl durch das Aussprechen eines Ele-<lb/>
+mentes in irgend einem Worte, so ist diese Verschie-<lb/>
+bung auch massgebend für das nämliche Element in<lb/>
+einem anderen Worte“ (<hi rendition="#k">Paul<hi rendition="#sub">2</hi></hi>). Ich halte das, wenig-<lb/>
+stens in der absoluten Form wie es behauptet wird,<lb/>
+für unrichtig; es übt hier <hi rendition="#k">Paul</hi> das schon von mancher<lb/>
+Seite und soviel ich sehe gerade in dem Kapitel über<lb/>
+den Lautwandel auch von ihm selbst gerügte Ver-<lb/>
+fahren die Betrachtung des einzelnen Lautes von der<lb/>
+des Wortes in dem er vorkommt, zu isoliren. Die<lb/>
+Veränderung eines Lautes, sein Fortschreiten in einer<lb/>
+bestimmten Richtung, wobei natürlich von der noth-<lb/>
+wendigen Wirkung rein physiologischer Veränderungen<lb/>
+abgesehen wird, besteht aus einer Summe der aller-<lb/>
+kleinsten Verschiebungen, ist also von der Zahl seiner<lb/>
+Wiederholungen abhängig. Wenn nun <hi rendition="#i">x</hi> z. B. 10000<lb/>
+Wiederholungen braucht um zu <hi rendition="#i">x</hi><hi rendition="#sup">1</hi> zu werden, so sind<lb/>
+doch diese Wiederholungen innerhalb der einzelnen<lb/>
+Wörter zu zählen; ein <hi rendition="#i">x</hi> in 10000 verschiedenen<lb/>
+Wörtern je einmal gesprochen würde nicht zu <hi rendition="#i">x</hi><hi rendition="#sup">1</hi> wer-<lb/>
+den. Dass nun ein Wort das 10000 Mal gesprochen<lb/>
+worden ist, die Entwickelung des Lautes <hi rendition="#i">x</hi> zu <hi rendition="#i">x</hi><hi rendition="#sup">1</hi> in<lb/>
+einem erst 8000 Mal gesprochenen begünstigen mag<lb/>
+u. s. w., das läugne ich nicht. Die grössere oder<lb/>
+geringere Häufigkeit im Gebrauche der einzelnen Wör-<lb/>
+ter welche ja bei den Analogiebildungen eine so her-<lb/>
+vorragende Rolle spielt, ist auch für ihre lautliche<lb/>
+Umgestaltung von hoher Wichtigkeit, nicht innerhalb<lb/>
+kleinerer, wohl aber innerhalb bedeutender Differenzen.<lb/>
+<lb/>
+<pb facs="#f0037" n="25"/>
+Sehr selten gebrauchte Wörter bleiben zurück, sehr<lb/>
+häutig gebrauchte eilen voran; von beiden Seiten<lb/>
+also bilden sich Ausnahmen von den Lautgesetzen.<lb/>
+Es ist schon eine sehr alte Erfahrung dass in allen<lb/>
+Sprachen gerade die allergewöhnlichsten Wörter, von<lb/>
+denen man doch am Ersten Gehorsam gegen die<lb/>
+Lautgesetze erwarten sollte, am Meisten Neigung<lb/>
+zeigen sich von ihnen zu emancipiren, ja in Folge<lb/>
+dessen der Deutung zuweilen ernstliche Schwierigkeiten<lb/>
+bereiten (ich erinnere an die romanischen Wörter<lb/>
+für „gehen“); man hat sie mit der in raschem Um-<lb/>
+lauf befindlichen Scheidemünze verglichen, welche bald<lb/>
+ihr Gepräge einbüsst. Diese treffende Beobachtung<lb/>
+hat man in neuerer Zeit nicht weiter verfolgt, ja<lb/>
+man ignorirt sie meistens. <hi rendition="#k">Kruszewski</hi> hat allerdings<lb/>
+ausdrücklich hierauf hingewiesen; aber seine Andeu-<lb/>
+tungen befriedigen mich doch keineswegs. Er sagt:<lb/>
+„Wenn <hi rendition="#i">gosudaŕ</hi> zu <hi rendition="#i">sudaŕ</hi> und- schliesslich zu <hi rendition="#i">sŭ</hi> wird,<lb/>
+<hi rendition="#i">babuška</hi> zu <hi rendition="#i">bauška</hi>, <hi rendition="#i">pravo</hi> zu <hi rendition="#i">pra</hi>, <hi rendition="#i">nasza mitość</hi> zu<lb/>
+<hi rendition="#i">naszmość, naść, trzeba</hi> zu <hi rendition="#i">trza</hi>, <hi rendition="#i">podobno</hi> zu <hi rendition="#i">pono</hi>,<lb/>
+<hi rendition="#i">czíoniek</hi> zu <hi rendition="#i">czíek</hi>, <hi rendition="#i">proszę pana</hi> zu <hi rendition="#i">pŭpana</hi> u. s. w., so<lb/>
+müssen wir im Auge behalten dass diese Wörter in<lb/>
+der Mehrzahl der Fälle rasch, ohne Accent, mit An-<lb/>
+lehnung an andere Wörter gesprochen werden.“ Alle<lb/>
+Sprachen liefern, besonders in Titeln und Begrüssungen,<lb/>
+Beispiele ähnlicher Art; ich erinnere an magy. <hi rendition="#i">alá<lb/>
+szolgáj</hi> = <hi rendition="#i">alátos szolgája</hi>, <hi rendition="#i">tejes</hi> oder <hi rendition="#i">téns</hi> = <hi rendition="#i">tekintetes</hi>,<lb/>
+span. <hi rendition="#i">usted</hi> = <hi rendition="#i">vuestra merced</hi>, vulgärdeutsch <hi rendition="#i">g'Morgen</hi><lb/>
+u. s. w. In einigen Fällen liegt allerdings Enklisis<lb/>
+oder Proklisis vor; aber die Tonlosigkeit reicht in-<lb/>
+sofern nicht zur Erklärung aus als sich in den unbe-<lb/>
+tonten Silben einheitlicher Wörter nicht immer die<lb/>
+entsprechenden Veränderungen finden. Rum. <hi rendition="#i">ună</hi> wird<lb/>
+<lb/>
+<pb facs="#f0038" n="26"/>
+zu <hi rendition="#i">uă, o</hi>; aber ein Ausfall des <hi rendition="#i">n</hi> zwischen diesen<lb/>
+Vocalen ist sonst auch ausserhalb des Accentes uner-<lb/>
+hört. In der Proklisis wird aus <hi rendition="#i">casa</hi> rom. <hi rendition="#i">cas</hi> (<hi rendition="#i">ca</hi>);<lb/>
+aber ist etwa Synkope des vortonigen <hi rendition="#i">a</hi> lautgesetzlich?<lb/>
+Weiter entsteht die Frage ob nicht jene Tonlosigkeit<lb/>
+ebenfalls erst eine Folge des überhäufigen Gebrauches<lb/>
+ist. Wenn ich <hi rendition="#i">g'Morgen</hi> für <hi rendition="#i">guten Morgen</hi> sage, so<lb/>
+ist ja freilich das Adjectiv fast ganz um seine Be-<lb/>
+deutung gekommen, aber doch nur in Folge der un-<lb/>
+endlichen Wiederholung. In nicht anderem Lichte<lb/>
+erscheint mir das Schicksal des lat.-rom. <hi rendition="#i">ille</hi>. Als<lb/>
+letzte Ursache all solcher begrifflichen und lautlichen<lb/>
+Schwächung muss ich nun aber die Ueberhäufigkeit<lb/>
+um so mehr betrachten als dieselbe auch da wirkt wo<lb/>
+keine Anlehnung an andere Wörter stattfindet. In<lb/>
+<hi rendition="#i">guten Morgen</hi> wird nicht nur das erste, sondern auch<lb/>
+das zweite Wort entstellt (<hi rendition="#i">g'Moin, g'Mõ</hi> u. s. w.). Wenn<lb/>
+wir die Entwickelung der Sprache innerhalb kleinerer<lb/>
+durch ganz bestimmte Interessen gebildeter Kreise<lb/>
+verfolgen, so werden wir sehen dass gerade die aller-<lb/>
+bedeutungsvollsten Wörter, insofern sie beständig wie-<lb/>
+derkehren, lautlicher Veränderung am Stärksten aus-<lb/>
+gesetzt sind. Man bemerke z. B. wie bei einem Spiele<lb/>
+die Kürzung und auch die phantastische Umgestal-<lb/>
+tung der termini technici beliebt ist; es scheint als<lb/>
+ob neben der Bequemlichkeit noch ein anderer Trieb,<lb/>
+die Abneigung gegen die Monotonie sich geltend<lb/>
+mache. Man kann diese Beobachtung zum Experiment<lb/>
+condensiren: man lasse Jemanden der nicht weiss wo-<lb/>
+rauf es ankommt, ein Wort vielmal, 30, 50, 80 Mal hin-<lb/>
+tereinander sagen, und man wird sehr starke Schwankun-<lb/>
+gen der Aussprache wahrnehmen. Die Schrift gewährt<lb/>
+für  diese  Gruppe  von Erscheinungen  ein Analogon:<lb/>
+<lb/>
+<pb facs="#f0039" n="27"/>
+dieselben Zeichencomplexe werden, je nachdem sie in<lb/>
+seltneren oder gewöhnlicheren oder genauer gesagt dem<lb/>
+Schreiber und dem Empfänger weniger oder mehr ge-<lb/>
+läufigen Wörtern auftreten, sorgfältiger oder flüchtiger<lb/>
+dargestellt werden, und zwar auch unwillkürlich. Von<lb/>
+Bequemlichkeit ist überall die Rede wo die Ursachen<lb/>
+des Lautwandels in Erwägung gezogen werden; was<lb/>
+ist nun natürlicher als dass man es sich da am Ersten<lb/>
+bequem macht, wo in der Ueberhäufigkeit der stärkste<lb/>
+Antrieb dazu liegt und die Gefahr des Missverständ-<lb/>
+nisses am geringsten ist? Ich komme auf die oben<lb/>
+erwähnte Erweiterung des Lautwandels <hi rendition="#i">h</hi> = <hi rendition="#i">s</hi> von der<lb/>
+intervocalischen Position zur anlautenden zurück. Im<lb/>
+Jakutischen — <hi rendition="#k">Delbrück<hi rendition="#sub">3</hi></hi> ist es der die Aufmerk-<lb/>
+samkeit darauf lenkt — findet sich neben inlautendem<lb/>
+auch anlautendes intervocalisches <hi rendition="#i">s</hi> = <hi rendition="#i">h</hi>; in einem<lb/>
+einzigen Fall ist anlautendes <hi rendition="#i">s</hi> schlechtweg zu <hi rendition="#i">h</hi> ge-<lb/>
+worden, in <hi rendition="#i">suoch</hi> „nein“. Ist es nicht möglich dass<lb/>
+von diesem "Worte aus anl. <hi rendition="#i">s</hi> = <hi rendition="#i">h</hi> sich auf weniger<lb/>
+gewöhnliche ausdehne? Im Andalusischen wird im<lb/>
+Allgemeinen nur vorconsonantisches <hi rendition="#i">s</hi> zu <hi rendition="#i">h</hi>; es scheint,<lb/>
+wie ich (Gröber's Zeitschr. V, 319 f.) bemerkt habe,<lb/>
+zunächst im Auslaut die Tendenz zu weiterer Anwen-<lb/>
+dung aufzutauchen (<hi rendition="#i">loh amigos</hi> neben <hi rendition="#i">los amigos</hi>), dann<lb/>
+aber auch <hi rendition="#i">no heñó, si heñó</hi> vorzukommen. Bei Be-<lb/>
+jahung und Verneinung findet Manches statt was sonst<lb/>
+nicht; so hört man vom Italiener nicht selten statt <hi rendition="#i">sì</hi><lb/>
+ein geflüstertes <hi rendition="#i">si</hi> oder bloss <hi rendition="#i">s</hi>, und der lautgesetzliche<lb/>
+Schwund des <hi rendition="#i">n</hi> in span.-ital. <hi rendition="#i">no</hi> ist wenigstens mir<lb/>
+noch nicht klar. Wo es sich nicht um indigenen,<lb/>
+sondern um verpflanzten Lautwandel handelt, da wird<lb/>
+umgekehrt gerade in den gewöhnlichsten Wörtern die<lb/>
+alte Aussprache am Längsten bleiben. <hi rendition="#k">Kolosov</hi> (Замѣткн<lb/>
+<lb/>
+<pb facs="#f0040" n="28"/>
+ο я. и н. II. въ области сѣверно-великорусскаго нарѣчiя.<lb/>
+Petersb. 1877) sieht die Verwandelung des <hi rendition="#i">ĕ</hi> in <hi rendition="#i">i</hi> als<lb/>
+einen ursprünglichen allgemeinen Zug des nowgorod-<lb/>
+schen Dialektes an; nun habe an manchen Orten <hi rendition="#i">e</hi><lb/>
+dieses <hi rendition="#i">i</hi> gänzlich verdrängt, an anderen werde dies<lb/>
+nur von alten Leuten gewahrt, während den jungen<lb/>
+Leuten <hi rendition="#i">chlib, sino</hi> u. s. w. lächerlich erscheine, hier<lb/>
+wiederum finde sich ausnahmsweise <hi rendition="#i">i</hi> neben dem ge-<lb/>
+wöhnlichen <hi rendition="#i">e</hi> (so <hi rendition="#i">chlib</hi>, aber <hi rendition="#i">seno</hi> u. s. w.), und dort<lb/>
+das Umgekehrte. Dass in dem Worte für „Brod“<lb/>
+sich der alte Laut hält, begreifen wir leicht; Anderes<lb/>
+liegt nicht so zu Tage. Dialektische Mischung ist<lb/>
+freilich nicht in Abrede zu stellen, aber ich weiss nicht<lb/>
+wie sie hier, wo ja nicht einzelne Wörter entlehnt sind,<lb/>
+als nur scheinbare Ausnahme von der lautlichen Gesetz-<lb/>
+mässigkeit angesehen werden kann; es muss doch er-<lb/>
+klärt werden warum in dem einen Worte der her-<lb/>
+gebrachte, in dem anderen der neue Laut herrscht.<lb/>
+Was bei einer solchen Mischung möglich ist, ist über-<lb/>
+haupt möglich. <hi rendition="#k">Delbrück₁<hi rendition="#sub">2</hi></hi> stimmt <hi rendition="#k">Brugmann<hi rendition="#sub">2</hi></hi> darin<lb/>
+vollkommen bei dass eine Lautbewegung nicht bei<lb/>
+bestimmten Wörtern ihren Anfang nehme und dann<lb/>
+auf andere Wörter übertragen werde, und setzt hinzu:<lb/>
+„dass es sich wirklich so verhält, dürfte nicht bloss<lb/>
+die Erfahrung an Volksmundarten beweisen“ — da-<lb/>
+gegen sprechen die vorher angeführten Thatsachen —,<lb/>
+„sondern auch die Ueberlegung dass nur unter der<lb/>
+Voraussetzung einer gleichmässigen und consequenten<lb/>
+Aussprache der Laute die Aneignung einer fremden<lb/>
+Sprache erklärlich ist“. Dieses Argument vermag ich<lb/>
+nicht zu widerlegen, da ich es nicht verstehe. — Dass<lb/>
+sehr selten gebrauchte Wörter leicht eine alterthüm-<lb/>
+liche Gestalt aufweisen, ist ebenfalls bekannt. Es fragt<lb/>
+<lb/>
+<pb facs="#f0041" n="29"/>
+sich ob nicht innerhalb des gesammten Sprachmaterials<lb/>
+mit Hinblick auf das Eintreten des Lautwandels noch<lb/>
+andere Abstufungen denkbar sind. <hi rendition="#k">Delbrück₁<hi rendition="#sub">2</hi></hi> hat<lb/>
+die Möglichkeit angedeutet — allerdings um sie zu-<lb/>
+rückzuweisen — „dass jede Lautveränderung bei einem<lb/>
+bestimmten Worte beginne und sich von diesem aus<lb/>
+weiter fortsetze, also z. B. von einem Substantivum<lb/>
+auf andere, von da auf Adjective und Participia, und<lb/>
+so zum Verbum gelange“. Könnte aber, die allmäh-<lb/>
+liche Ausbreitung des Lautwandels zugegeben, nicht<lb/>
+der Gedanke entstehen dass überhaupt die begriffliche<lb/>
+Analogie nur in einzelnen Fällen den Lautgesetzen<lb/>
+entgegen, im Allgemeinen vielmehr mit ihnen zusam-<lb/>
+men arbeite?</p>         <lb/>
+<p>Die Lehre von der Ausnahmslosigkeit der Laut-<lb/>
+gesetze lässt sich nach dem Gesagten ebensowenig auf<lb/>
+deductivem wie auf inductivem Wege beweisen; wer<lb/>
+ihr anhängt, muss sich zu ihr als einem <hi rendition="#g">Dogma</hi> be-<lb/>
+kennen, und Dogma heisst sie beiläufig in <hi rendition="#k">G. Meyer</hi>'s<lb/>
+Nachruf an G. Curtius, ausdrücklich in <hi rendition="#k">Bloomfield</hi>'s<lb/>
+der Frage selbst gewidmeten Abhandlung. Nun können<lb/>
+aber Dogmen nur vermittelst „falscher Analogie“ in<lb/>
+die Wissenschaft gelangen, und zwar wird das frucht-<lb/>
+bare tertium comparationis in der Heilswirkung liegen.<lb/>
+Herzhaft sagt in der That <hi rendition="#k">Bloomfield</hi>, und er meint<lb/>
+nicht zu viel zu sagen, dass wenn die Lehre von der<lb/>
+Unverletzlichkeit der Lautgesetze sich auch schliess-<lb/>
+lich als falsch herausstellen sollte, diese Thatsache<lb/>
+doch dem Werthe derselben als Methode keinen Ein-<lb/>
+trag thun würde; denn sie habe sich als solche durch<lb/>
+ihre Früchte bewährt. Die Beziehung richtiger Re-<lb/>
+sultate auf möglicherweise falsche Prämissen wider-<lb/>
+spricht dem wissenschaftlichen Denken.   Ebenso unzu-<lb/>
+<lb/>
+<pb facs="#f0042" n="30"/>
+lässig ist es ein wissenschaftliches Verfahren mit einem<lb/>
+wissenschaftlichen Theorem  ohne  Weiteres zu identi-<lb/>
+ficiren; aber hierin dürften sehr viele Sprachforscher,<lb/>
+sei es mehr sei es weniger bewusst,  mit <hi rendition="#k">Bloomfield</hi><lb/>
+übereinstimmen und sich nur insofern von ihm unter-<lb/>
+scheiden dass die Trefflichkeit der Methode für sie<lb/>
+jeden Zweifel an der Gültigkeit der Lehre ausschlösse.<lb/>
+Ich kann aber nur so viel zugeben dass diese eine<lb/>
+sehr absolute und einfache ist; darum eben lässt sich<lb/>
+so bequem mit ihr operiren. Man sucht gern das in-<lb/>
+fallibilistische Princip auf apagogische Weise zu er-<lb/>
+härten. <hi rendition="#k">Paul₁</hi> meint wer dasselbe verwerfe — er er-<lb/>
+kennt ihm allerdings „nicht mehr als den Werth einer<lb/>
+Hypothese“ zu  —, der „verzichte damit überhaupt<lb/>
+auf die Möglichkeit die Grammatik zum Range einer<lb/>
+Wissenschaft zu erheben". Nach <hi rendition="#k">Kruszewski</hi> stellen<lb/>
+uns die Junggrammatiker vor die Notwendigkeit<lb/>
+„ausnahmslose Lautgesetze anzunehmen oder die Ab-<lb/>
+wesenheit aller Lautgesetze  einzuräumen“. Dazu be-<lb/>
+merke ich erstens dass das Abschreckungssystem in<lb/>
+der Wissenschaft keinen Platz verdient, und sodann<lb/>
+dass die aufgestellte Alternative auch wenn sie minder<lb/>
+schroff formulirt wird, falsch ist. Ich möchte wissen<lb/>
+wer von den vor- oder nichtjunggrammatischen Sprach-<lb/>
+forschern, bis zu meiner Wenigkeit herab, den Laut-<lb/>
+wandel als ein Chaos (ich finde diesen Ausdruck auch<lb/>
+bei <hi rendition="#k">Kruszewski</hi>) angesehen und behandelt hätte.<lb/>
+Dass <hi rendition="#k">Bloomfield</hi> für die Lautgesetze im weitesten<lb/>
+Sinne — von der Ausnahmslosigkeit will er ja Nichts<lb/>
+wissen — eine Lanze bricht, scheint mir höchst über-<lb/>
+flüssig; freilich habe ich <hi rendition="#k">Easton</hi>'s pessimistische Aus-<lb/>
+führungen, auf die er sich bezieht, nicht gelesen. Der<lb/>
+Grundirrthum bei ihm und bei den Anderen liegt<lb/>
+<lb/>
+<pb facs="#f0043" n="31"/>
+recht tief, nämlich in der Voraussetzung als ob über-<lb/>
+haupt irgend ein Gebiet wirklich existire oder doch<lb/>
+sich annehmen lasse welches keinen Gesetzen unter-<lb/>
+than sei. Wohl stuft sich innerhalb der verschiedenen<lb/>
+Kategorieen von Erscheinungen die verknüpfende Regel-<lb/>
+mässigkeit je nach der grösseren oder geringeren Com-<lb/>
+plication der Bedingungen auf's Mannigfachste ab,<lb/>
+vom Zufall des Hasardspiels bis zur festen Ordnung<lb/>
+der mechanischen Welt. Immer muss eine allgemeine<lb/>
+Betrachtung des Bodens auf dem wir arbeiten wollen,<lb/>
+uns über die Regelmässigkeit belehren die wir zu er-<lb/>
+warten haben. Der Hasardspieler der mit Berech-<lb/>
+nungen sein Glück verfolgt, hat die eigentliche Natur<lb/>
+des Spiels nicht erkannt. Wunderbarer dünkt es mich<lb/>
+dass man die psychologischen Grundlagen des Laut-<lb/>
+wandels, den gesellschaftlichen Charakter der Sprache,<lb/>
+die fliessenden Grenzen ihrer räumlichen und zeitlichen<lb/>
+Verschiedenheiten so deutlich wahrnehmen und dabei<lb/>
+die Ausnahmslosigkeit der Lautgesetze so bestimmt<lb/>
+behaupten kann. Die Junggrammatiker verwechseln<lb/>
+»il concetto semplicissimo di leggi con quello degli<lb/>
+effetti complessi che si producono per molte leggi che<lb/>
+cooperino e si consertino insieme variamente« (<hi rendition="#k">Merlo</hi>).<lb/>
+Die oben aufgedeckten formalen Mängel des jung-<lb/>
+grammatischen Dogmas gestatten mir es nicht die<lb/>
+eigene Ansicht in contradictorischer Fassung ihm<lb/>
+gegenüber zu stellen; ich werde nicht sagen: „die<lb/>
+Lautgesetze haben Ausnahmen“. Heisst es aber: „es<lb/>
+gibt keinen sporadischen Lautwandel“, dann werde<lb/>
+ich mich positiv ausdrücken: „es gibt sporadischen<lb/>
+Lautwandel“. Ja wenn ich gezwungen wäre den Be-<lb/>
+griff „Ausnahmslosigkeit“ in mein Bekenntniss aufzu-<lb/>
+nehmen, so würde ich ihn eher als auf die Lautgesetze,<lb/>
+<lb/>
+<pb facs="#f0044" n="32"/>
+auf das Vorkommen des sporadischen Lautwandels<lb/>
+beziehen, in dem Sinne dass jeder Lautwandel in<lb/>
+irgend einer Phase sporadisch ist. Will man den<lb/>
+verschiedenen Standpunkt durchaus mit gegensätz-<lb/>
+licher Ausdrucksweise charakterisiren, so mag man von<lb/>
+absoluter und von relativer Gesetzmässigkeit reden.</p>         <lb/>
+<p>Dass nun wir die wir dem unglücklicherweise<lb/>
+einmal eingebürgerten Ausdruck „Lautgesetze“ einen<lb/>
+weiteren Sinn beilegen, in der <hi rendition="#g">Praxis</hi>, d. h. der<lb/>
+speciellen der Wort- und Formerklärung darum nicht<lb/>
+schlechter fahren, das darzuthun bleibt noch, freilich<lb/>
+als überflüssiges gutes Werk. Man hat mit der in-<lb/>
+fallibilistischen Lehre eine grössere Strenge in die<lb/>
+wissenschaftliche Forschung einzuführen gemeint. Dabei<lb/>
+ist man aber von einer falschen allgemeinen Ansicht<lb/>
+ausgegangen; die Strenge kann nicht am Objecte,<lb/>
+sondern nur am Subjecte sich äussern, nicht in der<lb/>
+Aufstellung eines strengeren Gesetzes, sondern in der<lb/>
+strengeren Beobachtung desjenigen ohne welches es<lb/>
+keine Wissenschaft gibt und das wiederum für alle<lb/>
+Wissenschaft ausreicht, des Causalitätsgesetzes. Diese<lb/>
+strengere Beobachtung vollzieht sich nun im stetigen<lb/>
+Fortschritt der Wissenschaft von selbst, diese vertauscht<lb/>
+immer nur allmählich den beschreibenden Charakter<lb/>
+mit dem erklärenden. Auch in der Sprachwissenschaft<lb/>
+war man anfänglich zu sehr durch das Sammeln von<lb/>
+Thatsachen in Anspruch genommen um in breiter<lb/>
+Linie der Erforschung der Ursachen nachzugehen;<lb/>
+aber einen vorläufigen Verzicht nach dieser Seite hin<lb/>
+als eine Verläugnung des Princips von den verschie-<lb/>
+denen Ursachen verschiedener Wirkungen anzusehen,<lb/>
+das scheint mir eine gewaltsame Unterstellung. Uebri-<lb/>
+gens muss  uns auch heutzutage  noch gestattet sein<lb/>
+<lb/>
+<pb facs="#f0045" n="33"/>
+irgend welche Abweichung von einem anerkannten<lb/>
+Lautgesetz zu verzeichnen und über die Ursache dieser<lb/>
+Abweichung lieber zu schweigen als eine schlecht-<lb/>
+begründete Vermuthung auszusprechen. Diejenigen<lb/>
+Fehler gegen welche die Junggrammatiker so laut<lb/>
+ihre Stimme erhoben haben, sind entweder längst<lb/>
+überwundene, oder es sind Rückfälle von denen keine<lb/>
+Wissenschaft frei ist und die wegen so mancher prak-<lb/>
+tischen Verstösse der Junggrammatiker gegen ihre<lb/>
+eigene Theorie gerade bei ihnen Entschuldigung ver-<lb/>
+dienten, oder es sind überhaupt keine Fehler. Mir<lb/>
+hingegen erscheint die Lehre von der Ausnahmslosig-<lb/>
+keit der Lautgesetze als ein Hinderniss für die Wissen-<lb/>
+schaft sich im Sinne des Causalitätsgesetzes fortzuent-<lb/>
+wickeln. Die Lautgesetze werden in eine solche Höhe<lb/>
+gehoben dass das Bedürfniss über sie hinauszudringen ein<lb/>
+weit geringeres ist als wenn sie nur den Werth grosser<lb/>
+Regelmässigkeiten besitzen. Und doch sind sie jedenfalls<lb/>
+nur empirische Gesetze, und, wie auch <hi rendition="#k">Wundt</hi> betont, muss<lb/>
+ihre Umwandelung in causale vollzogen werden. Ist es<lb/>
+aber nicht eine merkwürdige Inconsequenz der Jung-<lb/>
+grammatiker dass sie davon absehen die Lautgesetze<lb/>
+selbst zu begreifen, jedoch die Ausnahmen durchaus be-<lb/>
+griffen haben wollen? Und dass sie diese grossentheils<lb/>
+in den Wirkungen begrifflicher Associationen suchen,<lb/>
+und dabei andere Factoren, wie die Sprachmischung,<lb/>
+vernachlässigen? Besonders gefährlich erscheint mir<lb/>
+das mit Bezug auf romanische Mundarten wie sie in<lb/>
+mittelalterlichen Handschriften überliefert sind. Kurz,<lb/>
+die Aufstellung des junggrammatischen Princips be-<lb/>
+deutet für mich keinen Umschwung in der Geschichte<lb/>
+der Sprachwissenschaft, mit dem sie sicherer und<lb/>
+rascher fortzuschreiten begonnen hätte; und ich denke<lb/>
+<fw type="sig" place="bottom"><hi rendition="#g">Schuchardt</hi>, Ueber die Lautgesetze. 3</fw><lb/>
+<lb/>
+<pb facs="#f0046" n="34"/>
+auch eine künftige Generation wird zwischen <hi rendition="#k">Ascoli</hi>'s<lb/>
+„Saggi ladini“ und <hi rendition="#k">Osthoff</hi>'s „Tiefstufe im indogerma-<lb/>
+nischen Vocalismus“ keinen solchen segensreichen<lb/>
+Wendepunkt zu entdecken vermögen.</p>         <lb/>
+<p>Die <hi rendition="#k">Geschichte</hi> dieses blendenden Sophismus,<lb/>
+welcher weite Kreise in Verwirrung gebracht hat, ist<lb/>
+bemerkenswerth. Er wurzelt in der früheren Ansicht<lb/>
+welche die Sprache vom Menschen loslöste, ihr ein<lb/>
+selbständiges Leben lieh und welche zuerst in roman-<lb/>
+tisch-mystischer, dann in streng naturwissenschaftlicher<lb/>
+Färbung auftrat. Die Lehre von der Ausnahmlosigkeit<lb/>
+der Lautgesetze, welche wenn sie nicht thatsächlich<lb/>
+von <hi rendition="#k">A. Schleicher</hi> herrührt, sicher ganz in seinem<lb/>
+Sinne decretirt worden ist, ragt wie eine Antiquität<lb/>
+aus jener Periode in die heutige herein, welche der<lb/>
+Sprachwissenschaft den Charakter einer Geisteswissen-<lb/>
+schaft zuerkennt, welche in der Sprache keinen natür-<lb/>
+lichen Organismus, sondern ein sociales Product er-<lb/>
+blickt. Sie befremdet am Meisten in <hi rendition="#k">Paul</hi>'s „Prin-<lb/>
+cipien“, wo er so tief in das Wesen der Sprache ein-<lb/>
+gedrungen ist; freilich erscheint sie hier in sehr ge-<lb/>
+mildertem Ausdruck. Ueberhaupt hat man von der<lb/>
+Schroffheit mit der man zuerst behauptete, abgehen<lb/>
+müssen, als man versuchte zu beweisen, und so lassen<lb/>
+sich in den vielfachen Corollarien und Ausführungen<lb/>
+zum junggrammatischen Lehrsatz nicht unschwer Wi-<lb/>
+dersprüche zu diesem selbst entdecken. Seine beste<lb/>
+Kritik würde daher vielleicht in der nackten Zu-<lb/>
+sammenstellung der mannigfachen Fassungen liegen<lb/>
+die er, trotz seiner Absolutheit, von <hi rendition="#k">Osthoff</hi> bis auf<lb/>
+<hi rendition="#k">Delbrück</hi> erfahren hat. Seine weite Verbreitung ist<lb/>
+kein Argument zu seinen Gunsten. Nur bei Wenigen<lb/>
+ruht er auf spontaner Entwickelung oder gründlicher<lb/>
+<lb/>
+<pb facs="#f0047" n="35"/>
+Nachprüfung; die Meisten haben sich ihn wegen der<lb/>
+schon bemerkten methodischen Bequemlichkeit an-<lb/>
+geeignet. Er passt sehr gut in die Richtung welche<lb/>
+heutzutage die Wissenschaft auf das Handwerk hat.<lb/>
+Das von <hi rendition="#k">W. Scherer</hi> treffend so genannte „Mechani-<lb/>
+siren der Methoden“ reducirt die Anforderungen an<lb/>
+selbständiges Denken auf ein Minimum und ermög-<lb/>
+licht so die Theilnahme einer ausserordentlichen Menge<lb/>
+thatsächlich Unbefähigter an der „wissenschaftlichen“<lb/>
+Arbeit.</p>         <lb/>
+<p>Ich würde es sehr bedauern wenn ich da wo ich<lb/>
+nur möglichst scharf und bestimmt habe sein wollen<lb/>
+und, im Interesse der Sache selbst, es habe sein müssen,<lb/>
+irgendwie verletzt hätte; ich würde das um so mehr<lb/>
+bedauern als mich mannigfache freundschaftliche Bande<lb/>
+— wie auch die Widmung andeutet — mit der jung-<lb/>
+grammatischen Schule verknüpfen, und ich den Werth<lb/>
+der von den Einzelnen vollbrachten Leistungen, eben<lb/>
+nur vom speciell Junggrammatischen abgesehen, wärm-<lb/>
+stens anerkenne. Pöbelhafte Angriffe welche noch die<lb/>
+neuesten Annalen unserer Wissenschaft befleckt haben,<lb/>
+scheinen Manche unter uns zu einer übertriebenen<lb/>
+Zurückhaltung zu veranlassen. Die Versöhnlichkeit<lb/>
+ist eine schöne Begleiterin der wissenschaftlichen For-<lb/>
+schung, aber sie hat sich doch nur auf das Persön-<lb/>
+liche, nicht auf das Sachliche zu beziehen. Man würde<lb/>
+allgemein den tadeln welcher aus Versöhnlichkeit zwei<lb/>
+Etymologieen die sich einander ausschliessen, mitein-<lb/>
+ander verquicken oder zwischen ihnen unentschieden<lb/>
+bleiben wollte; sollen denn da wo es sich um so weit-<lb/>
+tragende Principien handelt, andere Rücksichten gelten,<lb/>
+gleichsam als ob solche nicht mehr in das Gebiet der<lb/>
+Wissenschaft, sondern in das der Willkür gehörten?<lb/>
+<fw type="sig" place="bottom">3*</fw><lb/>
+<lb/>
+<pb facs="#f0048" n="36"/>
+Manche allerdings gibt es welche der Bedeutung der<lb/>
+sprachwissenschaftlichen Principien nicht gerecht wer-<lb/>
+den, welche deren wiederholte gründliche Durch-<lb/>
+sprechung für überflüssig und ermüdend erklären. Ge-<lb/>
+gen sie, also wenigstens in einem Bezug auf diese<lb/>
+Streitfrage, gehe ich mit denjenigen von denen sie<lb/>
+mich trennt, zusammen. Ich will nicht auf die Ver-<lb/>
+schiedenheit der praktischen Consequenzen zurück-<lb/>
+kommen welche zwischen den Junggrammatikern und<lb/>
+uns Anderen bestehen; sie tritt vielleicht nur in be-<lb/>
+schränktem Umfange zu Tage. Aber die Junggram-<lb/>
+matiker geben ja nicht nur eine Vorschrift, sie be-<lb/>
+haupten auch eine Thatsache, eine für das Sprach-<lb/>
+leben im Allgemeinen höchst charakteristische. Ist<lb/>
+es denn nun nicht an sich ganz gleichgültig ob<lb/>
+rom. <hi rendition="#i">andare</hi> von <hi rendition="#i">adnare</hi> oder <hi rendition="#i">addare</hi> oder <hi rendition="#i">ambulare</hi><lb/>
+oder einem keltischen Verbalstamm herkommt, ob in<lb/>
+diesem Dialekte <hi rendition="#i">l</hi> zu <hi rendition="#i">r</hi> und in jenem <hi rendition="#i">r</hi> zu <hi rendition="#i">l</hi> wird u.<lb/>
+s. w.? Welchen Sinn haben alle die tausende ety-<lb/>
+mologischer und morphologischer Correspondenzen,<lb/>
+die tausende von Lautgesetzen, so lange sie isolirt<lb/>
+bleiben, so lange sie nicht in höhere Ordnungen auf-<lb/>
+gelöst werden? Sie dienen zum Theil und nur aus-<lb/>
+hülfsweise der Aufhellung von Völkerverwandtschaften<lb/>
+und culturellen Beziehungen; aber zunächst müssen<lb/>
+sie doch innerhalb der Sprachwissenschaft selbst ver-<lb/>
+arbeitet werden, in dem Einzelnen müssen wir das All-<lb/>
+gemeine finden lernen, und demnach ist auch die Er-<lb/>
+kenntniss einer Thatsache welche das ganze Sprach-<lb/>
+leben beherrscht, von weit grösserer Wichtigkeit als<lb/>
+die Erkenntniss irgend welcher besonderer Erscheinungs-<lb/>
+formen.</p>         <lb/>
+<p>Diese   Frage   nach   dem   Werthe   der Principien<lb/>
+<lb/>
+<pb facs="#f0049" n="37"/>
+hängt eng zusammen mit der nach der <hi rendition="#g">Stellung</hi> der<lb/>
+<hi rendition="#g">Sprachwissenschaft</hi> im Kreise der Wissenschaften,<lb/>
+und so sind denn auch beide von <hi rendition="#k">Brugmann<hi rendition="#sub">3</hi></hi> unter<lb/>
+einem Titel behandelt worden. Auch in Bezug auf<lb/>
+die letztere stehe ich in vollkommenem Widerspruch<lb/>
+zu ihm und glaube nicht dass die von ihm ersehnte<lb/>
+Verständigung möglich sein wird, ehe wir uns nicht<lb/>
+des Namens „Philologie“ entäussert haben. Die Ein-<lb/>
+theilung der Wissenschaften hat aus der Betrachtung<lb/>
+der Dinge hervorzugehen, nicht aus der Definition von<lb/>
+Namen, am wenigsten von Namen ursprünglich so un-<lb/>
+bestimmten Sinnes und daher fortwährend so schwan-<lb/>
+kender Deutung, die aus Zeiten stammen wo es fast<lb/>
+noch keine Wissenschaft gab. Warum in aller Welt<lb/>
+können wir uns nicht entschliessen nur von Sprach-<lb/>
+wissenschaft, Litteraturwissenschaft, Culturwissenschaft<lb/>
+zu sprechen? Was nun die Sache selbst anlangt, so<lb/>
+meine ich dass immer Sprache und Sprache, mögen<lb/>
+sie auch noch so weit auseinander liegen, in wissen-<lb/>
+schaftlichem Sinn enger zusammengehören als Sprache<lb/>
+und Litteratur, seien es auch die desselben Volkes.<lb/>
+Die Identität der Forschungsmethode fällt schwerer<lb/>
+in's Gewicht als der Zusammenhang heterogener Un-<lb/>
+tersuchungsobjecte. Die Wechselbeziehung zwischen<lb/>
+Sprachwissenschaft und Litteraturwissenschaft mag eine<lb/>
+so lebhafte sein wie sie wolle; die eine spielt der<lb/>
+anderen gegenüber immer nur die Rolle einer Hülfs-<lb/>
+wissenschaft. Ich sehe mich vergebens auf anderen<lb/>
+Gebieten nach einem Analogon für das um was unter<lb/>
+„Philologie“ verstanden werden soll. Fasst man etwa<lb/>
+die Fauna und die Flora einer bestimmten Gegend<lb/>
+in einer eigenen Disciplin zusammen? Wenn man jede<lb/>
+der verschiedenen „Philologieen“ als ein praktisches<lb/>
+<lb/>
+<pb facs="#f0050" n="38"/>
+Studium, als eine Art „Heimathskunde“ betrachten<lb/>
+will, so habe ich Nichts dagegen. Das aber kann ich<lb/>
+<hi rendition="#k">Brugmann<hi rendition="#sub">3</hi></hi> nicht zugestehen dass z. B. die indoger-<lb/>
+manische Sprachwissenschaft nicht ein Ausschnitt der<lb/>
+allgemeinen Sprachwissenschaft, sondern der indoger-<lb/>
+manischen Philologie sei. Die Grenzen der Sprach-<lb/>
+gruppen zu wissenschaftlichen Hauptgrenzen zu er-<lb/>
+heben halte ich für um so unthunlicher als Verwandt-<lb/>
+schaft und Unverwandtschaft in zahlreichen Fällen<lb/>
+noch gar nicht festgestellt, sondern selbst erst Unter-<lb/>
+suchungsobjecte sind. <hi rendition="#k">Brugmann<hi rendition="#sub">3</hi></hi>, und die Meisten<lb/>
+mit ihm, geben nicht viel auf Vergleichungen zwischen<lb/>
+unverwandten Sprachen; und in gleichem Credit müssen<lb/>
+folgerichtigerweise auch die Vergleichungen zwischen<lb/>
+historisch nicht zusammenhängenden Erscheinungen in<lb/>
+verwandten Sprachen stehen, wie deren <hi rendition="#k">Brugmann</hi><lb/>
+in seinem trefflichen Aufsatz „Zur Frage nach den<lb/>
+Verwandtschaftsverhältnissen der indogermanischen<lb/>
+Sprachen“ (1883) aufgezählt hat. Ich hingegen halte<lb/>
+solche Untersuchungen wie sie z. B. schon vor Jahr-<lb/>
+zehnten <hi rendition="#k">A. Schleicher</hi> über den Zetacismus anstellte,<lb/>
+für höchst erspriesslich; die Linguisten sollten, dem<lb/>
+Beispiele der Naturforscher folgend, häufiger, irgend<lb/>
+einer Erscheinung oder Erscheinungsgruppe zu lieb,<lb/>
+Spaziergänge um die Welt machen. Es würde dabei<lb/>
+auch auf das Besondere Licht fallen, vor Allem freilich<lb/>
+auf das Allgemeine. Wenn aber, <hi rendition="#k">Brugmann<hi rendition="#sub">3</hi></hi> zufolge,<lb/>
+die Resultate welche die Vergleichungen zwischen Un-<lb/>
+verwandtem abwerfen, nur der Principienwissenschaft<lb/>
+zu Gute kämen, so würde das eben für mich nur eine<lb/>
+Bestätigung ihres Werthes sein. Denn die Sonderung<lb/>
+welche zwischen den einzelnen Sprachwissenschaften<lb/>
+und der allgemeinen, der Principienwissenschaft gemacht<lb/>
+<lb/>
+<pb facs="#f0051" n="39"/>
+wird, scheint mir am Allermindesten zu rechtfer-<lb/>
+tigen. Jede von jenen geht in diese über, muss in<lb/>
+ihr aufgehen, je mehr sich ihre Wissenschaftlichkeit<lb/>
+selbst steigert, je mehr sie alles Empirische und Zu-<lb/>
+fällige abstreift. Wir sollen bei der sorgfältigsten<lb/>
+Einzeluntersuchung doch nie das Allgemeine und All-<lb/>
+gemeinste aus den Augen verlieren, uns in die Wis-<lb/>
+senschaft nur versenken um uns über sie zu erheben,<lb/>
+ihr nur dienen um sie zu beherrschen.</p>         <lb/>
+<milestone unit="section" rendition="#hr"/>         <lb/>
+<div type="imprint"><p>Druck von C. H. Schulze &amp; Co. in Gräfenhainichen.</p></div>
+<pb facs="#f0052"/>
+<pb facs="#f0053"/>
+<pb facs="#f0054"/>
+<pb facs="#f0055"/>
+<pb facs="#f0056"/>
+</div>     </body>   </text> </TEI>

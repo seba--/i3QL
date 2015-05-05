@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Der deutsche Buchhandel als Bedingung des Daseyns einer deutschen Literatur</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118790471">
+<surname>Perthes</surname>
+<forename>Friedrich Christoph</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">45</measure>
+<measure type="tokens">5417</measure>
+<measure type="types">2027</measure>
+<measure type="characters">41132</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:15Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/perthes_buchhandel_1816</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/perthes_buchhandel_1816</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/perthes_buchhandel_1816</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/perthes_buchhandel_1816</idno>
+<idno type="DTADirName">perthes_buchhandel_1816</idno>
+<idno type="DTAID">17176</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194522</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Perthes, Friedrich Christoph: Der deutsche Buchhandel als Bedingung des Daseyns einer deutschen Literatur. 1816.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Der deutsche Buchhandel als Bedingung des Daseyns einer deutschen Literatur</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118790471">
+<surname>Perthes</surname>
+<forename>Friedrich Christoph</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">36 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Perthes</name></publisher>
+<pubPlace>Gotha</pubPlace>
+<date type="publication">1816</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, An 11511 R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=661643921</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Ökonomie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Ökonomie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#g">Der</hi><lb/>
+<hi rendition="#b #g">deutſche Buchhandel</hi><lb/>
+<hi rendition="#g">als<lb/>
+Bedingung des Daſeyns<lb/>
+einer deutſchen Literatur.</hi></titlePart> </docTitle><lb/>
+<milestone rendition="#hr" unit="section"/><lb/>
+<epigraph> <cit> <quote>„Die Literatur umfaßt beynahe das ganze geiſtige Leben<lb/>
+des Menſchen.“</quote><lb/>
+<bibl><hi rendition="#right">(Fr. Schlegels Geſchichte der alten und<lb/>
+neuen Literatur.)</hi></bibl> </cit> </epigraph><lb/>
+<milestone rendition="#hr" unit="section"/><lb/>
+<docImprint> <docDate> <hi rendition="#g">1816, im July.</hi></docDate> </docImprint><lb/>
+</titlePage>
+<pb facs="#f0008"/>
+</front>
+<pb facs="#f0009"/>
+<body> <div n="1"> <head> <hi rendition="#g">Erſter Abſchnitt.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/>     <argument><p rendition="#c"><hi rendition="#g">Die deutſche Literatur<lb/>
+in ihrem Verhaͤltniß<lb/>
+zum deutſchen Buchhandel.</hi></p></argument><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="2"> <head>§. 1.<lb/>
+</head> <p> <hi rendition="#in">J</hi>edes, aus Roheit und Barbarey herausgetretene<lb/>
+Volk liebt und ehrt ſeine Mutter-Sprache; es gab<lb/>
+weder in alter noch in neuer Zeit eine Nation, die<lb/>
+nicht mit Freude und Stolz geachtet haͤtte auf die in<lb/>
+ihrer Mitte nach eigenthuͤmlicher Art aufbluͤhenden<lb/>
+und gedeihenden Wiſſenſchaften und Kuͤnſte.</p><lb/>
+<p>Nur mit dem Verfall des Anſehens der Reli¬<lb/>
+gion, der Sitten, der Verfaſſung, nur mit dem Auf¬<lb/>
+hoͤren der National-Selbſtſtaͤndigkeit vergehet auch<lb/>
+die Achtung fuͤr <hi rendition="#g">eigne</hi> Sprache und Literatur.</p><lb/>
+<p>Bey den Deutſchen war von jeher lebhafter Ei¬<lb/>
+fer fuͤr die Wiſſenſchaften — und wenn die Bearbei¬<lb/>
+tung derſelben in <hi rendition="#g">deutſcher</hi> Sprache waͤhrend man¬<lb/>
+cher Zeitraͤume verabſaͤumt worden, ſo lebte doch ſtets<lb/>
+in der Gelehrſamkeit vaterlaͤndiſcher Sinn fort und<lb/>
+<pb n="4" facs="#f0010"/>
+die Macht der eigenen Sprache brach, wie unter an¬<lb/>
+dern die Schriften des Taulerus beweiſen, immer von<lb/>
+neuem hindurch.</p><lb/>
+<p>Seit Luther beſonders, wurde Kraft und Reich¬<lb/>
+thum deutſcher Sprache allgemeiner erkannt und von<lb/>
+der Mitte des vorigen Jahrhunderts an, erhielt ſie ihre<lb/>
+hoͤhere, feinere, gewandtere Ausbildung. So bald die<lb/>
+Sprache die ihr zukommenden Rechte durch die <hi rendition="#g">ganze</hi><lb/>
+Nation gewonnen, trat die Literatur in's Leben ein und<lb/>
+verbreitete ſich wirkſam nach allen Richtungen.</p><lb/>
+<p>Es kann als ein Zeichen nicht zu zerſtoͤrender<lb/>
+Nationalitaͤt der Deutſchen gelten, daß das wachſende<lb/>
+Intereſſe an vaterlaͤndiſcher Sprache und Literatur<lb/>
+zur naͤmlichen Zeit ſichtbar wurde, als der Verfall bis¬<lb/>
+heriger Verfaſſung ſich offenbahrte. Mit dem Ungluͤck<lb/>
+des Vaterlandes wurde die Liebe fuͤr deutſche Art<lb/>
+und Kunſt immer reger, ja, man darf ſagen, ſie<lb/>
+ſtieg zur Begeiſterung, als das deutſche Reich durch<lb/>
+franzoͤſiſche Uebermacht aufhoͤren mußte.</p><lb/>
+<p>Von der Zeit an betrachtete man unſere Litera¬<lb/>
+tur als den Geſammt-Ausdruck des geiſtigen Lebens<lb/>
+deutſcher Voͤlker und die <hi rendition="#g">gemeinſame</hi> Sprache als<lb/>
+das unverletzliche Bindungsmittel deutſcher Staͤmme<lb/>
+— heilig zu halten fuͤr beſſere Zeiten.</p><lb/>
+<p>Dieſe beſſeren Zeiten, die wir den Nachkommen<lb/>
+beſchieden glaubten, noch ſelbſt zu erleben, hat Gott<lb/>
+uns gewaͤhrt!<lb/>
+</p>
+<pb n="5" facs="#f0011"/>
+<p>Ein neuer <hi rendition="#g">aͤußerer</hi> Bund iſt beſchloſſen und<lb/>
+durch denſelben ſprach ſich zu Wien der National-<lb/>
+Wille aus, daß das ſo herrlich bewaͤhrte, ſo ſtark be¬<lb/>
+fundene innere Bindungsmittel:<lb/>
+<hi rendition="#c"><hi rendition="#g">Deutſche Sprache und Literatur</hi></hi><lb/>
+fuͤr die Folge geſchirmt und geſchuͤtzt werden ſolle!</p><lb/>
+<p>Dies wollen Fuͤrſten und Staͤnde; es will dies<lb/>
+Adel und Volk.</p><lb/>
+</div> <div n="2"> <head>§. 2.<lb/>
+</head> <p> <hi rendition="#g">Deutſche Literatur</hi> iſt alles in Schrift Ver¬<lb/>
+faßte und durch den Druck Verbreitete, was in unſe¬<lb/>
+rer Nation durch Nachdenken und Forſchen zur Wiſſen¬<lb/>
+ſchaft gebracht worden iſt; Alles was der Geiſt durch<lb/>
+Anſchauung und Phantaſie entdeckt, bildet und auf¬<lb/>
+ſtellt, durch Witz und Scharfſinn erfindet, vergleichet,<lb/>
+erhellet, durch Beredſamkeit klar und lichtvoll dar¬<lb/>
+ſtellet.</p><lb/>
+</div> <div n="2"> <head>§. 3.<lb/>
+</head> <p>Um eine Literatur zu beſitzen, bedarf es, insbe¬<lb/>
+ſondere nach Lage und Verhaͤltniß der Deutſchen, fol¬<lb/>
+gende aͤußere Bedingungen:</p><lb/>
+<list> <item>1) Aufbringen der Koſten zum Druck der<lb/>
+Schriften.</item><lb/>
+<item>2) Entſchaͤdigung der Autoren fuͤr Bekanntma¬<lb/>
+chung und Herausgabe ihrer Schriften.</item><lb/>
+<pb n="6" facs="#f0012"/>
+<item>3) einer Anſtalt um uͤber alle Laͤnder, wo das<lb/>
+Deutsche Muttersprache iſt, die Druck¬<lb/>
+ſchriften ſo zu verbreiten, daß allent¬<lb/>
+halben moͤglichſt gleichartig lebhafter<lb/>
+Antheil an Sprache, Wiſſenſchaft und<lb/>
+Literatur erregt und erhalten werde.<lb/>
+</item> </list> </div> <div n="2"> <head>§. 4.<lb/>
+</head> <p>Erfuͤllung dieſer aͤußern Bedingungen einer Lite¬<lb/>
+ratur gewaͤhrt:<lb/>
+<hi rendition="#c"><hi rendition="#g">Der deutſche Buchhandel,</hi></hi><lb/>
+ein auf ſich ſelbſt beruhendes, aus dem Eigenſten deut¬<lb/>
+ſcher Geſchichte und Verfaſſung hervorgegangenes In¬<lb/>
+ſtitut.</p><lb/>
+</div> <div n="2"> <head>§. 5.<lb/>
+</head> <p>Der deutſche Buchhandel erfuͤllt die <hi rendition="#g">erſte</hi> Be¬<lb/>
+dingung:</p><lb/>
+<list><item><hi rendition="#g">Aufbringen der Koſten zum Druck der<lb/>
+Schriften</hi>.</item></list><lb/>
+<p>Zur Deckung dieſer Koſten iſt ein Abſatz von<lb/>
+Exemplaren erforderlich, wie beygefuͤgte Anlage (Siehe<lb/>
+erſte Anmerkung) durch Beyſpiele zeigt. Solcher Abſatz<lb/>
+eines wiſſenſchaftlichen Buchs oder eines Werks von<lb/>
+einigen Umfang wird weder in einer deutſchen Haupt¬<lb/>
+ſtadt, noch in einer einzelnen Provinz bewirkt; nicht<lb/>
+Nord-, Suͤd-, Oſt- oder Weſt-, ſondern nur Ganz-<lb/>
+Deutſchland macht ihn moͤglich.<lb/>
+</p>
+<pb n="7" facs="#f0013"/>
+<p>Die Koſten zum Druck der Werke traͤgt in<lb/>
+Deutſchland<lb/>
+<list> <item>keine Regierung,</item><lb/>
+<item>kein Goͤnner,</item><lb/>
+<item>keine Academie, kein Inſtitut.</item> </list><lb/>
+Die Moͤglichkeit, daß Werke des Geiſtes erſcheinen,<lb/>
+bewirkt allein der deutſche Buchhandel, der, von einem<lb/>
+Punkte, dem Stapel-Ort Leipzig, ausgehend, nach den<lb/>
+verſteckteſten Winkeln hin reicht und von da aus, auf<lb/>
+jenen einen Punct ruͤckwirkend, das Geſammt-Publi¬<lb/>
+kum zu Erlangung literariſcher Zwecke in Anſpruch<lb/>
+nimmt.</p><lb/>
+<p>Die zweyte Bedingung:</p><lb/>
+<list><item><hi rendition="#g">Entſchaͤdigung der Autoren fuͤr Be¬<lb/>
+kanntmachung und Herausgabe<lb/>
+ihrer Schriften</hi>.</item></list><lb/>
+<p>An der Gerechtigkeit und Billigkeit einer Ent¬<lb/>
+ſchaͤdigung der Autoren iſt wohl ſelten gezweifelt wor¬<lb/>
+den und es laͤßt ſich geſchichtlich und an Beyſpielen<lb/>
+anderer Laͤnder erweiſen, daß es ohne dieſelbe um die<lb/>
+geiſtige Wuͤrde und Freyheit der Autoren gethan waͤre.</p><lb/>
+<p>Ehre und Unſterblichkeit iſt Lohn fuͤr Geiſt,<lb/>
+Talent und Anſtrengung der daraus entſpringenden<lb/>
+Kraͤfte; aber die gelieferten Entdeckungen und Er¬<lb/>
+findungen, die gegebenen Aufklaͤrungen, Darſtellungen,<lb/>
+Erbauungen, Erhebungen, Erheiterungen ſind die Zeit¬<lb/>
+genoſſen zu vergelten ſchuldig, denn der Autor opfert<lb/>
+<pb n="8" facs="#f0014"/>
+die Zeit, welche er zu ſeinem und ſeiner Familie<lb/>
+Nutzen in Staats-Dienſten, auf Handelswegen, oder<lb/>
+zur Handarbeit hatte verwenden koͤnnen, der Foͤrde¬<lb/>
+rung von Wiſſenſchaften und Kuͤnſten.</p><lb/>
+<p>Dieſe Verpflichtung des Publikums uͤbernimmt<lb/>
+der deutſche Buchhandel durch Zahlung des ſogenann¬<lb/>
+ten Honorars, obwohl grade durch daſſelbe das eigent¬<lb/>
+liche Riſico entſpringt, wie die Anlage (Siehe erſte<lb/>
+Anmerkung) zeigt.</p><lb/>
+<p xml:id="p-0014a" next="#p-0014b">Die dritte Bedingung:</p><lb/>
+<list><item><hi rendition="#g">Ueber alle Laͤnder</hi>, <hi rendition="#g">wo das Deutſche Mut¬<lb/>
+terſprache iſt</hi>, <hi rendition="#g">die Druckſchriften ſo zu<lb/>
+verbreiten</hi>, <hi rendition="#g">daß allenthalben moͤglichſt<lb/>
+gleichartig lebhafter Antheil an Spra¬<lb/>
+che</hi>, <hi rendition="#g">Wiſſenſchaft und Literatur erregt<lb/>
+und erhalten werde</hi></item></list><lb/>
+<p xml:id="p-0014b" prev="#p-0014a">kann allein der Buchhandel, ſo wie er in Deutſchland<lb/>
+ſich geſtellt und eingerichtet hat, erfuͤllen.</p><lb/>
+<p>Da die Koſten des Druckes und die Honorare<lb/>
+der Autoren fuͤr bedeutende Werke aus keiner beſon¬<lb/>
+dern deutſchen Provinz oder keinem einzelnen deutſchen<lb/>
+Staat gezogen werden koͤnnen; da Wien, Berlin, Ham¬<lb/>
+burg ꝛc. allenfalls nur entſchaͤdigen fuͤr Tages- und<lb/>
+Wochen-Pamphlets, die meiſt weder der Obrigkeit<lb/>
+noch den Unterthanen nutz und heilſam ſind, ſo lehrt<lb/>
+die Noth dem deutſchen Buchhandel von ſelbſt, keinen<lb/>
+<pb n="9" facs="#f0015"/>
+Ort und keinen Stand, beym Vertrieb der Schriften<lb/>
+unbeachtet zu laſſen.</p><lb/>
+<p> <hi rendition="#g">Dadurch</hi> iſt entſtanden, daß wir eine allge¬<lb/>
+meine deutſche Literatur haben, waͤhrend Frankreich<lb/>
+und auch England nur noch eine Pariſer und Londner<lb/>
+haben. So geſchieht, daß waͤhrend in jenen Laͤndern<lb/>
+außer den Hauptſtaͤdten kein großer Schriftſteller mehr<lb/>
+gedeiht, in Deutſchland in Hunderten von Staͤdten<lb/>
+und Oertern die herrlichſten Geiſtesbluͤthen und tief¬<lb/>
+ſten Erforſchungen entſpringen; daß, waͤhrend man<lb/>
+in London nur ſchwer Buͤcher aus Oxford, Cam¬<lb/>
+bridge und Edinburg findet, vergebens in Paris nach<lb/>
+Buͤchern aus Bourdeaux, Lyon und Montpellier<lb/>
+fragt und ſucht, in Deutſchland an vielen Orten und<lb/>
+nicht allein in Haupt- und Reſidenzſtaͤdten Buchhand¬<lb/>
+lungen getroffen werden, in welchen und durch welche<lb/>
+man ſich die Literatur der ganzen gebildeten Welt<lb/>
+zu eigen machen kann.</p><lb/>
+</div> <div n="2"> <head>§. 6.<lb/>
+</head> <p>Hieraus entſpringen folgerecht nachſtehende An¬<lb/>
+ſpruͤche an den deutſchen Buchhandel;</p><lb/>
+<list>     <item>anſtaͤndige Geſtalt und correcter Druck der er¬<lb/>
+ſcheinenden Schriften und Werke;</item><lb/>
+<item>gerechte und ehrenhafte Behandlung und Ent¬<lb/>
+ſchaͤdigung der Autoren zur Bewahrung ihrer<lb/>
+geiſtigen Wuͤrde und Freyheit;</item><lb/>
+<pb n="10" facs="#f0016"/>
+<item>Aufbietung der Kraͤfte ſowohl einzelner als ver¬<lb/>
+einigter Buchhaͤndler, damit kein wiſſenſchaft¬<lb/>
+liches Unternehmen, welchen Umfang es auch<lb/>
+habe, aus Mangel an Unterſtuͤtzung unausge¬<lb/>
+gefuͤhrt bleibe;</item><lb/>
+<item>billige Preiſe der Verlagswerke und gleichmaͤßige<lb/>
+Haltung der Fabrik- (Verlags-) Preiſe von<lb/>
+Seiten der Verkaͤufer (Sortimentshaͤndler)<lb/>
+durch alle deutſche Laͤnder, nur mit maͤßiger,<lb/>
+von dem Verleger zu beſtimmender, Erhoͤhung<lb/>
+fuͤr die Gegenden, wo zu weite Entfernung<lb/>
+oder der Muͤnzfuß es erfordern.</item></list><lb/>
+</div> <div n="2"> <head>§. 7.<lb/>
+</head> <p>Der eigentlichſte Beruf des deutſchen Buchhan¬<lb/>
+dels aber iſt:</p><lb/>
+<p><hi rendition="#c"><hi rendition="#g">Einheit der deutſchen Literatur</hi></hi><lb/>
+zu erhalten und zu befoͤrdern, und Alles zu beſeitigen,<lb/>
+was dieſe ſtoͤren und gefaͤhrden koͤnnte.</p><lb/>
+<p>Geeignet zu ſolchem Beruf iſt unſer Buchhandel<lb/>
+dadurch, daß er</p><lb/>
+<list>         <item><hi rendition="#g">einen</hi> Stapel-Ort hat, wo <hi rendition="#g">eine</hi> jaͤhrliche<lb/>
+Zuſammenkunft aller Buchhaͤndler gehalten<lb/>
+wird;</item><lb/>
+<item>daß ein halbjaͤhriges, <hi rendition="#g">allgemeines</hi> Verzeichniß<lb/>
+der neu erſcheinenden Buͤcher herauskommt;</item><lb/>
+<pb n="11" facs="#f0017"/>
+<item>daß <hi rendition="#g">allgemeine</hi>, gute und richtige Buͤcher¬<lb/>
+cataloge, nebſt andern literariſchen Huͤlfs¬<lb/>
+mitteln, ſo wie endlich mehrere</item><lb/>
+<item><hi rendition="#g">allgemeine</hi>, die ganze Literatur umfaſſende<lb/>
+critiſche Inſtitute vorhanden ſind.</item></list><lb/>
+</div> <div n="2"> <head>§. 8.<lb/>
+</head> <p>Dieſe in ihrer Art einzigen Vorzuͤge und Eigen¬<lb/>
+thuͤmlichkeiten des deutſchen Buchhandels ſind von<lb/>
+ſelbſt, wie durch einen nationellen Naturſinn, entſtan¬<lb/>
+den. Sie weiter auszubilden und die ſtattfindenden ein¬<lb/>
+geriſſenen Mißbraͤuche, wodurch die Literatur gehemmt<lb/>
+und das Publikum benachtheiligt werden moͤchte, zu<lb/>
+heben und zu beſeitigen, dies waͤre die jetzt zu loſende<lb/>
+Aufgabe, wovon im dritten Abſchnitt weiter die Rede<lb/>
+ſeyn ſoll.</p><lb/>
+</div> <div n="2"> <head>§. 9.<lb/>
+</head> <p>Wollen die Deutſchen an ihren Buchhandel ſolche<lb/>
+Anſpruͤche machen, ſo muß derſelbe als ein National-<lb/>
+Gut und -Inſtitut geachtet und ſo weit der deutſche<lb/>
+Bund ſich erſtreckt, gehegt, geſchirmt und beſchuͤtzt<lb/>
+werden.</p><lb/>
+</div> <div n="2"> <head>§. 10.<lb/>
+</head> <p>Der Buchhandel an <hi rendition="#g">ſich</hi> bedarf, ſo wie jeder<lb/>
+Handel, keiner weiteren Beguͤnſtigung, als <hi rendition="#g">Frey¬<lb/>
+heit</hi>, wohl aber zur Aufrechthaltung derſelben und<lb/>
+Auseinanderſetzung der dabey in Beruͤhrung kommen¬<lb/>
+den Intreſſen:</p><lb/>
+<pb n="12" facs="#f0018"/>
+<list>         <item>eines poſitiven Geſetzes uͤber das Eigenthumsrecht<lb/>
+der Autoren und Verleger, mit feſter Beſtim¬<lb/>
+mung des Umfangs und der Dauer dieſer<lb/>
+Rechte an den Schriften,<lb/>
+<hi rendition="#et">ſo wie:</hi></item><lb/>
+<item>einer Behoͤrde, durch welche dieſe Rechte geltend<lb/>
+zu machen und aufrecht zu erhalten ſind.</item></list><lb/>
+</div> <div n="2"> <head>§. 11.<lb/>
+</head>     <p xml:id="p-0018a" next="#p-0018b">Welchen Inhalt die Weisheit der Geſetzgeber<lb/>
+dieſem Geſetze auch geben mag, ſo muß doch durch¬<lb/>
+aus darin beſtimmt werden,</p><lb/>
+<list>         <item>daß auf eine <hi rendition="#g">gewiſſe Zeit</hi> der Autor und<lb/>
+Verleger ein ausſchließendes Eigenthumsrecht<lb/>
+habe,</item></list><lb/>
+<p xml:id="p-0018b" prev="#p-0018a">wodurch von ſelbſt aller weitere Streit uͤber den Nach¬<lb/>
+druck wegfaͤllt, da nach Ablauf der durchs Geſetz be¬<lb/>
+ſtimmten Zeit die Schrift zum Nationalgut wird und<lb/>
+jede neue Auflage dann ein Ab- oder Wiederdruck<lb/>
+iſt, aber kein Nachdruck.</p><lb/>
+</div> <div n="2"> <head>§. 12.<lb/>
+</head> <p>Wenn poſitive Geſetze vorhanden ſind, moͤchte es<lb/>
+wohl uͤberfluͤſſig ſeyn, noch weiter zu eroͤrtern, ob der<lb/>
+Nachdruck an ſich unrechtlich ſey. Das Unmoraliſche<lb/>
+deſſelben iſt kaum beſtritten worden und die Verthei¬<lb/>
+digungen deſſelben beſchraͤnken ſich, mit Ausnahme<lb/>
+einiger metaphyſiſcher Verſuche an naturrechtlichen<lb/>
+Verhaͤltniſſen, faſt allein darauf, daß ſie den Nach¬<lb/>
+<pb n="13" facs="#f0019"/>
+druck als vortheilhaft fuͤr die Ausbreitung der Litera¬<lb/>
+tur ſchildern und ihn aufſtellen als eine Straf- und<lb/>
+Zucht-Anſtalt gegen eigennuͤtzige Autoren und betruͤ¬<lb/>
+geriſche Buchhaͤndler. Unter den neuern Vertheidigern<lb/>
+iſt wenigſtens keiner, der den Nachdruck in einem<lb/>
+<hi rendition="#g">geſchloſſenen</hi> Staat als ordnungs-, recht- und geſetz¬<lb/>
+maͤßig angaͤbe und es ſtatthaft faͤnde, daß ein Unter¬<lb/>
+than oder Buͤrger ein und deſſelben Staates dem an¬<lb/>
+derem nachdrucke. Nur in ſo fern an dem Eigenthum<lb/>
+eines Auslaͤnders oder Fremden (Barbaren) der Nach¬<lb/>
+druck veruͤbt wird, findet er Vertheidiger und doch iſt<lb/>
+keinem derſelben zuzutrauen, daß er einen Fall, wie<lb/>
+das Luſt-Exempel (Siehe zweyte Anmerkung) auffuͤhrt,<lb/>
+in Schutz nehmen ſollte.</p><lb/>
+</div> <div n="2"> <head>§. 13.<lb/>
+</head> <p>Es iſt wohl geſchichtlich anzunehmen, daß bis<lb/>
+jetzt noch in keinem geſchloſſenen Staat, deſſen Geſetz¬<lb/>
+gebung zu einiger Ausbildung gekommen war, der<lb/>
+Nachdruck geſtattet wurde. Es geſchieht weder in Eng¬<lb/>
+land, noch in Frankreich, noch in Holland, noch in den<lb/>
+vereinigten amerikaniſchen Staaten, noch in den in<lb/>
+eine Monarchie verbundenen oͤſterreichiſchen Laͤndern.<lb/>
+Auch in Deutſchland war er nicht geſtattet, ſo lange<lb/>
+wir Kaiſer und Reich hatten und wurde erſt <hi rendition="#g">ein<lb/>
+Gewerbe</hi>, nachdem ſchon laͤngere Zeit Haupt und<lb/>
+Glieder einander fremd geworden waren.</p><lb/>
+<pb n="14" facs="#f0020"/>
+</div> <div n="2"> <head>§. 14.<lb/>
+</head> <p>Sobald die Glieder des Reichs ſich wieder ge¬<lb/>
+ſammelt hatten, wurde ſogleich in dem zu Wien <hi rendition="#g">ge¬<lb/>
+ſchloſſenen</hi> Bunde verheißen, daß das Eigen¬<lb/>
+thumsrecht der Autoren und Verleger innerhalb des<lb/>
+Bundes geſchuͤtzt werden ſolle und nachdem die hohen<lb/>
+Bevollmaͤchtigten dieſen Gegenſtand einmal ihrer Auf¬<lb/>
+merkſamkeit gewuͤrdigt, mußte es ihnen auch klar wer¬<lb/>
+den, daß, wenn uͤberhaupt eine deutſche Literatur beſte¬<lb/>
+hen ſollte, die <hi rendition="#g">Einheit</hi> derſelben innerhalb des Bundes<lb/>
+geſchuͤtzt werden muͤßte, und daß ohne dieſen Schutz,<lb/>
+welcher verhindert, daß die Schriften der Autoren fuͤr<lb/>
+vogelfrey erklaͤrt werden, ein Zuſtand der Anarchie ein¬<lb/>
+treten muͤßte, der Wiſſenſchaften und Kuͤnſte verdirbt<lb/>
+und zur Anarchie fuͤhrt. (Siehe dritte Anmerk.)</p><lb/>
+</div> <div n="2"> <head>§. 15.<lb/>
+</head> <p>Nachdem durch die Bundes-Acte zu Wien fuͤr<lb/>
+die deutſche Literatur ſich ſo Gluͤckliches ereignet hat,<lb/>
+deſſen Ausfuͤhrung auf den Bundestag zu Frankfurt<lb/>
+verwieſen iſt, waͤre nur noch zu erwaͤgen, was auf<lb/>
+<hi rendition="#g">dieſe Ausfuͤhrung</hi> Bezug hat.</p><lb/>
+</div> <div n="2"> <head>§. 16.<lb/>
+</head> <p>Der Nachdruck als <hi rendition="#g">oͤffentliches Gewerbe</hi><lb/>
+wurde bis jetzt innerhalb des deutſchen Staaten-Bun¬<lb/>
+des ausgeuͤbt in Oeſterreich, Baiern, Baden, Darm¬<lb/>
+ſtadt, Wuͤrtemberg und den Laͤndern, welche die jetzige<lb/>
+preußiſche Rhein-Mark ausmachen.<lb/>
+</p>
+<pb n="15" facs="#f0021"/>
+<p>In der letztern muß er, zufolge des preußiſchen<lb/>
+Landrechts, kuͤnftig aufhoͤren; in Baden und Darm¬<lb/>
+ſtadt wird er fortdauernd betrieben; in Wuͤrtemberg<lb/>
+wurde der Nachdruck, laut Decret vom 15ten Fe¬<lb/>
+bruar 1815, geſetzlich erlaubt, indem man in letzte¬<lb/>
+rem alle nicht innerhalb der Wuͤrtembergiſchen Graͤn¬<lb/>
+zen erſchienene Buͤcher fuͤr <hi rendition="#g">auslaͤndiſche</hi> erklaͤrte.</p><lb/>
+</div> <div n="2"> <head>§. 17.<lb/>
+</head> <p>Die Verhaͤltniſſe des Nachdrucker-Gewerbes in<lb/>
+Oeſterreich ſind hauptſaͤchlich in Erwaͤgung zu ziehen.</p><lb/>
+<p>Da in der Bundes-Acte zu Wien ſo Guͤnſtiges<lb/>
+fuͤr deutſche Literatur erfolgte, welches ſicheres Zeug¬<lb/>
+niß giebt, wie Oeſterreichs Kaiſer, das Vorbild deut¬<lb/>
+ſcher Biederkeit und Wohlgeſinntheit, kein Opfer zu<lb/>
+groß achtet, wenn Ehre und Nutzen der deutſchen<lb/>
+Nation es erfordert, ſo darf man nur verſchaͤmt der<lb/>
+Hinderniſſe erwaͤhnen, die dort der Unterdruͤckung des<lb/>
+Nachdruckes ſich entgegen ſetzen moͤchten, beſonders<lb/>
+auch, wenn man weiß, wie die Miniſter und Staats¬<lb/>
+maͤnner dieſer Monarchie erlauchte und hohe Goͤnner<lb/>
+deutſcher Art und Kunſt ſind. So weit ein Nicht-<lb/>
+Oeſterreicher daruͤber Thatſachen auffuͤhren darf, moͤchte<lb/>
+es Folgendes ſeyn.</p><lb/>
+<p>Als in der Mitte des vorigen Jahrhunderts im<lb/>
+noͤrdlichen proteſtantiſchen Deutſchland geiſtreiche Buͤcher,<lb/>
+mit Geſchmack geſchrieben, erſchienen, war in Oeſter¬<lb/>
+<pb n="16" facs="#f0022"/>
+reich die Ausbildung deutſcher Sprache noch zu ſehr<lb/>
+vernachlaͤßigt, als daß man in Bearbeitung der ſchoͤ¬<lb/>
+nen Literatur haͤtte wetteifern koͤnnen, wohl aber er¬<lb/>
+wachte im alten Kaiſerſtaat Sehnſucht und Liebe zu<lb/>
+dieſen vaterlaͤndiſchen Fruͤchten. Da man dafuͤr nichts<lb/>
+im Tauſch zu geben hatte, ſo mußten dieſe Werke<lb/>
+mit ſchwerem Gelde theuer erkauft werden und um<lb/>
+dem begierigen Publikum dieſe ausbildenden Genuͤſſe<lb/>
+nicht entbehren zu laſſen, geſtattete man den Nach¬<lb/>
+druck der, wie man's nannte, auslaͤndiſchen Buͤcher.</p><lb/>
+<p>Es entſtand hierdurch Abtrennung vom deutſchen<lb/>
+allgemeinen Buchhandel, da Nachdrucker mit ihren<lb/>
+Waaren die jaͤhrlichen Zuſammenkuͤnfte der Buchhaͤnd¬<lb/>
+ler nicht beſuchen duͤrfen; doch war dieſe Trennung<lb/>
+nicht durchgaͤngig, da die Wiener Verleger großer<lb/>
+und wiſſenſchaftlicher Werke, z. B. von Jacquin,<lb/>
+Born, Sonnenfels, Plenk, Quarin, van Swieten,<lb/>
+Vega ꝛc. bey Aufwendung der dazu noͤthigen Koſten<lb/>
+das Nicht-Oeſterreichiſche Deutſchland nicht entbehren<lb/>
+konnten, alſo gar nicht, oder nur ſehr heimlich, ſich<lb/>
+mit Nachdrucken abgeben durften.</p><lb/>
+<p>Seit einem Jahrzehend, alſo eben in den Zeiten<lb/>
+hoͤchſter Bedraͤngniß, haben dieſe Verhaͤltniße ſich gaͤnz¬<lb/>
+lich geaͤndert, und wenn die Balanz der Ein- und<lb/>
+Ausfuhr literariſcher Producte nicht ſchon jetzt ganz<lb/>
+zu Gunſten Oeſterreichs iſt, ſo wird ſie es doch ge¬<lb/>
+wiß in wenig Jahren ſeyn.<lb/>
+</p>
+<pb n="17" facs="#f0023"/>
+<p>Die hohen Erzherzoͤge ſind Befoͤrderer vaterlaͤn¬<lb/>
+diſcher Literatur; unter Ihrer Hoͤchſteignen Leitung<lb/>
+werden prachtvolle naturhiſtoriſche und militairiſche<lb/>
+Werke ausgearbeitet und herausgegeben und Maͤnner<lb/>
+vom hoͤchſten Rang treten als Schriftſteller auf. In<lb/>
+den wiſſenſchaftlichen Faͤchern hat das mediciniſche bey¬<lb/>
+nahe den Vorrang; in der hiſtoriſchen und ſchoͤnen<lb/>
+Literatur glaͤnzen die Namen: Hormayer, Kurz,<lb/>
+Riedel, Alxinger, Bruͤder Collin, Hammer, Pichler ꝛc.<lb/>
+Oeſterreich hat ſich deutſche Gelehrte und Schrift¬<lb/>
+ſteller erſten Ranges wie Genz, Fr. Schlegel, Adam<lb/>
+Muͤller, Werner angeeignet und in <hi rendition="#g">Wien</hi> erſcheint<lb/>
+eine <hi rendition="#g">allgemeine</hi> deutſche Literatur-Zeitung, die<lb/>
+wenigſtens keiner andern nachſtehet. Alle Kuͤnſte,<lb/>
+die der Literatur dienen, als Kupferſtechery, Landchar¬<lb/>
+ten-Fabrikation, Muſikſtich, ſtreiten mit denen anderer<lb/>
+Laͤnder um den Vorrang.</p><lb/>
+<p>Zu welchem Reſultate wird dieſe ſo raſche Aus¬<lb/>
+bildung in kurzem fuͤhren? — Gewiß zu wahrer Ein¬<lb/>
+heit der geſammten deutſchen Literatur!</p><lb/>
+</div> <div n="2"> <head>§. 18.<lb/>
+</head> <p>Auch bey der deutſchen Literatur und dem Buch¬<lb/>
+handel hat ſich die Erfahrung beſtaͤtigt, daß Abtren¬<lb/>
+nen und eignen Vortheil ſuchen kein Heil, jede Ver¬<lb/>
+einigung dagegen Segen bringt.<lb/>
+</p> <fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb n="18" facs="#f0024"/>
+<p>Die Schweitz bedurfte ſeit dem Erbluͤhen der<lb/>
+neuern deutſchen Literatur viel Buͤcher aus Deutſch¬<lb/>
+land, man druckte aber in dieſem, als Staat, Deutſch¬<lb/>
+land fremden Lande nicht nach; ſondern brachte dafuͤr<lb/>
+Bodmers, Hallers, Gesners, Hirzels, Iſelins, Sul¬<lb/>
+zers, Lavaters, I. G. Muͤllers ꝛc. Werke auf dem<lb/>
+Leipziger Markt.</p><lb/>
+<p>Man druckte nicht im Elſaß nach; aber von<lb/>
+Straßburg kamen, auſſer andern, vortreffliche philolo¬<lb/>
+giſche Werke, wie die von Brunk. Man druckte<lb/>
+nicht in Liev- und Curland nach; aber in Riga waren<lb/>
+bey dem ganz deutſchen Buchhaͤndler Hartknoch Kants,<lb/>
+Herders, Klingers ꝛc. Werke verlegt.</p><lb/>
+</div> <div n="2"> <head>§. 19.<lb/>
+</head> <p>Wenn Oeſterreich, in commercieller und finan¬<lb/>
+zieller Hinſicht am meiſten in dieſe Angelegenheit ver¬<lb/>
+wickelt,</p><lb/>
+<p> <hi rendition="#g">fuͤr Einheit deutſcher Literatur</hi><lb/>
+ſich erklaͤrt, woran man ſeit Erſcheinen der Bundes-<lb/>
+Acte kaum zweifeln darf, ſo wird alles Andere leicht<lb/>
+beſeitigt werden koͤnnen, und ſo darf man mit getro¬<lb/>
+ſter Hoffnung zu dem Geſetzes-Entwurf ſelbſt uͤber¬<lb/>
+gehen.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="19" facs="#f0025"/>
+</div> <div n="2"> <head> <hi rendition="#g">Erſte Anmerkung.</hi></head><lb/>
+<argument><p><hi rendition="#g">Ueber die Beſchuldigung von unrechtmaͤ¬<lb/>
+ßigen und unbilligen Gewinn der<lb/>
+Autoren und Verleger.</hi></p></argument><lb/>
+<p>Auf Erfahrung begruͤndete Beyſpiele mit erfor¬<lb/>
+derlichen Belegen fuͤhren jeder Zeit am ſicherſten zu<lb/>
+Verſtaͤndniß.</p><lb/>
+<p>Die Vertheidiger des Nachdrucks, welche haupt¬<lb/>
+ſaͤchlich den großen Gewinn der Verleger in Anſpruch<lb/>
+nehmen, fuͤhren zwar <hi rendition="#g">auch</hi> Beyſpiele an, aber immer<lb/>
+nur ein oder das andere, aus dem Zuſammenhange<lb/>
+geriſſene Verlags-Unternehmen, ohne zu bedenken,<lb/>
+oder bedenken zu wollen, wie viel Mißgriffe und fehl¬<lb/>
+geſchlagene Unternehmungen eine Verlagshandlung<lb/>
+machen muß, ehe ſie nun wirklich zu einem Werke<lb/>
+gelangt, welches ſolchen Gewinn liefert, daß dadurch<lb/>
+die fruͤhern Verluſte gedeckt werden.</p><lb/>
+<p>Wer die deutſche Literatur kennt, wird ſich er¬<lb/>
+innern:</p><lb/>
+<list>         <item>Wie viele Abhandlungen, Diſſertationen und Ver¬<lb/>
+ſuche gemacht werden, bevor eine Entdeckung, Er¬<lb/>
+findung, oder ein Meiſter- und Kunſt-Werk her¬<lb/>
+vortritt und daß dieſe nicht entſtehen wuͤrden, wenn<lb/>
+jene Bemuͤhungen nicht vorhergegangen waͤren.</item><lb/>
+<pb n="20" facs="#f0026"/>
+<item>Wie lange und viel oft ein ſpaͤterhin viel geleſener<lb/>
+Schriftſteller, z. B. Kant, Jean Paul ꝛc. ſchrieb,<lb/>
+ehe ſich derſelbe, vielleicht blos durch Zufall, die<lb/>
+Gunſt deß Publicums erwarb und die bis dahin<lb/>
+auf Koſten des Buchhandels durchlebten Lehrjahre<lb/>
+uͤberſtanden hatte.</item><lb/>
+<item>Wie viele Buͤcher und Abhandlungen gedruckt wer¬<lb/>
+den, deren Koſtendeckung den Abſatz von zwey<lb/>
+bis vierhundert Exemplaren erfordert, die aber<lb/>
+nur 50 bis 100 Perſonen intereſſiren, grade dieſen<lb/>
+aber vom hoͤchſten Nutzen ſind und ſie veranlaßen<lb/>
+und begeiſtern neues Leben und Streben in den<lb/>
+Wiſſenſchaften zu verbreiten.</item></list><lb/>
+<p>Und wenn nun auch ein Buch erworben iſt,<lb/>
+welches beym Publikum durchdringt, wie lange bleibt<lb/>
+es, bey dem lebendigen Aufſtreben deutſcher Literatur,<lb/>
+in dem Werth, daß es reichlichen Gewinn abwerfen<lb/>
+kann. Iſt's ein Kunſtwerk, wie aͤndert ſich nicht<lb/>
+der Geſchmack durch weitere Ausbildung der Sprache?<lb/>
+Iſt's ein wiſſenſchaftliches Buch, ein Hand-, Lehr- oder<lb/>
+Schulbuch, in wie kurzer Zeit wird es nicht durch ein<lb/>
+beſſeres uͤberboten? Wo ſind jetzt die Buͤcher, die<lb/>
+gleich denen von Cellarius, Huͤbner, Hederich, oder von<lb/>
+Wolf, Baumgarten, Heymann, ehemals ein Jahrhun¬<lb/>
+dert hindurch gebraucht wurden?</p><lb/>
+<p>Um ſo viel moͤglich Maͤnnern, die das <hi rendition="#g">Innere</hi><lb/>
+der Buchhaͤndler-Geſchaͤfte nicht kennen, verſtaͤndlich<lb/>
+<pb n="21" facs="#f0027"/>
+zu werden, ſey angenommen, daß folgende Werke<lb/>
+ſaͤmmtlich auf Koſten <hi rendition="#g">einer</hi> Buchhandlung gedruckt<lb/>
+waͤren:</p><lb/>
+<table> <row> <cell/> </row> </table> <milestone unit="section" rendition="#hr"/> <p rendition="#c"><hi rendition="#g">Anmerkung fuͤr Buchhaͤndler.</hi></p><lb/>
+<p>Wenn die Verlags-Handlungen der hier aufgefuͤhrten Werke<lb/>
+die angegebenen Verhaͤltniſſe hier oder da nicht richtig finden<lb/>
+ſollten, ſo werden ſie doch, wenn ſie aͤhnliche Tabellen mit<lb/>
+Werken ihres Verlags aufſtellen, dieſelben Reſultate finden.</p><lb/>
+<pb n="22" facs="#f0028"/>
+<p>Obwohl hier alles willkuͤhrlich angenommen iſt,<lb/>
+ſo werden die Druckkoſten doch wenig von der Wirk¬<lb/>
+lichkeit abweichen; das Honorar mag bey einigen nur<lb/>
+2 Ld'ors geweſen ſeyn, bey anderen war es 4, 5, auch<lb/>
+6 Ld'ors, und bey keinem dieſer Werke wird man ſagen,<lb/>
+daß es unverdient oder die <hi rendition="#g">angegebene</hi> Auflage<lb/>
+zu ſtark gemacht ſey.</p><lb/>
+<p>Die Buchhandlung, die dieſe Unternehmungen<lb/>
+ſaͤmmtlich gemacht haͤtte, wuͤrde man ehren wegen die¬<lb/>
+ſes vortrefflichen wiſſenſchaftlichen Verlags, man wuͤrde<lb/>
+ſie gluͤcklich preiſen wegen des daraus entſpringenden<lb/>
+Gewinne und dadurch erworbenen Eigenthums.</p><lb/>
+<p>Dennoch wuͤrden — angenommen dieſe Werke<lb/>
+waͤren ſaͤmmtlich in einem Jahre gedruckt — (auch<lb/>
+ohne Nachdruck) 5 bis 10 Jahr erforderlich ſeyn, bevor<lb/>
+die Kapitalien herausgezogen waͤren und Gewinn ſich<lb/>
+ergeben konnte.</p><lb/>
+<p>Es ſind bey dieſen Beyſpielen nur ſolche Werke<lb/>
+gewaͤhlt, an welchen die ganze gebildete Welt Theil<lb/>
+nimmt und abſichtlich Schul- und Lehr-Buͤcher und<lb/>
+Local-Piecen weggelaſſen.</p><lb/>
+<p>Vorſaͤtzlich ſind keine Unternehmungen aufgenom¬<lb/>
+men, die auf fuͤnfzig und hundert Jahre, ja fuͤr im¬<lb/>
+mer berechnet ſind. Handlungen, die in dieſer Art un¬<lb/>
+ternehmen, muͤſſen wiſſen, warum ſie lieber Kapita¬<lb/>
+lien, um ſicherer Intereſſen willen, auf lange Zeit feſt¬<lb/>
+legen, als kaufmaͤnniſch umwenden.</p><lb/>
+<pb n="23" facs="#f0029"/>
+<p>Abſichtlich ſind unter den angefuͤhrten Werken<lb/>
+ſolche Schriften ausgelaſſen, die uͤber einen, an der<lb/>
+Tages-Ordnung ſtehenden Gegenſtand, grade den rech¬<lb/>
+ten Zeitpunkt treffend, einen ungewoͤhnlich großen Ge¬<lb/>
+winn geben. Dieſer Gewinn geht faſt ohne Aus¬<lb/>
+nahme (wenigſtens im Ganzen des Buchhandels) da¬<lb/>
+durch verloren, daß uͤber dieſen Gegenſtand fortgeſchrie¬<lb/>
+ben und gedruckt wird, wenn er laͤngſt abgeſtorben<lb/>
+iſt, ja, oft dann erſt die gruͤndlichſten Schriften<lb/>
+erſcheinen, wenn Niemand mehr daran denkt, z. B. uͤber<lb/>
+Illuminaten, Luftballons, Runkelruͤben, geheime poli¬<lb/>
+tiſche Verbindungen, Hamburgs Schickſale ꝛc.</p><lb/>
+<p>Man darf ſicher annehmen, daß in den letzten<lb/>
+30 Jahren von 1785 bis 1815 (ein laͤngerer Zeit¬<lb/>
+raum, als dem Menſchen in der Regel an Geſchaͤfts¬<lb/>
+leben zugetheilt iſt) in dem deutſchen Buchhandel<lb/>
+keine Kapitalien gewonnen, ſondern vielmehr große<lb/>
+verloren gegangen ſind. Wer es weiß, welches bedeu¬<lb/>
+tende Grundvermoͤgen an beſtehenden Verlagswerken<lb/>
+im Jahr 1785 ſich vorfand, das jaͤhrlich Aus¬<lb/>
+beute gab; wer unterſuchen will, welche Kapita¬<lb/>
+lien durch neue Etabliſſements dem Buchhandel zu¬<lb/>
+floſſen, wird ſchwerlich dieſe <hi rendition="#g">Anfuͤhrung beſtreiten</hi><lb/>
+moͤgen.</p><lb/>
+<p>Die Beſchuldigung, daß Autoren und Buch¬<lb/>
+haͤndler auf Koſten des Publicums unverhaͤltnißmaͤßig<lb/>
+hohen und unbilligen Gewinn machten, laͤßt ſich noch<lb/>
+<pb n="24" facs="#f0030"/>
+von andern Seiten aus Erfahrung und durch Bey¬<lb/>
+ſpiele widerlegen.</p><lb/>
+<p>Wo ſind die Autoren, die ſeit funfzig Jahren<lb/>
+durch ihre Schriften Vermoͤgen erwarben?</p><lb/>
+<p>Wahr iſt's, es haben in dieſem Zeitraum Auto¬<lb/>
+ren durch Honorare anſtaͤndig gelebt, die ohne daſſelbe<lb/>
+Hunger gelitten oder nicht geſchrieben haͤtten; mehr<lb/>
+aber iſt nicht zu erweiſen. Blicken wir unter Ver¬<lb/>
+ſtorbenen auf ſolche, die ſich nicht allein der Achtung<lb/>
+der Nation, ſondern auch einer beſondern Gunſt des<lb/>
+Publikums viele Jahre hindurch zu erfreuen hatten,<lb/>
+auf die Klopſtock, Wieland, Herder, Claudius, Schil¬<lb/>
+ler — ſtarben ſie reich? Und doch lebte keiner von ihnen<lb/>
+allein von der Schriftſtellerei.</p><lb/>
+<p>Ueber die Verhaͤltniſſe Lebender hier oͤffentlich<lb/>
+zu ſprechen, waͤre unſchicklich; eine Anfuͤhrung indeſſen<lb/>
+ſey hier erlaubt.</p><lb/>
+<p>Kaum ein Schriftſteller moͤchte von ſeinen Schrif¬<lb/>
+ten als Autor und Selbſtverleger ſo viel Gewinn ge¬<lb/>
+zogen haben, als Hr. Rath Campe zu Braunſchweig.<lb/>
+Hat er aber nicht, als deutſcher Gelehrter, dies Er¬<lb/>
+worbene bey Herausgabe ſeines deutſchen Woͤrterbuchs<lb/>
+groͤßtentheils wieder aufgeopfert? Und wenn Kritiker<lb/>
+daſſelbe noch nicht als ein Vollendetes anſehen, wird<lb/>
+das Opfer nicht um ſo groͤßer, da es einem Verſuch<lb/>
+gebracht wurde, wodurch das Ideal nicht erreicht, nur<lb/>
+naͤher geruͤckt iſt? Und warum drucken diejenigen,<lb/>
+<pb n="25" facs="#f0031"/>
+die zum allgemeinen Beſten Campe's Kinderſchriften<lb/>
+ſo oft nachdruckten, nicht auch deſſen Woͤrterbuch nach,<lb/>
+da fuͤr wohlfeilen Preis gewiß mancher Gelehrte in<lb/>
+Wuͤrtemberg, Baden, Darmſtadt und Oeſterreich, zur<lb/>
+Foͤrderung der Wiſſenſchaften, ſich's ankaufen wuͤrde?</p><lb/>
+<p>Ferner mag das Publikum nicht vergeſſen, daß<lb/>
+Gelehrte, die jetzt in den bedeutendſten, einflußreichſten<lb/>
+Staats-Aemtern ſtehen, ſich Jahrzehende durch, bis<lb/>
+zu hoͤherer Reife, durch Erwerb von ihren Schriften<lb/>
+auf freyem, meiſt unabhaͤngigen, jugendlichen Stand¬<lb/>
+punkt erhielten.</p><lb/>
+<p>Gehen wir uͤber zu den Verlegern! Man<lb/>
+frage, wie viele Buchhandlungen, die vor 30 Jah¬<lb/>
+ren reich waren, es noch ſind; man erwaͤge die Zahl<lb/>
+derer, die ſeit jener Zeit verarmten; man ſuche die<lb/>
+Buchhandlungen auf, die in den letzten 30 Jahren<lb/>
+reich, oder nur wohlhabend wurden; man laſſe ſich<lb/>
+erzaͤhlen, wie viele Jahre redliche Buchhaͤndler in<lb/>
+Angſt, Kummer und Sorge hinbrachten, um nur<lb/>
+ehrlich beſtehen zu koͤnnen! — — — Die Billig¬<lb/>
+keit wird dann auch die haͤrteſten Vertheidiger des<lb/>
+Nachdrucks zum Schweigen bringen.</p><lb/>
+<p>Fuͤr dieſe Anfuͤhrungen wird Niemand Beweiſe<lb/>
+verlangen, weil ſie zu ſehr in den Vermoͤgensſtand<lb/>
+noch exiſtirender Handlungen eingreifen. Da aber beym<lb/>
+deutſchen Buchhandel Rechtlichkeit, Thaͤtigkeit und<lb/>
+guter Wille mehr gelten als Reichthum, wie ich im<lb/>
+<pb n="26" facs="#f0032"/>
+Lauf meines Schickſals dankbar erkennend ſelbſt erfah¬<lb/>
+ren habe, ſo darf auch hier geſagt werden, was<lb/>
+unwiderleglich wahr iſt, und guten Eindruck machen<lb/>
+kann.</p><lb/>
+<p>Sollte dem Verleger von Wielands, Klopſtocks<lb/>
+und Schillers Schriften und ſo vielen gangbaren<lb/>
+Prachtwerken, ſollte Goͤſchen — dem geſegneten Fami¬<lb/>
+lienvater — nach vierzigjaͤhriger angeſtrengter, ver¬<lb/>
+ſtaͤndiger Thaͤtigkeit die Wohlhabenheit, die er haben<lb/>
+mag, nicht zu goͤnnen ſeyn? Sollte man ſie einem<lb/>
+Mann, wie Hartknoch beneiden, der, eine große Hand¬<lb/>
+lung vom Vater erbend, Verleger von Herders, Kants,<lb/>
+und Klingers Schriften war? Man ſehe zu, ob die<lb/>
+Wohlhabenheit dieſer Maͤnner eine andere iſt, als die,<lb/>
+wozu jeder Menſch, der ein halbes Jahrhundert redlich<lb/>
+arbeitete, berechtigt iſt?</p><lb/>
+<p>Betrachten wir die alten Handlungen, die in<lb/>
+Leipzig laͤnger als ein Jahrhundert exiſtirten; die un¬<lb/>
+tergegangenen nicht erwaͤhnend. Voriges Jahr ſtarb<lb/>
+Fritſch, ein unverheyratheter Mann von hoͤchſt ein¬<lb/>
+fachen Sitten. Er ererbte vom Vater einen ſoli¬<lb/>
+den Verlag, war Mitverleger von Gellerts Schriften;<lb/>
+die Zeune-, Schneider-, Heyniſchen Ausgaben claſſiſcher<lb/>
+Autoren, die Schellerſchen Woͤrterbuͤcher waren ſein<lb/>
+Eigenthum — und welchen Reichthum hinterließ die¬<lb/>
+ſer wackere Mann?</p><lb/>
+<pb n="27" facs="#f0033"/>
+<p>Man erforſche, wie vermoͤgend die Familien, de¬<lb/>
+nen die Weidmannſche Handlung gehoͤrt, ſeit einem<lb/>
+Jahrhundert waren, wie groß die Kapitalien ſind, die<lb/>
+in dieſe Handlung verwendet wurden und welche Aus¬<lb/>
+beute ſie ſeit 30 Jahren gab? Wenn dabey beachtet<lb/>
+wird, daß hier der groͤßte Verlag von claſſiſchen Au¬<lb/>
+toren, von Gellerts, Wielands, Schroͤckhs Schriften<lb/>
+ſich befindet, ſo wird auch hier das Publikum ſich<lb/>
+nicht zu beſchweren haben.</p><lb/>
+<p>Man durchblaͤttere den Verlags-Catalog von<lb/>
+Cruſius und man wird erſtaunen, welche Maſſe gelehr¬<lb/>
+ter und gemeinnuͤtziger Werke bey ihm erſchienen ſind,<lb/>
+und zu welchen niedrigen Preiſen. Dieſer Verleger,<lb/>
+der nun ſeine hoͤhern Jahre in Ruhe verlebt, brachte ein<lb/>
+Vermoͤgen von mehreren hundert tauſend Thalern zum<lb/>
+Buchhandel; er druckte was ihm, einem ſehr unterrich¬<lb/>
+teten Manne, fuͤr die Wiſſenſchaften und Kuͤnſte foͤr¬<lb/>
+derlich ſchien, ohne Ruͤckſicht auf Gewinn. Einem<lb/>
+ſolchen Mann ſind wohl einige Verlagsartikel, wie<lb/>
+Weiſſens Kinderfreund und Schillers Gedichte, deren<lb/>
+Verfaſſer und ihre Erben gewiß mit ihrem Verleger<lb/>
+jederzeit zufrieden geweſen ſind, zu goͤnnen?</p><lb/>
+<p>Man frage, von welchen Zeiten das Vermoͤgen<lb/>
+der großen Frankfurter Buchhandlungen Broͤnner und<lb/>
+Varrentrapp u. Wenner herruͤhrt!</p><lb/>
+<p>Man erkundige ſich, welche alte und reiche Buch¬<lb/>
+handlungen noch in Berlin beſtehen! Oder ſoll ein<lb/>
+<pb n="28" facs="#f0034"/>
+Mann wie Nicolai, der eine ſchon ererbte Handlung<lb/>
+nach 50jaͤhriger gluͤcklicher Thaͤtigkeit hinterlaͤßt, dieſe<lb/>
+noch etwa unſicher hinterlaſſen? Man frage nach<lb/>
+den alten großen Hamburger Buchhandlungen, wo<lb/>
+ſind ſie?</p><lb/>
+<p>Man befrage Herrn Bertuch in Weimar, welche<lb/>
+Reſultate dieſer vor allen andern thaͤtige Mann in<lb/>
+einer langen Reihe von Jahren gefunden hat! Man<lb/>
+frage Herrn Frommann, den Beſitzer eines treff¬<lb/>
+lichen Schul-Verlags, ob es ihm leicht geworden iſt,<lb/>
+bis hierher zu kommen. Man frage Herrn Kummer,<lb/>
+der nun Greis iſt, ob er nach 50jaͤhriger unermuͤde¬<lb/>
+ter Thaͤtigkeit ruhen darf, — er, der gluͤckliche Ver¬<lb/>
+leger des vielgeleſenen Kotzebue!</p><lb/>
+<p>Man frage weiter das ganze liebe Deutſchland<lb/>
+durch! Viel arbeitſame, ſich abmuͤhende Buchhaͤnd¬<lb/>
+ler wird man finden, aber reiche trifft man nir¬<lb/>
+gends.</p><lb/>
+<p>Oder ſoll hier, ſtatt aller Beyſpiele die Cottaſche<lb/>
+Buchhandlung gelten? Kennt man auch die Kapita¬<lb/>
+lien, die ſeit 20 Jahren in dieſer Handlung umgewendet<lb/>
+wurden und bedenkt man in welchen Zeitlaͤuften es ge¬<lb/>
+ſchah? Nehmen wir an, daß dieſe Handlung in<lb/>
+den letzten 20 Jahren nicht exiſtirt haͤtte, welche Un¬<lb/>
+ternehmungen wuͤrde unſere Literatur dann entbehrt<lb/>
+haben, wie viele gelehrte und Kunſt-Betriebe wuͤrden<lb/>
+unterblieben ſeyn? Doch, der Beſitzer dieſer Hand¬<lb/>
+<pb n="29" facs="#f0035"/>
+lung bedarf der Vertheidigung Anderer nicht, er mag<lb/>
+ſich ſelbſt vertreten gegen Vorwuͤrfe!</p><lb/>
+<p>Ueberhaupt bin ich ſehr entfernt, Vertheidiger<lb/>
+oder Lobredner der Buchhaͤndler zu ſeyn. Ich kenne<lb/>
+die obwaltenden Uebel recht gut; aber des deutſchen<lb/>
+Buchhandels, wie er ſeit 30 Jahren gefuͤhrt wurde<lb/>
+und noch gefuͤhrt wird, kann man ſich vor Gott<lb/>
+und ſeinem Gewiſſen annehmen, man fuͤhrt eine ge¬<lb/>
+rechte Sache.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> <div n="2"> <head> <hi rendition="#g">Zweyte Anmerkung.</hi></head><lb/>
+<argument><p><hi rendition="#g">Ein unbenanntes und ein benanntes Luſt-<lb/>
+Exempel uͤber den Nachdruck</hi>.</p></argument><lb/>
+<p>Wenn A. (der Autor) etwas fuͤr den Druck nie¬<lb/>
+dergeſchrieben, ſo geht er, um das zu bewirken, wozu<lb/>
+er ſelbſt weder Zeit noch Geld hat, B. (den Buch¬<lb/>
+haͤndler) an. Haͤlt dieſer das Dargebotene fuͤr gut<lb/>
+und glaubt (<hi rendition="#g">wiſſen</hi> kann er es nicht) daß das Pub¬<lb/>
+likum eben ſo urtheilen werde, ſo giebt er A. Hono¬<lb/>
+rar fuͤr das Manuſcript und bezahlt Druck und Pa¬<lb/>
+pier fuͤr ſo viele Exemplare, als er abſetzen zu koͤnnen<lb/>
+meint. B. irrt ſich, mit oder ohne Schuld, und be¬<lb/>
+haͤlt mehrere hundert Exemplare uͤbrig, wodurch ihm<lb/>
+nicht allein der gehoffte Gewinn, ſondern auch ein<lb/>
+<pb n="30" facs="#f0036"/>
+Theil des Kapitals entgeht. Dieſelbe Erfahrung macht<lb/>
+B. mehre Male und vielleicht erſt im ſechſten Fall<lb/>
+gluͤckt ein Unternehmen, wobey durch Abſatz von ein¬<lb/>
+tauſend Exemplaren Gewinn und Erſatz fuͤr den vor¬<lb/>
+her erlittenen Verluſt erworben werden koͤnnte. Da<lb/>
+findet ſich N. (der Nachdrucker) welcher die fehlge¬<lb/>
+ſchlagenen Unternehmungen von B. nicht beachtete,<lb/>
+wohl aber die gegluͤckte ſogleich bemerkt und von dem<lb/>
+Buch eine neue Auflage zu wohlfeilerem Preiſe macht,<lb/>
+welches er um ſo leichter kann, da er den fruͤhern<lb/>
+Verluſt nicht zu decken und A. kein Honorar zu geben<lb/>
+braucht. Durch ſolches Verfahren bleibt bey B. die<lb/>
+Haͤlfte der Auflage liegen und er wird abgeſchreckt<lb/>
+ferner etwas zu unternehmen; A. findet folglich kuͤnf¬<lb/>
+tig keinen Abnehmer ſeiner Arbeit; N. aber, der Lau¬<lb/>
+rer, hat ſeinen ſichern Gewinn. Das Publikum hat<lb/>
+allerdings durch den wohlfeilern Preis bey dieſem <hi rendition="#g">ei¬<lb/>
+nen</hi> Falle ſcheinbaren Vortheil; iſt aber der ein guter<lb/>
+Haushalter, der ſein Saat-Korn aufzehrt?</p><lb/>
+<p>Nachfolgendes <hi rendition="#g">benannte</hi> Exempel, obwohl nur<lb/>
+Hypotheſe, wird ein ſolches Verhaͤltniß klaͤrer machen!</p><lb/>
+<p>Angenommen, Prof. Ebeling zu Hamburg giebt<lb/>
+von ſeiner durch die Zeitlaͤufte unterbrochenen Erdbe¬<lb/>
+ſchreibung Amerika's einen neuen Band (Virginien)<lb/>
+heraus. Der Autor hat fuͤr Buͤcher, Landcharten, Cor¬<lb/>
+respondenz und Beytraͤge an 800 Thaler Unkoſten,<lb/>
+eigene Arbeit und Zeitverluſt nicht gerechnet. Der<lb/>
+<pb n="31" facs="#f0037"/>
+Buchhaͤndler‚ der dies Werk uͤbernimmt‚ muß an<lb/>
+1000 Exemplare abſetzen‚ um die Koſten des Hono¬<lb/>
+rars‚ Drucks und Papiers zu decken; da hierzu nun<lb/>
+keine Wahrſcheinlichkeit iſt‚ ſo macht er einen hohen<lb/>
+Preis‚ um mit 750 Exempl. Erſatz zu haben. Das<lb/>
+Buch wird nach ſeiner Erſcheinung geprieſen und fin¬<lb/>
+det Kaͤufer; ein Hamburger Buchdrucker-Herr‚ z.B.<lb/>
+Herr Neſtler‚ der Nachdrucker von Schillers Gedich¬<lb/>
+ten‚ findet es dem Intereſſe ſeiner Officin gemaͤß‚<lb/>
+dieſen Band der Erdbeſchreibung nachzudrucken und weil<lb/>
+er am Druck verdient‚ keine fruͤhern Verluſte im Buch¬<lb/>
+handel zu decken hat und kein Honorar bezahlt‚ kann<lb/>
+er das Buch um die Haͤlfte wohlfeiler geben‚ als der<lb/>
+rechtmaͤßige Verleger‚ dem dadurch die Haͤlfte ſeiner<lb/>
+Auflage Maculatur wird. Wenn nun kuͤnftig ein neuer<lb/>
+Band dieſes Werkes erſcheinen ſollte‚ wird der vorige<lb/>
+Verleger ihn gewiß nicht drucken und der Nachdrucker‚<lb/>
+welcher wartet, bis er etwas ohne Riſiko und Unko¬<lb/>
+ſten unternehmen kann‚ auch nicht; das Publikum<lb/>
+aber entbehrt dadurch ein ſchaͤtzenswerthes‚ die Wiſſen¬<lb/>
+ſchaften forderndes Werk. Der angenommene Fall<lb/>
+kann zwar nicht eintreten, da <hi rendition="#g">innerhalb</hi> Hamburgs<lb/>
+Mauern kein Buͤrger den andern ſo benachtheili¬<lb/>
+gen duͤrfte, allein es fragt ſich‚ ob‚ wenn dies von<lb/>
+Altona‚ Haarburg‚ Emden oder Leipzig aus geſchaͤhe‚<lb/>
+fuͤr Deutſchlands Literatur dies Verhaͤltniß anders<lb/>
+und beſſer waͤre?</p><lb/>
+<pb n="32" facs="#f0038"/>
+<p>Nach dem Sinn der Vertheidiger des Nach¬<lb/>
+drucks waͤre letzteres ein durchaus erlaubtes Ver¬<lb/>
+fahren.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> <div n="2"> <head> <hi rendition="#g">Dritte Anmerkung</hi>.</head><lb/>
+<argument><p><hi rendition="#g">Folgen fuͤr die deutſche Literatur, wenn der<lb/>
+geſetzloſe Zuſtand der Autoren und<lb/>
+Buchhaͤndler fortdauert</hi>.</p></argument><lb/>
+<p>Deutſche Schriftſteller ſchreiben fuͤr alle Laͤnder,<lb/>
+ſo weit die deutſche Sprache reicht und der deutſche<lb/>
+Buchhandel verbreitet die Druck-Schriften nach allen<lb/>
+von Deutſchen bewohnten Gegenden.</p><lb/>
+<p>Je ſicherer der Buchhaͤndler unternimmt, je groͤ¬<lb/>
+ßer er die Auflagen machen kann, deſto wohlfeiler<lb/>
+kann er die Buͤcher geben.</p><lb/>
+<p>Man fand die von den Verlegern beſtimmten<lb/>
+Preiſe zu hoch; wollte fuͤr Buͤcher kein Geld aus<lb/>
+dem Lande gehen laſſen oder gar fuͤr nachgedruckte<lb/>
+welches hereinziehen; deshalb erlaubte man in Oeſter¬<lb/>
+reich und in dem ſonſt ſogenannten Reiche den Nach¬<lb/>
+druck und vollendete ſo die Trennung des <hi rendition="#g">deutſchen<lb/>
+literariſchen Vereins</hi>. Fruͤher ſchon hatten die<lb/>
+<hi rendition="#g">allgemeinen</hi> Buͤcher-Verzeichniſſe, welche anfaͤnglich<lb/>
+in Augsburg, dann in Frankfurt am Mayn heraus¬<lb/>
+<pb n="33" facs="#f0039"/>
+kamen, ſo wie die Buchhaͤndler-Zuſammenkuͤnfte ſich<lb/>
+nach Leipzig gezogen.</p><lb/>
+<p> <hi rendition="#g">Jetzt</hi> wird nachgedruckt in Oeſterreich, Baden,<lb/>
+Wuͤrtemberg, Darmſtadt und in der preußiſchen Rhein-<lb/>
+Mark; in allen dieſen Staaten bluͤht die deutſche<lb/>
+Geſammt-Literatur und in allen leben ſehr große und<lb/>
+bedeutende Verlags-Eigenthuͤmer, z. B. in Stutt¬<lb/>
+gardt, Cotta; in Heidelberg, Mohr und Winter; in<lb/>
+Darmſtadt, Heyer und Leske. Wenn nun in Wuͤr¬<lb/>
+temberg der Bayerſche Verlag z. B. des Kanzelred¬<lb/>
+ners Reinhard Werke, Sulzbach bey Seidel, nach¬<lb/>
+gedruckt werden, warum nicht in Bayern Cotta's<lb/>
+Verlag, Goethe's, Herder's, J. Muͤller's, Schiller's<lb/>
+Werke? Wenn in Wien Hamburger Verlag z. B.<lb/>
+Buͤſch, Claudius ꝛc. Schriften, warum nicht in Ham¬<lb/>
+burg Fr. Schlegels Vorleſungen, ſo wie die Werke<lb/>
+der Pichler und Collins? Wenn in Carlsruhe der<lb/>
+Berliner Verlag, z. B. A. W. Schlegel's Ueber¬<lb/>
+ſetzung des Shakespeare, warum nicht in Berlin deſſel¬<lb/>
+ben Autors dramatiſche Vorleſungen, Heidelberg bey<lb/>
+Mohr und Winter?</p><lb/>
+<p>Gegen die Berechtigung der Staaten, wie der<lb/>
+Privatperſonen zu ſolchem <hi rendition="#g">gegenſeitigen</hi> Verfahren<lb/>
+moͤchte wohl nichts einzuwenden ſeyn, aber wenn man<lb/>
+nur einigermaßen im erfahrungsmaͤßigen Nachdenken<lb/>
+geuͤbt iſt, wird man zugeben, daß bey ſolchem Gegen¬<lb/>
+einanderwirken der Buchhaͤndler, die Kraͤfte in we¬<lb/>
+<fw type="sig" place="bottom">3<lb/>
+</fw>
+<pb n="34" facs="#f0040"/>
+nig Jahren ſich dergeſtalt aufreiben muͤſſen, daß kein<lb/>
+neues Buch verlegt, kein altes wieder gedruckt wer¬<lb/>
+den kann. Der Buchhandel wird aufhoͤren und mit<lb/>
+ihm das Leben der deutſchen Literatur; der Nach¬<lb/>
+druck wird ein gleiches Schickſal haben, und nur<lb/>
+ſpaͤt, nach koſtbaren, bittern Erfahrungen wird man<lb/>
+ein neues, einigeres Leben beginnen.</p><lb/>
+<p>Vielleicht aber glaubt man, daß die Ausbildung<lb/>
+in den deutſchen Staaten ſo gedeihen werde, daß Au¬<lb/>
+toren wie Spittler, Storr, Plouquet ꝛc. nur fuͤr<lb/>
+Wuͤrtemberg, Thibaut, Martin, Hebel ꝛc. nur fuͤr<lb/>
+Baden zu ſchreiben brauchen, und dieſe ſouverainen<lb/>
+Staaten auch die Koſten ſolcher Schriften und Werke<lb/>
+allein und gaͤnzlich werden tragen koͤnnen? Das waͤre<lb/>
+freylich vortrefflich! Dann haͤtten wir eine Koͤnigl.<lb/>
+Wuͤrtembergiſche, eine Großherzogl. Badenſche u. ſ. w.<lb/>
+Literatur, jede fuͤr ſich feſt und geſchloſſen; allein dies<lb/>
+Ziel ſcheint nicht ſo nahe zu liegen.</p><lb/>
+<p>Oder man ſieht auch Privilegien, die ja immer<lb/>
+gnaͤdigſt ertheilt werden, als Sicherungsmittel des<lb/>
+Verlags-Eigenthums an? Aber, ſelbſt wenn es zu<lb/>
+erlangen waͤre, daß dieſe Privilegien unentgeldlich ge¬<lb/>
+geben wuͤrden, ſo koͤnnte es doch auf keinen Fall <hi rendition="#g">ſpor¬<lb/>
+telfrey</hi> geſchehen und dieſe Sporteln allein wuͤrden<lb/>
+mehr betragen, als Honorar und Druck zuſammen,<lb/>
+da der Privilegien nicht etwan nur 17 (ſo viel als<lb/>
+<hi rendition="#g">Stimmen</hi> auf dem Bundestage ſind) ſondern 36<lb/>
+<pb n="35" facs="#f0041"/>
+(ſo viel als es Bundes-<hi rendition="#g">Glieder</hi> giebt) genommen<lb/>
+werden muͤßten, und fuͤr deutſche Sprache, Literatur<lb/>
+und Wiſſenſchaft Anhalt mit Schwarzburg, Reuß mit<lb/>
+Waldeck, oder Hamburg mit Frankfurt nicht den min¬<lb/>
+deſten Zuſammenhang haben. Waͤre ein Verleger ſo<lb/>
+gluͤcklich und erwuͤrbe ſich 35 Privilegien, haͤtte aber<lb/>
+keines von der 36ſten deutſchen Monarchie oder Repu¬<lb/>
+blik, ſo wuͤrde hier nachgedruckt und jene 35 koͤnnten<lb/>
+nichts helfen.</p><lb/>
+<p>Doch auch dies iſt nur ein Luſt-Exempel! Der<lb/>
+Trieb der Einigung unter den Deutſchen wurzelt tiefer<lb/>
+und es kann dahin nicht kommen. Unſer moraliſches<lb/>
+Gefuͤhl haͤlt den Grundſatz aufrecht: „Was du nicht<lb/>
+willſt, daß dir die Leute thun ſollen, das thue ihnen<lb/>
+auch nicht!”</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Die Darſtellung der Verhaͤltniſſe des deutſchen<lb/>
+Buchhandels ſollte in drey folgenden Abſchnitten<lb/>
+weiter ausgefuͤhrt werden, es ſcheint aber raͤthlicher,<lb/>
+dieß ſo lange zu verſchieben, bis auf dem Bundestag<lb/>
+die Verhandlungen uͤber dieſen Gegenſtand begonnen<lb/>
+haben und daruͤber Gutachten und Berichte gefordert<lb/>
+werden. Vor der Hand mag es hinreichend ſeyn,<lb/>
+kurz anzugeben, was den Inhalt der letzten <hi rendition="#g">drey<lb/>
+Abſchnitte</hi> bilden ſollte.</p><lb/>
+<pb n="36" facs="#f0042"/>
+<list>         <head><hi rendition="#g">Zweyter Abſchnitt.</hi></head><lb/>
+<item>Das Eigenthums-Recht der Autoren an ihren<lb/>
+Schriften und ihr Recht daſſelbe zu uͤbertra¬<lb/>
+gen in verſchiedenen Laͤndern und bey verſchie¬<lb/>
+denen Voͤlkern.</item></list><lb/>
+<list>     <head><hi rendition="#g">Dritter Abſchnitt.</hi></head><lb/>
+<item>Geſetzes-Vorſchlag uͤber das Eigenthums-Recht<lb/>
+der Autoren in der deutſchen Literatur.</item><lb/>
+</list>     <list>         <head><hi rendition="#g">Vierter Abſchnitt.</hi></head><lb/>
+<item>Ausbildung der Organiſation des deutſchen Buch¬<lb/>
+handels, wodurch ohne die Freyheit des Han¬<lb/>
+dels zu beſchraͤnken, Garantie geleiſtet wird<lb/>
+gegen Beeintraͤchtigungen des Publikums und<lb/>
+der Literatur durch eigennuͤtzige Autoren und<lb/>
+betruͤgeriſche Buchhaͤndler.</item></list><lb/>
+<milestone unit="section" rendition="#hr"/> </div> </div>
+<pb facs="#f0043"/>
+<pb facs="#f0044"/>
+<pb facs="#f0045"/>
+</body> </text> </TEI>

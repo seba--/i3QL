@@ -1,0 +1,2185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Kurtze doch bewährte Vieh-Artzney, darinnen die meisten Kranckheiten und darwider dienende Artzneyen der Rinder, Schaf, Ziegen, Schweine, Hunde, Gänse und Hüner zu befinden</title>
+<title type="sub">Männiglichen, insonderheit aber den Hauß-Vätern zu Nutz mit Fleiß colligiret und beschrieben</title>
+<author>
+<persName ref="http://d-nb.info/gnd/130053155">
+<surname>Böhme</surname>
+<forename>Michael</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">66</measure>
+<measure type="tokens">10052</measure>
+<measure type="types">2310</measure>
+<measure type="characters">65330</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:03Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/boehmemi_viehartzney_1712</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/boehmemi_viehartzney_1712</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/boehmemi_viehartzney_1712</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/boehmemi_viehartzney_1712</idno>
+<idno type="DTADirName">boehmemi_viehartzney_1712</idno>
+<idno type="DTAID">20875</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Böhme, Michael: Kurtze doch bewährte Vieh-Artzney. S. l., 1712.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Kurtze doch bewährte Vieh-Artzney, darinnen die meisten Kranckheiten und darwider dienende Artzneyen der Rinder, Schaf, Ziegen, Schweine, Hunde, Gänse und Hüner zu befinden</title>
+<title level="m" type="sub">Männiglichen, insonderheit aber den Hauß-Vätern zu Nutz mit Fleiß colligiret und beschrieben</title>
+<author>
+<persName ref="http://d-nb.info/gnd/130053155">
+<surname>Böhme</surname>
+<forename>Michael</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[1] Bl., 46 [i.e. 56] S.</measure>
+</extent>
+<publicationStmt>
+<publisher/>
+<date type="publication">1712</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Universitäts- und Landesbibliothek Halle</repository>
+<idno>
+<idno type="shelfmark">ULB Halle, AB 123640 (3)</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Tierheilkunde</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Tierheilkunde</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> Kurtze doch bewaͤhrte<lb/>
+<hi rendition="#b">Vieh-Artzney,</hi><lb/>
+</titlePart> </docTitle> <docTitle> <titlePart type="desc"> darinnen die meiſten Kranck-<lb/>
+heiten und darwider dienende Artz-<lb/>
+neyen der Rinder, Schaf Ziegen,<lb/>
+Schweine, Hunde, Gaͤnſe und<lb/>
+Huͤner zu be-<lb/>
+finden.<lb/>
+</titlePart> </docTitle> <byline> Maͤnniglichen, inſonderheit aber<lb/>
+den Hauß-Vaͤtern zu Nutz mit Fleiß<lb/>
+<hi rendition="#aq">colligi</hi>ret und beſchrieben.<lb/>
+Durch<lb/>
+<docAuthor> <hi rendition="#b">Michael Boͤhmen.</hi><lb/>
+</docAuthor> </byline> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <hi rendition="#b">Gedruckt im Jahr </hi><docDate><hi rendition="#b">1712</hi></docDate><hi rendition="#b">.</hi><lb/>
+</docImprint> </titlePage> </front><body>
+<pb facs="#f0004"/>
+<pb n="[1]" facs="#f0005"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Viehe-Artzeney.<lb/>
+Das <hi rendition="#aq">I.</hi> Capit.<lb/>
+Von Ochſen und Kuͤhen.</hi></head><lb/>
+<p><hi rendition="#in">S</hi><hi rendition="#fr">O ein Ochs ſich rohe oder</hi><lb/>
+wund gezogen, alſo, daß ihm<lb/>
+die Haut abgangen, ſo nim̃ al-<lb/>
+te Butter oder Wagen-Theer, ſchmiere<lb/>
+ihm damit den rohen Orth, laß ihm<lb/>
+drey Tage in einen warmen Stalle ſte-<lb/>
+hen, ſo heilet es wieder.</p><lb/>
+<p>Wann das Rindviehe die Blattern<note place="right">Blat-<lb/>
+tern am<lb/>
+Rind-<lb/>
+viehe.</note><lb/>
+bekommet, welches zumercken, wann das<lb/>
+Vieh an der Erden lieget und mit den<lb/>
+Beinen von ſich ſchlaͤget, muß man ihnen<lb/>
+helffen, oder ſie erſticken.</p><lb/>
+<p>Schneid oder beiß ihnen ein wenig<lb/>
+von der Zungen, nim̃ ſie bey den Fuͤſſen,<lb/>
+waͤltze ſie von einer Seiten zur andern,<lb/>
+daß ſie ſich wohl auf den Ruͤcken waͤl-<lb/>
+tzen, darnach nim̃ einen Riemen von Le-<lb/>
+der und ſchlage ſie einmahl oder vier auf<lb/>
+den Leib, ſo wird ihnen bald beſſer. Jtem,<lb/>
+Wann das Vieh die Augen verkehret, ſo<lb/>
+blaſe ihnen nur Saltz in die Augen.</p><lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">Wenn</fw><lb/>
+<pb n="2" facs="#f0006"/>
+<note place="left">Stertz-<lb/>
+Seuche.</note><p>Wenn ein Vieh nicht eſſen will, ſo<lb/>
+greiffe ihn an den Schwantz, iſt der<lb/>
+welck und weich, alſo, daß man ihn gar<lb/>
+umdrehet, ſo nimm ein Meſſer und<lb/>
+ſchneide ihnen die qveer uͤber ſo tieff, als<lb/>
+die Helffte der Breite eines Meſſers in<lb/>
+Schwantz, ſie fuͤhlens nicht, denn der<lb/>
+Schwantz iſt wie er todt waͤre, lege in<lb/>
+die Wunden 9. Gerſtenkoͤrner, binde es<lb/>
+mit einen rothen Gewand Lappen oder<lb/>
+rother Seide, und laß es 9. Tage darin-<lb/>
+nen bleiben, darnach ſchneide es wieder<lb/>
+loß. Wenn ſie dieſe Kranckheit lange<lb/>
+haben, ſo ſchlaͤgt es ihnen in die Beine,<lb/>
+werden ſchlagebaͤuchich und faͤllt ihnen<lb/>
+der Leib in den Seiten gar ein.</p><lb/>
+<note place="left">Blutſei-<lb/>
+chen.</note><p>Wenn die Ochſen oder Kuͤhe Blut-<lb/>
+piſſen oder ſeichen, ſo muß man ſie nicht<lb/>
+zu ſehr treiben, ſonſt verdirbet ihnen<lb/>
+Lung und Leber, es kommet her von der<lb/>
+Weyde und Graß. Nimm Blutfle-<lb/>
+cke, iſt eine rothe Wurtzel oder Blut-<lb/>
+kraut, ſiehet wie Sauerapffer, ſchneide<lb/>
+es und miſche ihnen ſolches unter das<lb/>
+Futter.</p><lb/>
+<note place="left">Ochſen-<lb/>
+hincken.</note><p>Hat ſich ein Ochs oder Kuh etwan in<lb/>
+einen Nagel odeꝛ etwas anders geſtochen<lb/>
+ſo ſtecke man ſolchen Nagel in Speck,<lb/>
+koͤnte man aber den Nagel, oder anders,<lb/>
+darmit das Vieh verwundet, nicht haben<lb/>
+ſo ſtecke man Speck in die Wunden, bin-<lb/>
+<fw type="catch" place="bottom">de</fw><lb/>
+<pb n="3" facs="#f0007"/>
+de es zu, des andern Tages nim̃ Storch-<lb/>
+ſchnabel, welches blaue Bluͤmlein hat,<lb/>
+koche und waſche ihm den Fuß rein aus,<lb/>
+ſo wird es bald heil.</p><lb/>
+<p>Wenn ein Ochs die Ader vertreten, ſo<note place="right">Ochſen<lb/>
+ſo die A-<lb/>
+dern ver-<lb/>
+treten.</note><lb/>
+waſch ihm die Ader fein mit warmen<lb/>
+Biere und zerlaſſenen Fette, netze einen<lb/>
+Hader darinnen, und binde es ſo offt<lb/>
+warm auf, biß du merckeſt das es beſ-<lb/>
+ſer worden.</p><lb/>
+<p>Wañ ein Ochs verfangen hat, ſo mer-<note place="right">Ochſen<lb/>
+ſo verfan<lb/>
+gen.</note><lb/>
+cket, kehlet und ꝛuminiꝛet eꝛ nicht, hat kal-<lb/>
+te Ohren und ein kalt Maul, da ſchneidet<lb/>
+man ihme in das Ohr, daß er nur blutet,<lb/>
+und reibet ihm die Zunge mit Saltz.<note place="right">Ochſen<lb/>
+oder Kuͤ-<lb/>
+he ſo<lb/>
+Mangel<lb/>
+an Fuͤſ-<lb/>
+ſen.<lb/>
+So eine<lb/>
+Kuhe nit<lb/>
+verwerf-<lb/>
+fen ſoll.</note></p><lb/>
+<p>So ein ſolch Vieh einen Mangel an<lb/>
+den Fuͤſſen oder Klauen bekommen, ſo<lb/>
+ſchmiere ſie zwiſchen den Hoͤrnern mit<lb/>
+Oel und Pech durcheinander gelaſſen ſo<lb/>
+werden ſie wieder geſund.</p><lb/>
+<p>Wenn ſich eine Kuhe belauffen hat, ſo<lb/>
+nimm Qvitten, Fenchel-Samen und<lb/>
+Feldkuͤmmel, thu es in ein Toͤpfflein,<lb/>
+geuß Waſſer dran und drey Loͤffel voll<lb/>
+Honig, <hi rendition="#aq">Pulveriſir</hi> die Schalen von ei-<lb/>
+nem Ey, da junge Huͤnlein ausgenom-<lb/>
+men, und thu es darunter, gib der Kuhe<lb/>
+drey Morgen davon zu trincken, ſo ver-<lb/>
+wirfft ſie nicht.</p><lb/>
+<p>Weñ von einer tragenden Kuhe Blut<note place="right">Kuh von<lb/>
+welcher<lb/>
+Blut<lb/>
+geht.</note><lb/>
+gehet, und man erfaͤhret, daß ſie verwerf-<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">ſen,</fw><lb/>
+<pb n="4" facs="#f0008"/>
+fen moͤcht, ſo gieb ihr Fenchel mit Honig<lb/>
+auf Brodt ein.</p><lb/>
+<p>So ſich auch junge Kaͤlber von an-<lb/>
+derthalb Jahr alt belauffen, verwerffen<lb/>
+ſie gemeiniglich, wann ſie aber geworf-<lb/>
+fen haben, iſt da keine Milch bey ihnen,<lb/>
+da muß man ihnen gekochten Haber zu<lb/>
+eſſen geben oder aufs Eſſen ſtreuen, ſo<lb/>
+bekommen ſie Milch und koͤnnen die<lb/>
+Kaͤlber nehmen.</p><lb/>
+<note place="left">Den Un-<lb/>
+rath un-<lb/>
+ter den<lb/>
+kalben<lb/>
+abzuhelf<lb/>
+fen.</note><p>Koͤmmt einer Kuh das Kalben ſchwer<lb/>
+an und kan nicht geneſen, ſo gib ihnen 6.<lb/>
+oder 7. Zwiebeln ein, die ſtoſſe ihnen tieff<lb/>
+in den Halß, daß ſie es hinein ſchlucken<lb/>
+muͤſſen, ſo befoͤrdert es das Kalb bald.</p><lb/>
+<p>Wenn die <hi rendition="#aq">Secundinæ</hi> oder Nachtge-<lb/>
+burth nicht fort will, ſo koche ihr vor<lb/>
+6. Pfennige Lein mit Waſſer, giebs ihr<lb/>
+zutrincken, ſo gehets bald fort. Oder<lb/>
+zerſchneide zwey Herings-Schwaͤntzs<lb/>
+fein klein, ſtecks ihr in den Halß, ſo ge-<lb/>
+hets bald fort, oder ſeud Jngruͤnn und<lb/>
+giebs ihr zu trincken.</p><lb/>
+<p>Wenn einer Kuhe im Kalben der<lb/>
+Maſt-Darm ausgehet, ſo muß er wieder<lb/>
+hinein gethan werden, nimm hernach<lb/>
+Wuͤllich, Heuſamen, Haber und Hopffe,<lb/>
+koche es mit einander und behe den Ort<lb/>
+damit. Jtem, gieb ihr auch eine gute fet-<lb/>
+te Butterſchnitte zu eſſen.</p><lb/>
+<note place="left">Mohn-<lb/>
+Kaͤlber.</note><p>Die Mißgeburth bey den Kuͤhen,<lb/>
+<fw type="catch" place="bottom">Mohn-</fw><lb/>
+<pb n="5" facs="#f0009"/>
+Mohn-Kaͤlber genandt, wenn ſich daſ-<lb/>
+ſelbige heraus leget voller Knoten, nim̃<lb/>
+warm Waſſer und ſpiele es damit ab,<lb/>
+und ſtoſſe fein artig wieder hinein, wie<lb/>
+es heraus kommen, nehe den hintern<lb/>
+Leib oder <hi rendition="#aq">pudenda,</hi> da es heraus kom-<lb/>
+men iſt, mit Seiden ein wenig zu, doch<lb/>
+alſo, daß man ein wenig Raum laͤſt,<lb/>
+daß ſie noch ſtallen und <hi rendition="#aq">urinam reddi-<lb/>
+ren</hi> koͤnnen, thu nur ein Hefft oder vie-<lb/>
+re, laß es drey Tage alſo, darnach loͤſe<lb/>
+alle Tage einen Hefft auf, oder ſchneide<lb/>
+ihm entzwey, ſo verfaulet das Mohn-<lb/>
+Kalb bey ihr, und gehet hernach durch<lb/>
+die Miſtung immer mehlich mit weg-<lb/>
+Man muß aber die Kuͤhe wohl war-<lb/>
+ten, denn ſie werden ſehr gering dar-<lb/>
+nach. Es wieder faͤhret bißweilen den<lb/>
+Schweinen, mit denen iſt auch alſo zn<lb/>
+gebaͤhren. Wann eine Kuhe auf ein-<lb/>
+mahl viel Kaͤlber als dreißig und mehr<lb/>
+hat, ſo gieb ihr blauen oder grauen<note place="right">Nieren-<lb/>
+Kaͤlber.</note><lb/>
+Mohn, (<hi rendition="#aq">papaver,</hi>) klein gerieben mit<lb/>
+Bier oder Eßig ein, ſo gehen ſie ih-<lb/>
+nen ab.</p><lb/>
+<p>Gib der Kuhe ſo bald ſie gekalbet, eine<lb/>
+Hand voll Saltzes, hernach uͤber eine<lb/>
+kleine Weil ein Hexel mit Schrot-Fut-<lb/>
+ter, darinnen fein dicke zerbrochene Lein-<lb/>
+kuchen, das ſtaͤrcket ſie maͤchtig ſehr.</p><lb/>
+<p>Jtem, milck ſie alſobald aus, gieß<lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">warm</fw><lb/>
+<pb n="6" facs="#f0010"/>
+warm Waſſer zur Milch, wirff darein<lb/>
+zerbrochenen Leinkuchen und Saltz, und<lb/>
+laß ſie es ſauffen, gieb ihr den einen an-<lb/>
+dern warmen Soth, und taͤglich ein<lb/>
+Futter von Heu.</p><lb/>
+<p>Wiewohl ein andaͤchtig Gebeth das<lb/>
+kraͤfftigſte Mittel wider des Teuffels Liſt<lb/>
+und Vergifftung, iedoch ſind aͤuſſerli-<lb/>
+che Mittel nebſt dem Gebeth auch nicht<lb/>
+gantz zuver achten.</p><lb/>
+<note place="left">Vor Zau<lb/>
+berey an<lb/>
+Kuͤhen.</note><p>Derowegen, wo die Kuͤhe bißweilen<lb/>
+gantz toll werden, fuͤrchten ſich vor den<lb/>
+Stall, reiſſen an den Stricken oder<lb/>
+Ketten, als ſtuͤnde einer mit einer Axt<lb/>
+vor ihnen nimm eine Schnitte Brod,<lb/>
+ſtreue darauf ſchwartzen Kuͤmmel,<lb/>
+Creutzrauthen und Liebſtoͤckel, giebs<lb/>
+ihr zu eſſen, binde ſie loß, und laß ſie<lb/>
+lauffen wohin ſie will, gib nur acht wo<lb/>
+ſie hinkommet, es vergehet ihr alsdann<lb/>
+gewiß.</p><lb/>
+<p>Jtem, nimm Meiſterwurtzel, Liebſtoͤ-<lb/>
+ckel, Lungwurtzel, und Wermuth, hacke<lb/>
+durcheinander und gibs ihnen zu lecken.</p><lb/>
+<p>So dir dein Vieh etwa bezaubert<lb/>
+wuͤrde, daß es gantz feig, lahm oder ver-<lb/>
+dorret waͤre, ſo nim̃ S. Johannis Kraut,<lb/>
+gieb es ihnen zu freſſen, es wird beſſer.</p><lb/>
+<p>Jtem, nim̃ Torant, Gartheil, Creutz-<lb/>
+Rauthen, rothen Knoblauch, binde es zu-<lb/>
+<fw type="catch" place="bottom">ſam-</fw><lb/>
+<pb n="7" facs="#f0011"/>
+ſam̄en, und begrab es unter der Schwel-<lb/>
+le, daruͤber das Vieh gehen muß.</p><lb/>
+<p>Jtem, Erde, Berwurtzel und Wieder-<lb/>
+thon, backe es klein geſchnitten in Brod,<lb/>
+und gib es dem Viehe zu eſſen, dieſes<lb/>
+iſt auch gut vor Beraubung der Milch.</p><lb/>
+<p>Wann dir durch Zauberey deines<note place="right">Vor Be-<lb/>
+raubung<lb/>
+der<lb/>
+Milch.</note><lb/>
+Viehes Milch entzogen wird, ſo nimm<lb/>
+Liebſtoͤckel, bruͤhe es und giebs den Kuͤ-<lb/>
+hen unters Graß zu eſſen, oder backe es<lb/>
+mit Brodt, und gib ihnen alle Morgen<lb/>
+eine Schnitte zu eſſen, ſo du auch die<lb/>
+Schnitte Brodt auf einer Seiten mit<lb/>
+Aſchen, auf der andern mit Saltz rei-<lb/>
+beſt, und hernach auf dem Roſte roͤſteſt,<lb/>
+wird es kraͤfftig erkant, darffſt nur den<lb/>
+dritten Theil der Schnitte iedem Viehe<lb/>
+geben.</p><lb/>
+<p>Jtem, wann dir die Milch entzogen<lb/>
+wird, ſo nimm von einer jeden Kuhe ein<lb/>
+halb Maß Milch, thue es zuſammen in<lb/>
+einen Hafen und ſcheiß darein, ruͤhre es<lb/>
+herum, und laß es wohl ſtinckend wer-<lb/>
+den, ſo wird dir deines Viehes Milch zur<lb/>
+andern Zeit wohl bleiben.</p><lb/>
+<p>So dir die Milch bezaubert wuͤrde,<lb/>
+und keine Butter geben wolte, ſo ſetze die<lb/>
+Milch auf das Feuer, laß ſie wohl heiß<lb/>
+werden, ruͤhre ſie ſtarck um, und thue viel<lb/>
+Saltz darunter, nim̄ dann eine Sichel,<lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">mache</fw><lb/>
+<pb n="8" facs="#f0012"/>
+mache ſie gluͤend heiß, und ziehe ſie etliche<lb/>
+mahl durch die Milch, da wird ſie ihre<lb/>
+Krafft wieder bekommen.</p><lb/>
+<p>Jtem, nimm Ochſenzungen, gieb es<lb/>
+dem Viehe mit zu eſſen, ſo wird der<lb/>
+Milch kein Schade geſchehen.</p><lb/>
+<p>Oder nimm Metterkraut, koche es in<lb/>
+Urin und waſche die Kuͤhe ſonderlich um<lb/>
+Walpurchis damit, es thut gut, und iſt<lb/>
+probiret.</p><lb/>
+<note place="left">Vor<lb/>
+Kroͤten<lb/>
+ſo das<lb/>
+Vieh<lb/>
+ausſau-<lb/>
+gen.</note><p>Bißweilen giebet es viel Kroͤten in<lb/>
+Staͤllen, ſo das Vieh ausſaugen, alſo<lb/>
+daß den Kuͤhen die Euter ſehr ſchwel-<lb/>
+len, alsdenn nimm Butter, und ſchmie-<lb/>
+re die Euter darmit, ſo vergehets ih-<lb/>
+nen, damit man aber ſolcher boͤſen<lb/>
+Gaͤſte aus den Staͤllen gantz loß wird,<lb/>
+ſo ſetze man nur Wagenſchmiere in ei-<lb/>
+nen Scherblein in die Staͤlle, ſo bleibt<lb/>
+<note place="left">Vor die<lb/>
+Laͤuſe.</note>keine Kroͤte drinnen. Nimm Queck-<lb/>
+ſilber und alte Butter oder Schmeer,<lb/>
+und uͤberſtreich das Vieh, ſo vergehen<lb/>
+die Laͤuſe.</p><lb/>
+<p>Jtem, Wermuth in Waſſer geſotten,<lb/>
+und damit das Vieh beſtrichen.</p><lb/>
+<p>Jtem, Knoblochſafft vertreibet ih-<lb/>
+nen die Laͤuſe, Weinrauthen in Baum-<lb/>
+oͤhl geſtoſſen und durchgedruckt, dar-<lb/>
+mit geſchmieret, vertreibet die Laͤuſe.</p><lb/>
+<p>So den Kuͤhen die Zaͤhne wackeln, ſo<lb/>
+<fw type="catch" place="bottom">wetze</fw><lb/>
+<pb n="9" facs="#f0013"/>
+wetze ſie mit einen Wetzſtein, reibe ſiemit<lb/>
+Saltz und gieb es ihnen zufreſſen, ſo<lb/>
+werden ſie wieder feſte.</p><lb/>
+<p>Wann die Kuͤhe eine Kranckheit an-<note place="right">Teußlich<lb/>
+te Kuͤhe.</note><lb/>
+koͤm̄t, daß ſie mit den Munde ſchaͤumen,<lb/>
+und teußlicht in Kopff werden, alſo, daß<lb/>
+ſie toll herum lauffen, ſo ſchneide ſie in<lb/>
+ein Ohr, daß es blutet, ſo vergehet ſie<lb/>
+es bald wieder, aber ſchaffe ſie nur abe,<lb/>
+denn die Kranckheit koͤmmt zum oͤfftern<lb/>
+wieder.</p><lb/>
+<p>Jtem, wann das Vieh ringlich wird,<note place="right">Ringlich<lb/>
+Vieh.</note><lb/>
+ſo nimm Maͤyenwuͤrmlein, todt oder le-<lb/>
+bendig, lege ſie in Honig, ſchabe Ciben-<lb/>
+Holtz darzu, und giebs dem Vieh auf<lb/>
+Brod zu eſſen.</p><lb/>
+<p>Wann die Kuͤh oder Ochſen ein Ge-<lb/>
+ſchwuͤr oder Schwelle unter der Gurgel,<lb/>
+Kinbacken oder am Halſe bekommen,<lb/>
+und Blut ſeichen, ſo gieb ihnen Hanff-<lb/>
+Kaff mit Saltz zu eſſen, ſo vergehet ſie<lb/>
+es zum erſten mahl, aber du muſt ſie<lb/>
+weg ſchaffen, denn es kommt doch wie-<lb/>
+der, und ſterben gemeiniglich zum an-<lb/>
+dernmahl daran.</p><lb/>
+<p>Nim̄ Blutkraut, das ſtehet in Teichen<lb/>
+und Lachen voran, hat einen rothen Sten-<lb/>
+gel, und ſtehen ſtets ſieben Blaͤtter neben<lb/>
+einander, dieſes gieb ihnen zu eſſen, es<lb/>
+hilfft den Ochſen und Kuͤhen.</p><lb/>
+<p>Jtem, nim̄ 5. Tormentill-Wurtzeln,<note place="right">Blut<lb/>
+melcken.</note><lb/>
+<fw type="catch" place="bottom">ſie-</fw><lb/>
+<pb n="10" facs="#f0014"/>
+ſieben Schlangen-Wurtzeln, eine gute<lb/>
+Hand voll Baldriankraut, anderthalb<lb/>
+Hand voll Saltz, dieſes alles klein geſtoſ-<lb/>
+ſen und guten Eßig darzu gegoſſen und<lb/>
+wohl umgeruͤhret, gib es dem Viehe zu-<lb/>
+trincken, vergehet es nicht auf einmahl,<lb/>
+ſo muſt du es alle Tage thun, biß es ver-<lb/>
+gehet.</p><lb/>
+<p>Jtem, nim̃ einen Hering, tauche ihn<lb/>
+in Theer, zerſchneide ihn, und laß ſie ſol-<lb/>
+che verſchlingen.</p><lb/>
+<p>Wenn den Kuͤhen der Leib ſehr auf-<lb/>
+laͤuffet, welches man ingemein die<lb/>
+Plarr nennet, ſo waltze man ſie von ei-<lb/>
+ner Seiten zur andern, ſo vergehet ſie<lb/>
+es wieder.</p><lb/>
+<note place="left">Verfau-<lb/>
+lung der<lb/>
+Lung und<lb/>
+Leber.</note><p>Bißweilen kommet in Sommer das<lb/>
+Vieh zu faulen Waſſer, und uͤberſaͤuffet<lb/>
+ſich, daß ihm Lung und Leber zu faulen<lb/>
+anfanget, jehling hinfaͤllet uñ ſtirbet, ehe<lb/>
+man ſolches gewahr wird, deme begegne<lb/>
+alſo: Gib ihnen unter den Hexel vor 6.<lb/>
+Pf. geſtoſſene Eberwurtzel, und vor 6. Pf.<lb/>
+Lungenkraut ein wollen ſie aber das Fut-<lb/>
+ter nicht freſſen, ſo muſtu ſehen wie du es<lb/>
+ihnen ſonſten einbringeſt.</p><lb/>
+<p>Jtem, man ſoll ihnen vor 3. Pf. Eber-<lb/>
+wurtzel in die Krippen, oder woraus ſie<lb/>
+ſonſten eſſen, ſpuͤnden.</p><lb/>
+<p>Jtem, gib ihnen <hi rendition="#aq">Oleum Therebin-<lb/>
+tinaͤ</hi> in kleinen Tranck mit untergemen-<lb/>
+<fw type="catch" place="bottom">get,</fw><lb/>
+<pb n="11" facs="#f0015"/>
+get, wo ſie es aber nicht ſauffen wollen, ſo<lb/>
+muß mans ihnen mit Gewalt eingieſſen.</p><lb/>
+<p>Oder gieb ihnen Mether Beerwurtzel<note place="right">Vor das<lb/>
+Ungezie-<lb/>
+fer wel-<lb/>
+che das<lb/>
+Vieh ſte-<lb/>
+chen.<lb/>
+Vor Aus<lb/>
+lauffen<lb/>
+des Vie-<lb/>
+hes.</note><lb/>
+und Tille ein, welches denn auch hilffet.</p><lb/>
+<p>Beſtreich das Vieh uͤber den gantzen<lb/>
+Leib mit Salſchmaltz von Saalhund,<lb/>
+ſo in der See geſangen wird, ſo ſetzet ſich<lb/>
+das Ungeziefer nicht darauf.</p><lb/>
+<p>Nimm gereuchert Rindfleiſch, <hi rendition="#aq">pul-<lb/>
+veriſire</hi> und ſtoß oder zerreibe es klein,<lb/>
+ſtreu darunter gepuͤlverte Qvitten, gieb<lb/>
+es dem Vieh mit Weineßig zutrincken,<lb/>
+thu es etliche mahl, ſo wird es gewiß<lb/>
+helffen.</p><lb/>
+<p>Oder nimm gebackene Biern oder<lb/>
+Qvitten, koche ſie, gieb dem Vieh die<lb/>
+Bruͤh zutrincken, und die Biern zu eſ-<lb/>
+ſen, ſo wird es ſich ſtillen.</p><note place="right">Vor das<lb/>
+ſchaͤbich-<lb/>
+te Vieh.</note><lb/>
+<p>Nimm alt Schmeer, ſchmeltze es,<lb/>
+und geuß es aufs Waſſer, und nimm<lb/>
+Teuffelsdreck, gelben Schwefel, Lor-<lb/>
+beer, Kupfferrauch und ungenetzten<lb/>
+Theer, menge es alles untereinander,<lb/>
+laß es kochen und ſchmiere das Vieh<lb/>
+darmit, es muß aber warm ſeyn, wie<lb/>
+auch der Stall, darinnen das Vieh<lb/>
+ſtehet.</p><lb/>
+<p>Zerſtoſſe Pappeln und ſtreiche ſie uͤber<note place="right">Verwun<lb/>
+dete Rin-<lb/>
+der.</note><lb/>
+die Wunden, ſo heilen ſie wieder.</p><lb/>
+<p>Wann das Vieh eine boͤſe Zunge hat,<lb/>
+oder ſonſt verwund in der Zunge iſt, ſo<lb/>
+<fw type="catch" place="bottom">nimm</fw><lb/>
+<pb n="12" facs="#f0016"/>
+nimm Krebswurtzel, (iſt keulicht,) koche<lb/>
+ſelbe und waſche ihnen die Zunge da-<lb/>
+mit.</p><lb/>
+<note place="left">Wañ die<lb/>
+Rinder<lb/>
+nicht zu-<lb/>
+nehmen<lb/>
+wollen.</note><p>Nimm Schwalbenwurtzel, Oder-<lb/>
+meñigkraut, Fenchelwurtzel oder Kraut,<lb/>
+zerſtoſſe es und druͤcke den Safft raus,<lb/>
+thue guten Tyriac darein und giebs dem<lb/>
+Viehe zutrincken, kanſtu das Kraut<lb/>
+nicht gruͤn haben, ſo nimm es duͤrr und<lb/>
+koche es mit Bier, giebs dem Viehe<lb/>
+warm zu trincken.</p><lb/>
+<p>So auch ein toller Hund ein Vieh<lb/>
+gebiſſen, ſo waſche die Wunden damit,<lb/>
+und gieb es auch dem Viehe zugleich<lb/>
+warm im Leib.</p><lb/>
+<p>Jtem, kaͤue nuͤchtern eine Welſche<lb/>
+Nuß, thue Krafftmehl darzu, und lege<lb/>
+es uͤbern Schaden.</p><lb/>
+<note place="left">Wann<lb/>
+das Vieh<lb/>
+aufſtoͤſ-<lb/>
+ſig iſt.</note><p>Nimm weiſſen Andorn, Lungenkraut<lb/>
+und Waldwurtzel, ſiede es mit einander<lb/>
+in Waſſer, thu darunter Rockenmehl, he-<lb/>
+be es in einem Faͤßlein auf, und ſo das<lb/>
+Vieh aufſtoͤßig wird, ſo gib ihnen daſ-<lb/>
+ſelbige zutrincken.</p><lb/>
+<p>Den Hauck pflegen die Kuͤhe und Pfer-<lb/>
+de in den Auge zu bekommen, und den<lb/>
+pflegt man ihnen im Augenwinckel zu<lb/>
+ſchneiden, man faͤdelt eine Nadel ein,<lb/>
+und ſticht ſie durch ein Haͤutlein, und<lb/>
+ſchneidets entzwey, und ſtreichet ihnen<lb/>
+Rahm und Saltz drein, und reibet die<lb/>
+<fw type="catch" place="bottom">Naſ-</fw><lb/>
+<pb n="13" facs="#f0017"/>
+Naſe und Zung mit dem Saltz, es muß<lb/>
+aber niemand thun, als der mit um-<lb/>
+gehen kan.</p><lb/>
+<p>So ein Vieh ſich hart vertreten, oder<note place="right">Viehe, ſo<lb/>
+hinckend.</note><lb/>
+an den Beinen hart geſchwollen waͤre, ſo<lb/>
+ſoll man ihm geſottene Stengel von <hi rendition="#aq">Ver-<lb/>
+baſto</hi> oder Himmelbrand, das ſonſten<lb/>
+auch Kertzenkraut, Brenkraut, unſer<lb/>
+Frauenheil nennet, uͤberlegen.</p><lb/>
+<p>Wann ein Vieh von einer Spinne,<lb/>
+Scorpion oder andern gifftigen Thiere<lb/>
+geſtochen worden, und derowegen ſehr<lb/>
+der Ort ſchwillet, nimm Stiffmuͤtterlein<lb/>
+(ſo drey Farben haben,) mit Kraut und<lb/>
+Blumen, ſiede es in Waſſer und lege es<lb/>
+den Viehe fein warm auf, dergleichen<lb/>
+thut Schellkraut oder groß Schwalben<lb/>
+kraut auch.</p><lb/>
+<p>Wann das Vieh von Gifft oder un-<lb/>
+reinen Futter geſchwollen waͤre, ſo ſoll<lb/>
+man ihm nur <hi rendition="#aq">centaurium Majus,</hi> das<lb/>
+man ſonſten <hi rendition="#aq">Aquilegiam</hi> oder Agley<lb/>
+nennet, eingeben, ſo vergehets ihnen<lb/>
+bald.</p><lb/>
+<p>Jtem, gib ihnen <hi rendition="#aq">Perſicariam</hi> oder<lb/>
+Floͤhekraut ein.</p><lb/>
+<p>Gib dem Vieh in Fruͤhling und nach<note place="right">Vor ver-<lb/>
+giffte<lb/>
+Weyde.</note><lb/>
+Michaelis einer Bohnen groß Tyriac<lb/>
+mit einen Biſſen Brod.</p><lb/>
+<p>Jtem, monatlich einmal eine Schnitte<lb/>
+geroſtet Brod mit Butter, Fenchel, Til-<lb/>
+<fw type="catch" place="bottom">len</fw><lb/>
+<pb n="14" facs="#f0018"/>
+len und Knoblauch beſtrichen, ſo ſchadet<lb/>
+ihnen auf der Weide nichts.</p><lb/>
+<note place="left">So eine<lb/>
+Kuhe kal<lb/>
+ben will,<lb/>
+was ihr<lb/>
+zuthun.</note><p>So eine Kuhe uͤber die Zeit traͤget, ſo<lb/>
+nimm Zwiebelſchalen, ein gut Theil Po-<lb/>
+ley, gantzen, Saffran, ſiede es in Bier,<lb/>
+gib es den Kuͤhen 1. mahl 2. oder 3. ſo<lb/>
+koͤmmt das Kalb von ihr, es ſey tod o-<lb/>
+der lebendig. <hi rendition="#aq">NB.</hi> Man ſoll es ihnen a-<lb/>
+ber nicht eingeben, es ſey denn Zeit mit<lb/>
+ihnen, man kan es einer Kuh bald an-<lb/>
+ſehen, wann ſie kalben will, indeme ſie<lb/>
+5. oder 6. Tage vorhero entlaͤſt.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Das <hi rendition="#aq">II.</hi> Cap.<lb/>
+Von Schafen.</hi></head><lb/>
+<note place="left">Geſunde<lb/>
+Schafe<lb/>
+zu erhal-<lb/>
+ten.</note><p><hi rendition="#in">M</hi>Jlt du geſunde Schafe ha-<lb/>
+ben, ſo backe Holunderbeeren,<lb/>
+wenn ſie reiff ſeyn, und behalte<lb/>
+ſie durchs gantze Jahr, zerreibe ſie dann<lb/>
+in Saltze, und gib ſie den Schafen zu eſ-<lb/>
+ſen oder zulecken.</p><lb/>
+<p>Nimm Leinkuchen, gedoͤrret und ge-<lb/>
+ſtampffet Brod, Eichenlaub, ungeleſch-<lb/>
+ten Kalck, Ruhſt aus der Feuer-Mauer,<lb/>
+und Roßbein, dieſe Dinge mache alle<lb/>
+klein zu Pulver, miſche Wermuth dar-<lb/>
+unter, und menge es unter das Saltz,<lb/>
+giebs ihnen uͤbern 2dern oder 3ten Tag<lb/>
+<fw type="catch" place="bottom">ein,</fw><lb/>
+<pb n="15" facs="#f0019"/>
+eingemacht zu eſſen, wo ſie es nicht eſ-<lb/>
+ſen wollen, ſo gieb es ihnen mit Ge-<lb/>
+walt.</p><lb/>
+<p>Jtem, menge Hollunderbeeren mit<lb/>
+Gerſtenmehl, mache daraus Kuchen,<lb/>
+ſtoſſe ſie zu Pulver, und gieb den Scha-<lb/>
+fen mit Saltz zu eſſen.</p><lb/>
+<p>Oder nimm Erlene Spruͤßlinge ei-<lb/>
+nes Jahres alt, und Feldkuͤmmel, ma-<lb/>
+che es duͤrre und zu <hi rendition="#fr">P</hi>ulver, und <hi rendition="#fr">gieb</hi><lb/>
+ihnen das Saltz zu eſſen.</p><lb/>
+<p>Das Saltz iſt auch den Schafen wi-<lb/>
+der allerhand boͤſe Zufaͤlle, gieb ihnen<lb/>
+alle Wochen einmahl Saltz zu lecken,<lb/>
+ſonderlich wann es naſſe Weyde giebet,<lb/>
+ſo iſt es ihnen eine gute <hi rendition="#aq">Praͤſervativ.</hi></p><lb/>
+<p>Oder nimm Wacholderbeer, zerſtoſſe<lb/>
+ſie klein und ſtreue ſie mit Saltz unter<lb/>
+den Haber, ſo eſſen ſie ſolches fein mit-<lb/>
+einander, dieſes kan man in einen Jah-<lb/>
+re drey oder viermahl thun.</p><lb/>
+<p>Wenn dir ein Schaf aufſtuͤtzig<lb/>
+wird, ſo gieb ihm nur bald Saltz mit<lb/>
+gruͤnen Wermuth zu lecken oder zu eſ-<lb/>
+ſen, und ſchneide ihn in die Ohren.</p><lb/>
+<p>Wenn ein Schaf gar unverſehens und<lb/>
+ploͤtzlich kranck wird, ſo ſchlagen ihnen die<lb/>
+Schaͤfer unter den Augen eine Ader, die<lb/>
+drucken ſie nur mit einen Meſſeꝛ auf, dar-<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">auf</fw><lb/>
+<pb n="16" facs="#f0020"/>
+auf werden ſie wieder geſund, und man-<lb/>
+chen Schafe ſein Leben errettet.</p><lb/>
+<note place="left">Fuͤr die<lb/>
+Ge-<lb/>
+ſchwulſt.</note><p>Wann ein Schaf ſchwillet, ſo iſts ei-<lb/>
+ne Anzeichung daß es Gifft bey ſich hat,<lb/>
+welches ſie leichtlich von der Weyde o-<lb/>
+der im Futter bekommen, gieb ihnen<lb/>
+nur Tyriac, auf eine Schnitte Brod ge-<lb/>
+ſchmieret, ein, ſo wird es bald beſſer<lb/>
+mit ihnen.</p><lb/>
+<p>Nimm Wintergruͤn, Roͤmiſchen Ei-<lb/>
+biſch und Alandwurtzel, ſeud das alles<lb/>
+mit Waſſer, in einen Keſſel, thue Huͤn-<lb/>
+nermiſt darzu, und laß es drey Tag und<lb/>
+Nacht ſtehen, ſeige es durch ein Tuch,<lb/>
+darnach nimm Qveckſilber, toͤdte es mit<lb/>
+alten Schmeer in einen Becken, darzu<lb/>
+nimm alt Schmeer und <hi rendition="#fr">P</hi>ech, nach An-<lb/>
+zahl der Schafe, grauen Schweffel,<lb/>
+weiſſe Aſchen und Kupfferwaſſer, iegli-<lb/>
+ches ſo viel du wilt, odeꝛ iegliches ein halb<lb/>
+<hi rendition="#fr">P</hi>fund, und zuſammen klein geſtoſſen,<lb/>
+in einen Keſſel gethan und wohl durch<lb/>
+einander geruͤhret, laß es aufſieden,<lb/>
+geuß es darnach aus in ein Faß, und<lb/>
+wo das Schaf reudicht iſt, da theile die<lb/>
+Wolle voneinander, und ſchmiere es<lb/>
+darauf, dieſes iſt eine gute Schmierſalbe.</p><lb/>
+<p>Es bekommen aber die Schafe den<lb/>
+<note place="left">Fuͤr die<lb/>
+Rauten.</note>Schurff von den kalten <hi rendition="#fr">P</hi>latzregen und<lb/>
+froſtigen Wetter, ſo da pfleget darauf zu-<lb/>
+kommen, oder wenn man ihnen den<lb/>
+<fw type="catch" place="bottom">Sem-</fw><lb/>
+<pb n="17" facs="#f0021"/>
+Semmerſchweiß nicht abſpuͤlet, oder<lb/>
+ihnen die Wolle abgenommen und ſie<lb/>
+bald darauf in Wald oder ander doͤr-<lb/>
+nicht Geſtreuche treibet, da ſie geritzt<lb/>
+und verletzt werden, oder wo man ſie in<lb/>
+einen Stall bringet, darinnen <hi rendition="#fr">P</hi>ferde<lb/>
+Mauleſel oder andere Eſel geſtanden<lb/>
+ſeyn, ſonderlich wann ſie wenig Eſſen<lb/>
+haben, davon werden ſie mager und<lb/>
+leicht reidicht.</p><lb/>
+<p>Man kan leicht ſpuͤren, wenn die<note place="right">Raude<lb/>
+der<lb/>
+Schafe.</note><lb/>
+Schafe raͤudicht ſeyn, denn ſie kratzen<lb/>
+mit den Fuͤſſen auf der Erden, reiben<lb/>
+ſich an Baͤumen und Waͤnden, pfluͤcken<lb/>
+ſich die Wolle aus und naſchen mit den<lb/>
+Maul an ſelbigen Orte, den ziehe nur<lb/>
+die Welle aneinander, ſo wirſtu befin-<lb/>
+den, daß ihnen die Haut jucket. Nimm<lb/>
+Urin, waſche die Oerter damit, hernach<lb/>
+beſtreich die Oerter mit Schwefel-Oel<lb/>
+und weichen <hi rendition="#fr">P</hi>ech. Wenn dir 1. oder<lb/>
+2. Schafe anbruͤchig werden, daß man<lb/>
+ſie ſchmieren muß ſo verkauffe bald die<lb/>
+andern alle, denn es ſtecket an, du<lb/>
+magſt ſie darmit ſchmieren wilt, ſo ſter-<lb/>
+ben dir endlich die meiſten weg, wiltu<lb/>
+aber der Rauden wehren, daß ſie die<lb/>
+andern nicht anſtecke, ſo nimm Laub<lb/>
+und Wagenſchmeer und koche ei-<lb/>
+nen Brey von rockenen Mehl thue<lb/>
+Fettes von einer Schweins flieſſe<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">dar-</fw><lb/>
+<pb n="18" facs="#f0022"/>
+darein, und ſchuͤtte den Brey in einen<lb/>
+Topff voll <hi rendition="#fr">S</hi>chmeer, menge es wohl<lb/>
+durcheinander und ſchmere die <hi rendition="#fr">S</hi>chafe<lb/>
+damit, ſo vergehet ſie die Raude und<lb/>
+werden fein rein.</p><lb/>
+<note place="left">Fuͤr die<lb/>
+Raͤudig<lb/>
+keit.</note><p>Wenn die <hi rendition="#fr">S</hi>chafe unrein und raͤudig<lb/>
+werden, ſo henge erſtlich einen Keſſel<lb/>
+mit Waſſer uͤber das Feuer, darein et-<lb/>
+wa eine Tonne Waſſer gehet, thue als-<lb/>
+denn den Keſſel gar voll des Krauts,<lb/>
+das die <hi rendition="#fr">S</hi>chaͤfer Kinitz nennen, ſo viel<lb/>
+man deſſen ins Waſſer bringen kan, laß<lb/>
+es alſo zwey <hi rendition="#fr">S</hi>tunden lang aufſieden.</p><lb/>
+<p>Darnach nimm einen <hi rendition="#fr">S</hi>tengel aus<lb/>
+den Keſſel, und ſtreiffe ſie durch die Fin-<lb/>
+ger: Wenns gar recht geſotten iſt, ſo<lb/>
+ſtreifft es ſichs rein ab, man muß es<lb/>
+auch lang ſieden laſſen, bis ſich dieſelbe<lb/>
+Rinde abſtreiffet, wenn es nun gar ge-<lb/>
+kocht iſt, ſo thut man das Kraut aus<lb/>
+dem Keſſel, und wirffts weg, und laͤſt<lb/>
+das gekochte <hi rendition="#fr">S</hi>oth im Keſſel, thut<lb/>
+darzu zwey Loth <hi rendition="#fr">S</hi>chweffel und laͤſt es<lb/>
+darinnen eine gute <hi rendition="#fr">S</hi>tunde miteinan-<lb/>
+der ſieden, bis es wohl gar iſt, ſo wird<lb/>
+das <hi rendition="#fr">S</hi>oth fein gelbe, wie es geſaffert<lb/>
+waͤre, man muß auch ſtets darbey ſte-<lb/>
+hen, und mit einen <hi rendition="#fr">S</hi>tecken wehren, daß<lb/>
+es nicht uͤbeꝛlaͤuffet, deꝛ Keſſel bleibet faſt<lb/>
+halb voll, wenns aus geſotten iſt, alsdeñ<lb/>
+<fw type="catch" place="bottom">fuͤllet</fw><lb/>
+<pb n="19" facs="#f0023"/>
+fuͤllet man es in eine Tonne, die nur ei-<lb/>
+nen Boden unten hat, daß mans oben<lb/>
+heraus ſchoͤpffen kan, wenn man denn<lb/>
+etwas daraus nehmen will, ſo ſoll man<lb/>
+es erſtlich in der Tonnen mit einen Ste-<lb/>
+cken umruͤhren, daß der Schwefel nicht<lb/>
+unten am Boden liegen bleibet, denn<lb/>
+nehme man kleine Schnautz- oder Laß-<lb/>
+kaͤnnlein und ſchoͤpffe darein des gekoch-<lb/>
+ten Sothes, und an welchen Orte die<lb/>
+Schafe raͤudicht oder grindicht ſeyn,<lb/>
+geuſt man alsdenn deſſelben Soths<lb/>
+mit den Kaͤnnlein, ſo weit die Rauden<lb/>
+iſt, ein wenig darauf, es heilet ſehr,<lb/>
+und koͤnnen die Schafe, ſo oͤffters durch-<lb/>
+aus raͤudig, darmit geheilet werden.</p><lb/>
+<p>Jtem, nimm Lungenwurtzel, das<lb/>
+Kraut Kinitz und Wermuth, doͤrre es<lb/>
+untereinander und ſtoß es klein, thu es<lb/>
+den Schafen unter das Saltz, und men-<lb/>
+ge es wohl untereinander, das iſt ein<lb/>
+gut <hi rendition="#aq">praͤſervativum,</hi> es bewahret die<lb/>
+Schafe, nechſt GOtt fuͤr den Rauden<lb/>
+und Kranckheiten, und haͤlt ſie bey ge-<lb/>
+ſunden Leibe.</p><lb/>
+<p>Jtem, ſo ſich einer befuͤrchtet, daß<lb/>
+die Schafe den Grind bekommen moͤch-<lb/>
+ten, ſo nehme er nur groſſe Omeiſen,<lb/>
+die man ſonſten Roß-Omeiſen heiſt,<lb/>
+mit ſammt den Neſte, ſchuͤtte ſie in<lb/>
+einen naſſen Sack, und thue ſie in ei-<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">nen</fw><lb/>
+<pb n="20" facs="#f0024"/>
+nen heiſen Backofen, darnach zerſtoſſe<lb/>
+und ſiebe ſie, und gieb ſie den Scha-<lb/>
+fen in Saltz zu eſſen. Jtem grabe<lb/>
+Hirſchwurtzel, Holwurtzel und Aland-<lb/>
+wurtzel im Maͤyen zwiſchen den 2. Frau-<lb/>
+entagen, doͤrre, ſtoſſe und ſiebe ſie, und<lb/>
+gieb ſie den Schafen im Saltz zueſſen.</p><lb/>
+<p>Zu weilen erſticken die Schafe in ih-<lb/>
+ren eignen Blut, fallen ploͤtzlich nieder<lb/>
+und ſterben, wenn ſie gleich fein leibig,<lb/>
+fett und ſonſten gar nicht kranck ſeyn,<lb/>
+da nehme man nur Schellkraut, das an<lb/>
+den Taͤnnen waͤchſt, bluͤhet gelbe, und<lb/>
+wenn mans abbricht, ſo hats rothe<lb/>
+Milch, das doͤrre man, zerſtampffe es<lb/>
+und giebs ihnen im Saltz zulecken, ſo<lb/>
+iſt ihnen geholffen, es muß aber in der<lb/>
+erſte geſchehen.</p><lb/>
+<note place="left">Vor das<lb/>
+Plecken.</note><p>Wann die Schafe im Stall ſtehen,<lb/>
+zittern und blecken, umher lauffen und<lb/>
+nicht freſſen wollen, ſo iſt ihnen eine<lb/>
+Buͤberey geſchehen, denn ſo boͤſe Bu-<lb/>
+ben einen Wolffs ſchwantz, Wolffskoth<lb/>
+oder dergleichen vom Wolff im Stalle<lb/>
+verſtecken, ſo ruhen die Schafe nicht,<lb/>
+biß es wieder aus dem Stall genom-<lb/>
+men wind, denn ſie immer meynen, ihr<lb/>
+Feind ſey vorhanden.</p><lb/>
+<p>Wenn ſie kropffen, ſo bekommen ſie<lb/>
+gar eine dicke Geſchwulſt unter dem Hal-<lb/>
+ſe, zuweilen wie ein Ganß-Ey groß das<lb/>
+<fw type="catch" place="bottom">iſt</fw><lb/>
+<pb n="21" facs="#f0025"/>
+iſt voller Waſſer, und kommt von der<lb/>
+Leber und Lunge, wenn die kein Waſſer<lb/>
+haben, ſo verfaulen ſie und werden<lb/>
+verſchleimet, dieſes koͤmmet her wenn<lb/>
+die Schafe in naſſer Weyde gehen, und<lb/>
+es oͤffters Schlag-Regen auf ſie thut.</p><lb/>
+<p>Nimm eine Pfrieme, ſtreich es auf<lb/>
+und druͤcke es aus, hilfft an den meiſten.</p><lb/>
+<p>Mache Kuchen von Leinoͤhl, alten<note place="right">Fuͤr an-<lb/>
+bruͤchti-<lb/>
+ge Scha-<lb/>
+fe.</note><lb/>
+Schmeer, Pech, neuen Wachſe und<lb/>
+Baumoͤhl, dieſe Stuͤcke zuſammen ge-<lb/>
+macht, ſeyn gut dafuͤr, frage nur die<lb/>
+Schaͤfer, die werdens weiter berichten.</p><lb/>
+<p>Nimm Alandwurtzel, ſchneide die in<note place="right">Fuͤr den<lb/>
+Rotz.</note><lb/>
+Scheibigen, doͤrre ſie in einen Backo-<lb/>
+fen, mache es zu Pulver, ſichte oder<lb/>
+ſiebe es, thue auch Saltz darzu, eines<lb/>
+ſo viel als das ander, und laß es ſie<lb/>
+lecken, es hilfft und iſt bewaͤhrt.</p><lb/>
+<p>Oder nimm Ochſenzungenwurtzel oh-<note place="right">Fuͤr das<lb/>
+Blutpiſ-<lb/>
+ſen.</note><lb/>
+ne das Kraut, ſchneit die klein, doͤrre ſie<lb/>
+auch in einen Backofen, ſtoſſe ſie denn<lb/>
+zu Pulver und ſiebe es, giebs den Scha-<lb/>
+fen mit Saltz zu eſſen.</p><lb/>
+<p>Wenn die Schafe Blut ſeichen, ſo<lb/>
+ſtoſſe Kuͤmmel zu Pulver, und menge es<lb/>
+unter Saltz, giebs ihnen zu lecken, ſo ver-<lb/>
+gehet ſie es bald wieder. Oder brauche<lb/>
+<fw type="sig" place="bottom">B 4</fw><lb/>
+<fw type="catch" place="bottom">Blut-</fw><lb/>
+<pb n="22" facs="#f0026"/>
+Blutkraut, wie zuvor von andern Vieh<lb/>
+auch iſt geſaget worden.</p><lb/>
+<p>Vor das Bluten der Schafe ſoll man<lb/>
+den Samen nehmen von den jungen<lb/>
+und rothen Ochſenzungen und ſolls al-<lb/>
+len Schafen unter das Saltz geben, ſie<lb/>
+ſeyn jung oder alt.</p><lb/>
+<note place="left">Fuͤr den<lb/>
+Huſten.</note><p>Nimm drey oder vier Lebern, nach-<lb/>
+dem der Schafe viel ſeyn, und doͤrre ſie<lb/>
+in einen Backofen, ſtoß ſie klein und ſie-<lb/>
+be ſie, nim̃ darnach einen halben Schef-<lb/>
+fel Maltz oder weniger, laß das fein<lb/>
+alleine mahlen, und nimm auch ſo viel<lb/>
+Holunderbeeren, drucke den Safft dar-<lb/>
+aus, in den Maltz, und knete das wie<lb/>
+ein Teig, mache Kuͤchlein davon, ſtoſſe<lb/>
+ſie zu Pulver und gieb daſſelbe den<lb/>
+Schafen in Saltz zu eſſen, du kanſt itzo<lb/>
+beruͤhrte Kuchen ein gantz Jahr behal-<lb/>
+ten, ſeynd ſehr gut vor den Huſten der<lb/>
+Schafe.</p><lb/>
+<p>Wann die Schafe die Egeln haben,<lb/>
+ſo nimm <hi rendition="#aq">capita papaveris,</hi> Mohnhaͤu-<lb/>
+pter, brenne ſie zu Pulver, ſiebe ſie<lb/>
+durchs Sieb und menge es unter das<lb/>
+Saltz, giebs ihnen zu eſſen, es hilfft<lb/>
+und iſt bewehret.</p><lb/>
+<p>Oder gieb ihnen Reinfahren, Schieß-<lb/>
+beeren-Holtz darunter geſtoſſen, und un-<lb/>
+ter das Saltz gemenget.</p><lb/>
+<p>Wann ſich die Schafe oder Laͤmmer<lb/>
+<fw type="catch" place="bottom">nach</fw><lb/>
+<pb n="23" facs="#f0027"/>
+nach Oſtern von der neuen Weide ver-<note place="right">Fuͤr die<lb/>
+Spul-<lb/>
+Wuͤr-<lb/>
+mer.</note><lb/>
+unreinigen, oder die Spulwuͤrme beiſ-<lb/>
+ſen, ſo nimm junge Erlene Sproͤßlein,<lb/>
+die ein Jahr ſeyn, doͤrre die in einen<lb/>
+Backofen, ſtoſſe ſie zu Pulver und ſiebe<lb/>
+ſie, und nimm das kleinſte Pulver und<lb/>
+Lungwurtzel, welches Kraut 3. Blaͤtter<lb/>
+hat, und auf der Wieſen waͤchſt, doͤrre<lb/>
+es zu Pulver, ſiebe es und giebs den<lb/>
+Schafen mit Saltz zu eſſen, dieſes iſt<lb/>
+probieret.</p><lb/>
+<p>Es pflegen etliche Schafe gern toll<note place="right">Von tol-<lb/>
+len Scha<lb/>
+fen.</note><lb/>
+zu werden, die ſind dabey zu erkennen,<lb/>
+ſie gehen umgedrehet in einen Ring<lb/>
+herum, und fallen darnach nieder, wo<lb/>
+ihnen nun ſolches nicht zum Koͤpffen<lb/>
+heraus ſchwieret, ſo iſt es mit ihnen<lb/>
+verlohren und kein Mittel zu gebrau-<lb/>
+chen.</p><lb/>
+<p>Wenn die Schafe rotzicht, ſchaͤbicht<note place="right">Rotzigte<lb/>
+Schafe.</note><lb/>
+oder ſchoͤrbicht werden, ſo nimm Ochſen-<lb/>
+zungenwurtzel ohne das Kraut, ſchneide<lb/>
+ſie klein, doͤrre ſie in Backofen, ſtoß ſie<lb/>
+zu Pulver und ſiebe ſie, gieb das Pulver<lb/>
+den Schafen in Saltz zu lecken.</p><lb/>
+<p>Jn dem Hunds-Tagen pflegen die<note place="right">Fuͤr die<lb/>
+Pocken.</note><lb/>
+Schafe zu pocken, das iſt ihnen ein treff-<lb/>
+lich anfaͤllig Ding, welches offtmahls<lb/>
+gemachet, daß man die Schafe aus ei-<lb/>
+nen gantzen Dorff muß weg bringen.</p><lb/>
+<p>Es iſt aber vieler Schaͤfer Brauch,<lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">daß</fw><lb/>
+<pb n="24" facs="#f0028"/>
+daß ſie darfuͤr nichts brauchen, ſondern<lb/>
+thun Geſunde und Krancke in einen<lb/>
+warmen Stall treiben ſie dichte ineinan-<lb/>
+der, damit ſie erwarmen, ſagen alſo:<lb/>
+die Pocken oder Blattern kommen deſto<lb/>
+eher heraus und vergehn wieder.</p><lb/>
+<p>Nimm nachdem der Schafe viel ſeyn,<lb/>
+1.2.3. pockichte Schafe, bind ihnen die<lb/>
+Fuͤſſe zuſammen und brenne die leben-<lb/>
+dig in einen Backofen zu Pulver, thue<lb/>
+darzu Lindenholtz, oder in deſſen Man-<lb/>
+gelung nur ander gemein Holtz, und laß<lb/>
+es zugleich mit verbrennen, alsdann<lb/>
+ſtampff das Pulver, ſiebe es durch, und<lb/>
+nimm Attichkraut, doͤrre Pulver, und<lb/>
+Gerſten Maltz, daſſelbe mache zu Mehl<lb/>
+und ſiebe es auch, nimm den gruͤnen<lb/>
+Endenkreiß, doͤrre und mache ihn zu<lb/>
+Pulver, darnach nimm Leinſaat, daſſel-<lb/>
+be thue gantz darunter, und Saltz, wel-<lb/>
+ches gantz duͤrr und klein gerieben ſeyn<lb/>
+ſoll, dieſe genandten Stuͤcke nimm ei-<lb/>
+einen ſo viel als des andern, menge es<lb/>
+alles durcheinander, giebs den Schafen<lb/>
+zu eſſen, daſſelbe thue acht oder zehn<lb/>
+Tage nacheinander, weil ſie eſſen wol-<lb/>
+len, habe auch gute Achtung darauf,<lb/>
+daß ſie in zwey oder drey Tagen nicht<lb/>
+zum Waſſer kommen, es wird gewiß<lb/>
+helffen, und iſt probirt.</p><lb/>
+<fw type="catch" place="bottom">Nimm</fw><lb/>
+<pb n="25" facs="#f0029"/>
+<p>Nimm gedoͤrrte geſchrotene Gerſten,<lb/>
+abgepfluͤckte gedoͤrrte Wermuth, reine<lb/>
+aus gerodene Hanffſpreu und geſtoſſene<lb/>
+Lorbeer, unter dieſe Stuͤck miſche Saltz<lb/>
+und giebs den Schafen zwiſchen Mi-<lb/>
+chael und Martin alle Wochen auf den<lb/>
+Abend, wenn es ſchoͤn iſt 3. mahl und<lb/>
+laß ſie nicht drauf trincken, das heilet<lb/>
+den Schafen alle Kranckheiten. Jtem,<lb/>
+nimm rothe Kalnickenbeer, Haſelkno-<lb/>
+ſpen und weiſen Huͤnermiſt, dieſe<lb/>
+Stuͤck gedoͤrret und zu Pulver geſtoſ-<lb/>
+ſen, mit Saltz untereinander gemiſchet<lb/>
+und den Schafen um Martini einmahl<lb/>
+oder etliche gegeben, iſt gut fuͤr alle<lb/>
+Seuche der Schafe.</p><lb/>
+<p><hi rendition="#aq">NB.</hi> Mercke, alle ſieben Jahr haben<lb/>
+die Schafe einen Anſtoß, verkauff deine<lb/>
+Schafe, ſonderlich wann der Chriſttag<lb/>
+an einen Sonnabend iſt, denn ſie ſterben<lb/>
+gemeiniglich daſſelbe Jahr, oder kran-<lb/>
+cken ſehr, laut der Schaͤfer Erfahrung.</p><lb/>
+<p>Nimm Lorbeern und Entzian 1.<note place="right">Fuͤr die<lb/>
+Faͤule.</note><lb/>
+Pfund, und halb Baumſchalen auf<lb/>
+ein hundert, mache es zu Mehle, giebs<lb/>
+den Schafen drey Tage vor und nach<lb/>
+Michael mit Saltz zu eſſen, Lungen-<lb/>
+wurtzel und Naterwurtzel ſind auch<lb/>
+gut vor die Faͤule, da aber dieſes nicht<lb/>
+hilfft, ſo nimm Holunderbeeren, ſchuͤt-<lb/>
+te ſie in Waſſer, wie viel du bedarffſt,<lb/>
+<fw type="catch" place="bottom">Dar-</fw><lb/>
+<pb n="26" facs="#f0030"/>
+Darnach nimm einen halben Schef-<lb/>
+fel Gerſten Mehl, und machs miteinan-<lb/>
+der ein, auf das ſtaͤrckſte und laß es alſo<lb/>
+ſtehen biß den dritten Tag, hernach wir-<lb/>
+cke Brod und mache breite Plaͤtze da-<lb/>
+von, und ſetze es in einen heiſſen Back-<lb/>
+ofen und laſſe es wohl duͤrr darinnen<lb/>
+backen, und ſtoß es hernach zu Pulver,<lb/>
+ſo viel als es bedarff, menge es mit lau-<lb/>
+ter Saltz und giebs den Schafen auf<lb/>
+einen Abend und treib ſie darnach in ei-<lb/>
+nen warmen Stall, uͤber 8. Tage her-<lb/>
+nach nim̃ Wurmmehl aus einen Birn-<lb/>
+baum, menge es unter Saltz, und giebs<lb/>
+den Schafen auf einen Abend.</p><lb/>
+<note place="left">Faͤule<lb/>
+um Mi-<lb/>
+chael.</note><p>Wann die Schafe die Faͤule um Mi-<lb/>
+chaelis Tag haben, ſo nimm Waſſer-<lb/>
+bley, und ſchneid es zu kleinen Stuͤck-<lb/>
+lein, darnach nimm Kreſſen-Samen<lb/>
+und rothe Salben, thu die in eine Pfan-<lb/>
+ne und laß ſie zugehen, brocke Brod<lb/>
+drein und laß ſie zuvor backen, ſtoß es<lb/>
+zu Pulver und menge es durcheinander<lb/>
+und viel Saltz darunter, giebs den<lb/>
+Schafen auf den Abend.</p><lb/>
+<p>Oder, nimm Liebſtoͤckel, Alandwur-<lb/>
+tzel, Wacholderbeer, Eſpenlaub und Lor-<lb/>
+beern, diß alles untereinander geſtompft<lb/>
+davon ſoll man den Schafen, da man ſich<lb/>
+der Faͤule befahrt, nach Gelegenheit der<lb/>
+Schafe, etliche Hand vol unteꝛ das Saltz<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="27" facs="#f0031"/>
+der Schaf mengen, und allewege uͤbern<lb/>
+andern oder dritten Tag auf den Abend,<lb/>
+wenn man eintreibet, in die Saltztroͤge<lb/>
+geben, welches Schaf faul iſt, friſt<lb/>
+nichts, ſondern gehet davon, demſelben<lb/>
+faulen Schaf muß man ſolch gemengt<lb/>
+Saltz mit einer Holunderroͤhre in den<lb/>
+Halß ſchuͤtten, und halten, daß es mit<lb/>
+Gewalt freſſen muß, man darffs aber<lb/>
+ehe nicht trincken laſſen biß auf den<lb/>
+Morgen.</p><lb/>
+<p>Nim̃ des hohen Farrenkrauts, bren-<note place="right">Fuͤr das<lb/>
+Gaͤhnen.</note><lb/>
+ne es zu <hi rendition="#fr">P</hi>ulver, darnach ein Eichen-<lb/>
+Moß und ſiebe es klein, und Erlene Kno-<lb/>
+ten die Laͤnge, und laß es recht duͤrre wer-<lb/>
+den, daß du es kanſt zu Mehl machen<lb/>
+und Ruß oder Rahm aus einer Feuer-<lb/>
+mauer, ſolches ſchuͤtte in einem Backo-<lb/>
+fen, der gar heiß iſt, und ſtoß es darnach<lb/>
+zu <hi rendition="#fr">P</hi>ulver, und menge es mit Saltz un-<lb/>
+tereinander, und giebs den Schafen.</p><lb/>
+<p>Nimm Haͤſeln-Laub, <hi rendition="#fr">S</hi>ommerlatten<note place="right">Lungen-<lb/>
+wuͤrmer.</note><lb/>
+und Feldkuͤmmel, und mache es darnach<lb/>
+klein und giebs ihnen unter das <hi rendition="#fr">S</hi>altz.</p><lb/>
+<p>Nimm Merlinſen, Holunderbeeren,<note place="right">Vor das<lb/>
+Moͤriſch</note><lb/>
+Gerſten Mehl, Koppelung von den<lb/>
+Bircken, Meiſterwurtzel, Heiligengeiſt-<lb/>
+wurtzel, dieſe Dinge ſind alle gut fuͤrn<lb/>
+Moͤriſch.</p><lb/>
+<p>Tormentille und Wacholderbeeren<note place="right">Vor das<lb/>
+Draben.</note><lb/>
+ſeyn gut fuͤr das Draben der <hi rendition="#fr">S</hi>chafe,<lb/>
+<fw type="catch" place="bottom">wenn</fw><lb/>
+<pb n="28" facs="#f0032"/>
+wenn man ſie mit Saltz brauchet, wie<lb/>
+braͤuchlich.</p><lb/>
+<p>Wenn die Schafe das Reißen in den<lb/>
+Daͤrmen, oder die Darm-Gicht haben,<lb/>
+ſo laß ſie nur gedoͤrrte Zwiebeln und<lb/>
+Haſelwurtz mit Saltz <hi rendition="#aq">more ſolito</hi> brau-<lb/>
+chen.</p><lb/>
+<note place="left">Fuͤr den<lb/>
+Huſten.</note><p>Nimm Triebſand und Wolffswurtzel<lb/>
+die ſind den Schafen und ſonderlich den<lb/>
+jungen Laͤmmern gut vor den Huſten,<lb/>
+Jtem, Mandelkern zerſtoſſen, mit Wein<lb/>
+vermiſcht in die Naſenloͤcher gegoſſen,<lb/>
+vertreibet ihnen auch den Huſten.</p><lb/>
+<note place="left">Fuͤr den<lb/>
+Unflath.</note><p>Nimm gelben Senff ſo bald du den<lb/>
+Unflath gewahr wirſt, ſtoſſe den Scha-<lb/>
+fen ins Maul daß ſie ihn freſſen, oder<lb/>
+drucke den gelben Senff ins Brod, giebs<lb/>
+den Schafen zu freſſen, und ſchuͤtte al-<lb/>
+ſobald eine Hand voll Senff hinnach in<lb/>
+den Halß.</p><lb/>
+<p>Jtem, nimm rothen Wein, Holun-<lb/>
+derbeer und Gerſten Mehl menge es<lb/>
+untereinander wie ein Teig, backe Brod<lb/>
+daraus, wohl gantz duͤrre. Darnach<lb/>
+laß es ſtampffen in der Muͤhlen zu<lb/>
+<hi rendition="#fr">P</hi>ulver, und giebs den Schafen unter<lb/>
+das Saltz.</p><lb/>
+<p>Nimm Benedict-Wurtzel, oder das<lb/>
+<hi rendition="#fr">P</hi>ulver von einen Maulwurff gebrand,<lb/>
+und ſtreue es den Schafen in die Augen<lb/>
+<fw type="catch" place="bottom">dar-</fw><lb/>
+<pb n="29" facs="#f0033"/>
+daruͤber ſie ein Fell haben, das treibet<lb/>
+alle Fell davon.</p><lb/>
+<p>Die Holtzboͤcke ſind kleine rauche<note place="right">Fuͤr<lb/>
+Laͤuſe</note><lb/>
+Wuͤrmlein, wie die Wantzen, und beiſ-<lb/>
+ſen ſich in die Haut der Schafe, Hunde<lb/>
+und Ochſen tieff hinein, und plagen die-<lb/>
+ſe Thier gar ſehr, wenn man nun mer-<lb/>
+cket, daß Schafe, Leuſe oder ſolche Holtz-<lb/>
+boͤcke haben, ſo zerſtoſſe die Wurtzel<lb/>
+<hi rendition="#aq">Aceris,</hi> koche ſolche in Waſſer, ziehe die<lb/>
+Wolle auf den Ruͤckgrad voneinan-<lb/>
+der, begieſſe ſie damit auf den Ruͤcken,<lb/>
+damit es zu beyden Seiten von ihnen<lb/>
+fleuſt.</p><lb/>
+<p>Oder nimm <hi rendition="#aq">Madrogoriaͤ,</hi> des Al-<lb/>
+raune und gebahre damit wie gedacht,<lb/>
+aber ſiehe dich fuͤr, daß die Schafe da-<lb/>
+von nichts genieſſen, denn es iſt Gifft.</p><lb/>
+<p>So bald ſie das Fieber ankommet,<note place="right">Fuͤrs<lb/>
+Fieber.</note><lb/>
+ſo ſchlage ihnen zwiſchen den 2. Keulen<lb/>
+eine Ader, ſo vergehet es.</p><lb/>
+<p>Nimm Aſche ausm Kachelofen, wel-<note place="right">Fuͤr die<lb/>
+Wuͤrm<lb/>
+im Leibe.</note><lb/>
+che wohl gebrand iſt, thue ſie in guten<lb/>
+Weineßig, laß es ihnen eingeben, wie<lb/>
+man es ihnen einbringen kan, am be-<lb/>
+ſten, wenn ſie von Hopffen Rancken ge-<lb/>
+brant iſt.</p><lb/>
+<p>Wenn ſich ein Schaf rohe getrieben<lb/>
+hat, ſoll man weich <hi rendition="#fr">P</hi>ech, Alaun Schwe-<lb/>
+fel und Eßig untereinander nehmen,<lb/>
+und es damit ſchmieren. Oder ſoll den<lb/>
+<fw type="catch" place="bottom">Roſt</fw><lb/>
+<pb n="30" facs="#f0034"/>
+Roſt vom Kupffer darein ſtreuen, ha-<lb/>
+ben ſie ihnen aber eine Beule gerieben,<lb/>
+ſoll man dieſelbe gar vernuͤnfftig oder<lb/>
+beſcheidentlich umſchneiden, daß man<lb/>
+das Wuͤrmlein, das darinnen verbor-<lb/>
+gen liegt nicht verletze, denn ſo das<lb/>
+verletzet wird, ſo wirffts viel Eyter<lb/>
+aus und macht, daß die Wunde her-<lb/>
+nach nicht heilet.</p><lb/>
+<p>Wenn die Schafe in den heiſſen Hun-<lb/>
+des-Tagen von der Sonnen zuſehr erhi-<lb/>
+tzet werden, und von den andern Scha-<lb/>
+fen abtreten, allein ſtehen und nicht eſ-<lb/>
+ſen wollen, ſo gieb ihnen den Safft ſo<lb/>
+im Fruͤhling aus den Bircken laͤufft,<lb/>
+wenn darein gehauen wird, und laß ſie<lb/>
+Bircken-Laub eſſen.</p><lb/>
+<note place="left">Schwe-<lb/>
+rer<lb/>
+Athem.</note><p>Wann die Schafe ſchwerlich Odem<lb/>
+holen, ſchneide ſie mit einem Meſſer in<lb/>
+beyde Ohren, ſo wirds bald beſſer mit<lb/>
+ihnen werden.</p><lb/>
+<note place="left">Lungen-<lb/>
+ſucht.</note><p>Wann die Schafe Mangel an der<lb/>
+Lungen bekommen, ſo ſoll man ihnen<lb/>
+durch das Ohr Chriſtwurtz oder Lungen-<lb/>
+kraut, oder Rettig ſtecken, wie man denn<lb/>
+auch den Schweinen thut, dieſe Kranck-<lb/>
+heit bekommet das Vieh aus Mangel<lb/>
+des Waſſers, denn wenn ſie von der<lb/>
+Sonnen Hitze ſehr durſten, ſo uͤberlauf-<lb/>
+fen ſie ſich und fangen bald.</p><lb/>
+<fw type="catch" place="bottom">So</fw><lb/>
+<pb n="31" facs="#f0035"/>
+<p>So ein Schaf ein Bein bricht, muß<note place="right">Bein-<lb/>
+brechen.</note><lb/>
+man es heilen wie einen Menſchen, alſo<lb/>
+auch Hunden, Huͤnern und andern<lb/>
+Viehe, winde das Bein in Wolle, die<lb/>
+mit Lein - Oel und Wein genetzet iſt,<lb/>
+ſchiene es hernach wie braͤuchlich iſt.</p><lb/>
+<p>Bißweilen bekommen die Scha-<note place="right">Boͤſe<lb/>
+Maͤuler.</note><lb/>
+fe Grindichte Maͤuler, wenn ſie<lb/>
+von den Kraͤutern eſſen, darauff der<lb/>
+Mehlthau gefallen iſt, da nimm Ei-<lb/>
+ſopp und Saltz gleich ſchwer, zerſtoſ-<lb/>
+ſe und menge es beydes unter einander,<lb/>
+und reib ihnen den Mund, die Lippen<lb/>
+und Gaum im Halſe damit, ſo vergehet<lb/>
+es wieder.</p><lb/>
+<p>Wenn die Schafe Geſchwuͤr haben,<note place="right">Ge-<lb/>
+ſchwuͤr.</note><lb/>
+ſo mache eine Salbe von Eßig, weichen<lb/>
+Pech und Seuſchmeer, und ſchmiere ſie<lb/>
+damit.</p><lb/>
+<p>Wenn ſie etwa ein ſchaͤdlich Kraut<lb/>
+oder ein boͤß Wuͤrmlein geſſen haben,<lb/>
+davon ihnen der Leib aufflaͤufft! ſo<lb/>
+oͤffne ihnen eine Ader uͤber den Mund<lb/>
+oder Lippen, deßgleichen die Adern,<lb/>
+die ſie unter dem Schwantz <hi rendition="#aq">juxta ſe-<lb/>
+dem</hi> haben, und geuß ihnen Menſchen-<lb/>
+Urin drein.</p><lb/>
+<p>Wenn ein Schaf eine Blut-Egel im<lb/>
+Trincken eingeſchlucket, ſo gieb ihm<lb/>
+ſcharffen warmen Eßig, oder Oel mit<lb/>
+Gewalt ein, denn ſonſt trinckets nicht.</p></div><lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="32" facs="#f0036"/>
+<div n="1"><head><hi rendition="#b">Das <hi rendition="#aq">III.</hi> Capit.<lb/>
+Von Ziegen.</hi></head><lb/>
+<note place="left">Ziegen<lb/>
+ſo die<lb/>
+Milch<lb/>
+verloh-<lb/>
+ren.</note><p><hi rendition="#in">W</hi><hi rendition="#fr">Enn eine Ziege gezickelt,</hi><lb/>
+hat, und die Milch verleuret,<lb/>
+ſo laß ſie gleichwohl melcken,<lb/>
+und immer fort trecken, ſo bekommt ſie<lb/>
+die Milch wieder.</p><lb/>
+<note place="left">Ziegen<lb/>
+ſo nicht<lb/>
+eſſen<lb/>
+wollen.</note><p>So eine Ziege nicht eſſen will, ſo<lb/>
+iſts eine Anzeigung, daß ſie das Kehlen<lb/>
+verlohren haben, und wenn ſie das<lb/>
+Kehlen oder Wiederkaͤuen verlohren ha-<lb/>
+ben, ſo koͤnnen ſie nicht eſſen, denn es<lb/>
+iſt ihre Natur, wie auch Kuͤhe, Ochſen<lb/>
+und Schaafe thun, gieb Achtung, wenn<lb/>
+ſich die Kuͤhe, Schaafe oder Ziegen nie-<lb/>
+derlegen, und ſuchen das Eſſen wieder<lb/>
+aus dem Munde, und kehlen von neuen,<lb/>
+denn halt ihnen geſchwind mit der Hand<lb/>
+den Haltz zu, und greiff ihnen ins Maul,<lb/>
+nimm das Gekaͤuete herauß, und ſtreichs<lb/>
+der Ziegen ein, oder giebs ihr in den<lb/>
+Mund, daß ſie es iſſet, ſo hebt ſie auch<lb/>
+wieder an zu kehlen, oder zu kaͤuen,<lb/>
+und wird wieder geſund.</p><lb/>
+<p>Wenn die Peſtilentz unter die Ziegen<lb/>
+koͤm̃t, ſo werden ſie nicht erſt kranck, ma-<lb/>
+<fw type="catch" place="bottom">ger,</fw><lb/>
+<pb n="33" facs="#f0037"/>
+ger und duͤrre wie das andere Vieh, ſon-<note place="right">Ziegen<lb/>
+Peſti-<lb/>
+lentz.</note><lb/>
+dern, wenn ſie am luſtigſten ſeyn, fallen<lb/>
+ſie um, und ſterben ploͤtzlich weg, wieder-<lb/>
+faͤhret ihnen, wenn ſie zuviel gute<lb/>
+Weyde haben, wann nun eine oder zwo<lb/>
+niederfallen, ſo ſchlage alſobald den<lb/>
+andern zur Ader, und thue ſie in einen<lb/>
+warmen Stall, damit ſie in dreyen Ta-<lb/>
+gen nicht wieder an die Weyde kom-<lb/>
+men.</p><lb/>
+<p>Gieb ihnen Rohricht zu eſſen, und<note place="right">Wann<lb/>
+ſie kranck<lb/>
+werden.</note><lb/>
+zerſtoſſe weiſſe Doren-Wurtzel im<lb/>
+Moͤrſel, und geuß Regen-Waſſer dar-<lb/>
+ein, laß ſie davon trincken, werden ſie<lb/>
+davon geſund, ſo verkauffe ſie alle mit<lb/>
+einander, oder kanſt du ſie nicht anwer-<lb/>
+den, ſo ſchlachte, und ſaltze ſie ein, doch<lb/>
+nicht ehe, biß die Peſt-Zeit voruͤber<lb/>
+ſey.</p><lb/>
+<p>Wann den Ziegen die Haut vor eitel<lb/>
+Waſſer thonet, ſo ſchneide ihnen unter<lb/>
+der foͤrderſten Schulder die Haut ein<lb/>
+wenig oder gar gelindiglich auff, und laß<lb/>
+das Waſſer weglauffen, ſchmiere das<lb/>
+Loͤchlein mit weichen Pech wieder zu, ſo<lb/>
+vergehet es ihnen.</p><lb/>
+<p>Jm uͤbrigen, weiln offters die Ziegen<lb/>
+mit dergleichen Kranckheiten wie die<lb/>
+Schaafe behafftet, alſo kanſt du ſelbigen<lb/>
+vorhero geſetzte Artzneyen brauchen, und<lb/>
+iſt unnoͤthig hiervon zu ſchreiben.</p></div><lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="34" facs="#f0038"/>
+<div n="1"><head><hi rendition="#b">Das <hi rendition="#aq">IV.</hi> Capitel.<lb/>
+Von Schweinen.</hi></head><lb/>
+<note place="left">Schwein<lb/>
+ob es<lb/>
+kranck o-<lb/>
+der ge-<lb/>
+ſund zu<lb/>
+erkennen.</note><p><hi rendition="#in">W</hi><hi rendition="#fr">Je man eine geſunde</hi><lb/>
+Sau oder Schwein erken-<lb/>
+net, wenn ſie einen feinen<lb/>
+keulichten gedreheten Schwantz hat, al-<lb/>
+ſo kan man auch hinwiederum an ihr<lb/>
+leichtlicht ſehen und erkennen, welche<lb/>
+kranck iſt, denn wenn man einem<lb/>
+Schwein die Porſten auff den Ruͤcken<lb/>
+ausreifft, und unten am Ende der<lb/>
+Porſte ein wenig Blut oder Fettigkeit<lb/>
+hanget, ſo iſt daſſelbige Schwein ge-<lb/>
+wißlich nicht geſund, Jtem, wenn ſie die<lb/>
+Koͤpffe auff eine Seite hangen, und bald<lb/>
+wiederum ſtille ſtehen, den Schwindel<lb/>
+ins Haupt bekommen, und darnieder<lb/>
+fallen, ſo haben ſie entweder das Fieber,<lb/>
+oder ſeyn ſonſt kranck, ſchneide ihnen den<lb/>
+Schwantz ab, und ſchneide ihnen in ein<lb/>
+Ohr, wenn ſie denn flugs bluten, ſo<lb/>
+ſterben ſie nicht, wenn ſie aber nicht blu-<lb/>
+ten, ſo ſterben ſie, darum muß man Ach-<lb/>
+tung darauff geben, auff welcher Seite<lb/>
+ſie das Haupt wieder haͤngen, ſo muß<lb/>
+man ihnen auff der andern ins Ohr<lb/>
+ſchneiden, daß ſie bluten.</p><lb/>
+<fw type="catch" place="bottom">Sie</fw><lb/>
+<pb n="35" facs="#f0039"/>
+<p>Sie haben auch unter den Arsba-<lb/>
+cken etwa zwey Finger lang eine groſſe<lb/>
+Ader, darauff muß man erſtlich mit ei-<lb/>
+ner Ruthen ſchlagen, daß ſie ſich fein<lb/>
+auffblehet und dehnet, darnach ſoll<lb/>
+man ſie ſchlagen, und das Blut lauffen<lb/>
+laſſen, und ſie mit einer Wiete oder Baſt<lb/>
+von einer Weide oder Ulmen-Baum<lb/>
+wieder verbinden.</p><lb/>
+<p>Darnach ſoll man das Schwein<lb/>
+ein Tag oder zween innen behalten,<lb/>
+und ihm in laulicht Waſſer zu hands-<lb/>
+weilen eine halbe Metze Gerſten-<lb/>
+Mehl ruͤhren, und es ausſauffen laſ-<lb/>
+ſen.</p><lb/>
+<p>Wenn die Schwein in der Faſten zu<note place="right">Fuͤr den<lb/>
+Gifft in<lb/>
+der Fa-<lb/>
+ſten.</note><lb/>
+Felde gehen, ſo nimm Tyriac und Kraut,<lb/>
+Reinfahren (es ſiehet faſt wie Camillen-<lb/>
+Blumen,) hacke es klein, und thue es un-<lb/>
+ter einander in den Tranck, darein<lb/>
+Schrot oder Obſt gemenget iſt, und laß<lb/>
+es die Schweine austrincken, ſo ſchadet<lb/>
+ihnen kein Gifft; Jn gleichen Fall giebt<lb/>
+man auch den Schweinen auff den Ko-<lb/>
+ben zu eſſen.</p><lb/>
+<p>Jtem, nimm Leber-Blumen ſammt<lb/>
+der Wurtzel und dem Kraut, zwo Haͤnde<lb/>
+voll Aurin mit der Wurtzel und Kraut,<lb/>
+auch ſo viel Liebſtoͤckel und Eberwurtzel,<lb/>
+ein iedes ein Viertel Pfundes, Sade-<lb/>
+baum eine Hand voll, Lorbeeren ein Vier-<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">tel</fw><lb/>
+<pb n="36" facs="#f0040"/>
+tel eines Pfundes, und Stech-Dorn ei-<lb/>
+ne Hand voll. Dieſe Stuͤcke zuſam-<lb/>
+men in einen groſſen Keſſel von dreyen<lb/>
+Zubern Waſſer gethan und geſotten,<lb/>
+den Keſſel mit Brettern hart zugedeckt,<lb/>
+und den Schweinen alle Tage zwey Ey-<lb/>
+mer unter einander mit harten Kern in<lb/>
+einem Troge vermiſchet gegeben, ſo lan-<lb/>
+ge es waͤhret, des Tages zwey oder<lb/>
+dreymahl; dieſes iſt auff hundert<lb/>
+Schweine zugericht. Hat man denn<lb/>
+ihrer mehr, ſo kan man allemahl nach<lb/>
+Anzahl der Schweine den Tranck min-<lb/>
+dern und mehren.</p><lb/>
+<p>Jm Winter giebt man es warm, und<lb/>
+im Sommer kalt.</p><lb/>
+<note place="left">Schwei-<lb/>
+ne ſo<lb/>
+kranck.</note><p>Nimm <hi rendition="#aq">Araneas,</hi> ſtoß dieſelben klein,<lb/>
+ſchmiere ſie auff eine Schnitte Butter,<lb/>
+und gieb einem ieden krancken Schweine<lb/>
+etwas davon zu eſſen.</p><lb/>
+<p>Jtem, brenne Aſche von Buͤchenen<lb/>
+Holtz, und menge ſie den Schweinen, ſo<lb/>
+kranck ſeyn, deßgleichen auch den geſun-<lb/>
+den, in Schrot und Tranck, und giebs<lb/>
+ihnen zu eſſen.</p><lb/>
+<p>Oder wenn man einen iedem Schwei-<lb/>
+ne alle Morgen auff Butter und<lb/>
+Brodt ein wenig Venediſchen Tyriac<lb/>
+giebt, das iſt ihnen ein trefflich <hi rendition="#aq">praͤſerva-<lb/>
+tivum.</hi></p><lb/>
+<p>Am Anfang des Brachmonats, wel-<lb/>
+<fw type="catch" place="bottom">cher</fw><lb/>
+<pb n="37" facs="#f0041"/>
+cher der Schweinen Peſtilentz iſt, gieb ih-<lb/>
+nen Nieſewurtzel mit Milch, oder ſon-<lb/>
+ſten einen Tranck ein, auff zwey Schwei-<lb/>
+ne vor einen Pfennig, ſo werden ſie ſich<lb/>
+brechen und purgiren, wenn ſie ſich aus-<lb/>
+gebrochen haben, ſo thue ſie in einen an-<lb/>
+dern Stall, daß ſie es nicht auſffreſſen;<lb/>
+dieſes iſt ein gemein <hi rendition="#aq">Recept,</hi> und pro-<lb/>
+biret.</p><lb/>
+<p>Jtem, lege ihnen <hi rendition="#aq">Scordium</hi> im Tꝛanck.</p><lb/>
+<p>Jm Winter verſtopffe die <hi rendition="#fr">S</hi>taͤlle<lb/>
+wohl, und gieb den Schweinen oͤffters<lb/>
+Warmes, damit ſie nicht erfrieren.</p><lb/>
+<p>Wenn die Schweine mit gekruͤmm-<note place="right">Fuͤr den<lb/>
+Gifft.</note><lb/>
+ten Ruͤcken ſtehen, und ſetzen alle vier<lb/>
+Fuͤſſe zuſammen, und zittern, ſo ſchneide<lb/>
+ihnen ein Loͤchlein in ein Ohr, und ſtecke<lb/>
+in daſſelbige Chriſt-Wurtzel, ſo zieht<lb/>
+die Wurtzel allen Gifft aus dem Leibe<lb/>
+in das Ohr, und ſo das Ohr geſchwollen,<lb/>
+ſo geneſet das <hi rendition="#fr">S</hi>chwein, und daſſelbe<lb/>
+Ohr faͤllt darnach gantz weg; dieſes<lb/>
+<hi rendition="#aq">Recept</hi> ſoll man mercken, denn die<lb/>
+Schweine freſſen oͤffters Schlangen,<lb/>
+ſonſten iſt auch gut Tobac, Wermuth,<lb/>
+Knoblauch, ſolches ihnen ins Freſſen ge-<lb/>
+menget.</p><lb/>
+<p>Zuweilen bekommen die Schweine<lb/>
+einen boͤſen Hals, iſt eine Entzuͤndung<lb/>
+des Zaͤpffleins im Halſe, dadurch werden<lb/>
+die Lufftroͤhren verhindert, daß es end-<lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">lich</fw><lb/>
+<pb n="38" facs="#f0042"/>
+<note place="left">Braͤu-<lb/>
+ne.</note>lich erſticken muß, es wird die Zun-<lb/>
+ge, braun oder ſchwartz, und iſt eine<lb/>
+gemeine <hi rendition="#fr">S</hi>chwein-Kranckheit, ſchlage<lb/>
+oder reiß ihnen unter der Zungen eine<lb/>
+Ader, muß aber bald in der erſte geſche-<lb/>
+hen.</p><lb/>
+<note place="left">Wolffs-<lb/>
+Zaͤhne.</note><p>Haͤtte ein <hi rendition="#fr">S</hi>chwein die Wolffs-Zaͤh-<lb/>
+ne, ſo doͤrre man ihn ein wenig Gerſten<lb/>
+auffu Ofen, oder ſonſt im Back-Ofen,<lb/>
+gieb es ihme, ſo beiſſet ſichs die Wolffs-<lb/>
+Zaͤhne ſelber aus.</p><lb/>
+<note place="left">Kropff.</note><p>Bißweilen bekommen ſie groſſe Ge-<lb/>
+ſchwuͤr unten am Hals, von auſſen, das<lb/>
+pflegen die gelehrten <hi rendition="#aq">Strumam,</hi> einen<lb/>
+Kropff zu nennen, denen ſoll man unter<lb/>
+der Zungen laſſen, wenn das Blut<lb/>
+laͤufft, ſoll man Weitzen Mehl mit klein-<lb/>
+geſtampfften <hi rendition="#fr">S</hi>altz gemenget, zur Hand<lb/>
+haben, und inwendig das Maul wohl<lb/>
+reiben.</p><lb/>
+<note place="left">Ranck-<lb/>
+korn.</note><p>Um die Erndte-Zeit bekommen die<lb/>
+<hi rendition="#fr">S</hi>chweine inwendig im Maul am obern<lb/>
+Ruͤſſel forne ein Ding, wie eine weiſſe<lb/>
+Erbiß, das waͤchſt aus dem Fleiſche, und<lb/>
+ſo es das <hi rendition="#fr">S</hi>chwein 24. <hi rendition="#fr">S</hi>tunden hat,<lb/>
+muß es nicht allein ſterben, ſondern es<lb/>
+ſtecket ſehr an, und verderbet gantze Heer-<lb/>
+den, man merckets bald, wenn ſie es ha-<lb/>
+ben, denn ſie auff dem Felde nicht freſſen<lb/>
+wollen.</p><lb/>
+<p><hi rendition="#fr">S</hi>obald du es gewahr wirft, wirff das<lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">S</hi>chwein</fw><lb/>
+<pb n="39" facs="#f0043"/>
+<hi rendition="#fr">S</hi>chwein nieder, ſtecke ihn einen Knit-<lb/>
+tel qveer uͤber ins Maul, daß es nicht<lb/>
+zuthun kan, nimm ein Meſſer, ſo for-<lb/>
+ne fein ſcharff iſt, und ſchneide ringſt um<lb/>
+die weiſſe Erbiß herum, und grabe ſie<lb/>
+aus dem Fleiſch heraus, druͤcke alsbald<lb/>
+klein geſtoſſenen Jngwer mit Rahm<lb/>
+aus der Eſſen vermengt in das<lb/>
+Loch, und thue es von andern abſonder-<lb/>
+lich in einen <hi rendition="#fr">S</hi>tall, uͤber eine <hi rendition="#fr">S</hi>tunde<lb/>
+gieb ihm ein gut Geſaͤuffe, ſo wirds bald<lb/>
+wieder zurecht.</p><lb/>
+<p>Oder lege ihnen nach den <hi rendition="#fr">S</hi>chnitt<lb/>
+taube Neſſeln in den Tranck.</p><lb/>
+<p><hi rendition="#fr">S</hi>o ſich ein <hi rendition="#fr">S</hi>chwein uͤberſoffen, <note place="right">Schwein<lb/>
+ſo ver-<lb/>
+fangen.</note><lb/>
+oder uͤberfreſſen haͤtte, alſo, daß ihn<lb/>
+die Ohren kalt wuͤrden, und nicht freſ-<lb/>
+ſen moͤchte, den ſchneide nur in ein Ohr,<lb/>
+gieb ihn das Blut auff Butter und<lb/>
+Brodt in einen Wieſel-Felle ein, es wird<lb/>
+bald helffen.</p><lb/>
+<p>Das ſoll man ihnen eben das thun,<note place="right">Fuͤr die<lb/>
+Laͤuſe.</note><lb/>
+wie vorgemeldet, und man andern Viehe<lb/>
+pflegt zu rathen.</p><lb/>
+<p>Jtem, nimm Erbis und Erlne <hi rendition="#fr">S</hi>cha-<lb/>
+len, ſiede es in einem Topff unter einan-<lb/>
+der, und waſche ſie daraus.</p><lb/>
+<p>Oder nimm Gaͤnſe-Fett, oder Leinoͤhl,<lb/>
+auch Ruͤben-Oel, und thue geriebenen<lb/>
+Knoblauch darunter, und ſchmiere die<lb/>
+Kuͤhe und <hi rendition="#fr">S</hi>chweine damit, und gieb ih-<lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">nen</fw><lb/>
+<pb n="40" facs="#f0044"/>
+nen Lein-Kuchen zu eſſen. Jtem, nimm<lb/>
+alt Schmeer vom Schweine in einem<lb/>
+Scherben, und thue ein wenig Qveckſil-<lb/>
+ber darzu, zerſtoß, und ruͤhre es mit ei-<lb/>
+nem Hoͤltzlein unter einander, ſo wird das<lb/>
+Qveckſilber getoͤdtet, und das Schmeer<lb/>
+gar blau davon, damit ſchmiere ſie, wo<lb/>
+ſie Laͤuſe haben, ſo gehen die Laͤuſe weg,<lb/>
+doch muß man ſie vorhero baden, ehe<lb/>
+man ſie ſalbet.</p><lb/>
+<p>Jtem, nimm Peſten-Kraut, laß es<lb/>
+mit Waſſer wohl kochen, und waſche<lb/>
+ſie damit, etliche legen ſie auch in die<lb/>
+Staͤlle, da das Vieh innen ſtehet, wenn<lb/>
+ſie drauf liegen,| ſo ſollen die Laͤuſe davon<lb/>
+ſterben.</p><lb/>
+<note place="left">Fuͤr die<lb/>
+Vinnen.</note><p>Wiewohl die Vinnen offters geſun-<lb/>
+den Schweinen im Fleiſch als Erbiſſen<lb/>
+ſtecken, und derowegen manche Leute<lb/>
+ſolche Fleiſch wegwerffen, ſo iſt es doch<lb/>
+niemand ſchaͤdlich, und kan man es wohl<lb/>
+das Geſinde und arbeitende Leute eſſen<lb/>
+laſſen, eh du aber eins kauffen oder<lb/>
+ſchlachten wilſt, und befindet der<lb/>
+Schlaͤchter an der Zungen, daß es<lb/>
+vinnicht ſey, ſo ſchuͤtte ihnen nur zu-<lb/>
+weilen Erbiß oder Hanff-Koͤrner in den<lb/>
+Trog, und laß ſie dieſelben eſſen, oder<lb/>
+oder ruͤhre ihnen das Eſſen mit einem<lb/>
+Eichenen Brandt um, ehe man es ihnen<lb/>
+zu eſſen giebet.</p><lb/>
+<fw type="catch" place="bottom">Oder</fw><lb/>
+<pb n="41" facs="#f0045"/>
+<p>Oder man gebe ihnen Seiff-Lauge, o-<lb/>
+der das Hand-Waſſer, darinnen man die<lb/>
+Haͤnde gewaſchen hat, zu ſauffen.</p><lb/>
+<p>Jtem, gieb ihnen geſchrotene Wicken<lb/>
+ein, das dienet auch vor ſolche Unreinig-<lb/>
+keit.</p><lb/>
+<p>Wiltu deine Schweine vor Unrei-<lb/>
+nigkeit der Vinnen bewahren, ſo nagle<lb/>
+nur ein bleyern Blech in dem Trog, dar-<lb/>
+aus ſie eſſen, oder gieb ihnen zu weilen<lb/>
+<hi rendition="#aq">Bryoniam radicem</hi> in den Tranck, die<lb/>
+Bauren nennens Zaunruͤben oder<lb/>
+Stuͤckwurtz.</p><lb/>
+<p>Jtem, man nimmet Alaun, Schwe-<lb/>
+fel, Lorbeeren, eines ſo viel als des an-<lb/>
+dern, und eine Hand voll Rahm oder<lb/>
+Radloff aus der Feuer-Mauer, zerſtoß<lb/>
+alles fein klein, und menge es unter ein-<lb/>
+ander, thue es in ein Saͤcklein, und lege<lb/>
+es in den Tranck des Jahres einmahl<lb/>
+oder 2. ſo bekommen ſie auch keine Vin-<lb/>
+ne.</p><lb/>
+<p>Jtem, nimm Lorbeern und weiſſen<lb/>
+Senff, giebs ihnen alle vier Wochen ein-<lb/>
+mahl zu eſſen, ſo bekommen ſie auch keine<lb/>
+Vinnen.</p><lb/>
+<p>Schließlich erkenneſtu die Vinne an<lb/>
+einem Schwein, wann es eine heiſchere<lb/>
+Stimme hat, und forne dick, hinten aber<lb/>
+ſpitzig ſeyn, welches man an Maſtſchwei-<lb/>
+nen bald ſiehet, ſo man ihnen die Por-<lb/>
+<fw type="catch" place="bottom">ſten</fw><lb/>
+<pb n="42" facs="#f0046"/>
+ſten zwiſchen den Ohren ausrupffet, ſo<lb/>
+ſind ſie unten rothgelbicht.</p><lb/>
+<note place="left">Fuͤr die<lb/>
+madenen<lb/>
+Ohren.</note><p>Bißweilen bekommen die Schweine<lb/>
+Wuͤrmer oder Maden in Ohren, die zu-<lb/>
+ſchwellen ihnen ein wenig rings umher,<lb/>
+und hangen die Ohren auff eine Seite,<lb/>
+und wenn es ihnen auffbricht, ſo blu-<lb/>
+tet es ſehr, wenn du dieſes merckeſt, ſo<lb/>
+behalt ſie zu Hauß, und treibe ſie nicht<lb/>
+zu Felde.</p><lb/>
+<p>Nimm Pfirſchken-Laub, und zudruͤ-<lb/>
+cke das zwiſchen zween Steinen, oder<lb/>
+zerſtoſſe es ſonſten wie man kan, druͤ-<lb/>
+cke den Safft durch ein Tuͤchlein, thue<lb/>
+Nieß-Wurtz unter den Safft, lege die<lb/>
+Schweine nieder, und raͤum ihnen das<lb/>
+Ohr mit einem Holtz aus, geuß ihnen<lb/>
+das alles ins Ohr, es wird beſſer, und<lb/>
+weil ſie in dieſer Kranckheit nicht eſſen<lb/>
+wollen, muß man ſie meiſt mit Brodt<lb/>
+erhalten.</p><lb/>
+<p>Wann man den Schweinen zu heiß<lb/>
+eſſen geben hat, wie deñ das unachtſame<lb/>
+Geſinde oͤffters thut, daß ſie kranck da-<lb/>
+von werden, ſo nimm Tormentille, beydes<lb/>
+fein geſtoſſen, menge es unter einander,<lb/>
+und giebs ihnen unter das eſſen.</p><lb/>
+<note place="left">Schwei-<lb/>
+ne ge-<lb/>
+ſund zu<lb/>
+erhalten.</note><p>Mache an einen ieden Ende des Tro-<lb/>
+ges daraus die Schweine freſſen, oben<lb/>
+in der Hoͤhe ein Loch, thue Queckſilber<lb/>
+drein, und ſpuͤnde es feſte zu, ſo ſtirbet dir<lb/>
+<fw type="catch" place="bottom">leicht</fw><lb/>
+<pb n="43" facs="#f0047"/>
+leicht kein Schwein, dieſes ſcheinet dem<lb/>
+gemeinen Mann einfaͤltig, aber es ſte-<lb/>
+im <hi rendition="#aq">Mercurio</hi> groß Geheimniß.</p><lb/>
+<p>Sobald ein Sterben unter die<note place="right">Fuͤr das<lb/>
+Ster-<lb/>
+ben.</note><lb/>
+Schweine koͤmmet, ſo bald gieb ih-<lb/>
+nen Morgens ein wenig ungenuͤtzten<lb/>
+Schwefel auffs Brodt, ſo wiederfaͤh-<lb/>
+ret ihnen unter andern krancken<lb/>
+Schweinen nichts, etliche geben ihnen<lb/>
+gepulverten Schwefel und Nieſewurtz<lb/>
+in ſuͤſſer Milch zu trincken, und laſſen ſie<lb/>
+darnach im Stall darauff faſten, wel-<lb/>
+ches auch gut iſt.</p><lb/>
+<p>Oder nimm geraumte Milch, Och-<lb/>
+ſen- oder Kuͤh-Miſt, und ein wenig<lb/>
+Nieſewurtz, menge es wohl durch ein-<lb/>
+ander, und geuß es ihnen in den<lb/>
+Halß.</p><lb/>
+<p>Jtem, ſtreiff die Holunder-Beer ab,<lb/>
+thue ſie in einen groſſen Topff, ſtreue<lb/>
+immer eine Schicht Beer, und eine<lb/>
+Schicht Saltz, denn es muß ſehr wohl<lb/>
+geſaltzen werden, ſetze es alſo weg,<lb/>
+ſo wirds fein wie ein Brey oder<lb/>
+Muß von eingemachten Kirſchen, dar-<lb/>
+nach, wenn eine Seuche unter die<lb/>
+Schweine koͤmmt, ſo gieb ihnen ein Loͤf-<lb/>
+fel oder 3. ins Eſſen.</p><lb/>
+<p>Jtem, nimm Liebſtoͤckel, Alandwur-<lb/>
+tzel und groſſe Klettenwurtzel, lege ſie alle<lb/>
+3. in das Geſpuͤle, und gieb den Schwei-<lb/>
+<fw type="catch" place="bottom">nen</fw><lb/>
+<pb n="44" facs="#f0048"/>
+nen taͤglich davon zu trincken, zuvor ehe<lb/>
+ſie kranck werden.</p><lb/>
+<note place="left">Fuͤr das<lb/>
+Brechẽ.</note><p>Bißweilen brechen ſich die Schweine<lb/>
+im Fruͤhling ſehr, das muß man ihnen<lb/>
+bey Zeit vertreiben, gieb ihnen nur gan-<lb/>
+tzen Rocken oder Gerſten zu eſſen.</p><lb/>
+<p>Jtem, nimm reine Aſche, geuß<lb/>
+Waſſer darauff, und laß ſie davon<lb/>
+trincken, Jtem Tyriac auff einen Biſ-<lb/>
+ſen Brodt ihnen fruͤhe Morgens gege-<lb/>
+ben, dergleichen gieb ihnen fruͤhe Mor-<lb/>
+gens <hi rendition="#fr">S</hi>altz mit Bohnen-Mehl ver-<lb/>
+miſchet, ehe ſie zu Felde gehen, es hilfft,<lb/>
+und iſt ſehr gut.</p><lb/>
+<note place="left">Purgie-<lb/>
+ren.</note><p>Nimm Bier vor 1. Pfennig, geſtoſſe-<lb/>
+ne Lorbeern vor 2. Pfennig und Tyriac<lb/>
+vor 3. oder mehr Pfennig, menge dieſes<lb/>
+ins Bier, und ruͤhre es unter einander,<lb/>
+geuß es den krancken <hi rendition="#fr">S</hi>chweinen in<lb/>
+Hals, darnach gieb ihnen eine<lb/>
+<hi rendition="#fr">S</hi>chnitte Brodt, mit Wagentheer be-<lb/>
+ſtrichen, zu eſſen, das purgiret es ſehr<lb/>
+wohl.</p><lb/>
+<note place="left">Wie offt<lb/>
+ſie zu<lb/>
+purgie-<lb/>
+ren.</note><p>Erſtlich, wenn die <hi rendition="#fr">S</hi>chweine am lu-<lb/>
+ſtigſten und ſtaͤrckſten ſeyn, und ehe ſie<lb/>
+kranck werden, ſoll man ſie des Jahres 3.<lb/>
+oder vier mahl purgiren, zur ſelben <hi rendition="#aq">Pur-<lb/>
+gation</hi> ſoll man neu ungegoren Tiſchbier<lb/>
+zwey oder drey halbe Maß oder Pfund<lb/>
+nehmen, ja nachdeme der <hi rendition="#fr">S</hi>chweine viel<lb/>
+ſind, Jtem, Nieſewurtz auffs kleinſte ge-<lb/>
+<fw type="catch" place="bottom">ſtoſ-</fw><lb/>
+<pb n="45" facs="#f0049"/>
+ſtoſſen, und menge dieſelbe in das Bier<lb/>
+mit Kleyen, und laß die Schweine den<lb/>
+Tag im Stalle bleiben, gieb ihnen Mor-<lb/>
+gends davon zu trincken, ſo wirſt du<lb/>
+befinden, wie dieſer Tranck dieſelbe<lb/>
+purgiret, wer es nicht weiß, der ver-<lb/>
+meynet daß ſie denſelben Tag nicht uͤber-<lb/>
+leben ſolten; auff den Abend ſoll man<lb/>
+ihnen Gerſten geben, daß ſie ſich wieder<lb/>
+reinigen, auff den andern Morgen gieb<lb/>
+ihnen wieder neu ungegorn Tiſchbier, 2.<lb/>
+oder 3. Loth geſtoſſene Lorbeern, und<lb/>
+zwey Hand voll grauen Schwefel und<lb/>
+Kleyen, menge es unter einander, und<lb/>
+giebs den Schweinen, darnach ihr viel<lb/>
+oder wenig ſeyn, zu ſauffen, daſſelbe<lb/>
+macht die Schweine nach der erſten<lb/>
+<hi rendition="#aq">Purgation</hi> luſtig, und moͤgen denſelben<lb/>
+Tag wiederum zu Felde getrieben wer-<lb/>
+den, da wird man mercken, wie viel boͤſe<lb/>
+Feuchtigkeit von ihnen koͤmmt.</p><lb/>
+<p>Nimm Tyriac einer Bohne groß, vor<note place="right">Kran-<lb/>
+cken<lb/>
+Schwei-<lb/>
+nen zu<lb/>
+helffen.</note><lb/>
+8. Pfennige Nieſewurtz, und Kupffer-<lb/>
+Waſſer einer Welſchen Nuß groß, ſeud<lb/>
+es im Bier, und geuß es den Schweinen<lb/>
+warm ein. Darnach nimm ein wenig<lb/>
+Lorbeeren, Alandwurtzel, und gruͤnen<lb/>
+kleinen geſtoſſenen Schwefel, gieb das<lb/>
+den Schweinen in Kleyen, oder worin-<lb/>
+nen ſie es ſonſten eſſen wollen.</p><lb/>
+<fw type="catch" place="bottom">Jtem,</fw><lb/>
+<pb n="46" facs="#f0050"/>
+<p>Jtem nimm einen Hunds-Kopff, ſtoß<lb/>
+ihn wohl in ungenuͤtzten Schwefel dar-<lb/>
+nach nimm vor einen Schilling oder 3.<lb/>
+Pf. das ſind etwa 36. Schneckenhaͤuß-<lb/>
+lein, und ſtuͤrtze ſie auff einen warmen<lb/>
+Heerd, in Backofen, da man das Brodt<lb/>
+ausgenommen, eine Stunde lang,<lb/>
+nimm ſie heraus, zerſtoſſe ſie, und ma-<lb/>
+che ein Pulver draus, binde daſſelbe in<lb/>
+ein Tuͤchlein allein, darnach bind die drey<lb/>
+Stuͤck in einen neuen groben Hader, le-<lb/>
+ge es in das Geſpuͤle, und gieb den<lb/>
+Schweinen alle Morgen davon zu ſauf-<lb/>
+fen, es hilfft nechſt GOtt gewiß, und iſt<lb/>
+oͤffters probiret worden.</p><lb/>
+<p>Oder nimm Aſcherrade von der<lb/>
+Lauge, ſchuͤtte den in Schweintrog,<lb/>
+geuß rein Waſſer darauff, laß ſie etli-<lb/>
+che Tage darvon trincken, ſchuͤtte es her-<lb/>
+nach weg, und nimm denn einen andern<lb/>
+Aſcherrade, iſt die Aſche davon man<lb/>
+Lauge gemacht hat, wie itzt gemeldt, laß<lb/>
+ſie auch davon trincken, es reiniget ge-<lb/>
+waltiglich.</p><lb/>
+<p>Nimm das Tuch oder Hader, ſo die<lb/>
+Weiber uñ Jungfrauen brauchen, wenn<lb/>
+ſie das <hi rendition="#aq">Menſtruum</hi> oder ihre Kranckheit<lb/>
+haben, waſche das aus, und gieb es den<lb/>
+Schweinen zu trincken.</p><lb/>
+<p>Nimm Eberwurtzel, Creutz-Kraut<lb/>
+Ranckkorn-Kreudicht, und die Aſche, da-<lb/>
+<fw type="catch" place="bottom">von</fw><lb/>
+<pb n="47" facs="#f0051"/>
+von Lauge gemacht iſt, dieſe Kraͤuter laß<lb/>
+wohl ſieden und thue ſie ſamt der Aſchen<lb/>
+den Schweinen in den Tꝛog, und laß ſie es<lb/>
+alſo mit einander brauchen, man ſoll ihnẽ<lb/>
+auch eine Schuͤtte neuen Rocken breñen,<lb/>
+und ſie demſelben warm eſſen laſſen.</p><lb/>
+<p>Jtem in Schweinſterben ſo gieb ihnen<lb/>
+auf ein jaͤhriches Schwein ein gantz<lb/>
+Saͤcklein, auf ein halb jaͤhriges Schwein<lb/>
+ein halb Saͤcklein voll weiſſe Nieſewurtz,<lb/>
+ſchuͤtte es ihnen in ſuͤſſen Tranck, darnach<lb/>
+laß ſie im Stall biß ſie wieder nach Eſſen<lb/>
+ſchreyen, denn dazumahl purgiret ſie es,<lb/>
+den thue ihnen in einen dicken Tranck von<lb/>
+Kleyen Schrot gemachet, Oſterlucia-<lb/>
+Blaͤtter geſtoſſen, auf 2. mahl 1. guten<lb/>
+Loͤffel voll.</p><lb/>
+<p>Jtem, geſtoſſene Holwurtzel und ſchwar-<lb/>
+tzen Schwefel, menge es durcheinander,<lb/>
+thue es in Tranck, und laß ſie im Hofe<lb/>
+umher gehen und den Stall ausmiſten,<lb/>
+und fein rein wieder ſtreuen.</p><lb/>
+<p>Nim̃ 4. Theil Schwefel, 4. Theil Lor-<lb/>
+beeꝛen, ſtoß dieſes klein zu Pulveꝛ und gib<lb/>
+es den Schweinẽ im eſſe, halte ſie darauf<lb/>
+2. Tage innen, weil es aber herbe, muß<lb/>
+es deſto beſſer zugerichtet werdẽ, daꝛnach<lb/>
+gieb ihnen Nieſewurtzel im Geſpuͤle zu-<lb/>
+trincken, davon druͤſen ſie und reinigen<lb/>
+ſich.</p><lb/>
+<p>Treib das Schwein nur alsbald ins fri-<lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">ſche</fw><lb/>
+<pb n="48" facs="#f0052"/>
+<note place="left">Fuͤr tol-<lb/>
+ter Hun-<lb/>
+de Biß.</note>ſche Waſſer, und laß einmahl oder etliche<lb/>
+durch ſchwimmen, darnach gib ihm But-<lb/>
+ter und Brodt, und einen halben Pfen-<lb/>
+nig im Butter und Brod mit. Denn<lb/>
+das Silber ſoll ihnen die Gifft von Her-<lb/>
+tzen treiben.</p><lb/>
+<p>Bißweilen koͤmmts den Schweinen<lb/>
+in die Beine, daß ſie nicht gehen koͤnnen,<lb/>
+<note place="left">Fuͤr den<lb/>
+Spath.</note>ſondern zittern, wenn ſie gehen wollen,<lb/>
+das nennet man den Spath, ſchneide ih-<lb/>
+nen alſobald die Schwaͤntze ab, und gib<lb/>
+ihnen Tyriac ein.</p><lb/>
+<p>Auf ein Schwein wenn es kranck<lb/>
+wird, ſoll man nehmen wie folget: Ein<lb/>
+<note place="left">Fuͤr die<lb/>
+ſchwein-<lb/>
+Seuche.</note>Saͤcklein Nieſewurtzel, ein Qventlein<lb/>
+Lorbeern ein halb Qventlein Schwefel,<lb/>
+ein halb Quentlein Kreſſen-Saamen,<lb/>
+ein halb Qventlein Venediſche Seiffe,<lb/>
+die ſoll man klein ſtoſſen und den Schwei-<lb/>
+nen mit ſuͤſſer Milch zu trincken geben.<lb/>
+Man mag dieſes, (auſſertraͤchtigen oder<lb/>
+ſaͤugenden Saͤuen,) allen Schweinen<lb/>
+geben.</p><lb/>
+<p>Jtem, nim̃ einen Schuß Buͤchſenpul-<lb/>
+veꝛ grobe Venediſche oder Land-Seiffen,<lb/>
+Jungfer Waſſer von einem Maͤgdlein<lb/>
+oder Knaͤblein. Darnach nim̃ einen groſ-<lb/>
+ſen Topff und laß die vorgemeldte Stuͤck<lb/>
+darinnen eine ebene weile ſieden, miſche<lb/>
+heꝛnach alle Morgen auf ein Schwein ei-<lb/>
+nen Loͤffel voll dieſes Zeuges in ſeinem<lb/>
+<fw type="catch" place="bottom">Tranck,</fw><lb/>
+<pb n="49" facs="#f0053"/>
+Tranck und laß es davon trincken, ſo ſoll<lb/>
+das Krancke, nechſt GOtt wieder friſch,<lb/>
+und die andern ſo geſund ſeyn, nicht<lb/>
+kranck werden.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Das <hi rendition="#aq">V.</hi> Cap.<lb/>
+Von Hunden.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Je Hunde ſeynd gar ein nuͤtzlich<lb/>
+Vieh, deñ ob man gleich von ſol-<lb/>
+chen weder Wolle noch Milch be-<lb/>
+kommet, ſie auch nicht zu eſſen pflegt ſo iſt<lb/>
+man derer doch zu Bewahrung der Haͤu-<lb/>
+ſer, Staͤlle, Heerden und dergleichen wi-<lb/>
+der allerhand boͤſe Thiere und Diebe ſehr<lb/>
+benoͤthiget. Man kan ſie auch zur Jagt<lb/>
+und Weydwerck brauchen, derowegen<lb/>
+von Erhaltung derer Geſundheit her-<lb/>
+nach folgend etwas erwehnet wird.</p><lb/>
+<p>Wenn die Hunde oder Roſſe boͤſe Au-<note place="right">Augen-<lb/>
+Wehe.</note><lb/>
+gen haben, es ſeyn rothe Troͤfflein oder<lb/>
+ſonſt andere Schmertzen, ſo nimm vier<lb/>
+oder fuͤnff Wurtzeln, ſo man Teuffels-<lb/>
+Abbiß nennet, ie friſcher, ie beſſer, zer-<lb/>
+ſchneide ſie in Stuͤck, und haͤnge ſie den<lb/>
+Thieren an Halß, ſo bald die Wurtzel<lb/>
+duͤrre wird, ſo wird es mit dem Vieh<lb/>
+auch beſſer und iſt ein probirtes Stuͤck<lb/>
+an Menſchen und Viehe.</p><lb/>
+<p>Trieffende Augen bekom̃en junge zar-<note place="right">Trieffen-<lb/>
+de Augen</note><lb/>
+te Huͤndlein leichtlich von Fleiſch eſſen.<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">Waſch</fw><lb/>
+<pb n="50" facs="#f0054"/>
+Waſche ihnen aber die Augen mit war-<lb/>
+men Waſſer, ſo vergehet es ſie.</p><lb/>
+<note place="left">Boͤſer<lb/>
+Halß.</note><p>So ein Hund einen boͤſen Halß hat,<lb/>
+ſo iſſet und trincket er nichts, denn er<lb/>
+kans nicht durch den Halß bringen, ſo du<lb/>
+nicht bald hilffeſt, muͤſſen ſie ſterben,<lb/>
+lege ihnen Menſchen und Hundes-Koth<lb/>
+untereinander in einen alten Lumpen<lb/>
+um den Halß, oder ſiede eine Mauß<lb/>
+mit Eiſenkraut, gieb ihnen darvon zu<lb/>
+trincken.</p><lb/>
+<p>Kan ein Hund ſchwerlich Athem ho-<lb/>
+len, ſo durchſtich ihm nur das Ohr, ſo<lb/>
+bekoͤmmt er ſeinen Athen wieder.</p><lb/>
+<p>So ein Hund einen Schaden hat,<lb/>
+ſo er nicht mit der Zungen erreichen kan,<lb/>
+(denn da heilet er ſich ſelbſt,) ſo gieſſe<lb/>
+man ihn nur Terpentinoͤhl in die Wun-<lb/>
+de und waſche ihn den Schaden mit<lb/>
+Geſoͤde, darinnen Ehrenpreiß und an-<lb/>
+dere Wund-Kraͤuter geſotten. Jtem<lb/>
+tropffe ihn den Tobac-Safft darein,<lb/>
+oder nimm Regenwuͤrmer in Honig ge-<lb/>
+legt, und lege ſie auf den Schaden.</p><lb/>
+<note place="left">Wuͤrme<lb/>
+in den<lb/>
+Schaͤ-<lb/>
+den.</note><p>Waſch die Hundes-Schaͤden nur<lb/>
+mit Menſchen-Harn, und purgire die<lb/>
+Hunde mit den Safft von Huͤner- oder<lb/>
+Maͤuſe-Darm, waͤren aber die Schaͤ-<lb/>
+den geſchwollen, ſo beſtreich ſie mit Oehl,<lb/>
+oder ſtoſſe Brunnenkreß und Schmeer<lb/>
+durcheinander, lege es ihnen Pflaſter-<lb/>
+<fw type="catch" place="bottom">weiſe</fw><lb/>
+<pb n="51" facs="#f0055"/>
+weiſe auf. Bißweilen wachſen den<lb/>
+Hunden in den hinder Beinen Wuͤrme,<lb/>
+die muß man mit den Saffte, ſo aus<lb/>
+Pruͤfing Laub gepreſt, vertreiben.</p><lb/>
+<p>Wañ ein Hund einen Dorn oder ſonſt<note place="right">Doͤrner<lb/>
+auszuzie-<lb/>
+hen.</note><lb/>
+etwas ſpitziges eingetreten, ſo zerſtoſſe<lb/>
+Roßbub mit Schmeer, oder brenne jun-<lb/>
+ge Schwalben in einen irrdnen Geſchirr<lb/>
+gantz zu Pulver, temperirs mit Schmeer<lb/>
+zu einer Salben, und lege es ihn auf, ſo<lb/>
+zeucht es den Dorn heraus, oder nimm<lb/>
+ein Haſen-Auge oder Haſen-Fett, und<lb/>
+ſchmiers damit.</p><lb/>
+<p>Offtermahls verdorren die Hunde, ob<note place="right">Hunde ſo<lb/>
+verdor-<lb/>
+ren.</note><lb/>
+ſie ſchon viel zufreſſen haben, dieſen gib<lb/>
+zum oͤfftern Butter zufreſſen, und ſo es<lb/>
+nicht hilffet, ſo werden ſie Wuͤrmer unter<lb/>
+der Zungen haben, die muß man ihnen<lb/>
+mit einer Nadel herausgraben.</p><lb/>
+<p>Wann die Hunde raͤudicht oder ſchaͤ-<note place="right">Raͤudig-<lb/>
+keit der<lb/>
+Hunde.</note><lb/>
+bicht werden, ſo ſchele die aͤuſſerſte Scha-<lb/>
+le von Scheißbeern Holtz und behalte die<lb/>
+unterſte, thue guten reinen Schwefel<lb/>
+darzu und Alaun ſtoß dis klein, vermiſche<lb/>
+es mit Schmeer und ungeſaltzener But-<lb/>
+ter, laß es in einen Topffe wohl mitein-<lb/>
+ander ſieden, ruͤhre es um, und wenn<lb/>
+es kalt iſt, ſo ſchmiere die Hunde dar-<lb/>
+mit.</p><lb/>
+<p>Oder mach eine Salbe von Schmeer,<lb/>
+Neſſelſamen, Schwefel und Queckſilber<lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">die-</fw><lb/>
+<pb n="52" facs="#f0056"/>
+eines ſo viel als des andern, ſchmiere ſie<lb/>
+mit dieſer Salben, waſche ſie aber vor-<lb/>
+hero etlichemahl mit geſottenen Erd-<lb/>
+rauchwaſſer.</p><lb/>
+<note place="left">Fuͤr die<lb/>
+Floͤhe.</note><p>Jm Sommer haben die Hunde Floͤhe<lb/>
+und Fliegen, die ſetzen ſich bißweilen an<lb/>
+die Ohren, und freſſen die Hunde wund<lb/>
+und gar rohe, bereibe ihnen denn die Oh-<lb/>
+ren nur mit Wermuth und bitter Man-<lb/>
+delkern, ſo werden ſie wohl zufrieden laſ-<lb/>
+ſen, Jtem, beſtreich die Hunde mit Oel,<lb/>
+ſo laſſen ſie die Floͤhe mit frieden.</p></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Das <hi rendition="#aq">VI.</hi> Cap.<lb/>
+Von Baͤnſen.</hi></head><lb/>
+<p><hi rendition="#in">J</hi>N gemeinen ſiehet man gerne<lb/>
+nach der Groͤſſe, denn groſſe Gaͤn-<lb/>
+ſe, die einen dicken breiten Leib ha-<lb/>
+ben, die hat man gemeiniglich am lieb-<lb/>
+ſten, weil man ein gut Stuͤck davon<lb/>
+ſchneiden kan, was die Lege-Gaͤnſe an-<lb/>
+langet dieſelbe ſollen zotige Baͤuche ha-<lb/>
+ben, ſo ihnen faſt biß auf die Erden<lb/>
+gehen.</p><lb/>
+<p>Ein Ganſer <hi rendition="#aq">Maſculus,</hi> hat hoͤhere<lb/>
+Beine als eine Ganß. Jtem, wenn<lb/>
+man ihn beym Kopff ergreifft, ſo ſchrey-<lb/>
+et er, das thut eine Ganß nicht.</p><lb/>
+<p>So man auch will der Gaͤnſe groß Ge-<lb/>
+ſchrey verhindern, ſo ſtecke man ihnen nuꝛ<lb/>
+<fw type="catch" place="bottom">Er-</fw><lb/>
+<pb n="53" facs="#f0057"/>
+Erbis in die Ohren, ſo werden ſie taub<lb/>
+und ſtumm.</p><lb/>
+<p>Jm Julio ſterben die jungen Gaͤnſe<lb/>
+am erſten, entweder ſo groſſ Naͤſſe<lb/>
+einfaͤllt, oder wegen der kleinen Muͤ-<lb/>
+cken, und Fliegen, die zur ſelben Zeit<lb/>
+anheben zu fliegen, welche den jungen<lb/>
+Gaͤnßlein haͤuffig in die Ohren fliegen,<lb/>
+ſie alſo beiſſen, daß ſie ſterben muͤſ-<lb/>
+ſen.</p><lb/>
+<p>Nimm Leinoͤhl oder Baumoͤhl, und<lb/>
+ſchmier den Gaͤnſen die Ohren damit,<lb/>
+ſo kommen keine Muͤcken darein.</p><lb/>
+<p>So die Gaͤnſe den Zips haͤtten, ſo<note place="right">Zips zu<lb/>
+vertrei-<lb/>
+ben.</note><lb/>
+nimm der groſſen Bibenell, ſo auf den<lb/>
+Wieſen waͤchſt, bruͤhe ſolche mit Waſ-<lb/>
+ſer, daß ſie weich wird, laſſe den die<lb/>
+Gaͤnſe mit der Bruͤhe einſchlucken.</p><lb/>
+<p>So die Gaͤnſe Laͤuſe habrn, dafuͤr ſie<note place="right">Laͤuſe<lb/>
+weg zu<lb/>
+bringen.</note><lb/>
+nicht gedeyen koͤnnen, ſo nim̃ das Kraut<lb/>
+Kihnroſt, (ſtehet in der Heyde, und ſie-<lb/>
+het wie Roßmarien,) oder Fahrenkraut,<lb/>
+und lege es den Gaͤnſen in Stall, ſo ver-<lb/>
+laſſen ſie die Laͤuſe</p><lb/>
+<p>Wilt du Gaͤnſe ſetzen, ſo muſt du zu-<lb/>
+vor, wenn ſie legen, ihnen gar wenig zu<lb/>
+freſſen geben, ja ſie wenig ſpeiſen, daß ſie<lb/>
+kaum das Leben erhalten, denn ſonſt<lb/>
+werden die Eyer zu fett, und kommen<lb/>
+keine junge Gaͤnßlein daraus.</p></div><lb/>
+<fw type="catch" place="bottom">Das</fw><lb/>
+<pb n="54" facs="#f0058"/>
+<div n="1"><head><hi rendition="#b">Das <hi rendition="#aq">VII.</hi> Cap.<lb/>
+Von Huͤnern.</hi></head><lb/>
+<note place="left">Huͤner,<lb/>
+daß ſie<lb/>
+wohl le-<lb/>
+gen.</note><p><hi rendition="#in">S</hi>O einer Huͤner halten will, ſo<lb/>
+fleißig legen ſollen, der muß ſie<lb/>
+Winterzeit mit einen warmen<lb/>
+Stalle oder Huͤner-Hauß verſehen, denn<lb/>
+die Kaͤlte ſchadet ihnen am Leben ſehr,<lb/>
+denn nehme er um Faſtenzeit oder auch<lb/>
+vorhero in Winter klein geſchnitten<lb/>
+Brod und Haber, roͤſte den in einer<lb/>
+Pfann oder Ofen-Roͤhren, und giebs<lb/>
+den Huͤnern alſo warm zu eſſen, gebe den<lb/>
+Huͤnern ein wenig andern Haber darauf<lb/>
+zu eſſen, damit ſie nicht fett werden, wie<lb/>
+denn wo man die Huͤner zu ſtarck fuͤttert<lb/>
+alſo daß ſie fett werden, ſelbige niemahls<lb/>
+wohl legen. Alle Huͤner ſo uͤber drey<lb/>
+Jahr alt, legen nicht wohl, mag ſie al-<lb/>
+ſo ein Haußwirth wohl abſchaffen.</p><lb/>
+<p>So du vermeyneſt, es werden der Huͤ-<lb/>
+ner Eyer durch Zauberey weggenom̃en,<lb/>
+ſo raͤume ihnen nur die Neſter aus und<lb/>
+lege friſch Stroh darein.</p><lb/>
+<p>Jtem, nimm ſchwartzen Kuͤmmel, ko-<lb/>
+che den mit Bier, ſchneid Brod darein,<lb/>
+ſchuͤtte dieſe Suppen den Huͤnern vor,<lb/>
+lege einen Reiffen ſo ererbet worden,<lb/>
+rund umher, alſo daß die Huͤner druͤ-<lb/>
+ber lauffen muͤſſen, bleiben dir die Eyer.</p><lb/>
+<fw type="catch" place="bottom">Wenn</fw><lb/>
+<pb n="55" facs="#f0059"/>
+<p>Weñ man friſche Eyer in einen neuen<lb/>
+Mondſchein gelegt, aufhebt, die bleiben<lb/>
+wahrhafftig nicht allein zur Speiſe, ſon-<lb/>
+dern auch den Huͤnern unterzulegen,<lb/>
+denn die in Abnehmen des Monds gele-<lb/>
+get werden, dienen nicht zur Zucht.</p><lb/>
+<p>Vor den Zips der Huͤner nimm wil-<note place="right">Vor den<lb/>
+Zips.</note><lb/>
+den Qventel oder Feldkuͤmmel, thue ihnen<lb/>
+das in ihr Trincken, ſo werden ſie wieder<lb/>
+geſund. Jtem nimm die kleinen Biß-<lb/>
+lein, ſo bey den Schmieden abſpringen,<lb/>
+wenn ſie gluͤend Eiſen ſchlagen, man<lb/>
+nennet es Hammerſchlag, eine Hand<lb/>
+voll, thue es den Huͤnern in das Sauf-<lb/>
+fen, ſo bleiben ſie geſund, man kan die-<lb/>
+ſes neben den Feldkuͤmmel Jahr und<lb/>
+Tag ins Trincken legen, und alſo den<lb/>
+Zips zuvor kommen.</p><lb/>
+<p>Jtem, ſo eine Henne den Zips hat, ſo<lb/>
+ſtecke ihr eine Feder durch die Naſe, dre-<lb/>
+he oder zeuch die Feder alle Tage in der<lb/>
+Naſen hin und wieder, damit die Huͤner<lb/>
+Lufft bekommen, gib ihnen auch ein<lb/>
+wenig Butter mit Pfeffer vermenget,<lb/>
+ein, ſo vergehet ihnen der Zips. Wer<lb/>
+nun nicht will, daß ſeine Huͤner den<lb/>
+Zips bekommen ſollen, der halte ihnen<lb/>
+das Huͤner-Hauß fein rein, und gebe<lb/>
+ihnen lauter Waſſer zutrincken, ſo blei-<lb/>
+ben ſie geſund.</p><lb/>
+<p>Alles lauſige Vieh begeuß nur mit Kuͤh-<note place="right">Vor die<lb/>
+Laͤuſe.</note><lb/>
+<fw type="catch" place="bottom">ſeiche,</fw><lb/>
+<pb n="46" facs="#f0060"/>
+ſeiche, alſo auch die Huͤner, ſo werden<lb/>
+ſie des Ungeziefers loß, denn es thut<lb/>
+den Huͤnern Schaden, ſonderlich wenn<lb/>
+ſie bruͤten.</p><lb/>
+<p>Oder nimm Laͤuſe-Saamen, Roͤmi-<lb/>
+ſchen Kuͤmmel Ana, ſtoſſe es klein und<lb/>
+miſche Wein darunter.</p><lb/>
+<p>Wenn man den Huͤnern das Durch-<lb/>
+lauffen vertreiben will, ſo nehme man<lb/>
+eine Hand voll Gerſten Mehl, und thue<lb/>
+darzu ſo viel Wein und Wachs, und mi-<lb/>
+ſche es bey dem Feuer unteꝛeinander, und<lb/>
+gebe es ihnen alſo zu eſſen.</p><lb/>
+<p>Oder gib ihnen gekocht oder gebra-<lb/>
+tene Quitten zu eſſen.</p><lb/>
+<p>Jm Sommer koͤmmt bißweilen ein<lb/>
+Ungluͤck unter die Huͤner, daß ſie ſehr<lb/>
+ſterben, da hole man ihnen nur einen<lb/>
+Sack voll Roß-Ameiſen, ſchuͤtte die ih-<lb/>
+nen vor, die purgiren ſie und werden<lb/>
+davon geſund.</p><lb/>
+<p>Jtem, wann die Huͤner ſchwartze<lb/>
+Kaͤmme bekommen, ſtille ſitzen, ſich zu-<lb/>
+ſammen huͤfern und nicht eſſen wollen,<lb/>
+denen gib nur gruͤnen Kohl zu eſſen,<lb/>
+<hi rendition="#c">wie auch Knoblauch und Butter,<lb/>
+ſo werden ſie wieder ge-<lb/>
+ſund.</hi></p><lb/>
+<trailer><hi rendition="#c"><hi rendition="#b"><hi rendition="#g">ENDE</hi>.</hi></hi></trailer></div><lb/>
+<pb n="[57]" facs="#f0061"/>
+<pb n="[58]" facs="#f0062"/>
+<pb n="[59]" facs="#f0063"/>
+<pb n="[60]" facs="#f0064"/>
+<pb n="[61]" facs="#f0065"/>
+<pb n="[62]" facs="#f0066"/>
+</body></text> </TEI>

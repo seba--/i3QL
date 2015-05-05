@@ -1,0 +1,3080 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Der romantische Oedipus</title>
+<title type="sub">Ein Lustspiel in fünf Akten</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118594869">
+<surname>Platen</surname>
+<forename>August von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">113</measure>
+<measure type="tokens">15017</measure>
+<measure type="types">4952</measure>
+<measure type="characters">102799</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T09:25:09Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/platen_oedipus_1829</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/platen_oedipus_1829</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/platen_oedipus_1829</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/platen_oedipus_1829</idno>
+<idno type="DTADirName">platen_oedipus_1829</idno>
+<idno type="DTAID">17125</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194605</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Platen, August von: Der romantische Oedipus. Stuttgart u. a., 1829.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Der romantische Oedipus</title>
+<title level="m" type="sub">Ein Lustspiel in fünf Akten</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118594869">
+<surname>Platen</surname>
+<forename>August von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">104 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Cotta</name></publisher>
+<pubPlace>Stuttgart</pubPlace>
+<pubPlace>Tübingen</pubPlace>
+<date type="publication">1829</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, 327650</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=866264698</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Drama</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Drama</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#g">Der<lb/>
+<hi rendition="#b">romantiſche Oedipus.</hi></hi></titlePart><lb/>
+<titlePart type="sub"><hi rendition="#g">Ein<lb/>
+Luſtſpiel in fuͤnf Akten</hi></titlePart></docTitle><lb/>
+<byline><hi rendition="#g">von</hi><lb/>
+<docAuthor><hi rendition="#g">Auguſt Grafen von Platen</hi>.</docAuthor></byline><lb/>
+<milestone unit="section" rendition="#hr"/> <docImprint><pubPlace><hi rendition="#g">Stuttgart und Tuͤbingen</hi></pubPlace><lb/>
+<publisher><hi rendition="#g">in der J. G. Cotta’ſchen Buchhandlung.</hi></publisher><lb/>
+<docDate><hi rendition="#g">1829</hi>.</docDate></docImprint></titlePage><lb/>
+<pb n="[2]" facs="#f0008"/>
+</front>
+<pb n="[3]" facs="#f0009"/>
+<body> <div n="1"><head><hi rendition="#b"><hi rendition="#g">Der<lb/>
+romantiſche Oedipus</hi>.</hi><lb/>
+<hi rendition="#g">Luſtſpiel in fuͤnf Akten</hi>.</head><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[4]" facs="#f0010"/>
+<castList><head rendition="#c"><hi rendition="#g">Perſonen des Luſtſpiels</hi>.</head><lb/>
+<milestone unit="section" rendition="#hr"/>     <castItem><role xml:id="NIM"><hi rendition="#g">Nimmermann</hi>, Romantiker.</role></castItem><lb/>
+<castItem><role xml:id="DAS"><hi rendition="#g">Das Publicum</hi>, als Reiſender.</role></castItem><lb/>
+<castItem><role xml:id="DER"><hi rendition="#g">Der Verſtand</hi>, exilirt.</role></castItem><lb/>
+<castItem><role xml:id="CHO"><hi rendition="#g">Chor der Haidſchnucken</hi>.</role></castItem></castList><lb/>
+<castList><head rendition="#c"><hi rendition="#g">Perſonen des Zwiſchenſpiels</hi>.</head><lb/>
+<castItem><role xml:id="LAJ"><hi rendition="#g">Lajus</hi>, Koͤnig von Theben.</role></castItem><lb/>
+<castItem><role xml:id="JOK"><hi rendition="#g">Jokaſte</hi>, ſeine Gemahlin.</role></castItem><lb/>
+<castItem><role xml:id="OED"><hi rendition="#g">Oedipus</hi>, beider Sohn.</role></castItem><lb/>
+<castItem><role xml:id="POL"><hi rendition="#g">Polybus</hi>, Koͤnig von Corinth.</role></castItem><lb/>
+<castItem><role xml:id="ZEL"><hi rendition="#g">Zelinde</hi>, ſeine Gemahlin.</role></castItem><lb/>
+<castItem><role xml:id="DIA"><hi rendition="#g">Diagoras</hi>, ihr Liebhaber.</role></castItem><lb/>
+<castItem><role xml:id="TIR"><hi rendition="#g">Tireſias</hi>, Zeichendeuter.</role></castItem><lb/>
+<castGroup rendition="#rightBraced"><castItem><role xml:id="KIND"><hi rendition="#g">Kind</hi>,</role></castItem><lb/>
+<castItem><role xml:id="KINS"><hi rendition="#g">Kindeskind</hi>,</role></castItem><roleDesc>Hofpoeten der Jokaſte.</roleDesc></castGroup><lb/>
+<castItem><role xml:id="MEL"><hi rendition="#g">Melchior</hi>, Bedienter des Lajus.</role></castItem><lb/>
+<castItem><role xml:id="BAL"><hi rendition="#g">Balthaſar</hi>, Bedienter des Polybus.</role></castItem><lb/>
+<castItem><role xml:id="PYTH"><hi rendition="#g">Die Pythia</hi>.</role></castItem><lb/>
+<castItem><role xml:id="SPH"><hi rendition="#g">Die Sphinx</hi>.</role></castItem><lb/>
+<castItem><role xml:id="HEB"><hi rendition="#g">Zwei Hebammen</hi>.</role></castItem></castList><lb/>
+<p>Das Stuͤck ſpielt auf der Luͤneburger Haide, Zeit der Handlung das Jahr 1827.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[5]" facs="#f0011"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Erſter Akt</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <stage>Das <hi rendition="#c"><hi rendition="#g">Publicum</hi> als Reiſender, Chor der <hi rendition="#g">Haidſchnucken</hi>.</hi></stage><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Das iſt die ſchoͤne Luͤneburger Ebene,<lb/>
+Wohin des Rufs Trompete mich von fern gelockt:<lb/>
+Hier, ſagt man, wandle Tag und Nacht, romantiſche<lb/>
+Blasbaͤlge tretend, ein beruͤhmter Verſeſchmied;<lb/>
+Doch weit und breit erblick’ ich nichts Poetiſches,<lb/>
+Blos dort im Vorgrund eine Schaar von Beſtien.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Wer biſt du, Fremdling? Aeußere dich beſcheidener!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Wie? Sprechen koͤnnt ihr? Leben wir zur Zeit Aeſops?<lb/>
+Ich wollte mich beruhigen, wenn ihr Pferde waͤrt,<lb/>
+Denn Pferde, duͤnkt mich, ſprechen beim Homer ſogar.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Aeſop! Homer! Enthalte dich vom Griechiſchen!<lb/>
+Blind war Homer, es war Aeſop ein Buckliger:<lb/>
+Wir dienen keinem Kruͤppel!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Nun, wem dient denn ihr?</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Dem Nimmermann.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Dem Nimmermann? So iſt es wahr,<lb/>
+<pb n="6" facs="#f0012"/>
+Daß hier der ſchwulſteinpoͤckleriſche Muſenſohn,<lb/>
+Der deutſche Shakeſpear athmet? Unter Schafen hier?<lb/>
+Das wundert mich!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Warum?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Wer haͤtte das gedacht?</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Warum? Er iſt Beſitzer einer Schaͤferei:<lb/>
+Trieb nicht auch Paris, welchem doch Olympier<lb/>
+Schiedsrichteramt verliehen, trieb Adonis nicht<lb/>
+Haidſchnucken? Was auch ſollte ſonſt der Treffliche<lb/>
+Vornehmen, hier in dieſer Abgeſchiedenheit?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Wenn ich’s gerade ſagen ſoll, Scharfrichterei:<lb/>
+Ich las entzuͤckt ſein Trauerſpiel Cardenio,<lb/>
+Die groͤßte, mehr als ekelhafte, Metzelung,<lb/>
+Die je der fette Froſch Bombaſt in dunſtigen<lb/>
+Irrlichterſumpf poetiſchen Wahnſinns laichete.<lb/>
+Denn <hi rendition="#g">ſo</hi> charakteriſiren’s uns die Kritiker;<lb/>
+Doch eben was mißfallen hat den Kritikern,<lb/>
+Entzuͤckte mich. Ich flog hieher, dem Dichter ſelbſt<lb/>
+Die Hand zu ſchuͤtteln. Aber ſprich, wo find’ ich ihn?</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Er uͤberlegt ein Trauerſpiel.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Schon wieder eins?</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>O zehn fuͤr eins! Leicht fertig ſind Romantiker,<lb/>
+Die’s laufen laſſen, wie es laͤuft.</p></sp><lb/>
+<pb n="7" facs="#f0013"/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Wo ſitzt er denn?</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Dort! Siehſt du nicht die ſpaniſche Wand?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Dort dichtet er?</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Das eben nicht. Abthut er ein Privatgeſchaͤft:<lb/>
+Er las gerade den Oedipus des Sophokles,<lb/>
+Doch war derſelbe keineswegs ihm homogen,<lb/>
+Und geht ſogleich nun wieder als Purganz von ihm.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Ein eigner Fall!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Der Hochbegabte ſchleuderte<lb/>
+Das fade Buch in’s allerduͤrrſte Haidekraut:<lb/>
+Das alſo, rief er, waͤre ſolch ein Meiſterſtuͤck,<lb/>
+Der tragiſche Kanon eures Ariſtoteles?<lb/>
+Pedanten ihr! Nun will ich einen Oedipus,<lb/>
+Ich ſelbſt erfinden, zeigen euch, wie jener Menſch<lb/>
+Es haͤtte machen ſollen, ein hiſtoriſches<lb/>
+Vorzeitsfamilienmordgemaͤlde buͤhnenhaft<lb/>
+Dem Publicum vorbeizufuͤhren. Jenes Stuͤck<lb/>
+Iſt blos als Bruchſtuͤck anzuſehn! Wo waͤre denn<lb/>
+Die Breite, die dem Trauerſpiel nothwendig iſt?<lb/>
+Der Nebenbeiperſonen reiches Uebermaß?<lb/>
+Aufwaͤrter, Maͤgde, Narren, kleine Kinderchen,<lb/>
+Kanzleiverwandte, Taugenichtſe, Kraͤmervolk,<lb/>
+Stallknechte, Haſenfuͤße, Kriminalbedienſtete,<lb/>
+Bordellgenoſſen, und ſo weiter? Ja, wo waͤre denn<lb/>
+Decorationsveraͤnderung und ſonſtige<lb/>
+<pb n="8" facs="#f0014"/>
+Freiſchuͤtzcaskadenfeuerwerkmaſchinerie?<lb/>
+Wo iſt was Komiſches eingeſtreut? Die noͤthigen<lb/>
+Anachronismen fehlen, geographiſche,<lb/>
+Selbſt andre Schnitzer find’ ich nicht. Der ſchuͤlerhaft<lb/>
+Holprichte Versbau mangelt, und der Floskelſchwall,<lb/>
+Den ſtets als <hi rendition="#g">ſchoͤne Sprache</hi> ruͤhmt das Publicum.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Das Publicum? Haidſchnucken! Nannte wirklich er<lb/>
+Das Publicum?</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>So that er, ja.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Nun mache mich<lb/>
+Die Freude nicht wahnwitzig!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Ei, was haſt du denn?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Ich bin ja ſelbſt das ſogenannte Publicum!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Du ſelbſt? Unmoͤglich!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Sieh von hinten mich und ſieh<lb/>
+Von vorne mich! Ich bin es ſelbſt.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>So jugendlich,<lb/>
+So voͤllig bartlos, eingezwaͤngt in den neuſten Frack,<lb/>
+Mit ſteifem Halstuch angethan, ſo dacht’ ich mir<lb/>
+Dich nicht.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Ich bin das Publicum. Die Haͤnde ſind<lb/>
+Noch brennend roth mir, weil ich beim Houwaldiſchen<lb/>
+<pb n="9" facs="#f0015"/>
+Leuchtthurme neulich beide faſt mir wundgeklatſcht,<lb/>
+Und forderſt du noch mehr Beweis, ſo trag’ ich hier<lb/>
+In meinem Buſentaͤſchchen Claurens Mimili!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Auf, auf, o Genoſſen! den Zweifel erſtickt,<lb/>
+Und eroͤffnet den Tanz! Der erwartete Freund,<lb/>
+Der erſehnte, betrat dieß leere Gefild:<lb/>
+Nun feire der Dank in Ergießungen ihn<lb/>
+Nie muͤden Geſangs! Freiwillig zerfaͤllt<lb/>
+In gemeſſene Sylben der Willkomm.</p><lb/>
+<p>Auf, auf, o Genoſſen! Umtanzt ihn rings,<lb/>
+Und die Hymne beginnt, die gewaltige, die<lb/>
+Wie ein Bote des Gluͤcks, wie ein Aar, der keck<lb/>
+Von dem Idagebuͤrg Ganymeden geraubt,<lb/>
+Die Geſtirne vorbei, ſich ſiegſtolz wiegt<lb/>
+Auf ſilberner Schwinge des Wohlklangs!</p><lb/>
+<p>Auf, auf, o Genoſſen! Und rufet empor<lb/>
+Den Romantiker, der in melodiſchen Traum<lb/>
+Sein Daſein lullt! Es erſchien, o Poet,<lb/>
+Der erwartete Gaſt, nach welchem du laͤngſt<lb/>
+Schwerathmend erhubſt, voll ſuͤßer Begier,<lb/>
+Sehnſuͤchtig unſterbliche Seufzer!</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="10" facs="#f0016"/>
+<stage><hi rendition="#c"><hi rendition="#g">Die Vorigen, Nimmermann</hi>.</hi></stage></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi></hi></speaker> <stage><hi rendition="#c">(vorſtellend).</hi></stage><lb/>
+<p>Der Dichterheros Nimmermann — Das Publicum —</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Geraume Zeit ſchon wuͤnſcht’ ich, Werthgeſchaͤtzteſter —</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Schon lange brannte mein Gemuͤth, Verehrliches —</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Von Angeſicht zu Angeſicht Sie anzuſehn —</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Auf Ihren Altar legend meine Dichtungen —</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Um nicht von Gall zu lernen oder Lavater —</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Weihrauch zu ziehn in meiner Naſe Riechorgan.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Was ein Genie fuͤr eine Gattung Naſe hat.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Da trifft das Sprichwort wieder ein, daß immer ſich<lb/>
+Begegnen ſchoͤne Geiſter, weil zu gleicher Zeit<lb/>
+An einer Naſenſpitze Beide landeten,<lb/>
+Ihr Schiff regierend uͤber’s Meer der Redekunſt.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Entſchuldigung erbitt’ ich mir, da eben ich<lb/>
+Auf meinem Beichtſtuhl, wie ich ihn aus Schicklichkeit<lb/>
+Benenne, ſaß.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>O Zartgefuͤhl!</p></sp><lb/>
+<pb n="11" facs="#f0017"/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Den Dichtern auch<lb/>
+Begegnet jezuweilen etwas Menſchliches.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Sie haben ja die ſpaniſche Wand! Ich bitte ſehr —</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Wir wollen gleich zur Sache kommen! Zwar ich bin<lb/>
+Kein Muͤllner, keiner, der im erſten Augenblick,<lb/>
+Sobald ein Fremder uͤber ſeine Schwelle tritt,<lb/>
+Von ſeinen eignen Werken an zu ſprechen faͤngt;<lb/>
+Doch Ihnen muß ich frank und frei herausgeſtehn,<lb/>
+Ich dichte jetzt ein ungemeines Meiſterſtuͤck.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Wie immer; doch gewaͤhren Sie das Naͤhere!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Ausforſchen muß ich Ihren wahren Glauben erſt:<lb/>
+Was ſagen Sie zum Oedipus des Sophokles?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Ich las in meiner Jugend auf den Schulen ihn,<lb/>
+Er ſchien mir nicht gelungen.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Eine Pfuſcherei,<lb/>
+Wie’s keine giebt! Hoͤchſt tragiſch iſt der Gegenſtand:<lb/>
+Blutſchande, Graͤuel jeder Art, ein Vatermord,<lb/>
+Die Sphinx, die Peſt, ein Uebermaß von Irrungen,<lb/>
+Verwickelungen ohne Zahl! Wie wenig hat<lb/>
+Der Dichter dieſen fuͤrchterlichen Stoff benutzt!<lb/>
+Geradezu hinausgeruͤckt das Graͤßliche,<lb/>
+Verhuͤllt in ſchoͤne Reden jede Schaͤndlichkeit,<lb/>
+Des Stuͤcks Effekt vernichtet, aus dem Perſonal<lb/>
+<pb n="12" facs="#f0018"/>
+Sogar die Sphinx geſtrichen, die auf’s Publicum<lb/>
+Den tiefſten Eindruck machen muͤßte.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Ja, gewiß!<lb/>
+Denn voͤllig grundlos ſagen uns die Kritiker,<lb/>
+Die tragiſche Kunſt vertruͤge nichts Daͤmoniſches,<lb/>
+Und blos der Leidenſchaften reine Menſchlichkeit.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Und wiſſen Sie, was jenes nuͤchternen Trauerſpiels<lb/>
+Hauptfehler?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Nein!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Sie kennen doch das Raͤthſelchen,<lb/>
+Das jene Sphinx gab?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Allerdings. Sie ſprach: Was iſt<lb/>
+Das Ding, das fruͤh des Morgens auf vier Fuͤßen geht,<lb/>
+Auf zwei des Mittags und des Abends drei gebraucht.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Es iſt der Menſch. Nun zeigte zwar den Oedipus<lb/>
+Als Mann der Dichter, wie er auf zwei Fuͤßen geht,<lb/>
+Ja, da er blind ihn werden laͤßt, ſo leiht er ihm<lb/>
+Auch wohl den Stab als dritten Fuß. Wo aber geht<lb/>
+Im ganzen Stuͤck auf allen Vieren Oedipus?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>O feiner Scharfſinn!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>So zerſtoͤrte Sophokles<lb/>
+Des eignen Helden ſogenannte Menſchlichkeit!<lb/>
+Denn weil er nie auf Vieren geht, ſo iſt er mir<lb/>
+<pb n="13" facs="#f0019"/>
+Kein wahrer Menſch entweder, oder Oedipus<lb/>
+Errieth das Raͤthſel keineswegs und haͤtte dann<lb/>
+Von jener Sphinx den Tod verdient.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>O Theuerſter!<lb/>
+Sie braͤchten einen Dromedar durch’s Nadeloͤhr,<lb/>
+Geſchweige denn ein bloß Kameel. — (Welch tiefer Geiſt!) —</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Weltweiſe, heran! Und gelagert im Kreis<lb/>
+Lernt nun Tiefſinn! Und ein Hinrichs hier,<lb/>
+Und ein Hinrichs dort, ehrfuͤrchtig und ſtill,<lb/>
+Mag ſchmiegen das Haupt<lb/>
+An die duftigen Zeh’n des Dichters!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Ein Menſch des Platon iſt er, dieſer Oedipus<lb/>
+Mit ſeinen beiden Fuͤßen, ein gerupfter Hahn!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Ein Eroberer zieht der Poet einher:<lb/>
+Ihm diene die Welt und der Menſchheit Herz<lb/>
+Wie ein Ball in der Hand, den uͤbungsreich<lb/>
+Bald faͤngt, bald wirft<lb/>
+Des erhabenen Spielers Anmuth!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>So haben Sie den Oedipus als Kind gezeigt?</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Noch mehr als dieß. Das Trauerſpiel beginnt mit zwei<lb/>
+Hebammen vor dem Wochenbett der Koͤnigin<lb/>
+Jokaſte.</p></sp><lb/>
+<pb n="14" facs="#f0020"/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Herrlich! Muſterhaft! Die Geburt ja iſt<lb/>
+Des Lebens erſte Scene.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Wahr und fein bemerkt!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Ach, duͤrft’ ich doch anhoͤren jenes koͤſtliche<lb/>
+Produkt des Geiſtes, oder wird’s durch Druck bekannt?</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Sie ſollen gleich es ſpielen ſehn, und werden auch<lb/>
+Dem <hi rendition="#g">Verſtand</hi> begegnen, welcher als Zuſchauer mich<lb/>
+Bewundern will; denn kuͤrzlich ward in die Haide her<lb/>
+Verbannt der allen Deutſchen Ueberlaͤſtige:<lb/>
+Mir gilt er keinen Pfifferling; doch duldet ihn<lb/>
+Als Exilirten einerſeits und uͤberdieß<lb/>
+Als jener tauſend Einen meine Muſe noch,<lb/>
+Die ihr den Handkuß leiſten, wie zu hoffen ſteht;<lb/>
+Drum haben Sie Geduld mit ihm! Einſtweilen, Freund,<lb/>
+Ziehn hinter dieſe ſpaniſche Wand zuruͤck wir uns:<lb/>
+Ich muß die Puppen ordnen, deren Augenſchein<lb/>
+Sie nehmen koͤnnen. Beſondre Muͤhe macht dabei<lb/>
+Mir ſtets der Anzug. Ueber das alte Hofcoſtuͤm<lb/>
+Von Theben walten Zweifel ob. Wie breit der Latz<lb/>
+Am kurzen Gallahoſenpaar des Oedipus<lb/>
+Geweſen iſt, bleibt unentſchieden; dieſerhalb<lb/>
+Wies auch Berlin das Stuͤck zuruͤck, wiewohl der Staat<lb/>
+Von Theben nie ein freier Staat, und Oedipus<lb/>
+Ein legitimer Volkstyrann geweſen iſt.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Dort haͤlt man viel auf alles Augenfaͤllige,<lb/>
+Mit Recht. So mußte neulich aus Berlin ſogar<lb/>
+<pb n="15" facs="#f0021"/>
+Bis Aranjuez ein Maler ſich mit Extrapoſt<lb/>
+Begeben, blos um nachzuſehn im Garten dort,<lb/>
+Wo die von Schiller’s buhleriſcher Eboli<lb/>
+Gepfluͤckte Hyacinthe ſteht. Er fand ſie nicht,<lb/>
+Und wiſſen Sie, weswegen?</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Weil gepfluͤckt ſie war.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>O ſuͤßer Witz! Sie bringen jede Sphinx zu Fall:<lb/>
+Kein Raͤthſel giebt’s fuͤr ſolche Geiſter!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Kommen Sie!</p><lb/>
+<stage><hi rendition="#c">(Beide ab.)</hi></stage></sp><lb/>
+<sp who="#CHOF"><speaker><hi rendition="#c"><hi rendition="#g">Chorfuͤhrer</hi></hi></speaker><lb/>
+<stage><hi rendition="#c">(an den Rand der Buͤhne vortretend).</hi></stage><lb/>
+<p>Wem Kraft des Gemuͤths, wem Tiefſinn fehlt, und die<lb/>
+Kunſt, die Jegliches ordnet,<lb/>
+Der wird niemals dem verſammelten Volk vorfuͤhren die<lb/>
+wahre Tragoͤdie:<lb/>
+Zu erweiſen, wodurch ſie entſteht, liegt nicht in des Luſtſpiel-<lb/>
+dichters Ermeſſen,<lb/>
+Ihm iſt es genug, wenn er lehrt, was ihr wie Sirenen-<lb/>
+geſaͤnge zu fliehn habt,<lb/>
+Und wovon heut’ euch ſein ſchaffender Sinn darſtellt ein<lb/>
+lebendiges Beiſpiel.<lb/>
+Zwar lebt er entfernt; doch lebt er vielleicht in dem Land,<lb/>
+das Oder und Elbe,<lb/>
+Das Weſer und Rhein und der Donauſtrom durchziehn, nicht<lb/>
+ganz ein Vergeſſ’ner,<lb/>
+<pb n="16" facs="#f0022"/>
+Seitdem er zuerſt, zu Gefechten bereit, wie ein Leu voll<lb/>
+trotziger Weltſcheu<lb/>
+Vortretend (Es liebt der energiſche Muth des bewußten<lb/>
+Gefuͤhls die Metapher)<lb/>
+Durch wirklichen Witz urkraͤftig erlegt den proceßanſpinnen-<lb/>
+den Witzbold,<lb/>
+Der kleinlichen Geiſts und der Zankſucht voll, wie ein Spitz<lb/>
+an der Kette, gebelfert,<lb/>
+Und zuerſt mißbraucht den erhabenen Styl, und die tragi-<lb/>
+ſchen Formen entwuͤrdigt,<lb/>
+Der ohne Natur und Charaktergehalt manch uͤberherodiſches<lb/>
+Machwerk<lb/>
+Aneinandergeflickt und zuſammengeklext rabuliſtiſche Galgen-<lb/>
+intriguen:<lb/>
+Nicht wichtig er ſelbſt und des Streits unwerth, da von<lb/>
+ſelbſt ſich Nichtiges aufloͤſ’t,<lb/>
+Nur wichtig indem euch einſt er gefiel und beſtach kurzſich-<lb/>
+tiges Urtheil;<lb/>
+Drum ließ das Gedicht ihn ſchmelzen wie Froſt an den uͤp-<lb/>
+pigen Strahlen des Fruͤhlings.<lb/>
+Wohl weiß der Poet, daß Fromme zumal ihn vielfachſt haben<lb/>
+geſcholten,<lb/>
+Ihn eitel gehoͤhnt und verſichert ſodann, er gefalle ſich ſel-<lb/>
+ber unendlich.<lb/>
+So<supplied>l</supplied>ch Urtheil zeigt ſtumpfſinnige blos, blos eigene Seelen-<lb/>
+gemeinheit:<lb/>
+Wer ſelbſt ſich gefaͤllt, bleibt ſtehn wo er ſteht; doch wer in<lb/>
+beſtaͤndigem Fortſchritt<lb/>
+Zu bewaͤltigen ſucht und zu ſteigern die Kunſt, nicht ſcheint’s,<lb/>
+daß ſelbſt er gefaͤllt ſich.<lb/>
+Die, welche verzeihn, was Jener gethan, ſie erwaͤgen der<lb/>
+Zeiten Bedingniß,<lb/>
+<fw type="catch" place="bottom">Und</fw><lb/>
+<pb n="17" facs="#f0023"/>
+Und den Zuſtand auch, wie er Deutſchland fand, und die<lb/>
+jetzige herrſchende Dichtkunſt,<lb/>
+Wo ein Clauren ſogar Reichthum ſich erſchreibt, als waͤr’s<lb/>
+ein gewaltiger Byron!<lb/>
+Ihr Fromme zumal, in der Schrift ſo gelehrt, ſeht lieber<lb/>
+ein ſichtliches Vorbild<lb/>
+In dem Goͤttlichen ſelbſt, der nie es verſchwieg, was ihm<lb/>
+in der Seele ſo tief lag!<lb/>
+Als ihn des Bezirks Landpfleger gefragt: Sprich! Biſt du<lb/>
+der Koͤnig der Juden?<lb/>
+Nicht laͤugnete Der es beſcheiden hinweg, er erwiederte<lb/>
+ruhig: Du ſagſt es.<lb/>
+Euch ſagt der Poet: Das bin ich, und nie, nie hat er ver-<lb/>
+wegen behauptet,<lb/>
+Mehr gelte vor Gott ein gefuͤhlter Geſang, als irgend ein<lb/>
+frommer Gemeinplatz!<lb/>
+Goͤnnt einſt das Geſchick ihm hoͤheren Flug, ihm ernſtere<lb/>
+Fuͤlle der Bildkraft,<lb/>
+Dann moͤge dem Volk der Erfolg darthun, wer ſchoͤnere<lb/>
+ſittliche Reinheit,<lb/>
+Wer mehr Andacht den Gemuͤthern entlockt, ihr oder die<lb/>
+weltliche Dichtkunſt,<lb/>
+Wenn je ſie den Schritt in Kothurne verhuͤllt, und die Stirn<lb/>
+wie ein Prieſter belorbeert.<lb/>
+Wohl aͤußert vielleicht ein bedaͤchtiger Mann, ja ſelbſt ein<lb/>
+geduldiger Freund wohl,<lb/>
+Weßhalb der Poet auf Fehlende ſtets hinweiſ’t in der tra-<lb/>
+giſchen Dichtkunſt,<lb/>
+Und doch nie ſelbſt den Kothurn feſtſchnallt an die Knoͤchel<lb/>
+und ernſteren Tanz tritt?<lb/>
+Zwar koͤnnt’ er darauf antworten, es ſei die Comoͤdie ſeines<lb/>
+Bereichs nur,<lb/>
+<fw type="sig" place="bottom">v. Platen, der romant. Oedipus. 2</fw><lb/>
+<pb n="18" facs="#f0024"/>
+Weil Scherz ihn blos und der Huldgoͤttin leichtſinnige<lb/>
+Laune dahinreißt,<lb/>
+Weil ſelten ein Haupt zwei Kraͤnze vertraͤgt, (noch weniger<lb/>
+drei, wie der Pabſt hat!)<lb/>
+Doch ſagt er dafuͤr, aufrichtigen Sinns, weit lieber den<lb/>
+wirklichen Grund euch:<lb/>
+In dem Lande des Teut ſingt mancher Geſell fruͤhreife<lb/>
+Tragoͤdien ab ſchon,<lb/>
+Wenn muͤßig der Stahl in dem Schacht noch ruht, der einſt<lb/>
+ſoll ſcheeren den Flaum ihm;<lb/>
+Doch unſer Poet, ſeit Jahren erwaͤgt ſein Geiſt die gefaͤhr-<lb/>
+liche Laufbahn:<lb/>
+Was Andern ein Spiel blos duͤnkt, was leicht, wie den Schaum,<lb/>
+von der Flaͤche ſie ſchoͤpfen; —<lb/>
+Er findet es ſchwer, ihm liegt es ſo tief, ja, tief, wie die<lb/>
+Perle des Tauchers!<lb/>
+Noch ſtets mißtraut er der eigenen Kraft. Sechs Luſtra<lb/>
+begehrten die Griechen<lb/>
+Von dem Juͤngling, der zu dem Wettkampf ſich, zu dem<lb/>
+tragiſchen Kampfe ſich anbot:<lb/>
+Kaum hat ſie erreicht der Poet, drum goͤnnt<lb/>
+Langathmende Muße dem Wanderer, der<lb/>
+An des ſuͤdlichen Meers Felsufer (da ſchon<lb/>
+Das Geſpann des Apoll in die Waag’ eintrat)<lb/>
+Sturmwinde belauſcht, Anapaͤſte betont,<lb/>
+Und Erfindungen denkt,<lb/>
+Zu beluſtigen Crethi und Plethi.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[19]" facs="#f0025"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Zweiter Akt</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Pallaſt in Theben</hi>.</hi></stage><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Jokaſte</hi> und die <hi rendition="#g">Hebammen</hi>.</hi></stage><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Hat man Alles vorbereitet fuͤr die nahe Niederkunft?</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Erſte Hebamme</hi>.</hi></speaker><lb/>
+<p>Alles, Koͤnigin, was immer Pflicht gebietet und Vernunft:<lb/>
+Auf dem Tiſche hier die Zangen, auch das Horoſkop dabei,<lb/>
+Um’s dem Kind ſogleich zu ſtellen, und im Pfaͤnnchen hier<lb/>
+der Brei.</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Zweite Hebamme</hi>.</hi></speaker><lb/>
+<p>Siebenhundert weiße Haͤubchen dort im Korb, in gleicher Zahl<lb/>
+Stehn in deiner Garderobe Steckenpferde nach der Wahl.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Pferdchen auch mit Pfeifen hinten, die ich mir zugleich erbat?</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Zweite Hebamme</hi>.</hi></speaker><lb/>
+<p>Dieſe nicht, auf unſres Koͤnigs eignes Schlafgemachsmandat,<lb/>
+Weil er ungeſtoͤrt zu ſein wuͤnſcht, wann er ſchnarcht und<lb/>
+wann er ſchnauft;<lb/>
+Abgeſehen, daß die meiſten ſchon nach Dresden ſind verkauft,<lb/>
+Wo den Calderon man auspfiff, und den Clauren auserkor.</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Erſte Hebamme</hi>.</hi></speaker><lb/>
+<p>Hinter jedem Spiegelrahmen guckt ein Birkenreis hervor.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Auch Erziehungsſchriften, hoff’ ich, hat man reichlich ange-<lb/>
+ſchafft?</p></sp><lb/>
+<fw type="sig" place="bottom">2*</fw><lb/>
+<pb n="20" facs="#f0026"/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Erſte Hebamme</hi>.</hi></speaker><lb/>
+<p>In der erſten Eile wurden tauſend Stuͤck herbeigerafft,<lb/>
+Nebſt Philoſophien fuͤr Kinder, unter andern die von Fries,<lb/>
+Der den deutſchen Waiſenhaͤuſern dieſen großen Dienſt erwies.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Wehe mir! Hinweg aus meinen Haaren, ſchaudervolles Thier!</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Zweite Hebamme</hi>.</hi></speaker><lb/>
+<p>Was befiel die Koͤnigin?</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Erſte Hebamme</hi>.</hi></speaker><lb/>
+<p>Was iſt geſchehen?</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Siehſt du hier<lb/>
+Nicht die Fledermaus, die eifrig zwiſchen meinen Locken<lb/>
+pfuſcht,<lb/>
+Da ſie durch das offne Fenſter abendlich hereingehuſcht?</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Erſte Hebamme</hi>.</hi></speaker><lb/>
+<p>Schnell heraus mit ihr!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Vergebens! Sie verwirrt ſich im Genick.</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Zweite Hebamme</hi>.</hi></speaker><lb/>
+<p>Boͤſes Omen!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Und gerad’ in dieſem ſchwangern Augenblick!<lb/>
+Sendet nach Berlin, nach Doktor Raupels aͤrztlichem Beſchluß,<lb/>
+Wie man’s etwa bei ſo trag'ſchen Fehlgeburten machen muß?</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Zweite Hebamme</hi>.</hi></speaker><lb/>
+<p>Jener, heißt’s, iſt im Begriffe nach Sibirien zu gehn.</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Erſte Hebamme</hi>.</hi></speaker><lb/>
+<p>Will die Fledermaus am Ende blos vielleicht Gevatter ſtehn?</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Wehe mir, es naht die Stunde, meiner Laſt zu werden quitt,<lb/>
+<pb n="21" facs="#f0027"/>
+Wie’s der Dichter nennt, der neulich uͤber unſre Bretter ſchritt!<lb/>
+Immer war ich hold den Dichtern und der holden Dichterei,<lb/>
+Und ſo faͤllt ihr guter Styl noch auf dem Wochenbett mir bei;<lb/>
+Aber ruft den Koͤnig jetzo!</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Erſte Hebamme</hi>.</hi></speaker><lb/>
+<p>Wohl! Ich eile ſchnell hinaus.</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Zweite Hebamme</hi>.</hi></speaker><lb/>
+<p>Wendet ab dieß Omen, Goͤtter! Wendet ab die Fledermaus!</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Pallaſt in Corinth</hi>.</hi></stage><lb/>
+<lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Zelinde, Diagoras</hi>.</hi></stage></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Dreißig Jahre ſind vergangen und ich hab’ umſonſt gefleht,<lb/>
+Taͤglich, ob der Wind aus Weſten, ob der Wind aus Oſten weht,<lb/>
+Lag ich hier zu deinen Fuͤßen, bat, beſchwor dich, ſeufzte tief,<lb/>
+Ach, und geſtern ſchrieb ich meinen millionten Liebesbrief!<lb/>
+Beide ſind wir alt geworden, fuͤnfzig ich und ſechszig du:<lb/>
+Wann denn endlich wirfſt du mir den erſten Blick der Liebe zu?</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Nie, Diagoras! Doch beſſer duͤnkt mich ein platon’ſcher Sinn,<lb/>
+Als der Sinn des Ehebrechers und der Ehebrecherin.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Ich bewundre deine Tugend; doch bedenke, dein Gemahl<lb/>
+Iſt ein Wuͤthrich, und du nahmſt ihn nicht einmal aus freier<lb/>
+Wahl.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Was er uͤber mich verhaͤnget, bin zu dulden ich bereit;<lb/>
+Doch er tadelt nichts an mir, als meine Kinderloſigkeit.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Haͤtteſt du Gehoͤr mir fruͤher eingeraͤumt, vielleicht —</p></sp><lb/>
+<pb n="22" facs="#f0028"/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>O ſtill!<lb/>
+Unterdruͤcke den Gedanken, den die Lippe bilden will!</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Jetzt ſogar, o laß mich ſprechen, da wir ohne Zeugen ſind!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Nur auf legitime Weiſe wuͤnſch’ ich mir ein kleines Kind.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Laͤnger dieſe Qual zu tragen, fehlen mir Geduld und Kraft.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>O bedenke, dreißig Jahre warſt du fromm und tugendhaft!<lb/>
+Willſt du nun den Preis verlieren, den du dir mit Muͤh’<lb/>
+errangſt,<lb/>
+Bitter wirſt du’s dann bereuen in der letzten Todesangſt.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Meinem Tode bin ich naͤher, als du glaubſt, o hartes Weib!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Fuͤr gewiſſenhaſte Seelen iſt der Tod ein Zeitvertreib.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Doch der Selbſtmord, ſprich, Zelinde! daͤucht er dich moraliſch<lb/>
+gut?<lb/>
+Denn ich will in’s Waſſer ſpringen, um zu loͤſchen meine<lb/>
+Glut.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Gottes Langmuth goͤnnt dem armen Suͤnder oft zur Reue<lb/>
+Zeit:<lb/>
+Moͤg’ er ſenden einen Haifiſch, der dich ſchnappt und wieder<lb/>
+ſpeit!</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Nach der Apotheke lauf’ ich, und vergebe mich mit Gift.</p></sp><lb/>
+<pb n="23" facs="#f0029"/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Arzene<supplied>i</supplied>’n zu kaufen, Lieber, braucht’s des Arztes Unterſchrift.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Einen Holzſtoß bau’ ich, wie der Phoͤnix ſein entflammtes<lb/>
+Neſt.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Und wie Dejanira ſchick’ ich dir ein Kleid; doch von Asbeſt.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Nun, ſo wird das Schwert mir halten irgend ein geduld’ger<lb/>
+Chriſt.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Leichter iſt, es vorzuhalten, als hineinzurennen iſt.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Sey es, doch mich auszuhungern, fehlt Entſchluß und Muth<lb/>
+mir nicht.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Morgen lad’ ich dich zur Tafel; denn es giebt dein Leibgericht.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Phlegma ſcheint mir deine Tugend!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Hitze ſcheint mir dein Vergehn!</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Wann denn endlich darf ich hoffen?</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>„Wann die Todten auferſtehn!“</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Nun, ſo laß mich ſterben! Lebe wohl und deinem Gatten<lb/>
+treu!<lb/>
+Eher als dein Herz entzuͤndet ſich ein Schober naſſes Heu!<lb/>
+Dorten will ich ſterben, wo ich dich zum erſtenmal geſehn,<lb/>
+Wo die gruͤnen Baͤume rauſchen, wo die leiſen Luͤfte wehn,<lb/>
+<pb n="24" facs="#f0030"/>
+Auf Cithaͤrons hohem Gipfel, wo mit jugendlichem Sinn<lb/>
+Birſchend einſt im Wald du ſchweifteſt, aufgeſchuͤrzte Jaͤgerin!<lb/>
+Fruͤhling war’s, die Myrten bluͤhten, voll und rauſchend ging<lb/>
+der Bach,<lb/>
+Rings erklang der Schafe Bloͤken und der Nachtigallen Ach.<lb/>
+Unter einer Pinie lagſt du, deinen Koͤcher unter’m Kopf,<lb/>
+Dir zur Seite, ſammt den Hunden, ein erſchoſſ’ner Wiedehopf;<lb/>
+Schlummernd hielt ich dich fuͤr eine Goͤttin, und ich wagte<lb/>
+nicht<lb/>
+Dich zu wecken; aber lange ſah ich dir in’s Angeſicht:<lb/>
+Eine Muͤcke fing ich endlich, und ich ſetzte dieſes Thier<lb/>
+Auf die Naſenſpitze keck dir, auf die rothe Stelle hier.<lb/>
+Du erwachteſt, zuͤrnend aber; ſtammelnd rief ich: O verzeih!<lb/>
+Greifend an die Stirn nach einem ſchon gehofften Hirſchgeweih;<lb/>
+Doch du laͤchelteſt und ſagteſt: Nicht Diana bin ich, nein!<lb/>
+Aber keuſcher, und auf Latmos gab ich nie ein Stelldichein.<lb/>
+Willſt du mich platoniſch lieben, magſt du folgen deinem<lb/>
+Drang:<lb/>
+Fluͤchtig iſt gemeine Liebe, fluͤchtig wie der Wolke Gang:<lb/>
+Dieſe ſchwebt ihr ganzes Leben, roſig heute, morgen grau,<lb/>
+Ohne Heimath auf und nieder und zerfließt in Thraͤnenthau.<lb/>
+Alſo ſprachſt du, jede Sylbe merkt’ ich mir und jeden Blick,<lb/>
+Und an jenes Baumes Aeſte knuͤpf’ ich heute noch den Strick.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Wie du willſt!</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Grauſame! Deine letzten Worte waͤren das?</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Ja.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>So lebe wohl, Zelinde!</p></sp><lb/>
+<pb n="25" facs="#f0031"/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Lebe wohl, Diagoras!</p><lb/>
+<stage><hi rendition="#right">(<hi rendition="#g">Diagoras</hi> ab.)</hi></stage></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Dieſer dauert mich, doch ihn zu retten fiele mir zu ſchwer:<lb/>
+Eh’ ich meine Tugend laſſe, laſſ’ ich ſterben ſechs wie er!</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Pallaſt in Theben</hi>.</hi></stage><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Jokaſte, Lajus, die Hebammen, Oedipus</hi> in der<lb/>
+Wiege.</hi></stage></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>O mein Gemahl, verlange nicht das neugeborne Kind zu ſehn!</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Warum denn nicht, o Koͤnigin? Warum denn nicht? Was<lb/>
+iſt geſchehn?</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Vernimm! Allein es ſchaudert mir! Hebammen, ſprecht und<lb/>
+ſagt es aus!</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Erſte Hebamme</hi>.</hi></speaker><lb/>
+<p>O Majeſtaͤt!</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Zweite Hebamme</hi>.</hi></speaker><lb/>
+<p>Die Koͤnigin —</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Erſte Hebamme</hi>.</hi></speaker><lb/>
+<p>Erſchrack vor einer Fledermaus,</p></sp><lb/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Zweite Hebamme</hi>.</hi></speaker><lb/>
+<p>Die frevelhaft verwirrend ſich in ihres Haupts Friſur geſetzt.</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Sie that doch nichts Unrechtes dort?</p></sp><lb/>
+<pb n="26" facs="#f0032"/>
+<sp who="#HEB"><speaker><hi rendition="#c"><hi rendition="#g">Zweite Hebamme</hi>.</hi></speaker><lb/>
+<p>Das eben nicht; doch eben jetzt,<lb/>
+Als unſer Prinz geboren ward, da zeigte ſich auf ſeiner Bruſt<lb/>
+Die Fledermaus als Muttermal, ſonſt iſt geſund er und<lb/>
+robuſt.</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Das iſt noch nicht ſo ſchauderhaft! Regieren kann er immerhin,<lb/>
+Wofern er nur zwo Faͤuſte hat, das Zepter feſtzuhalten drin;<lb/>
+Denn jetzo will’s gehalten ſein! Auf einem Spieltiſch neulich<lb/>
+blieb<lb/>
+Das meine liegen aus Verſehn, indem ich juſt Geſetze<lb/>
+ſchrieb:<lb/>
+Die bloͤde Stubenmagd erſcheint, ſie haͤlt’s fuͤr einen bloßen<lb/>
+Pflock,<lb/>
+Setzt einen Kopf von Holz darauf, und braucht’s als ihren<lb/>
+Haubenſtock.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Die Vorigen, Tireſias</hi>.</hi></stage></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>O fuͤrchterliche Neuigkeit!</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Was giebt’s?</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>O ſchreckenvolles Wort,<lb/>
+Wie ſprech’ ich dich?</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>So rede doch!</p></sp><lb/>
+<pb n="27" facs="#f0033"/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Ich ſtellte kaum dem Prinzen dort<lb/>
+Das Horoſkop, ſo fand ich —</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Was?</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Er wird —</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Er wird?</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Es iſt zu viel!</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Doch nicht im Whiſt verlieren einſt?</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>O waͤr’ es blos ein Kartenſpiel!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Doch keinen Kern verſchlucken, wenn er Kirſchen ißt?</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>O Kinderei’n!<lb/>
+Den Vater wird er toͤdten einſt, und uͤberdieß die Mutter<lb/>
+frei’n.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Hebammen, helft der Koͤnigin!</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Und ſolch ein Weh, wie wird’s erſpart?</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Ihu aus dem Wege raͤume ſchnell!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Nur keine ſchlechte Todesart!</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>In einem Moͤrſer allenfalls zerſtoßen ihn?</p></sp><lb/>
+<pb n="28" facs="#f0034"/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Im Moͤrſer? Nein!<lb/>
+Die Koͤchin ſtieße Krebſe drin ein andermal. Das iſt<lb/>
+gemein!</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>In ein Kanoͤnchen laden ihn?</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Das Schießen greift die Nerven an.</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Vorwerfen einem wilden Thier?</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>So ſei’s, und werde ſchnell gethan!<lb/>
+Denn ſicher ſind wir beide nicht, ſo lang’ er lebt. He!<lb/>
+Melchior!</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Die Vorigen, Melchior</hi>.</hi></stage></sp><lb/>
+<sp who="#MEL"><speaker><hi rendition="#c"><hi rendition="#g">Melchior</hi>.</hi></speaker><lb/>
+<p>Geſtrenger Herr!</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Den Prinzen nimm, und wirf ihn wilden Thieren vor!</p></sp><lb/>
+<sp who="#MEL"><speaker><hi rendition="#c"><hi rendition="#g">Melchior</hi>.</hi></speaker><lb/>
+<p>Zu ſcherzen liebt die Majeſtaͤt!</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>O keineswegs!</p></sp><lb/>
+<sp who="#MEL"><speaker><hi rendition="#c"><hi rendition="#g">Melchior</hi>.</hi></speaker><lb/>
+<p>Das wilde Thier,<lb/>
+Wo faͤnd’ ich das? Denn heut zu Tag ſind alle zahm und voll<lb/>
+Manier.</p></sp><lb/>
+<pb n="29" facs="#f0035"/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Zum Berg Cithaͤron trage du das Kind; in jenen Waͤldern<lb/>
+ward<lb/>
+Noch neulich mancher Leu geſehn und mancher bunte Leopard.</p></sp><lb/>
+<sp who="#MEL"><speaker><hi rendition="#c"><hi rendition="#g">Melchior</hi>.</hi></speaker><lb/>
+<p>Doch wenn ein ſolcher fertig mit dem Prinzen iſt, ſo frißt<lb/>
+er mich.</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Hat nichts zu ſagen!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Melchior! Er fuͤrchtet vor dem Tode ſich?</p></sp><lb/>
+<sp who="#MEL"><speaker><hi rendition="#c"><hi rendition="#g">Melchior</hi>.</hi></speaker><lb/>
+<p>Das eben nicht.</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Schnell! Fort mit ihm!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Doch wickl’ Er ihn ſorgfaͤltig ein,<lb/>
+Der Knabe kriegt den Schnupfen ſonſt.</p></sp><lb/>
+<sp who="#MEL"><speaker><hi rendition="#c"><hi rendition="#g">Melchior</hi>.</hi></speaker><lb/>
+<p>Ganz wohl! — Du armes Wuͤrmelein!</p><lb/>
+<stage><hi rendition="#right">(Ab mit <hi rendition="#g">Oedipus</hi>.)</hi></stage></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Mich dauert nur der Geldbetrag an Kinderzeug und an<lb/>
+Papier:<lb/>
+Im Volk verſteigern koͤnnte man die paͤdagog’ſchen Schriften<lb/>
+hier.</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Die Buͤcher nicht! Mein Unterthan ſoll pfluͤgen, zahlen, und<lb/>
+zugleich<lb/>
+In Devotion vor mir vergehn, dadurch allein beſteht ein Reich!</p><lb/>
+<stage><hi rendition="#right">(Ab.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="30" facs="#f0036"/>
+<stage><hi rendition="#c"><hi rendition="#g">Berg Cithaͤron</hi>.</hi></stage></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi></hi></speaker> <stage><hi rendition="#c">(allein).</hi></stage><lb/>
+<p>Dieß iſt die Stelle, wo mit bitterm Schafte<lb/>
+Der Gott der Liebe mir die Bruſt zertheilet,<lb/>
+Wo ich geſehn die ſchoͤne Tugendhafte,<lb/>
+Die mich ſo ſchnell verletzt und nie geheilet;<lb/>
+Denn ſolche Wunden trotzen jedem Tafte!<lb/>
+Mit ihrer Saͤge hat die Zeit gefeilet<lb/>
+In meine Stirn indeſſen manche Linie,<lb/>
+Ja, faſt verknorpelt deinen Stamm, o Pinie!</p><lb/>
+<p>Hier moͤgen gluͤckliche Verliebte ſchweifen,<lb/>
+Den Schmerz genießen und die Freude klagen;<lb/>
+Hier mag ein Hirt der Hirtin Lieder pfeifen,<lb/>
+Und einen Kuß nach jedem Liede wagen;<lb/>
+Hier mag ein Faun nach einer Nymphe greifen,<lb/>
+Wo Buͤſche laubenhaft zuſammenſchlagen:<lb/>
+Mich moͤgen Schaͤfer hier im Moos begraben,<lb/>
+Und uͤber mich die ſanfte Heerde traben.</p><lb/>
+<p>Doch eh’ den Hals ich mit dem Seil umzwirne,<lb/>
+Will hier ich noch einmal des Schlafs genießen,<lb/>
+Er lehre mich und meine muͤde Stirne,<lb/>
+Wie leicht es iſt, die Augen zuzuſchließen:<lb/>
+Die Welt vergeht im menſchlichen Gehirne,<lb/>
+Der Elemente Bildungen zerfließen,<lb/>
+Die Seele ſieht, wie Sonn’ und Mond erbleichen,<lb/>
+Und hoͤrt den Tod, wie auf den Zehen ſchleichen.</p><lb/>
+<stage><hi rendition="#c">(Er ſchlaͤft ein.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="31" facs="#f0037"/>
+<stage><hi rendition="#c"><hi rendition="#g">Diagoras, Melchior</hi> mit <hi rendition="#g">Oedipus</hi>.</hi></stage></sp><lb/>
+<sp who="#MEL"><speaker><hi rendition="#c"><hi rendition="#g">Melchior</hi>.</hi></speaker><lb/>
+<p>Du armes Kind! Auf dieſem gruͤnen Platze<lb/>
+Bluͤht weiches Moos, hier will ich hin dich legen;<lb/>
+Nie moͤge hier die wilde Tigerkatze<lb/>
+Auffahrend ſchnauben ihrem Fang entgegen,<lb/>
+Nie hier der Loͤwe ſtrecken ſeine Tatze,<lb/>
+Und nie die Natter ſich im Kreis bewegen:<lb/>
+Nein, eine Ziege, wie den Gott der Blitze,<lb/>
+Mag ſaͤugen dich und reichen dir die Zitze!</p><lb/>
+<p>Feſtbinden will ich dich an dieſen Zweigen,<lb/>
+Und wenn du ſollſt dein bittres Loos bezwingen,<lb/>
+So werden Nymphen hier dem Bach entſteigen,<lb/>
+Dir im Kryſtallglas einen Trunk zu bringen,<lb/>
+Und Oreaden ihren wilden Reigen<lb/>
+Bei Mondenſchein in deiner Naͤhe ſchlingen,<lb/>
+Dich rufen hoͤren, finden dich und laben<lb/>
+Mit ſuͤßen Fruͤchten oder Honigwaben!</p><lb/>
+<p>Was aber ſuch’ ich lange nach Daͤmonen,<lb/>
+Die ohne Mitleid in des Meeres Gruͤnden,<lb/>
+Auf unerſteiglichen Gebuͤrgen thronen,<lb/>
+In Stroͤmen baden, welche nie ſich muͤnden?<lb/>
+Hier ſchlaͤft ein Menſch: Was keine Goͤtter ſchonen,<lb/>
+Er ſchont’s vielleicht zu Ehren ſeiner Suͤnden;<lb/>
+Ihm uͤberlaſſ’ ich fliehend dich, o Kleiner,<lb/>
+Er finde, rette dich, und pflege deiner!</p><lb/>
+<stage><hi rendition="#c">(Er entfernt ſich, <hi rendition="#g">Oedipus</hi> faͤngt an zu ſchreien.)</hi></stage></sp><lb/>
+<pb n="32" facs="#f0038"/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Was fuͤr ein Ton? Was ſehen meine Blicke?<lb/>
+Ein kleines Kind, das an der Pinie hanget,<lb/>
+Beſtaͤndig ſchreit und zappelnd ſchwebt am Stricke,<lb/>
+Ja, wie es ſcheint, nach einer Bruſt verlanget?<lb/>
+Habt ewig Dank, ihr himmliſchen Geſchicke!<lb/>
+Ihr Arme, ſchließt euch, daß ihr’s feſt umfanget!<lb/>
+O welch Geſchenk, o welch ein Angebinde<lb/>
+Fuͤr deine kinderloſe Bruſt, Zelinde!</p><lb/>
+<stage><hi rendition="#c">(Ab mit <hi rendition="#g">Oedipus</hi>.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Pallaſt in Corinth</hi>.</hi></stage></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi></hi></speaker> <stage><hi rendition="#c">(allein).</hi></stage><lb/>
+<p>Heute braucht mein Gatte lange, bis er ſich zu Tiſch begiebt:<lb/>
+Dreißig Jahre ſind es, ſeit er jeden Tag mich minder liebt;<lb/>
+Taͤglich kommt zu Tiſch er ſpaͤter: Als wir Hochzeit kaum<lb/>
+gemacht,<lb/>
+Aßen wir um elf des Morgens, jetzt um elf Uhr in der<lb/>
+Nacht!</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Zelinde, Diagoras</hi>.</hi></stage></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Wie? Du kommſt zuruͤck, nachdem ich dich bejammert als<lb/>
+erhenkt?</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Iſt das Leben dir zuwider, das ein Gott mir neu geſchenkt?</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#g">Zelinde</hi>.</fw></sp><lb/>
+<pb n="33" facs="#f0039"/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Deine Drohung, dieſes wußt’ ich, war geſprochen in den<lb/>
+Wind.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Und ein zweites Leben bring’ ich dir zuruͤck, ein kleines<lb/>
+Kind.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Wie? Ein Kind? Was ſeh’ ich! Sage, wie du’s uͤberkommen<lb/>
+haſt?</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Auf dem Berg Cithaͤron, an der Pinie hing die ſuͤße Laſt.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Welches Wunder! Iſt des Kindes Name dir vielleicht<lb/>
+bekannt?</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Da ich fand es in der Oede, hab’ ich’s Oedipus genannt.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Schenkſt du mir’s, ſo leg’ ich’s meinem Gatten als mein<lb/>
+eignes vor.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Gern, doch zeige mir von nun an einen leidlichern<lb/>
+Humor!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Wie? So haſt du mir den Saͤugling blos aus Eigennutz<lb/>
+gebracht?</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Zuͤrnſt du, wenn ich ſtets an dich nur, immer nur an dich<lb/>
+gedacht?</p></sp><lb/>
+<fw type="sig" place="bottom">v. Platen, der romant. Oedipus. 3</fw><lb/>
+<pb n="34" facs="#f0040"/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Dein Gemuͤth durchſchall’ ich endlich, welches, dieß erkenn’<lb/>
+ich klar,<lb/>
+Nie das Rauchgefaͤß der wahren, uͤberird’ſchen Liebe war,<lb/>
+Das von reiner Hand geſchwungen nach des reinen Himmels<lb/>
+Dom,<lb/>
+Dampft vom Wohlgeruch der Seele, wie von Myrrhen und<lb/>
+Amom!</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Gern in ſolche Hoͤhen haͤtt’ ich meine Phantaſie geſchraubt,<lb/>
+Die ſich wider meinen Willen andre Phantaſien erlaubt:<lb/>
+Statt des Himmels Dom erblick’ ich deines Bettes Himmel<lb/>
+blos,<lb/>
+Und am Vorhang zieh’ ich, knuͤpfe ſeine goldnen Schnuͤre los.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Hoͤr’ ich recht? O welche Sitten! Welch ein Abſcheu! Welche<lb/>
+Peſt!<lb/>
+Deine Kuͤhnheit toͤdtet meiner kuͤhlen Liebe ſchwachen Reſt!<lb/>
+Dieſes Kind, das du ſo eben in die Haͤnde mir geſpielt,<lb/>
+Haſt du ſicherlich mit einer Concubine ſelbſt erzielt:<lb/>
+Waͤhrend ich platoniſch klagte, biſt du heimlich mir entſchluͤpft,<lb/>
+Haſt Gardinen aufgezogen, goldne Quaſten aufgeknuͤpft;<lb/>
+Mich begabſt du mit dem Bankert, den du in die Welt<lb/>
+geſetzt,<lb/>
+Machſt mich glauben, auf den Pinien wuͤchſen kleine Kinder<lb/>
+jetzt?<lb/>
+Doch das Kind behalten will ich, und damit es nicht verrucht<lb/>
+Wie der Vater werde, will ich’s auferziehn in ſtrenger Zucht;<lb/>
+Aber du entweiche, fliehe dieß Gemach in raſchem Lauf,<lb/>
+Eine lange Probe leg’ ich, o Diogaras, dir auf!<lb/>
+Dreißig Jahre ſollſt du, meine Blicke meidend, irre gehn,<lb/>
+<pb n="35" facs="#f0041"/>
+Kehren dann nach dreißig Jahren, eine Probe dann beſtehn,<lb/>
+Da bisher du nichts als Taͤuſchung, nichts als Hochverrath<lb/>
+erſannſt,<lb/>
+Ob du mich platoniſch lieben, und aus Liebe ſterben kannſt.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Ueberzeugen dich, ich koͤnne ſterben, will ich alſobald,<lb/>
+Fliehen nach der Loͤwenhoͤhle, fliehen zum Hyaͤnenwald,<lb/>
+Oder fliehn an’s Meeresufer, wo ein lecker Nachen winkt,<lb/>
+Ihn beſteigend, will ich ſchiffen, bis er berſtend unterſinkt!</p><lb/>
+<stage><hi rendition="#c">(Ab.)</hi></stage></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Drohe nur! Nach dreißig Jahren ſeh’ ich dich geſund und<lb/>
+friſch<lb/>
+Hier am Hofe wieder; doch da kommt ja mein Gemahl zu<lb/>
+Tiſch.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Polybus, Zelinde</hi>.</hi></stage></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>O mein Gemahl! Gedenke nicht der Nahrung,<lb/>
+Und freue jetzt dich einer ſuͤßern Gabe,<lb/>
+Die ich nach mancher ehlichen Erfahrung,<lb/>
+Wie eine Sara, dir zu bieten habe:<lb/>
+In dieſer Windeln ſtiller Aufbewahrung<lb/>
+Schlaͤft, was du lange dir erſehnt, ein Knabe:<lb/>
+Sieh dieſes Kind, ich hab’ es dir geboren,<lb/>
+Und ihm den Namen Oedipus erkoren.</p></sp><lb/>
+<sp who="#POL"><speaker><hi rendition="#c"><hi rendition="#g">Polybus</hi>.</hi></speaker><lb/>
+<p>Warum verbargſt du dieſen großen Segen,<lb/>
+Anſtatt die Schwangerſchaft mir mitzutheilen?</p></sp><lb/>
+<fw type="sig" place="bottom">3*</fw><lb/>
+<pb n="36" facs="#f0042"/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Ich that’s, o Freund, des Ueberraſchens wegen.</p></sp><lb/>
+<sp who="#POL"><speaker><hi rendition="#c"><hi rendition="#g">Polybus</hi>.</hi></speaker><lb/>
+<p>Nie pflegt’ ich ja dein Lager mehr zu theilen.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Auch dieſer Vorwurf macht mich nicht verlegen.</p></sp><lb/>
+<sp who="#POL"><speaker><hi rendition="#c"><hi rendition="#g">Polybus</hi>.</hi></speaker><lb/>
+<p>Beſuchte dich Diagoras zuweilen?</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Zuweilen zehenmal des Tags; doch eben<lb/>
+Hab’ ich verbannt ihn auf ein Menſchenleben.</p></sp><lb/>
+<sp who="#POL"><speaker><hi rendition="#c"><hi rendition="#g">Polybus</hi>.</hi></speaker><lb/>
+<p>Du weißt, ich mache ſelten viele Worte,<lb/>
+Doch durch Exempel lernt man oft das Meiſte:<lb/>
+Es war einmal an einem ſichern Orte<lb/>
+Ein junger Kaufmann, welcher ſich verreiſ’te,<lb/>
+Und als er wiederum an ſeine Pforte<lb/>
+Nach Jahren klopft mit allzufrohem Geiſte,<lb/>
+Kommt ſeine Frau entgegen ihm und bringet<lb/>
+Ein jaͤhrig Kind ihm, welches ihn umſchlinget.</p><lb/>
+<p>Wo kommt das Kind her, fragt der Gatte trocken,<lb/>
+Da ich ſo lang geweſen in der Weite?<lb/>
+Das Weib erwiedert ohne nur zu ſtocken:<lb/>
+Ich lag am Fenſter, als es eben ſchneite,<lb/>
+Da flogen, Schatz, mir in den Mund die Flocken,<lb/>
+Wodurch ich augenblicks gewann an Breite,<lb/>
+Bis dieſes Kind zuletzt zur Welt ich brachte,<lb/>
+Und meines lieben Ehgemahls gedachte.</p><lb/>
+<pb n="37" facs="#f0043"/>
+<p>Dieß Illes glaubt der Mann, ſo ſcheint es, gerne;<lb/>
+Doch als das Knaͤbchen leſen kann und ſchreiben,<lb/>
+Da nimmt er’s mit ſich in die weite Ferne,<lb/>
+Auf daß es zeitig ſich herumzutreiben,<lb/>
+Und auch die Kaufmannſchaft zugleich erlerne,<lb/>
+Wiewohl die Gattin ihn erſucht zu bleiben;<lb/>
+Doch ging und endlich kam zuruͤck der Gatte,<lb/>
+Der keinen Sohn an ſeiner Seite hatte.</p><lb/>
+<p>Wo iſt das Kind hin, fragt das Weib erſchrocken,<lb/>
+Das ich ſo ſehr dich flehte, wohl zu wahren?<lb/>
+Der Mann erwiedert ohne nur zu ſtocken:<lb/>
+Es iſt mir ganz was Eignes widerfahren<lb/>
+Mit dieſem wunderbaren Sohn der Flocken;<lb/>
+Denn als wir uͤber einen Berg gefahren,<lb/>
+Den juſt der Sonnenſtrahl beſchien, der warme,<lb/>
+Schmolz mir das Kind in meinem Vaterarme!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Du ſpotteſt mein, ſtatt eine Frau zu preiſen,<lb/>
+Die weit erhaben uͤber jedem Lobe!</p></sp><lb/>
+<sp who="#POL"><speaker><hi rendition="#c"><hi rendition="#g">Polybus</hi>.</hi></speaker><lb/>
+<p>Kannſt du die Unſchuld nicht ſogleich beweiſen,<lb/>
+So mord’ ich dich in deiner Garderobe!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Kehrt einſt Diagoras von ſeinen Reiſen,<lb/>
+Dann will ich geben dir die hoͤchſte Probe!</p></sp><lb/>
+<sp who="#POL"><speaker><hi rendition="#c"><hi rendition="#g">Polybus</hi>.</hi></speaker><lb/>
+<p>So lange magſt du zittern vor der Strafe!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>In meine Tugend huͤll’ ich mich und ſchlafe!</p><lb/>
+<stage><hi rendition="#c">(Ab.)</hi></stage></sp><lb/>
+<pb n="38" facs="#f0044"/>
+<sp who="#POL"><speaker><hi rendition="#c"><hi rendition="#g">Polybus</hi>.</hi></speaker><lb/>
+<p>Diagoras! Ich werd’ es nicht vergeſſen,<lb/>
+Und wenn Zelinde ſchlafen will, ich wache,<lb/>
+Und ſollten fliehn auch dreißig Oſtermeſſen,<lb/>
+Bevor du wiederkehrſt zu meinem Dache!<lb/>
+Anlegen aber will ich ſelbſt indeſſen<lb/>
+Den Schacht, aus dem ich meine ſuͤße Rache,<lb/>
+Den Gran Arſenik denke noch zu foͤrdern,<lb/>
+Der einſt mich beigeſellen ſoll den Moͤrdern!</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[39]" facs="#f0045"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Dritter Akt</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Pallaſt in Theben</hi>.</hi></stage><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Lajus, Jokaſte</hi>.</hi></stage><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Ja, nach Delphi will ich reiſen, theures Weib, mit Melchior,<lb/>
+Und ich lege dann der Pythia meinen Traum von heute vor:<lb/>
+Krank in einem Schiffe ſaß ich, durch den Schwung der Welle<lb/>
+krank,<lb/>
+Die ſich bald erhob zu Bergen, bald in tiefe Thaͤler ſank.<lb/>
+Endlich wollt’ ich mich erbrechen, und ich oͤffne ſchon den Mund,<lb/>
+Sieh, da flattert eine große Fledermaus mir aus dem Schlund,<lb/>
+Dieſe ſetzt ſich auf die Bruſt mir, frißt mir Leber weg und<lb/>
+Milz,<lb/>
+Nur auſtatt des Herzens fand ſie nichts als einen rothen<lb/>
+Pilz.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Blos Erinnerungen ſind es von dem Schickſal jener Nacht,<lb/>
+Als ich unſern Sohn vor zwanzig Jahren einſt zur Welt<lb/>
+gebracht:<lb/>
+Wollten wir an Traͤume glauben, welch ein Ende naͤhme das?</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Mir den Tod von Sohnes Haͤnden kuͤndete Tireſias.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Jenen hat ein Leu Cithaͤrons zwanzig Jahre lang verdant.</p></sp><lb/>
+<pb n="40" facs="#f0046"/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Ach, und wuͤßteſt du, was in der Unterwelt ich dann geſchaut,<lb/>
+Als ich todt hinabgeſtiegen! Schon in Charons Nachen ſtand<lb/>
+Faſt ein ganzes Volk, vernichtet, ohne Herd und Vaterland,<lb/>
+Das gebracht die letzten Opfer, ſeinem Koͤnige zulieb,<lb/>
+Der’s zum Dank dann ſtrich mit Ruthen, ja mit Skorpionen<lb/>
+hieb!<lb/>
+Mehr gekroͤnte Gimpel ſah ich, als es Grillen giebt im Gras,<lb/>
+Einen Vatermoͤrder endlich, welcher fromm im Kempis las;<lb/>
+Aber nur mit Einem Auge, denn das andre ſchielte dreiſt<lb/>
+Nach verbuhlten Frau’n, es blieb ihm keins fuͤr ſeines Vaters<lb/>
+Geiſt,<lb/>
+Der mit offnen Augen hinter ſeinem Seſſel ſchnarchend ſchlief;<lb/>
+Aber ich erwachte ſchaudernd, waͤhrend ich um Huͤlfe rief.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Laß die Nachtgeſpenſter, freue dich des Tags!</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Ich eile fort,<lb/>
+Hole mir von Delphi’s Dreifuß irgend ein Orakelwort.</p><lb/>
+<stage><hi rendition="#right">(Ab.)</hi></stage></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Kann ich doch indeß mit meinen beiden Saͤngern mich erfreu’n,<lb/>
+Ein’ge Leſefruͤchte ſammeln, einige Gedichte ſtreu’n!<lb/>
+Ach, da las ich juſt im Houwald eine Stelle, welche nie<lb/>
+Wieder aus dem Kopfe geht mir, oder aus der Phantaſie;<lb/>
+Denn in einem Trauerſpiele tritt (die Feinde heißt das Stuͤck)<lb/>
+Eine Fuͤrſtin auf um Mitternacht und wuͤnſcht den Tag<lb/>
+zuruͤck,<lb/>
+Und ſie ſagt, dieß auszudruͤcken, wie’s nur ein Genie vermag:<lb/>
+Daß ich waͤre deine Mutter, um zu wecken dich, o Tag!<lb/>
+Welch ein kuͤhnes Bild, wie wuͤrdig eines Weſens auf dem<lb/>
+Thron!<lb/>
+<pb n="41" facs="#f0047"/>
+Welch ein zarter Wunſch von dieſer koͤniglichen Weibsperſon!<lb/>
+Jene waͤre gern des Tages Mutter, fragte <hi rendition="#g">mich</hi> genau<lb/>
+Was ich gerne waͤre, Houwald, wuͤrd’ ich ſagen: Deine Frau!</p><lb/>
+<stage><hi rendition="#right">(Ab.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c">&gt;<hi rendition="#g">Pallaſt in Corinth</hi>.</hi></stage></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi></hi></speaker> <stage><hi rendition="#c">(allein).</hi></stage><lb/>
+<p>Wie oft entſtieg bereits der Badewanne<lb/>
+Des Meers Apoll und tauchte neu ſich nieder,<lb/>
+Und immer lebt Diagoras im Banne,<lb/>
+Wiewohl ich wuͤnſchte faſt, er kehrte wieder,<lb/>
+Damit ich zeigte meinem boͤſen Manne,<lb/>
+Welch einen Buſen mir bedeckt das Mieder,<lb/>
+Getreu und fleckenlos nach achtzig Lenzen,<lb/>
+Und immer voll moraliſcher Sentenzen!</p><lb/>
+<p>Ein keckes Wagſtuͤck komme mir zu Statten,<lb/>
+Und offenbare meiner Tugend Zauber,<lb/>
+Da jener Buhler, der ſie ſtellt in Schatten,<lb/>
+Mich taͤglich ſproͤder fand und taͤglich tauber:<lb/>
+Bald ſiehſt du jeglichen Verdacht ermatten,<lb/>
+O Polybus, und ſiehſt mich rein und ſauber,<lb/>
+Wie wenig auch fuͤr deine Frau du gluͤheſt,<lb/>
+Und blos um’s Bergbauweſen dich bemuͤheſt!</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Zelinde. Oedipus</hi>.</hi></stage></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Dich um was zu fragen, Mutter, kam ich; doch es faͤllt mir<lb/>
+ſchwer.</p></sp><lb/>
+<pb n="42" facs="#f0048"/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Immer laufſt du doch mit deinen Freunden in der Stadt<lb/>
+umher!<lb/>
+Bei Bankett und Tanz und Ballſpiel, Stiergefecht, Turnier<lb/>
+und Streit<lb/>
+Biſt du Tag und Nacht beſchaͤftigt, und verlierſt die ſchoͤne<lb/>
+Zeit.</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Um die Zeit, o liebe Mutter, iſt es ein beſondres Gut,<lb/>
+Der verliert ſie nie, der immer, was gebeut die Stunde, thut:<lb/>
+Blos die lange Weile nenn’ ich Zeitverluſt, und dieſe kaum,<lb/>
+Denn ſie lehrt, wie lang das Leben, das uns duͤnkt ein kurzer<lb/>
+Traum.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Was begehrſt du?</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Bei dem Ringſpiel gab es Widerſpruch und Zank,<lb/>
+Und es ſchalt mich Einer Baſtard, der vor mir zu Boden ſank:<lb/>
+Dieſes Wort hat augenblicklich meinen ganzen Muth gebeugt,<lb/>
+Und ich bitte, mir zu ſagen, ob ich ehlich bin erzeugt?</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Welche Frage! Welche Sitten! Faͤllt man mit der Thuͤr in’s<lb/>
+Haus?</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Bin ich, oder bin ich nicht es?</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Fragt man denn ſo rund heraus?</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Wie ein Pfeil nach ſeinem Ziele fliegt des braven Mannes<lb/>
+Wort.</p></sp><lb/>
+<pb n="43" facs="#f0049"/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Wenn du ſo verfaͤhrſt, ſo ſcheuchſt du naͤchſtens alle Menſchen<lb/>
+fort.</p><lb/>
+<stage><hi rendition="#right">(Ab.)</hi></stage></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Will es Dieſe nicht entdecken, frag’ ich bei’m Orakel an,<lb/>
+Denn die Wahrheit hat von jeher blos den Schurken weh-<lb/>
+gethan.</p><lb/>
+<stage><hi rendition="#right">(Ab.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Platz vor dem Tempel in Delphi</hi>.</hi></stage></sp><lb/>
+<sp who="#PYTH"><speaker><hi rendition="#c"><hi rendition="#g">Die Pythia</hi></hi></speaker> <stage><hi rendition="#c">(allein.)</hi></stage><lb/>
+<p>Dem Gotte klag’ ich, der mich haͤlt gebunden<lb/>
+An dieſen Dreifuß, meine Leiden alle,<lb/>
+Und zeig’ ihm alle meine Seelenwunden:</p><lb/>
+<p>Zwar iſt ſie herrlich, dieſe Tempelhalle,<lb/>
+Die Saͤulen ſchlank, das Thor in Erz gegoſſen,<lb/>
+Und auf dem Dache ſelbſt ergluͤhn Metalle;</p><lb/>
+<p>Doch hab’ ich Gluͤck und Freude hier genoſſen?<lb/>
+Hat je gedankt mir ein beredter Frager,<lb/>
+Dem ich der Zukunft Himmel aufgeſchloſſen?</p><lb/>
+<p>Da grau vor Alter ich und bleich und hager,<lb/>
+Wie koͤnnt’ ich koſten je das Blut der Rebe?<lb/>
+Wie koͤnnt’ ich ruhn auf einem weichen Lager?</p><lb/>
+<p>Die Roſen bilden uͤberall Gewebe,<lb/>
+Und Liebe ſchlaͤft an jedes Baches Borden,<lb/>
+Ich aber kenne nur den Gott und bebe!</p><lb/>
+<p>Da ſilberweiß mir jedes Haar geworden,<lb/>
+Was frommt’s, wenn mein Orakelſpruch erklinget<lb/>
+Unwiderſtehlich wie ein Sturm im Norben?</p><lb/>
+<pb n="44" facs="#f0050"/>
+<p>Mit keiner Blumenkette mehr umſchlinget<lb/>
+Die Erde mich, und mancher Thor verlachte<lb/>
+Mich als Betruͤg’rin, welche Maͤhrchen ſinget:</p><lb/>
+<p>O ſchnoͤder Poͤbel, den ich ganz verachte,<lb/>
+Der gern mir moͤchte jedes Wort verpoͤnen,<lb/>
+Als ob er koͤnnte denken, was ich dachte!</p><lb/>
+<p>Er laͤßt ein bloßes Rabenlied ertoͤnen;<lb/>
+Doch wenn ich oͤffne meine blaſſen Lippen,<lb/>
+So iſt’s, als oͤffne ſich der Quell des Schoͤnen!</p><lb/>
+<p>Den Schiffer warn’ ich vor des Lebens Klippen,<lb/>
+Doch laͤßt er ſich vom Wellentanz ergoͤtzen,<lb/>
+Bis er zu Grunde geht an Felſenrippen.</p><lb/>
+<p>Was ſing’ ich Wahrheit dieſem Volk von Kloͤtzen,<lb/>
+Das kaum ertragen kann ein Bischen Luͤge,<lb/>
+Denn ſelbſt die Goͤtter ſind ihm nichts als Goͤtzen!</p><lb/>
+<p>Ich winde Kraͤnze blos um Aſchenkruͤge.</p><lb/>
+<stage><hi rendition="#c">(Ab in den Tempel.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Oedipus</hi>, ſpaͤterhin <hi rendition="#g">Lajus</hi> und <hi rendition="#g">Melchior</hi>.</hi></stage></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Heil’ge Staͤtte, wo zu ſchwachem, ſterblich eingeſchraͤnktem<lb/>
+Sinn<lb/>
+Unerſchaffne Weſen reden durch den Mund der Prieſterin!<lb/>
+Dich begruͤß’ ich, deiner Schatten, deiner Lorbeerbuͤſche Nacht,<lb/>
+Deine Gipfel, deine Quellen, deines Tempels alte Pracht!<lb/>
+Lehre mich mein eignes Weſen kennen, lehre mich verſtehn,<lb/>
+Wer ich bin, woher ich komme, und wohin ich werde gehn!</p><lb/>
+<stage><hi rendition="#c">(Ab in den Tempel.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="45" facs="#f0051"/>
+<stage><hi rendition="#c"><hi rendition="#g">Lajus. Melchior</hi>.</hi></stage></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Ueberall zu wenig Ehrfurcht zeigt man mir und Devotion.</p></sp><lb/>
+<sp who="#MEL"><speaker><hi rendition="#c"><hi rendition="#g">Melchior</hi>.</hi></speaker><lb/>
+<p>Welchem Steiße laͤßt ſich anſehn, daß er ſaß auf einem Thron?<lb/>
+Wenn die Leute wiſſen koͤnnten, daß du, Herr, der Koͤnig biſt,<lb/>
+Wuͤrden mehr Reſpekt ſie zeigen, als bisher geſchehen iſt.</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi></hi></speaker> <stage><hi rendition="#c">(zuruͤckkehrend).</hi></stage><lb/>
+<p>Kurz und dunkel war das Wort der Pythia, das ich kaum<lb/>
+verſtand:<lb/>
+Meide ſtets, ſo ſprach ſie, meide, meide ſtets dein Vaterland!<lb/>
+Nun, ſo will ich nach Boͤotien, wenn man mich Corinths<lb/>
+beraubt:<lb/>
+Nach Corinth zu gehn, nicht Jedem, ſagt das Spruͤchwort,<lb/>
+iſt’s erlaubt.</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Aus dem Wege mir.</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Warum denn?</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Aus dem Wege, Vagabund!<lb/>
+Oder mit dem Zepter ſchlag’ ich dir die Naſenſpitze wund.</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Was verlangſt du?</p></sp><lb/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Mehr Reſpekt, Menſch!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Mehr Reſpekt vor deinem Bart<lb/>
+Allenfalls, doch keineswegs Reſpekt vor deiner Lebensart!</p></sp><lb/>
+<pb n="46" facs="#f0052"/>
+<sp who="#LAJ"><speaker><hi rendition="#c"><hi rendition="#g">Lajus</hi>.</hi></speaker><lb/>
+<p>Aus dem Wege, Wurm! Ich ſchlage dir die Kniee ſonſt<lb/>
+entzwei!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Ich zerbreche dir den Schaͤdel, wie ein hartgeſottnes Ei!</p><lb/>
+<stage><hi rendition="#c">(Er erſchlaͤgt ihn und entflieht.)</hi></stage></sp><lb/>
+<sp who="#MEL"><speaker><hi rendition="#c"><hi rendition="#g">Melchior</hi>.</hi></speaker><lb/>
+<p>Wehe, weh mir! Wie nach Theben bring’ ich nun ein ſolches<lb/>
+Wort?<lb/>
+Ahnung alſo war es, was ich geſtern Abend hoͤrte dort?<lb/>
+Denn Jokaſtens Harfe krachte, maͤchtig erſt und dann gelind;<lb/>
+Doch ich dachte blos, es waͤre neben ihr der Dichter Kind!</p><lb/>
+<stage><hi rendition="#right">(Ab mit dem Leichnam.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Pallaſt in Theben</hi>.</hi></stage><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Jokaſte</hi> mit ihren Hofdichtern, <hi rendition="#g">Kind</hi> und <hi rendition="#g">Kindeskind</hi>.</hi></stage></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Was giebt’s im literaͤr’ſchen Fach fuͤr Neuigkeiten, Freunde,<lb/>
+jetzt?</p></sp><lb/>
+<sp who="#KINS"><speaker><hi rendition="#c"><hi rendition="#g">Kindeskind</hi>.</hi></speaker><lb/>
+<p>Ein Epigramm auf unſern Kind.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Auf unſern Kind? In Schrecken ſetzt<lb/>
+Mich ſolch ein Wort! Wer wagt zu ſchmaͤhn den beſten<lb/>
+Saͤnger dieſer Flur?</p></sp><lb/>
+<sp who="#KIN"><speaker><hi rendition="#c"><hi rendition="#g">Kind</hi>.</hi></speaker><lb/>
+<p>Auch ſagt das Sinngedichtchen nichts, als daß ich klein ſei<lb/>
+von Statur,<lb/>
+<pb n="47" facs="#f0053"/>
+Und fordert mich zum Wachſen auf! Das nenn’ ich einen<lb/>
+leichten Witz!</p></sp><lb/>
+<sp who="#KINS"><speaker><hi rendition="#c"><hi rendition="#g">Kindeskind</hi>.</hi></speaker><lb/>
+<p>Auch ſchreibt das Ganze noch ſich her von unſerm Dresdner<lb/>
+Muſenſitz,<lb/>
+Und einem Anekdoͤtchen, das man vorgeſucht aus altem<lb/>
+Kram.</p></sp><lb/>
+<sp who="#KIN"><speaker><hi rendition="#c"><hi rendition="#g">Kind</hi>.</hi></speaker><lb/>
+<p>Als naͤmlich einſt Napoleon auf ſeiner Flucht durch Dresden<lb/>
+kam<lb/>
+Von Moskwa, ließ er bitten mich, damit er foͤrdre ſeinen<lb/>
+Zug,<lb/>
+Die Siebenmeilenſtiefel ihm zu borgen, die das Daͤumchen<lb/>
+trug.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Das iſt fuͤr Sie nur ehrenvoll, und jener Spoͤtter war zu<lb/>
+dreiſt.</p></sp><lb/>
+<sp who="#KIN"><speaker><hi rendition="#c"><hi rendition="#g">Kind</hi>.</hi></speaker><lb/>
+<p>Und wenn ich kurz bin von Statur, ſo bin ich doch ein langer<lb/>
+Geiſt!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Das iſt gewiß, und Jeder fuͤhlt’s, der Ihre Poeſien vernimmt.</p></sp><lb/>
+<sp who="#KINS"><speaker><hi rendition="#c"><hi rendition="#g">Kindeskind</hi>.</hi></speaker><lb/>
+<p>Sie ſind ein waſſerreicher Strom, den Keiner bis an’s Ende<lb/>
+ſchwimmt!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Verachten wir die Spoͤtterei’n, und bilden, wie wir taͤglich<lb/>
+thun,<lb/>
+Den akadem’ſchen Minnehof, und ſtellen eine Frage nun,<lb/>
+Von euch eroͤrtert und gloſſirt.</p></sp><lb/>
+<pb n="48" facs="#f0054"/>
+<sp who="#KINS"><speaker><hi rendition="#c"><hi rendition="#g">Kindeskind</hi>.</hi></speaker><lb/>
+<p>Das Thema geb’ uns deine Gunſt,<lb/>
+Wir ſchmuͤcken dann es reichlich aus mit jedem holden Schmuck<lb/>
+der Kunſt.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>So ſtell’ ich euch die Frage denn, ob ein verliebter Dichter<lb/>
+mehr,<lb/>
+Ob mehr ein unverliebter gilt bei’m literaͤriſchen Verkehr?</p></sp><lb/>
+<sp who="#KIN"><speaker><hi rendition="#c"><hi rendition="#g">Kind</hi>.</hi></speaker><lb/>
+<p>Mich duͤnkt, daß ein verliebter mehr vermag.</p></sp><lb/>
+<sp who="#KINS"><speaker><hi rendition="#c"><hi rendition="#g">Kindeskind</hi>.</hi></speaker><lb/>
+<p>Ein unverliebter, mich.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Ein Thema, das man oft gloſſirt, ich geb’ es euch gefliſſentlich:</p><lb/>
+<p><hi rendition="#g">Suͤße Liebe denkt in Toͤnen,<lb/>
+Denn Gedanken ſtehn zu ferne,<lb/>
+Nur in Toͤnen mag ſie gerne<lb/>
+Alles, was ſie will, verſchoͤnen</hi>.</p></sp><lb/>
+<sp who="#KIN"><speaker><hi rendition="#c"><hi rendition="#g">Kind</hi>.</hi></speaker><lb/>
+<p>Soll das Herz ſich ganz ergießen,<lb/>
+Stroͤmen laſſen alle Triebe,<lb/>
+Muß es voll ſein und genießen;<lb/>
+Aber was, ſo moͤcht’ ich ſchließen,<lb/>
+Macht das Herz ſo voll wie Liebe?<lb/>
+Tauſend Harmonien entkeimen<lb/>
+Unſerm Buſen im Geheimen<lb/>
+Durch die Gegenwart des Schoͤnen:<lb/>
+Liebe ſpricht von ſelbſt in Reimen,<lb/>
+<hi rendition="#g">Suͤße Liebe denkt in Toͤnen</hi>.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#g">Kindes-</hi></fw></sp><lb/>
+<pb n="49" facs="#f0055"/>
+<sp who="#KINS"><speaker><hi rendition="#c"><hi rendition="#g">Kindeskind</hi>.</hi></speaker><lb/>
+<p>Liebe nimmt den Sinn gefangen,<lb/>
+Schafft Verdruß und wirkt Verblendung:<lb/>
+Wer im Buſen hegt Verlangen,<lb/>
+Trachtet nur nach ſchoͤnen Wangen,<lb/>
+Aber nicht nach Kunſtvollendung.<lb/>
+Wem das Herz, von Liebeszwickeln<lb/>
+Eingepreßt, Begierden prickeln,<lb/>
+Dem erliſcht des Geiſts Laterne;<lb/>
+Seufzer wird er blos entwickeln,<lb/>
+<hi rendition="#g">Denn Gedanken ſtehn zu ferne</hi>!</p></sp><lb/>
+<sp who="#KIN"><speaker><hi rendition="#c"><hi rendition="#g">Kind</hi>.</hi></speaker><lb/>
+<p>Nein! Die Liebe wird gerade<lb/>
+Jeden Gegenſtand verklaͤren,<lb/>
+Wird den Pfad der Huld und Gnade<lb/>
+Wandeln, und auf dieſem Pfade<lb/>
+Goͤttlichen Geſang gebaͤren!<lb/>
+Kriechen mag ſie nicht am Boden,<lb/>
+Nicht in ſteifen Perioden<lb/>
+Mag ſie fliegen an die Sterne,<lb/>
+Nur in Liedern, nur in Oden,<lb/>
+<hi rendition="#g">Nur in Toͤnen mag ſie gerne</hi>!</p></sp><lb/>
+<sp who="#KINS"><speaker><hi rendition="#c"><hi rendition="#g">Kindeskind</hi>.</hi></speaker><lb/>
+<p>Sei’s der Liebe zugegeben,<lb/>
+Daß ſie hoch den Liebſten feiert;<lb/>
+Doch an ihm nur wird ſie kleben,<lb/>
+Wird vergeſſen Welt und Leben,<lb/>
+Waͤhrend ſie von Liebe leiert:<lb/>
+<fw type="sig" place="bottom">v. Platen, der romant, Oedipus. 4</fw><lb/>
+<pb n="50" facs="#f0056"/>
+Nein! Die freie Seele rette<lb/>
+Sich von jeder Sinnenkette,<lb/>
+Himmliſch wird ſie dann ertoͤnen,<lb/>
+Wird mit Engeln um die Wette<lb/>
+<hi rendition="#g">Alles, was ſie will, verſchoͤnen</hi>!</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Die Vorigen, Tereſias</hi>.</hi></stage></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>O Koͤnigin! Welch Misgeſchick brach uͤber unſre Stadt herein!<lb/>
+Wie bin ich froh, zu finden dich im Kreiſe deiner Saͤngerlein!<lb/>
+Sie moͤgen retten uns!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Was giebt’s?</p></sp><lb/>
+<sp who="#KIN"><speaker><hi rendition="#c"><hi rendition="#g">Kind</hi>.</hi></speaker><lb/>
+<p>Mit Waffen bin ich nicht vertraut.</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Nicht Waffen gilt’s, nur einen Vers, der gut und richtig iſt<lb/>
+gebaut.<lb/>
+Es hat erzuͤrnt Apollo ſich von uns Thebanern abgekehrt,<lb/>
+Weil wir den Goͤtzen Kotzebue ſtatt ſeiner hier im Land<lb/>
+verehrt;<lb/>
+Drum hat er uns die Sphinx geſchickt, ſo nennt ſie ſich, und<lb/>
+iſt ein Weib<lb/>
+Mit großen Fluͤgeln an der Bruſt, und einem langen<lb/>
+Drachenleib.<lb/>
+Sie ſagt, ſie waͤre Mauthnerin, und ſitzt auf einem Fels<lb/>
+am Weg,<lb/>
+<pb n="51" facs="#f0057"/>
+Wo Jedermann voruͤber muß, weil nahe dran ein ſchmaler<lb/>
+Steg;<lb/>
+Und keck behauptet dieſe Sphinx, es haͤtte ſie geſandt Apoll,<lb/>
+Ein fehlerloſes Diſtichon zu heiſchen hier als Straßenzoll.<lb/>
+Wer nun ein fehlerhaftes bringt, den ſtuͤrzt ſie gleich hinab<lb/>
+die Kluft,<lb/>
+Und dieſe ward dem groͤßten Theil der Stadt bereits zur<lb/>
+Todtengruft;<lb/>
+Doch wird ein wahres Diſtichon ihr dargebracht, ſo will<lb/>
+ſogleich<lb/>
+Sie ſelbſt ſich ſtuͤrzen in den Schlund, und Friede kehrt in<lb/>
+dieſes Reich.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Was giebt es Leichtres wohl als das? Ich ſchicke hier die beiden<lb/>
+Kind.</p></sp><lb/>
+<sp who="#KIN"><speaker><hi rendition="#c"><hi rendition="#g">Kind</hi>.</hi></speaker><lb/>
+<p>Jedoch bedenke, Koͤnigin, daß auch die Saͤnger Menſchen<lb/>
+ſind,<lb/>
+Und Irren menſchlich iſt! So hat ein Recenſent mich juͤngſt<lb/>
+geputzt,<lb/>
+Blos weil ich <hi rendition="#g">Holzklotzpflock</hi> einmal als einen Daktylus<lb/>
+benutzt.</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Dergleichen kommt ja taͤglich vor, ſeit man in Theben Verſe<lb/>
+leimt,<lb/>
+So las ich einen Dichter juͤngſt, der <hi rendition="#g">Loͤwe</hi> gar auf <hi rendition="#g">Schlaͤfe</hi><lb/>
+reimt!</p></sp><lb/>
+<sp who="#KINS"><speaker><hi rendition="#c"><hi rendition="#g">Kindeskind</hi>.</hi></speaker><lb/>
+<p>Und <hi rendition="#g">freu</hi>’n auf <hi rendition="#g">Wein</hi>! Wir ſind noch nicht die Letzten, laß<lb/>
+uns, Bruder, gehn,<lb/>
+<fw type="sig" place="bottom">4*</fw><lb/>
+<pb n="52" facs="#f0058"/>
+Und ſinnend auf ein Diſtichon den Kampf mit dieſer Sphinx<lb/>
+beſtehn!</p><lb/>
+<stage><hi rendition="#right">(Beide ab.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Die Vorigen, Melchior</hi>.</hi></stage></sp><lb/>
+<sp who="#MEL"><speaker><hi rendition="#c"><hi rendition="#g">Melchior</hi>.</hi></speaker><lb/>
+<p>O Koͤnigin! Wie kuͤnd’ ich dir die Schreckenspoſt?</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Welch neu Geſchick?</p></sp><lb/>
+<sp who="#MEL"><speaker><hi rendition="#c"><hi rendition="#g">Melchior</hi>.</hi></speaker><lb/>
+<p>Erſchlagen ward dein Ehgemahl von einem jungen Galgenſtrick!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Wenn ſchon von hier und dort zugleich die Welle ſchlaͤgt in’s<lb/>
+lecke Both,<lb/>
+Dann zeigt ſich Geiſtesgegenwart am hoͤchſten bei der hoͤchſten<lb/>
+Noth!<lb/>
+Zwar bin ich nur ein ſchwaches Weib; doch fuͤhl’ ich mich gefaßt<lb/>
+im Schmerz,<lb/>
+Und weiß zu ſorgen fuͤr das Volk, zu ſorgen fuͤr das eigne<lb/>
+Herz!<lb/>
+Durch einen Herold laſſe man trompeten durch das ganze<lb/>
+Land:<lb/>
+Derjen’ge, der die Sphinx erlegt, erhaͤlt Jokaſtens Kron’<lb/>
+und Hand!<lb/>
+So wird vom Zolle frei die Stadt, und da geſtorben ihr<lb/>
+Tyrann,<lb/>
+<pb n="53" facs="#f0059"/>
+Verſchaff’ ich einen neuen ihr, und mir verſchaff’ ich einen<lb/>
+Mann;<lb/>
+Und wenn mich auch, wie fruͤher ich geſchwaͤrmt, der Ehe<lb/>
+ſuͤßes Joch<lb/>
+Mit meinem Honwald nicht vereint, bekomm’ ich einen<lb/>
+Dichter doch!</p><lb/>
+<stage><hi rendition="#right">(Ab.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Felſiger Weg mit einem Zollhaͤuschen</hi>.</hi></stage></sp><lb/>
+<sp who="#SPH"><speaker><hi rendition="#c"><hi rendition="#g">Die Sphinx</hi></hi></speaker> <stage><hi rendition="#c">(allein).</hi></stage><lb/>
+<p>Ein traurig Loos beſtimmten mir die Moͤren:<lb/>
+Ich muß verbannt, auf dieſem oͤden Berge,<lb/>
+So lang ich lebe, ſchlechte Verſe hoͤren,<lb/>
+Und dieß Geſchlecht beſtrafen dann als Scherge;<lb/>
+Und zeigt ſich Einer, der mit Muſenchoͤren<lb/>
+Vertrauter iſt, als dieſe Dichterzwerge,<lb/>
+So muß ich ſelbſt in Charons Nachen ſteigen,<lb/>
+Anſtatt dem ſuͤßen Klang das Ohr zu neigen.</p><lb/>
+<p>Man nennt mich herb und allzuhart und ſproͤde,<lb/>
+Doch geht’s mit mir wie mit den andern Dingen:<lb/>
+Wer leicht und frech mit mir verfaͤhrt und ſchnoͤde,<lb/>
+Dem wird der Sieg zu keiner Zeit gelingen!<lb/>
+Mich quaͤlen taͤglich Saͤnger und Tragoͤde,<lb/>
+Doch Keiner konnte mich bis jetzt bezwingen:<lb/>
+Unuͤberwindlich ward ich ſchon geſcholten<lb/>
+Von Einem, welcher mir ſo viel gegolten!</p><lb/>
+<pb n="54" facs="#f0060"/>
+<p>Ihr Millionen oder Milliarden,<lb/>
+Die ihr g<gap unit="chars" quantity="1"/>aippt aus Hippokrene’s Lache,<lb/>
+Verſorg<gap unit="chars" quantity="3"/> jaͤhrlich mit ſo viel Baſtarden<lb/>
+Die Findelhaͤuſer aller Almanache:<lb/>
+Ich bin die Sphinx, die Zoͤllnerin der Barden,<lb/>
+Indem ich zinsbar eure Verſe mache;<lb/>
+Zwar Verſe duͤnken euch bequeme Zoͤlle,<lb/>
+Doch ſind ſie ſchlecht, ſo ſchick’ ich euch zur Hoͤlle!</p><lb/>
+<stage>(Eine Menge Dichter, worunter auch <hi rendition="#g">Kind</hi> und <hi rendition="#g">Kindeskind</hi>,<lb/>
+gehn voruͤber. Jeder haͤlt eine Schreibtafel in der Hand, worauf<lb/>
+ein <hi rendition="#g">Diſtichon</hi> geſchrieben ſteht. Die Sphinx liest die Diſticha,<lb/>
+und wirft die Verfaſſer nach allen Seiten in den Abgrund. Zuletzt<lb/>
+erſcheint <hi rendition="#g">Oedipus</hi>.)</stage></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Biſt du das Ungethuͤm, von dem ſie ſagen,<lb/>
+Du litteſt keine Verſe, welche hinken,<lb/>
+Und ließeſt Alle, die dergleichen wagen,<lb/>
+Den bittern Tod in dieſem Schlunde trinken,<lb/>
+Und ſtuͤndeſt ab, das arme Land zu plagen,<lb/>
+Wenn unter allen dieſen lauten Finken<lb/>
+Nur Eine Nachtigall zu finden waͤre,<lb/>
+Die ohne Fehl ein Diſtichon gebaͤre?</p></sp><lb/>
+<sp who="#SPH"><speaker><hi rendition="#c"><hi rendition="#g">Die Sphinx</hi>.</hi></speaker><lb/>
+<p>Daß Jeder das, was er betreibt, verſtehe,<lb/>
+Wag’ ich zu fodern und aus guten Gruͤnden:<lb/>
+Zwar ſcheint ein ſchlechter Vers ein kleines Wehe,<lb/>
+Und doch erzeugt er eine Menge Suͤnden;<lb/>
+Denn allzuleicht nur wird in wilder Ehe<lb/>
+Sich eine ſchlechte That mit ihm verbuͤnden:<lb/>
+Wer durch ſich ſelbſt kann keinen Kranz erreichen,<lb/>
+Der muß denſelben raͤnkevoll erſchleichen.</p></sp><lb/>
+<pb n="55" facs="#f0061"/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Du ſcheinſt die Fodrung nicht zu hoch zu ſtellen;<lb/>
+Doch wundert kaum es mich, erhabnes Weſen,<lb/>
+Daß unter allen jenen Junggeſellen<lb/>
+Fuͤr keinen Deut Geſchicklichkeit geweſen:<lb/>
+Tragoͤdien hab’ ich oft von hundert Ellen,<lb/>
+Doch nie ein richtig Diſtichon geleſen.<lb/>
+Hier ſiehſt du eins auf dieſes Blatt geſchrieben,<lb/>
+So nimm es hin und lies es nach Belieben!</p></sp><lb/>
+<sp who="#DIT"><speaker><hi rendition="#c"><hi rendition="#g">Diſtichon</hi></hi></speaker><lb/>
+<stage><hi rendition="#c">(in Transparent erſcheinend).</hi></stage><lb/>
+<p>Moͤge die Welt durchſchweifen der herrliche Dulder Odyſſeus,<lb/>
+Kehrt er zuruͤck, weh’ euch, wehe dem Freiergeſchlecht!</p><lb/>
+<stage>(Nachdem es die <hi rendition="#g">Sphinx</hi> geleſen, ſtuͤrzt ſie ſich in’s Orcheſter<lb/>
+hinunter und <hi rendition="#g">Oedipus</hi> verlaͤßt den Schauplatz.)</stage></sp><lb/>
+<sp who="#SPH"><speaker><hi rendition="#c"><hi rendition="#g">Die Sphinx</hi></hi></speaker> <stage><hi rendition="#c">(an die Zuſchauer).</hi></stage><lb/>
+<p>So ſprang ich denn zu euch herab, und kam ſo ziemlich gut<lb/>
+davon;<lb/>
+Doch wag’ ich nicht euch anzuflehn, zu zollen mir ein Diſtichon!<lb/>
+Auch bitt’ ich, habt Geduld mit mir! An Lebensart und an<lb/>
+Coſtuͤm<lb/>
+Gebricht es meiner Wenigkeit, ich bin ein heidniſch Ungethuͤm.<lb/>
+Ich weiß, daß hier verboten iſt, ein bischen derb zu ſein und<lb/>
+frei,<lb/>
+Denn uͤberall, wo Menſchen ſind, verſteckt ihr eure Polizei!<lb/>
+Ihr moͤchtet von der Henne Milch, ein Ei gewinnen von der<lb/>
+Kuh,<lb/>
+Und zwingt den Fuß des Herkules in euren ſchmalen Kinder-<lb/>
+ſchuh:<lb/>
+So that man nicht in Griechenland, woher ich komme! Jede<lb/>
+Kraft<lb/>
+<pb n="56" facs="#f0062"/>
+Fand ihren Spielraum, keine gab dem Unvermoͤgen Rechen<lb/>
+ſchaft!<lb/>
+Gewaͤhren ließ man, was Natur aus dieſem Mann gemacht<lb/>
+und dem,<lb/>
+Und ehrte jeden großen Trieb in dieſem großen Weltſyſtem:<lb/>
+Im Aeſchylus den hohen Trotz, den Dulderſinn im Sokrates,<lb/>
+Die Weichlichkeit Anakreons, den Witz des Ariſtophanes;<lb/>
+Da nahm der Taͤnzer ſeinen Kranz, der Fechter ſeiner Faͤuſte<lb/>
+Preis,<lb/>
+Dem Schoͤnen ward ein ſchoͤner Freund, dem Weiſen ward<lb/>
+ein Schuͤlerkreis:<lb/>
+Da wuchſen aͤchte Maͤnner auf, und Frauen groß, wie Sappho<lb/>
+war,<lb/>
+Holdſelig wie Aſpaſia, wie Diotima wunderbar!<lb/>
+Drum koͤnnte lernen mancherlei, ſo ſcheint’s, von ihnen<lb/>
+mancher Chriſt,<lb/>
+Die Tugend unter andern auch, die nicht der Guͤter letztes iſt!<lb/>
+Doch weil ihr beſſer ſeid, ſo ruft die Beſten unter euch<lb/>
+empor:<lb/>
+Wohlan! Es zeige ſich Lykurg! Epaminondas trete vor!<lb/>
+Ihr ſchweigt? Je nun, zum Lobe dient es euch, von Gott ſo<lb/>
+reich begabt,<lb/>
+Daß ihr in eurem frommen Klubb nicht einen einz’gen Heiden<lb/>
+habt!<lb/>
+Euch Schande bringen koͤnnte blos, ja ſelbſt dem Staate blos<lb/>
+Ruin<lb/>
+Ein einziger Timole<gap unit="chars" quantity="2"/> an einem Orte wie Berlin!<lb/>
+Denn wißt, ich hege fuͤr Berlin im Herzen einen kleinen<lb/>
+Groll:<lb/>
+Viel edle Maͤnner walten dort; doch iſt der große Haufe<lb/>
+toll,<lb/>
+<pb n="57" facs="#f0063"/>
+Dort, wo bewundert ward Fouqué und wer in deſſen Stapfen<lb/>
+trat,<lb/>
+Wo man den Raupel jetzt verehrt und ſein Tragoͤdienfabrikat<lb/>
+(Deswegen, heißt es, ſoll er auch, wie ein Genie die Backen<lb/>
+blaͤhn;<lb/>
+Doch will er Philomele ſein, ſo muß er floͤten, ſtatt zu kraͤhn:<lb/>
+Es iſt der Ruhm an manchem Ort ein gar zu leicht erworbner<lb/>
+Schatz,<lb/>
+Wo Alles nach den Sphaͤren lauſcht, wenn auf dem Schlote<lb/>
+ſingt ein Spatz!)<lb/>
+O ſtuͤnde doch im Lande Teuts ein Solon auf, und ſagte<lb/>
+dreiſt:<lb/>
+Nie ſchreibe mehr ein Trauerſpiel, wer ganz verſimpelt iſt<lb/>
+an Geiſt!<lb/>
+Und da’s ſo viel Calvine giebt, durch ihre Strenge wohl-<lb/>
+bekannt,<lb/>
+So werde woͤchentlich ein Stoß Tragoͤdien oͤffentlich ver-<lb/>
+brannt:<lb/>
+Die Flamme ſchlage hoch empor, und maͤchtig lodernd<lb/>
+ſchwaͤngre ſie<lb/>
+Tholucks gelehrte Stubenluft mit einem Hauch von Poeſie,<lb/>
+Verwandle vor dem truͤben Blick des ganz ascetiſchen Cumpans<lb/>
+Die ew’gen Froͤſte von Berlin in einen Fruͤhling Kanaans!<lb/>
+Doch merk’ ich, daß umſonſt ich nur, der Poetaſterei zu<lb/>
+Trutz,<lb/>
+Die Rechtsgelehrten angeregt, die Geiſtlichen gefleht um<lb/>
+Schutz:<lb/>
+Euch Aerzte ruf’ ich endlich auf, da ſonſt mir keine Huͤlfe<lb/>
+bleibt,<lb/>
+Euch Aerzte, die ihr manchem Mann manch nuͤtzliches Recept<lb/>
+verſchreibt,<lb/>
+<pb n="58" facs="#f0064"/>
+Verbietet doch Romantikern Papier und Federkiel und<lb/>
+Stift,<lb/>
+Und ordinirt, wenn nichts verſchlaͤgt, ein kleines Graͤnchen<lb/>
+Rattengift!<lb/>
+Sonſt wird noch eure Poeſie ſo frei, ſo burſchikos und<lb/>
+flott,<lb/>
+Bis endlich ganz Europa ruft: Ihr Deutſchen ſeid ein<lb/>
+Kinderſpott!</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[59]" facs="#f0065"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Vierter Akt</hi>.</hi></head><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Pallaſt in Corinth</hi>.</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Diagoras, Zelinde</hi>.</hi></stage><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Ja, nach dreißig langen Jahren kehr’ ich wieder, ſchoͤnes<lb/>
+Weib!<lb/>
+Und die ganze Welt beſah’ ich, was ein huͤbſcher Zeitvertreib:<lb/>
+Sah das Herz Europa’s, wie ſie’s nennen; leider iſt’s von<lb/>
+Speck;<lb/>
+Dein maſſives Herz, Zelinde, liegt allein am rechten Fleck.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>O du biſt umſonſt gewandert, da du tief in deiner Bruſt<lb/>
+Wiederbringſt dieſelben Laſter und dieſelbe boͤſe Luſt!<lb/>
+Haͤtteſt wirklich im Sarmatenlande du ſo ſuͤß und lind<lb/>
+Graſen ſehn die frommen Schaͤflein, die mitunter Katzen ſind,<lb/>
+Hoͤren koͤnnen, wie die Kruͤdner als Velleda dort geſchrien,<lb/>
+O es waͤre deine Seele voll erhabner Pſalmodien!</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>In Campanien, wo man auf den platten Daͤchern driſcht das<lb/>
+Korn,<lb/>
+<pb n="60" facs="#f0066"/>
+Wenn Vertumnus ausgeſchuͤttet ſeines Ueberfluſſes Horn,<lb/>
+In Campanien vor die Augen trat mir ein Berliner Chriſt,<lb/>
+Und ich ſah, daß dieſer Leute Gott ein bloßer Apis iſt;<lb/>
+Auch die Kruͤdner, wo ſie jemals lehrte, wo ſie wirkte je,<lb/>
+Nicht Velleda war ſie, ſcheint es; aber wohl Paſiphae!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Haſt du denn auf deinen Reiſen nichts als Heuchlervolk<lb/>
+erblickt,<lb/>
+Keinen, welcher gegen Himmel wirkliche Gebete ſchickt?</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Einen wahren Frommen ſah ich, den das Erzgebuͤrg gebar,<lb/>
+Der, was Jene toͤlpiſch aͤffen, wirklich in der Seele war;<lb/>
+Doch wie Mancher, der ſo linkiſch itzt den Himmel klimmt<lb/>
+hinan,<lb/>
+Thut es, weil gerad’ er eines frommen Koͤnigs Unterthan:<lb/>
+Waͤre noch, wie ſonſt, ein Freigeiſt Fluͤgelmann, wie ſchnell<lb/>
+belehrt<lb/>
+Wuͤrden Jene Gott verlaͤugnen durch ein ſteifes Rechtsumkehrt!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Laß uns von uns ſelber ſprechen! Liebſt du wirklich mich<lb/>
+getreu?</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Kannſt du fragen?</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Deine Worte, ſind es keine leere Spreu?</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Pruͤfe mich! Die groͤßte Probe ſcheint mir, dir zu Liebe, klein.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Nun ſo ſchenke mir dein Herz!</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Seit ſechzig Jahren iſt es dein!</p></sp><lb/>
+<pb n="61" facs="#f0067"/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Nein, ſo mein’ ich’s nicht! Dergleichen Phraſen ſind fuͤr ein<lb/>
+Sonett!<lb/>
+Nein, ich will das koͤrperliche Herz, ein Herz mit wahrem<lb/>
+Fett:<lb/>
+Da du ſtets materiell warſt, werd’ auch ich materiell:<lb/>
+Ein platoniſch Herz genuͤgt mir keineswegs! — Entſcheide<lb/>
+ſchnell!</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Immer ſchlug mein Herz fuͤr dich nur!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Aber ſinnlich und verrucht,<lb/>
+Und dadurch mit Recht erregend meines Mannes Eiferſucht;<lb/>
+Glaube mir, auf keine Weiſe thu’ ich ſeinem Zorn genug,<lb/>
+Wenn ich nicht das Herz ihm ſchenke, das fuͤr mich in Liebe<lb/>
+ſchlug.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Dieſer Antrag kommt mir etwas unerwartet, ja ſogar<lb/>
+Grob und unmanierlich wag’ ich ihn zu nennen.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Sonderbar!<lb/>
+Alſo Redensarten waren’s, wenn du ſagteſt mir und ſchriebſt,<lb/>
+Daß du mehr mich als das Leben, mehr als deine Seele<lb/>
+liebſt?<lb/>
+Luͤge waren deine Seufzer, deine Schwuͤre waren Scherz?<lb/>
+Und das Herz, das jetzt du weigerſt, war es nur ein falſches<lb/>
+Herz?<lb/>
+O der Maͤnner! O des Meineids, den ſie jeden Tag begehn,<lb/>
+<gap unit="chars" quantity="2"/>e, die nicht die kleinſte Pruͤfung, auch die kleinſte nicht,<lb/>
+beſtehn!<lb/>
+<pb n="62" facs="#f0068"/>
+Welche Freude dir zu machen waͤhnt’ ich! Jahre ſann ich<lb/>
+nach,<lb/>
+Zu befrei’n von jeder Qual dich, und mich ſelbſt von jeder<lb/>
+Schmach:<lb/>
+Endlich fand ich dieſes Mittel, fand es und du ſchlaͤgſt es<lb/>
+aus!</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Steigſt du ſelbſt mit mir hinunter, tret’ ich gern in Pluto’s<lb/>
+Haus.</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Sterben ich? Noch lang zu leben denk’ ich, meinem Gatten<lb/>
+treu.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Alte Hekuba!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Was hoͤr’ ich?</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Haͤltſt du dich vielleicht fuͤr neu?</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Welch ein Zorn ergriffe jetzt mich, gaͤb’ es meine Tugend zu!</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Schoͤne Tugend!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Wie? Du zweifelſt? Alter Rabe!</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Kakadu!</p></sp><lb/>
+<sp who="#ZEL"><speaker><hi rendition="#c"><hi rendition="#g">Zelinde</hi>.</hi></speaker><lb/>
+<p>Nun, ich hoffe, nicht vergebens ſchiltſt du meine Tugend alt!</p><lb/>
+<stage><hi rendition="#c">(im Abgehn)</hi></stage><lb/>
+<p>Was er mir im Guten weigert, das ertrotz’ ich mit Gewalt!</p><lb/>
+<stage><hi rendition="#c">(Ab.)</hi></stage></sp><lb/>
+<pb n="63" facs="#f0069"/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Welch ein Vorſchlag! Auszuſchneiden mir das Herz in ſeiner<lb/>
+Kraft!<lb/>
+Und dergleichen Leute gelten heut zu Tag fuͤr tugendhaft!<lb/>
+Aus dem Staube mach’ ich ſchnell mich! Nein, dem Himmel<lb/>
+ſey’s geklagt,<lb/>
+Daß dem weiblichen Geſchlechte die Vernunft er hat verſagt!</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Polybus, Diagoras</hi>.</hi></stage></sp><lb/>
+<sp who="#POL"><speaker><hi rendition="#c"><hi rendition="#g">Polybus</hi>.</hi></speaker><lb/>
+<p>Ei, Diagoras, willkommen!</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Sieh zu Fuͤßen deinen Knecht;<lb/>
+Doch vergoͤnne, daß ich gehe!</p></sp><lb/>
+<sp who="#POL"><speaker><hi rendition="#c"><hi rendition="#g">Polybus</hi>.</hi></speaker><lb/>
+<p>Nein, du kommſt mir eben recht!<lb/>
+Gern um Rath dich fragen moͤcht’ ich, werther Freund! Ich<lb/>
+weiß, du biſt<lb/>
+Weit gereiſ’t und kannſt mir viel entdecken was mir nuͤtzlich iſt:<lb/>
+Mit dem Bergbau mich beſchaͤftigt hab’ ich in der letzten<lb/>
+Zeit,<lb/>
+Und du biſt gewiß hieruͤber zu belehren mich bereit.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Zwar in Sachſen und in Polen unterſucht ich manchen<lb/>
+Schacht,<lb/>
+Und es eilte meine Schwermuth gern hinab in’s Reich der<lb/>
+Nacht,<lb/>
+<pb n="64" facs="#f0070"/>
+Wo ſich keine Moͤve ſchaukelt auf dem unterird’ſchen Teich,<lb/>
+Wo Natur ſo nah zu uns tritt, und ſo todtenſtill zugleich;<lb/>
+Aber jetzt vergoͤnne —</p></sp><lb/>
+<sp who="#POL"><speaker><hi rendition="#c"><hi rendition="#g">Polybus</hi>.</hi></speaker><lb/>
+<p>Nicht doch! Was du ſagſt, gefaͤllt mir ſehr:<lb/>
+Komm, Diagoras, in mein Gemach, denn gerne hoͤrt’ ich mehr!<lb/>
+Ueber Berg- und Huͤttenkunde hab’ ich oft und viel gedacht,<lb/>
+Gold und Silber, Erz und Schwefel manichfach zu Tag<lb/>
+gebracht,<lb/>
+Und beſonders viel Arſenik, wie du ſehn wirſt. Komm herein!<lb/>
+Wir beſprechen dann noch Manches uͤber einem Glaſe Wein.</p></sp><lb/>
+<sp who="#DIA"><speaker><hi rendition="#c"><hi rendition="#g">Diagoras</hi>.</hi></speaker><lb/>
+<p>Deine Huld iſt allzuhuldvoll. Koͤnnt’ ich nicht ein andres Mal —</p></sp><lb/>
+<sp who="#POL"><speaker><hi rendition="#c"><hi rendition="#g">Polybus</hi>.</hi></speaker><lb/>
+<p>Nein, du leerſt auf deines Koͤnigs Wohl ſogleich den Goldpokal!</p><lb/>
+<stage><hi rendition="#c">(Beide ab.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Feſtlicher Saal in Theben</hi>.</hi></stage><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Oedipus</hi> auf dem Thron, um ihn die Großen des Reichs;<lb/>
+unter ihnen <hi rendition="#g">Tireſias</hi>.</hi></stage></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Im zehnten Jahr gebiet’ ich dieſen Reichen,<lb/>
+Seitdem befreit ich euch von jenem Gaſte,<lb/>
+Den durch ein Diſtichon ich zwang zu weichen,<lb/>
+Und mich vermaͤhlt der Koͤnigin Jokaſte:<lb/>
+Nun hoͤr’ ich, daß ein Jammer ohne Gleichen,<lb/>
+Trotz meiner Hut, auf dieſem Lande laſte,<lb/>
+Und daß gequaͤlt von Hungersnoth und Seuchen<lb/>
+Im ſchweren Joche die Thebaner keuchen.</p><lb/>
+<fw type="catch" place="bottom">D’rum</fw><lb/>
+<pb n="65" facs="#f0071"/>
+<p>Drum hab’ ich hier zuſammen euch geladen,<lb/>
+Um Rath zu ſchlagen, Maͤnnervolk und Greiſe!<lb/>
+Ob Einer wiſſe, wie der große Schaden<lb/>
+In’s Land gekommen und auf welche Weiſe?<lb/>
+Ein guter Rath iſt wie der goldne Faden<lb/>
+Der Ariadne fuͤr die Lebensreiſe,<lb/>
+Und wir Monarchen um ſo mehr beduͤrfen<lb/>
+Des guten Raths bei Planen und Entwuͤrfen.</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>So will denn ich zuerſt zu ſagen eilen,<lb/>
+Was mir im Geiſt gelungen auszuſpuͤren:<lb/>
+Durch welche Mittel jene Peſt zu heilen<lb/>
+Mit allen ihren Beulen und Geſchwuͤren,<lb/>
+Das weiß ich nicht; doch kann ich Kund’ ertheilen,<lb/>
+Wie ſie hereinbrach und durch welche Thuͤren,<lb/>
+Und fuͤr die Meinung muß ich mich entſcheiden,<lb/>
+Daß jene Sphinx die Quelle dieſer Leiden.</p><lb/>
+<p>Laͤngſt war ſie ſelbſt den Fels hinabgeſprungen,<lb/>
+Dank deinem Diſtichon und deinem Witze!<lb/>
+Eh’ noch die Nachricht durch die Welt gedrungen,<lb/>
+Daß ſolch ein Weſen hier in Theben ſitze,<lb/>
+Und jeder Saͤnger, welcher je geſungen,<lb/>
+Gerieth in ſolche Wuth und ſolche Hitze,<lb/>
+Hieherzukommen und den Vers zu ſchmieden,<lb/>
+Daß aus der Welt gewichen ſchien der Frieden!</p><lb/>
+<p>So lang’ ein Fuhrwerk war noch aufzutreiben,<lb/>
+Ein Gaul, ein Kuͤtſchchen oder nur ein Nachen,<lb/>
+So lang’s noch einiges Papier zum Schreiben,<lb/>
+<fw type="sig" place="bottom">v. Platen, der romant. Oedipus. 5</fw><lb/>
+<pb n="66" facs="#f0072"/>
+Noch etwas Tinte gab zum Verſemachen,<lb/>
+So wollte Keiner mehr zu Hauſe bleiben:<lb/>
+Die Greiſe kamen ſelbſt, die alterſchwachen,<lb/>
+Es riſſen ſich die Saͤuglinge vom Buſen<lb/>
+Der Muͤtter ab und ſaugten an den Muſen.</p><lb/>
+<p>Das Juͤdchen Raupel erſt begann zu ſingen,<lb/>
+Das itzt als Raupach traͤgt ſo hoch die Naſe:<lb/>
+Es ſuchte ſich zur Trunkenheit zu zwingen<lb/>
+Durch Schillers zehnmal abgebruͤhte Phraſe,<lb/>
+Und als der Rauſch ihm wollte nicht gelingen,<lb/>
+Da rief es aus: Ich taumle ſchon! Ich raſe!<lb/>
+Der Edle rief’s und eilt’ in ſeine Kammer,<lb/>
+Und ſchmiert’ ein Trauerſpiel im Katzenjammer.</p><lb/>
+<p>Sein Freund nur wollte nicht ſich herverfuͤgen,<lb/>
+Ihm war die matte Seele wie vernichtet,<lb/>
+Und ſeine Leier, nach ſo ſtolzen Fluͤgen,<lb/>
+Im Hof als Brennholz zierlich aufgeſchichtet:<lb/>
+Familienſchwaͤchen ſucht er jetzt zu ruͤgen,<lb/>
+Und ſpielt den Teufel, den er ſonſt gedichtet,<lb/>
+Indeß er ſelbſt zufrieden ruht und eiſern,<lb/>
+Zwar nicht auf Lorbeern, aber Birkenreiſern.</p><lb/>
+<p>Houwald hingegen kam herangefahren,<lb/>
+Ein alter Menſch, doch aͤhnlich einem jungen,<lb/>
+Ein Abcſchuͤtz von gereiften Jahren,<lb/>
+Der oft im Schweiß des Angeſichts geſungen;<lb/>
+Und hoͤchſt beſcheiden forſchend nach dem Wahren,<lb/>
+Fragt er den Leſer: Iſt es mir gelungen?<lb/>
+Die Gans, von welcher ich entlehnt die Kiele,<lb/>
+Spaziert ſie auch durch meine Trauerſpiele?</p><lb/>
+<pb n="67" facs="#f0073"/>
+<p>Nach dieſen ſah ich ganze Zuͤge wallen,<lb/>
+Wie koͤnnt’ ich nennen dir ſo viele Meiſter?<lb/>
+Und aus der Taſche guckte leider Allen<lb/>
+Ein ſchwerer Band von Poeſien, ein feiſter:<lb/>
+Man hoͤrte nichts als lauter Verſe knallen,<lb/>
+Und Alle rochen nach Papier und Kleiſter,<lb/>
+Und Alle wollten uns die Zeit verkuͤrzen,<lb/>
+Und ſuchten nebenbei die Sphinx zu ſtuͤrzen.</p><lb/>
+<p>Allein der Hauch, den dieſe Saͤnger hauchten,<lb/>
+Verpeſtete die Straßen und die Plaͤtze,<lb/>
+Auch kam dazu, daß viele Muſen ſchmauchten,<lb/>
+Und andre litten vollends an der Kraͤtze,<lb/>
+Wofuͤr ſie leider eine Salbe brauchten,<lb/>
+Die als mephitiſch ich vor vielen ſchaͤtze:<lb/>
+Und ſo in Kurzem roch es allenthalben<lb/>
+Nach ſchlechten Verſen, nach Taback und Salben.</p><lb/>
+<p>Im Norden kann man ſolchen Duft ertragen,<lb/>
+Und aus dem Norden kamen jene Muſen;<lb/>
+Bei uns jedoch fing Alles an zu klagen,<lb/>
+Und ſchalt ſie Kamtſchadalen und Tunguſen;<lb/>
+Doch ſchon begann die ſchnoͤde Peſt zu nagen<lb/>
+An mancher Bruſt, an manchem ſchoͤnen Buſen:<lb/>
+Es aͤchzten Maͤnner ſich zu todt und Weiber,<lb/>
+Doch unermuͤdlich blieben jene Schreiber!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Und ſolche Muſen fahren fort zu klexen,<lb/>
+Und wollen hier vielleicht noch Ru<supplied>hm</supplied> gewinnen?<lb/>
+Ihr habt noch nicht ſie mir verbrannt als Hexen,<lb/>
+Noch nicht geſtaͤupt als Beutelſchneiderinnen?<lb/>
+<fw type="sig" place="bottom">5*</fw><lb/>
+<pb n="68" facs="#f0074"/>
+Glaubt ihr, ich koͤnne, gleich den Verſifexen,<lb/>
+Verdrehungen um alles Gute ſpinnen,<lb/>
+Und Mittelmaͤß’ges bis zum Himmel heben?<lb/>
+Glaubt ihr, ich ſey der Boͤttiger von Theben?</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Wir glauben’s nicht; doch lange ſind zerſtoben<lb/>
+Die boͤſen Reime, die die Peſt verbreitet:<lb/>
+Uns kam Apoll, der uͤber goldne Globen<lb/>
+Im lichten Himmel auf- und niederſchreitet,<lb/>
+Zu Huͤlfe ſelbſt, er kam herab von oben,<lb/>
+Und zuͤrnte ſtreng, durch unſer Flehn geleitet,<lb/>
+Der Reimerzunft und ihren tollen Haͤndeln;<lb/>
+Denn Viele wagten ſelbſt mit Gott zu taͤndeln!</p><lb/>
+<p>Und ſchnell verwandelnd jene Dichterſchaaren,<lb/>
+Was ihm gelang mit allzuleichtem Siege,<lb/>
+Macht’ er zum Affen Den mit langen Haaren,<lb/>
+Und Den zum Trampelthier und Den zur Ziege,<lb/>
+Die Meiſten wurden Papagai’n und Staaren;<lb/>
+Houwaldchen ward in eine matte Fliege,<lb/>
+Und Raupel, der mit Trauerſtuͤcken handelt,<lb/>
+In einen Wiedhopf alſobald verwandelt.</p><lb/>
+<p>Doch iſt der Krankheitsſtoff im Volk geblieben,<lb/>
+Und immer neu beginnt der Tod zu wuͤthen:<lb/>
+Er ſichelt frech mit ihren vollſten Trieben<lb/>
+Die Jugend ab, mit ihren ſchoͤnſten Bluͤthen!<lb/>
+Und taͤglich hoͤren Herzen auf zu lieben,<lb/>
+Die geſtern noch von einem Feuer gluͤhten,<lb/>
+Das eine Welt umher entzuͤnden koͤnnte,<lb/>
+Wofern es ihnen das Geſchick vergoͤnnte.</p></sp><lb/>
+<pb n="69" facs="#f0075"/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Welch Mittel fruchten ſoll und welche Suͤhne,<lb/>
+Nur einer Goͤtterlippe kann’s entſchallen;<lb/>
+Drum alſogleich verlaß die Rednerbuͤhne,<lb/>
+Und flehend eile nach den Tempelhallen,<lb/>
+Wo jener Gott, der maͤchtige, der kuͤhne,<lb/>
+Der ſchoͤne, der melodiſche vor Allen,<lb/>
+Wo jener fromme Lautenſchlaͤger weilet,<lb/>
+Der Drachen toͤdtet und Gebrechen heilet!</p><lb/>
+<p>Und durch ein Lied auf ſeinem weichen Pſalter,<lb/>
+Das unſre Duͤrre, wie ein Strom, umflute,<lb/>
+Verkuͤnde gnaͤdig uns der Welterhalter<lb/>
+Das Opfer, das fuͤr dieſe Zeiten blute:<lb/>
+Wir leben nicht in jenem goldnen Alter,<lb/>
+Wo auf dem Siegerwagen ſchlaͤft das Gute,<lb/>
+Um welchen Lorbeern oder Myrten ſproſſen;<lb/>
+Denn dieſe Zeiten ſind aus Erz gegoſſen!</p><lb/>
+<stage><hi rendition="#c">(Er ſteigt mit raſchen Schritten vom Thron herab; <hi rendition="#g">Tireſias</hi><lb/>
+verlaͤßt den Saal, indem er dem <hi rendition="#g">Balthaſar</hi> begegnet.)</hi></stage></sp><lb/>
+<sp who="#BAL"><speaker><hi rendition="#c"><hi rendition="#g">Balthaſar</hi>.</hi></speaker><lb/>
+<p>Schlimme Botſchaft dir zu bringen, komm’ ich, Koͤnig, aus<lb/>
+Corinth.</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Fuͤhren wieder mich die Goͤtter durch ein neues Labyrinth,<lb/>
+Schwieriger vielleicht als jenes, das bei Nuͤrnberg ward<lb/>
+gepflanzt,<lb/>
+Wo der Pegnitz Blumenorden unter gruͤnen Buchen tanzt?</p></sp><lb/>
+<sp who="#BAL"><speaker><hi rendition="#c"><hi rendition="#g">Balthaſar</hi>.</hi></speaker><lb/>
+<p>Polybus iſt todt, geſtorben iſt Zelinde, ſeine Frau.</p></sp><lb/>
+<pb n="70" facs="#f0076"/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Dieſes Doppeljammers Anlaß, ſchnell erzaͤhl’ ihn und<lb/>
+genau!</p></sp><lb/>
+<sp who="#BAL"><speaker><hi rendition="#c"><hi rendition="#g">Balthaſar</hi>.</hi></speaker><lb/>
+<p>Es kam zuruͤck nach zehentauſend Tagen<lb/>
+Diagoras zum Hofpallaſt des Fuͤrſten;<lb/>
+Doch dieſer ſchien, voll eiferſuͤcht’ger Plagen,<lb/>
+Seit Jahren ſchon nach Jenes Blut zu duͤrſten,<lb/>
+Um ſeiner Koͤnigsehre Mantelkragen<lb/>
+Von jenen Faſern allen reinzubuͤrſten,<lb/>
+Die aus Zelindens Bett, ſo waͤhnt betrogen<lb/>
+Der Fuͤrſt Corinths, ihm waren angeflogen.</p><lb/>
+<p>In ſeine Zimmer laͤßt er Jenen winken,<lb/>
+Zu fragen ihn nach ſeinen Abenteuern:<lb/>
+Er ſucht mit Freundlichkeit den Haß zu ſchminken,<lb/>
+Durch Hoͤflichkeit der innern Wuth zu ſteuern,<lb/>
+Reicht ihm Confekt und gieht ihm Wein zu trinken,<lb/>
+Und pflegt bei jedem Schluck ihn anzufeuern;<lb/>
+Allein im Weine war ein Gift verborgen,<lb/>
+Das Jenen toͤdten ſoll am andern Morgen.</p><lb/>
+<p>Es hat verlaſſen kaum den Tiſch der Rache<lb/>
+Diagoras, ſo ſchrecklich hintergangen,<lb/>
+Als auf der Treppe bei dem Schlafgemache<lb/>
+Zelindens ihn Zelindens Frauen fangen:<lb/>
+Gebunden wird an Hand und Fuß der Schwache,<lb/>
+Auf’s Lager hingeſtreckt mit bleichen Wangen,<lb/>
+Und aus dem Buſen ihm das Herz geſchnitten:<lb/>
+O wie verderbt ſind heut zu Tag die Sitten!</p><lb/>
+<pb n="71" facs="#f0077"/>
+<p>Verſprochen hatte dem Gemahl Zelinde,<lb/>
+Wie ſehr ſie ſchuldlos waͤre, zu beweiſen,<lb/>
+Wann ihren Freund Diagoras die Winde<lb/>
+Zuruͤckgefuͤhrt von ſeinen weiten Reiſen;<lb/>
+Drum will ſie ſchenken ihm als Angebinde<lb/>
+Das Herz des Liebſten, und er ſoll es ſpeiſen;<lb/>
+Er ſoll die Probe, die ſie denkt zu liefern,<lb/>
+Hoͤchſteigen kau’n mit ſeinen beiden Kiefern!</p><lb/>
+<p>Sie ließ das Herz auf eine Weiſe kochen,<lb/>
+Wodurch das Zaͤhſte ſelbſt ſich laͤßt verdauen:<lb/>
+Der Koͤnig aß es ohne Herzenspochen,<lb/>
+Und ohne Vorgefuͤhl und ohne Grauen;<lb/>
+Da rief Zelinde: Was ſie dir verſprochen,<lb/>
+Es hat’s gethan die keuſcheſte der Frauen!<lb/>
+Gegeben hab’ ich dir die hoͤchſte Probe,<lb/>
+Nun liebe mich und meinen Muth belobe!</p><lb/>
+<p>Was war Lukretia gegen mich, die raſche,<lb/>
+Die doch dem Gatten blos zum Schmerz geſtorben?<lb/>
+Was Artemiſia, welche mit der Aſche<lb/>
+Des Ehgemahls ſich ihren Wein verdorben?<lb/>
+Doch iſt’s vergebens, daß ich Namen haſche,<lb/>
+Da gleichen Ruhm ſich Keine hat erworben:<lb/>
+Des Liebſten hat noch Keine ſich entledigt,<lb/>
+Wie ſehr die Nachwelt ihre Namen predigt!</p><lb/>
+<p>Auf daß du koͤnneſt mein Verdienſt ermeſſen,<lb/>
+Und meine ganze Tugend ganz erfaſſeſt,<lb/>
+So wiſſe denn, und woll’ es nie vergeſſen,<lb/>
+So wahr du jetzt aus Neubegier erblaſſeſt:<lb/>
+<pb n="72" facs="#f0078"/>
+Das kleine Ding, das eben du gegeſſen,<lb/>
+Es war das Herz des Mannes, den du haſſeſt,<lb/>
+Das Herz des liebenden Diagoras war’s!<lb/>
+Was, fragte wuͤthend ſie der Koͤnig, was war’s?</p><lb/>
+<p>Schon ſpringt er auf mit raſender Geberde,<lb/>
+Und reißt das Vorlegmeſſer aus der Scheide:<lb/>
+So ſei’n verflucht der Himmel und die Erde,<lb/>
+Denn keinen Anſpruch hab’ ich mehr an beide!<lb/>
+Der Himmel werde ſchwarz wie Pech, es werde<lb/>
+Die Erde weiß und farbenlos wie Kreide!<lb/>
+Das Herz, vernimm, das ich geſpeiſ’t ſo eben,<lb/>
+Es war mit Gift, es war mit Gift vergeben!</p><lb/>
+<p>Er ſpricht’s, indem er ſeine Meſſerſpitze<lb/>
+Der treuen Gattin durch den Buſen rennet,<lb/>
+Die ſterbend ſinkt von ihrem goldnen Sitze;<lb/>
+Ihm ſelbſt bereits im Eingeweide brennet,<lb/>
+Des Giftes Wirkung, ungewohnte Hitze.<lb/>
+Von dir jedoch, mein Oedipus, bekennet<lb/>
+Zelinde noch in ihren letzten Stunden,<lb/>
+Man haͤtte dich als Findelkind gefunden.</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Das iſt ein Vorfall, wahrlich, ohne Gleichen!</p></sp><lb/>
+<sp who="#BAL"><speaker><hi rendition="#c"><hi rendition="#g">Balthaſar</hi>.</hi></speaker><lb/>
+<p>Im Erdenſchooße liegt er nun begraben.</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>So wurden ſchon beſtattet jene Leichen?</p></sp><lb/>
+<sp who="#BAL"><speaker><hi rendition="#c"><hi rendition="#g">Balthaſar</hi>.</hi></speaker><lb/>
+<p>Sie ſind ein Raub der Motten und der Schaben.</p></sp><lb/>
+<pb n="73" facs="#f0079"/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Du geh’ und laß dir Trank und Speiſe reichen!</p></sp><lb/>
+<sp who="#BAL"><speaker><hi rendition="#c"><hi rendition="#g">Balthaſar</hi>.</hi></speaker><lb/>
+<p>Ich denke nicht, mich lange hier zu laben!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Du willſt zuruͤck ſchon nach Corinth dich wenden?</p></sp><lb/>
+<sp who="#BAL"><speaker><hi rendition="#c"><hi rendition="#g">Balthaſar</hi>.</hi></speaker><lb/>
+<p>Wo meine Herrſchaft modert, will ich enden.</p><lb/>
+<stage><hi rendition="#c">(Ab.)</hi></stage></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>So iſt die Herkunft mir in tiefe Schleier<lb/>
+Auf’s neu verhuͤllt, ich bin beraubt der Lieben,<lb/>
+Und dieſes Volk, dem einſt ich als Befreier<lb/>
+Erſchienen bin, ich ſeh’ es aufgerieben:<lb/>
+Warum erfreu’n wir uns am Klang der Leier,<lb/>
+Am Spiel des Gluͤcks, an tauſend ſuͤßen Trieben,<lb/>
+Wenn ſtets im Hintergrund die Furie lauert,<lb/>
+Und unſer Leben zwo Sekunden dauert?</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c">Die <hi rendition="#g">Vorigen. Jokaſte</hi>.</hi></stage></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Gemahl! Von etwas Tragiſchem Bericht erſtatten muß ich dir.</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>O wehe mir! Wie bin ich ſatt vom Hoͤren ſchon! O wehe mir!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>In wenig Worten blos beſteht’s: Es hat Tireſias gefragt<lb/>
+Den Gott, woher dieß Uebel ſtammt, und dieſer dann ihm<lb/>
+ausgeſagt,<lb/>
+<pb n="74" facs="#f0080"/>
+So lange wuͤthe hier die Peſt, bis daß du ſtrafſt die Moͤrder-<lb/>
+hand,<lb/>
+Die unſern Koͤnig einſt erſchlug, den Lajus, der geherrſcht<lb/>
+im Land.</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Und wer erſchlug ihn?</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Keiner kennt den Moͤrder; doch der Seher mag<lb/>
+Hinunterſteigen in die Gruft, da ſchon geſunken iſt der Tag,<lb/>
+Und meines vor’gen Mannes Geiſt citiren, und der Schatten<lb/>
+ſoll<lb/>
+Verkuͤnden, der’s am beſten weiß, wer ihn erſchlug ſo<lb/>
+ſchaudervoll,<lb/>
+Daß noch nach zehen Jahren uns Verderben bringt die ſchnoͤde<lb/>
+That;<lb/>
+Denn Lajus war ein braver Mann, und gar ein ſtrenger<lb/>
+Potentat!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>So ſei’s! Ihr Alle folget mir hinab zum Kirchhof, um ſo-<lb/>
+gleich<lb/>
+Wahrheit zu holen uns und Licht, und waͤr’ es aus dem<lb/>
+Todtenreich!</p><lb/>
+<stage><hi rendition="#right">(Ab mit den Uebrigen.)</hi></stage></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Mir iſt ſo bang und ſchauerlich, als kaͤm’ ich juſt aus einem<lb/>
+Stuͤck<lb/>
+Von Muͤllner oder ſonſt wovon, wo man betraͤchtlich weint,<lb/>
+zuruͤck;<lb/>
+Denn eben hatt’ ich ein Geſpraͤch mit unſerm Knechte<lb/>
+Melchior,<lb/>
+Zu forſchen nach des Lajus Tod; doch bracht’ er nichts Ge-<lb/>
+ſcheutes vor:<lb/>
+<pb n="75" facs="#f0081"/>
+Verlegen ſchien er und verbluͤfft, und dann geſtand er noch<lb/>
+zuletzt,<lb/>
+Daß unſern kleinen Sohn er einſt den Thieren gar nicht<lb/>
+vorgeſetzt,<lb/>
+Daß jenes Kind noch lebt vielleicht, was mich erſchreckt hat<lb/>
+und beſtuͤrzt,<lb/>
+Da ſtets das Schickſal tuͤckiſch iſt, ſobald es ſeine Knoten<lb/>
+ſchuͤrzt.</p><lb/>
+<stage><hi rendition="#right">(Ab.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Kirchhof mit Cypreſſen und Denkmaͤlern</hi>.</hi></stage><lb/>
+<stage><hi rendition="#c"><hi rendition="#g">Tireſias</hi>, den Zug fuͤhrend, <hi rendition="#g">Oedipus</hi> mit dem ganzen<lb/>
+Gefolge.</hi></stage></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Kommt heran, wir ſind zur Stelle, dieſen Huͤgel ſteigt herauf;<lb/>
+Aber tretet leiſe leiſe, wecket nicht die Todten auf!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Maͤnner, kommt mit euren Fackeln, bildet einen Kreis<lb/>
+umher!</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Leiſe mit den Fackeln, leiſe; denn erwachen ſoll nur Er!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Welch ein Vorgefuͤhl befaͤllt mich! Mir im Herzen ſtarrt wie<lb/>
+Eis<lb/>
+Jeder Tropfe Blutes!</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Wandelt leiſe!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Bildet einen Kreis!</p></sp><lb/>
+<pb n="76" facs="#f0082"/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Wecket nicht die Todten!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Wehe! Duͤſter mit Gewoͤlk’ umhing<lb/>
+Sich der ganze Himmel.</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Leiſe!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Bildet einen großen Ring!</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Steig’ empor, o Geiſt des Lajus! Wenn dem Tode was<lb/>
+entſchluͤpft,<lb/>
+Wenn’s ein Band giebt, das die Schatten an des Tags Ge-<lb/>
+bilde knuͤpft,<lb/>
+Wenn die Seele nicht vergebens nach dem Wahrheitsfunken<lb/>
+forſcht,<lb/>
+Wenn ein Theilchen deines Weſens, nur ein Theilchen un-<lb/>
+vermorſcht:<lb/>
+Bei den Wolken, uͤber de<supplied>ne</supplied>n ewig jauchzt der Goͤtter Chor,<lb/>
+Bei der Erde, voll von Moder, ſteige, ſteige, ſteig’ empor!</p><lb/>
+<stage>(Die Gewoͤlke ſenken ſich, die Fackeln verloͤſchen, der <hi rendition="#g">Geiſt</hi> des<lb/>
+<hi rendition="#g">Lajus</hi> erſcheint.)</stage></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Wehe! Welch Geſpenſt! Ich kenn’ es! Mir vor Allen winkt<lb/>
+es zu!<lb/>
+Mir, ich kenn’ es!</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Leiſe, Leiſe!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Wer erſchlug dich, Alter!</p></sp><lb/>
+<pb n="77" facs="#f0083"/>
+<sp who="#GEI"><speaker><hi rendition="#c"><hi rendition="#g">Geiſt des Lajus</hi>.</hi></speaker><lb/>
+<p>Du!</p><lb/>
+<stage>(Er verſchwindet, die Fackeln entzuͤnden ſich.)</stage></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Wehe mir, wie fruͤh vollendet ſeh’ ich meiner Tage Lauf!<lb/>
+Ich erſchlug ihn.</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Leiſe!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Weh mir!</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Wecke nicht die Todten auf!</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c">Die <hi rendition="#g">Vorigen. Jokaſte</hi>.</hi></stage></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>O Jokaſte! Was geſchehn iſt, wurde klar, und was zu thun:<lb/>
+Deinen Gatten, ich erſchlug ihn, uͤbe ſelbſt die Rache nun!<lb/>
+Nimm ein Schwert, und aus der Scheide zieh’s mit eigner<lb/>
+Hand heraus!<lb/>
+Meine nackte Bruſt, du ſiehſt ſie!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Wehe mir! Die Fledermaus!</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Welch ein neues Uebel?</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Wahrgeſprochen hat des Sehers Mund:<lb/>
+Daß ich dich, ich dich geboren, thut das Muttermal mir kund!<lb/>
+<pb n="78" facs="#f0084"/>
+Unſer Sohn, du biſt es, den wir, als er kaum den Tag geſehn,<lb/>
+Ausgeſetzt als Fraß den Thieren; doch es ſollte nicht geſchehn!<lb/>
+Man verſchonte dich, dem Schickſal ließ man, uns zu ſtrafen,<lb/>
+Raum;<lb/>
+Doch ich eile fort und ſchleunig haͤng’ ich mich an einen<lb/>
+Baum.</p><lb/>
+<stage>(Sie erhenkt ſich im Hintergrunde.)</stage></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Jammer uͤber Jammer!</p></sp><lb/>
+<sp who="#JOK"><speaker><hi rendition="#c"><hi rendition="#g">Jokaſte</hi>.</hi></speaker><lb/>
+<p>Houwald!</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Horch! Sie rief mit letzter Kraft<lb/>
+Ihrem Houwald, offenbarend jene tiefe Leidenſchaft<lb/>
+Fuͤr den Saͤnger, die ſie lebend ſtets in ihrer Bruſt verbarg.</p></sp><lb/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Maͤnner Thebens, loͤſcht die Fackeln, bringt herbei mir einen<lb/>
+Sarg!</p></sp><lb/>
+<sp who="#TIR"><speaker><hi rendition="#c"><hi rendition="#g">Tireſias</hi>.</hi></speaker><lb/>
+<p>Gluͤcklich die hier unten ſchlummern, rings umher verſcharrt<lb/>
+im Sand:<lb/>
+Wenn die Erde droͤhnt und zittert, halten ſie dem Stoße<lb/>
+Stand;<lb/>
+Doch auf ihrer Oberflaͤche bebt der Menſch auf ſeinem Sitz,<lb/>
+Ueber’m Haupt ihm bruͤllt der Donner, ihm um’s Auge zuckt<lb/>
+der Blitz!<lb/>
+Oedipus! Dein Jammerſchickſal nicht verſchließ’ es tief in’s<lb/>
+Herz,<lb/>
+Rede, gieb ihm Luft in Worten, und ergieße deinen Schmerz!</p><lb/>
+<stage>(Bei den letzten Worten des <hi rendition="#g">Tireſias</hi> wird der Sarg gebracht<lb/>
+und in die Mitte der Scene geſtellt.)</stage></sp><lb/>
+<pb n="79" facs="#f0085"/>
+<sp who="#OED"><speaker><hi rendition="#c"><hi rendition="#g">Oedipus</hi>.</hi></speaker><lb/>
+<p>Ich ſchaudre wechſelnd vor mir ſelbſt und ſtaune,<lb/>
+Als ob wir Alle bloße Traͤume waͤren:<lb/>
+Da doch der Menſch nur ein Geſchoͤpf der Laune,<lb/>
+So ſollten Weiber lieber nicht gebaͤren!<lb/>
+Wo iſt des Ruhms allmaͤchtige Poſaune,<lb/>
+Die meinen Namen mitgetheilt den Sphaͤren?<lb/>
+Wo ſind die Harfen, welche ſiebentoͤnig<lb/>
+Mich einſt geprieſen als den groͤßten Koͤnig?</p><lb/>
+<p>Ich zwang die Sphinx, vor der ich Alle wanken<lb/>
+Und ſtuͤrzen ſah; doch ich beſtand die Proben,<lb/>
+Und das, was Vielen ward zu Dornenranken,<lb/>
+Hab’ ich zum Roſendiadem verwoben;<lb/>
+Und waͤhrend tauſend Nachen u<gap unit="chars" quantity="4"/>ſanken,<lb/>
+Ward ich vom leichten Element gehoben,<lb/>
+Durchſchwamm die Fluthen mit behender Schnelle,<lb/>
+Und mich umtanzte voll Muſik die Welle!</p><lb/>
+<p>Ich ging ein Juͤngling, ungekannt von Allen<lb/>
+Wohin, ſo waͤhnt’ ich, mich die Pythia ſchickte,<lb/>
+Und ließ die Her<gap unit="chars" quantity="1"/>ſcherworte kaum erſchallen,<lb/>
+Als jedes Haupt ſich beugte mir und nickte;<lb/>
+Doch war ich ſchon dem Untergang verfallen,<lb/>
+Eh’ ich den Glanz der Sonne noch erblickte,<lb/>
+Und was ein Gott mir ſtatt des Seins gegeben,<lb/>
+Ein Zweifel war es zwiſchen Tod und Leben.</p><lb/>
+<p>Nun aber weiß ich, wem ich angehoͤre,<lb/>
+Als Kind zum Raube ſchon beſtimmt den Thieren:<lb/>
+Es ſagen mir’s die ſtummen Trauerfloͤre,<lb/>
+Die dieſen Sarg zu meinen Fuͤßen zieren,<lb/>
+<pb n="80" facs="#f0086"/>
+Es rufen mir’s der Sterne goldne Choͤre,<lb/>
+Und was ich muß, das will ich auch verlieren,<lb/>
+Will ohne Schuld, doch ſolcher Thaten Thaͤter,<lb/>
+Lebendig ſteigen in die Gruft der Vaͤter!</p><lb/>
+<stage>(Er legt ſich in <choice><sic>deu</sic><corr>den</corr></choice> Sarg; waͤhrend der Deckel geſchloſſen wird,<lb/>
+faͤllt der Vorhang.)</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[81]" facs="#f0087"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#b"><hi rendition="#g">Fuͤnfter Akt</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Das Publicum, Chor der Haidſchnucken</hi>.</hi></stage><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Was haͤltſt du, Freund, von dieſem neuen Trauerſpiel?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>O zum Entſetzen meiſterhaft! Zum Freſſen ſchoͤn!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Wie antiſophokleiſch er’s behandelt hat!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Anachronismen eingeſtreut zu tauſenden!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>So ganz unendlich tragiſch! Alle ſterben faſt.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Bis auf die zwei Hebammen.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Dieſe hat gewiß<lb/>
+Die boͤſe Peſt mit weggerafft.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Wie aber kam<lb/>
+Die Sphinx bis in’s Orcheſter? Dieſes that ſie, ſcheint’s,<lb/>
+Auf eigne Fauſt?</p></sp><lb/>
+<fw type="sig" place="bottom">v. Platen, der romant. Oedipus. 6</fw><lb/>
+<pb n="82" facs="#f0088"/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Ja, leider war die treffliche<lb/>
+Schauſpielerin, der Rolle wegen, aufgebracht!<lb/>
+Sie ſtellte ſonſt Liebhaberinnen, zaͤrtliche<lb/>
+Koketten dar, und ſollte nun ein heidniſches<lb/>
+Geſchwaͤnztes Ungeheuer ſpielen; dieſerhalb<lb/>
+Sprach aus dem Stegreif jene grobe Rede ſie.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Doch ihr Coſtuͤm war ausgeſucht! Welch himmliſcher<lb/>
+Theaterſchneider!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Allerdings! Doch iſt er auch<lb/>
+Weit beſſer, Freund, als bloße Dichter, honorirt,<lb/>
+Und Wem da viel gegeben iſt, von Dieſem wird<lb/>
+Auch viel gefordert.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Aber ſieh! Wer naht ſich uns?</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Ein Exilirter aus Berlin, er heißt Verſtand.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Ihn hab’ ich nennen hoͤren, aber nie <choice><sic>geſehu</sic><corr>geſehn</corr></choice>.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Die Vorigen, der Verſtand</hi>.</hi></stage></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Du haſt das hohe Meiſterwerk mit abgehorcht:<lb/>
+Nun gieb ein Urtheil!</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Alles ſchier ſo lappenhaſt<lb/>
+Geflickt, und eins an’s Andre nur ſo hingenaͤht,<lb/>
+<pb n="83" facs="#f0089"/>
+Daß ich den Buͤhnenſchneider fuͤr den wirklichen<lb/>
+Verfaſſer halte.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Sagt’ ich nicht daſſelbe juſt?<lb/>
+Wie herrlich war der Koͤnigin Jokaſte Schlepp!<lb/>
+Kind’s Frack allein war ſchmutzig.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Weil der Frack es war,<lb/>
+Den ein Pygmaͤencorporal getragen einſt,<lb/>
+Von eines Kranichs Blut beſpruͤtzt! Die blutige<lb/>
+Tragoͤdiendichtung aber iſt von Nimmermann.</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Ich will es glauben, ausgenommen Einzelnes,<lb/>
+In keinem Fall die Verſe; doch der Plan gewiß.<lb/>
+Auch hat vielleicht ein luſtiger Vogel hier und dort<lb/>
+Was Witziges eingeflochten, unterhaltender<lb/>
+Das lahme Spiel zu machen.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Alſo kennſt du nicht<lb/>
+Die Mode, daß man Tragiſches jetzt und Komiſches<lb/>
+Naturgemaͤß zuſammenſchachtelt insgemein,<lb/>
+Weil ja das Menſchenleben ſelbſt buntſchaͤckig iſt?</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>D<supplied>a</supplied>s Leben freilich; aber ſicher nicht die Kunſt.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Oh! Kritiſiren, lieber Herr, iſt federleicht,<lb/>
+Doch Beſſermachen ſchwierig.</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Ja, ich wuͤnſchte ſelbſt,<lb/>
+Daß Einer kaͤme, welcher ganz auf praktiſchem<lb/>
+Weg euren Stuͤmpern zeigte, daß ſie Stuͤmper ſind;<lb/>
+<fw type="sig" place="bottom">6*</fw><lb/>
+<pb n="84" facs="#f0090"/>
+Denn nie geglaubt noch haben ſie’s den Kritikern.<lb/>
+Auch wird Kritik noch ſtuͤmperhafter ausgeuͤbt,<lb/>
+Und meiſt von Dichterlingen ſelbſt. Verruͤcktes wird<lb/>
+Gemuͤthlich tief, Gedankenloſes klar genannt,<lb/>
+Und Plattes hoͤchſt natuͤrlich; aber dieſes Lob<lb/>
+Iſt nicht das Schlimmſte! Denn es wird Vorzuͤgliches<lb/>
+Zugleich herabgewuͤrdiget durch den leichten Kniff,<lb/>
+Zu ſagen: Dieſes fehlt dem Werk, und freilich muß<lb/>
+Gar Vieles jedem Werke fehlen, freilich ganz<lb/>
+Unmoͤglich iſt es, Calderon und Aeſchylus,<lb/>
+Moliere und Ariſtophanes zugleich zu ſein!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Es ſpricht der Mann geſcheuter, als ich’s dachte mir,<lb/>
+Und freigeſinnt faſt macht er mich: Ich glaubte ſonſt,<lb/>
+Daß Alles, was ein Recenſent abdrucken laͤßt,<lb/>
+Buchſtaͤblich wahr ſei.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Schweige nun! Es naͤhert ſich<lb/>
+Der Stolz des Weltalls.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Nimmermann?</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Er iſt es ſelbſt!</p><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c">Die <hi rendition="#g">Vorigen. Nimmermann</hi>.</hi></stage></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Auf, auf, o Genoſſen! Den Saͤnger begruͤßt!<lb/>
+Er bezwingt die Natur, fuͤgt Steine dem Bau,<lb/>
+Lehrt Baͤren den Tanz! Im Erſchaffenen rings<lb/>
+<pb n="85" facs="#f0091"/>
+Kommt nichts Ihm gleich; es beſiegt ſein Lied<lb/>
+Der Cicade Gezirp und den Unkengeſang<lb/>
+Und des Kuckucks reiche Gedanken!</p><lb/>
+<p>Auf, auf, o Genoſſen! Er kommt! O bedenkt,<lb/>
+Da ein Schoͤpfer er ſelbſt, was bieten wir ihm?<lb/>
+Ach! Wuͤrde ſofort des Gehegs Sumpfteich<lb/>
+Ein befruchtender Strom, und ein Lorbeerwald<lb/>
+Dieß Haidegewaͤchs, und die Wolken umher<lb/>
+Babyloniſche hangende Gaͤrten!</p><lb/>
+<p>Auf, auf, o Genoſſen! Er wandelt heran<lb/>
+Lichtſchoͤn wie Apoll, der Koͤcher und Pfeil<lb/>
+Im Gebuͤſch ablegt, und die Leier bezieht<lb/>
+Mit Saiten! Es ſpuͤhlt der kaſtaliſche Quell<lb/>
+An die Knoͤchel des Gotts, und es ſchleicht Sehnſucht<lb/>
+In die liebliche Seele der Muſen!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Mit Dank empfang’ ich wohlverdienten Lobtribut.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Dich ſelber uͤbertrafſt du nun, das herrliche,<lb/>
+Superlativiſche Trauerſpiel Cardenio,<lb/>
+Und manches andere Kraftprodukt, durch neidiſche<lb/>
+Kritiken blos verſpottet.</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Dieſe nannten es<lb/>
+Hochſchule fuͤr die Wiſſenſchaft der Gaͤhnerei,<lb/>
+Des Mittelmaͤßigen Mittelmeer, und aͤhnliche<lb/>
+Verbrauchte Bilder.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Und du ſelbſt? Was denkſt du denn?</p></sp><lb/>
+<pb n="86" facs="#f0092"/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Anmaßend waͤr’ ich, wollt’ ich noch urtheilen, wo<lb/>
+Deutſchland entzuͤckt gerichtet!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Zwar veracht’ ich dich;<lb/>
+Doch zuͤrnt dem armen Knaben nicht der hoͤchſte Gott,<lb/>
+Der ihm das Rauchfaß knieend bei der Meſſe ſchwingt;<lb/>
+Ich laſſe mir dein Lob gefallen: Raͤuchere!</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Wer kann erſchoͤpfen dein Verdienſt?</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Ich bin zugleich<lb/>
+Poet und Kriminaljuriſt und Recenſent,<lb/>
+Von drei Talenten eine Trippelallianz!</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Wie iſt der Staat zu beneiden, dem du dergeſtalt<lb/>
+Nach allen Seiten dienſt!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Es iſt der preußiſche.</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Gluͤckſeliges Oeſtreich!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Bin ich nicht ein großer Menſch?<lb/>
+Berlin vergoͤttert meine Kunſt, und meiner Kunſt<lb/>
+Kritiken ſtehn im Hegeliſchen Wochenblatt,<lb/>
+Als Pfand von ſeinem Werthe. Dort erklaͤrt’ ich auch,<lb/>
+Weshalb der getaufte Heine, mein Mitſtrebender,<lb/>
+Kein Byron blos mir, aber ein Petrarca ſcheint.</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>(Du ganz completter Gimpel!) Mir ein Pindarus.</p></sp><lb/>
+<pb n="87" facs="#f0093"/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Ihn nennen haͤ<supplied>tte</supplied> ich duͤrfen auch den Pindarus<lb/>
+Vom kleinen Stamme Benjamin; er nannte mich<lb/>
+Des jetzigen Zeitabſchnittes erſten Tragiker!</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>O Leſſing! Leſſing! Drehe dich im Grab herum!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Nie hoͤrt’ ich dieſen Namen noch.</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>O Winckelmann!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Was fuͤr Pedanten rufſt du an? Wer ſind ſie denn?</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Mein großer Klopſtock!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Welch ein Kleeblatt nennſt du da?</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Ein ſchoͤnes Kleeblatt; aber laͤngſt dahingewelkt!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Faſt ahn’ ich, welcher Dichterſchule, Nuͤchterner,<lb/>
+Du Huldigung darbringeſt! Deiner Lieblinge<lb/>
+Modernſter iſt gewißlich jener Duͤrftige,<lb/>
+Von welchem laͤngſt behauptet meine Xenien,<lb/>
+Daß er die Verſe, die er ſchreibt, vomire blos?<lb/>
+Gedankenarmuth, denn ich hab’ ihn arm genannt,<lb/>
+Verbirgt er hinter Kuͤnſtlichkeit!</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Der Vogel, der<lb/>
+Sein Neſt erbaut im zugeſchornen Buchenlaub,<lb/>
+Bedient ſich deſſen als Natur.</p></sp><lb/>
+<pb n="88" facs="#f0094"/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Wer’s nicht vermag,<lb/>
+Der alſo, glaubſt du, koͤnne keine Neſter bau’n?</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Ich zweifle d’ran. Weitſchweifigen Halbtalenten ſind<lb/>
+Praͤciſe Formen, Aberwitz, Nothwendigkeit<lb/>
+Iſt dein geheimes Weihgeſchenk, o Genius!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Ich glaube gar, du ziehſt mir jenen graͤflichen<lb/>
+Und herrſchbegierigen Dichter vor, Ariſtokrat?</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Noch hab’ ich niemals Anarchie beguͤnſtiget,<lb/>
+Und anzugreifen einen weit Gewaltiger’n,<lb/>
+Iſt eine That, die ſicherlich Verderben bringt.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Sich breit zu machen, wagen Exilirte noch?<lb/>
+Die Pietiſten haben dir Berlin verpoͤnt<lb/>
+Mit Fug und Recht! Wer kuͤmmert um Verſtand ſich noch?<lb/>
+Hat unſer Hoffmann, jener große Callotiſt,<lb/>
+Dich nicht magnetiſch eingelullt, mit Fug und Recht?<lb/>
+Die Schuͤler Hegels bieten dir ſpitzfindiglich<lb/>
+Die Spitze dar: Wer kuͤmmert um Verſtand ſich noch?<lb/>
+Mich lies, Fouqué ſtudiere dann, und ſaͤmmtliche<lb/>
+Franz Horn- Zigeunerzeunedeutſch- Berlinerei:<lb/>
+Wir haben keinen Theil an dir im Preußiſchen!<lb/>
+Aus meinen Augen weiche nur, werth biſt du nicht<lb/>
+Mich anzuſchau’n! Wer kuͤmmert um Verſtand ſich noch!</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Was faͤllt dir ein? Bezaͤhme deinen Uebermuth!<lb/>
+Nicht kennſt du mich, ſo ſcheint es. Muß ich zeigen dir,<lb/>
+Aufknoͤpfend meinen Ueberrock, den Ordensſtern,<lb/>
+<pb n="89" facs="#f0095"/>
+Wie die Fuͤrſten thun in Kotzebue’s Komoͤdien?<lb/>
+Zwar als Verbannter ſchleich’ ich jetzt allein umher;<lb/>
+Doch vom Exil abruft mich einſt das deutſche Volk:<lb/>
+Schon jetzt erklingt im Ohre mir ſein Reueton,<lb/>
+Schon zerrt es mich am Saume meines Kleids zuruͤck!<lb/>
+Dir aber, welchen ſchonend ich behandelte,<lb/>
+Dir ſchwillt der Kamm gewaltig, bitter h<supplied>oͤ</supplied>hnſt du mich,<lb/>
+Und haͤltſt fuͤr deines Gleichen mich, Betrogener!<lb/>
+Fuͤr jener Leutchen Einen, welche ſonſt vielleicht<lb/>
+Um deinen Schreibtiſch draͤngten ſich, beklatſchten dich,<lb/>
+Von dir mit Schwulſt ſich ſtopfen ließen, Gaͤnſen gleich.<lb/>
+Unſeliger, der du heute nun erfahren mußt,<lb/>
+Welch einen Schatz beherzter Ueberlegenheit,<lb/>
+Biegſamer Kraft im Vorgefuͤhl des Bewaͤltigens,<lb/>
+Welch eine Suada dichteriſcher Redekunſt<lb/>
+In meines Weſens Weſenheit Natur gelegt!<lb/>
+Denn jeden Hauch, der zwiſchen meine Zaͤhne ſich<lb/>
+Zur Lippe draͤngt, begleiten auch Zermalmungen!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Was thuſt du? Wehe! Hoͤhne nicht das Kraftgenie!</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Du blickſt herab veraͤchtlich auf Geſcheutere,<lb/>
+Als Pfuſcher pfuſchend, ſpielſt du noch den Kritikus;<lb/>
+Doch ſchelten darf nicht Jeder, das bedenke du!<lb/>
+Denn ſelbſt die Schickſalsnymphen will ich lieber ſehn,<lb/>
+Als dich, den Eimer fuͤllend am Poetenborn:<lb/>
+Du biſt die Rachel, welche nur die Schafe traͤnkt!<lb/>
+Und waͤre Muͤllners Muſengott ein Satyr auch,<lb/>
+Mit dir verglichen iſt er ein Hyperion,<lb/>
+So wahr der Sohn der Maja mir die Laute gab,<lb/>
+Ja, ſelbſt die Pfeife, die den Argus eingewiegt!<lb/>
+<pb n="90" facs="#f0096"/>
+Du biſt allein ein ganzer Tollhaushelikon,<lb/>
+Der neun und neunzig Muſen hat zu Naͤrrinen;<lb/>
+Der langen Weile nie verſiechender Quell entſpringt,<lb/>
+Wo nur den Boden ſtampfen mag dein Pegaſus;<lb/>
+Wie Holperpfloͤcke pflanzeſt deine Verſe du,<lb/>
+Auf daß du ſelbſt im Rauſche d’ruͤber ſtolpereſt,<lb/>
+Wofern der Kraͤtzer, den ich biete, trunken macht:<lb/>
+Komm, thu’ Beſcheid mir, Bruder! Ich kredenze dir’s!<lb/>
+Wie ſchaͤumt in meinem Becher dir der herbe Spott!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Weh! Schone deine Gurgel, Unerſaͤttlicher!</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Und kraft der Vollmacht, welche mir die Kunſt verlieh,<lb/>
+Und kraft des Scherzes, welchen ich bemeiſtere,<lb/>
+Der unter meinen Haͤnden faſt erhaben klingt,<lb/>
+Als waͤr’s der Andacht hoher Ernſt, und kraft der Kraft<lb/>
+Zerſtoͤr’ ich dich, und gebe dich dem Nichts anheim!<lb/>
+Zwar waͤre, dich vernichten, eine kleine That;<lb/>
+Allein geſalbt zum Stellvertreter hab’ ich dich<lb/>
+Der ganzen tollen Dichterlingsgenoſſenſchaft,<lb/>
+Die auf dem Hackbrett Fiebertraͤume phantaſirt,<lb/>
+Und unſere deutſche Heldenſprache ganz entweiht;<lb/>
+Ja, gleichwie Nero wuͤnſcht’ ich euch nur Ein Gehirn,<lb/>
+Durch einen einzigen Witzeshieb zu ſpalten es,<lb/>
+Um aller Welt zu zeigen eine taube Nuß,<lb/>
+Mit ungenießbar’m Floskelmoder angefuͤllt.<lb/>
+Verſtumme, ſchneide lieber dir die Zunge weg,<lb/>
+Die laͤngſt zum Aergerniſſe dient Vernuͤnftigen!<lb/>
+An deiner Rechten haue dir den Daumen ab,<lb/>
+Mitſammt dem Fingerpaare, das die Feder fuͤhrt:<lb/>
+An Geiſt ein Kruͤppel, werde bald es koͤrperlich!</p></sp><lb/>
+<pb n="91" facs="#f0097"/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Flieh, Nimmermann, die moͤrderiſchen Trimeter!</p></sp><lb/>
+<sp who="#VER"><speaker><hi rendition="#c"><hi rendition="#g">Verſtand</hi>.</hi></speaker><lb/>
+<p>Wohin du fliehn willſt, nimmermehr entrinnſt du doch,<lb/>
+Und gleich Armeen umzingeln dich Verwuͤnſchungen!<lb/>
+Sachwalter giebt es keine fuͤr den Verſifer,<lb/>
+Und aus dem Schooße ſchuͤtteln dich die Wenigen,<lb/>
+Die noch geneigt dir waren, wie gemeinen Staub!<lb/>
+In meinen Waffen ſpiegle dich, erkenne dich,<lb/>
+Erſchrick vor deiner Haͤßlichkeit und ſtirb ſodann!<lb/>
+Ich bin im Jambenſchleudern ein Archilochus,<lb/>
+Ein Zeus in meinem Sylbenfall, ein Dounerer:<lb/>
+Indem ſie treffen, blenden meine Keile dich,<lb/>
+Von mir getoͤdtet, gaffſt du noch Bewunderung!</p><lb/>
+<stage><hi rendition="#right">(Ab.)</hi></stage><lb/>
+<milestone unit="section" rendition="#hr"/> <stage><hi rendition="#c"><hi rendition="#g">Nimmermann. Publicum. Chor</hi>.</hi></stage></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>O Grobian!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>O Grobian!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>O Grobian!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Doch ſchien mir ziemlich wahr zu ſein, was Jener ſprach.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Auch ich empfinde manichfach mich umgeſtimmt;<lb/>
+Nur ſprach er, duͤnkt mich, viel zu viel, und uͤberdieß<lb/>
+War dieſer Menſch handfeſter noch, handgreiflicher,<lb/>
+Als ein Tyrolerjaͤger aus dem Zillerthal.</p></sp><lb/>
+<pb n="92" facs="#f0098"/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Tyrol? Wie wird mir! Jucken mich Tragoͤdien?</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Gieb acht, er bruͤtet wieder was Dramatiſches!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Der Himmel hangt voll Geigen, voll abſcheulicher,<lb/>
+Fuͤnffuͤßiger Jamben uns! O ſeht!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Wie ruͤttelt ihn<lb/>
+Begeiſterung! Wie ſcheint er außer ſich zu ſein!<lb/>
+Weswegen kratzt er aber auf dem Schaͤdel ſich?</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>In ſeinen Lorbeern niſtet jenes kluge Thier,<lb/>
+Das wohl verſteht zu ſchaͤtzen einen Mann von Kopf.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>O mein Andreas Hofer, der erſchoſſen wird!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Erſchoſſen? Nicht doch! Schone dieſen Ehrenmann!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Nicht laſſ’ ich ſelbſt erſchießen ihn, ein Engel thut’s:<lb/>
+Schon warf in eine Felſenſchlucht das Mordgewehr,<lb/>
+Vom Kriege matt, der Bauerngeneral Tyrols;<lb/>
+Ein Engel hohlt es aber aus der Schlucht zuruͤck,<lb/>
+Und legt’s dem Helden wiederum zur Seite hin,<lb/>
+Um ihn zu Grund zu richten. Vom Hiſtoriſchen<lb/>
+Abweichen darf ich nimmermehr!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Der Engel ſoll<lb/>
+Zum Teufel gehn mit ſeiner Scheindienſtfertigkeit!</p></sp><lb/>
+<pb n="93" facs="#f0099"/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Es iſt ein Engel, den man auch weglaſſen kann,<lb/>
+Wie mir es vorſchwebt darzuthun im Vorbericht.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Doch duͤnkt es mich entſetzlich, ohne Geld und Paß,<lb/>
+Verfolgt von Gaſſenjungen, durch die Welt zu ziehn,<lb/>
+Als weggelaſſener Engel eines Trauerſpiels!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Ich folge treu den reſpektiven Zeitungen<lb/>
+Damaliger Zeit, mich haltend an’s Hiſtoriſche,<lb/>
+Beginnend, eurem Dichterling Horaz zu Trotz,<lb/>
+Mit Leda’s Ei die Puſterthaler Ilias.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Doch werden dann behaupten unſre Kritiker,<lb/>
+Daß die Erfindungsgabe ganz und gar gebricht,<lb/>
+Wenn lediglich den unverdauten Stoff du reichſt;<lb/>
+Denn oͤfters hoͤrt’ ich ſagen uͤber ein Trauerſpiel,<lb/>
+Es waͤre mit Begebenheiten vollgepropft,<lb/>
+Doch ganz erfindungslos.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Dann aber weißt du nicht,<lb/>
+Was als Erfindung ruͤhmen uns Romantiker:<lb/>
+Hiſtoͤrchen, Abentheuer, plattes Volksgewaͤſch,<lb/>
+Statt folgerechten Gegenſtands Entwickelung.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Was ſeh’ ich? Oder beſſer noch, was riech’ ich da?<lb/>
+Es wehet aus Tyrol mir ein verloderter<lb/>
+Papiergeruch! O wehe mir! Die Depeſchen ſind<lb/>
+Zu Staub verbrannt, an denen Hofers Leben hing!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Was riecht er denn? Jetzt ſcheint er ganz verzuͤckt zu ſein.</p></sp><lb/>
+<pb n="94" facs="#f0100"/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Treuloſes Weib! Verraͤthſt du deinen Ehemann,<lb/>
+Dem wandelbar’n Franzoſenoffizier zulieb?<lb/>
+Untreu verlaͤßt auch dieſer dich; doch kehrt er ein<lb/>
+In deine Huͤtte wiederum, du aber brennſt<lb/>
+Ihm uͤber’m Kopf das Haus zuſammen, waͤhrend er<lb/>
+Das Schreiben traͤgt in ſeiner Ficke Heiligthum!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Jetzt ſcheint er mir verruͤckt zu ſein!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>O ſchaͤndliche<lb/>
+Depeſchenmordbrandehebruchstyrolerinn!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Wabnſinn umflammt den Zirkel ſeines Dichteraugs!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Weh! Offen geſteht’s des Geſangs Wehmuth:<lb/>
+Der beruͤhmte Poet iſt uͤbergeſchnappt!<lb/>
+Nun klage das All, nun werfe Natur<lb/>
+Nachtfloͤre des Tods<lb/>
+Auf jede Geburt des Fruͤhlings!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Faßbinder, bindet wieder mir ein Tintenſaß,<lb/>
+Meins iſt vor Schmerz zerſprungen! Meine Thraͤne fließt!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Schon plaͤtſchert herab ſein Zaͤhrenerguß,<lb/>
+Und dem Haidegefild droht Suͤndfluthſchmach!<lb/>
+Wo entdeck’ ich des Heils noachidiſchen Kahn?<lb/>
+Wo verheißt Troſt uns<lb/>
+Ein poetiſcher Regenbogen?</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Dieß ſing’ ich dir, mein Heine, Samen Abrahams!</p></sp><lb/>
+<pb n="95" facs="#f0101"/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Er ſtirbt, und wimmernd fleht er ſchon Freund Hein herbei!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Du irrſt, er ruft Freund Hein ja nicht, den herrlichen<lb/>
+Petrark des Lauberhuͤttenfeſts beſchoͤrt er blos.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Du biſt der erſten Dichter einer, ſagſt du ſelbſt!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Wahr iſt’s, in einem Liedelein behauptet er’s;<lb/>
+Doch keiner glaubt’s, wie’s immer bei Propheten geht.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Welch einen Anlauf nimmſt du, Synagogenſtolz!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Gewiß, es iſt dein Buſenfreund des ſterblichen<lb/>
+Geſchlechts der Menſchen Allerunverſchaͤmteſter.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Sein Freund, ich bin’s; doch moͤcht’ ich nicht ſein Liebchen ſeyn;<lb/>
+Denn ſeine Kuͤſſe ſondern ab Knoblauchsgeruch.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Drum fuͤhrt er ſein Riechflaͤſchchen auch beſtaͤndig mit.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Mein Heine! Sind wir beide nicht ein Paar Genie’s?<lb/>
+Wer wagt zu ſtoͤren, Suͤßer, uns den ſuͤßen Tra<gap unit="chars" quantity="1"/>m?</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Mir iſt’s, als hoͤrt’ ich ſchlagen eine Pendeluhr,<lb/>
+Die einen ſehr gefaͤhrlichlauten Wecker hat.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Waͤr’s moͤglich? Drohte meinem Stern Verfinſterung?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Dem deinen nebſt noch vielen, wenn ihr Sterne waͤrt;<lb/>
+Doch Blendlaternen ſchließen blos Talgſtuͤmpfchen ein.</p></sp><lb/>
+<pb n="96" facs="#f0102"/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Ihr ſeid die Jungfrau’n, deren Lampen ausgeloͤſcht:<lb/>
+Was iſt zu thun? Schon naht ſich euch der Braͤutigam,<lb/>
+Klangvollen Takt in ſeiner Schritte jeglichem,<lb/>
+Und braͤutlich ruht am Buſen ihm die Poeſie!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Auch ihr verhoͤhnt mich?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Lieber, komm! Ich fuͤhre jetzt,<lb/>
+Um Muße dir zu ſchaffen, dich an jenen Ort,<lb/>
+Den Britten Bedlam heißen, Deutſche Narrenhaus.</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>Er ſagt es engliſch, weil er dich Shakeſpear genannt.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Auch ihr verhoͤhnt mich? Weſſenthalb, Verblendete?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Wir waren’s, lieber Nimmermann! Der heilende<lb/>
+Verſtand benahm die Schuppen uns als Augenarzt.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Ihr wolltet Shakeſpear’n laͤnger nicht anbeten mehr?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Wir lieben Shakeſpear; aber waͤrſt Shakeſpear du ſelbſt,<lb/>
+Der nichts du biſt, als ſeiner Affen grinzendſter,<lb/>
+Du kaͤmſt zu ſpaͤt der Forderung des Augenblicks:<lb/>
+Es hat die Welt verſchleudert ihren Knabenſchuh!</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>O wehe, weh mir! Meine letzte Stuͤtze wankt.</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Einfache Wahrheit blos gefaͤllt, kein Stelzenſchritt,<lb/>
+Kein Harlekinsrock uͤber einem Katafalk!</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#g">Nimmer-</hi></fw></sp><lb/>
+<pb n="97" facs="#f0103"/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Weh, wehe meinen ſiebenfach geſeiherten,<lb/>
+Phantaſtiſchplatten Quinteſſenztragoͤdien!</p></sp><lb/>
+<sp who="#CHO"><speaker><hi rendition="#c"><hi rendition="#g">Chor</hi>.</hi></speaker><lb/>
+<p>O Kraft der Wahrheit! Alſo ſelbſt geſtehſt du es?</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Wem deklamir’ ich kuͤnftig euch? Weh, wehe mir!</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>In jener Anſtalt fehlt es nicht an Hoͤrenden:<lb/>
+Wahnwitzige bilden ebenfalls ein Publicum,<lb/>
+Ein ſehr gemiſchtes, uͤberaus vollzaͤhliges.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>So treff’ ich auch jenſeitige Maͤcenaten an?</p></sp><lb/>
+<sp who="#PUB"><speaker><hi rendition="#c"><hi rendition="#g">Publicum</hi>.</hi></speaker><lb/>
+<p>Tollhaͤusler zwar; doch immerhin Bewunderer.</p></sp><lb/>
+<sp who="#NIM"><speaker><hi rendition="#c"><hi rendition="#g">Nimmermann</hi>.</hi></speaker><lb/>
+<p>Triumph! Ich gehe, fuͤhre mich! Triumph! Triumph!</p><lb/>
+<stage><hi rendition="#right">(Vom <hi rendition="#g">Publicum</hi> abgefuͤhrt.)</hi></stage></sp><lb/>
+<sp who="#CHOF"><speaker><hi rendition="#c"><hi rendition="#g">Chorfuͤhrer</hi>.</hi></speaker><lb/>
+<stage><hi rendition="#c">(An den Rand der Buͤhne vortretend.)</hi></stage><lb/>
+<p>Wenn ſtreng der Poet, voll feurigen Spotts, der empor ſich<lb/>
+ſchraubenden Ohnmacht<lb/>
+Schwerfaͤlligen Wahn, der platt, wie er iſt, den begeiſterten<lb/>
+Schwaͤrmer ſogar noch<lb/>
+Will ſpielen, wie einſt in die Saiten Apolls des Silens<lb/>
+Mauleſel hineingriff:<lb/>
+Wenn ſtreng der Poet ihn ſtrafte, verdient er den Dank und<lb/>
+die Liebe der Mitwelt.<lb/>
+Da die Feinde zumal und die Hefe des Volks und die<lb/>
+Stimmangeber in Deutſchland<lb/>
+<fw type="sig" place="bottom">v. Platen, der romant. Oedipus. 7</fw><lb/>
+<pb n="98" facs="#f0104"/>
+Ihn tief in den Staub ziehn moͤchten, damit er verliere ſich<lb/>
+unter der Mehrzahl,<lb/>
+So geziemt es gewiß der befreundeten Schaar, um ſo mehr<lb/>
+ihn rettend zu fluͤchten,<lb/>
+Auf prangendem Schild ihn tragend empor, den Beherrſcher<lb/>
+des Worts in der Dichtkunſt!<lb/>
+Seit aͤlteſter Zeit hat hier es getoͤnt, und ſo oft im erneuen-<lb/>
+den Umſchwung,<lb/>
+In verjuͤngter Geſtalt aufſtrebte die Welt, klang auch ein<lb/>
+germaniſches Lied nach.<lb/>
+Zwar lange verhallt iſt jener Geſang, den einſt des Arminius<lb/>
+Heerſchaar<lb/>
+Anſtimmend gejauchzt in des Siegs Feſtſchritt, auf roͤmiſchen<lb/>
+Graͤbern getanzt ihn;<lb/>
+Doch blieb von der Zeit des gewaltigen Karls wohl noch ein<lb/>
+gewaltiges Lied euch,<lb/>
+Ein gewaltiges Lied von der maͤchtigen Frau, die erſt als<lb/>
+zarteſte Jungfrau<lb/>
+Daſteht, und verſchaͤmt, voll ſchuͤchterner Huld, dem erhabenen<lb/>
+Helden die Hand reicht,<lb/>
+Bis dann ſie zuletzt, durch’s Leben geſtaͤhlt, durch gluͤhende<lb/>
+Rache gehaͤrtet,<lb/>
+Graunvoll auftritt, in den Haͤnden ein Schwert und das Haupt<lb/>
+des enthaupteten Bruders.<lb/>
+Auch liſpelt um euch der melodiſche Hauch aus ſpaͤteren Tagen<lb/>
+des Ruhms noch,<lb/>
+Als maͤchtigen Gangs zu des Heilands Gruft die gepanzerten<lb/>
+Friedriche wallten;<lb/>
+An den Hoͤfen erſcholl der Geſang damals aus fuͤrſtlichem<lb/>
+Mund, und der Kaiſer,<lb/>
+<pb n="99" facs="#f0105"/>
+Dem als Mitgift die Geſtade Homers darbrachte die Tochter<lb/>
+des Normanns,<lb/>
+Sang lieblichen Ton! Kaum aber erloſch ſein Stamm in dem<lb/>
+herrlichen Knaben,<lb/>
+Der, unter dem Beil hinſterbend, erlag capetingiſcher teuf-<lb/>
+liſcher Unthat,<lb/>
+Schwieg auch der Geſang, und die goͤttliche Kunſt fiel unter<lb/>
+die Meiſter des Handwerks.<lb/>
+Spaͤt wieder erhub ſie die heilige Kraft, als neue befruch-<lb/>
+tende Regung<lb/>
+Weit uͤber die Welt, aus Deutſchlands Gan’n, der begeiſterte<lb/>
+ſaͤchſiſche Moͤnch trug;<lb/>
+Doch ſtrebte ſie nun langſamer empor, weil blutiger Kriege<lb/>
+Verderbniß<lb/>
+Das entvoͤlkerte Reich, Jahrhunderte lang, preisgab der<lb/>
+unendlichen Rohheit;<lb/>
+Weil Wechſel des Lauts erſt hemmte das Lied, da der bibel-<lb/>
+entfaltende Luther<lb/>
+Durch maͤnnlichern Ton auf immer rertrieb die melodiſche<lb/>
+rheiniſche Mundart.<lb/>
+Doch ſollte das Wort um ſo reicher erbluͤhn, und es lehrte<lb/>
+zugleich es Melanchthon<lb/>
+Den gediegenen Klang, den einſt anſchlug die begluͤcktere<lb/>
+Muſe von Hellas,<lb/>
+Und ſo reifte heran die germaniſche Kunſt, um entgegen zu<lb/>
+gehn der Vollendung!<lb/>
+Lang ſchlich ſie dahin, lang ſchleppte ſie noch nachahmende<lb/>
+Feſſel und ſeufzte,<lb/>
+Bis Klopſtock naht und die Welt fortreißt in erhabener<lb/>
+Odenbefluͤglung,<lb/>
+<pb n="100" facs="#f0106"/>
+Und das Maß herſtellt, und die Sprache beſeelt und befreit<lb/>
+von der galliſchen Knechtſchaft,<lb/>
+Zwar ſtarr noch und herb und zuweilen verſteint, auch nicht<lb/>
+Jedwedem genießbar;<lb/>
+Doch ihm folgt bald das Gefaͤllige nach und das Schoͤne mit<lb/>
+Goethiſcher Sanftheit.<lb/>
+Manch großes Talent trat ſpaͤter hervor, und entfaltete<lb/>
+himmliſchen Reichthum;<lb/>
+Doch Keiner erſchien, in der Kunſt Fortſchritt, dem unſterb-<lb/>
+lichen Paare vergleichbar:<lb/>
+Keuſch lehnt Klopſtock an dem Lilienſtab und um Goethe’s<lb/>
+erleuchtete Stirne<lb/>
+Gluͤhn Roſen im Kranz! Kuͤhn waͤre der Wunſch, zu erſingen<lb/>
+verwandte Belohnung!<lb/>
+Anſpruͤchen entſagt gern unſer Poet, Anſpruͤchen an euch!<lb/>
+An die Zukunft<lb/>
+Nicht voͤllig, und ſtets wird loͤblicher That auch loͤblicher Lohn<lb/>
+in der Zukunft!<lb/>
+Er beneidete nie die gefeierte Schaar um ein rauſchendes<lb/>
+Zeichen des Beifalls,<lb/>
+Wenn lallenden Tons ſie zu ſtammeln begann die geſtotterte<lb/>
+Phraſe der Unkunſt;<lb/>
+Denn er hoͤrte ſie wohl und erkannte ſie wohl, und verbiß die<lb/>
+gerechte Verachtung:<lb/>
+Nie wird er ſie nun mehr hoͤren vielleicht, und er wandelt im<lb/>
+Garten Europa’s,<lb/>
+Der ihn ſchadlos fuͤr manchen Verluſt, fuͤr manches verkannte<lb/>
+Gedicht haͤlt:<lb/>
+In dem Pinienhain, an den Buchten des Meers,<lb/>
+Wo die Well’ abfließt voll triefenden Schaums,<lb/>
+<pb n="101" facs="#f0107"/>
+Geht gern er allein, und wofern kein Ohr<lb/>
+Ihm mehr zuhorcht jenſeits des Gebuͤrgs,<lb/>
+Dann ſpornt zum Geſang zwar kein Beifall<lb/>
+Der Befreundeten ihn,<lb/>
+Doch Fuͤlle des eigenen Wohllauts.</p></sp></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[102]" facs="#f0108"/>
+<pb n="[103]" facs="#f0109"/>
+<milestone unit="section" rendition="#hr"/>     <div n="1"><head><hi rendition="#c"><hi rendition="#g">Nachſchrift an den Romantiker</hi></hi>.</head><lb/>
+<p><hi rendition="#c">⏓ — ⏑ — ⏑ ⏑ —, ⏓ — ⏑ ⏑ — ⏑ —</hi></p><lb/>
+<lg type="poem"><lg n="1"><l>Vorwuͤrfe hab’ ich gehoͤrt, noch eh’ ich zu Stand gebracht</l><lb/>
+<l>Das Werk, mit welchem ich dich, mein ſuͤßer Geſell, bedacht;</l><lb/>
+<l>Es ſprachen Freunde zu mir: „Wir ſind an Poeten reich,</l><lb/>
+<l>Was waͤhlſt du Helden dir aus, die ſchwach und verruͤckt zu-</l><lb/>
+<l>gleich?</l><lb/>
+<l>Wer Nachtigallengeſang zu toͤnen verſteht, wie du,</l><lb/>
+<l>Zieht ſich das Rachegekreiſch des Kraͤhengeſchlechtes zu?</l><lb/>
+<l>Nie hat Apollo gezielt auf Haſen und andern Troß,</l><lb/>
+<l>Die ſtolze Niobe nur demuͤthigte ſein Geſchoß.“</l></lg><lb/>
+<lg n="2"><l>Ich muß vor ſolchem Verdacht vertheidigen jenes Lied:</l><lb/>
+<l>Mein Held, was biſt du mir denn, mein hinkender Jamben-</l><lb/>
+<l>ſchmied?</l><lb/>
+<l>Ein Ueberbleibſel der Zeit, die hoffentlich nun vorbei,</l><lb/>
+<l>Jahrzehntelangen Gequicks romantiſcher, letzter Schrei!</l><lb/>
+<l>Zwar macht dich keiner ſo leicht, ſammt deinen Gefaͤhrten,</l><lb/>
+<l>ſtumm;</l><lb/>
+<l>Doch denken lerne die Welt, und ſcheide Gerad’ und Krumm!</l><lb/>
+<l>Irrthuͤmern bin ich gefolgt und habe, da falſcher Schein</l><lb/>
+<l>Betruͤgt, die Hefe geſchoͤpft, zu zeigen, wie ſchlecht der Wein,</l><lb/>
+<l>Dem Volk zu zeigen, wohin, in welches Gewoͤlk von Dunſt</l><lb/>
+<l>Unreifer Schwindel gefuͤhrt, und kindiſche, lahme Kunſt:</l><lb/>
+<l>Erſt war man blos paradox, bald folgte der tollſte Quark,</l><lb/>
+<l>Wahrheit ergrimmte zuletzt, und ſiehe, ſie war ſo ſtark!</l><lb/>
+<l>
+<pb n="104" facs="#f0110"/>
+</l> <l>Gewiß, mir haͤtte den Ton der Leier die Scham gedaͤmpft,</l><lb/>
+<l>Wenn dein Geklimper ich blos, langweiliger Menſch bekaͤmpft!</l><lb/>
+<l>Volksthuͤmlich nennen ſie dich; drum hoͤrteſt du wohl, wie’s</l><lb/>
+<l>ſcheint,</l><lb/>
+<l>Daß auf die Saͤcke man ſchlaͤgt, indeß man den Eſel meint?</l><lb/>
+<l>Ich muß, damit ſich dabei beruhige dein Geſchmack,</l><lb/>
+<l>Geſtehn dir, daß du allein im obigen Fall der Sack.</l></lg></lg></div><milestone unit="section" rendition="#hr"/><lb/>
+</body><back>
+<pb facs="#f0111"/>
+<pb facs="#f0112"/>
+<pb facs="#f0113"/>
+</back>
+</text> </TEI>

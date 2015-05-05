@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">     <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Phantasus</title>
+<title type="volume" n="1">Erstes Heft</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118553216">
+<surname>Holz</surname>
+<forename>Arno</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">67</measure>
+<measure type="tokens">3219</measure>
+<measure type="types">1454</measure>
+<measure type="characters">21902</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:14:59Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/holz_phantasus01_1898</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/holz_phantasus01_1898</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/holz_phantasus01_1898</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/holz_phantasus01_1898</idno>
+<idno type="DTADirName">holz_phantasus01_1898</idno>
+<idno type="DTAID">16717</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905192685</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Holz, Arno: Phantasus. 1. Heft. Berlin, 1898.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Phantasus</title>
+<title level="m" type="volume" n="1">Erstes Heft</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118553216">
+<surname>Holz</surname>
+<forename>Arno</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[27] Bl.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Sassenbach</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1898</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Zentral- und Landesbibliothek Berlin</repository>
+<idno>
+<idno type="shelfmark">Berlin ZLB, C40081</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text>     <front>
+<pb facs="#f0001"/>
+<lb/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<titlePage type="main">         <docTitle>           <titlePart type="main">PHANTASUS</titlePart>         </docTitle>         <lb/>
+<byline>von<lb/>
+<docAuthor>Arno Holz</docAuthor></byline>         <lb/>
+<docImprint>           <pubPlace>Berlin</pubPlace>           <docDate>1898</docDate>           <space dim="horizontal"/>           <publisher>Sassenbach</publisher>         </docImprint>         <lb/>
+<titlePart type="volume">Erstes Heft</titlePart>       </titlePage>       <lb/>
+</front>     <body>
+<pb facs="#f0010"/>
+<pb facs="#f0011"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Nacht.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Der Ahorn vor meinem Fenster rauscht,</l>           <lb/>
+<l rendition="#c">von seinen Blättern funkelt der Thau ins Gras,</l>           <lb/>
+<l rendition="#c">und mein Herz</l>           <lb/>
+<l rendition="#c">schlägt.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Nacht.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Ein Hund . . . bellt, . . . ein Zweig . . . knickt, — still!</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Still!!</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Du? . . . Du?</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Ah, deine Hand! Wie kalt, wie kalt!</l>           <lb/>
+<l rendition="#c">Und . . . deine Augen . . . gebrochen!</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Gebrochen!!</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">Nein! Nein! Du darfst es nicht sehn.</l>           <lb/>
+<l rendition="#c">dass die Lippen mir zucken,</l>           <lb/>
+<l rendition="#c">und auch die Thränen nicht, die ich kindisch um dich vergiesse —</l>         </lg>         <lb/>
+<lg n="10">           <l rendition="#c">Du armes Weib!</l>         </lg>         <lb/>
+<lg n="11">           <l rendition="#c">Also nachts,</l>           <lb/>
+<l rendition="#c">nachts nur noch wagst du dich,</l>           <lb/>
+<l rendition="#c">schüchtern,</l>           <lb/>
+<l rendition="#c">aus deinem Sarg?</l>           <lb/>
+<l rendition="#c">Um dich auf Zehen zu mir zu schleichen?</l>         </lg>         <lb/>
+<lg n="12">           <l rendition="#c">Armes Weib!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0012"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Verblüht</l>           <lb/>
+<l rendition="#c">die Kränze, die du gewunden,</l>           <lb/>
+<l rendition="#c">verweht</l>           <lb/>
+<l rendition="#c">die Lieder, die du gesungen,</l>           <lb/>
+<l rendition="#c">und in deinen Haaren, in deinen schönen Haaren,</l>           <lb/>
+<l rendition="#c">klebt nun die</l>           <lb/>
+<l rendition="#c">Erde.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Tot, tot, tot . . .</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Und deine Flügel, deine armen Flügel!</l>           <lb/>
+<l rendition="#c">Unbarmherzig heruntergeschnitten</l>           <lb/>
+<l rendition="#c">von den schimmernden Schultern — ah, <hi rendition="#g">weine</hi> nicht!</l>           <lb/>
+<l rendition="#c">Weine <hi rendition="#g">nicht</hi>!</l>           <lb/>
+<l rendition="#c">Hier! Hier! <hi rendition="#g">Zu</hi> mir sollst du dich setzen,</l>           <lb/>
+<l rendition="#c">nächtlich, allnächtlich,</l>           <lb/>
+<l rendition="#c">bis der Morgen</l>           <lb/>
+<l rendition="#c">graut,</l>           <lb/>
+<l rendition="#c">bis die Sonne</l>           <lb/>
+<l rendition="#c">scheint,</l>           <lb/>
+<l rendition="#c">und die Welt,</l>           <lb/>
+<l rendition="#c">die kluge Welt, wieder gleichgültig über dein Grab rollt —</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Horch!</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Der Ahorn vor meinem Fenster rauscht,</l>           <lb/>
+<l rendition="#c">der Thau tropft,</l>           <lb/>
+<l rendition="#c">und mein Herz</l>           <lb/>
+<l rendition="#c">schlägt.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Nacht, Nacht, Nacht . . .</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0013"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Durch die Friedrichstrasse</l>           <lb/>
+<l rendition="#c">— die Laternen brennen nur noch halb,</l>           <lb/>
+<l rendition="#c">der trübe Wintermorgen dämmert schon —</l>           <lb/>
+<l rendition="#c">bummle ich nach Hause.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">In mir, langsam, steigt ein Bild auf.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Ein grüner Wiesenplan,</l>           <lb/>
+<l rendition="#c">ein lachender Frühlingshimmel,</l>           <lb/>
+<l rendition="#c">ein weisses Schloss mit weissen Nymphen.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Davor ein riesiger Kastanienbaum,</l>           <lb/>
+<l rendition="#c">der seine roten Blütenkerzen</l>           <lb/>
+<l rendition="#c">in einem stillen Wasser spiegelt!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0014"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Ich liege noch im Bett und habe eben Kaffee getrunken.</l>           <lb/>
+<l rendition="#c">Das Feuer im Ofen knattert schon,</l>           <lb/>
+<l rendition="#c">durchs Fenster,</l>           <lb/>
+<l rendition="#c">das ganze Stübchen füllend,</l>           <lb/>
+<l rendition="#c">Schneelicht.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Ich lese.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Huysmans. Là Bas.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">. . . Alors,</l>           <lb/>
+<l rendition="#c">en sa blanche splendeur,</l>           <lb/>
+<l rendition="#c">l'âme du Moyen Age rayonna dans cette salle . . .</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Plötzlich,</l>           <lb/>
+<l rendition="#c">irgendwo tiefer im Hause,</l>           <lb/>
+<l rendition="#c">ein Kanarienvogel.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Die schönsten Läufe!</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Ich lasse das Buch sinken.</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Die Augen schliessen sich mir,</l>           <lb/>
+<l rendition="#c">ich liege wieder da, den Kopf in die Kissen — —</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0015"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Zwischen Gräben und grauen Hecken,</l>           <lb/>
+<l rendition="#c">den Rockkragen hoch, die Hände in den Taschen,</l>           <lb/>
+<l rendition="#c">schlendre ich durch den frühen Märzmorgen.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Falbes Gras, blinkende Lachen und schwarzes Brachland,</l>           <lb/>
+<l rendition="#c">so weit ich sehn kann.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Dazwischen,</l>           <lb/>
+<l rendition="#c">mitten in den weissen Horizont hinein,</l>           <lb/>
+<l rendition="#c">wie erstarrt,</l>           <lb/>
+<l rendition="#c">eine Weidenreihe.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Ich bleibe stehn.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Nirgends ein Laut. Noch nirgends Leben.</l>           <lb/>
+<l rendition="#c">Nur die Luft und die Landschaft.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Und sonnenlos, wie den Himmel, fühl ich mein Herz!</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Plötzlich ein Klang.</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Ich starre in die Wolken.</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">Ueber mir,</l>           <lb/>
+<l rendition="#c">jubelnd,</l>           <lb/>
+<l rendition="#c">durch immer heller werdendes Licht,</l>           <lb/>
+<l rendition="#c">die erste Lerche!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0016"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Mitten auf dem Platz,</l>           <lb/>
+<l rendition="#c">wo die Kinder lärmen,</l>           <lb/>
+<l rendition="#c">bleib ich stehn.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Jungens,</l>           <lb/>
+<l rendition="#c">die sich um eine Murmel zanken,</l>           <lb/>
+<l rendition="#c">ein kleines Mädchen, das Reifen spielt. . . .</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Herr Gott, Frühling!</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Und nichts, nichts hab ich gesehn!</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Aus allen Büschen</l>           <lb/>
+<l rendition="#c">brechen ja schon die Knospen!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0017"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Fern liegt ein Land!</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">In dunklen Nächten</l>           <lb/>
+<l rendition="#c">rauschten schwermütig seine Eichen.</l>           <lb/>
+<l rendition="#c">Weiche Flocken deckten mein Grab.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Jetzt blühn die Primeln,</l>           <lb/>
+<l rendition="#c">die Drossel singt,</l>           <lb/>
+<l rendition="#c">und über grüne Wiesen, um den blauen See</l>           <lb/>
+<l rendition="#c">treibt der Schäfer seine Schafe.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Weisse Wölkchen gleiten.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Du süsse Welt!</l>           <lb/>
+<l rendition="#c">Auf deinen glänzendsten Stern</l>           <lb/>
+<l rendition="#c">hast du ein Herz, das dich liebt, gerettet!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0018"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Schönes, grünes, weiches Gras.</l>           <lb/>
+<l rendition="#c">Drin liege ich.</l>           <lb/>
+<l rendition="#c">Mitten zwischen Butterblumen!</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Üeber mir,</l>           <lb/>
+<l rendition="#c">warm,</l>           <lb/>
+<l rendition="#c">der Himmel:</l>           <lb/>
+<l rendition="#c">ein weites, zitterndes Weiss,</l>           <lb/>
+<l rendition="#c">das mir die Augen langsam, ganz langsam,</l>           <lb/>
+<l rendition="#c">schliesst.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Wehende Luft, . . . ein zartes Summen.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Nun bin ich fern</l>           <lb/>
+<l rendition="#c">von jeder Welt,</l>           <lb/>
+<l rendition="#c">ein sanftes Roth erfüllt mich ganz,</l>           <lb/>
+<l rendition="#c">und deutlich spür ich,</l>           <lb/>
+<l rendition="#c">wie die Sonne mir durchs Blut rinnt —</l>           <lb/>
+<l rendition="#c">minutenlang.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Versunken Alles. Nur noch ich.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Selig.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0019"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Aus weissen Wolken</l>           <lb/>
+<l rendition="#c">baut sich ein Schloss.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Spiegelnde Seeen, selige Wiesen,</l>           <lb/>
+<l rendition="#c">singende Brunnen aus tiefstem Smaragd!</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">In seinen schimmernden Hallen</l>           <lb/>
+<l rendition="#c">wohnen</l>           <lb/>
+<l rendition="#c">die alten Götter.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Noch immer,</l>           <lb/>
+<l rendition="#c">abends,</l>           <lb/>
+<l rendition="#c">wenn die Sonne purpurn sinkt,</l>           <lb/>
+<l rendition="#c">glühn seine Gärten,</l>           <lb/>
+<l rendition="#c">vor ihren Wundern bebt mein Herz</l>           <lb/>
+<l rendition="#c">und lange . . . steh ich.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Sehnsüchtig!</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Dann naht die Nacht,</l>           <lb/>
+<l rendition="#c">die Luft verlischt,</l>           <lb/>
+<l rendition="#c">wie zitterndes Silber blinkt das Meer,</l>           <lb/>
+<l rendition="#c">und über die ganze Welt hin</l>           <lb/>
+<l rendition="#c">weht ein Duft</l>           <lb/>
+<l rendition="#c">wie von Rosen.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0020"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">In einem Garten</l>           <lb/>
+<l rendition="#c">unter dunklen Bäumen</l>           <lb/>
+<l rendition="#c">erwarten wir die Frühlingsnacht.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Noch glänzt kein Stern.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Aus einem Fenster,</l>           <lb/>
+<l rendition="#c">schwellend,</l>           <lb/>
+<l rendition="#c">die Töne einer Geige. . . . </l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Der Goldregen blinkt,</l>           <lb/>
+<l rendition="#c">der Flieder duftet,</l>           <lb/>
+<l rendition="#c">in unsern Herzen geht der Mond auf!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0021"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Ich bin der reichste Mann der Welt!</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Meine silbernen Yachten</l>           <lb/>
+<l rendition="#c">schwimmen auf allen Meeren.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Goldne Villen glitzern durch meine Wälder in Japan,</l>           <lb/>
+<l rendition="#c">in himmelhohen Alpenseeen spiegeln sich meine Schlösser,</l>           <lb/>
+<l rendition="#c">auf tausend Inseln hängen meine purpurnen Gärten.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Ich beachte sie kaum.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">An ihren aus Bronze gewundenen Schlangengittern</l>           <lb/>
+<l rendition="#c">geh ich vorbei,</l>           <lb/>
+<l rendition="#c">über meine Diamantgruben</l>           <lb/>
+<l rendition="#c">lass ich die Lämmer grasen.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Die Sonne scheint,</l>           <lb/>
+<l rendition="#c">ein Vogel singt,</l>           <lb/>
+<l rendition="#c">ich bücke mich</l>           <lb/>
+<l rendition="#c">und pflücke eine kleine Wiesenblume.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Und plötzlich weiss ich: ich bin der ärmste Bettler!</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Ein Nichts ist meine ganze Herrlichkeit</l>           <lb/>
+<l rendition="#c">vor diesem Thautropfen,</l>           <lb/>
+<l rendition="#c">der in der Sonne funkelt.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0022"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Vor meinem Fenster</l>           <lb/>
+<l rendition="#c">singt ein Vogel.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Still hör ich zu; mein Herz vergeht.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Er singt,</l>           <lb/>
+<l rendition="#c">was ich als Kind besass</l>           <lb/>
+<l rendition="#c">und dann — vergessen.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0023"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Fern auf der Insel Nurapu</l>           <lb/>
+<l rendition="#c">blüht der Baum Bo.</l>           <lb/>
+<l rendition="#c">In seinen Wurzeln singt die See,</l>           <lb/>
+<l rendition="#c">durch seine Zweige ziehn die Sterne.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Auf einem langen Ast, mein Gott: die Hirtin und der — Schornsteinfeger?</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Die niedlichen kleinen Schuhe, der goldne Hut,</l>           <lb/>
+<l rendition="#c">die schwarze Leiter, der Hirtenstab . . .</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Ihr habt also doch nicht zurückgefunden?</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Ach Gott, ja:</l>           <lb/>
+<l rendition="#c">wenn man aus Porzellan ist!</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Das alte Stübchen mit dem Spiegeltischchen,</l>           <lb/>
+<l rendition="#c">das verschnörkelte Spind aus Mahagoniholz,</l>           <lb/>
+<l rendition="#c">der blaue, gemütliche Kachelofen!</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Grossmutters Tulpen!</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Das waren noch Zeiten!</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">Hier ruft keine Kukuksuhr,</l>           <lb/>
+<l rendition="#c">hier duftet kein Lawendeltopf;</l>           <lb/>
+<l rendition="#c">hier braust die See,</l>           <lb/>
+<l rendition="#c">hier fliehn die Sterne.</l>         </lg>         <lb/>
+<lg n="10">           <l rendition="#c">Und ich sitze und weine bitterlich!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0024"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Vergeben? Ich? Dir?</l>           <lb/>
+<l rendition="#c">Längst.</l>           <lb/>
+<l rendition="#c">Ich thats, noch eh ichs wusste.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Aber vergessen? Vergessen? . . . Ach, wenn ichs könnte!</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Oft,</l>           <lb/>
+<l rendition="#c">mitten im hellsten Sonnenschein,</l>           <lb/>
+<l rendition="#c">wenn ich fröhlich bin und „an nichts denke“,</l>           <lb/>
+<l rendition="#c">plötzlich,</l>           <lb/>
+<l rendition="#c">da,</l>           <lb/>
+<l rendition="#c">grau hockt es vor mir,</l>           <lb/>
+<l rendition="#c">. . . wie eine Kröte!</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Und Alles, Alles scheint mir wieder schaal. Schaal und trostlos.</l>           <lb/>
+<l rendition="#c">Das ganze Leben.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Und ich bin traurig. Traurig über dich . . . und mich.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0025"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Ueber die Welt hin ziehen die Wolken.</l>           <lb/>
+<l rendition="#c">Grün durch die Wälder</l>           <lb/>
+<l rendition="#c">fliesst ihr Licht.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Herz, vergiss!</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">In stiller Sonne</l>           <lb/>
+<l rendition="#c">webt linderndster Zauber,</l>           <lb/>
+<l rendition="#c">unter wehenden Blumen blüht tausend Trost.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c"> Vergiss! Vergiss!</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Aus fernem Grund pfeift, horch, ein Vogel. . . .</l>           <lb/>
+<l rendition="#c">Er singt sein Lied.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Das Lied vom Glück!</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Vom Glück.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0026"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Hinter blühenden Apfelbaumzweigen</l>           <lb/>
+<l rendition="#c">steigt der Mond auf.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Zarte Ranken,</l>           <lb/>
+<l rendition="#c">blasse Schatten</l>           <lb/>
+<l rendition="#c">zackt sein Schimmer in den Kies.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Lautlos fliegt ein Falter.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Ich strecke mich selig ins silberne Gras</l>           <lb/>
+<l rendition="#c">und liege da</l>           <lb/>
+<l rendition="#c">das Herz im Himmel!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0027"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Rote Dächer!</l>           <lb/>
+<l rendition="#c">Aus den Schornsteinen, hier und da, Rauch,</l>           <lb/>
+<l rendition="#c">oben, hoch, in sonniger Luft, ab und zu, Tauben.</l>           <lb/>
+<l rendition="#c">Es ist Nachmittag.</l>           <lb/>
+<l rendition="#c">Aus Mohdrickers Garten her gackert eine Henne,</l>           <lb/>
+<l rendition="#c">die ganze Stadt riecht nach Kaffee.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Ich bin ein kleiner, achtjähriger Junge</l>           <lb/>
+<l rendition="#c">und liege, das Kinn in beide Fäuste,</l>           <lb/>
+<l rendition="#c">platt auf dem Bauch</l>           <lb/>
+<l rendition="#c">und kucke durch die Bodenluke.</l>           <lb/>
+<l rendition="#c">Unter mir, steil, der Hof,</l>           <lb/>
+<l rendition="#c">hinter mir, weggeworfen, ein Buch.</l>           <lb/>
+<l rendition="#c">Franz Hoffmann. Die Sclavenjäger.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Wie still das ist!</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Nur drüben in Knorrs Regenrinne</l>           <lb/>
+<l rendition="#c">zwei Spatzen, die sich um einen Strohhalm zanken,</l>           <lb/>
+<l rendition="#c">ein Mann, der sägt,</l>           <lb/>
+<l rendition="#c">und dazwischen, deutlich von der Kirche her,</l>           <lb/>
+<l rendition="#c">in kurzen Pausen, regelmässig, hämmernd,</l>           <lb/>
+<l rendition="#c">der Kupferschmied Thiel.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Wenn ich unten runtersehe,</l>           <lb/>
+<l rendition="#c">sehe ich grade auf Mutters Blumenbrett:</l>           <lb/>
+<l rendition="#c">ein Topf Goldlack, zwei Töpfe Levkoyen, eine Geranie</l>           <lb/>
+<l rendition="#c">und mittendrin, zierlich in einem Cigarrenkistchen,</l>           <lb/>
+<l rendition="#c">ein Hümpelchen Reseda.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Wie das riecht? Bis zu mir rauf!</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Und die Farben!</l>           <lb/>
+<l rendition="#c">Jetzt! Wie der Wind drüber weht!</l>           <lb/>
+<l rendition="#c">Die wunder, wunderschönen Farben!</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Ich schliesse die Augen. Ich sehe sie noch immer.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0028"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">In einen brennenden Abendhimmel,</l>           <lb/>
+<l rendition="#c">aus Staub und Dunkel,</l>           <lb/>
+<l rendition="#c">steigt der Dom.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Die Glocken läuten.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Die kleinen Linden stehen schwarz,</l>           <lb/>
+<l rendition="#c">vor ihren Thüren sitzen alte Leute.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Feierabend!</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Die Gassen schweigen.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Die Gluth erlischt,</l>           <lb/>
+<l rendition="#c">am Himmel</l>           <lb/>
+<l rendition="#c">leise</l>           <lb/>
+<l rendition="#c">ziehn die ewigen Sterne auf.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0029"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Zwischen Bergen im Sonnenschein</l>           <lb/>
+<l rendition="#c">liegt am Fluss das Städtchen.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Hier oben von meinem Meilenstein seh ich über alle Dächer.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Kerzengrade steigt der Rauch.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Durch einen blühenden Hollunderbusch</l>           <lb/>
+<l rendition="#c">unterscheide ich deutlich,</l>           <lb/>
+<l rendition="#c">unter der alten Grünspankuppel,</l>           <lb/>
+<l rendition="#c">die Thurmuhr.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Ein himmelblaues Zifferblatt mit weissen Zahlen.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Noch drei kleine Striche,</l>           <lb/>
+<l rendition="#c">und die gesammte Bürgerschaft</l>           <lb/>
+<l rendition="#c">setzt sich pünktlich zu Mittag.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Zwölf!</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Es ist heute Sonnabend, es giebt also überall Eierkuchen.</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">Ich köpfe vergnügt eine Distel</l>           <lb/>
+<l rendition="#c">und wandre weiter.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0030"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Im Thiergarten, auf einer Bank, sitz ich und rauche;</l>           <lb/>
+<l rendition="#c">und freue mich über die schöne Vormittagssonne.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Vor mir, glitzernd, der Kanal:</l>           <lb/>
+<l rendition="#c">den Himmel spiegelnd, beide Ufer leise schaukelnd.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Ueber die Brücke, langsam Schritt, reitet ein Leutnant.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Unter ihm,</l>           <lb/>
+<l rendition="#c">zwischen den dunklen, schwimmenden Kastanienkronen,</l>           <lb/>
+<l rendition="#c">pfropfenzieherartig ins Wasser gedreht,</l>           <lb/>
+<l rendition="#c">— den Kragen siegellackrot —</l>           <lb/>
+<l rendition="#c">sein Spiegelbild.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Ein Kukuk</l>           <lb/>
+<l rendition="#c">ruft.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0031"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Lachend in die Siegesallee</l>           <lb/>
+<l rendition="#c">schwenkt ein Mädchenpensionat.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Donnerwetter, sind die chic!</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Wippende, grünblau schillernde Changeantschirme,</l>           <lb/>
+<l rendition="#c">lange, buttergelbe schwedische Handschuhe,</l>           <lb/>
+<l rendition="#c">sich bauschende, silbergraue, von roten Tulpen durchflammte Velvetblousen.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Drei junge Leutnants drehn ihre Schnurrbärte.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Monocles.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Die Kavalkade amüsiert sich.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Fünfzig braune, trappelnde Strandschuhe,</l>           <lb/>
+<l rendition="#c">fünfundzwanzig klingelnde Bettelarmbänder.</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Links,</l>           <lb/>
+<l rendition="#c">hinter ihnen drein,</l>           <lb/>
+<l rendition="#c">die Blicke kohlschwarz,</l>           <lb/>
+<l rendition="#c">ihr Drache.</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">Wehe!</l>         </lg>         <lb/>
+<lg n="10">           <l rendition="#c">Wie die Sonne durch die Bäume goldne Kringel wirft . . . </l>         </lg>         <lb/>
+<lg n="11">           <l rendition="#c">Ach was!</l>         </lg>         <lb/>
+<lg n="12">           <l rendition="#c">Und ich kriege die Schönste, die sich nicht sträubt, um die Taille,</l>           <lb/>
+<l rendition="#c">— die ganze Gesellschaft stiebt kreischend auseinander,</l>           <lb/>
+<l rendition="#c">Huuch! die alte Anstandsglucke fällt in Ohnmacht —</l>           <lb/>
+<l rendition="#c">und rufe:</l>         </lg>         <lb/>
+<lg n="13">           <l rendition="#c">Mädchen, entgürtet euch und tanzt nackt zwischen Schwertern!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0032"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Ich möchte alle Geheimnisse wissen!</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Alle Sterne, über die Meere rollen, schöpf ich mit meiner Hand.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">In meine Träume</l>           <lb/>
+<l rendition="#c">drehn sich Welten,</l>           <lb/>
+<l rendition="#c">und mich entzückt das kleinste Nest,</l>           <lb/>
+<l rendition="#c">das im Sommer ein Schwalbenpaar</l>           <lb/>
+<l rendition="#c">an meinem Giebel baut.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Das leiseste Zwitschern draus</l>           <lb/>
+<l rendition="#c">rührt an mein Herz!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0033"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">In meinem glühendsten Tulpenbaum</l>           <lb/>
+<l rendition="#c">tausend Blüten!</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Eine süsse Stimme singt:</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">„Blaue Flügel aus Perlmutter,</l>           <lb/>
+<l rendition="#c">als Hochzeitsbett ein Lilienblatt,</l>           <lb/>
+<l rendition="#c">eine ganz kleine Prinzessin!</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Keiner kennt mich.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Niemand weiss,</l>           <lb/>
+<l rendition="#c">wo mein Haus steht.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Sieben Regenbogenbrücken</l>           <lb/>
+<l rendition="#c">funkeln zu ihm durch meinen Garten.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Wenn in deine Seele die Sonne scheint,</l>           <lb/>
+<l rendition="#c">besuch mich mal.</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Hörst du?“</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">Starr,</l>           <lb/>
+<l rendition="#c">aus Schlangen gewunden,</l>           <lb/>
+<l rendition="#c">steht der Baum.</l>         </lg>         <lb/>
+<lg n="10">           <l rendition="#c">Ein Windstoss rüttelt,</l>           <lb/>
+<l rendition="#c">wie tanzende Flammen wehn seine Blüten!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0034"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Ich liege zwischen dunklen Spiegelwänden.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Grüne, glimmende Seesterne,</l>           <lb/>
+<l rendition="#c">Augen, die glotzen,</l>           <lb/>
+<l rendition="#c">ein riesiger Rochen reisst sein Maul auf.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Ein Druck, und sie leuchten!</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Durch einen roten Korallenwald segelt ein silberner Mondfisch!</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Ich liege und rauche aus meiner Wasserpfeife.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0035"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">See, See, sonnigste See, soweit du siehst!</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Ueber die rollenden Wasser hin, jauchzend, tausend Tritonen.</l>           <lb/>
+<l rendition="#c">Auf ihren Schultern,</l>           <lb/>
+<l rendition="#c">muschelempor,</l>           <lb/>
+<l rendition="#c">hoch,</l>           <lb/>
+<l rendition="#c">ein Weib.</l>           <lb/>
+<l rendition="#c">Ihre Nacktheit</l>           <lb/>
+<l rendition="#c">in die Sonne.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Unter ihr,</l>           <lb/>
+<l rendition="#c">triefend,</l>           <lb/>
+<l rendition="#c">die blendenden Perlmutterwände immer wieder von Neuem hoch,</l>           <lb/>
+<l rendition="#c">dick, feist, verliebt,</l>           <lb/>
+<l rendition="#c">wie Kröten,</l>           <lb/>
+<l rendition="#c">sieben alte, glamsrige Meertaper.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c"><hi rendition="#g">Die</hi> Gesichter! <hi rendition="#g">Das</hi> Gestöhn und <hi rendition="#g">das</hi> Gepruste!</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Da,</l>           <lb/>
+<l rendition="#c">plötzlich,</l>           <lb/>
+<l rendition="#c">wütend aus der Tiefe,</l>           <lb/>
+<l rendition="#c">Neptun.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Sein Bart</l>           <lb/>
+<l rendition="#c">blitzt.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">„Hallunken!“</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Und, plitschplatsch, sein Dreizack den sieben Schlappschwänzen um die Glatzen.</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">Die brüllen!</l>         </lg>         <lb/>
+<lg n="10">           <l rendition="#c">Dann, schnell,</l>           <lb/>
+<l rendition="#c">hier noch ein paar Tatschen, dort noch ein Bauch —</l>           <lb/>
+<l rendition="#c">weg sind sie.</l>         </lg>         <lb/>
+<lg n="11">           <l rendition="#c">Die Schöne</l>           <lb/>
+<l rendition="#c">lächelt.</l>         </lg>         <lb/>
+<lg n="12">           <l rendition="#c">Neptun</l>           <lb/>
+<l rendition="#c">verbeugt sich.</l>         </lg>         <lb/>
+<lg n="13">           <l rendition="#c">„Madam?“</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0036"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">In meinen grünen Steinwald</l>           <lb/>
+<l rendition="#c">scheint der Mond.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">In seinem Licht</l>           <lb/>
+<l rendition="#c">sitzt ein blasses Weib und singt.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Von einem Sonnensee,</l>           <lb/>
+<l rendition="#c">von blauen Blumen,</l>           <lb/>
+<l rendition="#c">von einem Kind, das Mutter ruft.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Müde</l>           <lb/>
+<l rendition="#c">fällt die Hand ihr übers Knie,</l>           <lb/>
+<l rendition="#c">in ihrer stummen Harfe</l>           <lb/>
+<l rendition="#c">glänzt der Mond.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0037"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Auf einem vergoldeten Blumenschiff</l>           <lb/>
+<l rendition="#c">mit Ebenholzmasten und Purpursegeln</l>           <lb/>
+<l rendition="#c">schwimmen wir ins offne Meer.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Hinter uns,</l>           <lb/>
+<l rendition="#c">zwischen Wasserrosen,</l>           <lb/>
+<l rendition="#c">schaukelt der Mond.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Tausend bunte Papierlaternen schillern an seidnen Fäden.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">In runden Schalen kreist der Wein.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Die Lauten klingen.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Aus fernem Süd</l>           <lb/>
+<l rendition="#c">taucht blühend eine Insel . . .</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Die Insel — der Vergessenheit!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0038"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Nachts um meinen Tempelhain</l>           <lb/>
+<l rendition="#c">wachen siebzig Bronzekühe.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Tausend bunte Steinlampen flimmern.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Auf einem roten Thron aus Lack</l>           <lb/>
+<l rendition="#c">sitz ich im Allerheiligsten.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Ueber mir,</l>           <lb/>
+<l rendition="#c">durch das Gebälk aus Sandelholz,</l>           <lb/>
+<l rendition="#c">im ausgestochnen Viereck,</l>           <lb/>
+<l rendition="#c">stehn die Sterne.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Ich blinzle.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Wenn ich jetzt aufstünde,</l>           <lb/>
+<l rendition="#c">zertrümmerten meine elfenbeinernen Schultern das Dach,</l>           <lb/>
+<l rendition="#c">und der eirunde Diamant vor meiner Stirn</l>           <lb/>
+<l rendition="#c">stiesse den Mond ein.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Die dicken Priester dürfen ruhig schnarchen.</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Ich stehe nicht auf.</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">Ich sitze mit untergeschlagenen Beinen</l>           <lb/>
+<l rendition="#c">und beschaue meinen Nabel.</l>         </lg>         <lb/>
+<lg n="10">           <l rendition="#c">Der ist ein blutender Rubin</l>           <lb/>
+<l rendition="#c">in einem nackten Bauch aus Gold.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0039"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Mich schuf Korinth, ich sah das Meer.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Tausend Jahre</l>           <lb/>
+<l rendition="#c">unter Schutt und Tempeltrümmern</l>           <lb/>
+<l rendition="#c">lag ich in schwarzer Erde.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Zwischen roten Disteln im Abendschein weideten Ziegen,</l>           <lb/>
+<l rendition="#c">über mein blühendes Grab bliesen Hirten.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Tausend Jahre war ich tot.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Heut scheint die Sonne, der Himmel lacht, ich lebe!</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Im alten Park</l>           <lb/>
+<l rendition="#c">steh ich nackt aus weissem Marmor.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Auf meine Schultern</l>           <lb/>
+<l rendition="#c">durch gezacktes Laub</l>           <lb/>
+<l rendition="#c">fallen zitternde Tupfen.</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Meine Augen,</l>           <lb/>
+<l rendition="#c">weit geöffnet,</l>           <lb/>
+<l rendition="#c">starren auf ein grünes Wasser.</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">In breiten, überhängenden Kastanienblättern</l>           <lb/>
+<l rendition="#c">spiegelt sich und zuckt</l>           <lb/>
+<l rendition="#c">sein Licht.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0040"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">In einem alten Park ein Schlösschen.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Ueber seinem bemoosten Dach glänzt ein Sommerhimmel,</l>           <lb/>
+<l rendition="#c">sieben verwilderte Taxusalleeen</l>           <lb/>
+<l rendition="#c">treffen sich vor seiner Thür.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Ich halte die Hand vor und sehe in ein Fenster.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Nichts.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Dann,</l>           <lb/>
+<l rendition="#c">blinkend,</l>           <lb/>
+<l rendition="#c">ein Goldrahmen,</l>           <lb/>
+<l rendition="#c">verschwimmende Farben,</l>           <lb/>
+<l rendition="#c">jetzt,</l>           <lb/>
+<l rendition="#c">deutlich:</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Eine rosenüberstreute Tapete,</l>           <lb/>
+<l rendition="#c">ein blauer Divan,</l>           <lb/>
+<l rendition="#c">eine nackte Dame füttert einen Kakadu!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0041"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Musik.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Durchs Schilf glotzt der Behemot,</l>           <lb/>
+<l rendition="#c">sieben nackte Erzengel decken mich mit ihren Schwertern.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Heilig, heilig, heilig ist der Herr!</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Die Welt verfliesst,</l>           <lb/>
+<l rendition="#c">mein silberner Wolkenbart durchflutet den Himmel.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Ich schnarche.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Eine schwimmende Walfischheerde um Spitzbergen,</l>           <lb/>
+<l rendition="#c">ein wehendes Palmenbaumblatt auf Zanzibar,</l>           <lb/>
+<l rendition="#c">eine Mücke in Surinam, die ihre Flügel putzt. . .</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Nanu?</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Ein kleines Mädchen fin de siècle</l>           <lb/>
+<l rendition="#c">— schwarze Strümpfe, gelbes Seidenkorsett und lila Höschen,</l>           <lb/>
+<l rendition="#c">hinten das blitzende Schniepelchen —</l>           <lb/>
+<l rendition="#c">wupps, auf meinem Schooss!</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">Die Musik verstummt,</l>           <lb/>
+<l rendition="#c">der Behemot grunzt,</l>           <lb/>
+<l rendition="#c">ihre züngelnden Schlangenschwerter flammend wie Fackeln,</l>           <lb/>
+<l rendition="#c">dräuen die Erzengel.</l>         </lg>         <lb/>
+<lg n="10">           <l rendition="#c">Diese Frechheit!</l>         </lg>         <lb/>
+<lg n="11">           <l rendition="#c">Das entzückende Balg kitzelt mich mit einer Pfauenfeder.</l>         </lg>         <lb/>
+<lg n="12">           <l rendition="#c">„Sie . . . Alterchen . . . Bonbon gefällig?</l>         </lg>         <lb/>
+<lg n="13">           <l rendition="#c">Emmy!!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0042"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">In meinem schwarzen Taxuswald</l>           <lb/>
+<l rendition="#c">singt ein Märchenvogel —</l>           <lb/>
+<l rendition="#c">die ganze Nacht.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Blumen blinken.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Unter Sternen, die sich spiegeln,</l>           <lb/>
+<l rendition="#c">treibt mein Boot.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Meine träumenden Hände</l>           <lb/>
+<l rendition="#c">tauchen in schwimmende Wasserrosen.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Unten,</l>           <lb/>
+<l rendition="#c">lautlos, die Tiefe.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Fern die Ufer! Das Lied. . .</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0043"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Um mein erleuchtetes Schloss wehn Cypressen.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Ich höre sie nicht. Ich fühle sie.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Alle meine Lichter werden erlöschen,</l>           <lb/>
+<l rendition="#c">der letzte Geigenton verklingt,</l>           <lb/>
+<l rendition="#c">durchs Fenster</l>           <lb/>
+<l rendition="#c">in meinem brechenden Blick</l>           <lb/>
+<l rendition="#c">spiegelt sich der Mond.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0044"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Aus einem Kornfeld,</l>           <lb/>
+<l rendition="#c">schräg zum See,</l>           <lb/>
+<l rendition="#c">hob sich die Linde.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Auf schmalem Fussweg an ihr vorbei,</l>           <lb/>
+<l rendition="#c">jeden Nachmittag durch die Juliglut zum Baden,</l>           <lb/>
+<l rendition="#c">wir Jungens.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Der blaue Himmel, die tausend gelben Blüten, das Bienengesumm!</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Und noch immer,</l>           <lb/>
+<l rendition="#c">wenn die Andern längst unten waren,</l>           <lb/>
+<l rendition="#c">— aus dem Wasser klang ihr Lachen und Geschrei —</l>           <lb/>
+<l rendition="#c">stand ich.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Und sah den Himmel</l>           <lb/>
+<l rendition="#c">und hörte die Bienen</l>           <lb/>
+<l rendition="#c">und sog den Duft.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0045"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Unten im Dorf</l>           <lb/>
+<l rendition="#c">hinter der Kirchhofsmauer</l>           <lb/>
+<l rendition="#c">schläft der Müller.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Die Mühle steht still.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Auf ihrem morschen Gebälk kriechen Marieenkäferchen,</l>           <lb/>
+<l rendition="#c">über sie fliegt ein Kukuk hin.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">. . . Kukuk . . . Kukuk . . .</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Den steilen Weg durchs Korn her kommen Kinder,</l>           <lb/>
+<l rendition="#c">lachen, schwatzen und stopfen Gras durch die Ritzen.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Eins kuckt durch.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">. . . Kukuk . . .</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Innen:</l>           <lb/>
+<l rendition="#c">Sonnenstrahlen und Schmetterlinge!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0046"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Ich weiss.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Oft</l>           <lb/>
+<l rendition="#c">wars nur ein Lachen, ein Handdruck von dir,</l>           <lb/>
+<l rendition="#c">oder ein Härchen, ein blosses Härchen,</l>           <lb/>
+<l rendition="#c">das dir der Wind ins Genick geweht,</l>           <lb/>
+<l rendition="#c">und all mein Blut</l>           <lb/>
+<l rendition="#c">gährte gleich auf,</l>           <lb/>
+<l rendition="#c">und all mein Herz</l>           <lb/>
+<l rendition="#c">schlug nach dir.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Dich haben, dich haben,</l>           <lb/>
+<l rendition="#c">dich endlich mal haben,</l>           <lb/>
+<l rendition="#c">ganz und nackt, ganz und nackt!</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Und heut,</l>           <lb/>
+<l rendition="#c">zum ersten Mal,</l>           <lb/>
+<l rendition="#c">unten am See, glitzernd im Mittag,</l>           <lb/>
+<l rendition="#c">sah ich dich so.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Ganz und nackt! Ganz und nackt!</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Und mein Herz</l>           <lb/>
+<l rendition="#c">stand still.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Vor Glück, vor Glück.</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Und es war keine Welt mehr,</l>           <lb/>
+<l rendition="#c">nichts, nichts, nichts,</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">es war nur noch Sonne, nur noch Sonne —</l>         </lg>         <lb/>
+<lg n="10">           <l rendition="#c">so schön warst du!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0047"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Dann losch das Licht,</l>           <lb/>
+<l rendition="#c">und durch die Stille</l>           <lb/>
+<l rendition="#c">nur noch dein Herzschlag . . .</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Seligkeit!</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Im Garten, frühauf, pfiff ein Vogel,</l>           <lb/>
+<l rendition="#c">von tausend Gräsern troff der Thau,</l>           <lb/>
+<l rendition="#c">der ganze Himmel stand in Rosen.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Lieber! Liebe!</l>           <lb/>
+<l rendition="#c">Und wieder: Kuss auf Kuss . . .</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Was kann die Welt uns jetzt noch bieten!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0048"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Ich trat in mein Zimmer.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Die Fenster standen weit auf,</l>           <lb/>
+<l rendition="#c">draussen</l>           <lb/>
+<l rendition="#c">schien die Sonne.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Wie wunderbar,</l>           <lb/>
+<l rendition="#c">Rosen?</l>           <lb/>
+<l rendition="#c">Ein ganzer Strauss!</l>           <lb/>
+<l rendition="#c">Weisse, gelbe und dunkelrote . . .</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Ah, wie das duftete! Wie das wohl that!</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Und ich stellte das Glas wieder auf meinen Schreibtisch.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Dort steht es und schimmert nun,</l>           <lb/>
+<l rendition="#c">und in Alles, was ich schreibe, fällt sein schöner Schein.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Du Liebe, du Gute!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0049"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Ein kleines Haus mit grüner Thür</l>           <lb/>
+<l rendition="#c">und Herzen in den Fensterläden!</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Abends,</l>           <lb/>
+<l rendition="#c">unter den Silberpappeln,</l>           <lb/>
+<l rendition="#c">sitzen wir mit unsern Jungens.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">„Mutter, Mutter, der Mond is kaput!“</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Der Kleinste kuckt auch.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">„Biela!</l>           <lb/>
+<l rendition="#c">Bist du ein Maikäfer?“</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">„Sa.“</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0050"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Am andern Morgen ist der Biela krank.</l>           <lb/>
+<l rendition="#c">Der arme Biela!</l>           <lb/>
+<l rendition="#c">Er sitzt vergnügt im Bett und pappt Kuchen.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Sein Bruder</l>           <lb/>
+<l rendition="#c">spielt.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">„Du — Mutter?</l>           <lb/>
+<l rendition="#c">Mein Bär is auch krank!“</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">So?</l>           <lb/>
+<l rendition="#c">Na was fehlt ihm denn?</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">„Na, den hat doch n Schmetterling gebissen?“</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0051"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Ein mal noch,</l>           <lb/>
+<l rendition="#c">bevor wir schlafen gehn,</l>           <lb/>
+<l rendition="#c">zu unsern Jungens!</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">In beide Bettchen scheint der Mond.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Der Biela noch im Arm das Püppchen,</l>           <lb/>
+<l rendition="#c">sein Bruder um den Hals die Perlenkette . . .</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Leise,</l>           <lb/>
+<l rendition="#c">auf Spitzzehen,</l>           <lb/>
+<l rendition="#c">tasten wir in unser Zimmer.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0052"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Du gingst.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Die Blätter . . . fallen.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">In blaue Dämmrung sinkt das Thal.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Ich starre in die steigenden Nebel. . . .</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Da,</l>           <lb/>
+<l rendition="#c">einmal noch, aus der Ferne,</l>           <lb/>
+<l rendition="#c">weht dein Tuch.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Grüsse! Grüsse!</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Ich strecke sehnsüchtig die Arme . . .</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Vorbei.</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">Aus den Silberpappeln schreien die Staare in den Sonnenuntergang.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0053"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Kein Laut!</l>           <lb/>
+<l rendition="#c">Nur die Pappeln flüstern . . .</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Der alte Tümpel vor mir schwarz wie Tinte,</l>           <lb/>
+<l rendition="#c">um mich, über mir, von allen Seiten,</l>           <lb/>
+<l rendition="#c">auf Fledermausflügeln,</l>           <lb/>
+<l rendition="#c">die Nacht,</l>           <lb/>
+<l rendition="#c">und nur drüben noch,</l>           <lb/>
+<l rendition="#c">zwischen den beiden Weidenstümpfen,</l>           <lb/>
+<l rendition="#c">die sich im Dunkeln wie Drachen dehnen,</l>           <lb/>
+<l rendition="#c">matt, fahl, verröchelnd,</l>           <lb/>
+<l rendition="#c">ein letzter Schwefelstreif.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Auf ihm, scharf, eine Silhouette: ein Faun, der die Flöte bläst.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Ich sehe deutlich seine Finger.</l>           <lb/>
+<l rendition="#c">Sie sind alle zierlich gespreizt</l>           <lb/>
+<l rendition="#c">und die beiden kleinsten sogar höchst kokett aufwärts gebogen.</l>           <lb/>
+<l rendition="#c">Das graziöse Röhrchen quer in ihrer Mitte</l>           <lb/>
+<l rendition="#c">schwebt fast wagerecht über der linken Schulter.</l>           <lb/>
+<l rendition="#c">Auch die rechte sehe ich.</l>           <lb/>
+<l rendition="#c">Nur den Kopf nicht. Der fehlt. Der ist runtergekullert.</l>           <lb/>
+<l rendition="#c">Der liegt seit hundert Jahren schon</l>           <lb/>
+<l rendition="#c">unten im Tümpel.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Plitsch! —? Ein Frosch.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Ich bin zusammengeschrocken.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Der Streif drüben erlischt,</l>           <lb/>
+<l rendition="#c">ich fühle, wie das Wasser Kreise treibt,</l>           <lb/>
+<l rendition="#c">und die uralte Steinbank, auf der ich sitze,</l>           <lb/>
+<l rendition="#c">schauert mir plötzlich ihre Kälte bis ins Genick hinauf.</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">. . . . .?</l>         </lg>         <lb/>
+<lg n="9">           <l rendition="#c">Nein. Nichts. Nur die Pappeln.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0054"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Aus schwerem Schlaf</l>           <lb/>
+<l rendition="#c">plötzlich erwacht,</l>           <lb/>
+<l rendition="#c">— es ist noch Alles dunkel, ich liege da —</l>           <lb/>
+<l rendition="#c">formt sich, in mir, langsam, eine Strophe.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Ueber den Sternen . . .</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Ueber den Sternen . . .</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Ueber den Sternen hängt eine Harfe.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Selig sitzt die Nacht und singt.</l>           <lb/>
+<l rendition="#c">Singt, dass die zitternden Herzen klopfen!</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Aus den Saiten Sonnen tropfen.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Ueber den Sternen hängt eine Harfe,</l>           <lb/>
+<l rendition="#c">selig sitzt die Nacht und singt!</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">Die Augen zu, die Zähne zusammen,</l>           <lb/>
+<l rendition="#c">dass ich nicht schluchze!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0055"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Draussen die Düne.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Einsam das Haus,</l>           <lb/>
+<l rendition="#c">eintönig,</l>           <lb/>
+<l rendition="#c">ans Fenster,</l>           <lb/>
+<l rendition="#c">der Regen.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Hinter mir,</l>           <lb/>
+<l rendition="#c">tictac,</l>           <lb/>
+<l rendition="#c">eine Uhr,</l>           <lb/>
+<l rendition="#c">meine Stirn</l>           <lb/>
+<l rendition="#c">gegen die Scheibe.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Nichts.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Alles vorbei.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Grau der Himmel,</l>           <lb/>
+<l rendition="#c">grau die See</l>           <lb/>
+<l rendition="#c">und grau</l>           <lb/>
+<l rendition="#c">das Herz.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0056"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Kleine, sonnenüberströmte Gärten</l>           <lb/>
+<l rendition="#c">mit bunten Lauben, Kürbissen und Schnittlauch.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Noch blitzt der Thau.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Ueber den nahen Häuserhorizont ragen Thürme.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Durch das monotone Geräusch der Neubauten,</l>           <lb/>
+<l rendition="#c">ab und zu,</l>           <lb/>
+<l rendition="#c">pfeifen Fabriken,</l>           <lb/>
+<l rendition="#c">schlagen Glocken an.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Auf einer Hopfenstange sitzt ein Spatz.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Ich stehe gegen einen alten Drahtzaun gelehnt</l>           <lb/>
+<l rendition="#c">und sehe zu, wie über einem Asternbeet</l>           <lb/>
+<l rendition="#c">zwei Kohlweisslinge taumeln.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0057"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Ich öffne ein kleines Gitter.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Die Märzgefallnen.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Ueber den Weg, durch welkes Laub, hüpfen Schwarzdrosseln,</l>           <lb/>
+<l rendition="#c">um verwitternde Kreuze im Sonnenlicht spielen glitzernde Fäden.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">In einer Ecke,</l>           <lb/>
+<l rendition="#c">— der Epheu blinkt, ich bücke mich —</l>           <lb/>
+<l rendition="#c">auf einem Stein, liegen Rosen.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Dünne Ranken, graues Moos und Thautropfen.</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Die alten Buchstaben sind kaum mehr zu lesen.</l>         </lg>         <lb/>
+<lg n="7">           <l rendition="#c">Mit Mühe nur entziffre ich:</l>         </lg>         <lb/>
+<lg n="8">           <l rendition="#c">„<hi rendition="#g">Ein...un...be...kann...ter...Mann</hi>.“</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0058"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Ueberm Bett, eingerahmt, hängt der Myrthenkranz.</l>           <lb/>
+<l rendition="#c">Vor Jahren</l>           <lb/>
+<l rendition="#c">stand am Fenster mal die Nähmaschine;</l>           <lb/>
+<l rendition="#c">ein Kanarienvogel sang.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Jetzt</l>           <lb/>
+<l rendition="#c">ist das alles anders!</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Abends,</l>           <lb/>
+<l rendition="#c">wenn die rote Lampe brennt,</l>           <lb/>
+<l rendition="#c">kommen fremde Herren in das Stübchen;</l>           <lb/>
+<l rendition="#c">alte, junge, wies grad trifft.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Du lieber Gott — das Leben!</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Nur manchmal,</l>           <lb/>
+<l rendition="#c">wenn der Regen draussen auf die Dächer peitscht,</l>           <lb/>
+<l rendition="#c">nachts,</l>           <lb/>
+<l rendition="#c">kein Mensch ist mehr wach,</l>           <lb/>
+<l rendition="#c">sitzt das Weib und weint . . .</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">Der tote Mann! Die armen Kinder!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0059"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Auf einem Stern mit silbernen Zacken</l>           <lb/>
+<l rendition="#c">sitz ich und lach ich — ein kleines Kind.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Vögel und Blumen haben mich lieb,</l>           <lb/>
+<l rendition="#c">blonde Engel spielen mit mir.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Unten grämt sich der Vater,</l>           <lb/>
+<l rendition="#c">unten schluchzt die Mutter,</l>           <lb/>
+<l rendition="#c">ich sitze und flechte mir einen Kranz aus Himmelsschlüsselchen.</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Lieber Vater! Liebe Mutter!</l>           <lb/>
+<l rendition="#c">Weint nicht!</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Seht:</l>         </lg>         <lb/>
+<lg n="6">           <l rendition="#c">hier wachsen Blumen,</l>           <lb/>
+<l rendition="#c">Lämmer springen,</l>           <lb/>
+<l rendition="#c">und an jedem blanken Zacken</l>           <lb/>
+<l rendition="#c">hängt ein Zuckerherz!</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0060"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Ich bin ein Stern. Ich glänze.</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Thränenbleich</l>           <lb/>
+<l rendition="#c">hebst du zu mir dein Gesicht;</l>           <lb/>
+<l rendition="#c">deine Hände</l>           <lb/>
+<l rendition="#c">weinen.</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">„Tröste mich!“</l>         </lg>         <lb/>
+<lg n="4">           <l rendition="#c">Ich glänze.</l>         </lg>         <lb/>
+<lg n="5">           <l rendition="#c">Alle meine Strahlen</l>           <lb/>
+<l rendition="#c">zittern in dein Herz.</l>         </lg>         <lb/>
+</lg>
+<pb facs="#f0061"/>
+<lg type="poem">         <lg n="1">           <l rendition="#c">Eine schluchzende Sehnsucht mein Frühling,</l>           <lb/>
+<l rendition="#c">ein heisses Ringen mein Sommer —</l>           <lb/>
+<l rendition="#c">wie wird mein Herbst sein?</l>         </lg>         <lb/>
+<lg n="2">           <l rendition="#c">Ein spätes Garbengold?</l>         </lg>         <lb/>
+<lg n="3">           <l rendition="#c">Ein Nebelsee?</l>         </lg>       </lg>       <lb/>
+<pb facs="#f0062"/>
+<pb facs="#f0063"/>
+<pb facs="#f0064"/>
+<pb facs="#f0065"/>
+<pb facs="#f0066"/>
+<pb facs="#f0067"/>
+</body>   </text> </TEI>

@@ -1,0 +1,3139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Iphigenie auf Tauris</title>
+<title type="sub">Ein Schauspiel</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118540238">
+<surname>Goethe</surname>
+<forename>Johann Wolfgang von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">148</measure>
+<measure type="tokens">15089</measure>
+<measure type="types">4061</measure>
+<measure type="characters">98742</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:05:45Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/goethe_iphigenie_1787</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/goethe_iphigenie_1787</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/goethe_iphigenie_1787</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/goethe_iphigenie_1787</idno>
+<idno type="DTADirName">goethe_iphigenie_1787</idno>
+<idno type="DTAID">16393</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905191740</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Goethe, Johann Wolfgang von: Iphigenie auf Tauris. Leipzig, 1787.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Iphigenie auf Tauris</title>
+<title level="m" type="sub">Ein Schauspiel</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118540238">
+<surname>Goethe</surname>
+<forename>Johann Wolfgang von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">136 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Göschen</name></publisher>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1787</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>BBAW</repository>
+<idno>
+<idno type="shelfmark">BBAW, Goethe 384</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Drama</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Drama</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b">Iphigenie auf Tauris.</hi></titlePart><lb/>
+<titlePart type="sub"><hi rendition="#g">Ein Schauſpiel</hi>.</titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/> <byline><hi rendition="#g">Von</hi><lb/>
+<docAuthor><hi rendition="#b"><hi rendition="#g">Goethe</hi>.</hi></docAuthor></byline><lb/>
+<docEdition><hi rendition="#g">Ächte Ausgabe</hi>.</docEdition><lb/>
+<milestone unit="section" rendition="#hr"/> <docImprint><pubPlace><hi rendition="#g">Leipzig,</hi></pubPlace><lb/>
+<publisher><hi rendition="#g">bey Georg Joachim Göſchen,</hi></publisher><lb/>
+<docDate><hi rendition="#g">1787</hi></docDate>.</docImprint></titlePage></front><body><lb/>
+<pb facs="#f0009"/>
+<pb n="[1]" facs="#f0010"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Iphigenie auf Tauris</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <p><hi rendition="#c"><hi rendition="#b"><hi rendition="#g">Ein Schauſpiel</hi>.</hi></hi></p><lb/>
+<fw type="sig" place="bottom">A</fw><lb/>
+<pb n="[2]" facs="#f0011"/>
+<castList> <head><hi rendition="#c"><hi rendition="#g">Perſonen</hi>.</hi></head><lb/>
+<castItem><role xml:id="IPH">Iphigenie.</role></castItem><lb/>
+<castItem><role xml:id="THO">Thoas, König der Taurier.</role></castItem><lb/>
+<castItem><role xml:id="ORE">Oreſt.</role></castItem><lb/>
+<castItem><role xml:id="PYL">Pylades.</role></castItem><lb/>
+<castItem><role xml:id="ARK">Arkas.</role></castItem><lb/>
+</castList> <p><hi rendition="#c"><hi rendition="#g">Schauplatz</hi></hi></p><lb/>
+<p><hi rendition="#c">Hain vor Dianens Tempel.</hi></p><lb/>
+<pb n="[3]" facs="#f0012"/>
+<div n="2"><head><hi rendition="#g">Erſter Aufzug</hi>.</head><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Erſter Auftritt</hi>.</head><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p><hi rendition="#in">H</hi>eraus in eure Schatten, rege Wipfel<lb/>
+Des alten, heil’gen, dichtbelaubten Haines,<lb/>
+Wie in der Göttinn ſtilles Heiligthum,<lb/>
+Tret’ ich noch jetzt mit ſchauderndem Gefühl,<lb/>
+Als wenn ich ſie zum erſtenmal beträte,<lb/>
+<fw type="sig" place="bottom">A 2</fw><lb/>
+<pb n="4" facs="#f0013"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Und es gewöhnt ſich nicht mein Geiſt hierher.<lb/>
+So manches Jahr bewahrt mich hier verborgen<lb/>
+Ein hoher Wille, dem ich mich ergebe;<lb/>
+Doch immer bin ich, wie im erſten, fremd.<lb/>
+Denn ach mich trennt das Meer von den Ge-<lb/>
+liebten,<lb/>
+Und an dem Ufer ſteh’ ich lange Tage,<lb/>
+Das Land der Griechen mit der Seele ſuchend;<lb/>
+Und gegen meine Seufzer bringt die Welle<lb/>
+Nur dumpfe Töne brauſend mir herüber.<lb/>
+Weh dem, der fern von Eltern und Geſchwiſtern<lb/>
+Ein einſam Leben führt! Ihm zehrt der Gram<lb/>
+Das nächſte Glück vor ſeinen Lippen weg.<lb/>
+Ihm ſchwärmen abwärts immer die Gedanken<lb/>
+Nach ſeines Vaters Hallen, wo die Sonne<lb/>
+Zuerſt den Himmel vor ihm aufſchloß, wo<lb/>
+Sich Mitgeborne ſpielend feſt und feſter<lb/>
+Mit ſanften Banden aneinander knüpften.<lb/>
+Ich rechte mit den Göttern nicht; allein<lb/>
+Der Frauen Zuſtand iſt beklagenswerth.<lb/>
+Zu Hauſ’ und in dem Kriege herrſcht der Mann<lb/>
+Und in der Fremde weiß er ſich zu helfen.<lb/>
+<pb n="5" facs="#f0014"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Ihn freuet der Beſitz; ihn krönt der Sieg;<lb/>
+Ein ehrenvoller Tod iſt ihm bereitet.<lb/>
+Wie eng-gebunden iſt des Weibes Glück!<lb/>
+Schon einem rauhen Gatten zu gehorchen,<lb/>
+Iſt Pflicht und Troſt; wie elend, wenn ſie gar<lb/>
+Ein feindlich Schickſal in die Ferne treibt!<lb/>
+So hält mich Thoas hier, ein edler Mann,<lb/>
+In ernſten, heil’gen Sklavenbanden feſt.<lb/>
+O wie beſchämt geſteh’ ich, daß ich dir<lb/>
+Mit ſtillem Widerwillen diene, Göttinn,<lb/>
+Dir meiner Retterinn! Mein Leben ſollte<lb/>
+Zu freyem Dienſte dir gewidmet ſeyn.<lb/>
+Auch hab’ ich ſtets auf dich gehofft und hoffe<lb/>
+Noch jetzt auf dich Diana, die du mich,<lb/>
+Des größten Königes verſtoßne Tochter,<lb/>
+In deinen heil’gen, ſanften Arm genommen.<lb/>
+Ja, Tochter Zevs, wenn du den hohen Mann,<lb/>
+Den du, die Tochter fodernd, ängſtigteſt;<lb/>
+Wenn du den göttergleichen Agamemnon,<lb/>
+Der dir ſein Liebſtes zum Altare brachte,<lb/>
+Von Troja’s umgewandten Mauern rühmlich<lb/>
+Nach ſeinem Vaterland zurückbegleitet,<lb/>
+Die Gattinn ihm, Elektren und den Sohn,<lb/>
+<pb n="6" facs="#f0015"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Die ſchönen Schätze, wohl erhalten haſt;<lb/>
+So gib auch mich den Meinen endlich wieder,<lb/>
+Und rette mich, die du vom Tod’ errettet,<lb/>
+Auch von dem Leben hier, dem zweyten Tode.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Zweyter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Iphigenie. Arkas</hi>.</stage><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Der König ſendet mich hieher und beut<lb/>
+Der Prieſterinn Dianens Gruß und Heil.<lb/>
+Dieß iſt der Tag, da Tauris ſeiner Göttinn<lb/>
+Für wunderbare neue Siege dankt.<lb/>
+Ich eile vor dem König’ und dem Heer’,<lb/>
+Zu melden, daß er kommt und daß es naht.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Wir ſind bereit, ſie würdig zu empfangen,<lb/>
+Und unſre Göttinn ſieht willkomm’nem Opfer<lb/>
+Von Thoas Hand mit Gnadenblick entgegen.</p></sp><lb/>
+<pb n="7" facs="#f0016"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>O fänd’ ich auch den Blick der Prieſterinn,<lb/>
+Der werthen, vielgeehrten, deinen Blick<lb/>
+O heil’ge Jungfrau, heller, leuchtender,<lb/>
+Uns allen gutes Zeichen! Noch bedeckt<lb/>
+Der Gram geheimnißvoll dein Innerſtes;<lb/>
+Vergebens harren wir ſchon Jahre lang<lb/>
+Auf ein vertraulich Wort aus deiner Bruſt.<lb/>
+So lang’ ich dich an dieſer Stäte kenne,<lb/>
+Iſt dieß der Blick, vor dem ich immer ſchaudre;<lb/>
+Und wie mit Eiſenbanden bleibt die Seele<lb/>
+In’s Innerſte des Buſens dir geſchmiedet.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Wie’s der Vertriebnen, der Verwaiſ’ten ziemt.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Scheinſt du dir hier vertrieben und verwaiſ’t?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Kann uns zum Vaterland’ die Fremde werden?</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Und dir iſt fremd das Vaterland geworden.</p></sp><lb/>
+<pb n="8" facs="#f0017"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Das iſt’s, warum mein blutend Herz nicht heilt.<lb/>
+In erſter Jugend, da ſich kaum die Seele<lb/>
+An Vater, Mutter und Geſchwiſter band;<lb/>
+Die neuen Schößlinge, geſellt und lieblich,<lb/>
+Vom Fuß der alten Stämme himmelwärts<lb/>
+Zu dringen ſtrebten; leider faßte da<lb/>
+Ein fremder Fluch mich an und trennte mich<lb/>
+Von den Geliebten, riß das ſchöne Band<lb/>
+Mit ehrner Fauſt entzwey. Sie war dahin,<lb/>
+Der Jugend beſte Freude, das Gedeihn<lb/>
+Der erſten Jahre. Selbſt gerettet, war<lb/>
+Ich nur ein Schatten mir, und friſche Luſt<lb/>
+Des Lebens blüht in mir nicht wieder auf.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Wenn du dich ſo unglücklich nennen willſt;<lb/>
+So darf ich dich auch wohl undankbar nennen.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Dank habt ihr ſtets.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Doch nicht den reinen Dank,</hi><lb/>
+Um deſſentwillen man die Wohlthat thut;<lb/>
+<pb n="9" facs="#f0018"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Den frohen Blick, der ein zufriednes Leben<lb/>
+Und ein geneigtes Herz dem Wirthe zeigt.<lb/>
+Als dich ein tief-geheimnißvolles Schickſal<lb/>
+Vor ſo viel Jahren dieſem Tempel brachte,<lb/>
+Kam Thoas, dir als einer Gottgegeb’nen<lb/>
+Mit Ehrfurcht und mit Neigung zu begegnen.<lb/>
+Und dieſes Ufer ward dir hold und freundlich,<lb/>
+Das jedem Fremden ſonſt voll Grauſens war,<lb/>
+Weil niemand unſer Reich vor dir betrat,<lb/>
+Der an Dianens heil’gen Stufen nicht<lb/>
+Nach altem Brauch, ein blut’ges Opfer, fiel.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Frey athmen macht das Leben nicht allein.<lb/>
+Welch Leben iſt’s, das an der heil’gen Stäte,<lb/>
+Gleich einem Schatten um ſein eigen Grab,<lb/>
+Ich nur vertrauern muß? Und nenn’ ich das<lb/>
+Ein fröhlich ſelbſtbewußtes Leben, wenn<lb/>
+Uns jeder Tag, vergebens hingeträumt,<lb/>
+Zu jenen grauen Tagen vorbereitet,<lb/>
+Die an dem Ufer Lethe’s, ſelbſtvergeſſend,<lb/>
+Die Trauerſchaar der Abgeſchiednen feiert?<lb/>
+Ein unnütz Leben iſt ein früher Tod;<lb/>
+Dieß Frauenſchickſal iſt vor allen mein’s.</p></sp><lb/>
+<pb n="10" facs="#f0019"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Den edeln Stolz, daß du dir ſelbſt nicht<lb/>
+g’nügeſt,<lb/>
+Verzeih’ ich dir, ſo ſehr ich dich bedaure:<lb/>
+Er raubet den Genuß des Lebens dir.<lb/>
+<hi rendition="#g">Du</hi> haſt hier nichts gethan ſeit deiner Ankunft?<lb/>
+Wer hat des Königs trüben Sinn erheitert?<lb/>
+Wer hat den alten grauſamen Gebrauch,<lb/>
+Daß am Altar Dianens jeder Fremde<lb/>
+Sein Leben blutend läßt, von Jahr zu Jahr<lb/>
+Mit ſanfter Überredung aufgehalten,<lb/>
+Und die Gefangnen vom gewiſſen Tod’<lb/>
+In’s Vaterland ſo oft zurückgeſchickt?<lb/>
+Hat nicht Diane, ſtatt erzürnt zu ſeyn<lb/>
+Daß ſie der blut’gen alten Opfer mangelt,<lb/>
+Dein ſanft Gebeth in reichem Maß erhört?<lb/>
+Umſchwebt mit frohem Fluge nicht der Sieg<lb/>
+Das Heer? und eilt er nicht ſogar voraus?<lb/>
+Und fühlt nicht jeglicher ein beſſer Loos,<lb/>
+Seitdem der König, der uns weiſ’ und tapfer<lb/>
+So lang geführet, nun ſich auch der Milde<lb/>
+In deiner Gegenwart erfreut und uns<lb/>
+Des ſchweigenden Gehorſams Pflicht erleichtert.<lb/>
+<pb n="11" facs="#f0020"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Das nennſt du unnütz? wenn von deinem<lb/>
+Weſen<lb/>
+Auf Tauſende herab ein Balſam träufelt;<lb/>
+Wenn du dem Volke, dem ein Gott dich brachte,<lb/>
+Des neuen Glückes ew’ge Quelle wirſt,<lb/>
+Und an dem unwirthbaren Todes-Ufer<lb/>
+Dem Fremden Heil und Rückkehr zubereiteſt?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Das Wenige verſchwindet leicht dem Blick,<lb/>
+Der vorwärts ſieht wie viel noch übrig bleibt.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Doch lobſt du den, der was er thut nicht ſchätzt?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Man tadelt den, der ſeine Thaten wägt.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Auch den, der wahren Werth zu ſtolz nicht achtet,<lb/>
+Wie den, der falſchen Werth zu eitel hebt.<lb/>
+Glaub’ mir und hör’ auf eines Mannes Wort,<lb/>
+Der treu und redlich dir ergeben iſt:<lb/>
+Wenn heut der König mit dir redet, ſo<lb/>
+Erleichtr’ ihm, was er dir zu ſagen denkt.</p></sp><lb/>
+<pb n="12" facs="#f0021"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Du ängſteſt mich mit jedem guten Worte;<lb/>
+Oft wich ich ſeinem Antrag mühſam aus.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Bedenke was du thuſt und was dir nützt.<lb/>
+Seitdem der König ſeinen Sohn verloren,<lb/>
+Vertraut er wenigen der Seinen mehr,<lb/>
+Und dieſen Wenigen nicht mehr wie ſonſt.<lb/>
+Mißgünſtig ſieht er jedes Edeln Sohn<lb/>
+Als ſeines Reiches Folger an; er fürchtet<lb/>
+Ein einſam hülflos Alter, ja vielleicht<lb/>
+Verwegnen Aufſtand und frühzeit’gen Tod.<lb/>
+Der Scythe ſetzt in’s Reden keinen Vorzug,<lb/>
+Am wenigſten der König. Er, der nur<lb/>
+Gewohnt iſt zu befehlen und zu thun,<lb/>
+Kennt nicht die Kunſt, von weitem ein Ge-<lb/>
+ſpräch<lb/>
+Nach ſeiner Abſicht langſam fein zu lenken.<lb/>
+Erſchwer’s ihm nicht durch ein rückhaltend Wei-<lb/>
+gern,<lb/>
+Durch ein vorſetzlich Mißverſtehen. Geh<lb/>
+Gefällig ihm den halben Weg entgegen.</p></sp><lb/>
+<pb n="13" facs="#f0022"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Soll ich beſchleunigen was mich bedroht?</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Willſt du ſein Werben eine Drohung nennen?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Es iſt die ſchrecklichſte von allen mir.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Gib ihm für ſeine Neigung nur Vertraun.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Wenn er von Furcht erſt meine Seele löſ’t.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Warum verſchweigſt du deine Herkunft ihm?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Weil einer Prieſterinn Geheimniß ziemt.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Dem König’ ſollte nichts Geheimniß ſeyn;<lb/>
+Und ob er’s gleich nicht fordert, fühlt er’s doch<lb/>
+Und fühlt es tief in ſeiner großen Seele,<lb/>
+Daß du ſorgfältig dich vor ihm verwahrſt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Nährt er Verdruß und Unmuth gegen mich?</p></sp><lb/>
+<pb n="14" facs="#f0023"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>So ſcheint es faſt. Zwar ſchweigt er auch von dir;<lb/>
+Doch haben hingeworfne Worte mich<lb/>
+Belehrt, daß ſeine Seele feſt den Wunſch<lb/>
+Ergriffen hat, dich zu beſitzen. Laß,<lb/>
+O überlaß ihn nicht ſich ſelbſt! damit<lb/>
+In ſeinem Buſen nicht der Unmuth reife<lb/>
+Und dir Entſetzen bringe, du zu ſpät<lb/>
+An meinen treuen Rath mit Reue denkeſt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Wie? ſinnt der König, was kein edler Mann,<lb/>
+Der ſeinen Nahmen liebt und dem Verehrung<lb/>
+Der Himmliſchen den Buſen bändiget,<lb/>
+Je denken ſollte? Sinnt er vom Altar<lb/>
+Mich in ſein Bette mit Gewalt zu ziehn?<lb/>
+So ruf’ ich alle Götter und vor allen<lb/>
+Dianen die entſchloßne Göttinn an,<lb/>
+Die ihren Schutz der Prieſterinn gewiß,<lb/>
+Und Jungfrau einer Jungfrau, gern gewährt.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Sey ruhig! Ein gewaltſam neues Blut<lb/>
+Treibt nicht den König, ſolche Jünglingsthat<lb/>
+<pb n="15" facs="#f0024"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Verwegen auszuüben. Wie er ſinnt,<lb/>
+Befürcht’ ich andern harten Schluß von ihm,<lb/>
+Den unaufhaltbar er vollenden wird:<lb/>
+Denn ſeine Seel’ iſt feſt und unbeweglich.<lb/>
+Drum bitt’ ich dich, vertrau’ ihm; ſey ihm<lb/>
+dankbar,<lb/>
+Wenn du ihm weiter nichts gewähren kannſt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>O ſage was dir weiter noch bekannt iſt.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Erfahr’s von ihm. Ich ſeh’ den König kommen;<lb/>
+Du ehrſt ihn, und dich heißt dein eigen Herz,<lb/>
+Ihm freundlich und vertraulich zu begegnen.<lb/>
+Ein edler Mann wird durch ein gutes Wort<lb/>
+Der Frauen weit geführt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi></hi></speaker> <stage>allein.</stage><lb/>
+<p><hi rendition="#et">Zwar ſeh’ ich nicht,</hi><lb/>
+Wie ich dem Rath des Treuen folgen ſoll.<lb/>
+Doch folg’ ich gern der Pflicht, dem Könige<lb/>
+Für ſeine Wohlthat gutes Wort zu geben,<lb/>
+Und wünſche mir, daß ich dem Mächtigen,<lb/>
+Was ihm gefällt, mit Wahrheit ſagen möge.</p><lb/>
+<pb n="16" facs="#f0025"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw></sp></div><lb/>
+<div n="3"><head><hi rendition="#g">Dritter Auftritt.</hi></head><lb/>
+<stage><hi rendition="#g">Iphigenie. Thoas.</hi></stage><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Mit königlichen Gütern ſegne dich<lb/>
+Die Göttinn! Sie gewähre Sieg und Ruhm<lb/>
+Und Reichthum und das Wohl der Deinigen<lb/>
+Und jedes frommen Wunſches Fülle dir!<lb/>
+Daß, der du über viele ſorgend herrſcheſt,<lb/>
+Du auch vor vielen ſeltnes Glück genießeſt.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Zufrieden wär’ ich, wenn mein Volk mich<lb/>
+rühmte:<lb/>
+Was ich erwarb, genießen andre mehr<lb/>
+Als ich. Der iſt am glücklichſten, er ſey<lb/>
+Ein König oder ein Geringer, dem<lb/>
+In ſeinem Hauſe Wohl bereitet iſt.<lb/>
+Du nahmeſt Theil an meinen tiefen Schmerzen,<lb/>
+Als mir das Schwert der Feinde meinen Sohn,<lb/>
+Den letzten, beſten, von der Seite riß.<lb/>
+So lang’ die Rache meinen Geiſt beſaß,<lb/>
+Empfand ich nicht die Öde meiner Wohnung;<lb/>
+<pb n="17" facs="#f0026"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Doch jetzt, da ich befriedigt wiederkehre,<lb/>
+Ihr Reich zerſtört, mein Sohn gerochen iſt,<lb/>
+Bleibt mir zu Hauſe nichts das mich ergetze.<lb/>
+Der fröhliche Gehorſam, den ich ſonſt<lb/>
+Aus einem jeden Auge blicken ſah,<lb/>
+Iſt nun von Sorg’ und Unmuth ſtill gedämpft.<lb/>
+Ein jeder ſinnt was künftig werden wird,<lb/>
+Und folgt dem Kinderloſen, weil er muß.<lb/>
+Nun komm’ ich heut in dieſen Tempel, den<lb/>
+Ich oft betrat um Sieg zu bitten und<lb/>
+Für Sieg zu danken. Einen alten Wunſch<lb/>
+Trag’ ich im Buſen, der auch dir nicht fremd,<lb/>
+Noch unerwartet iſt: ich hoffe, dich<lb/>
+Zum Segen meines Volks und mir zum Segen,<lb/>
+Als Braut in meine Wohnung einzuführen.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Der Unbekannten bietheſt du zu viel,<lb/>
+O König, an. Es ſteht die Flüchtige<lb/>
+Beſchämt vor dir, die nichts an dieſem Ufer<lb/>
+Als Schutz und Ruhe ſucht, die du ihr gabſt.</p></sp><lb/>
+<fw type="sig" place="bottom">B</fw><lb/>
+<pb n="18" facs="#f0027"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Daß du in das Geheimniß deiner Abkunft<lb/>
+Vor mir wie vor dem Letzten ſtets dich hülleſt,<lb/>
+Wär’ unter keinem Volke recht und gut.<lb/>
+Dieß Ufer ſchreckt die Fremden: das Geſetz<lb/>
+Gebiethet’s und die Noth. Allein von dir,<lb/>
+Die jedes frommen Rechts genießt, ein wohl<lb/>
+Von uns empfangner Gaſt nach eignem Sinn<lb/>
+Und Willen ihres Tages ſich erfreut,<lb/>
+Von dir hofft’ ich Vertrauen, das der Wirth<lb/>
+Für ſeine Treue wohl erwarten darf.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Verbarg ich meiner Eltern Nahmen und<lb/>
+Mein Haus, o König, war’s Verlegenheit,<lb/>
+Nicht Mißtrau’n. Denn vielleicht, ach wüß-<lb/>
+teſt du,<lb/>
+Wer vor dir ſteht, und welch verwünſchtes<lb/>
+Haupt<lb/>
+Du nährſt und ſchützeſt; ein Entſetzen faßte<lb/>
+Dein großes Herz mit ſeltnem Schauer an,<lb/>
+Und ſtatt die Seite deines Thrones mir<lb/>
+<pb n="19" facs="#f0028"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Zu biethen, triebeſt du mich vor der Zeit<lb/>
+Aus deinem Reiche; ſtießeſt mich vielleicht,<lb/>
+Eh’ zu den Meinen frohe Rückkehr mir<lb/>
+Und meiner Wandrung Ende zugedacht iſt,<lb/>
+Dem Elend zu, das jeden Schweifenden,<lb/>
+Von ſeinem Hauſ’ Vertriebnen überall<lb/>
+Mit kalter fremder Schreckenshand erwartet.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Was auch der Rath der Götter mit dir ſey,<lb/>
+Und was ſie deinem Hauſ’ und dir gedenken;<lb/>
+So fehlt es doch, ſeitdem du bey uns wohnſt<lb/>
+Und eines frommen Gaſtes Recht genießeſt,<lb/>
+An Segen nicht, der mir von oben kommt.<lb/>
+Ich möchte ſchwer zu überreden ſeyn,<lb/>
+Daß ich an dir ein ſchuldvoll Haupt beſchütze.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Dir bringt die Wohlthat Segen, nicht der Gaſt.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Was man Verruchten thut, wird nicht geſegnet.<lb/>
+Drum endige dein Schweigen und dein Wei-<lb/>
+gern;<lb/>
+<fw type="sig" place="bottom">B 2</fw><lb/>
+<pb n="20" facs="#f0029"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Es fordert dieß kein ungerechter Mann.<lb/>
+Die Göttinn übergab dich meinen Händen;<lb/>
+Wie du ihr heilig warſt, ſo warſt du’s mir.<lb/>
+Auch ſey ihr Wink noch künftig mein Geſetz:<lb/>
+Wenn du nach Hauſe Rückkehr hoffen kannſt,<lb/>
+So ſprech’ ich dich von aller Fordrung los.<lb/>
+Doch iſt der Weg auf ewig dir verſperrt,<lb/>
+Und iſt dein Stamm vertrieben, oder durch<lb/>
+Ein ungeheures Unheil ausgelöſcht,<lb/>
+So biſt du mein durch mehr als Ein Geſetz.<lb/>
+Sprich offen! und du weißt, ich halte Wort.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Vom alten Bande löſet ungern ſich<lb/>
+Die Zunge los, ein langverſchwiegenes<lb/>
+Geheimniß endlich zu entdecken. Denn<lb/>
+Einmal vertraut, verläßt es ohne Rückkehr<lb/>
+Des tiefen Herzens ſichre Wohnung, ſchadet,<lb/>
+Wie es die Götter wollen, oder nützt.<lb/>
+Vernimm! Ich bin aus Tantalus Geſchlecht.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Du ſprichſt ein großes Wort gelaſſen aus.<lb/>
+Nennſt du Den deinen Ahnherrn, den die Welt<lb/>
+<pb n="21" facs="#f0030"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Als einen ehmals Hochbegnadigten<lb/>
+Der Götter kennt? Iſt’s jener Tantalus,<lb/>
+Den Jupiter zu Rath und Tafel zog,<lb/>
+An deſſen alterfahrnen, vielen Sinn<lb/>
+Verknüpfenden Geſprächen Götter ſelbſt,<lb/>
+Wie an Orakelſprüchen ſich ergetzten?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Er iſt es; aber Götter ſollten nicht<lb/>
+Mit Menſchen, wie mit ihres Gleichen, wan-<lb/>
+deln;<lb/>
+Das ſterbliche Geſchlecht iſt viel zu ſchwach<lb/>
+In ungewohnter Höhe nicht zu ſchwindeln.<lb/>
+Unedel war er nicht und kein Verräther;<lb/>
+Allein zum Knecht zu groß, und zum Geſellen<lb/>
+Des großen Donn’rers nur ein Menſch. So war<lb/>
+Auch ſein Vergehen menſchlich; ihr Gericht<lb/>
+War ſtreng, und Dichter ſingen: Übermuth<lb/>
+Und Untreu ſtürzten ihn von Jovis Tiſch<lb/>
+Zur Schmach des alten Tartarus hinab.<lb/>
+Ach und ſein ganz Geſchlecht trug ihren Haß!</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Trug es die Schuld des Ahnherrn oder eigne?</p></sp><lb/>
+<pb n="22" facs="#f0031"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Zwar die gewalt’ge Bruſt und der Titanen<lb/>
+Kraftvolles Mark war ſeiner Söhn’ und Enkel<lb/>
+Gewiſſes Erbtheil; doch es ſchmiedete<lb/>
+Der Gott um ihre Stirn ein ehern Band.<lb/>
+Rath, Mäßigung und Weisheit und Geduld<lb/>
+Verbarg er ihrem ſcheuen düſtern Blick;<lb/>
+Zur Wuth ward ihnen jegliche Begier,<lb/>
+Und gränzenlos drang ihre Wuth umher.<lb/>
+Schon Pelops, der Gewaltig-wollende,<lb/>
+Des Tantalus geliebter Sohn, erwarb<lb/>
+Sich durch Verrath und Mord das ſchönſte<lb/>
+Weib,<lb/>
+Des Önomaus Tochter, Hippodamien.<lb/>
+Sie bringt den Wünſchen des Gemahls zwey<lb/>
+Söhne,<lb/>
+Thyeſt und Atreus. Neidiſch ſehen ſie<lb/>
+Des Vaters Liebe zu dem erſten Sohn<lb/>
+Aus einem andern Bette wachſend an.<lb/>
+Der Haß verbindet ſie, und heimlich wagt<lb/>
+Das Paar im Brudermord die erſte That.<lb/>
+Der Vater wähnet Hippodamien<lb/>
+Die Mörderinn, und grimmig fordert er<lb/>
+<pb n="23" facs="#f0032"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Von ihr den Sohn zurück, und ſie entleibt<lb/>
+Sich ſelbſt —</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p><hi rendition="#et">Du ſchweigeſt? Fahre fort zu reden!</hi><lb/>
+Laß dein Vertrau’n dich nicht gereuen! Sprich!</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Wohl dem, der ſeiner Väter gern gedenkt,<lb/>
+Der froh von ihren Thaten, ihrer Größe,<lb/>
+Den Hörer unterhält und ſtill ſich freuend<lb/>
+An’s Ende dieſer ſchönen Reihe ſich<lb/>
+Geſchloſſen ſieht! Denn es erzeugt nicht gleich<lb/>
+Ein Haus den Halbgott noch das Ungeheuer;<lb/>
+Erſt eine Reihe Böſer oder Guter<lb/>
+Bringt endlich das Entſetzen, bringt die Freude<lb/>
+Der Welt hervor. — Nach ihres Vaters Tode<lb/>
+Gebiethen Atreus und Thyeſt der Stadt,<lb/>
+Gemeinſam-herrſchend. Lange konnte nicht<lb/>
+Die Eintracht dauern. Bald entehrt Thyeſt<lb/>
+Des Bruders Bette. Rächend treibet Atreus<lb/>
+Ihn aus dem Reiche. Tückiſch hatte ſchon<lb/>
+Thyeſt, auf ſchwere Thaten ſinnend, lange<lb/>
+Dem Bruder einen Sohn entwandt und heimlich<lb/>
+<pb n="24" facs="#f0033"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Ihn als den ſeinen ſchmeichelnd auferzogen.<lb/>
+Dem füllet er die Bruſt mit Wuth und Rache<lb/>
+Und ſendet ihn zur Königsſtadt, daß er<lb/>
+Im Oheim ſeinen eignen Vater morde.<lb/>
+Des Jünglings Vorſatz wird entdeckt; der König<lb/>
+Straft grauſam den geſandten Mörder, wähnend<lb/>
+Er tödte ſeines Bruders Sohn. Zu ſpät<lb/>
+Erfährt er, wer vor ſeinen trunknen Augen<lb/>
+Gemartert ſtirbt; und die Begier der Rache<lb/>
+Aus ſeiner Bruſt zu tilgen, ſinnt er ſtill<lb/>
+Auf unerhörte That. Er ſcheint gelaſſen,<lb/>
+Gleichgültig und verſöhnt, und lockt den Bruder<lb/>
+Mit ſeinen beyden Söhnen in das Reich<lb/>
+Zurück, ergreift die Knaben, ſchlachtet ſie<lb/>
+Und ſetzt die ekle ſchaudervolle Speiſe<lb/>
+Dem Vater bey dem erſten Mahle vor.<lb/>
+Und da Thyeſt an ſeinem Fleiſche ſich<lb/>
+Geſättigt, eine Wehmuth ihn ergreift,<lb/>
+Er nach den Kindern fragt, den Tritt, die<lb/>
+Stimme<lb/>
+Der Knaben an des Saales Thüre ſchon<lb/>
+Zu hören glaubt, wirft Atreus grinſend<lb/>
+Ihm Haupt und Füße der Erſchlagnen hin.<lb/>
+<pb n="25" facs="#f0034"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Du wendeſt ſchaudernd dein Geſicht, o König:<lb/>
+So wendete die Sonn’ ihr Antlitz weg<lb/>
+Und ihren Wagen aus dem ew’gen Gleiſe.<lb/>
+Dieß ſind die Ahnherrn deiner Prieſterinn;<lb/>
+Und viel unſeliges Geſchick der Männer,<lb/>
+Viel Thaten des verworrnen Sinnes deckt<lb/>
+Die Nacht mit ſchweren Fittigen und läßt<lb/>
+Uns nur in grauenvolle Dämmrung ſehn.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Verbirg ſie ſchweigend auch. Es ſey genug<lb/>
+Der Gräuel! Sage nun, durch welch ein<lb/>
+Wunder<lb/>
+Von dieſem wilden Stamme Du entſprangſt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Des Atreus ältſter Sohn war Agamemnon;<lb/>
+Er iſt mein Vater. Doch ich darf es ſagen,<lb/>
+In ihm hab’ ich ſeit meiner erſten Zeit<lb/>
+Ein Muſter des vollkommnen Manns geſehn.<lb/>
+Ihm brachte Clytemneſtra mich, den Erſtling<lb/>
+Der Liebe, dann Elektren. Ruhig herrſchte<lb/>
+Der König, und es war dem Hauſe Tantals<lb/>
+Die lang’ entbehrte Raſt gewährt. Allein<lb/>
+<pb n="26" facs="#f0035"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Es mangelte dem Glück der Eltern noch<lb/>
+Ein Sohn, und kaum war dieſer Wunſch erfüllt,<lb/>
+Daß zwiſchen beyden Schweſtern nun Oreſt<lb/>
+Der Liebling wuchs; als neues Übel ſchon<lb/>
+Dem ſichern Hauſe zubereitet war.<lb/>
+Der Ruf des Krieges iſt zu euch gekommen,<lb/>
+Der, um den Raub der ſchönſten Frau zu rächen,<lb/>
+Die ganze Macht der Fürſten Griechenlands<lb/>
+Um Trojens Mauern lagerte. Ob ſie<lb/>
+Die Stadt gewonnen, ihrer Rache Ziel<lb/>
+Erreicht, vernahm ich nicht. Mein Vater führte<lb/>
+Der Griechen Heer. In Aulis harrten ſie<lb/>
+Auf günſt’gen Wind vergebens: denn Diane,<lb/>
+Erzürnt auf ihren großen Führer, hielt<lb/>
+Die Eilenden zurück und forderte<lb/>
+Durch Kalchas Mund des Königs ältſte Tochter.<lb/>
+Sie lockten mit der Mutter mich in’s Lager;<lb/>
+Sie riſſen mich vor den Altar und weihten<lb/>
+Der Göttinn dieſes Haupt. — Sie war verſöhnt;<lb/>
+Sie wollte nicht mein Blut, und hüllte rettend<lb/>
+In eine Wolke mich; in dieſem Tempel<lb/>
+Erkannt’ ich mich zuerſt vom Tode wieder.<lb/>
+Ich bin es ſelbſt, bin Iphigenie,<lb/>
+<pb n="27" facs="#f0036"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Des Atreus Enkel, Agamemnons Tochter,<lb/>
+Der Göttinn Eigenthum, die mit dir ſpricht.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Mehr Vorzug und Vertrauen geb’ ich nicht<lb/>
+Der Königstochter als der Unbekannten.<lb/>
+Ich wiederhohle meinen erſten Antrag:<lb/>
+Komm, folge mir und theile was ich habe.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Wie darf ich ſolchen Schritt, o König, wagen?<lb/>
+Hat nicht die Göttinn, die mich rettete,<lb/>
+Allein das Recht auf mein geweihtes Leben?<lb/>
+Sie hat für mich den Schutzort ausgeſucht,<lb/>
+Und ſie bewahrt mich einem Vater, den<lb/>
+Sie durch den Schein genug geſtraft, vielleicht<lb/>
+Zur ſchönſten Freude ſeines Alters hier.<lb/>
+Vielleicht iſt mir die frohe Rückkehr nah;<lb/>
+Und ich, auf ihren Weg nicht achtend, hätte<lb/>
+Mich wieder ihren Willen hier gefeſſelt?<lb/>
+Ein Zeichen bath ich, wenn ich bleiben ſollte.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Das Zeichen iſt, daß du noch hier verweilſt.<lb/>
+Such’ Ausflucht ſolcher Art nicht ängſtlich auf<gap unit="chars" quantity="1"/><lb/>
+<pb n="28" facs="#f0037"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Man ſpricht vergebens viel, um zu verſagen;<lb/>
+Der andre hört von allem nur das Nein.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Nicht Worte ſind es, die nur blenden ſollen;<lb/>
+Ich habe dir mein tiefſtes Herz entdeckt.<lb/>
+Und ſagſt du dir nicht ſelbſt, wie ich dem Vater,<lb/>
+Der Mutter, den Geſchwiſtern mich entgegen<lb/>
+Mit ängſtlichen Gefühlen ſehnen muß?<lb/>
+Daß in den alten Hallen, wo die Trauer<lb/>
+Noch manchmal ſtille meinen Nahmen liſpelt,<lb/>
+Die Freude, wie um eine Neugeborne,<lb/>
+Den ſchönſten Kranz von Säul’ an Säulen<lb/>
+ſchlinge.<lb/>
+O ſendeteſt du mich auf Schiffen hin!<lb/>
+Du gäbeſt mir und allen neues Leben.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>So kehr’ zurück! Thu’ was dein Herz dich heißt;<lb/>
+Und höre nicht die Stimme guten Raths<lb/>
+Und der Vernunft. Sey ganz ein Weib und gib<lb/>
+Dich hin dem Triebe, der dich zügellos<lb/>
+Ergreift und dahin oder dorthin reißt.<lb/>
+Wenn ihnen eine Luſt im Buſen brennt,<lb/>
+<pb n="29" facs="#f0038"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Hält vom Verräther ſie kein heilig Band,<lb/>
+Der ſie dem Vater oder dem Gemahl<lb/>
+Aus langbewährten, treuen Armen lockt;<lb/>
+Und ſchweigt in ihrer Bruſt die raſche Gluth,<lb/>
+So dringt auf ſie vergebens treu und mächtig<lb/>
+Der Überredung goldne Zunge los.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Gedenk, o König, deines edeln Wortes!<lb/>
+Willſt du mein Zutrau’n ſo erwiedern? Du<lb/>
+Schienſt vorbereitet, alles zu vernehmen.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoes.</hi></hi></speaker><lb/>
+<p>Auf’s Ungehoffte war ich nicht bereitet;<lb/>
+Doch ſollt’ ich’s auch erwarten: wußt’ ich nicht,<lb/>
+Daß ich mit einem Weibe handeln ging?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Schilt nicht, o König, unſer arm Geſchlecht.<lb/>
+Nicht herrlich wie die euern, aber nicht<lb/>
+Unedel ſind die Waffen eines Weibes.<lb/>
+Glaub’ es, darin bin ich dir vorzuziehn,<lb/>
+Daß ich dein Glück mehr als du ſelber kenne.<lb/>
+Du wähneſt, unbekannt mit dir und mir,<lb/>
+<pb n="30" facs="#f0039"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Ein näher Band werd’ uns zum Glück vereinen,<lb/>
+Voll guten Muthes, wie voll guten Willens,<lb/>
+Dringſt du in mich, daß ich mich fügen ſoll;<lb/>
+Und hier dank’ ich den Göttern, daß ſie mir<lb/>
+Die Feſtigkeit gegeben, dieſes Bündniß<lb/>
+Nicht einzugehen, das ſie nicht gebilligt.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Es ſpricht kein Gott; es ſpricht dein eignes<lb/>
+Herz.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Sie reden nur durch unſer Herz zu uns.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Und hab’ Ich, ſie zu hören, nicht das Recht?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Es überbrauſt der Sturm die zarte Stimme.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Die Prieſterinn vernimmt ſie wohl allein?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Vor allen andern merke ſie der Fürſt.</p></sp><lb/>
+<pb n="31" facs="#f0040"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi>.</hi></speaker><lb/>
+<p>Dein heilig Amt und dein geerbtes Recht<lb/>
+An Jovis Tiſch bringt dich den Göttern näher,<lb/>
+Als einen erdgebornen Wilden.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">So</hi><lb/>
+Büß’ ich nun das Vertrau’n, das du erzwangſt.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi>.</hi></speaker><lb/>
+<p>Ich bin ein Menſch; und beſſer iſt’s wir enden.<lb/>
+So bleibe denn mein Wort: Sey Prieſterinn<lb/>
+Der Göttinn, wie ſie dich erkoren hat;<lb/>
+Doch mir verzeih’ Diane, daß ich ihr<lb/>
+Bisher mit Unrecht und mit innerm Vorwurf<lb/>
+Die alten Opfer vorenthalten habe.<lb/>
+Kein Fremder nahet glücklich unſerm Ufer;<lb/>
+Von Alters her iſt ihm der Tod gewiß.<lb/>
+Nur Du haſt mich mit einer Freundlichkeit,<lb/>
+In der ich bald der zarten Tochter Liebe,<lb/>
+Bald ſtille Neigung einer Braut zu ſehn<lb/>
+Mich tief erfreute, wie mit Zauberbanden<lb/>
+Gefeſſelt, daß ich meiner Pflicht vergaß.<lb/>
+Du hatteſt mir die Sinnen eingewiegt,<lb/>
+<pb n="32" facs="#f0041"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Das Murren meines Volks vernahm ich nicht;<lb/>
+Nun rufen ſie die Schuld von meines Sohnes<lb/>
+Frühzeit’gem Tode lauter über mich.<lb/>
+Um deinetwillen halt’ ich länger nicht<lb/>
+Die Menge, die das Opfer dringend fordert.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Um meinetwillen hab’ ich’s nie begehrt.<lb/>
+Der mißverſteht die Himmliſchen, der ſie<lb/>
+Blutgierig wähnt; er dichtet ihnen nur<lb/>
+Die eignen grauſamen Begierden an.<lb/>
+Entzog die Göttinn mich nicht ſelbſt dem<lb/>
+Prieſter?<lb/>
+Ihr war mein Dienſt willkommner, als mein<lb/>
+Tod.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi>.</hi></speaker><lb/>
+<p>Es ziemt ſich nicht für uns, den heiligen<lb/>
+Gebrauch mit leicht beweglicher Vernunft<lb/>
+Nach unſerm Sinn zu deuten und zu lenken.<lb/>
+Thu deine Pflicht, ich werde meine thun.<lb/>
+Zwey Fremde, die wir in des Ufers Höhlen<lb/>
+Verſteckt gefunden, und die meinem Lande<lb/>
+Nichts gutes bringen, ſind in meiner Hand.<lb/>
+<pb n="33" facs="#f0042"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Mit dieſen nehme deine Göttinn wieder<lb/>
+Ihr erſtes, rechtes, lang’ entbehrtes Opfer!<lb/>
+Ich ſende ſie hierher; du weißt den Dienſt.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Vierter Auftritt</hi>.</head><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi></hi></speaker> <stage>allein.</stage><lb/>
+<p>Du haſt Wolken, gnädige Retterinn,<lb/>
+Einzuhüllen unſchuldig Verfolgte,<lb/>
+Und auf Winden dem ehrnen Geſchick ſie<lb/>
+Aus den Armen, über das Meer,<lb/>
+Über der Erde weiteſte Strecken<lb/>
+Und wohin es dir gut dünkt zu tragen.<lb/>
+Weiſe biſt du und ſieheſt das Künftige;<lb/>
+Nicht vorüber iſt dir das Vergangne,<lb/>
+Und dein Blick ruht über den Deinen<lb/>
+Wie dein Licht, das Leben der Nächte,<lb/>
+Über der Erde ruhet und waltet.<lb/>
+O enthalte vom Blut meine Hände!<lb/>
+Nimmer bringt es Segen und Ruhe;<lb/>
+<fw type="sig" place="bottom">C</fw><lb/>
+<pb n="34" facs="#f0043"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi>.</fw><lb/>
+Und die Geſtalt des zufällig Ermordeten<lb/>
+Wird auf des traurig-unwilligen Mörders<lb/>
+Böſe Stunde lauern — und ſchrecken.<lb/>
+Denn die Unſterblichen lieben der Menſchen<lb/>
+Weit verbreitete gute Geſchlechter,<lb/>
+Und ſie friſten das flüchtige Leben<lb/>
+Gerne dem Sterblichen, wollen ihm gerne<lb/>
+Ihres eigenen, ewigen Himmels<lb/>
+Mitgenießendes fröhliches Anſchau’n<lb/>
+Eine Weile gönnen und laſſen.</p></sp></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[35]" facs="#f0044"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#g">Zweyter Aufzug</hi>.</head><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Erſter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Oreſt. Pylades</hi>.</stage><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p><hi rendition="#in">E</hi>s iſt der Weg des Todes, den wir treten:<lb/>
+Mit jedem Schritt wird meine Seele ſtiller.<lb/>
+Als ich Apollen bath, das gräßliche<lb/>
+Geleit der Rachegeiſter von der Seite<lb/>
+Mir abzunehmen, ſchien er Hülf’ und Rettung<lb/>
+Im Tempel ſeiner vielgeliebten Schweſter,<lb/>
+Die über Tauris herrſcht, mit hoffnungsreichen<lb/>
+Gewiſſen Götterworten zu verſprechen;<lb/>
+Und nun erfüllet ſich’s, daß alle Noth<lb/>
+<fw type="sig" place="bottom">C 2</fw><lb/>
+<pb n="36" facs="#f0045"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Mit meinem Leben völlig enden ſoll.<lb/>
+Wie leicht wird’s mir, dem eine Götterhand<lb/>
+Das Herz zuſammendrückt, den Sinn betäubt,<lb/>
+Dem ſchönen Licht der Sonne zu entſagen.<lb/>
+Und ſollen Atreus Enkel in der Schlacht<lb/>
+Ein ſiegbekröntes Ende nicht gewinnen;<lb/>
+Soll ich wie meine Ahnen, wie mein Vater<lb/>
+Als Opferthier im Jammertode bluten:<lb/>
+So ſey es! Beſſer hier vor dem Altar,<lb/>
+Als im verworfnen Winkel, wo die Netze<lb/>
+Der nahverwandte Meuchelmörder ſtellt.<lb/>
+Laßt mir ſo lange Ruh’, ihr Unterird’ſchen,<lb/>
+Die nach dem Blut’ ihr, das von meinen Tritten<lb/>
+Hernieder träufend meinen Pfad bezeichnet,<lb/>
+Wie losgelaßne Hunde ſpürend hetzt.<lb/>
+Laßt mich, ich komme bald zu euch hinab;<lb/>
+Das Licht des Tags ſoll euch nicht ſehn, noch mich.<lb/>
+Der Erde ſchöner grüner Teppich ſoll<lb/>
+Kein Tummelplatz für Larven ſeyn. Dort unten<lb/>
+Such’ ich euch auf: dort bindet alle dann<lb/>
+Ein gleich Geſchick in ew’ge matte Nacht.<lb/>
+Nur dich, mein Pylades, dich, meiner Schuld<lb/>
+<pb n="37" facs="#f0046"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Und meines Banns unſchuldigen Genoſſen,<lb/>
+Wie ungern nehm’ ich dich in jenes Trauerland<lb/>
+Frühzeitig mit! Dein Leben oder Tod<lb/>
+Gibt mir allein noch Hoffnung oder Furcht.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Ich bin noch nicht, Oreſt, wie du bereit,<lb/>
+In jenes Schattenreich hinabzugehn.<lb/>
+Ich ſinne noch, durch die verworrnen Pfade,<lb/>
+Die nach der ſchwarzen Nacht zu führen ſcheinen,<lb/>
+Uns zu dem Leben wieder aufzuwinden.<lb/>
+Ich denke nicht den Tod; ich ſinn’ und horche,<lb/>
+Ob nicht zu irgend einer frohen Flucht<lb/>
+Die Götter Rath und Wege zubereiten.<lb/>
+Der Tod, gefürchtet oder ungefürchtet,<lb/>
+Kommt unaufhaltſam. Wenn die Prieſterinn<lb/>
+Schon unſre Locken weihend abzuſchneiden<lb/>
+Die Hand erhebt, ſoll dein’ und meine Rettung<lb/>
+Mein einziger Gedanke ſeyn. Erhebe<lb/>
+Von dieſem Unmuth deine Seele; zweifelnd<lb/>
+Beſchleunigeſt du die Gefahr. Apoll<lb/>
+Gab uns das Wort: im Heiligthum der<lb/>
+Schweſter<lb/>
+<pb n="38" facs="#f0047"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Sey Troſt und Hülf’ und Rückkehr dir bereitet.<lb/>
+Der Götter Worte ſind nicht doppelſinnig,<lb/>
+Wie der Gedrückte ſie im Unmuth wähnt.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Des Lebens dunkle Decke breitete<lb/>
+Die Mutter ſchon mir um das zarte Haupt,<lb/>
+Und ſo wuchs ich herauf, ein Ebenbild<lb/>
+Des Vaters, und es war mein ſtummer Blick<lb/>
+Ein bittrer Vorwurf ihr und ihrem Buhlen.<lb/>
+Wie oft, wenn ſtill Elektra meine Schweſter<lb/>
+Am Feuer in der tiefen Halle ſaß,<lb/>
+Drängt’ ich beklommen mich an ihren Schoos,<lb/>
+Und ſtarrte, wie ſie bitter weinte, ſie<lb/>
+Mit großen Augen an. Dann ſagte ſie<lb/>
+Von unſerm hohen Vater viel: wie ſehr<lb/>
+Verlangt’ ich ihn zu ſehn, bey ihm zu ſeyn!<lb/>
+Mich wünſcht’ ich bald nach Troja, ihn bald her.<lb/>
+Es kam der Tag —</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">O laß von jener Stunde</hi><lb/>
+Sich Höllengeiſter nächtlich unterhalten!<lb/>
+Uns gebe die Erinnrung ſchöner Zeit<lb/>
+<pb n="39" facs="#f0048"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Zu friſchem Heldenlaufe neue Kraft.<lb/>
+Die Götter brauchen manchen guten Mann<lb/>
+Zu ihrem Dienſt auf dieſer weiten Erde.<lb/>
+Sie haben noch auf dich gezählt; ſie gaben<lb/>
+Dich nicht dem Vater zum Geleite mit,<lb/>
+Da er unwillig nach dem Orkus ging.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>O wär’ ich, ſeinen Saum ergreifend, ihm<lb/>
+Gefolgt.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">So haben die, die dich erhielten,</hi><lb/>
+Für <hi rendition="#g">mich</hi> geſorgt: denn was ich worden wäre,<lb/>
+Wenn Du nicht lebteſt, kann ich mir nicht denken;<lb/>
+Da ich mit dir und deinetwillen nur<lb/>
+Seit meiner Kindheit leb’ und leben mag.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Erinnre mich nicht jener ſchönen Tage,<lb/>
+Da mir dein Haus die freye Stäte gab,<lb/>
+Dein edler Vater klug und liebevoll<lb/>
+Die halb erſtarrte junge Blüthe pflegte;<lb/>
+Da du ein immer munterer Geſelle,<lb/>
+Gleich einem leichten bunten Schmetterling<gap unit="chars" quantity="1"/><lb/>
+<pb n="40" facs="#f0049"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Um eine dunkle Blume, jeden Tag<lb/>
+Um mich mit neuem Leben gaukelteſt,<lb/>
+Mir deine Luſt in meine Seele ſpielteſt,<lb/>
+Daß ich, vergeſſend meiner Noth, mit dir<lb/>
+In raſcher Jugend hingeriſſen ſchwärmte.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Da fing mein Leben an, als ich dich liebte.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Sag: meine Noth begann, und du ſprichſt wahr.<lb/>
+Das iſt das Ängſtliche von meinem Schickſal,<lb/>
+Daß ich, wie ein verpeſteter Vertriebner,<lb/>
+Geheimen Schmerz und Tod im Buſen trage;<lb/>
+Daß, wo ich den geſund’ſten Ort betrete,<lb/>
+Gar bald um mich die blühenden Geſichter<lb/>
+Den Schmerzenszug langſamen Tod’s verrathen.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Der nächſte wär’ ich dieſen Tod zu ſterben,<lb/>
+Wenn je dein Hauch, Oreſt, vergiftete.<lb/>
+Bin ich nicht immer noch voll Muth und Luſt?<lb/>
+Und Luſt und Liebe ſind die Fittige<lb/>
+Zu großen Thaten.</p></sp><lb/>
+<pb n="41" facs="#f0050"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Große Thaten? Ja,</hi><lb/>
+Ich weiß die Zeit, da wir ſie vor uns ſahn!<lb/>
+Wenn wir zuſammen oft dem Wilde nach<lb/>
+Durch Berg’ und Thäler rannten, und dereinſt<lb/>
+An Bruſt und Fauſt dem hohen Ahnherrn gleich<lb/>
+Mit Keul’ und Schwert dem Ungeheuer ſo,<lb/>
+Dem Räuber auf der Spur zu jagen hofften;<lb/>
+Und dann wir Abends an der weiten See<lb/>
+Uns an einander lehnend ruhig ſaßen,<lb/>
+Die Wellen bis zu unſern Füßen ſpielten,<lb/>
+Die Welt ſo weit, ſo offen vor uns lag;<lb/>
+Da fuhr wohl einer manchmal nach dem Schwert,<lb/>
+Und künft’ge Thaten drangen wie die Sterne<lb/>
+Rings um uns her unzählig aus der Nacht.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Unendlich iſt das Werk, das zu vollführen<lb/>
+Die Seele dringt. Wir möchten jede That<lb/>
+So groß gleich thun als wie ſie wächſt und wird,<lb/>
+Wenn Jahre lang durch Länder und Geſchlechter<lb/>
+Der Mund der Dichter ſie vermehrend wälzt.<lb/>
+Es klingt ſo ſchön was unſre Väter thaten,<lb/>
+<pb n="42" facs="#f0051"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Wenn es in ſtillen Abendſchatten ruhend<lb/>
+Der Jüngling mit dem Ton der Harfe ſchlürft;<lb/>
+Und was wir thun iſt, wie es ihnen war,<lb/>
+Voll Müh’ und eitel Stückwerk!<lb/>
+So laufen wir nach dem was vor uns flieht,<lb/>
+Und achten nicht des Weges den wir treten,<lb/>
+Und ſehen neben uns der Ahnherrn Tritte<lb/>
+Und ihres Erdelebens Spuren kaum.<lb/>
+Wir eilen immer ihrem Schatten nach,<lb/>
+Der göttergleich in einer weiten Ferne<lb/>
+Der Berge Haupt auf goldnen Wolken krönt.<lb/>
+Ich halte nichts von dem, der von ſich denkt<lb/>
+Wie ihn das Volk vielleicht erheben möchte.<lb/>
+Allein, o Jüngling, danke du den Göttern,<lb/>
+Daß ſie ſo früh durch dich ſo viel gethan.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Wenn ſie dem Menſchen frohe That beſcheren,<lb/>
+Daß er ein Unheil von den Seinen wendet,<lb/>
+Daß er ſein Reich vermehrt, die Gränzen ſichert,<lb/>
+Und alte Feinde fallen oder fliehn;<lb/>
+Dann mag er danken! denn ihm hat ein Gott<lb/>
+Des Lebens erſte, letzte Luſt gegönn<gap unit="chars" quantity="1"/>.<lb/>
+<pb n="43" facs="#f0052"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Mich haben ſie zum Schlächter auserkoren,<lb/>
+Zum Mörder meiner doch verehrten Mutter,<lb/>
+Und eine Schandthat ſchändlich rächend, mich<lb/>
+Durch ihren Wink zu Grund’ gerichtet. Glaube,<lb/>
+Sie haben es auf Tantals Haus gerichtet,<lb/>
+Und ich, der Letzte, ſoll nicht ſchuldlos, ſoll<lb/>
+Nicht ehrenvoll vergehn.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Die Götter rächen</hi><lb/>
+Der Väter Miſſethat nicht an dem Sohn;<lb/>
+Ein jeglicher, gut oder böſe, nimmt<lb/>
+Sich ſeinen Lohn mit ſeiner That hinweg.<lb/>
+Es erbt der Eltern Segen, nicht ihr Fluch.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Uns führt ihr Segen, dünkt mich, nicht hierher.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Doch wenigſtens der hohen Götter Wille.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>So iſt’s ihr Wille denn, der uns verderbt.</p></sp><lb/>
+<pb n="44" facs="#f0053"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Thu’ was ſie dir gebiethen und erwarte.<lb/>
+Bringſt du die Schweſter zu Apollen hin,<lb/>
+Und wohnen beyde dann vereint zu Delphis,<lb/>
+Verehrt von einem Volk das edel denkt;<lb/>
+So wird für dieſe That das hohe Paar<lb/>
+Dir gnädig ſeyn, ſie werden aus der Hand<lb/>
+Der Unterird’ſchen dich erretten. Schon<lb/>
+In dieſen heil’gen Hain wagt keine ſich.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>So hab’ ich wenigſtens geruh’gen Tod.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Ganz anders denk’ ich, und nicht ungeſchickt<lb/>
+Hab’ ich das ſchon Geſcheh’ne mit dem Künft’gen<lb/>
+Verbunden und im ſtillen ausgelegt.<lb/>
+Vielleicht reift in der Götter Rath ſchon lange<lb/>
+Das große Werk. Diane ſehnet ſich<lb/>
+Von dieſem rauhen Ufer der Barbaren<lb/>
+Und ihren blut’gen Menſchenopfern weg.<lb/>
+Wir waren zu der ſchönen That beſtimmt,<lb/>
+Uns wird ſie auferlegt, und ſeltſam ſind<lb/>
+Wir an der Pforte ſchon gezwungen hier.</p></sp><lb/>
+<pb n="45" facs="#f0054"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Mit ſeltner Kunſt flichſt du der Götter Rath<lb/>
+Und deine Wünſche klug in eins zuſammen.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Was iſt des Menſchen Klugheit, wenn ſie nicht<lb/>
+Auf Jener Willen droben achtend lauſcht?<lb/>
+Zu einer ſchweren That beruft ein Gott<lb/>
+Den edlen Mann, der viel verbrach, und legt<lb/>
+Ihm auf was uns unmöglich ſcheint zu enden.<lb/>
+Es ſiegt der Held, und büßend dienet er<lb/>
+Den Göttern und der Welt, die ihn verehrt.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Bin ich beſtimmt, zu leben und zu handeln;<lb/>
+So nehm’ ein Gott von meiner ſchweren Stirn<lb/>
+Den Schwindel weg, der auf dem ſchlüpfrigen,<lb/>
+Mit Mutterblut beſprengten Pfade f<supplied>o</supplied>rt<lb/>
+Mich zu den Todten reißt. Er trockne gnädig<lb/>
+Die Quelle, die, mir aus der Mutter Wunden<lb/>
+Entgegen ſprudelnd, ewig mich befleckt.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Erwart’ es ruhiger! Du mehrſt das Übel<lb/>
+Und nimmſt das Amt der Furien auf dich.<lb/>
+<pb n="46" facs="#f0055"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Laß mich nur ſinnen, bleibe ſtill! Zuletzt,<lb/>
+Bedarf’s zur That vereinter Kräfte, dann<lb/>
+Ruf’ ich dich auf, und beyde ſchreiten wir<lb/>
+Mit überlegter Kühnheit zur Vollendung.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Ich hör’ Ulyſſen reden.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Spotte nicht.</hi><lb/>
+Ein jeglicher muß ſeinen Helden wählen,<lb/>
+Dem er die Wege zum Olymp hinauf<lb/>
+Sich nacharbeitet. Laß es mich geſtehn:<lb/>
+Mir ſcheinet Liſt und Klugheit nicht den Mann<lb/>
+Zu ſchänden, der ſich kühnen Thaten weiht.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Ich ſchätze den, der tapfer iſt und g’rad.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Drum hab’ ich keinen Rath von dir verlangt.<lb/>
+Schon iſt ein Schritt gethan. Von unſern<lb/>
+Wächtern<lb/>
+Hab’ ich bisher gar vieles ausgelockt.<lb/>
+Ich weiß, ein fremdes, göttergleiches Weib<lb/>
+<pb n="47" facs="#f0056"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Hält jenes blutige Geſetz gefeſſelt;<lb/>
+Ein reines Herz und Weihrauch und Gebeth<lb/>
+Bringt ſie den Göttern dar. Man rühmet hoch<lb/>
+Die Gütige; man glaubet, ſie entſpringe<lb/>
+Vom Stamm der Amazonen, ſey geflohn,<lb/>
+Um einem großen Unheil zu entgehn.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Es ſcheint, ihr lichtes Reich verlor die Kraft<lb/>
+Durch des Verbrechers Nähe, den der Fluch<lb/>
+Wie eine breite Nacht verfolgt und deckt.<lb/>
+Die fromme Blutgier löſ’t den alten Brauch<lb/>
+Von ſeinen Feſſeln los, uns zu verderben.<lb/>
+Der wilde Sinn des Königs tödtet uns;<lb/>
+Ein Weib wird uns nicht retten, wenn er zürnt.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Wohl uns, daß es ein Weib iſt! denn ein Mann,<lb/>
+Der beſte ſelbſt, gewöhnet ſeinen Geiſt<lb/>
+An Grauſamkeit, und macht ſich auch zuletzt<lb/>
+Aus dem, was er verabſcheut, ein Geſetz,<lb/>
+Wird aus Gewohnheit hart und faſt unkenntlich.<lb/>
+Allein ein Weib bleibt ſtät auf Einem Sinn,<lb/>
+<pb n="48" facs="#f0057"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Den ſie gefaßt. Du rechneſt ſicherer<lb/>
+Auf ſie im Guten wie im Böſen. — Still!<lb/>
+Sie kommt; laß uns allein. Ich darf nicht<lb/>
+gleich<lb/>
+Ihr unſre Nahmen nennen, unſer Schickſal<lb/>
+Nicht ohne Rückhalt ihr vertrau’n. Du gehſt,<lb/>
+Und eh’ ſie mit dir ſpricht treff’ ich dich noch.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Zweyter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Iphigenie. Pylades</hi>.</stage><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Woher du ſeyſt und kommſt, o Fremdling,<lb/>
+ſprich!<lb/>
+Mir ſcheint es, daß ich eher einem Griechen<lb/>
+Als einem Scythen dich vergleichen ſoll.</p><lb/>
+<stage>Sie nimmt ihm die Ketten ab.</stage><lb/>
+<p>Gefährlich iſt die Freyheit, die ich gebe;<lb/>
+Die Götter wenden ab was euch bedroht!</p></sp><lb/>
+<pb n="49" facs="#f0058"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>O ſüße Stimme! Vielwillkommner Ton<lb/>
+Der Mutterſprach’ in einem fremden Lande!<lb/>
+Des väterlichen Hafens blaue Berge<lb/>
+Seh’ ich Gefangner neu willkommen wieder<lb/>
+Vor meinen Augen. Laß dir dieſe Freude<lb/>
+Verſichern, daß auch ich ein Grieche bin!<lb/>
+Vergeſſen hab’ ich einen Augenblick,<lb/>
+Wie ſehr ich dein bedarf, und meinen Geiſt<lb/>
+Der herrlichen Erſcheinung zugewendet.<lb/>
+O ſage, wenn dir ein Verhängniß nicht<lb/>
+Die Lippe ſchließt, aus welchem unſrer Stämme<lb/>
+Du deine göttergleiche Herkunft zählſt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Die Prieſterinn, von ihrer Göttinn ſelbſt<lb/>
+Gewählet und geheiligt, ſpricht mit dir.<lb/>
+Das laß dir g’nügen; ſage, wer du ſeyſt<lb/>
+Und welch unſelig-waltendes Geſchick<lb/>
+Mit dem Gefährten dich hierher gebracht.</p></sp><lb/>
+<fw type="sig" place="bottom">D</fw><lb/>
+<pb n="50" facs="#f0059"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Leicht kann ich dir erzählen, welch ein Übel<lb/>
+Mit laſtender Geſellſchaft uns verfolgt.<lb/>
+O könnteſt du der Hoffnung frohen Blick<lb/>
+Uns auch ſo leicht, du Göttliche, gewähren!<lb/>
+Aus Kreta ſind wir, Söhne des Adraſts:<lb/>
+Ich bin der jüngſte, Cephalus genannt,<lb/>
+Und er Laodamas, der älteſte<lb/>
+Des Hauſes. Zwiſchen uns ſtand rauh und wild<lb/>
+Ein mittlerer, und trennte ſchon im Spiel<lb/>
+Der erſten Jugend Einigkeit und Luſt.<lb/>
+Gelaſſen folgten wir der Mutter Worten,<lb/>
+So lang’ des Vaters Kraft vor Troja ſtritt;<lb/>
+Doch als er beutereich zurücke kam<lb/>
+Und kurz darauf verſchied, da trennte bald<lb/>
+Der Streit um Reich und Erbe die Geſchwiſter.<lb/>
+Ich neigte mich zum Ältſten. Er erſchlug<lb/>
+Den Bruder. Um der Blutſchuld willen treibt<lb/>
+Die Furie gewaltig ihn umher.<lb/>
+Doch dieſem wilden Ufer ſendet uns<lb/>
+Apoll, der Delphiſche, mit Hoffnung zu.<lb/>
+Im Tempel ſeiner Schweſter hieß er uns<lb/>
+<pb n="51" facs="#f0060"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Der Hülfe ſegensvolle Hand erwarten.<lb/>
+Gefangen ſind wir und hierher gebracht,<lb/>
+Und dir als Opfer dargeſtellt. Du weißt’s.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Fiel Troja? Theurer Mann, verſichr’ es mir.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Es liegt. O ſich’re du uns Rettung zu!<lb/>
+Beſchleunige die Hülfe, die ein Gott<lb/>
+Verſprach. Erbarme meines Bruders dich.<lb/>
+O ſag’ ihm bald ein gutes holdes Wort;<lb/>
+Doch ſchone ſeiner wenn du mit ihm ſprichſt,<lb/>
+Das bitt’ ich eifrig: denn es wird gar leicht<lb/>
+Durch Freud’ und Schmerz und durch Erin-<lb/>
+nerung<lb/>
+Sein Innerſtes ergriffen und zerrüttet.<lb/>
+Ein ſieberhafter Wahnſinn fällt ihn an,<lb/>
+Und ſeine ſchöne freye Seele wird<lb/>
+Den Furien zum Raube hingegeben.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>So groß dein Unglück iſt, beſchwör’ ich dich,<lb/>
+Vergiß es, bis du mir genug gethan.</p></sp><lb/>
+<fw type="sig" place="bottom">D 2</fw><lb/>
+<pb n="52" facs="#f0061"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Die hohe Stadt, die zehen lange Jahre<lb/>
+Dem ganzen Heer der Griechen widerſtand,<lb/>
+Liegt nun im Schutte, ſteigt nicht wieder auf.<lb/>
+Doch manche Gräber unſrer Beſten heißen<lb/>
+Uns an das Ufer der Barbaren denken.<lb/>
+Achill liegt dort mit ſeinem ſchönen Freunde.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>So ſeyd ihr Götterbilder auch zu Staub!</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Auch Palamedes, Ajax Telamons,<lb/>
+Sie ſahn des Vaterlandes Tag nicht wieder.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Er ſchweigt von meinem Vater, nennt ihn nicht<lb/>
+Mit den Erſchlagnen. Ja! er lebt mir noch!<lb/>
+Ich werd’ ihn ſehn. O hoffe, liebes Herz!</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Doch ſelig ſind die Tauſende, die ſtarben<lb/>
+Den bitterſüßen Tod von Feindes Hand!<lb/>
+<pb n="53" facs="#f0062"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Denn wüſte Schrecken und ein traurig Ende<lb/>
+Hat den Rückkehrenden ſtatt des Triumphs<lb/>
+Ein feindlich aufgebrachter Gott bereitet.<lb/>
+Kommt denn der Menſchen Stimme nicht zu<lb/>
+euch?<lb/>
+So weit ſie reicht, trägt ſie den Ruf umher<lb/>
+Von unerhörten Thaten die geſchah’n.<lb/>
+So iſt der Jammer, der Mycenens Hallen<lb/>
+Mit immer wiederhohlten Seufzern füllt,<lb/>
+Dir ein Geheimniß? — Klytemneſtra hat<lb/>
+Mit Hülſ’ Ägiſthens den Gemahl berückt,<lb/>
+Am Tage ſeiner Rückkehr ihn ermordet! —<lb/>
+Ja du verehreſt dieſes Königs Haus!<lb/>
+Ich ſeh’ es, deine Bruſt bekämpft vergebens<lb/>
+Das unerwartet ungeheure Wort.<lb/>
+Biſt du die Tochter eines Freundes? biſt<lb/>
+Du nachbarlich in dieſer Stadt geboren?<lb/>
+Verbirg es nicht und rechne mir’s nicht zu,<lb/>
+Daß ich der erſte dieſe Gräuel melde.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Sag’ an, wie ward die ſchwere That vollbracht?</p></sp><lb/>
+<pb n="54" facs="#f0063"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Am Tage ſeiner Ankunft, da der König<lb/>
+Vom Bad’ erquickt und ruhig, ſein Gewand<lb/>
+Aus der Gemahlinn Hand verlangend, ſtieg,<lb/>
+Warf die Verderbliche ein faltenreich<lb/>
+Und künſtlich ſich verwirrendes Gewebe<lb/>
+Ihm auf die Schultern, um das edle Haupt;<lb/>
+Und da er wie von einem Netze ſich<lb/>
+Vergebens zu entwickeln ſtrebte, ſchlug<lb/>
+Ägiſth ihn, der Verräther, und verhüllt<lb/>
+Ging zu den Todten dieſer große Fürſt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Und welchen Lohn erhielt der Mitverſchworne?</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Ein Reich und Bette, das er ſchon beſaß.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>So trieb zur Schandthat eine böſe Luſt?</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Und einer alten Rache tief Gefühl.</p></sp><lb/>
+<pb n="55" facs="#f0064"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Und wie beleidigte der König ſie?</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Mit ſchwerer That, die, wenn Entſchuldigung<lb/>
+Des Mordes wäre, ſie entſchuldigte.<lb/>
+Nach Aulis lockt’ er ſie und brachte dort,<lb/>
+Als eine Gottheit ſich der Griechen Fahrt<lb/>
+Mit ungeſtümen Winden widerſetzte,<lb/>
+Die ältſte Tochter Iphigenien<lb/>
+Vor den Altar Dianens, und ſie fiel<lb/>
+Ein blutig Opfer für der Griechen Heil.<lb/>
+Dieß, ſagt man, hat ihr einen Widerwillen<lb/>
+So tief in’s Herz geprägt, daß ſie dem Werben<lb/>
+Ägiſthens ſich ergab und den Gemahl<lb/>
+Mit Netzen des Verderbens ſelbſt umſchlang.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi></hi></speaker> <stage>ſich verhüllend.</stage><lb/>
+<p>Es iſt genug. Du wirſt mich wiederſehn.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi></hi></speaker> <stage>allein.</stage><lb/>
+<p>Von dem Geſchick des Königs-Hauſes ſcheint<lb/>
+Sie tief gerührt. Wer ſie auch immer ſey,<lb/>
+<pb n="56" facs="#f0065"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi>.</fw><lb/>
+So hat ſie ſelbſt den König wohl gekannt<lb/>
+Und iſt, zu unſerm Glück, aus hohem Hauſe<lb/>
+Hierher verkauft. Nur ſtille, liebes Herz,<lb/>
+Und laß dem Stern der Hoffnung, der uns<lb/>
+blinkt,<lb/>
+Mit frohem Muth uns klug entgegen ſteuern.</p></sp></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[57]" facs="#f0066"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#g">Dritter Aufzug</hi>.</head><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Erſter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Iphigenie. Oreſt</hi>.</stage><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p><hi rendition="#in">U</hi>nglücklicher, ich löſe deine Bande<lb/>
+Zum Zeichen eines ſchmerzlichern Geſchicks.<lb/>
+Die Freyheit, die das Heiligthum gewährt,<lb/>
+Iſt wie der letzte, lichte Lebensblick<lb/>
+Des ſchwer Erkrankten, Todesbothe. Noch<lb/>
+Kann ich es mir und darf es mir nicht ſagen,<lb/>
+Daß ihr verloren ſeyd! Wie könnt’ ich euch<lb/>
+Mit mörderiſcher Hand dem Tode weihen?<lb/>
+<pb n="58" facs="#f0067"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Und niemand, wer es ſey, darf euer Haupt,<lb/>
+So lang’ ich Prieſterinn Dianens bin,<lb/>
+Berühren. Doch verweigr’ ich jene Pflicht,<lb/>
+Wie ſie der aufgebrachte König fordert;<lb/>
+So wählt er eine meiner Jungfraun mir<lb/>
+Zur Folgerinn, und ich vermag alsdann<lb/>
+Mit heißem Wunſch allein euch beyzuſtehn.<lb/>
+O werther Landsmann! Selbſt der letzte Knecht,<lb/>
+Der an den Herd der Vatergötter ſtreifte,<lb/>
+Iſt uns in fremdem Lande hoch willkommen;<lb/>
+Wie ſoll ich euch genug mit Freud’ und Segen<lb/>
+Empfangen, die ihr mir das Bild der Helden,<lb/>
+Die ich von Eltern her verehren lernte,<lb/>
+Entgegen bringet und das innre Herz<lb/>
+Mit neuer ſchöner Hoffnung ſchmeichelnd labet!</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Verbirgſt du deinen Nahmen, deine Herkunſt<lb/>
+Mit klugem Vorſatz? oder darf ich wiſſen,<lb/>
+Wer mir, gleich einer Himmliſchen, begegnet?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Du ſollſt mich kennen. Jetzo ſag’ mir an,<lb/>
+Was ich nur halb von deinem Bruder hörte,<lb/>
+<pb n="59" facs="#f0068"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Das Ende derer, die von Troja kehrend<lb/>
+Ein hartes unerwartetes Geſchick<lb/>
+Auf ihrer Wohnung Schwelle ſtumm empfing.<lb/>
+Zwar ward ich jung an dieſen Strand geführt;<lb/>
+Doch wohl erinnr’ ich mich des ſcheuen Blicks,<lb/>
+Den ich mit Staunen und mit Bangigkeit<lb/>
+Auf jene Helden warf. Sie zogen aus,<lb/>
+Als hätte der Olymp ſich aufgethan<lb/>
+Und die Geſtalten der erlauchten Vorwelt<lb/>
+Zum Schrecken Ilions herabgeſendet,<lb/>
+Und Agamemnon war vor allen herrlich!<lb/>
+O ſage mir! Er fiel, ſein Haus betretend,<lb/>
+Durch ſeiner Frauen und Ägiſthus Tücke?</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Du ſagſt’s!</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Weh dir, unſeliges Mycen!</hi><lb/>
+So haben Tantals Enkel Fluch auf Fluch<lb/>
+Mit vollen wilden Händen ausgeſät!<lb/>
+Und gleich dem Unkraut, wüſte Häupter ſchüttelnd<lb/>
+Und tauſendfält’gen Samen um ſich ſtreuend,<lb/>
+Den Kindes Kindern nahverwandte Mörder<lb/>
+<pb n="60" facs="#f0069"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Zur ew’gen Wechſelwuth erzeugt! — Enthülle,<lb/>
+Was von der Rede deines Bruders ſchnell<lb/>
+Die Finſterniß des Schreckens mir verdeckte.<lb/>
+Wie iſt des großen Stammes letzter Sohn,<lb/>
+Das holde Kind, beſtimmt des Vaters Rächer<lb/>
+Dereinſt zu ſeyn, wie iſt Oreſt dem Tage<lb/>
+Des Bluts entgangen? Hat ein gleich Geſchick<lb/>
+Mit des Avernus Netzen ihn umſchlungen?<lb/>
+Iſt er gerettet? Lebt er? Lebt Elektra?</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Sie leben.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Goldne Sonne, leihe mir</hi><lb/>
+Die ſchönſten Strahlen, lege ſie zum Dank<lb/>
+Vor Jovis Thron! denn ich bin arm und ſtumm.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Biſt du gaſtfreundlich dieſem Königs-Hauſe,<lb/>
+Biſt du mit nähern Banden ihm verbunden,<lb/>
+Wie deine ſchöne Freude mir verräth:<lb/>
+So bändige dein Herz und halt es feſt!<lb/>
+Denn unerträglich muß dem Fröhlichen<lb/>
+<pb n="61" facs="#f0070"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Ein jäher Rückfall in die Schmerzen ſeyn.<lb/>
+Du weißt nur, merk’ ich, Agamemnons Tod.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Hab’ ich an dieſer Nachricht nicht genug?</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Du haſt des Gräuels Hälfte nur erfahren.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Was fürcht’ ich noch? Oreſt, Elektra leben.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Und fürchteſt du für Klytemneſtren nichts?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Sie rettet weder Hoffnung, weder Furcht.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Auch ſchied ſie aus dem Land der Hoffnung ab.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Vergoß ſie reuig wüthend ſelbſt ihr Blut?</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Nein, doch ihr eigen Blut gab ihr den Tod.</p></sp><lb/>
+<pb n="62" facs="#f0071"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Sprich deutlicher, daß ich nicht länger ſinne.<lb/>
+Die Ungewißheit ſchlägt mir tauſendfältig<lb/>
+Die dunkeln Schwingen um das bange Haupt.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p>So haben mich die Götter auserſehn<lb/>
+Zum Bothen einer That, die ich ſo gern<lb/>
+In’s klanglos-dumpfe Höhlenreich der Nacht<lb/>
+Verbergen möchte? Wider meinen Willen<lb/>
+Zwingt mich dein holder Mund; allein er darf<lb/>
+Auch etwas ſchmerzlich’s fodern und erhält’s.<lb/>
+Am Tage da der Vater fiel, verbarg<lb/>
+Elektra rettend ihren Bruder: Strophius,<lb/>
+Des Vaters Schwäher, nahm ihn willig auf,<lb/>
+Erzog ihn neben ſeinem eignen Sohne,<lb/>
+Der, Pylades genannt, die ſchönſten Bande<lb/>
+Der Freundſchaft um den Angekommnen knüpfte.<lb/>
+Und wie ſie wuchſen, wuchs in ihrer Seele<lb/>
+Die brennende Begier des Königs Tod<lb/>
+Zu rächen. Unverſehen, fremd gekleidet,<lb/>
+Erreichen ſie Mycen, als brächten ſie<lb/>
+Die Trauernachricht von Oreſtens Tode<lb/>
+<pb n="63" facs="#f0072"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Mit ſeiner Aſche. Wohl empfänget ſie<lb/>
+Die Königinn, ſie treten in das Haus.<lb/>
+Elektren gibt Oreſt ſich zu erkennen;<lb/>
+Sie bläſ’t der Rache Feuer in ihm auf,<lb/>
+Das vor der Mutter heil’ger Gegenwart<lb/>
+In ſich zurückgebrannt war. Stille führt<lb/>
+Sie ihn zum Orte, wo ſein Vater fiel,<lb/>
+Wo eine alte leichte Spur des frech-<lb/>
+Vergoßnen Blutes oftgewaſchnen Boden<lb/>
+Mit blaſſen ahndungsvollen Streifen färbte.<lb/>
+Mit ihrer Feuerzunge ſchilderte<lb/>
+Sie jeden Umſtand der verruchten That,<lb/>
+Ihr knechtiſch elend durchgebrachtes Leben,<lb/>
+Den Übermuth der glücklichen Verräther,<lb/>
+Und die Gefahren, die nun der Geſchwiſter<lb/>
+Von einer ſtiefgeword’nen Mutter warteten;<lb/>
+Hier drang ſie jenen alten Dolch ihm auf,<lb/>
+Der ſchon in Tantals Hauſe grimmig wüthete,<lb/>
+Und Klytemneſtra fiel durch Sohnes- Hand.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Unſterbliche, die ihr den reinen Tag<lb/>
+Auf immer neuen Wolken ſelig leber,<lb/>
+<pb n="64" facs="#f0073"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Habt ihr nur darum mich ſo manches Jahr<lb/>
+Von Menſchen abgeſondert, mich ſo nah<lb/>
+Bey euch gehalten, mir die kindliche<lb/>
+Beſchäftigung, des heil’gen Feuers Gluth<lb/>
+Zu nähren, aufgetragen, meine Seele<lb/>
+Der Flamme gleich in ew’ger frommer Klarheit<lb/>
+Zu euern Wohnungen hinaufgezogen,<lb/>
+Daß ich nur meines Hauſes Gräuel ſpäter<lb/>
+Und tiefer fühlen ſollte? — Sage mir<lb/>
+Vom Unglückſel’gen! Sprich mir von Oreſt! —</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p>O könnte man von ſeinem Tode ſprechen!<lb/>
+Wie gährend ſtieg aus der Erſchlagnen Blut<lb/>
+Der Mutter Geiſt<lb/>
+Und ruft der Nacht uralten Töchtern zu:<lb/>
+„Laßt nicht den Muttermörder entfliehn!<lb/>
+Verfolgt den Verbrecher! Euch iſt er geweiht!“<lb/>
+Sie horchen auf, es ſchaut ihr hohler Blick<lb/>
+Mit der Begier des Adlers um ſich her.<lb/>
+Sie rühren ſich in ihren ſchwarzen Höhlen,<lb/>
+Und aus den Winkeln ſchleichen ihre Gefährten,<lb/>
+Der Zweifel und die Reue, leiſ’ herbey.<lb/>
+<pb n="65" facs="#f0074"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Vor ihnen ſteigt ein Dampf vom Acheron;<lb/>
+In ſeinen Wolkenkreiſen wälzet ſich<lb/>
+Die ewige Betrachtung des Geſcheh’nen<lb/>
+Verwirrend um des Schuld’gen Haupt umher.<lb/>
+Und ſie, berechtigt zum Verderben, treten<lb/>
+Der gottbeſäten Erde ſchönen Boden,<lb/>
+Von dem ein alter Fluch ſie längſt verbannte.<lb/>
+Den Flüchtigen verfolgt ihr ſchneller Fuß;<lb/>
+Sie geben nur um neu zu ſchrecken Raſt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Unſeliger, du biſt in gleichem Fall,<lb/>
+Und fühlſt was er, der arme Flüchtling, leidet!</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p>Was ſagſt du mir? Was wähnſt du gleichen Fall?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Dich drückt ein Brudermord wie jenen; mir<lb/>
+Vertraute dieß dein jüngſter Bruder ſchon.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p>Ich kann nicht leiden, daß du große Seele<lb/>
+Mit einem falſchen Wort betrogen werdeſt.<lb/>
+<fw type="sig" place="bottom">E</fw><lb/>
+<pb n="66" facs="#f0075"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Ein lügenhaft Gewebe knüpf’ ein Fremder<lb/>
+Dem Fremden, ſinnreich und der Liſt gewohnt,<lb/>
+Zur Falle vor die Füße; zwiſchen uns<lb/>
+Sey Wahrheit!<lb/>
+Ich bin Oreſt! und dieſes ſchuld’ge Haupt<lb/>
+Senkt nach der Grube ſich und ſucht den Tod;<lb/>
+In jeglicher Geſtalt ſey er willkommen!<lb/>
+Wer du auch ſeyſt, ſo wünſch’ ich Rettung dir<lb/>
+Und meinem Freunde; mir wünſch’ ich ſie nicht.<lb/>
+Du ſcheinſt hier wider Willen zu verweilen;<lb/>
+Erfindet Rath zur Flucht und laßt mich hier.<lb/>
+Es ſtürze mein entſeelter Leib vom Fels,<lb/>
+Es rauche bis zum Meer’ hinab mein Blut,<lb/>
+Und bringe Fluch dem Ufer der Barbaren!<lb/>
+Geht ihr, daheim im ſchönen Griechenland<lb/>
+Ein neues Leben freundlich anzufangen.</p><lb/>
+<stage>Er entfernt ſich.</stage></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>So ſteigſt du denn, Erfüllung, ſchönſte Tochter<lb/>
+Des größten Vaters, endlich zu mir nieder!<lb/>
+Wie ungeheuer ſteht dein Bild vor mir!<lb/>
+<pb n="67" facs="#f0076"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Kaum reicht mein Blick dir an die Hände, die<lb/>
+Mit Frucht und Segenskränzen angefüllt<lb/>
+Die Schätze des Olympus niederbringen.<lb/>
+Wie man den König an dem Übermaß<lb/>
+Der Gaben kennt: denn ihm muß wenig ſcheinen<lb/>
+Was Tauſenden ſchon Reichthum iſt; ſo kennt<lb/>
+Man euch, ihr Götter, an geſparten, lang’<lb/>
+Und weiſe zubereiteten Geſchenken.<lb/>
+Denn ihr allein wißt was uns frommen kann,<lb/>
+Und ſchaut der Zukunft ausgedehntes Reich,<lb/>
+Wenn jedes Abends Stern und Nebelhülle<lb/>
+Die Ausſicht uns verdeckt. Gelaſſen hört<lb/>
+Ihr unſer Flehn, das um Beſchleunigung<lb/>
+Euch kindiſch bittet; aber eure Hand<lb/>
+Bricht unreif nie die goldnen Himmelsfrüchte;<lb/>
+Und wehe dem, der ungeduldig ſie<lb/>
+Ertrotzend, ſaure Speiſe ſich zum Tod’<lb/>
+Genießt. O laßt das lang’ erwartete,<lb/>
+Noch kaum gedachte Glück nicht, wie den<lb/>
+Schatten<lb/>
+Des abgeſchiednen Freundes, eitel mir<lb/>
+Und dreyfach ſchmerzlicher vorübergehn!</p></sp><lb/>
+<fw type="sig" place="bottom">E 2</fw><lb/>
+<pb n="68" facs="#f0077"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt,</hi></hi></speaker> <stage>der wieder zu ihr tritt.</stage><lb/>
+<p>Rufſt du die Götter an für dich und Pylades,<lb/>
+So nenne meinen Nahmen nicht mit euerm.<lb/>
+Du retteſt den Verbrecher nicht zu dem<lb/>
+Du dich geſell’ſt, und theileſt Fluch und Noth.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Mein Schickſal iſt an deines feſt gebunden.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p>Mit nichten! Laß allein und unbegleitet<lb/>
+Mich zu den Todten gehn. Verhüllteſt du<lb/>
+In deinen Schleyer ſelbſt den Schuldigen;<lb/>
+Du birgſt ihn nicht vorm Blick der immer<lb/>
+Wachen,<lb/>
+Und deine Gegenwart, du Himmliſche,<lb/>
+Drängt ſie nur ſeitwärts und verſcheucht ſie<lb/>
+nicht.<lb/>
+Sie dürfen mit den ehrnen frechen Füßen<lb/>
+Des heil’gen Waldes Boden nicht betreten;<lb/>
+Doch hör’ ich aus der Ferne hier und da<lb/>
+Ihr gräßliches Gelächter. Wölfe harren<lb/>
+So um den Baum, auf den ein Reiſender<lb/>
+<pb n="69" facs="#f0078"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Sich rettete. Da draußen ruhen ſie<lb/>
+Gelagert; und verlaß ich dieſen Hain,<lb/>
+Dann ſteigen ſie, die Schlangenhäupter ſchüt-<lb/>
+telnd,<lb/>
+Von allen Seiten Staub erregend auf<lb/>
+Und treiben ihre Beute vor ſich her.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Kannſt du, Oreſt, ein freundlich Wort ver-<lb/>
+nehmen?</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p>Spar’ es für einen Freund der Götter auf.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Sie geben dir zu neuer Hoffnung Licht.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p>Durch Rauch und Qualm ſeh’ ich den matten<lb/>
+Schein<lb/>
+Des Todtenfluſſes mir zur Hölle leuchten.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Haſt du Elektren, Eine Schweſter nur?</p></sp><lb/>
+<pb n="70" facs="#f0079"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p>Die Eine kannt’ ich; doch die ältſte nahm<lb/>
+Ihr gut Geſchick, das uns ſo ſchrecklich ſchien,<lb/>
+Bey Zeiten aus dem Elend unſers Hauſes.<lb/>
+O laß dein Fragen, und geſelle dich<lb/>
+Nicht auch zu den Erinnyen; ſie blaſen<lb/>
+Mir ſchadenfroh die Aſche von der Seele,<lb/>
+Und leiden nicht, daß ſich die letzten Kohlen<lb/>
+Von unſers Hauſes Schreckensbrande ſtill<lb/>
+In mir verglimmen. Soll die Gluth denn ewig,<lb/>
+Vorſetzlich angefacht, mit Höllenſchwefel<lb/>
+Genährt, mir auf der Seele marternd brennen?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Ich bringe ſüßes Räuchwerk in die Flamme.<lb/>
+O laß den reinen Hauch der Liebe dir<lb/>
+Die Gluth des Buſens leiſe wehend kühlen.<lb/>
+Oreſt, mein Theurer, kannſt du nicht ver-<lb/>
+nehmen?<lb/>
+Hat das Geleit der Schreckensgötter ſo<lb/>
+Das Blut in deinen Adern aufgetrocknet?<lb/>
+Schleicht, wie vom Haupt der gräßlichen Gor-<lb/>
+gone,<lb/>
+<pb n="71" facs="#f0080"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Verſteinernd dir ein Zauber durch die Glie-<lb/>
+der?<lb/>
+O wenn vergoßnen Mutterblutes Stimme<lb/>
+Zur Höll’ hinab mit dumpfen Tönen ruft:<lb/>
+Soll nicht der reinen Schweſter Segenswort<lb/>
+Hülfreiche Götter vom Olympus rufen?</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p>Es ruft! es ruft! So willſt du mein Ver-<lb/>
+derben?<lb/>
+Verbirgt in dir ſich eine Rachegöttinn?<lb/>
+Wer biſt du, deren Stimme mir entſetzlich<lb/>
+Das Innerſte in ſeinen Tiefen wendet?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Es zeigt ſich dir im tiefſten Herzen an:<lb/>
+Oreſt, ich bin’s! ſieh Iphigenien!<lb/>
+Ich lebe!</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p><hi rendition="#et">Du!</hi></p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p><hi rendition="#et">Mein Bruder!</hi></p></sp><lb/>
+<pb n="72" facs="#f0081"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p><hi rendition="#et">Laß! Hinweg!</hi><lb/>
+Ich rathe dir, berühre nicht die Locken!<lb/>
+Wie von Kreuſa’s Brautkleid zündet ſich<lb/>
+Ein unauslöſchlich Feuer von mir fort.<lb/>
+Laß mich! Wie Herkules will ich Unwürd’ger<lb/>
+Den Tod voll Schmach, in mich verſchloſſen,<lb/>
+ſterben.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Du wirſt nicht untergehn! O daß ich nur<lb/>
+Ein ruhig Wort von dir vernehmen könnte!<lb/>
+O löſe meine Zweifel, laß des Glückes,<lb/>
+Des lang’ erflehten, mich auch ſicher werden.<lb/>
+Es wälzet ſich ein Rad von Freud’ und Schmerz<lb/>
+Durch meine Seele. Von dem fremden Manne<lb/>
+Entfernet mich ein Schauer; doch es reiß’t<lb/>
+Mein Innerſtes gewaltig mich zum Bruder.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p>Iſt hier Lyäens Tempel? und ergreift<lb/>
+Unbändig-heil’ge Wuth die Prieſterinn?</p></sp><lb/>
+<pb n="73" facs="#f0082"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>O höre mich! O ſieh mich an, wie mir<lb/>
+Nach einer langen Zeit das Herz ſich öffnet,<lb/>
+Der Seligkeit, dem Liebſten, was die Welt<lb/>
+Noch für mich tragen kann, das Haupt zu küſſen,<lb/>
+Mit meinen Armen, die den leeren Winden<lb/>
+Nur ausgebreitet waren, dich zu faſſen.<lb/>
+O laß mich! Laß mich! Denn es quillet heller<lb/>
+Nicht vom Parnaß die ew’ge Quelle ſprudelnd<lb/>
+Von Fels zu Fels in’s gold’ne Thal hinab,<lb/>
+Wie Freude mir vom Herzen wallend fließt,<lb/>
+Und wie ein ſelig Meer mich rings umfängt.<lb/>
+Oreſt! Oreſt! Mein Bruder!</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p><hi rendition="#et">Schöne Nymphe,</hi><lb/>
+Ich traue dir und deinem Schmeicheln nicht.<lb/>
+Diana fordert ſtrenge Dienerinnen<lb/>
+Und rächet das entweih’te Heiligthum.<lb/>
+Entferne deinen Arm von meiner Bruſt!<lb/>
+Und wenn du einen Jüngling rettend lieben,<lb/>
+Das ſchöne Glück ihm zärtlich biethen willſt;<lb/>
+So wende meinem Freunde dein Gemüth,<lb/>
+<pb n="74" facs="#f0083"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Dem würd’gern Manne zu. Er irr’t umher<lb/>
+Auf jenem Felſenpfade; ſuch’ ihn auf,<lb/>
+Weiſ’ ihn zurecht und ſchone meiner.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p><hi rendition="#right">Faſſe</hi><lb/>
+Dich, Bruder, und erkenne die Gefund’ne!<lb/>
+Schilt einer Schweſter reine Himmelsfreude<lb/>
+Nicht unbeſonnene, ſtrafbare Luſt.<lb/>
+O nehmt den Wahn ihm von dem ſtarren Auge,<lb/>
+Daß uns der Augenblick der höchſten Freude<lb/>
+Nicht dreyfach elend mache! Sie iſt hier,<lb/>
+Die längſt verlorne Schweſter. Vom Altar<lb/>
+Riß mich die Göttinn weg und rettete<lb/>
+Hierher mich in ihr eigen Heiligthum.<lb/>
+Gefangen biſt du, dargeſtellt zum Opfer,<lb/>
+Und findeſt in der Prieſterinn die Schweſter.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p>Unſelige! So mag die Sonne denn<lb/>
+Die letzten Gräuel unſers Hauſes ſehn!<lb/>
+Iſt nicht Elektra hier? damit auch ſie<lb/>
+Mit uns zu Grunde gehe, nicht ihr Leben<lb/>
+Zu ſchwererem Geſchick’ und Leiden friſte.<lb/>
+Gut, Prieſterinn! ich folge zum Altar:<lb/>
+<pb n="75" facs="#f0084"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Der Brudermord iſt hergebrachte Sitte<lb/>
+Des alten Stammes; und ich danke, Götter,<lb/>
+Daß ihr mich ohne Kinder auszurotten<lb/>
+Beſchloſſen habt. Und laß dir rathen, habe<lb/>
+Die Sonne nicht zu lieb und nicht die Sterne;<lb/>
+Komm, folge mir in’s dunkle Reich hinab!<lb/>
+Wie ſich vom Schwefelpfuhl’ erzeugte Drachen<lb/>
+Bekämpfend die verwandte Brut verſchlingen,<lb/>
+Zerſtört ſich ſelbſt das wüthende Geſchlecht;<lb/>
+Komm kinderlos und ſchuldlos mit hinab!<lb/>
+Du ſiehſt mich mit Erbarmen an? Laß ab!<lb/>
+Mit ſolchen Blicken ſuchte Klytemneſtra<lb/>
+Sich einen Weg nach ihres Sohnes Herzen;<lb/>
+Doch ſein geſchwung’ner Arm traf ihre Bruſt.<lb/>
+Die Mutter fiel! — Tritt auf, unwill’ger<lb/>
+Geiſt!<lb/>
+Im Kreis geſchloſſen tretet an, ihr Furien,<lb/>
+Und wohnet dem willkommnen Schauſpiel bey,<lb/>
+Dem letzten, gräßlichſten, das ihr bereitet!<lb/>
+Nicht Haß und Rache ſchärfen ihren Dolch;<lb/>
+Die liebevolle Schweſter wird zur That<lb/>
+Gezwungen. Weine nicht! Du haſt nicht<lb/>
+Schuld.<lb/>
+<pb n="76" facs="#f0085"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Seit meinen erſten Jahren hab’ ich nichts<lb/>
+Geliebt, wie ich dich lieben könnte, Schweſter.<lb/>
+Ja, ſchwinge deinen Stahl, verſchone nicht,<lb/>
+Zerreiße dieſen Buſen, und eröffne<lb/>
+Den Strömen die hier ſieden einen Weg.</p><lb/>
+<stage>Er ſinkt in Ermattung.</stage></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Allein zu tragen dieſes Glück und Elend<lb/>
+Vermag ich nicht. — Wo biſt du, Pylades?<lb/>
+Wo find’ ich deine Hülfe, theurer Mann?</p></sp><lb/>
+<stage>Sie entfernt ſich ſuchend.</stage></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Zweyter Auftritt.</hi></head><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi></hi></speaker><lb/>
+<stage>aus ſeiner Betäubung erwachend und ſich aufrichtend.</stage><lb/>
+<p>Noch einen! reiche mir aus Lethe’s Fluthen<lb/>
+Den letzten kühlen Becher der Erquickung!<lb/>
+Bald iſt der Krampf des Lebens aus dem Buſen<lb/>
+Hinweggeſpült; bald fließet ſtill mein Geiſt,<lb/>
+<pb n="77" facs="#f0086"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Der Quelle des Vergeſſens hingegeben,<lb/>
+Zu euch, ihr Schatten, in die ew’gen Nebel.<lb/>
+Gefällig laßt in eurer Ruhe ſich<lb/>
+Den umgetriebnen Sohn der Erde laben! —<lb/>
+Welch ein Geliſpel hör’ ich in den Zweigen,<lb/>
+Welch ein Geräuſch aus jener Dämmrung ſäu-<lb/>
+ſeln?<lb/>
+Sie kommen ſchon den neuen Gaſt zu ſehn!<lb/>
+Wer iſt die Schaar, die herrlich mit einander<lb/>
+Wie ein verſammelt Fürſtenhaus ſich freut?<lb/>
+Sie gehen friedlich, Alt’ und Junge, Männer<lb/>
+Mit Weibern; göttergleich und ähnlich ſcheinen<lb/>
+Die wandelnden Geſtalten. Ja, ſie ſind’s,<lb/>
+Die Ahnherrn meines Hauſes! — Mit Thyeſten<lb/>
+Geht Atreus in vertraulichen Geſprächen,<lb/>
+Die Knaben ſchlüpfen ſcherzend um ſie her.<lb/>
+Iſt keine Feindſchaft hier mehr unter euch?<lb/>
+Verloſch die Rache wie das Licht der Sonne?<lb/>
+So bin auch ich willkommen, und ich darf<lb/>
+In euern feierlichen Zug mich miſchen.<lb/>
+Willkommen, Väter! euch grüßt Oreſt,<lb/>
+Von euerm Stamm der letzte Mann;<lb/>
+Was ihr geſa’t, hat er geärntet:<lb/>
+<pb n="78" facs="#f0087"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Mit Fluch beladen ſtieg er herab.<lb/>
+Doch leichter träget ſich hier jede Bürde:<lb/>
+Nehmt ihn, o nehmt ihn in euern Kreis! —<lb/>
+Dich, Atreus, ehr’ ich, auch dich Thyeſten;<lb/>
+Wir ſind hier alle der Feindſchaft los. —<lb/>
+Zeigt mir den Vater, den ich nur Einmal<lb/>
+Im Leben ſah! — Biſt du’s, mein Vater?<lb/>
+Und führſt die Mutter vertraut mit dir?<lb/>
+Darf Klytemneſtra die Hand dir reichen;<lb/>
+So darf Oreſt auch zu ihr treten<lb/>
+Und darf ihr ſagen: ſieh deinen Sohn! —<lb/>
+Seht euern Sohn! Heißt ihn willkommen.<lb/>
+Auf Erden war in unſerm Hauſe<lb/>
+Der Gruß des Mordes gewiſſe Loſung,<lb/>
+Und das Geſchlecht des alten Tantalus<lb/>
+Hat ſeine Freuden jenſeits der Nacht.<lb/>
+Ihr ruft, Willkommen! und nehmt mich auf!<lb/>
+O führt zum Alten, zum Ahnherrn mich!<lb/>
+Wo iſt der Alte? daß ich ihn ſehe,<lb/>
+Das theure Haupt, das vielverehrte,<lb/>
+Das mit den Göttern zu Rathe ſaß.<lb/>
+Ihr ſcheint zu zaudern, euch wegzuwenden?<lb/>
+Was iſt es? Leidet der Göttergleiche?<lb/>
+<pb n="79" facs="#f0088"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Weh mir! es haben die Übermächt’gen<lb/>
+Der Heldenbruſt grauſame Qualen<lb/>
+Mit ehrnen Ketten feſt aufgeſchmiedet.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Dritter Auftritt.</hi></head><lb/>
+<stage><hi rendition="#g">Oreſt. Iphigenie. Pylades.</hi></stage><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt.</hi></hi></speaker><lb/>
+<p>Seyd ihr auch ſchon herabgekommen?<lb/>
+Wohl Schweſter dir! Noch fehlt Elektra:<lb/>
+Ein güt’ger Gott ſend’ uns die Eine<lb/>
+Mit ſanften Pfeilen auch ſchnell herab.<lb/>
+Dich, armer Freund, muß ich bedauern!<lb/>
+Komm mit! Komm mit! zu Pluto’s Thron.<lb/>
+Als neue Gäſte den Wirth zu grüßen.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Geſchwiſter, die ihr an dem weiten Himmel<lb/>
+Das ſchöne Licht bey Tag und Nacht herauf<lb/>
+Den Menſchen bringet, und den Abgeſchiednen<lb/>
+Nicht leuchten dürfet, rettet uns Geſchwiſter!<lb/>
+<pb n="80" facs="#f0089"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Du liebſt, Diane, deinen holden Bruder<lb/>
+Vor allem, was dir Erd’ und Himmel biethet,<lb/>
+Und wendeſt dein jungfräulich Angeſicht<lb/>
+Nach ſeinem ew’gen Lichte ſehnend ſtill.<lb/>
+O laß den einz’gen ſpätgefundnen mir<lb/>
+Nicht in der Finſterniß des Wahnſinns raſen!<lb/>
+Und iſt dein Wille, da du hier mich bargſt,<lb/>
+Nunmehr vollendet, willſt du mir durch ihn<lb/>
+Und ihm durch mich die ſel’ge Hülfe geben;<lb/>
+So löſ’ ihn von den Banden jenes Fluchs,<lb/>
+Daß nicht die theure Zeit der Rettung ſchwinde.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades.</hi></hi></speaker><lb/>
+<p>Erkennſt du uns und dieſen heil’gen Hain<lb/>
+Und dieſes Licht, das nicht den Todten leuchtet?<lb/>
+Fühlſt du den Arm des Freundes und der<lb/>
+Schweſter,<lb/>
+Die dich noch feſt, noch lebend halten? Faß’<lb/>
+Uns kräftig an; wir ſind nicht leere Schatten.<lb/>
+Merk auf mein Wort! Vernimm es! Raffe dich<lb/>
+Zuſammen! Jeder Augenblick iſt theuer,<lb/>
+Und unſre Rückkehr hängt an zarten Fäden,<lb/>
+Die, ſcheint es, eine günſt’ge Parze ſpinnt.</p></sp><lb/>
+<pb n="81" facs="#f0090"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi></hi></speaker> <stage>zu Iphigenien.</stage><lb/>
+<p>Laß mich zum erſtenmal mit freyem Herzen<lb/>
+In deinen Armen reine Freude haben!<lb/>
+Ihr Götter, die mit flammender Gewalt<lb/>
+Ihr ſchwere Wolken aufzuzehren wandelt,<lb/>
+Und gnädig-ernſt den lang’ erflehten Regen<lb/>
+Mit Donnerſtimmen und mit Windes-Brauſen<lb/>
+In wilden Strömen auf die Erde ſchüttet;<lb/>
+Doch bald der Menſchen grauſendes Erwarten<lb/>
+In Segen auflöſ’t und das bange Staunen<lb/>
+In Freudeblick und lauten Dank verwandelt,<lb/>
+Wenn in den Tropfen friſcherquickter Blätter<lb/>
+Die neue Sonne tauſendfach ſich ſpiegelt,<lb/>
+Und Iris freundlich bunt mit leichter Hand<lb/>
+Den grauen Flor der letzten Wolken trennt;<lb/>
+O laßt mich auch an meiner Schweſter Armen,<lb/>
+An meines Freundes Bruſt, was ihr mir gönnt<lb/>
+Mit vollem Dank genießen und behalten.<lb/>
+Es löſet ſich der Fluch, mir ſagt’s das Herz.<lb/>
+Die Eumeniden ziehn, ich höre ſie,<lb/>
+Zum Tartarus und ſchlagen hinter ſich<lb/>
+Die ehrnen Thore fernabdonnernd zu.<lb/>
+<fw type="sig" place="bottom">F</fw><lb/>
+<pb n="82" facs="#f0091"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris.</hi></fw><lb/>
+Die Erde dampft erquickenden Geruch<lb/>
+Und ladet mich auf ihren Flächen ein,<lb/>
+Nach Lebensfreud’ und großer That zu jagen.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades.</hi></hi></speaker><lb/>
+<p>Verſäumt die Zeit nicht, die gemeſſen iſt!<lb/>
+Der Wind der unſre Segel ſchwellt, er bringe<lb/>
+Erſt unſre volle Freude zum Olymp.<lb/>
+Kommt! Es bedarf hier ſchnellen Rath und<lb/>
+Schluß.</p></sp></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[83]" facs="#f0092"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#g">Vierter Aufzug.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Erſter Auftritt.</hi></head><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p><hi rendition="#in">D</hi>enken die Himmliſchen<lb/>
+Einem der Erdgebornen<lb/>
+Viele Verwirrungen zu,<lb/>
+Und bereiten ſie ihm<lb/>
+Von der Freude zu Schmerzen<lb/>
+Und von Schmerzen zur Freude<lb/>
+Tief-erſchütternden Übergang;<lb/>
+Dann erziehen ſie ihm<lb/>
+In der Nähe der Stadt,<lb/>
+Oder am fernen Geſtade,<lb/>
+<fw type="sig" place="bottom">F 2</fw><lb/>
+<pb n="84" facs="#f0093"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Daß in Stunden der Noth<lb/>
+Auch die Hülfe bereit ſey,<lb/>
+Einen ruhigen Freund.<lb/>
+O ſegnet, Götter, unſern Pylades<lb/>
+Und was er immer unternehmen mag!<lb/>
+Er iſt der Arm des Jünglings in der Schlacht,<lb/>
+Des Greiſes leuchtend Aug’ in der Verſamm-<lb/>
+lung:<lb/>
+Denn ſeine Seel’ iſt ſtille; ſie bewahr’t<lb/>
+Der Ruhe heil’ges unerſchöpftes Gut,<lb/>
+Und den Umhergetriebnen reichet er<lb/>
+Aus ihren Tiefen Rath und Hülfe. Mich<lb/>
+Riß er vom Bruder los; den ſtaunt’ ich an<lb/>
+Und immer wieder an, und konnte mir<lb/>
+Das Glück nicht eigen machen, ließ ihn nicht<lb/>
+Aus meinen Armen los, und fühlte nicht<lb/>
+Die Nähe der Gefahr die uns umgibt.<lb/>
+Jetzt gehn ſie ihren Anſchlag auszuführen<lb/>
+Der See zu, wo das Schiff mit den Gefährten<lb/>
+In einer Bucht verſteckt auf’s Zeichen lauert,<lb/>
+Und haben kluges Wort mir in den Mund<lb/>
+Gegeben, mich gelehrt was ich dem König’<lb/>
+<pb n="85" facs="#f0094"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Antworte, wenn er ſendet und das Opfer<lb/>
+Mir dringender gebiethet. Ach! ich ſehe wohl,<lb/>
+Ich muß mich leiten laſſen wie ein Kind.<lb/>
+Ich habe nicht gelernt zu hinterhalten,<lb/>
+Noch jemand etwas abzuliſten. Weh!<lb/>
+O weh der Lüge! Sie befreyet nicht,<lb/>
+Wie jedes andre wahrgeſprochne Wort,<lb/>
+Die Bruſt; ſie macht uns nicht getroſt, ſie<lb/>
+ängſtet<lb/>
+Den der ſie heimlich ſchmiedet, und ſie kehrt,<lb/>
+Ein losgedruckter Pfeil von einem Gotte<lb/>
+Gewendet und verſagend, ſich zurück<lb/>
+Und trift den Schützen. Sorg’ auf Sorge<lb/>
+ſchwankt<lb/>
+Mir durch die Bruſt. Es greift die Furie<lb/>
+Vielleicht den Bruder auf dem Boden wieder<lb/>
+Des ungeweihten Ufers grimmig an?<lb/>
+Entdeckt man ſie vielleicht? Mich dünkt, ich höre<lb/>
+Gewaffnete ſich nahen! — Hier! — Der Bothe<lb/>
+Kommt von dem Könige mit ſchnellem Schritt.<lb/>
+Es ſchlägt mein Herz, es trübt ſich meine Seele,<lb/>
+Da ich des Mannes Angeſicht erblicke,<lb/>
+Dem ich mit falſchem Wort begegnen ſoll.</p><lb/>
+<pb n="86" facs="#f0095"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw></sp></div><lb/>
+<div n="3"><head><hi rendition="#g">Zweyter Auftritt.</hi></head><lb/>
+<stage><hi rendition="#g">Iphigenie. Arkas.</hi></stage><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Beſchleunige das Opfer, Prieſterinn!<lb/>
+Der König wartet und es harrt das Volk.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Ich folgte meiner Pflicht und deinem Wink,<lb/>
+Wenn unvermuthet nicht ein Hinderniß<lb/>
+Sich zwiſchen mich und die Erfüllung ſtellte.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Was iſt’s, das den Befehl des Königs hindert?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Der Zufall, deſſen wir nicht Meiſter ſind.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>So ſage mir’s, daß ich’s ihm ſchnell vermelde:<lb/>
+Denn er beſchloß bey ſich der Beyden Tod.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Die Götter haben ihn noch nicht beſchloſſen.<lb/>
+Der ältſte dieſer Männer trägt die Schuld<lb/>
+<pb n="87" facs="#f0096"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Des nahverwandten Bluts, das er vergoß.<lb/>
+Die Furien verfolgen ſeinen Pfad,<lb/>
+Ja in dem innern Tempel faßte ſelbſt<lb/>
+Das Übel ihn, und ſeine Gegenwart<lb/>
+Entheiligte die reine Stäte. Nun<lb/>
+Eil’ ich mit meinen Jungfraun, an dem Meere<lb/>
+Der Göttinn Bild mit friſcher Welle netzend<lb/>
+Geheimnißvolle Weihe zu begehn.<lb/>
+Es ſtöre niemand unſern ſtillen Zug!</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Ich melde dieſes neue Hinderniß<lb/>
+Dem Könige geſchwind, beginne du<lb/>
+Das heil’ge Werk nicht eh’ bis er’s erlaubt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Dieß iſt allein der Prieſt’rinn überlaſſen.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Solch ſeltnen Fall ſoll auch der König wiſſen.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Sein Rath wie ſein Befehl verändert nichts.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Oft wird der Mächtige zum Schein gefragt.</p></sp><lb/>
+<pb n="88" facs="#f0097"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Erdringe nicht, was ich verſagen ſollte.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Verſage nicht, was gut und nützlich iſt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Ich gebe nach, wenn du nicht ſäumen willſt.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Schnell bin ich mit der Nachricht in dem Lager,<lb/>
+Und ſchnell mit ſeinen Worten hier zurück.<lb/>
+O könnt’ ich ihm noch Eine Bothſchaft bringen,<lb/>
+Die alles löſ’te was uns jetzt verwirrt:<lb/>
+Denn du haſt nicht des Treuen Rath geachtet.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Was ich vermochte, hab’ ich gern gethan.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Noch änderſt du den Sinn zur rechten Zeit.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Das ſteht nun einmal nicht in unſret Macht.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Du hältſt unmöglich, was dir Mühe koſtet.</p></sp><lb/>
+<pb n="89" facs="#f0098"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Dir ſcheint es möglich, weil der Wunſch dich<lb/>
+trügt.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Willſt du denn alles ſo gelaſſen wagen?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Ich hab’ es in der Götter Hand gelegt.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Sie pflegen Menſchen menſchlich zu erretten.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Auf ihren Fingerzeig kommt alles an.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Ich ſage dir, es liegt in deiner Hand.<lb/>
+Des Königs aufgebrachter Sinn allein<lb/>
+Bereitet dieſen Fremden bittern Tod.<lb/>
+Das Heer entwöhnte längſt vom harten Opfer<lb/>
+Und von dem blut’gen Dienſte ſein Gemüth.<lb/>
+Ja mancher, den ein widriges Geſchick<lb/>
+An fremdes Ufer trug, empfand es ſelbſt,<lb/>
+Wie göttergleich dem armen Irrenden,<lb/>
+Umhergetrieben an der fremden Gränze,<lb/>
+<pb n="90" facs="#f0099"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Ein freundlich Menſchenangeſicht begegnet.<lb/>
+O wende nicht von uns was du vermagſt!<lb/>
+Du endeſt leicht was du begonnen haſt:<lb/>
+Denn nirgends baut die Milde, die herab<lb/>
+In menſchlicher Geſtalt vom Himmel kommt,<lb/>
+Ein Reich ſich ſchneller, als wo trüb’ und wild<lb/>
+Ein neues Volk, voll Leben, Muth und Kraft,<lb/>
+Sich ſelbſt und banger Ahndung überlaſſen,<lb/>
+Des Menſchenlebens ſchwere Bürden trägt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Erſchütt’re meine Seele nicht, die du<lb/>
+Nach deinem Willen nicht bewegen kannſt.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>So lang’ es Zeit iſt, ſchont man weder Mühe<lb/>
+Noch eines guten Wortes Wiederhohlung.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Du machſt dir Müh’ und mir erregſt du Schmer-<lb/>
+zen;<lb/>
+Vergebens beydes: darum laß mich nun.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Die Schmerzen ſind’s, die ich zu Hülfe rufe:<lb/>
+Denn es ſind Freunde, Gutes rathen ſie.</p></sp><lb/>
+<pb n="91" facs="#f0100"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Sie faſſen meine Seele mit Gewalt,<lb/>
+Doch tilgen ſie den Widerwillen nicht.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Fühlt eine ſchöne Seele Widerwillen<lb/>
+Für eine Wohlthat, die der Edle reicht?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Ja, wenn der Edle, was ſich nicht geziemt,<lb/>
+Statt meines Dankes mich erwerben will.</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p>Wer keine Neigung fühlt, dem mangelt es<lb/>
+An einem Worte der Entſchuld’gung nie.<lb/>
+Dem Fürſten ſag’ ich an, was hier geſcheh’n.<lb/>
+O wiederhohlteſt du in deiner Seele,<lb/>
+Wie edel er ſich gegen dich betrug<lb/>
+Von deiner Ankunft an bis dieſen Tag!</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="92" facs="#f0101"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw></sp></div><lb/>
+<div n="3"><head><hi rendition="#g">Dritter Auftritt</hi>.</head><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi></hi></speaker> <stage>allein.</stage><lb/>
+<p>Von dieſes Mannes Rede fühl’ ich mir<lb/>
+Zur ungelegnen Zeit das Herz im Buſen<lb/>
+Auf einmal umgewendet. Ich erſchrecke! —<lb/>
+Denn wie die Fluth mit ſchnellen Strömen<lb/>
+wachſend<lb/>
+Die Felſen überſpült, die in dem Sand’<lb/>
+Am Ufer liegen: ſo bedeckte ganz<lb/>
+Ein Freudenſtrom mein Innerſtes. Ich hielt<lb/>
+In meinen Armen das Unmögliche.<lb/>
+Es ſchien ſich eine Wolke wieder ſanft<lb/>
+Um mich zu legen, von der Erde mich<lb/>
+Empor zu heben und in jenen Schlummer<lb/>
+Mich einzuwiegen, den die gute Göttinn<lb/>
+Um meine Schläfe legte, da ihr Arm<lb/>
+Mich rettend faßte. — Meinen Bruder<lb/>
+Ergriff das Herz mit einziger Gewalt:<lb/>
+Ich horchte nur auf ſeines Freundes Rath;<lb/>
+Nur ſie zu retten drang die Seele vorwärts.<lb/>
+Und wie den Klippen einer wüſten Inſel<lb/>
+Der Schiffer gern den Rücken wendet: ſo<lb/>
+<pb n="93" facs="#f0102"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Lag Tauris hinter mir. Nun hat die Stimme<lb/>
+Des treuen Manns mich wieder aufgeweckt,<lb/>
+Daß ich auch Menſchen hier verlaſſe mich<lb/>
+Erinnert. Doppelt wird mir der Betrug<lb/>
+Verhaßt. O bleibe ruhig, meine Seele!<lb/>
+Beginnſt du nun zu ſchwanken und zu zweifeln?<lb/>
+Den feſten Boden deiner Einſamkeit<lb/>
+Mußt du verlaſſen! Wieder eingeſchifft<lb/>
+Ergreifen dich die Wellen ſchaukelnd, trüb’<lb/>
+Und bang verkenneſt du die Welt und dich.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Vierter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Iphigenie. Pylades</hi>.</stage><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Wo iſt ſie? daß ich ihr mit ſchnellen Worten<lb/>
+Die frohe Bothſchaft unſrer Rettung bringe!</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Du ſiehſt mich hier voll Sorgen und Erwartung<lb/>
+Des ſichern Troſtes, den du mir verſprichſt.</p></sp><lb/>
+<pb n="94" facs="#f0103"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Dein Bruder iſt geheilt! Den Felſenboden<lb/>
+Des ungeweihten Ufers und den Sand<lb/>
+Betraten wir mit fröhlichen Geſprächen;<lb/>
+Der Hain blieb hinter uns, wir merkten’s nicht.<lb/>
+Und herrlicher und immer herrlicher<lb/>
+Umloderte der Jugend ſchöne Flamme<lb/>
+Sein lockig Haupt; ſein volles Auge glühte<lb/>
+Von Muth und Hoffnung, und ſein freyes Herz<lb/>
+Ergab ſich ganz der Freude, ganz der Luſt,<lb/>
+Dich ſeine Retterinn und mich zu retten.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Geſegnet ſeyſt du, und es möge nie<lb/>
+Von deiner Lippe, die ſo Gutes ſprach,<lb/>
+Der Ton des Leidens und der Klage tönen!</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Ich bringe mehr als das: denn ſchön begleitet,<lb/>
+Gleich einem Fürſten pflegt das Glück zu nah’n.<lb/>
+Auch die Gefährten haben wir gefunden.<lb/>
+In einer Felſenbucht verbargen ſie<lb/>
+Das Schiff und ſaßen traurig und erwartend.<lb/>
+<pb n="95" facs="#f0104"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Sie ſahen deinen Bruder, und es regten<lb/>
+Sich alle jauchzend, und ſie bathen dringend<lb/>
+Der Abfahrt Stunde zu beſchleunigen.<lb/>
+Es ſehnet jede Fauſt ſich nach dem Ruder,<lb/>
+Und ſelbſt ein Wind erhob vom Lande liſpelnd,<lb/>
+Von allen gleich bemerkt, die holden Schwin-<lb/>
+gen.<lb/>
+Drum laß uns eilen, führe mich zum Tempel,<lb/>
+Laß mich das Heiligthum betreten, laß<lb/>
+Mich unſrer Wünſche Ziel verehrend faſſen.<lb/>
+Ich bin allein genug der Göttinn Bild<lb/>
+Auf wohl geübten Schultern wegzutragen;<lb/>
+Wie ſehn’ ich mich nach der erwünſchten Laſt!</p><lb/>
+<stage>Er geht gegen den Tempel unter den letzten Wor-<lb/>
+ten, ohne zu bemerken, daß Iphigenie nicht folgt; end-<lb/>
+lich kehrt er ſich um.</stage><lb/>
+<p>Du ſtehſt und zauderſt — ſage mir — du<lb/>
+ſchweigſt!<lb/>
+Du ſcheinſt verworren! Widerſetzet ſich<lb/>
+Ein neues Unheil unſerm Glück? Sag’ an!<lb/>
+Haſt du dem Könige das kluge Wort<lb/>
+Vermelden laſſen, das wir abgeredet?</p></sp><lb/>
+<pb n="96" facs="#f0105"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Ich habe, theurer Mann; doch wirſt du ſchel-<lb/>
+ten.<lb/>
+Ein ſchweigender Verweis war mir dein An-<lb/>
+blick!<lb/>
+Des Königs Bothe kam, und wie du es<lb/>
+Mir in den Mund gelegt, ſo ſagt’ ich’s ihm.<lb/>
+Er ſchien zu ſtaunen, und verlangte dringend<lb/>
+Die ſeltne Feier erſt dem Könige<lb/>
+Zu melden, ſeinen Willen zu vernehmen;<lb/>
+Und nun erwart’ ich ſeine Wiederkehr.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Weh’ uns! Erneuert ſchwebt nun die Gefahr<lb/>
+Um unſre Schläfe! Warum haſt du nicht<lb/>
+In’s Prieſterrecht dich weislich eingehüllt?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Als eine Hülle hab’ ich’s nie gebraucht.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>So wirſt du, reine Seele, dich und uns<lb/>
+Zu Grunde richten. Warum dacht’ ich nicht<lb/>
+Auf dieſen Fall voraus, und lehrte dich<lb/>
+Auch dieſer Ford’rung auszuweichen!</p></sp><lb/>
+<pb n="97" facs="#f0106"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Schilt</hi><lb/>
+Nur mich, die Schuld iſt mein, ich fühl’ es<lb/>
+wohl;<lb/>
+Doch konnt’ ich anders nicht dem Mann be-<lb/>
+gegnen,<lb/>
+Der mit Vernunft und Ernſt von mir verlangte,<lb/>
+Was ihm mein Herz als recht geſtehen mußte.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Gefährlicher zieht ſich’s zuſammen; doch auch ſo<lb/>
+Laß uns nicht zagen, oder unbeſonnen<lb/>
+Und übereilt uns ſelbſt verrathen. Ruhig<lb/>
+Erwarte du die Wiederkunft des Bothen,<lb/>
+Und dann ſteh feſt, er bringe was er will:<lb/>
+Denn ſolcher Weihung Feier anzuordnen<lb/>
+Gehört der Prieſterinn und nicht dem König.<lb/>
+Und fordert er den fremden Mann zu ſehn,<lb/>
+Der von dem Wahnſinn ſchwer belaſtet iſt;<lb/>
+So lehn’ es ab, als hielteſt du uns beyde<lb/>
+Im Tempel wohl verwahrt. So ſchaff’ uns<lb/>
+Luft,<lb/>
+<fw type="sig" place="bottom">G</fw><lb/>
+<pb n="98" facs="#f0107"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Daß wir auf’s eiligſte, den heil’gen Schatz<lb/>
+Dem rauh unwürd’gen Volk entwendend, fliehn.<lb/>
+Die beſten Zeichen ſendet uns Apoll,<lb/>
+Und, eh wir die Bedingung fromm erfüllen,<lb/>
+Erfüllt er göttlich ſein Verſprechen ſchon.<lb/>
+Oreſt iſt frey, geheilt! — Mit dem Befreyten<lb/>
+O führet uns hinüber, günſt’ge Winde,<lb/>
+Zur Felſen-Inſel die der Gott bewohnt;<lb/>
+Dann nach Mycen, daß es lebendig werde,<lb/>
+Daß von der Aſche des verloſch’nen Herdes<lb/>
+Die Vatergötter fröhlich ſich erheben,<lb/>
+Und ſchönes Feuer ihre Wohnungen<lb/>
+Umleuchte! Deine Hand ſoll ihnen Weihrauch<lb/>
+Zuerſt aus gold’nen Schalen ſtreuen. Du<lb/>
+Bringſt über jene Schwelle Heil und Leben wieder,<lb/>
+Entſühnſt den Fluch und ſchmückeſt neu die<lb/>
+Deinen<lb/>
+Mit friſchen Lebensblüthen herrlich aus.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Vernehm’ ich dich, ſo wendet ſich, o Theurer,<lb/>
+Wie ſich die Blume nach der Sonne wendet,<lb/>
+<pb n="99" facs="#f0108"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Die Seele, von dem Strahle deiner Worte<lb/>
+Getroffen, ſich dem ſüßen Troſte nach.<lb/>
+Wie köſtlich iſt des gegenwärt’gen Freundes<lb/>
+Gewiſſe Rede, deren Himmelskraft<lb/>
+Ein Einſamer entbehrt und ſtill verſinkt.<lb/>
+Denn langſam reift, verſchloſſen in dem<lb/>
+Buſen,<lb/>
+Gedank’ ihm und Entſchluß; die Gegenwart<lb/>
+Des Liebenden entwickelte ſie leicht.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Leb’ wohl! Die Freunde will ich nun geſchwind<lb/>
+Beruhigen, die ſehnlich wartend harren.<lb/>
+Dann komm’ ich ſchnell zurück und lauſche hier<lb/>
+Im Felſenbuſch verſteckt auf deinen Wink —<lb/>
+Was ſinneſt du? Auf einmal überſchwebt<lb/>
+Ein ſtiller Trauerzug die freye Stirne.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Verzeih! Wie leichte Wolken vor der Sonne,<lb/>
+So zieht mir vor der Seele leichte Sorge<lb/>
+Und Bangigkeit vorüber.</p></sp><lb/>
+<fw type="sig" place="bottom">G 2</fw><lb/>
+<pb n="100" facs="#f0109"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Fürchte nicht!</hi><lb/>
+Betrüglich ſchloß die Furcht mit der Gefahr<lb/>
+Ein enges Bündniß; beyde ſind Geſellen.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Die Sorge nenn’ ich edel, die mich warnt,<lb/>
+Den König, der mein zweyter Vater ward,<lb/>
+Nicht tückiſch zu betrügen, zu berauben.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Der deinen Bruder ſchlachtet, dem entfliehſt du.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Es iſt derſelbe, der mir Gutes that.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Das iſt nicht Undank, was die Noth gebeut.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Es bleibt wohl Undank; nur die Noth ent-<lb/>
+ſchuldigt’s.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Vor Göttern und vor Menſchen dich gewiß.</p></sp><lb/>
+<pb n="101" facs="#f0110"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Allein mein eigen Herz iſt nicht befriedigt</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Zu ſtrenge Ford’rung iſt verborgner Stolz.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Ich unterſuche nicht, ich fühle nur.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Fühlſt du dich recht, ſo mußt du dich verehren.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Ganz unbefleckt genießt ſich nur das Herz.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>So haſt du dich im Tempel wohl bewahrt;<lb/>
+Das Leben lehrt uns, weniger mit uns<lb/>
+Und andern ſtrenge ſeyn; du lernſt es auch.<lb/>
+So wunderbar iſt dieß Geſchlecht gebildet;<lb/>
+So vielfach iſt’s verſchlungen und verknüpft,<lb/>
+Daß keiner in ſich ſelbſt, noch mit den andern<lb/>
+Sich rein und unverworren halten kann.<lb/>
+Auch ſind wir nicht beſtellt uns ſelbſt zu richten;<lb/>
+Zu wandeln und auf ſeinen Weg zu ſehen<lb/>
+<pb n="102" facs="#f0111"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Iſt eines Menſchen erſte, nächſte Pflicht:<lb/>
+Denn ſelten ſchätzt er recht was er gethan,<lb/>
+Und was er thut weiß er faſt nie zu ſchätzen.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Faſt überred’ſt du mich zu deiner Meinung.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Braucht’s Überredung wo die Wahl verſagt iſt?<lb/>
+Den Bruder, dich, und einen Freund zu retten<lb/>
+Iſt nur Ein Weg; fragt ſich’s ob wir ihn gehn?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>O laß mich zaudern! denn du thäteſt ſelbſt<lb/>
+Ein ſolches Unrecht keinem Mann gelaſſen,<lb/>
+Dem du für Wohlthat dich verpflichtet hielteſt.</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Wenn wir zu Grunde gehen, wartet dein<lb/>
+Ein härt’rer Vorwurf, der Verzweiflung trägt.<lb/>
+Man ſieht, du biſt nicht an Verluſt gewohnt,<lb/>
+Da du dem großen Übel zu entgehen<lb/>
+Ein falſches Wort nicht einmal opfern willſt.</p></sp><lb/>
+<pb n="103" facs="#f0112"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>O trüg’ ich doch ein männlich Herz in mir,<lb/>
+Das, wenn es einen kühnen Vorſatz hegt,<lb/>
+Vor jeder andern Stimme ſich verſchließt!</p></sp><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Du weigerſt dich umſonſt; die ehrne Hand<lb/>
+Der Noth gebiethet, und ihr ernſter Wink<lb/>
+Iſt oberſtes Geſetz, dem Götter ſelbſt<lb/>
+Sich unterwerfen müſſen. Schweigend herrſcht<lb/>
+Des ew’gen Schickſals unberathne Schweſter.<lb/>
+Was ſie dir auferlegt, das trage; thu’<lb/>
+Was ſie gebeut. Das andre weißt du. Bald<lb/>
+Komm’ ich zurück, aus deiner heil’gen Hand<lb/>
+Der Rettung ſchönes Siegel zu empfangen.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="104" facs="#f0113"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw></sp></div><lb/>
+<div n="3"><head><hi rendition="#g">Fünfter Auftritt</hi>.</head><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Ich muß ihm folgen: denn die Meinigen<lb/>
+Seh’ ich in dringender Gefahr. Doch ach!<lb/>
+Mein eigen Schickſal macht mir bang’ und<lb/>
+bänger.<lb/>
+O ſoll ich nicht die ſtille Hoffnung retten,<lb/>
+Die in der Einſamkeit ich ſchön genährt?<lb/>
+Soll dieſer Fluch denn ewig walten? Soll<lb/>
+Nie dieß Geſchlecht mit einem neuen Segen<lb/>
+Sich wieder heben? — Nimmt doch alles ab!<lb/>
+Das beſte Glück, des Lebens ſchönſte Kraft<lb/>
+Ermattet endlich! Warum nicht der Fluch?<lb/>
+So hofft’ ich denn vergebens, hier verwahrt,<lb/>
+Von meines Hauſes Schickſal abgeſchieden,<lb/>
+Dereinſt mit reiner Hand und reinem Herzen<lb/>
+Die ſchwer befleckte Wohnung zu entſühnen.<lb/>
+Kaum wird in meinen Armen mir ein Bruder<lb/>
+Vom grimm’gen Übel wundervoll und ſchnell<lb/>
+Geheilt; kaum naht ein lang’ erflehtes Schiff<lb/>
+Mich in den Port der Vaterwelt zu leiten:<lb/>
+<pb n="105" facs="#f0114"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+So legt die taube Noth ein doppelt Laſter<lb/>
+Mit ehrner Hand mir auf: das heilige,<lb/>
+Mir anvertraute, viel verehrte Bild<lb/>
+Zu rauben und den Mann zu hintergehn,<lb/>
+Dem ich mein Leben und mein Schickſal danke.<lb/>
+O daß in meinem Buſen nicht zuletzt<lb/>
+Ein Widerwillen keime! der Titanen,<lb/>
+Der alten Götter tiefer Haß auf euch,<lb/>
+Olympier, nicht auch die zarte Bruſt<lb/>
+Mit Geierklauen faſſe! Rettet mich,<lb/>
+Und rettet euer Bild in meiner Seele!</p><lb/>
+<p>Vor meinen Ohren tönt das alte Lied —<lb/>
+Vergeſſen hatt’ ich’s und vergaß es gern —<lb/>
+Das Lied der Parcen, das ſie grauſend ſangen,<lb/>
+Als Tantalus vom gold’nen Stuhle fiel:<lb/>
+Sie litten mit dem edlen Freunde; grimmig<lb/>
+War ihre Bruſt, und furchtbar ihr Geſang.<lb/>
+In unſrer Jugend ſang’s die Amme mir<lb/>
+Und den Geſchwiſtern vor, ich merkt’ es wohl.</p><lb/>
+<pb n="106" facs="#f0115"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<lg type="poem"><lg n="1"><l>Es fürchte die Götter</l><lb/>
+<l>Das Menſchengeſchlecht!</l><lb/>
+<l>Sie halten die Herrſchaft</l><lb/>
+<l>In ewigen Händen,</l><lb/>
+<l>Und können ſie brauchen</l><lb/>
+<l>Wie’s ihnen gefällt.</l></lg><lb/>
+<lg n="2"><l>Der fürchte ſie doppelt</l><lb/>
+<l>Den je ſie erheben!</l><lb/>
+<l>Auf Klippen und Wolken</l><lb/>
+<l>Sind Stühle bereitet</l><lb/>
+<l>Um goldene Tiſche.</l></lg><lb/>
+<lg n="3"><l>Erhebet ein Zwiſt ſich:</l><lb/>
+<l>So ſtürzen die Gäſte</l><lb/>
+<l>Geſchmäht und geſchändet</l><lb/>
+<l>In nächtliche Tiefen,</l><lb/>
+<l>Und harren vergebens,</l><lb/>
+<l>Im Finſtern gebunden,</l><lb/>
+<l>Gerechten Gerichtes.</l></lg><lb/>
+<pb n="107" facs="#f0116"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+<lg n="4"><l>Sie aber, ſie bleiben</l><lb/>
+<l>In ewigen Feſten</l><lb/>
+<l>An goldenen Tiſchen.</l><lb/>
+<l>Sie ſchreiten vom Berge</l><lb/>
+<l>Zu Bergen hinüber:</l><lb/>
+<l>Aus Schlünden der Tiefe</l><lb/>
+<l>Dampft ihnen der Athem</l><lb/>
+<l>Erſtickter Titanen,</l><lb/>
+<l>Gleich Opfergerüchen,</l><lb/>
+<l>Ein leichtes Gewölke.</l></lg><lb/>
+<l><milestone unit="section" rendition="#hr"/></l> <lg n="5"><l>Es wenden die Herrſcher</l><lb/>
+<l>Ihr ſegnendes Auge</l><lb/>
+<l>Von ganzen Geſchlechtern,</l><lb/>
+<l>Und meiden, im Enkel</l><lb/>
+<l>Die eh’mals geliebten,</l><lb/>
+<l>Still redenden Züge</l><lb/>
+<l>Des Ahnherrn zu ſehn.</l></lg><lb/>
+<pb n="108" facs="#f0117"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris.</hi></fw><lb/>
+<lg n="6"><l>So ſangen die Parcen;</l><lb/>
+<l>Es horcht der Verbannte,</l><lb/>
+<l>In nächtlichen Höhlen</l><lb/>
+<l>Der Alte die Lieder,</l><lb/>
+<l>Denkt Kinder und Enkel</l><lb/>
+<l>Und ſchüttelt das Haupt.</l></lg></lg></sp></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="[109]" facs="#f0118"/>
+<milestone unit="section" rendition="#hr"/> <div n="2"><head><hi rendition="#g">Fünfter Aufzug.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Erſter Auftritt.</hi></head><lb/>
+<stage><hi rendition="#g">Thoas. Arkas.</hi></stage><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas.</hi></hi></speaker><lb/>
+<p><hi rendition="#in">V</hi>erwirrt muß ich geſtehn daß ich nicht weiß,<lb/>
+Wohin ich meinen Argwohn richten ſoll.<lb/>
+Sind’s die Gefang’nen, die auf ihre Flucht<lb/>
+Verſtohlen ſinnen? Iſt’s die Prieſterinn,<lb/>
+Die ihnen hilft? Es mehrt ſich das Gerücht:<lb/>
+Das Schiff, das dieſe beyden hergebracht,<lb/>
+Sey irgend noch in einer Bucht verſteckt.<lb/>
+Und jenes Mannes Wahnſinn, dieſe Weihe,<lb/>
+Der heil’ge Vorwand dieſer Zög’rung, rufen<lb/>
+Den Argwohn lauter und die Vorſicht auf.</p></sp><lb/>
+<pb n="110" facs="#f0119"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Es komme ſchnell die Prieſterinn herbey!<lb/>
+Dann geht, durchſucht das Ufer ſcharf und ſchnell<lb/>
+Vom Vorgebirge bis zum Hain der Göttinn.<lb/>
+Verſchonet ſeine heil’gen Tiefen, legt<lb/>
+Bedacht’gen Hinterhalt und greift ſie an;<lb/>
+Wo ihr ſie findet, faßt ſie wie ihr pflegt.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Zweyter Auftritt.</hi></head><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi></hi></speaker> <stage>allein,</stage><lb/>
+<p>Entſetzlich wechſelt mir der Grimm im Buſen;<lb/>
+Erſt gegen ſie, die ich ſo heilig hielt;<lb/>
+Dann gegen mich, der ich ſie zum Verrath<lb/>
+Durch Nachſicht und durch Güte bildete.<lb/>
+Zur Sklaverey gewöhnt der Menſch ſich gut<lb/>
+Und lernet leicht gehorchen, wenn man ihn<lb/>
+Der Freyheit ganz beraubt. Ja, wäre ſie<lb/>
+In meiner Ahnherrn rohe Hand gefallen,<lb/>
+Und hätte ſie der heil’ge Grimm verſchont:<lb/>
+<pb n="111" facs="#f0120"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Sie wäre froh geweſen, ſich allein<lb/>
+Zu retten, hätte dankbar ihr Geſchick<lb/>
+Erkannt und fremdes Blut vor dem Altar<lb/>
+Vergoſſen, hätte Pflicht genannt<lb/>
+Was Noth war. Nun lockt meine Güte<lb/>
+In ihrer Bruſt verweg’nen Wunſch herauf.<lb/>
+Vergebens hofft’ ich, ſie mir zu verbinden;<lb/>
+Sie ſinnt ſich nun ein eigen Schickſal aus.<lb/>
+Durch Schmeicheley gewann ſie mir das Herz;<lb/>
+Nun widerſteh’ ich der: ſo ſucht ſie ſich<lb/>
+Den Weg durch Liſt und Trug, und meine Güte<lb/>
+Scheint ihr ein alt verjährtes Eigenthum.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Dritter Auftritt.</hi></head><lb/>
+<stage><hi rendition="#g">Iphigenie. Thoas.</hi></stage><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Du foderſt mich! was bringt dich zu uns her?</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Du ſchiebſt das Opfer auf; ſag’ an, warum?</p></sp><lb/>
+<pb n="112" facs="#f0121"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Ich hab’ an Arkas alles klar erzählt.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Von dir möcht’ ich es weiter noch vernehmen.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Die Göttinn gibt dir Friſt zur Überlegung.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Sie ſcheint dir ſelbſt gelegen, dieſe Friſt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Wenn dir das Herz zum grauſamen Entſchluß<lb/>
+Verhärtet iſt: ſo ſollteſt du nicht kommen!<lb/>
+Ein König, der Unmenſchliches verlangt,<lb/>
+Find’t Diener g’nug, die gegen Gnad’ und Lohn<lb/>
+Den halben Fluch der That begierig faſſen;<lb/>
+Doch ſeine Gegenwart bleibt unbefleckt.<lb/>
+Er ſinnt den Tod in einer ſchweren Wolke,<lb/>
+Und ſeine Bothen bringen flammendes<lb/>
+Verderben auf des Armen Haupt hinab;<lb/>
+Er aber ſchwebt durch ſeine Höhen ruhig,<lb/>
+Ein unerreichter Gott, im Sturme fort.</p></sp><lb/>
+<pb n="113" facs="#f0122"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Die heil’ge Lippe tönt ein wildes Lied.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Nicht Prieſterinn! nur Agamemnons Tochter.<lb/>
+Der Unbekannten Wort verehrteſt du,<lb/>
+Der Fürſtinn willſt du raſch gebiethen? Nein!<lb/>
+Von Jugend auf hab’ ich gelernt gehorchen,<lb/>
+Erſt meinen Eltern und dann einer Gottheit,<lb/>
+Und folgſam fühlt’ ich immer meine Seele<lb/>
+Am ſchönſten frey; allein dem harten Worte,<lb/>
+Dem rauhen Ausſpruch eines Mannes mich<lb/>
+Zu fügen, lernt’ ich weder dort noch hier.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Ein alt Geſetz, nicht ich, gebiethet dir.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Wir faſſen ein Geſetz begierig an,<lb/>
+Das unſrer Leidenſchaft zur Waffe dient.<lb/>
+Ein andres ſpricht zu mir, ein älteres,<lb/>
+Mich dir zu widerſetzen, das Geboth,<lb/>
+Dem jeder Fremde heilig iſt.</p></sp><lb/>
+<fw type="sig" place="bottom">H</fw><lb/>
+<pb n="114" facs="#f0123"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Es ſcheinen die Gefangnen dir ſehr nah<lb/>
+Am Herzen: denn für Antheil und Bewegung<lb/>
+Vergiſſeſt du der Klugheit erſtes Wort,<lb/>
+Daß man den Mächtigen nicht reitzen ſoll.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Red’ oder ſchweig’ ich; immer kannſt du wiſſen,<lb/>
+Was mir im Herzen iſt und immer bleibt.<lb/>
+Löſ’t die Erinnerung des gleichen Schickſals<lb/>
+Nicht ein verſchloßnes Herz zum Mitleid auf?<lb/>
+Wie mehr denn meins! In ihnen ſeh’ ich mich.<lb/>
+Ich habe vorm Altare ſelbſt gezittert,<lb/>
+Und feierlich umgab der frühe Tod<lb/>
+Die Knieende; das Meſſer zuckte ſchon<lb/>
+Den lebenvollen Buſen zu durchbohren;<lb/>
+Mein Innerſtes entſetzte wirbelnd ſich,<lb/>
+Mein Auge brach, und — ich fand mich gerettet.<lb/>
+Sind wir, was Götter gnädig uns gewährt,<lb/>
+Unglücklichen nicht zu erſtatten ſchuldig?<lb/>
+Du weißt es, kennſt mich, und du willſt mich<lb/>
+zwingen!</p></sp><lb/>
+<pb n="115" facs="#f0124"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel,</hi></fw><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Gehorche deinem Dienſte, nicht dem Herrn.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Laß ab! beſchönige nicht die Gewalt,<lb/>
+Die ſich der Schwachheit eines Weibes freut.<lb/>
+Ich bin ſo frey geboren als ein Mann.<lb/>
+Stünd’ Agamemnons Sohn dir gegenüber,<lb/>
+Und du verlangteſt was ſich nicht gebührt:<lb/>
+So hat auch Er ein Schwert und einen Arm,<lb/>
+Die Rechte ſeines Buſens zu vertheid’gen.<lb/>
+Ich habe nichts als Worte, und es ziemt<lb/>
+Dem edlen Mann, der Frauen Wort zu achten.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Ich acht’ es mehr als eines Bruders Schwert.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Das Loos der Waffen wechſelt hin und her:<lb/>
+Kein kluger Streiter hält den Feind gering.<lb/>
+Auch ohne Hülfe gegen Trutz und Härte<lb/>
+Hat die Natur den Schwachen nicht gelaſſen.<lb/>
+Sie gab zur Liſt ihm Freude, lehrt’ ihn Künſte;<lb/>
+<fw type="sig" place="bottom">H 2</fw><lb/>
+<pb n="116" facs="#f0125"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Bald weicht er aus, verſpätet und umgeht.<lb/>
+Ja der Gewaltige verdient, daß man ſie übt.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Die Vorſicht ſtellt der Liſt ſich klug entgegen.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Und eine reine Seele braucht ſie nicht.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Sprich unbehutſam nicht dein eigen Urtheil.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>O ſäheſt du wie meine Seele kämpft,<lb/>
+Ein bös Geſchick, das ſie ergreifen will,<lb/>
+Im erſten Anfall muthig abzutreiben!<lb/>
+So ſteh’ ich denn hier wehrlos gegen dich?<lb/>
+Die ſchöne Bitte, den anmuth’gen Zweig,<lb/>
+In einer Frauen Hand gewaltiger<lb/>
+Als Schwert und Waffe, ſtößeſt du zurück:<lb/>
+Was bleibt mir nun mein Inn’res zu ver-<lb/>
+theid’gen?<lb/>
+Ruf’ ich die Göttinn um ein Wunder an?<lb/>
+Iſt keine Kraft in meiner Seele Tiefen?</p></sp><lb/>
+<pb n="117" facs="#f0126"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Es ſcheint, der beyden Fremden Schickſal macht<lb/>
+Unmäßig dich beſorgt. Wer ſind ſie? Sprich!<lb/>
+Für die dein Geiſt gewaltig ſich erhebt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>Sie ſind — ſie ſcheinen — für Griechen halt’<lb/>
+ich ſie.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Landsleute ſind es? und ſie haben wohl<lb/>
+Der Rückkehr ſchönes Bild in dir erneut?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi></hi></speaker><lb/>
+<stage>nach eimgem Stillſchweigen.</stage><lb/>
+<p>Hat denn zur unerhörten That der Mann<lb/>
+Allein das Recht? Drückt denn Unmögliches<lb/>
+Nur Er an die gewalt’ge Heldenbruſt?<lb/>
+Was nennt man groß? Was hebt die Seele<lb/>
+ſchaudernd<lb/>
+Dem immer wiederhohlenden Erzähler?<lb/>
+Als was mit unwahrſcheinlichem Erfolg<lb/>
+Der Muthigſte begann. Der in der Nacht<lb/>
+Allein das Heer des Feindes überſchleicht,<lb/>
+Wie unverſehen eine Flamme wüthend<lb/>
+<pb n="118" facs="#f0127"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Die Schlafenden, Erwachenden ergreift,<lb/>
+Zuletzt gedrängt von den Ermunterten<lb/>
+Auf Feindes Pferden, doch mit Beute kehrt,<lb/>
+Wird der allein geprieſen? der allein,<lb/>
+Der einen ſichern Weg verachtend kühn<lb/>
+Gebirg’ und Wälder durchzuſtreifen geht,<lb/>
+Daß er von Räubern eine Gegend ſäub’re?<lb/>
+Iſt uns nichts übrig? Muß ein zartes Weib<lb/>
+Sich ihres angebornen Rechts entäußern,<lb/>
+Wild gegen Wilde ſeyn, wie Amazonen<lb/>
+Das Recht des Schwerts euch rauben und mit<lb/>
+Blute<lb/>
+Die Unterdrückung rächen? Auf und ab<lb/>
+Steigt in der Bruſt ein kühnes Unternehmen:<lb/>
+Ich werde großem Vorwurf nicht entgehn,<lb/>
+Noch ſchwerem Übel wenn es mir mißlingt;<lb/>
+Allein Euch leg’ ich’s auf die Kniee! Wenn<lb/>
+Ihr wahrhaft ſeyd, wie ihr geprieſen werdet;<lb/>
+So zeigt’s durch euern Beyſtand und verherr-<lb/>
+licht<lb/>
+Durch mich die Wahrheit! — Ja, vernimm,<lb/>
+o König,<lb/>
+Es wird ein heimlicher Betrug geſchmiedet;<lb/>
+<pb n="119" facs="#f0128"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+Vergebens fragſt du den Gefangnen nach;<lb/>
+Sie ſind hinweg und ſuchen ihre Freunde,<lb/>
+Die mit dem Schiff’ am Ufer warten, auf.<lb/>
+Der ältſte, den das Übel hier ergriffen<lb/>
+Und nun verlaſſen hat — es iſt Oreſt,<lb/>
+Mein Bruder, und der andre ſein Vertrauter,<lb/>
+Sein Jugendfreund, mit Nahmen Pylades.<lb/>
+Apoll ſchickt ſie von Delphi dieſem Ufer<lb/>
+Mit göttlichen Befehlen zu, das Bild<lb/>
+Dianens wegzurauben und zu ihm<lb/>
+Die Schweſter hinzubringen, und dafür<lb/>
+Verſpricht er dem von Furien Verfolgten,<lb/>
+Des Mutterblutes Schuldigen, Befreyung.<lb/>
+Uns beyde hab’ ich nun, die Überbliebnen<lb/>
+Von Tantals Hauſ’, in deine Hand gelegt:<lb/>
+Verdirb uns — wenn du darfſt.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p><hi rendition="#et">Du glaubſt, es höre</hi><lb/>
+Der rohe Scythe, der Barbar, die Stimme<lb/>
+Der Wahrheit und der Menſchlichkeit, die<lb/>
+Atreus,<lb/>
+Der Grieche, nicht vernahm?</p></sp><lb/>
+<pb n="120" facs="#f0129"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p><hi rendition="#et">Es hört ſie jeder,</hi><lb/>
+Geboren unter jedem Himmel, dem<lb/>
+Des Lebens Quelle durch den Buſen rein<lb/>
+Und ungehindert fließt. — Was ſinnſt du<lb/>
+mir,<lb/>
+O König, ſchweigend in der tiefen Seele?<lb/>
+Iſt es Verderben? ſo tödte mich zuerſt!<lb/>
+Denn nun empfind’ ich, da uns keine Rettung<lb/>
+Mehr übrig bleibt, die gräßliche Gefahr,<lb/>
+Worein ich die Geliebten übereilt<lb/>
+Vorſetzlich ſtürzte. Weh! ich werde ſie<lb/>
+Gebunden vor mir ſehn! Mit welchen Blicken<lb/>
+Kann ich von meinem Bruder Abſchied nehmen,<lb/>
+Den ich ermorde? Nimmer kann ich ihm<lb/>
+Mehr in die vielgeliebten Augen ſchaun!</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>So haben die Betrüger künſtlich-dichtend<lb/>
+Der lang’ Verſchloßnen, ihre Wünſche leicht<lb/>
+Und willig Glaubenden, ein ſolch Geſpinnſt<lb/>
+Um’s Haupt geworfen!</p></sp><lb/>
+<pb n="121" facs="#f0130"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel.</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p><hi rendition="#et">Nein! o König, nein!</hi><lb/>
+Ich könnte hintergangen werden; dieſe<lb/>
+Sind treu und wahr. Wirſt du ſie anders<lb/>
+finden,<lb/>
+So laß ſie fallen und verſtoße mich,<lb/>
+Verbanne mich zur Strafe meiner Thorheit<lb/>
+An einer Klippen-Inſel traurig Ufer.<lb/>
+Iſt aber dieſer Mann der langerflehte,<lb/>
+Geliebte Bruder: ſo entlaß uns, ſey<lb/>
+Auch den Geſchwiſtern wie der Schweſter<lb/>
+freundlich.<lb/>
+Mein Vater fiel durch ſeiner Frauen Schuld,<lb/>
+Und ſie durch ihren Sohn. Die letzte Hoffnung<lb/>
+Von Atreus Stamme ruht auf ihm allein.<lb/>
+Laß mich mit reinem Herzen, reiner Hand,<lb/>
+Hinübergehn und unſer Haus entſühnen.<lb/>
+Du hältſt mir Wort! — Wenn zu den Mei-<lb/>
+nen je<lb/>
+Mir Rückkehr zubereitet wäre, ſchwurſt<lb/>
+Du mich zu laſſen; und ſie iſt es nun.<lb/>
+Ein König ſagt nicht, wie gemeine Menſchen,<lb/>
+Verlegen zu, daß er den Bittenden<lb/>
+<pb n="122" facs="#f0131"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Auf einen Augenblick entferne; noch<lb/>
+Verſpricht er auf den Fall den er nicht hofft:<lb/>
+Dann fühlt er erſt die Höhe ſeiner Würde,<lb/>
+Wenn er den Harrenden beglücken kann.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Unwillig, wie ſich Feuer gegen Waſſer<lb/>
+Im Kampfe wehrt und giſchend ſeinen Feind<lb/>
+Zu tilgen ſucht, ſo wehret ſich der Zorn<lb/>
+In meinem Buſen gegen deine Worte.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>O laß die Gnade, wie das heil’ge Licht<lb/>
+Der ſtillen Opferflamme, mir umkränzt<lb/>
+Von Lobgeſang und Dank und Freude lodern.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Wie oft beſänftigte mich dieſe Stimme!</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie.</hi></hi></speaker><lb/>
+<p>O reiche mir die Hand zum Friedenszeichen.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas.</hi></hi></speaker><lb/>
+<p>Du forderſt viel in einer kurzen Zeit.</p></sp><lb/>
+<pb n="123" facs="#f0132"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Um Gut’s zu thun braucht’s keiner Überlegung.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi>.</hi></speaker><lb/>
+<p>Sehr viel! denn auch dem Guten folgt das<lb/>
+Übel.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Der Zweifel iſt’s, der Gutes böſe macht.<lb/>
+Bedenke nicht; gewähre wie du’s fühlſt.</p></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Vierter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Oreſt</hi> gewaſſnet. <hi rendition="#g">Die Vorigen</hi>.</stage><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi></hi></speaker><lb/>
+<stage>nach der Scene gekehrt.</stage><lb/>
+<p>Verdoppelt eure Kräfte! Haltet ſie<lb/>
+Zurück! Nur wenig Augenblicke! Weicht<lb/>
+Der Menge nicht, und deckt den Weg zum<lb/>
+Schiffe<lb/>
+Mir und der Schweſter.</p><lb/>
+<pb n="124" facs="#f0133"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<stage>Zu Iphigenien ohne den König zu ſehen.</stage><lb/>
+<p><hi rendition="#et">Komm, wir ſind verrathen.</hi><lb/>
+Geringer Raum bleibt uns zur Flucht. Ge-<lb/>
+ſchwind!</p><lb/>
+<stage>Er erblickt den König.</stage></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi></hi></speaker><lb/>
+<stage>nach dem Schwerte greifend.</stage><lb/>
+<p>In meiner Gegenwart führt ungeſtraft<lb/>
+Kein Mann das nackte Schwert.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Entheiliget</hi><lb/>
+Der Göttinn Wohnung nicht durch Wuth und<lb/>
+Mord.<lb/>
+Gebiethet euerm Volke Stillſtand, höret<lb/>
+Die Prieſterinn, die Schweſter.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Sage mir!</hi><lb/>
+Wer iſt es, der uns droht?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Verehr’ in ihm</hi><lb/>
+Den König, der mein zweyter Vater ward!<lb/>
+<pb n="125" facs="#f0134"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Verzeih’ mir, Bruder; doch mein kindlich Herz<lb/>
+Hat unſer ganz Geſchick in ſeine Hand<lb/>
+Gelegt. Geſtanden hab’ ich euern Anſchlag<lb/>
+Und meine Seele vom Verrath gerettet.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Will er die Rückkehr friedlich uns gewähren?</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Dein blinkend Schwert verbiethet mir die Ant-<lb/>
+wort.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi></hi></speaker><lb/>
+<stage>der das Schwert einſteckt.</stage><lb/>
+<p>So ſprich! du ſiehſt ich horche deinen Worten.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="126" facs="#f0135"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw></sp></div><lb/>
+<div n="3"><head><hi rendition="#g">Fünfter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Die Vorigen. Pylades</hi>. Bald nach ihm<lb/>
+<hi rendition="#g">Arkas</hi>, beyde mit bloßen Schwertern.</stage><lb/>
+<sp who="#PYL"><speaker><hi rendition="#c"><hi rendition="#g">Pylades</hi>.</hi></speaker><lb/>
+<p>Verweilet nicht! Die letzten Kräfte raffen<lb/>
+Die Unſrigen zuſammen; weichend werden<lb/>
+Sie nach der See langſam zurückgedrängt.<lb/>
+Welch ein Geſpräch der Fürſten ſind’ ich hier!<lb/>
+Dieß iſt des Königes verehrtes Haupt!</p></sp><lb/>
+<sp who="#ARK"><speaker><hi rendition="#c"><hi rendition="#g">Arkas</hi>.</hi></speaker><lb/>
+<p>Gelaſſen, wie es dir, o König, ziemt,<lb/>
+Stehſt du den Feinden gegen über. Gleich<lb/>
+Iſt die Verwegenheit beſtraft; es weicht<lb/>
+Und fällt ihr Anhang, und ihr Schiff iſt unſer.<lb/>
+Ein Wort von dir; ſo ſteht’s in Flammen.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Geh!</hi><lb/>
+Gebiethe Stillſtand meinem Volke! Keiner<lb/>
+Beſchädige den Feind, ſo lang’ wir reden.</p><lb/>
+<stage>Arkas ab.</stage></sp><lb/>
+<pb n="127" facs="#f0136"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Ich nehm’ es an. Geh’, ſammle, treuer Freund,<lb/>
+Den Reſt des Volkes; harret ſtill, welch Ende<lb/>
+Die Götter unſern Thaten zubereiten.</p><lb/>
+<stage>Pylades ab.</stage></sp></div><lb/>
+<milestone unit="section" rendition="#hr"/> <div n="3"><head><hi rendition="#g">Sechſter Auftritt</hi>.</head><lb/>
+<stage><hi rendition="#g">Iphigenie. Thoas. Oreſt</hi>.</stage><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Befreyt von Sorge mich, eh’ ihr zu ſprechen<lb/>
+Beginnet. Ich befürchte böſen Zwiſt,<lb/>
+Wenn du, o König, nicht der Billigkeit<lb/>
+Gelinde Stimme höreſt; du, mein Bruder,<lb/>
+Der raſchen Jugend nicht gebiethen willſt.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi>.</hi></speaker><lb/>
+<p>Ich halte meinen Zorn, wie es dem Älter’n<lb/>
+Geziemt, zurück. Antworte mir! Womit<lb/>
+<pb n="128" facs="#f0137"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Bezeugſt du, daß du Agamemnons Sohn<lb/>
+Und dieſer Bruder biſt?</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">Hier iſt das Schwert,</hi><lb/>
+Mit dem er Troja’s tapfre Männer ſchlug.<lb/>
+Dieß nahm ich ſeinem Mörder ab, und bath<lb/>
+Die Himmliſchen, den Muth und Arm, das<lb/>
+Glück<lb/>
+Des großen Königes mir zu verleihn,<lb/>
+Und einen ſchönern Tod mir zu gewähren.<lb/>
+Wähl’ einen aus den Edlen deines Heers<lb/>
+Und ſtelle mir den Beſten gegen über.<lb/>
+So weit die Erde <choice><sic>Heldenſöhue</sic><corr>Heldenlöhne</corr></choice> nährt,<lb/>
+Iſt keinem Fremdling dieß Geſuch verweigert.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi>.</hi></speaker><lb/>
+<p>Dieß Vorrecht hat die alte Sitte nie<lb/>
+Dem Fremden hier geſtattet.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p><hi rendition="#et">So beginne</hi><lb/>
+Die neue Sitte denn von dir und mir!<lb/>
+<pb n="129" facs="#f0138"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Nachahmend heiliget ein ganzes Volk<lb/>
+Die edle That der Herrſcher zum Geſetz.<lb/>
+Und laß mich nicht allein für unſre Freyheit,<lb/>
+Laß mich, den Fremden für die Fremden,<lb/>
+kämpfen.<lb/>
+Fall’ ich, ſo iſt ihr Urtheil mit dem meinen<lb/>
+Geſprochen: aber gönnet mir das Glück<lb/>
+Zu überwinden; ſo betrete nie<lb/>
+Ein Mann dieß Ufer, dem der ſchnelle Blick<lb/>
+Hülfreicher Liebe nicht begegnet, und<lb/>
+Getröſtet ſcheide jeglicher hinweg!</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi>.</hi></speaker><lb/>
+<p>Nicht unwerth ſcheineſt du, o Jüngling, mir<lb/>
+Der Ahnherrn, deren du dich rühmſt, zu<lb/>
+ſeyn.<lb/>
+Groß iſt die Zahl der edeln, tapfern Männer,<lb/>
+Die mich begleiten; doch ich ſtehe ſelbſt<lb/>
+In meinen Jahren noch dem Feinde, bin<lb/>
+Bereit mit dir der Waffen Loos zu wagen.</p></sp><lb/>
+<fw type="sig" place="bottom">J</fw><lb/>
+<pb n="130" facs="#f0139"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Mit nichten! Dieſes blutigen Beweiſes<lb/>
+Bedarf es nicht, o König! Laßt die Hand<lb/>
+Vom Schwerte! Denkt an mich und mein<lb/>
+Geſchick.<lb/>
+Der raſche Kampf verewigt einen Mann:<lb/>
+Er falle gleich, ſo preiſet ihn das Lied.<lb/>
+Allein die Thränen, die unendlichen<lb/>
+Der überbliebnen, der verlaßnen Frau,<lb/>
+Zählt keine Nachwelt, und der Dichter ſchweigt<lb/>
+Von tauſend durchgeweinten Tag- und Näch-<lb/>
+ten,<lb/>
+Wo eine ſtille Seele den verlornen,<lb/>
+Raſch-abgeſchied’nen Freund vergebens ſich<lb/>
+Zurückzurufen bangt und ſich verzehrt.<lb/>
+Mich ſelbſt hat eine Sorge gleich gewarnt,<lb/>
+Daß der Betrug nicht eines Räubers mich<lb/>
+Vom ſichern Schutzort reiße, mich der Knecht-<lb/>
+ſchaft<lb/>
+Verrathe. Fleißig hab’ ich ſie befragt,<lb/>
+Nach jedem Umſtand mich erkundigt, Zeichen<lb/>
+Gefordert, und gewiß iſt nun mein Herz.<lb/>
+<pb n="131" facs="#f0140"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Sieh hier an ſeiner rechten Hand das Mahl<lb/>
+Wie von drey Sternen, das am Tage ſchon<lb/>
+Da er geboren ward, ſich zeigte, das<lb/>
+Auf ſchwere That mit dieſer Fauſt zu üben<lb/>
+Der Prieſter deutete. Dann überzeugt<lb/>
+Mich doppelt dieſe Schramme, die ihm hier<lb/>
+Die Augenbraue ſpaltet. Als ein Kind<lb/>
+Ließ ihn Elektra, raſch und unvorſichtig<lb/>
+Nach ihrer Art, aus ihren Armen ſtürzen.<lb/>
+Er ſchlug auf einen Dreyfuß auf — Er iſt’s —</p><lb/>
+<p>Soll ich dir noch die Ähnlichkeit des Vaters,<lb/>
+Soll ich das inn’re Jauchzen meines Herzens<lb/>
+Dir auch als Zeugen der Verſich’rung nennen?</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi>.</hi></speaker><lb/>
+<p>Und hübe deine Rede jeden Zweifel<lb/>
+Und bändigt’ ich den Zorn in meiner Bruſt:<lb/>
+So würden doch die Waffen zwiſchen uns<lb/>
+Entſcheiden müſſen; Friede ſeh’ ich nicht.<lb/>
+<fw type="sig" place="bottom">J 2</fw><lb/>
+<pb n="132" facs="#f0141"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Sie ſind gekommen, du bekenneſt ſelbſt,<lb/>
+Das heil’ge Bild der Görtinn mir zu rauben.<lb/>
+Glaubt ihr, ich ſehe dieß gelaſſen an?<lb/>
+Der Grieche wendet oft ſein lüſtern Auge<lb/>
+Den fernen Schätzen der Barbaren zu,<lb/>
+Dem goldnen Felle, Pferden, ſchönen Töch-<lb/>
+tern;<lb/>
+Doch führte ſie Gewalt und Liſt nicht immer<lb/>
+Mit den erlangten Gütern glücklich heim.</p></sp><lb/>
+<sp who="#ORE"><speaker><hi rendition="#c"><hi rendition="#g">Oreſt</hi>.</hi></speaker><lb/>
+<p>Das Bild, o König, ſoll uns nicht entzweyen!<lb/>
+Jetzt kennen wir den Irrthum, den ein Gott<lb/>
+Wie einen Schleyer um das Haupt uns legte,<lb/>
+Da er den Weg hierher uns wandern hieß.<lb/>
+Um Rath und um Befreyung bath ich ihn<lb/>
+Von dem Geleit der Furien; er ſprach:<lb/>
+„Bringſt du die Schweſter, die an Tauris<lb/>
+Ufer<lb/>
+Im Heiligthume wider Willen bleibt,<lb/>
+Nach Griechenland; ſo löſet ſich der Fluch.“<lb/>
+<pb n="133" facs="#f0142"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+Wir legten’s von Apollens Schweſter aus,<lb/>
+Und er gedachte <hi rendition="#g">dich!</hi> Die ſtrengen Bande<lb/>
+Sind nun gelöſ’t; du biſt den Deinen wieder,<lb/>
+Du Heilige, geſchenkt. Von dir berührt<lb/>
+War ich geheilt; in deinen Armen faßte<lb/>
+Das Übel mich mit allen ſeinen Klauen<lb/>
+Zum letztenmal, und ſchüttelte das Mark<lb/>
+Entſetzlich mir zuſammen; dann entfloh’s<lb/>
+Wie eine Schlange zu der Höhle. Neu<lb/>
+Genieß’ ich nun durch dich das weite Licht<lb/>
+Des Tages. Schön und herrlich zeigt ſich<lb/>
+mir<lb/>
+Der Göttinn Rath. Gleich einem heil’gen<lb/>
+Bilde,<lb/>
+Daran der Stadt unwandelbar Geſchick<lb/>
+Durch ein geheimes Götterwort gebannt iſt,<lb/>
+Nahm ſie dich weg, dich Schützerinn des Hau-<lb/>
+ſes;<lb/>
+Bewahrte dich in einer heil’gen Stille<lb/>
+Zum Segen deines Bruders und der Deinen.<lb/>
+Da alle Rettung auf der weiten Erde<lb/>
+Verloren ſchien, gibſt du uns alles wieder.<lb/>
+<pb n="134" facs="#f0143"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi></fw><lb/>
+Laß deine Seele ſich zum Frieden wenden,<lb/>
+O König! Hindre nicht, daß ſie die Weihe<lb/>
+Des väterlichen Hauſes nun vollbringe,<lb/>
+Mich der entſühnten Halle wiedergebe,<lb/>
+Mir auf das Haupt die alte Krone drücke!<lb/>
+Vergilt den Segen, den ſie dir gebracht,<lb/>
+Und laß des nähern Rechtes mich genießen!<lb/>
+Gewalt und Liſt, der Männer höchſter Ruhm,<lb/>
+Wird durch die Wahrheit dieſer hohen Seele<lb/>
+Beſchämt, und reines kindliches Vertrauen<lb/>
+Zu einem edeln Manne wird belohnt.</p></sp><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Denk’ an dein Wort, und laß durch dieſe Rede<lb/>
+Aus einem g’raden treuen Munde dich<lb/>
+Bewegen! Sieh’ uns an! Du haſt nicht oft<lb/>
+Zu ſolcher edeln That Gelegenheit.<lb/>
+Verſagen kannſt du’s nicht; gewähr’ es bald.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi>.</hi></speaker><lb/>
+<p>So geht!</p></sp><lb/>
+<pb n="135" facs="#f0144"/>
+<fw type="header" place="top"><hi rendition="#g">Ein Schauſpiel</hi>.</fw><lb/>
+<sp who="#IPH"><speaker><hi rendition="#c"><hi rendition="#g">Iphigenie</hi>.</hi></speaker><lb/>
+<p>Nicht ſo, mein König! Ohne Segen,<lb/>
+In Widerwillen, ſcheid’ ich nicht von dir.<lb/>
+Verbann’ uns nicht! Ein freundlich Gaſtrecht<lb/>
+walte<lb/>
+Von dir zu uns: ſo ſind wir nicht auf ewig<lb/>
+Getrennt und abgeſchieden. Werth und theuer<lb/>
+Wie mir mein Vater war, ſo biſt du’s mir,<lb/>
+Und dieſer Eindruck bleibt in meiner Seele.<lb/>
+Bringt der Geringſte deines Volkes je<lb/>
+Den Ton der Stimme mir in’s Ohr zurück,<lb/>
+Den ich an euch gewohnt zu hören bin,<lb/>
+Und ſeh’ ich an dem Ärmſten eure Tracht;<lb/>
+Empfangen will ich ihn wie einen Gott,<lb/>
+Ich will ihm ſelbſt ein Lager zubereiten,<lb/>
+Auf einen Stuhl ihn an das Feuer laden,<lb/>
+Und nur nach dir und deinem Schickſal fragen.<lb/>
+O geben dir die Götter deiner Thaten<lb/>
+Und deiner Milde wohlverdienten Lohn!<lb/>
+Leb wohl! O wende dich zu uns und gib<lb/>
+Ein holdes Wort des Abſchieds mir zurück!<lb/>
+<pb n="136" facs="#f0145"/>
+<fw type="header" place="top"><hi rendition="#g">Iphigenie auf Tauris</hi>.</fw><lb/>
+Dann ſchwellt der Wind die Segel ſanfter an,<lb/>
+Und Thränen fließen lindernder vom Auge<lb/>
+Des Scheidenden. Leb’ wohl! und reiche mir<lb/>
+Zum Pfand der alten Freundſchaft deine Rechte.</p></sp><lb/>
+<sp who="#THO"><speaker><hi rendition="#c"><hi rendition="#g">Thoas</hi>.</hi></speaker><lb/>
+<p>Lebt wohl!</p></sp></div></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0146"/>
+<pb facs="#f0147"/>
+<pb facs="#f0148"/>
+</body> </text> </TEI>

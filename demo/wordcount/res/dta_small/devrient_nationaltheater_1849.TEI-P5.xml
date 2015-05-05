@@ -1,0 +1,2286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Das Nationaltheater des neuen Deutschland</title>
+<title type="sub">Eine Reformschrift</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118525042">
+<surname>Devrient</surname>
+<forename>Eduard</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">105</measure>
+<measure type="tokens">13676</measure>
+<measure type="types">3876</measure>
+<measure type="characters">106717</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:44Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/devrient_nationaltheater_1849</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/devrient_nationaltheater_1849</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/devrient_nationaltheater_1849</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/devrient_nationaltheater_1849</idno>
+<idno type="DTADirName">devrient_nationaltheater_1849</idno>
+<idno type="DTAID">17230</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-20090519952</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Devrient, Eduard: Das Nationaltheater des neuen Deutschland. Eine Reformschrift. Leipzig, 1849.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Das Nationaltheater des neuen Deutschland</title>
+<title level="m" type="sub">Eine Reformschrift</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118525042">
+<surname>Devrient</surname>
+<forename>Eduard</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">95 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Weber</name></publisher>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1849</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Yp 4036</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=606806040</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Reformschrift</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Reformschrift</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2main">Zeitung</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="halftitle"> <docTitle> <titlePart type="main">Das<lb/>
+<hi rendition="#b #g">Nationaltheater</hi><lb/>
+<hi rendition="#g">des</hi><lb/>
+<hi rendition="#b">Neuen Deutſchlands.</hi><lb/>
+</titlePart> </docTitle> </titlePage>
+<pb n="[2]" facs="#f0008"/>
+<pb n="[3]" facs="#f0009"/>
+<titlePage type="main"> <docTitle> <titlePart type="main">Das<lb/>
+<hi rendition="#b #g">Nationaltheater</hi><lb/>
+des<lb/>
+<hi rendition="#b">Neuen Deutſchlands.</hi></titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="sub">Eine Reformſchrift</titlePart> </docTitle><lb/>
+<byline> <hi rendition="#b">von</hi><lb/>
+<docAuthor> <hi rendition="#b #g">Eduard Devrient.</hi></docAuthor> </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b">Leipzig,</hi></pubPlace><lb/>
+<publisher> <hi rendition="#g">Verlag von J. J. Weber.</hi> </publisher><lb/>
+<docDate> <hi rendition="#b">1849.</hi></docDate> </docImprint><lb/>
+</titlePage> </front> <body>
+<pb n="[4]" facs="#f0010"/>
+<pb n="[5]" facs="#f0011"/>
+<div n="1"> <p>Das preußiſche Cultusminiſterium hat mich durch<lb/>
+den Auftrag geehrt, ihm meine Anſichten mitzutheilen:<lb/>
+welche Geſtaltung dem Theater zu geben ſei, um es,<lb/>
+zu einem gedeihlichen Wirken, in Uebereinſtimmung<lb/>
+mit den übrigen Künſten zu ſetzen.</p><lb/>
+<p>Dieſer Auftrag hat mich zur Abfaſſung der vorlie¬<lb/>
+genden Schrift veranlaßt. In dem Glauben, daß ſie<lb/>
+von zeitgemäßem und allgemein deutſchem Intereſſe<lb/>
+ſei, übergebe ich ſie hiermit der Oeffentlichkeit.</p><lb/>
+<p>Dresden, im December 1848.</p><lb/>
+<p> <hi rendition="#g">Eduard Devrient.</hi></p> </div><lb/>
+<pb n="[6]" facs="#f0012"/>
+<pb n="[7]" facs="#f0013"/>
+<div n="1"> <p>Noch in keinem Momente des Völkerlebens iſt die<lb/>
+höhere Sendung der Künſte zur Veredlung des Men¬<lb/>
+ſchengeſchlechtes ſo leuchtend hervorgetreten, hat ſich noch<lb/>
+nie zu ſo kräftiger, tiefgreifender Wirkung angeboten,<lb/>
+als in der großen Wendung unſerer Tage.</p><lb/>
+<p>Schule und Kirche, die bisher allein anerkannten<lb/>
+Erziehungsſtätten, ſind einem Streite verfallen, der noch<lb/>
+langehin ein heftiges Sträuben des mündig gewordenen<lb/>
+Volkes gegen jeden fühlbaren Zwang erhalten wird.<lb/>
+Was kann daher willkommener ſein, als die ſanfte Ge¬<lb/>
+walt der Künſte, die es allein vermag, die Gemüther zu<lb/>
+beſchwichtigen, in rein menſchlichem Antheil die Herzen<lb/>
+<pb n="8" facs="#f0014"/>
+aller Parteien zu vereinigen, durch unmerklichen Zwang<lb/>
+wieder Achtung vor Sitte, Friede und ſtillem Glück zu<lb/>
+verbreiten, auf dieſem heitren Wege die Geiſter wieder<lb/>
+den ſtrengen Erziehungsſtätten zuzuführen und der gro¬<lb/>
+ßen, gemeinſamen Begeiſterung für eine neue, edle Frei¬<lb/>
+heit des Völkerlebens den höchſten Schwung und den<lb/>
+ſchönſten Ausdruck zu verleihen!</p><lb/>
+<p>Ueberall muß es daher als ein Zeugniß ſorgſamer<lb/>
+Staatsweisheit anerkannt werden, wo die Organiſation<lb/>
+des Kunſteinfluſſes auf das Volksleben von der Landes¬<lb/>
+regierung in thätigen Angriff genommen wird.</p><lb/>
+<p>Daß unter allen Künſten keine von ſo allgemeiner<lb/>
+und volksthümlicher Wirkung iſt, als die Schauſpiel¬<lb/>
+kunſt, bedarf hier keiner Beweisführung, die tägliche Er¬<lb/>
+fahrung liefert ſie. Keine Kunſt wird alſo in dem<lb/>
+Maße die Aufmerkſamkeit der Staatsgewalt verdienen,<lb/>
+ſo wie keine einer Organiſation ſo dringend bedürftig<lb/>
+iſt, welche ſie mit allen anderen höheren Culturmitteln<lb/>
+des Staates in Uebereinſtimmung ſetzt, als die Schau¬<lb/>
+ſpielkunſt.</p><lb/>
+<p>Faßt man ihre rein künſtleriſche Wichtigkeit in's<lb/>
+Auge, ſo drängt ſich als ihre weſentliche Eigenheit her¬<lb/>
+vor: daß ſie alle übrigen Künſte umfaßt; ſie erhebt ſich<lb/>
+<pb n="9" facs="#f0015"/>
+auf allen anderen und wird ſo zur Spitze der Pyramide;<lb/>
+ſie iſt die Kunſt der Künſte.</p><lb/>
+<p>Plaſtik, Malerei, Dichtkunſt, Muſik, Redekunſt,<lb/>
+Mimik und Tanzkunſt ſammelt ſie in den gewaltigen<lb/>
+Brennpunkt unmittelbaren Lebens, und dieſer trifft in<lb/>
+eine verſammelte Menge, wo die Gemeinſamkeit des<lb/>
+Antheils das Feuer des Enthuſiasmus um ſo mächtiger<lb/>
+entzündet. Wenngleich daher die ſchon vollendeten<lb/>
+Werke der übrigen Künſte, welche der Schauſpielkunſt<lb/>
+zum Stoffe dienen, dabei an ihrer Selbſtändigkeit ein¬<lb/>
+büßen müſſen, ſo macht dennoch keine Kunſt für ſich<lb/>
+ſchlagendere Wirkungen, als von der Bühne herab.</p><lb/>
+<p>Wie dringend nothwendig iſt es alſo, daß die Schau¬<lb/>
+ſpielkunſt endlich in den Kreis der akademiſchen Bildung<lb/>
+aufgenommen werde, damit ihre draſtiſchen Wirkungen<lb/>
+eine grundſätzliche Uebereinſtimmung mit den übrigen<lb/>
+Künſten gewinnen!</p><lb/>
+<p>Die Bühne vermag den Schönheitsſinn, des Volkes<lb/>
+ſowohl als der Künſtler, in die größte Verwirrung zu<lb/>
+bringen, ſie vermag ihn aber auch zu heben und zu rei¬<lb/>
+nigen. Daß ſo viel Unpoetiſches, Unmuſikaliſches und<lb/>
+Unmaleriſches auf der Bühne Glück macht, bleibt ein<lb/>
+unabläſſig fortwirkendes Moment der Verführung und<lb/>
+<pb n="10" facs="#f0016"/>
+Corruption für Dichter, Muſiker, Maler und Bildhauer;<lb/>
+dagegen hat an die einzelnen, im rechten Geiſte gelunge¬<lb/>
+nen Erſcheinungen der Bühne ſich von jeher eine Kette<lb/>
+der fruchtbringendſten Anregungen geknüpft. <hi rendition="#g">Die Fä¬<lb/>
+higkeit der Schauſpielkunſt</hi>: <hi rendition="#g">den wohlthä¬<lb/>
+tigſten Einfluß auf die übrigen Künſte</hi>,<lb/>
+<hi rendition="#g">alſo auf den Kunſtſinn überhaupt</hi>, <hi rendition="#g">zu<lb/>
+äußern</hi>, <hi rendition="#g">iſt außer Zweifel</hi>, <hi rendition="#g">es muß daher<lb/>
+als Pflicht erkannt werden</hi>: <hi rendition="#g">dieſe Fähig¬<lb/>
+keit zum weſentlichen Zweck der Bühne zu<lb/>
+erheben</hi>.</p><lb/>
+<p>Und nun, den Einfluß auf die <hi rendition="#g">Sittlichkeit</hi> in's<lb/>
+Auge gefaßt, welche Kunſt übt ihn ſtärker, als die der<lb/>
+Bühne? — Der Gegenſtand iſt zu oft erörtert worden,<lb/>
+als daß es nöthig wäre, ihn hier noch einmal aufzuneh¬<lb/>
+men; wer damit unbekannt iſt, ſei zunächſt auf Schiller's<lb/>
+Vorleſung: „die Schaubühne, als eine moraliſche An¬<lb/>
+ſtalt betrachtet“, verwieſen.</p><lb/>
+<p>Gewiß iſt — das geſtehen ſelbſt die Feinde der<lb/>
+Bühne nicht nur zu, ſondern ſie machen es als ihre<lb/>
+größte Gefahr geltend — daß die Schauſpielkunſt die<lb/>
+gewaltigſten Wirkungen auf das Volk hervorbringt.<lb/>
+Starke Wirkungen aber ſind entweder wohlthätig oder<lb/>
+<pb n="11" facs="#f0017"/>
+nachtheilig, gleichgültig können ſie nicht ſein. Wenn<lb/>
+alſo die Bühne den Geſchmack und die Verſittlichung<lb/>
+nicht <hi rendition="#g">fördert</hi>, ſo muß ſie ihnen <hi rendition="#g">ſchaden</hi>; <hi rendition="#g">unab¬<lb/>
+weisbar wird daher die Verpflichtung für<lb/>
+den Staat ſein</hi>: <hi rendition="#g">ſich der Wirkung ſeiner<lb/>
+Schaubühnen zu vergewiſſern</hi>, <hi rendition="#g">dafür zu<lb/>
+ſorgen</hi>, <hi rendition="#g">daß ſie die Bahn ſeiner Grundſätze<lb/>
+über Volkscultur innehalten</hi>.</p><lb/>
+<p>Daß dies bisher nicht, oder nur ſehr lau und man¬<lb/>
+gelhaft geſchehen iſt, der Einfluß der Bühne daher oft<lb/>
+in den ſchreiendſten Widerſpruch mit den Staatsmaximen<lb/>
+gerathen<note place="foot" n="*)">Mit welchem ſtrengen Eifer hat z. B. der Staat den<lb/>
+neuen ſocialen Theorien entgegenzuwirken und die Achtung vor<lb/>
+der Ehe, der Familie und allen Gliederungen der geſellſchaft¬<lb/>
+lichen Ordnung, welche daraus hervorgehen, aufrecht zu erhalten<lb/>
+geſucht, während die Theaterrepertoire — die der Hofbühnen<lb/>
+keinesweges ausgeſchloſſen — von Stücken wimmelten, in denen<lb/>
+die Heiligkeit der Ehe verhöhnt, die Familienpietät lächerlich ge¬<lb/>
+macht, ja eine förmliche Verherrlichung der Nichtswürdigkeit ge¬<lb/>
+trieben wird!<lb/>
+</note>, das liegt ebenſo vor Aller Augen, als<lb/>
+daß die Schauſpielkunſt noch immer ganz außerhalb des<lb/>
+Kreiſes einer, mit den übrigen Künſten übereinſtimmen¬<lb/>
+den Bildung ſich bewegt; ganz außerhalb der Ketten¬<lb/>
+<pb n="12" facs="#f0018"/>
+glieder, welche die Regierungen zur Verſittlichung und<lb/>
+Veredlung des Volkes ſo ſorgfältig ineinanderfügen.</p><lb/>
+<p>Die Forderung, dieſem Zuſtande ein Ende zu machen,<lb/>
+dem deutſchen Theater eine andere, grundſätzliche Baſis<lb/>
+und Einrichtungen zu geben und es dadurch in Stand<lb/>
+zu ſetzen: ſeine künſtleriſche und ſociale Beſtimmung zu<lb/>
+erfüllen, iſt ſeit lange ſchon laut genug geworden. Sie<lb/>
+wird bei der Bewegung unſerer Zeit immer lauter und<lb/>
+ungeſtümer, ſie wird unabweislich werden und ſich natür¬<lb/>
+lich zunächſt gegen die bedeutendſten, tonangebenden<lb/>
+Theater richten, die reich dotirt, den höheren Forderun¬<lb/>
+gen des Volksgeiſtes am eheſten zu entſprechen verpflich¬<lb/>
+tet erſcheinen.</p><lb/>
+<p>Es ſind die <hi rendition="#g">Hoftheater</hi>.</p><lb/>
+<p>In ihrer Entſtehung rühmlich für die Fürſten und<lb/>
+wohlthätig für Kunſt, ſind ſie im Verlaufe der Zeit —<lb/>
+wie dies allen menſchlichen Einrichtungen begegnet —<lb/>
+von ihrer urſprünglichen Beſtimmung abgewichen; ihre<lb/>
+heutige Erſcheinung entſpricht ihrer erſten Idee nicht<lb/>
+mehr.</p><lb/>
+<p>Als in der zweiten Hälfte des vorigen Jahrhunderts<lb/>
+die deutſchen Höfe ſich ernſtlich und dauernd der vater¬<lb/>
+ländiſchen Schauſpielkunſt annahmen, repräſentirten die<lb/>
+<pb n="13" facs="#f0019"/>
+Fürſten noch alle Staatsgewalt. Es war der Staat,<lb/>
+welcher durch ſie der wandernden Kunſt heimiſche Stät¬<lb/>
+ten, Anerkennung, Schutz und Unterſtützung gab. Für¬<lb/>
+ſten waren es, der edle Kaiſer Joſeph <hi rendition="#aq">II</hi>. an der Spitze,<lb/>
+welche den höheren Staatszweck der Bühne thatſächlich<lb/>
+proklamirten. Kaiſer Joſeph gab ſeiner Hofbühne den<lb/>
+Namen und die Grundſätze eines <hi rendition="#g">Nationalthea¬<lb/>
+ters</hi>, er erklärte: es ſolle keine andere Beſtimmung<lb/>
+haben, als <hi rendition="#g">zur Verbreitung des guten Ge¬<lb/>
+ſchmacks und zur Veredlung der Sitten zu<lb/>
+wirken</hi>     <note place="foot" n="*)">Das Genauere über dieſen geſchichtlichen Moment iſt in<lb/>
+meiner „Geſchichte der deutſchen Schauſpielkunſt“ (Leipzig 1848,<lb/>
+bei J. J. Weber) im <hi rendition="#aq">II</hi>. B. zu finden. Ich muß mich hier und<lb/>
+fernerhin auf dies Buch beziehen, weil es bis jetzt das einzige<lb/>
+über dieſen Gegenſtand iſt.<lb/>
+</note>. Faſt überall folgten Höfe und Magiſtrate<lb/>
+des Kaiſers Beiſpiele, die Nationaltheater wurden allge¬<lb/>
+mein und die Schauſpielkunſt gewann eine bewunde¬<lb/>
+rungswürdig raſche und nationale Entwickelung, weil ſie<lb/>
+ihr in einer gewiſſen Freiheit und Selbſtändigkeit ge¬<lb/>
+gönnt war. Die Höfe nämlich übten im Allgemeinen<lb/>
+nur Schutz und Oberaufſicht über ihre Theater aus, die<lb/>
+künſtleriſche Thätigkeit wurde fort und fort von künſtle¬<lb/>
+<pb n="14" facs="#f0020"/>
+riſchen Directoren geleitet. Ja Kaiſer Joſeph erkannte<lb/>
+die Nothwendigkeit der Selbſtregierung der Künſtler ſo<lb/>
+vollſtändig an, daß er dem Wiener Nationaltheater eine<lb/>
+ganz republikaniſche Verfaſſung gab, deren Grundſätze in<lb/>
+Mannheim unter Dalberg eine denkwürdige Fortbildung<lb/>
+fanden<note place="foot" n="*)">Geſch. der deutſch. Schauſpielkunſt <hi rendition="#aq">ll</hi>. B., S. 402, und<lb/>
+<hi rendition="#aq">III</hi>. B., S. 16.<lb/>
+</note>.</p><lb/>
+<p>Aus ſolchem Geiſte und unter ſolchem Schutze wuchs<lb/>
+die deutſche Schauſpielkunſt, geführt von Meiſtern, wie<lb/>
+Eckhoff, Schröder, Iffland, zu der kräftigen Reife, welche<lb/>
+unter Schiller's und Goethe's Einfluß ihre poetiſche<lb/>
+Vollendung erhielt.</p><lb/>
+<p>Als aber nach dem Wiener Congreß die Höfe den<lb/>
+alten Glanz wieder gewannen, neue Theater in den Re¬<lb/>
+ſidenzen errichtet, die beſtehenden in größeren Flor ge¬<lb/>
+bracht wurden, da veränderte ſich Stellung und Organi¬<lb/>
+ſation der Bühnen weſentlich.</p><lb/>
+<p>Die Verbreitung der conſtitutionellen Regierungs¬<lb/>
+form trennte die Staatsgewalten, der Fürſt vertrat nicht<lb/>
+mehr allein den Willen der Nation; indem alſo die<lb/>
+Höfe das Theater an ſich behielten, gab der Staat, gab<lb/>
+<pb n="15" facs="#f0021"/>
+die Nation ſtillſchweigend den Anſpruch auf, den ſie bis¬<lb/>
+her daran zu haben glaubten.</p><lb/>
+<p>Es war ganz folgerichtig, daß der Name „<hi rendition="#g">Natio¬<lb/>
+naltheater</hi>“ überall dem Titel „<hi rendition="#g">Hoftheater</hi>“<lb/>
+Platz machen mußte und Kaiſer Joſeph's Principien auf¬<lb/>
+gegeben wurden. Da die Höfe immer reichlichere Geld¬<lb/>
+mittel für die Bühnen bewilligten, ſo wollten ſie dieſe<lb/>
+auch ganz in ihrem Sinne verwendet ſehen und dehnten<lb/>
+daher die Verantwortung der Hofintendanten über den<lb/>
+ganzen Umfang der theatraliſchen Leiſtungen aus. So<lb/>
+kam es denn, daß faſt überall die künſtleriſchen Directio¬<lb/>
+nen — ſelbſt die eines <hi rendition="#g">Goethe</hi> — der neuen Ordnung<lb/>
+der Dinge weichen mußten und die Hofintendanten in<lb/>
+die falſche Stellung geriethen: die ſpecielle künſtleriſche<lb/>
+Leitung der Bühne zu übernehmen. <hi rendition="#g">Das Bureau<lb/>
+wurde nun der Mittelpunkt der Kunſtthä¬<lb/>
+tigkeit</hi>.</p><lb/>
+<p>Dieſe Veränderung der Theaterorganiſation erwies<lb/>
+ſich viel tiefer greifend, als man wohl vorausgeſehen<lb/>
+hatte. Die dramatiſche Kunſt war dadurch nicht nur<lb/>
+dem Staatsintereſſe entfremdet, auch die unausweichbare<lb/>
+Nothwendigkeit ihres inneren Verfalles war damit aus¬<lb/>
+geſprochen.</p><lb/>
+<pb n="16" facs="#f0022"/>
+<p>Eine Kunſt, die ſich nur in Totalwirkungen vollen¬<lb/>
+det, kann den Sammelpunkt einer künſtleriſchen Direction<lb/>
+ſchlechterdings nicht entbehren. Der einige Geiſt, wel¬<lb/>
+cher in der Uebereinſtimmung aller Theile lebendig wer¬<lb/>
+den ſoll, kann nur aus innerſtem, praktiſchen Verſtänd¬<lb/>
+niß der Kunſtthätigkeit ſelbſt hervorgehen. <hi rendition="#g">Der Schau¬<lb/>
+ſpielkunſt die künſtleriſche Direction neh¬<lb/>
+men</hi>, <hi rendition="#g">hieß</hi>: <hi rendition="#g">ihr das Herz ausſchneiden</hi>.</p><lb/>
+<p>Umſonſt haben die Intendanten, theils mit Talent,<lb/>
+meiſtens mit gutem Willen und redlichem Eifer das Na¬<lb/>
+turwidrige ihrer Stellung zu überwinden geſucht; es<lb/>
+konnte nicht gelingen. Erwägt man, wie mannichfache<lb/>
+ſpecielle Kenntniſſe, Fähigkeiten und Erfahrungen für<lb/>
+die Leitung eines Theaters erforderlich ſind, ſo iſt es<lb/>
+leicht zu begreifen, daß dieſe nicht bei Männern gefun¬<lb/>
+den werden können, welche, bis dahin Kammerherren,<lb/>
+Hofmarſchälle, Oberſtall- oder Oberjägermeiſter, Offi¬<lb/>
+ciere u. ſ. w. gar keine Veranlaſſung gehabt hatten ir¬<lb/>
+gend einem dieſer Erforderniſſe genug zu thun. Zwar<lb/>
+hat man geglaubt, dem Weſen der Kunſt hinläng¬<lb/>
+lich Rechnung zu tragen, indem dem nichtſachver¬<lb/>
+ſtändigen Director die ſachverſtändigen Regiſſeure zur<lb/>
+Seite geſtellt blieben, denen das augenfällig Techniſche<lb/>
+<pb n="17" facs="#f0023"/>
+der Leitung und die Abhaltung der Proben u. ſ. w. über¬<lb/>
+laſſen iſt; <hi rendition="#g">in dieſem Irrthume aber liegt eben<lb/>
+der eigentliche Knotenpunkt der Verwir¬<lb/>
+rung unſeres heutigen Theaterweſens</hi>.</p><lb/>
+<p>Die Leiſtungen der Bühnenkunſt ſollen einheitliches<lb/>
+Leben haben, darum verträgt ihre Leitung keine Thei¬<lb/>
+lung der Gewalt. Indem die weſentlichſten Beſtimmun¬<lb/>
+gen: Wahl, Beſetzung und Ausſtattung der aufzufüh¬<lb/>
+renden Werke, Zuſammenſetzung des Kunſtperſonals<lb/>
+durch Anſtellungen und Entlaſſungen, Urlaube, Gaſt¬<lb/>
+rollen u. dergl. vom Intendanten, wohl auch von höhe¬<lb/>
+ren Verfügungen, abhängig ſind, bleibt der Regie nur<lb/>
+ein beſchränkter und durchaus bedingter Kreis des Wir¬<lb/>
+kens, in welchem ſie keine abſolute Verantwortung für<lb/>
+das Gelingen der Kunſtwerke übernehmen kann, weil<lb/>
+alle Vorbedingungen dazu nicht in ihren Händen liegen.<lb/>
+Rühmend muß es anerkannt werden, daß einige Intendan¬<lb/>
+ten durch Anſtellung von Oberregiſſeuren oder Dramatur¬<lb/>
+gen der künſtleriſchen Autorität eine größere Ausdehnung<lb/>
+gegeben und eine Annäherung an die alten Zuſtände<lb/>
+bewirkt haben, in welchen die Intendantur nur Ober¬<lb/>
+aufſicht und adminiſtrative Gewalt ausübte; aber es iſt<lb/>
+auch nur eine Annäherung. So lange die Intendanten<lb/>
+<fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb n="18" facs="#f0024"/>
+noch für alle Einzelheiten der theatraliſchen Thätigkeit<lb/>
+verantwortlich gelten, können ſie ſich auch der Beſtim¬<lb/>
+mung über dieſelben nicht entſchlagen, und ſo muß, bei die¬<lb/>
+ſen beſtgemeinten Einrichtungen, der Nachtheil kreuzen¬<lb/>
+der Anordnungen ebenfalls lähmend für die Ausführung<lb/>
+bleiben.</p><lb/>
+<p>Das Theater ſoll lebendige Kunſtwerke ſchaffen,<lb/>
+ſeine Thätigkeit muß alſo eine organiſche, von <hi rendition="#g">einem</hi><lb/>
+Lebenspunkte ausgehende ſein. Die ganze complicirte<lb/>
+Kette der Maßregeln, welche bis zum Aufſteigen<lb/>
+des Vorhanges nothwendig ſind, darf <hi rendition="#g">eine</hi> Hand<lb/>
+nur halten, wenn das Werk in Einheit zur Erſchei¬<lb/>
+nung kommen ſoll; und das muß die Hand eines<lb/>
+Sachverſtändigen ſein. Nur der verſteht aber eine Sache,<lb/>
+der ſie ausübt. <hi rendition="#g">Halbheit in der Machtvoll¬<lb/>
+kommenheit der künſtleriſchen Leitung</hi>, <hi rendition="#g">Ein¬<lb/>
+miſchung kunſtfremder Gewalten muß noth¬<lb/>
+wendig Halbheit und Zerfahrenheit in ihre<lb/>
+Reſultate bringen</hi>.</p><lb/>
+<p>Nicht glücklicher iſt die Hofintendanz in anderer Be¬<lb/>
+ziehung geſtellt; die innere Selbſtändigkeit, welche ſie<lb/>
+der Kunſt entzog, gewann ſie nicht für ſich, ja ſie gerieth<lb/>
+in Abhängigkeit, da, wo ſie abſolut zu herrſchen unter¬<lb/>
+<pb n="19" facs="#f0025"/>
+nommen hatte. Außerdem immer im Gedränge der wi¬<lb/>
+derſprechendſten Forderungen: hier den Wünſchen des<lb/>
+Hofes zu genügen, dort den Forderungen der höhern<lb/>
+Bildung der Nation, entgegen denen der bloßen rohen<lb/>
+Vergnügungsluſt der Menge, unvermögend ſich auf eine<lb/>
+dieſer Parteien mit Sicherheit zu ſtützen, unausgeſetzt im<lb/>
+Schaukelſyſtem: es bald hier, bald dort recht zu machen —<lb/>
+mußte ſie es zuletzt mit Allen verderben. Zum Ueber¬<lb/>
+fluß noch verantwortlich gegen eine Oberbehörde, (das<lb/>
+Hausminiſterium) die, ihrer Natur nach blos verwal¬<lb/>
+tend, für das <choice><sic>Knnſtinſtitut</sic><corr>Kunſtinſtitut</corr></choice> nur den Geldmaßſtab haben<lb/>
+kann, überwuchs die Verlegenheit um vortheilhafte Kaſ¬<lb/>
+ſenabſchlüſſe zuletzt faſt alle übrigen, und ſo ſehen wir<lb/>
+alle, ſo reich dotirten Hoftheater in unausgeſetzter ängſt¬<lb/>
+licher Bemühung um die Einnahme. Der Zuſchuß aus<lb/>
+Staatsmitteln ſcheint ſeinen eigentlichen Zweck: <hi rendition="#g">die<lb/>
+Kunſt unabhängig zu machen</hi>, gar nicht zu er¬<lb/>
+füllen; er hat die Kaſſenverlegenheit nur auf größere<lb/>
+Zahlenverhältniſſe gebracht, hat den vornehmen Hofbüh¬<lb/>
+nen dieſelbe plebejiſche induſtrielle Richtung der Privat¬<lb/>
+unternehmungen gegeben. In ſtetem Kreislaufe von<lb/>
+hazardirten Ausgaben und kleinlicher Noth ſie wieder<lb/>
+zu decken, erinnert man ſich kaum zu welchem höhern<lb/>
+<fw type="sig" place="bottom">2 *<lb/>
+</fw>
+<pb n="20" facs="#f0026"/>
+Zweck ſie eigentlich in Bewegung geſetzt werden? Das<lb/>
+Mittel iſt zum Zweck geworden und der Zweck (die Kunſt)<lb/>
+zum Mittel; das Theater ſcheint lediglich eine Anſtalt<lb/>
+für den Geldumſatz zu ſein.</p><lb/>
+<p>Conſequent war es da freilich, daß man auf den<lb/>
+Gedanken gerieth: adminiſtrativen Capacitäten müſſe<lb/>
+die Leitung des Theaters übergeben werden; der Mann<lb/>
+der Erſparniſſe galt nun für den wünſchenswertheſten<lb/>
+Intendanten. Man hatte vergeſſen, daß ein Theater<lb/>
+für jeden feſtzuſtellenden Etat zu führen iſt, daß es nicht<lb/>
+darauf ankommt: wie viel oder wie wenig <hi rendition="#g">ausgege¬<lb/>
+ben</hi>, ſondern was für das Ausgegebene <hi rendition="#g">geleiſtet</hi><lb/>
+wird, und daß nur der Sachverſtändige für den mög¬<lb/>
+lichſt geringen Preis das möglichſt Beſte herzuſtellen ver¬<lb/>
+mag. Die Controllanſicht der Hausminiſterien ſiegte, die<lb/>
+Höfe bemühten ſich um die Wette den knappſten Haus¬<lb/>
+halter zum Intendanten zu machen. Mit dieſem Expe¬<lb/>
+rimente büßte die Hofintendanz ihren unbeſtreitbaren<lb/>
+Vorzug ein: den einer würdigen, achtunggebietenden<lb/>
+Haltung, einer edlen, kunſtbelebenden Liberalität. Mehr<lb/>
+als ein Hoftheater iſt, bei ſolcher Umwandlung, an Würde,<lb/>
+Anſtand und künſtleriſchem Geiſte tief herabgekommen,<lb/>
+<pb n="21" facs="#f0027"/>
+obenein ohne die goldenen Hoffnungen auf Kaſſenüber¬<lb/>
+ſchüſſe erfüllt zu ſehen.</p><lb/>
+<p>Daß dieſer Zuſtand unhaltbar geworden, daß die<lb/>
+Miſſion der Hofintendanz an ihr Ziel gelangt ſei, iſt<lb/>
+eine allgemeine Ueberzeugung; es fragt ſich nur: was<lb/>
+an deren Stelle geſetzt werden ſoll?</p><lb/>
+<p>Es fehlt nicht an Stimmen, welche jede Unterſtü¬<lb/>
+tzung des Theaters verwerfen und verlangen: es ſolle<lb/>
+ganz frei gegeben, d. h. ſich ſelbſt und der Concurrenz<lb/>
+der Privatunternehmung überlaſſen werden; es ſolle aus<lb/>
+eigener Kraft bewähren: was es werden und was es der<lb/>
+Nation nützen könne.</p><lb/>
+<p>Aus dieſer Forderung ſpricht eine untergeordnete<lb/>
+Anſchauung der Kunſt überhaupt. <hi rendition="#g">Alles</hi>, <hi rendition="#g">was die<lb/>
+Menſchheit bilden und veredeln ſoll</hi>, <hi rendition="#g">muß<lb/>
+vom Staate geſtützt</hi>, <hi rendition="#g">vom bloßen Erwerbe<lb/>
+unabhängig gemacht werden</hi>; <hi rendition="#g">das gilt von<lb/>
+der Kunſt</hi>, <hi rendition="#g">wie von der Schule und der<lb/>
+Kirche</hi>. Die Concurrenz iſt in unſern Tagen, ſelbſt<lb/>
+in ihrer Anwendung auf die Gewerbe, verdächtig ge¬<lb/>
+worden, und ſicherlich birgt ſie ein ſo ſtarkes Moment<lb/>
+der Verführung zu ſchlechten Hülfsmitteln, daß ſie von<lb/>
+den Maßregeln zur Hebung der Künſte ein für alle¬<lb/>
+<pb n="22" facs="#f0028"/>
+mal ausgeſchloſſen ſein ſollte. Privatinduſtrie, in<lb/>
+Pachtverhältniſſen wie in ſelbſtändigen Unternehmun¬<lb/>
+gen, kann, bei den Bedingungen unſerer Zeit, dem<lb/>
+Theater kein höheres Gedeihen bringen; <hi rendition="#g">ohne den Rück¬<lb/>
+halt kräftiger Geldunterſtützung</hi>, <hi rendition="#g">welche<lb/>
+den Bühnen Unabhängigkeit von der geld¬<lb/>
+bringenden Menge ſichert</hi>, <hi rendition="#g">iſt ihre Füh¬<lb/>
+rung nach reinen Grundſätzen unmöglich</hi>.<lb/>
+Die Erfahrungen der Geſchichte und unſere täglichen<lb/>
+Erlebniſſe beweiſen es, daß alle Bühnen, welche auf<lb/>
+Selbſterhaltung angewieſen ſind, kleine und große, den<lb/>
+Kampf der reinen Kunſtrichtung gegen die Forderungen<lb/>
+der materiellen Exiſtenz nicht beſtehen können. Männer<lb/>
+wie Schröder ſelbſt ſind ihm unterlegen, auch ſeine Di¬<lb/>
+rection zielte zuletzt nur auf Gewinn.</p><lb/>
+<p>Befreit aber ſoll die Kunſt allerdings werden, be¬<lb/>
+freit von allen Bedingungen, die ihrer Natur zuwider<lb/>
+ſind, unter denen die erſte die der unbedingten Abhän¬<lb/>
+gigkeit vom Erwerbe iſt. Frei auf ſich ſelbſt und ihre<lb/>
+hohe Beſtimmung: <hi rendition="#g">den Menſchen die Menſchheit<lb/>
+darzuſtellen</hi>, <hi rendition="#g">dem Volke das Leben der Völker<lb/>
+abzuſpiegeln</hi>, ſoll die dramatiſche Kunſt geſtellt wer¬<lb/>
+den. Unabhängig von der Herrſchaft des Geſchmacks<lb/>
+<pb n="23" facs="#f0029"/>
+einzelner Standesſchichten, ſeien es die höchſten, ſeien<lb/>
+es die niedrigſten, nur auf die Vernunft und den beſſe¬<lb/>
+ren Willen der Nation geſtützt, ſoll ſie die Oppoſition<lb/>
+gegen das wandelbare Urtheil der Maſſen halten können,<lb/>
+eine unbeſtechliche Prieſterſchaft der Wahrheit und des<lb/>
+Adels der menſchlichen Natur.</p><lb/>
+<p>Dieſe Freiheit aber der Schaubühne kann nur auf<lb/>
+dem Boden einer höheren Geſetzlichkeit ſtehen, einer<lb/>
+ernſten Verpflichtung zur Treue gegen ihre Beſtimmung.<lb/>
+Streng gehalten muß ſie werden: der Nation zu leiſten,<lb/>
+was dieſe berechtigt iſt von ihr zu fordern.</p><lb/>
+<p>Kein Zweifel alſo, <hi rendition="#g">daß die Staatsregierung<lb/>
+ſelbſt die Schaubühnen des ganzen Landes unter<lb/>
+ihre Oberleitung nehmen muß</hi>, daß dasjenige Mi¬<lb/>
+niſterium, welches die Erziehung und Veredlung des<lb/>
+Volkes zur Aufgabe hat, welches Religion, Wiſſen¬<lb/>
+ſchaft und Kunſt — dieſe dreieinige Beglaubigung un¬<lb/>
+ſerer höhern Natur — in ihrem Zuſammenwirken über¬<lb/>
+wacht, nicht länger ſäumen darf ſich auch der Schauſpiel¬<lb/>
+kunſt zu bemächtigen.</p><lb/>
+<p>Nehme Niemand Anſtoß an der frivolen Miene, die<lb/>
+noch die Bühne unſerer Tage zeigt und die ſie der Ver¬<lb/>
+bindung mit Schule und Kirche unwerth zu machen<lb/>
+<pb n="24" facs="#f0030"/>
+ſcheint; ihrer inneren Natur nach iſt die Schauſpielkunſt<lb/>
+zu hohen Dingen beſtimmt, bei allen Völkern war ſie<lb/>
+die Trägerin des urſprünglichen Gottesdienſtes. <hi rendition="#g">Auch<lb/>
+muß durch dieſe einzige Maßregel</hi>: <hi rendition="#g">die<lb/>
+Bühne zur Staatsanſtalt zu erklären</hi>, <hi rendition="#g">un¬<lb/>
+ausbleiblich ihre ganze Beſchaffenheit ſich<lb/>
+verwandeln</hi>.</p><lb/>
+<p>Soll aber die Grundlage der nothwendigen Theater¬<lb/>
+reform in Uebertragung der Oberleitung, von der unver¬<lb/>
+antwortlichen Autorität des Hofes auf die, dem Lande<lb/>
+verantwortliche, der Regierung, beſtehen, ſo darf dabei<lb/>
+doch nicht aus den Augen gelaſſen werden: was die Hof¬<lb/>
+theater der Kunſt genützt haben, damit dieſe Vortheile<lb/>
+einem neuen Zuſtande der Dinge möglichſt erhalten wer¬<lb/>
+den. Allen Glanz, alle Sicherſtellung und Würde, alle<lb/>
+äußere Vervollkommnung und Achtung verdankt das<lb/>
+Theater dem Schutze und der Intimität der Höfe. Ohne<lb/>
+das bisherige Verhältniß der Zugehörigkeit würde kein<lb/>
+Theater ſo hoch dotirt, würden die Anſprüche des Publi¬<lb/>
+kums daran nie ſo hoch geſteigert worden ſein. Auch<lb/>
+hat der gewähltere Geſchmack der höheren Geſellſchaft<lb/>
+allem künſtleriſchen Streben nach Adel, Feinheit, Grazie<lb/>
+und Eleganz, den derberen Forderungen des großen<lb/>
+<pb n="25" facs="#f0031"/>
+Publikums gegenüber, einen wichtigen Rückenhalt dar¬<lb/>
+geboten. Alles dies darf künftig nicht verloren gehen.</p><lb/>
+<p>Nicht nur die bisherigen Geldzuſchüſſe, auch der per¬<lb/>
+manente Antheil des Hofes muß dem Theater erhalten<lb/>
+bleiben.</p><lb/>
+<p>Der hin und wieder laut gewordene Vorſchlag: das<lb/>
+Theater lediglich zur Landesſache zu machen und dem<lb/>
+Fürſten anheim zu geben, ſeine Logen darin zu bezahlen<lb/>
+— wie dieß in Frankreich und England üblich — iſt<lb/>
+unbedingt und aus Staatsprincip zurückzuweiſen. In<lb/>
+jedem wahrhaften Nationalinſtitute muß der Erſte der<lb/>
+Nation, der Träger der Majeſtät des Volkes, ohne alle<lb/>
+Bedingung zu Haus ſein, und ſein Intereſſe an der Kunſt<lb/>
+zu nähren muß ein Antrieb des Ehrgeizes bleiben.</p><lb/>
+<p>Allerdings wird es ſelbſt politiſch conſequent ſein,<lb/>
+in dieſer Zeit, welche die Fürſten von Verantwortung<lb/>
+frei zu machen trachtet, den Höfen auch die für das<lb/>
+Theater — deſſen Oeffentlichkeit unabläſſige Angriffe<lb/>
+jedes Einzelnen herausfordert — abzunehmen; aber da¬<lb/>
+mit darf doch, zum Vortheil der Kunſt, das Protectorat<lb/>
+der Fürſten nicht aufgegeben werden.</p><lb/>
+<p>Der Landesfürſt hat nur die Organe ſeines Willens<lb/>
+zu wechſeln, anſtatt Hofbeamten, die von ſeiner Will¬<lb/>
+<pb n="26" facs="#f0032"/>
+kür abhängig, die Oberleitung des Theaters Staats¬<lb/>
+beamten zu übergeben, die außer ihm auch dem Lande<lb/>
+verantwortlich ſind.</p><lb/>
+<p>Der jetzige Moment iſt entſcheidend. Die Umge¬<lb/>
+ſtaltung unſerer ſtaatlichen und bürgerlichen Verhältniſſe<lb/>
+muß auch das Theater ergreifen; es kann nicht anders<lb/>
+ſein, denn das Theater iſt zu jeder Zeit das kleine Spie¬<lb/>
+gelbild des großen Außenlebens geweſen. Jetzt kommt<lb/>
+es darauf an: was es dem Vaterlande werden ſoll?</p><lb/>
+<p>Wie vor hundert Jahren alle Stimmen die Höfe<lb/>
+um Schutz für die heimathliche Kunſt anriefen, wie es<lb/>
+als eine That ruhmwürdigen Patriotismus geprieſen<lb/>
+wurde, wenn ein Fürſt ſeinen Mantel über ein Noma¬<lb/>
+denhäuflein deutſcher Comödianten ausbreitete, ſo blik¬<lb/>
+ken die Freunde der Kunſt und des Vaterlandes jetzt<lb/>
+wieder auf die Fürſten, verhoffend: ſie werden die erſte<lb/>
+Wohlthat durch die zweite, großmüthigere vollenden, ſie<lb/>
+werden den verweichlichenden Gnadenmantel zurückſchla¬<lb/>
+gen und den üppig aufgeſchoſſenen Pflegling ihrer Gunſt<lb/>
+in die ernſte Pflicht: <hi rendition="#g">der höheren Wohlfahrt<lb/>
+des Volkes dienſtbar zu ſein</hi>, entlaſſen.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb n="[27]" facs="#f0033"/>
+<div n="1"> <p>Nun aber die praktiſche Ausführung dieſer tiefgrei¬<lb/>
+fenden Theaterreform! Was iſt zu thun, wenn ſie den<lb/>
+angekündigten Zwecken entſprechen ſoll?</p><lb/>
+<p>Hier meine Vorſchläge:</p><lb/>
+<p>Der Landesfürſt überträgt dem Miniſterium für<lb/>
+Cultus, Wiſſenſchaft u. Kunſt, neben der Oberaufſicht<lb/>
+über die Inſtitute für Muſik und bildende Künſte —<lb/>
+Conſervatorien, Akademien, Muſeen — auch die über<lb/>
+die bisherigen Hoftheater. Er gewährt die Uebertra¬<lb/>
+gung der Summen, welche die Hofkaſſe bisher jährlich<lb/>
+zur Erhaltung des Theaters zugeſchoſſen, auf die Staats¬<lb/>
+kaſſe. Alle Unterſtützungen und Vortheile, welche andre<lb/>
+Theater des Landes von Staats wegen genießen, ſo wie<lb/>
+die Aufſicht über dieſelben, welche bis jetzt meiſtentheils<lb/>
+<pb n="28" facs="#f0034"/>
+von dem Miniſterium des Innern ausgeübt worden, alles<lb/>
+dieß wird ebenfalls in die Hand des Cultusminiſteriums<lb/>
+gelegt, <hi rendition="#g">ſo daß die Staatspflege aller Kunſt<lb/>
+im ganzen Lande durch eine Abtheilung die¬<lb/>
+ſes Miniſteriums vollkommen vertreten<lb/>
+und ihr organiſches Leben geſichert iſt</hi>.</p><lb/>
+<p>Der Beamte, dem die Generaldirection der Landes¬<lb/>
+bühnen übertragen wird, braucht keine ſpecielle Kenntniß<lb/>
+vom Theaterweſen zu beſitzen; — er ſoll ſich in die künſt¬<lb/>
+leriſche Thätigkeit nicht miſchen — ein äſthetiſch gebil¬<lb/>
+deter Sinn, das genaue Verſtändniß deſſen, was die<lb/>
+Bühne für die höhere Volksbildung zu leiſten habe, ein<lb/>
+richtiger adminiſtrativer Ueberblick werden die Erfor¬<lb/>
+derniſſe für dieſes Amt ſein. Eine würdige perſönliche<lb/>
+Repräſentation wird die Wirkſamkeit dieſes Beamten<lb/>
+weſentlich unterſtützen. Erleichtern wird es die Thea¬<lb/>
+terreform, wenn bisherige Hofintendanten von geeigne¬<lb/>
+ten Fähigkeiten, in dieſes Miniſterialamt eintreten. In<lb/>
+welcher Weiſe daſſelbe auf die eigentliche Theaterdirec¬<lb/>
+tion einzuwirken hat, wird ſich aus der Organiſation<lb/>
+derſelben ergeben.</p><lb/>
+<p>Die Reſidenztheater ſind es, welche die nächſte und<lb/>
+hauptſächlichſte Aufmerkſamkeit in Anſpruch nehmen;<lb/>
+<pb n="29" facs="#f0035"/>
+nichts darf verſäumt werden, um ihnen eine wahre Mu¬<lb/>
+ſtergültigkeit zu verleihen. Ihre künſtleriſche Verfaſſung<lb/>
+wird am weſentlichſten dazu wirken.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Die bisherigen <hi rendition="#g">Hoftheater</hi> erhalten unter dem Na¬<lb/>
+men: <hi rendition="#g">Nationaltheater</hi> eine <hi rendition="#g">von künſtleriſchen<lb/>
+Vorſtänden gebildete</hi>, <hi rendition="#g">ſelbſtändig abge¬<lb/>
+ſchloſſene</hi>, <hi rendition="#g">der Landesregierung verant¬<lb/>
+wortliche Direction</hi>.</p><lb/>
+<p>Dieſelbe beſteht aus den Vertretern derjenigen<lb/>
+Künſte, welche den weſentlichen Kern der Dramatik aus¬<lb/>
+machen: Dichtkunſt, Muſik und Schauſpielkunſt; alſo<lb/>
+aus einem <hi rendition="#g">Theaterdichter</hi> und <hi rendition="#g">Schriftfüh¬<lb/>
+rer</hi> (dem bisherigen Theaterſecretair), einem <hi rendition="#g">Kapell¬<lb/>
+meiſter</hi> und einem <hi rendition="#g">darſtellenden Künſtler</hi>.</p><lb/>
+<p> <hi rendition="#g">Dieſe drei Männer berathen und beſchlie¬<lb/>
+ßen</hi> — mit Hinzuziehung der weiter unten zu beſpre¬<lb/>
+chenden Vorſtände zweiten Ranges — <hi rendition="#g">über alle An¬<lb/>
+gelegenheiten des Theaters</hi>; <hi rendition="#g">aber Einem unter<lb/>
+ihnen ſteht die endliche Entſcheidung in al¬<lb/>
+len Beſchlüſſen und ihre Ausführung mit<lb/>
+<pb n="30" facs="#f0036"/>
+vollkommener Gewalt und unter ſeiner al¬<lb/>
+leinigen Verantwortlichkeit zu</hi>.</p><lb/>
+<p>Weil nun die Schauſpielkunſt diejenige iſt, in welche<lb/>
+alle übrigen aufgehen, weil es auf ſie ankommt: was die<lb/>
+Dicht- und Muſikwerke von der Bühne herab wirken,<lb/>
+weil ſie in letzter Inſtanz für Alles verantwortlich ſein<lb/>
+muß, was auf der Bühne geſchieht, ſo wird auch die Di¬<lb/>
+rection des Theaters nur dann naturgemäß organiſirt<lb/>
+ſein, wenn <hi rendition="#g">ein darſtellender Künſtler an ihrer<lb/>
+Spitze</hi> ſteht.</p><lb/>
+<p>Man pflegt gegen die Direction eines Schauſpielers<lb/>
+vielfache Bedenken geltend zu machen. Man ſagt: er<lb/>
+mißbrauche gewöhnlich ſeine Macht zur Befriedigung der,<lb/>
+dem Schauſpieler nahe liegenden Rollenſucht, ſäe<lb/>
+dadurch Mißtrauen und Zwietracht im Perſonal, benach¬<lb/>
+theilige wohl auch dadurch die Wirkung der Darſtellungen.</p><lb/>
+<p>Wahr iſt es, faſt alle Schauſpielerdirectoren in der<lb/>
+ganzen Kunſtgeſchichte haben dieſen Vorwurf verſchuldet.<lb/>
+Aber da jede Direction ihre Mängel haben wird, ſo iſt<lb/>
+dieſer, gegen den unermeßlichen Vorzug einer kunſtver¬<lb/>
+ſtändigen Leitung, ſehr gering anzuſchlagen; wird auch<lb/>
+zudem, aus Rollenſucht der übrigen Schauſpieler, ge¬<lb/>
+wöhnlich übertrieben angegeben. Den Meiſtern <hi rendition="#g">Eckhof</hi>,<lb/>
+<pb n="31" facs="#f0037"/>
+<hi rendition="#g">Schröder</hi>, <hi rendition="#g">Iffland</hi> u. A., obſchon ſie manche Rolle,<lb/>
+die ihnen nicht zukam, ſich aneigneten, hat dennoch die<lb/>
+deutſche Kunſt ihr erſtaunlich raſches Wachsthum zu dan¬<lb/>
+ken. Uebrigens iſt in der Organiſation des Theaters<lb/>
+ein hinlängliches Gegengewicht gegen egoiſtiſche Ueber¬<lb/>
+griffe aufzuſtellen, wie die weitern Vorſchläge zeigen<lb/>
+werden.</p><lb/>
+<p>Ferner macht man den Einwand geltend: die erfor¬<lb/>
+derliche Bildung und Charakterwürde ſei unter den<lb/>
+Schauſpielern zu ſelten anzutreffen, um dem Stande die<lb/>
+Selbſtregierung überall anvertrauen zu können.</p><lb/>
+<p>Der Vorwurf iſt, in ſeiner Anwendung wenigſtens,<lb/>
+unbegründet. An jeder irgend bedeutenden Bühne wird<lb/>
+ein darſtellender Künſtler zu finden ſein, der hinlänglich<lb/>
+befähigt iſt, die Direction — wenn auch nicht tadellos —<lb/>
+jedenfalls beſſer zu führen, als ſie bisher von Nichtſchau¬<lb/>
+ſpielern geführt worden iſt. Ein Fortſchritt alſo wäre<lb/>
+der Bühne damit jedenfalls garantirt, ſelbſt bei dem ge¬<lb/>
+genwärtigen Bildungsſtande. Dieſer aber wird ſich<lb/>
+durch Einführung künſtleriſcher Directionen erſtaunlich<lb/>
+ſchnell verändern. Die Directionstalente unter den<lb/>
+Schauſpielern, ſeit 30 Jahren niedergehalten und vom<lb/>
+Steuer entfernt, weil ſie der Bureauherrſchaft unbequem<lb/>
+<pb n="32" facs="#f0038"/>
+ſein mußten, werden ſich wieder erheben, die Bühne, zur<lb/>
+Staatsanſtalt erklärt, wird immer mehr an Mitgliedern<lb/>
+aus den gebildeten Ständen gewinnen, es werden Ta¬<lb/>
+lente, welche vielleicht, wegen mangelhafter Begabung,<lb/>
+auf der Bühne nicht die größten Erfolge zu erlangen ver¬<lb/>
+mögen, andere von vorherrſchender Verſtandesrichtung,<lb/>
+ſich mehr auf Ausbildung der künſtleriſchen <hi rendition="#g">Einſicht</hi> le¬<lb/>
+gen, und wenn ſie einen Weg praktiſcher Entwicklung in<lb/>
+der Theaterorganiſation offen finden, eine Vervollkomm¬<lb/>
+nung erlangen, wie wir ſie ähnlich in andern Künſten<lb/>
+bei Talenten antreffen, die vortrefflich als Lehrer und Di¬<lb/>
+rectoren, in ihren Werken ſelbſt aber nicht bedeutend ſind.<lb/>
+Und dieſe Entwicklung wird man um ſo geduldiger ab¬<lb/>
+warten können, als bei der vorgeſchlagenen Directions¬<lb/>
+einrichtung von dem Schauſpielerdirector nicht aller Ver¬<lb/>
+ſtand und alle Einſicht allein gefordert wird, weil ihm<lb/>
+die, in den Berathungen gleichberechtigten muſikaliſchen<lb/>
+und literariſchen Vorſtände zur Seite ſtehen, hier alſo<lb/>
+der <hi rendition="#g">Geiſt</hi> der dramatiſchen Kunſt und die <hi rendition="#g">praktiſche<lb/>
+Ausführbarkeit</hi> ſich lebendig durchdringen können.</p><lb/>
+<p>Man hat vielfach der Direction eines Dichters vor<lb/>
+der eines Schauſpielers den Vorzug gegeben um der hö¬<lb/>
+hern Bildung willen, welche ſein Beruf ihm aneignet,<lb/>
+<pb n="33" facs="#f0039"/>
+die Directionen von Goethe, Schreyvogel (Weſt),<lb/>
+Klingemann und Immermann ſcheinen dieſen Vorzug zu<lb/>
+rechtfertigen; und wo es zur Zeit nicht möglich ſein<lb/>
+ſollte, einem Schauſpieler das volle Directionsvertrauen<lb/>
+zu ſchenken, dagegen, was ſelten genug der Fall ſein<lb/>
+wird, der Theaterdichter beſonders vorragendes ſchau¬<lb/>
+ſpieleriſches und praktiſches Talent zeigen ſollte, mag<lb/>
+man ausnahmsweiſe den Literaten an die Spitze ſtellen.</p><lb/>
+<p>Der Natur der Dinge wird es immer widerſprechen,<lb/>
+und der Mißſtand, den dies erzeugt, iſt jederzeit, auch bei<lb/>
+den beſten Literaten-Directionen, hervorgetreten. Wie der<lb/>
+Dichter den geiſtigen Stoff hergiebt in der Dramatik, der<lb/>
+Schauſpieler aber ihm Geſtalt und ſinnliches Leben verleiht,<lb/>
+<hi rendition="#g">ſo muß auch bei der Leitung der Kunſt im<lb/>
+Ganzen der Dichter die berathende Stimme<lb/>
+haben</hi>, <hi rendition="#g">die künſtleriſche Praxis aber das<lb/>
+letzte Wort behalten</hi>.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Die Frage: wie der künſtleriſche Vorſtand gefunden,<lb/>
+wie die bis jetzt unerkannten Directionstalente unter den<lb/>
+Schauſpielern hervorgezogen werden ſollen? muß ſich<lb/>
+<fw type="sig" place="bottom">3<lb/>
+</fw>
+<pb n="34" facs="#f0040"/>
+wiederum aus der Natur und dem Weſen der Kunſt be¬<lb/>
+antworten.</p><lb/>
+<p>Das Weſen der Schauſpielkunſt aber iſt vollkom¬<lb/>
+mene Vergeſellſchaftung <hi rendition="#g">Aller</hi>, mit Erhaltung der<lb/>
+Eigenheit des <hi rendition="#g">Einzelnen</hi>. Sie fordert gänzliche<lb/>
+Hingebung an den Geſammtvortheil der Totalwirkungen,<lb/>
+fordert Selbſtverläugnung in einer Thätigkeit, welche<lb/>
+Ehrgeiz und Eitelkeit am gewaltigſten aufregt, fordert,<lb/>
+daß der Einzelne die Befriedigung ſeines <hi rendition="#g">eignen</hi> Vor¬<lb/>
+theils in der Befriedigung des <hi rendition="#g">allgemeinen</hi> finde,<lb/>
+<hi rendition="#g">die Schauſpielkunſt fordert alſo republi¬<lb/>
+kaniſche Tugend in höchſter Potenz</hi>.</p><lb/>
+<p>Um dieſe zu wecken und zu pflegen bedarf das<lb/>
+Theater folgerichtig auch republikaniſcher Einrichtungen.<lb/>
+Dieſe Erkenntniß datirt nicht etwa aus den politiſchen<lb/>
+Bewegungen unſerer Tage, ſchon die abſoluteſten Herrſcher<lb/>
+haben ihr gemäß gehandelt. Ludwig <hi rendition="#aq">XIV</hi>. gab dem <hi rendition="#aq">théâ¬<lb/>
+tre français</hi> die erſte Verfaſſung, die Napoleon ſpäterhin<lb/>
+ausbildete. Joſeph <hi rendition="#aq">II</hi>. führte eine ähnliche am Wiener<lb/>
+Nationaltheater ein. Dalberg in Mannheim, Schröder<lb/>
+in Hamburg u. A. m. nahmen ihre Grundſätze auf. Es<lb/>
+iſt alſo nichts Neues, wenn das Theater eine künſtleriſche<lb/>
+Selbſtregierung durch Vertretung, und aus freiem Ver¬<lb/>
+<pb n="35" facs="#f0041"/>
+trauen gewählte Vorſtände erhält, es iſt eine Nothwen¬<lb/>
+digkeit, die ſich aus tauſend Hemmungen und Mißhellig¬<lb/>
+keiten in der Theaterpraxis ergiebt. Denn es ſind nicht<lb/>
+blos mechaniſche Verrichtungen, welche von dem Perſonal<lb/>
+— ſelbſt dem untergeordneten — gefordert werden, der<lb/>
+gute Wille, der lebendige Antheil an der gemeinſamen<lb/>
+Sache, die eifrige Betheiligung müſſen überall das Beſte<lb/>
+thun. Dies Alles aber iſt nicht zu erlangen, wenn nicht<lb/>
+jeder Einzelne fühlt, daß er wirklichen Theil hat an dem<lb/>
+organiſchen Leben des Inſtitutes, dem er angehört, wenn<lb/>
+die Führer nicht Männer des allgemeinen Vertrauens<lb/>
+ſind.</p><lb/>
+<p>Darum muß die Gliederung der verſchiedenen Kör¬<lb/>
+perſchaften im Perſonale feſtgeſtellt und der Grundſatz<lb/>
+der <hi rendition="#g">Wahl</hi> von Vertretern und Führern, von unten auf<lb/>
+geltend gemacht werden; die Direction wird dadurch<lb/>
+erleichtert und vereinfacht.</p><lb/>
+<p>Die Mitglieder des <hi rendition="#g">Orcheſters</hi>, des <hi rendition="#g">Chors</hi> und<lb/>
+des <hi rendition="#g">Balletts</hi> wählen ſich alljährlich <hi rendition="#g">Ausſchüſſe</hi><lb/>
+von drei bis fünf Männern etwa. Bei Chor und Bal¬<lb/>
+lett übernehmen dieſe das bereits eingeführte Geſchäft<lb/>
+der Inſpicienten, handhaben Ordnung in Vorübungen,<lb/>
+Proben und Vorſtellungen u. ſ. w.; alle aber vertreten<lb/>
+<fw type="sig" place="bottom">3*<lb/>
+</fw>
+<pb n="36" facs="#f0042"/>
+ihre Körperſchaft der Direction gegenüber, bei Wahl<lb/>
+von Vorſtänden, bei Verwaltung gemeinſamer Kaſſen<lb/>
+und in Streit- und Beſchwerdeſachen. Zum Theil<lb/>
+beſteht dieſe Einrichtung bereits an einigen Bühnen, ſie<lb/>
+bedarf aber grundſätzlicher Regelung.</p><lb/>
+<p>Dieſe Ausſchüſſe mit ihren Vorſtänden — Kapellmei¬<lb/>
+ſter, Muſikdirector und Conzertmeiſter, Chordirector und<lb/>
+Ballettmeiſter — treten mit ſämmtlichen darſtellenden Mit¬<lb/>
+gliedern, männlichen und weiblichen, zuſammen <note place="foot" n="*)">Obwohl die darſtellenden Mitglieder ebenfalls einen ver<lb/>
+tretenden Ausſchuß haben müſſen, von dem nachher die Rede<lb/>
+ſein wird, ſo betheiligen ſie ſich doch bei der Wahl des Di¬<lb/>
+rectors <hi rendition="#g">unmittelbar</hi>, weil jeder Einzelne in unmittelbarer<lb/>
+Beziehung zu dieſem ſteht. Die übrigen Genoſſenſchaften, Or¬<lb/>
+cheſter, Chor und Ballett, ſtehen größtentheils nur in ihrer Ge¬<lb/>
+ſammtheit — da ſie in dieſer nur wirken — in Bezug zum Di¬<lb/>
+rector, darum wählen ſie nur als Genoſſenſchaft durch Vertre¬<lb/>
+tung. Auch würde ihre Stimmenüberzahl ein unrichtiges Be¬<lb/>
+theiligungsverhältniß ergeben.<lb/>
+</note>und<lb/>
+<hi rendition="#g">wählen den Künſtler</hi>, <hi rendition="#g">dem ſie die meiſten Fä¬<lb/>
+higkeiten zutrauen</hi>, <hi rendition="#g">die Ehre und Würde des<lb/>
+Inſtitutes zu fördern</hi>, durch mindeſtens zwei Drit¬<lb/>
+tel Mehrheit der Stimmen, <hi rendition="#g">zum Director</hi>.</p><lb/>
+<p>Dem Miniſterium ſteht es zu, die Wahl zu beſtä¬<lb/>
+tigen.</p><lb/>
+<pb n="37" facs="#f0043"/>
+<p>Man darf ſich überzeugt halten, daß der rechte Mann<lb/>
+auf dieſe Weiſe gefunden wird. Wie gering man auch<lb/>
+den allgemeinen Bildungsſtand der Theatermitglieder<lb/>
+anſchlagen mag, was zu ihrem Fache taugt, verſtehen ſie<lb/>
+beſſer, als irgend ſonſt Jemand, und wo es ſich um Ehre<lb/>
+und Gedeihen des Theaters handelt, wird perſönliche<lb/>
+Parteilichkeit die Freiheit des Urtheils nicht mehr benach¬<lb/>
+theiligen, als dies bei anderen Wahlen geſchieht.</p><lb/>
+<p>Dem Miniſterium ſowohl, als den künſtleriſchen<lb/>
+Ausſchüſſen ſteht es frei: Wahlcandidaten, auch von an¬<lb/>
+dern Bühnen, vorzuſchlagen.</p><lb/>
+<p>Eine Dauer der Amtsführung kann im Voraus nicht<lb/>
+vorgeſchrieben werden, ein Theaterdirector kann ſo wenig,<lb/>
+als ein Staatsminiſter, auf Lebenszeit oder auf eine be¬<lb/>
+ſtimmte Anzahl von Jahren eingeſetzt werden. Es muß<lb/>
+ihm freiſtehen, den Poſten aufzugeben, wenn er Muth,<lb/>
+Kraft und Luſt dazu verliert, — was in dieſem Amte<lb/>
+ſchneller, als in jedem anderen geſchieht, — aber es muß<lb/>
+auch möglich ſein, ihn des Poſtens zu entheben, wenn er<lb/>
+ſtumpf wird, ohne es zu merken, oder er dem Vertrauen<lb/>
+der Kunſtgenoſſenſchaft und der Regierung nicht ent¬<lb/>
+ſpricht.</p><lb/>
+<pb n="38" facs="#f0044"/>
+<p>Dieſe Enthebung darf aber nur — um Gewaltſam¬<lb/>
+keit oder Intrigue zu entwaffnen — in derſelben Weiſe,<lb/>
+wie die Wahl geſchehen, durch Beſchluß des Miniſteriums<lb/>
+und der zwei Drittel Mehrheit der Stimmberechtigten.</p><lb/>
+<p>Der austretende Director — wenn nicht Straffällig¬<lb/>
+keit ihn aus der Genoſſenſchaft entfernt — nimmt ſeine<lb/>
+frühere Stellung im Perſonale, oder diejenige ein, welche<lb/>
+auf dieſen Fall mit dem Miniſterium verabredet worden.<lb/>
+Es leuchtet ein, daß das Miniſterium überhaupt in<lb/>
+jedem einzelnen Falle mit dem gewählten Director über<lb/>
+die Bedingungen der Annahme übereinkommen muß.<lb/>
+Dazu iſt aber die dringende Warnung auszuſprechen:<lb/>
+den Director der Reſidenztheater in keiner Weiſe<lb/>
+bei den Einnahmen zu betheiligen. Er darf niemals<lb/>
+perſönlichen Gewinn, ſondern nur die Ehre und Würde<lb/>
+des Inſtitutes im Auge haben.</p><lb/>
+<p>Die Stellung des Directors wird ſich erſt überſehen<lb/>
+laſſen, wenn die ganze Organiſation des Theatervorſtan¬<lb/>
+des klar iſt.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="39" facs="#f0045"/>
+<p> <hi rendition="#g">Der Kapellmeiſter in der Direction<lb/>
+hat die Verantwortung für das geſammte<lb/>
+Muſikweſen des Theaters zu übernehmen</hi>.<lb/>
+Ihm ſind die übrigen Orcheſterdirigenten, ſo wie der<lb/>
+Chorlehrer untergeben, mit deren Beirath er über An¬<lb/>
+ſtellungen, Verabſchiedungen und Penſionirungen im<lb/>
+Orcheſter, über Wahl, Reihefolge und Ausführung der<lb/>
+Muſikwerke Vorſchläge zu machen, und ſobald dieſe durch<lb/>
+die Direction zum Beſchluß erhoben worden, für Betrei¬<lb/>
+bung des Studiums und für die Vollkommenheit der<lb/>
+Ausführung zu ſorgen hat.</p><lb/>
+<p>Der Kreis dieſer Wirkſamkeit wird bereits an vielen<lb/>
+Bühnen von dem Kapellmeiſter beherrſcht, darum würden<lb/>
+die in Amt befindlichen faſt überall für die neue Organi¬<lb/>
+ſation paſſen. Es gälte nur: den Umfang ihrer Macht¬<lb/>
+vollkommenheit und alſo ihrer Verantwortlichkeit zweifel¬<lb/>
+los feſtzuſtellen und da, wo die muſikaliſchen Angelegen¬<lb/>
+heiten in verſchiedenen Händen liegen, ſie in einer<lb/>
+einzigen zu centraliſiren. Wo zwei gleichberechtigte<lb/>
+Kapellmeiſter im Amte ſind, müßte der eine dem anderen<lb/>
+untergeordnet oder die Directionsgewalt jährlich ab¬<lb/>
+wechſelnd in ihre Hand gelegt werden, bis ein Perſonen¬<lb/>
+wechſel über dieſe Auskunft hinweghilft. Denn unver¬<lb/>
+<pb n="40" facs="#f0046"/>
+rückt muß an dem Grundſatze feſtgehalten werden, daß<lb/>
+die Verantwortung überall in eine einzige Perſon aus¬<lb/>
+laufe, damit die ſo geregelten einzelnen Kreiſe ſchnell und<lb/>
+gelenkig für den allgemeinen Zweck bewegt werden können.</p><lb/>
+<p>Dieſe Einrichtungen dürfen natürlich nur in Ueber¬<lb/>
+einkunft mit dem Director getroffen werden, weil der¬<lb/>
+ſelbe ſich mit dem muſikaliſchen Mitdirector in grund¬<lb/>
+ſätzlicher Uebereinſtimmung fühlen muß. Wenn daher<lb/>
+die Stelle des Kapellmeiſters neu zu beſetzen iſt, ſo muß<lb/>
+der Director ſich mit der Aufſtellung der Candidaten,<lb/>
+welche das Miniſterium oder der muſikaliſche Ausſchuß,<lb/>
+neben den von ihm ſelbſt vorzuſchlagenden, präſentiren<lb/>
+will, einverſtanden erklären.</p><lb/>
+<p>     <hi rendition="#g">Die Ernennung eines neuen Kapellmeiſters<lb/>
+geſchieht durch Wahl der muſikaliſch Bethei¬<lb/>
+ligten</hi> mit zwei Drittel Stimmenmehrheit und Beſtä¬<lb/>
+tigung der Regierung. Stimmberechtigt ſind — in<lb/>
+Analogie mit der Wahl des Directors — die Sänger und<lb/>
+Sängerinnen der Oper, die übrigen muſikaliſchen Vor¬<lb/>
+ſtände und die Ausſchüſſe des Orcheſters <note place="foot" n="*)">Ob man alle Orcheſtermitglieder für ſtimmberechtigt erklä¬<lb/>
+ren will, muß lokalen Beſtimmungen überlaſſen bleiben.<lb/>
+</note> und des Chors.</p><lb/>
+<pb n="41" facs="#f0047"/>
+<p>Ob die Anſtellung auf Zeit oder auf Lebensdauer<lb/>
+geſchehen ſoll, wird von den Bedingniſſen jedes einzelnen<lb/>
+Falles abhängen. Zu erwägen iſt nur, daß der Rück¬<lb/>
+tritt, lediglich von der Theilnahme an der Direction,<lb/>
+nur da möglich iſt, wo ein zweiter Kapellmeiſter dafür<lb/>
+einzutreten vorhanden iſt.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Der <hi rendition="#g">Theaterdichter</hi> und <hi rendition="#g">Schriftführer</hi> —<lb/>
+man mag ihn auch <hi rendition="#g">Dramaturg</hi> nennen — hat, wie<lb/>
+herkömmlich, für das Bedürfniß der Bühne an Gelegen¬<lb/>
+heitsgedichten, Bearbeitungen, Abänderungen, Verbeſſe¬<lb/>
+rungen der Operntexte u. ſ. w. zu ſorgen, auch die Bu¬<lb/>
+reaugeſchäfte und Correſpondenz zu führen, ſo weit ihm<lb/>
+letztere nicht vom Kapellmeiſter und Director erleichtert<lb/>
+wird. Seine weſentliche Aufgabe aber wird ſein, <hi rendition="#g">die<lb/>
+Literatur</hi>, <hi rendition="#g">den Geiſt der Dramatik zu ver¬<lb/>
+treten</hi>. Er ſoll von dieſer Seite her immer neue An¬<lb/>
+regungen geben, damit die Direction ſich nicht einer blos<lb/>
+herkömmlich theatraliſchen Richtung und den gewöhn¬<lb/>
+lichen Tagesforderungen hingebe. Er ſoll alſo der wich¬<lb/>
+tigſte Rathgeber des Directors ſein in Allem, was die<lb/>
+<pb n="42" facs="#f0048"/>
+höhere Bedeutung der Bühne berührt; beſonders alſo in<lb/>
+der Wahl der aufzuführenden dramatiſchen Werke. Er ſoll<lb/>
+den Director vornehmlich unterſtützen: im Kunſtperſonale<lb/>
+ein allgemeines Bildungsbeſtreben zu wecken und zu<lb/>
+nähren. Durch Anregungen aller Art, durch Vorträge,<lb/>
+Regelung der Lectüre, Aufſicht über Vervollſtändigung<lb/>
+und Benutzung der Theaterbibliothek in dieſem Sinne,<lb/>
+durch bereite Auskunft über wiſſenſchaftliche Fragen,<lb/>
+durch Vermittelung eines innigen Verkehrs mit literari¬<lb/>
+ſchen Capacitäten und eines Zuſammenhanges mit den<lb/>
+Vereinen dramatiſcher Autoren — deren Bildung durch<lb/>
+die Reorganiſation des Theaters gewiß angeregt wer¬<lb/>
+den wird — ſoll er den Geiſt des Inſtitutes heben und<lb/>
+erweitern.</p><lb/>
+<p>Daß dieſer Poſten von der allergrößten Wichtigkeit,<lb/>
+leuchtet ebenſowohl ein, als daß die meiſten zur Zeit<lb/>
+fungirenden Theaterſecretaire — die ebenſowohl beim Poſt-<lb/>
+oder Steuerfache angeſtellt ſein könnten — dieſen Forde¬<lb/>
+rungen nicht entſprechen werden; dieſe Stelle wird alſo<lb/>
+bei einer Bühnenreform faſt überall neu beſetzt werden<lb/>
+müſſen.</p><lb/>
+<p>Aus einer Wahl kann dieſes Mitglied der Direction<lb/>
+nicht hervorgehen, weil keine wahlberechtigte Körper¬<lb/>
+<pb n="43" facs="#f0049"/>
+ſchaft dazu vorhanden iſt<note place="foot" n="*)">Bis jetzt exiſtiren keine Vereine dramatiſcher Autoren,<lb/>
+denen eine corporative Vertretung beizumeſſen wäre und denen<lb/>
+man darum eine Betheiligung bei der Wahl dieſes Vertreters der<lb/>
+dramatiſchen Literatur zumuthen könnte.<lb/>
+</note>. Die darſtellenden Mitglie¬<lb/>
+der können in ihrer Mehrheit kein Urtheil über ſeine<lb/>
+Befähigung haben, auch ſind ſie in dienſtlicher Beziehung<lb/>
+nicht dergeſtalt von ihm abhängig, daß er der Mann<lb/>
+ihres Vertrauens ſein müßte. Es wird genügen, wenn<lb/>
+die Majorität des Ausſchuſſes der darſtellenden Künſtler<lb/>
+der Ernennung beiſtimmt, welche vom Miniſterium, in<lb/>
+Uebereinkunft mit den beiden andern Directionsmitglie¬<lb/>
+dern, vorgenommen wird.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p> <hi rendition="#g">Dieſer Ausſchuß der darſtellenden Künſt¬<lb/>
+ler</hi> iſt für die Geſammtorganiſation überhaupt von gro¬<lb/>
+ßer Wichtigkeit.</p><lb/>
+<p>Gleich den Muſikern, Choriſten und Tänzern erwählt<lb/>
+alljährlich das darſtellende Perſonal, Herren und Da¬<lb/>
+men, einen Ausſchuß von mindeſtens fünf Männern,<lb/>
+darunter wenigſtens je zwei aus Oper und Schauſpiel.</p><lb/>
+<pb n="44" facs="#f0050"/>
+<p>Von dieſen Vertrauensmännern des Perſonals hat<lb/>
+der Director ſich die <hi rendition="#g">Regiſſeure</hi> zu ſeinen künſtleri¬<lb/>
+ſchen Mitarbeitern zu wählen. Im Fall längerer Krank¬<lb/>
+heit oder Abweſenheit eines derſelben ernennt der Di¬<lb/>
+rector aus den übrigen Ausſchußmitgliedern einen <hi rendition="#g">Stell¬<lb/>
+vertreter</hi>. Die Entfernung eines Regiſſeurs von ſeinem<lb/>
+Poſten muß natürlich in der Gewalt des Directors<lb/>
+ſtehen, doch hat er ſich mit dem übrigen Ausſchuſſe des¬<lb/>
+halb zu benehmen.</p><lb/>
+<p>In ähnlicher Weiſe, d. h. unter Beirath der betref¬<lb/>
+fenden Ausſchüſſe, werden <hi rendition="#g">alle Vorſtände zwei¬<lb/>
+ten Ranges</hi> eingeſetzt: <hi rendition="#g">Orcheſterdirigenten</hi>,<lb/>
+<hi rendition="#g">Chordirector</hi>, <hi rendition="#g">Ballettmeiſter</hi>. Dieſe können<lb/>
+natürlich nicht aus Vertrauensmännern ernannt werden,<lb/>
+welche das Perſonal bezeichnet, weil ſie oft von andern<lb/>
+Theatern berufen werden müſſen, immerhin aber wird es<lb/>
+wichtig ſein, daß die Direction verpflichtet ſei: ſich der<lb/>
+Zuſtimmung des betreffenden Ausſchuſſes zu verſichern,<lb/>
+damit das unentbehrliche Moment des ausgeſprochenen<lb/>
+Vertrauens zu allen Vorſtänden die ganze Bühnenver¬<lb/>
+faſſung durchdringe.</p><lb/>
+<p>Der, nach Wahl zweier Regiſſeure mindeſtens aus<lb/>
+drei Perſonen beſtehende Ausſchuß der darſtellenden<lb/>
+<pb n="45" facs="#f0051"/>
+Künſtler wird in dieſer Zahl jährlich neu gewählt,<lb/>
+wenn nicht der Austritt eines oder beider Regiſſeure<lb/>
+eine Ergänzungswahl nöthig macht.</p><lb/>
+<p>Der Ausſchuß der drei Künſtler iſt, wie bei den an¬<lb/>
+dern Genoſſenſchaften, Vorſtand der Almoſen-, Penſions-<lb/>
+und Wittwenkaſſen u. ſ. w., zugleich aber übt er die<lb/>
+Vertretung des Kunſtperſonals der Direction gegenüber.<lb/>
+Er wird dadurch zum Mittelgliede der Ausgleichung für die<lb/>
+entgegenſtehenden Intereſſen, die ſich ſo oft in der Thea¬<lb/>
+terpraxis geltend machen. In vielen Streitfällen,<lb/>
+welche nach dem Buchſtaben der Theatergeſetze nicht,<lb/>
+ſondern nur nach dem Urtheile Sachverſtändiger zu ent¬<lb/>
+ſcheiden ſind, bei Beſchwerden über parteiiſche Rollen¬<lb/>
+vertheilung, über Beeinträchtigung künſtleriſcher Rechte,<lb/>
+welche durch kein geſchriebenes Wort zu ſichern ſind, hin¬<lb/>
+gegen auch bei beſtrittenen Anſprüchen der Direction wird<lb/>
+das Hinzutreten des Ausſchuſſes zu denjenigen Vorſtänden,<lb/>
+in deren Gebiet der Fall ſchlägt, eine Jury bilden, welche<lb/>
+dem Ausſpruche eine größere Unparteilichkeit verleihen<lb/>
+muß. Alle Geſetze, Ordnungs- und Strafverfügungen,<lb/>
+Entlaſſungen wegen Dienſtvergehungen oder gröblicher<lb/>
+Vernachläſſigung — welche auch lebenslänglich Ange¬<lb/>
+ſtellten nicht erſpart werden dürfen — werden, unter<lb/>
+<pb n="46" facs="#f0052"/>
+Mitwirkung des Ausſchuſſes erlaſſen, eine gerechtere<lb/>
+Anerkennung erlangen und verdienen. Der Ausſchuß,<lb/>
+die Intereſſen des Perſonals vertretend und zugleich auf<lb/>
+der Schwelle der Direction ſtehend, wird das Gleich¬<lb/>
+gewicht zwiſchen dem allgemeinen und dem Einzelintereſſe<lb/>
+am ſicherſten halten können. Und was noch überaus<lb/>
+wichtig iſt, der Ausſchuß wird eine Vorbereitungsſtufe<lb/>
+abgeben für die Directionstalente, die raſcher als bisher<lb/>
+in die künſtleriſchen Aemter eintreten werden, wenn ſie<lb/>
+ſich auszeichnen, weil die kräftigere Bewegung, welche die<lb/>
+Selbſtregierung in den Genoſſenſchaften hervorbringen<lb/>
+muß, die abgenutzten Vorſtände nicht lange an der Spitze<lb/>
+dulden, überhaupt die Hemmniſſe der Anciennetät, des<lb/>
+Rollenmonopols u. ſ. w. beſeitigen wird.</p><lb/>
+<p>Vor Allem aber muß dieſe allgemeine Betheiligung<lb/>
+an der künſtleriſchen Selbſtregierung das eine wichtigſte<lb/>
+Lebenselement der Schauſpielkunſt ſtärken, das der<lb/>
+<hi rendition="#g">künſtleriſchen Geſinnung</hi>, des <hi rendition="#g">Geſammt¬<lb/>
+geiſtes</hi>. Das ſelbſtſüchtige Sonderintereſſe einzelner<lb/>
+Talente, durch hervorragende Fähigkeiten und durch ge¬<lb/>
+ſchickte und dreiſte Ausbeutung der bisherigen Verhält¬<lb/>
+niſſe, faſt an allen Hofbühnen zu einer Gewalt gelangt,<lb/>
+die das allgemeine Gedeihen ſchlechterdings unmöglich<lb/>
+<pb n="47" facs="#f0053"/>
+macht, dieſer Krebsſchaden des heutigen Theaterweſens,<lb/>
+der die beſte Lebenskraft der Inſtitute zur Beute der<lb/>
+Eitelkeit und Eigenſucht weniger Bevorrechteter macht,<lb/>
+kann nur durch die Geſundheit und Kräftigung der ge¬<lb/>
+ſammten Körperſchaft geheilt werden. Entweder werden<lb/>
+die Theatermatadore durch eine edlere Richtung der<lb/>
+Bühne zu einer edlen Hingebung an die Herrſchaft des<lb/>
+Gemeinweſens der Kunſt bewogen, oder ihre Anmaßung<lb/>
+wird durch die gehobene Geſinnung der Kunſtgenoſſen<lb/>
+beſchämt und niedergehalten werden. Dies wird um ſo<lb/>
+eher geſchehen, als das Sonderintereſſe ſich nicht mehr<lb/>
+in dem Mißbrauch der Hofgunſt nähren wird, die Di¬<lb/>
+rection dagegen, auf beſtimmte Staatsgrundſätze geſtützt<lb/>
+und dem Lande verantwortlich, das allgemeine In¬<lb/>
+tereſſe dem einzelnen gegenüber energiſcher wird vertreten<lb/>
+können und müſſen.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Bei einer ſolchen Bühnenverfaſſung wird die Di¬<lb/>
+rection — aus dem beſonnenen Vertrauen der Ge¬<lb/>
+noſſenſchaft hervorgegangen, deren beſte Einſicht<lb/>
+ſie repräſentirt — an und für ſich ſtark ſein,<lb/>
+<pb n="48" facs="#f0054"/>
+aber die Oberbehörde darf ſie auch in keiner Machtvoll¬<lb/>
+kommenheit beſchränken, welche es ihr möglich macht, die<lb/>
+ganze Verantwortung für die Leiſtungen der Bühne zu<lb/>
+übernehmen und dem Perſonal gegenüber die vollkom¬<lb/>
+menſte Autorität zu behaupten.</p><lb/>
+<p>Von der künſtleriſchen Direction müſſen daher alle<lb/>
+<hi rendition="#g">Anſtellungen</hi>, <hi rendition="#g">Verabſchiedungen</hi>, <hi rendition="#g">Beurlau¬<lb/>
+bungen</hi> und <hi rendition="#g">Penſionirungen</hi> abhängig ſein. Dem<lb/>
+Miniſterium bleibe die Beſtätigung, damit Ueberſchreitungen<lb/>
+im Ausgabeetat oder Uebereilungen vermieden werden.<lb/>
+Die Beurtheilung aber und Entſcheidung über die Zuſam¬<lb/>
+menſetzung des Perſonals muß der Direction durchaus<lb/>
+anheim gegeben werden. Ebenſo hat ſie allein über die<lb/>
+Zuläſſigkeit der <hi rendition="#g">Gaſtſpiele</hi> zu entſcheiden; wobei ihr<lb/>
+nur zur Pflicht gemacht werden muß, dem allgemein ein¬<lb/>
+geriſſenen tief verderblichen Mißbrauche derſelben zu<lb/>
+ſteuern, der die Geldmittel der Theater vergeudet, das<lb/>
+künſtleriſche Enſemble untergräbt, das vereinzelte Virtuo¬<lb/>
+ſenſpiel bei den Künſtlern und das Vergnügen daran bei<lb/>
+dem Publikum hervorruft, auch deſſen Neuigkeitsgier und<lb/>
+Parteinahme ſteigert.</p><lb/>
+<p>Der Direction muß ferner die Entſcheidung über<lb/>
+<hi rendition="#g">Wahl und Reihenfolge der aufzuführen¬<lb/>
+<pb n="49" facs="#f0055"/>
+den Werke</hi>, die <hi rendition="#g">Rollenbeſetzung</hi>, <hi rendition="#g">Ausſtat¬<lb/>
+tung</hi> in <hi rendition="#g">Decorationen</hi> und <hi rendition="#g">Coſtüm</hi>, die Auf¬<lb/>
+ſtellung des <hi rendition="#g">Repertoirs</hi> überlaſſen ſein. Daß ein<lb/>
+verderblicher Eigenwille ſich in den Entſcheidungen des<lb/>
+Directors geltend machen werde, iſt nicht zu fürchten,<lb/>
+weil alle Dinge mit den übrigen Vorſtänden berathen<lb/>
+werden müſſen, der Director nur der Erſte unter Glei¬<lb/>
+chen, er auch der Ueberwachung und zuletzt der Anklage<lb/>
+bei der Miniſterialdirection von Seiten des Ausſchuſſes<lb/>
+ausgeſetzt iſt.</p><lb/>
+<p>Mit unbeſchränkter Gewalt ſoll aber der künſtleriſchen<lb/>
+Führung die Kunſt zurückgegeben, der Mittelpunkt ihrer<lb/>
+Thätigkeit aus dem Bureau wieder auf den Regieplatz<lb/>
+in's Proſcenium der Bühne, wo er naturgemäß liegt,<lb/>
+verſetzt werden. <hi rendition="#g">Die künſtleriſche Arbeit ſei<lb/>
+wieder die Hauptaufgabe der Theaterdi¬<lb/>
+rection</hi>.</p><lb/>
+<p>Dabei aber darf ſie, ebenſowenig wie von der Mini¬<lb/>
+ſterialdirection, von der Einmiſchung des Ausſchuſſes be¬<lb/>
+einträchtigt werden. An der regelmäßigen Geſchäftsfüh¬<lb/>
+rung darf demſelben kein Theil zuſtehen, die ſchon ſo com¬<lb/>
+plicirte Theaterpraxis würde ſonſt in babyloniſche Verwir¬<lb/>
+rung gerathen, der Ausſchuß würde dadurch ein integrirender<lb/>
+<fw type="sig" place="bottom">4<lb/>
+</fw>
+<pb n="50" facs="#f0056"/>
+Theil der Direction werden und ſeinen Charakter als<lb/>
+Vertreter der Genoſſenſchaft, der Direction <hi rendition="#g">gegen¬<lb/>
+über</hi>, einbüßen.</p><lb/>
+<p>Die Stärke der Theaterdirection ſoll aber keines¬<lb/>
+weges den Einfluß der Staatsbehörde ausſchließen. Die<lb/>
+Direction — abgeſehen von ihrer ſpäter zu beſprechenden<lb/>
+adminiſtrativen Abhängigkeit — hat alle ihre Pläne,<lb/>
+vorhabenden Einrichtungen und vorzubereitenden Arbei¬<lb/>
+ten vierteljährlich etwa, dem Miniſterialdirector vorzu¬<lb/>
+legen, damit er ſich überzeuge, ob das Inſtitut die Staats¬<lb/>
+tendenzen innehalte.</p><lb/>
+<p>Ferner iſt das Miniſterium in allen Streitſachen letz¬<lb/>
+ter und oberſter Gerichtshof, ſowohl in Differenzen zwi¬<lb/>
+ſchen Direction und Untergebenen, als zwiſchen den Mit¬<lb/>
+gliedern der Direction ſelbſt, oder in Klagen gegen die¬<lb/>
+ſelbe von Seiten der Autoren, des Publikums u. ſ. w.,<lb/>
+ſie mögen ſich nun auf materielle Forderungen oder auf<lb/>
+ſolche, welche den Geiſt des Inſtitutes betreffen, richten.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Die Aufgaben, welche dem ſo reformirten National¬<lb/>
+theater geſtellt werden müſſen, ſind nicht gering.</p><lb/>
+<pb n="51" facs="#f0057"/>
+<p>Vor allem thut es Noth, ein <hi rendition="#g">Stammrepertoir</hi><lb/>
+der bedeutendſten Dicht- und Muſikwerke aufzuſtellen, das<lb/>
+in alljährlicher Wiederkehr die Künſtler in der Uebung<lb/>
+am Vortrefflichen erhält, dem Volke den Genuß ſeines<lb/>
+Kunſtſchatzes in Muſteraufführungen ſichert, ihm den<lb/>
+ganzen Entwicklungsproceß des Theaters zugleich klar<lb/>
+macht und ihm Ehrfurcht für das, was es leiſtet, ein¬<lb/>
+flößt<note place="foot" n="*)">Was Goethe davon ſagt, ſiehe Geſchichte der deutſchen<lb/>
+Schauſpielkunſt B. <hi rendition="#aq">III</hi>. S. 379 — 382.<lb/>
+</note>.</p><lb/>
+<p>Auf einem Nationaltheater ſoll keine Woche ver¬<lb/>
+gehen, in welcher nicht eins der Werke aus dieſem klaſſi¬<lb/>
+ſchen Cyklus gegeben wird. Jedes kirchliche oder politi¬<lb/>
+ſche Feſt, jeder für die Nation merkwürdige Tag — bezeichne<lb/>
+er eine große Begebenheit oder die Geburt eines großen<lb/>
+Künſtlers u. ſ. w. — werde durch eine entſprechende Vor¬<lb/>
+ſtellung gefeiert und in die Sympathie der Gegenwart<lb/>
+gezogen. Auch die wichtigen Ereigniſſe des Tages ſollen<lb/>
+ihren Ausdruck auf der Nationalbühne finden; ſie ſoll<lb/>
+nicht beſtimmt ſein, die Eindrücke des Lebens vergeſſen zu<lb/>
+machen, ſondern dem Volke ein höheres und heiteres<lb/>
+Verſtändniß derſelben zu eröffnen.</p><lb/>
+<fw type="sig" place="bottom">4*<lb/>
+</fw>
+<pb n="52" facs="#f0058"/>
+<p>Um all dieſer Zwecke willen wird dem Nationalthea¬<lb/>
+ter die <hi rendition="#g">Ermuthigung und Befeuerung der Auto¬<lb/>
+ren</hi> dringend angelegen ſein müſſen. Auffordernde Anre¬<lb/>
+gungen aller Art, angemeſſenere Regulirung des Honorars,<lb/>
+Eröffnung einer achtungsvollen Stellung zur Bühne — wie<lb/>
+ſie den Schöpfern der geiſtigen Nahrung derſelben ge¬<lb/>
+bührt — werden die nächſten Schritte dazu ſein.</p><lb/>
+<p>Dagegen fordert gerade die Achtung vor der Autor¬<lb/>
+ſchaft, daß eine ſtrenge Auswahl unter den Tageserzeug¬<lb/>
+niſſen vorgenommen, das Mittelmäßige und Schlechte<lb/>
+nicht gleichberechtigt mit dem Guten betrachtet werde.<lb/>
+Es fordert die Achtung und Rückſicht für die darſtellenden<lb/>
+Künſtler, daß ihre Kraft und ihr Eifer nicht durch die<lb/>
+Beſchäftigung mit nichtsbedeutenden Arbeiten abgeſtumpft<lb/>
+werden. Es fordert die Achtung vor dem Publikum:<lb/>
+daß man es ſicher ſtelle gegen die Langeweile an der Dar¬<lb/>
+ſtellung von Arbeiten, wie ſie zufällig einlaufen und wor¬<lb/>
+über dem Publikum hinterher das Urtheil überlaſſen<lb/>
+wird. Die Direction iſt dazu eingeſetzt, ein Urtheil im<lb/>
+Voraus zu haben und dem Publikum nur wahrhaft Er¬<lb/>
+freuendes oder Begeiſterndes anzubieten, nicht aber das<lb/>
+Vertrauen zu täuſchen, mit dem das Volk ſein Theater<lb/>
+betritt, nicht die Kräfte und Mittel, die es ihr zur Ver¬<lb/>
+<pb n="53" facs="#f0059"/>
+wendung übergiebt, aus perſönlicher Rückſicht oder Furcht<lb/>
+vor Journalartikeln abgewieſener Autoren zu vergeuden.<lb/>
+Die Direction eines Nationaltheaters ſoll ihre Bühne<lb/>
+nicht zum Tummelplatz für bloße Neuigkeiten und unreife<lb/>
+Verſuche eröffnen, dagegen ſie mit aller Hingebung den<lb/>
+werthvollen Arbeiten anbieten und das Intereſſe der Au¬<lb/>
+toren bei der Darſtellung zu ihrem eigenen machen.</p><lb/>
+<p>Die ganze Praxis der künſtleriſchen Leitung hier zu<lb/>
+beſprechen, iſt weder zuläſſig noch nöthig, einige Momente<lb/>
+aber ſcheinen mir anregender Erwähnung zu bedürfen.</p><lb/>
+<p>So wird unter Allem, was für die möglichſte Voll¬<lb/>
+endung der Darſtellungen geſchehen muß, auf das <hi rendition="#g">Ma¬<lb/>
+leriſche</hi> derſelben eine größere Sorgfalt, als ſie bisher<lb/>
+in Deutſchland üblich, zu wenden ſein.</p><lb/>
+<p>Die <hi rendition="#g">Decorationen</hi> werden meiſt auf einzelne<lb/>
+Beſtellung, bald hier bald dort, oder doch von verſchiede¬<lb/>
+nen Malern gefertigt. Natürlich entſteht dadurch die<lb/>
+größte Ungleichartigkeit. Werden auch die auffallendſten<lb/>
+Mißgriffe dabei vermieden, ſo ſieht man doch ſelten die<lb/>
+Decorationen ein und deſſelben Stückes in übereinſtim¬<lb/>
+mender Farbe und Behandlungsart. Oft ſieht man in<lb/>
+ein und derſelben Scene Proſpect, Couliſſen und Setz¬<lb/>
+ſtücke von dreifach grell verſchiedener Manier. Hierin<lb/>
+<pb n="54" facs="#f0060"/>
+Uebereinſtimmung zu ſchaffen, die richtige Unterordnung<lb/>
+der Farbe bei den Decorationen überhaupt einzuführen,<lb/>
+genügt aber nicht allein, auch auf die Farben der <hi rendition="#g">Coſtüme</hi><lb/>
+und ihre Stimmung zum Hintergrunde der Handlung ſollte<lb/>
+Aufmerkſamkeit gewendet werden. Das ganze Gebiet der<lb/>
+Theatertracht bedarf im Allgemeinen einer gründlichen<lb/>
+Regelung. Bei den wenigſten Bühnen ſind Coſtümiers<lb/>
+angeſtellt, Unkenntniß, Laune, Geſchmackloſigkeit und Putz¬<lb/>
+ſucht erzeugen daher das grundſatzloſeſte, bunteſte Durch¬<lb/>
+einander, das für jedes einigermaßen gebildete Auge eine<lb/>
+wahre Beleidigung iſt.</p><lb/>
+<p>Coſtümier und Decorateur müſſen alſo in genauem<lb/>
+Einverſtändniß gehalten werden. Wo es die Verhältniſſe<lb/>
+geſtatten, muß ihnen der Rath großer maleriſcher Capa¬<lb/>
+citäten gewonnen werden; wie denn überhaupt mit den<lb/>
+Höchſtbefähigten in Literatur, Plaſtik, Muſik, auch aller<lb/>
+Wiſſenſchaft, die ſonſt der Bühne dienen kann, die Ver¬<lb/>
+bindung mehr geſucht und unterhalten werden muß, als<lb/>
+es bisher der Fall war. Zu dieſen Zwecken müſſen die<lb/>
+Theatervorſtände zugleich Mitglieder der Kunſtakademie<lb/>
+ſein. Auch wird die miniſterielle Geſammtleitung aller<lb/>
+Künſte dem Theater große Unterſtützung verſchaffen, ſich<lb/>
+<pb n="55" facs="#f0061"/>
+von allen Künſten das Beſte anzueignen, ſich ſtets mitten<lb/>
+in der Strömung allſeitigen Lebens zu halten, um ſo in<lb/>
+ſeinen Werken der Nation das Trefflichſte bieten zu<lb/>
+köunen.</p><lb/>
+<p>Ihre Eigenheit dabei zu bewahren, wird freilich eine<lb/>
+neue Aufgabe der Schauſpielkunſt und ihrer Leitung ſein.<lb/>
+Indem ſie aber von Allen entlehnt, das Entlehnte jedoch<lb/>
+anders und frei benutzt, werden in ihr auch die übrigen<lb/>
+Künſte ihr eignes Weſen ſchärfer erkennen; ſie wird ſo<lb/>
+den Kreis der akademiſchen Künſte erſt verſtändigend ab¬<lb/>
+ſchließen.</p><lb/>
+<p>Selbſtändig muß die Theaterdirection ſich durchaus<lb/>
+erhalten, unabhängig von allen Forderungen, in deren<lb/>
+Erfüllung die einzelnen Künſte ſich ſelbſt gern auf dem<lb/>
+Theater fänden. Die Schauſpielkunſt muß wiſſen, was<lb/>
+ſie auszuführen vermag, und darum Alles abweiſen was<lb/>
+ſie nicht lebendig machen kann. Sie muß die Productio¬<lb/>
+nen der andern Künſte zu verwenden wiſſen, nicht aber<lb/>
+ſich ihnen dienſtbar machen. Gleichweit von theatraliſcher<lb/>
+Herkömmlichkeit, wie von unfruchtbaren Experimenten,<lb/>
+hat ſie den ſchwierig einzuhaltenden Weg einer unabläſſi¬<lb/>
+gen Fortentwicklung und Bereicherung der Kunſt in den<lb/>
+Grenzen ihrer eigenſten Natur zu finden.</p><lb/>
+<pb n="56" facs="#f0062"/>
+<p>Um dies ausführen zu können, wird die Direction es<lb/>
+aber auch nicht an Anregungen zur <hi rendition="#g">Bildung</hi> und zum<lb/>
+<hi rendition="#g">Kunſtverſtändniß des Perſonals</hi> fehlen laſſen dürfen.<lb/>
+Was die Eckhof'ſche Schauſpielerakademie<note place="foot" n="*)">Geſch. d. deutſchen Schauſpielkunſt. Bd. <hi rendition="#aq">II</hi>. S. 88.<lb/>
+</note>, die Man¬<lb/>
+heimer Ausſchußſitzungen<note place="foot" n="**)">Ebendaſ. Bd. <hi rendition="#aq">III</hi>. S. 18.<lb/>
+</note>, der Berliner Schauſpie¬<lb/>
+lerverein in der neuern Zeit, geſollt: die Schauſpieler<lb/>
+nämlich zu gemeinſamem Kunſtſtreben und gegenſeitiger<lb/>
+Forthülfe ſammeln, das dürfte bei wahrhaft künſtleriſch<lb/>
+organiſirten Theatern endlich, zu unberechenbarem Vor¬<lb/>
+theil des Geſammtgeiſtes und des nachwachſenden Ge¬<lb/>
+ſchlechtes, Beſtand gewinnen.</p><lb/>
+<p>Von großer Wichtigkeit wird es ſein, wenn die Na¬<lb/>
+tionaltheater <hi rendition="#g">die Spieltage vermindern</hi>. Die Alltäg¬<lb/>
+lichkeit des Schauſpiels ernüchtert Publicum und Künſtler.<lb/>
+Könnten zwei Tage, oder auch nur einer in der Woche<lb/>
+ausfallen, ſo würden die Vorſtellungen wieder einen grö¬<lb/>
+ßeren, einen feſtlichen Reiz für das Publicum gewinnen,<lb/>
+und der um ſo lebhaftere Beſuch den Kaſſenverluſt der<lb/>
+ausfallenden Tage hinlänglich erſetzen. Die Künſtler<lb/>
+aber gewönnen durch die Ruhetage größere Elaſticität und<lb/>
+<pb n="57" facs="#f0063"/>
+wärmere Begeiſterung und, was nicht minder wichtig iſt,<lb/>
+mehr Zeit und Sammlung, um die Vorſtellungen mit<lb/>
+der letzten Sorgfalt vorzubereiten. Die Haſt und Noth<lb/>
+für jeden Tag eine Vorſtellung zu ſchaffen, iſt eines der<lb/>
+weſentlichſten Hinderniſſe für die heutige Bühne: höhere<lb/>
+Kunſtforderungen zu befriedigen.</p><lb/>
+<p>Die Abende, an denen das Theater feiert, würden,<lb/>
+für das Publicum um ſo gelegener, durch Concerte oder<lb/>
+Kunſtgenüſſe anderer Art ausgefüllt werden.</p><lb/>
+<p>Ferner müßte das Nationaltheater dahin ſtreben, die<lb/>
+<hi rendition="#g">Eintrittspreiſe</hi>, beſonders für die wohlfeileren und mitt¬<lb/>
+leren Plätze zu <hi rendition="#g">ermäßigen</hi>. Der Theaterbeſuch iſt noch<lb/>
+viel zu koſtſpielig, als daß er ſeine volle Wirkung auf alle<lb/>
+Schichten des Volkes äußern könnte. Der durch wohl¬<lb/>
+feilere Preiſe vermehrte Beſuch würde die Kaſſe entſchädi¬<lb/>
+gen, oder Erſparniſſe im Ausgabeetat müßten es thun,<lb/>
+deren nähere Angaben hier zu weit führen würden.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Es iſt noch übrig, den Punkt, welcher bisher als der<lb/>
+wichtigſte gegolten, zu erörtern, den der <hi rendition="#g">Finanzen</hi>,<lb/>
+des richtigen Verhältniſſes zwiſchen Einnahme und Aus¬<lb/>
+gabe.</p><lb/>
+<pb n="58" facs="#f0064"/>
+<p>Nach dem Prinzip des Nationaltheaters ſollen die<lb/>
+<hi rendition="#g">Einnahmen</hi> nur durch würdige Mittel, durch mög¬<lb/>
+lichſt vollkommene, dem Volksgeſchmacke wahrhaft gedeih¬<lb/>
+liche Vorſtellungen erzielt werden; dieſe können durch die<lb/>
+künſtleriſche Direction als geſichert erachtet werden, denn<lb/>
+beſſere Leiſtungen bringen auch beſſere Einnahmen. Die<lb/>
+Verwaltungsfrage wird ſich daher weſentlich um die rich¬<lb/>
+tige <hi rendition="#g">Verwendung</hi> der Geldmittel, welche dem Thea¬<lb/>
+ter zu Gebote ſtehen, drehen.</p><lb/>
+<p>Der Ausgabeetat werde nach der Summe, welche der<lb/>
+Staatszuſchuß und dem Minimalſatz der jährlichen Ein¬<lb/>
+nahme ergeben, feſtgeſetzt. Derſelbe müſſe nur nach Maß¬<lb/>
+gabe erworbener Ueberſchüſſe überſchritten werden dürfen,<lb/>
+jährlich aber ein Theil des Staatszuſchuſſes zu einem Re¬<lb/>
+ſervefonds zurückgelegt werden, damit die mannichfachen<lb/>
+Wechſelfälle, denen das Theater durch die Zeitereigniſſe<lb/>
+ausgeſetzt iſt, daſſelbe niemals mittellos finden. Von<lb/>
+dieſen Grundzügen der Theaterökonomie müſſe niemals<lb/>
+gewichen werden, damit der Staat die Garantie hätte: nur<lb/>
+in den außer aller menſchlichen Berechnung liegenden<lb/>
+Fällen vor den Riß treten zu müſſen.</p><lb/>
+<p>Daß der Theaterhaushalt auf dieſer Baſis zu führen<lb/>
+iſt, ſteht bei einer künſtleriſchen Direction außer Zwei¬<lb/>
+<pb n="59" facs="#f0065"/>
+fel, die durch beſtimmte Staatsgrundſätze geſchützt iſt:<lb/>
+nicht jedem koſtſpieligen Gelüſten eines dominirenden Ge¬<lb/>
+ſchmackes, nicht jeder unmäßigen Geldprätenſion hervor¬<lb/>
+ragender Talente fröhnen zu müſſen. <hi rendition="#g">Bei jedem</hi>, <hi rendition="#g">wenn<lb/>
+nur irgend geſicherten</hi>, <hi rendition="#g">hohen oder niedrigen<lb/>
+Einnahmeetat iſt ein Theater herzuſtellen</hi>, <hi rendition="#g">in<lb/>
+dem der Geiſt lebendig iſt</hi>, und wenn hierauf nur der<lb/>
+Accent gelegt wird, ergiebt ſich alles Uebrige leicht. Man<lb/>
+nehme keinen Anſtand, einer ſelbſtändigen, künſtleriſchen<lb/>
+Direction die Aufgabe zuzuſchieben, ſie kann, ſie wird ſie<lb/>
+löſen. Sie wird bei einer ſicherer berechneten und gelei¬<lb/>
+teten Verwendung der Talente ſchon im Gehaltetat, gewiß<lb/>
+aber in den Ausgaben für allen Apparat, der ſo unge¬<lb/>
+heure Summen verzehrt, große Erſparniſſe herbeiführen<lb/>
+können. Inmitten der Production ſtehend, kann ſie das<lb/>
+Auge überall haben, ſie verſteht mit Wenigem Viel aus¬<lb/>
+zurichten, Dinge doppelt und dreifach zu benutzen, welche<lb/>
+bei mancher Hofbühne — die in der Fülle ihres aufgehäuf¬<lb/>
+ten Apparates faſt erſtickt — bereits doppelt und dreifach<lb/>
+exiſtiren und doch immer wieder aufs Neue beſchafft<lb/>
+werden.</p><lb/>
+<p>Der Ausgabeetat werde nach monatlichen Durch¬<lb/>
+ſchnittsſummen, je nach den verſchiedenen Zweigen geord¬<lb/>
+<pb n="60" facs="#f0066"/>
+net, wie dies ſchon jetzt gebräuchlich iſt. Das Miniſte¬<lb/>
+rium hat dieſe Eintheilung zu beſtätigen, aber auch ſpe¬<lb/>
+ciell darüber zu wachen, daß ſie nicht ohne Noth über¬<lb/>
+ſchritten werde. Künſtler ſind ſelten geſchickte Haushal¬<lb/>
+ter, daher muß der Regierung zuſtehen: die Direction, in<lb/>
+Bezug auf die Geldverwendung genau zu controlliren und<lb/>
+jeden Augenblick darüber Rechenſchaft fordern zu dürfen.</p><lb/>
+<p>Erleichtert wird dies, wenn der ganze Theaterhaus¬<lb/>
+halt, wie dies bereits bei einigen Hofbühnen der Fall iſt,<lb/>
+in die Hand eines einzigen Beamten gelegt iſt, der jede<lb/>
+materielle Beſchaffung vermittelt, das geſammte Theater¬<lb/>
+inventarium unter ſeiner Aufſicht hat und die Controlle der<lb/>
+Einnahme und Ausgabe führt. Damit iſt auch die Ver¬<lb/>
+antwortlichkeit für die materielle Verwaltung in der Per¬<lb/>
+ſon dieſes <hi rendition="#g">ökonomiſchen Inſpectors</hi> concentrirt<lb/>
+und durch ihn kann die Oberbehörde in jedem Augenblick<lb/>
+vollſtändigen Aufſchluß über den complicirten Theater¬<lb/>
+haushalt erlangen.</p><lb/>
+<p>Dieſer Poſten, ſo wie der des Caſſirers und anderer<lb/>
+bloß verwaltenden Beamten, wird durch die Regierung,<lb/>
+in Uebereinkunft mit der künſtleriſchen Direction, beſetzt.</p><lb/>
+<p>Mit der Bemerkung: daß Anordnungen über Bau¬<lb/>
+lichkeiten in den Theatern, über Hausordnung, die Auf¬<lb/>
+<pb n="61" facs="#f0067"/>
+nahme des Publicums u. ſ. w. von der künſtleriſchen Di¬<lb/>
+rection, aber nur unter ſpecieller Beſtätigung der Ober¬<lb/>
+behörde vorzunehmen ſind, daß alſo die Direction, wie<lb/>
+frei ſie auch auf rein künſtleriſchem Gebiete zu ſchalten<lb/>
+habe, auf dem der Adminiſtration doch entſchieden abhän¬<lb/>
+gig ſein müſſe — wird die Auseinanderſetzung des Ver¬<lb/>
+hältniſſes zwiſchen Miniſterium und Theaterdirection ab¬<lb/>
+geſchloſſen ſein.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Dieſe hier vorgeſchlagene Reorganiſation der großen<lb/>
+und tonangebenden Bühnen in Deutſchland müßte ſich<lb/>
+am vortheilhafteſten in Wien und Berlin erweiſen, wo<lb/>
+mehrere Theater vorhanden, welche eine Trennung der<lb/>
+verſchiedenen dramatiſchen Gattungen und dadurch eine<lb/>
+um ſo vollkommnere Ausbildung jeder einzelnen begün¬<lb/>
+ſtigen. Denn die Schwierigkeit das ganze recitirende<lb/>
+Schauſpiel, vom Trauerſpiel bis zur Poſſe, daneben he¬<lb/>
+roiſche und komiſche Oper und Ballett, kurz die ganze<lb/>
+dramatiſche Möglichkeit auf ein und derſelben Bühne, mit<lb/>
+ein und demſelben Perſonal zur Vollkommenheit zu brin¬<lb/>
+gen, wird immer ungeheuer bleiben; ſelbſt wenn die vor¬<lb/>
+geſchlagene organiſche Gliederung einer Direction von<lb/>
+<pb n="62" facs="#f0068"/>
+Kunſtverſtändigen die Löſung dieſes Problems erleichtert<note place="foot" n="*)">Ausführlicheres hierüber Geſch. d. deutſch. Schauſpiel¬<lb/>
+kunſt. Bd. <hi rendition="#aq">III</hi>. S. 413 u. f.<lb/>
+</note>.<lb/>
+In <hi rendition="#g">Wien</hi> aber z. B., wo Schauſpiel, Oper und Poſſe<lb/>
+bereits abgeſonderte Theater und abgeſonderte Directio¬<lb/>
+nen beſitzen, wo noch zwei andere Bühnen vorhanden ſind,<lb/>
+mit deren Hinzuziehung ſich eine noch weitere Eintheilung<lb/>
+nach dem Muſter der Pariſer Theater vornehmen ließe,<lb/>
+wonach dem <hi rendition="#g">Burgtheater</hi> ſein bisheriges Gebiet des<lb/>
+<hi rendition="#g">recitirenden Schauſpiels</hi> verbliebe, dem <hi rendition="#g">Kärnth¬<lb/>
+nerthortheater</hi> die <hi rendition="#g">große Oper</hi> (nach dem Mu¬<lb/>
+ſter der <hi rendition="#aq">Academie royale</hi>), dem <hi rendition="#g">Joſephſtädter Thea¬<lb/>
+ter</hi> die <hi rendition="#g">komiſche Oper</hi> und das <hi rendition="#g">Singſpiel</hi>, dem<lb/>
+<hi rendition="#g">Wiedner-Theater</hi> das <hi rendition="#g">Spektakelſtück und<lb/>
+Melodram</hi>, dem <hi rendition="#g">Leopoldſtädter Theater</hi> die<lb/>
+<hi rendition="#g">Volkspoſſe</hi> zufiele — dort würde jede Gattung, bei<lb/>
+der vorgeſchlagenen Organiſation, ſich ihrer Vollendung<lb/>
+zuführen laſſen.</p><lb/>
+<p>Freilich müßten aber alle fünf Theater Staatsanſtal¬<lb/>
+ten werden und ihre abgeſonderten Directionen dem ge¬<lb/>
+meinſamen höheren Prinzipe und der Beaufſichtigung der<lb/>
+Regierung unterworfen werden.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="63" facs="#f0069"/>
+<p>Die preußiſche Regierung hat den wichtigſten Grund¬<lb/>
+ſatz der auf dieſen Blättern vorgeſchlagenen Theaterreform,<lb/>
+den einer miniſteriellen Oberleitung, bereits vor vierzig<lb/>
+Jahren auf einige Zeit anerkannt<note place="foot" n="*)">Geſch. d. deutſch. Schauſpielk. Bd. <hi rendition="#aq">III</hi>. S. 422 u. f.<lb/>
+</note>, <hi rendition="#g">Berlin</hi> hat unter<lb/>
+<hi rendition="#g">Iffland</hi> ſchon eine muſterhafte künſtleriſche Direction<lb/>
+gehabt, dort würde man alſo nur auf ſchon anerkannte<lb/>
+Zuſtände zurück zu fußen brauchen.</p><lb/>
+<p> <hi rendition="#g">Die erſte und unabweisbare Maßregel einer<lb/>
+Reorganiſation der Berliner Theater würde die<lb/>
+Trennung der dramatiſchen Gattungen ſein<lb/>
+müſſen</hi>.</p><lb/>
+<p>Berlin beſitzt drei Theater, angemeſſen in Lage und<lb/>
+Beſchaffenheit, um eine natürliche Scheidung mit dem<lb/>
+ſchönſten Erfolge vornehmen zu können.</p><lb/>
+<p>Im <hi rendition="#g">Schauſpielhauſe</hi>, das zu der, leider immer<lb/>
+geringer werdenden Zahl derjenigen gehört, deren glück¬<lb/>
+liche mittlere Größe noch eine naturgemäße Menſchendar¬<lb/>
+ſtellung zuläßt, wo der Schauſpieler noch nicht genöthigt<lb/>
+iſt zum Ueberbieten aller Mittel zu greifen um nur einen<lb/>
+Eindruck hervorzubringen, im Schauſpielhauſe bliebe das<lb/>
+ſogenannte <hi rendition="#g">recitirende Schauſpiel</hi>, der eigentliche Kern<lb/>
+<pb n="64" facs="#f0070"/>
+der dramatiſchen Kunſt: Tragödie, Drama und Comödie, in<lb/>
+reiner Gattung abgeſchloſſen, wie dies im Wiener Burg¬<lb/>
+theater muſterhaft und erfolgreich der Fall iſt; nur ohne<lb/>
+jene peinliche Beſchränkung, welche ſelbſt Lieder und Chöre<lb/>
+aus dem Schauſpiele verbannt. Im glanzvollen <hi rendition="#g">Opern¬<lb/>
+hauſe</hi> die <hi rendition="#g">große Oper</hi> und die <hi rendition="#g">komiſche</hi>, ſo weit ſich<lb/>
+dieſe vom Burlesken frei hält und die muſikaliſche Ent¬<lb/>
+wicklung als ihre weſentliche Aufgabe darlegt. Dieſen<lb/>
+ſchlöſſe das <hi rendition="#g">Ballett</hi> ſich an.</p><lb/>
+<p>Das behagliche <hi rendition="#g">Königsſtädter Theater</hi> dage¬<lb/>
+gen werde ſeiner urſprünglichen Beſtimmung eines <hi rendition="#g">Volks¬<lb/>
+theaters</hi> zurückgegeben. Hier werde der Maßſtab des<lb/>
+höheren Schönheitsprinzipes und der Claſſicität nicht an¬<lb/>
+gelegt, in Ernſt und Scherz mögen die grellen Effecte<lb/>
+walten, wie der Volksgeſchmack ſie heiſcht. Dies Thea¬<lb/>
+ter umfaſſe in ſeiner Thätigkeit das <hi rendition="#g">Schauerdrama</hi>, das<lb/>
+<hi rendition="#g">Spektakelſtück</hi> und <hi rendition="#g">Melodram</hi>, die <hi rendition="#g">niedrig-komi¬<lb/>
+ſche Oper</hi> und <hi rendition="#g">Poſſe</hi>, das <hi rendition="#g">komiſche Liederſpiel</hi>, die<lb/>
+<hi rendition="#g">Genrebilder</hi>, <hi rendition="#g">komiſche Pantomime</hi> und <hi rendition="#g">Grotesk¬<lb/>
+tanz u</hi>. <hi rendition="#g">ſ</hi>. <hi rendition="#g">w</hi>. <hi rendition="#g">Hier</hi> kann das <hi rendition="#g">Berliner Localſtück</hi> —<lb/>
+wenn ihm, was bisher nie geſchehen, das Gebiet unbeein¬<lb/>
+trächtigt überlaſſen wird — ſeine mögliche Ausbildung finden.</p><lb/>
+<p>Es wird dies ein Theater ſein, am beliebteſten bei<lb/>
+<pb n="65" facs="#f0071"/>
+dem großen Publicum und vielleicht mit einem geringe¬<lb/>
+ren Zuſchuß, als ihr jetzt durch die Krone zu Theil wird,<lb/>
+im ſchönſten Flor zu erhalten<note place="foot" n="*)">Auf welche Weiſe das Königſtädter Theater gänzlich in<lb/>
+Beſitz der Krone und ſo der Regierung zu bringen wäre, muß<lb/>
+Gegenſtand abgeſonderter Erörterung bleiben.<lb/>
+</note>.</p><lb/>
+<p>Die Subvention des Königl. Theaters würde zwiſchen<lb/>
+Oper und Schauſpiel zu vertheilen ſein. Nach der Erfah¬<lb/>
+rung, welche die Trennung der Wiener Theater an die<lb/>
+Hand giebt, würde Oper und Ballet ⅔, das Schauſpiel<lb/>
+⅓ davon brauchen.</p><lb/>
+<p>Alle drei Theater erhielten abgeſonderte Directionen,<lb/>
+nach der vorbeſchriebenen Organiſation, und fänden ihre<lb/>
+gemeinſame Oberdirection im Miniſterium. Dieſelbe<lb/>
+hätte nicht nur Einſicht zu nehmen von den Arbeitsplä¬<lb/>
+nen der einzelnen Directionen — wie früher angegeben —<lb/>
+ſie hätte dieſe auch ſämmtlich, vielleicht monatlich, zu ge¬<lb/>
+meinſchaftlichen Sitzungen zu verſammeln, damit die ver¬<lb/>
+ſchiedenartige Thätigkeit doch nach einem übereinſtimmen¬<lb/>
+den Plane und Geiſte geordnet werde, die neuen Werke<lb/>
+ſich nicht gegenſeitig im Eindruck beim Publicum hindern,<lb/>
+die Gattungen richtig geſondert blieben u. ſ. w. Zugleich<lb/>
+<fw type="sig" place="bottom">5<lb/>
+</fw>
+<pb n="66" facs="#f0072"/>
+würden, durch dieſe gemeinſchaftliche miniſterielle Ober¬<lb/>
+direction, ausnahmsweiſe Aufführungen von Werken,<lb/>
+welche den Zuſammentritt der erſten Talente aller Gattun¬<lb/>
+gen erfordern, möglich bleiben; wie die Vorſtellungen der<lb/>
+Antigone, des Sommernachtstraumes u. ſ. w. Der Ue¬<lb/>
+belſtand einer abſoluten Trennung des muſikaliſchen vom<lb/>
+recitirenden Drama, der in Wien ſo oft empfunden wird,<lb/>
+wäre dadurch vermieden und die großartigſte Entfaltung<lb/>
+der Dramatik, dem ganzen Umfang ihrer Mittel nach,<lb/>
+bliebe freigegeben.</p><lb/>
+<p>Natürlich dürften ſolche combinirte Vorſtellungen nur<lb/>
+ausnahmsweiſe und durch die hohe Bedeutung ihres Ge¬<lb/>
+haltes gebotene ſein, damit eine abgeſonderte Entwicklung<lb/>
+der Gattungen und der einzelnen Theater nicht zu oft<lb/>
+gehindert würde.</p><lb/>
+<p>Welch eine Vollendung die dramatiſche Kunſt in Ber¬<lb/>
+lin durch ſolche Organiſation gewinnen könnte, getragen<lb/>
+durch die Empfänglichkeit und Befeuerung eines, die<lb/>
+Sommitäten der Intelligenz und des Geſchmackes reprä¬<lb/>
+ſentirenden Publicums, iſt leicht zu überſehen.</p><lb/>
+<p>Die Vereinigung der höheren Intereſſen der drei<lb/>
+Directionen in der gemeinſamen Leitung der Regierung<lb/>
+würde auch eine gegenſeitige Förderung garantiren. Der<lb/>
+<pb n="67" facs="#f0073"/>
+falſche Antrieb feindſeliger Concurrenz — welcher vier¬<lb/>
+undzwanzig Jahre lang dem Königl. Theater nach¬<lb/>
+theilig und dem Königſtädter an ſeiner Ausbildung ent¬<lb/>
+ſchieden hinderlich geweſen und gar keinen Vortheil ge¬<lb/>
+bracht hat — würde dem edlen Wetteifer Platz machen:<lb/>
+in gleichem Intereſſe des Nationalruhms ſich den Kranz<lb/>
+ſtreitig zu machen<note place="foot" n="*)">Es braucht kaum noch erwähnt zu werden, daß auch hier<lb/>
+alle drei Theater wetteifern würden, ſich den Antheil des<lb/>
+Hofes ungeſchwächt zu erhalten und die Erfüllung eines Wun¬<lb/>
+ſches deſſelben als einen beſondern Vorzug zu betrachten. Auch<lb/>
+bei beſondern Vorſtellungen in den königl. Schlöſſern fände<lb/>
+verwaltungsmäßig keine weſentliche Veränderung ſtatt, da dieſe<lb/>
+bisher ſchon beſonders in Rechnung kamen.<lb/>
+</note>.</p><lb/>
+<p>Freilich müßten — wenigſtens bis dieſe drei Theater<lb/>
+ſich ganz conſolidirt hätten — alle übrigen Bühnen in<lb/>
+Berlin geſchloſſen, auch die italiäniſche Oper und das<lb/>
+franzöſiſche Schauſpiel verbannt werden. Man muß Thea¬<lb/>
+ter und Publicum erſt im Geiſt und Sinne für ein wahr¬<lb/>
+haft nationales Theater erſtarken laſſen, bis man beide<lb/>
+verlockender und zerſtreuender Rivalität preisgeben darf.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <fw type="sig" place="bottom">5*<lb/>
+</fw>
+<pb n="68" facs="#f0074"/>
+<p>Soll nun aber das künſtleriſche Gedeihen der natur¬<lb/>
+gemäß organiſirten großen Nationalbühnen geſichert ſein,<lb/>
+ſo dürfen ihnen die vorbereitenden <hi rendition="#g">Theaterſchulen</hi><lb/>
+nicht länger fehlen. Sie ſind endlich zu einer gebieteri¬<lb/>
+ſchen Nothwendigkeit geworden, wenn die Schauſpielkunſt<lb/>
+nicht überhaupt binnen Kurzem als ein gauklerhaftes Vir¬<lb/>
+tuoſenthum alle Achtung des deutſchen Volkes verſcher¬<lb/>
+zen ſoll.</p><lb/>
+<p>Was ich über die Nothwendigkeit der Schulen, wie<lb/>
+über ihre praktiſche Einrichtung zu ſagen weiß, habe ich<lb/>
+bereits 1840 in einer kleinen Schrift: <hi rendition="#g">Ueber Thea¬<lb/>
+terſchule</hi> gegen das Publicum ausgeſprochen<note place="foot" n="*)">Sie iſt im <hi rendition="#aq">IV</hi>. Bande meiner dramatiſchen und dramatur¬<lb/>
+giſchen Schriften wieder abgedruckt.<lb/>
+</note>, ich<lb/>
+kann alſo hier die Wiederholung ſparen. In den acht<lb/>
+Jahren, welche ſeitdem verfloſſen, haben alle Uebel der<lb/>
+künſtleriſchen Zuchtloſigkeit dergeſtalt zugenommen, daß<lb/>
+ſelbſt die Gegner der Schulen — die jede methodiſche<lb/>
+Vorbildung verwarfen und die Behauptung verfoch¬<lb/>
+ten: die Schauſpieler müßten wild, wie die Pilze auf¬<lb/>
+wachſen — von ihrer Anſicht bekehrt worden ſind. Sie<lb/>
+geben jetzt zu, daß dieſer Mangel an Unterricht in den
+<pb n="69" facs="#f0075"/>
+künſtleriſchen Elementen, die jungen Talente unſerer Tage<lb/>
+maſſenhaft zu Grunde gehen läßt und alle Natur, alle<lb/>
+Vernunft und allen Geſchmack von der Bühne zu ver¬<lb/>
+bannen droht.</p><lb/>
+<lb/>
+<p>Der Zeitpunkt die Theaterſchulen einzurichten, iſt folge¬<lb/>
+richtig der einer Reorganiſation der Directionen. Bei<lb/>
+unkünſtleriſcher Leitung der Bühnen konnten die Schu¬<lb/>
+len allerdings nur halbe Frucht bringen, viele ihrer Vor¬<lb/>
+theile würden wieder verloren gegangen ſein; der künſtle¬<lb/>
+riſchen Direction dagegen werden ſie eine organiſche Ver¬<lb/>
+vollſtändigung ihres Lebens und Wirkens ſein.</p><lb/>
+<p>Der Schuleinrichtung, welche ich in der angezogenen<lb/>
+Schrift angegeben, habe ich nur noch die dringende Em¬<lb/>
+pfehlung des engſten Anſchluſſes an die übrigen Kunſt¬<lb/>
+ſchulen hinzuzufügen. Jeder Staat bilde <hi rendition="#g">eine allge¬<lb/>
+meine umfaſſende Kunſtakademie</hi>, entſpre¬<lb/>
+chend der Univerſität, die das Geſammtſtudium aller<lb/>
+Wiſſenſchaften umfaßt.</p><lb/>
+<p>Wenn der Staat alle Künſte auf eine höhere Bil¬<lb/>
+dung des Volkes lenken will, ſo muß er ihre Ueberein¬<lb/>
+ſtimmung dazu ſchon in den Kunſtſchulen vorbereiten. Die<lb/>
+Künſte und die Künſtler müſſen mit einander verſtändigt<lb/>
+werden. Indem man die Theaterſchule mit den bereits<lb/>
+<pb n="70" facs="#f0076"/>
+beſtehenden Anſtalten für Muſik und für bildende Künſte<lb/>
+vereinigt, wird man eine größere allgemeine künſtleriſche<lb/>
+Bildung des heranwachſenden Geſchlechtes erreichen, die<lb/>
+jetzt nur zu oft vermißt wird, weil Jeder in ſeinen Fach¬<lb/>
+ſtudien eingeengt bleibt.</p><lb/>
+<p>Auch die Koſten der Schulen würden geringer wer¬<lb/>
+den, indem viele Gegenſtände gemeinſchaftliche Studien zu¬<lb/>
+laſſen. Wie ſehr Muſik- und Theaterſchule in einander grei¬<lb/>
+fen, hat man längſt erkannt — das Pariſer Conſervato¬<lb/>
+rium vereinigt darum beide — aber wie ſehr dies auch<lb/>
+mit den bildenden Künſten der Fall iſt, hat man ſich bis¬<lb/>
+her verhehlt. Nicht allein daß Hülfswiſſenſchaften, wie<lb/>
+Geſchichte und Mythologie, allen Kunſtjüngern überein¬<lb/>
+ſtimmend zu lehren ſind<note place="foot" n="*)">Ueber das Wie? habe ich mich in der angezogenen Schrift<lb/>
+erklärt.<lb/>
+</note>, daß dem Theatereleven Bil¬<lb/>
+dung des Auges für Schönheit und Charakteriſtik der Form<lb/>
+im Zeichnenunterricht, daß den Zöglingen der bildenden<lb/>
+Künſte dagegen zu Förderung einer harmoniſchen Bildung<lb/>
+Theilnahme an manchem Unterricht der Theaterſchule, dem<lb/>
+Geſange, der Redekunſt<note place="foot" n="**)">Der Unterricht hierin wird, bei unſerer parlamentariſchen<lb/>
+Entwicklung, bald zu einer Bedingung guter Erziehung werden.<lb/>
+</note>, der höhern Gymnaſtik u. ſ. w.<lb/>
+<pb n="71" facs="#f0077"/>
+wünſchenswerth ſein wird, ſondern es würden auch die<lb/>
+beiderſeitigen Fachſtudien ſich fördernd berühren können.<lb/>
+Die Uebungen der Geberdenſprache von den Theatereleven<lb/>
+z. B. könnten den Schülern der bildenden Kunſt einen<lb/>
+Reichthum lebendiger Motive zu raſchen Skizzen liefern,<lb/>
+an denen das Urtheil über die beiderſeitige Leiſtung ſich<lb/>
+ſchärfen würde. So könnte die gegenſeitige Anregung<lb/>
+fortwachſend ſich bis auf die wirkliche theatraliſche Thä¬<lb/>
+tigkeit ausdehnen und in der Dramatik eine wahrhafte<lb/>
+Verſchwiſterung aller Künſte erzeugen.</p><lb/>
+<p>Noch eine Wohlthat würde aus ſolch einer Univerſi¬<lb/>
+tät der Künſte erwachſen, indem ſie die Mißgriffe der jun¬<lb/>
+gen Talente über ihren Beruf zu berichtigen vermöchte,<lb/>
+wie dies auf den Univerſitäten der Wiſſenſchaften der Fall<lb/>
+iſt, wo mancher Jüngling zu ſeinem Heile — wie man<lb/>
+es nennt — umſattelt. Abgeſehen von denen, deren Ta¬<lb/>
+lentloſigkeit in der Schule zur Erkenntniß kommt und<lb/>
+die ſomit bei Zeiten von einer falſchen Lebenstendenz ge¬<lb/>
+heilt werden können, giebt es Viele, die ſich in unbe¬<lb/>
+ſtimmtem Triebe zur Kunſt auf einen falſchen Zweig der¬<lb/>
+ſelben werfen. Wie man auf den jetzigen Kunſtakade¬<lb/>
+mien wohl junge Bildhauer zu Malern umſchlagen ſieht<lb/>
+und umgekehrt, ſo würde eine allgemeine Kunſtſchule<lb/>
+<pb n="72" facs="#f0078"/>
+manchen Theatereleven belehren, daß er zum Maler oder<lb/>
+Bildhauer, manchen jungen Maler, daß er zum Schau¬<lb/>
+ſpieler geboren ſei. In den Abtheilungen für Muſik und<lb/>
+Theater würden dieſe gegenſeitigen Berichtigungen ebenſo¬<lb/>
+wenig ausbleiben und jeder wahrhaft zur Kunſt berufene<lb/>
+junge Menſch würde, in noch bildungsfähiger Zeit, an den<lb/>
+Platz geſtellt werden wohin er gehört, wo er der Kunſt<lb/>
+wahrhaft nützen und über ſeine Zukunft außer Sorge ſein<lb/>
+könnte.</p><lb/>
+<p>Denn Wien und Berlin würden, auf ihren vielen<lb/>
+Theatern, faſt den ganzen Nachwuchs aus ihren Schulen<lb/>
+anzuſtellen im Stande ſein, hier alſo würden die darauf<lb/>
+verwendeten Koſten augenſcheinlichen Vortheil bringen.<lb/>
+Dieſe Koſten aber würden, wenn die Landesvertreter nicht<lb/>
+geneigt wären beſondere Bewilligungen dazu zu machen,<lb/>
+zur Noth von dem bedeutenden Zuſchuſſe, den die Büh¬<lb/>
+nen bereits genießen, abzuzweigen ſein!</p><lb/>
+<p>Die drei Theater in <hi rendition="#g">Berlin</hi> z. B. koſten dem Hofe<lb/>
+jährlich an 200,000 Thlr. Was wäre es für drei künſt¬<lb/>
+leriſche Directionen — die unfehlbar große Erſparungen<lb/>
+und größere Einnahmen als bisher herbeiführen werden —<lb/>
+von dieſer Summe gemeinſchaftlich 6–8000 Thlr. an<lb/>
+die allgemeine Kunſtakademie abzutreten? Und dieſe wür¬<lb/>
+<pb n="73" facs="#f0079"/>
+den zureichen — wenn man alle vereinzelte Muſikinſtitute<lb/>
+des Staates und was ſonſt an Deklamationslehrern, Bal¬<lb/>
+lettſchulen u. ſ. w. verausgabt wird, zuſammenzöge und<lb/>
+zu <hi rendition="#g">einer</hi> großen Schule vereinfachte — dem ausge¬<lb/>
+dehnteſten Plane zu genügen. Im Akademiegebäude,<lb/>
+ſeinem ganzen Umfange nach, würden — wenn man<lb/>
+Ställe und Caſerne daraus entfernte — alle Künſte<lb/>
+unter <hi rendition="#g">einem</hi> Dache eine Pflanzſtätte finden, wie ſie<lb/>
+Europa noch nicht kennt und wie ſie doch, ohne unver¬<lb/>
+hältnißmäßige Opfer, durch guten und energiſchen Wil¬<lb/>
+len ſehr wohl herzuſtellen wäre.</p><lb/>
+<p>Selbſt der Anſtalten von ſo großem Umfange be¬<lb/>
+dürfte es nicht, um auch mit kleineren Mitteln in kleinerem<lb/>
+Kreiſe höchſt Wohlthätiges zu leiſten. <hi rendition="#g">Das muſikali¬<lb/>
+ſche Conſervatorium Sachſens</hi> z. B., auch das von<lb/>
+<hi rendition="#g">Prag</hi>, wären durch veränderte Organiſation und Hinzu¬<lb/>
+fügung einiger Disciplinen, leicht zu Muſik- und Theater¬<lb/>
+ſchulen umzugeſtalten und im Anſchluß an die vorhandenen<lb/>
+Akademien zu wahrhaft praktiſcher Nutzbarkeit des Staa¬<lb/>
+tes auszubringen.</p><lb/>
+<p>Und wo auch ſolche Anlehnungspunkte nicht vorhan¬<lb/>
+den ſind, ſollte doch, wenigſtens an jeder ſtehenden<lb/>
+Bühne, ein erfahrener Künſtler dazu angeſtellt ſein: den<lb/>
+<pb n="74" facs="#f0080"/>
+Anfängern die nothdürftigſten Anweiſungen zu geben,<lb/>
+damit die jungen Talente ihre beſten Jahre nicht ganz in<lb/>
+irrthümlichen und verkehrten Verſuchen — die das<lb/>
+Theater ſelbſt immer mitbüßen muß — verlören. Der<lb/>
+praktiſche Nutzen davon iſt ſo einleuchtend, und doch iſt<lb/>
+im ganzen großen Deutſchland nirgend eine ſolche Ein¬<lb/>
+richtung getroffen. <hi rendition="#g">Unter den tauſend Pro¬<lb/>
+feſſoren der verſchiedenen Künſte giebt es<lb/>
+noch keinen einzigen der Schauſpielkunſt</hi>.<lb/>
+Künſtleriſche Directionen und Theaterſchulen werden<lb/>
+auch dieſe Verhältniſſe verändern oder ſie durch die rich¬<lb/>
+tigen Maßregeln ausgleichen.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Iſt mit der hier beſprochenen, durchgreifenden Er¬<lb/>
+neuerung des ganzen Kunſtlebens für eine mögliche Voll¬<lb/>
+kommenheit deſſen, was die großen, tonangebenden Thea¬<lb/>
+ter leiſten, geſorgt, ſo wird der wohlthätige Einfluß<lb/>
+davon auf die Bühnen zweiten Ranges, auf die <hi rendition="#g">Stadt¬<lb/>
+theater</hi>, nicht ausbleiben. Damit aber darf die Lan¬<lb/>
+desregierung ſich nicht beruhigen, ihre Oberleitung muß<lb/>
+<pb n="75" facs="#f0081"/>
+ſich grundſätzlich bis auf die letzte Wanderbühne geltend<lb/>
+machen.</p><lb/>
+<p>Die Directionen der Stadttheater ſind — man darf<lb/>
+ſich darüber nicht täuſchen — nichts anderes, als indu¬<lb/>
+ſtrielle Unternehmungen. Die Magiſtrate oder die Re¬<lb/>
+gierungspolizei, denen bis jetzt die dramatiſche Kunſt<lb/>
+in den Provinzen unterworfen iſt, ſetzen daher auch<lb/>
+ihre höchſte Forderung an den Director, bei Uebergabe<lb/>
+des Theaters, in ſeine Zahlungsfähigkeit.</p><lb/>
+<p>In welchem <hi rendition="#g">Geiſte</hi> er es führen werde, davon iſt<lb/>
+niemals die Frage. Gute Einnahmen gelten für den<lb/>
+Beweis, daß er das Publikum zu unterhalten verſtehe,<lb/>
+und wenn dies auch in der geſchmackverderblichſten Weiſe<lb/>
+geſchieht, ſo hat die Behörde ihn deshalb nicht anzu¬<lb/>
+fechten.</p><lb/>
+<p>Dieſer Zuſtand verändert ſich ſchon durchaus, ſobald<lb/>
+die Oberaufſicht von der Landespolizei auf das Cultus¬<lb/>
+miniſterium übergeht, dem der <hi rendition="#g">Geiſt</hi> der Inſtitute als das<lb/>
+Weſentliche, ihr <hi rendition="#g">materieller Beſtand</hi> nur als deſſen<lb/>
+Grundlage gilt. Das Miniſterium würde vor Allem darüber<lb/>
+wachen müſſen, <hi rendition="#g">daß die Directoren der Stadttheater<lb/>
+künſtleriſch befähigte und geſinnungstüchtige<lb/>
+Männer ſeien und daß ſie die Verpflichtung<lb/>
+<pb n="76" facs="#f0082"/>
+übernähmen</hi>: <hi rendition="#g">ein der Muſterbühne des Landes<lb/>
+analoges Verfahren einzuhalten</hi>. Dies müßte<lb/>
+der Hauptpunkt der Pachtverträge oder Conceſſions¬<lb/>
+ertheilungen ſein. Nach Ort und Verhältniſſen würde<lb/>
+ſich das Maß für die Erfüllung dieſer Bedingung beſtim¬<lb/>
+men laſſen, wobei die Directionen der Reſidenztheater die<lb/>
+ſachverſtändige Regulirung übernehmen könnten. Das<lb/>
+Wichtigſte dabei müßte die Aufſtellung eines <hi rendition="#g">Stamm¬<lb/>
+repertoirs</hi> ſein, das jeder Director — nach Maßgabe<lb/>
+ſeiner Kräfte und ſeines Publikums — in jährlicher<lb/>
+Wiederkehr feſtzuhalten hätte. Denn womit ein Theater<lb/>
+ſich beſchäftigt, das beſtimmt ſeine Beſchaffenheit. Iſt ein<lb/>
+Director gezwungen, alljährlich gewiſſe treffliche Stücke<lb/>
+aufzuführen, ſo wird er, um ſeines eignen Vortheils wil¬<lb/>
+len, ſie möglichſt gut zu geben ſuchen und an dem Um¬<lb/>
+gang mit dem Trefflichen wird das Inſtitut ſich erheben.</p><lb/>
+<p>Die Regierung müßte ferner dahin wirken, das <hi rendition="#g">Re¬<lb/>
+präſentativſyſtem der Direction</hi> auch bei dieſen<lb/>
+Theatern einzuführen. Hier, wo die Einnahmen zur Lebens¬<lb/>
+frage für alle Mitglieder werden, wird die Organiſation bald<lb/>
+zu einem vollſtändigen <hi rendition="#g">Societätsverhältniſſe</hi> führen,<lb/>
+das, wenn es gehörig geregelt und beaufſichtigt wird, die<lb/>
+trefflichſte Schule für den ſchauſpieleriſchen Gemeingeiſt ab¬<lb/>
+<pb n="77" facs="#f0083"/>
+geben und der Ausbeutung der Kunſt und der Künſtler<lb/>
+durch das Unternehmerweſen ein Ziel ſetzen muß.</p><lb/>
+<p>Freilich hätte die Regierung auch dahin zu wirken,<lb/>
+daß die Städte den verkehrten Grundſatz aufgäben: vom<lb/>
+Theater Nutzen ziehen zu wollen, daß die Stadttheater<lb/>
+von einer Menge von Laſten und Abgaben und dadurch<lb/>
+von ſteten Sorgen befreit würden, welche die Befolgung<lb/>
+reinerer Grundſätze unmöglich machen.</p><lb/>
+<p>Zunächſt müßte dies mit dem Miethzins der Fall<lb/>
+ſein, der für die Benutzung der Schauſpielhäuſer gezahlt<lb/>
+wird. Jede bedeutende Stadt muß unter ihren öffent¬<lb/>
+lichen Gebäuden auch ein Theater beſitzen, und <hi rendition="#g">ebenſo¬<lb/>
+wenig als für Benutzung der Kirchen</hi>, <hi rendition="#g">Schul¬<lb/>
+häuſer</hi>, <hi rendition="#g">Bibliotheken</hi>, <hi rendition="#g">Muſeen u</hi>. <hi rendition="#g">ſ</hi>. <hi rendition="#g">w</hi>. <hi rendition="#g">ein<lb/>
+Miethzins eingezogen wird</hi>, <hi rendition="#g">ſollte er für das<lb/>
+Theater gefordert werden</hi>.</p><lb/>
+<p>Es ſollte ein Ehrenpunkt für unſere Städte ſein —<lb/>
+wie dies in Frankreich der Fall iſt — ihre Schauſpiel¬<lb/>
+häuſer der Kunſt ohne Eigennutz zu eröffnen, dann wür¬<lb/>
+den ſie auch höhere Anſprüche an das, was drinnen ge¬<lb/>
+leiſtet werden ſoll, machen können.</p><lb/>
+<p>Auf die Directionen ſolcher Theater, welche aus<lb/>
+Staatsmitteln Unterſtützungen erhalten — wie dies in<lb/>
+<pb n="78" facs="#f0084"/>
+mehreren Provinzialhauptſtädten Preußens der Fall iſt<lb/>
+— würde die Regierung einen dictatoriſchen Einfluß<lb/>
+üben können, auf die andern würde dieſer zunächſt ein<lb/>
+vermittelnder, aber darum nicht weniger wichtiger ſein.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Entſchiedener und gewaltſamer müßte dagegen der<lb/>
+Eingriff in das Weſen der <hi rendition="#g">Wanderbühnen</hi>, der gro¬<lb/>
+ßen und kleinen ausfallen; hier iſt einem Unfuge zu ſteuern,<lb/>
+der nicht allein auf dem Gebiete der Volksbildung,<lb/>
+ſondern auch der bürgerlichen Sitte und Ordnung wahre<lb/>
+Verwüſtungen anrichtet.</p><lb/>
+<p>Aeußerſt wenige der ſogenannten <hi rendition="#g">reiſenden Ge¬<lb/>
+ſellſchaften</hi> bewähren durch dauernden Beſtand ihre<lb/>
+Achtbarkeit. Die bei Weitem größere Zahl der<lb/>
+Comödiantenbanden, welche ſchaarenweis Deutſchland<lb/>
+durchſchwärmen, in mittleren und kleinen Städten, Flecken<lb/>
+und Dörfern ſich einander auf die Ferſen treten und die<lb/>
+Schauluſt der Einwohner — auf eine, zu deren übriger<lb/>
+Lage, unverhältnißmäßige und meiſtentheils unwürdige<lb/>
+Weiſe — ausbeuten, ſchleppen ſich von einem Bankerott<lb/>
+zum andern. Sie entſtehen aus zuſammengerafften Leu¬<lb/>
+ten, halten ſich einige Monate, oft nur einige Wochen,<lb/>
+<pb n="79" facs="#f0085"/>
+bezeichnen ihre Wanderſpur mit der liederlichſten Wirth¬<lb/>
+ſchaft, hinterlaſſenen Schulden, verführter Jugend u. ſ. w.<lb/>
+und zerſtreuen ſich dann über das Land hin, eine Schaar<lb/>
+vagabundirender Bettler. Meiſtens ſind es bethörte<lb/>
+Menſchen, die im äußerſten Elende die unergiebigen Som¬<lb/>
+mermonate durchkämpfen, um mit dem Herbſte den Kreis¬<lb/>
+lauf ihrer verzweifelten Exiſtenz von Neuem zu beginnen.<lb/>
+Zu keiner regelmäßigen Thätigkeit mehr brauchbar, gera¬<lb/>
+then dieſe Abenteurer des luſtigen Elends endlich bis zur<lb/>
+unterſten Stufe der phyſiſchen und moraliſchen Verſun¬<lb/>
+kenheit.</p><lb/>
+<p>Und dieſe Zuſtände werden von den Landesbehörden<lb/>
+recht eigentlich herbeigeführt und gehegt. Das Uebermaß<lb/>
+der Conceſſionen, die leichtſinnige Unbedenklichkeit, mit<lb/>
+welcher ſie ertheilt werden, erſchaffen dem Staate eine<lb/>
+ganze Klaſſe von bedauernswerthen und unheilbringenden<lb/>
+Landſtreichern.</p><lb/>
+<p>Man hat zur Entſchuldigung dieſes laxen Regie¬<lb/>
+rungsverfahrens angeführt: auch der Kleinbürger und<lb/>
+Bauer bedürfe der Erregung ſeiner Phantaſie, die ihn der<lb/>
+drückenden Alltäglichkeit enthöbe und dadurch erfriſche,<lb/>
+das Schauſpiel ſei dazu das geeigneteſte und unſchuldigſte<lb/>
+<pb n="80" facs="#f0086"/>
+Mittel, wer ihm alſo dies verſchaffe, dürfe in ſeiner Ge¬<lb/>
+werbthätigkeit nicht gehindert werden.</p><lb/>
+<p>Abgeſehen davon aber, daß ein Erwerb, der notoriſch<lb/>
+trügeriſch iſt, an welchen entſchieden polizeiwidrige Fol¬<lb/>
+gen geknüpft ſind, nicht unbedingten Schutz verdient, iſt<lb/>
+die Gleichgültigkeit gegen den geiſtigen Einfluß dieſer<lb/>
+bettelhaften Schauſpiele auf Bürger und Bauer gewiß<lb/>
+nicht zu rechtfertigen. Es <hi rendition="#g">darf</hi> dem Staate nicht<lb/>
+gleichgültig ſein, wenn dem Volke das menſchliche Leben<lb/>
+in Zerrbildern und in unſinniger Verkehrtheit dargeſtellt<lb/>
+wird. <hi rendition="#g">Gerade den unteren Schichten des<lb/>
+Volkes</hi>, <hi rendition="#g">auf welche der ſinnliche Eindruck<lb/>
+ungemäßigt durch Ueberlegung und Urtheil<lb/>
+wirkt</hi>, <hi rendition="#g">muß im Schauſpiele ein möglichſt rei¬<lb/>
+ner und lehrreicher Spiegel des Lebens ge¬<lb/>
+boten werden</hi>.</p><lb/>
+<p>Iſt es doch in unſern Tagen zur Anerkennung ge¬<lb/>
+kommen: das Volk habe ein Recht, vom Staate Bil¬<lb/>
+dung zu verlangen. Soll ſie ihm nun lediglich auf dem<lb/>
+Wege des Buchſtabens und des Erlernens angeboten, ſoll<lb/>
+ſie ihm nicht auch durch lebendige Kunſteindrücke in's<lb/>
+Gemüth geprägt werden? Und wenn dies nicht überall<lb/>
+in <hi rendition="#g">rechter</hi> Weiſe geſchehen kann, hat der Staat nicht<lb/>
+<pb n="81" facs="#f0087"/>
+die Verpflichtung: das Volk wenigſtens vor <hi rendition="#g">falſchen</hi><lb/>
+Eindrücken zu bewahren?</p><lb/>
+<p>Zudem wäre es eine ſträfliche Inconſequenz, wenn<lb/>
+die Regierung länger zugeben wollte, daß in den Pro¬<lb/>
+vinzen und auf dem Lande gerade das Gegentheil von<lb/>
+dem geſchieht, was ſie mit ſo bedeutenden Geldopfern in<lb/>
+den Hauptſtädten zu bewirken ſucht.</p><lb/>
+<p>Darum muß alſo die Generaldirection des Cultus¬<lb/>
+miniſteriums ihre Hand über das ganze Land hinſtrecken,<lb/>
+der Polizei die Beurtheilung und Entſcheidung der Büh¬<lb/>
+nenangelegenheiten abnehmen, ſie höchſtens zur Voll¬<lb/>
+ſtreckerin ihrer Beſchlüſſe machen.</p><lb/>
+<p> <hi rendition="#g">Alle Comödiantentruppen</hi>, <hi rendition="#g">welche die<lb/>
+Würde der Menſchendarſtellung gerade¬<lb/>
+hin verletzen</hi>, <hi rendition="#g">müſſen ohne Weiteres abge¬<lb/>
+ſchafft werden</hi>. Alle Conceſſionen ſind nach ihrem<lb/>
+Ablauf einzuziehen, nur dem Cultusminiſterium ſtehe es<lb/>
+zu: ſie nach einem neuen Modus zu erneuern.</p><lb/>
+<p>Nun grenze man beſtimmte <hi rendition="#g">Wanderbezirke</hi> ab, welche<lb/>
+vielleicht eine Provinzialhauptſtadt und einige nahe ge¬<lb/>
+legene, oder eine genügende Anzahl von mittleren und<lb/>
+kleinen Städten umfaſſen, und übergebe ein jedes dieſer<lb/>
+Gebiete einem erprobten Direcor, daß er nach Ueberein¬<lb/>
+<fw type="sig" place="bottom">6<lb/>
+</fw>
+<pb n="82" facs="#f0088"/>
+kunft mit den betreffenden Städten ſie nach einer jähr¬<lb/>
+lichen Reihefolge mit ſeiner Truppe beſuche.</p><lb/>
+<p>Man richte dieſe Bezirke nicht zu eng, nicht nach<lb/>
+einer knappen, ſondern nach einer reichlichen Veranſchla¬<lb/>
+gung des Theaterpublikums ein, damit dieſe Geſellſchaf¬<lb/>
+ten anſtändig beſtehen, damit das koſtſpielige Reiſen und<lb/>
+an verſchiedenen Orten Wohnen in unanſtößiger Weiſe<lb/>
+geſchehen könne. Man ſchütze dieſe Truppen gegen jede<lb/>
+Concurrenz — welche jederzeit die Theater nur gegen¬<lb/>
+ſeitig verſchlechtert, niemals verbeſſert hat — man orga¬<lb/>
+niſire ſie nach dem Muſter der Reſidenztheater, mit<lb/>
+angemeſſenem <hi rendition="#g">Stammrepertoir</hi> <note place="foot" n="*)">Wie man den beſſeren dieſer Truppen gewiſſe Vorſtellun¬<lb/>
+gen zu <hi rendition="#g">ge</hi>bieten hätte, ſo müßte man den untergeordneten an¬<lb/>
+dere <hi rendition="#g">ver</hi>bieten, damit ſie nicht, was über ihre Kräfte geht, her¬<lb/>
+abwürdigen.<lb/>
+</note> und grundſätzlichen<lb/>
+Verpflichtungen, mit <hi rendition="#g">Repräſentativverfaſſung</hi>, die<lb/>
+ganz natürlich auch hier zu <hi rendition="#g">Societätsverhältniſſen</hi>,<lb/>
+mit ſelbſtgewählten Führern, ausſchlagen wird, dann wer¬<lb/>
+den dieſe ambulanten Theater ſo in Flor kommen, daß man¬<lb/>
+che Stadt, die jetzt einen Ehrgeiz darein ſetzt, ein ſtabiles<lb/>
+Theater kümmerlich zu erhalten, es vorziehen wird, in<lb/>
+ſolch einen Wanderbezirk zu treten und lieber vier oder<lb/>
+<pb n="83" facs="#f0089"/>
+ſechs Monate <hi rendition="#g">gutes</hi> Theater, als das ganze Jahr über<lb/>
+<choice><sic><hi rendition="#g">ſchechtes</hi></sic><corr><hi rendition="#g">ſchlechtes</hi></corr></choice> zu haben. Denn dieſe reiſenden Geſellſchaf¬<lb/>
+ten werden den großen Vortheil genießen, nur einen kleinen<lb/>
+Kreis von Vorſtellungen zu brauchen, um das Publikum<lb/>
+jeder Stadt eine Zeit lang in regem Antheil zu erhalten.<lb/>
+Dieſe Vorſtellungen können daher ſehr ſorgfältig ſtudirt<lb/>
+ſein und in jeder Stadt neu geſpielt, vor immer neuen<lb/>
+Zuſchauern, immer vollkommener werden. Die Truppen<lb/>
+werden auch, wenn bei ihrer Abweſenheit kein anderes<lb/>
+Schauſpiel ſtattfinden darf, das Publikum immer wieder<lb/>
+voll friſcher Theaterluſt und begierigem Antheil finden.</p><lb/>
+<p>Man ſchelte dieſe durchgreifende und beſchränkende<lb/>
+Einrichtung — welche allerdings ſo viele Intereſſen be¬<lb/>
+rührt, daß ſie, ſowie die geſammte Theaterorganiſation,<lb/>
+durch ein eignes Geſetz von den Landesvertretern adoptirt<lb/>
+werden müßte — nicht eine Beeinträchtigung der Frei¬<lb/>
+heit des Theaterpublikums und der Erwerbthätigkeit.<lb/>
+<hi rendition="#g">Man darf das Theater nicht länger als<lb/>
+eine bloße Vergnügungs- und Induſtrie¬<lb/>
+anſta</hi>l<hi rendition="#g">t betrachten</hi>. Soll es aber eine höhere Cul¬<lb/>
+turbedeutung gewinnen, ſo müſſen die Grenzen ſeiner<lb/>
+Wirkſamkeit, ebenſo wie die der Kirche und Schule, vom<lb/>
+Staate feſtgeſtellt werden.</p><lb/>
+<fw type="sig" place="bottom">6*<lb/>
+</fw>
+<pb n="84" facs="#f0090"/>
+<p>Die Zahl der reiſenden Geſellſchaften wird über die<lb/>
+Hälfte vermindert werden, das iſt ein Glück für die bür¬<lb/>
+gerliche Geſellſchaft und für die Kunſt, denn um ſo eher<lb/>
+wird der Schauſpielerſtand nur aus wirklich Berufenen<lb/>
+beſtehen. Den Bewohnern der Dörfer und kleinen<lb/>
+Städte wird es beſſer ſein, wenn ſie nicht mehr von<lb/>
+Wandertruppen heimgeſucht werden, dagegen ein wohl¬<lb/>
+geordnetes Theater in den Städten finden, ſobald ſie dieſe<lb/>
+zu Jahrmärkten oder feſtlichen Zeiten beſuchen. Die<lb/>
+Mittelſtädte werden nur eine beſtimmte Theaterſaiſon<lb/>
+haben, aber ſie wird ihnen auch etwas bieten, das des<lb/>
+Antheils werth iſt.</p><lb/>
+<p>Man braucht nicht zu beſorgen, daß die Bezirks¬<lb/>
+geſellſchaften, auf die Ausſchließlichkeit des Privilegiums<lb/>
+pochend, ſich vernachläſſigen und das Theaterbedürfniß<lb/>
+ihres Publikums mit Bequemlichkeit ausbeuten werden;<lb/>
+dagegen bürgt die allgemeine Betheiligung der Mitglie¬<lb/>
+der an Ehre und Vortheil der Geſellſchaft und die Ab¬<lb/>
+hängigkeit von der Landesregierung, die, auf eine begrün¬<lb/>
+dete Beſchwerde des Bezirks, der Geſellſchaft das Privi¬<lb/>
+legium nehmen, oder ſie in einen andern Bezirk verſetzen<lb/>
+kann.</p><lb/>
+<pb n="85" facs="#f0091"/>
+<p>Dieſe letzte Maßregel eines Wechſels der Geſellſchaf¬<lb/>
+ten könnte übrigens auch unter anderen Umſtänden an¬<lb/>
+wendbar ſein.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Der Vortheil, der hierin aus der Centraliſation der<lb/>
+Oberleitung ſämmtlicher Landesbühnen entſpringt, wird<lb/>
+ſich noch in einer Menge von anderen Dingen darthun.<lb/>
+In großen Staaten wird die Ausübung des Miniſterial¬<lb/>
+einfluſſes allerdings einer weitläuftigeren Gliederung<lb/>
+bedürfen, in den kleineren dagegen in ungemein abgerun¬<lb/>
+detem Zuſammenhange wirken.</p><lb/>
+<p>So werden z. B. die allgemeinen und einzelnen Ein¬<lb/>
+richtungen, Bearbeitungen von Stücken, Ueberſetzungen,<lb/>
+zur dramatiſchen Handlung gehörige Muſiken, verbeſſerte<lb/>
+Operntexte, Scenirungen u. ſ. w., wenn ſie ſich in der<lb/>
+Reſidenz als zweckmäßig erwieſen haben, ſich ohne erheb¬<lb/>
+liche Koſten den übrigen Landesbühnen mittheilen laſſen;<lb/>
+mithin werden die beſten Talente, welche die Muſterthea¬<lb/>
+ter verſammeln, für die Hebung des geſammten Theater¬<lb/>
+weſens im ganzen Lande arbeiten. Junge Leute, die ſich<lb/>
+bei den untergeordneten Theatern auszeichnen, werden in<lb/>
+<pb n="86" facs="#f0092"/>
+der Unparteilichkeit der, allen Theatern gemeinſamen<lb/>
+Oberbehörde den Weg zu den beſſeren Bühnen unver¬<lb/>
+ſperrter finden, während, bei dem verbeſſerten Zuſtande<lb/>
+der Provinztheater, man künftig ohne Sorge vor Verbil¬<lb/>
+dung, junge Leute, Eleven der Theaterſchule, auf Lehr-<lb/>
+und Uebungsjahre dorthin geben kann.</p><lb/>
+<p>So manches Mitglied der erſten Theater, das unter<lb/>
+den jetzigen Verhältniſſen bei voller, kräftiger Geſundheit<lb/>
+penſionirt wird, — weil es etwa die Stimme verloren hat,<lb/>
+oder dem jugendlichen Fache entwachſen, für ein älteres<lb/>
+gerade kein Talent zeigt — würde als Director eines Pro¬<lb/>
+vinzial-Theaterbezirkes dem Staate noch gute Dienſte lei¬<lb/>
+ſten können. Oder der Halbinvalide eignete ſich für eine<lb/>
+Profeſſur an der Theaterſchule; eine Wirkſamkeit,<lb/>
+welche einem abgetretenen Director auch wohl anſtehen<lb/>
+würde. Oder wenn der für die Bühne Untauglich¬<lb/>
+gewordene von untergeordneten Fähigkeiten iſt, könnte er<lb/>
+ſich auf irgend einem Beamtenpoſten der Bühne noch<lb/>
+nützlich machen. Immer vermöchte ſo die Miniſterialdirec¬<lb/>
+tion, durch ihre umfangreiche Verfügung, dem Staate die<lb/>
+ungebührlich langen Penſionsleiſtungen und den altern¬<lb/>
+den Künſtlern die Schmach eines bezahlten Müßigganges<lb/>
+<pb n="87" facs="#f0093"/>
+zu erſparen, in einem Alter, wo ſie noch arbeiten kön¬<lb/>
+nen<note place="foot" n="*)">Uebereinſtimmende und angemeſſene Anſtalten zur Pen¬<lb/>
+ſionirung der Schauſpieler zu treffen, würde erſt möglich ſein,<lb/>
+wenn die Reorganiſation des ganzen Theaterweſens feſten Fuß<lb/>
+gefaßt hätte. Auch dieſe, ſo überaus wichtige Angelegenheit müßte<lb/>
+nach einem umfaſſenden Plane geordnet werden, auf alle Büh¬<lb/>
+nen des Landes, nach den erweiterten Grundſätzen des preußiſchen<lb/>
+Staatspenſionsfonds ſich erſtrecken, vielleicht, nach Eckhof's altem<lb/>
+Entwurfe, ganz Deutſchland umfaſſen. Für's Erſte wird man<lb/>
+an den beſtehenden Einrichtungen feſthalten müſſen, mit denjeni¬<lb/>
+gen Modificationen, welche an den Reſidenztheatern die Ver¬<lb/>
+wandlung der Theatermitglieder aus Hofdienern in Staatsdie¬<lb/>
+ner nothwendig macht.<lb/>
+</note>.</p><lb/>
+<p>Genügen werden die hier angegebenen Momente, um<lb/>
+den Blick auf den außerordentlichen Gewinn zu lenken,<lb/>
+den das Theater in ſeinen <hi rendition="#g">Mitteln</hi>, durch deren ge¬<lb/>
+ſammelte Verwendung machen wird. Genügen wird die<lb/>
+ganze bisherige Darſtellung, um den unermeßlichen Ge¬<lb/>
+winn darzuthun, den der <hi rendition="#g">Geiſt</hi> und die <hi rendition="#g">Würde</hi> der<lb/>
+deutſchen Bühne von der vorgeſchlagenen Reform ziehen<lb/>
+und dem Volke mittheilen muß.</p><lb/>
+<p>Die Schwierigkeiten der Reorganiſation ſind nicht ſo<lb/>
+groß, als die Umſtändlichkeit dieſer Beſprechung vielleicht<lb/>
+<pb n="88" facs="#f0094"/>
+erſcheinen läßt, denn die Einrichtungen beruhen auf der<lb/>
+Natur der Sache, geſtalten und regeln ſich darum aus<lb/>
+ſich ſelbſt.</p><lb/>
+<p> <hi rendition="#g">In einer freien Entwicklung der künſt¬<lb/>
+leriſchen Kräfte</hi>, <hi rendition="#g">bei gemeinſam berech¬<lb/>
+tigter Betheiligung</hi>, <hi rendition="#g">muß die auf ſich<lb/>
+ſelbſt geſtellte Kunſt werden</hi>, <hi rendition="#g">was ſie wer¬<lb/>
+den kann</hi>: <hi rendition="#g">in ihrer Wirkung auf das<lb/>
+Volk</hi>, <hi rendition="#g">vom Geiſte deſſelben</hi> — <hi rendition="#g">der ſich in<lb/>
+der Staatsregierung auszuſprechen hat</hi><lb/>
+— <hi rendition="#g">geleitet</hi>, <hi rendition="#g">wird ſie dem Volke leiſten</hi>,<lb/>
+<hi rendition="#g">was ſie ihm leiſten kann</hi>.</p><lb/>
+<p>Dies ſind die Bedingungen eines wahrhaften Natio¬<lb/>
+tionaltheaters. Uebereinſtimmend, wie in Kirche und<lb/>
+Schule, müſſen die Kräfte und Mittel der Nation dazu<lb/>
+wirken; <hi rendition="#g">nur die organiſch verbundenen Lan¬<lb/>
+desbühnen erſchaffen ein Nationaltheater</hi>.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Zum Schluß noch einen Blick auf ein Moment dieſes<lb/>
+Reformvorſchlages, das in rein menſchlicher Beziehung<lb/>
+<pb n="89" facs="#f0095"/>
+allein ſchon volle Beherzigung verdient: es iſt <hi rendition="#g">die Wir¬<lb/>
+kung auf den Schauſpielerſtand</hi>.</p><lb/>
+<p>Allen Plänen, die Schaubühne auf eine höhere Stufe<lb/>
+zu heben, pflegt man den Einwurf entgegenzuhalten: ſie<lb/>
+müßten an der unabänderlichen Beſchaffenheit des Schau¬<lb/>
+ſpielerſtandes ſcheitern.</p><lb/>
+<p>Wäre es wahr, daß die allerdings ſtarken und man¬<lb/>
+nichfachen Verſuchungen dieſes Standes unüberwindlich<lb/>
+wären, ſo hätte der Staat die Pflicht, denſelben aufzu¬<lb/>
+heben und nach Plato's und Rouſſeau's Rath das Theater<lb/>
+aus ſeinem Bereiche zu verbannen.</p><lb/>
+<p>Aber es iſt nicht ſo. Die Kunſtgeſchichte zeigt uns<lb/>
+unter den Schauſpielern wahre Muſter an ſittlicher<lb/>
+Würde und Charaktergröße. Waren dieſe möglich, ſo<lb/>
+muß auch die Hebung des ganzen Standes möglich ſein<lb/>
+und es hat bisher nur an den Bedingungen dazu ge¬<lb/>
+fehlt.</p><lb/>
+<p>Was hat der Staat, was hat die bürgerliche Geſell¬<lb/>
+ſchaft zur Bildung und Verſittlichung des Standes ge¬<lb/>
+than? Nichts! Ja ſchlimmer als das, man hat Alles<lb/>
+gethan ihn in verderblicher Stellung zu erhalten.</p><lb/>
+<p>Das erſte Erforderniß zur Hebung eines Standes:<lb/>
+<hi rendition="#g">Bildung</hi>, der Staat hat ihm bis auf den heutigen<lb/>
+<pb n="90" facs="#f0096"/>
+Tag die <hi rendition="#g">Gelegenheit</hi> und damit auch die <hi rendition="#g">Nöthi¬<lb/>
+gung</hi> dazu verſagt. <hi rendition="#g">Der Schauſpieler iſt der<lb/>
+einzige Staatsbürger</hi>, <hi rendition="#g">dem keine Fachbil¬<lb/>
+dung geboten</hi>, <hi rendition="#g">dem auch keine abgefordert<lb/>
+wird</hi>. Darf man ſich wundern, daß er ſie nicht beſitzt?</p><lb/>
+<p>Unſittlichkeiten unter den Theatermitgliedern — ob¬<lb/>
+ſchon ſie verhältnißmäßig kaum häufiger vorkommen, als<lb/>
+in andern Ständen, nur bei der Oeffentlichkeit ihrer<lb/>
+Stellung auffallender ſind — entfernen noch immer die<lb/>
+gute Geſellſchaft von dem ganzen Stande, und Einzelne<lb/>
+finden nur <hi rendition="#g">trotz</hi> ihres Standes Zutritt. Aber um dem¬<lb/>
+ſelben eine ſittlichere Haltung aufzunöthigen, was hat<lb/>
+denn der Staat, was die Geſellſchaft gethan? Wür¬<lb/>
+den wohl andere öffentliche Stände: Geiſtliche, Richter<lb/>
+u. ſ. w. ein im Allgemeinen ſittliches Verhalten zeigen,<lb/>
+wenn es ihnen nicht ſtreng abgefordert, wenn der einzelne<lb/>
+Beſcholtene nicht, als des Standes unwürdig, ausgeſtoßen<lb/>
+würde? Alle bürgerlichen Tugenden haben ihre Grund¬<lb/>
+lage im Zwange des Geſetzes und der Sitte.</p><lb/>
+<p>Dem Schauſpieler aber macht die irregeleitete öffent¬<lb/>
+liche Meinung Unſittlichkeit beinahe zur Bedingung künſt¬<lb/>
+leriſcher Anerkennung; man läßt es ihn merken: einige<lb/>
+Flecken Schande ſtänden ihm gut zu Geſicht. Man<lb/>
+<pb n="91" facs="#f0097"/>
+nimmt dem Schauſpieler nichts übel, aber man verachtet<lb/>
+ihn. Das Spiel der Leidenſchaften im Privatleben des<lb/>
+Künſtlers ſieht man als in nothwendiger Beziehung zu<lb/>
+dem auf der Bühne ſtehend an, läßt ſeine entfeſſelten<lb/>
+Neigungen als eine Würze der Kunſtproduction gelten.<lb/>
+Sogar die erſten Grundbedingungen des rechtlichen Ver¬<lb/>
+trauens legt man ihm nur locker auf, er gilt als ein pri¬<lb/>
+vilegirter Freibeuter im bürgerlichen Leben. Ein con¬<lb/>
+traktbrüchiger, durchgegangener Bühnenkünſtler findet<lb/>
+ſelbſt an Hoftheatern bereite Aufnahme.</p><lb/>
+<p>Darf man ſich wundern, daß in dieſer Stellung<lb/>
+manche Theatermitglieder es mit ſittlichen Verpflichtungen<lb/>
+nicht genau nehmen?</p><lb/>
+<p>Darf man die allerdings tief eingeriſſene Selbſtſucht,<lb/>
+— aus der in der Kunſtübung das vereinzelte Virtuoſen¬<lb/>
+ſpiel und die verderbliche Effectjägerei entſpringen —<lb/>
+dem Künſtler ſo unbedingt zum Vorwurf machen, wenn<lb/>
+er behaupten darf, daß die jetzigen Bühnenzuſtände ihm,<lb/>
+von allen Antrieben für ſeine Kunſt, nur den Egoismus<lb/>
+übrig gelaſſen? Daß er ſich als ein Miethling fühle,<lb/>
+entweder gewinnſüchtiger Unternehmer oder kunſtfremder<lb/>
+Behörden, die für ſeine Leiſtungen keinen andern Maß¬<lb/>
+ſtab als den Beifall der Maſſen und der Journale haben,<lb/>
+<pb n="92" facs="#f0098"/>
+der denn alſo um jeden Preis errungen werden müſſe,<lb/>
+wenn man ſich eine Stellung ſichern wolle.</p><lb/>
+<p> <hi rendition="#g">Sobald das Theater zur Staatsanſtalt er¬<lb/>
+hoben iſt</hi>, <hi rendition="#g">werden die Forderungen an die<lb/>
+Künſtler ſtrenger</hi>, <hi rendition="#g">die Achtung für ſie aber<lb/>
+darum auch größer werden</hi>. Verletzungen der<lb/>
+öffentlichen Moral werden keine Bemäntelung mehr fin¬<lb/>
+den, der Stand wird an ſittlicher Haltung gewinnen.<lb/>
+Er wird für ſeinen Beruf gebildet und geprüft wer¬<lb/>
+den, wie das in andern Künſten der Fall iſt. Die<lb/>
+Anerkennung ſeiner Bedeutung und ſeines Nutzens im<lb/>
+Staate wird ihm geſellſchaftliche Achtung verſchaffen,<lb/>
+er wird ſich immer mehr aus den gebildeten Schichten der<lb/>
+Geſellſchaft recrutiren. Seine gemeinweſenliche Verfaſſung<lb/>
+wird die Elemente feinerer Bildung mit der Kraft natur¬<lb/>
+wüchſigen Talentes unausgeſetzt durchdringen, eine edle<lb/>
+künſtleriſche Geſinnung ſich geltend machen können.</p><lb/>
+<p> <hi rendition="#g">Darum iſt es menſchlich und gerecht</hi>, <hi rendition="#g">wenn<lb/>
+man dem Schauſpieler endlich eine Verfaſſung<lb/>
+zugeſteht</hi>, <hi rendition="#g">die ſeine Selbſtändigkeit anerkennt</hi>,<lb/>
+<hi rendition="#g">ihm Bildung und höhere Geſittung garantirt</hi>;<lb/>
+den Anſpruch daran erhebe ich im Intereſſe meines Stan¬<lb/>
+des mit dieſen Reformvorſchlägen. <hi rendition="#g">Wir haben ein</hi><lb/>
+<pb n="93" facs="#f0099"/>
+Recht: <hi rendition="#g">endliche Gleichſtellung mit den übrigen<lb/>
+Ständen zu verlangen</hi>, <hi rendition="#g">Gleichſtellung in Unter¬<lb/>
+richt und moraliſcher Verpflichtung</hi>. Wir ſind die<lb/>
+einzigen davon Ausgeſchloſſenen, wir ſind die Parias un¬<lb/>
+ter den Ständen. Willig ſind wir zu leiſten, was man<lb/>
+von uns fordern kann, aber wir können es nicht, wenn<lb/>
+man es nicht fordern, wenn man die Leiſtung nicht er¬<lb/>
+möglichen will. Erſt wenn Alles geſchehen iſt, wie bis¬<lb/>
+her Nichts geſchehen iſt, unſern Stand zu heben und er<lb/>
+ſich unfähig dazu erwieſen, erſt wenn man ihm höhere<lb/>
+Zwecke gegeben und er ihnen nicht entſprochen — dann<lb/>
+mag man ihn verwerfen, aber erſt dann. Jetzt hat die<lb/>
+Geſellſchaft kein Recht dazu, ſie hat verſchuldet, was ſie<lb/>
+uns vorwirft.</p><lb/>
+<p>Ueber dieſe höhere Lebensfrage unſeres Standes wird<lb/>
+zugleich mit der über die deutſche Bühne entſchieden<lb/>
+werden.</p><lb/>
+<p>Der bisherige Zuſtand hat keine Dauer mehr. Das<lb/>
+deutſche Volk, an ſeiner Spitze ſeine Fürſten, muß ſich<lb/>
+erklären, was es von ſeiner Schaubühne will?</p><lb/>
+<p>Soll ſie ihm nur zum Vergnügungsort, zur Zuflucht<lb/>
+des Zeitvertreibes, zur Reunion der feinen Welt, zur<lb/>
+Gelegenheit: Toilette zu machen und ſich Rendezvous zu<lb/>
+<pb n="94" facs="#f0100"/>
+geben, daneben zur Befriedigung der Schauluſt oder des<lb/>
+Bedürfniſſes der Erſchütterung durch Lachen oder Weinen<lb/>
+dienen — wozu dann die enormen Summen, welche aus<lb/>
+Landesmitteln zu Gunſten ſo frivoler Anſtalten flie¬<lb/>
+ßen? Dann mögen diejenigen das Vergnügen bezahlen,<lb/>
+die es genießen, man ziehe alle Subventionen zurück,<lb/>
+verpachte die Theater und laſſe den Unfug auf der Bahn<lb/>
+induſtrieller Speculation dahinſchießen. Die engliſche<lb/>
+Bühne zeigt: wohin ſie führt; die franzöſiſche wird vor<lb/>
+ihren Gefahren bis jetzt nur noch durch den angeborenen<lb/>
+richtigen Sinn ihres Volkes für die dramatiſche Kunſt<lb/>
+bewahrt. Gewiß iſt, daß auf dieſem Wege keine Bühne<lb/>
+zur <hi rendition="#g">Veredlung</hi> des Volkes wirken, ja daß ſie vom<lb/>
+Strome der Vergnügungsluſt ſo weit fortgeriſſen werden<lb/>
+kann, daß ihre Exiſtenz für die öffentliche Moral bedenk¬<lb/>
+lich wird.</p><lb/>
+<p>Soll aber dem deutſchen Volke ſein Nationaltheater<lb/>
+ſein, was die Folgerichtigkeit ſeines geiſtigen und ſittli¬<lb/>
+chen Bildungsſtrebens fordert, ſoll es ihm ein Spiegel<lb/>
+des Lebens, eine Stätte der Selbſterkenntniß, ein heiterer<lb/>
+Tempel der Begeiſterung für Schönes, Edles und Erha¬<lb/>
+benes ſein, ſo müſſen ihm auch ernſter Wille und volle<lb/>
+Mittel dafür zugewendet werden. <hi rendition="#g">Ein ächtes Natio¬<lb/>
+<pb n="95" facs="#f0101"/>
+naltheater wird die Erwartungen der Na¬<lb/>
+tion niemals täuſchen</hi>.</p><lb/>
+<p>Mögen zu der alsdann nothwendig werdenden durch¬<lb/>
+greifenden Umgeſtaltung des heutigen Theaterweſens<lb/>
+meine Anſichten und Vorſchläge behülflich ſein, ſie ſind<lb/>
+ein Ergebniß dreißigjähriger Erfahrung in allen Zweigen<lb/>
+der Dramatik und einer unzerſtörbaren Ueberzeugung von<lb/>
+der erhabenen Beſtimmung des Theaters.</p><lb/>
+<p><hi rendition="#g">Dresden</hi> im December <hi rendition="#b">1848</hi>.</p><lb/>
+<p rendition="#c"><hi rendition="#g">Eduard Devrient.</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb facs="#f0102"/>
+</body> <back> <div type="imprint"> <p rendition="#c">Druck von <hi rendition="#g">Otto Wigand</hi> in Leipzig.</p><lb/>
+</div>
+<pb facs="#f0103"/>
+<pb facs="#f0104"/>
+<pb facs="#f0105"/>
+</back> </text> </TEI>

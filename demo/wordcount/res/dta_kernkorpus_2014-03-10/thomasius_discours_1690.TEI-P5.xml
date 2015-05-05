@@ -1,0 +1,1378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Christian Thomas eröffnet Der Studirenden Jugend zu Leipzig in einem Discours Welcher Gestalt man denen Frantzosen im gemeinen Leben und Wandel nachahmen solle?</title>
+<author>
+<persName ref="http://d-nb.info/gnd/11862220X">
+<surname>Thomasius</surname>
+<forename>Christian</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">44</measure>
+<measure type="tokens">10157</measure>
+<measure type="types">3088</measure>
+<measure type="characters">71736</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:43:24Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/thomasius_discours_1690</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/thomasius_discours_1690</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/thomasius_discours_1690</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/thomasius_discours_1690</idno>
+<idno type="DTADirName">thomasius_discours_1690</idno>
+<idno type="DTAID">20606</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905198084</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Thomasius, Christian: Discours Welcher Gestalt man denen Frantzosen im gemeinen Leben und Wandel nachahmen solle. [Leipzig, 1690].</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Christian Thomas eröffnet Der Studirenden Jugend zu Leipzig in einem Discours Welcher Gestalt man denen Frantzosen im gemeinen Leben und Wandel nachahmen solle?</title>
+<author>
+<persName ref="http://d-nb.info/gnd/11862220X">
+<surname>Thomasius</surname>
+<forename>Christian</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">38 S., [1] Bl.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Weidmann</name></publisher>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1690</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SLUB Dresden</repository>
+<idno>
+<idno type="shelfmark">SLUB Dresden, Hist.univ.B.232,misc.27</idno>
+<idno type="URLCatalogue">URL: http://slubdd.de/katalog?TN_libero_mab21130502</idno>
+<idno type="URLCatalogue">http://katalog.slub-dresden.de/primo_library/libweb/action/search.do?dscnt=0&amp;vl(174636822UI0)=lsr04&amp;scp.scps=SemanticThirdNode&amp;frbg=&amp;tab=default_tab&amp;srt=rank&amp;ct=search&amp;mode=Basic&amp;dum=true&amp;avgl-search-only-in=search_lsr01&amp;indx=1&amp;tb=t&amp;vl(freeText0)=Hist.univ.B.232%2Cmisc.27&amp;vid=SEM&amp;fn=search</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Anstandsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Anstandsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb n="[1]" facs="#f0003"/>
+<front> <titlePage type="main"> <byline> <docAuthor> <hi rendition="#in">C</hi>hriſtian <hi rendition="#in">T</hi>homas<lb/>
+</docAuthor> eroͤffnet<lb/>
+</byline> <docTitle> <titlePart type="main"> Der<lb/>
+<hi rendition="#in">S</hi>tudirenden <hi rendition="#in">J</hi>ugend<lb/>
+zu <hi rendition="#in">L</hi>eipzig<lb/>
+in einem <hi rendition="#aq">Diſcours</hi><lb/>
+<hi rendition="#in">W</hi>elcher <hi rendition="#in">G</hi>eſtalt man denen <hi rendition="#in">F</hi>rantzo-<lb/>
+ſen in gemeinem Leben und Wandel nach-<lb/>
+ahmen ſolle?<lb/>
+</titlePart> </docTitle> <titlePart type="desc"> ein <hi rendition="#aq">COLLEGIUM</hi><lb/>
+uͤber des <hi rendition="#aq">GRATIANS</hi><lb/>
+<hi rendition="#in">G</hi>rund-<hi rendition="#in">R</hi>eguln/<lb/>
+Vernuͤnfftig/ klug und artig zu leben.<lb/>
+</titlePart> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> zufinden<lb/>
+<publisher>bey Moritz George Weidemannen</publisher>.<lb/>
+</docImprint> </titlePage>
+<pb n="[2]" facs="#f0004"/>
+<div><cit><quote><hi rendition="#c"><hi rendition="#aq">Gracien Maxim.</hi> 67.</hi><lb/>
+<hi rendition="#aq"><hi rendition="#in">D</hi>Ansles fonctións de l’ es prit, le plauſible a toujours<lb/>
+trionfé. Un diſcours poli &amp; coulant chatouïlle les oreilles, &amp;<lb/>
+charme l’ entendement: au contraire la ſeichereſſe d’ une ex-<lb/>
+preſſion metaphyfique choque ou laſſe les auditeurs. Ilya des em-<lb/>
+ploy, dont le principal exercice conſiſte à choiſir, &amp; ou la dependan-<lb/>
+ce eſt plus grande, quæ la direction: comme ſont tous ceux, qui ont<lb/>
+pour but d’ enſeigner &amp; de plaire. Que l’ Orateur prefére donc les<lb/>
+argumens les plus plauſibles; que l’ Hiſtorien entrem êle l’ utile &amp; l’<lb/>
+agreable, &amp; le Filoſofe le ſpecieux &amp; le ſententieux. Qv’ ils s’ étu-<lb/>
+dient tous à rencontrer le gout univerſel d’ autrui, qvi eſt la vraie<lb/>
+methode de choiſir. Car il en eſt comme d’ un feſtin, ou les vian des<lb/>
+ne s’ aprétent pas du gout des cuiſiners, mais à celvy des conviez.<lb/>
+Qv’ importe que les choſes ſoient fort au gout de l’ Orateur, ſi elles<lb/>
+ne ſont pas à celvy des auditeurs, pour qui elles ſont aprêtées?<lb/>
+Nam cœnæ fercula noſtræ, dit Martial, Malim convivis, quam<lb/>
+placuiſſe cocis.</hi></quote><bibl/></cit></div></front><body><lb/>
+<pb n="3" facs="#f0005"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Meine Herren</hi></head><lb/>
+<p><hi rendition="#in">E</hi>S iſt kein Zweiffel/ und ſchon von<lb/>
+vielen angemercket worden/ daß wenn un-<lb/>
+ſere Vorfahren die alten Teutſchen anitzo<lb/>
+auferſtehen und in Teutſchland kommen<lb/>
+ſolten/ ihnen im geringſten nicht duͤncken<lb/>
+wuͤrde/ daß ſie in ihren Vaterlande und bey<lb/>
+ihren Landsleuten waͤren/ ſondern ſie wuͤr-<lb/>
+den ſich vielmehr einbilden/ daß ſie in einem<lb/>
+frembden Lande bey unbekanten und gantz andern Menſchen ſich<lb/>
+auf hielten; ſo groſſe Enderungen ſind/ ich will nicht ſagen/ in<lb/>
+tauſend/ ſondern nur in etlichen hundert Jahren darinnen fuͤrge-<lb/>
+gangen/ unter welchen nicht die geringſte iſt/ daß da fuͤr dieſem die<lb/>
+Frantzoſen bey denen Teutſchen in keine ſonderliche Hochachtung<lb/>
+kom̄en/ heut zu Tage alles bey uns Frantzoͤſiſch ſeyn muß. Fran-<lb/>
+tzoͤſiſche Kleider/ Frantzoͤſiſche Speiſen/ Frantzoͤſiſcher Haußrath/<lb/>
+Frantzoͤſiſche Sprachen/ Frantzoͤſiſche Sitten/ Frantzoͤſiſche<lb/>
+Suͤnden ja gar Frantzoͤſiſche Kranckheiten ſind durchgehends im<lb/>
+Schwange. Solten wir uns nun nicht billig ſchaͤmen (ſo wir ja<lb/>
+nichts anders bedencken wolten) daß wenn unſere Vorfahren ei-<lb/>
+nen Blick in die ietzige Welt thun ſolten/ ſie an ſtatt ihres gleichen<lb/>
+in Teutſchland anzutreffen daſſelbige mit teutſchen Frantz-Maͤn-<lb/>
+nern beſetzet finden wuͤrden/ welche von denen uralten Gebraͤu-<lb/>
+then ſo gar abgewichen ſind/ daß von ſelbigen faſt nicht das ge-<lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">ringſte</fw><lb/>
+<pb n="4" facs="#f0006"/>
+ringſte mehr/ welches uns von den vorigen eine Anzeigung geben<lb/>
+koͤnte/ uͤbrig blieben; ich meine ja ſie wuͤrden uns als unechte Kir-<lb/>
+der und Baſtardte anſpeyen/ und uns eher mit unſern Frantzoͤſi-<lb/>
+ſchen Baͤrtgen fuͤr feige und weibiſche Memmen als anſehnliche<lb/>
+wackere Maͤnner achten; ich meine ſie wuͤrden uns entweder ei-<lb/>
+nen derben und nachdruͤcklichen Verweiß geben; oder aber uns<lb/>
+nicht einmahl ihres Zorns wuͤrdig achtende mit einen bittern Ge-<lb/>
+laͤchter von ſich ſtoſſen.</p><lb/>
+<p>Auff dieſe Weiſe pflegt man oͤffters von unſerer heutigen Le-<lb/>
+bens-Art und Wandel zu urtheilen; aber meines Beduͤnckens/<lb/>
+wenn man keine andere Urſachen wieder dieſelbige fuͤrbringen<lb/>
+kan/ moͤchte man wohl mit dieſen in Ruhe ſtehen/ und die guten<lb/>
+alten Teutſchen in ihren Graͤbern ebenmaͤßig ruhen laſſen. Es<lb/>
+iſt von Anfang der Welt in denen meiſten <hi rendition="#aq">Republiqven</hi> ſo her-<lb/>
+gegangen/ daß die Sitten und <hi rendition="#aq">Manier</hi>en zuleben ſich hin und<lb/>
+wieder veraͤndert haben; eines einzelen Menſchen Wille iſt ver-<lb/>
+aͤnderlich/ wie ſolten denn ſo viele Menſchen/ aus welchen das ge-<lb/>
+meine Weſen beſtehet ſtets waͤhrend einerley Lebens-Art behal-<lb/>
+ten? Aenderungen ſind wohl ins gemein gefaͤhrlich/ aber des-<lb/>
+wegen nicht allemahl zuverwerffen/ weil man auch daß gute ſelten<lb/>
+ohne Gefahr erhalten kan. Dannenhero iſt ungereimbt/ wenn<lb/>
+man ein geaͤndertes Leben bloß wegen der Aenderung tadeln will<lb/>
+ohne zuſehen ob man das Gute mit boͤſen/ oder dieſes mit jenem<lb/>
+verwechſelt habe. Die alten Teutſchen waren wegen eines und<lb/>
+andern billig fuͤr uns zuloben; aber wer wolte leugnen/ daß wir<lb/>
+nicht auch in vielen Stucken einen mercklichen Vortheil fuͤr ih-<lb/>
+nen auffzuweiſen haͤtten? Solte nun ein Teutſcher von der Gat-<lb/>
+tung wie ſie uns <hi rendition="#aq">Tacitus</hi> beſchreibet/ oder <hi rendition="#aq">Dieterich</hi> von Verne<lb/>
+der <hi rendition="#fr">edle Held elende</hi> (wie ihn das ſo genante Helden-<hi rendition="#fr">Buch</hi> zum<lb/>
+oͤfftern betittelt) uns unſere Gebraͤuche durchhecheln wollen; ſo<lb/>
+halte ich gaͤntzlich dafuͤr/ daß ihnen aͤngſter werden ſolte/ als dem<lb/>
+<fw type="catch" place="bottom">alten</fw><lb/>
+<pb n="5" facs="#f0007"/>
+alten Hildebrand geweſen/ da ihn der Rieſe bey ſeinem Bart er-<lb/>
+wuͤſchte und uͤber die Achſeln ſchleuderte. Meine Herrn/<lb/>
+wenn ſie etwan teutſche Buͤcher/ ſo fuͤr ein baar hundert Jahren<lb/>
+geſchrieben worden/ geleſ<supplied>e</supplied>n/ und dabey die herrlichen Holtzſchnit-<lb/>
+te bemercket haben; ſo ſtellen ſie ſich nur fuͤr/ wenn einer der auff<lb/>
+dieſelbe altvaͤteriſche Art gekleidet waͤre/ und den damahlen ge-<lb/>
+braͤuchlichen deutſchen <hi rendition="#aq">dialectum</hi> (z. e. <hi rendition="#fr">Es was ein Jung-<lb/>
+mann/ der was ein groß hoffierer der Maydt ꝛc.</hi>) redete/<lb/>
+und ſich mit denen zu ſeiner Zeit gewoͤhnlichen Complimenten und<lb/>
+Reverentzen nichts geringes zu ſeyn duͤncken lieſſe/ uns itzo <hi rendition="#aq">refor-<lb/>
+miren</hi> wolte/ oder wenn <hi rendition="#aq">M. Ortuinus Gratius</hi> und <hi rendition="#aq">M. Jrus<lb/>
+Perlirus</hi> die großen Fackeln jener Zeit eine <hi rendition="#aq">Viſitation</hi> auff un-<lb/>
+ſern hohen Schulen anſtellen wolten; wer wuͤrde wohl ſo dann<lb/>
+fuͤr der gantzen erbarn Welt auslachens wuͤrdig ſeyn? So halte<lb/>
+ich auch gaͤntzlich dafuͤr/ daß die Nachahmung derer Frantzoſen fuͤr<lb/>
+ſich ſelbſt an uns ohne ſonderbahre Urſache geſcholten werden koͤn-<lb/>
+ne. Eine Nachahmung iſt allezeit lobens wuͤrdig/ wenn die<lb/>
+Sache ſelbſt nichts ſcheltwürdiges an ſich hat/ in Mitteldingen<lb/>
+verdienet ſelbige weder Lob noch Tadel. Bey dieſer Bewand-<lb/>
+nuͤß nun/ gleich wie es mit denen Frantzoͤſichen Suͤnden und<lb/>
+Kranckheiten ſeine geweiſete Wege hat/ und kein Menſch ſolche<lb/>
+vertheidigen wird; auch beyde nicht fuͤr uns/ ſondern jene fuͤr<lb/>
+die Herrn <hi rendition="#aq">Theologos</hi> gehoͤren/ dieſe aber denen Herren <hi rendition="#aq">Me-<lb/>
+dicis</hi> zu <hi rendition="#aq">curiren</hi> gelaſſen werden muͤſſen; alſo ſind die Fran-<lb/>
+tzoͤſiſchen Kleider/ Speiſen/ Haußrath/ Sprachen und Sitten<lb/>
+ſolche Dinge/ welche wenn ſie von Hoffarth/ Uppigkeit Uberfluß/<lb/>
+naͤrriſcher <hi rendition="#aq">Affectation</hi> und andern Laſtern entfernt ſeyn/ mit<lb/>
+nichten als denen Goͤttlichen Geſetzen zu wieder ausgeruffen wer-<lb/>
+den koͤnnen; zum wenigſten wuͤrde es mir und meines gleichen<lb/>
+als ein unzeitiger Eyfer ausgedeutet werden/ wenn ich meine<lb/>
+Herren von dem Frantzoͤſichen Sprachmeiſter an des <hi rendition="#aq">Schottelii</hi><lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">teutſche</fw><lb/>
+<pb n="6" facs="#f0008"/>
+teutſche Sprachen Schul/ von dem Dantzmeiſter auff die Kir-<lb/>
+meſſen/ von unſern Mode Schneidern an einen Dorffſtoͤrer/ oder<lb/>
+von denen Koͤchen/ ſo die Speiſen wohl zuzurichten wiſſen auff die<lb/>
+altvaͤteriſchen Sudelkoͤche/ die einen guten Hirſenbrey mit Biere<lb/>
+und dergleichen Leckerbißlein aus denen alten Kochbuͤchern anrich-<lb/>
+ten koͤnnen/ verweiſen wolte. Ein weiſer Mann ſo in der Welt le-<lb/>
+ben muß/ muß nicht allein das jenige/ ſo nicht zu aͤndern iſt/ ohne<lb/>
+murren mit Gedult ertragen/ ſondern auch vielm ahlen was gutes<lb/>
+zuſtifften und andere zugewinnen allen allerley werden/ oder doch<lb/>
+meiſtens auch das jenige/ was leichtlich mißbraucht werden kan/<lb/>
+ſich wiſſen zu nutze zu machen und zum beſten zukehren.</p><lb/>
+<p>Derowegen ſey es ſo/ man ahme denen Frantzoſen nach/ denn<lb/>
+ſie ſind doch heut zu tage die geſchickteſten Leute/ und wiſſen al-<lb/>
+len Sachen ein recht Leben zugeben. Sie verfertigen die Klei-<lb/>
+der wohl und beqvem/ und erſinnen ſolche artige Moden/ die nicht<lb/>
+nur das Auge beluſtigen/ ſondern mit der Jahrszeit wohl uͤberein-<lb/>
+kommen. Sie wiſſen die Speiſen ſo gut zu <hi rendition="#aq">præpari</hi>ren/ daß ſo<lb/>
+wohl der Geſchmack als der Magen vergnuͤget wird. Jhr<lb/>
+Haußrath iſt reimlich und <hi rendition="#aq">propre,</hi> ihre Sprache anmuthig und<lb/>
+liebreitzend/ und ihre ohnerzwungene ehrerbietige Freyheit iſt ge-<lb/>
+ſchickter ſich in die Gemüther der Menſchen einzuſchleichen als<lb/>
+eine <hi rendition="#aq">affectirte</hi> bauerſtoltze <hi rendition="#aq">gravi</hi>taͤt. Nichts deſto weniger iſt<lb/>
+auch nicht zu leugnen/ daß wenn man iemand/ der hochgeachtet<lb/>
+wird/ nachahmen will/ man ſich in Kleinigkeiteu/ welche nichts zur<lb/>
+Sache thun/ nicht vertieffen muß/ ſondern das Hauptwerck er-<lb/>
+gruͤnden/ durch welches ſich derjenige/ ſo nachgeahmet wird/ ſeine<lb/>
+Hochachtung erworben. Maͤnniglich lacht <hi rendition="#aq">Baſſianum</hi> aus/<lb/>
+daß er mit aller Gewalt <hi rendition="#aq">Alexander</hi> den groſſen nachaͤffen wol-<lb/>
+len/ ſo gar daß er den Kopff auff eine Seite zutragen ſich ange-<lb/>
+wehnet/ und des ehrlichen <hi rendition="#aq">Ariſtotelis</hi> Buͤcher mit groſſen Leyd-<lb/>
+weſen derer Herren <hi rendition="#aq">Peripateticorum</hi> verbrennen laſſen/ weil<lb/>
+<fw type="catch" place="bottom">man</fw><lb/>
+<pb n="7" facs="#f0009"/>
+man ihn berichtet/ ob waͤre <hi rendition="#aq">Ariſtoteles</hi> mit urſach geweſen/ daß<lb/>
+dem <hi rendition="#aq"><hi rendition="#k">a</hi>lexander</hi> mit Gifft vergeben worden; da er doch im uͤbri-<lb/>
+gen nicht die geringſte <hi rendition="#aq">qvali</hi>taͤt/ krafft welcher <hi rendition="#aq">Alexander</hi> ſich<lb/>
+den Namen des Großen verdienet/ an ſich gehabt. Jch weiß<lb/>
+nicht/ Meine Herrn/ ob es uns nicht auch ſo gehe. Denn wie<lb/>
+kommts doch/ daß wan von uns Teutſchen iemand in Franck-<lb/>
+reich reiſet/ ohnerachtet er <hi rendition="#aq">propre</hi> gekleidet iſt/ und ſehr geſchickt<lb/>
+von einen Frantzoͤſiſchen Braten oder <hi rendition="#aq">fricaſſée raiſonniren</hi><lb/>
+kan/ auch <hi rendition="#aq">perfect parliret</hi> und ſeinen Reverentz ſo gut als ein<lb/>
+leibhafftiger Frantzoß zumachen weiß/ er dennoch gemeiniglich<lb/>
+als ein eiufaͤltiges Schaff ausgelachet wird/ da hingegen die<lb/>
+Frantzoſen/ ſo zu uns herauſſer kommen durchgehends Liebe und<lb/>
+Verwunderung an ſich ziehen? Es kan nicht fehlen/ wir muͤſſen<lb/>
+mit unſerer Nachahnung das rechte pfloͤckgen nicht getroffen ha-<lb/>
+ben/ und iſt dannenhero hoch noͤthig/ wenn wir ihnen hinter die<lb/>
+Kuͤnſte kommen wollen/ wodurch ſie alle Welt ihnen Ehrerbie-<lb/>
+tung zu bezeigen anlocken/ daß wir der Sachen ein wenig reiffer<lb/>
+nachdencken/ ob wir den wahren Hauptzweck erreichen koͤnnen.</p><lb/>
+<p>Wie ſolten wir aber denſelben beſſer erlangen/ als wenn wir<lb/>
+das jenige etwas genauer uͤberlegen/ welches die Frantzoſen un-<lb/>
+ter ſich in hohen Werth halten/ und derohalben die jenigen ſo da-<lb/>
+mit begabt ſind andern fuͤrziehen. Sie machen viel weſens<lb/>
+<hi rendition="#aq">d’ un honnéte homme, d’ un homme ſcavant, d’ un<lb/>
+bel esprit, d’ un homme de bon gouſt, &amp; d’ un homme<lb/>
+galant,</hi> welches alles ſolche Eigenſchafften ſind/ ſo wohl verdie-<lb/>
+nen/ daß man ſie nicht obenhin anſehe/ noch vermeine/ daß man es<lb/>
+trefflich erfunden habe/ wenn man nach uuſerer Redens-Art ſa-<lb/>
+gen wolte/ ſie erfoderten zu einem geſchickten Menſchen/ daß er<lb/>
+ein <hi rendition="#fr">chrlicher/ gelehrter/ verſtaͤndiger/ kiuger und artiger<lb/>
+Kopff ſey/</hi> in anſehen die Frantzoſen ſelbſt dieſe Titel nicht alle-<lb/>
+mahl auff gleiche Art gebrauchen. Zwar ſo viel <hi rendition="#aq">un honnéte</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">homme</hi></fw><lb/>
+<pb n="8" facs="#f0010"/>
+<hi rendition="#aq">homme</hi> betrifft; halte ich wohl dafuͤr/ daß ſie gemeiniglich einen<lb/>
+chrlichen und gerechten Mann dadurch verſtehen/ der niemand<lb/>
+mit Vorſatz beleidiget oder vervortheilet/ ſeyn gegebenes Wort<lb/>
+genau beobachtet/ denen duͤrfftigen/ ſo ſeine Huͤlffe von noͤthen<lb/>
+haben/ willig und gerne beyſpringe/ auch von ſeinen Guthaten<lb/>
+nicht viel Weſens machet/ noch dieſelbe wieder vorruͤcket <hi rendition="#aq">&amp;c.</hi><lb/>
+und wird ohne Zweiffel des <hi rendition="#aq">Farets Tractät</hi>gen/ welches er <hi rendition="#aq">d’un<lb/>
+honnête homme</hi> geſchrieben dieſes alles weiter erlaͤutern; wie<lb/>
+wohl jener Frantzoſe meinte/ dieſes waͤre ein <hi rendition="#aq">honnête homme</hi><lb/>
+der zugleich eine <hi rendition="#aq">Maitre</hi>ße/ einen verwirrten <hi rendition="#aq">Proce</hi>ß/ und eine<lb/>
+<hi rendition="#aq">qverelle</hi> haͤtte/ und ſich bey allen dreyen wohl betruͤge. So<lb/>
+bemercken ſie auch mit dem Titel <hi rendition="#aq">Scavant</hi> einen Gelehrten/ aber<lb/>
+einen ſolchen/ der mit ſchoͤnen und den menſchlichen Geſchlecht<lb/>
+nuͤtzlichen Wiſſenſchafften gezieret iſt/ denn denjenigen/ der im<lb/>
+Gegentheil den Kopff voll unnoͤhtige Grillen und <hi rendition="#aq">Sophifte-</hi><lb/>
+reien hat/ welche zu nichts nuͤtz ſeyn/ als die ſo dieſelben<lb/>
+lernen/ bey der klugen Welt zu <hi rendition="#aq">proſtituiren,</hi> nennen ſie<lb/>
+<hi rendition="#aq">Scavantas,</hi> welches faſt dem klange nach mit unſerm Wort<lb/>
+<hi rendition="#aq">phantaſt</hi> uͤbereinkom̄t. So viel <hi rendition="#aq">un bel esprit</hi> betrifft/ muß<lb/>
+man nicht meinen/ daß mit dieſem Titel die jenigen beleget wer-<lb/>
+den ſollen/ welche in Geſellſchafft einen luſtigen Schwanck artig<lb/>
+zu erzehlen oder aus dem ſteigreiff ein Verßgen oder Liedgen zu<lb/>
+machen wiſſen/ obſchon ins gemein ſolche Leute fuͤr <hi rendition="#aq">beaux esprits</hi><lb/>
+ausgeruffen werden/ ſo gar/ daß es bey denen Frantzoſen faſt da-<lb/>
+hin gekommen/ daß verſtaͤndige Leute ſich es fuͤr eine Schande ge-<lb/>
+halten mit dieſen Namen geruͤhmet zu werden. <hi rendition="#aq">Le Pere Bou-<lb/>
+hours</hi> ein bekanter <hi rendition="#aq">Jeſuite</hi> hat die Eigenſchafften/ welche zu<lb/>
+der wahrhafftigen Schoͤnheit des Verſtands eigendlich erfordert<lb/>
+werden/ weitlaͤufftig beſchrieben. Er machet dreyerley Arten<lb/>
+derer Leute/ die mit ſo einem ſchoͤnen Geiſte begabet ſind/ derer<lb/>
+etliche fuͤrnemlich vom <hi rendition="#aq">ſtudiren</hi> und der Gelehrſamkeit <hi rendition="#aq">profes-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">ſion</hi></fw><lb/>
+<pb n="9" facs="#f0011"/>
+<hi rendition="#aq">ſion</hi> machen/ etliche ſich in taͤglicher <hi rendition="#aq">converſation</hi> hauptſaͤchlich<lb/>
+beliebt zu machen wiſſen/ etliche aber zu wichtigen Verrichtun-<lb/>
+gen fuͤr andern gebraucht werden koͤnnen. Zu der erſten Art<lb/>
+erfordert er/ daß ein Gelehrter/ ſo ſich dieſes Titels wuͤrdig<lb/>
+machen will/ einen Verſtand haben muͤſſe/ <hi rendition="#aq">qui ſoit ſolide, bril-<lb/>
+lant, penetrant, delicat, fertile, juſte, univerſel, clair &amp;<lb/>
+modeſte;</hi> daß er geſchickt ſey alle Sachen wohl zu unterſchei-<lb/>
+den/ und ſelbige wie ſie au ſelbſt ſind zubetrachten/ nicht aber wie<lb/>
+der gemeine Poͤbel ſich durch das euſerliche Anſehen betriegen zu<lb/>
+laſſen/ oder durch all zu <hi rendition="#aq">ſubtiles</hi> nachſinnen ſich eitele und vergeb-<lb/>
+liche Einbildungen davon zu machen/ daß er nicht verdrießlich<lb/>
+und muͤrriſch/ ſondern luſtig und lebhafft ſey; das er die Grund-<lb/>
+Regeln derer Wiſſenſchafften wohl verſtehe/ auch dadurch die dun-<lb/>
+ckelſten Fragen entſcheiden koͤnne/ und nicht an allen zweiffele/<lb/>
+oder ſolche Wahrheiten/ ſo offenbahr und am Tage ſind/ durch<lb/>
+unzeitiges <hi rendition="#aq">diſputiren</hi> uͤmbzuſtoſſen ſuche; daß er ſeine Gedan-<lb/>
+cken nicht plump und unangenehm ſondern mit guter <hi rendition="#aq">manier</hi><lb/>
+und Anmuthigkeit fuͤrzubringen wiſſe; daß er einen guten Vor-<lb/>
+rath habe von fuͤrfallenden Sachen haͤuffig und doch nicht ver-<lb/>
+ſchwenderiſch zu <hi rendition="#aq">raiſonniren,</hi> und nicht ſeine <hi rendition="#aq">locos commu-<lb/>
+nes</hi> auff einmahl ausſchuͤtte/ ſondern denen jenigen ſich verglei-<lb/>
+che/ die reich und <hi rendition="#aq">propre</hi> gekleidet ſind/ aber niemahls naͤrriſche<lb/>
+Unkoſten auff ihre Kleidung wenden; daß er ſeine eigene Ge-<lb/>
+ſchickligkeit zu Marckte bringe/ und ſich mit anderer Gelehrten<lb/>
+Gute nicht bereichere/ oder ſeine Sachen mit nichts als Spruͤ-<lb/>
+chelgen/ die er aus denen alten und neuen <hi rendition="#aq">Scribenten</hi> zuſammen<lb/>
+geſucht/ ausſchmuͤcke; daß er in allen guten Wiſſenſchafften be-<lb/>
+wandert ſey; daß er ſeine Gedancken andern klar und deutlich an<lb/>
+Tag geben koͤnne/ und nicht ſo zweydeutig oder dunckel rede/ wie<lb/>
+ehe deſſen die <hi rendition="#aq">Oracula,</hi> oder als wenn er wolte lauter Raͤtzel auff-<lb/>
+zurathen geben; endlich daß er beſcheiden ſey und weder zu viel<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">von</fw><lb/>
+<pb n="10" facs="#f0012"/>
+von ſich prahle/ noch ſich <hi rendition="#aq">affectirter</hi> Weiſe verberge. Nechſt<lb/>
+dieſem ſetzet er die andere Art <hi rendition="#aq">des beaux exprits,</hi> ſo zwar nicht<lb/>
+<hi rendition="#aq">ſtudiret,</hi> aber doch durch eine lange Erfahrenheit und <hi rendition="#aq">Conver-<lb/>
+ſation</hi> ſich die Geſchickligkeit zu wege bracht haben/ daß ſie wohl/<lb/>
+leichte/ und artig in Geſellſchafft reden/ daß ſie alles was man<lb/>
+ihnen ſagt/ geſchwind und ſcharffſinnig beantworten/ daß ſie ge-<lb/>
+ſchickte Fragen auffwerffen/ luſtige Hiſtoͤrgen erzehlen/ mit Ver-<lb/>
+ſtand ſchertzen/ in froͤlichen Geſellſchafften anmuthig ſpotten/ in<lb/>
+ernſthafften aber klug und weiſe <hi rendition="#aq">raiſonniren,</hi> und mit kurtzen al-<lb/>
+lerhand Geſellſchafft belebt machen koͤñen/ oder wenn dieſelbe ver-<lb/>
+drißlich und ſchaͤfferig werden will/ wieder auffzumunthern wiſ-<lb/>
+ſen. Zu der letzten und fuͤrnehmſten Art erfordert er Leute/ die<lb/>
+gleichſam in Augenblick/ wenn man ihnen eine Verrichtung vor-<lb/>
+ſtellet/ alle Umſtaͤnde derſelben <hi rendition="#aq">penetriren,</hi> auch das jenige zu-<lb/>
+vor ſehen/ was daraus entſtehen koͤnne; die alsbald die Mittel<lb/>
+und Wege erkennen/ wodurch man auch das ſchwerſte Vorhaben<lb/>
+zu Werck richte/ und alle Verhinderungen aus dem Wege raͤu-<lb/>
+me; die ſich auch nicht allzuviel Verhinderungen oder Zufaͤlle<lb/>
+vorſtellen/ welche zu nicht anders nuͤtz ſind/ als die Menſchen ohne<lb/>
+Noth zag-und zweiffelhafftig zu machen. <hi rendition="#aq">Le bon gout,</hi> gleich-<lb/>
+wie es eigentlich einen guten und <hi rendition="#aq">ſubtilen</hi> Geſchmack bedeutet/<lb/>
+und dannenhero von ſolchen Leuten gebraucht wird/ die nicht allei-<lb/>
+ne das was gut ſchmeckt von andern gemeinen Speiſen wol zu un-<lb/>
+terſcheiden wiſſen/ ſondern auch geſchwinde durch ihren ſcharffſin-<lb/>
+nigen Geſchmack urtheilen koͤnnen/ woran es einem eſſen mange-<lb/>
+le; Alſo haben die Frantzoſen nicht uneben dies Wort hernach fi-<lb/>
+guͤrliche Weiſe von allen denen zubrauchen angefangen/ die wohl<lb/>
+und vernuͤnfftig das Gute von den Boͤſen oder das artige von dem<lb/>
+unartigen unterſcheiden/ daß alſo den Nahmen <hi rendition="#aq">d’ un homme<lb/>
+de bon gouſt</hi> der jenige verdienet/ der ſo viel die Sinnen betrifft/<lb/>
+zum Exempel eine artige uñ geſchickle Lieberey auszuſuchen weiß/<lb/>
+<fw type="catch" place="bottom">oder</fw><lb/>
+<pb n="11" facs="#f0013"/>
+oder der ſich lieber an einer anmuthigen Laute oder wohlgeſtriche-<lb/>
+ne Violine als an den beſten Brumeiſen oder der zierlichſten Sack-<lb/>
+pfeiffe <hi rendition="#aq">delectiret;</hi> ſo viel den Verſtand anlanget/ der mehr<lb/>
+von Hoffmanns oder Caſpars <hi rendition="#aq">Poëſie</hi> haͤlt/ als von Hanns Sach-<lb/>
+ſens Reimen oder andern Meiſter-Geſaͤngen/ der <hi rendition="#aq">Ciceronem,<lb/>
+Cujacium, Grotium, Carteſium</hi> hoͤher achtet/ als die <hi rendition="#aq">Schola-<lb/>
+ſticos, Gloſſatores, Ariſtotelis Ethic,</hi> und <hi rendition="#aq">Petri Lombardi<lb/>
+libros ſententiarum;</hi> ſo viel den Willen angehet/ der eine ver-<lb/>
+gnuͤgliche und dem gemeinen weſen nuͤtzliche Lebens-Art einer<lb/>
+verdrießlichen und <hi rendition="#aq">pedanti</hi>ſchen vorziehet; ja ſo viel endlich die<lb/>
+<hi rendition="#aq">Affecten</hi> und Gemuͤthsneigungen beruͤhret/ der zum Exempel<lb/>
+ein <hi rendition="#aq">galantes</hi> und liebreitzendes Frauenzimmer fuͤr eine alberne<lb/>
+und naͤrriſche <hi rendition="#aq">coquette</hi> ſich zur liebſten wehlet. Aber <hi rendition="#aq">ad pro-<lb/>
+pos</hi> was iſt galant und ein galanter Menſch? dieſes duͤrffte uns<lb/>
+in Warheit mehr zuthun machen als alles vorige/ zumahlen da<lb/>
+dieſes Wort bey uns Teutſchen ſo gemein und ſo ſehr gemißbrau-<lb/>
+chet worden/ daß es von Hund und Katzen/ von Pantoffeln/ von<lb/>
+Tiſch und Baͤncken/ von Feder und Dinten/ und ich weiß endlich<lb/>
+nicht/ ob nicht auch von Aepffel und Birn zum oͤfftern geſagt<lb/>
+wird. So ſcheinet auch/ als wenn die Frantzoſen ſelbſt nicht einig<lb/>
+waͤren/ worinnen eigentlich die wahrhafftige <hi rendition="#aq">galanterie</hi> beſtehe.<lb/>
+<hi rendition="#aq">Mademoiſelle Scudery</hi> beſchreibet dieſelbige in einer abſonder-<lb/>
+lichen <hi rendition="#aq">converſation de l’ Air galant,</hi> als wenn es eine verbor-<lb/>
+gen natuͤrliche Eigenſchafft waͤre/ durch welche man gleichſam<lb/>
+wieder Willen gezwungen wuͤrde einem Menſchen günſtig und<lb/>
+gewogen zu ſeyn/ bey welcher Beſchaffenheit dann die <hi rendition="#aq">Galante-<lb/>
+rie,</hi> und das <hi rendition="#aq">je ne Scay qvoy</hi> wo von obgemelter <hi rendition="#aq">Pere Bou-<lb/>
+hours</hi> ein gantzes Geſpraͤch verfertiget/ einerley waͤren. Jch<lb/>
+aber halte meines beduͤnckens davor/ daß <hi rendition="#aq">Monſ. Vaugelas</hi> und<lb/>
+<hi rendition="#aq">Monſ. Coſtar</hi> die Eigenſchafft der <hi rendition="#aq">Galanterie</hi> ein wenig ge-<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">nauer</fw><lb/>
+<pb n="12" facs="#f0014"/>
+nauer uñ deutlicher beſchriebẽ haben/ daß es etwas gemiſchtes ſey/<lb/>
+ſo aus dem <hi rendition="#aq">je ne ſcay qvoy,</hi> aus der guten Art etwas zuthun/<lb/>
+aus der <hi rendition="#aq">manier</hi> zu leben/ ſo am Hoffe gebraͤuchlich iſt/ aus Ver-<lb/>
+ſtand/ Gelehrſamkeit/ einen guten <hi rendition="#aq">judicio,</hi> Hoͤfflichkeit/ und<lb/>
+Freudigkeit zuſammen geſetzet werde/ und deme aller zwang/ <hi rendition="#aq">ar-<lb/>
+fectation,</hi> und unanſtaͤndige Plumpheit zuwieder ſey. Ja ich<lb/>
+meine/ daß ich nicht irreu werde/ wenn ich ſage/ daß bey denen<lb/>
+Frantzoſen die <hi rendition="#aq">Galanterie</hi> und <hi rendition="#aq">la Politeſſe</hi> eines ſey und dan-<lb/>
+nenhero zu beſſern Verſtand der <hi rendition="#aq">Galanterie</hi> alles das jenige<lb/>
+wohl verdiene geleſcn zu werden/ was ruͤhmlich erwehnte <hi rendition="#aq">Made-<lb/>
+moiſelle Scudery</hi> in einer andern <hi rendition="#aq">converſation</hi> von der <hi rendition="#aq">Poli-<lb/>
+teſſe</hi> anmuthig und artig anfuͤhret. Denn daß ſie daſelbſt ver-<lb/>
+meinet/ wie die wahre <hi rendition="#aq">Politeſſe</hi> darauff beruhe/ daß man wohl und<lb/>
+anſtaͤndig zu leben/ auch geſchickt und zu rechter Zeit zu reden wiſ-<lb/>
+ſe/ daß man ſeine Lebens-Art nach dem guten Gebrauch der ver-<lb/>
+nuͤnfftigen Welt richte/ daß man niemands einige grob-und Un-<lb/>
+hoͤffligkeit erweiſe/ daß man denen Leuten niemals das jenige un-<lb/>
+ter Augen ſage/ was man ſich ſelbſt nicht wolte geſagt haben/ daß<lb/>
+man in Geſellſchafft das groſſe Maul nicht allein habe/ und ande-<lb/>
+re kein Wort auf bringen laſſe/ daß man bey den Frauenzimmer<lb/>
+nicht gar ohne Rede ſitze als wenn man die Sprache verlohren<lb/>
+haͤtte/ oder das Frauenzimmer nicht eines Worts wuͤrdig achte;<lb/>
+hingegen auch nicht allzu kuͤhne ſey/ und ſich mit ſelbigen/ wie gar<lb/>
+vielfaͤltig geſchiehet/ zugemein mache; dieſes alles ſage ich/ ſind<lb/>
+ſolche Gigenſchafften/ die zu einen galanten Menſchen erfordert<lb/>
+werden.</p><lb/>
+<p>Es iſt aber nicht genug/ Meine Herren/ daß wir mit dem<lb/>
+Verſtand derer Woͤrter/ die bey denen Frantzoſen einen Men-<lb/>
+ſchen in hochachtung bringen/ richtig ſind. Wir muͤſſen auch<lb/>
+ein wenig betrachten; ob denn die Frantzoſen hierinnen einen<lb/>
+Vorzug fuͤr uns haben/ daß wir dieſelben in dieſen Stuͤcken nach<lb/>
+<fw type="catch" place="bottom">zu</fw><lb/>
+<pb n="13" facs="#f0015"/>
+zuahmen beduͤrfftig ſind. <hi rendition="#aq">D’ un honnéte homme</hi> von einen<lb/>
+ehrlichen Mann machen ſie zwar viel weſens/ ſo gar daß ein be-<lb/>
+kanter Hoffmann ſeinem Koͤnig auff keine beſſere Art zuliebkoſen<lb/>
+gewuſt/ als daß er zu ihm geſagt/ wie er ihn nicht ſo wohl wegen ſei-<lb/>
+ner tapffern Thaten/ als daß er ein rechter <hi rendition="#aq">honnéte homme</hi><lb/>
+waͤre/ liebte und ehrete; Alleine ob auch bey allen oder denen mei-<lb/>
+ſten die wahrhafftige <hi rendition="#aq">honnetête</hi> ſo wohl in der That als in<lb/>
+dem Munde anzutreffen ſey/ iſt eine kuͤtzliche Frage/ welche doch<lb/>
+auch zu unſeren Zweck eben nicht noͤthig iſt/ weitlaͤufftig eroͤrterß<lb/>
+zu werden. Denn ohne einer von beyden <hi rendition="#aq">nationen</hi> zuſchmei-<lb/>
+cheln oder dieſelbe anzuſtechen/ werden wir gar ſicher ſagen koͤu-<lb/>
+nen; das wenn unter denen Frantzoſen nicht wenig gefunden<lb/>
+werden/ welche dieſe Tugend hindanſetzen/ bey uns Teutſchen an<lb/>
+ſolchen Leuten auch kein Mangel ſey/ und wenn im Gegentheil<lb/>
+die Frantzoſen viel Exempel <hi rendition="#aq">des honnêtes gens</hi> auffzuweiſen<lb/>
+haben/ wir ebenmaͤßig daran nicht arm ſind/ noch von noͤthen ha-<lb/>
+ben deswegen bey denen Frantzoſen nach Perſonen/ denen man<lb/>
+hierinnen nachahmen wolte/ uns umzuſehen.</p><lb/>
+<p>Was aber die Gelehrſamkeit betrifft/ ſo iſt wohl kein Zweif-<lb/>
+fel/ daß es heut zu tage unter denen Frantzoſen mit denen Gelehr-<lb/>
+ten auff das hoͤchſte kommen/ in Anſehen dieſelbigen durch die<lb/>
+<hi rendition="#aq">Magnificentz</hi> des Koͤnigs uñ die Hochachtung derer Groſſen bey<lb/>
+Hoffe angefriſchet ins geſampt embſig bemuͤhet ſind/ anmuthige<lb/>
+und nuͤtzliche Wiſſenſchafften fortzupflantzen/ und die ohnnoͤthi-<lb/>
+gen Grillen derer Schulfuͤchſe auszutilgen und aus dem Lande<lb/>
+zujagen. <hi rendition="#aq">Petrus Ramus</hi> ſcheinet von den erſten mit geweſen<lb/>
+zu ſeyn/ der den Grund hierzulegen helffen. Und ob er wohl in<lb/>
+ſeinem Haß wieder den <hi rendition="#aq">Ariſtotelem</hi> ein wenig die Graͤntzen<lb/>
+uͤberſchritten/ auch ſeine Schrifften eben fuͤr die vollkommeſten<lb/>
+nicht zu achten ſind/ ſo iſt doch nicht zu laͤugnen/ daß er zuerſt das<lb/>
+Hauptſtuͤck der Weltweißheit/ welches einen Menſchen anwei-<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">ſet/</fw><lb/>
+<pb n="14" facs="#f0016"/>
+ſet/ wie erſeine Vernunfft recht gegrauchen ſoll/ von den Unflat<lb/>
+und Narrenpoſſen derer Schullehrer in Franckreich geſaubert/<lb/>
+und ſo viel an ihn geweſen/ ſich euſerſt bemuͤhet/ daß die <hi rendition="#aq">Philoſo-<lb/>
+phie</hi> als ein taugliches Werckzeug derer hoͤhern Wiſſenſchafften<lb/>
+gebraucht werden koͤnne; wiewohl mit ſeiner groͤſten Gefahr ja<lb/>
+mit Verluſt ſeines Lebens. Jhme ſind hierinne andere kluge<lb/>
+Koͤpffe nachgefolget/ und muß ich nur eines eintzigen zuerwehnen<lb/>
+geſtehen/ daß des <hi rendition="#aq">Port Royal l’ Art de penſer</hi> ob ſie gleich<lb/>
+durch und durch gantz <hi rendition="#aq">Carteſia</hi>niſch iſt/ dennoch ſehr viel gutẽ<lb/>
+Sachen in ſich begreiffe/ und wohl verdiene/ daß ſie von einem/<lb/>
+der in ſeinen Kopff ein wenig auffraͤumen will/ mit bedachtgeleſen<lb/>
+werde. Und was muͤſte ich fuͤr Zeit und Gelegenheit haben/<lb/>
+wenn ich alle die Gelehrten Frantzoͤſiſchen <hi rendition="#aq">Scribenten,</hi> welche<lb/>
+die <hi rendition="#aq">Mathemathic,</hi> die <hi rendition="#aq">Phyſic,</hi> die Sittenlehr und die hohen<lb/>
+<hi rendition="#aq">Facul</hi>taͤten mit vielen unvergleichlichen Schrifften ausgebutzet<lb/>
+haben nur erzehlen wolte.</p><lb/>
+<p>Dieſes kan ich unangemerckt nicht laſſen/ daß ſie aus ei-<lb/>
+nem uͤberaus klugen abſehen nicht allein ihre Wercke mehren-<lb/>
+theils in Frantzoͤiſcher Sprache heraus geben; ſondern auch den<lb/>
+Kern von denen Lateiniſchen/ Griechiſchen/ ja auch nach Gele-<lb/>
+genheit teutſchen <hi rendition="#aq">Autoren</hi> in ihre Mutterſprache uͤberſetzen;<lb/>
+denn dadurch wird die Gelehrſamkeit unvermerckt mit groſſen<lb/>
+Vortheil fortgepflantzet/ wenn ein ieder das jenige/ was zu einer<lb/>
+klugen Wiſſenſchafft erfordert wird in ſeiner Landes Sprache le-<lb/>
+ſen kan/ und es ſich nicht erſt umb frembde Sprachen zuerlernen<lb/>
+ſauer werden laſſen muß. Abſonderlich iſt an ihren <hi rendition="#aq">verſionen</hi><lb/>
+zu loben/ daß hierzu ſich Leute gebrauchen laſſen/ welche von maͤn-<lb/>
+niglich fuͤr gelehrt und klug <hi rendition="#aq">paſſiret</hi> werden muͤſſen; auch beyder<lb/>
+Sprachen ſo wohl der Frantzoͤſiſchen als der Griechiſchen oder La-<lb/>
+teiniſchen recht maͤchtig geweſen; und endlich nicht obenhin/ wie<lb/>
+die Schuͤler die <hi rendition="#aq">argumenta</hi> zu machẽ pflegen/ die <hi rendition="#aq">Autores</hi> uͤber-<lb/>
+<fw type="catch" place="bottom">ſetzet/</fw><lb/>
+<pb n="15" facs="#f0017"/>
+ſetzet/ ſondern mit guten bedacht und ſcharffen nachſinnen/ ſo gar<lb/>
+das mancher der ſeine <hi rendition="#aq">verſion</hi> oͤffters und fleißig uͤberſehen auch<lb/>
+wohl in die zwantzig Jahr damit zugebracht/ ſich nicht verdrieſſen<lb/>
+laſſen/ alles zuzerreiſſen und von vornen anzufangen/ wenn ihm<lb/>
+eine beſſere <hi rendition="#aq">methode</hi> gezeiget worden. Denn daß ich ietzo des<lb/>
+<hi rendition="#aq">Deſmarais Titum Livium,</hi> des <hi rendition="#aq">Giri Apologeticum Ter-<lb/>
+tulliani,</hi> des <hi rendition="#aq">Boelau Epictetum,</hi> des <hi rendition="#aq">Arnaud d’ Antilli Joſe-<lb/>
+phum</hi> geſchweige/ ſo haben <hi rendition="#aq">Vaugelas</hi> durch uͤberſetzung des<lb/>
+<hi rendition="#aq">Curtii,</hi> noch mehr aber der Herr <hi rendition="#aq">D’ Ablancourt</hi> durch verdoll-<lb/>
+metſchung des <hi rendition="#aq">Thucydidis, Frontini, Minucii Felicis, Ar-<lb/>
+riani, Cæſaris, Luciani</hi> und <hi rendition="#aq">Taciti</hi> ihre Namen unſterblich<lb/>
+gemacht/ und muß ich bekennen/ daß die <hi rendition="#aq">Verſion</hi> des <hi rendition="#aq">Taciti</hi><lb/>
+mir bey leſung dieſes <hi rendition="#aq"><hi rendition="#k">a</hi>utoris</hi> fuͤr einen der beſten <hi rendition="#aq">Commenta-<lb/>
+torum,</hi> ſo viel den Verſtand davon anlanget/ gedienet habe/ in<lb/>
+der uͤberſetzung des <hi rendition="#aq">Luciani</hi> aber ein ſolches Kunſtſtuͤck verborgen<lb/>
+ſtecke/ welches einen abſonderlichen weitlaͤufftigen <hi rendition="#aq">Diſcurs</hi> ver-<lb/>
+dienet. Wannenhero <hi rendition="#aq"><hi rendition="#k">a</hi>melot de la Houſſaie</hi> weißlich ge-<lb/>
+than haͤtte/ wenn er in ſeinen <hi rendition="#aq">Diſcurs</hi> über die <hi rendition="#aq">Commentato-<lb/>
+res</hi> und <hi rendition="#aq">Verſiones Taciti</hi> und in dem <hi rendition="#aq">Tract</hi>aͤtgen von der<lb/>
+Schmeicheley ſein einfaͤltig <hi rendition="#aq">Judicium</hi> von des <hi rendition="#aq">d’ <hi rendition="#k">a</hi>blancourt</hi><lb/>
+uͤberſetzung bey ſich behalten haͤtte/ denn ſo haͤtte der ungenante<lb/>
+<hi rendition="#aq">Defenſor</hi> des <hi rendition="#aq">D’ <hi rendition="#k">a</hi>blancourt</hi> ihn auch zweiffels ohne fuͤr einen<lb/>
+gelehrten Frantzoſen und geſchickten Dollmetſcher <hi rendition="#aq">paſſiren</hi> laſ-<lb/>
+ſen/ da er hingegen bey dieſer Bewandnuͤß den armen <hi rendition="#aq">Amelot</hi><lb/>
+recht unbarmhertzig ſtriegelt/ und auch die geringften Fehler/<lb/>
+welche ihm ſonſten billig zu uͤberſehen geweſen waͤren/ fuͤr-<lb/>
+ruͤcket.</p><lb/>
+<p>Aber wir muͤſſen uns nun auch unter uns umbſehen/ was<lb/>
+es mit denen Gelehrten fur eine Bewandnuͤß habe. Es giebt<lb/>
+ja noch in Dentſchland gelehrte Leute/ aber nicht ſo haͤuffig als<lb/>
+in Franckreich/ weil ſich ſehr viel von denen unſerigen auff die <hi rendition="#aq"><hi rendition="#k">a</hi>b-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">ſtractio-</hi></fw><lb/>
+<pb n="16" facs="#f0018"/>
+<hi rendition="#aq">ſtractiones Metaphyſicas</hi> derer Schullehrer befleißigen/<lb/>
+(durch welche man weder dem gemeinen beſten was nutzet/ noch<lb/>
+ſeiner Seelen Seeligkeit befoͤrdert/ und bey weltklugen Leuten<lb/>
+mehr verhaſt als beliebt ſich machet/) oder die noͤthigen Wiſſen-<lb/>
+ſchafften nur obenhin und ohne gruͤndlichen Verſtand wie die<lb/>
+Nonnen den Pſalter lernen/ und iſt nichts neues/ daß wenn zum<lb/>
+Exempel ein gut <hi rendition="#aq">Ingenium</hi> an ſtatt der Trebern ſeinen Ver-<lb/>
+ſtand mit vernuͤnfftigen Speiſen nehren/ und den <hi rendition="#aq">Durandum<lb/>
+de S. Porciano &amp;c.</hi> nicht fuͤr einen Heiligen <hi rendition="#aq">paſſiren</hi> laſſen/<lb/>
+oder dem was ihm in der Jugend fuͤrgeſungen worden/ nicht<lb/>
+nach pfeiffen will/ ſelbiges in ja ſo ſcharffe <hi rendition="#aq">Inqviſitiones</hi> faͤlt/ als<lb/>
+<hi rendition="#aq">Petrus Ramus</hi> zu ſeiner Zeit/ der ſich fuͤr Koͤniglichen <hi rendition="#aq">Com-<lb/>
+miſſariis</hi> nachdruͤcklich <hi rendition="#aq">defendiren</hi> muſte/ daß er gelehrt/ man<lb/>
+muͤſte die <hi rendition="#aq">Logic defini</hi>ren/ und doch mit Muͤhe und Angſt von<lb/>
+derſelben <hi rendition="#aq">Inquiſition</hi> erlediget wurde; oder wohl gar verketzert<lb/>
+und aus heiligem iedoch unzeitigem Eyfer mit denen ſchimpfflich-<lb/>
+ſten Scheltworten beleget wird/ wie etwann ein Geiſtlicher in<lb/>
+Franckreich zu gedachten <hi rendition="#aq">Rami</hi> Zeiten/ der nach des <hi rendition="#aq">Rami</hi> Leh-<lb/>
+re an ſtatt <hi rendition="#aq">Kiskis, Kankam, miſchi; quisquis, qvanqvam,<lb/>
+mihi &amp;c. pronuncirte,</hi> von der <hi rendition="#aq">Sorbone</hi> zu Pariß als ei-<lb/>
+ner der eine <hi rendition="#aq">Grammatica</hi>liſche Ketzerey begangen haͤtte/ ſeiner<lb/>
+<hi rendition="#aq">beneficien</hi> beraubet wurde. So iſt auch offenbahr/ daß wir<lb/>
+in Deutſchland unſere Sprache bey weiten ſo hoch nicht halten<lb/>
+als die Franvoſen die ihrige. Denn an ſtatt/ daß wir uns be-<lb/>
+fleiſſigen ſolten die guten Wiſſenſchafften in deutſcher Sprache<lb/>
+geſchickt zuſchreiben/ ſo fallen wir entweder auff die eine Seite<lb/>
+aus/ und bemuͤhen uns die Lateiniſchen oder Griechiſchen <hi rendition="#aq">Ter-<lb/>
+minos technicos</hi> mit dunckeln und laͤcherlichen Worten zu<lb/>
+verhuntzen/ oder aber wir kommen in die andere Ecke/ und bilden<lb/>
+uns ein/ unſere Sprache ſey nur zu denen Handlungen in gemei-<lb/>
+nen Leben nuͤtzlich/ oder ſchicke ſich/ wenn es auffs hoͤchſte koͤmmt/<lb/>
+<fw type="catch" place="bottom">zu</fw><lb/>
+<pb n="17" facs="#f0019"/>
+zu nichts mehr/ als Hiſtoͤrgen/ und neue Zeitungen darinnen zu-<lb/>
+ſchreiben/ nicht aber die <hi rendition="#aq">Philoſophi</hi>ſchen oder derer hoͤhern <hi rendition="#aq">Fa-<lb/>
+cul</hi>taͤten Lehren und Grund-Regeln in ſelbiger fuͤrzuſtellen.<lb/>
+Denn wieviel ſind unter uns/ die da meinen/ es ſey die Wiſſen-<lb/>
+ſchafft der Lateiniſchen Sprache ein weſentliches Stuͤcke eines<lb/>
+gelehrten Mannes/ und wer ſelbige nicht gelernet habe/ der koͤn-<lb/>
+ne ohnmoͤglich gelehret ſeyn; ja ich wolte wetten/ daß unter<lb/>
+denen/ ſo dieſen meinen <hi rendition="#aq">Diſcurs</hi> leſen werden/ faſt die helffte die-<lb/>
+ſes ihre erſte <hi rendition="#aq">cenſur</hi> werden ſeyn laſſen/ daß ich ungereimt ge-<lb/>
+handelt/ weil ich ſolchen nicht in Lateiniſcher Zunge verfertiget;<lb/>
+ſo gar wird unter uns ſelbſt der veraͤchtlich gehalten der nur im<lb/>
+geringſten in dieſen Stuͤck zu befoͤrderung guter Kuͤnſte etwas in<lb/>
+unſerer Sprache verſuchen wolte. Dannenhero auch kein Wun-<lb/>
+der iſt/ wenn es bey uns in Teutſchland an guten uͤberſetzungen<lb/>
+mangelt. Zwar ſo viel die Frantzoͤſiſchen Schrifften betrifft/<lb/>
+doͤrffen wir eben die Exempel geſchickter <hi rendition="#aq">Verſionen</hi> ſo gar weit<lb/>
+nicht holen/ ſo von beruͤhmten Maͤnnern nur bey ihren muͤßi-<lb/>
+gen Nebenſtunden verfertiget worden. Denn wer achtet die<lb/>
+Dollmetſchung <hi rendition="#aq">Moſis Amyraldi</hi> von Unterſcheid der Religio-<lb/>
+nen/ und <hi rendition="#aq">Jean d’ Eſpagne</hi> von allgemeinen Jrrthuͤmern/ nicht<lb/>
+fuͤr ein Meiſterſtuͤck? des <hi rendition="#aq">Molinæi</hi> Seelen-Friede und anderer<lb/>
+mehr anitzo zugeſchweigen. Aber was Lateiniſche und Giiechi-<lb/>
+ſche <hi rendition="#aq">Scribenten</hi> betrifft/ werden wir auch wohl einen einigen fin-<lb/>
+den koͤnnen/ den wir ohne Pralerey dem <hi rendition="#aq">Vaugelas</hi> oder <hi rendition="#aq">d’ A-<lb/>
+blancourt</hi> koͤnnen entgegen ſetzen. Sind gleich unter uns ei-<lb/>
+nige/ die hierzu nicht ungeſchickt waͤren/ ſo waͤre es doch denen-<lb/>
+ſelben hoͤchſt vor uͤbel zu halten/ wenn ſie mit ſo groſſen Fleiß/<lb/>
+als jene gethan eine recht nette <hi rendition="#aq">Verſion</hi> ausarbeiteten/ da man<lb/>
+es ihnen doch kaum danck wiſſen/ oder mit Muͤhe und Noth die<lb/>
+Uberſetzung ungetadelt laſſen wuͤrde. Die meiſten Uberſetzun-<lb/>
+gen derer <hi rendition="#aq">Autorum Claſſicorum</hi> ſind von Schulleuten ver-<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">fertiget</fw><lb/>
+<pb n="18" facs="#f0020"/>
+fertiget worden/ die entweder aus itzerwehnten Mangel guter<lb/>
+Belohnung und daß ſie oͤffters mehr <hi rendition="#aq">famis ſedandæ</hi> als <hi rendition="#aq">famæ<lb/>
+acqvirendæ gratia</hi> die Feder ergreiffen muͤſſen/ oder aber aus<lb/>
+Mangel eines reinen und Hochteutſchen <hi rendition="#aq">Styli,</hi> als welchen<lb/>
+man nicht in Schulen/ ſondern in Geſellfchafft anderer Leute<lb/>
+und Leſung anderer Buͤcher begreiffet/ uns keine anmuthige<lb/>
+<hi rendition="#aq">Verſion</hi> geben wollen/ oder koͤnnen. Zugeſchweigen/ daß viel-<lb/>
+faͤltig Exempel koͤnten angefuͤhret werden/ wie offtermahlen ar-<lb/>
+me Stuͤmper/ die kaum zwey oder drey Worte von der Sprache/<lb/>
+aus welcher die Uberſetzung geſchehen ſoll/ verſtehen/ und bey ieder<lb/>
+<hi rendition="#aq">Phraſi</hi> das <hi rendition="#aq">Lexicon</hi> brauchen muͤſſen/ ſich des dollmetſchens<lb/>
+anmaſſen/ und es auch ſo dann toll und taͤmiſch genung machen.<lb/>
+Jch entſinne mich/ daß fuͤr etlichen Jahren ein politiſch Tractaͤt-<lb/>
+gen heraus kommen/ in welchen der <hi rendition="#aq"><hi rendition="#k">a</hi>utor</hi> ſeine Schreibart de-<lb/>
+ſto beſſer zuverbergen viel Frantzoͤſiſch unter das Teutſche gemi-<lb/>
+ſchet hatte. Als nun die <hi rendition="#aq">Exemplaria</hi> hiervon meiſtens abgan-<lb/>
+gen/ und ſelbiges wieder auffgelegt werden ſolte/ wolte der Ver-<lb/>
+leger denen jenigen zu gute/ ſo kein Frantzoͤſich verſtehen die<lb/>
+Frantzoͤſiſchen Worte und <hi rendition="#aq">paragraphos</hi> alsbald darbey teutſch<lb/>
+mit uͤberſetzen laſſen/ und trug dannenhero dieſe Muͤhewaltung<lb/>
+einem auff/ der das <hi rendition="#aq">verti</hi>ren nicht gelernet hatte/ welcher auch in<lb/>
+der That eine ſolche Probe ablegte/ daß man zum wenigſten bey<lb/>
+der geradebrechten <hi rendition="#aq">Verſion</hi> was zulachen kriegte; denn es waren<lb/>
+in der Warheit etliche Redens-Arten ſo ungereimbt uͤberſetzt/<lb/>
+daß auch <hi rendition="#aq">Heraclitus</hi> ſeine Thraͤnen haͤtte auff eine zeitlang ab-<lb/>
+trocknen muͤſſen/ wenn er ſolche geleſen haͤtte. Jch will nur<lb/>
+Exempels weiſe die vornehmſten hier anfuͤhren. (1.) <hi rendition="#fr">Er<lb/>
+wird dadurch den Ruhm</hi> <hi rendition="#aq">d’ un homme ſage</hi> <hi rendition="#fr">er-<lb/>
+werben: da er ſonſt</hi> <hi rendition="#aq">par un emportement brutal</hi><lb/>
+<hi rendition="#fr">oder durch eine</hi> <hi rendition="#aq">brutale</hi> ausfuͤhrung ſeiner <hi rendition="#fr">Sache ſich</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">uͤber-</hi></fw><lb/>
+<pb n="19" facs="#f0021"/>
+<hi rendition="#fr">uͤberall in uͤbeln</hi> <hi rendition="#aq">credit</hi> <hi rendition="#fr">ſetzen wuͤrde. (2.) Wie<lb/>
+vor dieſem ein Polniſcher</hi> <hi rendition="#aq">Seigneur</hi> <hi rendition="#fr">zu Pariß ſei-<lb/>
+nen dollen Zunahmen bey einer</hi> <hi rendition="#aq">Dame</hi> <hi rendition="#fr">ließ anmel-<lb/>
+den/ gab dieſelbe ihrem Diener zur Antwort.</hi><lb/>
+<hi rendition="#aq">He! qv’ on mene cet animal à l’ ecurie, &amp; qv’ on<lb/>
+luy donne du foin. Admirez cela.</hi> <hi rendition="#fr">Ey laſſet die-<lb/>
+ſes Thier auff die</hi> Reitſchule <hi rendition="#fr">fuͤhren/ und ihm ein<lb/>
+Bund Heu vorlegen.</hi> Kommet euch dieſes frembd vor?<lb/>
+(3.) <hi rendition="#fr">Jhr Herren/ wir fallen zu weit in unſern</hi><lb/>
+<hi rendition="#aq">Diſcurſen &amp; il faut rompre les chiens,</hi> <hi rendition="#fr">das iſt:</hi><lb/>
+wir muͤſſen die Hunde ſtreichen laſſen. (4.) <hi rendition="#aq">Luxurioſi &amp;<lb/>
+Prodigi</hi> <hi rendition="#fr">machen offtermahls eine</hi> <hi rendition="#aq">depence ſourde<lb/>
+pour des amourettes,</hi> <hi rendition="#fr">das iſt eine</hi> heimliche Anklage<lb/>
+<hi rendition="#fr">fuͤr ihre</hi> <hi rendition="#aq">Courteſien (5) Il ne faut jamais donner<lb/>
+le flanc ou temoigner des baſſeſſes à ſon ennemy.</hi><lb/>
+<hi rendition="#fr">Man muß niemahls</hi> weinen <hi rendition="#fr">oder gegen ſeinem<lb/>
+Feinde eintzige Zaghafftigkeit ſpuͤren laſſen.</hi> (6)<lb/>
+<hi rendition="#aq">Un grand eſprit tout ſeul eſt ungrand inſtrument<lb/>
+à faire des fautes.</hi> <hi rendition="#fr">Ein hoher Geiſt</hi> iſt eintzig und al-<lb/>
+lein <hi rendition="#fr">ein groſſes Werckzeug</hi> krumme Haͤndel <hi rendition="#fr">damit zu-<lb/>
+machen</hi> (7.) <hi rendition="#aq">Qvel Hazard faut il courir en pre-<lb/>
+nant une femme?</hi> <hi rendition="#fr">da er vermeinet/ ſie ſey</hi> <hi rendition="#aq">intacta</hi><lb/>
+<hi rendition="#fr">und wie die keuſcheſte Seele zu ihm ins Ehrenbet-<lb/>
+te geſtiegen/</hi> <hi rendition="#aq">&amp; un Couſin ou Compere a eu les<lb/>
+gans de Madame,</hi> <hi rendition="#fr">d.i. da hat ein guter Vetter oder</hi><lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">Gevat-</fw><lb/>
+<pb n="20" facs="#f0022"/>
+<hi rendition="#fr">Gevatter</hi> Jhre Handſchuh in verwahrung gehabt. <hi rendition="#fr">Sitzet<lb/>
+nun ein ſolcher ſchon in der hoͤchſten</hi> <hi rendition="#aq">Dignité,</hi> <hi rendition="#fr">ſo<lb/>
+wird doch ſeines Weibes unehr des Mannes und<lb/>
+der Kinder Ehre keinen geringen Flecken abwi-<lb/>
+ſchen/ und mag die</hi> <hi rendition="#aq">Comœdie</hi> <hi rendition="#fr">des</hi> <hi rendition="#aq">Moliere</hi> <hi rendition="#fr">oder<lb/>
+das Frantzoͤſiſche Sprichwort.</hi> <hi rendition="#aq">Il a cela du com-<lb/>
+mun avec des grands Seigneurs</hi> <hi rendition="#fr">d. i. Er haͤlt die-<lb/>
+ſe mit andern groſſen Herren</hi> auff der gemeinen Streue<lb/>
+<hi rendition="#fr">andere aber mich nicht troͤſten.</hi> [8] <hi rendition="#aq">La mort ſu-<lb/>
+bite eſt des toutes la plus commode au ſage &amp; a<lb/>
+un homme de bien.</hi> <hi rendition="#fr">Ein geſchwinder Todt iſt<lb/>
+einem klugen und beguͤterten Menſchen der aller-<lb/>
+beqvemſte.</hi> (9) <hi rendition="#aq">Avec uu bon mot Monſieur, l’<lb/>
+on me feroit aller aux Jndes.</hi> <hi rendition="#fr">Mit einem eintzi-<lb/>
+gen guten Wort/ mein Herr/</hi> bracht ich es dahin/ daß<lb/>
+man mich <hi rendition="#fr">in Jndien ziehen lieſſe. (10) Einer der eine<lb/>
+gantz ungeſtalte und</hi> <hi rendition="#aq">difforme perſon,</hi> <hi rendition="#fr">weil er</hi> <hi rendition="#aq">un<lb/>
+paure Cadet,</hi> <hi rendition="#fr">und ſie Geld und Mittel hatte/ hey-<lb/>
+rathet/ und ſie hernach ſitzen laͤſſet oder ſich an-<lb/>
+ders wo und im Hauſe mit</hi> <hi rendition="#aq">Catton divertiret,</hi> <hi rendition="#fr">oder<lb/>
+mit</hi> einem Catoniſchen ernſtlichen Sauerſehen <hi rendition="#fr">beluſti-<lb/>
+get ꝛc.</hi></p><lb/>
+<p>Was iſt nun hierbey zuthun/ meine Herren? Sollen wir<lb/>
+uns bemuͤhen die teutſche Sprache durchgehends in Hochachtung<lb/>
+zubringeu/ um dadurch der Ausbreitung der Gelehrſamkeit den<lb/>
+Weg zu bahnen? Dieſes duͤrffte ſchwerlich angehen/ und wuͤr-<lb/>
+<fw type="catch" place="bottom">den</fw><lb/>
+<pb n="21" facs="#f0023"/>
+den wir wenig ausrichten/ weil <choice><sic>bißber</sic><corr>bißher</corr></choice> ſchon eine geraume Zeit ſo<lb/>
+viel kluge Koͤpffe/ ſo viel edele Mitglieder der Fruchtbringenden<lb/>
+Geſellſchafft vergebens daran gearbeitet haben. Was fuͤr Hin-<lb/>
+berungen im Wege ſtehen/ waͤre anietzo zu weitlaͤufftig zu erzehlen.<lb/>
+Jch wil nur dieſes beruͤhren: Jn Franckreich redet niemand<lb/>
+teutſch/ auſſer etwan die Teutſchen untereinander/ ſo ſich darinne<lb/>
+auffhalten; Alleine bey uns Teutſchen iſt die Frantzoͤſiſche Spra-<lb/>
+che ſo gemein worden/ daß an vielen Orten bereits Schuſter und<lb/>
+Schneider/ Kinder und Geſinde dieſelbige gut genung reden;<lb/>
+Solche eingeriſſene Gewonheit auszutilgen ſtehet bey keiner <hi rendition="#aq">pri-<lb/>
+vat-</hi>Perſon. kommet auch derſelben im geringſten nicht zu. Wir<lb/>
+ſolten uns lieber derſelben als eines Mittels bedienen/ die Gelehr-<lb/>
+ſamkeit dadurch fortzupflantzen. Der Jeſuite <hi rendition="#aq">Bouhours</hi> ruͤh-<lb/>
+met die Frantzoͤſiſche Sprache weitlaͤufftig/ daß ſic faͤhig ſey/ eben<lb/>
+dasjenige zu verrichten/ was man durch die Lateiniſche und Grie-<lb/>
+chiſche zu wege bringen kan/ dieweilen/ wie bereits erwehnet/ von<lb/>
+allen noͤthigen Wiſſenſchafften Bücher genung in Frantzoͤſiſcher<lb/>
+Sprache <hi rendition="#aq">edi</hi>ret werden. Wir haben ja auch noch gute teutſche<lb/>
+Buͤcher/ obgleich nicht ſo haͤuffig. Warum ſolte es nicht angehen/<lb/>
+daß man durch Huͤlffe der Teutſchen und Frantzoͤſiſchen Sprache/<lb/>
+welche letztere faſt bey uns <hi rendition="#aq">naturaliſi</hi>ret worden/ Leute/ die ſonſten<lb/>
+einen guten natuͤrlichen Verſtand haben/ in kurtzer Zeit viel weiter<lb/>
+in der Gelehrſamkeit braͤchte/ als daß man ſie erſt ſo viel Jahre<lb/>
+mit dem Lateiniſchen placket. Sprachen ſind wohl Zierrathen<lb/>
+eines Gelehrten/ aber an ſich ſelbſt machen ſie niemand gelehrt.</p><lb/>
+<p>Man laſſe diejenigen/ ſo Luſt darzu haben/ und die vom <hi rendition="#aq">ſtu-<lb/>
+di</hi>ren die Zeit ihres Lebens <hi rendition="#aq">profeſſion</hi> machen wollen/ Latein<lb/>
+und Griechiſch genung lernen/ denen andern aber/ ſo man im ge-<lb/>
+meinen Leben brauͤchen wil/ oder die nichts als Frantzoͤſiſch und<lb/>
+Teutſch gelernet haben/ und denen das <hi rendition="#aq">ſtudi</hi>ren wegen des Latei-<lb/>
+niſchen ſauer und verdrießlich wird/ helffe man ohne Verdrießlich-<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">keit/</fw><lb/>
+<pb n="22" facs="#f0024"/>
+keit/ mit dem was ſie gelernet haben/ fort. Jch halte gaͤntzlich da-<lb/>
+vor/ wann man dieſes nur mit wenigem verſuchte/ man wuͤrde gar-<lb/>
+bald einen mercklichen Vortheil daraus ſpuͤhren. Zum Exem-<lb/>
+pel: Wenn <hi rendition="#fr">ein Fuͤrſt im Reich</hi> von 18. oder 20. Jahren<lb/>
+nicht alleine gruͤndlich davon <hi rendition="#aq">raiſonni</hi>ren koͤnte: <hi rendition="#fr">Worinnen das<lb/>
+Amt eines Chriſtlichen und weiſen Fuͤrſten insgemein be-<lb/>
+ſtehe? Wie er zufoͤrderſt denen Goͤttlichen Geſetzen gehor-<lb/>
+ſame Pflicht zu leiſten ſchuldig? Wie weit ihn das natuͤrli-<lb/>
+che Recht gegen alle Menſchen verbinde? Was GOtt uͤber<lb/>
+dieſes in dem allgemeinen Sitten-Geſetz/ ſo er bald nach Er-<lb/>
+ſchaffung der Welt/ oder nach der Suͤndfluth dem gantzen<lb/>
+menſchlichen Geſchlechte</hi> <hi rendition="#aq">publici</hi><hi rendition="#fr">ret/ von ſelbigen erſordere?<lb/>
+Worinnen das Weſen und der Grund der wahren Chriſt-<lb/>
+chen Religion beſtehe? Wie das Kirchen-Regiment gefuͤh-<lb/>
+ret und der Kirchen-Friede erhalten werden muͤſſe? Wie<lb/>
+der Profan-Friede ſo wohl aͤußerlich als innerlich zu befeſti-<lb/>
+gen? Wie ein Fuͤrſt nach dem gemeinen Voͤlcker-Recht mit<lb/>
+andern Staaten und Republiqven umbgehen ſolle? Auff<lb/>
+was Art er das</hi> <hi rendition="#aq">Intereſſe</hi> <hi rendition="#fr">ſeiner Benachbarten beobachten<lb/>
+muͤſſe? Wie er bey Zeiten und im Frieden darauff bedacht<lb/>
+ſeyn ſolle/ daß er vor allen feindlichen Unfall ſicher ſeyn koͤn-<lb/>
+ne? Wie er ſcharffe Kriegs-</hi><hi rendition="#aq">diſciplin</hi> <hi rendition="#fr">ſolle halten/ dabene-<lb/>
+ben aber auch guten und richtigen Sold geben? Wel-<lb/>
+cher geſtalt und zu was Ende er ſich mit andern Fuͤrſten oh-<lb/>
+ne Schaden und mit Nutzen in Buͤndniſſe einlaſſen ſolle?<lb/>
+Wie die Unterthanen in guten Sitten auffzuziehen? Wie<lb/>
+nach derſelben</hi> <hi rendition="#aq">genio</hi> <hi rendition="#fr">oder ſonſt nach erheiſchender Noth-<lb/>
+durfft die</hi> <hi rendition="#aq">civil-</hi><hi rendition="#fr">Geſetze einzurichten? Wie weit dieſelbigen<lb/>
+zu</hi> <hi rendition="#aq">exeqvi</hi><hi rendition="#fr">ren oder in was maſſe ein Fuͤrſt ohne Gefahr dar-<lb/>
+innen</hi> <hi rendition="#aq">diſpenſi</hi><hi rendition="#fr">ren koͤnne? Wie ferne die Straffe zu min-<lb/>
+dern oder zu ſchaͤrffen? Was fuͤr Diener einem Fuͤrſten zu</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Un-</hi></fw><lb/>
+<pb n="23" facs="#f0025"/>
+<hi rendition="#fr">Unterhalt ſeines Staats und zur Nothwendigkeit des ge-<lb/>
+meinen Beſtens vonnoͤthen/ auch was dererſelben ihr Amt<lb/>
+ſey? Wie die Gerechtigkeit gehandhabet werden muͤſſe/ daß<lb/>
+keinem zu kurtz geſchehe/ noch die Unterthanen durch lang-<lb/>
+weilige</hi> <hi rendition="#aq">Proceſſe</hi> <hi rendition="#fr">ausgeſogen und muͤrbe gemacht werden?<lb/>
+Wie Zoͤlle und</hi> <hi rendition="#aq">Contributiones</hi> <hi rendition="#fr">ohne groſſe Beſchwerung<lb/>
+derer Unterthanen oder Hinderung der</hi> <hi rendition="#aq">Commerci</hi><hi rendition="#fr">en an-<lb/>
+zulegen/ auch wie ſolche loͤblich und wohl angewendet wer-<lb/>
+den ſollen? Und wie endlich derer Unterthanen Nahrung<lb/>
+mercklich gehaͤuffet und befoͤrdert werden koͤnne?</hi> Wenn<lb/>
+ſage ich/ ein Fuͤrſt nicht allein dieſes alles wohl verſtuͤnde/ und hier-<lb/>
+nechſt <hi rendition="#fr">ſo wohl in alten als neuen, ſo wohl in Kirchen-als</hi> <hi rendition="#aq">pro-<lb/>
+fan-</hi><hi rendition="#fr">Hiſtorien wohl</hi> <hi rendition="#aq">verſi</hi><hi rendition="#fr">ret waͤre/ auch fuͤrnehmlich den<lb/>
+Zuſtand des H. Roͤmiſchen Reichs deutlich innen haͤtte/ und<lb/>
+mit guter Art von allen durch eine geſchickte Rede nach dem<lb/>
+kurtzen Hof-</hi><hi rendition="#aq">ſtylo</hi> <hi rendition="#fr">ſeine Gedancken eroͤffnen/ oder einen net-<lb/>
+ten und artigen Brieff verfertigen koͤnte;</hi> ſondern uber dieſes<lb/>
+dasjenige/ was insgemein zu dem Amte eines Furſten gehoͤret/<lb/>
+<hi rendition="#fr">auff ſich und ſeine Unterthanen inſonderheit wohl zu</hi> <hi rendition="#aq">appli-<lb/>
+ci</hi><hi rendition="#fr">ren wuͤſte; Die</hi> <hi rendition="#aq">intention</hi> <hi rendition="#fr">ſeiner Benachbarten; Seiner<lb/>
+Unterthanen</hi> <hi rendition="#aq">naturell/</hi> <hi rendition="#fr">das Thun und Verhalten ſeiner<lb/>
+Cleriſey und Bedienten/ das Vermoͤgen ſeiner Untertha-<lb/>
+nen/ die Nutzbarkeit ſeines Landes etc. genau bemerckete/<lb/>
+und aus dieſem allen dienliche Mittel zu ſuchen wuͤſte/<lb/>
+die gemeine Ruhe und Wohlfahrt zu befoͤrdern etc.</hi><lb/>
+ſo halte ich gaͤntzlich dafuͤr/ man wuͤrde einen ſolchen Herrn mit<lb/>
+gutem Fug fuͤr einen gelehrten Fuͤrſten <hi rendition="#aq">paſſi</hi>ren laſſen muͤſſen/<lb/>
+und wo mir recht iſt/ ſo hat <hi rendition="#aq">Plato</hi> auff einen ſolchen gezielet/ wann<lb/>
+er geſaget: Daß alsdenn die <hi rendition="#aq">Republiq</hi>ven hoͤchſt gluͤckſelig ſeyn<lb/>
+wuͤrden/ wenn entweder die Fuͤrſten <hi rendition="#aq">philoſophir</hi>ten oder denen<lb/>
+<hi rendition="#aq">Philoſophis</hi> die Regiments-Laſt auffgetragen wuͤrde. Aber iſt<lb/>
+<fw type="catch" place="bottom">denn</fw><lb/>
+<pb n="24" facs="#f0026"/>
+denn hierzu ſo groſſe Muͤhe vonnoͤthen? und woran lieget es/ daß<lb/>
+wir dergleichen Proben nicht viel auffweiſen koͤnnen? Warhaff-<lb/>
+tig an denen Potentaten ſelbſt nicht/ ſondern meiſtentheils an der<lb/>
+Art ſelbige zu unterweiſen? Jch bin verſichert/ daß wenn man ei-<lb/>
+nen jungen Herrn von 10 biß 12. Jahren/ der nur ſein Teutſch und<lb/>
+Frantzoͤſiſch verſtuͤnde/ anfienge taͤglich zwey biß drey Stunden<lb/>
+von dieſen Materien mit einem von Ernſt und Schertz gemengten<lb/>
+<hi rendition="#aq">diſcurs</hi> zu unterhalten/ und darneben mit guter Art <hi rendition="#aq">diſponir</hi>te/<lb/>
+daß er noch ein paar Stunden mit Luſt auff Leſung guter Hiſtorien/<lb/>
+auff die <hi rendition="#aq">Geographie</hi> und <hi rendition="#aq">Genealogi</hi>en anwendete/ man wuͤrde<lb/>
+ohne ihm einigen Ekel vor dem <hi rendition="#aq">Studir</hi>en noch Verdruß fuͤr denen<lb/>
+Gelehrten zu machen/ ingleichen ohne Beſchwehrung des Ge-<lb/>
+daͤchtniſſes mit vielen auswendig Lernen/ und Marter des Ver-<lb/>
+ſtandes/ dasjenige zu glauben/ was man nicht verſtehet/ welches<lb/>
+zugleich denen Menſchen einen haupt-verdrießlichen Eigenſinn<lb/>
+einfloͤſſet; ia endlich ohne Beybringung vieler nichtswuͤrdigen<lb/>
+Fragen/ welche das Gehirn verwirren und keinen groͤſſern Nu-<lb/>
+tzen haben/ als Ratten und Maͤuſe zu toͤdten; gleichſam ſpielende<lb/>
+und als durch den angenehmſten Zeit-Vertreib noch vor dem ach-<lb/>
+zehenden oder zwantzigſten Jahre dieſes alles zuͤ wege bringen<lb/>
+koͤnnen.</p><lb/>
+<p>Ferner/ ſo viel eine <hi rendition="#fr">Privat-Perſon</hi> betrifft/ werden mir<lb/>
+verhoffentlich die Gelehrten gar gerne Beyfall geben/ daß ſich ſel-<lb/>
+bige nicht wurde ſchaͤmen duͤrffen mit denen allergelehrteſten<lb/>
+Maͤnnern zu <hi rendition="#aq">converſi</hi>ren: Wenn ſie erſtlich <hi rendition="#fr">die Regeln<lb/>
+gruͤndlich zu</hi> <hi rendition="#aq">raiſon</hi><hi rendition="#fr">niren</hi> wohl innen haͤtte/ <hi rendition="#fr">ihre Gedancken<lb/>
+fuͤglich und ordentlich fuͤrzubringen wuͤſte/ von anderer ih-<lb/>
+ren Schrifften ein gut</hi> <hi rendition="#aq">judicium</hi> <hi rendition="#fr">faͤllen/</hi> auch denenſelbigen<lb/>
+<hi rendition="#fr">den Urſprung ihrer irrigen Meinungen und wie weit ſelbi-<lb/>
+ge von der Richtſchnur der Warheit abweichen/</hi> mit guter<lb/>
+Art und Freundlichkeit darthun koͤnte; Wenn ſie hernachmahls<lb/>
+<fw type="catch" place="bottom">die</fw><lb/>
+<pb n="25" facs="#f0027"/>
+<hi rendition="#fr">die Rede-Kunſt</hi> ſo weit verſtuͤnde/ <hi rendition="#fr">daß ſie einen wohlgeſetz-<lb/>
+ten Brieff</hi> verfertigen und <hi rendition="#fr">einen geſchickten</hi> <hi rendition="#aq">Diſcurs formi-</hi><lb/>
+ren koͤnte; wenn ſie in denen <hi rendition="#aq">Mathemati</hi><hi rendition="#fr">tiſchen Wiſſenſchaff-<lb/>
+ten</hi> ſo weit bewandert waͤre/ daß ſie von niemand in ſelbigen ver-<lb/>
+rathen zu werden ſich befuͤrchten duͤrffte; wenn ſie <hi rendition="#fr">von denen<lb/>
+Geſchoͤpffen Gottes und deren natuͤrlichen Eigenſchafften/</hi><lb/>
+ſo viel die Schwachheit des menſchlichen Verſtandes zulaͤſt/ ver-<lb/>
+nuͤnfftig reden; wenn ſie von <hi rendition="#fr">der menſchlichen Pflicht ſo<lb/>
+wohl gegen GOtt als Menſchen in allen Staͤnden</hi> nicht<lb/>
+ungeſchickte nachricht geben koͤnte; wenn ſie ferner wuͤſte/ was<lb/>
+ehe deſſen von dieſem allen <hi rendition="#aq">Pythagoras, Zeno, Epicurus,<lb/>
+Plato</hi> und <hi rendition="#aq">Ariſtoteles</hi> fuͤr Meinungen gehabt/ wie dieſer <hi rendition="#aq">Phi-<lb/>
+ſophen</hi> <hi rendition="#fr">ihre Secten bald ab bald zugenommen/ wie die<lb/>
+Barbarey im Roͤmiſchen Reich</hi> und ſonſt in der gautzen Welt<lb/>
+uͤberhand genommen/ wie an deren Statt eine <hi rendition="#aq">Scholaſti</hi>ſche<lb/>
+<hi rendition="#aq">Pedanterey</hi> lange Zeit Mode worden/ wie zur Zeit der <hi rendition="#aq">Refor-<lb/>
+mation</hi> <hi rendition="#fr">gute Kuͤnſte wieder empor kom̄en/ was</hi> <hi rendition="#aq">Ramus</hi> <hi rendition="#fr">ehe<lb/>
+deſſen in der Vernunfft Lehre/ was nach dieſen der beruf-<lb/>
+fene</hi> <hi rendition="#aq">des Cartes</hi> <hi rendition="#fr">und deſſen Schuͤler abſonderlich</hi> <hi rendition="#aq">Male-<lb/>
+branche</hi> <hi rendition="#fr">in nachſorſchung der Warheit/ was ebenfals die</hi><lb/>
+<hi rendition="#aq">Carteſianer,</hi> <hi rendition="#fr">was</hi> <hi rendition="#aq">Gaſſendus,</hi> <hi rendition="#fr">was</hi> <hi rendition="#aq">Digby</hi> <hi rendition="#fr">in der natuͤrli-<lb/>
+chen Wiſſenſchafft/ was</hi> <hi rendition="#aq">Grotius, Hobbes,</hi> <hi rendition="#fr">der Herr</hi> <hi rendition="#aq">Pu-<lb/>
+fendorff,</hi> <hi rendition="#fr">und derer Nachfolger/ oder Wiederſacher in der<lb/>
+Sittenlehre</hi> theils geneuert/ theils gebeſſert; wenn ſie von <hi rendition="#fr">Ur-<lb/>
+ſprung und Fortgang derer</hi> <hi rendition="#aq">Republiqven</hi> <hi rendition="#fr">in der Welt/<lb/>
+von dererſelbigen heutigen Zuſtand/ abſonderlich aber von<lb/>
+Beſchaffenheit des H. Roͤmiſchen Reichs/ und deſſen<lb/>
+Haupt und Gliedern/ von derer andern</hi> <hi rendition="#aq">Europæi</hi>ſchen<lb/>
+<hi rendition="#aq">Potentaten</hi> und <hi rendition="#aq">Republiqven deſſein</hi> und <hi rendition="#aq">interét</hi> <hi rendition="#fr">wohl</hi> <hi rendition="#aq">in-<lb/>
+formiret</hi> waͤre: wenn ſie <hi rendition="#fr">von dem Zuſtand der Kirchen al-<lb/>
+tes Teſtaments</hi> etwas weniges/ von denen <hi rendition="#fr">Spaltungen</hi><lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom"><hi rendition="#fr">neues</hi></fw><lb/>
+<pb n="26" facs="#f0028"/>
+<hi rendition="#fr">neues Teſtaments und deren Gelegenheit/</hi> abſonderli<supplied>c</supplied>h aber<lb/>
+von denen <hi rendition="#fr">Jrrungen ſo nach der</hi> <hi rendition="#aq">Reformation</hi> <hi rendition="#fr">entſtanden</hi><lb/>
+genauer und deutlicher zuſagen wuͤſte; <hi rendition="#fr">wenn ſie von denen<lb/>
+beſten</hi> <hi rendition="#aq">Autoren,</hi> <hi rendition="#fr">zu foͤrderſt aber von denen neueſten gute<lb/>
+Kundſchafft haͤtte</hi> und in deren Schrifften nicht <choice><sic>ſrembde</sic><corr>frembde</corr></choice> waͤre<lb/>
+u. ſ. w. Jch daͤchte wer dieſes alles <hi rendition="#aq">præſtirte,</hi> doͤrffte noch<lb/>
+wohl ſich unter die Gelehrten machen. Jedoch weiß ich nicht/ ob<lb/>
+wir ſo balde unter jungen Leuten/ und die nicht unter dem <hi rendition="#aq">ſtu-<lb/>
+diren</hi> faſt veraltet ſind/ dergleichen antreffen wuͤrden/ ob wir ſie<lb/>
+ſchon nicht unter denen/ die in denen hohen und niedern Schu-<lb/>
+len an ſtatt der Buͤcher Wohlluſt und Ergetzlichkeit geliebet/ ſon-<lb/>
+dern vielmehr unter denen/ die die freyen Kuͤnſte in denen <hi rendition="#aq">trivial</hi><lb/>
+Schulen wohl begriffen/ auch ihre <hi rendition="#aq">curſus</hi> auff denen <hi rendition="#aq">Acade-<lb/>
+mien abſolviret</hi> und die <hi rendition="#aq">Diſcurs</hi> und <hi rendition="#aq">Dictata</hi> ihrer Lehrer an<lb/>
+einem Schnuͤrgen herzuſagen wiſſen/ hervor ſuchen wolten.<lb/>
+Und dennoch koͤnte gar deutlich dargethan werden/ daß man die-<lb/>
+ſes alles einem erwachſenen jungen Menſchen/ der mit einem<lb/>
+guten natuͤrlichen Verſtand verſehen waͤre und nebſt ſeiner Mut-<lb/>
+terſprache einen Frantzoͤſiſchen <hi rendition="#aq">Autoren</hi> verſtuͤnde/ es moͤge<lb/>
+<hi rendition="#fr">ein Frauenzimmer oder Mannsperſon</hi> ſeyn/ ſo fer-<lb/>
+ne ſelbige nur rechtſchaffene und keine laulichte Begierde haͤtte<lb/>
+ſolches zu lernen/ mit der leichteſten und angenehmſten Art in<lb/>
+ſehr wenig Jahren/ nachdem der Fleiß mehr oder minder waͤre/<lb/>
+ich wil nicht ſagen hauptſaͤchlich beybringen/ doch zum wenigſten<lb/>
+dergleichen Anleitung darzu geben koͤnte/ daß ſie hernach ohne fer-<lb/>
+nere Handleitung und fuͤr ſich ſelbſt nach belieben zu ihrer Ver-<lb/>
+gnuͤgung ohne Anſtoß fort <hi rendition="#aq">ſtudi</hi>ren/ oder in der Welt gebraucht<lb/>
+werden koͤnte/ auch allbereit in Geſellſchafft/ wann ſie nur die<lb/>
+Regeln zu rechter Zeit zu reden und zu ſchweigen wohl in acht<lb/>
+naͤhme; fuͤr geſchickt und nicht ungelehrt <hi rendition="#aq">paſſiren</hi> ſolte. Es<lb/>
+kan ſeyn/ daß man mir es fuͤr eine Thorheit oder <hi rendition="#aq">extravagance</hi><lb/>
+<fw type="catch" place="bottom">deuten</fw><lb/>
+<pb n="27" facs="#f0029"/>
+deuten wird/ daß ich Frauenzimmer und Mannsperſonen in eine<lb/>
+Claſſe geſetzet/ gleich als wenn es eben ſo leichte waͤre jene als<lb/>
+dieſe gelehrt zumachen/ da doch bey uns fuͤr ein Wunder geach-<lb/>
+tet wird/ wenn eine Dame nur in einem einigen ſtuͤck von der<lb/>
+Gelehrſamkeit etwas beſitzet. Aber gleichwie ich einem ieden<lb/>
+gerne ſeine Meinung laſſe; alſo getraue ich mir doch nicht allein<lb/>
+dieſes/ was ich geſetzet/ mit guten Gruͤnden zu behaupten/ ſondern<lb/>
+gar darzuthun/ daß es viel leichter ſey und mehr <hi rendition="#aq">Succes</hi> zuhof-<lb/>
+fen/ ein Frauenzimmer von einem guten Verſtande/ welche kein<lb/>
+Lateiniſch verſtehet/ auch nichts oder wenig von der Gelehr-<lb/>
+ſamkeit weiß/ als eine auch mit guten Verſtande begabte<lb/>
+Mannsperſon/ die aber darneben von Jugend auff ſich mit dem<lb/>
+Latein geplackt/ auch wohl allbereit herrliche Zeugnuͤſſe ihrer<lb/>
+Geſchicklichkeit erhalten hat/ zu unterrichten/ nicht zwar als ob<lb/>
+die Lateiniſche Sprache die Gelehrſamkeit hindern ſolte (denn<lb/>
+wer wolte ſo unvernünfftig <hi rendition="#aq">raiſoni</hi>ren?) ſondern weil durch<lb/>
+die durchgehends gewoͤhnliche Lehr-Art viel ungegruͤndet und<lb/>
+ohnnoͤthig zeug nebſt den Latein in die Gemuͤther der Lehrlinge<lb/>
+eingepraͤget wird/ welches hernachmahls ſo feſte klebet/ und<lb/>
+merckliche Verhinderungen bringet/ daß das tuͤchtige und ge-<lb/>
+ſcheide nicht hafften will. Eine neue Schreibetaffel nimmet das<lb/>
+jenige ſo man drauff ſchreibet gar leicht an; wenn aber eine<lb/>
+Schrifft eine geraume Zeit darauff ſtehen blieben/ wie ſchwer<lb/>
+gehet es doch zu/ wenn man hernach das erſte auswiſchen will?<lb/>
+iſt dann das erſte gar auff eine Eſelshaut geſchrieben worden/ ſo<lb/>
+wiſche man wie man wil es werden die alten Buchſtaben oder<lb/>
+Zahlen noch allezeit herfuͤr gucken. Jn zweyen oder dreyen<lb/>
+Jahren kan man viel lehren und lernen. Geſetzt nun daß ein<lb/>
+Frauenzimmer manchmahl etwas <hi rendition="#aq">Vani</hi>taͤt hat/ welche zuvor-<lb/>
+hero etwan in einer vierteljaͤhrigen Zeit mit guter Art auff die<lb/>
+Seite geſchaffet werden muß; ſo mangelt es doch denen jungen<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">Herrn</fw><lb/>
+<pb n="28" facs="#f0030"/>
+Herren daran eben ſo wenig. Ehe man aber bey dieſen wenn<lb/>
+ſie ſchon <hi rendition="#aq">ſtudiret</hi> haben/ die <hi rendition="#aq">præjudicia</hi> und vorhergefaſte<lb/>
+Meinungen/ welche ſich auff nichts anders als auff die <hi rendition="#aq">Autori-</hi><lb/>
+taͤt derer/ von welchen ſie ſolche eingeſogen/ gruͤnden/ ausmiſtet/<lb/>
+halte ich dafuͤr/ daß man zum wenigſten ein Jahr mehr Zeit ha-<lb/>
+ben muͤſſe/ welches niemand wunderlich fuͤrkommen wird/ der<lb/>
+beym <hi rendition="#aq">Carteſio</hi> geleſen/ wieviel derſelbige ſeinem eigenen Ge-<lb/>
+ſtaͤndnuͤß nach Zeit angewendet/ ſeinen Verſtand von dergleichen<lb/>
+<hi rendition="#aq">impreſſionen</hi> zuſaubern/ ohnerachtet ihm/ wenn man ſeine<lb/>
+<hi rendition="#aq">Philoſophie</hi> etwas genau betrachtet/ noch unterſchiedene/ wie<lb/>
+wohl wider ſeine gute <hi rendition="#aq">intention,</hi> zuruͤck geblieben.</p><lb/>
+<p>Wir haben uns in Betrachtung des <hi rendition="#aq">ſcavant homme</hi> ein<lb/>
+wenig zu lange auffgehalten/ wir werden aber den Vortheil da-<lb/>
+von haben in denen uͤbrigen Stuͤcken deſto kuͤrtzer zu ſeyn/ weil<lb/>
+doch/ wenn man es recht heraus ſagen will/ die Wiſſenſchafft der<lb/>
+Grund zu einem <hi rendition="#aq">bel esprit</hi> und ein noͤthiges Stuͤck davon iſt/<lb/>
+dieſes beydes aber das natuͤrliche <hi rendition="#aq">judicium</hi> oder <hi rendition="#aq">le bon gout</hi><lb/>
+trefflich ſchaͤrffet/ und aus dieſen dreyen endlich ein <hi rendition="#aq">parfait<lb/>
+homme galant</hi> werden kan. So viel <hi rendition="#aq">le bel eſprit</hi> betrifft/<lb/>
+duͤrfften wir die kürtzeſte Arbeit machen/ wenn wir den <hi rendition="#aq">Bouhours</hi><lb/>
+folgen wolten/ maſſen wir nur mit zwey Worten ſagen koͤnten/ in<lb/>
+Franckreich waͤre ſelbige Art heute ſo gemein als die Muͤcken in<lb/>
+Hundstagen und bey uns hingegen ſo rar/ als ein Donnerwet-<lb/>
+ter im kaͤlteſten Winter. Er ſaget daß das vorige Jahr hundert<lb/>
+fuͤr Jtalien an ſchoͤnen Geiſtern ſo fruchtbar geweſen ſey/ als es<lb/>
+nach <hi rendition="#aq">Auguſti</hi> Zeiten iemahls ſeyn koͤnnen/ das ietzige aber ſey<lb/>
+fuͤr Franckreich/ indem man mit guten fug ſagen koͤnne/ daß alle<lb/>
+Weißheit und aller Verſtand von der Welt eintzig und allein<lb/>
+bey denen Frantzoſen anzutreffen ſey/ und daß alle andere <hi rendition="#aq">Natio-<lb/>
+nes</hi> gegen die Frantzoſen gerechnet den Kopff mit Gritze gefuͤllet<lb/>
+haͤtten. Es koͤnne niemand mehr in Franckreich mit ſeinem<lb/>
+<fw type="catch" place="bottom">ſchoͤ-</fw><lb/>
+<pb n="29" facs="#f0031"/>
+ſchoͤnen Geiſt empor kom̄en/ und ſich in hochachtung bringen/ weil<lb/>
+iederman davon etwas uͤberley habe/ und ſey bey nahe kein<lb/>
+Menſch unter i<supplied>h</supplied>nen/ der ein wenig manierlich erzogen worden/<lb/>
+welcher nicht w<supplied>o</supplied>hl zu reden und artig zuſchreiben wiſſe; die Zahl<lb/>
+von guten <hi rendition="#aq">Au<supplied>t</supplied>oren</hi> und denen ſo artigen Sachen verfertigten/<lb/>
+ſey unendlich; die gelehrten Verſamlungen kluger Leute ver-<lb/>
+mehren ſich taͤglich/ ja er wiſſe mit einem Wort nichts/ ſo ge-<lb/>
+meiner waͤre in gantzen Koͤnigreich als <hi rendition="#aq">le bel eſprit</hi> (der vor<lb/>
+dieſem ſo rar tarinnen geweſen) in auſehen er nicht alleine bey<lb/>
+denen Gelehrten anzutreffen/ ſondern auch bey denen Solda-<lb/>
+ten und groſſen Herren. Sie haͤtten <hi rendition="#aq">Princen</hi> welche ſo wohl<lb/>
+am Verſtande als an Tapfferkeit es mit dem <hi rendition="#aq">Scipio</hi> und <hi rendition="#aq">Cæ-<lb/>
+ſar</hi> annehmen koͤnten (bey welcher Gelegenheit er dann einen<lb/>
+bekanten Printzen ſehr artig und auff Jeſuitiſche Manier zu-<lb/>
+ſchmeicheln weiß) ſie haͤtten Hertzoge/ Marggrafen/ Grafen/<lb/>
+die ſehr geiſtreich und gelehrt waͤren/ und die ja ſo wohl mit der<lb/>
+Feder als dem Degen uͤmbgehen koͤnten/ auch ſo geſchickt waͤren<lb/>
+ein artig Ballet anzugeben oder eine Hiſtorie zu ſchreiben/ als<lb/>
+eine Feldſchlacht zu ordnen; Endlich ſo waͤre bey ihnen an Hertzo-<lb/>
+ginnen/ Marggraͤffinnen/ und Graͤffinnen ſo insgeſamt mit<lb/>
+ſchoͤnen Verſtande begabt waͤren/ ſo wenig ein Mangel als an<lb/>
+denen Herren ſelbſt. Aber uns armen Teutſchen giebt er eine<lb/>
+ſcharffe <hi rendition="#aq">Lection,</hi> indem er uns mit denen <hi rendition="#aq">Moſcovi</hi>tern ver-<lb/>
+gleichet/ und vorgiebet als wenn das gar was ſonderliches waͤ-<lb/>
+re/ daß ein Teutſcher und Moſcoviter einen ſchoͤnen Verſtand<lb/>
+habe/ und wenn ja allen falls dergleichen Leute auff der Welt<lb/>
+waͤren/ ſo waͤren es doch Geiſter von einer ſolchen Art/ die<lb/>
+niemahls ohne Verwunderung und entſetzen erſchienen.<lb/>
+Der Cardinal <hi rendition="#aq">Perron</hi> habe von dem Jeſuiten <hi rendition="#aq">Gretſero</hi> geſagt/<lb/>
+daß er genung Verſtand fuͤr einem Teutſchen habe/ gleich als ob<lb/>
+es ein Wunderwerck waͤre/ daß ein Teutſcher mit Verſtande ver-<lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">ſehen</fw><lb/>
+<pb n="30" facs="#f0032"/>
+ſehen ſey; Er ſetzet auch die Urſache ſeiner Meynung darzu/ daß<lb/>
+nemlich ein ſchoͤner Geiſt ſich gantz und gar nicht mit dem groben<lb/>
+<hi rendition="#aq">temperament</hi> und <hi rendition="#aq">maſſiv-</hi>Leibern derer Nori-Voͤlcker <hi rendition="#aq">com-<lb/>
+porti</hi>ren koͤnne. Dieſe offenhertzige Gedancken des <hi rendition="#aq">Bouhours</hi><lb/>
+ſolten uns nun eine gnungſame Materie geben/ eine <hi rendition="#aq">Satyre</hi> zu<lb/>
+ſchreiben/ wenn es unſer Vorhaben waͤre; in Anſehen ſich der gu-<lb/>
+te Vater mit ſeinem <hi rendition="#aq">bel eſprit</hi> ziemlich bloß gegeben/ indem er<lb/>
+zwar die <hi rendition="#aq">modeſtie/</hi> als ein noͤthiges Stuͤck davon/ wie oben er-<lb/>
+wehnet/ erfordert/ aber in Warheit ſich nicht allein hierinnen ſehr<lb/>
+<hi rendition="#aq">immodeſt</hi> bezeuget/ ſondern auch ſeine Pralerey (wenn wir uns<lb/>
+teutſcher Redens-Arten/ oder nach ſeiner Art zu ſchertzen/ <hi rendition="#aq">maſſiv-</hi><lb/>
+Worte gegen ihm gebrauchen wollen) darinnen mercklich ſpuͤhren<lb/>
+laͤſt/ daß er in eben demſelben Geſpraͤch/ wo er <hi rendition="#aq">d’ un bel eſprit</hi><lb/>
+handelt/ den einen von denen ſich unterredenden Perſonen alſo<lb/>
+einfuͤhret. <hi rendition="#aq">Il ne ſe peut rien voir de plus beau<lb/>
+que l’ idee que vous avez du bel esprit. J’ ay<lb/>
+penſé dire, qu’il ne ſe peut rien voir de plus<lb/>
+beau que vótre portrait; car on diroit que<lb/>
+vous eſtes peint vous même dans le tableau,<lb/>
+que vous venez de faire, tant il vous reſſemble.</hi><lb/>
+Aber wir wollen den Ehrwuͤrdigen Herrn anietzo <hi rendition="#aq">paſſi</hi>ren<lb/>
+laſſen/ weil ihm ohne dem einer von ſeinen eigenen Landes-Leuten<lb/>
+unter dem verdeckten Namen des <hi rendition="#aq">Cleante,</hi> wie bekant/ den Kopff<lb/>
+mit allzu ſcharffer Lauge gezwaget/ welcher auch abſonderlich ihm<lb/>
+dieſes fuͤrwirfft und fuͤr uͤbel haͤlt/ daß er gantze Nationen und die<lb/>
+Helffte der Welt angetaſtet/ auch von denen Teutſchen fuͤrnehm-<lb/>
+lich gefraget/ ob ſie koͤnten unter <hi rendition="#aq">les beaux esprits</hi> gerechnet<lb/>
+werden? Zum wenigſten finden wir unter ſeinen eigenen Model/<lb/>
+ſo er uns oben <hi rendition="#aq">d’un bel esprit</hi> gegeben/ nirgends/ daß dergleichen<lb/>
+<fw type="catch" place="bottom">Durch-</fw><lb/>
+<pb n="31" facs="#f0033"/>
+Durchhechelungen und Schmaͤh-Worte gegen gantze Nationen<lb/>
+darzu gehoͤren/ ſo wenig/ als die offenbahre und handgreifliche<lb/>
+Schmeicheley/ ſo er von der Frantzoͤſiſchen Nation macht. Man<lb/>
+leugnet nicht/ daß bey denen Frantzoſen Leute von ſchoͤnen Ver-<lb/>
+ſtande in groſſer Menge anzutreffen; daß er aber ſo viel Weſens<lb/>
+mit ſeinen <hi rendition="#aq">Marquis</hi> macht/ zweiffele ich ſehr/ ob es ihm <hi rendition="#aq">Moliere</hi><lb/>
+wuͤrde haben gut ſeyn laſſen/ wenn er noch laͤnger am Leben blie-<lb/>
+ben/ als welcher/ wie bekandt/ mit denen Herren <hi rendition="#aq">Marquis</hi> ſich<lb/>
+oͤffters luſtig gemacht. Und meynet denn der ehrliche Mann/<lb/>
+das in Franckreich alles von ſchoͤnen Geiſtern ſo gar unmaͤßig uͤ-<lb/>
+berley iſt/ daß man keine <hi rendition="#aq">Pedanten</hi> unter ihnen antreffen ſolte.<lb/>
+Wie wenn wir mit wenigen einen herfuͤrzoͤgen/ der ſich nichts ge-<lb/>
+ringes zu ſeyn duͤncket/ und dem <hi rendition="#aq">Bouhours</hi> die Oberſtelle unter<lb/>
+denen <hi rendition="#aq">beaux esprits</hi> wohl ſtreitig machen ſolte. <hi rendition="#aq">Monſieur<lb/>
+l’ <hi rendition="#k">a</hi>bbé de Gerard</hi> iſt warhafftig auch keine Katze. Wer den<lb/>
+Titel ſeines Buches <hi rendition="#aq">la Philoſophie des gens de Cour</hi><lb/>
+und deſſen Vorrede/ wie auch den kurtzen Jnhalt derer daſelbſt be-<lb/>
+findlichen Geſpraͤche lieſet/ und bald auff dem Titel ſiehet/ daß die-<lb/>
+ſes Werckgen zum dritten mal auffgeleget worden ſey/ der ſolte<lb/>
+drauff ſchwehren/ der <hi rendition="#aq">Autor</hi> habe den rechten Weg getroffen/ wie<lb/>
+man die Leute zu warhafftig Gelehrten und <hi rendition="#aq">beaux esprits</hi> mit<lb/>
+kurtzer Arbeit machen ſolle/ zumal da er in der Vorrede nicht al-<lb/>
+lein auf die barbariſchen Woͤrter und unnoͤthigen <hi rendition="#aq">abſtractiones</hi><lb/>
+derer gemeinen <hi rendition="#aq">Philoſophen,</hi> ſondern auch auff die allzu ſubtilen<lb/>
+<hi rendition="#aq">mathemati</hi>ſchen Erfindungen und wunderliche Neuerungen de-<lb/>
+rer <hi rendition="#aq">Carteſianer</hi> ſtichelt/ und ohne dieſe Maͤngel alles das jenige/<lb/>
+was am <hi rendition="#aq">curi</hi>oͤſeſten in der <hi rendition="#aq">Phyſic</hi> und am gegruͤndeſten in der<lb/>
+Sitten-Lehre iſt/ auff ſo eine leichte/ natuͤrliche und fuͤr die Leute<lb/>
+am Hofe geſchickteſte Art zu weiſen verſpricht/ daß man ſie verſi-<lb/>
+chern koͤnne/ ſie wuͤrden nicht weniger Vergnuͤgung in Begreif-<lb/>
+fung dieſer <hi rendition="#aq">Philoſophie</hi> antreffen/ als wenn ſie einen <hi rendition="#aq">Roman</hi><lb/>
+oder <hi rendition="#aq">Comœdie</hi> laͤſen. Wenn man aber das Werck ſelbſt in die<lb/>
+<fw type="catch" place="bottom">Hand</fw><lb/>
+<pb n="32" facs="#f0034"/>
+Hand nimmt/ was findet man doch darinnen fuͤr abgeſchmackt<lb/>
+und albern Zeug? Jch wil nicht ſagen/ daß den <hi rendition="#aq">Autoren</hi> der<lb/>
+ſinnreiche <hi rendition="#aq">Baile</hi> (ein warhafftiger <hi rendition="#aq">bel esprit</hi>) einer ziemlichen<lb/>
+derben/ wider die Reformirten begangenen Unwarheit beſchuldi-<lb/>
+get hat/ auch des unertraͤglichen Lobes nicht erwehnen/ daß er faſt<lb/>
+in allen Seiten ſich ſelbſt giebt/ und ſein groſſes Werck (worvon<lb/>
+<hi rendition="#aq">la Philoſophie des gens de cour</hi> nur ein kurtzer Auszug iſt)<lb/>
+heraus ſtreichet/ denen Buchfuͤhrern/ die ſolches Zweiffels ohne<lb/>
+nicht haben verlegen wollen/ das Maul waͤſſerich zu machen/ auch<lb/>
+von einer <hi rendition="#aq">Madame la Marquiſe,</hi> die er wil <hi rendition="#aq">informi</hi>ret haben/<lb/>
+viel Ruͤhmens macht; vielweniger was die <hi rendition="#aq">methode</hi> betrifft/ all-<lb/>
+zu genau erinnern/ daß er nicht mit einen Buchſtaben erwehnet/<lb/>
+was er eigentlich durch die <hi rendition="#aq">Philoſophie</hi> verſtehe/ auch die Ver-<lb/>
+nunfft-Lehre als das noͤthigſte Stuͤck auslaͤſt/ und in uͤbrigen die<lb/>
+<hi rendition="#aq">Philoſophie</hi> und <hi rendition="#aq">Theologie</hi> ziemlich untereinander wirfft;<lb/>
+ſondern ich wil nur etliche grobe Fehler und Auffſchneidereyen an-<lb/>
+fuͤhren/ die mir in Durchleſung kaum des dritten Theils dieſes<lb/>
+Buchs vorkommen. Jm andern Geſpraͤch/ da er von denen <hi rendition="#aq">Se-<lb/>
+cten</hi> der alten <hi rendition="#aq">Philoſophen</hi> gehandelt/ macht er mehr Auffhe-<lb/>
+bens als die Klopff-Fechter von Vielfaͤltigkeit derer <hi rendition="#aq">Secten,</hi> und<lb/>
+daß noch niemand dieſelben genau eingetheilt habe/ und verſpricht/<lb/>
+wie er eine gantz leichte und ſo herrliche Art weiſen wolle/ ohne<lb/>
+welcher man ohnmoͤglich aus der Verwirrung/ worein ſich die<lb/>
+<hi rendition="#aq">Philoſophi</hi> ſelbſt geworffen haben/ kommen koͤnne; Endlich<lb/>
+koͤmmt es heraus/ man muͤſſe zwey Haupt-Secten machen/ die<lb/>
+<hi rendition="#aq">Dogmati</hi>ſche und <hi rendition="#aq">Scepti</hi>ſche/ und dahin alle andere zu bringen<lb/>
+ſuchen/ gleich als wenn <hi rendition="#aq">Lipſius</hi> zu ſeiner Zeit/ und nach/ auch wol<lb/>
+fuͤr ihm viel andere ſich nicht allbereit dieſer Eintheilung bedienet<lb/>
+haͤtten. Jn dem dritten Geſpraͤch/ da er beweiſen wil/ daß das<lb/>
+Frauenzimmer auch die <hi rendition="#aq">Philoſophie</hi> ſtudieren ſolte/ macht er ſich<lb/>
+ſelbſt einen Einwurff/ es habe glelchwohl Chriſtus das Maͤnnli-<lb/>
+<fw type="catch" place="bottom">che</fw><lb/>
+<pb n="33" facs="#f0035"/>
+che und nicht das Weibliche Geſchlecht angenommen. So wun-<lb/>
+derlich nun dieſe <hi rendition="#aq">objection</hi> iſt/ ſo wunderlich iſt auch die darauf er-<lb/>
+folgete Antwort/ welche wohl niemand errathen wuͤrde/ wenn er<lb/>
+gleich noch ſo tieffſinnig <hi rendition="#aq">meditir</hi>te. Er ſpricht: es ſey eine ſon-<lb/>
+derbare Urſache/ warumb GOtt das Maͤnnliche Geſchlecht fuͤr<lb/>
+dem Weiblichen angenommen habe/ weil nemlich GOTT durch<lb/>
+Annehmung der menſchlichen Natur ſich habe erniedrigen wol-<lb/>
+len/ die Manns-Perſonen aber unter allen vernuͤnfftigen Creatu-<lb/>
+ren die allerverachteſten und niedrigſten waͤren. Eben ſo geſcheid<lb/>
+antwortet er an ſelbigem Orte auff den Einwurff/ warumb denn<lb/>
+Paulus denen Weibes-Perſonen das Predigen verboten habe?<lb/>
+Denn er ſagt/ es waͤre deßwegen geſchehen/ weil ſie mehr Ver-<lb/>
+ſtand haͤtten als die Maͤnner/ und damit es nicht das Anſehen ge-<lb/>
+winnen moͤchte/ als ob das Frauenzimmer durch ihre Schoͤnheit<lb/>
+und natuͤrliche Beredtſamkeit ſo viel Leute an ſich zoͤgen. Jm<lb/>
+vierdten Geſpraͤch erzehlet er/ daß etliche die Meinung behauptet<lb/>
+haͤtten/ ob waͤren die Engel etliche hundert Jahr fuͤr der Welt er-<lb/>
+ſchaffen worden. Aber dieſe ſchlaͤgt er alsbald mit einer eintzigen<lb/>
+Frage zu Boden: Denn/ ſpricht er/ an welchem Orte hielten ſich<lb/>
+denn die Engel auff/ da noch kein Ort geſchaffen war? u. ſ. w.<lb/>
+Dem ſey aber nun allen wie ihm wolle/ ſo ſolten wir Teutſchen<lb/>
+uns doch den von dem <hi rendition="#aq">Bouhours</hi> uns gethanen Vorwurff/ als ob<lb/>
+wir keine <hi rendition="#aq">beaux esprits</hi> unter uns haͤtten/ nicht nur darzu an-<lb/>
+reitzen laſſen/ daß wir deſto eyffriger ihnen das Gegentheil in der<lb/>
+That erwieſen/ ſondern daß wir auch durchgehends ſowohl hohes<lb/>
+als niedern Standes/ ſowohl Adel als Unadel/ ſowohl Weibes-als<lb/>
+Mannes-Perſonen uns einen ſchoͤnen Geiſt zu erlangen/ ange-<lb/>
+legen ſeyn lieſſen/ welches wir ja ſo leicht zu wege bringen koͤnten/<lb/>
+als die Frantzoſen/ wann wir nur rechtſchaffene Luſt darzu<lb/>
+haͤtten.</p><lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom">End-</fw><lb/>
+<pb n="34" facs="#f0036"/>
+<p>Endlich <hi rendition="#aq">Le bon gout</hi> und die warhafftige <hi rendition="#aq">galanterie</hi> be-<lb/>
+treflend/ ſo pfleget man zwar insgemein nach Franckreich zu rei-<lb/>
+ſen/ wenn man in dieſen Eigenſchafften ſich vollkommen machen<lb/>
+wil/ und iſt an dem/ daß die Frantzoſen hiervon <hi rendition="#aq">profeſſion</hi> ma-<lb/>
+chen. Aber wenn wir die Warheit ſagen ſollen/ ſo koͤnnen wir<lb/>
+dieſe gute Qvalitaͤten auch bey uns antreffen/ wenn wir uns<lb/>
+nur von dem gemeinen Poͤbel etwas abſonderten/ und nicht ein<lb/>
+iedweder ſich einbildete/ daß er nach ſeiner eigenen <hi rendition="#aq">impreſſion<lb/>
+galant</hi> genug waͤre und <hi rendition="#aq">le bon goùt</hi> vollkommen beſaͤſſe. Wie<lb/>
+mancher junger Menſch/ der erſt ausfliegt/ <hi rendition="#aq">affectirt</hi> mit aller<lb/>
+Gewalt fuͤr <hi rendition="#aq">galant</hi> angeſehen zu ſeyn/ und ſeinen guten Verſtand<lb/>
+ſehen zu laſſen; Aber auff was Weiſe? Bald kleidet man ſich<lb/>
+auff die wunderlichſte Art von der Welt/ und duͤrffen unſere<lb/>
+Schneider nur mit zwey Worten ſagen: dieſe Mode komme nur<lb/>
+gantz warm aus Franckreich/ ſo iſt es ſchon gut/ wenn gleich die<lb/>
+Frantzoſen uns damit hoͤchlich auslachen. Bald/ wenn man ſtu-<lb/>
+diren oder was noͤthigers thun ſoll/ verliebt man ſich ſterblich/ und<lb/>
+zwar zum oͤfftern in ein gut einfaͤltig Buttes-Maͤgdgen/ aus deren<lb/>
+Augen man gleich ſehen kan/ daß eine Seele ohne Geiſt den Leib<lb/>
+bewohne. Was gehen nun da fuͤr <hi rendition="#aq">galanterien</hi> vor? Wie zu-<lb/>
+trampelt man ſich vor dem Fenſter/ ob man die Ehre haben koͤnne/<lb/>
+die Jungfer/ oder doch an deren ſtatt die Magd oder die Katze zu<lb/>
+gruͤſſen? Wie viel verliebte Briefe/ die man aus zehen <hi rendition="#aq">Romans</hi><lb/>
+zuſammen geſuchet hat/ und die mit vielen flammenden und mit<lb/>
+Pfeilen durchſchoſſenen Hertzen bemahlet ſind/ werden da abge-<lb/>
+ſchicket/ gleich als ob man des guten Kindes <hi rendition="#aq">affection</hi> damit<lb/>
+<hi rendition="#aq">bombardi</hi>ren wolte? Wie laͤſſet man ſichs ſauer werden/ eine<lb/>
+<hi rendition="#aq">galante</hi> Nacht-Muſic zu bringen? Wie ſpielet man mit denen<lb/>
+verliebten Minen uͤberall/ auch wohl in dem GOttes-Hauſe?<lb/>
+Daß ja von denen <hi rendition="#aq">galanten</hi> Hiſtoͤrgen iedermann zuſagen wiſſe/<lb/>
+und auff den <hi rendition="#aq">galanten</hi> Menſchen mit Fingern weiſen koͤnne.<lb/>
+<fw type="catch" place="bottom">Bald</fw><lb/>
+<pb n="35" facs="#f0037"/>
+Bald/ wenn man ſeine <hi rendition="#aq">galanterie in converſation</hi> ſchen laſſen<lb/>
+wil/ vermeynet man nicht beſſer fortzukommen/ als wenn man<lb/>
+nur fein viel rede/ es moͤge ſich ſchicken/ wie es wolle/ oder wenn<lb/>
+man einem ieden in der Geſellſchafft <hi rendition="#aq">contradici</hi>re/ und da kan es<lb/>
+denn nicht fehlen/ es muͤſſen manchmal <hi rendition="#aq">galante fauten</hi> mit un-<lb/>
+terlauffen/ daß man zum Exempel aus Jtalien uͤber die <hi rendition="#aq">Alpes</hi> zu<lb/>
+Waſſer reiſet/ daß man aus Spanien unmittelbar in Pohlen<lb/>
+koͤmmet/ daß man bey Soldaten von der <hi rendition="#aq">Philoſophie,</hi> bey Ge-<lb/>
+lehrten von der <hi rendition="#aq">Fortification,</hi> beym Frauenzimmer von ſeinen<lb/>
+<hi rendition="#aq">Collegiis</hi> oder von der <hi rendition="#aq">Metaphyſic</hi> ſchwatzet/ oder daß man die<lb/>
+gantze Geſellſchafft mit ſeinen <hi rendition="#aq">galanten diſputi</hi>ren verdrießlich<lb/>
+macht/ u.ſ.w. Jedoch es mangelt bey dem Frauenzim̄er auch nicht<lb/>
+an vielfaͤltig <hi rendition="#aq">affectir</hi>ter Galanterey? Wie manche ‒ ‒ ‒ Aber/<lb/>
+Meine Herren/ hier haͤlt meine Feder billig inne/ und erinnert<lb/>
+ſich des Reſpects/ welchen man dieſem artigen Geſchlecht ſchuldig<lb/>
+iſt. Man kan ihre Fehler wohl dencken und wiſſen/ aber man<lb/>
+muß ſie nicht ſagen/ vielweniger davon ſchreiben; Denn dadurch<lb/>
+wuͤrde man die Graͤntzen der Hoͤfligkeit uͤberſchreiten/ und die<lb/>
+Hochachtung/ mit der man ihnen allezeit begegnen ſoll/ hoͤchlich<lb/>
+beleidigen. <hi rendition="#aq">Diſcret</hi> ſeyn iſt ein notbwendiges Stuͤcke der <hi rendition="#aq">ga-<lb/>
+lanterie,</hi> und was wuͤrden wir alſo fuͤr Vortheil haben/ wenn<lb/>
+wir ihnen gleich in denen Stuͤcken/ worinnen ſie wider die Regeln<lb/>
+der Galanterie anſtoſſen/ die Warheit ſagten/ und doch eben in<lb/>
+ſelbigem Augenblicke wider dieſelbigen Geſetze ſuͤndigten. Wir<lb/>
+muͤſſen uns vielmehr befleißigen/ die uns anklebende vielfaͤltige<lb/>
+Maͤngel zu beſſern/ um Sie dadurch mit guter Art zu erinnern̄/<lb/>
+auch an die aͤnderung der ihrigen zu gedencken.</p><lb/>
+<p>Derowegen/ daß wir dereinſt zum Schluſſe kommen/ bin ich<lb/>
+der Meinung/ daß wenn man ja denen Frantzoſen nachahmen<lb/>
+wil/ man ihnen hierinnen nachahmen ſolle/ daß man ſich auf <hi rendition="#aq">hon-<lb/>
+néte,</hi> Gelehrſamkeit/ <hi rendition="#aq">beauté d’eſprit, un bon gout</hi> und <hi rendition="#aq">galan-</hi><lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom"><hi rendition="#aq">terie</hi></fw><lb/>
+<pb n="36" facs="#f0038"/>
+<hi rendition="#aq">terie</hi> befleißige; Denn wenn man dieſe Stuͤcke alle zuſammen<lb/>
+ſetzt/ wird endlich <hi rendition="#aq">un parfait homme Sâge</hi> oder ein vollkomme-<lb/>
+ner weiſer Mann daraus entſtehen/ den man in der Welt zu klu-<lb/>
+gen und wichtigen Dingen brauchen kan. Gleichwie es aber nicht<lb/>
+geſcheide gehandelt iſt/ weñ man ſich etwas zum Entzweck fuͤꝛſetzet/<lb/>
+und um die Mittel darzu zugelangen/ ſich nicht bekuͤm̄ert/ oder die<lb/>
+Hand in Schoß leget/ und fuͤr Faulheit dieſelbe nicht brauchen wil;<lb/>
+alſo iſt wohl noͤthig/ daß wir uns nach denen mitteln umbthun/<lb/>
+durch welche wir obberuͤhrte Eigenſchafften erhalten und dieſe<lb/>
+Nachahmung ins Werck richten koͤnnen. Jch wil nicht leugnen/<lb/>
+daß bey allen dieſen Stuͤcken ein gut <hi rendition="#aq">naturell</hi> viel/ auch in etli-<lb/>
+chen das meiſte thue; Es wird aber auch hinwiederum niemand<lb/>
+verneinen koͤnnen/ daß mann der Natur durch Kunſt mercklich<lb/>
+forthelffen koͤnne/ die Kunſt aber am fuͤglichſten durch gewiſſe<lb/>
+Grund-Regeln und <hi rendition="#aq">maximen</hi> erlernet werde. Weil ich dann<lb/>
+ſonſt nichts zuthun habe/ als daß ich Gelegenheit ſuche/ Meinen<lb/>
+Herren/ nach meinen wenigen Vermoͤgen zu dienen/ und an die<lb/>
+Hand zugehen/ darneben aber bemuͤhet lebe/ wie ſolches mit einer<lb/>
+guten Manier geſchehen moͤge/ damit weder dieſelben noch ich<lb/>
+dabey verdrießlich werden; Als habe ich mir fuͤrgeſetzt/ geliebts<lb/>
+GOtt dieſen Winter durch/ denen ſo dießfalls meine Lehrart<lb/>
+anſtehet/ anleitung zugeben wie man obbeſagte Stuͤcke/ worin-<lb/>
+nen die Frantzoſen uns Teutſchen zu uͤbertreffen ſuchen/ zu erlan-<lb/>
+gen ſein Leben anſtellen und ſeinen Verſtand <hi rendition="#aq">diſponi</hi>ren ſolle.<lb/>
+Zwar was die <hi rendition="#fr">Gelehrſamkeit</hi> betrifft/ bin ich allbereit darinnen<lb/>
+begriffen/ Meinen Herren zuweiſen auff was fuͤr Regeln man ſei-<lb/>
+ne Gedancken gruͤnden und vernünfftige <hi rendition="#aq">raiſonni</hi>ren ſolle/<lb/>
+welche Lehre ob ſie wohl gemeiniglich obenhin <hi rendition="#aq">tracti</hi>ret/ und von<lb/>
+vielen als zur Gelahrheit ohnnoͤthig gar ausgelaſſen wird/ ſo iſt<lb/>
+ſie dennoch bey geſcheiden Leuten billich fuͤr das Hauptſtuͤck ei-<lb/>
+nes gelahrten Mannes angeſehen/ deren ich mich auch deſtowe-<lb/>
+<fw type="catch" place="bottom">niger</fw><lb/>
+<pb n="37" facs="#f0039"/>
+niger zuſchaͤmen urſach habe/ weiln eine <hi rendition="#fr">Hoch Adeliche Per-<lb/>
+ſon</hi> unter uns Teutſchen (die bey denen Frantzoſen ſelbſt <hi rendition="#aq">pour<lb/>
+un veritable bel eſprit &amp; galand homme paſſiret,</hi> und<lb/>
+dannenhero von meinen Herrn billig als ein <hi rendition="#aq">model d’ un hom-<lb/>
+me Sâge</hi> betrachtet werden ſoll;) ſelbige Jhrer gelehrten Feder<lb/>
+wuͤrdig geachtet/ und unter dem Nahmen einer nuͤtzlichen<lb/>
+<hi rendition="#fr">Seelen-Artzeney</hi> artig und geſchickt davon geſchrieben hat.<lb/>
+Was <hi rendition="#aq">l’ honnêtete</hi> anlanget/ bin ich geſonnen/ die <hi rendition="#aq">Maximen</hi><lb/>
+des Goͤttlichen Rechts/ als welches die fuͤrnehmſte Richtſchnur<lb/>
+derſelbigen iſt/ nach Anleitung meiner <hi rendition="#aq">Inſtitutionum Jurispru-<lb/>
+dentiæ divinæ,</hi> wo GOtt will/ auff dem <hi rendition="#fr">Montag nach der<lb/>
+Zahlwoche nach mittags nach zwey Uhr</hi> wiederum zuer-<lb/>
+klaͤren anzufangen/ und binnen <hi rendition="#aq">dato</hi> <hi rendition="#fr">und Oſtern</hi> kuͤnfftiges<lb/>
+Jahres zu vollenden; Aber in denen drey letztern Stuͤcken gebe<lb/>
+ich mich noch ſelbſten vor einen Lehrling aus und getraue mir<lb/>
+noch nicht die grundgeſetze <hi rendition="#aq">d’ un bel eſprit, du bon gout &amp;<lb/>
+d’ un galand homme</hi> nach meiner eigenen <hi rendition="#aq">invention</hi> in ei-<lb/>
+ner gewiſſen Kunſtform fuͤrzuſtellen; Jch habe aber bißhero<lb/>
+angemerckt/ daß <hi rendition="#aq">Gracian</hi> ein bekanter und beruͤhmter Spanier<lb/>
+in ſeinem Buch/ welches er <hi rendition="#aq">Arte de prudencia</hi> genennet<lb/>
+und aus lauter Regeln geſchickt und artig zu leben beſtehet/ die-<lb/>
+ſes ſeinen fuͤrnehmſten Zweck ſeyn laſſen/ wie er durchgehends<lb/>
+die Menſchen dahin fuͤhren moͤchte/ daß ſie <hi rendition="#aq">beaux eſprits,<lb/>
+hommes de bon gout &amp; galands</hi> wuͤrden. Welches gleich<lb/>
+wie es von <hi rendition="#aq">Amelot de la Houſſaye</hi> in das Frantzoͤſiſche uͤber-<lb/>
+ſetzet und als ein ſehr vernuͤnfftiges Werck von Leuten bey<lb/>
+Hoffe/ allwo die rechtſchaffene <hi rendition="#aq">galanterie</hi> eigentlich ihren<lb/>
+Sitz hat/ <hi rendition="#aq">æſtimiret</hi> worden; Alſo hat ſolches auch ein gelehr-<lb/>
+ter Mann unſerer Stadt in die hochteutſche Sprache <hi rendition="#aq">vertiret.</hi><lb/>
+Wannenhero ich vermeinet/ nicht ſonderlich zu irren/ <supplied>w</supplied>enn ich<lb/>
+Meinen Herren <hi rendition="#fr">dieſes Buch</hi> zwiſchen hier und Oſtern nach<lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">meiner</fw><lb/>
+<pb n="38" facs="#f0040"/>
+meiner geringen Wiſſenſchafft und Erfahrung erklaͤrete/ worin-<lb/>
+nen ich auch/ ſo ferne es denenſelben beliebig auff erwehnten<lb/>
+<hi rendition="#fr">Montag nach der Zahlwoche vor mittag uͤmb 9. Uhr</hi><lb/>
+den Anfang zu machen vorhabens bin. Jch haͤtte wohl Gele-<lb/>
+genheit hierbey mehr zuerwehnen <hi rendition="#fr">wer der</hi> <hi rendition="#aq">Gracian</hi> <hi rendition="#fr">geweſen?<lb/>
+Was er ſonſt geſchrieben? Was von dieſem Buch abſon-<lb/>
+derlich zuhalten? wie die</hi> <hi rendition="#aq">Cenſur,</hi> <hi rendition="#fr">ſo der Jeſuite</hi> <hi rendition="#aq">Bou-<lb/>
+hours</hi> <hi rendition="#fr">davon gefaͤllet/ zubeantworten ſey? von des</hi> <hi rendition="#aq">Amelot<lb/>
+de Houſlaye</hi> <hi rendition="#fr">ſeiner Uberſetzung und andern Schrifften/<lb/>
+auch ſeinen Wiederſachern: Ob er den Titel des</hi> <hi rendition="#aq">Graci-<lb/>
+ans</hi> <hi rendition="#fr">mit dem Titel</hi> <hi rendition="#aq">l’ Homme de cour</hi> geſchickt verwan-<lb/>
+delt? <hi rendition="#fr">was von ſeinen Anmerckungen zuhalten? was ich<lb/>
+in erklaͤrung dieſes Buchs fuͤr eine Ordnung beobachten<lb/>
+wolle? was meine Herren fuͤr Nutzen daraus zuhoffen?<lb/>
+Wiefern ich mich ſelbſt die Grund-Reguln des</hi> <hi rendition="#aq">Gracians</hi><lb/>
+<hi rendition="#fr">zuverſtehen und zubeobachten faͤhig erkenne?</hi> u. ſ. w. Aber<lb/>
+ich meine es werde ſich beſſer ſchicken/ daß ſolches biß auff die<lb/>
+<hi rendition="#aq">Lectionen</hi> ſelbſt verſparet werde/ theils weil dieſer mein<lb/>
+<hi rendition="#aq">Diſcurs</hi> uͤber verhoffen unter der Hand groͤſſer worden/<lb/>
+als ich anfangs gemeinet/ theils weil ich ſonſten allzuviel von<lb/>
+mir ſelbſt wuͤrde reden muͤſſen/ worinnen ich vielleicht allbereit<lb/>
+die Regeln der Weißheit uͤberſchritten/ indem ich gar wohl er-<lb/>
+kenne/ daß ein geſcheider Mann/ ſo wenig als moͤglich/ ja wenn<lb/>
+<hi rendition="#c">es nicht die Noth erfordert/ gar nicht von ſich ſelbſt reden<lb/>
+ſolle/ zumahlen in oͤffentlichen Schrifften.<lb/>
+Sie leben wohl.</hi></p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">Gra-</hi></fw><lb/>
+<pb n="[39]" facs="#f0041"/>
+<cit><quote><hi rendition="#c"><hi rendition="#aq">Gracien Maxim.</hi> 79.</hi><lb/>
+<hi rendition="#aq"><hi rendition="#in">L</hi>’Humeur joviale eſt une perfection plutôt<lb/>
+qu’un défaut, quand il n’y a point d’ excés.<lb/>
+Un grain de plaiſanterie aſſaiſonne tout. Les<lb/>
+plus grans hommes joüent d’ enjoüement com-<lb/>
+me les autres, pour ſe concilier la bienveillance<lb/>
+univerſelle: mais avec céte diférence, qu’ils gar-<lb/>
+dent toujours la préférence à la ſageſſe, &amp; le re-<lb/>
+ſpect à la bienſéance. D’ autres ſe tirent d’afaire<lb/>
+par un trait de belle humeur; car il y a des cho-<lb/>
+ſes qu’il faut prendre en riant, &amp; quelquefois cel-<lb/>
+les même qu’un autre prend tout-de-bon. Une<lb/>
+telle humeur eſt l’aimant des cœurs.</hi></quote><bibl/></cit></div><lb/>
+<pb n="[40]" facs="#f0042"/>
+<pb n="[41]" facs="#f0043"/>
+<pb n="[42]" facs="#f0044"/>
+</body></text> </TEI>

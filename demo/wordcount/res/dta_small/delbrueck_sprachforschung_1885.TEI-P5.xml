@@ -1,0 +1,1767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">     <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Die neueste Sprachforschung</title>
+<title type="sub">Betrachtungen über Georg Curtius Schrift zur Kritik der neuesten Sprachforschung</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118671324">
+<surname>Delbrück</surname>
+<forename>Berthold</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">56</measure>
+<measure type="tokens">12723</measure>
+<measure type="types">3561</measure>
+<measure type="characters">88325</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:05:17Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/delbrueck_sprachforschung_1885</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/delbrueck_sprachforschung_1885</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/delbrueck_sprachforschung_1885</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/delbrueck_sprachforschung_1885</idno>
+<idno type="DTADirName">delbrueck_sprachforschung_1885</idno>
+<idno type="DTAID">17250</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-20090519940</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Delbrück, Berthold: Die neueste Sprachforschung. Betrachtungen über Georg Curtius Schrift zur Kritik der neuesten Sprachforschung. Leipzig, 1885.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Die neueste Sprachforschung</title>
+<title level="m" type="sub">Betrachtungen über Georg Curtius Schrift zur Kritik der neuesten Sprachforschung</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118671324">
+<surname>Delbrück</surname>
+<forename>Berthold</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">49 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Breitkopf &amp; Härtel</name></publisher>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1885</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>BBAW</repository>
+<idno>
+<idno type="shelfmark">BBAW, DWB</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Antiqua</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Sprachwissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Sprachwissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text>     <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb n="[1]" facs="#f0006"/>
+<titlePage type="main">         <docTitle>           <titlePart type="main">DIE<lb/>
+NEUESTE SPRACHFORSCHUNG.</titlePart>           <milestone unit="section" rendition="#hr"/>           <titlePart type="sub">BETRACHTUNGEN<lb/>
+ÜBER<lb/>
+GEORG CURTIUS SCHRIFT ZUR KRITIK DER<lb/>
+NEUESTEN SPRACHFORSCHUNG</titlePart>         </docTitle>         <lb/>
+<byline>VON<lb/>
+<docAuthor><hi rendition="#b">B. DELBRÜCK</hi></docAuthor>.</byline>         <lb/>
+<figure/>         <lb/>
+<docImprint><pubPlace>LEIPZIG</pubPlace>,<lb/>
+<publisher>DRUCK UND VERLAG VON BREITKOPF &amp; HÄRTEL.</publisher><lb/>
+<docDate>1885</docDate>.</docImprint>       </titlePage>       <lb/>
+<pb n="[2]" facs="#f0007"/>
+<div type="copyright">         <p rendition="#c">Alle Rechte vorbehalten.</p>       </div>     </front>     <body>
+<pb facs="#f0008" n="[3]"/>
+<p><hi rendition="#in">D</hi>er Begründer der vergleichenden Lautlehre der indo-<lb/>
+germanischen Sprachen August Friedrich Pott hat bekannt-<lb/>
+lich vom Anfang seiner bahnbrechenden Wirksamkeit an die<lb/>
+Ansicht verfochten, dass die Präpositionen häufig mit Verbal-<lb/>
+wurzeln Verbindungen eingegangen seien, in welchen von<lb/>
+ihnen nur noch ein geringer Rest übrig geblieben sei, wie er<lb/>
+denn z. B. <hi rendition="#i">duh</hi> melken auf <hi rendition="#i">úd-vah</hi> (herauf, heraus führen),<lb/>
+<hi rendition="#i">bhrāǵ</hi> fulgeo auf <hi rendition="#i">abhí-rāǵ</hi> (anglänzen) zurückführt. Gegen<lb/>
+diese Versuche erhob sich Georg Curtius, und es entwickelte<lb/>
+sich zwischen den beiden ausgezeichneten Gelehrten ein jetzt<lb/>
+fast vergessener Streit, in welchem (wie heute wohl allgemein<lb/>
+angenommen wird) Curtius seine Meinung siegreich durch-<lb/>
+geführt hat. Während des Kampfes — vor nunmehr drei und<lb/>
+zwanzig Jahren — äusserte sich über denselben Steinthal (Zeit-<lb/>
+schrift für Völkerpsychologie und Sprachwissenschaft 2, 455)<lb/>
+wie folgt: »Es sei hier der (im Wesentlichen sehr erfreulichen)<lb/>
+Erscheinung gedacht, dass in der zweiten Auflage [der ety-<lb/>
+mologischen Forschungen] Potts Polemik eine ganz andere<lb/>
+Richtung genommen hat, als sie in der ersten verfolgte. Zwi-<lb/>
+schen beiden liegen freilich dreissig Jahre, d. h. fast ein<lb/>
+Menschenalter. Während sich nun Pott ehemals gegen das<lb/>
+Treiben der völlig unwissenschaftlichen alten Etymologie in<lb/>
+stürmendem Angriffe zu wenden hatte, so kämpft er jetzt bei-<lb/>
+nahe durchweg sich vertheidigend gegen die Angriffe jüngerer<lb/>
+Männer, die ihm mit den strengsten Gesetzen der etymologi-<lb/>
+schen Kunst entgegengetreten sind. Es ist mir ein schönes<lb/>
+<fw type="sig" place="bottom">1*</fw><lb/>
+<pb facs="#f0009" n="4"/>
+Schauspiel: der halbgraue, aber noch immer nicht nur rüstige,<lb/>
+sondern heisse Kämpfer im Streite gegen junges, und doch<lb/>
+höchst nüchternes Blut — und Blut von seinem Blut.« An<lb/>
+diese Worte Steinthals, die sich mir aus irgend einem Grunde<lb/>
+eingeprägt hatten, wurde ich beim Durchlesen der jüngsten<lb/>
+Schrift von Georg Curtius: Zur Kritik der neuesten Sprach-<lb/>
+forschung (Leipzig 1885) lebhaft erinnert. In der That hat<lb/>
+das, was sich heute in der Sprachforschung vollzieht, manche<lb/>
+Aehnlichkeit mit dem von Steinthal geschilderten Vorgange.<lb/>
+Sind es doch wesentlich Curtius' eigene Schüler (zu denen auch<lb/>
+ich mich gern zähle, wenn ich auch nicht das Glück gehabt<lb/>
+habe, seine Vorlesungen zu hören), mit denen der Lehrer<lb/>
+sich heute auseinandersetzt. Und mit noch grösserem Rechte<lb/>
+als damals, glaube ich, kann man heute das Schauspiel ein<lb/>
+erfreuliches nennen, erfreulich namentlich, weil es sich nicht<lb/>
+um Rechthaberei, sondern um schaffende Polemik handelt,<lb/>
+und erfreulich auch deshalb, weil der Verfasser es verstan-<lb/>
+den hat, auch da, wo er sich persönlich durch den erfahre-<lb/>
+nen Angriff schmerzlich berührt fühlt, seinen Widerspruch<lb/>
+in edle Form zu kleiden. Einer in so liebenswürdiger Weise<lb/>
+ausgesprochenen Aufforderung zu öffentlichem Zwiegespräch<lb/>
+lässt sich schwer widerstehen, und so gestatte ich mir denn,<lb/>
+als einer der Betheiligten, dem philologischen Publikum<lb/>
+dasjenige vorzulegen, was ich im Augenblick über oder<lb/>
+gegen die Schrift von Curtius auf dem Herzen habe. Ich<lb/>
+sage mit Bedacht: dem philologischen Publikum, denn wie<lb/>
+Curtius sich in seinen Aeusserungen an einen weiteren Kreis<lb/>
+wendet, so hoffe auch ich, dass es mir gelingen wird, neben<lb/>
+den Fachleuten auch die Nachbaren zur Theilnahme herbei-<lb/>
+zulocken.<lb/>
+</p>       <p> Ehe ich indessen auf die Sache selbst eingehe, erlaube<lb/>
+ich mir ein Wort über meine von Curtius häufig erwähnte<lb/>
+Schrift:   Einleitung  in   das   Sprachstudium,   Leipzig  1880<lb/>
+<pb facs="#f0010" n="5"/>
+(2. Auflage 1884). Seit es Schriftsteller und Leser in der<lb/>
+Welt giebt, behaupten die ersteren, dass sie trotz aller Vor-<lb/>
+reden und Schlussworte von den letzteren in ihren eigent-<lb/>
+lichen Absichten nicht völlig verstanden werden. Ich meine,<lb/>
+dass dies allgemeine Loos auch meine kleine Schrift ge-<lb/>
+troffen hat, und will deshalb hier erzählen, wie ich dazu<lb/>
+gekommen bin, sie zu verfassen. Schon lange war mir in<lb/>
+Gesprächen mit Männern, die an der Entwickelung der<lb/>
+Sprachwissenschaft mehr empfangend als thätig theilnehmen,<lb/>
+klar geworden, dass sich in der wissenschaftlichen Bewegung<lb/>
+eine starke Unterströmung entwickelt hatte, welche zunächst<lb/>
+in der Literatur kaum zu Tage trat. So war z. B. die<lb/>
+Lehre von den zwei Steigerungen, an welcher Schleicher<lb/>
+eine besondere Freude gehabt hatte, von den Fachleuten<lb/>
+längst aufgegeben, ehe sie öffentlich bekämpft wurde; manche<lb/>
+der neuen Ansichten, z. B. die Lehre von den zwei K-Reihen<lb/>
+war in Vorlesungen vorbereitet und schon in ähnlicher Ge-<lb/>
+stalt verbreitet worden, wie diejenige, in welcher sie dann<lb/>
+ans Licht trat; die Theorie, dass man bei der Auffassung<lb/>
+der sogenannten Steigerung den umgekehrten Weg ein-<lb/>
+schlagen müsse, hat mir schon vor etwa zwölf Jahren einer<lb/>
+meiner Freunde, der jetzt wie es scheint den Ansichten<lb/>
+von Curtius näher steht als den meinigen, lebhaft entwickelt,<lb/>
+ohne mich damals zu überzeugen; die Wichtigkeit des Ge-<lb/>
+sichtspunktes der Analogiewirkungen hatte Leskien so ein-<lb/>
+drücklich in seinen Vorlesungen gepredigt, dass seine eigene<lb/>
+Schrift über die Declination im Slavisch-Litauischen und<lb/>
+Germanischen (Leipzig 1876) nicht mehr mit dem Reiz der<lb/>
+Neuheit wirkte, wie sie gethan haben würde, wenn Leskien<lb/>
+nur Schriftsteller, nicht auch Lehrer wäre; die Lehren der<lb/>
+Lautphysiologie haben ihren stillen aber starken Einfluss<lb/>
+auf die Gestaltung unserer Ansichten vielleicht mehr auf<lb/>
+dem Wege mündlicher wie schriftlicher Mittheilung gewonnen,<lb/>
+<pb facs="#f0011" n="6"/>
+und so liesse sich noch manches anführen, um die Be-<lb/>
+hauptung zu erhärten, dass mir und anderen die neuen<lb/>
+Lehren von Brugmann, Osthoff und ihren befreundeten oder<lb/>
+feindlichen Genossen (so viel des Neuen wir auch aus ihnen<lb/>
+gelernt haben, an das wenigstens ich vorher nicht gedacht<lb/>
+hatte) nicht überraschend gekommen sind. Wenn Curtius<lb/>
+diesen Ausdruck S. 9 gebraucht, so bezieht er sich nur auf<lb/>
+diejenigen, welche ihre Kenntniss wesentlich aus der Lite-<lb/>
+ratur schöpfen zu müssen in der Lage waren. Von solchen<lb/>
+allerdings habe ich wiederholt verdriessliche Klagen über<lb/>
+<hi rendition="#i">a</hi>₁, <hi rendition="#i">a</hi>₂, <hi rendition="#i">a</hi>₃, über den unnatürlichen Brummlaut der nasalis<lb/>
+sonans, und endlich die Erklärung vernommen, dass es am<lb/>
+besten sei, sich einstweilen von einer Wissenschaft zurück-<lb/>
+zuziehen, in welcher das Alte umgeworfen und das Neue<lb/>
+noch nicht reif zu sein scheine. Ich habe solchen Klagen<lb/>
+gegenüber stets betont, es sei nicht richtig, dass eine Kata-<lb/>
+strophe stattgefunden, dass ein völlig Neues sich entwickelt<lb/>
+habe; wer näher zusehe, werde die Continuität bald gewahr<lb/>
+werden, der neue Glaube sei nichts anderes als die natür-<lb/>
+liche Weiteientwickelung der Anschauungen von Bopp und<lb/>
+Pott, von Benfey, Schleicher und Curtius. Diese Ansicht<lb/>
+wünschte ich in meiner Schrift in geschichtlicher Dar-<lb/>
+stellung zur Geltung zu bringen. Natürlich kam es mir<lb/>
+darauf an, diejenigen Meinungen, welche ich für richtig<lb/>
+halte, zu empfehlen, aber die Hauptabsicht war doch auf<lb/>
+den Nachweis des Zusammenhanges zwischen dem Alten<lb/>
+und dem Neuen gerichtet. Um diesen Theil meiner Be-<lb/>
+strebung deutlich einzuführen, hatte ich als Motto den ersten<lb/>
+Satz aus Goethe's Geschichte der Farbenlehre gewählt:<lb/>
+»Wird einer strebenden Jugend die Geschichte eher lästig<lb/>
+als erfreulich, weil sie gern von sich selbst eine neue, ja<lb/>
+wohl gar eine Urwelt-Epoche beginnen möchte, so haben<lb/>
+die in Bildung und Alter Fortschreitenden gar oft mit leb-<lb/>
+<pb facs="#f0012" n="7"/>
+haftem Danke zu erkennen, wie mannigfaltiges Gute, Brauch-<lb/>
+bare und Hülfreiche ihnen von den Vorfahren hinterlassen<lb/>
+worden.« Wenn ich dieses Motto schliesslich wieder ge-<lb/>
+strichen habe, so ist es nur deshalb geschehen, weil ich<lb/>
+auch den Schein vermeiden wollte, als missgönnte ich den<lb/>
+trefflichen Gelehrten, denen ich so viel Belehrung und An-<lb/>
+regung verdanke, den Ausdruck frohen Kraftbewusstseins,<lb/>
+der gelegentlich in ihrem Ankämpfen gegen frühere An-<lb/>
+sichten hervortritt. Hiermit vergleiche man einige Aeus-<lb/>
+serungen von Curtius, z. B. S. 3, wo es von Paul's Prin-<lb/>
+cipien der Sprachgeschichte und meiner Einleitung heisst:<lb/>
+»Beide Schriften sind wesentlich eine Empfehlung und Aus-<lb/>
+einandersetzung der neuen Principien«, und Seite 12:<note place="foot" n="1)">Die von Curtius an dieser Stelle angeführten Schriften ausser<lb/>
+einer Recension von Collitz sind nach der ersten Auflage meiner Ein-<lb/>
+leitung erschienen. In der zweiten ist keine irgendwie erhebliche Aen-<lb/>
+derung eingetreten.<lb/>
+</note><lb/>
+»Diese Entgegnungen, vielleicht auch eigene weitere Er-<lb/>
+wägungen der Sache blieben selbst auf die ersten Begründer<lb/>
+der neuen Lehre nicht ohne Wirkung. Die anfangs schroff<lb/>
+und bedingungslos aufgestellte Behauptung wurde vorsich-<lb/>
+tiger gefasst und zum Theil eingeschränkt. Ich verweise<lb/>
+namentlich auf Delbrück's Einleitung in das Sprachstudium.«<lb/>
+Man wird es, glaube ich, nicht unnatürlich finden, dass ich<lb/>
+gegenüber solchen Stellen ausdrücklich zugleich die Be-<lb/>
+scheidenheit meines Antheils an der neuen Bewegung und<lb/>
+die Freiheit meiner Stellung hervorhebe. Ich bin in der<lb/>
+That nicht berechtigt, für irgend jemand zu sprechen, als<lb/>
+für mich selbst.<lb/>
+</p>
+<pb facs="#f0013" n="8"/>
+<div n="1">         <lb/>
+<head>I.<lb/>
+Die Lautgesetze.</head>         <lb/>
+<p>Nach dieser Vorrede komme ich zur Sache selbst.<lb/>
+Curtius handelt in vier Abschnitten nach einander von den<lb/>
+Begriffen des Lautgesetzes und der Analogie, von dem Vo-<lb/>
+calismus, von der Ursprache. Dabei gehören die beiden<lb/>
+ersten Capitel so eng zusammen, dass sie auch ein einziges<lb/>
+bilden könnten, und dass die Schlusstheile des zweiten viel-<lb/>
+leicht besser zum ersten geschlagen würden. Indessen um<lb/>
+der Uebersichtlichkeit willen schliesse ich mich Curtius'<lb/>
+Vorgange durchaus an, und spreche demnach zuerst über<lb/>
+den Begriff des Lautgesetzes, und im Besonderen über die<lb/>
+brennende Frage, inwiefern man behaupten kann, dass<lb/>
+die Lautgesetze ausnahmslos seien. Ist es nun schon an<lb/>
+sich schwierig, ja vielleicht anmasslich, überhaupt über<lb/>
+eine solche Frage handeln zu wollen, so tritt im vorliegen-<lb/>
+den Falle noch als besonders erschwerender Umstand für<lb/>
+die Vertheidigung die Art hinzu, wie der Angriff geführt<lb/>
+worden ist. Curtius hat es nämlich in seinem ersten Ca-<lb/>
+pitel nicht darauf angelegt, die Stellung der Gegner zu<lb/>
+durchbrechen, als vielmehr darauf, sie ins Schwanken zu<lb/>
+bringen. Er bedauert die Schroffheit der Fassung des<lb/>
+Axioms, bemerkt Widersprüche zwischen den einzelnen Ver-<lb/>
+tretern desselben Glaubens, weist unrichtige Belege zurück,<lb/>
+trägt allerhand <hi rendition="#i">rationes dubitandi</hi> vor, findet, dass wichtige<lb/>
+Gesichtspunkte übersehen sind, und durch diese und andere<lb/>
+Einwirkungen ähnlicher Art entsteht dann in dem Leser<lb/>
+das Gefühl, dass er sich auf einer schwankenden Eisfläche<lb/>
+befinde, von der er gern wieder auf das feste Land der<lb/>
+früheren, vorsichtigen und bewährten Auffassung zurück-<lb/>
+kehren möchte. Unter diesen Umständen glaube ich am besten<lb/>
+<pb facs="#f0014" n="9"/>
+zum Ziele gelangen zu können, wenn ich mit einiger Pe-<lb/>
+danterie der Anordnung zuerst über die Entstehung der<lb/>
+Lehre von der Ausnahmslosigkeit der Lautgesetze, sodann<lb/>
+von dem Sinn und Wesen, und endlich von der praktischen<lb/>
+Bedeutung derselben spreche.<lb/>
+</p>         <p>  Der Begründer unserer Wissenschaft Franz Bopp hatte<lb/>
+die Ansicht, es gäbe in den Sprachen zwei Arten von<lb/>
+»euphonischen Veränderungen«: »die eine, zum allgemeinen<lb/>
+Gesetz erhoben, kommt bei jeder gleichen Veranlassung in<lb/>
+gleicher Gestalt zum Vorschein, während andere nicht zum<lb/>
+Gesetz gewordene nur gelegentlich hervortreten« (vgl. meine<lb/>
+Einleitung² 21). Die Thätigkeit derjenigen, welche Bopp's<lb/>
+Werk auf dem Gebiete der Lautlehre fortgesetzt und ergänzt<lb/>
+haben, lässt sich nun dahin zusammenfassen, dass sie das<lb/>
+erste Gebiet ausdehnten, das zweite einschränkten. Was<lb/>
+Pott, Schleicher, Curtius, Ascoli in dieser Hinsicht geleistet<lb/>
+haben, kann sich derjenige, dem es aus eigener Erinnerung<lb/>
+oder geschichtlichen Studien nicht geläufig ist, leicht vor-<lb/>
+stellig machen, wenn er in Bopp's allbekanntem Sanskrit-<lb/>
+glossar herumblättert. Da wird z. B. unter <hi rendition="#i">grah</hi>, nachdem<lb/>
+<hi rendition="#i">greipa</hi>, <hi rendition="#i">giba</hi> u. a. herbeigezogen ist, hinsichtlich der grie-<lb/>
+chischen und lateinischen Verwandten Folgendes geäussert:<lb/>
+<hi rendition="#i">e graeca lingua huc retulerim γρῖφος γρῖπος, rete, ita ut α<lb/>
+capiendo sint nominata. Fortasse ἀγρεύω ἀγρέω dissolvenda<lb/>
+sunt in ἀ-γρεύω, ἀ-γρέω, abjecta radids consonanti finali,<lb/>
+ita ut ἀ respondeat praepositione ā vel ava. Lat. prehendo<lb/>
+e grehendo ortum esse possit. mutata gutturali in labialem<lb/>
+et media in tenuem, sicut in gr. κλέπτω</hi> u. s. w. Warum<lb/>
+hat nun Bopp für solche Vermuthungen keine Theilnahme<lb/>
+gefunden? Offenbar doch, weil man so vereinzelte Abwei-<lb/>
+chungen gegenüber der sonst durchgehenden Entsprechung<lb/>
+von sanskr. <hi rendition="#i">p</hi> und lat. <hi rendition="#i">p</hi> für unannehmbar hielt, oder an-<lb/>
+ders   ausgedrückt:   weil   die   Vorstellung,   die   Lautgesetze<lb/>
+<pb facs="#f0015" n="10"/>
+duldeten keine Ausnahme, ein treibender Factor in der<lb/>
+Seele der Sprachgelehrten war. Dieses Gefühl hat sich all-<lb/>
+mählich, indem es durch immer zahlreichere und zahlreichere<lb/>
+Beobachtungen gestärkt wurde, zu einem Grundsatz ver-<lb/>
+dichtet, der gegenüber anderen Erwägungen immer mehr<lb/>
+Ausschlag gebend wird. Ein Beispiel mag diese Behauptung<lb/>
+erhärten. Es ist hergenommen von der Geschichte der Ver-<lb/>
+handlungen über das <hi rendition="#i">r</hi> des lateinischen Passivums. Bopp<lb/>
+hat das <hi rendition="#i">r</hi> bekanntlich aus <hi rendition="#i">s</hi> gedeutet, und also z. B. <hi rendition="#i">amor</hi><lb/>
+auf <hi rendition="#i">amose</hi> zurückgeführt (1820). Diese Erklärung ist von<lb/>
+Seiten der Bedeutung so ansprechend und, wenn man lediglich<lb/>
+das Lateinische in Betracht zieht, lautlich so nahe liegend,<lb/>
+dass sie allgemeinste Zustimmung fand. Im Laufe der Zeit<lb/>
+wurde die Aufmerksamkeit der Forscher darauf gelenkt,<lb/>
+dass doch auch im Oskischen, welches das <hi rendition="#i">s</hi> zwischen Vo-<lb/>
+calen nicht in <hi rendition="#i">r</hi> übergehen lässt, sondern erhält, und im<lb/>
+Irischen, welches das <hi rendition="#i">s</hi> zwischen Vocalen wie das Grie-<lb/>
+chische behandelt, die Passivformen mit <hi rendition="#i">r</hi> vorliegen. Nun<lb/>
+standen sich das unmittelbar Einleuchtende der Erklärung<lb/>
+und das lautliche Bedenken gegenüber. Zunächst siegte<lb/>
+noch die erstere Vorstellung, so bei Schleicher, welcher sagt:<lb/>
+»dies (nämlich der Uebergang von <hi rendition="#i">s</hi> in <hi rendition="#i">r</hi> im Passivum) fand<lb/>
+auch in den Sprachen statt, welchen sonst der Lautübergang<lb/>
+von <hi rendition="#i">s</hi> zu <hi rendition="#i">r</hi> fremd ist « (Compendium § 703, 1866 . Dazu<lb/>
+bemerkte Scherer ZGDS1 224, wer einen solchen Extralaut-<lb/>
+wandel von <hi rendition="#i">s</hi> in <hi rendition="#i">r</hi> »auch in Sprachen, welchen sonst der<lb/>
+Uebergang von <hi rendition="#i">s</hi> zu <hi rendition="#i">r</hi> fremd ist«, statuiren möge, begebe sich<lb/>
+seiner besten Waffen gegen die vielbekämpfte Identificierung<lb/>
+lautgesetzlich unvereinbarer Suffixe, und jetzt ist die Bopp-<lb/>
+sche Erklärung von Georg Curtius ebenso wie von der Mehr-<lb/>
+zahl der jetzigen Sprachforscher aufgegeben. Curtius spricht<lb/>
+S. 134 seiner neuesten Schrift von der italokeltischen Passiv-<lb/>
+bildung als einem Nachwuchs, »der sich bis jetzt noch in tiefes<lb/>
+<pb facs="#f0016" n="11"/>
+Dunkel hüllt«. Der hier vorgeführte Vorgang ist typisch,<lb/>
+überall ist das Streben, ausnahmslose Gesetze zu gewinnen,<lb/>
+in der Praxis in siegreichem Vordringen begriffen. Zu den<lb/>
+praktischen Erfahrungen kommt dann noch eine theoretische<lb/>
+Erwägung, die ich mit Curtius' Worten so ausdrücke: »Trä-<lb/>
+ten in der Sprachgeschichte wirklich so erhebliche spora-<lb/>
+dische Verirrungen und völlig krankhafte unberechenbare<lb/>
+Lautentstellungen ein, wie sie von manchen Gelehrten mit<lb/>
+Zuversicht angenommen werden, so müssten wir in der That<lb/>
+auf alles Etymologisiren verzichten. Denn nur das Gesetz-<lb/>
+mässige und innerlich Zusammenhängende lässt sich wissen-<lb/>
+schaftlich erforschen, das Willkürliche höchstens errathen,<lb/>
+nie erschliessen« (Grundz.5 80). In der That, von hier aus<lb/>
+war nur noch ein kleiner Schritt bis zu dem Aperçu: die<lb/>
+Lautgesetze sind ausnahmslos.<lb/>
+</p>         <p>  Was bedeutet nun dieser Satz? Zunächst ist wohl klar,<lb/>
+dass zwischen principieller Richtigkeit und praktischer Durch-<lb/>
+führbarkeit eines Grundsatzes unterschieden werden muss.<lb/>
+Wer sich zu der Lehre von der Ausnahmslosigkeit der Laut-<lb/>
+gesetze bekennt, behauptet damit nicht, im Besitze eines<lb/>
+Mittels zu sein, durch welches er alle Ausnahmen erklären<lb/>
+könne. Für jeden Forscher bleiben selbstverständlich eine<lb/>
+Menge Schwierigkeiten übrig, die er nicht lösen kann, ja,<lb/>
+man kann wohl sagen, dass demjenigen, welcher überall<lb/>
+nach festen Gesetzen sucht, sich Anstösse einstellen, wo man<lb/>
+sie früher nicht fand. Ich würde diesen Vorbehalt zu machen<lb/>
+nicht für nöthig finden, wenn ich nicht sähe, dass selbst Curtius<lb/>
+die Selbstverständlichkeit desselben gelegentlich ausser Acht<lb/>
+lässt. So äussert er auf Seite 21 Anm.: »will man etwa auch<lb/>
+sanskr. <hi rendition="#i">pibāmi</hi> (trinke), das doch gewiss auf <hi rendition="#i">pipāmi</hi> zurückgeht,<lb/>
+will man der Aspiration in <hi rendition="#i">λύχνος</hi>, <hi rendition="#i">πάσχω</hi> (wofür jetzt die<lb/>
+ältere Form <hi rendition="#i">πάσκω</hi> [elisch I. A. 112, 8] vorliegt) und anderen<lb/>
+sehr vereinzelten Abweichungen von weit verbreiteter Regel-<lb/>
+<pb facs="#f0017" n="12"/>
+mässigkeit <hi rendition="#g">die Existenz absprechen?</hi>«; und auch an<lb/>
+anderen Stellen trägt er auffällige bis jetzt noch nicht er-<lb/>
+klärte Abweichungen von der bisher erkannten Regel in der<lb/>
+Weise vor, als unterliesse er es nur aus Höflichkeit hinzu-<lb/>
+zufügen: <hi rendition="#i">habemus confitentem reum.</hi> Gegenüber diesen Aeusse-<lb/>
+rungen, zu denen man auch die Worte Toblers halten möge,<lb/>
+welche Curtius auf S. 23 anführt, gestatte ich mir von einer<lb/>
+Form der Argumentation Gebrauch zu machen, welche Cur-<lb/>
+tius bisweilen gegen meine grundsätzlichen Aufstellungen<lb/>
+zur Anwendung bringt. Ich behaupte entschieden, dass kein<lb/>
+Urtheilsfähiger, wenn er von der Ausnahmslosigkeit der Laut-<lb/>
+gesetze gesprochen hat, etwas Anderes hat meinen können,<lb/>
+als was ich Einl. S. 129 in die Worte gefasst habe: »Somit<lb/>
+ist zwar zuzugestehen, dass völlige Gesetzmässigkeit des<lb/>
+Lautwandels sich nirgend in der Welt der gegebenen That-<lb/>
+sachen findet, es liegen aber genügende Gründe vor, welche<lb/>
+zu der Annahme führen, dass gesetzmässig verlaufender Laut-<lb/>
+wandel einer von den Factoren ist, aus deren gemeinschaft-<lb/>
+lichem Wirken die empirische Gestalt der Sprache hervor-<lb/>
+geht. Im einzelnen Falle freilich wird es immer nur an-<lb/>
+nähernd möglich sein, diesen einen Factor in seiner Rein-<lb/>
+heit darzustellen.«<lb/>
+</p>         <p> Die Erläuterung dieses Satzes knüpfe ich ebenfalls an<lb/>
+eine Stelle meiner Einleitung an, welche längere Erörte-<lb/>
+rungen kurz zusammenfasst und so lautet: »Nunmehr sind<lb/>
+wir gerüstet, die im Eingang aufgeworfene Frage »sind die<lb/>
+Lautgesetze an sich ausnahmslos?« zusammenfassend zu be-<lb/>
+antworten. Wir haben gesehen, wo man derartige Gesetze<lb/>
+zu finden erwarten kann. Jedenfalls nicht in der gesammten<lb/>
+Masse irgend einer vorliegenden Volks- oder Cultursprache.<lb/>
+Denn es lässt sich nicht erwarten, dass alle Individuen<lb/>
+innerhalb einer Sprachgemeinschaft völlig gleich sprechen<lb/>
+werden.   Wir können  sie  also  nur erwarten bei  dem ein-<lb/>
+<pb facs="#f0018" n="13"/>
+zelnen Individuum, oder vielmehr, wenn wir ganz genau sein<lb/>
+wollen, nur im Momentandurchschnitte der Sprache eines<lb/>
+Individuums. Von demjenigen nun, was ein Individuum in<lb/>
+einem bestimmten Moment seines Lebens spricht oder spre-<lb/>
+chen würde, wenn es den gesammten Wortschatz durch sein<lb/>
+Organ passiren liesse, ist zunächst alles das abzuscheiden,<lb/>
+was man als Entlehnung (im weitesten Sinne) ansehen muss,<lb/>
+sodann sind alle auf Wirkung der Analogie beruhende Laut-<lb/>
+gestaltungen wieder aufzuheben. Ist das geschehen, so bleibt<lb/>
+die durch den Lautwandel an sich bewirkte Lautgestalt<lb/>
+übrig. In dieser erst dürfen wir — abgesehen von den<lb/>
+etwaigen Schwankungen innerhalb eines Uebergangsstadiums<lb/>
+— erwarten, völlige Gleichmässigkeit in der Behandlung<lb/>
+aller analogen Fälle zu finden, und in diesem Sinne muss<lb/>
+man behaupten, dass die Lautgesetze an sich ausnahmslos<lb/>
+seien« (S. 129). Aus dieser Erklärung hebe ich zunächst<lb/>
+zwei Fragen hervor, die wir wohl alle übereinstimmend be-<lb/>
+antworten, nämlich diejenigen, welche sich um die Schlag-<lb/>
+worte »Entlehnung« und »Uebergangszustand« gruppiren.<lb/>
+Niemand zweifelt daran, dass die meisten Sprachen, das Sans-<lb/>
+krit so gut wie das Englische, voll von fremden Worten<lb/>
+sind. Diese kommen natürlich, wenn es gilt den Lautstand<lb/>
+der leihenden Sprache zu ermitteln, nicht mit in Betracht.<lb/>
+»Echt« ist z. B. ein aus dem Niederdeutschen stammendes<lb/>
+Lehnwort im Hochdeutschen, und kann deshalb keine Aus-<lb/>
+nahme von der Regel bilden, dass im Hochdeutschen unter<lb/>
+gewissen Bedingungen die Gruppe <hi rendition="#i">ft</hi> und nicht <hi rendition="#i">cht</hi> entsteht,<lb/>
+ebenso wenig wie etwa die Thatsache. dass bei uns in<lb/>
+Treibhäusern Palmen gedeihen, der Richtigkeit der Be-<lb/>
+hauptung Abbruch thun kann, dass diese Pflanzen in<lb/>
+Deutschland im Freien nicht fortkommen. Ich leugne<lb/>
+ebenso wenig wie Curtius (S. 14 Anm.), dass es in der Praxis<lb/>
+oft Schwierigkeiten hat, diese fremden Bestandteile rein-<lb/>
+<pb facs="#f0019" n="14"/>
+lich auszuscheiden, aber diese praktische Schwierigkeit bil-<lb/>
+det keinen Gegengrund gegen die principielle Richtigkeit<lb/>
+der Forderung, welche Curtius übrigens jetzt nicht leugnet <note place="foot" n="1)">Vgl. dazu meine Einleitung S. 114.<lb/>
+</note>.<lb/>
+Unter diesen Umständen darf es nicht auffallen, wenn<lb/>
+wiederholt gerathen worden ist, man solle die Natur des<lb/>
+Lautwandels weniger an den Literatursprachen des Alter-<lb/>
+thums, als vielmehr an den Volkssprachen der Gegenwart<lb/>
+studiren. Curtius scheint nicht geneigt, die Richtigkeit<lb/>
+dieser Forderung in Abrede zu stellen, fügt aber (S. 13) die<lb/>
+Frage an, wo uns denn solche dem Naturzustand näher<lb/>
+liegende Sprachen wirklich vorliegen. Ich hatte, als ich die<lb/>
+von Curtius angeführten Worte schrieb, namentlich ein Buch<lb/>
+im Sinne, das eine derartige Mundart in musterhafter Weise<lb/>
+beschreibt, nämlich J. Winteler, die Kerenzer Mundart des<lb/>
+Kantons Glarus (Leipzig und Heidelberg 18 76). Wer dieses<lb/>
+Buch (auch die Vorrede ist beherzigenswerth) studirt, wird<lb/>
+gewiss den Eindruck empfangen, dass es jetzt noch Sprachen<lb/>
+giebt, die viel einfacher sind, als z. B. das Neuhochdeutsche.<lb/>
+Dass freilich auch diese nicht frei von Mischung und Asso-<lb/>
+ciationsbildungen sind, bedarf keiner besonderen Versiche-<lb/>
+rung. Die Verschiedenheit von den Cultursprachen ist vor-<lb/>
+handen, aber sie ist nicht so gross, wie Curtius sie hin-<lb/>
+stellt, wenn er S. 13 sagt: »Man stellt ein Axiom an die<lb/>
+Spitze, das wenigstens ,vorzugsweise' in jenen <hi rendition="#g">mehr vor-<lb/>
+ausgesetzten als factisch nachgewiesenen</hi> Natur-<lb/>
+mundarten gelten soll, und wendet es <hi rendition="#g">ohne alles Be-<lb/>
+denken</hi> auf Sprachen an, die <hi rendition="#g">von ganz anderer Art</hi><lb/>
+sind.« Die von mir gesperrt gedruckten Worte dieses Satzes<lb/>
+scheinen mir nicht frei von Uebertreibung zu sein.<lb/>
+</p>         <p>  Auch in Bezug  auf die Nothwendigkeit, Uebergangs-<lb/>
+zustände anzunehmen,  scheint keine Meinungsverschieden-<lb/>
+<pb facs="#f0020" n="15"/>
+heit zu herrschen. Ich habe Einl. S. 124 dahin gehende<lb/>
+Aeusserungen von Sievers und Brugmann beistimmend an-<lb/>
+geführt, und will jetzt ein treffliches Beispiel aus Boeht-<lb/>
+lingks jakutischer Grammatik hinzufügen, wo über den<lb/>
+Uebergang von <hi rendition="#i">s</hi> in <hi rendition="#i">h</hi> (S. 62, § 139) Folgendes bemerkt<lb/>
+wird: »<hi rendition="#i">s</hi> wird seit nicht gar langer Zeit von vielen Jakuten,<lb/>
+namentlich von den Bewohnern der Stadt Jakutsk, zwischen<lb/>
+zwei Vocalen wie <hi rendition="#i">h</hi> gesprochen. Ja sogar ein an- und ein<lb/>
+auslautendes <hi rendition="#i">s</hi>, sobald es durch ein vorangehendes, vocalisch<lb/>
+auslautendes oder ein nachfolgendes, vocalisch anlautendes<lb/>
+Wort zwischen zwei Vocale zu stehen kommt, schwächt sich<lb/>
+zu <hi rendition="#i">h</hi>. In <hi rendition="#i">suoch</hi> nein wird <hi rendition="#i">e</hi>, auch ohne dass ein Vocal<lb/>
+vorherginge, wie <hi rendition="#i">h</hi> gesprochen. Da indessen diese Schwä-<lb/>
+chung noch nicht bei allen Jakuten eingetreten ist, wird<lb/>
+man mir die Beibehaltung des <hi rendition="#i">s</hi> zwischen zwei Vocalen<lb/>
+hoffentlich nicht zum Vorwurf machen«, und dazu die An-<lb/>
+merkung: »Die vorhandenen Wörtersammlungen weisen fast<lb/>
+ohne Ausnahme <hi rendition="#i">s</hi> auf und auch die Russen in Jakutsk und<lb/>
+sogar Uwarowskij, der in diesem Falle immer <hi rendition="#i">h</hi> spricht,<lb/>
+schreiben <hi rendition="#i">s</hi>. Die Jakuten, mit denen Middendorf zusammen-<lb/>
+kam, bemerkten, wenn sie auch <hi rendition="#i">kihi</hi> u. s. w. sprachen, dass<lb/>
+es eigentlich <hi rendition="#i">kisi</hi> heissen müsse. Die Schwächung des <hi rendition="#i">s</hi> zu<lb/>
+<hi rendition="#i">h</hi> lässt sich bis ans Ende des vorigen Jahrhunderts ver-<lb/>
+folgen, da Sauer neben <hi rendition="#i">busak</hi> (unser <hi rendition="#i">bysach</hi>) auch <hi rendition="#i">buhak</hi><lb/>
+aufführt; Witsen schreibt immer <hi rendition="#i">s</hi>.«   <hi rendition="#i">Fiat applicatio!</hi><lb/>
+</p>         <p> Auch darüber dürfte wohl allgemeines Einverständniss<lb/>
+herrschen, dass man alle Wirkungen der Associationen ab-<lb/>
+ziehen muss, wenn man den gesetzmässig verlaufenden Laut-<lb/>
+wandel rein darstellen will.<lb/>
+</p>         <p> Bis hierher scheint also Curtius, wenn ich ihn recht<lb/>
+verstehe (was vielleicht nicht der Fall ist, da er sich, wie<lb/>
+gesagt, über diesen Punkt nur aphoristisch äussert), nicht<lb/>
+gerade Einwände zu erheben,  über welche  sich nicht  ein<lb/>
+<pb facs="#f0021" n="16"/>
+Einvernehmen erzielen liesse. Nun aber kommt ein Punkt,<lb/>
+in welchem er abweicht, und in welchem ich ihm Recht<lb/>
+gebe. Er hebt nämlich hervor, dass ausser den genannten<lb/>
+doch auch noch andere störende Kräfte im Leben der<lb/>
+Sprache vorhanden sein könnten. Das hat nun zwar Brug-<lb/>
+mann gelegentlich auch hervorgehoben, sogar in übertrei-<lb/>
+bender Fassung, wenn er in Curtius' Studien 9, 373 be-<lb/>
+hauptet, dass es der hemmenden und ablenkenden Kräfte<lb/>
+im Sprachleben <hi rendition="#g">tausendfache</hi> gebe, aber ich und andere<lb/>
+haben bei der systematischen Formulirung diesen Gesichts-<lb/>
+punkt nicht hinreichend gewürdigt. Ob freilich solche<lb/>
+Kräfte schon gefunden sind, das ist eine andere Frage.<lb/>
+Durch das, was Curtius im zweiten Capitel beibringt, schei-<lb/>
+nen sie mir nicht nachgewiesen.<note place="foot" n="1)">Die  von Curtius  S. 51 Anm.  angeführte  Arbeit  de  Saussure's<lb/>
+habe ich noch nicht einsehen können.<lb/>
+</note><lb/>
+</p>         <p> Wir kommen nunmehr, wenn wir sämmtliche Ent-<lb/>
+lehnungen ausgeschieden, sämmtliche Wirkungen hemmen-<lb/>
+der Kräfte, die sich vielleicht nicht alle unter den Begriff<lb/>
+der Association bringen lassen, aufgehoben, endlich das<lb/>
+Schwanken eines etwaigen Uebergangsstadiums beseitigt den-<lb/>
+ken, zu demjenigen Zustand des Gesprochenen, in welchem<lb/>
+der gesetzmässige Lautwandel herrscht, und es ist nun noch<lb/>
+in der Kürze zu erörtern, was uns zu dieser Annahme ge-<lb/>
+setzmässigen Lautwandels treibt. Es sind das — wenn ich<lb/>
+hier von der philosophischen Seite der Sache absehen darf —<lb/>
+wesentlich die folgenden Erwägungen:<lb/>
+</p>         <p>Erstens:   Dass Gesetze in der Sprache herrschen, wird<lb/>
+allgemein anerkannt.Wir haben uns bemüht, Alles das,<lb/>
+was den gesetzmässigen Verlauf hindert, zu erkennen, und<lb/>
+dürfen nunmehr hoffen,  die Masse gefunden zu haben,  wo<lb/>
+die Gesetzmässigkeit ihren Sitz hat.<lb/>
+</p>
+<pb facs="#f0022" n="17"/>
+<p>  Zweitens: Die Erfahrung zeigt, dass die Veränderungen<lb/>
+der Laute nicht bei einzelnen Wörtern beginnen und etwa<lb/>
+die verschiedenen Wortklassen nach einander ergreifen, son-<lb/>
+dern dass die Bewegung bei der Aussprache der Laute be-<lb/>
+ginnt (vgl. Einl. S. 126). Es ist nicht abzusehen, warum<lb/>
+Jemand, der in tausend Fällen ein <hi rendition="#i">k</hi> palatalisirt, in einem<lb/>
+Falle davon ablassen sollte, und warum die Uebrigen es<lb/>
+ihm nachmachen sollten.<lb/>
+</p>         <p>Drittens: Es ist das um so weniger anzunehmen, als<lb/>
+die Erfahrung zu zeigen scheint, dass diese Veränderungen<lb/>
+unbewusst vor sich gehen, und als es<lb/>
+</p>         <p>Viertens: sehr wahrscheinlich ist, dass vermöge des<lb/>
+psychophysischen Mechanismus eine Veränderung die andere<lb/>
+nach sich zieht, z. B. die Veränderung eines <hi rendition="#i">k</hi> auch die<lb/>
+eines <hi rendition="#i">g</hi>. Es kann also in dieser Beziehung in der That<lb/>
+von einer Naturnotwendigkeit gesprochen werden, mit der<lb/>
+gewisse Veränderungen sich abspielen  (vgl. Einl. S. 120).<lb/>
+</p>         <p>    Mit allem diesem ist über die Gründe der Sprach-<lb/>
+veränderungen nichts ausgesagt, und in der That sind<lb/>
+wir nicht in der Lage, für das Eintreten des einzelnen<lb/>
+Gesetzes einen bestimmten Grund anzugeben, wenn wir<lb/>
+auch die allgemeine Tendenz nach Ersparung der Ar-<lb/>
+beit, welcher alle Veränderungen zustreben, und vielleicht<lb/>
+noch andere Tendenzen zu erkennen glauben. Es ist des-<lb/>
+halb auch wiederholt hervorgehoben worden, dass man<lb/>
+besser thäte, nicht von Gesetzen, sondern bescheidener von<lb/>
+geschichtlichen Gleichmässigkeiten zu reden. Namentlich<lb/>
+ist die Vergleichung mit Naturgesetzen wiederholt abgewie-<lb/>
+sen worden, so z. B. von mir in den Worten: »Nicht bil-<lb/>
+ligen kann ich die Bezeichnung der Lautgesetze als Natur-<lb/>
+gesetze. Mit chemischen oder physikalischen Gesetzen haben<lb/>
+offenbar diese geschichtlichen Gleichmässigkeiten keine Aelm-<lb/>
+lichkeit. Die Sprache setzt sich aus menschlichen Hand-<lb/>
+<fw type="sig" place="bottom">2</fw><lb/>
+<pb facs="#f0023" n="18"/>
+lungen zusammen, und folglich gehören die Lautgesetze nicht<lb/>
+in die Lehre von der Gesetzmässigkeit der Naturvorgänge,<lb/>
+sondern in die Lehre von der Gesetzmässigkeit der schein-<lb/>
+bar willkürlichen menschlichen Handlungen« (Einl. S. 130).<note place="foot" n="1)">Curtius sagt S. 12 Anm.: »wenn Delbrück doch wieder in dieser<lb/>
+Beziehung von Naturnothwendigkeit redet, so vermag ich darin den<lb/>
+ebenangeführten Einräumungen Paul's gegenüber einen Fortschritt nicht<lb/>
+zu  erkennen.« Ich weiss  nicht, welche  Stelle  Curtius im  Auge  hat.<lb/>
+Sollte es die oben angeführte sein (Einl. S. 120), so würde ich den Aus-<lb/>
+druck aufrecht erhalten. Oder sollte es nicht gestattet sein, von psycho-<lb/>
+physischen Nothwendigkeiten zu reden? Vielleicht habe ich das Wort<lb/>
+noch an anderen Stellen gebraucht, dann aber jedenfalls nur in dem<lb/>
+Sinne wie Curtius  selbst, der ja auch sagt, dass sich gerade in dem<lb/>
+Leben der Laute am sichersten feste Gesetze erkennen lassen, »die sich<lb/>
+beinahe mit der Consequenz von Naturkräften geltend machen« (Grund-<lb/>
+züge⁵ 81).<lb/>
+</note><lb/>
+</p>         <p>  Wo nun auch dieses letzte Kriterium für den Begriff<lb/>
+des Gesetzes, nämlich eine Mehrheit gleicher Einzelerschei-<lb/>
+nungen nicht vorhanden ist, kann man nicht mehr von<lb/>
+einem »Gesetze« reden. Völlig vereinzelte Vorgänge fallen<lb/>
+nicht unter den Begriff des Gesetzes<note place="foot" n="2)">Gegen diesen Satz darf die öfter gehörte richtige Behauptung,<lb/>
+dass an isolirten Wörtern sich das ursprüngliche Lautgesetz besser er-<lb/>
+kennen lasse, als an solchen, die mit anderen zu Reihen vereinigt und<lb/>
+die   deshalb   Associationsbildungen   ausgesetzt   sind,   nicht   angeführt<lb/>
+werden.   Denn in einem solchen Falle nimmt man an, dass zuerst eine<lb/>
+Reihe gleicher Erscheinungen da war, und dass dann die Majorität der<lb/>
+Fälle vielleicht alle Fälle bis auf einen,  durch Association verändert<lb/>
+sind. <lb/>
+</note>. Wenn also Curtius<lb/>
+fragt: »aus welchem Lautgesetz oder welcher Analogiebildung<lb/>
+könnte man das in gut attischen Inschriften überlieferte<lb/>
+<hi rendition="#i">ἡμέδιμνον statt ἡμιμέδιμνον, ἀμφορεύς statt ἀμφιφορεύς</hi><lb/>
+erklären« (S. 86), so erwidere ich, aus keinem Gesetz, denn<lb/>
+es ist ein vereinzelter Fall, und aus keiner Analogiewirkung,<lb/>
+aus demselben Grunde. Wir können in diesem Falle nur<lb/>
+sagen, dass wir an dem Uebergang von <hi rendition="#i">ἀμφιφορεύς in ἀμ-<lb/>
+φορεύς</hi> die allgemeine Tendenz zur Ersparung der Arbeit<lb/>
+erkennen können, diese Tendenz veranlasste einen Einzel-<lb/>
+<pb facs="#f0024" n="19"/>
+nen zu der Bildung <hi rendition="#i">ἀμφορεύς</hi> und sie kam der Ausbreitung<lb/>
+dieser Form wirksam entgegen. Wenn wir aber constatiren,<lb/>
+dass es Fälle giebt, wo wegen der Isolirtheit des Vorganges<lb/>
+ein specielles Gesetz nicht aufgestellt werden kann, so ist<lb/>
+damit natürlich nicht die Berechtigung zugegeben, in sol-<lb/>
+chen Fällen Ausnahmen zuzulassen, wo ein Gesetz aufge-<lb/>
+stellt werden kann.<lb/>
+</p>         <p> Das also bedeutet es, wenn behauptet wird: <hi rendition="#g">die Laut-<lb/>
+gesetze an sich sind ausnahmslos.</hi> Wesentlich so hatte<lb/>
+ich, nicht wesentlich abweichend hatte Brugmann, hatte<lb/>
+Paul sich geäussert. Ich darf nun wohl fragen: Sind das<lb/>
+wirklich <hi rendition="#i">νόμοι ὑψίποδες οὐρανίαν δἰ  αἰϑέρα τεχνωϑέντες,<lb/>
+ὧν Ὄλυμπος πατὴρ μόνος, οὐδέ νιν ϑvατὰ φύσις ἀνέρων<lb/>
+ἔτικτεν?</hi> oder sind es Anschauungen, welche in sehr irdi-<lb/>
+schem Ringen mit der Widerspenstigkeit der Einzelthat-<lb/>
+sachen gewonnen sind?<lb/>
+</p>         <p>  Dass ich nun mit dieser Fassung nicht glaube etwas<lb/>
+Endgültiges erreicht zu haben, bedarf wohl nicht einer be-<lb/>
+sonderen Versicherung. Mir ist sehr wohl bewusst, dass<lb/>
+ein Fortschritt der Wissenschaft wieder eine Umformung<lb/>
+nöthig machen kann, und dass alle solche Zusammen-<lb/>
+fassungen nichts anderes sind, als (um mit Lotze zu reden)<lb/>
+unbehilfliche Formelausdrücke für nicht hinlänglich über-<lb/>
+schaute Thatsachen. Das gilt aber schliesslich, wenn man<lb/>
+will, von allem Philosophiren.<lb/>
+</p>         <p>   Aus dieser ganzen etwas lang ausgefallenen Erörterung<lb/>
+geht hervor, dass allerdings einige Meinungsverschieden-<lb/>
+heiten über theoretische Dinge zwischen uns vorhanden<lb/>
+sind, aber, wie mir scheint, nicht von solcher Art, dass nicht<lb/>
+eine allmähliche Verständigung erhofft werden könnte.<lb/>
+</p>         <p> In der Praxis vollends haben diese Meinungsverschie-<lb/>
+denheiten keine Bedeutung. Wir sehen im Leben, dass die<lb/>
+theoretischen Ansichten   über  Freiheit   oder Unfreiheit   des<lb/>
+<fw type="sig" place="bottom">2*</fw><lb/>
+<pb facs="#f0025" n="20"/>
+Willens auf die ethischen Handlungen der betreffenden<lb/>
+Philosophen keinen Einfluss üben. Ebenso geht es in der<lb/>
+Sprachforschung. Auch wer der Lehre von der Ausnahms-<lb/>
+losigkeit der Lautgesetze huldigt, ist gezwungen, eine Menge<lb/>
+von Einzelfällen anzuerkennen, die er mit dem Gesetz nicht<lb/>
+in Uebereinstimmung bringen kann, und findet kein Arg<lb/>
+darin, diese Fälle als Ausnahmen zu bezeichnen (d. h. als<lb/>
+solche Erscheinungen, welche bis jetzt noch nicht unter ein<lb/>
+Gesetz zu bringen sind), und auf der anderen Seite giebt<lb/>
+es für denjenigen, der die Möglichkeit beliebiger, d. h. von<lb/>
+dem absolut freien Willen abhängiger Ausnahmen behauptet,<lb/>
+keine grössere Freude, als wenn es ihm gelingt, solche Aus-<lb/>
+nahmen zu beseitigen.<lb/>
+</p>         <p> Der Schluss des Capitels bringt eine Zusammenstellung<lb/>
+»kleinerer« Lautvorgänge, wie Hyphaeresis anlautender Vocale,<lb/>
+Ungleichmässigkeiten bei der Contraction oder in der Be-<lb/>
+handlung des Auslauts, Erscheinungen, welche nach Cur-<lb/>
+tius' Meinung unter feste Gesetze nicht gebracht werden<lb/>
+können. Für manches dieser Probleme hat sich nach mei-<lb/>
+ner Meinung eine Erklärung bereits gefunden, oder lässt<lb/>
+sich finden (so wird wohl <hi rendition="#i">ὤν</hi> richtig als die ursprüngliche<lb/>
+Form aufgefasst, — gleicht sie doch dem indischen <hi rendition="#i">sán</hi> und<lb/>
+dem lateinischen <hi rendition="#i">sens</hi> —, und das <hi rendition="#i">ε</hi> von <hi rendition="#i">ἐών</hi> aus Anlehnung<lb/>
+an die übrigen mit <hi rendition="#i">ε</hi> anlautenden Formen des Verbums<lb/>
+<hi rendition="#i">εἶναι</hi> erklärt, die Erlebnisse des Digamma wird man mit<lb/>
+denen des <hi rendition="#i">s</hi> im Jakutischen vergleichen können, u. a. m.),<lb/>
+mit andern dagegen weiss ich so wenig etwas anzufangen,<lb/>
+wie Curtius. Das sind dann eben Fälle, für die eine Er-<lb/>
+klärung noch zu suchen ist. Man wolle auch nicht ver-<lb/>
+gessen, dass Curtius seine Beispiele vorzüglich aus solchen<lb/>
+Sprachen wählt, welche die allercomplicirtesten Probleme<lb/>
+stellen. Die Gestalt z. B., in welcher uns die lateinischen<lb/>
+Auslaute vorliegen, ist gewiss theilweise ein Product gram-<lb/>
+<pb facs="#f0026" n="21"/>
+matischer Reflexion, welche von den Schreibenden angestellt<lb/>
+wurde. In anderen Sprachen, wo die Dinge nicht so ver-<lb/>
+wickelt liegen (man denke z. B. an das Germanische und<lb/>
+Keltische), lassen sich am Auslaut der Worte die Gesetze<lb/>
+mit gleicher Strenge durchführen, wie an anderen Stellen<lb/>
+der Sprache.<lb/>
+</p>       </div>       <div n="1">         <lb/>
+<head>II.<lb/>
+Die Associationsbildungen.</head>         <lb/>
+<p>Das zweite Capitel handelt von den Analogie- oder<lb/>
+besser Associationsbildungen. Wir betreten damit ein Ge-<lb/>
+biet, auf welchem (im Gegensatz gegen das im vorigen Ca-<lb/>
+pitel Behandelte) die Uebereinstimmung in der Theorie grösser<lb/>
+ist als in der Ausführung. Dass Associationsbildungen vor-<lb/>
+kommen, ist eine alte Lehre, und wird heute von Niemand be-<lb/>
+zweifelt. Man ist nur verschiedener Meinung über das Mass<lb/>
+der Anwendung. Curtius ist der Meinung, dass dieses Mittel der<lb/>
+Erklärung heutzutage zu viel gebraucht werde, während man<lb/>
+andererseits behauptet, es sei früher zu wenig damit operirt<lb/>
+worden. Beides wird richtig sein. Es liesse sich eine Liste<lb/>
+von Fällen aufstellen, auch auf dem Gebiete des Griechi-<lb/>
+schen und Lateinischen, in denen man jetzt allgemein zu<lb/>
+dem Mittel der Erklärung durch Association greift, während<lb/>
+man früher die Erklärung direct an eine erschlossene Form<lb/>
+der Ursprache anknüpfte. Ein Beispiel statt vieler möge<lb/>
+genügen. Es giebt in zwei tegeatischen Inschriften fünf<lb/>
+Genitive erster Declination auf <hi rendition="#i">αυ</hi>, z. B. <hi rendition="#i">ζαμίαυ</hi>, neben Ge-<lb/>
+nitiven auf <hi rendition="#i">ας</hi>, z. B. <hi rendition="#i">τᾶς</hi>. Um diese mit denen auf <hi rendition="#i">ας</hi> zu-<lb/>
+sammenzubringen, nimmt Gelbke in Curtius' Studien 2,<lb/>
+133 an, es habe eine Urform auf -<hi rendition="#i">αjoς</hi> existirt, <hi rendition="#i">αjoς</hi> sei<lb/>
+<pb facs="#f0027" n="22"/>
+einerseits zu <hi rendition="#i">αος ας</hi> geworden, und andererseits zu <hi rendition="#i">αος αυς<lb/>
+αυ</hi>. Gegen diese Annahme hat Leskien Decl. p. 40 einge-<lb/>
+wendet, dass es völlig unglaublich erscheinen müsse, dass<lb/>
+in einem und demselben Dialekte der Ausgang <hi rendition="#i">ajos</hi> bald<lb/>
+sein <hi rendition="#i">s</hi> behalten, bald es verloren habe, bald sein <hi rendition="#i">ao</hi> zu <hi rendition="#i">a</hi><lb/>
+contrahirt, bald es erhalten habe. Weiter machte er darauf<lb/>
+aufmerksam, dass -<hi rendition="#i">ajos</hi> nur aufgestellt sei, um diese beiden<lb/>
+Formen unter einen Hut zu bringen. Die europäischen<lb/>
+Sprachen weisen vielmehr auf einen Ausgang <hi rendition="#i">ās</hi>. Man<lb/>
+müsse deshalb die Form auf <hi rendition="#i">au</hi> im Fern, im Arkadischen<lb/>
+als einen jungen Eindringling ansehen. Diese Endung ver-<lb/>
+danke ihre Existenz lediglich einer Uebertragung aus dem<lb/>
+Masculinum. Dass Leskien Recht hatte, zeigt jetzt das Cy-<lb/>
+prische, der Zwillingsdialekt des Arkadischen, welches den<lb/>
+von Leskien für das Arkadische vorausgesetzten Zustand<lb/>
+noch zeigt, nämlich <hi rendition="#i">αυ</hi> für das Masculinum, <hi rendition="#i">ας</hi> für das Fe-<lb/>
+mininum (vgl. Baunack in Curtius' Studien 10, 133). Der<lb/>
+Fortschritt, welcher durch diese und ähnliche Erklärungen<lb/>
+bezeichnet wird, beruht besonders darin, dass die Auffassung<lb/>
+historischer geworden ist, und für diesen Fortschritt sind<lb/>
+wir wohl vor Allem den Forschern auf romanischem, ger-<lb/>
+manischem, slavischem Gebiet zu Dank verpflichtet. Auf<lb/>
+der anderen Seite ist zuzugeben, dass viele Erklärungen<lb/>
+durch Analogie aufgestellt sind, welche unwahrscheinlich<lb/>
+sind, und dass wir uns auf einem höchst gefährlichen Bo-<lb/>
+den bewegen, wenn wir die Kühnheit so weit treiben, As-<lb/>
+sociationsbildungen errathen zu wollen, die in der Ursprache<lb/>
+eingetreten sein könnten. Curtius stellt in diesem Capitel<lb/>
+eine Reihe von interessanten Fällen zusammen, in welchen<lb/>
+seiner Meinung nach das genannte Erklärungsmittel falsch<lb/>
+angewendet worden ist. Ob das geschehen ist, oder nicht,<lb/>
+ist eine Frage ohne hervorragende principielle Bedeutung.<lb/>
+Indem ich es daher  den betheiligten  Gelehrten überlasse,<lb/>
+<pb facs="#f0028" n="23"/>
+sich mit Curtius auseinander zu setzen, wende ich mich zu<lb/>
+einigen allgemeinen Fragen, die in diesem Capitel berührt<lb/>
+sind, und zwar zunächst zu einer Frage der Technik. Les-<lb/>
+kien hat, was Curtius S. 41 anführt, geltend gemacht, man<lb/>
+müsse immer<hi rendition="#g"> zuerst</hi> die Frage nach Uebertragung und<lb/>
+Analogiebildung hervorheben, und dann erst nach den<lb/>
+Grundformen suchen, während J. Schmidt und gelegentlich<lb/>
+auch Brugmann in der Erklärung durch Analogie nur ein<lb/>
+<hi rendition="#i">ultimum refugium</hi> sehen. Ich glaube, diese Lehren haben<lb/>
+nur zeitgeschichtlichen Werth, insofern sie vor Uebertrei-<lb/>
+bungen nach beiden Seiten hin warnen. Als methodische<lb/>
+Regel kann man doch nur aufstellen, dass man in jedem<lb/>
+Falle alle Möglichkeiten der Erklärung erwägen und die<lb/>
+wahrscheinlichste wählen soll, eine Weisheit freilich, die so<lb/>
+trivial ist, dass sie Niemand fördern kann. Ueberhaupt<lb/>
+muss ich bei meiner schon ausgesprochenen Meinung blei-<lb/>
+ben, dass es jetzt nicht die wesentlichste Aufgabe ist, all-<lb/>
+gemein psychologische Gesichtspunkte zu suchen, es wird<lb/>
+vielmehr darauf ankommen, auf Gebieten, die uns geschicht-<lb/>
+lich zugänglich sind, innerhalb der einzelnen in den Spra-<lb/>
+chen vorhandenen Systeme (Stammbildung, Flexion u. s. w.)<lb/>
+den Stoff zu sammeln und nach Anleitung der exacten<lb/>
+Psychologie, wie sie von Herbart begründet worden ist, zu<lb/>
+bearbeiten. Dann erst wird man für jedes einzelne Gebiet<lb/>
+und vielleicht mit der Zeit für das Gesammtgebiet zu einer<lb/>
+vernünftigen Eintheilung kommen, und u.a. auch solche<lb/>
+Fragen, wie die, ob und inwieweit neben Ausgleichungs-<lb/>
+wirkungen auch Contrastwirkungen anzunehmen sind, beant-<lb/>
+worten können. Ich gehe also hier auf diese Erörterungen<lb/>
+im Allgemeinen nicht näher ein, kann aber nicht umhin,<lb/>
+wenigstens eine Frage zu berühren, nämlich die Frage, in<lb/>
+welcher Art von Silben man füglich Associationsbildungen<lb/>
+erwarten   kann. Die Meinung von Curtius ist, dass die<lb/>
+<pb facs="#f0029" n="24"/>
+Wahrscheinlichkeit der Associationsbildung im umgekehrten<lb/>
+Verhältniss zu der Bedeutsamkeit einer Silbe stehe. Er<lb/>
+sagt nämlich S. 77 : »[Für das Griechische und Lateinische]<lb/>
+stellt sich heraus, dass die Analogiebildungen besonders in<lb/>
+wenig bedeutenden mittleren und Endsilben eintritt«, ferner<lb/>
+S. 76: »Wenn wir, was oben weiter erörtert wird, festhalten,<lb/>
+dass das bedeutungsvollste von den sprechenden relativ am<lb/>
+festesten gehalten wurde, so wird es begreiflich, dass die<lb/>
+Analogiebildung auf solchen Gebieten und in solchen Wör-<lb/>
+terclassen sich am leichtesten verbreitet, die wir nicht eben<lb/>
+als in besonderem Grade bedeutungsvoll betrachten können.<lb/>
+So bei den Zahlwörtern. Diese Wörter sind mehr als an-<lb/>
+dere conventionelle <hi rendition="#i">notae rerum</hi>. Sie stehen mit Wörtern<lb/>
+anderer Art ausser aller, den sprechenden bewusster oder<lb/>
+empfundener Verbindung, entbehren also des Schutzes, wel-<lb/>
+chen Wörter anderer Art in dem Gefühl der Zusammen-<lb/>
+gehörigkeit mit anderen angehörigen derselben Wortsippe<lb/>
+finden. Sie sind, so zu sagen, schutzlose Fremdlinge mitten<lb/>
+unter eng verbundenen Familiensippen.« Und endlich macht<lb/>
+er S. 72 geltend, dass die bedeutungsvollsten Silben der<lb/>
+Wörter, die Stammsilben, in weit geringerem Masse der<lb/>
+Analogiebildung unterworfen sind, als Präfixe und Suffixe.<lb/>
+Die thatsächlichen Behauptungen in diesen Stellen sind<lb/>
+gewiss richtig, aber die Erklärung leuchtet mir nicht ein,<lb/>
+namentlich vermag ich nicht einzusehen, wieso die Zahl-<lb/>
+wörter in höherem Grade Conventionelle <hi rendition="#i">notae rerum</hi> sein<lb/>
+sollen, als andere Wörter. Der wahre Grund der Erschei-<lb/>
+nung dürfte der auch von Curtius auf S. 77 angedeu-<lb/>
+tete sein. Offenbar sind diejenigen Wörter oder Silben am<lb/>
+meisten geeignet, die besprochene Einwirkung zu erfahren,<lb/>
+welche in der Seele der Sprechenden zu Reihen oder Sy-<lb/>
+stemen vereinigt sind. Solche Reihen bilden z. B. die<lb/>
+sämmtlichen Endungen eines Casus, die Zahlwörter u. s. w.<lb/>
+<pb facs="#f0030" n="25"/>
+Die Begriffe der Nomina und Verba in ihrer unendlichen<lb/>
+Mannigfaltigkeit bilden viel seltener zusammengehörige Paare<lb/>
+oder Reihen, wo indessen ein solches Verhältniss vorhanden<lb/>
+ist, wie z. B. bei leicht und schwer, sind auch Associations-<lb/>
+wirkungen eingetreten, freilich nicht in allen Fällen, aber<lb/>
+dann, wenn noch eine formelle Aehnlichkeit hinzukommt<lb/>
+(so bei <hi rendition="#i">leve</hi> —<hi rendition="#i">greve</hi>, s. Curtius S. 72, bei <hi rendition="#i">ἧμαι</hi>, das seinen<lb/>
+Spiritus von <hi rendition="#i">ἕζομαι</hi> hat u. s. w.).<lb/>
+</p>         <p> Bei dieser Gelegenheit habe ich noch einen Punkt zu<lb/>
+erwähnen, in welchem d'Ovidio und Curtius gegen mich im<lb/>
+Rechte sind. Die Sache ist folgende: Curtius hatte in sei-<lb/>
+nem Aufsatz über die Tragweite der Lautgesetze gemeint,<lb/>
+dass das <hi rendition="#i">ι</hi> in <hi rendition="#i">δοίην </hi>erhalten, in <hi rendition="#i">ποέω</hi> dagegen verschwun-<lb/>
+den sei, weil es in <hi rendition="#i">δοίην</hi> als bedeutungstragend empfunden<lb/>
+wurde, in <hi rendition="#i">ποιέω</hi> aber nicht. Ist doch <hi rendition="#i">ι</hi> das Zeichen des<lb/>
+Optativs. Ich hatte dagegen geltend gemacht, dass das<hi rendition="#i"> ι</hi><lb/>
+wohl deswegen erhalten sei, weil es mit <hi rendition="#i">δοῖμεν δοῖτε</hi> und<lb/>
+den Medialformen, in denen es bleiben muss, weil es vor<lb/>
+einem Consonanten steht, innerlich zu einer Reihe verbun-<lb/>
+den sei, und ich gebe mich der Hoffnung hin, dass Curtius<lb/>
+mir jetzt in dieser Beziehung Recht giebt. Dabei hatte ich<lb/>
+auch einen allgemeineren Grund angeführt in den Worten,<lb/>
+welche Curtius S. 71 citirt: »Man ist, wie mir scheint, nicht<lb/>
+berechtigt, anzunehmen, dass die Griechen und Inder noch<lb/>
+ein Gefühl für die Bedeutsamkeit des einzelnen Lautes in<lb/>
+einer Sprachform gehabt hätten, welches uns abhanden ge-<lb/>
+kommen wäre, denn auch ihnen waren, wie uns, von Ge-<lb/>
+neration zu Generation nur fertige Sprachformen überliefert,<lb/>
+und jene Urzeiten, in denen die indogermanischen Formen<lb/>
+nach der Bopp'schen Annahme aus bedeutsamen Elementen<lb/>
+zusammengesetzt wurden, lagen für sie nicht weniger wie<lb/>
+für uns in dämmernder Vorzeit.« Ich gebe zu, dass der<lb/>
+erste Theil dieser Behauptung unzutreffend ist, denn ich<lb/>
+<pb facs="#f0031" n="26"/>
+nehme ebenso wie d'Ovidio und Curtius an, dass sicher be-<lb/>
+treffs der Suffixe, z. B. des<hi rendition="#i"> i</hi> des Locativs, ein Gefühl für die<lb/>
+Bedeutung vorhanden war und in entsprechenden Fällen<lb/>
+noch ist. Ich hätte sagen sollen, mir sei nicht bewiesen,<lb/>
+dass ein Laut deswegen geschont würde, weil er als Trä-<lb/>
+ger der Bedeutung empfunden sei. Sehen wir doch, dass<lb/>
+z. B. die Personalendungen des Verbums, die sicher be-<lb/>
+deutungstragend sind, den Auslautgesetzen gerade so wie<lb/>
+die übrigen auslautenden Silben verfallen. Der zweite Theil<lb/>
+meiner Ausführung («denn auch ihnen« u. s. w.) steht nicht<lb/>
+an der richtigen Stelle, enthält aber eine wie ich glaube<lb/>
+richtige Polemik gegen Ansichten, wie sie öfter in den<lb/>
+Schriften von Curtius und auch in der hier besprochenen<lb/>
+S. 67 hervortreten, wo es heisst: »es scheint mir gänzlich<lb/>
+unglaublich, dass die Sprachen schon in den frühesten Zei-<lb/>
+ten ihrer Feststellung, das ist in jener Periode, die W. v.<lb/>
+Humboldt die der Organisation nennt, von den kaum ge-<lb/>
+schaffenen, und wie wir vermuthen dürfen, frisch und leb-<lb/>
+haft im Gedächtniss festgehaltenen Formen aus gleich wieder<lb/>
+abgeirrt und ins Schwanken gerathen seien, dass die Men-<lb/>
+schen, durch den Dämmerschein beliebiger Aehnlichkeiten<lb/>
+verführt, das eben hervorgebrachte Sprachgut gleich massen-<lb/>
+haft durch Angleichungen und Nachbildungen verdunkelt<lb/>
+und gleichsam verdorben hätten.« Hier kann ich nicht<lb/>
+folgen. Nach meiner Meinung können die Sprechenden<lb/>
+kein Bewusstsein davon haben, ob eine Form vor tausend<lb/>
+oder hundert Jahren geschaffen ist, und behandeln die letz-<lb/>
+tere nicht anders als die erstere. Dabei leugne ich nicht,<lb/>
+dass in den alten Sprachen Analogiebildungen verhältniss-<lb/>
+mässig seltner sind, als in manchen modernen, leite dies<lb/>
+aber daraus ab, dass die alten Sprachen uns wesentlich in<lb/>
+der Gestalt von Schriftsprachen überliefert sind. Die Schrift<lb/>
+ist es, welche die Formen erhält, denn sie stellt einen<lb/>
+<pb facs="#f0032" n="27"/>
+Zusammenhang zwischen entfernteren Zeiten und der Ge-<lb/>
+genwart her, in viel höherem Grade, als es die mündliche<lb/>
+Ueberlieferung thut, welche ein weit kürzeres Gedächt -<lb/>
+niss hat.<lb/>
+</p>         <p>   Der Schluss des Capitels von S. 84 an führt uns wieder<lb/>
+zu der Erörterung des Begriffes Lautgesetz zurück. Auf<lb/>
+einen Punkt — die Verkürzung von <hi rendition="#i">ἡμιμέδιμνον</hi> zu <hi rendition="#i">ἡμέδιμ-<lb/>
+vov </hi>— bin ich oben schon mit einigen Worten eingegangen.<lb/>
+Hier bespreche ich zwei andere Verkürzungserscheinungen,<lb/>
+welche nach Curtius' Ansicht in durchaus sporadischer, nicht<lb/>
+unter die Begriffe Gesetz oder Analogie zu bringender Weise<lb/>
+auftreten. Es betrifft die Comparativ- und Superlativbildung<lb/>
+und die sog. Koseformen. Von den ersteren heisst es bei<lb/>
+Curtius S. 87: »Hierher gehören wahrscheinlich auch die<lb/>
+Stammkürzungen in den Comparativen und Superlativen,<lb/>
+die zu den merkwürdigsten Ausnahmen von der allgemeinen<lb/>
+Regel zu rechnen sind, dass die abgeleitete Stammbildung<lb/>
+aus dem vollen Stamme des primitiveren Wortes hervorgeht.<lb/>
+Man erinnere sich solcher Formen wie <hi rendition="#i">ῥίγιον</hi>. <hi rendition="#i">ἄλγιστος,<lb/>
+αἰσχίων, ἡδίων</hi>. Man sagt wohl, der Comparativ werde hier<lb/>
+»aus der Wurzel« gebildet, allein mit welchem Rechte kann man<lb/>
+z. B. das aus Wurzel (?) <hi rendition="#i">aἰδ</hi> (<hi rendition="#i">αἴδομαι αἰδώς</hi>) hervorgegangene<lb/>
+<hi rendition="#i"> αἰσχ</hi> von <hi rendition="#i">αἰαχίων</hi> eine Wurzel nennen, und was hat begriff-<lb/>
+lich die Wurzel mit der Comparation der Adjectiva zu thun?<lb/>
+Die Steigerung setzt unbedingt den Begriff einer Eigen-<lb/>
+schaft, also eines Nomens voraus; <hi rendition="#i">ἡδίων, ῥίγιον</hi> haben schwer-<lb/>
+lich von Haus aus ohne einen Positiv bestanden, vielleicht<lb/>
+nur nicht von Anfang an neben dem später üblichen.« Da<lb/>
+die Comparative auf <hi rendition="#i">ιων</hi> und die Superlative auf <hi rendition="#i">ιστoς</hi> im<lb/>
+Griechischen nur noch als Reste vorhanden sind, wird es,<lb/>
+wenn man das ursprüngliche Verhalten dieser Bildungen<lb/>
+kennen lernen will, gerathen sein, sich an eine Sprache zu<lb/>
+wenden, wo dieselben noch lebendig sind, d. i. das Sanskrit.<lb/>
+<pb facs="#f0033" n="28"/>
+Ich führe hier die entsprechenden Formen aus dem Rigveda<lb/>
+an, beschränke mich aber der Kürze wegen auf die Com-<lb/>
+parative. Es giebt im Rigveda 22 Comparative, neben welchen<lb/>
+kein Positiv vorkommt, nämlich: <hi rendition="#i">ǵávījas</hi><note place="foot" n="1)">Der Nom. Sing, lautet bekanntlich <hi rendition="#i">ǵávījān</hi>. Ich stelle im An-<lb/>
+schluss an Grassmann, dessen Index ich die Formen entnehme, <hi rendition="#i">-jas</hi><lb/>
+(<hi rendition="#i">-ījas</hi>) als Ausgang auf, nur weil es unbequem ist, mehrere Stamm-<lb/>
+formen zugleich zu nennen. Dass wirklich jas der ursprüngliche Aus-<lb/>
+gang sei, behaupte ich hiermit nicht.<lb/>
+</note> schneller, <hi rendition="#i">ǵjắjas</hi><lb/>
+mächtiger, <hi rendition="#i">tárījas</hi> leicht durchdringend, <hi rendition="#i">távjas távījas</hi> stärker,<lb/>
+<hi rendition="#i">tvákshījas</hi> sehr kräftig, <hi rendition="#i">dhávījas</hi> schnell dahineilend, <hi rendition="#i">nédījas<lb/>
+ganz nahe, pánjas pánījas</hi> wunderbar, sehr wunderbar, <hi rendition="#i">máṅ</hi>-<lb/>
+hījas reichlicher gebend, <hi rendition="#i">jáǵījas</hi> besser, aufs beste opfernd,<lb/>
+jód<hi rendition="#i">hījas</hi> streitbarer, <hi rendition="#i">rábhjas</hi> sehr ungestüm, <hi rendition="#i">vánījas</hi> mehr er-<lb/>
+langend, <hi rendition="#i">várshījas</hi> höher, <hi rendition="#i">váhījas</hi> trefflich fahrend, <hi rendition="#i">védījas</hi><lb/>
+mehr erlangend, <hi rendition="#i">çáçījas</hi> häufiger, <hi rendition="#i">çréjas</hi> schöner, <hi rendition="#i">sáhjas sáh-<lb/>
+ījas</hi> stärker, sehr stark, <hi rendition="#i">skábhījas</hi> sehr befestigend. In zwei<lb/>
+Fällen tritt die Endung <hi rendition="#i">ījas</hi> an eine mit einer Präposition<lb/>
+zusammengesetzte Wurzel, nämlich <hi rendition="#i">údjamījas</hi> mehr ausein-<lb/>
+ander sperrend, <hi rendition="#i">prátikjavījas</hi> mehr sich herandrängend. An<lb/>
+Comparativen dagegen, welche neben sich eine Form haben,<lb/>
+die man (theilweise allerdings nur bei wohlwollendem Ur-<lb/>
+theil) als den Positiv auffassen kann, sind 12 vorhanden: <hi rendition="#i">ṝǵījas</hi><lb/>
+richtiger (<hi rendition="#i">ṛǵú</hi>) <hi rendition="#i">óǵījas</hi> stärker, sehr stark (<hi rendition="#i">ugrá</hi>),<hi rendition="#i"> teǵījas</hi> schärfer,<lb/>
+eifriger (<hi rendition="#i">tigmá</hi>), <hi rendition="#i">dávījas</hi> weiter hinweg (<hi rendition="#i">dūrá</hi>), <hi rendition="#i">drắghījas</hi> länger<lb/>
+(<hi rendition="#i">dīrghá</hi>), <hi rendition="#i">návjas návījas</hi> neu, ganz neu (<hi rendition="#i">náva</hi>), <hi rendition="#i">préjas</hi> lieber<lb/>
+(<hi rendition="#i">prijá</hi>), <hi rendition="#i">bhṹjas bhávījas</hi> mehr, sehr viel (<hi rendition="#i">bhṹri</hi>), <hi rendition="#i">várījas</hi> weiter,<lb/>
+sehr weit (<hi rendition="#i">urú</hi>), <hi rendition="#i">vásjas</hi> besser, höchstes Gut (<hi rendition="#i">vásu</hi>), <hi rendition="#i">svắdījas</hi><lb/>
+süsser (<hi rendition="#i">svādú</hi>). Vielleicht ist auch <hi rendition="#i">kánījas</hi> jünger, hierher-<lb/>
+zustellen, woneben ein erschlossenes Adjectiv <hi rendition="#i">kaná</hi> jung<lb/>
+(s. Grassmann s. v.). Aus diesem Material folgt, dass die<lb/>
+Comparative auf <hi rendition="#i">ījas</hi> allerdings etwas mit der Wurzel zu<lb/>
+thun haben.  Wie könnte sonst <hi rendition="#i">údjamījas</hi> und <hi rendition="#i">prátikjavījas</hi><lb/>
+<pb facs="#f0034" n="29"/>
+entstehen? Es zeigt sich ferner, dass nicht ein einziger Fall<lb/>
+vorliegt, in welchem <hi rendition="#i">ījas</hi> Secundärsuffix wäre. Man wird<lb/>
+also den Gedanken aufgeben müssen, als wäre vor <hi rendition="#i">ījas</hi> stets<lb/>
+ein Suffix ausgefallen, und vielmehr annehmen, dass das<lb/>
+Suffix <hi rendition="#i">ījas</hi> primäre Adjectiva bildet und die specielle Auf-<lb/>
+gabe hat, den Begriff der Wurzel besonders zu betonen.<lb/>
+Diese Andeutungen mögen genügen, um meine Behauptung<lb/>
+zu rechtfertigen, dass bei den Comparativen und Super-<lb/>
+lativen eine Verkürzung, wie Curtius sie annimmt, nicht<lb/>
+eingetreten ist.<lb/>
+</p>         <p>Anders steht es mit den Kosenamen. Es unterliegt<lb/>
+keinem Zweifel, dass sie aus Vollnamen auf dem Wege einer<lb/>
+sonst nicht nachweisbaren Kürzung hervorgegangen sind,<lb/>
+und es ist klar, dass in Formen wie <hi rendition="#i">Bob</hi> aus Robert, <hi rendition="#i">Dick</hi><lb/>
+aus Richard alle Lautgesetze auf den Kopf gestellt sind.<lb/>
+Wie sind diese seltsamen Vorgänge zu erklären? Offenbar<lb/>
+haben wir es hier mit Bildungen der Kindersprache zu thun,<lb/>
+die in die Sprache der Erwachsenen aufgenommen sind.<lb/>
+Man kann den Process auch heute noch beobachten. In<lb/>
+den Familienanzeigen unserer Zeitungen tauchen ja immer<lb/>
+zuversichtlicher Namen wie Lulu, Lili, Mimi u. s. w. auf,<lb/>
+die erst ganz vor Kurzem die Kinderstube verlassen haben,<lb/>
+und die der Standesbeamte vorderhand noch nicht als wirk-<lb/>
+liche Namen gelten lassen will. Ich sehe also die Kose-<lb/>
+namen als Lehnwörter an und kann deshalb die an ihnen<lb/>
+auftretenden Lauterscheinungen nicht als Ausnahmen gelten<lb/>
+lassen (s. oben S. 13). In den Einzeldarstellungen ist dann<lb/>
+zu zeigen, wie diese zum Theil formlosen Lehnwörter gram-<lb/>
+matisch umgeformt werden, und wie sich im Anschluss an<lb/>
+sie der Typus der kosenden Verkürzung ausbildet, der also<lb/>
+im System als Analogiebildung nach Lehnwörtern aufzu-<lb/>
+fassen wäre.<lb/>
+</p>       </div>
+<pb facs="#f0035" n="30"/>
+<div n="1">         <lb/>
+<head>III.<lb/>
+Vocalismus.</head>         <lb/>
+<p>  Das dritte Capitel handelt von einigen Fragen des Voca-<lb/>
+lismus, welche unter sich in einem systematischen Zusammen-<lb/>
+hang stehen, der enger ist, als man nach Curtius' Schrift<lb/>
+annehmen sollte. Wie sehr die Untersuchungen über das <hi rendition="#i">e</hi><lb/>
+mit denen über den<hi rendition="#i"> r</hi>-Vocal und <hi rendition="#i">n</hi>-Vocal zusammengehören,<lb/>
+ersieht man am besten aus J. de Saussure's, von Curtius mit<lb/>
+Recht als feinsinnig bezeichnetem mémoire sur le Système<lb/>
+primitif des voyelles dans les langues indo-européennes. Ich<lb/>
+werde diesen Zusammenhang der einzelnen Erscheinungen<lb/>
+später streifen, handle aber jetzt, indem ich mich der von<lb/>
+Curtius gewählten Reihenfolge anschliesse, zuerst νοη den-<lb/>
+jenigen Vocalen, welche man früher als <hi rendition="#i">A</hi>-Vocale bezeich-<lb/>
+nete, von <hi rendition="#i">ă, ĕ, ŏ</hi>. Bekanntlich entspricht ein <hi rendition="#i">ă</hi> des Sanskrit<lb/>
+bald einem <hi rendition="#i">α</hi> des Griechischen, z. B. in <hi rendition="#i">áǵāmi ἄγω</hi>, bald<lb/>
+einem <hi rendition="#i">ε</hi>, z. B. in <hi rendition="#i">bhárāmi φέρω</hi>, bald einem <hi rendition="#i">ο</hi>, z. B. in<lb/>
+<hi rendition="#i">ávis ὄϝiς</hi>. Während man sich nun, wie billig, zunächst mit<lb/>
+der Feststellung dieser Thatsache begnügte, that Curtius den<lb/>
+ersten Schritt zur Anbahnung eines geschichtlichen Ver-<lb/>
+ständnisses, indem er nachwies, dass das e in allen euro-<lb/>
+päischen Sprachen in vergleichbaren Wörtern an derselben<lb/>
+Stelle erscheint (z. B. in <hi rendition="#i">φέρω fero berim</hi> u. s. w.), und dar-<lb/>
+aus schloss. dass ein e an diesen Stellen schon in der Zeit<lb/>
+der vorauszusetzenden europäischen Einheit vorhanden ge-<lb/>
+wesen sei. Hinsichtlich des<hi rendition="#i"> ο</hi> schienen ihm die Thatsachen<lb/>
+für die Gewinnung eines gleichen Schlusses nicht auszu-<lb/>
+reichen. Wir sind aber an diesem Punkte in der eigen-<lb/>
+thümlichen Lage, behaupten zu dürfen, dass der Schrift-<lb/>
+steller mehr wahrscheinlich gemacht hat, als er selber zu-<lb/>
+giebt. Denn man muss, glaube ich, annehmen, dass, wenn<lb/>
+<pb facs="#f0036" n="31"/>
+ein<hi rendition="#i"> e</hi> da war, auch dasjenige <hi rendition="#i">ο</hi> nicht wohl fehlen konnte,<lb/>
+welches zu dem <hi rendition="#i">e</hi> in einem Ablautsverhältniss steht. Ich<lb/>
+lasse diese Frage, zu welcher ich später zurückkehren werde,<lb/>
+augenblicklich auf sich beruhen, und gestatte mir hier nur<lb/>
+die subjective Behauptung, dass Curtius meiner Meinung<lb/>
+nach wahrscheinlich gemacht hat, dass im Europäischen e<lb/>
+und <hi rendition="#i">ο</hi> vorhanden war. Demnach steht also die Sache so, dass<lb/>
+wir bei den Ostindogermanen a haben, bei den Westindo-<lb/>
+germanen <hi rendition="#i">a, e, o</hi>. Wo ist nun der ursprüngliche Zustand?<lb/>
+Curtius vermuthet in Asien, andere Gelehrte, denen ich<lb/>
+mich anschliesse, in Europa. Im ersten Falle hat man ab-<lb/>
+zunehmen, dass ein <hi rendition="#i">a</hi> sich in Europa in <hi rendition="#i">a e ο</hi> spaltete, im<lb/>
+anderen Falle, dass in Asien sowohl <hi rendition="#i">e</hi> wie <hi rendition="#i">ο</hi> zu <hi rendition="#i">a</hi> geworden<lb/>
+ist. Curtius weiss natürlich sehr wohl, wie schwierig und<lb/>
+verantwortlich es ist, über prähistorische Zustände etwas zu<lb/>
+behaupten, und drückt sich daher stets mit einer der Sache<lb/>
+angemessenen Vorsicht aus. »Ich begnüge mich übrigens —<lb/>
+so sagt er S. 91 — einige Hauptpunkte und namentlich<lb/>
+solche zur Sprache zu bringen, welche mir mehr für die<lb/>
+ältere, als für die jüngere Ansicht zu sprechen scheinen.«<lb/>
+Schliesslich fasst er die gegen die neue Ansicht sprechenden<lb/>
+Erwägungen S. 109 in folgende drei Sätze zusammen. Es<lb/>
+sprechen dagegen<lb/>
+</p>         <p> 1) Die Unerklärbarkeit der Entstehung des arischen <hi rendition="#i">a</hi><lb/>
+aus ursprünglicher Dreiheit.<lb/>
+</p>         <p> 2) Die Unzulänglichkeit der Versuche, auch für das<lb/>
+Arische Spuren eines alten <hi rendition="#i">e</hi> nachzuweisen.<lb/>
+</p>         <p>3) Der gänzliche Mangel eines Beweises für die Existenz<lb/>
+eines arischen <hi rendition="#i">o</hi>.<lb/>
+</p>         <p> Indem ich mich auch dieser Reihenfolge anschliesse,<lb/>
+erörtere ich zuerst die behauptete Unerklärbarkeit des<lb/>
+arischen <hi rendition="#i">a</hi> aus <hi rendition="#i">a e o</hi>, und trete damit so zu sagen in die<lb/>
+Generaldiscussion der ganzen Frage ein. Selbstverständlich<lb/>
+<pb facs="#f0037" n="32"/>
+ist dabei zunächst zu erörtern, warum man nicht an der<lb/>
+alten Hypothese festhalten will. Ein allgemeiner Grund<lb/>
+dafür ist von Brugmann angegeben worden in den von<lb/>
+Curtius S. 93 angeführten Worten: »Die Annahme, dass<lb/>
+unter ganz denselben Verhältnissen ein Laut in einem Theil<lb/>
+der Formen auf diesem, in einem andern Theil auf jenem<lb/>
+Wege umgestaltet worden sei — etwa in Folge der Laune<lb/>
+des Sprechenden — widerstreitet den heutzutage immer<lb/>
+mehr und mehr zur Geltung kommenden methodologischen<lb/>
+Principien durchaus.« Curtius meint dagegen, es komme<lb/>
+auf derartige, a priori construirte Principien viel weniger<lb/>
+an als auf die Thatsachen der Sprachen und deren wahr-<lb/>
+scheinliche Deutung. Den Abscheu gegen a priori con-<lb/>
+struirte Principien theilen wir heutzutage wohl Alle (wenn<lb/>
+auch zuzugeben ist, dass wir uns unbewusst recht oft von<lb/>
+ihnen leiten lassen), aber es handelt sich, wie mir scheint,<lb/>
+im vorliegenden Falle nicht um ein aus den Fingern ge-<lb/>
+sogenes, sondern um ein mittelst der Erfahrung aus den<lb/>
+Thatsachen destillirtes Princip, das übrigens auch durch<lb/>
+die Geschichte der Spaltungshypothesen zwar nicht bewiesen,<lb/>
+aber doch empfohlen wird. Wir hatten früher in der indo-<lb/>
+germanischen Lautlehre zwei grosse Spaltungshypothesen<lb/>
+und eine Anzahl kleinerer. Die beiden grossen waren die<lb/>
+Hypothesen von der Spaltung des <hi rendition="#i">a</hi>-Lautes und der <hi rendition="#i">k</hi>-Laute,<lb/>
+eine kleinere z. B. die Hypothese von der Spaltung eines<lb/>
+indogermanischen <hi rendition="#i">j</hi> in griechisches <hi rendition="#i">ζ</hi> und <hi rendition="#i">῾</hi>. Hinsichtlich<lb/>
+der <hi rendition="#i">k</hi>-Laute nahm Schleicher mit grosser Bestimmtheit an,<lb/>
+es sei nur ein <hi rendition="#i">k</hi>, ein <hi rendition="#i">p</hi>, ein <hi rendition="#i">gh</hi> in der Ursprache vorhanden<lb/>
+gewesen, und aus ihnen seien die mannichfaltigen<hi rendition="#i"> k</hi>-Laute<lb/>
+der Einzelsprachen durch Spaltung hervorgegangen. Diese<lb/>
+Ansicht nun ist jetzt (auch von Curtius) verlassen und zwar<lb/>
+zu Gunsten einer von Ascoli und Fick, aufgestellten An-<lb/>
+sicht, wonach bereits in der Urzeit zwei <hi rendition="#i">k</hi>-Reihen vorhan-<lb/>
+<pb facs="#f0038" n="33"/>
+den waren. Hier also ist die Ureinheit aufgegeben und bei-<lb/>
+nahe einstimmig<note place="foot" n="1)">J. Egger (Studien zur Geschichte des indogermanischen Conso-<lb/>
+nantismus, Wien 1880) geht wieder auf die eine <hi rendition="#i">k</hi>-Reihe zurück, nimmt<lb/>
+aber auch seinerseits an, dass die Palatalen im Arischen durch Ein-<lb/>
+wirkung eines helleren<hi rendition="#i"> a</hi> entstanden seien.<lb/>
+</note> eine Urzweiheit an die Stelle gesetzt worden.<lb/>
+Aehnlich steht es nach meiner (freilich nicht nach Curtius')<lb/>
+Meinung mit der Hypothese der zwei indogermanischen j.<lb/>
+Ich kann nicht glauben, dass (um einen Ausdruck zu ge-<lb/>
+brauchen, den Pott bei anderer Gelegenheit anwendet) nur<lb/>
+für die Langeweile ein <hi rendition="#i">j</hi> einmal, z. B. in <hi rendition="#i">ζνγόν</hi>, zu <hi rendition="#i">ζ</hi> ge-<lb/>
+worden sei, das andere Mal, z. B. in <hi rendition="#i">ὑμεῖς</hi>, zu <hi rendition="#i">῾</hi>, sondern<lb/>
+glaube nach dem Vorgange von Schulze auch in diesem<lb/>
+Falle eine ursprüngliche Zweiheit (ein halbvocalisches und<lb/>
+ein consonantisches <hi rendition="#i">j</hi>) annehmen zu sollen. Man wird nun<lb/>
+gewiss zugeben, dass durch diese Erfahrungen, und auch<lb/>
+schon durch die eine mit den<hi rendition="#i"> k</hi>-Lauten gemachte Erfahrung<lb/>
+die Hypothese von der Spaltung des <hi rendition="#i">a</hi> an Credit einbüssen<lb/>
+musste. Ich weiss wohl, dass es noch andere als die ange-<lb/>
+führten Fälle giebt, in welchen solche Spaltungen vorzu-<lb/>
+liegen scheinen, so bei <hi rendition="#i">r</hi> und<hi rendition="#i"> l</hi>, was Curtius anführt (S. 93).<lb/>
+Ich bin nicht in der Lage, hierfür eine plausible Erklärung<lb/>
+vorzutragen. Aber selbst wenn gar keine Hoffnung wäre,<lb/>
+diese zu finden, wird doch zuzugeben sein, dass die Hypo-<lb/>
+these von der Spaltung des <hi rendition="#i">a</hi>, nachdem ihr wichtigstes<lb/>
+Gegenstück beseitigt worden ist, nicht mehr als ein wands-<lb/>
+frei gelten kann. Dazu kommt noch die besondere Natur<lb/>
+des vorliegenden Falles. An denselben Stellen soll danach<lb/>
+das <hi rendition="#i">a</hi> das eine Mal geblieben sein (z. B. in <hi rendition="#i">ἄγω</hi>), und das<lb/>
+andere Mal zu <hi rendition="#i">e</hi> geworden (z. B. in <hi rendition="#i">φέρω</hi>), und dieses <hi rendition="#i">e</hi> hat<lb/>
+noch dazu die Eigenthümlichkeit, mit <hi rendition="#i">ο</hi> in einem Ent-<lb/>
+sprechungsverhältniss zu stehen, welches a nicht kennt! Es<lb/>
+wird danach, meine ich, zuzugeben sein, dass die Spaltungs-<lb/>
+<fw type="sig" place="bottom">3</fw><lb/>
+<pb facs="#f0039" n="34"/>
+hypothese an und für sich ihre bedenklichen Seiten hat.<lb/>
+Ist nun die entgegengesetzte Hypothese, wonach in Asien <hi rendition="#i">a</hi><lb/>
+aus <hi rendition="#i">e</hi> und <hi rendition="#i">ο</hi> geworden wäre, an sich wahrscheinlicher?<lb/>
+Curtius behauptet das Gegentheil, indem er S. 97 sagt: »Zu-<lb/>
+»nächst fragen wir: Woher kommt, wenn man den bunten<lb/>
+»Vocalismus als den ältesten betrachtet, bei den Indern und<lb/>
+»Iraniern der ihre Sprache charakterisirende eintönige Voca-<lb/>
+»lismus? Kann man nicht hier ebenso wie vorhin sagen:<lb/>
+»»Kein Mensch weiss zu sagen, nach welchem Gesetz sich e<lb/>
+»und <hi rendition="#i">ο</hi> durchweg in das eine <hi rendition="#i">a</hi> verwandelte«? Auf diese<lb/>
+»Frage ist die Antwort der neueren Sprachforscher altum si-<lb/>
+»lentium, wie es denn überhaupt den orientalischen Sprachen<lb/>
+»in der Geschichte der Wissenschaft eigenthümlich ergangen<lb/>
+»ist. Einst das Orakel der aufkeimenden Forschung, dem<lb/>
+»man blindlings folgte, stehen sie jetzt bei Seite. Man kann<lb/>
+»fast sagen, statt des geflügelten Wortes -<hi rendition="#i">»ex oriente lux«</hi><lb/>
+»muss es jetzt heissen: <hi rendition="#i">»in oriente tenebrae«</hi>. Wo kommt es<lb/>
+»denn sonst vor, dass eine Sprache, die doch ihrem Charakter<lb/>
+»nach eine reich und fein unterscheidende ist, einen wich-<lb/>
+»tigen Theil des Lautbestandes nicht etwa nur hier und da<lb/>
+»verändert, sondern förmlich verwüstet? Finden sich irgend-<lb/>
+»wo für diesen seltsamen Vorgang Analoga, so bringe man<lb/>
+»sie vor«, und etwas später: »Es bleibt der befremdliche Um-<lb/>
+»stand, dass nach der neuen Lehre ein völlig unverständ-<lb/>
+»liches Zusammenfallen dreier ursprünglich geschiedener Vo-<lb/>
+»cale bei den Ostindogermanen eintrat, ungeschwächt stehen.«<lb/>
+</p>         <p>Ich kann dieser Betrachtung eine schlagende Kraft nicht<lb/>
+beimessen. Meine Gegenargumentation beginne ich mit etwas,<lb/>
+das aussieht wie Silbenstecherei, es aber nicht ist. Ich<lb/>
+nehme Anstoss an dem Ausdruck: Zusammenfallen dreier<lb/>
+Vocale. Der betrachtende Grammatiker sagt freilich mit<lb/>
+Recht, die drei Vocale sind 'zusammengefallen', denn die<lb/>
+Einheit ist das schliessliche Resultat, für die Sprechenden<lb/>
+<pb facs="#f0040" n="35"/>
+jedoch   lagen   zwei   von   einander   unabhängige Lautüber-<lb/>
+gänge vor, nämlich <hi rendition="#i">e</hi> wird zu <hi rendition="#i">a</hi>, und <hi rendition="#i">ο</hi> wird zu <hi rendition="#i">a</hi>. Die beiden<lb/>
+Vorgänge tragen ihre Wellen in denselben Strom, sind aber<lb/>
+jeder für  sich  als  selbständige Erscheinung zu betrachten.<lb/>
+Hat es  nun an und für sich etwas Unglaubliches, dass e<lb/>
+zu <hi rendition="#i">a</hi>, oder dass <hi rendition="#i">ο</hi> zu <hi rendition="#i">a</hi> wird? Gewiss nicht. Geht doch<lb/>
+z. B. im Mittelenglischen <hi rendition="#i">ae</hi> in <hi rendition="#i">a</hi>, im Neugriechischen ο in<lb/>
+gewissen  Fällen  in <hi rendition="#i">α</hi> über, wie Curtius S. 106 anführt.<lb/>
+Auch daran darf man nicht Anstoss nehmen, dass <hi rendition="#i">e</hi> zu <hi rendition="#i">a</hi><lb/>
+ward, obgleich schon ein <hi rendition="#i">a</hi> vorhanden war, und  dass  es<lb/>
+mit <hi rendition="#i">ο</hi> ebenso ging. Der genau entsprechende Vorgang voll-<lb/>
+zog sich (und zwar auch nach Curtius' Meinung) im Goti-<lb/>
+schen. Das Gotische hat ein indogermanisches <hi rendition="#i">i</hi>, z. B. in <hi rendition="#i">vi-<lb/>
+tum</hi> wir wissen, und  verwandelte  trotzdem, obgleich da-<lb/>
+durch frühere Unterschiede verwüstet werden, das europäi-<lb/>
+sche <hi rendition="#i">e</hi> in <hi rendition="#i">i</hi> (z. B. in <hi rendition="#i">ik ego</hi>). Ein Gleiches wäre für das <hi rendition="#i">ο</hi><lb/>
+anzunehmen, welches im Gotischen zu <hi rendition="#i">a</hi> wurde und mit dem<lb/>
+alten a zusammenfiel. Curtius steht allerdings  auf einem<lb/>
+anderen Standpunkt. Ich weiss aber nicht, ob ihm die Be-<lb/>
+merkungen von Möller in Paul und Braune's Beiträgen 7, 482<lb/>
+und Osthoff 8, 281 gegenwärtig gewesen sind. Niemand wird<lb/>
+ferner leugnen, dass das Lateinische massenhafte alte <hi rendition="#i">ο</hi> (wir<lb/>
+wissen noch nicht in welchen Grenzen) zu <hi rendition="#i">u</hi> verwandelt hat,<lb/>
+so die <hi rendition="#i">ο</hi> der zweiten Declination, obwohl diese nun mit den<lb/>
+alten <hi rendition="#i">u</hi> zusammenfielen und damit einstens vorhandene rein-<lb/>
+liche Unterschiede aufgehoben wurden. Auch auf dem Ge-<lb/>
+biete der Consonanten hat sich Aehnliches ereignet. Im<lb/>
+Indogermanischen waren nach allgemeiner Annahme tönende<lb/>
+Aspiraten (<hi rendition="#i">gh, dh, bh</hi>) und  tönende  Mediae (<hi rendition="#i">g, d, b</hi>)  vor-<lb/>
+handen. Die Kelten haben kein Bedenken getragen, <hi rendition="#i">gh,<lb/>
+dh, bh</hi> in Mediae zu verwandeln, so dass diese neuen Mediae<lb/>
+mit den alten zusammenfallen. Das scheinen mir genügende<lb/>
+Analoga für den Uebergang von <hi rendition="#i">e</hi> in <hi rendition="#i">a</hi> und <hi rendition="#i">ο</hi> in <hi rendition="#i">a</hi>. Dabei<lb/>
+<fw type="sig" place="bottom">3*</fw><lb/>
+<pb facs="#f0041" n="36"/>
+wolle man noch bedenken, dass die Uebergänge, von denen<lb/>
+wir reden, in der That sehr nahe liegen. Man darf an-<lb/>
+nehmen, dass in der Ursprache <hi rendition="#i">a, ä, å</hi> vorhanden waren,<note place="foot" n="1)">Dass damit die sämmtlichen Nuancen angegeben seien, wird nicht<lb/>
+behauptet.<lb/>
+</note><lb/>
+in Europa bildete sich <hi rendition="#i">ä</hi> zu <hi rendition="#i">e</hi> und <hi rendition="#i">å</hi> zu <hi rendition="#i">ο</hi> um, in Asien<lb/>
+ward <hi rendition="#i">ä</hi> zu <hi rendition="#i">a</hi>, und <hi rendition="#i">å</hi> zu <hi rendition="#i">a</hi>. Im Bilde ausgedrückt: ein Laut,<lb/>
+der zwischen <hi rendition="#i">a</hi> und <hi rendition="#i">e</hi> schwebt, wird auf der einen Seite zu<lb/>
+<hi rendition="#i">e</hi>, auf der anderen zu <hi rendition="#i">a</hi>, und analog ging es dem <hi rendition="#i">å</hi> der<lb/>
+Ursprache. Diese Uebergänge (so muss man bei dieser Hy-<lb/>
+pothese annehmen) waren vollzogen, ehe die Festsetzung der<lb/>
+Alphabete in Indien und Persien stattfand.<lb/>
+</p>         <p>Somit scheint mir schon aus dieser allgemeinen Er-<lb/>
+örterung ein Mehr der Wahrscheinlichkeit für die trinita-<lb/>
+rische Hypothese gegenüber der unitarischen vorhanden zu<lb/>
+sein. Dazu kommen die speciellen Gründe, und zwar zu-<lb/>
+nächst die speciellen Gründe für die Annahme eines <hi rendition="#i">e</hi> in<lb/>
+der Ursprache. Der hauptsächlichste Grund liegt in dem<lb/>
+Umstande, dass man das einstige Vorhandensein eines <hi rendition="#i">e</hi> in<lb/>
+der indisch-iranischen Gruppe noch in seiner Wirkung auf<lb/>
+gewisse Consonanten dieser Sprachen erkennen kann. Es<lb/>
+ist, wie Curtius S. 98 anführt, von verschiedenen Gelehrten<lb/>
+zu gleicher Zeit die Vermuthung aufgestellt worden, dass<lb/>
+an dem Uebergang indischer Gutturale — ich beschränke<lb/>
+mich hier der Einfachheit wegen auf das Indische — in<lb/>
+Palatale der einst hinter ihnen vorhanden gewesene <hi rendition="#i">e</hi>-Laut,<lb/>
+welcher im historischen Sanskrit zu <hi rendition="#i">a</hi> geworden ist, Schuld<lb/>
+sei. Curtius fügt hinzu: »von mir wird Niemand erwarten,<lb/>
+dass ich in die meinen Studien ferner liegenden Einzelhei-<lb/>
+ten eingehe.« Diese Zurückhaltung ist nun zwar gerade an<lb/>
+dieser Stelle gefährlich, da die Richtigkeit der aufgestellten<lb/>
+Behauptung nur demjenigen vollständig aufgehen wird, der<lb/>
+<pb facs="#f0042" n="37"/>
+in die Discussion über die Einzelheiten eingeht. Indessen<lb/>
+will ich versuchen, mich ebenfalls von allem Detail mög-<lb/>
+lichst fern zu halten, muss aber den Leser, den meine Dar-<lb/>
+stellung nicht überzeugt, bitten, ehe er ein Urtheil fällt,<lb/>
+die Aufsätze von Collitz in Bezzenberger's Beiträgen 3, 177 ff.<lb/>
+und Johannes Schmidt in Kuhn's Zeitschrift 25, besonders<lb/>
+S. 64 ff. selbst durchzunehmen. Der Thatbestand ist kurz<lb/>
+folgender: wie oben angegeben worden ist, nehmen wir an<lb/>
+(auch Curtius), dass im Indogermanischen zwei k-Reihen<lb/>
+vorhanden waren, und zwar erstens die Reihe der festen<lb/>
+<hi rendition="#i">k</hi>-Laute, welche im Sanskrit durch<hi rendition="#i"> ç, ǵ </hi>(nicht <hi rendition="#i">g</hi>), <hi rendition="#i">h</hi> ver-<lb/>
+treten ist, und zweitens die Reihe der beweglichen <hi rendition="#i">k</hi>-Laute<lb/>
+oder die <hi rendition="#i">q</hi>-Reihe, welche im Sanskrit die Laute <hi rendition="#i">k ḱ, g ǵ,<lb/>
+gh h</hi> enthält. Man sieht, die zweite Reihe hat einmal Gut-<lb/>
+turale und sodann Palatale. Nur um die Entstehung dieser<lb/>
+Palatale der <hi rendition="#i">q</hi>-Reihe handelt es sich. Ueber diese ist die<lb/>
+Vermuthung aufgestellt worden, dass sie aus den Guttura-<lb/>
+len durch Einwirkung von <hi rendition="#i">i</hi> oder <hi rendition="#i">e</hi> enstanden seien. Von<lb/>
+dem <hi rendition="#i">i</hi> spreche ich hier nicht. Wie man den Einfluss des<lb/>
+<hi rendition="#i"> e</hi> ausgespürt hat, lässt sich gut deutlich machen an einer<lb/>
+Stelle aus Collitz' Aufsatz. Ich bemerke zum Verständniss<lb/>
+derselben noch, dass das <hi rendition="#i">k</hi> der zweiten Reihe im Griechi-<lb/>
+schen vor<hi rendition="#i"> ι</hi> und <hi rendition="#i">ε</hi> als <hi rendition="#i">τ</hi>, vor <hi rendition="#i">ο</hi> als <hi rendition="#i">π</hi> erscheint, so dass also<lb/>
+<hi rendition="#i">τίω</hi> und <hi rendition="#i">ποινή</hi> auf dieselbe Wurzel zurückgehen. Die Stelle<lb/>
+lautet (a. a. 0. 199): »Wenn in <hi rendition="#i">τίσις</hi> gleich avest. kithi<lb/>
+übereinstimmend Palatalisirung eingetreten ist, in <hi rendition="#i">ποινή</hi><lb/>
+gleich avest. <hi rendition="#i">kaêna</hi> (<hi rendition="#i">kaina</hi>) hingegen die regelmässige Fort-<lb/>
+setzung des grundsprachlichen <hi rendition="#i">q</hi> vorliegt, so ist nicht zu<lb/>
+bezweifeln, dass diese gleiche Differenzierung des Anlautes<lb/>
+in der gleichen Verschiedenheit des folgenden Vocals ihre<lb/>
+Begründung findet. Nun aber ist der Gleichung <hi rendition="#i">τίσις : ποινή</hi><lb/>
+= <hi rendition="#i">kithi : kaêna</hi> ganz analog die Gleichung <hi rendition="#i">τε : πóτερος</hi> =<lb/>
+<hi rendition="#i">ka : katarás</hi>. Wir haben also anzunehmen, dass auch die<lb/>
+<pb facs="#f0043" n="38"/>
+Verschiedenheit des, Anlauts in sanskr. <hi rendition="#i">ka</hi> = <hi rendition="#i">τε</hi> und in<lb/>
+sanskr. <hi rendition="#i">katarás</hi> —<hi rendition="#i"> πóτερος</hi> durch die Verschiedenheit des<lb/>
+folgenden Vocales bedingt ist. Und wenn nun in <hi rendition="#i">τε</hi> und<lb/>
+<hi rendition="#i">πóτερος</hi> eine Differenz der Vocale stattfindet, in<hi rendition="#i"> ka</hi> und<lb/>
+<hi rendition="#i">katarás</hi> aber eine solche Differenz nicht vorliegt, so folgt<lb/>
+weiter, dass der erstere Zustand der ältere, der letztere der<lb/>
+jüngere ist.« Mich dünkt, der Parallelismus ist schlagend.<lb/>
+Es ist dabei, wie ich wegen Curtius S. 103 bemerke, für<lb/>
+die hier vorliegende Erörterung gleichgültig, ob wir schon<lb/>
+für die Ursprache eine Palatalis ansetzen oder nicht.<note place="foot" n="1)">Das habe ich Einleitung S. 59 nicht hinreichend erwogen.<lb/>
+</note> Wo-<lb/>
+rauf es hier ankommt, ist die Erwägung, dass, wenn das <hi rendition="#i">τ</hi><lb/>
+von <hi rendition="#i">τε</hi> dem <hi rendition="#i">ε</hi> seinen Ursprung verdankt, dasselbe auch von<lb/>
+dem <hi rendition="#i">Κ</hi> des mit <hi rendition="#i">τε</hi> identischen <hi rendition="#i">ka</hi> gelten wird. Curtius, der<lb/>
+dem Scharfsinn, welcher bei der Entwickelung dieser Hy-<lb/>
+pothese thätig gewesen ist, alle Anerkennung zollt, meint<lb/>
+schliesslich, die Versuche, das <hi rendition="#i">e</hi> nachzuweisen, seien »unzu-<lb/>
+länglich«, und zwar wegen der vielen Ausnahmen, die schliess-<lb/>
+lich doch zugegeben werden müssten, und die sich keines-<lb/>
+wegs alle durch Nachweis der störenden Kräfte unschädlich<lb/>
+machen liessen. Darüber zu discutiren ist unter den vor-<lb/>
+liegenden Verhältnissen schwer. Ich kann nur die Leser<lb/>
+bitten: kommt und seht. Man lese die angeführten Seiten<lb/>
+in dem Aufsatz von J. Schmidt und man wird, wie ich<lb/>
+glaube, zugestehen, dass hier das Dunkel bereits in aner-<lb/>
+kennenswerther Weise gelichtet ist, namentlich wenn man<lb/>
+erwägt, dass wir eine Lautlehre des Sanskrit noch nicht<lb/>
+besitzen. Freilich, ohne Associationsbildungen kommt man<lb/>
+nicht aus, aber ich glaube, dass Curtius sich im vorliegen-<lb/>
+den Falle zu spröde gegen dieses Mittel verhält, ohne das<lb/>
+wir doch in unserer Wissenschaft nicht bestehen können.<lb/>
+So scheint mir z. B. nicht gerechtfertigt, wenn Curtius im<lb/>
+<pb facs="#f0044" n="39"/>
+indischen <hi rendition="#i">kim </hi>,was' eine noch unerklärte Ausnahme sieht.<lb/>
+J. Schmidt scheint mir diesen Fall richtig erklärt zu haben,<lb/>
+wenn er S. 66 sagt: »Ebenso haben die Formen des Inter-<lb/>
+rogativstammes mit <hi rendition="#i">i kim kis nákis mắkis kíyant kívant kīdṝç</hi><lb/>
+ihr <hi rendition="#i">k</hi> aus dem Stamme <hi rendition="#i">ka</hi> übertragen, wie die regelrecht<lb/>
+palatalisirten abaktr. <hi rendition="#i">kis kim kiṭ mākis kvañt</hi> beweisen. Nur<lb/>
+[das indische] <hi rendition="#i">kid</hi>, welches sich begrifflich von den Inter-<lb/>
+rogativformen geschieden hatte, ward durch seine Isolirung<lb/>
+der Einwirkung von <hi rendition="#i">ka</hi> entzogen.« Man darf auch nicht<lb/>
+vergessen, dass es sich nur um die aus der <hi rendition="#i">q</hi>-Reihe stam-<lb/>
+menden Palatalen handelt, nicht um jede Palatalis des Sans-<lb/>
+krit. Das <hi rendition="#i">ģ</hi> z. B. von <hi rendition="#i">áģas</hi> Treiber, von dem Curtius S. 101<lb/>
+annimmt, es sei nach der Meinung der neueren Gelehrten<lb/>
+im Sanskrit aus <hi rendition="#i">g</hi> entstanden, und zwar lediglich durch<lb/>
+Einwirkung des vocativischen <hi rendition="#i">e</hi>, gehört nicht in diesen Zu-<lb/>
+sammenhang, da es, wie das zendische <hi rendition="#i">az</hi> treiben beweist,<lb/>
+der ersten <hi rendition="#i">k</hi>-Reihe angehört. Ich muss also, abweichend<lb/>
+von Curtius, gestehen, dass mich eine erneute Durchsicht<lb/>
+der hierher gehörigen Abhandlungen in der Ansicht be-<lb/>
+stärkt hat, dass der richtige Weg beschritten worden ist.<lb/>
+Dass bei weitem noch nicht Alles zu Ende erklärt ist, sei be-<lb/>
+reitwillig zugegeben. Aber wo in der Wissenschaft sind wir<lb/>
+bei diesem, soll ich sagen beneidenswerthen oder beklagens-<lb/>
+werthen Zustand bereits angelangt? Die Geschicke der Gut-<lb/>
+turale sind aber nicht der einzige<note place="foot" n="1)">Die Schlüsse aus skr. <hi rendition="#i">edhí petimά </hi>u. s.w. lasse ich hier als un-<lb/>
+sicher bei Seite.<lb/>
+</note> Grund für die Annahme<lb/>
+eines uralten <hi rendition="#i">e</hi>. Es kommt noch ein zweiter, aus der That-<lb/>
+sache der Stammabstufung gewonnener Grund hinzu, der<lb/>
+jedoch nur in Gemeinschaft mit der Erörterung über <hi rendition="#i">ο</hi> deut-<lb/>
+lich gemacht werden kann, zu der ich jetzt übergehe.<lb/>
+</p>         <p>   Bei dem jetzigen Stande der Forschung lässt sich, so viel<lb/>
+<pb facs="#f0045" n="40"/>
+ich sehe, für das Indogermanenthum des ο nur dasjenige<lb/>
+geltend machen, was sich aus seinem Verhältniss zu e<lb/>
+ergiebt. Ein festes Verhältniss zu <hi rendition="#i">ο</hi> (am bequemsten im<lb/>
+Griechischen zu übersehen) zeigt sich bekanntlich in der<lb/>
+Stammbildung der Nomina und Verba, z. B. in <hi rendition="#i">ϑοός</hi> neben<lb/>
+<hi rendition="#i">ϑέω</hi>, in <hi rendition="#i">βρομέω</hi> neben <hi rendition="#i">βρέμω</hi>, in <hi rendition="#i">δέδορκα</hi> neben <hi rendition="#i">δέρκομαι</hi>,<lb/>
+ferner in der Flexion, z. B. in <hi rendition="#i">γένος</hi> neben <hi rendition="#i">γένεος</hi>, in <hi rendition="#i">φέ-<lb/>
+ρομεν</hi> neben <hi rendition="#i">φέρετε</hi>, lauter weitgreifende Erscheinungen von<lb/>
+grosser Bedeutung. Curtius nimmt an, dass von allen die-<lb/>
+sen Entsprechungen im Indogermanischen nicht eine Spur<lb/>
+vorhanden war, dass sie sich vielmehr alle in Europa später<lb/>
+entwickelt haben, und zwar unter Einwirkungen, von denen<lb/>
+wir nichts wissen oder ahnen. Schon an und für sich ist<lb/>
+das eine harte Zumuthung, vollends aber für denjenigen,<lb/>
+der, wie ich es thue, das <hi rendition="#i">e</hi> für indogermanisch hält. Die <hi rendition="#i">e</hi><lb/>
+sollten indogermanisch sein, und die <hi rendition="#i">ο</hi> sich mit ihnen erst<lb/>
+in Europa zu Reihen verbunden haben? Besonders lehrreich<lb/>
+ist das Verhältniss von e und ο in Wörtern wie <hi rendition="#i">ἕδος ἕδεος</hi>.<lb/>
+Aus Bildungen wie <hi rendition="#i">σακεσφόρος</hi> ergiebt sich mit hoher Wahr-<lb/>
+scheinlichkeit, dass der Wechsel zwischen <hi rendition="#i">e</hi> und einem an-<lb/>
+dern Vocal, also die Stammabstufung in dieser Art von<lb/>
+Wörtern schon indogermanisch war. Im Sanskrit gilt näm-<lb/>
+lich für die ersten Glieder der Composita die Regel, dass bei<lb/>
+stammabstufenden Wörtern die schwache, und wenn sie mehr<lb/>
+als zwei Stufen unterscheiden, die mittlere Form gewählt<lb/>
+wird. Dieses Gesetz von dem es zweifelhaft ist, ob es das<lb/>
+einzige für die Bildung der betreffenden Compositionsglieder<lb/>
+im Indogermanischen gewesen ist, hätte man aus den euro-<lb/>
+päischen Sprachen schwerlich gewonnen (vgl. Brugmann MU<lb/>
+2, 250 ff.). Wo sich in Europa Spuren davon finden, z. B.<lb/>
+in <hi rendition="#i">ἀνδράποδον</hi> haben wir Reste aus vergangener Zeit vor<lb/>
+uns. Nichts anderes als ein solcher Rest nun kann <hi rendition="#i">σακες-</hi><lb/>
+in   <hi rendition="#i">σακεςφόρος</hi> sein, denn aus griechischer Gewohnheit<lb/>
+<pb facs="#f0046" n="41"/>
+ist es nicht zu deuten. Es ist die schwache Form des<lb/>
+Stammes, welche nach einem indogermanischen, in Asien<lb/>
+noch deutlich erhaltenen, aber in Griechenland kaum<lb/>
+mehr erkennbaren Gesetze im ersten Gliede des Composi-<lb/>
+tums gesetzt wird. Wie sollten wohl die Griechen, wenn<lb/>
+ihnen nur eine Form wie <hi rendition="#i">sádas</hi> überliefert war, dazu ge-<lb/>
+kommen sein, gerade im Compositum zu <hi rendition="#i">ἕδες</hi>- zu greifen?<lb/>
+Darum wird man annehmen müssen, dass eine Form wie<lb/>
+<hi rendition="#i">sedes-</hi> als Vorderglied eines Compositums schon indogerma-<lb/>
+nisch war, und wir hätten damit mindestens eine neue Stütze<lb/>
+für das indogermanische <hi rendition="#i">e</hi> gewonnen. Ich denke aber auch<lb/>
+eine Wahrscheinlichkeit für das <hi rendition="#i">o</hi>. Wenn die eine Stufe<lb/>
+da war, wird auch die andere nicht gefehlt haben.<lb/>
+</p>         <p>Curtius greift sodann die Theorie von der Buntheit des Vo-<lb/>
+calismus auch noch so zu sagen von hinten an, indem er vom<lb/>
+Standpunkt der erschlossenen indogermanischen Grundformen<lb/>
+dagegen operirt. Ich muss gestehen, dass ich mich mit dieser<lb/>
+Partie des C.'schen Buches am wenigsten befreunden kann. Al-<lb/>
+les was von mir über <hi rendition="#i">e</hi> und <hi rendition="#i">ο</hi> vorgetragen wurde, ist, wie der<lb/>
+Leser hoffentlich zugeben wird, nicht aus der Luft gegriffen,<lb/>
+sondern ist an Thatsachen der Sprache, die vorhanden sind,<lb/>
+entwickelt worden. Wie könnten solchen Schlüssen gegen-<lb/>
+über die Vorstellungen ins Gewicht fallen, die wir uns an<lb/>
+der Hand der bisherigen Erfahrungen über die Entstehung<lb/>
+der Flexion in fernster Urzeit gebildet haben? Unsere Vor-<lb/>
+stellungen über die Ursprache sind ein Niederschlag un-<lb/>
+serer Forschungen über die Einzelsprachen. Erleiden diese<lb/>
+eine Veränderung, so müssen jene Vorstellungen nachfolgen.<lb/>
+Kommen wir z. B. durch unsere Rückschlüsse zu einer<lb/>
+zweifachen Gestalt des Stammes statt der erwünschten ein-<lb/>
+heitlichen, so bleibt nichts übrig, als uns vorerst bei dieser<lb/>
+Zweiheit zu beruhigen. Ich würde also sagen, wir kommen<lb/>
+auf ein Präsensthema <hi rendition="#i">bhere bhero</hi>. Ob und wie es gelingt,<lb/>
+<pb facs="#f0047" n="42"/>
+eine Einheit zu erreichen, hleibe der Forschung der Zukunft<lb/>
+vorbehalten. Ebenso wenig wie diese Erörterungen vom<lb/>
+Standpunkte der Grundsprache leuchtet es mir ein, wenn<lb/>
+Curtius in der Verwickeltheit der neuen Anschauung einen<lb/>
+Gegengrund gegen dieselbe findet (S. 123). Dass die Ur-<lb/>
+sprache von ,einfacher' Construction gewesen sei, kann man<lb/>
+durch die an sich treffliche Maxime <hi rendition="#i">ἁπλοῦς ὁ μῦϑος τῆς<lb/>
+ἀληϑείας ἕφυ</hi> meiner Meinung nach nicht wahrscheinlich<lb/>
+machen. Vielleicht war die Ursprache ausserordentlich ver-<lb/>
+wickelt. Sehen wir doch, dass die indogermanischen Spra-<lb/>
+chen — man denke z. B. an das Englische — im Laufe der<lb/>
+Zeit immer einfacher werden.<lb/>
+</p>         <p>   Wenn Curtius endlich S. 119 behauptet, die neuen An-<lb/>
+schauungen seien noch keineswegs durchgeführt, und es<lb/>
+blieben noch viele Schwierigkeiten übrig, so ist das freilich<lb/>
+zuzugeben. Aber die Schwierigkeiten auf dem Gebiet des<lb/>
+Lateinischen, welche Curtius S. 119 anführt, scheinen mir<lb/>
+keinen richtigen Beleg für diese Behauptung zu liefern.<lb/>
+Auch ich weiss nicht, was wir mit dem <hi rendition="#i">a</hi> von oskisch anter<lb/>
+und lateinisch <hi rendition="#i">quatuor</hi> machen sollen, aber ich sehe nicht<lb/>
+ein, wie das Vorhandensein dieses <hi rendition="#i">a</hi> eine Instanz gegen den<lb/>
+indogermanischen Charakter des <hi rendition="#i">e</hi> bilden soll, denn dieses a<lb/>
+steht der Annahme, dass das<hi rendition="#i"> e</hi> in den genannten Worten<lb/>
+italisch, wie der dass es europäisch, wie der dass es indo-<lb/>
+germanisch sei, gleich feindlich gegenüber. Dieses <hi rendition="#i">a</hi> be-<lb/>
+reitet dem Streben, feste Lautgesetze zu gewinnen, ein<lb/>
+Hemmniss, aber für die vorliegende Frage, wo es sich um<lb/>
+das Indogermanenthum des <hi rendition="#i">e</hi> handelt, scheint es mir ohne<lb/>
+Interesse.<lb/>
+</p>         <p>Nach allem diesen kann ich meinerseits nur bei der<lb/>
+früher ausgesprochenen Meinung bleiben, dass mit Sicherheit<lb/>
+ein indogermanisches <hi rendition="#i">e</hi>, mit Wahrscheinlichkeit ein gleiches<lb/>
+<hi rendition="#i">ο</hi> anzunehmen sei. Dabei bitte ich den Ausdruck Sicher-<lb/>
+<pb facs="#f0048" n="43"/>
+heit nicht übel zu nehmen. Ich meine eine solche Sicher-<lb/>
+heit, wie sie bei historischen Rückschlüssen erreichbar ist.<lb/>
+</p>         <p>Curtius kommt sodann auf die sogenannte Guṇatheorie<lb/>
+(S. 120 ff.). Neben <hi rendition="#i">φεύγειν </hi>steht <hi rendition="#i">φυγεῖν.</hi> Wo steckt die<lb/>
+ältere Form der Wurzel? Im Anschluss an die indischen<lb/>
+Grammatiker nahm man bis in die neuere Zeit an, <hi rendition="#i">φυγ </hi>sei<lb/>
+die reine Wurzel und <hi rendition="#i">φευγ</hi> daraus durch Steigerung ent-<lb/>
+standen. Jetzt sind viele Forscher geneigt, von <hi rendition="#i">φευγ</hi> aus-<lb/>
+zugehen und <hi rendition="#i">φυγ</hi> daraus durch Verdünnung abzuleiten. Zu<lb/>
+dieser Meinung führten besonders zwei Gründe. Wenn man<lb/>
+skr. <hi rendition="#i">émi </hi>(<hi rendition="#i">εἶμι</hi>) mit <hi rendition="#i">imás</hi> (<hi rendition="#i">ἵμεν</hi>) vergleicht, liegt es sehr nahe,<lb/>
+ei als die ursprüngliche Gestalt anzusehen, weil man in der<lb/>
+vermuthlich älteren Betonung des Sanskrit einen Grund für<lb/>
+die Verkürzung erkennen kann. Der Schluss wird weiter<lb/>
+empfohlen, wenn man <hi rendition="#i">άsmi smάs</hi> neben <hi rendition="#i">émi imάs</hi> stellt.<lb/>
+Sieht man nämlich <hi rendition="#i">i</hi> als Wurzel an, welche in der schwachen<lb/>
+Form <hi rendition="#i">imάs</hi> rein vorliegt, so muss man aus der schwachen<lb/>
+Form <hi rendition="#i">smάs</hi> auch <hi rendition="#i">s</hi> als Wurzel ausziehen, was nach unseren<lb/>
+bisherigen Anschauungen anstössig sein würde. Demnach<lb/>
+erscheint es richtiger von es auszugehen, also auch von <hi rendition="#i">ei</hi><lb/>
+und <hi rendition="#i">bheug</hi>. Der zweite Grund ist eine Parallele ähnlicher<lb/>
+Art. Seit man erkannt hat, dass <hi rendition="#i">ρα</hi> in <hi rendition="#i">ἕδρακον</hi> dem<hi rendition="#i"> r</hi>-Vocal<lb/>
+des Indischen entspricht, ergiebt sich, dass <hi rendition="#i">ἕδρακον</hi> sich zu<lb/>
+<hi rendition="#i">δέρχομαι</hi> verhält, wie<hi rendition="#i"> ἕφυγον </hi>zu <hi rendition="#i">φεύγω</hi>. Da man sich nun<lb/>
+gewöhnt hat, <hi rendition="#i">δερκ</hi> und nicht <hi rendition="#i">δρακ</hi> als Wurzel anzusetzen,<lb/>
+sollte man auch<hi rendition="#i"> φευγ </hi>und nicht <hi rendition="#i">φυγ</hi> als Urgestalt auf-<lb/>
+stellen. Es lässt sich wohl nicht leugnen, dass diese Erwä-<lb/>
+gungen guten Grund haben. Auf der anderen Seite scheint<lb/>
+mir aber auch der Einwand von Curtius bedeutsam, wo-<lb/>
+nach es die Consequenz der absteigenden Theorie sein würde,<lb/>
+Wurzeln mit kurzen Vocalen<note place="foot" n="1)">Inwiefern man ein Recht hat, eine Wurzelform wie <hi rendition="#i">bheug</hi> als<lb/>
+langvocalisch zu bezeichnen, will ich hier nicht erörtern.<lb/>
+</note> einer späteren Periode zuzu-<lb/>
+<pb facs="#f0049" n="44"/>
+schreiben. Ich glaube deshalb, dass man gut thut, sich<lb/>
+einstweilen mit der Erkenntniss zu begnügen, dass zwischen<lb/>
+<hi rendition="#i"> ei oi i, eu ou u, er or ṛ, en on η</hi> in der Wurzel ein festes<lb/>
+Verhältniss, das Ablautsverhältniss besteht, wozu ich zu<lb/>
+vergleichen bitte, was ich oben über die doppelten Gestalten<lb/>
+der Stämme bemerkt habe.<lb/>
+</p>         <p>  Auf die nasalis sonans, die Curtius zum Schluss be-<lb/>
+handelt, gehe ich hier nicht ein, da Curtius einen richtigen<lb/>
+Kern in dieser Lehre anerkennt und ich über Einzelheiten<lb/>
+nicht disputiren mag.<lb/>
+</p>       </div>       <div n="1">         <lb/>
+<head>IV.<lb/>
+Die Ursprache.</head>         <lb/>
+<p>  Das vierte Capitel, welches sich mit der Ursprache be-<lb/>
+schäftigt, giebt mir zunächst in zwei Punkten zu einer Art<lb/>
+von Selbstvertheidigung Veranlassung. Curtius beginnt dies<lb/>
+Capitel mit den Worten: »Unleugbar bringt man in neuerer<lb/>
+Zeit den Untersuchungen über die Entstehung der ursprach-<lb/>
+lichen Formen ein viel grösseres Misstrauen entgegen als<lb/>
+früher. Von manchen Seiten wird sogar mit einem gewissen<lb/>
+Selbstbewusstsein die ars nesciendi gerühmt, mit welcher<lb/>
+man jetzt Fragen behandle, die früher mit grosser Zuver-<lb/>
+sicht in Angriff genommen wurden. Es genügt in dieser<lb/>
+Beziehung auf Delbrück's Einleitung 2. Aufl. S. 57 und auf<lb/>
+Joh. Schmidt, Ztschr. XXIV, S. 321 zu verweisen.« Die Stelle<lb/>
+aus meiner Einleitung, auf welche Curtius Bezug nimmt,<lb/>
+lautet so: »Das Hypothetische aller solcher Analysen ist der<lb/>
+realistischen Zeit, welche sich von Dingen, die sich nicht<lb/>
+wissen lassen, lieber fern halten möchte, immer deutlicher<lb/>
+zum Bewusstsein gekommen, und man kann somit behaupten,<lb/>
+<pb facs="#f0050" n="45"/>
+dass bei einer nicht geringen Zahl von Sprachforschern alle<lb/>
+glottogonischen Hypothesen, d. h. alle Versuche, die Formen<lb/>
+der Ursprache zu erklären und darauf eine Geschichte<lb/>
+der Flexion aufzubauen, in Misscredit gerathen sind.« Ich<lb/>
+führe sodann dieselbe Stelle von Joh. Schmidt an, welche<lb/>
+auch Curtius als zweiten Beleg seiner Behauptung neben<lb/>
+dem betreffenden Passus meiner Einleitung anzieht. Wie<lb/>
+nun in diesen meinen Worten, welche gelassen mitthei-<lb/>
+len, was sich vor Aller Augen vollzogen hat, ein Selbst-<lb/>
+bewusstsein gefunden werden könnte, das einen tadelnden<lb/>
+Seitenblick verdiente, entgeht mir.<lb/>
+</p>         <p>Die  zweite  Aeusserung findet sich auf S. 131: »Wir<lb/>
+beginnen mit einem Vorwurf, den man von verschiedenen<lb/>
+Seiten dem bis vor Kurzem allgemein geltenden Verfahren<lb/>
+gemacht hat. Brugmann spricht Literar. Centralblatt 1884,<lb/>
+S. 1027 von »dem alten Vorurtheil, als hätten  die Wurzeln<lb/>
+noch in nachursprachlicher Zeit ein selbständiges Leben<lb/>
+gehabt«. Aehnlich drückt sich Delbrück a. a. O. aus: »je<lb/>
+eindringender die Vergleichung der indogermanischen Spra-<lb/>
+chen zu Werke gegangen ist, um so deutlicher ist der Satz<lb/>
+geworden: die Flexion war schon in der Ursprache abge-<lb/>
+schlossen; in  die Einzelsprachen sind nur fertige Wörter<lb/>
+überliefert worden«. Beide Urtheile beruhen, wie ich glaube,<lb/>
+auf einem blossen Missverständniss. Ich wüsste nicht, wo<lb/>
+jemand jenes Vorurtheil geltend gemacht hätte, das Brug-<lb/>
+mann  mit Recht tadelt, und das, was Delbrück gegen-<lb/>
+sätzlich ausspricht, ist, glaube ich, stets die Meinung aller<lb/>
+urtheilsfahigen Forscher gewesen«, und ebenso S. 134: »der<lb/>
+Behauptung Delbrück's: die Flexion war schon in der Ur-<lb/>
+sprache abgeschlossen u. s. w. wird, glaube ich, niemand in<lb/>
+dieser Allgemeinheit widersprechen wollen,  und hat auch,<lb/>
+so viel ich weiss, niemand je widersprochen.«<lb/>
+</p>         <p>Dem gegenüber behaupte ich, dass von der Begründung<lb/>
+<pb facs="#f0051" n="46"/>
+unserer Wissenschaft an die namhaftesten Sprachforscher<lb/>
+angenommen haben, dass noch in den Einzelsprachen Zu-<lb/>
+sammensetzungen mit ungeformten Sprachelementen wie<lb/>
+Wurzeln  und Stämmen (und zwar nicht etwa blos in An-<lb/>
+lehnung an Urtypen) stattgefunden hätten, und dass man<lb/>
+sich erst allmählich der Unzulässigkeit dieser Annahme be-<lb/>
+wusst geworden ist. Was zunächst Bopp selbst betrifft, so<lb/>
+wird wohl Niemand, der die vergl. Gr. auf diesen Gesichts-<lb/>
+punkt hin durchliest, leugnen, dass er sehr häufig solche<lb/>
+Zusammensetzung in Einzelsprachen annimmt; so heisst es<lb/>
+z. B. 2, § 526:  »während das Sanskrit und Griechische in<lb/>
+dem Aorist die andere Wurzel des Verb, subst., nämlich <hi rendition="#i">as<lb/>
+ἐς</hi> mit <hi rendition="#g">den attributiven Wurzeln verbinden</hi>, wendet<lb/>
+sich das Lateinische an die Wurzel <hi rendition="#i">fu</hi>.« An dieser Stelle,<lb/>
+wie an vielen anderen ist deutlich gesagt, dass in einer<lb/>
+Einzelsprache die Zusammensetzung einer attributiven Wur-<lb/>
+zel mit <hi rendition="#i">as ες fu</hi> stattgefunden habe. Aber auch bei den Ge-<lb/>
+lehrten, welche in der Periodisirung schon weiter gegangen<lb/>
+waren als Bopp und im Allgemeinen deutlicher als dieser die<lb/>
+Ursprache von den Einzelsprachen schieden, finden wir dieselbe<lb/>
+Anschauung. Um von Corssen ganz abzusehen, der mir viele<lb/>
+Beispiele für meine Behauptung liefern könnte, nenne ich in-<lb/>
+star omnium Schleicher. In dem Abschnitte seines Compen-<lb/>
+diums »zusammengesetzte Neubildungen« findet man vielleicht<lb/>
+§ 303, 1  ein theoretisches Bedenken gegen Annahmen dieser<lb/>
+Art, aber in der Praxis werden sie zugelassen. Sehr schlagend<lb/>
+ist in § 301  die Bemerkung über das lateinische Perfectum<lb/>
+auf <hi rendition="#i">si</hi>:   »Formen wie <hi rendition="#i">-lexi</hi> d. i. <hi rendition="#i">-leg-si</hi>,   neben älterem <hi rendition="#i">lēgi</hi><lb/>
+(<hi rendition="#i">*leligi</hi>), Wurz. <hi rendition="#i">leg</hi> (lesen); <hi rendition="#i">panxi</hi>, d. i. *<hi rendition="#i">pang-si</hi>, neben älterem<lb/>
+<hi rendition="#i">pepigi</hi>, Wurz.<hi rendition="#i">pag</hi> (festigen);<hi rendition="#i"> punxi</hi>, d. i.*<hi rendition="#i">pung-si</hi>, neben <hi rendition="#i">pu-<lb/>
+pugi</hi>, Wurz, <hi rendition="#i">pug</hi> (stechen),  beweisen die späte Entstehung<lb/>
+dieser Zusammensetzung. Es liegt also diesen Formen, häufig<lb/>
+wenigstens, nicht die Wurzel, sondern der Präsensstamm zu<lb/>
+<pb facs="#f0052" n="47"/>
+Grunde.« In <hi rendition="#i">si, sisti</hi> u. s. w. sieht Schleicher ein Perfectum,<lb/>
+welches in voller Form etwa <hi rendition="#i">ēsi</hi> gelautet habe. Ich mache<lb/>
+besonders darauf aufmerksam, dass in dieser Stelle (welche<lb/>
+im Wesentlichen auf Curtius' Tempora und Modi S. 303 zu-<lb/>
+rückgeht), der Zusammenhang von -lexi mit dem Aorist ab-<lb/>
+gelehnt, und eine besondere Art der Zusammensetzung mit<lb/>
+dem Perfectum <hi rendition="#i">ēsi</hi>, welche in keiner anderen indogermani-<lb/>
+sehen Sprache vorliegt, angenommen wird, und dass diese im<lb/>
+Lateinischen selbst verhältnissmässig jung sein soll, weil sie<lb/>
+andere ältere Bildungen verdrängt hat. Ist es wirklich ein<lb/>
+»blosses Missverständniss«, wenn ich behaupte, dass Schlei-<lb/>
+cher <hi rendition="#i">-lexi</hi> für eine lateinische Neubildung aus der Wurzel<lb/>
+leg und dem Perfectum <hi rendition="#i">ēsi </hi>erklärt? Wie sich die richtigere<lb/>
+Auffassung allmählich Bahn gebrochen hat, lässt sich am<lb/>
+besten an Curtius' Schriften verfolgen. In seinen Tempora<lb/>
+und Modi steht er wesentlich auf Bopp'schem Standpunkt,<lb/>
+ja er erklärt a. a. O. ausdrücklich die Perfecta <hi rendition="#i">auf ui vi si</hi><lb/>
+und das Imperfectum auf <hi rendition="#i">bam</hi> für »völlig originell«. In<lb/>
+seiner Chronologie (1867) S. 243 äussert er sich so: »Der<lb/>
+Trieb nach zusammengesetzter Tempusbildung muss längere<lb/>
+Zeit lebendig geblieben sein. Im Sanskrit bietet der ,Con-<lb/>
+ditionalis und Precativ Beispiele davon, im Griechischen<lb/>
+die Passivaoriste, im Lateinischen die zusammengesetzten<lb/>
+Imperfecta, Perfecta und was dazu gehört, im Deutschen<lb/>
+das sog. schwache Präteritum. Ob alle diese jüngeren Ge-<lb/>
+bilde wirklich erst nach der Sprachtrennung aufgekommen<lb/>
+sind, dürfte zweifelhaft sein. Es wäre sehr wohl denkbar,<lb/>
+dass die Ansätze zu allen diesen Bildungen schon dieser<lb/>
+frühen Zeit angehörten, während allerdings das Ueber-<lb/>
+wuchern derselben und die bestimmtere Ausprägung ihres<lb/>
+Gebrauchs offenbar viel späteren Datums und, zum Theil<lb/>
+wenigstens, dem Bedürfniss nach Ersatz ungefügig gewor-<lb/>
+dener einfacher Bildungen entsprungen ist. Das Zusammen-<lb/>
+<pb facs="#f0053" n="48"/>
+Präteritis auf <hi rendition="#i">-ϑo-v</hi> ist dafür besonders instructiv.« In dieser<lb/>
+Stelle wird immerhin eine Neubildung der fraglichen Art<lb/>
+in einer Einzelsprache noch als möglich zugelassen. Da-<lb/>
+gegen ist auch diese Möglichkeit aufgegeben in der neuesten<lb/>
+Aeusserung von Curtius, nämlich S. 140 des hier bespro-<lb/>
+chenen Werkes, wo es heisst: »Etwas anderes ist es mit<lb/>
+solchen, lange Zeit nach demselben Princip [wie ádik-<lb/>
+sham] gedeuteten Formen, wie die lateinischen Perfecta auf<lb/>
+<hi rendition="#i">ui</hi> und <hi rendition="#i">vi</hi>, z. B. <hi rendition="#i">al-ui, ama-vi, </hi>aber auch mit den Im-<lb/>
+perfecten auf <hi rendition="#i">bam</hi>. Da durchaus nicht nachgewiesen wer-<lb/>
+den kann, dass dieser Typus mit der W.<hi rendition="#i"> bhū</hi>, lat. <hi rendition="#i">fu</hi> ein ur-<lb/>
+sprachlicher ist, da er vielmehr den italischen Sprachen<lb/>
+eigenthümlich bleibt, so ist mir für diese Formen jetzt eine<lb/>
+andere Deutung wahrscheinlicher, deren Erörterung ich mir<lb/>
+für eine andere Gelegenheit vorbehalte.« Warum wohl hat<lb/>
+Curtius seine Ansicht über das Perfectum auf <hi rendition="#i">ui vi</hi> mit der<lb/>
+Zeit geändert? Offenbar weil ihm im Verlauf seiner wissen-<lb/>
+schaftlichen Arbeit immer deutlicher geworden ist, dass in<lb/>
+der Einzelsprache nicht mehr gestattet ist, was wir der Or-<lb/>
+ganisationsperiode der Ursprache mit Recht zuschreiben.<lb/>
+</p>         <p>Dass nun ein solches Princip erst sehr allmählich ge-<lb/>
+wonnen wurde, darüber wird sich niemand wundern, der<lb/>
+die Geschichte auch nur einer Wissenschaft kennt. Gerade<lb/>
+die allgemeinen Wahrheiten, die nachher wie Trivialitäten<lb/>
+aussehen, ringen sich aus der Fülle der Einzelheiten am<lb/>
+schwersten los.<lb/>
+</p>         <p>  Hinsichtlich der morphogonischen Forschungen im All-<lb/>
+gemeinen habe ich dem, was ich in meiner Einleitung ge-<lb/>
+sagt habe, kaum etwas hinzuzufügen. Ich habe daselbst die<lb/>
+ungeheuren Schwierigkeiten hervorgehoben, die diesen Unter-<lb/>
+suchungen im Wege stehen, aber zugleich es für unmöglich<lb/>
+erklärt, derartige Forschungen gänzlich über Bord zu werfen.<lb/>
+<pb facs="#f0054" n="49"/>
+»Denn — so heisst es daselbst S. 101 — die Versuche, die<lb/>
+Sprachformen zu zerlegen, beruhen schliesslich doch nicht<lb/>
+auf willkürlichen Entschlüssen und Einfällen der Gelehrten,<lb/>
+sondern haben gewisse sprachliche Thatsachen zur Grund-<lb/>
+lage (so z. B. die Aehnlichkeit der Personal- und Stamm-<lb/>
+bildungssuffixe mit gewissen Pronominibus u. ähnl.) und<lb/>
+werden also vermuthlich auch in Zukunft wiederholt wer-<lb/>
+den. Ob freilich jemals ein befriedigenderes Resultat als<lb/>
+das jetzige erreicht werden wird, das zu entscheiden ist<lb/>
+nicht Sache der Gegenwart. Sollte der Versuch je besser<lb/>
+gelingen, so wird das jedenfalls nur mit Hinzuziehung eines<lb/>
+unendlich viel grösseren Materials, als jetzt gewöhnlich ge-<lb/>
+schieht, also mit reichlicher Benutzung der ausserindoger-<lb/>
+manischen Sprachwelt möglich sein.«<lb/>
+</p>         <p> Curtius' Stellung ist principiell kaum anders, doch sieht<lb/>
+er die Dinge hoffnungsvoller an als ich. Ich glaube, wir<lb/>
+können das Weitere der Zukunft anheimgeben.<lb/>
+</p>         <milestone unit="section" rendition="#hr"/>         <lb/>
+<p>Ich bin am Ende meiner Betrachtungen angekommen.<note place="foot" n="1)">Es sei mir noch gestattet zu bemerken, dass Joh. Schmidt's Re-<lb/>
+cension der Curtius'schen Schrift (Deutsche Litz. 7. März 1885) erschie-<lb/>
+nen ist, nachdem mein Manuscript in die Druckerei gegangen war, und<lb/>
+dass Veränderungen desselben nicht stattgefunden haben.<lb/>
+</note><lb/>
+Ich hoffe, der Leser hat den Eindruck empfangen, dass<lb/>
+allerdings Fortschritte gemacht worden sind, aber Fort-<lb/>
+schritte in der bisher schon verfolgten Richtung, so dass<lb/>
+die Hoffnung auf allmähliche Verständigung wohl begründet<lb/>
+erscheint. Der weiteren Forschung darf man mit frohem<lb/>
+Muthe entgegen sehen, aber freilich sollte Niemand, der<lb/>
+danach trachtet, diesen Problemen ernstlich auf den Grund<lb/>
+zu gehen, das Goethe'sche Wort vergessen.<lb/>
+</p>         <epigraph>           <p>Hier muss sieh manches Räthsel lösen,<lb/>
+Doch manches Räthsel knüpft sich auch.</p>         </epigraph>         <lb/>
+<pb facs="#f0055"/>
+<pb facs="#f0056"/>
+</div>     </body>   </text> </TEI>

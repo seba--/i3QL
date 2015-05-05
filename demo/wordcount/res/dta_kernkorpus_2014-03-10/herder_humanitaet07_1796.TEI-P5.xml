@@ -1,0 +1,3542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Briefe zu Beförderung der Humanität</title>
+<title type="volume" n="7">Siebente Sammlung</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118549553">
+<surname>Herder</surname>
+<forename>Johann Gottfried von</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">179</measure>
+<measure type="tokens">17803</measure>
+<measure type="types">5335</measure>
+<measure type="characters">127766</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:14:59Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/herder_humanitaet07_1796</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/herder_humanitaet07_1796</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/herder_humanitaet07_1796</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/herder_humanitaet07_1796</idno>
+<idno type="DTADirName">herder_humanitaet07_1796</idno>
+<idno type="DTAID">16690</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905192389</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Herder, Johann Gottfried von: Briefe zu Beförderung der Humanität. Bd. 7. Riga, 1796.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Briefe zu Beförderung der Humanität</title>
+<title level="m" type="volume" n="7">Siebente Sammlung</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118549553">
+<surname>Herder</surname>
+<forename>Johann Gottfried von</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">X, 162 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Hartknoch</name></publisher>
+<pubPlace>Riga</pubPlace>
+<date type="publication">1796</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, 301005-7/8 R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=875067239</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb n="[I]" facs="#f0008"/>
+<titlePage type="halftitle"><docTitle><titlePart type="main"><hi rendition="#g">Briefe<lb/>
+zu<lb/>
+Befoͤrderung der Humanitaͤt</hi>.</titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</titlePage>
+<pb n="[II]" facs="#f0009"/>
+<pb n="[III]" facs="#f0010"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#g">Briefe<lb/>
+zu<lb/>
+Befoͤrderung der Humanitaͤt</hi>.</titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/> <byline><hi rendition="#g">Herausgegeben<lb/>
+von</hi><lb/>
+<docAuthor>J. G. <hi rendition="#g">Herder</hi>.</docAuthor></byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="volume"><hi rendition="#g">Siebente Sammlung</hi>.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace>Riga, </pubPlace><docDate>1796.</docDate><lb/>
+<hi rendition="#g">bei</hi> <publisher><hi rendition="#g">Johann Friedrich Hartknoch</hi>.</publisher></docImprint></titlePage><lb/>
+<pb n="[IV]" facs="#f0011"/>
+<pb n="[V]" facs="#f0012"/>
+<div type="contents"><head><hi rendition="#g">Inhalt<lb/>
+der ſiebenten Sammlung</hi>.</head><lb/>
+<milestone unit="section" rendition="#hr"/> <list><item> Br. 81. Vom Unterſchiede der alten und<lb/>
+neuen Voͤlker in der Poeſie, als<lb/>
+Werkzeug der Cultur und Hu-<lb/>
+manitaͤt betrachtet. Ankuͤndigung<lb/>
+einiger Fragmente uͤber dieſen<lb/>
+Inhalt. <ref>S. 1.</ref></item><lb/>
+<pb n="VI" facs="#f0013"/>
+<item><hi rendition="#g">Erſtes Fragment</hi>. Verfall<lb/>
+der Poeſie bei Griechen und Roͤ-<lb/>
+mern. <ref>S. 5.</ref></item><lb/>
+<item><hi rendition="#g">Nachſchrift</hi>. Urſachen des Ver-<lb/>
+falles. <ref>S. 19.</ref></item><lb/>
+<item>Br. 82. <hi rendition="#g">Zweites Fragment</hi>. Chriſt-<lb/>
+liche Hymnen. Gebrauch der<lb/>
+Pſalmen unter den Chriſten. Ei-<lb/>
+gene Geſaͤnge. Ihr ausgezeich-<lb/>
+neter Charakter. Ihre Wirkung<lb/>
+auf Nationalcharaktere, Muſik,<lb/>
+Sprache, Wiſſenſchaften, und<lb/>
+Stimmung der Seele. <ref>S. 21.</ref></item><lb/>
+<item><hi rendition="#g">Nachſchrift</hi>. Proben dieſer<lb/>
+Geſaͤnge. <ref>S. 45.</ref></item><lb/>
+<item>— 83. Was in der Cultur des Menſchen<lb/>
+vom Urtheil des Auges und des<lb/>
+Ohrs abhaͤngt. Poeſie des Au-<lb/>
+ges und Ohres. Reſultat deſ-<lb/>
+<pb n="VII" facs="#f0014"/>
+ſen, was nach dem Gegebnen<lb/>
+fuͤr eine neue Denkart in My-<lb/>
+thologie, Umriß der Begriffe,<lb/>
+Intereſſe, Farbe der Handlun-<lb/>
+gen und Leidenſchaften, und de-<lb/>
+ren Ausdruck werde entſtehen<lb/>
+muͤſſen. <ref>S. 52.</ref></item><lb/>
+<item>Br. 84. <hi rendition="#g">Drittes Fragment</hi>. Bildung<lb/>
+eines neuen Geſchmacks in Eu-<lb/>
+ropa und deſſen erſte Verfeine-<lb/>
+rung. Lieder von Thaten der<lb/>
+Vorfahren. Unterſchied der nor-<lb/>
+diſchen und ſuͤdlichen Tonbildung.<lb/>
+Nordiſches und ſuͤdliches Syſtem<lb/>
+der Anklaͤnge und Alliterationen.<lb/>
+Erzaͤhlungen. Hang zu Aben-<lb/>
+theuern, und Abentheuerſagen.<lb/>
+Chroniken. Grober Moͤnchsge-<lb/>
+ſchmack. — Cultur der Araber<lb/>
+in Spanien. Entſtehung der Pro-<lb/>
+<pb n="VIII" facs="#f0015"/>
+venzalpoeſie, als angenehme Un-<lb/>
+terhaltung. <ref>S. 62.</ref></item><lb/>
+<item>Br. 85. Daß ein beſſerer Geſchmack hier<lb/>
+entſtehen muͤſſen. Warum er<lb/>
+nirgend anders als von hieraus<lb/>
+alſo entſtanden? Hoͤflichkeit der<lb/>
+Araber in Reimen. <ref>S. 84.</ref></item><lb/>
+<item>— 86. Wohin der Reim gehoͤre? Wem<lb/>
+er unentbehrlich ſei. <ref>S. 98.</ref></item><lb/>
+<item><hi rendition="#g">Nachſchrift</hi>. Große Verſchie-<lb/>
+denheit im Entſtehen dieſes Ge-<lb/>
+ſchmacks und der Cultur der<lb/>
+Alten. Gutes, was die Proven-<lb/>
+zal Poeſie bewirkt hat, Bildung.<lb/>
+der Landesſprache, Freiheit der<lb/>
+Gedanken. <ref>S. 104.</ref></item><lb/>
+<item>— 87. <hi rendition="#g">Viertes Fragment</hi>. Einfluß<lb/>
+der Provenzalen in die Europaͤi-<lb/>
+ſche Cultur und Dichtkunſt. Von<lb/>
+<pb n="IX" facs="#f0016"/>
+der Italiaͤniſchen Dichtkunſt im<lb/>
+Aeußern und Innern. Vom ly-<lb/>
+riſchen Drama der Italiaͤner.<lb/>
+<hi rendition="#g">Metaſtaſio</hi>. Vom Charakter<lb/>
+der Franzoſen, Erzaͤhlen und Re-<lb/>
+praͤſentiren. Von der Spani-<lb/>
+ſchen Dichtkunſt. <ref>S. 109.</ref></item><lb/>
+<item>Br. 88. Wie ſchwer es ſei, vom Charak-<lb/>
+ter einer Nation oder eines Zeit-<lb/>
+alters zu ſprechen! Wie ſchwer,<lb/>
+von der Poeſie einer Nation zu<lb/>
+reden! Was uns dennoch dazu<lb/>
+treibe? Wie es moͤglich und noth-<lb/>
+wendig ſei? <ref>S. 135.</ref></item><lb/>
+<item>— 89. <hi rendition="#g">Fuͤnftes Fragment</hi>. Vom<lb/>
+Werth der Europaͤiſchen Dichtung<lb/>
+mittlerer Zeiten. Ihre Nach-<lb/>
+theile und Vortheile. Ihr Cha-<lb/>
+rakter in Andacht, Tapferkeit<lb/>
+und Liebe. <ref>S. 142.</ref></item><lb/>
+<pb n="X" facs="#f0017"/>
+<item>Br. 90. Fortſetzung des Fragments. Er-<lb/>
+weiterung des Feldes der Wiſſen-<lb/>
+ſchaft. Vereinigung vieler Natio-<lb/>
+nen zu Einem Zweck. Geſellung<lb/>
+der Staͤnde zu einander. Froͤh-<lb/>
+liche Wiſſenſchaft. <ref>S. 156.</ref></item></list></div><lb/>
+</front><body>
+<pb n="[1]" facs="#f0018"/>
+<div n="1"><head>81.</head><lb/>
+<p><hi rendition="#in">I</hi>hnen iſt der beruͤhmte Streit bekannt,<lb/>
+der unter Ludwig dem vierzehnten uͤber den<lb/>
+Vorzug der alten oder der neuern Natio-<lb/>
+nen in Wiſſenſchaften und Kuͤnſten mit<lb/>
+großer Waͤrme gefuͤhrt ward, und an wel-<lb/>
+chem auch außer Frankreich Gelehrte und<lb/>
+Kuͤnſtler Antheil nahmen. Da man nicht<lb/>
+allemal gnug beſtimmte, von welchen Alten<lb/>
+oder Neuern, von welchen Kuͤnſten und<lb/>
+Wiſſenſchaften die Rede ſei? es uͤbrigens<lb/>
+dabei auch mehr auf einen Rangſtreit da-<lb/>
+<fw type="sig" place="bottom">Siebente Samml. A</fw><lb/>
+<pb n="2" facs="#f0019"/>
+mals lebender Perſonen, als auf eine un-<lb/>
+partheiiſche Schaͤtzung alter und neuer Ver-<lb/>
+dienſte angeſehen war, ſo konnte wenig<lb/>
+ausgemacht werden, obgleich von beiden<lb/>
+Theilen viel Gutes geſagt ward.</p><lb/>
+<p>In der <hi rendition="#g">Cultur zum Schoͤnen</hi>, die<lb/>
+wir der Kuͤrze halben <hi rendition="#g">Poeſie</hi> nennen wol-<lb/>
+len, ſpringt uns der Unterſchied alter und<lb/>
+neuer Zeiten d. i. der Griechen und Roͤ-<lb/>
+mer in Vergleich aller neueren Europaͤiſchen<lb/>
+Voͤlker ins Auge. Wir moͤgen Italiaͤniſche,<lb/>
+Spaniſche, Franzoͤſiſche, Engliſche, Deutſche<lb/>
+Dichter, aus welchen Zeiten wir wollen,<lb/>
+leſen; <hi rendition="#g">der Unterſchied iſt unver-<lb/>
+kennbar</hi>.</p><lb/>
+<p>Und doch wird es ſchwer, ihn ſich im<lb/>
+reinſten Umriß aufzuklaͤren; noch ſchwerer,<lb/>
+ihn bis auf ſeine erſten Urſachen zuruͤckzu-<lb/>
+fuͤhren, und dabei jeder Nation und Zeit<lb/>
+ihr Recht wiederfahren zu laſſen. Wie?<lb/>
+<pb n="3" facs="#f0020"/>
+kann man fragen, bluͤhet dieſe ſchoͤne Blu-<lb/>
+me der Humanitaͤt, <hi rendition="#g">Poeſie in Denk</hi>-<lb/>
+<hi rendition="#g">art</hi>, <hi rendition="#g">Sitten und Sprache</hi> nicht uͤberall<lb/>
+und allezeit gleich gluͤcklich? Und wenn zu<lb/>
+ihrem Aufkommen ein beſondrer Boden,<lb/>
+eine eigene Pflege und Witterung gehoͤret;<lb/>
+welches iſt dieſer Boden, dieſe Witterung<lb/>
+und Pflege? Oder wenn ſie mit jeder Zeit,<lb/>
+unter einem andern Himmelsſtrich auch<lb/>
+ihre Geſtalt und Farbe veraͤndern muß;<lb/>
+welches iſt das Geſetz dieſer Veraͤnde-<lb/>
+rung? geht ſie ins Beſſere oder Schlech-<lb/>
+tere uͤber? —</p><lb/>
+<p>Ueber dieſe Fragen, die man oft ge-<lb/>
+than hat, ſind mir einige <hi rendition="#g">Fragmente</hi><lb/>
+zu Haͤnden gekommen, die mir der Auf-<lb/>
+merkſamkeit unſrer Geſellſchaft nicht un-<lb/>
+werth ſcheinen. Die Bluͤthe der alten<lb/>
+Cultur unter Griechen und Roͤmern ſetzen<lb/>
+ſie entweder als bekannt voraus, oder es<lb/>
+<fw type="sig" place="bottom">A 2</fw><lb/>
+<pb n="4" facs="#f0021"/>
+fehlt die Unterſuchung daruͤber in den mir<lb/>
+zugekommenen Blaͤttern. Dieſe bemerken<lb/>
+vorzuͤglich, wie ſich die <hi rendition="#g">mittlere</hi> und<lb/>
+<hi rendition="#g">neue Europaͤiſche</hi> Cultur in und durch<lb/>
+Dichtkunſt und zwar bei den verſchiedenen<lb/>
+Nationen Europa's, nach beſondern Ver-<lb/>
+anlaſſungen, Huͤlfsmitteln und Zwecken ge-<lb/>
+bildet habe? Das Endurtheil, in manchen<lb/>
+Stuͤcken die Vergleichung ſelbſt uͤberlaſſen<lb/>
+ſie dem Leſer. Da in ihnen die Poeſie in<lb/>
+einem weiten Verſtande genommen und als<lb/>
+Werkzeug oder als Kunſtprodukt und <hi rendition="#g">Bluͤ</hi>-<lb/>
+<hi rendition="#g">the der Cultur und Humanitaͤt<lb/>
+nach Nationen und Zeiten im All</hi>-<lb/>
+<hi rendition="#g">gemeinen</hi> betrachtet wird; mich duͤnkt,<lb/>
+ſo werden wir bei jedem Fragment zu eignen<lb/>
+Gedanken Gelegenheit finden, und dies iſt<lb/>
+doch der ſchoͤnſte Zweck einer ſchriftlichen Un-<lb/>
+terhaltung.</p></div><lb/>
+<pb n="5" facs="#f0022"/>
+<div n="1"><head>Erſtes Fragment</head><lb/>
+<milestone unit="section" rendition="#hr"/> <argument><p rendition="#c"><hi rendition="#g">Verfall der Poeſie bei Griechen<lb/>
+und Roͤmern</hi>.</p></argument><lb/>
+<p><hi rendition="#in">I</hi>m Fruͤhlinge und in der Jugend ſingt<lb/>
+man; in der Winterzeit und im Alter ver-<lb/>
+ſtummen die Toͤne. Die lebendigſte Poeſie<lb/>
+Griechenlandes traf auf eine gewiſſe Ju-<lb/>
+gendzeit des Volks und der Sprache, auf<lb/>
+einen Fruͤhling der Cultur und Geſinnun-<lb/>
+gen, in welchem ſich mehrere Kuͤnſte, keine<lb/>
+noch im Uebermaas, gluͤcklich verbanden,<lb/>
+endlich ſelbſt auf einen Fruͤhling von Zeit-<lb/>
+umſtaͤnden und Weltgegend, in welchem<lb/>
+entſprießen konnte was entſproſſen iſt. Von<lb/>
+der Poeſie der aͤlteſten Saͤnger und von<lb/>
+Bildung der Sprache durch ihren Geſang,<lb/>
+<pb n="6" facs="#f0023"/>
+von <hi rendition="#g">Alcaͤus</hi> und der <hi rendition="#g">Sappho</hi>, von<lb/>
+<hi rendition="#g">Pindar</hi> und dem Chor der Griechen ha-<lb/>
+ben wir geredet <note place="foot" n="*)">Dieſe Fragmente fehlen. A. d. H.</note> und allenthalben einen<lb/>
+jugendlich-aufſtrebenden Geiſt, jene erſte<lb/>
+Blume der Cultur bemerket, die, wenn ſie<lb/>
+verbluͤhet und zur Frucht gediehen iſt, der<lb/>
+laueſte Zephyr nicht wieder erwecken mag.</p><lb/>
+<p>Alles in der Welt hat ſeine Stunde.<lb/>
+Es war eine Zeit, da Poeſie alle menſch-<lb/>
+liche Weisheit in ſich faßte, oder deren Stelle<lb/>
+vertrat. Sie ſang die Goͤtter, und erhielt<lb/>
+die ruhmwuͤrdigen Thaten der Vorfahren,<lb/>
+der Vaͤter und Helden; ſie lehrte die Men-<lb/>
+ſchen Lebensweisheit und war ſo wie das<lb/>
+einzige und ſchoͤnſte Mittel ihres Unter-<lb/>
+richts, ſo auch an Feſten und in Geſellſchaft<lb/>
+ihr geiſtigſtes Vergnuͤgen. Ehe die Schrift<lb/>
+<pb n="7" facs="#f0024"/>
+erfunden oder ſo lange ſie noch nicht haͤu-<lb/>
+fig im Gebrauch war, ſangen die <hi rendition="#g">Toͤchter<lb/>
+der Erinnerung</hi>, die Muſen, und wur-<lb/>
+den mit Entzuͤcken gehoͤret. Dichter waren<lb/>
+der Mund der Vorwelt, Orakel der Nach-<lb/>
+welt, Lehrer und Ergetzer des Volks, Loh-<lb/>
+ner großer Thaten, Weiſe. —</p><lb/>
+<p>Je mehr die Schrift aufkam und ſich<lb/>
+durch ſie die Sprache ausbildete, je mehr<lb/>
+mit der Zeit Wiſſenſchaften aus einander<lb/>
+gingen und einzeln bearbeitet wurden: deſto<lb/>
+mehr mußte der Poeſie allmaͤhlich von ihrer<lb/>
+Allgemeinherrſchaft entnommen werden:<lb/>
+denn ſobald man ſchreiben konnte, wollten<lb/>
+viele eine wahre Geſchichte lieber in Proſe,<lb/>
+die der Poeſie nachgebildet war, leſen oder<lb/>
+leſen hoͤren; als Fabel und Geſchichte fer-<lb/>
+nerhin in Hexametern durch Geſang verneh-<lb/>
+men. Allmaͤhlich verſtummte alſo die erzaͤh-<lb/>
+lende Muſe, oder ſang aus Sagen ihrer<lb/>
+<pb n="8" facs="#f0025"/>
+aͤltern Schweſter kuͤnſtlich-gearbeitete Toͤne<lb/>
+nach.</p><lb/>
+<p>Je mehr die Philoſophie aufkam, je<lb/>
+mehr man die Natur der Dinge, inſon-<lb/>
+derheit des Menſchengeſchlechts und ſeiner<lb/>
+Verfaſſungen unterſuchte: deſto weiter ent-<lb/>
+fernte man ſich von jener alten Einfalt<lb/>
+<hi rendition="#g">moraliſcher Spruͤche</hi>, denen die Poeſie<lb/>
+einſt Glanz und Nachdruck geben konnte.<lb/>
+Philoſophiſche Unterredungen und Syſteme<lb/>
+konnte der Dichter nicht mit derſelben Kraft<lb/>
+wie alte Begebenheiten und ſinnliche Ge-<lb/>
+genſtaͤnde darſtellen; er war hier in einem<lb/>
+fremden Lande.</p><lb/>
+<p>Auch die Mythologie ſelbſt, die der<lb/>
+Poeſie einſt ſo viel Schwung gegeben hatte,<lb/>
+ward mit der Zeit eine alte Sage. Der<lb/>
+kindliche oder jugendliche Glaube der Vorwelt<lb/>
+an Goͤtter und Heroën war dahin; was tau-<lb/>
+ſendfach geſungen war, mußte zuletzt bloß dem<lb/>
+<pb n="9" facs="#f0026"/>
+Herkommen gemaͤß, mit trockner Kaͤlte ge-<lb/>
+ſungen werden; es hatte ſeine Zeit uͤber-<lb/>
+lebet.</p><lb/>
+<p>Endlich, da Scherz und Freude die<lb/>
+Eltern des Geſanges ſind, wo waren dieſe<lb/>
+hingeflohen in jenen traurigen Zeiten, die<lb/>
+Griechenland zuletzt erlebte? In- und aus-<lb/>
+waͤrtige Kriege zerſtoͤrten, loͤſeten auf und<lb/>
+miſchten alles unter einander. Der leben-<lb/>
+dige Geiſt aufbluͤhender Pflanzvoͤlker, froͤh-<lb/>
+licher Inſeln, im Ruhm und Geſange<lb/>
+wetteifernder Staͤdte war laͤngſt entwichen;<lb/>
+und ob man gleich die Anſtalten, durch<lb/>
+welche er gewirkt hatte, oͤffentliche Gebraͤu-<lb/>
+che, Tempel, Spiele, Wettkaͤmpfe, Theater<lb/>
+u. f. ſo lange es moͤglich war, erhielt oder<lb/>
+wiederherſtellte: ſo war doch jene Jugend<lb/>
+nicht zuruͤckzurufen, in welcher dies alles<lb/>
+wie durch ſich ſelbſt entſtanden und veran-<lb/>
+laßt war. Auch <hi rendition="#g">Hadrian</hi> rief dieſen<lb/>
+<pb n="10" facs="#f0027"/>
+Genius nicht aus <hi rendition="#g">Hektors</hi> Grabe. Zu-<lb/>
+letzt kamen die Barbaren heran; und als<lb/>
+die chriſtliche Religion uͤber Griechenland<lb/>
+herrſchte, da ſang z. B. <hi rendition="#g">Syneſius</hi> der<lb/>
+Biſchof <note place="foot" n="*)"><hi rendition="#g">Syneſius</hi> ward im Jahr 410 Biſchof zu<lb/>
+Ptolemais und bedung ſich dabei ausdruͤck-<lb/>
+lich, daß er weder ſeine Frau verlaſſen, noch<lb/>
+eine Auferſtehung des Leibes glauben doͤrfe.<lb/>
+Seine Hymnen ſowohl als ſeine andern Schrif-<lb/>
+ten ſind ein Gemiſch des Chriſtenthums und<lb/>
+der Alexandriniſchen Philoſophie, in welcher<lb/>
+<hi rendition="#g">Hypatia</hi> ſeine Lehrerinn geweſen war.<lb/>
+A. d. H.</note> von jenen alten Zeiten alſo:</p><lb/>
+<lg type="poem"><l>Wohlauf, Klangvolle Cither!<lb/>
+Nach Tejer-Melodieen</l><lb/>
+<l>Nach Lesbiſchen Geſaͤngen</l><lb/>
+<l>In <hi rendition="#g">feierlichern</hi> Toͤnen</l><lb/>
+<l>Ein <hi rendition="#g">Doriſch</hi> Lied zu ſingen;</l><lb/>
+<l>Ein Lied, doch nicht von Nymphen,</l><lb/>
+<pb n="11" facs="#f0028"/>
+<l> Die Aphrodiſiſch laͤcheln,</l><lb/>
+<l>Auch nicht von holden Knaben</l><lb/>
+<l>In ſuͤßer Lebensbluͤthe.</l><lb/>
+<l>Ein himmliſch-reines Feuer</l><lb/>
+<l>Von Gottgeweihter Inbrunſt</l><lb/>
+<l>Treibt mich, daß ich die Cither</l><lb/>
+<l>Zu heilgen Liedern ſchlage,</l><lb/>
+<l>Und jeder ſuͤßen Suͤnde</l><lb/>
+<l>Der Erdenluſt entweiche.</l><lb/>
+<l>Was iſt dann Macht und Schoͤnheit?</l><lb/>
+<l>Was iſt dann Ruhm und Reichthum?</l><lb/>
+<l>Und alle Koͤnigsehren</l><lb/>
+<l>Entgegen frommer Andacht?</l><lb/>
+<l><hi rendition="#g">Der</hi> ſei ein ſchoͤner Reiter,</l><lb/>
+<l>Ein ſchneller Schuͤtze <hi rendition="#g">Jener</hi>,</l><lb/>
+<l><hi rendition="#g">Ein Anderer</hi> bewache</l><lb/>
+<l>Gehaͤufte goldne Schaͤtze.</l><lb/>
+<l><hi rendition="#g">Dem</hi> hange ſeine Locke</l><lb/>
+<l>Zierlich hinab die Schulter;</l><lb/>
+<l>Von <hi rendition="#g">Jenem</hi> ſei geprieſen</l><lb/>
+<l>Bei Juͤnglingen und Maͤdchen</l><lb/>
+<pb n="12" facs="#f0029"/>
+<l>Sein glaͤnzend-holdes Antlitz.</l><lb/>
+<l><hi rendition="#g">Mir</hi> ſei ein ſtilles Leben,</l><lb/>
+<l>Ein heiliges vergoͤnnet,</l><lb/>
+<l>Unſcheinbar vor den Menſchen,</l><lb/>
+<l>Doch nicht vor Gott verborgen.</l><lb/>
+<l><hi rendition="#g">Mir</hi> ſtehe bei die Weisheit,</l><lb/>
+<l>Die ſtark iſt, mich zu leiten</l><lb/>
+<l>Durch Jugend und durch Alter.</l><lb/>
+<l><hi rendition="#g">Sie</hi>, Koͤniginn des Reichthums,</l><lb/>
+<l>Die auf unebnen Wegen</l><lb/>
+<l>Das harte Joch der Armuth</l><lb/>
+<l>Mit leichtem Muth ertraͤget;</l><lb/>
+<l><hi rendition="#g">Sie</hi>, die in bittrem Kummer</l><lb/>
+<l>Des Lebens heiter laͤchelt. —</l><lb/>
+<l>So viel ſei mir gewaͤhret,</l><lb/>
+<l>Daß, ſchwarzer Sorg' entnommen,</l><lb/>
+<l>Ich eines Nachbars Huͤtte</l><lb/>
+<l>Im Mangel nie beduͤrfe. —</l><lb/>
+<l>Horch auf! Cicada ſinget</l><lb/>
+<l>Von Morgenthaue trunken.</l><lb/>
+<l>Schau, wie die Saite ſtaͤrker</l><lb/>
+<l>
+<pb n="13" facs="#f0030"/>
+Mir ſchlaͤgt, und eine Stimme</l><lb/>
+<l>Begeiſternd mich umtoͤnet?</l><lb/>
+<l>Was giebſt du fuͤr ein Lied mir,</l><lb/>
+<l>Du heilige Begeiſtrung? —</l></lg><lb/>
+<p>Und ſo geht der Geſang in Platoniſch-<lb/>
+Chriſtliche Ideen uͤber <note place="foot" n="*)">Fuͤr Verſtaͤndige bedarf es der Erinnerung<lb/>
+nicht, daß es auch im chriſtlichen Zeitalter,<lb/>
+bis zur Eroberung Conſtantinopels und fer-<lb/>
+nerhin griechiſche Dichter gegeben habe. Es<lb/>
+gab Griechiſche Dichter, aber keine <hi rendition="#g">Poeſie<lb/>
+Griechenlandes</hi> in dem Sinne, von dem<lb/>
+hier die Rede iſt. A. d. H.</note></p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Die <hi rendition="#g">Geſchichte der Roͤmer</hi> endete<lb/>
+nicht anders. Ihnen war die Poeſie, in-<lb/>
+ſonderheit der Lyriſche Geſang gewiſſerma-<lb/>
+ßen immer eine fremde Kunſt geblieben;<lb/>
+die Oden <hi rendition="#g">Catulls</hi> und <hi rendition="#g">Horaz</hi> ſind nur<lb/>
+<pb n="14" facs="#f0031"/>
+ein Nachhall der griechiſchen Lyra. Auch<lb/>
+hat es ein Gelehrter unſrer Zeit wahr-<lb/>
+ſcheinlich gemacht <note place="foot" n="*)"><hi rendition="#aq"><hi rendition="#i">Meierotto</hi> de rebus ad auctores quosdam<lb/>
+claſſicos pertinentibus. Berol. 1785. p. 131.<lb/>
+ſequ. iudicium aequalium de Horatio.</hi></note>, daß ſelbſt Horaz Oden<lb/>
+zuerſt lange nicht ſo viel Celebritaͤt hatten,<lb/>
+als ſie in der Folge, inſonderheit ſeitdem<lb/>
+die lateiniſche Sprache eine todte Sprache<lb/>
+war, mit Recht erhielten. Nachfolger fand<lb/>
+dieſer ſchoͤne Dichter unter den Roͤmern<lb/>
+wenige, und keinen, der an ihn reichte.<lb/>
+Bis auf ein paar Stuͤcke des <hi rendition="#g">Statius</hi><lb/>
+und einige arme Gedichte der Grammati-<lb/>
+ker ſind dieſe auch untergegangen, ſo daß<lb/>
+in Latium das Feld der lyriſchen Poeſie<lb/>
+von Auguſtus Zeiten hinab fuͤr uns am<lb/>
+oͤdeſten daliegt.<note place="foot" n="**)" xml:id="note-0031" next="note-0032">Was uͤbrig geblieben iſt, hat <hi rendition="#g">Wernsdorf</hi><lb/>
+in den <hi rendition="#aq">poet. lat. minorib. T. III.</hi>ſammt</note></p><lb/>
+<pb n="15" facs="#f0032"/>
+<p>Die Urſachen hievon ſind faſt dieſelben,<lb/>
+wie in der griechiſchen Geſchichte. Die<lb/>
+alte Mythologie war den Roͤmern von An-<lb/>
+beginn an ungleich fremder und entfernter,<lb/>
+als ſie es in den neueren Zeiten den Grie-<lb/>
+chen je werden konnte. Schon bei <hi rendition="#g">Vir</hi>-<lb/>
+<hi rendition="#g">gil</hi> und <hi rendition="#g">Ovid</hi>, bei <hi rendition="#g">Properz</hi> und <hi rendition="#g">Ho</hi>-<lb/>
+<hi rendition="#g">raz</hi> bemerkt man dies <hi rendition="#g">Fernhergebrach</hi>-<lb/>
+<hi rendition="#g">te</hi> zuweilen mit einigem Anſtoß; bei <hi rendition="#g">Se</hi>-<lb/>
+<hi rendition="#g">neka</hi>, <hi rendition="#g">Statius</hi>, beim bluͤhenden <hi rendition="#g">Clau</hi>-<lb/>
+<hi rendition="#g">dian</hi>, <hi rendition="#g">Auſonius</hi> u. f. noch vielmehr.<lb/>
+Man fuͤhlt, die alte Goͤtterlehre habe ſich<lb/>
+uͤberlebet. Ohne Zweifel war dies mit<lb/>
+eine Urſache, warum die meiſten roͤmiſchen<lb/>
+Dichter, z. B. <hi rendition="#g">Ennius</hi>, <hi rendition="#g">Lucan</hi>, <hi rendition="#g">Si</hi>-<lb/>
+<hi rendition="#g">lius</hi>, <hi rendition="#g">Claudian</hi> lieber <hi rendition="#g">hiſtoriſche</hi> als<lb/>
+rein-<hi rendition="#g">heroiſche</hi> Gedichte ſchrieben, und<lb/>
+<note place="foot" n="**)" xml:id="note-0032" prev="note-0031">den Nachrichten von dem was untergegangen<lb/>
+iſt, mit großem Fleiß geſammelt. A. d. H.</note><lb/>
+<pb n="16" facs="#f0033"/>
+einige ſogar ziemlich unpoëtiſche Gegen-<lb/>
+ſtaͤnde waͤhlten. Der alte Blumengarten<lb/>
+war abgebluͤhet. Die Thebaiden- und Achil-<lb/>
+leiden-Dichter, noch mehr aber die ſchreck-<lb/>
+lichen Atriden-Saͤnger hatten nicht nur<lb/>
+den Reiz der Neuheit verlohren; ſondern<lb/>
+die Satyrendichter gingen ihnen auch hart<lb/>
+entgegen.</p><lb/>
+<p>Der Zuſtand Italiens und der roͤmi-<lb/>
+ſchen Provinzen unter den meiſten Kaiſern<lb/>
+lockte noch minder einen neuen Fruͤhling<lb/>
+hervor. Wahnſinnige Tyrannen bedruͤckten<lb/>
+die Welt; Kriege, bald auch die Anfaͤlle<lb/>
+der Barbaren verheereten ſie, und unter<lb/>
+den wenigen guten Kaiſern ward aus meh-<lb/>
+reren Urſachen lieber Griechiſche Philoſo-<lb/>
+phie als Roͤmiſche Dichtkunſt gepfleget.<lb/>
+Jener hatte nach damaligen Umſtaͤnden die<lb/>
+Troſt- und Huͤlfbeduͤrftige Zeit mehr als<lb/>
+dieſer noͤthig. In Zeiten, die <hi rendition="#g">Tacitus</hi><lb/>
+<fw type="catch" place="bottom">beſchreibt,</fw><lb/>
+<pb n="17" facs="#f0034"/>
+beſchreibt, in andern, die nachher folgten,<lb/>
+wollte man wahrlich oft weniger ſingen,<lb/>
+als ſeufzen.</p><lb/>
+<p>Der letzte Roͤmer <hi rendition="#g">Boëthius</hi> endlich<lb/>
+ſuchte auch in lyriſchen Sylbenmaaßen Troſt<lb/>
+gegen ſein Ungluͤck; ſeine Philoſophie ge-<lb/>
+waͤhrte ihm aber nicht ſowohl <hi rendition="#g">Gedichte</hi><lb/>
+als philoſophiſche Sentenzen <note place="foot" n="*)" xml:id="note-0034" next="note-0035"><hi rendition="#g">Boëthius</hi> und <hi rendition="#g">Auſon</hi>'s Gedichte ſind<lb/>
+zur Zeit des allgemeinen Verfalls der Roͤmi-<lb/>
+ſchen Sprache und Poeſie merkwuͤrdige Er-<lb/>
+ſcheinungen. Beide Dichter waren Chriſten,<lb/>
+und doch laſſen ſie es ſich in ihren Gedich-<lb/>
+ten wenig merken; der Erſte gar nicht, der<lb/>
+Zweite iſt gleichſam wechſelsweiſe Chriſt und<lb/>
+Heide. Beide ſuchen, wie aus Truͤmmern<lb/>
+vergangener Zeiten Schaͤtze hervor; Jener<lb/>
+Philoſophie, die er in alle Sylbenmaaße ſei-<lb/>
+nes Seneka ordnet, Dieſer das Andenken an<lb/>
+alle ihm werthe Sachen und Menſchen. Bei-<lb/>
+de, inſonderheit <hi rendition="#g">Boëthius</hi>, ſind den fol-<lb/>
+genden dunkeln Jahrhunderten leitende Sterne</note> Laͤngſt<lb/>
+<fw type="sig" place="bottom">Siebente Samml. B</fw><lb/>
+<pb n="18" facs="#f0035"/>
+ſchon war nach und nach das Chriſtenthum<lb/>
+ins Reich gedrungen; es hatte den Sieg<lb/>
+erlangt und erfuͤllte bald alle heilige Orte<lb/>
+mit chriſtlichen Geſaͤngen und Hymnen.</p><lb/>
+<note place="foot" n="*)" xml:id="note-0035" prev="note-0034">geweſen; wie denn auch in ihm und in meh-<lb/>
+reren Dichtern der letzten Zeit bereits ſicht-<lb/>
+barer Weiſe ein <hi rendition="#g">neuer Geſchmack</hi> hervor-<lb/>
+gehet, der den folgenden Zeiten verwandt<lb/>
+und ihnen daher lieber war, als der große<lb/>
+Geſchmack der alten claſſiſchen Dichter. Von<lb/>
+<hi rendition="#g">Boëthius</hi> haben wir nach zwei merkwuͤrdi-<lb/>
+gen Ueberſetzungen des vorigen Jahrhunderts<lb/>
+(Nuͤrnberg 1660. Sulzbach 1667. letzte vom<lb/>
+Sulzbachſchen Canzler <hi rendition="#g">Knorr von Roſen</hi>-<lb/>
+<hi rendition="#g">roth</hi>) neulich eine unſrer Zeit gemaͤßere er-<lb/>
+halten, auf welche viel Fleiß gewandt iſt.<lb/>
+(<hi rendition="#g">Troſt der Philoſophie</hi> aus dem Latei-<lb/>
+niſchen des Boëthius von F. C. <hi rendition="#g">Freitag</hi>,<lb/>
+Riga 1794.) In den Sylbenmaaßen iſt der<lb/>
+Ueberſetzer dem Dichter nicht gefolget; die<lb/>
+ſeinen aber ſind edel und ſtreben im Rhythmus<lb/>
+der Jamben dem <hi rendition="#g">Milton</hi> nach. <hi rendition="#g">Boëthius</hi><lb/>
+iſt ein Philoſoph fuͤr alle Zeiten. A. d. H.</note></div><lb/>
+<pb n="19" facs="#f0036"/>
+<div n="1"><head><hi rendition="#g">Nachſchrift</hi>.</head><lb/>
+<milestone unit="section" rendition="#hr"/> <p>So weit das erſte Fragment. Samm-<lb/>
+len wir ſeine Winke, ſo werden wir gewahr,<lb/>
+daß in Griechenland und Rom die aͤchte<lb/>
+<hi rendition="#g">Poeſie</hi> mit Religion, Sitten und dem<lb/>
+Staate ſelbſt untergegangen ſei: denn wor-<lb/>
+an ſollte ſie ſich, außer dieſen ihren drei<lb/>
+Grundſtuͤtzen halten? Waren die Goͤtter<lb/>
+zu Maͤhrchen worden, an welche niemand<lb/>
+mehr glaubte: ſo ward man ihrer Lobge-<lb/>
+ſaͤnge, zuletzt auch des Gelaͤchters uͤber ſie<lb/>
+bald uͤberdruͤſſig; der <hi rendition="#g">Hymnus</hi> ſowohl als<lb/>
+der <hi rendition="#g">Mimus</hi> hatte ſich an ihnen erſchoͤpfet.</p><lb/>
+<p>Mit dem Ernſt und der Anſtaͤndigkeit<lb/>
+in Sitten hatte die Poeſie ihren geſundeſten<lb/>
+und veſteſten Nerv verlohren: denn das<lb/>
+Lachen eines Kranken iſt nicht ein Zeichen<lb/>
+ſeiner Geſundheit. Die niedrigen Zwecke,<lb/>
+wozu man im uͤppigen Rom die Poeſie an-<lb/>
+<fw type="sig" place="bottom">B 2</fw><lb/>
+<pb n="20" facs="#f0037"/>
+wandte, machten ſie veraͤchtlich, zuletzt ab-<lb/>
+ſcheulich; ſo wie Gegentheils die <hi rendition="#g">ſtrafende<lb/>
+Poeſie</hi>, die ihre Geißel dagegen erhob, noth-<lb/>
+wendig auch oft uͤber die Grenzen des Schoͤ-<lb/>
+nen und Wohlgefaͤlligen ſtreifen mußte.</p><lb/>
+<p>Sank endlich der Staat: ſo ſank alles<lb/>
+Edle mit ihm; nichts konnte ſich retten:<lb/>
+denn wohin haͤtte es außer dem Staat ſich<lb/>
+retten moͤgen? Wie in einbrechender Nacht<lb/>
+ſehen wir alſo allmaͤhlich die Sonne, die<lb/>
+Abendroͤthe, zuletzt auch die hie und da<lb/>
+noch funkelnden Sterne verſchwinden: das<lb/>
+Firmament umziehen dunkle Wolken, es wird<lb/>
+Nacht. Vermuthlich waͤre das ganze ſuͤdliche<lb/>
+Europa eine ſo dunkle Nacht und ein Chaos<lb/>
+worden, wenn nicht aus Orient ein ſonder-<lb/>
+barer Stral die Finſterniß zertheilt und einer<lb/>
+neuen Morgenroͤthe von fern den Weg ge-<lb/>
+bahnt haͤtte. Das zweite Fragment wird<lb/>
+hievon reden.</p></div><lb/>
+<pb n="21" facs="#f0038"/>
+<div n="1"><head>82.</head><lb/>
+<p><hi rendition="#g">Zweites Fragment</hi>.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p><hi rendition="#g">Chriſtliche Hymnen</hi>.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p><hi rendition="#in">D</hi>en Hymnen, die das Chriſtenthum ein-<lb/>
+fuͤhrte, lagen jene alte Ebraͤiſche Pſalmen<lb/>
+zum Grunde, die wo nicht als Geſaͤnge<lb/>
+oder Antiphonien, ſo doch als Gebete ſehr<lb/>
+bald in die Kirche kamen. Das Denkmal,<lb/>
+das die bleibende Gegenwart des Stifters<lb/>
+unter den Seinigen darſtellen ſollte, das<lb/>
+<hi rendition="#g">Abendmal</hi>, war unter Lobgeſaͤngen aus<lb/>
+<pb n="22" facs="#f0039"/>
+dem Pſalmbuch eingeſetzt; Er, der Stifter<lb/>
+des Chriſtenthums ſelbſt, hatte ſich mit<lb/>
+Worten aus dem Pſalmbuch getroͤſtet; dem<lb/>
+Pſalmbuch alſo gaben Apoſtel und Kirchen-<lb/>
+vaͤter mit Recht, auch ſeiner Popularitaͤt<lb/>
+wegen, das groͤßeſte Lob, da ſowohl die<lb/>
+Stimme einzelner Perſonen, als eines gan-<lb/>
+zen Volks in <hi rendition="#g">ihm</hi> ſo herzlich, ſo ſtark und<lb/>
+lieblich erſchallte. <hi rendition="#g">Luther</hi> bei ſehr veraͤn-<lb/>
+derten Zeitumſtaͤnden nennet es einen <hi rendition="#g">Blu</hi>-<lb/>
+<hi rendition="#g">mengarten von allerlei Blumen</hi>,<lb/>
+einen ganzen <hi rendition="#g">Weltlauf von Zuſtaͤnden<lb/>
+des menſchlichen Herzens und Le</hi>-<lb/>
+<hi rendition="#g">bens</hi>. <note place="foot" n="*)">Luthers Vorrede zum Pſalter.</note> Da iſt keine Klage, meynt er,<lb/>
+kein Schmerz, kein Jammer, aber auch keine<lb/>
+Hoffnung, kein Troſt, keine Freude, die in<lb/>
+ihm nicht ihren Ausdruck finde.</p><lb/>
+<pb n="23" facs="#f0040"/>
+<p>Und weil es mit der groͤßeſten Einfalt<lb/>
+abgefaßt iſt: (denn lyriſch-einfacher kann<lb/>
+nichts ſeyn, als der Parallelismus der Pſal-<lb/>
+men, gleichſam ein doppeltes Chor, das ſich<lb/>
+einander fragt und antwortet, zurechtweiſet<lb/>
+und beſtaͤrket;) ſo war es einer einfaͤltigen<lb/>
+Chriſten-Gemeine, ſowohl in Zeiten des<lb/>
+Drucks, als in Empfindungen der Freude<lb/>
+und Hoffnung, wie vom Himmel gegeben.<lb/>
+Daher der fruͤhe Gebrauch dieſes Buchs in<lb/>
+der chriſtlichen Kirche; daher von den erſten<lb/>
+Zeiten an, ehe es chriſtliche Dichter geben<lb/>
+konnte, jene lauten Geſaͤnge, dadurch ſich<lb/>
+ihre Zuſammenkuͤnfte den Roͤmern merkbar<lb/>
+machten; <note place="foot" n="*)">Plinius Brief an Traian.</note> es waren <hi rendition="#g">Pſalmen</hi>.</p><lb/>
+<lg><l>Das ſchoͤne Buch, das Richtſcheid guter</l><lb/>
+<l>Sitten,</l><lb/>
+<l>Die ſtarke Kraft den Himmel zu erbitten,</l><lb/>
+<pb n="24" facs="#f0041"/>
+<l>Des Lebens Troſt, der Muth zum Sterben</l><lb/>
+<l>giebt,</l><lb/>
+<l>Was <hi rendition="#g">Der</hi> Held ſang, den Gott grundaus</l><lb/>
+<l>geliebt,</l><lb/>
+<l>Ward durch den Saal der ganzen Welt</l><lb/>
+<l>geſungen,</l><lb/>
+<l>Und regte ſich in aller Chriſten Zungen —</l></lg><lb/>
+<p>ſagt <hi rendition="#g">Opitz</hi>.</p><lb/>
+<p>Nicht nur von Seiten des <hi rendition="#g">Inhalts</hi>,<lb/>
+ſondern auch von Seiten der <hi rendition="#g">Form</hi> ward<lb/>
+dieſer Gebrauch der Pſalmen dem Geiſt und<lb/>
+Herzen der Menſchen eine Wohlthat. Wie<lb/>
+man in keinem lyriſchen Dichter der Grie-<lb/>
+chen und Roͤmer ſoviel Lehre, Troſt und<lb/>
+Unterweiſung, wie hier, beiſammen fand;<lb/>
+ſo war auch ſchwerlich irgendwo ſonſt,<lb/>
+(wenn man die Pſalmen nur als Oden be-<lb/>
+trachtet,) eine ſo reiche Abwechſelung des<lb/>
+Tons in jeder Geſangesart, wie hier, ge-<lb/>
+geben. Zwei Jahrtauſende her ſind dieſe<lb/>
+<pb n="25" facs="#f0042"/>
+alte Pſalmen oft und vielfach uͤberſetzt und<lb/>
+nachgeahmet worden; und doch iſt noch<lb/>
+manche <hi rendition="#g">neue Bildung</hi> ihrer vielfaſſen-<lb/>
+den reichen Manier moͤglich. Sie ſind Blu-<lb/>
+men, die ſich nach jeder Zeit, nach jedem<lb/>
+Boden verwandeln und immer in friſcher<lb/>
+Jugend daſtehn. Eben weil dies Buch die<lb/>
+einfachſten lyriſchen Toͤne zum Ausdruck der<lb/>
+mannichfaltigſten Empfindungen enthaͤlt, iſt<lb/>
+es ein <hi rendition="#g">Geſangbuch fuͤr alle Zeiten</hi>.</p><lb/>
+<p>Den naͤheren Ton zu chriſtlichen Geſaͤn-<lb/>
+gen gaben indeß die <hi rendition="#g">Lobgeſaͤnge Zacha</hi>-<lb/>
+<hi rendition="#g">rias und der Maria</hi>, <hi rendition="#g">der Gruß des<lb/>
+Engels</hi>, <hi rendition="#g">der Abſchied Simeons</hi> u. f.,<lb/>
+mit denen das <hi rendition="#g">neue Teſtament</hi> anfing.<lb/>
+Ihre ſanftere Stimme war dem Geiſt des<lb/>
+Chriſtenthums gemaͤßer, als ſelbſt der laute<lb/>
+Paukenſchall jener alten frohlockenden Hal-<lb/>
+lelujah, obgleich auch dieſe vielfach ange-<lb/>
+wandt, und mit Stimmen der Propheten<lb/>
+<pb n="26" facs="#f0043"/>
+oder andrer bibliſchen Geſaͤnge bald ver-<lb/>
+ſtaͤrkt, bald gemildert wurden. Ueber den<lb/>
+Graͤbern der Verſtorbenen, deren Auferſte-<lb/>
+hung man im Geiſt ſchon gegenwaͤrtig er-<lb/>
+blickte, in Einoͤden und Katacomben ertoͤn-<lb/>
+ten zuerſt dieſe Buß- und Gebet- dieſe<lb/>
+Trauer- und Hoffnungs-Pſalmen, bis ſie<lb/>
+nach oͤffentlicher Einfuͤhrung des Chriſten-<lb/>
+thums aus dem Dunkel ins Licht, aus der<lb/>
+Einſamkeit in praͤchtige Kirchen, vor ge-<lb/>
+weihte Altaͤre traten, und jetzt auch in<lb/>
+ihrem Ausdruck Pracht annahmen. Schwer-<lb/>
+lich wird jemand ſeyn, der z. B. im Geſange<lb/>
+des <hi rendition="#g">Prudentius</hi>: <hi rendition="#aq">Jam moeſta quieſce<lb/>
+querela</hi>, nicht von ruͤhrenden Toͤnen ſein<lb/>
+Herz ergriffen fuͤhlte, dem der Todtenge-<lb/>
+ſang: <hi rendition="#aq">Dies irae, dies illa</hi> nicht Schauder<lb/>
+einjagte, den ſo viel andre Hymnen, jeder<lb/>
+mit ſeinem Charakter bezeichnet, z. B. <hi rendition="#aq">Veni,<lb/>
+redemtor gentium: Vexilla Regis pro-<lb/>
+<pb n="27" facs="#f0044"/>
+deunt: Salvete, flores Martyrum: Pange<lb/>
+lingua glorioſi</hi> u. f. nicht in den Ton ver-<lb/>
+ſetzten, den jeder Hymnus will, und in<lb/>
+ſeiner demuͤthigen Geſtalt, mit allen ſeinen<lb/>
+kirchlichen Idiotismen maͤchtig gebietet. In<lb/>
+Dieſem toͤnt die Stimme der Betenden;<lb/>
+Jenen koͤnnte nur die Harfe begleiten; in<lb/>
+andern ſchallt die Poſaune; es ruft und<lb/>
+toͤnt die tauſendſtimmige Orgel u. f. —</p><lb/>
+<p>Fragt man ſich um die Urſache der ſon-<lb/>
+derbaren Wirkung, die man von dieſen<lb/>
+altchriſtlichen Geſaͤngen empfindet, ſo wird<lb/>
+man dabei eigen betroffen. Es iſt nichts<lb/>
+weniger, als ein neuer <hi rendition="#g">Gedanke</hi>, der<lb/>
+uns hier ruͤhrt, dort maͤchtig erſchuͤttert;<lb/>
+Gedanken ſind in dieſen Hymnen uͤberhaupt<lb/>
+ſparſam. Manche ſind nur feierliche Reci-<lb/>
+tationen einer bekannten Geſchichte, oder<lb/>
+ſie ſind bekannte Bitten und Gebete. Faſt<lb/>
+kommt der Inhalt Aller in Allen wieder.<lb/>
+<pb n="28" facs="#f0045"/>
+Selten ſind es auch uͤberraſchend-feine und<lb/>
+neue <hi rendition="#g">Empfindungen</hi>, mit denen ſie uns<lb/>
+etwa durchſtroͤmen; aufs Neue und Feine<lb/>
+iſt in den Hymnen gar nicht gerechnet.<lb/>
+Was iſts denn, was uns ruͤhret? <hi rendition="#g">Einfalt<lb/>
+und Wahrheit</hi>. Hier toͤnt die Sprache<lb/>
+eines allgemeinen Bekaͤnntniſſes, Eines Her-<lb/>
+zens und Glaubens. Die meiſten ſind ein-<lb/>
+gerichtet, daß ſie alle Tage geſungen wer-<lb/>
+den koͤnnen und ſollen; oder ſie ſind an<lb/>
+Feſte der Jahreszeiten gebunden. Wie dieſe<lb/>
+wieder kommen, kommt in ewiger Umwaͤl-<lb/>
+zung auch ihr <hi rendition="#g">chriſtliches Bekaͤnntniß</hi><lb/>
+wieder. Zu fein iſt in den Hymnen keine<lb/>
+Empfindung, keine Pflicht, kein Troſt ge-<lb/>
+griffen: es herrſcht in ihnen allen ein<lb/>
+<hi rendition="#g">allgemeiner populaͤrer Inhalt</hi> in<lb/>
+großen Accenten. Wer in einem <hi rendition="#aq">Te Deum</hi><lb/>
+oder <hi rendition="#aq">Salve regina</hi> neue Gedanken ſucht,<lb/>
+ſucht ſie an unrechtem Orte; eben das<lb/>
+<pb n="29" facs="#f0046"/>
+<hi rendition="#g">taͤglich</hi>- <hi rendition="#g">und ewig Bekannte</hi> ſoll hier<lb/>
+das Gepraͤge der Wahrheit ſeyn. Der Ge-<lb/>
+ſang ſoll ein ambroſiſches Opfer der Natur<lb/>
+werden, unſterblich und wiederkehrend, wie<lb/>
+dieſe.</p><lb/>
+<p>Es ergiebt ſich hieraus, daß, da man<lb/>
+bei chriſtlichen Hymnen auf die Schoͤnheit<lb/>
+eines klaſſiſchen Ausdrucks, auf die Anmuth<lb/>
+der Empfindung im gegenwaͤrtigen Moment,<lb/>
+kurz auf die Wirkung eines eigentlichen<lb/>
+<hi rendition="#g">Kunſtwerks</hi> gar nicht rechnete, dieſe Ge-<lb/>
+ſaͤnge, ſobald ſie eingefuͤhrt waren, die<lb/>
+ſonderbarſten Folgen haben muſten. Wie<lb/>
+naͤmlich die Hand der Chriſten Bildſaͤulen<lb/>
+und Tempel der Goͤtter dem unſichtbaren<lb/>
+Gott zu Ehren zerſtoͤrte: ſo hielten dieſe<lb/>
+Hymnen auch einen Keim in ſich, der den<lb/>
+heidniſchen Geſaͤngen den Tod bringen ſollte.<lb/>
+Nicht nur wurden von den Chriſten jene<lb/>
+Hymnen an Goͤtter und Goͤttinnen, an<lb/>
+<pb n="30" facs="#f0047"/>
+Heroën und Genien als Werke der Unglaͤu-<lb/>
+bigen oder der Aberglaͤubigen angeſehen;<lb/>
+ſondern und vorzuͤglich ward auch der Keim,<lb/>
+der ſie hervorgebracht hatte, die <hi rendition="#g">dichtende<lb/>
+oder ſpielende Einbildungskraft</hi>,<lb/>
+die <hi rendition="#g">Luſt und Froͤhlichkeit des Volks<lb/>
+an Nationalfeſten</hi> und als eine Schule<lb/>
+boͤſer Daͤmonen verdammt, ja der <hi rendition="#g">Natio</hi>-<lb/>
+<hi rendition="#g">nalruhm ſelbſt</hi>, auf welchen jene Ge-<lb/>
+ſaͤnge wirkten, als eine gefaͤhrlich-glaͤnzende<lb/>
+Suͤnde verachtet. Die <hi rendition="#g">alte Religion</hi><lb/>
+hatte ſich uͤberlebet; die neue Religion hatte<lb/>
+gewonnen, wenn die Thorheit des heidni-<lb/>
+ſchen Goͤtzendienſtes und Aberglaubens, die<lb/>
+Unordnungen und Graͤuel, die an den Feſten<lb/>
+des Bacchus, der Cybele, der Aphrodite<lb/>
+vorgingen, ins Licht kamen. Alſo auch was<lb/>
+von der Poeſie dahin gehoͤrte, war ein Werk<lb/>
+des Teufels. Es begann eine <hi rendition="#g">neue Zeit<lb/>
+fuͤr Poeſie</hi>, <hi rendition="#g">Muſik</hi>, <hi rendition="#g">Sprache</hi>, <hi rendition="#g">Wiſ</hi>-<lb/>
+<pb n="31" facs="#f0048"/>
+<hi rendition="#g">ſenſchaften</hi>, ſelbſt fuͤr die <hi rendition="#g">ganze Rich</hi>-<lb/>
+<hi rendition="#g">tung der menſchlichen Denkart</hi>.</p><lb/>
+<p>Denn 1. <hi rendition="#g">Fortan war die Poeſie<lb/>
+keinem Volk</hi>, <hi rendition="#g">keinem Lande eigen</hi>,<lb/>
+weil dieſer Geiſt chriſtlicher Hymnen, mit<lb/>
+Zerſtoͤhrung aller Nationalheiligthuͤmer, die<lb/>
+Voͤlker insgeſammt umfaßte und <hi rendition="#g">glauben</hi><lb/>
+lehrte. An die Stelle jener laͤngſt verleb-<lb/>
+ten Heroën und Nationalwohlthaͤter traten<lb/>
+jetzt <hi rendition="#g">neue Heroën</hi>, die Maͤrtyrer; die<lb/>
+auf der Erde ihre Feſttage, Kirchen und<lb/>
+Patrimonien bekamen, wie ſie als Schutz-<lb/>
+patronen und Fuͤrbitter bei Gott angeſehene<lb/>
+Plaͤtze droben beſaßen. Himmel und Erde<lb/>
+war alſo den Heiligen gegeben, die chriſt-<lb/>
+liche Welt war unter ſie vertheilet. Statt<lb/>
+einzelner irrdiſcher Wohlthaten ſang man<lb/>
+Eine große Wohlthat, <hi rendition="#g">die Erloͤſung der<lb/>
+Welt vom Aberglauben und den<lb/>
+Daͤmonen</hi>. Statt eingeſchraͤnkter irrdi-<lb/>
+<pb n="32" facs="#f0049"/>
+ſcher Hoffnungen ſang man Eine große<lb/>
+Hoffnung, die <hi rendition="#g">Erwartung der Ankunft<lb/>
+des Richters uͤber Lebendige und<lb/>
+Todte</hi>, mit welcher die Geſammtherrſchaft<lb/>
+in ſeinem Reiche weſentlich verknuͤpft war.<lb/>
+Jahrhunderte lang hielt man dieſe Ankunft<lb/>
+fuͤr nah; alle traurige Zeichen der Zeit, an<lb/>
+denen man großentheils ſelbſt Schuld war,<lb/>
+wurden auf ſie gedeutet; und ungeheure<lb/>
+Dinge, Verfolgungen, Schenkungen, Kriege<lb/>
+wurden durch ſie befoͤrdert. Hymnen an<lb/>
+die Maͤrtyrer, Hoffnungen der Auferſtehung<lb/>
+und der Wiederkunft Chriſti machen alſo<lb/>
+einen großen Theil der Dichtkunſt dieſer<lb/>
+Zeiten aus; ſie waren auch eine maͤchtige<lb/>
+Triebfeder. Von heidniſcher Poeſie mochte<lb/>
+untergehen was untergehen wollte; was<lb/>
+man rettete, ward etwa der Sprache, der<lb/>
+Sylbenmaaße, der ſpaͤteren platoniſchen Phi-<lb/>
+loſophie oder zufaͤllig eines dem Chriſten-<lb/>
+<fw type="catch" place="bottom">thum</fw><lb/>
+<pb n="33" facs="#f0050"/>
+thum zutraͤglichen Umſtandes wegen erhal-<lb/>
+ten. Selbſt die Juͤdiſchen Pſalmen wurden<lb/>
+jetzt blos und allein chriſtlich verſtanden,<lb/>
+und gegen Ketzer, ja gegen die Juden ſelbſt<lb/>
+Zeitmaͤßig gedeutet; es ward mit ihnen ge-<lb/>
+betet, geflucht, verbannet, exorciſiret. Was<lb/>
+irgend man in der Literatur fand und an-<lb/>
+wenden wollte, verlor ſeinen alten Zweck<lb/>
+und ward <hi rendition="#g">chriſtlich</hi>.</p><lb/>
+<p>2. Die <hi rendition="#g">Muſik</hi> bekam durch die chriſt-<lb/>
+lichen Hymnen mit der Zeit eine ganz an-<lb/>
+dre Art und Weiſe. Da der Inhalt dieſer<lb/>
+Geſaͤnge gleichſam ein <hi rendition="#g">Chor der Voͤlker</hi><lb/>
+und ſo allgemein war, daß ſich die Toͤne<lb/>
+dem einzelnen Ausdruck einer individuellen<lb/>
+Empfindung weder anſchließen konnten noch<lb/>
+ſollten: ſo ging dabei der Strom der Muſik,<lb/>
+allumfaſſend, in ſeinem großen Gange deſto<lb/>
+ungehinderter und praͤchtiger fort. Wenig<lb/>
+achtete er auf Fuͤße des Sylbenmaaßes, auf<lb/>
+<fw type="sig" place="bottom">Siebente Samml. C</fw><lb/>
+<pb n="34" facs="#f0051"/>
+den Inhalt einzelner Strophen, auf einzelne<lb/>
+Worte; mit der Strophe, welches Inhalts<lb/>
+ſie auch war, kehrte der Geſang wieder;<lb/>
+das <hi rendition="#g">Feierliche</hi> verbarg jede Verſchieden-<lb/>
+heit in ſeinen weiten Mantel. Bei den<lb/>
+Griechen war dies anders geweſen; bei<lb/>
+ihnen war die Poeſie herrſchend, die Muſik<lb/>
+dienend. Jetzt ward die Muſik herrſchend,<lb/>
+die im Sylbenmaaß gebrechliche Poeſie<lb/>
+diente. Ein einziger Umſtand, der ſchon<lb/>
+einen voͤlligen Unterſchied zwiſchen der alten<lb/>
+und neuen Poeſie, der alten und neuen<lb/>
+Muſik gruͤndet. Die jetzt herrſchende Muſik,<lb/>
+die gleichſam von einem unermeßlichen Chor<lb/>
+in den Wolken getragen ward, mußte noth-<lb/>
+wendig, ſpaͤter oder fruͤher, <hi rendition="#g">fuͤr ſich ſelbſt<lb/>
+ein Gebaͤude der Harmonie</hi> ausbil-<lb/>
+den, da bei den Hymnen des Chriſtenthums<lb/>
+auf Melodie wenig, auf einzelne Glieder<lb/>
+des Versbaues und der Empfindungen noch<lb/>
+<pb n="35" facs="#f0052"/>
+weniger, und auf ein daraus entſpringen-<lb/>
+des momentanes Kunſtvergnuͤgen gar nicht<lb/>
+gerechnet war. Der Tonkuͤnſtler dagegen<lb/>
+war Zauberer in den Wolken, der mit ſei-<lb/>
+nen Schritten im großen Gange der Har-<lb/>
+monie deſto gebietender den Inhalt des<lb/>
+Ganzen verfolgte, und auf andaͤchtige Ge-<lb/>
+muͤther in dieſem vollſtimmigen Gange<lb/>
+deſto ſtaͤrker wirkte. Durch den chriſtlichen<lb/>
+Geſang war alſo die <hi rendition="#g">Harmonie der<lb/>
+Stimmen</hi> im Concert <hi rendition="#g">der Voͤlker<lb/>
+gleichſam gegeben</hi>.</p><lb/>
+<p>3. Auch die <hi rendition="#g">Sprache</hi> ward durch<lb/>
+dieſe neue Einrichtung der Dinge ſehr ver-<lb/>
+aͤndert. Wenn bei Griechen und Roͤmern<lb/>
+jener alte aͤchte Rhythmus, nach welchem<lb/>
+jede Sylbe ihr beſtimmtes Zeitmaas an<lb/>
+Laͤnge und Kuͤrze, an Tiefe und Hoͤhe hatte,<lb/>
+nicht ſchon verlohren gegangen war, ſo<lb/>
+ging er jetzt, wie die chriſtlichen Hymnen<lb/>
+<fw type="sig" place="bottom">C 2</fw><lb/>
+<pb n="36" facs="#f0053"/>
+zeigen, bald verlohren. Man achtete auf<lb/>
+ihn wenig und folgte dagegen, weil auf<lb/>
+Popularitaͤt alles gerechnet war, der <hi rendition="#g">ge</hi>-<lb/>
+<hi rendition="#g">meinen Ausſprache</hi>, ihren <hi rendition="#g">Perioden</hi><lb/>
+und <hi rendition="#g">Cadenzen</hi>, kurz dem <hi rendition="#g">Wohlklange<lb/>
+des plebejen Ohrs</hi>. Ohne Quantitaͤt<lb/>
+der Sylben brachte man alſo Reime und<lb/>
+Aſſonanzen ins Spiel; man formte einen<lb/>
+gewiſſen Numerus der Strophe, der dem<lb/>
+alltaͤglichen Gehoͤr gemaͤß war, den aber<lb/>
+die Griechen und Roͤmer nur in den ſoge-<lb/>
+nannten politiſchen oder gemeinen Volks-<lb/>
+verſen ertraͤglich gefunden hatten. Im<lb/>
+Innern konnte die Sprache eben ſo wenig<lb/>
+rein bleiben, <hi rendition="#g">da jetzt in Poeſie und<lb/>
+Rede der Genius faſt aller Voͤlker<lb/>
+miteinander vermiſcht ward</hi>. Aus-<lb/>
+druͤcke der Ebraͤer und andrer Aſiaten,<lb/>
+der Griechen und Roͤmer in den verſchie-<lb/>
+denſten Provinzen, endlich der Barbaren,<lb/>
+<pb n="37" facs="#f0054"/>
+die Sieger waren und Chriſten wurden,<lb/>
+floſſen zuſammen: ſo ward dann nach Ort<lb/>
+und Zeit das Griechiſche und das Latein<lb/>
+der mittleren Zeiten gebildet, das man mit<lb/>
+Recht die <hi rendition="#g">Moͤnchsſprache</hi> nennet. Sie<lb/>
+bildete ſich einen Reichthum neuer Ausdruͤcke<lb/>
+nach ihren Beduͤrfniſſen und Umſtaͤnden,<lb/>
+der alte <hi rendition="#g">Roͤmergenius</hi> aber war ver-<lb/>
+ſchwunden.</p><lb/>
+<p>4. Wie manche <hi rendition="#g">Wiſſenſchaften</hi> das<lb/>
+damalige Chriſtenthum entbehrlich glaubte,<lb/>
+erweiſet die Geſchichte der mittleren Zeiten.<lb/>
+Geſaͤnge, Predigten und Ordens-Regeln,<lb/>
+die vom Untergange der Welt, <hi rendition="#aq">(ſeculi huius)</hi><lb/>
+von der Eitelkeit aller irrdiſchen Dinge,<lb/>
+von der Truͤglichkeit des menſchlichen Gei-<lb/>
+ſtes, von der Naͤhe eines Reichs ſprechen,<lb/>
+in welchem alles anders ſeyn wird und<lb/>
+ſeyn muß, fachen nicht eben die Luft an,<lb/>
+den gegenwaͤrtigen Zuſtand der Welt, wie<lb/>
+<pb n="38" facs="#f0055"/>
+er iſt, zu beleben. Im Himmel war das<lb/>
+Vaterland der Chriſten; dahinauf ſtrebten<lb/>
+ihre Geſaͤnge; das Schema der gegenwaͤr-<lb/>
+tigen Welt war ihnen vergaͤnglich, ob ſie<lb/>
+es uͤbrigens gleich fuͤr ſich ſehr gut und<lb/>
+Ein Theil mit Bedruͤckung eines groͤßeren<lb/>
+andern Theils der Menſchheit zu gebrau-<lb/>
+chen wußten.</p><lb/>
+<p>5. Dagegen ward bald, hie und da,<lb/>
+jene <hi rendition="#g">myſtiſche Empfindungs</hi>-<hi rendition="#g">Theo</hi>-<lb/>
+<hi rendition="#g">logie</hi> ausgeſponnen, die, ihrer ſtillen Ge-<lb/>
+ſtalt ungeachtet, vielleicht die wirkſamſte<lb/>
+Theologie in der Welt geweſen. Im Chri-<lb/>
+ſtenthum ſchlang ſie ſich dem juͤngeren Pla-<lb/>
+tonismus an, der ihr viel Zweige der Ver-<lb/>
+einigung darbot; aber auch ohne Plato-<lb/>
+nismus war ſie bei allen Voͤlkern, die em-<lb/>
+pfindend dachten und denkend empfanden,<lb/>
+in jeder Religion, die <hi rendition="#g">beſeligen</hi> wollte,<lb/>
+am Ende das Ziel der Betrachtung. Sinn-<lb/>
+<pb n="39" facs="#f0056"/>
+liche Voͤlker ſelbſt haben zuweilen auf die<lb/>
+ſonderbarſte Weiſe einen <hi rendition="#g">Myſticismus</hi><lb/>
+geſucht und ſich in ihm berauſchet; <hi rendition="#g">ver</hi>-<lb/>
+<hi rendition="#g">nuͤnftelnde</hi> Voͤlker ſuchten ihn auf ihre<lb/>
+Weiſe. Der Grund dazu liegt in der Natur<lb/>
+des Menſchen. Er will Ruhe und Thaͤtig-<lb/>
+keit, Genuß und Beſchauung auf die koſten-<lb/>
+freieſte, dauerhafteſte, zugleich auch auf die<lb/>
+untruͤglichſte, auf eine gleichſam <hi rendition="#g">unend</hi>-<lb/>
+<hi rendition="#g">liche</hi> Weiſe. So gern moͤchte er mit<lb/>
+<hi rendition="#g">Ideen leben und ſelbſt Idee ſeyn</hi>.<lb/>
+Die traͤge Zeit, den leeren Raum, die<lb/>
+lahme Bewegung um ſich her moͤchte er<lb/>
+gern uͤberſpringen, und vernichten, dagegen<lb/>
+Alles an ſich ziehn, ſich Allem zueignen und<lb/>
+zuletzt in einem <hi rendition="#g">Ideal</hi> zerfließen, das je-<lb/>
+den Genuß in ſich faßt, wohin ſeine Vor-<lb/>
+ſtellung reichet. Viele Umſtaͤnde der dama-<lb/>
+ligen und folgenden Zeit kamen zuſammen,<lb/>
+dieſen Myſticismus zu naͤhren und ihn dem<lb/>
+<pb n="40" facs="#f0057"/>
+Chriſtenthum, zu welchem er urſpruͤnglich<lb/>
+nicht gehoͤrte, einzuverleiben. Ein ſpecu-<lb/>
+lirender Geiſt, dem es an Materie zur<lb/>
+Speculation fehlet, ein liebendes Herz ohne<lb/>
+Gegenſtand der Liebe, geraͤth immer auf<lb/>
+den Myſticismus. Einſame Gegenden,<lb/>
+Kloſterzellen, ein Krankenlager, Gefaͤngniß<lb/>
+und Kerker, endlich auch auffallende Bege-<lb/>
+benheiten, die Bekanntſchaft mit ſonderbar-<lb/>
+liebreichen und bedeutenden Perſonen, Worte,<lb/>
+die man von ihnen gehoͤrt, Zeichen der Zeit,<lb/>
+die man erlebt hat, u. f. alle dieſe Dinge<lb/>
+bruͤten den Myſticismus, dies Lieblings-<lb/>
+kind unſrer geiſtigen Wirkſamkeit und Traͤg-<lb/>
+heit, in einer groben oder ſeidenen Umhuͤl-<lb/>
+lung aus und geben ihm zuletzt die bunten<lb/>
+Fluͤgel des himmliſchen Amors. Man lie-<lb/>
+bet, und weiß nicht Wen? man begehret, und<lb/>
+weiß nicht Was? <hi rendition="#g">Etwas Unendliches</hi>,<lb/>
+das <hi rendition="#g">Hoͤchſte</hi>, <hi rendition="#g">Schoͤnſte</hi>, <hi rendition="#g">Beſte</hi>.</p><lb/>
+<pb n="41" facs="#f0058"/>
+<p>So unentbehrlich dem Menſchen dieſe<lb/>
+Tendenz nach dem Vortreflichſten und Voll-<lb/>
+kommenſten iſt, ohne welche er wie eine<lb/>
+Raupe umherkroͤche und vermoderte: ſo<lb/>
+leer bleibt dennoch die Seele, wenn ſie<lb/>
+blos auf Fluͤgeln der Imagination im Tau-<lb/>
+mel der Begeiſterung fortgetragen in unge-<lb/>
+heuren Wuͤſten umherſchweift. Das Un-<lb/>
+endliche giebt kein Bild: denn es hat keinen<lb/>
+Umriß; ſelten haben dieſen auch die Poe-<lb/>
+ſieen, die das Unermeßliche ſingen. Sie<lb/>
+ſchwingen ſich entweder in ein Empyreum<lb/>
+des Urlichts voll Geſtaltloſer Seraphim auf,<lb/>
+oder wenn ſie von da in die Tiefen des<lb/>
+menſchlichen Herzens zuruͤckkehren, kann die<lb/>
+erhoͤhete Speculation dennoch nur aus ihm<lb/>
+jene Urbilder himmliſcher Schoͤnheit holen,<lb/>
+die ſie uͤber den Wolken begruͤßet und in<lb/>
+ein Paradies der Liebe und Seligkeit hin-<lb/>
+auf zaubert. Die Hymnen der mittleren<lb/>
+<pb n="42" facs="#f0059"/>
+Zeiten ſind voll von dieſen goldnen Bil-<lb/>
+dern in die unermeßliche Blaͤue des Him-<lb/>
+mels gemahlet. Ich glaube nicht, daß es<lb/>
+Ausdruͤcke ſuͤßerer Empfindungen gebe, als<lb/>
+die bei der Geburt, dem Leiden und Tode<lb/>
+Chriſti, bei dem Schmerz der Maria, bei<lb/>
+ihrem Abſchiede aus der Sichtbarkeit, oder<lb/>
+bei ihrer Aufnahme in den Himmel und<lb/>
+bei dem freudigen Hingange ſo manches<lb/>
+Maͤrtyrers, bei der ſehnenden Geduld ſo<lb/>
+mancher leidenden Seele, meiſtens in den<lb/>
+einfachſten Sylbenmaaßen, oft in Idiotis-<lb/>
+men und Soldcismen des Affects geaͤußert<lb/>
+wurden. Wer ſich davon uͤberzeugen will,<lb/>
+leſe die frommen Liebesgeſaͤnge des heil.<lb/>
+<hi rendition="#g">Bernhards</hi> und <hi rendition="#g">Thomas</hi>, des Cardi-<lb/>
+nals <hi rendition="#g">Bona</hi>, der heil. <hi rendition="#g">Thereſe</hi>, des <hi rendition="#aq">Juan<lb/>
+de la Cruz</hi> und ihres Gleichen; oder viel-<lb/>
+mehr er hoͤre ſie mit Muſik begleitet. Das<lb/>
+<hi rendition="#aq">Stabat Mater doloroſa (Jacobus de Bene-<lb/>
+<pb n="43" facs="#f0060"/>
+dictis</hi> iſt ſein Verfaſſer) iſt in <hi rendition="#g">Pergoleſi</hi>'s<lb/>
+Compoſition ſehr bekannt; dergleichen ſuͤße<lb/>
+Schmerzen- und Liebesgeſaͤnge giebts in der<lb/>
+Moͤnchsſprache viele, die ganz dazu geſchaf-<lb/>
+fen ſcheinet. Wilder Sylbenmaaße bediente<lb/>
+man ſich dabei nicht; vielmehr aͤußerſt an-<lb/>
+ſtaͤndiger und ſanfter. Selbſt das verzuͤckte<lb/>
+<hi rendition="#aq">Metrum</hi> des ſogenannten <hi rendition="#aq">Pervigilii: cras<lb/>
+amet, qui numquam amauit,</hi> das in den<lb/>
+Hymnen oft gebraucht iſt, erhaͤlt in ihnen<lb/>
+einen Triumphton und eine Wuͤrde, die uns<lb/>
+gleichſam aus uns ſelbſt hinausſetzt und<lb/>
+unſer ganzes Weſen erweitert. Wie konnte<lb/>
+dies auch anders ſeyn, da, wo man die<lb/>
+Bibel nur aufſchlaͤgt, im Hohenliede, Pro-<lb/>
+pheten, Pſalmen, in den Evangelien,<lb/>
+Briefen und der Offenbahrung man Aus-<lb/>
+druͤcke bald der erhabenſten Einfalt, bald<lb/>
+der innigſten Zaͤrtlichkeit und Liebe findet?<lb/>
+Wer <hi rendition="#g">Haͤndels</hi> Meſſias, einige Pſalmen<lb/>
+<pb n="44" facs="#f0061"/>
+von <hi rendition="#g">Marcello</hi>, und <hi rendition="#g">Allegri</hi>'s, <hi rendition="#g">Leo</hi>,<lb/>
+<hi rendition="#g">Palaͤſtrina</hi> Compoſitionen der ſimpelſten<lb/>
+bibliſchen Worte gehoͤrt hat und dann die<lb/>
+lateiniſche Bibel, chriſtliche Epitaphien,<lb/>
+Paſſions- Grab- Auferſtehungslieder lieſet,<lb/>
+der wird ſich Trotz aller Soloͤcismen und<lb/>
+Idiotismen in dieſer chriſtlichen wie in einer<lb/>
+<hi rendition="#g">neuen Welt</hi> fuͤhlen.</p></div><lb/>
+<pb n="45" facs="#f0062"/>
+<div n="1"><head><hi rendition="#g">Nachſchrift</hi></head><lb/>
+<p>Da ich es nicht vorausſetzen kann, daß<lb/>
+Jedem von Ihnen eine Menge der Hymnen<lb/>
+bekannt ſey, von denen das Fragment re-<lb/>
+det: ſo laſſe ich von einigen der angefuͤhr-<lb/>
+ten nur Strophen abſchreiben, die ich etwa<lb/>
+mit einer Anmerkung begleite. Die Soloͤ-<lb/>
+cismen und Idiotismen darinn gehoͤren zur<lb/>
+Sprache der Zeit; uͤberhaupt ſind dieſe<lb/>
+Verſe nicht zu leſen, ſondern mit der ihnen<lb/>
+gebuͤhrenden Muſik zu hoͤren:</p><lb/>
+<lg><head>1.<lb/>
+<hi rendition="#aq"><hi rendition="#i">Jam moeſta quieſce.</hi></hi><note place="foot" n="*)" xml:id="note-0062" next="note-0063">Von <hi rendition="#g">Prudentius</hi>. Unſer alter Geſang:<lb/>
+<hi rendition="#g">Hoͤrt auf mit Klagen</hi> iſt eine Nachah-</note></head><lb/>
+<lg><l><hi rendition="#aq">Jam moeſta quieſce querela!</hi></l><lb/>
+<l><hi rendition="#aq">Lacrimas ſuſpendite, matres;</hi></l><lb/>
+<l><hi rendition="#aq">Nullus ſua pignora plangat</hi></l><lb/>
+<l><hi rendition="#aq">Mors haec reparatio vitae eſt.</hi></l></lg><lb/>
+<pb n="46" facs="#f0063"/>
+<lg><l><hi rendition="#aq">Nunc ſuscipe, terra, fovendum</hi></l><lb/>
+<l><hi rendition="#aq">Gremioque hunc concipe molli;</hi></l><lb/>
+<l><hi rendition="#aq">Hominis tibi membra ſequeſtro</hi></l><lb/>
+<l><hi rendition="#aq">Generoſa et fragmina credo.</hi></l></lg><lb/>
+<lg><l><hi rendition="#aq">Veniant modo tempora juſta,</hi></l><lb/>
+<l><hi rendition="#aq">Cum ſpem Deus impleat omnem;</hi></l><lb/>
+<l><hi rendition="#aq">Reddas patefacta, neceſſe eſt,</hi></l><lb/>
+<l><hi rendition="#aq">Qualem tibi trado figuram. ſeq.</hi></l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/> <lg><head>2.<lb/>
+<hi rendition="#aq"><hi rendition="#i">Dies irae.</hi></hi><note place="foot" n="*)" xml:id="note-0063a" next="note-0064">Der Graf <hi rendition="#g">Roscommon</hi> uͤberſetzte dieſen<lb/>
+Geſang ins Engliſche: <hi rendition="#aq">The Day of Wreath,</hi></note></head><lb/>
+<lg><l><hi rendition="#aq">Dies irae, dies illa</hi></l><lb/>
+<l><hi rendition="#aq">Solvet ſaeclum in favilla</hi></l><lb/>
+<l><hi rendition="#aq">Teſte David cum Sibylla.</hi></l></lg><lb/>
+<note place="foot" n="*)" xml:id="note-0063" prev="note-0062">mung einiger Strophen dieſes alten Hymnus,<lb/>
+der beim <hi rendition="#g">Prudentius</hi> anfaͤngt: <hi rendition="#aq">Deus,<lb/>
+ignee fons animarum.</hi></note><lb/>
+<pb n="47" facs="#f0064"/>
+<lg><l><hi rendition="#aq">Quantus tremor eſt futurus,</hi></l><lb/>
+<l><hi rendition="#aq">Quando judex eſt venturus,</hi></l><lb/>
+<l><hi rendition="#aq">Cuncta ſtricte discuſſurus.</hi></l></lg><lb/>
+<lg><l><hi rendition="#aq">Tuba mirum ſpargens ſonum</hi></l><lb/>
+<l><hi rendition="#aq">Per ſepulcra regionum</hi></l><lb/>
+<l><hi rendition="#aq">Coget omnes ante thronum.</hi></l></lg><lb/>
+<lg><l><hi rendition="#aq">Mors ſtupebit et natura,</hi></l><lb/>
+<l><hi rendition="#aq">Cum reſurget creatura</hi></l><lb/>
+<l><hi rendition="#aq">Iudicanti reſponſura.</hi></l></lg><lb/>
+<lg><l><hi rendition="#aq">Liber divus tunc pandetur,</hi></l><lb/>
+<l><hi rendition="#aq">In quo totum continetur,</hi></l><lb/>
+<l><hi rendition="#aq">Unde mundus judicetur.</hi></l></lg><lb/>
+<note place="foot" n="*)" xml:id="note-0064" prev="note-0063a"><hi rendition="#aq">that dreadful day,</hi> und ſtarb mit den Wor-<lb/>
+ten aus ihm:<lb/>
+<lg><l><hi rendition="#aq">Proſtrate, my contrite heart I rend,</hi></l><lb/>
+<l><hi rendition="#aq">My God, my Father, and my Friend,</hi></l><lb/>
+<l><hi rendition="#aq">Do not forſake me in my End.</hi></l></lg><lb/>
+Unſer Deutſches Lied: <hi rendition="#g">Es iſt gewißlich<lb/>
+an der Zeit</hi>, iſt eine Nachahmung dieſes<lb/>
+Geſanges.</note><lb/>
+<pb n="48" facs="#f0065"/>
+<lg><l><hi rendition="#aq">Iudex ergo cum ſedebit,</hi></l><lb/>
+<l><hi rendition="#aq">Quidquid latet apparebit,</hi></l><lb/>
+<l><hi rendition="#aq">Nil inultum remanebit.</hi></l></lg><lb/>
+<lg><l><hi rendition="#aq">Quid ſum miſer tunc dicturus?</hi></l><lb/>
+<l><hi rendition="#aq">Quem patronum rogaturus?</hi></l><lb/>
+<l><hi rendition="#aq">Cum vix juſtus ſit ſecurus.</hi></l></lg><lb/>
+<lg><l><hi rendition="#aq">Rex tremendae Majeſtatis,</hi></l><lb/>
+<l><hi rendition="#aq">Qui ſalvandos ſalvas gratis,</hi></l><lb/>
+<l><hi rendition="#aq">Salva me, fons pietatis. ſeq.</hi></l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/> <lg><head>3.</head><lb/>
+<lg><l><hi rendition="#aq">Lauda Sion Salvatorem,</hi></l><lb/>
+<l><hi rendition="#aq">Lauda Ducem et Paſtorem</hi></l><lb/>
+<l><hi rendition="#aq">In hymnis et canticis;</hi></l><lb/>
+<l><hi rendition="#aq">Quantum potes, tantum aude,</hi></l><lb/>
+<l><hi rendition="#aq">Quia major omni laude</hi></l><lb/>
+<l><hi rendition="#aq">Nec laudare ſufficis.</hi></l></lg><lb/>
+<lg><l><hi rendition="#aq">Sit laus plena, ſit ſonora</hi></l><lb/>
+<l><hi rendition="#aq">Sit jucunda, ſit decora</hi></l><lb/>
+<l><hi rendition="#aq">Mentis jubilatio.</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">Dies</hi></fw><lb/>
+<pb n="49" facs="#f0066"/>
+<l><hi rendition="#aq">Dies enim agitatur,</hi></l><lb/>
+<l><hi rendition="#aq">In qua menſae ruminatur</hi></l><lb/>
+<l><hi rendition="#aq">Hujus inſtitutio. ſeq.</hi></l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/> <lg><head>4.</head><lb/>
+<lg><l><hi rendition="#aq">Pange lingua glorioſi proelium certaminis</hi></l><lb/>
+<l><hi rendition="#aq">Et ſuper crucis trophaeo dic triumphum<lb/>
+nobilem;</hi></l><lb/>
+<l><hi rendition="#aq">Qualiter redemtor orbis immolatus vicerit.</hi></l></lg><lb/>
+<lg><l><hi rendition="#aq">Crux fidelis inter omnes arbor una nobilis</hi></l><lb/>
+<l><hi rendition="#aq">Nulla talem ſylva profert fronde, flore,<lb/>
+germine,</hi></l><lb/>
+<l><hi rendition="#aq">Dulce lignum, dulce ſignum, dulce pondus<lb/>
+ſuſtinet. ſeq.</hi></l></lg></lg><lb/>
+<milestone unit="section" rendition="#hr"/> <lg><head>5.</head><lb/>
+<lg><l><hi rendition="#aq">Ave maris ſtella, Dei mater alma,</hi></l><lb/>
+<l><hi rendition="#aq">Atque ſemper virgo, felix coeli porta.</hi></l><lb/>
+<l><hi rendition="#aq">Virgo ſingularis, inter omnes mitis</hi></l><lb/>
+<l><hi rendition="#aq">Nos culpis ſolutos miles fac et caſtos etc.</hi></l></lg></lg><lb/>
+<fw type="sig" place="bottom">Siebente Samml. D</fw><lb/>
+<pb n="50" facs="#f0067"/>
+<lg><head>6.</head><note place="foot" n="*)">Ueberſetzt von <hi rendition="#g">Wieland</hi>, im Deutſchen<lb/>
+Merkur, Februar 1781.</note><lb/>
+<lg><l><hi rendition="#aq">Stabat mater doloroſa,</hi></l><lb/>
+<l><hi rendition="#aq">Juxta crucem lacrimoſa</hi></l><lb/>
+<l><hi rendition="#aq">Dum pendebat filius.</hi></l><lb/>
+<l><hi rendition="#aq">Cujus animam gementem,</hi></l><lb/>
+<l><hi rendition="#aq">Contriſtatam et dolentem</hi></l><lb/>
+<l><hi rendition="#aq">Pertranſivit gladius.</hi></l></lg><lb/>
+<lg><l><hi rendition="#aq">O quam triſtis et afflicta</hi></l><lb/>
+<l><hi rendition="#aq">Fuit illa benedicta</hi></l><lb/>
+<l><hi rendition="#aq">Mater Unigeniti,</hi></l><lb/>
+<l><hi rendition="#aq">Quae moerebat et dolebat</hi></l><lb/>
+<l><hi rendition="#aq">Et tremebat, cum videbat</hi></l><lb/>
+<l><hi rendition="#aq">Nati poenas incliti.</hi></l></lg><lb/>
+<lg><l><hi rendition="#aq">Fac me cruce cuſtodiri</hi></l><lb/>
+<l><hi rendition="#aq">Morte Chriſti praemuniri</hi></l><lb/>
+<l><hi rendition="#aq">Confoveri gratia.</hi></l><lb/>
+<l><hi rendition="#aq">Quando corpus morietur,</hi></l><lb/>
+<l><hi rendition="#aq">Fac vt anima donetur</hi></l><lb/>
+<l><hi rendition="#aq">Paradiſi gloria.</hi></l></lg></lg><lb/>
+<pb n="51" facs="#f0068"/>
+<lg><head>7.</head><note place="foot" n="*)">Vom Deutſchen Moͤnch <hi rendition="#g">Gottſchalk</hi>, aͤlter<lb/>
+als <hi rendition="#g">Otfried</hi>, dem ſehr hart begegnet ward.<lb/>
+Er ſchrieb dies als ein Vertriebner, im Ge-<lb/>
+faͤngniß.</note><lb/>
+<lg><l><hi rendition="#aq">Ut quid jubes, puſiole?</hi></l><lb/>
+<l><hi rendition="#aq">Quare mandas, filiole,</hi></l><lb/>
+<l><hi rendition="#aq">Carmen dulce me cantare,</hi></l><lb/>
+<l><hi rendition="#aq">Cum ſim longe exſul valde<lb/>
+Intra mare;</hi></l><lb/>
+<l><hi rendition="#aq">O cur jubes canere?</hi></l></lg><lb/>
+<lg><l><hi rendition="#aq">Magis mihi miſerale</hi></l><lb/>
+<l><hi rendition="#aq">Flere libet puerale</hi></l><lb/>
+<l><hi rendition="#aq">Plus plorare quam cantare</hi></l><lb/>
+<l><hi rendition="#aq">Carmen tale jubes quare?<lb/>
+Amor care,</hi></l><lb/>
+<l><hi rendition="#aq">O cur jubes canere?</hi></l></lg></lg></div><lb/>
+<fw type="sig" place="bottom">D 2</fw><lb/>
+<pb n="52" facs="#f0069"/>
+<div n="1"><head>83.</head><lb/>
+<p><hi rendition="#in">M</hi>it Ihrem <hi rendition="#aq">dies irae, dies illa</hi> haben<lb/>
+Sie mir eine ſchoͤne Welt zu Grabe gelaͤu-<lb/>
+tet; die Welt der Erſcheinungen des Al-<lb/>
+terthums <hi rendition="#g">in ihren beſtimmten</hi>, <hi rendition="#g">lieb</hi>-<lb/>
+<hi rendition="#g">lichen Formen</hi>, <hi rendition="#g">in ihren bedeuten</hi>-<lb/>
+<hi rendition="#g">den Gebehrden</hi>, <hi rendition="#g">in ihren gleich</hi>-<lb/>
+<hi rendition="#g">ſam organiſirten Toͤnen</hi>. Sie wird<lb/>
+nicht wieder kommen auf unſrer Erde; ſo<lb/>
+wenig uns unſre Jugend zuruͤckkommt.</p><lb/>
+<p>Jene erſten Verſuche der Menſchen,<lb/>
+ſich das Unſichtbare <hi rendition="#g">ſichtbar</hi>, das Ver-<lb/>
+gangene und Entfernte <hi rendition="#g">gegenwaͤrtig</hi><lb/>
+zu machen, eine Welt von Gegenſtaͤnden,<lb/>
+<pb n="53" facs="#f0070"/>
+von Bildern und Empfindungen durch<lb/>
+Worte und Toͤne <hi rendition="#g">darzuſtellen</hi> und zwar<lb/>
+alſo dazuſtellen, daß auch ihre <hi rendition="#g">Folge</hi> ſpre-<lb/>
+chend, daß ihre <hi rendition="#g">Veraͤnderung in Licht<lb/>
+und Farben</hi> bis zum Kleinſten empfun-<lb/>
+den oder bemerkt werde; dieſe Verſuche,<lb/>
+in einer gegebnen langen Zeit zu Meiſter-<lb/>
+werken der <hi rendition="#g">poetiſchen Kunſt</hi> erhoͤhet,<lb/>
+von einer Nation, der die Kunſt <hi rendition="#g">Natur</hi>,<lb/>
+der Geſchmack am Schoͤnen <hi rendition="#g">Charakter</hi><lb/>
+geweſen zu ſeyn ſcheinet, werden ihres<lb/>
+gleichen ſchwerlich in Zeiten finden, die<lb/>
+Ihre angefuͤhrte Hymnen eingelaͤutet haben.</p><lb/>
+<p>Nichts iſt von zarterem Weſen, als der<lb/>
+aͤchte <hi rendition="#g">Natur</hi>- und <hi rendition="#g">Kunſtgeſchmack</hi>.<lb/>
+Durch Froͤmmigkeit und Andacht, ſelbſt<lb/>
+durch Gelehrſamkeit und Fleiß laͤßt er ſich<lb/>
+nicht erlangen; er iſt eine himmliſche Gra-<lb/>
+zie, die auf unſrer Erde nur hie und da,<lb/>
+dann und wann erſcheinet. Sie kann eben<lb/>
+<pb n="54" facs="#f0071"/>
+ſo leicht weggebetet, als wegſtudirt wer-<lb/>
+den; einmal vertrieben kommt ſie ſelten<lb/>
+oder ſpaͤt wieder.</p><lb/>
+<p>Und doch iſt mit dieſem <hi rendition="#g">Natur</hi>- <hi rendition="#g">und<lb/>
+Kunſtgeſchmack</hi> ſelbſt der <hi rendition="#g">richtige<lb/>
+Sinn</hi>, die <hi rendition="#g">wahre Vernunft des<lb/>
+Menſchen</hi> ſo innig verbunden. Schwer-<lb/>
+lich werde ich in Ihrem <hi rendition="#g">Athanaſius</hi> und<lb/>
+<hi rendition="#g">Ambroſius</hi> ſo ſchlicht und rein zu leſen<lb/>
+bekommen, was mich <hi rendition="#g">Cicero</hi>'s Pflichten,<lb/>
+<hi rendition="#g">Horaz</hi> Briefe und Sermonen lehren.<lb/>
+Die Litaneien und Legenden der Heiligen,<lb/>
+ja das ganze Breviarium dieſer Sitten-<lb/>
+lehre und Weisheit wird das aͤchte Richt-<lb/>
+maas menſchlicher Moralitaͤt kaum ſo ſtren-<lb/>
+ge an mich legen, als es die <hi rendition="#g">veſten Leh</hi>-<lb/>
+<hi rendition="#g">ren des Alterthums</hi>, ſeine mit ſichrer<lb/>
+Hand, im beſtimmteſten Umriß gezeichne-<lb/>
+ten <hi rendition="#g">Charaktere</hi> zu thun vermochten. Iſt<lb/>
+Einmal der Geſichtskreis und das Ziel der<lb/>
+<pb n="55" facs="#f0072"/>
+Beſtimmung verruͤckt, zu welchem die Men-<lb/>
+ſchen auf Erden leben, ſo erſcheinen durch<lb/>
+katopriſche Spiegel zuruͤckgeworfene ſelt-<lb/>
+ſame Bilder und Vorbilder des Lebens.<lb/>
+Eine Zauberlaterne bringt Geſtalten her-<lb/>
+vor, die in Schrecken und Verwunderung<lb/>
+ſetzen koͤnnen, denen man aber nicht ohne<lb/>
+Gefahr folget.</p><lb/>
+<p>Ihr Fragment meldete uns an, daß<lb/>
+ſich fortan die <hi rendition="#g">Muſik von der Poeſie<lb/>
+ſcheiden und in eignen Regionen<lb/>
+ihr Kunſtwerk treiben werde</hi>; fuͤrs<lb/>
+unbewehrte menſchliche Geſchlecht eine ge-<lb/>
+faͤhrliche Scheidung. Muſik ohne Worte<lb/>
+ſetzt uns in ein Reich dunkler Ideen; ſie<lb/>
+weckt Gefuͤhle auf, jedem nach ſeiner Weiſe;<lb/>
+Gefuͤhle, wie ſie im Herzen ſchlummern,<lb/>
+die im Strom oder in der Fluth kuͤnſtli-<lb/>
+cher Toͤne ohne Worte keinen Wegweiſer<lb/>
+und Leiter finden. Eine Muſik, die uͤber<lb/>
+<pb n="56" facs="#f0073"/>
+Worte gebietet, iſt nicht viel anders; ſie<lb/>
+herrſcht <hi rendition="#g">deſpotiſch</hi>. Erinnern Sie ſich<lb/>
+in <hi rendition="#g">Drydens</hi> Ode am Caͤcilientage, wo-<lb/>
+hin die Gewalt der Muſik den <hi rendition="#g">Alexan</hi>-<lb/>
+<hi rendition="#g">der</hi> reißt? Der Halbgott ſinkt der Buh-<lb/>
+lerinn in den Arm, er ſchwingt die Fackel<lb/>
+zu Perſepolis Brande. Auf gleiche Weiſe<lb/>
+kann durch eine geiſtliche und, wenn man<lb/>
+will, eine himmliſche Muſik die Seele der-<lb/>
+geſtalt aus ſich geſetzt werden, daß ſie ſich,<lb/>
+unbrauchbar und ſtumpf gemacht fuͤr dies<lb/>
+irrdiſche Leben, in geſtaltloſen Worten und<lb/>
+Toͤnen <hi rendition="#g">ſelbſt verlieret</hi>.</p><lb/>
+<p>Unſre zarte, fehlbare und fein empfaͤng-<lb/>
+liche Natur hat <hi rendition="#g">aller</hi> Sinne noͤthig, die<lb/>
+ihr Gott gegeben; ſie kann <hi rendition="#g">keinen</hi> ſeines<lb/>
+Dienſtes entlaſſen, um ſich einem andern<lb/>
+allein anzuvertrauen: denn eben im <hi rendition="#g">Ge</hi>-<lb/>
+<hi rendition="#g">ſammtgebrauch aller Sinne und<lb/>
+Organe</hi> zuͤndet und leuchtet allein die<lb/>
+<pb n="57" facs="#f0074"/>
+Fackel des Lebens. Das Auge iſt, wenn<lb/>
+man will, der kaͤlteſte, der aͤußerlichſte und<lb/>
+oberflaͤchlichſte Sinn unter allen; er iſt aber<lb/>
+auch der ſchnellſte, der umfaſſendſte, der<lb/>
+helleſte Sinn; er umſchreibt, theilt, bezirkt<lb/>
+und uͤbt die Meßkunſt fuͤr alle ſeine Bruͤ-<lb/>
+der. Das Ohr dagegen iſt ein zwar tief-<lb/>
+dringender, maͤchtigerſchuͤtternder, aber<lb/>
+auch ein ſehr aberglaͤubiger Sinn. In<lb/>
+ſeinen Schwingungen iſt etwas Unabzaͤhl-<lb/>
+bares, Unermaͤßliches, das die Seele in<lb/>
+eine ſuͤße Verruͤckung ſetzt, in welcher ſie<lb/>
+kein Ende findet. Behuͤte uns alſo die<lb/>
+Muſe vor einer bloßen <hi rendition="#g">Poeſie des Ohrs</hi><lb/>
+ohne Berichtigung der Geſtalten und ihres<lb/>
+Maaßes <hi rendition="#g">durchs Auge</hi>.</p><lb/>
+<p>Nochmals gehe ich Ihr Fragment durch<lb/>
+und frage: „wie wenn aus dieſer heilgen<lb/>
+Moͤnchspoeſie eine Volksdichtung hervorge-<lb/>
+hen ſollte, wie wird ſie werden? Gewiß<lb/>
+<pb n="58" facs="#f0075"/>
+anders als die Poeſie der Griechen war,<lb/>
+nicht nur im Inhalt des Geſanges, ſondern<lb/>
+auch in deſſelben ganzer Art und Weiſe.“</p><lb/>
+<p>1. Von <hi rendition="#g">Mythologie</hi> wird in ihr nicht<lb/>
+die Rede ſeyn koͤnnen, da man dieſe als<lb/>
+eine Daͤmonenſage anſah. Wenn Eine der-<lb/>
+ſelben gebildet werden ſollte, wird ſie aus<lb/>
+dem Glauben der Kirche, aus Sagen des<lb/>
+gemeinen Volks, aus National-Meinun-<lb/>
+gen und Abentheuern hervorgehn. Jede<lb/>
+ſolcher Geſtalten wird die Kirche weihen<lb/>
+und ordnen. —</p><lb/>
+<p>2. <hi rendition="#g">Reine Umriſſe der Phantaſie<lb/>
+und des Naturſinnes</hi> nach Art der<lb/>
+Griechen wird dieſe Dichtkunſt ſchwerlich<lb/>
+enthalten, da dieſe Welt ihr nur ein <hi rendition="#g">vor</hi>-<lb/>
+<hi rendition="#g">uͤbergehender Schatte</hi> zur kuͤnftigen<lb/>
+Welt iſt. Zwiſchen beide wird ſich der<lb/>
+Blick theilen, mithin Jene ſich in eine Art<lb/>
+Daͤmmerung verliehren. Hoͤchſtens alſo<lb/>
+<pb n="59" facs="#f0076"/>
+werden <hi rendition="#g">Allegorieen</hi> auftreten, ſtatt rei-<lb/>
+ner und beſtimmter Begriffe; auch wirkli-<lb/>
+che Perſonen werden gern als <hi rendition="#g">Allego</hi>-<lb/>
+<hi rendition="#g">rieen</hi> und Larven oder als heilige Nebel-<lb/>
+geſtalten erſcheinen, die ſich in der Ferne<lb/>
+verlieren.</p><lb/>
+<p>3. Das <hi rendition="#g">Intereſſe</hi>, das dieſe Poeſie<lb/>
+giebt, wird ſelten ein <hi rendition="#g">National</hi>-<hi rendition="#g">In</hi>-<lb/>
+<hi rendition="#g">tereſſe</hi> ſeyn, wie bei Griechen und Roͤ-<lb/>
+mern, vielleicht aber <hi rendition="#g">ein allgemeine</hi>-<lb/>
+<hi rendition="#g">res Intereſſe chriſtlicher Voͤlker</hi>,<lb/>
+die alle das heilige Bad beſprengt hat,<lb/>
+die als Beguͤnſtigte des Himmels mit dem<lb/>
+Kreutz bezeichnet, eine eigne chriſtliche Pro-<lb/>
+videnz uͤber ſich erkennen, Engel zu ihrer<lb/>
+Seite haben, und von der Erde gen Him-<lb/>
+mel wandern. In der Erzaͤhlung wird<lb/>
+dies den Ton der Geſchichte und Dichtung<lb/>
+ganz aͤndern.</p><lb/>
+<pb n="60" facs="#f0077"/>
+<p>4. Allen Handlungen und Leidenſchaf-<lb/>
+ten der Menſchen, ihren Tugenden und<lb/>
+Laſtern wird hiemit eine eigne <hi rendition="#g">religioſe<lb/>
+Farbe</hi>, ein Anzug gegeben werden, den<lb/>
+die alte Welt nicht kannte. In die Liebe<lb/>
+wird ſich Andacht miſchen; und die Uep-<lb/>
+pigkeit dagegen vielleicht deſto ſinnlicher<lb/>
+ihr Werk treiben. Statt des Verdienſtes<lb/>
+der Vorfahren um ein enges Vaterland<lb/>
+wird ein <hi rendition="#g">andaͤchtiger Ruhm</hi>, eine<lb/>
+Ehre hervorgehn, <hi rendition="#g">die Stand iſt und</hi><lb/>
+nach Staͤnden wirket. Auf dieſem Wege<lb/>
+wird eine <hi rendition="#g">Sentimentalitaͤt</hi> zum Vor-<lb/>
+ſchein kommen, von der die Poeſie der Al-<lb/>
+ten nicht wußte, eine anerzogne <hi rendition="#g">Senti</hi>-<lb/>
+<hi rendition="#g">mentalitaͤt der Staͤnde</hi>.</p><lb/>
+<p>5. Endlich, da der Rhythmus der Grie-<lb/>
+chen verlohren iſt und ſich der poëtiſche<lb/>
+Genius hier ungebildeten, mit dem Roͤ-<lb/>
+miſchen Volksdialekt vermiſchten Sprachen<lb/>
+<pb n="61" facs="#f0078"/>
+mittheilen ſoll: ſo werden in dieſer Ver-<lb/>
+wirrung ohne Sylbenmaaße der Alten ſich<lb/>
+ohne Zweifel rohere <hi rendition="#g">Volksgeſaͤnge nach<lb/>
+dem Modell der Moͤnchspoeſie for</hi>-<lb/>
+<hi rendition="#g">men</hi>. Was das innere Maaß und Ge-<lb/>
+wicht der Sylben nicht thun kann, wird<lb/>
+der <hi rendition="#g">Reim</hi> erſetzen ſollen, mit dem von<lb/>
+jeher das Ohr und die Zunge des Volks<lb/>
+ſpielte. Poeſie wird alſo eine <hi rendition="#g">gereimte<lb/>
+Proſe in Versperioden</hi> werden, de-<lb/>
+ren Abwechſelung und Ruͤndung etwa auch<lb/>
+ein unwiſſendes Ohr verfolgen kann; da-<lb/>
+gegen die Muſik, vom Bau der Sylben<lb/>
+getrennt, in ihrer eignen Region ihr Werk<lb/>
+treibet. Laſſen Sie uns bald einige Glocken-<lb/>
+und Poſaunen- und Orgeltoͤne, aber wenn<lb/>
+ich bitten darf, auch einige Toͤne der Harfe<lb/>
+aus dieſem neuen chriſtlichen Odeum aller<lb/>
+Europaͤiſchen Nationen hoͤren.</p></div><lb/>
+<pb n="62" facs="#f0079"/>
+<div n="1"><head>84.</head><lb/>
+<p><hi rendition="#g">Drittes Fragment</hi>.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p><hi rendition="#g">Bildung</hi><lb/>
+eines neuen Geſchmacks in Europa<lb/>
+und deſſen erſte Verfeinerung.</p><lb/>
+<p><hi rendition="#in">A</hi>lle Deutſche Nationen, die das Roͤmi-<lb/>
+ſche Reich unter ſich theilten, kamen mit<lb/>
+<hi rendition="#g">Heldenliedern von Thaten ihrer<lb/>
+Vorfahren</hi> in die ihnen neue Welt; es<lb/>
+ſind auch Zeugniſſe vorhanden, daß dieſe<lb/>
+Geſaͤnge unter ihnen ſich lange erhalten<lb/>
+haben. Wie auch anders? Dieſe Geſaͤnge<lb/>
+<pb n="63" facs="#f0080"/>
+waren ja die ganze Wiſſenſchaft und Gei-<lb/>
+ſtesergoͤtzung ſolcher barbariſchen Voͤlker,<lb/>
+das Archiv ihres Ruhmes und Nachruhms.<lb/>
+Was zu den Zeiten der griechiſchen Saͤn-<lb/>
+ger (ϰοιδων) der Fall geweſen, kam jetzt<lb/>
+auf eine rohere Weiſe wieder. Voͤlker,<lb/>
+die das Schreiben nicht viel kannten und<lb/>
+noch weniger liebten, erhielten durch Lie-<lb/>
+der das Andenken ihrer Vorfahren, und<lb/>
+jedes Volk hatte dabei ſeine eigne Lieb-<lb/>
+lingshelden, ſeine eigne Lieblingstoͤne.</p><lb/>
+<p>Sehr nuͤtzlich waͤre es, wenn wir dieſe<lb/>
+alten Wurzeln des Stammes der Denkart<lb/>
+und Sprache unſrer Vorfahren noch be-<lb/>
+ſaͤßen; wenn wir die Lieder von <hi rendition="#g">Mann</hi><lb/>
+und <hi rendition="#g">Hermann</hi>, <hi rendition="#g">Dietrich von Bern</hi>,<lb/>
+<hi rendition="#g">Alboin</hi>, <hi rendition="#g">Hildebrand</hi>, <hi rendition="#g">Ruͤdiger</hi>,<lb/>
+<hi rendition="#g">Siegfried</hi>, die Englaͤnder ihr <hi rendition="#aq">horn-<lb/>
+Child</hi>, <hi rendition="#g">Hervart</hi>, <hi rendition="#g">Grym</hi>, <hi rendition="#g">Hanelock</hi>,<lb/>
+und ſo jedes Deutſche Volk die Seinigen<lb/>
+<pb n="64" facs="#f0081"/>
+noch haͤtten. Es gilt aber von allen die-<lb/>
+ſen, was Horaz von jenen uralten griechi-<lb/>
+ſchen Helden ſagt, die vor Homer lebten:</p><lb/>
+<lg><l>Sie liegen alle, weil ſie der heiligen</l><lb/>
+<l>Geſaͤnge darben, unbejammert,</l><lb/>
+<l>Ruhmlos in ewiger Nacht begraben.</l></lg><lb/>
+<p>Die Veraͤnderung und Miſchung der Spra-<lb/>
+chen, bei den wandernden Voͤlkern die Ver-<lb/>
+ſchiedenheit des nordlichen und ſuͤdlichen<lb/>
+Klima, wohl aber am meiſten der Fort-<lb/>
+gang der Sitten ſelbſt, hat uns dieſer<lb/>
+wahrſcheinlich in rauhen Toͤnen beſunge-<lb/>
+nen Heldengeſtalten beraubet.</p><lb/>
+<p>Wie verſchieden naͤmlich die Mundar-<lb/>
+ten der Deutſchen Sprache nach den ver-<lb/>
+ſchiedenen Volksſtaͤmmen, Zeiten und Ge-<lb/>
+genden waren, dergeſtalt, daß man die<lb/>
+Gothen am ſchwarzen Meer, in Italien<lb/>
+und Spanien, die Wandalen in Pommern<lb/>
+und Afrika, die Angeln zu Hengſt und zu<lb/>
+<fw type="catch" place="bottom">Wil-</fw><lb/>
+<pb n="65" facs="#f0082"/>
+Wilhelm des Eroberers Zeiten nicht fuͤr<lb/>
+Eins nehmen darf: ſo iſt doch in allem,<lb/>
+was wir von ihren Sprachen wiſſen, <hi rendition="#g">ihr<lb/>
+nordiſches Gewand</hi> unverkennbar. Die<lb/>
+Deutſche Sprache naͤmlich, zumal in rau-<lb/>
+hen Gegenden, liebt <hi rendition="#g">einſylbige Toͤne</hi>.<lb/>
+Hart wird der Schall angeſtoßen, ſtark an-<lb/>
+geklungen, damit ſo viel moͤglich Alles auf<lb/>
+Einmal geſagt werde. Eine Sylbe ſoll<lb/>
+alles faſſen; die folgenden werden zuſam-<lb/>
+mengezogen, und gleichſam verſchlungen;<lb/>
+ſo daß ſie ſelten aushallen und kaum zwi-<lb/>
+ſchen den Lippen als erſtickte Geiſter<lb/>
+ſchweben. Die ganze Bildung unſrer<lb/>
+Sprache, am meiſten die aus dem Latein<lb/>
+bei uns aufgenommenen Worte und Na-<lb/>
+men beweiſen dies; es ſind hart zuſam-<lb/>
+mengedraͤngte Laute; und was noch ſon-<lb/>
+derbarer iſt, mit dem Verfolg der Jahr-<lb/>
+hunderte hat ſich dies Zuſammendraͤngen<lb/>
+<fw type="sig" place="bottom">Siebente Samml. E</fw><lb/>
+<pb n="66" facs="#f0083"/>
+der Buchſtaben nicht vermindert, ſondern<lb/>
+vermehrt. <hi rendition="#g">Ulfila</hi>'s und <hi rendition="#g">Ottfrieds</hi><lb/>
+Sprache ſind ungleich toͤnender, als wie<lb/>
+man z. B. im vorigen Jahrhundert oder<lb/>
+noch jetzt aus dem Munde des Volks die<lb/>
+Worte ſchreibet. Das Angelſaͤchſiſche ſchlich<lb/>
+mit viel ſtummen E. in mehreren Sylben<lb/>
+langſam fort; das Engliſche, das ſich<lb/>
+unter den Normaͤnnern bildete, warf<lb/>
+Buchſtaben weg, draͤngte ſie zuſammen,<lb/>
+ſchnitt vorn und hinten ab die Sylben; ſo<lb/>
+entſtand ein ganz neuer Gang und Rhyth-<lb/>
+mus der Sprache.</p><lb/>
+<p>Aus dieſer beliebten <hi rendition="#g">Einſylbigkeit</hi><lb/>
+der nordiſchen Mundarten, bei der man<lb/>
+aus Traͤgheit oder wie in boͤſer Luft die<lb/>
+Lippen kaum zu oͤfnen waget, und immer<lb/>
+nur <hi rendition="#g">hm</hi>! <hi rendition="#g">hm</hi>! ſprechen moͤchte, war es<lb/>
+natuͤrlich, daß wenn man Worte gegen<lb/>
+einander kuͤnſtlich ſtellen wollte, dies in-<lb/>
+<pb n="67" facs="#f0084"/>
+ſonderheit im <hi rendition="#g">Anklange</hi> bemerkt werden<lb/>
+mußte, indem der Ausgang der Worte gern<lb/>
+im Dunkeln blieb. Dies iſt nun jenes be-<lb/>
+ruͤhmte Syſtem nordiſcher <hi rendition="#g">Alliteratio</hi>-<lb/>
+<hi rendition="#g">nen</hi>, (Annominationen,)<note place="foot" n="*)" xml:id="note-0084" next="note-0085">Naͤhere Kaͤnntniß von dieſem ſonderbaren<lb/>
+Syſtem der Nordiſchen Prosodie findet man<lb/>
+in <hi rendition="#g">Olaus Wormius</hi> <hi rendition="#aq">literatura Danica,</hi><lb/>
+<hi rendition="#g">Hickes</hi> <hi rendition="#aq">theſaur. linguar. ſeptentrion.</hi> und<lb/>
+aͤhnlichen Werken. Wer ihrer entbehrt, ziehe<lb/>
+die <hi rendition="#g">Briefe uͤber Merkwuͤrdigkeiten<lb/>
+der Literatur</hi> (Schleswig 1767.) Th. I.<lb/>
+S. 150, zu Rath; eine Sammlung Briefe,<lb/>
+die weit mehr Aufmerkſamkeit verdient, als</note> das um kein<lb/>
+Haar unnatuͤrlicher als der Reim iſt; in-<lb/>
+dem man hier nur in der Mitte oder vorn<lb/>
+reimet. Den Alten, d. i. Griechen und<lb/>
+Roͤmern waren beide Arten eines ſolchen<lb/>
+Wohlklanges Uebelklaͤnge; aͤhnliche An-<lb/>
+klaͤnge der Worte ſuchten ſie, wie den Reim<lb/>
+<fw type="sig" place="bottom">E 2</fw><lb/>
+<pb n="68" facs="#f0085"/>
+zu vermeiden. Auch fuͤr die Gegenden<lb/>
+eines beſſeren Klima war dieſer nordiſche<lb/>
+rauhe Sylbentritt nicht; die Spaniſche Ro-<lb/>
+manzen, die vielleicht nach Gothiſchen Volks-<lb/>
+liedern geformt ſind, haben jenen wilden,<lb/>
+maͤnnlichen Jambus, der urſpruͤnglich in<lb/>
+Waͤldern zum Jagd- und Kriegshorn toͤnte,<lb/>
+fahren laſſen und ſtatt deſſen langſame<lb/>
+Trochaͤen in weiblichen Ausgaͤngen mit dem<lb/>
+zuletzt praͤchtig-verhallenden <hi rendition="#aq">ar</hi> gewaͤhlet.<lb/>
+In Italiens Luft zerfloß gleichfalls der go-<lb/>
+thiſche und longobardiſche Sylben-Anklang<lb/>
+<note place="foot" n="*)" xml:id="note-0085" prev="note-0084">ſie erlangt. Das Syſtem der <hi rendition="#g">Allitera</hi>-<lb/>
+<hi rendition="#g">tionen</hi>, daß gewiſſe Worte im Anfange und<lb/>
+in der Mitte des Verſes von einem Buch-<lb/>
+ſtaben anfangen und einen aͤhnlichen Vocal<lb/>
+haben, iſt, wie mich duͤnkt, mehr angeſtaunt<lb/>
+als erklaͤrt worden; ſein natuͤrlicher Grund<lb/>
+iſt der Bau der Sprache ſelbſt, der Genius<lb/>
+des Volks, das ſie ſprach und die Art, wie<lb/>
+man die Worte antoͤnte. A. d. V.</note><lb/>
+<pb n="69" facs="#f0086"/>
+in weiche und immer weichere Toͤne. Kein<lb/>
+Wunder alſo, daß jene alten Helden-Me-<lb/>
+lodieen in dieſer ſanfteren Luft den Toͤnen<lb/>
+nach allmaͤhlich verhallten.</p><lb/>
+<p>Dabei aber gingen nicht ſofort auch die<lb/>
+<hi rendition="#g">Erzaͤhlungen</hi> ſelbſt, jene <hi rendition="#g">Heldenſa</hi>-<lb/>
+<hi rendition="#g">gen</hi> zu Grunde, die gleichſam die Seele<lb/>
+dieſer Voͤlker, ihr Trank und ihre geiſtige<lb/>
+Speiſe waren. Sie konnten nicht zu Grunde<lb/>
+gehen, weil dieſe Voͤlker, (wenn mir der<lb/>
+Ausdruck erlaubt iſt) <hi rendition="#g">abentheuerlich<lb/>
+dachten</hi> und entweder gar nicht oder im<lb/>
+<hi rendition="#g">Abentheuer</hi> lebten. Ein Volk von we-<lb/>
+nigen aber ſtarken Begriffen und Leiden-<lb/>
+ſchaften geregt und getrieben, hat wenig Luſt<lb/>
+zu Ordnungsmaͤßigen, gewoͤhnlichen, ruhi-<lb/>
+gen Geſchaͤften; es bleibt gegen ſie kalt<lb/>
+und traͤge. Dagegen flammets auf, wenn<lb/>
+ein Abentheuer ruft, wenn wie ein Jagd-<lb/>
+und Kriegshorn die <hi rendition="#g">Abentheuerſage</hi><lb/>
+<pb n="70" facs="#f0087"/>
+ertoͤnet. In eingepflanzten Trieben, in an-<lb/>
+gebohrnen Begriffen und Neigungen ging<lb/>
+dieſe Liebe zum Abentheuer auf Geſchlech-<lb/>
+ter hinab; der geiſtliche Stand, in deſſen<lb/>
+Haͤnden die Bildung der Menſchen nach<lb/>
+Begriffen der Zeit war, bemaͤchtigte ſich<lb/>
+dieſes Triebes; er fabelte, dichtete, erzaͤhlte.<lb/>
+Von Erzaͤhlungen faͤngt alle Cultur roher<lb/>
+Voͤlker an; ſie leſen nicht, ſie vernuͤnfteln<lb/>
+nicht gern, aber ſie hoͤren und laſſen ſich<lb/>
+erzaͤhlen. So Kinder, ſo alle Staͤnde, die<lb/>
+inſonderheit unter freiem Himmel ein halb-<lb/>
+muͤßiges Leben fuͤhren. Wo ſie auch leben,<lb/>
+Norweger und Araber, Perſer und Mogo-<lb/>
+len, der Gothe, Sachſe, Frank und Katte<lb/>
+des Mittelalters, noch jetzt alle halbmuͤſ-<lb/>
+ſige Abentheurer, Krieger, Jaͤger, Reiſen-<lb/>
+de, Pilger haben hierinn Einerlei Geſchmack,<lb/>
+Einerlei Zeitkuͤrzung. Unwiſſenheit iſt die<lb/>
+Mutter des Wunderbaren, unternehmende<lb/>
+<pb n="71" facs="#f0088"/>
+Kuͤhnheit ſeine Ernaͤhrerinn, unzaͤhliche Sa-<lb/>
+gen ſeine Nachkommenſchaft und ihr gro-<lb/>
+ßer Mentor, der Glaube. Wenn Moͤnche<lb/>
+dergleichen Erzaͤhlungen in ihre Chroniken<lb/>
+aufnahmen und ihre Legenden ſelbſt dar-<lb/>
+nach ſchrieben: ſo thaten ſie es nicht im-<lb/>
+mer aus Luſt zu betruͤgen. Es war Ge-<lb/>
+ſchmack und ſogar Kreis des Wiſſens,<lb/>
+Denkart der Zeit; eine aͤchte Moͤnchschro-<lb/>
+nik mußte vom Anfange der Welt anfan-<lb/>
+gen und in beſtimmten Zeitraͤumen durch<lb/>
+Fabel und Geſchichte der Griechen und Roͤ-<lb/>
+mer, (Geſchichte und Dichtung auf Einem<lb/>
+Grunde betrachtet) bis zum Ende der Welt<lb/>
+fortgehn; das war der gegebene Umriß.<lb/>
+Eben nach den Begebenheiten der Zeit,<lb/>
+die alleſamt <hi rendition="#g">geiſtliche und weltliche<lb/>
+Abentheuer</hi> waren, formte ſich der Um-<lb/>
+riß der Erzaͤhlung, bildete ſich der Ton<lb/>
+des Ganzen. Mehr als Eine Chronik der<lb/>
+<pb n="72" facs="#f0089"/>
+mittleren Zeiten iſt wie ein <hi rendition="#g">cykliſches<lb/>
+Gedicht</hi> zu leſen.</p><lb/>
+<p>Wenn aber und wie wird aus dieſen<lb/>
+vermiſchten Sagen und Abentheuermaͤhr-<lb/>
+chen ſo verſchiedner Voͤlker in ſo verſchied-<lb/>
+nen Gegenden und Umſtaͤnden ein Ilias,<lb/>
+eine Odyſſee erwachſen, die Allem gleich-<lb/>
+ſam den Kranz raubte, und jetzt als Sage<lb/>
+der Sagen gelte?</p><lb/>
+<p>Dazu gehoͤrt viel; inſonderheit aber<lb/>
+daß die Sprache und der Witz der Euro-<lb/>
+paͤiſchen Voͤlker einigermaßen verfeinert<lb/>
+werde, daß Voͤlker mit einander in Ver-<lb/>
+bindung oder in Wettkampf gerathen, da-<lb/>
+durch ſie einander verſtehen lernen, endlich<lb/>
+daß, wenns ſeyn kann, hier oder da ein<lb/>
+<hi rendition="#g">Homer</hi> aufkomme, dem alle horchen.<lb/>
+Aeußerſt ſchwer und langſam konnte dieſe<lb/>
+Aufgabe aufgeloͤſet werden, da Einestheils<lb/>
+die Voͤlker durch Stammesvorurtheile und<lb/>
+<pb n="73" facs="#f0090"/>
+Leidenſchaften blind getrennt, anderſeits die<lb/>
+Sitten ſo grob oder verderbt waren, daß<lb/>
+ſchwerlich ein Lorbeerbaum fuͤr ganz Euro-<lb/>
+pa ſproſſen konnte. Tapferkeit und Witz<lb/>
+ſind nicht immer beiſammen; eben ſo ſel-<lb/>
+ten ſind es Witz und Kloſterandacht, wie die<lb/>
+Eſels- und Narrenfeſte, das <hi rendition="#aq">Hez, Sir Ane,<lb/>
+Hez,</hi> und andre Anſtalten zeigen. Wenn<lb/>
+in die Sprachen Europa's Bildung, in<lb/>
+ſeine Sitten Geſchmack, in ſeine Poeſie<lb/>
+Unterhaltung kommen ſollte, ſo mußten dieſe<lb/>
+anderswoher kommen, als vom Waffenplatz<lb/>
+und aus dem Kloſter. Sie mußten aus<lb/>
+einer Gegend kommen, wo ein fremder Um-<lb/>
+gang etwas anders als den bloßen Moͤnchs-<lb/>
+und Kloſtergeiſt zeigte. Kurz —</p><lb/>
+<p>Spanien war die gluͤckliche Gegend,<lb/>
+wo fuͤr Europa der erſte Funke einer wie-<lb/>
+derkommenden Cultur ſchlug, die ſich denn<lb/>
+auch nach dem Ort und der Zeit geſtalten<lb/>
+<pb n="74" facs="#f0091"/>
+mußte, in denen ſie auflebte. Die Ge-<lb/>
+ſchichte davon lautet wie ein angenehmes<lb/>
+Maͤhrchen.</p><lb/>
+<p>Spanien naͤmlich, ſo ſagt die Geſchichte,<lb/>
+hatte unter der Herrſchaft der Mauren<lb/>
+eine ſehr bluͤhende Geſtalt gewonnen; mit<lb/>
+dem Ackerbau, dem Fleiß, dem Handel,<lb/>
+waren in ihm mehrere Wiſſenſchaften und<lb/>
+Kuͤnſte, unter dieſen auch die Dichtkunſt<lb/>
+cultivirt worden. Die Mauriſche Galan-<lb/>
+terie hatte ſich unter dem ſchoͤnen Himmel<lb/>
+von <hi rendition="#g">Granada</hi>, <hi rendition="#g">Murcia</hi>, <hi rendition="#g">Andaluſien</hi><lb/>
+veredelt; glaͤnzende Ritterſpiele waren im<lb/>
+Gebrauch, an denen als Preisaustheilerin-<lb/>
+nen auch die Damen Theil nahmen. Ohne<lb/>
+Zweifel war die Nachbarſchaft dieſes gebil-<lb/>
+deten Volks mit andern eine Urſache, daß<lb/>
+unter dem gleichſchoͤnen Himmel von Va-<lb/>
+lenzia, Catalonien, Arragonien und den<lb/>
+ſuͤdlichen Provinzen Frankreichs ſich die ſo-<lb/>
+<pb n="75" facs="#f0092"/>
+genannte <hi rendition="#g">Provenzal</hi>- oder <hi rendition="#g">Limoſini</hi>-<lb/>
+<hi rendition="#g">ſche</hi> Sprache auch aus der Barbarei riß<lb/>
+und eine friſche Bluͤthe, die <hi rendition="#g">provenzali</hi>-<lb/>
+<hi rendition="#g">ſche Dichtkunſt</hi> hervorbrachte. Von<lb/>
+Valenzia an uͤber die Inſeln Majorka,<lb/>
+Minorka, Ybiza, uͤber Arragonien und<lb/>
+Katalonien, jenſeit der Alpen uͤber die<lb/>
+<hi rendition="#g">Provence</hi>, <hi rendition="#g">Languedoc</hi>, <hi rendition="#g">Guienne</hi>,<lb/>
+das <hi rendition="#g">Delphinat</hi>, bis nach <hi rendition="#g">Poiton</hi> hin-<lb/>
+ein erſtreckte ſich dieſe Sprache, die nach<lb/>
+damaligen Zeitumſtaͤnden allgemach die ge-<lb/>
+bildetſte in Europa ward <note place="foot" n="*)" xml:id="note-0092" next="note-0093">In <hi rendition="#g">Creſcimbeni</hi> <hi rendition="#aq">iſtoria della volgar<lb/>
+Poeſia,</hi> in <hi rendition="#g">Velasquez</hi>-<hi rendition="#g">Diez</hi> Geſchichte<lb/>
+der Spaniſchen Dichtkunſt und denen daſelbſt<lb/>
+angefuͤhrten Schriften, in mehreren Abhand-<lb/>
+lungen des um die Provenzalen ſehr verdien-<lb/>
+ten <hi rendition="#aq">Curne de St. Palaye</hi> in der Academie</note>. Regierende<lb/>
+Fuͤrſten und Grafen, Ritter und Edle von<lb/>
+jedem Range ſahen es als eine Ehre an,<lb/>
+<pb n="76" facs="#f0093"/>
+ſie an ihren Hoͤfen und in ihren Schloͤſ-<lb/>
+ſern, die kleine Hoͤfe waren, zierlich zu<lb/>
+ſprechen. Die Damen nahmen daran Theil,<lb/>
+nicht nur als Richterinnen und als der<lb/>
+vielfaͤltige Gegenſtand der Gedichte, ſon-<lb/>
+dern zuweilen auch als Dichterinnen ſelbſt.<lb/>
+Die Provenzal-Poeſie ward das <hi rendition="#g">Organ<lb/>
+des galanten Rittergeiſtes in allen<lb/>
+Zweigen ſeiner Denkart</hi>. Man be-<lb/>
+ſang die Liebe und warf Fragen der Liebe<lb/>
+auf, die in ſogenannten <hi rendition="#aq">Corte d'amore</hi><lb/>
+verhandelt wurden; man nannte ihre Vers-<lb/>
+art <hi rendition="#g">Tenzonen</hi>. Kleine und große Aben-<lb/>
+theuer, Begebenheiten des Lebens und der<lb/>
+<note place="foot" n="*)" xml:id="note-0093" next="note-0092">der Aufſchriften, <hi rendition="#g">Millots</hi> <hi rendition="#aq">hiſtoire des<lb/>
+Troubadours,</hi> Abbt <hi rendition="#g">Andrès</hi> <hi rendition="#aq">ſtoria d'ogni<lb/>
+literatura T. I. II.</hi> kann man ſich uͤber dieſe<lb/>
+merkwuͤrdige Erſcheinung weiter belehren.<lb/>
+Sie iſt die Morgenroͤthe der <hi rendition="#g">neueren</hi> Eu-<lb/>
+ropaͤiſchen Cultur und Dichtkunſt.</note><lb/>
+<pb n="77" facs="#f0094"/>
+Geſchichte, auch geiſtliche Dinge wurden<lb/>
+in <hi rendition="#g">Canzonen</hi>, <hi rendition="#g">Villaneſca</hi>'s und an-<lb/>
+dern Gedichtarten beſungen, unter welchen<lb/>
+man die Satyren <hi rendition="#g">Sirventes</hi> nannte.<lb/>
+Auch Lehre und Unterricht trug man in<lb/>
+mancherlei Einkleidungen vor; ja es ereig-<lb/>
+neten ſich keine Haͤndel der damaligen Zeit,<lb/>
+die an großen Ereigniſſen und Verwirrun-<lb/>
+gen ſehr reich war, an denen hie und dort<lb/>
+nicht irgend ein Provenzal Antheil genom-<lb/>
+men haͤtte. Kreuzzuͤge und andre Kriege,<lb/>
+Vererbungen der Reiche und Schloͤſſer,<lb/>
+Sitten der Fuͤrſten, der Damen, der Geiſt-<lb/>
+lichkeit, der Paͤbſte ſelbſt; alles beruͤhrte<lb/>
+dieſe Dichtkunſt, oft mit einer kuͤhnen Frei-<lb/>
+heit. <hi rendition="#g">Finder</hi>, <hi rendition="#g">Trobadoren</hi> nannten<lb/>
+ſich die Dichter, die vorher in der baͤuri-<lb/>
+ſchen Roͤmerſprache <hi rendition="#g">Fatiſten</hi> (Macher,<lb/>
+<hi rendition="#aq">faiseurs</hi>) geheißen hatten. Ihre Kunſt<lb/>
+hatte den Namen der <hi rendition="#g">froͤhlichen Wiſ</hi>-<lb/>
+<pb n="78" facs="#f0095"/>
+<hi rendition="#g">ſenſchaft</hi> <hi rendition="#aq">(gay ſaber, gaya ciencia)</hi> ſo<lb/>
+wie auch ihr entſchiedner Zweck <hi rendition="#g">froͤhliche<lb/>
+angenehme Unterhaltung</hi> war.</p><lb/>
+<p>Der erſte Garten, wo dieſe Blume auf-<lb/>
+ſproßte, war vielleicht der Hof zu <hi rendition="#g">Bar</hi>-<lb/>
+<hi rendition="#g">cellona</hi>; ſehr bald aber muͤſſen andre ge-<lb/>
+folgt ſeyn: denn der aͤlteſte Provenzaldich-<lb/>
+ter, den wir haben, <hi rendition="#g">Wilhelm</hi> der neun-<lb/>
+te, Graf von <hi rendition="#g">Poitou</hi>, Herzog von <hi rendition="#g">Aqui</hi>-<lb/>
+<hi rendition="#g">tanien</hi>, am Ende des eilften und im An-<lb/>
+fange des zwoͤlften Jahrhunderts, ſang ſchon<lb/>
+in einer zur Poeſie voͤllig gebildeten Spra-<lb/>
+che. Auch in Gallicien, Caſtilien, Portu-<lb/>
+gal finden ſich zu eben dieſer Zeit aͤhnliche<lb/>
+Uebungen der Verskunſt ohngefaͤhr in dem-<lb/>
+ſelben Gedankenkreiſe. Die ſogenannten<lb/>
+<hi rendition="#aq">Jeux floraux</hi> aber, eine <hi rendition="#g">Blumengeſell</hi>-<lb/>
+<hi rendition="#g">ſchaft</hi>, wo der Preis der Dichtkunſt ein<lb/>
+goldnes Veilchen war, iſt von weit ſpaͤ-<lb/>
+terem Datum. (1324.) Ihre Stifterinn<lb/>
+<pb n="79" facs="#f0096"/>
+war <hi rendition="#g">Clemenzia Iſaura</hi>, Graͤfin von<lb/>
+<hi rendition="#g">Toulouſe</hi>.</p><lb/>
+<p>Man hat uͤber den Urſprung des Reims<lb/>
+viel geſtritten, und ihn bei Nordlaͤndern<lb/>
+und Arabern, bei Moͤnchen, Griechen und<lb/>
+Roͤmern geſucht; mich duͤnkt mit unnoͤthi-<lb/>
+ger Muͤhe. Man koͤnnte uͤber ihn das be-<lb/>
+kannte Kinderſpiel mit dem Motto: „alles<lb/>
+was reimen kann, reimt“ ſpielen. Moͤnche<lb/>
+reimen, Otfried reimte, die Araber reimen,<lb/>
+Mahomed im Koran, der Engel Gabriel<lb/>
+reimt; der alte Lamech vor der Suͤndfluth<lb/>
+reimte. Aber Griechen und Roͤmer in ih-<lb/>
+ren ſchoͤnſten Zeiten vermieden die Reime<lb/>
+und ſuchten einen fortgehenden, hoͤheren<lb/>
+Wohlklang. Die Trobadoren, die in jedem<lb/>
+Innern die Poeſie der Araber nicht nach-<lb/>
+ahmen <hi rendition="#g">konnten</hi>, ſondern ſich eine Poeſie,<lb/>
+wie ſie ihnen ihr <hi rendition="#g">Zeitgeiſt</hi>, ihre <hi rendition="#g">Spra</hi>-<lb/>
+<hi rendition="#g">che</hi> und das naͤhere Vorbild der <hi rendition="#g">latei</hi>-<lb/>
+<pb n="80" facs="#f0097"/>
+<hi rendition="#g">niſchen Moͤnchspoeſie</hi> gab, finden<lb/>
+mußten; ſie <hi rendition="#g">mußten</hi> reimen, ja ſogar in<lb/>
+die <hi rendition="#g">Mannichfaltigkeit gereimter<lb/>
+Versarten</hi> einen großen Theil der <hi rendition="#g">An</hi>-<lb/>
+<hi rendition="#g">muth</hi> ihrer Poeſie legen, weil ſie ihrer<lb/>
+Zeit und Sprache nach nichts Anders thun<lb/>
+konnten. Die Limoſiniſche Mundart, wie<lb/>
+jedes andre Kind der <hi rendition="#aq">lingua ruſtica Ro-<lb/>
+mana</hi> wußte vom Rhythmus der alten<lb/>
+Roͤmerpoëſie ganz und gar nichts; alſo<lb/>
+konnten die Provenzalen ihre Verſe nicht<lb/>
+nach der Grammatik der Alten ſcandiren;<lb/>
+ſie accentuirten ſie, wie Spanier, Portu-<lb/>
+gieſen, Italiener und Franzoſen noch bis<lb/>
+jetzt ihre Verſe accentuiren, ſolche daher<lb/>
+auch nicht nach einer eigentlichen Quantitaͤt<lb/>
+der Sylben, ſondern zur <hi rendition="#g">artigen</hi>, <hi rendition="#g">ver</hi>-<lb/>
+<hi rendition="#g">ſtaͤndigen Declamation</hi> einrichten <note place="foot" n="*)" xml:id="note-0097" next="note-0098">Dieſer Unterſchied zwiſchen der alten Pros-<lb/>
+odie, von dem viele keinen deutlichen Begriff</note>.<lb/>
+<pb n="81" facs="#f0098"/>
+Dieſe accentuirte Declamation ward eine<lb/>
+eigne Kunſt, auf welche ſich die Rhapſo-<lb/>
+den der damaligen Zeit, die auch Erzaͤhler<lb/>
+hießen, <hi rendition="#aq">(Conteours,)</hi> legten. Mit den Ge-<lb/>
+dichten der Trobadoren reiſeten ſie an den<lb/>
+Hoͤfen umher, und begleiteten ſie theils<lb/>
+mit einem Inſtrument, theils mit Gebehr-<lb/>
+den; daher man ſie auch <hi rendition="#aq">Jongleours, (Jo-<lb/>
+culatores) Muſars, Comirs Plaiſantins</hi><lb/>
+<note place="foot" n="*)" xml:id="note-0098" prev="note-0097">haben, und der doch zum Unterſchiede der<lb/>
+alten und neuen Poeſie viel beitraͤgt, iſt am<lb/>
+beſten in <hi rendition="#g">Iſaak Voß</hi> bekannter Abhandlung<lb/>
+<hi rendition="#aq">de cantu veterum</hi> (uͤberſetzt in der <hi rendition="#g">Samm</hi>-<lb/>
+<hi rendition="#g">lung vermiſchter Schriften</hi> Th. I.<lb/>
+Berl. 1759.) in des Abbt <hi rendition="#g">Du Bos</hi> Betrach-<lb/>
+tungen uͤber Poeſie und Malerei, in <hi rendition="#g">Mura</hi>-<lb/>
+<hi rendition="#g">tori</hi> Abhandlung <hi rendition="#aq">de rhythmica Veterum<lb/>
+poeſi (Antiqu. Ital. med. aevi T. III. p.<lb/>
+664.)</hi> ſonſt aber auch in <hi rendition="#g">Klopſtocks</hi> u. a.<lb/>
+grammatiſchen Schriften vorgetragen, wie er<lb/>
+denn zur Prosodie jeder neueren Sprache ge-<lb/>
+hoͤret.</note><lb/>
+<fw type="sig" place="bottom">Siebente Samml. F</fw><lb/>
+<pb n="82" facs="#f0099"/>
+nannte. Sie unterhielten die Geſellſchaft<lb/>
+mit Liedern und Erzaͤhlungen, den bekann-<lb/>
+ten <hi rendition="#aq">fabliaux</hi> vergangner und damaliger<lb/>
+Zeiten, bis ſie es zuletzt ſo arg machten,<lb/>
+daß ſie von mehreren Hoͤfen verbannt wur-<lb/>
+den.</p><lb/>
+<p>Die urſpruͤngliche <hi rendition="#g">froͤhliche Wiſſen</hi>-<lb/>
+<hi rendition="#g">ſchaft</hi> <hi rendition="#aq">(gaya ciencia)</hi> ging alſo von Ar-<lb/>
+tigkeiten des Geſpraͤchs, von Fragen und<lb/>
+Unterredungen, von einer angenehmen Un-<lb/>
+terhaltung aus; auch in Sonnetten der<lb/>
+Liebe, im Lobe und im Tadel, ja bei je-<lb/>
+dem Inhalt blieb dieſer Charakter den Pro-<lb/>
+venzalen; ein hoͤherer poëtiſcher Ton war<lb/>
+ihnen ganz fremde. Alſo <hi rendition="#g">mußte</hi> das an-<lb/>
+genehme und mannichfaltige Spiel der Rei-<lb/>
+me, an welche damals in geiſtlichen und<lb/>
+Volksliedern das Ohr gewoͤhnt war, den<lb/>
+Mangel des hohen lyriſchen Wohlklanges<lb/>
+und Rhythmus der Alten, von dem ihre<lb/>
+<pb n="83" facs="#f0100"/>
+Sprache und ihr Organ nicht wußte, er-<lb/>
+ſetzen. Jede Versart bekam ihre Strophe,<lb/>
+d. i. ihren abgemeſſenen Perioden der De-<lb/>
+clamation in einer angewieſenen Ordnung<lb/>
+und Art der Reime; in welcher <hi rendition="#g">Wiſſen</hi>-<lb/>
+<hi rendition="#g">ſchaft</hi> eben die <hi rendition="#g">Kunſt der Trobado</hi>-<lb/>
+<hi rendition="#g">ren</hi> beſtand. Und ſo haben wir die Ge-<lb/>
+ſtalt der neuern Europaͤiſchen Dichtkunſt,<lb/>
+ſofern ſie ſich von der Poeſie der Alten un-<lb/>
+terſcheidet, auf einmal vor uns. Sie war<lb/>
+<hi rendition="#g">Spiel</hi>, eine <hi rendition="#g">amuſirende Hofvers</hi>-<lb/>
+<hi rendition="#g">kunſt in gereimten Formen</hi>, weil der<lb/>
+damaligen Sprache der Rhythmus und der<lb/>
+damaligen Denkart der Zweck der Poeſie der<lb/>
+Alten fehlte. Sie war ein Hofgarten, in dem<lb/>
+hier ein Baum zum Sonnet, dort zur Tenzo-<lb/>
+ne, zum Madrigal u. f. kuͤnſtlich ausgeſchnit-<lb/>
+ten ward; eine hoͤhere Gartenkunſt war dem<lb/>
+Geſchmack der damaligen Zeit fremde. —</p></div><lb/>
+<fw type="sig" place="bottom">F 2</fw><lb/>
+<pb n="84" facs="#f0101"/>
+<div n="1"><head>85.</head><lb/>
+<p><hi rendition="#in">G</hi>luͤck alſo zum erſten Stral der neueren<lb/>
+poetiſchen Morgenroͤthe in Europa! Sie<lb/>
+hat einen ſchoͤnen Namen: <hi rendition="#g">die froͤliche<lb/>
+Wiſſenſchaft</hi>, <hi rendition="#aq">(gaya ciencia, gay ſaber;)</hi><lb/>
+moͤchte ſie deſſen immer werth ſeyn! Wir<lb/>
+wollen uns nicht in den Streit einlaſſen,<lb/>
+ob die Spaniſche oder Limoſiniſche Sprache<lb/>
+die erſten Dichter gehabt? ob in dieſer dies-<lb/>
+oder jenſeit der Pyrenaͤen fruͤher und gluͤck-<lb/>
+licher gedichtet worden? <note place="foot" n="*)" xml:id="note-0101" next="note-0102">Ich ruͤcke dieſe Briefe hier ein, weil der ſo<lb/>
+lange gefuͤhrte Streit uͤber den Antheil, den</note> Die Erſchei-<lb/>
+<pb n="85" facs="#f0102"/>
+nung ſelbſt, daß an den Grenzen des Ara-<lb/>
+biſchen Gebiets ſowohl in Spanien als in<lb/>
+Sicilien <hi rendition="#g">fuͤr ganz Europa die erſte<lb/>
+Aufklaͤrung</hi> begann, iſt merkwuͤrdig und<lb/>
+auch fuͤr einen großen Theil ihrer Folgen<lb/>
+entſcheidend.</p><lb/>
+<p>Unlaͤugbar iſts naͤmlich, daß die Ara-<lb/>
+ber in ihrem weiten Reiche, das ſich von<lb/>
+<hi rendition="#g">China</hi> bis <hi rendition="#g">Fez</hi>, von <hi rendition="#g">Moſambique</hi> bis<lb/>
+faſt an die Pyrenaͤen erſtreckte, Sprache<lb/>
+<note place="foot" n="*)" xml:id="note-0102" prev="note-0101">die Roͤmer, die Araber, die Normaͤnner u. f.<lb/>
+an der Bildung unſres Geſchmacks und unſrer<lb/>
+Literatur haben, noch nichts weniger als bei-<lb/>
+gelegt iſt. <hi rendition="#g">Warton</hi> z. B. in der Geſchichte<lb/>
+der Engliſchen Dichtkunſt, <hi rendition="#g">Thyrwitt</hi> in<lb/>
+ſeinen Anmerkungen zu <hi rendition="#g">Chaucer</hi>, <hi rendition="#g">Artea</hi>-<lb/>
+<hi rendition="#g">ga</hi> in der Geſchichte der Italiaͤniſchen Oper,<lb/>
+<hi rendition="#g">Andrès</hi> in der <hi rendition="#aq">ſtoria d'ogni literatura</hi> u.<lb/>
+f. ſind noch weit aus einander; und doch<lb/>
+liegt alles Material ſo nahe beiſammen vor<lb/>
+uns. A. d. H.</note><lb/>
+<pb n="86" facs="#f0103"/>
+und Wiſſenſchaften, Handel und Kuͤnſte ſehr<lb/>
+cultivirt hatten. Wie anders nun, als daß<lb/>
+in Spanien, wo ein Hauptſitz dieſer Cul-<lb/>
+tur war, wo Jahrhunderte lang die Chri-<lb/>
+ſten mit ihnen in Streit oder ihnen unter-<lb/>
+wuͤrfig gelebt hatten, neben dieſem hellen<lb/>
+Licht nicht ewig und immer die Dunkelheit<lb/>
+verharren konnte? Es <hi rendition="#g">mußten</hi> ſich mit<lb/>
+der Zeit die Schatten brechen; man <hi rendition="#g">muß</hi>-<lb/>
+<hi rendition="#g">te</hi> ſich ſeiner ſchlechten Sprache und Sit-<lb/>
+ten, der ungebildeten <hi rendition="#aq">Ruſtica</hi> ſchaͤmen ler-<lb/>
+nen, und da die meiſten Spanier Arabiſch<lb/>
+konnten, auch eine unſaͤgliche Menge ara-<lb/>
+biſcher Buͤcher und Anſtalten in Spanien<lb/>
+Jedermann vor Augen war: ſo konnte es<lb/>
+ja nicht fehlen, daß jeder kleine Schritt<lb/>
+zur Vervollkommnung auch <hi rendition="#g">unvermerkt<lb/>
+nach dieſem Vorbilde</hi> geſchah. Was<lb/>
+ſie nicht hatte, konnte die Moͤnchspoeſie<lb/>
+nicht geben; Gegentheils konnte und wollte<lb/>
+<pb n="87" facs="#f0104"/>
+auch die Provenzalpoeſie nicht nachahmen,<lb/>
+was bei den Arabern fuͤr ſie nicht gehoͤrte,<lb/>
+<hi rendition="#g">Mahomeds Lehre</hi>, ſo wenig einſt die<lb/>
+Araber den Homer und die griechiſche<lb/>
+Mythologie hatten aufnehmen moͤgen.<lb/>
+Aber was ſich aufnehmen ließ, der <hi rendition="#g">Ge</hi>-<lb/>
+<hi rendition="#g">nius des Werks</hi>, die <hi rendition="#g">Arabiſche<lb/>
+Denk</hi>- <hi rendition="#g">und Lebensweiſe</hi>; ſie ſind in<lb/>
+den Verſuchen der Provenzalen, (dieſe moͤ-<lb/>
+gen ſchlecht oder gut ſeyn,) wie mir duͤnkt,<lb/>
+unverkennbar.</p><lb/>
+<p>Bei welch anderm Volk in Europa wa-<lb/>
+ren <hi rendition="#g">poetiſche Fragen und Antwor</hi>-<lb/>
+<hi rendition="#g">ten</hi> in Gebrauch, als bei den Arabern?<lb/>
+Es wurde Kunſt und Lebensart darinn ge-<lb/>
+ſetzt, auch unvorbereitet witzig in <hi rendition="#g">gereim</hi>-<lb/>
+<hi rendition="#g">ten Verſen</hi> zu antworten <note place="foot" n="*)" xml:id="note-0104" next="note-0105">Zahlreiche Proben und Nachrichten hieruͤber<lb/>
+finden ſich in <hi rendition="#g">Herbelots</hi> morgenlaͤndiſcher</note>. Daher<lb/>
+<pb n="88" facs="#f0105"/>
+alſo die Fragen und Antworten der Liebe<lb/>
+bei den Provenzalen. Welch andres Volk<lb/>
+in Europa hielt die Sprache fuͤr Eins ſei-<lb/>
+ner edelſten Heiligthuͤmer und feierte Wett-<lb/>
+kaͤmpfe des ſchoͤnſten poetiſchen Ausdrucks<lb/>
+in ihr? Kein andres, als die Araber; die<lb/>
+angrenzenden Chriſten, beſchaͤmt uͤber ihre<lb/>
+Rohheit, zuerſt vielleicht auch nur aus<lb/>
+Nachahmungsſucht, folgten ihnen nach.<lb/>
+Ihre Großen und Edlen thaten aus Mode,<lb/>
+was die Araber ſeit Jahrhunderten aus<lb/>
+Trieb und aus Nationalſtolz gethan hatten,<lb/>
+ſich der Wiſſenſchaften anzunehmen und in<lb/>
+der Sprache der Dichter ſelbſt zu glaͤnzen.<lb/>
+<note place="foot" n="*)" xml:id="note-0105" prev="note-0104">Bibliothek, <hi rendition="#aq">W. <hi rendition="#i">Jones</hi> commentar. de Poeſi<lb/>
+Aſiat.,</hi> <hi rendition="#g">Richardſons</hi> Vorrede zu ſeinem<lb/>
+Perſiſchen Woͤrterbuch (uͤberſetzt Leipz. 1779.)<lb/>
+Andrès <hi rendition="#aq">ſtoria d'ogni letteratura</hi> aus <hi rendition="#g">Ca</hi>-<lb/>
+<hi rendition="#g">ſiri</hi>, ja in der Geſchichte der Araber ſelbſt.<lb/>
+A. d. H.</note><lb/>
+<pb n="89" facs="#f0106"/>
+Welch andres Volk in Europa verband in<lb/>
+ſeinen Vorſtellungen <hi rendition="#g">Tapferkeit</hi>, <hi rendition="#g">Liebe</hi><lb/>
+und <hi rendition="#g">Andacht</hi>, wie die Araber? Von den<lb/>
+aͤlteſten Zeiten an war es bei ihnen die<lb/>
+gewoͤhnliche Regel eines Gedichts, von<lb/>
+<hi rendition="#g">Gott</hi> und vom <hi rendition="#g">Propheten</hi> anzufangen,<lb/>
+ſodann der <hi rendition="#g">Liebe</hi> ihren Zoll zu entrichten,<lb/>
+und darauf gegen Freund oder Feind ſeine<lb/>
+<hi rendition="#g">Tapferkeit</hi> zu bezeugen. Wie uͤbel auch<lb/>
+oft dieſe Stuͤcke zuſammenhingen; es war<lb/>
+das angenommene <hi rendition="#g">poetiſche Geſetz</hi>,<lb/>
+dem ſich, wiefern es Religion und Sitte<lb/>
+erlaubte, nun auch die Chriſten bequemten.<lb/>
+Die feſtgeſetzten Gattungen der Poeſie der<lb/>
+Araber, Preis und Tadel, Frohlocken und<lb/>
+Klage, Liebe und Haß, Lehre und Beſchrei-<lb/>
+bung wurden auch hier der Inhalt ver-<lb/>
+ſchiedener Geſangesarten; ſelbſt die Pros-<lb/>
+odie der Provenzalen ward nach der blos<lb/>
+accentuirten und declamirten arabiſchen<lb/>
+<pb n="90" facs="#f0107"/>
+Verskunſt, in welcher der Reim unentbehr-<lb/>
+lich war, eingerichtet. Hoͤren Sie daruͤ-<lb/>
+ber das Zeugniß des vielleicht gelehrteſten<lb/>
+Arabers, den unſre Nation gehabt hat,<lb/>
+<hi rendition="#g">Reiske</hi>: <note place="foot" n="*)">Neuer Buͤcherſaal, Th. 10. S. 220. u. f.</note></p><lb/>
+<p>„Die alleraͤlteſten Schriften der Araber<lb/>
+ſowohl in gebundner <hi rendition="#g">als freier Rede</hi><lb/>
+ſind in Reimen abgefaßt. Die Art ohne<lb/>
+Reime zu reden und zu ſchreiben, iſt neuer<lb/>
+als jene. Noch heutiges Tages pflegen ſie<lb/>
+<hi rendition="#g">auch in ihren ungebundenen<lb/>
+Schriften</hi>, wenn ſie recht ſchoͤn ſchreiben<lb/>
+wollen, den Reim beizubehalten, ſo daß<lb/>
+ſie, wenn ſie einen Reim drei- vier- oder<lb/>
+mehrmal wiederholt haben, alsdann einen<lb/>
+andern vor die Hand nehmen, und es mit<lb/>
+dieſem eben ſo machen, und dann wieder-<lb/>
+um einen andern. Auf dieſe Weiſe iſt der<lb/>
+<pb n="91" facs="#f0108"/>
+ganze <hi rendition="#g">Hariri</hi> geſchrieben, der fuͤr den<lb/>
+<hi rendition="#g">Cicero</hi> der Araber gehalten wird; im-<lb/>
+gleichen des Tamerlans Arabiſche Lebens-<lb/>
+beſchreibung.“</p><lb/>
+<p>„In der Poeſie ſind ihre aͤlteſten Stuͤcke<lb/>
+gereimt. Die alten Araber uͤbten ſich auch<lb/>
+ſogar ihre haͤuslichen und vertraulichen Ge-<lb/>
+ſpraͤche in Reimen vorzutragen. So hat<lb/>
+man ein noch vor dem Muhamed ver-<lb/>
+fertigtes, etliche achtzig bis neunzig Verſe<lb/>
+langes Gedicht, das ein gewiſſer <hi rendition="#g">Haretſch<lb/>
+Ben Helza</hi> ohn' einiges vorhergegangnes<lb/>
+Bedenken, ſich auf ſeinen Bogen lehnend,<lb/>
+hergeſagt hat. Die Uebung hierinn muß<lb/>
+bei ihnen ſehr groß geweſen ſeyn.“</p><lb/>
+<p>„Wie die erſte Haͤlfte des Verſes ſich<lb/>
+ſchließt, ſchließt ſich auch die andre Haͤlfte<lb/>
+eben deſſelbigen Verſes; und wie ſich der<lb/>
+erſte Vers in der Mitte und am Ende en-<lb/>
+digt, ſo endigen ſich auch alle andre fol-<lb/>
+<pb n="92" facs="#f0109"/>
+gende, wenn ihrer auch noch ſo viel waͤ-<lb/>
+ren, bis zwei- dreihundert und noch mehr.<lb/>
+Doch pflegen ſie ihre Gedichte ſo lang nicht<lb/>
+zu machen. Schon zu Chriſti Zeiten und<lb/>
+kurz hernach muͤſſen ſich die Araber der<lb/>
+Reime bedient haben, weil ihre Dichtkunſt<lb/>
+ſchon einige Jahrhunderte vor Muhamed<lb/>
+vollkommen geweſen und nicht die geringſte<lb/>
+Spur von einem Reimloſen Gedicht bei ih-<lb/>
+nen gefunden wird; es ſei lang oder kurz,<lb/>
+heroiſch oder jambiſch. Doch ſind ihre jam-<lb/>
+biſchen Gedichte ſo beſchaffen, daß ſie den<lb/>
+einmal gefaßten Reim nicht beſtaͤndig bei-<lb/>
+behalten, welches ſonſt ein weſentliches Er-<lb/>
+forderniß der heroiſchen Gattung iſt; ſon-<lb/>
+dern ſie wechſeln mit dem Rhythmus ab,<lb/>
+beinahe wie wir. Haben ſie Einen <hi rendition="#aq">Rhyth-<lb/>
+mum</hi> drei- viermal wiederholt, ſo fallen ſie<lb/>
+auf einen andern.“ U. f. — Ich glaube<lb/>
+nicht, daß die Erbauung der Sonnette,<lb/>
+<pb n="93" facs="#f0110"/>
+Madrigale und andrer Versarten der Pro-<lb/>
+venzalen ihrem Urſprunge nach einer hel-<lb/>
+lern Erklaͤrung faͤhig ſei oder beduͤrfe, als<lb/>
+dieſer. Urſpruͤnglich waren ſie eine Art<lb/>
+<hi rendition="#g">gereimter</hi>, <hi rendition="#g">oft aus dem Stegreif<lb/>
+gereimter Proſe</hi>; die meiſten Poeſieen<lb/>
+der Provenzalen ſind offenbar nichts an-<lb/>
+ders.</p><lb/>
+<p>Daß viele unſrer Poeſieen dieſen Ara-<lb/>
+biſchen Schmuck noch an ſich tragen, wiſ-<lb/>
+ſen wir alle; wenige aber wiſſen den Ur-<lb/>
+ſprung dieſer Feſſeln, daß ein Volk naͤm-<lb/>
+lich ſich dieſelbe aus Uebermuth der Be-<lb/>
+geiſterung ſogar im gemeinen Leben ange-<lb/>
+legt, und damit ſo leicht umzugehen ge-<lb/>
+wußt habe, daß es lange Reden durch ſo-<lb/>
+gar Einen und Denſelben Reim beibehal-<lb/>
+ten konnte. Auch bei den Provenzalen war<lb/>
+es in mehreren Sylbenmaaßen offenbar<lb/>
+aufs oͤftere Wiederkommen <hi rendition="#g">deſſelben</hi><lb/>
+<pb n="94" facs="#f0111"/>
+Reims angeſehen, womit denn weder unſer<lb/>
+Ohr noch unſre Sprache ſonderlich zufrie-<lb/>
+den ſeyn duͤrfte. Wenige wiſſen es, daß<lb/>
+die Poeſie der Araber zwar leidenſchaftlich<lb/>
+und Bildervoll, nicht aber <hi rendition="#g">im beſten Ge</hi>-<lb/>
+<hi rendition="#g">ſchmack</hi> abgefaßt war <note place="foot" n="*)">Proben davon geben <hi rendition="#aq">W. <hi rendition="#i">Jones</hi> commentar.<lb/>
+de Poeſi Aſiat.</hi> und alle von ihm und andern<lb/>
+bekannt gemachten Poeſieen der Araber. An<lb/>
+Leidenſchaft und Bildern ſind ſie reich; ihr<lb/>
+Geſchmack aber in Compoſition dieſer Bilder<lb/>
+iſt von dem unſrigen ganz verſchieden.</note>; daher auch ſchon<lb/>
+die Provenzalen von dieſem ganz und gar<lb/>
+Aſiatiſchen Geſchmack ſehr abgehen mußten.<lb/>
+Da ihnen nun mit der Leidenſchaft und<lb/>
+dem Scharfſinn dieſes fremden Volks auch<lb/>
+deſſen ausgebildete Sprache fehlete; was<lb/>
+Wunder, daß ihnen oft nur die Form des<lb/>
+Gedichts, angenehm wiederkommende Schaͤlle<lb/>
+uͤbrig blieben, in die ſie das Weſen der<lb/>
+<pb n="95" facs="#f0112"/>
+Dichtkunſt ſetzten? Dieſe ſollte ja nur <hi rendition="#g">Un</hi>-<lb/>
+<hi rendition="#g">terhaltung</hi> in einer angenehm-gereim-<lb/>
+ten <hi rendition="#g">Proſe</hi> ſeyn und bleiben.</p><lb/>
+<p>Ganz anders wird die Sache fuͤr uns,<lb/>
+die wir einen <hi rendition="#g">artigen Umgang</hi> in haͤus-<lb/>
+lichen und vertraulichen Geſpraͤchen nicht<lb/>
+eben in Reime ſetzen, uns auch von Ju-<lb/>
+gend auf nicht geuͤbt haben, ſinnreich <hi rendition="#aq">ex<lb/>
+tempore</hi> zu reimen. Einzig in der Poeſie<lb/>
+haben wir dieſe alte arabiſche Hoͤflichkeit<lb/>
+beibehalten, das Ohr unſrer Freunde mit<lb/>
+Reimen zu vergnuͤgen <note place="foot" n="*)" xml:id="note-0112" next="note-0113"><hi rendition="#aq">Rhythmi cum alliteratione <hi rendition="#i">avidiſſimae</hi> ſunt<lb/>
+<hi rendition="#i">aures Arabum.</hi> In florilegio hoc (Elnawa-<lb/>
+big vel Ennawawig, quod vocabulum de-<lb/>
+ſignat <hi rendition="#i">ſcaturientes</hi> partim poëtas, partim<lb/>
+verſus vel rhythmos nobiliore quadam ve-<lb/>
+na ſe commendantes) linguae Arabicae ge-<lb/>
+nius egregie relucet, <hi rendition="#i">nativum</hi>que illum</hi></note>. Und dennoch<lb/>
+wuͤrde auch das Reimſuͤchtigſte Ohr es ſich<lb/>
+<pb n="96" facs="#f0113"/>
+verbitten, wenn wir wie die Araber <hi rendition="#g">den</hi>-<lb/>
+<hi rendition="#g">ſelben</hi> Klang oder Endbuchſtaben einige<lb/>
+hundertmal wiederkommen ließen und in<lb/>
+heroiſchen Gedichten unſern Helden durch<lb/>
+Einen Reim zehntauſendmal wiederkom-<lb/>
+mend prieſen.</p><lb/>
+<p>Fuͤge ich nun zu dieſer <hi rendition="#g">Reimgalan</hi>-<lb/>
+<hi rendition="#g">terie</hi> der Araber noch das andre Ge-<lb/>
+ſchenk hinzu, damit ſie (andre Nationen<lb/>
+nicht ausgeſchloſſen) die Poeſie der Euro-<lb/>
+paͤer beſchenkt haben, jene <hi rendition="#g">Phantome<lb/>
+Aſiatiſcher Einbildungskraft</hi> naͤm-<lb/>
+<fw type="catch" place="bottom">lich,</fw><lb/>
+<note place="foot" n="*)" xml:id="note-0113" prev="note-0112"><hi rendition="#aq">cernere licet <hi rendition="#i">characterem</hi>, qui per <hi rendition="#i">rhyth-<lb/>
+mos</hi> et <hi rendition="#i">alliterationes mera vibrat acumina</hi>.</hi><lb/>
+<hi rendition="#g">Schultens</hi> in der Vorrede zu <hi rendition="#g">Erpenius</hi><lb/>
+Arabiſcher Grammatik. Mich duͤnkt, weder<lb/>
+unſre Sprache noch unſre Nation habe die-<lb/>
+ſen angebohrnen Witzſprudelnden Reimcharak-<lb/>
+ter. A. d. V.</note><lb/>
+<pb n="97" facs="#f0114"/>
+lich, die vom Berge <hi rendition="#g">Kaf</hi> uͤber Afrika und<lb/>
+Spanien, uͤber Palaͤſtina und die Tatarei<lb/>
+zu uns gekommen ſind; gewiß, ſo ſind<lb/>
+wir ihnen wie in der Chemie und Arznei-<lb/>
+kunſt ſo auch in der Dichtung viele <hi rendition="#g">ge</hi>-<lb/>
+<hi rendition="#g">brannte Waſſer</hi> ſchuldig.</p></div><lb/>
+<fw type="sig" place="bottom">Siebente Samml. G</fw><lb/>
+<pb n="98" facs="#f0115"/>
+<div n="1"><head>86.</head><lb/>
+<p><hi rendition="#in">D</hi>en Reim laſſe ich unſrer Poeſie nicht<lb/>
+nehmen; vielmehr zeigt der bemerkte <hi rendition="#g">Ur</hi>-<lb/>
+<hi rendition="#g">ſprung</hi> deſſelben zugleich auch ſeine <hi rendition="#g">gluͤck</hi>-<lb/>
+<hi rendition="#g">lichſte Anwendung</hi>. Er gehoͤrt</p><lb/>
+<p>1. <hi rendition="#g">Fuͤr Kirchen</hi>- <hi rendition="#g">und andre Volks</hi>-<lb/>
+<hi rendition="#g">lieder</hi>. Umſonſt fuͤhrten ihn nicht die<lb/>
+heiligen Vaͤter von <hi rendition="#g">Ambroſius</hi> an in<lb/>
+ihre Choͤre und Hymnen ein. Der gute<lb/>
+<hi rendition="#g">Prudentius</hi> ging ihm noch aus dem<lb/>
+Wege; <hi rendition="#g">Sedulius</hi>, <hi rendition="#g">Fortunatus</hi> u. f.<lb/>
+gebrauchen ihn ſchon haͤufig, ohne ihn von<lb/>
+den Arabern gelernt zu haben. Sie wuß-<lb/>
+ten, was fuͤrs Volk gehoͤre. Zuletzt ward<lb/>
+<pb n="99" facs="#f0116"/>
+er inſonderheit in den lateiniſchen Liebes-<lb/>
+geſaͤngen ſo uͤberfließend gebraucht, als ihn<lb/>
+wohl kein Araber gebraucht hat.</p><lb/>
+<p>2. <hi rendition="#g">Denkſpruͤche fuͤrs Volk</hi> klin-<lb/>
+gen in Reimen praͤchtig! Daher die Macht<lb/>
+unſrer gereimten Spruͤchwoͤrter, unſrer al-<lb/>
+ten Oden und Alexandriner. Ein beruͤhm-<lb/>
+ter Dichter hat von einem ungezwungenen<lb/>
+Reim geſagt:</p><lb/>
+<p>„Er ſtuͤtzt und hebt die Harmonie; und leimt<lb/>
+die Rede ins Gedaͤchtniß.“</p><lb/>
+<p>Dies iſt wahr. Wohlgereimte Sentenzen<lb/>
+ſind Machtſpruͤche; ſie tragen im Reim das<lb/>
+Siegel der ewigen Wahrheit. Von An-<lb/>
+fange der Welt an hat man Raͤthſel und<lb/>
+Denkſpruͤche gereimet.</p><lb/>
+<p>3. <hi rendition="#g">Lebhafte Antworten</hi> ſind fuͤr<lb/>
+den Reim, nicht nur in Arabien, ſondern<lb/>
+bei allen Voͤlkern. Vom Franzoͤſiſchen Thea-<lb/>
+<fw type="sig" place="bottom">G 2</fw><lb/>
+<pb n="100" facs="#f0117"/>
+ter werden Sie ſich ſolcher unerwarteten<lb/>
+Ausgaͤnge gnug erinnern; aus Epigram-<lb/>
+men, wohin ſie eigentlicher gehoͤren, noch<lb/>
+mehrere. Es iſt ein Fehler des Verſifica-<lb/>
+tors, wenn er um Einen gluͤcklichen Reim<lb/>
+zu erhaſchen fuͤnf ungluͤckliche vorhergehn<lb/>
+oder folgen laͤßt <note place="foot" n="*)"><hi rendition="#aq">But thoſe that write in rhyme ſtill make<lb/>
+The one verſe for the other's ſake;<lb/>
+For one for ſenſe and one for rhyme<lb/>
+I think ſufficient for a time.<lb/>
+<hi rendition="#i">Buttler's Hudibras</hi> P. II. C. I.</hi></note>; ein ſolcher iſt kein<lb/>
+<hi rendition="#g">Haretſch Ben Helza</hi>, der auch im<lb/>
+Staatsrath ſeines Koͤniges ſein Votum fuͤr<lb/>
+den Krieg in donnernden Reimen hinſtellte.</p><lb/>
+<p>4. Es giebt mehrere Gattungen <hi rendition="#g">an</hi>-<lb/>
+<hi rendition="#g">genehmer Converſationspoeſie</hi>,<lb/>
+die ohne Reimen nichts ſind. Der geſuchte,<lb/>
+ſo wie der ungeſuchte, der verſteckte ſo wie<lb/>
+der klingende Reim ſind in ihnen Kunſt-<lb/>
+<pb n="101" facs="#f0118"/>
+maͤßig geordnet. Man ſollte ſie <hi rendition="#g">Arabes</hi>-<lb/>
+<hi rendition="#g">ken</hi> nennen: denn eben auch den Arabern<lb/>
+galt der Reim fuͤr ein Siegel des vollen-<lb/>
+detſten Ausdrucks.</p><lb/>
+<p>5. Endlich muͤſſen Sie der <hi rendition="#g">Gewohn</hi>-<lb/>
+<hi rendition="#g">heit</hi> nachgeben und <hi rendition="#g">Sprachen</hi> ſowohl<lb/>
+als <hi rendition="#g">Dichtern</hi> erlauben, ſich auf ihre Art<lb/>
+zu vergnuͤgen. Dieſem Dichter iſt der Reim<lb/>
+ein Steuer, jenem ein Ruder der Rede;<lb/>
+ohne ihn litte jenes poëtiſche Fahrzeug<lb/>
+Schiffbruch, dieſes ſtrandete auf dem nie-<lb/>
+drigſten Sande <note place="foot" n="*)"><hi rendition="#aq">For Rhyme the rudder is of verſes,<lb/>
+With which, like ſhips, they ſteer their<lb/>
+courſes.<lb/>
+<hi rendition="#i">Buttler.</hi></hi></note>. Einem andern Verſi-<lb/>
+ficator iſt er noch etwas Wertheres, ein<lb/>
+Erwerbmittel der Gedanken; wollten Sie<lb/>
+ihm alſo mit dem Reim ſeine hyperuſiſche<lb/>
+Nahrung nehmen? Einem Dritten iſt der<lb/>
+<pb n="102" facs="#f0119"/>
+Reim eine Werb-Trommel, Bilder zu ver-<lb/>
+ſammeln; zwar kommen die Geworbenen<lb/>
+oft etwas bunt zuſammen, aber was ſcha-<lb/>
+dets? Deſto ſtaͤrker fallen ſie ins Auge.<lb/>
+Nehmen Sie <hi rendition="#g">Pope</hi>, <hi rendition="#g">Cowley</hi> und ihren<lb/>
+fuͤnf Bruͤdern den Reim; ſo haben Sie<lb/>
+ihnen Moſes und die Propheten genom-<lb/>
+men; wen ſollen ſie fuͤrder hoͤren? Neh-<lb/>
+men Sie der Franzoͤſiſchen Sprache den<lb/>
+Reim — hoͤren Sie, was daruͤber ihre eigne<lb/>
+Autoren ſagen:</p><lb/>
+<p><hi rendition="#aq">Nos Vers affranchis de la rime ne pa-<lb/>
+roiſſent differer en rien de la Proſe.</hi></p><lb/>
+<p><hi rendition="#aq"><hi rendition="#i">Prevot.</hi></hi></p><lb/>
+<p><hi rendition="#aq">Je n'ai garde de vouloir abolir les ri-<lb/>
+mes; ſans elles notre verſification tomberoit.</hi></p><lb/>
+<p><hi rendition="#aq"><hi rendition="#i">Fenelon.</hi></hi></p><lb/>
+<p><hi rendition="#aq">Les Italiens et les Anglois peuvent<lb/>
+ſe paſſer de rime, parceque leur langue a<lb/>
+des inverſions et leur poeſie mille liber-<lb/>
+<pb n="103" facs="#f0120"/>
+tés qui nous manquent. Chaque langue<lb/>
+a ſon genie; le genie de notre langue eſt<lb/>
+la clarte et l'elegance: nous ne permet-<lb/>
+tons nulle licence à notre Poeſie, qui doit<lb/>
+marcher comme notre Proſe dans l'ordre<lb/>
+precis de nos Idees. Nous avons donc<lb/>
+un beſoin eſſentiel du retour des mêmes<lb/>
+ſons <hi rendition="#g">pour que notre Poeſie ne ſoit<lb/>
+pas confondu avec la Proſe</hi>.</hi></p><lb/>
+<p><hi rendition="#aq"><hi rendition="#i">Voltaire.</hi></hi></p><lb/>
+<p><hi rendition="#aq">Nos ſillabes ne peuvent produire uno<lb/>
+harmonie ſenſible par leurs meſures lon-<lb/>
+gues ou breves; la rime eſt donc neceſ-<lb/>
+ſaire aux vers Francois.</hi></p><lb/>
+<p><hi rendition="#aq"><hi rendition="#i">Voltaire.</hi></hi></p><lb/>
+<p>Hier ſind klare Bekenntniſſe; ſchonen<lb/>
+Sie alſo in mehr als Einer Sprache der<lb/>
+Reime, dieſer unſchuldigen Kinder. Auch<lb/>
+bei uns gehoͤren <hi rendition="#aq">rime</hi> und <hi rendition="#aq">raiſon</hi> zuſam-<lb/>
+men, wie bei den Arabern. Ungereimt iſt<lb/>
+uns, was — ſich nicht reimet.</p></div><lb/>
+<pb n="104" facs="#f0121"/>
+<div n="1"><head><hi rendition="#g">Nachſchrift</hi>.</head><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Ernſthaft geſprochen, laͤßt ſich an die-<lb/>
+ſem Urſprunge der Europaͤiſchen Cultur<lb/>
+in Vergleich mit der Poeſie der Alten noch<lb/>
+Manches bemerken.</p><lb/>
+<p>1. Bei den Griechen war Poëſie mit<lb/>
+der Sprache entſtanden; jene hatte dieſe<lb/>
+gleichſam von innen heraus gebildet; ehe<lb/>
+ſchriftſtelleriſche Proſe entſtand, war Ge-<lb/>
+ſang und Poeſie — geweſen. In der li-<lb/>
+moſiniſchen Sprache, ſo wie in allen ihren<lb/>
+Schweſtern hatte man nicht nur laͤngſt<lb/>
+Proſe geſprochen, ehe man durch Versarten<lb/>
+mit abgezaͤhlten Sylben und Reimen dieſe<lb/>
+gemeine Sprache <hi rendition="#aq">(lingua volgare)</hi> zu ver-<lb/>
+edeln ſuchte; ſondern die Vulgarpoeſie ſelbſt<lb/>
+ſollte eine <hi rendition="#g">gereimte</hi>, <hi rendition="#g">cadenzirte</hi>, <hi rendition="#g">ſchoͤ</hi>-<lb/>
+<hi rendition="#g">nere Proſe</hi> ſeyn und bleiben. Die Syl-<lb/>
+<pb n="105" facs="#f0122"/>
+benmaaße der Alten fanden in ihr nicht<lb/>
+<hi rendition="#g">Platz</hi>, weil ſie eigentlich blos von der<lb/>
+<hi rendition="#g">Converſation</hi> ausging, und auf dieſe<lb/>
+hinfuͤhrte.</p><lb/>
+<p>2. Die Poeſie der Alten hatte in ihrem<lb/>
+Urſprunge viel mehr Wichtigkeit, Zweck und<lb/>
+Anlage in ſich, als dieſe neuere haben konnte.<lb/>
+Vor Erfindung der Schreibekunſt vertrat<lb/>
+Jene die Stelle aller Wiſſenſchaft; ſie war<lb/>
+die Sprache der Goͤtter, der Geſetzgeber<lb/>
+und Weiſen; was der Nachwelt wuͤrdig<lb/>
+geachtet war, ward in ſie gelegt, daher<lb/>
+auch von ihr faſt jede Wiſſenſchaft ausging.<lb/>
+In Europa war alles anders. Die Spra-<lb/>
+che des Heiligthums war und blieb die<lb/>
+<hi rendition="#g">lateiniſche</hi>, in welcher ſich denn auch<lb/>
+lange Zeit hin die Wiſſenſchaften fortge-<lb/>
+bildet haben; die Vulgarpoeſie wollte we-<lb/>
+der gelehrt noch andaͤchtig, ſondern <hi rendition="#g">un</hi>-<lb/>
+<hi rendition="#g">terhaltend</hi> ſeyn. In allen Sprachen,<lb/>
+<pb n="106" facs="#f0123"/>
+denen die Provenzalpoeſie den Ton gab,<lb/>
+iſt dies ihr Hauptcharakter geblieben.</p><lb/>
+<p>3. Dagegen aber ward Etwas, wor-<lb/>
+auf die Poeſie der Alten ihre Segel nicht<lb/>
+hatte richten doͤrfen, dieſer Poeſie Ziel und<lb/>
+Zweck, naͤmlich <hi rendition="#g">Freiheit der Gedan</hi>-<lb/>
+<hi rendition="#g">ken</hi>. Durch die Provenzalpoeſie und durch<lb/>
+das was ſie hervorbrachte, ſo viel oder<lb/>
+wenig es war, ward zuerſt das Joch zer-<lb/>
+brochen, das alle Voͤlker Europa's unter dem<lb/>
+Deſpotismus der <hi rendition="#g">lateiniſchen Spra</hi>-<lb/>
+<hi rendition="#g">che</hi> feſthielt; und damit war viel geſche-<lb/>
+hen. Sollten Europa's Voͤlker denken ler-<lb/>
+nen, ſo mußten <hi rendition="#g">ihre</hi> Landes-Sprachen<lb/>
+gebildet werden; ſie mußten in ihrer Volks-<lb/>
+ſprache witzige, ſinnreiche, anmuthige Dinge<lb/>
+hoͤren, an denen ſich ihr Verſtand ſchaͤrfte.<lb/>
+Wenn dieſes zuerſt auch nur in den obern<lb/>
+Staͤnden und auf eine ſehr unvollkommene<lb/>
+Weiſe geſchah; ſo gelangte es doch bald<lb/>
+<pb n="107" facs="#f0124"/>
+weiter. Mit Fragen der Liebe fing man<lb/>
+an; zu weit wichtigern ſchritt man fort;<lb/>
+die mittleren Zeiten haben manche Dinge<lb/>
+ſehr ſcharf und rein eroͤrtert. Mit Erzaͤh-<lb/>
+lungen fing man an, und wußte in ſie ein-<lb/>
+zukleiden, was man nackt nicht ſagen dorf-<lb/>
+te; ja was die Erzaͤhlung nicht ſagte, ge-<lb/>
+ſticulirte das rohe Schauſpiel. Den beſten<lb/>
+Erweis, daß durch die Ausbildung der Pro-<lb/>
+venzalſprache fuͤr ganz Europa <hi rendition="#g">Freiheit<lb/>
+der Gedanken</hi> bewirkt worden, zeigt die<lb/>
+in ihr entſtandene <hi rendition="#g">erſte Reformation</hi>,<lb/>
+die ſich von den Pyrenaͤen und Alpen nach-<lb/>
+her in alle Laͤnder verbreitete. In dieſer<lb/>
+Sprache naͤmlich wurde die <hi rendition="#g">edle Unter</hi>-<lb/>
+<hi rendition="#g">weiſung</hi> <hi rendition="#aq">(la noble leyçon)</hi> der erſte<lb/>
+Volks- und Sittenkatechismus geſchrieben;<lb/>
+in ſie wurde zuerſt die Bibel uͤberſetzt; in<lb/>
+ihr das apoſtoliſche Chriſtenthum erneuert.<lb/>
+Mit großem Muth ging ſie den Aerger-<lb/>
+<pb n="108" facs="#f0125"/>
+niſſen der Kleriſei entgegen, und hat wie<lb/>
+den poetiſchen Lorbeerkranz, ſo auch unſaͤg-<lb/>
+licher Verfolgungen wegen die Maͤrtyrer-<lb/>
+krone der Wahrheit fuͤr ganz Europa ver-<lb/>
+dienet. Sind wir den Provenzalen und<lb/>
+ihren Erweckern den Arabern nicht viel<lb/>
+ſchuldig? <note place="foot" n="*)">Mehrere Nachrichten hieruͤber giebt die Ge-<lb/>
+ſchichte der ſogenannten Waldenſer, Albigen-<lb/>
+ſer, <hi rendition="#aq">bons hommes,</hi> u. f. deren verſchiedne Na-<lb/>
+men ſowohl als erlittene grauſame Verfolgun-<lb/>
+gen bekannt ſind. In <hi rendition="#g">Legers</hi> Geſchichte der<lb/>
+Waldenſer ſind ihre in der Provenzalſprache<lb/>
+geſchriebene Schriften angefuͤhrt; ausfuͤhrli-<lb/>
+chere Nachricht giebt die <hi rendition="#aq">hiſt. generale de<lb/>
+Languedoc, T. III.</hi> Des <hi rendition="#g">Wiklif</hi>, mithin<lb/>
+auch <hi rendition="#g">Huß</hi> und <hi rendition="#g">Luthers</hi> Reformation han-<lb/>
+gen mit dieſer erſten Inſurrection gegen den<lb/>
+herrſchenden Clerus zuſammen, wie die feine-<lb/>
+re Cultur in Europa mit den erſten Verſu-<lb/>
+chen der provenzaliſchen Dichtkunſt.<lb/>
+A. d. V.</note></p></div><lb/>
+<pb n="109" facs="#f0126"/>
+<div n="1"><head>87.</head><lb/>
+<p><hi rendition="#g">Viertes Fragment</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Einfluß der Provenzalen in die Euro-<lb/>
+paͤiſche Cultur und Dichtkunſt.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p><hi rendition="#in">D</hi>ie Verskunſt der Provenzalen ging auf<lb/>
+alle benachbarte Nationen uͤber; ja ſie iſt<lb/>
+das Vorbild der Poeſie <hi rendition="#g">aller ſuͤdlichen<lb/>
+Voͤlker Europa</hi>'s, in manchem ſogar<lb/>
+der Englaͤnder und Deutſchen worden:<lb/>
+denn mit den Kaiſern aus dem Schwaͤbi-<lb/>
+ſchen Hauſe kam die provenzaliſche Dicht-<lb/>
+<pb n="110" facs="#f0127"/>
+kunſt auch nach Deutſchland. Die <hi rendition="#g">Min</hi>-<lb/>
+<hi rendition="#g">neſinger</hi> ſind unſre Provenzalen.</p><lb/>
+<p>Zu <hi rendition="#g">Dante</hi>'s Zeiten waren ſchon ſie-<lb/>
+ben Gattungen dieſer Verskunſt in der Ita-<lb/>
+liaͤniſchen Sprache, Sonnet, Ballade, Can-<lb/>
+zone, Rodondilla, Madrigal, Servente,<lb/>
+Stanze; ſie haben ſich ſeitdem zahlreich<lb/>
+vermehrt, vielfach veraͤndert; immer aber<lb/>
+iſt die Italiaͤniſche Sprache jenem Richt-<lb/>
+maas treu geblieben, das zu <hi rendition="#g">Dante</hi>,<lb/>
+<hi rendition="#g">Boccaz</hi> und <hi rendition="#g">Petrarka</hi> Zeiten die Pro-<lb/>
+venzalpoeſie ihr anwies. Die Sylbenmaaße<lb/>
+der Griechen und Roͤmer, ſo oft ſie ver-<lb/>
+ſucht worden, haben in Italien, Spanien<lb/>
+und Frankreich ihr Gluͤck nie machen moͤ-<lb/>
+gen.</p><lb/>
+<p>Nun muͤßte es wohl ein ſehr barbari-<lb/>
+ſches Ohr ſeyn, das nicht, zumal unter<lb/>
+jenem Himmel, die Muſik dieſer Versarten<lb/>
+fuͤhlte. Der weitverhallende Wohlklang<lb/>
+<pb n="111" facs="#f0128"/>
+einer regelmaͤßigen Italiaͤniſchen oder Spa-<lb/>
+niſchen Stanze, die ſchoͤn verſchlungene<lb/>
+Harmonie eines vollkommenen <hi rendition="#g">Sonnets</hi>,<lb/>
+<hi rendition="#g">Madrigals</hi>, oder einer vortreflichen<lb/>
+<hi rendition="#g">Canzone</hi>, die abwechſelnde leichte Melo-<lb/>
+die einer ſchoͤnen <hi rendition="#g">Canzonette</hi>, <hi rendition="#aq">Rodon-<lb/>
+dilla</hi> oder <hi rendition="#aq">Seguidilla</hi> toͤnt ſo anmuthig;<lb/>
+der Tanz ihrer Sylben iſt ſo aͤtheriſch, daß<lb/>
+ihn unſre deutſche Sprache, die ein ganz<lb/>
+andrer Genius belebet, vielleicht auch nicht<lb/>
+nachahmen ſollte. Die Poeſien ſo vieler<lb/>
+Lyriſchen und Epiſchen Dichter in Italien<lb/>
+und Spanien ſind gleichſam ſo viel Heſpe-<lb/>
+riſche Zaubergaͤrten, wo die Baͤume ſingen,<lb/>
+und an jedem Zweige des ſingenden Baums<lb/>
+ein Gloͤckchen toͤnet. Die Poeſie der Alten<lb/>
+ſingt nicht alſo; aber das Rauſchen des<lb/>
+Baumes ſelbſt, das Wehen ſeiner Zweige<lb/>
+im zarteſten Sproͤßling iſt begeiſternd, iſt<lb/>
+heilig.</p><lb/>
+<pb n="112" facs="#f0129"/>
+<p>So im Aeußern; iſts aber auch anders,<lb/>
+wenn man die Poeſie der Italiaͤner mit<lb/>
+den Alten <hi rendition="#g">im Innern</hi> vergleichet? Neh-<lb/>
+met z. B. ein Sonnet, ein Madrigal, eine<lb/>
+Canzone, eine Stanze, und fuͤhret ſie auf<lb/>
+Formen der Griechen und Roͤmer zuruͤck.<lb/>
+Hier, findet man oft, mußte der Ausdruck<lb/>
+des Gedankens gedehnt, dort die Empfin-<lb/>
+dung gelaͤngt und geweitert werden. Ein-<lb/>
+ſchiebſel und fremde Zuſaͤtze mußten zu<lb/>
+Huͤlfe kommen, um ein regelmaͤßiges Son-<lb/>
+net, ein klingendes Madrigal zu werden;<lb/>
+als ein <hi rendition="#g">Epigramm</hi>, als ein <hi rendition="#g">Bild</hi> (ειδος)<lb/>
+und <hi rendition="#g">Skolion</hi> der Alten wuͤrde Alles in<lb/>
+natuͤrlichem Maas einfacher und reiner<lb/>
+daſtehn. — Eine Canzone oder Ode der<lb/>
+Italiaͤner mit Pindar oder Horaz vergli-<lb/>
+chen, hat, wie es uns Deutſchen ſcheint,<lb/>
+viel Declamation, viel proſaiſche, redneri-<lb/>
+ſche Schoͤnheit. Wie anders? Auf dieſe<lb/>
+<fw type="catch" place="bottom">ſchoͤne</fw><lb/>
+<pb n="113" facs="#f0130"/>
+ſchoͤne gereimte Declamation war die Can-<lb/>
+zone angeleget. Die Stanzen, <hi rendition="#aq">(ottave rime)</hi><lb/>
+ſind hallende Kammern; <note place="foot" n="*)">Anſpielung auf das Wort <hi rendition="#aq">Stanza,</hi> das ein<lb/>
+Zimmer, eine Kammer bedeutet.<lb/>
+A. d. H.</note> jede Abtheilung<lb/>
+in ihnen, zuletzt der <hi rendition="#g">Schluß</hi> jeder Stanze,<lb/>
+<hi rendition="#aq">(il clave)</hi> haͤlt uns melodiſch an, damit er<lb/>
+uns weiter fortfuͤhre. Vortreflich. Aber der<lb/>
+Hexameter der Alten iſt ein langer uner-<lb/>
+meßlicher Gang, wo nichts uns aufhaͤlt;<lb/>
+wir wandern ungeſtoͤrt fort, und haben<lb/>
+den Blick immer am Ziele. So koͤnnte<lb/>
+man mehr vergleichen; wozu aber die Ver-<lb/>
+gleichung, wenn ſie den Genuß ſtoͤret? Die<lb/>
+Poeſie der Italiaͤner iſt, was ſie ihrem<lb/>
+Urſprunge nach ſeyn wollte, <hi rendition="#g">Unterhal</hi>-<lb/>
+<hi rendition="#g">tung</hi>, <hi rendition="#g">accentuirte Converſation</hi>;<lb/>
+das iſt ihr Standpunkt. Ein Sonnet, ein<lb/>
+<fw type="sig" place="bottom">Siebente Samml. H</fw><lb/>
+<pb n="114" facs="#f0131"/>
+Madrigal wird adreſſirt; eine Canzone wird<lb/>
+abgeſandt und bekommt am Schluß eigne<lb/>
+Verſe als ein Creditiv mit, ein Siegel der<lb/>
+Sendung, <hi rendition="#aq">(il commiato della Canzone.)</hi><lb/>
+<hi rendition="#g">Arioſt</hi> ſchrieb ſeinen unſterblichen <hi rendition="#g">Orlan</hi>-<lb/>
+<hi rendition="#g">do</hi>, daß er in Geſellſchaften <hi rendition="#g">geleſen</hi> wer-<lb/>
+den, daß er als ein Fabelbuch angenehm<lb/>
+<hi rendition="#g">unterhalten</hi> ſollte. Dazu ſchrieben <hi rendition="#g">Ber</hi>-<lb/>
+<hi rendition="#g">nardo Taſſo</hi>, <hi rendition="#g">Fortinguerra</hi>, <hi rendition="#g">Taſ</hi>-<lb/>
+<hi rendition="#g">ſoni</hi>, <hi rendition="#g">Marino</hi>, und jene unzaͤhlbare<lb/>
+Schaar Italiaͤniſcher luſtiger Dichter.<lb/>
+Wenn <hi rendition="#g">Torquato</hi> nebſt wenigen andern<lb/>
+ſich hoͤher erhob, ſo erhebt ihn der Inhalt<lb/>
+ſeines Gedichtes; im Ganzen aber verfolgt<lb/>
+er den Zweck aller ſeiner Bruͤder.</p><lb/>
+<p>Ob dieſen Zweck jede dieſer Poëſieen<lb/>
+erreicht habe? daruͤber kann kein Auslaͤn-<lb/>
+der entſcheiden; indeſſen ſcheinets. In<lb/>
+Italien ſind die Sonnette eigentlich nichts<lb/>
+als feinere Anreden in einem gegebnen<lb/>
+<pb n="115" facs="#f0132"/>
+Ton der Geſellſchaft; beinahe jeder gebil-<lb/>
+dete Menſch macht ein Sonnet, ohne daß<lb/>
+er deßhalb ein Dichter zu ſeyn ſich einbil-<lb/>
+det. Die Werke ihrer großen Dichter ſind<lb/>
+jedem Gebildeten bekannt; ihre Sprache iſt<lb/>
+ins Ohr der Nation uͤbergegangen und<lb/>
+man hoͤrt Stellen aus Dichtern oft von<lb/>
+Perſonen, von denen man ſie am wenig-<lb/>
+ſten erwartet. Der gemeine Mann, das<lb/>
+Kind ſogar gebraucht Ausdruͤcke, die man<lb/>
+dieſſeit der Alpen in viel andern Kreiſen<lb/>
+weder ſucht, noch hoͤret.</p><lb/>
+<p>Die ganze Dichtkunſt Italiens hat etwas<lb/>
+<hi rendition="#g">ſich Anneigendes</hi>, <hi rendition="#g">Freundliches</hi> und<lb/>
+<hi rendition="#g">Holdes</hi>, dem die vielen weiblichen Reime<lb/>
+angenehm zu Huͤlfe kommen, und es der<lb/>
+Seele ſanft einſchmeicheln. Dagegen frei-<lb/>
+lich ſteht die Poeſie der Alten <hi rendition="#g">fuͤr ſich<lb/>
+ſelbſt da</hi>, in ſchweigender Wuͤrde, in<lb/>
+natuͤrlicher Schoͤnheit. Sie ſpricht und<lb/>
+<fw type="sig" place="bottom">H 2</fw><lb/>
+<pb n="116" facs="#f0133"/>
+laͤßt ſich ſprechen; die Italiaͤniſche Poeſie<lb/>
+buhlet zwar nicht, aber ſie declamirt an-<lb/>
+genehm vor; ſie <hi rendition="#g">converſiret</hi>.</p><lb/>
+<p>Ungerecht waͤre es alſo, wenn man ſelbſt<lb/>
+bei der eigentlichen Empfindungspoeſie die-<lb/>
+ſer Sprache, z. B. den <hi rendition="#g">Schaͤfergedich</hi>-<lb/>
+<hi rendition="#g">ten</hi>, einen Maasſtab gebrauchen wollte,<lb/>
+der ihr nicht geziemet. Wie viel Unzeiti-<lb/>
+ges z. B. iſt uͤber den <hi rendition="#g">Aminta</hi> des <hi rendition="#g">Taſſo</hi>,<lb/>
+uͤber den <hi rendition="#aq">Pastor fido</hi> des <hi rendition="#g">Guarini</hi> und<lb/>
+uͤber aͤhnliche Gedichte geſagt worden! —<lb/>
+Unſre Schaͤfer freilich, unſre Liebhaber rai-<lb/>
+ſonniren ſo nicht von Liebe, oder mit der<lb/>
+Liebe; nimmt man indeſſen das Local der<lb/>
+Italiaͤner, die Zeit, in welcher dieſe Dich-<lb/>
+ter lebten, die einmal getroffene Arabiſch-<lb/>
+Provenzaliſche Convention, <hi rendition="#g">uͤber die Lie</hi>-<lb/>
+<hi rendition="#g">be in Reimen zu converſiren</hi>, auch<lb/>
+viele kleine Umſtaͤnde der damaligen Lebens-<lb/>
+weiſe zuſammen: ſo werden uns dieſe <hi rendition="#g">mu</hi>-<lb/>
+<pb n="117" facs="#f0134"/>
+<hi rendition="#g">ſikaliſche Liebes</hi>-<hi rendition="#g">Converſationen</hi><lb/>
+nicht nur erklaͤrlich, ſondern beinahe natuͤr-<lb/>
+lich erſcheinen. Das ganze <hi rendition="#g">lyriſche Dra</hi>-<lb/>
+<hi rendition="#g">ma</hi> der Italiaͤner beruhet auf dieſer Con-<lb/>
+verſation; Nationen, denen ſie fremde iſt,<lb/>
+wird die ernſthafte ſowohl als die komiſche<lb/>
+Oper der Italiaͤner, dem eigentlichen Mo-<lb/>
+tiv nach, immer fremde bleiben.</p><lb/>
+<p>So kommen wir dann auf das poëti-<lb/>
+ſche Meiſterwerk dieſer Nation, die Oper,<lb/>
+<hi rendition="#g">das lyriſche Drama</hi>. Wohl nirgend<lb/>
+anders als in Italien konnte es entſprie-<lb/>
+ßen und zugleich zu <hi rendition="#g">der</hi> Bluͤthe gelangen,<lb/>
+zu welcher es zuletzt in <hi rendition="#g">Metaſtaſio</hi> ge-<lb/>
+langt iſt. Er, ein Schuͤler des philoſophi-<lb/>
+ſchen Kenners der Alten, des <hi rendition="#g">Gravina</hi>,<lb/>
+Er, dem das Gluͤck ward, hinter den Ver-<lb/>
+dienſten des <hi rendition="#g">Apoſtolo Zeno</hi> und ſo viel<lb/>
+andrer großen Maͤnner in Italien und<lb/>
+Frankreich dies Drama in einer Sprache<lb/>
+<pb n="118" facs="#f0135"/>
+zu bearbeiten, die zum Geſange geſchaffen<lb/>
+iſt, brauchte ſeines Gluͤcks und erhob aus<lb/>
+ihr <hi rendition="#g">alles Singbare</hi>, <hi rendition="#aq">(cantabile)</hi> in<lb/>
+<hi rendition="#g">jeder</hi> Art des Affekts, in <hi rendition="#g">jedem</hi> Perio-<lb/>
+den des Recitativs, der Arien und Choͤre,<lb/>
+zur Blume des Geſanges und Vortrags.<lb/>
+Zeige man ein ſingbares Wort, das er<lb/>
+nicht und zwar auf der beſten Stelle ge-<lb/>
+braucht, eine unſingbare Wendung, die er<lb/>
+nicht gemildert oder vermieden haͤtte! Auch<lb/>
+aus der menſchlichen Seele, aus Fabel<lb/>
+und Geſchichte zog er jeden ſingbaren Ge-<lb/>
+genſtand, jede melodiſche Geſinnung und<lb/>
+Empfindung auf die zierlichſte Weiſe her-<lb/>
+vor und wußte ſie zu einem <hi rendition="#g">muſikali</hi>-<lb/>
+<hi rendition="#g">ſchen Sentiment</hi> im zarteſten und vol-<lb/>
+leſten Ausdruck zu bilden. Jede Arie des<lb/>
+Metaſtaſio iſt gleichſam ein poëtiſch-muſi-<lb/>
+kaliſcher Canon worden.</p><lb/>
+<pb n="119" facs="#f0136"/>
+<p>Um hieher zu gelangen, welchen langen<lb/>
+Weg hatte das Melodrama zuruͤckgelegt,<lb/>
+ſeit es in rauhen Provenzaliſchen Canzo-<lb/>
+nen nach Italien gekommen und von um-<lb/>
+herziehenden Minſtrels mit einer Art thea-<lb/>
+traliſchen Vorſtellung verbunden hie und<lb/>
+da geſpielt war! Durch <hi rendition="#g">Maitaͤnze</hi>, <hi rendition="#aq">(Mag-<lb/>
+giolate)</hi> <hi rendition="#g">Carnevaleſken</hi>, Choͤre mit Zwi-<lb/>
+ſchenſpielen u. f. hatte es einen beſchwer-<lb/>
+lichen Weg nehmen muͤſſen, bis es unter<lb/>
+der Beihuͤlfe vieler fremden Kuͤnſtler, Fran-<lb/>
+zoſen, Spanier, Niederlaͤnder, Deutſcher,<lb/>
+nur zu einiger Regelmaͤßigkeit gelangte.<lb/>
+Italieniſche Fuͤrſten, die Pracht und Ver-<lb/>
+gnuͤgen liebten, hatten ihm dazu Raum<lb/>
+und Koſten verſchafft; der Geſchmack der<lb/>
+Nation in beiden Geſchlechtern hatte es<lb/>
+mit Freude empfangen; Florenz inſonder-<lb/>
+heit hatte ihm zuerſt ſeine glaͤnzende Ge-<lb/>
+ſtalt gegeben. Unwiſſend hatten, von<lb/>
+<pb n="120" facs="#f0137"/>
+<hi rendition="#g">Dante</hi> und <hi rendition="#g">Petrarca</hi> an, alle Dichter<lb/>
+dazu gearbeitet; <hi rendition="#g">Taſſo</hi> und <hi rendition="#g">Guarini</hi><lb/>
+mit ihren Schaͤferpoeſien hatten dazu naͤher<lb/>
+den Ton gegeben; hundert Componiſten<lb/>
+geiſtlicher und weltlicher Melodieen die<lb/>
+Pforten geoͤfnet; <hi rendition="#g">Metaſtaſio</hi> kam, und<lb/>
+ſetzte der ganzen Gattung den Kranz auf.</p><lb/>
+<p>Indeſſen auch bei <hi rendition="#g">Metaſtaſio</hi> denke<lb/>
+man nicht an die Griechen; vielmehr hat<lb/>
+vielleicht Er aufs weiteſte von ihnen ver-<lb/>
+fuͤhret, und ſteht wie auf einem andern<lb/>
+Hemiſphaͤr da. Bei Jenen ſprach die<lb/>
+Poeſie; die Muſik begleitete ihre Worte in<lb/>
+jeder Wendung des Ganges der Rede,<lb/>
+zwanglos. Hier mahlet die Muſik, und<lb/>
+die Worte dienen. Geſetzt daß es ihr auch<lb/>
+gefiele, ſie zehnmal dienen zu laſſen, ſie<lb/>
+umher zu kreiſen und wie im Spott zu<lb/>
+wiederholen; ſie tanzt ihren Tanz, und<lb/>
+unter ihrer Herrſchaft dorfte der Dichter<lb/>
+<pb n="121" facs="#f0138"/>
+nichts als das <hi rendition="#g">ihr</hi> Wohlgefaͤllige waͤhlen,<lb/>
+Keiner Leidenſchaft dorfte er tiefer nachgehn,<lb/>
+als es die Muſik ertrug und mußte ſich<lb/>
+daher uͤberall an das Weichſte, das Zar-<lb/>
+teſte, die <hi rendition="#g">Liebe</hi> halten. Mit Verletzung<lb/>
+jedes Coſtume der Zeiten und Orte ſind<lb/>
+Metaſtaſio's Helden Schaͤfer, ſeine Prin-<lb/>
+zeſſinnen Schaͤferinnen; erhabne Freſco-<lb/>
+Geſtalten der Geſchichte werden durch ihn<lb/>
+Miniaturgemaͤhlde des lyriſchen Theaters;<lb/>
+denn auf dieſe und auf keine andre Dar-<lb/>
+ſtellung hat Er gerechnet. Wenn alſo <hi rendition="#g">Me</hi>-<lb/>
+<hi rendition="#g">taſtaſio</hi> in jedem ſeiner Stuͤcke einen<lb/>
+zierlichen Porcellanthurm mit klingenden<lb/>
+Silbergloͤckchen erbauen wollte: ſo ſollte<lb/>
+und konnte dieſer kein griechiſches Odeum<lb/>
+werden.</p><lb/>
+<p>Indeſſen hat auch dieſe Poeſie ihre<lb/>
+Zwecke erreicht. Sie ward was ſie ſeyn<lb/>
+wollte, ein Vergnuͤgen feinerer Seelen, die<lb/>
+<pb n="122" facs="#f0139"/>
+auf die angenehmſte Weiſe in ſuͤßen Toͤnen<lb/>
+ſich ſchoͤne Geſinnungen einfloͤßen laßen<lb/>
+und ſich ſingend belehren. Wer ſich durch<lb/>
+eine uͤbermaͤßige Liebe dieſes Dichters und<lb/>
+dieſer Kunſt den Geſchmack verwoͤhnt, und<lb/>
+ihn zum Unmaͤnnlichen erweichet, der hat<lb/>
+daran ſelbſt die Schuld; gewiß aber wird<lb/>
+durch <hi rendition="#g">Metaſtaſio</hi>'s Geſaͤnge Niemandes<lb/>
+Herz verderbt, vielmehr kann ſeine mora-<lb/>
+liſche Empfindung, wenn er ſie aufwecken<lb/>
+laſſen will, erweckt und zart gelaͤutert wer-<lb/>
+den. Kurz in allen Italiaͤniſchen Dichtern<lb/>
+iſt <hi rendition="#g">Converſation und Geſang</hi> herr-<lb/>
+ſchend; <hi rendition="#g">ſie converſiren ſingend</hi>, <hi rendition="#g">ſie<lb/>
+ſingen dichtend</hi>.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Der Zweig der Provenzaliſchen Dicht-<lb/>
+kunſt, der ſich in <hi rendition="#g">Frankreich</hi> verbreitete,<lb/>
+trug andere Fruͤchte. Die Franzoͤſiſche Spra-<lb/>
+<pb n="123" facs="#f0140"/>
+che, die lange nicht ſo ſangbar war, als die<lb/>
+Italiaͤniſche, hatte deſto mehrere Luſt zu<lb/>
+<hi rendition="#g">erzaͤhlen</hi>, und zu <hi rendition="#g">repraͤſentiren</hi>. Sie<lb/>
+nahm alſo von ihren Provenzalen Einerſeits<lb/>
+vorzuͤglich die <hi rendition="#aq">Contes</hi> und <hi rendition="#aq">fabliaux</hi> auf,<lb/>
+die bald zu großen Romanen ausgebildet<lb/>
+wurden. Andererſeits gefielen der Nation<lb/>
+die <hi rendition="#g">Gebehrdenſpiele</hi> der <hi rendition="#aq">Muſars, Co-<lb/>
+mirs, Plaiſantins</hi> ſo ſehr, daß ſie mit der<lb/>
+Zeit auch Spiele der Nation wurden, aus<lb/>
+welchen zuletzt das <hi rendition="#g">Franzoͤſiſche Thea</hi>-<lb/>
+<hi rendition="#g">ter</hi> hervor ging. Wir wollen von beiden<lb/>
+Charakterzuͤgen dieſer Nation, vom <hi rendition="#g">Er</hi>-<lb/>
+<hi rendition="#g">zaͤhlen</hi> und <hi rendition="#g">Repraͤſentiren</hi>, den großen<lb/>
+Erweis der Zeiten bemerken.</p><lb/>
+<p>Muntre <hi rendition="#g">Erzaͤhler</hi> ſind die Franzoſen<lb/>
+von jeher geweſen; das ganze Gebilde ihrer<lb/>
+Sprache traͤgt davon den Charakter. Schon<lb/>
+unter <hi rendition="#g">Philipp Auguſt</hi> reimte man Maͤhr-<lb/>
+chen; unter <hi rendition="#g">Philipp dem kuͤhnen</hi> fan-<lb/>
+<pb n="124" facs="#f0141"/>
+den die Fabelerzaͤhler allenthalben Zutritt;<lb/>
+zahlreiche <hi rendition="#g">Romane</hi> von <hi rendition="#g">Artus</hi> und ſei-<lb/>
+nen Rittern, von <hi rendition="#g">Karl</hi> dem großen und<lb/>
+ſeinen Pairs, vom <hi rendition="#g">Amadis</hi> und ſo vielen<lb/>
+andern Helden der Tapferkeit und Liebe<lb/>
+wurden in Frankreich zwar nicht erfunden,<lb/>
+aber ausgebildet, als die Normaͤnner die-<lb/>
+ſen Zweig der Dichtkunſt bluͤhend machten.<lb/>
+Sie verbreiteten ſich nach England, Spa-<lb/>
+nien, Italien, zuletzt nach Deutſchland.</p><lb/>
+<p>In der Periode des neueren franzoͤſi-<lb/>
+ſchen Geſchmacks, wer waren ihre erſten<lb/>
+Meiſter? <hi rendition="#g">Villon</hi> und <hi rendition="#g">Rabelais</hi>, <hi rendition="#g">Ma</hi>-<lb/>
+<hi rendition="#g">rot</hi> und Seines Gleichen, die durch muntre<lb/>
+Einfaͤlle und Erzaͤhlungen bleibenden Ein-<lb/>
+druck machten; die ernſthaften Dichter gin-<lb/>
+gen in die Vergeſſenheit uͤber. Frankreichs<lb/>
+Philoſoph war <hi rendition="#g">Montagne</hi>, der ſo Vie-<lb/>
+les von ſich ſelbſt und von andern zu <hi rendition="#g">er</hi>-<lb/>
+<hi rendition="#g">zaͤhlen</hi> wußte.</p><lb/>
+<pb n="125" facs="#f0142"/>
+<p>Im goldnen Zeitalter <hi rendition="#g">Ludwigs</hi> end-<lb/>
+lich war ein Erzaͤhler, <hi rendition="#aq">la Fontaine,</hi> wohl<lb/>
+das eigenthuͤmlichſte Genie, deſſen Grazie<lb/>
+nicht veralten wird, ſo lange die franzoͤ-<lb/>
+ſiſche Sprache dauret. Eine zahlreiche<lb/>
+Menge von Erzaͤhlern in jeder Gattung<lb/>
+des Styls, proſaiſch, poetiſch, burleſk,<lb/>
+komiſch, war vorhergegangen und folgte.<lb/>
+Bei <hi rendition="#g">Voltaire</hi> iſt luſtige Erzaͤhlung viel-<lb/>
+leicht ſein gluͤcklichſtes Talent; die Prophe-<lb/>
+tinn von Orleans und <hi rendition="#g">Guillaum Vadé</hi><lb/>
+gelangen ihm beſſer als die Henriade.<lb/>
+Dies Talent, das in <hi rendition="#g">Marmontel</hi>, <hi rendition="#g">Di</hi>-<lb/>
+<hi rendition="#g">derot</hi>, <hi rendition="#g">Cazotte</hi> und ſo vielen andern<lb/>
+immer neue Fruͤchte gebracht hat, ſolche<lb/>
+wahrſcheinlich auch bringen wird, ſo lange<lb/>
+ein Franzoſe oder eine Franzoͤſin die Lippen<lb/>
+beweget, hat ihrer Sprache in Allem, ſelbſt<lb/>
+in den ernſthafteſten Wiſſenſchaften, jene<lb/>
+Klarheit und Nettigkeit, jene muntre Praͤ-<lb/>
+<pb n="126" facs="#f0143"/>
+ciſion gegeben, die beinah ganz Europa<lb/>
+zur Nachahmung erweckt hat. <hi rendition="#g">Discours</hi><lb/>
+heißt der Genius ihrer Schreibart. Alles<lb/>
+iſt ihnen klar; was ſie wiſſen und nicht<lb/>
+wiſſen, koͤnnen und doͤrfen ſie <hi rendition="#g">erzaͤhlen</hi>.</p><lb/>
+<p><hi rendition="#g">Repraͤſentation</hi> iſt der zweite Zug<lb/>
+ihres entſchiedenen Charakters. Das Volk<lb/>
+repraͤſentirt gern und liebte von jeher Re-<lb/>
+praͤſentationen. Schon unter den erſten<lb/>
+barbariſchen Koͤnigen ſpielten die <hi rendition="#g">Hiſtrio</hi>-<lb/>
+<hi rendition="#g">nen</hi> an allen Staatsfeſten ihre Rollen,<lb/>
+denen die <hi rendition="#aq">Jongleurs</hi> und <hi rendition="#aq">Jongleureſſes,</hi><lb/>
+die <hi rendition="#aq">Joueurs de Farces, Bateleurs</hi> u. f.<lb/>
+folgten. In mehreren und wiederholten<lb/>
+Reglemens mußte dieſen bei Gefaͤngniß-<lb/>
+und Leibesſtrafe verboten werden, nur nicht<lb/>
+an Sonn- und Feſttagen, waͤhrend des<lb/>
+Gottesdienſtes, in geiſtlichen Kleidern, an<lb/>
+oͤffentlichen Orten, aͤrgerliche Farcen zu<lb/>
+ſpielen. Zur Zeit der Kreuzzuͤge und der<lb/>
+<pb n="127" facs="#f0144"/>
+Wallfahrten nach dem heiligen Lande, ka-<lb/>
+men die Pilgrime wieder, um in ihrem<lb/>
+Vaterlande zu <hi rendition="#g">repraͤſentiren</hi>. In aben-<lb/>
+theuerlicher Kleidung erzaͤhlten und agirten<lb/>
+ſie ihre <hi rendition="#g">Geſchichten von weither</hi>,<lb/>
+Wunderdinge, Abentheuer, Viſionen; man<lb/>
+repraͤſentirte die Geſchichte des alten und<lb/>
+neuen Teſtaments, unter andern <hi rendition="#aq">la Paſ-<lb/>
+ſion de N. S. Jeſus Chriſt en Vers bur-<lb/>
+lesques.</hi> <hi rendition="#g">Bruͤder der Paſſion</hi> <hi rendition="#aq">(les<lb/>
+Confréres de la Paſſion)</hi> entſtanden; ſie<lb/>
+zogen die Privilegien des <hi rendition="#g">Narrenprin</hi>-<lb/>
+<hi rendition="#g">zen</hi> <hi rendition="#aq">(prince des ſots)</hi> und des <hi rendition="#g">Narren</hi>-<lb/>
+<hi rendition="#g">feſtes</hi> <hi rendition="#aq">(de la fête des foux)</hi> an ſich; man<lb/>
+raͤumte ihnen <hi rendition="#g">Hotels</hi> ein; ſo ward das<lb/>
+erſte franzoͤſiſche Theater, das bald darauf<lb/>
+<hi rendition="#aq">devans leurs Majeſtès dans la ſalle du<lb/>
+Château</hi> <hi rendition="#g">Moralitaͤten</hi> ſpielte. Der Ge-<lb/>
+ſchmack dieſer Moralitaͤten, in denen ſich<lb/>
+das Heilige und Profane ſonderbar miſchte,<lb/>
+<pb n="128" facs="#f0145"/>
+iſt bekannt; ſie hießen <hi rendition="#aq">Jeux des pois pilés,</hi><lb/>
+<hi rendition="#g">Spiele zerſtoßener Erbſen</hi>, und blie-<lb/>
+ben es ſo lange, bis aus ihnen die <hi rendition="#g">fran</hi>-<lb/>
+<hi rendition="#g">zoͤſiſche Comoͤdie</hi> hervorging, in wel-<lb/>
+cher denn, ſo wie auf dem <hi rendition="#g">franzoͤſiſchen<lb/>
+Theater</hi> uͤberhaupt, <hi rendition="#g">Repraͤſentation</hi><lb/>
+von jeher der Hauptgeſichtspunkt geweſen<lb/>
+und geblieben iſt, nach welchem ſich Alles<lb/>
+ordnet. Es iſt zu erweiſen, daß Alles<lb/>
+Gute und Mangelhafte des franzoͤſiſchen<lb/>
+Theaters offenbar aus <hi rendition="#g">Repraͤſentation</hi>,<lb/>
+aus <hi rendition="#g">franzoͤſiſcher Repraͤſentation</hi><lb/>
+erwachſen ſei, als einem der Nation unab-<lb/>
+leglichen Charakter. Jene Lebhaftigkeit und<lb/>
+Natur des Spiels mit Anſtand und Ge-<lb/>
+faͤlligkeit begleitet, jene Klarheit nicht nur<lb/>
+in der Expoſition ſondern auch in der gan-<lb/>
+zen Oekonomie des Stuͤcks, inſonderheit<lb/>
+in der Folge und Bindung ſeiner Scenen;<lb/>
+in der Oper das Feierliche der Choͤre, die<lb/>
+<fw type="catch" place="bottom">Pracht</fw><lb/>
+<pb n="129" facs="#f0146"/>
+Pracht der Decoration u. f. kurz, was<lb/>
+Repraͤſentation fodert und geben kann,<lb/>
+ward dort gegeben und ausgebildet. Da-<lb/>
+gegen was <hi rendition="#g">Repraͤſentation</hi> nicht leiſtet,<lb/>
+was manchmal z. B. im Trauerſpiele ſie<lb/>
+ſogar nicht wuͤnſchet und gern verbirgt,<lb/>
+die tiefere Wahrheit und Natur der Leiden-<lb/>
+ſchaften dem franzoͤſiſchen Theater, ver-<lb/>
+glichen mit dem Griechiſchen und Engli-<lb/>
+ſchen, oft fremd blieb. Sowohl der <hi rendition="#g">He</hi>-<lb/>
+<hi rendition="#g">roismus</hi> als die <hi rendition="#g">Liebe</hi> erſcheinen in der<lb/>
+franzoͤſiſchen Theaterkunſt, (von vortreflichen<lb/>
+Ausnahmen iſt hier nicht die Rede) nach<lb/>
+dem Geſetz einer National-Convention<lb/>
+<hi rendition="#g">repraͤſentiret</hi>; dieſe Convention herrſcht<lb/>
+in Allem, im Ton der Stimme, in der<lb/>
+Kleidung und Gebehrde, in jedem Schritt<lb/>
+und Tritt des Acteurs und der Actrice.<lb/>
+Wenn <hi rendition="#g">Der</hi> oder <hi rendition="#g">Jene</hi> aus dieſem Gleiſe<lb/>
+des Anſtandes gluͤcklich herauszutreten wuß-<lb/>
+<fw type="sig" place="bottom">Siebente Samml. J</fw><lb/>
+<pb n="130" facs="#f0147"/>
+ten; ſo ward ihre Ausnahme bald ſelbſt<lb/>
+zur conventionellen Regel. Faſt auf alle<lb/>
+Werke des Geiſtes, ſelbſt der Wiſſenſchaft,<lb/>
+erſtreckt ſich dieſe Franzoͤſiſche Repraͤſen-<lb/>
+tationsgabe; auf ihre gerichtlichen und<lb/>
+Kanzelreden, auf ihre Akademien und Elo-<lb/>
+gien, ſelbſt auf ihre Staatsverhandlungen<lb/>
+und Staatsgrundſaͤtze; in ihnen erſcheint<lb/>
+die Gerechtigkeit, die Andacht, die Ge-<lb/>
+lehrſamkeit, das Lob, die Politik, die Wiſ-<lb/>
+ſenſchaft <hi rendition="#g">repraͤſentirend</hi>. Es wird der<lb/>
+Nation ſchwer fuͤr ſich allein zu ſeyn; ſie<lb/>
+iſt gern im Auge andrer, am liebſten im<lb/>
+Auge des Univerſum ſprechend, ſchreibend,<lb/>
+<hi rendition="#g">agirend</hi>.</p><lb/>
+<p>Die groͤßeſte Repraͤſentantin iſt die<lb/>
+Franzoͤſiſche Sprache. Mit dem Schein<lb/>
+Alles aufs genaueſte, aufs feinſte zu ſagen,<lb/>
+umſchreibt ſie in geltenden Ausdruͤcken, die<lb/>
+jeder zu verſtehen glaubt; und giebt, was<lb/>
+<pb n="131" facs="#f0148"/>
+ſie in ſo großer Menge hat, ins Ohr fal-<lb/>
+lende Worte, gemein gewordne <hi rendition="#g">Abſtrac</hi>-<lb/>
+<hi rendition="#g">tionen</hi>. Unendlich reich an Ausdruͤcken<lb/>
+der Hoͤflichkeit, der guten Lebensart, der<lb/>
+Kunſtphiloſophie u. f. huͤtet ſie ſich wohl,<lb/>
+mit dieſen Ausdruͤcken etwas mehr zu mei-<lb/>
+nen, als zum conventionellen Alltagsver-<lb/>
+ſtaͤndniß derſelben gehoͤret. Wehe dem,<lb/>
+der ſich auf ein Franzoͤſiſches Modewort,<lb/>
+auf eine Formel und Wendung des Fran-<lb/>
+zoͤſiſchen Styls verließ; die Mode aͤndert<lb/>
+ſich und das Wort bedeutet ganz etwas<lb/>
+Andres. —</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Sollen den Franzoſen jetzt die Spanier<lb/>
+nachtreten, wie auch ſie etwa von den<lb/>
+Provenzalen gelernt haben? Nein. Die<lb/>
+Cultur der Spanier iſt von den Proven-<lb/>
+zalen nicht erborgt, ſondern an ihrer<lb/>
+<fw type="sig" place="bottom">J 2</fw><lb/>
+<pb n="132" facs="#f0149"/>
+Seite ſtolz und eigenthuͤmlich erwachſen.<lb/>
+Jahrhunderte lang hatten die Araber ihr<lb/>
+ſchoͤnes Land beſeſſen, und in alle Provin-<lb/>
+zen deſſelben ihre Sprache und Sitten ver-<lb/>
+breitet. Jahrhunderte gingen hin, ehe es<lb/>
+ihnen entriſſen ward, und in dieſem lan-<lb/>
+gen Kampf zwiſchen Rittern und Rittern<lb/>
+hatten ſie wohl Zeit, den Charakter zu er-<lb/>
+proben, der ſich auch in Werken des Ge-<lb/>
+ſchmacks als ihr Genius zeigt; es iſt die<lb/>
+Idee eines <hi rendition="#g">chriſtlichen</hi> Ritterthums, den<lb/>
+Heiden und Unglaͤubigen entgegen. Als<lb/>
+alte, vom H. Jakobus bekehrte Chriſten<lb/>
+waren ſie in die Gebuͤrge geflohen; als<lb/>
+ſolche hielten ſie ſich in ihnen veſt und er-<lb/>
+oberten ihr Land wieder. Als ſolche wa-<lb/>
+ren ſie zu ſtolz, ſich mit Mauriſchem Blute<lb/>
+zu vermiſchen und entvoͤlkerten dadurch ihr<lb/>
+Land; als ſolche waren ſie in fremden<lb/>
+Welttheilen ſtolz und grauſam. Ihr Vor-<lb/>
+<pb n="133" facs="#f0150"/>
+trefliches und ihre Fehler kommen aus<lb/>
+Einer Quelle; aus welcher mit beiden,<lb/>
+mit Fehlern und Tugenden, auch ihre Poe-<lb/>
+ſie und Sprache floß. Dieſe ſtehet zwi-<lb/>
+ſchen der Italiaͤniſchen und altroͤmiſchen<lb/>
+in der Mitte; an Majeſtaͤt und Wuͤrde<lb/>
+der Mutter aͤhnlicher als eine ihrer Schwe-<lb/>
+ſtern; voll Wohlklanges fuͤr die Muſik,<lb/>
+und in dieſer faſt eine heilige Kirchenſpra-<lb/>
+che. Nicht lief ſie, wie die Provenzalinn,<lb/>
+auswaͤrts umher; ſie war ſtolz und blieb<lb/>
+zu Hauſe, brachte aber in ihrer ſchoͤnen<lb/>
+Wuͤſte unter manchem Sonderbaren und<lb/>
+Abentheuerlichen edle Fruͤchte. Vielleicht<lb/>
+giebt es keine ſcharfſinnigern Spruͤche und<lb/>
+Spruͤchwoͤrter als in der Spaniſchen Spra-<lb/>
+che; von <hi rendition="#g">Alphons dem Weiſen</hi> an<lb/>
+hat ſie in allen Productionen dieſen Cha-<lb/>
+rakter behauptet. Ihre Erzaͤhlungen, Thea-<lb/>
+terſtuͤcke und Romane ſind voll Verwicke-<lb/>
+<pb n="134" facs="#f0151"/>
+lungen, voll Tiefſinnes und bei vielem<lb/>
+Befremdenden voll feiner und großer Ge-<lb/>
+danken. Ihre Sylbenmaaſſe ſind ſehr<lb/>
+wohlklingend und die Leidenſchaft der Lie-<lb/>
+be ſteigt in ihnen oft bis zum ſchoͤnen<lb/>
+Wahnſinn. Sie ſind veredelte Araber;<lb/>
+auch ihre Thorheit hat etwas Andaͤchtiges<lb/>
+und Erhabnes.</p></div><lb/>
+<pb n="135" facs="#f0152"/>
+<div n="1"><head>88.</head><lb/>
+<p><hi rendition="#in">W</hi>ie mir immer eine Furcht ankommt,<lb/>
+wenn ich eine ganze Nation oder Zeitfolge<lb/>
+durch einige Worte charakteriſiren hoͤre:<lb/>
+denn welch eine ungeheure Menge von<lb/>
+Verſchiedenheiten faſſet das Wort <hi rendition="#g">Nation</hi>,<lb/>
+oder die <hi rendition="#g">mittleren Jahrhunderte</hi>,<lb/>
+oder die <hi rendition="#g">alte und neue Zeit</hi> in ſich!<lb/>
+eben ſo verlegen werde ich, wenn ich von<lb/>
+der <hi rendition="#g">Poeſie einer Nation</hi> oder eines<lb/>
+<hi rendition="#g">Zeitalters</hi> in allgemeinen Ausdruͤcken<lb/>
+reden hoͤre. Die Poeſie der <hi rendition="#g">Italiaͤner</hi>,<lb/>
+der <hi rendition="#g">Spanier</hi>, der <hi rendition="#g">Franzoſen</hi>, wie viel,<lb/>
+wie mancherlei begreift ſie in ſich! und<lb/>
+<pb n="136" facs="#f0153"/>
+wie wenig denket, ja wie wenig kennet<lb/>
+der ſie oft, der ſie am wortreichſten cha-<lb/>
+rakteriſiret!</p><lb/>
+<p>Wenn ich meinen <hi rendition="#g">Dante</hi> und <hi rendition="#g">Pe</hi>-<lb/>
+<hi rendition="#g">trarca</hi>, <hi rendition="#g">Arioſto</hi> und <hi rendition="#g">Cervantes</hi> las,<lb/>
+und Jeden dieſer Dichter, wie meinen<lb/>
+Freund und Lehrer von Innen aus kennen<lb/>
+lernen wollte: ſo war es mir angenehm,<lb/>
+ihn als einen <hi rendition="#g">Einzigen</hi> zu betrachten.<lb/>
+Zu dieſem Zweck ſuchte ich Alles auf, was<lb/>
+in ihm liegt, was rings um ihn zu ſeiner<lb/>
+Bildung oder Misbildung beigetragen. Die<lb/>
+ganze Dichterwelt vor und nach ihm ver-<lb/>
+ſchwand vor meinen Augen; ich ſahe nur<lb/>
+ihn. Und doch wurde ich bald an die<lb/>
+ganze Reihe der Zeiten erinnert, die vor<lb/>
+ihm war, die nach ihm folgte. Er hatte<lb/>
+gelernt und lehrte; er folgte andern, andre<lb/>
+ihm nach. Das Band der Sprache, der<lb/>
+Denkart, der Leidenſchaften, des Inhalts<lb/>
+<pb n="137" facs="#f0154"/>
+knuͤpfte ihn mit mehreren, ja zuletzt mit<lb/>
+allen Dichtern: denn — er war ein <hi rendition="#g">Menſch</hi>,<lb/>
+er dichtete fuͤr <hi rendition="#g">Menſchen</hi>. Unvermerkt<lb/>
+werden wir alſo darauf geleitet, zu unter-<lb/>
+ſuchen, was jeder gegen jeden Aehnlichen<lb/>
+in und außer ſeiner Nation, was <hi rendition="#g">ſeine</hi><lb/>
+Nation gegen <hi rendition="#g">andre</hi> vor- und ruͤckwaͤrts<lb/>
+ſei; und ſo ziehet uns eine unſichtbare<lb/>
+Kette ins <hi rendition="#g">Pandaͤmonium</hi>, ins <hi rendition="#g">Reich<lb/>
+der Geiſter.</hi></p><lb/>
+<p>Wenn Poeſie die Bluͤthe des menſch-<lb/>
+lichen Geiſtes, der menſchlichen Sitten,<lb/>
+ja ich moͤchte ſagen das <hi rendition="#g">Ideal unſrer<lb/>
+Vorſtellungsart</hi>, die <hi rendition="#g">Sprache</hi> des<lb/>
+Geſammtwunſches und Sehnens der Menſch-<lb/>
+heit iſt: ſo, duͤnkt mich, iſt der gluͤcklich,<lb/>
+dem dieſe Bluͤthe vom Gipfel des Stam-<lb/>
+mes der <hi rendition="#g">aufgeklaͤrteſten Nation</hi> zu<lb/>
+brechen vergoͤnnt iſt. Es iſt wohl kein ge-<lb/>
+ringer Vorzug unſeres <hi rendition="#g">inneren Lebens</hi>,<lb/>
+<pb n="138" facs="#f0155"/>
+außer den Morgenlaͤndern und Alten mit<lb/>
+den edelſten Geiſtern Italiens, Spaniens,<lb/>
+Frankreichs ſprechen und bei jedem bemer-<lb/>
+ken zu koͤnnen, wie <hi rendition="#g">Er</hi> die Begriffe und<lb/>
+Wuͤnſche ſeines Herzens, die <hi rendition="#g">Ihn</hi> am mei-<lb/>
+ſten entflammten, auf die wuͤrdigſte Art<lb/>
+einzukleiden und fuͤr Welt und Nachwelt<lb/>
+angenehm, ja hinreißend vorzutragen ſuchte.<lb/>
+Hingeriſſen in eure ſuͤße und bittre Traͤu-<lb/>
+mereien, ihr Dichter, wandeln wir mit<lb/>
+euch in einer Zauberwelt und hoͤren eure<lb/>
+Stimme als ob ihr lebtet. Andre erzaͤhlen<lb/>
+von ſich und andern; ihr verſetzet uns in<lb/>
+euch ſelbſt, in eure Welt von Gedanken<lb/>
+und Empfindungen des Leides und der<lb/>
+Freuden.</p><lb/>
+<p>Und ach, wie klein iſt unſre Welt! wie<lb/>
+oft wiederholen ſich Empfindungen und Ge-<lb/>
+danken! Enge iſt der Kreis des menſchli-<lb/>
+chen Tichtens und Trachtens; in wenige,<lb/>
+<pb n="139" facs="#f0156"/>
+wenige Knoten iſt alle unſer Intereſſe ge-<lb/>
+knuͤpfet.</p><lb/>
+<p>In <hi rendition="#g">dieſer</hi> Ruͤckſicht nun kann man<lb/>
+freilich die Geſchichte der Dichtkunſt d. i.<lb/>
+die <hi rendition="#g">Geſchichte menſchlicher Einbil</hi>-<lb/>
+<hi rendition="#g">dungen und Wuͤnſche</hi>, und wenn ich<lb/>
+ſo ſagen darf, des <hi rendition="#g">ſuͤßen Wahns der<lb/>
+Menſchheit</hi>, der aufs <hi rendition="#g">feurigſte aus</hi>-<lb/>
+<hi rendition="#g">gedruckten Leidenſchaften und Em</hi>-<lb/>
+<hi rendition="#g">pfindungen unſres Geſchlechts</hi> nicht<lb/>
+allgemein und im <hi rendition="#g">Großen gnug</hi> neh-<lb/>
+men. Wie ganzen Nationen Eine Spra-<lb/>
+che eigen iſt, ſo ſind ihnen auch gewiſſe<lb/>
+Lieblingsgaͤnge der Phantaſie, Wendungen<lb/>
+und Objecte der Gedanken, kurz ein <hi rendition="#g">Ge</hi>-<lb/>
+<hi rendition="#g">nius</hi> eigen, der ſich, unbeſchadet jeder<lb/>
+einzelnen Verſchiedenheit, in den beliebte-<lb/>
+ſten Werken ihres Geiſtes und Herzens<lb/>
+ausdruckt. Sie in dieſem angenehmen Irr-<lb/>
+garten zu belauſchen, den Proteus zu feſ-<lb/>
+<pb n="140" facs="#f0157"/>
+ſeln und redend zu machen, den man ge-<lb/>
+woͤhnlich <hi rendition="#g">Nationalcharakter</hi> nennt und<lb/>
+der ſich gewiß nicht weniger in Schriften<lb/>
+als in Gebraͤuchen und Handlungen der<lb/>
+Nation aͤußert; dies iſt eine hohe und feine<lb/>
+Philoſophie. In den Werken der Dichtkunſt<lb/>
+d. i. der Einbildungskraft und der Empfin-<lb/>
+dungen wird ſie am ſicherſten geuͤbet, weil<lb/>
+in dieſen die <hi rendition="#g">ganze Seele</hi> der Nation<lb/>
+ſich am freieſten zeiget.</p><lb/>
+<p>So iſt es auch mit dem <hi rendition="#g">Geiſt Eines<lb/>
+oder mehrerer Zeitalter</hi>, ſo viel die-<lb/>
+ſer Name unter ſich begreifet: denn jedes<lb/>
+Zeitalter hat ſeinen Ton, ſeine Farbe; und<lb/>
+es giebt ein eignes Vergnuͤgen, dieſe im<lb/>
+Gegenſatz mit andern Zeiten treffend zu<lb/>
+charakteriſiren. Mir ſind z. B. die ſoge-<lb/>
+nannten <hi rendition="#g">mittleren Zeiten</hi> auch in ihren<lb/>
+Maͤhrchen, in dem guten Glauben und<lb/>
+Aberglauben, der ſie beherrſchte, in der<lb/>
+<pb n="141" facs="#f0158"/>
+ganzen Richtung, den die Europaͤiſche Denk-<lb/>
+art damals nahm, ſehr merkwuͤrdig. Die-<lb/>
+ſer Wahn liegt uns naͤher, als die My-<lb/>
+thologie der Griechen und Roͤmer; manche<lb/>
+Zuͤge davon haben wir vielleicht in ange-<lb/>
+bohrnen Neigungen und Vorſtellungsarten,<lb/>
+gewiß aber in Reſten der Gewohnheit von<lb/>
+unſern Vaͤtern geerbet.</p></div><lb/>
+<pb n="142" facs="#f0159"/>
+<div n="1"><head>89.</head><lb/>
+<p><hi rendition="#g">Fuͤnftes Fragment</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/> <p>Vom Werth der Europaͤiſchen Dich-<lb/>
+tung mittlerer Zeiten.</p><lb/>
+<milestone unit="section" rendition="#hr"/> <p><hi rendition="#in">W</hi>ir haben jetzt Umfang gnug gewonnen,<lb/>
+die Europaͤiſche Cultur durch die Poeſie<lb/>
+der mittleren Zeiten in dem weiten Raum,<lb/>
+den ſie durchging, unpartheiiſch zu ſchaͤtzen,<lb/>
+und ihren Werth oder Unwerth zu zeigen.</p><lb/>
+<p>Ein großer <hi rendition="#g">Nachtheil</hi> war fuͤr ſie <hi rendition="#g">die<lb/>
+allenthalben mit fremden Spra</hi>-<lb/>
+<pb n="143" facs="#f0160"/>
+<hi rendition="#g">chen vermiſchte</hi>, in <hi rendition="#g">ihr ſelbſt ver</hi>-<lb/>
+<hi rendition="#g">fallene Roͤmerſprache</hi>. Mit Recht<lb/>
+hieß dieſe <hi rendition="#aq">ruſtica</hi>, eine Bauernſprache; die<lb/>
+Dichtkunſt, die in ihr aufkam, konnte mit<lb/>
+Noth und Muͤhe auch nur eine <hi rendition="#g">vulgare</hi><lb/>
+Dichtkunſt werden. Alles war hier durch<lb/>
+einander gemiſcht und verdorben. Nordi-<lb/>
+ſche Voͤlker kamen mit einer harten, ſkla-<lb/>
+viſche, in Feigheit verſunkene Voͤlker ſpra-<lb/>
+chen eine vernachlaͤßigte Sprache. Unruhe<lb/>
+und wiederkommende Verwuͤſtung, Nacht<lb/>
+und Aberglaube verheerten die Welt; was<lb/>
+aus dieſem Chaos uͤber einander ſtuͤrzen-<lb/>
+der Voͤlker und Sprachen hervortoͤnte,<lb/>
+konnte nicht oder ſehr ſpaͤt der Geſang je-<lb/>
+ner Muſe ſeyn, die einſt in Jonien, Athen<lb/>
+und Tibur reingeſtimmte, harmoniſche Sai-<lb/>
+ten beſeelt hatte. Hier ſchrieb man Reime.<lb/>
+<hi rendition="#aq">(coplas, rime.)</hi></p><lb/>
+<pb n="144" facs="#f0161"/>
+<p>Einen noch herbern Feind hatte die<lb/>
+Bildnerinn der Sitten, die Poeſie, an den<lb/>
+<hi rendition="#g">Sitten dieſer Nationen ſelbſt</hi>, <hi rendition="#g">im<lb/>
+mittleren Zeitalter</hi>. Kriegeriſchen Voͤl-<lb/>
+kern ertoͤnt nur die Tuba; unterjochte,<lb/>
+Baͤuriſche Voͤlker ſangen rohe Volksgeſaͤn-<lb/>
+ge; Kirchen und Kloͤſter Hymnen. Wenn<lb/>
+aus dieſer Miſchung ungleichartiger Dinge<lb/>
+nach Jahrhunderten ein Klang hervorging;<lb/>
+ſo wars ein dumpfer Klang, ein vielarti-<lb/>
+ges Sauſen. Schon der Charakter-Name<lb/>
+des Inhalts der Zeiten ſagt dies. Er heißt<lb/>
+<hi rendition="#g">Abentheuer</hi>, <hi rendition="#g">Roman</hi>; ein Inbegriff<lb/>
+des wunderbarſten, vermiſchteſten Stoffs,<lb/>
+der urſpruͤnglich nur ununterrichteten Oh-<lb/>
+ren gefallen ſollte, und ſich faſt ohne<lb/>
+Kaͤnntniß der Natur, Kunſt und Geſchichte<lb/>
+von der Vorwelt her uͤber Meer und Laͤn-<lb/>
+der in wilder Rieſengeſtalt erſtreckte. Von<lb/>
+den Arabern her beſtimmten <hi rendition="#g">drei Ingre</hi>-<lb/>
+<fw type="catch" place="bottom"><hi rendition="#g">dien</hi>-</fw><lb/>
+<pb n="145" facs="#f0162"/>
+<hi rendition="#g">dientien</hi> den Inhalt dieſer Sagen, <hi rendition="#g">Lie</hi>-<lb/>
+<hi rendition="#g">be</hi>, <hi rendition="#g">Tapferkeit</hi> und <hi rendition="#g">Andacht</hi>; ſchoͤne<lb/>
+Namen, waͤre ihre Bedeutung nur im-<lb/>
+mer auch in der Anwendung der Namen<lb/>
+werth geweſen.</p><lb/>
+<p><hi rendition="#g">Liebe</hi>. Gewiß aber wars nicht immer<lb/>
+jene zaͤrtlich-bewundernde Liebe, die man<lb/>
+aus einem guten Vorurtheil, den Erzaͤh-<lb/>
+lungen und Liedern des Mittelalters ge-<lb/>
+meiniglich als Charakter zuſchreibt. Viele<lb/>
+Geſaͤnge und Geſchichten zeigen ein Andres,<lb/>
+das ſich auch zu jenen Gedankenloſen, und<lb/>
+dabei unternehmenden Zeiten beſſer ſchickt<lb/>
+und fuͤget. In muͤßigen, reichen und uͤp-<lb/>
+pigen Staͤnden, in Schloͤſſern, an Hoͤfen,<lb/>
+deren es damals ſo viel gab, hatte man<lb/>
+Zeit und Mittel, jene <hi rendition="#g">Galanterie</hi>, die<lb/>
+geprieſene Bluͤthe der Ritter-Jahrhunderte,<lb/>
+oft in einem Geſchmack zu treiben, wie ſie<lb/>
+des <hi rendition="#g">Boccaz Decamerone</hi> oder <hi rendition="#g">Bran</hi>-<lb/>
+<fw type="sig" place="bottom">Siebente Samml. K</fw><lb/>
+<pb n="146" facs="#f0163"/>
+<hi rendition="#g">tome</hi> und ſo manches uͤppige <hi rendition="#aq">Capitolo</hi><lb/>
+ſchildert. Man ruͤhmte ſich deſſen, was man<lb/>
+erfahren haben wollte, nicht immer auf die<lb/>
+feinſte und ſittlichſte Weiſe.</p><lb/>
+<p><hi rendition="#g">Tapferkeit</hi>. Ein edles Wort; die<lb/>
+damaligen Zeiten aber gebrauchten es nicht<lb/>
+immer in der edelſten Anwendung. Der<lb/>
+Ritter, der in die Welt zog, Unglaͤubige oder<lb/>
+Ketzer zu vertilgen und ſich außer den Pflich-<lb/>
+ten gegen Ebenbuͤrtige, gegen Damen, ge-<lb/>
+gen ſeinen Lehnsherren und die Kirche Alles<lb/>
+erlaubt hielt, war eben nicht das reinſte<lb/>
+Ideal maͤnnlicher Tugend. Eine Poeſie alſo,<lb/>
+die ſolche Ritterzuͤge beſang oder erzaͤhlte,<lb/>
+mußte oft dumpf umherſchwaͤrmen und bis<lb/>
+zum Ermuͤden ſingen und ſagen, was <hi rendition="#g">Rit</hi>-<lb/>
+<hi rendition="#g">terthum</hi> und <hi rendition="#g">Ritterehre</hi> erfodert. Oder<lb/>
+um dieſem Einerlei zuvor zu kommen, mußte<lb/>
+ſie ſich ins Ungeheure, ins Unmoͤgliche ver-<lb/>
+lieren, hier eine brutale Macht loben, dort<lb/>
+<pb n="147" facs="#f0164"/>
+Ahnenſtolz, Raͤubergluͤck oder leeren Glanz<lb/>
+preiſen. Wider Willen mußte ſie oft lang-<lb/>
+weilig, oft Geiſtlos und unmoraliſch wer-<lb/>
+den, weil ſie Geiſtloſe Menſchen in Zweck-<lb/>
+loſen oder unmoraliſchen Thaten zu ſchil-<lb/>
+dern hatte, und auch bei großen und gu-<lb/>
+ten Zwecken ſie mit zu viel falſchem Glanz<lb/>
+vergulden mußte.</p><lb/>
+<p><hi rendition="#g">Andacht</hi> endlich. Bloß als Feierlich-<lb/>
+keit behandelt, ermuͤdet ſie und laͤßt die<lb/>
+Seele bald leer; als eine Verbindung mit<lb/>
+dem Unendlichen, als Anſchauung des Un-<lb/>
+ermeßlichen betrachtet, erhebt ſie zwar die<lb/>
+Seele, entzuͤckt ſie aber auch in einen Glanz,<lb/>
+in welchem der Poeſie zuletzt jede Form<lb/>
+ſchwindet. Soll Andacht aber ſogar Miſſe-<lb/>
+that verſoͤhnen, es ſei mit leeren Gebraͤu-<lb/>
+chen, oder mit Geſchenken und Vermaͤcht-<lb/>
+niſſen, ohne daß dem Unterdruͤckten Er-<lb/>
+ſtattung geſchehe; o da wird ſie dem Men-<lb/>
+<fw type="sig" place="bottom">K 2</fw><lb/>
+<pb n="148" facs="#f0165"/>
+ſchenſinn, dem moraliſchen Gefuͤhl widrig<lb/>
+und auch im ſchoͤnſten poëtiſchen Nachbilde<lb/>
+veraͤchtlich.</p><lb/>
+<p>Alle dieſe Maͤngel und Laſter entſpran-<lb/>
+gen aus dem Verderben der Religion und<lb/>
+Sitten damaliger Welt in obern und un-<lb/>
+tern Staͤnden; eine froͤhliche Wiſſenſchaft,<lb/>
+die an Hoͤfen entſtanden, von Großen ge-<lb/>
+naͤhrt und nur zur Zeitkuͤrzung gebraucht<lb/>
+ward, konnte und wollte die Schwaͤchen<lb/>
+des Jahrhunderts weder abthun noch ver-<lb/>
+ſoͤhnen. Sie dachte an den Inhalt einer<lb/>
+Erzaͤhlung nur ſofern als dieſer Inhalt<lb/>
+<hi rendition="#g">vergnuͤgte</hi>, und es war Sitte der Zeit,<lb/>
+ſich bisweilen auch langweilig und gemein<lb/>
+zu vergnuͤgen. Das Ohr des Volks, vor<lb/>
+welches zuletzt dieſe Divertiſſements auch<lb/>
+kamen, nahm ſie mit Freuden auf, weil<lb/>
+ſie bei Hofe erfunden waren, weil man ſie<lb/>
+in hoͤheren Staͤnden belachte. Es war<lb/>
+<pb n="149" facs="#f0166"/>
+eine Hof-Art <hi rendition="#aq">(corteſania)</hi> ſie ſchoͤn zu<lb/>
+finden — —</p><lb/>
+<p>So gewiß iſts, daß nichts bleibend ſchoͤn<lb/>
+ſeyn kann, als das Wahre und Gute.<lb/>
+Keine Kunſt, kein Kuͤnſtler vermag von<lb/>
+einem falſchen Schimmer der Macht und<lb/>
+Hoheit, vom geſchminkten Reiz der Wohl-<lb/>
+luſt und Ueppigkeit, oder von der Schwaͤr-<lb/>
+merei ein Ideal zu borgen, das beſtehe<lb/>
+und fortdaure. Was unrein dem menſch-<lb/>
+lichen Gemuͤth iſt, muß ihm fruͤher oder<lb/>
+ſpaͤter auch in der Poeſie unrein erſchei-<lb/>
+nen: denn nur fuͤrs menſchliche Gemuͤth<lb/>
+wird gedichtet.</p><lb/>
+<p>Jene Romane voll Langweiligkeiten des<lb/>
+Ritterthums, voll falſchen Glanzes der<lb/>
+Hofſitten oder gar jene Gemaͤhlde des Gar-<lb/>
+tengottes und der Goͤttinn <hi rendition="#aq">Crapula</hi>, was<lb/>
+ſind ſie unter dem Fuß der Zeit worden?<lb/>
+Schlamm und Moder. Es iſt Geſetz der<lb/>
+<pb n="150" facs="#f0167"/>
+Natur, daß auch in der Poeſie und Kunſt<lb/>
+nur <hi rendition="#g">das Wahre und Gute bleibe</hi>.</p><lb/>
+<p>Der Keim, der davon auch in der<lb/>
+Dichtkunſt der mittleren Zeiten lag, iſt nicht<lb/>
+verweſet. Fruchtreich hat ihn die Zeit aus-<lb/>
+gebildet: denn in den drei groſſen Namen<lb/>
+<hi rendition="#g">Liebe</hi>, <hi rendition="#g">Ehre</hi> und <hi rendition="#g">Andacht</hi> liegt Alles,<lb/>
+was die Menſchheit wecken, die Poeſie<lb/>
+beleben kann. Sie ſind mehr als Patrio-<lb/>
+tismus; ein weites und tiefes Meer der<lb/>
+Seeligkeit, aus dem die Schoͤnheit ent-<lb/>
+ſprang und in welchem ſie ſich ſpiegelt.</p><lb/>
+<p>1. <hi rendition="#g">Andacht</hi>. Freilich iſts nicht jedem<lb/>
+Geiſt in ſeiner ſterblichen Huͤlle gegeben,<lb/>
+ſich Formlos ins Flammenmeer der Gott-<lb/>
+heit zu verſenken; aber auch nur im Ab-<lb/>
+glanz dieſe Sonne, das hoͤchſte Ideal menſch-<lb/>
+licher Gedanken zu betrachten, erquickt und<lb/>
+erheitert. Die Poeſie der mittleren Zeiten<lb/>
+hatte ſich hiezu das Bild des <hi rendition="#g">ewigen<lb/>
+<pb n="151" facs="#f0168"/>
+Vaters</hi>, des <hi rendition="#g">Sohnes Gottes</hi> und ſei-<lb/>
+ner Mutter, der <hi rendition="#g">heiligen Jungfrau</hi><lb/>
+ausgemahlt und in das letzte inſonderheit<lb/>
+ein hohes Ideal weiblicher Tugend, alle<lb/>
+Grazie ihres Geſchlechts geleget. Jung-<lb/>
+fraͤuliche Keuſchheit, Huld und Anmuth,<lb/>
+eine ſich ſelbſt unbewußte Hoheit und Wuͤr-<lb/>
+de, muͤtterliche Liebe, ſchweigende Geduld,<lb/>
+Großmuth, Hoffnung, endlich ein ſtiller<lb/>
+Dank- und Freudegenuß jenes uͤberſchweng-<lb/>
+lichen Lohns, deſſen ſich die Wohlthaͤtige<lb/>
+jetzt in Ewigkeit werth macht — alles dies<lb/>
+ward nach und nach von der dichtenden<lb/>
+Andacht in ſie geſenkt, in ihr beſungen und<lb/>
+geprieſen.</p><lb/>
+<p>Der Werth der <hi rendition="#g">Heiligen</hi>, die Maͤrty-<lb/>
+rer waren, ſcheinet von geringerer Art; die<lb/>
+<hi rendition="#g">Tapferkeit der Seele</hi> aber, die um<lb/>
+des Bekaͤnntnißes der Wahrheit willen Lei-<lb/>
+den ertraͤgt und Martern erduldet; jene<lb/>
+<pb n="152" facs="#f0169"/>
+<hi rendition="#g">ſtille Großmuth</hi>, die verkannt einher-<lb/>
+geht, die Reichthum, Wohlluſt, und nie-<lb/>
+drigen Ruhm verſchmaͤht, unbillige Ver-<lb/>
+achtung, Schmach und Hohn fuͤr nichts<lb/>
+achtet und dennoch wohlzuthun fortfaͤhrt;<lb/>
+die <hi rendition="#g">Heiterkeit der Seele</hi> endlich, die<lb/>
+durch Einfalt, Unſchuld, Zuverſicht und<lb/>
+Erfahrung bewaͤhrt, in der Wolke des To-<lb/>
+des den offnen Himmel ſieht, und das<lb/>
+Lied der Vorangegangenen hoͤret; eine <hi rendition="#g">An</hi>-<lb/>
+<hi rendition="#g">dacht</hi> dieſer Art iſt mehr als eine Helden-<lb/>
+wuͤrde von außen. Und es ſangen ſie ſo<lb/>
+viele Hymnen, ſo praͤchtige Canzonen.</p><lb/>
+<p>2. <hi rendition="#g">Tapferkeit</hi>. Auch der Werth<lb/>
+eines Mannes, der nach <hi rendition="#g">reinen</hi> Begrif-<lb/>
+fen des Ritterthums um Ehre ſtreitet, iſt<lb/>
+nicht von geringer Art. Schwache zu be-<lb/>
+ſchuͤtzen, die Unſchuld zu vertheidigen, auch<lb/>
+im heftigſten Streit ſich nichts Unwuͤrdiges<lb/>
+zu erlauben, im Feinde noch den Mann<lb/>
+<pb n="153" facs="#f0170"/>
+zu erkennen, im Ueberwundenen den Tapfern<lb/>
+zu ehren, endlich, die wehrloſe, die kranke<lb/>
+Menſchheit mit ritterlicher Hand zu pfle-<lb/>
+gen, zu warten; dies alles waren Pflich-<lb/>
+ten des Ritterthums, die freilich mit gro-<lb/>
+ßen Ausnahmen, alleſammt auch nur un-<lb/>
+ter dem Mantel der Religion, und noch<lb/>
+nicht als <hi rendition="#g">reine Obliegenheiten des<lb/>
+Menſchen</hi> geſungen und eingeſchaͤrft wur-<lb/>
+den. Sie oͤfneten indeß einer allgemeinern,<lb/>
+reineren und hoͤheren Tugend die Schran-<lb/>
+ken, als ſelbſt in einem weit engeren Be-<lb/>
+zirk von der alten Heldenſage der Grie-<lb/>
+chen und Roͤmer geprieſen werden konnte.<lb/>
+Wenn <hi rendition="#g">Andacht</hi>, <hi rendition="#g">Liebe</hi> und <hi rendition="#g">Tapferkeit</hi><lb/>
+reiner Art ſich ritterlich in einander ver-<lb/>
+weben, erniedern ſie den maͤnnlichen Cha-<lb/>
+rakter nicht.</p><lb/>
+<p>3. <hi rendition="#g">Liebe</hi>. Hier findet wohl kein Zwei-<lb/>
+fel ſtatt, daß die <hi rendition="#g">Hochachtung</hi> und<lb/>
+<pb n="154" facs="#f0171"/>
+<hi rendition="#g">zarte Behandlung des weiblichen<lb/>
+Geſchlechts</hi>, welche Araber und Nor-<lb/>
+maͤnner in Romane und Poeſie brachten,<lb/>
+die ſich auch mit dem Dienſt der <hi rendition="#g">heiligen<lb/>
+Jungfrau</hi> und dem <hi rendition="#g">Chriſtenthum</hi><lb/>
+uͤberhaupt wohl vertrug, eine Blume ſei,<lb/>
+die Griechen und Roͤmer eben nicht vorzuͤg-<lb/>
+lich cultivirten. Groͤßtentheils beſangen dieſe<lb/>
+im Weibe nur das Weib oder gar eine<lb/>
+Buhlerinn, eine Hetaͤra. Da das noͤrdliche<lb/>
+Klima Luſtbarkeiten, wie ſie <hi rendition="#g">Horaz</hi> oder<lb/>
+<hi rendition="#g">Petron</hi> ſchildern, keinen Raum gab,<lb/>
+auch in dieſen Gegenden die ſpaͤter entwik-<lb/>
+kelte und deſto laͤnger daurende Jugend<lb/>
+des Weibes eine ſittlichere, reifere Liebe<lb/>
+fodert: ſo wandte ſich jetzt allmaͤhlich die<lb/>
+Poeſie auf Etwas, darauf jene Zeiten nicht<lb/>
+ausgehen konnten, auf <hi rendition="#g">Cultur des Um</hi>-<lb/>
+<hi rendition="#g">ganges beider Geſchlechter mit ein</hi>-<lb/>
+<hi rendition="#g">ander</hi>, von welchem unſre nordiſche<lb/>
+<pb n="155" facs="#f0172"/>
+<hi rendition="#g">Wohlerzogenheit</hi> groͤßtentheils abhaͤngt.<lb/>
+Das Weib war von der Religion geehrt;<lb/>
+warum ſollten ſie nicht auch Menſchen eh-<lb/>
+ren? Sie gaben den Maͤnnern Rath, dem<lb/>
+Leben Anmuth; ſie bewegten das Herz des<lb/>
+roheren Mannes und waren gleichſam<lb/>
+Mittlerinnen im Himmel und auf Erden.<lb/>
+Nach chriſtlichen Begriffen ſchlang die Liebe<lb/>
+nicht nur in dieſer Sichtbarkeit einen un-<lb/>
+aufloͤslichen Knoten, ſondern auch das Band<lb/>
+der Freundſchaft in einer ewigen Welt.<lb/>
+Durchs Chriſtenthum ſahe man dort lich-<lb/>
+tere Gegenden vor ſich, als den traurigen<lb/>
+Orkus; in ihnen beſang <hi rendition="#g">Dante</hi> ſeine<lb/>
+<hi rendition="#g">Beatrice</hi>, <hi rendition="#g">Petrarca</hi> eine himmliſche<lb/>
+<hi rendition="#g">Laura</hi>. U. f.</p></div><lb/>
+<pb n="156" facs="#f0173"/>
+<div n="1"><head>90.</head><lb/>
+<p><hi rendition="#in">D</hi>as unvollendete Fragment vom Werthe<lb/>
+der Poëſie mittlerer Zeiten moͤchte ich,<lb/>
+gleichfalls <hi rendition="#g">fuͤr</hi> und <hi rendition="#g">wider</hi>, mit Vortheil<lb/>
+und Nachtheil alſo ergaͤnzen.</p><lb/>
+<p><hi rendition="#g">Erſtens</hi>. Fuͤgt man dem Vorigen<lb/>
+hinzu, daß die Poeſie der mittleren Zeiten<lb/>
+nach und nach mit <hi rendition="#g">mehreren Wiſſen</hi>-<lb/>
+<hi rendition="#g">ſchaften</hi> bekannt ward, als jene Poeſie<lb/>
+der Jugend-Welt je kennen lernen konnte:<lb/>
+ſo war ihr hiemit, eben wie bei <hi rendition="#g">Andacht</hi>,<lb/>
+<hi rendition="#g">Liebe</hi> und <hi rendition="#g">Ehre</hi>, ein großer aber auch<lb/>
+ein ſehr gefaͤhrlicher Knaͤuel in die Hand<lb/>
+gegeben. Sie konnte daraus Vieles ent-<lb/>
+<pb n="157" facs="#f0174"/>
+wickeln, aus jeder Wiſſenſchaft ſich zu eigen<lb/>
+machen, was fuͤr ſie diente; jede Erfin-<lb/>
+dung, jedes neu entdeckte Land ſtand ihr<lb/>
+zu Gebote. Sie konnte aber auch auf die-<lb/>
+ſem Wege <hi rendition="#g">zu gelehrt</hi>, <hi rendition="#g">ſpitzfuͤndig<lb/>
+und ſcholaſtiſch</hi> werden; und waͤre ſie<lb/>
+es nicht hie und da reichlich geworden?</p><lb/>
+<p>Der groͤßere Boden von Wiſſenſchaft<lb/>
+indeß, den der menſchliche Geiſt gewann,<lb/>
+war ein betraͤchtliches Erwerbniß. Die<lb/>
+neuere Poeſie hat davon Nutzen gezogen<lb/>
+und wird davon Vortheile ziehen, ſo lange<lb/>
+Wiſſenſchaften <hi rendition="#g">wachſen</hi>, Erfindungen ſich<lb/>
+<hi rendition="#g">mehren</hi>, ſo lange der menſchliche Geiſt<lb/>
+<hi rendition="#g">fortſchreitet</hi>. Nicht vergebens hat der<lb/>
+Vater der neueren Dichtkunſt, <hi rendition="#g">Dante</hi>,<lb/>
+mit einem Werk begonnen, das eine Art<lb/>
+von <hi rendition="#g">Encyklopaͤdie des menſchlichen<lb/>
+Wiſſens</hi> uͤber Himmel und Erde enthaͤlt;<lb/>
+er hat ſeinem von jeder Vorzeit unterrich-<lb/>
+<pb n="158" facs="#f0175"/>
+teten Kinde hiemit den Weg eines immer<lb/>
+fortſchreitenden Verdienſtes gewieſen.</p><lb/>
+<p><hi rendition="#g">Zweitens</hi>. Und da in der mittleren<lb/>
+Zeit <hi rendition="#g">viele Nationen</hi>, <hi rendition="#g">die geſamm</hi>-<lb/>
+<hi rendition="#g">ten Voͤlker des roͤmiſch</hi>-<hi rendition="#g">chriſtli</hi>-<lb/>
+<hi rendition="#g">chen Europa auf Einem Kampf</hi>-<lb/>
+<hi rendition="#g">platz des Ruhms</hi> ſtanden, und durch<lb/>
+mehrere Verbindungen in <hi rendition="#g">Einer Schule<lb/>
+der Unterweiſung</hi> lernten: ſo bekam,<lb/>
+ungeachtet aller Nationalunterſchiede von<lb/>
+Sitten und Sprachen, die Europaͤiſche<lb/>
+Poeſie und Lehre hiemit eine <hi rendition="#g">gemein</hi>-<lb/>
+<hi rendition="#g">ſchaftliche Richtung</hi>. Mit ſo vielem<lb/>
+Unreinen ſie hie und da vermiſcht war,<lb/>
+ſo trug ſie allenthalben dazu bei, das<lb/>
+Schwert der Barbaren, das noch nicht<lb/>
+geſtumpft war, einzuhalten, zu weihen, zu<lb/>
+veredeln. Rittern und edlen Herren ward<lb/>
+ein <hi rendition="#g">Kranz des Ruhms und der Ver</hi>-<lb/>
+<hi rendition="#g">dienſte</hi> vorgehalten, ohne welchen ſie,<lb/>
+<pb n="159" facs="#f0176"/>
+wie die Geſchichte mehrerer Laͤnder zeigt,<lb/>
+harte Herren, Trunkenbolde, raͤuberiſche<lb/>
+ſtolze Barbaren blieben. Selbſt die Grie-<lb/>
+chen des oͤſtlichen Kaiſerthums, die an den<lb/>
+Rittergeſetzen der Weſtwelt keinen Antheil<lb/>
+nahmen, erlaubten ſich Niedertraͤchtigkeiten<lb/>
+gegen Feinde und Ueberwundene, die in<lb/>
+Spanien, Italien und Frankreich kein Rit-<lb/>
+ter ſich jemals erlaubt haben wuͤrde. Als<lb/>
+uͤppige Treuloſe gingen ſie unter. —</p><lb/>
+<p>Alles alſo was Menſchen, Staͤnde und<lb/>
+Voͤlker miteinander verband, was die Ge-<lb/>
+ſchlechter einander freundlich, Gemuͤther<lb/>
+einander geneigt machte, was zu einem<lb/>
+gemeinſchaftlich-anerkannten Zweck und<lb/>
+gleichſam zu der <hi rendition="#g">Lehrform</hi> beitrug, nach<lb/>
+welcher man von Jugend auf, wenn gleich<lb/>
+auf rohe Weiſe, der <hi rendition="#g">Tapferkeit</hi>, <hi rendition="#g">Liebe</hi><lb/>
+und <hi rendition="#g">Andacht</hi> huldigen lernte, offenbar<lb/>
+bahnte dies der <hi rendition="#g">Menſchenliebe</hi> oder<lb/>
+<pb n="160" facs="#f0177"/>
+zufoͤrderſt jener <hi rendition="#g">chriſtlichen Herzens</hi>-<lb/>
+<hi rendition="#g">guͤte</hi> den Weg, die als <hi rendition="#aq">carità</hi> die Grazie<lb/>
+der Grazien iſt, und jede Huldigung ver-<lb/>
+dienet. Die Poeſie des Mittelalters wirkte<lb/>
+zu dieſem Zweck unverkennbar.</p><lb/>
+<p>Aus den Haͤnden der Araber hatten<lb/>
+die Europaͤer <hi rendition="#g">Andacht</hi>, <hi rendition="#g">Liebe</hi> und <hi rendition="#g">Ta</hi>-<lb/>
+<hi rendition="#g">pferkeit</hi>, als einen Kranz der Ritter-<lb/>
+wuͤrde empfangen; ſie verſchoͤnten ihn nach<lb/>
+chriſtlicher Weiſe.</p><lb/>
+<p>Und da gerade dieſe Poeſie es war,<lb/>
+die auch das Volk nicht verachtete, die<lb/>
+ſich auf oͤffentlichen Plaͤtzen und Maͤrkten<lb/>
+hoͤren ließ und durch Geiſt, Witz und Spott<lb/>
+eigene Gedanken und ein freies Urtheil<lb/>
+auch uͤber Zeithaͤndel, uͤber die Sitten<lb/>
+geiſtlicher und weltlicher Staͤnde, uͤber das<lb/>
+Verhaͤltniß derſelben gegen einander weckte:<lb/>
+ſo ward, wie die Geſchichte zeigt, Poeſie<lb/>
+der <hi rendition="#g">erſte Reformator</hi>. Immerhin wird<lb/>
+<fw type="catch" place="bottom">dies</fw><lb/>
+<pb n="161" facs="#f0178"/>
+dies auch die <hi rendition="#g">froͤhliche Wiſſenſchaft</hi>,<lb/>
+<hi rendition="#aq">(gaya ciencia, gay fabè)</hi> ſeyn und bleiben.</p><note place="foot" n="*)" xml:id="note-0178" next="note-0179">Ich weiß es ſehr wohl, daß zum innern Ver-<lb/>
+ſtaͤndniß dieſer Fragmente und Briefe eine<lb/>
+Kaͤnntniß nicht nur der Geſchichte, ſondern<lb/>
+auch der Dichtungen aller mittleren Jahr-<lb/>
+hunderte gehoͤrt, und ich ſtand lange bei mir<lb/>
+an, ob ich nicht hie und da, ſo wie von<lb/>
+chriſtlichen Hymnen, ſo auch von Arabern,<lb/>
+Provenzalen, Italiaͤnern, Franzoſen und Spa-<lb/>
+niern Proben einruͤcken ſollte. Das Buch<lb/>
+haͤtte ſich vergroͤßert; ich fuͤrchte aber nicht<lb/>
+der innere Verſtand deſſen, was hier vorge-<lb/>
+tragen iſt: denn die Producte des Geiſtes,<lb/>
+worauf ſich das Vorgetragene beziehet, muͤſ-<lb/>
+ſen im Zuſammenhange erwogen, und nach<lb/>
+ſo vielen National- und Zeitumſtaͤnden un-<lb/>
+terſchieden werden, daß der Commentar hier-<lb/>
+uͤber ein neues, ſiebenfach groͤßeres Buch ge-<lb/>
+worden waͤre. Entweder muß der Leſer alſo<lb/>
+den Verfaſſern dieſer Fragmente und Briefe<lb/>
+glauben, oder er muß die Fruͤchte genannter<lb/>
+Zeiten ſelbſt koſten, zu denen ihm I. A. <hi rendition="#g">Fa</hi>-</note><lb/>
+<fw type="sig" place="bottom">Siebente Samml. L</fw><lb/>
+<pb n="162" facs="#f0179"/>
+<note place="foot" n="*)" xml:id="note-0179" prev="note-0178"><hi rendition="#g">bricius</hi> in ſeiner <hi rendition="#aq">biblioth. latina</hi> und <hi rendition="#aq">me-<lb/>
+dii aevi,</hi> <hi rendition="#g">Hamberger</hi> im 3. und 4. Theil<lb/>
+ſeiner <hi rendition="#g">zuverlaͤßigen Nachrichten</hi> von<lb/>
+den vornehmſten Schriftſtellern, und die Ge-<lb/>
+ſchichte jeder National-Dichtkunſt dieſer<lb/>
+Voͤlker das Verzeichniß liefert. Beides, ſo-<lb/>
+wohl Briefe als Fragmente, ſind Reſultate<lb/>
+von ſo mancherlei Unterſuchungen und Zuſam-<lb/>
+menſtellungen, daß nur der ein Urtheil dar-<lb/>
+uͤber haben kann, der denſelben weiten Weg<lb/>
+gegangen, den die Verfaſſer dieſer Aufſaͤtze<lb/>
+genommen zu haben ſcheinen.<lb/>
+A. d. H.</note></div><lb/>
+</body>
+</text> </TEI>

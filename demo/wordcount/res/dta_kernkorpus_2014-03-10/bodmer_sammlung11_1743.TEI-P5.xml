@@ -1,0 +1,3177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Sammlung Critischer, Poetischer, und anderer geistvollen Schriften</title>
+<title type="sub">Zur Verbesserung des Urtheiles und des Witzes in den Wercken der Wohlredenheit und der Poesie</title>
+<title type="volume" n="11">Eilfftes Stück</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118512315">
+<surname>Bodmer</surname>
+<forename>Johann Jacob</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">95</measure>
+<measure type="tokens">18450</measure>
+<measure type="types">4835</measure>
+<measure type="characters">132389</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:03Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/bodmer_sammlung11_1743</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/bodmer_sammlung11_1743</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/bodmer_sammlung11_1743</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/bodmer_sammlung11_1743</idno>
+<idno type="DTADirName">bodmer_sammlung11_1743</idno>
+<idno type="DTAID">20056</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">[Bodmer, Johann Jacob]: Sammlung Critischer, Poetischer, und anderer geistvollen Schriften. Bd. 11. Zürich, 1743.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Sammlung Critischer, Poetischer, und anderer geistvollen Schriften</title>
+<title level="m" type="sub">Zur Verbesserung des Urtheiles und des Witzes in den Wercken der Wohlredenheit und der Poesie</title>
+<title level="m" type="volume" n="11">Eilfftes Stück</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118512315">
+<surname>Bodmer</surname>
+<forename>Johann Jacob</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[1] Bl., 92 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Orell</name></publisher>
+<pubPlace>Zürich</pubPlace>
+<date type="publication">1743</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">SUB Göttingen, 8 SVA II, 4845:11</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20SVA%20II%2C%204845%3A11</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik; Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik; Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b #g"><hi rendition="#in">S</hi>ammlung</hi><lb/>
+Critiſcher, Poetiſcher,<lb/>
+und anderer geiſtvollen<lb/>
+<hi rendition="#b #g"><hi rendition="#in">S</hi>chriften,</hi></titlePart></docTitle><lb/>
+<docTitle><titlePart type="sub">Zur Verbeſſerung<lb/>
+des Urtheiles und des Witzes<lb/>
+in den Wercken<lb/>
+der Wohlredenheit und der Poeſie.<lb/>
+Eilfftes Stuͤck.</titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace>Zuͤrich</pubPlace>,<lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Bey <publisher>Conrad Orell und Comp.</publisher> <docDate>1743</docDate>.</docImprint></titlePage><lb/>
+</front><body>
+<pb facs="#f0002"/>
+<pb n="[1]" facs="#f0003"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g"><hi rendition="#in">Z</hi>wey<lb/>
+<hi rendition="#in">S</hi>chreiben</hi></hi><lb/>
+an die<lb/>
+<hi rendition="#b">Deutſche Geſellſchaft</hi><lb/>
+von Greifswalde<lb/>
+verſchiedene Critiſche Streite betreffend,<lb/>
+die zu unſerer Zeit die deutſchen<lb/>
+Kunſtrichter beunruhigen:<lb/>
+Das Erſte<lb/>
+<hi rendition="#fr">Von Hr. Prof. Gottſcheden</hi><lb/>
+Das Andere<lb/>
+<hi rendition="#fr">Von Petermann von Langnau.</hi></head><lb/>
+<pb n="[2]" facs="#f0004"/>
+<pb n="3" facs="#f0005"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p><hi rendition="#in">D</hi>Amit ich einigen beſorglichen Mißdeu-<lb/>
+tungen vorbiege, welche bey Gelegen-<lb/>
+heit dieſer beyden Schreiben gemachet<lb/>
+werden moͤgten, muß ich einen kurtzen Vor-<lb/>
+bericht vorhergehen laſſen. Das erſte von<lb/>
+denſelben laſſe ich zwar den beruͤhmten Mann<lb/>
+verantworten, unter deſſen Nahmen und Per-<lb/>
+ſon es geſtellt iſt; ich habe dabey nichts wei-<lb/>
+ter gethan, als daß ich ſeine Gedancken und<lb/>
+Empfindungen ins Schweitzeriſche uͤberſetzet,<lb/>
+ſo, wie ich ſie in dem Jnnerſten ſeines Cha-<lb/>
+racters und Gemuͤths geleſen habe, und ich<lb/>
+habe ſie ſo wahrſcheinlich, und ſo glaubwir-<lb/>
+dig gemachet, daß ihnen zur wuͤrcklichen Wahr-<lb/>
+heit weiter nichts fehlet, als das Geſtaͤndniß<lb/>
+des Hr. Gottſcheds. Jn Anſehung des an-<lb/>
+dern Schreibens aber, vor welches ich mei-<lb/>
+nen eigenen Nahmen geſetzet habe, halte ich<lb/>
+vor noͤhtig mich ausdruͤcklich zu erklaͤren, daß<lb/>
+ich, ob ich gleich den Titel meines Schrei-<lb/>
+bens an die gantze Geſellſchaft von Greifswal-<lb/>
+de gerichtet habe, in welcher dieſe Monaths-<lb/>
+ſchrift entſprungen iſt; dennoch wohl erkenne,<lb/>
+daß in derſelben geſchickte Mitglieder ſind,<lb/>
+welche an den Verſehungen, von denen ich re-<lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">de,</fw><lb/>
+<pb n="4" facs="#f0006"/>
+de, keinen Antheil haben koͤnnen. Verſchie-<lb/>
+dene verſtaͤndigere und gruͤndlichere Artickel ge-<lb/>
+ben wir genugſam zu erkennen, daß ſie von<lb/>
+Maͤnnern verfertiget worden, welche gruͤnd-<lb/>
+liche Einſichten und aufrichtige Abſichten mit<lb/>
+ſich zu ihrer Arbeit gebracht haben. Und<lb/>
+vermuthlich wird aus Antrieb derſelben die<lb/>
+Bedingung in den Vorbericht eingefloſſen<lb/>
+ſeyn, daß die hier und dar bemerckten Fehler<lb/>
+nicht auf die gemeine Rechnung derer, die an<lb/>
+dieſer Monathsſchrift arbeiten, geſchrieben,<lb/>
+noch weniger der gantzen Geſellſchaft zur Laſt<lb/>
+geleget werden. Sie haben daran vorſichtig<lb/>
+gehandelt, und es iſt billig daß man ihnen<lb/>
+Recht wiederfahren laſſe. Jch mache dem-<lb/>
+nach eine Ausnahme von ihnen, und bin es<lb/>
+gar wohl zufrieden, daß ſie meine Anklage<lb/>
+von ſich und der gantzen Geſellſchaft abwel-<lb/>
+zen, und weiter auf denjenigen einzeln Mann,<lb/>
+oder die wenigen Perſonen ſchieben, welchen<lb/>
+ſie eigentlich zukommen. Jch kenne dieſe nicht,<lb/>
+ſonſt haͤtte ich das Schreiben geradezu an ſie<lb/>
+geſtellt; aber die Geſellſchaft wird ſie ſchon<lb/>
+kennen, und zur Verantwortung derer Feh-<lb/>
+ler, die ſie nicht auf ihre eigene Rechnung<lb/>
+nehmen will, anzuhalten wiſſen. Alſo ſteht<lb/>
+es in der Gewalt der Geſellſchaft zu verhuͤten,<lb/>
+daß die Unſchuldigen mit den Schuldigen nicht<lb/>
+vermiſchet werden.</p><lb/>
+<fw type="catch" place="bottom">Jn-</fw><lb/>
+<pb n="5" facs="#f0007"/>
+<p>Jndeſſen habe ich mich dieſes mahl noch hin-<lb/>
+terhalten meine Antungen uͤber einen oder zween<lb/>
+Artickel im <hi rendition="#aq">V.</hi> St. zu machen, weil ich ſehe,<lb/>
+daß man es in denſelben ſo arg gemacht hat,<lb/>
+daß es ſchwer faͤllt, diejenigen von aller Schuld<lb/>
+looszuſagen, welche zwar davon eigentlich nicht<lb/>
+Verfaſſer ſind, jedoch ſich uͤberhaupt zur Auf-<lb/>
+ſicht uͤber das gantze Werck anheiſchig ge-<lb/>
+macht haben. Dieſes hat die gantze Geſell-<lb/>
+ſchaft in dem Vorberichte gethan, und zu we-<lb/>
+nigerm hat man ſich in einem geſellſchaftlichen<lb/>
+Wercke nicht verbindlich machen koͤnnen.</p><lb/>
+<p>Vielleicht hindert meine Erklaͤrung nicht,<lb/>
+daß diejenigen aus der Geſellſchaft, auf wel-<lb/>
+che meine Beſchuldigungen fallen, mich nicht<lb/>
+zu dem Gelehrten zehlen, von welchem man<lb/>
+in dem Vorberichte ſagt, er glaube, daß man<lb/>
+in critiſchen Schriften aufhoͤren muͤſſe hoͤflich<lb/>
+zu ſeyn. Jch glaube dieſes nicht, aber ich<lb/>
+meyne doch, daß man ohne Verletzung der<lb/>
+Hoͤflichkeit unwiſſende und hochmuͤthige Scri-<lb/>
+benten die ſchwere Hand der critiſchen Straffe<lb/>
+gerechtigkeit empfinden laſſen duͤrfe.</p><lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">Hrn.</fw><lb/>
+<pb n="6" facs="#f0008"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Pr. Gottſcheds Schreiben</hi></fw><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="2"><head><hi rendition="#b">Hrn. Johann Chriſtoph Gottſcheds<lb/>
+Schreiben an die deutſche Geſellſchaft<lb/>
+von Greifswalde.</hi></head><lb/>
+<salute><hi rendition="#fr">Werthe Herꝛen und Freunde.</hi></salute><lb/>
+<p><hi rendition="#in">J</hi>Ch bin eurer Geſellſchaft ſeit euerm Ur-<lb/>
+ſprunge gewogen geweſen, und habe<lb/>
+euer bey Gelegenheiten ſchriftlich und<lb/>
+muͤndlich mit allem Ruhme gedacht, weil<lb/>
+ich mir von euern Bemuͤhungen nicht bloß zum<lb/>
+Aufnehmen der geſunden Critick und der Sprache<lb/>
+uͤberhaupt, ſondern insbeſondere <hi rendition="#fr">meiner</hi> Critick<lb/>
+und Sprache viel gutes verſprochen. Denn Mein<lb/>
+Vertrauen zu euch blieb nicht dabey ſtehen, daß<lb/>
+ihr dem Geſchmack aufzuhelffen befliſſen ſeyn<lb/>
+wuͤrdet, ſondern erfuͤllete mich mit der Hoffnung,<lb/>
+daß ihr <hi rendition="#fr">meinen</hi> Geſchmack als meine Nachfolger<lb/>
+annehmen und ausbreiten wuͤrdet, ſo wie ich ihn<lb/>
+in meiner <hi rendition="#fr">Dichtkunſt</hi> fuͤr die Deutſchen, und<lb/>
+folglich fuͤr euch, in meiner <hi rendition="#fr">Redekunſt,</hi> und meinen<lb/>
+<hi rendition="#fr">Beytraͤgen</hi> nach ſeinem unbeſtimmten und will-<lb/>
+kuͤrlichen, jedoch allemahl unbetruͤglichen Vermoͤ-<lb/>
+gen zur Nachfolge angeprieſen habe. Mir war<lb/>
+deſto mehr daran gelegen daß ihr ohne eigenſinnige<lb/>
+Ausnahmen meinen Meynungen beyfielet, und<lb/>
+euch offentlich zu meinem Anhange ſchluͤget, weil<lb/>
+<hi rendition="#aq">in hac temporum injuria</hi> nur allzu viele freche<lb/>
+Juͤnglinge ſich hier und dar die Freyheit anmaſſen,<lb/>
+von meinen Vorſchrifften abzuweichen, und den<lb/>
+<fw type="catch" place="bottom">Fein-</fw><lb/>
+<pb n="7" facs="#f0009"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+Feinden ein mehrers einzurauͤmen, als mit mei-<lb/>
+nem Anſehen beſtehen kan. Allein ich muß ſchier<lb/>
+glauben, daß ich mich ſelbſt in meinem zu ſichern<lb/>
+Zutrauen auf eure Gefaͤlligkeit betrogen habe. Ei-<lb/>
+ne Menge unbedachter und uͤbereilter Reden und<lb/>
+Anmerckungen in eurer Monathsſchrift macht mich<lb/>
+hierinn furchtſam und argwoͤhniſch, ungeachtet ich<lb/>
+mich gegen alle boͤſe Gedancken, die ſie mir erwe-<lb/>
+ken, aus allen Kraͤfften ſperre und ſtraͤube, und<lb/>
+mich zu bereden trachte, daß es vielmehr Unacht-<lb/>
+ſamkeit und Unvorſichtigkeit, als boͤſer Wille<lb/>
+und Eigenſinnigkeit ſey. Da ich euch nun noch<lb/>
+nicht fuͤr Ueberlauͤffer zu meinen Feinden halten<lb/>
+will, ſo gedencke ich euch die Sachen, die mir in<lb/>
+eurer Monathsſchrift ſo bedencklich und nachtheilig<lb/>
+vorkommen, mit aller Freundlichkeit und Geduld<lb/>
+vorzuſtellen, in der Hoffnung, daß ihr ſelber be-<lb/>
+greiffen werdet, wie groſſen Abbruch dergleichen<lb/>
+Verfahren einer ſo beruͤhmten Geſellſchaft, wie<lb/>
+die eurige in kurtzer Zeit werden wird, meinem<lb/>
+Anſehen, meiner Herrſchaft und meinem Ruh-<lb/>
+me nothwendig bey nachſinnenden und freyen Ge-<lb/>
+muͤthern thun muͤſſe.</p><lb/>
+<p><hi rendition="#aq">I.</hi> Jhr bekennet zwar, daß die Nachricht und<lb/>
+Abhandlung von meiner <hi rendition="#fr">Dichtkunſt</hi> (wie ihr<lb/>
+ſie ſchlechtweg nennet) in der Abſicht dieſes Buch<lb/>
+unſern Landesleuten erſt noch bekannt zu machen,<lb/>
+gantz unnoͤthig waͤre: Jhr nennet es ein <hi rendition="#fr">vortreff-<lb/>
+liches,</hi> ein <hi rendition="#fr">ſchaͤtzbares</hi> Werck: Aber, wenn<lb/>
+dieſes Bekaͤnntniß aufrichtig und von Hertzen ge-<lb/>
+meinet iſt, was war es denn noͤthig den Werth<lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">die-</fw><lb/>
+<pb n="8" facs="#f0010"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Pr. Gottſcheds Schreiben</hi></fw><lb/>
+dieſes Wercks erſt noch ſo muͤhſam zu beweiſen?<lb/>
+Ein Beweis laͤßt ja allemahl vermuthen, daß die<lb/>
+Sache nicht voͤllig unſtreitig und auſſer Zweifel ſey,<lb/>
+und dergleichen Verdacht iſt zuweilen von groͤſſerer<lb/>
+Kraft, als der Beweis, womit man ihn heben<lb/>
+will. Laſſe man die Leute in ihrem Wahn im-<lb/>
+merhin ungeſtoͤrt, ſonſt duͤrfte man einen eben ſo<lb/>
+ſchlechten Danck davon tragen, als jene beym<lb/>
+Horatz, die ſich alle Muͤhe gegeben, den gluͤckſeli-<lb/>
+gen Wahnwitzigen zu curieren, dafuͤr aber ſtatt<lb/>
+des erwarteten Dancks hoͤren muͤſſen:</p><lb/>
+<lg type="poem"><l>‒ ‒ ‒ <hi rendition="#aq">Pol me oecidiſtis amici,</hi></l><lb/>
+<l><hi rendition="#aq">Non ſervaſtis, ait, cui ſic extorta voluptas,</hi></l><lb/>
+<l><hi rendition="#aq">Et demtus per vim mentis gratiſſimus error!</hi></l></lg><lb/>
+<p>Das weit ſchlimmere dabey iſt wohl dieſes, daß<lb/>
+die Art euers Beweiſes die Schaͤtzbarkeit meines<lb/>
+Buchs, im Grunde gantz verdaͤchtig und zweifel-<lb/>
+haft machet, in waͤhrender zeit, daß ihr ſelbige<lb/>
+zu verfechten und anzupreiſen vermeinet: Jhr neh-<lb/>
+met euern Erweis her von dem ſtarcken Abgang und<lb/>
+allgemeinen Beyfall, den mein Buch in einer Zeit<lb/>
+von wenig Jahren in gantz Deutſchland gefunden:<lb/>
+Allein ihr gebet ja in dem <hi rendition="#aq">I.</hi> St. eurer Beytraͤge<lb/>
+Bl. 6. ſelbſt mit duͤrren Worten zu verſtehen, daß<lb/>
+<hi rendition="#fr">der allgemeine Beyfall, den eine Sache erhaͤlt,<lb/>
+die wuͤrckliche Guͤte derſelben nicht unwieder-<lb/>
+ſprechlich ausmache.</hi> Und es kan euch nicht ver-<lb/>
+borgen ſeyn, wie wenig meine tadelſuͤchtigen<lb/>
+Schweitzeriſchen Gegner aus dieſem Grund, auf<lb/>
+den ich ehedem in meinen Vorreden auch ſelbſt ge-<lb/>
+trotzet hatte, gehen laſſen, und wie ſie ſich hier<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="9" facs="#f0011"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+und dar in ihren Spottſchriften etwas rechts darauf<lb/>
+zu gute thun: So daß nicht ohne Grund zu beſor-<lb/>
+gen iſt, ſie werden noch behaupten duͤrffen, es<lb/>
+ſey nicht unmoͤglich, daß ein Buch viel geleſen<lb/>
+werde, und doch noch unbekannt ſey: Nachdem<lb/>
+ſie ſich unterſtanden haben zu behaupten, daß oͤf-<lb/>
+ters das ſchlechteſte Buch von der Welt den ſtaͤrcke-<lb/>
+ſten Abgang und einen allgemeinen Beyfall erhal-<lb/>
+ten koͤnne. Und was werden dann eure ſonſt<lb/>
+freygebige Verſprechungen von dem eben ſo gefaͤl-<lb/>
+ligen Urtheil der kuͤnftigen Zeiten fuͤr ein Anſehen<lb/>
+behalten?</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#g">II.</hi></hi> Was war es nothwendig die zwo erſten<lb/>
+Auflagen meiner Critiſchen Dichtkunſt, deren Ge-<lb/>
+daͤchtniß ich nur uͤberhaupt und der Zahl nach zu er-<lb/>
+halten ſuche, aus der Vergeſſenheit, in die ich<lb/>
+ſie durch die wichtigen Veraͤnderungen und Ver-<lb/>
+beſſerungen der dritten Herausgabe geſtuͤrtzt zu ha-<lb/>
+ben verhoffete, wieder hervorzuziehen, und ihre<lb/>
+Maͤngel in Vergleichung mit der Vollkommenheit<lb/>
+dieſer letztern aller Welt zu offenbaren. Jch hat-<lb/>
+te mich verſichert, es koͤnnte keinem meiner Schuͤ-<lb/>
+ler und Verehrer verborgen ſeyn, daß ich es mit<lb/>
+meinen Schriften lediglich wollte gehalten wiſſen,<lb/>
+wie mit einem Teſtament, da allezeit das ſpaͤtere<lb/>
+die vorhergehenden aufhebet, und alleine rechts-<lb/>
+guͤltig bleibet. Und was vor Abſichten kan man<lb/>
+wohl demjenigen zutrauen, der ein veraltetes und<lb/>
+an dem Rechten unguͤltiges Teſtament wieder aus<lb/>
+dem Staube hervorziehet, anders, als daß er<lb/>
+mit Fleiß den Neid derjenigen, die ſich durch die<lb/>
+neue teſtamentliche Verordnung verkuͤrtzt zu ſeyn<lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">glau-</fw><lb/>
+<pb n="10" facs="#f0012"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Pr. Gottſcheds Schreiben</hi></fw><lb/>
+glauben, habe rege machen und ohne Noth und<lb/>
+Beruff Streit erwecken wollen? So habe ich in<lb/>
+meinen erſten Schriften meine Gnaden und Lob-<lb/>
+ſpruͤche nach meiner freyen Willkuhr ausgetheilet:<lb/>
+Nach eben dieſer Freyheit habe ich in der neuen<lb/>
+Herausgabe meiner Critiſchen Dichtkunſt die Nah-<lb/>
+men und das Andencken einer <hi rendition="#fr">Neuberin, der<lb/>
+Schweitzeriſchen Mahler, Hrn. Koͤnigs, Hrn.<lb/>
+Bodmers</hi> und anderer, weil ſie ſich meiner vo-<lb/>
+rigen Huld unwuͤrdig gemachet, gaͤntzlich aus-<lb/>
+geloͤſchet, in der Meynung, daß hinfuͤr des in<lb/>
+meinen vorigen Schriften aus allzuguthertziger Ue-<lb/>
+bereilung ihnen verſchwendeten Lobs nicht mehr ſolle<lb/>
+gedacht werden. Dieſe meine Abſicht war auch<lb/>
+fuͤr alle diejenigen, die es mit meinem Ruhm treu-<lb/>
+lich und recht von Hertzen gut meynen, unſchwer<lb/>
+zu errathen. Wenn ich demnach noch am billig-<lb/>
+ſten und gelindeſten von eurem Vorſatz urtheilen<lb/>
+ſoll, nach welchem ihr die drey Ausgaben meiner<lb/>
+Critiſchen Dichtkunſt in eine Vergleichung zu zie-<lb/>
+hen unternommen habet, ſo muß ich es einer nach-<lb/>
+laͤſſigen Unbedachtſamkeit zuſchreiben, daß ihr euch<lb/>
+nicht habet vorſtellen koͤnnen, daß die Ausfuͤhrung<lb/>
+eines ſolchen Vorſatzes nothwendig den Neid und<lb/>
+die Eiferſucht der an ihrem Ruhme gekraͤnckten<lb/>
+Perſonen gegen mich zur Rache aufhetzen werde:<lb/>
+Denn dadurch ſetzet ihr mich in die verdrießliche<lb/>
+Nothwendigkeit, daß ich mich entweder einer ſtrafe<lb/>
+baren Uebereilung in meinen erſtern freygebigen Lo-<lb/>
+beserhebungen, oder eines boßhaften Neides in<lb/>
+Zuruͤckziehung derſelben ſchuldig geben muß: We-<lb/>
+nigſtens machet ihr mein Lob und Tadel einer ver-<lb/>
+<fw type="catch" place="bottom">haßten</fw><lb/>
+<pb n="11" facs="#f0013"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+haßten Partheylichkeit bey aller Welt verdaͤchtig,<lb/>
+und raubet meinem Urtheil von andern den erworbe-<lb/>
+nen Schein und Credit der Critiſchen Gerechtigkeit.</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#g">III.</hi></hi> Wie nachlaͤſſig fuͤhret ihr nicht meine Sa-<lb/>
+che, da ihr ſo kahl daherſaget: „Jhm iſt wie-<lb/>
+„derſprochen worden, und er hat ſich <hi rendition="#fr">bisweilen<lb/>
+„verantwortet.„</hi> Es weiß ja jedermann, daß<lb/>
+<hi rendition="#fr">ſich verantworten</hi> und <hi rendition="#fr">ſich rechtfertigen</hi> zwey-<lb/>
+erley iſt: Und wird nicht die Einſchraͤnckung durch<lb/>
+das Zeitwoͤrtgen <hi rendition="#fr">bisweilen</hi> den billigen Verdacht<lb/>
+erwecken, als ob es mir an dem Vermoͤgen ge-<lb/>
+fehlet haͤtte, mich uͤberall und in allen Stuͤcken zu<lb/>
+verantworten? Jſt denn ein Schriftverfaſſer, zu-<lb/>
+mahl wenn er ſeine Zeit nuͤtzlicher zu gebrauchen<lb/>
+weiß, eben nothwendig verbunden, ſich gegen alle<lb/>
+wiedrigen Urtheile von ſeinen Schriften zu verthei-<lb/>
+digen, oder, kan man aus der Unterlaſſung deſ-<lb/>
+ſelben untruͤglich ſchlieſſen, daß ſolches aus Unver-<lb/>
+moͤgen geſchehen ſey? Habe ich nicht hier und dar<lb/>
+ausdruͤcklich bezeuget, daß ich weder Luſt noch Zeit<lb/>
+habe, mich mit meinen Tadlern einzulaſſen.</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#g">IV.</hi></hi> Es iſt freylich an dem, daß ich bey der<lb/>
+letzten Ausgabe meiner Critiſchen Dichtkunſt die<lb/>
+Worte: <hi rendition="#fr">fuͤr die Deutſchen;</hi> auf dem Titelblatt<lb/>
+mit gutem Bedacht ausgeſtrichen habe, um da-<lb/>
+durch den Schweitzern den ſpoͤttiſchen Fuͤrwurff<lb/>
+abzuſchneiden, als ob die meinige nicht eine allge-<lb/>
+meine, ſondern eine nur allein <hi rendition="#fr">fuͤr die Deutſchen</hi><lb/>
+eingerichtete Dichtkunſt ſey: Was hat euch aber<lb/>
+gedrungen meine geheimen Abſichten bey dieſer Ver-<lb/>
+aͤnderung, die ich mit Fleiß verborgen halten woll-<lb/>
+te, offentlich zu verrathen, und den ſchimpflichen<lb/>
+<fw type="catch" place="bottom">Fuͤr-</fw><lb/>
+<pb n="12" facs="#f0014"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Pr. Gottſcheds Schreiben</hi></fw><lb/>
+Fuͤrwurff der Schweitzer, der meiner Dichtkunſt<lb/>
+zur Verkleinerung gereichet, wiederum aufzuwaͤr-<lb/>
+men und zu erneuern. Jhr moͤget wohl nicht be-<lb/>
+dacht haben, daß ihr dadurch zum Geſpoͤtte neuen<lb/>
+Anlaß gebet, dem ich durch die liſtige Veraͤnde-<lb/>
+rung des Titels voͤllig vorgebogen zu haben ver-<lb/>
+meint hatte. Die Schweitzer werden ſagen: Der<lb/>
+Leipzigiſche Verfaſſer hat den Gebrauch ſeines<lb/>
+Buchs ſelbſt eingeſchraͤncket, da er auf dem Ti-<lb/>
+telblatt der zwo erſten Ausgaben ausdruͤcklich geſe-<lb/>
+zet hat: <hi rendition="#fr">Verſuch einer Critiſchen Dichtkunſt<lb/>
+fuͤr die Deutſchen.</hi> Nun kan er ja nicht gemeint<lb/>
+haben, daß ſein Buch darum fuͤr die Deutſchen<lb/>
+ſey, weil es in deutſcher Sprache geſchrieben, und<lb/>
+von niemandem, der dieſe Sprache nicht verſte-<lb/>
+het, koͤnne geleſen werden; denn ſo waͤre dieſer<lb/>
+Zuſatz bey ſeinen meiſten uͤbrigen Schriften eben<lb/>
+ſo noͤthig geweſen; da haͤtte er mit gleichem Grund<lb/>
+ſchreiben ſollen, <hi rendition="#fr">Gottſcheds Redekunſt fuͤr die<lb/>
+Deutſchen, Gottſcheds Weltweißheit fuͤr die<lb/>
+Deutſchen, Baylens Woͤrterbuch fuͤr die Deut-<lb/>
+ſchen ꝛc. ꝛc.</hi> Da ſich nun dieſe Einſchraͤnckung<lb/>
+nicht auf die Sprache, in welcher das Buch ge-<lb/>
+ſchrieben iſt, beziehen kan, ſo muß ſie ſich noth-<lb/>
+wendig auf die Sachen beziehen, die darinnen ab-<lb/>
+gehandelt werden: Es muͤſſen hiemit nach des Ver-<lb/>
+faſſers eigenem Geſtaͤndniß uͤberhaupt ſolche Sa-<lb/>
+chen darinnen abgehandelt werden, die fuͤr die<lb/>
+Deutſchen alleine brauchbar ſind, und die kein an-<lb/>
+derer, wenn ihn gleich die Sprache nicht hinder-<lb/>
+te, brauchen koͤnnte. Jſt nun aber dieſes Buch<lb/>
+in den zwo erſten Ausgaben allein fuͤr die Deut-<lb/>
+<fw type="catch" place="bottom">ſchen</fw><lb/>
+<pb n="13" facs="#f0015"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+ſchen gewiedmet und brauchbar geweſen, ſo kan<lb/>
+die neue Ausgabe, die dem Weſen nach und uͤ-<lb/>
+berhaupt von den beyden erſtern nicht unterſchie-<lb/>
+den iſt, in ihrem Gebrauche nicht allgemeiner ſeyn,<lb/>
+wenn gleich die Worte: <hi rendition="#fr">fuͤr die Deutſchen;</hi> auf<lb/>
+dem Titelblatte gaͤntzlich ausgelaſſen worden, denn<lb/>
+die Veraͤnderung des Titels veraͤndert darum das<lb/>
+Weſen der Sache nicht. Sie werden darum auch<lb/>
+das Ausloͤſchen dieſer Einſchraͤnckung auf dem Ti-<lb/>
+telblatt der dritten Ausgabe als eine Rechtfertigung<lb/>
+ihres gefuͤhrten Tadels und als ein Bekenntniß<lb/>
+aufnehmen, daß ich dieſen Zuſatz: <hi rendition="#fr">fuͤr die Deut-<lb/>
+ſchen;</hi> ehedem ohne Bedacht und Verſtand hin-<lb/>
+geſchrieben, und dieſen Fehler in 14. Jahren nicht<lb/>
+eher erkennt habe, als bis ſie mir ſelbigen vorge-<lb/>
+ruͤcket haben. Durch dieſe und dergleichen Gedan-<lb/>
+ken, die ich durch die ſtille Veraͤnderung gaͤntz-<lb/>
+lich zu unterdruͤcken bedacht geweſen; ihr aber durch<lb/>
+eure unzeitige Antung ohne Noth veranlaſſet, ma-<lb/>
+chet ihr noch ſelbſt die beygefuͤgte pathetiſche Be-<lb/>
+ſtraffung uͤber die ſatyriſchen Spoͤttereyen und un-<lb/>
+reinen Abſichten der Schweitzer gantz unkraͤftig<lb/>
+und abgeſchmackt.</p><lb/>
+<p><hi rendition="#aq">V.</hi> Was fuͤr ein Geiſt hat euch doch eingegeben,<lb/>
+die fuͤr mein gegenwaͤrtiges Anſehen allzu nieder-<lb/>
+traͤchtige Vorrede, die ſich bey der erſten Ausga-<lb/>
+be meiner Critiſchen Dichtkunſt findet, aus dem<lb/>
+Staube der Vergeſſenheit wieder hervorzuziehen,<lb/>
+und ſo gar ihrem Jnnhalt nach zu wiederholen?<lb/>
+Jhr nennet ſie unter allen dreyen die <hi rendition="#fr">merckwuͤr-<lb/>
+digſte:</hi> Und ich habe ſie unter allen dreyen allein<lb/>
+fuͤr verwerfflich gehalten, und darum in der letz-<lb/>
+<fw type="catch" place="bottom">ten</fw><lb/>
+<pb n="14" facs="#f0016"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Pr. Gottſcheds Schreiben</hi></fw><lb/>
+ten Ausgabe derſelben allein keinen Platz goͤnnen<lb/>
+wollen, da ich die von der zweyten Ausgabe un-<lb/>
+veraͤndert beybehalten habe. Man muß ſich ſelbſt<lb/>
+bereden koͤnnen, daß ich ohne zureichenden Grund<lb/>
+nur ſo in den Tag hinein wehle und verwerffe, wenn<lb/>
+man nicht mercken kan, daß ich durch die Ver-<lb/>
+werffung dieſer meiner erſten Vorrede zu der Dicht-<lb/>
+kunſt, ſelbige zu einer ewigen Vergeſſenheit ver-<lb/>
+dammt wiſſen wolle. Wenn ſonſt kein anderer<lb/>
+Grund waͤre, der ſie in meinen Augen verwerff-<lb/>
+lich machen koͤnnte, ſo waͤren es die mir ſeit A.<lb/>
+1740. ſo verhaßten Nahmen der <hi rendition="#fr">Zuͤrichiſchen<lb/>
+Mahler,</hi> Hrn. Prof. <hi rendition="#fr">Bodmers,</hi> und des Hrn.<lb/>
+Geh. Secr. <hi rendition="#fr">Koͤnigs,</hi> die dieſe Vorrede noch ſo<lb/>
+gar als meine Lehrmeiſter und Anfuͤhrer zu Criti-<lb/>
+ſchen Unterſuchungen und zu dem guten Geſchmack<lb/>
+in der Poeſie, ja als ſo viel <hi rendition="#fr">Wetzſteine meiner<lb/>
+Floͤte</hi> unverſchaͤmter Weiſe angeben darf. Wie<lb/>
+wuͤrde es zuſammenſtimmen, wenn ich dieſe Nah-<lb/>
+men durch eine neue Auflage dieſer Vorrede haͤtte<lb/>
+zu verewigen geſucht, da ich dieſelben aus meinem<lb/>
+gantzen Wercke, als meines fernern Schutzes un-<lb/>
+wuͤrdig, gaͤntzlich ausgetilget habe? Jch wieder-<lb/>
+ruffe demnach hiermit offentlich, was ich zu Gun-<lb/>
+ſten dieſer drey Nahmen jemahls wiſſendlich oder<lb/>
+unwiſſendlich geredt oder geſchrieben habe, oder<lb/>
+was andere aus meinen erſten Schriften, die vor<lb/>
+A. 1740. ans Liecht getreten ſind, zum Ruhme<lb/>
+derſelben jetzt oder ins Kuͤnſtige anfuͤhren moͤchten.</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#g">VI.</hi></hi> Was die Vertheidigung der Critick in die-<lb/>
+ſer verworffenen Vorrede anſiehet, ſo ſetzet ihr<lb/>
+mich ohne Noth und aus bloſſem Mißverſtande mit<lb/>
+<fw type="catch" place="bottom">Hrn.</fw><lb/>
+<pb n="15" facs="#f0017"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+Hrn. Bodmer in einen Widerſpruch. Hrn. Bod-<lb/>
+mers Antung faͤllt nicht ſo faſt auf die bloͤde Art<lb/>
+und Gefaͤlligkeit, womit ich die Benennung mei-<lb/>
+ner <hi rendition="#fr">Critiſchen</hi> Dichtkunſt entſchuldiget habe, als<lb/>
+vielmehr auf diejenigen von meinen deutſchen Le-<lb/>
+ſern, deren falſche Begriffe und wiedrige Vor-<lb/>
+ſtellungen von dem Nahmen der Critick meine Ent-<lb/>
+ſchuldigung noͤthig gemachet haben.</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#g">VII.</hi></hi> Was ferner den Auszug von meinem<lb/>
+<hi rendition="#fr">Poetiſchen Lebenslauff</hi> anlanget, ſo begleitet ihr<lb/>
+denſelben mit einer ſo zweydeutigen Anmerckung,<lb/>
+die der Schweitzeriſche Spottgeiſt Conrector <hi rendition="#fr">Er-<lb/>
+lenbach</hi> nicht ſchimpflicher fuͤr mich haͤtte erden-<lb/>
+ken koͤnnen, bey dem unbaͤndigen Vorſatz, den<lb/>
+er hat, mich uͤberall laͤcherlich und verdaͤchtig zu<lb/>
+machen. Jhr ſaget: „Hr. Gottſched hat uns<lb/>
+„das vollkommene Bild eines Kunſtrichters in ſei-<lb/>
+„ner Perſon ſelbſt gegeben; und alſo duͤrffen wir<lb/>
+„nicht zweifeln, daß es ſeinem Urbilde aͤhnlich ſey.„<lb/>
+Giebt denn das Zeugniß von ſeinem eigenen Lob<lb/>
+und Geſchicklichkeit einer Erzehlung einen Anſtrich<lb/>
+der Glaubwuͤrdigkeit? Oder wem hat man jemahls<lb/>
+ſeine Worte anders als eine Spottrede aufgenom-<lb/>
+men, wenn er ſich von einem andern ungefehr alſo<lb/>
+ausgedruͤckt hat: Sēmpronius iſt ein Grundge-<lb/>
+lehrter Mann; es muß wahr ſeyn: Denn er hat<lb/>
+es ſelbs geſagt? Und wohin muß es wohl abgeſe-<lb/>
+hen ſeyn, wenn ihr die ſpoͤttiſche Anmerckung der<lb/>
+Hrn. Schweitzer ohne Antung, ja faſt mit Bey-<lb/>
+fall anfuͤhret, da ſie vorgeben duͤrffen, die groſ-<lb/>
+ſen Kunſtrichter wuͤrden die Gedancken, die ich<lb/>
+ihnen abgeborget, nicht mehr fuͤr die ihrigen er-<lb/>
+<fw type="catch" place="bottom">ken-</fw><lb/>
+<pb n="16" facs="#f0018"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Pr. Gottſcheds Schreiben</hi></fw><lb/>
+kennen, ſo ſehr ſeyn ſie von mir uͤbel gefaſſet und<lb/>
+verderbt worden.</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#g">VIII.</hi></hi> Wenn ihr in eurem Urtheil von meiner<lb/>
+Ueberſetzung von Horatzens Dichtkunſt mir zuerſt<lb/>
+einen ruͤhmlichen Fleiß, den ich in dreymaliger<lb/>
+Ausbeſſerung derſelben gluͤcklich angewandt habe,<lb/>
+zugeſtehet: Bald hernach aber mich einer ſtrafba-<lb/>
+ren Nachlaͤſſigkeit und die Ueberſetzung ſelbſt hier<lb/>
+und dar matter und undeutlicher Ausdruͤcke, die<lb/>
+Horatzens Sinn nicht erreichen, beſchuldiget, was<lb/>
+heißt dieſes wohl anders, als mir einen groben Un-<lb/>
+verſtand, und bey einem unbedachten Vorſatz und<lb/>
+loͤblichen Fleiſſe ein unuͤberwindliches Unvermoͤgen<lb/>
+Schuld geben? Und verraͤth dieſes nicht eine klei-<lb/>
+ne Tadelſucht, wenn ihr meiner Ueberſetzung ei-<lb/>
+nen einzigen Fehler vorruͤcken koͤnnet, der darzu<lb/>
+nicht viel auf ſich hat; inzwiſchen aber dieſelbe gantz<lb/>
+dreiſte verdaͤchtig machet, als ob ſie hier und dar<lb/>
+von dergleichen wimmle?</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#g">IX.</hi></hi> Mit was vor Befugniß will man mir einen<lb/>
+Theil der Schuld von dem bey Anlaſſe meiner<lb/>
+unſchuldigen Dichtkunſt entſtandenen und noch im-<lb/>
+mer fortdaurenden ſo feindſeligen Kriege aufbuͤr-<lb/>
+den, da ich bisdahin mich nur gantz leidend verhal-<lb/>
+ten, und die harten Streiche, die die Schweitzer<lb/>
+auf mich gefuͤhret, mit einer ſanftmuͤthigen und ge-<lb/>
+duldigen Großmuth erduldet, und ſo viel moͤglich<lb/>
+geweſen, verachtet habe, auſſer daß ich nur eini-<lb/>
+ge wenige mahl, aber gantz verſtohlner und ver-<lb/>
+kappter Weiſe auf dem Kampfplatz erſchienen bin.<lb/>
+Was darnach das ungemeſſene Lob, welches dem<lb/>
+mir ſo verhaßten Breitingerſchen Nahmen beygele-<lb/>
+<fw type="catch" place="bottom">get</fw><lb/>
+<pb n="17" facs="#f0019"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+get wird, und die unbillige Vergleichung meiner<lb/>
+Perſon, Verdienſte, und meines Werckes mit der<lb/>
+Perſon, den Verdienſten, und dem Wercke dieſes<lb/>
+Schweitzers anlanget, ſo erlaubet mir mein Un-<lb/>
+muth nicht mich deutlicher daruͤber zu erklaͤren:<lb/>
+Jch ſage nur ſo viel, daß dieſes alles Wirckun-<lb/>
+gen einer unuͤberlegten Syncretiſterey in gantz wie-<lb/>
+derwertigen Dingen ſeyn.</p><lb/>
+<p><hi rendition="#aq">X.</hi> Was that es noth die haͤmiſchen Urtheile<lb/>
+der Schweitzer von meiner Critiſchen Dichtkunſt<lb/>
+ſo weitlaͤuſtig anzufuͤhren, zumahlen da ihr doch<lb/>
+ſelbſt bekennen muͤſſet, daß ſie voller Haß, Bit-<lb/>
+terkeit und Parteylichkeit ſtecken? Allein dieſe<lb/>
+Schweitzerſchen Urtheile ſind noch faſt ertraͤglicher,<lb/>
+als die Vertheidigung ſelbſt, die ihr denſelben ent-<lb/>
+gegen zu ſetzen beliebt, und die ein verſtaͤndiger Le-<lb/>
+ſer kaum anders als fuͤr einen kurtzweilenden Schertz,<lb/>
+zu meinem groͤſten Nachtheil, aufnehmen kan. Jhr<lb/>
+ziehet Folgen aus dieſen Schweitzerſchen Urthei-<lb/>
+len, welche die Schweitzer ſelbſt bey aller ihrer<lb/>
+Grobheit und unbaͤndigen Spottensluſt annoch zu<lb/>
+beſcheiden und bloͤde geweſen ſind, mir zu meiner<lb/>
+Beſchimpfung vorzuwerffen: Jhr ſcheuet euch nicht<lb/>
+zu bekennen, daß wann das Urtheil der Schwei-<lb/>
+zer je Grund haben ſollte, meine Dichtkunſt noth-<lb/>
+wendig <hi rendition="#fr">das elendeſte und abgeſchmackteſte Ge-<lb/>
+ſchmiere,</hi> und <hi rendition="#fr">ich einer von den</hi> beruͤhmteſten<lb/>
+<hi rendition="#fr">elenden Scribenten</hi> ſeyn muͤßte. Werden nicht<lb/>
+die Schweitzer dieſe Folge willig einraͤumen? Jſt<lb/>
+aber denn dadurch die Ehre meiner Dichtkunſt ge-<lb/>
+rettet, oder die Gruͤndlichkeit ihres Urtheiles von<lb/>
+derſelben wiederleget? Wie wollet ihr erweislich<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">XI.</hi> St.] B</fw><fw type="catch" place="bottom">ma-</fw><lb/>
+<pb n="18" facs="#f0020"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Pr. Gottſcheds Schreiben</hi></fw><lb/>
+machen koͤnnen, daß es einen offenbaren Wider-<lb/>
+ſpruch einſchlieſſe, und alſo ſchlechterdings unmoͤg-<lb/>
+lich ſey, daß ich, oder ein andrer ſonſt ehrlicher,<lb/>
+beruͤhmter und nicht ungeſchickter Mann, ein elen-<lb/>
+des und abgeſchmacktes Buch von der Dichtkunſt<lb/>
+ſchreiben koͤnne? Jhr ſuchet ferner das ſpoͤttiſche<lb/>
+Urtheil der Schweitzer von meiner Dichtkunſt da-<lb/>
+durch verdaͤchtig zu machen, daß ſie zehn Jahre<lb/>
+lang der Verfuͤhrung ſo Vieler ungewarnet zuge-<lb/>
+ſehen, ohne derſelben durch die fruͤhere Eroͤffnung<lb/>
+ihres Urtheiles Einhalt zu thun: Gerade als ob ſie<lb/>
+einen Beruff haͤtten unſere Thorheiten, ſo bald ſie<lb/>
+dieſelben einſehen und erkennen, in oͤffentlichen<lb/>
+Schriften der Welt bekannt zu machen! Oder als<lb/>
+wenn ein langmuͤthiger Aufſchub der Straffe, bis<lb/>
+die Bosheit uͤberhand nimmt, die Verbrechen<lb/>
+der Menſchen gaͤntzlich entſchuldigte und rechtferti-<lb/>
+gete, und den Richter ſeines Straffamts verluſtig<lb/>
+machete! Oder als wenn dieſes Urtheil der Schwei-<lb/>
+zer von meiner Dichtkunſt, da es erſt nach zehn<lb/>
+Jahren bekannt worden, fuͤr meinen Ruhm nicht<lb/>
+noch allzufruͤhe erſchollen waͤre; daſerne man auſ-<lb/>
+ſer Stand ſeyn ſollte, die Begruͤndtniß deſſelben<lb/>
+<hi rendition="#aq">directe</hi> und geradezu zu widerlegen! Auf dieſen<lb/>
+Fuß lieſſe ſich ja der elende Scribent <hi rendition="#fr">Philippi</hi> ge-<lb/>
+gen die ſchwere Zuͤchtigung eines <hi rendition="#fr">Liſcovs</hi> mit eben<lb/>
+ſo gutem Grunde vertheidigen. Wie wenig feh-<lb/>
+let es uͤberdas nicht, daß ihr euch nicht ſelbſt wie-<lb/>
+derſprechet, da ihr das Urtheil der Schweitzer izo<lb/>
+unter dem Scheine der Feindſeligkeit verdaͤchtig zu<lb/>
+machen ſuchet; nachdem ihr oben Bl. 425. nicht<lb/>
+undeutlich zu verſtehen gegeben habet, daß die<lb/>
+<fw type="catch" place="bottom">Schwei-</fw><lb/>
+<pb n="19" facs="#f0021"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+Schweitzer aus bloſſer Gefaͤlligkeit gegen mich,<lb/>
+nicht eher als bis ich ſie dazu gereitzt und gleichſam<lb/>
+aufgefodert hatte, <hi rendition="#fr">ihre aufrichtige Meynung<lb/>
+von der Gottſchediſchen Dichtkunſt frey heraus-<lb/>
+ſagen wollen, welches ſie bisher eben noch<lb/>
+nicht gethan hatten:</hi> Woraus ja zu ſchlieſſen,<lb/>
+daß ſie ſchon, noch ehe ſie von mir aufgebracht<lb/>
+worden, eine gantz widrige Meynung von meinem<lb/>
+Buche gehabt, ſelbige aber offentlich zu entdecken,<lb/>
+alleine durch die Gefaͤlligkeit gegen mich waͤren zu-<lb/>
+ruͤckgehalten worden. Zugeſchweigen, daß es<lb/>
+noch nicht unwiderſprechlich erwieſen iſt, daß ei-<lb/>
+ner von ſeinem Feinde niemahls keine Wahrheit<lb/>
+ſagen koͤnne: <hi rendition="#fr">Plutarch</hi> in ſeiner Abhandlung von<lb/>
+dem Nutzen, den einer von ſeinen Feinden ziehen<lb/>
+kan, hat davon gantz andere Gedancken; und<lb/>
+der Verdacht der Parteylichkeit haftet erſt dann-<lb/>
+zumahlen, wenn man den Grund oder Ungrund<lb/>
+eines Urtheils einzuſehen allerdings unvermoͤgend<lb/>
+iſt. Endlich verrathet ihr eure Neigung, die Par-<lb/>
+tey meiner Feinde nicht voͤllig ungeſchuͤtzt zu laſ-<lb/>
+ſen, wenn ihr mit duͤrren Worten ſaget: <hi rendition="#fr">Wir<lb/>
+wollen die Dichtkunſt des Hrn. Gottſcheds gar<lb/>
+nicht von allen Fehlern frey ſprechen; wir ken-<lb/>
+nen und verehren auch die Verdienſte der Her-<lb/>
+ren Schweitzer.</hi> Womit ihr ja die Begruͤnd-<lb/>
+niß ihres Urtheils von meiner Critiſchen Dichtkunſt<lb/>
+wenigſtens in vielen Stuͤcken zu billigen ſcheinet.</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#g">XI.</hi></hi> Die Vertheidigung meiner Gedancken von<lb/>
+dem Geſchmack in dem dritten Capitel meiner Cri-<lb/>
+tiſchen Dichtkunſt gegen die Beſchuldigung der<lb/>
+Schweitzer, leiſtet mir zwar die Gewaͤhr, daß<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">ihr</fw><lb/>
+<pb n="20" facs="#f0022"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Pr. Gottſcheds Schreiben</hi></fw><lb/>
+ihr geſchickt genung ſeyd, meine Worte und Ge-<lb/>
+dancken recht vorſichtig herauszuſuchen und zu mei-<lb/>
+nem Vortheil zu kehren, wo es euch nicht an dem<lb/>
+Willen fehlet. Doch auch dieſe Vertheidigung<lb/>
+muß den Geiſt der Syncretiſterey, und die Nei-<lb/>
+gung einen Theil meines Ruhms der Gefaͤlligkeit<lb/>
+fuͤr die Schweitzer aufzuopfern, verrathen: Oder<lb/>
+was hat ſonſt der folgende Ausſpruch, den ihr Bl.<lb/>
+430. habet einflieſſen laſſen, anders zu bedeuten?<lb/>
+Wo es heißt: <hi rendition="#fr">Nach der <choice><sic>Vergleichnng</sic><corr>Vergleichung</corr></choice>, die<lb/>
+der Critiſche Hr. Geſchichtſchreiber wuͤrcklich<lb/>
+anſtellet, kan der Hr. Gottſched ohnmoͤglich<lb/>
+von einem Critiſchen Enthuſiasmus freygeſpro-<lb/>
+chen werden:</hi> Sonderlich wenn man <hi rendition="#fr">bey dem<lb/>
+9ten</hi> §. des angefuͤhrten <hi rendition="#fr">Capitels ſtehen bleibt.</hi><lb/>
+Jſt dieſes nicht ſo viel als zugeſtanden, daß ich<lb/>
+mir in dem Capitel meiner Dichtkunſt, welches<lb/>
+von dem poetiſchen Geſchmack handelt, ſelbſt wie-<lb/>
+derſpreche, und Weiſſes und Schwartzes unter ein-<lb/>
+ander werffe?</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#g">XII.</hi></hi> Dieſer Geiſt der Syncretiſterey, und ei-<lb/>
+ne heimliche Luſt mich dem Geſpoͤtte meiner Fein-<lb/>
+de bloß zugeben, offenbaret ſich auch in einigen<lb/>
+folgenden Artickeln eurer Vertheidigung. Z. Ex.<lb/>
+Jn dem Urtheil von <hi rendition="#fr">Beſſers</hi> Gedichte uͤber ſeine<lb/>
+<hi rendition="#fr">Kuͤhlweinin,</hi> wo ihr euch deutlich fuͤr Hrn. <hi rendition="#fr">Bod-<lb/>
+mer</hi> erklaͤret, und mich einer <choice>         <sic>Ungeſchicklichktit</sic>         <corr>Ungeſchicklichkeit</corr>     </choice><lb/>
+mein ſonſt begruͤndtes Urtheil zu rechtfertigen oͤffent-<lb/>
+lich beſchuldiget. Jn dem Urtheil uͤber den Cani-<lb/>
+ziſchen Ausdruck <hi rendition="#fr">ſterbend leben</hi> Bl. 440. wo ihr<lb/>
+wiederum meinem Tadler voͤllig Recht gebet. Jn<lb/>
+dem Puncten von der Lehre der Figuren in der<lb/>
+<fw type="catch" place="bottom">Poeſie</fw><lb/>
+<pb n="21" facs="#f0023"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+Poeſie Bl. 439. wo ihr euch gaͤntzlich auf die Par-<lb/>
+tey meines Gegners zu ſchlagen ſcheinet. Jn der<lb/>
+Streitfrage, ob und wieferne <hi rendition="#fr">Schoch</hi> das ihm<lb/>
+beygelegte Lob verdiene, wollet ihr euch gar nicht<lb/>
+in eine Eroͤrterung einlaſſen, ſondern eine genaue<lb/>
+Neutralitaͤt beobachten. Am allerdeutlichſten<lb/>
+aber verraͤth ſich die Syncretiſtiſche Gleichguͤltigkeit<lb/>
+in dem Artickel uͤber die Frage: Ob die Critick<lb/>
+gluͤcklicher auf verſtorbene, oder auf lebendige ge-<lb/>
+richtet werde? Wo ihr bald, wie Bl. 444. <hi rendition="#fr">Bod-<lb/>
+mern</hi> faſt gaͤnzlich Beyfall gebet; bald aber,<lb/>
+wie auf der folgenden Seite, behauptet, es laſſe<lb/>
+<hi rendition="#fr">ſich nichts gewiſſes beſtimmen; ſondern es<lb/>
+komme auf die Gemuͤths-Beſchaffenheit eines<lb/>
+jeden Kunſtrichters an.</hi> Heißt dieſes nicht auf<lb/>
+beyden Seiten hinken? Man vergleiche darmit<lb/>
+was ihr oben auf der 417ten Seite aus meiner <hi rendition="#fr">Vor-<lb/>
+rede zu der Dichtkunſt</hi> von dem Amt eines Cri-<lb/>
+tici anfuͤhret.</p><lb/>
+<p><hi rendition="#aq"><hi rendition="#g">XIII.</hi></hi> Das Urtheil von <hi rendition="#fr">Milton</hi> und von Hrn.<lb/>
+<hi rendition="#fr">Bodmers</hi> Ueberſetzung, welches ich in der dritten<lb/>
+Ausgabe meiner Critiſchen Dichtkunſt auf der 685.<lb/>
+Seite unter dem Scheine einer Erklaͤrung gaͤntzlich<lb/>
+widerruffen habe, begleitet ihr mit einer recht ſpoͤtti-<lb/>
+ſchen Anmerckung, die keine andere Wirckung ha-<lb/>
+ben kan, als daß ſie mich bey jedermann zum Ge-<lb/>
+laͤchter machen muß. Jhr ſaget: <hi rendition="#fr">Wo die letz-<lb/>
+tern Gedancken allemahl die beſten ſind, ſo<lb/>
+muß dieſes Urtheil,</hi> welches den Milton und die<lb/>
+Bodmeriſche Ueberſetzung zugleich, des Ungeheu-<lb/>
+ren, Rauhen und Widrigen beſchuldiget, <hi rendition="#fr">noth-</hi><lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom"><hi rendition="#fr">wen-</hi></fw><lb/>
+<pb n="22" facs="#f0024"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Pr. Gottſcheds Schreiben</hi></fw><lb/>
+<hi rendition="#fr">wendig vor jenem gelten.</hi> Heißt dieſes nicht<lb/>
+<hi rendition="#aq">ludere in re ſeria?</hi></p><lb/>
+<p><hi rendition="#aq"><hi rendition="#g">XIV.</hi></hi> Eure letzte Anmerckung von der wichti-<lb/>
+gen Veraͤnderung, da ich in der letzten Auflage<lb/>
+meiner Dichtkunſt anſtatt meiner eigenen, lauter<lb/>
+Exempel von unſern beſten Dichtern eingeſchoben<lb/>
+habe, giebt mir wiedrum eine Probe, wie gluͤck-<lb/>
+lich ihr ſeyd, wenn ihr nur wollet, eine Sache nach<lb/>
+ihrem beſten Vortheil vorſtellig zu machen. Denn<lb/>
+da ſonſt dieſe vorgenommene Veraͤnderung in der<lb/>
+That eine Wirckung von dem Tadel der Schwei-<lb/>
+zer iſt, und hiemit als ein oͤffentliches Geſtaͤndniß<lb/>
+eines wichtigen Verſehens und der Begruͤndniß<lb/>
+ihres Tadels koͤnnte angeſehen werden; ſo habet<lb/>
+ihr eure Anmerckung ſo geſchickt zu drehen gewußt,<lb/>
+daß kaum jemand, der nicht von dieſem gantzen<lb/>
+Streite vollkommen unterrichtet iſt, die wahre Ur-<lb/>
+ſache dieſer vorgenommenen Veraͤnderungen und<lb/>
+dieſe fuͤr meine Ehre ſo nachtheiligen Folgen mer-<lb/>
+ken wird.</p><lb/>
+<p>Daferne ihr nun, wie ich nicht zweifeln darf,<lb/>
+aus allen dieſen Vorſtellungen begreiffen werdet,<lb/>
+wie uͤbel mein Anſehen durch dergleichen Ausdruͤ-<lb/>
+ke und eine ſolche zweydeutige Art meinen Wider-<lb/>
+ſachern zu begegnen verſorget iſt, ſo verlaſſe ich<lb/>
+mich darauf, daß ihr euch kuͤnftig in euern Ur-<lb/>
+theilen von mir und meinen Feinden beſſer in Acht<lb/>
+nehmen und eine groͤſſere Vorſichtigkeit brauchen<lb/>
+werdet. Denn ich ſage aufrichtig, daß ich euch<lb/>
+lieber unter den offentlicherklaͤrten Freunden der<lb/>
+Schweitzer ſehen wollte, als daß ihr euch derge-<lb/>
+ſtalt unter ſie und mich vertheilet, wenigſtens eure<lb/>
+<fw type="catch" place="bottom">Freund-</fw><lb/>
+<pb n="23" facs="#f0025"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+Freundſchaft gegen mir auf eine ſo wanckelmuͤthi-<lb/>
+ge Art ausdruͤcket. Jch uͤberlaſſe euch ſelbſt die<lb/>
+boͤſen Folgen zu betrachten, die daher fuͤr euch ent-<lb/>
+ſtehen moͤgen, wenn ihr mir nicht ſicherere Proben<lb/>
+von eurer Gefaͤlligkeit gebet. Sinnet nach, ob<lb/>
+dieſes mit eurem Vorhaben meine Freundſchaft zu<lb/>
+verdienen uͤbereinkomme. Das Ungluͤck iſt, daß<lb/>
+man ſolchen Leuten zu viel Gehoͤre giebt, welche<lb/>
+nichts als Unruh und Streit ſuchen. Man ma-<lb/>
+chet ſich von meinem Anſehen einen gantz falſchen<lb/>
+Begriff, und ſchreibet mir dann die Abſicht zu,<lb/>
+daß ich deſſelben gegen heimſche und fremde miß-<lb/>
+brauchen wuͤrde. Jch wollte dennoch nicht gerne<lb/>
+genoͤthiget werden, alle die Vortheile meiner<lb/>
+Macht gegen meine Mißguͤnſtigen oder gegen mei-<lb/>
+ne mißlichen Freunde anzuwenden. Jhr koͤnnet die-<lb/>
+ſes denjenigen unter euch zu verſtehen geben, wel-<lb/>
+che auf die Seite des Gegentheils zu hinken ſchei-<lb/>
+nen; bildet euch aber nicht ein, daß Furcht und<lb/>
+Bloͤdigkeit an dieſen Erinnerungen einigen Antheil<lb/>
+haben. Nichts anders leget mir dieſelben in die<lb/>
+Feder als der Verdruß, den ich haben wuͤrde, wenn<lb/>
+ich euch nicht mehr unter meine Freunde zehlen<lb/>
+duͤrffte. Die Erfahrung hat es gezeiget, daß<lb/>
+meine Freundſchaft ſo vortheilhaft iſt, als meine<lb/>
+Feindſchaft nachtheilig ſeyn kan; ich will nicht ſa-<lb/>
+gen, bey was vor Anlaͤſſen dieſes geſchehen iſt,<lb/>
+die moͤgen es ſagen, die es empfunden haben. Den-<lb/>
+noch bin ich niemahls zu dem aͤuſſerſten Mittel fort-<lb/>
+geſchritten, als wenn die Vermahnungen keinen<lb/>
+Eingang mehr gefunden haben. Jch fuͤrchte dieſes<lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">nicht</fw><lb/>
+<pb n="24" facs="#f0026"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Pr. Gottſcheds Schreiben</hi></fw><lb/>
+nicht von eurer Geſellſchaft, und in dieſer Zu-<lb/>
+verſicht will ich mich gerne unterſchreiben</p><lb/>
+<dateline>Leipzig, den 28. Mey.<lb/>
+1743.</dateline><lb/>
+<closer><salute><hi rendition="#et">Euern gewogenen Freund und<lb/>
+Goͤnner.<lb/>
+<hi rendition="#in">G.</hi></hi></salute></closer></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Peter-</hi></fw><lb/>
+<pb n="25" facs="#f0027"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="2"><head><hi rendition="#b">Petermañs von Langnau Schreiben<lb/>
+an die deutſche Geſellſchafft von<lb/>
+Greifswalde.</hi></head><lb/>
+<salute><hi rendition="#fr">Meine Herren!</hi></salute><lb/>
+<p><hi rendition="#in">W</hi>Er den Vorbericht zu dem erſten Bande<lb/>
+eurer Critiſ. Verſuche geleſen hat, der<lb/>
+wird von eurer Unparteylichkeit im<lb/>
+Urtheilen eine ſo guͤtige Meynung vorgefaſſet<lb/>
+haben, daß er ſich nicht entſehen wird, eure<lb/>
+Urtheile und Nachrichten fuͤr ſicher und zuver-<lb/>
+laͤßig anzunehmen: Denn es iſt nichts, das die<lb/>
+Leſer, zumahl ſolche, denen das Nachdencken<lb/>
+ohnedem ein wenig verdrießlich iſt, in dem Ver-<lb/>
+trauen auf die Unbetruͤglichkeit ihres Scriben-<lb/>
+ten ſicherer mache, und ihre eigene Unterſuchung<lb/>
+und Pruͤffung mehr hemme, als dergleichen ſtar-<lb/>
+ke Verſicherungen, daß man <hi rendition="#fr">ſich an keine Ar-<lb/>
+beit wagen wolle, die ſich uͤber unſere Kraͤfte<lb/>
+erſtrecket;</hi> daß man nichts ohne Grund <hi rendition="#fr">loben<lb/>
+oder tadeln;</hi> alles <hi rendition="#fr">aus einem reinen Grund<lb/>
+herleiten</hi> wolle, und was dergleichen mehr in<lb/>
+eurem Vorbericht zu leſen iſt. Nach ſo ſtoltzen<lb/>
+Verſicherungen mag ſich dann ein Schrifft-<lb/>
+verfaſſer noch ſo ſehr erniedrigen, ſeine Fehlbar-<lb/>
+keit bekennen, und ſich die Erinnerungen ſeiner<lb/>
+Leſer ausbitten; Dieſes alles wird die ſeinen<lb/>
+Leſern vorhin beygebrachte gute Meynung und<lb/>
+das erſchlichene Zutrauen eben ſo wenig ver-<lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">min-</fw><lb/>
+<pb n="26" facs="#f0028"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+mindern, als andere in dem taͤglichen Umgange<lb/>
+gewoͤhnliche Hoͤflichkeiten unſerm Stand, Rang<lb/>
+und Anſehen einigen Abbruch thun; Jm Ge-<lb/>
+gentheil wird eine ſolche Erniedrigung ſeiner<lb/>
+ſelbs ſchon ohne dies ſichere und gemaͤchliche<lb/>
+Leſer in ihrer Sicherheit nur mehr ſtaͤrcken, und<lb/>
+ſie auf die Gedancken fuͤhren, wenn der Ver-<lb/>
+faſſer der Gruͤndlichkeit ſeiner Schrift nicht ge-<lb/>
+nugſam trauen koͤnnte, ſo wuͤrde er nicht ſo<lb/>
+ernſtlich auf eine Unterſuchung dringen.</p><lb/>
+<p>Bey einer ſolchen Auffuͤhrung eines Schrift-<lb/>
+verfaſſers koͤmmt es demnach lediglich auf die<lb/>
+Unterſuchung an, wie ferne er in der Ausfuͤh-<lb/>
+rung ſeines Vorſatzes die großſprechenden Ver-<lb/>
+ſicherungen erfuͤllet, und denen ſtrengen Geſetzen,<lb/>
+die er ſelbſt zur Richtſchnur einer billigen Pruͤf-<lb/>
+fung ſeiner Schrifften vorgeleget hat, eine Ge-<lb/>
+nuͤge geleiſtet habe? Thut die Ausfuͤhrung ei-<lb/>
+nem ſo ſtrengen Vorſatz keine Genuͤge, ſo iſt die<lb/>
+Gefahr der Verfuͤhrung von einer ſolchen Schrift<lb/>
+gedoppelt, indem ſie die Leſer nicht allein mit<lb/>
+irrigen Meynungen und Urtheilen taͤuſchet, ſon-<lb/>
+dern durch das Blendwerck großſprechender<lb/>
+Verſicherungen annoch die Erkaͤnntniß des Jrr-<lb/>
+thums und Betrugs ſchwer machet, ja gaͤntzlich<lb/>
+hindert.</p><lb/>
+<p>Wenn ich mir nun die Freyheit heraus neh-<lb/>
+me, auf dieſen Blaͤttern eine Unterſuchung an-<lb/>
+zuſtellen, wieferne diejenigen Artickel des erſten<lb/>
+Bandes eurer Critiſchen Verſuche, in welchen<lb/>
+ihr euch in eine Beurtheilung der Schweitzeri-<lb/>
+ſchen Critiſchen Schriften, und einiger beſon-<lb/>
+derer von denſelben aufgeworffener Streitfra-<lb/>
+<fw type="catch" place="bottom">gen</fw><lb/>
+<pb n="27" facs="#f0029"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+gen einlaſſet, die Pruͤffung aushalten, ſo werde<lb/>
+ich in dieſer Unterſuchung die Regeln, <hi rendition="#fr">die ihr<lb/>
+euch ſelbſt gemachet,</hi> und nach denen ihr auch<lb/>
+wollet beurtheilet werden, zum Grund und Au-<lb/>
+genmerck ſetzen, und euer Verfahren darnach<lb/>
+pruͤffen: Jch werde mich demnach beſtaͤndig er-<lb/>
+innern, daß nach eurer eigenen in dem allgemei-<lb/>
+nen Vorbericht gegebenen Verſicherung, 1.<lb/>
+<hi rendition="#fr">Keiner ſich an eine Arbeit gewaget, die ſich<lb/>
+uͤber ſeine Kraͤfte erſtrecket; 2. Daß ihr nie-<lb/>
+mals gelobet oder getadelt, ohne den Grund<lb/>
+anzugeben, warum ihr gelober oder getadelt;<lb/>
+3. Daß alle eure Urtheile aus einem reinen<lb/>
+Grund herflieſſen,</hi> und keine unlautere Abſich-<lb/>
+ten mit untergelauffen; 4. Daß eure Aus-<lb/>
+ſpruͤche <hi rendition="#fr">frey von allem Stoltz mit einer ſo hoͤf-<lb/>
+lichen Beſcheidenheit</hi> ſollen vorgetragen wer-<lb/>
+den, die denjenigen wohl anſtehet, <hi rendition="#fr">die ſich er-<lb/>
+innern, daß ſie ſelbſt nicht ohnfehlbar ſind.</hi> An<lb/>
+dieſe Regeln werde ich mich ſteiff halten, und<lb/>
+nach denſelben eure Critiſche Gerechtigkeit pruͤf-<lb/>
+fen: Alle Unhoͤflichkeit, die der Wahrheit nach-<lb/>
+theilig iſt, eben ſo behutſam vermeiden; als<lb/>
+ſehr ich diejenige ſo genannte Hoͤflichkeit, die der<lb/>
+Wahrheit im Licht ſtehet, und logicaliſche<lb/>
+Schluͤſſe entkraͤfftet, verabſcheue; Und im<lb/>
+uͤbrigen dann euch uͤberlaſſen, welchem von eu-<lb/>
+ren Geſellſchaftern ihr die Laſt der Vertheidi-<lb/>
+gung auftragen wollet, wo ich etwann in mei-<lb/>
+nen Anmerckungen und Schluͤſſen moͤgte geir-<lb/>
+ret, oder euch zu nahe getreten haben, denn<lb/>
+ich maſſe mir <hi rendition="#fr">kein Vorrecht der Unfehlbarkeit<lb/>
+an,</hi> und <hi rendition="#fr">werde meine Meynungen fuͤr keine</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">un-</hi></fw><lb/>
+<pb n="28" facs="#f0030"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+<hi rendition="#fr">unwiderſprechlich erwieſene Wahrheiten aus-<lb/>
+geben.</hi></p><lb/>
+<p>Es ſind vornemlich drey Artickel in dem er-<lb/>
+ſten Bande eurer C<hi rendition="#fr">ritiſchen Verſuche,</hi> wo ihr<lb/>
+euer Urtheil von den Critiſchen Schriften und<lb/>
+Gedancken der Schweitzer offenherzig entdecket:<lb/>
+der <hi rendition="#aq">VI</hi>te des <hi rendition="#aq">IV</hi>ten Stuͤcks, und der <hi rendition="#aq">III</hi>te und<lb/>
+zum Theil auch der <hi rendition="#aq">I</hi>ſte des <hi rendition="#aq">V</hi>ten Stuͤcks. Wir<lb/>
+wollen ſie nach der Ordnung durchlauffen.</p><lb/>
+<p><hi rendition="#aq">A.</hi> Jn dem <hi rendition="#aq">VI</hi>ten Artickel des <hi rendition="#aq">IV</hi>ten Stuͤ-<lb/>
+kes giebt die Vertheidigung von Hrn. Prof.<lb/>
+<hi rendition="#fr">Gottſcheds Verſuch einer Critiſchen Dichtkunſt</hi><lb/>
+Anlaß manches Urtheil der Schweitzer auf die<lb/>
+Capelle zu ſetzen, und davon eure Meynung zu<lb/>
+eroͤffnen. Gerade auf der 415. Seiten wird<lb/>
+aus dem Anhange des Ergaͤntzungs-Stuͤckes zu<lb/>
+Hrn. D. Trillers Fabelwercke eine Stelle aus<lb/>
+einer Anmerckung angefuͤhret, welche behaup-<lb/>
+tet, daß die <hi rendition="#fr">Gottſchediſche Dichtkunſt</hi> eine nur<lb/>
+allein <hi rendition="#fr">fuͤr die Deutſchen</hi> eingerichtete Dichtkunſt<lb/>
+ſey. Ueber dieſe Stelle wird der Verfaſſer die-<lb/>
+ſes Artickels ſo empfindlich, daß er in einer<lb/>
+beygefuͤgten ernſthaften Straffpredigt, die mit<lb/>
+einer recht Poſtillenmaͤſſigen Bewegung vorge-<lb/>
+bracht wird, die Abſichten des Schweitzerſchen<lb/>
+Kunſtrichters, als ein anderer Hertzenkuͤndi-<lb/>
+ger, entdecket und mit der groͤſten <hi rendition="#fr">Gewißheit</hi><lb/>
+beſtimmet; uͤber die Spoͤtter dieſer letzten Zei-<lb/>
+ten eine bittere und gantz aufgeweckte Klage fuͤh-<lb/>
+ret; und endlich dieſelbe mit einem feyerlichen<lb/>
+Glaubensbekaͤnntniß zum Ruhm der Gottſche-<lb/>
+diſchen Dichtkunſt beſchlieſſet. Koͤnnte man<lb/>
+hier nicht mit Recht fragen:</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">Tan-</hi></fw><lb/>
+<pb n="29" facs="#f0031"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+<cit><quote><hi rendition="#aq">Tantæne animis COELESTIBUS iræ?</hi></quote></cit><lb/>
+<p>Allein wir wollen ſehen aus was fuͤr einer rei-<lb/>
+nen Quelle dieſe Strafpredigt moͤgte gefloſſen<lb/>
+ſeyn. Hr. Prof. Gottſched hat in den zwo er-<lb/>
+ſten Ausgaben ſeines Verſuches einer Critiſchen<lb/>
+Dichtkunſt auf dem Titelblatt hingeſetzt: <hi rendition="#fr">Ver-<lb/>
+ſuch einer Critiſchen Dichtkunſt vor</hi> oder <hi rendition="#fr">fuͤr<lb/>
+die Deutſchen.</hi> Das Titelblatt eines Buchs<lb/>
+ſoll den Haupt-Jnnhalt, die Abſicht, und den<lb/>
+Gebrauch deſſelben begrifflich beſtimmen.</p><lb/>
+<p>Auf einem Titelblatt ſollte demnach von rechts-<lb/>
+wegen kein uͤberfluͤſſiges Wort ſtehen, das<lb/>
+nicht einer von dieſen Abſichten befoͤrderlich<lb/>
+ſeyn koͤnnte: Ob nun gleich dem Schweitzer-<lb/>
+ſchen Kunſtrichter die Einſchraͤnckung auf dem<lb/>
+Gottſchediſchen Titelblatte <hi rendition="#fr">fuͤr die Deutſchen</hi><lb/>
+gantz neu und ſeltſam vorgekommen, weilen<lb/>
+er ſich nicht beſinnen konnte, daß jemahls<lb/>
+ein anderer Schriftverfaſſer vor Hrn. Prof.<lb/>
+<hi rendition="#fr">Gottſcheden</hi> ſich einer ſolchen Einſchraͤnckung<lb/>
+des Gebrauchs ſeines Buchs auf eine beſon-<lb/>
+dere Nation bedienet haͤtte; ſo hat er den-<lb/>
+noch fuͤr feſt angenommen, daß Hr. Prof.<lb/>
+<hi rendition="#fr">Gottſched,</hi> als ein beruͤhmter Lehrer der deut-<lb/>
+ſchen Weltweißheit, auch in dieſem Falle<lb/>
+nichts ohne zureichenden Grund gethan habe,<lb/>
+daß folglich der Zuſatz <hi rendition="#fr">fuͤr die Deutſchen</hi> auf<lb/>
+dem Titelblatte ſeiner Dichtkunſt eine in ver-<lb/>
+nuͤnftigen Abſichten gegruͤndete Nothwendig-<lb/>
+keit haben muͤßte. Auf dieſen aus einem gut-<lb/>
+muͤthigen und recht billigen Hertzen angenom-<lb/>
+menen Grundſatz nahm er ſich fuͤr, diejeni-<lb/>
+<fw type="catch" place="bottom">gen</fw><lb/>
+<pb n="30" facs="#f0032"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+gen Abſichten, die dieſen Zuſatz der Einſchraͤn-<lb/>
+kung des Gebrauchs <hi rendition="#fr">fuͤr die Deutſchen</hi> noth-<lb/>
+wendig machten, zu errathen. Es kam ihm<lb/>
+erſtlich in Sinn, ob vielleicht Hr. Gottſched<lb/>
+ſeine Abſicht bey dieſer Einſchraͤnckung auf<lb/>
+die Sprache, in welcher ſein Buch geſchrie-<lb/>
+ben, gerichtet haben moͤgte; denn er erin-<lb/>
+nerte ſich wohl, daß Hr. <hi rendition="#fr">Gottſcheden</hi> nicht un-<lb/>
+bekannt iſt, daß er der erſte geweſen, der ei-<lb/>
+nen Verſuch einer Critiſchen Dichtkunſt in<lb/>
+deutſcher Sprache der Deutſchen Welt gelie-<lb/>
+fert hat. Allein er beſann ſich gleich, eines-<lb/>
+theils daß der Großmeiſter und Befoͤrderer<lb/>
+der deutſchen Sprachgenoſſenſchaft, wenn er<lb/>
+dieſe Abſicht gehabt haͤtte, ſich gantz anders<lb/>
+und viel deutlicher und reiner wuͤrde ausge-<lb/>
+druͤckt, und etwann ſo geſchrieben haben: <hi rendition="#fr">Der<lb/>
+erſte Verſuch einer deutſchen Critiſchen Dicht-<lb/>
+kunſt, dergleichen in deutſcher Sprache bis-<lb/>
+her nicht geſehen worden.</hi> Und anderntheils<lb/>
+befand er, daß die Einſchraͤnckung des Ge-<lb/>
+brauchs eines ſo nuͤtzlichen Buchs <hi rendition="#fr">fuͤr die Deut-<lb/>
+ſchen</hi> in Abſicht auf die Sprache gantz uͤberfluͤſ-<lb/>
+ſig und fuͤr einen philoſophiſchen Kunſtrichter,<lb/>
+der nichts ohne zureichenden Grund zu ſchreiben<lb/>
+gewohnt iſt, gantz nicht anſtaͤndig waͤre: Aller-<lb/>
+maſſen es nicht noͤthig iſt, daß man einen, der<lb/>
+der deutſchen Sprache gantz unkundig iſt, war-<lb/>
+ne, daß er kein deutſches Buch leſe. Da nun<lb/>
+aber ein Buch fuͤr die Leſer nicht mehr als in<lb/>
+zweyen Abſichten, nemlich entweder in Anſe-<lb/>
+hung der Sprache, oder in Anſehung der Sa-<lb/>
+<fw type="catch" place="bottom">chen</fw><lb/>
+<pb n="31" facs="#f0033"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+chen und Gedancken, brauchbar oder unbrauch-<lb/>
+bar ſeyn kan, mußte der Schweitzer nicht noth-<lb/>
+wendig auf die Vermuthung fallen, wenn die-<lb/>
+ſer Zuſatz anders nicht muͤſſig und ohne Ver-<lb/>
+ſtand ſeyn ſoll, ſo muͤſſe er den Gebrauch dieſes<lb/>
+Buchs in Abſicht auf den Jnnhalt und die Ma-<lb/>
+terie oder die Gedancken einſchraͤncken, und es<lb/>
+<hi rendition="#fr">fuͤr die Deutſchen</hi> allein vor brauchbar erklaͤren?<lb/>
+Jn dieſer Abſicht konnten demnach die Worte<lb/>
+<hi rendition="#fr">fuͤr die Deutſchen</hi> keinen andern Verſtand ha-<lb/>
+ben, als daß die in dieſem Buche abgehandel-<lb/>
+ten Materien, wenn es gleich in eine andere<lb/>
+Sprache uͤberſetzt wuͤrde, dennoch von nieman-<lb/>
+dem als von einem gebohrnen Deutſchen koͤnn-<lb/>
+ten verſtanden und zu Nutze gemachet werden.<lb/>
+Sollte nun aber dieſer Sinn Platz haben, ſo<lb/>
+mußte ferners folgen, daß die abgehandelten<lb/>
+Materien nicht aus der allgemeinen Natur der<lb/>
+Menſchen uͤberhaupt hergeleitet und erwieſen<lb/>
+worden ſeyn, denn ſo koͤnnte das Buch in An-<lb/>
+ſehung ſeines Jnnhalts nicht bloß <hi rendition="#fr">fuͤr die Deut-<lb/>
+ſchen</hi> verſtaͤndlich und brauchbar ſeyn: Folglich<lb/>
+konnte er nichts anders ſchlieſſen, als daß Hr.<lb/>
+<hi rendition="#fr">Gottſched</hi> ſeine Regeln, daß ſie allein <hi rendition="#fr">fuͤr die<lb/>
+Deutſchen</hi> brauchbar waͤren, nothwendig aus<lb/>
+der beſondern Natur der deutſchen Nation muͤß-<lb/>
+te hergefuͤhret haben. Es mag wohl ſeyn, daß<lb/>
+der Schweitzerſche Kunſtrichter auch dieſe letzte-<lb/>
+re Erklaͤrung mit ihren Folgen Hrn. Prof. <hi rendition="#fr">Gott-<lb/>
+ſcheden</hi> nicht im Ernſt zugeſchrieben hat; ſon-<lb/>
+dern dadurch nur ſo viel hat zu verſtehen geben<lb/>
+wollen, daß dieſe Einſchraͤnckung <hi rendition="#fr">fuͤr die Deut-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">ſchen</hi></fw><lb/>
+<pb n="32" facs="#f0034"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+<hi rendition="#fr">ſchen</hi> keinen geſunden Verſtand leide, und von<lb/>
+Hrn. <hi rendition="#fr">Gottſched</hi> ohne Bedacht ſey hingeſchrie-<lb/>
+ben worden: Denn wenn es wahr ſeyn ſollte,<lb/>
+wie ihr in eurem Glaubensbekaͤnntniß verſichert<lb/>
+zu ſeyn vorgebet, <hi rendition="#fr">daß die Critiſche Dichtkunſt<lb/>
+des Hrn. Gottſcheds mit Vergnuͤgen und Nu-<lb/>
+zen von den Auslaͤndern, die unſrer Sprache<lb/>
+kundig ſind, ſollte koͤnnen geleſen</hi> und verſtan-<lb/>
+den <hi rendition="#fr">werden;</hi> ſo moͤgte ich gerne vernehmen,<lb/>
+was denn die Einſchraͤnckung <hi rendition="#fr">fuͤr die Deutſchen</hi><lb/>
+auf dem Titelblatte der Critiſchen Dichtkunſt<lb/>
+eigentlich zu bedeuten habe; und ob der Ver-<lb/>
+ſtand, den dieſer Zuſatz leiden kan, nicht alle-<lb/>
+mahl laͤcherlich herauskomme? Wer will es<lb/>
+aber einem mit Recht verargen koͤnnen, wenn<lb/>
+er uͤber einem laͤcherlichen Ausdrucke das Maul<lb/>
+ein wenig verkruͤmmt? Zugeſchweigen, daß der<lb/>
+Schweitzer an dem Orte, wo er dieſe Critick<lb/>
+anbringet, eben nicht Urſache gehabt hat, gar<lb/>
+zu bloͤde, kaltſinnig und ernſthaft mit Hrn.<lb/>
+Prof. <hi rendition="#fr">Gottſched</hi> zu reden, allermaſſen das un-<lb/>
+geſaltzene Geſpoͤtte, welches dieſer in ſeinen<lb/>
+<hi rendition="#fr">Beytraͤgen</hi> uͤber die neue Schweitzerſche Dicht-<lb/>
+kunſt ausgegoſſen, eine zuͤchtigende und demuͤ-<lb/>
+thigende Abfertigung erforderte, und noch wohl<lb/>
+eher eine ſo bewegliche Straffpredigt verdienet<lb/>
+haͤtte, als diejenige iſt, mit welcher ihr die<lb/>
+Schweitzerſche Anmerckung begleitet. Wir muͤſ-<lb/>
+ſen aber dieſe Critiſche Straffpredigt ſelbſt noch<lb/>
+ein wenig beleuchten. Jhr ſaget: <hi rendition="#fr">Dieſe Beur-<lb/>
+theilung iſt gewiß nicht aus einem reinen Cri-<lb/>
+tiſchen Eifer gefloſſen. Die Herrn Schweitzer</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">wuͤr-</hi></fw><lb/>
+<pb n="33" facs="#f0035"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+<hi rendition="#fr">wuͤrden ſonſten nicht wieder ihre Gewohnheit,<lb/>
+die letzte Beſchuldigung,</hi> (daß nemlich Hrn.<lb/>
+<hi rendition="#fr">Gottſcheds</hi> Dichtkunſt niemand als ein gebor-<lb/>
+ner Deutſcher brauchen koͤnne, weil ſie ihre Re-<lb/>
+geln aus der beſondern Natur der Deutſchen her-<lb/>
+leite) <hi rendition="#fr">ſo ſchlechthin ohne Erklaͤrung und Be-<lb/>
+weis ſtehen laſſen.</hi> Jſt denn das eigene Ge-<lb/>
+ſtaͤndniß des Hrn. Prof. Gottſcheds nicht Be-<lb/>
+weiſes genug? Er ſagt ja ſelbſt ſein Buch ſey<lb/>
+nur <hi rendition="#fr">fuͤr die Deutſchen</hi> brauchbar, nicht in An-<lb/>
+ſehung der Sprache, denn darinn hat es fuͤr<lb/>
+alle andern deutſche Buͤcher nichts eigenes vor-<lb/>
+aus; hiemit in Anſehung der Materie oder des<lb/>
+Jnnhalts; wie koͤnnten aber die Regeln dieſer<lb/>
+Dichtkunſt nur <hi rendition="#fr">fuͤr die Deutſchen</hi> brauchbar ſeyn,<lb/>
+wenn ſie aus allgemeinen Grundſaͤtzen, aus<lb/>
+der allgemeinen menſchlichen Natur waͤren her-<lb/>
+geleitet worden? Wenn ihr alſo dieſe Folge und<lb/>
+Erklaͤrung nicht fuͤr guͤltig erklaͤren wollet; ſo<lb/>
+bleibet nichts uͤbrig, als daß ihr bekennet, die-<lb/>
+ſe Worte <hi rendition="#fr">fuͤr die Deutſchen</hi> haben gar keinen<lb/>
+geſunden Verſtand, und ſeyn vom Hrn. Prof.<lb/>
+ohne Bedacht und ohne zureichenden Grund hin-<lb/>
+geſchmiert worden. Was wird aber dieſe Be-<lb/>
+ſchuldigung vor ein ſchlechtes Zutrauen fuͤr die<lb/>
+Gruͤndlichkeit des Werckes ſelbſt gebaͤhren, wenn<lb/>
+dem Verfaſſer nicht einmahl die Faͤhigkeit zuge-<lb/>
+ſtanden wird, ein Titelblatt mit Verſtande zu<lb/>
+ſchreiben?</p><lb/>
+<cit><quote><hi rendition="#aq">Dic alium Quintiliane colorem!</hi></quote></cit><lb/>
+<p>Und wie muͤßte wohl die Antung und Beſtraf-<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">XI.</hi> St.] C</fw><fw type="catch" place="bottom">fung</fw><lb/>
+<pb n="34" facs="#f0036"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+fung dieſes Fehlers beſchaffen ſeyn, wenn ſie<lb/>
+von euch das Zeugniß verdienen ſollte, daß ſie<lb/>
+<hi rendition="#fr">aus einem reinen Critiſchen Eifer gefloſſen?</hi><lb/>
+Vielleicht muͤßte ſie ohngefehr ſo abgefaſſet ſeyn:</p><lb/>
+<cit><quote>„Jch will mich hier unterſtehen, einen kleinen<lb/>
+„Fehler an dem Titelblatte der Gottſchediſchen<lb/>
+„Dichtkunſt auszuſetzen: Die Gemuͤthsbillig-<lb/>
+„keit des Hrn. Profeſſors iſt mir gar zu bekannt,<lb/>
+„als daß ich fuͤrchten ſollte, er werde meine<lb/>
+„Freyheit mißbilligen. Er verlanget nicht,<lb/>
+„daß man auf alle ſeine Meynungen einen Eyd<lb/>
+„ſchwoͤren ſoll. Die Einſchraͤnckungs-Woͤrt-<lb/>
+„gen <hi rendition="#fr">fuͤr die Deutſchen</hi> haben hier nicht mehr<lb/>
+„zu bedeuten, als leere Worte, die keinen ge-<lb/>
+„ſunden Verſtand leiden, man kan ſie ohne<lb/>
+„Abbruch des Verſtandes ausſtreichen. Nie-<lb/>
+„mand aber ſey ſo unhoͤflich und unbeſcheiden,<lb/>
+„daß er von dem Titelblatt auf das Buch ſelbſt<lb/>
+„einen Schluß machen, und ſich durch die ſtraff-<lb/>
+„bare Vermuthung an dem beruͤhmten Manne<lb/>
+„verſuͤndigen wollte, als ob in dem Wercke<lb/>
+„ſelbs eben dergleichen unverſtaͤndige Verſehen<lb/>
+„moͤgten mit untergelauffen ſeyn. Man wen-<lb/>
+„det eben nicht allemahl den groͤſten Fleiß auf<lb/>
+„das Titelblatt, welchem der beruffene Nah-<lb/>
+„me des Verfaſſers das groͤſte Anſehen geben<lb/>
+„muß: <hi rendition="#aq">Et bonus nonnunquam dormitat Ho-<lb/>
+„merus.„</hi></quote></cit> <p>Eure folgende Klage uͤber den Miß-<lb/>
+brauch der Critick iſt gantz pathetiſch, und ent-<lb/>
+decket durch die doppelte Frage und die beyge-<lb/>
+fuͤgte nachdruͤckliche Apoſtrophe ein gantz beweg-<lb/>
+tes Gemuͤth; Sie lautet:</p><cit><quote>„Wird man aber<lb/>
+<fw type="catch" place="bottom">„nicht</fw><lb/>
+<pb n="35" facs="#f0037"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+„nicht die vortreffliche Critick zu dem gehaͤſſig-<lb/>
+„ſten Dinge von der Welt machen, wo man<lb/>
+„fortfaͤhret, auch die groͤbſten Spoͤttereyen<lb/>
+„darein zu miſchen? Oder iſt der vortrefflich-<lb/>
+„ſte Criticus vielleicht derjenige, der den an-<lb/>
+„dern am laͤcherlichſten machen kan? Man ver-<lb/>
+„huͤte doch, damit unſre Welt nicht anfange,<lb/>
+„Critiſche und Satyriſche Schrifften fuͤr einer-<lb/>
+„ley zu halten!„</quote></cit> <p>Es wird ſchwer ſeyn, die vor-<lb/>
+treffliche Critick fuͤr die elenden Scribenten oh-<lb/>
+ne Nachtheil der Wahrheit jemahls angenehm<lb/>
+zu machen: Und die hoͤfliche Beſcheidenheit, die<lb/>
+Jhr euch in euren Urtheilen zur Regel geſetzet,<lb/>
+mag euch den Unterſcheid zwiſchen einem feinen<lb/>
+und gruͤndlichen Schertz, und zwiſchen den <hi rendition="#fr">groͤb-<lb/>
+ſten Spoͤttereyen</hi> verborgen gehalten haben.<lb/>
+Oder muß ein Criticus, der es mit einem ſtol-<lb/>
+zen Verfaſſer aufgenommen hat, der ſich ſelbſt<lb/>
+laͤcherlich machet, weinen, wenn er ſein Be-<lb/>
+finden daruͤber entdecken ſoll? Man wuͤrde ſich<lb/>
+faſt bereden, wenn man dieſe Klage ließt, daß<lb/>
+euch entweder die groſſentheils unbillige und<lb/>
+ſchimpfliche Art der Critick, welche <hi rendition="#fr">Gottſched</hi><lb/>
+in ſeinen <hi rendition="#fr">Beytraͤgen</hi> ſeit zehn Jahren in Deutſch-<lb/>
+land ohne Einrede auch gegen die groͤſten Maͤn-<lb/>
+ner gefuͤhret hat, gantz unbekannt ſeyn muͤßte,<lb/>
+oder daß ihr ſie heimlich billigter, da ihr ſo emp-<lb/>
+findlich werdet, ſo bald man dieſem ſtoltzen und<lb/>
+eigenmaͤchtigen Richter der deutſchen Welt we-<lb/>
+gen ſolcher Fehler, die keineswegs zu entſchul-<lb/>
+digen ſind, mit einer ſchertzenden Mine die<lb/>
+Wahrheit ſaget, daß ihr euch nicht enthalten<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">koͤn-</fw><lb/>
+<pb n="36" facs="#f0038"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+koͤnnet, ſeinen verdienten Hohn durch eine Pa-<lb/>
+ſtormaͤſſige Straffpredigt an den Schweitzern<lb/>
+zu raͤchen. Jch erſuche euch demnach die bey-<lb/>
+den Abſchnitte in Conr. <hi rendition="#fr">Erlenbachen Echo des<lb/>
+deutſchen Witzes,</hi> welche von der <hi rendition="#fr">Critiſchen<lb/>
+Hoͤflichkeit,</hi> und der <hi rendition="#fr">Gerechtigkeit</hi> einiger hoch-<lb/>
+deutſcher Kunſtrichter abſonderlich handeln, und<lb/>
+die ihr in dem <hi rendition="#aq">VI</hi>ten Stuͤcke der Schweitzerſchen<lb/>
+Critiſchen Sammlungen antreffen koͤnnet, noch<lb/>
+einmahl bedaͤchtlich zu durchleſen, und dann mit<lb/>
+euren Regeln von der Critiſchen Unparteylichkeit<lb/>
+zu Rath zu gehen, ob eure Straffpredigt beſſer<lb/>
+auf Hrn. <hi rendition="#fr">Gottſched</hi> oder auf die Schweitzer<lb/>
+paſſe, und ſo ferner nachzudencken, wie ihr euch<lb/>
+rechtfertigen wollt, daß ihr <hi rendition="#fr">Gottſchedens</hi> un-<lb/>
+billige Critick in das zehnte Jahr in der deut-<lb/>
+ſchen Welt ohne Warnung und Antung frey<lb/>
+habet raſen und ſchwermen laſſen, und noch itzo<lb/>
+nicht wol vertragen koͤnnet, daß die Schweitzer<lb/>
+ſich unterfangen haben, die deutſche Welt von<lb/>
+dieſem eigenſinnigen Critiſchen Tyrannen zu be-<lb/>
+freyen, und ihn rechtſchaffen zu demuͤthigen.<lb/>
+Allein die zu dieſer Klage hinzugefuͤgte ſeufzende<lb/>
+Apoſtrophe verdienet noch eine beſondere Be-<lb/>
+trachtung: <hi rendition="#fr">Man verhuͤte doch, damit unſre<lb/>
+Welt nicht anfange, critiſche und ſatyriſche<lb/>
+Schrifften fuͤr einerley zu halten.</hi> Worauf<lb/>
+mag denn wohl der ſo unendlich groſſe Unter-<lb/>
+ſcheid Critiſcher und Satyriſcher Schrifften be-<lb/>
+ruhen, daß auch die bloſſe Vorſtellung der<lb/>
+Gefahr von Vermiſchung derſelben, ſo tiefge-<lb/>
+holte Seufzer und gebrochne Stoßgebethgen<lb/>
+<fw type="catch" place="bottom">aus-</fw><lb/>
+<pb n="37" facs="#f0039"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+auspreſſen kan? Nach meinem ſchwachen Sin-<lb/>
+ne waltet dieſer Unterſcheid zwiſchen beyden, daß<lb/>
+die Critick zur Abſicht hat zu unterrichten und zu<lb/>
+verbeſſern; die Satyre hingegen zu beſchaͤmen,<lb/>
+zu beſtraffen und zu warnen: Beyde ſuchen die<lb/>
+Verbeſſerung des Nebenmenſchen; die Critick<lb/>
+durch beſcheidenen Unterricht; die Satyre durch<lb/>
+die Beſchaͤmung. Wenn hiemit die Critick ei-<lb/>
+nen heilſamen Eingang zur Verbeſſerung finden<lb/>
+ſoll, ſo muß derjenige, deſſen Verbeſſerung ſie<lb/>
+ſuchet, faͤhig ſeyn einen guten und wohlgemein-<lb/>
+ten Unterricht mit ſtillem Gemuͤthe anzunehmen,<lb/>
+und zu ſeiner Verbeſſerung anzuwenden. Jſt<lb/>
+jemand nicht in dieſer Gemuͤths-Verfaſſung,<lb/>
+ſo iſt er fuͤr die Critick unverbeſſerlich. Folglich<lb/>
+muͤßte man ſolche Menſchen, die doch den weit<lb/>
+groͤſſern Theil ausmachen, ihrem Verderben<lb/>
+voͤllig uͤberlaſſen, wenn nicht noch ein ander Mit-<lb/>
+tel uͤbrig waͤre, wodurch man nicht ohne Hoff-<lb/>
+nung fuͤrfahren koͤnnte, an deren Verbeſſerung<lb/>
+zu arbeiten. Stoltze, eigenſinnige Koͤpfe ſind<lb/>
+ſchwerlich durch bloſſen Unterricht zurecht zu brin-<lb/>
+gen, weil es bey ihnen nicht ſo faſt an der Ver-<lb/>
+ſtandes-Faͤhigkeit als an dem Willen fehlet;<lb/>
+darum muß bey ſolchen die Satyre der Critick<lb/>
+zu Huͤlffe kommen, wo man ihre Verbeſſerung<lb/>
+nicht gaͤntzlich verlohren geben will. Dadurch<lb/>
+muß man ihnen den Stoltz und Eigenſinn zuerſt<lb/>
+brechen, damit ſie wider faͤhig werden den Un-<lb/>
+terricht der Critick zu ihrer Beſſerung anzuneh-<lb/>
+men. Giebt es denn aber ſolche hartnaͤckige<lb/>
+Suͤnder, die alle Mittel zu ihrer Verbeſſerung<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">muth-</fw><lb/>
+<pb n="38" facs="#f0040"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+muthwillg von ſich ſtoſſen, die man weder durch<lb/>
+die uͤberzeugenden Warnungen der Critick, noch<lb/>
+durch die gelinde Zuͤchtigung der Satyre zu ei-<lb/>
+nem beſſern Sinne verleiten kan, an denen hie-<lb/>
+mit alle Arbeit als an ſchlechterdings unverbeſ-<lb/>
+ſerlichen gaͤntzlich verloren, ſo kan man ſolche der<lb/>
+Geiſſel einer beiſſenden Satyre zur gerechten<lb/>
+Strafe uͤbergeben, damit wenigſtens andere aus<lb/>
+Furcht vor einem gleichen Gerichte von ihrer<lb/>
+Hartnaͤckigkeit abgeſchreckt, und unſchuldige<lb/>
+Seelen gegen die Verfuͤhrung verwahret wer-<lb/>
+den. Wenn ich nun dieſe Gedancken von dem<lb/>
+wahren Unterſcheid der Critick und der Satyre<lb/>
+mit einem Wunſch und Seufzer beſchlieſſen ſoll-<lb/>
+te, ſo wollte ich wuͤnſchen, daß man verhuͤten<lb/>
+koͤnnte, daß unter den beruͤhmten elenden Scri-<lb/>
+benten der deutſchen Welt keine fuͤr die Critick<lb/>
+unverbeſſerliche Suͤnder mehr moͤgten gefunden<lb/>
+werden, in welchem Falle weder die zuͤchtigende<lb/>
+noch die ſtraffende Satyre mehr noͤthig waͤre.<lb/>
+So lange hergegen ſolche Scribenten noch vor-<lb/>
+handen ſind, die aus ſtolzem Eigenduͤnckel jeder-<lb/>
+mann richten, Lob und Tadel nach ihrer Will-<lb/>
+kuͤhr ausſpenden und widerruffen, den Witz und<lb/>
+Geiſt einer gantzen Nation auf ihren Credit<lb/>
+nehmen; ſo lange wird die Verbindung der Sa-<lb/>
+tyre mit der Critick keine ſo groſſe Gefahr auf<lb/>
+ſich haben, daß es eben noͤthig ſeyn ſollte, durch<lb/>
+oͤffentliche Kirchengebethe die Abwendung derſel-<lb/>
+ben zu erflehen. Was endlich eure letzte Klage<lb/>
+uͤber dieſen Artickel angehet, ſo habe ich daruͤber<lb/>
+auch noch eine Anmerckung zu machen. Jhr ſa-<lb/>
+<fw type="catch" place="bottom">get:</fw><lb/>
+<pb n="39" facs="#f0041"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+get: „Wo bleiben die reinen Abſichten der</p><lb/>
+<cit><quote>„Critick, wenn man ſo gar auf eine gantze Na-<lb/>
+„tion ſchimpfet, weil uns dieſer oder jener Ge-<lb/>
+„lehrte aus derſelben boͤſe gemacht hat?„ Da-</quote></cit><lb/>
+<p>fern ihr es vor einen Schimpf fuͤr die gantze deut-<lb/>
+ſche Nation aufnehmet, daß der Schweitzerſche<lb/>
+Kunſtrichter geſagt hat:</p> <cit><quote>„Hr. Gottſched habe<lb/>
+„ſeine Saͤtze und Regeln nicht aus der allge-<lb/>
+„meinen Natur der Menſchen uͤberhaupt, ſon-<lb/>
+„dern aus der Natur der deutſchen Nation ins-<lb/>
+„beſondere hergeleitet;„ ſo muͤſſet ihr die ge-</quote></cit><lb/>
+<p>kraͤnckte Ehre der deutſchen Nation nicht an dem<lb/>
+Schweitzer, ſondern an Hrn. <hi rendition="#fr">Gottſcheden</hi> raͤ-<lb/>
+chen; ſonſt wuͤrde eure Rache uͤber einen un-<lb/>
+ſchuldigen ergehen: Zumalen da ich oben aus-<lb/>
+fuͤhrlich dargethan habe, daß die eigenen Worte<lb/>
+des Hrn. Prof. auf dem Titel ſeiner Dichtkunſt,<lb/>
+wenn ſie anders einen Verſtand haben ſollen,<lb/>
+dieſen nothwendig mit ſich fuͤhren, und in ſich<lb/>
+einſchlieſſen. Wenn ſie aber keinen Verſtand<lb/>
+haben; hat denn der Schweitzer dadurch die<lb/>
+gantze deutſche Nation beſchimpft, daß er ſelbi-<lb/>
+gen einen Verſtand zugetrauet hat? Dazu<lb/>
+koͤmmt, daß der Schweitzer an eben dem Orte,<lb/>
+wo dieſe Stelle zu finden, gerade in den aller-<lb/>
+naͤchſt-folgenden Worten, bewieſen hat, daß<lb/>
+Hr. <hi rendition="#fr">Gottſched</hi> ſeine Urtheile aus der Natur der<lb/>
+deutſchen Nation wircklich herleite: Allein ihr<lb/>
+habet nicht fuͤr gut angeſehen, dieſen Beweis<lb/>
+mit anzufuͤhren, vielleicht auch darum, damit<lb/>
+ihr dem Schweitzer wegen Mangel des Bewei-<lb/>
+ſes deſto kecker einen unreinen Critiſchen Eifer<lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">Schuld</fw><lb/>
+<pb n="40" facs="#f0042"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+Schuld geben koͤnnet. Endlich iſt noch zu mer-<lb/>
+ken, daß der Schweitzerſche Kunſtrichter hier<lb/>
+durch die deutſche Nation nur allein diejenigen<lb/>
+verſtanden haben will, die Hrn. <hi rendition="#fr">Gottſched</hi> als<lb/>
+den Vormund des deutſchen Witzes glaͤubig er-<lb/>
+kennen und verehren, und in ihrem Hertzen<lb/>
+ſprechen:</p><lb/>
+<cit><quote><hi rendition="#aq">Adorons ce grand homme, &amp; penſons comme<lb/>
+<hi rendition="#et">il penſe.</hi></hi></quote></cit><lb/>
+<p>Wer folglich dieſen Schimpf, da man die deut-<lb/>
+ſche und die menſchliche Natur von einander un-<lb/>
+terſcheidet, auf ſich ziehet, der verrath ſich eben<lb/>
+dadurch, daß er vor dem Baal des deutſchen<lb/>
+Witzes die Knie gebogen habe. Es hat ſich aber<lb/>
+der Schweitzer darum der allgemeinen Benen-<lb/>
+nung <hi rendition="#fr">der deutſchen Nation</hi> bedient, ob er gleich<lb/>
+nur einen Theil darunter verſtanden haben will,<lb/>
+weil Hr. <hi rendition="#fr">Gottſched</hi> dieſe allgemeine Benennung<lb/>
+ſo oft gebraucht, als er ſein ſelbſt angemaßtes<lb/>
+vormundſchaftliches Amt ausuͤben will, ohnge-<lb/>
+achtet nur ſehr wenige ſolches erkennen wollen;<lb/>
+wie aus der Vorrede zu dem von Hrn. <hi rendition="#fr">Heine-<lb/>
+ken</hi> uͤberſetzten griechiſchen <hi rendition="#fr">Longin</hi> zu ſehen iſt:<lb/>
+Womit auch uͤbereinſtimmet, was der Verfaſ-<lb/>
+ſer der Goͤttingiſ. Zeitungen in dem 55. Stuͤcke<lb/>
+dieſes Jahrs auf der 495. Seite von den Leipzi-<lb/>
+giſchen <hi rendition="#fr">Beluſtigern,</hi> als Hrn. <hi rendition="#fr">Gottſcheds</hi> ge-<lb/>
+treuen Unter-Bedienten, ſagt;</p> <cit><quote>„Man kan die<lb/>
+„Verfaſſer der Beluſtigungen nicht durchgaͤn-<lb/>
+„gig vor die Verfechter des deutſchen Witzes<lb/>
+„annehmen.„</quote></cit><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">B.</hi> Auf</fw><lb/>
+<pb n="41" facs="#f0043"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+<p><hi rendition="#aq">B.</hi> Auf der 416. Seite dieſes <hi rendition="#aq">VI.</hi>ten Artickels<lb/>
+laßt ihr folgendes Urtheil einflieſſen:</p> <cit><quote>„Der Herr<lb/>
+„Verfaſſer war der erſte, der uns ſowohl dem<lb/>
+„Namen, als der That nach, eine Critiſche<lb/>
+„Dichtkunſt geliefert hat.„</quote></cit> <p>Dieſes Urtheil ſte-<lb/>
+het mit demjenigen, welches ihr auf der 427. Sei-<lb/>
+te aus dem <hi rendition="#aq">II.</hi>ten Stuͤcke der Schweitzerſchen<lb/>
+Sammlungen anfuͤhret, in einem offenbaren Wie-<lb/>
+derſpruch, denn da heißt es:</p> <cit><quote>„Es verdiente auch<lb/>
+„dieſe Dichtkunſt in Abſicht auf den Verfaſſer<lb/>
+„viel ehender <hi rendition="#fr">hiſtoriſch,</hi> als <hi rendition="#fr">critiſch</hi> genennet zu<lb/>
+„werden, es ſey denn, daß man das vortreffliche<lb/>
+„Critiſche Stuͤcke Bl. 181. wo er Sal. Francken<lb/>
+„Abendſegen auf eine ſcharffſinnige Weiſe beur-<lb/>
+„theilet, in eine beſondere Betrachtung ziehen<lb/>
+„wollte.„</quote></cit> <p>Hier mangelt mir nichts als der Er-<lb/>
+weis: Jhr widerſprechet, ihr lobet; aber den<lb/>
+Grund warum ihr widerſprechet und lobet, den<lb/>
+finde ich nirgends, ungeachtet der zweyten Regel,<lb/>
+die ihr euch ſelbſt gemachet habet. Es fraget ſich<lb/>
+nemlich, ob Herrn <hi rendition="#fr">Gottſcheds</hi> Dichtkunſt mit<lb/>
+Recht eine <hi rendition="#fr">Critiſche</hi> Dichtkunſt heiſſen koͤnne? Ei-<lb/>
+ne Dichtkunſt verdienet erſt dannzumahl den Na-<lb/>
+men <hi rendition="#fr">Critiſch,</hi> wenn ſie nicht bloß verſchiedene Ge-<lb/>
+dancken und Meinungen andrer von verſchiedenen<lb/>
+Lehrſaͤtzen anfuͤhret, oder eine Anleitung und Re-<lb/>
+geln giebt, wie ein Gedichte zu Stande zu bringen,<lb/>
+oder auch die Regeln mit einer philoſophiſchen<lb/>
+Gruͤndlichkeit erweiſet; ſondern wenn ſie, nach<lb/>
+Hrn. <hi rendition="#fr">Gottſcheds</hi> eigner Erklaͤrung,</p> <cit><quote>„die Schoͤn-<lb/>
+„heiten und Fehler vorkommender Meiſterſtuͤcke,<lb/>
+„nach gruͤndlich erwieſenen und feſt-geſetzten Re-</quote></cit><lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">„geln</fw><lb/>
+<pb n="42" facs="#f0044"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+<p>„geln vernuͤnfftig pruͤffet, und richtig beurtheilet.„<lb/>
+Urtheile uͤber Sachen, die wir von andern em-<lb/>
+pfangen und angenommen haben, gehoͤren nicht zu<lb/>
+der critiſchen, ſondern zu der hiſtoriſchen Erkennt-<lb/>
+niß. Dieſem zufolge ſodere ich billig von euch, um<lb/>
+euer Urtheil, und zugleich die Benennung der Gott-<lb/>
+ſchediſchen Dichtkunſt als einer <hi rendition="#fr">Critiſchen</hi> zu recht-<lb/>
+fertigen, daß ihr mir diejenigen Meiſterſtuͤcke anzei-<lb/>
+get, deren Schoͤnheiten und Fehler Herr Gottſched<lb/>
+in ſeiner Dichtkunſt zuerſt nach vernuͤnftigen Regeln<lb/>
+gepruͤfet und richtig beurtheilet hat. Sonſt werde<lb/>
+ich dieſe Dichtkunſt immer nur fuͤr eine ſo-genannte<lb/>
+<hi rendition="#fr">Critiſche</hi> Dichtkunſt anſehen, und behaupten,<lb/>
+daß das Beywort <hi rendition="#fr">Critiſch</hi> auf dem Titel der<lb/>
+Gottſchediſchen Dichtkunſt eben ſo wenig einen zu-<lb/>
+reichenden Grund habe, als der Zuſatz <hi rendition="#fr">fuͤr die<lb/>
+Deutſchen.</hi> Da hingegen der Schweitzerſchen<lb/>
+Dichtkunſt dieſes Beywort kaum ein deutſcher Poet<lb/>
+ſtreitig machen wird. Siehe das <hi rendition="#aq">VI.</hi>te Stuͤck der<lb/>
+Schweitzeriſch-critiſchen Sammlung Bl. 102. An-<lb/>
+merck. <hi rendition="#aq">Q.</hi></p><lb/>
+<p><hi rendition="#aq">C.</hi> Auf der 424. Seite des <hi rendition="#aq">VI.</hi>ten Artickels<lb/>
+ſtellet ihr die Schweitzerſche und die Gottſchediſche<lb/>
+Dichtkunſt in eine Vergleichung:</p> <cit><quote>„So gleich-<lb/>
+„lautend der Titel auf beyden war, ſo unterſchie-<lb/>
+„den waren ſie gleichwohl ihrem Jnnhalte nach.<lb/>
+„Jn einem jeden Wercke war eine beſondere Ord-<lb/>
+„nung und Einrichtung. Man fand in dem er-<lb/>
+„ſten nothwendige Hauptſtuͤcke, die man in dem<lb/>
+„letzten vergebens ſuchte; und in dem letzten wur-<lb/>
+„den dagegen wiederum vortreffliche Materien<lb/>
+„ausgefuͤhret, die in dem erſtern entweder gar<lb/>
+<fw type="catch" place="bottom">„nicht,</fw><lb/>
+<pb n="43" facs="#f0045"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+„nicht, oder nur mit wenigem waren beruͤhret<lb/>
+„worden.„</quote></cit> <p>Jch koͤnnte zwar auch hier den Be-<lb/>
+weis fodern, was fuͤr nothwendige Hauptſtuͤcke in<lb/>
+der <hi rendition="#fr">Breitingerſchen</hi> Dichtkunſt mangeln, die zu<lb/>
+dem allgemeinen Theil gehoͤren, und in der Leipzi-<lb/>
+giſchen zu finden ſind? Allein da dieſes Urtheil von<lb/>
+Herrn <hi rendition="#fr">Gottſcheds</hi> nur in Anſehung des hoͤflichern<lb/>
+und gemilderten Ausdrucks unterſchieden iſt: die-<lb/>
+ſes Gottſchediſche Urtheil aber ſchon von andern zur<lb/>
+Genuͤge beleuchtet worden; ſo will ich mit bloſſem<lb/>
+Widerhohlen niemandem verdrießlich ſeyn, ſon-<lb/>
+dern euch lediglich auf das verweiſen, was daruͤ-<lb/>
+ber in dem dritten Anhange zu dem Ergaͤntzungs-<lb/>
+Stuͤcke der Trilleriſchen Fabeln in dem <hi rendition="#aq">II.</hi>ten<lb/>
+Stuͤcke der critiſchen Sammluugen von Zuͤrich<lb/>
+Bl. 69. u. f. und in den Anmerckungen zu der<lb/>
+neuen Vorrede zur <hi rendition="#aq">III.</hi> Gottſched. Dichtk. in dem<lb/>
+<hi rendition="#aq">VI.</hi>ten Stuͤcke vorbedeuteter Sammlung Bl. 106.<lb/>
+u. f. zu leſen vorkoͤmmt.</p><lb/>
+<p><hi rendition="#aq">D.</hi> Auf der 424. Seite des <hi rendition="#aq">VI.</hi>ten Artickels<lb/>
+traget ihr euch mit gantz geheimen Nachrichten<lb/>
+von der erſten und wahren Urſache der entſtande-<lb/>
+nen Feindſchaft zwiſchen Hrn. <hi rendition="#fr">Gottſched</hi> und Hr.<lb/>
+<hi rendition="#fr">Breitinger.</hi> Jhr brauchet aber dieſe Nachrich-<lb/>
+ten auf eine recht argliſtige Weiſe nur um den Ver-<lb/>
+dacht einer bey den Schweitzern gegen Hrn. <hi rendition="#fr">Gott-<lb/>
+ſcheden</hi> herrſchenden heimlichen Feindſeligkeit, die<lb/>
+an dem hernach erwachſenen offenbaren Streit al-<lb/>
+leine Schuld geweſen ſey, den Leſern unvermerckt<lb/>
+beyzubringen. Wie ferne aber ein ſolches Betra-<lb/>
+gen mit der critiſchen Aufrichtigkeit und Unpartey-<lb/>
+ligkeit, und mit euern großſprechenden Verſiche-<lb/>
+<fw type="catch" place="bottom">run-</fw><lb/>
+<pb n="44" facs="#f0046"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+rungen, und denen Regeln, die ihr euch ſelbſt ge-<lb/>
+machet haben wollet, uͤbereinſtimme, das laſſe ich<lb/>
+alle redlichen Deutſchen ſelbſt ermeſſen. Damit<lb/>
+aber die zuverlaͤſſige Glaubwirdigkeit eurer gehei-<lb/>
+men Nachrichten bey der heutigen unglaͤubigen<lb/>
+Welt nicht etwann Noth leiden moͤgte, ſo war die<lb/>
+Behutſamkeit ſolche zu verhehlen ſehr nothwendig;<lb/>
+Und die Worte: <hi rendition="#fr">Die Geſchichte dieſer Tren-<lb/>
+nung gehoͤret nicht an dieſen Ort;</hi> zeigen, daß<lb/>
+ihr gar wol mercket, wo es euch vortraͤglich iſt,<lb/>
+Geheimnißreich zu thun. Geheime Nachrichten<lb/>
+kan niemand weder billigen noch verwerffen, ſie<lb/>
+koͤnnen wahr ſeyn; ſie koͤnnen aber auch falſch oder<lb/>
+gar erdichtet ſeyn. Nur ſo viel kan ich euch die-<lb/>
+nen, daß Hr. Prof. <hi rendition="#fr">Breitinger</hi> mit Hrn. Prof.<lb/>
+<hi rendition="#fr">Gottſcheden</hi> niemals in einer freundſchaftlichen<lb/>
+Verbindung geſtanden, und alſo die Trennung,<lb/>
+davon euch eure geheime Nachrichten die Urſache<lb/>
+entdecken ſollen, recht unbegreifflich iſt. Jnzwi-<lb/>
+ſchen kan man die wahren Urſachen des erregten<lb/>
+und noch immer fortdaurenden critiſchen Kriegs, in<lb/>
+welchem Hr. Gottſched mit ſeinem Heere nach dem<lb/>
+erſten Angriff ſich in dem Streitfelde nur nicht<lb/>
+mehr darf blicken laſſen, aus der Vorrede zu der<lb/>
+Echo des deutſchen Witzes in dem <hi rendition="#aq">IV.</hi>ten Stuͤcke<lb/>
+der Critiſch. Sammlung von Zuͤrich ſattſam er-<lb/>
+ſehen.</p><lb/>
+<p><hi rendition="#aq">E.</hi> Auf der 425. Seiten des <hi rendition="#aq">VI.</hi>ten Artickels<lb/>
+machet ihr eine Erzehlung, die mir einen Mangel<lb/>
+der Gemuͤthsbilligkeit nur zu ſehr verraͤth, und<lb/>
+eure großſprechenden Verſicherungen einer aufrich-<lb/>
+tigen Unparteylichkeit beſchaͤmet; Es heißt:</p><lb/>
+<fw type="catch" place="bottom">„Jm</fw><lb/>
+<pb n="45" facs="#f0047"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+<cit><quote>„Jm Jahr 1740. kam die beruͤhmte ſchweitzer-<lb/>
+„ſche Dichtkunſt zum Vorſchein. Des Hrn.<lb/>
+„Gottſcheds und ſeines Wercks ward in derſel-<lb/>
+„ben nur ſehr wenig gedacht; jedoch geſchahe ſol-<lb/>
+„ches allemal in ziemlich ſpoͤttiſchen und gehaͤſſi-<lb/>
+„gen Ausdruͤcken.„</quote></cit> <p>Jch muß hierbey erinnern,<lb/>
+daß Hr. Prof. <hi rendition="#fr">Breitinger,</hi> wenn anders die ge-<lb/>
+heimen Nachrichten von einer fruͤhern Trennung,<lb/>
+und einem gegen Hrn. <hi rendition="#fr">Gottſched</hi> gefaßten Grol-<lb/>
+len Grund haben ſollten, bey dieſem Wercke die<lb/>
+beſte Gelegenheit gehabt haͤtte, ſich an Hr. <hi rendition="#fr">Gott-<lb/>
+ſched</hi> zu reiben: da haͤtte er zeigen koͤnnen, wie<lb/>
+wenig das Gottſchediſche Werck den Titel einer<lb/>
+critiſchen Dichtkunſt verdienete, und wie nothwen-<lb/>
+dig es demnach waͤre, dasjenige erſt noch auszu-<lb/>
+fuͤhren, was der Titel deſſelben zwar verſprochen<lb/>
+hatte, aber wircklich nicht leiſten koͤnnen. Die<lb/>
+Gottſchediſchen Poeſien, voraus auch diejenigen,<lb/>
+die er ſeinen Lehrſaͤtzen als Muſter beyzufuͤgen ſtolz<lb/>
+genug geweſen, haͤtten ihm Materie zu critiſchen<lb/>
+Unterſuchungen vollauf an die Hand gegeben. Er<lb/>
+haͤtte alle die Fehler, die erſt ſeither von den Schwei-<lb/>
+zern geoffenbaret worden, und noch tauſend andere<lb/>
+in dieſem Buche vorſtellen koͤnnen: und damit ich<lb/>
+mich durch ein Exempel noch naͤher erklaͤre, wo<lb/>
+haͤtte er bequemere Exempel ſchlechter Ueberſetzun-<lb/>
+gen, um das Capitel von der Kunſt zu uͤberſetzen<lb/>
+critiſch zu beleuchten, finden koͤnnen, als an Hrn.<lb/>
+<hi rendition="#fr">Gottſcheds</hi> Ueberſetzung von <hi rendition="#fr">Horazens Dicht-<lb/>
+kunſt,</hi> oder der deutſchen <hi rendition="#fr">Jphigenia?</hi> Alleindie-<lb/>
+ſes alles hat Hr. <hi rendition="#fr">Breitinger</hi> bedaͤchtlich unterlaſ-<lb/>
+ſen; er wollte ſich weder durch unzeitiges Loben<lb/>
+<fw type="catch" place="bottom">ver-</fw><lb/>
+<pb n="46" facs="#f0048"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+verſuͤndigen, noch durch den verhaßten obgleich ge-<lb/>
+rechten Tadel den Vorwurff der Eiſerſucht oder<lb/>
+des Handwercksneides auf den Hals laden. Es<lb/>
+kan einer <hi rendition="#fr">Hrn. Breitingers</hi> critiſche Dichtkunſt<lb/>
+gantz durchleſen; er wird daraus kaum mercken,<lb/>
+daß ein <hi rendition="#fr">Gottſched</hi> in der Welt iſt, der eine criti-<lb/>
+ſche Dichtkunſt geſchrieben haben will: Jhr muͤſ-<lb/>
+ſet ihm ſelbs das Zeugniß geben, daß er des Hrn.<lb/>
+<hi rendition="#fr">Gottſcheds und ſeines Werckes nur wenig ge-<lb/>
+dacht:</hi> Aber wenn ihr ſogleich hinzu fuͤget: <hi rendition="#fr">Je-<lb/>
+doch geſchahe ſolches allemahl in ziemlich ſpoͤt-<lb/>
+tiſchen und gehaͤſſigen Ausdruͤcken;</hi> ſo iſt die-<lb/>
+ſes eine critiſche Verlaͤumdung, die ihr mit den<lb/>
+großſprechenden Verſicherungen euers Vorberichts<lb/>
+vergleichen koͤnnet. Jn beyden Theilen der Brei-<lb/>
+tingerſchen Dichtkunſt koͤmmt der Nahme <hi rendition="#fr">Gott-<lb/>
+ſched</hi> kaum dreymahl zum Vorſcheine: Als nem-<lb/>
+lich in dem <hi rendition="#aq">II.</hi>ten Theile auf der 331. Seite in den<lb/>
+Anmerckungen, wo er nur bloßhin, ohne den we-<lb/>
+nigſten Zuſatz, angefuͤhret wird; und in dem <hi rendition="#aq">I.</hi> ſten<lb/>
+Theile auf der 325. Seite, wo ſeine Beſchreibung<lb/>
+der Sehnſucht nach friedlichen Zeiten, wircklich ge-<lb/>
+lobet wird, und nach dem Regiſter annoch auf der<lb/>
+304. wo ſein Nahme nicht ausgedruckt wird ſon-<lb/>
+dern es nur heiſſet, <hi rendition="#fr">er buͤrdet Homer in der Be-<lb/>
+ſchreibung des Schildes Achilles ein Verſehen<lb/>
+auf.</hi> Wer haͤtte nun glauben koͤnnen, daß eben<lb/>
+der ernſthafte moraliſche Straf-Prediger, den wir<lb/>
+oben angehoͤrt, und der nichts als Aufrichtigkeit,<lb/>
+Unparteyligkeit, Hoͤflichkeit, Gemuͤthsbilligkeit ꝛc.<lb/>
+und dergleichen in dem Munde fuͤhret, zur Erfin-<lb/>
+dung ſolcher Verlaͤumdungen zum Behuf eines<lb/>
+<fw type="catch" place="bottom">andern</fw><lb/>
+<pb n="47" facs="#f0049"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+andern Hertz genug haben ſollte, wenn wir ihm<lb/>
+nicht hier, ſo zu reden, die Hand in dem Sack er-<lb/>
+wiſcht haͤtten? Kan dieſe Verleumdung nicht</p><lb/>
+<cit><quote>„zum Beweiſe dienen, wie ſehr die Beurtheilungs-<lb/>
+„Kraft eines Kunſtrichters koͤnne verdorben wer-<lb/>
+„den, wenn er ſich von Haß und Partheylichkeit<lb/>
+„einnehmen laͤßt?„</quote></cit> <p>Wenn <hi rendition="#fr">Gottſched</hi> ſelbſt,<lb/>
+da er geſehen, daß er mit der Wahrheit nicht mehr<lb/>
+auskommen, noch den Verdacht des erſten An-<lb/>
+griffs von ſich ablehnen koͤnnte, auf eine ſolche Er-<lb/>
+findung gefallen waͤre, ſo haͤtte man es ihm noch<lb/>
+wohl uͤberſehen koͤnnen; aber daß ein dritter, den<lb/>
+es eigentlich nichts angehet, ob <hi rendition="#fr">Gottſched</hi> die<lb/>
+Schweitzer gereitzt, und zum Kampf aufgefodert<lb/>
+habe, oder nicht, und der die ſcheinheilige Larve ei-<lb/>
+ner unparteyiſchen Beſcheidenheit uͤberall annimmt,<lb/>
+ſich ſolcher Erfindungen bedienet, um demje-<lb/>
+nigen Luft zu machen, und ein wenig aus der Noth<lb/>
+zu helffen, den man auch der Wahrheit zu Leide<lb/>
+gern beſchuͤtzen moͤchte, das iſt ein Beweiß eines<lb/>
+gantz verderbten Willens, und ein ſolcher hat wol<lb/>
+Urſache zu ſeufzen, daß die Critick nicht mit der<lb/>
+Satyre vermenget werden moͤgte. Mithin, un-<lb/>
+geachtet dieſes eine offenbar falſche Zulage iſt, daß<lb/>
+Hrn. <hi rendition="#fr">Gottſcheds</hi> und ſeines Wercks allemal in<lb/>
+ziemlich ſpoͤttiſchen und gehaͤſſigen Ausdruͤcken ge-<lb/>
+dacht worden ſey, ſo oft deſſelben in der Breitin-<lb/>
+gerſchen Dichtkunſt gedacht worden iſt; ſo iſt hinge-<lb/>
+gen die wahre Urſache dieſes Aergerniſſes, welches<lb/>
+dieſe Leute ſo weit verleiten koͤnnen, daß ſie endlich<lb/>
+bey der Verlaͤumdung Schutz geſucht haben, kei-<lb/>
+ne andere, als daß Herr Prof. <hi rendition="#fr">Breitinger</hi> den<lb/>
+<fw type="catch" place="bottom">be-</fw><lb/>
+<pb n="48" facs="#f0050"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+beruͤhmten <hi rendition="#fr">Gottſchediſchen</hi> Nahmen nur ſo ſpar-<lb/>
+ſam in ſeine Schrift gemiſchet, und deſſelben nur<lb/>
+<hi rendition="#fr">ſo wenig</hi> gedacht hat: Dieſe ſtoltzen Leute neh-<lb/>
+men es vor eine groͤſſere Beſchimpfung auf, wenn<lb/>
+man ihrer gar nicht gedencket, als wenn man ſie<lb/>
+wircklich tadelt. Nach eben dieſer betruͤglichen<lb/>
+Argliſtigkeit, wodurch ihr die Leſer zum Vortheil<lb/>
+euers Helden einnehmen wollet, ſchmecket auch der<lb/>
+Verfolg eurer Erzehlung, wenn ihr Hrn. <hi rendition="#fr">Gott-<lb/>
+ſcheds</hi> Enthaltſamkeit von dieſem Wercke des<lb/>
+Schweitzerſchen Kunſtrichters eine vollſtaͤndige Be-<lb/>
+urtheilung zu geben, als eine Wirckung ſeines<lb/>
+philoſophiſchen und gleichguͤltigen Gemuͤths anmer-<lb/>
+ket, da ſie doch ſeinem Drohen zuſolge nicht aus-<lb/>
+geblieben waͤre, wenn er ſich darzu gewachſen ge-<lb/>
+funden haͤtte; wenn ihr uͤberdas verhehlet, daß<lb/>
+Hr. <hi rendition="#fr">Gottſched</hi> in dem <hi rendition="#aq">XXIV.</hi> Stuͤck der Critiſ.<lb/>
+Beytr. in dem ſaubern <hi rendition="#aq">IV.</hi>ten Artickel Bl. 666.<lb/>
+ein haͤmiſches Urtheil von dieſer Breitingerſchen<lb/>
+Dichtkunſt gefaͤllet, da er die armſelige Muthmaſ-<lb/>
+ſung, nach ſeinen prophetiſchen Einſichten in das<lb/>
+kuͤnftige Geſchicke der Buͤcher, anfuͤhret, <hi rendition="#fr">vielleicht<lb/>
+wird dieſe neue Dichtkunſt noch ein Buch be-<lb/>
+doͤrffen, welches ſie anpreiſe und beliebt ma-<lb/>
+che.</hi> Wenn aber anders wahr ſeyn ſoll, was ihr<lb/>
+oben zu Anfange der 424. Seite gemeldet habet,<lb/>
+ſo verurtheilet ihr dieſen euern Helden ſelbs als ei-<lb/>
+nen falſchen Propheten. Wie kan nun wiederum<lb/>
+hiermit und mit der Wahrheit beſtehen, wenn ihr<lb/>
+vorgebet, Hr. <hi rendition="#fr">Gottſched</hi> habe nur auf einer Stel-<lb/>
+le, und zwar nur gantz kurtz und ziemlich beſchei-<lb/>
+den von der neuen Dichtkunſt ſein Urtheil gegeben,<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="49" facs="#f0051"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+und dieſe kurtze Beurtheilung habe die Schwei-<lb/>
+zer zu den bitterſten Gegenbeſchuldigungen auf-<lb/>
+gebracht? Wer wuͤrde doch aus einem ſolchen<lb/>
+Betragen vermuthen koͤnnen, daß euch ſo ſchwe-<lb/>
+re Regeln, als euer Vorbericht ſagt, in eurer<lb/>
+Erzehlung geleitet haben ſollten, da dieſelbe<lb/>
+gegen alle dieſe Regeln ſchnurſtracks verſtoͤſſet?<lb/>
+Und wer wird ins kuͤnftige euren Ausſpruͤchen<lb/>
+und Nachrichten mehr Glauben zuſtellen, oder<lb/>
+ſich eurer Beurtheilung unterwerffen, wenn er<lb/>
+nicht zum voraus eurer Gewogenheit verſichert<lb/>
+iſt? Jm uͤbrigen moͤget ihr aus den Urtheilen,<lb/>
+welche die Schweitzer von Hrn. <hi rendition="#fr">Gottſcheds</hi><lb/>
+Dichtkunſt gefaͤllt haben, noch ſo verhaßte Fol-<lb/>
+gen ziehen, ſo werdet ihr darmit nichts mehrers<lb/>
+erhalten, ſo lange dieſe Urtheile noch feſt ſtehen,<lb/>
+als daß man das Hertz faſſen wird, euren Fol-<lb/>
+gen, ſo fern ſie ſchlieſſen, Platz zu geben, ſo pa-<lb/>
+radox und widerſinnig ſelbige etwann vor der<lb/>
+Zeit moͤchten geſchienen haben. Bey dem al-<lb/>
+lem wird euch dennoch allezeit frey ſtehen, Hrn.<lb/>
+Prof. <hi rendition="#fr">Gottſcheden</hi> als einen groſſen Weltwei-<lb/>
+ſen, Ueberſetzer, Kunſtrichter und Poeten, als<lb/>
+den deutſchen Bayle, Racine und Fontenelle<lb/>
+zu loben und zu verehren. Die Hrn. Schwei-<lb/>
+zer haben euch ja nirgends zugemuthet, dieſem<lb/>
+verdienten Manne eure Hochachtung zu verſa-<lb/>
+gen, daß ihr deßwegen von ihnen die Erlaub-<lb/>
+niß auszubitten gemuͤſſiget ſeyn ſolltet, denjeni-<lb/>
+gen zu loben, den ihr unmoͤglich tadeln koͤnnet:<lb/>
+Und ſie vor ſich halten mehr auf Redlichkeit, als<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">XI.</hi> St.[ D</fw><fw type="catch" place="bottom">auf</fw><lb/>
+<pb n="50" facs="#f0052"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+auf Schmeicheleyen, und verlangen kein Lob,<lb/>
+wenn ſie es nicht verdienen.</p><lb/>
+<p><hi rendition="#aq">F.</hi> Auf der 429. Seite des <hi rendition="#aq">VI</hi>ten Artickels<lb/>
+kommet ihr auf die Vertheidigung der Gott-<lb/>
+ſchediſchen Erklaͤrung von dem Geſchmacke. Wer<lb/>
+die Gottſchediſche Sprache, die er in ſeinen Ma-<lb/>
+giſterzeiten noch nicht geredet, ſondern erſt ſeit<lb/>
+wenig Jahren ſich angewoͤhnet hat, nicht ver-<lb/>
+ſtehet, der wuͤrde glauben, daß der <hi rendition="#fr">Briefwech-<lb/>
+ſel von der Natur des poetiſchen Geſchmacks,</hi><lb/>
+ſo im Jahr 1729. gefuͤhrt worden, ſeine Ge-<lb/>
+dancken, Erklaͤrungen und Saͤtze aus dem 3ten<lb/>
+Capitel der Gottſchediſchen Dichtkunſt hergelei-<lb/>
+tet, und nur weitlaͤuftiger ausgefuͤhret haͤtte;<lb/>
+allein da die Gottſchediſche Dichtkunſt allererſt<lb/>
+1730. hiemit ein Jahr ſpaͤter herausgegeben<lb/>
+worden, ſo leidet die Zeitrechnung dieſen Ver-<lb/>
+ſtand nicht, und Hrn. <hi rendition="#fr">Gottſcheds</hi> Sprache<lb/>
+will auch in der That gantz was anders ſagen,<lb/>
+eben wie, wenn er ſagt, <hi rendition="#fr">der groſſe Leibnitz iſt<lb/>
+hier vollkommen meiner Meinung,</hi> ſolches<lb/>
+nicht ein mehrers zu bedeuten hat, als, <hi rendition="#fr">ich bin<lb/>
+hierinn des groſſen Leibnitzen Meinung, ich<lb/>
+gebe derſelben voͤlligen Beyfall:</hi> Nicht aber<lb/>
+umgekehrt, als ob der groſſe Leibnitz des <hi rendition="#fr">Gott-<lb/>
+ſcheds</hi> Meinung Beyfall gegeben haͤtte, denn<lb/>
+auch hier leidet die Zeitrechnung dieſen Ver-<lb/>
+ſtand nicht. Damit man aber <hi rendition="#fr">ſolches</hi> nicht<lb/>
+mißdeutete, als ob man zu verſtehen geben wol-<lb/>
+le, Hr. <hi rendition="#fr">Gottſched</hi> habe ſeine Abhandlung vom<lb/>
+Geſchmack im dritten Capitel der Dichtkunſt<lb/>
+aus dem Briefwechſel ausgeſchrieben, ſo war<lb/>
+<fw type="catch" place="bottom">erfor-</fw><lb/>
+<pb n="51" facs="#f0053"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+erforderlich dieſer Mißdeutung vorzubiegen, und<lb/>
+ihn gegen dieſen Argwohn zu vertheidigen: Es<lb/>
+hat auch der Schweitzerſche Verfaſſer der Nach-<lb/>
+richten von dem Urſprung der Critick bey den<lb/>
+Deutſchen ihn von dieſer Beſchuldigung eben ſo<lb/>
+geſchickt, als von der Anklage des Ausſchrei-<lb/>
+bens uͤberhaupt loßgeſprochen und ſeine Unſchuld<lb/>
+vertheidiget. Und ihr koͤnnet nichts buͤndigers<lb/>
+wieder dieſe Vertheidigung einwenden, als<lb/>
+daß Hr. <hi rendition="#fr">Gottſched</hi> in ſeinem 3ten Capitel von<lb/>
+dem Geſchmack doch auch etwas weniges geſagt<lb/>
+habe, welches mit dem Critiſchen Briefwechſel<lb/>
+<hi rendition="#fr">meiſtentheils</hi> uͤbereinſtimme. Allein iſt darmit<lb/>
+erwieſen, was eigentlich ſollte erwieſen werden,<lb/>
+daß nemlich einer den andern koͤnnte ausgeſchrie-<lb/>
+ben haben? Kan es wohl anderſt ſeyn, wenn<lb/>
+zwey oder mehrere eine ausfuͤhrliche Erklaͤrung<lb/>
+von dem Geſchmack geben ſollen, als daß ſie<lb/>
+einander in einigen wenigen Saͤtzen auch treffen<lb/>
+muͤſſen? Jch haͤtte vielmehr gewuͤnſcht, daß<lb/>
+ihr Hrn. <hi rendition="#fr">Gottſcheds</hi> Abhandlung von dem Ge-<lb/>
+ſchmack gegen die Anklage der Verwirrung und<lb/>
+Dunckelheit, worinnen der Schweitzer den<lb/>
+Hauptunterſcheid zwiſchen derſelben und dem<lb/>
+Critiſchen Briefwechſel ſetzet, zu vertheidigen<lb/>
+unternommen haben wuͤrdet, ſo haͤtte ich An-<lb/>
+laß gehabt meine weitern Gedancken von dieſem<lb/>
+3ten Capitel der Gottſchediſchen Dichtkunſt an<lb/>
+den Tag zu legen, und euch eine Probe von ei-<lb/>
+nem catechetiſchen Gottſched zur Beurtheilung<lb/>
+vorzulegen.</p><lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom"><hi rendition="#aq">G.</hi> Auf</fw><lb/>
+<pb n="52" facs="#f0054"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+<p><hi rendition="#aq">G.</hi> Auf der 434. Seite des <hi rendition="#aq">VI</hi>ten Artickels<lb/>
+beruͤhret ihr den Streit wegen des Schildes des<lb/>
+Achilles beym Homer. Jch gebe euch aber den<lb/>
+wohlgemeinten Rath, daß ihr euch zufolge der<lb/>
+erſten Regel, die euch vorgeſchrieben iſt, nicht<lb/>
+zuweit in dieſen Streit einlaſſet, bevor ihr Hrn.<lb/>
+Gottſcheds Entſcheid uͤber dieſelbe in ſeinen An-<lb/>
+merckungen zu des Ariſtoteles Dichtkunſt, die<lb/>
+ſchon lange im Manuſcript fertig liegen, wo er<lb/>
+den Dacier mit einer deutſchen Großmuth ab-<lb/>
+fertiget, werdet geleſen haben. Denn der klei-<lb/>
+ne Verſuch einer Vertheidigung des Gottſche-<lb/>
+diſchen Urtheils iſt ſo ſchwach gerathen, daß zu<lb/>
+fuͤrchten ſtehet, der Hr. <hi rendition="#fr">Gottſched</hi> ſelbſt werde<lb/>
+euch wenig Danck dafuͤr wiſſen. Jhr ſaget erſt-<lb/>
+lich, nachdem ihr die angegebene Regel, nach<lb/>
+welcher Hr. <hi rendition="#fr">Breitinger</hi> meinet, daß das Wahr-<lb/>
+ſcheinliche in den Beſchreibungen von Gemaͤhl-<lb/>
+den und andern dergleichen Kunſtwercken muͤſſe<lb/>
+beurtheilet werden, fuͤr guͤltig erklaͤret, <hi rendition="#fr">Homer<lb/>
+wird nach dieſer Regel ſchlecht koͤnnen ver-<lb/>
+theidiget werden:</hi> Das iſt wohl geſagt, aber<lb/>
+wo bleibt der Beweis? <hi rendition="#fr">Dacier</hi> hat ihn wircklich<lb/>
+nach dieſer Regel vertheidiget, und ihr habt<lb/>
+ihn noch nicht widerlegt; und doch zweifelt ihr<lb/>
+noch an der Moͤglichkeit einer guten Vertheidi-<lb/>
+gung. So werdet ihr ſo gut ſeyn und in eurer<lb/>
+Logick das <hi rendition="#aq">Axioma, ab eſle ad poſſe valet conſe-<lb/>
+quentia,</hi> ausſtreichen. Nicht beſſer iſt das fol-<lb/>
+gende:</p> <cit><quote>„Der Herr Breitinger ſelbſt hat wider<lb/>
+„den Homer geſchrieben, wenn er in der Ab-<lb/>
+„handlung von der Aeſopiſchen Fabel lehret,<lb/>
+<fw type="catch" place="bottom">„wie</fw><lb/>
+<pb n="53" facs="#f0055"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+„wie behutſem ein Dichter ſeyn muͤſſe, den<lb/>
+„Wercken der Kunſt Verſtand und Rede bey-<lb/>
+„zulegen.„</quote></cit> <p>Jch traue euch mehr Verſtand zu,<lb/>
+als daß ich noͤthig haben ſollte, euch weitlaͤuftig<lb/>
+zu erklaͤren, was fuͤr ein Unterſchied zwiſchen der<lb/>
+bloſſen Beſchreibung eines Gemaͤhldes, und<lb/>
+zwiſchen einer Fabel, obwalte; Die Beſchrei-<lb/>
+bung darf zum Lob der feinen Kunſt des Mah-<lb/>
+lers oder Gieſſers ohne Abbruch der Wahr-<lb/>
+ſcheinlichkeit, dem Gemaͤhlde ſelbſt zuſchreiben,<lb/>
+was immer ein aufmerckſamer Beſchauer dar-<lb/>
+aus lernen kan, denn ſo iſt nicht mehr <hi rendition="#aq">in effec-<lb/>
+tu</hi> als <hi rendition="#aq">in cauſa:</hi> Aber die Fabel iſt eine Geſchich-<lb/>
+te, ſie will, daß man ſich die Sachen einbilde,<lb/>
+als ob ſie wircklich geſchehen waͤren; wenn man<lb/>
+nun dichtet, daß ein Kuͤnſtler ſeinem Wercke<lb/>
+wircklich Verſtand und Leben mitgetheilet, wer<lb/>
+will ſich ſolches als wircklich geſchehen einbilden<lb/>
+koͤnnen? Zugeſchweigen, daß die an angezoge-<lb/>
+nem Orte von Hrn. Breitingern eingeraͤumte<lb/>
+Freyheit allen denjenigen Kunſtwercken, die als<lb/>
+Emblemata angeſehen werden, und aufmerckſa-<lb/>
+men Beſchauern einen heilſamen Unterricht ge-<lb/>
+ben koͤnnen, Verſtand und Rede beyzulegen,<lb/>
+eben dienet, den Homer vollkommen zu rechtfer-<lb/>
+tigen. Was endlich den Beyfall Virgils, auf<lb/>
+den ihr euch beruffet, angehet, ſo beruhet der-<lb/>
+ſelbe auf einem ſo ſeichten Grunde, daß ich mich<lb/>
+dabey aufzuhalten, und meine Zeit darmit zu<lb/>
+verderben, mich recht von Hertzen ſchaͤmen<lb/>
+wuͤrde.</p><lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom"><hi rendition="#aq">H.</hi> Auf</fw><lb/>
+<pb n="54" facs="#f0056"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+<p><hi rendition="#aq">H.</hi> Auf der 434. Seite des <hi rendition="#aq">VI.</hi>ten Artickels<lb/>
+gerathet ihr auf den Milton: Jhr ſaget;</p> <cit><quote>„Der-<lb/>
+„ſelbe habe noch nach ſeinem Tode groſſe Unra-<lb/>
+„he, Zwiſtigkeit und oͤffentliche Feindſchaft un-<lb/>
+„ter unſern deutſchen Kunſtrichtern geſtiftet.„</quote></cit><lb/>
+<p>Milton iſt bald 70. Jahre todt; Acht Jahre<lb/>
+nach ſeinem Tode gab der <hi rendition="#fr">von Berge</hi> der deut-<lb/>
+ſchen Welt eine Reim-freye Ueberſetzung von die-<lb/>
+ſes Engellaͤnders Gedichte: allein da dieſer Ue-<lb/>
+berſetzer eine den deutſchen Ohren gantz unge-<lb/>
+wohnte Versart folgte, und die Ueberſetzung<lb/>
+neben dem ſehr hart, gezwungen, und unverſtaͤnd-<lb/>
+lich war, ſo ward dadurch das Miltoniſche Ge-<lb/>
+dicht bey den Deutſchen nicht bekannt, und die-<lb/>
+ſe Ueberſetzung hat nur ein dunckles Andencken<lb/>
+von einem verwegenen Vorſatz bis auf unſere<lb/>
+Zeiten fortbringen koͤnnen. Von dem Jahre<lb/>
+1682. bis auf das Jahr 1732. hiemit 50. gan-<lb/>
+zer Jahre blieb Milton bey der deutſchen Welt<lb/>
+gantz unbekannt, wenigſtens hat kein deutſcher<lb/>
+Kunſtrichter deſſelben irgendswo gedacht; Bis<lb/>
+endlich Hr. <hi rendition="#fr">Gottſched</hi> in gedachtem 1732.ſten<lb/>
+Jahre in ſeinen <hi rendition="#fr">Beytraͤgen</hi> eine Nachricht von<lb/>
+des <hi rendition="#fr">von Berge</hi> Ueberſetzung gegeben, wo er den<lb/>
+ſchlechten Beyfall, den dieſe Ueberſetzung gefun-<lb/>
+den, ſelbſt der dadurch allzuſehr veraͤnderten<lb/>
+Geſtalt <hi rendition="#fr">Miltons</hi> zuſchreibet, im uͤbrigen von<lb/>
+dem Gedichte ſelbs urtheilet,</p> <cit><quote>„daß es die Eh-<lb/>
+„re verdiene, ſo wol als das befreyte Jeruſa-<lb/>
+„lem des Taſſo, einer Jlias und Aeneis an die<lb/>
+„Seite geſetzt zu werden.„</quote></cit> <p>Daß er aber die-<lb/>
+ſes Urtheil hernach voͤllig zuruͤck genommen, iſt<lb/>
+<fw type="catch" place="bottom">ſich</fw><lb/>
+<pb n="55" facs="#f0057"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+ſich nicht zu verwundern, wenn man bedencket,<lb/>
+was die mittlerzeit mit ihm vorgegangene groſſe<lb/>
+Veraͤnderung von ſeinen Magiſter-bis zu den<lb/>
+Hoch-Edelgebohrnen Magnificentz-Zeiten noth-<lb/>
+wendig vor eine wichtige Veraͤnderung in ſeinem<lb/>
+Kopf habe nach ſich ziehen muͤſſen. Seine Ur-<lb/>
+theile richten ſich immer nach ſeinem Willen,<lb/>
+und dieſer nach ſeinen aͤuſſerlichen Umſtaͤnden;<lb/>
+dahero ſie eben ſo unbeſtaͤndig ſeyn muͤſſen.<lb/>
+Wenn ihr demnach von Unruhe, Zwiſtigkeit<lb/>
+und oͤffentlicher Feindſchaft, die der Milton <hi rendition="#fr">un-<lb/>
+ter unſern deutſchen Kunſtrichtern</hi> geſtifftet,<lb/>
+gantz unbeſtimmt redet, ſo iſt dieſes nur von<lb/>
+Hrn. <hi rendition="#fr">Gottſched</hi> und ſeiner Schule zu verſtehen,<lb/>
+die gantze uͤbrige deutſche Welt iſt dieſes Streits<lb/>
+halben eben ſo ruhig, als ſie vorhin geweſen iſt,<lb/>
+ehe es Hrn. <hi rendition="#fr">Gottſched</hi> beliebt hat, ſein fuͤr Mil-<lb/>
+ton allzuguͤtiges Urtheil zuruͤckzunehmen, wel-<lb/>
+ches in das Jahr 1741. einfaͤllt. Jm uͤbrigen<lb/>
+muß man uͤber die Entſcheidung der Frage:</p><lb/>
+<cit><quote>„Ob es wahr ſey, daß die Deutſchen an Mil-<lb/>
+„tons Gedichte keinen Geſchmack finden,„ zu</quote></cit><lb/>
+<p>Rath ziehen, was davon in der <hi rendition="#fr">Fortſezung</hi> der<lb/>
+<hi rendition="#fr">Echo des deutſchen Wizes Artick.</hi> <hi rendition="#aq">IX.</hi> in dem<lb/>
+<hi rendition="#aq">VI.</hi>ten Stuͤcke der <hi rendition="#fr">Crit. Samml.</hi> von Bl. 54.<lb/>
+bis 75. weitlaͤuftig ausgefuͤhrt worden iſt.</p><lb/>
+<p><hi rendition="#aq">I.</hi> Auf der 436. Seite des <hi rendition="#aq">VI.</hi>ten Artickels<lb/>
+nehmet ihr die Vertheidigung Hrn. <hi rendition="#fr">Gottſcheds</hi><lb/>
+wegen einer von ihm verworffenen und von den<lb/>
+Schweitzern verfochtenen metaphoriſchen Redens-<lb/>
+Art uͤber euch, ſaget aber nichts neues, als was<lb/>
+ihr in <hi rendition="#fr">Gottſcheds Biedermanne,</hi> und ſonſt bey<lb/>
+<fw type="sig" place="bottom">D 4</fw><fw type="catch" place="bottom">andern</fw><lb/>
+<pb n="56" facs="#f0058"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+andern geleſen habet, und welches ſchon vielfaͤltig<lb/>
+wiederlegt worden. Jhr gebet zu, daß die ſtreiti-<lb/>
+ge Redens-Art, die <hi rendition="#fr">Augen uͤber einen Gegen-<lb/>
+ſtand hinſpazieren laſſen,</hi> von den Schweitzern<lb/>
+als eine Metapher aus der Analogie gruͤndlich ge-<lb/>
+ſchuͤtzt und gerechtfertiget worden: Allein ſie kom-<lb/>
+me euch dennoch noch ziemlich verdaͤchtig fuͤr, da-<lb/>
+rum weil ſie gantz neu und ungewohut ſey; und<lb/>
+Hr. <hi rendition="#fr">Breitinger</hi> ſelbs die Regel gegeben habe:<lb/>
+Man muͤſſe keine metaphoriſche Redensart fuͤr guͤl-<lb/>
+tig annehmen, die mit dem allgemein einge-<lb/>
+fuͤhrten Gebrauche, und mit der guten Mundart<lb/>
+ſtreite. Jhr behauptet hiemit einerſeits, daß es<lb/>
+freylich erlaubt und gut, und zuweilen nothwendig<lb/>
+ſey, <hi rendition="#fr">neue</hi> Metaphern in eine Sprache einzufuͤh-<lb/>
+ren, denn dieſes hat euch Hr. <hi rendition="#fr">Breitinger</hi> ſo<lb/>
+gruͤndlich und uͤberzeugend gelehret, daß ihr ihm<lb/>
+euren Beyfall nicht verſagen koͤnnet. Aber auf der<lb/>
+andern Seite glaubet ihr auch, daß es nicht er-<lb/>
+laubt und gut ſey, <hi rendition="#fr">neue</hi> und bisher in dem Deut-<lb/>
+ſchen ungebraͤuchliche Metaphern einzufuͤhren, denn<lb/>
+ihr wollet, daß man eine metaphoriſche Redens-<lb/>
+art, ſie mag an ihr ſelbs noch ſo richtig ſeyn, nur<lb/>
+darum verwerffe, weil ſie neu und bisher nicht ge-<lb/>
+braͤuchlich geweſen: und dieſes ſind eure alten tief-<lb/>
+eingeſeſſene Gedancken, die euch Hr. <hi rendition="#fr">Gottſched</hi><lb/>
+gelehret, und die zu verlaͤugnen, wenn man gleich<lb/>
+was beſſers erkennet, ſehr ſchwer faͤllt. Jhr glau-<lb/>
+bet hiemit widerſprechende Saͤtze, daß eben daſſel-<lb/>
+be Ding zugleich erlaubt und nicht erlaubt ſey.<lb/>
+Laß mir den einen Kunſtrichter ſeyn, der ſich zur<lb/>
+erſten Regel gemacht hat:</p> <cit><quote>„Jch ſoll mich an kei-<lb/>
+<fw type="catch" place="bottom">„ne</fw><lb/>
+<pb n="57" facs="#f0059"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+„ne Arbeit wagen, die ſich uͤber meine Kraͤfte<lb/>
+„erſtreckt!„</quote></cit> <p>Und was ſoll euch die aus Hrn. <hi rendition="#fr">Brei-<lb/>
+tinger</hi> auſſer ihrem Zuſammenhang angefuͤhrte<lb/>
+Einſchraͤnckung helffen? Wahrlich nichts anders,<lb/>
+als daß ſie euern gantz verblendeten Sinn noch<lb/>
+mehr offenbaret: Sind denn, <hi rendition="#fr">mit dem allge-<lb/>
+mein eingefuͤhrten Sprachgebrauche ſtreiten,</hi><lb/>
+und <hi rendition="#fr">neu und bisher noch ganz ungebraͤuchlich<lb/>
+ſeyn,</hi> gleichguͤltige Ausdruͤcke? Oder muͤſſen alle<lb/>
+bisher unter den Deutſchen noch ungewohnte Me-<lb/>
+taphern, eben darum mit dem allgemeinen Sprach-<lb/>
+gebrauche ſtreiten? Zudem hat nicht Hr. <hi rendition="#fr">Breit.</hi><lb/>
+der von euch aus dem <hi rendition="#aq">II.</hi>ten Theile ſeiner Dicht-<lb/>
+kunſt Bl. 339. angefuͤhrten Stelle, die er an die-<lb/>
+ſem Orte nicht einmal als eine Regel angiebt, ſo-<lb/>
+gleich folgendes beygeſetzet, welches eben dienet,<lb/>
+dem ihm angedichteten Unverſtand vorzubiegen,<lb/>
+und euch zu rechte zu weiſen:</p> <cit><quote>„Dieſe abſonderli-<lb/>
+„che Erfahrung ſtoͤßt den oben durch die Erfah-<lb/>
+„rung feſtgeſezten Grundſatz von der Freyheit neuer<lb/>
+„Metaphern nicht uͤber einen Hauffen, ſondern<lb/>
+„ſetzet ihn nur in gewiſſe Schrancken, und ma-<lb/>
+„chet von der allgemeinen Regel eine Ausnahme.<lb/>
+„Und dieſe Schrancken werden wir leicht beſtim-<lb/>
+„men koͤnnen, wenn wir einmal die Urſachen,<lb/>
+„welche uns die Einfuͤhrung neuer Metaphern<lb/>
+„ſchwer, und oͤfters unmoͤglich machen, genug-<lb/>
+„ſam einſehen.„</quote></cit> <p>Es werden auch hernach von<lb/>
+Bl. 339. bis 348. dieſe Urſachen entdecket, und<lb/>
+die Schrancken deutlich beſtimmet; Woraus er<lb/>
+denn Bl. 351. den Schluß machet:</p> <cit><quote>„Jch ſchlieſſe<lb/>
+„alſo dahin, daß man neue Metaphern aus frem-<lb/>
+<fw type="sig" place="bottom">D 5</fw><fw type="catch" place="bottom">„den</fw><lb/>
+<pb n="58" facs="#f0060"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+„den Sprachen, wenn ſie <hi rendition="#fr">mit dem eingefuͤhr-<lb/>
+„ten Gebrauch der Woͤrter nicht ſtreiten,</hi><lb/>
+„noch wider die Analogie, noch gegen die Natur<lb/>
+„und Regeln einer guten Metapher verſtoſſen,<lb/>
+„ſondern neben der Wahrſcheinlichkeit noch eine<lb/>
+„Nothwendigkeit zum Grund haben, darum nicht<lb/>
+„verwerffen koͤnne, weil ſie bisher ganz unge-<lb/>
+„wohnt geweſen. ꝛc.„</quote></cit> <p>Jm uͤbrigen, wenn die<lb/>
+Deutſchen das Wort <hi rendition="#fr">ſpazieren</hi> durch einen Natio-<lb/>
+nal-Schluß ſeines deutſchen Buͤrgerrechts entſezen<lb/>
+und in die Acht erklaͤren wollen, ſo moͤgen ſie es<lb/>
+meinethalben thun: wenn ſie nur die Gnade haben,<lb/>
+das durch dieſes Wort bezeichnete Ergetzen nicht<lb/>
+zu verbieten. So liegt mir auch wenig daran, ob<lb/>
+ſie mehr Ergetzen bey dem <hi rendition="#fr">gehen,</hi> als bey dem <hi rendition="#fr">ſpa-<lb/>
+zieren</hi> finden: Aber das muß ich ſie doch erinnern,<lb/>
+daß wenn ſie das Wort <hi rendition="#fr">ſpazieren</hi> in die Acht er-<lb/>
+klaͤren, und kuͤnftig das <hi rendition="#fr">gehen</hi> darfuͤr gebrauchen<lb/>
+wollen, ſie damit das Ergetzen verlieren, welches<lb/>
+man bisdahin durch <hi rendition="#fr">ſpazieren fahren, ſpazieren<lb/>
+reiten</hi> ausgedruͤcket hat; oder wo ſie es dennoch<lb/>
+beybehalten wollen, ſo werden ſie es in Zukunft<lb/>
+durch <hi rendition="#fr">gehen reiten, gehen fahren</hi> bezeichnen muͤſ-<lb/>
+ſen. Was endlich das vorgeſchlagene <hi rendition="#fr">tanzen</hi> und<lb/>
+<hi rendition="#fr">ſpringen</hi> der Augen angehet, ſo verweiſe ich euch<lb/>
+auf das <hi rendition="#aq">III.</hi> Stuͤck der Critiſchen Sammlungen<lb/>
+Bl. 28. und auf die Fortſetzung der Critiſchen<lb/>
+Dichkunſt Bl. 347. wo dieſer ausſchweiffende<lb/>
+Vorſchlag ſeine Abfertigung finden wird.</p><lb/>
+<p><hi rendition="#aq">K.</hi> So wenig, als ihr auf der 441. Seite<lb/>
+des <hi rendition="#aq">VI.</hi>ten Artickels, will ich die ſpitzige Frage an<lb/>
+dieſem Orte eroͤrtern: Ob <hi rendition="#fr">Schoch</hi> in der Verfer-<lb/>
+<fw type="catch" place="bottom">tigung</fw><lb/>
+<pb n="59" facs="#f0061"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+tigung ſeiner Hirtenlieder Ehre eingelegt habe oder<lb/>
+nicht? Jn dem <hi rendition="#fr">Tempel des guten Geſchmacks<lb/>
+fuͤr die Deutſchen</hi> Bl. 26. leſe ich folgendes:</p><lb/>
+<cit><quote>„Man ſagt, daß <hi rendition="#fr">Schoch</hi> einsmal in dieſen Tem-<lb/>
+„pel hinein gehen wollen, und ſich auf dieſe Verſe<lb/>
+„aus der <hi rendition="#fr">Critick uͤber die deutſchen Dichter</hi> ſehr<lb/>
+„getroſt beruffen habe:</quote></cit><lb/>
+<lg type="poem"><l>Hingegen preißte <hi rendition="#fr">Schoch, in Leipzigs</hi> kuͤhlen Luͤften,</l><lb/>
+<l>Als deutſcher <hi rendition="#fr">Theocrit,</hi> die Heerden und die Triften.</l></lg><lb/>
+<cit><quote>„Doch die Critick hatte zu ſeinem Ungluͤcke ei-<lb/>
+„nige Blaͤtter aus ſeine <hi rendition="#fr">Friedensſchaͤferey</hi> ge-<lb/>
+„leſen, drum verſagte ſie ihm den Eingang, und<lb/>
+„ließ hingegen den anmuthigen Hagedorn hinein,<lb/>
+„der in ſeinen Schaͤfererzehlungen ſo ungekuͤnſtelt,<lb/>
+„zaͤrtlich und natuͤrlich iſt.„</quote></cit><lb/>
+<p><hi rendition="#aq">L.</hi> Auf der 444. Seite des <hi rendition="#aq">VI.</hi>ten Artickels hoh-<lb/>
+let ihr eine Streitfrage nach, daruͤber ihr euer Ur-<lb/>
+theil bisdahin ausgeſtellt habet. Sie iſt dieſe:<lb/>
+„Ob die Critick gluͤcklicher auf verſtorbene, oder<lb/>
+„auf lebende gerichtet werde?„ Und euer Ent-<lb/>
+ſcheid uͤber dieſe Frage iſt wiederum ſo ungewiß,<lb/>
+daß man faſt vermuthen ſollte, die Frage waͤre<lb/>
+euch entweder zu hoch geweſen, ſo daß ihr euch<lb/>
+nicht wohl habet zu recht finden koͤnnen; oder es<lb/>
+haben euch beyde Meynungen beynahe gleich be-<lb/>
+gruͤndet angeſchienen, ſo daß ihr keiner euern Bey-<lb/>
+fall geradezu habet verſagen wollen. Jhr beken-<lb/>
+net erſtlich:</p> <cit><quote>„Es iſt wahr, daß die Gruͤnde, die<lb/>
+„der Herr Bodmer anfuͤhret, ein ſtarckes Ge-<lb/>
+„wicht haben, und wir glauben ſelbſt, daß es ge-<lb/>
+„wiſſermaſſen beſſer ſey, die Critick gegen noch<lb/>
+<fw type="catch" place="bottom">„leben-</fw><lb/>
+<pb n="60" facs="#f0062"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+„lebende, als gegen bereits verſtorbene zu gebrau-<lb/>
+„chen.„ Bald aber, nachdem ihr ein wenig</quote></cit><lb/>
+<p>uͤberlegt, wie heilſam es fuͤr die allgemeine Si-<lb/>
+cherheit einiger heutigen Schriftverfaſſer ſeyn wuͤr-<lb/>
+de, wenn man die noch lebenden mit Criticken und<lb/>
+Tadel verſchonen wollte; ſo erklaͤret ihr euch, „man</p><lb/>
+<cit><quote>„koͤnne uͤber dieſe Frage nichts gewiſſes beſtim-<lb/>
+„men; ſondern es komme auf die Gemuͤths-Be-<lb/>
+„ſchaffenheit eines jeden Kunſtrichters an.„ Es</quote></cit><lb/>
+<p>koͤmmt aber aller Unterſchied in Abſicht auf die Ge-<lb/>
+muͤthsbeſchaffenheit eines Kunſtrichters darauf an;<lb/>
+daß er in ſeinen Urtheilen von dem Schoͤnen und<lb/>
+Tadelhaften einer Schrift entweder gerecht und<lb/>
+beſcheiden; oder ungerecht und ſtoͤrriſch iſt: Jſt er<lb/>
+gerecht und beſcheiden, warum ſollte er nicht ſo<lb/>
+wohl berechtiget ſeyn, die Lebenden, als die Todten<lb/>
+fuͤr ſein Gericht zu fodern? Die Haupt-Abſicht<lb/>
+eines Schriftenrichters gehet voͤrderſt auf die Ver-<lb/>
+beſſerung desjenigen, der gefehlet hat; wo kan<lb/>
+man aber von einem Todten einige Beſſerung hof-<lb/>
+fen? Folglich kan die voͤrderſte Haupt-Abſicht<lb/>
+der Critick bey den Todten unmoͤglich erzielet wer-<lb/>
+den. Jſt im Gegentheil ein Kunſtrichter in ſei-<lb/>
+nen Urtheilen ungerecht und ſtoͤrriſch, wer will ihm<lb/>
+denn die Todten Preis geben? Jſt es nicht eine<lb/>
+doppelte Ungerechtigkeit, <hi rendition="#aq">mortuo inſultare leoni,</hi><lb/>
+einen Todten verleumden; der ſich nicht mehr ver-<lb/>
+antworten kan? Darum wird auch <hi rendition="#aq">in foro civili</hi><lb/>
+keine <hi rendition="#aq">Actio</hi> gegen einen Todten verſtattet. Jch<lb/>
+moͤchte demnach wol ſehen, wie ihr aus der Ge-<lb/>
+muͤthsbeſchaffenheit eines Schriftenrichters jemals<lb/>
+die Nothwendigkeit und den Vorzug der Critick<lb/>
+<fw type="catch" place="bottom">uͤber</fw><lb/>
+<pb n="61" facs="#f0063"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+uͤber die Todten vor der Critick uͤber die Lebenden<lb/>
+wolltet beſtimmen, oder die Gottſchediſche Regel<lb/>
+rechtfertigen koͤnnen, welche will, <hi rendition="#fr">daß man die<lb/>
+Critick nur allein auf die Todten richten ſoll.</hi><lb/>
+Das laͤßt ſich aus der Gemuͤths-Beſchaffenheit<lb/>
+derjenigen, die dieſe Gottſchediſche Regel willig an-<lb/>
+nehmen, und ſie gerne verfechten moͤchten, wenn<lb/>
+ſie nur koͤnnten, beſtimmen, was ihnen ſelbige ſo<lb/>
+beliebt mache, nemlich das boͤſe Gewiſſen elender<lb/>
+Scribenten, und das gerechte Mißtrauen in ihre<lb/>
+eigene Schriften. Das hat der elende Verfaſſer<lb/>
+der Anmerckungen uͤber das Ergaͤntzungs-Stuͤck<lb/>
+in den Leipzigiſchen Beluſtigungen des Witzes in<lb/>
+der <hi rendition="#aq">XVI.</hi>ten Anmerckung ſelbſt aufrichtig geſtanden,<lb/>
+da er ſagt:</p> <cit><quote>„Einjeder muß billig an dem Hrn.<lb/>
+„Prof. Gottſched als eine wuͤrckliche Klugheit lo-<lb/>
+„ben, daß er ſich nicht auf eine ſtrenge Beur-<lb/>
+„theilung der Herren Jetztlebenden eingelaſſen.<lb/>
+„<hi rendition="#fr">Was ſollte er ſich Feinde machen, da er es<lb/>
+„erſparen konnte?</hi>„</quote></cit> <p>Hr. Prof. <hi rendition="#fr">Gottſched</hi><lb/>
+ſchreibt ſelbſt in ſeiner erſten Vorrede zu der Dicht-<lb/>
+kunſt, wie ihr Bl. 417. aus ihm anfuͤhret:</p> <cit><quote>„Man<lb/>
+„hat keine Urſache vor einer vernuͤnftigen Critick<lb/>
+„einen Abſcheu zu bezeugen, wenn man nur vor<lb/>
+„ſich ſicher iſt, und nicht fuͤrchten darf, ſelbſt in<lb/>
+„ihre Unterſuchung zu gerathen. Wer ein gu-<lb/>
+„tes Gewiſſen hat, daß nemlich ſeine Sachen<lb/>
+„nach den wahren Kunſtregeln ausgearbeitet wor-<lb/>
+„den, der wird keine Feindſchaft gegen die Cri-<lb/>
+„ticos blicken laſſen.„</quote></cit> <p>Welche Worte ja eben<lb/>
+ſo viel ſagen, als: Derjenige, der eine gute und<lb/>
+gerechte Critick uͤbel nehme und den Criticum des-<lb/>
+<fw type="catch" place="bottom">wegen</fw><lb/>
+<pb n="62" facs="#f0064"/>
+<fw type="header" place="top"><hi rendition="#b">Von Laugnau Schreiben</hi></fw><lb/>
+wegen anfeinde, der ſey ein elender Scribent,<lb/>
+und thue es aus keiner andern Urſache als weil ihm<lb/>
+ſein boͤſes Gewiſſen Furcht einjage. Folglich be-<lb/>
+ſtehet die Klugheit, die <hi rendition="#fr">Gottſched</hi> durch die<lb/>
+Regel, daß man die Lebenden nicht tadeln ſoll,<lb/>
+an den Tag legen wollen, und die der <hi rendition="#fr">Belu-<lb/>
+ſtiger</hi> ſo ſehr anpreiſet, in der Behutſamkeit die<lb/>
+elenden Scribenten nicht zu beunruhigen, oder durch<lb/>
+einen gerechten Tadel zu beleidigen. Er wird aber<lb/>
+nicht alle Jtztlebenden fuͤr ſolche elende Scribenten<lb/>
+halten, die ſich uͤber eine gerechte Critick ſo gleich<lb/>
+erzoͤrnen, da er ſich die Regel gemacht, daß er kei-<lb/>
+nen Jtztlebenden tadeln wolle.</p><lb/>
+<p><hi rendition="#aq">M.</hi> Auf der 455. Seite des <hi rendition="#aq">VI.</hi>ten Artickels<lb/>
+wollet ihr den Hrn. Prof. <hi rendition="#fr">Gottſcheden</hi> gemach-<lb/>
+ten Fuͤrwurf, daß er die Exempel zu ſeinen Lehr-<lb/>
+ſaͤtzen nur allein aus ſeinen eigenen Schriften ge-<lb/>
+nommen, damit abheben, daß ihr ſaget:</p> <cit><quote>„Doch<lb/>
+„dieſer Fuͤrwurff trift nur die beiden erſten Aus-<lb/>
+„gaben ſeines Wercks; denn bey der letzten Auf-<lb/>
+„lage ſind anſtatt ſeiner eigenen Arbeit lauter<lb/>
+„Meiſterſtuͤcke von unſern beſten Dichtern der<lb/>
+„vorigen Zeit eingeſchaltet worden.„</quote></cit> <p>Jhr<lb/>
+ſcheinet mit dieſen Worten zu bekennen, daß der<lb/>
+Fuͤrwurf die fuͤnfzehn Jahre, ſo lange nemlich die<lb/>
+zwo erſten Ausgaben der Gottſchediſchen Dicht-<lb/>
+kunſt in den deutſchen Schulen gebraucht worden,<lb/>
+gerecht und begruͤndt geweſen ſey. Und es iſt in<lb/>
+der That ein Stoltz ohne Exempel, daß ein Lehrer<lb/>
+der Dichtkunſt in allen Gattungen von Gedichten<lb/>
+ſeine eigenen Hirngeburten als Muſter darlege, da<lb/>
+es ſchon laͤngſten zu einer Regel geworden: <hi rendition="#aq">Op-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">tima</hi></fw><lb/>
+<pb n="63" facs="#f0065"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+<hi rendition="#aq">tima quæque ad imitandum eſſe proponenda.</hi> Und<lb/>
+da Hr. Gottſched unter dieſen Muſtern von ſeiner<lb/>
+Arbeit auch Knittelverſe andern zur Nachahmung<lb/>
+geſchrieben, und ſelbige als Ehren- und Lob-Ge-<lb/>
+dichte aufgeſtellet hat, ſo iſt die von Hrn. <hi rendition="#fr">Sie-<lb/>
+brand</hi> hieruͤber gemachte ſcherzhafte Antung wahr-<lb/>
+haftig nicht ohne Grund geweſen, und hat nicht<lb/>
+verdienet, daß er daruͤber in der feinen Gottſched-<lb/>
+critiſchen Sprache von euch ſo veraͤchtlich gehalten<lb/>
+wuͤrde: wie es Bl. 442. geſchieht, wenn ihr ſa-<lb/>
+get:</p> <cit><quote>„Der Herr Siebrand hat ſich von uns kei-<lb/>
+„ner weitern Widerlegung zu befuͤrchten; Ei-<lb/>
+„nem ſolchen Kunſtrichter muß billig in Knittel-<lb/>
+„verſen geantwortet werden.„</quote></cit> <p>Das heißt ziem-<lb/>
+lich groß und unbeſcheiden thun, und ich bin ſicher,<lb/>
+daß ihr auf dieſen Fuͤrwurff nichts antworten koͤnnet<lb/>
+als Knittelverſe. Mithin iſt der ruhmraͤthige Stoltz,<lb/>
+ſich ſelbſt der deutſchen Welt zum Muſter der Nach-<lb/>
+ahmung aufzuſtellen, der dritten und letzten Aus-<lb/>
+gabe niemahls vorgeworffen worden, wie ihr heim-<lb/>
+tuͤckiſcher Weiſe ſcheinet zu verſtehen zu geben. Und<lb/>
+der gekuͤnſtelte Schwung, den ihr eurer Rede ge-<lb/>
+bet, da ihr ſaget: <hi rendition="#fr">Doch dieſer Fuͤrwurff trifft<lb/>
+nur die beyden erſten Ausgaben ſeines Wercks,</hi><lb/>
+zeiget mir, daß ihr eben ſo wenig Redlichkeit ha-<lb/>
+bet, als Hr. <hi rendition="#fr">Gottſched,</hi> Fehler, die keines An-<lb/>
+ſtrichs faͤhig ſind, und derer ihr euch heimlich ſchaͤ-<lb/>
+met, zu bekennen. Und da Hr. Prof. <hi rendition="#fr">Gottſched</hi><lb/>
+in der letzten Auflage, auf das mit Ernſt und<lb/>
+Schertz vermengte Zureden der Schweitzer, dieſe<lb/>
+laͤcherliche Hoffartsſuͤnde abgeleget, und zu einer<lb/>
+ſo wichtigen Veraͤnderung geſchritten, ſo iſt dieſes<lb/>
+<fw type="catch" place="bottom">ein</fw><lb/>
+<pb n="64" facs="#f0066"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+ein Zeugniß theils, daß der Herr Profeſſor fuͤr<lb/>
+eine um etwas lebhafte Critick nicht gantz unver-<lb/>
+beſſerlich ſey, und theils von der heilſamen Wir-<lb/>
+kung der Schweitzerſchen Critick auf denſelben,<lb/>
+ohne welche dieſe fuͤr die Gottſchediſche Dichtkunſt<lb/>
+ſo ruͤhmliche und fuͤr die deutſchen Schulen ſo nuͤtz-<lb/>
+liche Hauptveraͤnderung ſeines Werckes niemahls<lb/>
+erfolget waͤre, vielweniger aber wenn die Schwei-<lb/>
+zer, nach eurem Rath, <hi rendition="#fr">ſich mit der Critick an<lb/>
+Verſtorbene gewaget haͤtten,</hi> d. i. wenn ſie mit<lb/>
+ihrer Critick dem noch lebenden Gottſched geſcho-<lb/>
+net haͤtten. Ob inzwiſchen die anſtatt ſeiner eige-<lb/>
+nen Arbeit neu eingeſchalteten Stuͤcke aus unſern<lb/>
+beſten Dichtern eben <hi rendition="#fr">lauter Meiſterſtuͤcke</hi> ſeyen,<lb/>
+wie ihr Hrn. <hi rendition="#fr">Gottſcheden</hi> glaͤubig nachgebethet,<lb/>
+das will ich hier eben ſo genau nicht ausmachen;<lb/>
+ſondern nur uͤberhaupt ſo viel ſagen, daß ich man-<lb/>
+ches darunter, ſonderlich von <hi rendition="#fr">Menantes</hi> und <hi rendition="#fr">Neu-<lb/>
+kirchen</hi> verfertigtes Stuͤcke davor nicht erkenne,<lb/>
+auch bereit bin, meine <hi rendition="#aq">rationes dubitandi</hi> auf Ver-<lb/>
+langen deutlich anzugeben: So daß ich ſorge,<lb/>
+auch dieſe getroffene Wahl moͤgte den Geſchmack<lb/>
+Hrn. Prof. Gottſcheds zuweilen beſchimpfen, und<lb/>
+es werde ihm eben nicht ruͤhmlich ſeyn, daß er<lb/>
+Menantes und Neukirch unter unſre beſten Dich-<lb/>
+ter mitrechnet. Endlich laſſe ich hier uneroͤrtert,<lb/>
+ob die Einſchaltung ſo vieler fremder Exempel oh-<lb/>
+ne Critiſche Pruͤffung aus gedruͤckten und nicht un-<lb/>
+bekannten Buͤchern in der neuen Ausgabe der Gott-<lb/>
+ſchediſchen Dichtkunſt einen andern Grund ihrer<lb/>
+Nothwendigkeit habe, als das Buch um mehr als<lb/>
+einen dritten Theil zu vergroͤſſern? und ob dieſer<lb/>
+Grund der Nothwendigkeit zureichend ſey?</p><lb/>
+<pb n="65" facs="#f0067"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+<p><hi rendition="#aq">N.</hi> Auf der 456. Seite des <hi rendition="#aq">VI.</hi>ten Artickels,<lb/>
+kommt noch eine feine und recht ſpitzfuͤndige Ge-<lb/>
+genbeſchuldigung unter einem fremden Nahmen<lb/>
+zum Vorſchein, womit ihr eure Critiſchen Be-<lb/>
+trachtungen uͤber Hrn. Gottſcheds neue Dicht-<lb/>
+kunſt auf eine ſinnreiche Art beſchlieſſet. Jhr<lb/>
+ſtellet euch an, als ob ihr gegen einem Freunde<lb/>
+die Partey des Schweitzers genommen habet,<lb/>
+um demſelben eine feine Stachelrede zu lehnen,<lb/>
+die euch als einem Vertheidiger des Schweitzers<lb/>
+eben nicht zum beſten angeſtanden: Allein</p><lb/>
+<cit><quote><hi rendition="#aq">Non his auxiliis, nec defenſoribus iſtis<lb/>
+Tempus eget!</hi></quote></cit><lb/>
+<p>Und welches iſt denn dieſe ſo gar feine Stachel-<lb/>
+rede?</p> <cit><quote>„Endlich ward er boͤſe und ſprach: Jſt<lb/>
+„denn der Herr Gottſched deßwegen zu tadeln<lb/>
+„geweſen, ſo hat er es gleichwohl noch nicht<lb/>
+„ſo arg gemacht, daß er eines ſeiner Gedichte<lb/>
+„gantz und gar zergliedert, und uns ſorgfaͤl-<lb/>
+„tig alle Schoͤnheiten deſſelben angezeiget ha-<lb/>
+„ben ſollte, aus Furcht, es moͤchten dieſelben<lb/>
+„von andern nicht wahrgenommen werden.„</quote></cit><lb/>
+<p>Unſtreitig waͤre es arg genug fuͤr Hrn. Prof.<lb/>
+<hi rendition="#fr">Gottſcheden,</hi> wenn man ſeine Gedichte, die<lb/>
+er der Welt ſelbſt als Muſter anpreiſet, eines<lb/>
+nach dem andern gantz und gar zergliederte, und<lb/>
+ſorgfaͤltig ausſetzte, was ſeine blinden Verehrer<lb/>
+bisher daran nicht wahrgenommen haben. Zwar<lb/>
+ſollte Hr. <hi rendition="#fr">Gottſched</hi> dieſe Critiſche Operation<lb/>
+ſelbſt vorgenommen haben, wie dieſer Unbe-<lb/>
+kannte, den ihr redend einfuͤhret, zu wuͤnſchen<lb/>
+ſcheinet, ſo glaube ich auch, daß es fuͤr ihn<lb/>
+<fw type="sig" place="bottom">[Crit. Saml. <hi rendition="#aq">XI.</hi> St.] E</fw><fw type="catch" place="bottom">eben</fw><lb/>
+<pb n="66" facs="#f0068"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben</hi></fw><lb/>
+eben nicht ſo arg herausgekommen waͤre, er<lb/>
+wuͤrde gewiß ſolche Schoͤnheiten darinn gefun-<lb/>
+den und angezeigt haben, die von keinem an-<lb/>
+dern Menſchen weder zuvor noch darnach wuͤrden<lb/>
+wahrgenommen worden ſeyn. Wie ſollte es<lb/>
+aber moͤglich ſeyn, daß Hr. Gottſched ſelbſt mit<lb/>
+ſeinen eigenen Gedichten dergleichen Critiſche<lb/>
+und regelmaͤſſige Operation ſollte vornehmen<lb/>
+koͤnnen, da dieſelben mehr durch einen gluͤckli-<lb/>
+chen Zufall, als nach einem uͤberlegten Ent-<lb/>
+wurff, wie zerfloſſenes Bley in einen Klumpen,<lb/>
+zuſammen geronnen ſind? Was nach Regeln<lb/>
+ſoll unterſucht, zergliedert und beurtheilt wer-<lb/>
+den, das muß nach einem vernuͤnftigen Plan<lb/>
+und gantz regelmaͤſſig eingerichtet ſeyn. Ein re-<lb/>
+gelmaͤſſiger und vernuͤnftiger Verfaſſer muß von<lb/>
+allem Rechenſchaft geben und zeigen koͤnnen,<lb/>
+in was vor Abſichten er jeden Satz und Theil<lb/>
+ſeiner Schrift an dieſem Orte, in dieſem Gra-<lb/>
+de, in dieſem Licht, in dieſer Verbindung an-<lb/>
+gebracht, wie eines in dem andern, und alles<lb/>
+zuſammen genommen in eben derſelben Haupt-<lb/>
+Abſicht gegruͤndet ſey. Und es wuͤrde uͤberaus<lb/>
+nuͤtzlich ſeyn, wenn die Kunſtrichter nicht nur<lb/>
+andern Schriftverfaſſern auf die Spurgiengen,<lb/>
+ſondern auch jeder Verfaſſer, der nach Abſich-<lb/>
+ten und Regeln handelt, uns dieſelben in ſeinen<lb/>
+eignen Wercken verkundſchaften und offenbah-<lb/>
+ren wuͤrde, damit wir andere urtheilen koͤnnten,<lb/>
+wiefern er ſeine Abſichten gluͤcklich erreicht, und<lb/>
+ſeinen Regeln eine Genuͤge geleiſtet habe. Die-<lb/>
+ſes kan ohne alle Prahlerey und Ruhmraͤthig-<lb/>
+<fw type="catch" place="bottom">keit</fw><lb/>
+<pb n="67" facs="#f0069"/>
+<fw type="header" place="top"><hi rendition="#b">an die d. Geſ. von Greifswalde.</hi></fw><lb/>
+keit geſchehen, weil man nicht mehr ſagt, als<lb/>
+daß man nach Abſichten gehandelt, und nach<lb/>
+welchen man an jedem Orte gehandelt habe, das<lb/>
+Urtheil aber von denen Abſichten und Regeln,<lb/>
+und wie fern man es getroffen, jedermann frey<lb/>
+laͤßt. Womit aber in keine Vergleichung kan<lb/>
+gezogen werden, wenn man ſeine eigenen Ge-<lb/>
+dichte, ohne einige Anzeige warum, einer gan-<lb/>
+zen Nation als Muſter zur Nachahmung anprei-<lb/>
+ſet, zumahl wenn ſie hernach bey einer genauern<lb/>
+Pruͤfung meiſtens ſo elend und abgeſchmackt be-<lb/>
+funden werden.</p><lb/>
+<p>Jch hatte mir zu Anfang dieſes Schreibens<lb/>
+vorgenommen, mit meinen Unterſuchungen wei-<lb/>
+ter fortzugehen, allein da ich izo vorherſehe,<lb/>
+daß der 3te Art. des <hi rendition="#aq">V.</hi>ten St. mir zum wenig-<lb/>
+ſten ſo viel Materie zu verarbeiten an die Hand<lb/>
+geben wuͤrde, als ich in dem <hi rendition="#aq">VI.</hi>ten Art. des<lb/>
+<hi rendition="#aq">IV.</hi>ten St. gefunden habe, ſo will ich dieſes<lb/>
+Schreiben ſchlieſſen, und das uͤbrige kuͤnftig in<lb/>
+einem neuen Schreiben nachbringen, damit ſo-<lb/>
+wohl mir als meinen Gegnern die Buͤrde der<lb/>
+Anklage und der Verantwortung, wenn ſie ſo<lb/>
+getheilet wird, einigermaſſen erleichtert werde.<lb/>
+Jch werde deſtoweniger damit eilen, wenn ich<lb/>
+vernehmen werde, daß meine gegenwaͤrtige Er-<lb/>
+innerungen und Beſtraffungen bey denjenigen,<lb/>
+welche ſie angehen, einigen Eingang gefunden,<lb/>
+und einiges Nachſinnen erwecket haben; denn<lb/>
+es wird mir nichts angenehmer ſeyn, als daß<lb/>
+ſie ſich ohne meine Bemuͤhung begreiffen, und<lb/>
+die Betrachtungen bey und unter ſich ſelber an-<lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">ſtellen,</fw><lb/>
+<pb n="68" facs="#f0070"/>
+<fw type="header" place="top"><hi rendition="#b">Von Langnau Schreiben.</hi></fw><lb/>
+ſtellen, welche ein jeder zum Nachſinnen gewoͤhn-<lb/>
+ter Kopf bey einem wohlgearteten Gemuͤthe oh-<lb/>
+ne groſſe Kunſt und mit wenigerm Verdruſſe fuͤr<lb/>
+ſich ſelbſt wird anſtellen koͤnnen. Die Beſtraf-<lb/>
+fung iſt nicht mein Endzweck, ſondern ich ſuche<lb/>
+durch die Beſtraffung die Erbauung, und wenn<lb/>
+dieſe ohne die erſtere zu erhalten iſt, ſo koſtet es<lb/>
+mich keine Muͤhe die Feder nieder zulegen. Jch<lb/>
+hoffe dadurch die Freundſchaft der Geſellſchaft<lb/>
+uͤberhaupt, aber hauptſaͤchlich derer beſonderen<lb/>
+Perſonen, welche ſich von meinen Beſchuldigun-<lb/>
+gen getroffen ſehen, vielmehr verdienet als ver-<lb/>
+wuͤrcket zu haben. Was mich anlanget, ſo<lb/>
+bin ich derſelben, und der gantzen Geſellſchaft</p><lb/>
+<dateline>Zuͤrich den 20. des<lb/>
+Julius 1743.</dateline><lb/>
+<closer><salute><hi rendition="#et">ergebener und gehorſamer<lb/>
+<hi rendition="#fr">Diener<lb/>
+Petermann von Langnau.</hi></hi></salute></closer></div></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb n="[69]" facs="#f0071"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g"><hi rendition="#in">A</hi>rion,<lb/>
+Eine<lb/>
+Poetiſche<lb/>
+<hi rendition="#in">E</hi>rzehlung.</hi></hi></head><lb/>
+<pb n="[70]" facs="#f0072"/>
+<pb n="71" facs="#f0073"/>
+<fw type="header" place="top"><hi rendition="#b">Arion, eine poet. Erzehlung.</hi></fw><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#g">Arion</hi></hi><lb/>
+Eine poetiſche Erzehlung.</head><lb/>
+<p><hi rendition="#in">D</hi>Je Schiffer empfiengen den Wind mit<lb/>
+froͤhlichem Gejauchze, die aufgeſchwelleten<lb/>
+Segel trugen das Schiff pfeilgeſchwin-<lb/>
+de durch die flache See weg, der ſtarcke Maſt bog<lb/>
+ſich, laͤngſt hatte ſich der gellende Klang verlohren,<lb/>
+der abwechſelend kam, verſchwand, und bald et-<lb/>
+was ſchwaͤcher unſre Fahrenden erreichte, und der<lb/>
+ihnen von tauſend Zungen nachgeſchickt ward, die<lb/>
+mit unverſtaͤndlichem Gemiſche Gluͤck und Arion<lb/>
+erthoͤnen lieſſen, die verſengten Spitzen des Aetna<lb/>
+wurden gantz blau, und vermiſchten ſich mit den<lb/>
+Wolcken: Als Arion, der zwar uͤber den innigen<lb/>
+Abſchied ſeiner Freunde einige Bitterkeit im Her-<lb/>
+zen fuͤhlte, ſich aber mit dem nahen Anblicke ſei-<lb/>
+nes Corinthens allen Unmuth vertrieb, auf das<lb/>
+Oberdach des Schiffes hinauf ſtieg. Er ſatzte ſich<lb/>
+ohnweit von dem Orte, wo das goldene Geraͤthe<lb/>
+lag, welches ihm der bezaubernde Ton ſeiner<lb/>
+Leyer durch das fruchtbare Jtalien, und das ange-<lb/>
+nehme Sicilien erworben hatte. Hier ſtaͤmmete<lb/>
+er ſich auf ſeinen Arm, und betrachtete ein Stuͤ-<lb/>
+ke nach dem andern; Ringe, darinn Rubinen brann-<lb/>
+ten, Saphire, die das klare Gruͤne des Meeres<lb/>
+nachmahleten, wenn uͤberher der blaue Himmel<lb/>
+laͤchelt, oder den Schmuck, den Flora der jun-<lb/>
+gen Erde umſchuͤrzet, wo der fette Klee, und die<lb/>
+<fw type="sig" place="bottom">E 4</fw><fw type="catch" place="bottom">braune</fw><lb/>
+<pb n="72" facs="#f0074"/>
+<fw type="header" place="top"><hi rendition="#b"><hi rendition="#g">Arion</hi></hi></fw><lb/>
+braune Viol mit einander in die Wette ſpielen;<lb/>
+theure Teppiche, Becher, darauf die Kunſt, und<lb/>
+die Reinigkeit des Goldes, einander die Wage<lb/>
+hielten. Er betrachtete ſonderlich einen von dieſen,<lb/>
+ein Werck des beruͤhmten Alcons, dem Pallas<lb/>
+ſelbſt die Schlaͤge des Hammers gefuͤhret. Or-<lb/>
+pheus ſtuhnd hier an der Schwelle des Avernus,<lb/>
+der vor den bittern Blicken Plutons erzittert, er<lb/>
+ſtuhnd da, wo das ſchwarze, Schrecken des dun-<lb/>
+keln Gehoͤltzes an den ſchleichenden Schlamm des<lb/>
+Cocytus ſtoͤßt, der ſich durch wuͤſten Schilf neun-<lb/>
+mahl um das erſchreckende Reich herumziehet. Die<lb/>
+leichten Schatten flatterten um ihn herum. Man<lb/>
+ſah Verzweiflung auf ſeinem Geſichte ſitzen, als<lb/>
+er mit ſeiner Hand die Saiten ruͤhrte, welche den<lb/>
+Tartarus bezwangen, und die Lieder erklingen<lb/>
+ließ, welche Hertzen, die von Erbarmen nichts wiſ-<lb/>
+ſen, bewegeten, Lieder die das Gebelle des drey-<lb/>
+koͤpfigten Cerberus zum Stillſchweigen noͤthigten,<lb/>
+das Raſſeln der Peinraͤder und der geſchleppeten<lb/>
+Ketten unterbrochen, bis in die innerſten Kluͤfte<lb/>
+des Erebus ergelleten, und das Felſen-Hertz des<lb/>
+Hoͤllen-Gottes erweicheten. Arion erinnerte ſich,<lb/>
+bey Anſchauung dieſer Reichthuͤmer, derer, die<lb/>
+ſie ihm geſchencket hatten. Habet Danck, ſagte<lb/>
+er, Meine Freunde, Meine Goͤnner. Doch<lb/>
+auch ohne dieſe Zeichen wuͤrde ſich euer Andencken<lb/>
+bey mir niemahls verliehren. Jch werde ſtuͤndlich<lb/>
+euer Gedaͤchtniß verehren. Jch weiß auch gewiß,<lb/>
+Arion wird bey euch nicht vergeſſen werden, wenig-<lb/>
+ſtens wird ſein Bild euch vorſchweben, wann ihr<lb/>
+bey dem Ton einer Laute eure gewohnte Reyhen<lb/>
+<fw type="catch" place="bottom">for-</fw><lb/>
+<pb n="73" facs="#f0075"/>
+<fw type="header" place="top"><hi rendition="#b">eine poetiſche Erzehlung.</hi></fw><lb/>
+formieret, oder wann ihr an einen redlichen Freund<lb/>
+ſinnen wollet. Mit was vor Schmertzen mangle<lb/>
+ich die Luſt, die mir eure Liebe ſtuͤndlich zu machen<lb/>
+bemuͤhet war. Jch wuͤrde ungerecht ſeyn, Mei-<lb/>
+ne Freunde, wenn ich ohne Urſache unſern Um-<lb/>
+gang getrennet haͤtte. Jch ſchien nicht ſtandhaft<lb/>
+zu ſeyn; aber ich mußte doch einmahl ſcheiden; be-<lb/>
+dencket, daß wir nicht immer einander umfangen<lb/>
+konnten. Allein ich habe vergebliche Furcht. Jhr<lb/>
+habet ſelbſt, obgleich ungerne, die Nothwendig-<lb/>
+keit meines Scheidens erkennt. Jhr werdet mich<lb/>
+eben ſowohl abweſend lieben, als anweſend. Jhr<lb/>
+habet ja ſelbſt meine Abreiſe beſorget, ſelbſt das<lb/>
+Schiff angeordnet, ſelbſt eure getreueſten und er-<lb/>
+fahrenſten Knechte mir mitgegeben, die euch den<lb/>
+baldigen Bericht bringen ſollten, daß Arion ver-<lb/>
+gnuͤgt bey ſeinem Periander ſey. Ach Periander,<lb/>
+Mein Koͤnig, Mein Freund, darf ich hoffen,<lb/>
+daß mein Anblick dein groſſes Hertz ſo ruͤhren wer-<lb/>
+de, als mein Abſcheid es gethan hat? Hoffen,<lb/>
+daß meine Laute noch faͤhig ſey dich zu ermuntern,<lb/>
+dein ſorgenvolles Gemuͤthe zu erheitern, und zu-<lb/>
+gleich die Schaar deiner Diener freudig zu ma-<lb/>
+chen? Die Ehrfurcht gegen dir allein machet, daß<lb/>
+ich meine neue Geliebte habe verlaſſen koͤnnen. Jch<lb/>
+weiß, wie freundlich dein Begruͤſſen ſeyn wird,<lb/>
+wie ſorgfaͤltig dein Fragen nach meinen Zufaͤllen,<lb/>
+ſeit dem du mich ſo ungerne aus deinen Armen weg-<lb/>
+gelaſſen. Kuͤnftig widme ich mich gantz dir allein.<lb/>
+Er iſt der Anfang meines Gluͤckes. ‒ ‒ ‒</p><lb/>
+<p>Dieſes ſagte Arion, das aufrichtige Hertz, als<lb/>
+ein Geſchrey von vermiſchten Stimmen, ein na-<lb/>
+<fw type="sig" place="bottom">E 5</fw><fw type="catch" place="bottom">hes</fw><lb/>
+<pb n="74" facs="#f0076"/>
+<fw type="header" place="top"><hi rendition="#b"><hi rendition="#g">Arion</hi></hi></fw><lb/>
+hes Gepolter von Fußſchlaͤgen, die Gefahr drohe-<lb/>
+ten, ihm ein ploͤtzliches Schrecken verurſachten,<lb/>
+es betauͤbte ihn ein Getoͤne von Degen, das dem<lb/>
+glich, welches erhitzte Soldaten machen, die<lb/>
+durch innerlichen Zorn und die Anrede eines klugen<lb/>
+Fuͤhrers angeſpornet, Wuth und Feuer von ſich<lb/>
+ſchnauben, wenn ſie aus Unmuth uͤber den Ver-<lb/>
+zug des Treffens knirrſchen, und die ſchweren<lb/>
+Spieſſe auf ihren ehrenen Schilden anſchlagen.<lb/>
+Er erſtaunete, da er die Knechte, welche ſeine Freun-<lb/>
+ihm zur Aufwart auserleſen hatten, tobend auf<lb/>
+ſich eindringen ſah. Jhre Haͤnde waren mit Mord-<lb/>
+Gewehren bewaffnet, deren jedes ihm den nahen<lb/>
+Tod drohete. Der allerſchaͤndlichſte Geitz hatte ſie<lb/>
+verblendet, und ihr Hertz vergiftet. Jhr Vor-<lb/>
+haben zwang ihnen eine finſtere Roͤthe aus, ihre<lb/>
+Geſichter ſchienen verwirret, da ſie deſſen anſich-<lb/>
+tig wurden, den ſie ermorden wollten. Aber es<lb/>
+war zu ſpaͤth, den Anſchlag ohne Gefahr liegen<lb/>
+zu laſſen. Das vor Augen liegende Gold reitzte ihre<lb/>
+Boßheit noch mehr. Jzo hieng uͤber ſeiner Scheitel<lb/>
+der zitternde Stahl, der ſein roͤthlichtes Haupt<lb/>
+von dem Marmor-Halſe wegreiſſen ſollte; als<lb/>
+Arion mit einem lauten Schrey ruͤckwaͤrts ſprang,<lb/>
+dem toͤdlichen Schlag auswich, und alle ſein Ver-<lb/>
+moͤgen nur fuͤr ſein Leben anboth. Einmahl uͤber<lb/>
+das andre rufte er ſeine Freunde, ihre Herren,<lb/>
+ihre Gutthaͤter, ihre Ernaͤhrer. Sie ſahen ein-<lb/>
+ander an, ſchloſſen ſich in einen Kreiß, zweifel-<lb/>
+haftige Seitenblicke fielen aus ihren Augen gegen<lb/>
+Arion. Jhr Hertz ſchlug ihnen in dem Buſen,<lb/>
+da zwey widerwaͤrtige Begierden, Geitz und Furcht<lb/>
+<fw type="catch" place="bottom">ein-</fw><lb/>
+<pb n="75" facs="#f0077"/>
+<fw type="header" place="top"><hi rendition="#b">eine poetiſche Erzehlung.</hi></fw><lb/>
+einander beſtuͤrmeten. Der Schluß war dieſer:<lb/>
+Arion ſollte ſich von der Hoͤhe des Schiffes hinun-<lb/>
+ter in das Meer ſtuͤrtzen. Was ſollte er thun?<lb/>
+Scharfe Mordeiſen, die vor und hinter ihm blinke-<lb/>
+ten, verſchloſſen weitern Bitten den Weg, und<lb/>
+noͤthigten ihn das Todes-Urtheil, das die Schiff-<lb/>
+Knechte gefaͤllet hatten, ungeſaͤumt an ſich zu voll-<lb/>
+ziehen. Er ergriff ſeine Harfe, ſeine beſtaͤndige<lb/>
+Begleiterinn, die Troͤſterinn in ſeinem Ungluͤcke,<lb/>
+kuͤſſend. Komm, ſagte er, komm du Stiffterinn<lb/>
+meiner vormahligen Freuden. Thue noch eines,<lb/>
+komm, und hilff deinem Freunde auch den Tod<lb/>
+verſuͤſſen. Und indem er ſelbige zwiſchen ſeinen<lb/>
+Armen haͤlt, tritt er den lezten Weg betruͤbet und<lb/>
+langſam an, und ſtieg auf den Voͤrderſchnabel<lb/>
+am Schiffe. Hier ſah er ſich aͤngſtlich nach der<lb/>
+Gegend um, von welcher er gekommen, nach<lb/>
+dem ſichern Geſtade, das er in einer ungluͤckſeligen<lb/>
+Stunde verlaſſen, und ſich dem gefaͤhrlichen Kiele<lb/>
+anvertrauet, der ihn dem unverſehenen Tode zu-<lb/>
+fuͤhrete. Aber vergebens. Auf allen Seiten iſt<lb/>
+nichts als trauriges Schwartzes von Wolcken,<lb/>
+die der Wind hinter dem Meere, das eine oͤde und<lb/>
+unermeßliche Ebne ſchien, herfuͤr jagte. Es grauete<lb/>
+ihm vor den ungeheuren Geſtalten, mit denen das<lb/>
+Waſſer auf der Flaͤche und in der Tiefe beſetzet<lb/>
+war. Entweder wuͤrde ihn der Meerwolf mit<lb/>
+ſcharfgeſpitzten Zaͤhnen, zwiſchen welchen die rothen<lb/>
+Ueberbleibſel von dem letzten Raube noch ſtecketen,<lb/>
+mitten entzwey ſagen; oder eine graͤuliche Schlan-<lb/>
+ge, die in rothe, gruͤne, und gelbe Schuppen<lb/>
+verpantzert iſt, deren Augen mit Blut und Gift<lb/>
+<fw type="catch" place="bottom">unter-</fw><lb/>
+<pb n="76" facs="#f0078"/>
+<fw type="header" place="top"><hi rendition="#b"><hi rendition="#g">Arion</hi></hi></fw><lb/>
+unterſchoſſen ſind, die ihren Schwantz durch das<lb/>
+flache Meer als einen langen Stamm nachziehet,<lb/>
+wuͤrde ihn in ihrem beinernen und mit Gift ange-<lb/>
+feuchteten Rachen zerquetſchen. An ſeinem Ruͤ-<lb/>
+ken jagten ihm graͤuliche und verraͤtheriſche Geſich-<lb/>
+ter einen kalten Schweiß aus. Bis izo hatte er<lb/>
+noch immer gehoffet, etwann ein Schiff von ferne<lb/>
+zu erblicken, in welches er ſich mit Schwimmen<lb/>
+retten koͤnnte; aber die Augen ſchoſſen vergebens<lb/>
+hin und her; er ſah nichts als den nahen Tod.<lb/>
+Wie ein zartes Rehe, welches das erſte mahl von<lb/>
+ſeiner ſorgfaͤltigen Mutter, die ihm beſtaͤndig zur<lb/>
+Seite laͤufft, auf die Weide gefuͤhret wird, und<lb/>
+durch ein ploͤtzliches Rauſchen der Diſteln, die den<lb/>
+Nachſehenden den Weg hindern, das einsmahli-<lb/>
+ge Geſchrey der auf den Raub erpichten Jaͤger,<lb/>
+das Bellen der Hunde, das lermende Getoͤne des<lb/>
+Jagdhorns ſchuͤchtern wird, und ſich verirret; wenn<lb/>
+es ſich gantz allein und umzingelt ſiehet, und mer-<lb/>
+ket, daß es dem Verfolger ſelbſt in die Haͤnde ge-<lb/>
+lauffen, ungewiß hin und her ſchieſſet, bloͤket,<lb/>
+ſich wundert, daß ſeine Mutter ſo lange ausbleibet ihm<lb/>
+zu helffen: Da indeſſen der gewiſſe Pfeil von einer<lb/>
+ſtarcken Hand ihm nach dem Hertzen eilet, und<lb/>
+ſein zartes Blut auf die Erde verſchuͤttet. So ver-<lb/>
+laſſen ſtuhnd Arion auf dem hohen Voͤrderſchnabel<lb/>
+des Schiffes, mitten unter erboßten Moͤrdern.<lb/>
+Kurtz zuvor bluͤhete noch die Jugend auf ſeinen<lb/>
+Wangen, und die ſpiegelglatte Stirne, wo ſich<lb/>
+noch keine ſorgenvolle Falte aufgeleget hatte, zeig-<lb/>
+te den Lentzen des Lebens an; aber izo ſaß die blaſ-<lb/>
+ſe Farbe des Todes auf ſeinem Geſichte. Die<lb/>
+<fw type="catch" place="bottom">wei-</fw><lb/>
+<pb n="77" facs="#f0079"/>
+<fw type="header" place="top"><hi rendition="#b">eine poetiſche Erzehlung.</hi></fw><lb/>
+weiche Lufft ſtrich bey ihm vorbey, und beluſtigte<lb/>
+ſich das lezte mahl mit ſeinen Haaren, legte ſie<lb/>
+ihm bald auf die Bruſt, bald ſtreuete ſie ſelbige<lb/>
+auf die Schultern, bald ſtreckte ſie dieſelbigen in<lb/>
+die Laͤnge, und gerade hernach machte ſie darinn<lb/>
+eine wallende Bewegung, wie wenn ohngefehr ein<lb/>
+Stein in die platte See faͤllt, augenblicklich um<lb/>
+ihn herum cirkelfoͤrmige Wellen ſich erheben, nie-<lb/>
+derſincken, etwas entfehrnter ſich wieder erhoͤhen,<lb/>
+wieder verliehren, und bald in mehrerer Weite<lb/>
+wieder da ſind. Ein Guͤrtel hielt den Reſt von<lb/>
+ſeinem fliegenden Kleide feſt, welches bis an die<lb/>
+Schultern hinter ſich geſtreifet die Arme faſt na-<lb/>
+kend ließ. Die Harfe ſtuͤtzete er feſt an ſeine<lb/>
+Bruſt, und fuhr muͤhſam mit einer ſchweren Hand<lb/>
+uͤber die ſcharfgezogenen Saiten, und ordnete die<lb/>
+Toͤne an. Jene gehorſameten ſeinen Griffen.</p><lb/>
+<p>Darauf hub er mit einem tiefen Seufzer ſeine<lb/>
+Augen nach dem Himmel; und damahls fiengen<lb/>
+die goldenen Draͤte an ſich zu beſeelen, ſie ant-<lb/>
+worteten ſeufzend einander, hertzruͤhrende Klag-<lb/>
+toͤne ſchwelleten von ihnen auf. Er miſchte ſeine<lb/>
+klingende Stimme unter die Muſick, die auf der<lb/>
+zitternden Harfe herumſchweifete, und rufte den<lb/>
+Vater der Goͤtter und der Menſchen weheklagend<lb/>
+an, daß er die ſchwartze Greuelthat mit ſeinem<lb/>
+allesſehenden Auge betrachten, und einen gerech-<lb/>
+ten Urtheilſpruch abfaſſen ſollte. Er rufte den Apol-<lb/>
+lo an, deſſen Saiten ſelbſt die Goͤtter zu Dienſte<lb/>
+ſtehen muͤſſen, und dem er manch rauchendes<lb/>
+Opfer auf ſeinen Altar geleget hatte. Und dich<lb/>
+ruffete er an, Gerechte Nemeſis, die verhuͤtet, daß<lb/>
+<fw type="catch" place="bottom">die</fw><lb/>
+<pb n="78" facs="#f0080"/>
+<fw type="header" place="top"><hi rendition="#b"><hi rendition="#g">Arion</hi></hi></fw><lb/>
+die Boßheit nicht ſchon Himmel und Erden in das<lb/>
+vorige Chaos zuruͤckgeſtuͤrtzet hat. Erſchuͤttre dein<lb/>
+ſchwartzes Gefieder, O Freundin der Unterdruͤck-<lb/>
+ten, O Schrecken der Gottloſen! Fliege hernie-<lb/>
+der, und beſichtige eine Laſterthat, dergleichen die<lb/>
+Vorwelt nur ſelten geſehen hat; ſie iſt werth,<lb/>
+daß deine Hand ſich zur Straffe ausſtrecke, werth,<lb/>
+daß dein Schwerdt ſich zur Rache wetze. Jch<lb/>
+ſterbe, verlaſſen, huͤlfloß, von denen, die mich<lb/>
+ſo gerne retten wuͤrden, weggeriſſen, die Hand<lb/>
+niedriger Sclaven toͤdet mich, und verſencket mich<lb/>
+in ein ewiges Vergeſſen. O Unbeſtand! Nur<lb/>
+einige Augenblicke aͤndern meine Scene ſo erſchreck-<lb/>
+lich! Nur wenige Minuten zuruͤck; da floß noch<lb/>
+volles Wohlſeyn um mich her! Jzo bin ich in der<lb/>
+traurigen Nothwendigkeit mir meinen Lebensfa-<lb/>
+den durch meine eigene Hand zu zerreiſſen. O<lb/>
+fluͤchtiges Gluͤck! Hubeſt du mich darum ſo hoch,<lb/>
+damit du mich deſto tiefer faͤlleteſt? Goͤnneteſt du<lb/>
+mir darum ſo groſſe Freude, damit mein Tod mir<lb/>
+deſto bitterer ſchmeckete? So hohe Goͤnner, da-<lb/>
+mit verruchte Sclaven uͤber mich den Stab braͤ-<lb/>
+chen? Wie uͤbel, Meine Freunde, O wie uͤbel<lb/>
+ſchlaͤgt mir eure Guͤtigkeit aus! Jhr wolltet mir<lb/>
+Diener geben, und ihr gabet mir Hencker; Be-<lb/>
+gleiter, die mich beſorgeten, aber was vor giftige<lb/>
+Natern ſind daraus erwachſen! Niemand iſt auf<lb/>
+Erde, der ein Zeuge dieſer Frevelthat ſey, der ſie<lb/>
+den kuͤnftigen Menſchen zum Abſcheue uͤbergebe.<lb/>
+Dich ruffe ich zum Zeugniſſe, O Sonne, ob du<lb/>
+dich gleich izo mit dicken Wolcken umhuͤlleſt, und<lb/>
+meinen Untergang nicht beſchauen willſt. Kuͤnftig<lb/>
+<fw type="catch" place="bottom">wer-</fw><lb/>
+<pb n="79" facs="#f0081"/>
+<fw type="header" place="top"><hi rendition="#b">eine poetiſche Erzehlung.</hi></fw><lb/>
+werde ich dein Licht nicht mehr genieſſen. Kuͤnf-<lb/>
+tig giebſt du nicht mir die Freude, die du den Men-<lb/>
+ſchen in ihr Hertz ſenckeſt. Mich wird bald eine<lb/>
+ewige Dunckelheit begraben: Und du ſey ein Zeu-<lb/>
+ge, O Mond, der du im fehrnen Weſten blaß<lb/>
+ſteheſt. Euer Wagen fahre niemahls dieſen Ort<lb/>
+vorbey, O Goͤttliche Geſtirne, daß ſich nicht das<lb/>
+Andencken meines Unterganges bey euch erneuere.<lb/>
+Meine Moͤrder ſehen euch niemahls an, daß ſie<lb/>
+nicht ein Schauer ankomme, und ſie nicht ihres<lb/>
+verborgenen Laſters wegen gepeinigt werden. Und<lb/>
+du, O Meer, deſſen Wogen mich bald in den<lb/>
+Abgrund verſchlingen werden; Und ihr Thiere der<lb/>
+See, denen ich als ein unſchuldiges Opfer vorge-<lb/>
+worffen werde, hoͤret niemahls auf, ſie mit gehei-<lb/>
+men Biſſen zu quaͤlen, ſo oft ſie ſich euch naͤhern<lb/>
+werden. Erzehlet ihr den Menſchen einen Greuel<lb/>
+der ſonſt auf immer wird verſchwiegen bleiben.<lb/>
+Gehabe dich wohl, elender Vatter, der mich in<lb/>
+einer ungluͤckſeligen Stunde gebohren hat! Du<lb/>
+wirſt deinen Sohn nicht mehr ſehen, deinen Troſt,<lb/>
+der ſich aus deinen zitternden Armen mit Gewalt<lb/>
+weggeriſſen. Wie wird dein graues Haupt ſich<lb/>
+aͤngſtigen, wenn du hoͤren muſt, daß er ein Op-<lb/>
+fer ſchwartzer Verraͤtherey, ein Raub graͤulicher<lb/>
+Thiere geworden! Wurdeſt du darum grau, O<lb/>
+Ungluͤckſeliger, damit dein Elend recht groß wuͤr-<lb/>
+de? O traͤfe ich dich jetzo ſchon in den finſtern Gaͤn-<lb/>
+gen an, die ich bald betreten werde, damit ein<lb/>
+ſchreckender Trauerbothe dich nicht mit Graͤmen und<lb/>
+Verzweifeln ins Grab druͤckete! Lebe wohl, Groſ-<lb/>
+ſer Goͤnner, die Goͤtter laſſen deinen Namen<lb/>
+<fw type="catch" place="bottom">in</fw><lb/>
+<pb n="80" facs="#f0082"/>
+<fw type="header" place="top"><hi rendition="#b"><hi rendition="#g">Arion</hi></hi></fw><lb/>
+in Corinth lange leben! Lebet wohl, O Freunde,<lb/>
+die mir der Himmel gegoͤnnet hat! Jch verlaſſe euch;<lb/>
+aber wie bitter wird mir das Scheiden! Nimmer-<lb/>
+mehr wird mir vergoͤnnet werden, eure Freude<lb/>
+mit zugenieſſen. Nimmermehr mit euch zu<lb/>
+ſchertzen, mich bey euch zu entladen. Wuͤrde mir<lb/>
+nur noch einmahl erlaubet euch zu ſehen, euch<lb/>
+anzureden, nur noch ein einziges mahl euch mei-<lb/>
+nen Kummer zu klagen: Jch wuͤrde alsdann gerne<lb/>
+wieder zuruͤcke kehren; alsdann wuͤrde ich mich<lb/>
+freudiger dem Tod uͤbergeben. Aber eine uner-<lb/>
+meßliche Kluft ſcheidet mich von euch. Gebet doch<lb/>
+Achtung, O Freunde, wenn dieſe Uebelthaͤter<lb/>
+zu euch kommen; alles an ihnen wird euch von<lb/>
+Arion reden; ihre Haͤnde, Augen, Blicke, al-<lb/>
+les wird euch ihre Mordthat verrathen. Gehabe<lb/>
+dich wohl! Schoͤnes Corinth! Gehabet euch wohl<lb/>
+ihr geheimen Sommergaͤnge, die ihr mich ſo oft<lb/>
+einſam gehoͤret, wenn mein Mund Ehrfurchtsvoll<lb/>
+einen Gott oder eine Goͤttin beſungen hat. Jhr<lb/>
+kuͤhlen Gruͤnde, ihr ſtillen Waͤlder, ihr Triften,<lb/>
+wo mich die aufgehende Sonne ſtets gefunden,<lb/>
+und da ſie mir taͤglich den letzten Blick gegeben<lb/>
+hat, und da ich ſo oft ihren Untergang mit meiner<lb/>
+Stimme begleitet habe! Jch werde nimmermehr<lb/>
+die warmen Luͤfte fuͤhlen, die euch durchhauchen.<lb/>
+Jhr werdet mich nimmermehr ſehen, ausgenom-<lb/>
+men wenn mein Schatten bey euch herum irren<lb/>
+wird, mit aͤngſtlichen Seufzern die Menſchen zu<lb/>
+erſchrecken, und die Goͤtter zur Rache zu zwin-<lb/>
+gen. Mir iſt ſchon, ich ſehe das untere Reich,<lb/>
+da eine ſtete Daͤmmerung herrſchet, woſelbſt der<lb/>
+<fw type="catch" place="bottom">Mit-</fw><lb/>
+<pb n="81" facs="#f0083"/>
+<fw type="header" place="top"><hi rendition="#b">eine poetiſche Erzehlung.</hi></fw><lb/>
+Mittag die Dunckelheit nicht einmahl vertrei-<lb/>
+ben kan. Jch ſehe ſchon die ſchwartzen Kluͤfte,<lb/>
+die ein immerwaͤhrendes Schrecken und Ver-<lb/>
+zweiflen anfuͤllet; den Schwarm unſeliger Gei-<lb/>
+ſter, die ſich aͤchzend um das Geſtade herum<lb/>
+draͤngen, und denen ein hartes Schickſal den<lb/>
+Durchgang in das ſelige Reich verſperret. Jch<lb/>
+rieche ſchon den ſchweflichten Duft des Cocytus;<lb/>
+Jch hoͤre ſchon von fehrnen das hoͤlliſche Getuͤm-<lb/>
+mel. Ein Brauſen faͤllt mir fuͤr die Ohren; ein<lb/>
+ploͤtzlicher Nebel drehet alles vor mir um; ein<lb/>
+Schauer durchfaͤhrt mich; die Glieder fangen<lb/>
+an zu beben; und das Blut wird mir in den A-<lb/>
+dern kalt.</p><lb/>
+<p>Er ſagte dieſes und die Rede erſtarb in ſeinem<lb/>
+Munde. Er ſah ſich noch einmahl erblaſſet um,<lb/>
+und hieng mit dem Leibe uͤber dem ſchwartzen<lb/>
+Abgrund, wo graͤßliche Thiere ſchon gegen ihn<lb/>
+die Zaͤhne bloͤketen, ſchluͤpfte mit den Fuͤſſen<lb/>
+aus, und eilete mit ſchnellem Falle dem Tode zu.<lb/>
+Dreymahl wiederholte ſeine Laute den lezten<lb/>
+Schlag noch in dem Falle mit Seufzen; da der<lb/>
+erſte Ton ſich ſchon laͤngſt in die Luft verlohren<lb/>
+hatte. Die Meervoͤgel unterbrachen ihren Flug;<lb/>
+andere kamen vom fernen Lande her; und da<lb/>
+ſie das Ende ſeines Geſanges ausgewartet hat-<lb/>
+ten, eilten ſie mit klagendem Geſchrey weg, da-<lb/>
+mit ſie ſeinen Untergang nicht anſehen muͤßten.<lb/>
+Philomela wurde ihrer Wunde wiederum inne,<lb/>
+die ſie damahls ſchmertzte, als die harte Fauſt<lb/>
+des Weidmanns ihr die nackete Zucht wegge-<lb/>
+raubet; da ſie bey dicker Nacht auf einſamen<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">XI.</hi> St.] F</fw><fw type="catch" place="bottom">Zwei-</fw><lb/>
+<pb n="82" facs="#f0084"/>
+<fw type="header" place="top"><hi rendition="#b"><hi rendition="#g">Arion</hi></hi></fw><lb/>
+Zweigen ſitzend erbaͤrmliche Seufzerherfuͤr gluch-<lb/>
+ſete, mit Graͤmen ſich abkraͤnckete, und den<lb/>
+finſtern Wald mit Klagen erfuͤllete. Ja es iſt<lb/>
+ein Geruͤchte, daß ſelbſt einigen von den Uebel-<lb/>
+thaͤtern das Hertz bey Arions Klagen gewancket<lb/>
+habe; aber Morfus, den ein unſinniger Geitz<lb/>
+mehr als Felſenhart gemachet, und der alle<lb/>
+Spuren der Menſchheit in ſich ertoͤdet hatte, fiel<lb/>
+mit thieriſchem Gebruͤlle auf ihn ein, und hub<lb/>
+das Eiſen zu einem ſchnellen Schlage empor,<lb/>
+und damahls ſtuͤrtzte ſich Arion mit ſchwerem<lb/>
+Falle in den Tod.</p><lb/>
+<p>Kaum hatte das oberſte Waſſer ihn beruͤhret,<lb/>
+als etwas ſich unter ihm regete, ihn empor hub,<lb/>
+und ſchnell durch die See wegfuͤhrete. Arion<lb/>
+ermunterte ſich, und raffete ſeine Kraͤfte zuſam-<lb/>
+men, da er ſich auf dem breiten Ruͤcken eines<lb/>
+ſchuppichten Delphins erblickete, der ihn allbe-<lb/>
+reits aus dem Geſichte ſeiner Verraͤther wegge-<lb/>
+tragen hatte. Sein Klagelied fuͤhrete dieſes edle<lb/>
+Thier aus der Tiefe hervor, es ſchwamm naͤchſt<lb/>
+an dem voͤrdern Theile des Schiffes, bald de-<lb/>
+kete es ſich mit leichten Wellen, bald ragete ſein<lb/>
+hoher Leib gantz empor; es war unmuthig, daß<lb/>
+Arion ſich ſo lange graͤmete, und erwartete den<lb/>
+Fall, damit es ihn aus der Hand der Moͤrder<lb/>
+davon truͤge. Jetzund legte es ſeinen runden<lb/>
+Kopf fuͤr ſich auf die Wellen, und ſtieß ſie rau-<lb/>
+ſchend von einander, ſeine Floßfedern ſchlugen<lb/>
+auf beyden Seiten mit Macht in die See, ſein<lb/>
+maͤchtiger Leib ſtieß ſich fort, mit dem breiten<lb/>
+Schweife regierte es den geſchwinden Lauf nach<lb/>
+<fw type="catch" place="bottom">dem</fw><lb/>
+<pb n="83" facs="#f0085"/>
+<fw type="header" place="top"><hi rendition="#b">eine poetiſche Erzehlung.</hi></fw><lb/>
+dem Lande, und ließ hinter ſich einen langen<lb/>
+Strich in der See; indem es ſtets die klaren Au-<lb/>
+genwirbel nach der Seite trieb, und um ſeine theu-<lb/>
+re Buͤrde bekuͤmmert war.</p><lb/>
+<p>Arion ſchmiegte ſich feſt an deſſen ſchluͤpfrigen<lb/>
+Ruͤcken, das Finſtere, welches ſein Geſicht ver-<lb/>
+unzieret hatte, verzog ſich, ſeine Haare rollten<lb/>
+ſich nach der Naͤſſe wieder in Circkel, er wurde<lb/>
+neu belebet, und fuhr munter auf dem hohen<lb/>
+Delphin daher; von welchem er rund um ſich<lb/>
+her die glaͤſerne See beſah, die ſich als einen<lb/>
+Spiegel flaͤchte, und das blaue Himmelsgewoͤl-<lb/>
+be, den gehoͤrnten Mond, die thauenden Abend-<lb/>
+wolcken mit wiederſchlagendem Lichte ſpielend<lb/>
+darlegte. Die murmlenden Saiten ſchienen<lb/>
+mißvergnuͤgt, daß er ſo lange verzog ſeine Er-<lb/>
+loͤſung zu beſingen. Er gehorſamete ihrem Ver-<lb/>
+mahnen, und legete ſich mit Ernſt auf ſeine Har-<lb/>
+fe, und beſang nochmahlen mit gedaͤmpften Toͤ-<lb/>
+nen das ſchaͤndliche Vornehmen ſeiner Verraͤ-<lb/>
+ther. Die ſchwirrenden Saiten bezeugeten ei-<lb/>
+nen Abſcheu, und die Toͤne, die ſich klagend in<lb/>
+die Hoͤhe zwangen, blieben ſchwebend liegen, da<lb/>
+er ſeine lezten Wuͤnſche wiederholete. Bald<lb/>
+faͤhrt er mit leichtem Weben uͤber die Saiten,<lb/>
+wie Winde welche uͤber das wallende Gras hin-<lb/>
+ſchluͤpfen; bald eilen beyde Haͤnde beſchaͤftiget<lb/>
+hin und her, und ſchlagen oben und unten an<lb/>
+die geſpanneten Daͤrme, geſchwinder als ihnen<lb/>
+das Auge nachfolgen konnte:</p><lb/>
+<lg type="poem"><l>Die Toͤne laufen auf, und fallen ploͤtzlich nieder,</l><lb/>
+<l>Und kraͤuſeln ſich im Lauf, und ſtrecken ſich dann wieder,</l><lb/>
+<l>Und werden raſch, und geil, und ſchnellen, ſpringen, jauchzen;</l></lg><lb/>
+<fw type="sig" place="bottom">F 3</fw><fw type="catch" place="bottom">da</fw><lb/>
+<pb n="84" facs="#f0086"/>
+<fw type="header" place="top"><hi rendition="#b"><hi rendition="#g">Arion</hi></hi></fw><lb/>
+<p>da er ſein neues Leben begruͤßte, und den un-<lb/>
+tern Delphin prieß, der ihn von den Hoͤllenpfor-<lb/>
+ten zuruͤck getragen hatte. Dieſer hoͤrete es,<lb/>
+und gab nach ſeiner Art ein groſſes Vergnuͤgen<lb/>
+zu erkennen. Die Augen flogen ihm unbeſtaͤndig<lb/>
+herum, ſein groſſes Haupt hub ſich hoch empor,<lb/>
+ſo daß das Waſſer nur den weiſſen Hals be-<lb/>
+ruͤhrte, und dann neben hinunter glitſchte. Der<lb/>
+ſtarcke Schweif rollte ſich, und das Waſſer,<lb/>
+welches aus beyden Naſeloͤchern herfuͤr ſprudelte,<lb/>
+trieb ſeine Bogen noch einmahl ſo hoch.</p><lb/>
+<p>Arions Stimme trug ſich uͤber die ebene See<lb/>
+weg, drang ſelbſt die Wellen durch, und mach-<lb/>
+te die Geſchoͤpfe rege, welche in fremdem Mee-<lb/>
+re wohneten, Delphinen, Meerpferde, Thie-<lb/>
+re die keinen Nahmen haben, welche die Son-<lb/>
+ne ſelten vorhin geſehen hatte. Ein blauer<lb/>
+Schwarm ſtieg nach dem andern aus der Tiefe<lb/>
+herfuͤr, ſie ſchoſſen gleich geſchwinde heran, ſie<lb/>
+ſchienen von Ferne wie wohl ausgeruͤſtete Schif-<lb/>
+fe, die in gerade Linien hingeſtellet das Treffen<lb/>
+erwarten. Sie flogen wie der Wind, ſie wa-<lb/>
+ren ſchon da; ein Hauffen der kaum zu uͤberſe-<lb/>
+hen war, und dennoch war nichts zu hoͤren, als<lb/>
+ein ſanftes Geraͤuſche von der See, welche ſie<lb/>
+mit ihren Leibern zerſchnitten. Sie athmeten<lb/>
+kaum, damit ihnen nicht ein Ton von der Goͤtt-<lb/>
+lichen Harmonie entgienge. Man wuͤrde geſagt<lb/>
+haben, da die Wallfiſche aller Orten aus ihren<lb/>
+Gruͤften hervorkamen, Neptum jagete etwa<lb/>
+mit ſeinem Muſchelwagen, der wenn er von<lb/>
+den Vogelſchnellen Pferden gezogen wird, mit<lb/>
+<fw type="catch" place="bottom">den</fw><lb/>
+<pb n="85" facs="#f0087"/>
+<fw type="header" place="top"><hi rendition="#b">eine poetiſche Erzehlung.</hi></fw><lb/>
+den ehrenen Achſen nicht einmahl das Waſſer be-<lb/>
+ruͤhret, durch die Flaͤche hin, und die Meerthiere<lb/>
+waͤren da, ihrem Herren den Gehorſam zu be-<lb/>
+zeigen.</p><lb/>
+<p>Der wallende Ton arbeitete ſich durch bis zu<lb/>
+den glaͤſernen Zimmern, in welchen die Meer-<lb/>
+goͤtter ihre feuchten Wohnungen haben; dieſe<lb/>
+erſtauneten einsmahls, recketen ihre Ohren nach<lb/>
+dem Klange hin, indem ſie eine Muſick bewun-<lb/>
+derten, die ſelbſt reitzender war, als der muth-<lb/>
+willigen Najaden, wenn dieſe bey kuͤhlem Abend<lb/>
+einander ſingend in der Fluth herum jagen, und<lb/>
+den Triton, den Glaucus, und die uͤbrigen<lb/>
+muntern Meergoͤtter, die in dem nahen Schilf<lb/>
+auf ſie lauren, heranlocken. Unter dieſen ſtrecke-<lb/>
+ten einige ihre Haͤupter uͤber die hoͤchſten Wel-<lb/>
+len hervor; ſie erblicketen den reitenden Arion,<lb/>
+und ſtrichen geſchwind ihr troͤpflend Haar fuͤr den<lb/>
+Ohren weg. Alsbald ſind Neſaͤe, Spio, Ly-<lb/>
+corias, ſamt der uͤbrigen Schaar ihrer Freund-<lb/>
+innen auch da. Sie laͤchelten, und wurden<lb/>
+roth da ſie ſich uͤbertroffen ſahen. Sie ſchwam-<lb/>
+men in einem Circkel um Arion herum. Mit<lb/>
+einer reitzenden Unachtſamkeit flatterten ihre guͤl-<lb/>
+dene Locken auf der nacketen Bruſt her, die man<lb/>
+zwiſchen denſelben mit einer hohen Roſenfarbe<lb/>
+friſch aufſteigen ſah. Die gantze Geſellſchaft be-<lb/>
+gleitete den Arion, ſonderlich die neue Farth zu<lb/>
+betrachten, dergleichen ihr Reich niemahls ge-<lb/>
+ſehen hatte. Nicht anderſt als ehemahls das<lb/>
+unwiſſende Volck einem hitzigen Theſſalier ſtarr<lb/>
+nachſah; wenn er mit ſcharfen Spornen den<lb/>
+<fw type="sig" place="bottom">F 4</fw><fw type="catch" place="bottom">ſchaͤu-</fw><lb/>
+<pb n="86" facs="#f0088"/>
+<fw type="header" place="top"><hi rendition="#b"><hi rendition="#g">Arion</hi></hi></fw><lb/>
+ſchaͤumenden Gaul ritzte, der den Peneus mit<lb/>
+Rennen uͤberholt, mit klappenden Huffen den<lb/>
+ſchwindenden Grund erſchuͤttert, und ſchnell<lb/>
+dem Aug entweicht.</p><lb/>
+<p>Die Goͤtter, welche auf den leichten Wol-<lb/>
+ken herum ſchweben, und mit ſtets wachendem<lb/>
+Auge die Thaten der Menſchen beſchauen, ſe-<lb/>
+hen ſonſt mit Vergnuͤgen von den ewigen Mau-<lb/>
+ren des Himmels herunter, wenn Zephyr mit<lb/>
+heiſchholem Odem die Wellen kraͤuſelt, wie et-<lb/>
+wann hier ſich eine regelmaͤſſige Stadt an das<lb/>
+Meer gepflantzet hat, dort ein hoher Port die<lb/>
+ungeheure See einzudaͤmmen ſuchet, und ſeinen<lb/>
+wuͤtenden Wogen zu trotzen ſcheinet, oder wie<lb/>
+ein kuͤhner Maſt von einem Welttheile in den<lb/>
+andern hineilet. Jzo hatten ſie den treuloſen<lb/>
+Anſchlag der Schiffer gehoͤret. Arions Klagen<lb/>
+hatten ſie geruͤhret. Sie wollten nicht, daß er<lb/>
+der Boßheit aufgeopfert wuͤrde. Sie wollten<lb/>
+ihn unverſehrt nach Corinth bringen, und dem<lb/>
+Koͤnig ſeinem Freunde in die Arme liefern, be-<lb/>
+vor die Schiffsleute ſeine Verraͤther daſelbſt an<lb/>
+Bord kaͤmen; damit dieſe Laſterhafte mit pein-<lb/>
+lichen Strafen gezuͤchtiget wuͤrden.</p><lb/>
+<p>Nunmehr fuhr Arion ſchnell dem Lande zu.<lb/>
+Er empfand ſchon die gewohnte Luft, er ſah<lb/>
+ſchon von weitem die ſpitzen Thuͤrme, die uͤber<lb/>
+Corinth herfuͤr rageten, wie etwann eine ſchwan-<lb/>
+ke Aehre aus dem gelben Haufen ihr Haupt noch<lb/>
+einmahl hoͤher als die andern empor recket, das<lb/>
+hohe Schloß, die abgetheilten Aecker, die brau-<lb/>
+nen Waͤlder, die der Berge Ruͤcken umhuͤlle-<lb/>
+<fw type="catch" place="bottom">ten,</fw><lb/>
+<pb n="87" facs="#f0089"/>
+<fw type="header" place="top"><hi rendition="#b">eine poetiſche Erzehlung.</hi></fw><lb/>
+ten, Fluͤſſe welche die vollen Feld<supplied>e</supplied>r umfaßten,<lb/>
+und bald gerade, bald geſchlancke, vorſich,<lb/>
+hinderſich, izo breit, dann ſchmal, unordentlich-<lb/>
+lieblich ſich umherziehen, als wie eine blaue Ader<lb/>
+durch rothen und gelben Marmel ungewiß her-<lb/>
+umirret. Er entdeckte die ihm geheimen Bu-<lb/>
+chen, praͤchtige Landhaͤuſer, das Geſtade, wo<lb/>
+er mit Sorgen entlaſſen worden. Echo fieng<lb/>
+ſchon an, ihm klingend aus dem nahen Felſen zu<lb/>
+antworten, Echo die er ſo oft ermuͤdet hatte,<lb/>
+wenn er das krumme Thal mit dem Namen<lb/>
+ſeiner friſchen Licoris erfuͤllet hatte.</p></div></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">F 5</fw><fw type="catch" place="bottom">Neue</fw><lb/>
+<pb n="88" facs="#f0090"/>
+<fw type="header" place="top"><hi rendition="#b">Neue Fabeln.</hi></fw><lb/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Neue Fabeln.</hi></hi></head><lb/>
+<lb/>
+<lg type="poem"><head><hi rendition="#aq">I.</hi> <hi rendition="#b">Der ruhmſuͤchtige Baͤr.</hi></head><lg n="1"><l><hi rendition="#in">E</hi>Jn auf den Ruhm erpichter Baͤr</l><lb/>
+<l>Kam bey ſich ſelbſt auf die Gedancken,</l><lb/>
+<l>Die Nachwelt wuͤrd es ihm verdancken,</l><lb/>
+<l>Vernaͤhme ſie, wie groß er einſt geweſen waͤr.</l></lg><lb/>
+<lg n="2"><l>Er ſprach daruͤber ſeine Jungen,</l><lb/>
+<l>Jch ſehe, ſagt er, mich gezwungen,</l><lb/>
+<l>Daß ich den groſſen Coͤrper meſſe,</l><lb/>
+<l>Damit ich deſſen ſeltne Groͤſſe</l><lb/>
+<l>Der Nachwelt ſo vor Augen lege,</l><lb/>
+<l>Daß ſie es deutlich faſſen moͤge.</l></lg><lb/>
+<lg n="3"><l>Jhm fielen gleich die Jungen bey</l><lb/>
+<l>Und ſchwuren: Ja, bey unſrer Treu,</l><lb/>
+<l>Wir ſahen auch ſchon viele Baͤren;</l><lb/>
+<l>Jedoch, es wird noch lange waͤhren,</l><lb/>
+<l>Eh daß in unſerm Koͤnigreiche</l><lb/>
+<l>Sich einer dir an Groͤſſe gleiche.</l><lb/>
+<l>Darum ſo ſey darauf befliſſen,</l><lb/>
+<l>Daß es die ſpaͤten Enckel wiſſen.</l></lg><lb/>
+<fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="89" facs="#f0091"/>
+<fw type="header" place="top"><hi rendition="#b">Neue Fabeln.</hi></fw><lb/>
+<lg n="4"><l>Der Alte dacht jetzt allgemach</l><lb/>
+<l>Dem edlen Unternehmen nach,</l><lb/>
+<l>Und rief, als ers zuletzt erfunden,</l><lb/>
+<l>Jndem die Kinder um ihn ſtuhnden:</l><lb/>
+<l>Fuͤrwahr es haben Kunſt und Witz</l><lb/>
+<l>Jn meinem Coͤrper ihren Sitz!</l></lg><lb/>
+<lg n="5"><l>Gleich leget er ſich in den Schnee,</l><lb/>
+<l>Er ſtreckt die Pfoten in die Hoͤh,</l><lb/>
+<l>Und heißt die Kleinen auf ihn tretten;</l><lb/>
+<l>Dann ſagt er: Jzo will ich wetten,</l><lb/>
+<l>So ſieht man Haut, ſo ſieht man Haar,</l><lb/>
+<l>Zuſammt der Groͤſſe ſonnenklar.</l><lb/>
+<l>Kein Fuͤrſt hat noch in ſeinem Schild</l><lb/>
+<l>Von einem Baͤr ein ſchoͤner Bild.</l></lg><lb/>
+<lg n="6"><l>Ein jeder von den Jungen preiſt</l><lb/>
+<l>Des alten Baͤren ſcharfen Geiſt,</l><lb/>
+<l>Jndem ſie Bild und Gegenbild betrachten,</l><lb/>
+<l>Und es des Urbilds wuͤrdig achten.</l><lb/>
+<l>Ein jeder ſprach: Es iſt gerathen,</l><lb/>
+<l>Fuͤrwahr der Alte hats errathen.</l></lg><lb/>
+<lg n="7"><l>Sie dachten nicht (ein Baͤr denckt nicht ſo weit,)</l><lb/>
+<l>Daß dieſes Meiſterſtuͤck trotz ſeiner Wuͤrde,</l><lb/>
+<l>Trotz aller ſeiner Aehnlichkeit,</l><lb/>
+<l>Jm naͤchſten Schnee verſincken wuͤrde.</l><lb/>
+<l>Es ſchneyte nicht ſobald, als es verſchwand;</l><lb/>
+<l>Witz, Kunſt und Arbeit war vergebens angewandt.</l></lg></lg><lb/>
+<pb n="90" facs="#f0092"/>
+<fw type="header" place="top"><hi rendition="#b">Neue Fabeln.</hi></fw><lb/>
+<lg type="poem"><head><hi rendition="#aq"><hi rendition="#g">II.</hi></hi> <hi rendition="#b">Die Wachteln.</hi></head><lb/>
+<l><hi rendition="#in">E</hi>Jn unzehlbares Wachtelnheer</l><lb/>
+<l>Befand ſich allbereit am Strande,</l><lb/>
+<l>Und zielte ſtuͤndlich uͤber Meer</l><lb/>
+<l>Nach jenem weitentlegnen Lande.</l><lb/>
+<l>Eh ſie die Reiſe unternahmen</l><lb/>
+<l>Verſchluͤckten ſie den Bilſenſamen,</l><lb/>
+<l>Wenn ſie die Artzeney genommen,</l><lb/>
+<l>Von ihrer Fettigkeit zu kommen;</l><lb/>
+<l>Dieweil des Fettes ſchwere Buͤrde</l><lb/>
+<l>Sie ſonſt am Streichen hindern wuͤrde.</l><lb/>
+<l>Doch hoͤrte man die Jungen zancken,</l><lb/>
+<l>Die einen ſagten: Wir erkrancken,</l><lb/>
+<l>Wenn wir ſo viele Tage faſten.</l><lb/>
+<l>Die andern ſprachen: Auszuraſten,</l><lb/>
+<l>Jſt auf dem unbegraͤntzten Meer</l><lb/>
+<l>Kein Aufenthalt fuͤr unſer Heer.</l><lb/>
+<l>Zudem iſt unſer ſchwacher Flug</l><lb/>
+<l>Vom Untergange Vorboths gnug.</l><lb/>
+<l>Die Alten ſprachen: Sorget nicht,</l><lb/>
+<l>Es dienet euch zum Unterricht,</l><lb/>
+<l>Daß wir nicht eh von Lande gehen,</l><lb/>
+<l>Biß daß die guten Winde wehen.</l><lb/>
+<l>Auch finden wir bey Sturm und Wetter</l><lb/>
+<l>Jm Meer an allen Orten Blaͤtter,</l><lb/>
+<l>Auf welche ſich die Muͤden ſetzen,</l><lb/>
+<l>Und dieſes ſonder ſich zu netzen.</l><lb/>
+<l>Es iſt uns noch ihr lieben Jungen,</l><lb/>
+<l>Auf allen Reiſen wohl gelungen.</l><lb/>
+<l>Die kluge Rede fand Gehoͤr,</l><lb/>
+<l>Sie machten ſich gefaßt zur Reiſe</l><lb/>
+<l>Und thaten nach der Aeltern Weiſe.</l><lb/>
+<l>Jzt gieng der Zug hoch uͤber Meer,</l><lb/>
+<l>Und ſie erfuhren gleich den Alten</l><lb/>
+<l>Daß Jupiter die gantze Schaar</l><lb/>
+<l>Vor augenſcheinlicher Gefahr</l><lb/>
+<l>Durch ſeinen weiſen Schutz erhalten.</l></lg><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">III.</hi></fw><lb/>
+<pb n="91" facs="#f0093"/>
+<fw type="header" place="top"><hi rendition="#b">Neue Fabeln.</hi></fw><lb/>
+<lg type="poem"><head><hi rendition="#aq"><hi rendition="#g">III.</hi></hi><lb/>
+<hi rendition="#b">Die Meiſe und der Sperling.</hi></head><lb/>
+<l><hi rendition="#in">E</hi>S hatte die behertzte Meiſe</l><lb/>
+<l>Das warme Jahr durch ihre Speiſe</l><lb/>
+<l>Nach eignem Wuͤnſchen und Verlangen</l><lb/>
+<l>Vollauf und ohne Muͤh empfangen.</l><lb/>
+<l>Bald fieng der Nordwind an zu raſen,</l><lb/>
+<l>Es wurde durch ſein kaltes Blaſen</l><lb/>
+<l>Des Berges Gipfel ſilberweiß,</l><lb/>
+<l>Der Bach, der Teich, der Fluß zu Eiß,</l><lb/>
+<l>Das Feld als Stein, und durch die Kaͤlte</l><lb/>
+<l>Sah man in vielen Baͤumen Spaͤlte.</l><lb/>
+<l>Ey Vogel, nimmſt du ſo verlieb</l><lb/>
+<l>Mit der mit Eiß gewuͤrtzten Speiſe?</l><lb/>
+<l>So ſprach der kleine Saatedieb,</l><lb/>
+<l>Der Sperling, zu der muntern Meiſe.</l><lb/>
+<l>Jch fuͤrchte ſehr, du muͤſſeſt ſterben,</l><lb/>
+<l>Und durch der Kaͤlte Grimm verderben.</l><lb/>
+<l>Was hilft dich izt dein ſtetes Springen,</l><lb/>
+<l>Dein Huͤpfen, Fliegen, und dein Singen,</l><lb/>
+<l>Dein Zizipa, dein Zizipa?</l><lb/>
+<l>Sing eh: O weh! mein End iſt nah!</l><lb/>
+<l>Sieh doch, wie hab ich es ſo gut,</l><lb/>
+<l>Jch zeuge taͤglich friſches Blut;</l><lb/>
+<l>Von Ueberfluß an Speltz und Gerſten</l><lb/>
+<l>Moͤgt ich, du ſiehſt es ſelbſt, zerberſten.</l><lb/>
+<l>Die aufgeweckte Meiſe ſpricht:</l><lb/>
+<l>Der Meiſen Stamm vergehet nicht,</l><lb/>
+<l>So lang im Boden Wuͤrmer leben,</l><lb/>
+<l>Und Muͤcken in den Luͤften ſchweben.</l><lb/>
+<l>Mein Freund, es waͤr ein gleiches Wunder,</l><lb/>
+<l>Gieng ein Geſchlecht, mein oder deines, unter.</l><lb/>
+<l>Nein! Wer nichts nach dem Morgen fragt,</l><lb/>
+<l>Der lebt vergnuͤgt, und unverzagt.</l><lb/>
+<l>Der holde Lentz mit ſeinen Schaͤtzen</l><lb/>
+<l>Wird meinen Mangel ſchon erſetzen.</l><lb/>
+<l>Jch ſinge ſchon, als waͤr er da,</l><lb/>
+<l>Mein Zizipa, mein Zizipa.</l></lg><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">IV.</hi></fw><lb/>
+<pb n="92" facs="#f0094"/>
+<fw type="header" place="top"><hi rendition="#b">Neue Fabeln.</hi></fw><lb/>
+<lg type="poem"><head><hi rendition="#aq"><hi rendition="#g">IV.</hi></hi><lb/>
+<hi rendition="#b">Die Lerche und der Storch.</hi></head><lb/>
+<l><hi rendition="#in">N</hi>Achdem die Lerch der Berge Spitze</l><lb/>
+<l>Mit ihrer holden Stimm erfuͤllt,</l><lb/>
+<l>Erſieht ſie ſich zu ihrem Sitze</l><lb/>
+<l>Ein Feld, wo Thau auf Blumen quillt.</l><lb/>
+<l>Sie ſencket ſich der Erden zu,</l><lb/>
+<l>Doch einsmahls ſtoͤret ihre Ruh</l><lb/>
+<l>Ein Storch, der dort ſpatzieren gieng,</l><lb/>
+<l>Und Froſchen oder Bienen fieng.</l><lb/>
+<l>Biſt du es, ſprach der Storch zur Lerche.</l><lb/>
+<l>Ein Hertz gefaßt! du weiſt die Stoͤrche</l><lb/>
+<l>Verſchlingen kein gefiedert Thier,</l><lb/>
+<l>Drum traue mir, und bleibe hier.</l><lb/>
+<l>Fuͤr dich ſind Stoͤrche keine Fremden;</l><lb/>
+<l>Dich ſoll denn meine Gegenwart</l><lb/>
+<l>O liebſte Lerche, nicht befremden.</l><lb/>
+<l>Was Federn hat, iſt einer Art.</l><lb/>
+<l>So recht, erwiederte die Lerche</l><lb/>
+<l>Mein Leib iſt viel zu klein fuͤr Stoͤrche,</l><lb/>
+<l>Doch ſind die Froſchen faſt ſo klein,</l><lb/>
+<l>Und ſchlingſt du ſie ſo ſchnell hinein.</l><lb/>
+<l>Was mehr iſt, friſſeſt du ja Bienen,</l><lb/>
+<l>Die Meiſen ſonſt zur Speiſe dienen.</l><lb/>
+<l>Nein, nein, dein blutgefaͤrbter Schnabel</l><lb/>
+<l>Lehrt mich es ſeye keine Fabel,</l><lb/>
+<l>Daß du der Schlangen Meiſter ſeyſt.</l><lb/>
+<l>Ey <hi rendition="#aq">vivant,</hi> ruft ſie, meine Fluͤgel!</l><lb/>
+<l>Und fliegt auf einen fernen Huͤgel.</l></lg><lb/>
+<p><hi rendition="#c"><hi rendition="#g">ENDE.</hi></hi></p></div><lb/>
+<pb facs="#f0095"/>
+</body></text> </TEI>

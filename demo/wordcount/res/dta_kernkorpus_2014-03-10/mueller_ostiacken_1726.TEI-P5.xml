@@ -1,0 +1,2814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Leben und Gewohnheiten Der Ostiacken</title>
+<title type="sub">Eines Volcks, das biß unter dem Polo Arctio wohnet, wie selbiges aus dem Heydenthum in diesen Zeiten zur Christl. Griechischen Religion gebracht, Mit etlichen curieusen Anmerckungen Vom Königreich Sibirien Und seinem Freto Nassovio oder Weigats, In der Gefangenschafft daselbst beschrieben und anjetzo mit einer Vorrede versehen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/173143075">
+<surname>Müller</surname>
+<forename>Johann Bernhard</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">94</measure>
+<measure type="tokens">16025</measure>
+<measure type="types">4344</measure>
+<measure type="characters">112076</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:53Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/mueller_ostiacken_1726</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/mueller_ostiacken_1726</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/mueller_ostiacken_1726</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/mueller_ostiacken_1726</idno>
+<idno type="DTADirName">mueller_ostiacken_1726</idno>
+<idno type="DTAID">20876</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Müller, Johann Bernhard: Leben und Gewohnheiten Der Ostiacken. Berlin, 1726.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Leben und Gewohnheiten Der Ostiacken</title>
+<title level="m" type="sub">Eines Volcks, das biß unter dem Polo Arctio wohnet, wie selbiges aus dem Heydenthum in diesen Zeiten zur Christl. Griechischen Religion gebracht, Mit etlichen curieusen Anmerckungen Vom Königreich Sibirien Und seinem Freto Nassovio oder Weigats, In der Gefangenschafft daselbst beschrieben und anjetzo mit einer Vorrede versehen</title>
+<author>
+<persName ref="http://d-nb.info/gnd/173143075">
+<surname>Müller</surname>
+<forename>Johann Bernhard</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">[8] Bl., 75 S.</measure>
+</extent>
+<publicationStmt>
+<publisher/>
+<date type="publication">1726</date>
+</publicationStmt>
+<notesStmt>
+<note type="remarkSource">Die vorliegende Ausgabe ist die erste eigenständige Veröffentlichung von Müller. Erstmals wurde der Text 1720 in Friedrich Christian Weber: 'Das veränderte Russland' bei Nicolaus Förster in Frankfurt (Main) veröffentlicht.</note>
+</notesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SLUB Dresden</repository>
+<idno>
+<idno type="shelfmark">SLUB Dresden, Hist.Russ.2059,4</idno>
+<idno type="URLCatalogue">http://slubdd.de/katalog?libero_mab2762731</idno>
+<idno type="URLCatalogue">http://katalog.slub-dresden.de/primo_library/libweb/action/search.do?dscnt=0&amp;vl(174636822UI0)=lsr04&amp;scp.scps=SemanticThirdNode&amp;frbg=&amp;tab=default_tab&amp;srt=rank&amp;ct=search&amp;mode=Basic&amp;dum=true&amp;avgl-search-only-in=search_lsr01&amp;indx=1&amp;tb=t&amp;vl(freeText0)=Hist.Russ.2059%2C4&amp;vid=SEM&amp;fn=search</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Geographie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Geographie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<titlePage type="main"><byline> <docAuthor><hi rendition="#b #red">Johann Bernhard Muͤllers,</hi></docAuthor><lb/>
+<hi rendition="#b">Koͤnigl. Schwediſchen Drag. Capitain,</hi></byline><lb/>
+<docTitle><titlePart type="main"><hi rendition="#b">Leben<lb/>
+und Gewohnheiten</hi><lb/>
+Der<lb/>
+<hi rendition="#aq"><hi rendition="#b #red">OSTIACKEN,</hi></hi></titlePart><lb/>
+<titlePart type="sub"><hi rendition="#b">Eines Volcks, das biß unter dem</hi><lb/>
+<hi rendition="#aq">Polo Arctio</hi> wohnet, wie ſelbiges aus<lb/>
+dem Heydenthum in dieſen Zeiten<lb/>
+<hi rendition="#fr">zur</hi><lb/>
+<hi rendition="#b #red">Chriſtl. Griechiſchen Religion</hi><lb/>
+gebracht,<lb/>
+Mit etlichen <hi rendition="#aq"><hi rendition="#i">curieuſen</hi></hi> Anmerckungen<lb/>
+<hi rendition="#fr">Vom</hi><lb/>
+<hi rendition="#b #red">Koͤnigreich Siberien</hi><lb/>
+Und ſeinem<lb/>
+<hi rendition="#aq"><hi rendition="#b"><hi rendition="#i #red">Freto Naſſovio</hi></hi></hi><lb/>
+oder <hi rendition="#aq"><hi rendition="#i">Weigats</hi>,</hi></titlePart><lb/>
+<titlePart type="desc">Jn der Gefangenſchafft daſelbſt beſchrieben<lb/>
+und anjetzo mit einer Vorrede verſehen.</titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace><hi rendition="#g"><hi rendition="#fr">BERLJN,</hi></hi></pubPlace><lb/>
+<publisher><hi rendition="#b #red">Bey Chriſtoph Gottlieb <hi rendition="#aq"><hi rendition="#g">N<hi rendition="#k">icolai</hi></hi>,</hi></hi></publisher><lb/>
+<docDate>1726.</docDate></docImprint></titlePage><lb/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1" type="preface"><head><hi rendition="#fr">Vorbericht.</hi></head><lb/>
+<p><hi rendition="#in">O</hi>B man zwar da-<lb/>
+fuͤr halten ſolte,<lb/>
+daß der bewohnte<lb/>
+Erd-Creiß nach gerade ſo<lb/>
+genau durchkrochen, daß<lb/>
+wenigſtens in unſerem Eu-<lb/>
+ropa kein Volck mehr uͤbrig,<lb/>
+welches uns nicht bekannt<lb/>
+ſey, und aus dem abgoͤtti-<lb/>
+ſchen Heydenthum errettet<lb/>
+worden; So wird der ge-<lb/>
+neigte Leſer doch in dieſer <hi rendition="#aq"><hi rendition="#i">cu-</hi></hi><lb/>
+<fw type="sig" place="bottom">)( 2</fw><fw type="catch" place="bottom"><hi rendition="#aq"><hi rendition="#i">rieu-</hi></hi></fw><lb/>
+<pb facs="#f0006"/>
+<fw type="header" place="top">Vorbericht.</fw><lb/>
+<hi rendition="#aq"><hi rendition="#i">rieuſen</hi></hi> Beſchreibung ein ſol-<lb/>
+ches <hi rendition="#aq"><hi rendition="#i">Exempel</hi></hi> finden, daran<lb/>
+man nicht ſonder Verwunde-<lb/>
+rung das Gegentheil ſiehet.<lb/>
+Denn hieꝛin weꝛden die bißhe-<lb/>
+ro gar unbekandten <hi rendition="#aq"><hi rendition="#i">Oſtia-<lb/>
+cken</hi>,</hi> ein beſonderes Volck des<lb/>
+wilden Siberiens, welches<lb/>
+einen groſſen Theil der Ein-<lb/>
+wohner dieſes weitlaͤufftigen<lb/>
+Reiches ausmachet, nicht al-<lb/>
+lein nach allen Umſtaͤnden<lb/>
+ſehr ſorgfaͤltig beſchrieben,<lb/>
+ſondern es wird auch ein kur-<lb/>
+tzer Bericht ertheilet, wie ſie<lb/>
+anno 1712. nachdem ſie ſchon<lb/>
+vorhero der Regierung Jhro<lb/>
+<fw type="catch" place="bottom">Czaa-</fw><lb/>
+<pb facs="#f0007"/>
+<fw type="header" place="top">Vorbericht.</fw><lb/>
+Czaariſchen Maj. einverlei-<lb/>
+bet worden, zum Chriſtlichen<lb/>
+Glauben angewieſen. Der<lb/>
+<hi rendition="#aq"><hi rendition="#i">Autor</hi>,</hi> ſo ein gelehrter<lb/>
+Schwediſcher <hi rendition="#aq"><hi rendition="#i">Offici</hi></hi>rer, hat<lb/>
+ſehr gute Gelegenheit gehabt,<lb/>
+dieſes Volcks wegen ſich ge-<lb/>
+nau zu erkundigen, und giebt<lb/>
+deßwegen von allem Merck-<lb/>
+wuͤrdigen deſto ſichere Nach-<lb/>
+richt. Das gantze Werck iſt<lb/>
+in vier Capitel verfaſſet, von<lb/>
+welchen das erſte die Gegend<lb/>
+von Siberien, woſelbſt die<lb/>
+<hi rendition="#aq"><hi rendition="#i">Oſtiacken</hi></hi> ihren Auffenthalt<lb/>
+haben, deutlich beſchꝛeibet, und<lb/>
+von ihrem Nahmen, Uhr-<lb/>
+<fw type="sig" place="bottom">)( 3</fw><fw type="catch" place="bottom">ſprung,</fw><lb/>
+<pb facs="#f0008"/>
+<fw type="header" place="top">Vorbericht.</fw><lb/>
+ſprung, Sprache und Geſtalt<lb/>
+uns kuͤrtzlich berichtet. Jhre<lb/>
+wunderbahre Lebens - Art<lb/>
+wird hiernechſt im andern<lb/>
+Capitel ausfuͤhrlich gezeiget,<lb/>
+und mit ihrer Erziehung,<lb/>
+Speiſe, Wohnung, Fuhr-<lb/>
+werck, Kleidung, Regierung,<lb/>
+Kranckheit, Eheſtand und<lb/>
+Begraͤbniß gar merckwuͤrdig<lb/>
+erlaͤutert. Von ihrer Religi-<lb/>
+on und ungeheurem Goͤtzen-<lb/>
+dienſt, ihren ſeltſamen Goͤ-<lb/>
+tzen-Bildern, und derſelben<lb/>
+ungewoͤhnlichen Verehrung<lb/>
+und Beſchimpffung, ihren<lb/>
+Pfaffen, Wahrſagen, Opf-<lb/>
+fern, Eydſchwuͤren und der-<lb/>
+<fw type="catch" place="bottom">glei-</fw><lb/>
+<pb facs="#f0009"/>
+<fw type="header" place="top">Vorbericht.</fw><lb/>
+gleichen Seltenheiten, findet<lb/>
+man das dritte Capitel ange-<lb/>
+fuͤllet. Worauf endlich das<lb/>
+vierdte den Anfang ihrer<lb/>
+Bekehrung zur Chriſtlichen<lb/>
+Griechiſchen Religion kuͤrtz-<lb/>
+lich anzeiget. Dieſes alles<lb/>
+iſt voller merckwuͤrdigen Din-<lb/>
+gen, welche ſowohl in der <hi rendition="#aq"><hi rendition="#i">Hi-<lb/>
+ſtoria natur ali</hi></hi> als <hi rendition="#aq"><hi rendition="#i">curioſa</hi></hi> ih-<lb/>
+ren Platz behaupten koͤnnen,<lb/>
+wovon die Beſchreibung des<lb/>
+greßlichen Thieres, ſo die Ein-<lb/>
+wohner Siberiens Mamont<lb/>
+nennen ſollen, ein Beweiß<lb/>
+ſeyn mag. So iſt auch was<lb/>
+ſonderliches, daß dieſes un-<lb/>
+<fw type="sig" place="bottom">)( 4</fw><fw type="catch" place="bottom">wiſ-</fw><lb/>
+<pb facs="#f0010"/>
+<fw type="header" place="top">Vorbericht.</fw><lb/>
+wiſſende Volck die alte Mey-<lb/>
+nung von der <hi rendition="#aq"><hi rendition="#i">Metempſy-<lb/>
+choſi</hi>,</hi> oder der Seelen Wan-<lb/>
+derſchafft in unterſchiedliche<lb/>
+Leiber, ſo feſt eingeſogen, daß<lb/>
+ſie deßfalls einem erſchlage-<lb/>
+nen Baͤren gar ſonderbahre<lb/>
+Abbitte thun, und ihn um<lb/>
+Vergebung bitten, daß Sie<lb/>
+den Pfeil abgedruckt, der ihn<lb/>
+getroffen. Dergl. iſt auch zu<lb/>
+verwundern, daß keine Wild-<lb/>
+nis bey dieſen Leuten die See-<lb/>
+le ſo ſehr verwildern koͤnnen,<lb/>
+daß Sie nicht die Hoffnung<lb/>
+eines kuͤnfftigen Lebens uͤbrig<lb/>
+behalten, woraus man ge-<lb/>
+<fw type="catch" place="bottom">nug-</fw><lb/>
+<pb facs="#f0011"/>
+<fw type="header" place="top">Vorbericht.</fw><lb/>
+nugſam ſiehet, daß ſolches<lb/>
+Licht in der Natur ſelbſt ſehr<lb/>
+tieff muͤſſe gegruͤndet ſeyn.<lb/>
+Wie ſehr <hi rendition="#aq"><hi rendition="#i">intereſſi</hi></hi>ret aber die<lb/>
+Menſchen von Natur bey ih-<lb/>
+rem Gottesdienſt insgemein<lb/>
+zu ſeyn pflegen, und wie Sie<lb/>
+deßfalls mit ihrem Schoͤpffer<lb/>
+umgehen, kan man aus der<lb/>
+Hiſtorie dieſes Volcks gar<lb/>
+deutlich aufdecken. Denn der<lb/>
+<hi rendition="#aq"><hi rendition="#i">Autor</hi></hi> erzehlt von ihnen, daß<lb/>
+Sie ihren <hi rendition="#aq"><hi rendition="#i">Scheitan</hi></hi> und<lb/>
+Fiſch-Goͤtzen, wenn er ihnen<lb/>
+auf vorhergegangenes Bit-<lb/>
+ten ſofort keinen reichen Fiſch-<lb/>
+Fang beſcheret, ſehr uͤbel tra-<lb/>
+<fw type="sig" place="bottom">)( 5</fw><fw type="catch" place="bottom">ctiret</fw><lb/>
+<pb facs="#f0012"/>
+<fw type="header" place="top">Vorbericht.</fw><lb/>
+ctiret, ihn heßlich ausgeſchol-<lb/>
+ten, hart gepeitſchet, und in<lb/>
+ein garſtig Loch geworffen,<lb/>
+biß Sie wieder einen guten<lb/>
+Fang gethan haͤtten, da Sie<lb/>
+ihn wieder hervor ſuchten.<lb/>
+Eben ſo ſind die meiſten Men-<lb/>
+ſchen auf <hi rendition="#aq"><hi rendition="#i">ſubtile</hi></hi> Weiſe gegen<lb/>
+den lebendigen GOtt gear-<lb/>
+tet, daß ſie ihn im Gluͤck und<lb/>
+Wohlſtand ehꝛen, aber im Un-<lb/>
+gluͤcke und Mangel nur wider<lb/>
+ihn murren wollen. Doch<lb/>
+der geneigte Leſer wird bey<lb/>
+Durchleſung dieſes kleinen<lb/>
+Tractats noch mehres finden,<lb/>
+ſo ihn zu mancherley Nachſin-<lb/>
+<fw type="catch" place="bottom">nen</fw><lb/>
+<pb facs="#f0013"/>
+<fw type="header" place="top">Vorbericht.</fw><lb/>
+nen wird anleiten koͤnnen.<lb/>
+Weil aber zugleich an dieſem<lb/>
+Volck ein lebendiges Exem-<lb/>
+pel des menſchlichen Elendes,<lb/>
+darin er von Natur und auſſer<lb/>
+dem wahren Erkaͤnntnis<lb/>
+GOttes ſtecket, zu ſehen iſt, ſo<lb/>
+wird der Nutzen dieſer Hiſto-<lb/>
+riſchen Beſchreibung ſo viel<lb/>
+groͤſſer ſeyn, wenn man dar-<lb/>
+aus Gelegenheit nehmen<lb/>
+wiꝛd, ſich zu deſto mehꝛer Veꝛ-<lb/>
+gnuͤgſamkeit zu gewehnen, je<lb/>
+tauſendmahl mehr <hi rendition="#aq"><hi rendition="#i">commodi-<lb/>
+te</hi></hi> man fuͤr dieſen armſeeligen<lb/>
+Leuten hat, wenn man auch<lb/>
+nur im Bauren- und Bett-<lb/>
+<fw type="catch" place="bottom">ler-</fw><lb/>
+<pb facs="#f0014"/>
+<fw type="header" place="top">Vorbericht.</fw><lb/>
+ler-Stande leben ſolte. Da<lb/>
+man denn auch ſiehet, wie<lb/>
+nunmehro dieſem blinden<lb/>
+Volck einiges Licht in der<lb/>
+Chriſtlichen Religion aufge-<lb/>
+gangen, ſo kan man der wun-<lb/>
+derbahren goͤttlichen Fuͤrſe-<lb/>
+hung tieffes Geheimniß zu-<lb/>
+gleich bewundern, daß endlich<lb/>
+auch zu dieſem Ende der Er-<lb/>
+den die Fuͤſſe der Boten kom-<lb/>
+men, die des HErrn Nahmen<lb/>
+predigen, und in dieſem fin-<lb/>
+ſtern Winckel der Welt die<lb/>
+heydniſche Goͤtzen verſtoͤhren,<lb/>
+und des Teuffels Werck zu<lb/>
+nichte machen muͤſſen. Wir<lb/>
+<fw type="catch" place="bottom">wuͤn-</fw><lb/>
+<pb facs="#f0015"/>
+<fw type="header" place="top">Vorbericht.</fw><lb/>
+wuͤnſchen bald mehrere Nach-<lb/>
+richt von dem guten Fort-<lb/>
+gang dieſer Sachen zu ver-<lb/>
+nehmen; indeſſen der geneigte<lb/>
+Leſer dieſes zu ſeinem Seegen<lb/>
+<hi rendition="#c">gebrauchen, und in GOtt<lb/>
+jederzeit vergnuͤgt le-<lb/>
+ben wolle.</hi></p><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom">Das</fw></div></front><body><lb/>
+<pb facs="#f0016"/>
+<pb n="[1]" facs="#f0017"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#fr">Das erſte Capitel.</hi></head><lb/>
+<argument><p><hi rendition="#c"><hi rendition="#fr">Von der Beſchaffenheit des<lb/>
+Koͤnig-Reichs Siberien/ und<lb/>
+dem Herkommen der</hi><lb/>
+<hi rendition="#aq">Oſtiacken.</hi></hi></p></argument><lb/>
+<p><hi rendition="#c">§ 1.</hi></p><lb/>
+<p><hi rendition="#in">E</hi>S haben ſich bißhero keine<lb/>
+frembde/ und gar wenig einhei-<lb/>
+miſche <hi rendition="#aq">Scribenten</hi> unterwunden/<lb/>
+ſo wenig von dem gantzen <hi rendition="#aq">Siberi-</hi><lb/>
+en/ als inſonderheit von dieſem<lb/>
+Volcke/ das unter einem ſo rauhen <hi rendition="#aq">Climate</hi> ſich<lb/>
+eingeneſtet hat/ eine <hi rendition="#aq">particulaire</hi> Nachricht zu<lb/>
+geben; Geſchweige daß bey der <hi rendition="#aq">Oſtiacki</hi>ſchen<lb/>
+<hi rendition="#aq">Nation,</hi> die weder vom leſen oder ſchreiben etwas<lb/>
+weiß/ einige Ur kunden ihres Alterthums und <hi rendition="#aq">De-<lb/>
+rivation</hi> ihres Geſchlechtes ſelten anzutreffen<lb/>
+ſeyn. Die Schuld liegt vermuthlich daran,<lb/>
+<fw type="sig" place="bottom">A</fw><fw type="catch" place="bottom">daß</fw><lb/>
+<pb n="2" facs="#f0018"/>
+daß die Einheimiſche von einem ſo kalten und<lb/>
+wuͤſten Orte ihnen nicht haben die Muͤhe neh-<lb/>
+men wollen, eine Beſchreibung aufzuſetzen/ und<lb/>
+denen Fremden hat dieſe Laͤnder zu beſuchen ſo<lb/>
+wohl die Erlaubniß/ als die Luſt zu einer ſo un-<lb/>
+luſtigen <hi rendition="#aq">peregrination</hi> gefehlet. Doch wuͤrde<lb/>
+es der Muͤhe wol wehrt ſeyn/ einige Eigen-<lb/>
+ſchafften von dieſer Gegend und dem darin woh-<lb/>
+nenden Volcke/ der <hi rendition="#aq">curieuſen</hi> Welt zu entde-<lb/>
+cken/ bey dieſen Ereigungen/ da einem ſolchen<lb/>
+armſeligen Volcke das Licht des Evangelii am<lb/>
+Abend der Welt zu ſcheinen beginnet.</p><lb/>
+<p>§. 2. Das Koͤnigreich <hi rendition="#aq">Siberien</hi> mit der<lb/>
+Nordlichen und Nord-Oſtlichẽ Seite der Welt-<lb/>
+Kugel/ von dem 55. <hi rendition="#aq">grad. latit.</hi> anzurechnen/ von<lb/>
+deꝛ Haupt-Stadt biß an die <hi rendition="#aq">Zonam frigidam Se-<lb/>
+ptentrionalem,</hi> wo man bißheꝛo nicht weiteꝛ kom-<lb/>
+men koͤnnen, beſchließt gegen Morgen <hi rendition="#aq">Mangaſea,</hi><lb/>
+wo die <hi rendition="#aq">Samogiten</hi> und <hi rendition="#aq">Svetohci</hi> leben/ <hi rendition="#aq">Suruchan<lb/>
+&amp; c.</hi> und endiget ſich an <hi rendition="#aq">Kamſchatki,</hi> einem Lande<lb/>
+das vor 20. Jahren ohngefehr entdecket/ und dem<lb/>
+Rußiſchen Reiche unterwuͤrffig gemacht wor-<lb/>
+den. An der Mittaͤglichen Seite graͤntzet die<lb/>
+letzte Stadt <hi rendition="#aq">Jerkutski</hi> an dem <hi rendition="#aq">Chineſi</hi>ſchen Rei-<lb/>
+che. Gegen Abend endiget es ſich an dem <hi rendition="#aq">Mon-<lb/>
+galen, Ajakai</hi>ſchen/ <hi rendition="#aq">Kontaiſi</hi>ſchen (welche beyde<lb/>
+letztere von ihren 2. <hi rendition="#aq">Puiſſancen Ajuka</hi> und <hi rendition="#aq">Kon-<lb/>
+tai</hi>ſch die Benennung haben) und <hi rendition="#aq">Buchari</hi>ſchen<lb/>
+<hi rendition="#aq">Tartarn,</hi> die dem <hi rendition="#aq">Kontai</hi>ſch unterwuͤrffig. Die<lb/>
+letztere werden vor kluge und <hi rendition="#aq">civiliſirt</hi>e Leute ge-<lb/>
+<fw type="catch" place="bottom">halten/</fw><lb/>
+<pb n="3" facs="#f0019"/>
+halten/ und ſollen der Lebens-Art der <hi rendition="#aq">Chineſi-</hi><lb/>
+ſchen in allem ſehr nahe kommen.</p><lb/>
+<p>§. 3. Ein alter Rußiſcher <hi rendition="#aq">Anonymus,</hi> giebt<lb/>
+von <hi rendition="#aq">Siberien en general</hi> dieſen Bericht/ welches<lb/>
+im Teutſchen uͤberſetzet folgender maſſen lau-<lb/>
+tet: <hi rendition="#aq">Siberien</hi> iſt eine mitternaͤchtliche Seite, und<lb/>
+liegt von <hi rendition="#aq">Moscau</hi> 2000. Wuͤrſt. Die viele<lb/>
+und hohe ſteinerne Gebuͤrge/ ſo ſich biß unter die<lb/>
+Wolcken ſtrecken/ ſcheiden dis Koͤnigreich<lb/>
+und Rußland von einander. Dieſe Berge ſind<lb/>
+durch GOttes Fuͤrſehung wie eine Mauer beve-<lb/>
+ſtiget, und wachſen darauf allerhand Baͤume/<lb/>
+Cedern und dergleichen. Die Einwohner fan-<lb/>
+gen Thiere von unterſchiedener Art, zur Beklei-<lb/>
+dung und Zierath vor die Menſchen. Die/<lb/>
+welche ſie zur Kleidung gebrauchen, ſind Elende/<lb/>
+Rehe, Hirſche, Haaſen. Zum Zierath aber/<lb/>
+Bieber/ Vielfraſſe/ Grauwercke/ Zobeln/<lb/>
+Fuͤchſe und deꝛgleichen. Aus obgedachten Bergen<lb/>
+und Felſen flieſſen auch heraus viele Stroͤme/<lb/>
+deren einige in Rußland, einige aber in <hi rendition="#aq">Siberien</hi><lb/>
+fallen. Und iſt es kein geringes Wunder/ daß<lb/>
+aus ſo hohen Felſen ſo groſſe Stroͤme und ſo<lb/>
+ſuͤſſes Waſſer quellen koͤnne/ die eine Menge von<lb/>
+allerhand Fiſchen in ſich beſchlieſſen. Der erſte<lb/>
+Strom ſo in <hi rendition="#aq">Siberien</hi> fließt, heiſt <hi rendition="#aq">Tura,</hi> ſeine<lb/>
+Bewohner ſind die <hi rendition="#aq">Vogulitzen,</hi> die ihre eigene<lb/>
+Sprache haben/ und den Teuffel in ihren Goͤtzen<lb/>
+anbeten; der andere Strom heiſt <hi rendition="#aq">Tagill,</hi> der<lb/>
+dritte <hi rendition="#aq">Nitza,</hi> und kommen die drey Stroͤme in<lb/>
+einer Muͤndung zuſammen. Der Ort aber<lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">wo</fw><lb/>
+<pb n="4" facs="#f0020"/>
+wo ſie zuſammen ſtoſſen/ heiſt noch immer <hi rendition="#aq">Tura,</hi><lb/>
+biß er in die <hi rendition="#aq">Tobol</hi> faͤllt/ und da wohnen die <hi rendition="#aq">Tar-<lb/>
+tarn. Tobol</hi> faͤllt in die <hi rendition="#aq">Irtis, Irtis</hi> aber in den<lb/>
+groſſen <hi rendition="#aq">Obi.</hi> An dieſen Stroͤmen wohnen viele<lb/>
+Heydniſche <hi rendition="#aq">Tartarn, Calmucken, Mongalen,</hi><lb/>
+die <hi rendition="#aq">Piejaga, Horda, Oſtiacken, Samogiten</hi> und<lb/>
+dergleichen Heyden/ die von GOtt nicht wiſſen.<lb/>
+Die <hi rendition="#aq">Tartarn</hi> ſind <hi rendition="#aq">Mahometi</hi>ſch, die <hi rendition="#aq">Calmucken</hi><lb/>
+aber halten ein Geſetz, welches die Eltern denen<lb/>
+Kindern vorſchreiben/ den rechten Grund weiß<lb/>
+keiner hievon/ maſſen keine Schrifft bey ihnen<lb/>
+gefunden wird. Die <hi rendition="#aq">Piejaga, Horda, Oſtia-<lb/>
+cken</hi> und <hi rendition="#aq">Samogiten</hi> beten die Abgoͤtter an/ ſie<lb/>
+leben ſonder Geſetze/ opffern und bringen denen<lb/>
+ſelbſt gemachten Goͤtzen Gaben/ und bilden ſich<lb/>
+ein/ daß ſie von denen Goͤtzen den Auffenthalt ih-<lb/>
+rer Nothdurfft und Nahrung haben. Sie<lb/>
+eſſen auch nicht was menſchlich iſt/ ſondern roh<lb/>
+Fleiſch/ und Aaß von allerhand Thieren unge-<lb/>
+kocht/ Graß und Wurtzeln/ ſie wiſſen von keinem<lb/>
+Brodt/ und trincken Blut wie Waſſer. Der<lb/>
+groſſe Strohm <hi rendition="#aq">Obi</hi> laufft in die <hi rendition="#aq">Guba Manga-<lb/>
+ſea.</hi> Die <hi rendition="#aq">Guba</hi> hat eine Oeffnung/ und laufft<lb/>
+im groſſen <hi rendition="#aq">Oceano</hi> um/ und bey dieſer Muͤndung<lb/>
+ſind groſſe Eyß-Berge von alters her/ und thau-<lb/>
+et die Sonne ſelbige nimmer auf/ ſondern wer-<lb/>
+den denn und wenn vom Winde erſchuͤttert, es<lb/>
+kan auch niemand dahin kommen/ daher alles<lb/>
+unbekannt iſt. (biß hieher der <hi rendition="#aq">Anonymus.</hi>)</p><lb/>
+<p>§. 4. Ob nun <hi rendition="#aq">Siberien</hi> von Anfange dieſen<lb/>
+Nahmen gefuͤhret/ kan man nicht eigentlich wiſ-<lb/>
+<fw type="catch" place="bottom">ſen.</fw><lb/>
+<pb n="5" facs="#f0021"/>
+ſen. Dis aber melden etliche <hi rendition="#aq">Scribenten,</hi> daß<lb/>
+ein <hi rendition="#aq">Siberi</hi>ſcher Fuͤrſt/ Nahmens <hi rendition="#aq">Mahmet,</hi> ihm<lb/>
+an dem Fluß <hi rendition="#aq">Irtis</hi> habe eine Stadt erbaut/ die<lb/>
+er <hi rendition="#aq">Sibir</hi> genannt, welches auf <hi rendition="#aq">Tartari</hi>ſch ſo viel<lb/>
+heiſſen ſoll, als die vornehmſte/ und ſey nachge-<lb/>
+hends das gantze Land unter dem Nahmen <hi rendition="#aq">Sibe-<lb/>
+rien</hi> betitult.</p><lb/>
+<p>§. 5. Von den Regierungen dieſer Fuͤrſten/<lb/>
+hat man hin und wieder folgende Nachricht. An<lb/>
+dem Fluſſe <hi rendition="#aq">Iſchim,</hi> der in die <hi rendition="#aq">Irtis</hi> faͤllt/ regierte<lb/>
+ein <hi rendition="#aq">Czaar</hi> oder Koͤnig/ Nahmens <hi rendition="#aq">On, Mahometi-</hi><lb/>
+ſcher <hi rendition="#aq">Religion. Zingidi</hi> ein gemeiner Unter-<lb/>
+than/ war mit ſeiner Regierung nicht zu frieden/<lb/>
+ſondern brachte das gemeine Volck auf ſeine<lb/>
+Seite; Er jagte den Koͤnig <hi rendition="#aq">On</hi> von Land und<lb/>
+Leuten/ und bemeiſterte in kurtzen ſich des Koͤnig-<lb/>
+reichs/ nachdem er <hi rendition="#aq">On</hi> erwuͤrget hatte. Er<lb/>
+fuͤhrte ſeine Regierung gar gluͤcklich, und wie<lb/>
+ihm nach wenig Jahren berichtet wurde/ daß des<lb/>
+ermordeten <hi rendition="#aq">Ons</hi> Sohn <hi rendition="#aq">Taibuga,</hi> vermittels der<lb/>
+Flucht <hi rendition="#aq">echapi</hi>ret ſey/ und bey denen Untertha-<lb/>
+nen ſich unbekannt aufhielte/ nahm er ihn mit<lb/>
+Hoͤfflichkeit auf/ und beſchenckte ihn mit einem<lb/>
+Fuͤrſtenthum. <hi rendition="#aq">Taibuga</hi> blieb einige Jahre bey<lb/>
+Hofe/ gewann des <hi rendition="#aq">Zingidi</hi> Gnade durch ſeine<lb/>
+gute Auffuͤhrung/ ſolcher geſtalt/ daß er ihm auch<lb/>
+eine <hi rendition="#aq">Armée</hi> anzufuͤhren vertrauete. Womit<lb/>
+dieſer junge Herr ſich die <hi rendition="#aq">Irtis</hi> hinauf nach dem<lb/>
+<hi rendition="#aq">Obi</hi> Fluß begab/ und nach erhaltenem Siege<lb/>
+mit groſſem Raube bey <hi rendition="#aq">Zingidi</hi> ſich wieder<lb/>
+einfunde. Hierdurch ſetzte er ſich bey dem Koͤ-<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">nige</fw><lb/>
+<pb n="6" facs="#f0022"/>
+nige in ſolchen <hi rendition="#aq">Credit,</hi> daß er ihm auch erlaubte<lb/>
+zu wohnen/ wo es ihm beliebte. Sothanen<lb/>
+Vorſchlag ſchlug <hi rendition="#aq">Taibuga</hi> nicht aus/ ſondern<lb/>
+begab ſich mit ſeinem Hauffen und Angehoͤrigen<lb/>
+an den Fluß <hi rendition="#aq">Tura,</hi> bauete ihm eine Stadt, und<lb/>
+nannte ſie <hi rendition="#aq">Onzingiddin,</hi> auf demſelbigen Platz/<lb/>
+wo <hi rendition="#aq">Tumeen</hi> heutiges Tages ſtehet.</p><lb/>
+<p>§ 6. <hi rendition="#aq">Zingiddin</hi> ſtarb ohne Erben/ und ließ<lb/>
+das Reich dem <hi rendition="#aq">Taibuga.</hi> Dieſem folgte ſein<lb/>
+Sohn <hi rendition="#aq">Chod,</hi> nach <hi rendition="#aq">Chod</hi> deſſen Sohn <hi rendition="#aq">Mar, Mar</hi><lb/>
+verheyrathete ſich mit des <hi rendition="#aq">Caſani</hi>ſchen Koͤniges<lb/>
+<hi rendition="#aq">Upaks</hi> Schweſter/ welcher den <hi rendition="#aq">Mar</hi> mit Krieg<lb/>
+uͤberzog/ ſein Reich einnahm/ und ſich in <hi rendition="#aq">Siberien</hi><lb/>
+niederließ. Er regierte viele Jahr/ biß die beyde<lb/>
+Soͤhne des <hi rendition="#aq">Mar,</hi> Nahmens <hi rendition="#aq">Obder</hi> und <hi rendition="#aq">Jerbelak</hi><lb/>
+natuͤrlichen Todes ſturben/ und des <hi rendition="#aq">Obders</hi><lb/>
+Sohn <hi rendition="#aq">Mahmet</hi> ihm eine Macht zu wege brach-<lb/>
+te/ womit er den <hi rendition="#aq">Caſani</hi>ſchen <hi rendition="#aq">Upak</hi> uͤbern Hauf-<lb/>
+fen warff/ ihm das Leben nahm/ und die Stadt<lb/>
+<hi rendition="#aq">Onzingiddin,</hi> die <hi rendition="#aq">Taibuga</hi> an der <hi rendition="#aq">Tura</hi> ge-<lb/>
+bauet/ ſchleiffete. Er begab ſich auch weiter in<lb/>
+<hi rendition="#aq">Siberien,</hi> und bauete ihm eine Stadt an dem<lb/>
+Fluſſe <hi rendition="#aq">Irtis,</hi> die er <hi rendition="#aq">Sibir</hi> nannte/ welche nachge-<lb/>
+hends von den Ruſſen beſſer angelegt und<lb/>
+<hi rendition="#aq">Tobolski</hi> genannt wurde. Jhm folgete <hi rendition="#aq">Jerbe-<lb/>
+laks</hi> Sohn/ <hi rendition="#aq">Agy</hi>ſch. Dieſem <hi rendition="#aq">Mahmets</hi> Sohn/<lb/>
+<hi rendition="#aq">Kuſim,</hi> deſſen Soͤhne waren <hi rendition="#aq">Götiger</hi> und <hi rendition="#aq">Bek-<lb/>
+bula,</hi> welche von dem <hi rendition="#aq">Czaaren Kutſium,</hi> einem<lb/>
+Fuͤrſten der <hi rendition="#aq">Koſaki</hi>ſchen <hi rendition="#aq">Horden,</hi> getoͤdtet wur-<lb/>
+den.</p><lb/>
+<p>§. 7. <hi rendition="#aq">Kutſium</hi> nahm das gantze <hi rendition="#aq">Siberien</hi> ein/<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="7" facs="#f0023"/>
+und nannte ſich erſten Koͤnig davon. Seine <hi rendition="#aq">Re-<lb/>
+ligion</hi> war <hi rendition="#aq">Mahometi</hi>ſch. Er hatte nicht lange<lb/>
+dem Reiche vorgeſtanden, als ein <hi rendition="#aq">Hettmann</hi> oder<lb/>
+Befehlshaber, Nahmens <hi rendition="#aq">Germak Thimophe-<lb/>
+witz,</hi> (welcher eine Zeitlang mit ſeinen <hi rendition="#aq">Coſſaken</hi><lb/>
+laͤnaſt der <hi rendition="#aq">Wolga</hi> ſtreiffete/ und von ſeiner <hi rendition="#aq">Czaa-<lb/>
+ri</hi>ſchen Majeſt. <hi rendition="#aq">Jwan Waſiliovvitz</hi> in ſolche Enge<lb/>
+getrieben wurde/ daß nachdem unterſchiedene<lb/>
+ſeiner Leute im Raub ertappt, und zur <hi rendition="#aq">Juſtice</hi> ge-<lb/>
+zogen wurden, er ſelbſt aber mit 540 <hi rendition="#aq">Coſſaken</hi><lb/>
+nach <hi rendition="#aq">Solikamski</hi> die Flucht genommen hatte, und<lb/>
+von dorten in <hi rendition="#aq">Siberien</hi> ſich begeben) mit ſeinen<lb/>
+<hi rendition="#aq">Coſſaken</hi> den <hi rendition="#aq">Kutſium</hi> in unterſchiedenen Hand-<lb/>
+Gemengen uͤbern Hauffen warff/ und von Land<lb/>
+und Leuten verjagte. Weil aber dieſer <hi rendition="#aq">Germak</hi><lb/>
+ſelbiges Koͤnigreich zu <hi rendition="#aq">maintenir</hi>en unvermoͤ-<lb/>
+gend zu ſeyn ſich urtheilete/ auch ohnedem eine<lb/>
+Ausſoͤhnung bey ſeiner <hi rendition="#aq">Czaari</hi>ſchen Majeſt. ver-<lb/>
+langte/ uͤbertrug er dem Rußiſchen <hi rendition="#aq">Scept</hi>er ver-<lb/>
+mittelſt ſeiner Geſandten dis Reich/ und erhielte<lb/>
+ſein <hi rendition="#aq">Propos.</hi> Das Koͤnigreich aber wurde mit<lb/>
+etlichen Ruſſen beſetzt/ und durch <hi rendition="#aq">Woivvoden</hi> re-<lb/>
+gieret, <hi rendition="#aq">Tumen</hi> und <hi rendition="#aq">Tobolski</hi> in beſſern Stand<lb/>
+geſetzt/ und dieſe Nahmen ihnen beygeleget.</p><lb/>
+<p>§. 8. Das Land an ſich ſelbſten iſt reich an<lb/>
+<hi rendition="#aq">Minerali</hi>en und <hi rendition="#aq">Metall</hi>en/ inſonderheit von<lb/>
+Kupffer und Eiſen/ das Kupffer wird an vielen<lb/>
+Oertern in ſchoͤnen Handſteinen gefunden/ ſo<lb/>
+die Natur zu Tage austreibt. Weil aber noch<lb/>
+keine Anſtalt gemacht iſt/ zu ordentlicher Be-<lb/>
+reit und Einrichtung der Bergwercke/ als ha-<lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">ben</fw><lb/>
+<pb n="8" facs="#f0024"/>
+ben die Einwohner auch noch zur Zeit wenig Nu-<lb/>
+tzen davon; Eiſen aber wie auch Stahl hat<lb/>
+man hier zur Gnuͤge/ und von ziemlicher Guͤte.<lb/>
+Es ſind auch hin und wieder gute Anzeigungen<lb/>
+von Silber-Ertz, wie dann zu <hi rendition="#aq">Argun</hi> Se<supplied>.</supplied><lb/>
+Groß-Czaariſche Majeſtaͤt ſchon ein Werck an-<lb/>
+legen laſſen, wie viel aber die jaͤhrliche Aus beu-<lb/>
+te ſich betraͤgt/ kan man noch eigentlich nicht<lb/>
+wiſſen/ weil das Werck zu ſeiner <hi rendition="#aq">perfection</hi> noch<lb/>
+nicht gediehen.</p><lb/>
+<p>§. 9 Jn den hohen Gebuͤrgen bey <hi rendition="#aq">Werka<supplied>-</supplied><lb/>
+turia</hi> findet man ſehr viel Cryſtall/ welches<lb/>
+viel haͤrter als an andern Oertern <hi rendition="#aq">Europæ,</hi> und<lb/>
+dem unechten <hi rendition="#aq">Jaſpis</hi> ziemlich gleich iſt. Der <hi rendition="#aq">O<supplied>-</supplied><lb/>
+bi</hi> wirfft allerhand ſaubere Steine an ſeinem Uf-<lb/>
+fer aus, worunter man klare und durchſichtige/<lb/>
+rothe und weiſe Steine findet/ denen <hi rendition="#aq">Agath</hi>en<lb/>
+nicht ungleich. Die Ruſſen graben darinnen<lb/>
+Blumen und <hi rendition="#aq">Figur</hi>en/ und faſſen ſelbige in ihre<lb/>
+Ringe.</p><lb/>
+<p>§. 10. Unter vielen andern <hi rendition="#aq">curieuſ</hi>en Merck-<lb/>
+wuͤrdigkeiten/ ſo meines Wiſſens ſonſt an kei-<lb/>
+nem andern Ort in der Welt gefunden wer-<lb/>
+den/ als in <hi rendition="#aq">Siberien</hi> alleine/ iſt inſonderheit das<lb/>
+von denen Einwohnern ſo genandte <hi rendition="#aq">Mamont,</hi><lb/>
+welches hieſelbſt an vielen Orten in der Erden<lb/>
+gefunden wird. Es ſiehet faſt in allen Stuͤcken<lb/>
+dem Helffenbein gleich an Farbe und Wachs-<lb/>
+thum/ man findet es mehrentheils an ſandich-<lb/>
+ten Oertern. Viele von denen Einwohnern<lb/>
+<fw type="catch" place="bottom">hal-</fw><lb/>
+<pb n="9" facs="#f0025"/>
+halten es vor Elephanten Zaͤhne/ ſo ſeit der<lb/>
+Suͤndfluth in der Erden gelegen. Einige der<lb/>
+Unſrigen meynen/ es ſey das bekandte <hi rendition="#aq">Ebur fos-<lb/>
+ſile,</hi> und alſo ein Gewaͤchs der Erden, wie ich<lb/>
+denn lange in derſelben <hi rendition="#aq">Opinion</hi> auch geſtanden.<lb/>
+Noch finden ſich viele welche vorgeben/ es waͤ-<lb/>
+ren Hoͤrner eines in den ſumpfichten Hoͤlen und<lb/>
+Loͤchern der Erden lebenden ſehr groſſen Thie-<lb/>
+res/ welches im Schlamm ſeine Nahrung haͤt-<lb/>
+te/ und mit dieſen Hoͤrnern den Koht und die<lb/>
+Erde von ſich wegarbeite/ wenn es aber alſo<lb/>
+unterdeſſen in eine ſandichte Gegend kaͤme/<lb/>
+koͤnte es wegen des ſtets nachſchieſſenden San-<lb/>
+des/ und ſeiner ungeheuren Groͤſſe ſich nicht wie-<lb/>
+der umwenden, ſondern es muͤſte alſo beſtecken<lb/>
+bleiben und verrecken. Jch habe viele geſpro-<lb/>
+chen/ welche hinter <hi rendition="#aq">Bereſova</hi> in den <hi rendition="#aq">Speluncken</hi><lb/>
+des hohen Gebuͤrges dergleichen Thiere geſehen<lb/>
+zu haben hoch betheuren/ deren Geſtalt ſie ſehr<lb/>
+abſcheulich beſchreiben/ nehmlich ſie ſollen 4. <hi rendition="#aq">à</hi><lb/>
+5. <hi rendition="#aq">Arſchin</hi> hoch/ und ohngefehr 3. Faden lang<lb/>
+ſeyn. Graulicht von Haaren/ eines laͤnglich-<lb/>
+ten Kopffes/ und einer ſehr breiten Stirn, an<lb/>
+der Seiten derſelben/ ſollen dieſem die Hoͤrner<lb/>
+gleich uͤber die Augen ſiehen/ doch ſo/ daß ſie<lb/>
+dieſelben von einer Seite zur andern bewegen/<lb/>
+und Creutzweiſe uͤber einander ſchieben koͤnnen.<lb/>
+Jm Gehen ſollen ſie ſich ſehr lang ſtrecken/ auch<lb/>
+wiederum kurtz zuſammen ziehen koͤnnen. Jh-<lb/>
+re Beine ſollen nach <hi rendition="#aq">advenant</hi> im Wachsthum<lb/>
+ſeyn/ wie die Baͤren-Fuͤſſe; Bey allen dieſen<lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">Er-</fw><lb/>
+<pb n="10" facs="#f0026"/>
+Erzehlungen iſt dennoch ungewiß/ was man<lb/>
+davon eigentlich glauben ſolle/ weil dieſe <hi rendition="#aq">Nation</hi><lb/>
+ſich keine Muͤhe giebt/ der Wahrheit recht nach-<lb/>
+zuforſchen/ wie ſie leicht thun koͤnte/ auch auf<lb/>
+keine <hi rendition="#aq">Curioſite</hi> groß achtet/ wo ſie keinen ſon-<lb/>
+derbahren groſſen Nutzen dabey findet/ woran<lb/>
+ſie hart gebunden ſeyn. Daß es aber keine E-<lb/>
+lephanten-Zaͤhne ſeyn koͤnnen, erhellet daraus/<lb/>
+weil in dieſem Lande dergleichen Thiere gantz<lb/>
+unbekannt ſind/ auch wegen des kalten <hi rendition="#aq">Climatis,</hi><lb/>
+darin nicht ſeyn koͤnnen/ dieſe Zaͤhne oder Hoͤr-<lb/>
+ner aber an den kalteſten Oertern in <hi rendition="#aq">Siberien,</hi> als<lb/>
+bey <hi rendition="#aq">Jakutski, Bereſova, Obder, Mangajea,</hi><lb/>
+am meiſten geſunden werden<supplied>.</supplied> Noch laͤcherli-<lb/>
+cher iſt es zu glauben/ daß ſie Zeit der Suͤnd-<lb/>
+fluth daſelbſt in der Erden gelegen haben; Daß es<lb/>
+auch das bekandte <hi rendition="#aq">Ebur fosſile,</hi> oder ein in der<lb/>
+Erden von der Natur <hi rendition="#aq">operirt</hi>es Gewaͤchs ſeyn<lb/>
+ſolte, haͤtte wol mehr wahrſcheinliches an ſich.<lb/>
+Denn ſo bezeiget ja auch die taͤgliche Erfahrung/<lb/>
+daß die Erde ein gleiches in ihrem Schooße bil-<lb/>
+de/ was ſie ober ſich tragen und ernaͤhren muͤſ-<lb/>
+ſe/ und findet man in Engeland und <hi rendition="#aq">Sicilien,</hi><lb/>
+daß die Einwohner aus Mangel des Waldes/<lb/>
+das Holtz aus der Erden graben/ weiches von<lb/>
+Jahr zu Jahr/ in der Erde zuwaͤchſt/ auch fin-<lb/>
+det man Kohlen in der Erde/ imgleichen Saltz<lb/>
+in und auf derſelben. Und warum koͤnte die<lb/>
+ſinnreiche Natur nicht eben ein Helffenbein o-<lb/>
+der Knochen an dieſen Oertern ſo wol als an-<lb/>
+dern hervor bringen. Alleine die wunderlichen<lb/>
+<fw type="catch" place="bottom">Merck-</fw><lb/>
+<pb n="11" facs="#f0027"/>
+Merckmahle von dieſem beſchriebenen Thiere/<lb/>
+werffen auch dieſe <hi rendition="#aq">raiſon</hi> uͤbern Hauffen/ denn<lb/>
+weil man offt ſolche Hoͤrner findet/ die an der<lb/>
+Erden noch gantz blutig ſeyn/ auch durchgehends<lb/>
+an allen die Wurtzel hohl/ und mit ſolcher <hi rendition="#aq">Ma-<lb/>
+terie</hi> angefuͤllet/ wie ein verſtocktes Blut, eini-<lb/>
+ge mahl auch die Hirnſcheitel und Kinnbacken<lb/>
+mit unglaublichen Backen-Zaͤhnen dabey gefun-<lb/>
+den worden, von denen man ſchwer zu urtheilen/<lb/>
+ob ſie von Knochen oder Stein, oder keinem der<lb/>
+ſelben/ ſondern eine unbekannte <hi rendition="#aq">Materie</hi> ſeyn/<lb/>
+und habe ich vielmahlen/ nebſt unterſchiedenen<lb/>
+meinen mitgefangenen <hi rendition="#aq">Cameraden</hi> dergleichen<lb/>
+Backen-Zaͤhne geſehen, die uͤber 20. <hi rendition="#aq">à</hi> 24.<lb/>
+Pfund und noch mehr koͤnten wiegen. Man<lb/>
+findet von gedachten Hoͤrnern einige/ ſo uͤber<lb/>
+80. biß 90. Pfund ſchwer ſind. Die Einwoh-<lb/>
+ner wiſſen davon allerhand Arbeit zu machen/<lb/>
+und iſt ſolches in allen Stuͤcken unſerm Elfenbein<lb/>
+gleich/ nur daß es viel ſproͤder iſt, auch leicht<lb/>
+ſeine weiſe Farbe veraͤndert und gelb wird/<lb/>
+wann es ins Waſſer oder Hitze kommt.</p><lb/>
+<p>§ 11. Das unvergleichliche <hi rendition="#aq">Muſcus -</hi> Thier<lb/>
+macht ſich oͤffters uͤber die Graͤntzen <hi rendition="#aq">Siberiens;</hi><lb/>
+Es ſoll von der Groͤſſe eines Rehes ſeyn, und<lb/>
+erzehlet man von ihm/ daß unterweilen in der<lb/>
+Brunſt fuͤr gar zu hefftiger Geilheit ihm der<lb/>
+Nabel ſpringet, daß das Blut haͤuffig heraus<lb/>
+flieſſe/ alsdeñ die Waͤlder von dem angenehmſten<lb/>
+Geruch angefuͤllet werden. Und iſt der <hi rendition="#aq">Muſ-<lb/>
+cus-</hi>Sack nicht ein <hi rendition="#aq">Teſticul</hi> dieſes Thieres/ wie<lb/>
+<fw type="catch" place="bottom">biß-</fw><lb/>
+<pb n="12" facs="#f0028"/>
+bißhero der irrige Wahn geweſen/ ſondern ſein<lb/>
+Nabel iſt eigentlich die Behaͤltnis dieſes treffli-<lb/>
+chen <hi rendition="#aq">parfums.</hi></p><lb/>
+<p>§. 12. Noch wird hieſelbſt auf den hoͤchſten<lb/>
+Gebuͤrgen und Felſen ein ſeltzames <hi rendition="#aq">Mineral</hi><lb/>
+gefunden, ſo ſie <hi rendition="#aq">Kamine Masla</hi> Stein-Butter<lb/>
+nennen, dieſes ſchwitzet bey der Sonnen-<lb/>
+Waͤrme aus ſolchen Feiſen/ und ſetzet ſich wie<lb/>
+ein weißgelber Kalch an dieſelbe an; Es <hi rendition="#aq">diſ-<lb/>
+ſolvir</hi>et ſich im Waſſer wie ein ander Saltz, und<lb/>
+hat einen <hi rendition="#aq">vitrioli</hi>ſchen ſehr <hi rendition="#aq">aſtringiren</hi>den Ge-<lb/>
+ſchmack/ man will ihm viele Wuͤrckung zu-<lb/>
+ſchreiben, und bedienen ſich hieſige Einwohner<lb/>
+deſſen in vielen Kranckheiten/ ſonderlich in der<lb/>
+<hi rendition="#aq">diſſenterie,</hi> wiewol es unſerm Magen nicht ſo<lb/>
+gar wohl bekommen duͤrffte, auch meines Wiſ-<lb/>
+ſens von denen Unſrigen nicht gebraucht worden.<lb/>
+Daß aber die Ruſſen gefaͤhrlichere Mittel brau-<lb/>
+chen/ ſiehet man daraus, daß ſie in ihren Fran-<lb/>
+tzoſen-<hi rendition="#aq">Curen,</hi> den <hi rendition="#aq">Mercurium ſublimatum</hi> eſſen/<lb/>
+entweder ohne <hi rendition="#aq">Vehiculo,</hi> oder auch in einem ſau-<lb/>
+ren Brey von Habermehl gekocht/ und auf die<lb/>
+Kranichs-Augen einen ſtarcken Eßig gieſſen/<lb/>
+den ſie eine Zeitlang in der Waͤrme ſtehen laſ-<lb/>
+ſen/ wovon ſie denen mit dieſer Kranckheit <hi rendition="#aq">infi-<lb/>
+cirt</hi>en einen Trunck alle Tage geben/ welcher<lb/>
+von ſolcher Wuͤrckung iſt, daß er alle Schaͤrf-<lb/>
+fe aus den Knochen und dem Gebluͤthe ziehet/<lb/>
+und in einigen Wochen die <hi rendition="#aq">Patienten</hi> gluͤcklich<lb/>
+<hi rendition="#aq">curir</hi>et; Es greifft dieſer Trunck die Leute ſo<lb/>
+an/ als wenn ſie 2. <hi rendition="#aq">à</hi> 3. Stunden ſtarck be-<lb/>
+<fw type="catch" place="bottom">ſoffen</fw><lb/>
+<pb n="13" facs="#f0029"/>
+ſoffen waͤren; Nehmen ſie aber zu viel/ ſo em-<lb/>
+pfinden ſie gleich Zerruttung/ als waͤren ſie von<lb/>
+der Schweren Noth geplaget, die ihnen Fuͤſſe<lb/>
+und Haͤnde zuſammen ziehet/ welches aber ein<lb/>
+Glaß Brandtwein wieder ſtillet. Dabey<lb/>
+brauchen ſie gar keine <hi rendition="#aq">Diæt,</hi> ſondern gehen<lb/>
+wenn dieſer <hi rendition="#aq">paroxismus</hi> vorbey/ wieder in die<lb/>
+freye Lufft.</p><lb/>
+<p>§. 13. Wir wenden uns zur <hi rendition="#aq">Oſtiacki</hi>ſchen<lb/>
+<hi rendition="#aq">Nation,</hi> die ſich anfaͤngt 3. Tage-Reiſe von der<lb/>
+Haupt-Stadt <hi rendition="#aq">Tobolski</hi> in <hi rendition="#aq">Siberien,</hi> und brei-<lb/>
+tet ſich aus laͤngſt dem Fluß <hi rendition="#aq">Irtis,</hi> wo er in den<lb/>
+<hi rendition="#aq">Obi</hi> faͤllt, von dannen theilet ſie ſich gegen er-<lb/>
+wehnten <hi rendition="#aq">Obi</hi> biß <hi rendition="#aq">Natim,</hi> der andere Theil er-<lb/>
+ſtreckt ſich laͤngſt mit demſelbigen Fluſſe bey <hi rendition="#aq">Sa-<lb/>
+maroff, Ketskoi, Kaſim, Bereſova,</hi> und ſo<lb/>
+weiter biß an die <hi rendition="#aq">Guba</hi> oder <hi rendition="#aq">Golfo,</hi> von der<lb/>
+<hi rendition="#aq">Guba</hi> aber an das bekandte <hi rendition="#aq">Fretum Weigats</hi> o-<lb/>
+der <hi rendition="#aq">Naſſovium.</hi> Dis Volck breitet ſich aus<lb/>
+bey den haͤuffigen Fluͤſſen/ die in den <hi rendition="#aq">Obi</hi> gegen<lb/>
+Abend fallen, als <hi rendition="#aq">Conda, Lappinſesva, Sob</hi><lb/>
+und dergleichen; An der <hi rendition="#aq">Conda</hi> haben ſie zu<lb/>
+Nachbahren die <hi rendition="#aq">Vogulitzen,</hi> und bey dem <hi rendition="#aq">freto</hi><lb/>
+gegen Morgen die <hi rendition="#aq">Samogit</hi>en.</p><lb/>
+<p>§ 14. Der <hi rendition="#aq">Obi</hi> iſt einer von den groͤſſeſten<lb/>
+und <hi rendition="#aq">notabelſten</hi> Fluͤſſen <hi rendition="#aq">Europæ,</hi> zumahlen die<lb/>
+<hi rendition="#aq">Geographi</hi> insgemein die Graͤntzen <hi rendition="#aq">Europæ</hi> ge-<lb/>
+gen Norden an dieſem Fluß zu ſeyn geſetzet. Er<lb/>
+giebt nicht allein die reichlichſte Nahrung denen<lb/>
+<hi rendition="#aq">Oſtiacken,</hi> ſondern verſorget auch mit ſeinen<lb/>
+mañigfaltigen Sorten von Fiſchen einen groſſen<lb/>
+<fw type="catch" place="bottom">Theil</fw><lb/>
+<pb n="14" facs="#f0030"/>
+Theil der Einwohner <hi rendition="#aq">Siberiens.</hi> Seine Ufer<lb/>
+umgiebt mehrentheils ein dicker Wald/ und fin-<lb/>
+det man ſelten eine Flaͤche/ er macht hin und wie-<lb/>
+der eine ziemliche Anzahl kleiner <hi rendition="#aq">Inſuln,</hi> die we-<lb/>
+der bebauet noch bewohnet ſind. Zuforderſt<lb/>
+flieſſet er in einen <hi rendition="#aq">Golfo,</hi> den die Ruſſen <hi rendition="#aq">Guba-<lb/>
+taſſavskoja</hi> nennen</p><lb/>
+<p>§. 15. Dieſe <hi rendition="#aq">Guba</hi> iſt eine Zuſammenſtoſ-<lb/>
+ſung vieler Fluͤſſe/ welches Wort im <hi rendition="#aq">Sclavoni-</hi><lb/>
+ſchen eigentlich dieſe Bedeutung hat. Und fließt<lb/>
+nicht allein darin die <hi rendition="#aq">Obi,</hi> ſondern auch die<lb/>
+<hi rendition="#aq">Teuſſe, Nadim, Pu<supplied>r</supplied></hi> und <hi rendition="#aq">Taſſ.</hi> Sie iſt uͤber-<lb/>
+aus groß, und wie man davor haͤlt/ wol einige<lb/>
+100. Meilen lang, und wol 20. Meilen/ wie<lb/>
+wol an allen Orten nicht gleich/ breit. Die<lb/>
+groſſe Kaͤlte laͤſt nicht zu/ daß im Sommer die<lb/>
+Eyßſchollen ſchmeltzen/ ſondern ſie flieſſen auf<lb/>
+dem Waſſer. Selbige verurſachen auch, daß<lb/>
+man mit Fahrzeugen nicht wohl auf der <hi rendition="#aq">Guba</hi><lb/>
+fahren koͤnne/ zumahlen das Eyß ſich an die ſo<lb/>
+genannten Struſſen ziehet/ und wenn man be-<lb/>
+muͤhet iſt die Schollen mit langen Stangen ab-<lb/>
+zuſtoſſen/ ſo ziehen ſich andere an der andern<lb/>
+Seite ſo feſt wieder an, daß es faſt unmuͤglich<lb/>
+ſcheinet weiter fortzugehen/ zu dem iſt der<lb/>
+Grund dieſer See uͤberall leimicht und mora-<lb/>
+ſtig/ und wenn die Arbeiter mit langen Stan-<lb/>
+gen/ wo ſie Grund finden/ das Fahrzeug fort-<lb/>
+ſtoſſen/ ſo haͤlt der zaͤhe Leim die Stangen im<lb/>
+Ausziehen ſo feſt/ daß es eben ſo weit zuruͤcke<lb/>
+gehet/ als es durch das von ſich ſtoſſen iſt <hi rendition="#aq">avan-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">cirt</hi></fw><lb/>
+<pb n="15" facs="#f0031"/>
+<hi rendition="#aq">cirt</hi> geweſen. Jnsgemein zerſcheitert die Struſ-<lb/>
+ſen der gewoͤhnliche Sturm/ und iſt es ſehr ge-<lb/>
+faͤhrlich ſich auf dieſe <hi rendition="#aq">Guba</hi> zu wagen.</p><lb/>
+<p>§. 16. An dem Fluſſe <hi rendition="#aq">Paſſ,</hi> 4. Tage-Reiſen/<lb/>
+bevor er in die <hi rendition="#aq">Guba</hi> faͤllt/ liegt die Stadt <hi rendition="#aq">Stara<lb/>
+Mangaſea,</hi> deren Einwohner Griechiſcher <hi rendition="#aq">Re-<lb/>
+ligion,</hi> und ſich <hi rendition="#aq">Suetolobi</hi> nennen. Jhre Le-<lb/>
+bens-Art iſt ſehr ſchlecht/ und wiſſen ſie von kei-<lb/>
+nem Brodte/ woferne es ihnen von andern Oer-<lb/>
+tern mit der groͤſten Muͤhe und Gefahr nicht zu-<lb/>
+gefuͤhret wird. Jhre Speiſe ſind Fiſche/ die<lb/>
+ſie entweder roh weg eſſen, oder auch auftruck-<lb/>
+nen/ und trincken Fiſch-Thran/ oder das Waſ-<lb/>
+ſer aus der <hi rendition="#aq">Guba.</hi></p><lb/>
+<p>§. 17. Dieſe <hi rendition="#aq">miſerable</hi> und harte Lebens-<lb/>
+Art/ hat den Einwohnern von <hi rendition="#aq">Stara Manga-<lb/>
+ſea</hi> alle Luſt benommen/ laͤnger den elenden Ort<lb/>
+zu bewohnen/ wannenhero ſie ihn verlaſſen/ und<lb/>
+nach der Oeſtlichen Seite auf dem feſten Lande<lb/>
+ihnen eine andere Stadt erbauet, die ſie <hi rendition="#aq">Nova<lb/>
+Mangaſea</hi> nennen. Doch ſind die Leute nicht<lb/>
+ſo gaͤntzlich weggegangen/ daß nicht etliche ſol-<lb/>
+ten uͤbrig geblieben ſeyn/ die noch heutiges Ta-<lb/>
+ges mehr erwehnten Ort bewohnen/ und das<lb/>
+Elend bauen. Den Winter uͤber koͤnnen ſie<lb/>
+mit ihren Hunden oder Rennthieren uͤberall<lb/>
+wo ſie wollen, auch auf die <hi rendition="#aq">Guba</hi> fahren, zu-<lb/>
+mahlen an dieſer Seite ihnen keine Berge ver-<lb/>
+hindern/ auſſer daß ſie vor denen wilden Thie-<lb/>
+ren ſich behutſam in acht nehmen muͤſſen. Jm-<lb/>
+gleichen kan es ſich auch begeben, daß ſie auf<lb/>
+<fw type="catch" place="bottom">dem</fw><lb/>
+<pb n="16" facs="#f0032"/>
+dem Eyſe ein Sturm uͤbereilet/ welcher die <hi rendition="#aq">Gu-<lb/>
+ba</hi> auf bricht und flieſſend macht. Die Ruſſen for-<lb/>
+dern auch des Winters vor ihre hohe Landes-O-<lb/>
+brigkeit die <hi rendition="#aq">Contribution</hi> gemeiniglich ein/ und<lb/>
+waͤre es ihnen ſehr <hi rendition="#aq">profitabel,</hi> wenn ſie mit<lb/>
+Schlitten, oder im Sommer mit Fahrzeugen/<lb/>
+Korn und Mehl dahin bringen koͤnten.</p><lb/>
+<p>§. 18. Aus der <hi rendition="#aq">Guba</hi> nimmt der <hi rendition="#aq">Obi</hi> ſeinen<lb/>
+Einfluß in die Meeres-Enge/ oder das ſo ge-<lb/>
+nannte <hi rendition="#aq">Fretum Weigats</hi> oder <hi rendition="#aq">Naſſovium.</hi> Diß<lb/>
+<hi rendition="#aq">Fretum</hi> aber hat die Natur auf beyden Sei-<lb/>
+ten mit hohen Felſen, die <hi rendition="#aq">continuir</hi>lich mit<lb/>
+Schnee und Eyß bedecket, eingefaſſet/ welcher<lb/>
+Felß nach der gemeinen <hi rendition="#aq">Relation,</hi> uͤber 100.<lb/>
+Meil Weges lang ſeyn ſoll/ und gleichſam vor<lb/>
+dem <hi rendition="#aq">Pol</hi> zur <hi rendition="#aq">Balance</hi> des <hi rendition="#aq">Centri</hi> der Erden liege.</p><lb/>
+<p>§. 19. Jenſeit dem <hi rendition="#aq">Freto</hi> ſiehet man das<lb/>
+neue Land/ oder wie es auf Rußiſch heiſt, <hi rendition="#aq">Nova<lb/>
+Zembla.</hi> Es iſt die von denen Hollaͤndern be-<lb/>
+titulirte <hi rendition="#aq">Inſul Weigats,</hi> und lieget gerade gegen<lb/>
+uͤber/ wo der <hi rendition="#aq">Obi</hi> ins <hi rendition="#aq">Mare glaciale</hi> faͤllt. Die<lb/>
+<hi rendition="#aq">Oſtiacken</hi> und <hi rendition="#aq">Samogiten</hi> wagen ſich etliche<lb/>
+mahl uͤber die hohen Felſen nach dem Lande/ und<lb/>
+ſchlagen daſelbſt Elende und Rennthiere. Sie<lb/>
+muͤſſen aber ſehr behutſam des Winters ſich in<lb/>
+acht nehmen/ zumahlen wo ſie mercken/ daß der<lb/>
+Wind von <hi rendition="#aq">Nova Zembla,</hi> und alſo aus Norden<lb/>
+wehen wolle, welches/ wenn ſie es aus gewiſſen<lb/>
+Merckmahlen abnehmen, ſo iſt es nicht rath-<lb/>
+ſam ſich laͤnger auf dem flachen Felde zu verwei-<lb/>
+len/ ſondern muͤſſen Grufft und Hoͤhlen ſuchen/<lb/>
+<fw type="catch" place="bottom">wor-</fw><lb/>
+<pb n="17" facs="#f0033"/>
+worinnen ſie ſich ſo lange verſtecken und vor<lb/>
+dem Winde bewahren/ biß er nachgelaſſen<lb/>
+und ein andrer Wind zu wehen angefangen.<lb/>
+Sind ſie aber ſo ungluͤcklich daß ſie keine Hoͤhle<lb/>
+ſo fort antreffen koͤnnen/ ſo toͤdtet ſie der rauhe<lb/>
+Wind/ und geſchicht es alſo daß ſie nicht groß<lb/>
+nach <hi rendition="#aq">Nova Zembla</hi> zu gehen ſich <hi rendition="#aq">hazardir</hi>en/ ge-<lb/>
+ſtalt die wenigſten davon wieder zuruͤck kommen.<lb/>
+Ob aber auf dieſen Lande Menſchen wohnen<lb/>
+kan man von ihnen keinen rechten Grund erfah-<lb/>
+ren; Einige wollen Menſchen darauf geſehen<lb/>
+haben, womit ſie doch nicht geredet, ſondern<lb/>
+ſelbige nur von weiten erblicket. Andere aber<lb/>
+halten dieſen das Gegentheil/ und behaupten/<lb/>
+daß Menſchen wegen den toͤdtenden Nord-<lb/>
+Winde daſelbſt nicht leben koͤnnen.</p><lb/>
+<p>§. 20. Gleichwie nun die Sonne ihre Wuͤr-<lb/>
+ckung zwiſchen dieſen Felſen nimmer haben kan/<lb/>
+zumahl das <hi rendition="#aq">Clima</hi> an ſich ſelbſten kalt/ und unter<lb/>
+der <hi rendition="#aq">Zona frigida Septentrionali</hi> lieget/ ſo iſt<lb/>
+leicht zu ermeſſen/ daß das Eyß darinnen nim-<lb/>
+mer ſchmeltze/ ſondern Winter und Sommer<lb/>
+daure/ es ſey dann, daß im Sommer der ſtar-<lb/>
+cke Wind/ wenn er das <hi rendition="#aq"><supplied>f</supplied>retum</hi> durchſtreichen<lb/>
+kan/ ſelbiges aufreiſſe. Das aus dem <hi rendition="#aq">Obi</hi> in<lb/>
+das Eyß-Meer fallende Waſſer erſtarret gleich-<lb/>
+ſam in dieſer Enge/ und bleibt die Hoͤhe des<lb/>
+Eyßes einerley/ da doch ſonſten zu vermuthen/<lb/>
+daß Jaͤhrlich durch die Gewaͤſſer des <hi rendition="#aq">Obi,</hi> und<lb/>
+andern darinn fallenden Stroͤhmen/ das Eyß im-<lb/>
+mer hoͤher und hoͤher werden ſolte/ und weil dis<lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">von</fw><lb/>
+<pb n="18" facs="#f0034"/>
+von Erſchaffung der Welt gedauert, waͤre zu<lb/>
+ſchlieſſen/ daß das Waſſer im <hi rendition="#aq">freto</hi> laͤngſt hoͤ-<lb/>
+her als das in <hi rendition="#aq">Obi</hi> waͤre geworden/ und alſo<lb/>
+aus dem <hi rendition="#aq">freto</hi> wieder in den <hi rendition="#aq">Obi</hi> nunmehro zu-<lb/>
+ruͤck gehen muͤſſen. Hiervon wiſſen dieſe Leute<lb/>
+<hi rendition="#aq">raiſon</hi> zu geben/ gleichwohl geſtehen ſie, daß der<lb/>
+Wind das auf den Bergen liegende Eyß er-<lb/>
+ſchuͤttere/ und das in dem <hi rendition="#aq">freto</hi> ſich befindende<lb/>
+oͤffters eine Borſte und Grube gewinne. Dieß<lb/>
+iſt meines Erachtens ein Zeichen/ daß das<lb/>
+Waſſer im <hi rendition="#aq">freto,</hi> oder ſo genandten Eyß-Meere<lb/>
+einen nahen Abfluß aber/ und entweder bey oder<lb/>
+ohnweit denſelben ein Schlund ſeyn muͤſſe/ der<lb/>
+das Waſſer zu ſich ſchlinge, wie man dann in<lb/>
+dem groſſen Welt-Meere/ ſowohl als anderen<lb/>
+Seen dergleichen Strudel uͤberall findet.<lb/>
+Wenn nun das Eyß ſich oben haͤufft/ ſo ſchmel-<lb/>
+tzet das untere auf eine unempfindliche Art im-<lb/>
+mer weg. Welches man damit <hi rendition="#aq">probir</hi>et/<lb/>
+wenn man ein Stuͤck Eyß an einem Faden im<lb/>
+Waſſer herunter laͤſt/ ſo zerſchmeltzet es/ und<lb/>
+einen erfrornen Fiſch thauet man mit kaltem<lb/>
+Waſſer wieder auf/ denn ſo wenig der Froſt<lb/>
+wegen dem unterirrdiſchen Feuer in der Erde<lb/>
+tieff hinein dringen kan/ ſo wenig kan auch das<lb/>
+Eyß ſich oben ſo haͤuffen, daß eben dieß Feuer ſel-<lb/>
+biges unten nicht flieſſend machen ſolle. Wenn<lb/>
+nun das Waſſer unten abflieſt/ und das Eyß ſei-<lb/>
+ne Haltung verliehret/ bauet es ſich wieder auf<lb/>
+der <hi rendition="#aq">ſurface</hi> des gefallenen Waſſers, und ver-<lb/>
+urſachet durch dieß Sincken und unterm Weg-<lb/>
+<fw type="catch" place="bottom">ſchmel-</fw><lb/>
+<pb n="19" facs="#f0035"/>
+ſchmeltzen/ daß das <hi rendition="#aq">fretum</hi> weder ſeichter noch<lb/>
+hoͤher werden koͤnne. Und iſt ja nicht eben noͤ-<lb/>
+thig zu <hi rendition="#aq">ſtatuir</hi>en/ daß unter dem <hi rendition="#aq">Polo Arctico</hi><lb/>
+muͤſſe der <hi rendition="#aq">Euripus</hi> ſeyn/ der alle Gewaͤſſer ein-<lb/>
+ſchlucke, hingegen der <hi rendition="#aq">Antarcticus</hi> ſelbiges wie-<lb/>
+der ausgebe/ weilen die hin und wieder ſich be-<lb/>
+findende Strudell zu der Abflieſſung der Ge-<lb/>
+waͤſſer genug ſeyn koͤnnten. Zudem hat man<lb/>
+ja die Nachricht/ daß man bereits weit naͤher<lb/>
+an dem <hi rendition="#aq">Polo,</hi> als dieß <hi rendition="#aq">fretum</hi> liegt/ geweſen/<lb/>
+nemlich an der andern Seiten von <hi rendition="#aq">Nova Zem<supplied>-</supplied><lb/>
+bla,</hi> da man von einem ſo groſſen <hi rendition="#aq">Voragine</hi><lb/>
+nichts <hi rendition="#aq">remarquir</hi>et. So iſt ja auch an der Ame-<lb/>
+rikaniſchen Seite das <hi rendition="#aq">Fretum Daviſii</hi> und nicht<lb/>
+weit davon des <hi rendition="#aq">Hudjonis</hi> hoch genug an <hi rendition="#aq">Polo,</hi><lb/>
+es hindert aber die Reiſende nichts mehr/ als<lb/>
+Eyß und Kaͤlte/ daß ſie den Weg weiter fortſe-<lb/>
+tzen koͤnnen. Von dem groſſen Strudell und<lb/>
+an ſich Ziehen an <hi rendition="#aq">Polo</hi> weiß keiner/ wie es aber<lb/>
+muͤglich daß man auſſer dem <hi rendition="#aq">freto Weigats</hi> naͤ-<lb/>
+her an dem <hi rendition="#aq">Pol</hi> kom̃en koͤñen/ maſſen man daſelbſt<lb/>
+Waſſer u. kein <hi rendition="#aq">continent</hi> finde iſt wohl die <hi rendition="#aq">raiſon,</hi><lb/>
+daß in ſolchen Engen die Bewegung des Waſ-<lb/>
+ſers nicht ſo ſonderlich ſeyn koͤnne; Wo aber Be-<lb/>
+wegung da iſt Waͤrme/ wo keine Bewegung da<lb/>
+iſt Erſtarrung und alſo Eyß und keine Auffdau-<lb/>
+ung. Zu dem haben die Engen eine Haltung<lb/>
+vom Lande/ und empfinden keine innwendige<lb/>
+Trennung/ ohne zu der Zeit/ wenn der Wind<lb/>
+recht auf die Enge ſtreicht/ und alſo einen Riß<lb/>
+und Erſchuͤtterung macht/ und wenn dieß Waſ-<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">ſer</fw><lb/>
+<pb n="20" facs="#f0036"/>
+ſer unten faͤllt welches man an den Stroͤhmen<lb/>
+bemercken kan.</p><lb/>
+<p>§. 21. Weil der Wind von <hi rendition="#aq">Nova Zembla</hi><lb/>
+faſt mehrentheils wehet/ ſo machet er die Lufft der<lb/>
+daſelbſt bewohnten Oerter ſo rauh und ſtrenge<lb/>
+daß auch in <hi rendition="#aq">Tobolski</hi> unter dem 57. gr. und eini-<lb/>
+gen <hi rendition="#aq">Minuten</hi> keine Baum-Fruͤchte wachſen/ noch<lb/>
+in und bey <hi rendition="#aq">Bereſova</hi> unter dem 60. und 6<supplied>2</supplied>. grad<lb/>
+die geringſte Garten-Frucht zur <hi rendition="#aq">perfection</hi> kom-<lb/>
+men kan/ weder das Land faͤhig iſt mit Korn<lb/>
+gebauet zu werden. Weßfalls die in denen Staͤd-<lb/>
+ten wohnende Ruſſen ſich in der Zeit mit benoͤh-<lb/>
+tigtem Korn auf ein gantzes Jahr von andere<lb/>
+Oerter zu <hi rendition="#aq">proviantir</hi>en ſorgfaͤltig ſeyn muͤſſen/<lb/>
+da man doch bey Stockholm das Land nicht al-<lb/>
+lein wohl bebauet findet, ſondern das ſchoͤnſte<lb/>
+Obſt und allerley Garten-Fruͤchte haben kan.</p><lb/>
+<p>§. 22. Woher dieſe groſſe Veraͤnderung<lb/>
+bey gleicher und mehrer <hi rendition="#aq">Diſtance</hi> vom <hi rendition="#aq">Polo</hi> ge-<lb/>
+ſchehe/ davon iſt wohl der ſtrenge Wind von <hi rendition="#aq">No-<lb/>
+va Zembla</hi> und denen Eyß-Bergen ſchuld, wel-<lb/>
+cher des Commers gar offt wehet/ und die in<lb/>
+<hi rendition="#aq">Linea recta</hi> liegende Laͤnder/ wo das Land platt<lb/>
+und von keinen groſſen Bergen umgeben wird/<lb/>
+durchſtreichen und kalt machen kan; Dahinge-<lb/>
+gen die Nordliche Seite Schwedens mit ho-<lb/>
+hen Gebuͤrgen umfaſt und in <hi rendition="#aq">Linea parallela</hi><lb/>
+die Krafft des Windes aufgehalten und <hi rendition="#aq">disſipi-</hi><lb/>
+ret wird. Daß aber auch um <hi rendition="#aq">Abo,</hi> welches im<lb/>
+61. <hi rendition="#aq">grad,</hi> und weiter zum <hi rendition="#aq">Polo</hi> an ſelbiger Seite<lb/>
+biß 63. <hi rendition="#aq">à</hi> 64. <hi rendition="#aq">gradus</hi> Berge gebe, darinnen<lb/>
+<fw type="catch" place="bottom">man</fw><lb/>
+<pb n="21" facs="#f0037"/>
+man Silber-Ertz annoch finde, und das Land<lb/>
+ſeine Frucht gar reichlich bringe/ muß wohl am<lb/>
+meiſten daß unterirrdiſche Feuer verurſachen/<lb/>
+welches vielleicht unter den feſten Wurtzeln der<lb/>
+hohen Berge einige Aushoͤhlungen findet und<lb/>
+durchſtreichet/ und naͤher an die Croͤſte der Er-<lb/>
+den ſich hebet, um ſo viel ſtaͤrckere Ausdaͤmpf-<lb/>
+fungen der innerlichen Hitze der Erden zu ver-<lb/>
+urſachen, und durch die Zeit allerley Gewaͤch-<lb/>
+ſe zu befordern/ welches im Gegentheil an die-<lb/>
+ſem Orthe viel tieffer nach dem <hi rendition="#aq">Centro</hi> ſich len-<lb/>
+cken muß entweder denen Meeres Strudelln ei-<lb/>
+ne <hi rendition="#aq">paſſage</hi> zu laſſen/ oder dem Durchbruch deſ-<lb/>
+ſelben durch die loͤcherichte oder undichte Erde zu<lb/>
+wehren. Daß aber das unterirrdiſche Feuer<lb/>
+ſich insgemein zu denen Bergen ziehe/ und auch<lb/>
+nicht nach der Kaͤlte frage, <hi rendition="#aq">probir</hi>en ſo viel Feu-<lb/>
+erſpeyende Berge/ inſonderheit der <hi rendition="#aq">Hecla</hi> in<lb/>
+kalten Groͤnlande/ welche Feuerſpeyende Ber-<lb/>
+ge dem <hi rendition="#aq">Igni Subterraneo</hi> gleichſam Lufft geben,<lb/>
+damit es nicht im Bauche der Erden erſticke.</p><lb/>
+<p>§. 23. Durch dieſes macht die Natur in dem<lb/>
+<hi rendition="#aq">Freto</hi> dem Einfluße des <hi rendition="#aq">Obi</hi> eine Oeffnung und<lb/>
+hoͤhlet ſich der Fluß auf beyden Seiten, daß der<lb/>
+Strohm einflieſſen koͤnne. Wenn nun das<lb/>
+Fruͤh-Jahr trocken/ und das von den andern<lb/>
+Stroͤhmen einflieſſende Eyß eher zerſchmeltzen<lb/>
+kan biß es an die Hoͤhlung des <hi rendition="#aq">Freti</hi> ſtoͤſt/ ſo<lb/>
+ſind die Stroͤhme deſſelben Jahres gantz ſeichte/<lb/>
+nemlich der <hi rendition="#aq">Obi, Irdis, Conda, Doſva</hi> und<lb/>
+dergleichen<hi rendition="#aq">;</hi> Jſt aber das Fruͤh-Jahr naß und<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">kalt/</fw><lb/>
+<pb n="22" facs="#f0038"/>
+kalt, ſo ſetzet ſich das aufflauffende und haͤuf-<lb/>
+fende Eyß vor dem Einfluſſe, und thauet das<lb/>
+Waſſer ſolcher Geſtalt/ daß an allen Oertern<lb/>
+ſich die Gewaͤſſer ergieſſen und die niedrige Laͤn-<lb/>
+der uͤberſchwemmen.</p><lb/>
+<p>§. 24. Jndem nun dieſes rauhe und wilde<lb/>
+Land ſehr wenig Luſt und Muth erwecket, ſelbi-<lb/>
+ges zu beſuchen/ als haben die <hi rendition="#aq">Oſtiacken</hi> von de-<lb/>
+nen/ ſo noch dahin gekommen, den Goͤtzen-<lb/>
+dienſt mit dem Chriſtl. zu veraͤndern ſich bereden<lb/>
+laſſen. Zumahlen aus denen Uhrkunden etli-<lb/>
+cher alten Schrifften beweißlich iſt/ daß dieß<lb/>
+Volck in der Landſchafft <hi rendition="#aq">Veliki Perma</hi> bey <hi rendition="#aq">Soli-<lb/>
+kamski</hi> gewohnet habe/ woſelbſt der alte Bi-<lb/>
+ſchoff <hi rendition="#aq">Stephanus</hi> die Heyden zur Chriſtlichen <hi rendition="#aq">Re-<lb/>
+ligion</hi> gebracht/ unter welchen einige ſelbige an-<lb/>
+genommen und im Lande geblieben/ andere<lb/>
+aber ihre Wohnung und Sitz verlaſſen und ſich<lb/>
+in dieſen rauhen Oertern verſteckt haben/ wel-<lb/>
+ches dann aus ihre Sprache leicht abzunehmen/<lb/>
+die annoch mit der <hi rendition="#aq">Permi</hi>ſchen in vielen uͤberein<lb/>
+kommt; Bey <hi rendition="#aq">Tobolski</hi> und <hi rendition="#aq">Narim</hi> aber we-<lb/>
+gen der daſelbſt wohnenden Tartarn gemiſcht<lb/>
+iſt/ allein von denen die bey dem <hi rendition="#aq">Freto</hi> wohnen<lb/>
+und von <hi rendition="#aq">Werkaturien,</hi> laͤngſt den Felſen gera-<lb/>
+de uͤber gangen, eine naͤhere Ubereinſtimmung<lb/>
+beybehalten worden.</p><lb/>
+<p>§. 25. Die Ruſſen nennen dieß Volck <hi rendition="#aq">Oſti-<lb/>
+ackii,</hi> gleichſam <hi rendition="#aq">Oſtiancki</hi> uͤbrig gebliebene/ der<lb/>
+Reſt eines verloffenen Volcks. Sie ſelbſt aber<lb/>
+haben den Nahmen ihrer Vorfahren veraͤndert/<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="23" facs="#f0039"/>
+und heiſſen ſie <hi rendition="#aq">Contiſchi</hi> oder <hi rendition="#aq">Contica,</hi> und den<lb/>
+<hi rendition="#aq">Diſtrict</hi> welchen ſie bewohnen <hi rendition="#aq">Gandimich,</hi> wel-<lb/>
+che Woͤrter in ihrer Sprache nicht die geringſte<lb/>
+Bedeutung haben/ daß ſie aber ſich nicht <hi rendition="#aq">Per-<lb/>
+miski</hi> oder <hi rendition="#aq">Permianer</hi> nennen/ ſondern ihren<lb/>
+Nahmen veraͤndert, moͤchte wohl die Furcht<lb/>
+Urſache geweſen ſeyn/ maſſen ſie ſich unbekandt<lb/>
+machen wollen, daß ſie auch weder nachgefragt<lb/>
+noch aufgeſucht werden moͤchten.</p><lb/>
+<p>§. 26. Jhre Sprache iſt von der <hi rendition="#aq">Samogiti-</hi><lb/>
+ſchen und <hi rendition="#aq">Vagolit</hi>ſchen gaͤntzlich unterſchieden/<lb/>
+und ohngeachtet ſie ſelbige zu Nachbahren ha-<lb/>
+ben, ſo kan doch keiner den andern ohne Ver-<lb/>
+dolmetſchung verſtehen Es finden ſich auch<lb/>
+gar wenige Lateiniſche Woͤrter darinnen/ als:<lb/>
+<hi rendition="#aq">Juva</hi> hilff/ <hi rendition="#aq">Nemen</hi> fuͤr <hi rendition="#aq">Nomen</hi> der Nahme/ und<lb/>
+noch mehrere Oſtlaͤndiſche die ſehr wenig zer-<lb/>
+ſtuͤmmelt, vornehmlich iſt die Benennung der<lb/>
+Zahlen einerley/ als <hi rendition="#aq">üx</hi> eins/ <hi rendition="#aq">kaks</hi> zwey/ <hi rendition="#aq">kolm</hi><lb/>
+drey/ und ſo ferner. Was nun dieſe ſo weit<lb/>
+von einander gelegene Voͤlcker in denen vergan-<lb/>
+genen Zeiten vor <hi rendition="#aq">Commerce</hi> unter ſich gehabt/<lb/>
+daß von ihren Sprachen ein Ruͤckſtaͤndiges die-<lb/>
+ſer <hi rendition="#aq">Nation</hi> geblieben, iſt wegen Mangel der<lb/>
+aufgezeichneten Nachrichten unmuͤglich nachzu-<lb/>
+forſchen.</p><lb/>
+<p>§. 27. Die <hi rendition="#aq">Poſitur</hi> des Leibes dieſes Volcks<lb/>
+iſt mittelmaͤßig/ und findet man gar ſelten große<lb/>
+Leute unter ihnen/ ihr Anſehen iſt wohlgeſtalt<lb/>
+gleich andern <hi rendition="#aq">Europæern,</hi> ohne daß etlichen die<lb/>
+<hi rendition="#aq">miſerable</hi> Kleidung verunzieꝛet, die ſie wegẽ gꝛoſ-<lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">ſer</fw><lb/>
+<pb n="24" facs="#f0040"/>
+ſer Duͤrfftigkeit und eigener Nachlaͤßigkeit ih-<lb/>
+nen nicht verbeſſern koͤnnen. Jhre Nachbah-<lb/>
+ren ſind von ungeſtalten Geſichtern/ wiewohl<lb/>
+ſie doch denen heßlichen <hi rendition="#aq">Calmucken</hi> nicht glei-<lb/>
+chen.</p></div><milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#fr">Das andere Capittel.</hi></head><lb/>
+<argument><p><hi rendition="#fr">Von der Lebens-Art der</hi><lb/>
+<hi rendition="#aq">Oſtiacken.</hi></p></argument><lb/>
+<p><hi rendition="#c">§. 1.</hi></p><lb/>
+<p><hi rendition="#in">W</hi>Ann ihnen Kinder zur Welt gebohren<lb/>
+werden/ hat ſich der Vater entweder<lb/>
+bey denen Ruſſen eines Nahmens<lb/>
+womit er ſein Kind benennen will,<lb/>
+erkundiget: Jm entſtehenden Fall aber, legt er<lb/>
+ihm den Nahmen von denjenigen Thieren bey/<lb/>
+welche ihm zur ſelbigen Zeit zu erſt begegnen/<lb/>
+und weil ihre gantze Viehzucht in Hunden und<lb/>
+Rennthieren beſtehet/ ſo tꝛifft es ſich gemeiniglich<lb/>
+daß die Benennung von ihnen genommen werde.<lb/>
+Dahero ſich viele <hi rendition="#aq">Sabatski,</hi> Hunde nennen. An-<lb/>
+dere aber haben die Gewohnheit die Kinder nach<lb/>
+der Ordnung ihrer Gebuhrt, wie ſie jung ge-<lb/>
+worden zu nennen, den aͤlteſten/ mittlern und<lb/>
+juͤngſten/ den vierdten/ fuͤnfften und wie ſie die<lb/>
+Reihe trifft. Haben aber die Kinder einen na-<lb/>
+tuͤrlichen Fehl/ daß ſie entweder lahm/ uͤberſich-<lb/>
+<fw type="catch" place="bottom">tig/</fw><lb/>
+<pb n="25" facs="#f0041"/>
+tig/ pockengruͤbig, mit rothen oder weiſſen Koͤ-<lb/>
+pfen und dergleichen ſind/ ſo werden ſie auch hie-<lb/>
+durch in der Benennung <hi rendition="#aq">diſtinguir</hi>et.</p><lb/>
+<p>§. 2. Gleich wie nun dieſe Leute von keiner<lb/>
+Wiſſenſchafft/ freyen Kuͤnſten, noch vom Leſen<lb/>
+und Schreiben etwas wiſſen/ ſondern <hi rendition="#aq">in Statu<lb/>
+Naturali</hi> leben/ ſo iſt leicht zu erachten/ daß we-<lb/>
+der Sitten-Lehren noch <hi rendition="#aq">Statuten</hi> ſelbige unter<lb/>
+ſich verbindlich machen; Auſſer daß eine allge-<lb/>
+meine Gewohnheit durch oͤfftere Wiederhoh-<lb/>
+lung gleichſam ihnen ein Geſetze giebet, und das<lb/>
+allgemeine Recht der Natur ihnen was recht<lb/>
+und billig zur <hi rendition="#aq">Conſervation</hi> ihrer menſchlichen<lb/>
+<hi rendition="#aq">Societe</hi> eindruͤcket/ worauff ſie dann um deſto<lb/>
+feſter halten/ je mehr die natuͤrliche Schande ſie<lb/>
+davon abzutreten/ auf eine verborgene Weiſe<lb/>
+abhaͤlt.</p><lb/>
+<p>§. 3. Hieraus iſt leicht zu ermeſſen, welcher<lb/>
+geſtalt die Erziehung der Kinder von ihren El-<lb/>
+tern geſchaͤhe. Ein Adler fuͤhrt ſeine Jungen<lb/>
+auff eine <hi rendition="#aq">genereuſe</hi> Arth zur Sonnen an/ die<lb/>
+Kraͤhe aber gewehnt die ihrigen zur niedrigen<lb/>
+Flucht. Zu keinen Kuͤnſten und hohen Wiſſen-<lb/>
+ſchafften/ auch nicht einmahl zu einen Handwer-<lb/>
+cke kan der Vater ſeinen Sohn bequemen/ weil<lb/>
+ihm alles dieſes gaͤntzlich unbekant/ ſondern uͤbt<lb/>
+ihn von Jugend auff zum Fiſchfang/ Bogen<lb/>
+ſchieſſen/ die Wildnuͤſſe durchzuſuchen/ Thiere<lb/>
+zu erſchlagen/ und dergleichen damit er geſchickt<lb/>
+ſey/ ſich ſelbſt hinfuͤhro in dieſen muͤhſeligen<lb/>
+Stande zu ernaͤhren. Den Sommer fangen<lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">ſie</fw><lb/>
+<pb n="26" facs="#f0042"/>
+ſie ſo viel Fiſche/ die ſie aufftrucknen/ als ſie des<lb/>
+Winters uͤber benoͤthiget zu ſeyn erachten/ im<lb/>
+Winter aber gehen ſie mit ihren Hunden in den<lb/>
+dicken Wald, woſelbſt ſie Zobel/ Hermeline/<lb/>
+Fuͤchſe/ Baͤhre/ Elende, Rennthiere, Bieber,<lb/>
+Grauwercke und dergleichen fangen und erſchla-<lb/>
+gen. Wovon ſie der hohen Landes-Obrigkeit<lb/>
+ein gewiſſes <hi rendition="#aq">Contingent</hi> jaͤhrlich zahlen/ und den<lb/>
+Reſt an derſelben gegen einen geſetzten Preiß<lb/>
+erlegen/ oder auch ſonſten an <hi rendition="#aq">privat-</hi>Leuten die-<lb/>
+jenige Wahren, deren Vereuſſerung ihnen ver-<lb/>
+goͤnt, verhandeln.</p><lb/>
+<p>§. 4. Jhre Speiſe beſtehet mehrentheils aus<lb/>
+Fiſchen, welche ihnen der <hi rendition="#aq">Obi</hi> und die darinnen<lb/>
+ſich ergieſſende Stroͤhme reichlich mittheilen.<lb/>
+Die allerwenigſten eſſen Brodt und Saltz, ge-<lb/>
+ſtalt der meiſte Theil unter ihnen ſo unvermoͤ-<lb/>
+gend iſt/ daß er ihm dieſe ſo nothwendige Lebens-<lb/>
+Mittel nicht anſchaffen kan, woferne ſie gleich an<lb/>
+etlichen Oertern zu bekommen waͤren; ſondern<lb/>
+muß ſich mit ungeſaltzenen Fiſchen behelffen/ wel-<lb/>
+che an ſtat Brodts und Zukoſt ſind. Des Win-<lb/>
+ters fangen ſie Voͤgel und erſchlagen Rennthie-<lb/>
+re/ die ihnen zur Speiſe gleichfalls dienen. Des<lb/>
+Sommers nehmen ſie die wilden Gaͤnſe und<lb/>
+Endten aus, welche in den Suͤmpffen und Tei-<lb/>
+chen hieſelbſt in groſſer Anzahl neſten. Sie<lb/>
+bemercken ihre Zeit wenn die Alten ihre Federn<lb/>
+fallen laſſen/ und die jungen noch nicht fliegen<lb/>
+koͤnnen. Mit keinen andern Tranck ſtillen ſie<lb/>
+ihren Durſt, als mit dem Waſſer aus dem<lb/>
+<fw type="catch" place="bottom">Fluſ-</fw><lb/>
+<pb n="27" facs="#f0043"/>
+Fluſſe, welches ſie mit einer Bircken-Burcke<lb/>
+ſchoͤpffen. Faͤllen ſie aber ein Wild es ſey von<lb/>
+welcher Gattung es wolle/ oder ſie ſchlachten<lb/>
+Rennthiere/ Pferde und was ſie ſonſten <hi rendition="#aq">attrapi-</hi><lb/>
+ren/ ſo ſaͤttigen ſie ſich mit dem warmen Bluthe.<lb/>
+Jedennoch wann ſie ſich reche <hi rendition="#aq">delectir</hi>en wollen/<lb/>
+ſo tauchen ſie ein ſtuͤck Fiſch im Fiſch-Trahn/ und<lb/>
+nehmen auch wohl gar einen guten Trunck da-<lb/>
+von/ uͤber alles aber lieben ſie den <hi rendition="#aq">Chineſi</hi>ſchen<lb/>
+<hi rendition="#aq">Char</hi> oder Toback/ und zwar rauchen ſie ihn nicht<lb/>
+wie andere <hi rendition="#aq">Nationen,</hi> die den Rauch wieder von<lb/>
+ſich blaſen; Sondern ſie nehmen zuvor etwas<lb/>
+Waſſer im Munde/ und nachdem ſie ſich zur<lb/>
+Erden geſetzt, ſchlucken ſie den angezogenen<lb/>
+Rauch herunter/ welcher ſie nach etlichen Zuͤgen<lb/>
+gantz benimt/ biß ſie mit verſtelleten Geberden<lb/>
+wieder zu ſich ſelbſten kommen und einen<lb/>
+Schleim von ſich werffen. Solche Ubung<lb/>
+wiederhohlen ſie des tages ſo offt es ihnen be-<lb/>
+liebt, und ſie von erwehnten <hi rendition="#aq">Char</hi> einen Vor-<lb/>
+rath haben; Auch brauchen denſelben nicht al-<lb/>
+lein die Maͤnner, ſondern auch die Weiber/ und<lb/>
+gewehnen ihn ihren Kindern von Jugend auff<lb/>
+an, weil er gleichſam an ſtat der <hi rendition="#aq">Medicin</hi> dienet/<lb/>
+die den tranichten Fiſch-Schleim ziemlicher<lb/>
+maſſen ihnen wieder abzapfft.</p><lb/>
+<p>§. 5. Jhre Wohnungen ſind kleine viereck-<lb/>
+ichte Huͤtten von Strauch aufgebauet/ und mit<lb/>
+Bircken-Burcke belegt, der den Regen und<lb/>
+Schnee abhaͤlt. An denen Waͤnden nehmen<lb/>
+ſie ihre Schlaff-Stellen/ mitten ein iſt der Feu-<lb/>
+<fw type="catch" place="bottom">er-</fw><lb/>
+<pb n="28" facs="#f0044"/>
+er-Heerd, darauf ſie <hi rendition="#aq">continuir</hi>lich Strauch<lb/>
+brennen/ um der Kaͤlte ſich zu erwehren. Jhr<lb/>
+Hauß-Geraͤth beſtehet aus Kannen/ Netzen/<lb/>
+Pfeil und Bogen/ und denen Geſchirn von Bir-<lb/>
+cken-Burcke woraus ſie eſſen und trincken. Bey<lb/>
+einigen trifft man zur Zeit ein Beil, viele aber<lb/>
+haben das auch nicht/ ſondern behelffen ſich mit<lb/>
+Meſſern/ von keiner Vieh-Zucht wiſſen ſie/ ſon-<lb/>
+dern ihre Hunde ſind ihre Waͤchter, dieſelbe<lb/>
+nehmen ſie mit auff der Jacht, und ſpeiſen ſie mit<lb/>
+Fiſchen. Die Armuth druͤckt ſie auf beyden<lb/>
+Seiten/ und wo ja einige vor reich unter ihnen<lb/>
+<hi rendition="#aq">pasſir</hi>en, ſo beſtehet der eingebildete Reichthum<lb/>
+in der Menge der Rennthiere, deren etliche bey<lb/>
+tauſend halten. Die <hi rendition="#aq">miſerable</hi> Wohnungen<lb/>
+veraͤndern ſie/ wann es ihnen beliebt/ und in ſol-<lb/>
+chen Wildnuͤſſen da es andern Leuten zu leben<lb/>
+unmoͤglich waͤre, woſelbſt ſie im Schnee und<lb/>
+Eyße ihnen unterweilen Gruͤffte hauen, darinnen<lb/>
+ſie ſich vor der hefftigen Kälte <hi rendition="#aq">præſervir</hi>en/ im<lb/>
+Sommer aber leben ſie an den Uffern der Fluͤſſe/<lb/>
+damit ſie den Fiſch-Fang mit groͤſſerer <hi rendition="#aq">Commo-<lb/>
+dite</hi> abwarten koͤnnen. Dieſes hin- und her-<lb/>
+Ziehen iſt ihnen gar nicht beſchwerlich/ weil ſie<lb/>
+an allen beliebigen Oertern bequeme <hi rendition="#aq">Materien</hi><lb/>
+zur Auffſetzung neuer <hi rendition="#aq">Jurthen</hi> finden/ und ihre<lb/>
+<hi rendition="#aq">Meublen</hi> mit leichter Muͤhe von einem Orte zum<lb/>
+andern unter der Anfuͤhrung der vergeſellſchaff-<lb/>
+teten Armuth bringen koͤnnen.</p><lb/>
+<p>§. 6. Die Hunde und Rennthiere dienen ih-<lb/>
+nen an ſtat der Pferde/ ſie ſpannen 6. <hi rendition="#aq">à</hi> 12. Hun-<lb/>
+<fw type="catch" place="bottom">de/</fw><lb/>
+<pb n="29" facs="#f0045"/>
+de/ wann es geſchwinde gehen ſoll/ vor einen<lb/>
+Schlitten, und reiſen damit in der groͤſten Ge-<lb/>
+ſchwindigkeit von einem Orte zum andern. Die<lb/>
+Schlitten ſind 4. <hi rendition="#aq">à</hi> 5. Ellen lang und eine hal-<lb/>
+be breit, man kan ſie mit einer Hand auffheben/<lb/>
+denn die Sohlen darunter nicht ein Zoll breit<lb/>
+duͤck, und die Lehnungen noch duͤnner. Es iſt<lb/>
+nicht leicht zu glauben was dieſe Hunde/ welche<lb/>
+von der Groͤſſe als in Teutſchland die Bauer- und<lb/>
+Fleiſcher-Hunde/ vor Kraͤffte zu ziehen und vor<lb/>
+Geſchickligkeit ſolche Schlitten fortzubringen<lb/>
+haben. Die <hi rendition="#aq">Paſſagiers</hi> koͤnnen aus Mangel der<lb/>
+Pferde (die auch ohne dem bey dem groſſen<lb/>
+Schnee auf dieſem Wege nicht geſchickt ſeyn,)<lb/>
+kein ander Vorſpann als Hunde und Reñthiere<lb/>
+haben/ ihre bey ſich habende Sachen packen ſie<lb/>
+auff dieſen Schlitten/ und legen ſich mit Renn-<lb/>
+thier-Haͤuten oder andern Peltzen wohl verwah-<lb/>
+ret oben darauff; Die Hunde aber wiſſen ihren<lb/>
+Weg biß zur Abloͤſung/ woferne aber der <hi rendition="#aq">Jam</hi><lb/>
+oder die Abloͤſung allzuweit und die Hunde er-<lb/>
+muͤden/ legen ſie ſich vor den Schlitten nieder/<lb/>
+alsdenn futtert man ſie mit Fiſche/ und wann ſie<lb/>
+ſich geſaͤttiget und ausgeruhet/ ſetzen ſie ihren<lb/>
+Weg unter ſteten Heulen und Bellen biß zum<lb/>
+erwehnten <hi rendition="#aq">Jam</hi> fort woſelbſt der friſche Vor-<lb/>
+ſpann <hi rendition="#aq">parat</hi> ſtehet.</p><lb/>
+<p>§. 7. Einige <hi rendition="#aq">Oſtiacken</hi> und ſonderlich die<lb/>
+<hi rendition="#aq">Samogaiten</hi> fahren auch des Sommers mit<lb/>
+Rennthieren/ allermaſſen ſie ihr Fahrzeug, das<lb/>
+einen Schlitten nicht ungleich ſiehet/ mit Renn-<lb/>
+<fw type="catch" place="bottom">thier</fw><lb/>
+<pb n="30" facs="#f0046"/>
+thier-Haͤuten unten beziehen, forne aber wo es<lb/>
+an dem Graſſe ſtoͤſt die glatte Haut vom Bei-<lb/>
+ne ſetzen/ daß es deſto leichter ohne ſonderlichen<lb/>
+Aufenthalt fortgehe; Kommen ſie an einen<lb/>
+Fluß, ſo ſchwimmt das Rennthier uͤber und zie-<lb/>
+het hinter ſich her dieß beſchriebene Fahrzeug.</p><lb/>
+<p>§. 8. Von der Erde/ die aus ihrem Schooſ-<lb/>
+ſe Menſchen und Vieh ſonſt ernaͤhret, wiſſen<lb/>
+ihnen dieſe Leute gar keinen Nutzen zu machen/<lb/>
+auſſer daß etliche die wilden Wurtzelln/ welche<lb/>
+das unfruchtbahre Land bey der groſſen Kaͤlte<lb/>
+noch hervor bringen kan/ ausgraben und ſich<lb/>
+damit ſaͤttigen. Der Ackerbau iſt ihnen gantz<lb/>
+unbekandt/ wegen der Viehzucht leben ſie<lb/>
+gantz unbekuͤmmert/ und halten weder Kuͤhe<lb/>
+noch Pferde, weder Schaafe noch Huͤner/<lb/>
+welche von ihren Hunden bald angepackt und<lb/>
+zerriſſen werden duͤrfften. Wie dann ſolches<lb/>
+die taͤgliche Erfahrung bey denen Ruſſen, die<lb/>
+in denen Staͤdten wohnen, lehret, und derglei-<lb/>
+chen Hunde zu ihrer Nothdurfft halten muͤſſen/<lb/>
+denen ihre Kuͤhe gar oͤffter auf dem Felde ange-<lb/>
+fallen und zerriſſen werden.</p><lb/>
+<p>§. 9. Das weibliche Geſchlecht hat in Er-<lb/>
+mangelung des Flachſes wenige Ubung. Doch<lb/>
+aber wiſſen ſie die Neſſel auf gleiche Weiſe wie<lb/>
+das Flachs zu handthieren/ und ihnen Leinwand<lb/>
+daraus zu wuͤrcken/ welches ſie zu Umhaͤnge<lb/>
+auf ihre Lagerſtelle ſich bedienen/ damit ſie ſich<lb/>
+des Sommers der Muͤcken erwehren, wofuͤr<lb/>
+ſie ſonſt unmuͤglich in denen Waͤldern Friede<lb/>
+<fw type="catch" place="bottom">haͤt-</fw><lb/>
+<pb n="31" facs="#f0047"/>
+haͤtten, ſie brauchen auch ſelbiges Leinwand/<lb/>
+ohngeachtet es ſehr ſteiff/ zu Hembden und<lb/>
+Tuͤchern auf ihren Koͤpffen. Die Hembden be-<lb/>
+nehen ſie laͤngſt der Bruſt mit allerhand Far-<lb/>
+ben/ imgleichen die Tuͤcher ſo ſie auf dem Kopff<lb/>
+tragen/ und iſt dieſe Ausſtaffierung bey ihnen<lb/>
+ſonderlich beliebt.</p><lb/>
+<p>§. 10. Jhre Kleider nehen ſie von Fiſchhaͤu-<lb/>
+ten zuſammen/ welche ſie von denen Hechten/<lb/>
+Quappen und andern Fiſchen abziehen, und ſo<lb/>
+lange zuſammen lappen/ biß ſie Rock, Hoſen/<lb/>
+Struͤmpffe, Wams und Socken daraus <hi rendition="#aq">for-<lb/>
+mir</hi>en, ſie ziehen auch die Haͤute von Schwa-<lb/>
+nen/ wilden Gaͤnſen/ Endten und Raub-Voͤ-<lb/>
+geln/ die ihnen dienlich zu ſeyn beduͤncken/ her-<lb/>
+unter/ und nehen davon Peltze/ ſammt anderen<lb/>
+benoͤthigten Bekleidungen. Wann ein <hi rendition="#aq">Oſtia-<lb/>
+ker</hi> einer Muͤtze bedarff/ faͤngt er ihm einen Wey-<lb/>
+he oder andern Raub-Vogel/ zieht ihm die<lb/>
+Haut ab/ ſetzet ſelbige an ſtatt der Muͤtze auf den<lb/>
+Kopff. Des Winters aber verhuͤllen ſie ſich<lb/>
+gemeiniglich in Rennthier- oder Elends-Haͤuten/<lb/>
+die ſie gedoppelt anziehen. Der Oberrock iſt<lb/>
+von einem Stuͤcke und bedeckt die Fuͤſſe, den<lb/>
+Leib/ den Kopff und Nacken vor der ſtrengen<lb/>
+Kaͤlte/ die Weiber ſind auf gleiche Art beklei-<lb/>
+det, auſſer daß ſie bunte ausgenehete Tuͤcher,<lb/>
+wie erwehnt/ auf den Haͤuptern/ laͤngſt denen<lb/>
+Geſichtern hangen haben/ die ſie vor einen frem-<lb/>
+den und Unbekannten/ damit ſie nicht in dem<lb/>
+Geſichte geſehen werden, nicht aufheben duͤrf-<lb/>
+<fw type="catch" place="bottom">fen/</fw><lb/>
+<pb n="32" facs="#f0048"/>
+fen/ welches ſo wohl Junge als Alten <hi rendition="#aq">obſer-<lb/>
+vir</hi>en, und vor ein Zeichen der weiblichen Zucht<lb/>
+und Ehrbarkeit halten. Die vornehmſten<lb/>
+Weiber verhuͤllen ſich mit <hi rendition="#aq">Damaſch</hi> oder <hi rendition="#aq">Ki-<lb/>
+taick,</hi> nachdem ſie es vermoͤgend ſind anzuſchaf-<lb/>
+fen.</p><lb/>
+<p>§. 11. Die menſchliche Geſellſchafft kan<lb/>
+nimmer ſo eingeſchrenckt ſeyn/ daß die allgemei-<lb/>
+ne Unvollkommenheiten einen Umgang und<lb/>
+Handel mit einen Frembden nicht erfordern ſol-<lb/>
+ten. Die weiſe Natur hat ihre Gaben gar<lb/>
+duͤrfftig mitgetheilet/ damit ſie denenſelbigen<lb/>
+Menſchen deſto groͤſſeren Anlaß zur Unterhal-<lb/>
+tung der <hi rendition="#aq">Societe</hi> und Verbindung des menſch-<lb/>
+lichen Geſchlechtes gaͤbe/ hingegen alle <hi rendition="#aq">Læſion</hi><lb/>
+aufs aͤuſſerſte zu fliehen <hi rendition="#aq">recommandire.</hi> Da-<lb/>
+hero was ſie dem einen vergoͤnnt/ dem andern<lb/>
+verſagt hat/ auf daß der eine des andern Huͤlf-<lb/>
+fe jederzeit beduͤrfftig ſey. Auf gleiche Weiſe<lb/>
+verbindet auch eben die groſſe Duͤrfftigkeit dieſe<lb/>
+Leute, daß ſie durch den Umgang mit Frembden<lb/>
+ihren Nothwendigkeiten Rath ſchaffen muͤſſen.<lb/>
+Weilen ſie aber auch kein Pfand aufzuſetzen ha-<lb/>
+ben/ und weder Schreiben noch Leſen, wie be-<lb/>
+reits erwehnt/ verſtehen/ vermittelſt welchen ſie<lb/>
+einen <hi rendition="#aq">Contract</hi> aufrichten/ oder mit einer Hand-<lb/>
+ſchrifft ſich verbindlich machen koͤnnten, ſo bren-<lb/>
+nen ſie ihnen auf den Haͤnden allerhand Merck-<lb/>
+mahle, <hi rendition="#aq">Figur</hi>en der Voͤgel oder auch beſondre<lb/>
+Puncte/ welche ſie denen <hi rendition="#aq">Creditor</hi>en als ein<lb/>
+Zeichen/ wobey er ſie gewiß kennen und wieder<lb/>
+<fw type="catch" place="bottom">fin-</fw><lb/>
+<pb n="33" facs="#f0049"/>
+finden werde/ zeigen. Haben ſie ſich abeꝛ entweder<lb/>
+in die Haͤnde geſchnitten/ gehauen oder ein<lb/>
+Mahl im Geſichte/ ſo zeigen ſie bey Schlieſſung<lb/>
+des <hi rendition="#aq">Contracts</hi> die Wundmahlen auf/ und ſetzen<lb/>
+gleichſam dieſelbe zum Unterpfande; Jmmit-<lb/>
+telſt ruͤhmt man ſie, daß ſie ſolche Verpflichtun-<lb/>
+gen feſt halten/ und auf beſtimmten <hi rendition="#aq">Termin</hi> ent-<lb/>
+weder mit Fiſchen/ Rauchwercken/ oder auch<lb/>
+mit Gelde die gemachte Schuld bezahlen, und<lb/>
+alsdenn ihre <hi rendition="#aq">Marquen</hi> wieder aufzeigen, als neh-<lb/>
+men ſie ihre zu Pfande geſetzte Verſicherung<lb/>
+wieder zuruͤck/ und <hi rendition="#aq">annullirt</hi>en ihre Verbindung.<lb/>
+Die Weiber brauchen die <hi rendition="#aq">Figur</hi>en auf den Haͤn-<lb/>
+den ſo ſehr, daß ſie es auch fuͤr eine Schoͤnheit<lb/>
+und Zierlichkeit halten/ wann ſelbige uͤberall<lb/>
+blau angelauffen und <hi rendition="#aq">marquir</hi>et ſeyn.</p><lb/>
+<p>§. 12. Auſſer der hohen Landes-Obrigkeit/<lb/>
+welche die Volck mit <hi rendition="#aq">Woiwoden</hi> regieret/ und<lb/>
+den aufgelegten <hi rendition="#aq">tribut</hi> einfordern laͤſt/ haben ſie<lb/>
+unter ſich keinen ſonderlichen Unterſcheid der<lb/>
+Staͤnde; Etliche/ die was mehr ſeyn wollen<lb/>
+als die andern/ und wenig mehres einzubrocken<lb/>
+haben/ nennen ſie <hi rendition="#aq">Kneſen.</hi> Sie maſſen ſich ei-<lb/>
+ner Herrſchafft uͤber einen gewiſſen Strohm an/<lb/>
+werden aber von denen andern gar wenig und<lb/>
+bißweilen gar nicht <hi rendition="#aq">reſpectir</hi>et/ weil ſie weder<lb/>
+Urtheil noch Recht bey ihnen ſuchen, noch die-<lb/>
+ſe ſie vermittelſt einigen <hi rendition="#aq">Statut</hi>en verbindlich ma-<lb/>
+chen duͤrffen/ und hat ein jeder Hauß-Vater die<lb/>
+<hi rendition="#aq">Inſpection</hi> uͤber ſeine Haußhaltung. Woferne<lb/>
+aber <hi rendition="#aq">enorme Exceſſe</hi> ſolten begangen werden/<lb/>
+<fw type="sig" place="bottom">C</fw><fw type="catch" place="bottom">ſu-</fw><lb/>
+<pb n="34" facs="#f0050"/>
+ſuchen ſie die Entſcheidungen bey denen <hi rendition="#aq">Woi-<lb/>
+woden,</hi> oder auch bey ihren Goͤtzen-Pfaffen,<lb/>
+welche unter dem Schein einer ihnen vom <hi rendition="#aq">Schei-<lb/>
+tan</hi> oder dem Abgotte gegebenen Ausſchlag die<lb/>
+Streitigkeiten ſchlichten; Was maſſen ſie aber<lb/>
+vermittelſt des Eydes ihre Streitigkeiten ab-<lb/>
+thun/ wird in folgendem Capittel erwehnet wer-<lb/>
+den.</p><lb/>
+<p>§. 13. Ein ſolches <hi rendition="#aq">irregulieres</hi> Leben kan<lb/>
+nichts andeꝛs als eine Verwirꝛung in allen ihꝛem<lb/>
+Thun verurſachen. Denn gleichwie die Geſe-<lb/>
+tze die Unbaͤndigkeit der zum Boͤſen geneigten<lb/>
+Menſchen im Zaum halten/ maſſen dieſelben zu<lb/>
+allem Verbohtenen die angebohrne Neigung zie-<lb/>
+het/ ſo oͤffnet ein Stand ſonder Geſetze denen<lb/>
+Laſtern Thor und Riegel/ und die ungeſtraffte<lb/>
+Gewohnheit zu ſuͤndigen bahnet den ſchaͤndli-<lb/>
+chen Luͤſten den breiten Weg zu allem Ubertreten/<lb/>
+daß auch das natuͤrliche einwohnende Geſetze<lb/>
+mit ſeinen innerlichen Beſtraffungen kein Gehoͤr<lb/>
+mehr findet. Wie vormahls das Roͤmiſche<lb/>
+Volck auf ihre gar zu groſſe Freyheit pochte/<lb/>
+und ihm einbildete/ daß es ſonder Geſetze und<lb/>
+Obrigkeit leben koͤnte, tꝛat ein Redneꝛ <hi rendition="#aq">pro roſtris,</hi><lb/>
+und bejammerte einen Krancken, dem der Magen<lb/>
+verdorben/ und keine Speiſe mehr zu ſich zu neh-<lb/>
+men vermoͤgte. Die andere Glieder haͤtten<lb/>
+ſich ſeiner Faulheit halber beſchweret/ der Kopff<lb/>
+habe dem faulen Magen/ der ſich von einem Or-<lb/>
+the zum andern tragen lieſſe, und nichts zu ver-<lb/>
+richten ſchiene, in etlichen Tagen nicht die Spei-<lb/>
+<fw type="catch" place="bottom">ſe</fw><lb/>
+<pb n="35" facs="#f0051"/>
+ſe goͤnnen, die Fuͤſſe ſeiner Nahrung halber ſich<lb/>
+nicht ruͤhren/ noch die Haͤnde durch ihre Arbeit<lb/>
+ihm etwas verdienen wollen; Zuletzt waͤre der<lb/>
+Magen wegen Hunger eingeſchrumpelt, die<lb/>
+ſaͤmtliche Glieder aber waͤren auch krafftloß<lb/>
+geworden/ weilen ſie ihren Safft und Zuſchub<lb/>
+von demſelben nicht weiter haben koͤnnen. Da<lb/>
+rieff das Volck: Es haͤtten die Glieder des Lei-<lb/>
+bes thoͤricht gehandelt/ und muͤſſe man den Ma-<lb/>
+gen fuͤr allen Dingen wieder zurecht helffen,<lb/>
+woferne der Menſch wieder geneſen ſolte. Nach-<lb/>
+dem aber die <hi rendition="#aq">Application</hi> auf die krancke Roͤmi-<lb/>
+ſche <hi rendition="#aq">Republique</hi> gemacht, und der Magen mit<lb/>
+denen Geſetzen und der Obrigkeit/ die Glieder<lb/>
+aber mit dem Volcke in <hi rendition="#aq">Comparaiſon</hi> gezogen<lb/>
+wurden/ aͤnderte dis kluge Volck die unan-<lb/>
+ſtaͤndige Begierden zur F eyheit An einer viel<lb/>
+gefaͤhrlichern <hi rendition="#aq">Etats<supplied>.</supplied></hi>Kranckheit liegt dis arm-<lb/>
+ſeelige Volck/ maſſen ſie ihren vorgenommenen<lb/>
+Willen ſonder Scheu vollbringen/ und die un-<lb/>
+umſchraͤnckte Begierden erſaͤttigen nach der<lb/>
+Maſſe des Geluͤſtens; Weßfalls die Zerruͤttun-<lb/>
+gen in allem ihren Thun Meiſter ſpielen/ daß es<lb/>
+ihnen nicht moͤglich auf einen gruͤnen Zweig,<lb/>
+wie man ſagt/ zu kommen/ woferne nicht die<lb/>
+Annehmung der Chriſtlichen <hi rendition="#aq">Religion</hi> und die<lb/>
+dabey eingerichtete Veranſtaltungen derer <hi rendition="#aq">Me-<lb/>
+tropoliten,</hi> welche ſie zu einem eingeſchrenckten<lb/>
+Leben verbinden/ ein beſſeres fruchten wird.</p><lb/>
+<p>§. 14. Dis iſt wohl eigentlich die Urſache ih-<lb/>
+res groſſen Mangels und Duͤrfftigkeit/ und da-<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">her</fw><lb/>
+<pb n="36" facs="#f0052"/>
+her geſchicht es auch, weil ſie den Leib nicht or-<lb/>
+dentlich in acht nehmen/ ſondern allerhand un-<lb/>
+geſunde tranichte Getraͤncke und Speiſen genieſ-<lb/>
+ſen, daß ſie mit denen <hi rendition="#aq">Scorbuti</hi>ſchen Kranckhei-<lb/>
+ten/ die dem Auſſatze nicht ungleich/ ſo hart <hi rendition="#aq">in-<lb/>
+ficirt</hi> ſind, daß auch ihrer viele bey lebendigem<lb/>
+Leibe verzehret werden. Die angebohrne Lie-<lb/>
+be zu ſich ſelbſten und ſeiner Erhaltung pflegt bey<lb/>
+andern Menſchen zum aller<hi rendition="#aq">ſenſibleſten</hi> in dieſem<lb/>
+Fall zu ſeyn; Geſtalt ſie auch keine Mittel unge-<lb/>
+pruͤfft laſſen, wodurch ſie die Faͤulniſſe abſchaf-<lb/>
+fen/ und den krancken Leib vor andern Zufaͤllen<lb/>
+ihnen <hi rendition="#aq">præſervir</hi>en. Allein man trifft auch dis<lb/>
+bey ihnen nicht/ ſondern wann ſich eine ſolche<lb/>
+Kranckheit aͤuſſert/ daß der Fuß/ Ruͤcken oder<lb/>
+auch ein ander Theil des Leibes/ auch gar das<lb/>
+Geſicht zu faulen beginnet, ſo laſſen ſie es ſo lan-<lb/>
+ge wegfreſſen/ bis das Fleiſch an den Knochen<lb/>
+verzehret worden/ und der Menſch nicht wei-<lb/>
+ter leben mag. Die Hunde lecken ſonſt ihre<lb/>
+Schwaͤren aus/ und die andere unvernuͤnfftige<lb/>
+Thiere ſuchen ihnen auf dem Felde ein Kraut zu<lb/>
+ihrer Heilung; Aber dieſe entſchuldigen ihre<lb/>
+Nachlaͤßigkeit in der <hi rendition="#aq">Conſervation</hi> des Leibes<lb/>
+mit der finſtern Unwiſſenheit/ daß ſie keine Be-<lb/>
+lehrung von ihren Eltern gehabt, die ſich bis an<lb/>
+ihr Ende mit ſolchen Kranckheiten geſchleppt/<lb/>
+vielweniger haͤtten ſie es von andern erfahren<lb/>
+koͤnnen, wie dieſer Kranckheit abzuhelffen/ wei-<lb/>
+len ſie nicht ſonderlich mit ihnen <hi rendition="#aq">converſirt</hi>en.</p><lb/>
+<p>§. 15. Woferne nun die Liebe auf Reinlich-<lb/>
+<fw type="catch" place="bottom">keit</fw><lb/>
+<pb n="37" facs="#f0053"/>
+keit und Schoͤnheit alle ihre Neigung wuͤrffe/<lb/>
+ſo wuͤrde das Volck von dieſer an ſich ziehenden<lb/>
+<hi rendition="#aq">pasſion</hi> gar nichts wiſſen, allein es iſt mehr als<lb/>
+zu gewiß, daß ſie ſich auch in der Unreinigkeit<lb/>
+erſaͤttige/ und ihren Brand in der Garſtigkeit<lb/>
+ſelbſten abkuͤhle. Dieſe <hi rendition="#aq">Nation</hi> kan zwar nicht<lb/>
+ungeſtalt genannt werden, wie im vorhergehen-<lb/>
+den erwehnt; Sondern ihre Geſtalt gleichet de-<lb/>
+nen andern <hi rendition="#aq">Europæern,</hi> doch bey dem weibli-<lb/>
+chen Geſchlechte findet ſich die Schoͤnheit nicht<lb/>
+ſo gar. Doch macht ihre elende Lebens-Arth,<lb/>
+die duͤrfftige Bekleidung/ und die freſſende<lb/>
+Kranckheit den mehrern Theil gantz unange-<lb/>
+nehm zu lieben/ und wuͤrde man hieraus ſchlieſ-<lb/>
+ſen/ daß ein auf beſchriebene Weiſe <hi rendition="#aq">conditio-<lb/>
+nirt</hi>er Mann oder Weib ſonder ſeinen Ehegat-<lb/>
+ten leben muͤſſe; Allein die blinde Liebe <hi rendition="#aq">per-<lb/>
+ſuadir</hi>et dieſem Volcke/ daß der Mann nicht<lb/>
+mit einem/ ſondern vielen Weibern ſeine Luſt<lb/>
+buͤſſen koͤnne/ wannenhero ſie ihnen gemeiniglich<lb/>
+eine Alte/ die der Haußhaltung vorſtehet/ und<lb/>
+eine Junge zum Beyſchlaff zugeſellen.</p><lb/>
+<p>§. 16. Wann der Braͤutigam bey der Braut<lb/>
+Vater ſeine Anwerbung verrichten laͤſt, ſo <hi rendition="#aq">ca-<lb/>
+pitulir</hi>en die Abgeordneten mit ſelbigem ſo lange/<lb/>
+biß ſie des Preiſes einig werden/ und wird ge-<lb/>
+meiniglich der Vater nicht unter 100. Rubeln<lb/>
+fordern; Der Braͤutigam gehet den Kauff ein/<lb/>
+und rechnet ſeinen Kahn auf 30. Rubel/ ſeinen<lb/>
+Hund, den er dem Schwieger-Vater angiebt,<lb/>
+20 und noch mehr, biß er ſo weit von dieſer Bet-<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">teley</fw><lb/>
+<pb n="38" facs="#f0054"/>
+teley zuſammen <hi rendition="#aq">wardir</hi>et/ als die <hi rendition="#aq">prætenſion</hi><lb/>
+und der geſetzte Kauff geweſen. Damit iſt der<lb/>
+Schwieger-Vater zufrieden/ und verſpricht die<lb/>
+Braut auf einen gewiſſen <hi rendition="#aq">Termin</hi> zu lieffern.<lb/>
+Waͤhrender Zeit daß dieſe Verliebten noch ge-<lb/>
+trennet, darff der Braͤutigam ſeine Braut <hi rendition="#aq">en<lb/>
+particulier</hi> nicht beſuchen, will er aber denen<lb/>
+Schwieger-Eltern aufwarten, geht er ruͤck-<lb/>
+lings zur Thuͤr hinein/ und darff auch nicht mit<lb/>
+freyen/ ſondern abgewandten Augen vor ſelbi-<lb/>
+ge treten/ zum Zeichen des <hi rendition="#aq">reſpects</hi> und der tief-<lb/>
+fen <hi rendition="#aq">Submisſion,</hi> gleich als waͤre er/ wie ein an-<lb/>
+genommener Sohn/ nicht wuͤrdig/ mit geradem<lb/>
+Angeſicht dieſe ſeine neue Eltern anzureden/ es<lb/>
+muͤſſe denn von hinten zu geſchehen.</p><lb/>
+<p>§. 17. Wann nun die Abliefferung vor ſich<lb/>
+geht/ uͤbergiebt der Vater ſeine Tochter mit der<lb/>
+<hi rendition="#aq">recommendation,</hi> daß ſie eine beſtaͤndige<lb/>
+Freundſchafft unter ſich halten, und wie Mann<lb/>
+und Weib ſich lieben moͤgen. Jmmittelſt <hi rendition="#aq">præ-<lb/>
+ſentir</hi>en die/ ſo etwas zum Beſten haben/ ihren<lb/>
+Gaͤſten einen Trunck ſchlechten Brandtweins.<lb/>
+Die <hi rendition="#aq">Kneſen</hi> als die Vornehmſten/ bekleiden<lb/>
+ihre Toͤchter/ wo ſie es vermoͤgend ſind/ im roh-<lb/>
+ten Tuch, wie die <hi rendition="#aq">Tartern</hi>; Bey denen andern<lb/>
+fuͤhrt die Armuth insgemein die Wirthſchafft/<lb/>
+der Hunger macht ihnen den leckernden <hi rendition="#aq">Appe-<lb/>
+tit</hi> und die Duͤrfftigkeit beſchmuͤckt die Geliebten<lb/>
+mit dem Gewandt der Bloͤſſe. Es <hi rendition="#aq">obſervir</hi>et<lb/>
+dis Volck auch nicht/ nach aller Voͤlcker Recht/<lb/>
+das weibliche Geſchlecht/ nachdem es Mann-<lb/>
+<fw type="catch" place="bottom">bahr</fw><lb/>
+<pb n="39" facs="#f0055"/>
+bahr geworden/ auszuſteuren/ ſondern ſie ge-<lb/>
+ben ihre Toͤchter von 7. biß 8. Jahren von ſich/<lb/>
+damit ſie von Jugend auf zu den Ubungen der<lb/>
+Liebe gewohnt/ und denen Maͤnnern nach ihren<lb/>
+<hi rendition="#aq">humeuren</hi> auferzogen werden.</p><lb/>
+<p>§. 18. Solte aber dem Manne ſein Weib<lb/>
+eckelhafftig werden/ ſo verſtoſt er dieſelbe/ und<lb/>
+nimmt eine andre; Doch ſieht man/ daß die na-<lb/>
+tuͤrliche Triebe des eingepflantzeten Geſetzes ih-<lb/>
+re Wuͤrckungen haben/ ohngeachtet die wieder-<lb/>
+ſtrebende Neigungen ſich zu dem Verbohtenen<lb/>
+ohne Unterlaß ziehen. Die eingefuͤhrte Ge-<lb/>
+wohnheit dieſer <hi rendition="#aq">Nation</hi> iſt ſehr loͤblich/ daß ſie<lb/>
+nicht allein ihre Kindbetterinen eine Zeitlang in<lb/>
+eineꝛ <hi rendition="#aq">a parten</hi> Huͤtten bleiben laſſen/ biß ſie wieder<lb/>
+geneſen, ſondern es darff auch der Mann ſein<lb/>
+Weib nicht beſuchen, ſo lange ſie ihre Zeit hat/<lb/>
+geſtalt ſelbige ſich auch in ermeldeter Huͤtte biß<lb/>
+zur Reinigung aufhaͤlt.</p><lb/>
+<p>§. 19. Die Zeit der Gebuhrt <hi rendition="#aq">æſtimir</hi>en die<lb/>
+Weiber gar nicht, und ſcheinets als gebaͤhren<lb/>
+ſie ohne Schmertzen. Es <hi rendition="#aq">arrivirt</hi> ihnen gar offt,<lb/>
+daß ſie im Winter von einem Orthe zum andern<lb/>
+ziehen/ wann nun keine <hi rendition="#aq">Jurthe</hi> auf der Naͤhe/<lb/>
+und die <hi rendition="#aq">Commoditæt</hi> fuͤr der Gebaͤhrerin keines<lb/>
+weges zu finden, ſo verrichtet ſie das Jhrige im<lb/>
+gehen/ verſcharret die Gebuhrt im Schnee/<lb/>
+damit ſie hart/ und der Kaͤlte jugendlich gewohnt<lb/>
+werde/ biß ſie anfaͤngt zu weinen/ alsdenn ſteckt<lb/>
+ſie ſelbige im Buſem, und vollfuͤhrt mit den an-<lb/>
+dern ihren Weg. Kommt ſie aber zu dem Ort/<lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">wo</fw><lb/>
+<pb n="40" facs="#f0056"/>
+wo ſie ihre Huͤtten aufſchlagen, ſo bleibt ſie in<lb/>
+einer beſondern, und darff weder der Mann/<lb/>
+noch irgend ein Fremder/ auſſer ein altes Weib/<lb/>
+das ihr die Handreichung thut/ zu ſie gehen,<lb/>
+biß 4. <hi rendition="#aq">a</hi> 5. Wochen vollbracht, ſo wird ein lan-<lb/>
+ges Feuer in der Mitten der Huͤtten gemacht/<lb/>
+daruͤber die Kindbetterin dreymahl ſpringt/<lb/>
+durch welche Spruͤnge ſie gereiniget zu ſeyn ih-<lb/>
+nen einbilden/ nach ſolchen <hi rendition="#aq">Ceremonien</hi> begiebt<lb/>
+ſie ſich wieder zum Manne, der ſie nebſt dem<lb/>
+Kinde wieder aufnimmt/ oder auch nach ſeinem<lb/>
+Belieben verſtoͤſt. Es koͤnnen dieſe Leute un-<lb/>
+gemein die Kaͤlte vertragen, und iſt es zu ver-<lb/>
+wundern, daß ſie in dem kalten Fruͤhjahr und<lb/>
+Herbſt, wie wohl der Sommer wegen des ſte-<lb/>
+tig wehenden Nord-Windes, herbe und froſtig/<lb/>
+mit der elenden Bekleidung von Fiſch-Haͤuten<lb/>
+ſich behelffen koͤnnen.</p><lb/>
+<p>§. 20. Daß ſie zum Waffen und Kriege zu<lb/>
+fuͤhren in denen vorigen Zeiten nicht muͤſſen un-<lb/>
+geſchickt geweſen ſeyn/ iſt leicht aus ihrer wilden<lb/>
+Lebens-Art abzumeſſen. Von Jugend auf ge-<lb/>
+woͤhnen ſie ſich zu den muͤhſamſten <hi rendition="#aq">Travaillen,</hi><lb/>
+und ihre gantze Ubung beſtehet in Bogen ſchieſ-<lb/>
+ſen und wilde Thiere zu faͤllen. Es finden ſich<lb/>
+auch hin und wieder einige <hi rendition="#aq">marquen</hi> ihrer vori-<lb/>
+gen <hi rendition="#aq">bravoure</hi>; Denn die Einwohner von <hi rendition="#aq">Bereſo-<lb/>
+va</hi> ihre Stadt mit <hi rendition="#aq">Palliſaden</hi> vor ihren Anfaͤllen<lb/>
+vor Zeiten haben umgeben muͤſſen/ und erzehlet<lb/>
+man, daß ſie oͤffters ihre abgenommene <hi rendition="#aq">Poſſes-<lb/>
+ſion</hi> durch einige muhtiche Unterwindungen ha-<lb/>
+<fw type="catch" place="bottom">ben</fw><lb/>
+<pb n="41" facs="#f0057"/>
+ben wieder behaupten wollen. So meldet<lb/>
+auch vorangezogener <hi rendition="#aq">Anonymus</hi> hin und wieder<lb/>
+von einigen tapfferen <hi rendition="#aq">Entrepriſen,</hi> womit ſie<lb/>
+nicht einen ſchlechten Dienſt in denen alten Zei-<lb/>
+ten denen Heydniſchen Koͤnigen erwieſen, in<lb/>
+derer <hi rendition="#aq">Alliance</hi> ſie damahls geſtanden. Die Vor-<lb/>
+nehmen unter ihnen/ ſonderlich die ſo genannten<lb/>
+<hi rendition="#aq">Kneſen,</hi> halten noch heutiges Tages ihre Pantzer<lb/>
+und einen außerleſenen Bogen und Pfeil in der<lb/>
+Verwahrung, und ob gleich ihre Hauß-<hi rendition="#aq">meu-<lb/>
+blen</hi> von ſchlechtem Werth, ſo fuͤhren ſie doch<lb/>
+dieſe in allen ihren <hi rendition="#aq">peregrinationen</hi> mit herum.</p><lb/>
+<p>§. 21. Dieſe unbeſtaͤndige Wallfahrten/<lb/>
+die von keiner Ruhe wiſſen/ ſind ohne Zweiffel<lb/>
+in denen Wildnuͤſſen/ wo die grauſamſten Thie-<lb/>
+re ihre Wohnungen haben/ und von ihnen ſte-<lb/>
+tig aufgeſuchet werden, nicht ſonder Gefahr des<lb/>
+Lebens; Dahero bey ihnen es nichts ſeltſames/<lb/>
+daß ſie von Baͤhren zerriſſen und erwuͤrget wer-<lb/>
+den/ oder ſonſt durch einige <hi rendition="#aq">fatale</hi> Zufaͤlle um<lb/>
+ihr Leben kommen. Sterben ſie ſonſt ihres na-<lb/>
+tuͤrlichen Todes/ ſo verſcharren die Nachgeblie-<lb/>
+bene ſie in der Erde, des Winters aber im<lb/>
+Schnee/ und werffen der Verſtorbenen Pfeile<lb/>
+und Bogen/ Beil und Meſſer mit hinein; Wo<lb/>
+ſie aber ſo reich/ daß ſie in ihrem Haußgerath<lb/>
+Toͤpffe oder Keſſel gehabt/ ſo verſcharren ſie<lb/>
+auch dieſelbe mit ihnen. Dis iſt eine uhralte<lb/>
+Gewohnheit/ die ſie von den vorigen Voͤlckern,<lb/>
+ſo ſich <hi rendition="#aq">Tſchut</hi> nennten/ und nunmehro erloſchen<lb/>
+und ausgeſtorben/ beybehalten. Selbiges<lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">Volck</fw><lb/>
+<pb n="42" facs="#f0058"/>
+Volck hat um <hi rendition="#aq">Samaroff Narim</hi> und der Orthen<lb/>
+ſich ausgebreitet gehabt/ und nahmen dieſe<lb/>
+Leuthe/ als ſie aus <hi rendition="#aq">Perma</hi> kahmen/ unter ſie zu<lb/>
+wohnen auf; Man ſiehet auch noch heutiges Ta-<lb/>
+ges die <hi rendition="#aq">Rudera</hi> von ihren Schantzen bey <hi rendition="#aq">Sama-<lb/>
+roff,</hi> und in denen Gegenden/ wo ſie vorhin ge-<lb/>
+wohnet. Die <hi rendition="#aq">Oſtiacken</hi> haben ihre alte Goͤ-<lb/>
+tzen/ die dieſe Voͤlcker aus <hi rendition="#aq">China</hi> ihnen ver-<lb/>
+ſchafft/ von ihnen geerbet/ nunmehro aber iſt<lb/>
+dis gantze Volck ſo ausgegangen/ daß<lb/>
+kaum die Spuhr mehr davon. Die Urſache/<lb/>
+daß ſie denen Verſtorbenen die Pantzer und<lb/>
+Haußgerath mit in die Grufft werffen/ iſt die<lb/>
+eitle Einbildung/ die ſie glauben macht/ daß ſie<lb/>
+in der andern Welt bey denen Goͤttern allerley<lb/>
+Haußgerath und Kriegs-Zuruͤſtungen noͤthig<lb/>
+haͤtten. Sonderlich gebrauchten ſie die Toͤpf-<lb/>
+fe und Schuͤſſel dazu/ daß ſie ihnen in der an-<lb/>
+dern Welt ihre Speiſe darin kochen koͤnten/<lb/>
+wenn ſie bey ihren Goͤttern zur Mahlzeit nicht<lb/>
+<hi rendition="#aq">invitir</hi>et waͤren/ und ſey ſolcher Haußgerath<lb/>
+daſelbſt nicht gar wol zu bekommen, man muͤſte<lb/>
+ihn denn theuer anſchaffen.</p><lb/>
+<p>§. 22. Sonſten wiſſen ſie von dem Zuſtan-<lb/>
+de des Menſchen nach dem Tode nichts/ auſſer<lb/>
+daß es aus den vorigen Umſtaͤnden ſchiene/ daß<lb/>
+die Vernunfft die Unſterblichkeit der Seelen ih-<lb/>
+nen gleichwohl kund mache. Gleichwie ſie aber<lb/>
+in allen ihren Wuͤrckungen im Geiſtlichen blind<lb/>
+und verfinſtert, ſo ſtellt ſie den Menſchen die<lb/>
+Beſchaffenheit des andern Lebens in denen bloſ-<lb/>
+<fw type="catch" place="bottom">ſen</fw><lb/>
+<pb n="43" facs="#f0059"/>
+ſen Wolluͤſten und Ergoͤtzlichkeiten des Leibes<lb/>
+vor. Welche <hi rendition="#aq">difficultæt</hi>en nur wenige aus de-<lb/>
+nen vorigen Welt- Weiſen uͤberſtiegen/ und<lb/>
+durch muͤhſahmes <hi rendition="#aq">Speculir</hi>en die Unſterblichkeit<lb/>
+der Seelen in dem andern Leben ausgeſonnen<lb/>
+haben.</p></div><milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#fr">Das 3te Capittel.</hi></head><lb/>
+<argument><p><hi rendition="#c"><hi rendition="#fr">Von der Religion und dem<lb/>
+Goͤtzendienſt der</hi> <hi rendition="#aq">Oſtiacken</hi>.</hi></p></argument><lb/>
+<p><hi rendition="#c">§ 1.</hi></p><lb/>
+<p><hi rendition="#in">D</hi>Er Goͤtzendienſt war bey denen Grie-<lb/>
+chen/ Roͤmern und andern <hi rendition="#aq">civiliſirt</hi>en<lb/>
+Heyden/ eine bloſſe Erfindung der Ge-<lb/>
+waltigen/ vermittelſt welcher ſie das ge-<lb/>
+meine Volck deſto beſſer im Zaum hielten/ und<lb/>
+ihre Ausſchweiffungen unter dem Mantel des<lb/>
+Aberglaubens bedecken konten. Geſtalt ſie ih-<lb/>
+nen denn ſothanen Dienſt nach Beſchaffenheit<lb/>
+und dem <hi rendition="#aq">Intereſſe</hi> ihres <hi rendition="#aq">Etats formirt</hi>en. Es iſt<lb/>
+nicht zu glauben/ daß ſo viele kluge Leute denen<lb/>
+albernen Fabeln von denen Goͤttern/ die bald<lb/>
+wie Moͤrder/ bald wie Hurer und Ehebrecher<lb/>
+und andere Ubelthaͤter aufgefuͤhret wurden/<lb/>
+Glauben beygemeſſen/ und ſie als wahrhafftige<lb/>
+Goͤtter erkannt haben. Dem Volcke aber mu-<lb/>
+ſte ein Wahn uͤberredet werden/ der ſie deſto<lb/>
+beſſer im Zaum hielte. Maſſen denn der <hi rendition="#aq">Con-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">cept</hi></fw><lb/>
+<pb n="44" facs="#f0060"/>
+<hi rendition="#aq">cept</hi> von der <hi rendition="#aq">Religion</hi> eine maͤchtige Stuͤtze iſt/<lb/>
+worauf die Welt ſich fuſſet, und wie das Leben<lb/>
+ſelbſt <hi rendition="#aq">defendir</hi>et werden muß. So wuſten auch<lb/>
+ihre <hi rendition="#aq">Philoſophen</hi> gar wohl, daß Holtz und<lb/>
+Steine ihnen nichts koͤnten gewehren/ und daß<lb/>
+ein gemachtes Bild weder eine vergeltende/ noch<lb/>
+ſtraffende Krafft in ſich haͤtte. Das thoͤrichte<lb/>
+Volck aber hatte ſo weites Nachdencken nicht/<lb/>
+ſondern bildete ihm ein/ es muͤſſe der Creatur/<lb/>
+ſie moͤchte ein Leben in ſich hegen/ oder auch gar<lb/>
+lebloß ſeyn, von welcher ſie einen Nutzen ver-<lb/>
+muhteten, eine Erkaͤnntlichkeit erwieſen werden.<lb/>
+Dahero man in den erſten Zeiten die vornehmſte<lb/>
+Abgoͤtterey an der Sonnen, oder an dem/ was<lb/>
+einem Vortheil ſchaffe/ bemerckte. Und hier-<lb/>
+zu iſt die blendende Liebe Schuld/ die auch durch<lb/>
+den Glantz des Goldes die Jſraeliten, das<lb/>
+Volck GOttes/ zur Abgoͤtterey verfuͤhrete.</p><lb/>
+<p>§. 2. Unſere einfaͤltige <hi rendition="#aq">Oſtiacken</hi> ſind biß<lb/>
+hieher eben dieſer Blendung gefolget/ weßfalls<lb/>
+ſie ihnen theils ſelbſt einige Goͤtzen aus Holtz ge-<lb/>
+bildet/ theils aber einige aus Ertz gegoſſen/ die<lb/>
+ſie von ihren Vorfahren/ wie erwehnt/ ſo ſich<lb/>
+<hi rendition="#aq">Tſchut</hi> nannten, geerbet/ welchen ſie die Ehre<lb/>
+der Anbetung erwieſen/ ihnen opfferten/ und<lb/>
+ihre Huͤlffe in allerhand Begebenheiten ver-<lb/>
+langten.</p><lb/>
+<p>§. 3. Bey denen beruͤhmten Voͤlckern im<lb/>
+Heydenthum wuſte des Kuͤnſtlers Hand die<lb/>
+Goͤtzen nicht ſauber genug zu bilden/ maſſen<lb/>
+die allerberuͤhmteſte Bildhauer/ Steinmetzen/<lb/>
+<fw type="catch" place="bottom">Ertz-</fw><lb/>
+<pb n="45" facs="#f0061"/>
+Ertzgieſſer und Mahler aufgeſucht wurden/ die<lb/>
+alle ihre Geſchicklichkeit in der Bildung eines<lb/>
+Goͤtzens anzubringen ſuchten. Hier aber hau-<lb/>
+et ein jeder ihm nach Belieben ſeinen Goͤtzen<lb/>
+aus/ ſchafft ihn wieder ab/ und zerſtuͤmmelt ihn/<lb/>
+oder wirfft ihn gar ins Feuer/ wie ſeine <hi rendition="#aq">Phan-<lb/>
+taſie</hi> es ihm uͤberredet. Es war aber ſolches<lb/>
+insgemein ein Klotz/ woran ſie oben eine Runde/<lb/>
+wie eines Menſchen-Kopff/ ausgehauen/ und<lb/>
+ihm eine abgeſchmackte Naaſe/ nebſt einer Ker-<lb/>
+be in die Quaͤre, die den Mund bedeuten ſolte,<lb/>
+<hi rendition="#aq">formir</hi>et hatten.</p><lb/>
+<p>§. 4. Die von ihren Vorfahren geerbte wa-<lb/>
+ren meiſt von Ertz in der <hi rendition="#aq">Figur</hi> einer Ganß/ ei-<lb/>
+ner Jungfer mit ausgeſtrecktem Arm, einer<lb/>
+Schlangen und dergleichen/ ſelbige waren<lb/>
+kuͤnſtlich genug gegoſſen/ und ſcheinet/ daß ſie<lb/>
+von denen <hi rendition="#aq">ingenieuſ</hi>en <hi rendition="#aq">Chineſern</hi> an ſie gekom-<lb/>
+men ſeyn muͤſſen. Andere aber haben gar keine<lb/>
+Geſtalt; Denn es war ein dicker laͤnglichter<lb/>
+Klotz auf der Erde gelegt, mit allerhand Lum-<lb/>
+pen und Zeug bewunden, oben auf lag ein<lb/>
+Stuͤck vom abgebrochenen Spiegel, welches<lb/>
+von der Sonnen/ wann ſie ſchiene/ einen Schim-<lb/>
+mer von ſich gab.</p><lb/>
+<p>§. 5. Sothane Abgoͤtter ſtellen ſie auf erha-<lb/>
+bene und nach Gelegenheit des Ortes luſtige<lb/>
+Berge/ ſetzen ſie insgemein in ein Haͤußgen<lb/>
+vom Holtz im dicken Walde/ wonebenſt eine klei-<lb/>
+nere Huͤtte ſtehet/ darinnen ſie die Knochen vom<lb/>
+Geſchlachteten zuſammen tragen. Jedennoch<lb/>
+<fw type="catch" place="bottom">fin-</fw><lb/>
+<pb n="46" facs="#f0062"/>
+findet man in der Arth der Verehrung nichtes<lb/>
+<hi rendition="#aq">regulieres</hi>; Denn gleichwie bey denen <hi rendition="#aq">Civiliſir-</hi><lb/>
+ten Heydniſchen Voͤlckern gewiſſe Stunden des<lb/>
+Tages/ oder auch wohl gantze Tage denen Ab-<lb/>
+goͤttern zum Dienſte gewidmet waren, ſo rich-<lb/>
+ten hingegen dieſe Leute ihre Andacht nach eige-<lb/>
+nem <hi rendition="#aq">Intereſſe</hi> ein/ wann die Noth es erfordert,<lb/>
+oder die Liebe zum Gewinſt ſie anſpornet/ als-<lb/>
+denn flehen ſie erſt die Goͤtzen an/ um Erhaltung<lb/>
+des Verlangten/ oder auch um Errettung aus<lb/>
+der obhandenen Gefahr; Gleichwohl treiben<lb/>
+auch die Pfaffen das Volck an zum Goͤtzendien-<lb/>
+ſte/ und beſtraffen mit hefftigen Worten ihre<lb/>
+Schlaͤffrigkeit und Unterlaſſung, wozu ſie dieſe<lb/>
+<hi rendition="#aq">perſuaſion</hi> gebrauchen/ als haͤtten ſie von denen<lb/>
+Goͤttern den muͤndlichen Befehl erhalten/ daß<lb/>
+ſie ihre Verehr- und Anruffung fleißiger ver-<lb/>
+richteten, und die erzuͤrneten Goͤtzen mit etwas<lb/>
+Leinwand, <hi rendition="#aq">Dammaſch</hi> und anderen Bekleidun-<lb/>
+gen wieder verſoͤhnen/ oder ein Thier zum Opf-<lb/>
+fer ſchlachten ſolten.</p><lb/>
+<p>§. 6. Zu denen Pfaffen erwehlen ſie eigent-<lb/>
+lich keine gewiſſe Perſohnen/ ſondern ein jeder<lb/>
+Haußvater oder der Aelteſte von der <hi rendition="#aq">Familie,</hi><lb/>
+welcher ihm einen Klotz verfertiget/ nahm ihm<lb/>
+ſelber die Muͤhe, vor den Goͤtzendienſt zu ſorgen/<lb/>
+und die gewoͤhnliche <hi rendition="#aq">Ceremonien</hi> zu verrichten:<lb/>
+geſtalt mit dem grauen Alter insgemein die Liebe<lb/>
+zur Heiligkeit und dem Geitze zu wachſen pflegt/<lb/>
+wann die wolluͤſtige Liebe auszutrocknen begin-<lb/>
+net/ im Fall aber dieſer ſolcher Unternehmun-<lb/>
+<fw type="catch" place="bottom">gen</fw><lb/>
+<pb n="47" facs="#f0063"/>
+gen ſich ungeſchickt zu ſeyn bedeucht/ finden ſich<lb/>
+auch ſolche Leuthe/ die aus Liebe zum Schmaro-<lb/>
+tzen zu dieſem Handwercke ſich erbiethen/ und<lb/>
+durch oͤfftere <hi rendition="#aq">Practicir</hi>ung ſich gleichſam <hi rendition="#aq">ſignali-<lb/>
+ſir</hi>et haben. Jhre Geſchicklichkeit beſtehet dar-<lb/>
+innen/ daß ſie aus vollem Halſe/ was von den<lb/>
+Goͤtzen begehret wird/ bey der Opfferung aus-<lb/>
+ſchreyen/ bey denen Wahrſagungen mit groſſer<lb/>
+Standhafftigkeit das <hi rendition="#aq">Tractament</hi> des Satans<lb/>
+ausſtehen/ und nachgehends dem thoͤrichten<lb/>
+Volcke allerhand Fabeln und Gauckelſpiehle<lb/>
+von der erhaltenen Antwort ausſchwatzen koͤn-<lb/>
+nen.</p><lb/>
+<p>§. 7. Selbiges Wahrſagen verrichten ſie<lb/>
+nach der gemeinen Erzehlung folgender maſſen:<lb/>
+Der Goͤtzen-Diener wirfft ſich gebunden auf<lb/>
+der Erde nieder/ erwartend mit verſtellten Ge-<lb/>
+behrden die Beſitzung des Satans/ der ihm zu-<lb/>
+kuͤnfftige Dinge auf die ihm gegebene Fragen<lb/>
+verkuͤndigen/ einen Orth zeigen/ wo ein <hi rendition="#aq">pre-<lb/>
+ticuſ</hi>es Wild zu fangen/ oder auch denen<lb/>
+Streit-Sachen eine abhelffliche Maſſe geben<lb/>
+ſolle. Waͤhrender Zeit ſtehen die/ welche die<lb/>
+Wahrſagungen verlangen/ mit <hi rendition="#aq">continuirli</hi>chem<lb/>
+Heulen, und klingen auf den Becken und an-<lb/>
+dern Geſchirren/ die ein Getoͤs von ſich geben/<lb/>
+um ihn herum, biß ſich ein blauer Dunſt/ wel-<lb/>
+cher vor den wahrſagenden Geiſt von ihnen ge-<lb/>
+halten wird/ weiſet/ die Umſtehenden ausein-<lb/>
+ander jagt/ den Satans Diener ergreifft und<lb/>
+nieder wirfft/ nachdem er ihn in die Hoͤhe geho-<lb/>
+<fw type="catch" place="bottom">ben;</fw><lb/>
+<pb n="48" facs="#f0064"/>
+ben; Da er mittlerweile ſo uͤbel zugerichtet<lb/>
+wird, daß er in der Lebloſigkeit einer Stunden<lb/>
+lang und noch laͤnger ſich quaͤlen muß/ biß er<lb/>
+zu voͤlligen Kraͤfften kommen/ alsdenn er ſeinen<lb/>
+<hi rendition="#aq">Clienten</hi> die erhaltene Antwort vorſchwatzt und<lb/>
+einen betruͤglichen Beſcheid auf ihre neugierige<lb/>
+Fragen giebt.</p><lb/>
+<p>§. 8. Wie ſchlecht aber dieſer unflaͤthige<lb/>
+Geiſt die arme Einfaͤltige belohne/ und wie er<lb/>
+ihnen ſo theuer vor der Luͤgen die Wahrheit ver-<lb/>
+kauffe/ iſt leicht zu ermeſſen/ weil jenes ſein <hi rendition="#aq">E-<lb/>
+lement</hi>iſt/ womit er die gantze Welt benebelt/<lb/>
+vor dieſer aber erſchrickt/ weil ihre Bloͤſſe ihm<lb/>
+ſeinen verdammlichen Zuſtand und den Ab-<lb/>
+grund ſeiner Argheit aufdecket. Eine Zeitlang<lb/>
+hatte der boͤſe Geiſt denen Goͤtzen-Dienern ein-<lb/>
+gegeben/ daß die, welche in der Gegend <hi rendition="#aq">Sama-<lb/>
+roff</hi> und <hi rendition="#aq">Bereſova</hi> ihren Verbleib haben/ ihm<lb/>
+Pferde zum Opffer ſchaffen ſolten/ welchem nach-<lb/>
+zukommen ſie mit der groͤſten Muͤhe und uner-<lb/>
+traͤglichen Unkoſten ihnen Pferde angeſchafft/<lb/>
+bis ſie aller Mittel entbloͤſt/ ſo tieff ſich in<lb/>
+Schulden geſetzt/ daß viele zuletzt ihre alte Lum-<lb/>
+pen auf dem Leibe nicht behalten/ ſondern mit<lb/>
+ihrem groͤſten Schaden gewahr worden/ was<lb/>
+vor eine betriegliche Abſicht unter einer ſothanen<lb/>
+Opfferung ſtecke.</p><lb/>
+<p>§. 9. Allein wie betrieglich der Dienſt des<lb/>
+Satans/ ſo gefaͤhrlich iſt er auch; Er fuͤhrt zu-<lb/>
+vor die Menſchen auf das ſchluͤpfferige ſo weit,<lb/>
+daß ſie ſonder Quaal und Plage ſo leicht nicht<lb/>
+<fw type="catch" place="bottom">von</fw><lb/>
+<pb n="49" facs="#f0065"/>
+von ihm loß werden. Doch mercken ſie den<lb/>
+Betrug gleichwol/ und lehret ihnen ihr beyge-<lb/>
+brachter Sch<supplied>a</supplied>de am Ende/ was ſie vor einen<lb/>
+Gaſt an ihm haben/ dieſe arme Leute/ ſo lange<lb/>
+ſie ſich bey ihm befragten/ wurden zum oͤfftern<lb/>
+betrogen, und wann ſie meynten/ daß nach der<lb/>
+Auſſage des Pfaffen an angewieſenen Oertern<lb/>
+das verlangte Wild/ oder die Menge der Fiſche<lb/>
+anzutreffen; ſo bemuͤheten ſie ſich aufs hoͤchſte<lb/>
+in der Nachſuchung, funden aber gemeiniglich<lb/>
+nichts. Welcher Betrug ſie zur <hi rendition="#aq">revange</hi> auf-<lb/>
+munterte, peitſchten und pruͤgeiten ihre ausge-<lb/>
+hauene Goͤtzen gewaltig bey der Zuruͤckkunfft,<lb/>
+biß ſie den Betrug genug <hi rendition="#aq">reſſentirt</hi> zu haben ver-<lb/>
+meynten; nachdem der Zorn voruͤber/ ſoͤhneten<lb/>
+ſie ſich wieder aus, hiengen ihm einen Umhang<lb/>
+von oben beſchriebenem Zeuge an/ und nahmen<lb/>
+es nach Belieben/ wann er wieder kein Wort<lb/>
+gehalten; Es geſchahe aber hiedurch/ daß ſie<lb/>
+mit boͤſen Kranckheiten geplagt, und entweder<lb/>
+ſie ſelbſt, oder auch ihre Kinder aufs grauſamſte<lb/>
+gefoltert wurden.</p><lb/>
+<p>§. 10. Die Ehrerbietung gegen die mit eige-<lb/>
+nen Haͤnden gemachte Goͤtzen ſchiene nicht ſon-<lb/>
+derlich zu ſeyn/ die oͤffentliche aber verehrten ſie<lb/>
+<hi rendition="#aq">en general</hi> vielmehr/ und ſchafften ſie nicht nach<lb/>
+Belieben ab, ſondern wurden als bewaͤhrte<lb/>
+Goͤtzen von Tag zu Tage beybehalten. So<lb/>
+war auch das Vertrauen viel groͤſſer zu denen<lb/>
+Alten/ denn ſie bildeten ihnen ein, es haͤtte das<lb/>
+Ertz oder der halb verfaulte Klotz mit denen un-<lb/>
+<fw type="sig" place="bottom">D</fw><fw type="catch" place="bottom">denck-</fw><lb/>
+<pb n="50" facs="#f0066"/>
+dencklichen Jahren auch unerforſchliche Weiß-<lb/>
+heit geſchoͤpffet/ und muͤſſe alſo was unſterbli-<lb/>
+ches bey ihnen ſeyn/ je weniger man von ihrer<lb/>
+Verweſung in ſo verjahrter Zeit vernommen.<lb/>
+Denen Kindern wurden auch dieſe zum aller-<lb/>
+meiſten von ihren Eltern angeprieſen/ geſtalt<lb/>
+ſie von der Furcht und Liebe zu ihrem Schoͤpffer/<lb/>
+als <hi rendition="#aq">rude</hi> Voͤlcker wenig wuſten, und das Licht<lb/>
+der Natur ſolches denen Klugen und Nachfor-<lb/>
+ſchenden im Heydenthum nur entdecket/ wes-<lb/>
+falls die <hi rendition="#aq">Philoſophi</hi> durch tieffes Nachſinnen<lb/>
+erſt ergruͤndeten/ daß der Schoͤpffer von der<lb/>
+Creatur aus Danckbarkeit zu lieben und zu<lb/>
+fuͤrchten ſey/ wie dann ſothane Liebe in der Na-<lb/>
+tur gegruͤndet, und in der Schoͤpffung dem<lb/>
+Menſchen einpflantzt worden; Welcher geſtalt<lb/>
+aber/ daß die Pflicht und der Dienſt muͤſſe ein-<lb/>
+gerichtet ſeyn, koͤnte ihnen die verarmete Ver-<lb/>
+nunfft nicht anweiſen/ denn jemehr man ſelbige<lb/>
+zum Geiſtlichen fuͤhret/ je blinder und tunckler<lb/>
+ſie anzutreffen iſt/ die <hi rendition="#aq">Affect</hi>en aber ſcheinen zu<lb/>
+der Erkaͤnntniß und Nachforſchung im Geiſtli-<lb/>
+chen gar gefeſſelt zu ſeyn, ſolchergeſtalt/ daß ſie<lb/>
+mit aller Macht zu ſolcher Betrachtung anzu-<lb/>
+treiben/ und der Menſch von ihm ſelbſten die<lb/>
+Widerſtrebung abzuhalten nicht faͤhig ſey.</p><lb/>
+<p>§. 11. Zudem iſt des Menſchen Neigung<lb/>
+ſo abgeſchmackt/ daß er zur Zeit der Gefahr/<lb/>
+oder obhandenen Schadens/ nicht eben zu den<lb/>
+bewehrten Mitteln, ſondern auch zu dem ge-<lb/>
+ringſten Lebloſen, natuͤrlicher Weiſe lauffe, dem<lb/>
+<fw type="catch" place="bottom">er</fw><lb/>
+<pb n="51" facs="#f0067"/>
+er ſein Vertrauen widmet/ wenn er von ſelbi-<lb/>
+gem nur eine Huͤlffe/ ſeiner <hi rendition="#aq">perſuaſion</hi> nach/ ver-<lb/>
+muthend ſeyn kan. Dahero man taͤglich erfaͤh-<lb/>
+ret, daß auch Chriſten aus einer unanſtaͤndlichen<lb/>
+Neugierigkeit kuͤnfftiges zu wiſſen/ oder damit<lb/>
+ſie einer Gefahr zu entrinnen/ oder auch zu ihrem<lb/>
+Nutzen gelangen/ ſo weit verfallen/ daß ſie die<lb/>
+Wahrſager befragen/ auf Geſchrey der Voͤ-<lb/>
+gel und leere Traͤume acht geben/ ja wenn es<lb/>
+muͤglich/ bey ſothanen aͤngſtlichem Zuſtande eine<lb/>
+Veraͤnderung nach ihrem Wunſch zu erlangen,<lb/>
+bey den Lebloſen ſelbſt Huͤlffe ſuchen wuͤrden.<lb/>
+Und ob es gleich nicht allezeit auf eine grobe<lb/>
+Weiſe geſchicht, weil ſie die natuͤrliche Schan-<lb/>
+de im Gewiſſen der Grobheit bezuͤchtiget/ und<lb/>
+ihnen zum Zeichen ihres Unfugs die Roͤhte auf<lb/>
+den Wangen mahlet/ ſo kan ſie es doch nicht<lb/>
+verwehren/ daß er auf eine <hi rendition="#aq">ſubtilere</hi> Arth das<lb/>
+Vertrauen von ſeinem Schoͤpffer zu den Huͤlflo-<lb/>
+ſen Creaturen/ und duͤrfftigen Deutungen o-<lb/>
+der Zeichen wende, imgleichen/ daß er durch<lb/>
+<hi rendition="#aq">puncten,</hi> die eine bebende Hand aufs Papier<lb/>
+wirfft/ eine <hi rendition="#aq">Conſequence</hi> der kuͤnfftigen Bege-<lb/>
+benheit zu erzwingen verſuche/ in welcher Fin-<lb/>
+ſterniß ſo viele kluge Koͤpffe ſtecken.</p><lb/>
+<p>§. 12. Nun ſcheint zwar/ daß der vernuͤnfftige<lb/>
+Menſch/ dem der weiſe Schoͤpffer eine geſunde<lb/>
+Vernunfft eingepflantzt/ wo ihn ſeine Augen und<lb/>
+Sinnen nicht betriegen/ den Schluß machen wer-<lb/>
+de: daß/ ſo fern die Vernunfft mit der Sache ſelbſt<lb/>
+beſchaͤfftig ſeyn, und kein Gedancke auf der Man-<lb/>
+nigfaltigkeit der <hi rendition="#aq">puncten</hi> ausſchweiffen/ noch die<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">Hand/</fw><lb/>
+<pb n="52" facs="#f0068"/>
+Hand, wo ſie anfangen und endigen ſolle/ anfuͤh-<lb/>
+ren muͤſſe, (wo eꝛ andeꝛs ein richtiges <hi rendition="#aq">facit</hi> haben<lb/>
+will) der <hi rendition="#aq">impetus animalis</hi> oder der Trieb/ den<lb/>
+der Menſch mit dem Vieh ſonder Wuͤrckung<lb/>
+der vernuͤnfftigen Seelen gleich hat/ (zum <hi rendition="#aq">E-<lb/>
+xempel,</hi> daß er den Arm ausſtreckt/ ehe er ihn<lb/>
+gedenckt auszuſtrecken/ daß er den Fuß/ ehe er<lb/>
+gedenckt, zum gehen ausſetze/ und dergleichen)<lb/>
+die Hand alleine ruͤhre/ und die <hi rendition="#aq">Conſequence</hi><lb/>
+nicht aus der Wuͤrckung der vernuͤnfftigen See-<lb/>
+len/ die zur Fuͤhrung der Hand nichtes beytra-<lb/>
+gen/ ſondern aus einem Viehiſchen Triebe her-<lb/>
+geleitet werde, alſo ſein Vertrauen auf was<lb/>
+Unvernuͤnfftiges ſetze/ das ihm den Ausſchlag<lb/>
+ſeiner Begierden geben ſolle. Jmgleichen daß<lb/>
+Holtz/ Stein/ oder Ertz/ was er ſelbſten oder<lb/>
+andere zu ſeiner itzigen Geſtalt mit groſſer Muͤ-<lb/>
+he verholffen/ ihm als ein unvermoͤgendes ſich<lb/>
+ſelbſt nicht bilden/ auch keiner Huͤlffe gewehren<lb/>
+koͤnne; Anbey daß die Schlaͤge die er dem Ab-<lb/>
+gotte zufuͤgt, von dem Lebloſen nicht gefuͤhlet,<lb/>
+man muͤſſe ihm denn einbilden, daß der Satan,<lb/>
+oder eine im Goͤtzen wohnende Krafft/ ſelbige<lb/>
+leide. Allein ſo ſagt auch die Vernunfft/ daß<lb/>
+ein geiſtliches Weſen eine ſolche Leidenſchafft zu<lb/>
+empfinden nicht geſchickt ſey. Dahero er eine<lb/>
+vergebliche Arbeit thaͤte/ und ſich nur ſelbſt be-<lb/>
+truͤge.</p><lb/>
+<p>§. 13. Wer erfähret aber nicht in ſeinem<lb/>
+gantzen Leben/ daß wir armſelige Menſchen al-<lb/>
+len Fleiß anwenden/ wie wir uns zum <hi rendition="#aq">inventi-<lb/>
+euſe</hi>ſten betruͤgen/ und mit einem leeren Winde<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="53" facs="#f0069"/>
+der ſchmeichelnden Hoffnung/ unſere truͤbe Ge-<lb/>
+dancken aus einander zu jagen emſig ſeyn?<lb/>
+Weßfalls wir das Wahrſcheinliche vor dem<lb/>
+wahrhafftigen Gute erwehlen. Und dis ruͤhrt<lb/>
+daher, daß die Vernunfft in ſich ſelbſt verfin-<lb/>
+ſtert/ die ſtrebende Begierden in der Jrre tap-<lb/>
+pen/ die ſuͤſſe Einbildung aber/ auch das ſchaͤdli-<lb/>
+che/ als wann es noch ſo tauglich waͤre/ anneh-<lb/>
+me. Dahero <hi rendition="#aq">conſiderir</hi>et der irrige Menſch<lb/>
+nicht, von wem er Huͤlffe haben koͤnne, ſondern<lb/>
+folgt ſeiner Einbildung/ greifft zum Schatten/<lb/>
+und laͤſt das Weſen fahren.</p><lb/>
+<p>§. 14. Bey dem Opffer brauchen ſie folgen-<lb/>
+de <hi rendition="#aq">Ceremonien:</hi> Sie bringen entweder leben-<lb/>
+dige Fiſche vor den Abgott/ legen ſie eine Zeit-<lb/>
+lang vor ihm nieder, kochen ſie nachgehends ab/<lb/>
+und freſſen ſie ſelbſt auf/ nur beſchmieren ſie das<lb/>
+Maul des Goͤtzen mit dem Fiſch-Fett/ oder ſie<lb/>
+<hi rendition="#aq">præſentir</hi>en ihm die mehr erwehnte Kleidungen,<lb/>
+und verhuͤllen den Klotz damit; andere bringen<lb/>
+zum Opffer Rennthiere oder Elende/ und die,<lb/>
+ſo die <hi rendition="#aq">Tartern</hi> zu Nachbahren haben/ Pferde/<lb/>
+welche die arme Leute anſchaffen muͤſſen. Sel-<lb/>
+biges Thier bringen ſie lebendig vor den Goͤtzen/<lb/>
+alsdenn binden ſie ihm die Fuͤſſe/ die Pfaffen<lb/>
+ſchreyen aus vollem Halſe was ihr Begehren/<lb/>
+und zu welchem Zweck ſie das Opffer bringen.<lb/>
+Unter waͤhrenden ſolchem Singen ſtehet einer<lb/>
+mit ausgeſpantem Bogen und aufgelegtem<lb/>
+Schoſſe bey dem Opffer/ und druckt ſelbigen<lb/>
+nicht ehe loß/ biß der Pfaffe nach vollendetem<lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">Ge-</fw><lb/>
+<pb n="54" facs="#f0070"/>
+Geſange ihm den erſten Schlag vor den Kopff<lb/>
+gegeben/ der dritte wirfft ihm einen Spieß in den<lb/>
+Bauch/ und wann ſie es ſolcher geſtalt getoͤdtet/<lb/>
+nehmen ſie das Pferd beym Schwantz/ und zie-<lb/>
+hen es 3. mahl um den Goͤtzen/ das Bluth zapf-<lb/>
+fen ſie vom Hertzen ab in ein darzu geweyhetes<lb/>
+Gefaͤſſe/ beſprengen damit ihre Huͤtten, ſauf-<lb/>
+fen auch ſelbſt davon, und mit dem <hi rendition="#aq">Reſt</hi> be-<lb/>
+ſchmieren ſie das Maul des Goͤtzen. Die Haut<lb/>
+des geſchlachteten Viehes hangen ſie zum Zier-<lb/>
+raht auf Baͤume, mit dem Kopff/ Schwantz<lb/>
+und Fuͤſſen/ das Fleiſch kochen ſie, und verzehren<lb/>
+es mit der groͤſten Freude/ ſingen dabey aller-<lb/>
+hand leichtfertige Lieder/ und beſchmieren letzlich<lb/>
+wieder das Maul des Goͤtzen mit dem Fette des<lb/>
+Geſchlachteten. Was ſie nicht verzehren koͤn-<lb/>
+nen/ nehmen ſie mit nach Hauſe/ verehren es<lb/>
+an ihre Nachbarn/ oder geben es ihren Wei-<lb/>
+bern zu freſſen/ die nicht mit bey der Opfferung<lb/>
+geweſen/ der Haußgoͤtze bekommt auch zuwei-<lb/>
+len ein fettes Maul davon. Nachdem die<lb/>
+Mahlzeit vollbracht, ſchlagen ſie mit Stecken<lb/>
+in die Lufft/ und ſchreyen wieder aus vollem Hal-<lb/>
+ſe/ womit ſie den getractirten Geiſt des Goͤtzen<lb/>
+wieder nach der Lufft <hi rendition="#aq">convoyr</hi>en/ und ihm<lb/>
+gleichſam dancken/ daß er mit ihrem <hi rendition="#aq">tractament</hi><lb/>
+verlieb nehmen wollen.</p><lb/>
+<p>§. 15. Wann der Mann ſeinen Weibern<lb/>
+abgeſtorben/ und ſie ſonderlich beweiſen wol-<lb/>
+len/ wie ſchmertzlich der Tod ihres Geliebten<lb/>
+ihnen geweſen/ machen ſie ihnen einen Abgott/<lb/>
+<fw type="catch" place="bottom">zie-</fw><lb/>
+<pb n="55" facs="#f0071"/>
+ziehen ihm die Bekleidung des Verſtorbenen an,<lb/>
+und nehmen ſelbigen des Nachts in ihre Ar-<lb/>
+men/ des Tages aber ſtellen ſie ihn vor ihre Au-<lb/>
+gen/ und beweinen in der Geſtalt des Goͤtzen ih-<lb/>
+ren verſtorbenen Mann. Dis <hi rendition="#aq">continuir</hi>en ſie<lb/>
+ein gantzes Jahr, und wann ſelbiges verfloſſen/<lb/>
+nehmen ſie die Kleider und umgewundene Lum-<lb/>
+pen wieder zuruͤck/ und werffen den Goͤtzen biß<lb/>
+auf eine kuͤnfftige Benoͤhtigung bey ſei-<lb/>
+te. Woferne aber dieſe <hi rendition="#aq">Ceremonien</hi> von etli-<lb/>
+chen Weibern nicht ſo ſtreng in acht genommen<lb/>
+werden/ halten die andern ſie vor leichtfertig/<lb/>
+und <hi rendition="#aq">blamir</hi>en ſie, daß ſie ihrem Manne bey Leb-<lb/>
+zeiten untreu geweſen/ und nicht nach Gebuͤhr<lb/>
+geliebt haben.</p><lb/>
+<p>§. 16. Nachdem ſie einen Baͤren erſchla-<lb/>
+gen/ ziehen ſie ihm die Haut ab/ hangen ſie bey<lb/>
+dem Goͤtzen/ auf einen erhahenen Baum, und<lb/>
+thun derſelbigen eine groſſe Verehrung an/ ent-<lb/>
+ſchuldigen ſich mit einem lauten Geplaͤr und ver-<lb/>
+ſtelltem Klagen/ daß ſie nicht Schuld an ſeinem<lb/>
+Tode/ ſie haͤtten das Eiſen/ womit er getoͤdtet/<lb/>
+nicht geſchmiedet, noch den Pfeil gefiedert/ es<lb/>
+waͤren auch nicht ihre/ ſondern fremder Voͤ-<lb/>
+gel Federn/ die die Flucht des Pfeiles ſo ſchnell<lb/>
+gemacht/ ſie bitten um Vergebung, daß ſie nur<lb/>
+den Pfeil abgedruͤckt, der ihn getroffen. Die<lb/>
+Urſache dieſer <hi rendition="#aq">Excuſe</hi> iſt die Furcht/ die ſie ih-<lb/>
+nen einbilden/ es koͤnne die vernuͤnfftige Seele<lb/>
+des Baͤren ihnen in den Waͤldern/ noch ſcha-<lb/>
+den, und muͤſten ſie ſich bey Zeiten mit der See-<lb/>
+<fw type="sig" place="bottom">D 4</fw><fw type="catch" place="bottom">len</fw><lb/>
+<pb n="56" facs="#f0072"/>
+len ausſoͤhnen/ daß ſie den Coͤrper zu raͤumen<lb/>
+ihr angemuhtet/ woferne ſie nicht von ihr ange-<lb/>
+taſtet und beſchaͤdiget ſeyn wolten.</p><lb/>
+<p>§. 17. Werden ſie der hohen Landes-Obrig-<lb/>
+keit an den ver<hi rendition="#aq">ordinirt</hi>en <hi rendition="#aq">Woiwoden</hi> den Eyd<lb/>
+der Treue zu ſchweren angehalten/ ſo fuͤhrt man<lb/>
+ſie auf die Gerichts-Stube/ und legt ihnen vor<lb/>
+eine Baͤren-Haut und Beil, imgleichen <hi rendition="#aq">præ-<lb/>
+ſentir</hi>et man ihnen ein Stuͤck Brodt auf einem<lb/>
+Meſſer zu eſſen/ dabey huldigen ſie mit folgen-<lb/>
+den <hi rendition="#aq">formali</hi>en: Woferne ich meiner hohen Lan-<lb/>
+des-Obrigkeit biß an mein Ende nicht getreu<lb/>
+ſeyn ſolte/ ſondern mit Wiſſen und Willen ob-<lb/>
+truͤnnig wuͤrde/ meine mir auferlegte Pflicht<lb/>
+richtig abzutragen mir entzoͤge/ und ſonſten auf<lb/>
+irgend eine Weiſe mich gegen der hohen Ma-<lb/>
+jeſtaͤt verbreche/ ſo ſoll dieſer Baͤr in denen<lb/>
+Waͤldern mich zerreiſſen/ dis Brodt das ich ge-<lb/>
+nieſſe/ im Halſe beſtecken bleiben, dis Meſſer<lb/>
+mich toͤdten/ und dis Beil meinen Kopff herun-<lb/>
+ter hauen.</p><lb/>
+<p>§. 18. Unter ihnen ſelbſten/ wann eine<lb/>
+Streitigkeit ſoll geſchlichtet werden, erwehlen<lb/>
+ſie von beyden Parthen einige Schieds-Leute,<lb/>
+welchen ſie ihre ſtrittige Sachen vortragen/ und<lb/>
+wann ſie wegen zweifelhaffter Umſtaͤnde zur end-<lb/>
+lichen Entſcheidung nicht kommen koͤnnen, wird<lb/>
+einem von ihnen, nach Gutduͤncken der <hi rendition="#aq">Arbitran-</hi><lb/>
+ten/ der Eyd aufgelegt/ den ſie folgender Geſtalt<lb/>
+leſten: Es wird zuvor der Schwerende zum<lb/>
+Goͤtzen gefuͤhret/ und wegen des Meineydes eꝛnſt-<lb/>
+<fw type="catch" place="bottom">lich</fw><lb/>
+<pb n="57" facs="#f0073"/>
+lich vermahnt, anbey ſtellen ſie ihm die <hi rendition="#aq">Exempel</hi><lb/>
+des geſtrafften Meineyds vor/ hernach wird<lb/>
+ihm ein Meſſer gegeben, womit er dem Goͤtzen<lb/>
+die Naſe beſchneidet/ imgleichen ein Beil/ mit<lb/>
+welchem er in denſelben hauet, mit dieſen <hi rendition="#aq">Ex-<lb/>
+presſionen:</hi> Woferne ich unrecht in dieſer<lb/>
+Streit-Sache ſchwere, und nicht die reine<lb/>
+Wahrheit bekenne/ ſo will ich auf gleiche Wei-<lb/>
+ſe, daß mir meine Naſe abgeſchnitten werde,<lb/>
+oder verfaule/ daß dis Beil/ womit ich den<lb/>
+Hieb verrichte/ mich gleicher Geſtalt zerſtuͤm-<lb/>
+le/ daß der Baͤr im Walde mich zerreiſſe/ und<lb/>
+das Ungluͤck an allen Orthen mich verfolge.</p><lb/>
+<p>§. 19. Eben dieſe <hi rendition="#aq">Ceremonien</hi> gebrauchen<lb/>
+ſie auch, wann der Zeuge bewaͤhren ſoll/ was<lb/>
+ihm in der Sache bekannt. Und ob gleich eini-<lb/>
+ge von der Boßheit geweſen/ daß ſie entweder<lb/>
+falſch vor einem andern gezeuget, oder ihnen mit<lb/>
+Unrecht entweder an- oder etwas abgeſchworen/<lb/>
+ſo iſt ihnen die Straffe ſo fort darauf gefolget/<lb/>
+daß ſie GOttes Gericht handgreiflich erkennen/<lb/>
+wie ernſthafft er den Meineyd ſtraffe/ und der Luͤ-<lb/>
+gen feind ſey. Unter andern <hi rendition="#aq">Exempeln</hi> iſt ſehr<lb/>
+merckwuͤrdig/ daß einer von dieſem Volcke<lb/>
+leichtfertiger Weiſe oͤffters geſchworen/ und ob-<lb/>
+gleich ſein Meineyd durch die Laͤnge der Zeit ent-<lb/>
+deckt geworden/ hat er ſich doch wenig wegen<lb/>
+der Straffe, die er ihm ſelbſt bey Verrichtung<lb/>
+des Eydes angewuͤnſchet/ bekuͤmmert/ zumah-<lb/>
+len ſelbige ihn in ſeinem Leben nicht getroffen.<lb/>
+Nachdem er aber <hi rendition="#aq">Anno</hi> 1713. geſtorben/ und<lb/>
+<fw type="sig" place="bottom">D 5</fw><fw type="catch" place="bottom">von</fw><lb/>
+<pb n="58" facs="#f0074"/>
+von ſeinen Befreundten am Ufer im Sande<lb/>
+tieff verſcharrt geworden, hat ſich ein Baͤr gar<lb/>
+oͤffters gewieſen/ welcher denen andern Leuten<lb/>
+keinen Schaden zugefuͤget/ auch von der Viel-<lb/>
+heit der Hunde nicht hat koͤnnen abgetrieben<lb/>
+werden/ immittelſt aber die Stelle des Be-<lb/>
+grabenen nachgeſpuͤhrt/ biß er ſelbige dis Jahr<lb/>
+im Ausgange <hi rendition="#aq">Julii</hi> gefunden, den Coͤrper aus<lb/>
+der tieffen Erden ausgekratzet, und ihm das<lb/>
+Geſichte/ in welches er den <hi rendition="#aq">Scheitan</hi> bey geleiſte-<lb/>
+tem Eyde oͤffter gehauen/ ſamt den Haͤnden/<lb/>
+womit er den Hieb vollfuͤhret/ abgefreſſen/<lb/>
+nachgehends aber ſich niemahlen wieder gewie-<lb/>
+ſen hat. Die Leuthe/ welche auf der Naͤhe ihre<lb/>
+<hi rendition="#aq">Jurthen</hi> hatten/ erzehlten dem <hi rendition="#aq">Metropoliten</hi> in<lb/>
+meinem Beyſeyn dieſe Umſtaͤnde/ mit der groͤ-<lb/>
+ſten Beſtuͤrtzung/ und weilen ſie im 1713. Jahr<lb/>
+bereits getaufft waren/ in dem vorigen Stande<lb/>
+aber ſolche fremde Begebenheiten nicht erlebet<lb/>
+hatten/ ſchienen ſie daruͤber ziemlich <hi rendition="#aq">confus</hi> zu<lb/>
+ſeyn.</p><lb/>
+<p>§. 20. Die Anzahl der Goͤtzen oder <hi rendition="#aq">Schei-<lb/>
+<supplied>r</supplied>anen</hi> iſt unmoͤglich zu berechnen, weil ein jeder<lb/>
+ihm ſeinen <hi rendition="#aq">particulair</hi>en bildet/ auch die Wei-<lb/>
+ber in ihren <hi rendition="#aq">Jurthen a parte</hi> Hauß-Goͤtzen hat-<lb/>
+ten, als ſie noch im Heydenthum lebten/ doch<lb/>
+waren in allem nur 3. die ſie vor die bewehrteſten<lb/>
+hielten. Zwey ſtunden neben einander in den<lb/>
+<hi rendition="#aq">Biehorki</hi>ſchen <hi rendition="#aq">Jurthen</hi> oder Huͤtten, davon der<lb/>
+eine/ welcher keinen Nahmen hatte/ der aller-<lb/>
+vornehmſte von ſie allen war. Dieſem Abgott<lb/>
+<fw type="catch" place="bottom">tha-</fw><lb/>
+<pb n="59" facs="#f0075"/>
+thaten ſie die groͤſte Ehre an/ und lieffen zu ihm/<lb/>
+ſeine Huͤlffe in allen Begebenheiten zu erbitten.<lb/>
+Seine Geſtalt kan man wohl nicht eigentlich be-<lb/>
+ſchreiben/ weiln diß blinde Volck aus Furcht/<lb/>
+daß er nicht verbrandt wuͤrde, ihn aus dem<lb/>
+Wege geſchafft, als ſie den Bericht erhielten/<lb/>
+daß der Ertz-Biſchoff, der ſie auf allergnaͤdig-<lb/>
+ſten Befehl Jhro Czaariſchen <hi rendition="#aq">Majeſte</hi> tauffen<lb/>
+ſolte, in der Naͤhe waͤre. Doch bemercken ſie<lb/>
+ihn in ihren Erzehlungen folgender maſſen: Er<lb/>
+ſey aus Holtz/ auf eine/ nach ihrer Gewohnheit/<lb/>
+<hi rendition="#aq">rude</hi> Arth/ ſonder Leib gebildet, und eine <hi rendition="#aq">Figur</hi><lb/>
+eines Menſchen-Kopffs am Ende des Klotzes<lb/>
+ausgehauen geweſen/ den Klotz ſelbſten haͤtten<lb/>
+ſie mit einem rothen Kleide behangen/ woran<lb/>
+auch andre ihre Lumpen und Stuͤcke/ die ſie die-<lb/>
+ſem <hi rendition="#aq">Scheitan</hi> widmen wollen/ gehefftet. Auf<lb/>
+dem Kopffe aber ſey ihm eine Muͤtze mit einem<lb/>
+koſtbahren Brehm von Fuchsſchwaͤntzen beſetzt<lb/>
+geweſen.</p><lb/>
+<p>§. 21. Der andere <hi rendition="#aq">Scheitan,</hi> ſo nechſt bey<lb/>
+ihm ſtunde/ war eine Ganß aus Ertz gegoſſen,<lb/>
+mit ausgebreiteten Fluͤgeln; ſie wurde lange<lb/>
+nicht ſo hoch <hi rendition="#aq">æſtimir</hi>et als der vorige, ohngeach-<lb/>
+tet er aus Ertz war/ denn der Hoͤltzerne war aͤl-<lb/>
+ter, und alſo verſtaͤndiger und <hi rendition="#aq">probirt</hi>er, als<lb/>
+die Ganß, zudem hatte ſie nur <hi rendition="#aq">Inſpection</hi> uͤber<lb/>
+Enten/ Gaͤnſe und ander Feder-Vieh/ welche<lb/>
+Herrſchafft nicht eben von groſſer <hi rendition="#aq">Conſequence</hi>.<lb/>
+Wenn ſie nun <hi rendition="#aq">appetit</hi> hatten wilde Gaͤnſe zu eſ-<lb/>
+ſen, ſo opfferten ſie der Ganß, oder verſprachen<lb/>
+<fw type="catch" place="bottom">ihr/</fw><lb/>
+<pb n="60" facs="#f0076"/>
+ihr/ wenn ſie durch ihre Huͤlffe Feder-Vieh er-<lb/>
+haſchen koͤnnen/ ein fettes Maul von dem ge-<lb/>
+fangenen zu machen, geſtalt ſie glauben/ es ja-<lb/>
+ge ihnen die Ganß das Feder-Wild zu. Jm-<lb/>
+gleichen daß ſie uͤber die ſchlechte Zobeln zu ſa-<lb/>
+gen haben, und ſelbige ihnen zu lieffern vermoͤ-<lb/>
+gend waͤre; Es haͤtten aber die naͤchſt beyſte-<lb/>
+hende die Herrſchafft uͤber ihr <hi rendition="#i">(</hi>die Ganß) und<lb/>
+<hi rendition="#aq">commendire</hi> ſie nach ſeinem Willen: Auch muͤ-<lb/>
+ſte ſie ſich fertig halten/ wenn er Luſt zu <hi rendition="#aq">prome-<lb/>
+nir</hi>en haͤtte/ ſo ſetzte er ſich auf ihre Fluͤgel, und<lb/>
+begebe ſich an den Orth, dahin er verlange.</p><lb/>
+<p>§. 22. Den dritten betitulirten ſie mit dem<lb/>
+Nahmen <hi rendition="#aq">Starick Obskii,</hi> der Obiſche, Alte.<lb/>
+Er ſtund dismahl gegen dem Flecken <hi rendition="#aq">Samaroff</hi><lb/>
+uͤber/ und hatte er zwey Wohnungen, die eine<lb/>
+war <hi rendition="#aq">Samaroff,</hi> die andere bey dem Ausfluß/ wie<lb/>
+erwehnet/ unweit der <hi rendition="#aq">Jurthis</hi> in dem <hi rendition="#aq">Obi.</hi> Sie<lb/>
+veraͤnderten alle 3. Jahr ſein Behaͤltnis/ und<lb/>
+nachdem er 3. Jahr bey <hi rendition="#aq">Samaroff</hi> geſtanden,<lb/>
+fuͤhrten ſie ihn in einem <hi rendition="#aq">a parten</hi> Bohte/ ihrer<lb/>
+Arth nach mit groſſen <hi rendition="#aq">Solennitæt</hi>en zu der andern<lb/>
+Huͤtten/ die am <hi rendition="#aq">Obi</hi> ſtunde. Dieſen glaubten<lb/>
+ſie einen Goͤtzen der Fiſche zu ſeyn/ zumahlen er<lb/>
+alle Fiſche aus dem Meer in den <hi rendition="#aq">Obi</hi> und ihnen<lb/>
+zufuͤhren koͤnne. Er war hoͤltzern, und hatte ei-<lb/>
+nen groſſen Ruͤſſel mit Eiſen beſchlagen,<lb/>
+welches die Bedeutung hatte/ daß er da-<lb/>
+mit koͤnne die Fiſche aus dem Meer zu dem <hi rendition="#aq">Obi</hi><lb/>
+ziehen. Auf dem Kopffe ſtunden ihm 2. kleine<lb/>
+Hoͤrner/ Augen aber hat er von Glaß/ was<lb/>
+<fw type="catch" place="bottom">dis</fw><lb/>
+<pb n="61" facs="#f0077"/>
+dieß zu bedeuten/ wiſſen ſie ſelbſt nicht zu <hi rendition="#aq">de-<lb/>
+monſtrir</hi>en; Bey ihm legten ſie ihre Pantzer/<lb/>
+die den Sieg/ welchen er uͤber alle Meer-Goͤt-<lb/>
+ter erhalten/ vorſtellen/ und daß kein groͤſſer<lb/>
+Goͤtze auf dem Meer ohne ihn regiere. Wenn<lb/>
+das Eyß begunte zu brechen/ und die Stroͤhme<lb/>
+ſich ergoſſen, kamen ſie zum haͤuffigſten zu die-<lb/>
+ſem <hi rendition="#aq">Scheitan,</hi> ein jeder der ſich aufmachte/ Fiſch<lb/>
+zu fangen/ bate/ daß er ihm einen guten Fang<lb/>
+gewehren/ und die Fiſche aus dem Meer nach<lb/>
+ſeinem Willen leiten wolle. Es geſchehen dieſe<lb/>
+Bitten nicht allezeit mit einer Demuth, ſondern<lb/>
+ſie erpochten auch von ihm die Gewehrung/<lb/>
+maſſen ein Klotz keinem ſo leicht eine Furcht ein-<lb/>
+jaget, zudem alle ihre Verehrungen aus purem<lb/>
+<hi rendition="#aq">Intereſſe</hi> geſchahen/ auſſer welchem ſie nimmer-<lb/>
+mehr zu den Goͤtzen lauffen wuͤrden. Doch<lb/>
+war ſolches Pochen gleichwohl mit einem<lb/>
+Schein der Demuth untereinander Abwechſe-<lb/>
+lungs Weiſe vermiſcht/ welchen die Liebe zum<lb/>
+Gewinſt/ nach der Groͤſſe ihres hefftigen Ver-<lb/>
+langens/ wuͤrckte; waren ſie denn ſo gluͤcklich/<lb/>
+daß ſie eine Menge der Fiſche hatten beſchloſſen<lb/>
+und gefangen/ ſo bildeten ſie ihnen ein, ſelbiges<lb/>
+waͤre durch ihr Pochen und ernſtliches Bitten<lb/>
+erſtritten. Die Erſtlinge/ ſonderlich wenn<lb/>
+ſie einen Fiſch fiengen/ den ſie <hi rendition="#aq">Nelm</hi> nennen/<lb/>
+und dem Lachſe gar nahe kommt, brachten ſie<lb/>
+dem <hi rendition="#aq">Stara Obskii</hi> zum Opffer: Sie ſelbſten ge-<lb/>
+noſſen zwar der Fiſche/ allein mit dem Fiſch-Fett<lb/>
+beſchmierten ſie ihm den Mund und die Lippen,<lb/>
+<fw type="catch" place="bottom">da-</fw><lb/>
+<pb n="62" facs="#f0078"/>
+dahero alle die <hi rendition="#aq">Scheitanen,</hi> ob ſie wohl nicht ſo<lb/>
+hoch von ihnen <hi rendition="#aq">æſtimir</hi>et wurden, man ſie doch<lb/>
+mit beſchmutzten und glaͤntzenden Maͤulern an-<lb/>
+antraff/ und ein jeglicher mit ſchmutzigem Mun-<lb/>
+de aus der Huͤtten guckte.</p><lb/>
+<p>§. 23. Nach aufgehobenem <hi rendition="#aq">Panquet</hi> ſchlu-<lb/>
+gen ſie mit Stoͤcken, nach Gewohnheit in die<lb/>
+Lufft, und <hi rendition="#aq">convoyrt</hi>en den Geiſt wieder nach ſei-<lb/>
+nem <hi rendition="#aq">Element</hi>. Wenn ſie aber ungluͤcklich in<lb/>
+ihrem Fangen waren, und nach offenem Waſ-<lb/>
+ſer ſo fort nicht nach ihrem Willen von denen Fi-<lb/>
+ſchen aus dem Meer erhielten/ bunden ſie dem<lb/>
+Goͤtzen einen Strick am Halß/ und wurffen<lb/>
+ihn in ein unflaͤtiges Loch/ peitſchten ihn zuvor/<lb/>
+und worffen mit unempfindlichen Schelt-Woͤr-<lb/>
+tern um ſich/ daß er entweder geſchlaffen/ wie er<lb/>
+von ihnen ſey angeruffen worden/ oder daß er<lb/>
+nicht mehr zum Goͤtzen tauge/ vielleicht daß ihm<lb/>
+die Kraͤffte mit den Jahren abnehmen/ ihren<lb/>
+Vor-Eltern haͤtte er noch groſſe Dienſte gethan/<lb/>
+nun wuͤrde er faul und unvermoͤgend. Sie <hi rendition="#aq">ſpo-<lb/>
+lirten</hi> ihn auch aller Bekleidung, und ruͤckten<lb/>
+ihm auf/ daß ſie gleichwohl in groſſen Hunger<lb/>
+und Mangel ſeiner verboſten Nachlaͤßigkeit hal-<lb/>
+ber gerahten waͤren. Jn ſolchem Loche wurde<lb/>
+er ſo lange <hi rendition="#aq">arreſtir</hi>et gehalten, und mit den<lb/>
+ſchmaͤlichſten und unverdaulichſten Worten zu-<lb/>
+geſetzt/ biß ſie von ohngefehr nach der Jahrzeit<lb/>
+die Fiſche aus dem Meer wieder fiengen, als-<lb/>
+denn vergaſſen ſie alles zugewandte Hertzeleid,<lb/>
+nahmen den geſchimpfften Goͤtzen wieder aus<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="63" facs="#f0079"/>
+der garſtigen Verwahrung/ wuſchen ihn ab/<lb/>
+und nachdem ſie ihn mit den <hi rendition="#aq">ordinair</hi>en Be-<lb/>
+kleidungen behangen/ ſetzten ſie ihn an den ge-<lb/>
+woͤhnlichen Orth/ und gaben ihm auch wohl zur<lb/>
+Verſoͤhnung ein fettes Maul.</p></div><lb/>
+<div n="1"><head><hi rendition="#fr">Das 4te Capittel.</hi></head><lb/>
+<argument><p><hi rendition="#c"><hi rendition="#fr">Von dem Anfange der Be-<lb/>
+kehrung der</hi> <hi rendition="#aq">Oſtiacken</hi> <hi rendition="#fr">zur Chriſtli-<lb/>
+chen Griechiſchen</hi> <hi rendition="#aq">Reli-<lb/>
+gion &amp;c</hi>.</hi></p></argument><lb/>
+<p><hi rendition="#c">§. 1.</hi></p><lb/>
+<p><hi rendition="#in">J</hi>N ſolchem bejammerden Zuſtande lebten<lb/>
+dieſe Leute bißhero/ und ſchiene faſt kei-<lb/>
+ne Huͤlffe zu ſeyn/ vermittelſt welcher<lb/>
+ihnen die Augen geoͤffnet wuͤrden/ daß<lb/>
+ſie von dem Satan zu GOtt koͤnten gefuͤhret<lb/>
+werden. Das Reich <hi rendition="#aq">China</hi> erregte dem <hi rendition="#aq">Fran-<lb/>
+ciſco Xaverio</hi> den <hi rendition="#aq">appetit,</hi> daſelbſt bey gelehrten<lb/>
+und ſcharffſinnigen Leuten das Werck der Be-<lb/>
+kehrung zu treiben/ und ſeinen Nachkoͤmmlin-<lb/>
+gen Kloͤſter zu ſtifften; Allein er wolte ſich nicht<lb/>
+bemuͤhen, die angelegenſten Oerter der Welt<lb/>
+durchzukriechen/ und die in denen Wildniſſen<lb/>
+irrende Schaffe aufzuſuchen. Das Land iſt<lb/>
+viel zu unluſtig/ der herbe Nord-Wind allzu-<lb/>
+<fw type="catch" place="bottom">kalt/</fw><lb/>
+<pb n="64" facs="#f0080"/>
+kalt/ und die Armuth der elenden Einwohner,<lb/>
+ſamt den <hi rendition="#aq">grasſir</hi>enden freßigen Kranckheiten/<lb/>
+benehmen allen <hi rendition="#aq">appetit,</hi> daß alſo ein jeder fro-<lb/>
+ſtig ſeyn wuͤrde/ dieſe unluſtige Reiſe zu wagen/<lb/>
+und um den Schaden Joſephs bekuͤmmert zu<lb/>
+ſeyn. Dennoch gefiehl es dem groſſen GOtt<lb/>
+ein Werckzeug auszuruͤſten/ daß dieſe muͤhſeli-<lb/>
+ge Menſchen zur andern Erkaͤnntniß gebracht<lb/>
+wurden.</p><lb/>
+<p>§. 2. Jn der Haupt-Stadt <hi rendition="#aq">Siberiens</hi> war<lb/>
+dazumahl Ertz-Biſchoff/ Seine <hi rendition="#aq">Eminenz,</hi> der<lb/>
+Hoch Ehrwuͤrdige und Hoͤchſtandaͤchtige <hi rendition="#aq">P. Phi-<lb/>
+lotæus;</hi> Seibiger hatte im Anfang ſeiner geiſtli-<lb/>
+chen Wuͤrde einen ſonderlichen innerlichen An-<lb/>
+trieb, die Herumliegende zum Chriſtlichen Glau-<lb/>
+ben zu bringen; Wannenhero er ihm angele-<lb/>
+gen ſeyn ließ/ ſeine <hi rendition="#aq">Misſionarios</hi> nach den <hi rendition="#aq">Mon-<lb/>
+galen</hi> und ihrem vornehmſten Prieſter <hi rendition="#aq">Kutuchta</hi><lb/>
+zu ſenden; Wobey er ihnen <hi rendition="#aq">adſociirte</hi> zwey ſeiner<lb/>
+Bedienten/ die die <hi rendition="#aq">Mongal</hi>ſche Leſ- und Schreib-<lb/>
+Arth nebſt der Sprache lernen ſolten.</p><lb/>
+<p>§. 3. <hi rendition="#aq">Kutuchta</hi> wird von denen <hi rendition="#aq">Mongalen,<lb/>
+Contaiſi</hi>ſchen, <hi rendition="#aq">Ajukai</hi>ſchen und <hi rendition="#aq">Buchari</hi>ſchen<lb/>
+Voͤlckern/ als ihr <choice><sic>Hoherpieſter</sic><corr>Hoherpreſter</corr></choice> hoch und heilig<lb/>
+gehalten; eine Menge Soldaten begleiteten<lb/>
+ihn/ gleichwie auch ſeine Pfaffen/ die ſie <hi rendition="#aq">La-<lb/>
+maen</hi> nennen/ ihm zur Hand gehen. Dieſe<lb/>
+Heyden ſind eben ſolche Goͤtzen-Diener/ wie die<lb/>
+meiſten <hi rendition="#aq">Chineſer</hi> und Jndianer, derer obriſter<lb/>
+Pfaffe genannt wird <hi rendition="#aq">Dalailama,</hi> der wie ein<lb/>
+<fw type="catch" place="bottom">Ertz-</fw><lb/>
+<pb n="65" facs="#f0081"/>
+Ertz-Biſchoff und oberſter Prieſter dem <hi rendition="#aq">Ku-<lb/>
+tuchta,</hi> als ſeinem Biſchoff, vor einiger Zeit ein<lb/>
+Geſetz/ und zu dieſen Voͤlckern/ weil er die<lb/>
+Menge allein zu beſtreiten ſich unfaͤhig geur-<lb/>
+theilet/ geſandt, doch ſo/ daß er ſeine <hi rendition="#aq">Depen-<lb/>
+dence</hi> von ihm hatte, welcher <hi rendition="#aq">Kutuchta</hi> aber<lb/>
+vor kurtzer Zeit ſich entzogen/ und ſich nunmehro<lb/>
+von dem Volck als ein obriſter Prieſter vereh-<lb/>
+ren laͤſt. <hi rendition="#aq">Dalailama</hi> hat ſeinen Verbleib auſ-<lb/>
+ſerhalb der <hi rendition="#aq">Chineſi</hi>ſchen Mauer/ jenſeit der letz-<lb/>
+ten Rußiſchen Stadt <hi rendition="#aq">Selinga;</hi> und an der an-<lb/>
+dern Seite einer See/ die ſie <hi rendition="#aq">Baikæ More</hi> nen-<lb/>
+nen.</p><lb/>
+<p>§. 4. Gleichwie nun die <hi rendition="#aq">Mongalen</hi> ſich nicht<lb/>
+an einem Orte aufhalten/ ſondern des Win-<lb/>
+ters in Gezelten von Filtz, die ſie <hi rendition="#aq">Woiloken</hi><lb/>
+nennen/ des Sommers aber in Seyden und<lb/>
+Sammeten leben/ und ſelbige an beliebigen Oer-<lb/>
+tern aufſchlagen/ alſo ihre Lager-Staͤte und<lb/>
+Wohnungen taͤglich oder nach Verflieſſung ei-<lb/>
+niger Zeit veraͤndern; So hat auch <hi rendition="#aq">Kutuchta</hi><lb/>
+keinen gewiſſen Ort zu ſeiner <hi rendition="#aq">Reſidence,</hi> ſon-<lb/>
+dern ziehet hin mit trefflichen Gezeltern,<lb/>
+und einer anſehnlichen Menge ſeiner Solda-<lb/>
+ten/ wo er ſeinem Gutduͤncken nach einen luſti-<lb/>
+gen Ort antrifft/ er fuͤhrt die gewoͤhnliche Ab-<lb/>
+goͤtter, und ſonderlich die, welche das Volck<lb/>
+am hoͤchſten verehrt/ mit ſich/ und ſetzet ſelbige<lb/>
+in <hi rendition="#aq">a parte</hi> Gezelter.</p><lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom">§. 5.</fw><lb/>
+<pb n="66" facs="#f0082"/>
+<p>§. 5. Das gemeine Volck bildet ſich ein/<lb/>
+daß er ſich alle neue Mond verjuͤngere/ bey<lb/>
+denen alten Vor-Eltern. Allein die <hi rendition="#aq">Misſio-<lb/>
+narii</hi> des <hi rendition="#aq">Metropoliten</hi> erwehnen/ daß weil ſie<lb/>
+ſonderliche Liebe von ihm genoſſen/ und die<lb/>
+<hi rendition="#aq">audience</hi> nach Verlangen haben koͤnnen/ ſie<lb/>
+es eigentlich <hi rendition="#aq">remarquir</hi>et/ daß er biß zum al-<lb/>
+ten Mond ſeinen grauen Bahrt wachſen laſſe/<lb/>
+und ein falſches klatterichtes Haar/ das ihm<lb/>
+eine alte Geſtalt mache, im alten Mond auf-<lb/>
+ſetze/ ſo bald aber das neue Licht zu ſcheinen be-<lb/>
+ginnet/ den alten Bahrt abſchneide/ und ſich<lb/>
+im Geſichte roth und weiß/ gleich dem weib-<lb/>
+lichen Geſchlechte in Rußland, ſchmincke und<lb/>
+anmahle. Sie <hi rendition="#aq">ſtatuir</hi>en <hi rendition="#aq">Metemplychoſin<lb/>
+Pythagoricam,</hi> und glauben/ daß des Men-<lb/>
+ſchen Seele nach dem Tode in ein Thier o-<lb/>
+der Menſchen wieder einziehe, weßfalls ſie<lb/>
+nicht gerne einen Vogel oder ander Thier er-<lb/>
+ſchlagen/ aus Furcht/ ſie moͤchten ihre Vor-<lb/>
+Eltern in ihnen ertoͤdten; Woferne ſie aber<lb/>
+der Creatur gleichwohl das Leben nehmen,<lb/>
+haben ſie die Abſicht, die Seele <hi rendition="#aq">avancir</hi>en zu<lb/>
+machen; ſonſten ziehe des Menſchen Seele,<lb/>
+wenn er in ſeinem Leben ſchweiniſch geweſt,<lb/>
+in ein Schwein wieder ein u. ſ. w. biß ſie ſich<lb/>
+durch vielfaͤltige Veraͤnderung endlich einen<lb/>
+Menſchen zu beziehen geſchickt mache. Die<lb/>
+von mehrerm Nachſinnen/ halten eigentlich<lb/>
+nicht dafuͤr/ daß die Seele aus einem Coͤrper<lb/>
+<fw type="catch" place="bottom">in</fw><lb/>
+<pb n="67" facs="#f0083"/>
+in den andern fahre/ ſondern die Wuͤrckun-<lb/>
+gen derſelben; Des <hi rendition="#aq">Kutuchtæ</hi> Seele aber zie-<lb/>
+he von einem <hi rendition="#aq">Kutuchta</hi> zum andern/ ſolcher<lb/>
+Geſtalt/ daß/ weil noch bey ſeinen Lebzeiten ein<lb/>
+ander, der ihm <hi rendition="#aq">ſuccedir</hi>en ſoll/ erwehlet wird/<lb/>
+und ihm jederzeit zum nechſten iſt/ die Kraͤffte<lb/>
+und Eigenſchafften der Seele des Alten/ dem<lb/>
+jungen Nachfolger/ nach ſeinem Tode wieder<lb/>
+einverleibt werden, und des Jungen Seele<lb/>
+durch den Umgang mit dem Alten bey ſeinem<lb/>
+Leben bequem gemacht werde, den Verſtand<lb/>
+und die Gemuͤths-Gaben nach ſeinem Tode<lb/>
+deſto beſſer zu faſſen und zu beherbergen.</p><lb/>
+<p>§. 6. Wenn er ſich dem Volck zeiget/ er-<lb/>
+hebt er ſich unter dem Schall ſo vieler Trom-<lb/>
+peten und Paucken nach einem praͤchtigen<lb/>
+Sammeten Gezelte/ worinnen ein erhabenes<lb/>
+Kuͤſſen mit vielen niedrigen an der Runde ſte-<lb/>
+het. Wenn er ſich umkehret zum ſitzen/ und<lb/>
+ſeinen Platz eingenommen/ hoͤren die Paucken<lb/>
+und Trompeten auf/ und ſetzen ſich ſeine Prie-<lb/>
+ſter oder <hi rendition="#aq">Lamaen</hi> bey ihm in der Runde.<lb/>
+Dieſem jetzigen <hi rendition="#aq">Kutuchta</hi> ſitzt ſeine Schweſter,<lb/>
+die auch eine <hi rendition="#aq">Lama</hi> geworden/ und gantz kahl<lb/>
+beſchoren nach Arth der <hi rendition="#aq">Lamaen,</hi> zur Rechten/<lb/>
+die uͤbrige <hi rendition="#aq">Lamaen</hi> werffen ein Kraut/ das wir<lb/>
+Poſt nennen/ auf ihre Rauchfaͤſſer/ und be-<lb/>
+raͤuchern erſtlich den Goͤtzen, nachgehends den<lb/>
+<hi rendition="#aq">Kutuchta,</hi> und ferner das Volck/ letzlich brin-<lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">gen</fw><lb/>
+<pb n="68" facs="#f0084"/>
+gen ſie das Rauchfaß vor den oberſten Prie-<lb/>
+ſter, und die Vornehmſten von ihrem Orden<lb/>
+ſetzen ſieben Schalen des feinſten <hi rendition="#aq">Porcellains</hi><lb/>
+vor den Goͤtzen/ und ſieben vor ihn; Sel-<lb/>
+bige ſind gefuͤllet mit weiſem Honig/ Zucker/<lb/>
+Meth/ Brandtwein/ Thee, Milch und Wein/<lb/>
+oder in der Stelle legen ſie eingemachte <hi rendition="#aq">can-<lb/>
+diſirt</hi>e Sachen. Das Volck rufft dabey mit<lb/>
+lauter Stimme: <hi rendition="#aq">Ge Gen Kutuchta,</hi> d.i. <hi rendition="#aq">Kutuch-<lb/>
+ta</hi> iſt ein heller Paradies.</p><lb/>
+<p>§. 7. Unter andern Fragen, die er den<lb/>
+<hi rendition="#aq">Misſionarien</hi> gethan, iſt dieſe ziemlich laͤcher-<lb/>
+lich/ (Erbarmens wuͤrdig) daß er von ihnen<lb/>
+begehret zu wiſſen/ die Zahl derer die geſtorben<lb/>
+waͤren/ ſie haben ihm aber verſetzt: Daß ſie<lb/>
+von ihm zu wiſſen verlangten die Zahl derer die<lb/>
+noch lebten. Worauf er geantwortet/ er koͤn-<lb/>
+te es nicht wiſſen/ maſſen die Welt ſehr groß<lb/>
+ſey, und in dieſem Augenblick, daß er die Zahl<lb/>
+<hi rendition="#aq">determinir</hi>e, koͤnten wieder welche gebohren<lb/>
+werden. Die <hi rendition="#aq">Misſionaires</hi> hatten <hi rendition="#aq">replicir</hi>et:<lb/>
+Es waͤre einerley Beſchaffenheit mit denen<lb/>
+die geſtorben waͤren: Womit er zufrieden ge-<lb/>
+weſt.</p><lb/>
+<p>§. 8. Nachdem nun dieſe Bemuͤhung<lb/>
+ſeinen vorgeſetzten Zweck nicht erreichte, und<lb/>
+der <hi rendition="#aq">Metropolit</hi> in ſeinem Alter die Regierung<lb/>
+des Ertz-Biſchoffthums ablegte/ hingegen ſei-<lb/>
+nen Stand in eines Einſiedlers verwandelte/<lb/>
+<fw type="catch" place="bottom">war</fw><lb/>
+<pb n="69" facs="#f0085"/>
+war er <hi rendition="#aq">intentionirt,</hi> ſich nach dem <hi rendition="#aq">Kiovi</hi>ſchen Klo-<lb/>
+ſter, welchem er ſeine Jugend gewidmet ge-<lb/>
+habt, zu verfuͤgen/ und daſelbſt ſein Leben zu<lb/>
+beſchlieſſen. Allein er wurde durch den<lb/>
+Durchl. Fuͤrſten und <hi rendition="#aq">Gouverneuren Siberiens,<lb/>
+Knees Matphei Petrowitz Gagarin</hi> beweglich<lb/>
+erſucht, dis ſein <hi rendition="#aq">Gouvernement</hi> ſobald nicht<lb/>
+zu <hi rendition="#aq">quittir</hi>en/ ſondern eine Zeitlang ſich daſelbſt<lb/>
+noch aufzuhalten; Dieſem leutſeligen Herrn/<lb/>
+der durch ſein <hi rendition="#aq">genereuſes</hi> Gemuͤth ihm einen je-<lb/>
+den verbindlich gemacht/ zu willfahren/ bat er<lb/>
+ihm die Freyheit aus/ die <hi rendition="#aq">Oſtiacken</hi> aus dem<lb/>
+Heydenthum zu ſeiner <hi rendition="#aq">Religion</hi> zu bringen.<lb/>
+Welches ihm denn um deſto mehr gewaͤhret<lb/>
+wurde/ je mehr die Abſicht Jhro Groß-Czaa-<lb/>
+riſchen Majeſtaͤt dahin geziehlet geweſen.</p><lb/>
+<p>§ 9. Dieſes Vornehmen ins Werck zu<lb/>
+ſetzen, war keine fertige Arbeit, vielweniger ge-<lb/>
+ziemte es ſich mit geſtieffelten Evangeliſten/<lb/>
+wie heutiges Tages die Gewohnheit zu <hi rendition="#aq">refor-<lb/>
+mir</hi>en/ ſondern er begab ſich mit einigen<lb/>
+Geiſtlichen an die Oerter/ da ſie ihre vor-<lb/>
+nehmſte Abgoͤtter ſtehen hatten: Und weil<lb/>
+das Volck daſelbſt zuſammen kam/ zeigte er<lb/>
+ihnen die groſſe Thorheit, ein hoͤltzernes Bild<lb/>
+zu ehren/ und wieß ſie auf den warhafftigen<lb/>
+GOTT/ dem allein die Anbetung zukaͤme.</p><lb/>
+<p>§. 10. Ob nun gleich der Dienſt des Sa-<lb/>
+tans in ſeinen Kindern muͤhſam und ſchaͤdlich,<lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">ſo</fw><lb/>
+<pb n="70" facs="#f0086"/>
+ſo ſuchen ſie gleichwol ihren gefaͤhrlichen Zu-<lb/>
+ſtand und die Kranckheit der Seelen nicht zu<lb/>
+<hi rendition="#aq">changir</hi>en/ ohngeachtet die einfaͤltige Men-<lb/>
+ſchen den Betrug des Boͤſewichts mehr als<lb/>
+zu wohl erkennen/ ſondern <hi rendition="#aq">defendir</hi>en ihre<lb/>
+Blindheit, wie ihr Leben ſelbſt, allermaſſen<lb/>
+die Liebe zum Alterthum ihnen die Veraͤnde-<lb/>
+rung nicht zulaͤſt/ als die ihnen weiß macht,<lb/>
+es haͤtten gleichwol ihre Vaͤter und Vor-Vaͤ-<lb/>
+ter von undencklichen Jahren keinem andern<lb/>
+geopffert/ noch angebetet/ haͤtten ſich auch<lb/>
+ziemlich wohl/ ihrer Einbildung nach/ dabey be-<lb/>
+funden. (Derſelbige Greuel haͤngt uns/ die<lb/>
+wir wollen Chriſten ſeyn/ ziemlich an/ daß<lb/>
+wir uns auch nach der Vorfahren <hi rendition="#aq">Exempel</hi><lb/>
+richten wollen, und zwar nach ihrer Boß-<lb/>
+heit; Wuͤrden wir aber ſolches fahren laſſen/<lb/>
+und ein neues Leben anfangen/ ſo moͤchte uns<lb/>
+bald geholffen werden.) Der Dienſt des <hi rendition="#aq">Schei-<lb/>
+tans</hi> waͤre ihnen zum beſten gewohnt/ und<lb/>
+ſey es ihnen zutraͤglicher/ daß ſie bey dem/<lb/>
+was ſie von Jugend auf geſehen und gehoͤret/<lb/>
+verbleiben/ als eine ſolche Veraͤnderung er-<lb/>
+wehlen/ darinnen ſie den Zuſtand ihrer Vor-<lb/>
+fahren gefaͤhrlich, und ihre Seelen verdammt<lb/>
+halten muͤſten. (iſt eben die Antwort ſo ge-<lb/>
+meiniglich von denen Maul-Chriſten auf treue<lb/>
+Warnung/ das Leben zu aͤndern/ erfolget)<lb/>
+Solche und dergleichen Entſchuldigungen ſetz-<lb/>
+ten ſie denen Ermahnungen des <hi rendition="#aq">Metropoliten</hi><lb/>
+<fw type="catch" place="bottom">ent-</fw><lb/>
+<pb n="71" facs="#f0087"/>
+entgegen/ und <hi rendition="#aq">reſolvirt</hi>en ſich zuletzt ihr Le-<lb/>
+ben lieber dabey zu zuſetzen/ als das gering-<lb/>
+ſte von ihren vorigen Gewohnheiten zu ver-<lb/>
+geben.</p><lb/>
+<p>§. 11. Der Anfang wurde gemacht <hi rendition="#aq">Anno</hi><lb/>
+1712. bey <hi rendition="#aq">Samaroff,</hi> woſelbſt ſie ihren Fiſch-<lb/>
+Goͤtzen, den ſie/ wie erwehnt <hi rendition="#aq">Starick Obskoi</hi><lb/>
+nannten, vor dißmahl ſiehen hatten/ das<lb/>
+Volck war zu allen Beredungen taub, und<lb/>
+wolte von keiner Veraͤnderung, vielweniger<lb/>
+von der Abſchaffung ihres uhralten Goͤtzens/<lb/>
+der ihnen und ihren Vaͤtern die Menge der<lb/>
+Fiſche verſchafft/ den ſie auch mit ſchimpfli-<lb/>
+chen und heßlichen <hi rendition="#aq">Tractamenten</hi> zu ihrem<lb/>
+Willen bringen konten/ wiſſen, vielmehr<lb/>
+verbunden ſie ſich mit Gewalt und Aufſetzung<lb/>
+ihres Lebens ihn beyzubehalten. Gleichwie<lb/>
+aber das menſchliche Gemuͤth denen Verneu-<lb/>
+erungen nicht ſo gar abhold/ ſo fiengen ſie all-<lb/>
+gemaͤchlich an in ihren Neigungen zweiffelhafft<lb/>
+zu werden, und aufmerckſamer die Vermah-<lb/>
+nungen anzuhoͤren. Dahero ſie es denn end-<lb/>
+lich geſchehen lieſſen/ daß ihr Goͤtze dem Feuer<lb/>
+geopffert und verbrandt wurde.</p><lb/>
+<p>§. 12. Damit ſie aber auch dis Ungeheu-<lb/>
+er nicht ſo platterdinges <hi rendition="#aq">quittir</hi>ten/ ſondern<lb/>
+von ihm gleichwol ein Andencken behielten,<lb/>
+machten einige unter ihnen ein falſches Ge-<lb/>
+ſchrey ruchtbar/ als haͤtten ſie vermerckt/ daß<lb/>
+<fw type="sig" place="bottom">E 4</fw><fw type="catch" place="bottom">ein</fw><lb/>
+<pb n="72" facs="#f0088"/>
+ein weiſſer Schwan im Feuer/ worinnen das<lb/>
+Abendtheuer verbrandt wurde, ſich haͤtte ſe-<lb/>
+hen laſſen/ ſelbiger waͤre mit der Flamme im<lb/>
+Rauch in die Lufft geflogen/ und dis waͤre<lb/>
+der Geiſt/ den ſie und ihre Vorfahren in dem<lb/>
+ungeſchickten Klotze verehret haͤtten. Weiln<lb/>
+aber von dem Gefolge des <hi rendition="#aq">Metropoliten</hi> kei-<lb/>
+ner das geringſte davon <hi rendition="#aq">remarquir</hi>et/ und wie<lb/>
+die Sache weiter nachgefraget wurde, auch<lb/>
+die Uhrheber dieſer Fabel kaum wolten zu er-<lb/>
+kennen geben, ſo wurde der leere Wahn de-<lb/>
+nen einfaͤltigen Leuten deſto eher benommen,<lb/>
+je kuͤrtzer Fuͤſſe die Luͤgen zu haben pfleget.</p><lb/>
+<p>§. 13. Doch war dis Feuer ſo bald nicht<lb/>
+geſtillet, als die weiter abgelegene ſich feſter<lb/>
+vornahmen, ihre liebe Goͤtzen vor ſo ſchlech-<lb/>
+ten Preiß nicht von ſich zu laſſen, ſondern mit<lb/>
+geſamter Hand abzuwehren/ daß dem heili-<lb/>
+gen Alterthum keine Gewalt geſchaͤhe/ und<lb/>
+hierzu wurden ſie veranlaſſet durch einige<lb/>
+Pfaffen aus ihrem Mittel/ welche bey ihrem<lb/>
+Wahrſagen vom <hi rendition="#aq">Scheitan</hi> die Vertroͤſtung<lb/>
+erhielten, daß ſie ſich nur freymuͤthig zur Ge-<lb/>
+genwehr ſtellen moͤchten/ auch <hi rendition="#aq">ſpargirt</hi>en ſie/<lb/>
+es haͤtte der <hi rendition="#aq">Scheitan</hi> ſelbſt vor acht Tagen,<lb/>
+vor des <hi rendition="#aq">Metropoliten</hi> Ankunfft aus dem Klo-<lb/>
+tze geredet/ und ſie ermahnet/ daß ſie ſich<lb/>
+nicht ergeben, ſondern feſt an ihm ſich halten<lb/>
+ſolten/ er ſelbſt wolle ſich wohl <hi rendition="#aq">defendir</hi>en/<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="73" facs="#f0089"/>
+und alle Unternehmungen der Chriſten Krafft-<lb/>
+loß machen. Es war der Biſchoff, nachdem<lb/>
+er die vorigen auf gedachte Art beſaͤnfftiget,<lb/>
+und den Alten von dem <hi rendition="#aq">Obi</hi><gap unit="chars" quantity="1" reason="illegible"/> Strohm ver-<lb/>
+brandt/ weiter hinaus biß an die <hi rendition="#aq">Schorhau-<lb/>
+ſche Jurthen avancir</hi>et, woſelbſt er dieſen Ab-<lb/>
+gott antraff/ welcher ſolcher geſtalt das Volck<lb/>
+<hi rendition="#aq">inſtigir</hi>et haben ſolte. Selbiges verſammle-<lb/>
+te ſich zu einer gewaltſamen Unternehmung/<lb/>
+allein ſie wurden durch die <hi rendition="#aq">Motiv</hi>en dieſes<lb/>
+Mannes in kurtzem zu ſolchen Gedancken ge-<lb/>
+bracht, daß ſie zulieſſen/ auch dieſen Goͤtzen dem<lb/>
+Feuer zu widmen.</p><lb/>
+<p>§. 14. Der Weg wurde weiter nach einem<lb/>
+Kloſter fortgeſetzt, welches den Nahmen <hi rendition="#aq">Kotskoi</hi><lb/>
+hat/ daſelbſt hatte vor Zeiten ein reicher <hi rendition="#aq">Oſtiack</hi><lb/>
+gewohnet/ welcher nachgehends zur Rußiſchen<lb/>
+Kirche ſich bekant. Umb ſelbiges Kloſter wohne-<lb/>
+ten etliche wenige Ruſſen/ die meiſten aber wa-<lb/>
+ren <hi rendition="#aq">Oſtiacken,</hi> und dem Heydenthum zugethan;<lb/>
+Dieſe ließ der Biſchoff zu ſich kommen/ und un-<lb/>
+terwieſe ſie in den Lehr-Setzen ſeiner <hi rendition="#aq">Religion,</hi><lb/>
+hingegen zeigte er ihnen den gefaͤhrlichen Dienſt,<lb/>
+welchen ſie dem Satan erwieſen, worinnen ihre<lb/>
+arme Seele <hi rendition="#aq">periclitir</hi>te, was hingegen vor ein<lb/>
+ewiges Leben, die, welche Chriſto anhiengen/ zu<lb/>
+gewarten haͤtten; Es fand ſich unter ihnen<lb/>
+ein <hi rendition="#aq">Knees,</hi> Nahmens <hi rendition="#aq">Alatſcho,</hi> welcher ſeinen<lb/>
+Uhrſprung aus der uhralten <hi rendition="#aq">Familie</hi> derer Be-<lb/>
+<fw type="sig" place="bottom">E 5</fw><fw type="catch" place="bottom">fehls-</fw><lb/>
+<pb n="74" facs="#f0090"/>
+fehlshaber dieſes Volcks herfuͤhrete/ dieſer hatte<lb/>
+der Ermahnung des Biſchoffs/ weil er ziemlich<lb/>
+Rußiſch verſtunde/ eine Zeit lang mit groſſer<lb/>
+Auffmerckſamkeit zugehoͤret/ und wurde in ſei-<lb/>
+nem Gewiſſen ſo uͤberzeuget, daß er umb mehre-<lb/>
+re <hi rendition="#aq">Information</hi> und Erleuchtung anhielte. Es<lb/>
+gab ihm der <hi rendition="#aq">Metropolit</hi> unter andern auch zu<lb/>
+verſtehen/ daß die gantze Rußiſche <hi rendition="#aq">Nation</hi> auch<lb/>
+vor Zeiten in dem Heydenthum auch gleicher<lb/>
+Geſtalt geſteckt haͤtte/ und von dem <hi rendition="#aq">Uladimiro</hi><lb/>
+waͤhrender ſeiner Regierung alle Goͤtzen in <hi rendition="#aq">Kiov</hi><lb/>
+zu erſt abgeſchafft und verbrandt worden/ daher<lb/>
+nahm er ſich vor/ die Beſchaffenheit dieſer ange-<lb/>
+prieſenen Umſtaͤnde beſſer zu pruͤfen, und eine<lb/>
+Reiſe nach <hi rendition="#aq">Kiov</hi> zu wagen/ daſelbſt die Graͤber<lb/>
+der verſtorbenen und von ihnen hochgeachteten<lb/>
+Heiligen/ derer Gebeine ſie vor unverweßlich<lb/>
+ausgeben/ zu beſehen. Welche Reiſe er auch<lb/>
+ſofort ins Werck ſetzte/ nachdem er ſich nebſt ſei-<lb/>
+nen Angehoͤrigen tauffen laſſen.</p><lb/>
+<p>§. 15. Das Jahr verlieff mit dieſen Bege-<lb/>
+benheiten/ und der kalte Winter ließ nicht zu, den<lb/>
+Weg vor dis mahl weiter fortzuſetzen. Wan-<lb/>
+nenhero der Biſchoff auff die Reiſe ſich begab/<lb/>
+und zu dem folgenden Jahre die Veranſtaltung<lb/>
+machte/ ſeine <hi rendition="#aq">Intention</hi> zum endlichen Zweck zu<lb/>
+bringen, nachdem er diß Jahr nicht mehr dann<lb/>
+10. biß 11. Seelen getaufft.</p><lb/>
+<p>Welcher geſtalt im Jahr 1713. &amp; 1714. uͤber<lb/>
+<fw type="catch" place="bottom">5000.</fw><lb/>
+<pb n="75" facs="#f0091"/>
+5000. Menſchen von dieſer <hi rendition="#aq">Nation</hi> getaufft<lb/>
+worden/ und wie es durch ſonderliche Schickung<lb/>
+GOttes <hi rendition="#aq">arrivir</hi>te/ daß dieſe Leute/ die meiſtens<lb/>
+in der Wildniß leben, in dieſen Jahren eben bey-<lb/>
+ſammen geweſt/ da man ſelbige ſonſten in 10.<lb/>
+Jahren nicht haͤtte ſammlen koͤnnen/ wird auff<lb/>
+<hi rendition="#c">eine bequemere Zeit dem geneigten Leſer zu<lb/>
+<hi rendition="#aq">communicir</hi>en verſpahret.</hi></p><lb/>
+<p><hi rendition="#fr">GOTT allein die Ehre.</hi></p></div><milestone unit="section" rendition="#hr"/><lb/>
+<lb/>
+</body><back>
+<pb facs="#f0092"/>
+<pb facs="#f0093"/>
+<pb facs="#f0094"/>
+</back>
+</text> </TEI>

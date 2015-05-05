@@ -1,0 +1,1744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Geschichte vom braven Kasperl und dem schönen Annerl</title>
+<title type="sub">Mit Darstellung der Schluß-Scene</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118515055">
+<surname>Brentano</surname>
+<forename>Clemens</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">83</measure>
+<measure type="tokens">12529</measure>
+<measure type="types">2657</measure>
+<measure type="characters">77307</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:42Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/brentano_kasperl_1838</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/brentano_kasperl_1838</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/brentano_kasperl_1838</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/brentano_kasperl_1838</idno>
+<idno type="DTADirName">brentano_kasperl_1838</idno>
+<idno type="DTAID">16364</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-20090519613</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Brentano, Clemens: Geschichte vom braven Kasperl und dem schönen Annerl. Berlin, 1838.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Geschichte vom braven Kasperl und dem schönen Annerl</title>
+<title level="m" type="sub">Mit Darstellung der Schluß-Scene</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118515055">
+<surname>Brentano</surname>
+<forename>Clemens</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">67 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Vereins-Buchhandlung</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1838</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Yx 3543/900&lt;a&gt; R</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=434627437</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Kinderliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="halftitle"> <docTitle> <titlePart type="main">     <hi rendition="#g">Geſchichte</hi><lb/>
+<hi rendition="#b #b">vom</hi><lb/>
+<hi rendition="#b #g">braven Kasperl<lb/>
+und</hi><lb/>
+<hi rendition="#b">dem schönen Annerl.</hi></titlePart> </docTitle><lb/>
+<figure/><lb/>
+<byline> <hi rendition="#g">Von</hi><lb/>
+<docAuthor> <hi rendition="#b #g">Clemens Brentano</hi></docAuthor><hi rendition="#b">.</hi> </byline><lb/>
+</titlePage>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<pb facs="#f0010"/>
+<figure/><lb/>
+<pb facs="#f0011"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b #g">Geſchichte</hi><lb/>
+vom<lb/>
+<hi rendition="#b #g">braven Kasperl</hi><lb/>
+und<lb/>
+<hi rendition="#b">dem schönen Annerl.</hi></titlePart> </docTitle><lb/>
+<byline>Von<lb/>
+<docAuthor> <hi rendition="#b">Clemens Brentano</hi></docAuthor> <hi rendition="#b">.</hi> </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="desc">Mit Darſtellung der Schluß-Scene.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b">Berlin</hi></pubPlace> <hi rendition="#b">.</hi> <docDate> <hi rendition="#b">1838</hi></docDate> <hi rendition="#b">.</hi><lb/>
+<publisher> <hi rendition="#g">Vereins</hi>-<hi rendition="#g">Buchhandlung</hi></publisher>. </docImprint> </titlePage><lb/>
+</front> <body>
+<pb facs="#f0012"/>
+<pb facs="#f0013"/>
+<div n="1"> <head> <hi rendition="#b #g">Geſchichte<lb/>
+vom<lb/>
+braven Kasperl<lb/>
+und<lb/>
+dem ſchönen Annerl.</hi><lb/>
+</head> <milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">1*<lb/>
+</fw>
+<pb facs="#f0014"/>
+<pb facs="#f0015"/>
+<p> <hi rendition="#in">E</hi>s war Sommers-Frühe, die Nachtigallen ſangen erſt<lb/>
+ſeit einigen Tagen durch die Straßen, und verſtummten<lb/>
+heut in einer kühlen Nacht, welche von fernen Gewittern<lb/>
+zu uns herwehte; der Nachtwächter rief die elfte Stunde<lb/>
+an, da ſah ich, nach Hauſe gehend, vor der Thür eines<lb/>
+großen Gebäudes einen Trupp von allerlei Geſellen, die<lb/>
+vom Biere kamen, um Jemand, der auf den Thürſtufen<lb/>
+ſaß, verſammelt. Ihr Antheil ſchien mir ſo lebhaft, daß<lb/>
+ich irgend ein Unglück beſorgte und mich näherte.</p><lb/>
+<p>Eine alte Bäuerin ſaß auf der Treppe, und ſo<lb/>
+lebhaft die Geſellen ſich um ſie bekümmerten, ſo wenig<lb/>
+ließ ſie ſich von den neugierigen Fragen und gutmüthigen<lb/>
+Vorſchlägen derſelben ſtören. Es hatte etwas ſehr Be¬<lb/>
+fremdendes, ja ſchier Großes, wie die gute alte Frau ſo<lb/>
+<pb n="6" facs="#f0016"/>
+ſehr wußte, was ſie wollte, daß ſie, als ſey ſie ganz<lb/>
+allein in ihrem Kämmerlein, mitten unter den Leuten<lb/>
+es ſich unter freiem Himmel zur Nachtruhe bequem<lb/>
+machte. Sie nahm ihre Schürze als ein Mäntelchen<lb/>
+um, zog ihren großen ſchwarzen wachsleinenen Hut tiefer<lb/>
+in die Augen, legte ſich ihr Bündel unter den Kopf zu¬<lb/>
+recht und gab auf keine Frage Antwort.</p><lb/>
+<p>Was fehlt dieſer alten Frau? fragte ich einen der<lb/>
+Anweſenden; da kamen Antworten von allen Seiten:<lb/>
+Sie kömmt ſechs Meilen Weges vom Lande, ſie kann<lb/>
+nicht weiter, ſie weiß nicht Beſcheid in der Stadt, ſie<lb/>
+hat Befreundete am andern Ende der Stadt und kann<lb/>
+nicht hin finden. Ich wollte ſie führen, ſagte Einer,<lb/>
+aber es iſt ein weiter Weg und ich habe meinen Haus¬<lb/>
+ſchlüſſel nicht bei mir. Auch würde ſie das Haus nicht<lb/>
+kennen, wo ſie hin will. Aber hier kann die Frau nicht<lb/>
+liegen bleiben, ſagte ein Neuhinzugetretener. Sie will<lb/>
+aber platterdings, antwortete der Erſte, ich habe es ihr<lb/>
+längſt geſagt: ich wolle ſie nach Haus bringen, doch ſie<lb/>
+redet ganz verwirrt, ja ſie muß wohl betrunken ſeyn.<lb/>
+— Ich glaube, ſie iſt blödſinnig. Aber hier kann ſie<lb/>
+doch in keinem Fall bleiben, wiederholte Jener, die Nacht<lb/>
+iſt kühl und lang.</p><lb/>
+<pb n="7" facs="#f0017"/>
+<p>Während allem dieſem Gerede war die Alte, gerade<lb/>
+als ob ſie taub und blind ſey, ganz ungeſtört mit ihrer<lb/>
+Zubereitung fertig geworden, und da der Letzte abermals<lb/>
+ſagte: Hier kann ſie doch nicht bleiben, erwiederte ſie,<lb/>
+mit einer wunderlich tiefen und ernſten Stimme:</p><lb/>
+<p>Warum ſoll ich nicht hier bleiben, iſt dies nicht ein<lb/>
+herzogliches Haus? ich bin acht und achtzig Jahr alt,<lb/>
+und der Herzog wird mich gewiß nicht von ſeiner<lb/>
+Schwelle treiben. Drei Söhne ſind in ſeinem Dienſt<lb/>
+geſtorben, und mein einziger Enkel hat ſeinen Abſchied<lb/>
+genommen; — Gott verzeiht es ihm gewiß und ich will<lb/>
+nicht ſterben, bis er in ſeinem ehrlichen Grabe liegt.</p><lb/>
+<p>Acht und achtzig Jahre und ſechs Meilen gelaufen!<lb/>
+ſagten die Umſtehenden, ſie iſt müd', und kindiſch, in<lb/>
+ſolchem Alter wird der Menſch ſchwach.</p><lb/>
+<p>Mutter, Sie kann aber den Schnupfen kriegen und<lb/>
+ſehr krank werden hier, und Langeweile wird Sie auch<lb/>
+haben, ſprach nun einer der Geſellen und beugte ſich<lb/>
+näher zu ihr.</p><lb/>
+<p>Da ſprach die Alte wieder mit ihrer tiefen Stimme,<lb/>
+halb bittend, halb befehlend:</p><lb/>
+<p>O laßt mir meine Ruhe, und ſeyd nicht unver¬<lb/>
+nünftig; ich brauch' keinen Schnupfen, ich brauche keine<lb/>
+<pb n="8" facs="#f0018"/>
+Langeweile; es iſt ja ſchon ſpät an der Zeit, acht und<lb/>
+achtzig bin ich alt, der Morgen wird bald anbrechen, da<lb/>
+geh' ich zu meinen Befreundeten. Wenn ein Menſch<lb/>
+fromm iſt, und hat Schickſale, und kann beten, ſo kann<lb/>
+er die paar armen Stunden auch noch wohl hinbringen.</p><lb/>
+<p>Die Leute hatten ſich nach und nach verloren, und<lb/>
+die letzten, welche noch da ſtanden, eilten auch hinweg,<lb/>
+weil der Nachtwächter durch die Straße kam und ſie<lb/>
+ſich von ihm ihre Wohnungen wollten öffnen laſſen.<lb/>
+So war ich allein noch gegenwärtig. Die Straße ward<lb/>
+ruhiger. Ich wandelte nachdenkend unter den Bäumen<lb/>
+des vor mir liegenden freien Platzes auf und nieder;<lb/>
+das Weſen der Bäuerin, ihr beſtimmter ernſter Ton,<lb/>
+ihre Sicherheit im Leben, das ſie acht und achtzigmal<lb/>
+mit ſeinen Jahreszeiten hatte zurück kehren ſehen, und<lb/>
+das ihr nur wie ein Vorſaal im Bethauſe erſchien, hatten<lb/>
+mich mannigfach erſchüttert. Was ſind alle Leiden, alle<lb/>
+Begierden meiner Bruſt, die Sterne gehen ewig unbe¬<lb/>
+kümmert ihren Weg, wozu ſuche ich Erquickung und<lb/>
+Labung und von wem ſuche ich ſie und für wen? Alles<lb/>
+was ich hier ſuche und liebe und erringe, wird es mich<lb/>
+je dahin bringen, ſo ruhig, wie dieſe gute fromme Seele,<lb/>
+die Nacht auf der Schwelle des Hauſes zubringen zu<lb/>
+<pb n="9" facs="#f0019"/>
+können, bis der Morgen erſcheint, und werde ich dann<lb/>
+den Freund finden, wie ſie? Ach, ich werde die Stadt<lb/>
+gar nicht erreichen, ich werde, wegemüde, ſchon in dem<lb/>
+Sande vor dem Thore umſinken und vielleicht gar in<lb/>
+die Hände der Räuber fallen. So ſprach ich zu mir<lb/>
+ſelbſt und als ich durch den Lindengang mich der Alten<lb/>
+wieder näherte, hörte ich ſie halb laut mit geſenktem<lb/>
+Kopfe vor ſich hin beten. Ich war wunderbar gerührt,<lb/>
+und trat zu ihr hin und ſprach: Mit Gott, fromme<lb/>
+Mutter, bete Sie auch ein wenig für mich! — bei welchen<lb/>
+Worten ich ihr einen Thaler in die Schürze warf.</p><lb/>
+<p>Die Alte ſagte hierauf ganz ruhig: Hab tauſend<lb/>
+Dank, mein lieber Herr, daß Du mein Gebet erhört.</p><lb/>
+<p>Ich glaubte, ſie ſpreche mit mir und ſagte: Mutter,<lb/>
+habt Ihr mich denn um Etwas gebeten, ich wüßte nicht.</p><lb/>
+<p>Da fuhr die Alte überraſcht auf und ſprach: Lieber<lb/>
+Herr, gehe Er doch nach Haus und bete Er fein und<lb/>
+lege Er ſich ſchlafen. Was zieht Er ſo ſpät noch auf<lb/>
+der Gaſſe herum, das iſt jungen Geſellen gar nichts<lb/>
+nütze, denn der Feind geht um, und ſuchet, wo er ſich<lb/>
+Einen erfange. Es iſt Mancher durch ſolch Nachtlaufen<lb/>
+verdorben; wen ſucht Er, den Herrn? der iſt in des<lb/>
+Menſchen Herz, ſo er züchtiglich lebt, und nicht auf der<lb/>
+<pb n="10" facs="#f0020"/>
+Gaſſe. Sucht Er aber den Feind, ſo hat Er ihn ſchon,<lb/>
+gehe Er hübſch nach Haus und bete Er, daß Er ihn<lb/>
+los werde. Gute Nacht.</p><lb/>
+<p>Nach dieſen Worten wendete ſie ſich ganz ruhig<lb/>
+nach der andern Seite, und ſteckte den Thaler in ihren<lb/>
+Reiſeſack. Alles was die Alte that, machte einen eigen¬<lb/>
+thümlichen ernſten Eindruck auf mich, und ich ſprach zu<lb/>
+ihr: Liebe Mutter, Ihr habt wohl recht, aber Ihr ſelbſt<lb/>
+ſeyd es, was mich hier hält, ich hörte Euch beten und<lb/>
+wollte Euch anſprechen, meiner dabei zu gedenken.</p><lb/>
+<p>Das iſt ſchon geſchehen, ſagte ſie, als ich Ihn ſo<lb/>
+durch den Lindengang wandeln ſah, bat ich Gott: er<lb/>
+möge Euch gute Gedanken geben. Nun habe Er ſie,<lb/>
+und gehe Er fein ſchlafen.</p><lb/>
+<p>Ich aber ſetzte mich zu ihr nieder auf die Treppe,<lb/>
+und ergriff ihre dürre Hand und ſagte: Laſſet mich hier<lb/>
+bei Euch ſitzen die Nacht hindurch, und erzählet mir,<lb/>
+woher Ihr ſeyd, und was Ihr hier in der Stadt ſucht;<lb/>
+Ihr habt hier keine Hülfe, in Eurem Alter iſt man Gott<lb/>
+näher als den Menſchen; die Welt hat ſich verändert,<lb/>
+ſeit Ihr jung waret. —</p><lb/>
+<p>Das ich nicht wüßte, erwiederte die Alte, ich hab's<lb/>
+mein Lebetag ganz einerlei gefunden; Er iſt noch zu<lb/>
+<pb n="11" facs="#f0021"/>
+jung, da verwundert man ſich über Alles; mir iſt Alles<lb/>
+ſchon ſo oft wieder vorgekommen, daß ich es nur noch<lb/>
+mit Freuden anſehe, weil es Gott ſo treulich damit<lb/>
+meinet. Aber man ſoll keinen guten Willen von ſich<lb/>
+weiſen, wenn er Einem auch grade nicht noth thut, ſonſt<lb/>
+möchte der liebe Freund ausbleiben, wenn er ein andermal<lb/>
+gar willkommen wäre; bleibe Er drum immer ſitzen,<lb/>
+und ſehe Er, was Er mir helfen kann. Ich will ihm<lb/>
+erzählen, was mich in die Stadt den weiten Weg her¬<lb/>
+treibt. Ich hätt' es nicht gedacht, wieder hierher zu<lb/>
+kommen. Es ſind ſiebzig Jahre, daß ich hier im Hauſe<lb/>
+als Magd gedient habe, auf deſſen Schwelle ich ſitze,<lb/>
+ſeitdem war ich nicht mehr in der Stadt; was die Zeit<lb/>
+herumgeht? es iſt als wenn man eine Hand umwendet.<lb/>
+Wie oft habe ich hier am Abend geſeſſen vor ſiebzig<lb/>
+Jahren und habe auf meinen Schatz gewartet, der bei<lb/>
+der Garde ſtand. Hier haben wir uns auch verſprochen.<lb/>
+Wenn er hier — aber ſtill, da kömmt die Runde<lb/>
+vorbei.</p><lb/>
+<p>Da hob ſie an mit gemäßigter Stimme, wie etwa<lb/>
+junge Mägde und Diener in ſchönen Mondnächten, vor<lb/>
+der Thür zu ſingen, und ich hörte mit innigem Ver¬<lb/>
+gnügen folgendes ſchöne alte Lied von ihr:</p><lb/>
+<pb n="12" facs="#f0022"/>
+<lg type="poem"> <l>Wann der jüngſte Tag wird werden,</l><lb/>
+<l>Dann fallen die Sternelein auf die Erden.</l><lb/>
+<l>Ihr Todten, ihr Todten ſollt auferſtehn,</l><lb/>
+<l>Ihr ſollt vor das jüngſte Gerichte gehn,</l><lb/>
+<l>Ihr ſollt treten auf die Spitzen,</l><lb/>
+<l>Da die lieben Engelein ſitzen;</l><lb/>
+<l>Da kam der liebe Gott gezogen</l><lb/>
+<l>Mit einem ſchönen Regenbogen,</l><lb/>
+<l>Da kamen die falſchen Juden gegangen,</l><lb/>
+<l>Die führten einſt unſern Herrn Chriſtum gefangen,</l><lb/>
+<l>Die hohen Bäum' erleuchten ſehr,</l><lb/>
+<l>Die harten Stein zerknirſchten ſehr.</l><lb/>
+<l>Wer dies Gebetlein beten kann,</l><lb/>
+<l>Der bet's des Tages nur einmal,</l><lb/>
+<l>Die Seele wird vor Gott beſtehn,</l><lb/>
+<l>Wann wir werden zum Himmel eingehn.</l><lb/>
+<l rendition="#right">Amen.</l><lb/>
+</lg> <p>Als die Runde uns näher kam, wurde die gute<lb/>
+Alte gerührt; ach, ſagte ſie, es iſt heute der ſechszehnte<lb/>
+Mai, es iſt doch alles einerlei, gerade wie damals, nur<lb/>
+haben ſie andere Mützen auf, und keine Zöpfe mehr.<lb/>
+Thut nichts, wenn's Herz nur gut iſt! Der Offizier der<lb/>
+Runde blieb bei uns ſtehen und wollte eben fragen, was<lb/>
+wir hier ſo ſpät zu ſchaffen hätten, als ich den Fähnrich<lb/>
+Graf Groſſinger, einen Bekannten in ihm erkannte.<lb/>
+<pb n="13" facs="#f0023"/>
+Ich ſagte ihm kurz den ganzen Handel, und er ſagte,<lb/>
+mit einer Art von Erſchütterung: hier haben Sie einen<lb/>
+Thaler für die Alte und eine Roſe, — die er in der<lb/>
+Hand trug — ſo alte Bauersleute haben Freude an<lb/>
+Blumen. Bitten Sie die Alte, Ihnen Morgen das Lied<lb/>
+in die Feder zu ſagen, und bringen Sie mir es. Ich<lb/>
+habe lange nach dem Liede getrachtet, aber es nie ganz<lb/>
+habhaft werden können. Hiermit ſchieden wir, denn der<lb/>
+Poſten der nahgelegenen Hauptwache, bis zu welcher ich<lb/>
+ihn über den Platz begleitet hatte, rief: Wer da! Er<lb/>
+ſagte mir noch, daß er die Wache am Schloſſe habe, ich<lb/>
+ſolle ihn dort beſuchen. Ich ging zu der Alten zurück,<lb/>
+und gab ihr die Roſe und den Thaler.</p><lb/>
+<p>Die Roſe ergriff ſie mit einer rührenden Heftigkeit<lb/>
+und befeſtigte ſie ſich auf ihren Hut, indem ſie mit einer<lb/>
+etwas feineren Stimme und faſt weinend die Worte<lb/>
+ſprach:</p><lb/>
+<lg type="poem"> <l>Roſen die Blumen auf meinem Hut,</l><lb/>
+<l>Hätt' ich viel Geld, das wäre gut,</l><lb/>
+<l>Roſen und mein Liebchen.</l><lb/>
+</lg> <p>Ich ſagte zu ihr: Ei Mütterchen, Ihr ſeyd ja ganz<lb/>
+munter geworden, und ſie erwiederte:</p><lb/>
+<pb n="14" facs="#f0024"/>
+<lg type="poem"> <l>Munter, munter,</l><lb/>
+<l>Immer bunter</l><lb/>
+<l>Immer runder</l><lb/>
+<l>Oben ſtund er,</l><lb/>
+<l>Nun bergunter,</l><lb/>
+<l>'S iſt kein Wunder!</l><lb/>
+</lg> <p>Schau' Er, lieber Menſch, iſt es nicht gut, daß ich<lb/>
+hier ſitzen geblieben, es iſt alles einerlei, glaub' Er mir;<lb/>
+heut ſind es ſiebzig Jahre, da ſaß ich hier vor der<lb/>
+Thüre, ich war eine flinke Magd und ſang gern alle<lb/>
+Lieder. Da ſang ich auch das Lied vom jüngſten Gericht<lb/>
+wie heute, da die Runde vorbei ging, und da warf mir<lb/>
+ein Grenadier im Vorübergehen eine Roſe in den Schooß,<lb/>
+— die Blätter hab' ich noch in meiner Bibel liegen —<lb/>
+das war meine erſte Bekanntſchaft mit meinem ſeligen<lb/>
+Mann. Am andern Morgen hatte ich die Roſe vorge¬<lb/>
+ſteckt in der Kirche, und da fand er mich, und es ward<lb/>
+bald richtig. Drum hat es mich gar ſehr gefreut, daß<lb/>
+mir heut wieder eine Roſe ward. Es iſt ein Zeichen,<lb/>
+daß ich zu ihm kommen ſoll, und darauf freu' ich mich<lb/>
+herzlich. Vier Söhne und eine Tochter ſind mir geſtorben,<lb/>
+vorgeſtern hat mein Enkel ſeinen Abſchied genommen,<lb/>
+— Gott helfe ihm und erbarme ſich ſeiner! — und<lb/>
+<pb n="15" facs="#f0025"/>
+morgen verläßt mich eine andere gute Seele, aber was<lb/>
+ſag' ich morgen, iſt es nicht ſchon Mitternacht vorbei?</p><lb/>
+<p>Es iſt zwölfe vorüber, erwiederte ich, verwundert<lb/>
+über ihre Rede.</p><lb/>
+<p>Gott gebe ihr Troſt und Ruhe die vier Stündlein,<lb/>
+die ſie noch hat, ſagte die Alte und ward ſtill, indem<lb/>
+ſie die Hände faltete. Ich konnte nicht ſprechen, ſo<lb/>
+erſchütterten mich ihre Worte und ihr ganzes Weſen.<lb/>
+Da ſie aber ganz ſtille blieb und der Thaler des Offiziers<lb/>
+noch in ihrer Schürze lag, ſagte ich zu ihr: Mutter,<lb/>
+ſteckt den Thaler zu Euch, Ihr könntet ihn verlieren.</p><lb/>
+<p>Den wollen wir nicht weglegen, den wollen wir<lb/>
+meiner Befreundeten ſchenken in ihrer letzten Noth!<lb/>
+erwiederte ſie; den erſten Thaler nehm' ich morgen wieder<lb/>
+mit nach Haus, der gehört meinem Enkel, der ſoll ihn<lb/>
+genießen. Ja ſeht, es iſt immer ein herrlicher Junge<lb/>
+geweſen, und hielt etwas auf ſeinen Leib und auf ſeine<lb/>
+Seele — ach Gott, auf ſeine Seele! — ich habe gebetet<lb/>
+den ganzen Weg, es iſt nicht möglich, der liebe Herr<lb/>
+läßt ihn gewiß nicht verderben. Unter allen Burſchen<lb/>
+war er immer der reinlichſte und fleißigſte in der Schule,<lb/>
+aber auf die Ehre war er vor Allem ganz erſtaunlich.<lb/>
+Sein Lieutenant hat auch immer geſprochen: wenn<lb/>
+<pb n="16" facs="#f0026"/>
+meine Schwadron Ehre im Leibe hat, ſo ſitzt ſie bei dem<lb/>
+Finkel im Quartier. Er war unter den Uhlanen. Als<lb/>
+er zum erſtenmal aus Frankreich zurück kam, erzählte er<lb/>
+allerlei ſchöne Geſchichten, aber immer war von der<lb/>
+Ehre dabei die Rede. Sein Vater und ſein Stiefbruder<lb/>
+waren bei dem Landſturm und kamen oft mit ihm wegen<lb/>
+der Ehre in Streit, denn was er zuviel hatte, hatten ſie<lb/>
+nicht genug. Gott verzeih' mir meine ſchwere Sünde,<lb/>
+ich will nicht ſchlecht von ihnen reden, Jeder hat ſein<lb/>
+Bündel zu tragen: aber meine ſelige Tochter: <hi rendition="#g">ſeine</hi><lb/>
+Mutter hat ſich zu Tode gearbeitet bei dem Faulpelz,<lb/>
+ſie konnte nicht erſchwingen, ſeine Schulden zu tilgen.<lb/>
+Der Uhlan erzählte von den Franzoſen, und als der<lb/>
+Vater und Stiefbruder ſie ganz ſchlecht machen wollten,<lb/>
+ſagte der Uhlan: Vater, das verſteht Ihr nicht, ſie haben<lb/>
+doch viel Ehre im Leibe; da ward der Stiefbruder<lb/>
+tückiſch und ſagte: wie kannſt Du Deinem Vater ſo viel<lb/>
+von der Ehre vorſchwatzen? war er doch Unteroffizier im<lb/>
+R . . . ſchen Regiment, und muß es beſſer als Du<lb/>
+verſtehn, der nur Gemeiner iſt. Ja, ſagte da der alte<lb/>
+Finkel, der nun auch rebelliſch ward, das war ich und<lb/>
+habe manchem vorlauten Burſchen fünf und zwanzig<lb/>
+aufgezählt; hätte ich nur Franzoſen in der Compagnie<lb/>
+<pb n="17" facs="#f0027"/>
+gehabt, die ſollten ſie noch beſſer gefühlt haben, mit<lb/>
+ihrer Ehre. Die Rede that dem Uhlanen gar weh und<lb/>
+er ſagte: ich will ein Stückchen von einem franzöſiſchen<lb/>
+Unteroffizier erzählen, das gefällt mir beſſer. Unterm<lb/>
+vorigen König ſollten auf einmal die Prügel bei der<lb/>
+franzöſiſchen Armee eingeführt werden. Der Befehl des<lb/>
+Kriegsminiſters wurde zu Straßburg bei einer großen<lb/>
+Parade bekannt gemacht, und die Truppen hörten in<lb/>
+Reih und Glied die Bekanntmachung mit ſtillem Grimm<lb/>
+an. Da aber noch am Schluß der Parade ein Gemeiner<lb/>
+einen Exzeß machte, wurde ſein Unteroffizier vorkom¬<lb/>
+mandirt, ihm zwölf Hiebe zu geben. Es wurde ihm mit<lb/>
+Strenge befohlen, und er mußte es thun. Als er aber<lb/>
+fertig war, nahm er das Gewehr des Mannes, den er<lb/>
+geſchlagen hatte, ſtellte es vor ſich an die Erde, und<lb/>
+drückte mit dem Fuße los, daß ihm die Kugel durch den<lb/>
+Kopf fuhr und er todt niederſank. Das wurde an den<lb/>
+König berichtet, und der Befehl, Prügel zu geben, ward<lb/>
+gleich zurück genommen; ſeht, Vater, das war ein Kerl,<lb/>
+der Ehre im Leib hatte! Ein Narr war es, ſprach der<lb/>
+Bruder, — freß Deine Ehre, wenn Du Hunger haſt!<lb/>
+brummte der Vater. Da nahm mein Enkel ſeinen<lb/>
+Säbel und ging aus dem Hauſe und kam zu mir in<lb/>
+<fw type="sig" place="bottom">2<lb/>
+</fw>
+<pb n="18" facs="#f0028"/>
+mein Häuschen, und erzählte mir alles und weinte die<lb/>
+bittern Thränen. Ich konnte ihm nicht helfen; die<lb/>
+Geſchichte, die er mir auch erzählte, konnte ich zwar nicht<lb/>
+ganz verwerfen, aber ich ſagte ihm doch immer zuletzt:<lb/>
+Gieb Gott allein die Ehre! Ich gab ihm noch den<lb/>
+Segen, denn ſein Urlaub war am andern Tage aus,<lb/>
+und er wollte noch eine Meile umreiten nach dem Orte,<lb/>
+wo ein Pathgen von mir auf dem Edelhof diente, auf<lb/>
+die er gar viel hielt, er wollte einmal mit ihr hauſen;<lb/>
+— ſie werden auch wohl bald zuſammen kommen, wenn<lb/>
+Gott mein Gebet erhört. Er hat ſeinen Abſchied ſchon<lb/>
+genommen, mein Pathgen wird ihn heut erhalten, und<lb/>
+die Ausſteuer hab' ich auch ſchon beiſammen, es ſoll auf<lb/>
+der Hochzeit weiter Niemand ſehn, als ich. Da ward<lb/>
+die Alte wieder ſtill und ſchien zu beten. Ich war in<lb/>
+allerlei Gedanken über die Ehre, und ob ein Chriſt den<lb/>
+Tod des Unteroffiziers ſchön finden dürfe? Ich wollte:<lb/>
+es ſagte mir einmal Einer etwas Hinreichendes darüber.</p><lb/>
+<p>Als der Wächter Ein Uhr anrief, ſagte die Alte:<lb/>
+nun habe ich noch zwei Stunden; ei, iſt Er noch da,<lb/>
+warum geht Er nicht ſchlafen? Er wird morgen nicht<lb/>
+arbeiten können, und mit Seinem Meiſter Händel kriegen;<lb/>
+von welchem Handwerk iſt Er denn, mein guter Menſch?</p><lb/>
+<pb n="19" facs="#f0029"/>
+<p>Da wußte ich nicht recht, wie ich es ihr deutlich<lb/>
+machen ſollte, daß ich ein Schriftſteller ſey. Ich bin<lb/>
+ein Gestudirter durfte ich nicht ſagen, ohne zu lügen.<lb/>
+Es iſt wunderbar, daß ein Deutſcher immer ſich ein<lb/>
+wenig ſchämt, zu ſagen: er ſey ein Schriftſteller; zu<lb/>
+Leuten aus den untern Ständen ſagt man es am un¬<lb/>
+gernſten, weil dieſen gar leicht die Schriftgelehrten und<lb/>
+Phariſäer aus der Bibel dabei einfallen. Der Name<lb/>
+Schriftſteller iſt nicht ſo eingebürgert bei uns, wie das<lb/>
+<hi rendition="#aq">homme de lettres</hi> bei den Franzoſen, welche überhaupt<lb/>
+als Schriftſteller zünftig ſind, und in ihren Arbeiten<lb/>
+mehr hergebrachtes Geſetz haben, ja bei denen man auch<lb/>
+fragt: <hi rendition="#aq">ou avez vous fait votre Philosophie</hi>, wo haben<lb/>
+ſie ihre Philoſophie gemacht? wie denn ein Franzoſe<lb/>
+ſelbſt viel mehr von einem gemachten Manne hat. Doch<lb/>
+dieſe nicht deutſche Sitte iſt es nicht allein, welche das<lb/>
+Wort Schriftſteller ſo ſchwer auf der Zunge macht, wenn<lb/>
+man am Thore um ſeinen Charakter gefragt wird,<lb/>
+ſondern eine gewiſſe innere Scham hält uns zurück, ein<lb/>
+Gefühl, welches Jeden befällt, der mit freien und geiſtigen<lb/>
+Gütern, mit unmittelbaren Geſchenken des Himmels<lb/>
+Handel treibt. Gelehrte brauchen ſich weniger zu ſchämen<lb/>
+als Dichter, denn ſie haben gewöhnlich Lehrgeld gegeben,<lb/>
+<fw type="sig" place="bottom">2*<lb/>
+</fw>
+<pb n="20" facs="#f0030"/>
+ſind meiſt in Aemtern des Staats, ſpalten an groben<lb/>
+Klötzen, oder arbeiten in Schachten, wo viel wilde<lb/>
+Waſſer auszupumpen ſind. Aber ein ſogenannter Dichter<lb/>
+iſt am übelſten daran, weil er meiſtens aus dem Schul¬<lb/>
+garten nach dem Parnaß entlaufen, und es iſt auch<lb/>
+wirklich ein verdächtiges Ding um einen Dichter von<lb/>
+Profeſſion, der es nicht nur nebenher iſt. Man kann<lb/>
+ſehr leicht zu ihm ſagen: mein Herr, ein jeder Menſch<lb/>
+hat, wie Hirn, Herz, Magen, Milz, Leber und dergleichen,<lb/>
+auch eine Poeſie im Leibe, wer aber eines dieſer Glieder<lb/>
+überfüttert, verfüttert, oder mäſtet, und es über alle<lb/>
+andre hinüber treibt, ja es gar zum Erwerbzweig macht,<lb/>
+der muß ſich ſchämen vor ſeinem ganzen übrigen Men¬<lb/>
+ſchen. Einer, der von der Poeſie lebt, hat das Gleich¬<lb/>
+gewicht verloren, und eine übergroße Gänſeleber, ſie mag<lb/>
+noch ſo gut ſchmecken, ſetzt doch immer eine kranke Gans<lb/>
+voraus. Alle Menſchen, welche ihr Brod nicht im<lb/>
+Schweiß ihres Angeſichts verdienen, müſſen ſich einiger¬<lb/>
+maßen ſchämen, und das fühlt Einer, der noch nicht<lb/>
+ganz in der Tinte war, wenn er ſagen ſoll, er ſey ein<lb/>
+Schriftſteller. So dachte ich Allerlei, und beſann mich,<lb/>
+was ich der Alten ſagen ſollte, welche, über mein Zögern<lb/>
+verwundert, mich anſchaute und ſprach:</p><lb/>
+<pb n="21" facs="#f0031"/>
+<p>Welch' ein Handwerk Er treibt? frage ich, warum<lb/>
+will Er mir's nicht ſagen, treibt Er kein ehrlich Hand¬<lb/>
+werk, ſo greif Er's noch an, es hat einen goldnen<lb/>
+Boden. Er iſt doch nicht etwa gar ein Henker oder<lb/>
+Spion, der mich ausholen will; meinet halben ſey Er wer<lb/>
+Er will, ſag' Er's, wer Er iſt! Wenn Er bei Tage ſo<lb/>
+hier ſäße, würde ich glauben, Er ſey ein Lehnerich, ſo<lb/>
+ein Tagedieb, der ſich an die Häuſer lehnt, damit er<lb/>
+nicht umfällt vor Faulheit.</p><lb/>
+<p>Da fiel mir ein Wort ein, das mir vielleicht eine<lb/>
+Brücke zu ihrem Verſtändniß ſchlagen könnte: Liebe<lb/>
+Mutter, ſagte ich, ich bin ein Schreiber. Nun, ſagte<lb/>
+ſie, das hätte Er gleich ſagen ſollen; Er iſt alſo ein<lb/>
+Mann von der Feder, dazu gehören feine Köpfe und<lb/>
+ſchnelle Finger, und ein gutes Herz, ſonſt wird Einem<lb/>
+drauf geklopft. Ein Schreiber iſt Er? kann Er mir<lb/>
+dann wohl eine Bittſchrift aufſetzen an den Herzog, die<lb/>
+aber gewiß erhört wird, und nicht bei den vielen andern<lb/>
+liegen bleibt?</p><lb/>
+<p>Eine Bittſchrift, liebe Mutter, ſprach ich, kann ich<lb/>
+Ihr wohl aufſetzen, und ich will mir alle Mühe geben,<lb/>
+daß ſie recht eindringlich abgefaßt ſeyn ſoll.</p><lb/>
+<pb n="22" facs="#f0032"/>
+<p>Nun, das iſt brav von Ihm, erwiederte ſie; Gott<lb/>
+lohn' es Ihm, und laſſe Ihn älter werden, als mich,<lb/>
+und gebe Ihm auch in Seinem Alter einen ſo geruhigen<lb/>
+Muth und eine ſo ſchöne Nacht mit Roſen und Thalern,<lb/>
+wie mir, und auch einen Freund, der Ihm eine Bitt¬<lb/>
+ſchrift macht, wenn es Ihm Noth thut. Aber jetzt gehe<lb/>
+Er nach Haus, lieber Freund, und kaufe Er ſich einen<lb/>
+Bogen Papier und ſchreibe Er die Bittſchrift; ich will<lb/>
+hier auf Ihn warten, noch eine Stunde, dann gehe ich<lb/>
+zu meiner Pathe, Er kann mitgehen, ſie wird ſich auch<lb/>
+freuen an der Bittſchrift. Sie hat gewiß ein gut Herz,<lb/>
+aber Gottes Gerichte ſind wunderbar.</p><lb/>
+<p>Nach dieſen Worten ward die Alte wieder ſtill,<lb/>
+ſenkte den Kopf und ſchien zu beten. Der Thaler lag<lb/>
+noch auf ihrem Schooß. Sie weinte. Liebe Mutter,<lb/>
+was fehlt Euch, was thut Euch ſo weh, Ihr weinet?<lb/>
+ſprach ich.</p><lb/>
+<p>Nun warum ſoll ich denn nicht weinen, ich weine<lb/>
+auf den Thaler, ich weine auf die Bittſchrift, auf Alles<lb/>
+weine ich. Aber es hilft nichts, es iſt doch Alles viel,<lb/>
+viel beſſer auf Erden, als wir Menſchen es verdienen,<lb/>
+und gallenbittre Thränen ſind noch viel zu ſüße. Sehe<lb/>
+Er nur einmal das goldne Kameel da drüben, an der<lb/>
+<pb n="23" facs="#f0033"/>
+Apotheke, wie doch Gott Alles ſo herrlich und wunderbar<lb/>
+geſchaffen hat, aber der Menſch erkennt es nicht, und<lb/>
+ein ſolch' Kameel geht eher durch ein Nadelöhr, als ein<lb/>
+Reicher in das Himmelreich. — Aber was ſitzt Er denn<lb/>
+immer da, gehe Er, den Bogen Papier zu kaufen, und<lb/>
+bringe Er mir die Bittſchrift.</p><lb/>
+<p>Liebe Mutter, ſagte ich, wie kann ich Euch die<lb/>
+Bittſchrift machen, wenn Ihr mir nicht ſagt, was ich<lb/>
+hinein ſchreiben ſoll.</p><lb/>
+<p>Das muß ich Ihm ſagen? erwiederte ſie, dann iſt<lb/>
+es freilich keine Kunſt, und wundre ich mich nicht mehr,<lb/>
+daß Er ſich einen Schreiber zu nennen ſchämte, wenn<lb/>
+man Ihm Alles ſagen ſoll. Run, ich will mein Mög¬<lb/>
+liches thun. Setz' Er in die Bittſchrift, daß zwei Lie¬<lb/>
+bende bei einander ruhen ſollen und daß ſie Einen nicht<lb/>
+auf die Anatomie bringen ſollen, damit man ſeine Glieder<lb/>
+beiſammen hat, wenn es heißt: ihr Todten, ihr Todten<lb/>
+ſollt auferſtehn, ihr ſollt vor das jüngſte Gerichte gehn.<lb/>
+Da fing ſie wieder bitterlich an zu weinen.</p><lb/>
+<p>Ich ahnte, ein ſchweres Leid müſſe auf ihr laſten,<lb/>
+aber ſie fühle bei der Bürde ihrer Jahre nur in ein¬<lb/>
+zelnen Momenten ſich ſchmerzlich gerührt. Sie weinte<lb/>
+ohne zu klagen, ihre Worte waren immer gleich ruhig<lb/>
+<pb n="24" facs="#f0034"/>
+und kalt. Ich bat ſie nochmals, mir die ganze Veran¬<lb/>
+laſſung zu ihrer Reiſe in die Stadt zu erzählen, und ſie<lb/>
+ſprach:</p><lb/>
+<p>Mein Enkel, der Uhlan, von dem ich Ihm erzählte,<lb/>
+hatte doch mein Pathgen ſehr lieb, wie ich Ihm vorher<lb/>
+ſagte, und ſprach der ſchönen Annerl, wie die Leute ſie<lb/>
+ihres glatten Spiegels wegen nannten, immer von der<lb/>
+Ehre vor, und ſagte ihr immer, ſie ſolle auf ihre Ehre<lb/>
+halten, und auch auf ſeine Ehre. Da kriegte dann das<lb/>
+Mädchen etwas ganz Apartes in ihr Geſicht und ihre<lb/>
+Kleidung von der Ehre, ſie war feiner und manierlicher,<lb/>
+als alle andere Dirnen. Alles ſaß ihr knapper am<lb/>
+Leibe und wenn ſie ein Burſche einmal ein wenig derb<lb/>
+beim Tanze anfaßte oder ſie etwa höher als den Steg<lb/>
+der Baßgeige ſchwang, ſo konnte ſie bitterlich darüber<lb/>
+bei mir weinen, und ſprach dabei immer: es ſey wider<lb/>
+ihre Ehre. Ach, das Annerl iſt ein eignes Mädchen<lb/>
+immer geweſen, manchmal, wenn kein Menſch es ſich<lb/>
+verſah, fuhr ſie mit beiden Händen nach ihrer Schürze<lb/>
+und riß ſie ſich vom Leibe, als ob Feuer drinn ſey, und<lb/>
+dann fing ſie gleich entſetzlich an zu weinen; aber das<lb/>
+hat ſeine Urſache, es hat ſie mit Zähnen hingeriſſen, der<lb/>
+Feind ruht nicht. Wäre das Kind nur nicht ſtets ſo<lb/>
+<pb n="25" facs="#f0035"/>
+hinter der Ehre her geweſen, und hätte ſich lieber an<lb/>
+unſern lieben Gott gehalten, hätte ihn nie von ſich ge¬<lb/>
+laſſen, in aller Noth, und hätte ſeinetwillen Schande und<lb/>
+Verachtung ertragen, ſtatt ihrer Menſchenehre. Der<lb/>
+Herr hätte ſich gewiß erbarmt, und wird es auch noch,<lb/>
+ach, ſie kommen gewiß zuſammen, Gottes Wille geſchehe!</p><lb/>
+<p>Der Uhlan ſtand wieder in Frankreich, er hatte<lb/>
+lange nicht geſchrieben, und wir glaubten ihn faſt todt<lb/>
+und weinten oft um ihn. Er war aber im Hospital an<lb/>
+einer ſchweren Bleſſur krank gelegen und als er wieder<lb/>
+zu ſeinen Kameraden kam, und zum Unteroffizier ernannt<lb/>
+wurde, fiel ihm ein, daß ihm vor zwei Jahren ſein<lb/>
+Stiefbruder ſo über's Maul gefahren: er ſey nur Ge¬<lb/>
+meiner und der Vater Korporal, und dann die Geſchichte<lb/>
+von dem franzöſiſchen Unteroffizier und wie er ſeinem<lb/>
+Annerl von der Ehre ſo viel geredet, als er Abſchied<lb/>
+genommen. Da verlor er ſeine Ruhe und kriegte das<lb/>
+Heimweh und ſagte zu ſeinem Rittmeiſter, der ihn um<lb/>
+ſein Leid fragte: ach, Herr Rittmeiſter, es iſt, als ob es<lb/>
+mich mit den Zähnen nach Hauſe zöge. Da ließen ſie<lb/>
+ihn heimreiten mit ſeinem Pferd, denn alle ſeine Offiziere<lb/>
+trauten ihm. Er kriegte auf drei Monate Urlaub und<lb/>
+ſollte mit der Remonte wieder zurück kommen. Er eilte<lb/>
+<pb n="26" facs="#f0036"/>
+ſo ſehr er konnte, ohne ſeinem Pferde wehe zu thun,<lb/>
+welches er beſſer Pflegte, als jemals, weil es ihm war<lb/>
+anvertraut worden. An einem Tage trieb es ihn ganz<lb/>
+entſetzlich, nach Hauſe zu eilen, es war der Tag vor dem<lb/>
+Sterbetage ſeiner Mutter, und es war ihm immer als<lb/>
+laufe ſie vor ſeinem Pferde her, und riefe: Kasper, thue<lb/>
+mir eine Ehre an! Ach, ich ſaß an dieſem Tage auf<lb/>
+ihrem Grabe ganz allein, und dachte auch, wenn Kasper<lb/>
+doch bei mir wäre; ich hatte Blümelein Vergiß nicht<lb/>
+mein in einen Kranz gebunden und an das eingeſunkene<lb/>
+Kreuz gehängt, und maaß mir den Platz umher aus, und<lb/>
+dachte: hier will ich liegen, und da ſoll Kasper liegen,<lb/>
+wenn ihm Gott ſein Grab in der Heimath ſchenkt, daß<lb/>
+wir fein beiſammen ſind, wenn's heißt: Ihr Todten, ihr<lb/>
+Todten ſollt auferſtehn, ihr ſollt zum jüngſten Gerichte<lb/>
+gehn! Aber Kasper kam nicht, ich wußte auch nicht, daß<lb/>
+er ſo nahe war und wohl hätte kommen können. Es<lb/>
+trieb ihn auch gar ſehr zu eilen, denn er hatte wohl oft<lb/>
+an dieſen Tag in Frankreich gedacht, und hatte einen<lb/>
+kleinen Kranz von ſchönen Goldblumen von daher mit¬<lb/>
+gebracht, um das Grab ſeiner Mutter zu ſchmücken, und<lb/>
+auch einen Kranz für Annerl, den ſollte ſie ſich bis zu<lb/>
+ihrem Ehrentage bewahren. —</p><lb/>
+<pb n="27" facs="#f0037"/>
+<p>Hier ward die Alte ſtill und ſchüttelte mit dem<lb/>
+Kopf; als ich aber die letzten Worte wiederholte: den<lb/>
+ſollte ſie ſich bis zu ihrem Ehrentag bewahren, — fuhr<lb/>
+ſie fort: wer weiß, ob ich es nicht erflehen kann, ach,<lb/>
+wenn ich den Herzog nur wecken dürfte! — Wozu, fragte<lb/>
+ich, welch' Anliegen habt Ihr denn, Mutter? da ſagte<lb/>
+ſie ernſt: O, was läge am ganzen Leben, wenn's kein<lb/>
+End' nähme, was läge am Leben, wenn es nicht ewig<lb/>
+wäre! und fuhr dann in ihrer Erzählung fort:</p><lb/>
+<p>Kasper wäre noch recht gut zu Mittag in unſerm<lb/>
+Dorfe angekommen, aber morgens hatte ihm ſein Wirth<lb/>
+im Stalle gezeigt, daß ſein Pferd gedrückt ſey, und<lb/>
+dabei geſagt: mein Freund, das macht dem Reiter keine<lb/>
+Ehre. Das Wort hatte Kasper tief empfunden, er legte<lb/>
+deswegen den Sattel hohl und leicht auf, that Alles,<lb/>
+ihm die Wunde zu heilen, und ſetzte ſeine Reiſe, das<lb/>
+Pferd am Zügel führend, zu Fuße fort. So kam er am<lb/>
+ſpäten Abend bis an eine Mühle, eine Meile von unſerm<lb/>
+Dorf, und weil er den Müller als einen alten Freund<lb/>
+ſeines Vaters kannte, ſprach er bei ihm ein, und wurde<lb/>
+wie ein recht lieber Gaſt aus der Fremde empfangen.<lb/>
+Kasper zog ſein Pferd in den Stall, legte den Sattel<lb/>
+und ſein Felleiſen in einen Winkel, und ging nun zu dem<lb/>
+<pb n="28" facs="#f0038"/>
+Müller in die Stube. Da fragte er dann nach den<lb/>
+Seinigen, und hörte, daß ich alte Großmutter noch lebe,<lb/>
+und daß ſein Vater und ſein Stiefbruder geſund ſeyen<lb/>
+und daß es recht gut mit ihnen gehe; ſie wären erſt<lb/>
+geſtern mit Getreide auf der Mühle geweſen, ſein Vater<lb/>
+habe ſich auf den Roß- und Ochſenhandel gelegt und<lb/>
+gedeihe dabei recht gut, auch halte er jetzt etwas auf ſeine<lb/>
+Ehre, und gehe nicht mehr ſo zerriſſen umher. Darüber<lb/>
+war der gute Kasper nun herzlich froh, und da er nach<lb/>
+der ſchönen Annerl fragte, ſagte ihm der Müller: er<lb/>
+kenne ſie nicht, aber wenn es die ſey, die auf dem<lb/>
+Roſenhof gedient habe, die hätte ſich, wie er gehört, in<lb/>
+der Hauptſtadt vermiethet, weil ſie da eher etwas lernen<lb/>
+könne und mehr Ehre dabei ſey; ſo habe er vor einem<lb/>
+Jahre von dem Knecht auf dem Roſenhof gehört. Das<lb/>
+freute den Kasper auch; wenn es ihm gleich leid that,<lb/>
+daß er ſie nicht gleich ſehen ſollte, ſo hoffte er ſie doch<lb/>
+in der Hauptſtadt bald recht fein und ſchmuck zu finden,<lb/>
+daß es ihm, als einem Unteroffizier, auch eine rechte<lb/>
+Ehre ſey, mit ihr am Sonntag ſpazieren zu gehn. Nun<lb/>
+erzählte er dem Müller noch mancherlei aus Frankreich,<lb/>
+ſie aßen und tranken mit einander, er half ihm Korn<lb/>
+aufſchütten, und dann brachte ihn der Müller in die<lb/>
+<pb n="29" facs="#f0039"/>
+Oberſtube zu Bett, und legte ſich ſelbſt unten auf eini¬<lb/>
+gen Säcken zur Ruhe. Das Geklapper der Mühle und<lb/>
+die Sehnſucht nach der Heimath ließen den guten Kas¬<lb/>
+per, wenn er gleich ſehr müde war, nicht feſt einſchlafen.<lb/>
+Er war ſehr unruhig und dachte an ſeine ſelige Mutter<lb/>
+und an das ſchöne Annerl, und an die Ehre, die ihm<lb/>
+bevorſtehe, wenn er als Unteroffizier vor die Seinigen<lb/>
+treten würde. So entſchlummerte er endlich leiſ' und<lb/>
+wurde von ängſtlichen Träumen oft aufgeſchreckt, es war<lb/>
+ihm mehrmals: als trete ſeine ſelige Mutter zu ihm und<lb/>
+bäte ihn händeringend um Hülfe; dann war es ihm, als<lb/>
+ſey er geſtorben und würde begraben, gehe aber ſelbſt<lb/>
+zu Fuße als Todter mit zu Grabe, und ſchön Annerl<lb/>
+gehe ihm zur Seite; er weine heftig, daß ihn ſeine Ka¬<lb/>
+meraden nicht begleiteten, und da er auf den Kirchhof<lb/>
+komme, ſey ſein Grab neben dem ſeiner Mutter; und<lb/>
+Annerls Grab ſey auch dabei, und er gebe Annerl das<lb/>
+Kränzlein, das er ihr mitgebracht und hänge das der<lb/>
+Mutter an ihr Grab, und dann habe er ſich umgeſchaut<lb/>
+und Niemand mehr geſehen als mich, und die Annerl<lb/>
+die habe einer an der Schürze ins Grab geriſſen, und<lb/>
+er ſey dann auch ins Grab geſtiegen, und habe geſagt:<lb/>
+Iſt denn Niemand hier, der mir die letzte Ehre anthut,<lb/>
+<pb n="30" facs="#f0040"/>
+und mir ins Grab ſchießen will als einem braven Sol¬<lb/>
+daten, und da habe er ſein Piſtol gezogen und ſich ſelbſt<lb/>
+ins Grab geſchoſſen. Ueber den Schuß wachte er mit<lb/>
+großem Schrecken auf, denn es war ihm als klirrten die<lb/>
+Fenſter davon; er ſah um ſich in der Stube, da hörte<lb/>
+er noch einen Schuß fallen, und hörte Getöſe in der<lb/>
+Mühle und Geſchrei durch das Geklapper. Er ſprang<lb/>
+aus dem Bett, und griff nach ſeinem Säbel; in dem<lb/>
+Augenblick ging ſeine Thür auf, und er ſah beim Voll¬<lb/>
+mondſchein zwei Männer mit berußten Geſichtern mit<lb/>
+Knitteln auf ſich zuſtürzen, aber er ſetzte ſich zur Wehre,<lb/>
+und hieb den Einen über den Arm, und ſo entflohen<lb/>
+Beide, indem ſie die Thür, welche nach außen aufging<lb/>
+und einen Riegel draußen hatte, hinter ſich verriegelten.<lb/>
+Kasper verſuchte umſonſt, ihnen nachzukommen, endlich<lb/>
+gelang es ihm, eine Tafel in der Thür einzutreten. Er<lb/>
+eilte durch das Loch die Treppe hinunter, und hörte das<lb/>
+Wehgeſchrei des Müllers, den er geknebelt zwiſchen den<lb/>
+Kornſäcken liegend fand. Kasper band ihn los, und<lb/>
+eilte dann gleich in den Stall, noch ſeinem Pferde und<lb/>
+Felleiſen, aber beides war geraubt. Mit großem Jam¬<lb/>
+mer eilte er in die Mühle zurück und klagte dem Mül¬<lb/>
+ler ſein Unglück, daß ihm all ſein hab und Gut, und<lb/>
+<pb n="31" facs="#f0041"/>
+das ihm anvertraute Pferd geſtohlen ſey, über welches<lb/>
+leztere er ſich gar nicht zufrieden geben konnte. Der<lb/>
+Müller aber ſtand mit einem vollen Geldſack vor ihm,<lb/>
+er hatte ihn in der Oberſtube aus dem Schranke geholt<lb/>
+und ſagte zu dem Hylan: Lieber Kasper, ſey Er zufrie¬<lb/>
+den, ich verdanke Ihm die Rettung meines Vermögens;<lb/>
+auf dieſen Sack, der oben in Seiner Stube lag, hatten<lb/>
+es die Räuber gemünzt, und Seiner Vertheidigung danke<lb/>
+ich Alles, mir iſt nichts geſtohlen; die Sein Pferd und<lb/>
+Sein Felleiſen im Stall fanden, müſſen ausgeſtellte Die¬<lb/>
+beswachen geweſen ſeyn, ſie zeigten durch die Schüſſe<lb/>
+an, daß Gefahr da ſey. Weil ſie wahrſcheinlich am Sat¬<lb/>
+telzeug erkannten, daß ein Kavalleriſt im Hauſe herberge.<lb/>
+Nun ſoll Er meinethalben keine Noth haben, ich will<lb/>
+mir alle Mühe geben und kein Geld ſparen, Ihm Seinen<lb/>
+Gaul wieder zu finden, und finde ich ihn nicht, ſo will<lb/>
+ich Ihm einen kaufen, ſo theuer er ſeyn mag. Kasper<lb/>
+ſagte: geſchenkt nehme ich nichts, das iſt gegen meine<lb/>
+Ehre, aber wenn Er mir im Nothfall ſiebzig Thaler vor¬<lb/>
+ſchießen will, ſo kriegt er meine Verſchreibung, ich ſchaffe<lb/>
+ſie in zwei Jahren wieder. Hierüber wurden ſie einig,<lb/>
+und der Uhlan trennte ſich von ihm, um nach ſeinem<lb/>
+Dorfe zu eilen, wo auch ein Gerichtshalter der umlie¬<lb/>
+<pb n="32" facs="#f0042"/>
+genden Edelleute wohnt, bei dem er die Sache berichten<lb/>
+wollte. Der Müller blieb zurück, um ſeine Frau und<lb/>
+ſeinen Sohn zu erwarten, welche auf einem Dorfe in<lb/>
+der Nähe bei einer Hochzeit waren. Dann wollte er<lb/>
+dem Uhlanen nachkommen, und die Anzeige vor Gericht<lb/>
+auch machen.</p><lb/>
+<p>Er kann ſich denken, lieber Herr Schreiber, mit<lb/>
+welcher Betrübniß der arme Kasper den Weg nach un¬<lb/>
+ſerm Dorfe eilte, zu Fuß und arm, wo er hatte ſtolz<lb/>
+einreiten wollen; ein und funfzig Thaler, die er erbeutet<lb/>
+hatte, ſein Patent als Unteroffizier, ſein Urlaub, und die<lb/>
+Kränze auf ſeiner Mutter Grab und für die ſchöne An¬<lb/>
+nerl waren ihm geſtohlen. Es war ihm ganz verzwei¬<lb/>
+felt zu Muthe, und ſo kam er um ein Uhr in der Nacht<lb/>
+in ſeiner Heimath an, und pochte gleich an der Thür des<lb/>
+Gerichtshalters, deſſen Haus das erſte vor dem Dorfe<lb/>
+iſt. Er ward eingelaſſen und machte ſeine Anzeige und<lb/>
+gab Alles an, was ihm geraubt worden war. Der Ge¬<lb/>
+richtshalter trug ihm auf, er ſolle gleich zu ſeinem Vater<lb/>
+gehn, welches der einzige Bauer im Dorfe ſey, der Pferde<lb/>
+habe, und ſolle mit dieſem und ſeinem Bruder in der<lb/>
+Gegend herum patroulliren, ob er vielleicht den Räubern<lb/>
+auf die Spur komme; indeſſen wolle er andre Leute zu<lb/>
+<pb n="33" facs="#f0043"/>
+Fuß ausſenden, und den Müller, wenn er komme, um<lb/>
+die weiteren Umſtände vernehmen. Kasper ging nun<lb/>
+von dem Gerichtshalter weg, nach dem väterlichen Hauſe;<lb/>
+da er aber an meiner Hütte vorüber mußte, und durch<lb/>
+das Fenſter hörte: daß ich ein geiſtliches Lied ſang, wie<lb/>
+ich denn vor Gedanken an ſeine ſelige Mutter nicht<lb/>
+ſchlafen konnte, ſo pochte er an und ſagte: Gelobt ſey<lb/>
+Jeſus Chriſtus, liebe Großmutter, Kasper iſt hier. Ach!<lb/>
+wie fuhren mir die Worte durch Mark und Bein, ich<lb/>
+ſtürzte an das Fenſter, öffnete es und küßte und drückte<lb/>
+ihn mit unendlichen Thränen. Er erzählte mir ſein Un¬<lb/>
+glück mit großer Eile und ſagte, welchen Auftrag er an<lb/>
+ſeinen Vater vom Gerichtshalter habe, er müſſe drum<lb/>
+jetzt gleich hin, um den Dieben nachzuſetzen, denn<lb/>
+ſeine Ehre hänge davon ab, daß er ſein Pferd wieder<lb/>
+erhalte.</p><lb/>
+<p>Ich weiß nicht, aber das Wort Ehre fuhr mir<lb/>
+recht durch alle Glieder, denn ich wußte ſchwere Gerichte<lb/>
+die ihm bevorſtanden. Thue Deine Pflicht, und gieb<lb/>
+Gott allein die Ehre, ſagte ich; und er eilte von mir<lb/>
+nach Finkels Hof, der am andern Ende des Dorfs liegt.<lb/>
+Ich ſank, als er fort war, auf die Kniee, und betete zu<lb/>
+<fw type="sig" place="bottom">3<lb/>
+</fw>
+<pb n="34" facs="#f0044"/>
+Gott, er möge ihn doch in ſeinen Schutz nehmen, ach,<lb/>
+betete mit einer Angſt wie niemals, und mußte dabei<lb/>
+immer ſagen: Herr, Dein Wille geſchehe wie im Himmel<lb/>
+ſo auf Erden.</p><lb/>
+<p>Der Kasper lief zu ſeinem Vater mit einer entſetz¬<lb/>
+lichen Angſt. Er ſtieg hinten über den Gartenzaun, er<lb/>
+hörte die Plumpe gehen, er hörte im Stall wiehern, das<lb/>
+fuhr ihm durch die Seele; er ſtand ſtill, er ſah im Mond¬<lb/>
+ſchein, daß zwei Männer ſich wuſchen, es wollte ihm<lb/>
+das Herz brechen; der eine ſprach: das verfluchte Zeug<lb/>
+geht nicht herunter, da ſagte der Andre: komm' erſt in<lb/>
+den Stall, dem Gaul den Schwanz abzuſchlagen und<lb/>
+die Mähnen zu verſchneiden. Haſt Du das Felleiſen<lb/>
+auch tief genug unterm Miſt begraben? Ja, ſagte der<lb/>
+Andre. Da gingen ſie nach dem Stall, und Kasper,<lb/>
+vor Jammer wie ein Raſender, ſprang hervor und<lb/>
+ſchloß die Stallthür hinter ihnen und ſchrie: Im Namen<lb/>
+des Herzogs! ergebt Euch; wer ſich widerſetzt, den<lb/>
+ſchieße ich nieder! Ach, da hatte er ſeinen Vater und ſei¬<lb/>
+nen Stiefbruder als die Räuber ſeines Pferdes gefan¬<lb/>
+gen. Meine Ehre, meine Ehre iſt verloren! ſchrie er,<lb/>
+ich bin der Sohn eines ehrloſen Diebes. Als die Bei¬<lb/>
+den im Stall dieſe Worte hörten, iſt ihnen bös zu<lb/>
+<pb n="35" facs="#f0045"/>
+Muthe geworden; ſie ſchrieen: Kasper; lieber Kasper,<lb/>
+um Gotteswillen, bringe uns nicht ins Elend. Kasper,<lb/>
+Du ſollſt ja Alles wieder haben, um Deiner ſeligen Mut¬<lb/>
+ter willen, deren Sterbetag heute iſt, erbarme Dich Dei¬<lb/>
+nes Vaters und Bruders. Kasper aber war wie ver¬<lb/>
+zweifelt, er ſchrie nur immer: meine Ehre, meine Pflicht!<lb/>
+und da ſie nun mit Gewalt die Thür erbrechen wollten,<lb/>
+und ein Fach in der Lehmwand einſtießen, um zu ent¬<lb/>
+kommen, ſchoß er ein Piſtol in die Luft, und ſchrie:<lb/>
+Hülfe, Hülfe, Diebe, Hülfe! Die Bauern, von dem Ge¬<lb/>
+richtshalter erweckt, welche ſchon herannahten, um ſich<lb/>
+über die verſchiedenen Wege zu bereden, auf denen ſie<lb/>
+die Einbrecher in die Mühle verfolgen wollten, ſtürzten<lb/>
+auf den Schuß und das Geſchrei ins Haus. Der alte<lb/>
+Finkel flehte immer noch, der Sohn ſolle ihm die Thür<lb/>
+öffnen, der aber ſagte: ich bin ein Soldat und muß der<lb/>
+Gerechtigkeit dienen. Da traten der Gerichtshalter und<lb/>
+die Bauern heran. Kasper ſagte: um Gottes Barm¬<lb/>
+herzigkeit willen, Herr Gerichtshalter, mein Vater, mein<lb/>
+Bruder ſind ſelbſt die Diebe, o, daß ich nie geboren<lb/>
+wäre! hier im Stall hab' ich ſie gefangen, mein Fell¬<lb/>
+eiſen liegt im Miſte vergraben. Da ſprangen die Bauern<lb/>
+<fw type="sig" place="bottom">3*<lb/>
+</fw>
+<pb n="36" facs="#f0046"/>
+in den Stall und banden den alten Finkel und ſeinen<lb/>
+Sohn und ſchleppten ſie in ihre Stube. Kasper aber<lb/>
+grub das Felleiſen hervor und nahm die zwei Kränze<lb/>
+heraus, und ging nicht in die Stube, er ging nach dem<lb/>
+Kirchhofe an das Grab ſeiner Mutter. Der Tag war<lb/>
+angebrochen: ich war auf der Wieſe geweſen, und hatte<lb/>
+für mich und für Kasper zwei Kränze von Blümelein<lb/>
+Vergiß nicht mein geflochten, ich dachte: er ſoll mit mir<lb/>
+das Grab ſeiner Mutter ſchmücken, wenn er von ſei¬<lb/>
+nem Ritt zurück kommt. Da hörte ich allerlei unge¬<lb/>
+wohnten Lärm im Dorf, und weil ich das Getümmel<lb/>
+nicht mag, und am liebſten allein bin, ſo ging ich um's<lb/>
+Dorf herum nach dem Kirchhof. Da fiel ein Schuß,<lb/>
+ich ſah den Dampf in die Höhe ſteigen, ich eilte auf<lb/>
+den Kirchhof, o Du lieber Heiland! erbarme Dich ſein.<lb/>
+Kasper lag todt auf dem Grabe ſeiner Mutter, er hatte<lb/>
+ſich die Kugel durch das Herz geſchoſſen, auf welches er<lb/>
+ſich das Kränzlein, das er für ſchön Annerl mitgebracht,<lb/>
+am Knopfe befeſtigt hatte, durch dieſen Kranz hatte er<lb/>
+ſich ins Herz geſchoſſen. Den Kranz für die Mutter<lb/>
+hatte er ſchon an das Kreuz befeſtigt. Ich meinte, die<lb/>
+Erde thäte ſich unter mir auf bei dem Anblick, ich ſtürzte<lb/>
+über ihn hin und ſchrie immer: Kasper, o Du unglück¬<lb/>
+<pb n="37" facs="#f0047"/>
+ſeliger Menſch, was haſt Du gethan? ach, wer hat Dir<lb/>
+denn Dein Elend erzählt, o, warum habe ich Dich von<lb/>
+mir gelaſſen, ehe ich Dir alles geſagt! Gott, was wird<lb/>
+Dein armer Vater, Dein Bruder ſagen, wenn ſie Dich<lb/>
+ſo finden. Ich wußte nicht, daß er ſich wegen dieſen<lb/>
+das Leid angethan, ich glaubte, es habe eine ganz andere<lb/>
+Urſache. Da kam es noch ärger; der Gerichtshalter<lb/>
+und die Bauern brachten den alten Finkel und ſeinen<lb/>
+Sohn mit Stricken gebunden, der Jammer erſtickte mir<lb/>
+die Stimme in der Kehle, ich konnte kein Wort ſprechen;<lb/>
+der Gerichtshalter fragte mich, ob ich meinen Enkel nicht<lb/>
+geſehn? Ich zeigte hin, wo er lag, er trat zu ihm, er<lb/>
+glaubte, er weine auf dem Grabe, er ſchüttelte ihn, da<lb/>
+ſah er das Blut niederſtürzen. Jeſus Marie! rief er<lb/>
+aus, der Kasper hat Hand an ſich gelegt. Da ſahen<lb/>
+die beiden Gefangenen ſich ſchrecklich an; man nahm<lb/>
+den Leib des Kaspers und trug ihn neben ihnen her<lb/>
+nach dem Hauſe des Gerichtshalters, es war ein Weh¬<lb/>
+geſchrei im ganzen Dorfe, die Bauerweiber führten mich<lb/>
+nach. Ach, das war wohl der ſchrecklichſte Weg in mei¬<lb/>
+nem Leben!</p><lb/>
+<p>Da ward die Alte wieder ſtill und ich ſagte zu ihr:<lb/>
+Liebe Mutter, Euer Leid iſt entſetzlich, aber Gott hat<lb/>
+<pb n="38" facs="#f0048"/>
+Euch auch recht lieb; die er am härteſten ſchlägt, ſind<lb/>
+ſeine liebſten Kinder. Sagt mir nun, liebe Mutter,<lb/>
+was Euch bewogen hat, den weiten Weg hieher zu ge¬<lb/>
+hen, und um was Ihr die Bittſchrift einreichen wollt?</p><lb/>
+<p>Ei, das kann Er ſich doch wohl denken, fuhr ſie<lb/>
+ganz ruhig fort, um ein ehrliches Grab für Kasper und<lb/>
+die ſchöne Annerl, der ich das Kränzlein zu ihrem Ehren¬<lb/>
+tag mitbringe, es iſt ganz mit Kaspers Blut unterlau¬<lb/>
+fen, ſeh' Er einmal.</p><lb/>
+<p>Da zog ſie einen kleinen Kranz von Flittergold aus<lb/>
+ihrem Bündel und zeigte ihn mir; ich konnte bei dem<lb/>
+anbrechenden Tage ſehen, daß er vom Pulver geſchwärzt<lb/>
+und mit Blut beſprengt war. Ich war ganz zerriſſen<lb/>
+von dem Unglück der guten Alten, und die Größe und<lb/>
+Feſtigkeit, womit ſie es trug, erfüllte mich mit Vereh¬<lb/>
+rung. Ach, liebe Mutter, ſagte ich: wie werdet Ihr der<lb/>
+armen Annerl aber ihr Elend beibringen, daß ſie nicht<lb/>
+gleich vor Schrecken todt niederſinkt, und was iſt denn<lb/>
+das für ein Ehrentag, zu welchem Ihr dem Annerl den<lb/>
+traurigen Kranz bringt?</p><lb/>
+<p>Lieber Menſch, ſprach ſie, komme Er nur mit, Er<lb/>
+kann mich zu ihr begleiten, ich kann doch nicht geſchwind<lb/>
+<pb n="39" facs="#f0049"/>
+fort, ſo werden wir ſie gerade noch zu rechter Zeit fin¬<lb/>
+den. Ich will Ihm unterwegs noch Alles erzählen.</p><lb/>
+<p>Nun ſtand ſie auf, und betete ihren Morgenſegen<lb/>
+ganz ruhig, und brachte ihre Kleider in Ordnung, und<lb/>
+ihren Bündel hängte ſie dann an meinen Arm; es<lb/>
+war zwei Uhr des Morgens, der Tag grante und wir<lb/>
+wandelten durch die ſtillen Gaſſen.</p><lb/>
+<p>Seh' Er, erzählte die Alte fort, als der Finkel und<lb/>
+ſein Sohn eingeſperrt waren, mußte ich zum Gerichtshalter<lb/>
+auf die Gerichtsſtube; der todte Kasper wurde auf einen<lb/>
+Tiſch gelegt und mit ſeinem Uhlanenmantel bedeckt her¬<lb/>
+eingetragen, und nun mußte ich Alles dem Gerichtshalter<lb/>
+ſagen, was ich von ihm wußte und was er mir heute<lb/>
+Morgen durch das Fenſter geſagt hatte. Das ſchrieb er<lb/>
+Alles auf ſein Papier nieder, das vor ihm lag; dann<lb/>
+ſah er die Schreibtafel durch, die ſie bei Kasper gefun¬<lb/>
+den; da ſtanden mancherlei Rechnungen drin, einige<lb/>
+Geſchichten von der Ehre und auch die von dem fran¬<lb/>
+zöſiſchen Unteroffizier, und hinter ihr war mit Bleiſtift<lb/>
+etwas geſchrieben. Da gab mir die Alte die Brieftaſche,<lb/>
+und ich las folgende letzte Worte des unglücklichen Kas¬<lb/>
+pers: Auch ich kann meine Schande nicht überleben; mein<lb/>
+Vater und mein Bruder ſind Diebe, ſie haben mich ſelbſt<lb/>
+<pb n="40" facs="#f0050"/>
+beſtohlen; mein Herz brach mir, aber ich mußte ſie ge¬<lb/>
+fangen nehmen und den Gerichten übergeben, denn ich<lb/>
+bin ein Soldat meines Fürſten, und meine Ehre erlaubt<lb/>
+mir keine Schonung. Ich habe meinen Vater und Bru¬<lb/>
+der der Rache übergeben um der Ehre willen; ach! bitte<lb/>
+doch Jedermann für mich, daß man mir hier, wo ich<lb/>
+gefallen bin, ein ehrliches Grab neben meiner Mutter<lb/>
+vergönne. Das Kränzlein, durch welches ich mich er¬<lb/>
+ſchoſſen, ſoll die Großmutter der ſchönen Annerl ſchicken<lb/>
+und ſie von mir grüßen, ach! ſie thut mir leid durch<lb/>
+Mark und Bein, aber ſie ſoll doch den Sohn eines Die¬<lb/>
+bes nicht heirathen, denn ſie hat immer viel auf Ehre<lb/>
+gehalten. Liebe ſchöne Annerl, mögeſt Du nicht ſo ſehr<lb/>
+erſchrecken über mich, gieb Dich zufrieden, und wenn<lb/>
+Du mir jemals ein wenig gut warſt, ſo rede nicht ſchlecht<lb/>
+von mir. Ich kann ja nichts für meine Schande! Ich<lb/>
+hatte mir ſo viele Mühe gegeben, in Ehren zu bleiben<lb/>
+mein Leben lang, ich war ſchon Unteroffizier und hatte<lb/>
+den beſten Ruf bei der Schwadron, ich wäre gewiß<lb/>
+noch einmal Offizier geworden, und Annerl, Dich hätte<lb/>
+ich doch nicht verlaſſen, und hätte keine Vornehmere ge¬<lb/>
+freit — aber der Sohn eines Diebes, der ſeinen Vater<lb/>
+aus Ehre ſelbſt fangen und richten laſſen muß, kann<lb/>
+<pb n="41" facs="#f0051"/>
+ſeine Schande nicht überleben. Annerl, liebes Annerl,<lb/>
+nimm doch ja das Kränzlein, ich bin Dir immer treu<lb/>
+geweſen, ſo Gott mir gnädig ſey! Ich gebe Dir nun<lb/>
+Deine Freiheit wieder, aber thue mir die Ehre, und hei¬<lb/>
+rathe nie Einen, der ſchlechter wäre, als ich; und wenn<lb/>
+Du kannſt, ſo bitte für mich: daß ich ein ehrliches Grab<lb/>
+neben meiner Mutter erhalte, und wenn Du hier in<lb/>
+unſerm Ort ſterben ſollteſt, ſo laſſe Dich auch bei uns<lb/>
+begraben; die gute Großmutter wird auch zu uns kom¬<lb/>
+men, da ſind wir Alle beiſammen. Ich habe funfzig<lb/>
+Thaler in meinem Felleiſen, die ſollen auf Intreſſen ge¬<lb/>
+legt werden für Dein erſtes Kind. Meine ſilberne Uhr<lb/>
+ſoll der Herr Pfarrer haben, wenn ich ehrlich begraben<lb/>
+werde. Mein Pferd, die Uniform und Waffen gehören<lb/>
+dem Herzog, dieſe meine Brieftaſche gehört Dein. Adies,<lb/>
+herztauſender Schatz, Adies, liebe Großmutter, betet für<lb/>
+mich und lebt alle wohl — Gott erbarme ſich meiner —<lb/>
+ach, meine Verzweiflung iſt groß!</p><lb/>
+<p>Ich konnte dieſe letzten Worte eines gewiß edeln un¬<lb/>
+glücklichen Menſchen nicht ohne bittere Thränen leſen. —<lb/>
+Der Kasper muß ein gar guter Menſch geweſen ſeyn,<lb/>
+liebe Mutter, ſagte ich zu der Alten, welche nach dieſen<lb/>
+Worten ſtehen blieb und meine Hand drückte und mit<lb/>
+<pb n="42" facs="#f0052"/>
+tief bewegter Stimme ſagte: ja, es war der beſte Menſch<lb/>
+auf der Welt. Aber die letzten Worte von der Ver¬<lb/>
+zweiflung hätte er nicht ſchreiben ſollen, die bringen ihn<lb/>
+um ſein ehrliches Grab, die bringen ihn auf die Ana¬<lb/>
+tomie. Ach, lieber Schreiber, wenn Er hierin nur hel¬<lb/>
+fen könnte.</p><lb/>
+<p>Wie ſo, liebe Mutter? fragte ich, was können dieſe<lb/>
+letzten Worte dazu beitragen? Ja gewiß, erwiederte ſie,<lb/>
+der Gerichtshalter hat es mir ſelbſt geſagt. Es iſt ein<lb/>
+Befehl an alle Gerichte ergangen, daß nur die Selbſt¬<lb/>
+mörder aus Melancholie ehrlich ſollen begraben werden,<lb/>
+Alle aber, die aus Verzweiflung Hand an ſich gelegt,<lb/>
+ſollen auf die Anatomie, und der Gerichtshalter hat mir<lb/>
+geſagt, daß er den Kasper, weil er ſelbſt ſeine Ver¬<lb/>
+zweiflung eingeſtanden, auf die Anatomie ſchicken müſſe.</p><lb/>
+<p>Das iſt ein wunderlich Geſetz, ſagte ich, denn man<lb/>
+könnte wohl bei jedem Selbſtmörder einen Prozeß an¬<lb/>
+ſtellen: ob er aus Melancholie oder Verzweiflung ent¬<lb/>
+ſtanden, der ſo lange dauern müßte, daß der Richter<lb/>
+und die Advokaten drüber in Melancholie und Ver¬<lb/>
+zweiflung fielen, und auf die Anatomie kämen. Aber<lb/>
+ſeyd nur getröſtet, liebe Mutter, unſer Herzog iſt ein ſo<lb/>
+guter Herr, wenn er die ganze Sache hört, wird er dem<lb/>
+<pb n="43" facs="#f0053"/>
+armen Kasper gewiß ſein Plätzchen neben der Mutter<lb/>
+vergönnen.</p><lb/>
+<p>Das gebe Gott! erwiederte die Alte; ſehe Er nun,<lb/>
+lieber Menſch, als der Gerichtshalter Alles zu Papier<lb/>
+gebracht hatte, gab er mir die Brieftaſche und den Kranz<lb/>
+für die ſchöne Annerl, und ſo bin ich dann geſtern hier¬<lb/>
+her gelaufen, damit ich ihr an ihrem Ehrentag den<lb/>
+Troſt noch mit auf den Weg geben kann. — Der Kas¬<lb/>
+per iſt zu rechter Zeit geſtorben, hätte er Alles gewußt,<lb/>
+er wäre närriſch geworden vor Betrübniß.</p><lb/>
+<p>Was iſt es denn nun mit der ſchönen Annerl?<lb/>
+fragte ich die Alte, bald ſagt Ihr: ſie habe nur noch<lb/>
+wenige Stunden, bald ſprecht Ihr von ihrem Ehrentag,<lb/>
+und ſie werde Troſt gewinnen durch Eure traurige Nach¬<lb/>
+richt; ſagt mir doch Alles heraus, will ſie Hochzeit hal¬<lb/>
+ten mit einem Andern, iſt ſie todt, krank? Ich muß<lb/>
+Alles wiſſen, damit ich es in die Bittſchrift ſetzen kann.</p><lb/>
+<p>Da erwiederte die Alte: Ach, lieber Schreiber, es<lb/>
+iſt nun ſo, Gottes Wille geſchehe! ſehe Er, als Kasper<lb/>
+kam, war ich doch nicht recht froh, als Kasper ſich das<lb/>
+Leben nahm, war ich doch nicht recht traurig, ich hätte<lb/>
+es nicht überleben können, wenn Gott ſich meiner nicht<lb/>
+erbarmt gehabt hätte mit größerem Leid. Ja, ich ſage<lb/>
+<pb n="44" facs="#f0054"/>
+Ihm: es war mir ein Stein vor das Herz gelegt, wie<lb/>
+ein Eisbrecher, und alle die Schmerzen, die wie Grund¬<lb/>
+eis gegen mich ſtürzten und mir das Herz gewiß abge¬<lb/>
+ſtoßen hätten, die zerbrachen an dieſem Stein und trie¬<lb/>
+ben kalt vorüber. Ich will Ihm etwas erzählen, das<lb/>
+iſt betrübt:</p><lb/>
+<p>Als mein Pathchen, die ſchöne Annerl, ihre Mutter<lb/>
+verlor, die eine Baſe von mir war und ſieben Meilen<lb/>
+von uns wohnte, war ich bei der kranken Frau. Sie<lb/>
+war die Wittwe eines armen Bauern, und hatte in ihrer<lb/>
+Jugend einen Jäger lieb gehabt, ihn aber wegen ſeines<lb/>
+wilden Lebens nicht genommen. Der Jäger war endlich<lb/>
+in ſolch Elend gekommen, daß er auf Tod und Leben<lb/>
+wegen eines Mordes gefangen ſaß. Das erfuhr meine<lb/>
+Baſe auf ihrem Krankenlager und es that ihr ſo weh,<lb/>
+daß ſie täglich ſchlimmer wurde und endlich in ihrer<lb/>
+Todesſtunde, als ſie mir die liebe ſchöne Annerl als<lb/>
+mein Pathchen übergab, und Abſchied von mir nahm,<lb/>
+noch in den letzten Augenblicken zu mir ſagte: Liebe<lb/>
+Anne Margareth, wenn Du durch das Städtchen kömmſt,<lb/>
+wo der arme Jürge gefangen liegt, ſo laſſe ihm ſagen<lb/>
+durch den Gefangenwärter, daß ich ihn bitte auf mei¬<lb/>
+nem Todesbett: er ſolle ſich zu Gott bekehren, und daß<lb/>
+<pb n="45" facs="#f0055"/>
+ich herzlich für ihn gebetet habe in meiner letzten Stunde<lb/>
+und daß ich ihn ſchön grüßen laſſe. — Bald nach die¬<lb/>
+ſen Worten ſtarb die gute Baſe, und als ſie begraben<lb/>
+war, nahm ich die kleine Annerl, die drei Jahr alt war,<lb/>
+auf den Arm und ging mit ihr nach Haus.</p><lb/>
+<p>Vor dem Städtchen, durch das ich mußte, kam ich<lb/>
+an der Scharfrichterei vorüber, und weil der Meiſter<lb/>
+berühmt war als ein Viehdoctor, ſollte ich einige Arznei<lb/>
+mitnehmen für unſern Schulzen. Ich trat in die Stube<lb/>
+und ſagte dem Meiſter, was ich wollte, und er antwor¬<lb/>
+tete, daß ich ihm auf den Boden folgen ſolle, wo er die<lb/>
+Kräuter liegen habe, und ihm helfen ausſuchen. Ich<lb/>
+ließ Annerl in der Stube und folgte ihm. Als wir zu¬<lb/>
+rück in die Stube traten, ſtand Annerl vor einem klei¬<lb/>
+nen Schranke, der an der Wand befeſtigt war, und<lb/>
+ſprach: Großmutter, da iſt eine Maus drin, hört, wie<lb/>
+es klappert, da iſt eine Maus drin!</p><lb/>
+<p>Auf dieſe Rede des Kindes machte der Meiſter ein<lb/>
+ſehr ernſthaftes Geſicht, riß den Schrank auf und ſprach:<lb/>
+Gott ſey uns gnädig! denn er ſah ſein Richtſchwerdt,<lb/>
+das allein in dem Schranke an einem Nagel hing, hin<lb/>
+und her wanken. Er nahm das Schwerdt herunter und<lb/>
+mir ſchauderte. Liebe Frau, ſagte er, wenn Ihr das<lb/>
+<pb n="46" facs="#f0056"/>
+kleine liebe Annerl lieb habt, ſo erſchreckt nicht, wenn<lb/>
+ich ihm mit meinem Schwerdt, rings um das Hälschen,<lb/>
+die Haut ein wenig aufritze; denn das Schwerdt hat vor<lb/>
+ihm gewankt, es hat nach ſeinem Blut verlangt, und<lb/>
+wenn ich ihm den Hals damit nicht ritze, ſo ſteht dem<lb/>
+Kinde groß Elend im Leben bevor. Da faßte er das<lb/>
+Kind, welches entſetzlich zu ſchreien begann, ich ſchrie<lb/>
+auch und riß das Annerl zurück. Indem trat der Bür¬<lb/>
+germeiſter des Städtchens herein, der von der Jagd<lb/>
+kam und dem Richter einen kranken Hund zur Heilung<lb/>
+bringen wollte. Er fragte nach der Urſache des Ge¬<lb/>
+ſchrei's, Annerl ſchrie: er will mich umbringen; ich war<lb/>
+außer mir vor entſetzen. Der Richter erzählte dem<lb/>
+Bürgermeiſter das Ereigniß. Dieſer verwies ihm ſeinen<lb/>
+Aberglauben, wie er es nannte, heftig und unter ſcharfen<lb/>
+Drohungen; der Richter blieb ganz ruhig dabei und<lb/>
+ſprach: ſo haben's meine Väter gehalten, ſo halt' ich's.<lb/>
+Da ſprach der Bürgermeiſter: Meiſter Franz, wenn Ihr<lb/>
+glaubt, Euer Schwerdt habe ſich gerührt, weil ich Euch<lb/>
+hiermit anzeige: daß morgen früh um ſechs Uhr der<lb/>
+Jäger Jürge von Euch ſoll geköpft werden, ſo wollt'<lb/>
+ich es noch verzeihen; aber daß Ihr daraus etwas auf<lb/>
+dies liebe Kind ſchließen wollt, das iſt unvernünftig und<lb/>
+<pb n="47" facs="#f0057"/>
+toll, es könnte ſo etwas einen Menſchen in Verzweiflung<lb/>
+bringen, wenn man es ihm ſpäter in ſeinem Alter ſagte,<lb/>
+daß es ihm in ſeiner Jugend geſchehen ſey. Man ſoll<lb/>
+keinen Menſchen in Verſuchung führen. — Aber auch<lb/>
+keines Richters Schwerdt, ſagte Meiſter Franz vor ſich,<lb/>
+und hing ſein Schwerdt wieder in den Schrank. Nun<lb/>
+küßte der Bürgermeiſter das Annerl und gab ihm eine<lb/>
+Semmel aus ſeiner Jagdtaſche und da er mich gefragt,<lb/>
+wer ich ſey, wo ich herkomme und hin wolle? und ich<lb/>
+ihm den Tod meiner Baſe erzählt hatte, und auch den<lb/>
+Auftrag an den Jäger Jürge, ſagte er mir: Ihr ſollt<lb/>
+ihn ausrichten, ich will Euch ſelbſt zu ihm führen; er<lb/>
+hat ein hartes Herz, vielleicht wird ihn das Andenken<lb/>
+einer guten Sterbenden in ſeinen letzten Stunden rühren.<lb/>
+Da nahm der gute Herr mich und Annerl auf ſeinen<lb/>
+Wagen, der vor der Thür hielt und fuhr mit uns in<lb/>
+das Städtchen hinein.</p><lb/>
+<p>Er hieß mich zu ſeiner Köchin gehn; da kriegten<lb/>
+wir gutes Eſſen, und gegen Abend ging er mit mir zu<lb/>
+dem armen Sünder; und als ich dem die letzten Worte<lb/>
+meiner Baſe erzählte, fing er bitterlich an zu weinen,<lb/>
+und ſchrie: ach Gott! wenn ſie mein Weib geworden,<lb/>
+wäre es nicht ſo weit mit mir gekommen. Dann be¬<lb/>
+<pb n="48" facs="#f0058"/>
+gehrte er, man ſolle den Herrn Pfarrer doch noch ein¬<lb/>
+mal zu ihm bitten, er wolle mit ihm beten. Das ver¬<lb/>
+ſprach ihm der Bürgermeiſter, und lobte ihn wegen ſei¬<lb/>
+ner Sinnesveränderung und fragte ihn: ob er vor ſei¬<lb/>
+nem Tode noch einen Wunſch hätte, den er ihm erfüllen<lb/>
+könne. Da ſagte der Jäger Jürge: ach, bittet hier die<lb/>
+gute alte Mutter, daß ſie doch morgen mit dem Töch¬<lb/>
+terlein ihrer ſeligen Baſe bei meinem Rechte zugegen ſeyn<lb/>
+mögen, das wird mir das Herz ſtärken in meiner letzten<lb/>
+Stunde. Da bat mich der Bürgermeiſter, und ſo grau¬<lb/>
+lich es mir war, ſo konnte ich es dem armen elenden<lb/>
+Menſchen nicht abſchlagen. Ich mußte ihm die Hand<lb/>
+geben und es ihm feierlich verſprechen und er ſank wei¬<lb/>
+nend auf das Stroh. Der Bürgermeiſter ging dann<lb/>
+mit mir zu ſeinem Freunde, dem Pfarrer, dem ich noch¬<lb/>
+mals Alles erzählen wußte, ehe er ſich in's Gefängniß<lb/>
+begab.</p><lb/>
+<p>Die Nacht mußte ich mit dem Kinde in des Bür¬<lb/>
+germeiſters Haus ſchlafen, und am andern Morgen ging<lb/>
+ich den ſchweren Gang zu der Hinrichtung des Jägers<lb/>
+Jürge. Ich ſtand neben dem Bürgermeiſter im Kreis,<lb/>
+und ſah wie er das Stäblein brach; da hielt der Jäger<lb/>
+Jürge noch eine ſchöne Rede und alle Leute weinten, und er<lb/>
+<pb n="49" facs="#f0059"/>
+ſah mich und die kleine Annerl, die vor mit ſtand, gar<lb/>
+beweglich an, und dann küßte er den Meiſter Franz, der<lb/>
+Pfarrer betete mit ihm, die Augen wurden ihm verbun¬<lb/>
+den, und er kniete nieder. Da gab ihm der Richter den<lb/>
+Todesſtreich. Jeſus, Maria, Joſeph! ſchrie ich aus;<lb/>
+denn der Kopf des Jürgen flog gegen Annerl zu und<lb/>
+biß mit ſeinen Zähnen dem Kinde in ſein Röckchen, das<lb/>
+ganz entſetzlich ſchrie; ich riß meine Schürze vom Leibe<lb/>
+und warf ſie über den ſcheuslichen Kopf und Meiſter<lb/>
+Franz eilte herbei, riß ihn los, und ſprach: Mutter,<lb/>
+Mutter, was habe ich heut Morgen geſagt; ich kenne<lb/>
+mein Schwerdt, es iſt lebendig! — Ich war niedergeſun¬<lb/>
+ken vor Schreck, das Annerl ſchrie entſetzlich. Der Bür¬<lb/>
+germeiſter war ganz beſtürzt und ließ mich und das<lb/>
+Kind nach ſeinem Hauſe fahren; da ſchenkte mir ſeine<lb/>
+Frau andre Kleider für mich und das Kind, und Nach¬<lb/>
+mittag ſchenkte uns der Bürgermeiſter noch Geld, und<lb/>
+viele Leute des Städtchens auch, die Annerl ſehen woll¬<lb/>
+ten, ſo daß ich an zwanzig Thaler und viele Kleider für<lb/>
+ſie bekam. Am Abend kam der Pfarrer in's Haus und<lb/>
+redete mir lange zu: daß ich das Annerl nur recht in<lb/>
+der Gottesfurcht erziehen ſollte, und auf alle die betrüb¬<lb/>
+<fw type="sig" place="bottom">4<lb/>
+</fw>
+<pb n="50" facs="#f0060"/>
+ten Zeichen gar nichts geben, das ſeyen nur Schlingen<lb/>
+des Satans, die man verachten müſſe; und dann ſchenkte<lb/>
+er mir noch eine ſchöne Bibel für das Annerl, die ſie<lb/>
+noch hat, und dann ließ uns der gute Bürgermeiſter,<lb/>
+am andern Morgen, noch an drei Meilen weit nach<lb/>
+Haus fahren. Ach Du mein Gott, und Alles iſt doch<lb/>
+eingetroffen! ſagte die Alte und ſchwieg.</p><lb/>
+<p>Eine ſchauerliche Ahnung ergriff mich, die Erzäh¬<lb/>
+lung der Alten hatte mich ganz zermalmt. Um Gottes<lb/>
+willen, Mutter, rief ich aus, was iſt es mit der armen<lb/>
+Annerl geworden, iſt denn gar nicht zu helfen?</p><lb/>
+<p>Es hat ſie mit den Zähnen dazu geriſſen, ſagte die<lb/>
+Alte, heut wird ſie gerichtet; aber ſie hat es in der Ver¬<lb/>
+zweiflung gethan, die Ehre, die Ehre lag ihr im Sinn;<lb/>
+ſie war zu Schanden gekommen aus Ehrfucht, ſie wurde<lb/>
+verführt von einem Vornehmen, er hat ſie ſitzen laſſen,<lb/>
+ſie hat ihr Kind erſtickt in derſelben Schürze, die ich<lb/>
+damals über den Kopf des Jägers <choice><sic>Jügre</sic><corr>Jürge</corr></choice> warf, und die<lb/>
+ſie mir heimlich entwendet hat; ach, es hat ſie mit Zäh¬<lb/>
+nen dazu geriſſen, ſie hat es in der Verwirrung gethan.<lb/>
+Der Verführer hatte ihr die Ehe verſprochen, und geſagt:<lb/>
+der Kasper ſey in Frankreich geblieben; dann iſt ſie ver¬<lb/>
+zweifelt und hat das Böſe gethan, und hat ſich ſelbſt<lb/>
+<pb n="51" facs="#f0061"/>
+bei den Gerichten angegeben. Um vier Uhr wird ſie<lb/>
+gerichtet. Sie hat mir geſchrieben: ich möchte noch zu<lb/>
+ihr kommen, das will ich nun thun und ihr das Kränz¬<lb/>
+lein und den Gruß von dem armen Kasper bringen,<lb/>
+und die Roſe, die ich heut Nacht erhalten, das wird ſie<lb/>
+tröſten. Ach, lieber Schreiber, wenn Er es nur in der<lb/>
+Bittſchrift auswirken kann: daß ihr Leib und auch der<lb/>
+Kasper dürfen auf unſern Kirchhof gebracht werden.</p><lb/>
+<p>Alles, Alles will ich verſuchen! rief ich aus, gleich<lb/>
+will ich nach dem Schloſſe laufen; mein Freund, der Ihr<lb/>
+die Roſe gab, hat die Wache dort, er ſoll mir den Her¬<lb/>
+zog wecken, ich will vor ſein Bett knieen, und ihn um<lb/>
+Pardon für Annerl bitten.</p><lb/>
+<p>Pardon? ſagte die Alte kalt, es hat ſie ja mit Zäh¬<lb/>
+nen dazu gezogen; hör' Er, lieber Freund, Gerechtigkeit<lb/>
+iſt beſſer als Pardon, was hilft aller Pardon auf Erden,<lb/>
+wir müſſen doch Alle vor das Gericht:<lb/>
+<lg type="poem"> <l>Ihr Todten, ihr Todten ſollt auferſteh'n,</l><lb/>
+<l>Ihr ſollt vor das jüngſte Gerichte geh'n.</l><lb/>
+</lg> Seht, ſie will keinen Pardon, man hat ihn ihr angebo¬<lb/>
+ten, wenn ſie den Vater des Kindes nennen wolle, aber<lb/>
+das Annerl hat geſagt: Ich habe ſein Kind ermordet<lb/>
+<fw type="sig" place="bottom">4*<lb/>
+</fw>
+<pb n="52" facs="#f0062"/>
+und will ſterben, und ihn nicht unglücklich machen; ich<lb/>
+muß meine Strafe leiden, daß ich zu meinem Kinde<lb/>
+komme, aber ihn kann es verderben, wenn ich ihn nenne.<lb/>
+Darüber wurde ihr das Schwerdt zuerkannt. Gehe Er<lb/>
+zum Herzog, und bitte Er für Kasper und Annerl um<lb/>
+ein ehrlich Grab. Gehe Er gleich, ſeh' Er: dort geht<lb/>
+der Herr Pfarrer in's Gefängniß, ich will ihn anſpre¬<lb/>
+chen, daß er mich mit hinein zum ſchönen Annerl nimmt.<lb/>
+Wenn Er ſich eilt, ſo kann Er uns draußen am Ge¬<lb/>
+richte vielleicht den Troſt noch bringen: mit dem ehr¬<lb/>
+lichen Grab für Kasper und Annerl.</p><lb/>
+<p>Unter dieſen Worten waren wir mit dem Prediger<lb/>
+zuſammengetroffen, die Alte erzählte ihr Verhältniß zu<lb/>
+der Gefangenen und er nahm ſie freundlich mit zum<lb/>
+Gefängniß. Ich aber eilte nun, wie ich noch nie gelau¬<lb/>
+fen, nach dem Schloſſe, und es machte mir einen tröſten¬<lb/>
+den Eindruck, es war mir wie ein Zeichen der Hoffnung,<lb/>
+als ich an Graf Groſſingers Hauſe vorüberſtürzte, und<lb/>
+aus einem offnen Fenſter des Gartenhauſes eine liebliche<lb/>
+Stimme zur Laute ſingen hörte:<lb/>
+<lg type="poem"> <l>Die Gnade ſprach von Liebe,</l><lb/>
+<l>Die Ehre aber wacht,</l><lb/>
+<l>Und wünſcht voll Lieb' der Gnade</l><lb/>
+<l>In Ehren gute Nacht.</l><lb/>
+<pb n="53" facs="#f0063"/>
+<l>Die Gnade nimmt den Schleier,</l><lb/>
+<l>Wenn Liebe Roſen giebt,</l><lb/>
+<l>Die Ehre grüßt den Freier,</l><lb/>
+<l>Weil ſie die Gnade liebt.</l><lb/>
+</lg> Ach, ich hatte der guten Wahrzeichen noch mehr! ein<lb/>
+hundert Schritte weiter fand ich einen weißen Schleier<lb/>
+auf der Straße liegend; ich raffte ihn auf, er war voll<lb/>
+von duftenden Roſen. Ich hielt ihn in der Hand und<lb/>
+lief weiter, mit dem Gedanken: ach Gott, das iſt die<lb/>
+Gnade. Als ich um die Ecke bog, ſah ich einen Mann,<lb/>
+der ſich in ſeinem Mantel verhüllte, als ich vor ihm vor¬<lb/>
+über eilte und mir heftig den Rücken wandte, um nicht<lb/>
+geſehen zu werden. Er hätte es nicht nöthig gehabt,<lb/>
+ich ſah und hörte nichts in meinem Innern, als: Gnade,<lb/>
+Gnade! und ſtürzte durch das Gitterthor in den Schloß¬<lb/>
+hof. Gott ſey Dank, der Fähndrich, Graf Groſſinger,<lb/>
+der unter den blühenden Kaſtanienbäumen vor der Wache<lb/>
+auf und ab ging, trat mir ſchon entgegen.</p><lb/>
+<p>Lieber Graf, ſagte ich mit Ungeſtüm, Sie müſſen<lb/>
+mich gleich zum Herzog bringen, gleich auf der Stelle,<lb/>
+oder Alles iſt zu ſpät, Alles iſt verloren!</p><lb/>
+<p>Er ſchien verlegen über dieſen Antrag und ſagte:<lb/>
+Was fällt Ihnen ein, zu dieſer ungewohnten Stunde?<lb/>
+<pb n="54" facs="#f0064"/>
+Es iſt nicht möglich, kommen Sie zur Parade, da will<lb/>
+ich Sie vorſtellen.</p><lb/>
+<p>Mir brannte der Boden unter den Füßen. Jetzt,<lb/>
+rief ich aus, oder nie! es muß ſeyn, es betrifft das<lb/>
+Leben eines Menſchen.</p><lb/>
+<p>Es kann jetzt nicht ſeyn, erwiederte Groſſinger ſcharf<lb/>
+abſprechend, es betrifft meine Ehre, es iſt mir unterſagt,<lb/>
+heute Nacht irgend eine Meldung zu thun.</p><lb/>
+<p>Das Wort Ehre machte mich verzweifeln; ich dachte<lb/>
+an Kaspers Ehre, an Annerls Ehre, und ſagte: die<lb/>
+vermaledeite Ehre, gerade um die letzte Hülfe zu leiſten,<lb/>
+welche ſo eine Ehre übrig gelaſſen, muß ich zum Herzoge,<lb/>
+Sie müſſen mich melden oder ich ſchreie laut nach dem<lb/>
+Herzog.</p><lb/>
+<p>So Sie ſich rühren, ſagte Groſſinger heftig, laſſe<lb/>
+ich Sie in die Wache werfen, Sie ſind ein Phantaſt, Sie<lb/>
+kennen keine Verhältniſſe.</p><lb/>
+<p>O, ich kenne Verhältniſſe, ſchreckliche Verhältniſſe!<lb/>
+ich muß zum Herzoge, jede Minute iſt unerkauflich! ver¬<lb/>
+ſetzte ich, wollen Sie mich nicht gleich melden, ſo eile ich<lb/>
+allein zu ihm.</p><lb/>
+<p>Mit dieſen Worten wollte ich nach der Treppe, die<lb/>
+zu den Gemächern des Herzogs hinaufführte, als ich den<lb/>
+<pb n="55" facs="#f0065"/>
+Nämlichen, in einem Mantel Verhüllten, der mir begeg¬<lb/>
+nete, nach dieſer Treppe eilend, bemerkte. Groſſinger<lb/>
+drehte mich mit Gewalt um, daß ich dieſen nicht ſehen<lb/>
+ſollte. Was machen Sie, Thöriger, flüſterte er mir zu,<lb/>
+ſchweigen Sie, ruhen Sie, Sie machen mich unglücklich.</p><lb/>
+<p>Warum halten Sie den Mann nicht zurück, der da<lb/>
+hinauf ging? ſagte ich; er kann nichts Dringenderes<lb/>
+vorzubringen haben, als ich. Ach, es iſt ſo dringend,<lb/>
+ich muß, ich muß! Es betrifft das Schickſal eines un¬<lb/>
+glücklichen verführten armen Geſchöpfs.</p><lb/>
+<p>Groſſinger erwiederte: Sie haben den Mann hin¬<lb/>
+auf gehen ſehen; wenn Sie je ein Wort davon äußern,<lb/>
+ſo kommen Sie vor meine Klinge; gerade, weil <hi rendition="#g">Er</hi><lb/>
+hinauf ging, können <hi rendition="#g">Sie nicht</hi> hinauf, der Herzog hat<lb/>
+Geſchäfte mit ihm.</p><lb/>
+<p>Da erleuchteten ſich die Fenſter des Herzogs. Gott,<lb/>
+er hat Licht, er iſt auf! ſagte ich, ich muß ihn ſprechen,<lb/>
+um des Himmels willen, laſſen Sie mich, oder ich ſchreie<lb/>
+Hülfe.</p><lb/>
+<p>Groſſinger faßte mich beim Arm, und ſagte: Sie<lb/>
+ſind betrunken, kommen Sie in die Wache: ich bin Ihr<lb/>
+Freund, ſchlafen Sie aus, und ſagen Sie mir das Lied,<lb/>
+das die Alte heut Nacht an der Thüre ſang, als<lb/>
+<pb n="56" facs="#f0066"/>
+ich die Runde vorüber führte; das Lied intereſſirt<lb/>
+mich ſehr.</p><lb/>
+<p>Gerade wegen der Alten und den Ihrigen muß ich<lb/>
+mit dem Herzoge ſprechen! rief ich aus.</p><lb/>
+<p>Wegen der Alten? verſetzte Groſſinger, wegen der<lb/>
+ſprechen Sie mit mir, die großen Herren, haben keinen<lb/>
+Sinn für ſo etwas; geſchwind kommen Sie nach der<lb/>
+Wache.</p><lb/>
+<p>Er wollte mich fortziehen, da ſchlug die Schloßuhr<lb/>
+halb Vier, der Klang ſchnitt mir wie ein Schrei der<lb/>
+Roth durch die Seele, und ich ſchrie aus voller Bruſt<lb/>
+zu den Fenſtern des Herzogs hinauf:</p><lb/>
+<p>Hülfe! um Gottes willen, Hülfe für ein elendes,<lb/>
+verführtes Geſchöpf! Da ward Groſſinger wie unſinnig,<lb/>
+er wollte mir den Mund zuhalten, aber ich rang mit<lb/>
+ihm; er ſtieß mich in den Nacken, er ſchimpfte, ich fühlte,<lb/>
+ich hörte nichts. Er rief nach der Wache, der Korporal<lb/>
+eilte mit etlichen Soldaten herbei, mich zu greifen, aber<lb/>
+in dem Augenblick ging des Herzogs Fenſter auf, und<lb/>
+es rief herunter:</p><lb/>
+<p>Fähndrich Graf Groſſinger, was iſt das für ein<lb/>
+Skandal? bringen Sie den Menſchen herauf, gleich auf<lb/>
+der Stelle!</p><lb/>
+<pb n="57" facs="#f0067"/>
+<p>Ich wartete nicht auf den Fähndrich; ich ſtürzte<lb/>
+die Treppe hinauf, ich fiel nieder zu den Füßen des Her¬<lb/>
+zogs, der mich betroffen und unwillig aufſtehen hieß.<lb/>
+Er hatte Stiefel und Sporen an, und doch einen Schlaf¬<lb/>
+rock, den er ſorgfältig über der Bruſt zuſammen hielt.</p><lb/>
+<p>Ich trug dem Herzoge Alles, was mir die Alte von<lb/>
+dem Selbſtmorde des Uhlanen, von der Geſchichte der<lb/>
+ſchönen Annerl erzählt hatte, ſo gedrängt vor, als es<lb/>
+die Noth erforderte, und flehte ihn wenigſtens um den<lb/>
+Aufſchub der Hinrichtung auf wenige Stunden und um<lb/>
+ein ehrliches Grab für die beiden Unglücklichen an, wenn<lb/>
+Gnade unmöglich ſey. — Ach, Gnade, Gnade! rief ich<lb/>
+aus, indem ich den gefundenen weißen Schleier voll<lb/>
+Roſen aus dem Buſen zog; dieſer Schleier, den ich auf<lb/>
+meinem Wege hierher gefunden, ſchien mir Gnade zu<lb/>
+verheißen.</p><lb/>
+<p>Der Herzog griff mit Ungeſtüm nach dem Schleier,<lb/>
+und war heftig bewegt; er drückte den Schleier in ſeinen<lb/>
+Händen und als ich die Worte ausſprach, dieſes arme<lb/>
+Mädchen iſt ein Opfer falſcher Ehrſucht; ein Vornehmer<lb/>
+hat ſie verführt, und ihr die Ehe verſprochen, ach, ſie<lb/>
+iſt ſo gut, daß ſie lieber ſterben will, als ihn nennen —<lb/>
+da unterbrach mich der Herzog mit Thränen in den<lb/>
+<pb n="58" facs="#f0068"/>
+Augen, und ſagte: Schweigen Sie, ums Himmels wil¬<lb/>
+len, ſchweigen Sie — und nun wendete er ſich zu dem<lb/>
+Fähndrich, der an der Thür ſtand, und ſagte mit drin¬<lb/>
+gender Eile: Fort, eilend zu Pferde mit dieſem Menſchen<lb/>
+hier; reiten Sie das Pferd todt; nur nach dem Gerichte<lb/>
+hin: heften Sie dieſen Schleier an ihren Degen, winken<lb/>
+und ſchreien Sie Gnade, Gnade! ich komme nach.</p><lb/>
+<p>Groſſinger nahm den Schleier; er war ganz verwan¬<lb/>
+delt, er ſah aus wie ein Geſpenſt vor Angſt und Eile; wir<lb/>
+ſtürzten in den Stall, ſaßen zu Pferde und ritten im<lb/>
+Galopp, er ſtürmte wie ein Wahnſinniger zum Thore<lb/>
+hinaus. Als er den Schleier an ſeine Degenſpitze hef¬<lb/>
+tete, ſchrie er: Herr Jeſus, meine Schweſter! Ich ver¬<lb/>
+ſtand nicht, was er wollte. Er ſtand hoch im Bügel,<lb/>
+und wehte und ſchrie: Gnade, Gnade! wir ſahen auf<lb/>
+dem Hügel die Menge um das Gericht verſammelt.<lb/>
+Mein Pferd ſcheute vor dem wehenden Tuch. Ich bin<lb/>
+ein ſchlechter Reiter, ich konnte den Groſſinger nicht ein¬<lb/>
+holen, er flog im ſchnellſten Carriere: ich ſtrengte alle<lb/>
+Kräfte an. Trauriges Schickſal! die Artillerie exerzirte<lb/>
+in der Nähe, der Kanonendonner machte es unmöglich,<lb/>
+unſer Geſchrei aus der Ferne zu hören. Groſſinger<lb/>
+ſtürzte, das Volk ſtob auseinander, ich ſah in den Kreis,<lb/>
+<pb n="59" facs="#f0069"/>
+ich ſah einen Stahlblitz in der frühen Sonne — ach<lb/>
+Gott, es war der Schwerdtblitz des Richters! — Ich<lb/>
+ſprengte heran, ich hörte das Wehklagen der Menge.<lb/>
+Pardon, Pardon! ſchrie Groſſinger und ſtürzte mit<lb/>
+wehendem Schleier durch den Kreis, wie ein Raſender,<lb/>
+aber der Richter hielt ihm das blutende Haupt der ſchö¬<lb/>
+nen Annerl entgegen, das ihn wehmüthig anlächelte.<lb/>
+Da ſchrie er: Gott ſey mir gnädig! und fiel auf die<lb/>
+Leiche hin zur Erde, tödtet mich, tödtet mich, ihr Men¬<lb/>
+ſchen, ich habe ſie verführt, ich bin ihr Mörder!</p><lb/>
+<p>Eine rächende Wuth ergriff die Menge; die Weiber<lb/>
+und Jungfrauen drangen heran und riſſen ihn von der<lb/>
+Leiche, und traten ihn mit Füßen, er wehrte ſich nicht;<lb/>
+die Wachen konnten das wüthende Volk nicht bändigen.<lb/>
+Da erhob ſich das Geſchrei: der Herzog, der Herzog! —<lb/>
+er kam im offnen Wagen gefahren, ein blutjunger Menſch,<lb/>
+den Hut tief in's Geſicht gedrückt, in einen Mantel ge¬<lb/>
+hüllt, ſaß neben ihm. Die Menſchen ſchleifen Groſſinger<lb/>
+herbei; Jeſus, mein Bruder! ſchrie der junge Offizier<lb/>
+mit der weiblichſten Stimme aus dem Wagen. Der Her¬<lb/>
+zog ſprach beſtürzt zu ihm: ſchweigen Sie! Er ſprang<lb/>
+aus dem Wagen, der junge Menſch wollte folgen, der<lb/>
+Herzog drängte ihn ſchier unſanft zurück, aber ſo beför¬<lb/>
+<pb n="60" facs="#f0070"/>
+derte ſich die Entdeckung: daß der junge Menſch die,<lb/>
+als Offizier verkleidete, Schweſter Groſſingers ſey. Der<lb/>
+Herzog ließ den mißhandelten, blutenden, ohnmächtigen<lb/>
+Groſſinger in den Wagen legen, die Schweſter nahm<lb/>
+keine Rückſicht mehr, ſie warf ihren Mantel über ihn;<lb/>
+Jedermann ſah ſie in weiblicher Kleidung. Der Herzog<lb/>
+war verlegen, aber er ſammelte ſich, und befahl den<lb/>
+Wagen ſogleich umzuwenden, und die Gräfin mit ihrem<lb/>
+Bruder nach ihrer Wohnung zu fahren. Dieſes Ereig¬<lb/>
+niß hatte die Wuth der Menge einigermaßen geſtillt.<lb/>
+Der Herzog ſagte laut zu dem wachthabenden Offizier:<lb/>
+die Gräfin Groſſinger hat ihren Bruder an ihrem Hauſe<lb/>
+vorbei reiten ſehen, den Pardon zu bringen und wollte<lb/>
+dieſem freudigen Ereigniß beiwohnen; als ich zu demſel¬<lb/>
+ben Zwecke vorüber fuhr, ſtand ſie am Fenſter, und bat mich,<lb/>
+ſie in meinem Wagen mitzunehmen, ich konnte es dem gut¬<lb/>
+müthigen Kinde nicht abſchlagen. Sie nahm einen Man¬<lb/>
+tel und Hut ihres Bruders, um kein Aufſehen zu erre¬<lb/>
+gen, und hat, von dem unglücklichen Zufall überraſcht,<lb/>
+die Sache gerade dadurch zu einem abenteuerlichen Skan¬<lb/>
+dal gemacht. Aber wie konnten Sie, Herr Lieutenant,<lb/>
+den unglücklichen Grafen Groſſinger nicht vor dem<lb/>
+Pöbel ſchützen? es iſt ein gräßlicher Fall: daß er, mit<lb/>
+<pb n="61" facs="#f0071"/>
+dem Pferde ſtürzend, zu ſpät kam, er kann doch aber<lb/>
+nichts dafür: ich will die Mißhandler des Grafen ver¬<lb/>
+haftet und beſtraft wiſſen.</p><lb/>
+<p>Auf dieſe Rede des Herzogs erhob ſich ein allge¬<lb/>
+meines Geſchrei: Er iſt ein Schurke, er iſt der Verführer,<lb/>
+der Mörder der ſchönen Annerl geweſen, er hat es ſelbſt<lb/>
+geſagt, der elende, der ſchlechte Kerl!</p><lb/>
+<p>Als dies von allen Seiten her tönte und auch der<lb/>
+Prediger und der Offizier und die Gerichtsperſonen es<lb/>
+beſtätigten, war der Herzog ſo tief erſchüttert, daß er<lb/>
+nichts ſagte, als: Entſetzlich, entſetzlich, o der elende<lb/>
+Menſch!</p><lb/>
+<p>Nun trat der Herzog blaß und bleich in den Kreis,<lb/>
+er wollte die Leiche der ſchönen Annerl ſehen. Sie lag<lb/>
+auf dem grünen Raſen in einem weißen Kleide mit ſchwar¬<lb/>
+zen Schleifen, die alte Großmutter, welche ſich um Al¬<lb/>
+les was vorging nicht bekümmerte, hatte ihr das Haupt<lb/>
+an den Rumpf gelegt und die ſchreckliche Trennung mit<lb/>
+ihrer Schürze bedeckt; ſie war beſchäftigt, ihr die Hände<lb/>
+über die Bibel zu falten, welche der Pfarrer in dem<lb/>
+kleinen Städtchen der kleinen Annerl geſchenkt hatte, das<lb/>
+goldene Kränzlein band ſie ihr auf den Kopf und ſteckte<lb/>
+die Roſe vor die Bruſt, welche ihr Groſſinger in<lb/>
+<pb n="62" facs="#f0072"/>
+der Nacht gegeben hatte, ohne zu wiſſen, wem er<lb/>
+ſie gab.</p><lb/>
+<p>Der Herzog ſprach bei dieſem Anblick: Schönes,<lb/>
+unglückliches Annerl! ſchändlicher Verführer, Du kamſt<lb/>
+zu ſpät! — arme alte Mutter, Du biſt ihr allein treu<lb/>
+geblieben, bis in den Tod. Als er mich bei dieſen Wor¬<lb/>
+ten in ſeiner Nähe ſah, ſprach er zu mir: Sie ſagten<lb/>
+mir von einem letzten Willen des Korporal Kasper,<lb/>
+haben Sie ihn bei ſich? Da wendete ich mich zu der<lb/>
+Alten, und ſagte: Arme Mutter, gebt mir die Brieftaſche<lb/>
+Kaspers; Se. Durchlaucht wollen ſeinen letzten Willen<lb/>
+leſen.</p><lb/>
+<p>Die Alte, welche ſich um nichts bekümmerte, ſagte<lb/>
+mürriſch: Iſt Er auch wieder da? Er hätte lieber ganz<lb/>
+zu Hauſe bleiben können. Hat Er die Bittſchrift? jetzt<lb/>
+iſt es zu ſpät, ich habe dem armen Kinde den Troſt<lb/>
+nicht geben können, daß ſie zu Kasper in ein ehrliches<lb/>
+Grab ſoll; ach, ich hab' es ihr vorgelogen, aber ſie hat<lb/>
+mir nicht geglaubt.</p><lb/>
+<p>Der Herzog unterbrach ſie und ſprach: Ihr habt<lb/>
+nicht gelogen, gute Mutter, der Menſch hat ſein Mög¬<lb/>
+lichſtes gethan, der Sturz des Pferdes iſt an Allem ſchuld;<lb/>
+aber ſie ſoll ein ehrliches Grab haben bei ihrer Mutter<lb/>
+<pb n="63" facs="#f0073"/>
+und bei Kasper, der ein braver Kerl war; es ſoll ihnen<lb/>
+Beiden eine Leichenpredigt gehalten werden über die<lb/>
+Worte: Gebt Gott allein die Ehre! Der Kasper ſoll als<lb/>
+Fähndrich begraben werden, ſeine Schwadron ſoll ihm<lb/>
+dreimal in's Grab ſchießen, und des Verderbers Groſ¬<lb/>
+ſingers Degen ſoll auf ſeinen Sarg gelegt werden.</p><lb/>
+<p>Nach dieſen Worten ergriff er Groſſingers Degen,<lb/>
+der mit dem Schleier noch an der Erde lag, nahm den<lb/>
+Schleier herunter, bedeckte Annerl damit und ſprach: Die¬<lb/>
+ſer unglückliche Schleier, der ihr ſo gern Gnade gebracht<lb/>
+hätte, ſoll ihr die Ehre wieder geben, ſie iſt ehrlich und<lb/>
+begnadigt geſtorben, der Schleier ſoll mit ihr begraben<lb/>
+werden.</p><lb/>
+<p>Den Degen gab er dem Offizier der Wache mit<lb/>
+den Worten: Sie werden heute noch meine Befehle<lb/>
+wegen der Beſtattung des Uhlanen und dieſes armen<lb/>
+Mädchens bei der Parade empfangen.</p><lb/>
+<p>Nun las er auch die letzten Worte Kaspers laut<lb/>
+mit vieler Rührung, die alte Großmutter umarmte mit<lb/>
+Freudenthränen ſeine Füße, als wäre ſie das glücklichſte<lb/>
+Weib. Er ſagte zu ihr: gebe Sie ſich zufrieden, Sie ſoll<lb/>
+eine Penſion haben bis an Ihr ſeliges Ende, ich will<lb/>
+Ihrem Enkel und der Annerl einen Denkſtein ſetzen laſſen.<lb/>
+<pb n="64" facs="#f0074"/>
+Nun befahl er dem Prediger, mit der Alten, und einem<lb/>
+Sarge, in welchem die Gerichtete gelegt wurde, nach<lb/>
+ſeiner Wohnung zu fahren, und ſie dann nach ihrer<lb/>
+Heimath zu bringen und das Begräbniß zu beſorgen.<lb/>
+Da während dem ſeine Adjutanten mit Pferden gekom¬<lb/>
+men waren, ſagte er noch zu mir: Geben Sie meinem Ad¬<lb/>
+jutanten Ihren Namen an, ich werde Sie rufen laſſen,<lb/>
+Sie haben einen ſchönen menſchlichen Eifer gezeigt. Der<lb/>
+Adjutant ſchrieb meinen Namen in ſeine Schreibtafel,<lb/>
+und machte mir ein verbindliches Kompliment. Dann<lb/>
+ſprengte der Herzog, von den Segenswünſchen der Menge<lb/>
+begleitet, in die Stadt. Die Leiche der ſchönen Annerl<lb/>
+ward nun mit der guten alten Großmutter in das Haus<lb/>
+des Pfarrers gebracht, und in der folgenden Nacht fuhr<lb/>
+dieſer mit ihr nach der Heimath zurück. Der Offizier<lb/>
+traf, mit dem Degen Groſſingers und einer Schwadron<lb/>
+Uhlanen, auch daſelbſt am folgenden Abend ein. Da<lb/>
+wurde nun der brave Kasper, mit Groſſingers Degen<lb/>
+auf der Bahre und dem Fähndrichs-Patent, neben der<lb/>
+ſchönen Annerl, zur Seite ſeiner Mutter begraben. Ich<lb/>
+war auch hingeeilt und führte die alte Mutter, welche<lb/>
+kindiſch vor Freude war, aber wenig redete; und als<lb/>
+die Uhlanen dem Kaſper zum dritten Mal in's Grab<lb/>
+<pb n="65" facs="#f0075"/>
+ſchoſſen, fiel ſie mir todt in die Arme, ſie hat ihr Grab<lb/>
+auch neben den Ihrigen empfangen. Gott gebe ihnen<lb/>
+Allen eine freudige Auferſtehung!<lb/>
+<lg type="poem"> <l>Sie ſollen treten auf die Spitzen,</l><lb/>
+<l>Wo die lieben Engelein ſitzen,</l><lb/>
+<l>Wo kömmt der liebe Gott gezogen,</l><lb/>
+<l>Mit einem ſchönen Regenbogen;</l><lb/>
+<l>Da ſollen ihre Seelen vor Gott beſtehn,</l><lb/>
+<l>Wann wir werden zum Himmel eingehn.</l><lb/>
+<l rendition="#right">Amen.</l><lb/>
+</lg> Als ich in die Hauptſtadt zurück kam, hörte ich: Graf<lb/>
+Groſſinger ſey geſtorben: er habe Gift genommen; in<lb/>
+meiner Wohnung fand ich einen Brief von ihm, er ſagte<lb/>
+mir darin:</p><lb/>
+<p>Ich habe Ihnen viel zu danken, Sie haben meine<lb/>
+Schande, die mir lange das Herz abnagte, zu Tage<lb/>
+gebracht. Jenes Lied der Alten kannte ich wohl,<lb/>
+die Annerl hatte es mir oft vorgeſagt, ſie war ein<lb/>
+unbeſchreiblich edles Geſchöpf. Ich war ein elender Ver¬<lb/>
+brecher, ſie hatte ein ſchriftliches Eheverſprechen von<lb/>
+mir gehabt und hat es verbrannt. Sie diente bei einer<lb/>
+alten Tante von mir, ſie litt oft an Melancholie. Ich<lb/>
+habe mich durch gewiſſe mediciniſche Mittel, die etwas<lb/>
+<fw type="sig" place="bottom">5<lb/>
+</fw>
+<pb n="66" facs="#f0076"/>
+Magiſches haben, ihrer Seele bemächtigt. — Gott ſey<lb/>
+mir gnädig! — Sie haben auch die Ehre meiner Schwe¬<lb/>
+ſter gerettet, der Herzog liebt ſie, ich war ſein Günſt¬<lb/>
+ling — die Geſchichte hat ihn erſchüttert — Gott helfe<lb/>
+mir, ich habe Gift genommen.</p><lb/>
+<p rendition="#right">Joſeph Graf <hi rendition="#g">Groſſinger</hi>.</p><lb/>
+<p>Die Schürze der ſchönen Annerl, in welche ihr der<lb/>
+Kopf des Jägers Jürge bei ſeiner Enthauptung gebiſ¬<lb/>
+ſen, iſt auf der herzoglichen Kunſtkammer bewahrt wor¬<lb/>
+den. Man ſagt: die Schweſter des Grafen Groſſinger<lb/>
+werde der Herzog mit dem Namen: <hi rendition="#aq">Voil de Grace</hi>, auf<lb/>
+deutſch: Gnadenſchleier, in den Fürſtenſtand erheben und<lb/>
+ſich mit ihr vermählen. Bei der nächſten Revue in der<lb/>
+Gegend von D . . . . ſoll das Monument auf den<lb/>
+Gräbern der beiden unglücklichen Ehrenopfer, auf<lb/>
+dem Kirchhof des Dorfs, errichtet und eingeweiht wer¬<lb/>
+den, der Herzog wird mit der Fürſtin ſelbſt zugegen<lb/>
+ſeyn. Er iſt ausnehmend zufrieden damit; die Idee ſoll<lb/>
+von der Fürſtin und dem Herzoge zuſammen erfunden<lb/>
+ſeyn. Es ſtellt die falſche und wahre Ehre vor, die ſich<lb/>
+vor einem Kreuze beiderſeits gleich tief zur Erde beugen,<lb/>
+die Gerechtigkeit ſteht mit dem geſchwungenen Schwerdte<lb/>
+<pb n="67" facs="#f0077"/>
+zur einen Seite, die Gnade zur andern Seite und wirft<lb/>
+einen Schleier heran. Man will im Kopfe der Ge¬<lb/>
+rechtigkeit Aehnlichkeit mit dem Herzoge, in dem Kopfe<lb/>
+der Gnade Aehnlichkeit mit dem Geſichte der Fürſtin<lb/>
+finden.</p><lb/>
+</div>
+<pb facs="#f0078"/>
+</body> <back> <div n="1" type="advertisement"> <head> <hi rendition="#b">Bei uns ſind unter Anderem noch folgende<lb/>
+Schriften erſchienen:</hi> </head><lb/>
+<list> <item> <hi rendition="#g">Viel Lärmen um Nichts</hi>, von <hi rendition="#g">Joſeph Freiherrn v</hi>.<lb/>
+<hi rendition="#g">Eichendorff</hi>, und: <hi rendition="#g">die mehreren Wehmüller</hi> und<lb/>
+<hi rendition="#g">Ungariſchen Nationalgeſichter</hi>. Von <hi rendition="#g">Clemens<lb/>
+Brentano</hi>. Zwei Novellen. ⅚ Thlr.</item><lb/>
+<item> <hi rendition="#g">Barinka</hi>, oder: <hi rendition="#g">Die rothe Schenke</hi>; von <hi rendition="#aq #g">Dr</hi>. <hi rendition="#g">Schiff</hi>.<lb/>
+Und: <hi rendition="#g">Die drei Nüſſe</hi>; von <hi rendition="#g">Clemens Brentano</hi>.<lb/>
+Zwei Volks-Erzählungen. ⅓ Thlr.</item><lb/>
+<item> <hi rendition="#g">Aus dem Leben eines Taugenichts und das Mar¬<lb/>
+morbild</hi>. Zwei Novellen, nebſt einem Anhange von Lie¬<lb/>
+dern und Romanzen, von <hi rendition="#g">Joſeph Freiherrn von Ei¬<lb/>
+chendorff</hi>. 1⅔ Thlr.</item><lb/>
+<item> <hi rendition="#g">Das Elendsfell</hi>. Drei Novellen nach Balzac. (<hi rendition="#aq">I</hi>. Das<lb/>
+Elendsfell. <hi rendition="#aq">II</hi>. Die Herzloſe. <hi rendition="#aq">III</hi>. Die Gutherzige.) Von<lb/>
+<hi rendition="#aq #g">Dr</hi>. <hi rendition="#g">Schiff</hi>. 1 Thlr.</item><lb/>
+<item> <hi rendition="#g">Agnes Bernauerin</hi>. Eine dialogiſirte hiſtoriſche No¬<lb/>
+velle. Von <hi rendition="#aq #g">Dr</hi>. <hi rendition="#g">Schiff</hi>. ½ Thlr.</item><lb/>
+<item> <hi rendition="#g">Die Sterner und die Pſitticher</hi>. Novelle. Von<lb/>
+<hi rendition="#g">K</hi>. <hi rendition="#g">A</hi>. <hi rendition="#g">Varnhagen von Enſe</hi>. ½ Thlr.</item><lb/>
+<item> <hi rendition="#g">Das Pomeranzenbäumchen</hi>. — <hi rendition="#g">Der goldene Knopf</hi>.<lb/>
+— <hi rendition="#g">Das wilde Schwein</hi>. Drei hiſtoriſche Erzählungen,<lb/>
+von <hi rendition="#g">Guſtav Nieritz</hi>. ¾ Thlr.</item><lb/>
+<item> <hi rendition="#g">Der Druckfehler</hi>. Eine Erzählung. Von <hi rendition="#g">Guſtav Nie¬<lb/>
+ritz</hi>. ⅔ Thlr.</item><lb/>
+<item> <hi rendition="#g">Die Erbſünde</hi>. Novelle von <hi rendition="#g">Emerentius Scävola</hi>.<lb/>
+Zwei Theile. 2½ Thlr.</item><lb/>
+<item> <hi rendition="#g">Gundlingen</hi>. — <hi rendition="#g">Johann Fauſt in Paris</hi>. — <hi rendition="#g">Alban<lb/>
+und Alba</hi>. — <hi rendition="#g">Der Cryſtall</hi>. — <hi rendition="#g">Zwei Fliegen mit<lb/>
+einer Klappe</hi>. Novellen und Nicht-Novellen von <hi rendition="#aq #g">Dr</hi>.<lb/>
+<hi rendition="#g">Schiff</hi>. ⅔ Thlr.</item><lb/>
+<item> <hi rendition="#g">Erzählungen</hi>, <hi rendition="#g">Mährchen und Schwänke</hi>. Von F. W.<lb/>
+<hi rendition="#g">Gubitz</hi>. ¾ Thlr.</item> </list><lb/>
+<p rendition="#right">Vereins-Buchhandlung.</p> </div><lb/>
+<pb facs="#f0079"/>
+<pb facs="#f0080"/>
+<figure/><lb/>
+<pb facs="#f0081"/>
+<pb facs="#f0082"/>
+<pb facs="#f0083"/>
+</back> </text> </TEI>

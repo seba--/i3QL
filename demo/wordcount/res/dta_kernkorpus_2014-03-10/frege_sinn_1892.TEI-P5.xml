@@ -1,0 +1,1445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Über Sinn und Bedeutung</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118535161">
+<surname>Frege</surname>
+<forename>Gottlob</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">48</measure>
+<measure type="tokens">10227</measure>
+<measure type="types">2555</measure>
+<measure type="characters">72340</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:06:49Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/frege_sinn_1892</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/frege_sinn_1892</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/frege_sinn_1892</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/frege_sinn_1892</idno>
+<idno type="DTADirName">frege_sinn_1892</idno>
+<idno type="DTAID">16484</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905191458</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="JA">Frege, Gottlob: Über Sinn und Bedeutung. In: Zeitschrift für Philosophie und philosophische Kritik, N. F., Bd. 100/1 (1892), S. 25-50.</bibl>
+<biblFull>
+<titleStmt>
+<title level="a" type="main">Über Sinn und Bedeutung</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118535161">
+<surname>Frege</surname>
+<forename>Gottlob</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">25 S. </measure>
+</extent>
+<publicationStmt>
+<publisher><name>Pfeffer</name></publisher>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1892</date>
+</publicationStmt>
+<seriesStmt>
+<title level="j" type="main">Zeitschrift für Philosophie und philosophische Kritik, Neue Folge</title>
+<biblScope unit="volume">1892</biblScope>
+<biblScope unit="issue">100/1</biblScope>
+<biblScope unit="pages">S. 25-50</biblScope>
+</seriesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, in: Nh 11296-100.1892</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=242408605</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<pb facs="#f0010"/>
+<pb facs="#f0011"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b">Zeitſchrift</hi><lb/>
+für<lb/>
+<hi rendition="#b #g">Philoſophie und philoſophiſche Kritik</hi>.<lb/>
+</titlePart> </docTitle> <byline> <hi rendition="#g">Im Verein mit mehreren Gelehrten</hi><lb/>
+vormals herausgegeben<lb/>
+von<lb/>
+<hi rendition="#aq">Dr.</hi> <hi rendition="#b">I. H. Fichte</hi> und <hi rendition="#aq">Dr.</hi> <hi rendition="#b">H. Ulrici</hi>,<lb/>
+<hi rendition="#g">redigirt</hi><lb/>
+von<lb/>
+<hi rendition="#aq">Dr.</hi> <hi rendition="#b">Richard Falckenberg</hi>,<lb/>
+Profeſſor der Philoſophie in Erlangen.<lb/>
+</byline> <titlePart type="volume"> <hi rendition="#g">Neue Folge<lb/>
+Hundertſter Band</hi>.<lb/>
+</titlePart> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace> <hi rendition="#b">Leipzig</hi>.<lb/>
+</pubPlace> <publisher>Verlag von C. E. M. <hi rendition="#g">Pfeffer</hi><lb/>
+</publisher> <docDate>1892.<lb/>
+</docDate> </docImprint> </titlePage>
+<pb facs="#f0012"/>
+<pb facs="#f0013"/>
+<div type="contents"> <head> <hi rendition="#b #fr #g">Inhalt</hi>.<lb/>
+</head> <milestone unit="section" rendition="#hr"/><lb/>
+<list> <item><hi rendition="#right">Seite.</hi></item><lb/>
+<item><hi rendition="#g">Ernſt Platners und Kants Erkenntnistheorie mit be¬<lb/>
+ſonderer Berückſichtigung von Tetens und Aeneſidemus</hi>.<lb/>
+Von A. <hi rendition="#g">Wreſchner</hi>  <space dim="horizontal"/> <ref>1</ref></item><lb/>
+<item> <hi rendition="#g">Über Sinn und Bedeutung</hi>. Von G. <hi rendition="#g">Frege</hi>  <space dim="horizontal"/> <ref>25</ref></item><lb/>
+<item> <hi rendition="#g">Über die Einſeitigkeit der herrſchenden Krafttheorie</hi>. Von<lb/>
+<hi rendition="#aq">Dr</hi>. <hi rendition="#g">Nikolaus von Seeland</hi>  <space dim="horizontal"/> <ref>50</ref></item><lb/>
+<item> <hi rendition="#g">Betrachtungen über das</hi> „<hi rendition="#g">Geſetz von der Erhaltung der<lb/>
+Kraft</hi>“ <hi rendition="#g">und über Beharrungsvermögen</hi> von <hi rendition="#aq">Dr</hi>. <hi rendition="#g">Eugen Dreher</hi>  <space dim="horizontal"/> <ref>79</ref></item><lb/>
+<item> <hi rendition="#g">Recenſionen</hi>.<lb/>
+<hi rendition="#g">Chr</hi>. <hi rendition="#g">Sigwart</hi>: <hi rendition="#g">Die Imperſonalien</hi>. Eine logiſche Unter¬<lb/>
+ſuchung. Freiburg i. B., J. C. B. Mohr, (Paul Siebeck), 1888, <hi rendition="#aq">IV</hi><lb/>
+und 78 S. Von <hi rendition="#g">Adolf Laſſon</hi>  <space dim="horizontal"/> <ref>81</ref></item><lb/>
+<item> <hi rendition="#g">Richard Manno</hi>: <hi rendition="#g">Die Stellung des Subſtanzbegriffes<lb/>
+in der Kantiſchen Erkenntnistheorie</hi>. I.-D. Bonn<lb/>
+(Nolte), 1887. S. 99. M. 2. Von <hi rendition="#aq">Dr</hi>. J. <hi rendition="#g">Mainzer</hi>  <space dim="horizontal"/> <ref>98</ref></item><lb/>
+<item> <hi rendition="#aq">Dr</hi>. <hi rendition="#g">Franz Erhardt</hi>: <hi rendition="#g">Kritik der Kantiſchen Antinomien¬<lb/>
+lehre</hi>. Leipzig (Fues), 1888. 83 S. Von J. <hi rendition="#g">Mainzer</hi>  <space dim="horizontal"/> <ref>100</ref></item><lb/>
+<item> <hi rendition="#aq">Dr</hi>. <hi rendition="#g">Erich Adickes</hi>: <hi rendition="#g">Kants Syſtematik als ſyſtembildender<lb/>
+Faktor</hi>. Berlin, Mayer &amp; Müller, 1887, <hi rendition="#aq">VIII</hi> u. 174 S. Von<lb/>
+<hi rendition="#aq">Dr</hi>. J. <hi rendition="#g">Mainzer</hi>  <space dim="horizontal"/> <ref>106</ref></item><lb/>
+<item> <hi rendition="#g">Rudolf Eucken</hi>, Prof. in Jena: <hi rendition="#g">Die Lebensanſchauungen<lb/>
+der großen Denker</hi>. Eine Entwickelungsgeſchichte des Lebens¬<lb/>
+problems der Menſchheit von Plato bis zur Gegenwart. Leipzig,<lb/>
+Veit und Comp. 1890. 596 S. 10 Mk. Von <hi rendition="#g">Wilh</hi>. <hi rendition="#g">Koppel¬<lb/>
+mann</hi>  <space dim="horizontal"/> <ref>112</ref></item><lb/>
+<item>J. <hi rendition="#g">Kaftan</hi>: <hi rendition="#g">Die Wahrheit der chriſtlichen Religion</hi>. Baſel<lb/>
+1889. 585 S. Von <hi rendition="#aq">Dr</hi>. <hi rendition="#g">Dorner</hi>  <space dim="horizontal"/> <ref>118</ref></item><lb/>
+<item> <hi rendition="#aq #g">Bernard Hollander</hi>: <hi rendition="#aq">A</hi> <hi rendition="#aq #g">demonstration of centres of<lb/>
+ideation in thebrain</hi> <hi rendition="#aq">from observation and experiment</hi>.<lb/>
+<hi rendition="#aq">London</hi> 1889. 26 S. Von H. <hi rendition="#g">Münſterberg</hi>  <space dim="horizontal"/> <ref>127</ref></item><lb/>
+<item>K. Fr. <hi rendition="#g">Jordan</hi>: <hi rendition="#g">Das Rätſel des Hypnotismus</hi>. Berlin 1890.<lb/>
+48 S. von H. <hi rendition="#g">Münſterberg</hi>  <space dim="horizontal"/> <ref>127</ref></item><lb/>
+<item> <hi rendition="#g">Max Deſſoir</hi>: <hi rendition="#g">Bibliographie des modernen Hypnotismus</hi>.<lb/>
+Berlin 1888. 94 S. Erſter Nachtrag zur Bibliographie des modernen Hypnotismus.<lb/>
+Berlin 1890. 44 S. Von H. <hi rendition="#g">Münſterberg</hi>  <space dim="horizontal"/> <ref>128</ref></item><lb/>
+<item> <hi rendition="#g">Alfred Lehmann</hi>: <hi rendition="#g">Die Hypnoſe</hi> und die damit verwandten<lb/>
+normalen Zuſtände, Leipzig 1890. Von H. <hi rendition="#g">Münſterberg</hi>  <space dim="horizontal"/> <ref>130</ref></item><lb/>
+<item> <hi rendition="#g">Elias Fink</hi>: <hi rendition="#g">Kant als Mathematiker</hi>. Inaugural-Diſſertation.<lb/>
+Leipzig. G. Fock. 1 Mk. 51 S. von <hi rendition="#g">Groß</hi>  <space dim="horizontal"/> <ref>134</ref></item><lb/>
+<item> <hi rendition="#g">Rudolf Seydel</hi>: <hi rendition="#g">Der Schlüſſel zum objektiven Erkennen</hi>.<lb/>
+Gegen Kant und F. A. Lange. Halle. C. E. M. Pfeffer. 1889. 2. u. 116 S. 8°. Von <hi rendition="#g">Groß</hi>  <space dim="horizontal"/> <ref>135</ref></item><lb/>
+<pb facs="#f0014"/>
+<item><hi rendition="#right">Seite</hi></item><lb/>
+<item> <hi rendition="#g">Otto Mauthner-Markhof</hi>: „<hi rendition="#g">Diſſertation über das Weſen<lb/>
+und die Arten der äſthetiſchen Unterhaltung</hi>.“ Wien,<lb/>
+1890. Im Selbſtverlage des Verfaſſers. 99 S. Mk. 1,60. Von<lb/>
+<hi rendition="#g">Karl Groos</hi>  <space dim="horizontal"/> <ref>140</ref></item><lb/>
+<item> <hi rendition="#g">Guſtav Zimmermann</hi>: <hi rendition="#g">Verſuch einer Schiller'ſchen<lb/>
+Äſthetik</hi>. Leipzig, B. G. Teubner. 1898. 135 S. 2 Mk. Von<lb/>
+<hi rendition="#g">Karl Groos</hi>  <space dim="horizontal"/> <ref>141</ref></item><lb/>
+<item> <hi rendition="#g">G</hi>. <hi rendition="#g">Heymans</hi>: <hi rendition="#g">Die Geſetze und Elemente des wiſſenſchaft¬<lb/>
+lichen Denkens</hi>. Ein Lehrbuch der Erkenntnistheorie in Grund¬<lb/>
+zügen. <hi rendition="#g">Erſter Band</hi>: Allgemeiner Teil und Theorie des mathe¬<lb/>
+matiſchen Denkens. Leiden, S. C. van Doesburgh u. Leipzig,<lb/>
+O. Harraſſowitz. 1890. 6. u. 290 S. 8° von <hi rendition="#g">Groß</hi>  <space dim="horizontal"/> <ref>143</ref></item><lb/>
+<item> <hi rendition="#aq">Dr.</hi> <hi rendition="#g">E</hi>. <hi rendition="#g">Fechtner</hi>: <hi rendition="#g">Die praktiſche Philoſophie und ihre<lb/>
+Bedeutung für die Rechtsſtudien</hi>. Ein Beitrag zur Reform<lb/>
+unſerer Univerſitäten. Wien, Hölder. 1888. Von <hi rendition="#g">F</hi>. <hi rendition="#g">Staudinger</hi> 151<lb/>
+<hi rendition="#aq #g">Schopenhaueriana.</hi><lb/>
+<hi rendition="#g">Ernſt Lehmann</hi>: Die verſchiedenartigen Elemente der Schopen¬<lb/>
+hauerſchen Willenslehre. Straßburg 1889. K. J. Trübner. 140 S.<lb/>
+Graf Alex. <hi rendition="#g">Foucher de Careil</hi>: Hegel und Schopenhauer. Ihr<lb/>
+Leben und Wirken. Aus dem Franzöſiſchen überſetzt v. J. Singer.<lb/>
+Wien 1888. C. Konegen. 417 S.<lb/>
+<hi rendition="#g">Georg von Gizycki</hi>: Kant und Schopenhauer. Zweite Auflage.<lb/>
+W. Friedrich. 112 S.<lb/>
+<hi rendition="#g">J</hi>. <hi rendition="#g">Stern</hi>: A. Schopenhauer. Zu deſſen 100 jährigem Geburtstag.<lb/>
+Zürich 1888. J. Schabelitz. 29 S.<lb/>
+<hi rendition="#g">Guſtav Küßner</hi>: Kritik des Peſſimismus. Verſuch einer Theodizee.<lb/>
+Halle-Leipzig 1888. C. E. M. Pfeffer. 53 S. Von R. <hi rendition="#g">Köber</hi> 152<lb/>
+<hi rendition="#g">Emil Uhthoff</hi>: <hi rendition="#g">Hypnotismus — Darwinismus und die<lb/>
+Gottesidee</hi>. Auf Grund religiöſer und ſozialer Studien dar¬<lb/>
+geſtellt. Berlin. W. Ißleib (G. Schuhr). 1890. 100 S. gr. 8°.<lb/>
+Von H. <hi rendition="#g">Schmidkunz</hi>  <space dim="horizontal"/> <ref>154</ref></item><lb/>
+<item> <hi rendition="#g">Schriften der Geſellſchaft für Experimental-Pſychologie</hi><lb/>
+zu <hi rendition="#g">Berlin</hi>. <hi rendition="#aq">II</hi>. und <hi rendition="#aq">III</hi>. Stück:<lb/>
+Über pſychiſche Beobachtungen bei Naturvölkern, Von <hi rendition="#g">Adolf<lb/>
+Baſtian</hi>. — Die Magiker Indiens. Von <hi rendition="#g">Friedrich von<lb/>
+Hellwald</hi>. Leipzig, E. Günther. 1890. 32 S. gr. 8.<lb/>
+Dieſelben. <hi rendition="#aq">IV</hi>. Stück:<lb/>
+Die Hypnoſe und ihre civilrechtliche Bedeutung. Von <hi rendition="#g">Adolf<lb/>
+von Bentivegni</hi>. Leipzig, E. Günther. 1890. 66 S. gr. 8.<lb/>
+Von H. <hi rendition="#g">Schmidkunz</hi>  <space dim="horizontal"/> <ref>157</ref></item><lb/>
+<item> <hi rendition="#g">Was kann die Sprache zur Löſung der ſozialen Frage bei¬<lb/>
+tragen</hi>? Ein Tröpfchen Selbſterkenntnis. 103 S. Breslau, Preuß<lb/>
+&amp; Jünger. 1890. Mk. 1,50. Von <hi rendition="#aq">Dr.</hi> <hi rendition="#g">Aug</hi>. <hi rendition="#g">Kind</hi>  <space dim="horizontal"/> <ref>159</ref></item><lb/>
+<item> <hi rendition="#g">Neu eingegangene Schriften</hi>  <space dim="horizontal"/> <ref>160</ref></item><lb/>
+<item> <hi rendition="#g">Bibliographie</hi>  <space dim="horizontal"/> <ref>162</ref></item><lb/>
+<item>     <milestone rendition="#hr" unit="section"/><lb/>
+<hi rendition="#g">Aus Zeitſchriften</hi>  <space dim="horizontal"/> <ref>171</ref></item><lb/>
+<item> <hi rendition="#g">Zur Kritik der Anſchauungen des Ariſtoteles in Bezug auf<lb/>
+Wiſſen</hi>. Von Prof. <hi rendition="#g">Zahlfleiſch</hi>  <space dim="horizontal"/> <ref><hi rendition="#g">177</hi> </ref></item><lb/>
+<item> <hi rendition="#g">Über die Einſeitigkeit der herrſchenden Krafttheorie</hi>. Von<lb/>
+<hi rendition="#aq">Dr.</hi> <hi rendition="#g">Nikolaus von Seeland</hi> (Schluß) <space dim="horizontal"/> <ref>202</ref></item><lb/>
+<item> <hi rendition="#g">Die Erkenntnislehre Kants</hi>. Von <hi rendition="#g">Robert Schellwien</hi>  <space dim="horizontal"/> <ref>226</ref></item><lb/>
+<item> <hi rendition="#g">Philoſophiſche Randbemerkungen zu den Verhandlungen<lb/>
+über den preußiſchen Volksſchulgeſetzentwurf</hi>. Von <hi rendition="#aq">Dr.</hi><lb/>
+<hi rendition="#g">Max Schasler</hi>  <space dim="horizontal"/> <ref>233</ref></item><lb/>
+<item> <hi rendition="#g">Kritiſche Bemerkungen und Ergänzungen zu Kants Anti¬<lb/>
+nomien</hi>. Von <hi rendition="#aq">Dr</hi>. <hi rendition="#g">Eugen Dreher</hi>  <space dim="horizontal"/> <ref>248</ref></item><lb/>
+<pb facs="#f0015"/>
+<item><hi rendition="#right">Seite</hi></item><lb/>
+<item> <hi rendition="#g">Recenſionen</hi>.<lb/>
+<hi rendition="#g">Neuere italieniſche Litteratur</hi>.<lb/>
+<hi rendition="#aq">Opero postume die Pietro Cerrotti sinopsi dell</hi>’ <hi rendition="#aq">Encyclopedia specu¬<lb/>
+lativa per cura, con note e introducione di Pasquale d' Ercole,<lb/>
+Prof. Ordinario di Filosofia della R. Università di Torino. Torino.<lb/>
+Unione tipografica editrice 33. Via Carlo Alberto 1890. —<lb/>
+I. Poesie giovanili precedute da un' avvertenza generale. II.<lb/>
+Grullerie poetiche. Volume primo conritratto c Profacione dell'<lb/>
+Autoro. Torino Vincenzo Bona 1890.</hi> Von <hi rendition="#g">Conrad Her m ann</hi>._._255<lb/>
+<hi rendition="#aq">Ottavio Colecchi. Filosofo e Matematico Abruzzese e i primordii<lb/>
+dei Kantismo in Italio, studio biografico — critico d. F. Cicchitti<lb/>
+— Suriani, del R. Liceo di Aquila, Aquila, Tip. di Anselmo<lb/>
+Santini 1890.</hi> Von demſelben._._257<lb/>
+<hi rendition="#aq">Filippo Cicchitti-Suriani, Professore nel R. Liceo di Aquila. Della<lb/>
+Dottrina degli affetti e dell passioni secondo la Filosofia stoica<lb/>
+e cristiana, saggio storico di psicologia morale con lettera di<lb/>
+Luigi Ferri Prof. Ord. di Filosofia teoretica nella R. Università<lb/>
+di Roma, Äquila, Tipografia Aternina. 1889.</hi> Von demſelben._._257<lb/>
+<hi rendition="#aq">Giuseppe Cimbali. II diritto del piu forte. Saggio di scienza<lb/>
+sociale e giuridica. Torino, Roma — Napoli. L. Roux et Co.<lb/>
+Editori 1891.</hi> Von demſelben._._258<lb/>
+<hi rendition="#aq">Sopra Raimondo Sabonda, Teologo, Filosofo e Medico del Sec XV<lb/>
+Studio storicocritico di Filippo Cicchiti-Suriani, Prof. nel R. Liceo<lb/>
+Cotugno. Aquila, Stab. Tip. di R. Grossi 1889.</hi> Von demſelben._._259<lb/>
+<hi rendition="#aq">Giovenni Cesca, il Fenomenismo del Hobbes. Fratelli Drucker,<lb/>
+editori. Padova, Libreria dell' Universita. Verona, Libreria alla<lb/>
+Minerva. 1891.</hi> Von demſelben._._260<lb/>
+<hi rendition="#aq">Prof. J. Virgilii. — L'avvenire della Statistica. Estratto della<lb/>
+Rassegna di Scienze sociali e politiche. Anno VIII. Vol. I.<lb/>
+Fasc. 174.</hi> Von demſelben._._260<lb/>
+<hi rendition="#aq">L'applicazione della Matematica all' Economia politica. Firenze,<lb/>
+Ufficio della Rassegna nazionale, Via Faenza 72.</hi> Von demſelben._._261 <hi rendition="#aq">N. R. D'Alfonso. Un detto di Amleto e le educazioni dei sensi.<lb/>
+Milano—Roma. Enrico Trevisini, editore. 1891.</hi> Von demſelben._._261<lb/>
+<hi rendition="#aq">Sonno e sogni. Ebenba 1891.</hi> Von demſelben._._261<lb/>
+<hi rendition="#aq">Lo Spedalieri, Rassegna trimestrale di Scienze sociali e giuridiche<lb/>
+diretta da Giuseppe Cimbali Num. I. Roma, ufficio della<lb/>
+Rassegna: via Modera, 50. 1891.</hi> Von demſelben._._261<lb/>
+<hi rendition="#aq">La Storia della Filosofia dichiarata in tavole per uso dei Licei da<lb/>
+Filippo cicchitti — Suriani, Prof. di Filosofia nel R. Liceo<lb/>
+Coturgo di Aquila degli Abruzzi. Aquila, stab. tip. di R.<lb/>
+Grossi 1887-88.</hi> Von demſelben._._262<lb/>
+Ludwig Stein: Die Erkenntnistheorie der Stoa (Bd. II.<lb/>
+der Pſychol. d. St.). Vorangeht: Umriß der Geſchichte der griechiſchen Erkenntnistheorie bis auf Ariſtoteles. Berlin. Calvard. 1888.<lb/>
+(Berliner Studien für claſſiſche Philologie und Archäologie VII. 1.) Von Hans Heußler._._262<lb/>
+Johannes Claaſſen: Franz von Baaders Gedanken über<lb/>
+Staat und Geſellſchaft, Revolution und Reform. Aus ſämtlichen Werken mitgeteilt. Gütersloh, Bertelsmann 1890. 88 Seiten.<lb/>
+Von Theobald Ziegler._._264<lb/>
+Dr. Karl Walder: Adam Smith, der Begründer der mobernen Nationalökonomie. Sein Leben und ſeine Schriften. Berlin 1890.<lb/>
+O. Liebmann. 50 Seiten. Von demſelben._._266<lb/>
+Georg Cantor: Zur Lehre vom Transfiniten. Geſammelte Abhandlungen aus der Zeitschrift für philoſophiſche und philoſophiſche Kritik. Erſte Abteilung. Halle a. S. 1890. C. E. M. Pfeffer (Robert Stricker). Von G Frege._.268</item><lb/>
+<pb facs="#f0016"/>
+<item><hi rendition="#right">Seite</hi></item><lb/>
+<item> <hi rendition="#g">Werner Luthe</hi>: <hi rendition="#g">Die Erkenntnislehre der Stoiker</hi>. <hi rendition="#g">B</hi>. <hi rendition="#g">G</hi>.<lb/>
+Teubner in Leipzig. 1890. (46 S.). Von <hi rendition="#g">Theobald Ziegler</hi>  <space dim="horizontal"/> <ref>273</ref></item><lb/>
+<item> <hi rendition="#g">William Mackintire Salter</hi>: <hi rendition="#g">Moraliſche Reden</hi>. Vom<lb/>
+Verfaſſer durchgeſehene Überſetzung von Georg von Gizycki. Leipzig.<lb/>
+Wilh. Friedrich. 1889. Von demſelben <space dim="horizontal"/> <ref>275</ref></item><lb/>
+<item> <hi rendition="#g">Herm</hi>. <hi rendition="#g">Weiß</hi>: <hi rendition="#g">Einleitung in die chriſtliche Ethik</hi>. Frei¬<lb/>
+burg i. B. 1889. J. C. B. Mohr. <hi rendition="#aq">VIII</hi>. 238 S. 5 Mk. Von<lb/>
+<hi rendition="#aq">Dr</hi>. <hi rendition="#g">Koppelmann</hi>  <space dim="horizontal"/> <ref>276</ref></item><lb/>
+<item> <hi rendition="#g">Ritter</hi>: <hi rendition="#g">Nationalität und Humanität</hi>. Deſſau u. Leipzig<lb/>
+1891, Rich. Kahle’s Verlag. 58 S. Von <hi rendition="#g">G</hi>. <hi rendition="#g">Simmel</hi>  <space dim="horizontal"/> <ref>283</ref></item><lb/>
+<item> <hi rendition="#g">Machetes</hi>: <hi rendition="#g">Das Unrecht des Stärkeren in der Frauen¬<lb/>
+frage</hi>. Leipzig 1891, Karl Naumburg. 72 S. Von demſelben <space dim="horizontal"/> <ref>284</ref></item><lb/>
+<item> <hi rendition="#g">Wilhelm Paszkowski</hi>: <hi rendition="#g">Die Bedeutung der theologiſchen<lb/>
+Vorſtellungen für die Ethik</hi>. Berlin, Mayer &amp; Müller.<lb/>
+92 S. Von demſelben <space dim="horizontal"/> <ref>284</ref></item><lb/>
+<item> <hi rendition="#aq #g">H. de Balzac</hi>, <hi rendition="#aq #g">Louis Lambert.</hi> <hi rendition="#aq">Translated by Katherine<lb/>
+Prescott Wormeley. With an introduction by George Frederic<lb/>
+Parsons. CLV und</hi> 258 <hi rendition="#aq">S.</hi> 1889. Von <hi rendition="#g">Max Deſſoir</hi>  <space dim="horizontal"/> <ref>285</ref></item><lb/>
+<item>Prof. <hi rendition="#aq">Dr.</hi> <hi rendition="#g">Wilh</hi>. <hi rendition="#g">Jeruſalem</hi>: <hi rendition="#g">Laura Bridgman</hi>. Erziehung<lb/>
+einer Taubſtumm-Blinden. Eine pſychologiſche Studie. Wien,<lb/>
+Pichler, 1890. 76 S. Preis 90 kr.= Mk. 1.50. Von demſelben <space dim="horizontal"/> <ref>286</ref></item><lb/>
+<item> <hi rendition="#g">Hugo Münſterberg</hi>: <hi rendition="#g">Beiträge zur experimentellen Pſycho¬<lb/>
+logie</hi>. Freiburg i. B., Mohr. Heft 1: Einleitung: Bewußtſein<lb/>
+und Gehirn. Willkürliche und unwillkürliche Vorſtellungsverbindung.<lb/>
+1889. <hi rendition="#aq">XII</hi>. 188 S. — H. 2: Zeitſinn. Schwankungen der Auf¬<lb/>
+merkſamkeit. Augenmaß. Raumſinn des Ohres. 1889. 234 S. —<lb/>
+H. 3: Neue Grundlegung der Pſychophyſik. 1890. 122 S. Von<lb/>
+<hi rendition="#g">Arvid Grotenfelt</hi>  <space dim="horizontal"/> <ref>287</ref></item><lb/>
+<item> <hi rendition="#g">Immanuel Kants Vorleſungen über Pſychologie</hi>. Mit<lb/>
+einer Einleitung: „<hi rendition="#g">Kants myſtiſche Weltanſchauung</hi>“ heraus¬<lb/>
+gegeben von <hi rendition="#aq">Dr.</hi> <hi rendition="#g">Carl du Prel</hi>. Leipzig (Günther) 1889. <hi rendition="#aq">LXIV</hi><lb/>
+und 96 S. Von <hi rendition="#aq">Dr</hi>. <hi rendition="#g">J</hi>. <hi rendition="#g">Mainzer</hi>  <space dim="horizontal"/> <ref>293</ref></item><lb/>
+<item> <hi rendition="#aq">Dr.</hi> <hi rendition="#g">Otto Riedel</hi>: <hi rendition="#g">Die Bedeutung des Dinges an ſich in<lb/>
+der Kantiſchen Ethik</hi>. Stolp (Beilage des Gymnaſialprogramms)<lb/>
+1888. 39 Seiten. Von demſelben <space dim="horizontal"/> <ref>295</ref></item><lb/>
+<item> <hi rendition="#aq">Dr.</hi> <hi rendition="#g">Wilh</hi>. <hi rendition="#g">Koppelmann</hi>: <hi rendition="#g">Kants Lehre vom kategoriſchen<lb/>
+Imperativ</hi>. Programm des Realgymnaſiums zu Lippſtadt<lb/>
+(1888). S. 1 — 18. Von demſelben <space dim="horizontal"/> <ref>296</ref></item><lb/>
+<item> <hi rendition="#g">J</hi>. <hi rendition="#g">Baumann</hi>: Platons Phädon philoſophiſch erklärt und durch die<lb/>
+ſpäteren Beweiſe für die Unſterblichkeit ergänzt. Gotha 1889.<lb/>
+Fr. Perthes. 208 Seiten. Von <hi rendition="#g">R</hi>. <hi rendition="#g">Köber</hi>  <space dim="horizontal"/> <ref>296</ref></item><lb/>
+<item> <hi rendition="#g">Karl Groos</hi>: Die reine Vernunftwiſſenſchaft. Syſtematiſche Dar¬<lb/>
+ſtellung von Schellings rationaler oder negativer Philoſophie.<lb/>
+Heidelberg 1889. G. Weiß. 190 Seiten. Von demſelben <space dim="horizontal"/> <ref>297</ref></item><lb/>
+<item> <hi rendition="#g">Ed</hi>. <hi rendition="#g">v</hi>. <hi rendition="#g">Hartmann</hi>: Moderne Probleme. 2. vermehrte Aufl. Leipzig<lb/>
+1888. W. Friedrich. 277 Seiten. Von demſelben <space dim="horizontal"/> <ref>297</ref></item><lb/>
+<item> <hi rendition="#aq">Dr.</hi> <hi rendition="#g">Eugen Wolff</hi>‚ Privatdozent an der Univerſität Kiel: „<hi rendition="#g">Prole¬<lb/>
+gomena der Litterar</hi>-<hi rendition="#g">Evolutioniſtiſchen Poetik</hi>.” Kiel<lb/>
+und Leipzig, bei Lipſius &amp; Tiſcher, 1890. 32 S. 1 Mk. Von<lb/>
+<hi rendition="#g">K</hi>. <hi rendition="#g">Groos</hi>  <space dim="horizontal"/> <ref>298</ref></item><lb/>
+<item> <hi rendition="#g">Wilhelm Nicolai</hi>: <hi rendition="#g">Iſt der Begriff des Schönen bei Kant<lb/>
+konſequent entwickelt</hi>? Inauguraldiſſertation. Kiel. Druck<lb/>
+von Fiencke. 1889. 100 S. 2 Mk. Von demſelben <space dim="horizontal"/> <ref>301</ref></item><lb/>
+<item> <hi rendition="#aq">Dr.</hi> <hi rendition="#g">Karl Friedrich Jordan</hi>: „<hi rendition="#g">Das Rätſel des Hypno¬<lb/>
+tismus und ſeine Löſung</hi>.“ Zweite umgearbeitete und ſtark<lb/>
+vermehrte Auflage. Berlin, Dümmler, 1892. 79 Seiten. Von<lb/>
+<hi rendition="#aq">Dr.</hi> <hi rendition="#g">Eugen Dreher</hi>  <space dim="horizontal"/> <ref>302</ref></item><lb/>
+<pb facs="#f0017"/>
+<item><hi rendition="#right">Seite</hi></item><lb/>
+<item> <hi rendition="#g">Th</hi>. <hi rendition="#g">Ziehen</hi>: <hi rendition="#g">Leitfaden der Phyſiologiſchen Pſychologie</hi>.<lb/>
+Jena 1891. G. Fiſcher. I76 S. Von <hi rendition="#g">Hugo Münſterberg</hi>  <space dim="horizontal"/> <ref>308</ref></item><lb/>
+<item> <hi rendition="#g">Elſenhans</hi>, <hi rendition="#g">Th</hi>.: <hi rendition="#g">Pſychologie und Logik</hi>. Zur Einführung in<lb/>
+die Logik. Stuttgart I890. (Sammlung Göſchen.) 135 S., geb.<lb/>
+80 Pf. Von <hi rendition="#g">Heinrich Spitta</hi>  <space dim="horizontal"/> <ref>311</ref></item><lb/>
+<item>Lic. <hi rendition="#aq">Dr.</hi> <hi rendition="#g">Fr</hi>. <hi rendition="#g">Kirchner</hi>: <hi rendition="#g">Wörterbuch der philoſophiſchen<lb/>
+Grundbegriffe</hi>. Zweite durchgeſehene und vermehrte Auf¬<lb/>
+lage. Heidelberg, 1890. Georg Weiß, Verlag. S. 500. (4 Mk.<lb/>
+20 Pf.) Von <hi rendition="#g">H</hi>. <hi rendition="#g">Jacoby</hi>  <space dim="horizontal"/> <ref>312</ref></item><lb/>
+<item> <hi rendition="#aq">Dr.</hi> W. <hi rendition="#g">Schäfer</hi>, Profeſſor an der Techniſchen Hochſchule zu Hannover:<lb/>
+<hi rendition="#g">Die Unvereinbarkeit des ſozialiſtiſchen Zukunftsſtaates<lb/>
+mit der menſchlichen Natur</hi>. Ungehaltene Rede, der deutſchen<lb/>
+Sozialdemokratie gewidmet. Dritte Auflage. Berlin. Verlag von<lb/>
+Robert Oppenheim. 1890. (1 M.) 80 S. Von demſelben <space dim="horizontal"/> <ref>313</ref></item><lb/>
+<item> <hi rendition="#g">Notizen</hi>  <space dim="horizontal"/> <ref>314</ref></item><lb/>
+<item> <hi rendition="#g">Preisaufgaben</hi>  <space dim="horizontal"/> <ref>315</ref></item><lb/>
+<item> <hi rendition="#g">Neu eingegangene Schriften</hi>  <space dim="horizontal"/> <ref>316</ref></item><lb/>
+<item> <hi rendition="#g">Bibliographie</hi>  <space dim="horizontal"/> <ref>317</ref></item><lb/>
+<item> <hi rendition="#g">Aus Zeitſchriften</hi>  <space dim="horizontal"/> <ref>319</ref></item> </list><lb/>
+</div> <milestone unit="section" rendition="#hr"/>
+<pb facs="#f0018"/>
+<pb facs="#f0019"/>
+<titlePage type="main">         <docTitle>             <titlePart type="main">                 <hi rendition="#b">Zeitſchrift</hi><lb/>
+für<lb/>
+<hi rendition="#b #g">Philoſophie und philoſophiſche Kritik</hi>.<lb/>
+</titlePart>         </docTitle>         <byline>             <hi rendition="#g">Im Verein mit mehreren Gelehrten</hi><lb/>
+vormals herausgegeben<lb/>
+von<lb/>
+<hi rendition="#aq">Dr.</hi> <hi rendition="#b">J. H. Fichte</hi> und <hi rendition="#aq">Dr.</hi> <hi rendition="#b">H. Ulrici</hi>,<lb/>
+<hi rendition="#g">redigirt</hi><lb/>
+von<lb/>
+<hi rendition="#aq">Dr.</hi> <hi rendition="#b">Richard Falckenberg</hi>,<lb/>
+Profeſſor der Philoſophie in Erlangen.<lb/>
+</byline>         <space dim="vertical"/>         <titlePart type="volume">             <hi rendition="#g">Neue Folge</hi><lb/>
+<space dim="vertical"/>             <hi rendition="#b"><hi rendition="#g">Hundertſten Bandes <space dim="horizontal"/> Erſtes Heft</hi>.</hi><lb/>
+</titlePart>         <space dim="vertical"/>         <milestone unit="section" rendition="#hr"/><lb/>
+<space dim="vertical"/>         <docImprint>             <pubPlace>                 <hi rendition="#b">Leipzig</hi>.<lb/>
+</pubPlace>             <publisher>Verlag von C. E. M. <hi rendition="#g">Pfeffer</hi><lb/>
+</publisher>             <docDate>1892.<lb/>
+</docDate>         </docImprint>     </titlePage>
+<pb facs="#f0020"/>
+<div type="advertisement">         <gap quantity="1" reason="insignificant" unit="pages"/>     </div></front>
+<pb n="25" facs="#f0021"/>
+<body> <gap reason="insignificant"/> <div n="1"> <head> <hi rendition="#b">Über Sinn und Bedeutung.</hi><lb/>
+</head> <p rendition="#c">Von<lb/>
+<hi rendition="#b">G. Frege.</hi></p><lb/>
+<p>Die Gleichheit<note place="foot" n="**)">Ich brauche dies Wort im Sinne von Identität und verſtehe<lb/>
+„<hi rendition="#aq">a=b</hi>“ in dem Sinne von „<hi rendition="#aq">a</hi> iſt daſſelbe wie <hi rendition="#aq">b</hi>“ oder „<hi rendition="#aq">a</hi> und <hi rendition="#aq">b</hi> fallen<lb/>
+zuſammen.“</note> fordert das Nachdenken heraus durch Fragen,<lb/>
+die ſich daran knüpfen und nicht ganz leicht zu beantworten ſind.<lb/>
+Iſt ſie eine Beziehung? eine Beziehung zwiſchen Gegenſtänden?<lb/>
+oder zwiſchen Namen oder Zeichen für Gegenſtände? Das Letzte<lb/>
+hatte ich in meiner Begriffsſchrift angenommen. Die Gründe, die<lb/>
+dafür zu ſprechen ſcheinen, ſind folgende: <hi rendition="#aq">a=a</hi> und <hi rendition="#aq">a=b</hi> ſind<lb/>
+offenbar Sätze von verſchiedenem Erkenntniswerte: <hi rendition="#aq">a=a</hi> gilt <hi rendition="#aq">a<lb/>
+priori</hi> und iſt nach Kant analytiſch zu nennen, während Sätze von<lb/>
+der Form <hi rendition="#aq">a=b</hi> oft ſehr wertvolle Erweiterungen unſerer Er¬<lb/>
+kenntnis enthalten und <hi rendition="#aq">a priori</hi> nicht immer zu begründen ſind.<lb/>
+Die Entdeckung, daß nicht jeden Morgen eine neue Sonne aufgeht,<lb/>
+ſondern immer dieſelbe, iſt wohl eine der folgenreichſten in der<lb/>
+Aſtronomie geweſen. Noch jetzt iſt die Wiedererkennung eines<lb/>
+kleinen Planeten oder eines Kometen nicht immer etwas Selbſt¬<lb/>
+<pb n="26" facs="#f0022"/>
+<fw type="header" place="top">G. Frege:<lb/>
+</fw>verſtändliches. Wenn wir nun in der Gleichheit eine Beziehung<lb/>
+zwiſchen dem ſehn wollten, was die Namen „<hi rendition="#aq">a</hi>“ und „<hi rendition="#aq">b</hi>“ bedeuten,<lb/>
+ſo ſchiene <hi rendition="#aq">a=b</hi> von <hi rendition="#aq">a=a</hi> nicht verſchieden ſein zu können, falls<lb/>
+nämlich <hi rendition="#aq">a=b</hi> wahr iſt. Es wäre hiermit eine Beziehung eines<lb/>
+Dinges zu ſich ſelbſt ausgedrückt, und zwar eine ſolche, in der jedes<lb/>
+Ding mit ſich ſelbſt, aber kein Ding mit einem andern ſteht. Was<lb/>
+man mit <hi rendition="#aq">a=b</hi> ſagen will, ſcheint zu ſein, daß die Zeichen oder<lb/>
+Namen „<hi rendition="#aq">a</hi>“ und „<hi rendition="#aq">b</hi>“ daſſelbe bedeuten, und dann wäre eben von<lb/>
+jenen Zeichen die Rede; es würde eine Beziehung zwiſchen ihnen<lb/>
+behauptet. Aber dieſe Beziehung beſtände zwiſchen den Namen<lb/>
+oder Zeichen nur, inſofern ſie etwas benennen oder bezeichnen. Sie<lb/>
+wäre eine vermittelte durch die Verknüpfung jedes der beiden Zeichen<lb/>
+mit demſelben Bezeichneten. Dieſe aber iſt willkürlich. Man kann<lb/>
+Keinem verbieten, irgendeinen willkürlich hervorzubringenden Vor¬<lb/>
+gang oder Gegenſtand zum Zeichen für irgend etwas anzunehmen.<lb/>
+Damit würde dann ein Satz <hi rendition="#aq">a=b</hi> nicht mehr die Sache ſelbſt<lb/>
+ſondern nur noch unſere Bezeichnungsweiſe betreffen; wir würden<lb/>
+keine eigentliche Erkenntnis darin ausdrücken. Das wollen wir<lb/>
+aber doch grade in vielen Fällen. Wenn ſich das Zeichen „<hi rendition="#aq">a</hi>“<lb/>
+von dem Zeichen „<hi rendition="#aq">b</hi>“ nur als Gegenſtand (hier durch die Geſtalt)<lb/>
+unterſcheidet, nicht als Zeichen; das ſoll heißen: nicht in der Weiſe,<lb/>
+wie es etwas bezeichnet: ſo würde der Erkenntnißwerth von <hi rendition="#aq">a=a</hi><lb/>
+weſentlich gleich dem von <hi rendition="#aq">a=b</hi> ſein, falls <hi rendition="#aq">a=b</hi> wahr iſt. Eine<lb/>
+Verſchiedenheit kann nur dadurch zu Stande kommen, daß der<lb/>
+Unterſchied des Zeichens einem Unterſchiede in der Art des Gegeben¬<lb/>
+ſeins des Bezeichneten entſpricht. Es ſeien <hi rendition="#aq">a</hi>, <hi rendition="#aq">b</hi>, <hi rendition="#aq">c</hi> die Geraden,<lb/>
+welche die Ecken eines Dreiecks mit den Mitten der Gegenſeiten<lb/>
+verbinden. Der Schnittpunkt von <hi rendition="#aq">a</hi> und <hi rendition="#aq">b</hi> iſt dann derſelbe wie<lb/>
+der Schnittpunkt von <hi rendition="#aq">b</hi> und <hi rendition="#aq">c</hi>. Wir haben alſo verſchiedene Be¬<lb/>
+zeichnungen für denſelben Punkt, und dieſe Namen („Schnittpunkt<lb/>
+von <hi rendition="#aq">a</hi> und <hi rendition="#aq">b</hi>“, „Schnittpunkt von <hi rendition="#aq">b</hi> und <hi rendition="#aq">c</hi>“) deuten zugleich auf<lb/>
+die Art des Gegebenſeins, und daher iſt in dem Satze eine wirk¬<lb/>
+liche Erkenntnis enthalten.</p><lb/>
+<p>Es liegt nun nahe, mit einem Zeichen (Namen, Wortver¬<lb/>
+bindung, Schriftzeichen) außer dem Bezeichneten, was die Bedeutung<lb/>
+des Zeichens heißen möge, noch das verbunden zu denken, was ich<lb/>
+den Sinn des Zeichens nennen möchte, worin die Art des Gegeben¬<lb/>
+ſeins enthalten iſt. Es würde danach in unſerm Beiſpiele zwar die<lb/>
+<pb n="27" facs="#f0023"/>
+<fw type="header" place="top">Über Sinn und Bedeutung.<lb/>
+</fw> Bedeutung der Ausdrücke „der Schnittpunkt von <hi rendition="#aq">a</hi> und <hi rendition="#aq">b</hi>“ und<lb/>
+„der Schnittpunkt von <hi rendition="#aq">b</hi> und <hi rendition="#aq">c</hi>“ dieſelbe ſein, aber nicht ihr Sinn.<lb/>
+Es würde die Bedeutung von „Abendſtern“ und „Morgenſtern“<lb/>
+dieſelbe ſein, aber nicht der Sinn.</p><lb/>
+<p>Aus dem Zuſammenhange geht hervor, daß ich hier unter<lb/>
+„Zeichen“ und „Namen“ irgendeine Bezeichnung verſtanden habe,<lb/>
+die einen Eigennamen vertritt, deren Bedeutung alſo ein beſtimmtes<lb/>
+Gegenſtand iſt (dies Wort im weiteſten Umfange genommen), aber<lb/>
+kein Begriff und keine Beziehung, auf die in einem anderen Auf¬<lb/>
+ſatze näher eingegangen werden ſoll. Die Bezeichnung eines ein¬<lb/>
+zelnen Gegenſtandes kann auch aus mehreren Worten oder ſonſtigen<lb/>
+Zeichen beſtehn. Der Kürze wegen mag jede ſolche Bezeichnung<lb/>
+Eigenname genannt werden.</p><lb/>
+<p>Der Sinn eines Eigennamens wird von jedem erfaßt, der die<lb/>
+Sprache oder das Ganze von Bezeichnungen hinreichend kennt, der<lb/>
+er angehört<note place="foot" n="*)">Bei einem eigentlichen Eigennamen wie „Ariſtoteles“ können freilich<lb/>
+die Meinungen über den Sinn auseinander gehen. Man könnte z. B. als<lb/>
+ſolchen annehmen: der Schüler Platos und Lehrer Alexanders des Großen.<lb/>
+Wer dies thut, wird mit dem Satze „Ariſtoteles war aus Stagira gebürtig“<lb/>
+einen andern Sinn verbinden als einer, der als Sinn dieſes Namens an¬<lb/>
+nähme: der aus Stagira gebürtige Lehrer Alexanders des Großen. Solange<lb/>
+nur die Bedeutung dieſelbe bleibt, laſſen ſich dieſe Schwankungen des Sinnes<lb/>
+ertragen, wiewohl auch ſie in dem Lehrgebäude einer beweiſenden Wiſſenſchaft<lb/>
+zu vermeiden ſind und in einer vollkommenen Sprache nicht vorkommen dürften.</note>; damit iſt die Bedeutung aber, falls ſie vorhanden<lb/>
+iſt, doch immer nur einſeitig beleuchtet. Zu einer allſeitigen Er¬<lb/>
+kenntniß der Bedeutung würde gehören, daß wir von jedem ge¬<lb/>
+gebenen Sinne ſogleich angeben könnten, ob er zu ihr gehöre.<lb/>
+Dahin <choice><sic>gelanges</sic><corr>gelangen</corr></choice> wir nie.</p><lb/>
+<p>Die regelmäßige Verknüpfung zwiſchen dem Zeichen, deſſen<lb/>
+Sinne und deſſen Bedeutung iſt der Art, daß dem Zeichen ein be¬<lb/>
+ſtimmter Sinn und dieſem wieder eine beſtimmte Bedeutung ent¬<lb/>
+ſpricht, während zu einer Bedeutung (einem Gegenſtande) nicht<lb/>
+nur ein Zeichen zugehört. Derſelbe Sinn hat in verſchiedenen<lb/>
+Sprachen, ja auch in derſelben verſchiedene Ausdrücke. Freilich<lb/>
+kommen Ausnahmen von dieſem regelmäßigen Verhalten vor.<lb/>
+Gewiß ſollte in einem vollkommenen Ganzen von Zeichen jedem<lb/>
+Ausdrucke ein beſtimmter Sinn entſprechen; aber die Volksſprachen<lb/>
+<pb n="28" facs="#f0024"/>
+<fw type="header" place="top">G. <hi rendition="#g">Frege</hi>:<lb/>
+</fw>erfüllen dieſe Forderung vielfach nicht, und man muß zufrieden<lb/>
+ſein, wenn nur in demſelben Zuſammenhange daſſelbe Wort immer<lb/>
+denſelben Sinn hat. Vielleicht kann man zugeben, daß ein gramma¬<lb/>
+tiſch richtig gebildeter Ausdruck, der für einen Eigennamen ſteht,<lb/>
+immer einen Sinn habe. Aber ob dem Sinne nun auch eine Be¬<lb/>
+deutung entſpreche, iſt damit nicht geſagt. Die Worte „der von<lb/>
+der Erde am weiteſten entfernte Himmelskörper“ haben einen Sinn;<lb/>
+ob ſie aber auch eine Bedeutung haben, iſt ſehr zweifelhaft. Der<lb/>
+Ausdruck „die am wenigſten convergente Reihe“ hat einen Sinn;<lb/>
+aber man beweiſt, daß er keine Bedeutung hat, da man zu jeder<lb/>
+convergenten Reihe eine weniger convergente, aber immer noch<lb/>
+convergente finden kann. Dadurch alſo, daß man einen Sinn auf¬<lb/>
+faßt, hat man noch nicht mit Sicherheit eine Bedeutung.</p><lb/>
+<p>Wenn man in der gewöhnlichen Weiſe Worte gebraucht, ſo iſt<lb/>
+das, wovon man ſprechen will, deren Bedeutung. Es kann aber<lb/>
+auch vorkommen, daß man von den Worten ſelbſt oder von ihrem<lb/>
+Sinne reden will. Jenes geſchieht z. B., wenn man die Worte eines<lb/>
+Andern in gerader Rede anführt. Die eigenen Worte bedeuten<lb/>
+dann zunächſt die Worte des Andern und erſt dieſe haben die ge¬<lb/>
+wöhnliche Bedeutung. Wir haben dann Zeichen von Zeichen. In<lb/>
+der Schrift ſchließt man in dieſem Falle die Wortbilder in An¬<lb/>
+führungszeichen ein. Es darf alſo ein in Anführungszeichen ſtehendes<lb/>
+Wortbild nicht in der gewöhnlichen Bedeutung genommen werden.</p><lb/>
+<p>Wenn man von dem Sinne eines Ausdrucks ,A‘ reden will<lb/>
+ſo kann man dies einfach durch die Wendung „der Sinn des Aus¬<lb/>
+drucks ,A‘“. In der ungeraden Rede ſpricht man von dem Sinne<lb/>
+z. B. der Rede eines Andern. Es iſt daraus klar, daß auch in<lb/>
+dieſer Redeweiſe die Worte nicht ihre gewöhnliche Bedeutung haben,<lb/>
+ſondern das bedeuten, was gewöhnlich ihr Sinn iſt. Um einen<lb/>
+kurzen Ausdruck zu haben, wollen wir ſagen: die Wörter werden<lb/>
+in der ungeraden Rede <hi rendition="#g">ungerade</hi> gebraucht, oder haben ihre<lb/>
+<hi rendition="#g">ungerade</hi> Bedeutung. Wir unterſcheiden demnach die <hi rendition="#g">gewöhn¬<lb/>
+liche</hi> Bedeutung eines Wortes von ſeiner <hi rendition="#g">ungeraden</hi> und ſeinen<lb/>
+<hi rendition="#g">gewöhnlichen</hi> Sinn von ſeinem <hi rendition="#g">ungeraden</hi> Sinne. Die un¬<lb/>
+gerade Bedeutung eines Wortes iſt alſo ſein gewöhnlicher Sinn.<lb/>
+Solche Ausnahmen muß man immer im Auge behalten, wenn man<lb/>
+die Verknüpfungsweiſe von Zeichen, Sinn und Bedeutung im<lb/>
+einzelnen Falle richtig auffaſſen will.</p><lb/>
+<pb n="29" facs="#f0025"/>
+<fw type="header" place="top">Über Sinn und Bedeutung.<lb/>
+</fw> <p>Von der Bedeutung und dem Sinne eines Zeichens iſt die<lb/>
+mit ihm verknüpfte Vorſtellung zu unterſcheiden. Wenn die Be¬<lb/>
+deutung eines Zeichens ein ſinnlich wahrnehmbarer Gegenſtand<lb/>
+iſt, ſo iſt meine Vorſtellung davon ein aus Erinnerungen von<lb/>
+Sinneseindrücken, die ich gehabt habe, und von Thätigkeiten, innern<lb/>
+ſowohl wie äußern, die ich ausgeübt habe, entſtandenes inneres<lb/>
+Bild<note place="foot" n="*)">Wir können mit den Vorſtellungen gleich die Anſchauungen zu¬<lb/>
+ſammennehmen, bei denen die Sinneseindrücke und Thätigkeiten ſelbſt an<lb/>
+die Stelle der Spuren treten, die ſie in der Seele zurückgelaſſen haben. Der<lb/>
+Unterſchied iſt für unſern Zweck unerheblich, zumal wohl immer neben den<lb/>
+Empfindungen und Thätigkeiten Erinnerungen von ſolchen das Anſchauungs¬<lb/>
+bild vollenden helfen. Man kann unter Anſchauung aber auch einen Gegen¬<lb/>
+ſtand verſtehen, ſofern er ſinnlich wahrnehmbar oder räumlich iſt.</note>, Dieſes iſt oft mit Gefühlen getränkt; die Deutlichkeit<lb/>
+ſeiner einzelnen Theile iſt verſchieden und ſchwankend. Nicht<lb/>
+immer iſt, auch bei demſelben Menſchen, dieſelbe Vorſtellung mit<lb/>
+demſelben Sinne verbunden. Die Vorſtellung iſt ſubjectiv: die<lb/>
+Vorſtellung des Einen iſt nicht die des Andern. Damit ſind von<lb/>
+ſelbſt manigfache Unterſchiede der mit demſelben Sinne verknüpften<lb/>
+Vorſtellungen gegeben. Ein Maler, ein Reiter, ein Zoologe werden<lb/>
+wahrſcheinlich ſehr verſchiedene Vorſtellungen mit dem Namen<lb/>
+„Bucephalus” verbinden. Die Vorſtellung unterſcheidet ſich da¬<lb/>
+durch weſentlich von dem Sinne eines Zeichens, welcher gemein¬<lb/>
+ſames Eigenthum von Vielen ſein kann und alſo nicht Theil oder<lb/>
+Modus der Einzelſeele iſt; denn man wird wohl nicht leugnen<lb/>
+können, daß die Menſchheit einen gemeinſamen Schatz von Ge¬<lb/>
+danken hat, den ſie von einem Geſchlechte auf das andere über¬<lb/>
+trägt <note place="foot" n="**)">Darum iſt es unzweckmäßig, mit dem Worte „Vorſtellung“ ſo Grund¬<lb/>
+verſchiedenes zu bezeichnen.</note>.</p><lb/>
+<p>Während es demnach keinem Bedenken unterliegt, von dem<lb/>
+Sinne ſchlechtweg zu ſprechen, muß man bei der Vorſtellung genau<lb/>
+genommen hinzufügen, wem ſie angehört und zu welcher Zeit.<lb/>
+Man könnte vielleicht ſagen; ebenſogut, wie mit demſelben Worte<lb/>
+der Eine dieſe, der Andere jene Vorſtellung verbindet, kann auch<lb/>
+der Eine dieſen, der Andere jenen Sinn damit verknüpfen. Doch<lb/>
+beſteht der Unterſchied dann doch nur in der Weiſe dieſer Ver¬<lb/>
+knüpfung. Das hindert nicht, daß beide denſelben Sinn auffaſſen;<lb/>
+<pb n="30" facs="#f0026"/>
+<fw type="header" place="top">G. <hi rendition="#g">Frege</hi>:<lb/>
+</fw> aber dieſelbe Vorſtellung können ſie nicht haben. <hi rendition="#aq #g">Si duo idem<lb/>
+faciunt, non est idem</hi>. Wenn zwei ſich daſſelbe vorſtellen<lb/>
+ſo hat jeder doch ſeine eigene Vorſtellung. Es iſt zwar zuweilen<lb/>
+möglich, Unterſchiede der Vorſtellungen, ja der Empfindungen ver¬<lb/>
+ſchiedener Menſchen feſtzuſtellen; aber eine genaue Vergleichung iſt<lb/>
+nicht möglich, weil wir dieſe Vorſtellungen nicht in demſelben Be¬<lb/>
+wußtſein zuſammen haben können.</p><lb/>
+<p>Die Bedeutung eines Eigennamens iſt der Gegenſtand ſelbſt,<lb/>
+den wir damit bezeichen; die Vorſtellung, welche wir dabei haben,<lb/>
+iſt ganz ſubjectiv; dazwiſchen liegt der Sinn, der zwar nicht mehr<lb/>
+ſubjectiv wie die Vorſtellung, aber doch auch nicht der Gegenſtand<lb/>
+ſelbſt iſt. Folgendes Gleichniß iſt vielleicht geeignet, dieſe Ver¬<lb/>
+hältniſſe zu verdeutlichen. Jemand betrachtet den Mond durch ein<lb/>
+Fernrohr. Ich vergleiche den Mond ſelbſt mit der Bedeutung;<lb/>
+er iſt der Gegenſtand der Beobachtung, die vermittelt wird durch<lb/>
+das reelle Bild, welches vom Objectivglaſe im Innern des Fern¬<lb/>
+rohrs entworfen wird, und durch das Netzhautbild des Betrach¬<lb/>
+tenden. Jenes vergleiche ich mit dem Sinne, dieſes mit der Vor¬<lb/>
+ſtellung oder Anſchauung. Das Bild im Fernrohre iſt zwar nur<lb/>
+einſeitig; es iſt abhängig vom Standorte; aber es iſt doch objectiv,<lb/>
+inſofern es mehreren Beobachtern dienen kann. Es ließe ſich allen¬<lb/>
+falls einrichten, daß gleichzeitig Mehrere es benutzten. Von den<lb/>
+Netzhautbildern aber würde jeder doch ſein eignes haben. Selbſt<lb/>
+eine geometriſche Congruenz würde wegen der verſchiedenen Bildung<lb/>
+der Augen <choice><sic>kanm</sic><corr>kaum</corr></choice> zu erreichen ſein, ein wirkliches Zuſammenfallen<lb/>
+aber wäre ausgeſchloſſen. Dies Gleichnis ließe ſich vielleicht noch<lb/>
+weiter ausführen, indem man annähme, das Netzhautbild des <hi rendition="#aq">A</hi><lb/>
+könnte dem <hi rendition="#aq">B</hi> ſichtbar gemacht werden; oder auch <hi rendition="#aq">A</hi> ſelbſt könnte<lb/>
+in einem Spiegel ſein eignes Netzhautbild ſehen. Hiermit wäre<lb/>
+vielleicht zu zeigen, wie eine Vorſtellung zwar ſelbſt zum Gegen¬<lb/>
+ſtande genommen werden kann, als ſolche aber doch dem<lb/>
+Betrachter nicht das iſt, was ſie unmittelbar dem Vor¬<lb/>
+ſtellenden iſt. Doch würde, dies zu verfolgen, wohl zu weit ab¬<lb/>
+führen.</p><lb/>
+<p>Wir können nun drei Stufen der Verſchiedenheit von Wörtern,<lb/>
+Ausdrücken und ganzen Sätzen erkennen. Entweder betrifft der<lb/>
+Unterſchied höchſtens die Vorſtellungen, oder den Sinn aber nicht<lb/>
+die Bedeutung, oder endlich auch die Bedeutung. In Bezug auf<lb/>
+<pb n="31" facs="#f0027"/>
+<fw type="header" place="top">Über Sinn und Bedeutung.<lb/>
+</fw> die erſte Stufe iſt zu bemerken, daß, wegen der unſichern Ver¬<lb/>
+bindung der Vorſtellungen mit den Worten für den Einen eine<lb/>
+Verſchiedenheit beſtehen kann, die der Andere nicht findet. Der<lb/>
+Unterſchied der Ueberſetzung von der Urſchrift ſoll eigentlich die<lb/>
+erſte Stufe nicht überſchreiten. Zu den hier noch möglichen Unter¬<lb/>
+ſchieden gehören die Färbungen und Beleuchtungen, welche Dicht¬<lb/>
+kunſt Beredtſamkeit dem Sinne zu geben ſuchen. Dieſe Färbungen<lb/>
+und Beleuchtungen ſind nicht objectiv, ſondern jeder Hörer und<lb/>
+Leſer muß ſie ſich ſelbſt nach den Winken des Dichters oder<lb/>
+Redners hinzuſchaffen. Ohne eine Verwandtſchaft des menſchlichen<lb/>
+Vorſtellens wäre freilich die Kunſt nicht möglich; wieweit aber den<lb/>
+Abſichten des Dichters entſprochen wird, kann nie genau ermittelt<lb/>
+werden.</p><lb/>
+<p>Von den Vorſtellungen und Anſchauungen ſoll im Folgenden<lb/>
+nicht mehr die Rede ſein; ſie ſind hier nur erwähnt worden, damit<lb/>
+die Vorſtellung, die ein Wort bei einem Hörer erweckt, nicht mit<lb/>
+deſſen Sinne oder deſſen Bedeutung verwechſelt werde.</p><lb/>
+<p>Um einen kurzen und genauen Ausdruck möglich zu machen,<lb/>
+mögen folgende Redewendungen feſtgeſetzt werden:</p><lb/>
+<p>Ein Eigenname (Wort, Zeichen, Zeichenverbindung, Ausdruck)<lb/>
+drückt aus ſeinen Sinn, bedeutet oder bezeichnet ſeine Bedeutung.<lb/>
+Wir drücken mit einem Zeichen deſſen Sinn aus und bezeichnen<lb/>
+mit ihm deſſen Bedeutung.</p><lb/>
+<p>Von idealiſtiſcher und ſkeptiſcher Seite iſt vielleicht ſchon längſt<lb/>
+eingewendet worden: „du ſprichſt hier ohne Weiteres von dem<lb/>
+Monde als einem Gegenſtande; aber woher weißt du, daß der<lb/>
+Name ,der Mond‘ überhaupt eine Bedeutung hat, woher weißt<lb/>
+du, daß überhaupt irgendetwas eine Bedeutung hat?“ Ich ant¬<lb/>
+worte, daß es nicht unſere Abſicht iſt, von unſerer Vorſtellung des<lb/>
+Mondes zu ſprechen, und daß wir uns auch nicht mit dem Sinne<lb/>
+begnügen, wenn wir ,der Mond‘ ſagen; ſondern wir ſetzen eine<lb/>
+Bedeutung voraus. Es hieße, den Sinn geradezu verfehlen, wenn<lb/>
+man annehmen wollte, in dem Satze „der Mond iſt kleiner als<lb/>
+die Erde“ ſei von einer Vorſtellung des Mondes die Rede. Wollte<lb/>
+der Sprechende dies, ſo würde er die Wendung „meine Vorſtellung<lb/>
+vom Monde“ gebrauchen. Nun können wir uns in jener Voraus¬<lb/>
+ſetzung freilich irren, und ſolche Irrthümer ſind auch vorgekommen.<lb/>
+Die Frage aber, ob wir uns vielleicht immer darin irren, kann<lb/>
+<pb n="32" facs="#f0028"/>
+<fw type="header" place="top">G. <hi rendition="#g">Frege</hi>:<lb/>
+</fw> hier unbeantwortet bleiben; es genügt zunächſt, auf unſere Abſicht<lb/>
+beim Sprechen oder Denken hinzuweiſen, um es zu rechtfertigen,<lb/>
+von der Bedeutung eines Zeichens zu ſprechen, wenn auch mit dem<lb/>
+Vorbehalte: falls eine ſolche vorhanden iſt.</p><lb/>
+<p>Bisher ſind Sinn und Bedeutung nur von ſolchen Aus¬<lb/>
+drücken, Wörtern, Zeichen betrachtet worden, welche wir Eigen¬<lb/>
+namen genannt haben. Wir fragen nun nach Sinn und Be¬<lb/>
+deutung eines ganzen Behauptungsſatzes. Ein ſolcher Satz enthält<lb/>
+einen Gedanken <note place="foot" n="*)"><lb/>
+Ich verſtehe unter Gedanken nicht das ſubjective Thun des Denkens,<lb/>
+ſondern deſſen objectiven Inhalt, der fähig iſt, gemeinſames Eigenthum von<lb/>
+Vielen zu ſein.</note>. Iſt dieſer Gedanke nun als deſſen Sinn oder<lb/>
+als deſſen Bedeutung anzuſehen? Nehmen wir einmal an, der<lb/>
+Satz habe eine Bedeutung! Erſetzen wir nun in ihm ein Wort<lb/>
+durch ein anderes von derſelben Bed<supplied>e</supplied>utung, aber anderm Sinne, ſo<lb/>
+kann dies auf die Bedeutung des Satzes keinen Einfluß haben.<lb/>
+Nun ſehen wir aber, daß der Gedanke ſich in ſolchem Falle ändert;<lb/>
+denn es iſt z. B. der Gedanke des Satzes „der Morgenſtern iſt<lb/>
+ein von der Sonne beleuchteter Körper“ verſchieden von dem des<lb/>
+Satzes „der Abendſtern iſt ein von der Sonne beleuchteter Körper.“<lb/>
+Jemand der nicht wüßte, daß der Abendſtern der Morgenſtern iſt,<lb/>
+könnte den einen Gedanken für wahr, den andern für falſch halten.<lb/>
+Der Gedanke kann alſo nicht die Bedeutung des Satzes ſein, viel¬<lb/>
+mehr werden wir ihn als den Sinn aufzufaſſen haben. Wie iſt<lb/>
+es nun aber mit der Bedeutung? Dürfen wir überhaupt danach<lb/>
+fragen? Hat vielleicht ein Satz als Ganzes nur einen Sinn, aber<lb/>
+keine Bedeutung? Man wird jedenfalls erwarten können, daß<lb/>
+ſolche Sätze vorkommen, ebenſogut, wie es Satzteile giebt, die<lb/>
+wohl einen Sinn, aber keine Bedeutung haben. Und Sätze, welche<lb/>
+Eigennamen ohne Bedeutung enthalten, werden von der Art ſein.<lb/>
+Der Satz „Odyſſeus wurde tief ſchlafend in Ithaka ans Land ge¬<lb/>
+ſetzt“ hat offenbar einen Sinn. Da es aber zweifelhaft iſt, ob<lb/>
+der darin vorkommende Name „Odyſſeus“ eine Bedeutung habe,<lb/>
+ſo iſt es damit auch zweifelhaft, ob der ganze Satz eine habe.<lb/>
+Aber ſicher iſt doch, daß jemand, der im Ernſte den Satz für wahr<lb/>
+oder für falſch hält, auch dem Namen „Odyſſeus“ eine Bedeutung<lb/>
+zuerkennt, nicht nur einen Sinn; denn der Bedeutung dieſes<lb/>
+<pb n="33" facs="#f0029"/>
+<fw type="header" place="top">Über Sinn und Bedeutung.<lb/>
+</fw> Namens wird ja das Prädicat zu- oder abgeſprochen. Wer eine<lb/>
+Bedeutung nicht anerkennt, der kann ihr ein Prädicat weder zu¬<lb/>
+noch abſprechen. Nun wäre aber das Vordringen bis zur Be¬<lb/>
+deutung des Namens überflüſſig; man könnte ſich mit dem Sinne<lb/>
+begnügen, wenn man beim Gedanken ſtehen bleiben wollte. Käme<lb/>
+es nur auf den Sinn des Satzes, den Gedanken, an, ſo wäre es<lb/>
+unnöthig, ſich um die Bedeutung eines Satztheils zu kümmern;<lb/>
+für den Sinn des Satzes kann ja nur der Sinn, nicht die Be¬<lb/>
+deutung dieſes Theiles in Betracht kommen. Der Gedanke bleibt<lb/>
+derſelbe, ob der Name „Odyſſeus“ eine Bedeutung hat oder nicht.<lb/>
+Daß wir uns überhaupt um die Bedeutung eines Satztheils be¬<lb/>
+mühen, iſt ein Zeichen dafür, daß wir auch für den Satz ſelbſt<lb/>
+eine Bedeutung im Allgemeinen anerkennen und fordern. Der<lb/>
+Gedanke verliert für uns an Werth, ſobald wir erkennen, daß zu<lb/>
+einem ſeiner Theile die Bedeutung fehlt. Wir ſind alſo wohl be¬<lb/>
+rechtigt, uns nicht mit dem Sinne eines Satzes zu begnügen,<lb/>
+ſondern auch nach ſeiner Bedeutung zu fragen. Warum wollen<lb/>
+wir denn aber, daß jeder Eigenname nicht nur einen Sinn, ſondern<lb/>
+auch eine Bedeutung habe? Warum genügt uns der Gedanke<lb/>
+nicht? Weil und ſoweit es uns auf ſeinen Wahrheitswerth an¬<lb/>
+kommt. Nicht immer iſt dies der Fall. Beim Anhören eines<lb/>
+Epos z. B. feſſeln uns neben dem Wohlklange der Sprache allein<lb/>
+der Sinn der Sätze und die davon erweckten Vorſtellungen und<lb/>
+Gefühle. Mit der Frage nach der Wahrheit würden wir den<lb/>
+Kunſtgenuß verlaſſen und uns einer wiſſenſchaftlichen Betrachtung<lb/>
+zuwenden. Daher iſt es uns auch gleichgiltig, ob der Name<lb/>
+„Odyſſeus” z. B. eine Bedeutung habe, ſolange wir das Gedicht<lb/>
+als Kunſtwerk aufnehmen<note place="foot" n="*)">Es wäre wünſchenswerth, für Zeichen, die nur einen Sinn haben<lb/>
+ſollen, einen beſondern Ausdruck zu haben. Nennen wir ſolche etwa Bilder,<lb/>
+ſo würden die Worte des Schauſpielers auf der Bühne Bilder ſein, ja der<lb/>
+Schauſpieler ſelber wäre ein Bild.</note>. Das Streben nach Wahrheit alſo<lb/>
+iſt es, was uns überall vom Sinne zur Bedeutung vorzudringen<lb/>
+treibt.</p><lb/>
+<p>Wir haben geſehn, daß zu einem Satze immer dann eine<lb/>
+Bedeutung zu ſuchen iſt, wenn es auf die Bedeutung der Beſtand¬<lb/>
+theile ankommt; und das iſt immer dann und nur dann der Fall,<lb/>
+wenn wir nach dem Wahrheitswerthe fragen.</p><lb/>
+<fw type="sig" place="bottom">Zeitſchrift f. Philoſ. u. Philoſ. Kritik. 100. Bd. 3<lb/>
+</fw>
+<pb n="34" facs="#f0030"/>
+<fw type="header" place="top">G. Frege:<lb/>
+</fw> <p>So werden wir dahin gedrängt, den <hi rendition="#g">Wahrheitswerth</hi> <choice><sic>¬</sic><corr/></choice><lb/>
+eines Satzes als ſeine Bedeutung anzuerkennen. Ich verſtehe<lb/>
+unter dem Wahrheitswerthe eines Satzes den Umſtand, daß er<lb/>
+wahr oder daß er falſch iſt, Weitere Wahrheitswerthe giebt es<lb/>
+nicht. Ich nenne der Kürze halber den einen das Wahre, den<lb/>
+andern das Falſche. Jeder Behauptungsſatz, in dem es auf die<lb/>
+Bedeutung der Wörter ankommt, iſt alſo als Eigenname aufzu¬<lb/>
+faſſen, und zwar iſt ſeine Bedeutung, falls ſie vorhanden iſt, ent¬<lb/>
+weder das Wahre oder das Falſche. Dieſe beiden Gegenſtände<lb/>
+werden von Jedem, wenn auch nur ſtillſchweigend, anerkannt, der<lb/>
+überhaupt urtheilt, der etwas für wahr hält, alſo auch vom<lb/>
+Skeptiker. Die Bezeichnung der Wahrheitswerthe als Gegenſtände<lb/>
+mag hier noch als willkürlicher Einfall und vielleicht als bloßes<lb/>
+Spiel mit Worten erſcheinen, aus dem man keine tiefgehende<lb/>
+Folgerungen ziehen dürfe. Was ich einen Gegenſtand nenne, kann<lb/>
+genauer nur im Zuſammenhange mit Begriff und Beziehung<lb/>
+erörtert werden. Das will ich einem andern Aufſatze vorbehalten.<lb/>
+Aber ſoviel möchte doch ſchon hier klar ſein, daß in jedem Urtheile <note place="foot" n="*)">Ein Urtheil iſt mir nicht das bloße Faſſen eines Gedankens, ſondern<lb/>
+die Anerkennung ſeiner Wahrheit.</note><lb/>
+— und ſei es noch ſo ſelbſtverſtändlich — ſchon der Schritt von<lb/>
+der Stufe der Gedanken zur Stufe der Bedeutungen (des Ob¬<lb/>
+jectiven) geſchehen iſt.</p><lb/>
+<p>Man könnte verſucht ſein, das Verhältniß des Gedankens zum<lb/>
+Wahren nicht als das des Sinnes zur Bedeutung, ſondern als<lb/>
+das des Subjects zum Prädicate anzuſehen. Man kann ja geradezu<lb/>
+ſagen: „der Gedanke, daß 5 eine Primzahl iſt, iſt wahr“. Wenn<lb/>
+man aber genauer zuſieht, ſo bemerkt man, daß damit eigentlich<lb/>
+nichts mehr geſagt iſt als in dem einfachen Satze „5 iſt eine<lb/>
+Primzahl“. Die Behauptung der Wahrheit liegt in beiden Fällen<lb/>
+in der Form des Behauptungsſatzes, und da, wo dieſe nicht ihre<lb/>
+gewöhnliche Kraft hat, z. B. im Munde eines Schauſpielers auf<lb/>
+der Bühne, enthält der Satz „der Gedanke, daß 5 eine Primzahl<lb/>
+iſt, iſt wahr“ eben auch nur einen Gedanken, und zwar denſelben<lb/>
+Gedanken wie das einfache „5 iſt eine Primzahl“. Daraus iſt zu<lb/>
+entnehmen, daß das Verhältniß des Gedankens zum Wahren doch<lb/>
+mit dem des Subjects zum Prädicate nicht verglichen werden darf.<lb/>
+<pb n="35" facs="#f0031"/>
+<fw type="header" place="top">Über Sinn und Bedeutung.<lb/>
+</fw> Subject und Prädicat ſind ja (im logiſchen Sinne verſtanden)<lb/>
+Gedankentheile; ſie ſtehen auf derſelben Stufe für das Erkennen.<lb/>
+Man gelangt durch die Zuſammenfügung von Subject und Prä¬<lb/>
+dicat immer nur zu einem Gedanken, nie von einem Sinne zu<lb/>
+deſſen Bedeutung, nie von einem Gedanken zu deſſen Wahrheits¬<lb/>
+werthe. Man bewegt ſich auf derſelben Stufe, aber man ſchreitet<lb/>
+nicht von einer Stufe zur nächſten vor. Ein Wahrheitswerth kann<lb/>
+nicht Theil eines Gedankens ſein, ſowenig wie etwa die Sonne,<lb/>
+weil er kein Sinn iſt, ſondern ein Gegenſtand.</p><lb/>
+<p>Wenn unſere Vermuthung richtig iſt, daß die Bedeutung eines<lb/>
+Satzes ſein Wahrheitswerth iſt, ſo muß dieſer unverändert bleiben,<lb/>
+wenn ein Satztheil durch einen Ausdruck von derſelben Bedeutung,<lb/>
+aber anderm Sinne erſetzt wird. Und das iſt in der That der<lb/>
+Fall. Leibnitz erklärt gradezu: „<hi rendition="#aq">Eadem sunt, quae sibi mutuo<lb/>
+substitui possunt, ſalva veritate</hi>“. Was ſonſt als der Wahrheits¬<lb/>
+werth könnte auch gefunden werden, das ganz allgemein zu jedem<lb/>
+Satze gehört, bei dem überhaupt die Bedeutung der Beſtandtheile<lb/>
+in Betracht kommt, was bei einer Erſetzung der angegebenen Art<lb/>
+unverändert bliebe?</p><lb/>
+<p>Wenn nun der Wahrheitswerth eines Satzes deſſen Bedeutung<lb/>
+iſt, ſo haben einerſeits alle wahren Sätze dieſelbe Bedeutung, andrer¬<lb/>
+ſeits alle falſchen. Wir ſehn daraus, daß in der Bedeutung des<lb/>
+Satzes alles Einzelne verwiſcht iſt. Es kann uns alſo niemals<lb/>
+auf die Bedeutung eines Satzes allein ankommen; aber auch der<lb/>
+bloße Gedanke giebt keine Erkenntnis, ſondern erſt der Gedanke<lb/>
+zuſammen mit ſeiner Bedeutung, d. h. ſeinem Wahrheitswerthe.<lb/>
+Urtheilen kann als Fortſchreiten von einem Gedanken zu ſeinem<lb/>
+Wahrheitswerthe gefaßt werden. Freilich ſoll dies keine Definition<lb/>
+ſein. Das Urtheilen iſt eben etwas ganz Eigenartiges und Un¬<lb/>
+vergleichliches. Man könnte auch ſagen Urtheilen ſei Unterſcheiden<lb/>
+von Theilen innerhalb des Wahrheitswerthes. Dieſe Unter¬<lb/>
+ſcheidung geſchieht durch Rückgang zum Gedanken. Jeder Sinn,<lb/>
+der zu einem Wahrheitswerthe gehört, würde einer eignen Weiſe<lb/>
+der Zerlegung entſprechen. Das Wort „Theil“ habe ich hier<lb/>
+allerdings in beſondrer Weiſe gebraucht. Ich habe nämlich das<lb/>
+Verhältniß des Ganzen und des Theils vom Satze auf ſeine Be¬<lb/>
+deutung übertragen, indem ich die Bedeutung eines Wortes Theil<lb/>
+der Bedeutung des Satzes genannt habe, wenn das Wort ſelbſt<lb/>
+<fw type="sig" place="bottom">3*<lb/>
+</fw>
+<pb n="36" facs="#f0032"/>
+<fw type="header" place="top">G. <hi rendition="#g">Frege</hi>:<lb/>
+</fw> Theil dieſes Satzes iſt, eine Redeweiſe, die freilich anfechtbar iſt,<lb/>
+weil bei der Bedeutung durch das Ganze und einen Theil der<lb/>
+andere nicht beſtimmt iſt, und weil man bei Körpern das Wort<lb/>
+Theil ſchon in anderm Sinne gebraucht. Es müßte ein eigner<lb/>
+Ausdruck hierfür geſchaffen werden.</p><lb/>
+<p>Es ſoll nun die Vermuthung, daß der Wahrheitswerth eines<lb/>
+Satzes deſſen Bedeutung iſt, weiter geprüft werden. Wir haben<lb/>
+gefunden, daß der Wahrheitswerth eines Satzes unberührt bleibt,<lb/>
+wenn wir darin einen Ausdruck durch einen gleichbedeutenden<lb/>
+erſetzen: wir haben aber dabei den Fall noch nicht betrachtet, daß<lb/>
+der zu erſetzende Ausdruck ſelber ein Satz iſt. Wenn nun unſere<lb/>
+Anſicht richtig iſt, ſo muß der Wahrheitswerth eines Satzes, der<lb/>
+einen andern als Theil enthält, unverändert bleiben, wenn wir<lb/>
+für den Theilſatz einen andern einſetzen, deſſen Wahrheitswerth<lb/>
+derſelbe iſt. Ausnahmen ſind dann zu erwarten, wenn das Ganze<lb/>
+oder der Theilſatz gerade oder ungerade Rede ſind; denn, wie wir<lb/>
+geſehn haben, iſt die Bedeutung der Worte dann nicht die gewöhn¬<lb/>
+liche. Ein Satz bedeutet in der geraden Rede wieder einen Satz<lb/>
+und in der ungeraden einen Gedanken.</p><lb/>
+<p>Wir werden ſo auf die Betrachtung der Nebenſätze hingelenkt.<lb/>
+Dieſe treten ja als Theile eines Satzgefüges auf, das vom logiſchen<lb/>
+Geſichtspunkte aus gleichfalls als Satz, und zwar als Hauptſatz,<lb/>
+erſcheint. Aber es tritt uns hier die Frage entgegen, ob denn von<lb/>
+den Nebenſätzen gleichfalls gilt, daß ihre Bedeutung ein Wahrheits¬<lb/>
+werth ſei. Von der ungeraden Rede wiſſen wir ja ſchon das<lb/>
+Gegentheil. Die Grammatiker ſehen die Nebenſätze als Vertreter<lb/>
+von Satztheilen an und theilen ſie danach ein in Nennſätze, Bei¬<lb/>
+ſätze, Adverbſätze. Daraus könnte man die Vermuthung ſchöpfen,<lb/>
+daß die Bedeutung eines Nebenſatzes nicht ein Wahrheitswerth,<lb/>
+ſondern gleichartig ſei der eines Nennworts oder Beiworts oder<lb/>
+Adverbs, kurz eines Satztheils, der als Sinn keinen Gedanken,<lb/>
+ſondern nur einen Theil eines ſolchen hat. Nur eine eingehendere<lb/>
+Unterſuchung kann darüber Klarheit verſchaffen. Wir werden uns<lb/>
+dabei nicht ſtreng an den grammatiſchen Leitfaden halten, ſondern<lb/>
+das zuſammenfaſſen, was logiſch gleichartig iſt. Suchen wir zu¬<lb/>
+nächſt ſolche Fälle auf, in denen der Sinn des Nebenſatzes, wie<lb/>
+wir eben vermutheten, kein ſelbſtändiger Gedanke iſt.</p><lb/>
+<pb n="37" facs="#f0033"/>
+<fw type="header" place="top">Über Sinn und Bedeutung.<lb/>
+</fw> <p>Zu den mit „daß“ eingeleiteten abſtracten Nennſätzen gehört<lb/>
+auch die ungerade Rede, von der wir geſehen haben, daß in ihr<lb/>
+die Wörter ihre ungerade Bedeutung haben, welche mit dem über¬<lb/>
+einſtimmt, was gewöhnlich ihr Sinn iſt. In dieſem Falle hat<lb/>
+alſo der Nebenſatz als Bedeutung einen Gedanken, keinen Wahr¬<lb/>
+heitswerth; als Sinn keinen Gedanken, ſondern den Sinn der<lb/>
+Worte „der Gedanke, daß.....“, welcher nur Theil des Ge¬<lb/>
+dankens des ganzen Satzgefüges iſt. Dies kommt vor nach „ſagen“,<lb/>
+„hören“, „meinen“, „überzeugt ſein“, „ſchließen“ und ähnlichen<lb/>
+Wörtern. <note place="foot" n="*)">In „<hi rendition="#aq">A</hi> log, daß er den <hi rendition="#aq">B</hi> geſehen habe“ bedeutet der Nebenſatz<lb/>
+einen Gedanken, von dem erſtens geſagt wird, daß A ihn als wahr behauptete,<lb/>
+und zweitens, daß <hi rendition="#aq">A</hi> von ſeiner Falſchheit überzeugt war.</note>Anders, und zwar ziemlich verwickelt, liegt die Sache<lb/>
+nach Wörtern wie „erkennen“, „wiſſen“, „wähnen“, was ſpäter zu<lb/>
+betrachten ſein wird.</p><lb/>
+<p>Daß in unſern Fällen die Bedeutung des Nebenſatzes in der<lb/>
+That der Gedanke iſt, ſieht man auch daran, daß es für die<lb/>
+Wahrheit des Ganzen gleichgültig iſt, ob jener Gedanke wahr iſt<lb/>
+oder falſch. Man vergleiche z. B. die beiden Sätze: „Copernicus<lb/>
+glaubte, daß die Bahnen der Planeten Kreiſe ſeien“ und Coper¬<lb/>
+nicus glaubte, daß der Schein der Sonnenbewegung durch die<lb/>
+wirkliche Bewegung der Erde hervorgebracht werde“. Man kann<lb/>
+hier unbeſchadet der Wahrheit den einen Nebenſatz für den andern<lb/>
+einſetzen. Der Hauptſatz zuſammen mit dem Nebenſatze hat als<lb/>
+Sinn nur einen einzigen Gedanken und die Wahrheit des Ganzen<lb/>
+ſchließt weder die Wahrheit noch die Unwahrheit des Nebenſatzes<lb/>
+ein. In dieſen Fällen iſt es nicht erlaubt, in dem Nebenſatze einen<lb/>
+Ausdruck durch einen andern zu erſetzen, der dieſelbe gewöhnliche<lb/>
+Bedeutung hat, ſondern nur durch einen ſolchen, welcher dieſelbe<lb/>
+ungerade Bedeutung, d. h. denſelben gewöhnlichen Sinn hat. Wenn<lb/>
+jemand ſchließen wollte: die Bedeutung eines Satzes iſt nicht ſein<lb/>
+Wahrheitswerth, „denn dann dürfte man ihn überall durch einen<lb/>
+andern von demſelben Wahrheitswerthe erſetzen“, ſo würde er zu¬<lb/>
+viel beweiſen; ebenſo gut könnte man behaupten, daß die Bedeu¬<lb/>
+tung des Wortes „Morgenſtern“ ſei nicht die Venus; denn man<lb/>
+dürfe nicht überall für „Morgenſtern“ „Venus“ ſagen. Mit Recht<lb/>
+kann man nur folgern, daß die Bedeutung des Satzes nicht<lb/>
+immer ſein Wahrheitswerth iſt, und daß „Morgenſtern“ nicht<lb/>
+<pb n="38" facs="#f0034"/>
+<fw type="header" place="top">G. Frege:<lb/>
+</fw> immer den Planeten Venus bedeutet, nämlich dann nicht, wenn<lb/>
+dies Wort ſeine ungerade Bedeutung hat. Ein ſolcher Ausnahme¬<lb/>
+fall liegt in den eben betrachteten Nebenſätzen vor, deren Bedeutung<lb/>
+ein Gedanke iſt.</p><lb/>
+<p>„Wenn man ſagt „es ſcheint, daß . . .“, ſo meint man „es<lb/>
+ſcheint mir, daß . . .“, oder „ich meine, daß . . .“. Wir haben<lb/>
+alſo wieder den Fall. Aehnlich liegt die Sache bei Ausdrücken,<lb/>
+wie „ſich freuen“, „bedauern“, „billigen“, „tadeln“, „hoffen“,<lb/>
+„fürchten“. Wenn Wellington ſich gegen Ende der Schlacht bei<lb/>
+Belle-Alliance freute, daß die Preußen kämen, ſo war der Grund<lb/>
+ſeiner Freude eine Ueberzeugung. Wenn er ſich getäuſcht hätte<lb/>
+ſo würde er ſich, ſolange ſein Wahn dauerte, nicht minder gefreut<lb/>
+haben, und bevor er die Ueberzeugung gewann, daß die Preußen<lb/>
+kämen, konnte er ſich nicht darüber freuen, obwohl ſie in der That<lb/>
+ſchon anrückten.</p><lb/>
+<p>Wie eine Ueberzeugung oder ein Glaube Grund eines Ge¬<lb/>
+fühls iſt, ſo kann ſie auch Grund einer Ueberzeugung ſein wie<lb/>
+beim Schließen. In dem Satze: „Columbus ſchloß aus der Run¬<lb/>
+dung der Erde, daß er nach Weſten reiſend Indien erreichen könne“,<lb/>
+haben wir als Bedeutungen von Theilen zwei Gedanken, daß die<lb/>
+Erde rund ſei, und daß Columbus nach Weſten reiſend Indien<lb/>
+erreichen könne. Es kommt hier wieder nur darauf an, daß<lb/>
+Columbus von dem einen und von dem andern überzeugt war,<lb/>
+und daß die eine Ueberzeugung Grund der andern war. Ob die<lb/>
+Erde wirklich rund iſt und Columbus nach Weſten reiſend wirklich<lb/>
+Indien ſo, wie er dachte, erreichen konnte, iſt für die Wahrheit<lb/>
+unſeres Satzes gleichgiltig; aber nicht gleichgiltig iſt, ob wir für<lb/>
+„die Erde“ ſetzen „der Planet, welcher von einem Monde begleitet<lb/>
+iſt, deſſen Durchmeſſer größer als der vierte Theil ſeines eignen<lb/>
+iſt“. Auch hier haben wir die ungerade Bedeutung der Worte.</p><lb/>
+<p>Die Adverbſätze des Zwecks mit „damit“ gehören auch hier¬<lb/>
+her; denn offenbar iſt der Zweck ein Gedanke; daher: ungerade<lb/>
+Bedeutung der Worte, Conjunctiv.</p><lb/>
+<p>Der Nebenſatz mit „daß“ nach „befehlen“, „bitten“, „ver¬<lb/>
+bieten“ würde in gerader Rede als Imperativ erſcheinen. Ein<lb/>
+ſolcher hat keine Bedeutung, ſondern nur einen Sinn. Ein Be¬<lb/>
+fehl, eine Bitte ſind zwar nicht Gedanken, aber ſie ſtehn doch mit<lb/>
+Gedanken auf derſelben Stufe. Daher haben in den von „befehlen“,<lb/>
+<pb n="39" facs="#f0035"/>
+<fw type="header" place="top">Über Sinn und Bedeutung.<lb/>
+</fw>„bitten“ u. ſ. w. abhängigen Nebenſätzen die Worte ihre ungerade<lb/>
+Bedeutung. Die Bedeutung eines ſolchen Satzes iſt alſo nicht ein<lb/>
+Wahrheitswerth, ſondern ein Befehl, eine Bitte u. dgl.</p><lb/>
+<p>Aehnlich iſt es bei der abhängigen Frage in Wendungen wie<lb/>
+„zweifeln, ob“, „nicht wiſſen, was“. Daß auch hier die Wörter<lb/>
+in ihrer ungeraden Bedeutung zu nehmen ſind, iſt leicht zu ſehn.<lb/>
+Die abhängigen Frageſätze mit „wer“, „was“, „wo“, „wann“,<lb/>
+„wie“, „wodurch“ u. ſ. w. nähern ſich zuweilen ſcheinbar ſehr<lb/>
+Adverbſätzen, in denen die Worte ihre gewöhnliche Bedeutung<lb/>
+haben. Sprachlich unterſcheiden ſich dieſe Fälle durch den Modus<lb/>
+des Verbs. Beim Conjunctiv haben wir abhängige Frage und<lb/>
+ungerade Bedeutung der Worte, ſodaß ein Eigenname nicht all¬<lb/>
+gemein durch einen andern deſſelben Gegenſtandes erſetzt werden<lb/>
+kann.</p><lb/>
+<p>In den bisher betrachteten Fällen hatten die Worte im Neben¬<lb/>
+ſatze ihre ungerade Bedeutung und daraus wurde erklärlich, daß<lb/>
+auch die Bedeutung des Nebenſatzes ſelbſt eine ungerade war; d. h.<lb/>
+nicht ein Wahrheitswerth, ſondern ein Gedanke, ein Befehl, eine<lb/>
+Bitte, eine Frage. Der Nebenſatz konnte als Nennwort aufgefaßt<lb/>
+werden, ja man könnte ſagen: als Eigenname jenes Gedankens,<lb/>
+jenes Befehls u. ſ. w., als welcher er in den Zuſammenhang des<lb/>
+Satzgefüges eintrat.</p><lb/>
+<p>Wir kommen jetzt zu andern Nebenſätzen, in denen die Worte<lb/>
+zwar ihre gewöhnliche Bedeutung haben, ohne daß doch als Sinn<lb/>
+ein Gedanke und als Bedeutung ein Wahrheitswerth auftritt. Wie<lb/>
+das möglich iſt, wird am beſten an Beiſpielen deutlich.</p><lb/>
+<p>„Der die elliptiſche Geſtalt der Planetenbahnen entdeckte, ſtarb<lb/>
+im Elend.“</p><lb/>
+<p>Wenn hier der Nebenſatz als Sinn einen Gedanken hätte, ſo<lb/>
+müßte es möglich ſein, dieſen auch in einem Hauptſatze auszu¬<lb/>
+drücken. Aber dies geht nicht, weil das grammatiſche Subject<lb/>
+„der“ keinen ſelbſtändigen Sinn hat, ſondern die Beziehungen auf<lb/>
+den Nachſatz „ſtarb im Elend“ vermittelt. Daher iſt auch der<lb/>
+Sinn des Nebenſatzes kein vollſtändiger Gedanke und ſeine Be¬<lb/>
+deutung kein Wahrheitswerth, ſondern Kepler. Man könnte ein¬<lb/>
+wenden, daß der Sinn des Ganzen doch als Theil einen Gedanken<lb/>
+einſchließe, nämlich daß es einen gab, der die elliptiſche Geſtalt<lb/>
+der Planetenbahnen zuerſt erkannte; denn wer das Ganze für wahr<lb/>
+<pb n="40" facs="#f0036"/>
+<fw type="header" place="top">G. <hi rendition="#g">Frege</hi>:<lb/>
+</fw>halte, könne dieſen Theil nicht verneinen. Das Letzte iſt zweifel¬<lb/>
+los; aber nur weil ſonſt der Nebenſatz „der die elliptiſche Geſtalt<lb/>
+der Planetenbahnen entdeckte“ keine Bedeutung hätte. Wenn man<lb/>
+etwas behauptet, ſo iſt immer die Vorausſetzung ſelbſtverſtändlich,<lb/>
+daß die gebrauchten einfachen oder zuſammengeſetzten Eigennamen<lb/>
+eine Bedeutung haben. Wenn man alſo behauptet, „Kepler ſtarb<lb/>
+im Elend“, ſo iſt dabei vorausgeſetzt, daß der Name „Kepler“<lb/>
+etwas bezeichne; aber darum iſt doch im Sinne des Satzes „Kepler<lb/>
+ſtarb im Elend“ der Gedanke, daß der Name „Kepler“ etwas<lb/>
+bezeichne nicht enthalten. Wenn das der Fall wäre, müßte die<lb/>
+Verneinung nicht lauten<lb/>
+<hi rendition="#et">„Kepler ſtarb nicht im Elend“,</hi><lb/>
+ſondern<lb/>
+<hi rendition="#et">„Kepler ſtarb nicht im Elend, oder der Name ,Kepler‘ iſt<lb/>
+bedeutungslos“</hi><lb/>
+Daß der Name „Kepler“ etwas bezeichne, iſt vielmehr Voraus¬<lb/>
+ſetzung ebenſo für die Behauptung<lb/>
+<hi rendition="#et">„Kepler ſtarb im Elend“</hi><lb/>
+wie für die entgegengeſetzte. Nun haben die Sprachen den Mangel,<lb/>
+daß in ihnen Ausdrücke möglich ſind, welche nach ihrer gramma¬<lb/>
+tiſchen Form beſtimmt erſcheinen, einen Gegenſtand zu bezeichnen,<lb/>
+dieſe ihre Beſtimmung aber in beſondern Fällen nicht erreichen,<lb/>
+weil das von der Wahrheit eines Satzes abhängt. So hängt es<lb/>
+von der Wahrheit des Satzes<lb/>
+<hi rendition="#et">„es gab einen, der die elliptiſche Geſtalt der Planeten¬<lb/>
+bahnen entdeckte“</hi><lb/>
+ab, ob der Nebenſatz<lb/>
+<hi rendition="#et">„der die elliptiſche Geſtalt der Planetenbahnen entdeckte“</hi><lb/>
+wirklich einen Gegenſtand bezeichnet, oder nur den Schein davon<lb/>
+erweckt, in der That jedoch bedeutungslos iſt. Und ſo kann es<lb/>
+ſcheinen, als ob unſer Nebenſatz als Theil ſeines Sinnes den Ge¬<lb/>
+danken enthalte, es habe einen gegeben, der die elliptiſche Geſtalt<lb/>
+der Planetenbahnen entdeckte. Wäre das richtig, ſo müßte die<lb/>
+Verneinung lauten:<lb/>
+<hi rendition="#et">„der die elliptiſche Geſtalt der Planetenbahnen zuerſt<lb/>
+erkannte, ſtarb nicht im Elend, oder es gab keinen der die<lb/>
+elliptiſche Geſtalt der Planetenbahnen entdeckte.“</hi><lb/>
+<pb n="41" facs="#f0037"/>
+<fw type="header" place="top">Über Sinn und Bedeutung.<lb/>
+</fw>Dies liegt alſo an einer Unvollkommenheit der Sprache, von der<lb/>
+übrigens auch die Zeichenſprache der Analyſis nicht ganz frei iſt;<lb/>
+auch da können Zeichenverbindungen vorkommen, die den Schein<lb/>
+erwecken, als bedeuteten ſie etwas, die aber wenigſtens bisher noch<lb/>
+bedeutungslos ſind, z. B. divergente unendliche Reihen. Man kann<lb/>
+dies vermeiden, z. B. durch die beſondere Feſtſetzung, daß divergente<lb/>
+unendliche Reihen die Zahl 0 bedeuten ſollen. Von einer logiſch<lb/>
+vollkommenen Sprache (Begriffsſchrift) iſt zu verlangen, daß jeder<lb/>
+Ausdruck, der aus ſchon eingeführten Zeichen in grammatiſch richtiger<lb/>
+Weiſe als Eigenname gebildet iſt, auch in der That einen Gegen¬<lb/>
+ſtand bezeichne, und daß kein Zeichen als Eigenname neu ein¬<lb/>
+geführt werde, ohne daß ihm eine Bedeutung geſichert ſei. Man<lb/>
+warnt in den Logiken vor der Vieldeutigkeit der Ausdrücke als<lb/>
+einer Quelle von logiſchen Fehlern. Für mindeſtens ebenſo an¬<lb/>
+gebracht halte ich die Warnung vor ſcheinbaren Eigennamen, die<lb/>
+keine Bedeutung haben. Die Geſchichte der Mathematik weiß von<lb/>
+Irrthümern zu erzählen, die daraus entſtanden ſind. Der dema¬<lb/>
+gogiſche Mißbrauch liegt hierbei ebenſo nahe, vielleicht näher als<lb/>
+bei vieldeutigen Wörtern. „Der Wille des Volks“ kann als Bei¬<lb/>
+ſpiel dazu dienen; denn, daß es wenigſtens keine allgemein an¬<lb/>
+genommene Bedeutung dieſes Ausdrucks giebt, wird leicht feſtzu¬<lb/>
+ſtellen ſein. Es iſt alſo durchaus nicht belanglos, die Quelle dieſer<lb/>
+Irrthümer wenigſtens für die Wiſſenſchaft ein für alle Mal zu<lb/>
+verſtopfen. Dann werden ſolche Einwände wie der eben be¬<lb/>
+ſprochene unmöglich, weil es dann nie von der Wahrheit eines<lb/>
+Gedankens abhängen kann, ob ein Eigenname eine Bedeu¬<lb/>
+tung hat.</p><lb/>
+<p>Wir können dieſen Nennſätzen eine Art der Beiſätze und<lb/>
+Adverbſätze in der Betrachtung anſchließen, welche logiſch nahe<lb/>
+mit ihnen verwandt ſind.</p><lb/>
+<p>Auch Beiſätze dienen dazu, zuſammengeſetzte Eigennamen zu<lb/>
+bilden, wenn ſie auch nicht wie die Nennſätze allein dazu hin¬<lb/>
+reichen. Dieſe Beiſätze ſind Beiwörtern gleich zu achten. Statt<lb/>
+„die Quadratwurzel aus 4, die kleiner iſt als 0“ kann man auch<lb/>
+ſagen „die negative Quadratwurzel aus 4“. Wir haben hier den<lb/>
+Fall, daß aus einem Begriffsausdrucke ein zuſammengeſetzter<lb/>
+Eigenname mit Hilfe des beſtimmten Artikels im Singular ge¬<lb/>
+bildet wird, was jedenfalls dann erlaubt iſt, wenn ein Gegenſtand<lb/>
+<pb n="42" facs="#f0038"/>
+<fw type="header" place="top">G. <hi rendition="#g">Frege</hi>:<lb/>
+</fw> und nur ein einziger unter den Begriff fällt <note place="foot" n="*)">Nach dem oben Bemerkten müßte einem ſolchen Ausdrucke eigentlich<lb/>
+durch beſondere Feſtſetzung immer eine Bedeutung geſichert werden, z. B.<lb/>
+durch die Beſtimmung, daß als ſeine Bedeutung die Zahl 0 zu gelten habe,<lb/>
+wenn kein Gegenſtand oder mehr als einer unter den Begriff fällt.</note>. Begriffsausdrücke<lb/>
+können nun ſo gebildet werden, daß Merkmale durch Beiſätze an¬<lb/>
+gegeben werden, wie in unſerm Beiſpiele durch den Satz „die<lb/>
+kleiner iſt als 0“. Es iſt einleuchtend, daß ein ſolcher Beiſatz<lb/>
+ebenſowenig wie vorhin der Nennſatz als Sinn einen Gedanken<lb/>
+noch als Bedeutung einen Wahrheitswerth haben kann, ſondern<lb/>
+er hat als Sinn nur einen Theil eines Gedankens, der in manchen<lb/>
+Fällen auch durch ein einzelnes Beiwort ausgedrückt werden kann.<lb/>
+Auch hier wie bei jenen Nennſätzen fehlt das ſelbſtändige Subject<lb/>
+und damit auch die Möglichkeit, den Sinn des Nebenſatzes in einem<lb/>
+ſelbſtändigen Hauptſatze wiederzugeben.</p><lb/>
+<p>Oerter, Zeitpunkte, Zeiträume ſind, logiſch betrachtet, Gegen¬<lb/>
+ſtände; mithin iſt die ſprachliche Bezeichnung eines beſtimmten<lb/>
+Ortes, eines beſtimmten Augenblicks oder Zeitraums als Eigen¬<lb/>
+name aufzufaſſen, Adverbſätze des Orts und der Zeit können nun<lb/>
+zur Bildung eines ſolchen Eigennamens in ähnlicher Weiſe ge¬<lb/>
+braucht werden, wie wir es eben von den Nenn- und Beiſätzen<lb/>
+geſehn haben. Ebenſo können Ausdrücke für Begriffe, die Oerter<lb/>
+u. ſ. w. unter ſich faſſen, gebildet werden. Auch hier iſt zu be¬<lb/>
+merken, daß der Sinn dieſer Nebenſätze nicht in einem Hauptſatze<lb/>
+wiedergegeben werden kann, weil ein weſentlicher Beſtandtheil,<lb/>
+nämlich die Orts- oder Zeitbeſtimmung fehlt, die durch ein Relativ¬<lb/>
+pronomen oder ein Fügewort nur angedeutet iſt<note place="foot" n="**)" xml:id="note-0038" next="#note-0039">Es ſind bei dieſen Sätzen übrigens leicht verſchiedene Auffaſſungen<lb/>
+möglich. Den Sinn des Satzes „nachdem Schleswig-Holſtein von Dänemark<lb/>
+losgeriſſen war, entzweite ſich Preußen und Oeſterreich“ können wir auch<lb/>
+wiedergeben in der Form „nach Losreißung Schleswig-Holſteins von Däne¬<lb/>
+mark entzweiten ſich Preußen und Oeſterreich“. Bei dieſer Faſſung iſt es<lb/>
+wohl hinreichend deutlich, daß als Theil dieſes Sinnes nicht der Gedanke auf¬<lb/>
+zufaſſen iſt, daß Schleswig-Holſtein einmal von Dänemark losgeriſſen iſt,<lb/>
+ſondern daß dies die nothwendige Vorausſetzung dafür iſt, daß der Ausdruck<lb/>
+„nach der Losreißung Schleswig-Holſteins von Dänemark“ überhaupt eine<lb/>
+Bedeutung habe. Es läßt ſich freilich <choice><sic>uuſer</sic><corr>unſer</corr></choice> Satz auch ſo auffaſſen, daß damit<lb/>
+geſagt ſein ſoll, es ſei einmal Schleswig-Holſtein von Dänemark losgeriſſen</note> .</p><lb/>
+<p>Auch in den Bedingungsſätzen iſt meiſtens, wie wir es eben<lb/>
+<pb n="43" facs="#f0039"/>
+<fw type="header" place="top">Über Sinn und Bedeutung.<lb/>
+</fw> bei Nenn-, Bei- und Adverbſätzen geſehn haben, ein unbeſtimmt<lb/>
+andeutender Beſtandtheil anzuerkennen, dem im Nachſatze ein eben¬<lb/>
+ſolcher entſpricht. Indem beide auf einander hinweiſen, verbinden<lb/>
+ſie beide Sätze zu einem Ganzen, das in der Regel nur einen<lb/>
+Gedanken ausdrückt. In dem Satze</p><lb/>
+<p>„wenn eine Zahl kleiner als 1 und größer als 0 iſt, ſo iſt<lb/>
+auch ihr Quadrat kleiner als 1 und größer als 0“<lb/>
+iſt dieſer Beſtandtheil „eine Zahl“ im Bedingungsſatze und „ihr“<lb/>
+im Nachſatze. Eben durch dieſe Unbeſtimmtheit erhält der Sinn<lb/>
+die Allgemeinheit, welche man von einem Geſetze erwartet. Eben<lb/>
+dadurch wird aber auch bewirkt, daß der Bedingungsſatz allein<lb/>
+keinen vollſtändigen Gedanken als Sinn hat und mit dem Nach¬<lb/>
+ſatze zuſammen einen Gedanken, und zwar nur einen einzigen,<lb/>
+ausdrückt, deſſen Theile nicht mehr Gedanken ſind. Es iſt im All¬<lb/>
+gemeinen unrichtig, daß im hypothetiſchen Urtheile zwei Urtheile<lb/>
+in Wechſelbeziehung geſetzt werden. Wenn man ſo oder ähnlich<lb/>
+ſagt, gebraucht man das Wort „Urtheil“ in demſelben Sinne, den<lb/>
+ich mit dem Worte „Gedanke“ verbunden habe, ſodaß ich dafür<lb/>
+ſagen würde: „in einem hypothetiſchen Gedanken werden zwei Ge¬<lb/>
+danken in Wechſelbeziehung geſetzt.“ Dies könnte nur dann wahr<lb/>
+ſein, wenn ein unbeſtimmt andeutender Beſtandtheil fehlte<note place="foot" n="*)">Zuweilen fehlt eine ausdrückliche ſprachliche Andeutung und muß dem<lb/>
+ganzen Zuſammenhange entnommen werden.</note>; dann<lb/>
+wäre aber auch keine Allgemeinheit vorhanden.</p><lb/>
+<p>Wenn ein Zeitpunkt im Bedingungs- und Nachſatze unbeſtimmt<lb/>
+anzudeuten iſt, ſo geſchieht es nicht ſelten nur durch das <hi rendition="#aq">Tempus<lb/>
+praesens</hi> des Verbs, das in dieſem Falle nicht die Gegenwart<lb/>
+mitbezeichnet. Dieſe grammatiſche Form iſt dann im Haupt- und<lb/>
+Nebenſatze der unbeſtimmt andeutende Beſtandtheil. „Wenn ſich<lb/>
+<note place="foot" n="**)" xml:id="note-0039" prev="#note-0038">worden. Dann haben wir einen Fall, der ſpäter zu betrachten ſein wird.<lb/>
+Verſetzen wir uns, um den Unterſchied klarer zu erkennen, in die Seele eines<lb/>
+Chineſen, der bei ſeiner geringen Kenntniß europäiſcher Geſchichte es für<lb/>
+falſch hält, daß einmal Schleswig-Holſtein von Dänemark losgeriſſen ſei.<lb/>
+Dieſer wird unſern Satz, in der erſten Weiſe aufgefaßt, weder für wahr, noch<lb/>
+für falſch halten, ſondern ihm jede Bedeutung abſprechen, weil dem Neben¬<lb/>
+ſatze eine ſolche fehlen würde. Dieſer würde nur ſcheinbar eine Zeitbeſtimmung<lb/>
+geben. Wenn er unſern Satz dagegen in der zweiten Weiſe auffaßt, wird er<lb/>
+in ihm einen Gedanken ausgedrückt finden, den er für falſch hielte, neben einem<lb/>
+Theile, der für ihn bedeutungslos wäre.</note>
+<pb n="44" facs="#f0040"/>
+<fw type="header" place="top">G. <hi rendition="#g">Frege</hi>:<lb/>
+</fw>die Sonne im Wendekreiſe des Krebſes befindet, haben wir auf<lb/>
+der nördlichen Erdhälfte den längſten Tag“, iſt ein Beiſpiel dafür.<lb/>
+Auch hier iſt es unmöglich den Sinn des Nebenſatzes in einem<lb/>
+Hauptſatze auszudrücken, weil dieſer Sinn kein vollſtändiger Ge¬<lb/>
+danke iſt; denn, wenn wir ſagten: „die Sonne befindet ſich im Wende¬<lb/>
+kreiſe des Krebſes“, ſo würden wir das auf unſere Gegenwart be¬<lb/>
+ziehen und damit den Sinn ändern. Ebenſowenig iſt der Sinn<lb/>
+des Hauptſatzes ein Gedanke; erſt das aus Haupt- und Nebenſatz<lb/>
+beſtehende Ganze enthält einen ſolchen. Uebrigens können auch<lb/>
+mehre gemeinſame Beſtandtheile im Bedingungs- und Nachſatze<lb/>
+unbeſtimmt angedeutet werden.</p><lb/>
+<p>Es iſt einleuchtend, daß Nennſätze „mit wer“, „was“ und<lb/>
+Adverbſätze mit „wo“, „wann“, „wo immer“, „wann immer“<lb/>
+vielfach als Bedingungsſätze dem Sinne nach aufzufaſſen ſind, z. B.<lb/>
+„Wer Pech angreift, beſudelt ſich.“</p><lb/>
+<p>Auch Beiſätze können Bedingungsſätze vertreten. So können<lb/>
+wir den Sinn unſeres vorhin angeführten Satzes auch in der<lb/>
+Form „das Quadrat einer Zahl, die kleiner als 1 und größer als 0<lb/>
+iſt, iſt kleiner als 1 und größer als 0“ ausdrücken.</p><lb/>
+<p>Ganz anders wird die Sache, wenn der gemeinſame Be¬<lb/>
+ſtandtheil von Hauptſatz und Nebenſatz durch einen Eigennamen<lb/>
+bezeichnet wird. In dem Satze:<lb/>
+<hi rendition="#et">„Napoleon, der die Gefahr für ſeine rechte Flanke erkannte,<lb/>
+führte ſelbſt ſeine Garden gegen die feindliche Stellung“</hi><lb/>
+ſind die beiden Gedanken ausgedrückt:<lb/>
+<hi rendition="#et">1. Napoleon erkannte die Gefahr für ſeine rechte Flanke;<lb/>
+2. Napoleon führte ſelbſt ſeine Garden gegen die feindliche<lb/>
+Stellung.</hi><lb/>
+Wann und wo dies geſchah, kann zwar nur aus dem Zuſammen¬<lb/>
+hange erkannt werden, iſt aber als dadurch beſtimmt anzuſehen.<lb/>
+Wenn wir unſern ganzen Satz als Behauptung ausſprechen, ſo<lb/>
+behaupten wir damit zugleich die beiden Theilſätze. Wenn einer<lb/>
+dieſer Theilſätze falſch iſt, ſo iſt damit das Ganze falſch. Hier<lb/>
+haben wir den Fall, daß der Nebenſatz für ſich allein als Sinn<lb/>
+einen vollſtändigen Gedanken hat (wenn wir ihn durch Zeit- und<lb/>
+Ortsangabe ergänzen). Die Bedeutung des Nebenſatzes iſt dem¬<lb/>
+nach ein Wahrheitswerth. Wir können alſo erwarten, daß er ſich<lb/>
+unbeſchadet der Wahrheit des Ganzen durch einen Satz von dem¬<lb/>
+<pb n="45" facs="#f0041"/>
+<fw type="header" place="top">Über Sinn und Bedeutung.<lb/>
+</fw> ſelben Wahrheitswerthe erſetzen laſſe. Dies iſt auch der Fall; nur<lb/>
+muß beachtet werden, daß ſein Subject „Napoleon“ ſein muß aus<lb/>
+einem rein grammatiſchen Grunde, weil er nur dann in die Form<lb/>
+eines zu „Napoleon“ gehörenden Beiſatzes gebracht werden kann.<lb/>
+Sieht man aber von der Forderung ab, ihn in dieſer Form zu<lb/>
+ſehn, und läßt man auch die Anreihung mit „und“ zu, ſo fällt<lb/>
+dieſe Beſchränkung hinweg.</p><lb/>
+<p>Auch in Nebenſätzen mit „obgleich“ werden vollſtändige Ge¬<lb/>
+danken ausgedrückt. Dieſes Fügewort hat eigentlich keinen Sinn<lb/>
+und verändert auch den Sinn des Satzes nicht, ſondern beleuchtet<lb/>
+ihn nur in eigenthümlicher Weiſe<note place="foot" n="*)">Aehnliches haben wir bei „aber“ „doch“.</note>. Wir könnten zwar unbe¬<lb/>
+ſchadet der Wahrheit des Ganzen den Conceſſivſatz durch einen<lb/>
+andern deſſelben Wahrheitswerthes erſetzen; aber die Beleuchtung<lb/>
+würde dann leicht unpaſſend erſcheinen, wie wenn man ein Lied<lb/>
+traurigen Inhalts nach einer luſtigen Weiſe ſingen wollte.</p><lb/>
+<p>In den letzten Fällen ſchloß die Wahrheit des Ganzen die<lb/>
+Wahrheit der Theilſätze ein. Anders iſt es, wenn ein Bedingungs¬<lb/>
+ſatz einen vollſtändigen Gedanken ausdrückt, indem er ſtatt des<lb/>
+nur andeutenden Beſtandtheils einen Eigennamen enthält oder<lb/>
+etwas, was dem gleich zu achten iſt. In dem Satze<lb/>
+<hi rendition="#et">„wenn jetzt die Sonne ſchon aufgegangen iſt, iſt der Himmel<lb/>
+ſtark bewölkt“</hi><lb/>
+iſt die Zeit die Gegenwart, alſo beſtimmt. Auch der Ort iſt als<lb/>
+beſtimmt zu denken. Hier kann man ſagen, daß eine Beziehung<lb/>
+zwiſchen den Wahrheitswerthen des Bedingungs- und Folgeſatzes<lb/>
+geſetzt ſei, nämlich die, daß der Fall nicht ſtattfinde, wo der Be¬<lb/>
+dingungsſatz das Wahre und der Nachſatz das Falſche bedeute.<lb/>
+Danach iſt unſer Satz wahr, ſowohl wenn jetzt die Sonne noch<lb/>
+nicht aufgegangen iſt, ſei nun der Himmel ſtark bewölkt oder nicht,<lb/>
+als auch wenn die Sonne ſchon aufgegangen iſt und der Himmel<lb/>
+ſtark bewölkt iſt. Da es hierbei nur auf die Wahrheitswerthe<lb/>
+ankommt, ſo kann man jeden der Theilſätze durch einen andern<lb/>
+von gleichem Wahrheitswerthe erſetzen, ohne den Wahrheitswerth<lb/>
+des Ganzen zu ändern. Freilich würde auch hier die Beleuchtung<lb/>
+meiſtens unpaſſend werden; der Gedanke würde leicht abgeſchmackt<lb/>
+<pb n="46" facs="#f0042"/>
+<fw type="header" place="top">G. <hi rendition="#g">Frege</hi>:<lb/>
+</fw>erſcheinen; aber das hat mit ſeinem Wahrheitswerthe nichts zu<lb/>
+thun. Man muß dabei immer beachten, daß Nebengedanken mit<lb/>
+anklingen, die aber nicht eigentlich ausgedrückt ſind und darum<lb/>
+in den Sinn des Satzes nicht eingerechnet werden dürfen, auf<lb/>
+deren Wahrheitswerth es alſo nicht ankommen kann <note place="foot" n="*)">Man könnte den Gedanken unſers Satzes auch ſo ausdrücken:<lb/>
+„entweder iſt jetzt die Sonne noch nicht aufgegangen, oder der Himmel<lb/>
+iſt ſtark bewölkt“,<lb/>
+woraus zu erſehen, wie dieſe Art der Satzverbindung aufzufaſſen iſt.</note>.</p><lb/>
+<p>Damit möchten die einfachen Fälle beſprochen ſein. Werfen<lb/>
+wir hier einen Blick auf das Erkannte zurück!</p><lb/>
+<p>Der Nebenſatz hat meiſtens als Sinn keinen Gedanken, ſondern<lb/>
+nur einen Theil eines ſolchen und folglich als Bedeutung keinen<lb/>
+Wahrheitswerth. Dies hat entweder darin ſeinen Grund, daß im<lb/>
+Nebenſatze die Wörter ihre ungerade Bedeutung haben, ſodaß die<lb/>
+Bedeutung, nicht der Sinn des Nebenſatzes ein Gedanke iſt, oder<lb/>
+darin, daß der Nebenſatz wegen eines darin nur unbeſtimmt an¬<lb/>
+deutenden Beſtandtheils unvollſtändig iſt, ſodaß er erſt mit dem<lb/>
+Hauptſatze zuſammen einen Gedanken ausdrückt. Es kommen aber<lb/>
+auch Fälle vor, wo der Sinn des Nebenſatzes ein vollſtändiger<lb/>
+Gedanke iſt, und dann kann er unbeſchadet der Wahrheit des<lb/>
+Ganzen durch einen andern von demſelben Wahrheitswerthe erſetzt<lb/>
+werden, ſoweit nicht grammatiſche Hinderniſſe vorliegen.</p><lb/>
+<p>Wenn man alle aufſtoßenden Nebenſätze hierauf anſieht, ſo<lb/>
+wird man bald ſolche treffen, die nicht recht in dieſe Fächer paſſen<lb/>
+wollen. Der Grund davon wird, ſoviel ich ſehe, darin liegen, daß<lb/>
+dieſe Nebenſätze keinen ſo einfachen Sinn haben. Faſt immer<lb/>
+ſcheint es, verbinden wir mit einem Hauptgedanken, den wir aus¬<lb/>
+ſprechen, Nebengedanken, die auch der Hörer, obwohl ſie nicht aus¬<lb/>
+gedrückt werden, mit unſern Worten verknüpft nach pſychologiſchen<lb/>
+Geſetzen. Und weil ſie ſo von ſelbſt mit unſern Worten verbunden<lb/>
+erſcheinen, faſt wie der Hauptgedanke ſelbſt, ſo wollen wir dann<lb/>
+auch wohl einen ſolchen Nebengedanken mit ausdrücken. Dadurch<lb/>
+wird der Sinn des Satzes reicher und es kann wohl geſchehn, daß<lb/>
+wir mehr einfache Gedanken als Sätze haben. In manchen Fällen<lb/>
+muß der Satz ſo verſtanden werden, in andern kann es zweifelhaft<lb/>
+ſein, ob der Nebengedanke mit zum Sinne des Satzes gehört oder<lb/>
+<pb n="47" facs="#f0043"/>
+<fw type="header" place="top">Über Sinn und Bedeutung.<lb/>
+</fw> ihn nur begleitet <note place="foot" n="*)">Für die Frage, ob eine Behauptung eine Lüge, ein Eid ein Meineid<lb/>
+ſei, kann dies von Wichtigkeit werden.</note>. So könnte man vielleicht finden, daß in<lb/>
+dem Satze<lb/>
+<hi rendition="#et">„Napoleon, der die Gefahr für ſeine rechte Flanke erkannte,<lb/>
+führte ſelbſt ſeine Garden gegen die feindliche Stellung“</hi><lb/>
+nicht nur die beiden oben angegebenen Gedanken ausgedrückt wären,<lb/>
+ſondern auch der, daß die Erkenntnis der Gefahr der Grund war,<lb/>
+weshalb er die Garden gegen die feindliche Stellung führte. Man<lb/>
+kann in der That zweifelhaft ſein, ob dieſer Gedanke nur leicht<lb/>
+angeregt, oder ob er wirklich ausgedrückt wird. Man lege ſich die<lb/>
+Frage vor, ob unſer Satz falſch wäre, wenn Napoleons Entſchluß<lb/>
+ſchon vor der Wahrnehmung der Gefahr gefaßt wäre. Könnte<lb/>
+unſer Satz trotzdem wahr ſein, ſo wäre unſer Nebengedanke nicht<lb/>
+als Theil des Sinnes unſers Satzes aufzufaſſen. Wahrſcheinlich<lb/>
+wird man ſich dafür entſcheiden. Im andern Falle würde die<lb/>
+Sachlage recht verwickelt: wir hätten dann mehr einfache Gedanken<lb/>
+als Sätze. Wenn wir nun auch den Satz<lb/>
+<hi rendition="#et">„Napoleon erkannte die Gefahr für ſeine rechte Flanke“</hi><lb/>
+durch einen andern deſſelben Wahrheitswerthes erſetzten, z. B. durch<lb/>
+<hi rendition="#et">„Napoleon war ſchon über 45 Jahre alt,“</hi><lb/>
+ſo würde damit nicht nur unſer erſter, ſondern auch unſer dritter<lb/>
+Gedanke geändert und damit könnte auch deſſen Wahrheitswerth<lb/>
+ein anderer werden — dann nämlich, wenn ſein Alter nicht Grund<lb/>
+des Entſchluſſes war, die Garden gegen den Feind zu führen.<lb/>
+Hieraus iſt zu ſehn, weshalb in ſolchen Fällen nicht immer Sätze<lb/>
+von demſelben Wahrheitswerthe für einander eintreten können.<lb/>
+Der Satz drückt dann eben vermöge ſeiner Verbindung mit einem<lb/>
+andern mehr aus, als für ſich allein.</p><lb/>
+<p>Betrachten wir nun Fälle, wo ſolches regelmäßig vorkommt.<lb/>
+In dem Satze<lb/>
+<hi rendition="#et">„Bebel wähnt, daß durch die Rückgabe Elſaß-Lothringens<lb/>
+Frankreichs Rachegelüſte beſchwichtigt werden können“</hi><lb/>
+ſind zwei Gedanken ausgedrückt, von denen aber nicht der eine<lb/>
+dem Haupt-, der andere dem Nebenſatze angehört, nämlich</p><lb/>
+<p>1) Bebel glaubt, daß durch die Rückgabe Elſaß-Lothringens<lb/>
+Frankreichs Rachegelüſte beſchwichtigt werden können;</p><lb/>
+<pb n="48" facs="#f0044"/>
+<fw type="header" place="top">G. <hi rendition="#g">Frege</hi>:<lb/>
+</fw> <p>2) durch die Rückgabe Elſaß-Lothringens können Frankreichs<lb/>
+Rachegelüſte nicht beſchwichtigt werden.</p><lb/>
+<p>In dem Ausdrucke des erſten Gedankens haben die Worte des<lb/>
+Nebenſatzes ihre ungerade Bedeutung, während dieſelben Worte im<lb/>
+Ausdrucke des zweiten Gedankens ihre gewöhnliche Bedeutung<lb/>
+haben. Wir ſehn daraus, daß der Nebenſatz in unſerm urſprüng¬<lb/>
+lichen Satzgefüge eigentlich doppelt zu nehmen iſt mit verſchiedenen<lb/>
+Bedeutungen, von denen die eine ein Gedanke, die andere ein<lb/>
+Wahrheitswerth iſt. Weil nun der Wahrheitswerth nicht die ganze<lb/>
+Bedeutung des Nebenſatzes iſt, können wir dieſen nicht einfach<lb/>
+durch einen andern deſſelben Wahrheitswerthes erſetzen. Aehnliches<lb/>
+haben wir bei Ausdrücken wie „wiſſen“, „erkennen“, „es iſt be¬<lb/>
+kannt“.</p><lb/>
+<p>Mit einem Nebenſatze des Grundes und dem zugehörigen<lb/>
+Hauptſatze drücken wir mehrere Gedanken aus, die aber nicht den<lb/>
+Sätzen einzeln entſprechen. Der Satz<lb/>
+<hi rendition="#et">„weil das Eis ſpecifiſch leichter als Waſſer iſt, ſchwimmt<lb/>
+es auf dem Waſſer“</hi><lb/>
+haben wir</p><lb/>
+<p>1) das Eis iſt ſpecifiſch leichter als Waſſer;</p><lb/>
+<p>2) wenn etwas ſpecifiſch leichter als Waſſer iſt, ſo ſchwimmt<lb/>
+es auf dem Waſſer;</p><lb/>
+<p>3) das Eis ſchwimmt auf dem Waſſer.</p><lb/>
+<p>Der dritte Gedanke brauchte allenfalls nicht ausdrücklich aufgeführt<lb/>
+zu werden als in den erſten beiden enthalten. Dagegen würden<lb/>
+weder der erſte und dritte, noch der zweite und dritte zuſammen<lb/>
+den Sinn unſers Satzes ausmachen. Man ſieht nun, daß in<lb/>
+unſerm Nebenſatze<lb/>
+<hi rendition="#et">„weil das Eis ſpecifiſch leichter als Waſſer iſt“</hi><lb/>
+ſowohl unſer erſter Gedanke, als auch ein Theil unſers zweiten<lb/>
+ausgedrückt iſt. Daher kommt es, daß wir unſern Nebenſatz nicht<lb/>
+einfach durch einen andern deſſelben Wahrheitswerthes erſetzen<lb/>
+können; denn dadurch würde auch unſer zweiter Gedanke geändert<lb/>
+und davon könnte leicht auch deſſen Wahrheitswerth berührt<lb/>
+werden.</p><lb/>
+<p>Aehnlich iſt die Sache in dem Satze<lb/>
+<hi rendition="#et">„wenn Eiſen ſpecifiſch leichter als Waſſer wäre, ſo würde<lb/>
+es auf dem Waſſer ſchwimmen.“</hi><lb/>
+<pb n="49" facs="#f0045"/>
+<fw type="header" place="top">Über Sinn und Bedeutung.<lb/>
+</fw> Wir haben hier die beiden Gedanken, daß Eiſen nicht ſpecifiſch<lb/>
+leichter iſt als Waſſer, und daß etwas auf dem Waſſer ſchwimmt,<lb/>
+wenn es ſpecifiſch leichter als Waſſer iſt. Der Nebenſatz drückt<lb/>
+wieder den einen und einen Theil des andern Gedankens aus.</p><lb/>
+<p>Wenn wir den früher betrachteten Satz<lb/>
+<hi rendition="#et">„nachdem Schleswig-Holſtein von Dänemark losgeriſſen<lb/>
+war, entzweiten ſich Preußen und Oeſterreich“</hi><lb/>
+ſo auffaſſen, daß darin der Gedanke ausgedrückt iſt, es ſei einmal<lb/>
+Schleswig-Holſtein von Dänemark losgeriſſen worden, ſo haben<lb/>
+wir erſtens dieſen Gedanken, zweitens den Gedanken, daß zu einer<lb/>
+Zeit, die durch den Nebenſatz näher beſtimmt iſt, Preußen und<lb/>
+Oeſterreich ſich entzweiten. Auch hier drückt dann der Nebenſatz<lb/>
+nicht nur einen Gedanken, ſondern auch einen Theil eines andern<lb/>
+aus. Daher darf man ihn nicht allgemein durch einen andern<lb/>
+deſſelben Wahrheitswerthes erſetzen.</p><lb/>
+<p>Es iſt ſchwer, alle in der Sprache gegebenen Möglichkeiten zu<lb/>
+erſchöpfen; aber ich hoffe doch im Weſentlichen die Gründe auf¬<lb/>
+gefunden zu haben, warum nicht immer unbeſchadet der Wahrheit<lb/>
+des ganzen Satzgefüges ein Nebenſatz durch einen andrn deſſelben<lb/>
+Wahrheitswerthes vertreten werden kann. Dieſe <choice><sic>ſinde</sic><corr>ſind</corr></choice></p><lb/>
+<p>1) daß der Nebenſatz keinen Wahrheitswerth bedeutet, indem<lb/>
+er nur einen Theil eines Gedankens ausdrückt;</p><lb/>
+<p>2) daß der Nebenſatz zwar einen Wahrheitswerth bedeutet,<lb/>
+aber ſich nicht darauf beſchränkt, indem ſein Sinn außer einem<lb/>
+Gedanken auch noch einen Theil eines andern Gedankens umfaßt.</p><lb/>
+<p>Der erſte Fall tritt ein<lb/>
+a) bei der ungeraden Bedeutung der Worte,<lb/>
+b) wenn ein Theil des Satzes nur unbeſtimmt andeutet,<lb/>
+ſtatt ein Eigenname zu ſein.</p><lb/>
+<p>Im zweiten Falle kann der Nebenſatz doppelt zu nehmen ſein,<lb/>
+nämlich einmal in gewöhnlicher Bedeutung, das andre Mal in<lb/>
+ungerader Bedeutung; oder es kann der Sinn eines Theiles des<lb/>
+Nebenſatzes zugleich Beſtandtheil eines andern Gedankens ſein, den<lb/>
+mit dem unmittelbar im Nebenſatze ausgedrückten zuſammen den<lb/>
+ganzen Sinn des Haupt- und Nebenſatzes ausmacht.</p><lb/>
+<p>Hieraus geht wohl mit hinreichender Wahrſcheinlichkeit hervor,<lb/>
+daß die Fälle, wo ein Nebenſatz nicht durch einen andern deſſelben<lb/>
+Wahrheitswertes erſetzbar iſt, nichts gegen unſere Anſicht beweiſen,<lb/>
+<fw type="sig" place="bottom">Ztſchrft. f. Philoſ. u. philoſ. Kritik. 100 Bd. 4<lb/>
+</fw>
+<pb n="50" facs="#f0046"/>
+der Wahrheitswerth ſei die Bedeutung des Satzes, deſſen Sinn<lb/>
+ein Gedanke iſt.</p><lb/>
+<p>Kehren wir nun zu unſerm Ausgangspunkte zurück!</p><lb/>
+<p>Wenn wir den Erkenntniswert von „<hi rendition="#aq">a=a</hi>“ und „<hi rendition="#aq">a=b</hi>“<lb/>
+im Allgemeinen verſchieden fanden, ſo erklärt ſich das dadurch,<lb/>
+daß für den Erkenntniswerth der Sinn des Satzes, nämlich der<lb/>
+in ihm ausgedrückte Gedanke, nicht minder in Betracht kommt als<lb/>
+ſeine Bedeutung, das iſt ſein Wahrheitswerth. Wenn nun <hi rendition="#aq">a=b</hi><lb/>
+iſt, ſo iſt zwar die Bedeutung von „<hi rendition="#aq">b</hi>“ dieſelbe wie die von „<hi rendition="#aq">a</hi>“<lb/>
+und alſo auch der Wahrheitswerth von „<hi rendition="#aq">a=b</hi>“ derſelbe wie von<lb/>
+„<hi rendition="#aq">a=a</hi>“. Trotzdem kann der Sinn von „<hi rendition="#aq">b</hi>“ von dem Sinne von<lb/>
+„<hi rendition="#aq">a</hi>“ verſchieden ſein, und mithin auch der in „<hi rendition="#aq">a=b</hi>“ ausgedrückte<lb/>
+Gedanke verſchieden von dem „<hi rendition="#aq">a=a</hi>“ ausgedrückten ſein; dann<lb/>
+haben beide Sätze auch nicht denſelben Erkenntnißwerth. Wenn<lb/>
+wir wie oben unter „Urteil“ verſtehn den Fortſchritt vom Ge¬<lb/>
+danken zu deſſen Wahrheitswerthe, ſo werden wir auch ſagen, daß<lb/>
+die Urteile verſchieden ſind.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>         <gap reason="insignificant"/>
+<pb facs="#f0047"/>
+<pb facs="#f0048"/>
+</body> </text> </TEI>

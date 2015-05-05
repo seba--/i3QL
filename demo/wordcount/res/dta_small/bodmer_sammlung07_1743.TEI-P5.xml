@@ -1,0 +1,3414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="dtabf">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Sammlung Critischer, Poetischer, und anderer geistvollen Schriften</title>
+<title type="sub">Zur Verbesserung des Urtheiles und des Witzes in den Wercken der Wohlredenheit und der Poesie</title>
+<title type="volume" n="7">Siebendes Stück</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118512315">
+<surname>Bodmer</surname>
+<forename>Johann Jacob</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">97</measure>
+<measure type="tokens">19353</measure>
+<measure type="types">5690</measure>
+<measure type="characters">134762</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:02Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/bodmer_sammlung07_1743</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/bodmer_sammlung07_1743</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/bodmer_sammlung07_1743</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/bodmer_sammlung07_1743</idno>
+<idno type="DTADirName">bodmer_sammlung07_1743</idno>
+<idno type="DTAID">20060</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">[Bodmer, Johann Jacob]: Sammlung Critischer, Poetischer, und anderer geistvollen Schriften. Bd. 7. Zürich, 1743.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Sammlung Critischer, Poetischer, und anderer geistvollen Schriften</title>
+<title level="m" type="sub">Zur Verbesserung des Urtheiles und des Witzes in den Wercken der Wohlredenheit und der Poesie</title>
+<title level="m" type="volume" n="7">Siebendes Stück</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118512315">
+<surname>Bodmer</surname>
+<forename>Johann Jacob</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">96 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Orell</name></publisher>
+<pubPlace>Zürich</pubPlace>
+<date type="publication">1743</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">SUB Göttingen, 8 SVA II, 4845:7</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20SVA%20II%2C%204845%3A7</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik; Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik; Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front><titlePage type="main">
+<pb n="[1]" facs="#f0001"/>
+<docTitle><titlePart type="main"><hi rendition="#fr"><hi rendition="#g #b"><hi rendition="#in">S</hi>ammlung</hi><lb/>
+Critiſcher, Poetiſcher,</hi><lb/>
+und anderer geiſtvollen<lb/>
+<hi rendition="#fr"><hi rendition="#g #b"><hi rendition="#in">S</hi>chriften,</hi></hi></titlePart><lb/>
+<titlePart type="desc">Zur Verbeſſerung<lb/>
+<hi rendition="#fr">des Urtheiles und des Witzes</hi><lb/>
+in den Wercken<lb/>
+der Wohlredenheit und der Poeſie.</titlePart></docTitle><lb/>
+<titlePart type="volume">Siebendes Stuͤck.</titlePart><lb/>
+<figure/> <docImprint><pubPlace>Zuͤrich,</pubPlace><lb/>
+Bey <publisher>Conrad Orell und Comp.</publisher> <docDate>1743.</docDate></docImprint><lb/>
+</titlePage>
+<pb n="[2]" facs="#f0002"/>
+</front><body>
+<pb n="3" facs="#f0003"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Von dem wichtigen Antheil,<lb/>
+den das Gluͤck beytragen muß,</hi><lb/>
+einen<lb/>
+<hi rendition="#fr"><hi rendition="#g">Epiſchen Poeten</hi></hi><lb/>
+<hi rendition="#b">zu formiren.<lb/>
+Nach den Grundſaͤtzen der</hi> <hi rendition="#aq">Inquiry into<lb/>
+the live and the Writings of<lb/>
+Homer.</hi></head><lb/>
+<p><hi rendition="#in">J</hi>Edermann wird mir einraͤumen, daß eine<lb/>
+Menge zufaͤlliger obgleich natuͤrlicher Urſa-<lb/>
+chen zuſammen eintreffen muß, einen ſol-<lb/>
+chen ſtarken und maͤchtigen Geiſt zu formieren,<lb/>
+wie Homers oder Virgils geweſen ſind, aber<lb/>
+wohl die wenigſten werden uͤberlegt haben, was<lb/>
+vor Zufaͤlligkeiten dieſes ſeyn, wie wichtig und ſelten<lb/>
+ſie ſeyn, und von was vor eigentlichen gantz ver-<lb/>
+ſchiedenen Urſachen ſie entſtehen. Eine Unterſu-<lb/>
+chung, welche uns nicht laͤnger in der ungewiſ-<lb/>
+ſen Verwunderung laſſen wird, daß in etlichen tau-<lb/>
+ſend Jahren nicht mehr als zween oder drey Men-<lb/>
+ſchen in dergleichen gluͤkliche Zufaͤlligkeiten gera-<lb/>
+then ſind, welche den homeriſchen Geiſt hervor-<lb/>
+gebracht haben!</p><lb/>
+<p>Zum allererſten koͤmmt es nicht wenig auf die<lb/>
+Temperatur des Clima, und die Beſchaffenheit<lb/>
+des Bodens an; eine zu fette und zu fruchtbare<lb/>
+Ebene macht die Einwohner weibiſch, und gebiehrt<lb/>
+Traͤgheit und Schlaͤfrigkeit: Dahingegen eine<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l <hi rendition="#aq">VII.</hi> St.] A 2</fw><fw type="catch" place="bottom">reine</fw><lb/>
+<pb n="4" facs="#f0004"/>
+<fw type="header" place="top"><hi rendition="#b">Von den gluͤcklichen Umſtaͤnden</hi></fw><lb/>
+reine und milde Luft, mannigfaltige Fruͤchte und<lb/>
+Felder, ſchoͤne Fluͤſſe in groſſer Anzahl, beſtaͤndig<lb/>
+kuͤhle Luͤfte, wann ſie zuſammen kommen, die Ge-<lb/>
+burten der Natur in allen Arten zu der hoͤchſten<lb/>
+Vollkommenheit bringen. Sie floͤſſen dem Men-<lb/>
+ſchen ein ſolch mildes Temperament und Leben<lb/>
+der Phantaſie ein, welche ihm die weiteſten Durch-<lb/>
+ſichten geſtatten, und die feineſten Begriffe von<lb/>
+der Natur und der Wahrheit mittheilen.</p><lb/>
+<p>Nach der gemeinen Eintheilung der Himmels-<lb/>
+ſtriche bringen die rauhen und kalten, die ſtaͤr-<lb/>
+keſten Coͤrper und die martialſten Geiſter, her-<lb/>
+vor; die heiſſen, traͤge Leiber, mit kunſtreichen und<lb/>
+hartnaͤkigten Leidenſchaften; aber die gemaͤſſigten<lb/>
+Gegenden, die unter dem guͤtigen Einfluſſe eines<lb/>
+muntern Himmels ligen, haben das beſte Ge-<lb/>
+ſchike fuͤr eine feine Vorſtellungskraft, und eine<lb/>
+geſchiktverfaſſte Wohlredenheit. Geſunder Ver-<lb/>
+ſtand iſt zwar, wie man ſagt, eine Frucht, die<lb/>
+in allen Laͤndern waͤchßt, und ich glaube es auch<lb/>
+in der That; allein die herrlichſten Baͤume und<lb/>
+ihre ſchoͤnſten Zweige und Reiſer, ſproſſen, ſo wie<lb/>
+andre Pflantzen, und wachſen in dem beſten Bo-<lb/>
+den und an den Orten, wo ſie die gluͤklichſte Lage<lb/>
+haͤben.</p><lb/>
+<p>Wenn ein Menſch in einem ſolchen Land und<lb/>
+unter einem ſo geneigten Aſpect der Natur in die<lb/>
+Welt gekommen iſt, ſo ſteht ihm hiernaͤchſt ein<lb/>
+groſſes darauf, wie er bey ſeiner Ankunft in die<lb/>
+Welt empfangen werde, in was vor einem Zu-<lb/>
+ſtande er die Dinge finde, und was vor Lenkun-<lb/>
+gen dieſe in einem erhabenen Geiſt, und hurtigen<lb/>
+<fw type="catch" place="bottom">Gemuͤ-</fw><lb/>
+<pb n="5" facs="#f0005"/>
+<fw type="header" place="top"><hi rendition="#b">fuͤr die epiſche Poeſie.</hi></fw><lb/>
+Gemuͤthe nothwendig hervorbringen. Leute, wel-<lb/>
+che mit Regierungsgeſchaͤften viel umgegangen<lb/>
+ſind, wiſſen am beſten, was vor Veraͤnderungen<lb/>
+die Zucht, Pflege, und Auferziehung hervorbrin-<lb/>
+gen koͤnnen, und ſind nicht erſtaunt, wann ſie<lb/>
+ſehen, wie die Menſchen mittelſt derſelben gleich-<lb/>
+ſam neugeſtaltet, und ſeltſamer verwandelt wer-<lb/>
+den, als durch die Zauberkuͤnſte der Urganda und<lb/>
+der Circe.</p><lb/>
+<p>Junge Gemuͤther koͤnnen von den Umſtaͤnden des<lb/>
+Landes, worinnen ſie gebohren und auferzogen<lb/>
+werden, ſo ſtarcke Eindruͤke empfangen, daß ſie<lb/>
+eine gewiſſe Aehnlichkeit mit dieſen Umſtaͤnden an<lb/>
+ſich nehmen, und die Merkmale der Lebensart, wel-<lb/>
+che ſie durchlaufen haben, mit ſich tragen. Ein<lb/>
+Menſch der groſſes Ungluͤk gehabt hat, iſt von<lb/>
+einem, der alle ſeine Lebenstage in voller Wohl-<lb/>
+farth zugebracht hat, leicht zu unterſcheiden; und<lb/>
+eine Perſon, die bey der Arbeit auferzogen wor-<lb/>
+den, hat ein gantz anders Ausſehen als eine an-<lb/>
+dere, die im Muͤſſiagang und in Wolluͤſten alt<lb/>
+worden iſt. Beydes unſer Verſtand und unſre<lb/>
+Auffuͤhrung fuͤhren das Gepraͤge unſers beſon-<lb/>
+dern Amtes, Standes, und unſerer Begegniſſe;<lb/>
+und wie eine adeliche Auferziehung einen Edelmann,<lb/>
+und eine baͤuriſche einen Landmann formiert, alſo<lb/>
+empfinden unſre Gemuͤther und Sitten gleicher-<lb/>
+geſtalt den Einfluß, den der Lauf unſers Lebens auf<lb/>
+ſie thut. Jn dieſer Betrachtung duͤrften die Um-<lb/>
+ſtaͤnde, welche die groͤſten Wuͤrkungen auf uns zu<lb/>
+haben ſcheinen, aus folgenden beſtehen.</p><lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">Erſt-</fw><lb/>
+<pb n="6" facs="#f0006"/>
+<fw type="header" place="top"><hi rendition="#b">Von den gluͤcklichen Umſtaͤnden</hi></fw><lb/>
+<p>Erſtlich, der Zuſtand des Landes, wo eine Per-<lb/>
+ſon gebohren und erzogen iſt, worunter ich die<lb/>
+allgemeinen Sitten der Einwohner mitbegreiffe,<lb/>
+ihre Policey und Religion, mit deren U<gap unit="chars" quantity="6" reason="illegible"/> und<lb/>
+Folgen; nemlich ihre Sitten, wie ſie uͤberhaupt<lb/>
+bey einer Nation ausſehen, ſofern ſie wohlgeſit-<lb/>
+tet und wohlgezogen oder barbariſch, wolluͤſtig<lb/>
+oder einfaͤltig und roh iſt.</p><lb/>
+<p>Hiernaͤchſt die Sitten der Zeiten, oder die<lb/>
+herrſchenden Naturelle und die Gewerbe, die den<lb/>
+Schwang haben. Dieſe zwey Stuͤke treffen ein<lb/>
+gantzes Volk an, und haben ihre Wirkung auf<lb/>
+daſſelbe insgeſamt.</p><lb/>
+<p>Von einer engern Natur iſt erſtlich die abſon-<lb/>
+derliche Auferziehung, und dann der eigene Weg,<lb/>
+in den wir in unſerm Leben einſchlagen, mit un-<lb/>
+ſerm Gluͤck in demſelbigen.</p><lb/>
+<p>Von dieſen Umſtaͤnden empfangen die Leute in<lb/>
+allen Laͤndern ihre Character und ihre Manieren.<lb/>
+Sie machen uns was wir ſind, in ſoferne als ſie<lb/>
+ſich uns empfindlich machen, und geben uns eine<lb/>
+abſonderliche Form, und Ausſehen. Eine Veraͤn-<lb/>
+derung nur in einem einzigen verurſachet eine Ver-<lb/>
+wandlung an uns; und wenn man ſie zuſammen<lb/>
+nimmt, muͤſſen wir ſie als die Modelle anſehen,<lb/>
+welche dieſe Gewohnheiten und Fertigkeiten in uns<lb/>
+formieren, die unſer Verhalten lenken, und unſre<lb/>
+Handlungen unterſchiedlich beſtimmen.</p><lb/>
+<fw type="catch" place="bottom">Es</fw><lb/>
+<pb n="7" facs="#f0007"/>
+<fw type="header" place="top"><hi rendition="#b">fuͤr die epiſche Poeſie.</hi></fw><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Es giebt Dinge, welche zwar in allen Welt-<lb/>
+altern begegnen, aber doch ſehr ſchwer zu beſchrei-<lb/>
+ben ſind. Wenig Leute ſind tuͤchtig ſie zu be-<lb/>
+merken; und darum ſind keine Worte gemacht<lb/>
+worden, ſolche Begriffe auszudruͤken, welche von<lb/>
+den entfernteſten Einſichten in die menſchlichen<lb/>
+Sachen <hi rendition="#fr">h</hi>ergenommen ſind. Von dieſer Art iſt<lb/>
+ein Umſtand, welcher das Schikſal aller Natio-<lb/>
+nen begleitet. Man mag ihn den <hi rendition="#fr">Fortgang</hi> oder<lb/>
+<hi rendition="#fr">Anwachß der Sitten</hi> nennen. Er entſteht groͤ-<lb/>
+ſtentheils von unſerm Gluͤck oder Ungluͤck. So<lb/>
+wie unſere Sachen ins Aufnehmen oder Abneh-<lb/>
+men kommen, ſo leben wir auch und ſo lenken<lb/>
+wir uns. Die groͤſſeſten Veraͤnderungen in<lb/>
+denſelben verurſachen die merklichſten Veraͤnde-<lb/>
+rungen bey einer Nation: Denn die Sitten<lb/>
+eines Volkes bleiben ſelten auf einem Orte be-<lb/>
+ſtehen, ſondern putzen ſich aus, oder verſchlim-<lb/>
+mern ſich. Bey Nationen, wo viele Jahre lang kei-<lb/>
+ne merkliche Gluͤkesveraͤnderungen begegnen, wird<lb/>
+das mannigfaltige Aufnehmen oder Abnehmen in<lb/>
+ihrem moraliſchen Character deſto weniger wahr-<lb/>
+genommen: Aber wann durch einen Landesuͤber-<lb/>
+fall oder Eroberung und Bezwingung die Geſtalt<lb/>
+der Dinge gantz und gar verkehret; oder wenn<lb/>
+die Ureinwohner und erſten Anbauer eines Landes<lb/>
+mittelſt Policey und guter Verfaſſungen aus ei-<lb/>
+nem Stand der Unwiſſenheit und Barbarey zu<lb/>
+Reichthum und Macht gelangen, alsdann werden<lb/>
+die Stufen des Anwachſes merklich: Wir koͤn-<lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">nen</fw><lb/>
+<pb n="8" facs="#f0008"/>
+<fw type="header" place="top"><hi rendition="#b">Von den gluͤcklichen Umſtaͤnden</hi></fw><lb/>
+nen dann alle Dinge im Wachſen ſehen, geſtalt<lb/>
+der <hi rendition="#aq">Genius</hi> und die Seele ſelbſt des Volkes ſich<lb/>
+zu hoͤhern Dingen, und einer edlern Art der Sit-<lb/>
+ten erhebet.</p><lb/>
+<p>Es iſt ein Gluͤk fuͤr einen Poeten in dieſen Zei-<lb/>
+ten gebohren zu ſeyn. Er ſieht dann Staͤdte ge-<lb/>
+pluͤndert, die Maͤnner durch das Schwerdt fal-<lb/>
+len, und die Weiber zu Sclavinnen gemacht. Er<lb/>
+ſieht ihre hoffnungsloſen Angeſichter und flehenden<lb/>
+Stellungen, hoͤret ihr Trauren uͤber ihre erſchla-<lb/>
+genen Ehgatten, und ihre Bitten fuͤr ihre Kinder.<lb/>
+Er ſieht ferner Staͤdte die mit Frieden geſegnet,<lb/>
+und von der Freyheit belebet ſind, die ſtarke Com-<lb/>
+mercien treiben, und an Reichthum zunehmen.<lb/>
+Wenn er fuͤr ſeine Perſon nicht in die Haͤndel<lb/>
+verwikelt iſt, ſo daß ſeine Aufmerkſamkeit nicht<lb/>
+zerſtreuet wird, ſo kan er die mannigfaltigen Schau-<lb/>
+ſpiele durchwandeln, und ſie mit aller Muſſe beob-<lb/>
+achten. Denn wirds fuͤr ihn ein lehrreicher An-<lb/>
+blick ſeyn, wenn er eine Colonie von Land fuͤhren,<lb/>
+eine Stadt in Grund legen, Policey und Ord-<lb/>
+nung verfaſſen ſieht, wo nichts, was zur Sicher-<lb/>
+heit des Volkes dienen mag, aus der Acht gelaſ-<lb/>
+ſen wird. Dergleichen Scenen geben weite, aus-<lb/>
+gedaͤhnte Durchſichten, die dabey gantz natuͤrlich<lb/>
+ſind, inmaſſen ſie die unmittelbare Wirkung der<lb/>
+groſſen Mutter der Erfindung ſind, nemlich der<lb/>
+Nothwendigkeit, die dann in ihren jugendlichen<lb/>
+und ungelernten Verſuchen begriffen iſt.</p><lb/>
+<p>Die Wichtigkeit dieſes Gluͤkes wird am beſten<lb/>
+erhellen, wenn wir die Luſt betrachten, die von<lb/>
+den Vorſtellungen natuͤrlicher und einfaͤltiger Sit-<lb/>
+<fw type="catch" place="bottom">ten</fw><lb/>
+<pb n="9" facs="#f0009"/>
+<fw type="header" place="top"><hi rendition="#b">fuͤr die epiſche Poeſie.</hi></fw><lb/>
+ten entſpringt. Sie verzuͤken uns, und man kan<lb/>
+ihnen nicht widerſtehen. Dieſelben zeigen uns die<lb/>
+Beduͤrffniß und die Empfindungen des Menſchen<lb/>
+am deutlichſten. Sie geben uns das, was ein un-<lb/>
+verſtelltes Gemuͤthe bewegt, und die Wege, die<lb/>
+es braucht ſich zu vergnuͤgen, aufrichtig heim.<lb/>
+Guͤte und Ehrlichkeit haben an dieſem Ergetzen<lb/>
+ihren Antheil, denn wir legen eine Liebe an dieſe<lb/>
+Leute und haben lieber mit ihnen zu ſchaffen, als<lb/>
+mit ſpitzfuͤndigen, oder zweyzuͤngigen Charactern.<lb/>
+Alſo, wenn die verſchiedenen Werke, die zu dem<lb/>
+Bau eines Hauſes, oder eines Schiffes erfodert<lb/>
+werden, oder die zur Anbauung eines Feldes<lb/>
+oder Verfertigung eines Stuͤckes von Gewehr ge-<lb/>
+hoͤren, mit Abſicht auf die Empfindungen und den<lb/>
+Fleiß des Manns, der damit beſchaͤftigt iſt, be-<lb/>
+ſchrieben werden, ſo geben ſie uns ein hertzliches<lb/>
+Ergetzen, weil wir eben dergleichen fuͤhlen. Un-<lb/>
+ſchuld, ſagen wir, iſt ſchoͤn; die Abriſſe derſelben<lb/>
+koͤnnen nicht anders, als entzuͤcken. Zeugen deſ-<lb/>
+ſen ſind die wenigen Zuͤge von dieſer Art in Dry-<lb/>
+dens Eroberung Mexico, und der bezauberten<lb/>
+Jnſel.</p><lb/>
+<p>Dem gemaͤß finden wir bey Homer ſehr klei-<lb/>
+ne Umſtaͤnde von Haͤuſern, Tiſchen, und Lebens-<lb/>
+arten der Alten beſchrieben, und wir leſen dieſel-<lb/>
+ben mit Ergetzen. Aber wenn wir unſre eigenen Ge-<lb/>
+wohnheiten betrachten, finden wir im Gegentheil,<lb/>
+daß wir, wann wir in dem hoͤhern Tone poetiſieren<lb/>
+wollen, vor allen Dingen unſern alltaͤglichen Wan-<lb/>
+del verlernen muͤſſen; wir muͤſſen unſer Schlaf-<lb/>
+fen, Eſſen, und Zeitvertreib vergeſſen, wir ſehen<lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">uns</fw><lb/>
+<pb n="10" facs="#f0010"/>
+<fw type="header" place="top"><hi rendition="#b">Von den gluͤcklichen Umſtaͤnden</hi></fw><lb/>
+uns genoͤthiget, eine <hi rendition="#aq">Seriem</hi> natuͤrlicherer Sitten<lb/>
+an uns zu nehmen, welche uns doch gantz frem-<lb/>
+de ſind, und ſo wie Pflantzen in Zwingbeten zu-<lb/>
+wegegebracht werden muͤſſen. Ja es iſt ſo fern,<lb/>
+daß wir die Poeſie mit neuen Bildern, die von<lb/>
+der Natur gehohlet ſeyn, bereichern, daß wir mit<lb/>
+ſchwerer Muͤhe die alten noch verſtehen. Wir<lb/>
+leben hinter dem Ofen, und gleichſam vor dem<lb/>
+Angeſichte der Natur verborgen. Wir laſſen<lb/>
+unſre Tage in einer tieffen Unerkenntniß ihrer<lb/>
+Schoͤnheiten vorbeyſtreichen. Wir denken gerne,<lb/>
+die Gleichniſſe, ſo von ihr hergenommen ſind,<lb/>
+ſeyn niedrig, und die <hi rendition="#fr">alten Sitten</hi> gemein oder<lb/>
+ungereimt. Aber laſſet uns aufrichtig ſeyn, und<lb/>
+bekennen, daß die neuern Poeten in der Zeit, da<lb/>
+ſie nur den Pomp bewundern, und nichts vor<lb/>
+Groß oder Schoͤn gelten laſſen, als was durch<lb/>
+Reichthum zuwegegebracht wird, ſich ſelber die<lb/>
+angenehmſten und natuͤrlichſten Bilder vorenthal-<lb/>
+ten, welche die alte Poeſie ausgeſchmuͤket haben.<lb/>
+Staat und Schoͤn verſtellen den Menſchen; und<lb/>
+Reichthum und Ueppigkeit verſtellen die Natur.<lb/>
+Jhre Wirkungen ſind in den Beſchreibungen wie<lb/>
+dieſe Urſachen. Eine groſſe Proceſſion laͤßt ſich nicht<lb/>
+mit ſonderlicher Luſt leſen, wenn ſie bis auf die klei-<lb/>
+nen Umſtaͤnde, und der Laͤnge nach beſchrieben<lb/>
+wird; und groſſe Cerimonien ſind in einem Gedichte<lb/>
+zum wenigſten eben ſo verdruͤßlich, als in dem ge-<lb/>
+woͤhnlichen Umgange.</p><lb/>
+<p>Es iſt eine alte Klage, daß wir gerne alle Din-<lb/>
+ge verkleiden, und mehr als alle andere Dinge<lb/>
+uns ſelbſt. Alle unſre Titel und Vorrechte ſind<lb/>
+<fw type="catch" place="bottom">Deken</fw><lb/>
+<pb n="11" facs="#f0011"/>
+<fw type="header" place="top"><hi rendition="#b">fuͤr die epiſche Poeſie.</hi></fw><lb/>
+Decken, und Zuſaͤtze zu der Groͤſſe, die uns die<lb/>
+Natur mitgetheilt. Sie ſind in der That gluͤk-<lb/>
+lich gnug zu der beſten Abſicht, nemlich der Ruhe<lb/>
+und Ordnung in der Geſellſchaft, aber in der Poe-<lb/>
+ſie koͤnnen ſie kein Ergetzen geben.</p><lb/>
+<p>Der Himmel hat einem und demſelben Lande<lb/>
+nicht gegeben, daß es reiche Weinſtoͤcke und krie-<lb/>
+geriſche Maͤnner hervorbringe. Es ſcheint auch<lb/>
+einem und demſelben Koͤnigreiche nicht gegeben,<lb/>
+daß es gantz und gar wohlgeſittet ſey, und an-<lb/>
+ſtaͤndigen Stof fuͤr die Poeſie an die Hand gebe.</p><lb/>
+<p>Das Wunderbare iſt der Nerve der Epiſchen<lb/>
+Sayte: Aber was vor wundervolle Dinge<lb/>
+begegnen in einem wohleingerichteten Staate?<lb/>
+Schwerlich kan uns da etwas in Verwunderung<lb/>
+ſetzen; wir wiſſen die Springfedern der Dinge,<lb/>
+und die Art wie ſie geſchehen. Alle Dinge fol-<lb/>
+gen in der Ordnung, und der Gewohnheit oder<lb/>
+den Satzungen gemaͤß. Aber in einem weiten un-<lb/>
+gebauten Lande, wo kein eingerichtetes Regiment<lb/>
+iſt, oder wo das Regiment vielfaͤltig zertheilt iſt,<lb/>
+wo die Einwohner zerſtreut leben, und von Ge-<lb/>
+ſetzen und Mannszucht nichts wiſſen, in einem ſol-<lb/>
+chen Lande ſind die Sitten einfaͤltig, und alle Ta-<lb/>
+ge werden neue Begegniſſen vorfallen; Kinder<lb/>
+werden weggetragen oder verlohren werden; Ueber-<lb/>
+faͤlle; Fluchten; Befreyungen; und was ſonſt vor<lb/>
+Dinge die Leidenſchaften des Menſchen in der Zeit,<lb/>
+daß ſie vorgehen, in Feuer ſetzen, oder durch die<lb/>
+Beſchreibung und Nachahmung ſie wieder auf-<lb/>
+wecken koͤnnen.</p><lb/>
+<p>Dieſe Dinge ſind unter einer guten Regierung<lb/>
+nicht zu finden; ausgenommen in der Zeit eines<lb/>
+<fw type="catch" place="bottom">ein-</fw><lb/>
+<pb n="12" facs="#f0012"/>
+<fw type="header" place="top"><hi rendition="#b">Von den gluͤcklichen Umſtaͤnden</hi></fw><lb/>
+einheimiſchen Krieges, wo die Geſetze ſchweigen;<lb/>
+und doch bey allem dem Jammer und der Ver-<lb/>
+wirrung, welche dieſes groͤſte Uebel begleiten, iſt<lb/>
+die Zeit, da es wuͤthet, ein bequemerer Stof fuͤr<lb/>
+ein epiſches Gedichte, als der ruͤhmlichſte Feldzug,<lb/>
+der jemahls in Flandern gemachet worden. Eben<lb/>
+die Dinge, die in einer eingerichteten Regierung<lb/>
+den groͤſten Ruhm bringen, die groͤſſeſten Ehren<lb/>
+und hoͤchſten Bedienungen, werden ſich ſchwerlich<lb/>
+fuͤr die Poeſie ſchicken; die Muſe weigert ſich<lb/>
+ihren Zierrath an die Patenten eines Herzogs,<lb/>
+oder die Commiſſion eines Generals zu wenden.<lb/>
+Dieſe koͤnnen weder in Verwunderung ſetzen, noch<lb/>
+das Hertz einnehmen: Denn Friede, Harmonie,<lb/>
+und gute Ordnung, welche ein Volck gluͤckſelig<lb/>
+machen, ſind Gift fuͤr ein Gedichte, welches durch<lb/>
+Ueberraſchen und Verwunderung lebet.</p><lb/>
+<p>Die Wohlfarth eines Volckes beſchneidet dem-<lb/>
+nach ſeinen Poeten die Fluͤgel. Sie giebt wenig<lb/>
+Stof fuͤr die Verwunderuug, oder das Mitlei-<lb/>
+den an die Hand. Aber wie, kan ein Poet nicht<lb/>
+<hi rendition="#fr">dichten</hi>? Kan er nicht Sitten nachmachen, und<lb/>
+Begegniſſe erſinnen, wie er es gutfindet. Jſt er<lb/>
+nicht genugſam berechtiget, Scenen zu eroͤffnen,<lb/>
+und Leute und Sitten nach Belieben aufzufuͤhren.<lb/>
+Laſſet ihn nur ſein Vorrecht ausuͤben, ſo wird es<lb/>
+ihm gerathen, unſre Sitten werden ihn nicht hin-<lb/>
+dern, er kan ſeinen neuen Geſchoͤpfen eine Form<lb/>
+und Geſtalt geben, welche er will.</p><lb/>
+<p>Allein, wiewohl dieſes viel zu verſprechen ſcheint,<lb/>
+ſo darf ich doch ſagen, daß ein Poet nichts gluͤk-<lb/>
+licher beſchreibt, als was er ſelbſt geſehen, und<lb/>
+<fw type="catch" place="bottom">daß</fw><lb/>
+<pb n="13" facs="#f0013"/>
+<fw type="header" place="top"><hi rendition="#b">fuͤr die epiſche Poeſie.</hi></fw><lb/>
+daß er allein in ſeiner eigenen Sprache ſchulge-<lb/>
+recht redet; auch daß er nur diejenigen Sitten<lb/>
+treulich nachmacht, welche er in ihren Originalen<lb/>
+gekannt und mit ihnen Umgang gehabt hat.</p><lb/>
+<p>Dieſer Grundſatz ſcheint ſcharf, und doch wird<lb/>
+man in der Unterſuchung finden, daß er in der<lb/>
+Erfahrung gegruͤndet iſt.</p><lb/>
+<p>Aber die Wahrheit deſſelben wird am klaͤrſten<lb/>
+erhellen, wenn wir ſeinen Einfluß in dem Umgan-<lb/>
+ge und der Auffuͤhrung betrachten. Der, wel-<lb/>
+cher keine Sitten als ſeine eigenen an ſich nimmt,<lb/>
+wird es auf einen hoͤhern Grad der Trefflichkeit<lb/>
+bringen, als wenn er ſich vornehmen wollte, eines<lb/>
+andern Menſchen Art nachzuahmen, ob dieſer<lb/>
+gleich ſeiner eigenen ſowohl in der Sprache als<lb/>
+in dem Betragen und der Stellung vorzuziehen<lb/>
+iſt.</p><lb/>
+<p>Die Wahrheit zu ſagen, ſo ſind wir mit ſehr<lb/>
+eingeſchrenkten Gaben gebohren, unſer Gemuͤth<lb/>
+iſt nicht faͤhig, ſich von zwo Gattungen Sitten<lb/>
+Meiſter zu machen, oder mit einer Fertigkeit ſich<lb/>
+in verſchiedene Lebensarten zu richten. Unſere Ge-<lb/>
+ſellſchaft, Aufferziehung, und Umſtaͤnde machen<lb/>
+tiefe Eindruͤke, und formieren in uns einen Cha-<lb/>
+racter, den wir nach der Hand mit ſchwerer Muͤ-<lb/>
+he wieder ablegen koͤnnen. Nicht allein die Sit-<lb/>
+ten der Zeiten und der Nation, worinnen wir leben,<lb/>
+ſondern unſerer Stadt und Verwandtſchaft han-<lb/>
+gen uns an, und verrathen uns bey jeder Wen-<lb/>
+dung, wenn wir uns vermeinen zu verſtellen, und<lb/>
+gerne vor fremde angeſehen werden wollten. Die-<lb/>
+ſe verſtehen wir und koͤnnen ſie vollkommen wohl<lb/>
+ſchildern.</p><lb/>
+<fw type="catch" place="bottom">Dem-</fw><lb/>
+<pb n="14" facs="#f0014"/>
+<fw type="header" place="top"><hi rendition="#b">Von den gluͤcklichen Umſtaͤnden</hi></fw><lb/>
+<p>Demnach iſt es ein Gluͤck fuͤr einen Poeten, der<lb/>
+ſeine einfaͤltigen natuͤrlichen Bilder von dem wuͤrk-<lb/>
+lichen Leben hernehmen kan; der Krieger, und<lb/>
+Schaͤfer, und Bauern ſieht, wie er abreiſſen<lb/>
+ſoll; der taͤglich mit ſolchen Leuten umgehet, als<lb/>
+er vorſtellen will; der in ſolchen Zeiten lebet, und<lb/>
+ſchreibet, wo die Sitten ſo ungekuͤnſtelt und un-<lb/>
+verſtellt ſind, daß die Winkel und Kruͤmmen<lb/>
+des menſchlichen Hertzens offen vor Augen liegen;<lb/>
+wo die Leute noch nicht gelernet haben, ſich vor ſich<lb/>
+ſelbſt und ihren natuͤrlichen Luͤſten zu ſchaͤmen, folg-<lb/>
+lich ſie zu verbergen; wo ſie kein Bedenken ha-<lb/>
+ben, die Neigungen ihres Buſens zu bekennen,<lb/>
+und ihren Leidenſchaften oͤffentlich nachhaͤngen,<lb/>
+ohne Zwang und Gleißnerey.</p><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Wer dem Auf- und Abnehmen der Staaten<lb/>
+nachdenket, der wird erkennen, daß zugleich mit ihren<lb/>
+Sitten auch ihre Sprache zunimmt und faͤllt. Die<lb/>
+Sprache iſt der Dolmetſcher unſrer Gedanken,<lb/>
+und ſoferne dieſe großmuͤthig, frey, und ungehin-<lb/>
+dert ſind, wird die Rede beydes in ihrem Schrot<lb/>
+und in ihrem Jnnhalt mit ihnen in einem Schritte<lb/>
+gehen. Vermittelſt deſſen wird eine Rathsver-<lb/>
+ſammlung von geiſtreichen und verſtaͤndigen Maͤn-<lb/>
+nern natuͤrlicher Weiſe Redner und Wohlreden-<lb/>
+heit formieren. Wann eben dieſelben Maͤnner<lb/>
+auf das Land gehen, und um ſich ſchauen, werden<lb/>
+ſie von den Gegenſtaͤnden, welche ihnen von der<lb/>
+Natur vor das Geſicht geleget werden, mit eben<lb/>
+<fw type="catch" place="bottom">der</fw><lb/>
+<pb n="15" facs="#f0015"/>
+<fw type="header" place="top"><hi rendition="#b">fuͤr die epiſche Poeſie.</hi></fw><lb/>
+der Freyheit und dem gluͤklichen Ausdruke reden;<lb/>
+und wenn in einem weiten Land viele dergleichen<lb/>
+Provintzen <note place="foot" n="(*)">Unſer Deutſchland beſtehet aus einer Menge ſol-<lb/>
+cher Provinzen, welche von einander gar nicht, oder in<lb/>
+wenig Stuͤken abhaͤngen, die Regierungen in denſelben<lb/>
+ſind von ſehr verſchiedener Art, und es herrſchet in einigen<lb/>
+keine geringe Freyheit; alle dieſelben aber reden die ein-<lb/>
+zige deutſche Sprache. Was vor Vortheile ſollte man<lb/>
+daher in dieſer Sprache und allen ihren Mundarten fuͤr<lb/>
+den Gebrauch, und das Beduͤrfniß der Poeſie mit Recht<lb/>
+vermuthend ſeyn? Sie waͤren auch in der That darin-<lb/>
+nen, wenn nicht zum Ungluͤke gewiſſe eigenſinnige Pu-<lb/>
+ritaner ſich die ſchaͤdliche Muͤhe gaͤben, die Woͤrter, Re-<lb/>
+densarten, und Metaphern, welche die Einwohner ge-<lb/>
+wiſſer Provintzen fuͤr ihre eigene Nothwendigkeit einge-<lb/>
+fuͤhret, und von ihren Umſtaͤnden, Sitten und Gebraͤu-<lb/>
+chen hergenommen haben, zu verwerffen und auszumu-<lb/>
+ſtern; ohne Betrachtung ob ſie mit der Natur der Din-<lb/>
+ge, der Sprache-Aehnlichkeit, den Stamm- und Wur-<lb/>
+zelwoͤrtern, uͤbereinkommen oder nicht; ob ſie ſich uͤber-<lb/>
+das mit einem anſehnlichen Alter rechtfertigen koͤnnen,<lb/>
+oder erſt von geſtern oder vorgeſtern her ſind.</note> ſind, die eine und dieſelbe Sprache<lb/>
+reden, aber in verſchiedenen Mundarten, ſo wird<lb/>
+der Ausdruk ſeinen Vortheil dabey machen, und<lb/>
+mit neuen Worten, Redensarten und Metaphern,<lb/>
+nach dem Temperament und Naturelle der ver-<lb/>
+ſchiedenen Voͤlker bereichert werden: Da inzwi-<lb/>
+ſchen ein jedes ſeinen eigenen gutheiſſen wird, weil<lb/>
+er in ihrem eigenen freyen Staat von ihren Re-<lb/>
+genten gebrauchet wird.</p><lb/>
+<p>Es iſt wunderlich, was vor eine veraͤchtliche<lb/>
+Figur das menſchliche Geſchlechte bey ſeinem Ur-<lb/>
+ſprunge laut der Vorſtellung der Alten gemachet<lb/>
+hat.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">Cum</hi></fw><lb/>
+<pb n="16" facs="#f0016"/>
+<fw type="header" place="top"><hi rendition="#b">Von den gluͤcklichen Umſtaͤnden.</hi></fw><lb/>
+<cit><quote><hi rendition="#et"><hi rendition="#aq">Cum prorepſerunt primis animalia terris &amp;c.</hi></hi></quote></cit><lb/>
+<p>Sie dachten vermuthlich die Rede haͤtte zuerſt<lb/>
+die Menſchen zahm gemachet, und waͤre anfaͤng-<lb/>
+lich nichts anders als zufaͤllige rohe Toͤne geweſen,<lb/>
+welche dieſer nakete Haufe umſchweifender Sterb-<lb/>
+lichen von ungefehr von ſich gegeben hatte.</p><lb/>
+<p>Dieſes vorausgeſetzt folget daraus, daß ſie dieſe<lb/>
+Toͤne in einer viel hoͤhern Note geaͤuſſert, als wir<lb/>
+izo thun. Vielleicht wurden ſie dazu erſtlich durch<lb/>
+heftige Leidenſchaften als Furcht, Wunder oder<lb/>
+Schmertzen veranlaſſet, da ſie nachgehends denſel-<lb/>
+ben Ton wieder gebraucht, wann entweder dieſelbe<lb/>
+Sache oder derſelbe Umſtand ihnen wieder vorge-<lb/>
+kommen, oder wann ſie etwas, das ſie in deſſen Ge-<lb/>
+genwart gefuͤhlt hatten, beſchreiben wollen. Das<lb/>
+Leben der Alten war den Zufaͤllen und der Ge-<lb/>
+fahr weit mehr unterworffen, eh und bevor noch<lb/>
+Staͤdte gebauet, und die Menſchen durch buͤr-<lb/>
+gerliche Geſellſchaften beſchirmet wurden. Folg-<lb/>
+lich muß ihre Rede anfaͤnglich gantz affectesvoll<lb/>
+und metaphoriſch geweſen ſeyn. Die Metaphern<lb/>
+muͤſſen von den kuͤhneſten geweſen ſeyn, jedoch<lb/>
+gantz natuͤrlich; bequem die hoͤchſten Leidenſchaf-<lb/>
+ten auszudruͤken, und von den empfindlichſten<lb/>
+Sachen, welche in einem einſamen wilden Le-<lb/>
+ben vorkommen hergenommen.</p><lb/>
+<p>Wann ſich nachgehends die Sachen dieſer ro-<lb/>
+hen Gemeinde ein wenig gebeſſert haben, ſo daß ſie<lb/>
+in ertraͤglicher Sicherheit leben, und ohne Furcht<lb/>
+um ſich her ſchauen koͤnnen, ſo wird dann Ver-<lb/>
+wunderung und Beſtuͤrtzung nachfolgen. Dieſes<lb/>
+ſind die eigenen Leidenſchaften roher und unerfahrner<lb/>
+<fw type="catch" place="bottom">Leute</fw><lb/>
+<pb n="17" facs="#f0017"/>
+<fw type="header" place="top"><hi rendition="#b">fuͤr die epiſche Poeſie.</hi></fw><lb/>
+Leute, wann ſie von Furcht befreyet ſind. - Und<lb/>
+da von dieſer Unwiſſenheit und Verwunderung<lb/>
+ein groſſer Zwiſchenſtand zu der Erfahrenheit eines<lb/>
+weiſen Mannes iſt, den wenig Dinge in Verwun-<lb/>
+derung ſetzen, welcher den Zuſtand der Voͤlker,<lb/>
+ihre Geſetze und Schranken kennet, ſo wird die<lb/>
+Rede von einem Grade zum andern fortgefuͤhret,<lb/>
+und alle dieſe Grade laſſen ſich darinnen durch<lb/>
+ihre Merkmahle verſpuͤren.</p><lb/>
+<p>Ohne Zweifel denn muß eine bluͤhende gluͤkli-<lb/>
+che Nation, die anfaͤnglich nicht ſonderlich ge-<lb/>
+ſittet geweſen, aber nach einem laͤngen Kampf,<lb/>
+verwirrter Unruh, und vielen Verſuchen, es in<lb/>
+allen Friedens- und Kriegeskuͤnſten hoch gebracht<lb/>
+hat, die trefflichſte Sprache bekommen. Dem-<lb/>
+nach hat ein Poet wohl von Gluͤcke zu ſagen,<lb/>
+der eine ſolche Sprache vor ſich findet, welche<lb/>
+mittelſt obenerwehnter Stuffen dazu gelanget iſt,<lb/>
+daß ſie alle die beſten und ſtaͤrkeſten Empfin-<lb/>
+dungen des Menſchen ausdruͤket, und ihre ur-<lb/>
+ſpruͤngliche, wunderreiche, metaphoriſche Tinc-<lb/>
+tur in einem zulaͤnglichen Maſſe behalten hat.</p><lb/>
+<p>Man giebt es vor eine Regel in der Poeſie,<lb/>
+daß man den gemeinen Zufaͤllen des Lebens ih-<lb/>
+ren einfaͤltigen Aufputz ausziehen, und ſie einer<lb/>
+hoͤhern geiſtlichen Macht zuſchreiben muͤſſe, damit<lb/>
+ſie alſo ihre Wuͤrde behalten; und was unbe-<lb/>
+lebte Dinge anlanget, muͤſſe man ihnen das Le-<lb/>
+ben mittheilen, ſie in Perſonen kleiden, und ih-<lb/>
+nen anſtaͤndige Eigenſchaften beylegen. Allein<lb/>
+was vor ein gluͤklicher Umſtand iſt es vor einen<lb/>
+Poeten, der zu einer Zeit ſchriebe, da die ge-<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">VII.</hi> St.] B</fw><fw type="catch" place="bottom">woͤhn-</fw><lb/>
+<pb n="18" facs="#f0018"/>
+<fw type="header" place="top"><hi rendition="#b">Von den gluͤcklichen Umſtaͤnden</hi></fw><lb/>
+woͤhnliche Sprache dieſes metaphoriſche Kleid an-<lb/>
+gezogen hat?</p><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Auf eine Sprache thut die Religion eines Lan-<lb/>
+des, und die Sitten der Zeiten einen maͤchtigen<lb/>
+und ſonderbaren Einfluß. Wir haben eine Men-<lb/>
+ge Exempel wie ein ſteifer Glaube einer Secte<lb/>
+die Leute von derſelben ſo kraͤftig beweget, in dem<lb/>
+beliebten Jdioma zu reden und zu ſchreiben. Sie<lb/>
+fuͤhren es in ihren taͤglichen Geſchaͤften ein, und<lb/>
+alludiren darauf in ihren Luſtbarkeiten; inſonder-<lb/>
+heit wann die Lehre den Schwung hat, und im<lb/>
+Flor iſt. Was vor groſſe Vortheile wuͤrde nun<lb/>
+ein Poet von einer Religion haben, welche ſo<lb/>
+allegoriſch waͤre, wie ehmals die Egyptiſche ge-<lb/>
+weſen war? Wo die Leute bewunderten was<lb/>
+ſie nicht verſtuhnden, und unbekannte Kraͤfte fuͤrch-<lb/>
+teten und ehreten, in der Einbildung, daß ſie<lb/>
+vermoͤgend waͤren, ihnen viel gutes oder viel boͤſes<lb/>
+zu thun? Wo die Gottesgelahrtheit, der Glau-<lb/>
+be, und die feyerlichen Ceremonien nach dieſer<lb/>
+Neigung eingerichtet ſind? Es folget nothwen-<lb/>
+dig, daß dieſe Lehre in einer kurtzen Zeit mit den<lb/>
+Sitten des Volkes vermiſchet werden, ſich in<lb/>
+ihre Sprache eindringen, und allgemeinen Bey-<lb/>
+fall erhalten muß. Jn dieſem Fall wuͤrde die<lb/>
+Allegorie ungeſucht in die Schreibart des Poeten<lb/>
+hineinkommen.</p><lb/>
+<fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="19" facs="#f0019"/>
+<fw type="header" place="top"><hi rendition="#b">fuͤr die epiſche Poeſie.</hi></fw><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Die Sitten der Zeiten, die Studien und Ge-<lb/>
+werbe, die im Schwang gehen, und dem der<lb/>
+es darinnen weit gebracht hat, am meiſten<lb/>
+Ehre bringen, koͤnnen gleicherweiſe ihre groſſen<lb/>
+Vortheile fuͤr einen Poeten haben. Sie richten<lb/>
+ſich nach dem Gluͤkesſtande einer Nation. Die<lb/>
+Kuͤnſte, die in dem Leben den groͤſſeſten Nutzen<lb/>
+haben, welche nemlich unſrer natuͤrlichen Beduͤrff-<lb/>
+niß zu Statten kommen, und unſre Perſonen, unſre<lb/>
+Haab und Gut in Sicherheit ſetzen, machen vor<lb/>
+allen andern ihre Erfinder beruͤhmt; und mit<lb/>
+weiterm Verlaufe der Zeit, wenn der Reichthum<lb/>
+in ein Land gekommen iſt, ziehen die Kuͤnſtler<lb/>
+in wolluͤſtigen Dingen, und die Meiſter in praͤch-<lb/>
+tigen Gebaͤuden, unſre Augen auf ſich. Wo<lb/>
+noch der erſte von dieſen beyden Umſtaͤnden die<lb/>
+Oberhand hat, behuͤtet er den Poeten vor zwey<lb/>
+Uebeln, welchen Longinus den Verfall der Poe-<lb/>
+ſie Schuld giebt, nemlich einer unerſaͤttlichen Be-<lb/>
+gierde nach Reichthum, und der Liebe zur Wol-<lb/>
+luſt. Was vor ein groſſer Vortheil iſt es in<lb/>
+der That vor einen Poeten, zu deſſen Zeiten<lb/>
+die Waffen das ruͤhmlichſte Handwerk ſind, und<lb/>
+ein patriotiſcher Geiſt der beliebteſte Character iſt?<lb/>
+Wo man nothwendig dergleichen haben muß;<lb/>
+wo der Mann, der ſeine Stadt heldenmuͤthig<lb/>
+beſchuͤtzt, ſein Gebiethe erweitert hatte, oder fuͤr<lb/>
+das Vaterland geſtorben war, goͤttliche Ehre er-<lb/>
+langet? Wo Liebe der Freyheit, und Verachtung<lb/>
+des Todes mit ihrem herrlichſten Gefolge, der<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">Ehre,</fw><lb/>
+<pb n="20" facs="#f0020"/>
+<fw type="header" place="top"><hi rendition="#b">Von den gluͤcklichen Umſtaͤnden</hi></fw><lb/>
+Ehre, der Redlichkeit, und der Maͤſſigkeit, et-<lb/>
+was wuͤrkliches waren? Ein Poet, der dieſe<lb/>
+Tugenden von der Nothwendigkeit lernete, und<lb/>
+von den Umſtaͤnden ſelbſt darauf gefuͤhrt wuͤrde,<lb/>
+muͤßte ſie beſſer kennen, als ihn die Schulen, und<lb/>
+Buͤcher davon unterrichten koͤnnten. Und ſeine<lb/>
+Vorſtellungen ſolcher aͤchten Character wuͤrden<lb/>
+die Kennzeichen der Wahrheit auf ſich tragen,<lb/>
+und die Character weit uͤbertreffen, welche von<lb/>
+angemaßter Dapferkeit, verſtellten Tugenden,<lb/>
+oder noch ſchlechtern Muſtern abgebildet werden.</p><lb/>
+<p>Lebte ein Volk natuͤrlich, und wuͤrde durch das<lb/>
+natuͤrliche Gewichte der Leidenſchaften, das in ei-<lb/>
+nes jeden Menſchen Bruſt liegt, regiert, ſo wuͤrde<lb/>
+dieſes machen, daß ſie ohne allen Zwang, allein<lb/>
+nach ihren eigenen angebohrnen Begriffen vom<lb/>
+Guten und Boͤſen, Rechten und Unrechten, rede-<lb/>
+ten und handelten, ſo wie ein jeder von ſeinem<lb/>
+Hertzen gelenket wuͤrde. Dieſe Sitten nun<lb/>
+wuͤrden einem Poeten die natuͤrlichſten Schilde-<lb/>
+reyen, und geſchikte Worte ſie auszumahlen, an<lb/>
+die Hand geben.</p><lb/>
+<p>Sie haben einen ſonderbaren Einfluß auf die<lb/>
+Sprache, nicht allein ſoferne ſie natuͤrlich ſind,<lb/>
+ſondern auch ſofern ſie aufrichtig und guͤtig ſind.<lb/>
+So lange ein Volk einfaͤltig und offenhertzig bleibt,<lb/>
+ſo lange bekoͤmmt alles was es ſagt, ein Gewichte<lb/>
+von der Wahrheit; ſeine Gemuͤthesgedanken ſind<lb/>
+ſtarck und ehrbar, welches allemahl bequeme Wor-<lb/>
+te herſchaffet, ſie auszudruͤcken: Seine Leidenſchaf-<lb/>
+ten ſind von aͤchtem Schrote und Korn, nicht un-<lb/>
+aͤcht, nicht unterſchoben, nicht verſtellt, und druͤ-<lb/>
+<fw type="catch" place="bottom">ken</fw><lb/>
+<pb n="21" facs="#f0021"/>
+<fw type="header" place="top"><hi rendition="#b">fuͤr die epiſche Poeſie.</hi></fw><lb/>
+ken ſich in ihrer eigenen ungekuͤnſtelten Redens-<lb/>
+art aus. Es iſt nicht an das Geplauder, und die<lb/>
+kleinen ſpitzfuͤndigen Formeln gewoͤhnt, welche<lb/>
+die Rede eines ſogenannten wohlgezogenen Men-<lb/>
+ſchen aller Kraft berauben; ſeine Sprache iſt mit<lb/>
+Schulwitz, Wort- und Sinnenſpielen, und Syl-<lb/>
+bengeklingel nicht durchſetzet; welche in allen Laͤn-<lb/>
+dern ſehr ſpaͤthe eingeriſſen ſind. Und dieſes mag<lb/>
+wohl die Urſache ſeyn, daß alle Nationen ſich ſo<lb/>
+ſehr an ihren alten Poeten beluſtigen. Ehe ſie<lb/>
+ſo hoͤflich, und verzaͤrtelt worden, daß ſie in<lb/>
+Schmeicheley und Falſchheit verfallen, fuͤhlen wir<lb/>
+den Nachdruk ihrer Worte, und die Wahrheit<lb/>
+ihrer Gedanken.</p><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Jezo ſollte ich noch von den Vortheilen reden,<lb/>
+welche einem Poeten die gluͤcklichen Umſtaͤnde<lb/>
+ſeiner Perſon mittheilen; was ſeine Auferziehung,<lb/>
+ſeine Lebensart, und ſein Gluͤck in derſelben vor<lb/>
+eine abſonderliche Wirkung bey ihm als einem<lb/>
+Poeten haben muͤſſen. Allein dieſer Vortheile ſind<lb/>
+ſo viel, und ſie ſind ſo mannigfaltig, wie die Ge-<lb/>
+legenheiten die Menſchen uͤberhaupt kennen zu ler-<lb/>
+nen, und abſonderliche Gegenſtaͤnde, ſo fuͤr die<lb/>
+Poeſie bequem ſind, ins Auge zu bekommen,<lb/>
+nothwendig ſeyn muͤſſen, ſo daß eine ſolche Ab-<lb/>
+handlung mich weiter fuͤhren wuͤrde, als ich diß-<lb/>
+mahl geſonnen bin zu gehen. Jch gedenke nur<lb/>
+eines Stuͤckes, nach welchem man von der Wich-<lb/>
+tigkeit der uͤbrigen urtheilen kan, nemlich der vie-<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">len</fw><lb/>
+<pb n="22" facs="#f0022"/>
+<fw type="header" place="top"><hi rendition="#b">Von den gluͤcklichen Umſtaͤnden</hi></fw><lb/>
+len Reiſen, und weitlaͤuftigen Erfahrungen, die<lb/>
+einer in eigener Perſon gemachet hat. Jn einem<lb/>
+reiſenden Leben hat man oͤfters Gelegenheit mit<lb/>
+den Originalen ſeiner Abriſſe, und Erdichtun-<lb/>
+gen bekannt zu werden; dieſe Schildereyen moͤ-<lb/>
+gen materialiſch oder moraliſch ſeyn, ſo entſteht<lb/>
+ihre Trefflichkeit daher, daß ſie der Natur und<lb/>
+der Wahrheit aͤhnlich ſeyn. Aber viele und<lb/>
+weite Reiſen fallen wenigen Leuten vor; am ſel-<lb/>
+tenſten Leuten, die eine poetiſche Geiſtesart haben.<lb/>
+Dieſe ſind gemeiniglich nicht die geſundeſten, ſie<lb/>
+ſind zu zart, die Beſchwerlichkeiten auszuſtehen,<lb/>
+und ſich in die Gefaͤhrlichkeiten zu wagen, wel-<lb/>
+che in langen Reiſen unvermeidlich ſind.</p><lb/>
+<p>Jch meine nicht zu irren, wenn ich behaupten<lb/>
+darf, daß Homers Armuth, die ihn noͤthigte,<lb/>
+ein umſchweifendes Leben zu fuͤhren, als ein ir-<lb/>
+render Barde, in Anſehen ſeiner Poeſie ein groſ-<lb/>
+ſes Gluͤck fuͤr ihn geweſen. Homer blieb in ei-<lb/>
+ner jeden Stadt ſo lange als er noͤthig hatte ihre<lb/>
+Sitten zu ſehen, ohne daß er ſeine eigenen in<lb/>
+dieſelben umgoͤſſe. Er fuͤhrte weder ein Stadt-<lb/>
+noch ein Landleben, und war in dieſer Betrach-<lb/>
+tung wahrlich ein Weltbuͤrger. Wenn ein Menſch<lb/>
+Kaͤlte und Muͤdigkeit ausgeſtanden, und hernach<lb/>
+wieder erquiket worden, ſtellet ſich die Freude<lb/>
+mit Macht bey ihm ein, ſein Hertz wird weiter,<lb/>
+ſeine Lebensgeiſter flieſſen ſtrenger, und wenn ein<lb/>
+poetiſcher Geiſt bey ihm iſt, wird ſolcher gewißlich<lb/>
+loosbrechen. Die poetiſchen Landfahrer, wie Ho-<lb/>
+mer einer war, muͤſſen geſunde Leute ſeyn, und<lb/>
+ſehr rege und ſichere Fuͤhlungen haben. Jhre<lb/>
+<fw type="catch" place="bottom">Coͤrper</fw><lb/>
+<pb n="23" facs="#f0023"/>
+<fw type="header" place="top"><hi rendition="#b">fuͤr die epiſche Poeſie.</hi></fw><lb/>
+Coͤrper ſind durch keine ſtrenge Arbeit abgenu-<lb/>
+zet, ihre Gemuͤther nicht daniedergeſchlagen. Jhr<lb/>
+Leben iſt ohne Kummer, ohne Ehrgeitz, voller<lb/>
+Wechſel und Verſchiedenheit: Das Herumſtrei-<lb/>
+chen aus einem kleinen Staat in den andern be-<lb/>
+reichert ihre Phantaſie fuͤr ſich ſelbſt. Jhre oͤf-<lb/>
+tere Einſamkeit fuͤhret ſie auf das Denken, ſo wie<lb/>
+die Luſtbarkeiten, die einander wechſelsweiſe ab-<lb/>
+loͤſen, davon abfuͤhren. Wenn wir alleine ſind,<lb/>
+ſo ſind wir genoͤthiget, uns mit uns ſelbſt zu un-<lb/>
+terhalten. Wir muͤſſen uns zuſammenraffen, und<lb/>
+in uns hineinſchauen, ob etwas vorhanden ſey,<lb/>
+was unſere Aufmerkſamkeit verdiene. Jn der Ge-<lb/>
+ſellſchaft zerſtreuet das Aufſehen, das wir auf<lb/>
+einen jeden haben muͤſſen, das Gemuͤthe, und<lb/>
+hindert es am uͤberlegen. Ein Mittel wenig zu<lb/>
+denken iſt, daß man von einer Kurtzweil zur an-<lb/>
+dern forteile, damit man ſo ſich ſelbſt entfliehe.<lb/>
+Aber der Menſch, der einfaͤltig lebt, und zu Zei-<lb/>
+ten von dem Getuͤmmel des Lebens beyſeits geht,<lb/>
+genieſſet ein aͤchteres Ergetzen: Er erlanget von<lb/>
+der ſtillen Natur entzuͤckende Schauſpiele und<lb/>
+Geſichtespuncten, und betrachtet ihre einſamen<lb/>
+Scenen ungeſtoͤrt. Er richtet ſein aufmerkſames<lb/>
+Gemuͤthesauge ofte auf ſich ſelbſt, zeichnet ſeine<lb/>
+eigenen Leidenſchaften, und befeſtiget ſich in ſei-<lb/>
+nen Empfindungen der Menſchlichkeit.</p><lb/>
+<p>Es giebt zwar viele Einſame, welche dem Den-<lb/>
+ken nicht ſonderlich ergeben ſind, und gewiſſe Leu-<lb/>
+te, derer Gewerb erfodert daß ſie reiſen, ſind<lb/>
+merklich tumm. Aber ich rede hier nicht von dem<lb/>
+Leben eines Anachoreten, oder Einſiedlers, noch<lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">von</fw><lb/>
+<pb n="24" facs="#f0024"/>
+<fw type="header" place="top"><hi rendition="#b">Von den gluͤcklichen Umſtaͤnden ꝛc.</hi></fw><lb/>
+von den muͤhſeligen Tagreiſen ſolcher Leute, die<lb/>
+um der Nahrung willen von Land zu Lande wan-<lb/>
+dern: Jch rede von der kurtzen Einſamkeit eines<lb/>
+freudigen Gemuͤthes, deſſen Thun es iſt, daß es<lb/>
+andere ergetze; welches, wie Homer, die erſte<lb/>
+Geſellſchaft, die es antrift, auf die lebhafteſte<lb/>
+und beweglichſte Art unterhalten muß. Dieſer<lb/>
+Zuſtand iſt von eines Einſiedlers oder eines rei-<lb/>
+ſenden Handwerkers gantz unterſchieden, es iſt<lb/>
+ein Stand, der Homer noͤthigte, nicht nur die<lb/>
+Leidenſchaften ſeiner Zuhoͤrer, weil er erzehlte, zu<lb/>
+ſtudieren, ihre Geſichtesminen in Acht zu nehmen,<lb/>
+alle Bewegungen ihrer Augen und den Schwung<lb/>
+ihrer Gedanken, ſorgfaͤltig zu bemerken, ſondern,<lb/>
+wenn er alleine war, um ſich zu ſchauen, und<lb/>
+einen Vorrath von ſolchen Bildern zu ſammeln,<lb/>
+als vermoͤge ſeiner Erfahrung die nachdruͤklichſte<lb/>
+Wuͤrkung haben mußten.</p><lb/>
+<p>Hierzu koͤmmt ein andrer Vortheil, der das<lb/>
+Leben eines umherſchweifenden Rapſodiſten beglei-<lb/>
+tet; nemlich die Fertigkeit, welche er dadurch er-<lb/>
+langen muß, gantze Strophen aus dem Steig-<lb/>
+reife zu ſingen. Wir haben alle Tage Proben<lb/>
+von der Macht der Uebung in allen Kuͤnſten und<lb/>
+Geſchaͤften. Eine Neigung, der man den Gang<lb/>
+laͤßt, wird zu einer Fertigkeit, und dieſe erhebet<lb/>
+ſich, wenn ſie fleiſſig gepfleget wird, zu einer<lb/>
+meiſterlichen Leichtigkeit in einem Handwerke.</p></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Von</hi></fw><lb/>
+<pb n="25" facs="#f0025"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Von den vortrefflichen Umſtaͤnden<lb/>
+fuͤr die Poeſie unter den Kaiſern aus<lb/>
+dem ſchwaͤbiſchen Hauſe.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>Jn gelehrter Mann <note place="foot" n="(*)">Sehet <hi rendition="#aq">Inquiry into the live and the Writing<supplied>s</supplied><lb/>
+of Homer.</hi></note>, dem die Stafeln,<lb/>
+nach welchen die Litteratur geſtiegen, wohl<lb/>
+bekannt geweſen, hat in Acht genommen, daß die<lb/>
+Zeiten da Freyheit und Sclaverey mit einander um<lb/>
+die Oberhand geſtritten, der Welt gemeiniglich et-<lb/>
+was vortreffliches von Werken des Geiſtes geliefert<lb/>
+haben: Jn dergleichen Zeiten geben die Leute ſich<lb/>
+durchaus zu erkennen; das menſchliche Geſchlecht iſt<lb/>
+denn gewiſſen indianiſchen Federn gleich, welche ſich<lb/>
+in mehr als einem Lichte zu ihrem Vortheil zeigen.<lb/>
+Die Verwirrungen und Gefaͤhrlichkeiten, die in<lb/>
+ſolchen Umſtaͤnden haͤuffig ſind, ſetzen alle ihre<lb/>
+Leidenſchaften in Bewegung, und kehren ſie in<lb/>
+alle moͤglichen Geſtalten. Wenn dieſe moraliſchen<lb/>
+Stellungen denn wol in Acht genommen und ge-<lb/>
+ſchikt beſchrieben werden, muͤſſen vortreffliche Wer-<lb/>
+ke daraus werden.</p><lb/>
+<p>Eben derſelbe hat in dieſen Zeiten der Fehden<lb/>
+eine Art Freyheit bemercket, die ihnen eigen iſt.<lb/>
+Sie verurſachen einen freyen und hurtigen Geiſt,<lb/>
+der ſich in das gantze Land ausbreitet. Jeder-<lb/>
+mann ſieht ſich dann ſeinen eigenen Herrn, und daß<lb/>
+er aus ſich ſelber machen darf, was er kan. Er<lb/>
+weis nicht, wie hoch er ſteigen mag, und die Ge-<lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">ſetze</fw><lb/>
+<pb n="26" facs="#f0026"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+ſetze ſchreken ihn nicht, weil ſie denn keine Macht<lb/>
+haben. Die abgezogenen Wiſſenſchaften ſind<lb/>
+ein Werck der Ruhe und Stille, aber die,<lb/>
+welche ſich auf die Menſchen beziehen, und<lb/>
+nach dem menſchlichen Hertzen zielen, werden<lb/>
+am beſten in Bewegungen und Verrichtungen<lb/>
+kennen gelernet.</p><lb/>
+<p>Dieſe Betrachtungen und andre, auf wel-<lb/>
+che mich der eben erwehnte geſchikte Mann<lb/>
+gefuͤhret hat, haben mich die beſte Hoffnung<lb/>
+von den Scribenten, welche unter den Kai-<lb/>
+ſern aus dem ſchwaͤbiſchen Stamme gelebet<lb/>
+haben, faſſen heiſſen. Damahls that die deut-<lb/>
+ſche Freyheit ihr aͤuſſerſtes, ſich des ſclaviſchen<lb/>
+Jochs zu entſchuͤtten, das ihr von Rom an-<lb/>
+gedrohet war. Die Deutſchen waren nicht<lb/>
+mehr dieſe rohen und halbwilden, die aller<lb/>
+Gemaͤchlichkeiten des Lebens, und politiſchen<lb/>
+Veranſtaltungen beraubet waren. Sie hat-<lb/>
+ten friedliche Zeiten, zwiſchen langen und<lb/>
+zweytraͤchtigen Verſuchen, gehabt, wo ſie es<lb/>
+in den Kuͤnſten und Wiſſenſchaften auf einen<lb/>
+gewiſſen Grad gebracht hatten. Doch waren<lb/>
+ſie von Zucht, Hoͤflichkeit und Cerimoniel nicht<lb/>
+zu enge eingethan. Sie hatten noch vieles<lb/>
+von ihrem unbaͤndigen und ungezaͤhmten Geiſt<lb/>
+behalten, und die Schranken der Religion oder<lb/>
+der Policey hatten die natuͤrlichen und einfaͤl-<lb/>
+tigen Bewegungen ihres Hertzens nicht einge-<lb/>
+zwaͤnget. Sie lieſſen ihren angebohrnen Nei-<lb/>
+gungen insgemein den vollen Zuͤgel und verſtell-<lb/>
+ten ſich nicht ſonderlich, daß ſie anders ſchie-<lb/>
+<fw type="catch" place="bottom">nen</fw><lb/>
+<pb n="27" facs="#f0027"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+nen, als ſie waren. Man kan ſagen, daß<lb/>
+jeder Staat ſein eigener Herr war, wie-<lb/>
+wohl ſie durch gewiſſe ſchwache Bande des Le-<lb/>
+henrechtes ꝛc. verbunden waren. Jhr Gehor-<lb/>
+ſam kam allzuſehr auf ihren Willen an; und<lb/>
+eine Nation von ſo kriegeriſchem Naturell konn-<lb/>
+te dieſen Willen nicht lange behalten. Die<lb/>
+Waffen waren im Anſehen, und die Staͤrcke<lb/>
+ſetzte einen in Beſitz. Ein jeder Staat eifer-<lb/>
+te auf den andern, und verſuchte, was ſein Geiſt<lb/>
+im Frieden, und noch lieber was ſeine Staͤrcke<lb/>
+im Kriege vermoͤchte. Dieſe Zeiten nun gaben<lb/>
+einem viel zu ſehen, und viel zu fuͤhlen. Man<lb/>
+konte Staͤdte erobert, und gepluͤndert, Maͤn-<lb/>
+ner durch das Schwerdt fallen, und Weiber<lb/>
+gefangen wegfuͤhren ſehen. Man konnte ver-<lb/>
+zweifelte Gebehrden, drohende Stellungen ſe-<lb/>
+hen, ꝛc. Es kan nicht ſeyn, daß dieſer<lb/>
+Character, dieſe Empfindungen und Regun-<lb/>
+gen nicht in ihre Sprache und Schriften ein-<lb/>
+gefloſſen ſeyn. Jhre Sprache muß von ihnen<lb/>
+dahin gebracht worden ſeyn, daß ſie dieſe ſtar-<lb/>
+ken und tapfermuͤthigen Fuͤhlungen darinnen<lb/>
+haben ausdruͤken koͤnnen. Die Erbauung ſo<lb/>
+vieler Staͤdte und die beſonderen Regierungen<lb/>
+in denſelben, welche mit dem Regimente ſo vie-<lb/>
+ler kleinen Fuͤrſten und Grafen, die zwar an-<lb/>
+derer Vaſallen waren, doch wieder ihre Unter-<lb/>
+thanen hatten, ſo ſeltzam abſetzeten, die Noth-<lb/>
+wendigkeit der Arbeit, die Einfuͤhrung der<lb/>
+Handwerke, und der Kaufmannſchaft, die ver-<lb/>
+ſchiedenen Angelegenheiten ſo vieler eigenmaͤch-<lb/>
+<fw type="catch" place="bottom">tigen</fw><lb/>
+<pb n="28" facs="#f0028"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+tigen Herrſchaften, und ſo vieler Staͤdte, die<lb/>
+auf einander eiferten, mußten eine reiche und<lb/>
+nachdruͤkliche Sprache mit ſich gebracht haben.<lb/>
+Der politiſche <hi rendition="#aq">Stylus</hi> waͤchßt mit der Verfaſ-<lb/>
+ſung eines Staats, und ſteigt auf ſeine Hoͤhe,<lb/>
+wenn man am meiſten dergleichen Geſchaͤfte hat,<lb/>
+an welchen uns ſehr viel gelegen iſt, daß wir ſie<lb/>
+geſchikt vollfuͤhren. Die Rathsverſammlungen<lb/>
+eines freyen Staats werden durch das Mittel<lb/>
+der Rede gefuͤhrt, wohin man will, dieſes bringt<lb/>
+die Beredtſamkeit ins Aufnehmen, und die<lb/>
+Kunſt andere auf ſeine Meinung zu fuͤhren, in<lb/>
+Werth. Wo die Gedanken ſtark, und ehr-<lb/>
+liebend ſind, fehlt es nicht, daß ſie nicht be-<lb/>
+queme Worte an die Hand geben; womit man<lb/>
+ſie ohne Abbruch ausdruͤken koͤnne.</p><lb/>
+<p>Jndeſſen war dieſe Sprache noch nicht ſo<lb/>
+ſehr auspoliert, daß ſie dadurch waͤre abge-<lb/>
+ſchliffen und geſchwaͤchet worden. Durch die<lb/>
+Ausputzung wird manches Wort weggeworf-<lb/>
+fen, ſie ſtekt den Menſchen gleichſam in einen<lb/>
+Sack, geſtattet ihm nur eine gewiſſe Zahl von<lb/>
+uͤblichen Redensarten, und beraubet ihn vieler<lb/>
+nachdrucksreichen Woͤrter, und ſtarker ſchoͤner<lb/>
+Ausdruͤke, welche er wagen und dabey in Ge-<lb/>
+fahr ſtehen muß, daß ſie veraltert und platt<lb/>
+ſcheinen.</p><lb/>
+<p>Die Poeſie beruhet inſonderheit auf den Sit-<lb/>
+ten der Menſchen, die dann ſind, da man ſchreibt;<lb/>
+die beſten Poeten copieren die Natur, und lie-<lb/>
+fern ſie uns ſo, wie ſie ſolche finden. Ein Scri-<lb/>
+bent von Friedrichs des <hi rendition="#aq">I.</hi> oder <hi rendition="#aq">II.</hi> Zeiten habe<lb/>
+<fw type="catch" place="bottom">nur</fw><lb/>
+<pb n="29" facs="#f0029"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+nur mit der damahligen Sprache getreulich<lb/>
+geſchildert, was er geſehen, und empfunden,<lb/>
+ſo muß ſein Werk anmuthig und nachdruͤklich<lb/>
+ſeyn. Seine Vorſtellung einfaͤltiger und na-<lb/>
+tuͤrlicher Sitten, wird uns einnehmen, ſie<lb/>
+wird uns das Beduͤrffniß und die Empfindun-<lb/>
+gen der Menſchen zeigen, ſie wird uns die Be-<lb/>
+wegungen eines unverſtellten Gemuͤthes vor-<lb/>
+weiſen, wir werden darinnen ſehen, was in<lb/>
+unſern Hertzen vorgeht, und was vor Wege<lb/>
+wir brauchen, wenn wir unſern Neigungen<lb/>
+nachgeben. Es ergetzet uns dergleichen zu le-<lb/>
+ſen, weil wir gerne mit Leuten umgehen, de-<lb/>
+nen wir ins Hertze ſehen, die nichts vor uns<lb/>
+verborgenes haben.</p><lb/>
+<p>Jn dergleichen Zeiten, da Jtalien ſo wohl<lb/>
+als Deutſchland in Parteyen zertheilet war, da<lb/>
+die kleinen Staaten gegen einander ligiert wa-<lb/>
+ren, mitten in dem hitzigſten Streiten und Blut-<lb/>
+vergieſſen der Guelfen und Gibellinen, ſchrieb<lb/>
+Dantes den nachdruͤklichſten Entwurff und Ab-<lb/>
+riß von den Menſchen und ihren Neigungen<lb/>
+und Leidenſchaften.</p><lb/>
+<p>Dieſelben Zeiten hatten fuͤr einen Poeten<lb/>
+auch das Gluͤck, daß einer viele Reiſen thun,<lb/>
+und viele perſoͤnliche Anmerkungen machen kon-<lb/>
+te. Die Kreutzzuͤge in die Orientaliſchen Laͤn-<lb/>
+der gaben ihm dazu haͤufige Gelegenheiten,<lb/>
+und er konnte auf denſelben ſeine Phantaſie<lb/>
+mit einer wunderbaren Mannigfaltigkeit von<lb/>
+Sitten, Manieren, Religionen, ꝛc. welche<lb/>
+mit ſeinen eigenen ſo ſtarck abſtachen, berei-<lb/>
+<fw type="catch" place="bottom">chern.</fw><lb/>
+<pb n="30" facs="#f0030"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+chern. Die Natur mußte ihm von dieſen Din-<lb/>
+gen, die ſie ihm in ihrer Wuͤrklichkeit vor Au-<lb/>
+gen ſtellte, die lebhafteſte Empfindung geben.</p><lb/>
+<p>Und weil ein groſſer Theil Jtaliens nebſt<lb/>
+dem angenehmen und fruchtbaren Sicilien da-<lb/>
+mahls unter der Herrſchaft des ſchwaͤbiſchen<lb/>
+Stammes ſtuhnd, ſo daß die Deutſchen in<lb/>
+daſſelbe als in ihr eigenes Land oͤftere Reiſen<lb/>
+thaten, ſo koͤnnen wir natuͤrlicher Weiſe ver-<lb/>
+muthen, daß dieſe gemaͤſſigten Landſchaften,<lb/>
+die unter dem guͤtigen Einfluß eines freudi-<lb/>
+gen Himmels liegen, der Deutſchen martia-<lb/>
+liſchen Geiſter einigermaſſen beſaͤnftiget, und<lb/>
+mit den lekern Fruͤchten ihrer Felder und Gaͤr-<lb/>
+ten den Geſchmack der Wolluſt verbeſſert,<lb/>
+jedoch nicht verzaͤrtelt haben.</p><lb/>
+<p>Meine Hoffnung zu den poetiſchen Schrif-<lb/>
+ten dieſer Zeiten hat noch einen abſonderlichen<lb/>
+Grund in der Gewohnheit derſelben, welche die<lb/>
+Poeſie zu einer Profeſſion gemachet, und zwar<lb/>
+zu einer ſolchen, welche ſich Freyherren, Fuͤrſten<lb/>
+und Grafen vor keine Schande hielten, indem<lb/>
+ſie nicht nur dieſelbe ſchuͤtzeten und die Poe-<lb/>
+ten in ihre Schloͤſſer und Gaſtgebothe auf-<lb/>
+nahmen, Wettſtreite unter ihnen anſtelleten,<lb/>
+ſich ihre Wercke offentlich in Gegenwart der<lb/>
+vornehmſten Geſellſchaften von beyderley Ge-<lb/>
+ſchlechte vorleſen lieſſen, ſondern ſich ſelber<lb/>
+damit bemuͤheten, und um den Preiß ſangen.<lb/>
+Eine Gewohnheit, die ſie vielleicht eben aus<lb/>
+Sicilien, wo die Trovadori unter den neuern<lb/>
+die fruͤheſten geweſen, die zur Poeſie ein na-<lb/>
+<fw type="catch" place="bottom">tuͤrli-</fw><lb/>
+<pb n="31" facs="#f0031"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+tuͤrliches Geſchick gewieſen, heruͤber gehohlet<lb/>
+haben. Friederich der <hi rendition="#aq">II.</hi> war ſelbſt ein groſſer<lb/>
+Liebhaber der Poeſie, und man hat noch auf<lb/>
+dieſen Tag einige von ſeinen Gedanken, wel-<lb/>
+che er in der Jtalieniſchen Sprache ausge-<lb/>
+bildet hat.</p><lb/>
+<p>Die Nachrichten von dieſen deutſchen Saͤn-<lb/>
+gern geben, daß ſie in dem Land herum reiſeten,<lb/>
+und hier und dar an groſſen Hoͤfen ihre poe-<lb/>
+tiſchen Erfindungen vorlaſen und ſangen.</p><lb/>
+<p>Jhre Gedichte waren gemachet, daß ſie er-<lb/>
+zehlt oder vor einer Geſellſchaft geſungrn, nicht<lb/>
+daß ſie im Cabinet durchgangen, oder in einem<lb/>
+Buche geleſen wuͤrden. Wenig Leute konnten<lb/>
+damahls leſen.</p><lb/>
+<p>Sie dorften nicht fuͤrchten, daß ſie nicht<lb/>
+allerorten willkommen waͤren, da ſie ſolche<lb/>
+beliebte Geſchiklichkeit mit ſich brachten. Die-<lb/>
+ſes mußte nothwendig eine gute Wuͤrkung in<lb/>
+ihren Schriften haben, weil ſie ſo den Cha-<lb/>
+racter der groͤſſeſten Maͤnner, und die inner-<lb/>
+ſten Springfedern ihrer Handlungen erlernen<lb/>
+konnten. Sie konnten ſie in ihrem Privat-<lb/>
+leben kennen lernen, ihren Umgang nach ſei-<lb/>
+ner beſondern Art, und ihre Manieren ſich<lb/>
+zu unterhalten.</p><lb/>
+<p>Dieſe Gewohnheit ſeine Muſe in dem Lan-<lb/>
+de herumzufuͤhren hatte daneben den wichti-<lb/>
+gen Nutzen, daß ſie weder Concetti noch tief-<lb/>
+gelahrte Verſe in einer unverſtaͤndlichen Spra-<lb/>
+che ſagen durften. Sie durften wohl wun-<lb/>
+derbare Geſchichten erzehlen, aber ſie muß-<lb/>
+<fw type="catch" place="bottom">ten</fw><lb/>
+<pb n="32" facs="#f0032"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+ten deutlich erzehlt, und die natuͤrlichen Sit-<lb/>
+ten, und menſchlichen Leidenſchaften niemahls<lb/>
+aus Augen geſetzet werden.</p><lb/>
+<p>Sie ſtelleten oͤfters poetiſche Wettſtreite un-<lb/>
+ter einander an, in Gegenwart groſſer Ver-<lb/>
+ſammlungen, welche dem Obſieger einen Ge-<lb/>
+winn zutheileten. Alſo war eine taͤgliche Ue-<lb/>
+bung ihr beſter Kunſtlehrer in der Dichtkunſt.<lb/>
+Sie bedurften keiner <hi rendition="#fr">erworbenen</hi> Wiſſenſchaf-<lb/>
+ten die natuͤrliche Neigung ihres Geiſtes, ihre<lb/>
+Bekanntſchaft und Umgang mit dem Men-<lb/>
+ſchen verſahe ſie mit genugſamen Vorrath.</p><lb/>
+<p>Man wird mit mir nicht zufrieden ſeyn,<lb/>
+daß ich bloß die Moͤglichkeit, darinnen dieſes<lb/>
+Weltalter geſtanden, auf eine vortreffliche Art<lb/>
+zu poetiſieren, angezeiget habe; man wird<lb/>
+ſagen, es ſey von der Moͤglichkeit noch ein<lb/>
+weiter Schritt zur Wirklichkeit, es ſey nicht<lb/>
+genug, daß der Zuſtand von Deutſchland ſo<lb/>
+wohl in politiſchen, und moraliſchen, als in<lb/>
+phyſicaliſchen Dingen damahls in einer rech-<lb/>
+ten und bequemen Temperatur geſtanden, treff-<lb/>
+liche Poeten hervorzubringen, und ſie mit ei-<lb/>
+nem geſchickten Stofe fuͤr poetiſche Wercke zu<lb/>
+verſehen; es gehoͤren noch mehrere Bedingun-<lb/>
+gen dazu, vielerley geringere Umſtaͤnde des<lb/>
+Privatlebens, viele Vortheile der abſonder-<lb/>
+lichen Auferziehung, und eigene Gelegenheiten<lb/>
+das menſchliche Geſchlechte durch und durch<lb/>
+kennen zu lernen. Aus dieſer Urſache wird<lb/>
+man von mir begehren, daß ich wuͤrkliche Mu-<lb/>
+ſter von Schriften anzeige, welche die Wuͤr-<lb/>
+<fw type="catch" place="bottom">kung</fw><lb/>
+<pb n="33" facs="#f0033"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+kung und Frucht meiner obigen Anmerkungen<lb/>
+geweſen ſeyn,</p><lb/>
+<p>Waͤren gewiſſe Wercke, von denen wir noch<lb/>
+die Titel haben, nicht verlohren gegangen, ſo<lb/>
+waͤre ich ohne Zweifel im Stande, ihrem Ver-<lb/>
+langen eine Gnuͤge zu thun. Haͤtten wir noch<lb/>
+Hermanns von Sachſenhauſen Gedichte, die Moͤh-<lb/>
+rin genannt, Wolframs von Eſchilbach ſtarcken<lb/>
+Rennewart, eben deſſelben Gedichte von Marg-<lb/>
+graf Wilhelm von Narbone, desgleichen was er<lb/>
+von Gamuret, und ſeinem Sohne Pareifall, ge-<lb/>
+dichtet; haͤtten wir vornehmlich Klinſors Gedich-<lb/>
+te von der Erſchaffung, den Geſchoͤpfen, dem Ge-<lb/>
+ſtirne, und deſſelben Hiſtoͤrgen und Erzehlungen,<lb/>
+ſo wuͤrden wir mein Vertrauen zu ihren Zeiten<lb/>
+und ihrer Geſchicklichkeit in voller Kraft erfuͤllet<lb/>
+ſehen. Der gemeine Ruf, in welchem Klinſor<lb/>
+geſtanden, daß er zauberiſche Kuͤnſte gewuſt, le-<lb/>
+get zu unſern Zeiten nur ein Zeugniß von ſeinen<lb/>
+ungemeinen Talenten ab, und hat einerley Ur-<lb/>
+ſprung, wie ein gleiches Geſchrey, welches von<lb/>
+dem kunſt- und geiſtreichen Moͤnchen Roger Bacon<lb/>
+in demſelben unwiſſenden Weltalter gegangen war.<lb/>
+Wir haben zwar noch etwas von Eſchelbach,<lb/>
+von Albrecht von Halberſtatt, von Ofterdingen,<lb/>
+von Freydank, das in dem fuͤnfzehnten Jahr-<lb/>
+hundert im oͤffentlichen Druck das Licht geſehen<lb/>
+hat, aber die Herausgeber haben in den Leſ-<lb/>
+arten, den Woͤrtern und gantzen Redensarten,<lb/>
+ſo wichtige Veraͤnderungen vorgenommen, daß<lb/>
+wir die Sprache und die aͤchten Gedanken der<lb/>
+Originale oͤfters darinnen miſſen. Dieſes Un-<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l <hi rendition="#aq">VII.</hi> St.] C</fw><fw type="catch" place="bottom">gluͤck</fw><lb/>
+<pb n="34" facs="#f0034"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+gluͤck hat obiger Dichter Erzehlungen von Otteni-<lb/>
+ten, von Wolfdietrichen, von dem kleinen Roſen-<lb/>
+garten, und dem Koͤnig Laurin, die Ueberſetzung<lb/>
+der Verwandlungen des Ovidius, und Freydanks<lb/>
+moraliſches Gedichte von der Beſcheidenheit ſtarck<lb/>
+getroffen. Wikram hat ſich am meiſten Frey-<lb/>
+heit mit ihnen genommen; und Burckard Wal-<lb/>
+dis hat eben dieſes mit Pfinzings Theuerdanck<lb/>
+gethan, der doch von ſeinen Zeiten nicht gar weit<lb/>
+entfernt geweſen. Sebaſtian Brand ſelbſt hat in<lb/>
+Freydancks Wercke die Sprache mehr geaͤndert,<lb/>
+als es dienlich war; wiewohl er den Sachen und<lb/>
+Gedancken am wenigſten genommen hat.</p><lb/>
+<p>Das aͤchteſte, das wir aus dem Schwaͤbi-<lb/>
+ſchen Weltalter haben, ſind Winsbeckes Gedich-<lb/>
+te, wovon uns Goldaſt und Schertz gute Auf-<lb/>
+lagen geliefert haben. Wir finden theils in den-<lb/>
+ſelbigen, theils in einzelen Zeilen, welche Goldaſt<lb/>
+hier und da angezogen hat, ſo ungekuͤnſtelte Ori-<lb/>
+ginale von den eigenen und urſpruͤnglichen Sitten<lb/>
+der damahligen Deutſchen, und dieſe werden mit<lb/>
+einer ſolchen Art und Kraft der Redensart, ſo wohl<lb/>
+durch Metaphern von den natuͤrlichſten Gegenſtaͤn-<lb/>
+den, als durch einen gluͤcklichen Schatz der Spra-<lb/>
+che, ausgedruͤcket, daß wir gnugſam daraus er-<lb/>
+kennen, daß der Character der damahligen Zei-<lb/>
+ten und Umſtaͤnden eine Wuͤrkung ſeiner Na-<lb/>
+tur gemaͤß gethan, und ſich in die Schriften er-<lb/>
+goſſen habe. Wir haben Recht aus dieſen weni-<lb/>
+gen guten Stuͤcken, die uns uͤbrig geblieben ſind,<lb/>
+zu ſchlieſſen, daß noch ſo gute verlohren gegangen<lb/>
+ſeyn. Die Nachreue wegen dieſes Verluſtes wird<lb/>
+<fw type="catch" place="bottom">dadurch</fw><lb/>
+<pb n="35" facs="#f0035"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+dadurch am aͤllermeiſten vermehret, und wir muͤſ-<lb/>
+ſen die Nachlaͤſſigkeit unſrer Voreltern, welche<lb/>
+ſie hat untergehen laſſen, um ſo viel ſchmertzlicher<lb/>
+bedauern. Wenn wir zwar nicht eben ſo viele<lb/>
+Nachlaͤſſigkeit haͤtten, ſo koͤnnten wir vermuth-<lb/>
+lich noch heutiges Tages dieſen erlittenen Verluſt<lb/>
+ziemlichermaſſen erſetzen; geſtalten nicht unbekannt<lb/>
+iſt, daß in der Koͤniglichen Bibliotheck zu Paris<lb/>
+<hi rendition="#aq">Num.</hi> 7266. ein pergamener <hi rendition="#aq">Codex</hi> iſt, worinnen<lb/>
+eine groſſe Anzahl Poeſien aus dem hohenſtaufi-<lb/>
+ſchen Weltalter zuſammengeſchrieben ſind. Wir<lb/>
+wiſſen auch die Nahmen der vornehmen Verfaſſer,<lb/>
+von denen einige Stuͤcke darinnen enthalten ſind;<lb/>
+darunter ſind etliche die mittelſt eintzelner Zeilen,<lb/>
+die von Goldaſt aus ihnen angezogen worden, ein<lb/>
+ſtarckes Verlangen nach dem gantzen erweket ha-<lb/>
+ben; naͤmlich <hi rendition="#aq">Klinsore von Ungerlant; Walter<lb/>
+von der Vogelweide; Werner von Túfen; Chun-<lb/>
+rad von Wúrzburg; Herzog Henrich von Preſ-<lb/>
+ſela; Reimar von Zweeter.</hi> Alle die Dichter,<lb/>
+derer Schriften in dem angeregten <hi rendition="#aq">Codex</hi> be-<lb/>
+griffen ſind, haben unter den Kaiſern aus dem<lb/>
+ſchwaͤbiſchen Hauſe gelebet. Der Untergang des<lb/>
+Stammes von Hohenſtaufen iſt der Poeſie gantz<lb/>
+verderblich geweſen. Man muß nicht wohl zu<lb/>
+unterſcheiden wiſſen, wenn man die Poeten deſ-<lb/>
+ſelben Alters mit den Meiſterſaͤngern der ſpaͤtern<lb/>
+Zeiten in eine Claſſe ſetzet; wie Wagenſeil und<lb/>
+andre gethan haben. Sie ſind einander an Ge-<lb/>
+ſchicklichkeit, an Kunſt, an der Sprache, allzu<lb/>
+ungleich, wiewohl ſie einander darinnen gleichen<lb/>
+moͤgen, daß dieſe und jene ihre Erzehlungen vor<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">einer</fw><lb/>
+<pb n="36" facs="#f0036"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+einer Geſellſchaft Zuhoͤrer abgeſungen haben. Die<lb/>
+Mundart deren ſich die Poeten des <hi rendition="#aq">XIII.</hi> Jahrhun-<lb/>
+dert bedient haben, iſt durchgehends die Schwaͤ-<lb/>
+biſche, welche damahls auch die Sachſen vor die<lb/>
+beſte erkennt und gebraucht haben.</p><lb/>
+<p>Von einem ſolchen Gedichte aus dem drey-<lb/>
+zehnden Jahrhundert hat der Zufall ein paar<lb/>
+Hundert Zeilen auf einem zerriſſenen Pergament<lb/>
+geſchonet, welches mir ungefehr in die Haͤnde ge-<lb/>
+fallen iſt. Jch halte dieſe Schrift beynahe gleich<lb/>
+alt mit dem Dichter. Der Jnnhalt iſt von der<lb/>
+ſchoͤnen Meliure, welcher die groͤſſeſten Fuͤrſten<lb/>
+von Europa und Aſia aufwarteten, und Hoff-<lb/>
+nung hatten, daß ſie einen von ihnen zu ihrem<lb/>
+Gemahl erwehlen wuͤrde. Vor allen andern ſchmei-<lb/>
+chelten ſich, ihre Gunſt zu haben, der Soldan aus<lb/>
+Perſien, und Partenopier, ein Fuͤrſt aus dem<lb/>
+Stamme der Koͤnige von Kerlingen. Dieſer<lb/>
+letztere hatte ſich insgeheim vom Hofe verlohren.<lb/>
+Jn unſerm <hi rendition="#aq">Fragmento</hi> findet er ſich unbekannter<lb/>
+Weiſe wieder ein, einem Turniere, der unter den<lb/>
+Mauren der Stadt Schifdiere ſollte gehalten wer-<lb/>
+den, beyzuwohnen. Unweit denſelben, in einem<lb/>
+anmuthigen Thal, begegnet ihm Gaudin, ein chriſt-<lb/>
+licher Ritter, mit welchem er Freundſchaft ma-<lb/>
+chet, und auf den Turnierplatz reitet. Sie fan-<lb/>
+den auf einer Ebene zwiſchen der Stadt und dem<lb/>
+Meere alles von Chriſten und Saracenen wim-<lb/>
+meln. Dieſe werden durch einander gemiſchet,<lb/>
+ſo daß kein Unterſchied unter ihnen gehalten ward,<lb/>
+hernach werden ſie in zwey gantze Theile getheilt.<lb/>
+Der Koͤnig von Kerlingen hatte gegen Meliu-<lb/>
+<fw type="catch" place="bottom">ren</fw><lb/>
+<pb n="37" facs="#f0037"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+ren einen Anſchlag im Kopf, weil er ſie im Ver-<lb/>
+dacht hatte, daß ſie ihm Partenopier, ſeinen<lb/>
+Vetter, aufgefangen haͤtte. Das iſt es, was<lb/>
+wir aus dieſem kleinen erretteten Stuͤcke erler-<lb/>
+nen koͤnnen. Wir haben ſchon darinnen Erfin-<lb/>
+dung, Sitten, und poetiſche Farben: Erfin-<lb/>
+dung in Meliurens Worte, einen von den chriſt-<lb/>
+lichen oder den ſaraceniſchen Fuͤrſten zum Gemahl<lb/>
+zu erwehlen, welches einige Aehnlichkeit mit Pe-<lb/>
+nelopens Verſprechen hat, und vielleicht mit gleich-<lb/>
+maͤſſigem Zwang, Bedingung, und Umſtaͤnden,<lb/>
+wie bey dieſer begleitet geweſen; in Parteno-<lb/>
+piers heimlichen Abſchied, und heimlicher Wie-<lb/>
+derkunft, welche uns einen Knotten in dem Ge-<lb/>
+dichte zu vermuthen giebt; in der freundlichen<lb/>
+Vermiſchung der Saracenen und der Chriſten,<lb/>
+welche etwas neues und ſeltſames in ſich hat.<lb/>
+Sitten haben wir in eben dieſer Vermiſchung,<lb/>
+und ferner in dem freundſchaftlichen Betragen Par-<lb/>
+tenopiers und Gaudins, in des Kerlinger-Koͤ-<lb/>
+nigs Haſſe gegen Meliuren, un Meliurens Furcht<lb/>
+vor demſelben. Poetiſche Farben finden ſich in<lb/>
+der Beſchreibung der Gegenden, der Kleidungen,<lb/>
+der Zuruͤſtungen, der Eintheilung des Turnieres.<lb/>
+Die Sprache zur Ausdruͤkung aller dieſer Din-<lb/>
+ge fehlte dem Verfaſſer nicht, und wann wir<lb/>
+ſie als eine fremde oder gar als eine todte Spra-<lb/>
+che anſehen, und die Begriffe mit den Woͤr-<lb/>
+tern verknuͤpfen, welche zur Zeit, als ſie noch ge-<lb/>
+redet ward, damit verknuͤpfet waren, ſo wer-<lb/>
+den wir keinen ſchlechten Geſchmack darinnen<lb/>
+finden. Urtheilt ſelbſt davon:</p><lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom"><hi rendition="#aq">Geli-</hi></fw><lb/>
+<pb n="38" facs="#f0038"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+<lg type="poem"><l><hi rendition="#aq">geliches willen mueſte iehen</hi></l><lb/>
+<l><hi rendition="#aq">ſchiefdeire wart von in geſehen</hi></l><lb/>
+<l><hi rendition="#aq">in harte kurzer wile</hi></l><lb/>
+<l><hi rendition="#aq">mit ſnelleclicher ile</hi></l><lb/>
+<l><hi rendition="#aq">kamen ſi geriten dar</hi></l><lb/>
+<l><hi rendition="#aq">ein tal von bluomen lieh gefar</hi></l><lb/>
+<l><hi rendition="#aq">lac da bi mit ſtete</hi></l><lb/>
+<l><hi rendition="#aq">dar inne Gaudin hete</hi></l><lb/>
+<l><hi rendition="#aq">empfangen wunneclich gemach</hi></l><lb/>
+<l><hi rendition="#aq">ein herberge und ein obedach</hi></l><lb/>
+<l><hi rendition="#aq">was im alda gewunnen</hi></l><lb/>
+<l><hi rendition="#aq">bi eime kalten brunnen</hi></l><lb/>
+<l><hi rendition="#aq">da gruene boume ſtuonden obe</hi></l><lb/>
+<l><hi rendition="#aq">ein pavilune wol ze lobe</hi></l><lb/>
+<l><hi rendition="#aq">waz in geslagen uf das velt</hi></l><lb/>
+<l><hi rendition="#aq">unde ſtuont vil ſchoene ſin gezelt</hi></l><lb/>
+<l><hi rendition="#aq">mit loumen und mit grase beſt</hi></l><lb/>
+<l><hi rendition="#aq">der meie hete do gevroeut</hi></l><lb/>
+<l><hi rendition="#aq">mit der lichten kúnfte ſin</hi></l><lb/>
+<l><hi rendition="#aq">diu wilden walt vogelin</hi></l><lb/>
+<l><hi rendition="#aq">dar umbe alda ze priſe</hi></l><lb/>
+<l><hi rendition="#aq">ir ſuezen ſumer wiſe</hi></l><lb/>
+<l><hi rendition="#aq">wurden lute erklenket</hi></l><lb/>
+<l><hi rendition="#aq">ſi heten ſich geſenket</hi></l><lb/>
+<l><hi rendition="#aq">in die ſchoenen bomes bluot</hi></l><lb/>
+<l><hi rendition="#aq">vnde liezen ſueze ſtimme guot</hi></l><lb/>
+<l><hi rendition="#aq">des males hellen úberal</hi></l><lb/>
+<l><hi rendition="#aq">in diſem wunneclichen tal</hi></l><lb/>
+<l><hi rendition="#aq">Gaudin ſich nider ſchiere</hi></l><lb/>
+<l><hi rendition="#aq">lie mit Partinopiere</hi></l><lb/>
+<l><hi rendition="#aq">der im die nacht vil eren bot</hi></l><lb/>
+<l><hi rendition="#aq">des tages do das morgen rot</hi></l><lb/>
+<l><hi rendition="#aq">durch den lichten himmel ſchein</hi></l></lg><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">von</hi></fw><lb/>
+<pb n="39" facs="#f0039"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">von koufe der vil nuzzes birt</hi></l><lb/>
+<l><hi rendition="#aq">die knehte ſolten einen wirt</hi></l><lb/>
+<l><hi rendition="#aq">in kiesen der in gebe ſa</hi></l><lb/>
+<l><hi rendition="#aq">des ſi durftic weren da</hi></l><lb/>
+<l><hi rendition="#aq">ze ritterliche koſte</hi></l><lb/>
+<l><hi rendition="#aq">ſi wolten uf die joſte</hi></l><lb/>
+<l><hi rendition="#aq">nach hoher minne lone</hi></l><lb/>
+<l><hi rendition="#aq">bereiten ſich vil ſchone</hi></l><lb/>
+<l><hi rendition="#aq">Nu daz die knechte vúr gerite<supplied>n</supplied></hi></l><lb/>
+<l><hi rendition="#aq">die ritter da niht langer biten</hi></l><lb/>
+<l><hi rendition="#aq">Gaudin unde Partinopier</hi></l><lb/>
+<l><hi rendition="#aq">zuo der Stat ſchone unde fier</hi></l><lb/>
+<l><hi rendition="#aq">diu Schiefdere waz genant</hi></l><lb/>
+<l><hi rendition="#aq">kamen ſi da ſa zehant</hi></l><lb/>
+<l><hi rendition="#aq">da ſi vil geſte ſahen</hi></l><lb/>
+<l><hi rendition="#aq">zuo riten unde gahen</hi></l><lb/>
+<l><hi rendition="#aq">uz manegem kunecriche</hi></l><lb/>
+<l><hi rendition="#aq">ſi beide vil geliche</hi></l><lb/>
+<l><hi rendition="#aq">ir ougenblicke niht verlurn</hi></l><lb/>
+<l><hi rendition="#aq">wan ſi da ſpurten unde kurn</hi></l><lb/>
+<l><hi rendition="#aq">werder kunege ein wunder</hi></l><lb/>
+<l><hi rendition="#aq">ouch ſahen ſi dar under</hi></l><lb/>
+<l><hi rendition="#aq">manegen herzogen hoch</hi></l><lb/>
+<l><hi rendition="#aq">vil grafen unde frigen zock</hi></l><lb/>
+<l><hi rendition="#aq">hin zuo dem turneie</hi></l><lb/>
+<l><hi rendition="#aq">rich unde manger leie</hi></l><lb/>
+<l><hi rendition="#aq">ſchein diu gezierde ir werden hers</hi></l><lb/>
+<l><hi rendition="#aq">hie diſſit unde ienhalp mers</hi></l><lb/>
+<l><hi rendition="#aq">was ir volc gewahsen</hi></l><lb/>
+<l><hi rendition="#aq">Weſtfalen unde ſahsen</hi></l><lb/>
+<l><hi rendition="#aq">vranken peier ſwabe</hi></l><lb/>
+<fw type="sig" place="bottom"><hi rendition="#aq">C 4</hi></fw><fw type="catch" place="bottom"><hi rendition="#aq">durck</hi></fw><lb/>
+<pb n="40" facs="#f0040"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+<l><hi rendition="#aq">durch werder minne gabe</hi></l><lb/>
+<l><hi rendition="#aq">kamen dar mit hoher craft</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">der ſchone dienten ſinre hant</hi></l><lb/>
+<l><hi rendition="#aq">der Kúnec von Egipte lant</hi></l><lb/>
+<l><hi rendition="#aq">vnd der von Iturie</hi></l><lb/>
+<l><hi rendition="#aq">mit grozer maſsenye</hi></l><lb/>
+<l><hi rendition="#aq">wurdent beide erkennet da</hi></l><lb/>
+<l><hi rendition="#aq">der kúnic rich von Libia</hi></l><lb/>
+<l><hi rendition="#aq">kam dar mit disen beiden</hi></l><lb/>
+<l><hi rendition="#aq">ouch vuor da hin der Meden</hi></l><lb/>
+<l><hi rendition="#aq">gebieter und ir Landevogt</hi></l><lb/>
+<l><hi rendition="#aq">von Barbarie dar gezogt</hi></l><lb/>
+<l><hi rendition="#aq">waz der kúnec ſchone</hi></l><lb/>
+<l><hi rendition="#aq">ein here truoc die krone</hi></l><lb/>
+<l><hi rendition="#aq">des riches in Arabia</hi></l><lb/>
+<l><hi rendition="#aq">den ſach man werdeclichen da</hi></l><lb/>
+<l><hi rendition="#aq">zuo gahen unde riten</hi></l><lb/>
+<l><hi rendition="#aq">ouch waz da bi den ziten</hi></l><lb/>
+<l><hi rendition="#aq">der kùnec von Syrie</hi></l><lb/>
+<l><hi rendition="#aq">und der von Armenye</hi></l><lb/>
+<l><hi rendition="#aq">brahte dar vil groz gedranc</hi></l><lb/>
+<l><hi rendition="#aq">von Baldach unde von Zaz amanc</hi></l><lb/>
+<l><hi rendition="#aq">die zwene kúnge vuoren dar</hi></l><lb/>
+<l><hi rendition="#aq">ſo waz dahin mit ſinre ſchar</hi></l><lb/>
+<l><hi rendition="#aq">geſtrichen der von Marroch</hi></l><lb/>
+<l><hi rendition="#aq">diz waren heiden alles doch</hi></l><lb/>
+<l><hi rendition="#aq">vnde hete ſi der Soldan</hi></l><lb/>
+<l><hi rendition="#aq">gefueret dar us des ſiges wan</hi></l><lb/>
+<l><hi rendition="#aq">daz in div vrouwe ſolte erweln.</hi></l><lb/>
+<l><hi rendition="#aq">Nu wil ich iv die Kúnge zeln</hi></l><lb/>
+<l><hi rendition="#aq">die von der werden criſtenheit</hi></l><lb/>
+<l><hi rendition="#aq">ouch riten uf die heide breit</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">vnd</hi></fw><lb/>
+<pb n="41" facs="#f0041"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+<l><hi rendition="#aq">vnd uf das wol geblvemte gras</hi></l><lb/>
+<l><hi rendition="#aq">der Keiſer da von Rome was</hi></l><lb/>
+<l><hi rendition="#aq">herlich und ſchone komen</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">die zwene kamen ouch aldar</hi></l><lb/>
+<l><hi rendition="#aq">die fuorten beide in lichter ſchar</hi></l><lb/>
+<l><hi rendition="#aq">manegen ritterlichen degen</hi></l><lb/>
+<l><hi rendition="#aq">der Kúnec rich von Norwegen</hi></l><lb/>
+<l><hi rendition="#aq">vnd der von Orchadie</hi></l><lb/>
+<l><hi rendition="#aq">mit grozer maſſenie</hi></l><lb/>
+<l><hi rendition="#aq">zuo ritten unde randen</hi></l><lb/>
+<l><hi rendition="#aq">der Kúnec von Irlanden</hi></l><lb/>
+<l><hi rendition="#aq">vnd der von Tenemarken</hi></l><lb/>
+<l><hi rendition="#aq">vuoren dar mit ſtarken</hi></l><lb/>
+<l><hi rendition="#aq">rotten uf die gruenen wiſen</hi></l><lb/>
+<l><hi rendition="#aq">ouch wart geſehen da mit disen</hi></l><lb/>
+<l><hi rendition="#aq">der Kúnec von Yſpanie</hi></l><lb/>
+<l><hi rendition="#aq">des Riches von Britanye</hi></l><lb/>
+<l><hi rendition="#aq">Pfleger waz da hin gefarn</hi></l><lb/>
+<l><hi rendition="#aq">der brahte dar in ſinen ſcharn</hi></l><lb/>
+<l><hi rendition="#aq">vil manegen werden Britun</hi></l><lb/>
+<l><hi rendition="#aq">da was der Kúnec von Arragun</hi></l><lb/>
+<l><hi rendition="#aq">und der Kerlingere Vogt</hi></l><lb/>
+<l><hi rendition="#aq">von Nafarre dar gezogt</hi></l><lb/>
+<l><hi rendition="#aq">kam ein Kúnec wit erkant</hi></l><lb/>
+<l><hi rendition="#aq">ſo waz ouch der von Engellant</hi></l><lb/>
+<l><hi rendition="#aq">komen dar mit hoher craft</hi></l><lb/>
+<l><hi rendition="#aq">und ein Kúnec ellenthaft</hi></l><lb/>
+<l><hi rendition="#aq">geheizen von Cecilie</hi></l><lb/>
+<l><hi rendition="#aq">Koufliute von Marſilie</hi></l><lb/>
+<l><hi rendition="#aq">kamen dar mit ſinem her</hi></l><lb/>
+<l><hi rendition="#aq">die den market bi dem mer</hi></l><lb/>
+<fw type="sig" place="bottom"><hi rendition="#aq">C 5</hi></fw><fw type="catch" place="bottom"><hi rendition="#aq">zierten</hi></fw><lb/>
+<pb n="42" facs="#f0042"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+<l><hi rendition="#aq">zierten mit ir krame guot</hi></l><lb/>
+<l><hi rendition="#aq">vil werden vurſten hoch gemuot</hi></l><lb/>
+<l><hi rendition="#aq">begunden ſich da dringen</hi></l><lb/>
+<l><hi rendition="#aq">der herzoge uz Lutringen</hi></l><lb/>
+<l><hi rendition="#aq">vnd der von Normandie</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">wan ir werdent hie gewert</hi></l><lb/>
+<l><hi rendition="#aq">ſwez iuwer edel herze gert</hi></l><lb/>
+<l><hi rendition="#aq">vnd úber das noch liebes mer</hi></l><lb/>
+<l><hi rendition="#aq">owe ſprach do Partinoper</hi></l><lb/>
+<l><hi rendition="#aq">wúrde erfúllet hie min gir</hi></l><lb/>
+<l><hi rendition="#aq">ſon gert ich niht das mir</hi></l><lb/>
+<l><hi rendition="#aq">gelunge baz geſelle kluoc</hi></l><lb/>
+<l><hi rendition="#aq">io duhte mich ſin rehte gnuoc</hi></l><lb/>
+<l><hi rendition="#aq">vil hochgelobter man hiemite</hi></l><lb/>
+<l><hi rendition="#aq">geſchehe das des ich hie bite</hi></l><lb/>
+<l><hi rendition="#aq">Sus giengen ſi do slafen</hi></l><lb/>
+<l><hi rendition="#aq">ir harnaſch und ir wafen</hi></l><lb/>
+<l><hi rendition="#aq">heten ſi von in geleit</hi></l><lb/>
+<l><hi rendition="#aq">ſi pflagen ir muedekeit</hi></l><lb/>
+<l><hi rendition="#aq">vil ruowe unz an den morgen vruo</hi></l><lb/>
+<l><hi rendition="#aq">do wurden ſi bereit dar zuo</hi></l><lb/>
+<l><hi rendition="#aq">das ſi da langer niht enbiten</hi></l><lb/>
+<l><hi rendition="#aq">ſi kerten abr vnde riten</hi></l><lb/>
+<l><hi rendition="#aq">fúr die ſtat hin uf den plan</hi></l><lb/>
+<l><hi rendition="#aq">da ſanc ein werder Capelan</hi></l><lb/>
+<l><hi rendition="#aq">in eime gezelte Meße</hi></l><lb/>
+<l><hi rendition="#aq">der criſtenlichen preße</hi></l><lb/>
+<l><hi rendition="#aq">vor allem ungelouben vri</hi></l><lb/>
+<l><hi rendition="#aq">ſi zwene ſtuonden ouch dabi</hi></l><lb/>
+<l><hi rendition="#aq">mit reinem willen ſtete</hi></l><lb/>
+<l><hi rendition="#aq">nv man geſungen hete</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">nach</hi></fw><lb/>
+<pb n="43" facs="#f0043"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+<l><hi rendition="#aq">nach vil goetelicher art</hi></l><lb/>
+<l><hi rendition="#aq">der turnei do geteilet wart</hi></l><lb/>
+<l><hi rendition="#aq">das Criſten unde Heiden</hi></l><lb/>
+<l><hi rendition="#aq">bliben ungeſcheiden</hi></l><lb/>
+<l><hi rendition="#aq">vnde man ſi miſchete under ein</hi></l><lb/>
+<l><hi rendition="#aq">durch das kein ſtrit da von in zwein</hi></l><lb/>
+<l><hi rendition="#aq">ſich huobe noch kein ...</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">hin under die getouften ſchar</hi></l><lb/>
+<l><hi rendition="#aq">nv ſi gemiſchet wurden gar</hi></l><lb/>
+<l><hi rendition="#aq">zein ander uf der heide</hi></l><lb/>
+<l><hi rendition="#aq">ſo daz kein underſcheide</hi></l><lb/>
+<l><hi rendition="#aq">wart von in gehalten</hi></l><lb/>
+<l><hi rendition="#aq">da wurden ſi geſpalten</hi></l><lb/>
+<l><hi rendition="#aq">vnd in zwei ganze teil geſ ...</hi></l><lb/>
+<l><hi rendition="#aq">der criſten und der heiden w ...</hi></l><lb/>
+<l><hi rendition="#aq">beidenthalp geliche vil</hi></l><lb/>
+<l><hi rendition="#aq">an dem ritterlichen ſpil</hi></l><lb/>
+<l><hi rendition="#aq">en weder teil wart minre</hi></l><lb/>
+<l><hi rendition="#aq">daz uzer und daz inre</hi></l><lb/>
+<l><hi rendition="#aq">niht eines mannes hete me</hi></l><lb/>
+<l><hi rendition="#aq">kein tvrnei weder ſit noch e</hi></l><lb/>
+<l><hi rendition="#aq">wart als eben uf geleit</hi></l><lb/>
+<l><hi rendition="#aq">das kam do zeiner ſelekeit</hi></l><lb/>
+<l><hi rendition="#aq">in allen und ze heile</hi></l><lb/>
+<l><hi rendition="#aq">eim ietwedern teile</hi></l><lb/>
+<l><hi rendition="#aq">das turnieren da began</hi></l><lb/>
+<l><hi rendition="#aq">wurden zwene houbtman</hi></l><lb/>
+<l><hi rendition="#aq">beſunder uzbeſcheiden</hi></l><lb/>
+<l><hi rendition="#aq">die criſten unde heiden</hi></l><lb/>
+<l><hi rendition="#aq">niht ſtreites liezen walten</hi></l><lb/>
+<l><hi rendition="#aq">den turnei mueſte halten</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">der</hi></fw><lb/>
+<pb n="44" facs="#f0044"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+<l><hi rendition="#aq">der Soldan zeinre ſiten</hi></l><lb/>
+<l><hi rendition="#aq">unde vvielt ſin an den ziten</hi></l><lb/>
+<l><hi rendition="#aq">mit im ein kúnec uzerkorn</hi></l><lb/>
+<l><hi rendition="#aq">der waz uz Spangenlant geborn.</hi></l><lb/>
+<l><hi rendition="#aq">Si zwene mit ir lieb ...</hi></l><lb/>
+<l><hi rendition="#aq">des males werde cl ...</hi></l><lb/>
+<l><hi rendition="#aq">vvurden in die ſtat ....</hi></l><lb/>
+<l><hi rendition="#aq">diu veſte michel und ...</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">ze halten in ir pflege</hi></l><lb/>
+<l><hi rendition="#aq">... uf des gruenen planes wege</hi></l><lb/>
+<l><hi rendition="#aq">... ren ſi das beſte</hi></l><lb/>
+<l><hi rendition="#aq">... zwene vúr die veſte</hi></l><lb/>
+<l><hi rendition="#aq">... vvurden uzerhalb geleit</hi></l><lb/>
+<l><hi rendition="#aq">... uo dem mere vvit unde breit</hi></l><lb/>
+<l><hi rendition="#aq">vnder boume uf gruenez gras</hi></l><lb/>
+<l><hi rendition="#aq">der kúnec von Kerlingen vvas</hi></l><lb/>
+<l><hi rendition="#aq">der Keiſerinne vvunneſam</hi></l><lb/>
+<l><hi rendition="#aq">von herzen vigent unde gram</hi></l><lb/>
+<l><hi rendition="#aq">durh das er vvande han verlorn</hi></l><lb/>
+<l><hi rendition="#aq">von der vrouvven hochgeborn</hi></l><lb/>
+<l><hi rendition="#aq">Partinopieren ſinen mac</hi></l><lb/>
+<l><hi rendition="#aq">des vvart er an des meres vvac</hi></l><lb/>
+<l><hi rendition="#aq">geleit mit hoher vvitze</hi></l><lb/>
+<l><hi rendition="#aq">ſin vride und ouch ſin litze</hi></l><lb/>
+<l><hi rendition="#aq">vvaz uzerhalp der mure</hi></l><lb/>
+<l><hi rendition="#aq">der ſchoenen Meliure</hi></l><lb/>
+<l><hi rendition="#aq">ze wibe er niht en gerte</hi></l><lb/>
+<l><hi rendition="#aq">- - ſvoht er unde werte</hi></l><lb/>
+<l><hi rendition="#aq">- ie ritterſchaft durch verluſt</hi></l><lb/>
+<l><hi rendition="#aq">vnd truoc den vvillen in der bruſt</hi></l><lb/>
+<l><hi rendition="#aq">moeht es ſich vvol gefueget han</hi></l><lb/>
+<l><hi rendition="#aq">- - - het ir etsvvaz getan</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">das</hi></fw><lb/>
+<pb n="45" facs="#f0045"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+<l><hi rendition="#aq">das ſi betruebet hete gar</hi></l><lb/>
+<l><hi rendition="#aq">nieman gefueret hete dar</hi></l><lb/>
+<l><hi rendition="#aq">ſo manegen ritterlichen Degen</hi></l><lb/>
+<l><hi rendition="#aq">- - - hete ſich uf ſtrit gevvegen</hi></l><lb/>
+<l><hi rendition="#aq">- - - d er der ſchoenen vvas gehaz</hi></l><lb/>
+<l><hi rendition="#aq">- - - - - in Meliure entſaz</hi></l><lb/>
+<l><hi rendition="#aq">- - - - - - - vvip vil uzerlesen</hi></l><lb/>
+<l><hi rendition="#aq">- - - - in bi dem keiſer vveſen</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">Nu daz die geſte riche</hi></l><lb/>
+<l><hi rendition="#aq">den turnei ſus geliche</hi></l><lb/>
+<l><hi rendition="#aq">geteilet heten under in</hi></l><lb/>
+<l><hi rendition="#aq">do vvart geleit dar uf ir ſin</hi></l><lb/>
+<l><hi rendition="#aq">vnd ir vvilleclich gedanc</hi></l><lb/>
+<l><hi rendition="#aq">das iedermann an vveinic tranc</hi></l><lb/>
+<l><hi rendition="#aq">vnd az ein edel murzel</hi></l><lb/>
+<l><hi rendition="#aq">darnach ſi beide vvurden ſnel</hi></l><lb/>
+<l><hi rendition="#aq">das ſi kerten uf den plan</hi></l><lb/>
+<l><hi rendition="#aq">von Perſia der Soldan</hi></l><lb/>
+<l><hi rendition="#aq">vz der veſte kam gezogt</hi></l><lb/>
+<l><hi rendition="#aq">ſo reit der keiſerliche Vogt</hi></l><lb/>
+<l><hi rendition="#aq">im engegen von dem mer</hi></l><lb/>
+<l><hi rendition="#aq">ir zvveier kúneclichez her</hi></l><lb/>
+<l><hi rendition="#aq">vnd ir zvvo ſchoenen parte</hi></l><lb/>
+<l><hi rendition="#aq">gezieret vvaren harte</hi></l><lb/>
+<l><hi rendition="#aq">mit ſiden unde mit golde licht</hi></l><lb/>
+<l><hi rendition="#aq">von endian von Vztricht</hi></l><lb/>
+<l><hi rendition="#aq">von kriechen unde von heidenlant</hi></l><lb/>
+<l><hi rendition="#aq">vvas in ze ſtiure dar gesant</hi></l><lb/>
+<l><hi rendition="#aq">vil manec edel ſamit</hi></l><lb/>
+<l><hi rendition="#aq">die vverden kúnge in vviderſtrit</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">haten</hi></fw><lb/>
+<pb n="46" facs="#f0046"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+<l><hi rendition="#aq">haten ſich gegeſtet</hi></l><lb/>
+<l><hi rendition="#aq">vnd an ir lip gebeſtet</hi></l><lb/>
+<l><hi rendition="#aq">tiure unde ſelzene vvat</hi></l><lb/>
+<l><hi rendition="#aq">der purpur unde der phat</hi></l><lb/>
+<l><hi rendition="#aq">der zendal unde das paldekin</hi></l><lb/>
+<l><hi rendition="#aq">die varen vvunneclichen ſchin</hi></l><lb/>
+<l><hi rendition="#aq">ir liehten ougen reine</hi></l><lb/>
+<l><hi rendition="#aq">das golt und das geſteine</hi></l><lb/>
+<l><hi rendition="#aq">das ſilber und das ſtahelvverc</hi></l><lb/>
+<l><hi rendition="#aq">mit glanze do tal unde berg</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Wir muͤſſen die Worte <hi rendition="#aq">wunneſam, ſchone un-<lb/>
+de fiere,</hi> nicht vor Flickwoͤrter halten. Sie ha-<lb/>
+ben ihre noͤthige Bedeutung, wo ſie geſetzet wor-<lb/>
+den, und daß ſie hinter ihrem <hi rendition="#aq">ſubſtantivo</hi> ſtehen,<lb/>
+war der damahligen Sprachverfaſſung nicht ent-<lb/>
+gegen. Wer es probieren wollte, dieſes Ueber-<lb/>
+bleibſel in unſre Sprache zu uͤberſetzen, wuͤrde<lb/>
+die Trefflichkeit der Grundſprache bald an der<lb/>
+Muͤhe erkennen, welche er haben wuͤrde, die<lb/>
+Begriffe eben ſo kurtz, ſo natuͤrlich und geſchickt,<lb/>
+ohne Mattigkeit, und ohne Niedrigkeit, zu ge-<lb/>
+ben. Das <hi rendition="#aq">Metrum</hi> iſt demjenigen gantz gleich,<lb/>
+welches der Engliſche Schaſer noch in dem 14ten<lb/>
+<hi rendition="#aq">Sæculo</hi> gebraucht hat, da uns aber verborgen iſt,<lb/>
+wie man es geleſen, oder geſungen habe. Scha-<lb/>
+ſer ſchreibt zum Ex.</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">It ſtood upon ſo high a rock</hi></l><lb/>
+<l><hi rendition="#aq">Higher ſtandeth none in Spayne,</hi></l><lb/>
+<l><hi rendition="#aq">What manner ſtone this rock was</hi></l><lb/>
+<l><hi rendition="#aq">For it was like a lymed glaß</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">But</hi></fw><lb/>
+<pb n="47" facs="#f0047"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+<l><hi rendition="#aq">But that it ſchon full more clere</hi></l><lb/>
+<l><hi rendition="#aq">But of what congeled matere</hi></l><lb/>
+<l><hi rendition="#aq">It was, I niſte redily.</hi></l></lg><lb/>
+<p>Die Engellaͤnder haben ſich von dieſem Sylben-<lb/>
+maſſe nicht irre machen laſſen, daß ſie den Jnn-<lb/>
+halt und die Erfindungen darunter aus dem Ge-<lb/>
+ſichte verlohren haͤtten, ihre heutigen Poeten fin-<lb/>
+den noch ietzo die Perlen darinnen, und wiſſen<lb/>
+ſie geſchickt herauszunehmen. Sie halten Scha-<lb/>
+ſers poetiſches Naturell noch ietzo in Hochachtung,<lb/>
+da ſie ſeine Sprache haben untergehen laſſen.<lb/>
+Wir aber haben unſre Schaſer mit ihrem Zahl-<lb/>
+maſſe, ihrer Sprache und ihrer Poeſie, unter die<lb/>
+Banke geworffen.</p><lb/>
+<p>Jndeſſen haben die Poeten des 13ten Jahrh.<lb/>
+noch andre bequemere Sylbenmaſſe gehabt, zum<lb/>
+Exempel folgendes, das <hi rendition="#aq">Winsbeke</hi> gebraucht hat:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Swas ſi redent, ich bin dir holt</hi></l><lb/>
+<l><hi rendition="#aq">Und nem din gleſin vingerlin fúr einer kuneginne</hi></l><lb/>
+<l><hi rendition="#aq"><hi rendition="#et">golt.</hi></hi></l></lg><lb/>
+<p>Ferner:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Leb du in tugentlicher Aht</hi></l><lb/>
+<l><hi rendition="#aq">Und las den kranken alſo leben, als im von Arte</hi></l><lb/>
+<l><hi rendition="#aq"><hi rendition="#et">iſt geslaht.</hi></hi></l></lg><lb/>
+<p>Und:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Gut das iſt Gitikeit ein Klobe</hi></l><lb/>
+<l><hi rendition="#aq">Dem es iſt lieber denne Got u. weltlich ere, ich</hi></l><lb/>
+<l><hi rendition="#aq"><hi rendition="#et">wen er tobe.</hi></hi></l></lg><lb/>
+<p>Wer mit der deutſchen Sprache umgegangen iſt,<lb/>
+der wird bald erkennen, daß dieſes <hi rendition="#aq">Metrum</hi> fuͤr<lb/>
+<fw type="catch" place="bottom">ſie</fw><lb/>
+<pb n="48" facs="#f0048"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+ſie noch auf den heutigen Tag treffliche Bequem-<lb/>
+lichkeiten haͤtte.</p><lb/>
+<p>Jn der Buͤrgerbibliothek zu Zuͤrch wird ein<lb/>
+<hi rendition="#aq">Codex</hi> von Papier aufbehalten, worinnen eine<lb/>
+ziemliche Anzahl Fabeln aus Avienus und andern<lb/>
+in deutſchen Verſen enthalten iſt. Der Spra-<lb/>
+che und Orthographie nach hat der Verfaſſer des<lb/>
+Wercks zu den Zeiten Kaiſer Rudolfs des erſten<lb/>
+aus dem Hauſe Habsburg gelebt, wiewohl das<lb/>
+Buch zu hundert Jahren ſpaͤter, und zwar nicht<lb/>
+von dem geſchickteſten Abſchreiber geſchrieben iſt.<lb/>
+Es verdiente wegen ſeiner natuͤrlichen Einfalt und<lb/>
+ungekuͤnſtelten obgleich nachdruͤcklichen Erzehlung<lb/>
+von unſern neuangehenden Scribenten geleſen zu<lb/>
+werden. Unter andern hat mich die Fabel von<lb/>
+dem Hunde, der nach dem Fleiſche im Schat-<lb/>
+ten ſchnappet, geſchickt erzehlet beduͤnket:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Man liſet von ainem Hunde</hi></l><lb/>
+<l><hi rendition="#aq">Der trug in ſeinem Munde</hi></l><lb/>
+<l><hi rendition="#aq">Ain ſtúk flaiſch das was groß</hi></l><lb/>
+<l><hi rendition="#aq">Des ſein geſchlechte nie verdroß</hi></l><lb/>
+<l><hi rendition="#aq">An ainen bach trug in ſin weg</hi></l><lb/>
+<l><hi rendition="#aq">Do vand er weder brugg noch ſteg</hi></l><lb/>
+<l><hi rendition="#aq">Do was weder ſchiff noch man</hi></l><lb/>
+<l><hi rendition="#aq">Ze fuß ſo muſt er úber gan</hi></l><lb/>
+<l><hi rendition="#aq">Do er kam fer in den bach</hi></l><lb/>
+<l><hi rendition="#aq">Den ſchatten er des flaiſches ſach</hi></l><lb/>
+<l><hi rendition="#aq">Das er in ſeinem munde trug</hi></l><lb/>
+<l><hi rendition="#aq">Er ſprach ich hette wol genug</hi></l><lb/>
+<l><hi rendition="#aq">Moecht ich das Stuck zu dieſem han</hi></l><lb/>
+<l><hi rendition="#aq">Vil ſchier er ginen began</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">Vnd</hi></fw><lb/>
+<pb n="49" facs="#f0049"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+<l><hi rendition="#aq">Vnd wolt das ſtuck begriffen</hi></l><lb/>
+<l><hi rendition="#aq">Do muoſt im das entſchliffen,</hi></l><lb/>
+<l><hi rendition="#aq">Das er in dem munde hatt.</hi></l><lb/>
+<l><hi rendition="#aq">Do ſtund er ledig und matt</hi></l><lb/>
+<l><hi rendition="#aq">Das er ſin ſtucki hatt verlorn</hi></l><lb/>
+<l><hi rendition="#aq">Durch gitigkait das was im zorn.</hi></l></lg><lb/>
+<p>Die Geſchichte von der Matrone zn Epheſus<lb/>
+iſt mit einer ſo leichten und guten Art erzehlet,<lb/>
+daß einer viele Geſchicklichkeit haben muß, der<lb/>
+ſie flieſſender erzehlen will:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Man liſet von zwain menſchen das</hi></l><lb/>
+<l><hi rendition="#aq">Ir hertz mit Minne verſtriket was.</hi></l><lb/>
+<l><hi rendition="#aq">Das was ain man und ouch ſin wib,</hi></l><lb/>
+<l><hi rendition="#aq">Die hatt er lieb als ſinen Lib.</hi></l><lb/>
+<l><hi rendition="#aq">Die ſtarke minne ſchied der tod.</hi></l><lb/>
+<l><hi rendition="#aq">Der man ſtarb do kam in not</hi></l><lb/>
+<l><hi rendition="#aq">Die Frau und ouch die minne groß;</hi></l><lb/>
+<l><hi rendition="#aq">Alles Troſtes was ſi blos.</hi></l><lb/>
+<l><hi rendition="#aq">Do ſi verlor ir lieben Man.</hi></l><lb/>
+<l><hi rendition="#aq">Si wolt von niemand troſt enpfan.</hi></l><lb/>
+<l><hi rendition="#aq">Sy ſchray und wainet ân underlas.</hi></l><lb/>
+<l><hi rendition="#aq">Ob im ſy ſtætenklichen ſaß.</hi></l><lb/>
+<l><hi rendition="#aq">Do er ward in das Grab gelait,</hi></l><lb/>
+<l><hi rendition="#aq">Do huob ſich jammer und laid.</hi></l><lb/>
+<l><hi rendition="#aq">Sy wolt nit von dem Grab hindan,</hi></l><lb/>
+<l><hi rendition="#aq">Sy clagt als iren lieben man.</hi></l><lb/>
+<l><hi rendition="#aq">Sy ſchrai vil lut ach und we.</hi></l><lb/>
+<l><hi rendition="#aq">Weder regen und der ſchne</hi></l><lb/>
+<l><hi rendition="#aq">Mocht ſy geſchaiden von dem grab</hi></l><lb/>
+<l><hi rendition="#aq">Sy lebt in groſſer Vngehab</hi></l><lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">VII.</hi> St.] D</fw><fw type="catch" place="bottom"><hi rendition="#aq">Bedi</hi></fw><lb/>
+<pb n="50" facs="#f0050"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+<l><hi rendition="#aq">Bedi Nacht und den Tag,</hi></l><lb/>
+<l><hi rendition="#aq">Das ſi da anderſt nút en pflag.</hi></l><lb/>
+<l><hi rendition="#aq">Ir Ruowe die was clain.</hi></l><lb/>
+<l><hi rendition="#aq">By dem grab ſaß ſy allein,</hi></l><lb/>
+<l><hi rendition="#aq">Vnd wainet by dem Fúre.</hi></l><lb/>
+<l><hi rendition="#aq">Kurzwil was ir túre.</hi></l><lb/>
+<l><hi rendition="#aq">Nu fuegt ſich uf derſelben vart</hi></l><lb/>
+<l><hi rendition="#aq">Das da ainer erhenket wart</hi></l><lb/>
+<l><hi rendition="#aq">Hin von dem grab úber ain veld,</hi></l><lb/>
+<l><hi rendition="#aq">Des huot ain man dem gab man gelt</hi></l><lb/>
+<l><hi rendition="#aq">Das er nit dannen ſolt kommen,</hi></l><lb/>
+<l><hi rendition="#aq">Wurd ab dem Galgen abgenommen</hi></l><lb/>
+<l><hi rendition="#aq">Der tieb, das waer dem richter Zorn</hi></l><lb/>
+<l><hi rendition="#aq">Und mueſt er ſin houpt han verlorn.</hi></l><lb/>
+<l><hi rendition="#aq">Do er das fúr ſach und das Wib</hi></l><lb/>
+<l><hi rendition="#aq">Clagen hort ir mannes lib</hi></l><lb/>
+<l><hi rendition="#aq">Vil ſer in túrſten began.</hi></l><lb/>
+<l><hi rendition="#aq">Zu dem grab gieng er hindan</hi></l><lb/>
+<l><hi rendition="#aq">Und ſach die Frowen die was ſtoltz.</hi></l><lb/>
+<l><hi rendition="#aq">An das fúr bracht er ir holtz</hi></l><lb/>
+<l><hi rendition="#aq">Das ſi vor froſt wart behut.</hi></l><lb/>
+<l><hi rendition="#aq">Er ſprach Frow hand guten mut,</hi></l><lb/>
+<l><hi rendition="#aq">Sid tod iſt úwer lieber man</hi></l><lb/>
+<l><hi rendition="#aq">So ſond ir úch zu ainem lebenden han.</hi></l><lb/>
+<l><hi rendition="#aq">Ain anderù muoter ainen andern trait</hi></l><lb/>
+<l><hi rendition="#aq">Als guten der úch úwer laid</hi></l><lb/>
+<l><hi rendition="#aq">Abnimpt vnd úwer ungemach.</hi></l><lb/>
+<l><hi rendition="#aq">So er ſi ie me an ſach</hi></l><lb/>
+<l><hi rendition="#aq">So er ie me in minne bran.</hi></l><lb/>
+<l><hi rendition="#aq">Der man gar von im ſelber kan.</hi></l><lb/>
+<l><hi rendition="#aq">Er ſprach hertz liebe Frowe min</hi></l><lb/>
+<l><hi rendition="#aq">Moecht es an úwer hulde ſin</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">Ich</hi></fw><lb/>
+<pb n="51" facs="#f0051"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+<l><hi rendition="#aq">Ich woelt úch ergetzen zwar</hi></l><lb/>
+<l><hi rendition="#aq">AIles laides, nement war</hi></l><lb/>
+<l><hi rendition="#aq">Was lib und Sele erzúgen mag</hi></l><lb/>
+<l><hi rendition="#aq">Das iſt ûwer hût uf dieſen tag.</hi></l><lb/>
+<l><hi rendition="#aq">Die Frow wuſt vil tougen</hi> <note place="foot" n="(a)">Die Frau wuſch gantz heimlich ꝛc.<lb/>
+<hi rendition="#aq"><hi rendition="#et">Her Walther von Klingen:</hi><lb/>
+Weder offenbar noch tougen.</hi></note></l><lb/>
+<l><hi rendition="#aq">Die træhen uß den ougen</hi></l><lb/>
+<l><hi rendition="#aq">Der man ſach ſi gar lieplich an,</hi></l><lb/>
+<l><hi rendition="#aq">Vnd ſprach moecht ich an dir han</hi></l><lb/>
+<l><hi rendition="#aq">Mit Wahrhait das du haſt geſait</hi></l><lb/>
+<l><hi rendition="#aq">Ich wœlt ablan mins herzens lait</hi></l><lb/>
+<l><hi rendition="#aq">Vnd wœlt tuon den willen din.</hi></l><lb/>
+<l><hi rendition="#aq">Er ſprach liebi Frow das ſol ſin.</hi></l><lb/>
+<l><hi rendition="#aq">Gar lieplich er ſy um vieng,</hi></l><lb/>
+<l><hi rendition="#aq">Vil liebes er mit ir begieng.</hi></l><lb/>
+<l><hi rendition="#aq">Das wil ich nun nit ſagen hie.</hi></l><lb/>
+<l><hi rendition="#aq">Darnach do dis red ergie</hi></l><lb/>
+<l><hi rendition="#aq">Vnd von der Frowen gieng der man</hi></l><lb/>
+<l><hi rendition="#aq">Vnd wider zu dem Galgen kan,</hi></l><lb/>
+<l><hi rendition="#aq">Do hatt er nit gehuetet wol,</hi></l><lb/>
+<l><hi rendition="#aq">Sorgen wart ſin herze vol,</hi></l><lb/>
+<l><hi rendition="#aq">Ab dem galgen was der Dieb</hi></l><lb/>
+<l><hi rendition="#aq">Genomen das was im nit lieb.</hi></l><lb/>
+<l><hi rendition="#aq">Er vorcht ſer des richters zorn,</hi></l><lb/>
+<l><hi rendition="#aq">Sin leben mueſt er han verlorn,</hi></l><lb/>
+<l><hi rendition="#aq">Er ſolt bas gehút han.</hi></l><lb/>
+<l><hi rendition="#aq">Zu dem grab er wider kan,</hi></l><lb/>
+<l><hi rendition="#aq">Da er vor die Frowen lie</hi></l><lb/>
+<l><hi rendition="#aq">Vil lieplich ſi in umbe vie,</hi></l><lb/>
+<l><hi rendition="#aq">Er ſait ir boeſe mære.</hi></l><lb/>
+<l><hi rendition="#aq">Wie im geſchehen wære.</hi></l><lb/>
+<fw type="sig" place="bottom"><hi rendition="#aq">D 2</hi></fw><fw type="catch" place="bottom"><hi rendition="#aq">Die</hi></fw><lb/>
+<pb n="52" facs="#f0052"/>
+<fw type="header" place="top"><hi rendition="#b">Von den poetiſchen Zeiten</hi></fw><lb/>
+<l><hi rendition="#aq">Die Vrow ſprach nu volge mir</hi></l><lb/>
+<l><hi rendition="#aq">Vnd hoer was ich ſag dir.</hi></l><lb/>
+<l><hi rendition="#aq">Ain guoten rat wil ich dir geben</hi></l><lb/>
+<l><hi rendition="#aq">Das du wol macht behan din leben.</hi></l><lb/>
+<l><hi rendition="#aq">Wir ſond minen man usgraben</hi></l><lb/>
+<l><hi rendition="#aq">Vnd mueſſen ainen hælſig haben,</hi></l><lb/>
+<l><hi rendition="#aq">In ziehen an des Galgen matt</hi></l><lb/>
+<l><hi rendition="#aq">Vnd henken an des tieben ſtatt.</hi></l><lb/>
+<l><hi rendition="#aq">Das rat ich uff die trûwe min.</hi></l><lb/>
+<l><hi rendition="#aq">Wolher ich wil din helfer ſin.</hi></l><lb/>
+<l><hi rendition="#aq">Der man tett das ſy im riet,</hi></l><lb/>
+<l><hi rendition="#aq">Von dem toten ſi ſich ſchied.</hi></l><lb/>
+<l><hi rendition="#aq">Das was ain jæmerlicher rât.</hi></l><lb/>
+<l><hi rendition="#aq">Wol im der nùtz ze tuond hat</hi></l><lb/>
+<l><hi rendition="#aq">Mit bœſen wiben der hertze ſtat</hi></l><lb/>
+<l><hi rendition="#aq">Vff Schalkait und vff Miſſetat.</hi></l></lg><lb/>
+<p>Jch erinnere mich nicht, daß dieſe Erzehlung,<lb/>
+aus welcher La Fontaine und St. Evremond ſo<lb/>
+viel machen, von einem Deutſchen ſeithero in<lb/>
+Verſen beſchrieben worden ſey; Philander von<lb/>
+Sittenwald hat ſie in dem Geſichte von dem<lb/>
+Weiberlobe in Proſa verfaſſet.</p><lb/>
+<p>Man weis, was vor eine zaͤrtliche Furcht<lb/>
+die Franzoſen vor den ungewoͤhnlichen Woͤrtern<lb/>
+haben, welche entweder zu neu oder aus der Mo-<lb/>
+de ſind; nichtsdeſtoweniger haben ſie es La Fon-<lb/>
+taine verziehen, daß er Marots veralterte Spra-<lb/>
+che in der Erzehlung ſeiner Fabeln und Maͤhrgen<lb/>
+angebracht hat, wo er es mit Artigkeit hatte thun<lb/>
+koͤnnen. Dieſe Artigkeit entſteht durch die be-<lb/>
+ſondere Beſtimmung eines Begriffes, durch<lb/>
+das natuͤrliche Weſen, durch die Kuͤrtze eines<lb/>
+<fw type="catch" place="bottom">Aus-</fw><lb/>
+<pb n="53" facs="#f0053"/>
+<fw type="header" place="top"><hi rendition="#b">unter dem ſchwaͤbiſch. Stamme.</hi></fw><lb/>
+Ausdruckes. Sie haben es ihm nicht nur ver-<lb/>
+ziehen, ſondern ſie haben dieſe Marotiſche Schreib-<lb/>
+art mit unter ihre beguͤnſtigten Moden auf- und an-<lb/>
+genommen. Sie ward dem zierlichen Schertz und<lb/>
+der geiſtreichen Kurtzweil gewidmet, in welchen<lb/>
+Marot ein ſo groſſer Meiſter geweſen war, und<lb/>
+kuͤndiget uns dieſe zuvor an, wie den Harlekin<lb/>
+der Schnitt und die Farbe ſeines Kleides. Wenn<lb/>
+meine Landesleute in die Gemuͤthsverfaſſung kaͤ-<lb/>
+men, fuͤr den artigen Schertz gleichermaſſen eine<lb/>
+beſondere Sprache einzufuͤhren, ſo koͤnnten ſie in<lb/>
+dieſen alten Fabeln ſchon eine ziemliche Anzahl<lb/>
+geſchickter Woͤrter und Ausdruͤcke zu dieſem En-<lb/>
+de antreffen. Jch verſtehe keinesweges ſolche Flick-<lb/>
+woͤrter und Flickzeilen, welche zu der Sache<lb/>
+und der Abſicht gar nichts thun, und nur um<lb/>
+des Reimes willen da ſind, womit Hans Sach-<lb/>
+ſens Arbeit zuſammengeſchmiert iſt. Dieſe ſind<lb/>
+vielmehr laͤcherlich als luſtig, und ergetzen nur<lb/>
+mittelmaͤſſige Geiſter durch ihre abgeſchmackt-<lb/>
+unvernuͤnftige Zuſammenſetzung. Jch will in dieſe<lb/>
+Sprache auch die <hi rendition="#aq"><hi rendition="#i">han, lan, gie, lie, vie, kan,</hi></hi><lb/>
+ſtatt, <hi rendition="#fr">haben, laſſen, gieng, ließ, fieng, kam,</hi><lb/>
+nicht aufnehmen, weil ſie in Hans Sachſens<lb/>
+Schriften veraͤchtlich und poͤbelhaft geworden,<lb/>
+ungeachtet ſolche in der poetiſchen Sprache des<lb/>
+ſchwaͤbiſchen Weltalters mit allen Ehren ihren<lb/>
+Platz behaupteten. Dantes und die Poeten Jta-<lb/>
+liens von ſeiner Zeit haben in ihren Schriften eine<lb/>
+Menge ſolcher verſchnittenen Woͤrter gebraucht,<lb/>
+welche ſich bey der einmahl empfangenen Ehre<lb/>
+und Wuͤrde bis auf den heutigen Tag erhalten<lb/>
+haben.</p></div><lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">Von</fw><lb/>
+<pb n="54" facs="#f0054"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Von der Poeſie des ſechszehnten<lb/>
+Jahrhundert nach ihrem ſchoͤn-<lb/>
+ſten Lichte.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Je deutſche Poeſie, welche unter den Kai-<lb/>
+ſern von dem ſchwaͤbiſchen Stamme auf<lb/>
+einen hohen Grad der Vollkommenheit<lb/>
+geſtiegen war, nahm mit dem Untergange die-<lb/>
+ſes Hauſes wieder ab, und fiel in den folgen-<lb/>
+den Jahrhunderten viel tiefer, als ſie zuvor in<lb/>
+der Hoͤhe geſtanden war. Sie gerieth dem Poͤ-<lb/>
+bel in die Haͤnde, und ward von ihm dergeſtalt<lb/>
+gemißhandelt, wie ſie noch in den Schriften Hans<lb/>
+Sachſens ausſiehet. Denn die gluͤckliche Wie-<lb/>
+derherſtellung des Geſchmackes der Alten kam<lb/>
+der deutſchen Poeſie am wenigſten zu Statten,<lb/>
+weil die muntern Naturelle und Koͤpfe ihre Kraͤfte<lb/>
+nicht in dieſer verſucheten, noch ihr zum beſten<lb/>
+anwendeten. Die beyden beſten und dabey<lb/>
+gelehrteſten <hi rendition="#aq">Ingenia,</hi> welche nach der Wieder-<lb/>
+findung der Wiſſenſchaften vor Opitzen Witz<lb/>
+und Poeſie in die deutſche Verſe gebracht haben,<lb/>
+ſind nach meinem Wiſſen Sebaſtian Brand,<lb/>
+und Johann Fiſchart, zween <hi rendition="#aq">Doctores</hi> der Rech-<lb/>
+te von Straßburg; wiewohl ihre Nahmen zu<lb/>
+unſern Zeiten ins Vergeſſen gekommen ſind, und<lb/>
+nicht einmahl die Art der Unſterblichkeit erhal-<lb/>
+ten haben, welche Hans Sachſe ſich durch den<lb/>
+aberwitzigen und kahlen Jnnhalt ſeines Reimen-<lb/>
+geklappers erworben hat. Von Fiſcharten hat<lb/>
+<fw type="catch" place="bottom">war</fw><lb/>
+<pb n="55" facs="#f0055"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhundert.</hi></fw><lb/>
+zwar Zinkgraͤfe in der Vorrede zu einer Samm-<lb/>
+lung Gedichte, welche er als einen Anhang zu<lb/>
+den allererſten Opitziſchen Gedichten druͤcken<lb/>
+laſſen, mit einer ausnehmenden Hochachtung<lb/>
+geredet.</p><lb/>
+<cit><quote>„Johann Fiſchers, genannt Mentzers, gluͤck-<lb/>
+„liches Schiff von Zuͤrich, ſagt er, waͤre an Reich-<lb/>
+„thum poetiſcher Geiſter, artiger Einfaͤlle, ſchoͤ-<lb/>
+„ner Worte, und merkwuͤrdiger Spruͤche, (aus<lb/>
+„welchen Stuͤcken abzunehmen, was ſtattliches<lb/>
+„dieſer Mann haͤtte leiſten koͤnnen, wenn er den<lb/>
+„Fleiß mit der Natur vermaͤhlen, und nicht viel-<lb/>
+„mehr ſich an dem, was ihm einfaͤltig aus der<lb/>
+„Feder gefloſſen, haͤtte begnuͤgen wollen,) gar<lb/>
+„wohl der roͤmiſchen, griechiſchen, italiaͤniſchen<lb/>
+„und Franzoͤſiſchen Poeſie an die Seite, wo<lb/>
+„nicht vorzuſetzen, wenn ihm nicht, wie ange-<lb/>
+„deutet, etwas weniges fehlete, welchen Man-<lb/>
+„gel ich jedoch mehr der unachtſamen Gewohn-<lb/>
+„heit ſeiner Zeiten, als ihm ſelbſten zuſchreibe,<lb/>
+„und moͤgte er mit gutem Fuge ſagen:<lb/>
+Jch hab das mein gethan, ſo viel mir Gott beſcheret,<lb/>
+Ein andrer thu das ſein, ſo wird die Kunſt gemehret.</quote></cit><lb/>
+<p>Aber dieſe Worte ſind auch die Leichenpredigt<lb/>
+des poetiſchen Nahmens Johann Fiſcharts ge-<lb/>
+weſen. Dem Nahmen und der Poeſie Seba-<lb/>
+ſtian Brandens iſt es eben ſo ungluͤcklich ergan-<lb/>
+gen, und hat ihm nicht helffen moͤgen, daß er<lb/>
+an Kaiſersberger einen ſo ſorgfaͤltigen und weit-<lb/>
+laͤuftigen Ausleger gefunden hat. Jhre Gedich-<lb/>
+te ſind mit ihrer Sprache weggeworffen und ver-<lb/>
+<fw type="sig" place="bottom">D 4</fw><fw type="catch" place="bottom">geſſen</fw><lb/>
+<pb n="56" facs="#f0056"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+geſſen worden. Dieſe hat eine ſo ſtarcke Ver-<lb/>
+aͤnderung erlitten, daß unſre heutige kaum meh-<lb/>
+rere Lineamente von derſelben behalten hat, als<lb/>
+einem Enkel von den Geſichteszuͤgen des Ahnen<lb/>
+uͤbrig bleiben. Wenn gleich die Worte ſelbſt<lb/>
+oͤfters noch vorhanden ſind, und nur in der Aus-<lb/>
+ſprache eine geringe oder gar keine Veraͤnderung<lb/>
+erlitten haben, ſo haben ſie doch eine eingeſchraͤnk-<lb/>
+tere oder eine weitlaͤuftigere Bedeutung bekommen,<lb/>
+oder haben wenigſtens in dem Munde des Poͤ-<lb/>
+bels, von welchem ſie durch die Laͤnge der Zeit<lb/>
+entweihet worden, eine gewiſſe Niedrigkeit em-<lb/>
+pfangen. Man liebete zu ihren Zeiten die Ver-<lb/>
+ſchluͤckungen der Buchſtaben und der Sylben,<lb/>
+welcher ſie vielleicht durch die zarte Ausſprache<lb/>
+wieder zu helffen wuſten; wie noch auf diſen Tag<lb/>
+die Engellaͤnder thun, welche eben ſo gerne, als<lb/>
+unſre Urahnen, die Worte zu ſtuͤmmeln pflegen,<lb/>
+und doch dieſen geſtuͤmmelten Woͤrtern in der<lb/>
+Ausſprache ſo gut zu helffen wiſſen, daß ihre<lb/>
+Sprache mit allen ihren einſylbigten zuſammen-<lb/>
+geſchmoltzenen Woͤrtern der unſrigen, welche ſich<lb/>
+uͤber dieſen Punct gebeſſert, und die Neigung zum<lb/>
+ſtuͤmmeln verlohren hat, an ſanftflieſſendem Wohl-<lb/>
+laut nichts nachgeben will. Nichts von dem Syl-<lb/>
+benmaaſſe, der beſtaͤndig gleichen Abwechſelung<lb/>
+der kurtzen und langen Sylben, den ſorgfaͤlti-<lb/>
+gen Reimen, und dergleichen Dingen zu ſagen,<lb/>
+in welchen die Dichtkunſt zu unſern Zeiten ſich<lb/>
+von der Poeſie der vorigen Jahrhundert gaͤntzlich<lb/>
+entfehrnet hat. Wenn wir alle dieſe Sachen auf<lb/>
+eine Seite ſtellen, und uns daneben insbeſondere<lb/>
+<fw type="catch" place="bottom">die</fw><lb/>
+<pb n="57" facs="#f0057"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhundert.</hi></fw><lb/>
+die Sprache des 15. und 16ten Jahrhunderts als<lb/>
+eine beſondere eigene Sprache bekannt machen,<lb/>
+ſo werden wir erſt von den Schriften Brands<lb/>
+und Fiſcharts ein tuͤchtiges Urtheil faͤllen koͤnnen.<lb/>
+Wir werden dann bisweilen ſolche poetiſche Er-<lb/>
+findungen und Ausbildungen darinnen wahrneh-<lb/>
+men, als wir in manchem Poeten, der unſre<lb/>
+neue Sprache redet, vergebens ſuchen wuͤrden.</p><lb/>
+<p>Es iſt wahr, die veralterte Woͤrter, die abge-<lb/>
+ſchaften Redensarten, die harten Sylbenverbeiſ-<lb/>
+ſungen, ſind den meiſten von unſern heutigen Le-<lb/>
+ſern und Kunſtlehrern allzu anſtoͤſſig, als daß ſie<lb/>
+ſich uͤberwinden koͤnnten, den Sachen und Ge-<lb/>
+dancken, die darunter verborgen liegen, nach-<lb/>
+zuſuchen. Die Seele muß da fuͤr die Schuld<lb/>
+ihres Coͤrpers buͤſſen; und der Coͤrper ſelbſt muß<lb/>
+fuͤr das zerfetzete Kleid, womit er angethan iſt,<lb/>
+leiden. Es bleibt dabey, was Addiſon geſagt<lb/>
+hat, wer nicht mit einem wahrhaftig erhabenen<lb/>
+Geiſt und <hi rendition="#aq">Genius</hi> begabet iſt, kan die Sachen<lb/>
+und Gedancken vor dem laͤcherlichen Anſtriche<lb/>
+nicht ſondern, welcher ihnen von der ungewoͤhn-<lb/>
+lichen und verlegenen Sprache anklebet. Eben<lb/>
+derſelbe berichtet uns, daß Mylord Dorſet, bey<lb/>
+dem der trefflichſte Witz mit der groͤſten Auf-<lb/>
+richtigkeit gepaaret war, einer von den feine-<lb/>
+ſten Kunſtrichtern und den beſten Poeten ſeiner<lb/>
+Zeit, eine zahlreiche Sammlung von alten Eng-<lb/>
+liſchen Liedern gehabt, und aus dem Leſen der-<lb/>
+ſelben ein ſonderbares Vergnuͤgen geſchoͤpfet habe.<lb/>
+Er meldet eben daſſelbe von Dryden, und ſagt,<lb/>
+daß er noch etliche andre ſcharfſinnige Scriben-<lb/>
+<fw type="sig" place="bottom">D 5</fw><fw type="catch" place="bottom">ten</fw><lb/>
+<pb n="58" facs="#f0058"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+ten kenne, welche eben dieſen Geſchmack haben.</p><lb/>
+<p>Jch will eine Probe machen, wie weit wir<lb/>
+faͤhig ſeyn, das Poetiſche in Fiſchart und Bran-<lb/>
+den, wenn es von der rohen Sprache nicht ver-<lb/>
+dunkelt wird, zu bewundern. Laſſet uns erſtlich<lb/>
+Johann Fiſcharts Gedichte auf das <hi rendition="#fr">gluͤckliche<lb/>
+Schiff</hi> betrachten, welches in einem Tage den<lb/>
+Weg von Zuͤrch nach Straßburg gemacht hat.<lb/>
+Die Verſe von dieſem Gedichte ſind bekannt:</p><lb/>
+<lg type="poem"><l>So hat ſein gluͤcklich Schiff zwar einen luſtgen Grund,</l><lb/>
+<l>Und giebt doch die Natur in ſtarcken Proben kund.</l><lb/>
+<l>Durchſichten, Waſſerfaͤll’, als ſo verſchiedne Buͤhnen,</l><lb/>
+<l>Character, Neigungen, auch Reden und Maſchinen;</l><lb/>
+<l>Dies alles fehlt hier nicht.</l></lg><lb/>
+<p>Eben dieſe Dinge wollen wir darinnen aufſuchen,<lb/>
+und damit wir den ſchwachen Leſer deſto ſiche-<lb/>
+rer vor Aergerniß bewahren, die Verſe in Pro-<lb/>
+ſa umſetzen, und die Woͤrter nach der heutigen<lb/>
+Sprachlehre orthographieren, dabey aber alle<lb/>
+dieſelben behalten, welche wir in dem Poeten<lb/>
+finden.</p><lb/>
+<p>Unter den Dingen, die aus der ſtillen Na-<lb/>
+tur hergenommen ſind, haben mir folgende in die<lb/>
+Augen geleuchtet; der Rheinfall bey Laufenburg:</p><lb/>
+<cit><quote>„Da etliche Berge ſich dem Rhein mit groſ-<lb/>
+„ſem Schalle widerſetzen, die ſich doch ſelbſt<lb/>
+„dadurch verletzen, denn der Rhein etzet eine<lb/>
+„freye Straſſe durch dieſelben, und wird ſie<lb/>
+„mit der Zeit verzehren.„</quote></cit><lb/>
+<p>Der Strudel unter Lucken, welcher im Rhein<lb/>
+der dritte iſt:</p> <cit><quote>„Er lautet von Nahmen erſchrek-<lb/>
+<fw type="catch" place="bottom">„lich,</fw><lb/>
+<pb n="59" facs="#f0059"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhundert.</hi></fw><lb/>
+„lich, denn er wird <hi rendition="#fr">im Hoͤllenhacken</hi> genannt,<lb/>
+„weil er nach den Schiffen zwacket.„</quote></cit><lb/>
+<p>Das Staͤdtgen Neuenburg: Dieſes Staͤdt-<lb/>
+gen, heißt es,</p> <cit><quote>„bedarf groſſe Sorge, dieweil<lb/>
+„der Rhein mit ſeinem Laufe ſo ſtarck und hef-<lb/>
+„tig darauf zudringet, und ſeine Macht da ſo<lb/>
+„ſtrenge ſchauen laͤßt, daß man ihn nicht genug<lb/>
+„verbauen kan.</quote></cit><lb/>
+<p>Das Rudern der Schiffenden:</p> <cit><quote>„Sie zuͤk-<lb/>
+„ten die Ruder ſo ſtarck, als wollten ſie auf<lb/>
+„den Ruͤcken fallen, in gleichem Zuge, in glei-<lb/>
+„chem Fluge, der Steuermann ſtuhnd feſt an<lb/>
+„dem Pfluge, und ſchnitt ſolche Furchen in den<lb/>
+„Rhein, daß das unterſte oben zu ſtehen ſchien.<lb/>
+„Die Sonne hatte auch ihre Freude damit, daß<lb/>
+„das Schiff ſo dapfer fortſchritt, ſie ſchien ſo helle<lb/>
+„in die Rinnen der Ruder, daß ſie von ferne<lb/>
+„wie Spiegel ſchienen. Auch das Geſtade ſcher-<lb/>
+„zete mit dem Schiffe, wenn das Waſſer dem<lb/>
+„Lande zulief, denn es gab einen Wieder-<lb/>
+„ton, gleich wie die Ruder fielen. Eine Flut<lb/>
+„trieb die andre ſo geſchwind, daß ſie einem<lb/>
+„unter dem Geſichte verſchwand. Ja der Rhein<lb/>
+„warf auch kleine Wellen auf, die zu Geſellen<lb/>
+„um das Schiff tantzeten.„</quote></cit><lb/>
+<p>Es duͤnkt uns, daß wir ſelbſt eingeſchiffet ſeyn,<lb/>
+wir werden mit den Schiffenden fortgefuͤhret, und<lb/>
+in alle die Staͤnde geſetzt, in alle die Gegenden<lb/>
+gebracht, welche dem Schiffe erſchienen.</p> <cit><quote>„Die<lb/>
+„Sonne ſtrich ihnen bey Rheinau vor, und<lb/>
+„zeigte ſich dem Schiffe auf der Seite, ihm zu<lb/>
+„dem Wettlaufe auszubieten, welches dieſe Maͤn-<lb/>
+<fw type="catch" place="bottom">„ner</fw><lb/>
+<pb n="60" facs="#f0060"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„ner deſtomehr ermannete, daß ſie weidlich Hand<lb/>
+„anlegeten; vornehmlich da ſie von ferne dauchte,<lb/>
+„wie ihnen ein neues Geſtirn hervorſchien, von<lb/>
+„dem Widerſcheine der hohen Spitze des Thur-<lb/>
+„mes zu Straßburg.</quote></cit><lb/>
+<p>Es fehlet ihm, wie ihr ſehet, an geſchickten<lb/>
+Worten zur Ausbildung ſeiner Gegenſtaͤnde nicht.<lb/>
+Die Hitze der Sonne kan nicht poetiſcher vor-<lb/>
+geſtellet werden, als, wie folget:</p> <cit><quote>„Je mehr ſie<lb/>
+„der Rhein fortſtieß, je mehr bewies die Son-<lb/>
+„ne ihre Kraft, denn als ſie mit ihren ſchnellen<lb/>
+„Gaͤulen ſo heftig in die Hoͤhe eilete, damit ſie<lb/>
+„zu Mittag in der Mitten waͤre, und da ausſpan-<lb/>
+„nen moͤgte, ward ſie vom eilen ſo erhitzet, daß<lb/>
+„ſie nichts als Feuerſtralen von ſich ſchwitzete.„</quote></cit><lb/>
+<p>Von dieſer Art werde ich unter dem Artickel von<lb/>
+den <hi rendition="#fr">Maſchinen</hi> noch mehr Stellen anzumercken<lb/>
+haben. Folgendes Gleichniß iſt zu der Zeit, da es ge-<lb/>
+macht worden, in der deutſchen Sprache ſo neu ge-<lb/>
+weſen, als es bequem iſt, die Geſchwindigkeit auf<lb/>
+einem der hoͤchſten Grade vorzuſtellen:</p> <cit><quote>„Sie fuh-<lb/>
+„ren ſo gaͤhling unter der Bruͤcke durch, als ob ein<lb/>
+„Pfeil vom Bogen floͤge, oder ein Sperber entflo-<lb/>
+„gen waͤre.„</quote></cit> <p>Und folgendes iſt noch auf dieſen<lb/>
+Tag ſo neu, als geſchickt erſonnen.</p> <cit><quote>„Sie toͤ-<lb/>
+„neten hingegen mit den ſcharffen und rauhen<lb/>
+„Trompeten, daß es ſo einen Widerhall gab,<lb/>
+„als thaͤt ein Baum in einem Thal einen Fall.„</quote></cit><lb/>
+<p>Jn dem Original iſt noch der Ton des fallenden<lb/>
+Baumes in den Worten ſelbſt nachgeahmet:</p><lb/>
+<lg type="poem"><l><hi rendition="#et">Es gab ſo einen Widerhall,</hi></l><lb/>
+<l><hi rendition="#et">Als thaͤt ein Baum im Thal ein’n Fall.</hi></l></lg><lb/>
+<fw type="catch" place="bottom">Eben</fw><lb/>
+<pb n="61" facs="#f0061"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhundert.</hi></fw><lb/>
+<p>Eben ſo gut hat mir folgendes geſallen:</p> <cit><quote>„Da<lb/>
+„gieng es in dem Waſſer daher, als ob es in den<lb/>
+„Wellen floͤge, die Ruder giengen ſchnelle auf<lb/>
+„und ab, ſo daß es ein Anſehen gab, als ob<lb/>
+„ein fremdes, ungewohntes Gevoͤgel die Fluͤgel<lb/>
+„auf dem Waſſer ruͤhrete.„</quote></cit><lb/>
+<p>Den Titel der <hi rendition="#fr">Character</hi> koͤnnen wir gantz be-<lb/>
+quem mit den <hi rendition="#fr">Neigungen</hi> vereinigen, weil er eben<lb/>
+durch die Neigungen am deutlichſten ausgedruͤ-<lb/>
+ket iſt. Hier finden wir die Dankbarkeit der<lb/>
+Schiffenden:</p> <cit><quote>„Als ſie nun daſelbſt mit des Rheins<lb/>
+„gutem Gluͤcke durch die Bruͤcke fuhren, dan-<lb/>
+„keten ſie ihm fuͤr die Treue.„</quote></cit> <p>Und als ſie<lb/>
+durch den Waſſerbruch bey Rheinfelden gekom-<lb/>
+men waren:</p> <cit><quote>„Da lobeten ſie den reinen Fluß<lb/>
+„daß er ſo gedultig und ohne Verdruß durch<lb/>
+„ſeine Standhaftigkeit die Ungeſtuͤmigkeit der<lb/>
+„Felſen durchdraͤnge.„</quote></cit><lb/>
+<p>Jhre Arbeitſamkeit:</p> <cit><quote>„Jedoch die maͤnnlichen<lb/>
+„Reiſegefehrten achten der Beſchwerden nichts.<lb/>
+„Jhre ehrenhitzige Ruhmbegierde ſtritt ungeirret<lb/>
+„mit der Hitze der Sonne. Die aͤuſſerliche<lb/>
+„Brunſt am Leib vertrieb die innerliche nicht.<lb/>
+„Jemehr ihr Blut erhitzet ward, deſto mehr ward<lb/>
+„ihr Muth entzuͤndet, ꝛc.„</quote></cit> <p>Jhre Gottſeligkeit<lb/>
+und Andacht, als ſie vor Straßburg angelanget:</p><lb/>
+<cit><quote>„Sie lieſſen auch dem Rhein zu Lobe die Trom-<lb/>
+„meln und Trompeten gehn, daß es ein groſ-<lb/>
+„ſes Freudengetoͤne gab. Sie danketen auch<lb/>
+„Gott ſonderlich, der ihnen ſeine Geſchoͤpfe zu<lb/>
+„der Schiffahrt ſo gnaͤdiglich laſſen dienen, das<lb/>
+„Waſſer, das Wetter und die Sonne.„</quote></cit><lb/>
+<fw type="catch" place="bottom">Alſo</fw><lb/>
+<pb n="62" facs="#f0062"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+<p>Alſo hat der Poet bey jeder Gelegenheit die<lb/>
+Affecte, in welche die Schiffenden verſetzet wor-<lb/>
+den, geſchickt ausgedruͤcket, und damit den Le-<lb/>
+ſer in eben dergleichen Affecte geſtuͤrtzet. Als die<lb/>
+Geſellſchaft bey Neuenburg geſehen, daß der Rhein<lb/>
+ein gutes Stuͤck von der Stadt weggeriſſen, mel-<lb/>
+det der Poet,</p> <cit><quote>„daß ſie es ſehr betrauret, und den<lb/>
+„Rhein um Bedauren gebeten habe, daß er ſei-<lb/>
+„nen Zorn wollte verflieſſen, und dieſe Stadt<lb/>
+„einmahl der Ruhe genieſſen laſſen.„</quote></cit> <p>Die Freu-<lb/>
+de, ſo ſie empfunden, als ſie zuerſt aus der Aar<lb/>
+in den Rhein getreten, druͤcket er dergeſtalt aus:</p><lb/>
+<cit><quote>„Da freueten ſich die Reiſegefehrten als ſie nun<lb/>
+„den Rhein rauſchen hoͤrten, und wuͤnſchten ſich<lb/>
+„auf ein neues Gluͤck, daß der Rhein ſie gluͤcklich<lb/>
+„fortſchickete.„</quote></cit><lb/>
+<p>Doch dieſe Character und Affecte werden noch<lb/>
+lebhafter in ihren Reden ausgedruͤcket: Jhre er-<lb/>
+ſte Anrede an den Rhein iſt ſehr poetiſch und mit<lb/>
+geſchickten poetiſchen Beweggruͤnden eingefuͤhret:</p><lb/>
+<cit><quote>„O Rhein, diene du uns nun mit deinem hel-<lb/>
+„len Fluſſe zur Foͤrderniß. Laß uns deiner Gunſt<lb/>
+„genieſſen, dieweil du doch bey uns entſpringeſt,<lb/>
+„am Vogelberg bey den Luchtmanen im Rhein-<lb/>
+„zierland, von alten Ahnen; und wir dein Thal,<lb/>
+„dadurch du rinnſt, mit Feldbau, dem ſchoͤnſten<lb/>
+„Dienſte auszieren. Schalte dieſes Wagſchiff-<lb/>
+„lein nach ſeinem Begehren; wir wollens dir<lb/>
+„doch verehren; leite es nach Straßburg, da-<lb/>
+„vor du doch gerne und mit Begierde laͤufeſt,<lb/>
+„weil es deinen Strohm wie ein Geſtein im Rin-<lb/>
+„ge verſetzet, zieret und ergetzet.„</quote></cit><lb/>
+<fw type="catch" place="bottom">Von</fw><lb/>
+<pb n="63" facs="#f0063"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhundert.</hi></fw><lb/>
+<p>Von ihrer Unerſchrokenheit konnte man uns<lb/>
+keinen hoͤhern Begriff erwecken, als mit der kur-<lb/>
+zen Rede bey Jßſtein:</p> <cit><quote>„Aber bey Jßſtein, ei-<lb/>
+„nem Schloß, welches zerſtoͤrt, oͤde, und bloß<lb/>
+„ſtehet, wollte ſich auch ein Strudel ſtreuben,<lb/>
+„und begunte groſſe Wellen aufzutreiben. Jedoch<lb/>
+„die Geſellſchaft verachtete ihn, und ſprach: Er<lb/>
+„haͤtte gleich ſo viele Macht, als dieſes Schloß,<lb/>
+„bey dem er herſtrudelte; welches zur Wehre<lb/>
+„gar verhudelt waͤre. Konnten wir Strudelberg<lb/>
+„durchdringen, ſo wollen wir auch Huͤgel uͤber-<lb/>
+„ſpringen. Kan uns keine Hitze den Muth zer-<lb/>
+„ſpalten, ſo wird den auch kein Eisſtein er-<lb/>
+„kalten.„</quote></cit><lb/>
+<p>Noch mehr Reden finden wir unter dem Titel<lb/>
+der <hi rendition="#fr">Maſchinen,</hi> welche wir noch zu betrachten<lb/>
+uͤbrig haben. Dieſe Reden ſind zwar andern Per-<lb/>
+ſonen, als den Schiffenden in den Mund gele-<lb/>
+get, denn der Poet hat nach der Manier der<lb/>
+Alten ein gewiſſes <hi rendition="#aq">Miniſterium Deorum</hi> in ſei-<lb/>
+nem Gedichte eingefuͤhret, wodurch er der Klei-<lb/>
+nigkeit deſſelben trefflich geholffen, und ihm ein<lb/>
+groſſes Anſehen mitgetheilet hat. Eine Kunſt, wel-<lb/>
+che ſonſt auch unſer Frauenzimmer mit ihren klei-<lb/>
+nen Wahren und Gunſtbezeugungen wohl ver-<lb/>
+ſteht, welche ſie, wie Opitz ſagt, <hi rendition="#fr">mit Worten<lb/>
+zu beſſern</hi> wiſſen. Dieſe Perſonen ſind die Lim-<lb/>
+mat, der Rhein, und die Sonne; welche Fiſch-<lb/>
+art an dem Geſchicke und Fortgang des Gluͤckes-<lb/>
+ſchiffes gewiſſermaſſen Antheil nehmen laͤßt. Von<lb/>
+der Limmat erzehlt er uns zwar allein, was ſie<lb/>
+vor Gedancken gehabt habe, ſie ſelber laͤßt er<lb/>
+<fw type="catch" place="bottom">nicht</fw><lb/>
+<pb n="64" facs="#f0064"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+nicht reden, und er giebt deßwegen eine Urſache<lb/>
+an, welche ungemein lebhaft iſt, die Geſchwindig-<lb/>
+keit des Schiffes vorzuſtellen:</p> <cit><quote>„Die Limmat wollte<lb/>
+„ſich erſtlich etwas ſtrauſſen, ſie erzeigte ſich mit<lb/>
+„rauſchen und brauſen wild, denn ihr war ſolch<lb/>
+„ſchnelles Schiffen ungewohnt, und ſie haͤtte ſie<lb/>
+„gerne eine Weile ergriffen, von ihnen Beſcheid<lb/>
+„zu erfahren, was doch dieſes Eilen bedeutete;<lb/>
+„ob vielleicht ihre Landeszucht Zuͤrich groſſe Noth<lb/>
+„litte, daß man von ihr weichen muͤſſen. Aber<lb/>
+„ehe ſie dieſes von ihnen erfahren konnte, ka-<lb/>
+„men ſie ſchnell aus ihr in die Aar.</quote></cit><lb/>
+<p>Die Rolle des Rheins, auf welchem ſie laͤn-<lb/>
+ger zu ſchiffen hatten, iſt ſchon groͤſſer. Er erſchei-<lb/>
+net nicht in der menſchlichen ſondern in ſeiner ei-<lb/>
+genen Geſtalt, und die Manier, womit er ſei-<lb/>
+ne Gedancken vernehmlich machet, iſt gantz poe-<lb/>
+tiſch:</p> <cit><quote>„Der Rhein mogte dieſes kaum aushoͤ-<lb/>
+„ren, ſo wand er ſich krauſe um das Schiff,<lb/>
+„machete ein weites Rad um die Ruder und<lb/>
+„ſchlug mit Freuden an das Geſtade. Dann<lb/>
+„ließ er eine Stimme hoͤren, aus welcher man<lb/>
+„dieſe Worte erklaͤren mogte: Friſch dran ihr<lb/>
+„lieben Eidsgenoſſen, friſch dran, ſeyd unver-<lb/>
+„droſſen. Folget alſo euern Vorfahren, die<lb/>
+„vor hundert Jahren eben dieſes gethan haben.<lb/>
+„Wann man den Alten nachſchlagen will, muß<lb/>
+„man auf dieſe Weiſe Ruhm erjagen. Jhr<lb/>
+„ſeyd mir von eurer Vorfahren wegen willkom-<lb/>
+„men. Jhr ſuchet die alte Gerechtigkeit, die<lb/>
+„euch eure Alten bereitet haben. Dieſelbige will<lb/>
+„ich euch gerne goͤnnen, ſo wie ſie von den Al-<lb/>
+<fw type="catch" place="bottom">„ten</fw><lb/>
+<pb n="65" facs="#f0065"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+„ten gewonnen worden. Jch weis auch, ich<lb/>
+„werde noch oftmahls ſehen, daß ſolches auch<lb/>
+„von euren Nachkommen geſchehen wird. Alſo<lb/>
+„erhaͤlt man Nachbarſchaft; denn der Schwei-<lb/>
+„zer Eigenſchaft iſt in der That nachbarliche<lb/>
+„Freundſchaft. - Mit ſolchen Leuten ſollte man<lb/>
+„durch die Meerwirbel und Meertieffen ſchif-<lb/>
+„fen. - Mit dieſen Knaben ſollte einer des Ja-<lb/>
+„ſons Schiffsgemeinder werden, in die Jnſel zum<lb/>
+„guͤldenen Widder; da wuͤßte er daß er wieder<lb/>
+„zuruͤck kommen wuͤrde. Waͤren dieſe am Meer<lb/>
+„geſeſſen, ſo waͤre America, die neue Welt, nicht<lb/>
+„ſo lange unbeſucht geblieben. Denn ihre Lob-<lb/>
+„begierde haͤtte dahin geſtellt.„</quote></cit> <p>Die Rede<lb/>
+endiget mit einer Aufmunterung und Weiſſa-<lb/>
+gung:</p> <cit><quote>„Laſſet euch nicht hindern, daß die Sonne<lb/>
+„euch auf die Haut ſticht, ſie will euch dadurch<lb/>
+„nur mahnen, daß ihr die Furchen tapfer durch-<lb/>
+„ſchneidet. Denn ſie ſaͤhe gern, daß ihr die<lb/>
+„Geſchichte bey ihrem Schein und Lichte voll-<lb/>
+„braͤchtet, damit ſie auch Ruhm davon truͤge,<lb/>
+„gleichwie ich mich deſſen ruͤhmen mag. - - Jhr<lb/>
+„doͤrffet euch nicht nach Wind umſehen, ihr<lb/>
+„ſehet der Wind will euch nachwehen; gleiche<lb/>
+„wie euch nun dieſes Wetter liebt, alſo bin<lb/>
+„auch ich unbetruͤbt. Jhr ſehet mein klares<lb/>
+„Waſſer, das offenbar iſt, wie ein Spiegel.<lb/>
+„So lange man den Rhein hinabfahren wird,<lb/>
+„wird keiner euer Lob ſparen, ſondern man wird<lb/>
+„wuͤnſchen daß ſein Schiff liefe, wie das gluͤck-<lb/>
+„hafte Schiff von Zuͤrich. Wohlan, friſch<lb/>
+„daran, ihr habet mein Geleit, um eurer ſtand-<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">VII.</hi> St.] E</fw><fw type="catch" place="bottom">„haften</fw><lb/>
+<pb n="66" facs="#f0066"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„haften Freudigkeit wegen; die Straſſe auf<lb/>
+„Straßburg ſey auch offen; ihr ſollet erlangen,<lb/>
+„was ihr hoffet. Was ihr heute fruͤh euch<lb/>
+„vorgenommen habet, das ſoll euch noch dieſen<lb/>
+„Abend wahr werden. Jhr werdet heut die Stadt<lb/>
+„Straßburg ſehen, ſo wahr ich ſelbſt zu derſelben<lb/>
+„hinzunaͤhern werde. Heute werdet ihr als<lb/>
+„willkommene Gaͤſte zu Straßburg ankommen.<lb/>
+„Nun liebes Wagſchiffgen lauf behende, du<lb/>
+„wirſt noch heute Gluͤckesſchiff genannt werden,<lb/>
+„und durch dich werde ich auch geprieſen werden,<lb/>
+„weil ich an dir ſolche Treue bewieſen habe.„</quote></cit><lb/>
+<p>Die Wirckung, welche dieſer Zuſpruch bey den<lb/>
+Eingeſchifften gethan, wird auf eine recht poeti-<lb/>
+ſche Art beſchrieben:</p> <cit><quote>„Solche Stimme war der<lb/>
+„Geſellſchaft etwas ſeltzames, ſie ward daruͤber<lb/>
+„gar erſtaunet, und ſchwieg ſtille. Es dauchte<lb/>
+„ſie, daß ſie die Stimme fuͤhlte, als wann<lb/>
+„ein Wind in eine Hoͤle blieſe. Derhalben<lb/>
+„jagte ſie ihr einen Muth ein, gleich wie das<lb/>
+„Horn und das Rufen des Jaͤgers den Hun-<lb/>
+„den thut, wenn es in dem finſtern Wald weit<lb/>
+„erſchallet, ſo ſie ſich im tieffen Thal verlau-<lb/>
+„fen haben, und die Berge auf und ab durch-<lb/>
+„ſchnaufen. Alsdann ſchaͤumet ihnen die Waf-<lb/>
+„fel erſt, und ſie kommen ungeſaͤumet auf die<lb/>
+„Spur. Alſo war auch die Stimme dem Schiffe.<lb/>
+„Es bekam erſt einen Grimm zu rudern.„</quote></cit> <p>Das<lb/>
+Gleichniß iſt gantz homeriſch ſo wohl in der male-<lb/>
+riſchen Ausfuͤhrung, als in der Verknuͤpfung ver-<lb/>
+ſchiedener Abſichten.</p><lb/>
+<fw type="catch" place="bottom">Nach</fw><lb/>
+<pb n="67" facs="#f0067"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+<p>Nach dieſem wird die Sonne, eine noch vor-<lb/>
+nehmere Perſon, aus einer ſehr natuͤrlichen Ur-<lb/>
+ſache eingefuͤhret, weil nemlich die Schiffenden<lb/>
+ſich vermeſſen, die Stadt Straßburg vor dem<lb/>
+Untergange der Sonne zu erreichen. Aus die-<lb/>
+ſem Grunde fließt vor ſich ſelbſt die Erdichtung<lb/>
+des Poeten, daß das Schiff mit der Sonne ei-<lb/>
+nen Wettſtreit eingegangen habe, wer von ih-<lb/>
+nen zuerſt in Straßburg ankaͤme. Es war nur<lb/>
+ein Streit um Ruhm, ἔϱις ἀγαθὴ, und Fiſch-<lb/>
+art hat dieſes in der Zuneigung und Hochachtung,<lb/>
+welche er der Sonne fuͤr die Schiffenden zuſchrei-<lb/>
+bet, an etlichen Orten ausgedruͤckt. Durch dieſe<lb/>
+Erdichtung hat er dem Vornehmen der Schif-<lb/>
+fenden eine groſſe Wuͤrde beygeleget, er hat die<lb/>
+ſinnlichſten Bilder daher erhalten, die Geſchwin-<lb/>
+digkeit der Schiffahrt vorzuſtellen, er hat davon<lb/>
+Stof zu etlichen wunderbaren Schildereyen der<lb/>
+lebloſen Natur bekommen. Dieſe gantze Sce-<lb/>
+ne aber wird nur erzehlet, und nicht aufgefuͤhret.<lb/>
+Jch will ſagen, die Sonne redet nicht ſelbſt, ſon-<lb/>
+dern der Poet beſchreibt ihre Gedancken und Mei-<lb/>
+nungen:</p> <cit><quote>„Vornemlich aber ſchoß die Sonne ihre<lb/>
+„Strahlen auf unſer ſchmales Schiffgen, weil ſie<lb/>
+„ihm ſchier mißgoͤnnete, daß es mit ihr in die Wet-<lb/>
+„te lief, und ihr ihren Lauf nachthun, mit ihr auf-<lb/>
+„und auch niedergehen wollte. Jedoch die maͤnnli-<lb/>
+„chen Reiſegefehrten achteten der Beſchwerde<lb/>
+„nichts. Sie hielten der Sonne Stiche nur vor<lb/>
+„eine Anmahnung ſich zu foͤdern. Denn werſchoͤnes<lb/>
+„Wetter haben will, muß leiden, daß er die Son-<lb/>
+„ne fuͤhle. Derowegen, als die Sonne vermerckte,<lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">„daß</fw><lb/>
+<pb n="68" facs="#f0068"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„daß ihre Mannheit nur dadurch geſtaͤrcket<lb/>
+„ward, und das Schiff immer forteilen ſah,<lb/>
+„ſorgete ſie, ſie moͤgte ſich verweilen, daß<lb/>
+„ihr das Schiff vielleicht vorkaͤme, und ihr<lb/>
+„alſo das Lob benaͤhme. Ehe ſie derohalben<lb/>
+„halb ausgeruhet hatte, ſpannte ſie friſche<lb/>
+„Pferde vor, ſie ließ ſich aus ihrem guͤldenen<lb/>
+„Saal, und rennte in einem Keif zu Thal,<lb/>
+„als wenn ein Feuerſtrahl vom Himmel ploͤtz-<lb/>
+„lich in ein fernes Thal ſchießt. Sie brauchte<lb/>
+„ſich auch ſo emſiglich, daß ſie ihnen bey Rhein-<lb/>
+„au vorſtrich, und ſich dem Schiffe auf der<lb/>
+„Seite zeigete, ihm zum Wettelaufen auszu-<lb/>
+„bieten, welches dieſe Maͤnner deſto mehr er-<lb/>
+„mannete, daß ſie weidlich Hand anlegeten,<lb/>
+„vornehmlich, da ſie von ferne dauchte, daß<lb/>
+„ihnen ein neues Geſtirn hervorſchiene, das<lb/>
+„war der Wiederſchein der hohen Spitze<lb/>
+„des Thurmes zu Straßburg wegen der hel-<lb/>
+„len Blitze, welche die Sonne auf derſelben<lb/>
+„erregete, auf daß ſie die Geſellſchaft bewe-<lb/>
+„gete, und alſo mit ihr ſchertzete, und ſie be-<lb/>
+„hertzt machete zu fahren, denn der Keif war<lb/>
+„ihr vergangen, ſeitdem ſie ihres Vortheils<lb/>
+„gewahr worden. Sie ließ ietzo die Pfer-<lb/>
+„de gerne langſam traben, mehr Kurzweil<lb/>
+„mit dem Schiffe zu haben, welches ungewohn-<lb/>
+„ter Weiſe auf dem Rhein mit ihr um den<lb/>
+„Preis wettelief. Denn groſſe Haͤndel un-<lb/>
+„ternehmen, wird ſo wohl gelobt, als ſie be-<lb/>
+„gehen. Aber ſie mußte heruntereilen, ſich<lb/>
+„von der Erden erkuͤhlen zu laſſen, und ſich<lb/>
+<fw type="catch" place="bottom">„ſelber</fw><lb/>
+<pb n="69" facs="#f0069"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+„ſelber im Meere zu erfriſchen, und den feu-<lb/>
+„rigen Schweiß abzuwiſchen. Jedoch, ehe ſie<lb/>
+„verlaͤuft, ſprang ſie zuletzt hinter den Ber-<lb/>
+„gen zu etlichen mahlen mit ihren Blicken auf,<lb/>
+„zu ſehen, wie ſie ſich nachſchicketen; und als<lb/>
+„ſie es ſchier vollbracht ſahe, ſprang ſie zu<lb/>
+„guter Nacht noch einmahl auf, und befahl<lb/>
+„die Geſellſchaft dem Rhein; ſie gar in die<lb/>
+„Stadt hinein zu leiten.„</quote></cit><lb/>
+<p>Man muͤßte ungerecht oder ungelehrt ſeyn,<lb/>
+wenn man dem Verfaſſer dieſer Erfindungen<lb/>
+und Ausbildungen das poetiſche Naturell ab-<lb/>
+ſprechen wollte. Wir erkennen vielmehr, daß<lb/>
+Zinckgraͤf in ſeiner Vorrede zu der allererſten<lb/>
+Ausgabe einiger opitziſchen Gedichte, ehender<lb/>
+zu wenig als zu viel von Johann Fiſchart ge-<lb/>
+ſagt habe. Jch bekenne zwar, daß ich mei-<lb/>
+nem Vorhaben gemaͤß die beſten Stellen die-<lb/>
+ſes Gedichtes ausgeſchrieben habe, und daß<lb/>
+hier und dar viel ſchwaͤcheres Zeug darinnen<lb/>
+iſt, zum Exempel in dem Tagbuche, was den<lb/>
+Zuͤrchern zu Straßburg von Tage zu Tage<lb/>
+begegnet ſey, welches an Stof und Worten<lb/>
+allzu proſaiſch iſt: Doch giebt es in dieſem klei-<lb/>
+nen Werckgen noch mehrere Schoͤnheiten, de-<lb/>
+ren ich gedenken koͤnnte, und mich wuͤrklich<lb/>
+nicht hinterhalten kan, noch einiger zu erwaͤh-<lb/>
+nen. Die Anruffung bey der Abfahrt von<lb/>
+Zuͤrich an die Sonne zeiget poetiſche Andacht,<lb/>
+Vertrauen, und hoffende Munterkeit:</p> <cit><quote>„O hel-<lb/>
+„ler Tag, o liebe Sonne, ſprachen ſie, goͤn-<lb/>
+„ne uns nun deinen Schein, und zeige uns<lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">„dein</fw><lb/>
+<pb n="70" facs="#f0070"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„dein lichtes rothes Haupt, deſſen du uns dieſe<lb/>
+„Nacht beraubet hatteſt. Geh uns zum Heile<lb/>
+„mit Freuden auf, daß wir unſer Theil voll-<lb/>
+„bringen, halt mit deinem Scheine heute bey<lb/>
+„uns, laß dir keine Wolke hinderlich ſeyn.<lb/>
+„Zuͤnd uns heute den Weg durch dein Licht<lb/>
+„bis auf Straßburg, welches noch ſehr weit<lb/>
+„iſt. Denn du wirſt durch dieſe Geſchichte auch<lb/>
+„beruͤhmt werden. Wolan, dein Vortrab,<lb/>
+„die Morgenroͤthe, zeigt uns, daß du ſtets<lb/>
+„bey uns halten willſt. Wann wir heute<lb/>
+„deine Hitzſtiche empfinden, wollen wir dei-<lb/>
+„nen Beyſtand verkuͤndigen.„</quote></cit><lb/>
+<p>Die Eigenſchaften und die Geſtalt der Fluͤſſe,<lb/>
+werden mit einer Geſchicklichkeit beſchrieben,<lb/>
+welche in den lateiniſchen und den griechiſchen<lb/>
+Poeten gewoͤhnlich bey dergleichen Gelegenheit<lb/>
+vorkommt, und in unſern Deutſchen noch auf<lb/>
+den heutigen Tag mangelt:</p> <cit><quote>„Die Limmat,<lb/>
+„welche auf dem Maͤrchberg, der Ury umrin-<lb/>
+„get, entſpringt, und durch das Lindthal fuͤr<lb/>
+„Glaris laͤuft, dann in dem Oberſee erſaͤuft,<lb/>
+„aber im Zuͤricherſee wieder hervorkoͤmmt, und<lb/>
+„ſtraks fuͤr Baden her nieder laͤuft.„</quote></cit><lb/>
+<p>Von der Aar ſagt er:</p> <cit><quote>„Die Aar entſpringt<lb/>
+„beym hoͤchſten Gebuͤrge, dem Gotthard, der<lb/>
+„in die Wolken dringet, ſie windet ſich ge-<lb/>
+„ſchwind, und wie ein Fiſchangel durch Brienz<lb/>
+„und den Thunerſee, und umringet Bern,<lb/>
+„die Landreiche Stadt, die wohl einen Baͤ-<lb/>
+„renmuth hat, beydes wahre Lehre zu pflan-<lb/>
+„zen, und ihre Laͤnder mit Wehr zu ſchirmen.<lb/>
+<fw type="catch" place="bottom">Fol-</fw><lb/>
+<pb n="71" facs="#f0071"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+„Folgends kruͤmmet ſie ſich bey Aarberg,<lb/>
+„die alte Stadt Salothurn zu umgeben.„</quote></cit><lb/>
+<p>Die Stelle von dem Rhein habe ich ſchon<lb/>
+oben angefuͤhrt. Jn der eben angezogenen Stel-<lb/>
+le iſt der Character der Berner mit ein paar<lb/>
+wahrhaften Zuͤgen beruͤhrt. Von der Stadt Zuͤ-<lb/>
+rich und ihren Einwohnern hat er auch die deut-<lb/>
+lichſten Merckmahle ausgezeichnet:</p> <cit><quote>„Dieſe<lb/>
+„Stadt ward wegen ihrer Tugendmacht ſo hoch<lb/>
+„gehalten, daß den Eidgenoſſen gefallen hat,<lb/>
+„ſie ſollte das erſte Ort unter allen ſeyn.<lb/>
+„Dieſe Stadt hat die Limmat mit etlichen<lb/>
+„ſchoͤnen und weiten Bruͤcken eingefangen,<lb/>
+„und iſt von vielen Stuͤcken beruͤhmt, von<lb/>
+„Policey, von Religion, von mancher ge-<lb/>
+„lehrten Perſon, von weiſen Leuten zum Rath,<lb/>
+„und von ſtreitbaren Maͤnnern zur That.„</quote></cit><lb/>
+<p>Jch habe oben den lebhaften und affectvol-<lb/>
+len Abſchied des Rheins von unſrer ſchiffen-<lb/>
+den Geſellſchaft nicht vergeſſen ſollen:</p> <cit><quote>„Drauf<lb/>
+„hat der Rhein ſeinen Abſchied genommen,<lb/>
+„auf daß er bald ins Meer kommen, und ihm<lb/>
+„die fremde Zeitung bringen moͤgte, wie er<lb/>
+„mit ihm um Ruhm ringen werde, weil man<lb/>
+„auch auf ihm ſo geſchwind fahre, dazu oh-<lb/>
+„ne Segel, und ohne Wind.</quote></cit><lb/>
+<p>Wenn der Poet fuͤr ſich und in ſeinem ei-<lb/>
+genen Nahmen redet, nimmt man oͤffters ei-<lb/>
+ne Art Geiſtes und Witzes wahr, die in einer<lb/>
+ſinnreichen und ſehr gluͤcklichen Anwendung der<lb/>
+Geſchichte beſteht: Zum Exempel gerade im<lb/>
+Anfange:</p> <cit><quote>„Man liſt von Xerxes dem Be-<lb/>
+<fw type="sig" place="bottom">E 4</fw><fw type="catch" place="bottom">„herr-</fw><lb/>
+<pb n="72" facs="#f0072"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„herrſcher des Aufganges und der edlen Per-<lb/>
+„ſer, welcher neun hundert tauſend Mann<lb/>
+„wider die Griechen angefuͤhrt, als er ſehr<lb/>
+„groſſen Verluſt zur See gelitten, ſey er ſo<lb/>
+„ſehr ergrimmet, daß er das Meer habe geiſ-<lb/>
+„ſein laſſen, und Ketten darein geworffen,<lb/>
+„es zu ſtillen, und es nach ſeinem Willen zu<lb/>
+„feſſeln. Aber dieſer Hohn half ihm nichts,<lb/>
+„er floh davon. Desgleichen hoͤret man von<lb/>
+„Venedig, daß ſie das Meer ihnen gnaͤdig<lb/>
+„zu machen, jaͤhrlich einen Ring hineinwerf-<lb/>
+„fen, damit es ſie wie eine Braut umfienge.<lb/>
+„Aber wie oft hat es ſich mit Ueberguͤſſen feind-<lb/>
+„lich gegen ihnen erwieſen? Wenn ſie auch<lb/>
+„ihrer Gemahlin wohl traueten, was doͤrfften<lb/>
+„ſie viel Daͤmme um daſſelbe bauen? Des-<lb/>
+„halben hat man eine gewiſſere Weiſe die<lb/>
+„Waſſer und Fluͤſſe zu zaͤhmen, daß ſie ge-<lb/>
+„ſchlacht und gefolgig werden, und die Leute<lb/>
+„ohne Beſchwerden fertigen, handfeſte Ar-<lb/>
+„beitſamkeit, und ſtandhafte Unverdroſſenheit,<lb/>
+„durch rudern, ſtoſſen, ſchalten, ꝛc.</quote></cit><lb/>
+<p>Dieſes Gedichte iſt durchgehends ernſthaf-<lb/>
+tig, und man trifft nicht eine ſchmutzige Zeile<lb/>
+darinnen an, die einem ſittſamen Leſer an-<lb/>
+ſtoͤſſig ſeyn moͤchte. Man weis ſonſt wie hoch<lb/>
+es Fiſchart in der cyniſchen Sprache gebracht<lb/>
+hat. Jn ſeiner freyen Ueberſetzung des Gar-<lb/>
+gantua hat er den Rabelais ſelbſt, den Va-<lb/>
+ter der Lotterbuͤbiſchen Schreibart, beynahe<lb/>
+uͤbertroffen.</p><lb/>
+<fw type="catch" place="bottom">Wenn</fw><lb/>
+<pb n="73" facs="#f0073"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+<p>Wenn ſein Gedichte von der Floͤhhetze mit<lb/>
+dieſem Fehler nicht beſudelt waͤre, ſo duͤrften<lb/>
+wir es wegen vieler poetiſcher Gedancken und<lb/>
+Vorſtellungen, in welchen ſich eine natuͤrliche<lb/>
+Faͤhigkeit zur Poeſie zeiget, deſto freyer an-<lb/>
+preiſen. Ein Floh klaget der Muͤcke ſeine Noth,<lb/>
+die ihm und andern von ſeinem Geſchlechte von<lb/>
+den Weibern angethan wird: Die Muͤcke be-<lb/>
+gegnet ihm mit Troſt und Rath auf das freund-<lb/>
+lichſte. Dem iſt die Verantwortung der Wei-<lb/>
+ber auf der Floͤhe Verkleinerung angehaͤnget,<lb/>
+ſamt dem Floͤhurtheile. Der Floh faͤngt ſeine<lb/>
+Klage an:</p> <cit><quote>„Wem ſoll ich meine Noth kla-<lb/>
+„gen? Den Menſchen kan ich ſie nicht wohl<lb/>
+„ſagen, wiewohl ſie von Natur erkennen,<lb/>
+„was gut, und was recht zu nennen ſey;<lb/>
+„dieweil ſie mir gar gehaͤſſig ſind; denn der<lb/>
+„Gehaͤſſige ſpricht unrechtmaͤſſig. Soll ich ſie<lb/>
+„denn meines gleichen ſagen, ſo wird man<lb/>
+„mir hinwiderklagen: Das iſt denn Klage um<lb/>
+„Gegenklage, welche keinem etwas frommen<lb/>
+„mag. Es muß einer ſeyn, der ſie beur-<lb/>
+„theilet, und nach dem Rechten daruͤber<lb/>
+„ſpricht. Derohalben will ich zu dem fliehen,<lb/>
+„von welchem wir alle den Anfang ziehen,<lb/>
+„der nach ſeiner Guͤte und Macht nicht das<lb/>
+„geringſte Geſchoͤpfe verachtet, und uͤberall<lb/>
+„gantz nichts verwahrloſet, ohne deſſen Wil-<lb/>
+„len kein Thier ſein Haar laͤßt. Darum o<lb/>
+„hoher Jupiter, gewaͤhre nun mich armes<lb/>
+„Thiergen. Jch bin eine lebendige Todten-<lb/>
+„leiche; das machet ein unzartes Frauenbild.<lb/>
+<fw type="sig" place="bottom">E 5</fw><fw type="catch" place="bottom">„- O</fw><lb/>
+<pb n="74" facs="#f0074"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„- O du boͤſe unbarmhertzige Art, die von<lb/>
+„keinem Menſchen gebohren ward, ſondern<lb/>
+„vom Krokodil herkoͤmmt, der zum Morde<lb/>
+„vor Freude weint. Sie lachte zu allen die-<lb/>
+„ſen Dingen, daß ihr die Augen uͤbergiengen.<lb/>
+„O Jupiter, wie kanſt du zuſehen, daß ſol-<lb/>
+„che Unbille geſchieht, da doch alle Unbillig-<lb/>
+„keit Gott zur Unwilligkeit erweckt! Jch thue<lb/>
+„ja dieſes, wozu du mich erſchaffen, und neh-<lb/>
+„re mich, wie du mich beruffen haſt, mit et-<lb/>
+„wan einem Troͤpflein Blutes; und thu es<lb/>
+„nicht, wie man meint, aus Trutze; ſo we-<lb/>
+„nig, als der Menſch der Erde zu Trutze ſie<lb/>
+„mit den Pferden zerackert, und dem Scha-<lb/>
+„fe zu Trutze es beſchiert, dem Baume zu Leide<lb/>
+„ſeine Fruͤchte abnimmt. - Es ſollten hinfort<lb/>
+„alle Floͤhe Jovem um einen Angel bitten,<lb/>
+„daß ſie ihren Mangel einbraͤchten, ja um<lb/>
+„einen dreyſpitzigen Spieß, den man bis an<lb/>
+„das Heft einſtieſſe; ja daß der fromme Jupiter<lb/>
+„mit ſeinem Strahle in ſie herſchoͤſſe, und ſie<lb/>
+„lehrte an Geſchoͤpfen, die niemand betruͤ-<lb/>
+„ben, dergleichen Muthwillen uͤben. Aber<lb/>
+„wie einmahl einer geſchrieben hat, die Strah-<lb/>
+„len ſind bey ihm gar theuer, weil der Vul-<lb/>
+„canus alt worden iſt, daß er nicht wohl<lb/>
+„mehrere ſchmieden kan. Oder die Strah-<lb/>
+„len ſind ſonſt bey ihm werth und theuer,<lb/>
+„daß er ſie nicht um eine jede Beſchwerde ſo<lb/>
+„liederlich verwaget; gleichwie man von St.<lb/>
+„Peter ſagt, als er einen Tag Herr im Him-<lb/>
+„mel war, und eine Magd Garn ſtehlen ſah,<lb/>
+<fw type="catch" place="bottom">„habe</fw><lb/>
+<pb n="75" facs="#f0075"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+„habe er ihr gleich einen Stuhl zum Schopf<lb/>
+„geworffen, und dadurch ſeinen Peterskopf<lb/>
+„erwieſen. Haͤtte er es ſolchergeſtalt lange ge-<lb/>
+„trieben, ſo waͤre kein Stuhl mehr im Himmel<lb/>
+„geblieben. Alſo, ſollte Jupiter ſeine Strah-<lb/>
+„len, ſo oft wir es verdienen, auf uns los-<lb/>
+„ſchieſſen, ſo haͤtte er ſchon laͤngſtens kein<lb/>
+„Geſchoß mehr. Doch ſoll darum keiner ſicher<lb/>
+„ſeyn, eine langſame Pein iſt eine lange Pein. -<lb/>
+„O koͤnnte ich ietzt einen Hagel kochen, ich<lb/>
+„lieſſe es doch nicht ungerochen hingehen,<lb/>
+„denn wie kan ich mir doch abbrechen, daß<lb/>
+„ich mich nicht greulich raͤchen ſollte, weil<lb/>
+„ſie mir als die greulichſten Feinde meine<lb/>
+„Aeltern, Geſchwiſtern, meine getreueſten<lb/>
+„Freunde, ja meinen Gemahl ermoͤrdet ha-<lb/>
+„ben? O daß mir das Hertz nicht in tau-<lb/>
+„ſend Stuͤcke bricht, wenn ich gedencke, daß<lb/>
+„dieſe lieben Freunde noch dazu unbegraben<lb/>
+„ſind! Ach warum haſt du mich doch alſo<lb/>
+„gemacht, daß ich dem Weibervolck zum<lb/>
+„Opfer wuͤrde? Oder warum haſt du die<lb/>
+„Weiber alſo geſchaffen, nur daß ſie uns<lb/>
+„ſtraffeten? Entweder ſollten keine Floͤhe ſeyn,<lb/>
+„oder kein Weib ſollte mehr werden, weil<lb/>
+„dieſe beyde ſich nie vertragen. Aber es iſt<lb/>
+„gar ein ungleiches Ding, daß ein Zwerg<lb/>
+„mit einem Rieſen ringe, was zoͤrne ich denn<lb/>
+„lange, ich thue mir nur ſelbſt mit Zorn weh.<lb/>
+„Jch will es dir befehlen, Jupiter, du kanſt<lb/>
+„mein Recht zurecht beſtellen. Raͤche du der<lb/>
+„Mord in unſrem Nahmen; laß uns als de<supplied>in</supplied>e<lb/>
+<fw type="catch" place="bottom">„Ge-</fw><lb/>
+<pb n="76" facs="#f0076"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„Geſchoͤpfe nicht ſo zu ſchanden machen. Denn<lb/>
+„an den Boͤſen nicht Rache uͤben, das heißt<lb/>
+„den Frommen Schmach anthun.„</quote></cit><lb/>
+<p>Es ſind in dieſer Rede Affecte und Empfin-<lb/>
+dungen genug; und dieſe ſind mit einer gewiſſen<lb/>
+Scharfſinnigkeit, und einer lehrreichen Einſicht<lb/>
+begleitet. Sinnreiche Spruͤche und kluge Lehren<lb/>
+regieren in dem gantzen Gedichte; ſie werden nicht<lb/>
+zu weit hergehohlet, daß ſie dem Verſtande Muͤhe<lb/>
+machten, ſondern ſie flieſſen freywillig aus dem Af-<lb/>
+fecte und der Sache ſelbſt; und werden daneben<lb/>
+in einer deutlichen Redensart vorgetragen. Man<lb/>
+koͤnnte etliche Dutzend dergleichen, die eben nicht<lb/>
+von den abgenutzteſten ſind, zuſammenleſen. Z. E.</p><lb/>
+<cit><quote>„Sorge und Angſt doͤrret das Hertz aus, des<lb/>
+„Gemuͤthes Schmertz verzehret den Leib. - Den<lb/>
+„Schaden verſchweigen macht ihn ſteigen, und<lb/>
+„ihn anzeigen, macht ihn neigen. - Der Witz<lb/>
+„der Armen liegt in der Aſche, da der Rei-<lb/>
+„chen in der Taſche liegt. Der Taſche Witz<lb/>
+„gilt nicht laͤnger, als ſo lange man Geld hat;<lb/>
+„der Aſchen Witz ruhet wie ein Schatz, und<lb/>
+„ſcheinet, wenn man ihn hervorkratzet. - Das<lb/>
+„Kleine koͤmmt auch zu ſtatten, ein kleines Haͤr-<lb/>
+„gen giebt auch einen Schatten. - Schlaͤgt Liſt<lb/>
+„zu der Grauſamkeit, ſo hilft keine Geſchwin-<lb/>
+„digkeit fuͤr den Tod. - Auch ſchuldiges Blut,<lb/>
+„naget einem das Hertz, geſchweige, was das<lb/>
+„unſchuldige thut. - Was iſt ſich zu verwun-<lb/>
+„dern, wenn die Wolcken in der Hitze donnern,<lb/>
+„das iſt, wenn die Jugend muthwillig iſt, die<lb/>
+„es ſich vor billig haͤlt; ſo es doch kalte Wol-<lb/>
+<fw type="catch" place="bottom">„ken</fw><lb/>
+<pb n="77" facs="#f0077"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+„ken ebenfalls thun, nemlich die alten Vetteln?<lb/>
+„- Der Feind muß oͤfters unverhoft auch ſeinen<lb/>
+„Feind verehren. - Der Tod, den groſſe Leute<lb/>
+„einem anthun, wird gering geachtet. - Es lau-<lb/>
+„tet gleich, etwas nicht wiſſen, und das man<lb/>
+„weiß, nicht genieſſen koͤnnen.„</quote></cit> <p>Dieſen letz-<lb/>
+tern Gedancken hat Milton vor werth gehalten,<lb/>
+in ſein heroiſches Gedichte einzutragen, wo er<lb/>
+ihn alſo gegeben:</p><lb/>
+<cit><quote><hi rendition="#aq">For Good unknown ſure is not had, or had<lb/>
+And yet unknown is as not had at all.</hi></quote></cit><lb/>
+<p>Von den Erzehlungen, wo die Hetze und Nie-<lb/>
+derlage der Floͤhe beſchrieben wird, koͤnnte ich<lb/>
+die Anmerkung machen, welche man zum Lobe<lb/>
+des Homers uͤber die Jlias gemachet hat, daß<lb/>
+unter hundert Todesarten, die da umſtaͤndlich er-<lb/>
+zehlt werden, keine der andern gleich iſt: Aber<lb/>
+die Eingezogenheit unſers Jahrhunderts laͤßt mir<lb/>
+nicht zu, mich hieruͤber aufzuhalten, <hi rendition="#aq">ignotis pe-<lb/>
+reant mortibus illi.</hi> Doch zu einer Probe von<lb/>
+des Autors Kunſt im Erzehlen will ich die Fa-<lb/>
+bel von der Stadtmaus, und der Feldmaus, die<lb/>
+er in ſeinem Werck eingewebet hat, ausſchreiben.</p><lb/>
+<cit><quote>„Die Feldmaus lud die Stadtmaus zu Gaſt,<lb/>
+„mit dem Felde verlieb zu nehmen. Darauf<lb/>
+„richtete ſie zu, uud trug hervor, was ſie im<lb/>
+„aͤuſſerſten Winckel hatte, was ſie den Win-<lb/>
+„ter uͤber geſpart hatte, ſo daß ihre Speiskam-<lb/>
+„mer faſt leer ward, damit ſie nur der zarten<lb/>
+„Zucht mit den ſchoͤnſten Fruͤchten ein Genuͤgen<lb/>
+„thun moͤgte. Aber was ſie immer dem Jun-<lb/>
+<fw type="catch" place="bottom">„ker</fw><lb/>
+<pb n="78" facs="#f0078"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„ker aus dem Stadtfrauenzimmer vorſetzete,<lb/>
+„runtzelte er nur Naſe und Stirn daruͤber, und<lb/>
+„ſagte, das waͤre nur Bauerwerck, er haͤtte<lb/>
+„drinnen in der Stadt eine andre Luſt, desglei-<lb/>
+„chen der Feldmaͤuſe Koͤnig ſelbſt mit ſeinem Ho-<lb/>
+„fe nicht haͤtte. Er habe ſchleckhafte Speiſe<lb/>
+„vollauf. Seine Speiſe ſey geſotten, und ge-<lb/>
+„braten, er habe Fleiſch und Brod und Kaͤſe zum<lb/>
+„Fladen. Solches zu erfahren fuͤhrte ſie die<lb/>
+„Feldmaus aus dem Feld, und in ihr Haus.<lb/>
+„Daſelbſt trug ſie bey der Schwere auf, und<lb/>
+„fragte immer, haſt du noch nicht genug? Jn-<lb/>
+„deſſen weil ſie ſich da vergeſſen, hoͤren ſie<lb/>
+„den Schluͤſſel im Schloß umdrehen, und je-<lb/>
+„mand zu ihnen nahen. Die Stadtmaus auf,<lb/>
+„und davon. Die Feldmaus wollte auch nicht<lb/>
+„ſtehen bleiben; und konnte doch ſchwerlich aus<lb/>
+„der Gefahr kommen, weil ihr Sache und Ort<lb/>
+„ungewohnt waren. Als ietzo der Hausknecht wie-<lb/>
+„der hinweg war, gieng die Stadtmaus wieder zu<lb/>
+„ihrem Schlecke; und rufte der Feldmaus auch<lb/>
+„zu Tiſche; ſie wollten nun auf ein friſches ze-<lb/>
+„chen. Aber dieſe wollte lange nicht trauen.<lb/>
+„Doch wagte ſie es endlich auf der andern<lb/>
+„Bitte. Da nun die Stadtmaus ſie wohl ze-<lb/>
+„chen und trincken hieß, fragt ſie dieſelbe: Ob<lb/>
+„ſie ſolche Gefahr oft ſo unverhoft beſtehen muͤß-<lb/>
+„te? Sie antwortet, es waͤre ihr gemeines<lb/>
+„Brodt, man muͤßte eine gemeine Noth nicht<lb/>
+„achten. Wie, ſagte die Feldmaus, iſt es dir<lb/>
+„gemein? So achteſt du dein Leben wenig. Wer<lb/>
+„ſich muthwillig in Noth ſtecket, der iſt an ſei-<lb/>
+<fw type="catch" place="bottom">„nem</fw><lb/>
+<pb n="79" facs="#f0079"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+„nem Tode ſelbſt ſchuldig. Jch verlange kei-<lb/>
+„nen Schleck, der Schrecken bringt. Schre-<lb/>
+„ken kan keinen fetter machen. Deine Speiſe<lb/>
+„iſt mit Zucker beſprenget, aber auch mit Ge-<lb/>
+„fahr ſehr vermenget. Was der Honig daran<lb/>
+„verſuͤſſet, das verwuͤſtet dann die Gefahr wie-<lb/>
+„der. Mir aber will die Speiſe nicht gefallen,<lb/>
+„wenn die Galle ſchon verhoniget iſt. Jch will<lb/>
+„lieber meine Sparſamkeit und Duͤrftigkeit mit<lb/>
+„Sicherheit, als deinen Ueberfluß mit ſolcher<lb/>
+„Angſt, Sorge, Flucht, und Schrecken.„</quote></cit><lb/>
+<p>Man wird an den Umſtaͤnden dieſer Erzeh-<lb/>
+lung, der Ausbildung derſelben, der Verbin-<lb/>
+dung, der Deutlichkeit, und dem Ausdrucke<lb/>
+nicht viel auszuſetzen wiſſen. Jch habe dem Poe-<lb/>
+ten in meiner proſaiſchen Ueberſetzung nichts ge-<lb/>
+liehen. Man kan es probieren, ob man aus<lb/>
+Hans Sachſens Schriften dergleichen Gedan-<lb/>
+ken und Ausdruͤckungen herausbringen koͤnne,<lb/>
+wenn man ihm gleich ſeine Flickwoͤrter, ſeine ver-<lb/>
+alterten Woͤrter, ſeine Verſetzungen, und der-<lb/>
+gleichen Fehler verzeyhen wollte. Nur bey dem<lb/>
+Ausdrucke allein ſtehen zu bleiben, ſo kennen wir<lb/>
+manchen Neuern, der der Knittelſprache unſers<lb/>
+Fiſcharts lachet, welcher nicht faͤhig waͤre, eine<lb/>
+von folgenden, oder dergleichen Redensarten aus-<lb/>
+zufinden: Boͤſes Blut <hi rendition="#fr">gießt</hi> keine ſchoͤne <hi rendition="#fr">Farbe<lb/>
+ein.</hi> - Dieſe both uns ihre Fuͤſſe feil, damit ſie<lb/>
+uns <hi rendition="#fr">den Tod verkaufte. - Den Unfall</hi> hoch <hi rendition="#fr">ſpreiſ-<lb/>
+ſen.</hi> - Gerechter Jupiter, der <hi rendition="#fr">das Geringe</hi><lb/>
+achtet, wie <hi rendition="#fr">das Schwere.</hi> - Die heilige <hi rendition="#fr">Ge-<lb/>
+rechtigkeit ſchicket</hi> ihr eine Strafe. Der Welt<lb/>
+<fw type="catch" place="bottom">Trinck-</fw><lb/>
+<pb n="80" facs="#f0080"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie des <hi rendition="#aq">XVI.</hi> Jahrh.</hi></fw><lb/>
+Trinckgeld iſt Gallentranck, der allen <hi rendition="#fr">Danck<lb/>
+verbittert.</hi> Die bleichen Wangen mit <hi rendition="#fr">Glantz-</hi><lb/>
+ſtaube <hi rendition="#fr">beſtaͤuben.</hi> Der <hi rendition="#fr">Ueberfluß niſtet</hi> nicht,<lb/>
+wo keine Sicherheit iſt. Einen <hi rendition="#fr">Hagel kochen.</hi><lb/>
+Des Reichen <hi rendition="#fr">Witz</hi> liegt in <hi rendition="#fr">der Taſche.</hi> Groſſe<lb/>
+Leute <hi rendition="#fr">ſtoſſen</hi> ſich in der Enge <hi rendition="#fr">ab.</hi> Der <hi rendition="#fr">Blin-<lb/>
+de</hi> muß <hi rendition="#fr">den Lahmen</hi> tragen. Die <hi rendition="#fr">Leber</hi> ge-<lb/>
+geſſen haben. Ein <hi rendition="#fr">Held</hi> mit <hi rendition="#fr">troͤſten</hi> ſeyn. Die<lb/>
+<hi rendition="#fr">Kleinmuth</hi> durch Standhaftigkeit <hi rendition="#fr">daͤmmen.</hi> Auch<lb/>
+das ſchuldige <hi rendition="#fr">Blut nagt</hi> einem Menſchen den<lb/>
+<hi rendition="#fr">Muth. Pluto trug</hi> ihn in eine Kammer. <hi rendition="#fr">Neid<lb/>
+kochen.</hi> Seine <hi rendition="#fr">Brunſt</hi> im Schnee <hi rendition="#fr">abbaden.</hi><lb/>
+Die Schand muß ſich <hi rendition="#fr">auf euch enden.</hi></p><lb/>
+<p>Jch erinnere mich, daß dieſer Verfaſſer ſelbſt<lb/>
+in ſeinen Wercken folgender poetiſcher Schrif-<lb/>
+ten Meldung thut, welche von ihm verfertiget<lb/>
+worden ſeyn: Die <hi rendition="#fr">Schwalben- und Spatzen-<lb/>
+hetze;</hi> das <hi rendition="#fr">Gauchslob;</hi> der <hi rendition="#fr">Rathſchlag von<lb/>
+Erweiterung der Hoͤllen;</hi> die <hi rendition="#fr">Hofſuppe.</hi> Kei-<lb/>
+nes von dieſen Stuͤcken iſt mir noch zur Zeit<lb/>
+in die Haͤnde gekommen. Wenn ſie mit ſchmu-<lb/>
+zigen Vorſtellungen nicht beſudelt ſind, ſo laͤßt uns<lb/>
+die Materie von dem Witze des Verfaſſers et-<lb/>
+was verhoffen, welches der Aufmerkſamkeit,<lb/>
+und des Aufhebens nicht unwuͤrdig waͤre.</p><lb/>
+<p><hi rendition="#c">Die Fortſetzung wird in dem folgenden<lb/>
+Stuͤcke kommen.</hi></p></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Aben-</hi></fw><lb/>
+<pb n="81" facs="#f0081"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Abentheuer, das ſich mit der Aeneis<lb/>
+Hrn. Joh. Chriſt. Schwartzen in Conrector<lb/>
+Erlebachs Schule zugetragen hat.</hi></head><lb/>
+<p><hi rendition="#in">J</hi>CH habe ſo viele Proben von der Guͤtig-<lb/>
+keit meiner Leſer empfangen, daß ich mich<lb/>
+dißmahl aus bloſſem Vertrauen auf die-<lb/>
+ſelbe erkuͤhne, der Neigung, nach welcher jeder<lb/>
+Menſch gerne von ſeinem Handwercke redet, nach-<lb/>
+zugeben, und ihnen eine Handlung aus meinem<lb/>
+Schulſtaate zu erzehlen. Jch darf dieſes deſto<lb/>
+dreuſter thun, nachdem diejenige, fuͤr welche ich vor-<lb/>
+nehmlich ſchreibe, ſich in den Gottſchediſchen <hi rendition="#fr">Bey-<lb/>
+traͤgen zur deutſchen Sprache,</hi> in den <hi rendition="#fr">Beluſti-<lb/>
+gungen des Witzes und des Verſtandes,</hi> und in<lb/>
+andern Schriften von dieſer Art, an Schuluͤbun-<lb/>
+gen, an Jugendfruͤchte, an Erſtlinge des Geiſtes,<lb/>
+an grammaticaliſche Exercitien, und dergleichen<lb/>
+Sachen dergeſtalt gewoͤhnt haben, daß ſie ſol-<lb/>
+che nicht ſelten ihres Beyfalles gewuͤrdiget, und<lb/>
+manchmahl gar vor Meiſterſtuͤcke des Witzes be-<lb/>
+wundert haben.</p><lb/>
+<p>Jch habe vor wenigen Tagen meinen Unter-<lb/>
+gebenen etliche Stellen aus der Aeneis zu uͤber-<lb/>
+ſetzen vorgeſchrieben, und demjenigen der es am<lb/>
+beſten machen wuͤrde, einen ſaubergebundenen Lon-<lb/>
+gin nach Heineckens Ueberſetzung mit der neuen<lb/>
+Vorrede, als einen verdienten Preis verſpro-<lb/>
+chen, dahingegen derjenige, welcher die ſchlech-<lb/>
+teſte Probe liefern wuͤrde, den Schuleſel beſtei-<lb/>
+gen, und drey Viertelſtunden darauf ſitzen ſollte.</p><lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l <hi rendition="#aq">VII.</hi> St.] F</fw><fw type="catch" place="bottom">Unter</fw><lb/>
+<pb n="82" facs="#f0082"/>
+<fw type="header" place="top"><hi rendition="#b">Abentheuer von der Aeneis</hi></fw><lb/>
+<p>Unter denſelben iſt ein junger Aufſproͤßling von<lb/>
+gutem Hauſe, Nahmens Joh. Chriſtoph Weiß,<lb/>
+ein zwar faͤhiger, aber dabey allzu fluͤchtiger Kopf,<lb/>
+der in der Literatur mehr die Bagatelle, als die<lb/>
+Gruͤndlichkeit liebet, und insbeſondere eine na-<lb/>
+tuͤrliche Neigung zum Sylbenmaſſe und den Rei-<lb/>
+men hat; womit er ſich oft in den Gedancken<lb/>
+ſchlaͤgt, wenn er einer ernſthaften Lection nach-<lb/>
+dencken ſollte. Seit ein paar Jahre ſind ihm<lb/>
+gewiſſe Buͤchelgen aus Leipzig von dergleichen<lb/>
+Materie in die Haͤnde gerathen, welche ihm den<lb/>
+Kopf dergeſtalt zerruͤttet haben, daß er biswei-<lb/>
+len in dem Paroxyſmus um Sinnen und Gedan-<lb/>
+ken koͤmmt.</p><lb/>
+<p>Dieſer junge Weiß lieferte mir eine gereimte<lb/>
+Ueberſetzung, ungeachtet ich nur eine proſaiſche<lb/>
+gefodert hatte, und machete dabey eine ſolche Mi-<lb/>
+ne, daß ich ſeine Hoffnung den aufgeſetzten Danck<lb/>
+zu erlangen, deutlich daraus abnehmen konnte.<lb/>
+Allein ich hatte ſeine Arbeit kaum uͤberſehen, als<lb/>
+ich wahrnahm, daß ſie weit ſchlechter war, als<lb/>
+die andern Proben, und nichts weniger als den<lb/>
+Nahmen einer Ueberſetzung, geſchweige einer poe-<lb/>
+tiſchen Ueberſetzung, verdienete. Sie betaͤubete<lb/>
+zwar das Ohr durch das Geklingel der Reimen<lb/>
+mit einigem Wohlklang, und ſchien diesfalls vor<lb/>
+den andern etwas vorauszuhaben; aber dieſer Vor-<lb/>
+zug verſchwand, ſobald man ſie von den Banden<lb/>
+der Reimen befreyete, und jedermann erkannte,<lb/>
+daß es eine ungeſtaltete und uͤbel gerathene Geburt<lb/>
+war, welche die Merckmahle einer groben Unge-<lb/>
+<fw type="catch" place="bottom">ſchick-</fw><lb/>
+<pb n="83" facs="#f0083"/>
+<fw type="header" place="top"><hi rendition="#b">Herr Joh. Chriſtoph Schwartzen.</hi></fw><lb/>
+ſchicklichkeit, oder einer unverantwortlichen Nach-<lb/>
+laͤſſigkeit nicht verleugnen konnte.</p><lb/>
+<p>Jn dem erſten V. der Aeneis ſagt Juno die-<lb/>
+ſe Worte zum Aeolus:</p><lb/>
+<lg type="poem"><l><hi rendition="#et"><hi rendition="#aq">Incute vim ventis, ſubmerſasque obrue puppes,</hi></hi></l><lb/>
+<l><hi rendition="#et"><hi rendition="#aq">Aut age diverſas, et disjice corpora ponto.</hi></hi></l><lb/>
+<l><hi rendition="#et"><hi rendition="#aq">Sunt mihi bis ſeptem præſtanti corpore Nymphæ,</hi></hi></l><lb/>
+<l><hi rendition="#et"><hi rendition="#aq">Quarum quæ forma pulcerrima, Deiopeiam</hi></hi></l><lb/>
+<l><hi rendition="#et"><hi rendition="#aq">Connubio jungam ſtabili, propriamque dicabo,</hi></hi></l><lb/>
+<l><hi rendition="#et"><hi rendition="#aq">Omnes ut tecum meritis pro talibus annos</hi></hi></l><lb/>
+<l><hi rendition="#et"><hi rendition="#aq">Exigat, et pulcra faciat te prole parentem.</hi></hi></l></lg><lb/>
+<p>Dieſe Zeilen hat mein Lehrling dergeſtalt in Rei-<lb/>
+men uͤberſetzt:</p><lb/>
+<lg type="poem"><l>Mach einen Sturm und ſtuͤrtz ihr Schiff ins Meer hinein,</l><lb/>
+<l>Laß ſie ein Gaukelſpiel der tollen Wellen ſeyn.</l><lb/>
+<l>Und weil mir vierzehn ſchoͤn gewachſne Nymphen dienen,</l><lb/>
+<l>So ſoll fuͤr dieſen Dienſt die praͤchtigſte von ihnen,</l><lb/>
+<l>Deiopeia, dir auf ewig eigen ſeyn;</l><lb/>
+<l>Und dieſe muͤſſe dich mit manchem Sohn erfreun:</l><lb/>
+<l>Denn ſie ſoll ſich mit dir als Ehefrau vermaͤhlen.</l></lg><lb/>
+<p>Nachdem ich ihn die lateiniſchen Verſe gegen die<lb/>
+deutſchen Reimen halten heiſſen, hatte ich alle<lb/>
+Muͤhe, ihm vorſtellig zu machen, wie weit er<lb/>
+ſich von dem Originale entfernet, und Dinge<lb/>
+geſagt, an welche Virgil niemahls gedacht haͤtte.</p><lb/>
+<cit><quote>„Sieheſt du nicht, ſagte ich zu ihm, daß Ju-<lb/>
+„no beym Virgil zwey verſchiedene Dinge von<lb/>
+„Aeolus bittet, und daß dieſe zwey Dinge zwo<lb/>
+„Arten Straffen ſeyn ſollen, womit ſie ihre Ra-<lb/>
+„che an den Trojanern ausuͤben will. Eine oder<lb/>
+„die andere gilt ihr gleich viel; entweder ſollte<lb/>
+<fw type="sig" place="bottom">F 2</fw><fw type="catch" place="bottom">„Aeo-</fw><lb/>
+<pb n="84" facs="#f0084"/>
+<fw type="header" place="top"><hi rendition="#b">Abentheuer von der Aeneis</hi></fw><lb/>
+„Aeolus die Trojaniſche Flotte in den Abgrund<lb/>
+„des Meeres verſenken, oder er ſollte die Schiffe<lb/>
+„von einander zerſtreuen, und ſie an verſchie-<lb/>
+„denen Oertern ſcheitern laſſen. Hingegen iſt<lb/>
+„deine Juno ein poſſierliches Weib; ſie ver-<lb/>
+„bindet mit einander, was unmoͤglich zugleich<lb/>
+„beſtehen kan; ſie wollte gerne das Schiff in<lb/>
+„den Abgrund geſtuͤrtzet, und zugleich den Wel-<lb/>
+„len zur Kurtzweil uͤbergeben wiſſen. Das iſt<lb/>
+„ſo viel, als wenn ſie aus einer beſondern Ra-<lb/>
+„che jemanden wollte um das Leben bringen,<lb/>
+„und doch nicht gar toͤden laſſen. Zudem iſt deine<lb/>
+„Goͤttin recht kurtzweilig in ihrem Ausdrucke:<lb/>
+„<hi rendition="#fr">Einen Sturm machen,</hi> iſt ohne Zweifel eine<lb/>
+„neumodiſche deutſchuͤbende Redensart, die du<lb/>
+„in deinen <hi rendition="#aq">Collectaneis</hi> gefunden haben wirſt.<lb/>
+„Die Drohung, <hi rendition="#fr">das Schiff ins Meer zu ſtuͤr-<lb/>
+„zen</hi> iſt eben ſo laͤcherlich, als da jener albere<lb/>
+„Kerl im Zorn den Krebs in die Bache geſchmiſ-<lb/>
+„ſen. Und warum wird in deiner Ueberſetzung<lb/>
+„die Trojaniſche Flotte in ein eintziges Schiff ver-<lb/>
+„wandelt? Aber das <hi rendition="#fr">Gaukelſpiel der tollen<lb/>
+„Wellen</hi> in der zweyten Zeile zeiget, daß we-<lb/>
+„der du noch deine Juno im rechten Ernſt ge-<lb/>
+„redet haben. Die Virgilianiſche Goͤttin unter-<lb/>
+„ſtuͤtzet ihr bitten mit einer Verheiſſung: Sie<lb/>
+„will dem Aeolus, wenn er ihr Verlangen er-<lb/>
+„fuͤllete, die ſchoͤnſte von ihren Nymphen ver-<lb/>
+„maͤhlen: An deſſen Statt verheißt deine Ju-<lb/>
+„no dieſe Vermaͤhlung dem Aeolus nicht fuͤr<lb/>
+„den Dienſt, den ſie von ihm bittet, ſondern<lb/>
+„dieſe ſoll nach deiner Vorſtellung eine Beloh-<lb/>
+<fw type="catch" place="bottom">nung</fw><lb/>
+<pb n="85" facs="#f0085"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Joh. Chriſt. Schwartzen.</hi></fw><lb/>
+„nung fuͤr die treue Dienſte ſeyn, welche die-<lb/>
+„ſe Schoͤne, nemlich die Nymphe Deiopeia der<lb/>
+„Goͤttin geleiſtet hat; denn ſie ſagt:</quote></cit><lb/>
+<p>Und weil mir vierzehn ſchoͤn gewachſne Nymphen <hi rendition="#fr">dienen,</hi><lb/>
+So ſoll fuͤr <hi rendition="#fr">dieſen Dienſt</hi> - - -</p><lb/>
+<cit><quote>„Sonſt haſt du es gluͤcklich errathen, daß zwey-<lb/>
+„mahl ſieben richtig vierzehen ausmachen. Wenn<lb/>
+„auch deine Juno ſagt, <hi rendition="#fr">Deiopeia ſoll dir auf<lb/>
+„ewig eigen ſeyn,</hi> ſo koͤnnte man dieſes ver-<lb/>
+„ſtehen, daß Juno ſie dem Aeolus zur Scla-<lb/>
+„vin uͤberlaſſen wollte; deßwegen haſt du wohl<lb/>
+„gethan, daß du in der naͤchſtfolgenden Wunſch-<lb/>
+„zeile deutlich ausgedruͤcket, zu was vor Dien-<lb/>
+„ſte dem Aeolus erlaubet ſeyn ſollte, dieſe Da-<lb/>
+„me zu gebrauchen: Und durch den am Schluſ-<lb/>
+„ſe beygefuͤgten Grund:</quote></cit><lb/>
+<p><hi rendition="#fr">Denn</hi> ſie ſoll ſich mit dir als Ehefrau vermaͤhlen;</p><lb/>
+<cit><quote>„haſt du gantz uͤberzeugend gelehret, erſtlich daß<lb/>
+„Aeolus die gewuͤnſchte Erzielung einer Fami-<lb/>
+„lie durch keine uͤbernatuͤrliche Mittel zuwege<lb/>
+„bringen ſollte, hernach, daß das Kinderzeu-<lb/>
+„gen eine nothwendige Folge der ehlichen Ver-<lb/>
+„bindung ſey. Man haͤtte ohne dieſen Erweis<lb/>
+„allzu leicht auf die Gedancken gerathen koͤn-<lb/>
+„nen, die Meinung der Goͤttin waͤre, daß Aeo-<lb/>
+„lus mit dieſer ſchoͤnen Nymphe in einem be-<lb/>
+„ſtaͤndigen Concubinat leben ſollte.</quote></cit><lb/>
+<p>Eine andere Stelle, die beym Virgil im <hi rendition="#aq">III.</hi><lb/>
+B. alſo lautet:</p><lb/>
+<cit><quote><hi rendition="#aq">Littora tum patriæ lacrimans portusque relinquo;</hi></quote></cit><lb/>
+<fw type="sig" place="bottom">F 3</fw><fw type="catch" place="bottom"><hi rendition="#aq">Et</hi></fw><lb/>
+<pb n="86" facs="#f0086"/>
+<fw type="header" place="top"><hi rendition="#b">Abentheuer von der Aeneis</hi></fw><lb/>
+<lg type="poem"><l><hi rendition="#aq">Et campos, ubi Troja fuit, feror exul in altum</hi></l><lb/>
+<l><hi rendition="#aq">Cum ſociis, natoque, penatibus, &amp; magnis Diis.</hi></l></lg><lb/>
+<p>hatte mein Schuͤler dergeſtalt gegeben:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Da</hi> ich mein Vaterland und Trojens Port verließ,</l><lb/>
+<l>Da weint ich; und mein Sohn, und die ſo bey uns waren</l><lb/>
+<l>Sind mit der Goͤtter Schutz ins Elend abgefahren.</l></lg><lb/>
+<p>Bey dieſer Stelle hieß ich ihn anmercken, daß er<lb/>
+durch ſeine Ueberſetzung den Nebenumſtand <hi rendition="#aq">lacri-<lb/>
+mans</hi> in die Haupthandlung verkehret, und da-<lb/>
+durch den Zuſammenhang der Erzehlung und den<lb/>
+Character des Helden uͤbel verderbet; ferner daß<lb/>
+er die nachdruͤckliche Ausdruͤkung: <hi rendition="#aq">Et campos ubi<lb/>
+Troja fuit,</hi> welche daneben die Thraͤnen des Hel-<lb/>
+den rechtfertiget, gaͤntzlich aus der Acht gelaſſen;<lb/>
+drittens, daß er den in Thraͤnen zerflieſſenden<lb/>
+Helden durch ſeinen zweydeutigen Ausdruck an<lb/>
+dem Ufer ſeines Vaterlandes ſtehen laſſen, und<lb/>
+bloß allein geſagt haͤtte, der Sohn des Aeneas<lb/>
+waͤre mit einigen andern Gefaͤhrten ins Elend ab-<lb/>
+gefahren. Endlich, daß er Virgils Abſicht bey den<lb/>
+letzten Worten gar nicht gemercket, wenn es im<lb/>
+Deutſchen heißt, <hi rendition="#fr">ſie ſeyn mit der Goͤtter Schutz<lb/>
+ins Elend abgefahren,</hi> an ſtatt daß Aeneas<lb/>
+beym Virgil durch die Nahmhaftmachung der<lb/>
+gantzen Reiſegeſellſchaft vielmehr anzeigen wollen,<lb/>
+daß die Goͤtter ſelbſt kein beſſeres Loos betrof-<lb/>
+fen haͤtte, ſondern daß ſie ſelbſt, nachdem ihr<lb/>
+voriger Aufenthalt im Grunde zerſtoͤrt worden,<lb/>
+mit in das Elend haͤtten fortwandern muͤſſen.</p><lb/>
+<p>Gleich anfaͤnglich, als ich den Vers geleſen<lb/>
+hatte:</p><lb/>
+<fw type="catch" place="bottom">Mach</fw><lb/>
+<pb n="87" facs="#f0087"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Joh. Chriſt. Schwartzen.</hi></fw><lb/>
+<cit><quote>Mach einen Sturm und ſtuͤrtz ihr Schiff ins Meer hinein.</quote></cit><lb/>
+<p>Kam es mir vor, als ob mein Lehrling geglaubt<lb/>
+haͤtte, die Trojaner waͤren in Luftſchiffen daher-<lb/>
+gefahren; in dieſer Muthmaſſung ward ich nicht<lb/>
+wenig durch folgende Reimen beſteifet, mit wel-<lb/>
+chen er eine Stelle aus dem <hi rendition="#aq">IV.</hi> B. uͤberſetzet<lb/>
+hatte:</p><lb/>
+<lg type="poem"><l>Der Goͤtter Gnadenwink und Junons guͤnſtigs Fuͤgen</l><lb/>
+<l>Ließ der Trojaner Schiff an unſre Kuͤſten <hi rendition="#fr">fliegen.</hi></l></lg><lb/>
+<p>Dennoch ſcheint es, daß er ſelbſt das Fliegen<lb/>
+der Schiffe vor ein Wunderwerck gehalten habe.</p><lb/>
+<p>Dergleichen Verſtoſſungeu gab es noch meh-<lb/>
+rere und verſchiedene, welche ich aber mit Still-<lb/>
+ſchweigen uͤbergehe; nur dieſes muß ich noch er-<lb/>
+waͤhnen, daß er im <hi rendition="#aq">IV.</hi> B. bey Anlaſſe folgen-<lb/>
+der Worte:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Poſt, ubi digreſſi; lumenque obſcura viciſſim</hi></l><lb/>
+<l><hi rendition="#aq">Luna premit, ſuadentque cadentia ſidera ſomnos.</hi></l></lg><lb/>
+<p>eine gantz unerhoͤrte Anmerckung ſehr geſchickt an-<lb/>
+gebracht, und ſolche dabey mit einem unwider-<lb/>
+ſprechlichen Grund unterſtuͤtzet hat:</p><lb/>
+<lg type="poem"><l>Worauf man bey der Nacht zwar aus einander geht,</l><lb/>
+<l>Denn es iſt Schlaffens Zeit. - - - - -</l></lg><lb/>
+<p>Nachdem ich nun mit dieſer gereimten Ueber-<lb/>
+ſetzung meines Schuͤlers zu Ende war, ſagte ich<lb/>
+ferner zu ihm: Erkennt er nun, was er vor ein<lb/>
+geſchickter Ueberſetzer ſey; wo Virgil Weiß ſagt,<lb/>
+ſagt er mehrentheils Schwartz. Wenn verkehren<lb/>
+uͤberſetzen waͤre, ſo wuͤrde er den Preis unfehlbar<lb/>
+davon tragen. Er hoͤrete dieſe Beſtraffung, wie<lb/>
+<fw type="sig" place="bottom">F 4</fw><fw type="catch" place="bottom">es</fw><lb/>
+<pb n="88" facs="#f0088"/>
+<fw type="header" place="top"><hi rendition="#b">Abentheuer von der Aeneis</hi></fw><lb/>
+es ſchien, ziemlich gelaſſen an, und geſtuhnd mir,<lb/>
+daß ſeine Arbeit mit denen ausgeſtellten Fehlern<lb/>
+wuͤrcklich behaftet waͤre. Aber da ich ihn fol-<lb/>
+gends zu der angeſetzten Strafe des Schuleſels<lb/>
+verurtheilete, konnte er ſich nicht ſo leicht darein<lb/>
+ergeben; es reuete ihn der gebrauchten Liſt, wel-<lb/>
+che ihm ſo uͤbel bekommen ſollte; und er that<lb/>
+ein freyes Bekenntniß, daß er dieſe gereimte Ue-<lb/>
+berſetzung, die ich ſo ſcharf beurtheilet haͤtte, nicht<lb/>
+ſelbſt verfertiget, ſondern aus einem gedruckten<lb/>
+Buche, das erſt in dieſem Jahr zu Regensburg<lb/>
+an das Licht gekommen waͤre, von Wort zu<lb/>
+Wort abgeſchrieben haͤtte; er haͤtte ſich nicht<lb/>
+getrauet etwas beſſers zu machen. Er zog das<lb/>
+Buch aus der Taſche hervor, und zeigete mir<lb/>
+die Stellen, die er ohne die geringſte Veraͤn-<lb/>
+derung abgecopiert hatte. Er hieß mich uͤberdies<lb/>
+das Auge auf den Gnadenbrief werfen, womit<lb/>
+ſeine Hochedelg. Magnificenz, der Hr. Prof. Gott-<lb/>
+ſched, dieſe neue Ueberſetzung begleitet, und angeprie-<lb/>
+ſen hatte; desgleichen auf das ſtattliche Zeugniß,<lb/>
+welches eben derſelbe dieſer Ueberſetzung in dem<lb/>
+<hi rendition="#aq">XXIX.</hi> St. der critiſchen Beytraͤge beygeleget hat.<lb/>
+Wir leſen an dieſen beyden Orten von Joh. Chri-<lb/>
+ſtoph Schwartzen, (das iſt der Nahme dieſes deut-<lb/>
+ſchen Ueberſetzers Virgils, den mein Schuͤler<lb/>
+Johann Chriſtoph Weiß ausgepluͤndert hatte,)<lb/>
+unter andern folgende Worte:</p> <cit><quote>„Derſelbe ſcheint<lb/>
+„allerdings zu Ueberſetzungen alter Poeten recht<lb/>
+„gebohren zu ſeyn. - - Jch ſtatte unſerm Vater-<lb/>
+„lande zu dieſer deutſchen Aeneis meinen Gluͤck-<lb/>
+„wunſch ab. - - - - Er hat darinn gewieſen,<lb/>
+<fw type="catch" place="bottom">„daß</fw><lb/>
+<pb n="89" facs="#f0089"/>
+<fw type="header" place="top"><hi rendition="#b">Hr. Joh. Chriſt. Schwartzen.</hi></fw><lb/>
+„daß er die Virgilianiſchen Schoͤnheiten einge-<lb/>
+„ſehen. - - Geſchickte Schulmaͤnner werden die-<lb/>
+„ſes Buch ſehr nuͤtzlich bey ihrer ſtudierenden Ju-<lb/>
+„gend zu gebrauchen wiſſen, da zumahl der la-<lb/>
+„teiniſche Text dabey ſteht.„</quote></cit> <p>Mein junger<lb/>
+Versmacher wußte dieſes wohl zu ſeinem Vor-<lb/>
+theil zu kehren, und ſagte:</p> <cit><quote>„Sollte ich mir auf<lb/>
+„eine ſolche Ueberſetzung, die von dem groſſen<lb/>
+„<hi rendition="#fr">Gottſched</hi> ſo ſehr geruͤhmet wird, nicht etwas<lb/>
+„eingebildet haben? und waͤre es nicht eine ſtoltze<lb/>
+„Vermeſſenheit an mir geweſen, wenn ich mir<lb/>
+„vorgenommen haͤtte, ſelbige zu uͤbertreffen?<lb/>
+„Jetzo aber erkenne ich wohl daß mich das<lb/>
+„Gottſchediſche Anſehen geblendet und verfuͤhret<lb/>
+„hat; und ich werde mirs geſagt ſeyn laſſen,<lb/>
+„daß ich kuͤnftighin nichts mehr auf ſeine Ehre<lb/>
+„und ſeinen beruͤhmten Nahmen ohne vorher-<lb/>
+„gehende Pruͤffung glaube. Jndeſſen da dieſe<lb/>
+„elende Ueberſetzung nicht mein iſt, ſondern Herrn<lb/>
+„Schwartzen und Herrn Gottſched zugehoͤret,<lb/>
+„ſo hoffe ich, daß ſie mir mit dem Schul-<lb/>
+„eſel guͤtig verſchonen werden.</quote></cit><lb/>
+<p>Jch mußte dieſer ſeltſamen Begebenheit hertz-<lb/>
+lich lachen; es duͤnckete mich auch, daß er ziem-<lb/>
+lich gute Gruͤnde vorgebracht haͤtte, die Strafe<lb/>
+mit dem Schuleſel von ſich abzuwenden. Auf<lb/>
+der andern Seite fand ich mich beleidiget, daß<lb/>
+<hi rendition="#fr">Jhre Hochmagnificenz</hi> uns ehrlichen Schulmaͤn-<lb/>
+nern ſo wenig geſunder Einſichten in die Virgi-<lb/>
+lianiſchen Schoͤnheiten, oder, was noch ſchlim-<lb/>
+mer waͤre, ſo wenige Treue und Sorgfalt fuͤr<lb/>
+die ſtudierende Jugend zugetrauet hatten, als <hi rendition="#fr">ſie</hi><lb/>
+<fw type="sig" place="bottom">F 5</fw><fw type="catch" place="bottom">mit</fw><lb/>
+<pb n="90" facs="#f0090"/>
+<fw type="header" place="top"><hi rendition="#b">Abentheuer von der Aeneis.</hi></fw><lb/>
+mit ihrer gefaßten eitelen Hoffnung zu verſtehen<lb/>
+geben, daß wir dieſe ſchwartziſche Ueberſetzung in<lb/>
+unſern Schulen <hi rendition="#fr">einfuͤhren und nuͤtzlich gebrau-<lb/>
+chen wuͤrden. Sie</hi> werden uns noch nicht die<lb/>
+Nebelkappe uͤber die Augen werffen, und Vir-<lb/>
+gil im Schwartze weiſen. Dieſes mag <hi rendition="#fr">Jhnen</hi><lb/>
+einmahl mit jungen Knaben angehen, wie mei-<lb/>
+nem Lehrling begegnet iſt; den <hi rendition="#fr">ſie</hi> doch nicht<lb/>
+zum andern mahl fangen werden. Jch woll-<lb/>
+te dieſen darum nicht harter ſtrafen, als er ver-<lb/>
+ſchuldet hatte, und weil er als ein unbeſon-<lb/>
+nener Juͤngling von alten erwachſenen und ſonſt<lb/>
+angeſehnen Maͤnnern verfuͤhret worden, hielt ich<lb/>
+vor billig, daß ſie die Straffe mit ihm theilen<lb/>
+ſollten. Jch that ihm weiter nichts als daß ich ihm<lb/>
+ſeine deutſche Aeneis confiſcirte. Dieſe heftete ich<lb/>
+mit Naͤgeln dem Schuleſel auf die Bruſt. Ueber-<lb/>
+dies erlaubete ich meinen Schuͤlern, daß jeder von<lb/>
+ihnen taͤglich ein Blatt zu ſeinem Beduͤrffniß aus-<lb/>
+reiſſen duͤrfte. Dieſes Urtheil ward von ihnen<lb/>
+mit ſolchem Eifer vollzogen, daß in 14 Tagen<lb/>
+die gantze <hi rendition="#aq">Schwarzias,</hi> (dieſen Nahmen gaben ſie<lb/>
+der deutſchen Aeneis Hrn. Schwartzen) bis auf<lb/>
+den pergamenen Band zerfetzet ward. Alſo iſt<lb/>
+Schwartzens Troja durch einen Eſel, wie Vir-<lb/>
+gils durch ein Pferd zerſtoͤret, und zu Schan-<lb/>
+de gerichtet worden.</p></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Neue</hi></fw><lb/>
+<pb n="91" facs="#f0091"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Neue Sachen in der Critiſchen<lb/>
+Literatur.</hi></head><lb/>
+<p><hi rendition="#in">E</hi>Ndlich hat ein Unbekannter in der Vorrede<lb/>
+zu der neuen Ausgabe des Longinus Hrn.<lb/>
+Heineckens den Hr. Prof. Gottſched, und die<lb/>
+Beluſtiger mit ihrem gantzen Anhange, welche<lb/>
+ſich ſelber unberuffen und ohne gehoͤrige Beſtallung<lb/>
+den Character von Verfechtern des deutſchen Wi-<lb/>
+tzes und Geſchmackes angemaſſet, durch eine gruͤnd-<lb/>
+liche und nachdruͤckliche Entſagung zuruͤcke ge-<lb/>
+wieſen. Alle Leſer von wahrem deutſchen Ge-<lb/>
+bluͤte und Witze haben in dieſer Abfertigung ihre<lb/>
+eigenen Gedancken und Urtheile geleſen, fuͤr wel-<lb/>
+che ihnen ſo viel Jahre her gantz fremde und ab-<lb/>
+geſchmackte Meinungen waren aufgeheftet wor-<lb/>
+den. Sie erkennen derowegen den Verfaſſer vor<lb/>
+ihren aufrichtigen Dollmetſcher und Vormund,<lb/>
+und verlangen, daß die ietztlebende und die kuͤnf-<lb/>
+tige Welt ihm in ſeinen Reden und Schriften<lb/>
+als ihrem characteriſierten Kantzler vollkommenen<lb/>
+Glauben zuſtellen ſollen.</p><lb/>
+<p>Kurtz nach der Michelis-Meſſe des vergange-<lb/>
+nen Jahres iſt in Dreſden <hi rendition="#fr">das Vorſpiel, ein<lb/>
+Epiſches Gedicht,</hi> zum Vorſchein gekommen.<lb/>
+Jn dieſer Schrift reget ſich ein ſatyriſcher Geiſt<lb/>
+und ſiegreicher Scribent gegen den Herrn Prof.<lb/>
+Gottſched; den ſein Stoltz und die Streitbar-<lb/>
+keit ſeiner Schuͤler und Bewunderer, ja der<lb/>
+gruͤndlichſte Breitkopfiſche Druck ſo vieler zierli-<lb/>
+<fw type="catch" place="bottom">chen</fw><lb/>
+<pb n="92" facs="#f0092"/>
+<fw type="header" place="top"><hi rendition="#b">Neue Sachen</hi></fw><lb/>
+chen Buͤcher ſchwerlich der Nachwelt anſchmei-<lb/>
+cheln werden, und auf dem Gipfel erhalten koͤn-<lb/>
+nen, welchen er ſonſt zu behaupten und alles,<lb/>
+was in Deutſchland dencket und ſchreibet, zu<lb/>
+uͤberſehen und zu meiſtern verhoffet hat. Er,<lb/>
+ſeine Victoria, und der gantze Anhang dieſes<lb/>
+erbitterten Paars waffnen ſich indeſſen ietzo zu<lb/>
+der ſtaͤrkeſten Gegenwehre.</p><lb/>
+<p>Die Beluſtiger werben zum deutſchen Dichter-<lb/>
+kriege. Die vertrauten Rednergeſellſchaften ſchwi-<lb/>
+zen und ſinnen auf neue <hi rendition="#aq">Philippicas.</hi> Der Hr. Pro-<lb/>
+feſſor verſpricht ſich insbeſondere eine handfeſte Huͤlfe<lb/>
+von <hi rendition="#fr">den zween wackern und gelehrten Maͤnnern<lb/>
+aus benachbarten Cantons,</hi> welche ihn ihres<lb/>
+Beyfalles ſo nachdruͤcklich verſichert haben, wie wohl<lb/>
+ſie bisdahin aͤuſſerlich neutral geblieben, und ſich<lb/>
+begnuͤget, ihn mit ihren Wuͤnſchen und Zuſpruͤ-<lb/>
+chen zu unterſtuͤtzen. Er glaͤubt, daß er die<lb/>
+Schweitzer am allerſicherſten durch Schweitzer<lb/>
+im Zaum halten koͤnne. Er duͤrfte ſich aber mit<lb/>
+ihrem Beyſtand vergebens ſchmeicheln, wenn wahr<lb/>
+iſt, was man uns geſagt hat, daß ſie nur zu<lb/>
+dem Ende die Neutralitet gehalten haben, damit ſie<lb/>
+ſich auf die Seite, die ſiegen wuͤrde, lencken koͤnnten.<lb/>
+Man ſagt in der That, daß ſie den Schweitzern von<lb/>
+Zuͤrich ihre Huͤlfe angebothen haben. Jndeſſen hat<lb/>
+Herr Gottſched wahrhaftig noͤthig, alle ſeine Voͤl-<lb/>
+cker zuſammenzuziehen; maſſen ſeit der Erklaͤ-<lb/>
+rung, welche vor dem deutſchen Longinus wider<lb/>
+ihn gethan worden, auch die friedfertigſten, und<lb/>
+diejenigen, welche ſonſt aus einer ſattſamen<lb/>
+<fw type="catch" place="bottom">Kennt-</fw><lb/>
+<pb n="93" facs="#f0093"/>
+<fw type="header" place="top"><hi rendition="#b">in der critiſch. Literatur.</hi></fw><lb/>
+Kenntniß der empfindlichen Partheilichkeit des<lb/>
+ehedem ſo angeſehnen und zum Verurtheilen ſo<lb/>
+fertigen Gottſchediſchen Anhanges ſtillegeſeſſen wa-<lb/>
+ren, ſich nicht mehr ſcheuen, ſich in den criti-<lb/>
+ſchen Wirbel hineinzuwagen. Jch ſchlieſſe dieſes<lb/>
+aus einer Menge Schriften, von welchen ich aus<lb/>
+verſchiedenen Orten Nachricht empfangen habe,<lb/>
+daß ſie theils in der Schmiede ſeyn, theils auf einen<lb/>
+hertzhaften Verleger warten.</p><lb/>
+<p>Ein Hofrath von B. hat einen <hi rendition="#fr">Vorſchlag</hi><lb/>
+aufgeſetzet, daß die Anfoderungen auf Geiſt und<lb/>
+Witz kuͤnftig durch die Mehrheit der Stimmen<lb/>
+eroͤrtert werden ſollen. Er giebt dieſen Vorſchlag<lb/>
+einem Rathsverwandten von Eulenburg in den<lb/>
+Mund. Ein geheimer Secretar von D. hat<lb/>
+eine Weiſſagung verfertiget, was vor ein Ur-<lb/>
+theil ein Kunſtrichter aus dem <hi rendition="#aq">XIX.</hi> Jahrhun-<lb/>
+dert von den critiſchen Streitigkeiten unſrer Zei-<lb/>
+ten faͤllen werde. Ein beruͤhmter Profeſſor hat<lb/>
+eine <hi rendition="#fr">Unterſuchung</hi> von der Natur des Lachens<lb/>
+unter Haͤnden; er handelt von deſſen verſchiedenen<lb/>
+Arten, und den Mitteln eine jegliche zu erregen.<lb/>
+Er hat ſeine Abſicht vornehmlich auf die Comoͤ-<lb/>
+die. Ein ſaͤchſiſcher Gelehrter arbeitet an einem<lb/>
+proſaiſchen Gedichte von dem <hi rendition="#fr">zerſtoͤrten Tempel<lb/>
+des blinden Geſchmackes,</hi> eines ohnmaͤchtigen<lb/>
+Abgottes der Cherusker. Ein Ungenannter von<lb/>
+Br. ... hat unter dem Titel, <hi rendition="#fr">der Zwitter,</hi> Ad-<lb/>
+diſons Cato, und Deschamps ſeinen, unterſuchet,<lb/>
+und gezeiget, wie dieſe beyde Trauerſpiele in Hr.<lb/>
+Profeſſ. Gottſcheds deutſchen Cato zuſammenge-<lb/>
+wachſen. Ein L... Prediger hat ſich entſchloſ-<lb/>
+<fw type="catch" place="bottom">ſen,</fw><lb/>
+<pb n="94" facs="#f0094"/>
+<fw type="header" place="top"><hi rendition="#b">Neue Sachen</hi></fw><lb/>
+die <hi rendition="#fr">Bekehrung</hi> eines verſtockten Kunſtlehrers und<lb/>
+Poeten, bey welchem das Hertz eben ſo verderbt,<lb/>
+als der Geiſt ſchal geweſen, durch den Druck<lb/>
+bekannt zu machen. Man macht uns Hoffnung,<lb/>
+daß man uns einige dieſer Schriften uͤberlaſſen<lb/>
+werde, ſie in unſrer Sammlung an das Licht<lb/>
+zu geben. Ein Unbekannter, der ſich <hi rendition="#fr">Stephan<lb/>
+Finck</hi> unterſchreibet, hat uns eine ſatyriſche Schrift<lb/>
+eingeſendet, ſo den Titel hat: <hi rendition="#fr">Vorſchlag,</hi> wie<lb/>
+Hr. Schwartzens Aeneis von dem Gerichte der<lb/>
+Maklatur zu erretten waͤre. Er hat dieſen Vor-<lb/>
+ſchlag in einem Schreiben an Hrn. Zunkel, den<lb/>
+Verleger der deutſchen Aeneis, vorgetragen. Er<lb/>
+giebt ſich vor einen Leipziger aus.</p><lb/>
+<p>Wir ſind durch den Beyſtand eines auswaͤr-<lb/>
+tigen Gelehrten in den Stand geſetzet worden,<lb/>
+unſrem ehmahligen Verſprechen gemaͤß die <hi rendition="#fr">Cri-<lb/>
+tik der Jphigenia</hi> des deutſchen Pradons baͤldeſt<lb/>
+zu liefern; ſie ſoll in dem folgenden, oder gewiß<lb/>
+im neunten St. zum Vorſchein kommen.</p><lb/>
+<p>Wir haben uns entſchloſſen dem Begehren eines<lb/>
+geſchikten Freundes Statt zu geben, und die <hi rendition="#fr">Gott-<lb/>
+ſchediſche Uebetſetzung</hi> des Horatz von der Dicht-<lb/>
+kunſt genau und ohne Nachſicht vorzunehmen:<lb/>
+Wir hoffen daß ihn dieſes veranlaſſen werde,<lb/>
+auch an ſeinem Orte die Fehler dieſes Werckes<lb/>
+zu bemercken, und uns ſeine Anmerkungen mit der<lb/>
+Zeit einzuſenden. Unſer Hr. Conrector Erlebach<lb/>
+iſt auch noch nicht muͤde ſich mit den Gegenfuͤſſern<lb/>
+des deutſchen Witzes herumzuſchlagen. Er hat<lb/>
+zum Drucke fertig: <hi rendition="#fr">Ehrenerklaͤrung</hi> fuͤr den gu-<lb/>
+ten Geſchmak der wahren Deutſchen. Jn dieſer<lb/>
+<fw type="catch" place="bottom">Schrift</fw><lb/>
+<pb n="95" facs="#f0095"/>
+<fw type="header" place="top"><hi rendition="#b">in der critiſch. Literatur.</hi></fw><lb/>
+Schrift wird insbeſondere Herr Heineke der Ge-<lb/>
+ſellſchaft elender Scribenten, denen er in dem Com-<lb/>
+plot in die Haͤnde gefallen, entriſſen.</p><lb/>
+<p>Eben derſelbe arbeitet an einem Auszuge der<lb/>
+Gottſchediſchen Dichtkunſt fuͤr die Deutſchen. Er<lb/>
+getraut ſich das gantze Buch ohne Abbruch der<lb/>
+Sachen auf 3. Bogen zu bringen. Er wird es<lb/>
+mit Erklaͤrungen und Anmerckungen verſehen, und<lb/>
+ihm den Titel geben: <hi rendition="#fr">Gottſcheds Dichtk.</hi> <hi rendition="#aq">in Nuce.</hi></p><lb/>
+<p>Jn der anſehnlichen Stadt Chur in den Grau-<lb/>
+buͤnden, hat ein Swiftiſcher Kopf ein Werck un-<lb/>
+ter Haͤnden, welches er <hi rendition="#aq">Scrutinium Ingeniorum</hi><lb/>
+betitelt. Er hat uns davon folgenden Auszug zu-<lb/>
+geſtellet. Die Tollheit, eine Muſe auf dem Bloks-<lb/>
+berge haͤlt jaͤhrlich eine Pruͤffung der Geiſtesfaͤ-<lb/>
+higkeiten unter ihren Lehrlingen, damit ſie eigent-<lb/>
+lich wiſſe, zu was vor Arten der Schriften ein<lb/>
+jeder am meiſten Geſchicke habe, das Aufnehmen<lb/>
+der Barbarie zu befoͤdern. Dieſe Pruͤffung ge-<lb/>
+ſchieht von ihr nach der Neigung und der Ge-<lb/>
+ſchicklichkeit, welche einer zu coͤrperlichen Arbei-<lb/>
+ten hat, die mit andern Arbeiten des Geiſtes ei-<lb/>
+nige Aehnlichkeit haben. Z. E. <hi rendition="#fr">Grillen im fin-<lb/>
+ſtern fangen,</hi> deutet an, ſchreiben ohne zu wiſ-<lb/>
+ſen, wie man auf die Einfaͤlle koͤmmt; <hi rendition="#fr">aus Ku-<lb/>
+pferſtuͤcken hier eine Figur, und dort eine her-<lb/>
+ausſchneiden, und in einer neuen Verknuͤpfung<lb/>
+auf einem Caffe-Brette zuſammen leimen,</hi><lb/>
+ein neues Gedichte aus etlichen alten zuſammen-<lb/>
+flicken; <hi rendition="#fr">harte Eyer, Strumpfbaͤnder, und<lb/>
+Raupenneſter in einer Schuͤſſel auftragen,</hi><lb/>
+ſeltenen Geſchmack in der Eintheilung und Anord-<lb/>
+nung haben.</p><lb/>
+<fw type="catch" place="bottom">Jn</fw><lb/>
+<pb n="96" facs="#f0096"/>
+<fw type="header" place="top"><hi rendition="#b">Neue Sachen.</hi></fw><lb/>
+<p>Jn dieſem Wercke wird auch erzehlet, was vor<lb/>
+natuͤrliche und unparteyiſche Wege dieſe Vorſtehe-<lb/>
+rin des Bloksberges braucht, die Streitigkeiten,<lb/>
+die unter ihren Pflege-Soͤhnen des Vorſitzes, oder<lb/>
+des Vorzuges ihrer Schriften wegen entſtehen, zu<lb/>
+entſcheiden. Sie laͤßt die beyden Streitenden, jeden<lb/>
+auf einem Eſel in einen beſchloſſenen Platz reiten;<lb/>
+deſſen Eſel zuerſt anfaͤngt zu rahren, dem wird der<lb/>
+Vorſitz zugeſprochen. Jſt der Streit um ein poeti-<lb/>
+ſches Werck, ſo muß die Natur den Ausſpruch un-<lb/>
+mittelbar thun. Wer von den Praͤtendenten zuerſt<lb/>
+anfaͤngt gluchſen, wer es mit dem groͤſten Wohlklang<lb/>
+thut, und am laͤngſten treibt, der bekoͤmmt die Kro-<lb/>
+ne von Haſenpappeln. Durch dieſes letztere <hi rendition="#aq">Scruti-<lb/>
+nium</hi> hat die regensburgiſche Ueberſetzung der Aeneis<lb/>
+den Vorzug vor Doctor Murners erhalten.</p><lb/>
+<p>Der erhabene Poet Hr. Triller hat ſich ietzo vor-<lb/>
+genommen ſtatt der Fuͤchſe und Feldmaͤuſe, die er<lb/>
+vordem in ſeinen Fabeln beſungen, groͤſſere Helden<lb/>
+zu verewigen. Er beſinget unter dem Titel des <hi rendition="#fr">Fuͤr-<lb/>
+ſten-Raubes</hi> die Entfuͤhrung der beyden Printzen<lb/>
+Churfuͤrſt Friderichs des ſanftmuͤthigen von Sach-<lb/>
+ſen, die durch Kuntz von Kaufungen geſchehen. Der<lb/>
+Koͤhler, der gedachten Edelmann in dem Walde zu<lb/>
+Boden geſchlagen und die Prinzen befreyet, der vor-<lb/>
+nehmſte Held in dieſem Wercke, iſt einer von den Ah-<lb/>
+nen des Hrn. Doctors, von welchem er in gerader Li-<lb/>
+nie abſtammt. Wir hoffen, daß Hr. Triller nicht<lb/>
+vergeſſen werde, dem Ehren-Tempel, den er die-<lb/>
+ſem ſeinem Ahnherrn auffuͤhret, auch eine Capelle<lb/>
+fuͤr ſeine eigene vornehme Perſon anzubauen.</p><lb/>
+<p>Der Brief des gelehrten Frauenzimmers vom<lb/>
+12. Nov. iſt eingelaufen.</p></div><lb/>
+<pb n="[97]" facs="#f0097"/>
+</body></text> </TEI>

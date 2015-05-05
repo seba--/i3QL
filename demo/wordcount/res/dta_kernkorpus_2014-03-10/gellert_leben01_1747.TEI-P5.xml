@@ -1,0 +1,3830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Das Leben der Schwedischen Gräfinn von G.***</title>
+<title type="volume" n="1">Erster Theil</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118538322">
+<surname>Gellert</surname>
+<forename>Christian Fürchtegott</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">148</measure>
+<measure type="tokens">20300</measure>
+<measure type="types">3453</measure>
+<measure type="characters">132081</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:05:37Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/gellert_leben01_1747</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/gellert_leben01_1747</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/gellert_leben01_1747</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/gellert_leben01_1747</idno>
+<idno type="DTADirName">gellert_leben01_1747</idno>
+<idno type="DTAID">20173</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">Gellert, Christian Fürchtegott: Das Leben der Schwedischen Gräfinn von G.***. Bd. 1. Leipzig, 1747.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Das Leben der Schwedischen Gräfinn von G.***</title>
+<title level="m" type="volume" n="1">Erster Theil</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118538322">
+<surname>Gellert</surname>
+<forename>Christian Fürchtegott</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">144 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Wendler</name></publisher>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1747</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>HAB Wolfenbüttel</repository>
+<idno>
+<idno type="shelfmark">HAB Wolfenbüttel, Wa 1100 (1)</idno>
+<idno type="URLCatalogue">Dig: http://diglib.hab.de/drucke/wa-1100-1s/start.htm</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb n="[1]" facs="#f0001"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#b"><hi rendition="#g"><hi rendition="#in">L</hi>eben<lb/>
+der</hi><lb/>
+<hi rendition="#in">S</hi>chwediſchen<lb/>
+<hi rendition="#g"><hi rendition="#in">G</hi>räfinn</hi><lb/>
+von <hi rendition="#in">G</hi> ***</hi></titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="volume"><hi rendition="#b"><hi rendition="#g">Erſter Theil.</hi></hi></titlePart><lb/>
+<figure/><lb/>
+<docImprint><pubPlace>Leipzig</pubPlace>, bey <publisher>Johann Wendler</publisher>.<lb/>
+<docDate><hi rendition="#g">1747.</hi></docDate></docImprint></titlePage></front><body><lb/>
+<pb n="[2]" facs="#f0002"/>
+<pb n="[3]" facs="#f0003"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><p><hi rendition="#in">V</hi>ielleicht würde ich bey der Erzäh-<lb/>
+lung meines Geſchlechts eben ſo<lb/>
+beredt oder geſchwätzig als andere<lb/>
+ſeyn, wenn ich anders viel zu ſagen wüßte.<lb/>
+Meine Aeltern ſind mir in den zarteſten<lb/>
+Jahren geſtorben, und ich habe von mei-<lb/>
+nem Vater, einem Liefländiſchen von Adel,<lb/>
+weiter nichts erzählen hören, als daß er<lb/>
+ein rechtſchaffner Mann geweſen iſt, und<lb/>
+wenig Mittel beſeſſen hat.</p><lb/>
+<p>Mein Vetter, der auch ein Landedel-<lb/>
+mann war, doch in ſeiner Jugend ſtudi-<lb/>
+ret hatte, nahm mich nach meines Va-<lb/>
+ters Tode zu ſich auf ſein Landgut, und<lb/>
+erzog mich bis in mein ſechzehntes Jahr.<lb/>
+Jch habe die Worte nicht vergeſſen kön-<lb/>
+nen, die er einmal zu ſeiner Gemahlinn<lb/>
+ſagte, als ſie ihn fragte, wie er es künf-<lb/>
+tig mit meiner Erziehung wollte gehalten<lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom">wiſſen.</fw><lb/>
+<pb n="4" facs="#f0004"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+wiſſen. Vormittage, fieng er an, ſoll das<lb/>
+Fräulein als ein Mann, und Nachmit-<lb/>
+tage als eine Frau erzogen werden. Mei-<lb/>
+ne Muhme hatte mich ſehr lieb, zumal<lb/>
+weil ſie keine Tochter hatte, und ſie ſah es<lb/>
+gar nicht gern, daß ich, wie ihre jungen<lb/>
+Herren die Sprachen und andre Pedante-<lb/>
+reyen, wie ſie zu reden pflegte, erlernen<lb/>
+ſollte. Sie hätte mich dieſer Mühe gern<lb/>
+überhoben; allein ihr Gemahl wollte nicht.<lb/>
+Fürchten ſie ſich nicht, ſprach er zu ihr,<lb/>
+das Fräulein lernt gewiß nicht zu viel.<lb/>
+Sie ſoll nur klug und gar nicht gelehrt<lb/>
+werden. Reich iſt ſie nicht, alſo wird<lb/>
+ſie niemand als ein vernünftiger Mann<lb/>
+nehmen. Und wenn ſie dieſem gefallen,<lb/>
+und das Leben leicht machen helfen ſoll:<lb/>
+ſo muß ſie klug, geſittet und geſchickt wer-<lb/>
+den. Dieſer rechtſchaffene Mann hat kei-<lb/>
+ne Koſten an mir geſparet; Und ich wür-<lb/>
+de gewiß noch etliche Jahre eher vernünf-<lb/>
+tig geworden ſeyn, wenn ſeine Frau eini-<lb/>
+ge Jahre eher geſtorben wäre. Sie hat<lb/>
+<fw type="catch" place="bottom">mich</fw><lb/>
+<pb n="5" facs="#f0005"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+mich zwar in Wirthſchaftsſachen gar nicht<lb/>
+unwiſſend gelaſſen; allein ſie ſetzte mir zu<lb/>
+gleicher Zeit eine Liebe zu einer ſolchen Ga-<lb/>
+lanterie in den Kopf, bey der man ſehr glück-<lb/>
+lich eine ſtolze Närrinn werden kann. Da-<lb/>
+mit ſie etwas zu putzen hätte, ſo hat ſie ſich<lb/>
+oft in ihr Zimmer mit mir verſchloſſen, und<lb/>
+mir die ſchönſten Kleider und den größten<lb/>
+Schmuck angeleget, mich vor den Spie-<lb/>
+gel geführt, und mir hundertmal geſagt,<lb/>
+daß ich recht englich ausſähe. Wenn<lb/>
+dieſes geſchehen war, ſo kleidete ſie ihren<lb/>
+Engel zum Zeitvertreibe wieder aus. Jch<lb/>
+war freylich damals noch nicht alt; allein<lb/>
+ich war alt genug, eine Eitelkeit an mich<lb/>
+zu nehmen, zu der unſer Geſchlecht recht<lb/>
+verſehn zu ſeyn ſcheinet. Aber zu meinem<lb/>
+Glücke ſtarb meine Frau Baſe, ehe ich<lb/>
+noch zehn Jahre alt war, und gab mei-<lb/>
+nem Vetter durch ihren Tod die Freyheit,<lb/>
+mich deſto ſorgfältiger zu erziehen, und die<lb/>
+übeln Eindrücke wieder auszulöſchen, wel-<lb/>
+che ihr Umgang und ihr Beyſpiel in mir<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">gemacht</fw><lb/>
+<pb n="6" facs="#f0006"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+gemacht hatten. Jch hatte von Natur<lb/>
+ein gutes Herz, und er durfte alſo nicht<lb/>
+ſowohl wider meine Neigungen ſtreiten,<lb/>
+als ſie nur ermuntern. Er lieh mir ſei-<lb/>
+nen Verſtand, mein Herz recht in Ord-<lb/>
+nung zu bringen, und lenkte meine Be-<lb/>
+gierde zu gefallen nach und nach von<lb/>
+ſolchen Dingen, die das Auge ein-<lb/>
+nehmen, auf diejenigen, welche die Ho-<lb/>
+heit der Seele ausmachen. Er ſah, daß<lb/>
+ich wußte, wie ſchön ich war; um deſto<lb/>
+mehr lehrte er mich den wahren Werth<lb/>
+eines Menſchen kennen, und an ſol-<lb/>
+chen Eigenſchaften einen Geſchmack fin-<lb/>
+den, die mehr durch einen geheimen Bey-<lb/>
+fall der Vernunft und des Gewiſſens, als<lb/>
+durch eine allgemeine Bewunderung be-<lb/>
+lohnet werden. Man glaube ja nicht, daß<lb/>
+er eine hohe und tiefſinnige Philoſophie<lb/>
+mit mir durchgieng. O nein, er brachte<lb/>
+mir die Religion auf eine vernünftige Art<lb/>
+bey, und überführte mich von den groſ-<lb/>
+ſen Vortheilen der Tugend, welche ſie<lb/>
+<fw type="catch" place="bottom">uns</fw><lb/>
+<pb n="7" facs="#f0007"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G**</hi></fw><lb/>
+uns in iedem Alter, in iedem Stande, im<lb/>
+Glücke und Unglücke, im Tode, und nach<lb/>
+dieſem Leben bringt. Er hatte die Ge-<lb/>
+ſchicklichkeit, mir alle dieſe Wahrheiten<lb/>
+nicht ſo wohl in das Gedächtniß, als in<lb/>
+den Verſtand zu prägen. Und dieſen Be-<lb/>
+griffen, die er mir beybrachte, habe ichs<lb/>
+bey reifern Jahren zu verdanken gehabt,<lb/>
+daß ich die Tugend, nie als eine beſchwer-<lb/>
+liche Bürde, ſondern als die angenehm-<lb/>
+ſte Gefährtinn betrachtet habe, die uns<lb/>
+die Reiſe durch die Welt erleichtern hilft.<lb/>
+Jch glaube gewiß, daß die Religion, wenn<lb/>
+ſie uns vernünftig und gründlich beyge-<lb/>
+bracht wird, unſern Verſtand eben ſo vor-<lb/>
+trefflich aufklären kann, als ſie unſer Herz<lb/>
+verbeſſert. Und viele Leute würden mehr<lb/>
+Verſtand zu den ordentlichen Geſchäften<lb/>
+des Berufs und zu einer guten Lebensart<lb/>
+haben, wenn er durch den Unterricht der<lb/>
+Religion wäre geſchärft worden. Jch<lb/>
+durfte meinem Vetter nichts auf ſein Wort<lb/>
+glauben, ja er befahl mir in Dingen, die<lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">noch</fw><lb/>
+<pb n="8" facs="#f0008"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+noch über meinen Verſtand waren, ſo lan-<lb/>
+ge zu zweifeln, bis ich mehr Einſicht be-<lb/>
+kommen würde. Mit einem Worte, mein<lb/>
+Vetter lehrte mich nicht die Weisheit,<lb/>
+mit der wir in Geſellſchaft prahlen, oder<lb/>
+wenn es hochkömmt, unſere Ehrbegier-<lb/>
+de einige Zeit ſtillen, ſondern die von dem<lb/>
+Verſtande in das Herz dringt, und uns<lb/>
+geſittet, liebreich, großmüthig, gelaſſen,<lb/>
+und im ſtillen ruhig macht. Jch würde<lb/>
+nichts anders thun, als beweiſen, daß<lb/>
+mein Vetter ſeine guten Abſichten ſehr<lb/>
+ſchlecht bey mir erreicht hätte, wenn ich<lb/>
+mir alle dieſe ſchönen Eigenſchaften beyle-<lb/>
+gen, und ſie als meinen Charakter den<lb/>
+Leſern aufdringen wollte. Es wird am<lb/>
+beſten ſeyn, wenn ich mich weder lobe<lb/>
+noch tadele, und es auf die Gerechtigkeit<lb/>
+der Leſer ankommen laſſe, was ſie ſich<lb/>
+aus meiner Geſchichte für einen Begriff<lb/>
+von meiner Gemüthsart machen wollen.<lb/>
+Jch fürchte, wenn ich meine Tugenden<lb/>
+und Schwachheiten noch ſo aufrichtig be-<lb/>
+<fw type="catch" place="bottom">ſtimmte,</fw><lb/>
+<pb n="9" facs="#f0009"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G**</hi></fw><lb/>
+ſtimmte, daß ich doch dem Verdachte der<lb/>
+Eigenliebe oder dem Vorwurfe einer ſtol-<lb/>
+zen Demuth nicht würde entgehen kön-<lb/>
+nen.</p><lb/>
+<p>Jch war ſechzehn Jahre alt, da ich an<lb/>
+den Schwediſchen Grafen von G. verhey-<lb/>
+rathet wurde. Mit dieſer Heyrath gieng<lb/>
+es folgender maſſen zu. Der Graf hatte<lb/>
+in dem Liefländiſchen Güter, und zwar la-<lb/>
+gen ſie nahe an meines Vaters Ritterſitze.<lb/>
+Das Jahr vor meiner Heyrath hatte der<lb/>
+Graf nebſt ſeinem Vater eine Reiſe aus<lb/>
+Schweden auf dieſe Güter gethan. Er<lb/>
+hatte mich etlichemal bey meinem Vetter<lb/>
+geſehen und geſprochen. Jch hatte ihm<lb/>
+gefallen, ohne mich darum zu beſtreben.<lb/>
+Jch war ein armes Fräulein; wie konnte<lb/>
+ich alſo auf die Gedanken kommen, einen<lb/>
+Grafen zu feſſeln, der ſehr reich, ſehr<lb/>
+wohlgebildet, angeſehen bey Hofe, ſchon<lb/>
+ein Obriſter über ein Regiment, und viel-<lb/>
+leicht bey einer Prinzeßinn willkommen<lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">war?</fw><lb/>
+<pb n="10" facs="#f0010"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+war? Doch daß ich ihm nicht habe ge-<lb/>
+fallen wollen, iſt unſtreitig mein Glück<lb/>
+geweſen. Jch that gelaſſen und frey ge-<lb/>
+gen ihn, weil ich mir keine Rechnung<lb/>
+auf ſein Herz machte, an ſtatt daß ich<lb/>
+vielleicht ein gezwungenes und ängſtliches<lb/>
+Weſen an mich genommen haben würde,<lb/>
+wenn ich ihm hätte koſtbar vorkommen<lb/>
+wollen. Jn der That gefiel er mir im<lb/>
+Herzen ſehr wohl; allein ſo ſehr ich mir<lb/>
+ihn heimlich wünſchen mochte: ſo hielt ichs<lb/>
+doch für unmöglich, ihn zu beſitzen.</p><lb/>
+<p>Nach einem Jahre ſchrieb er an mich,<lb/>
+und der ganze Jnnhalt ſeines Briefs be-<lb/>
+ſtund darinn, ob ich mich entſchließen<lb/>
+könnte, ſeine Gemahlinn zu werden, und<lb/>
+ihm nach Schweden zu folgen. Sein<lb/>
+Herz war mir unbeſchreiblich angenehm,<lb/>
+und die großmüthige Art, mit der er mirs<lb/>
+anboth, machte mirs noch angenehmer.<lb/>
+Es giebt eine gewiſſe aufrichtige Art, ei-<lb/>
+nem zu ſagen, daß man ihn liebt, welche<lb/>
+<fw type="catch" place="bottom">ganz</fw><lb/>
+<pb n="11" facs="#f0011"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G**</hi></fw><lb/>
+ganz bezaubernd iſt. Der Verſtand thut<lb/>
+nicht viel dabey, ſondern das Herz redet<lb/>
+meiſtens allein. Vielleicht wird man das,<lb/>
+was ich ſagen will, am beſten aus ſeinem<lb/>
+Briefe ſelber erkennen:</p><lb/>
+<floatingText><body><div type="letter"><opener><salute>Mein Fräulein,</salute></opener><lb/>
+<p>Jch liebe Sie. Erſchrecken Sie nicht<lb/>
+über dieſes Bekenntniß, oder wenn Sie<lb/>
+ja über die Dreiſtigkeit, mit der ichs Jh-<lb/>
+nen thue, erſchrecken müſſen: ſo beden-<lb/>
+ken Sie, ob dieſer Fehler nicht eine Wir-<lb/>
+kung meiner Aufrichtigkeit ſeyn kann. Laſ-<lb/>
+ſen Sie mich ausreden, liebſtes Fräulein.<lb/>
+Doch was ſoll ich ſagen? Jch liebe Sie,<lb/>
+dieß iſt es alles. Und ich habe Sie von<lb/>
+dem erſten Augenblicke an geliebet, da ich<lb/>
+ſie vor einem Jahre geſehen und geſpro-<lb/>
+chen habe. Jch geſtehe Jhnen aufrichtig,<lb/>
+daß ich mich bemüht habe, Sie zu ver-<lb/>
+geſſen, weil es die Umſtände in meinem<lb/>
+Vaterlande verlangten; aber alle meine<lb/>
+Mühe iſt vergebens geweſen, und hat zu<lb/>
+<fw type="catch" place="bottom">nichts</fw><lb/>
+<pb n="12" facs="#f0012"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+nichts gedienet, als mich von der Gewiß-<lb/>
+heit meiner Liebe und von ihren Verdien-<lb/>
+ſten vollkommner zu überzeugen. Jſt es<lb/>
+möglich, werden Sie durch meine Zärt-<lb/>
+lichkeit beleidiget? Nein, warum ſollte<lb/>
+Jhnen die Liebe eines Menſchen zuwider<lb/>
+ſeyn, deſſen Freundſchaft Sie ſich haben<lb/>
+gefallen laſſen. Aber werden Sie es auch<lb/>
+gelaſſen anhören, wenn ich Jhnen mein<lb/>
+Herz noch deutlicher entdecke? Darf<lb/>
+ich wohl fragen, ob Sie mir Jhre Liebe<lb/>
+ſchenken, ob Sie mir als meine Gemah-<lb/>
+linn nach Schweden folgen wollen? Sie<lb/>
+ſind zu großmüthig, als daß Sie eine<lb/>
+Frage unbeantwortet laſſen ſollten, von<lb/>
+deren Entſcheidung meine ganze Zufrie-<lb/>
+denheit abhängt. Ach liebſte Freundinn,<lb/>
+warum kann ich nicht den Augenblick er-<lb/>
+fahren, ob ich Jhrer Gewogenheit wür-<lb/>
+dig bin, ob ich hoffen darf? Ueberlegen<lb/>
+Sie, was Sie, ohne den geringſten Zwang<lb/>
+ſich anzuthun, einem Liebhaber antwor-<lb/>
+ten können, der in der Zärtlichkeit und<lb/>
+<fw type="catch" place="bottom">Hoch-</fw><lb/>
+<pb n="13" facs="#f0013"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+Hochachtung gegen Sie ſeine größten<lb/>
+Verdienſte ſucht. Jch will Jhr Herz nicht<lb/>
+übereilen. Jch laſſe Jhnen zu Jhrem<lb/>
+Entſchluſſe ſo viel Zeit, als Sie verlan-<lb/>
+gen. Doch ſage ich Jhnen zugleich, daß<lb/>
+mir jeder Augenblick zu lang werden wird,<lb/>
+bis ich mein Schickſal erfahre. Wie in-<lb/>
+ſtändig müßte ich Sie nicht um Jhre Lie-<lb/>
+be bitten, wenn ich bloß meiner Empfin-<lb/>
+dung und meinen Wünſchen folgen woll-<lb/>
+te! Aber nein, es liegt mir gar zu viel an<lb/>
+Jhrer Liebe, als daß ich ſie einem andern<lb/>
+Bewegungsgrunde, als Jhrer freyen<lb/>
+Einwilligung zu danken haben wollte. So<lb/>
+entſetzlich mir eine unglückliche Nachricht<lb/>
+ſeyn wird: ſo wenig wird ſie doch meine<lb/>
+Hochachtung und Liebe gegen Sie ver-<lb/>
+ringern. Sollte ich deswegen ein liebens-<lb/>
+würdiges Fräulein haſſen können, weil<lb/>
+ſie nicht Urſachen genung findet, mir ihr<lb/>
+Herz auf ewig zu ſchenken? Nein, ich<lb/>
+werde nichts thun, als fortfahren, Sie,<lb/>
+meine Freundinn, hochzuſchätzen, und mich<lb/>
+<fw type="catch" place="bottom">über</fw><lb/>
+<pb n="14" facs="#f0014"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+über mich ſelbſt beklagen. Wie ſauer<lb/>
+wird es mir, dieſen Brief zu ſchlieſſen!<lb/>
+Wie gern ſagte ich Jhnen noch hundert-<lb/>
+mal, daß ich Sie liebe, daß ich Sie un-<lb/>
+aufhörlich liebe, daß ich in Gedanken auf<lb/>
+Jhre geringſte Mine bey meinem Bekennt-<lb/>
+niſſe Achtung gebe, aus Begierde etwas<lb/>
+vortheilhaftes für mich darinn zu finden.<lb/>
+Leben Sie wohl. Ach liebſtes Fräulein,<lb/>
+wenn wollen Sie mir antworten?</p></div></body></floatingText><lb/>
+<p>Der Vater des Grafen hatte zugleich<lb/>
+an meinen Vetter geſchrieben. Kurz,<lb/>
+ich war die Braut eines liebenswürdigen<lb/>
+Grafen. Jch wollte wünſchen, daß ich<lb/>
+ſagen könnte, was von der Zeit an in<lb/>
+meinem Herzen vorgieng. Jch hatte noch<lb/>
+nie geliebt. Wie unglaublich wird dieſes<lb/>
+Bekenntniß vielen von meinen Leſerinnen<lb/>
+vorkommen! Sie werden mich deswe-<lb/>
+gen wohl gar für einfältig halten, oder<lb/>
+ſich einbilden, daß ich weder ſchön, noch<lb/>
+empfindlich geweſen bin, weil ich in mei-<lb/>
+<fw type="catch" place="bottom">nem</fw><lb/>
+<pb n="15" facs="#f0015"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+nem ſechzehnten Jahre nicht wenigſtens<lb/>
+ein Dutzend Liebeshändel zählen konnte.<lb/>
+Doch ich kann mir nicht helfen. Es mag<lb/>
+nun zu meinem Ruhme, oder zu meiner<lb/>
+Schande gereichen: ſo kann man ſich dar-<lb/>
+auf verlaſſen, daß ich noch nie geliebet hat-<lb/>
+te, ob ich gleich mit vielen jungen Manns-<lb/>
+perſonen umgegangen war. Nunmehr<lb/>
+aber fieng mein Herz auf einmal an zu em-<lb/>
+pfinden. Mein Graf war zwar auf et-<lb/>
+liche vierzig Meilen von mir entfernt; al-<lb/>
+lein die Liebe machte mir ihn gegenwärtig.<lb/>
+Wo ich ſtand, da war er bey mir. Es<lb/>
+war nichts ſchöners, nichts vollkomm-<lb/>
+ners, als er. Jch wünſchte nichts als<lb/>
+ihn. Jch fieng oft mit ihm an zu reden.<lb/>
+Er erwies mir in meinen Gedanken aller-<lb/>
+hand Liebkoſungen, und ich weigerte<lb/>
+mich mit einer verſchämten Art, ſie anzu-<lb/>
+nehmen. Vielen wird dieſes lächerlich<lb/>
+vorkommen, und ich habe nicht viel dar-<lb/>
+wider einzuwenden. Eine unſchuldige,<lb/>
+eine recht zärtliche Braut iſt in der That<lb/>
+<fw type="catch" place="bottom">eine</fw><lb/>
+<pb n="16" facs="#f0016"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+eine Creatur aus einer andern Welt, die<lb/>
+man nicht ohne Erſtaunen betrachten kann.<lb/>
+Jhr Vornehmen, ihre Sprache, ihre Mi-<lb/>
+nen, alles wird zu einem Verräther ihres<lb/>
+Herzens, ie ſorgfältiger ſie es verbergen<lb/>
+will. Jch aß und trank viele Wochen<lb/>
+nicht, und ich blühete doch dabey. Jch<lb/>
+ſage es im Ernſte, daß ich glaube, die<lb/>
+Liebe kann uns einige Zeit erhalten. Jch<lb/>
+ward viel reizender, als ich zuvor gewe-<lb/>
+ſen war.</p><lb/>
+<p>Mein Vetter machte ſich nunmehr mit<lb/>
+mir auf die Reiſe nach Schweden. Es<lb/>
+begleiteten mich verſchiedene junge Herren<lb/>
+und Fräuleins einige Meilen, und der Ab-<lb/>
+ſchied von ihnen ward mir gar nicht ſauer.<lb/>
+Unſere Reiſe gieng glücklich von ſtatten;<lb/>
+Und es iſt mir auf einem Wege von etlichen<lb/>
+vierzig Meilen nicht das geringſte be-<lb/>
+gegnet. Meine Leſer die viel Romane<lb/>
+und Heldenbücher geleſen haben, wer-<lb/>
+den mit dieſer Nachricht gar nicht zufrie-<lb/>
+<fw type="catch" place="bottom">den</fw><lb/>
+<pb n="17" facs="#f0017"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+den ſeyn. Hätte mich nicht einer von<lb/>
+den jungen Herren, die mich begleiteten,<lb/>
+entführen, und eine kleine Verwirrung in<lb/>
+meiner Geſchichte anrichten können? Jch<lb/>
+war ja ſchön, und wie die Leute ſagten,<lb/>
+recht ſehr ſchön; und ich bin auf einem ſo<lb/>
+weiten Wege nicht ein einzigmal entführet<lb/>
+worden? Jſt dieſes wohl glaublich? Oder<lb/>
+iſt es vielleicht mit meinen Annehmlichkei-<lb/>
+ten nicht ſo gewiß geweſen? Jch will mir<lb/>
+dieſe Vorwürfe gern machen laſſen. Ge-<lb/>
+nug, ich bin nicht entführet worden, und<lb/>
+ich würde mit einer ſolchen Verwegenheit<lb/>
+eines verliebten Räubers ſehr übel zufrie-<lb/>
+den geweſen ſeyn; denn mir ward ohnedieß<lb/>
+jeder Augenblick bis zum Anblicke mei-<lb/>
+nes Grafen zu lang.</p><lb/>
+<p>Jch kam alſo, wie ich geſagt habe, in<lb/>
+Begleitung meines Vetters glücklich auf<lb/>
+dem Landgute des Grafen an. Jch fand<lb/>
+ihn viel liebenswürdiger, als er mir vor<lb/>
+einem Jahre vorgekommen war. Man<lb/>
+<fw type="sig" place="bottom"><hi rendition="#fr">Erſter Theil.</hi> B</fw><fw type="catch" place="bottom">darf</fw><lb/>
+<pb n="18" facs="#f0018"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+darf ſich darüber gar nicht verwundern.<lb/>
+Damals wußte ich noch nicht, daß er mich<lb/>
+liebte; itzt aber wußte ichs. Eine Perſon<lb/>
+wird gemeiniglich in unſern Augen voll-<lb/>
+kommener und verehrungswürdiger, wenn<lb/>
+wir ſehen, daß ſie uns liebt. Und wenn<lb/>
+ſie auch keine beſondere Vorzüge hätte: ſo<lb/>
+iſt ihre Neigung zu uns die Vollkommen-<lb/>
+heit, die wir an ihr hochſchätzen. Denn<lb/>
+wie oft lieben wir nicht uns in andern?<lb/>
+Und wo würde die Beſtändigkeit in der<lb/>
+Liebe herkommen, wenn ſie nicht von un-<lb/>
+ſerm eigenen Vergnügen unterhalten<lb/>
+würde?</p><lb/>
+<p>Mein Bräutigam, mein lieber Graf,<lb/>
+erwies mir bey meiner Ankunft die erſinn-<lb/>
+lichſten Liebkoſungen; und ich glaube nicht,<lb/>
+daß man glückſeliger ſeyn kann, als ich an<lb/>
+ſeiner Seite war. Unſer Beylager wur-<lb/>
+de ohne Gepränge, mit einem Worte, ſehr<lb/>
+ſtille, aber gewiß ſehr vergnügt vollzogen.<lb/>
+Manches Fräulein wird dieſe beyden Stü-<lb/>
+<fw type="catch" place="bottom">cke</fw><lb/>
+<pb n="19" facs="#f0019"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+cke nicht zuſammen reimen können. Dem<lb/>
+zu gefallen muß ich eine kleine Beſchrei-<lb/>
+bung von meinem Beylager machen. Jch<lb/>
+war etwan acht Tage in Schweden, und<lb/>
+hatte mich völlig von der Reiſe wieder er-<lb/>
+holet, als mein Graf mich bat, den Tag<lb/>
+zu unſerer Vermählung zu beſtimmen. Jch<lb/>
+verſicherte ihn, daß ich die Ehre, ſeine Ge-<lb/>
+mahlinn zu heiſſen, nie zu zeitig erlangen<lb/>
+könnte; doch würde mir kein Tag angeneh-<lb/>
+mer ſeyn, als der, den er ſelber dazu ernennen<lb/>
+würde. Wir ſetzten, ohne uns weiter zu<lb/>
+berathſchlagen, den folgenden Tag an.<lb/>
+Er kam des Morgens zu mir in mein Zim-<lb/>
+mer, und fragte mich, ob ich noch entſchloſ-<lb/>
+ſen wäre, heute ſeine Gemahlinn zu wer-<lb/>
+den. Jch antwortete ihm mit halb nieder-<lb/>
+geſchlagenen Augen und mit einem freu-<lb/>
+digen und beredten Kuſſe. Jch hatte nur<lb/>
+einen leichten, aber wohl ausgeſuchten<lb/>
+Anzug an. Sie gefallen mir vortrefflich<lb/>
+in dieſem Anzuge, fieng der Graf zu mir<lb/>
+an. Er iſt nach ihrem Körper gemacht,<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">und</fw><lb/>
+<pb n="20" facs="#f0020"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+und ſie machen ihn ſchön. Jch dächte, ſie<lb/>
+legten heute keinen andern Staat an.<lb/>
+Wenn ich ihnen gefalle, mein lieber<lb/>
+Graf, verſetzte ich: ſo bin ich ſchön genug<lb/>
+angeputzt. Jch war alſo in meinem<lb/>
+Brautſtaate, ohne daß ichs ſelber gewuſt<lb/>
+hatte. Wir redten den ganzen Morgen<lb/>
+auf das zärtlichſte mit einander. Jch trat<lb/>
+endlich an das Clavecin, und ſpielte eine<lb/>
+halbe Stunde, und ſang auf Verlangen<lb/>
+meines Grafen und meines eigenen Her-<lb/>
+zens dazu. Auf dieſe Art kam der Mit-<lb/>
+tag herbey. Der Vater meines Grafen<lb/>
+(denn die Mutter war ſchon lange geſtor-<lb/>
+ben, und die einzige Schweſter auch) kam<lb/>
+nebſt meinem Vetter zu uns. Sie ſtatte-<lb/>
+ten ihren Glückwunſch ab, und ſagten,<lb/>
+daß der Prieſter ſchon zugegen wäre.<lb/>
+Wir giengen darauf herunter in das Ta-<lb/>
+felzimmer. Die Trauung ward ſehr<lb/>
+bald vollzogen, und wir ſetzten uns zur<lb/>
+Tafel, nämlich wir viere und der Prieſter.<lb/>
+Die Tafel war etwan mit ſechs oder acht<lb/>
+<fw type="catch" place="bottom">Gerich-</fw><lb/>
+<pb n="21" facs="#f0021"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+Gerichten beſetzt. Dieſes war die Anſtalt<lb/>
+zu meiner Vermählung. Sie wird man-<lb/>
+cher Braut lächerlich und armſelig vor-<lb/>
+kommen. Gleichwohl war ich ſehr wohl<lb/>
+damit zufrieden. Jch war ruhig, oder<lb/>
+beſſer zu reden, ich konnte recht zärtlich<lb/>
+unruhig ſeyn, weil mich nichts von dem<lb/>
+rauſchenden Lärmen ſtörte, der bey den<lb/>
+gewöhnlichen Hochzeitfeſten zur Quaal<lb/>
+der Vermählten zu ſeyn pflegt. Nach<lb/>
+der Tafel fuhren wir ſpatzieren, und zwar<lb/>
+zu dem Herrn R ‒‒ der meinen Gemahl<lb/>
+auf ſeinen Reiſen begleitet hatte, und itzt<lb/>
+auf einem kleinen Landgute etliche Meilen<lb/>
+von uns wohnte. Mein Gemahl liebte<lb/>
+dieſen Mann ungemein. Hier bringe ich<lb/>
+ihnen, fieng er zu ihm an, meine liebe<lb/>
+Gemahlinn. Jch habe mich heute mit<lb/>
+ihr trauen laſſen. Jſt es nicht wahr, ich<lb/>
+habe vortrefflich gewählet? Sie ſollen ein<lb/>
+Zeuge von meinem und ihrem Vergnügen<lb/>
+ſeyn; kommen ſie, und begleiten ſie uns<lb/>
+wieder zurück. Wir fuhren alſo in ſeiner<lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">Geſell-</fw><lb/>
+<pb n="22" facs="#f0022"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Geſellſchaft wieder auf unſer Landgut zu-<lb/>
+rück, ohne uns aufzuhalten. Kurz, der<lb/>
+Abend verſtrich eben ſo vergnügt, als der<lb/>
+Mittag.</p><lb/>
+<p>Jtzt wundere ich mich, daß ich meinen<lb/>
+Gemahl noch nicht beſchrieben habe. Er<lb/>
+ſah bräunlich im Geſichte aus, und hatte<lb/>
+ein Paar ſo feurige und blitzende Augen,<lb/>
+daß ſie einem eine kleine Furcht ein-<lb/>
+jagten, wenn man ſie allein betrachtete.<lb/>
+Doch ſeine übrige Geſichtsbildung wuß-<lb/>
+te dieſes Feuer ſo geſchickt zu dämpfen,<lb/>
+daß nichts als Großmuth und eine leb-<lb/>
+hafte Zärtlichkeit aus ſeinen Minen<lb/>
+hervorleuchtete. Er war vortrefflich ge-<lb/>
+wachſen. Jch will ihn nicht weiter ab-<lb/>
+ſchildern. Man verderbt durch die ge-<lb/>
+naue Beſchreibungen oft das Bild, das<lb/>
+man ſeinen Leſern von einer ſchönen<lb/>
+Perſon machen will. Genug, mein Graf<lb/>
+war in meinen Augen der ſchönſte<lb/>
+Mann.</p><lb/>
+<fw type="catch" place="bottom">Nicht</fw><lb/>
+<pb n="23" facs="#f0023"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+<p>Nicht lange nach unſerer Vermählung<lb/>
+mußte mein Gemahl zu ſeinem Regimen-<lb/>
+te. Sein Vater, der bey einem hohen<lb/>
+Alter noch munter und der angenehmſte<lb/>
+Mann war, wollte mir die Abweſenheit<lb/>
+meines Gemahls erträglich machen, und<lb/>
+reiſete mit mir auf ſeine übrigen Güter.<lb/>
+Auf dem einen traf ich eine ſehr junge<lb/>
+und ſchöne Frau an, die man für die<lb/>
+Witwe des Oberaufſehers der Güter<lb/>
+ausgab. Dieſe Frau hatte ſo viel reizen-<lb/>
+des an ſich, und ſo viel gefälliges und<lb/>
+leutſeliges in ihrem Umgange, daß ich ihr<lb/>
+auf den erſten Anblick gewogen, und in<lb/>
+kurzer Zeit ihre gute Freundinn ward.<lb/>
+Jch bat, ſie ſollte mich wieder zurück<lb/>
+begleiten, und bey mir leben. Sie ſollte<lb/>
+nicht meine Bediente, ſondern meine<lb/>
+gute Freundinn ſeyn. Und wenn ſie nicht<lb/>
+länger bey mir bleiben wollte, ſo woll-<lb/>
+te ich ihr eine anſehnliche Verſorgung<lb/>
+ſchaffen. Sie nahm dieſen Antrag mit<lb/>
+Thränen an, und ſchützte bald ihren<lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">kleinen</fw><lb/>
+<pb n="24" facs="#f0024"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+kleinen Sohn, bald die Luſt zu einem ſtil-<lb/>
+len Leben vor, warum ſie mir nicht folgen<lb/>
+könnte. Sie gieng mir indeſſen nicht von<lb/>
+der Seite, und bezeigte ſo viel Ehrerbie-<lb/>
+tung und Liebe gegen mich, daß ich ſie<lb/>
+hundertmal bat, mir zu ſagen, womit ich<lb/>
+ihr dienen könnte. Allein ſie ſchlug alle<lb/>
+Anerbietungen recht großmüthig aus, und<lb/>
+verlangte nichts, als meine Gewogenheit.<lb/>
+Der alte Graf wollte wieder fort, und<lb/>
+indem mich die junge Witwe an den Wa-<lb/>
+gen begleitete, ſo ſah ich ein Kind in<lb/>
+dem unterſten Gebäude des Hofes am<lb/>
+Fenſter ſtehen. Jch fragte, wem dieſes<lb/>
+Kind wäre? Die gute Frau kam vor<lb/>
+Schrecken gantz außer ſich. Sie hatte<lb/>
+mich beredt, daß ihr Sohn unlängſt<lb/>
+die Blattern gehabt hätte. Und damit<lb/>
+ich mich nicht fürchten ſollte; ſo hatte<lb/>
+ſie mir ihn bey meinem Daſeyn, ungeach-<lb/>
+tet meines Bittens, nicht wollen ſehen<lb/>
+laſſen. Allein ich ſahe, daß dieſem Kna-<lb/>
+ben nichts fehlete, und ich ließ nicht nach,<lb/>
+<fw type="catch" place="bottom">bis</fw><lb/>
+<pb n="25" facs="#f0025"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+bis man ihn vor mich brachte. Hilf<lb/>
+Himmel! wie entſetzte ich mich, als ich in<lb/>
+ſeinem Geſichte das lebendige Ebenbild<lb/>
+meines Gemahls antraf. Jch konnte<lb/>
+kein Wort zu dem Kinde reden. Jch<lb/>
+küßte es, umarmte zugleich ſeine Mut-<lb/>
+ter, und ſetzte mich den Augenblick in<lb/>
+den Wagen. Der alte Graf merkte<lb/>
+meine Beſtürzung, und entdeckte mir mit<lb/>
+einer liebreichen Aufrichtigkeit das ganze<lb/>
+Geheimniß. Die Frau, ſprach er, die ſie<lb/>
+geſehen haben, iſt die ehemalige Geliebte<lb/>
+ihres Gemahls. Und wenn ſie dieſes Ge-<lb/>
+ſtändniß beleidiget, ſo zürnen ſie nicht ſo<lb/>
+wohl auf meinen Sohn, als auf mich.<lb/>
+Jch bin an der Sache Schuld. Jch ha-<lb/>
+be ihn von Jugend auf mit einer beſondern<lb/>
+Art erzogen, die ihnen in manchen Stücken<lb/>
+ausſchweifend vorkommen dürfte. Mein<lb/>
+Sohn mußte in mir nicht ſo wohl ſeinen<lb/>
+Vater, als ſeinen Freund lieben und ver-<lb/>
+ehren. Er durfte mich nicht fürchten, als<lb/>
+wenn er mir etwas verſchwieg. Daher<lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">geſtund</fw><lb/>
+<pb n="26" facs="#f0026"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+geſtund er mir alles, und ich erhielt da-<lb/>
+durch Gelegenheit, ihn von tauſend Thor-<lb/>
+heiten abzuziehen, ehe er ſie begieng, oder<lb/>
+doch, ehe er ſich daran gewöhnete. Jch<lb/>
+wußte, ehe ich meinen Sohn auf Reiſen<lb/>
+ſchickte, daß er ein gewiſſes Frauenzim-<lb/>
+mer vom bürgerlichen Stande liebte, wel-<lb/>
+ches meine Schweſter als eine Wayſe ſehr<lb/>
+jung zu ſich genommen, und, weil das<lb/>
+Kind viel Lebhaftigkeit beſaß, in der Ge-<lb/>
+ſellſchaft ihrer einzigen Tochter wohl hatte<lb/>
+erziehen laſſen. Mein Sohn hatte mir<lb/>
+aus dieſer Liebe nie ein Geheimniß ge-<lb/>
+macht. Er bat mich, da er ſeine Reiſen<lb/>
+antrat, daß ich ihm erlauben möchte, die-<lb/>
+ſes Frauenzimmer, als ſeine gute Freun-<lb/>
+dinn, mitzunehmen. Kurz, ich war ent-<lb/>
+weder zu ſchwach, ihm dieſe Bitte abzu-<lb/>
+ſchlagen, oder ich willigte mit Fleiß dar-<lb/>
+ein, um ihn von den gefährlichen Aus-<lb/>
+ſchweifungen der Jugend durch ihre Ge-<lb/>
+ſellſchaft abzuhalten. Und dieſes iſt eben<lb/>
+das Frauenzimmer, das ſie itzt geſehen<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="27" facs="#f0027"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+und nach der gemeinen Rede für eine<lb/>
+Witwe gehalten haben. Sie beſitzt ſehr<lb/>
+gute Eigenſchaften, und ich habe ihr zehn<lb/>
+tauſend Thaler ausgeſetzt, damit ſie hey-<lb/>
+rathen kann, wenn es ihr beliebt. Für<lb/>
+ihren Sohn habe ich auch etwas gewiſſes<lb/>
+zu ſeiner Erziehung beſtimmt. Und wenn<lb/>
+ihnen dieſe Frau gefährlich ſcheint: ſo<lb/>
+will ich ſie binnen wenig Tagen nach Lief-<lb/>
+land auf meine Güter ſchicken, und ihr<lb/>
+daſelbſt alle mögliche Verſorgung ver-<lb/>
+ſchaffen.</p><lb/>
+<p>Man glaube ja nicht, daß ich die ehe-<lb/>
+malige Geliebte meines Gemahls zu haſ-<lb/>
+ſen anfieng. Nein, ich liebte ſie, und die<lb/>
+Liebe beſänftigte die Eiferſucht. Jch bat,<lb/>
+daß er ſie mit einer anſtändigen Heyrath<lb/>
+verſorgen, und ſie entfernen möchte. Bey<lb/>
+unſerer Zurückkunft traf ich meinen Ge-<lb/>
+mahl ſchon an. So ſehr ich von der<lb/>
+Gewißheit ſeiner Liebe verſichert war: ſo<lb/>
+konnte ich doch nicht ruhig werden, bis<lb/>
+<fw type="catch" place="bottom">ich</fw><lb/>
+<pb n="28" facs="#f0028"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ich ihn durch allerhand kleine Kaltſinnig-<lb/>
+keiten nöthigte, ein Geheimniß aus mir<lb/>
+heraus zu locken, das mein Herz nicht um-<lb/>
+ſonſt entdecket haben wollte. Er erſchrack,<lb/>
+und beklagte ſich über die Unvorſichtigkeit<lb/>
+ſeines Vaters, daß er mich an einen Ort<lb/>
+geführet hätte, der unſrer Zärtlichkeit ſo<lb/>
+nachtheilig ſeyn könnte. Er gab den Au-<lb/>
+genblick Befehl, daß man dieſes Frauen-<lb/>
+zimmer nebſt ihrem Sohne entfernen, und<lb/>
+alles, was ſie verlangte, zu ihrem Unter-<lb/>
+halte ausmachen ſollte. Dieſes geſchah<lb/>
+auch binnen acht Tagen. Jch konnte kei-<lb/>
+ne deutlichere Probe von ſeiner Treue ver-<lb/>
+langen, und es war mir unmöglich, ihn<lb/>
+wegen dieſer Sache auch nur einen Au-<lb/>
+genblick zu haſſen, ob ich mich gleich von<lb/>
+aller Unruhe nicht frey ſprechen will.</p><lb/>
+<p>Er geſtund mir, daß er dieſes Frauen-<lb/>
+zimmer gewiß zu ſeiner Gemahlinn erwäh-<lb/>
+let haben würde, wenn er die Einwilligung<lb/>
+vom Hofe hätte erhalten können. Jn der<lb/>
+<fw type="catch" place="bottom">That</fw><lb/>
+<pb n="29" facs="#f0029"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G**</hi></fw><lb/>
+That verdiente ſie dieſes Glück ſo wohl als<lb/>
+ich. Jch ſah bey nahe keinen Vorzug,<lb/>
+den ich vor ihr hatte, als daß ich adelich<lb/>
+gebohren war. Und wie geringe iſt die-<lb/>
+ſer Vorzug, wenn man ihn vernünftig<lb/>
+betrachtet! Sie hatte ſich gar nicht aus<lb/>
+Leichtſinn ergeben. Die Ehe war der Preis<lb/>
+geweſen, für den ſie ihm ihr Herz und ſich<lb/>
+überlaſſen hatte. Der Vater des Grafen<lb/>
+hatte die Liebe und die Wahl ſeines Soh-<lb/>
+nes gebilliget. Sie kannte das edelmü-<lb/>
+thige Herz ihres Geliebten. Sie war von<lb/>
+der Aufrichtigkeit ſeiner Zärtlichkeit über-<lb/>
+zeugt. Ein Frauenzimmer, das ſich un-<lb/>
+ter ſolchen Umſtänden in eine vertrauliche<lb/>
+Liebe einläßt, verdienet eher Mitleiden,<lb/>
+als Vorwürfe. Mein Gemahl erzählte<lb/>
+mir einen Umſtand, der Carolinens<lb/>
+Werth, ſo will ich ſeine Geliebte künftig<lb/>
+nennen, ſehr verſchönert. So bald ſie<lb/>
+geſehen, daß er die Einwilligung, ſich mit<lb/>
+ihr zu vermählen, nicht würde erhalten<lb/>
+können, ohne dabey ſein Glück in Gefahr<lb/>
+<fw type="catch" place="bottom">zu</fw><lb/>
+<pb n="30" facs="#f0030"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+zu ſetzen, und die Gnade des Hofes zu<lb/>
+verlieren: ſo hatte ſie ſich des Rechts auf<lb/>
+ſein Herz freywillig begeben. Er zeigte<lb/>
+mir folgenden Brief von ihr, der mich we-<lb/>
+gen ſeines großmüthigen Jnnhalts unge-<lb/>
+mein gerühret hat.</p><lb/>
+<floatingText><body><div type="letter"><opener><salute>Mein lieber Graf,</salute></opener><lb/>
+<p>Jch höre, daß man Jhnen den Ent-<lb/>
+ſchluß, mich für ihre Gemahlinn zu erklä-<lb/>
+ren, ſehr ſauer macht. Sie dauren mich,<lb/>
+weil ich gewiß weis, daß Sie mich lieben,<lb/>
+und daß Sie eben ſo viel Ueberwindung<lb/>
+brauchen, mir ihr Wort nicht zu halten,<lb/>
+als es mich Mühe koſtet, meine Anſprü-<lb/>
+che auf das edelſte und großmüthigſte Herz<lb/>
+fahren zu laſſen. Doch wenn ich einmal<lb/>
+meinen Grafen verlieren ſoll: ſo will ich<lb/>
+ihn mit Ruhm verlieren. Kurz, mein<lb/>
+liebſter Graf, ich opfere Jhrem Glücke<lb/>
+und Jhrem Stande meine Liebe und mei-<lb/>
+ne Zufriedenheit auf, und vergeſſe das<lb/>
+ſchmeichelhafte Glück, Jhre Gemahlinn zu<lb/>
+<fw type="catch" place="bottom">werden,</fw><lb/>
+<pb n="31" facs="#f0031"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+werden, auf ewig. Sie ſind frey, und<lb/>
+können ſich zu einer Wahl entſchlieſſen,<lb/>
+welche Jhnen nur immer gefällt. Jch<lb/>
+bin alles zufrieden, wenn ich nur ſehe, daß<lb/>
+Sie glücklich wählen, und die Zufrieden-<lb/>
+heit an der Seite Jhrer Gemahlinn erhal-<lb/>
+ten, die ich Jhnen durch meine Liebe ha-<lb/>
+be verſchaffen wollen. Dieſes iſt, wie der<lb/>
+Himmel weis, mein größter Wunſch.<lb/>
+Und was gehöret mehr zu der Aufrichtig-<lb/>
+keit eines ſolchen Wunſches, als daß man<lb/>
+Sie liebt! Jch mache Jhnen nicht den<lb/>
+geringſten Vorwurf. Sie haben in mei-<lb/>
+nen Augen Jhr Wort vollkommen gehal-<lb/>
+ten; denn ich bin überzeugt, daß Sie es<lb/>
+erfüllen würden, wenn es bey Jhnen<lb/>
+ſtünde. Jch werde mich auch nie über<lb/>
+mich ſelbſt beklagen. Jch bin die Jhrige<lb/>
+unter der Bedingung geweſen, daß Sie<lb/>
+mich einſt öffentlich dafür erklären wür-<lb/>
+den. Jch habe Jhnen alſo bey aller mei-<lb/>
+ner Zärtlichkeit doch nie meine Tugend<lb/>
+aufgeopfert. Nein, das Andenken mei-<lb/>
+<fw type="catch" place="bottom">ner</fw><lb/>
+<pb n="32" facs="#f0032"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ner Liebe wird mir allemal die größte Be-<lb/>
+ruhigung geben, ſo traurig auch mein<lb/>
+künftiges Schickſal der Welt vorkommen<lb/>
+wird. Vermählen Sie ſich, mein lieber<lb/>
+Graf, und denken Sie künftig nur an<lb/>
+mich, als an Jhre Freundinn. Dieſe Be-<lb/>
+lohnung verdiene ich. Leben Sie wohl,<lb/>
+und laſſen Sie mir auf einem ihrer Güter<lb/>
+einen Platz anweiſen, wo ich nebſt mei-<lb/>
+nem Sohne in der Stille leben kann. Ver-<lb/>
+lieren Sie weiter kein Wort. Jch blei-<lb/>
+be bey meinem Entſchluſſe, Jhnen zu be-<lb/>
+weiſen, daß ich Jhr Glück meiner Wohl-<lb/>
+fahrt vorziehe. Leben Sie wohl, mein<lb/>
+lieber Graf.</p></div></body></floatingText><lb/>
+<p>Carolinens großmüthigem Entſchluſſe<lb/>
+hatte ichs alſo zu danken, daß mir der<lb/>
+Graf zu Theil worden war. Sie hatte ſich<lb/>
+nach dieſem Briefe nicht mehr, als noch<lb/>
+einmal, von ihm ſprechen laſſen, und ſich<lb/>
+ſo gleich auf das Landgut begeben, wo ich<lb/>
+ſie antraf. Er verſicherte mich, daß er<lb/>
+<fw type="catch" place="bottom">ſie</fw><lb/>
+<pb n="33" facs="#f0033"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+ſie ſeit anderthalb Jahren nicht geſehen,<lb/>
+und ich hätte ihr gern das Vergnügen ge-<lb/>
+gönnt, den Grafen vor ihrer Abreiſe nach<lb/>
+Liefland noch einmal zu ſprechen, wenn es<lb/>
+der Wohlſtand hätte erlauben wollen.</p><lb/>
+<p>Mein Graf verdoppelte ſeine Bemü-<lb/>
+hungen, mir zu gefallen, und der Him-<lb/>
+mel weis, daß er der liebenswürdigſte<lb/>
+Mann war, den man kaum zärtlicher und<lb/>
+edler denken konnte. Er war vernünftig<lb/>
+und geſittet geweſen, ehe er ein Soldat<lb/>
+geworden war, und daher hatte er nicht<lb/>
+das geringſte von dem Rohen und Wil-<lb/>
+den an ſich genommen, das dieſer Lebens-<lb/>
+art ſonſt eigen zu ſeyn pflegt. Er war<lb/>
+die Gutheit und Menſchenliebe ſelbſt, und<lb/>
+dennoch ward er im ganzen Hauſe ſo ge-<lb/>
+fürchtet, daß der kleinſte Wink an ſeine<lb/>
+Leute die Wirkung des nachdrücklichſten<lb/>
+Befehls that. Er ſchien mir vollkommen<lb/>
+zu gehorchen; es war ihm unmöglich mir<lb/>
+etwas abzuſchlagen; er hielt alles für ge-<lb/>
+<fw type="sig" place="bottom"><hi rendition="#fr">Erſter Theil.</hi> C</fw><fw type="catch" place="bottom">nehm,</fw><lb/>
+<pb n="34" facs="#f0034"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+nehm, was ich verlangte. Allein mitten<lb/>
+in dieſer zärtlichen Unterthänigkeit wußte<lb/>
+er ſich bey mir in einer gewiſſen Ehrfurcht<lb/>
+zu erhalten, daß ich bey aller meiner Herr-<lb/>
+ſchaft nicht ſo wohl meinen Willen, als<lb/>
+vielmehr ſein Verlangen in Gedanken zu<lb/>
+Rathe zog, und in der That nichts unter-<lb/>
+nahm, als was er befohlen haben würde,<lb/>
+wenn er hätte befehlen wollen. Er war<lb/>
+der ordentlichſte Mann in ſeinen Geſchäf-<lb/>
+ten, und band ſich doch ſelten an die Zeit.<lb/>
+Er arbeitete, ſo bald er ſich geſchickt zur<lb/>
+Arbeit fühlete, und arbeitete ſo lange fort,<lb/>
+als er ſich in dieſer Verfaſſung merkte.<lb/>
+Allein er ließ auch von ſeinen Verrichtun-<lb/>
+gen nach, ſo bald als er keine Luſt mehr<lb/>
+dazu verſpürte. Daher war er ſtets mun-<lb/>
+ter, weil er ſich niemals zu ſehr ermüdete,<lb/>
+und hatte ſtets Zeit zu den Vergnügun-<lb/>
+gen übrig, weil er die Zeit niemals mit<lb/>
+vergebenen Bemühungen zu arbeiten ver-<lb/>
+ſchwendete. Er hatte eine ſehr ſchöne Bi-<lb/>
+bliothek auf ſeinen Reiſen geſammlet. Jch<lb/>
+<fw type="catch" place="bottom">verſtund</fw><lb/>
+<pb n="35" facs="#f0035"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+verſtund Franzöſiſch, und etwas Latein<lb/>
+und Jtaliäniſch. Der Bücherſal ward<lb/>
+mir in kurzer Zeit an der Seite meines<lb/>
+Gemahls der angenehmſte Ort. Er las<lb/>
+mir aus vielen Büchern, die theils hiſto-<lb/>
+riſch, theils witzig, theils moraliſch waren,<lb/>
+die ſchönſten Stellen vor, und brachte<lb/>
+mir ſeinen guten Geſchmack unvermerkt<lb/>
+bey. Und ob ichs gleich nicht allemal ſa-<lb/>
+gen konnte, warum eine Sache ſchön,<lb/>
+oder nicht ſchön war: ſo war doch meine<lb/>
+Empfindung ſo getreu, daß ſie mich ſel-<lb/>
+ten betrog. Unſere Ehe ſelbſt war nichts,<lb/>
+als Liebe, und unſer Leben nichts, als<lb/>
+Vergnügen. Wir hatten faſt niemanden<lb/>
+zu unſerm Umgange, als uns. Mein<lb/>
+Gemahl unterhielt mich, ich ihn, und<lb/>
+unſer alter Vater uns alle beyde. Dieſer<lb/>
+Mann von ſiebenzig Jahren vertrat die<lb/>
+Stelle von ſechs Perſonen. Seine Er-<lb/>
+fahrung in der Welt, ſeine brauchbare<lb/>
+Gelehrſamkeit und ſein zufriednes und red-<lb/>
+liches Herz machten ihn ſtets munter und<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">belebt</fw><lb/>
+<pb n="36" facs="#f0036"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+belebt in ſeinen Geſprächen. Jch kann<lb/>
+ſagen, daß ich dieſen Greis in drey Jah-<lb/>
+ren faſt keine Stunde unruhig geſehen ha-<lb/>
+be; denn ſo viele Jahre waren in meiner<lb/>
+Ehe verſtrichen, als er ſtarb. Gott, wie<lb/>
+lehrreich war das Ende dieſes Mannes!<lb/>
+Er bekam ſieben Tage vor ſeinem Tode<lb/>
+Schwulſt in den Beinen. Dieſe trat im-<lb/>
+mer weiter, und er ſah mit iedem Tage<lb/>
+ſein Ende näher kommen. Er fragte den<lb/>
+Arzt, wie lange es noch mit ihm dauren<lb/>
+würde. Wahrſcheinlicher Weiſe, ant-<lb/>
+wortete dieſer, über drey Tage nicht.<lb/>
+Recht gut, verſetzte der alte Graf. Gott<lb/>
+ſey gedankt, daß meine Wallfahrt ſo<lb/>
+glücklich abgelaufen iſt. Alſo habe ich nur<lb/>
+noch drey Tage von dem Leben zuzubrin-<lb/>
+gen, von dem ich meinem Schöpfer Re-<lb/>
+chenſchaft geben ſoll? Jch werde ſie nicht<lb/>
+beſſer anwenden können, als wenn ich<lb/>
+durch meine Freudigkeit den Meinigen<lb/>
+ein Beyſpiel gebe, wie leicht und glückſe-<lb/>
+lig man ſtirbt, wenn man vernünftig<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="37" facs="#f0037"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+und tugendhaft gelebt hat. Er ließ dar-<lb/>
+auf alle ſeine Bedienten zuſammen kom-<lb/>
+men. Er rühmte ihre Treue, und bat<lb/>
+ſie, als ein Vater, daß ſie die Tugend<lb/>
+ſtets vor Augen haben ſollten. Jch,<lb/>
+fieng er an, bin euer Herr und Aufſe-<lb/>
+her geweſen. Der Tod hebt dieſen Un-<lb/>
+terſchied auf, und ich gehe in eine Welt,<lb/>
+wo ihr ſo viel, als ich ſeyn werdet, und<lb/>
+wo ihr für die Erfüllung eurer Pflichten<lb/>
+eben ſo viel Glück erhalten werdet, als ich<lb/>
+für die Erfüllung der meinigen. Lebt<lb/>
+wohl, meine Kinder! Wer mich lieb hat,<lb/>
+und mir vor meinem Tode noch ein Ver-<lb/>
+gnügen machen will, der verſpreche mir<lb/>
+mit der Hand, daß er meine Lehren und<lb/>
+meine Bitten erfüllen will. Er befahl dar-<lb/>
+auf, iedwedem eine gewiſſe Summe Gel-<lb/>
+des auszutheilen. Er ließ dieſen und den<lb/>
+folgenden Tag die meiſten von ſeinen Un-<lb/>
+terthanen zu ſich kommen, und redete mit<lb/>
+ihnen eben ſo, wie mit ſeinen Bedien-<lb/>
+ten. Wem er Geld zu ſeiner Nahrung<lb/>
+<fw type="sig" place="bottom">C 3</fw><fw type="catch" place="bottom">vorge-</fw><lb/>
+<pb n="38" facs="#f0038"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+vorgeſtrecket hatte, dem erließ ers. Und<lb/>
+alle durften ſich etwas von ihm ausbitten.<lb/>
+Die Anzahl der Armen war ſehr klein;<lb/>
+denn er hatte ſeine Wohlthaten und ſeine<lb/>
+Vorſorge gegen die Unterthanen nicht bis<lb/>
+an ſein Ende verſparet. Man kann ſich<lb/>
+die Wehmuth dieſer Leute leicht vorſtellen.<lb/>
+Ein ieder beweinte in ihm den Verluſt ei-<lb/>
+nes Vaters. Nach dieſer Verrichtung<lb/>
+fragte der ſterbende Graf, ob noch iemand<lb/>
+in ſeinem Hauſe wäre, der nicht Abſchied<lb/>
+von ihm genommen hätte. Jch ſagte<lb/>
+ihm, daß ich niemanden wüßte, außer die<lb/>
+Soldaten, die mein Gemahl bey ſich hät-<lb/>
+te. Auch dieſe, ſagte er, ſind mir liebe<lb/>
+Leute. Sie brauchen am meiſten den<lb/>
+Tod kennen zu lernen, weil ſie ihn vor<lb/>
+andern unvermuthet gewärtig ſeyn müſſen.<lb/>
+Laßt ſie herein kommen. Hierauf traten<lb/>
+vier Leute herein, denen die Wildheit<lb/>
+und Unerſchrockenheit aus den Augen ſah.<lb/>
+Der alte Graf redete ſie liebreich an, und er<lb/>
+hatte kaum angefangen; ſo weinten dieſe<lb/>
+<fw type="catch" place="bottom">dem</fw><lb/>
+<pb n="39" facs="#f0039"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+dem Anſcheine nach ſo beherzte und bar-<lb/>
+bariſche Männer, wie die Kinder. Er<lb/>
+fragte ſie, wie lange ſie gedienet hät-<lb/>
+ten. Sie hatten faſt alle zwanzig Jahre<lb/>
+die Waffen getragen. O, fieng der<lb/>
+Graf an, ihr verdient, daß ihr die Ruhe<lb/>
+des Lebens ſchmeckt, weil ihr die Unruhe<lb/>
+ſo lange ausgehalten habt. Mein Sohn<lb/>
+mag euch den Abſchied ertheilen. Und<lb/>
+ihr ſollt euch in meinem Dorfe niederlaſ-<lb/>
+ſen, und ſo lange ihr lebet, noch ſo viel<lb/>
+bekommen, als eure ordentliche Löhnung<lb/>
+austrägt. Einer von dieſen Leuten hat<lb/>
+nachdem meinem Gemahle einen ſehr wich-<lb/>
+tigen Dienſt geleiſtet.</p><lb/>
+<p>Die Nacht vor ſeinem letzten Ende brach<lb/>
+nunmehr an. Er fragte den Doctor noch<lb/>
+einmal um die Zeit ſeines Todes, und hör-<lb/>
+te mit der gröſten Standhaftigkeit, daß<lb/>
+er kaum vier und zwanzig Stunden noch<lb/>
+auf der Welt ſeyn würde. Er forderte<lb/>
+darauf zu eſſen. Er aß, und ließ ſich auch<lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom">ein</fw><lb/>
+<pb n="40" facs="#f0040"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ein Glas Wein reichen. Gütiger Gott,<lb/>
+fieng er an, es ſchmeckt mir bey meinem<lb/>
+Ende noch ſo gut, als es mir vor funfzig<lb/>
+Jahren geſchmeckt hat. Hätte ich nicht<lb/>
+mäßig gelebt: ſo würden meine Gefäße<lb/>
+zu dieſer Erqvickung nicht mehr geſchickt<lb/>
+ſeyn. Nun, fuhr er fort, will ich mich<lb/>
+zu meinem Aufbruche aus der Welt noch<lb/>
+durch einige Stunden Schlaf erholen.<lb/>
+Er ſchlief drey Stunden. Alsdann rief<lb/>
+er mich, und bat, ich ſollte ihm aus ſei-<lb/>
+nem Schreibetiſche ein gewiſſes Manu-<lb/>
+ſcript hohlen. Dieſes war ein Ver-<lb/>
+zeichniß ſeines Lebens ſeit vierzig Jahren.<lb/>
+Und dieſes mußte ich ihm bis zu anbre-<lb/>
+chendem Tage vorleſen. Als wir fertig<lb/>
+waren, ſo that er das brünſtigſte Gebet<lb/>
+zu Gott, und dankte ihm für die Güte<lb/>
+und Liebe, welche er ihm in der Welt<lb/>
+hatte genießen laſſen, auf eine ganz ent-<lb/>
+zückende Weiſe, und bat, daß er ihn in<lb/>
+der künftigen Welt die Wahrheit und<lb/>
+Tugend, der er hier unvollkommen nach-<lb/>
+<fw type="catch" place="bottom">geſtrebt,</fw><lb/>
+<pb n="41" facs="#f0041"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+geſtrebt, möchte vollkommen erreichen<lb/>
+laſſen. Er ließ ſeinen Sohn rufen,<lb/>
+nam uns beyde in die Arme, und fieng<lb/>
+an zu weinen. Dieſes, ſagte er, ſind ſeit<lb/>
+vierzig und mehr Jahren die erſten Thrä-<lb/>
+nen, die ich vergieße. Sie ſind keine<lb/>
+Zeichen meiner Wehmuth und Furcht-<lb/>
+ſamkeit, ſondern meiner Liebe. Jhr habt<lb/>
+mir mein Leben angenehm gemacht; allein<lb/>
+das Glück, das ich nach meinem Tode<lb/>
+hoffe, macht mir den Abſchied von euch<lb/>
+ſehr erträglich. Liebt getreu, und ge-<lb/>
+nießt das Leben, das uns die Vorſehung<lb/>
+zum Vergnügen und zur Ausübung der<lb/>
+Tugend geſchenkt hat. Er gab mir noch<lb/>
+allerhand Regeln, wie ich meine Kinder<lb/>
+ziehen ſollte, wenn unſre Ehe fruchtbar<lb/>
+ſeyn würde. Und in eben der Bemü-<lb/>
+hung, auch ſeine Nachkommen durch ei-<lb/>
+ne weiſe Vorſorge noch glücklich zu ma-<lb/>
+chen, ſtarb er.</p><lb/>
+<p>Wir lebten darauf noch einige Jahre<lb/>
+in der größten Zufriedenheit auf unſerm<lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">Land-</fw><lb/>
+<pb n="42" facs="#f0042"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Landgute. Endlich erhielt mein Gemahl<lb/>
+Befehl am Hofe zu erſcheinen, und ich<lb/>
+folgte ihm dahin.</p><lb/>
+<p>Jch war kaum bey Hofe angekommen:<lb/>
+ſo ward ich verehrt und bewundert. Es<lb/>
+war, wie es ſchien, niemand ſchöner, nie-<lb/>
+mand geſchickter und vollkommner, als ich.<lb/>
+Jch konnte vor der Menge der Aufwar-<lb/>
+tungen und vor dem ſüſſen Klange der<lb/>
+Schmeicheleyen kaum zu mir ſelber kom-<lb/>
+men. Zu meinem Unglücke bekam mein<lb/>
+Gemahl Ordre zum Marſche, und ich<lb/>
+mußte zurück bleiben. Es hieß, ich ſollte<lb/>
+ihm bald nachfolgen; allein es vergiengen<lb/>
+drey Monate, ehe ich ihn zu ſehen bekam.<lb/>
+Jch hatte meine ganze Philoſophie nöthig,<lb/>
+die ich bey meinem Vetter, meinem Ge-<lb/>
+mahle und ſeinem Vater gelernet hatte,<lb/>
+wenn ich nicht eitel und hochmüthig wer-<lb/>
+den wollte. Die Ehre, die mir allenthal-<lb/>
+ben erwieſen ward, war eine gefährliche<lb/>
+Sache für eine junge und ſchöne Frau,<lb/>
+die den Hof zum erſtenmal ſah.</p><lb/>
+<fw type="catch" place="bottom">Ein</fw><lb/>
+<pb n="43" facs="#f0043"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+<p>Ein gewiſſer Prinz von S--, der ſchon<lb/>
+eine Gemahlinn, und unſtreitig nicht die<lb/>
+erlaubteſten Abſichten gegen mich hatte,<lb/>
+ſuchte ſich die Abweſenheit meines Ge-<lb/>
+mahls zu Nutze zu machen. Er bedien-<lb/>
+te mich bey aller Gelegenheit mit einer<lb/>
+ungemeinen Ehrerbietung, und mit einem<lb/>
+Vorzuge, der recht prächtig in die Augen<lb/>
+fiel. Er wagte es zuweilen mir von einer<lb/>
+Neigung zu ſagen, die ich verabſcheuete.<lb/>
+Dennoch wußte ich der Ehrerbietung, die<lb/>
+er ſtets mit untermengte, nicht genug zu<lb/>
+widerſtehen. Jch war ſo treu und tu-<lb/>
+gendhaft, als man ſeyn kann; allein viel-<lb/>
+leicht nicht ſtrenge genug in dem äußerli-<lb/>
+chen Bezeigen. Hierdurch machte ich<lb/>
+den Prinzen nur beherzter. Er kam an<lb/>
+einem Nachmittage unangemeldet zu mir.<lb/>
+Er machte mir allerhand kleine Liebkoſun-<lb/>
+gen; doch bey der erſten Freyheit, die er<lb/>
+ſich heraus nahm, ſagte ich zu ihm: Er-<lb/>
+lauben ſie mir, daß ich es ihrer Gemah-<lb/>
+linn darf melden laſſen, daß Sie bey mir<lb/>
+<fw type="catch" place="bottom">ſind,</fw><lb/>
+<pb n="44" facs="#f0044"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ſind, damit ſie mir das Glück ihrer Ge-<lb/>
+genwart auch gönnt. Sie iſt ſchon in<lb/>
+Gedanken bey mir, fieng er an. Und<lb/>
+mein Gemahl, antwortete ich, iſt auch<lb/>
+bey mir, wenn er gleich im Felde iſt. Dar-<lb/>
+auf machte er mir ein froſtig Compli-<lb/>
+ment, und gieng fort. Wie rachgierig<lb/>
+dieſer Herr war, wird die Folge aus-<lb/>
+weiſen.</p><lb/>
+<p>Mein Gemahl kam wieder zurück, und<lb/>
+nach ſeiner Ankunft ward ihm der Hof<lb/>
+verbothen. Dieſes war die erſte Ra-<lb/>
+che eines beleidigten Prinzen. Wir gien-<lb/>
+gen darauf auf unſer Landgut. Jch ent-<lb/>
+deckte meinem Gemahle ohne Bedenken<lb/>
+die Urſache der erlittenen Ungnade, und<lb/>
+bat ihn tauſendmal um Vergebung. Jch<lb/>
+bin ſehr wohl, ſprach er, mit meinem Un-<lb/>
+glücke zu frieden. Fahren ſie nur fort,<lb/>
+mich durch ihre Tugend zu beleidigen; ich<lb/>
+will ihnen zeitlebens dafür danken. Jch<lb/>
+habe es voraus geſehen, daß ihnen der<lb/>
+<fw type="catch" place="bottom">Hof</fw><lb/>
+<pb n="45" facs="#f0045"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+Hof gefährlich ſeyn würde. Jch konnte<lb/>
+mir einbilden, daß man ſie bewundern,<lb/>
+und daß ihr Herz der Verſuchung der Lob-<lb/>
+ſprüche und Ehrenbezeigung nicht gleich<lb/>
+den erſten Augenblick widerſtehen würde.<lb/>
+Die erlittene Ungande iſt nichts, als ein<lb/>
+Beweis, daß ich eine liebenswürdige<lb/>
+und tugendhafte Frau habe.</p><lb/>
+<p>Wir lebten auf unſerm Landgute ſo ru-<lb/>
+hig und zärtlich, als iemals. Und damit<lb/>
+wir den Verluſt unſers klugen Vaters de-<lb/>
+ſto weniger fühlten: ſo nahm mein Ge-<lb/>
+mahl ſeinen ehemaligen Reiſegefährten,<lb/>
+den Herrn R-- zu ſich. Er war noch<lb/>
+ein junger Mann, der aber in einer groſ-<lb/>
+ſen Geſellſchaft zu nichts taugte, als ei-<lb/>
+nen leeren Platz einzunehmen. Er war<lb/>
+ſtumm und unbelebt, wenn er viele Leu-<lb/>
+te ſah. Doch in dem Umgang von drey<lb/>
+oder vier Perſonen, die er kannte, war<lb/>
+er ganz unentbehrlich. Seine Beleſenheit<lb/>
+war außerordentlich, und ſeine Beſchei-<lb/>
+<fw type="catch" place="bottom">den-</fw><lb/>
+<pb n="46" facs="#f0046"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+denheit eben ſo groß. Er war in der Tu-<lb/>
+gend und Freundſchaft ſtrenge bis zum<lb/>
+Eigenſinn. So traurig ſeine Mine aus-<lb/>
+ſah, ſo gelaſſen und zufrieden war er doch.<lb/>
+Er ſchlug keine Vergnügung aus; allein<lb/>
+mir kam es immer vor, als ob er ſich nicht<lb/>
+ſo wohl an den Ergötzlichkeiten ſelbſt, als<lb/>
+vielmehr an dem Vergnügen beluſtigte,<lb/>
+das die Ergötzlichkeiten andern machten.<lb/>
+Sein Verlangen war, alle Menſchen ver-<lb/>
+nünftig, und alle Vernünftige glücklich zu<lb/>
+ſehen. Daher konnte er die großen Ge-<lb/>
+ſellſchaften nicht leiden, weil er ſo viel<lb/>
+Zwang, ſo viel unnatürliche Höflichkeiten<lb/>
+und ſo viel Verhinderungen, frey und ver-<lb/>
+nünftig zu handeln, darinnen antraf. Er<lb/>
+blieb in allen ſeinen Handlungen uneigen-<lb/>
+nützig, und gegen die Glücksgüter, und<lb/>
+gegen alle Ehrenſtellen faſt gar zu gleich-<lb/>
+gültig. Die Schmeichler waren ſeine<lb/>
+ärgſten Feinde. Und er glaubte, daß<lb/>
+dieſe Leute der Wahrheit und Tugend<lb/>
+mehr Schaden thäten, als alle Ketzer und<lb/>
+<fw type="catch" place="bottom">Frey-</fw><lb/>
+<pb n="47" facs="#f0047"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+Freygeiſter. Einem geringen Manne dien-<lb/>
+te er mit größern Freuden, als einem<lb/>
+vornehmen. Und wenn man ihn um die<lb/>
+Urſache fragte, ſo ſagte er: Jch fürchte,<lb/>
+der vornehme möchte mich bezahlen, und<lb/>
+durch eine reiche Belohnung mich zu ei-<lb/>
+nem Laſtträger ſeiner Meynungen, und<lb/>
+zu einem Beförderer ſeiner Affecten er-<lb/>
+kaufen wollen. Er hatte einen geſchick-<lb/>
+ten Bedienten, der ihm aber des Tages<lb/>
+nicht mehr, als etliche Stunden, aufwar-<lb/>
+ten durfte. Als er ſeinen Herrn in un-<lb/>
+ſerer Gegenwart einmal fragte, ob er<lb/>
+nichts zu thun hätte; ſo ſagte er: Denkt<lb/>
+ihr denn, daß ihr bloß meinetwegen und<lb/>
+meiner Kleider und Wäſche wegen in der<lb/>
+Welt ſeyd? Wollt ihr denn ſo unwiſſend<lb/>
+ſterben, als ihr gebohren ſeyd? Wenn<lb/>
+ihr nichts zu thun habt, ſo ſetzt euch hin,<lb/>
+und überlegt, was ein Menſch iſt; ſo wer-<lb/>
+den euch Beſchäftigungen genug einfallen.<lb/>
+Er gab ihm verſchiedene Bücher zu leſen.<lb/>
+Und wenn er ihn auskleidete: ſo mußte er<lb/>
+<fw type="catch" place="bottom">ihm</fw><lb/>
+<pb n="48" facs="#f0048"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ihm allemal ſagen, wie er den Tag zuge-<lb/>
+bracht hätte. Wer ſich ſchämt, ſagte er,<lb/>
+einen Menſchen vernünftig und tugendhaft<lb/>
+zu machen, weil er geringe iſt, der ver-<lb/>
+dient nicht, ein Menſch zu ſeyn. Mein<lb/>
+Gemahl liebte den Herrn R--, als ſeinen<lb/>
+Bruder, und wir beſchloſſen niemals et-<lb/>
+was wichtiges, ohne ihn zu Rathe zu<lb/>
+ziehen.</p><lb/>
+<p>Um dieſe Zeit bekam mein Gemahl Be-<lb/>
+fehl zum Marſche, weil Schweden mit der<lb/>
+Krone Pohlen in einen Krieg verwickelt<lb/>
+wurde. Nunmehr gieng mein Elend an.<lb/>
+Mein Gemahl hatte einen engen und ge-<lb/>
+fährlichen Paß vertheidigen ſollen. Al-<lb/>
+lein er hatte das Unglück gehabt, ihn und<lb/>
+faſt alle ſeine Mannſchaft zu verlieren.<lb/>
+Man glaubte der Prinz von S--, der mit<lb/>
+zu Felde war, hätte ihn mit Fleiß zu die-<lb/>
+ſer gefährlichen Unternehmung beſtimmt,<lb/>
+um ihn zu ſtürzen. Genug, mein Gemahl<lb/>
+ward zur Verantwortung gezogen. Man<lb/>
+<fw type="catch" place="bottom">gab</fw><lb/>
+<pb n="49" facs="#f0049"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+gab ihm Schuld, er hätte ſeine Pflicht<lb/>
+nicht in Acht genommen, und es ward<lb/>
+ihm durch das Kriegsrecht der Kopf ab-<lb/>
+geſprochen. Gott, in welch Entſetzen<lb/>
+brachte mich folgender Brief von meinem<lb/>
+Gemahl!</p><lb/>
+<p>Lebt wohl, liebſte Gemahlinn, lebt<lb/>
+ewig wohl! Es hat der Vorſicht gefal-<lb/>
+len, meinen Tod zu verhängen. Er<lb/>
+kömmt mir nicht unvermuthet; doch wür-<lb/>
+de mich die Art meines Todes erſchrecken,<lb/>
+wenn ich meinen Ruhm mehr in der Ehre<lb/>
+der Welt, als in einem guten Gewiſ-<lb/>
+ſen ſuchte. Gerechter Gott! Jch ſoll<lb/>
+durch das Schwerdt ſterben, weil ich es<lb/>
+nicht beherzt genug für das Vaterland ge-<lb/>
+führet habe. Der Himmel weis, daß ich<lb/>
+unſchuldig bin. Und fünf Wunden, die<lb/>
+ich bey meiner Gegenwehr empfangen ha-<lb/>
+be, mögen Zeugen ſeyn, ob ich meiner<lb/>
+Pflicht nachgelebt. Der Prinz von S--,<lb/>
+den ihr durch eure Tugend beleidiget habet,<lb/>
+<fw type="sig" place="bottom"><hi rendition="#fr">Erſter Theil.</hi> D</fw><fw type="catch" place="bottom">iſt</fw><lb/>
+<pb n="50" facs="#f0050"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+iſt ohne Zweifel die Urſache meines ge-<lb/>
+waltſamen Todes. Vergebt es ihm, daß<lb/>
+er euch euren Gemahl entreißt. Es iſt<lb/>
+weit weniger, als wenn er euch eure Tu-<lb/>
+gend entriſſen hätte. Lebt wohl, meine<lb/>
+Gemahlinn, und betet, daß ich bey dem<lb/>
+Anblicke meines Todes ſo beherzt ſeyn<lb/>
+mag, als ich itzt bin. Meine Wunden<lb/>
+ſind gefährlich. Wollte Gott, daß ſie<lb/>
+tödtlich wären, und mich der Schmach<lb/>
+entriſſen, als ein Verbrecher vor den Au-<lb/>
+gen der Welt zu ſterben. Jn fünf Ta-<lb/>
+gen ſoll mein Urtheil vollſtreckt werden.<lb/>
+Nehmet von dem redlichen R-- in mei-<lb/>
+nem Namen Abſchied. Er wird euch in<lb/>
+eurem Unglück nicht verlaſſen. Jch ha-<lb/>
+be den König in einem Bittſchreiben er-<lb/>
+ſucht, daß er euch meine Güter laſſen ſoll;<lb/>
+aber ich glaube nicht, daß es geſchehen<lb/>
+wird. Seyd unbekümmert, meine Ge-<lb/>
+treue! Flieht, wohin ihr wollt, nur daß<lb/>
+ihr den Nachſtellungen des Prinzen ent-<lb/>
+geht. Lebt wohl. Ach wenn doch der<lb/>
+<fw type="catch" place="bottom">fünfte</fw><lb/>
+<pb n="51" facs="#f0051"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+fünfte Tag ſchon da wäre! O warum<lb/>
+muß ich denn ein Schlachtopfer meiner<lb/>
+Feinde werden! Doch es iſt eine Schi-<lb/>
+ckung. Jch will meinen Tod mit Stand-<lb/>
+haftigkeit erwarten. Lebt noch einmal<lb/>
+wohl, liebſte Gemahlinn. Jch fühle den<lb/>
+Augenblick eine außerordentliche Schwach-<lb/>
+heit in meinem Körper. Vielleicht ſterbe<lb/>
+ich noch heute an meinen Wunden. Mein<lb/>
+Feldprediger kömmt. Jch will ihn bit-<lb/>
+ten, daß er euch dieſen Brief zuſtellen<lb/>
+läßt. Faßt euch. Jch liebe euch ewig,<lb/>
+und ich ſehe euch in der künftigen Welt<lb/>
+gewiß wieder.</p><lb/>
+<p>Meinen Schmerz über dieſe Nachricht<lb/>
+kann ich nicht beſchreiben. Die Spra-<lb/>
+chen ſind nie ärmer, als wenn man die<lb/>
+gewaltſamen Leidenſchaften der Liebe und<lb/>
+des Schmerzes ausdrücken will. Jch<lb/>
+habe alles geſagt, wenn ich geſtehe, daß<lb/>
+ich etliche Tage ganz betäubt geweſen bin.<lb/>
+Alle Troſtgründe der Religion und der<lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">Ver-</fw><lb/>
+<pb n="52" facs="#f0052"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Vernunft waren bey meiner Empfindung<lb/>
+ungültig, und ſie vermehrten nur meine<lb/>
+Wehmuth, weil ich ſah, daß ſie ſolche<lb/>
+nicht beſänftigen konnten. Der angeſetz-<lb/>
+te Todestag meines Gemahls brach an.<lb/>
+Jch brachte ihn mit Thränen und Gebete<lb/>
+zu, und fühlte den Streich mehr, als ein-<lb/>
+mal, der meinem Gemahle das Leben<lb/>
+nehmen ſollte. Niemand ſtund mir in<lb/>
+meinem Elende redlicher bey, als der Herr<lb/>
+R--. Er klagte und weinte mit mir,<lb/>
+und erwarb ſich durch ſeine Traurigkeit<lb/>
+den Vortheil, daß ich die Troſtgründe<lb/>
+anhörte, mit denen er mich nunmehr an-<lb/>
+fieng aufzurichten.</p><lb/>
+<p>Binnen acht Tagen kam der Reitknecht<lb/>
+meines Gemahls, und brachte mir die<lb/>
+Poſt, daß ſein Herr drey Tage vor dem<lb/>
+Tage des Urthels an ſeinen Wunden ge-<lb/>
+ſtorben wäre. Dieſe Nachricht vergnüg-<lb/>
+te mich, ſo betrübt ſie war, doch unend-<lb/>
+lich. So iſt er denn, als ein Held, an<lb/>
+<fw type="catch" place="bottom">ſeinen</fw><lb/>
+<pb n="53" facs="#f0053"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+ſeinen Wunden geſtorben? rief ich aus.<lb/>
+So hat er die traurigen Zubereitungen zu<lb/>
+einem gewaltſamen Tode, welche ärger<lb/>
+als der Tod ſelber ſind, nicht mit anſehen<lb/>
+dürfen? Nunmehr bin ich ruhig. Jch<lb/>
+fragte, ob man ihn ohne Schimpf zur Er-<lb/>
+den beſtattet hätte. Er ſagte mir, daß<lb/>
+dieſes gar nicht hätte geſchehen können,<lb/>
+weil in der Nacht, da er geſtorben wäre,<lb/>
+die Feinde das Dorf angefallen, und das<lb/>
+Bataillon, bey dem mein Gemahl gefan-<lb/>
+gen geſeſſen, genöthiget hätten, ſich in der<lb/>
+gröſten Eil und mit Verluſt zurückzuzie-<lb/>
+hen. Jn eben dieſer Unordnung wäre er<lb/>
+mit gewichen, und der Feldprediger von<lb/>
+meines Gemahls Regimente hätte ihm<lb/>
+Gelegenheit geſchafft, mit einem Deta-<lb/>
+ſchement zurückzugehen, und mir die<lb/>
+Nachricht und etliche Kleinodien von mei-<lb/>
+nem Gemahle zu überbringen.</p><lb/>
+<p>Der Feldprediger hatte ſelbſt an mich<lb/>
+geſchrieben, und mir in meines Gemahls<lb/>
+<fw type="sig" place="bottom">D 3</fw><fw type="catch" place="bottom">Namen</fw><lb/>
+<pb n="54" facs="#f0054"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Namen gerathen, Schweden ſo bald<lb/>
+zu verlaſſen, als es möglich wäre, da-<lb/>
+mit ich nicht der Rache des Prinzen<lb/>
+oder ſeiner Wolluſt weiter ausgeſetzt ſeyn<lb/>
+möchte. Der Befehl wegen der Einzie-<lb/>
+hung unſerer Güter war, wie ich erfuhr,<lb/>
+ſchon vor meines Gemahls Tode unter-<lb/>
+zeichnet worden. Jch entſchloß mich alſo<lb/>
+zur Flucht, und bat den Herrn R--<lb/>
+Schweden mit mir zu verlaſſen. Wir<lb/>
+gaben in unſerm Hauſe eine Reiſe auf die<lb/>
+andern Güter vor, und nahmen nichts,<lb/>
+als die Chatoulle, in welcher etwan tau-<lb/>
+ſend Ducaten waren, (denn mein Ge-<lb/>
+mahl hatte ſein baares Vermögen der Kro-<lb/>
+ne vorgeſtreckt) nebſt dem Geſchmeide und<lb/>
+den Kleinodien mit uns. Alles Silber-<lb/>
+geſchirr lieſſen wir im Stiche, und kamen<lb/>
+in Begleitung des vorhin gedachten Reit-<lb/>
+knechts, und des Bedienten des Herrn R--<lb/>
+glücklich über die Grenzen. Wir erfuh-<lb/>
+ren bald darauf, daß man die Güter ein-<lb/>
+gezogen, und daß man mir etliche Meilen<lb/>
+<fw type="catch" place="bottom">hatte</fw><lb/>
+<pb n="55" facs="#f0055"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+hatte nachſetzen laſſen. Wir waren nun-<lb/>
+mehr in Liefland; allein ich war deswe-<lb/>
+gen noch nicht ſicher. Der Prinz wollte<lb/>
+mich in ſeiner Gewalt haben. Mein Vet-<lb/>
+ter, der mich nach Schweden gebracht<lb/>
+hatte, war todt, und ich wußte nicht,<lb/>
+welches Land ich zu meinem Aufenthalte<lb/>
+ausſuchen ſollte. Mein getreuer Beglei-<lb/>
+ter ſollte mein Rathgeber werden. Er<lb/>
+ſchlug mir Holland vor, weil er in Am-<lb/>
+ſterdam Freunde hatte, und er verſi-<lb/>
+cherte mich, daß es mir an dieſem Orte<lb/>
+gefallen würde. Hier können ſie ſich,<lb/>
+ſagte er, ein Paar Jahre aufhalten, bis<lb/>
+ſich die Umſtände in Schweden ändern.<lb/>
+Vielleicht glückt es ihnen, daß ſie durch<lb/>
+Vorbitte mit der Zeit einen Theil von ih-<lb/>
+res Gemahls Vermögen zurück bekom-<lb/>
+men.</p><lb/>
+<p>Die Furcht, in des rachgierigen Prin-<lb/>
+zen Hände zu fallen, machte mir alle<lb/>
+Länder angenehmer, als mein Vaterland.<lb/>
+<fw type="sig" place="bottom">D 4</fw><fw type="catch" place="bottom">Jch</fw><lb/>
+<pb n="56" facs="#f0056"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Jch entſchloß mich alſo mit ihm nach Am-<lb/>
+ſterdam zu gehen, und ich wünſchte, daß<lb/>
+mich die ehemalige Geliebte meines Ge-<lb/>
+mahls dahin begleiten möchte. Wir wa-<lb/>
+ren etwan achtzehn Meilen von ihr ent-<lb/>
+fernet, denn wir bildeten uns ein, daß<lb/>
+ſie noch auf meines Gemahls Gütern<lb/>
+wäre, die er in Liefland hatte. Herr<lb/>
+R-- reiſete alſo dahin ab, um ſich nach ihr<lb/>
+zu erkundigen. Er war kaum weg, ſo<lb/>
+brachte mir der Reitknecht die Nachricht,<lb/>
+daß er Carolinen in der Kirche des Dor-<lb/>
+fes, in welchem ich mich insgeheim auf-<lb/>
+hielt, geſehen, aber nicht geſprochen hät-<lb/>
+te. Jch ſchickte ihn fort, und binnen we-<lb/>
+nig Stunden ſah ich ſie zu meinem größ-<lb/>
+ten Vergnügen bey mir. Sie hatte bin-<lb/>
+nen den acht Jahren, da ich ſie nicht ge-<lb/>
+ſehen, etwas von ihren äußerlichen Rei-<lb/>
+zungen, doch nichts von ihrer Annehm-<lb/>
+lichkeit im Umgange verlohren. Jch er-<lb/>
+zählte ihr mein Schickſal, und fragte ſie,<lb/>
+ob ſie mit mir nach Amſterdam gehen<lb/>
+<fw type="catch" place="bottom">wollte.</fw><lb/>
+<pb n="57" facs="#f0057"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+wollte. Sie vergoß tauſend Thränen<lb/>
+über mein Unglück, und über die Liebe,<lb/>
+die ich noch gegen ſie hatte. Sie ver-<lb/>
+fahren, ſprach ſie, gar zu liebreich mit mir.<lb/>
+Sie bezeigen mir die ſtärkſte Gewogenheit<lb/>
+und hätten doch vielleicht Urſache mich zu<lb/>
+haſſen. Jch halte es für mein größtes<lb/>
+Unglück, daß ich ihnen nicht folgen kann;<lb/>
+allein ich bin ſeit einem Jahre, denn ſo<lb/>
+lange iſt es, daß ich mich von ihres Ge-<lb/>
+mahls Gütern an dieſen Ort begeben ha-<lb/>
+be, ſehr krank geweſen, und ſie werden<lb/>
+mir es leicht anſehen, daß es mir unmög-<lb/>
+lich iſt, eine ſo weite Reiſe mit ihnen zu<lb/>
+thun. Jndeſſen ſchwöre ich ihnen zu,<lb/>
+daß mich, wofern ich wieder geſund wer-<lb/>
+de, nichts in der Welt abhalten ſoll, ih-<lb/>
+nen nachzufolgen. Und damit ich ſie von<lb/>
+der Gewißheit meines Verſprechens deſto<lb/>
+ſtärker überführe: ſo will ich ihnen mei-<lb/>
+nen Sohn mit geben, wenn er ihnen<lb/>
+nicht zur Laſt wird. Er iſt bey mir. Jch<lb/>
+habe mir für das Geld, das der Herr Va-<lb/>
+<fw type="sig" place="bottom">D 5</fw><fw type="catch" place="bottom">ter</fw><lb/>
+<pb n="58" facs="#f0058"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ter ihres Gemahls zu meiner und meines<lb/>
+Kindes Erhaltung ausgeſetzet hat, ein<lb/>
+kleines Landgut hier in dieſem Dorfe ge-<lb/>
+kauft, und ich biete es ihnen nicht allein<lb/>
+zu ihrem Aufenthalte, ſondern mit dem<lb/>
+größten Vergnügen zu ihrem Eigenthume<lb/>
+an. Wollte Gott ſie blieben unerkannt<lb/>
+bey mir, wie ruhig wollten wir nicht le-<lb/>
+ben! Das Verlangen, ihnen zu dienen, ſoll-<lb/>
+te mich wieder geſund und munter ma-<lb/>
+chen.</p><lb/>
+<p>Jch wagte es, mich auf ihren kleinen<lb/>
+Ritterſitz zu begeben. Jch traf keinen<lb/>
+Reichthum, keinen Ueberfluß da an; aber<lb/>
+Ordnung und Beqvemlichkeit, die von<lb/>
+dem guten Geſchmacke der Beſitzerinn zeug-<lb/>
+ten. Jch fand eine Menge ſchöner Bü-<lb/>
+cher in ihrer beſten Stube. Und ſie war<lb/>
+ſo beſcheiden, daß ſie ſagte, ſie gehörten<lb/>
+ihrem Sohne, da ich doch leicht merken<lb/>
+konnte, daß ſie ihr ſelber zugehörten. Es<lb/>
+waren faſt alle die Franzöſiſchen und<lb/>
+<fw type="catch" place="bottom">Schwe-</fw><lb/>
+<pb n="59" facs="#f0059"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+Schwediſchen Bücher, welche mein Ge-<lb/>
+mahl hochzuhalten pflegte, und ich konn-<lb/>
+te leicht errathen, wem ſie dieſen guten<lb/>
+Geſchmack zu danken hatte. Unter ihrem<lb/>
+Spiegel hieng das Bildniß meines Ge-<lb/>
+mahls. So bald ſie merkte, daß mirs in<lb/>
+die Augen fiel: ſo überreichte ſie mirs zum<lb/>
+Geſchenke, und geſtund mir, daß ſie es<lb/>
+ſelber gemahlet hätte; denn ſie konnte vor-<lb/>
+trefflich in Miniatür malen. Jch hielt es<lb/>
+für eine Grauſamkeit, ſie um dieſes An-<lb/>
+denken zu bringen. Darum bat ich ſie,<lb/>
+das Bild noch einmal zu malen, und die-<lb/>
+ſes ſo lange zu behalten.</p><lb/>
+<p>Jhr Sohn war noch nicht völlig drey-<lb/>
+zehn Jahr alt. Er war ein ſehr artiger<lb/>
+und lebhafter Knabe. Sie hatte ihn<lb/>
+ſchon in ſeinen zarteſten Jahren einem ge-<lb/>
+ſchickten Manne zur Aufſicht anvertraut,<lb/>
+und ihn itzt nur auf etliche Wochen zu ſich<lb/>
+kommen laſſen, weil ſie wegen der anhal-<lb/>
+tenden Krankheit ihr Ende vermuthet.<lb/>
+<fw type="catch" place="bottom">Sie</fw><lb/>
+<pb n="60" facs="#f0060"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Sie geſtund mir zu gleicher Zeit, daß ſie<lb/>
+von meinem verſtorbenen Gemahle auch<lb/>
+eine Tochter gehabt hätte. Sie wäre mit<lb/>
+ihr in Holland darnieder gekommen, und<lb/>
+hätte ſie bey ihrem Bruder, einem Kauf-<lb/>
+manne im Haag, theils auf ſein Bitten,<lb/>
+theils aus andern Urſachen zurück gelaſ-<lb/>
+ſen; dieſes Kind aber wäre in ſeinem<lb/>
+ſechsten Jahre geſtorben, wie ihr ihr Bru-<lb/>
+der geſchrieben hätte. Jch wollte wün-<lb/>
+ſchen, fuhr ſie fort, daß ſie ihren Auf-<lb/>
+enthalt in Holland bey meinem Bruder<lb/>
+nehmen könnten. Doch, ſo viel ich weis,<lb/>
+iſt er nicht mehr in den beſten Umſtänden.<lb/>
+Jch habe lange keine Nachricht von ihm,<lb/>
+und weis nicht, ob er ſich von ſeinem ſtar-<lb/>
+ken Bankerotte wieder erholet hat, oder<lb/>
+nicht?</p><lb/>
+<p>Der Herr R-- kam unterdeſſen von<lb/>
+ſeiner vergebenen Reiſe wieder. Es<lb/>
+war Zeit, daß wir uns von einem Orte<lb/>
+weg machten, wo wir länger nicht wohl<lb/>
+<fw type="catch" place="bottom">ver-</fw><lb/>
+<pb n="61" facs="#f0061"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+verborgen bleiben konnten. Ehe wir<lb/>
+noch fortgiengen, ſo ſtarb der Bediente<lb/>
+des Herrn R--, deſſen Verluſt uns nicht<lb/>
+wenig daurete. Dieſer redliche Menſch<lb/>
+gab ſeinem Herrn vor ſeinem Tode vier<lb/>
+hundert Stück Ducaten. Dieſes Geld,<lb/>
+ſagte er, habe ich in ihrem Dienſte und<lb/>
+durch ihre Freygebigkeit geſammlet, und<lb/>
+ich bin froh, daß ich es ihnen wieder ge-<lb/>
+ben kann. Jhrer Güte, ihrem Unterrich-<lb/>
+te und ihrem Exempel habe ichs zu dan-<lb/>
+ken, daß ich itzt gelaſſen und freudig ſter-<lb/>
+ben kann. Wenn ſie nur wieder einen<lb/>
+Menſchen hätten, auf den ſie ſich verlaſſen<lb/>
+könnten. So gewiß iſts, daß man auch<lb/>
+den niedrigſten Menſchen edelmüthig ma-<lb/>
+chen kann, wenn man ihn nicht bloß als<lb/>
+ſeinen Bedienten und Sclaven, ſondern<lb/>
+als ein Geſchöpf anſieht, das unſerer Auf-<lb/>
+ſicht anvertraut, und zu einem allgemei-<lb/>
+nen Zwecke nebſt uns gebohren iſt.</p><lb/>
+<p>Wir verließen nunmehr Carolinen,<lb/>
+in Begleitung ihres Sohnes. Sie ver-<lb/>
+<fw type="catch" place="bottom">ſprach,</fw><lb/>
+<pb n="62" facs="#f0062"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ſprach, ſo bald es möglich wäre, uns zu<lb/>
+folgen, und ihr Landgütchen zu verkau-<lb/>
+fen. Wir kamen glücklich in Amſterdam<lb/>
+an. Der Vetter des Herrn R--, bey dem<lb/>
+wir uns aufhalten wollten, war zwar ge-<lb/>
+ſtorben, doch lebte ſeine Tochter noch.<lb/>
+Sie kannte den Herrn R--, ſo bald ſie<lb/>
+ihn ſah; denn er war, wie ich ſchon ge-<lb/>
+ſagt habe, mit meinem Gemahl ehedem<lb/>
+durch Holland gereiſet. Sie nahm uns<lb/>
+ſehr gütig auf, und ihr Ehemann war<lb/>
+ebenfalls ein vernünftiger und dienſtferti-<lb/>
+ger Mann. Jch entdeckte mich ihnen, und<lb/>
+bat, daß ſie meinen Stand nicht allein<lb/>
+verſchwiegen halten, ſondern ihn auch ver-<lb/>
+geſſen, und mich nicht mehr als eine Grä-<lb/>
+finn, ſondern als eine unglückliche Freun-<lb/>
+dinn betrachten möchten. Sie hatten<lb/>
+von dem Schickſale meines Gemahls ſchon<lb/>
+durch die Zeitungen gehöret. Und wenn<lb/>
+ich auch keine Eigenſchaften gehabt hätte,<lb/>
+mich bey dieſen Leuten in Gewogenheit<lb/>
+und Anſehen zu ſetzen: ſo war doch mein<lb/>
+<fw type="catch" place="bottom">Unglück</fw><lb/>
+<pb n="63" facs="#f0063"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+Unglück ſchon die beſte Empfehlung. Ja<lb/>
+ich erfuhr, daß ein groſſes Unglück in den<lb/>
+Gemüthern vieler Menſchen faſt eben die<lb/>
+Wirkungen hervor bringt, welche ſonſt<lb/>
+ein groſſes Glück zu verurſachen pflegt.<lb/>
+Man ſchätzt uns hoch, weil wir viel erlit-<lb/>
+ten oder viel verlohren haben, und man<lb/>
+macht unſern Unfall zu unſerm Verdien-<lb/>
+ſte, ſo wie man oft unſer Glück, ob wir<lb/>
+gleich nichts dazu beygetragen haben, als<lb/>
+unſre Vollkommenheit anſieht. Mit ei-<lb/>
+nem Worte, dieſe Leute erwieſen mir,<lb/>
+ehe ich ſie noch kannte, mehr Hochach-<lb/>
+tung und Gefälligkeit, als ich fordern<lb/>
+konnte. Sie gaben mir einen ganzen<lb/>
+Theil von ihrem Hauſe zu meiner Woh-<lb/>
+nung ein; ich nahm aber nicht mehr, als<lb/>
+ein Paar Zimmer. Und damit ich dieſen<lb/>
+gutthätigen Leuten nicht zur Laſt werden<lb/>
+möchte: ſo entdeckte ich dem Herrn R--<lb/>
+daß ich willens wäre, meine Juwelen zu<lb/>
+Gelde zu machen, und das Geld in die<lb/>
+Handlung ſeiner Frau Muhme zu legen.<lb/>
+<fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="64" facs="#f0064"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Er ſagte, daß er es mit ſeinen vier hun-<lb/>
+dert Ducaten, die ihm ſein Bedienter ge-<lb/>
+geben, ſchon alſo gemacht hätte. Mein<lb/>
+dienſtwilliger Wirth verhandelte meine<lb/>
+Juwelen für zwölf tauſend Thaler, und<lb/>
+ſagte, daß er mir keine Jntereſſen, ſon-<lb/>
+dern den ordentlichen Gewinnſt davon ab-<lb/>
+geben wollte, der bey der Rechnung in<lb/>
+ſeinem Handel auf dieſes Capital fallen<lb/>
+würde. Jch bat ihn, daß er mir keine<lb/>
+Rechnung ablegen, ſondern mich und mei-<lb/>
+ne beyden Reiſegefährten, an ſtatt der<lb/>
+Jntereſſen, erhalten ſollte. Jch lebte<lb/>
+hier ſo ruhig, daß ich mir keinen andern<lb/>
+Ort wünſchte. Herr R-- hatte den Sohn<lb/>
+von Carolinen bey ſich. Weil er kein<lb/>
+Amt hatte: ſo gab er ſich ſelber eins, und<lb/>
+zog dieſen jungen Menſchen mit ſo vieler<lb/>
+Sorgfalt auf, als ein Mann thun kann,<lb/>
+der in dem Bewuſtſeyn edler Abſichten<lb/>
+und nützlicher Thaten ſeine Belohnung<lb/>
+ſucht. Und wie ſehr würden nicht die<lb/>
+Groſſen viele niedrige und unberühmte<lb/>
+<fw type="catch" place="bottom">Männer</fw><lb/>
+<pb n="65" facs="#f0065"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+Männer beneiden, wenn ſie die Beloh-<lb/>
+nung kennten, welche ſolchen Leuten das<lb/>
+Gedächtniß ihrer rühmlichen Abſichten<lb/>
+und guten Thaten zu ſchenken pflegt. Er<lb/>
+unterrichtete den jungen Menſchen in den<lb/>
+Sprachen und Künſten, und brachte ihm<lb/>
+die edelſten Meynungen von der Religion<lb/>
+und der Tugend bey. Was ſein Unter-<lb/>
+richt nicht that, das richtete ſein Exempel<lb/>
+aus. Der Schüler ward ſeinem Lehrer<lb/>
+ähnlich, und belohnte deſſen Mühe durch<lb/>
+einen fähigen Verſtand und durch ein gu-<lb/>
+tes Herz. Jch brachte meine Zeit mei-<lb/>
+ſtens mit Studiren zu, wenn anders ein<lb/>
+Frauenzimmer ohne Eitelkeit dieſes von<lb/>
+ſich ſagen kann. Jch redte des Tages ge-<lb/>
+meiniglich eine Stunde mit unſerm jungen<lb/>
+Schüler, und ſuchte ihm das Wohlan-<lb/>
+ſtändige beyzubringen, das junge Manns-<lb/>
+perſonen oft am erſten von einem Frauen-<lb/>
+zimmer lernen können. Jch ſuchte ſein<lb/>
+flüchtiges und feuriges Weſen der Jugend<lb/>
+durch meine Ernſthaftigkeit zu mäßigen.<lb/>
+<fw type="sig" place="bottom">E</fw><fw type="catch" place="bottom">Jch</fw><lb/>
+<pb n="66" facs="#f0066"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Jch that ſtets fremd gegen ihn, und ſtell-<lb/>
+te verſchiedene Perſonen vor, damit er<lb/>
+meinen Umgang nicht zu gewohnt werden,<lb/>
+und in meiner Geſellſchaft immer etwas<lb/>
+neues finden ſollte. Mit der Tochter mei-<lb/>
+ner Wirthinn, welche ein Mädchen von<lb/>
+etwan acht Jahren war, vertrieb ich mir<lb/>
+manche Stunde. Jch lehrte ſie franzö-<lb/>
+ſiſch, zeichnen, ſticken, und auch ſingen.<lb/>
+Kurz, ich führte eine ſehr ruhige Lebens-<lb/>
+art. Mein Wirth und ſeine Frau be-<lb/>
+qvemten ſich nach meinem Geſchmacke, und<lb/>
+lernten mir die Vergnügungen ab, mit<lb/>
+welchen ſie mich unterhalten wollten. Sie<lb/>
+brachten mich niemals in große Geſell-<lb/>
+ſchaften. Sie ſtörten mich nicht in mei-<lb/>
+ner Einſamkeit, als bis ich geſtört ſeyn<lb/>
+wollte. Jch durfte weder befehlen, noch<lb/>
+bitten, wenn ich ein Vergnügen haben<lb/>
+wollte. Jch durfte nur wählen. Man<lb/>
+hielt mich in unſerm Hauſe für eine An-<lb/>
+verwandtinn der Wirthinn. Und wer<lb/>
+ſonſt mit mir umgieng, wußte es auch<lb/>
+<fw type="catch" place="bottom">nicht</fw><lb/>
+<pb n="67" facs="#f0067"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+nicht beſſer. Mein verſchwiegener Stand<lb/>
+nöthigte mich alſo nicht den glänzenden<lb/>
+und ſehr beſchwerlichen Charackter einer<lb/>
+Standsperſon in Geſellſchaften zu behaup-<lb/>
+ten, und dieſes zu meinem großen Vor-<lb/>
+theile. Hätte man gewußt, daß ich eine<lb/>
+Gräfinn wäre; ſo würde man, an Statt<lb/>
+mich zu bewundern, nur mein gutes für<lb/>
+einen nothwendigen Antheil meines Stan-<lb/>
+des angeſehen haben. Oder wenn es<lb/>
+hoch gekommen wäre; ſo würde man mich<lb/>
+nur verehret haben, da man mich gegen-<lb/>
+theils itzt zugleich verehrte und liebte, und<lb/>
+meinen Umgang ſuchte.</p><lb/>
+<p>Vier Jahre hatte ich nunmehr in Am-<lb/>
+ſterdam zugebracht, und zu verſchiedenen<lb/>
+malen an Carolinen geſchrieben, und ſie<lb/>
+an ihr Verſprechen, zu mir zu kommen,<lb/>
+erinnert; allein ſie blieb aus.</p><lb/>
+<p>Jhr Sohn ſollte ſich nunmehr eine Le-<lb/>
+bensart erwählen, welche er wollte. Er<lb/>
+<fw type="sig" place="bottom">E 2</fw><fw type="catch" place="bottom">bezeig-</fw><lb/>
+<pb n="68" facs="#f0068"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+bezeigte Luſt zu dem Soldatenſtande, und<lb/>
+der Herr R-- war ſo wenig dawider, daß<lb/>
+er ſeine Wahl vielmehr billigte. Geſitte-<lb/>
+te und geſchickte Leute, ſagte er, ſind nir-<lb/>
+gends nöthiger und nützlicher, als wo es<lb/>
+viele Ungeſittete giebt. Werden ſie ein<lb/>
+Soldat, und zeigen ſie, daß man uner-<lb/>
+ſchrocken, tapfer, ſtrenge, und doch auch<lb/>
+weiſe, vorſichtig und liebreich ſeyn kann.<lb/>
+So lange ſie die Religion und ein gutes<lb/>
+Gewiſſen haben werden: ſo lange wer-<lb/>
+den ſie den Tod zwar nicht gleichgültig<lb/>
+anſehen; aber doch ohne Entſetzen erwar-<lb/>
+ten, und nie aus Zagheit vermeiden. Die-<lb/>
+ſes iſt die wahre Tapferkeit. Wir kauf-<lb/>
+ten ihm eine Fähndrichsſtelle; und er<lb/>
+gieng zu ſeinem Regimente ab, welches<lb/>
+nachmals an die Grenze von Holland zu<lb/>
+ſtehen kam.</p><lb/>
+<p>Nunmehr kömmt eine von den wunder-<lb/>
+ſamſten Begebenheiten meines Lebens,<lb/>
+welche mir von Leuten, die den Stand<lb/>
+<fw type="catch" place="bottom">lieben,</fw><lb/>
+<pb n="69" facs="#f0069"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+lieben, und die Menſchen nicht nach ihren<lb/>
+Neigungen und Eigenſchaften, ſondern<lb/>
+ſtets nach der Geburt und nach dem Ran-<lb/>
+ge unter einander vergleichen, ſchwerlich<lb/>
+wird vergeben werden. Jch war noch<lb/>
+in meinen beſten Jahren, und die An-<lb/>
+nehmlichkeiten in meiner Bildung waren<lb/>
+noch nicht verlohren gegangen, oder höch-<lb/>
+ſtens zum Theile nur ſo verloſchen, wie<lb/>
+die kleinen Züge in einem Gemälde die<lb/>
+man nicht ſehr vermißt. Es fanden ſich<lb/>
+verſchiedene Holländer von Anſehen und<lb/>
+groſſem Vermögen, die mich zur Frau be-<lb/>
+gehrten. Allein ihr Suchen war um-<lb/>
+ſonſt. Wer einen ſo liebenswürdigen und<lb/>
+vortrefflichen Gemahl, als ich, gehabt,<lb/>
+konnte in der Liebe leicht etwas eigenſin-<lb/>
+nig ſeyn. Ob nun gleich keiner von mei-<lb/>
+nen Freyern ſeine Abſicht erreichte: ſo<lb/>
+weckten ſie doch die Erinnerung von der<lb/>
+Süßigkeit der Liebe bey mir wieder auf.<lb/>
+Du willſt, dachte ich, um dieſer Herren<lb/>
+los zu werden, dich ſelbſt zu einer Wahl<lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">ent-</fw><lb/>
+<pb n="70" facs="#f0070"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+entſchließen. Dieſe Urſache zu einer Ehe<lb/>
+iſt etwas weit hergeholet. Jndeſſen war<lb/>
+es gewiß, daß ich ſie bey mir ſelber vor-<lb/>
+wand, weil es mein Herz haben wollte.<lb/>
+Der Herr R-- kam an einem Nachmit-<lb/>
+tage zu mir auf meine Stube und fragte<lb/>
+mich, ob ich mich bald der Ehe zum Be-<lb/>
+ſten entſchloſſen hätte. Rathen ſie mir<lb/>
+denn, ſprach ich, daß ich wieder heyra-<lb/>
+then ſoll? Nicht ehe, verſetzte er, als bis<lb/>
+ich ſehe, daß es ihnen ihr eigen Herz ge-<lb/>
+rathen hat. Sie kennen meine Aufrich-<lb/>
+tigkeit, und ſie wiſſen, daß ich nichts für<lb/>
+ein Glück halte, was man nicht verlangt<lb/>
+und freywillig wählt. Unter der großen<lb/>
+Anzahl Männer, die ſich um ihr Herz be-<lb/>
+mühen, gefällt mir keiner beſſer, als der<lb/>
+Herr von der H--; Nicht deswegen, weil er<lb/>
+ſehr gelehrt iſt; ſondern weil er außer ſeinen<lb/>
+Wiſſenſchaften und ſeiner wichtigen Be-<lb/>
+dienung ſehr viele Vortheile hat, die ihm<lb/>
+Liebe erwerben, und ihn zur Liebe geſchickt<lb/>
+machen. Jch habe gewiß Recht, daß er<lb/>
+<fw type="catch" place="bottom">ein</fw><lb/>
+<pb n="71" facs="#f0071"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+ein liebenswürdiger Mann iſt; allein die-<lb/>
+ſem Urtheile dürfen ſie darum nicht<lb/>
+trauen. Jch betrachte den Mann zwar<lb/>
+nach einerley Begriffen mit ihnen, al-<lb/>
+lein nicht nach einerley Empfindungen.<lb/>
+Jch liebe ihn als einen Freund, und als<lb/>
+ein Freund kann er ihnen angenehm<lb/>
+und liebenswerth vorkommen, aber dar-<lb/>
+um noch nicht als ein Ehemann. Un-<lb/>
+ſer Herz iſt oft ſo beſchaffen, daß es die<lb/>
+Liebe gegen eine ihm angenehme Perſon<lb/>
+zurück hält, ſo bald es auf das genaue-<lb/>
+ſte mit ihr verbunden werden ſoll. Viel-<lb/>
+leicht, fuhr er fort, gefällt ihnen einer<lb/>
+von den andern Herren beſſer zur Liebe,<lb/>
+ob ihnen dieſer gleich zu einem guten<lb/>
+Freunde genug gefällt.</p><lb/>
+<p>Jch verſicherte ihn, daß ich mich ſei-<lb/>
+nes Raths bedienen würde, ſo bald ich<lb/>
+meine eigene Neigung zu Rathe gezogen<lb/>
+hätte. Warum, fuhr ich fort, heirathen<lb/>
+ſie denn nicht? O, ſagte er, ich würde<lb/>
+<fw type="sig" place="bottom">E 4</fw><fw type="catch" place="bottom">es</fw><lb/>
+<pb n="72" facs="#f0072"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+es gewiß gethan haben, wenn meine Um-<lb/>
+ſtände und die Liebe mir zur Ehe gera-<lb/>
+then hätten. Die Liebe und meine Phi-<lb/>
+loſophie ſind einander gar nicht zuwider.<lb/>
+Eine recht zufriedene Ehe bleibt nach<lb/>
+allen Ausſprüchen der Vernunft die<lb/>
+größte Glückſeligkeit des geſellſchaftlichen<lb/>
+Lebens. Zeigen ſie mir nur eine Per-<lb/>
+ſon, die mir anſtändig iſt, und die ihnen<lb/>
+die Verſicherung giebt, daß ſie mich zu<lb/>
+beſitzen wünſcht: ſo werde ich ſie, ſo<lb/>
+bald ich ſie kenne, mit der größten Zu-<lb/>
+friedenheit zu meiner Gattinn wählen.<lb/>
+Wir haben alle eine Pflicht, uns das<lb/>
+Leben ſo vergnügt und anmuthig zu<lb/>
+machen, als es möglich iſt. Und wenn<lb/>
+es wahrſcheinlich iſt, daß es durch die<lb/>
+Liebe geſchehen kann: ſo ſind wir auch<lb/>
+zur Liebe und Ehe verbunden. Allein,<lb/>
+verſetzte ich, ſie haben ja, ſo lange ich<lb/>
+ſie kenne, gegen unſer Geſchlecht ſehr<lb/>
+gleichgültig zu ſeyn geſchienen; wie kömmt<lb/>
+es denn, daß ſie der Liebe itzt das Wort<lb/>
+<fw type="catch" place="bottom">reden?</fw><lb/>
+<pb n="73" facs="#f0073"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+reden? Jch bitte, ſprach er, vermengen<lb/>
+ſie die Beſcheidenheit nicht mit der<lb/>
+Gleichgültigkeit. Jch weis, daß man<lb/>
+dem andern mit ſeiner Liebe oft ſo be-<lb/>
+ſchwerlich fallen kann, als mit ſeinem<lb/>
+Haſſe. Und aus dieſem Grunde bin<lb/>
+ich ſtets behutſam, aber darum nicht<lb/>
+gleichgültig gegen das Frauenzimmer.<lb/>
+Jch weis eine Perſon, hub ich an, die<lb/>
+ſie liebt, und ich glaube nicht, daß ſie<lb/>
+ihnen misfallen wird. Allein deswegen<lb/>
+weis ich auch noch nicht, ob es eben<lb/>
+diejenige iſt, mit der ſie das genaueſte<lb/>
+Band der Liebe ſchlieſſen wollen. Er<lb/>
+ward beſtürzt, und fragte mich wohl<lb/>
+zehnmal, wer ſie wäre. Jch hielt ihn<lb/>
+lange auf, und endlich verſprach ich ihm,<lb/>
+daß er ſie Nachmittage zu ſehen bekom-<lb/>
+men ſollte. Nachmittage ſchickte ich ihm<lb/>
+mein Portrait, und ſchrieb ein Billet<lb/>
+ungefehr dieſes Jnnhalts an ihn:</p><lb/>
+<p>So hat die Perſon in ihrer Jugend<lb/>
+ausgeſehn, die ſie liebt. Erſt hat ſie nur<lb/>
+<fw type="sig" place="bottom">E 5</fw><fw type="catch" place="bottom">Freund-</fw><lb/>
+<pb n="74" facs="#f0074"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Freundſchaft und Erkenntlichkeit gegen<lb/>
+ſie empfunden. Die Zeit und ihr Werth<lb/>
+hat dieſe Regungen in Liebe verwandelt.<lb/>
+Der liebſte Freund meines Gemahls hat<lb/>
+das erſte Recht auf mein Herz. Sie<lb/>
+ſind ſo großmüthig und tugendhaft mit<lb/>
+mir umgegangen, daß ich Sie lieben muß.<lb/>
+Antworten Sie mir ſchriftlich. Entſchul-<lb/>
+digen Sie ſich nicht mit ihrem Stande.<lb/>
+Sie haben die Verdienſte; was geht die<lb/>
+Vernünftigen die Ungleichheit des Stan-<lb/>
+des an? Um die Unvernünftigen dürfen<lb/>
+wir uns nicht bekümmern, weil hier nie-<lb/>
+mand von meinem Stande weis.</p><lb/>
+<p>Er kam den Augenblick zu mir. Und<lb/>
+eben der Mann, der ſo wohl bey mei-<lb/>
+nes Gemahls Lebzeiten, als nach ſeinem<lb/>
+Tode nie ſo gethan hatte, als ob er mir<lb/>
+eine Liebkoſung erweiſen wollte, wußte<lb/>
+mir itzt ſeine Zärtlichkeit mit einer ſo an-<lb/>
+ſtändigen und einnehmenden Art zu be-<lb/>
+zeigen, daß ich ihn würde zu lieben an-<lb/>
+<fw type="catch" place="bottom">gefangen</fw><lb/>
+<pb n="75" facs="#f0075"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+gefangen haben, wenn ich ihn noch nicht<lb/>
+geliebt hätte. Nunmehr, ſagte er, ha-<lb/>
+ben ſie mir das Recht gegeben, ihnen<lb/>
+mein Herz ſehen zu laſſen. Und nun-<lb/>
+mehr kann ich ihnen ohne Fehler das ge-<lb/>
+ſtehen, was mich die Ehrerbietung ſonſt<lb/>
+hat verſchweigen heiſſen. Jch habe an<lb/>
+das Glück, das ſie mir itzt anbieten, wie<lb/>
+der Himmel weis, kaum gedacht. Und<lb/>
+wenn ich auch daran gedacht hätte: ſo<lb/>
+würde mich meine wenige Eigenliebe nie-<lb/>
+mals dieſen Gedanken haben fortſetzen<lb/>
+laſſen. Es fehlt zu meiner Zufriedenheit<lb/>
+nichts, als daß ſie mich überzeugen, daß<lb/>
+ich ihrer werth bin: ſo will ich mich für<lb/>
+den glücklichſten Menſchen ſchätzen. Kurz,<lb/>
+wir giengen zu unſerer Wirthinn, wir<lb/>
+ſagten ihr unſern Entſchluß, und ſie war<lb/>
+nebſt ihrem Manne über dieſe unvermu-<lb/>
+thete Nachricht ausnehmend erfreut. Un-<lb/>
+ſere kleinen Capitale hatten ſich binnen<lb/>
+ſechs Jahren in der Handlung faſt um<lb/>
+noch einmal ſo viel vermehret, und wir<lb/>
+<fw type="catch" place="bottom">hätten</fw><lb/>
+<pb n="76" facs="#f0076"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+hätten beyde ſehr gemächlich davon le-<lb/>
+ben können. Allein unſer freundſchaft-<lb/>
+licher Wirth wollte uns nicht aus ſei-<lb/>
+nem Hauſe laſſen. Er behielt unſer<lb/>
+Geld, und erwies uns, wie zuvor, alle<lb/>
+mögliche Gefälliakeiten. Alſo war Herr<lb/>
+R-- mein Gemahl, oder wenn ich nicht<lb/>
+mehr ſtandesmäßig reden ſoll, mein lie-<lb/>
+ber Mann. Jch liebte ihn, wie ich auf-<lb/>
+richtig verſichern kann, ganz ausnehmend,<lb/>
+und ſo zärtlich, als meinen erſten Ge-<lb/>
+mahl. An Gemüthsgaben war er ihm<lb/>
+gleich, wo er ihn nicht noch in gewiſſen<lb/>
+Stücken übertraf. Aber an dem äußer-<lb/>
+lichen kam er ihm nicht bey. Er war<lb/>
+wohl gewachſen; allein er hatte gar nicht<lb/>
+das Einnehmende an ſich, das gleich auf<lb/>
+das erſtemal rührt. Nein, man mußte<lb/>
+ihn etliche mal geſehen, man mußte ihn<lb/>
+geſprochen haben, wenn man ihm recht<lb/>
+gewogen ſeyn wollte. Jch will deswe-<lb/>
+gen nicht behaupten, daß er ſich für alle<lb/>
+Frauenzimmer geſchickt haben würde.<lb/>
+<fw type="catch" place="bottom">Genug,</fw><lb/>
+<pb n="77" facs="#f0077"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+Genug, er gefiel mir, und ich fand jeden<lb/>
+Tag in ſeinem Umgange eine neue Ur-<lb/>
+ſache, ihn zu lieben. Er war nahe an<lb/>
+vierzig Jahre, und er hatte ſeit der Zeit,<lb/>
+daß ich ihn bey meinem Gemahle kennen<lb/>
+lernen, ſich gar nicht von Perſon geän-<lb/>
+dert. Seine ordentliche und ſtille Le-<lb/>
+bensart erhielten ihn ſo geſund, als ob<lb/>
+er erſt zu leben anfieng. Wer war<lb/>
+glücklicher, als wir! Unſer Glück fiel nie-<lb/>
+manden in die Augen, und deſto ruhiger<lb/>
+konnten wir es genießen. Wir lebten<lb/>
+ohne zu befehlen, und ohne zu gehor-<lb/>
+chen. Wir durften niemanden von un-<lb/>
+ſern Handlungen Rechenſchaft geben, als<lb/>
+uns ſelbſt. Wir hatten mehr, als wir<lb/>
+begehrten, und alſo genug, andern wohl<lb/>
+zu thun. Wir hatten eine Geſellſchaft,<lb/>
+die ſich zu unſern Neigungen ſchickte.<lb/>
+Wir lebten an dem volkreichſten Orte<lb/>
+in der größten Stille. Dieſes war un-<lb/>
+ſer Verlangen. Wir konnten uns beyde<lb/>
+mit dem edelſten Zeitvertreibe, mit Leſen<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="78" facs="#f0078"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+und Denken unterhalten. Wir ſtudirten,<lb/>
+ohne daß uns deswegen jemand bewun-<lb/>
+dern ſollte. Wir ſtudirten zu unſerer<lb/>
+eigenen Ruhe. Und daß ich alles mit<lb/>
+einmal ſage, wir wußten in unſerer Ehe<lb/>
+von keinem andern Wechſel, als von<lb/>
+Gefälligkeiten und Gegengefälligkeiten.<lb/>
+Viele können es nicht vertragen, wenn<lb/>
+ſie die Liebe verehlichter Perſonen ſo zärt-<lb/>
+lich abgeſchildert ſehen, als die Liebe zwi-<lb/>
+ſchen, unverehlichten, weil man ſieht, daß<lb/>
+die meiſten Ehen die Liebe eher auslö-<lb/>
+ſchen. als vermehren. Doch ſolche Leu-<lb/>
+te wiſſen nicht, was Klugheit und Be-<lb/>
+hutſamkeit in der Ehe für Wunder thun<lb/>
+können. Sie erhalten die Liebe und be-<lb/>
+fördern ihren Fortgang, wie das Herz<lb/>
+durch ſeine Bewegung den Umlauf des<lb/>
+Geblüts. Es iſt wahr, eine beſtändige<lb/>
+und ſich ſtets gleiche Zärtlichkeit iſt in der<lb/>
+Ehe nicht möglich. Doch wenn nur auf<lb/>
+beyden Seiten eine gegründete Liebe<lb/>
+vorhanden iſt: ſo kann ſie bis in die ſpä-<lb/>
+<fw type="catch" place="bottom">teſten</fw><lb/>
+<pb n="79" facs="#f0079"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+teſten Jahre feurig und lebhaft bleiben.<lb/>
+Unſere Empfindungen können wohl et-<lb/>
+was abnehmen, allein dieſe Abnahme<lb/>
+heißt wenig. Derjenige hat allemal ge-<lb/>
+nug Vergnügen, ſo lange er ſo viel hat,<lb/>
+als das Maaß ſeiner Empfindungen ver-<lb/>
+langt. Genug, wir ſind nach vielen<lb/>
+Jahren noch ſo verliebt in einander ge-<lb/>
+weſen, als wenn wir uns erſt zu lieben<lb/>
+angefangen hätten. Man denke ja nicht,<lb/>
+weil wir die Wiſſenſchaften liebten, daß<lb/>
+wir an uns nur unſere Seelen geliebt<lb/>
+hätten. Jch habe bey allen meinen Bü-<lb/>
+chern über die metaphyſiſche Geiſterliebe<lb/>
+nur lachen müſſen. Der Körper gehört<lb/>
+ſo gut, als die Seele, zu unſerer Natur.<lb/>
+Und wer uns beredet, daß er nichts als<lb/>
+die Vollkommenheiten des Geiſtes an<lb/>
+einer Perſon liebt, der redet entweder<lb/>
+wider ſein Gewiſſen, oder er weis gar<lb/>
+nicht, was er redet. Die ſinnliche Lie-<lb/>
+be, die bloß auf den Körper geht, iſt<lb/>
+eine Beſchäftigung kleiner und unfrucht-<lb/>
+<fw type="catch" place="bottom">barer</fw><lb/>
+<pb n="80" facs="#f0080"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+barer Seelen. Und die geiſtige Liebe,<lb/>
+die ſich nur mit den Eigenſchaften der<lb/>
+Seele gattet, iſt ein Hirngeſpinſte hochmü-<lb/>
+thiger Schulweiſen, die ſich ſchämen,<lb/>
+daß ihnen der Himmel einen Körper<lb/>
+gegeben hat, den ſie doch, wenn es von<lb/>
+den Reden zur That käme, um zehen<lb/>
+Seelen nicht würden fahren laſſen.</p><lb/>
+<p>Jch komme wieder zu meiner Ge-<lb/>
+ſchichte. Wir lebten, wie ich geſagt<lb/>
+habe, ſo vergnügt, als man nur le-<lb/>
+ben kann. Wir meldeten Carlſo-<lb/>
+nen, ſo hieß Carolinens Sohn, der<lb/>
+Fähndrich, unſere Heirath, und baten<lb/>
+ihn, daß er uns beſuchen ſollte, wenn<lb/>
+es möglich wäre; denn wir hatten ihn<lb/>
+nun wohl in vier Jahren nicht geſehen.<lb/>
+Er ſchrieb uns, daß er Lieutenant wor-<lb/>
+den wäre, daß es ihm ſehr wohl gienge,<lb/>
+und daß er ſich vor wenig Wochen mit<lb/>
+einem Frauenzimmer, die ihm zu gefal-<lb/>
+len das Kloſter heimlich verlaſſen, ver-<lb/>
+<fw type="catch" place="bottom">heirathet</fw><lb/>
+<pb n="81" facs="#f0081"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+heyrathet hätte. Von ihrem Stande<lb/>
+könnte er uns nichts ſagen, weil ſie in<lb/>
+dem ſechſten Jahre in das Kloſter ge-<lb/>
+kommen, und darinnen bloß unter dem<lb/>
+Namen Mariane bekannt geweſen wäre.<lb/>
+Sie möchte indeſſen von dem niedrig-<lb/>
+ſten Herkommen ſeyn; ſo wäre ſie doch<lb/>
+ſo liebenswürdig, daß er ſich nur einen<lb/>
+hohen Stand wünſchen wollte, um ſeine<lb/>
+Geliebte darein ſetzen zu können. Denn<lb/>
+Carlſon wußte nichts weiter von ſeiner<lb/>
+Geburt, als daß ſein Vater ein Auf-<lb/>
+ſeher auf den Gütern meines erſten<lb/>
+Gemahls geweſen und ihm jung geſtor-<lb/>
+ben wäre. Er bat uns unbeſchreiblich,<lb/>
+daß wir nach dem Haag kommen ſollten,<lb/>
+von welchem Orte er itzt nur etliche<lb/>
+Meilen weit in dem Quartiere ſtünde.<lb/>
+Dieſe Nachricht erſchreckte uns faſt<lb/>
+mehr, als ſie uns erfreuete. Wir ver-<lb/>
+mutheten bey dieſer Ehe zwar genug<lb/>
+Liebe, aber nicht genug Ueberlegung.<lb/>
+Jndeſſen ſchickten wir ihm etliche hun-<lb/>
+<fw type="sig" place="bottom"><hi rendition="#fr">Erſter Theil.</hi> F</fw><fw type="catch" place="bottom">dert</fw><lb/>
+<pb n="82" facs="#f0082"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+dert Ducaten, daß er ſeine Umſtände<lb/>
+deſto bequemer einrichten könnte. Wir<lb/>
+verſprachen auch, ihn ſo bald zu beſu-<lb/>
+chen, als es die Jahrszeit und meine<lb/>
+Umſtände erlauben würden; denn ich war<lb/>
+mit einer Tochter darnieder gekommen.<lb/>
+Wir reiſeten den folgenden Frühling<lb/>
+nach dem Haag ab. Wir fanden an<lb/>
+unſerm Carlſon und ſeiner Frau ein Paar<lb/>
+Eheleute, die einander werth waren.<lb/>
+Mariane war ein ganz außerordentlich<lb/>
+ſchönes Frauenzimmer. Sie war blond,<lb/>
+und hatte ein Paar große blaue und<lb/>
+ſchmachtende Augen, die ſich zu ſchämen<lb/>
+ſchienen, daß ſie die Verräther von ei-<lb/>
+nem ſehr zärtlichen Herzen ſeyn ſollten.<lb/>
+Und wenn auch die übrigen Theile ihres<lb/>
+Geſichts nicht ſo ausnehmend wohlge-<lb/>
+ſtalt und recht abgemeſſen geweſen wä-<lb/>
+ren: ſo hätte ſie doch bloß ihrer Augen<lb/>
+wegen den Namen einer Schönheit ver-<lb/>
+dient. Von ihrem Verſtande will ich<lb/>
+nicht viel ſagen. Sie war in dem Klo-<lb/>
+<fw type="catch" place="bottom">ſter</fw><lb/>
+<pb n="83" facs="#f0083"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+ſter erzogen. Jhr unſchuldiges und auf-<lb/>
+richtiges Herz hätte auch den Mangel<lb/>
+des Witzes tauſendmal erſetzt, wenn ſie<lb/>
+gleich weniger Einſicht gehabt hätte, als<lb/>
+ſie in der That hatte. Es hieng ihr<lb/>
+noch etwas Schüchternes aus dem Klo-<lb/>
+ſter an; allein ſelbſt dieſe Schüchternheit<lb/>
+ſchickte ſich ſo wohl zu ihrer Unſchuld,<lb/>
+daß man ſie ungern würde vermißt ha-<lb/>
+ben. Ja, ich ſage noch mehr, man lieb-<lb/>
+te ſo gar an ihr die Schüchternheit; ſo<lb/>
+wie oft ein Fehler unter gewiſſen Um-<lb/>
+ſtänden zu einer Schönheit werden<lb/>
+kann.</p><lb/>
+<p>Jch ſuche die Worte vergebens, mit<lb/>
+denen ich ihre Zärtlichkeit gegen ihren<lb/>
+Mann beſchreiben will. Man ſtelle ſich<lb/>
+einen ſehr einnehmenden, feurigen und<lb/>
+blühenden Mann, (denn dieſes war Carl-<lb/>
+ſon) und dann ein von Natur zärtliches<lb/>
+Frauenzimmer vor, die von Jugend auf<lb/>
+eine Nonne geweſen war, und bey der die<lb/>
+<fw type="sig" place="bottom">F 2</fw><fw type="catch" place="bottom">ſüſ-</fw><lb/>
+<pb n="84" facs="#f0084"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ſüſſen Empfindungen nur deſto mächtiger<lb/>
+geworden waren, weil ſie an der ſtren-<lb/>
+gen Lebensart und an den Regeln einer<lb/>
+hohen Keuſchheit einen beſtändigen Wi-<lb/>
+derſtand gefunden hatten: ſo wird man<lb/>
+die innbrünſtige und ſchmachtende Liebe<lb/>
+dieſer jungen Frau einigermaaßen denken<lb/>
+können. Jch war ſo wohl mit unſers<lb/>
+Carlſons Wahl zufrieden, als mein<lb/>
+Mann, und wir vergnügten uns an der<lb/>
+Zufriedenheit dieſes Paars ſo ſehr, daß<lb/>
+wir nicht wieder von ihm kommen konn-<lb/>
+ten. Wir ließen Geld aus Amſterdam<lb/>
+kommen, und blieben ein ganzes Jahr,<lb/>
+und länger bey dieſen zärtlichen Eheleu-<lb/>
+ten. Nichts fehlte uns, als Carlſons<lb/>
+redliche Mutter. Wir hatten Briefe von<lb/>
+ihr, daß es ſich mit ihrer Geſundheit ge-<lb/>
+beſſert hätte, und daß ſie im Stande<lb/>
+wäre, bald zu uns zu kommen. Wir<lb/>
+ſchickten auch den Reitknecht, der mir<lb/>
+ehemals die Poſt von meines Gemahls<lb/>
+Tode gebracht hatte, fort, daß er ſie ab-<lb/>
+<fw type="catch" place="bottom">holen</fw><lb/>
+<pb n="85" facs="#f0085"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+holen und zu uns bringen ſollte. Er<lb/>
+hatte ſie bereits unterwegs angetroffen,<lb/>
+und ſie war bey uns, ehe wir es ver-<lb/>
+mutheten. Sie hatte ſich recht verjüngt,<lb/>
+und ſie ward durch die Freude über ih-<lb/>
+res Sohnes Glück und mein Vergnü-<lb/>
+gen alle Tage belebter und munterer.<lb/>
+Jndeſſen verſicherte uns dieſe rechtſchaf-<lb/>
+fene Frau, daß ihr Vergnügen gar zu<lb/>
+groß ſey, als daß es lange Beſtand ha-<lb/>
+ben könnte. Mariane kam mit einer<lb/>
+Tochter darnieder. Auch dieſes diente<lb/>
+uns zu einer neuen Freude. Doch ie<lb/>
+mehr wir Urſache hatten, mit Marianen<lb/>
+zufrieden zu ſeyn, deſto begieriger wur-<lb/>
+den wir, etwas gewiſſes von ihrer Her-<lb/>
+kunft zu erfahren. Gleichwohl war alle<lb/>
+unſere angewandte Mühe vergebens, uns<lb/>
+dieſes Geheimniß zu entdecken. Maria-<lb/>
+ne hatte ihrem Manne zu Liebe das<lb/>
+Kloſter heimlich verlaſſen, und wir muß-<lb/>
+ten bey unſerer Nachforſchung ſehr be-<lb/>
+hutſam gehen, damit wir ſie nicht in die<lb/>
+<fw type="sig" place="bottom">F 3</fw><fw type="catch" place="bottom">Gefahr</fw><lb/>
+<pb n="86" facs="#f0086"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Gefahr ſetzten, entdeckt zu werden. Jm<lb/>
+Kloſter fertigte man diejenigen, die wir<lb/>
+insgeheim nachfragen ließen, mit der Ant-<lb/>
+wort ab, daß ihnen Marianens Stand<lb/>
+und Geburt unbekannt wäre, daß ſie in<lb/>
+ihrem ſechſten Jahre von einem gemeinen<lb/>
+Manne in das Kloſter gebracht worden,<lb/>
+der ein gewiſſes Geld zu ihrer Erziehung<lb/>
+da gelaſſen, und nichts geſagt hätte, als<lb/>
+daß ſie die Tochter eines unglücklichen<lb/>
+Holländers wäre, der ſie nicht in der re-<lb/>
+formirten Religion erziehen laſſen wollte.<lb/>
+Vielleicht könnte er der Aebtiſſinn mehr<lb/>
+vertraut haben, dieſe aber wäre todt.<lb/>
+Kurz, wir erfuhren nichts, und es konnte<lb/>
+ſeyn, daß man in dem Kloſter ſelbſt nichts<lb/>
+gewiſſes von Marianens Herkunft wußte.<lb/>
+Denn wie viele Kinder werden nicht un-<lb/>
+ter einem fremden Namen in die Klöſter<lb/>
+gebracht, und durch unbekannte Hände<lb/>
+erhalten.</p><lb/>
+<p>Endlich mußten wir uns doch entſchlieſ-<lb/>
+ſen, wieder nach Amſterdam zurück zu ge-<lb/>
+<fw type="catch" place="bottom">hen.</fw><lb/>
+<pb n="87" facs="#f0087"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+hen. Unſere Umſtände forderten dieſe<lb/>
+Trennung. Caroline begleitete uns nach<lb/>
+dem Haag. Sie erkundigte ſich hier, ob<lb/>
+ſie nicht iemanden antreffen könnte, der<lb/>
+ihr von ihrem Bruder, Andreas, Nach-<lb/>
+richt geben könnte. Allein ſie erfuhr<lb/>
+nichts weiter, als was wir ſchon wußten,<lb/>
+nämlich, daß er nach ſeiner Frauen To-<lb/>
+de unglücklich in ſeiner Handlung gewor-<lb/>
+den, und weil er ſein Vermögen einge-<lb/>
+büßet hätte, mit einem Schiffe nach Oſt-<lb/>
+indien gegangen wäre, ſein Glück von<lb/>
+neuem zu verſuchen. Wir blieben noch<lb/>
+etliche Tage in dem Haag, und nahmen<lb/>
+unſere Reiſegelder in Empfang. Und<lb/>
+eben da wir fort wollten, ſo ließ uns der<lb/>
+Kaufmann, der ſie uns ausgezahlt hatte,<lb/>
+ſagen, daß in Amſterdam vor etlichen<lb/>
+Tagen ein Oſtindienfahrer, und auf die-<lb/>
+ſem Schiffe zugleich Herr Andreas, der<lb/>
+Kaufmann, nach dem wir ehedem gefragt<lb/>
+hätten, zurück gekommen, und heute bey<lb/>
+ihm geweſen wäre. Dieſe Zeitung war<lb/>
+<fw type="sig" place="bottom">F 4</fw><fw type="catch" place="bottom">zu</fw><lb/>
+<pb n="88" facs="#f0088"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+zu wichtig, als daß wir unſere Reiſe hät-<lb/>
+ten fortſetzen ſollen, ohne den Herrn An-<lb/>
+dreas zu ſprechen. Aber wollte der Him-<lb/>
+mel, daß wir ihn in unſerm Leben nicht<lb/>
+geſehen hätten! Er kam den andern Tag<lb/>
+zu uns. Carolinens erſte Frage war,<lb/>
+warum er ihr denn vor ſeiner Abreiſe<lb/>
+nach Oſtindien nichts ausführliches von<lb/>
+dem Tode ihrer Tochter geſchrieben hät-<lb/>
+te? Jſt denn Mariane todt? rief er. Was<lb/>
+willſt du denn mit der Mariane? ver-<lb/>
+ſetzte ſeine Schweſter. Meine Tochter<lb/>
+hieß ja, wie ich, Caroline. Wo iſt ſie<lb/>
+denn? Jſt ſie nicht todt? Ach wenn doch die-<lb/>
+ſes Gott wollte! Ja doch, ſprach Andreas,<lb/>
+ich weis es wohl, ſie hieß Caroline; aber<lb/>
+aus Liebe zu meiner Frau, und weil ich<lb/>
+ſie an Kindesſtatt angenommen hatte,<lb/>
+nennte ich ſie nach meiner Frau, Maria-<lb/>
+ne. Jch will dir alles erzählen; aber<lb/>
+verſprich mir, daß du mir auch alles ver-<lb/>
+geben willſt. Meine liebe Frau ſtarb<lb/>
+mir, wie ich dir vor zehn Jahren gemel-<lb/>
+<fw type="catch" place="bottom">det</fw><lb/>
+<pb n="89" facs="#f0089"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+det habe. Mariane war ebenfalls tödt-<lb/>
+lich krank, und ich hielt ſie ſchon für ver-<lb/>
+loren. Allein es beſſerte ſich mit ihr.<lb/>
+Jndeſſen nöthigte mich mein Bankerott,<lb/>
+mein Glück anderwärts zu verſuchen.<lb/>
+Jch gieng nach Oſtindien. Du weist,<lb/>
+daß ich der Catholiſchen Religion zuge-<lb/>
+than bin. Jch liebte deine Tochter, oder<lb/>
+vielmehr meine an Kindesſtatt angenom-<lb/>
+mene Mariane recht väterlich. Um ſie<lb/>
+nun theils in meiner Religion erziehen<lb/>
+zu laſſen, theils ſie wohl zu verſorgen:<lb/>
+ſo nahm ich, was ich noch hatte, und<lb/>
+that dieſes liebe Kind vor meiner Abrei-<lb/>
+ſe, und ohne iemanden etwas zu ſagen, in<lb/>
+ein Kloſter an der Grenze der Oeſter-<lb/>
+reichiſchen Niederlande. Jch war eben<lb/>
+im Begriffe dahin zu reiſen, und zu ſehen,<lb/>
+ob Mariane noch lebte, als ich hieher<lb/>
+gerufen ward. Jch kann nicht länger<lb/>
+warten, ich muß wiſſen, ob ſie noch lebt.<lb/>
+Komm mit, ſprach er zu Carolinen. Wir<lb/>
+wollen den Augenblick in das Kloſter fah-<lb/>
+<fw type="sig" place="bottom">F 5</fw><fw type="catch" place="bottom">ren.</fw><lb/>
+<pb n="90" facs="#f0090"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ren. Jn drey Tagen ſind wir wieder<lb/>
+hier. Und ohne ein Wort weiter zu<lb/>
+ſprechen, giengen ſie beyde fort. Mein<lb/>
+Mann und ich hatten kaum das Herz<lb/>
+uns anzuſehen, geſchweige zu reden. Ein<lb/>
+heimlicher Schauer lief mir durch alle<lb/>
+Glieder. Gott, was ſoll das werden!<lb/>
+fieng endlich mein Mann an. Mariane,<lb/>
+das Kloſter-- und nicht weit von der<lb/>
+Grenze. Was ſind dieſes für entſetzli-<lb/>
+che Nachrichten! Ach der arme, der un-<lb/>
+glückliche Carlſon! Möchte doch dieſes-<lb/>
+mal unſere Muthmaßung falſch ſeyn!<lb/>
+Wäre doch Andreas wieder da, oder<lb/>
+wäre er vielmehr nimmermehr wieder<lb/>
+nach Europa gekommen! Seine Gegen-<lb/>
+wart wird uns ganz gewiß das traurig-<lb/>
+ſte Geheimniß offenbaren, das uns ewig<lb/>
+hätte verborgen bleiben ſollen. Wird<lb/>
+nicht Caroline, um ihre Tochter wieder<lb/>
+zu finden, ſie als Frau aus den Armen<lb/>
+ihres eigenen Sohns reiſſen müſſen?<lb/>
+Mit dieſen grauſamen Vorſtellungen qväl-<lb/>
+<fw type="catch" place="bottom">ten</fw><lb/>
+<pb n="91" facs="#f0091"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+ten wir uns, bis Andreas mit ſeiner<lb/>
+Schweſter, der Caroline, wieder zurück<lb/>
+kam. Jhr Anblick ließ uns zu unſerem<lb/>
+Unglücke die Sache auf einmal errathen.<lb/>
+Caroline zerfloß faſt in Thränen. Sie<lb/>
+that untröſtlich, und ihr Bruder, als ein<lb/>
+harter Mann, ließ zwar äußerlich keine<lb/>
+Traurigkeit ſpüren; allein er ſaß ganz be-<lb/>
+täubt. Wir konnten aus beyden lange<lb/>
+Zeit kein Wort bringen. Sie hatten mit<lb/>
+einem Worte in dem Kloſter erfahren, daß<lb/>
+eine Nonne, mit Namen Mariane, welche<lb/>
+um das und das Jahr, (Tag und Jahr<lb/>
+traf beydes ein,) in das Kloſter gebracht<lb/>
+wäre, vor anderthalb Jahren daſſelbe<lb/>
+heimlich verlaſſen, und, ſo viel man wüß-<lb/>
+te, ſich mit einem jungen von Adel ver-<lb/>
+heyrathet hätte. Was war zu thun?<lb/>
+Wir mußten, an Statt nach Amſterdam<lb/>
+zu reiſen, wieder zurück nach Carlſons<lb/>
+Qvartier. Wir ſahen alle viere nur mehr<lb/>
+als zu gewiß, daß dieſe Nonne niemand<lb/>
+anders, als Carlſons Frau ſeyn würde.<lb/>
+<fw type="catch" place="bottom">Doch</fw><lb/>
+<pb n="92" facs="#f0092"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Doch man müßte das menſchliche Herz<lb/>
+nicht kennen, wenn man glaubte, daß<lb/>
+wir zu unſerm Troſte keine Ausflüchte ge-<lb/>
+wußt hätten. Eine Nachricht, von der<lb/>
+uns die Gewißheit erſchreckt, und das<lb/>
+Gegentheil erfreut, mag noch ſo wahr-<lb/>
+ſcheinlich ſeyn, als ſie will, ſo ſind wir<lb/>
+doch ſinnreich genug, ſie zweifelhaft zu<lb/>
+machen. Sollte ich, ſagte Caroline, denn<lb/>
+mein Kind, mein leiblich Kind nicht ken-<lb/>
+nen? Sollte es denn keine Aehnlichkeit<lb/>
+mit mit mir haben? Gleichwohl hatte ſie<lb/>
+es verlaſſen, da es kaum einige Monate<lb/>
+alt geweſen war. Ein junger von Adel,<lb/>
+fieng mein Mann oft unterwegs an, ein jun-<lb/>
+ger von Adel? Wenn hat ſich denn Carl-<lb/>
+ſon dafür ausgegeben? Er iſt viel zu be-<lb/>
+ſcheiden, als daß er ſich einen Stand an-<lb/>
+dichten ſollte, in dem er nicht erzogen wor-<lb/>
+den iſt. Nein, nein, ſprach ich, das wol-<lb/>
+le Gott nicht! Hätte er ſich auch für ei-<lb/>
+nen Edelmann ausgegeben, warum hät-<lb/>
+te er nicht geſagt, daß er ein Officier<lb/>
+<fw type="catch" place="bottom">wäre?</fw><lb/>
+<pb n="93" facs="#f0093"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+wäre? Vielleicht iſt in eben dem Jahre<lb/>
+noch ein Kind in das Kloſter gekommen,<lb/>
+das ebenfalls den Namen Mariane gehabt<lb/>
+hat. Andreas, der der Philoſophie wegen<lb/>
+nicht nach Oſtindien gereiſet war, meynte,<lb/>
+es läge ſchon in der Natur, daß ein Paar<lb/>
+ſo nahe Blutsfreunde einander nicht als<lb/>
+Mann und Frau lieben könnten. Jch<lb/>
+glaube, daß wir uns alle Augenblicke auf<lb/>
+dieſer Reiſe widerſprachen, ohne es zu<lb/>
+merken. Voll Zittern und Hoffnung<lb/>
+kamen wir alſo bey unſerm Carlſon wie-<lb/>
+der an. Wir hatten uns vorgenommen,<lb/>
+recht behutſam zu gehn, und die Urſache<lb/>
+unſerer Zurückkunft weder ihm noch ihr<lb/>
+merken zu laſſen. Wir wollten ſagen,<lb/>
+daß wir aus Vergnügen über die Ankunft<lb/>
+des Herrn Andreas wieder mit umgekehrt<lb/>
+wären. Wenn auch, ſprachen wir alle,<lb/>
+Mariane die rechte Mariane ſeyn ſollte:<lb/>
+ſo würden dieſe zärtlichen Eheleute doch<lb/>
+beyde in Verzweifelung gerathen, wenn<lb/>
+wir ihnen dieſes traurige Geheimniß auf<lb/>
+<fw type="catch" place="bottom">ein-</fw><lb/>
+<pb n="94" facs="#f0094"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+einmal entdeckten. Nein, fieng ich an,<lb/>
+wir bringen Marianen auf dieſe Art um<lb/>
+das Leben. Jſt ſie die wahre Caroline:<lb/>
+ſo will ich ſie bitten, daß ſie mir zu Liebe<lb/>
+auf einige Zeit mit nach Amſterdam rei-<lb/>
+ſen ſoll. Jhr Mann wird ihr dieß Ver-<lb/>
+gnügen nicht abſchlagen. Jſt ſie einmal<lb/>
+in Amſterdam: ſo wird es Zeit ſeyn, ihr<lb/>
+das Geheimniß nicht ſo wohl zu entde-<lb/>
+cken, als es ſie nach und nach entdecken<lb/>
+zu laſſen. Weis es Mariane: ſo ſoll es<lb/>
+Carlſon auch erfahren. Er muß ſie in<lb/>
+ſeinem Leben nicht wieder zu ſehn bekom-<lb/>
+men. Dieſes wird der einzige Troſt ſeyn,<lb/>
+mit dem wir ihm in ſeinem mitleidenswür-<lb/>
+digen Jrrthume beyſtehen können. Er<lb/>
+kennt die Religion, und hört die Ver-<lb/>
+nunft. Die Tochter aus dieſer unglück-<lb/>
+lichen Ehe will ich erziehen laſſen, damit<lb/>
+Mariane den traurigen Beweis einer ſo<lb/>
+zärtlichen und nunmehr unerlaubten Liebe<lb/>
+nicht vor Augen hat. Jn dieſer Berath-<lb/>
+ſchlagung langten wir bey Carlſon an.<lb/>
+<fw type="catch" place="bottom">Er</fw><lb/>
+<pb n="95" facs="#f0095"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+Er trat in die Thüre, indem wir anka-<lb/>
+men, und lief uns mit Verwunderung<lb/>
+entgegen. Wir heiterten unſere Geſichter<lb/>
+ſo gut auf, als es möglich war, nnd ſag-<lb/>
+ten ihm, daß Herr Andreas, Caroli-<lb/>
+nens Bruder, den wir in dem Haag von<lb/>
+ſeiner Wiederkunft aus Jndien angetrof-<lb/>
+fen hätten, die Urſache unſerer Zurückkunft<lb/>
+wäre. Wer war froher, als er! Wir<lb/>
+traten in die Stube zu ſeiner Mariane.<lb/>
+Kaum hatte Andreas Marianen erblickt:<lb/>
+ſo fiel er ihr um den Hals, und ſchrie mit<lb/>
+einem entſetzlichen Tone: Ach das Gott<lb/>
+erbarme, ſie iſt es, ſie iſt es! Jch un-<lb/>
+glücklicher Mann, ich bin an allem Schuld!<lb/>
+Dieſes war die Erfüllung von dem Vor-<lb/>
+ſatze, bey der Sache behutſam zu gehen.<lb/>
+Caroline lief als verzweifelnd zur Thüre<lb/>
+hinaus. Mariane wollte ſich von dem<lb/>
+Andreas los machen; allein er ließ ſie<lb/>
+nicht aus ſeinen Armen. Jch hatte nicht<lb/>
+ſo viel Gewalt über mich, daß ich hingehen,<lb/>
+und ihn von ihr los reiſſen konnte. Carl-<lb/>
+<fw type="catch" place="bottom">ſon</fw><lb/>
+<pb n="96" facs="#f0096"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ſon blieb auf einer Stelle ſtehen, und frag-<lb/>
+te hundertmal, was es wäre. Mein Mann<lb/>
+wollte es ihm ſagen, und kehrte doch bey<lb/>
+iedem Worte wieder ein. Mariane kam<lb/>
+endlich auf mich zu. Jch ſollte ihr entde-<lb/>
+cken, was es wäre. Jch fieng an zu re-<lb/>
+den, ohne zu wiſſen was. Jch bat ſie um<lb/>
+Vergebung. Jch verſicherte ſie meiner<lb/>
+ewigen Freundſchaft. Jch umarmte ſie.<lb/>
+Dieſes war es alles. Jndeſſen kam ihr<lb/>
+Mann, und wollte ſie aus meinen Armen<lb/>
+nehmen. Nein, nein, ſchrie ich, Mariane<lb/>
+iſt nicht ihre Frau, Mariane iſt ihre Schwe-<lb/>
+ſter. Jn dieſem Augenblicke ſank Mari-<lb/>
+ane nieder, und ich erwachte darüber, als<lb/>
+wie aus einem unruhigen Schlafe. Jch<lb/>
+und mein Mann waren am erſten wieder<lb/>
+bey uns ſelbſt. Wir brachten Marianen<lb/>
+auf ein Bette, und ſie erholte ſich aus ei-<lb/>
+ner Ohnmacht, um in die andre zu fal-<lb/>
+len. Jhre Leibesbeſchaffenheit trug zu<lb/>
+dieſer Schwachheit vermuthlich viel bey.<lb/>
+Sie war ſchwanger. Wir brachten<lb/>
+<fw type="catch" place="bottom">ſie</fw><lb/>
+<pb n="97" facs="#f0097"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+ſie den ganzen Tag nicht wieder zu ſich<lb/>
+ſelbſt.</p><lb/>
+<p>Mein Mann war indeſſen nach Caro-<lb/>
+linen gegangen, die wir, ſeit dem ſie aus<lb/>
+der Stube gelaufen war, nicht wieder ge-<lb/>
+ſehn hatten. Wenn ich einen Roman<lb/>
+ſchriebe, ſo hätte ſie Zeit genug gehabt,<lb/>
+ſich indeſſen mit einem Dolche, oder mit<lb/>
+Gifte, um das Leben zu bringen. Allein<lb/>
+die Verzweiflung in den Romanen, und<lb/>
+die Verzweiflung im gemeinen Leben,<lb/>
+haben nicht allemal einerley Wirkung.<lb/>
+Mein Mann hatte ſie in dem Garte hau-<lb/>
+ſe auf den Knien angetroffen. Jch will<lb/>
+gleich auf den andern Tag kommen. Das<lb/>
+Gewaltſame unſers Affects hatte ſich ge-<lb/>
+legt, und ſich an Statt deſſen das Bange<lb/>
+der Traurigkeit eingeſtellt. Thränen und<lb/>
+Seufzer, welche die Beſtürzung geſtern<lb/>
+zurück gehalten, hatten nun ihre Freyheit,<lb/>
+und wir ſuchten unſern Troſt in Klagen<lb/>
+und im Mitleiden. Carlſon kam vor das<lb/>
+<fw type="sig" place="bottom"><hi rendition="#fr">Erſter Theil.</hi> G</fw><fw type="catch" place="bottom">Bette</fw><lb/>
+<pb n="98" facs="#f0098"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Bette ſeiner Mariane, und mit ihm Weh-<lb/>
+muth, Furcht, Schaam, Reue und ge-<lb/>
+kränkte Zärtlichkeit. Es war erbärmlich<lb/>
+anzuſehen, wie ſich dieſe beyden Leute ge-<lb/>
+gen einander bezeigten. Die Religion<lb/>
+hieß ſie die Liebe der Ehe in Schweſter-<lb/>
+und Bruderliebe verwandeln, und ihr<lb/>
+Herz verlangte das Gegentheil. Sie hat-<lb/>
+ten einander unbeſchreiblich geliebt. Sie<lb/>
+waren noch in dem Frühlinge ihrer Ehe,<lb/>
+und ſie ſollten dieſes Band itzt ohne An-<lb/>
+ſtand zerreiſſen. Sie hatten einander in<lb/>
+ihrem Leben nicht geſehen, und alſo kam<lb/>
+ihnen die Vertraulichkeit nicht zu Hülfe,<lb/>
+die ſonſt die Liebe unter Blutsverwandten<lb/>
+auszulöſchen pflegt. Jhre Natur ſelbſt<lb/>
+that den Ausſpruch zu ihrem Beſten. Wie<lb/>
+konnten ſie etwas in ſich fühlen, das ihre<lb/>
+Liebe verdammte, da ſie den Zug der<lb/>
+Blutsfreundſchaft nie gefühlt hatten. Ach,<lb/>
+mein Bruder, rief Mariane einmal über<lb/>
+das andere aus, verlaßt mich, verlaßt<lb/>
+mich! Unglückſeliger Gemahl fangt mich<lb/>
+<fw type="catch" place="bottom">an</fw><lb/>
+<pb n="99" facs="#f0099"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+an zu haſſen. Jch bin eure Schweſter.<lb/>
+Doch nein! Mein Herz ſagt mir nichts<lb/>
+davon. Jch bin euer, Jch bin euer. Uns<lb/>
+verbindet die Ehe. Gott wird uns nicht<lb/>
+trennen. Jhr Gemahl war nicht beſſer<lb/>
+geſinnt. Er hörte die Stimme der Lei-<lb/>
+denſchaften, um den Befehl der Reli-<lb/>
+gion nicht zu hören. Er hütete ſich ge-<lb/>
+nau, ſie nicht ſeine Schweſter zu nennen.<lb/>
+Er hieß ſie ſeine Mariane. Er war be-<lb/>
+redt und unerſchöpflich in Klagen, die bis<lb/>
+in das Herz drungen, weil ſie das Herz<lb/>
+hervorbrachte. Er fieng zuweilen mitten<lb/>
+in ſeinen Klagen an zu philoſophiren, und<lb/>
+wie man leicht glauben kann, ſehr eigen-<lb/>
+nützig. Er erwies, daß ihre Ehe vor<lb/>
+Gott erlaubt wäre, wenn ſie auch die<lb/>
+Welt verdammte. Und er that doch<lb/>
+nichts, als daß er zehnmal nach einan-<lb/>
+der ſagte, daß ſie öffentlich verbunden<lb/>
+wären, und daß nichts als der Tod<lb/>
+dieſes Bündniß trennen ſollte. Er<lb/>
+wünſchte unzähligemal, in der Sprache<lb/>
+<fw type="sig" place="bottom">G 2</fw><fw type="catch" place="bottom">des</fw><lb/>
+<pb n="100" facs="#f0100"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+des Affects, das Andreas geſtorben ſeyn<lb/>
+möchte, ehe er den Athem zur Entde-<lb/>
+ckung dieſes Geheimnißes hätte ſchöpfen<lb/>
+können. Dieſer ſaß da, als ob er ſein<lb/>
+Todesurtheil anhören ſollte. Jch glau-<lb/>
+be, daß er gern mit etlichen Jahren von<lb/>
+ſeinem Leben das zerſtörte Vergnügen<lb/>
+dieſer Zärtlichen wieder erkauft hätte.<lb/>
+Caroline trat endlich zu Marianen an das<lb/>
+Bette, und hieß Carlſonen weggehen.<lb/>
+Meine Tochter, fieng ſie an, ich habe dich<lb/>
+wieder gefunden, um dich aus den Ar-<lb/>
+men deines Bruders zu reiſſen. Woll-<lb/>
+te Gott, daß ich dieſer betrübten Pflicht<lb/>
+zeitlebens hätte überhoben ſeyn können!<lb/>
+Vielleicht iſt es die Strafe, daß ich ---<lb/>
+doch Gott hat es verhänget. Jhr ſeyd<lb/>
+beyde keines Verbrechens ſchuldig. Eure<lb/>
+Unwiſſenheit rechtfertiget eure Liebe, und<lb/>
+die Gewißheit verbeut ſie nunmehr. Jch<lb/>
+bin eure Mutter, und ich liebe euch, als<lb/>
+meine Kinder; aber ich verabſcheue euch,<lb/>
+wenn ihr das Band der Ehe dem Ban-<lb/>
+<fw type="catch" place="bottom">de</fw><lb/>
+<pb n="101" facs="#f0101"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+de des Blutes vorzieht. Die Anrede<lb/>
+war ſehr fromm; allein ſie war zu heftig,<lb/>
+und zu früh angebracht. Sie weckte<lb/>
+die Verzweiflung in beyden von neuem<lb/>
+auf. Mein Mann erwählte einen gelin-<lb/>
+dern Weg, die zärtlichen Gemüther zu<lb/>
+beſänftigen. Er bediente ſich eines Schein-<lb/>
+grundes, der in der Stunde des Affects<lb/>
+eben ſo viel Kraft zu haben pflegt, als die<lb/>
+Wahrheit. Er ſagte, es wäre eine Ge-<lb/>
+wiſſensſache, die wir nicht entſcheiden<lb/>
+könnten. Wir wollen den Ausſpruch ver-<lb/>
+ſtändigen Gottesgelehrten überlaſſen. Er<lb/>
+glaubte, daß die Ehe vielleicht noch Statt<lb/>
+finden könnte. Dieſes war eine Arzney,<lb/>
+welche die Wehmuth der beyden Leute<lb/>
+verminderte, und zugleich ihrer Liebe Wi-<lb/>
+derſtand that. Sie entſchloſſen ſich, ſich<lb/>
+dem Ausſpruche der Geiſtlichen zu un-<lb/>
+terwerfen; aber gewiß nicht aus Ueber-<lb/>
+zeugung, ſondern aus Verlangen, deſto<lb/>
+ruhiger ihre Liebe fortſetzen zu können.<lb/>
+Wir machten uns indeſſen ihre Bereit-<lb/>
+<fw type="sig" place="bottom">G 3</fw><fw type="catch" place="bottom">willig-</fw><lb/>
+<pb n="102" facs="#f0102"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+willigkeit zu Nutze, und ermunterten Ma-<lb/>
+rianen, uns, ſo bald es ihre Umſtände<lb/>
+zuließen, nach Amſterdam zu folgen; viel-<lb/>
+leicht wäre es möglich, daß man von Rom<lb/>
+Diſpenſation erlangen könnte. Jhr Mann<lb/>
+ſollte ſich Urlaub auf ein halb Jahr aus-<lb/>
+bitten, und wenn er ihn erhielte, uns<lb/>
+nachkommen. Alles dieſes ließen ſich<lb/>
+die beyden Leute gefallen. Es ſtrichen<lb/>
+einige Tage dahin, und Mariane war in<lb/>
+den Umſtänden, die Reiſe mit anzutreten.<lb/>
+Jndem wir uns dazu anſchickten, ſo er-<lb/>
+hielt Carlſon Ordre, ſich unverzüglich,<lb/>
+und bey Verluſt ſeiner Stelle, zu dem Re-<lb/>
+gimente zu verfügen, weil es marſchiren<lb/>
+ſollte. Dieſe Nachricht that eine unglei-<lb/>
+che Wirkung. Carlſon war darüber<lb/>
+erfreut, und Mariane ward von neuem<lb/>
+niedergeſchlagen. Kaum ſah ſie ſeine Zu-<lb/>
+friedenheit über dieſe Poſt: ſo machte ſie<lb/>
+ihm die grauſamſten Vorwürfe. Sie<lb/>
+hieß ihn einen Ungetreuen, der ihrer los<lb/>
+zu ſeyn wünſchte. Sollte man wohl<lb/>
+<fw type="catch" place="bottom">glau-</fw><lb/>
+<pb n="103" facs="#f0103"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+glauben, daß eine Frau, die da wußte,<lb/>
+daß ihr Mann ihr Bruder war, noch auf ei-<lb/>
+nen ſolchen Verdacht fallen könnte? Al-<lb/>
+lein was iſt in der Liebe und in dem Trau-<lb/>
+me wohl unmöglich? Wir ſahen alſo lei-<lb/>
+der nur mehr, als zu deutlich, wie heftig<lb/>
+Mariane ihren Mann noch liebte, und wie<lb/>
+ſie in ihrem Herzen nichts weniger be-<lb/>
+ſchloſſen hatte, als ihn fahren zu laſſen.<lb/>
+Carlſon verſicherte ſie mit den größten Be-<lb/>
+theurungen, daß er ſie noch unendlich<lb/>
+liebte, und daß er über die Nachricht zum<lb/>
+Marſche nur deswegen vergnügt wäre,<lb/>
+weil er ihn als eine Gelegenheit anſähe,<lb/>
+die der Himmel beſtimmt hätte, der Sa-<lb/>
+che den Ausſchlag zu geben. Vielleicht,<lb/>
+ſprach er, verliere ich mein Leben, wenn<lb/>
+es zu einem Feldzuge kömmt. Und wer<lb/>
+iſt alsdann glücklicher, als wir? Soll<lb/>
+ich den Tod nicht geringer ſchätzen, als<lb/>
+die Qvaal, euch zu ſehen, und euch zu<lb/>
+lieben? Und wollt ihr nicht lieber mit<lb/>
+Gewalt von mir getrennt ſeyn, als die<lb/>
+<fw type="sig" place="bottom">G 4</fw><fw type="catch" place="bottom">Pein</fw><lb/>
+<pb n="104" facs="#f0104"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Pein ausſtehen, mich freywillig zu ver-<lb/>
+laſſen, und doch dieſe Freyheit niemals<lb/>
+von eurer Liebe zu erhalten? Seyd getroſt,<lb/>
+liebſte Mariane! Komme ich wieder zu-<lb/>
+rück: ſo iſt es ein Zeichen, daß der Him-<lb/>
+mel unſre Ehe billiget. Verliere ich mein<lb/>
+Leben: ſo iſt es ein Beweis, daß ihr ei-<lb/>
+nen Mann verloren habt, der nur euer<lb/>
+Bruder, und nicht euer Ehemann ſeyn<lb/>
+ſollte. Welche glückſelige Dienſte leiſtet<lb/>
+nicht der Jrrthum in gewiſſen Umſtän-<lb/>
+den! Und wie gut iſt es nicht oft, daß<lb/>
+wir das Vergnügen haben, uns ſelbſt zu<lb/>
+betrügen! Genug Carlſons Jrrthum war<lb/>
+in Anſehung des Erfolgs vortrefflich. Er<lb/>
+beruhigte ihn, und endlich auch Maria-<lb/>
+nen. Sie ließen die Sache auf den Him-<lb/>
+mel ankommen. Und ſie verſprachen ſich<lb/>
+von dieſem Richter nichts als Gerechtig-<lb/>
+keit, das iſt, nichts, als was ſie wünſch-<lb/>
+ten. Sie flehten Gott um Beyſtand an,<lb/>
+nicht anders, als ob ihnen die Menſchen<lb/>
+unrecht thäten. Kurz, ſie waren voll Zu-<lb/>
+<fw type="catch" place="bottom">ver-</fw><lb/>
+<pb n="105" facs="#f0105"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+verſicht und Vertrauen, die alle Wahr-<lb/>
+heit nicht würde zuwege gebracht haben.<lb/>
+Carlſon reiſete fort, als ob er in dem<lb/>
+Treffen ſeine Mariane gewinnen ſollte,<lb/>
+und Mariane that ſo geſetzt, als ob ſie<lb/>
+ihn von ſich ließe, um ihn auf ewig wie-<lb/>
+der zu bekommen. So bald er fort war,<lb/>
+ſo folgte ſie uns ganz getroſt nebſt ihrer<lb/>
+Tochter und ihrer Mutter nach Amſter-<lb/>
+dam. Andreas, der ſich in Oſtindien wie-<lb/>
+der ein kleines Vermögen erworben hat-<lb/>
+te, blieb in dem Haag, um von neuem<lb/>
+ſeinen Handel anzufangen, wozu ihm Ca-<lb/>
+roline einen Theil von ihren Geldern gab,<lb/>
+die ſie aus Deutſchland mitgebracht hat-<lb/>
+te. Wir trafen unſern gütigen Wirth in<lb/>
+Amſterdam noch in ſeinen vorigen Umſtän-<lb/>
+den an. Wir gaben Marianen für Carl-<lb/>
+ſons Frau aus, und Caroline war ſeine<lb/>
+Mutter.</p><lb/>
+<p>Jn wenig Monaten erhielten wir die<lb/>
+Nachricht, daß Carlſon zwar nicht gegen<lb/>
+<fw type="sig" place="bottom">G 5</fw><fw type="catch" place="bottom">den</fw><lb/>
+<pb n="106" facs="#f0106"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Feind, ſondern an einer hitzigen Feld-<lb/>
+krankheit geblieben wäre. Caroline, ich<lb/>
+und mein Mann bedaureten ihn ſehr; aber<lb/>
+wenn wir an ſeine Ehe dachten, ſo war<lb/>
+uns ſein Tod eine erwünſchte Nachricht.<lb/>
+Denn wer konnte die gefährliche Sache<lb/>
+beſſer ſchlichten, als der Tod? Die Aus-<lb/>
+ſprüche der Geiſtlichen würden ganz ge-<lb/>
+wiß wider dieſe Ehe geweſen ſeyn. Und<lb/>
+Mariane und ihr Mann hätten entweder<lb/>
+einander nicht verlaſſen, oder ohne einan-<lb/>
+der das unglückſeligſte Leben geführet.<lb/>
+Gleichwohl war uns für Marianen noch<lb/>
+ſehr bange. Sie hatte ſich zwar dem End-<lb/>
+urtheile des Himmels ergeben; aber, wie<lb/>
+ich ſchon erinnert, in keiner andern Hoff-<lb/>
+nung, als daß es vortheilhaft für ſie aus-<lb/>
+fallen würde. Wir ſahen, daß Maria-<lb/>
+nens Verzweiflung von neuem wieder<lb/>
+aufwachen würde. Dennoch mußte ſie<lb/>
+es erfahren. Wir ließen ſie auf unſer<lb/>
+Zimmer rufen, und mein Mann nahm es<lb/>
+über ſich, ihr ihres Mannes Tod zu ent-<lb/>
+<fw type="catch" place="bottom">decken.</fw><lb/>
+<pb n="107" facs="#f0107"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+decken. Nicht wahr, Mariane, fieng er<lb/>
+an, ſie errathen ſchon, was ich ihnen hin-<lb/>
+terbringen will? Erſchrecken ſie nur,<lb/>
+denn ſie müſſen doch erſchrecken. Hier<lb/>
+iſt ein Brief aus dem Lager. Sagen ſie<lb/>
+mir nichts mehr, verſetzte Mariane. Jch<lb/>
+kann den Jnnhalt des Briefs ſchon wiſ-<lb/>
+ſen. Mein Gemahl iſt todt. Jch un-<lb/>
+glückſelige Frau! Doch ich bin zufrieden,<lb/>
+daß mir ihn nicht die Welt, ſondern der<lb/>
+Himmel entzogen hat. Nun ſehe ich, daß<lb/>
+es Gott nicht hat haben wollen. Wie<lb/>
+iſt er denn geſtorben? Jſt er im Treffen<lb/>
+geblieben?</p><lb/>
+<p>Wir erſtaunten über dieſe unvermuthe-<lb/>
+te Gelaſſenheit, die einer Gleichgültigkeit<lb/>
+nicht unähnlich ſah. Wir hatten uns auf<lb/>
+die beſten Troſtgründe vergebens gefaßt<lb/>
+gemacht. Gleichwohl wußten wir auch<lb/>
+nicht, ob wir Marianen trauen durften.<lb/>
+Jndeſſen that ſie gelaſſen, und betraurete<lb/>
+ihren Mann mehr durch ſtille Thränen,<lb/>
+<fw type="catch" place="bottom">als</fw><lb/>
+<pb n="108" facs="#f0108"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+als durch eine tobende Wehmuth und Un-<lb/>
+geduld. Jn etlichen Wochen erhielten<lb/>
+wir wieder einen Brief, und die Aufſchrift<lb/>
+war Carlſons Hand. Soll ichs aufrich-<lb/>
+tig geſtehen, ſo erſchrack ich weit mehr,<lb/>
+daß er noch lebte, als ich zuerſt über ſei-<lb/>
+nen Tod erſchrocken war. Gott, dachte<lb/>
+ich, was wird dieſes wieder werden?<lb/>
+Carlſon wird ſeiner Krankheit wegen das<lb/>
+Lager verlaſſen, und wohl gar abgedankt<lb/>
+haben. Die Liebe wird ihn wieder zu<lb/>
+Marianen rufen. Mariane nur war vor<lb/>
+Freuden ganz außer ſich. Der Brief<lb/>
+war an ſie, und ſie brach ihn nicht etwan<lb/>
+gleich auf. O nein, ſo viel Zeit ließ ihr<lb/>
+ihre vergnügte Unruhe nicht. Sie gab<lb/>
+ihn uns auch nicht zu erbrechen. Sie<lb/>
+behielt ihn in den Händen, als einen<lb/>
+unbekannten Schatz, den man nicht eröff-<lb/>
+nen will, bis man ſich zehnmal vorgeſtel-<lb/>
+let hat, wie viel darinnen ſeyn könnte.<lb/>
+Da ſie ihn endlich erbrach, ſo war der<lb/>
+Brief ſchon viele Wochen älter, als der-<lb/>
+<fw type="catch" place="bottom">jenige,</fw><lb/>
+<pb n="109" facs="#f0109"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+jenige, der uns Carlſons Tod berichtet<lb/>
+hatte. Kurz, es war ein Abſchiedsbrief<lb/>
+an Marianen. Jch will die Abſchrift<lb/>
+herſetzen.</p><lb/>
+<floatingText><body><div type="letter"><opener><salute>Liebſte Mariane,</salute></opener><lb/>
+<p>Dieſes ſind ſeit vier Wochen die er-<lb/>
+ſten Stunden, da ich mich beſinnen und<lb/>
+euch meine Krankheit melden kann. Wie<lb/>
+glückſelig bin ich, daß ich krank geweſen,<lb/>
+und dem Tode ſo nahe gekommen bin,<lb/>
+ohne beydes zu wiſſen! Wie viel würde<lb/>
+ich eurentwegen binnen der Zeit ausge-<lb/>
+ſtanden haben, wenn ich meiner mäch-<lb/>
+tig geweſen wäre! Gott ſey für dieſe<lb/>
+Art des Todes gedankt! Jch bin völlig<lb/>
+ausgezehrt, völlig entkräftet. Und ich<lb/>
+ſehe die Stunden, da ich mir wieder be-<lb/>
+wußt bin, für nichts als Augenblicke an,<lb/>
+die mir Gott gönnt, mich noch einmal<lb/>
+in der Welt, und in meiner eignen See-<lb/>
+le umzuſehen, und an das Zukünftige<lb/>
+zum letztenmale zu denken. So lebt denn<lb/>
+<fw type="catch" place="bottom">wohl,</fw><lb/>
+<pb n="110" facs="#f0110"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+wohl, Mariane, lebt ewig wohl! Be-<lb/>
+weint mich nicht als euren Mann, ſon-<lb/>
+dern als euren Bruder. Trauriger Na-<lb/>
+me! Verſchweigt unſerer Tochter unſer<lb/>
+Schickſal, wenn ſie leben bleibt. Ver-<lb/>
+bergt es, wenn es möglich iſt, vor euch<lb/>
+ſelbſt. Mein Gewiſſen macht mir keinen<lb/>
+Vorwurf, daß ich euch geliebt habe; al-<lb/>
+lein es beunruhiget mich, daß ich euch,<lb/>
+nach der traurigen Entdeckung, als meine<lb/>
+Frau zu lieben nicht habe aufhören wol-<lb/>
+len. Gott, wie viel anders denken wir<lb/>
+auf dem Todbette, als in unſerm Leben!<lb/>
+Was ſieht nicht unſere Vernunft, wie<lb/>
+viel ſieht ſie nicht, wenn unſere Leiden-<lb/>
+ſchaften ſtille und entkräftet ſind! Ja,<lb/>
+ja, ich ſterbe, ich ſterbe getroſt. Doch<lb/>
+Gott! ich ſoll euch nicht wiederſehn?<lb/>
+Jch ſoll euch verlaſſen, liebſte Mariane?<lb/>
+Jch ſoll ſterben? Welche entſetzliche Em-<lb/>
+pfindungen fangen itzt in mir an zu ent-<lb/>
+ſtehen! Ach ich kann nicht mehr ſchrei-<lb/>
+ben! --- So weit war ich vor einer<lb/>
+<fw type="catch" place="bottom">halben</fw><lb/>
+<pb n="111" facs="#f0111"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+halben Stunde gekommen. Jch bin wie-<lb/>
+der beruhiget. Die Liebe zum Leben<lb/>
+hat ſich zum letztenmale geregt. Lebt<lb/>
+wohl, meine Mariane! Grüßt meine<lb/>
+Mutter, und meine beyden großmüthi-<lb/>
+gen Freunde. Mein liebſter Freund,<lb/>
+Dormund, den ihr ſo vielmal bey mir ge-<lb/>
+ſehen habt, iſt itzt bey mir. Er will<lb/>
+mich nicht eher verlaſſen, als bis ich todt<lb/>
+bin. Könnt ihr euch entſchließen, wieder<lb/>
+zu lieben: ſo vergeßt nicht, daß euer ſter-<lb/>
+bender Mann euch niemanden gegönnet<lb/>
+hat, als ihm. Er wird euch meine Uhr<lb/>
+mit eurem Portrait überbringen. Die<lb/>
+andern Sachen habe ich meinen armen<lb/>
+Soldaten geſchenkt. Jch fühle meinen<lb/>
+Tod. Lebt wohl!</p></div></body></floatingText><lb/>
+<p>So bald ſie geſehen hatte, daß es<lb/>
+ein Abſchiedsbrief war, und daß ſie ſich<lb/>
+in der bey dem Titel gefaßten Hoffnung<lb/>
+betrogen, ſo gieng das Wehklagen erſt<lb/>
+recht an. Jch will ihre Troſtloſigkeit und et-<lb/>
+<fw type="catch" place="bottom">liche</fw><lb/>
+<pb n="112" facs="#f0112"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+liche ſchlimme Folgen, die für ſie und<lb/>
+uns daraus entſtunden, nicht erzählen.<lb/>
+Es ſind Umſtände, an denen wir Theil<lb/>
+nahmen, weil wir gleichſam darein ge-<lb/>
+flochten waren. Sie waren in Anſehung<lb/>
+unſerer Empfindung wichtig; Allein, ich<lb/>
+würde übel ſchließen, wenn ich glauben<lb/>
+wollte, daß ſie deswegen dem Leſer merk-<lb/>
+würdig vorkommen, und ihn rühren wür-<lb/>
+den. Jch will daher vieles überge-<lb/>
+hen.</p><lb/>
+<p>Wir lebten wieder ruhig. Es ſchien,<lb/>
+als ob uns der Himmel mit Gewalt<lb/>
+reich machen wollte. Unſere Capitale<lb/>
+brachten mehr ein, als wir verlangten,<lb/>
+und weit mehr, als wir brauchten. Und<lb/>
+ich dachte nicht einmal daran, meine bey<lb/>
+der Krone ſtehende Gelder zu fordern.<lb/>
+Jch war vielmehr ruhig, wenn ich nicht<lb/>
+an dieſes Land denken durfte. Ueberdie-<lb/>
+ſes war es auch durch den Krieg ganz<lb/>
+erſchöpft und entblößt. Genug, ich lebte<lb/>
+<fw type="catch" place="bottom">unbe-</fw><lb/>
+<pb n="113" facs="#f0113"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+unbekannt und zufrieden. Jch war die<lb/>
+Frau eines angenehmen und klugen Man-<lb/>
+nes. Und ich hätte ſo wenig mit der<lb/>
+vornehmſten Reichsgräfinn getauſcht, als<lb/>
+ſie mit mir getauſcht haben würde. Das<lb/>
+Unglück, das uns zeither betroffen, hatte un-<lb/>
+ſere Gemüther gleichſam aufgelöſet, die Ru-<lb/>
+he nunmehr deſto ſtärker zu ſchmecken. Man<lb/>
+dürfte faſt ſagen, wer lauter Glück hät-<lb/>
+te, der hätte gar keines. Es iſt wohl<lb/>
+wahr, daß das Unglück an und für ſich<lb/>
+nichts angenehmes iſt. Allein es iſt es doch<lb/>
+in der Folge und in dem Zuſammenhan-<lb/>
+ge. Wenigſtens gleichet es den Arze-<lb/>
+neyen, die unſerm Körper einen Schmerz<lb/>
+verurſachen, damit er deſto geſünder<lb/>
+wird.</p><lb/>
+<p>Mitten in unſerer Zufriedenheit, die<lb/>
+nunmehr über ein Jahr gedauert hatte,<lb/>
+kam Herr Dormund, Carlſons guter<lb/>
+Freund, und überbrachte Marianen die<lb/>
+in dem Briefe erwähnte goldene Uhr mit<lb/>
+<fw type="sig" place="bottom"><hi rendition="#fr">Erſter Theil.</hi> H</fw><fw type="catch" place="bottom">ihrem</fw><lb/>
+<pb n="114" facs="#f0114"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ihrem Portrait. Mariane hatte ihn oft<lb/>
+bey ihrem Manne, wir ihn aber noch<lb/>
+gar nicht geſehen. Doch was brauchte<lb/>
+er zu ſeiner Empfehlung mehr, als den<lb/>
+Namen eines guten Freundes von un-<lb/>
+ſerm Carlſon? Er war ein Holländer<lb/>
+von Geburt, und von Perſon ſehr an-<lb/>
+genehm. Er gewann unſere Vertrau-<lb/>
+lichkeit ſehr bald. Er war ein Stabs-<lb/>
+officier, hatte nunmehr abgedankt, und<lb/>
+wollte von ſeinen Renten für ſich le-<lb/>
+ben. Er war noch jung. Er hatte<lb/>
+nicht ſtudirt; allein er hatte doch etlichen<lb/>
+Büchern und dem Umgange einen ge-<lb/>
+wiſſen Witz zu danken, der im An-<lb/>
+fange ſehr einnahm. Er konnte etliche<lb/>
+Sprachen, und auch gut deutſch. Er<lb/>
+ließ ſich in Amſterdam nieder, und wir<lb/>
+konnten ſeine Abſicht leicht merken. Ma-<lb/>
+riane war ſein Wunſch, und Mariane<lb/>
+verdiente in der That, daß man ihrent-<lb/>
+wegen Feld und Hof verließ. Sie war<lb/>
+noch vollkommen ſchön. Das Unglück<lb/>
+<fw type="catch" place="bottom">hatte</fw><lb/>
+<pb n="115" facs="#f0115"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+hatte ihr von ihren äußerlichen Reizungen<lb/>
+nichts entzogen, und zu der Schönheit ih-<lb/>
+res Gemüths noch vieles hinzugeſetzt. Sie<lb/>
+war durch den Umgang nur noch liebens-<lb/>
+würdiger geworden. Sie war erſt acht-<lb/>
+zehn oder neunzehn Jahre alt, und noch<lb/>
+in ihrem völligen Frühlinge. Dormund<lb/>
+wußte ſich bald bey ihr gefällig zu machen.<lb/>
+Vielleicht liebte ſie in dem Freunde ihres<lb/>
+verſtorbenen Mannes noch ihren Mann.<lb/>
+Genug, er gewann ihr Herz. Sie kam<lb/>
+einmal zu mir, und fieng mit einer vielbe-<lb/>
+deutenden Stimme an: Madam, es wäre<lb/>
+doch wohl billig geweſen, daß wir Herr<lb/>
+Dormunden die Uhr, die er mir von mei-<lb/>
+nem Manne überbracht, zu einem Anden-<lb/>
+ken gelaſſen hätten. Jch würde es gewiß<lb/>
+gethan haben, wenn mein Portrait nicht<lb/>
+darinn geweſen wäre; allein ſo ſchickt<lb/>
+ſichs wohl nicht. Jch verſtund dieſe Spra-<lb/>
+che ſehr gut. Mariane, ſagte ich, was<lb/>
+machen ſie ſich für ein Bedenken, dem ihr<lb/>
+Portrait zu geben, dem ſie unſtreitig ihr<lb/>
+<fw type="sig" place="bottom">H 2</fw><fw type="catch" place="bottom">Herz</fw><lb/>
+<pb n="116" facs="#f0116"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Herz ſchon überlaſſen haben. Jch merke,<lb/>
+ſie wollen Herr Dormunden gern eine Ge-<lb/>
+fälligkeit erweiſen, die das Anſehen einer<lb/>
+Erkenntlichkeit haben ſollte, ob ſie gleich<lb/>
+die Liebe zum Grunde hat. Jch will ih-<lb/>
+nen bald aus der Sache helfen. Geben<lb/>
+ſie mir die Uhr. Es wird ſich ſchon eine<lb/>
+Gelegenheit zeigen, die nicht ſtudirt läßt,<lb/>
+bey der ich ſie ihm anbieten kann. Auf<lb/>
+die Uebergabe der Uhr folgte bald die Ue-<lb/>
+bergabe des Herzens. Mariane ward Dor-<lb/>
+munden zu Theil, und ſie ſchienen beyde<lb/>
+einander zum Vergnügen gebohren zu ſeyn.<lb/>
+Und wenn ja Mariane ihren Mann zuwei-<lb/>
+len beunruhigte, ſo geſchah es doch aus ei-<lb/>
+nem Grunde, den ein Ehemann ſchwerlich<lb/>
+übel nehmen kann. Jhr Fehler war die<lb/>
+Eiferſucht, der erbliche Fehler unſers Ge-<lb/>
+ſchlechts. Jch beſinne mich, daß Maria-<lb/>
+ne einmal mit Thränen auf meine Stube<lb/>
+kam. Sie konnte vor Wehmuth nicht re-<lb/>
+den, und ich befürchtete, das größte Unglück<lb/>
+von ihr zu hören. Allein was kam end-<lb/>
+<fw type="catch" place="bottom">lich</fw><lb/>
+<pb n="117" facs="#f0117"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+lich heraus? Sie ſeufzete über die Gleich-<lb/>
+gültigkeit ihres Ehemannes, und hätte lie-<lb/>
+ber von ſeiner Untreue geſprochen. Jch<lb/>
+fragte nach der Urſache. Da erfuhr ich fol-<lb/>
+gende Kleinigkeit. Jhr Mann hätte kurz<lb/>
+vorher Briefe geſchrieben; Sie wäre zu<lb/>
+ihm an den Tiſch getreten; Sie hätte ihn<lb/>
+einigemal recht zärtlich geküſſet, er aber<lb/>
+hätte ihr weder mit einem Gegenkuſſe, noch<lb/>
+mit einem Blicke geantwortet, ſondern im-<lb/>
+mer fortgeſchrieben, nicht anders, als wenn<lb/>
+er ſie nicht ſehen wollte. Ach Gott! fuhr<lb/>
+ſie fort, wer weis, an wen der Untreue<lb/>
+ſchreibt? Konnten ſie denn nichts in dem<lb/>
+Briefe leſen? fieng ich an. Nein, nichts,<lb/>
+nichts, als daß der Anfang hieß: Mein Herr.<lb/>
+Wer ſollte wohl glauben, daß eine vernünf-<lb/>
+tige Frau keine ſtärkere Urſache zur Eifer-<lb/>
+ſucht nöthig hätte, als ſo eine? Doch, war-<lb/>
+um kann ich noch fragen? Wie oft thut<lb/>
+nicht die Liebe einen Schritt über die Gren-<lb/>
+zen der Vernunft! Und wenn dieſer Schritt<lb/>
+gethan iſt, ſo hilft es nichts, daß wir eine<lb/>
+<fw type="sig" place="bottom">H 3</fw><fw type="catch" place="bottom">gute</fw><lb/>
+<pb n="118" facs="#f0118"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+gute Vernunft haben. Ueberhaupt entſte-<lb/>
+hen wohl die meiſten Uneinigkeiten, die in<lb/>
+der Ehe vorkommen, aus Kleinigkeiten.<lb/>
+Sie heiſſen im Anfange nichts; allein ſie<lb/>
+nehmen im Fortgange unſere Einbildung<lb/>
+und andere Dinge zu Hülfe, und werden<lb/>
+alsdann wichtige Urſachen zur Gleichgül-<lb/>
+tigkeit, oder zur Eiferſucht.</p><lb/>
+<p>Marianens Ehe hatte nunmehr etwan<lb/>
+drey Vierteljahre gedauert, als ihr Mann<lb/>
+gefährlich krank ward. Er ſtund zween<lb/>
+Monate große Schmerzen aus, und man<lb/>
+merkte ſehr deutlich, daß ihn eine Gemüths-<lb/>
+unruhe eben ſo ſtark quälte, als die Krank-<lb/>
+heit. Er bat ſeine Frau oft um Gottes<lb/>
+willen, daß ſie ihn verlaſſen ſollte. Er konn-<lb/>
+te auch Carolinen nicht leiden, vielweniger<lb/>
+Marianens Kind, das ſie mit Carlſonen<lb/>
+erzeugt hatte. Jch und mein Mann ſollten<lb/>
+ohne Aufhören bey ihm bleiben, und ihm<lb/>
+Troſt zuſprechen. Er wollte getröſtet ſeyn,<lb/>
+und wir wußten doch nicht, was ihn beun-<lb/>
+ruhigte, vielweniger hatten wir das Herz<lb/>
+<fw type="catch" place="bottom">ihn</fw><lb/>
+<pb n="119" facs="#f0119"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+ihn zu fragen. Sein Ende ſchien immer<lb/>
+näher herbey zu kommen, und die Aerzte<lb/>
+ſelbſt kündigten es ihm an. Es war um<lb/>
+Mitternacht, da er uns beyde plötzlich zu<lb/>
+ſich rufen ließ. Er rang halb mit dem To-<lb/>
+de. Alles mußte aus der Stube. Dar-<lb/>
+auf fieng er mit gebrochenen und erpreßten<lb/>
+Worten an, ſich und die Liebe auf das ab-<lb/>
+ſcheulichſte zu verfluchen. Gott, wie war<lb/>
+uns dabey zu Muthe! Er nannte ſich den<lb/>
+größten Miſſethäter, den die Welt geſehen<lb/>
+hätte. Jch bin, ſchrie er, Carlſons Mör-<lb/>
+der. Jch habe ihm mit eigener Hand Gift<lb/>
+beygebracht, um Marianen zu bekommen.<lb/>
+Jch Unſinniger! Welche Gerechtigkeit,<lb/>
+welch Urtheil wartet auf mich! Jch bin<lb/>
+verloren. Jch ſehe ihn, ich ſehe ihn! Bringt<lb/>
+mich um, rief er wieder. Mein Mann re-<lb/>
+dete ihm zu, er ſollte ſich beſinnen, er würde<lb/>
+in einer ſtarken Phantaſie gelegen haben.<lb/>
+Nein, nein, rief er, es iſt mehr als zu ge-<lb/>
+wiß. Mein Gewiſſen hat mich lange ge-<lb/>
+nug gemartert. Jch bin der Mörder mei-<lb/>
+<fw type="sig" place="bottom">H 4</fw><fw type="catch" place="bottom">nes</fw><lb/>
+<pb n="120" facs="#f0120"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+nes beſten Freundes; Jch Barbar! Jch<lb/>
+Böſewicht! Carlſon beſſerte ſich nach dem<lb/>
+Abſchiedsbriefe an Marianen wieder, und<lb/>
+weil ich mir ſchon Hoffnung auf ſeinen<lb/>
+Tod und auf Marianen gemacht hatte, ſo<lb/>
+brachte ich ihm Gift bey. Mein Mann<lb/>
+nahm alle ſeine Vernunft und Religion zu<lb/>
+Hülfe, und ſuchte dieſem Unglückſeligen<lb/>
+damit beyzuſtehen. Seine Verzweiflung<lb/>
+wollte ſich nicht ſtillen laſſen. Er verlang-<lb/>
+te Marianen noch einmal zu ſehen, und ihr<lb/>
+ſeine Bosheit ſelbſt zu entdecken. Wir ba-<lb/>
+ten ihn um Gottes willen, daß er Maria-<lb/>
+nen dieſe That nicht offenbaren ſollte; Er<lb/>
+würde ſeinem Gewiſſen dadurch nichts hel-<lb/>
+fen, und durch ſein Bekenntniß nur noch<lb/>
+einen Mord begehen. Mariane kam, ehe<lb/>
+ſie gerufen ward. Dormund redete ſie an;<lb/>
+allein ſie hörte und ſah vor Wehmuth<lb/>
+nicht. Er nahm ſie bey der Hand, und<lb/>
+wollte das entſetzliche Bekenntniß wieder-<lb/>
+holen. Jch hielt ihm den Mund zu. Wir<lb/>
+fiengen an zu beten und zu ſingen. Doch<lb/>
+<fw type="catch" place="bottom">er</fw><lb/>
+<pb n="121" facs="#f0121"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+er ſchrie nur deſto mehr. Mariane mußte es<lb/>
+erfahren, was er gethan hatte. Er wie-<lb/>
+derholte ſeinen Mord umſtändlich. Er be-<lb/>
+rufte ſich auf den Regimentsfeldſcheerer<lb/>
+und auf den Feldmedicum, die Carlſonen,<lb/>
+weil er es befohlen, nach ſeinem Tode ge-<lb/>
+öffnet, und das Gift gefunden, und geglaubt<lb/>
+hatten, daß er ſich ſelbſt damit vergeben.<lb/>
+Mariane gerieth in eine ordentliche Raſe-<lb/>
+rey. Sie ſtieß die grauſamſten Namen<lb/>
+wider ihn aus. Wir mußten ſie endlich<lb/>
+mit Gewalt bey Seite bringen. Er ſchlief<lb/>
+zwey Tage und Nächte nach einander, oh-<lb/>
+ne ſich zu ermuntern. Wir glaubten auch<lb/>
+gewiß, daß er nicht wieder aufwachen wür-<lb/>
+de; allein er erholte ſich. Wir kamen zu<lb/>
+ihm. Wir mußten ihn als einen Mörder<lb/>
+haſſen; doch die allgemeine Menſchenliebe<lb/>
+verband uns auch zum Mitleiden. Er<lb/>
+war ruhiger, als zuvor, und bat uns mit<lb/>
+tauſend Thränen um Vergebung. Er ver-<lb/>
+ſicherte uns, wenn er leben bliebe, daß er<lb/>
+uns nicht zum Entſetzen vor den Augen<lb/>
+<fw type="sig" place="bottom">H 5</fw><fw type="catch" place="bottom">herum</fw><lb/>
+<pb n="122" facs="#f0122"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+herum gehen, ſondern ſich den entlegen-<lb/>
+ſten Ort zu ſeinem Aufenthalte, und zur<lb/>
+Reue über ſeine Schandthat ausſuchen<lb/>
+wollte. Er bat, daß wir ihm Marianen<lb/>
+nicht möchten wieder ſehen laſſen. Die-<lb/>
+ſe war auch ſchon in unſrer Wohnung;<lb/>
+denn Dormund hatte ein Haus allein be-<lb/>
+zogen. Wir hatten nun genug an Ma-<lb/>
+rianen zu tröſten, und konnten Dormun-<lb/>
+den in zween Tagen nicht beſuchen. Doch<lb/>
+hörten wir, daß es ſich beſſerte. Mein<lb/>
+Mann gieng den dritten Tag zu ihm. Al-<lb/>
+lein Dormund war fort, und hatte folgen-<lb/>
+den Brief an ihn zurück gelaſſen:</p><lb/>
+<p>Jch gehe, ſo weit als mich die Rache<lb/>
+des Himmels kommen läßt. Mariane<lb/>
+ſoll mich nicht wieder ſehen. O Gott,<lb/>
+wozu kann einen nicht die Liebe verleiten!<lb/>
+Der Schatten meines ermordeten Freun-<lb/>
+des wird mich auf allen Schritten verfol-<lb/>
+gen: Doch ich will lieber alles ausſtehen,<lb/>
+als dieſen Mord durch einen Selbſtmord<lb/>
+<fw type="catch" place="bottom">häufen</fw><lb/>
+<pb n="123" facs="#f0123"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+häufen. Verfluchen ſie mein Gedächtniß<lb/>
+in ihrem Herzen. Jch bin es werth; doch<lb/>
+entdecken ſie meine Schande der Welt<lb/>
+nicht. Jch bin beſtraft genug, daß ich<lb/>
+Marianen und ihre großmüthigen Freun-<lb/>
+de verlaſſen muß. Jch will wieder in den<lb/>
+Krieg gehen. Vielleicht verliere ich bald<lb/>
+ein Leben, das mir eine Marter iſt. Mein<lb/>
+zurück gelaſſenes Vermögen ſoll Maria-<lb/>
+nen. Wollte ihnen doch Gott die Freund-<lb/>
+ſchaft vergelten, die Sie mir in meiner<lb/>
+Krankheit erwieſen haben. Doch Sie ha-<lb/>
+ben ſie ja einem Unmenſchen erwieſen. Jch<lb/>
+bin nicht werth, daß Sie mich bedauren.<lb/>
+Ach die unglückſelige Mariane!</p><lb/>
+<p>Dormund war fort. Wir haben auch<lb/>
+in unſerm Leben nichts weiter von ihm<lb/>
+gehört. Jch wünſche, daß er ſich nicht<lb/>
+aus Verzweiflung ſelbſt umgebracht ha-<lb/>
+ben mag. Unſere Mariane war in eine<lb/>
+ordentliche Schwermuth gerathen. Sie<lb/>
+weinte Tag und Nacht, und wir mußten<lb/>
+<fw type="catch" place="bottom">ihr</fw><lb/>
+<pb n="124" facs="#f0124"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ihr auf einmal zwo Adern ſchlagen laſſen.<lb/>
+Sie ſchlief in meiner Stube, und verſi-<lb/>
+cherte mich, daß ihr viel beſſer zu Muthe<lb/>
+wäre, und daß ſie dieſe Nacht wohl zu<lb/>
+ſchlafen hoffte. Der Morgen wies dieſe<lb/>
+Prophezeyung aus. Jch warf kaum die<lb/>
+Augen auf ihr Bette, ſo ſah ich ganze<lb/>
+Ströme Blut davon herunter laufen.<lb/>
+Was konnte ich anders vermuthen, als<lb/>
+daß ihr die Adern im Schlafe aufgegan-<lb/>
+gen ſeyn würden? Mariane lag in einem<lb/>
+fühlloſen Schlummer, oder vielmehr in<lb/>
+einer Ohnmacht. Jch ſchrie nach Hülfe,<lb/>
+und wir banden ihr die Adern zu. Das<lb/>
+entſetzlichſte war, daß die Binden nicht<lb/>
+abgefallen, ſondern mit Fleiß aufgemacht<lb/>
+zu ſeyn ſchienen. Mariane kam gegen<lb/>
+Abend etwas wieder zu ſich. Sie geſtund,<lb/>
+daß ſie die Binden aus Luſt zum Tode<lb/>
+ſelbſt aufgemacht hätte, und wünſchte<lb/>
+nichts mehr, als daß ihr Ende bald da<lb/>
+ſeyn möchte. Sie küßte mich und ſank,<lb/>
+ohne ein Wort weiter zu reden, in einen<lb/>
+<fw type="catch" place="bottom">Schlum-</fw><lb/>
+<pb n="125" facs="#f0125"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+Schlummer, und in etlichen Stunden<lb/>
+darauf war ſie todt.</p><lb/>
+<p>Mir gieng es, wie denen Leuten, die in<lb/>
+einer Gefahr heftig verwundet werden,<lb/>
+und es doch nicht eher fühlen, bis ſie aus der<lb/>
+Gefahr ſind. So bald Mariane todt war,<lb/>
+ſo gieng erſt meine Marter an. Jch hät-<lb/>
+te mir lieber die Schuld von ihrem Tode<lb/>
+beygemeſſen, weil ich dieſelbe Nacht nicht<lb/>
+genauer auf ſie Achtung gegeben hatte.<lb/>
+Allein welche menſchliche Klugheit kann<lb/>
+alles voraus ſehen! Jch hatte Marianen<lb/>
+in der That zur Heyrath mit Dormunden<lb/>
+gerathen. Jch ſah, daß dieſer Mann<lb/>
+Schuld an ihrem Selbſtmorde war. Jch<lb/>
+dachte an Marianens Schickſal in der an-<lb/>
+dern Welt. Und ich würde noch tauſend-<lb/>
+mal mehr ausgeſtanden haben, wenn mir<lb/>
+die Liebe zu Marianen verſtattet hätte, ſie<lb/>
+für unglücklich zu halten. Jhre Mutter<lb/>
+war noch weit gelaſſener, als ich. Jch<lb/>
+weis nicht, wem ſie ihren Beyſtand zu<lb/>
+<fw type="catch" place="bottom">danken</fw><lb/>
+<pb n="126" facs="#f0126"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+danken hatte; vermuthlich der Religion.<lb/>
+Sie ſah alles für ein Verhängniß an, deſ-<lb/>
+ſen Urſachen ſie nicht ergründen könnte.<lb/>
+Sie tröſtete ſich mit der Weisheit und Gü-<lb/>
+te des Schöpfers, und verherrlichte ihr<lb/>
+Unglück durch Standhaftigkeit. Es iſt<lb/>
+gewiß, daß der Beyſtand der Religion<lb/>
+in Unglücksfällen eine unglaubliche Kraft<lb/>
+hat. Man nehme nur den Unglücklichen<lb/>
+die Hoffnung einer beſſern Welt: ſo ſehe<lb/>
+ich nicht, womit ſie ſich aufrichten ſollen.</p><lb/>
+<p>Unſer Unglück ſchien nunmehr beſänf-<lb/>
+tiget zu ſeyn. Wir ſchmeckten die Ruhe<lb/>
+eines ſtillen Lebens von neuem wieder.<lb/>
+Wir kehrten zu unſern Büchern zurück, und<lb/>
+die Liebe verſüßte uns das Leben, und be-<lb/>
+nahm den traurigen Erinnerungen des<lb/>
+Vergangenen ihre Stärke. Mein Mann<lb/>
+ſchrieb um dieſe Zeit ein Buch: Der ſtand-<lb/>
+hafte Weiſe im Unglück. Etwan ein<lb/>
+Vierteljahr nach Marianens Tode ſtarb<lb/>
+unſer Wirth, und ſeine Frau hatte auch<lb/>
+<fw type="catch" place="bottom">bereits</fw><lb/>
+<pb n="127" facs="#f0127"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+bereits die Welt verlaſſen. Dieſer Todes-<lb/>
+fall machte eine groſſe Veränderung in un-<lb/>
+ſern Umſtänden. Wir mußten unſere<lb/>
+Capitale übernehmen, die durch Dor-<lb/>
+munds Verlaſſenſchaft ſehr hoch angewach-<lb/>
+ſen waren. Jn der That war dieſes eine<lb/>
+groſſe Laſt für uns. Weder ich, noch<lb/>
+mein Mann, noch Caroline wußten recht<lb/>
+mit dem Gelde umzugehen. Und ich<lb/>
+glaube, wir hätten ehe die Hälfte wegge-<lb/>
+ſchenkt, als daß wir es in unſerer Ver-<lb/>
+wahrung hätten behalten ſollen. An-<lb/>
+dreas, Carolinens Bruder, hatte wieder<lb/>
+eine Handlung in dem Haag angefangen.<lb/>
+Wir ſchenkten ihm einige tauſend Thaler,<lb/>
+und von dem übrigen Gelde bothen wir<lb/>
+ihm die Hälfte in ſeine Handlung an; mit<lb/>
+der andern Hälfte dienten wir guten Freun-<lb/>
+den. Wenn die Vorſichtigkeit bey dem<lb/>
+Gelde eine Tugend ohne Ausnahme iſt:<lb/>
+ſo muß ich ſagen, daß wir oft nachläßig<lb/>
+damit umgiengen. Es war uns oft ge-<lb/>
+nug, es hinzugeben, wenn wir wußten,<lb/>
+<fw type="catch" place="bottom">daß</fw><lb/>
+<pb n="128" facs="#f0128"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+daß derjenige, der uns darum bat, ein<lb/>
+rechtſchaffener Mann war, der das Geld<lb/>
+nöthiger brauchte, als wir. Ein Wort<lb/>
+galt bey meinem Manne ſo viel, als ein<lb/>
+Wechſel. Wir haben in der That auf<lb/>
+dieſe Art viel Geld eingebüßt; aber wir<lb/>
+ſind niemals darum betrogen worden. Un-<lb/>
+ſere Schuldner hatten ein gutes Herz; aber<lb/>
+wenig Glück. Sie wollten gern wieder<lb/>
+bezahlen, je mehr ſie unſere Dienſtfertig-<lb/>
+keit ſahen. Und ſie machten uns durch<lb/>
+ihre Aufrichtigkeit freygebig, wenn wir es<lb/>
+auch von Natur nicht geweſen wären.<lb/>
+Man glaubt es kaum, was es für ein<lb/>
+Vergnügen iſt, wenn man wackern Leuten<lb/>
+dienen kann. Es gehört, wie mich deucht,<lb/>
+weit mehr Ueberwindung dazu, das Ver-<lb/>
+mögen, zu dienen, zurück zu halten, als es<lb/>
+zu erfüllen.</p><lb/>
+<p>Endlich verlieſſen wir aus verſchiedenen<lb/>
+Urſachen Amſterdam, und wandten uns<lb/>
+mit unſerer Tochter, nebſt Carolinen und<lb/>
+<fw type="catch" place="bottom">Carl-</fw><lb/>
+<pb n="129" facs="#f0129"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+Carlſons Tochter nach dem Haag zu dem<lb/>
+Herrn Andreas. Unſer verſtorbener Wirth<lb/>
+hatte uns bey ſeinem Tode ſeine Tochter,<lb/>
+als die unſrige, anbefohlen. Dieſe nah-<lb/>
+men wir alſo mit uns. Jhr Vermögen<lb/>
+blieb in Amſterdam in guten Händen.<lb/>
+Dieſes Frauenzimmer, welches nunmehr<lb/>
+etwan funfzehn Jahr alt war, ſah eben<lb/>
+nicht ſchön aus; ſie hatte aber ſehr gute<lb/>
+natürliche Gaben. Sie gefiel, ohne daß<lb/>
+ſie ſich einbildete, gefallen zu haben. Die<lb/>
+Artigkeit vertrat bey ihr die Stelle der<lb/>
+Schönheit. Und wenn man die Wahl<lb/>
+hat, ob man ein ſchönes Frauenzimmer, das<lb/>
+nicht artig iſt, oder ein artiges, das nicht<lb/>
+ſchön iſt, lieben ſoll: ſo wird man ſich<lb/>
+leicht für das letzte entſchlieſſen. Jch kann<lb/>
+ohne Prahlerey ſagen, daß ich dieſes Kind,<lb/>
+welches Florentine hieß, meiſtens erzogen<lb/>
+hatte. Und wenn ich geſtehe, daß ſie<lb/>
+außerordentlich viel Geſchicklichkeit beſaß,<lb/>
+ſo will ich nicht ſagen, daß ich ſie ihr bey-<lb/>
+gebracht, ſondern ihr nur zur Gelegen-<lb/>
+<fw type="sig" place="bottom"><hi rendition="#fr">Erſter Theil.</hi> J</fw><fw type="catch" place="bottom">heit</fw><lb/>
+<pb n="130" facs="#f0130"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+heit gedienet habe, ſich ſolche zu erwerben.<lb/>
+Sie hatte Carolinen und dem Umgange<lb/>
+mit meinem Manne ſehr vieles zu danken.<lb/>
+Sie war mehr unter Mannsperſonen, als<lb/>
+unter ihrem Geſchlechte aufgewachſen.<lb/>
+Dieſes halte ich allemal für ein Glück bey<lb/>
+einem Frauenzimmer. Denn wenn es<lb/>
+wahr iſt, daß die Mannsperſonen in dem<lb/>
+Umgange mit uns artig und manierlich<lb/>
+werden: ſo iſt es ebenfalls wahr, daß wir<lb/>
+in ihrer Geſellſchaft klug und geſetzt wer-<lb/>
+den. Jch meyne aber gar nicht ſol-<lb/>
+che Mannsperſonen, die insgemein für<lb/>
+galant ausgeſchryen werden, und die ſich<lb/>
+bemühen, ein junges Mädchen durch nie-<lb/>
+derträchtige Schmeicheleyen zu vergöttern;<lb/>
+die ihr durch ieden Blick, durch iede Be-<lb/>
+wegung des Mundes und der Hand von<lb/>
+nichts als einer abgeſchmackten Liebe ſa-<lb/>
+gen. Solche Leute müſſen freylich nicht<lb/>
+die Sittenlehrer der Frauenzimmer wer-<lb/>
+den, wenn man haben will, daß eine jun-<lb/>
+ge Schöne keine Närrinn werden ſoll.<lb/>
+<fw type="catch" place="bottom">Mir</fw><lb/>
+<pb n="131" facs="#f0131"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+Mir wäre es am wenigſten zu vergeben<lb/>
+geweſen, wenn ich Florentinen nicht ſo<lb/>
+wohl erzogen hätte, als es ſeyn kann, da<lb/>
+ich Zeit, Gelegenheit, und ihre gute Fä-<lb/>
+higkeit vor mir hatte, und ſeit ihrem ſie-<lb/>
+benten Jahre faſt beſtändig um ſie gewe-<lb/>
+ſen war. Jhre guten Eigenſchaften mach-<lb/>
+ten ſie nachgehends zur Frau eines Man-<lb/>
+nes, der in Holland eine der höchſten<lb/>
+Ehrenſtellen bekleidete, und an dem ſein<lb/>
+Stand noch das wenigſte war, was ihn<lb/>
+groß und hochachtungswerth machte.<lb/>
+Doch ich will von unſerer Florentine ein<lb/>
+andermal reden.</p><lb/>
+<p>Wir waren kaum einige Monate in<lb/>
+dem Haag, ſo lief ein Schiff aus Rußland<lb/>
+mit Waaren für unſern Andreas ein. Er<lb/>
+bat uns, daß wir mit an Bord gehen,<lb/>
+und die Ladung anſehen möchten. Wir<lb/>
+ließen uns dieſen Vorſchlag gefallen, und<lb/>
+fuhren dem ankommenden Schiffe etwan<lb/>
+eine halbe Stunde auf der See entgegen.</p><lb/>
+<fw type="sig" place="bottom">J 2</fw><fw type="catch" place="bottom">Nun-</fw><lb/>
+<pb n="132" facs="#f0132"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+<p>Nunmehr komme ich auf einen Period<lb/>
+aus meinem Leben, der alles übertrifft,<lb/>
+was ich bisher geſagt habe. Jch muß mir<lb/>
+Gewalt anthun, indem ich ihn beſchreibe;<lb/>
+ſo ſehr weigert ſich mein Herz, die Vor-<lb/>
+ſtellung einer Begebenheit in ſich zu er-<lb/>
+neuern, die ihm ſo viel gekoſtet hat. Jch<lb/>
+weis, daß es eine von den Haupttugen-<lb/>
+den einer guten Art zu erzählen iſt, wenn<lb/>
+man ſo erzählt, daß die Leſer nicht die<lb/>
+Sache zu leſen, ſondern ſelbſt zu ſehen glau-<lb/>
+ben, und durch eine abgenöthigte Empfin-<lb/>
+dung ſich unvermerkt an die Stelle der Per-<lb/>
+ſon ſetzen, welcher die Sache begegnet iſt.<lb/>
+Allein ich zweifle, daß ich dieſe Abſicht er-<lb/>
+halten werde. Wir fuhren, wie ich ge-<lb/>
+fagt habe, dem ankommenden Schiffe<lb/>
+eine halbe Stunde entgegen. Es waren<lb/>
+zehn bis zwölf Deutſche Reiſende auf dem-<lb/>
+ſelben, und auch etliche Ruſſen. Dieſe<lb/>
+ſtiegen in unſerm Angeſichte ans Land, und<lb/>
+gratulirten den Herrn Andreas zur glückli-<lb/>
+chen Ankunft ſeines Schiffes, weil ſie hörten,<lb/>
+<fw type="catch" place="bottom">daß</fw><lb/>
+<pb n="133" facs="#f0133"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+daß er der Herr davon war. Andreas,<lb/>
+der die See ſtets in Gedanken hatte, hörte<lb/>
+ihnen begierig zu. Nur mir ward die<lb/>
+Zeit zu lang. Jch trat daher mit meinem<lb/>
+Manne auf die Seite, und bat ihn, daß<lb/>
+er wieder zurück fahren möchte. Da ich<lb/>
+noch mit ihm rede, ſo kömmt einer von den<lb/>
+Paſſagiern auf mich zugeſprungen, um-<lb/>
+armet mich, und ruft: Ja, ja, ſie ſind es,<lb/>
+ich habe meinen Augen nicht trauen wol-<lb/>
+len; aber ſie ſind meine liebe Gemahlinn.<lb/>
+Er drückte mich einige Minuten ſo feſt<lb/>
+an ſich, daß ich nicht ſehen konnte, wer mir<lb/>
+dieſe Zärtlichkeit erwies. Das Schrecken<lb/>
+kam darzu, und ich glaubte nicht anders,<lb/>
+als daß ein unſinnig Verliebter mich ange-<lb/>
+fallen hätte. Aber ach Himmel, wen<lb/>
+ſah ich endlich in meinen Armen! Mei-<lb/>
+nen Grafen in Ruſſiſcher Kleidung, mei-<lb/>
+nen erſten Mann, den ich zehn Jahr für<lb/>
+todt gehalten hatte. Jch kann nicht ſagen,<lb/>
+wie mir ward. So viel weis ich, daß ich<lb/>
+kein Wort aufbringen konnte. Mein<lb/>
+<fw type="sig" place="bottom">J 3</fw><fw type="catch" place="bottom">Graf</fw><lb/>
+<pb n="134" facs="#f0134"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+Graf ſtund und weinte. Er erblickte end-<lb/>
+lich ſeinen ehemaligen Freund, als meinen<lb/>
+itzigen Mann. Er umarmte ihn; doch von<lb/>
+beyden habe ich kein Wort gehört, oder vor<lb/>
+Beſtürzung nichts verſtehen können. Un-<lb/>
+ſer Wagen hielt gleich neben uns. Nach<lb/>
+dieſem lief ich zu, ohne meine beyden Män-<lb/>
+ner mit zu nehmen, aber beyde folgten mir<lb/>
+nach. Jch umarmte den Grafen unzäh-<lb/>
+ligemal in dem Wagen; was ich ihm aber<lb/>
+geſagt habe, das iſt mir unbekannt. Wir<lb/>
+waren nunmehr in unſerer Behauſung,<lb/>
+und ich fieng an mich wieder ſelber zu ver-<lb/>
+ſtehen. Mein Graf bezeigte eine unendli-<lb/>
+che Zufriedenheit, daß er mich wieder ge-<lb/>
+funden hatte, und zwar an einem Orte,<lb/>
+wo er mich am wenigſten vermuthet. Er<lb/>
+ſagte mir wohl tauſendmal, daß ich noch<lb/>
+eben ſo liebenswürdig wäre, als da er mich<lb/>
+verlaſſen hätte. Sein Vergnügen war<lb/>
+um deſto ſtärker, weil er mich für todt ge-<lb/>
+halten hatte, da ich ihm auf etliche Briefe<lb/>
+nicht geantwortet. Er glaubte, ich hätte<lb/>
+<fw type="catch" place="bottom">es</fw><lb/>
+<pb n="135" facs="#f0135"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+es erfahren, daß er noch am Leben wäre.<lb/>
+Kurz, er hatte von mir eben ſo wenig ge-<lb/>
+wußt, als ich von ſeinem Leben. Herr R--<lb/>
+hatte uns verlaſſen, ohne daß wir es ge-<lb/>
+merkt. Wir waren alſo ganz allein. Mein<lb/>
+Graf erzählte mir ſein gehabtes Schickſal,<lb/>
+davon ich bald reden will, und verlangte<lb/>
+nunmehr zu wiſſen, wie es mir gegangen<lb/>
+wäre. Er fragte mich hundertmal, und ich<lb/>
+konnte ihm mit nichts, als Thränen und<lb/>
+Umarmungen antworten. Liebe und<lb/>
+Schaam machten mich ſprachlos. Einen<lb/>
+Mann hatte ich wieder gefunden, den ich<lb/>
+ausnehmend liebte, und einen ſollte ich ver-<lb/>
+laſſen, den ich nicht weniger liebte. Man<lb/>
+muß es fühlen, wenn man wiſſen will,<lb/>
+was es heißt, von zween Affecten zugleich<lb/>
+beſtürmt zu werden, von denen einer ſo<lb/>
+groß, als der andere iſt. Mein Gemahl<lb/>
+muthmaßete aus meiner Wehmuth etwas<lb/>
+widriges für ſich. Er hielt noch inſtändi-<lb/>
+ger an, daß ich ihm mein Herz entdecken,<lb/>
+und ihm ſein Glück oder Unglück wiſ-<lb/>
+<fw type="sig" place="bottom">J 4</fw><fw type="catch" place="bottom">ſen</fw><lb/>
+<pb n="136" facs="#f0136"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ſen laſſen ſollte. Aber umſonſt. Was<lb/>
+konnte ich ihm ſagen, wenn ich nicht<lb/>
+ſagen wollte, daß ich verheyrathet wäre?<lb/>
+Jch ſchwleg, ich ſeufzete; doch dieſes war<lb/>
+genug geſagt. Sind ſie nicht mehr meine<lb/>
+Gemahlinn? fieng er an. Das wolle<lb/>
+Gott nicht! Lieber meinen Tod, als dieſe<lb/>
+Nachricht. Jn eben dem Augenblicke trat<lb/>
+meine kleine Tochter, ein Kind von fünf<lb/>
+Jahren, in das Zimmer, und vermehrte<lb/>
+meine Beſtürzung, und entdeckte zu gleicher<lb/>
+Zeit das Geheimniß, vor welchem ich zit-<lb/>
+terte. Sie ſah mich weinen; ſie trat zu<lb/>
+mir. Was fehlt ihnen denn liebe Mama,<lb/>
+fieng ſie an, daß ſie weinen? Jch komme<lb/>
+von dem Papa, der weint auch, und will<lb/>
+gar nicht mit mir reden. Jch habe ihnen<lb/>
+doch nichts gethan. Mein Gott, ſprach<lb/>
+der Graf zu mir, ſie ſind verheyrathet! Jch<lb/>
+unglückſeliger Mann! Habe ich ſie darum<lb/>
+wieder finden müſſen, damit meinem Her-<lb/>
+zen keine Art von Marter unbekannt blie-<lb/>
+be? Wer iſt denn ihr Gemahl? Sagen<lb/>
+<fw type="catch" place="bottom">ſie</fw><lb/>
+<pb n="137" facs="#f0137"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+ſie mirs nur. Jch will ſie durch meine<lb/>
+Gegenwart nicht länger quälen. Jch will<lb/>
+ſie gleich verlaſſen. Sie ſind mir nicht<lb/>
+untreu geworden. Sie haben mich für todt<lb/>
+gehalten. Jch mache ihnen keine Vorwürfe.<lb/>
+Niemand iſt an meinem Unglücke Schuld,<lb/>
+als das Verhängniß. Vielleicht iſt dieſes<lb/>
+die Strafe für die Liebe mit Carolinen.<lb/>
+Ueberwinden ſie ſich und reden ſie mit<lb/>
+mir, fuhr er fort. Jch kann es von<lb/>
+niemanden, als von ihnen anhören, wer<lb/>
+ihr Mann iſt. Jch ſprang von dem<lb/>
+Stuhle auf, und fiel ihm in die Arme, aber<lb/>
+ich ſagte noch kein Wort. Nein, fieng er<lb/>
+an, erweiſen ſie mir keine Zärtlichkeiten.<lb/>
+Jch verdiene ſie, das weis mein Herz; aber<lb/>
+ihr itziger Ehegemahl kann ihre Liebe allein<lb/>
+fordern, und ich muß dem Schickſale und<lb/>
+der Tugend mit meiner Liebe weichen.<lb/>
+Durch dieſes Geſtändniß brachte er mich<lb/>
+nur mehr in Bewegung. Er fragte end-<lb/>
+lich das kleine Kind, wo der Papa wäre,<lb/>
+und warum er nicht herein käme? Er iſt<lb/>
+<fw type="sig" place="bottom">J 5</fw><fw type="catch" place="bottom">ja</fw><lb/>
+<pb n="138" facs="#f0138"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+ja mit ihnen in dem Wagen gekommen,<lb/>
+hub ſie an. Er iſt in ſeiner Stube und<lb/>
+weint. Alſo, fieng der Graf zu mir an,<lb/>
+iſt mein liebſter Freund ihr Gemahl? Die-<lb/>
+ſes macht mein Glück noch erträglich. Dar-<lb/>
+auf bat er meine kleine Tochter, daß ſie ih-<lb/>
+rem Papa rufen ſollte. Allein er kam nicht,<lb/>
+ſondern ſchickte durch eben dieſes Kind<lb/>
+dem Grafen ein franzöſiſch Billet von die-<lb/>
+ſem Jnnhalte:</p><lb/>
+<floatingText><body><div type="letter"><opener><salute>Mein lieber Graf,</salute></opener><lb/>
+<p>Sie dauern mich unendlich. Jch habe<lb/>
+ſie durch die unſchuldigſte Liebe ſo ſehr be-<lb/>
+leidigt, als ob ich Jhr Feind geweſen wäre.<lb/>
+Jch habe Jhnen Jhre Gemahlinn entzo-<lb/>
+gen. Können Sie dieſes wohl von mir<lb/>
+glauben? Der Jrrthum, oder vielmehr<lb/>
+die Gewißheit, daß Sie nicht mehr am Le-<lb/>
+ben wären, hat mir den erlaubten Beſitz<lb/>
+ihrer Gemahlinn gegönnt; ihre Gegen-<lb/>
+wart aber verdammt nunmehr das ſonſt ſo<lb/>
+tugendhafte Band. Sie ſind zu großmü-<lb/>
+thig, und wir zu unſchuldig, als daß Sie<lb/>
+<fw type="catch" place="bottom">uns</fw><lb/>
+<pb n="139" facs="#f0139"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+uns mit Jhrem Haſſe beſtrafen ſollten.<lb/>
+Unſere Unſchuld verringert Jhr Unglück;<lb/>
+allein ſie hebt es nicht auf. Das einzige<lb/>
+Mittel mich zu beſtrafen iſt, daß ich fliehe.<lb/>
+Jch verlaſſe Sie, liebſter Graf, und werde<lb/>
+mich zeitlebens vor mir ſelber ſchämen.<lb/>
+Wollte Gott, daß ich durch meine Abwe-<lb/>
+ſenheit und durch die Marter, die ich<lb/>
+ausſtehe, Jhren Verluſt erſetzen könnte!<lb/>
+Entfernen Sie das Kind, das Jhnen die-<lb/>
+ſen Brief bringt, damit Sie das traurige<lb/>
+Merkmaal Jhres Unglücks nicht vor den Au-<lb/>
+gen haben dürfen. Jſt es möglich, ſo den-<lb/>
+ken Sie bey dieſem Briefe zum letztenmale<lb/>
+an mich. Sie ſollen mich nicht wieder<lb/>
+ſehen.</p></div></body></floatingText><lb/>
+<p>Der Graf verließ mich, ſo bald er die-<lb/>
+ſen Brief geleſen hatte, und ſuchte meinen<lb/>
+Mann. Doch er war fort, und niemand<lb/>
+wußte, wohin. Dieſe Nachricht ſetzte mich<lb/>
+in eine neue Beſtürzung. Mein ganzes<lb/>
+Herz empörte ſich. Jch hatte meinen er-<lb/>
+ſten Mann wieder gefunden. Jch wußte,<lb/>
+<fw type="catch" place="bottom">daß</fw><lb/>
+<pb n="140" facs="#f0140"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+daß ich ſie beyde nicht beſitzen konnte; al-<lb/>
+lein welcher Trieb hört die Vernunft we-<lb/>
+niger, als die Liebe. Es war in meinen<lb/>
+Augen die grauſamſte Wahl, wenn ich da-<lb/>
+ran dachte, welchen ich wählen ſollte. Jch<lb/>
+gehörte dem letzten ſo wohl, als dem erſten<lb/>
+zu. Und nichts war mir entſetzlicher, als<lb/>
+einen von beyden zu verlaſſen, ſo gewiß ich<lb/>
+auch von dieſer Nothwendigkeit überzeugt<lb/>
+war. Der Herr R-- war indeſſen fort, und<lb/>
+der Graf wollte nicht ruhen, bis er ſeinen<lb/>
+Freund wieder ſähe. Er ſchickte ſo gleich<lb/>
+nach dem Hafen, damit er nicht etwan mit<lb/>
+einem Schiffe abgehen ſollte. Jch hatte<lb/>
+ihm indeſſen erzählt, daß ich den Herrn R--<lb/>
+freywillig zu meinem Manne erwählt, und<lb/>
+daß ich ſeine großmüthige Freundſchaft nicht<lb/>
+beſſer zu belohnen gewußt hätte, als durch<lb/>
+die Liebe. Jch weis genug, fieng der Graf<lb/>
+an, weder ſie, noch mein Freund haben<lb/>
+mich beleidiget. Es iſt ein Schickſal, das<lb/>
+wir nicht erforſchen können. Jn wenig<lb/>
+Stunden kam Herr R-- zurück. Er war<lb/>
+<fw type="catch" place="bottom">ſchon</fw><lb/>
+<pb n="141" facs="#f0141"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+ſchon im Begriffe geweſen, mit einem Schif-<lb/>
+fe fortzugehen. Er dankte dem Grafen<lb/>
+auf das zärtlichſte, daß er ihn wieder hätte<lb/>
+zurück rufen laſſen. Jch will nichts, als<lb/>
+Abſchied von ihnen nehmen, fieng er an,<lb/>
+von ihnen und ihrer Gemahlinn. Gönnen<lb/>
+ſie mir dieſe Zufriedenheit noch, es wird ge-<lb/>
+wiß die letzte in meinem Leben ſeyn. So<lb/>
+gleich nahm er mich bey der Hand, und<lb/>
+führte mich zu dem Grafen. Hier, ſprach<lb/>
+er, übergebe ich ihnen meine Gemahlinn,<lb/>
+und verwandele meine Liebe von dieſem Au-<lb/>
+genblicke an in Ehrerbietung. Hierauf<lb/>
+wollte er Abſchied nehmen; doch der Graf<lb/>
+ließ ihn nicht von ſich. Nein, ſagte er,<lb/>
+bleiben ſie bey mir. Jch fange auf ihr<lb/>
+Verlangen mit meiner Gemahlinn die zärt-<lb/>
+lichſte Ehe wieder an. Sie iſt mir noch ſo<lb/>
+koſtbar, als ehedem. Jhr Herz iſt edel und<lb/>
+beſtändig geblieben. Sie hat nicht gewußt,<lb/>
+daß ich noch lebe. Nein, mein lieber<lb/>
+Freund, bleiben ſie bey uns. Wollen ſie<lb/>
+mich etwan darum verlaſſen, daß ich nicht<lb/>
+<fw type="catch" place="bottom">eifer-</fw><lb/>
+<pb n="142" facs="#f0142"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwediſchen</hi></fw><lb/>
+eiferſüchtig werden ſoll, ſo beleidigen ſie die<lb/>
+Treue meiner Gemahlinn und mein Ver-<lb/>
+trauen. Bitten ſie ihn doch, Madam,<lb/>
+fieng er zu mir an, daß er bleibt. Jch hatte<lb/>
+kaum ſo viel Gewalt über mich, daß ich zu<lb/>
+ihm ſagte: Warum wollen ſie uns verlaſ-<lb/>
+ſen? Mein lieber Gemahl bittet ſie ja, daß<lb/>
+ſie hier bleiben ſollen. Und ich müßte ſie<lb/>
+niemals geliebt haben, wenn mir ihre Ent-<lb/>
+fernung gleichgültig ſeyn ſollte. Bleiben<lb/>
+ſie wenigſtens in Amſterdam, wenn ſie nicht<lb/>
+in unſerm Hauſe bleiben wollen. Jch<lb/>
+werde ſie lieben, ohne es ihnen weiter zu<lb/>
+ſagen, und ob ich gleich aufhören werde,<lb/>
+die ihrige zu ſeyn, ſo unterſagt mir doch die<lb/>
+Liebe zu meinem Gemahle nicht, ihnen be-<lb/>
+ſtändig Zeichen der Hochachtung und<lb/>
+Freundſchaft zu erkennen zu geben. Er<lb/>
+blieb auf unſer Bitten auch wirklich in<lb/>
+Amſterdam. Er ſpeiſete oft mit uns, und<lb/>
+ſeine Aufführung war ſo edel, als man nur<lb/>
+denken kann. Wenn auch ich weniger<lb/>
+tugendhaft geweſen wäre, ſo hätte mich<lb/>
+doch ſein großmüthiges Bezeigen tugend-<lb/>
+haft erhalten müſſen. Er that gar nicht,<lb/>
+als ob er jemals mein Mann geweſen wäre.<lb/>
+Kein vertrauliches Wort, keine vertrauli-<lb/>
+<fw type="catch" place="bottom">liche</fw><lb/>
+<pb n="143" facs="#f0143"/>
+<fw type="header" place="top"><hi rendition="#b">Gräfinn von G **</hi></fw><lb/>
+che Mine durfte ihm entfahren. Wie er<lb/>
+vor meiner Ehe mit mir umgegangen war,<lb/>
+ſo gien er itzt mit mir um. Er unterhielt<lb/>
+mich mit Freundſchaft und Hochachtung,<lb/>
+und beförderte mein und meines Grafen<lb/>
+Vergnügen mit Aufopferung des ſeinigen.<lb/>
+Er war oft ganze Tage bey mir allein. Jch<lb/>
+glaube, daß ich ſo viel Schwachheit gehabt<lb/>
+hätte, ihn anzuhören, wenn er an die vori-<lb/>
+gen Zeiten gedacht hätte. Und wer weis,<lb/>
+ob ich ihm nicht wider meinen Willen durch<lb/>
+manchen Blick ein ſtummes Bekenntniß<lb/>
+von meiner Liebe gethan habe, ſo gewiſſen-<lb/>
+haft ich auch mit ihm umgieng, und ſo ſehr<lb/>
+ich meinen Grafen liebte. Ueber die Ge-<lb/>
+genwart der Caroline erſtaunte der Graf<lb/>
+ſehr. Er hätte es lieber geſehen, wenn ſie<lb/>
+unſere Wohnung verlaſſen hätte. Allein<lb/>
+ich bat ihn, daß er mir ihre Geſellſchaft<lb/>
+nicht entziehen ſollte. Können ſie meiner<lb/>
+Tugend trauen, ſagte ich zu ihm, ſo müſſen<lb/>
+ſie wiſſen, daß ich der ihrigen gewiß bin.<lb/>
+Das Schickſal der beyden Kinder, die er mit<lb/>
+Carolinen erzeugt, war eine Sache, die ihn<lb/>
+oft ganze Stunden niedergeſchlagen machte.<lb/>
+Er führte ſich indeſſen gegen Carolinen ſehr<lb/>
+liebreich auf. Er ſcherzte oft mit uns bey-<lb/>
+<fw type="catch" place="bottom">den</fw><lb/>
+<pb n="144" facs="#f0144"/>
+<fw type="header" place="top"><hi rendition="#b">Leben der Schwed. Gräf. v. G **</hi></fw><lb/>
+den; allein ſein Scherz war ſo behutſam,<lb/>
+daß er weder ſie kränken, noch mich belei-<lb/>
+digen konnte. Wie es uns ferner gegan-<lb/>
+gen, will ich künftig erzählen. Jtzt muß<lb/>
+ich nur von meines Gemahls, des Grafen<lb/>
+Abweſenheit noch kürzlich ſo viel erwähnen.<lb/>
+Die Ruſſen hatten von dem Dorfe Beſitz<lb/>
+genommen, darinn mein Gemahl auf den<lb/>
+Tod gelegen, und von den Schweden als<lb/>
+todt war zurück gelaſſen worden. Da er<lb/>
+nach und nach wieder geſund worden, hatte<lb/>
+man ihn als einen gefangenen Officier mit<lb/>
+nach Rußland geſchickt. Er hatte ſeinen<lb/>
+Namen aus Furcht, daß man ihn deſto eher<lb/>
+an die Schweden ausliefern möchte, ver-<lb/>
+ſchwiegen, und ſich für einen Capitain aus-<lb/>
+gegeben. Seine erlittenen Unglücksfälle,<lb/>
+und wie er fünf Jahre in Siberien hat zu-<lb/>
+bringen müſſen, damit will ich die Fortſet-<lb/>
+zung von meiner Geſchichte anfangen.<lb/>
+Der arme Graf hat viel ausſtehen müſſen.<lb/>
+<hi rendition="#c">Er ſtarb. --- Doch ich will itzt<lb/>
+nichts mehr ſagen.</hi></p><lb/>
+<p><hi rendition="#c"><hi rendition="#b">Ende des erſten Theils.</hi></hi></p><lb/>
+<milestone unit="section" rendition="#hr"/></div><lb/>
+</body><back><div type="imprimatur"><p>Leipzig, druckts Ulrich Chriſtian Saalbach.</p></div></back><lb/>
+<pb n="[145]" facs="#f0145"/>
+<pb n="[146]" facs="#f0146"/>
+<pb n="[147]" facs="#f0147"/>
+<pb n="[148]" facs="#f0148"/>
+</text> </TEI>

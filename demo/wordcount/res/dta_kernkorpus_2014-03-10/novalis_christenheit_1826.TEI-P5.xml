@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Die Christenheit oder Europa</title>
+<title type="sub">Ein Fragment </title>
+<title type="sub">(Geschrieben im Jahre 1799)</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118588893">
+<surname>Novalis</surname>
+<addName>Hardenberg, Georg Philipp Friedrich von </addName>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">33</measure>
+<measure type="tokens">5797</measure>
+<measure type="types">2335</measure>
+<measure type="characters">44492</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:12Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/novalis_christenheit_1826</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/novalis_christenheit_1826</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/novalis_christenheit_1826</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/novalis_christenheit_1826</idno>
+<idno type="DTADirName">novalis_christenheit_1826</idno>
+<idno type="DTAID">16293</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905194329</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="DS">Novalis: Die Christenheit oder Europa. In: Tieck/Schlegel (Hg.): Novalis. Schriften. Bd. 1. Berlin, 1826, S. 187-208.</bibl>
+<biblFull>
+<titleStmt>
+<title level="a" type="main">Die Christenheit oder Europa</title>
+<title level="a" type="sub">Ein Fragment </title>
+<title level="a" type="sub">(Geschrieben im Jahre 1799)</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118588893">
+<surname>Novalis</surname>
+<addName>Hardenberg, Georg Philipp Friedrich von </addName>
+</persName>
+</author>
+<editor>
+<persName ref="http://d-nb.info/gnd/12989432X">
+<surname>Tieck</surname>
+<forename>Ludwig </forename>
+</persName>
+</editor>
+<editor>
+<persName ref="http://d-nb.info/gnd/118607987">
+<surname>Schlegel</surname>
+<forename>Friedrich von </forename>
+</persName>
+</editor>
+</titleStmt>
+<editionStmt>
+<edition n="4">4., vermehrte Auflage</edition>
+</editionStmt>
+<extent>
+<measure type="pages">20 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Reimer</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1826</date>
+</publicationStmt>
+<seriesStmt>
+<title level="s" type="main">Novalis. Schriften</title>
+<biblScope unit="volume">1</biblScope>
+<biblScope unit="pages">187-208</biblScope>
+</seriesStmt>
+<notesStmt>
+<note type="remarkSource">Novalis' "Europa"-Schrift wurde 1799 für das Athenäum der Schlegels verfasst, ist jedoch dort nicht erschienen. 1802 erschienen Auszüge im Druck. Für das DTA wurde der erste vollständige, posthum u.d.T. "Die Christenheit oder Europa. Ein Fragment" erschienene Abdruck digitalisiert. Aus: Novalis Schriften. Hrsg. von Ludwig Tieck und Friedrich Schlegel. 4., verm. Aufl. Berlin: Reimer 1826. Teil 1, S. 187–208.</note>
+</notesStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Zentral- und Landesbibliothek Berlin</repository>
+<idno>
+<idno type="shelfmark">Berlin ZLB, ¤ III 49 800</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Philosophie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#g">Novalis Schriften</hi>.</titlePart> </docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<byline> <hi rendition="#g">Herausgegeben<lb/>
+von</hi><lb/>
+<docAuthor> <hi rendition="#g">Ludwig Tieck</hi></docAuthor><lb/>
+<hi rendition="#g">und</hi><lb/>
+<docAuthor> <hi rendition="#g">Fr. Schlegel</hi>.</docAuthor> </byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docEdition> <hi rendition="#g">Vierte vermehrte Auflage</hi>. </docEdition><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="volume"> <hi rendition="#g">Erster Theil</hi>.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace>Berlin,</pubPlace> <docDate>1826.</docDate><lb/>
+<publisher> <hi rendition="#g">Gedruckt und verlegt<lb/>
+bei G</hi>. <hi rendition="#g">Reimer</hi>. </publisher><lb/>
+</docImprint> </titlePage> </front> <body>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<div n="1"> <head>Die Chriſtenheit oder Europa.<lb/>
+</head> <milestone unit="section" rendition="#hr"/> <p rendition="#c"><hi rendition="#g">Ein Fragment</hi>.</p><lb/>
+<p rendition="#c">(Geſchrieben im Jahre 1799. )</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0010"/>
+<pb n="189" facs="#f0011"/>
+<milestone unit="section" rendition="#hr"/> <p> <hi rendition="#in">E</hi>s waren ſchoͤne glaͤnzende Zeiten, wo Europa ein chriſtliches<lb/>
+Land war, wo <hi rendition="#g">Eine</hi> Chriſtenheit dieſen menſchlich geſtalteten<lb/>
+Welttheil bewohnte; <hi rendition="#g">Ein</hi> großes gemeinſchaftliches Intereſſe<lb/>
+verband die entlegenſten Provinzen dieſes weiten geiſtlichen<lb/>
+Reichs. — Ohne große weltliche Beſitzthuͤmer lenkte und ver¬<lb/>
+einigte <hi rendition="#g">Ein</hi> Oberhaupt, die großen politiſchen Kraͤfte. — Eine<lb/>
+zahlreiche Zunft zu der jedermann den Zutritt hatte, ſtand un¬<lb/>
+mittelbar unter demſelben und vollfuͤhrte ſeine Winke und<lb/>
+ſtrebte mit Eifer ſeine wohlthaͤtige Macht zu befeſtigen. Je¬<lb/>
+des Glied dieſer Geſellſchaft wurde allenthalben geehrt, und<lb/>
+wenn die gemeinen Leute Troſt oder Huͤlfe, Schutz oder Rath<lb/>
+bei ihm ſuchten, und gerne dafuͤr ſeine mannigfaltigen Beduͤrf¬<lb/>
+niſſe reichlich verſorgten, ſo fand es auch bei den Maͤchtigeren<lb/>
+Schutz, Anſehn und Gehoͤr, und alle pflegten dieſe auserwaͤhl¬<lb/>
+ten, mit wunderbaren Kraͤften ausgeruͤſteten Maͤnner, wie<lb/>
+Kinder des Himmels, deren Gegenwart und Zuneigung man¬<lb/>
+nigfachen Segen verbreitete. Kindliches Zutrauen knuͤpfte die<lb/>
+Menſchen an ihre Verkuͤndigungen. — Wie heiter konnte jeder¬<lb/>
+mann ſein irdiſches Tagewerk vollbringen, da ihm durch dieſe<lb/>
+heilige Menſchen eine ſichere Zukunft bereitet, und jeder Fehl¬<lb/>
+tritt durch ſie vergeben, jede mißfarbige Stelle des Lebens<lb/>
+durch ſie ausgeloͤſcht, und geklaͤrt wurde. Sie waren die er¬<lb/>
+fahrnen Steuerleute auf dem großen unbekannten Meere, in<lb/>
+deren Obhut man alle Stuͤrme geringſchaͤtzen, und zuverſicht¬<lb/>
+<pb n="190" facs="#f0012"/>
+lich auf eine ſichre Gelangung und Landung an der Kuͤſte der<lb/>
+eigentlichen vaterlaͤndiſchen Welt rechnen durfte.</p><lb/>
+<p>Die wildeſten, gefraͤßigſten Neigungen mußten der Ehr¬<lb/>
+furcht und dem Gehorſam gegen ihre Worte weichen. Friede<lb/>
+ging von ihnen aus. — Sie predigten nichts als Liebe zu der<lb/>
+heiligen, wunderſchoͤnen Frau der Chriſtenheit, die mit goͤttli¬<lb/>
+chen Kraͤften verſehen, jeden Glaͤubigen aus den ſchrecklichſten<lb/>
+Gefahren zu retten bereit war. Sie erzaͤhlten von laͤngſt ver¬<lb/>
+ſtorbenen himmliſchen Menſchen, die durch Anhaͤnglichkeit und<lb/>
+Treue an jene ſelige Mutter und ihr himmliſches, freundliches<lb/>
+Kind, die Verſuchung der irdiſchen Welt beſtanden, zu goͤttli¬<lb/>
+chen Ehren gelangt und nun ſchuͤtzende, wohlthaͤtige Maͤchte<lb/>
+ihrer lebenden Bruͤder, willige Helfer in der Noth, Vertreter<lb/>
+menſchlicher Gebrechen und wirkſame Freunde der Menſchheit<lb/>
+am himmliſchen Throne geworden waren. Mit welcher Hei¬<lb/>
+terkeit verließ man die ſchoͤnen Verſammlungen in den geheim¬<lb/>
+nißvollen Kirchen, die mit ermunternden Bildern geſchmuͤckt,<lb/>
+mit ſuͤßen Duͤften erfuͤllt, und von heiliger erhebender Muſik<lb/>
+belebt waren. In ihnen wurden die geweihten Reſte ehemali¬<lb/>
+ger gottesfuͤrchtiger Menſchen dankbar, in koͤſtlichen Behaͤlt¬<lb/>
+niſſen aufbewahrt. — Und an ihnen offenbahrte ſich die goͤttli¬<lb/>
+che Guͤte und Allmacht, die maͤchtige Wohlthaͤtigkeit dieſer<lb/>
+gluͤcklichen Frommen, durch herrliche Wunder und Zeichen. So<lb/>
+bewahren liebende Seelen, Locken oder Schriftzuͤge ihrer ver¬<lb/>
+ſtorbenen Geliebten, und naͤhren die ſuͤße Glut damit, bis an<lb/>
+den wiedervereinigenden Tod. Man ſammelte mit inniger<lb/>
+Sorgfalt uͤberall was dieſen geliebten Seelen angehoͤrt hatte,<lb/>
+und jeder pries ſich gluͤcklich der eine ſo troͤſtliche Reliquie er¬<lb/>
+halten oder nur beruͤhren konnte. Hin und wieder ſchien ſich<lb/>
+die himmliſche Gnade vorzuͤglich auf ein ſeltſames Bild, oder<lb/>
+einen Grabhuͤgel niedergelaſſen zu haben. — Dorthin ſtroͤmten<lb/>
+aus allen Gegenden Menſchen mit ſchoͤnen Gaben und brach¬<lb/>
+ten himmliſche Gegengeſchenke: Frieden der Seele und Ge¬<lb/>
+ſundheit des Leibes, zuruͤck. Aemſig ſuchte, dieſe maͤchtige frie¬<lb/>
+<pb n="191" facs="#f0013"/>
+denſtiftende Geſellſchaft, alle Menſchen dieſes ſchoͤnen Glau¬<lb/>
+bens theilhaftig zu machen und ſandte ihre Genoſſen, in alle<lb/>
+Welttheile, um uͤberall das Evangelium des Lebens zu ver¬<lb/>
+kuͤndigen, und das Himmelreich zum einzigen Reiche auf dieſer<lb/>
+Welt zu machen. Mit Recht widerſetzte ſich das weiſe Ober¬<lb/>
+haupt der Kirche, frechen Ausbildungen menſchlicher Anlagen<lb/>
+auf Koſten des heiligen Sinns, und unzeitigen gefaͤhrlichen<lb/>
+Entdeckungen, im Gebiete des Wiſſens. So wehrte er den<lb/>
+kuͤhnen Denkern oͤffentlich zu behaupten, daß die Erde ein un¬<lb/>
+bedeutender Wandelſtern ſey, denn er wußte wohl, daß die<lb/>
+Menſchen mit der Achtung fuͤr ihren Wohnſitz und ihr irdiſches<lb/>
+Vaterland, auch die Achtung vor der himmliſchen Heimath und<lb/>
+ihrem Geſchlecht verlieren, und das eingeſchraͤnkte Wiſſen dem<lb/>
+unendlichen Glauben vorziehn und ſich gewoͤhnen wuͤrden alles<lb/>
+Große und Wunderwuͤrdige zu verachten, und als todte Ge¬<lb/>
+ſetzwirkung zu betrachten. An ſeinem Hofe verſammelten ſich<lb/>
+alle klugen und ehrwuͤrdigen Menſchen aus Europa. Alle<lb/>
+Schaͤtze floſſen dahin, das zerſtoͤrte Jeruſalem hatte ſich ge¬<lb/>
+raͤcht, und Rom ſelbſt war Jeruſalem, die heilige Reſidenz der<lb/>
+goͤttlichen Regierung auf Erden geworden. Fuͤrſten legten ihre<lb/>
+Streitigkeiten dem Vater der Chriſtenheit vor, willig ihm ihre<lb/>
+Kronen und ihre Herrlichkeit zu Fuͤßen, ja ſie achteten es ſich<lb/>
+zum Ruhm, als Mitglieder dieſer hohen Zunft, den Abend ih¬<lb/>
+res Lebens in goͤttlichen Betrachtungen zwiſchen einſamen Klo¬<lb/>
+ſtermauern zu beſchließen. Wie wohlthaͤtig, wie angemeſſen,<lb/>
+der innern Natur der Menſchen, dieſe Regierung, dieſe Ein¬<lb/>
+richtung war, zeigte das gewaltige Emporſtreben, aller andern<lb/>
+menſchlichen Kraͤfte, die harmoniſche Entwickelung aller Anla¬<lb/>
+gen; die ungeheure Hoͤhe, die einzelne Menſchen in allen<lb/>
+Faͤchern der Wiſſenſchaften des Lebens und der Kuͤnſte erreich¬<lb/>
+ten und der uͤberall bluͤhende Handelsverkehr mit geiſtigen und<lb/>
+irdiſchen Waaren, in dem Umkreis von Europa und bis in das<lb/>
+fernſte Indien hinaus. —</p><lb/>
+<pb n="192" facs="#f0014"/>
+<p>Das waren die ſchoͤnen weſentlichen Zuͤge der aͤchtkatholi¬<lb/>
+ſchen oder aͤcht chriſtlichen Zeiten. Noch war die Menſchheit<lb/>
+fuͤr dieſes herrliche Reich nicht reif, nicht gebildet genug. Es<lb/>
+war eine erſte Liebe, die im Drucke des Geſchaͤftlebens ent¬<lb/>
+ſchlummerte, deren Andenken durch eigennuͤtzige Sorgen ver¬<lb/>
+draͤngt, und deren Band nachher als Trug und Wahn ausge¬<lb/>
+ſchrien und nach ſpaͤtern Erfahrungen beurtheilt, — auf im¬<lb/>
+mer von einem großen Theil der Europaͤer zerriſſen wurde.<lb/>
+Dieſe innere große Spaltung, die zerſtoͤrende Kriege begleite¬<lb/>
+ten, war ein merkwuͤrdiges Zeichen der Schaͤdlichkeit der Kul¬<lb/>
+tur, fuͤr den Sinn des Unſichtbaren, wenigſtens einer tempo¬<lb/>
+rellen Schaͤdlichkeit der Kultur einer gewiſſen Stufe. Vernich¬<lb/>
+tet kann jener unſterbliche Sinn nicht werden, aber getruͤbt,<lb/>
+gelaͤhmt, von andern Sinnen verdraͤngt. — Eine laͤngere Ge¬<lb/>
+meinſchaft der Menſchen vermindert die Neigungen, den Glau¬<lb/>
+ben an ihr Geſchlecht, und gewoͤhnt ſie ihr ganzes Dichten und<lb/>
+Trachten, den Mitteln des Wohlbefindens allein zuzuwenden,<lb/>
+die Beduͤrfniſſe und die Kuͤnſte ihrer Befriedigung werden ver¬<lb/>
+wickelter, der habſuͤchtige Menſch hat, ſo viel Zeit noͤthig ſich<lb/>
+mit ihnen bekannt zu machen und Fertigkeiten in ihnen ſich zu<lb/>
+erwerben, daß keine Zeit zum ſtillen Sammeln des Gemuͤths,<lb/>
+zur aufmerkſamen Betrachtung der innern Welt uͤbrig bleibt.<lb/>
+— In Colliſions-Faͤllen ſcheint ihm das gegenwaͤrtige Intereſſe<lb/>
+naͤher zu liegen, und ſo faͤllt die ſchoͤne Bluͤte ſeiner Jugend,<lb/>
+Glauben und Liebe ab, und macht den derbern Fruͤchten, Wiſ¬<lb/>
+ſen und Haben Platz. Man gedenkt des Fruͤhlings im Spaͤt¬<lb/>
+herbſt, wie eines kindiſchen Traums und hofft mit kindiſcher<lb/>
+Einfalt, die vollen Speicher ſollen auf immer aushalten. Eine<lb/>
+gewiſſe Einſamkeit, ſcheint dem Gedeihen der hoͤhern Sinne<lb/>
+nothwendig zu ſeyn, und daher muß ein zu ausgebreiteter Um¬<lb/>
+gang der Menſchen mit einander, manchen heiligen Keim er¬<lb/>
+ſticken und die Goͤtter, die den unruhigen Tumult zerſtreuender<lb/>
+Geſellſchaften, und die Verhandlungen kleinlicher Angelegenhei¬<lb/>
+ten fliehen, verſcheuchen. Ueberdem haben wir ja mit Zeiten<lb/>
+<fw type="catch" place="bottom">und<lb/>
+</fw>
+<pb n="193" facs="#f0015"/>
+und Perioden zu thun, und iſt dieſen eine Oszillation, ein<lb/>
+Wechſel entgegengeſetzter Bewegungen nicht weſentlich? und iſt<lb/>
+dieſen eine beſchraͤnkte Dauer nicht eigenthuͤmlich, ein Wachs¬<lb/>
+thum und ein Abnehmen nicht ihre Natur? aber auch eine<lb/>
+Auferſtehung, eine Verjuͤngung, in neuer, tuͤchtiger Geſtalt,<lb/>
+nicht auch von ihnen mit Gewißheit zu erwarten? fortſchrei¬<lb/>
+tende, immer mehr ſich vergroͤßernde Evolutionen ſind der<lb/>
+Stoff der Geſchichte. — Was jetzt nicht die Vollendung erreicht,<lb/>
+wird ſie bei einem kuͤnftigen Verſuch erreichen, oder bei einem<lb/>
+abermaligen; vergaͤnglich iſt nichts was die Geſchichte ergriff,<lb/>
+aus unzaͤhligen Verwandlungen geht es in immer reicheren<lb/>
+Geſtalten erneuet wieder hervor. Einmal war doch das Chri¬<lb/>
+ſtenthum mit voller Macht und Herrlichkeit erſchienen, bis zu<lb/>
+einer neuen Welt-Inſpiration herrſchte ſeine Ruine, ſein Buch¬<lb/>
+ſtabe mit immer zunehmender Ohnmacht und Verſpottung.<lb/>
+Unendliche Traͤgheit lag ſchwer auf der ſicher gewordenen Zunft<lb/>
+der Geiſtlichkeit. Sie war ſtehn geblieben im Gefuͤhl ihres<lb/>
+Anſehns und ihrer Bequemlichkeit, waͤhrend die Layen ihr un¬<lb/>
+ter den Haͤnden Erfahrung und Gelehrſamkeit entwandt und<lb/>
+maͤchtige Schritte auf dem Wege der Bildung vorausgethan<lb/>
+hatten. In der Vergeſſenheit ihres eigentlichen Amts, die Er¬<lb/>
+ſten unter den Menſchen an Geiſt, Einſicht und Bildung zu<lb/>
+ſeyn, waren ihnen die niedrigen Begierden zu Kopf gewach¬<lb/>
+ſen, und die Gemeinheit und Niedrigkeit ihrer Denkungsart<lb/>
+wurde durch ihre Kleidung und ihren Beruf noch widerlicher.<lb/>
+So fielen Achtung und Zutrauen, die Stuͤtzen dieſes und jedes<lb/>
+Reichs, allmaͤhlig weg, und damit war jene Zunft vernichtet,<lb/>
+und die eigentliche Herrſchaft Roms hatte lange vor der ge¬<lb/>
+waltſamen Inſurrection ſtillſchweigend aufgehoͤrt. Nur kluge,<lb/>
+alſo auch nur zeitliche, Maaßregeln hielten den Leichnam der<lb/>
+Verfaſſung noch zuſammen, und bewahrten ihn vor zu ſchleuni¬<lb/>
+ger Aufloͤſung, wohin denn z. B. die Abſchaffung der Prieſter-<lb/>
+Ehe vorzuͤglich gehoͤrte. — Eine Maaßregel die analog ange¬<lb/>
+wandt auch dem aͤhnlichen Soldatenſtand eine fuͤrchterliche Con¬<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#aq">I</hi>. R<lb/>
+</fw>
+<pb n="194" facs="#f0016"/>
+ſiſtenz verleihen und ſein Leben noch lange friſten koͤnnte.<lb/>
+Was war natuͤrlicher, als daß endlich ein feuerfangender Kopf<lb/>
+oͤffentlichen Aufſtand gegen den despotiſchen Buchſtaben der<lb/>
+ehemahligen Verfaſſung predigte, und mit um ſo groͤßerm Gluͤck,<lb/>
+da er ſelbſt Zunft-Genoſſe war. —</p><lb/>
+<p>Mit Recht nannten ſich die Inſurgenten Proteſtanten, denn<lb/>
+ſie proteſtirten feyerlich gegen jede Anmaßung einer unbeque¬<lb/>
+men und unrechtmaͤßig ſcheinenden Gewalt uͤber das Gewiſſen.<lb/>
+Sie nahmen ihr ſtillſchweigend abgegebenes Recht auf Reli¬<lb/>
+gions-Unterſuchung, Beſtimmung und Wahl, als vakant wie¬<lb/>
+der einſtweilen an ſich zuruͤck. Sie ſtellten auch eine Menge<lb/>
+richtiger Grundſaͤtze auf, fuͤhrten eine Menge loͤblicher Dinge ein,<lb/>
+und ſchafften eine Menge verderblicher Satzungen ab; aber ſie<lb/>
+vergaßen das nothwendige Reſultat ihres Prozeſſes; trennten<lb/>
+das Untrennbare, theilten die untheilbare Kirche und riſſen<lb/>
+ſich frevelnd aus dem allgemeinen chriſtlichen Verein, durch<lb/>
+welchen und in welchem allein die aͤchte, dauernde Wiederge¬<lb/>
+burt moͤglich war. Der Zuſtand religioͤſer Anarchie darf nur<lb/>
+voruͤbergehend ſeyn, denn der nothwendige Grund, eine Zahl<lb/>
+Menſchen lediglich dieſem hohen Berufe zu widmen, und dieſe<lb/>
+Zahl Menſchen unabhaͤngig von der irdiſchen Gewalt in Ruͤck¬<lb/>
+ſicht dieſer Angelegenheiten zu machen, bleibt in fortdauernder<lb/>
+Wirkſamkeit und Guͤltigkeit. — Die Errichtung der Conſiſto¬<lb/>
+rien und die Beibehaltung einer Art Geiſtlichkeit half dieſem<lb/>
+Beduͤrfniſſe nicht ab, und war kein zureichender Erſatz. Ungluͤck¬<lb/>
+licher Weiſe hatten ſich die Fuͤrſten in dieſe Spaltung gemiſcht,<lb/>
+und viele benutzten dieſe Streitigkeiten zur Befeſtigung und<lb/>
+Erweiterung ihrer landesherrlichen Gewalt und Einkuͤnfte.<lb/>
+Sie waren froh jenes hohen Einfluſſes uͤberhoben zu ſeyn<lb/>
+und nahmen die neuen Conſiſtorien nun unter ihre landesvaͤ¬<lb/>
+terliche Beſchuͤtzung und Leitung. Sie waren eifrigſt beſorgt<lb/>
+die gaͤnzliche Vereinigung der proteſtantiſchen Kirchen zu hin¬<lb/>
+dern, und ſo wurde die Religion irreligioͤſer Weiſe in Staats-<lb/>
+Graͤnzen eingeſchloſſen, und damit der Grund zur allmaͤhligen<lb/>
+<pb n="195" facs="#f0017"/>
+Untergrabung des religioͤſen cosmopolitiſche Intereſſe gelegt.<lb/>
+So verlor die Religion ihren großen politiſchen friedeſtiften¬<lb/>
+den Einfluß, ihre eigenthuͤmliche Rolle des vereinigenden, in¬<lb/>
+dividualiſirenden Prinzips, der Chriſtenheit. Der Religions¬<lb/>
+friede ward nach ganz fehlerhaften und religionswidrigen<lb/>
+Grundſaͤtzen abgeſchloſſen, und durch die Fortſetzung des ſoge¬<lb/>
+nannten Proteſtantismus etwas durchaus Widerſprechendes —<lb/>
+eine Revolutions-Regierung permanent erklaͤrt.</p><lb/>
+<p>Indeß liegt dem Proteſtantismus bei weitem nicht bloß je¬<lb/>
+ner reine Begriff zum Grunde, ſondern Luther behandelte das<lb/>
+Chriſtenthum uͤberhaupt willkuͤhrlich, verkannte ſeinen Geiſt,<lb/>
+und fuͤhrte einen andern Buchſtaben und eine andere Religion<lb/>
+ein, nemlich die heilige Allgemeinguͤltigkeit der Bibel, und da¬<lb/>
+mit wurde leider eine andere hoͤchſt fremde irdiſche Wiſſenſchaft<lb/>
+in die Religionsangelegenheit gemiſcht — die Philologie — de¬<lb/>
+ren auszehrender Einfluß von da an unverkennbar wird. Er<lb/>
+wurde ſelbſt aus dunkelm Gefuͤhl dieſes Fehlgriffs bei einem<lb/>
+großen Theil der Proteſtanten zum Rang eines Evangeliſten<lb/>
+erhoben und ſeine Ueberſetzung canoniſirt.</p><lb/>
+<p>Dem religioͤſen Sinn war dieſe Wahl hoͤchſt verderblich,<lb/>
+da nichts ſeine Irritabilitaͤt ſo vernichtet, wie der Buchſtabe.<lb/>
+Im ehemahligen Zuſtande hatte dieſer bei dem großen Umfange<lb/>
+der Geſchmeidigkeit und dem reichhaltigen Stoff des katholi¬<lb/>
+ſchen Glaubens, ſo wie der Eſoteriſirung der Bibel und der<lb/>
+heiligen Gewalt der Concilien und des geiſtlichen Oberhaupts,<lb/>
+nie ſo ſchaͤdlich werden koͤnnen; jetzt aber wurden dieſe Ge¬<lb/>
+genmittel vernichtet, die abſolute Popularitaͤt der Bibel be¬<lb/>
+hauptet, und nun druͤckte der duͤrftige Inhalt, der rohe ab¬<lb/>
+ſtracte Entwurf der Religion in dieſen Buͤchern deſto merkli¬<lb/>
+cher, und erſchwerte dem heiligen Geiſte die freie Belebung,<lb/>
+Eindringung und Offenbarung unendlich.</p><lb/>
+<p>Daher zeigt uns auch die Geſchichte des Proteſtantismus<lb/>
+keine herrlichen großen Erſcheinungen des Ueberirdiſchen mehr,<lb/>
+nur ſein Anfang glaͤnzt durch ein voruͤbergehendes Feuer des<lb/>
+<fw type="sig" place="bottom">N2<lb/>
+</fw>
+<pb n="196" facs="#f0018"/>
+Himmels, bald nachher iſt ſchon die Vertrocknung des heili¬<lb/>
+gen Sinns bemerklich; das Weltliche hat die Oberhand ge¬<lb/>
+wonnen, der Kunſtſinn leidet ſympathetiſch mit, nur ſelten,<lb/>
+daß hie und da ein gediegener, ewiger Lebensfunke hervor¬<lb/>
+ſpringt, und eine kleine Gemeinde ſich aſſimilirt. Er verliſcht<lb/>
+und die Gemeinde fließt wieder auseinander und ſchwimmt mit<lb/>
+dem Strome fort. So Zinzendorf, Jacob Boͤhme und meh¬<lb/>
+rere. Die Moderatiſten behalten die Oberhand, und die Zeit<lb/>
+naͤhert ſich einer gaͤnzlichen Atonie der hoͤhern Organe, der<lb/>
+Periode des praktiſchen Unglaubens. Mit der Reformation<lb/>
+wars um die Chriſtenheit gethan. Von nun an war keine<lb/>
+mehr vorhanden. Katholiken und Proteſtanten oder Refor¬<lb/>
+mirte ſtanden in ſektiriſcher Abgeſchnittenheit weiter von einan¬<lb/>
+der, als von Mahomedanern und Heiden. Die uͤbriggebliebe¬<lb/>
+nen katholiſchen Staaten vegetirten fort, nicht ohne den ſchaͤd¬<lb/>
+lichen Einfluß der benachbarten proteſtantiſchen Staaten un¬<lb/>
+merklich zu fuͤhlen. Die neuere Politik entſtand erſt in dieſem<lb/>
+Zeitpunkt, und einzelne maͤchtige Staaten ſuchten den vakan¬<lb/>
+ten Univerſalſtuhl, in einen Thron verwandelt, in Beſitz zu<lb/>
+nehmen.</p><lb/>
+<p>Den meiſten Fuͤrſten ſchien es eine Erniedrigung ſich nach<lb/>
+einem ohnmaͤchtigen Geiſtlichen zu geniren. — Sie fuͤhlten<lb/>
+zum erſtenmal das Gewicht ihrer koͤrperlichen Kraft auf Er¬<lb/>
+den, ſahen die himmliſchen Maͤchte unthaͤtig bei Verletzung ih¬<lb/>
+rer Repraͤſentanten, und ſuchten nun allgemach ohne Aufſehn<lb/>
+vor den noch eifrig paͤbſtlich geſinnten Unterthanen das laͤſtige<lb/>
+roͤmiſche Joch abzuwerfen und ſich unabhaͤngig auf Erden zu<lb/>
+machen. — Ihr unruhiges Gewiſſen beruhigten kluge Seelſor¬<lb/>
+ger, die nichts dabei verloren, daß ihre geiſtlichen Kinder die<lb/>
+Dispoſition uͤber das Kirchenvermoͤgen ſich anmaßten.</p><lb/>
+<p>Zum Gluͤck fuͤr die alte Verfaſſung that ſich jetzt ein neu<lb/>
+entſtandener Orden hervor, auf welchen der ſterbende Geiſt<lb/>
+der Hierarchie ſeine letzten Gaben ausgegoſſen zu haben ſchien,<lb/>
+der mit neuer Kraft das Alte zuruͤſtete und mit wunderbarer<lb/>
+<pb n="197" facs="#f0019"/>
+Einſicht und Beharrlichkeit, kluͤger, als je vorher geſchehen, ſich<lb/>
+des paͤbſtlichen Reichs und ſeiner maͤchtigern Regeneration an¬<lb/>
+nahm. Noch war keine ſolche Geſellſchaft in der Weltgeſchichte<lb/>
+anzutreffen geweſen Mit groͤßerer Sicherheit des Erfolgs hatte<lb/>
+ſelbſt der alte roͤmiſche Senat nicht Plaͤne zur Welteroberung<lb/>
+entworfen. Mit groͤßerem Verſtand war an die Ausfuͤhrung<lb/>
+einer groͤßeren Idee noch nicht gedacht worden. Ewig wird<lb/>
+dieſe Geſellſchaft ein Muſter aller Geſellſchaften ſeyn, die eine<lb/>
+organiſche Sehnſucht nach unendlicher Verbreitung und ewiger<lb/>
+Dauer fuͤhlen, — aber auch ewig ein Beweis, daß die unbe¬<lb/>
+wachte Zeit allein die kluͤgſten Unternehmungen vereitelt, und<lb/>
+der natuͤrliche Wachsthum des ganzen Geſchlechts unaufhaltſam<lb/>
+den kuͤnſtlichen Wachsthum eines Theils unterdruͤckt. Alles<lb/>
+Einzelne fuͤr ſich hat ein eigenes Maaß von Faͤhigkeit, nur die<lb/>
+Capacitaͤt des Geſchlechts iſt unermeßlich. Alle Plaͤne muͤſſen<lb/>
+fehlſchlagen, die nicht auf alle Anlagen des Geſchlechts voll¬<lb/>
+ſtaͤndig angelegte Plaͤne ſind. Noch merkwuͤrdiger wird dieſe<lb/>
+Geſellſchaft, als Mutter der ſogenannten geheimen Geſellſchaf¬<lb/>
+ten, eines jetzt noch unreifen, aber gewiß wichtigen geſchichtli¬<lb/>
+chen Keims. Einen gefaͤhrlichern Nebenbuhler konnte der neue<lb/>
+Lutheranismus, nicht Proteſtantismus, gewiß nicht erhalten. Alle<lb/>
+Zauber des katholiſchen Glaubens wurden unter ſeiner Hand<lb/>
+noch kraͤftiger, die Schaͤtze der Wiſſenſchaften floſſen in ſeine<lb/>
+Zelle zuruͤck. Was in Europa verloren war, ſuchten ſie in<lb/>
+den andern Welttheilen, in dem fernſten Abend und Morgen,<lb/>
+vielfach wieder zu gewinnen, und die apoſtoliſche Wuͤrde und<lb/>
+Beruf ſich zuzueignen und geltend zu machen. Auch ſie blieben<lb/>
+in den Bemuͤhungen nach Popularitaͤt nicht zuruͤck, und wuß¬<lb/>
+ten wohl wieviel Luther ſeinen demagogiſchen Kuͤnſten, ſeinem<lb/>
+Studium des gemeinen Volks zu verdanken gehabt hatte. Ue¬<lb/>
+berall legten ſie Schulen an, drangen in die Beichtſtuͤhle, be¬<lb/>
+ſtiegen die Katheder und beſchaͤftigten die Preſſen, wurden<lb/>
+Dichter und Weltweiſe, Miniſter und Maͤrtyrer, und blieben<lb/>
+in der ungeheuren Ausdehnung von Amerika uͤber Europa nach<lb/>
+<pb n="198" facs="#f0020"/>
+China in dem wunderbarſten Einverſtaͤndniß der That und<lb/>
+der Lehre. Aus ihren Schulen rekrutirten ſie mit weiſer Aus¬<lb/>
+wahl ihren Orden. Gegen die Lutheraner predigten ſie mit<lb/>
+zerſtoͤrendem Eifer und ſuchten die grauſamſte Vertilgung die¬<lb/>
+ſer Ketzer, als eigentlicher Genoſſen des Teufels, zur dringend¬<lb/>
+ſten Pflicht der katholiſchen Chriſtenheit zu machen. Ihnen<lb/>
+allein hatten die katholiſchen Staaten und inſonderheit der<lb/>
+paͤbſtliche Stuhl ihr langes Ueberleben der Reformation zu<lb/>
+danken gehabt, und wer weiß, wie alt die Welt noch ausſehn<lb/>
+wuͤrde, wenn nicht ſchwache Obere, Eiferſucht der Fuͤrſten und<lb/>
+andern geiſtlichen Orden, Hofintriguen und andere ſonderbare<lb/>
+Umſtaͤnde ihren kuͤhnen Lauf unterbrochen und mit ihnen dieſe<lb/>
+letzte Schutzwehr der katholiſchen Verfaſſung beinah vernichtet<lb/>
+haͤtten. Jetzt ſchlaͤft er, dieſer furchtbare Orden, in armſeliger<lb/>
+Geſtalt an den Grenzen von Europa, vielleicht daß er von da¬<lb/>
+her ſich, wie das Volk das ihn beſchuͤtzt, mit neuer Gewalt<lb/>
+einſt uͤber ſeine alte Heimath, vielleicht unter anderm Namen,<lb/>
+verbreitet.</p><lb/>
+<p>Die Reformation war ein Zeichen der Zeit geweſen. Sie<lb/>
+war fuͤr ganz Europa bedeutend, wenn ſie gleich nur im wahr¬<lb/>
+haft freien Deutſchland oͤffentlich ausgebrochen war. Die gu¬<lb/>
+ten Koͤpfe aller Nationen waren heimlich muͤndig geworden,<lb/>
+und lehnten ſich im taͤuſchenden Gefuͤhl ihres Berufs um deſto<lb/>
+dreiſter gegen verjaͤhrten Zwang auf. Aus Inſtinkt iſt der ge¬<lb/>
+lehrte Feind der Geiſtlichkeit nach alter Verfaſſung; der ge¬<lb/>
+lehrte und der geiſtliche Stand muͤſſen Vertilgungskriege fuͤhren,<lb/>
+wenn ſie getrennt ſind; denn ſie ſtreiten um Eine Stelle. Dieſe<lb/>
+Trennung that ſich immer mehr hervor, und die Gelehrten ge¬<lb/>
+wannen deſto mehr Feld, je mehr ſich die Geiſtlichkeit der eu¬<lb/>
+ropaͤiſchen Menſchheit dem Zeitraum der triumphirenden Ge¬<lb/>
+lehrſamkeit naͤherte, und Wiſſen und Glauben in eine entſchie¬<lb/>
+denere Oppoſition traten. Im Glauben ſuchte man den Grund<lb/>
+der allgemeinen Stockung, und durch das durchdringende Wiſ¬<lb/>
+ſen hoffte man ſie zu heben. Ueberall litt der heilige Sinn<lb/>
+<pb n="199" facs="#f0021"/>
+unter den mannichfachen Verfolgungen ſeiner bisherigen Art,<lb/>
+ſeiner zeitigen Perſonalitaͤt. Das Reſultat der modernen<lb/>
+Denkungsart nannte man Philoſophie und rechnete alles dazu<lb/>
+was dem Alten entgegen war, vorzuͤglich alſo jeden Einfall<lb/>
+gegen die Religion. Der anfaͤngliche Perſonalhaß gegen den<lb/>
+katholiſchen Glauben ging allmaͤhlig in Haß gegen die Bibel,<lb/>
+gegen den chriſtlichen Glauben und endlich gar gegen die Reli¬<lb/>
+gion uͤber. Noch mehr — der Religions-Haß, dehnte ſich<lb/>
+ſehr natuͤrlich und folgerecht auf alle Gegenſtaͤnde des Enthu¬<lb/>
+ſiasmus aus, verketzerte Fantaſie und Gefuͤhl, Sittlichkeit und<lb/>
+Kunſtliebe, Zukunft und Vorzeit, ſetzte den Menſchen in der<lb/>
+Reihe der Naturweſen mit Noth oben an, und machte die un¬<lb/>
+endliche ſchoͤpferiſche Muſik des Weltalls zum einfoͤrmigen Klap¬<lb/>
+pern einer ungeheuren Muͤhle, die vom Strom des Zufalls ge¬<lb/>
+trieben und auf ihm ſchwimmend, eine Muͤhle an ſich, ohne<lb/>
+Baumeiſter und Muͤller und eigentlich ein aͤchtes Perpetuum<lb/>
+mobile, eine ſich ſelbſt mahlende Muͤhle ſey.</p><lb/>
+<p>Ein Enthuſiasmus ward großmuͤthig dem armen Men¬<lb/>
+ſchengeſchlechte uͤbrig gelaſſen und als Pruͤfſtein der hoͤchſten<lb/>
+Bildung jedem Actionair derſelben unentbehrlich gemacht. —<lb/>
+Der Enthuſiasmus fuͤr dieſe herrliche, großartige Philoſophie<lb/>
+und insbeſondere fuͤr ihre Prieſter und ihre Myſtagogen.<lb/>
+Frankreich war ſo gluͤcklich der Schooß und der Sitz dieſes<lb/>
+neuen Glaubens zu werden, der aus lauter Wiſſen zuſammen<lb/>
+geklebt war. So verſchrien die Poeſie in dieſer neuen Kirche<lb/>
+war, ſo gab es doch einige Poeten darunter, die des Effekts<lb/>
+wegen, noch des alten Schmucks und der alten Lichter ſich be¬<lb/>
+dienten, aber dabei in Gefahr kamen, das neue Weltſyſtem mit<lb/>
+altem Feuer zu entzuͤnden. Kluͤgere Mitglieder wußten je¬<lb/>
+doch die ſchon warmgewordenen Zuhoͤrer ſogleich wieder mit<lb/>
+kaltem Waſſer zu begießen. Die Mitglieder waren raſtlos be¬<lb/>
+ſchaͤftigt, die Natur, den Erdboden, die menſchlichen Seelen<lb/>
+und die Wiſſenſchaften von der Poeſie zu ſaͤubern, — jede<lb/>
+Spur des Heiligen zu vertilgen, das Andenken an alle erhe¬<lb/>
+<pb n="200" facs="#f0022"/>
+bende Vorfaͤlle und Menſchen durch Sarkasmen zu verleiden,<lb/>
+und die Welt alles bunten Schmucks zu entkleiden. Das Licht<lb/>
+war wegen ſeines mathematiſchen Gehorſams und ſeiner Frech¬<lb/>
+heit ihr Liebling geworden. Sie freuten ſich, daß es ſich eher<lb/>
+zerbrechen ließ, als daß es mit Farben geſpielt haͤtte, und ſo<lb/>
+benannten ſie nach ihm ihr großes Geſchaͤft, Aufklaͤrung. In<lb/>
+Deutſchland betrieb man dieſes Geſchaͤft gruͤndlicher, man re¬<lb/>
+formirte das Erziehungsweſen, man ſuchte der alten Religion<lb/>
+einen neuern vernuͤnftigen, gemeinern Sinn zu geben, indem<lb/>
+man alles Wunderbare und Geheimnißvolle ſorgfaͤltig von ihr<lb/>
+abwuſch; alle Gelehrſamkeit ward aufgeboten um die Zuflucht<lb/>
+zur Geſchichte abzuſchneiden, indem man die Geſchichte zu einem<lb/>
+haͤuslichen und buͤrgerlichen Sitten- und Familien-Gemaͤhlde zu<lb/>
+veredeln ſich bemuͤhte. — Gott wurde zum muͤßigen Zuſchauer<lb/>
+des großen ruͤhrenden Schauſpiels, das die Gelehrten auffuͤhr¬<lb/>
+ten, gemacht, welcher am Ende die Dichter und Spieler feier¬<lb/>
+lich bewirthen und bewundern ſollte. Das gemeine Volk<lb/>
+wurde recht mit Vorliebe aufgeklaͤrt, und zu jenem gebildeten<lb/>
+Enthuſiasmus erzogen, und ſo entſtand eine neue europaͤiſche<lb/>
+Zunft: die Philantropen und Aufklaͤrer. Schade daß die Na¬<lb/>
+tur ſo wunderbar und unbegreiflich, ſo poetiſch und unendlich<lb/>
+blieb, allen Bemuͤhungen ſie zu moderniſiren zum Trotz. Duckte<lb/>
+ſich ja irgendwo ein alter Aberglaube an eine hoͤhere Welt<lb/>
+und ſonſt auf, ſo wurde gleich von allen Seiten Laͤrm gebla¬<lb/>
+ſen, und wo moͤglich der gefaͤhrliche Funke durch Philoſophie<lb/>
+und Witz in der Aſche erſtickt; dennoch war Toleranz das Lo¬<lb/>
+ſungswort der Gebildeten, und beſonders in Frankreich gleich¬<lb/>
+bedeutend mit Philoſophie. Hoͤchſt merkwuͤrdig iſt dieſe Ge¬<lb/>
+ſchichte des modernen Unglaubens, und der Schluͤſſel zu allen<lb/>
+ungeheuren Phaͤnomenen der neuern Zeit. Erſt in dieſem Jahr¬<lb/>
+hundert und beſonders in ſeiner letzten Haͤlfte beginnt ſie und<lb/>
+waͤchſt in kurzer Zeit zu einer unuͤberſehlichen Groͤße und Man¬<lb/>
+nigfaltigkeit; eine zweite Reformation, eine umfaſſendere <choice><sic>uud</sic><corr>und</corr></choice><lb/>
+eigenthuͤmlichere war unvermeidlich, und mußte das Land<lb/>
+<pb n="201" facs="#f0023"/>
+zuerſt treffen, das am meiſten moderniſirt war, und am laͤng¬<lb/>
+ſten aus Mangel an Freiheit in aſtheniſchem Zuſtande gelegen<lb/>
+hatte. Laͤngſt haͤtte ſich das uͤberirdiſche Feuer Luft gemacht,<lb/>
+und die klugen Aufklaͤrungs-Plaͤne vereitelt, wenn nicht welt¬<lb/>
+licher Druck und Einfluß denſelben zu Statten gekommen waͤ¬<lb/>
+ren. In dem Augenblick aber, wo ein Zwieſpalt unter den<lb/>
+Gelehrten und Regierungen, unter den Feinden der Religion<lb/>
+und ihrer ganzen Genoſſenſchaft entſtand, mußte ſie wieder als<lb/>
+drittes tonangebendes vermittelndes Glied hervortreten, und<lb/>
+dieſen Hervortritt muß nun jeder Freund derſelben anerkennen<lb/>
+und verkuͤndigen, wenn er noch nicht merklich genug ſeyn ſollte.<lb/>
+Daß die Zeit der Auferſtehung gekommen iſt, und grade die<lb/>
+Begebenheiten, die gegen ihre Belebung gerichtet zu ſeyn ſchie¬<lb/>
+nen und ihren Untergang zu vollenden drohten, die guͤnſtigſten<lb/>
+Zeichen ihrer Regeneration geworden ſind, dieſes kann einem<lb/>
+hiſtoriſchen Gemuͤthe gar nicht zweifelhaft bleiben. Wahrhafte<lb/>
+Anarchie iſt das Zeugungselement der Religion. Aus der Ver¬<lb/>
+nichtung alles Poſitiven hebt ſie ihr glorreiches Haupt als<lb/>
+neue Weltſtifterin empor. Wie von ſelbſt ſteigt der Menſch<lb/>
+gen Himmel auf, wenn ihn nichts mehr bindet, die hoͤhern Or¬<lb/>
+gane treten von ſelbſt aus der allgemeinen gleichfoͤrmigen Mi¬<lb/>
+ſchung und vollſtaͤndigen Aufloͤſung aller menſchlichen Anlagen<lb/>
+und Kraͤfte, als der Urkern der irdiſchen Geſtaltung zuerſt her¬<lb/>
+aus. Der Geiſt Gottes ſchwebt uͤber den Waſſern und ein<lb/>
+himmliſches Eiland wird als Wohnſtaͤtte der neuen Menſchen,<lb/>
+als Stromgebiet des ewigen Lebens zuerſt ſichtbar uͤber den<lb/>
+zuruͤckſtroͤmenden Wogen.</p><lb/>
+<p>Ruhig und unbefangen betrachte der aͤchte Beobachter die<lb/>
+neuen ſtaatsumwaͤlzenden Zeiten. Kommt ihm der Staats¬<lb/>
+umwaͤlzer nicht wie Siſyphus vor? Jetzt hat er die Spitze<lb/>
+des Gleichgewichts erreicht und ſchon rollt die maͤchtige Laſt<lb/>
+auf der andern Seite wieder herunter. Sie wird nie oben<lb/>
+bleiben, wenn nicht eine Anziehung gegen den Himmel ſie auf<lb/>
+der Hoͤhe ſchwebend erhaͤlt. Alle eure Stuͤtzen ſind zu ſchwach,<lb/>
+<pb n="202" facs="#f0024"/>
+wenn euer Staat die Tendenz nach der Erde behaͤlt, aber<lb/>
+knuͤpft ihn durch eine hoͤhere Sehnſucht an die Hoͤhen des Him¬<lb/>
+mels, gebt ihm eine Beziehung auf das Weltall, dann habt<lb/>
+ihr eine nie ermuͤdende Feder in ihm, und werdet eure Bemuͤ¬<lb/>
+hungen reichlich gelohnt ſehn. An die Geſchichte verweiſe ich<lb/>
+euch, forſcht in ihrem belehrenden Zuſammenhang, nach aͤhnli¬<lb/>
+chen Zeitpunkten, und lernt den Zauberſtab der Analogie ge¬<lb/>
+brauchen.</p><lb/>
+<p>Soll die Revolution die franzoͤſiſche bleiben, wie die Re¬<lb/>
+formation die Lutheriſche war? Soll der Proteſtantismus aber¬<lb/>
+mals widernatuͤrlicherweiſe, als revolutionaire Regierung fixirt<lb/>
+werden? Sollen Buchſtaben Buchſtaben Platz machen? Sucht<lb/>
+ihr den Keim des Verderbens auch in der alten Einrichtung,<lb/>
+dem alten Geiſte? und glaubt euch auf eine beſſere Einrich¬<lb/>
+tung, einen beſſern Geiſt zu verſtehn? O! daß der Geiſt der<lb/>
+Geiſter euch erfuͤllte, und ihr abließet von dieſem thoͤrichten Be¬<lb/>
+ſtreben die Geſchichte und die Menſchheit zu modeln, und<lb/>
+eure Richtung ihr zu geben. Iſt ſie nicht ſelbſtaͤndig, nicht<lb/>
+eigenmaͤchtig, ſo gut wie unendlich liebenswerth und weisſa¬<lb/>
+gend? Sie zu ſtudiren, ihr nachzugehn, von ihr zu lernen, mit<lb/>
+ihr gleichen Schritt zu halten, glaͤubig ihren Verheißungen und<lb/>
+Winken zu folgen — daran denkt keiner.</p><lb/>
+<p>In Frankreich hat man viel fuͤr die Religion gethan, in¬<lb/>
+dem man ihr das Buͤrgerrecht genommen, und ihr bloß das<lb/>
+Recht der Hausgenoſſenſchaft gelaſſen hat, und zwar nicht in<lb/>
+einer Perſon, ſondern in allen ihren unzaͤhligen individuellen<lb/>
+Geſtalten. Als eine fremde unſcheinbare Waiſe muß ſie erſt<lb/>
+die Herzen wiedergewinnen, und ſchon uͤberall geliebt ſeyn, ehe<lb/>
+ſie wieder oͤffentlich angebetet und in weltliche Dinge zur<lb/>
+freundſchaftlichen Berathung und Stimmung der Gemuͤther<lb/>
+gemiſcht wird. Hiſtoriſch merkwuͤrdig bleibt der Verſuch jener<lb/>
+großen eiſernen Maske, die unter dem Namen Robespierre in<lb/>
+der Religion den Mittelpunkt und die Kraft der Republik<lb/>
+ſuchte; auch der Kaltſinn, womit die Theophilantropie dieſer<lb/>
+<pb n="203" facs="#f0025"/>
+Myſtizismus der neuern Aufklaͤrung, aufgenommen worden iſt;<lb/>
+auch die neuen Eroberungen der Jeſuiten; auch die Naͤherung<lb/>
+ans Morgenland durch die neuern politiſchen Verhaͤltniſſe.</p><lb/>
+<p>Von den uͤbrigen europaͤiſchen Laͤndern, außer Deutſch¬<lb/>
+land, laͤßt ſich nur prophezeihen, daß mit dem <hi rendition="#g">Frieden</hi> ein<lb/>
+neues hoͤheres religioͤſes Leben in ihnen zu pulſiren und bald<lb/>
+Alles andere weltliche Intereſſe verſchlingen wird. In Deutſch¬<lb/>
+land hingegen kann man ſchon mit voller Gewißheit die Spu¬<lb/>
+ren einer neuen Welt aufzeigen. Deutſchland geht einen lang¬<lb/>
+ſamen aber ſichern Gang vor den uͤbrigen europaͤiſchen Laͤn¬<lb/>
+dern voraus. Waͤhrend dieſe durch Krieg, Spekulation und<lb/>
+Parthey-Geiſt beſchaͤftigt ſind, bildet ſich der Deutſche mit al¬<lb/>
+lem Fleiß zum Genoſſen einer hoͤhern Epoche der Cultur, und<lb/>
+dieſer Vorſchritt muß ihm ein großes Uebergewicht uͤber die<lb/>
+Andere im Lauf der Zeit geben. In Wiſſenſchaften und Kuͤn¬<lb/>
+ſten wird man eine gewaltige Gaͤhrung gewahr. Unendlich viel<lb/>
+Geiſt wird entwickelt. Aus neuen, friſchen Fundgruben wird<lb/>
+gefoͤrdert. — Nie waren die Wiſſenſchaften in beſſeren Haͤnden,<lb/>
+und erregten wenigſtens groͤßere Erwartungen; die verſchieden¬<lb/>
+ſten Seiten der Gegenſtaͤnde werden ausgeſpuͤrt, nichts wird<lb/>
+ungeruͤttelt, unbeurtheilt, undurchſucht gelaſſen. Alles wird<lb/>
+bearbeitet; die Schriftſteller werden eigenthuͤmlicher und ge¬<lb/>
+waltiger, jedes alte Denkmal der Geſchichte, jede Kunſt, jede<lb/>
+Wiſſenſchaft findet Freunde, und wird mit neuer Liebe umarmt<lb/>
+und fruchtbar gemacht. Eine Vielſeitigkeit ohne Gleichen, eine<lb/>
+wunderbare Tiefe, eine glaͤnzende Politur, vielumfaſſende<lb/>
+Kenntniſſe und eine reiche kraͤftige Fantaſie findet man hie und<lb/>
+da, und oft kuͤhn gepaart. Eine gewaltige Ahndung der ſchoͤpfe¬<lb/>
+riſchen Willkuͤhr, der Grenzenloſigkeit, der unendlichen Man¬<lb/>
+nigfaltigkeit, der heiligen Eigenthuͤmlichkeit und der Allfaͤhig¬<lb/>
+keit der innern Menſchheit ſcheint uͤberall rege zu werden. Aus<lb/>
+dem Morgentraum der unbehuͤlflichen Kindheit erwacht, uͤbt<lb/>
+ein Theil des Geſchlechts ſeine erſten Kraͤfte an Schlangen,<lb/>
+die ſeine Wiege umſchlingen und den Gebrauch ſeiner Glied¬<lb/>
+<pb n="204" facs="#f0026"/>
+maßen ihm benehmen wollen. Noch ſind alles nur Andeutun¬<lb/>
+gen, unzuſammenhaͤngend und roh, aber ſie verrathen dem<lb/>
+hiſtoriſchen Auge eine univerſelle Individualitaͤt, eine neue Ge¬<lb/>
+ſchichte, eine neue Menſchheit, die ſuͤßeſte Umarmung einer jun¬<lb/>
+gen uͤberraſchten Kirche und eines liebenden Gottes, und das<lb/>
+innige Empfaͤngniß eines neuen Meſſias in ihren tauſend Glie¬<lb/>
+dern zugleich. Wer fuͤhlt ſich nicht mit ſuͤßer Schaam guter<lb/>
+Hoffnung? Das Neugeborne wird das Abbild ſeines Vaters,<lb/>
+eine neue goldne Zeit mit dunkeln unendlichen Augen, eine<lb/>
+profetiſche wunderthaͤtige und wundenheilende, troͤſtende und<lb/>
+ewiges Leben entzuͤndende Zeit ſein — eine große Verſoͤhnungs¬<lb/>
+zeit, ein Heiland, der wie ein aͤchter Genius unter den Men¬<lb/>
+ſchen einheimiſch, nur geglaubt nicht geſehen werden, und unter<lb/>
+zahlloſen Geſtalten den Glaͤubigen ſichtbar, als Brod und Wein,<lb/>
+verzehrt, als Geliebte umarmt, als Luft geathmet, als Wort<lb/>
+und Geſang vernommen, und mit himmliſcher Wolluſt, als Tod,<lb/>
+unter den hoͤchſten Schmerzen der Liebe, in das Innre des ver¬<lb/>
+brauſenden Leibes aufgenommen wird.</p><lb/>
+<p>Jetzt ſtehn wir hoch genug um auch jenen oberwaͤhnten,<lb/>
+vorhergegangenen Zeiten freundlich zuzulaͤcheln und auch in je¬<lb/>
+nen wunderlichen Thorheiten merkwuͤrdige Kriſtalliſationen des<lb/>
+hiſtoriſchen Stoffs zu erkennen. Dankbar wollen wir jenen<lb/>
+Gelehrten und Philoſophen die Haͤnde druͤcken; denn dieſer<lb/>
+Wahn mußte zum Beſten der Nachkommen erſchoͤpft, und die<lb/>
+wiſſenſchaftliche Anſicht der Dinge geltend gemacht werden.<lb/>
+Reizender und farbiger ſteht die Poeſie, wie ein geſchmuͤcktes<lb/>
+Indien dem kalten, todten Spitzbergen jenes Stubenverſtandes<lb/>
+gegenuͤber. Damit Indien in der Mitte des Erdballs ſo warm<lb/>
+und herrlich ſey, muß ein kaltes ſtarres Meer, todte Klippen,<lb/>
+Nebel ſtatt des geſtirnvollen Himmels und eine lange Nacht,<lb/>
+die beiden Enden unwirthbar machen. Die tiefe Bedeutung<lb/>
+der Mechanik lag ſchwer auf dieſen Anachoreten in den Wuͤſten<lb/>
+des Verſtandes; das Reizende der erſten Einſicht uͤberwaͤltigte<lb/>
+ſie, das Alte raͤchte ſich an ihnen, ſie opferten dem erſten<lb/>
+<pb n="205" facs="#f0027"/>
+Selbſtbewußtſeyn das Heiligſte und Schoͤnſte der Welt mit<lb/>
+wunderbarer Verlaͤugnung, und waren die Erſten die wieder<lb/>
+die Heiligkeit der Natur, die Unendlichkeit der Kunſt, die Noth¬<lb/>
+wendigkeit des Wiſſens, die Achtung des Weltlichen, und die<lb/>
+Allgegenwart des wahrhaft Geſchichtlichen durch die That aner¬<lb/>
+kannten, und verkuͤndigten, und einer hoͤhern, allgemeinern und<lb/>
+furchtbarern Geſpenſterherrſchaft, als ſie ſelbſt glaubten, ein<lb/>
+Ende machten.</p><lb/>
+<p>Erſt durch genauere Kenntniß der Religion wird man jene<lb/>
+fuͤrchterlichen Erzeugniſſe eines Religionsſchlafs, jene Traͤume<lb/>
+und Deliria des heiligen Organs beſſer beurtheilen und dann<lb/>
+erſt die Wichtigkeit jenes Geſchenks recht einſehn lernen. Wo<lb/>
+keine Goͤtter ſind, walten Geſpenſter, und die eigentliche Ent¬<lb/>
+ſtehungszeit der europaͤiſchen Geſpenſter, die auch ihre Geſtalt<lb/>
+ziemlich vollſtaͤndig erklaͤrt, iſt die Periode des Uebergangs der<lb/>
+griechiſchen Goͤtterlehre in das Chriſtenthum. Alſo kommt<lb/>
+auch, ihr Philanthropen und Encyklopaͤdiſten, in die friedenſtif¬<lb/>
+tende Loge und empfangt den Bruderkuß, ſtreift das graue<lb/>
+Netz ab, und ſchaut mit junger Liebe die Wunderherrlichkeit<lb/>
+der Natur, der Geſchichte und der Menſchheit an. Zu einem<lb/>
+Bruder will ich euch fuͤhren, der ſoll mit euch reden, daß euch<lb/>
+die Herzen aufgehn, und ihr eure abgeſtorbene geliebte Ahn¬<lb/>
+dung mit neuem Leibe bekleidet, wieder umfaßt und erkennt,<lb/>
+was euch vorſchwebte, und was der ſchwerfaͤllige irdiſche Ver¬<lb/>
+ſtand freilich euch nicht haſchen konnte.</p><lb/>
+<p>Dieſer Bruder iſt der Herzſchlag der neuen Zeit, wer ihn<lb/>
+gefuͤhlt hat zweifelt nicht mehr an ihrem Kommen, und tritt<lb/>
+mit ſuͤßem Stolz auf ſeine Zeitgenoſſenſchaft auch aus dem<lb/>
+Haufen hervor zu der neuen Schaar der Juͤnger. Er hat ei¬<lb/>
+nen neuen Schleier fuͤr die Heilige gemacht, der ihren himmli¬<lb/>
+ſchen Gliederbau anſchmiegend verraͤth, und doch ſie zuͤchtiger,<lb/>
+als ein Andrer verhuͤllt. — Der Schleier iſt fuͤr die Jungfrau,<lb/>
+was der Geiſt fuͤr den Leib iſt, ihr unentbehrliches Organ deſ¬<lb/>
+ſen Falten die Buchſtaben ihrer ſuͤßen Verkuͤndigung ſind; das<lb/>
+<pb n="206" facs="#f0028"/>
+nnendliche Faltenſpiel iſt eine Chiffern-Muſik, denn die Spra¬<lb/>
+che iſt der Jungfrau zu hoͤlzern und zu frech, nur zum Geſang<lb/>
+oͤffnen ſich ihre Lippen. Mir iſt er nichts als der feierliche<lb/>
+Ruf zu einer neuen Urverſammlung, der gewaltige Fluͤgelſchlag<lb/>
+eines voruͤberziehenden engliſchen Herolds. Es ſind die erſten<lb/>
+Wehen, ſetze ſich jeder in Bereitſchaft zur Geburt!</p><lb/>
+<p>Das Hoͤchſte in der Phyſik iſt jetzt vorhanden und wir<lb/>
+koͤnnen nun leichter die wiſſenſchaftliche Zunft uͤberſehn. Die<lb/>
+Huͤlfsbeduͤrftigkeit der aͤußern Wiſſenſchaften, ward in der letz¬<lb/>
+ten Zeit immer ſichtbarer, je bekannter wir mit ihnen wurden.<lb/>
+Die Natur fing an immer duͤrftiger auszuſehn, und wir ſahen<lb/>
+deutlicher gewoͤhnt an den Glanz unſerer Entdeckungen, daß<lb/>
+es nur ein geborgtes Licht war, und daß wir mit den bekann¬<lb/>
+ten Werkzeugen und den bekannten Methoden nicht das We¬<lb/>
+ſentliche, das Geſuchte finden und conſtruiren wuͤrden. Jeder<lb/>
+Forſcher mußte ſich geſtehn, daß Eine Wiſſenſchaft nichts ohne<lb/>
+die Andere ſey, und ſo entſtanden Myſtifikationsverſuche der<lb/>
+Wiſſenſchaften, und das wunderliche Weſen der Philoſophie<lb/>
+flog jetzt als rein dargeſtelltes wiſſenſchaftliches Element zu<lb/>
+einer ſymmetriſchen Grundfigur der Wiſſenſchaften an. Andere<lb/>
+brachten die concreten Wiſſenſchaften in neue Verhaͤltniſſe, be¬<lb/>
+foͤrderten einen lebhaften Verkehr derſelben untereinander, und<lb/>
+ſuchten ihre naturhiſtoriſche Claſſification aufs Reine zu brin¬<lb/>
+gen. So waͤhrt es fort und es iſt leicht zu ermeſſen, wie<lb/>
+guͤnſtig dieſer Umgang mit der aͤußern und innern Welt, der<lb/>
+hoͤhern Bildung des Verſtandes, der Kenntniß der erſtern und<lb/>
+der Erregung und Cultur der letztern ſeyn muß, und wie un¬<lb/>
+ter dieſen Umſtaͤnden die Witterung ſich klaͤren und der alte<lb/>
+Himmel und mit ihm die Sehnſucht nach ihm, die lebendige<lb/>
+Aſtronomie, wieder zum Vorſchein kommen muß.</p><lb/>
+<p>Nun wollen wir uns zu dem politiſchen Schauſpiel unſrer<lb/>
+Zeit wenden. Alte und neue Welt ſind in Kampf begriffen,<lb/>
+die Mangelhaftigkeit und Beduͤrftigkeit der bisherigen Staats¬<lb/>
+einrichtungen ſind in furchtbaren Phaͤnomenen offenbar gewor¬<lb/>
+den. Wie wenn auch hier wie in den Wiſſenſchaften eine naͤ¬<lb/>
+here und mannigfaltigere Connexion und Beruͤhrung der eu¬<lb/>
+ropaͤiſchen Staaten zunaͤchſt der hiſtoriſche Zweck des Krieges<lb/>
+waͤre, wenn eine neue Regung des bisher ſchlummernden Eu¬<lb/>
+ropa ins Spiel kaͤme, wenn Europa wieder erwachen wollte,<lb/>
+wenn ein Staat der Staaten, eine politiſche Wiſſenſchaftslehre,<lb/>
+uns bevorſtaͤnde! Sollte etwa die Hierarchie dieſe ſymmetri¬<lb/>
+ſche Grundfigur der Staaten, das Prinzip des Staatenvereins<lb/>
+als intellektuale Anſchauung des politiſchen Ichs ſeyn? Es iſt<lb/>
+unmoͤglich daß weltliche Kraͤfte ſich ſelbſt ins Gleichgewicht ſe¬<lb/>
+tzen, ein drittes Element, das weltlich und uͤberirdiſch zugleich<lb/>
+iſt, kann allein dieſe Aufgabe loͤſen. Unter den ſtreitenden<lb/>
+Maͤchten kann kein Friede geſchloſſen werden, aller Friede iſt<lb/>
+nur Illuſion, nur Waffenſtillſtand; auf dem Standpunkt der<lb/>
+Kabinetter, des gemeinen Bewußtſeyns iſt keine Vereinigung<lb/>
+<pb n="207" facs="#f0029"/>
+denkbar. Beide Theile haben große, nothwendige Anſpruͤche<lb/>
+und muͤſſen ſie machen, getrieben vom Geiſte der Welt und der<lb/>
+Menſchheit. Beide ſind unvertilgbare Maͤchte der Menſchen¬<lb/>
+bruſt; hier die Andacht zum Alterthum, die Anhaͤnglichkeit an<lb/>
+die geſchichtliche Verfaſſung, die Liebe zu den Denkmalen der<lb/>
+Altvaͤter und der alten glorreichen Staatsfamilie, und Freude<lb/>
+des Gehorſams; dort das entzuͤckende Gefuͤhl der Freiheit,<lb/>
+die unbedingte Erwartung maͤchtiger Wirkungskreiſe, die Luſt<lb/>
+am Neuen und Jungen, die zwangloſe Beruͤhrung mit allen<lb/>
+Staatsgenoſſen, der Stolz auf menſchliche Allgemeinguͤltigkeit, die<lb/>
+Freude am perſoͤnlichen Recht und am Eigenthum des Ganzen,<lb/>
+und das kraftvolle Buͤrgergefuͤhl. Keine hoffe die Andere<lb/>
+zu vernichten, alle Eroberungen wollen hier nichts ſagen, denn<lb/>
+die innerſte Hauptſtadt jedes Reichs liegt nicht hinter Erd¬<lb/>
+waͤllen und laͤßt ſich nicht erſtuͤrmen.</p><lb/>
+<p>Wer weiß ob des Kriegs genug iſt, aber er wird nie auf¬<lb/>
+hoͤren, wenn man nicht den Palmenzweig ergreift, den allein<lb/>
+eine geiſtliche Macht darreichen kann. Es wird ſo lange Blut<lb/>
+uͤber Europa ſtroͤmen bis die Nationen ihren fuͤrchterlichen<lb/>
+Wahnſinn gewahr werden, der ſie im Kreiſe herumtreibt und<lb/>
+von heiliger Muſik getroffen und beſaͤnftigt zu ehemaligen Al¬<lb/>
+taͤren in bunter Vermiſchung treten, Werke des Friedens vor¬<lb/>
+nehmen, und ein großes Liebesmahl, als Friedensfeſt, auf den<lb/>
+rauchenden Wahlſtaͤtten mit heißen Thraͤnen gefeiert wird.<lb/>
+Nur die Religion kann Europa wieder aufwecken und die<lb/>
+Voͤlker ſichern, und die Chriſtenheit mit neuer Herrlichkeit ſicht¬<lb/>
+bar auf Erden in ihr altes friedenſtiftendes Amt inſtalliren.</p><lb/>
+<p>Haben die Nationen Alles vom Menſchen — nur nicht<lb/>
+ſein Herz? — ſein heiliges Organ? Werden ſie nicht Freunde,<lb/>
+wie dieſe, an den Saͤrgen ihrer Lieben, vergeſſen ſie nicht alles<lb/>
+Feindliche, wenn das goͤttliche Mitleid zu ihnen ſpricht — und<lb/>
+Ein Ungluͤck, Ein Jammer, Ein Gefuͤhl ihre Augen mit Thraͤ¬<lb/>
+nen fuͤllte? Ergreift ſie nicht Aufopferung und Hingebung mit<lb/>
+Allgewalt, und ſehnen ſie ſich nicht Freunde und Bundesgenoſ¬<lb/>
+ſen zu ſein?</p><lb/>
+<p>Wo iſt jener alte, liebe, alleinſeligmachende Glaube an<lb/>
+die Regierung Gottes auf Erden, wo iſt jenes himmliſche Zu¬<lb/>
+trauen der Menſchen zu einander, jene ſuͤße Andacht bei den<lb/>
+Ergießungen eines gottbegeiſterten Gemuͤths, jener allesumar¬<lb/>
+mende Geiſt der Chriſtenheit?</p><lb/>
+<p>Das Chriſtenthum iſt dreifacher Geſtalt. Eine iſt das<lb/>
+Zeugungselement der Religion, als Freude an aller Religion.<lb/>
+Eine das Mittlerthum uͤberhaupt, als Glaube an die Allfaͤhig¬<lb/>
+keit alles Irdiſchen, Wein und Brod des ewigen Lebens zu<lb/>
+ſeyn. Eine der Glaube an Chriſtus, ſeine Mutter und die<lb/>
+Heiligen. Waͤhlt welche ihr wollt, waͤhlt alle drei, es iſt<lb/>
+gleichviel, ihr werdet damit Chriſten und Mitglieder einer ein¬<lb/>
+zigen, ewigen, unausſprechlich gluͤcklichen Gemeinde.</p><lb/>
+<pb n="208" facs="#f0030"/>
+<p>Angewandtes, lebendig gewordenes Chriſtenthum war der<lb/>
+alte katholiſche Glaube, die letzte dieſer Geſtalten. Seine<lb/>
+Allgegenwart im Leben ſeine Liebe zur Kunſt, ſeine tiefe Hu¬<lb/>
+manitaͤt, die Unverbruͤchlichkeit ſeiner Ehen, ſeine menſchen¬<lb/>
+freundliche Mittheilſamkeit, ſeine Freude an der Armuth, Ge¬<lb/>
+horſam und Treue machen ihn als aͤchte Religion unverkenn¬<lb/>
+bar und enthalten die Grundzuͤge ſeiner Verfaſſung.</p><lb/>
+<p>Die andern Welttheile warten auf Europas Verſoͤhnung<lb/>
+und Auferſtehung, um ſich anzuſchließen und Mitbuͤrger des<lb/>
+Himmelreichs zu werden. Sollte es nicht in Europa bald eine<lb/>
+Menge wahrhaft heiliger Gemuͤther wieder geben, ſollten nicht<lb/>
+alle wahrhafte Religionsverwandte voll Sehnſucht werden, den<lb/>
+Himmel auf Erden zu erblicken? und gern zuſammentreten und<lb/>
+heilige Choͤre anſtimmen?</p><lb/>
+<p>Die Chriſtenheit muß wieder lebendig und wirkſam wer¬<lb/>
+den, und ſich wieder ein ſichtbare Kirche ohne Ruͤckſicht auf<lb/>
+Landesgraͤnzen bilden, die alle nach dem Ueberirdiſchen durſtige<lb/>
+Seelen in ihren Schooß aufnimmt und gern Vermittlerin, der<lb/>
+alten und neuen Welt wird.</p><lb/>
+<p>Sie muß das alte Fuͤllhorn des Seegens wieder uͤber die<lb/>
+Voͤlker ausgießen. Aus dem heiligen Schooße eines ehrwuͤrdi¬<lb/>
+gen europaͤiſchen Conſiliums wird die Chriſtenheit aufſtehn,<lb/>
+und das Geſchaͤft der Religionserweckung, nach einem allum¬<lb/>
+faſſenden, goͤttlichem Plane betrieben werden. Keiner wird dann<lb/>
+mehr proteſtiren gegen chriſtlichen und weltlichen Zwang, denn<lb/>
+das Weſen der Kirche wird aͤchte Freiheit ſeyn, und alle noͤ¬<lb/>
+thigen Reformen werden unter der Leitung derſelben, als fried¬<lb/>
+liche und foͤrmliche Staatsprozeſſe betrieben werden.</p><lb/>
+<p>Wann und wann eher? darnach iſt nicht zu fragen. Nur<lb/>
+Geduld, ſie wird, ſie muß kommen die heilige Zeit des ewigen<lb/>
+Friedens, wo das neue Jeruſalem die Hauptſtadt der Welt<lb/>
+ſeyn wird; und bis dahin ſeyd heiter und muthig in den Ge¬<lb/>
+fahren der Zeit, Genoſſen meines Glaubens, verkuͤndigt mit<lb/>
+Wort und That das goͤttliche Evangelium, und bleibt dem<lb/>
+wahrhaften, unendlichen Glauben treu bis in den Tod.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb facs="#f0031"/>
+<pb facs="#f0032"/>
+<pb facs="#f0033"/>
+</body> </text> </TEI>

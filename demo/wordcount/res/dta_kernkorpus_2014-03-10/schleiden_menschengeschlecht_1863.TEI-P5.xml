@@ -1,0 +1,2093 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Das Alter des Menschengeschlechts, die Entstehung der Arten und die Stellung des Menschen in der Natur</title>
+<title type="sub">Drei Vorträge für gebildete Laien</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118852116">
+<surname>Schleiden</surname>
+<forename>Matthias Jacob</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">77</measure>
+<measure type="tokens">16286</measure>
+<measure type="types">4374</measure>
+<measure type="characters">121509</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:07:18Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/schleiden_menschengeschlecht_1863</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/schleiden_menschengeschlecht_1863</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/schleiden_menschengeschlecht_1863</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/schleiden_menschengeschlecht_1863</idno>
+<idno type="DTADirName">schleiden_menschengeschlecht_1863</idno>
+<idno type="DTAID">16234</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-200905195450</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Schleiden, Matthias Jacob: Das Alter des Menschengeschlechts, die Entstehung der Arten und die Stellung des Menschen in der Natur. Leipzig, 1863.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Das Alter des Menschengeschlechts, die Entstehung der Arten und die Stellung des Menschen in der Natur</title>
+<title level="m" type="sub">Drei Vorträge für gebildete Laien</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118852116">
+<surname>Schleiden</surname>
+<forename>Matthias Jacob</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">62 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Engelmann</name></publisher>
+<pubPlace>Leipzig</pubPlace>
+<date type="publication">1863</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Mo 10992</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=435596128</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde von OCR-Software automatisch erfasst und anschließend gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+von Muttersprachlern nachkontrolliert. Es wurde gemäß dem
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> in XML/TEI P5 kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Biologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Biologie</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">ocr</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text> <front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb facs="#f0007"/>
+<titlePage type="halftitle"> <docTitle> <titlePart type="main"> <hi rendition="#g">Das</hi><lb/>
+<hi rendition="#b">Alter des Menſchengeſchlechts,<lb/>
+die Entſtehung der Arten</hi><lb/>
+und die<lb/>
+<hi rendition="#b">Stellung des Menſchen in der Natur.</hi><lb/>
+</titlePart> <milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="sub">Drei Vorträge für gebildete Laien<lb/>
+</titlePart> </docTitle> <byline>von<lb/>
+<docAuthor> <hi rendition="#b">M. J. Schleiden,</hi> <hi rendition="#aq #b">Dr.</hi><lb/>
+</docAuthor> </byline> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace>Leipzig,<lb/>
+</pubPlace> <publisher> <hi rendition="#g">Verlag von Wilhelm Engelmann</hi>.<lb/>
+</publisher> <docDate>1863.<lb/>
+</docDate> </docImprint> </titlePage>
+<pb facs="#f0008"/>
+<pb facs="#f0009"/>
+<div type="advertisement"> <p>Bei dem unterzeichneten Verleger erſcheint:</p><lb/>
+<p> <hi rendition="#g">Allgemeine</hi><lb/>
+<hi rendition="#b #g">Weltgeſchichte</hi><lb/>
+mit beſonderer Berückſichtigung<lb/>
+des Geiſtes- und Culturlebens der Völker und mit Benutzung der<lb/>
+neueren geſchichtlichen Forſchungen für die gebildeten Stände<lb/>
+bearbeitet von<lb/>
+<hi rendition="#aq #b">Dr</hi><hi rendition="#aq">.</hi> <hi rendition="#b">Georg Weber</hi>,<lb/>
+<hi rendition="#g">Profeſſor und Schuldirector in Heidelberg.</hi></p><lb/>
+<p> <hi rendition="#b">Erſter — vierter Band.</hi></p><lb/>
+<p> <hi rendition="#g">gr. 8. broſch. 7 Thlr. 26½ Rgr.</hi></p><lb/>
+<p>Die bis jetzt erſchienenen erſten vier Bände enthalten:</p><lb/>
+<p> <hi rendition="#b">1. Band. Geſchichte des Morgenlandes.</hi> 1 Thlr. 26½ Rgr.</p><lb/>
+<p> <hi rendition="#b">2. Band. Geſchichte des Helleniſchen Volkes.</hi> 2 Thlr.</p><lb/>
+<p> <hi rendition="#b">3. Band. Römiſche Geſchichte bis zu Ende der Republik und Geſchichte<lb/>
+der alexandriniſch-helleniſchen Welt.</hi> 2 Thlr.</p><lb/>
+<p> <hi rendition="#b">4. Band. Geſchichte des römiſchen Kaiſerreichs, der Völkerwanderung und<lb/>
+der neuen Staatenbildungen.</hi> 2 Thlr.</p><lb/>
+<p>Band 5 und 6 werden das <hi rendition="#b">Mittelalter</hi> umfaſſen und zwar der 5. Band die<lb/>
+<hi rendition="#b">Geſchichte Europas bis zu den Hohenſtaufenſchen Zeiten,</hi> der 6. Band die folgenden<lb/>
+Jahrhunderte <hi rendition="#b">bis zur Reformation.</hi></p><lb/>
+<p>Obgleich bereits die ausgezeichnetſten Zeitſchriften dies neue Werk aufs Wärmſte<lb/>
+empfohlen haben, dürfte es doch von Intereſſe ſein, die Urtheile der Preſſe bei dem<lb/>
+Erſcheinen jedes neuen Bandes zu verfolgen und giebt die Verlagshandlung nach¬<lb/>
+ſtehend diejenigen Beſprechungen der „Allgemeinen Weltgeſchichte“, welche ihr bereits<lb/>
+in dieſem Jahre wieder über die bis jetzt vorliegenden vier Bände zugekommen ſind.</p><lb/>
+<p>Die „<hi rendition="#g">Weſtfäliſche Zeitung</hi>“ (1863. Nr. 7) ſagt:</p><lb/>
+<p>„Der Verfaſſer iſt durch ſeine Handbücher der Geſchichte und Literaturgeſchichte<lb/>
+in den weiteſten Kreiſen aufs vortheilhafteſte längſt bekannt; was jene auszeichnet,<lb/>
+eine ächt freiſinnige tiefe Auffaſſung des Gegenſtandes, findet ſich wieder in dem<lb/>
+großen Werke. Das Material der Geſchichte, namentlich der alten, iſt in der neueſten<lb/>
+Zeit durch, die großartigen archäologiſchen und linguiſtiſchen Forſchungen außerordent¬<lb/>
+lich gewachſen; dieſe Fülle des Stoffes iſt hier zum erſten Male ſorgfältig geſammelt,<lb/>
+geſichtet, verarbeitet und was bisher nur Eigenthum der Fachgelehrten war, wird<lb/>
+durch Webers Weltgeſchichte Gemeingut aller Gebildeten. <hi rendition="#g">Eine ähnliche Welt¬<lb/>
+geſchichte beſitzt noch keine andere Literatur</hi>. Die politiſche Geſchichte<lb/>
+tritt hier natürlich auch in den Vordergrund ; aber der Verfaſſer geht über dieſen engen<lb/>
+Kreis weit hinaus, er verfolgt das ganze geſchichtliche Leben der Völker in ſeinen<lb/>
+verſchiedenen Ausſtrahlungen, die geiſtige, religiöſe, induſtrielle Lebensfähigkeit der<lb/>
+Völker, und bietet ſo zuerſt eine würdige Weltgeſchichte in dem Sinne, wie das Ideal<lb/>
+Schillern und W. v. Humboldt vorſchwebte.</p><lb/>
+<pb facs="#f0010"/>
+<p>Die Darſtellung iſt eine anziehende, der Stil edel und geſchmackvoll, frei von<lb/>
+allem Bizarren. Compilationen, wie ſie leider die neueſte Zeit genug kennt, iſt na¬<lb/>
+türlich das Werk eines ſo bedeutenden Hiſtorikers nicht zuzuzählen; die ungewöhn¬<lb/>
+lich raſche Aufeinanderfolge der vier erſten Bände iſt nur dadurch zu erklären, daß<lb/>
+der Verfaſſer bekanntlich eine ſtaunenswerthe Arbeitskraft beſitzt und mehrere Decen¬<lb/>
+nien hindurch ſchon die Vorbereitungen zu ſeinem Werke getroffen hatte.</p><lb/>
+<p>Da kein Kenner dagegen Zweifel erheben wird, daß die Weber'ſche Weltgeſchichte<lb/>
+<hi rendition="#g">die beſte aller populären Weltgeſchichten iſt oder ſein wird</hi>, ſo kann<lb/>
+gebildeten Familien nicht genug die Anſchaffung derſelben empfohlen werden ; ſie ge¬<lb/>
+winnen damit ein dauerndes Gut, und thun wohl, nicht die Vollendung abzuwarten,<lb/>
+um nicht dann durch den nicht unbedeutenden Preis zurückgeſchreckt zu werden.“ —</p><lb/>
+<p> <hi rendition="#g">Die</hi> „<hi rendition="#g">Süddeutſche Zeitung</hi>“ (Nr. 35. v. 20. Jan. 1863) berichtet:</p><lb/>
+<p>„Wir erachten es für ein Glück, daß ſich ein Mann wie <hi rendition="#g">G</hi>. <hi rendition="#g">Weber</hi> der ſtief¬<lb/>
+mütterlich behandelten und oft mißhandelten Weltgeſchichte mit ſo großem Geſchick<lb/>
+und einem bewunderungswerthen Eifer annimmt. Als Schulmann und Pädagog,<lb/>
+der ſein Leben zunächſt dem Dienſte der Jugend gewidmet hat, begann Weber einen<lb/>
+Leitfaden für den Geſchichtsunterricht zu ſchreiben. Auf den kleineren mit Beifall<lb/>
+aufgenommenen Leitfaden folgte ein größeres <hi rendition="#g">Lehrbuch der Geſchichte</hi> in zwei<lb/>
+ſtarken Bänden, das ſchon über die Schule hinaus in weitere Kreiſe zu dringen<lb/>
+wußte. Daß es in wenigen Jahren neun Auflagen erlebt hat, beweiſt am beſten,<lb/>
+wie allgemein man ſeinen Werth ſchätzen lernte. Die Einen rühmten die klare und<lb/>
+verſtändliche Darſtellung. Andere die muſterhafte Gruppirung und Ueberſichtlichkeit<lb/>
+des Stoffs, wieder Andere den glücklichen Tact, womit das Weſentliche vor dem Un¬<lb/>
+weſentlichen hervorgehoben, die politiſche Geſchichte mit der Religion, Literatur,<lb/>
+überhaupt mit der Cultur in Verbindung gebracht iſt. Alle aber mußten die warme<lb/>
+Begeiſterung anerkennen, womit der Verfaſſer den gewaltigen Stoff durchdrungen<lb/>
+und belebt hat. Schreiber dieſer Zeilen wird nicht der Einzige ſein, der ſich früh<lb/>
+durch die Lectüre von Weber's Buch für einen trockenen Geſchichtsunterricht auf der<lb/>
+Schule entſchädigte und gerade durch dieſe Lectüre zuerſt für das Studium der Ge¬<lb/>
+ſchichte begeiſtert worden iſt.</p><lb/>
+<p>Seit ein paar Jahren iſt endlich das Hauptwerk Weber's „die allgemeine Welt¬<lb/>
+geſchichte“ (in zwölf Bänden) im Erſcheinen begriffen. Vier ſtarke Bände, die Ge¬<lb/>
+ſchichte des Alterthums bis zum Untergang des römiſchen Reichs umfaſſend, liegen<lb/>
+bereits vor; man kann alſo annähernd ſchon über das Ganze urtheilen.</p><lb/>
+<p>Alle die Vorzüge, die an dem größeren Lehrbuch gerühmt wurden, treten hier<lb/>
+noch deutlicher zu Tage. Vor allem aber muß man den eiſernen Fleiß bewundern,<lb/>
+womit der Verfaſſer überall in die Specialforſchung einzudringen ſuchte. Das Werk<lb/>
+iſt in dem vorliegenden Drittel keineswegs bloße Compilation; namentlich die Ge¬<lb/>
+ſchichte der Griechen und Römer zeugt von ſelbſtändigen Quellenſtudien und bekundet<lb/>
+den Philologen, der mit dem Alterthum ſchon früh vertraut war. Aber auch in an¬<lb/>
+deren Gebieten, z. B. in der Geſchichte der Völkerwanderung und der germaniſchen<lb/>
+Staatengründungen, hat es der Verfaſſer nicht an Detailſtudien fehlen laſſen.</p><lb/>
+<p>Möge es dem verehrten Verfaſſer vergönnt ſein, mit derſelben Ausdauer und<lb/>
+Umſicht, und vor allem mit derſelben Geiſtesfriſche und Herzensfreudigkeit ſeine Ar¬<lb/>
+beit durch das Mittelalter und die neuere Zeit hindurch der Vollendung entgegenzu¬<lb/>
+führen. Das deutſche Volk wird dann ein Werk haben, das auf ſeine Bildung, auf<lb/>
+die Belebung des hiſtoriſchen Sinnes, auf die Verbreitung wahrer Aufklärung und<lb/>
+ächter Humanität nicht ohne ſegensreichen Einfluß bleiben kann.“</p><lb/>
+<p> <hi rendition="#g">Leipzig</hi>, April 1863. <hi rendition="#b">Wilhelm Engelmann.</hi></p><lb/>
+</div> <milestone unit="section" rendition="#hr"/><lb/>
+<div type="imprint"> <p rendition="#c">Druck von Breitkopf und Härtel in Leipzig.</p><lb/>
+</div>
+<pb n="[1]" facs="#f0011"/>
+<titlePage type="main"> <docTitle> <titlePart type="main">Das<lb/>
+Alter des Menſchengeſchlechts,<lb/>
+die Entſtehung der Arten<lb/>
+und die<lb/>
+Stellung des Menſchen in der Natur.<lb/>
+</titlePart> <milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="sub">Drei Vorträge für gebildete Laien<lb/>
+</titlePart> </docTitle> <byline>von<lb/>
+<docAuthor>M. J. Schleiden, Dr.<lb/>
+</docAuthor> </byline> <milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace>Leipzig,</pubPlace><lb/>
+<publisher> <hi rendition="#g">Verlag von Wilhelm Engelmann </hi>.<lb/>
+</publisher> <docDate>1863.<lb/>
+</docDate> </docImprint> </titlePage> </front> <body>
+<pb n="[2]" facs="#f0012"/>
+<pb n="[3]" facs="#f0013"/>
+<div n="1"> <head> <hi rendition="#b">Erſte Vorleſung.<lb/>
+Das Alter des Menſchengeſchlechts.</hi><lb/>
+</head>
+<pb n="[4]" facs="#f0014"/>
+<pb n="[5]" facs="#f0015"/>
+<p> <hi rendition="#in">E</hi>ine der wichtigſten Fragen, welche gegenwärtig die Naturwiſſen¬<lb/>
+ſchaft beſchäftigt, iſt ohne Zweifel die nach dem Urſprung und dem<lb/>
+Alter des Menſchengeſchlechts auf der Erde. Zwei Werke, die beide<lb/>
+einen ſchon früher angeregten, aber immer wieder bei Seite geſchobe¬<lb/>
+nen Gedanken behandeln, haben in neuerer Zeit erſt vermocht der An¬<lb/>
+gelegenheit einen ſolchen Anstoß zu geben, daß ſie vollſtändig in den<lb/>
+Vorgrund der Unterſuchungen getreten iſt und von Keinem, der in den<lb/>
+Naturwiſſenſchaften lebt, noch wieder vernachläſſigt und mit Still¬<lb/>
+ſchweigen übergangen werden kann. Es ſind dies die beiden Arbeiten<lb/>
+von <hi rendition="#g">Darwin</hi> über die Entſtehung der Arten und von <hi rendition="#g">Lyell</hi> über das<lb/>
+Alter der Menſchen auf der Erde.</p><lb/>
+<p>Die Frage, um die es ſich hier zunächſt handeln wird, iſt die: Wie<lb/>
+lange giebt es Menſchen auf der Erde?; eine Frage, für deren Beant¬<lb/>
+wortung allerdings ſchon frühe Thatſachen ſich dargeboten haben, die<lb/>
+man aber immer zurückſchob und unbeachtet liegen ließ, weil Vorur¬<lb/>
+theile der mannichfachſten Art damit in Streit kamen. Das Eine der¬<lb/>
+ſelben muß ich hier kurz berühren. Es iſt das Vorurtheil, welches aus<lb/>
+unſerem Jugendunterrichte entſpringt und lange Zeit auch die Geologen<lb/>
+verhindert hat, ihre eignen glänzenden Entdeckungen richtig zu verwer¬<lb/>
+then. — Die Meinung, als ſei die Zeitrechnung, welche man gewöhn¬<lb/>
+lich den Erzählungen des alten Teſtamentes unterlegt, wirklich in dem¬<lb/>
+ſelben enthalten und habe ſomit nicht nur wiſſenſchaftliche, ſondern ge¬<lb/>
+radezu heilige Autorität zu beanſpruchen, hat lange Zeit ſelbſt die<lb/>
+Männer der Wiſſenſchaft verwirrt, und zu falſchen Beurtheilungen der<lb/>
+<pb n="6" facs="#f0016"/>
+<fw type="header" place="top">Erſte Vorleſung.<lb/>
+</fw>klarſten Thatſachen verführt. — Erſt im <hi rendition="#aq">XII</hi>. Jahrhundert fingen die<lb/>
+Juden an, ſich allgemeiner der Rechnung nach Jahren der Welt zu be¬<lb/>
+dienen und ſelbſt ihre, noch keineswegs über allen Zweifel erhobenen<lb/>
+Sagen ſchieben die erſte Aufſtellung dieſer Zeitrechnung, überhaupt den<lb/>
+erſten Verſuch, den Erzählungen des alten Teſtamentes, ihres Wider¬<lb/>
+ſtrebens ungeachtet, eine feſte Chronologie unterzulegen, nicht weiter<lb/>
+zurück als bis in die Mitte des <hi rendition="#aq">IV</hi>. Jahrhunderts nach Chriſto, um<lb/>
+welche Zeit der Rabbi Hillel Ben Jehuda zu Tiberias dieſe neue Chro¬<lb/>
+nologie erfunden und aufgeſtellt haben <hi rendition="#g">ſoll</hi>. — Thatſache iſt, daß das<lb/>
+alte Teſtament zur Aufſtellung einer feſten Zeitrechnung überhaupt <hi rendition="#g">gar<lb/>
+keine</hi> Grundlagen darbietet, weil die Juden ſelbſt nie eine Zeitrech¬<lb/>
+nung gehabt hatten. Iſt doch in der That das früheſte Datum in der<lb/>
+ganzen Weltgeſchichte, das früheſte, welches wirklich wiſſenſchaftlich<lb/>
+feſtſteht, der Beginn der Nabonaſſarſchen Aera 747 vor Chr. Alles<lb/>
+was dem vorhergeht, verliert ſich ſehr bald in vage nur mehr oder we¬<lb/>
+niger wahrſcheinliche Vermuthungen, unter denen nur einige Zeitbe¬<lb/>
+ſtimmungen aus der Aegyptiſchen Geſchichte, die mit aſtronomiſchen<lb/>
+Thatſachen in Verbindung gebracht werden können, der Gewißheit<lb/>
+ziemlich nahe kommen.</p><lb/>
+<p>Das unbeachtete Nachwirken des hier erwähnten Vorurtheils war<lb/>
+es eben, welches die Geognoſten ſo lange blind machte gegen alle Ent¬<lb/>
+deckungen, wodurch die Exiſtenz der Menſchen auf der Erde in Zeit¬<lb/>
+räume verſetzt wird, die weit über alle angeblichen Berechnungen von<lb/>
+dem Alter der Welt hinausgreifen. — Wenn man die gewöhnlich an¬<lb/>
+gegebenen lächerlich kurzen Zeiträume von etwa 6000 Jahren als Maß¬<lb/>
+ſtab feſthielt, ſo war es allerdings unbegreiflich wie die großen Verän¬<lb/>
+derungen, von denen die Erde Zeugniß ablegte, ohne unerklärbare plötz¬<lb/>
+liche Revolutionen vor ſich gehen, wie der Menſch aus dem Zuſtande<lb/>
+eines ſehr rohen Wilden zu den hohen Culturſtufen, mit denen wir ihn<lb/>
+ſchon in dem Beginn der Geſchichte auftreten ſehen, ſich hinauf bilden<lb/>
+konnte. Zum Glück ſind wir aber jetzt im Stande, das alte Vorurtheil<lb/>
+in einer ſolchen Weiſe zu durchbrechen, daß es ſeinen ganzen Einfluß<lb/>
+<pb n="7" facs="#f0017"/>
+<fw type="header" place="top">Das Alter des Menſchengeſchlechts.<lb/>
+</fw>verlieren muß. — Wenn man mit der Erſcheinung des Menſchen auf<lb/>
+der Erde nothwendig auf wenigſtens 100,000 Jahre zurückgewieſen<lb/>
+wird, ſo bedarf es keiner Entſchuldigung mehr, wenn man die allmäh¬<lb/>
+liche Entwicklung der Erde ſelbſt nach vielen Millionen von Jahren<lb/>
+abzumeſſen verſucht.</p><lb/>
+<p>Es iſt nun an ſich klar und bedarf keiner weitläufigen Auseinan¬<lb/>
+derſetzung, von wie weitgreifendem Einfluſſe es auf die Behandlung<lb/>
+der verſchiedenſten, kaum damit irgendwie verwandt <hi rendition="#g">ſcheinenden</hi><lb/>
+Disciplinen ſein muß, wenn man nachweiſen kann, daß das Alter des<lb/>
+Menſchengeſchlechts ſo lange Zeiträume umfaßt, daß dieſelben für die<lb/>
+langſamen Entwicklungen aus einem rohen, faſt thieriſchen Zuſtande<lb/>
+durch ganz kleine erſt allmählich in Jahrtauſenden ſich ſummirende Fort¬<lb/>
+ſchritte zu höheren Culturſtufen genügenden Raum gewähren. — Nicht<lb/>
+nur die Anſichten der ſyſtematiſchen Naturgeſchichte, ſondern auch die<lb/>
+der Phyſiologie, der Ethnographie, der Linguiſtik und vieler anderer<lb/>
+Wiſſenſchaften werden nach und nach den tiefgreifenden Einfluß dieſer<lb/>
+neuen Entdeckungen erfahren. Dieſe Wichtigkeit läßt es denn auch ge¬<lb/>
+rechtfertigt erſcheinen, wenn ich hier über die dahineinſchlagenden Ent¬<lb/>
+deckungen einen etwas ausführlicheren Bericht erſtatte, indem ich dabei<lb/>
+vorzugsweiſe an das eben erſchienene ſchon oben erwähnte Werk des<lb/>
+berühmten engliſchen Geognoſten <hi rendition="#g">Sir Charles Lyell</hi> anknüpfe.</p><lb/>
+<p>Im Jahre 1838 ſprach es der Archäolog <hi rendition="#g">Boucher de Perthes</hi><lb/>
+in ſeinem Buche, <hi rendition="#aq">De la création, essai sur l'origine et la progres¬<lb/>
+sion des êtres</hi>, zuerſt ganz beſtimmt aus: »<hi rendition="#aq">Que tôt ou tard on fini¬<lb/>
+rait par trouver dans le diluvium à défaut des fossiles humains<lb/>
+des traces d'hommes antédiluviens</hi>«. — Dieſer ſeiner Ueberzeugung<lb/>
+folgend, durchforſchte er mit unermüdlichem Fleiße alle Diluvialgebilde,<lb/>
+die ihm geeignet ſchienen, dergleichen Spuren früherer Menſchen zu<lb/>
+umſchließen und fand endlich in den Steinbrüchen im <hi rendition="#g">Sommethal</hi><lb/>
+in der Nähe von <hi rendition="#g">Amiens</hi> den Lohn ſeines Eifers. Seine Entdeckun¬<lb/>
+gen ſtellte er dann 1847 in ſeinen »<hi rendition="#aq">Antiquités celtiques et antédilu¬<lb/>
+viennes</hi>« zuſammen, denen er 1857 noch einen zweiten Band folgen<lb/>
+<pb n="8" facs="#f0018"/>
+<fw type="header" place="top">Erſte Vorleſung.<lb/>
+</fw>ließ. In beiden Bänden theilte er zahlreiche Abbildungen der gefunde¬<lb/>
+nen Kunſtprodukte, namentlich aus Feuerſtein gearbeitete Beile, Lan¬<lb/>
+zen- und Pfeilſpitzen, Meſſer und dergleichen mit. Seine Entdeckungen<lb/>
+wurden anfänglich mit kindiſchem Lachen, dann mit Zweifel und Wider¬<lb/>
+ſpruch aufgenommen. Er verlor aber nicht den Muth; alle Einwürfe<lb/>
+widerlegend, zwang er endlich die Geognoſten, von der Sache Kennt¬<lb/>
+niß zu nehmen; die Fundorte wurden von den ausgezeichnetſten Män¬<lb/>
+nern der Wiſſenſchaft genau unterſucht, die Entdeckungen und die Rich¬<lb/>
+tigkeit der daraus gezogenen Schlüſſe beſtätigt und endlich der Satz in<lb/>
+der Wiſſenſchaft zugelaſſen, daß in einer undenklich frühen Zeit zuſam¬<lb/>
+men mit Mammuth, Rhinoceros, Höhlenlöwen, Höhlenhyänen, Höh¬<lb/>
+lenbären und anderen einer längſt vergangenen Periode der Erdbildung<lb/>
+angehörigen, lange vor der älteſten Sagenzeit ausgeſtorbenen Thier¬<lb/>
+arten auch der Menſch ſchon Bewohner der Erde geweſen ſei. Wenn<lb/>
+vor <hi rendition="#g">Boucher de Perthes</hi> Niemand einem ſolchen Gedanken hatte<lb/>
+Raum geben wollen, ſo wurden jetzt von allen Seiten ähnliche That¬<lb/>
+ſachen bekannt gemacht oder früher ſchon entdeckte, aber unbeachtet ge¬<lb/>
+bliebene Erſcheinungen aus der Nacht der Vergeſſenheit hervorgezogen.<lb/>
+Gegenwärtig ſind ſchon gegen 35 bis 40 ſolcher Beobachtungen bekannt<lb/>
+geworden, deren älteſte ſogar bis auf das Jahr 1715 zurückgeht, Be¬<lb/>
+obachtungen, welche ſich auf die verſchiedenſten Oertlichkeiten, <hi rendition="#g">Aegyp¬<lb/>
+ten</hi>, <hi rendition="#g">Sicilien</hi> und <hi rendition="#g">Sardinien</hi>, die <hi rendition="#g">Pyrenäen</hi>, das mittlere<lb/>
+<hi rendition="#g">Frankreich</hi>, das <hi rendition="#g">Seine-</hi>, <hi rendition="#g">Oiſe-</hi> und <hi rendition="#g">Sommethal</hi>, die <hi rendition="#g">Schweiz</hi>,<lb/>
+den <hi rendition="#g">Rhein</hi>, <hi rendition="#g">Dänemark</hi>, ganz <hi rendition="#g">England</hi> und <hi rendition="#g">Schottland</hi>,<lb/>
+<hi rendition="#g">Braſilien</hi>, <hi rendition="#g">Florida</hi>, das <hi rendition="#g">Miſſiſſippi-</hi> und <hi rendition="#g">Ohio</hi>gebiet bezie¬<lb/>
+hen. Nach dieſen ſämmtlichen Entdeckungen zuſammengenommen kann<lb/>
+man die Anweſenheit der Menſchen auf der Erde ſchon gegenwärtig auf<lb/>
+weit über 100,000 Jahre zurückdatiren und doch ſtehen wir jedenfalls<lb/>
+erſt im allererſten Anfang und keineswegs am Ende der Entdeckungen.</p><lb/>
+<p>Um die Sache dem allgemeinen Verſtändniſſe näher zu bringen,<lb/>
+will ich zunächſt eine Ueberſicht der allmählichen Entwickelung der Erd¬<lb/>
+oberfläche und ihrer Perioden geben und dann die wichtigeren der ge¬<lb/>
+<pb n="9" facs="#f0019"/>
+<fw type="header" place="top">Das Alter des Menſchengeſchlechts.<lb/>
+</fw> machten Entdeckungen in dieſe Perioden einreihen. Beſtimmte Gebirgs¬<lb/>
+arten, die wir nach den in ihnen enthaltenen Verſteinerungen als gleich¬<lb/>
+zeitig erkennen, nennen wir <hi rendition="#g">Formationen</hi>; eine Reihe ſolcher For¬<lb/>
+mationen, die durch gewiſſe Charactere als näher verwandt ſich zeigen,<lb/>
+nennen wir <hi rendition="#g">Perioden</hi>, und mehrere Perioden können wir noch wie¬<lb/>
+der als <hi rendition="#g">Epochen</hi> zuſammenfaſſen. — Wenn die älteſte Epoche ſo<lb/>
+eigenthümliche Pflanzen und Thierformen darbietet, daß kaum irgend<lb/>
+eine Beziehung derſelben auf die jetzt um uns lebenden gefunden wer¬<lb/>
+den kann, ſo zeigt die zweite Epoche eine allmähliche Verähnlichung mit<lb/>
+unſerer Jetztwelt, aber erſt in der dritten Epoche treten nach und nach<lb/>
+anfänglich in geringer Artenzahl, dann allmählich immer häufiger Thier¬<lb/>
+und Pflanzenarten auf, die ſich auch noch jetzt lebendig auf der Erde<lb/>
+finden. Die älteſte Epoche oder die <hi rendition="#g">Paläozoiſche</hi> umfaßt fünf Pe¬<lb/>
+rioden mit 9 Formationen; die <hi rendition="#g">Secundäre</hi> oder <hi rendition="#g">Meſozoiſche</hi><lb/>
+Epoche drei Perioden mit 18 Formationen, endlich die <hi rendition="#g">Tertiäre</hi> oder<lb/>
+<hi rendition="#g">Känozoiſche</hi> Epoche drei Perioden mit 7 Formationen. Auf dieſe<lb/>
+34 Formationen folgen dann noch zwei, welche man als die vierte oder<lb/>
+<hi rendition="#g">Quartäre</hi> Epoche zuſammenfaßt; die älteſte dieſer letzten Formatio¬<lb/>
+nen bezeichnet man als die <hi rendition="#g">Poſtpliocäne</hi>, ſie enthält zwar keine<lb/>
+Muſcheln mehr, die nicht auch jetzt noch lebend auf der Erde gefunden<lb/>
+würden, aber dagegen ſehr viele eigenthümliche jetzt längſt ausgeſtor¬<lb/>
+bene Säugethierarten, Elephanten-, (Mammuth), Rhinoceros-, Löwen-,<lb/>
+Hyänen-, Bärenarten, Maſtodonten und andere. Die jüngſte Forma¬<lb/>
+tion endlich, welche man als <hi rendition="#g">Neuzeit</hi> bezeichnet, bietet uns ausſchließ¬<lb/>
+lich nur noch jetzt lebende Organismen aus allen Lebenskreiſen dar. —<lb/>
+Die poſtpliocäne Formation bezeichnete man früher auch wohl als <hi rendition="#g">Di</hi>¬<lb/>
+<hi rendition="#g">luvium</hi> und die Neuzeit als <hi rendition="#g">Alluvium</hi>, beides ſehr ſchlecht ge¬<lb/>
+wählte und daher mit Recht von den neueren Geognoſten beſeitigte<lb/>
+Ausdrücke. Beſtimmt kann man nachweiſen, daß im Anfang der poſt¬<lb/>
+pliocänen Formation <hi rendition="#g">Europa</hi> eine von der jetzigen ganz verſchiedene<lb/>
+geographiſche Geſtaltung und in Folge deſſen manche höchſt eigenthüm¬<lb/>
+liche phyſikaliſche Erſcheinungen dargeboten hat.</p><lb/>
+<pb n="10" facs="#f0020"/>
+<fw type="header" place="top">Erſte Vorleſung.<lb/>
+</fw> <p>Am Ende der Tertiärperiode war die große <hi rendition="#g">Sahara</hi>, wie die<lb/>
+Bohrverſuche von Laurent bewieſen haben, ein Meeresbecken, dagegen<lb/>
+hingen nach den Unterſuchungen von <hi rendition="#g">Heer</hi> und Anderen das nord¬<lb/>
+weſtliche <hi rendition="#g">Afrika</hi>, die <hi rendition="#g">Azoren</hi> und <hi rendition="#g">Portugal</hi> mit dem ſüdöſtlichen<lb/>
+<hi rendition="#g">Nordamerika</hi> in einem großen Continent zuſammen, woraus ſich die<lb/>
+Uebereinſtimmung der Flora und Fauna der genannten Länder am Ende<lb/>
+der Tertiärepoche erklärt. — Das erſte Verhältniß, ein Meeresbecken<lb/>
+ſtatt einer glühenden Sandwüſte, hatte zur Folge, daß es für Europa<lb/>
+keinen gegenwärtig aus der <hi rendition="#g">Sahara</hi> kommenden heißen, gletſcher¬<lb/>
+ſchmelzenden Föhnwind gab; das zweite ſchloß den die ganze Weſtküſte<lb/>
+von <hi rendition="#g">Europa</hi> erwärmenden <hi rendition="#g">Golfſtrom</hi> vom nördlichen Atlantiſchen<lb/>
+Ocean ab. Der Golfſtrom lief vielmehr durch das Gebiet des jetzigen<lb/>
+Miſſiſſippi gerade nach Norden und brachte ſeinen erwärmenden Ein¬<lb/>
+fluß in die Amerikaniſchen Polargegenden, wovon ſich die letzten Spu¬<lb/>
+ren wahrſcheinlich erſt im Beginn der hiſtoriſchen Zeit verloren haben,<lb/>
+da ſich die großen Norwegiſchen und Isländiſchen Colonien auf <hi rendition="#g">Grön¬<lb/>
+land</hi> im <hi rendition="#aq">IX</hi>. und <hi rendition="#aq">X</hi>. Jahrhundert nicht füglich denken laſſen, wenn<lb/>
+das Klima jener Gegenden nicht bedeutend milder als gegenwärtig ge¬<lb/>
+weſen wäre. In Folge dieſer ganz verſchiedenen Vertheilung von Land<lb/>
+und Meer, von Wärme und Kälte, war <hi rendition="#g">Europa</hi> im Beginn der<lb/>
+poſtpliocänen Periode viel rauher als jetzt und zeigte eine Ausdehnung<lb/>
+der Gletſcher und eine Anhäufung von Eis, die für dieſe Zeit den Na¬<lb/>
+men der <hi rendition="#g">Eiszeit</hi> bei den Geognoſten in Aufnahme gebracht haben.<lb/>
+Man darf dies aber nicht ſo verſtehn, wie es anfänglich auch wohl von<lb/>
+Männern der Wiſſenſchaft aufgefaßt worden iſt, als ob es eine Zeit<lb/>
+gegeben habe, in welcher die ganze Erdoberfläche im Eiſe erſtarrt ge¬<lb/>
+weſen wäre, vielmehr, wie es niemals <hi rendition="#g">eine</hi> die <hi rendition="#g">ganze</hi> Erde bedeckende<lb/>
+Fluth, wohl aber zu verſchiedenen Zeiten auf jedem beſchränkteren<lb/>
+Theile der Oberfläche ſolche Bedeckungen des Bodens mit Waſſer gab,<lb/>
+ſo wurde auch die Temperaturerniedrigung, die das Wachſen der Glet¬<lb/>
+ſcher in einem Gebirgsſyſtem hervorrief, durch eine erhöhte Temperatur<lb/>
+in anderen Regionen wieder ausgeglichen; mit dieſer Warnung können<lb/>
+<pb n="11" facs="#f0021"/>
+<fw type="header" place="top">Das Alter des Menſchengeſchlechts.<lb/>
+</fw> wir nun immerhin ausſprechen, daß faſt jeder Theil der Erdoberfläche<lb/>
+einmal ſeine Eiszeit erlebt hat. — Die Geographie des nördlichen<lb/>
+<hi rendition="#g">Europa</hi> war nun folgende:</p><lb/>
+<p>Anfänglich bedeckte Meer faſt den ganzen nördlichen Theil von<lb/>
+<hi rendition="#g">Finnland</hi>, durch die <hi rendition="#g">Oſtſeeprovinzen</hi>, das nördliche <hi rendition="#g">Deutsch¬<lb/>
+land</hi> bis <hi rendition="#g">Dünkerken</hi> und ebenſo <hi rendition="#g">Großbritannien</hi> mit Ausnahme<lb/>
+eines ſchmalen ſüdlichen Streifens und der höchſten Gebirgspunkte, die<lb/>
+als Inſeln aus dem Meere hervorragten. Gleichzeitig war nur der<lb/>
+mittlere höchſte Theil von <hi rendition="#g">Skandinavien</hi> frei vom Meere und ge¬<lb/>
+rade wie gegenwärtig <hi rendition="#g">Grönland</hi> ganz in Eis gehüllt. In dieſer Zeit<lb/>
+trugen die ſich ablöſenden Eisberge und Eisinſeln Schutt, große und<lb/>
+kleine Blöcke ſkandinaviſcher Felſen über das Meer nach Oſten, Süden<lb/>
+und Weſten und wo das Eis ſtrandete und in der ſüdlicheren Luft<lb/>
+ſchmolz, fielen jener Schutt, jene Felsblöcke auf den Meeresboden.<lb/>
+Darauf folgte eine Zeit, in welcher ſich der Boden allmählich hob und<lb/>
+zwar bis zu einem ſolchen Niveau, daß <hi rendition="#g">England</hi> und <hi rendition="#g">Frankreich</hi><lb/>
+in feſte Landverbindung geſetzt und ein großer Theil der Nordſee trocken<lb/>
+gelegt wurde. In dieſer Zeit breiteten ſich denn auch Nordfranzöſiſche<lb/>
+und Deutſche Pflanzen und Thiere über <hi rendition="#g">England</hi> aus. Gerade in<lb/>
+dieſer Periode dehnten ſich die Gletſcher in <hi rendition="#g">Tyrol</hi>, der <hi rendition="#g">Schweiz</hi>,<lb/>
+<hi rendition="#g">Frankreich</hi> und <hi rendition="#g">Großbritannien</hi> von den viel höheren und da¬<lb/>
+her viel kälteren Bergen zu einem Umfange aus, von dem uns jetzt nur<lb/>
+noch die Schliffe und Schrunden auf den Felſen, die alten noch erkenn¬<lb/>
+baren Moränen und Gufferlinien Nachricht geben. Dieſe Gletſcher, mit<lb/>
+ihren gewaltigen ſchweren Maſſen auf den felſigen Unterlagen ſich fort¬<lb/>
+ſchiebend rieben von denſelben, wie das auch noch jetzt geſchieht, eine<lb/>
+große Maſſe des feinſten Staubes ab, die dann von Bächen und Flüſſen<lb/>
+fortgeſchwemmt, in den Ebenen, wo die letzteren ſich ausbreiteten, ab¬<lb/>
+gelagert wurde und ſo die eigenthümlichen oft mächtigen Schichten bil¬<lb/>
+dete, welche von den Geognoſten als <hi rendition="#g">Löß</hi> bezeichnet werden. — Nun<lb/>
+erſt trat wieder eine allmähliche Senkung ein, welche <hi rendition="#g">England</hi> und<lb/>
+<hi rendition="#g">Frankreich</hi> von einander trennte und die <hi rendition="#g">Nordſee</hi> wieder als Meer<lb/>
+<pb n="12" facs="#f0022"/>
+<fw type="header" place="top">Erſte Vorleſung.<lb/>
+</fw>herſtellte. Ich habe in Vorſtehendem nur die großen Hauptzüge jener<lb/>
+Periode charakteriſirt, während zeitweilig und an verſchiedenen Orten<lb/>
+untergeordnetere Hebungen und Senkungen noch vielfach mit einander<lb/>
+gewechſelt haben müſſen. Man wird aber nur durch dieſe gewaltigen<lb/>
+Veränderungen in der geographiſchen Vertheilung von Land und Meer<lb/>
+und den mannichfachen dadurch bedingten klimatiſchen Veränderungen<lb/>
+eine etwas anſchaulichere Vorſtellung davon erhalten, welche unendlich<lb/>
+lange Zeiträume nöthig geweſen ſind, um alle dieſe Erſcheinungen ent¬<lb/>
+ſtehen und vergehen zu laſſen. Ähnliche Bewegungen der Erdoberfläche<lb/>
+wie die erwähnten haben zu allen Zeiten ſtattgefunden und langſam,<lb/>
+aber in Zeiträumen von Hunderttauſend und mehr Jahren, die Geo¬<lb/>
+graphie der Erde umgeſtaltet. Ähnliche Bewegungen ſind aber auch an<lb/>
+den verſchiedenſten Orten innerhalb der ſtreng hiſtoriſchen Zeit vor ſich<lb/>
+gegangen oder greifen noch jetzt auf der Erde unter unſeren Augen<lb/>
+Platz, ſo z. B. die bekannte ſchon von <hi rendition="#g">Celſius</hi> erkannte Bewegung,<lb/>
+durch welche die ganze Oſtküſte von <hi rendition="#g">Schweden</hi>, ſchneller im Norden,<lb/>
+langſamer im Süden, aus dem Finniſchen Meerbuſen hervorgehoben<lb/>
+wird. Da wir dieſe letztere Bewegung in genügend langen Zeiträumen<lb/>
+beobachten und mit Meßinſtrumenten controliren konnten, um von der¬<lb/>
+ſelben ein mittleres Maß der Hebung oder Senkung abzuleiten, ſo ge¬<lb/>
+winnen wir dadurch einen Anhalt zur Berechnung geognoſtiſcher Pe¬<lb/>
+rioden, indem uns die Umgebung von <hi rendition="#g">Stockholm</hi> auf eine Niveau¬<lb/>
+veränderung von 1 Fuß im Jahrhundert hinführt. Ein anderes Bei¬<lb/>
+ſpiel bietet uns die Grenze zwiſchen <hi rendition="#g">Schottland</hi> und <hi rendition="#g">England</hi> dar,<lb/>
+wo ſeit der Errichtung der ſogenannten Pictenmauer unter <hi rendition="#g">Hadrian</hi><lb/>
+ſich das Land um etwa 20 Fuß gehoben hat. Daraus ließe ſich ein<lb/>
+mittlerer Werth der Niveauveränderungen von etwa 1 ½ Fuß für das<lb/>
+Jahrhundert ableiten. Wenn wir nun in <hi rendition="#g">England</hi> und <hi rendition="#g">Schott¬<lb/>
+land</hi> Beweiſe finden, daß ſich der Boden innerhalb der eigentlichen<lb/>
+Neuzeit im Ganzen um 600 Fuß gehoben habe, ſo ſetzt das ſchon einen<lb/>
+Zeitraum von 40,000 Jahren voraus. Indeß führe ich dieſes hier nur<lb/>
+an, um an einem einzelnen Beiſpiele dem Laien verſtändlich zu machen,<lb/>
+<pb n="13" facs="#f0023"/>
+<fw type="header" place="top">Das Alter des Menſchengeſchlechts.<lb/>
+</fw> auf welche Weiſe der Geognoſt zur Beſtimmung der Zeiten, in denen<lb/>
+ein Ereigniß ſtattfand, gelangt. Natürlich iſt die Berechnung für jede<lb/>
+einzelne Oertlichkeit, für jede einzelne Erſcheinung immer nach den be¬<lb/>
+ſonderen Umſtänden und Erwägungen eine ſehr verſchiedene, beruht<lb/>
+aber immer auf ebenſo ſicheren, ja meiſtentheils noch ſicherern Grund¬<lb/>
+lagen als die Angaben der Hiſtoriker für Ereigniſſe, die auch nur eini¬<lb/>
+germaßen weit in der Geſchichte zurückliegen. — Auf dieſe Weiſe kön¬<lb/>
+nen wir nun feſtſtellen, daß die Formation der Neuzeit zum allerwenig¬<lb/>
+ſten einen Zeitraum von 100,000 Jahren und die poſtpliocäne Forma¬<lb/>
+tion jedenfalls einen ebenſo langen oder noch längeren umfaßt, daß wir<lb/>
+daher ſchon mit den letzten Formationen der tertiären Epoche in Zei¬<lb/>
+ten die mehr als 300,000 Jahre hinter der Gegenwart zurückliegen,<lb/>
+eingeführt werden.</p><lb/>
+<p>Ich gehe nun zu einer etwas genaueren Darſtellung der wichtig¬<lb/>
+ſten der oben erwähnten Entdeckungen über und zwar will ich dieſelben<lb/>
+nach ihrem Alter in drei Gruppen ordnen, die erſten, welche noch den<lb/>
+Menſchen in der Neuzeit, in den uns vertrauten Umgebungen betrach¬<lb/>
+ten, die zweiten, welche das Vorhandenſein des Menſchen in der zwei¬<lb/>
+ten Hälfte der Poſtpliocänformation als Zeitgenoſſen des Mammuth<lb/>
+und Rhinoceros darthun und endlich die dritten, die ihn als gleichzei¬<lb/>
+tig mit den mächtigen Gletſcherentwickelungen der älteren poſtpliocänen<lb/>
+Formation, der ſogenannten Eiszeit erſcheinen laſſen.</p><lb/>
+<p>Die erſten intereſſanten Thatſachen bieten uns die Torfmoore der<lb/>
+Däniſchen Inſeln und die an ihren Oſtküſten ſich findenden oft 2 Mil¬<lb/>
+lionen Cubikfuß umfaſſenden Bänke von Auſtern- und anderen Mu¬<lb/>
+ſchelſchalen, Knochenreſten, Steinwaffen und dergleichen, welche die<lb/>
+Dänen <hi rendition="#g">Kjökken-möddings</hi> („Küchenkehricht“) nennen. Die Unter¬<lb/>
+ſuchungen dieſer Acten der Vergangenheit erzählen uns die Geſchichte<lb/>
+einer Bevölkerung, welche vor wenigſtens 10,000 Jahren in dieſen<lb/>
+Gegenden unter mächtigen Kiefernwäldern, eine Baumart, die jetzt<lb/>
+ganz aus <hi rendition="#g">Skandinavien</hi> verſchwunden iſt, von Jagd und Fiſch¬<lb/>
+fang lebte. Die Bearbeitung dieſer Entdeckungen verdanken wir<lb/>
+<pb n="14" facs="#f0024"/>
+<fw type="header" place="top">Erſte Vorleſung.<lb/>
+</fw>hauptſächlich dem <hi rendition="#aq">Dr</hi>. <hi rendition="#g">Steenſtrup</hi>, <hi rendition="#aq">Dr</hi>. <hi rendition="#g">Buſh</hi> und einigen<lb/>
+Anderen.</p><lb/>
+<p>An dieſe eben erwähnten Funde ſchließen ſich ſehr eng die viel in¬<lb/>
+tereſſanteren an, mit denen uns ſeit 1858 durch eine Reihe von Auf¬<lb/>
+ſätzen in den Acten der Zürcher antiquariſchen Geſellſchaft, ſowie in<lb/>
+ſelbſtändigen Werken <hi rendition="#g">Keller</hi> und <hi rendition="#g">Rütimeyer</hi> bekannt gemacht ha¬<lb/>
+ben. Man fand nämlich zuerſt in dem trocknen Winter 185¾ im Zür¬<lb/>
+cher See bei <hi rendition="#g">Meilen</hi>, ſpäter in faſt allen übrigen Schweizer Seen<lb/>
+die Reſte von Pfahlbauten (auf Platformen im Waſſer errichteten Woh¬<lb/>
+nungen) wie ſie ſchon in älteſter Zeit von <hi rendition="#g">Herodot</hi> bei einem Thraki¬<lb/>
+ſchen Stamme, der im See <hi rendition="#g">Praſias</hi> im heutigen <hi rendition="#g">Rumelien</hi> ſeine<lb/>
+Wohnſitze aufgeſchlagen hatte, 520 vor Chr. beſchrieben worden ſind.<lb/>
+Zugleich umſchloß der Schlamm der Schweizer Seen zahlreiche Knochen¬<lb/>
+reſte, Stein-, Bronce- und Eiſenwaffen, Töpfergeſchirr, Kähne u. dgl.<lb/>
+m. — Die genauere Durchforſchung dieſer Reſte führte zu einer ganzen<lb/>
+Geſchichte dieſer Pfahlbautenbewohner, die wohl auch über 10,000<lb/>
+Jahre zurückreicht und ſich kurz ſo wiedergeben läßt. Die erſten Grün¬<lb/>
+der dieſer Pfahlbauten kamen aus <hi rendition="#g">Aſien</hi>, von woher ſie noch Stein¬<lb/>
+waffen aus Beilſtein, der in Europa nicht gefunden wird, mitbrachten.<lb/>
+Sie wurden von anderen wahrſcheinlich <hi rendition="#g">Iberiſchen</hi> Stämmen ver¬<lb/>
+drängt und dieſe mußten wieder den <hi rendition="#g">Kelten</hi> der ächten Broncezeit<lb/>
+weichen. Von dieſen wiſſen wir durch <hi rendition="#g">Meyer</hi>, daß ſie noch 1500<lb/>
+Jahre vor Chr. von <hi rendition="#g">Kleinaſien</hi> bis zum <hi rendition="#g">Weſten</hi> Europa's ſehr<lb/>
+verbreitet waren. — Den <hi rendition="#g">Kelten</hi> folgten jüngere Stämme, die bereits<lb/>
+Eiſenwaffen führten und etwa 200 Jahre vor Chr. zur Zeit der Grie¬<lb/>
+chiſchen Beſitzungen in <hi rendition="#g">Marſeille</hi>, aus welcher Zeit einige Münzen<lb/>
+gefunden wurden, dieſe Pfahlbauten verließen, die dann verfielen und<lb/>
+vergeſſen wurden, ſo daß <hi rendition="#g">Cäſar</hi> ſchon keine Kunde mehr von ihnen<lb/>
+erhielt. Man unterſcheidet hier deutlich ein Zeitalter der rohen nur<lb/>
+durch Abſplittern geformten und ein anderes der ſorgfältig durch Schlei¬<lb/>
+fen geglätteten Steinwaffen. Beide gehen der Zeit der Iberiſchen und<lb/>
+der dieſe verdrängenden Keltiſchen Stämme vorher, denn dieſe beiden<lb/>
+<pb n="15" facs="#f0025"/>
+<fw type="header" place="top">Das Alter des Menſchengeſchlechts.<lb/>
+</fw> haben in ihrer Sprache das Wort für Erz aus derſelben Wurzel wie in<lb/>
+alten Indogermaniſchen Sprachen abgeleitet. Bei den <hi rendition="#g">Basken</hi> (Ibe¬<lb/>
+rern) findet ſich »urraida«, bei den <hi rendition="#g">Iren</hi>, <hi rendition="#g">Walliſern</hi> u. ſ. w. (Kel¬<lb/>
+ten) »<hi rendition="#aq">jaran</hi>, »<hi rendition="#aq">hajarn</hi>», »<hi rendition="#aq">houarn</hi>« u. ſ. w.— Die Iberiſche und Keltiſche<lb/>
+Zeit charakteriſiren ſich in jenen Reſten durch eine rohere und eine fei¬<lb/>
+nere, zierlichere Bearbeitung der Broncewaffen, worauf denn endlich<lb/>
+die Stämme mit Eiſenwaffen, wohl die älteſten <hi rendition="#g">Teutoniſchen</hi> folg¬<lb/>
+ten. Auch in der Lebensart und den Nahrungsmitteln giebt ſich ein<lb/>
+ſolcher periodiſcher Fortſchritt vom roheren zum civiliſirteren Zuſtande<lb/>
+zu erkennen.</p><lb/>
+<p>Eine weitere intereſſante Entdeckung wurde durch die von <hi rendition="#g">Hor¬<lb/>
+ner</hi>, dem Präſidenten der geologiſchen Geſellſchaft in London, veran¬<lb/>
+laßten ſyſtematiſchen Bohrungen im Nilthal herbeigeführt. Dieſelben<lb/>
+brachten aus Tiefen von 60 und 72 Fuß Bruchſtücke von Aegyptiſchem<lb/>
+Töpfergeſchirr herauf. Da wir nun durch <hi rendition="#g">Girard's</hi> und <hi rendition="#g">Rocière's</hi><lb/>
+gründliche Unterſuchungen belehrt die fäculare Erhöhung des Bodens<lb/>
+durch den jährlich abgelagerten Nilſchlamm im Mittel zu etwa 5½ Zoll<lb/>
+annehmen dürfen, ſo haben wir hier einen Beweis, daß die Aegyptiſche<lb/>
+Cultur im Nilthal ſchon wenigſtens 24,000 Jahre alt iſt, daß alſo die<lb/>
+immer für fabelhaft angeſehenen Angaben <hi rendition="#g">Manetho's</hi> über das Zeit¬<lb/>
+alter der erſten Dynaſtieen vielleicht nichts weniger als übertrieben ſind.</p><lb/>
+<p>Noch weiter in der Zeit zurück weiden wir aber durch die inter¬<lb/>
+eſſanten Bohrungen im Delta des Miſſiſſippi geführt, von denen uns<lb/>
+<hi rendition="#aq">Dr.</hi> <hi rendition="#g">Bennet-Dowler</hi> in ſeinem Werke über <hi rendition="#g">New-Orleans</hi> aus¬<lb/>
+führliche Nachrichten mitgetheilt hat. Nach den ſehr umſichtigen Unter¬<lb/>
+ſuchungen dieſes Forſchers, der alle auf die Bildung des <hi rendition="#g">Miſſiſſippi¬</hi><lb/>
+delta's von Einfluß ſeienden Verhältniſſe ſorgfältig erwogen hat, iſt<lb/>
+zur Bildung dieſes Delta's ein Zeitraum von mindeſtens 258,000 Jah¬<lb/>
+ren erforderlich geweſen und die Menſchenknochen, die man aus einer<lb/>
+ſehr bedeutenden Tiefe heraufbrachte, dürfen ein Alter von wenigſtens<lb/>
+57,000 Jahren beanſpruchen.</p><lb/>
+<p>Endlich erwähne ich noch der beim Graben des <hi rendition="#g">Södertelge¬</hi><lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Schleiden</hi>, Vorleſungen. 2<lb/>
+</fw>
+<pb n="16" facs="#f0026"/>
+<fw type="header" place="top">Erſte Vorleſung.<lb/>
+</fw>canals, der den <hi rendition="#g">Mälarſee</hi> mit dem Finniſchen Meerbuſen verbindet,<lb/>
+64 Fuß unter der Oberfläche des Bodens gefundenen Fiſcherhütte, in<lb/>
+deren Flur man eine Art von Heerd, Holzkohlen und Reiſigbündel<lb/>
+fand. Wir kennen den gegenwärtigen Betrag der Niveauveränderungen<lb/>
+der Schwediſchen Oſtküſte ſehr genau. <hi rendition="#g">Lyell</hi> hat ſie für die hier in Be¬<lb/>
+tracht kommende Umgegend von <hi rendition="#g">Stockholm</hi> auf 10 Zoll für das<lb/>
+Jahrhundert berechnet.—Zugleich hat er eine vorhergehende Senkung,<lb/>
+wodurch eben jene Hütte mit Meeresſand und Meeresmuſcheln bedeckt<lb/>
+wurde nachgewieſen, die für die Umgebung von <hi rendition="#g">Stockholm</hi> wenig¬<lb/>
+ſtens 400 Fuß unter den jetzigen Spiegel der Oſtſee betragen haben<lb/>
+muß, auf welche Senkung erſt die jetzige Hebung folgte. Die ſämmt¬<lb/>
+lichen hier in Betracht kommenden Verhältniſſe beweiſen, daß die Sen¬<lb/>
+kung wie die darauf folgende Hebung ganz ruhig und ſtetig, wie es<lb/>
+noch jetzt geſchieht, ohne gewaltſame Revolutionen und Störungen vor<lb/>
+ſich gegangen ſind, und daß beide Bewegungen, die nach Unten und<lb/>
+nach Oben, durchaus der Neuzeit angehören. Beide Bewegungen zu¬<lb/>
+ſammen zu 800 Fuß angenommen ergeben alſo nach dem obigen Maß¬<lb/>
+ſtab einen Zeitraum von 70—80,000 Jahren, der wenigſtens vergan¬<lb/>
+gen ſein muß, ſeit Fiſcher jene Hütte am Strande der Oſtſee erbauten.</p><lb/>
+<p>Ich könnte hier die Beiſpiele leicht vermehren, die von mir mitge¬<lb/>
+theilten genügen aber ſchon vollkommen, um die Gegenwart der Men¬<lb/>
+ſchen auf der Erde in der ganzen Neuzeit, alſo in einem Zeitraume von<lb/>
+wenigſtens 100,000 Jahren zu erweiſen. Ich wende mich deshalb lie¬<lb/>
+ber zu den Thatſachen, welche für eine noch viel frühere Exiſtenz des<lb/>
+Menſchen auf der Erde ſprechen.</p><lb/>
+<p>Wir werden hier in die eigentlich poſtpliocäne Formation hinein¬<lb/>
+geführt, in eine Periode unſerer Erde, in der Elephanten (Mammuth)<lb/>
+Rhinoceros, Höhlen-Löwen, -Hyänen und -Bären das mittlere und<lb/>
+nördliche <hi rendition="#g">Europa</hi> belebten, der Menſch auf dieſelben Jagd machte,<lb/>
+ihr Fleiſch verzehrte, ihre Knochen aufſchlug, um ſich des Markes zu<lb/>
+bemächtigen und dann von den größeren und härteren Stücken ſich<lb/>
+Lanzen und Pfeilſpitzen zu neuen Jagdabenteuern ſchnitzte, wobei er<lb/>
+<pb n="17" facs="#f0027"/>
+<fw type="header" place="top">Das Alter des Menſchengeſchlechts.<lb/>
+</fw> rohe Steinmeſſer benutzte, die ebenſo unkünſtleriſch geformt waren als<lb/>
+die von ihm benutzten ſteinernen Beile und Streitäxte.</p><lb/>
+<p>Schon 1715 hatte man in dem ſogenannten Londoner Thon,<lb/>
+einem Gliede der poſtpliocänen Formation, zwiſchen den Knochen un¬<lb/>
+tergegangener Thiere eine ſteinerne Art gefunden, dieſen Fund aber als<lb/>
+völlig gleichgültig und werthlos bei Seite gelegt und vergeſſen. Nicht<lb/>
+beſſer ging es den Entdeckungen von <hi rendition="#g">Frere</hi> in <hi rendition="#g">Suffolk</hi> (1801), von<lb/>
+<hi rendition="#g">Tourna</hi>l im Departement <hi rendition="#g">de l'Aube</hi> (1828) und von <hi rendition="#g">Chriſtol</hi> bei<lb/>
+<hi rendition="#g">Nismes</hi> (1829). Auch die ſchönen Funde von <hi rendition="#aq">Dr</hi>. <hi rendition="#g">Schmerling</hi>,<lb/>
+der in den Knochenhöhlen von <hi rendition="#g">Engis</hi> und <hi rendition="#g">Engihoul</hi> bei <hi rendition="#g">Lüttich</hi><lb/>
+(1831—33) viele Menſchenknochen und faſt ganz erhaltene Schädel<lb/>
+fand, wurden nicht einmal von ihm ſelbſt ihrem wahren Werthe nach<lb/>
+gewürdigt und von den Geognoſten, wie ſelbſt Lyell jetzt zugeſteht, mit<lb/>
+ſehr ungerechtfertigter Gleichgültigkeit unbeachtet gelaſſen.</p><lb/>
+<p>Erſt die, wie ſchon Eingangs erwähnt, anfänglich geradezu ver¬<lb/>
+lachten Unterſuchungen von <hi rendition="#g">Boucher de Perthes</hi> brachen endlich<lb/>
+für dieſe neuen Anſchauungsweiſen Bahn. Die neuen Entdeckungen<lb/>
+und die Wiederaufnahme älterer Unterſuchungen folgten ſich ſchnell und<lb/>
+alte wurden nun in der richtigen Weiſe verwerthet. So zeigte ſich, daß<lb/>
+das ganze mittlere wie nördliche <hi rendition="#g">Frankreich</hi> ſo wie das ſüdliche<lb/>
+<hi rendition="#g">England</hi> in den maſſenhaften Kieſelgeſchieben und Thonlagern,<lb/>
+welche bald nach der Eiszeit abgelagert wurden und die man gewöhn¬<lb/>
+lich Diluvialgebilde nennt, überall in Geſellſchaft mit den ſchon vor<lb/>
+unſerer neueſten Erdbildungsperiode untergegangenen Thieren auch<lb/>
+Menſchenknochen oder menſchliche Kunſtprodukte umſchließe. Aber der¬<lb/>
+artige Entdeckungen blieben keineswegs auf die genannten Länder be¬<lb/>
+ſchränkt. <hi rendition="#g">Sicilien</hi>, <hi rendition="#g">Sardinien</hi>, die <hi rendition="#g">Pyrenäen</hi> wie das <hi rendition="#g">Ohio</hi>¬<lb/>
+thal ſtellten ihr Contingent zu dieſen längſt untergegangenen Völker¬<lb/>
+ſchaften, deren Lebenszeit jedenfalls noch weit über 100,000 Jahre<lb/>
+hinter uns liegt.</p><lb/>
+<p>Ich will nur auf einen dieſer Funde etwas näher eingehen, da<lb/>
+<fw type="sig" place="bottom">2*<lb/>
+</fw>
+<pb n="18" facs="#f0028"/>
+<fw type="header" place="top">Erſte Vorleſung.<lb/>
+</fw> ſich an denſelben einige ganz intereſſante Betrachtungen anknüpfen laſ¬<lb/>
+ſen, die ich, wenn auch nicht ausführen, doch andeuten will.</p><lb/>
+<p>Im Jahre 1852 unterſuchte ein Arbeiter bei <hi rendition="#g">Aurignac</hi> im De¬<lb/>
+partement der <hi rendition="#g">Haute Garonne</hi> einen Kaninchenbau und zog zu ſei¬<lb/>
+ner Ueberraſchung aus der Tiefe deſſelben einen der längeren Knochen<lb/>
+eines Menſchen hervor. Aus Neugier räumte er die lockere Erde am<lb/>
+Abhange des Hügels fort und ſtand nach der Arbeit von einigen Stun¬<lb/>
+den vor einer großen ſchweren, den Eingang in eine Felſenhöhle ver¬<lb/>
+ſchließenden Steinplatte. Nach Entfernung derſelben fand er einen<lb/>
+Raum 7—8 Fuß hoch, etwa 10 Fuß breit und 7 Fuß tief zum großen<lb/>
+Theil mit Knochen gefüllt, von denen er ſogleich zwei Schädel als<lb/>
+menſchliche erkannte. Die Kunde davon verbreitete ſich ſchnell und <hi rendition="#aq">Dr.<lb/>
+med.</hi> <hi rendition="#g">Amiel</hi> in <hi rendition="#g">Amiens</hi>, deſſen Name nur wegen ſeiner rohen Un¬<lb/>
+wiſſenheit und Bildungsloſigkeit, die aber bekanntlich in Frankreich<lb/>
+nicht ſelten iſt, aufbewahrt zu werden verdient, ließ alle dieſe Knochen<lb/>
+ſorgfältig ſammeln und aufs neue auf dem Gemeindekirchhof chriſtlich<lb/>
+beſtatten. — Der Herr <hi rendition="#aq #g">Doctor medicinae</hi> hatte indeß wenigſtens<lb/>
+ſoviel anatomiſche Kenntniſſe, daß er ſich klar machte, er habe nahebei<lb/>
+die ſämmtlichen Knochen von ohngefähr 17 männlichen und weiblichen<lb/>
+Skeleten ſehr verſchiedenen Alters und im ganzen von ſehr kleiner<lb/>
+Statur vor ſich. Das iſt aber leider auch alles, was wir von dieſen<lb/>
+Skeleten wiſſen, denn als 8 Jahre ſpäter die Angelegenheit zufällig<lb/>
+zur Kenntniß wiſſenſchaftlich gebildeter Männer kam, hatte man leider<lb/>
+auch den Ort, wo dieſe Skelete auf dem Kirchhofe begraben waren,<lb/>
+ganz und gar vergeſſen. Es war der Geognoſt <hi rendition="#g">Lartet</hi>, der zu der er¬<lb/>
+wähnten Zeit <hi rendition="#g">Aurignac</hi> beſuchte und natürlich ſogleich eine ſorgfäl¬<lb/>
+tige wiſſenſchaftliche Unterſuchung vornahm. Die Reſultate derſelben<lb/>
+ſind kurz folgende.</p><lb/>
+<p>Die Höhle war eine regelmäßige Begräbnißſtätte. <hi rendition="#g">Lartet</hi> fand<lb/>
+darin noch einige überſehene Menſchenknochen, ein Muſchelhalsband<lb/>
+nebſt einigen anderen Schmuckſachen von Knochen, ein ganz <hi rendition="#g">neues</hi>,<lb/>
+noch ungebrauchtes Feuerſteinmeſſer, einige Zähne von Höhlenbären<lb/>
+<pb n="19" facs="#f0029"/>
+<fw type="header" place="top">Das Alter des Menſchengeſchlechts.<lb/>
+</fw> und Eber- und viele andere Thierknochen, die offenbar als ganze Thiere<lb/>
+mit den Menſchen begraben waren, da die ſämmtlichen Knochen z. B.<lb/>
+die eines Höhlenbären unzerſtreut und im natürlichen Zuſammenhange<lb/>
+des Skeletes neben einander lagen, auch keiner zerſchlagen oder benagt<lb/>
+gefunden wurde. Vor dem Eingang in die Höhle zeigte ſich dagegen<lb/>
+ein ganz anderer Schauplatz. Hier war ein flacher Heerd von Sand¬<lb/>
+ſteinen gebaut, die ſichtbare Spuren der Einwirkung des Feuers zeig¬<lb/>
+ten. Darüber lag eine ſtarke Schicht Erde untermiſcht mit Holzkohlen,<lb/>
+vielen <hi rendition="#g">gebrauchten</hi> Feuerſteinwaffen, wie Meſſer, Schleuderſteine,<lb/>
+Pfeilſpitzen und dergleichen; ferner fand ſich dazwiſchen eine große An¬<lb/>
+zahl von Thierknochen zerſtreut und darunter namentlich die vom Höh¬<lb/>
+lenbären, Höhlenlöwen, von der Höhlenhyäne, vom Mammuth, dem<lb/>
+ſibiriſchen Rhinoceros, dem irländiſchen Rieſenhirſch, dem Rennthier<lb/>
+und ſo weiter. Die meiſten dieſer Knochen waren mit Steinmeſſern ab¬<lb/>
+geſchabt, einige offenbar am Feuer geröſtet, die markführenden alle auf¬<lb/>
+geſchlagen, um das Mark herauszuziehen. — Unzweifelhaft waren hier<lb/>
+vor der Grabſtätte Todtenfeſte und Schmäuße gefeiert. Der Platz<lb/>
+wurde dann ſpäter wohl von Raubthieren beſucht, um ſich der Ueber¬<lb/>
+bleibſel zu bemächtigen, wahrſcheinlich beſonders von der Höhlenhyäne,<lb/>
+denn viele der übriggebliebenen Knochen waren deutlich benagt und die<lb/>
+weicheren Enden abgefreſſen.</p><lb/>
+<p>Außer manchen anderen Betrachtungen, zu denen dieſer Fund auf¬<lb/>
+fordert, ſind es beſonders folgende, die von Wichtigkeit erſcheinen. So<lb/>
+hoch wir auch das Alter dieſer Menſchen hinaufrücken müſſen, ſo wa¬<lb/>
+ren dieſelben doch ſchon bis zu einem ſolchen Grade der Cultur ent¬<lb/>
+wickelt, daß ſie ihre Todten regelmäßig und mit gewiſſen Feierlichkeiten<lb/>
+begruben und ihr Andenken durch Todtenfeſte ehrten. Noch bedeutender<lb/>
+iſt aber, daß ſie ihre Todten mit ganzen Jagdthieren, mit Schmuck und<lb/>
+mit neuen Waffen verſorgten, was auf eine, wenn auch noch ſo rohe<lb/>
+Vorſtellung von einem zukünftigen Leben, etwa wie die „glücklichen<lb/>
+Jagdgründe“ der Nordamerikaniſchen Indianer hindeutet und lebhaft<lb/>
+an Schillers Nadoweſſiſche Todtenklage erinnert:</p><lb/>
+<pb n="20" facs="#f0030"/>
+<fw type="header" place="top">Erſte Vorleſung.<lb/>
+</fw> <lg type="poem"> <lg n="1"> <l>„Bringet her die letzten Gaben,</l><lb/>
+<l rendition="#et">Stimmt die Todtenflag'!</l><lb/>
+<l>Alles ſei mit ihm begraben,</l><lb/>
+<l rendition="#et">Was ihn freuen mag.</l><lb/>
+</lg> <lg n="2"> <l>Legt ihm unter's Haupt die Beile,</l><lb/>
+<l rendition="#et">Die er tapfer ſchwang,</l><lb/>
+<l>Auch des Bären fette Keule,</l><lb/>
+<l rendition="#et">Denn der Weg iſt lang;</l><lb/>
+</lg> <lg n="3"> <l>Auch das Meſſer ſcharf geſchliffen“</l><lb/>
+</lg> </lg> <p>Aber auch hier können wir noch nicht abbrechen, denn nach dem,<lb/>
+was oben über die Entſtehung des <hi rendition="#g">Löß</hi>, jener eigenthümlichen feinen<lb/>
+Thonart der Europäiſchen Niederungen geſagt worden iſt, müſſen wir<lb/>
+uns an den Gedanken gewöhnen, die Zeit unſerer Vorfahren auf der<lb/>
+Erde noch viel weiter hinaufzurücken, da Menſchenknochen zuſammen<lb/>
+mit ächten (nicht wollhaarigen) Elephanten ſchon 1815—23 in dem Löß<lb/>
+bei <hi rendition="#g">Mäſtricht</hi> aufgefunden worden ſind. Und in der That möchte es<lb/>
+gut ſein ſich vorläufig mit dieſem Gedanken vertraut zu machen, denn<lb/>
+allem Anſcheine nach ſtehen wir erſt am Anfange, aber noch lange nicht<lb/>
+am Ende der Entdeckungen. Auch <hi rendition="#g">Cuvier</hi> ſprach noch 1830 ſein Er¬<lb/>
+ſtaunen darüber aus, daß in den tertiären Formationen noch keine<lb/>
+foſſilen Affen gefunden ſeien und in der That blieb es lange ein Glau¬<lb/>
+bensſatz bei den Geognoſten, daß die Affen ganz und gar der allerneu¬<lb/>
+ſten Erdbildung angehörig ſeien. Fünf Jahre nach Cuvier's Tode 1837<lb/>
+wurden faſt gleichzeitig in <hi rendition="#g">Europa</hi> und <hi rendition="#g">Braſilien</hi> die erſten foſſilen<lb/>
+Affen der Tertiärzeit entdeckt und jetzt kennt man allein in Europa ſchon<lb/>
+6 Arten derſelben. Es iſt nicht nur nicht unwahrſcheinlich, ſondern im<lb/>
+Gegentheil faſt mit Gewißheit vorauszuſagen, daß über kurz oder lang<lb/>
+auch Menſchenformen, vielleicht von den bis jetzt gefundenen in man¬<lb/>
+chen Punkten abweichend in den tertiären Schichten entdeckt werden<lb/>
+und dann dürften wir mit der Annahme von 300,000 Jahren kaum<lb/>
+das Zeitalter ihres Lebens erreichen.</p><lb/>
+<p>In Bezug auf dieſen letzten Punkt will ich noch eine intereſſante<lb/>
+<pb n="21" facs="#f0031"/>
+<fw type="header" place="top">Das Alter des Menſchengeſchlechts.<lb/>
+</fw>Thatſache hervorheben, auf die zuerſt <hi rendition="#g">Ami Boué</hi> aufmerkſam gemacht<lb/>
+hat. Bekanntlich haben wir in der ſogenannten alten Welt drei große<lb/>
+ganz ſcharf geſchiedene Typen der Menſchheit oder Raſſen, die <hi rendition="#g">weiße</hi><lb/>
+oder <hi rendition="#g">Indo-atlantiſche</hi>, die <hi rendition="#g">ſchwarze</hi> oder <hi rendition="#g">Negerraſſe</hi> und die<lb/>
+<hi rendition="#g">gelbe</hi> oder <hi rendition="#g">Mongoliſche</hi> Raſſe. Die Vertheilung dieſer drei Raſſen<lb/>
+auf der Erde, zumal, wenn wir an den Anfang unſerer Geſchichte und<lb/>
+Sage zurückgehen, ehe Kriege und Wanderungen die Menſchen ſo ſehr<lb/>
+durcheinander geſchüttelt hatten, bietet nun eine ganz eigenthümliche<lb/>
+Erſcheinung dar. Ich habe ſchon früher darauf aufmerkſam gemacht,<lb/>
+daß die Geographie von <hi rendition="#g">Europa</hi> und <hi rendition="#g">Afrika</hi> und wie ich jetzt noch<lb/>
+hinzufügen will auch von <hi rendition="#g">Aſien</hi> eine durchaus andere war. Zwei<lb/>
+große Meeresbecken, die jetzt als Wüſten ſich darſtellen, durchſetzten die<lb/>
+damals beſtehenden Continente. Der Nordrand von <hi rendition="#g">Afrika</hi> war mit<lb/>
+<hi rendition="#g">Europa</hi> vielfach durch feſtes Land verbunden, was wir mit Sicherheit<lb/>
+für den weſtlichen Theil und für <hi rendition="#g">Sicilien</hi> zwiſchen <hi rendition="#g">Marſala</hi> und<lb/>
+<hi rendition="#g">Cap Bon</hi> wiſſen. Aber vom ſüdlichen <hi rendition="#g">Afrika</hi> war dieſer Landſtrich<lb/>
+durch das große Meer getrennt, deſſen gehobener Boden jetzt in faſt<lb/>
+ununterbrochenem Zuge von der Weſtküſte Afrika's bis an den Fuß des<lb/>
+<hi rendition="#g">Hymalaya's</hi> ſich erſtreckt. Keine Sage und kein natürliches Denk¬<lb/>
+mal deutet an, daß jemals am Nordende dieſes Meeres Negerſtämme<lb/>
+gehauſt hätten, während wir dieſelben am Südrande bis in die ſüd¬<lb/>
+lichen Theile von <hi rendition="#g">Oſtindien</hi> verfolgen können. Am Nordrande die¬<lb/>
+ſes Meeres und ſelbſt in <hi rendition="#g">Afrika</hi> finden wir ſeit den älteſten Zeiten<lb/>
+immer nur Völker der weißen Raſſe anſäßig. In ähnlicher Weiſe bilden<lb/>
+aber auch in <hi rendition="#g">Aſien</hi> die ehemaligen der Tertiärepoche angehörigen<lb/>
+Meeresbecken von <hi rendition="#g">Tübet</hi>, der Wüſte <hi rendition="#g">Gobi</hi> nach Süden und Oſten<lb/>
+die Grenze zwiſchen der weißen Raſſe und der Mongoliſchen. Dieſe<lb/>
+ſeltſame Trennung der Hauptraſſen, nicht durch die gegenwärtigen<lb/>
+Meere, ſondern durch die Meere der Tertiärzeit giebt einen ſtarken<lb/>
+Wahrſcheinlichkeitsgrund dafür, daß dieſe drei Raſſen ſchon in der Ter¬<lb/>
+tiärzeit exiſtirt haben.</p><lb/>
+<p>Den größten Theil der Thatſachen, welche ſich auf die frühere,<lb/>
+<pb n="22" facs="#f0032"/>
+<fw type="header" place="top">Erſte Vorleſung. Das Alter des Menſchengeſchlechts.<lb/>
+</fw>vorhiſtoriſche Gegenwart der Menſchen aus der Erde beziehen, hat<lb/>
+<hi rendition="#g">Lyell</hi> in dem Eingangs erwähnten Werke zuſammengeſtellt, mit der<lb/>
+ſtrengſten Kritik und der ſorgfältigſten Umſicht geprüft und damit einen<lb/>
+augenblicklichen Abſchluß in dieſer Lehre erreicht, deſſen Reſultate ich<lb/>
+im Vorſtehenden überſichtlich zuſammengeſtellt habe. <hi rendition="#g">Lyell</hi> geht aber<lb/>
+auch noch auf einen anderen Punkt ein, der kürzlich von <hi rendition="#g">Darwin</hi> an¬<lb/>
+geregt, gegenwärtig aufs lebhafteſte die Naturforſcher beſchäftigt und<lb/>
+allerdings für gewiſſe, ohnehin etwas veraltete Anſchauungsweiſen<lb/>
+geradezu eine Lebensfrage genannt werden kann. Eine Darſtellung<lb/>
+dieſer Angelegenheit würde mich hier aber zu weit führen und ich ver¬<lb/>
+ſchiebe ſie daher auf eine folgende Mittheilung.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb n="[23]" facs="#f0033"/>
+<div n="1"> <head> <hi rendition="#b">Zweite Vorleſung.<lb/>
+Ueber die Entſtehung der Arten.</hi><lb/>
+</head>
+<pb n="[24]" facs="#f0034"/>
+<pb n="[25]" facs="#f0035"/>
+<p> <hi rendition="#in">N</hi>icht nur in den mächtigen Bewegungen des Staatslebens, ſon¬<lb/>
+dern auch in der Geſchichte der Wiſſenſchaft kann man das Wort aus<lb/>
+Schillers Wallenſtein anwenden:</p><lb/>
+<lg type="poem"> <l>„Großen Geſchicken gehen ihre Geiſter ſchon vorauf</l><lb/>
+<l>Und in dem Heute wandelt auch das Morgen.“ —</l><lb/>
+</lg> <p>Streng genommen verſteht ſich ja dieſer Ausſpruch ganz von ſelbſt<lb/>
+und beſagt nichts anderes, als daß kein Wunder geſchieht, daß Alles<lb/>
+ſich naturgeſetzlich nach Urſache und Folge entwickelt und jedes gegebene<lb/>
+Verhältniß ſchon die Grundlagen für ſeine ſpätere Geſtaltung in ſich<lb/>
+bergen muß. Es kommt nur darauf an, dieſe Grundlagen in jedem ein¬<lb/>
+zelnen Falle richtig aufzufaſſen und das Geſetz der Entwicklung zu ken¬<lb/>
+nen, um ein guter Prophet zu werden. — Die Geſchichte faſt aller bedeu¬<lb/>
+tenden Entdeckungen und Erfindungen zeigt uns, daß ſie zuerſt in dieſem<lb/>
+oder jenem Menſchengeiſte auftauchen, von einer der Prophetengabe<lb/>
+nicht mächtigen Mitwelt ignorirt oder verlacht werden und daß die<lb/>
+Menſchen Zeit, oft Jahrhunderte und Jahrtauſende, gebrauchten, um<lb/>
+ſich an einen ihnen neuen Gedanken zu gewöhnen, der ihnen dann in<lb/>
+der Regel erſt durch eine Perſönlichkeit, die eigentlich nichts Neues mehr<lb/>
+bringt, ſo vorgetragen wird, daß es von Allen oder doch den Meiſten<lb/>
+verſtanden, nicht mehr verworfen, ſondern als neue Entdeckung oder<lb/>
+Erfindung gerade dieſer Menſchen anerkannt und nach ihnen benannt<lb/>
+wird. Hinterher ſammelt dann die Wiſſenſchaft die früheren Spuren<lb/>
+und Keime dieſes angeblich Neuen und man wundert ſich wohl gar noch,<lb/>
+wie es je habe verkannt werden können. —</p><lb/>
+<pb n="26" facs="#f0036"/>
+<fw type="header" place="top">Zweite Vorleſung.<lb/>
+</fw> <p>In meinem vorigen Berichte habe ich ein Beiſpiel der Art <choice><sic>vorge¬<lb/>
+geführt</sic><corr>vorge¬<lb/>
+führt</corr></choice>, der heutige Bericht iſt beſtimmt, ein zweites zu erläutern.</p><lb/>
+<p>Man war lange von der Vorausſetzung ausgegangen, daß es eine<lb/>
+gewiſſe feſtſtehende Zahl von Pflanzen- und Thierarten auf der Erde<lb/>
+gebe und daß die Naturgeſchichte ihr Endziel erreicht habe, wenn ſie<lb/>
+dieſe Arten ſämmtlich erkannt, unterſchieden und vollkommen beſchrie¬<lb/>
+ben habe. Beſonders lebendig und zum allgemeinen Bewußtſein ge¬<lb/>
+bracht wurde dieſer Gedanke durch den Begründer der ſyſtematiſchen<lb/>
+Naturgeſchichte <hi rendition="#g">Linné</hi>, der allerdings ſich dieſe Aufgabe gar nicht ſo<lb/>
+bedeutend vorſtellte, wie ſie unſeren gegenwärtigen Kenntniſſen zufolge<lb/>
+in der That iſt. In der erſten Ausgabe ſeines Syſtems der Pflanzen¬<lb/>
+arten ſpricht er ſeine Anſicht dahin aus, daß auf der ganzen Erde die<lb/>
+Anzahl der Pflanzen ſchwerlich 10,000 erreiche. Gegenwärtig kennen<lb/>
+wir ſchon ungefähr 200,000. — Der Gedanke ſtand bei den Bearbei¬<lb/>
+tern der Naturgeſchichte feſt, daß die gegenwärtig auf der Erde vor¬<lb/>
+handenen Pflanzen und Thiere von jeher auf derſelben gelebt hätten<lb/>
+und in ununterbrochner Geſchlechtsfolge von den mit der Erde zugleich<lb/>
+geſchaffenen Stammexemplaren abſtammten. Wiſſenſchaftliche Gründe<lb/>
+für dieſe Anſicht gab es durchaus nicht, gleichwohl wurde ſie wie ein<lb/>
+Glaubensſatz feſtgehalten und war auch in der That ein ſolcher. Es<lb/>
+war ein Vorurtheil, welches aus einer falſchen und beſchränkten Auf¬<lb/>
+faſſung der bibliſchen Schöpfungsſage durch den Jugendunterricht auch<lb/>
+in die Köpfe der Gelehrten gekommen war, ſo daß dieſelben mit ſe¬<lb/>
+henden Augen blind waren und in einigen närriſchen Beiſpielen noch<lb/>
+jetzt ſind. —</p><lb/>
+<p>Die Entdeckungen der Geognoſie mußten dieſem Vorurtheil bald<lb/>
+ein Ende machen. Sobald man erkannte, daß die feſte Rinde unſeres<lb/>
+Planeten eine lange Entwicklungsgeſchichte durchlaufen habe, ſobald<lb/>
+man dieſelbe mit wiſſenſchaftlicher Strenge und Anordnung in Forma¬<lb/>
+tionen, Perioden und Epochen eintheilen lernte und dann fand, daß die<lb/>
+organiſchen Geſtalten der Pflanzen- und Thier-Welt in jeder Periode<lb/>
+und noch gewiſſer in jeder Epoche durchaus andere geweſen ſind, da<lb/>
+<pb n="27" facs="#f0037"/>
+<fw type="header" place="top">Ueber die Entſtehung der Arten.<lb/>
+</fw> mußte die eine Hälfte jenes Vorurtheils allerdings fallen. Nur noch<lb/>
+höchſt bornirte oder höchſt unwiſſende Menſchen, leider giebt es auch<lb/>
+jetzt noch Einige dergleichen, konnten noch an dem Gedanken der Be¬<lb/>
+ſtändigkeit der Arten feſthalten. Gleichwohl wurde dieſer Schluß lange<lb/>
+nicht mit ausdrücklichen Worten gezogen und man umging die durch<lb/>
+geognoſtiſche Entdeckungen der alten verkehrten Anſicht bereiteten Schwie¬<lb/>
+rigkeiten mit Hülfe des Vortheils, den die Sache jedem anbietet, der<lb/>
+ſich oder Anderen die Wahrheit verbergen und das Falſche plauſibel<lb/>
+machen will. —</p><lb/>
+<p>Wenn die Geognoſten uns erzählen: „am Schluſſe der paläozoi¬<lb/>
+ſchen Epoche gingen alle vorhandenen Pflanzen und Thiere zu Grunde<lb/>
+und im Beginn der meſozoiſchen Epoche „<hi rendition="#g">entſtanden</hi>“ neue, die end¬<lb/>
+lich im Anfang der känozoiſchen Epoche der noch jetzt uns umgebenden<lb/>
+Pflanzen- und Thierwelt Platz machten“, — ſo rechnet der Geognoſt<lb/>
+entſchieden auf die Dummheit der Menſchen, die ſich mit dem Worte<lb/>
+„<hi rendition="#g">entſtanden</hi>“ begnügen und nicht nach dem „<hi rendition="#g">wie</hi>“ fragen. Dieſe<lb/>
+Frage mußte aber zuletzt geſtellt und beantwortet werden. Sobald die<lb/>
+Geognoſie eine gewiſſe Stufe der Ausbildung erreicht hatte, lag die<lb/>
+Sache ſo: „In den verſchiedenen Perioden der Erdbildung ſind auch<lb/>
+die Thier- und Pflanzenarten verſchieden; keine der jetzt auf der Erde<lb/>
+vorhandenen Thier- und Pflanzenformen reicht über den Beginn der<lb/>
+Tertiärepoche, alſo über eine geognoſtiſch geſprochen ſehr kurze Vergan¬<lb/>
+genheit hinaus rückwärts, älter iſt keine jetzt vorhandene Art; mit wie¬<lb/>
+derholten Schöpfungen, wie ſie noch am Ende des vorigen Jahrhun¬<lb/>
+derts <hi rendition="#g">Kirwan</hi> annahm und darüber von dem berühmten Theologen<lb/>
+<hi rendition="#g">Pott</hi> zurecht gewieſen wurde, iſt es nichts; unſere heiligen Bücher<lb/>
+kennen nur eine <hi rendition="#g">einmalige</hi> Schöpfung und ein Naturforſcher hat auf<lb/>
+<hi rendition="#g">ſeinem</hi> Gebiete nicht einmal mit dieſer Einen etwas zu thun, denn<lb/>
+<hi rendition="#g">ſein</hi> Gebiet iſt das des wiſſenſchaftlich Begreifbaren, nicht das der<lb/>
+gläubigen Ueberzeugung; wenn ſich der Geognoſt alſo wiederholte Schö¬<lb/>
+pfungen ſelbſt erfindet, ſo iſt er ein Thor, der ſich ſelbſt nicht verſteht;<lb/>
+wenn neue Arten im Laufe der Erdgeſchichte aufgetreten ſind, und das<lb/>
+<pb n="28" facs="#f0038"/>
+<fw type="header" place="top">Zweite Vorleſung.<lb/>
+</fw>kann gegenwärtig nur noch ein völlig Unwiſſender läugnen, ſo ſind ſie<lb/>
+naturgeſetzlich entſtanden und es bleibt nur noch die Frage zu beant¬<lb/>
+worten, auf welche Weiſe, nach welchen Naturgeſetzen, kurz <hi rendition="#g">wie</hi> die<lb/>
+neuen Arten gebildet wurden und wie in ſpäteren Perioden neue ent¬<lb/>
+ſtehen werden“.</p><lb/>
+<p>Die älteren Experimente von <hi rendition="#g">Ehrenberg</hi>, <hi rendition="#g">Schwann</hi>, <hi rendition="#g">Schultze</hi><lb/>
+und Anderen, in neuerer Zeit wieder durch die umfaſſenden Unterſu¬<lb/>
+chungen von <hi rendition="#g">Paſteur</hi> beſtätigt, haben bewieſen, daß eine ſogenannte<lb/>
+„<hi rendition="#g">Generatio originaria</hi>, oder <hi rendition="#g">aequivoca</hi>“, das heißt eine Ent¬<lb/>
+ſtehung ſpecifiſch beſtimmter Keime ohne Mitwirkung gegebener Orga¬<lb/>
+nismen aus formloſem Stoffe in der Natur nicht vorkommt. — Da¬<lb/>
+gegen hat ſich der alte <hi rendition="#g">Harvey'ſche</hi> (?) Satz: „Alles Lebendige entſteht<lb/>
+aus einem Ei“ vollkommen bewährt und nur noch phyſiologiſch-be¬<lb/>
+ſtimmter und ſchärfer dahin ausſprechen laſſen, daß alles Lebendige<lb/>
+d. h. Pflanze und Thier aus einer Zelle entſteht. Nach der uns be¬<lb/>
+kannten Naturgeſetzlichkeit entſteht unter den auf der Erde gegebenen<lb/>
+Verhältniſſen keine Zelle ohne Mitwirkung der ſchon vorhandenen Zel¬<lb/>
+len eines gegebenen Organismus, von denen ſie gebildet wird. Da¬<lb/>
+durch hängen alle lebenden Weſen auf der Erde naturgeſetzlich zuſammen,<lb/>
+ſtehen durch die Fortpflanzung (im weiteſten Sinne des Wortes) mit<lb/>
+einander in Verbindung und jedes gegebene Individuum ſtammt noth¬<lb/>
+wendig von einem früheren Individuum ab. — Eine einzige Zelle, die<lb/>
+unter den ganz beſonderen, jedenfalls von den ſpäteren und gegenwär¬<lb/>
+tigen weſentlich abweichenden Bedingungen der paläozoiſchen Zeit ſich<lb/>
+bildete, genügt, um Stammmutter <hi rendition="#g">aller</hi> ſpäteren Pflanzen und Thiere<lb/>
+geworden zu ſein. — Ein jeder Organismus bildet, wie wir wiſſen,<lb/>
+auch ſolche Zellen, die ſich geſetzmäßig von demſelben trennen und dann<lb/>
+wieder zu einem ſelbſtändigen Organismus ſich entwickeln können. Wir<lb/>
+nennen dieſen Vorgang eben im allgemeinſten Sinne: „<hi rendition="#g">Fortpflan¬<lb/>
+zung</hi>“. Das aus einer ſolchen Zelle ſich entwickelnde neue Individuum<lb/>
+iſt zwar in vielen Merkmalen dem Mutterindividuum, welches ja den<lb/>
+materiellen Stoff hergab und die Bedingungen der erſten Entwicklung<lb/>
+<pb n="29" facs="#f0039"/>
+<fw type="header" place="top">Ueber die Entſtehung der Arten.<lb/>
+</fw>beſtimmte, gleich, aber keineswegs in <hi rendition="#g">allen</hi>; denn bei der frühen mehr<lb/>
+oder weniger vollkommenen Selbſtändigkeit des neuen Individuums<lb/>
+haben auch ſchon andere Einflüſſe unabhängig vom mütterlichen Orga¬<lb/>
+nismus auf daſſelbe beſtimmend eingewirkt und dieſe Einflüſſe werden<lb/>
+das neue Individuum um ſo mehr abändern, je eingreifender und an¬<lb/>
+dauernder ſie einwirken.</p><lb/>
+<p>Wenn irgend ein lebendes Individuum weſentlich verſchiedenen<lb/>
+äußeren Lebensverhältniſſen ausgeſetzt wird, ſo kann es doch, voraus¬<lb/>
+geſetzt, daß es dabei überall ſeine Exiſtenz erhalten kann, an ſich ſelbſt<lb/>
+nur wenige und unbedeutende Abänderungen erleiden. Daß aber dieſe<lb/>
+äußeren Verhältniſſe von tief eingreifender Wirkung geweſen ſind, zeigt<lb/>
+ſich in der Nachkommenſchaft, indem dieſe in auffallenderer und man¬<lb/>
+nichfaltigerer Weiſe von dem ganzen Typus des erſten Individuums<lb/>
+abweicht als geſchehen ſein würde, wenn jene äußeren Verhältniſſe<lb/>
+nicht eingewirkt hätten, ſo daß ihr Einfluß eben erſt durch die Nach¬<lb/>
+kommenſchaft, hier aber auch ſehr ſchlagend in die Erſcheinung tritt.<lb/>
+Wir kennen dieſes Geſetz am vollkommenſten bei den Pflanzen; ver¬<lb/>
+ſetzen wir eine wild wachſende Pflanze in den üppig gedüngten Boden<lb/>
+unſerer Gärten, ſo wird ſie außer kräftigerem Wuchs im Allgemeinen<lb/>
+und etwa gewiſſen Verfärbungen der Blätter ſelten irgend eine Verän¬<lb/>
+derung wahrnehmen laſſen, aber die aus ihren Samen erzogenen Indi¬<lb/>
+viduen zeigen die mannichfachſten und oft auffallendſten Abweichungen<lb/>
+von dem Charakter der Stammpflanze. Es bilden ſich ſogleich zahl¬<lb/>
+reiche und oft ſehr merkwürdige Spielarten, die faſt regelmäßig um ſo<lb/>
+mehr abweichen, je länger wir die Samenzucht durch mehrere Genera¬<lb/>
+tionen fortſetzen. Auf dieſe Weiſe ſind z. B. alle die verſchiedenartigen<lb/>
+Gartenpflanzen entſtanden, die wir als Kohlarten zuſammenfaſſen und<lb/>
+die als Wirſing und Weißkraut, als Winter- und Blumen-Kohl, als<lb/>
+Kohlrübe und Kohlrabi kaum noch irgend eine Aehnlichkeit unter ein¬<lb/>
+ander und mit dem wilden Kohl auf den Nordſeedünen und den Hel¬<lb/>
+golander Felſen zeigen. Derſelbe Vorgang zeigt ſich auch bei den Thie¬<lb/>
+ren, wenn auch augenblicklich in weniger auffallenden Zügen. Was<lb/>
+<pb n="30" facs="#f0040"/>
+<fw type="header" place="top">Zweite Vorleſung.<lb/>
+</fw>wir hier nun in ſehr raſcher Weiſe in Folge unſerer abſichtlichen Ein¬<lb/>
+griffe unter unſeren Augen vor ſich gehen ſehen, mußte ſich ebenſo in<lb/>
+der Geſchichte der Organismen auf der Erde vollziehen, nur langſamer<lb/>
+in den langen Zeiträumen, in welchen ſich allmählich Boden, Verhält¬<lb/>
+niſſe von Land und Waſſer, Temperatur und Atmoſphäre änderten;<lb/>
+der langſamere Proceß in vieltauſendjähriger Dauer bringt zwar au¬<lb/>
+genblicklich weniger ſichtbare, aber mit der Zeit auch deſto eindringen¬<lb/>
+dere und gewaltigere Abänderungen hervor. Dazu kommt die Möglich¬<lb/>
+keit der Baſtardbildung zwiſchen verſchiedenen Geſchöpfen, wozu die<lb/>
+Gelegenheit in der Natur vielleicht ſeltener als in unſeren Ställen ge¬<lb/>
+geben, aber doch auch keineswegs ausgeſchloſſen iſt. Endlich iſt hier<lb/>
+noch zu erwähnen, daß bei vielen niederen Organismen und wahr¬<lb/>
+ſcheinlich in älteren geologiſchen Perioden noch häufiger und ausgebrei¬<lb/>
+teter als jetzt, die Nachkommenſchaft der erſten Generation ſo ſehr vom<lb/>
+mütterlichen Artcharakter abweicht, daß man verſucht wird, dieſelbe ſo¬<lb/>
+gar in ganz andere Ordnungen und Claſſen zu verſetzen und daß die¬<lb/>
+ſelbe erſt nach mehreren Generationen, wenn nämlich die Bedingungen<lb/>
+dazu günſtig ſind, zum Stammtypus zurückkehrt, — ein Vorgang, den<lb/>
+ſein erſter genauer Beobachter, <hi rendition="#g">Steenſtrup</hi>, mit dem Namen des<lb/>
+Generationswechſels belegt hat.</p><lb/>
+<p>Aus dieſer ſkizzirten Darſtellung wird man leicht abnehmen kön¬<lb/>
+nen, wie unter Berückſichtigung bekannter Naturgeſetze und ganz be¬<lb/>
+kannter Erſcheinungen ſich die allmähliche Entwicklung neuer organi¬<lb/>
+ſcher Formen aus ſchon vorhandenen mit größter Leichtigkeit erklären<lb/>
+läßt, ohne daß man zu unbegründeten Hypotheſen und zu naturwiſſen¬<lb/>
+ſchaftlich unbrauchbaren und verwerflichen Anſchauungsweiſen ſeine Zu¬<lb/>
+flucht nehmen müßte. Dies ſind die Anſichten, die ich ſeit mehr als 15<lb/>
+Jahren in Schriften und Vorträgen vertreten habe. Ich habe nie daran<lb/>
+gezweifelt und nie daran zweifeln können, daß die in der geologiſchen<lb/>
+Geſchichte unſerer Erde allmählich nach einander auftretenden Formen<lb/>
+der Organismen auf <hi rendition="#g">naturgeſetzlichem</hi> Wege von vorhergegange¬<lb/>
+nen Formen abzuleiten ſeien und deshalb konnte ich auch nicht einen<lb/>
+<pb n="31" facs="#f0041"/>
+<fw type="header" place="top">Ueber die Entſtehung der Arten.<lb/>
+</fw> Augenblick anſtehen, die Entwicklung, die <hi rendition="#g">Darwin</hi> dieſer Lehre gege¬<lb/>
+ben hat, als einen entſchiedenen Fortſchritt zu begrüßen; ehe ich aber<lb/>
+zu einer kurzen Darſtellung der Darwin'ſchen Lehre übergehe, muß ich<lb/>
+hier noch eine Schwierigkeit beſeitigen, die in einem lange feſtgehalte¬<lb/>
+nen philoſophiſchen Irrthum begründet iſt. —</p><lb/>
+<p>In allen das gegenwärtige Thema betreffenden Erörterungen tritt<lb/>
+uns nämlich ein Wort entgegen, das ſeine beſondere Betrachtung in<lb/>
+Anſpruch nimmt, welches das allergeläufigſte in den naturgeſchichtlichen<lb/>
+Disciplinen iſt und doch ſo wenig beſtimmte Bedeutung hat, daß kaum<lb/>
+zwei Forſcher ganz genau über daſſelbe einerlei Meinung ſind. Es iſt dies<lb/>
+das Wort „<hi rendition="#g">Art</hi>“. Wir werden darüber zu keiner klaren Einſicht gelan¬<lb/>
+gen, wenn wir uns an die zahlreichen, ſo verſchiedenen, oft ſich ge¬<lb/>
+radezu widerſprechenden <hi rendition="#g">Erklärungen</hi> der Forſcher wenden, noch<lb/>
+weniger würden wir zum Abſchluß gelangen, wenn wir uns den Be¬<lb/>
+griff ableiten wollten aus der <hi rendition="#g">Anwendung</hi>, welche die Naturbe¬<lb/>
+ſchreiber von demſelben auf die wirklichen Naturkörper machen, denn<lb/>
+dabei iſt vollends an keine Einigkeit zu denken; wo dieſer 3 Arten von<lb/>
+Vögeln annimmt, macht jener 6; dieſer findet 70 Arten von Eiſenhut,<lb/>
+wo ein anderer nur 7—8 zu unterſcheiden weiß. Es bleibt daher gar<lb/>
+nichts übrig, als den pſychologiſchen Proceß zu verfolgen, durch welchen<lb/>
+wir auf das geführt werden, was wir mit dem Worte „<hi rendition="#g">Art</hi>“ bezeichnen<lb/>
+wollen und allein bezeichnen dürfen. —</p><lb/>
+<p>Die Menſchen verſtändigen ſich unter einander, wenn ſie ſich ihre<lb/>
+Wahrnehmungen, Erfahrungen und Gedanken mittheilen wollen, durch<lb/>
+<hi rendition="#g">Begriffe</hi>, zu deren Bezeichnung wir <hi rendition="#g">Worte</hi> gebrauchen. Nur da¬<lb/>
+durch iſt eine geiſtige Gemeinſchaft unter den Menſchen möglich. Ein<lb/>
+Beiſpiel mag die Sache erläutern: Ich habe in einem Walde zahlreiche<lb/>
+einzelne Eichen, Buchen, Linden, Ahorne u. ſ. w. geſehen und will<lb/>
+einem andern, der zwar einzelne Linden und Eichen geſehen hat, aber<lb/>
+nie einen Wald, erklären, was das iſt, ſo kann ich ihm ohne unver¬<lb/>
+ſtändlich zu werden oder mein halbes Leben daran zu wenden, nicht alle<lb/>
+die einzelnen Bäume, die ich ſah, beſchreiben, ich wende mich vielmehr<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Schleiden</hi>, Vorleſungen. 3<lb/>
+</fw>
+<pb n="32" facs="#f0042"/>
+<fw type="header" place="top">Zweite Vorleſung.<lb/>
+</fw>an eine bei ihm vorausgeſetzte Erfahrung und ſage: „ein Wald iſt eine<lb/>
+große Anzahl von <hi rendition="#g">Bäumen</hi>, die auf einem größeren Areal dicht bei¬<lb/>
+ſammen ſtehen“. Den „<hi rendition="#g">Baum</hi>“, auf den ich mich dabei beziehe, habe<lb/>
+ich nie geſehen, der, mit dem ich rede, ebenſowenig, denn in der That<lb/>
+exiſtirt ſo ein Ding in der ganzen Welt gar nicht; was exiſtirt, was<lb/>
+wirklich da iſt, ſind nur einzelne nach Alter, Größe, Verzweigung,<lb/>
+Blattzahl und dergleichen ganz beſtimmte Eichen, Buchen, Linden, Wei¬<lb/>
+den, Pappeln u. ſ. w. Aber indem der Menſch viele einzelne beſtimmte<lb/>
+Eichen ſieht, verwiſchen ſich in der Erinnerung allmählich alle die ein¬<lb/>
+zelnen ſcharf gezeichneten Züge, durch welche ſich die eine individuelle<lb/>
+Eiche von der andern unterſchied und in unſerem Vorſtellungskreiſe<lb/>
+bleibt zuletzt eine ſehr unbeſtimmte, faſt nebelhafte Zeichnung ſtehen,<lb/>
+die wir „<hi rendition="#g">Eiche</hi>“ nennen, die alle die Züge umfaßt, die ſämmtlichen ge¬<lb/>
+ſehenen Individuen gemeinſchaftlich zuſammen gehören, aber nicht einen<lb/>
+einzigen Zug behalten hat, der nur dieſem oder jenem Individuum allein<lb/>
+zukäme; es iſt eine Zeichnung, die das Eigenthümliche hat, daß ſie ſich<lb/>
+niemals anſchaulich darſtellen, niemals etwa auf Papier wirklich aus¬<lb/>
+führen läßt, denn was ich hinzeichne, iſt ſchon wieder ein beſtimmtes<lb/>
+Individuum mit einer ganz beſtimmten Stammdicke und Veräſtelung,<lb/>
+das iſt aber nicht die Eiche in meiner Vorſtellung, denn der Ausdruck<lb/>
+„<hi rendition="#g">Eiche</hi>“ muß eben ſo gut die zehnjährige wie die tauſendjährige bezeich¬<lb/>
+nen. Nun geht aber derſelbe Vorgang in weiterem Kreiſe wiederum<lb/>
+von Statten; ich ſah viele Eichen, Linden, Erlen u. ſ. w. Was dieſel¬<lb/>
+ben unterſcheidet, verſchwimmt in der Erinnerung, was ſie alle Ge¬<lb/>
+meinſchaftliches haben, bleibt für ſich als ein noch unbeſtimmteres Phan¬<lb/>
+taſiebild ſtehen, welches ich „<hi rendition="#g">Baum</hi>“ nenne. — Dieſe nebelhaften<lb/>
+Zeichnungen nun, die aus dem Unbeſtimmtwerden und Verſchmelzen<lb/>
+einer gewiſſen Anzahl von Erinnerungen entſtehen, nennen die Pſycho¬<lb/>
+logen im Allgemeinen „<hi rendition="#g">Schemata</hi>“ (Kant nannte ſie ſehr treffend<lb/>
+„<hi rendition="#g">Monogramme</hi> der Einbildungskraft“, erinnernd an die wenigen<lb/>
+Striche, mit denen der Maler ſeinen Namen andeutet). — Wenn wir<lb/>
+uns nun aber in Gedanken dieſe Nebelbilder gleichſam ſchärfer auszu¬<lb/>
+<pb n="33" facs="#f0043"/>
+<fw type="header" place="top">Ueber die Entſtehung der Arten.<lb/>
+</fw>zeichnen verſuchen, wenn wir ſie uns dadurch deutlicher machen, daß<lb/>
+wir die einzelnen Merkmale, die ſie noch in der Erinnerung behalten<lb/>
+haben, hervorheben und zum Bewußtſein bringen, z. B. bei „<hi rendition="#g">Baum</hi>“<lb/>
+ganz beſtimmt an den holzigen, aſtloſen <hi rendition="#g">Stamm</hi> mit der das Laub<lb/>
+tragenden oberen Verzweigung, der „<hi rendition="#g">Krone</hi>“ denken, ſo erheben wir<lb/>
+das nebelhafte <hi rendition="#g">Schema</hi> zum deutlichen <hi rendition="#g">Begriff</hi>. Schema und Be¬<lb/>
+griff unterſcheiden ſich alſo nur durch die Deutlichkeit der Auffaſſung,<lb/>
+durch ihr Verhältniß zum Bewußtſein und werden übrigens mit dem¬<lb/>
+ſelben Worte bezeichnet. Solche Begriffe ſind nun zum Beiſpiel „Eiche,<lb/>
+Linde, Weide“ und „Baum“, „Kohl, Salat, Kreſſe“ und „Kraut“, end¬<lb/>
+lich „Pflanze“ u. ſ. w. Dieſe ſämmtlichen Begriffe nennt man im All¬<lb/>
+gemeinen Geſchlechtsbegriffe und dieſelben laſſen ſich immer in Form<lb/>
+eines Flußſyſtems anordnen.</p><lb/>
+<p> <hi rendition="#b">Syſtem der Begriffe.</hi></p><lb/>
+<figure/> <p>Je mehr wir von den erſten Quellen zu Bächen, Flüſſen u. ſ. w.<lb/>
+fortſchreiten, deſto allgemeiner werden die Begriffe und deſto ſpäter ſind<lb/>
+ſie im menſchlichen Geiſte entſtanden, indem jeder allgemeinere Begriff<lb/>
+die beſonderen ſchon vorausſetzt (in ſich „<hi rendition="#g">begreift</hi>“), ſo wie beim be¬<lb/>
+ſonderſten Begriffe, z. B. bei dem der Eiche, die ſämmtlichen einzelnen<lb/>
+<fw type="sig" place="bottom">3 *<lb/>
+</fw>
+<pb n="34" facs="#f0044"/>
+<fw type="header" place="top">Zweite Vorleſung.<lb/>
+</fw>Individuen, die wir nicht mehr durch Begriffe darſtellen, ſondern nur<lb/>
+durch unſere Sinne wahrnehmen („anſchauen“) können, ebenfalls vor¬<lb/>
+ausgegangen ſein müſſen. Nach der Stellung aus jenem Stromſyſtem<lb/>
+bezeichnen wir die Begriffe nun noch wie in der Tafel angedeutet als<lb/>
+„<hi rendition="#g">Artbegriffe</hi>“ (Zuſammenfaſſung der Individuen), „<hi rendition="#g">Gattungsbe¬<lb/>
+griffe</hi>“ (Zuſammenfaſſung der Arten), „<hi rendition="#g">Ordnungsbegriffe</hi>“ (Zu¬<lb/>
+ſammenfaſſung der Ordnungen). Es verſteht ſich wohl von ſelbſt, daß<lb/>
+die mitgetheilte Darſtellung nur als Beiſpiel die Sache erläutern ſoll.<lb/>
+In der That hängen alle unſere Begriffe in dieſer Weiſe nach unzählig<lb/>
+vielen Abſtufungen zuſammen, deren höchſter und allgemeinſter, oder<lb/>
+nach dem Gleichniß vom Stromſyſtem, deren ſie alle aufnehmender<lb/>
+Ocean der Begriff „<hi rendition="#g">Vorſtellung</hi>“ ſein würde. —</p><lb/>
+<p>Dies iſt der für jeden ſorgfältigen pſychologiſchen Beobachter ſich<lb/>
+ganz klar darlegende, wirkliche Vorgang in der menſchlichen Seele, ſo<lb/>
+entſtehen die engſten Begriffe durch „<hi rendition="#g">Abſehen</hi>“ von den individuellen<lb/>
+Zügen der einzelnen Erſcheinungen, d. h. durch „<hi rendition="#g">Abſtraction</hi>“ u. ſ. f.<lb/>
+Begriffe ſind alſo bloße Gedankendinge (Vorſtellungen), die ſich in<lb/>
+nothwendiger Geſetzlichkeit durch einen pſychologiſchen Proceß bilden,<lb/>
+ſind aber in der Wirklichkeit ſelbſt nicht vorhanden.</p><lb/>
+<p>Ebenſo langſam aber, wie ſich in der Geſchichte der Menſchheit die<lb/>
+Kunſt der Naturbeobachtung entwickelte, ebenſo langſam, ja ſelbſt noch<lb/>
+ſpäter, bildete ſich die Kunſt aus, das eigene Innere des Menſchen zu<lb/>
+beobachten, die Seele gleichſam in der geheimen Werkſtätte aller ihrer<lb/>
+Schöpfungen zu belauſchen. Nicht nur in der äußeren Natur irrte man<lb/>
+ſich vielfach und ſah Geſpenſter, ſondern auch in der inneren. Den<lb/>
+oben kurz geſchilderten Vorgang der Begriffsbildung kannte ſelbſt das<lb/>
+große Genie des <hi rendition="#g">Ariſtoteles</hi> noch nicht. Ihn führten einige unklare<lb/>
+Auffaſſungen an ſich richtiger Gedanken, die aber durch dieſe Unklarheit<lb/>
+zu <hi rendition="#g">Halb</hi>wahrheiten wurden, die immer, wie ein liebenswürdiger Bö¬<lb/>
+ſewicht, gefährlicher und verderblicher ſind, wie ganze Irrthümer. Ihm<lb/>
+ſchwebte dunkel vor, daß alles Geiſtige höheren Werth habe als das<lb/>
+Körperliche; daß man das Körperliche erſt dann erkennen könne, wenn<lb/>
+<pb n="35" facs="#f0045"/>
+<fw type="header" place="top">Ueber die Entſtehung der Arten.<lb/>
+</fw>es eine beſtimmte Geſtalt zeige, ſo z. B. könne Niemand den Marmor<lb/>
+ſo ganz im Allgemeinen erkennen, ſondern nur dieſes beſtimmt geſta¬<lb/>
+tete Stück Marmor, dieſe beſtimmte Bildſäule u. ſ. w. Aus dieſen An¬<lb/>
+ſichten entwickelte ſich ihm die Vorſtellung, daß die Form und nicht der<lb/>
+Stoff, das Allgemeine und nicht das individuell Wirkliche an allen<lb/>
+Dingen das allein Weſentliche, allein real Vorhandene ſei. Bei der<lb/>
+Fortbildung des <hi rendition="#g">Ariſtoteles</hi> im Mittelalter zur ſcholaſtiſchen Philo¬<lb/>
+ſophie entwickelte ſich aus dieſen eigenthümlichen und unklaren Auffaſ¬<lb/>
+ſungen die ganz grundfalſche Lehre des „<hi rendition="#g">Realismus</hi>“ im Gegenſatz<lb/>
+zum „<hi rendition="#g">Nominalismus</hi>“, jener mit der Behauptung, daß die Begriffe<lb/>
+etwas <hi rendition="#g">real</hi>, in der Wirklichkeit Vorhandenes ſeien, dieſer im Wider¬<lb/>
+ſpruch dagegen behauptend, daß die Begriffe nur Worte, bloße <hi rendition="#g">Na¬<lb/>
+men</hi>, für allmählich im menſchlichen Geiſte entſtandene Vorſtellungen<lb/>
+ſeien, denen aber außerhalb der menſchlichen Seele keine Realität zu¬<lb/>
+komme. Auf dieſe Weiſe ſchuf der Realismus in der That eine ganze,<lb/>
+ſcheinbar wiſſenſchaftliche Geſpenſterlehre, indem er die Begriffe, die<lb/>
+immer bloße Formvorſtellungen ſind und welche die menſchliche Seele<lb/>
+nur als Hülfsmittel zum Denken braucht, für wirkliche Dinge, für<lb/>
+Weſen erklärte. — Durch <hi rendition="#g">Albertus Magnus</hi>, <hi rendition="#g">Thomas von<lb/>
+Aquino</hi> und <hi rendition="#g">Duns Scotus</hi> wurde dieſe Lehre die herrſchende und<lb/>
+zugleich die orthodoxe Kirchenlehre, weshalb der ſich allmählich von<lb/>
+dieſem Irrwege losmachende Menſchengeiſt auch anfänglich nur im ketze¬<lb/>
+riſchen Widerſpruch mit der Kirche auftreten konnte und ſich nur ganz<lb/>
+allmählich gegen die Verfolgungen derſelben und im beſtändigen Kampfe<lb/>
+mit den Lehren des Realismus geltend machte, — ein Kampf, den zu¬<lb/>
+erſt der Franciscaner <hi rendition="#g">Wihelm von Occam</hi> begann und der endlich<lb/>
+durch die ſich erhebenden und nach und nach ſich entwickelnden Natur¬<lb/>
+wiſſenſchaften und durch den Einfluß ihres Geiſtes beendigt wurde.</p><lb/>
+<p>Es liegt indeſſen in der Natur des Menſchen, daß derſelbe nur<lb/>
+ſehr ſelten von einem ganzen Irrthum mit einem Schritte zu der entge¬<lb/>
+genſtehenden ganzen Wahrheit übergeht, als daß es uns auffallen<lb/>
+dürfte, wenn wir gewahren, wie auch der Schritt vom Realismus zum<lb/>
+<pb n="36" facs="#f0046"/>
+<fw type="header" place="top">Zweite Vorleſung.<lb/>
+</fw> Nominalismus nicht ganz und mit einem Male geſchehen konnte, oder<lb/>
+ohne die Schulausdrücke, daß der Menſch nicht plötzlich zu der Einſicht<lb/>
+kam, daß alle Begriffe nur an ſich leere und unwirkliche Zuſammenfaſ¬<lb/>
+ſungen derjenigen Merkmale ſind, die übrig bleiben, wenn man von<lb/>
+den ſämmtlichen Merkmalen, die ſich an den einzelnen wirklichen Din¬<lb/>
+gen finden und wodurch ſich jedes einzelne derſelben von einer gewiſſen<lb/>
+Anzahl anderer ähnlicher Dinge unterſcheidet, abſieht (abſtrahirt) und<lb/>
+daß daher dieſe Abſtraction, d. h. der Begriff, ſeiner Natur nach noth¬<lb/>
+wendig veränderlich iſt, ſowie ſich die Anzahl der Dinge ändert, die wir<lb/>
+unter einen Begriff zuſammenfaſſen wollen, oder ſowie wir dieſe Dinge<lb/>
+genauer kennen, ihre Merkmale ſchärfer faſſen und unterſcheiden ler¬<lb/>
+nen <note place="foot" n="*)"><lb/>
+Es verſteht ſich, daß das hier Geſagte ſeine Anwendung eben ſo findet,<lb/>
+wenn wir aus der Zuſammenfaſſung einer gewiſſen Anzahl von Begriffen einen Be¬<lb/>
+griff nächſthöherer Ordnung bilden. —</note>. Wenn auch wie geſagt der Realismus als ganze die Philoſo¬<lb/>
+phie beherrſchende Lehre geſtürzt wurde, ſo blieben doch einzelne Regio¬<lb/>
+nen, gleichſam einzelne Winkel der Seele zurück, in denen er, weil<lb/>
+unbeargwohnt, auch ungeſtört ſeine Herrſchaft behauptete. So hielten<lb/>
+denn ſelbſt unſere größten und klarſten Denker, <hi rendition="#g">Kant</hi>, <hi rendition="#g">Fries</hi> und<lb/>
+<hi rendition="#g">Apelt</hi>, welche die Philoſophie gerade im ächten Geiſte der Naturwiſ¬<lb/>
+ſenſchaft reformirten, das Vorurtheil feſt, daß die Unweſenhaftigkeit des<lb/>
+Begriffs, die ſie auf allen Gebieten behaupteten, doch nicht in der Na¬<lb/>
+tur ſtattfinde, daß hier vielmehr dem Artbegriff eine objective, reale<lb/>
+Bedeutung zukomme und ſomit einen der ſubjectiven veränderlichen Auf¬<lb/>
+faſſung unzugänglichen, andauernden Werth beanſpruchen dürfe. Sie<lb/>
+verſuchten mit vielem Scharfſinn, aber doch nicht ſehr glücklich, ein<lb/>
+halb metaphyſiſches Naturgeſetz zu conſtruiren, welches ſie das Geſetz<lb/>
+der <hi rendition="#g">Specifikation</hi> nannten, wonach der ſubjectiven Begriffsbildung<lb/>
+ein objectives Verhältniß in der Natur entgegenkommen ſollte, ſo daß<lb/>
+dem vom menſchlichen Verſtande gebildeten Begriffe einer beſtimmten<lb/>
+Art, z. B. dem Begriffe des „Pferdes“, auch in der Natur etwas ganz<lb/>
+Feſtſtehendes und real Vorhandenes als Pferd entſpreche. Daß dies<lb/>
+<pb n="37" facs="#f0047"/>
+<fw type="header" place="top">Ueber die Entſtehung der Arten.<lb/>
+</fw>unrichtig iſt, geht ſchon einfach daraus hervor, daß in der Natur jedes<lb/>
+Pferd eine gewiſſe Farbe haben muß, „das Pferd“ als Begriff aber<lb/>
+keine Farbe haben darf, weil dann die anders gefärbten Pferde von dem<lb/>
+Begriffe Pferd durch das Merkmal der Farbe ausgeſchloſſen würden.</p><lb/>
+<p>Es iſt eine ganz bekannte Erſcheinung, daß es ſtets nur einen ganz<lb/>
+kleinen Theil der Naturforſcher giebt, die immer nur über einen ganz<lb/>
+kleinen Theil der Arten übereinſtimmen; dies wurde denn der unzu¬<lb/>
+länglichen Erkenntniß der Natur zugeſchrieben, ſtatt anzuerkennen, daß<lb/>
+jeder Fortſchritt in der Naturkenntniß nothwendig eine andere Beſtim¬<lb/>
+mung der Arten zur Folge haben und da der Fortſchritt ein unendlicher<lb/>
+iſt, auch die Artbeſtimmung nothwendig eine veränderliche bleiben muß.<lb/>
+— Von jenem letzten Ueberbleibſel des Realismus werden uns nun<lb/>
+hoffentlich die neueren naturwiſſenſchaftlichen Forſchungen befreien und<lb/>
+wiederum einen treffenden Beweis liefern, daß Philoſophie und Natur¬<lb/>
+wiſſenſchaft nur mit einander zur klaren Erkenntniß fortſchreiten können.<lb/>
+Deshalb habe ich auch geglaubt mich bei dieſem Punkte länger aufhal¬<lb/>
+ten zu müſſen. Der Artbegriff ſcheint noch Vielen das eigentliche Fun¬<lb/>
+dament aller Naturwiſſenſchaft zu ſein und es iſt daher eine richtige<lb/>
+Vorſtellung von demſelben eine außerordentlich wichtige Sache. —</p><lb/>
+<p>Der Menſch hängt in ſeiner Erkenntniß der Natur von der Zeit<lb/>
+ab und für die unendliche Zeit iſt nicht nur die Lebensdauer des Ein¬<lb/>
+zelnen, ſondern ſelbſt der Zeitraum von ein Paar Jahrtauſenden, bis<lb/>
+zu welchen ſeine feſte Geſchichte zurückreicht, kein brauchbarer Maaß¬<lb/>
+ſtab. Eine Veränderung in der Natur, die ſo langſam vor ſich geht,<lb/>
+daß die erſten erkennbaren Zeichen dieſer Veränderung erſt nach Zehn¬<lb/>
+tauſenden von Jahren erkennbar ihm entgegentreten können, entgeht<lb/>
+natürlich der unmittelbaren Beobachtung und der Gegenſtand ſtellt ſich<lb/>
+ihm als unveränderlich dar, gerade wie uns der Stundenzeiger einer<lb/>
+Taſchenuhr, die wir nur Secunden lang beobachten, vollkommen ſtille<lb/>
+zu ſtehen ſcheint. Daher kam es, daß ſich die Menſchen die Arten in<lb/>
+der Pflanzen- und Thierwelt, ſo lange die Kenntniß derſelben noch<lb/>
+räumlich und zeitlich beſchränkt war, als feſtſtehend dachten und ihre<lb/>
+<pb n="38" facs="#f0048"/>
+<fw type="header" place="top">Zweite Vorleſung.<lb/>
+</fw>Entſtehung und Feſtſtellung mit in die Schöpfungsgeſchichte verfloch¬<lb/>
+ten. Der <hi rendition="#g">Schöpfungs</hi>gedanke gehört aber dem Glauben an, die zeit¬<lb/>
+liche Entwicklung und Veränderung des <hi rendition="#g">Geſchaffenen</hi>, d. h. des in<lb/>
+Zeit und Raum Eingetretenen, iſt dagegen Aufgabe der Wiſſenſchaft.<lb/>
+Sobald nun die Geognoſie die großen Verſchiedenheiten der Geſchöpfe<lb/>
+in den verſchiedenen ſich folgenden Perioden der Erdbildung dargelegt<lb/>
+und das Vorurtheil abgeworfen hatte, daß ein engbegrenzter Zeitraum<lb/>
+die Entwicklungsgeſchichte der Erde umſchließe, ſo war auch die Anſicht<lb/>
+von der Conſtanz der Arten als ein Irrthum nachgewieſen, an den fer¬<lb/>
+ner nur noch Unwiſſenheit oder große Beſchränktheit glauben kann. Es<lb/>
+bedurfte keiner Ausnahme mehr vom allgemeinen Bildungsgeſetz der<lb/>
+Begriffe für den Artbegriff und die allein richtige Beſtimmung deſſel¬<lb/>
+ben iſt gegenwärtig die von <hi rendition="#g">Agaſſiz</hi> gegebene: „Zu einer Art gehört<lb/>
+Alles, was ſich durch Merkmale charakteriſirt, die dem Menſchen für<lb/>
+eine gewiſſe längere Zeit als unveränderlich <hi rendition="#g">erſcheinen</hi>“.</p><lb/>
+<p>Die Anſicht, daß die Arten nichts Feſtſtehendes, ſondern etwas in<lb/>
+der Zeit Veränderliches ſeien, das die einen ausſterben, während ſich<lb/>
+andere aus ihnen entwickelt haben, iſt durchaus nicht neu; vielmehr<lb/>
+trat ſie ſogleich hervor, als richtigere geologiſche Erkenntniß am Ende<lb/>
+des vorigen Jahrhunderts von dem Bann einer mißverſtandenen Schö¬<lb/>
+pfungsgeſchichte und Zeitrechnung befreite. Zuerſt ſcheint der ältere<lb/>
+<hi rendition="#g">Darwin</hi> (der Großvater des jetzt lebenden Geognoſten) 1794 und<lb/>
+<hi rendition="#g">Geoffroy St</hi>. <hi rendition="#g">Hilaire</hi> 1795 jene Anſicht aufgeſtellt zu haben. Erſt<lb/>
+1809 durch <hi rendition="#g">Lamarck</hi> und 1828 durch die heftigen Kämpfe <hi rendition="#g">G</hi>. <hi rendition="#g">St</hi>. <hi rendition="#g">Hi¬<lb/>
+laires</hi> gegen <hi rendition="#g">Cuvier</hi> in der Pariſer Akademie wurde der Angelegen¬<lb/>
+heit eine etwas allgemeinere Theilnahme zugewendet. Daß die beſſeren<lb/>
+Anſichten noch nicht durchdrangen, lag theils in fortwirkenden alten<lb/>
+Vorurtheilen, theils darin, daß jene Männer den richtigen Ausdruck<lb/>
+für den Vorgang der Umänderung der Arten noch nicht hatten finden<lb/>
+können. Auch ſpätere Entdeckungen, z. B. die Anerkennung natürlicher<lb/>
+Baſtarderzeugungen, der Steenſtrup'ſche Generationswechſel u. ſ. w.<lb/>
+halfen hier nicht, da man ſich nicht verhehlen konnte, daß dieſe Verhält¬<lb/>
+<pb n="39" facs="#f0049"/>
+<fw type="header" place="top">Ueber die Entſtehung der Arten.<lb/>
+</fw>niſſe doch viel zu beſonderer und untergeordneter Natur ſeien, um ein<lb/>
+ſo allgemein die ganze Natur beherrſchendes Geſetz zu begründen. —<lb/>
+Die Veränderlichkeit der Arten konnte in neuerer Zeit freilich nur noch<lb/>
+geognoſtiſche Unwiſſenheit läugnen, aber die Lehre blieb unfruchtbar,<lb/>
+ſo lange das „<hi rendition="#g">Wie</hi>“ der Veränderung keinen richtigen Ausdruck gefun¬<lb/>
+den hatte.</p><lb/>
+<p>Dieſer letzten Anforderung genügte nun in ausgezeichneter Weiſe<lb/>
+<hi rendition="#g">Charles Darwin</hi>, bekannt durch ſeine Reiſe um die Welt und ſeine<lb/>
+geiſtreiche Theorie der Koralleninſeln, und ſo kam es, daß ſein zuerſt<lb/>
+1859 in England erſchienenes und 1860 nach der zweiten engliſchen<lb/>
+Ausgabe von <hi rendition="#aq">Dr.</hi> H. G. <hi rendition="#g">Bronn</hi> ins Deutſche übertragenes Werk über<lb/>
+die Entſtehung der Arten ein ſo großes Aufſehen machte und vielen<lb/>
+als etwas abſolut Neues und Unerhörtes erſchien.</p><lb/>
+<p> <hi rendition="#g">Darwin's</hi> Theorie iſt ſehr einfach und gleicht faſt dem Ei des<lb/>
+<hi rendition="#g">Columbus</hi>. Er geht von verhältnißmäßig wenigen ganz bekannten<lb/>
+und feſtſtehenden Thatſachen aus, leitet daraus ſeine Schlüſſe ab, oder<lb/>
+entwickelt vielmehr nur das allgemeine Geſetz, welches in jenen That¬<lb/>
+ſachen ſchon liegt und ſtellt dann ſeine Anſicht mit ſolcher Sorgfalt und<lb/>
+Umſicht, mit ſo großem Umfang von Kenntniſſen gegen alle Einwen¬<lb/>
+dungen ſicher, daß ſich irgend Erhebliches ſchwerlich gegen dieſelben<lb/>
+noch vorbringen laſſen wird.</p><lb/>
+<p>Wir wiſſen, wie eben bereits erwähnt wurde, daß die Nachkommen<lb/>
+einer Pflanze oder eines Thieres ſtets in einzelnen Merkmalen ſowohl<lb/>
+von ihren Eltern als unter einander abweichen und daß dieſe Abwei¬<lb/>
+chungen um ſo auffallender ſind, wenn die Eltern vorher in äußere Le¬<lb/>
+bensverhältniſſe verſetzt wurden, die von denen ihnen früher naturge¬<lb/>
+mäßen mehr oder weniger abweichen. Wir wiſſen ferner, daß Abwei¬<lb/>
+chungen in einer beſtimmten Richtung häufiger und ſtärker hervortreten<lb/>
+in einer dritten Generation, wenn zu ihrer Erzeugung ein Elternpaar<lb/>
+gewählt wurde, bei welchem gerade dieſe beſtimmte Abweichung vor¬<lb/>
+herrſchend war. Zeigt z. B. eine Pflanze einige Blüthen früher als die<lb/>
+Mutterpflanze, aus deren Samen ſie gezogen iſt und wir nehmen den<lb/>
+ferneren Samen von dieſen früheren Blüthen, ſo werden die daraus<lb/>
+<pb n="40" facs="#f0050"/>
+<fw type="header" place="top">Zweite Vorleſung.<lb/>
+</fw>erwachſenden neuen Pflanzen ſchon mehr frühzeitige Blüthen zeigen<lb/>
+und wenn wir ſo in der „<hi rendition="#g">Auswahl</hi>“ der Samenpflanzen fortfahren,<lb/>
+erhalten wir in einer Reihe von Generationen Pflanzen, an denen alle<lb/>
+Blüthen früher hervorbrechen als bei den Vorfahren dieſer Pflanzen<lb/>
+normal war.</p><lb/>
+<p>Dieſe Abweichungen von den Merkmalen eines Stammorganis¬<lb/>
+mus können nun in gewiſſer Beziehung nur dreierlei Art ſein, nämlich:<lb/>
+entweder geben ſie dem neuen Organismus einen, wenn auch noch ſo<lb/>
+kleinen Vorzug, durch den ſeine Exiſtenz erleichtert oder mehr geſichert<lb/>
+wird, z. B. etwas ſchlankeren Bau, um leichter die zur Nahrung die¬<lb/>
+nende Beute zu erreichen, oder eine Farbenverſchiedenheit, die ihn ſei¬<lb/>
+nen Feinden weniger erkennbar macht, — oder die Abweichungen fin¬<lb/>
+den in entgegengeſetzter Richtung ſtatt, — oder endlich ſie ſind gleich¬<lb/>
+gültig. Es verſteht ſich nun ganz von ſelbſt, daß diejenigen Organis¬<lb/>
+men, bei welchen Merkmale der erſten Art ſich finden, hinſichtlich ihrer<lb/>
+Dauer gegen ihre Vorfahren wie gegen ihre Zeitgenoſſen bevorzugt<lb/>
+ſind. Sie werden ſich leichter und beſſer ernähren, leichter und häufiger<lb/>
+fortpflanzen, alſo die vortheilhaften Merkmale mich auf ihre Nachkom¬<lb/>
+men in höherem Grade übertragen. Mit einem Worte, es geſchieht hier<lb/>
+in der Natur, wenn auch langſamer und weniger auffällig nothwendig<lb/>
+dasſelbe, was wir durch abſichtliche „<hi rendition="#g">Auswahl</hi>“ der zur Nachzucht<lb/>
+beſtimmten Individuen in unſeren ökonomiſchen Viehſtänden und Kunſt¬<lb/>
+gärtnereien hervorbringen. Wenn ſich die äußeren Lebensbedingungen<lb/>
+für die Organismen auf der Erde ändern, ſo werden natürlich diejeni¬<lb/>
+gen Spielarten und Abweichungen, welche für die Exiſtenz unter dieſen<lb/>
+veränderten Bedingungen begünſtigt ſind, ſich erhalten und ausbreiten,<lb/>
+während die anderen allmählich verkümmern und verſchwinden. — Das<lb/>
+iſt das Geſetz für die Geſchichte des Lebendigen, welches <hi rendition="#g">Darwin</hi> mit<lb/>
+dem Ausdruck: Geſetz der „<hi rendition="#g">natürlichen Auswahl</hi>“ (<hi rendition="#aq">natural se¬<lb/>
+lection</hi>) bezeichnete. — Man muß aber hierbei die Zeit als weſentlichen<lb/>
+Factor nicht außer Acht laſſen. Keineswegs war der unmittelbare Nach¬<lb/>
+komme eines der großen fliegenden Amphibien des Solenhofer Kalk¬<lb/>
+ſchiefers ein Vogel, aber indem durch viele Jahrtauſende hindurch und<lb/>
+<pb n="41" facs="#f0051"/>
+<fw type="header" place="top">Ueber die Entſtehung der Arten.<lb/>
+</fw>durch viele Hunderte von Generationen immer eine kleine Abänderung<lb/>
+nach der anderen hinzukam, welche die Exiſtenz eines fliegenden Thie¬<lb/>
+res begünſtigte, wurden auf dieſem langſamen Wege wirkliche Vögel<lb/>
+gebildet. — Nach dieſem Geſetz entſtanden aus der einfachſten Grund¬<lb/>
+lage aus einer noch unvollkommenen Zelle, allmählich die große Zahl<lb/>
+gleichfalls noch unvollkommener, einfacher und niedriger Organismen<lb/>
+im Thier- und Pflanzenreich nach den ſehr verſchiedenen Lebensbedin¬<lb/>
+gungen, die ihnen von den verſchiedenen Oertlichkeiten dargeboten<lb/>
+wurden, ſo entſtanden nach und nach die entwickelteren Formen, den<lb/>
+mehr und mehr ſich verwickelnden äußeren Verhältniſſen entſprechend,<lb/>
+und ſo gingen auch beſtehende Formen unter, während ihre Nachkom¬<lb/>
+men in immer mehr veränderten neuen Formen fortdauerten, in dem¬<lb/>
+ſelben Maaße, wie ſich allmählich durch die geologiſchen Veränderun¬<lb/>
+gen auf der Erde die Wohnſtätte des Lebendigen und ſomit die Lebens¬<lb/>
+bedingungen änderten. Wenn dieſe Veränderungen immer nur in Pe¬<lb/>
+rioden von Hunderttauſenden von Jahren ſich vollziehen konnten und<lb/>
+wirklich vollzogen, ſo darf natürlich der Menſch nicht erwarten auf ſei¬<lb/>
+nem beſchränkten Standpunkte dergleichen Umwandlungen unter ſeinen<lb/>
+Augen vor ſich gehen zu ſehen. Nichtsdeſtoweniger wird die Wiſſen¬<lb/>
+ſchaft in der Folge Mittel finden, um unter den gerade vorhandenen<lb/>
+Organismen diejenigen, die in voller Kraft ſind, von den Formen,<lb/>
+die bereits dem Untergange geweiht ſind, ſowie von denen, welche ſich<lb/>
+auf der Uebergangsſtufe zu neuen Zukunftsformen befinden, zu unter¬<lb/>
+ſcheiden und ſo ein ganz neues zuerſt wahrhaft natürliches Syſtem der<lb/>
+Thiere und Pflanzen herzuſtellen.</p><lb/>
+<p>Zunächſt dürfen wir aber nur hoffen, daß uns fernere wiſſenſchaft¬<lb/>
+liche Unterſuchungen und glückliche Entdeckungen, zumal in den Schich¬<lb/>
+ten der Tertiärperiode, in welcher wir nach und nach die vollſtändigſten<lb/>
+Arten aufzufinden hoffen dürfen, da dieſer Theil des Naturarchivs als<lb/>
+der neueſte weniger als die übrigen von den Einwirkungen der um¬<lb/>
+wandelnden geologiſchen Kräfte gelitten hat, über kurz oder lang die<lb/>
+Thatſachen an die Hand geben, um die Darwin'ſchen Lehren vollſtändig<lb/>
+durchführen und über allen Zweifel erheben zu können.</p><lb/>
+<pb n="42" facs="#f0052"/>
+<fw type="header" place="top">Zweite Vorleſung. Ueber die Entſtehung der Arten.<lb/>
+</fw> <p>So wunderlich fremd, ja abenteuerlich auch heute noch Manchem<lb/>
+der Gedanke erſcheinen mag, daß <hi rendition="#g">alle</hi> Organismen auf der Erde,<lb/>
+Pflanzen wie Thiere, Untergegangene und Lebende, als eine einzige<lb/>
+große Familie durch naturgemäße Abſtammung untereinander zuſam¬<lb/>
+menhängen, ſo braucht man doch kein großer Prophet zu ſein, um vor¬<lb/>
+ausſagen zu können, daß es nicht mehr lange währen wird, bis dieſer<lb/>
+Gedanke jedem Naturforſcher geläufig und unbeſtrittenes Eigenthum<lb/>
+der Wiſſenſchaft geworden iſt. Wenn ſich auch gegenwärtig noch<lb/>
+manche verſtändige und viele unverſtändige Stimmen gegen <hi rendition="#g">Darwin</hi><lb/>
+erheben, ſo hat er doch auch ſchon eine große Anzahl bedeutender Mit¬<lb/>
+kämpfer gewonnen und die endliche Entſcheidung kann nicht zweifel¬<lb/>
+haft ſein.</p><lb/>
+<p>Aber nun wirft ſich uns die Frage auf: wo bleibt in dieſer großen<lb/>
+Weſenkette der Menſch? Gehört auch er nach phyſiſcher Abſtammung<lb/>
+dazu, wer ſind ſeine nächſten Verwandten und worin liegt die wunder¬<lb/>
+bare Eigenthümlichkeit, durch welche er ſo ſehr bevorzugt wird, daß er<lb/>
+ſich zum Herrn der ganzen übrigen Erdenſchöpfung berufen fühlt und<lb/>
+dieſe Herrſchaft in der That errungen hat? Eben jenes Herrſchergefühl<lb/>
+erfüllt ihn mit Stolz und dieſer Stolz fühlt ſich, wenn auch aus Miß¬<lb/>
+verſtand gedemüthigt, wenn man ihm den Affen als ſeinen Vorfahren<lb/>
+zeigen will. Das iſt einer der Hauptgründe des Widerſpruches gegen<lb/>
+<hi rendition="#g">Darwin's</hi> Lehre und es iſt nicht leicht hier die ſtreitenden Intereſſen<lb/>
+zu verſöhnen, wozu die Naturwiſſenſchaft für ſich allein gar keine Mit¬<lb/>
+tel an die Hand giebt.</p><lb/>
+<p>Sowie die Philoſophie von der Naturwiſſenſchaft, ſo wird wie¬<lb/>
+derum die letztere von der Philoſophie geleitet, gefördert und vor Irr¬<lb/>
+wegen bewahrt; dieſes wird ſich uns deutlicher ergeben, wenn wir die<lb/>
+Frage nach der Stellung des Menſchen unter den übrigen Erdenbür¬<lb/>
+gern zu beantworten verſuchen. Ich muß dieſe Betrachtung, die beſon¬<lb/>
+ders an die neueren Arbeiten von <hi rendition="#g">Dana</hi>, <hi rendition="#g">Huxley</hi> und Anderen an¬<lb/>
+zuknüpfen haben wird, aber einem folgenden Vortrage vorbehalten.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div>
+<pb n="[43]" facs="#f0053"/>
+<div n="1"> <head> <hi rendition="#b">Dritte Vorleſung.<lb/>
+Stellung des Menſchen in der Natur.</hi><lb/>
+</head>
+<pb n="[44]" facs="#f0054"/>
+<pb n="[45]" facs="#f0055"/>
+<p> <hi rendition="#in">E</hi>s iſt ſchwerlich möglich irgend eine Unterſuchung vollſtändig<lb/>
+zu Ende zu führen, ohne daß ſie ſich zuletzt im Menſchen gipfelt und<lb/>
+abſchließt. Der Menſch iſt das Maaß aller Dinge, ſagte Protagoras.<lb/>
+Für die Richtigkeit jeder vollendeten Gedankenreihe iſt immer gleich¬<lb/>
+ſam die Probe der Rechnung, die Beantwortung der Frage, wie ſteht<lb/>
+der Menſch zu dem Reſultate, wie greift dasſelbe verändernd in ſeine<lb/>
+Beziehungen ein, wie werden ſeine Intereſſen dadurch berührt, gewahrt<lb/>
+oder gefährdet?</p><lb/>
+<p>Wenn die in der vorigen Vorleſung mitgetheilte Darwin'ſche Lehre<lb/>
+von der allmählichen Entwicklung ſämmtlicher organiſcher Weſen aus¬<lb/>
+einander durch die ſtetige Umbildung der Formen in langen Reihen von<lb/>
+Generationen ſich täglich mehr Anhänger gewinnt, und ohne Zweifel<lb/>
+bald, vielleicht mit geringen Modificationen von untergeordneter Be¬<lb/>
+deutung, die allgemein angenommene werden wird, ſo drängen ſich bei<lb/>
+der Durchführung derſelben doch unvermeidlich die Fragen auf, was<lb/>
+wird bei dieſer Anſchauungsweiſe aus dem Menſchen, der doch von<lb/>
+leiblicher Seite jedenfalls auch zu den organiſchen Geſchöpfen an der<lb/>
+Erde gehört; läßt ſich das Geſetz der allmählichen Entwicklung der<lb/>
+einen Form aus der anderen, des folgenden Organismus aus dem vor¬<lb/>
+hergehenden auch auf ihn anwenden, wo findet er ſeine Verwandten,<lb/>
+gleichſam ſeine älteſten Ahnen, wie begreift man den Sprung vom un¬<lb/>
+vernünftigen Thiere zum vernünftigen Menſchen, wie läßt ſich derſelbe<lb/>
+mit der allmählichen Entwicklung in Einklang bringen u. ſ. w.</p><lb/>
+<p>Alle dieſe Fragen liegen nun bei Beurtheilung der gegenwärtig<lb/>
+<pb n="46" facs="#f0056"/>
+<fw type="header" place="top">Dritte Vorleſung.<lb/>
+</fw>angeregten Unterſuchungen, wenn auch meiſt unausgeſprochen und oft<lb/>
+ſogar unbewußt in der Seele jedes Forſchers, und die mehr oder minder<lb/>
+vollſtändige, oft ebenfalls kaum zum Bewußtſein gebrachte Antwort<lb/>
+auf jene Fragen beſtimmt und beeinflußt die Stellung, die der Einzelne<lb/>
+jenen Unterſuchungen gegenüber einnimmt. Gewiß haben in letzter Zeit<lb/>
+nur viele deshalb ſich den Darwin'ſchen Lehren widerſetzt, weil im dun¬<lb/>
+klen Hintergrund ihrer Seele die Anſicht ſtand, daß jene Lehre unver¬<lb/>
+meidlich zum Materialismus führen müſſe, oder weil ſie darin die Lehre<lb/>
+ausgeſprochen zu finden glaubten, der Menſch ſei nichts als ein wohl¬<lb/>
+erzogener Affe, wogegen ihr menſchlicher Stolz ſich auflehnte. Nun<lb/>
+wäre dem wirklich ſo, könnten wir uns der Unabweisbarkeit dieſer Fol¬<lb/>
+gerungen nicht entziehen, ſo hätten jene Zweifler wenigſtens eine Ent¬<lb/>
+ſchuldigung, aber wir würden uns doch dabei zuletzt beruhigen müſſen,<lb/>
+denn nie kann die Wiſſenſchaft die Aufgabe haben, das zu finden, was<lb/>
+wir wünſchen, ſondern das, was wahr iſt und nie und nimmer kann<lb/>
+den Menſchen die wenn auch angenehmſte Täuſchung zum wahren Heil<lb/>
+gereichen, ſondern nur die reine und ganze Wahrheit.</p><lb/>
+<p>Aber es iſt ja überall noch nicht an der Zeit zwiſchen der ange¬<lb/>
+deuteten Täuſchung und Wahrheit wählen zu müſſen, denn der Fehler<lb/>
+der genannten Gegner liegt gerade darin, daß ſie bis jetzt nur dunkeln<lb/>
+halbbewußten Vorurtheilen folgen und die ganze Reihe der oben auf¬<lb/>
+geworfenen Fragen ſich niemals beſtimmt und deutlich vorgelegt, alſo<lb/>
+noch weniger auf gründliche Unterſuchung geſtützt beantwortet haben.<lb/>
+Ich will dieſe ſo wünſchenswerthe Erörterung und Beantwortung der<lb/>
+wichtigen Fragen verſuchen und glaube zeigen zu können, daß alle Be¬<lb/>
+fürchtungen jener ängſtlichen Männer nichtig ſind und bei der conſe¬<lb/>
+quenteſten und vollſtändigſten Durchführung jener Lehren die wahre<lb/>
+Würde des Menſchen gar nicht in Gefahr kommen kann. Freilich muß<lb/>
+man ſich dabei nicht durch oberflächliches Geſchwätz führen laſſen, ſon¬<lb/>
+dern Schritt vor Schritt in ernſter Forſchung von Anfang bis zu Ende<lb/>
+gehen, man muß ſtrenge auseinander halten, was ſich verſchieden zeigt,<lb/>
+ſtatt mit flüchtigem Aberwitz das Aehnliche als Gleiches zuſammenzu¬<lb/>
+<pb n="47" facs="#f0057"/>
+<fw type="header" place="top">Stellung des Menſchen in der Natur.<lb/>
+</fw>werfen und man muß die vielen verbindenden Mittelglieder in der Ge¬<lb/>
+ſammtauffaſſung feſthalten und nicht mit gedankenloſer Vergeßlichkeit<lb/>
+Anfang und Ende der Unterſuchung zuſammenknüpfen, indem man die<lb/>
+verbindenden Mittelglieder überſpringt. Wenn ſelbſt ſogenannte wiſſen¬<lb/>
+ſchaftlich gebildete Männer die Darwin'ſche Lehre ſo darſtellen (wie ich<lb/>
+das in der That oft gehört): „Darwin macht den Affen zu unſerem<lb/>
+Großvater“, ſo bleibt dabei dreierlei, was doch weſentlich entſcheidend<lb/>
+iſt, in kindiſcher Oberflächlichkeit ganz unberückſichtigt, nämlich 1. daß<lb/>
+bekanntlich ein häßlicher und dummer Großvater allerdings einen ſchö¬<lb/>
+nen und klugen Enkel haben kann, 2. daß „<hi rendition="#g">wir</hi>“, das heißt die gebil¬<lb/>
+detſten Individuen der Europäiſchen Menſchheit, den Begriff „Menſch“,<lb/>
+in deſſen Umfang auch Papua's, Neuſeeländer und Peſcherä's gehören,<lb/>
+noch lange nicht ausfüllen und daß endlich 3. der Ausdruck Großvater<lb/>
+ſehr thöricht gewählt iſt, um eine Verwandtſchaft zu bezeichnen, die<lb/>
+durch Reihen von Generationen durchgeht, gegen welche unſere ganze<lb/>
+ſogenannte Weltgeſchichte als ein höchſt unbedeutender Augenblick er¬<lb/>
+ſcheint.</p><lb/>
+<p>Wenn wir bei der Frage: was iſt der Menſch und wie unterſchei¬<lb/>
+det er ſich vom Thiere, nicht von vorgefaßten Meinungen ausgehen,<lb/>
+ſondern ganz kühl und objectiv die wirklichen Thatſachen, wie ſie Ge¬<lb/>
+ſchichte, Völkerkunde und Naturgeſchichte uns darbieten ins Auge faſ¬<lb/>
+ſen, ſo bleibt uns nichts übrig als zu geſtehen, daß der Sprung vom<lb/>
+Menſchen zum Thiere lange nicht ſo groß iſt als wir ihn gerne ſehen<lb/>
+möchten. Nehmen wir einen ganz entwickelten Menſchen z. B. einen<lb/>
+Goethe in der Vollendung ſeiner körperlichen Bildung, ein äſthetiſches<lb/>
+Ideal der edlen Menſchengeſtalt, nach Form und Thätigkeit gleichmäſſig<lb/>
+ſchön, geſund und harmoniſch ausgeprägt, dann in dem umfaſſenden<lb/>
+Reichthum geiſtigen Gehaltes, der ihm zum vollen Bewußtſein und zur<lb/>
+lebendigen Geſtaltung gediehen iſt, — und nun ſtellen wir ihm einen<lb/>
+Auſtralneger gegenüber mit der faſt thieriſchen Fratze, dem in jeder Be¬<lb/>
+ziehung unentwickelten und häßlichen Körper und dazu den engen auf<lb/>
+das bloße thieriſche Bedürfniß der Ernährung, Fortpflanzung und Ver¬<lb/>
+<fw type="sig" place="bottom"> <hi rendition="#g">Schleiden</hi>, Vorleſungen. 4<lb/>
+</fw>
+<pb n="48" facs="#f0058"/>
+<fw type="header" place="top">Dritte Vorleſung.<lb/>
+</fw>theidigung beſchränkten geiſtigen Horizont, mit kaum dämmerndem Be¬<lb/>
+wußtſein einer Perſönlichkeit, eines Weſens, das mehr iſt als Sache,<lb/>
+ſo wird Niemand den unendlichen Abſtand verkennen. — Könnten wir<lb/>
+nach allen den Merkmalen, wodurch ſich beide unterſcheiden, ihnen wie<lb/>
+an einer Thermometerſcala ihre Stellung vorzeichnen und dann nach<lb/>
+denſelben Merkmalen einem gut erzogenen Affen darunter ſeinen Platz<lb/>
+anweiſen, ſo würden wir finden, daß der gradweiſe abzumeſſende Un¬<lb/>
+terſchied zwiſchen Goethe und dem Auſtralneger bei weitem größer iſt,<lb/>
+als der von Letzterem zum Thier.</p><lb/>
+<p>Wer durch zufällige Begünſtigung, wie ſie mir wurde, vor eini¬<lb/>
+gen Jahren in Leipzig gleichzeitig die beiden ſogenannten Azteken, un¬<lb/>
+zweifelhafte Menſchen, und den jungen Orang-Outang, ein unzwei¬<lb/>
+felhaftes Thier, längere Zeit zu beobachten Gelegenheit hatte, konnte<lb/>
+unmöglich anſtehen, dem Orang-Outang die bei weitem größere Bil¬<lb/>
+dungsfähigkeit und die auffallenderen Aeußerungen der Intelligenz zu¬<lb/>
+zuſprechen. — Wir müſſen alſo zunächſt uns von dem Vorurtheil ent¬<lb/>
+wöhnen, als wenn der Abſtand vom Menſchen, als Gattung genom¬<lb/>
+men, zum Thier ſo unendlich groß ſei, vielmehr fällt derſelbe viel ge¬<lb/>
+ringer aus als der Abſtand von einem Menſchen zum andern, wenn<lb/>
+wir die Extreme ins Auge faſſen, viel geringer als derſelbe zwiſchen<lb/>
+Thier und Thier erſcheint. Der Menſch ſteht hier ganz offenbar auf<lb/>
+einer und derſelben Stufenleiter mit dem Thiere, zwar auf der höchſten<lb/>
+Sproße, aber ohne von der vorhergehenden durch eine unüberſchreit¬<lb/>
+bare Kluft getrennt zu ſein.</p><lb/>
+<p>Bleiben wir hier zunächſt bei dem ſtehen was uns ganz allein auf<lb/>
+der Seite der Naturwiſſenſchaft entgegentritt, ſo kann die Berechtigung<lb/>
+den Menſchen von körperlicher Seite mit dem Thiere zuſammenzuhal¬<lb/>
+ten, ihm unter den letzteren eine beſtimmte Stellung anzuweiſen, nicht<lb/>
+für einen Augenblick in Zweifel gezogen werden. — Die Frage, welche<lb/>
+Stellung ihm gebührt, wo er ſeine nächſten Verwandten findet, wie<lb/>
+ſehr und durch welche Charaktere er ſich von dieſen unterſcheidet, iſt in<lb/>
+neuerer Zeit wieder in den Vorgrund getreten und wir haben von For¬<lb/>
+<pb n="49" facs="#f0059"/>
+<fw type="header" place="top">Stellung des Menſchen in der Natur.<lb/>
+</fw>ſchern erſten Ranges Unterſuchungen über die Stellung des Menſchen<lb/>
+in der Natur erhalten, ſo von Owen, Dana, Huxley und Carl Vogt,<lb/>
+von deſſen gehaltvollem Werk jedoch erſt einige Bogen erſchienen ſind.<lb/>
+Die Antwort auf jene Frage können wir von vornherein zum Vortheil<lb/>
+der Unterſuchung in engere Grenzen bannen. Daß der Menſch ein<lb/>
+Wirbelthier iſt, eins der höchſt entwickelten Wirbelthiere, daß er von<lb/>
+allen Thieren dem Affen <note place="foot" n="*)"><lb/>
+Wenn einige verſucht haben, das zu läugnen, ihn mit den Sauriern zuſam¬<lb/>
+menzuſtellen und von dieſen abzuleiten, ſo läßt ſich das nicht mit gründlicher<lb/>
+Kenntniß in Anatomie und Phyſiologie vereinigen.</note>am nächſten ſteht und nach der Darwin'ſchen<lb/>
+Theorie aus dieſem hervorgegangen ſein müßte, iſt keinem Zweifel un¬<lb/>
+terworfen. Daß der Menſch ſich durch Schädel- und Knochenbau vom<lb/>
+Affen unterſcheidet und dadurch, ſo wie durch die Einrichtung ſeines<lb/>
+Blut-Gefäßſyſtems nicht nur zum aufrechten Gang befähigt, ſondern<lb/>
+dazu gezwungen iſt, ergiebt ſich als nicht minder gewiß. Die Grenzen<lb/>
+der Ungewißheit lagen in neuerer Zeit beſonders in der Beurtheilung<lb/>
+des Baues der Hände und Füße, des Gehirns und in der Unklarheit<lb/>
+wie man die geiſtigen Beziehungen des Menſchen naturwiſſenſchaftlich<lb/>
+aufzufaſſen habe.</p><lb/>
+<p>Linné <note place="foot" n="**)"><lb/>
+Die Bezeichnung „Vierhänder“ gebrauchte zuerſt Tyſon im Jahre 1699, der<lb/>
+Ausdruck „Zweihänder“ ſtammt wohl von Buffon; Blumenbach und Cuvier haben<lb/>
+den Ausdruck „Vierhänder“ leider durch ihre Autorität geläufig gemacht.</note>trennt von den nächſtverwandten Affen, die er als Vier¬<lb/>
+händer bezeichnete, ſeine Ordnung der Primaten unter dem Charakter<lb/>
+der Zweihändigkeit. — Dieſer Unterſchied muß nach den neueren beſſe¬<lb/>
+ren anatomiſchen Unterſuchungen und darauf gebauten Anſchauungs¬<lb/>
+weiſen als unrichtig aufgegeben werden. Die wirklichen Unterſchiede<lb/>
+zwiſchen Hand und Fuß beim Menſchen beruhen auf der verſchiedenen<lb/>
+Anordnung der Knochen der Hand- und Fußwurzel, in der verſchiede¬<lb/>
+nen Länge eines Beuge- und eines Streckmuskels und in dem äußeren<lb/>
+langen Wadenmuskel, der bei der Hand fehlt. In allen dieſen weſent¬<lb/>
+lichen Puncten ſtimmt Fuß und Hand des Gorillaaffen mit Fuß und<lb/>
+Hand des Menſchen vollkommen überein, während ſchon der nächſt¬<lb/>
+<fw type="sig" place="bottom">4*<lb/>
+</fw>
+<pb n="50" facs="#f0060"/>
+<fw type="header" place="top">Dritte Vorleſung.<lb/>
+</fw>ſtehende Affe, der Orang-Outang, weſentlich abweicht, ſo daß in die¬<lb/>
+ſem Puncte Menſch und Affe ſich weniger unterſcheiden als ein Affe<lb/>
+vom andern. — Die ſcheinbaren Unterſchiede zwiſchen dem Menſchen-<lb/>
+und Affenfuß und die Handähnlichkeit des Letzteren beruhen nur auf<lb/>
+einem mehr oder weniger in denſelben Grundlagen, vorzugsweiſe in<lb/>
+der größeren Freiheit und Beweglichkeit der großen Zehe, wodurch ſie<lb/>
+im Gebrauch dem Daumen ähnlicher erſcheint. Aber abgeſehen von den<lb/>
+einzelnen armloſen Menſchen, die erlernten, ihren Fuß mit großer Ge¬<lb/>
+ſchicklichkeit als Hand zu gebrauchen, haben wir auch ganze beſonders<lb/>
+baarfuß gehende Völker, welche eine unendlich größere Beweglichkeit<lb/>
+der großen Zehe beſitzen, als die civiliſirten Nationen, denen die frühe<lb/>
+Fußbekleidung die Ausbildung der Fußglieder zur Beweglichkeit un¬<lb/>
+möglich macht, während jene uncultivirten Nationen von der größeren<lb/>
+Beweglichkeit ihres Fußes den beſten Gebrauch machen, Dinge von der<lb/>
+Erde damit aufheben, manche Verrichtungen damit vornehmen u. ſ. w.<lb/>
+Selbſt die Chineſiſchen Matroſen ſollen mit den Füßen rudern und die<lb/>
+Bengaliſchen Handwerker mit denſelben weben können.</p><lb/>
+<p>Gar mancher Satz in der Naturgeſchichte, den man lange für un¬<lb/>
+umſtößlich hielt, wird oft plötzlich durch eine neue Entdeckung unhalt¬<lb/>
+bar, und ſo wie der neuentdeckte Gorilla mit Hand und Fuß in anato¬<lb/>
+miſch weſentlichen Merkmalen dem Menſchen näher ſteht als den Affen,<lb/>
+zu denen er übrigens gehört, ſo iſt auch ſein Wirbel- und Beckenſyſtem<lb/>
+dem menſchlichen bei weitem ähnlicher als dem Gibbon. Ja ſelbſt das<lb/>
+Gebiß des Gorilla hat in vielen Puncten mehr Aehnlichkeit mit dem der<lb/>
+Menſchen als dem der nächſtſtehenden Affen und die Puncte, in denen<lb/>
+es abweicht, treten bei anderen Affen in noch viel auffallenderem Grade<lb/>
+abweichend hervor. — Nichts macht es unmöglich oder auch nur un¬<lb/>
+wahrſcheinlich, daß nächſte Entdeckungen uns noch näher an den Men¬<lb/>
+ſchen hinantretende Geſchöpfe kennen lehren, wofür ich gegenwärtig nur<lb/>
+auf den in Frankreich gefundenen foſſilen Affen <hi rendition="#aq">(Dryopithecus Ton¬<lb/>
+tani)</hi> hinweiſen kann, deſſen Gebiß nach Lartet eine vollkommene Mit¬<lb/>
+telſtufe zwiſchen dem der lebenden Affen und dem Menſchen bilden ſoll.</p><lb/>
+<pb n="51" facs="#f0061"/>
+<fw type="header" place="top">Stellung des Menſchen in der Natur.<lb/>
+</fw> <p>Bei weitem die wichtigſte Betrachtung knüpft ſich nun aber an den<lb/>
+Schädel- und Gehirnbau des Menſchen und Affen; an das Gehirn<lb/>
+knüpfen ſich bei dem Thiere die Erſcheinungen, die wir mit einem we¬<lb/>
+der ſcharf bezeichnenden noch richtigen Ausdruck die Intelligenz nennen,<lb/>
+die ich, um jedes Vorurtheil aus dem Worte zu verbannen, nur mit dem<lb/>
+Ausdruck der Kunſttriebe bezeichnen werde. Wir ſehen ein Thier ge¬<lb/>
+trieben, beſtimmte Handlungen zur Erreichung eines Zweckes, der nicht<lb/>
+durch eine uns als gegenwärtige unmittelbar ſinnliche Anregung erkenn¬<lb/>
+bare Veranlaſſung gegeben wird vorzunehmen, Handlungen, die wir<lb/>
+daher im Gegenſatz zu Handlungen der letzten Art, den natürlichen,<lb/>
+vorläufig als Kunſt bezeichnen können; was dabei das Treibende iſt,<lb/>
+wie es wirkt, kann hier zunächſt ganz unberückſichtigt bleiben.</p><lb/>
+<p>Der Schädel als das knöcherne Gehäuſe, in welches der wichtigſte<lb/>
+Theil des ganzen Nervenſyſtems, das Gehirn, eingeſchloſſen iſt, läßt<lb/>
+ſich für die vorliegende Frage nach zwei Seiten betrachten, hinſichtlich<lb/>
+ſeiner Stellung zum übrigen Knochengerüſte und rückſichtlich ſeines<lb/>
+Verhältniſſes zu den Geſichtsknochen. Bei dem erſten Punct treffen wir<lb/>
+auf den Hauptunterſchied zwiſchen Menſchen und Affen, den aufrechten<lb/>
+Gang auf der Sohle der beiden hinteren Extremitäten, welcher dem<lb/>
+Menſchen weſentlich und unvermeidlich, dem Affen aber für mehr als<lb/>
+einige Schritte (die auch der Hund, der Bär, und andere Thiere ma¬<lb/>
+chen können) unmöglich iſt. — Dieſer Unterſchied zwiſchen Menſch und<lb/>
+Thier wird ſchon von Ovid unübertrefflich ausgedrückt: „Während alle<lb/>
+übrigen Thiere gebückt zur Erde ſchauen, gab die Natur dem Menſchen<lb/>
+das erhobene Antlitz und die Fähigkeit, den Himmel zu ſchauen, den<lb/>
+aufgerichteten Blick den Sternen zuzuwenden.“ — Bis auf den heuti¬<lb/>
+gen Tag iſt noch kein weſentlicherer Unterſchied aufgefunden worden<lb/>
+und Dana, indem er, unzufrieden mit der bisherigen naturgeſchichtlichen<lb/>
+Claſſification der Menſchen, eine neue vorſchlägt, bringt doch nichts<lb/>
+als neue Worte für alte Sachen und eine unzweckmäßige Umſchreibung<lb/>
+des aufrechten Ganges. Am Schädelbau drückt ſich dieſes letztere nun<lb/>
+durch das Verhältniß aus, in welchem die Richtung des Längedurch¬<lb/>
+<pb n="52" facs="#f0062"/>
+<fw type="header" place="top">Dritte Vorleſung.<lb/>
+</fw>meſſers der Schädelhöhle zur Richtung der Wirbelſäule ſteht. Bei den<lb/>
+niederen Wirbelthieren ſind beide Richtungen horizontal und liegen in<lb/>
+einer Linie, beim Menſchen iſt die Richtung der Wirbelſäule vertical<lb/>
+und bildet daher mit der Längsrichtung des Gehirnes einen rechten<lb/>
+Winkel. Aber auch hier bilden die Affen den Uebergang, da ihr Leben<lb/>
+auf Bäumen und die Langarmigkeit vieler doch eine gewöhnlich aufrech¬<lb/>
+tere Haltung begünſtigen, wenn ihnen der aufrechte <hi rendition="#g">Gang</hi> auch ver¬<lb/>
+ſagt iſt. — Ueberſichtlich zeigt das die beiliegende Skizze <hi rendition="#aq">I</hi>. <note place="foot" n="*)"><lb/>
+Nach Huxley.</note>von vier</p><lb/>
+<p>Fig. <hi rendition="#aq">I</hi>.</p><lb/>
+<figure/>
+<pb n="53" facs="#f0063"/>
+<fw type="header" place="top">Stellung des Menſchen in der Natur.<lb/>
+</fw> <p>Schädeln im ſenkrechten Durchſchnitt, wobei die Linie <hi rendition="#aq">b</hi> die Richtung<lb/>
+der Wirbelſäule angiebt; man ſieht daß in dem erwähnten Verhältniß<lb/>
+zwiſchen dem Auſtralneger und der Chryſothrix, einer Affengattung,<lb/>
+kaum ein Unterſchied ſich zeigt. — Der zweite Punct betrifft das Ver¬<lb/>
+hältniß der eigentlichen Schädelhöhle zu dem Geſicht, jenes enthält das<lb/>
+Gehirn und darin das Organ der Kunſttriebe (Intelligenz), dieſes um¬<lb/>
+faßt die wichtigſten Sinne, ſein Vorherrſchen entſpricht alſo einer über¬<lb/>
+wiegenden Sinnlichkeit. Auch hier zeigt ſich ein allmählicher Uebergang<lb/>
+vom Menſchen zum Affen, wie die beigegebene Skizze darlegt, und der<lb/>
+Schädel eines Weſtindiſchen Negers ſteht in dieſer Beziehung jedenfalls<lb/>
+dem Affen (z. B. der Chryſothrix oder einem jungen Chimpanſe) viel<lb/>
+näher als dem Schädel eines Schiller.</p><lb/>
+<p>Dies mag genügen für die Bedeutung der Verſchiedenheiten des<lb/>
+Schädels; bei weitem eingreifender und folgereicher müßte die Betrach¬<lb/>
+tung ausfallen des Gehirns, des Theils des Nervenſyſtems, von dem<lb/>
+wir nur einen ſehr geringen Theil mit den körperlichen Functionen der<lb/>
+Empfindung, Bewegung nnd Ernährung in Verbindung bringen kön¬<lb/>
+nen, den wir ſeinem bei weitem größeren Theile nach nur auf die oben<lb/>
+als Kunſttriebe bezeichneten Erſcheinungen beziehen können, wenn nicht<lb/>
+gerade hier unſere Unterſuchungen noch ſo mangelhaft wären, daß wir<lb/>
+uns vorläufig mit einigen allgemeinen Verhältniſſen begnügen müſſen.<lb/>
+Das Gehirn zerfällt in drei wie es ſcheint der Function nach weſentlich<lb/>
+verſchiedene Theile, wofür der ſchematiſche Umriß (Fig. III) als Erläu¬<lb/>
+terung dienen mag. <hi rendition="#aq">A</hi> iſt das große Gehirn, wie es ſcheint ausſchließ¬<lb/>
+lich den Kunſttrieben dienend, <hi rendition="#aq">B</hi> das Mittelgehirn, vorzugsweiſe den<lb/>
+Mittelpunct der Sinnesnerven darſtellend und <hi rendition="#aq">C</hi> das kleine Gehirn,<lb/>
+in weſentlicher Beziehung zu den Bewegungserſcheinungen ſtehend.<lb/>
+Alle drei Theile laufen dann in den Anfang des Rückenmarks (<hi rendition="#aq">D</hi>) zu¬<lb/>
+ſammen. — Das Verhältniß dieſer drei Theile zu einander iſt nun<lb/>
+ebenfalls in der Reihe der Wirbelthiere ſehr verſchieden und bildet ein<lb/>
+wichtiges Moment zur Beſtimmung der höheren oder niederen Stellung<lb/>
+derſelben. — Am deutlichſten ergiebt ſich das, wenn wir mit dem<lb/>
+<pb n="54" facs="#f0064"/>
+<fw type="header" place="top">Dritte Vorleſung.<lb/>
+</fw>menſchlichen Gehirn (Fig. <hi rendition="#aq">ll</hi>.) den ſchematiſchen Umriß von dem Ge¬<lb/>
+hirn eines Weißfiſches (Fig.<hi rendition="#aq">III</hi>.) vergleichen, bei welchem die Buchſta¬</p><lb/>
+<p>Fig. <hi rendition="#aq">II</hi>.<lb/>
+</p> <p>Fig. <hi rendition="#aq">III</hi>.</p><lb/>
+<figure/> <figure/> <p>ben dieſelbe Bedeutung haben. Hier iſt das große Gehirn (<hi rendition="#aq">A</hi>) der<lb/>
+kleinſte Theil bedeutend übertroffen von dem kleinen (<hi rendition="#aq">C</hi>), während die<lb/>
+bei weitem größte Maſſe vom Mittelgehirn (<hi rendition="#aq">B</hi>) dargeſtellt wird. Wie<lb/>
+wir nun in dem Thierreiche vom Fiſche bis zum Menſchen aufwärts<lb/>
+ſchreiten, tritt das Mittelhirn immer mehr gegen die andern beiden<lb/>
+Theile zurück, die auffallendſte Entwicklung erfährt aber das große Ge¬<lb/>
+hirn, welches ſchließlich das mittlere und kleine Gehirn vollſtändig von<lb/>
+oben her überdeckt und bisweilen mehr als die Hälfte des ganzen Hirn¬<lb/>
+volumens ausmacht. — Vergleichen wir nun in dieſer Beziehung wie¬<lb/>
+derum den Menſchen mit dem Affen<note place="foot" n="*)"><lb/>
+Hierbei dient wieder die Skizze <hi rendition="#aq">A</hi>, auf welcher <hi rendition="#aq">c</hi> das große, <hi rendition="#aq">a</hi> das kleine<lb/>
+Gehirn bezeichnet.</note>, ſo ſehen wir auch hier keinen<lb/>
+weſentlichen Unterſchied, welcher, die geringeren Abweichungen, die<lb/>
+unter den Menſchenſtämmen ſelbſt ſtattfinden, überträfe oder auch nur<lb/>
+erreichte. — In dieſer Beziehung hat Owen ſich durch Mangelhaftig¬<lb/>
+keit ihm zu Gebote ſtehender Präparate und Zeichnungen auf das<lb/>
+ſchlimmſte getäuſcht und eine Eintheilung zwiſchen Menſchen und Affen<lb/>
+<pb n="55" facs="#f0065"/>
+<fw type="header" place="top">Stellung des Menſchen in der Natur.<lb/>
+</fw> hingeſtellt, die aller thatſächlichen Begründung entbehrt, an welcher er<lb/>
+aber ungeachtet der ſchlagendſten Widerlegung, die ihm von allen Sei¬<lb/>
+ten geworden iſt, mit bedauerlichem Eigenſinn feſthält. Die gründlichen<lb/>
+Unterſuchungen der neueren Zeit von Gratiolet, Schröder van der<lb/>
+Kolk, Marſchall, Huxley u. A. haben Owen auf das vollſtändigſte<lb/>
+widerlegt und nachgewieſen, daß durchaus kein <hi rendition="#g">weſentlicher</hi> Unter¬<lb/>
+ſchied zwiſchen dem Gehirn des Menſchen und dem der höheren Affen<lb/>
+ſtattfindet und daß die wahrnehmbaren untergeordneten Unterſchiede ſich<lb/>
+ebenſo und faſt noch ausgeprägter unter den Raſſen und Individuen<lb/>
+des Menſchengeſchlechts zeigen.</p><lb/>
+<p>Gehen wir nun zu den Kunſttrieben über, ſo finden wir ebenfalls<lb/>
+nur wenig, was den Menſchen überhaupt von den Thieren unterſchei¬<lb/>
+det, nichts, was uns nöthigte, ihn ſehr hoch über die Thiere hinaus zu<lb/>
+erheben. — Der Menſch iſt ſeiner Natur nach Neſthocker, wie man es<lb/>
+bei den Vögeln nennt, d. h. nach ſeiner Geburt noch längere Zeit un¬<lb/>
+fähig, ſich ſelbſt zu ernähren und der Menſch ſorgt deshalb wie die<lb/>
+Thiere, bei denen dasſelbe ſtattfindet, für ſeine Nachkommenſchaft; die<lb/>
+Liebe der Eltern zu den Kindern iſt noch nichts lobenswerthes ſondern<lb/>
+natürlicher, thieriſcher Trieb. Der Menſch iſt ferner Heerdenthier, wie<lb/>
+man es bei den Vierfüßern zu nennen pflegt; er tritt mit ſeines Glei¬<lb/>
+chen zu größeren Schaaren unter beſtimmten Formen zuſammen. Staa¬<lb/>
+tenbildung finden wir auch bei den Thieren, beſonders bei Wieder¬<lb/>
+käuern und am auffallendſten bei Inſecten, Bienen, Ameiſen, bei eini¬<lb/>
+gen der letzteren in Südamerika ſogar mit Haltung von Arbeitsſklaven<lb/>
+aus einem anderen Inſectengeſchlecht. — Man bezeichnet es wohl als<lb/>
+einen beſonderen Kunſttrieb des Menſchen, daß er ſeine Speiſe, wenn<lb/>
+er irgend kann, erſt an's Feuer bringt, ehe er ſie genießt; aber ohne<lb/>
+unterſuchen zu wollen, ob dieſer Trieb wirklich urſprünglich iſt, ſo ent¬<lb/>
+ſpricht derſelbe doch nur dem Triebe des Waſchbären, der ſeine Speiſe<lb/>
+erſt ins Waſſer taucht. So bleibt nur noch ein Trieb übrig, der von<lb/>
+Pritchard als charakteriſtiſcher Unterſchied des Menſchen vom Thiere<lb/>
+aufgeſtellt worden iſt, daß er nämlich überall Handlungen begeht, die<lb/>
+<pb n="56" facs="#f0066"/>
+<fw type="header" place="top">Dritte Vorleſung.<lb/>
+</fw> ſich offenbar auf ein Ding oder ein Weſen beziehen, welches nicht für<lb/>
+die Sinne erfaßbar gegenwärtig iſt. Dieſer Trieb zu den (im weiteſten<lb/>
+Sinne des Worts ſogenannten) religiöſen Gebräuchen iſt wohl ebenſo¬<lb/>
+wenig urſprünglich wie der vorige, würde den Menſchen aber ebenſo¬<lb/>
+wenig als vom Thier weſentlich verſchieden charakteriſiren, als die<lb/>
+Biene wegen des Honigbereitens, der Stichling (Fiſch) wegen ſeines<lb/>
+Neſtbaues aufhört, Thier zu ſein.</p><lb/>
+<p>Wir haben den Menſchen jetzt betrachtet und beurtheilt, wie wir<lb/>
+alles, was uns vorkommt in der Raumwelt allein betrachten können,<lb/>
+nämlich ganz objectiv, wie er uns, den Beobachtern, äußerlich gegen¬<lb/>
+übertritt. Sind wir damit am Ende? Giebt es keinen anderen Stand¬<lb/>
+punct der Betrachtung? Hätten wir einen Weltkörper, einen Kryſtall,<lb/>
+eine Pflanze, ein Thier zu beurtheilen, ſo lautete die Antwort: nein,<lb/>
+es giebt keinen anderen Standpunct, wir ſind am Ende. Mit dem<lb/>
+Menſchen iſt das aber anders, wir ſelbſt ſind Menſchen, und wir kön¬<lb/>
+nen unſeresgleichen nicht allein ſo auffaſſen, wie ſie uns äußerlich ge¬<lb/>
+genübertreten, ſondern wir können, ja wir müſſen ſogar den Menſchen<lb/>
+in uns ſelbſt, in unſerem eigenen Inneren beobachten und zu erkennen<lb/>
+ſuchen und da eröffnet ſich uns eine ganz neue Welt. Es iſt gewiß,<lb/>
+daß wir zunächſt und unmittelbar durch unſere Vorſtellungen zur Er¬<lb/>
+kenntniß der Außenwelt gelangen, erſt eine <hi rendition="#g">zweite</hi> Frage iſt die, ob<lb/>
+und inwiefern wir durch die Außenwelt zu unſeren Vorſtellungen kom¬<lb/>
+men. Zunächſt und unmittelbar findet ſich jeder Menſch nur in der<lb/>
+Welt ſeiner Vorſtellungen, wie weit dieſelben einer Außenwelt entſpre¬<lb/>
+chen, gehört einer folgenden und ſehr ſchwierigen Unterſuchung an,<lb/>
+denn es bedarf keiner großen Erfahrung, um einzuſehen, daß meine<lb/>
+Vorſtellungen durchaus nicht immer mit dem Sein der Außenwelt<lb/>
+übereinſtimmen und daß der Fehler bald hier bald dort liegt. Da ich<lb/>
+aber nur durch meine Vorſtellungen von der Außenwelt zur Kenntniß<lb/>
+derſelben komme, immer nur eine Vorſtellung von derſelben durch eine<lb/>
+andere (durch die Kritik einer durch die übrigen) unmittelbar verbeſſern<lb/>
+kann, nie durch die Unterſuchung der Außenwelt ſelbſt, von der ich<lb/>
+<pb n="57" facs="#f0067"/>
+<fw type="header" place="top">Stellung des Menſchen in der Natur.<lb/>
+</fw> immer durch meine Vorſtellungen geſchieden bin, ſo folgt daraus von<lb/>
+ſelbſt, daß für mich die Wahrheit immer nur in meinem Vorſtellungs¬<lb/>
+kreiſe gefunden, und auf ihn und ſeine Geſetzmäßigkeit gegründet ſein<lb/>
+kann.</p><lb/>
+<p>Unter den Gewölben der Dome ſucht die kindliche gläubige Auf¬<lb/>
+faſſung ihren Gott, unter dem Gewölbe der Schädeldecke wohnt nach<lb/>
+ebenſo kindlicher Auffaſſungsweiſe oder Wiſſenſchaft unſer geiſtiges<lb/>
+Weſen. Ebenſo kindlich, ſage ich, denn ſobald wir uns in uns ſelbſt<lb/>
+nur über unſer Ich irgendwie orientirt haben, ſo finden wir, daß allen<lb/>
+Vorſtellungen, die wir von unſerm Ich, von ſeinen Thätigkeiten, ſeinem<lb/>
+Denken, Fühlen und Wollen beſitzen, gar keine Beziehung auf den<lb/>
+Raum beiwohnt, daß es ein vollkommenes Unding iſt, von einem <hi rendition="#g">Sitz</hi><lb/>
+der Seele zu ſprechen. Unſer Geiſt hat ſo wenig ſeinen <hi rendition="#g">Sitz</hi> im Gehirn<lb/>
+als Rafaels Genie ſeinen Sitz im Pinſel hatte, obwohl er nur durch<lb/>
+den Pinſel wirken konnte; ſo iſt das Gehirn wohl ein Inſtrument des<lb/>
+Geiſtes aber nicht ſein Wohnort, da ihm überall keine Beziehung auf<lb/>
+das „Wo“, keine Räumlichkeit zukommt. Da nun in unſerem Vorſtel¬<lb/>
+lungskreiſe nichts, was wir als körperlich auffaſſen, ſeine Beſtimmung<lb/>
+durch den Raum, durch das „Wo“ und das „Wie groß“ ablegen kann, ſo<lb/>
+ergiebt ſich, daß wir unſer eigentliches Ich, das, was in uns denkt,<lb/>
+fühlt, will, nur als etwas dem Raum nicht angehöriges, Unkörperliches<lb/>
+auffaſſen können.</p><lb/>
+<p>Eine ſorgfältige und eindringende Kritik unſerer Vorſtellungen<lb/>
+führt uns noch zu einigen anderen ſehr wichtigen Erkenntniſſen. Zu¬<lb/>
+nächſt zerfließt uns die Raumwelt, gerade das, was dem blos ſinnlichen,<lb/>
+nicht denkenden Menſchen als das feſteſte erſcheint, bei näherer Betrach¬<lb/>
+tung unter den Händen zu einem unweſenhaften Nebelbild. Was<lb/>
+<hi rendition="#g">wirklich</hi> vorhanden, ein wahrhaftiger Gegenſtand für unſere Erkennt¬<lb/>
+niß ſein ſoll, muß doch nothwendig ein fertiges Ganze ſein und auf der<lb/>
+anderen Seite kann es als wirkliches Ganze gar nicht gedacht werden,<lb/>
+wenn es nicht aus beſtimmten, wirklichen <hi rendition="#g">d</hi>. <hi rendition="#g">h</hi>. <hi rendition="#g">einfachen</hi> Theilen<lb/>
+beſteht. — Die Außenwelt erkennen wir aber im Raume, und was im<lb/>
+<pb n="58" facs="#f0068"/>
+<fw type="header" place="top">Dritte Vorleſung.<lb/>
+</fw>Raume iſt, muß auch ſeine Eigenſchaften haben. Der Raum iſt aber<lb/>
+ſeinem Weſen nach nichts Ganzes, Fertiges, Vollendetes; über jede<lb/>
+denkbare Raumgrenze hinaus kann und muß ich immer wieder den<lb/>
+Raum bis ins Unendliche fort erſtrecken und ſomit alles, was ihn er¬<lb/>
+füllt; ſo bleibt die Raumwelt nothwendig für immer unfertig, unvoll¬<lb/>
+endet und unvollendbar. Auf der anderen Seite kann ich den Raum<lb/>
+und ſomit alles, was in ihm iſt, theilen und immer wieder theilen und<lb/>
+die Theilung wenigſtens in Gedanken mit Hülfe der Mathematik ins<lb/>
+Unendliche fortſetzen, nie komme ich auf einen letzten einfachen wirklich<lb/>
+für ſich beſtehenden Theil. So hat alſo in der That die Raumwelt<lb/>
+keine wirkliche Weſenhaftigkeit. Ich finde in meinem ganzen Vorſtel¬<lb/>
+lungskreiſe nur eins, was wirklich einfach und unzuſammengeſetzt iſt,<lb/>
+nämlich mein geiſtiges Ich, den individuellen Geiſt, dem daher allein<lb/>
+wirkliches weſenhaftes Daſein zukommen kann. Aus ſolchen Betrach¬<lb/>
+tungen entwickelte ſich der Spiritualismus der älteren Philoſophen.<lb/>
+Da aber die ganze Außenwelt im Raume doch einmal für uns wirklich<lb/>
+vorhanden erſcheint, da man im eigentlichſten Sinne des Wortes jeden<lb/>
+mit der Naſe darauf ſtoßen kann, ſo trat bei anderen Philoſophenſchu¬<lb/>
+len jenem Spiritualismus (oder Idealismus) der reine Materialismus<lb/>
+entgegen. Beide Anſchauungen ſtehen in geradeſtem Widerſpruch mit<lb/>
+einander, dieſen Widerſpruch finden wir ſobald wir in unſer eignes<lb/>
+Innere tiefer eindringen, ſogleich und ſcheinbar unauflöslich ausgeſpro¬<lb/>
+chen und er geſtaltet ſich als das, was Kant als die „Antinomieen der<lb/>
+menſchlichen Vernunft“ bezeichnete. Ueberall bei unſeren Beurtheilun¬<lb/>
+gen der Welt ſtehen ſich zwei Behauptungen direct gegenüber und doch<lb/>
+laſſen ſich beide vollkommen ſcharf und folgerichtig beweiſen. Dieſen<lb/>
+Widerſpruch löſte zuerſt Kant, indem er nachwies, daß derſelbe nur<lb/>
+<hi rendition="#g">ſubjectiv</hi>, in unſerer Auffaſſung, nicht <hi rendition="#g">objectiv</hi> in dem Weſen be¬<lb/>
+gründet iſt. „Es giebt nichts Weſenhaftes als den Geiſt, aber ſo wie<lb/>
+wir als Menſchen im Erdenleben die Dinge aufzufaſſen gezwungen<lb/>
+ſind, können wir das wahre geiſtige Weſen der Dinge in der Außen¬<lb/>
+welt nicht erfaſſen, es <hi rendition="#g">erſcheint</hi> uns vielmehr unter der Form der<lb/>
+<pb n="59" facs="#f0069"/>
+<fw type="header" place="top">Stellung des Menſchen in der Natur.<lb/>
+</fw> Körperwelt in Raum und Zeit. Jene Widerſprüche gehen daraus her¬<lb/>
+vor, daß wir die unvollkommene menſchliche Beurtheilungsweiſe auf das<lb/>
+wahre Weſen der Dinge anzuwenden verſuchen.“ Dieſe vortrefflich aus<lb/>
+gründlicher pſychologiſcher Beobachtung, d. h. aus der Erfahrung ab¬<lb/>
+geleitete Lehre nannte Kant den „<hi rendition="#g">transſcendentalen Idealis¬<lb/>
+mus</hi>“. Derſelbe wurde nur von Fries richtig verſtanden, ſchärfer aus¬<lb/>
+geführt und ſicherer begründet. So lautet das Reſultat für unſere ge¬<lb/>
+genwärtige Betrachtung, welches wir den hier unvermeidlich nur ſkiz¬<lb/>
+zenhaft vorgetragenen Lehren entlehnen: Allem Erſcheinenden liegen<lb/>
+geiſtige Weſen zu Grunde, deren Exiſtenz der Menſch aber nur in ſich<lb/>
+ſelbſt findet, deren freie unbeſchränkte Natur er eben als Menſch, ſo<lb/>
+lange ſein eigner Geiſt in dieſer irdiſchen Gebundenheit exiſtirt, nicht<lb/>
+begreifen, d. h. ſich auf deutliche Begriffe zurückführen kann, für das<lb/>
+wiſſenſchaftliche Begreifen bleibt er hier an die Auffaſſung in Raum<lb/>
+und Zeit gebunden.</p><lb/>
+<p>Aber daneben wird uns noch ein anderes Verhältniß bei Behand¬<lb/>
+lung der hier vorliegenden Frage von durchgreifender Wichtigkeit. Un¬<lb/>
+ſer Gebundenſein an die Formen von Raum und Zeit und insbeſondere<lb/>
+auch die Zeitlichkeit aller unſerer Vorſtellungen hat zur unmittelbaren<lb/>
+Folge eine Erſcheinung, die uns eine auch nur ſehr flüchtige Selbſter¬<lb/>
+kenntniß als unumſtößlichen Erfahrungsſatz aufdrängt, daß nämlich<lb/>
+hier auf Erden immer augenblicklich nur ein Theil unſeres ganzen gei¬<lb/>
+ſtigen Eigenthums, nur ein Theil der uns doch ſämmtlich angehören¬<lb/>
+den Vorſtellungen in unſerem Bewußtſein gegenwärtig iſt, daß unſere<lb/>
+Vorſtellungen beſtändig wechſeln, vor unſerm Bewußtſein erſcheinen,<lb/>
+wieder demſelben ſich entziehen, und nach einiger Zeit wieder hervor¬<lb/>
+treten. Deshalb wird die erſte Grundlage für eine jede erfahrungsmä¬<lb/>
+ßig feſtzuſtellende Pſychologie eine genaue Erfahrung des Verhältniſſes<lb/>
+in welchem unſere Vorſtellungen d. h. unſer ganzes geiſtiges Weſen<lb/>
+und Leben zu unſerem Bewußtſein ſteht. Die Erforſchung und Aufklä¬<lb/>
+rung dieſes Verhältniſſes vollendet und ſichert erſt die großen Kanti¬<lb/>
+ſchen Endeckungen und dafür hat ſich eben Fries das unſterbliche Ver¬<lb/>
+<pb n="60" facs="#f0070"/>
+<fw type="header" place="top">Dritte Vorleſung.<lb/>
+</fw>dienſt erworben. — Beobachtung lehrt uns ſehr bald, daß dasjenige<lb/>
+Gebiet unſeres Geiſtes, deſſen wir uns in jedem Augenblicke bewußt<lb/>
+ſind, einen ſehr veränderlichen von körperlichen Zuſtänden abhängigen<lb/>
+Umfang hat, in der erſten Kindheit, im Schlafe, in gewiſſen Krankhei¬<lb/>
+ten verſchwindend klein iſt, in der vollendeten Kraft unſerer Entwicke¬<lb/>
+lung am größten erſcheint und dazwiſchen alle Mittelſtufen durchläuft.<lb/>
+Ebenſo iſt dieſes Gebiet wie oben ſchon angedeutet für die verſchiede¬<lb/>
+nen Individuen, wie Völker äußerſt verſchieden. Bei den Einen ent¬<lb/>
+ſpricht es während des ganzen Lebens nur dem nebelhaften Halbbe¬<lb/>
+wußtſein des Kindes, bei anderen beſonders einzelnen eminenten Gei¬<lb/>
+ſtern kann es zu einer außerordentlichen Klarheit und zu einem großen<lb/>
+Umfang entwickelt ſein. Jedes Individuum macht hier die Erfahrung,<lb/>
+daß dieſe Entwicklung zu einer vollendeteren Bewußtſeinsſtufe von zwei<lb/>
+Verhältniſſen abhängt, — einmal von der natürlichen Anlage des kör¬<lb/>
+perlichen Organs, die im Großen, wie die Vorzüge unſerer Haus¬<lb/>
+thiere, raſſenmäßig, alſo nach Volksſtämmen, bedingt iſt, und aus¬<lb/>
+nahmsweiſe in der körperlichen Begünſtigung eines Einzelnen gegeben<lb/>
+wird — anderſeits aber auch von dem Grade der Aufmerkſamkeit, des<lb/>
+Fleißes, der Denkanſtrengung, die jeder Einzelne auf die Entwicklung<lb/>
+ſeines geiſtigen Lebens verwendet, abhängig wird und dadurch zu einem<lb/>
+höheren Grade der Vollkommenheit gebracht werden kann. Erfahrungs¬<lb/>
+mäßig grenzt der Zuſtand des Schlafwandlers, des Kindes, der auf<lb/>
+der tiefſten Stufe ſtehenden Nationen wie der Auſtralneger unmittelbar<lb/>
+an den ſchlummernden Zuſtand, in welchem ſich das geiſtige Weſen bei<lb/>
+den höheren Thieren befindet.</p><lb/>
+<p>Faſſen wir nun alle dieſe Andeutungen, denn mehr als ſolche wä¬<lb/>
+ren hier nicht am Platze geweſen, zuſammen und wenden ſie auf die<lb/>
+Frage nach der Stellung des Menſchen zum Thiere an, ſo erhalten wir<lb/>
+folgende Antwort. — Die irdiſche Erſcheinung unſeres Geiſtes iſt an<lb/>
+ein körperliches Organ, das Gehirn gebunden, jeder Aeußerung geiſti¬<lb/>
+gen Lebens entſpricht ein Organiſationsverhältniß und eine Thätigkeit<lb/>
+desſelben. Unter allen Erſcheinungen des Geiſteslebens iſt das Be¬<lb/>
+<pb n="61" facs="#f0071"/>
+<fw type="header" place="top">Stellung des Menſchen in der Natur.<lb/>
+</fw>wußtſein, durch welches wir eben zur Erkenntniß unſeres geiſtigen We¬<lb/>
+ſens kommen die höchſte, auch ihr muß eine beſtimmte Organiſation<lb/>
+des Gehirns entſprechen. Wie jeder Theil des Körpers kann auch die¬<lb/>
+ſer Theil mehr oder weniger vollkommen ausgebildet werden. — Der<lb/>
+Unterſchied zwiſchen Thier und Menſchen beſteht alſo im Allgemeinen<lb/>
+darin, daß das Gehirn des letzteren ſo entwickelt iſt, daß er ſich ſeiner<lb/>
+ſelbſt bewußt werden und damit gleichſam ſich ſelbſt in Beſitz nehmen<lb/>
+<hi rendition="#g">kann</hi>. Der Unterſchied zwiſchen Thier und Menſchen beſteht aber auch<lb/>
+nur in dieſer Möglichkeit. Für die Realiſirung des Unterſchieds bleibt<lb/>
+das angegebene Merkmal des Bewußtſeins nur eine Aufgabe, die er<lb/>
+mit allen ſeinen Kräften, ſo weit wie es dem körperlich gebundenen<lb/>
+Menſchen überhaupt möglich iſt, zu löſen hat. Sobald eine Körper¬<lb/>
+form, die vom Affen, wenn auch in langen Generationsreihen abge¬<lb/>
+wandelt iſt, gerade in dieſer Beziehung begünſtigt wurde, daß das ent¬<lb/>
+wickeltere Gehirn das allmählich aufdämmernde geiſtige Selbſtbewußt¬<lb/>
+ſein möglich macht, ſo iſt damit gleichſam die Schöpfung des Menſchen<lb/>
+vollendet, zu der Entwicklung der körperlichen Form tritt nun plötzlich<lb/>
+der göttliche Odem, die Fähigkeit ſich ſeiner geiſtigen Weſenhaftigkeit<lb/>
+bewußt zu werden, und damit die Möglichkeit der Zweckſetzung und der<lb/>
+Selbſterziehung damit zugleich die unendlich viel vortheilhaftere Stel¬<lb/>
+lung im Vergleich mit den nächſt verwandten Thieren, welche dem<lb/>
+Menſchen ſeine Dauer und ſeine Herrſchaft über die anderen Geſchöpfe<lb/>
+ſichert. Nun beginnt innerhalb dieſer vollkommneren Geſchöpfe eine<lb/>
+ganz neue Geſchichte der Erde in der allmählichen Ausbildung dieſer<lb/>
+Geſchöpfe, und dem allmählichen Fortſchritt bis zur höchſten Vollen¬<lb/>
+dung, deren der Menſch fähig iſt, welche ſich aber bis jetzt nur in ein¬<lb/>
+zelnen Individuen und auch bei dieſen faſt immer nur einſeitig ausge¬<lb/>
+prägt hat. Ich möchte unter den mir bekannt gewordenen Menſchen<lb/>
+einen Plato, Galilei, Leſſing, Kant und Goethe als die am meiſten all¬<lb/>
+ſeitig Entwickelten nennen.</p><lb/>
+<p>Geiſtiges Weſen liegt allen körperlichen Erſcheinungen zum<lb/>
+Grunde, nur im Menſchen erſcheint es mit der Fähigkeit ſich ſeiner<lb/>
+<pb n="62" facs="#f0072"/>
+<fw type="header" place="top">Dritte Vorleſung. Stellung des Menſchen in der Natur.<lb/>
+</fw>geiſtigen Natur ſelbſt bewußt zu werden. Wenn wir körperlich vom<lb/>
+Affen abſtammen, ſo iſt damit keine Entwürdigung des Menſchen aus¬<lb/>
+geſprochen, denn jene <hi rendition="#g">Fähigkeit</hi> des Selbſtbewußtſeins bildet eine<lb/>
+unendliche Kluft, über die keine Dreſſur, keine Erziehung den Affen<lb/>
+hinausheben kann und welche bleibt, wenn die Fähigkeit auch bei Ein¬<lb/>
+zelnen noch ſo wenig entwickelt iſt, und auf den niederſten Stufen ſich<lb/>
+bis zur Verwechslung an die Stufe der Thierheit anzuſchließen ſcheint.<lb/>
+Weit entfernt materialiſtiſch auszulaufen, giebt uns auch dieſe natur¬<lb/>
+wiſſenſchaftliche Unterſuchung einen neuen Eingang in das Gebiet des<lb/>
+Geiſtes.</p><lb/>
+<milestone unit="section" rendition="#hr"/> </div> </body> <back> <div type="imprint"> <p>Druck von Breitkopf und Härtel in Leipzig.</p><lb/>
+</div>
+<pb facs="#f0073"/>
+<pb facs="#f0074"/>
+<div type="advertisement"> <p>Bei <hi rendition="#b">Wilhelm Engelmann</hi> in <hi rendition="#g">Leipzig</hi> erſchien ferner:</p><lb/>
+<p>Ueber den Materialismus<lb/>
+<hi rendition="#b #g">der neueren deutſchen Naturwiſſenſchaft,</hi><lb/>
+ſein Weſen und ſeine Geſchichte.<lb/>
+<hi rendition="#g">Zur Verſtändigung für die Gebildeten<lb/>
+von</hi><lb/>
+<hi rendition="#b">M. J. Schleiden</hi>, <hi rendition="#aq">Dr.</hi><lb/>
+gr. 8. br. 12 Ngr.</p><lb/>
+<p> <hi rendition="#b #g">Die Pflanze und ihr Leben.</hi><lb/>
+<hi rendition="#g">Populäre Vorträge</hi><lb/>
+von<lb/>
+<hi rendition="#b">M. J. Schleiden</hi>, <hi rendition="#aq">Dr.</hi><lb/>
+<hi rendition="#b #g">Fünfte verbeſſerte Auflage.</hi><lb/>
+Mit einer in <hi rendition="#g">Oelfarben gedruckte</hi>n Copie eines auf der Dresdener Gallerie befindlichen<lb/>
+<hi rendition="#g">Fruchtſtückes</hi> von <hi rendition="#b">J.D. de Heem,</hi> 14 Blättern gezeichnet von <hi rendition="#b">W. Georgy,</hi> in Holz geſchnit¬<lb/>
+ten von <hi rendition="#b">Flegel,</hi> 5 Kupfertafeln und neuem allegoriſchen Umſchlag.<lb/>
+gr. 8. broſch. 3 Thlr. 10 Ngr.</p><lb/>
+<p>Studien.<lb/>
+<hi rendition="#g">Populäre Vorträge</hi><lb/>
+von<lb/>
+<hi rendition="#b">M. J . Schleiden</hi>, <hi rendition="#aq">Dr</hi>.<lb/>
+Prof. in Jena.<lb/>
+<hi rendition="#b">Zweite umgearbeitete und vermehrte Auflage.</hi><lb/>
+Mit dem wohlgetroffenen Bildniß des <hi rendition="#g">Verfaſſers</hi>, einer Anſicht, einer Karte der<lb/>
+Nordpol-Expeditionen und drei lithogr. Tafeln.<lb/>
+gr. 8. <hi rendition="#g">In elegantem Umſchlag</hi>, 3 Thlr.</p><lb/>
+<p>Grundzüge<lb/>
+der wissenschaftlichen Botanik<lb/>
+<hi rendition="#aq">nebſt einer methodologiſchen Einleitung</hi><lb/>
+<hi rendition="#aq #b">als Anleitung zum Studium der Pflanze</hi><lb/>
+von<lb/>
+M. J. Schleiden, Dr.<lb/>
+Vierte vom Verfasser durchgesehene Auflage.<lb/>
+Mit 288 Holzschnitten und 5 Kupfertafeln.<lb/>
+<hi rendition="#aq">gr</hi>. 8. <hi rendition="#aq">brosch.</hi> 4 <hi rendition="#aq">Thlr</hi>. 25 <hi rendition="#aq">Ngr.</hi></p><lb/>
+</div> <div type="imprint">     <p rendition="#c">Druck von Breitkopf und Härtel in Leipzig.</p><lb/>
+</div>
+<pb facs="#f0075"/>
+<pb facs="#f0076"/>
+<pb facs="#f0077"/>
+</back> </text> </TEI>

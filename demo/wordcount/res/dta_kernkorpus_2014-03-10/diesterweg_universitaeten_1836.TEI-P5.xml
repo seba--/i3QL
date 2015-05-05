@@ -1,0 +1,2845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+       <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Ueber das Verderben auf den deutschen Universitäten</title>
+<title type="sub">Dritter Beitrag zur Lösung der Aufgabe dieser Zeit</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118525484">
+<surname>Diesterweg</surname>
+<forename>Adolph</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">97</measure>
+<measure type="tokens">20836</measure>
+<measure type="types">5210</measure>
+<measure type="characters">150722</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T12:05:18Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/diesterweg_universitaeten_1836</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/diesterweg_universitaeten_1836</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/diesterweg_universitaeten_1836</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/diesterweg_universitaeten_1836</idno>
+<idno type="DTADirName">diesterweg_universitaeten_1836</idno>
+<idno type="DTAID">17186</idno>
+<idno type="URN">urn:nbn:de:kobv:b4-20090519960</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Diesterweg, Adolph: Über das Verderben auf den deutschen Universitäten. Essen, 1836.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Ueber das Verderben auf den deutschen Universitäten</title>
+<title level="m" type="sub">Dritter Beitrag zur Lösung der Aufgabe dieser Zeit</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118525484">
+<surname>Diesterweg</surname>
+<forename>Adolph</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">XII, 76 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Bädeker</name></publisher>
+<pubPlace>Essen</pubPlace>
+<date type="publication">1836</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Staatsbibliothek zu Berlin – Preußischer Kulturbesitz</repository>
+<idno>
+<idno type="shelfmark">SBB-PK, Fb 13125-2/3</idno>
+<idno type="URLCatalogue">http://stabikat.de/DB=1/SET=12/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=597807566</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Pädagogik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Pädagogik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds2main">Gebrauchsliteratur</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[I]" facs="#f0007"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#g">Die</hi><lb/>
+<hi rendition="#b">Lebensfrage der Civiliſation.<lb/>
+(<hi rendition="#g">Fortſetzung</hi>.)</hi><lb/>
+<hi rendition="#g">Oder:</hi><lb/>
+Ueber das Verderben auf den deutſchen<lb/>
+<hi rendition="#g">Univerſitaͤten</hi>.</titlePart><lb/>
+<milestone unit="section" rendition="#hr"/>
+ <titlePart type="sub"><hi rendition="#b"><hi rendition="#g">Dritter Beitrag</hi></hi><lb/>
+<hi rendition="#g">zur Loͤſung der Aufgabe dieſer Zeit</hi>.</titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/>
+ <byline><hi rendition="#g">Von</hi><lb/>
+<docAuthor><hi rendition="#b"><hi rendition="#aq">Dr.</hi> F. A. W. Diesterweg.</hi></docAuthor></byline><lb/>
+<milestone unit="section" rendition="#hr"/>
+ <epigraph><cit><quote><hi rendition="#et">„Die Licht- und Schattenſeiten des Alten und<lb/>
+des Neuen ſoll man erforſchen, entwickeln,<lb/>
+reformiren; aber weder rückwärts noch vor-<lb/>
+wärts revolutioniren.“</hi></quote><lb/>
+<bibl>v. <hi rendition="#g">Raumer</hi>, England im Jahre 1835.<lb/>
+S. 168.</bibl></cit></epigraph><lb/>
+<milestone unit="section" rendition="#hr"/>
+ <docImprint><pubPlace><hi rendition="#g">Eſſen</hi>,</pubPlace><lb/>
+<publisher><hi rendition="#b"><hi rendition="#g">bei G. D. Bädeker</hi>.</hi></publisher><lb/>
+<docDate><hi rendition="#b">1836.</hi></docDate></docImprint></titlePage><lb/>
+<pb n="[II]" facs="#f0008"/>
+<pb n="[III]" facs="#f0009"/>
+<milestone unit="section" rendition="#hr"/>
+ <div n="1"><head><hi rendition="#b"><hi rendition="#g">Vorwort</hi>.</hi></head><lb/>
+<milestone unit="section" rendition="#hr"/>
+ <p><hi rendition="#in">D</hi>ie naͤchſte Veranlaſſung zur Abfaſſung der vorlie-<lb/>
+genden kleinen Schrift brachte „<hi rendition="#g">Franz Theremin’s</hi><lb/>
+Wort uͤber die deutſchen Univerſitaͤten“. So ſehr ich den<lb/>
+Vorſchlag des Hrn. Verfaſſers billigen muß, ſo kann<lb/>
+ich doch die fuͤr nothwendig erklaͤrte Verbeſſerung oder<lb/>
+Umgeſtaltung der Univerſitaͤten von einem ſo verein-<lb/>
+zelten, partiellen Mittel nicht erwarten. Wie kann<lb/>
+eine einzige Maßregel ſo große Dinge thun? Die<lb/>
+Maͤngel und Gebrechen auf den deutſchen Univerſitaͤten<lb/>
+ſind dafuͤr viel zu zahlreich, zu umfaſſend. Man muß<lb/>
+ſie, ſollen ſie weichen, von vielen Seiten angreifen;<lb/>
+ſonſt flickt man mit einem neuen Lappen ein Gewand,<lb/>
+das ſehr alt iſt. Vor dreihundert Jahren hat man es<lb/>
+angefertigt. Der Riß koͤnnte noch aͤrger werden.</p><lb/>
+<p>Die Zeit, in der wir leben, kommt mir wie eine<lb/>
+<hi rendition="#g">ungeheure</hi> Zeit vor; ungeheuer wegen ihrer Wich-<lb/>
+tigkeit fuͤr die naͤchſten Jahrhunderte, weil ſie an dem<lb/>
+<fw type="sig" place="bottom">1*</fw><lb/>
+<pb n="IV" facs="#f0010"/>
+Fundament fuͤr dieſelben arbeitet; ungeheuer wegen<lb/>
+der Kraͤfte, die ihr zu Gebote ſtehen, wenn man ſie<lb/>
+fuͤr die Grundlegung und fuͤr die Anbahnung einer<lb/>
+wirklich neuen Zeit zu benutzen verſtehen moͤchte; un-<lb/>
+geheuer wegen der Verantwortung, die diejenigen un-<lb/>
+ter uns, deren Finger den langen Hebel der morali-<lb/>
+ſchen und phyſiſchen Kraͤfte der Gegenwart lenkt, zu<lb/>
+uͤbernehmen haben. Es kommt mir vor, als waͤre<lb/>
+jeder Tag, jede Stunde von ſchwerem Gewicht. Die-<lb/>
+ſes Gefuͤhl beherrſcht mich oft in ſolchem Grade, daß<lb/>
+mir der Leichtſinn der Zeitgenoſſen wie eine ungeheure<lb/>
+Ironie des Schickſals erſcheint. Wir ſollten, meine<lb/>
+ich, Tag und Nacht darauf ſinnen, wie wir die Auf-<lb/>
+gabe der Zeit, ich meine jene Fundamentirung fuͤr<lb/>
+Jahrhunderte, loͤſen koͤnnten; wir ſollten nur den<lb/>
+ſchweren Ernſt auf der Stirne, die Gediegenheit auf<lb/>
+der Zunge, die Gewiſſenhaftigkeit im Herzen haben<lb/>
+und — der Leichtſinn iſt den Zeitgenoſſen auf die<lb/>
+Stirne geſchrieben, ihre Zunge theilt nur Anekdoten<lb/>
+und Witzworte mit, und ihr Herz haͤngt an den ſinn-<lb/>
+lichen Freuden der Welt, die voruͤberrauſchen wie ein<lb/>
+Gaſtmahl, eine Carnevalsluſt und ein Ballet, und<lb/>
+nichts in dem Herzen zuruͤcklaſſen als eine ſchauerliche<lb/>
+Oede, die man durch neue raffinirte Luſt zu verſcheu-<lb/>
+chen ſucht. Als haͤtte das Horn des Huͤon alle im<lb/>
+Sinnenrauſch mit ſich fortgeriſſen, oder Mephiſtophe-<lb/>
+les durch die ſophiſtiſchen Lehren des praktiſchen Ma-<lb/>
+<pb n="V" facs="#f0011"/>
+terialismus und verfeinerten Epikuraͤismus alle ver-<lb/>
+nuͤnftige Beſinnung den Zeitgenoſſen geraubt, ſo ren-<lb/>
+nen ſie, die ich meine, in Leichtſinn, Beſinnungslo-<lb/>
+ſigkeit und Haſt den kommenden Zeiten entgegen, daß<lb/>
+man fuͤrchten muß, die Beſinnung wird erſt kommen,<lb/>
+daruͤber, was man haͤtte thun ſollen, wenn es zu<lb/>
+ſpaͤt iſt. Dieſes furchtbare Wort: „es iſt zu ſpaͤt!“<lb/>
+wird es ertoͤnen? Gott wolle uns davor bewahren.<lb/>
+Ungeachtet des Leichtſinnes der Zeit, dieſer ſo weit<lb/>
+verbreiteten Peſt, waͤhnet man, ihm zu entgehen oder<lb/>
+es auf ewig hinauszuſchieben, gleich Carl <hi rendition="#aq">X.</hi>, der am<lb/>
+Whiſttiſche ſaß, waͤhrend des Ablaufes der letzten 24<lb/>
+Stunden ſeiner Herrſchaft. Als dieſe verfloſſen waren<lb/>
+und er ſich beſinnen wollte, mußte er von ſeinen Un-<lb/>
+tergebenen das gewichtige Wort hoͤren: „Sire, es iſt<lb/>
+zu ſpaͤt!“ <hi rendition="#g">Sire — es iſt zu ſpaͤt</hi>! kann eine groͤ-<lb/>
+ßere Ironie des Schickſals gedacht werden? Moͤchte<lb/>
+es <hi rendition="#g">fuͤr uns</hi> nie zu ſpaͤt werden! Darum thue man<lb/>
+bei Zeiten, was die Zeit fordert, man beſſere an ſich,<lb/>
+man geſtalte um, was ſchlecht iſt. Ich <hi rendition="#g">erinnere</hi><lb/>
+darum hier nochmals an zwei der — nach meinem<lb/>
+Ermeſſen — dringendſten Zeitbeduͤrfniſſe: Bildung<lb/>
+corporativer Inſtitutionen durch alle Staͤnde des Vol-<lb/>
+kes hindurch, und geregelte, geſetzliche Sorge fuͤr die<lb/>
+unteren Klaſſen, in phyſiſch-oͤkonomiſcher, wie in<lb/>
+moraliſch-intellectueller Hinſicht. Das Erſte habe ich<lb/>
+in den beiden vorhergehenden Broſchuͤren <hi rendition="#g">angedeutet</hi>,<lb/>
+<pb n="VI" facs="#f0012"/>
+das Zweite darin als begruͤndet nachgewieſen. Das<lb/>
+<hi rendition="#g">Dritte</hi>, das ich nun vorſchlage, iſt weniger wichtig,<lb/>
+weniger weit greifend, aber wichtig genug.</p><lb/>
+<p>Es iſt ein trauriges Geſchaͤft, den Anklaͤger der<lb/>
+Zeit zu machen. Wie viel gluͤcklicher ſind diejenigen,<lb/>
+welche aus <hi rendition="#g">Ueberzeugung</hi> die Zeit, in der ſie le-<lb/>
+ben, loben, die Perſonen, die als bewegende Factoren<lb/>
+daſtehen, als die Heroen der Zeit preiſen koͤnnen! Der<lb/>
+Beifall der Welt entgeht ihnen nicht, und die Guͤter<lb/>
+derſelben ſammeln ſich bei ihnen zu Hauf. Nach die-<lb/>
+ſem Gluͤcke kann ich nicht ſtreben; meine Ueberzeugung<lb/>
+laͤßt es nicht zu. Mir faͤrbt ſich Vieles, was Andern<lb/>
+ſchneeweiß leuchtet, grau in grau oder grau in ſchwarz.<lb/>
+Das Alles zu nennen und zu bezeichnen, verbieten<lb/>
+Umſtaͤnde und Verhaͤltniſſe. Aber was man ſagt, es<lb/>
+ſei wahr, d. h. der ſubjectiven Ueberzeugung gemaͤß:<lb/>
+fuͤr mehr kann der irrende Sterbliche nicht einſtehen.</p><lb/>
+<p>Es iſt ein reales Ungluͤck fuͤr jeden Menſchen,<lb/>
+wenn ſein Intereſſe ihn auf Gegenſtaͤnde hinlenkt, de-<lb/>
+ren richtige Beurtheilung uͤber (unter) ſeinem Hori-<lb/>
+zonte liegt. Denn Nicht-Wiſſen iſt beſſer als Irr-<lb/>
+thum, und Schweigen beſſer als Reden des Schiefen<lb/>
+oder Falſchen. Ob dieſes Ungluͤck mir begegnet iſt,<lb/>
+es iſt moͤglich. Ich wuͤrde es dem danken, der mich<lb/>
+davon uͤberzeugte. Ich wuͤrde mein Nachdenken dann<lb/>
+andern Gegenſtaͤnden, in denen ich gluͤcklicher zu ſein<lb/>
+hoffen duͤrfte, zuwenden.</p><lb/>
+<pb n="VII" facs="#f0013"/>
+<p>Ich war einſt auf Univerſitaͤten. Ich habe in<lb/>
+den Vorleſungen nicht viel gelernt, nicht viel mehr<lb/>
+mitgenommen, als ich mit hingebracht. Sie waren<lb/>
+darnach. Monotoner Vortrag, mechaniſcher Pedantis-<lb/>
+mus, geiſtloſes Weſen! Aber ich liebe die Univerſitaͤ-<lb/>
+ten, weil es deutſche Inſtitute ſind; unſere Hochſchu-<lb/>
+len, weil ich Erziehung und Bildung uͤber Alles ſchaͤtze.<lb/>
+Aber die Liebe verbirgt mir ihre Fehler nicht. Ver-<lb/>
+nuͤnftige Eltern ſind nicht blind gegen die Fehler ihrer<lb/>
+Kinder, vielmehr kennen ſie dieſelben am beſten. Gleich<lb/>
+ihnen will ich dieſe Fehler beſehen, aufdecken, beſpre-<lb/>
+chen. Nicht aus Liebe zum Tadel, ſondern aus Liebe<lb/>
+zur Sache ſage ich, daß die Univerſitaͤten mir nicht viel<lb/>
+gebracht, weil ſie darnach waren, meinend, daß ſie An-<lb/>
+dern, wenn man ſie danach einrichtete, viel mehr lei-<lb/>
+ſten koͤnnten. Dazu will ich nach meinen Kraͤften und<lb/>
+Einſichten beitragen. „Was geht es Dich an?“ moͤgen<lb/>
+Einige wieder ſprechen. Ich laſſe mich nicht ſchrecken.<lb/>
+Es geht mich an, weil es meine Seele beruͤhrt. Wenn<lb/>
+es <hi rendition="#g">falſch</hi> iſt, daß der Freund des Vaterlandes, der<lb/>
+thaͤtige Genoſſe ſeiner Freuden und Leiden, von Allem,<lb/>
+was das Vaterland betrifft, beruͤhrt werde; ſo weiß<lb/>
+ich nicht mehr, was wahr iſt. Auf dieſem Stand-<lb/>
+punkte kann ich nur wuͤnſchen, daß Alle an Allem<lb/>
+Theil nehmen moͤchten. Dann ſtaͤnde es beſſer um die<lb/>
+Gemeinſchaft, als bei den herrſchenden Maximen, un-<lb/>
+ter deren Herrſchaft ſich der Einzelne nur bekuͤmmert<lb/>
+<pb n="VIII" facs="#f0014"/>
+um die Seinigen und um den Acker, der ihm zur<lb/>
+Bearbeitung uͤbergeben iſt, unbekuͤmmert um die Ge-<lb/>
+meinſchaft.</p><lb/>
+<p>Nach meinem Beduͤnken ſind die Univerſitaͤten ver-<lb/>
+altete Inſtitute. Sie beduͤrfen einer Reform. Ich<lb/>
+ſuche die Nothwendigkeit derſelben nachzuweiſen. Ich<lb/>
+erhebe zum Theil eine Anklage gegen ſie, in ernſter,<lb/>
+directer Rede. Waͤre auch der Humor mir eigen, ich<lb/>
+wuͤrde ſeinen Gebrauch im vorliegenden Falle verſchmaͤ-<lb/>
+hen. Er paßt nicht zu einer ſo ernſten Sache. Ich<lb/>
+will nicht unterhalten, nicht beluſtigen, ſtrebe nicht<lb/>
+nach der Eitelkeit, daß man ſich einige Abende von<lb/>
+den Hiſtoͤrchen, die ich mittheile, unterhalte — ich will<lb/>
+nuͤtzen. Ich wuͤnſche, daß man die inhaltſchwere Sa-<lb/>
+che, von der die Rede iſt, wie eine centnerſchwere<lb/>
+Maſſe fuͤhle, wie einen Alp, der uns zu erdruͤcken<lb/>
+droht, wie ein Gift, daß unſer reinſtes Herzblut, die<lb/>
+Bluͤthe der Nation, vergiften kann. Die ſchwerſte<lb/>
+Anklage, die auf Sokrates ruhte, war: er verderbe<lb/>
+die Jugend. Dieſelbe Anklage erhebe ich gegen unſre<lb/>
+Univerſitaͤten. Sie werden ſich ſchwerlich ſo rein wa-<lb/>
+ſchen koͤnnen, als jener es konnte.</p><lb/>
+<p>Ich habe Staatswiſſenſchaften nicht ſtudirt, mich<lb/>
+auf Politik nicht gelegt. Darum traue ich mir kein<lb/>
+ſicheres Urtheil uͤber allgemeine Angelegenheiten zu.<lb/>
+Es ſind dieß ſehr ſchwere Dinge. Aber ich kann mich<lb/>
+<pb n="IX" facs="#f0015"/>
+des Gedankens nicht erwehren, daß in ihnen Manches<lb/>
+ſchlecht beſtellt ſein muͤſſe, weil ein Inſtitut wie die<lb/>
+Univerſitaͤt, das von den oͤffentlichen Angelegenheiten<lb/>
+beſtimmt und geregelt wird, an ſo großen Gebrechen<lb/>
+leidet. Ich meine, daß wenn jene Quelle reines Waſ-<lb/>
+ſer lieferte, ſich hier nicht ſo viel Schlamm abgeſetzt<lb/>
+haben koͤnnte. Denn von den oͤffentlichen Angelegen-<lb/>
+heiten gilt doch auch als Maßſtab das Wort: „an<lb/>
+ihren Werken ſollt ihr ſie erkennen!“ Darum und<lb/>
+auch aus einigen andern Gruͤnden, deren Aufzaͤhlung<lb/>
+nicht dieſes Ortes iſt, ſchließe ich, daß das Verderben<lb/>
+eine groͤßere Sphaͤre habe, als die Univerſitaͤten. Dies<lb/>
+ſage ich offen, weil ich es denke. Wenn Jemand, ſo<lb/>
+wuͤnſchte <hi rendition="#g">ich</hi>, daß es anders ſich verhalten, daß ich<lb/>
+im Irrthum befangen ſein moͤchte. Denn ich wuͤnſche<lb/>
+das Beſſere, und dieſes Verlangen fuͤhrt mir die Fe-<lb/>
+der. Es iſt ſchmerzlich, Wunden beruͤhren, und ſich<lb/>
+der Gefahr preis geben zu muͤſſen, ſich, trotz des lau-<lb/>
+teren Willens, Feinde zu erwecken. Aber die Ueber-<lb/>
+zeugung iſt maͤchtiger als alle dieſe Hinderniſſe. Es<lb/>
+iſt moͤglich, daß man mir, wenn ich von der Noth-<lb/>
+wendigkeit der Umaͤnderung der Univerſitaͤten und deſ-<lb/>
+ſen, was ſeitwaͤrts und daruͤber hinaus liegt, rede,<lb/>
+demagogiſche Abſichten zutraut. Aber meine Rede iſt<lb/>
+ja der Cenſur unterworfen. Streiche ſie, was ihr<lb/>
+nicht gefaͤllt! Ich will nichts ſagen, was Schaden<lb/>
+ſtiften kann; ich will nuͤtzen. Und die Cenſur ſoll<lb/>
+<pb n="X" facs="#f0016"/>
+mir eine Buͤrgſchaft fuͤr die Meinung ſein, daß meine<lb/>
+Worte nicht fuͤr eitel unnuͤtz und nichtig erklaͤrt werden.</p><lb/>
+<p>In dem Abſchnitte, in welchem ich von den Uni-<lb/>
+verſitaͤtslehrern rede, ſage ich: <hi rendition="#g">ſie, die Profeſſo-<lb/>
+ren</hi>, d. h. ich rede ſo, als wenn ich <hi rendition="#g">alle meinte</hi>.<lb/>
+Aber das iſt nicht meine Meinung.</p><lb/>
+<p>Wie koͤnnte ich die trefflichen, hochſtehenden, ver-<lb/>
+ehrungswuͤrdigen Maͤnner mit Vorwuͤrfen belaſten wol-<lb/>
+len, die wir noch zu beſitzen das Gluͤck haben? Ich<lb/>
+beuge mich vor ihnen, ich verehre ſie, ihr Streben<lb/>
+und Wirken. Mit jenem „<hi rendition="#g">ſie</hi>“ meine ich nur die,<lb/>
+die es trifft, diejenigen, die zu der Kategorie, die ich<lb/>
+charakteriſire, gehoͤren. Darum mißverſtehe, verdrehe<lb/>
+man meine Worte, meine Abſicht nicht!</p><lb/>
+<p>Ob — wenn anders die Anklage, die ich erhebe,<lb/>
+wahr iſt, ganz, oder auch nur zum Theil — die Ur-<lb/>
+ſache dieſer Verdorbenheit in ihrer letzten Ableitung<lb/>
+den Lehrern ſelbſt zugeſchrieben werden muͤſſe, oder ob<lb/>
+ſie Einfluͤſſen unterliegen, die zu maͤchtig ſind, als daß<lb/>
+ſie ihnen zu widerſtehen vermoͤchten; ob das Uebel in<lb/>
+den Univerſitaͤten ſelbſt liegt, oder ob es ein tiefer lie-<lb/>
+gendes, allgemeineres, in der ſonderbaren Sprache der<lb/>
+neueſten Schule ein geſchichtlich nothwendiges iſt, —<lb/>
+dieſes zu beurtheilen uͤberlaſſe ich dem Beobachter der<lb/>
+Lebenserſcheinungen, demjenigen, der es weiß, daß es<lb/>
+keine iſolirte Erſcheinung im Leben eines Volkes giebt.<lb/>
+<pb n="XI" facs="#f0017"/>
+Ich halte das Verderbliche auf den Univerſitaͤten fuͤr<lb/>
+das Symptom eines viel allgemeineren Verderbens.<lb/>
+In dieſer Anſicht finde ich eine Entſchuldigung der an-<lb/>
+geklagten Anſtalt, aber keine Rechtfertigung. Denn die<lb/>
+Profeſſoren ſind die natuͤrlichen Vertreter der hohen<lb/>
+Intereſſen, die ihrer Fuͤrſorge anvertraut ſind. Von<lb/>
+ihnen fordert man es mit Recht, auf die Abſtellung<lb/>
+der Maͤngel und Gebrechen zu dringen, die innerhalb<lb/>
+und außerhalb ihrer Sphaͤre liegen.</p><lb/>
+<p>Vom Leben oder vom Zeitgeiſte ſind auch die Ge-<lb/>
+lehrten zum Theil abhaͤngig. Was die Zeit nicht hat,<lb/>
+kann man auch von ihnen nicht fordern. Aber mit<lb/>
+Recht erwartet man, daß ſie, bekannt und vertraut<lb/>
+mit dem Beſten aller Zeiten, und wegen ihrer Be-<lb/>
+ſtimmung, das Muſterguͤltige und Klaſſiſche feſtzuhal-<lb/>
+ten und in die Gegenwart einzufuͤhren, am letzten den<lb/>
+falſchen Richtungen und Beſtrebungen der Zeit huldi-<lb/>
+gen, und durch Intelligenz und Beiſpiel einen Damm<lb/>
+bilden gegen das Verderben in Wiſſenſchaft und Kunſt,<lb/>
+Religion und Sitte. Das Amt eines akademiſchen<lb/>
+Lehrers iſt bis heute von der deutſchen Nation fuͤr ein<lb/>
+Ehrenamt gehalten worden. Darum erklaͤrt man es<lb/>
+auch mit Recht fuͤr ſie fuͤr eine Ehrenſache, hinter den<lb/>
+Anforderungen der Zeit nicht zuruͤckzubleiben und zu<lb/>
+Reformen die Hand zu bieten, deren Erſpießlichkeit<lb/>
+und Nothwendigkeit nicht laͤnger wird geleugnet wer-<lb/>
+den koͤnnen.</p><lb/>
+<pb n="XII" facs="#f0018"/>
+<p>Nun empfehle ich dem Leſer noch vorurtheilloſe,<lb/>
+unpartheiiſche Betrachtungsweiſe — <hi rendition="#aq">sine ira et stu-<lb/>
+dio!</hi> — — —</p><lb/>
+<p>„Thue nichts, als was du wuͤnſcheſt, daß Andre<lb/>
+dir wieder thun!“ Nach dieſem Grundſatze handle<lb/>
+ich, bei der Veroͤffentlichung dieſes Aufſatzes. Spraͤche<lb/>
+Einer ſo uͤber die Schullehrer-Seminarien, wie ich<lb/>
+uͤber die Univerſitaͤten ſpreche, ich wuͤrde es ihm dan-<lb/>
+ken, und wenn ich nur <hi rendition="#g">eine einzige</hi> Wahrheit, die<lb/>
+mir unbekannt geblieben, darin entdeckte. Dieſelbe Ge-<lb/>
+ſinnung wuͤnſche ich meinen Leſern. <hi rendition="#aq">Amicus Plato etc.</hi></p><lb/>
+<p>Uebrigens aber hoffe ich vertreten zu koͤnnen, was<lb/>
+ich geſagt habe.</p><lb/>
+<p><hi rendition="#et">Der Verfaſſer.</hi></p></div></front><body><lb/>
+<pb n="[1]" facs="#f0019"/>
+<milestone unit="section" rendition="#hr"/>
+ <div n="1"><head><hi rendition="#b"><hi rendition="#aq">I.</hi><lb/>
+Der an die deutſchen Univerſitäten<lb/>
+anzulegende Maßſtab.</hi></head><lb/>
+<p><hi rendition="#in">V</hi>or allen Dingen wird anzugeben ſein, welches die Vor-<lb/>
+ſtellungen ſeien, nach denen wir das Weſen und den Werth<lb/>
+unſerer Hochſchulen beurtheilen — welche Bedingungen wir<lb/>
+fuͤr die gluͤckliche Wirkſamkeit derſelben vorausſetzen — welche<lb/>
+Anforderungen wir an ſie machen — nach welchem Maß-<lb/>
+ſtabe wir ſie meſſen. Alles dieſes koͤnnte zwar auch in die<lb/>
+Beurtheilung ſelbſt verwoben werden; aber es beſeitigt, wenn<lb/>
+es vorausgeſchickt wird, allzu viele Wiederholungen, und es<lb/>
+foͤrdert die Klarheit, wenn ich mich ſpeciell daruͤber erklaͤre.</p><lb/>
+<p>Ich frage daher: Welche allgemeine Anforderungen muͤſ-<lb/>
+ſen an die Anſtalten gemacht werden, welche die Aufgabe ha-<lb/>
+ben, die Maͤnner zu bilden, durch welche ſich vorzugsweiſe<lb/>
+der Geiſt einer Nation fortpflanzen ſoll, oder welche als die<lb/>
+Lenker und Vertreter der Intelligenz und der Humanitaͤt an-<lb/>
+zuſehen ſind?</p><lb/>
+<p>Der letzte Theil dieſer Frage deutet ſchon auf die Ant-<lb/>
+wort hin, die ich im Sinne habe. Denn auch hier geht es,<lb/>
+<pb n="2" facs="#f0020"/>
+wie wohl ſonſt: die Antwort war fruͤher da als die Frage,<lb/>
+die nur zur Einkleidung dient.</p><lb/>
+<p>Ich verlange <hi rendition="#g">zweierlei</hi> von einer Hochſchule:</p><lb/>
+<list><item>1) <hi rendition="#g">aͤchte Wiſſenſchaftlichkeit</hi>;</item><lb/>
+<item>2) <hi rendition="#g">paͤdagogiſche Bildung oder Erziehung</hi>.</item></list><lb/>
+<div n="2"><head>1.</head><lb/>
+<p>Unſre Univerſitaͤten ſind nicht Kunſt-, ſondern wiſſenſchaft-<lb/>
+liche Anſtalten, und ſelbſt wenn ſie uͤber Kunſt handeln, ſo<lb/>
+verbreiten ſie das Wiſſen uͤber die Kunſt, die Theorie, nicht<lb/>
+das Koͤnnen. Darum ſchließe ich die Kunſt von ihrer prakti-<lb/>
+ſchen Seite von den Zwecken einer Univerſitaͤt aus, und be-<lb/>
+zeichne ihren erſten, wenn auch nicht hoͤchſten, Zweck durch<lb/>
+das Wort: Wiſſenſchaftlichkeit, hier einerlei mit Gruͤndlichkeit<lb/>
+des Lehrens und Lernens. Der Zuſatz „<hi rendition="#g">aͤchte</hi>“, deutet ſo-<lb/>
+wohl auf den Mißbrauch des Wortes <hi rendition="#g">Wiſſenſchaftlich-<lb/>
+keit</hi>, als auch auf die falſche Richtung, in welcher die<lb/>
+Gruͤndlichkeit faͤlſchlich geſucht worden iſt und geſucht wird,<lb/>
+hin. Ich muß mich daher naͤher uͤber dieſen Gegenſtand er-<lb/>
+klaͤren. Zuerſt ſage ich in <hi rendition="#g">negativer</hi> Hinſicht:</p><lb/>
+<list><item>1) Der wiſſenſchaftliche Geiſt, das wahre Wiſſen, die<lb/>
+Gruͤndlichkeit der Erforſchung des Lehrens und Lernens<lb/>
+iſt <hi rendition="#g">nicht zu ſuchen in der Maſſe des Wiſſens,<lb/>
+nicht in hiſtoriſcher Erſchoͤpfung, nicht in ſo-<lb/>
+genannter Gelehrſamkeit</hi>.</item></list><lb/>
+<p>Zur eigentlichen Gelehrſamkeit gehoͤrt nicht bloß die Wiſ-<lb/>
+ſenſchaft, ſondern auch eine gruͤndliche Kenntniß der <hi rendition="#g">geſchicht-<lb/>
+lichen</hi> Entwicklung derſelben; je genauer und tiefer, deſto<lb/>
+gelehrter. Je weniger einem Gelehrten irgend eine Notiz, ir-<lb/>
+gend eine literariſche Erſcheinung der Geſchichte ſeiner Wiſſen-<lb/>
+<pb n="3" facs="#f0021"/>
+ſchaft entgangen iſt, deſto mehr gebuͤhrt ihm in herkoͤmmlicher<lb/>
+Bezeichnung der Name eines Gelehrten. Ein Solcher muß<lb/>
+nach einem moͤglichſt erſchoͤpfenden Wiſſen ſtreben, im guten<lb/>
+Sinne des Wortes ein Viel-, wo moͤglich (auf ſeinem Ge-<lb/>
+biete) ein Alleswiſſer ſein.</p><lb/>
+<p>Den Zweck, ſolche Gelehrte zu bilden, haben die Univer-<lb/>
+ſitaͤten <hi rendition="#g">vorzugsweiſe nicht</hi>. Schon darum nicht, weil<lb/>
+er ſich nicht mit Sicherheit erreichen laͤßt. Zu einem Gelehr-<lb/>
+ten wird man nicht gebildet, ſondern man bildet ſich ſelbſt<lb/>
+dazu. Die Beſtimmung zum Gelehrten muß man ſich ſelbſt<lb/>
+geben. Auch hat der Staat oder die Geſellſchaft kein unmit-<lb/>
+telbares Intereſſe daran, ob ſich unter den Staatsangehoͤrigen<lb/>
+viele große Gelehrte befinden. Als Solche gehoͤren ſie auch<lb/>
+nicht eigentlich dem Staate an, ſondern der Menſchheit.<lb/>
+Eigentliche Gelehrte leben nicht dem Leben, ſondern der Wiſ-<lb/>
+ſenſchaft, und ſie bilden die europaͤiſche oder allgemein menſch-<lb/>
+liche (cosmopolitiſche) Gelehrten-Republik. Ein Gelehrter iſt<lb/>
+kein Englaͤnder, Franzoſe, Deutſcher, ſondern ein Gelehrter,<lb/>
+kein Staatsdiener, ſondern ein Prieſter der Wiſſenſchaft. Wohl<lb/>
+macht es der Intelligenz eines auf Bildung Anſpruch machen-<lb/>
+den Staates Ehre, wenn er auch die Gelehrſamkeit, die Er-<lb/>
+forſchung der Wiſſenſchaft foͤrdert und Opfer dafuͤr bringt;<lb/>
+auch fungiren unſre heutigen (großen) <choice><sic>Uuiverſitaͤten</sic><corr>Univerſitaͤten</corr></choice> fuͤr dieſen<lb/>
+Zweck; aber ihr Hauptzweck iſt es nicht. Von 100 Studen-<lb/>
+ten widmen ſich in der Regel kaum 5, oft nicht Einer der<lb/>
+eigentlichen Gelehrſamkeit. Aber alle ſollen zu gruͤndlich wiſ-<lb/>
+ſenſchaftlicher Bildung gelangen. Wenn dieſe nun nicht in<lb/>
+hiſtoriſcher Erſchoͤpfung ihrer Wiſſenſchaft, nicht in gelehrtem<lb/>
+Kram oder Wuſte, nicht in der Unendlichkeit des Wiſſens,<lb/>
+deſſen Unfruchtbarkeit faſt zum Sprichworte geworden, beſteht,<lb/>
+ſo ſage ich poſitiv:</p><lb/>
+<pb n="4" facs="#f0022"/>
+<list><item>2) Die <hi rendition="#g">aͤchte Wiſſenſchaftlichkeit</hi> beſteht in der (von<lb/>
+den Akademikern) errungenen <hi rendition="#g">Selbſtthaͤtigkeit des<lb/>
+Denkens</hi>.</item></list><lb/>
+<p>Natuͤrlich iſt ſie ohne Wiſſen, ohne Gruͤndlichkeit des<lb/>
+Wiſſens gar nicht moͤglich; aber dennoch thut es noth, daran<lb/>
+zu erinnern, daß die Gruͤndlichkeit nicht objectiv in der hiſto-<lb/>
+riſchen Erſchoͤpfung, ſondern <hi rendition="#g">ſubjectiv</hi> in der Hoͤhe und<lb/>
+Energie der entwickelten Denkkraft beſteht. In dem Maße<lb/>
+und Grade, als die Univerſitaͤten dieſen Zweck erreichen, in<lb/>
+demſelben Grade erreichen ſie ihre Beſtimmung; und je nach-<lb/>
+dem ein akademiſcher Lehrer dazu die akademiſche Jugend er-<lb/>
+regt und veranlaßt, je nachdem erfuͤllt er die Zwecke ſeines<lb/>
+hohen Berufes. Er ſoll nicht die Gelehrſamkeit verbreiten,<lb/>
+ſondern wiſſenſchaftlichen Geiſt.</p><lb/>
+<p>Dieſe beiden Bedingungen, jene negative und dieſe poſi-<lb/>
+tive, muͤſſen in ihrer Zuſammengehoͤrigkeit betrachtet werden;<lb/>
+ſonſt geraͤth man auf Irrwege.</p><lb/>
+<p>Ich ſage daher: der akademiſche Lehrer braucht als ſolcher<lb/>
+<hi rendition="#g">kein Forſcher</hi>, aber er muß ein <hi rendition="#g">Lehrer</hi> ſein. Vereinigt<lb/>
+ſich Beides in derſelben Perſon, deſto beſſer; aber es iſt nicht<lb/>
+noͤthig, ſo wie es auch ſehr ſelten iſt. In den meiſten Faͤllen<lb/>
+ſchließen beide Richtungen einander aus. Der gelehrte For-<lb/>
+ſcher liebt die Einſamkeit des Denkens, die ſtille Betrachtung,<lb/>
+indem er die Graͤnzen des menſchlichen Erkennens zu erweitern<lb/>
+ſtrebt. Er hat es mit der Sache, nicht mit der Form, nicht<lb/>
+mit der Art der Entwicklung des Geiſtes zu thun, er denkt<lb/>
+nicht an die Methode.</p><lb/>
+<p>Der Lehrer dagegen richtet ſein Hauptaugenmerk auf die<lb/>
+Geſetze der Entfaltung des jugendlichen Geiſtes, auf die Art<lb/>
+und Weiſe, wie derſelbe erregt und gerichtet werden muß,<lb/>
+<pb n="5" facs="#f0023"/>
+damit er zur ſelbſtſtaͤndigen, freien Entwickelung gelange. Er<lb/>
+liebt daher das laute Denken, und er ſucht die Gemeinſchaft<lb/>
+mit ſtrebenden Juͤnglingen, die das Beduͤrfniß der Entwick-<lb/>
+lung lebendig in ſich empfinden. Die Umgebung, in welcher<lb/>
+das Geſchaͤft des Forſchens allein gedeiht, iſt die abgeſchiedene<lb/>
+Stille, ein einſames Landhaus oder eine Buͤcherburg; das<lb/>
+Geſchaͤft des Lehrens dagegen gedeiht nur in dem Lehr- und<lb/>
+Hoͤrſaale bei der lauten, moͤglichſt lebendigen Rede und Ge-<lb/>
+genrede. Zur Erweiterung der Wiſſenſchaften wird eine Samm-<lb/>
+lung des Geiſtes und eine Muße erfordert, wie ſie dem in<lb/>
+lebendigem Verkehr mit heiteren Juͤnglingen ſtehenden Lehrer<lb/>
+nicht zu Theil wird. Darum ziehen ſich alle eigentlichen ge-<lb/>
+lehrten Forſcher gern vom Leben zuruͤck, und darum ſind die<lb/>
+tuͤchtigſten akademiſchen Lehrer ſelten oder nie in demſelben<lb/>
+Maße, als ſie Lehrer ſind, zugleich wiſſenſchaftliche Forſcher.</p><lb/>
+<p>Offenbar hat man dieſe meiſt entgegengeſetzten Beſtimmun-<lb/>
+gen nicht immer gehoͤrig von einander geſchieden. Man hat<lb/>
+die Gelehrſamkeit mit der Lehrkunſt verwechſelt, und den<lb/>
+Mann fuͤr den beſten akademiſchen Lehrer gehalten, der der<lb/>
+gelehrteſte war. Ich wiederhole es, es giebt keinen guten<lb/>
+Lehrer ohne gruͤndliches Wiſſen; aber dieſes allein ſtempelt<lb/>
+keinen zum Lehrer. In der Regel fuͤhrt es allein von der<lb/>
+Lehrkunſt ab. Denn ſie iſt ein Koͤnnen, zu dem ſich der Ge-<lb/>
+lehrte bei ſeiner ausſchließlich theoretiſchen, unpraktiſchen und<lb/>
+abſtrakten Richtung nicht gern herablaͤßt. Die groͤßten Ge-<lb/>
+lehrten ſind darum meiſt unwillige, ungeſchickte, ungewiſſen-<lb/>
+hafte d. h. ſchlechte Lehrer, und die tuͤchtigſten Lehrer darum<lb/>
+meiſt keine Forſcher. Das Erforſchen des Neuen erfordert<lb/>
+Genie, das Lehren Talent. Der akademiſche Lehrer braucht<lb/>
+daher kein Genie zu ſein, aber er darf des (Lehr-) Talents<lb/>
+nicht entbehren.</p><lb/>
+<fw type="sig" place="bottom">2</fw><lb/>
+<pb n="6" facs="#f0024"/>
+<p>Zur Befeſtigung dieſes hoͤchſt wichtigen Unterſchiedes hat,<lb/>
+wenn ich nicht irre, Jemand den Vorſchlag gethan, die <hi rendition="#g">Aka-<lb/>
+demien</hi> von den <hi rendition="#g">Univerſitaͤten</hi> zu ſcheiden, jenen die<lb/>
+eigentlichen gelehrten <hi rendition="#g">Forſcher</hi>, dieſen die eigentlichen <hi rendition="#g">Leh-<lb/>
+rer</hi> der Wiſſenſchaften zuzuweiſen. Ein Vorſchlag, welcher<lb/>
+im hoͤchſten Grade der weiteren Ueberlegung wuͤrdig iſt. Vie-<lb/>
+len großen Uebeln der heutigen Univerſitaͤten wuͤrde dadurch<lb/>
+vorgebeugt werden. Ich mache nur auf folgende aufmerkſam:</p><lb/>
+<list><item>1) <hi rendition="#g">Es wuͤrden nicht Maͤnner zum akademiſchen<lb/>
+Lehramte berufen werden, die weder inneren<lb/>
+Beruf, noch aͤußeres Talent zum Lehren be-<lb/>
+ſitzen</hi>.</item></list><lb/>
+<p>Welche Marter iſt es fuͤr die Studenten, tagtaͤglich zu<lb/>
+den Fuͤßen eines Mannes zu ſitzen, der die Gabe des Lehrens<lb/>
+nicht beſitzt, ſelbſt wenn er der ausgezeichneteſte, beruͤhmteſte<lb/>
+Gelehrte ſein ſollte. Sie ſitzen da mit lernbegierigen Ohren,<lb/>
+ſie ſchreiben die Worte nach, die ſie hoͤren, aber ſie verſtehen<lb/>
+den Mann nicht. Leider gilt dieß in Deutſchland noch fuͤr<lb/>
+den Beweis der Meiſterſchaft, fuͤr einen untruͤglichen Beweis<lb/>
+der Gruͤndlichkeit und der Tiefe. Von <hi rendition="#g">Hegel</hi> hat man ge-<lb/>
+ſagt, daß ihn <hi rendition="#g">Einer</hi> verſtanden habe. Doch wir wollen hof-<lb/>
+fen, daß ihn in jedem Semeſter zehn verſtanden haben. Aber<lb/>
+ſtets hoͤrten ihn Hunderte! Was iſt nun aus dieſen gewor-<lb/>
+den? Welchen Gewinn haben ſie gezogen von den Stunden,<lb/>
+die ſie aufopferten, von der Geiſtesqual, die ſie empfunden?<lb/>
+Oder wird man etwa dadurch fuͤr die Wiſſenſchaften, fuͤr die<lb/>
+Wiſſenſchaft der Wiſſenſchaften, die Philoſophie, oder fuͤr phi-<lb/>
+loſophiſche Behandlung gewonnen, wenn man nichts verſteht?<lb/>
+So viel iſt gewiß, Hegel mag ein tiefer Forſcher geweſen ſein,<lb/>
+er war einer der ſchlechteſten Lehrer, die es jemals gegeben<lb/>
+hat. Jenes kann ich nicht beurtheilen, denn ich gehoͤre auch<lb/>
+<pb n="7" facs="#f0025"/>
+zu denen, die ihn nicht verſtanden haben, und ich verſtehe<lb/>
+auch die nicht, die ihn verſtanden zu haben behaupten; aber<lb/>
+dieſes weiß ich aus Erfahrung. Im Jahre 1825 hospitirte<lb/>
+ich bei ihm einige Stunden. Er quaͤlte ſich damit ab, den<lb/>
+Unterſchied des Discurſiven und Intuitiven deutlich zu ma-<lb/>
+chen. Aber von ihm konnte man dieſen Unterſchied, den man<lb/>
+einem Secundaner leicht deutlich machen kann, nicht lernen.<lb/>
+Wer ihn vorher nicht kannte, lernte ihn gewiß durch ihn nicht<lb/>
+kennen. <hi rendition="#g">Hegel</hi> gehoͤrte daher in die Akademie, d. h. in die<lb/>
+ſtille Kammer, nicht auf den Lehrſtuhl. Denn die <hi rendition="#g">Deutlich-<lb/>
+keit</hi> iſt die erſte Eigenſchaft jedes Lehrers. Ohne ſie giebt<lb/>
+es keine Lehrergroͤße. Wer ein Lehrer Anderer ſein will und<lb/>
+fuͤr Andere berufen iſt, hat ſich zu dieſen hinabzulaſſen und<lb/>
+ſie von ihrem Standpunkte aus zu ſeiner Hoͤhe hinaufzuziehen.<lb/>
+Dieſes iſt ſeine Pflicht, und darin beſteht ſein Ruhm. Mag<lb/>
+er ſich fuͤr ſeine neuen Begriffe einen neuen Sprachgebrauch<lb/>
+waͤhlen, er hat dieſen an die Begriffe und den allgemeinen<lb/>
+Sprachgebrauch, die er ohne Unbilligkeit bei den ihm uͤber-<lb/>
+wieſenen Schuͤlern vorausſetzen kann, anzuſchließen. Kann<lb/>
+er dieſes nicht, ſo paßt er nicht zum Lehrer, und will er es<lb/>
+nicht, ſo handelt er gewiſſenlos.</p><lb/>
+<p>Es giebt einen falſchen und einen wahren Scharfſinn.<lb/>
+Der wahre iſt gerichtet auf die Erforſchung des Wahren; dem<lb/>
+falſchen iſt es nicht um die Wahrheit, ſondern um die Aufſpuͤ-<lb/>
+rung bisher uͤberſehener Verhaͤltniſſe und Beziehungen und um<lb/>
+den Schein der Conſequenz zu thun. Nicht das (ſcheinbar)<lb/>
+ſcharfſinnigſte Syſtem verdient den Vorzug, ſondern das<lb/>
+wahrſte. Der Scharfſinn, geuͤbt und angewandt auf falſche<lb/>
+Vorderſaͤtze, und im Beſitz blendender Conſequenzmacherei iſt<lb/>
+fuͤr Juͤnglinge, die nicht pruͤfen koͤnnen, wahrhaft gefaͤhrlich.<lb/>
+Dieſer falſche Scharfſinn liebt das Gewand der Dunkelheit;<lb/>
+<fw type="sig" place="bottom">2*</fw><lb/>
+<pb n="8" facs="#f0026"/>
+er huͤllt ſich in Unverſtaͤndlichkeit ein, dem Wahne huldigend,<lb/>
+daß ſie ein Merkmal der Tiefe der Forſchung ſei. Aber die<lb/>
+wahre Tiefe iſt klar und, weil ſie klar iſt, verſtaͤndlich und<lb/>
+dem aufmerkſamen Bewußtſein Gebildeter zugaͤnglich. Die<lb/>
+Unklarheit iſt entweder ein Mangel tiefer Forſchung, oder der<lb/>
+Methode, oder der Verſchrobenheit der Sprache, alſo jederzeit<lb/>
+ein Fehler. Wohin iſt nicht unſre Philoſophie gerathen, die<lb/>
+Philoſophie, von der es bis zum heutigen Tage ungewiß iſt,<lb/>
+ob ein Menſch ſie verſtanden, ja die vielleicht der Erfinder<lb/>
+ſelbſt nicht ganz verſtand! Geſtand doch ſchon <hi rendition="#g">Fichte</hi> ſpaͤter<lb/>
+in ſeiner Offenheit ſelbſt, daß er manchen Satz ſeiner Wiſſen-<lb/>
+ſchaftslehre nicht mehr verſtehe, und der mit der Sprachwiſ-<lb/>
+ſenſchaft vertraute, wiſſenſchaftliche <hi rendition="#g">Bernhardi,</hi> daß er,<lb/>
+ungeachtet ſiebenmaligen Hoͤrens und Studirens der <hi rendition="#g">Fichte’</hi>-<lb/>
+ſchen Wiſſenſchaftslehre, ſie nicht verſtanden habe. Und<lb/>
+dieſe Philoſophie, der ſogar ein <hi rendition="#g">Schelling,</hi> der Schoͤpfer<lb/>
+der Naturphiloſophie, dem man das Praͤdicat der durchſichti-<lb/>
+gen, lichten Verſtaͤndlichkeit, wie <hi rendition="#g">Leſſing</hi> und <hi rendition="#g">Kant</hi> ſie be-<lb/>
+ſaßen, nicht beilegen kann, den Vorwurf der Unverſtaͤndlich-<lb/>
+keit macht, traͤgt man unſern unphiloſophiſchen Juͤnglingen<lb/>
+vor! Wohin ſind wir in dieſer Beziehung gerathen, wohin<lb/>
+werden wir noch gerathen, wenn es ſo fortgeht in die Unklar-<lb/>
+heit, Unverſtaͤndlichkeit, Myſtik hinein!</p><lb/>
+<list><item>2) <hi rendition="#g">Man wuͤrde es nicht erleben, daß akademi-<lb/>
+ſche Lehrer ungepruͤfte Neuerungen ihren<lb/>
+Schuͤlern als ewige Wahrheit vorlegten</hi>.</item></list><lb/>
+<p>Es iſt eine ſehr merkwuͤrdige Erſcheinung, daß man Dinge<lb/>
+duldet, wie ſie alle Tage auf unſeren Univerſitaͤten paſſiren.</p><lb/>
+<p>Es ſind Staatsanſtalten unſre Univerſitaͤten, ihre Lehrer<lb/>
+vom Staate berufen, reifenden Juͤnglingen die Wahrheit der<lb/>
+<pb n="9" facs="#f0027"/>
+Wiſſenſchaft vorzutragen und ihren Geiſt durch die Erforſchung<lb/>
+dieſer Wahrheit zu bilden. Was iſt Wahrheit? fragen wir<lb/>
+heute noch wie vor Jahrtauſenden. Das iſt ganz richtig.<lb/>
+Aber daraus kann doch nur die hoͤchſte Sophiſtik oder die<lb/>
+ſtumpfeſte Gleichguͤltigkeit gegen das durch Jahrhunderte hin-<lb/>
+durch erbeutete Gemeingut der Wahrheit den Schluß ziehen,<lb/>
+daß es recht und billig oder auch nur erlaubt oder wohl gar<lb/>
+zweckmaͤßig ſei, unſern akademiſchen Juͤnglingen, d. h. Leuten,<lb/>
+denen man in der Regel die Gabe tieferer Pruͤfung nicht zu-<lb/>
+trauen kann, funkelnagelneue Wahrheiten, wie ſie vielleicht<lb/>
+in der vorhergehenden Nacht in einem, wenn auch noch ſo<lb/>
+begeiſterten Hirne entſprungen ſind, vorzutragen und vorzule-<lb/>
+gen — als ewige Wahrheit. Unſre akademiſchen Juͤnglinge<lb/>
+ſind in den Wiſſenſchaften Neulinge, die wenigſten ſind zur<lb/>
+freien Forſchung befaͤhigt, ihre Lehrer, beſonders die mit Ruhm<lb/>
+umgebenen, gefeierten, ſind fuͤr ſie Autoritaͤten. Sie nehmen<lb/>
+an, was man ihnen ſagt, ſie ſprechen nach, was ſie hoͤren,<lb/>
+ſie lernen, was man ſie lehrt. Die natuͤrlichſte Forderung<lb/>
+waͤre daher doch wohl die, daß man ſie zuerſt mit dem bishe-<lb/>
+rigen Ertrage der Wiſſenſchaft, mit dem, was in ihr als all-<lb/>
+gemein guͤltig angeſehen wird, bekannt mache, nicht aber ihren<lb/>
+Kopf mit Saͤtzen anfuͤlle, die vielleicht unmittelbar nachher<lb/>
+als grundlos und falſch nachgewieſen werden. Wohl, auch<lb/>
+von Jenem bleibt ihnen der formale Gewinn, <hi rendition="#g">wenn nur</hi><lb/>
+die Lehrmethode geiſtweckend geweſen; aber wie ſelten iſt dieß!<lb/>
+Und wenn es iſt, iſt es dann nicht viel beſſer, daß die bil-<lb/>
+dende Methode ſich mit feſtem, bleibenden Inhalt beſchaͤftige?<lb/>
+Nein, es iſt ein unverzeihlicher, in der That faſt unbegreifli-<lb/>
+cher Mißgriff, daß man jungen Leuten von 18—20 Jahren<lb/>
+Dinge vortraͤgt, welche noch gar keine Pruͤfung beſtanden, oft<lb/>
+nur in der Einbildung ihres Urhebers Grund haben, aber in<lb/>
+<pb n="10" facs="#f0028"/>
+dem Nebel der Einkleidung oder in der Unverſtaͤndlichkeit der<lb/>
+Darſtellung den Schein der Wahrheit gewinnen. Das Neue<lb/>
+gehoͤrt vor das Forum urtheilsfaͤhiger, ruhig erwaͤgender Maͤn-<lb/>
+ner, nicht vor die Ohren unreifer Juͤnglinge, in die Akademie,<lb/>
+nicht in den Hoͤrſaal der Studenten.</p><lb/>
+<p>Darum muß ich den <hi rendition="#g">Begriff der Lehrfreiheit</hi> in<lb/>
+der Ausdehnung, die man ihm gegeben hat, bekaͤmpfen. Ver-<lb/>
+ſteht man darunter die Freiheit, jedes Ergebniß wiſſenſchaftli-<lb/>
+cher Forſchung vor das <hi rendition="#g">Publikum uͤberhaupt</hi> bringen zu<lb/>
+duͤrfen, ich ſtimme bei. Denn den Geiſt ſoll man nicht ban-<lb/>
+nen. Daſſelbe gilt, wenn man verlangt, daß der akademiſche<lb/>
+Lehrer nicht ſclaviſch an die bisherige Ausbeute fruͤherer For-<lb/>
+ſchungen gebunden ſei. Daß ein Solcher aber vor Juͤnglingen<lb/>
+lehren duͤrfe, was <hi rendition="#g">er</hi> fuͤr wahr haͤlt, im Widerſpruche mit<lb/>
+Allem, was bisher fuͤr allgemein guͤltig angeſehen wurde, das<lb/>
+iſt offenbar recht eigentlich ein Extrem. Nur bis dahin darf<lb/>
+der Begriff der akademiſchen Lehrfreiheit ausgedehnt werden,<lb/>
+daß der Lehrer, beſonders der einer poſitiven Wiſſenſchaft, die<lb/>
+Einwendungen gegen dieſelbe, die Andere zu machen haben<lb/>
+oder er ſelbſt, auch mittheile, mit den tieferen Gruͤnden <hi rendition="#aq">pro</hi><lb/>
+und <hi rendition="#aq">contra.</hi> Eine Verpflichtung auf ſymboliſche Buͤcher kann<lb/>
+kein die freie Entwickelung Liebender wollen; aber eine unbe-<lb/>
+ſchraͤnkte Ausdehnung des vagen Begriffs der Lehrfreiheit<lb/>
+kann auch eine Willkuͤr erzeugen, welche eine Erſcheinung her-<lb/>
+beifuͤhrt, von der wir heut zu Tage in der Philoſophie nicht<lb/>
+ſehr fern ſind, die, daß junge Philoſophen wohl die aller-<lb/>
+neueſte Philoſophie kennen oder zu kennen glauben, aber mit<lb/>
+dem Inhalte des philoſophiſchen Bewußtſeins aus allen fruͤ-<lb/>
+heren Jahrhunderten faſt durchweg unbekannt ſind. Zuerſt<lb/>
+muß man den Lernenden auf den Standpunkt zu ſtellen ſu-<lb/>
+chen, auf dem man in Betreff einer Wiſſenſchaft im Allge-<lb/>
+<pb n="11" facs="#f0029"/>
+meinen ſteht. Dann iſt er <hi rendition="#g">fuͤr ſeine Zeit</hi> gebildet. Iſt<lb/>
+dann noch ein Ueberfluß von Zeit und Kraft vorhanden, dann<lb/>
+ſtrebe er weiter. Aber nur bei ſehr Wenigen wird dieſe Be-<lb/>
+dingung eintreten.</p><lb/>
+<p>Man wird gegen dieſen Vorſchlag den Einwand erheben,<lb/>
+daß eben der <hi rendition="#g">Ertrag</hi> der bisherigen Erforſchung der Wiſſen-<lb/>
+ſchaften nicht feſt ſtehe, und derſelbe zu den beſtrittenen Din-<lb/>
+gen gehoͤre. Aber daruͤber iſt eine Vereinigung im <hi rendition="#g">Allge-<lb/>
+meinen</hi> moͤglich. Ich erinnere nur, um ein Beiſpiel aus<lb/>
+dem ſchwankendſten Gebiete, der Philoſophie, zu waͤhlen, an<lb/>
+die platoniſch-ariſtoteliſche Philoſophie und ihre Fortbildung<lb/>
+durch Kant. Dieſe iſt zur Kenntniß jeder Philoſophie unent-<lb/>
+behrlich; ſie muͤßte daher auch zuerſt, als allgemeine Baſis,<lb/>
+dem Philoſophie Studirenden zur Kenntniß gebracht werden.</p><lb/>
+<p>Endlich darf die Lehrfreiheit auch nicht bis dahin, wie<lb/>
+es auf mancher Univerſitaͤt der Fall iſt, ausgedehnt werden,<lb/>
+daß die Herren Profeſſoren leſen duͤrfen, woruͤber ſie wollen,<lb/>
+in dem ganzen Umfange ihrer Facultaͤt. Dieſe freie Wahl<lb/>
+pflegt natuͤrlich nicht immer nach dem Beduͤrfniß der Schuͤler<lb/>
+zu geſchehen, ſondern aus andern, oft ſehr unreinen Beweg-<lb/>
+gruͤnden. Dabei kommen denn die Studenten ſchlecht weg.<lb/>
+Drei, vier, und mehr Docenten leſen uͤber denſelben Gegen-<lb/>
+ſtand, und andere, vielleicht an und fuͤr ſich viel wichtigere<lb/>
+Vorleſungen bleiben unangekuͤndigt, weil ein falſcher Zeitge-<lb/>
+ſchmack nicht eine Maſſe von Zuhoͤrern hineintreibt. So iſt<lb/>
+auf einer norddeutſchen Univerſitaͤt die philoſophiſche Moral<lb/>
+faſt ganz aus den Lectionscatalogen verſchwunden, eins der<lb/>
+wichtigſten, einflußreichſten Collegien, weil die Myſtik in der<lb/>
+Philoſophie und in der Naturkunde die Moral mit dem Ver-<lb/>
+ſtand und der ganzen Reflexion in (ſicherlich voruͤbergehenden)<lb/>
+Mißkredit gebracht hat. Darum darf man den Profeſſoren<lb/>
+<pb n="12" facs="#f0030"/>
+allein es nicht uͤberlaſſen, was ſie zu leſen Luſt haben. Das<lb/>
+iſt nicht Freiheit, das iſt Willkuͤr. Wahre Freiheit richtet ſich<lb/>
+nach hoͤheren Geſetzen.</p><lb/>
+<p>So iſt demnach der falſch verſtandene Begriff der Lehr-<lb/>
+freiheit ſowohl in Betreff des Gegenſtandes als in Betreff des<lb/>
+Inhaltes aus dem Geſichtspunkte der wahren Bildung der<lb/>
+Schuͤler in angemeſſener Weiſe zu beſchraͤnken.</p><lb/>
+<p>Der Lehrfreiheit ſteht die <hi rendition="#g">Lernfreiheit</hi> gegenuͤber, die<lb/>
+Befugniß der Studenten, die Vorleſungen, die ſie beſuchen,<lb/>
+die Lehrer, die ſie hoͤren wollen, ſich auszuwaͤhlen.</p><lb/>
+<p>Mit Grund laͤßt ſich nach meinem Ermeſſen gegen dieſe<lb/>
+Freiheit nichts ſagen. Sind ſaͤmmtliche Lehrer tuͤchtige Maͤn-<lb/>
+ner, nun ſo laſſe man in der Auswahl das Geſetz der Sym-<lb/>
+pathie walten. Es wird den Lehrer noͤthigen, ſich um die<lb/>
+Zuneigung der Herren Commilitonen zu bewerben und ein in<lb/>
+<hi rendition="#g">mancher</hi> Beziehung heilſamer Wettſtreit entſtehen. Freilich<lb/>
+hat es auch ſeine Bedenklichkeiten. Aber der Vortheil, daß<lb/>
+der Student ſich frei fuͤhlt und reine Zuneigung zu dem Leh-<lb/>
+rer die Schritte leitet, erſcheint als uͤberwiegend. Nur wird<lb/>
+eine wohlwollende Staatsbehoͤrde oder jede Facultaͤt die Rei-<lb/>
+henfolge der Vorleſungen fuͤr die 6 oder 8 auf einander fol-<lb/>
+genden Semeſter, zwar nicht als eine unabaͤnderliche Norm,<lb/>
+aber als wohlzuuͤberlegenden Rathſchlag und Fuͤhrer oͤffentlich<lb/>
+bekannt machen, damit der Juͤngling oder deſſen Vater nicht<lb/>
+in Gefahr gerathe, ganz zu irren. In gewiſſen Facultaͤten<lb/>
+giebt es auch Collegia, die Jeder, der ſich zum Staatsexamen<lb/>
+meldet, gehoͤrt haben muß. Ein Zeugniß vom Profeſſor iſt<lb/>
+daruͤber nachzuweiſen. Dergleichen Beſtimmungen koͤnnen ſehr<lb/>
+heilſam ſein; nur muß man dann auch darauf halten, daß<lb/>
+die vorgeſchriebenen Collegien nicht bloß teſtirt, ſondern auch<lb/>
+wirklich beſucht worden ſeien, d. h. nicht ein oder einige Mal,<lb/>
+<pb n="13" facs="#f0031"/>
+ſondern anhaltend. Denn nichts iſt ſchaͤdlicher, verderblicher<lb/>
+fuͤr den Charakter in’s Leben tretender, ihrer Selbſtſtaͤndigkeit<lb/>
+ſich bewußt werdender junger Maͤnner, als wenn ſie erfahren<lb/>
+und lernen, daß zwar Geſetze beſtehen, dieſelben aber nicht<lb/>
+gehalten werden, weder von den Lehrern noch von den Schuͤ-<lb/>
+lern. Dieſe Erfahrung und die Meiſterſchaft, die Einige oder<lb/>
+Viele darin erlangen, wirkt auf die Geſinnung und den Cha-<lb/>
+rakter junger Leute wie ein Gift. Die, welche dergleichen<lb/>
+dulden, laden eine ſchwere Verantwortung auf ſich. Sie un-<lb/>
+tergraben das Fundament der Achtung gegen die geſetzgebenden<lb/>
+Behoͤrden und den Staat.</p></div><lb/>
+<div n="2"><head>2.<lb/>
+Paͤdagogiſche Bildung oder Erziehung.</head><lb/>
+<p>Ich komme nun zum zweiten Requiſit an eine Anſtalt,<lb/>
+welche die Bluͤthe der Nation zu erziehen die Aufgabe hat.<lb/>
+Ich ſage zu <hi rendition="#g">erziehen</hi>. Eine Univerſitaͤt iſt eine <hi rendition="#g">paͤdago-<lb/>
+giſche</hi> Anſtalt, und alle ihre Maßregeln muͤſſen von dem<lb/>
+paͤdagogiſchen, nicht von dem polizeilichen, juridiſchen, finan-<lb/>
+ziellen oder anderm Standpunkte aus beurtheilt werden. Wir<lb/>
+verlangen daher von der Hochſchule nicht bloß Entwickelung<lb/>
+der Intelligenz in den ihr Uebergebenen, Wiſſenſchaftlichkeit<lb/>
+und Ausbildung der Selbſtthaͤtigkeit im Denken, ſondern in<lb/>
+hoͤherem und umfaſſenderem Sinne Vollendung der Erziehung<lb/>
+der zu Maͤnnern heranreifenden Juͤnglinge. Dieſe Anforde-<lb/>
+rung wird Jedermann gerecht und nothwendig finden. Sie iſt<lb/>
+die hoͤchſte, umfaſſendſte, und die Foͤrderung der Wiſſenſchaft-<lb/>
+lichkeit iſt nur ein Zweig derſelben, nur in dem Maße ſchaͤtz-<lb/>
+bar, als ſie die allgemeine Aufgabe der Hochſchule, Vollen-<lb/>
+dung der Erziehung der kuͤnftigen erſten Maͤnner des Staats,<lb/>
+einleitet und beguͤnſtigt.</p><lb/>
+<pb n="14" facs="#f0032"/>
+<p>Welche Anforderungen ſind in dieſer Beziehung an eine<lb/>
+Hochſchule zu machen? Wir nennen die weſentlichſten Stuͤcke.</p><lb/>
+<list><item>1) <hi rendition="#g">Zuerſt negativ: Wegraͤumung aller die Sitt-<lb/>
+lichkeit junger Maͤnner gefaͤhrdenden Dinge,<lb/>
+Perſonen, Einrichtungen, Sitten u. ſ. w.</hi></item></list><lb/>
+<p>Im guten Verlauf der fruͤheren Erziehung, der hier vor-<lb/>
+ausgeſetzt werden muß, iſt der zur Univerſitaͤt abgehende Juͤng-<lb/>
+ling von ſeinen Eltern und auf dem Gymnaſien behuͤtet und<lb/>
+bewacht worden. Als ein reiner Juͤngling wird er von allen<lb/>
+Seiten mit Segenswuͤnſchen entlaſſen. Hoch ſchlaͤgt beim Ab-<lb/>
+ſchiede dem Vater, der Mutter das Herz und Thraͤnen fuͤllen<lb/>
+das Auge. Wird der behuͤtete, reine, edle Menſch aus dem<lb/>
+verſuchungsvollen Leben eben ſo rein und lauter zuruͤckkommen?<lb/>
+Oder — oder? Gewiß, es iſt erklaͤrlich, treue Eltern entlaſ-<lb/>
+ſen mit Zittern und Zagen den Liebling des Herzens. Acht-<lb/>
+zehn und mehr Jahre der treuen Sorgfalt und unendlicher<lb/>
+Muͤhen, die ſchoͤne Ausſicht fuͤr den Mittag oder Abend ihres<lb/>
+Lebens — vielleicht ſehen ſie Alles verſinken, und was bis<lb/>
+dahin ihnen roth und gruͤn erſchien, verwandelt ſich in Nacht<lb/>
+und Graus. Schwarz ſteht die Moͤglichkeit vor den Augen<lb/>
+der Eltern: unſer Sohn kann ein <hi rendition="#g">Wuͤſtling</hi> werden. Die<lb/>
+Leidenſchaften werden ihn ergreifen, boͤſes Beiſpiel ihn ver-<lb/>
+locken, die graſſirenden Vorurtheile von Ehre ſich ſeiner be-<lb/>
+meiſtern, ſein Koͤrper wird durch wildes Leben verwuͤſtet, ſeine<lb/>
+Seele vergiftet werden. Es iſt entſetzlich, aber es iſt wahr!</p><lb/>
+<p>Denken wir uns nur den kraftvollen Juͤngling! Mark<lb/>
+und Saft in den Knochen, Lebhaftigkeit der Phantaſie, gluͤ-<lb/>
+hend erwachende, fruͤher ungekannte Triebe, aufſtrebender<lb/>
+Sinn, der Beſitz aͤußerer Mittel aller Art, die goldene Frei-<lb/>
+<pb n="15" facs="#f0033"/>
+heit, und dieſen gegenuͤber — luſtige Kameraden, bemooſte<lb/>
+Burſche, heiteres Wirthshausleben und Kneipen, Duellwuth<lb/>
+und liederliche Dirnen — nein, wenn dieſe Verhaͤltniſſe die<lb/>
+Aufmerkſamkeit der Staatsbehoͤrden nicht ſchaͤrfen, ſie nicht<lb/>
+bis zur Gewiſſenhaftigkeit und Wachſamkeit ſteigern, es waͤre<lb/>
+nicht zu verantworten. Nur die Gleichguͤltigkeit gegen alles<lb/>
+Reine und Edle kann hier von den ſtrengſten Forderungen ab-<lb/>
+gehen. Der ungepruͤfte Juͤngling kommt an den Scheideweg,<lb/>
+er muß ihn betreten und ſich entſcheiden, ſonſt wird er kein<lb/>
+Mann; aber die Verſuchungen des Lebens ſteigern durch ver-<lb/>
+ſuchende Haͤuſer und Menſchen, durch mittelalterliche Vorur-<lb/>
+theile von Ehre und Tuͤchtigkeit, durch eine Freiheit, wie ſie<lb/>
+kein Mann genießet — das iſt vor Gott und Menſchen nicht<lb/>
+zu verantworten. Der Staat richtet die Univerſitaͤten ein,<lb/>
+und es giebt keinen andern Weg, ſich zum hoͤheren geiſtigen<lb/>
+Leben emporzuſchwingen — dieß legt ihm die große Pflicht<lb/>
+auf, dafuͤr zu ſorgen, daß als Regel angenommen werden<lb/>
+muß: der ſeiner Anſtalt vertrauensvoll uͤbergebene Juͤngling<lb/>
+werde nicht an Leib und Seele verdorben, ſondern veredelt<lb/>
+zuruͤckkehren. Darum iſt die ſtrenge Forderung, daß verlok-<lb/>
+kende und verfuͤhreriſche Dinge auf der Univerſitaͤt nicht ge-<lb/>
+duldet werden, das Minimum, was im Namen der Menſch-<lb/>
+heit gefordert werden muß.</p><lb/>
+<p>Dieſes iſt ſchon ſehr viel, aber es reicht nicht hin. Denn<lb/>
+auf dem Acker waͤchſt noch kein Weizen, wenn man nichts<lb/>
+weiter thut, als daß man ihn von boͤſem Unkraut reinigt und<lb/>
+Suͤmpfe und Kloaken entfernt. Poſitive Einrichtungen muͤſſen<lb/>
+hinzukommen. Nicht von ſelbſt macht ſich eine tuͤchtige Er-<lb/>
+ziehung. Es gehoͤren Potenzen dazu, machtvoll erregende,<lb/>
+energiſch ergreifende. Welches ſind ſie?</p><lb/>
+<pb n="16" facs="#f0034"/>
+<p>Fuͤrchte man nicht, wir werden die Strenge der Schul-<lb/>
+disciplin fordern. Nur in der Freiheit reift man zur Freiheit.<lb/>
+Und es iſt beſſer, daß Einer zu Grund gehe, als daß alle<lb/>
+unter kleinlicher Bewachung klein bleiben. Aber man unter-<lb/>
+ſcheide auch zwiſchen vernuͤnftiger Freiheit, die man leiden-<lb/>
+ſchaftlichen Juͤnglingen geſtattet, und Libertinage. Darum<lb/>
+poſitive Hebel und Kraͤfte. Von ihnen nennen wir zuerſt:</p><lb/>
+<list><item>2) <hi rendition="#g">Entwicklung der Selbſtthaͤtigkeit des Den-<lb/>
+kens</hi>.</item></list><lb/>
+<p>Oben iſt dieſe ſchon namhaft gemacht worden; hier muß<lb/>
+ſie wieder auftreten, weil der Wille, der Charakter durch das<lb/>
+Denken bemeiſtert und geleitet werden ſoll bei intelligenten<lb/>
+Weſen. Weg darum mit aller Paſſivitaͤt im Lernen und Den-<lb/>
+ken, mit blind todtem Annehmen gegebener Stoffe des Wiſſens!<lb/>
+Nicht das Wiſſen kraͤftigt, ſondern das Verſtehen; nicht die<lb/>
+Aufſammlung im Gedaͤchtniß, ſondern das Verarbeiten mit<lb/>
+dem Verſtande; nicht das Aufſpeichern der Maſſen, ſondern<lb/>
+das Aſſimiliren; nicht das Betrachten, ſondern das Suchen;<lb/>
+nicht das Glauben, ſondern das Pruͤfen; nicht das Lernen,<lb/>
+ſondern das Ueben; nicht das Fertige, ſondern das Zuberei-<lb/>
+ten; nicht das Vorkauen, ſondern das Zergliedern; nicht das<lb/>
+Nehmen, ſondern das Machen. Die darin liegende Wahrheit<lb/>
+iſt laͤngſt von den Elementarlehrern eingeſehen und angenom-<lb/>
+men worden; ſie muß nun auch mit Strenge und Unbedingt-<lb/>
+heit unſern Hochſchullehrern gepredigt werden. Veraͤchtlich<lb/>
+blicken ſie meiſt auf das Wiſſen und die Kuͤnſte der Schul-<lb/>
+meiſter hinab; aber, beim Jupiter, ſehr viele koͤnnen von die-<lb/>
+ſen verachteten, oft hungernden Schulmeiſtern Etwas lernen,<lb/>
+die große Wahrheit: daß es bei der Geiſtes- und Charakter-<lb/>
+bildung weit mehr ankommt auf das <hi rendition="#g">Wie</hi> als das <hi rendition="#g">Was,</hi><lb/>
+<pb n="17" facs="#f0035"/>
+weit mehr auf die Form als den Inhalt, Alles auf die <hi rendition="#g">Me-<lb/>
+thode</hi>.</p><lb/>
+<p>Darum verlangen wir eine geiſtweckende, geiſtbildende<lb/>
+Lehrmethode.</p><lb/>
+<list><item>3) Die <hi rendition="#g">zweite</hi> Forderung in dem Gebiete der poſitiven<lb/>
+Veranſtaltungen der akademiſchen Jugend verlangt als<lb/>
+hoͤchſten Inhalt der Vortraͤge <hi rendition="#g">belebende Ideen</hi> —<lb/>
+Hochbilder, Hochgedanken, Ideale.</item></list><lb/>
+<p>Mit der Gruͤndlichkeit des Unterrichts, mit einer geiſt-<lb/>
+ſtaͤhlenden Methode iſt es nicht genug. Die Form muß er-<lb/>
+fuͤllt werden von dem rechten Gehalt. Der reifende Juͤngling<lb/>
+ſtrebt nach dem Realen, das ſich in ſeiner Phantaſie zum<lb/>
+Idealen, Hoͤchſten, Vollendeteſten verklaͤrt. Das eigentliche,<lb/>
+innere Gluͤck dieſer Zeit beſteht in dem Ergriffenſein von Ideen,<lb/>
+darin, daß dem Juͤngling die hoͤchſten Gedanken in ihrer Er-<lb/>
+habenheit erſcheinen, und daß er ſo von ihnen gefaßt wird,<lb/>
+daß er nicht nur auf Augenblicke, ſondern fuͤr immer von<lb/>
+dem großen Entſchluſſe, der Verwirklichung derſelben ſein Le-<lb/>
+ben zu widmen, ſich beſeelt und begeiſtert fuͤhlt. Wohl, das<lb/>
+Leben ſtreift von dieſen Hochgedanken und Hochgefuͤhlen Man-<lb/>
+ches ab; aber in dem wahrhaft durch das akademiſche Leben<lb/>
+Verklaͤrten halten ſie das Leben hindurch vor, nimmer ver-<lb/>
+ſchwindend. Die Hochſchule hat die Beſtimmung, dieſe Hoch-<lb/>
+gedanken, dieſes hoͤhere Leben in ihren Zoͤglingen zu begruͤn-<lb/>
+den, den Geiſt der Juͤnglinge fuͤr die Ideale reif zu machen.<lb/>
+Die wichtigſten ſind: <hi rendition="#g">wiſſenſchaftliche Ausbildung,<lb/>
+Foͤrderung geiſtiger Intereſſen der Nation, die<lb/>
+erhabenen Gedanken der Tugend- und Pflicht-<lb/>
+uͤbung in geiſtigem Berufsleben, Entwicklung der<lb/>
+Nationalitaͤt in Aufopferungsfaͤhigkeit, Ehre<lb/>
+<pb n="18" facs="#f0036"/>
+und Freiheit</hi>. Dem aͤchten Juͤngling brauchen dieſe Worte<lb/>
+nur um’s Ohr zu klingen, und ſeine Bruſt fuͤhlt ſich gehoben<lb/>
+und ſeine Pulſe ſchlagen raſcher. Wehr dem tageloͤhnernden<lb/>
+Heftſchreiber, der nur lernt, um ſein jaͤmmerliches Leben zu<lb/>
+friſten, und durch das Amt eine verſorgende Milchkuh ſich zu<lb/>
+verſchaffen. Unwerth, aus der Quelle der Wiſſenſchaften zu<lb/>
+trinken, ſchoͤpft er aus abgeleiteten Brunnen, und anſtatt<lb/>
+frei zu werden durch die Forſchung nach Wahrheit, ſchleppt<lb/>
+er die Ketten des Geiſtes muͤhſam durch das Leben.</p><lb/>
+<p>Sehet, werthe Leſer, das iſt das Ziel, der Preis und der<lb/>
+Ruhm einer Hochſchule und ihrer Lehrer, wenn ſie es ver-<lb/>
+ſtehen, in den Juͤnglingen die Funken des Geiſtes zu wecken,<lb/>
+in ihnen eine Reihe von Alles belebenden und begeiſternden<lb/>
+Ideen aufſteigen zu laſſen und ſie fuͤr Alles, was die Vor-<lb/>
+und Mitwelt Großes hervorgebracht hat in Religion, Wiſſen-<lb/>
+ſchaft und Leben, fuͤr alle kuͤnftigen Tage des Wirkens nach-<lb/>
+haltigſt zu begeiſtern. Ein Lehrer, der Solches verſteht, nicht<lb/>
+weil er ſich in kuͤnſtliche, ekſtatiſche Begeiſterung auf Augen-<lb/>
+blicke zu verſetzen weiß, ſondern weil er ſelbſt in Ideen lebt,<lb/>
+und Alles, was er ſagt oder verſchweigt, die Juͤnglinge mit<lb/>
+belebendem Hauche anweht, ein Solcher iſt wahrhaft ein Leh-<lb/>
+rer der hohen Schule. Jeder Andere aber iſt ein banauſiſcher<lb/>
+Sacktraͤger, unwuͤrdig der hohen Wuͤrde, ein Prieſter der<lb/>
+Ideen zu ſein.</p><lb/>
+<list><item>4) Aber der Menſch iſt nicht bloß Geiſt, er iſt auch <hi rendition="#g">Leib,</hi><lb/>
+und als Sinnenweſen iſt ſeine Entwickelung und ſeine<lb/>
+Wirkſamkeit an irdiſche Bedingungen geknuͤpft. Wir<lb/>
+verlangen darum von der Hochſchule nicht bloß Pflege<lb/>
+des Geiſtes, ſondern auch <hi rendition="#g">Pflege des Leibes,</hi> nicht<lb/>
+bloß Erhaltung der Geſundheit, <hi rendition="#g">ſondern Entwick-<lb/>
+<pb n="19" facs="#f0037"/>
+lung und Ausbildung des Leibes zum freien<lb/>
+Dienſt fuͤr den Geiſt</hi>.</item></list><lb/>
+<p>Scheuen wir uns nicht, mißdeutete Woͤrter zu gebrau-<lb/>
+chen, deren Bedeutung aber einen guten Klang hat, wir mei-<lb/>
+nen <hi rendition="#g">Gymnaſtik</hi> und <hi rendition="#g">Turnkunſt</hi>.</p><lb/>
+<p>Nicht bloß in die Reitbahn, ſondern auch auf die Renn-<lb/>
+bahn gehoͤrt der Juͤngling. Seinen Leib ſoll er nach altgrie-<lb/>
+chiſchem Ideale tuͤchtig machen in allerhand Kuͤnſten und<lb/>
+Uebungen. Es iſt nicht genug, daß er fechten, hauen oder<lb/>
+ſtechen lerne, oft nur um eitler Ehre willen, ſondern er ſoll<lb/>
+ſeinen Leib uͤberhaupt gewandt und ſtark machen. Auch der<lb/>
+einjaͤhrige Kriegsdienſt bringt nicht, was wir verlangen: freie<lb/>
+geſellig-gymnaſtiſche Uebungen und Spiele.</p><lb/>
+<p>Wie, Ihr glaubt, das ſei geſunde, allſeitige Bildung,<lb/>
+wenn Ihr den Juͤngling taͤglich vier, ſechs, acht Stunden auf<lb/>
+die Bank in dem Hoͤrſaale feſſelt, wenn er keine andre Waffe<lb/>
+ergreift als die Feder, und ſeine Kraft nur uͤbt in dem Tra-<lb/>
+gen der Mappe?</p><lb/>
+<p>Unſelig ſind die Folgen koͤrperlicher Verwahrloſung in den<lb/>
+Jahren, in welchen der Leib ſeiner Vollendung entgegen reift,<lb/>
+ſtrotzend von gaͤhrenden Saͤften. Einen Ausweg, eine An-<lb/>
+wendung verlangen, ſuchen und finden ſie. Sollen ſie ſich<lb/>
+auf’s Gehirn, in den Unterleib werfen, dort Ueberreizung und<lb/>
+Nervenſchwaͤche, hier Entmannung bewirken? Tretet Ihr<lb/>
+nicht mit Euch ſelbſt in Widerſpruch, wenn Ihr in den Bil-<lb/>
+dungsanſtalten der Jugend fuͤr die Entwickelung der Leiber in<lb/>
+keiner Art Sorge traget? Denn wir ſagen es Euch, eine<lb/>
+Hochſchule, die nicht fuͤr die Koͤrperbildung vollkommene Ver-<lb/>
+anſtaltungen trifft, leidet und ſiecht an einem unverzeihlichen<lb/>
+Mangel. Nicht um ihrer ſelbſt willen verlangen wir Gym-<lb/>
+<pb n="20" facs="#f0038"/>
+naſtik, Turnkunſt und heitere maͤnnliche Spiele, ſondern um<lb/>
+der Allſeitigkeit der Bildung willen. Wahre Geiſtesbildung,<lb/>
+d. h. Mannhaftigkeit der Geſinnung und des Charakters ge-<lb/>
+deiht und reift nur in gekraͤftigten Leibern.</p><lb/>
+<list><item>5) <hi rendition="#g">Wir verlangen ferner Anſtalten zur geſell-<lb/>
+ſchaftlichen Entwicklung und Bildung unſe-<lb/>
+rer Juͤnglinge</hi>.</item></list><lb/>
+<p>Ueberall, wo junge Leute auf ſich ſelbſt beſchraͤnkt ſind,<lb/>
+nur mit einander umgehen, reißt ein Geiſt der Rohheit ein,<lb/>
+rohe Sitten, Verachtung aͤußerlicher, feiner Sitte und Erſchei-<lb/>
+nung. Solches kann man ſogar in den Schullehrer- und<lb/>
+Prieſter-Seminarien lernen. Natuͤrlich. Der junge, kraͤftige,<lb/>
+frei ſich fuͤhlende Menſch durchſchaut bald die Leere aͤußerer<lb/>
+Ceremonien und geſellſchaftlicher Uebertreibungen. Indem ſein<lb/>
+Sinn auf das Weſen gerichtet iſt, verwirft er, was ihm ein<lb/>
+hohler Schemen zu ſein duͤnkt, und gerade der Tuͤchtigſte ge-<lb/>
+faͤllt ſich leicht in der Verachtung aͤußerer Freiheit und ſchoͤ-<lb/>
+ner Sitte. Um ſolcher rohen Erſcheinungsweiſe vorzubeugen,<lb/>
+hat man in manche Schullehrer- und Prieſter-Seminarien die<lb/>
+Myſtik, den Pietismus eingefuͤhrt. Gewiß, ein herrliches<lb/>
+Mittel fuͤr dieſen Zweck! Denn aller Orten auf dem weiten<lb/>
+Erdenrund gleichen die Froͤmmler ſich in aͤußerer Ehrbarkeit<lb/>
+und ſtiller Geſittung. Der Schein ſoll das Weſen erſetzen.<lb/>
+Aber unſre Leſer werden es uns nicht zutrauen, daß wir die-<lb/>
+ſes Mittel geiſtiger Entmannung anempfehlen. Den wildeſten,<lb/>
+wuͤſteſten Burſchencomment ziehen wir dem Heuchler- und<lb/>
+Froͤmmlerweſen vor. Aber wir wuͤnſchen daneben, daß den<lb/>
+Juͤnglingen feine Sitten und Geſittung angebildet werde. Denn<lb/>
+auch ſie gehoͤren zur Bildung, und mancher Juͤngling hat in<lb/>
+<pb n="21" facs="#f0039"/>
+ſeinem fruͤheren Leben keine Gelegenheit gehabt, ſie von ihrer<lb/>
+ſchoͤnen und edlen Seite kennen zu lernen.</p><lb/>
+<p>Unmoͤglich iſt die Erreichung dieſes Zweckes, wenn man<lb/>
+die Juͤnglinge ſich ſelbſt uͤberlaͤßt. Auch erzielen die Thee-<lb/>
+kraͤnzchen einzelner Profeſſoren mit ihren Disputationen uͤber<lb/>
+ſcholaſtiſche Spitzfindigkeiten nicht, was wir meinen. Fuͤr<lb/>
+Einzelne iſt geſorgt, die ſo gluͤcklich ſind, in der Univerſitaͤts-<lb/>
+ſtadt Eintritt in gebildete Familien zu finden. Aber dieſer<lb/>
+gluͤcklichen ſind wenige. Die meiſten ſind beſchraͤnkt auf das<lb/>
+Beſuchen der Hoͤrſaͤle, der Stubenburſchen, der Reſtauratio-<lb/>
+nen und Kneipen.</p><lb/>
+<p>Nur in geſelligen Kreiſen gemiſchter Geſellſchaft, d. h.<lb/>
+von Maͤnnern und Frauen, lernt ſich feine, zarte Sitte und<lb/>
+liebliche Erſcheinung. Von Courtoiſie und Schmeichelkuͤnſten<lb/>
+iſt nicht die Rede. Die Turnkunſt wird unſre Juͤnglinge da-<lb/>
+von fern halten. Aber Gewandtheit im Umgange und Liebe<lb/>
+zu edler Geſelligkeit in erheiternden Geſpraͤchen, in Spielen<lb/>
+des Witzes und der Laune, wie in den Bewegungen des Tan-<lb/>
+zes ſollen unſre Juͤnglinge lieben und uͤben lernen. Wahrlich<lb/>
+mancher edle Juͤngling iſt dadurch allein zu Grund gegangen,<lb/>
+daß es ihm an dem Hebel, der in dem Umgange und in der<lb/>
+Achtung edler Frauen liegt, fehlte. Sein Herz verlangte<lb/>
+mehr, als der Fechtſaal oder der Commerſch ihm brachte,<lb/>
+und er fiel, oder — was noch ſchlimmer iſt — er ſank.</p><lb/>
+<p>Wie dieſes zu veranſtalten, ſolches anzugeben, iſt nicht<lb/>
+unſre Aufgabe. Wir nennen die Bedingungen, unter welchen<lb/>
+die Bildung auf der Univerſitaͤt eine allſeitige werden kann.<lb/>
+Die Ausfuͤhrung liegt denen ob, die zu Leitern und Lehrern<lb/>
+der Hochſchulen beſtellt ſind. Einzelnes iſt auf einzelnen in<lb/>
+ſchoͤner Weiſe ſchon geleiſtet. So in Heidelberg, dieſer be-<lb/>
+<fw type="sig" place="bottom">3</fw><lb/>
+<pb n="22" facs="#f0040"/>
+geiſternden, in mancher Hinſicht einzigen Univerſitaͤtsſtadt,<lb/>
+durch das dortige Muſeum. Es geht Alles, wenn man nur<lb/>
+will. Nur auf das deutſche Theater weiſe man nicht hin als<lb/>
+auf eine Schule der Hoͤflichkeit und der Geſittung. Ja da-<lb/>
+mals, als man noch den großen Gedanken eines deutſchen<lb/>
+Nationaltheaters verfolgte, damals hoffte man, es wuͤrde<lb/>
+werden und es haͤtte werden koͤnnen. Bei der jetzigen Entar-<lb/>
+tung der Buͤhne aber muß man eher den Wunſch ausſprechen,<lb/>
+daß die Juͤnglinge es nicht kennen lernen. Oder ſollte wirklich<lb/>
+in den gewoͤhnlichen Luſtſpielen, in den Opern und Balleten<lb/>
+eine geheim bildende Kraft liegen? Ja wohl, wir vermuthen<lb/>
+und — fuͤrchten es. Denn es bedarf des Beweiſes nicht,<lb/>
+daß das Theater geſunken iſt. Dieſe Wahrheit liegt klar vor<lb/>
+Jedermanns Augen da. Verloren gegangen iſt ſeine hohe<lb/>
+Beſtimmung, darin beſtehend, den Sinn fuͤr ideale Schoͤnheit<lb/>
+und Kunſt in den Zuhoͤrern zu wecken, und die ideale Groͤße<lb/>
+menſchlicher Charactere mit lebendigeren Farben in die Einbil-<lb/>
+dungskraft hinein zu legen, als die Geſchichte es vermag.<lb/>
+Dieſes fuͤr aͤchte, hoͤhere Cultur unendlich wichtige Inſtitut<lb/>
+iſt zu einer Anſtalt fuͤr Unterhaltung und Amuͤſement hinab-<lb/>
+geſunken, und nicht bloß den Puritanern, ſondern ſelbſt frei-<lb/>
+ſinnigen Menſchen draͤngt ſich die Frage auf, ob das heutige<lb/>
+Theater nicht mehr ſchade als nuͤtze, und ob es nicht an der<lb/>
+Zeit ſei, ein ſo zweideutiges Inſtitut ganz aufzuheben. Je-<lb/>
+denfalls aber wird der haͤufige Beſuch des Theaters einem<lb/>
+Studenten kein guͤnſtiges Vorurtheil erwecken.</p><lb/>
+<p>Wie jeder Menſch in der Achtung von Perſonen, die ihm<lb/>
+achtungswuͤrdig erſcheinen, einen Talisman beſitzt, der ihn<lb/>
+von dem Schlechten und Gemeinen abhaͤlt, ſo zumal der<lb/>
+Juͤngling, der ja noch nicht, wie der gereifte Mann, auf der<lb/>
+feſten Baſis thatenreich zuruͤckgelegter Jahre oder oͤffentlichen<lb/>
+<pb n="23" facs="#f0041"/>
+Ruhmes ſteht, darum vor Allen der Stuͤtzen durch ſo edle<lb/>
+Hebel, als Achtung und Vertrauen ſind, bedarf. In dieſer<lb/>
+Hinſicht iſt das Leben der Studenten in großen Staͤdten nicht<lb/>
+zu loben. Man bedenke ſich daher wohl, ehe man die Uni-<lb/>
+verſitaͤten aus kleinen in große Staͤdte verlegt. Hier ver-<lb/>
+ſchwindet der Einzelne, in kleinen iſt Jeder gekannt. Freilich,<lb/>
+in großen Staͤdten gelangt der Corporationsgeiſt der Studen-<lb/>
+ten zu keiner Macht, und wenn er der Uebel groͤßtes iſt, ſo<lb/>
+darf man ſich nicht beſinnen; aber es bedarf dieſes einer ern-<lb/>
+ſten Unterſuchung. So viel bleibt gewiß, in kleinen Staͤdten<lb/>
+geht der Einzelne nicht ſo leicht zu Grund, als in großen,<lb/>
+wo er mit ſeinen Schandthaten verſchwindet. Wir gehen wei-<lb/>
+ter. Das Wort Corporationsgeiſt weckt den naͤchſten Gedanken.</p><lb/>
+<list><item>6) <hi rendition="#g">Zur Erziehung und Bildung der akademiſchen<lb/>
+Jugend gehoͤren Genoſſenſchaften, Corpo-<lb/>
+rationen</hi>.</item></list><lb/>
+<p>Der regierende Geiſt der juͤngſten Vergangenheit und Ge-<lb/>
+genwart und ſeine abſolute Unfaͤhigkeit zum Zeugen und Ge-<lb/>
+baͤren zeigt ſich auch in der Aufhebung und Vernichtung aller<lb/>
+geſchloſſenen Gemeinſchaften und Verbruͤderungen unter den<lb/>
+Studenten.</p><lb/>
+<p>Wir wollen zugeben, Ungehoͤrigkeiten mancherlei Art hat-<lb/>
+ten ſich in ſie eingeſchlichen, man mußte einſchreiten. Aber<lb/>
+daß Alles dieſer Art aufgehoͤrt hat, bleibt im hoͤchſten Grade<lb/>
+zu bedauern. Man wird nicht einmal dadurch den Zweck er-<lb/>
+reichen, den man anſtrebte. Das Schlechte vertilgt man nicht<lb/>
+dadurch, daß man es verbietet, ſondern dadurch, daß man<lb/>
+das Beſſere hervorruft. Mit einer reinen Negation und einer<lb/>
+<hi rendition="#aq">tabula rasa</hi> iſt es nicht gethan. Es entſteht gleich, wo Le-<lb/>
+ben und Bewegung iſt, ein Anderes, oft ein Schlimmeres.</p><lb/>
+<fw type="sig" place="bottom">3*</fw><lb/>
+<pb n="24" facs="#f0042"/>
+<p>Zuſammenſchaarung und Vereinigung des Gleichartigen<lb/>
+<choice><sic>ift</sic><corr>iſt</corr></choice> ein allgemeines Geſetz der lebenden Natur, in dem Thier-<lb/>
+reiche wie unter den Menſchen. Ohne ſie iſt eine Organiſation<lb/>
+undenkbar. Sie verlangt nicht Aufhebung des Differenten und<lb/>
+Ununterſcheidbarmachung deſſelben. — Das waͤre die heilloſe<lb/>
+Maxime der Gleichmacherei — ſondern ſie verlangt Vereini-<lb/>
+gung des Gleichartigen zur Verrichtung einer Function in dem<lb/>
+organiſch zu gliedernden Koͤrper und Ergaͤnzung derſelben durch<lb/>
+alle uͤbrigen. Man hat alle Corporationsverhaͤltniſſe und da-<lb/>
+mit alle Staͤnde der buͤrgerlichen Geſellſchaft aufgehoben, ſo<lb/>
+weit ſolches von Menſchen abhing — zu wahrem Unſegen fuͤr<lb/>
+das Ganze <note place="foot" n="*)">v. <hi rendition="#g">Raumer,</hi> England 1856, <hi rendition="#aq">I.</hi> S. 550:<lb/>
+„Die Wichtigkeit und Nothwendigkeit des <hi rendition="#g">Corporativen</hi><lb/>
+macht ſich in einer Zeit wieder geltend, welche demſelben viel zu<lb/>
+uͤbereilt einen allgemeinen Krieg erklaͤrt hatte Mißbraͤuche der<lb/>
+Zuͤnfte, der geſchloſſenen Buͤrgerſchaften, der monopoliſirenden<lb/>
+Univerſitaͤten ꝛc. liegen ſo deutlich zu Tage, daß kein Unbefan-<lb/>
+gener ſie leugnen kann; hieraus folgt aber auf keine Weiſe, ein<lb/>
+Staat beſtehe lediglich aus einer hoͤchſten, centraliſirten Regie-<lb/>
+rung, und dann aus lauter Einzelheiten, welche man, zuſam-<lb/>
+men addirt, Volk zu nennen beliebe. Es folgt eben ſo wenig,<lb/>
+daß alle zahlreichen Vereine der Einzelnen zu einem groͤßeren<lb/>
+Ganzen ſchaͤdliche Staaten im Staate waͤren. Umgekehrt; jeder<lb/>
+hoͤher entwickelte Staat bedarf mannigfaltiger, groͤßerer Organe:<lb/>
+alſo Genoſſenſchaften der Handwerker, Kuͤnſtler, Gelehrten, Geiſt-<lb/>
+lichen, Doͤrfer, Staͤdte, Landſchaften ꝛc. Und wie ſich auch die<lb/>
+Zeit, wie ſich auch die Geſtaltung und der Zweck aͤndern moͤgen:<lb/>
+es wird das Corporative, dieſe Wahlverwandtſchaft und Wech-<lb/>
+ſelwirkung immer wieder hervortreten, und wie ein Phoͤnix aus<lb/>
+der Aſche des Fruͤheren wieder hervorwachſen.“</note>, zur Verzweiflung fuͤr die Einzelnen, in denen<lb/>
+ein organiſirender Geiſt lebt; wenn man in gleicher Richtung<lb/>
+auch die landsmannſchaftlichen Genoſſenſchaften der Studen-<lb/>
+ten aufgehoben hat, ſo moͤchte der augenblickliche Vortheil fuͤr<lb/>
+die aͤußere Ruhe auf den Univerſitaͤten leicht durch den dauern-<lb/>
+den Nachtheil fuͤr das innere Lebensprincip in den gebildeten<lb/>
+<pb n="25" facs="#f0043"/>
+Staͤnden der buͤrgerlichen Geſellſchaft uͤberwogen werden. Was<lb/>
+iſt natuͤrlicher, als daß ſich in fremder Stadt die Heimaths-<lb/>
+genoſſen zuſammenſchaaren, die ſich durch daſſelbe Gefuͤhl,<lb/>
+dieſelbe Sitte, dieſelben Erinnerungen angezogen fuͤhlen? Man<lb/>
+will nicht einmal die Verbindung der Commilitonen derſelben<lb/>
+Facultaͤt. Man will ein reines Nichts, Iſolirung des Ein-<lb/>
+zelnen von allen Andern. Die Feindſchaft gegen das Cor-<lb/>
+porative erſtreckt ſich ſogar auf die Kleidung und die Farben.<lb/>
+Alles ſei eine Maſſe, Jeder gleiche dem Andern, Nichts ſteche<lb/>
+hervor. So wird das Leben eine Wuͤſte, die Langweiligkeit<lb/>
+fuͤhrt das Scepter. Denn was iſt langweiliger als die Unter-<lb/>
+ſchiedsloſigkeit!</p><lb/>
+<p>Ehemals kannte man an der Kleidung und den Manieren<lb/>
+den Handarbeiter, den Handwerker, den Kaufmann, den Ge-<lb/>
+lehrten, den Studenten. Und warum ſoll der Student ſich<lb/>
+nicht anders tragen, geberden als der Philiſter? Oder ſoll er<lb/>
+auch nur ein Philiſter ſein? — Liebt man ja bei den Solda-<lb/>
+ten die Verſchiedenheit der Jacken und Treſſen. Die Solda-<lb/>
+ten ſind aber die Menſchenwelt nicht allein. Auch wir ſind<lb/>
+Menſchen, auch wir haben Launen, auch in uns leben Eigen-<lb/>
+thuͤmlichkeiten. Der hollaͤndiſche Geſchmack der Gartenkunſt,<lb/>
+der allen Gewaͤchſen unter der Scheere dieſelbe Geſtalt gab,<lb/>
+iſt laͤngſt in ſeiner Unnatur anerkannt. In der Erziehung der<lb/>
+Menſchen iſt man ſo weit noch nicht vorgeruͤckt. Wenn die<lb/>
+Burſchenſchaft die Burſchenſchaft iſt, ſo iſt und bleibt auch<lb/>
+der Student ein Student. Man laſſe ihm ſeine unſchaͤdlichen<lb/>
+Eigenthuͤmlichkeiten, man leite und regle ſie. Nur der Schlechte<lb/>
+ſondert ſich ab; der Gute ſchaart ſich mit Gleichgeſinnten zu-<lb/>
+ſammen. Ohne dieß keine Freude, kein Gluͤck.</p><lb/>
+<p>Es giebt zwei Principien, nach denen man die Studen-<lb/>
+ten vereinigen kann: das <hi rendition="#g">fachmaͤßige</hi> und das <hi rendition="#g">lands-<lb/>
+<pb n="26" facs="#f0044"/>
+mannſchaftliche</hi>. Beide muͤſſen in Anwendung gebracht<lb/>
+werden. Jeder tuͤchtige Student lebt in zwei Richtungen und<lb/>
+Strebungen: die eine geht nach dem Wiſſen, die andere nach<lb/>
+dem Leben. Jene zieht ihn zu Juͤnglingen deſſelben Fachs,<lb/>
+dieſes vereinigt ihn mit ſeinen Landsleuten. Von beiden Trie-<lb/>
+ben iſt der von lebendigen Kraͤften Erregte influencirt. In<lb/>
+rechter Weiſe benutzt fuͤhren ſie, wie alle Triebe der Menſchen-<lb/>
+natur, zum Guten. Der wiſſenſchaftliche Trieb findet ſeine<lb/>
+Befriedigung durch geiſtige Beruͤhrung des Theologen mit den<lb/>
+Theologen, des Juriſten mit den Juriſten u. ſ. w. Der ge-<lb/>
+ſellige ſchaart zuſammen: die Schleſier, die Pommern, die<lb/>
+Sachſen, die Wuͤrtemberger, die Baiern u. ſ. w.</p><lb/>
+<p>Der ſtudirende Juͤngling iſt kein Kind mehr, das Geſetz<lb/>
+behandelt ihn wie einen Muͤndigen, Freien, und der Lehrer<lb/>
+nennt ihn einen Herrn. Darum iſt ihm der Staat eine oͤffent-<lb/>
+liche Stellung im Leben ſchuldig, ſie gebuͤhrt ihm, und zu<lb/>
+allen Zeiten ſtrebt der Student, dieſelbe zu gewinnen. Er<lb/>
+fuͤhlt ſich einen Andern, als die uͤbrigen, die er Philiſter be-<lb/>
+namſet, er will auch aͤußerlich ein Anderer erſcheinen. Dieſe<lb/>
+Beſtrebungen ſind natuͤrlich, folglich heilſam und gut. Man<lb/>
+befriedige ſie! Darum Vereinigung der Strebenden nach dem<lb/>
+Princip des Faches, der Lebenden nach dem Eintheilungsgrund<lb/>
+der Heimath! Soll das geiſtige Princip erſcheinen, ſo treten<lb/>
+die Theologen, die Juriſten, die Mediciner, die Philoſophen<lb/>
+zuſammen auf, die erſten etwa in ſchwarzer, die zweiten in<lb/>
+rother, die dritten in gruͤner, die vierten in blauer Farbe. Soll<lb/>
+das Leben des Gefuͤhls und der Geſinnung zur Erſcheinung<lb/>
+kommen, ſo ſieht man zuſammen die derben Pommern, die<lb/>
+gutmuͤthigen Sachſen, die breitſchulterigen Weſtphalen, die hei-<lb/>
+teren Rheinlaͤnder, die ſchweren Baiern.</p><lb/>
+<pb n="27" facs="#f0045"/>
+<p>So verlangt es das Leben, das auf den Hochſchulen<lb/>
+herrſchen ſoll, nicht der Tod, der durch die Iſolirung entſteht.<lb/>
+Dieß fuͤhrt uns zur folgenden Bedingung, die wir zu ſtellen<lb/>
+haben:</p><lb/>
+<list><item>7) <hi rendition="#g">Bewegung und Erregung durch den Geiſt des<lb/>
+oͤffentlichen Lebens und lebendige Theil-<lb/>
+nahme an demſelben</hi>.</item></list><lb/>
+<p>Wo oͤffentliches Leben iſt und ein Geiſt deſſelben, da wird<lb/>
+von ſelbſt jeder Einzelne von ihm erregt und ergriffen. Es<lb/>
+wirkt wie der Odem Gottes, der alle Kreatur durchdringt.<lb/>
+Fuͤr dieſe Erregung bedarf es keiner beſonderen Veranſtaltung.</p><lb/>
+<p>Das oͤffentliche Leben bedarf beſtimmter Organe und Ver-<lb/>
+richtungen, hervorgerufen durch die Organiſation der Maſſen,<lb/>
+wie ich ſie im „<hi rendition="#g">zweiten</hi> Beitrag zur Lebensfrage“ verlangt<lb/>
+habe. Die Organiſation geſchieht nach doppeltem Princip,<lb/>
+weil Jeder von zwiefachem Intereſſe beſtimmt wird. Die In-<lb/>
+tereſſen naͤmlich ſind zu vertreten. Das erſte iſt das Stan-<lb/>
+desintereſſe, das zweite iſt das der Heimath, des Wohnortes,<lb/>
+des Viertels, der Straße u. ſ. w.</p><lb/>
+<p>Die Beſchaͤftigung des Mannes beſtimmt den Stand,<lb/>
+dem er angehoͤrt, nichts Anderes. Er gehoͤrt zu den Genoſſen<lb/>
+deſſelben Standes, zur Erreichung der Zwecke deſſelben und<lb/>
+zur Vertretung ſeiner Intereſſen gegen die uͤbrigen Staͤnde.<lb/>
+So wie in der Natur die Pappeln zuſammengehoͤren und die<lb/>
+Eichen, ſo die Handwerker, die Kaufleute und die Gelehrten<lb/>
+u. ſ. w. Und ſo wie die Arten der Pappeln und der Eichen<lb/>
+eine Unterabtheilung unter ſich bilden, ſo die Arten der Hand-<lb/>
+werker, der Kaufleute, der Gelehrten. Dadurch entſteht der<lb/>
+compacte Corporationsgeiſt der Staͤnde, der ohnedieß da iſt,<lb/>
+aber auch ſeine Anerkennung, ſeine Conſtitution verlangt. Noth-<lb/>
+<pb n="28" facs="#f0046"/>
+wendig iſt er ein einſeitiger. Seine Ergaͤnzung, Verallgemei-<lb/>
+nerung und Beſchraͤnkung findet er durch das zweite Princip<lb/>
+der Gliederung, durch die Zuſammenſchaarung aller Maͤnner,<lb/>
+die denſelben Wohnort haben, oder in großen Staͤdten daſſelbe<lb/>
+Viertel bewohnen. Hier wird jeder Einzelne durch die allge-<lb/>
+meinen Intereſſen Aller influencirt, und die Einſeitigkeit wird<lb/>
+durch die Allſeitigkeit, der moͤgliche Standesegoismus durch<lb/>
+die univerſelle patriotiſche Geſinnung Aller verklaͤrt. Natuͤr-<lb/>
+lich entſtehen zur Durchfuͤhrung dieſer Organiſation Verſamm-<lb/>
+lungen der Genoſſen deſſelben Standes und derſelben Heimath.<lb/>
+Die Glieder ſollen durch perſoͤnliche Gemeinſchaft, durch Rede<lb/>
+und That in Wechſelwirkung treten, und alle bewegt werden<lb/>
+von dem Geiſte der Gemeinſchaft des oͤffentlichen Lebens.</p><lb/>
+<p>Den Studenten gebuͤhrt, ſagte ich oben, eine beſtimmte<lb/>
+Stellung im Leben. Sie bilden den <hi rendition="#g">Stand</hi> der Studenten,<lb/>
+und man gewaͤhrt ihnen, in weiſer Abmeſſung ihrer Beduͤrf-<lb/>
+niſſe und Zwecke, beſtimmte Rechte. Auf die Freiheit der<lb/>
+uͤbrigen Staͤnde haben ſie keinen Anſpruch, denn ſie produci-<lb/>
+ren noch nicht, ſondern ſie lernen. Aber damit ſie lernen,<lb/>
+muß man ſie ſich ausleben und ſich uͤben laſſen. Darum<lb/>
+fuͤgt man den Stand der Studenten zu dem der Gelehrten<lb/>
+als einem Appendix, die Theologen in abgeſonderter Gliede-<lb/>
+rung zu der Kategorie der Profeſſoren der theologiſchen Facul-<lb/>
+taͤt u. ſ. w. Auch ſollen die Einzelnen Zutritt haben zu den<lb/>
+allgemeinen Vereinen derer, mit welchen ſie zuſammenwohnen.<lb/>
+Der Juͤngling muß von dem Geiſt des oͤffentlichen Lebens er-<lb/>
+regt und ergriffen werden. Denn nur dadurch entſteht fuͤr<lb/>
+die in ihm erregten Hochgedanken eine Staͤtte praktiſcher Wirk-<lb/>
+ſamkeit. Ohne dieſe Beziehung der Ideen auf das Leben glei-<lb/>
+chen jene — hohlen Schemen, oder ſie ſpuken gleich Geſpen-<lb/>
+ſtern in dem Gehirne der Menſchen.</p><lb/>
+<pb n="29" facs="#f0047"/>
+<p>Die Glanzpunkte des Lebens ſind die vaterlaͤndiſchen<lb/>
+Feſte, großen geſchichtlichen Begebenheiten, Epochen und<lb/>
+Ideen, und der erhabenen Natur und ihrem Schoͤpfer geweiht.<lb/>
+Ohne großartige Nationalfeſte iſt kein erregtes, kein gehobenes<lb/>
+Volksleben denkbar. Wir beſitzen kaum noch einen Schatten<lb/>
+von ihnen. Ein ſicheres Zeichen, daß das Volk als Volk<lb/>
+oder lebendige Nation zu exiſtiren aufgehoͤrt hat. Es vegetirt,<lb/>
+oder der Einzelne ſpinnt ſein Netz in ſeiner ſtillen Behauſung,<lb/>
+gleich der Spinne in ihrem Fangwinkel. Aber Geduld, die<lb/>
+Furcht vor dem Mißbrauche wird verſchwinden, die deutſche<lb/>
+Nation wird wieder erwachen und die Regierungen werden<lb/>
+dieſes Erwachen gern befoͤrdern, wenn aus der gaͤhrenden<lb/>
+Maſſe der verderbliche Stoff ausgeſchieden ſein wird. Die<lb/>
+deutſche Nation in voller Reinheit der Geſinnung iſt nicht<lb/>
+zur Leiche erſtarrt; der Puls geht zwar langſam, aber das<lb/>
+Herz ſchlaͤgt noch, und wenn friſche Lebensluft ſie anhaucht,<lb/>
+wird ſie ihren vegetirenden Zuſtand verlaſſen und aus dem<lb/>
+Winterſchlafe zu neuem Leben erſtehen. Dieſe Entwicklungs-<lb/>
+zeit wird vor Allen der Jugend zu gut kommen, der Hoff-<lb/>
+nung fuͤr kuͤnftige beſſere Zeiten. Man wird dann mit Freu-<lb/>
+den die friſche Kraft in ihren Armen und den Glanz ihrer<lb/>
+funkelnden Augen wahrnehmen, und ihr die Stelle im oͤffent-<lb/>
+lichen Leben anweiſen, die ihr gebuͤhrt. Und bei den Feſten<lb/>
+wird ſie in ihrer Einheit und ihrer bunten Mannigfaltigkeit<lb/>
+erſcheinen, und je nachdem das Feſt vorzugsweiſe eine geiſtige<lb/>
+oder eine national-geſchichtliche Bedeutung hat, je nachdem<lb/>
+wird ſie in den Farben der Facultaͤten oder in den landsmann-<lb/>
+ſchaftlichen erſcheinen. Ein goldener Morgen fuͤr die Univer-<lb/>
+ſitaͤten und fuͤr die ganze Nation!</p><lb/>
+<list><item>8) Ich komme zur letzten Bedingung, an welche das Heil<lb/>
+der Erziehung der hoͤheren Jugend geknuͤpft iſt: <hi rendition="#g">die<lb/>
+<pb n="30" facs="#f0048"/>
+Tuͤchtigkeit der akademiſchen Lehrer in gei-<lb/>
+ſtiger, ſittlicher und patriotiſcher Hinſicht</hi>.</item></list><lb/>
+<p>Von einem Lehrer der Hochſchule, der eins der erſten<lb/>
+Ehrenaͤmter des Staats bekleidet, daher ſeine Loͤhnung auch<lb/>
+nicht Biergeld, ſondern mit Recht <hi rendition="#g">Ehrenſold</hi> (Honorar)<lb/>
+genannt wird, verlange ich drei Eigenſchaften: <hi rendition="#g">Geiſt</hi> (Lehr-<lb/>
+talent), <hi rendition="#g">ethiſche Geſinnung</hi> und <hi rendition="#g">Patriotismus</hi>, da-<lb/>
+mit er als Lehrer, als Menſch, als Glied der Nation den<lb/>
+Juͤnglingen, die ihn umgeben, als ſtrahlendes Muſter vor-<lb/>
+leuchte. Denn das lebendige Beiſpiel wirkt maͤchtiger als<lb/>
+Lehre und Unterricht.</p><lb/>
+<p>Die erſte Eigenſchaft des akademiſchen Lehrers iſt das<lb/>
+Lehrtalent, welches in einem durchgebildeten Verſtand, in hel-<lb/>
+len Einſichten, in der Kenntniß der menſchlichen Natur und<lb/>
+ihrer Entwicklungsgeſetze und in der Faͤhigkeit, Andere zu<lb/>
+geiſtiger Thaͤtigkeit machtvoll und energiſch anzuregen, beſteht.<lb/>
+Das eigentliche Lehrgeſchaͤft iſt ein ſtilles, innerliches, unhoͤr-<lb/>
+bares und unſichtbares Geſchaͤft. Die Worte ſind es nicht,<lb/>
+die geſprochen werden, die Saͤtze nicht, die mitgetheilt wer-<lb/>
+den, die Mienen und Geberden auch nicht; es iſt vergleichbar<lb/>
+dem Lichte des Himmels und dem Thau der Erde, und das<lb/>
+Lernen iſt das Wurzeln der Pflanze in die Tiefe und ihr ſtilles<lb/>
+Wachsthum. Wie der Odem Gottes weht uͤber den Waſſern,<lb/>
+ſo haucht der Geiſt eines wahren Lehrers die ſchlummernden<lb/>
+Geiſter der Schuͤler an, und ſie erwachen und freuen ſich.<lb/>
+Es iſt belebend und erheiternd, wenn zuweilen von des Leh-<lb/>
+rers Geiſt Raketen in die Luft ſteigen und Leuchtkugeln die<lb/>
+ſchwarze Nacht recht ſichtbar machen; aber noͤthig iſt es nicht;<lb/>
+wenn er nur, gleich dem Diamanten, mit eignem Lichte leuch-<lb/>
+tet. In geheimer Anziehung beruͤhren ſich die Geiſter, und<lb/>
+es ſind ſelige, geheimnißvolle Augenblicke, wo die Fluͤgelſchlaͤge<lb/>
+<pb n="31" facs="#f0049"/>
+und Schwingen des Geiſtes des Lehrers und der Schuͤler ſich<lb/>
+beruͤhren. Solch Lehren iſt ein ſtilles, heiliges Geſchaͤft der<lb/>
+Zeugung und Befruchtung, und die Nachkommen erfreuen<lb/>
+ſich, wenn der lehrende Geiſt laͤngſt heimgegangen, der un-<lb/>
+endlichen Erndte.</p><lb/>
+<p>Solche tiefe Innerlichkeit beſteht nicht ohne Tugendgeſin-<lb/>
+nung, ohne die geheime Freude an dem Edeln und Rechten.<lb/>
+Sie iſt ſelbſt eine der groͤßten Tugenden. Aber uͤberhaupt ſei<lb/>
+jeder Lehrer, zumal der der Hochſchule, ein ſittlich ernſter,<lb/>
+tugendhafter Mann, der das Gleiche wirkt in ſeiner Umge-<lb/>
+bung, ohne daß er ſpricht und ohne daß er es will, bloß<lb/>
+weil er iſt. „Worte ſind gut, aber ſie ſind nicht das Beſte;<lb/>
+das Beſte wird nicht klar durch Worte.“ (<hi rendition="#g">Goͤthe</hi>.)</p><lb/>
+<p>Und dann verlangen wir vom Lehrer, daß er ſich eng im<lb/>
+Herzen anſchließe an das Vaterland, das ihn geboren, ſein<lb/>
+Weh mitfuͤhlend in des Herzens Geiſt und Empfindung und<lb/>
+fuͤr ſein Theil mitwirkend zu ſeiner Erneuerung und friſchen<lb/>
+Bluͤthe. Wie ſind unſere Juͤnglinge — darum die Hoffnung<lb/>
+des Vaterlandes — empfaͤnglich fuͤr die Selbſtſtaͤndigkeit und<lb/>
+Ehre des Vaterlandes, wie hell erklingen ihre patriotiſchen<lb/>
+Geſaͤnge und mit welcher Begeiſterung ſingen ſie den „Lan-<lb/>
+desvater“. Ja, wuͤßtet ihr dieſe Keime zu befruchten, und<lb/>
+truͤget ihr, Hochſchullehrer! den Geiſt des Vaterlandes und<lb/>
+die Ehre der Nation in eurem Charakter, wahrlich wir wuͤr-<lb/>
+den bald die Fruͤchte davon aͤrndten, und eine Zeit entſtehen,<lb/>
+von der man nur mit Schmerz ſcheiden wuͤrde. Gott hat das<lb/>
+deutſche Land auch dadurch geſegnet, daß er ſeine Juͤnglinge<lb/>
+mit tiefen Grundanlagen und mit dem Keime heiliger Liebe<lb/>
+zum Vaterlande begabte.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="32" facs="#f0050"/>
+<p>Dieß ſind die Bedingungen, an welche die Bluͤthe deut-<lb/>
+ſcher Univerſitaͤten nach meinem Ermeſſen geknuͤpft iſt; dieſes<lb/>
+die Forderungen, die ich an ſie mache; dieß der Maßſtab,<lb/>
+mit dem ich ſie meſſe. Nicht engherzigen Schuͤlergeiſt will ich<lb/>
+in die Juͤnglinge gepflanzt wiſſen, nicht ſpaͤhende, auflauernde<lb/>
+Bewachung, ſondern freie, heitere Entwicklung und weite<lb/>
+Rennbahn zur Entwicklung aller Kraͤfte. Darum aber noch<lb/>
+nicht Nichtsthun, Vernichtung aller poſitiv wirkenden Inſti-<lb/>
+tute, ſondern Anlegung machtvoller Hebel und Kraͤfte, deren<lb/>
+Einfluß ſich zu entziehen Jedem ſchwer werden wird. Fallen<lb/>
+und ſinken muß auch der akademiſchen Jugend <hi rendition="#g">moͤglich</hi> ſein,<lb/>
+aber man muß es ihr erſchweren, nicht durch Befehle, Macht-<lb/>
+gebote und Strafen, die ſich uͤberall in ihrer Ohnmaͤchtigkeit<lb/>
+erweiſen, ſondern durch innere Factoren und Kraͤfte.</p><lb/>
+<p>Darum — um zuſammenzufaſſen — Entfernung aller<lb/>
+gefaͤhrlichen Verlockungen und Reize von dem Sitze der Uni-<lb/>
+verſitaͤt; denn da Gott Niemand verſuchet, ſo ſollen auch die<lb/>
+Menſchen einander nicht verſuchen, und wir wiſſen es, wer<lb/>
+die Jugend verfuͤhrt, oder zugiebt, daß ſie verfuͤhrt werde,<lb/>
+dem waͤre es beſſer, daß man ihn mit einem Muͤhlſteine im<lb/>
+Meere erſaͤufe; und neben dieſer negativen Wirkſamkeit ener-<lb/>
+giſche Potenzen zur Entwicklung des poſitiv Guten, darum:<lb/>
+Entwicklung der ſelbſtthaͤtigen Kraft im Denken, Belebung<lb/>
+des Geiſtes durch erhabene Ideen, koͤrperliche Gewandtheit<lb/>
+und Staͤrke, Ausbildung zu feiner Geſelligkeit und edler Sitte,<lb/>
+ſichere Gliederung und Organiſation, wie des ganzen Volkes,<lb/>
+ſo der akademiſchen Jugend zur Entwicklung eines charakte-<lb/>
+riſtiſch beſtimmten Corporationsgeiſtes, Gemeingeiſt und Kraft<lb/>
+des oͤffentlichen Lebens und Lehrer voll Geiſt, Tugendgeſin-<lb/>
+nung und Patriotismus.</p></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb n="33" facs="#f0051"/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#aq">II.</hi><lb/>
+Würdigung unſerer Univerſitäten nach<lb/>
+dem vorgelegten Maßſtabe.</hi></head><lb/>
+<p><hi rendition="#in">I</hi>ch glaube nicht, daß es noͤthig waͤre, die Rede weiter fort-<lb/>
+zuſetzen, naͤmlich nicht fuͤr diejenigen, welche die deutſchen<lb/>
+Univerſitaͤten kennen. Fuͤr Solche ſchreibe ich eigentlich nur.<lb/>
+Denn die ſie nicht kennen, werden auch durch das Nachfol-<lb/>
+gende nur eine einſeitige Kenntniß von ihnen erlangen. Aber<lb/>
+auch fuͤr jene iſt zwiſchen kennen und kennen ein Unterſchied.<lb/>
+Der Eine betrachtet dieſelbe Sache von ganz anderer Seite<lb/>
+als der Andere. Beide ſehen in und an demſelben Dinge<lb/>
+Verſchiedenes. So muß denn auch ich ſagen, was ich ſehe.<lb/>
+Ich werde es mit der Offenheit und mit der Ruͤckhaltloſigkeit<lb/>
+thun, die eine ſo wichtige Sache Jedem, der daruͤber ſprechen<lb/>
+will, zur Pflicht macht. Ich werde die Sache bei ihrem<lb/>
+Namen nennen, von dem Schlechten nicht mit beſchoͤnigenden<lb/>
+Worten ſprechen. Aber ich werde mich kurz faſſen und nicht<lb/>
+von Allem reden. Beides verlangt meine Neigung und meine<lb/>
+Lage. Zu einer gruͤndlichen Erſchoͤpfung fehlt mir die Zeit<lb/>
+und die Kraft. Statt daher die einzelnen Seiten des oben<lb/>
+<pb n="34" facs="#f0052"/>
+vorgezeichneten Maßſtabes an die Univerſitaͤten anzulegen,<lb/>
+hebe ich nur einige Hauptſeiten hervor. Jenes waͤre langwei-<lb/>
+lig, und die Langweiligkeit iſt auch bei einer Schrift einer der<lb/>
+ſchlimmſten Fehler. Jede Art, ſagt ein franzoͤſiſches Sprich-<lb/>
+wort, iſt gut, mit Ausnahme der langweiligen Art. Ich be-<lb/>
+ſchraͤnke mich auf die Beſprechung der <hi rendition="#g">Lehrer</hi> und <hi rendition="#g">einige<lb/>
+oͤffentliche Verhaͤltniſſe</hi>. Daraus wird dann hervor-<lb/>
+gehen, ob die Univerſitaͤten das Lob verdienen —, das An-<lb/>
+dere ihnen geſpendet haben.</p><lb/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#aq">A.</hi> <hi rendition="#g">Die Univerſitätslehrer</hi>.</hi></head><lb/>
+<p>Was ich von ihnen zu ſagen habe, will ich unter den<lb/>
+drei Rubriken zuſammenſtellen: <hi rendition="#g">wiſſenſchaftliche Rich-<lb/>
+tung, Lehrmethode, Geſinnung</hi>.</p><lb/>
+<div n="3"><head>1. <hi rendition="#g">Die wiſſenſchaftliche Richtung der Univer-<lb/>
+ſitätslehrer</hi>.</head><lb/>
+<p>Sie geht aus auf die <hi rendition="#g">Allheit</hi> des Wiſſens. Moͤglichſt<lb/>
+vollſtaͤndige Erſchoͤpfung der Wiſſenſchaft, der ſie ſich widmen,<lb/>
+iſt ihr Ziel, <hi rendition="#g">Gelehrſamkeit</hi> mit einem Worte. In dieſe<lb/>
+ſetzen ſie ihre Beſtimmung, ſie iſt ihre Ehre, ihr Triumph.<lb/>
+Sie wuͤrdigen die Wiſſenſchaften ſelten nach ihrem Einfluß<lb/>
+auf den menſchlichen Geiſt oder auf die ſocialen Verhaͤltniſſe,<lb/>
+ſondern die Wiſſenſchaft iſt ihnen Zweck. Einmal das objec-<lb/>
+tive Wiſſen an ſich, dann ſeine ſyſtematiſche Gliederung. Das<lb/>
+Letztere iſt ſehr wichtig und nothwendig, aber es iſt nicht das<lb/>
+Hoͤchſte, und die dadurch entſtehende Richtung iſt eine einſei-<lb/>
+tige. Nirgends ſoll das Wiſſen Zweck an ſich ſein, ſondern<lb/>
+nur Mittel. Wo es als Zweck aufgeſtellt wird, da herrſcht<lb/>
+eine verkehrte Anſicht, und es entſteht Goͤtzendienſt des Wiſ-<lb/>
+ſens, der auf unſern Univerſitaͤten herrſcht. Der eigentliche<lb/>
+<pb n="35" facs="#f0053"/>
+Zweck des Wiſſens iſt die durch daſſelbe zu erzielende geiſtige<lb/>
+Bildung. Natuͤrlich exiſtirt keine Geiſtesbildung ohne Wiſſen,<lb/>
+und jede Uebung der Kraͤfte geſchieht an einem Stoffe. Aber<lb/>
+dieſen Stoff vollkommen zu beherrſchen, die Geiſteskraͤfte all-<lb/>
+ſeitig an ihnen zu uͤben, das iſt der wahre Zweck der Be-<lb/>
+ſchaͤftigung mit den Wiſſenſchaften. Auf Sammlung von<lb/>
+Kenntnißmaſſen, Aufſpeicherung gelehrter und ſubtiler Begriffe<lb/>
+kommt es daher nicht an. Sucht der Gelehrte darin ſeine<lb/>
+Beſtimmung, ſo entſteht die unfruchtbare, todte Gelehrſamkeit.<lb/>
+Als Lehrer wird er dann in der Mittheilung eines moͤglichſt<lb/>
+reichen Materials ſeine Vollendung erblicken. Er wird nicht<lb/>
+fragen, was das Wiſſen, das er vortraͤgt, nuͤtzt, was fuͤr<lb/>
+Fruͤchte es dem Geiſte oder dem Leben bringt, in wie weit<lb/>
+es zur Befreiung und Erſtarkung des Geiſtes und zur Be-<lb/>
+herrſchung der Natur beitraͤgt, er ſetzt ſeinen Zweck in das<lb/>
+Wiſſen ſelbſt. Dieſe Richtung iſt bei vielen, bei den meiſten<lb/>
+unſrer Gelehrten vorherrſchend.</p><lb/>
+<p>Daher die unendliche Verbreitung uͤber denſelben Gegen-<lb/>
+ſtand, daher die Maſſe unfruchtbaren hiſtoriſchen Wiſſens,<lb/>
+daher die Belaſtung und Erdruͤckung der Juͤnglinge mit Lern-<lb/>
+ſtoffen, daher die Knechtſchaft der jugendlichen Geiſter, ſtatt<lb/>
+ihrer Befreiung, daher ihre Anſtrengung vor dem ihnen bevor-<lb/>
+ſtehenden Examen und ihre Ermuͤdung nach demſelben, daher<lb/>
+die Erſcheinung, daß das Studiren bei den Meiſten aufhoͤrt,<lb/>
+wenn ſie die Univerſitaͤt verlaſſen. Sie fuͤhlen ſich erdruͤckt,<lb/>
+getoͤdtet.</p><lb/>
+<p>Darum iſt die Wahrheit laut zu predigen, daß Bildung<lb/>
+und Wiſſen zweierlei Dinge ſind; daß die Bildung nicht ein-<lb/>
+mal mit dem Wiſſen congruirt, welches Tiefe und Umfang<lb/>
+mit einander verbindet; vielmehr hat es nur in ſo weit Werth,<lb/>
+als es beitraͤgt zur Kraͤftigung des Geiſtes, zur Befeſtigung<lb/>
+<pb n="36" facs="#f0054"/>
+des Willens im Guten, zur Veredlung der Perſoͤnlichkeit, zur<lb/>
+Richtung auf das Hoͤhere. Unſere Zeit hat dieſes vergeſſen,<lb/>
+ſie verwechſelt das Mittel mit dem Zwecke, hat vergeſſen,<lb/>
+daß die Richtung und das Streben nach dem Hoͤheren, das<lb/>
+keiner weiteren Charakteriſirung bedarf, die Grundlage und der<lb/>
+Gipfel aller wahren Bildung iſt, daß dieſe Richtung den<lb/>
+Werth des Characters des Einzelnen und einer ganzen Zeit<lb/>
+beſtimmt. Man kann unendlich viel wiſſen, und doch ein<lb/>
+ungeſchlachter, roher und gemeiner Menſch ſein.</p></div><lb/>
+<div n="3"><head>2. <hi rendition="#g">Die Lehrmethode</hi>.</head><lb/>
+<p>Die einſeitige Richtung auf das Wiſſen und die Gelehr-<lb/>
+ſamkeit fuͤhrt zu der Lehrmethode, die unſere akademiſchen<lb/>
+Lehrer uͤben. Es iſt die akroamatiſche. Der Lehrer ſpricht,<lb/>
+die Schuͤler ſchweigen, hoͤren zu und ſchreiben nach. Jener<lb/>
+traͤgt vor, er lieſ’t ab, oder er bedient ſich des freien Vortra-<lb/>
+ges. Natuͤrlich iſt Letzteres das Beſſere, weil es das Leben-<lb/>
+digere, Anregendere iſt, vorausgeſetzt, daß Ordnung in dem<lb/>
+Vortrage herrſcht.</p><lb/>
+<p>Ueber dieſen Gegenſtand habe ich mich in der Rede uͤber<lb/>
+die Lehrmethode <hi rendition="#g">Schleiermacher’s</hi> ausgeſprochen. Ich<lb/>
+kann mich daher um ſo kuͤrzer faſſen.</p><lb/>
+<p>Mit <hi rendition="#g">Franz Theremin</hi> halte ich ſie fuͤr verkehrt. Denn<lb/>
+ſie iſt toͤdtend. Beſteht der akroamatiſche Vortrag in Ent-<lb/>
+wicklung, Zergliederung, Widerlegung, giebt er eine Geneſis<lb/>
+der Gedanken, iſt es ein freier Denkproceß, wie bei dem un-<lb/>
+erreichten <hi rendition="#g">Schleiermacher</hi>, ſo leiſtet er, was er zu leiſten<lb/>
+vermag. Aber der Entwicklungsproceß verlangt gemeinſchaft-<lb/>
+liche Thaͤtigkeit des Lehrers und des Schuͤlers. In dieſem<lb/>
+ſoll die Entwicklung geſchehen.</p><lb/>
+<pb n="37" facs="#f0055"/>
+<p>Daß der Lehrer den Proceß fuͤr ſich durchgemacht habe,<lb/>
+muß vorausgeſetzt werden. Nun beſteht ſein Geſchaͤft darin,<lb/>
+daß er ſeine Schuͤler dazu befaͤhige. Dazu reicht nicht hin,<lb/>
+daß er den Denkproceß ihnen vormache; er muß denſelben in<lb/>
+ihnen erzeugen.</p><lb/>
+<p>Ob Solches der Fall ſei, ob die Schuͤler ihn angefangen<lb/>
+haben und fortſetzen, Solches kann man nur erfahren, wenn<lb/>
+die Schuͤler ihre Gedanken aͤußern. Folglich darf dieſes nicht<lb/>
+fehlen. Mit Recht fordert daher <hi rendition="#g">Theremin</hi> als vorherr-<lb/>
+ſchende Lehrform den <hi rendition="#g">Dialog</hi>. Dem muß ich vollkommen<lb/>
+beiſtimmen, obgleich ich von ihm allein die Wirkungen nicht<lb/>
+erwarte, die er ſich davon verſpricht, naͤmlich die Vernichtung<lb/>
+<hi rendition="#g">aller</hi> Maͤngel und Gebrechen des Univerſitaͤtsweſens. Es<lb/>
+muß nach dem Fruͤheren noch viel Anderes hinzukommen.<lb/>
+Aber ich ſteigere ſeine Forderung und verlange nicht bloß dia-<lb/>
+logiſche Unterhaltung, ſondern ſtrenge, ſokratiſche Entwicklung,<lb/>
+beſonders der Grundideen und alles Weſentlichen, das ſolcher<lb/>
+Behandlung faͤhig iſt.</p><lb/>
+<p>Alles Wiſſen zerfaͤllt in zwei Arten. Entweder iſt es<lb/>
+hiſtoriſch poſitiver Art, oder es ſtammt aus dem Geiſte. Bei-<lb/>
+des muß ſcharf geſondert werden. Nach der Verſchiedenheit<lb/>
+des Urſprunges iſt es verſchieden zu behandeln. Das Erſte<lb/>
+muß gegeben werden und der Schuͤler hat es zu lernen und<lb/>
+in ſeinem Gebrauche ſich zu uͤben, bis zur vollkommenen Fer-<lb/>
+tigkeit. Das Zweite dagegen ſoll er ſuchen und finden. Dazu<lb/>
+bedarf er der Leitung, der Erregung. Jenes ſoll gar nicht<lb/>
+Gegenſtand des Lehrvortrages in den Hoͤrſaͤlen der Univerſitaͤ-<lb/>
+ten ſein, es gehoͤrt in das Buch, das der Schuͤler ſich anzu-<lb/>
+ſchaffen hat, um die Materialien ſich anzueignen. Solches<lb/>
+kann man ihm, da er ein gereifter Juͤngling, kein Kind mehr<lb/>
+iſt, uͤberlaſſen, und man muß es ihm zumuthen. Das aus<lb/>
+<fw type="sig" place="bottom">4</fw><lb/>
+<pb n="38" facs="#f0056"/>
+dem Geiſte ſtammende Wiſſen dagegen, das Rationale iſt aus-<lb/>
+ſchließlich der Gegenſtand der Beſchaͤftigung. Dieß iſt meine<lb/>
+Grundanſicht.</p><lb/>
+<p>Durch dieſe Scheidung des hiſtoriſchen Wiſſens von dem<lb/>
+rationalen reducirt ſich der in einer Vorleſung zu behandelnde<lb/>
+Lehrinhalt auf ein Viertel, ein Achtel oder in noch mehr ab-<lb/>
+nehmenden Exponenten. Dieſes iſt ein unendlicher Gewinn.<lb/>
+Der Reſt kann nun vollſtaͤndig verarbeitet werden, worauf<lb/>
+Alles ankommt.</p><lb/>
+<p>Ich denke mir die Ausfuͤhrung ſo:</p><lb/>
+<p>Dreißig bis fuͤnfzig Studenten ſitzen im Halbkreiſe, der<lb/>
+Lehrer mitten zwiſchen ihnen. Mit der hiſtoriſchen Grundlage<lb/>
+haben ſie ſich bereits bekannt gemacht. Nun beginnt der Leh-<lb/>
+rer die Entwicklung in freiem Geſpraͤche, nach der Weiſe der<lb/>
+Alten, aber zugleich mit Benutzung aller ſeitdem in der Me-<lb/>
+thodik gemachten Fortſchritte. Ob die Schuͤler einen kurzen<lb/>
+Leitfaden als Wegweiſer, der Haltpunkte, Fingerzeige enthaͤlt,<lb/>
+in der Hand haben oder nicht, iſt gleichguͤltig. Es kann ſein,<lb/>
+kann auch nicht ſein. Darauf kommt nichts an. Auch darauf<lb/>
+kommt nichts an, ob viel oder ob wenig Stoff verarbeitet<lb/>
+wird. Aber <hi rendition="#g">daß</hi> verarbeitet werde, das iſt’s. Der Student<lb/>
+ſoll das philoſophiſche Denken lernen. Iſt dieſes geſchehen,<lb/>
+ſo braucht er den Lehrſaal nicht mehr zu beſuchen. Er hat<lb/>
+ausſtudirt, d. h. er wird das Studiren ewig fortſetzen. Denn<lb/>
+der Geiſt iſt in ihm zum Leben gekommen. Und der (lebendig<lb/>
+gewordene) Geiſt laͤßt ſich nicht bannen.</p><lb/>
+<p>Gleich wird man mit Einwendungen bei der Hand ſein,<lb/>
+aͤußere Schwierigkeiten aufzaͤhlend.</p><lb/>
+<p>Man wird die Menge der Studenten nennen. Freilich<lb/>
+wird nicht leicht ein Lehrer Hunderte zugleich im Denkproceß<lb/>
+zu erhalten faͤhig ſein. Aber Hunderte gehoͤren auch nicht<lb/>
+<pb n="39" facs="#f0057"/>
+zuſammen. Sollten ſie nicht abzuhalten ſein, nun, ſo iſt es<lb/>
+doch tauſendmal beſſer, daß alle der Entwicklung, an der<lb/>
+Zwanzig bis Dreißig ſprechend Theil nehmen, zuhoͤren, die<lb/>
+Fragen als an ſich gerichtet betrachten und ſtill mit antwor-<lb/>
+ten, als daß Keiner antwortet und redet. So viele Lehrer<lb/>
+man zur Erreichung des Hauptzweckes noͤthig hat, ſo viele<lb/>
+ſind anzuſtellen. Aber ich ſagte ja ſchon, daß die Maſſe des<lb/>
+bisherigen Lehrſtoffes ſich außerordentlich vermindere, ja daß<lb/>
+es auf die Maſſe gar nicht ankomme.</p><lb/>
+<p>Man wird ſagen, die Herren Studenten lieben das Ant-<lb/>
+worten, Reden, Selbſtdenken nicht. Wirklich nicht? Sehet,<lb/>
+wenn das wahr iſt, dann habt Ihr uͤber Eure bisherige Weiſe<lb/>
+ſelbſt den Stab gebrochen. Gewinnen ſie durch das bisher<lb/>
+uͤblich geweſene Verfahren keine Liebe zu ſelbſtthaͤtigem Den-<lb/>
+ken, ſo folgt daraus, daß man die verkehrte Weiſe abſchaffe.<lb/>
+Aber ich gebe Euch in der Behauptung recht. Unſere heuti-<lb/>
+gen Studenten ſitzen am liebſten ſtill da, nachſchreibend wie<lb/>
+die Maſchinen, und die Maſſe nach Hauſe ſchleppend, wie<lb/>
+die Laſtthiere.</p><lb/>
+<p>Man wird ſagen, die meiſten unſerer Profeſſoren ſeien<lb/>
+der dialektiſchen Entwicklung nicht maͤchtig. Solches gebe ich<lb/>
+auch zu, ja ich behaupte es entſchieden. Aber wer ein Pro-<lb/>
+feſſor ſein will, hat dieſes Schwerſte zu lernen. Wer es nicht<lb/>
+vermag, der paßt weder zum Hoch- noch zum Dorfſchulleh-<lb/>
+rer. In ihr liegt das Weſentliche des Lehrgeſchaͤfts.</p><lb/>
+<p>Dieſe und andere Einwuͤrfe ſind nichtig. Zaͤhlen wir dage-<lb/>
+gen nur einige der Vortheile, der Folgen dieſer Lehrmethode auf.</p><lb/>
+<p>1) Es verſchwindet der Tod aus den Lehrſaͤlen, ſie wer-<lb/>
+den aus <hi rendition="#g">Hoͤrſ</hi>aͤlen Uebungsſaͤle, Denkſtaͤtten. Unſere Juͤng-<lb/>
+linge werden geiſtig ſelbſtſtaͤndig, ſie gelangen zur intellectuellen<lb/>
+Emancipation.</p><lb/>
+<fw type="sig" place="bottom">4*</fw><lb/>
+<pb n="40" facs="#f0058"/>
+<p>2) Alle impotente, ohnmaͤchtige Menſchen werden von<lb/>
+dem Katheder abgehalten; nur die geiſtig kraͤftigſten werden<lb/>
+Hochſchullehrer. Man wird keine gelehrten Kameele, wie die<lb/>
+Herren Studenten gewiſſe Leute zu nennen pflegen, mehr an-<lb/>
+ſtellen. Wer nicht ſeiner ganzen Wiſſenſchaft maͤchtig iſt,<lb/>
+nicht jeden Einwurf zu widerlegen oder zu behandeln verſteht,<lb/>
+nicht ſelbſt zum Denken jeden Augenblick aufgelegt iſt — er<lb/>
+wird es nicht wagen, ſich mit der geiſtgeweckten deutſchen Ju-<lb/>
+gend einzulaſſen. Ein unendlicher Gewinn! Nur die tuͤchtig-<lb/>
+ſten werden zur Wuͤrde eines akademiſchen Lehrers gelangen.<lb/>
+Dafuͤr iſt dann bleibend und ſicher geſorgt.</p><lb/>
+<p>3) Aufhoͤren wird mit einem Male das Prunken mit<lb/>
+gelehrtem abgelernten Krame, verſchwinden der hiſtoriſche<lb/>
+Wuſt, der wie ein Ballaſt den aufſtrebenden Geiſt erdruͤckt.<lb/>
+Nicht mehr anſtellen wird man junge unreife Maͤnner, die,<lb/>
+ſelbſt erſt Neulinge im Denken und im Leben, meinen, man<lb/>
+koͤnne ein akademiſcher Lehrer ſein, wenn man ein Heft zu-<lb/>
+ſammenzuſchreiben und vorzuleſen verſtehe. Man wird die,<lb/>
+welche ſich auf niederen Poſten als denkende, zur entwickeln-<lb/>
+den, geiſterregenden Lehrart faͤhige Koͤpfe bewaͤhrt haben, zu<lb/>
+Hochſchullehrern berufen.</p><lb/>
+<p>Doch genug; die Sache ſpricht fuͤr ſich. Halten wir<lb/>
+nur noch den Gegenſatz, die jetzt beſtehende Einrichtung dage-<lb/>
+gen, zur gegenſeitigen Beleuchtung.</p><lb/>
+<p>Da ſitzen die Juͤnglinge, welche die beſte Vorbildung ge-<lb/>
+noſſen haben, die es bis jetzt auf Erden giebt, oft zu Hun-<lb/>
+derten ſtumm vor dem einen Mann auf der Hitſche. In<lb/>
+monotonem geiſtloſen Vortrage leſen die Meiſten ihre Weisheit<lb/>
+aus dem Hefte, oder, um den Stumpfſinn zu verewigen,<lb/>
+kommen ſie der Faulheit durch Diktiren zu Huͤlfe. Machen die<lb/>
+Herren, ſagte der alte <hi rendition="#aq">N. N.</hi>, weiland Profeſſor in Marburg,<lb/>
+<pb n="41" facs="#f0059"/>
+gefaͤlligſt ein Kommachen. Nichts wird gehoͤrt, als das Kritzeln<lb/>
+der Federn. In gekruͤmmter Stellung legen ſie ſo taͤglich vier<lb/>
+oder mehr Stunden ſich Sammlungen von Heften an. Mit<lb/>
+Berſerkerwuth ſchreiben ſie Sachen auf, die in tauſend Buͤ-<lb/>
+chern ſtehen, hiſtoriſchen Wuſt, gelehrten Kram, Minutien<lb/>
+und Quisquilien. Mit einem zerreißenden Gefuͤhl, aus Mit-<lb/>
+leid und Abſcheu gemiſcht, betrachte ich dieſen ſtaunenswuͤrdi-<lb/>
+gen Vorgang. Mit Mitleiden — dieſe armen Leute ſind zur<lb/>
+abſchwaͤchendſten Sclavenarbeit verdammt; mit Abſcheu, denn<lb/>
+ſie haͤtten doch durch die Gymnaſialbildung zu hoͤherem Sinn<lb/>
+und hoͤherem Streben gelangen koͤnnen. Freilich wirft die<lb/>
+Denkſcheu der Meiſten und der Umſtand, daß ſie ſich ſo all-<lb/>
+gemein das Vorſagen und das Diktiren gefallen laſſen, ja oft<lb/>
+es verlangen, kein guͤnſtiges Licht auf die Leiſtungen der Gym-<lb/>
+naſien. <note place="foot" n="*)">Mit den Gymnaſien wird es nicht eher gut, bis man für die<lb/>
+Bildung der Gymnaſiallehrer ſolche Anſtalten errichtet, wie für<lb/>
+die Elementarlehrer beſtehen. Dieſe Wahrheit bedarf keines Be-<lb/>
+weiſes. Gebe Gott, daß mein Heimathland Preußen ſich den<lb/>
+Ruhm erwirbt, auch in dieſem Stücke voranzugehen! Dazu<lb/>
+möchte ich noch mitwirken.</note> Auch dort erliegen die armen Jungen oft dem ge-<lb/>
+lehrten Wuſte. Aber auch mit Staunen betrachte ich das<lb/>
+Schauſpiel. Ungeheure Fortſchritte hat die Methodik des Un-<lb/>
+terrichts gemacht, ſeit drei Jahrhunderten; Tauſende von Dorf-<lb/>
+ſchulen erfreuen ſich einer belebenden Lehrmethode, — unſere<lb/>
+Univerſitaͤten haben keine Notiz davon genommen, ſie haben<lb/>
+ſich unveraͤndert erhalten trotz aller Reformen und Revolutio-<lb/>
+nen in dem Leben. Es iſt eine lehrreiche Geſchichte. Soll<lb/>
+es ſo fortgehen? — Vernehmen wir uͤber den geiſtigen Zu-<lb/>
+ſtand der Studirenden die Verſicherungen eines Mannes, der<lb/>
+aus langer Erfahrung ſpricht.</p><lb/>
+<pb n="42" facs="#f0060"/>
+<p>„Man blicke“, ſagt der Profeſſor <hi rendition="#g">Beneke</hi> <note place="foot" n="*)">Siehe deſſen Erziehungs- und Unterrichtslehre, Berlin bei Mitt-<lb/>
+ler, 1836, 2 Bände, ein geiſtvolles Werk, allen Lehrern an<lb/>
+Gymnaſien und allen Docenten ſehr zu empfehlen!</note>, „auf<lb/>
+die Univerſitaͤt. Statt in den Geiſt der vorgetragenen Wiſſen-<lb/>
+ſchaften einzudringen und das Geiſtige geiſtig zu faſſen, faſſen<lb/>
+in allen Facultaͤten die meiſten Studirenden daſſelbe bloß aͤu-<lb/>
+ßerlich und dem todten Buchſtaben nach, bleiben auch hier an<lb/>
+der Sprache, als dem Inbegriff aͤußerer Zeichen, oder an hi-<lb/>
+ſtoriſchem Nebenwerk, oder an leeren Formeln, haͤngen, weß-<lb/>
+halb ſie ſich denn auch auf die ſogenannten Brotwiſſenſchaften<lb/>
+beſchraͤnken, und keinen Trieb fuͤhlen, dieſelben durch umfaſ-<lb/>
+ſendere hiſtoriſche und <choice><sic>phiſophiſche</sic><corr>philoſophiſche</corr></choice> Erkenntniſſe tiefer lebendig<lb/>
+zu machen.
+     <note place="foot" n="**)" xml:id="note-0060" next="#note-0061"><p>Wenn obige Schilderung wahr iſt, ſo taugt unſere Gymnaſial-<lb/>
+bildung nicht. An den Früchten erkennt man auch ſie. Obige<lb/>
+Schilderung iſt, leider! nur zu wahr. Die Gymnaſien ſind an<lb/>
+zwei Uebeln krank, oder machen krank: 1) ſie überfüllen den<lb/>
+Schüler mit Maſſen des verſchiedenartigſten Wiſſens; 2) ſie ſor-<lb/>
+gen nicht für eine tüchtige Verarbeitung. Der erſte Fehler ent-<lb/>
+ſteht aus der wunderlichen Angſt vor Einſeitigkeit, und doch zieht<lb/>
+jeder verſtändige Menſch eine tüchtige, d. h. eine geſunde und<lb/>
+kräftige Einſeitigkeit, mit Luſt und Liebe zur Sache, jeder mit-<lb/>
+telmäßigen Univerſalität vor, wozu unter 100 Gymnaſiaſten<lb/>
+90 <hi rendition="#g">genöthigt</hi> werden, zu unermeßlichem Schaden für die ge-<lb/>
+ſunde Stärke ihres Leibes und die Friſche ihres Geiſtes. Manche<lb/>
+unſerer Gymnaſiaſten betreten als junge Greiſe die Univerſität.<lb/>
+Natürlich können ſie keine andere Erſcheinungen darbieten, als<lb/>
+die obigen im Texte.</p><lb/>
+<p>Die Verdauung und Verarbeitung des mannigfaltigſten<lb/>
+Wiſſens wäre noch eher zu erwarten, wenn alle Gymnaſiallehrer<lb/>
+<hi rendition="#g">Meiſter der Methodik</hi> wären. Aber <hi rendition="#aq">hic haerat aqua.</hi><lb/>
+Dann könnte man auch auf eine Verminderung der Lectionen<lb/>
+dringen. Was würde dadurch überhaupt nicht ſchon an phyſi-<lb/>
+ſcher Geſundheit und Kräftigkeit gewonnen! Dieſe und geiſtige<lb/>
+Friſche ſind nur dann zu erwarten:</p></note> Werden ſie aͤußerlich, oder auch durch eine<lb/>
+<pb n="43" facs="#f0061"/>
+zufaͤllig und fluͤchtig begruͤndete Neigung zu dieſen gefuͤhrt, ſo<lb/>
+ſehen wir ſie beinahe gaͤnzlich unfaͤhig, ſich daruͤber zu orien-<lb/>
+tiren und auch nur die leichteſten Beiſpiele zu finden fuͤr die<lb/>
+Veranſchaulichung des abſtract Vorgetragenen; und ſie geben<lb/>
+ſich entweder einem abſtracten Formelweſen oder den unſtaͤt<lb/>
+ſchweifenden Phantaſien poetiſirender Speculation hin. — Ein<lb/>
+nicht geringer Theil thut in dem erſten Univerſitaͤtsjahre ſo<lb/>
+gut wie gar nichts; die Meiſten kommen wenigſtens nicht uͤber<lb/>
+ein treues Nachſchreiben der Vorleſungen und eine todte Wie-<lb/>
+derholung derſelben hinaus; ein angeſtrengtes Selbſtarbeiten<lb/>
+tritt bei Vielen erſt in der letzten Zeit vor dem Examen und<lb/>
+aus Furcht vor demſelben ein (auch dann alſo nur von mehr<lb/>
+mechaniſcher Art und als Gedaͤchtnißwerk), und wird mit die-<lb/>
+ſer Furcht wieder abgeworfen, ſo daß ſie ihr ganzes Leben<lb/>
+hindurch nur durch ihre nothwendigen Berufsgeſchaͤfte mit dem<lb/>
+allgemeinen geiſtigen Erwerbe der Menſchheit in Verbindung<lb/>
+bleiben. Allerdings giebt es hiervon viele ehrende Ausnahmen;<lb/>
+aber ſie ſind doch nur ein kleiner Theil des Ganzen, und es<lb/>
+moͤchte nicht zu berechnen ſein, wie viel Unheil, auch fuͤr alle<lb/>
+Zweige des praktiſchen Lebens, aus dieſem laͤſſigen, todten,<lb/>
+buchſtabenartigen Treiben der Wiſſenſchaften auf der Univer-<lb/>
+ſitaͤt hervorgehen.“</p><lb/>
+<p>Dieſes ſind die Folgen der Lehrmethode, die auf den<lb/>
+Gymnaſien und Univerſitaͤten herrſcht.</p><lb/>
+<note place="foot" n="**)" xml:id="note-0061" prev="#note-0060"><list><item>1) wenn man nur Hauptgegenſtände und dieſe vollſtändig er-<lb/>
+lernt;<lb/>
+</item><item>2) wenn es in heiterer Anſtrengung geſchieht, was von der<lb/>
+Methode abhängt;<lb/>
+</item><item>3) wenn man dem Leib ſein volles Recht wiederfahren läßt.</item></list><lb/>
+<p>Iſt dieſes in der Regel, d. h. in zehn Fällen neunmal, als<lb/>
+Reſultat unſerer Schulbildung zu erwarten???</p></note><lb/>
+<pb n="44" facs="#f0062"/>
+<p>Am allerwenigſten paßt ſie fuͤr die, welche ſelbſt Lehrer<lb/>
+werden wollen, ſei es an oͤffentlichen Schulen, oder Religions-<lb/>
+lehrer. Denn wie ſie gelehrt worden ſind, ſo lehren ſie wie-<lb/>
+der, und ſo pflanzt ſich die vorſagende, vordenkende, diktirende<lb/>
+Methode oder vielmehr Unmethode bis in alle Ewigkeit fort.<lb/>
+Auf keiner deutſchen Univerſitaͤt kann der kuͤnftige Lehrer die<lb/>
+geiſtbildende Methode kennen und uͤben lernen. Natuͤrlich<lb/>
+faͤngt der Anfaͤnger im Lehramte ſo an, wie er auf der Uni-<lb/>
+verſitaͤt gelernt hat. Denn wie laͤßt ſich mit Billigkeit von<lb/>
+ihm fordern, daß er das Schwerere, was er nicht geuͤbt hat,<lb/>
+nicht hat uͤben ſehen, beginne? Daher noch immer die Sel-<lb/>
+tenheit einer geiſtbildenden Methode in den Gymnaſien, daher<lb/>
+die Urſache der gerechten Klagen, die <hi rendition="#g">Beneke</hi> fuͤhrt, daher<lb/>
+auch, wenigſtens zum Theil, die Gemeinheit vieler Menſchen,<lb/>
+deren Geiſt, ungeachtet der Beſchaͤftigung mit den Gegenſtaͤn-<lb/>
+den, von welchen man ruͤhmt, daß ſie die Humanitaͤt verbrei-<lb/>
+ten, nicht zu rechter Erkenntniß gelangt iſt. Denn die Ge-<lb/>
+meinheit der Menſchen entſpringt aus der Gemeinheit der<lb/>
+Arbeit, und zwar weniger in der objectiven Beſchaffenheit der-<lb/>
+ſelben, als in der Art und Weiſe, wie ſie vollzogen wird.<lb/>
+Leider kann man ſich ſelbſt mit Wiſſenſchaften auf eine ge-<lb/>
+meine, handwerksmaͤßige Art beſchaͤftigen, ſo daß ſie den Geiſt<lb/>
+nur in rein aͤußerlicher Art in Anſpruch nehmen. Zu dem<lb/>
+Innern der Wiſſenſchaften dringt man nur durch die rechte<lb/>
+Methode. Ich muß es daher wiederholen, daß alle Kenntniß<lb/>
+nur in ſo weit wahren Werth fuͤr die menſchliche Bildung hat,<lb/>
+als ſie mit Erkenntniß verbunden iſt, d. h. mit der Erkennt-<lb/>
+niß der den Thatſachen zu Grunde liegenden Urſachen, Mo-<lb/>
+tive, Gruͤnde, Geſetze. Nicht in der Kenntniß des Einzelnen<lb/>
+ruht die intellectuelle Bildung, ſondern in der Erkenntniß des<lb/>
+Allgemeinen. Darum bewegt ſich die wahre Methode von der<lb/>
+<pb n="45" facs="#f0063"/>
+Kenntniß des Einzelnen zur Erkenntniß des Allgemeinen, Tie-<lb/>
+fen, in entwickelnder, heuriſtiſcher Art und Weiſe.</p><lb/>
+<p>Dieſe entwickelnde Methode macht endlich auch die „hei-<lb/>
+lige Unverſtaͤndlichkeit“ unmoͤglich, in welche manche Docen-<lb/>
+ten, beſonders der philoſophiſchen Facultaͤt, ihre Weisheit ein-<lb/>
+huͤllen. Denn bei ihrer Anwendung wird der Fortſchritt nicht<lb/>
+von dem Hefte, nicht von der Laune des Lehrers, ſondern<lb/>
+von den Fortſchritten der Lernenden bedingt, wie es ſein muß.<lb/>
+Nicht das ſemeſterweiſe, regelmaͤßige Abkanzeln des Heftes iſt<lb/>
+der Zweck des Vortrages, ſondern die geiſtige Bildung der<lb/>
+Lernenden.</p><lb/>
+<p>Aus allen dieſen Gruͤnden muͤſſen wir von den akademi-<lb/>
+ſchen Docenten dieſe geiſtbildende Methode <hi rendition="#g">fordern</hi>.</p></div><lb/>
+<div n="3"><head>3. <hi rendition="#g">Die Geſinnung</hi>.</head><lb/>
+<p>Iſt das Werk verdorben, das Product der Menſchen —<lb/>
+ſo koͤnnen die Arbeiter, die Verfertiger, die Kuͤnſtler nicht un-<lb/>
+verdorben geblieben ſein. Die Kunſt verfaͤllt durch die Kuͤnſt-<lb/>
+ler, die Schule durch die Lehrer, die Studenten durch die<lb/>
+Profeſſoren. Dieß iſt — ich kann es nicht bergen — meine<lb/>
+Meinung, das Verderben hat auch viele Profeſſoren ergriffen.<lb/>
+Eben darum koͤnnen <hi rendition="#g">ſie allein</hi> das Verderben der Univer-<lb/>
+ſitaͤten nicht in ſeiner Groͤße, ſeinem Umfange aufdecken.<lb/>
+Denn ſie ſtecken mit darin.</p><lb/>
+<p>Worin beſteht ihre Schuld?</p><lb/>
+<p>1) Sie <note place="foot" n="*)">Vergl. die Vorrede.</note> haben <hi rendition="#g">keine Heimath</hi>, kein Heimathsge-<lb/>
+fuͤhl, keine Anhaͤnglichkeit an ein Land, ſie ſind Kosmopoliten,<lb/>
+d. h. ſie gehen der Ehre nach und dem Gelde. Wer ihnen<lb/>
+am meiſten bietet, der hat ſie. So wandern ſie von einer<lb/>
+<pb n="46" facs="#f0064"/>
+deutſchen Univerſitaͤt zur andern. Hat ſich Einer Ruhm,<lb/>
+einen glaͤnzenden oder wenigſtens blendenden Namen erwor-<lb/>
+ben, ſo treibt er bei einem Rufe nach auswaͤrts ſein Gehalt<lb/>
+nach Moͤglichkeit in die Hoͤhe. Alles wird angewandt, um<lb/>
+die rufende Behoͤrde zu ſchrauben. Kein Heimaths- oder Va-<lb/>
+terlandsgefuͤhl legt ein Gewicht in die Wagſchale. Sie ſind<lb/>
+Makler geworden; auch die kaufmaͤnniſchen Cursberechnungen<lb/>
+findet man bei ihnen, und wenn z. B. die Philoſophie, zu<lb/>
+der ſie ſich im Vortrage bekennen, hoch im Curſe ſteht, ſo<lb/>
+weiß nicht nur jeder Adept derſelben, daß er hohe Procente<lb/>
+fordern darf, ſondern er thut es auch. In den alten guten<lb/>
+Zeiten wog ein „Geheimer Rath“ oder ein „Geheimer Hof-<lb/>
+rath“ noch etwas auf; aber heut zu Tage ſchlagen ſelbſt die<lb/>
+Maͤnner des Abſoluten und des Unbedingten den Werth des<lb/>
+Realen hoͤher an, als Titel und Orden.</p><lb/>
+<p>Wie viele Regierungsbeamten ihre Thaͤtigkeit nach der<lb/>
+Zahl der Nummern, die in ihrem Notizbuche ſtehen, abmeſſen<lb/>
+und nach deren Hoͤhe berechnen, ſo ſchaͤtzen unſere Profeſſo-<lb/>
+ren ihre Wichtigkeit, ihren Einfluß und den Grad, in dem<lb/>
+ſie ihre Beſtimmung erreicht haben, nach der Zahl ihrer Zu-<lb/>
+hoͤrer. Wohl, ſie iſt in dem Punkte ein Maßſtab, daß man<lb/>
+daraus erſehen kann, was junge Leute fuͤr wichtig oder noth-<lb/>
+wendig erachten und fuͤr intereſſant halten. Aber mit der Zahl<lb/>
+der Zuhoͤrer ſteigt die Zahl der „Fritze“, wie die Herren Stu-<lb/>
+denten ſagen, oft nach dem Doppelten oder noch hoͤher. Hier<lb/>
+liegt eine Quelle des Grundverderbens. Denn das Zahlen des<lb/>
+Honorars verfuͤhrt ſie, darnach zu trachten, den Juͤnglingen<lb/>
+zu gefallen; ſie ſpeculiren auf die <hi rendition="#g">Kuͤnſte</hi>, welche den Hoͤr-<lb/>
+ſaal fuͤllen. Und gelingt dieſes nicht gar haͤufig? Folgen ſie,<lb/>
+die groͤßtentheils Urtheilloſen, nicht ſehr oft dem lockenden<lb/>
+Schein, den taͤuſchenden Kuͤnſten, der wortreichen Suade?<lb/>
+<pb n="47" facs="#f0065"/>
+Wirkt der, der einen gefuͤllten Hoͤrſaal hat, wirklich beſſer,<lb/>
+tuͤchtiger, bildender, als der, der von einer kleineren Schaar<lb/>
+von Juͤngern umgeben iſt? Ihr Alle ſprechet nein, denn<lb/>
+Jedermann weiß: Auch unter den Studenten giebt es Fuͤhrer<lb/>
+und Leithaͤmmel und Macher; die uͤbrige Maſſe folgt, verſteht<lb/>
+nichts und lernt nichts, aber ſie ſtimmt ein in das Lob der<lb/>
+Chorfuͤhrer.</p><lb/>
+<p>Nein, das Beziehen des Honorars von dem Einzelnen<lb/>
+iſt ein Grundverderben der Univerſitaͤt.</p><lb/>
+<p>Ihr denkt, und Ihr habt den Einwand bei der Hand:<lb/>
+wenn wir die Honorare abſchaffen, wird dann der und jener<lb/>
+auch noch mit Eifer und Fleiß leſen? Wie, im Ernſte, Ihr<lb/>
+denkt wirklich ſo? Nun ſehet: dann habt Ihr ein viel haͤrte-<lb/>
+res und ſchaͤrferes Urtheil uͤber die Profeſſoren ausgeſprochen,<lb/>
+als ich es auf hundert Bogen vermag. Aber ich glaube es,<lb/>
+ich weiß es, Ihr denkt es wirklich. So weit ſind wir ge-<lb/>
+kommen, d. h. geſunken, daß wir Impulſe, die man bei Dorf-<lb/>
+ſchullehrern nicht mehr fuͤr noͤthig erklaͤrt, und die man an<lb/>
+vielen Orten abgeſchafft hat, und zwar ſo unreine und gemeine<lb/>
+Impulſe, wie Gold und Silber, noch fuͤr noͤthig erklaͤrt, um<lb/>
+unſere Akademiker, die Maͤnner, die mit dem Geiſte der alten<lb/>
+und mit dem Mark der neuen Zeit aufgenaͤhrt ſind, auf eine<lb/>
+oder zwei Stunden am Tage in Thaͤtigkeit zu erhalten!</p><lb/>
+<p>Vernehmt doch die Urtheile, die unſere Studenten daruͤ-<lb/>
+ber faͤllen und welche Anekdoͤtchen ſie erzaͤhlen! Doch <hi rendition="#aq">no-<lb/>
+mina sunt odiosa.</hi> Sie thun auch nichts zur Sache, weil<lb/>
+ſo viele von dieſer Peſt des Geizes und der Habſucht ange-<lb/>
+ſteckt ſind. Andern verzeihen wir es, weil auch die <hi rendition="#g">Wiſſen-<lb/>
+ſchaft</hi> leider oft nach Brot gehen muß, indem man ſelbſt<lb/>
+auf den Univerſitaͤten eine nicht nur bedenkliche, ſondern offen-<lb/>
+bar hoͤchſt ſchaͤdliche Concurrenz zugiebt oder veranlaßt. Von<lb/>
+<pb n="48" facs="#f0066"/>
+Monopolen kann keine Rede ſein, aber auch nicht von dem<lb/>
+andern Extrem, einer allgemeinen Gewerbefreiheit. Schon in<lb/>
+materiellen Dingen fuͤhrt ſie in der Regel zu unleugbaren<lb/>
+Nachtheilen, noch mehr in geiſtigen. Denn ſie erzeugt unter<lb/>
+den Lehrern derſelben Facultaͤt Neid und Eiferſucht, Rang-<lb/>
+ſtreit und alle die gehaͤſſigen Rancuͤnen, von welchen ſelbſt<lb/>
+die Studenten ſo viel zu erzaͤhlen wiſſen. Ein College ſucht<lb/>
+dem andern den Rang abzulaufen und das Heer der Akade-<lb/>
+miker auf ſeine Seite zu ziehen, in ſeinen Hoͤrſaal zu locken,<lb/>
+oft vielleicht durch unwuͤrdige, aͤußerliche Kuͤnſte, welche die<lb/>
+Menge beſtechen. So ſehen wir unſere Profeſſoren den Goͤtzen<lb/>
+des Tages huldigen, nach Ergoͤtzung, Schein und Beluſtigung<lb/>
+der Zuhoͤrer haſchen, das Glaͤnzende dem Ernſten und Tiefen<lb/>
+vorziehen, das Pikante und ſogenannte Geiſtreiche dem Ein-<lb/>
+fachen und Wahren. Die Gebrechen der Tagesliteratur drin-<lb/>
+gen ſo in die Hoͤrſaͤle und verderben den Geſchmack der Juͤng-<lb/>
+linge an der ſchlichten, nackten Wahrheit. Der akademiſche<lb/>
+Lehrer muß ohne aͤußere Sorgen ſeinem geiſtigen Berufe leben<lb/>
+koͤnnen, damit man mit Recht ihm die Forderung ſtellen koͤnne,<lb/>
+nach der Wiſſenſchaft und Wahrheit zu trachten, und nicht<lb/>
+nach den Dingen, die von dieſer Welt ſind. Auch die akade-<lb/>
+miſchen Lehrer koͤnnen nicht zugleich Gott dienen und dem<lb/>
+Mammon.</p><lb/>
+<p>2) Sie achten nicht den <hi rendition="#g">Gehorſam</hi>, nicht die <hi rendition="#g">Sub-<lb/>
+ordination</hi> — ſie, die fuͤr den Staat<hi rendition="#g">sdienſt</hi> erziehen ſollen.</p><lb/>
+<p>Es iſt weltbekannt, ſie ruͤhmen ſich dieſes Sinnes, als<lb/>
+eines Zeichens ſelbſtſtaͤndiger Kraft und des Bewahrens cor-<lb/>
+porativer Staͤrke, ſelbſt gegen ihre Studenten. Die bis zu<lb/>
+10 und 12 Wochen mißbraͤuchlich ausgedehnten Herbſtferien,<lb/>
+nachdem das Sommerſemeſter oft nur 12 Wochen gedauert<lb/>
+hat, — ſie ſind ein Mißbrauch und ein Uebel. Denn was<lb/>
+<pb n="49" facs="#f0067"/>
+ſoll der gewoͤhnliche Student in dieſer langen Zeit machen?<lb/>
+Schon die lange Weile, das Nichtsthun, das leere Herum-<lb/>
+ziehen und Herumliegen macht die Baͤuche faul. Die den<lb/>
+Univerſitaͤten vorgeſetzten Behoͤrden ſehen dieſes ſehr wohl ein,<lb/>
+ſie befehlen: Kuͤnftig darf Keiner vor dem 15. September<lb/>
+ſchließen. Aber ſchon den 15. Auguſt ſtehen die Hoͤrſaͤle leer.<lb/>
+In dem Kataloge iſt der Anfang der Wintervorleſungen auf<lb/>
+den 18. October angeſetzt; ſelten lieſ’t Einer vor dem 1. No-<lb/>
+vember, Mancher nicht vor dem 10ten.</p><lb/>
+<p>Daß in jedem Semeſter alle Hauptcollegien eines Faches<lb/>
+geleſen werden, es iſt, beſonders auf einer großen Univerſitaͤt,<lb/>
+die billigſte Forderung. Das Miniſterium befiehlt daher, die<lb/>
+Profeſſoren <hi rendition="#g">einer</hi> Facultaͤt ſollen ſich daruͤber verſtaͤndigen.<lb/>
+Aber Jeder lieſ’t nach wie vor ſeine Lieblingsgegenſtaͤnde, d. h.<lb/>
+diejenigen, die am erſten ein volles Auditorium liefern. So<lb/>
+wird <hi rendition="#g">dieſelbe</hi> Disciplin oft von drei bis ſechs Docenten an-<lb/>
+gezeigt, waͤhrend andere, vielleicht eben ſo wichtige, leer aus-<lb/>
+gehen.</p><lb/>
+<p>Sie kennen den Gehorſam gegen die Vorgeſetzten nicht.<lb/>
+Wie die Franzoſen <hi rendition="#g">aller</hi> Parteien darin einig ſind, daß das<lb/>
+linke Rheinufer ihnen gehoͤre, ſo ſtimmen auch Profeſſoren<lb/>
+aller Richtungen darin uͤberein, ſich von alten Vorrechten<lb/>
+nichts nehmen zu laſſen, ſollte es auch Geſetz und Ordnung<lb/>
+verlangen.</p><lb/>
+<p>3) <hi rendition="#g">Sie intereſſiren ſich nicht fuͤr das Indi-<lb/>
+viduum</hi>.</p><lb/>
+<p>Was fuͤr herrliche Bande umſchloſſen ehemals den Mei-<lb/>
+ſter und ſeine Juͤnger, damals, als jeder Hochbegabte eine<lb/>
+Schule bildete: gegenſeitige Liebe, die vaͤterliche von oben, die<lb/>
+auf Hochachtung gegruͤndete von unten — die <hi rendition="#g">Pietaͤt</hi>. Der<lb/>
+<pb n="50" facs="#f0068"/>
+Juͤnger zehrte lebenslang daran und ſie war das Hochgefuͤhl<lb/>
+ſeines Alters.</p><lb/>
+<p>Heut zu Tage gelten die Zuhoͤrer gleich den Nummern.<lb/>
+Wie in den Lankaſterſchulen haben ſie ihre Individualitaͤt ver-<lb/>
+loren, ſie zaͤhlen nur, und ſie werden gezaͤhlt, weil ſie die<lb/>
+Hoͤhe des Honorars bezeichnen. Wahrlich auch ein woͤchent-<lb/>
+liches Theekraͤnzchen, mit <hi rendition="#g">Einigen</hi> gehalten, iſt kein Erſatz<lb/>
+fuͤr die perſoͤnliche Gemeinſchaft der alten Zeiten.</p><lb/>
+<p>Unſere Profeſſoren leſen, unbekuͤmmert um das, was die<lb/>
+Anweſenden treiben, ob ſie ſchreiben und aufmerkſam ſind,<lb/>
+oder ob ſie in Buͤchern leſen, oder inzwiſchen die Tiſche zer-<lb/>
+ſchneiden, oder ſchlafen.</p><lb/>
+<p>Gar Vielen, den Meiſten kommt es ungelegen, wenn<lb/>
+ein Einzelner ſich noch privatim dieſen oder jenen Aufſchluß<lb/>
+erbittet. Er wird ſo empfangen, daß er nicht wieder kommt.<lb/>
+Darum gehoͤrt es zu den ſeltenen Ausnahmen, wenn Einer<lb/>
+das Gluͤck hat, dem Profeſſor perſoͤnlich bekannt zu werden.<lb/>
+Die Studenten wiſſen es, wie gleichguͤltig gegen ihre Perſoͤn-<lb/>
+lichkeit die Meiſten ihrer Lehrer ſind. Darum vergelten ſie<lb/>
+auch Gleiches mit Gleichem — natuͤrlich zu ihrem eignen<lb/>
+Schaden. Aber wie kann es anders ſein. Bleibt auch eine<lb/>
+Urſache <hi rendition="#g">ohne</hi> ihre natuͤrliche Wirkung? — Einen, ich moͤchte<lb/>
+ſagen, unerhoͤrten, ja ſchauderhaften Beweis von der Gleich-<lb/>
+guͤltigkeit der Profeſſoren gegen das Wohl und die Achtung<lb/>
+ihrer ſelbſt vor den Studenten legen ſie ab durch die Leichtfer-<lb/>
+tigkeit, mit der ſie amtliche Zeugniſſe ausſtellen, den Beſuch<lb/>
+der Collegien teſtiren. Wohl, im Leben lernt man es, in<lb/>
+unbedeutenden Dingen das eine oder das andere Wort zu ſa-<lb/>
+gen, was mit der ſtrengen Wahrheit nicht uͤbereinſtimmt.<lb/>
+Aber, wenn man etwas der Art ſchreiben ſoll, beſinnt man<lb/>
+ſich doch. Das Geſchriebene hat eine hoͤhere Bedeutung, als<lb/>
+<pb n="51" facs="#f0069"/>
+das fluͤchtig verhallende Wort. Dieſe Ueberlegung wird auch<lb/>
+bei ſonſt nicht allzu ſtreng moraliſch geſinnten Perſonen zur<lb/>
+Gewiſſenhaftigkeit, wenn ſie ein <hi rendition="#g">Zeugniß</hi>, beſonders ein<lb/>
+amtliches, ausſtellen ſollen. Nichts von allem dem bei unſe-<lb/>
+ren Profeſſoren. Sie teſtiren: „fleißig“, „mit lobenswerthem<lb/>
+Fleiße“, „theilnehmend“ u. ſ. w. friſch zu, wenn ſie nur<lb/>
+wiſſen, daß das Colleg belegt geweſen und ſie den Inhaber<lb/>
+ein oder einige Mal geſehen haben. Ja oft moͤgen ſie ihn gar<lb/>
+nicht geſehen haben. Es waͤren manche ſchoͤne Geſchichtchen<lb/>
+daruͤber zu erzaͤhlen, wenn hier der Raum dazu waͤre. Aber<lb/>
+iſt das nicht eine wahre Depravation? <hi rendition="#g">Koͤnnen</hi> gewiſſen-<lb/>
+hafte Juͤnglinge vor ſolchem Unweſen Reſpekt haben? — —</p><lb/>
+<p>4) <hi rendition="#g">Sie ſtehen feindſelig einander gegenuͤber</hi>.</p><lb/>
+<p>Will man Orte bezeichnen, wo Gelehrſamkeit, Kenntniß-<lb/>
+reichthum, Bildung zu finden ſind, wo ſie eigentlich reſidiren,<lb/>
+ſo nennt man die Univerſitaͤten. Natuͤrlich. In ihnen verei-<lb/>
+nigen ſich alle Umſtaͤnde, welche die Bluͤthe der Intelligenz<lb/>
+befoͤrdern. Sie heißen daher auch Muſenſitze; denn die Muſen<lb/>
+haben hier ſtabilen Aufenthalt. Nur die an Geiſt ausgezeich-<lb/>
+netſten Juͤnglinge — dieß darf angenommen, muß vorausgeſetzt<lb/>
+werden — widmen ſich dem akademiſchen Lehramte. Sie ha-<lb/>
+ben auf Gymnaſien die <hi rendition="#aq">humaniora</hi> ſtudirt, die <hi rendition="#aq">artes</hi>, welche<lb/>
+ſich mit rohen Sitten nicht vertragen, nicht nur kennen gelernt,<lb/>
+ſondern ſich zu eigen gemacht, die Humanitaͤtsſtudien auf Uni-<lb/>
+verſitaͤten fortgeſetzt, und betreten nun die Bahn zu dem Tem-<lb/>
+pel der Wiſſenſchaften und des Ruhmes.</p><lb/>
+<p>Wer ſollte es darum nicht natuͤrlich finden, daß Jeder-<lb/>
+mann in dem Leben, in der Geſinnung der Profeſſoren als<lb/>
+ſtrahlende Tugend die <hi rendition="#g">Humanitaͤt</hi> ſucht, die Vereinigung<lb/>
+Aller, wenigſtens aller fuͤr <hi rendition="#g">dieſelbe</hi> Wiſſenſchaft Hinarbei-<lb/>
+<pb n="52" facs="#f0070"/>
+tenden, in großartigem, begeiſterndem, treu verbundenem Stre-<lb/>
+ben, ſich ſelbſt vergeſſend uͤber der erhabenen Goͤttin, der ſie<lb/>
+dienen, gleich jenem Juͤngling, der die Theilung der Erde<lb/>
+uͤberſehen hatte. Ja, die Humanitaͤt verlangen, fordern wir<lb/>
+mit Recht von denen, die ſich ruͤhmen, <hi rendition="#aq">humaniora</hi> zu lehren.</p><lb/>
+<p>Aber — nun ſehe man einmal zu, <hi rendition="#g">wie</hi> dieſe Humani-<lb/>
+taͤts-Profeſſoren zum Theil zu einander ſtehen, mit einander<lb/>
+leben, ſich gegen einander betragen, ob es einem nicht iſt,<lb/>
+als wenn man aus den Wolken fiele, und ob nicht Mancher<lb/>
+recht hat, der ſich von ihnen und ihrer Sache wegwendet.<lb/>
+Es iſt oft ein Skandal. Katzbalgereien, haͤmiſche Angriffe,<lb/>
+kritiſche Bosheiten, weibiſche Klatſchſucht, hinterliſtige Ver-<lb/>
+laͤumdung, nie aufhoͤrende Parteiſucht und gemeine Unſrigkeit<lb/>
+und Vornehmigkeit — und wie alle die heilloſeſten Tuͤcke des<lb/>
+menſchlichen Gemuͤthes heißen moͤgen, ſie herrſchen — nicht<lb/>
+unter Staͤnden niederer Bildung, ſondern unter unſeren Ge-<lb/>
+lehrten. Kaum gleicht eine Wuth der eines Gelehrten, wenn<lb/>
+ein Anderer ihm die Bloͤßen, die er gegeben, aufdeckt, die<lb/>
+Boͤcke, die er geſchoſſen, verewigt. Kaum ſtreiten boͤſe Wei-<lb/>
+ber mit ſolcher Verwuͤnſchung mit einander, wie zwei Philo-<lb/>
+logen uͤber verſchiedene Lesarten und Auslegungen. Sie ver-<lb/>
+folgen einander auf ewig. Gerade hier erkennt man nicht nur<lb/>
+die Unwahrheit der alten Behauptung, daß das Wiſſen noth-<lb/>
+wendig veredle, ſondern auch die ungeheure Verirrung in der<lb/>
+uͤbertriebenen Werthſchaͤtzung des oft ſo eitlen, ſo unnuͤtzen<lb/>
+Wiſſens. Abgoͤttiſch verehren wir alten, todten Kram, beloh-<lb/>
+nen die Aufſpuͤrung einer unentzifferten Schrift an einem alten<lb/>
+Stein mit Schaͤtzen und mit Ehre, und bewundern kleinlichen<lb/>
+Scharfſinn, wo wir, wenn wir jenem Alexander glichen, ſo<lb/>
+eitle Kuͤnſte mit einem Scheffel Linſen anerkennen, d. h. ver-<lb/>
+achten ſollten.</p><lb/>
+<pb n="53" facs="#f0071"/>
+<p>Ja, offen ſprechen wir es aus, und erwarten den auf<lb/>
+offenem Felde, der es unternimmt, uns zu widerlegen: nir-<lb/>
+gends auf Erden herrſcht unter Gebildeten die Humanitaͤt we-<lb/>
+niger, als unter den Gelehrten. Das Volksſprichwort charak-<lb/>
+teriſirt viele in Wahrheit: „Je gelehrter, deſto verkehrter“,<lb/>
+in Geſinnung, im Leben. Nirgends findet man mehr Scheel-<lb/>
+ſucht und Neid als unter denen, die aus der Cultur der Wiſ-<lb/>
+ſenſchaften Profeſſion machen. Nirgends weniger Aneinander-<lb/>
+ſchließen, nirgends ſo viel gegenſeitiges Iſoliren als unter<lb/>
+ihnen. Die Maͤnner derſelben Facultaͤt ſind in der Regel —<lb/>
+gegen einander. Man ſollte denken: da ſie <hi rendition="#g">einer</hi> Sache,<lb/>
+z. B. der Philoſophie, der Medicin, der Theologie ꝛc. dienen,<lb/>
+alſo unter <hi rendition="#g">einer</hi> Fahne fechten, ſo wuͤrden ſie in gemein-<lb/>
+ſchaftlichem Eifer fuͤr die Wiſſenſchaft und aus Liebe zu den<lb/>
+fuͤr ſie zu gewinnenden Juͤnglingen zuſammenhalten und nicht<lb/>
+durch kleinliche Perſoͤnlichkeiten auseinander gehalten werden.<lb/>
+Aber, aber — lauter Parteiſucht, Anfeindung, Haß. Der<lb/>
+Alloͤopath ſteht dem Homoͤopathen, der Hegelianer dem Kan-<lb/>
+tianer, der Supranaturaliſt dem Rationaliſten, der Altdeutſche<lb/>
+dem Neudeutſchen diametral gegenuͤber. Als Parteimenſchen<lb/>
+kennen ſie keine Humanitaͤt, Chriſtenthum, Liebe, Gemein-<lb/>
+geiſt, und wie dieſe hohen Dinge heißen; ſuchet ſie uͤberall,<lb/>
+wo ihr wollt, nur nicht in den Orten, die ſie <hi rendition="#g">Muſenſitze</hi><lb/>
+benamſet haben.</p><lb/>
+<p>Und ſolche Parteimaͤnner ſollen der Bluͤthe der deutſchen<lb/>
+Nation als <hi rendition="#g">Vorbilder</hi> dienen!</p><lb/>
+<p>5) <hi rendition="#g">Sie leben nicht in Ideen</hi>.</p><lb/>
+<p>Die Ideen, die das wuͤrdige maͤnnliche Leben uͤberhaupt<lb/>
+<hi rendition="#g">beleben</hi> muͤſſen, ſind: der <hi rendition="#g">Hochgedanke der Tugend<lb/>
+und Pflicht</hi>, die <hi rendition="#g">Ausbildung des Berufskreiſes</hi>,<lb/>
+dem man ſich gewidmet hat, und die <hi rendition="#g">Fortentwicklung</hi><lb/>
+<fw type="sig" place="bottom">5</fw><lb/>
+<pb n="54" facs="#f0072"/>
+<hi rendition="#g">der allgemeinen Zuſtaͤnde der Nation oder der<lb/>
+Menſchheit uͤberhaupt</hi>. Ohne den erſten fehlt dem Da-<lb/>
+ſein des Einzelnen die Wuͤrde, und Gemeinheit der Geſinnung<lb/>
+und Richtung tritt an deren Stelle; ohne den zweiten iſt kein<lb/>
+tuͤchtiges, edles Streben des Mannes moͤglich; ohne den drit-<lb/>
+ten kann wohl energiſche Tuͤchtigkeit im engern Kreiſe beſtehen,<lb/>
+aber ohne ihn fehlt dennoch dem Streben die hoͤchſte, allge-<lb/>
+meinſte Beziehung. Wer von ihnen gehoben und beſeelt wird,<lb/>
+lebt ein Leben in Ideen; wer ſie entbehrt, iſt ein ideenloſer<lb/>
+Menſch.</p><lb/>
+<p>Wie es in dieſer Beziehung mit ſo vielen unſerer Zeitge-<lb/>
+noſſen, auch mit vielen unſerer Univerſitaͤtslehrer ſteht, es iſt<lb/>
+ſchmerzlich, davon zu reden, ſchon darum, weil man dabei<lb/>
+der Gefahr der eignen Ueberhebung oder der Eitelkeit ausge-<lb/>
+ſetzt iſt. Aber es darf nicht verhehlt werden — wen lehrte<lb/>
+es nicht jeder Tag? — daß die Ideen uns ſehr abhanden ge-<lb/>
+kommen. Die Verkehrtheit der Richtung zeigt ſich am ſchla-<lb/>
+gendſten in denen, die die Fuͤhrer zu ſein den Beruf haben<lb/>
+und darum an der Spitze ſtehen. <hi rendition="#g">Tugend und Pflicht</hi><lb/>
+— ſie begeiſterten den großen, unſterblichen <hi rendition="#g">Kant</hi>; unſer<lb/>
+deutſch geſinnter <hi rendition="#g">Leſſing</hi> und der alte <hi rendition="#g">Voß</hi> widmeten ihnen<lb/>
+ihr thatenreiches Leben. Wir gehen in dem Gewaͤſſer der Lob-<lb/>
+ſucht und der Schmeichelei unter, oder erſticken in dem Dunſte<lb/>
+myſtiſcher Nebel. <hi rendition="#g">Aufopferung in edlem Berufe</hi> —<lb/>
+ach es giebt ſogar unter den Hochſchullehrern welche, und nicht<lb/>
+unberuͤhmten Namens, die nicht nur gerne moͤglichſt wenig,<lb/>
+ſondern lieber gar nicht leſen, ja wohl gar durch Grobheiten<lb/>
+die wenigen Zuhoͤrer aus dem Hoͤrſaale verſcheuchen. <hi rendition="#g">Theil-<lb/>
+nahme an der allgemeinen Fortentwicklung des<lb/>
+oͤffentlichen Lebens und ſeiner Zuſtaͤnde</hi> — wo iſt<lb/>
+ſie und wer bezeugt ſie?</p><lb/>
+<pb n="55" facs="#f0073"/>
+<p>Was die Lehrer nicht haben, fehlt auch den Schuͤlern.<lb/>
+Und wenn etliche von dieſen, in reinerer Luft aufgewachſen,<lb/>
+ihrer lauteren Geſinnung folgen wollen, aber keinen Fuͤhrer,<lb/>
+kein Vorbild finden, und darum vielleicht ſich verirren, wen<lb/>
+nimmt Solches Wunder, der die Zeit kennt und die Menſchen!</p><lb/>
+<p>Kenntniſſe beſitzen wir in Ueberfluß, es fehlen die Ideen.<lb/>
+Dieß iſt die Klage, die ich erhebe.</p><lb/>
+<p>Es giebt Profeſſoren, welche dieſen Mangel durch einen<lb/>
+ſogenannten <hi rendition="#g">geiſtreichen</hi> Vortrag, durch augenblicklich rei-<lb/>
+zende, die Einbildungskraft erregende, <hi rendition="#g">pikante</hi> Darſtellungs-<lb/>
+weiſe zu erſetzen ſuchen; aber vergebens und verkehrter Weiſe.<lb/>
+Dadurch, wie ich ſchon einmal bemerkt, verdirbt der Sinn<lb/>
+fuͤr das Einfache, Gerade, Natuͤrliche, Tiefe, Klaſſiſche,<lb/>
+kurz der wahrhaft wiſſenſchaftliche Geiſt, der an dem Ernſt,<lb/>
+der Strenge, der Schaͤrfe ſeine Freude hat. Es iſt ein ganz<lb/>
+verderblicher Wahn, zu meinen, das von der Wahrheit und<lb/>
+Schaͤrfe des Gedankens entbloͤßte Geiſtreiche habe noch irgend<lb/>
+welchen Werth; es ruinirt den Geiſt, verdirbt ihn fuͤr die<lb/>
+Wiſſenſchaft, wie Marzipan den Magen verdirbt. Wo findet<lb/>
+man in den Werken, die aus den alt-klaſſiſchen Zeiten ſtam-<lb/>
+men und die mit Recht fuͤr alle Zeiten als Muſter gelten,<lb/>
+wo findet ſich in <hi rendition="#g">Leſſing’s</hi> oder <hi rendition="#g">Kant’s</hi> geiſtvollen Schrif-<lb/>
+ten auch nur eine Spur von der geruͤhmten geiſtreichen Art,<lb/>
+ſelbſt unſerer poetiſchen Naturphiloſophen, ihrem Haſchen nach<lb/>
+Gegenſaͤtzen, witzigen Combinationen und frappanten Verglei-<lb/>
+chungen, die den Beweis eines geiſtreichen Kopfes liefern<lb/>
+ſollen, und alles Andere enthalten, nur keine Wahrheit! Nim-<lb/>
+mermehr vertraͤgt ſich dieſes eitle Streben mit dem Tiefen und<lb/>
+Hohen. Dieſe ſogenannten Geiſtreichen verderben den Ge-<lb/>
+ſchmack der jungen Maͤnner, die zu ihren Fuͤßen ſitzen. Dieſe<lb/>
+verlieren, an das kuͤnſtliche Leuchten der Blitze in ſchwarzer<lb/>
+<fw type="sig" place="bottom">5*</fw><lb/>
+<pb n="56" facs="#f0074"/>
+Nacht gewoͤhnt, und durch die Raketen und Leuchtkugeln ge-<lb/>
+blendet, die Faͤhigkeit, das reine Sonnenlicht der Wahrheit<lb/>
+und die Einfachheit des Gedankens hochzuſchaͤtzen, und das<lb/>
+Wohlgefallen an einfacher, ſchmuckloſer Darſtellung. Darum<lb/>
+ſollte jeder Profeſſor dieſe verderbliche Darſtellungsweiſe den<lb/>
+Neu-Romantikern und den Novelliſten uͤberlaſſen.</p><lb/>
+<p>Eine Univerſitaͤt iſt um der Studirenden willen da. Ihr<lb/>
+Werth beruht auf der Wirkung auf dieſelben. Dieſe laͤßt ſich<lb/>
+erkennen aus dem Verhaͤltniß der Geſinnung der Studirenden<lb/>
+gegen die Lehrer. Und dieſe geht hervor aus den Aeußerungen<lb/>
+jener uͤber dieſe. Wer weiß es nicht, wie oft ſie ohne Ach-<lb/>
+tung, meiſt ohne Dankbarkeit, ohne Pietaͤt, ohne Vertrauen,<lb/>
+an den Profeſſoren eine bittere Kritik uͤben, Witz und Spott<lb/>
+uͤber ſie ergehen laſſen. Manches Anekdoͤtchen waͤre davon zu<lb/>
+erzaͤhlen, paßte es zu dem Ernſte des Gegenſtandes. Aber<lb/>
+ſicherlich iſt keine Kritik ſchaͤrfer und — niederſchlagender (fuͤr<lb/>
+den, der es weiß, worauf daraus zu ſchließen iſt, und daß<lb/>
+die paͤdagogiſche Wirkung eines Menſchen auf einen Andern<lb/>
+von der Achtung abhaͤngt, in der er bei ihm ſteht) als die der<lb/>
+Studenten uͤber die Lehrer. Ohne Scheu wird da in oͤffentli-<lb/>
+cher Geſellſchaft und an Wirthstafeln erzaͤhlt, wie der und<lb/>
+der ſein altes Heft bereits ſeit zwei und mehreren Jahrzehnten<lb/>
+ablieſet und an beſtimmten Stellen Witze reißet; wie ein An-<lb/>
+derer bei der Bitte um Erlaſſung oder Stundung des Hono-<lb/>
+rars ſich ſchmutzig knickerig zeigt; was Frau Fama von dem<lb/>
+Privatleben eines Dritten zu erzaͤhlen weiß. Nein, es iſt<lb/>
+mir oft weh um’s Herz geworden, wenn ſich mir bei ſolchen<lb/>
+Erſcheinungen die Betrachtung aufdraͤngte, was fuͤr unſelige<lb/>
+Folgen dieſe von einzelnen Erfahrungen nur zu leicht auf die<lb/>
+Geſammtheit gerichtete Anſicht von dem geiſtigen Streben, der<lb/>
+Geſinnung und dem Leben der Profeſſoren auf die Richtung<lb/>
+<pb n="57" facs="#f0075"/>
+der Juͤnglinge haben muß, die in dieſen ihren Lehrern Vor-<lb/>
+bilder fuͤr das Leben finden ſollen. Denn unendlich wichtig<lb/>
+iſt es fuͤr den heranreifenden Mann, ob er zu Hochbildern<lb/>
+hinaufſchaut, oder ob ihn die, die aͤußerlich hochgeſtellt ſind<lb/>
+und in mancher Beziehung, wenigſtens in der Ferne glaͤnzen,<lb/>
+in der Naͤhe als Menſchen erſcheinen, die dieſer Achtung un-<lb/>
+werth ſind. Jene bittere Kritik iſt auf der einen Seite die<lb/>
+Rachegoͤttin, welche die Profeſſoren verfolgt, wenn ſie nicht<lb/>
+ſind, wie ſie ſein ſollten; auf der andern Seite ein Zeichen<lb/>
+der (durch natuͤrliche Urſachen herbeigefuͤhrten) Verderbtheit<lb/>
+der Geſinnung der Studenten, durch deren Mittheilung ſie das<lb/>
+Hochgefuͤhl der auf der Univerſitaͤt Ankommenden vernichten.<lb/>
+Denn wie man von den Menſchen denkt, ſo wirken ſie auf<lb/>
+uns. Wie kann der, der uns Nichtachtung, wo nicht gar<lb/>
+Verachtung einfloͤßt, veredelnd auf uns wirken? — Sinkt<lb/>
+unſere Meinung von den Menſchen, beſonders von hochſtehen-<lb/>
+den, ſo ſinken wir mit. Darum ſind im Leben nicht geach-<lb/>
+tete, verachtete Lehrer, auch wenn ſie durch Gelehrſamkeit<lb/>
+glaͤnzen, die Verderber der Jugend.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+ <p>Die Schwaͤche, die Bodenloſigkeit des ſittlichen und er-<lb/>
+ziehlichen Verhaͤltniſſes zwiſchen Profeſſoren und Studenten<lb/>
+haben die heilloſen demagogiſchen Umtriebe der Studenten<lb/>
+<hi rendition="#g">vollends</hi> mir aufgedeckt, und wer bis hieher der Meinung<lb/>
+geblieben, daß die Klage, die ich gegen die Lehrer erhebe, des<lb/>
+realen Grundes entbehre, der wird weiterhin nicht bei ſeiner<lb/>
+Meinung beharren koͤnnen.</p><lb/>
+<p>Ich habe Politiſch-Angeklagte in der hieſigen Hausvoigtei<lb/>
+beſucht, Soͤhne alter Freunde und Bekannten (— denn Chri-<lb/>
+ſtus ſpricht: „Ich bin gefangen geweſen, und du haſt mich<lb/>
+<pb n="58" facs="#f0076"/>
+beſuchet!“ —), ich habe auf ihren Wangen die Wirkungen<lb/>
+der Kerkerluft, in ihren Augen die Folgen moraliſcher Verir-<lb/>
+rungen geſehen. Es iſt mir nahe gegangen; ich habe gezittert,<lb/>
+als ich die verbauten Fenſter erblickte, hinter welchen die<lb/>
+Juͤnglinge ſchmachten, um welche Vaͤter, Muͤtter, Bruͤder,<lb/>
+Schweſtern und alle Freunde des Vaterlandes und der Jugend<lb/>
+Thraͤnen vergießen. Ich habe an die Urſachen gedacht, die<lb/>
+Solches herbeigefuͤhrt; an die Maͤnner, die <hi rendition="#g">vor Allen</hi> es<lb/>
+haͤtten verhindern koͤnnen; an die, welchen die Eltern, der<lb/>
+Staat, Amtspflicht und Eid die Juͤnglinge zur Bildung und<lb/>
+Erziehung uͤbergeben haben. <hi rendition="#g">Haben dieſe nicht gewollt,<lb/>
+oder haben ſie nicht gekonnt? Liegt es an ihrer<lb/>
+Willen-, oder an ihrer Machtloſigkeit</hi>? An dem<lb/>
+Einen oder dem Andern, von denen ſchwer iſt, zu ſagen,<lb/>
+welches das Schlimmere ſei, muß es liegen, oder an Beiden.<lb/>
+Sollten ſie <hi rendition="#g">nicht gewollt</hi> haben, ſo verdienten ſie eine weit<lb/>
+haͤrtere Strafe, als die Juͤnglinge. Haben ſie <hi rendition="#g">nicht ge-<lb/>
+konnt</hi>, entweder weil ſie nicht wußten, was die ihrer Pflege<lb/>
+Empfohlenen, wenn auch im Verborgenen, doch unter ihren<lb/>
+Augen trieben, oder weil ihr Einfluß auf dieſelben gleich Null<lb/>
+iſt, welches beides zuſammen wir um der Milde willen an-<lb/>
+nehmen wollen, nun ſo erkenne man die Schwaͤche und Bo-<lb/>
+denloſigkeit des Verhaͤltniſſes zwiſchen Profeſſoren und Stu-<lb/>
+denten!</p><lb/>
+<p>Aus dieſer kurzen Betrachtung folgt Zweierlei: 1) So<lb/>
+darf es nicht bleiben; 2) den unter ſolchen Umſtaͤnden verirr-<lb/>
+ten Juͤnglingen, dieſer hirtenloſen Schaar, kann unſer Mitleid<lb/>
+nicht entgehen.</p><lb/>
+<p>Dieſe milden Worte uͤber einen Gegenſtand von ſolcher<lb/>
+Schwere verdienen — das wird jeder Leſer erkennen — das<lb/>
+Lob der Maͤßigung. Ich habe mich ſelbſt bezwungen. Aber<lb/>
+<pb n="59" facs="#f0077"/>
+man wird zugeben, daß der Gedanke: ſechshundert deutſche<lb/>
+Juͤnglinge haben ſich in verbotene, zum Theil in verbrecheri-<lb/>
+ſche Verbindungen eingelaſſen, und ſolche Plane geſchmiedet,<lb/>
+die das Geſetz mit ſchwerem Arreſt und mit dem Tode beſtraft,<lb/>
+und ſie buͤßen nun ihre Verirrungen und Verbrechen in den<lb/>
+Kerkern — ich ſage, dieſer Gedanke rechtfertigt auch den gluͤ-<lb/>
+hendſten Zorn uͤber die, welche, wenn auch nur in negativer<lb/>
+Weiſe, davon die Schuld tragen. Ob die Univerſitaͤtslehrer<lb/>
+mit Recht damit beladen werden koͤnnen, wir laſſen es dahin<lb/>
+geſtellt, wir wollen hoffen, daß es nicht ſei; aber das haͤtte<lb/>
+ihnen Ehre gebracht, wenn ſie von allen Seiten und auf alle<lb/>
+moͤgliche Weiſe, wenigſtens mehr als es geſchehen, ſich der<lb/>
+verirrten und verfuͤhrten Juͤnglinge angenommen und Vor-<lb/>
+ſchlaͤge gethan haͤtten, welche dieſes Unheil mit der Wurzel<lb/>
+von den Univerſitaͤten haͤtte entfernen koͤnnen. Ein treuer Hirte<lb/>
+bewacht die Heerde, damit der Wolf ſie nicht freſſe, und<lb/>
+wenn ſich <hi rendition="#g">eins</hi> von hundert Schafen verirrt, ſo geht er ihm<lb/>
+in die Wuͤſte nach, damit es nicht verloren gehe. Der ver-<lb/>
+irrten Juͤnglinge ſind aber <hi rendition="#g">ſechshundert</hi>! — — Dieſe<lb/>
+ſchreckliche Wahrheit ſollte in der Seele jedes Lehrers derſelben<lb/>
+wie ein <hi rendition="#g">Mordbrand</hi> wirken. Aber ſie ſchweigen und lehren<lb/>
+ruhig fort ihren alten, abſtracten Kram. Sind ſie Mieth-<lb/>
+linge? Iſt es Abgeſtorbenheit und Gleichguͤltigkeit, oder <hi rendition="#g">Feig-<lb/>
+heit</hi>? Ihnen aͤhnlich verharren auch die Gymnaſiallehrer in<lb/>
+abſolutem Stillſchweigen, bis die Steine daruͤber ſchreien wer-<lb/>
+den, daß manchem ihrer Schuͤler pſychiſch und phyſiſch der<lb/>
+Geiſt ausgeht uͤber den Maſſen, die zu lernen ſind. —</p><lb/>
+<p>Unſere Juͤnglinge beduͤrfen — dafuͤr ſprechen Thatſachen —<lb/>
+der <hi rendition="#g">Leitung</hi>. Alle, ihre Verhaͤltniſſe erkennenden, ſtrebenden<lb/>
+Juͤnglinge wuͤnſchen ſie, wuͤrden dankbar ſie annehmen. Wie<lb/>
+viele bedauern und betrauern nicht tief die Iſolirung, die<lb/>
+<pb n="60" facs="#f0078"/>
+Entfernung von den Profeſſoren, wozu ſie ſich, beſonders in<lb/>
+großen Staͤdten, genoͤthigt ſehen! Mit welcher Freude wuͤr-<lb/>
+den ſie eine Einrichtung begruͤßen, die nur dem Muſeum in<lb/>
+Tuͤbingen gliche, was doch gewiß nicht viel ſagen will! Aber<lb/>
+es iſt Zeit! Oder ſoll das Land noch einmal den Schmerz<lb/>
+erleben, verbrecheriſche Verbindungen und deren Folgen ent-<lb/>
+ſtehen zu ſehen, falls es dem galliſchen Hahne einfallen ſollte,<lb/>
+zum dritten Male zu kraͤhen? Iſt es ſchon verderblich, in<lb/>
+den ruhigſten Zeiten die Kraft der deutſchen Juͤnglinge nicht<lb/>
+in jeder Weiſe zu erregen und zu uͤben, ſo erreicht ſolches<lb/>
+Verderben den Gipfel in Zeiten, in welchen die Wogen der<lb/>
+Voͤlkerbewegungen an die Graͤnzen des deutſchen Landes an-<lb/>
+ſchlagen, wenn die Winde neuer Anſichten aus allen Welt-<lb/>
+gegenden blaſen, wenn die Sterne des Himmels zu erblaſſen<lb/>
+anfangen, eine neue Sonne aufgeht, und die Pole der Welt-<lb/>
+geſchichte ſich aͤndern! Nur gebe man — es iſt nicht genug<lb/>
+zu wiederholen — ſich dem Wahne nicht hin, als koͤnne man<lb/>
+den bewegten Strom durch bloße Machtgebote und Befehle,<lb/>
+durch Verbote aller Art oder durch kleinliche Bevormundung<lb/>
+in ſein Bett wieder hineinlenken! Man braucht unſere Jugend<lb/>
+nicht zu kennen, man braucht nur zu ſehen und zu hoͤren,<lb/>
+um ſich von der Gefahr, die dieſer Wahn herbeifuͤhren koͤnnte,<lb/>
+zu uͤberzeugen. Doch der Eintritt dieſer Gefahr iſt nicht zu<lb/>
+beſorgen. An den Univerſitaͤtslehrern ſelbſt findet das Gegen-<lb/>
+theil ſeine Vertheidiger. Denn eine ſtreng paͤdagogiſche Beauf-<lb/>
+ſichtigung der Studenten wuͤrde doch — das fuͤhlen ſie — zu-<lb/>
+letzt von ihnen ſelbſt gefordert werden. Vor nichts aber haben<lb/>
+ſie eine groͤßere Scheu, als vor poſitiven Leiſtungen. Sie lie-<lb/>
+ben das Dociren uͤber die Maßen; alles Andere iſt ihnen ein<lb/>
+Greuel. Auch wir verabſcheuen die Knechtung freier Maͤnner<lb/>
+durch Aufladung von kleinlicher Controlle und Anfertigung von<lb/>
+<pb n="61" facs="#f0079"/>
+Liſten; aber was der Zweck des Amtes erheiſcht, das zu uͤber-<lb/>
+nehmen, darf ſich kein Gewiſſenhafter weigern. Dociren und<lb/>
+Buͤcher ſchreiben iſt auch bei dem Univerſitaͤtslehrer nicht ge-<lb/>
+nug; er ſoll in’s Leben eingreifen dadurch, daß er ſich um<lb/>
+das Geſammtwohl ſeiner Schuͤler bekuͤmmert, ſage <hi rendition="#g">bekuͤm-<lb/>
+mert,</hi> im eigentlichen Sinne des Wortes, damit nicht ihrer<lb/>
+Hunderte zu Verbrechern werden, und damit die Thraͤnen-<lb/>
+fluthen, die um dieſe geweint werden, verſiegen. Gott gebe<lb/>
+es! Dazu etwas beigetragen zu haben, wuͤrde mir noch in<lb/>
+der letzten Stunde ein Troſt ſein.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+ <p>So, wie ich ſie geſchildert habe, ſind viele oder manche<lb/>
+unſerer Profeſſoren — ein Spiegel des Verderbens der Zeit.<lb/>
+Die Groͤße deſſelben iſt darnach zu bemeſſen, daß ſie, die<lb/>
+Hochgeſtellten ſelbſt, ihm nicht zu entrinnen vermochten. Es<lb/>
+waren beſſere Zeiten und die Hochſchulen bluͤheten mehr, als<lb/>
+die Gelehrten ſich noch fern hielten von der Naͤhe der Großen<lb/>
+und den Gelagen der Reichen, und als Keiner mit der Eitel-<lb/>
+keit behaftet war, ſein Knopfloch mit bunten Baͤndern zu ver-<lb/>
+ſehen, jene Zeiten, in welchen der Gelehrte der Wiſſenſchaft<lb/>
+diente und den Juͤnglingen, die ſich ihr widmen wollten. Man<lb/>
+konnte ſie in mehrfacher Hinſicht <hi rendition="#g">beſchraͤnkte</hi> Zeiten nen-<lb/>
+nen; aber ſie kannten nicht die Entartung derer, welche die<lb/>
+Wiſſenſchaften und ihren Geiſt erniedrigen unter die Goͤtzen<lb/>
+des Tages.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+ <p>Wenn es nun wahr iſt, daß ein Theil unſerer Profeſſo-<lb/>
+ren die Anklage, die ich gegen ihre Geſinnung erhebe, nicht<lb/>
+von ſich zuruͤckweiſen kann, wie <hi rendition="#g">muß</hi> ſolche Geſinnungsloſig-<lb/>
+keit auf die Zoͤglinge des Hochſchulen wirken? Welche Aerndte<lb/>
+<pb n="62" facs="#f0080"/>
+haben wir, unſere Nachkommen, davon zu erwarten? Ver-<lb/>
+beſſert die Lehrmethode, die Inſtitutionen, es iſt wichtig!<lb/>
+Bildet ſchlechte Geſinnungen um, und ihr habt Wichtigeres,<lb/>
+ja Ihr habt das Wichtigſte fuͤr die Erziehung und Bildung<lb/>
+kommender Geſchlechter vollbracht!</p><lb/>
+<p>Soll, darf es ſo fortgehen, wie es bisher gegangen?<lb/>
+Iſt Hoffnung vorhanden, daß die Sache ſich von ſelbſt zum<lb/>
+Beſſern wenden, daß die Umgeſtaltung von den Lehrern, die<lb/>
+ihre Kraͤfte den Hochſchulen widmen, ausgehen werde? Liegt<lb/>
+die Grundurſache deſſen, was als verderblich nachgewieſen<lb/>
+worden, in den Perſonen, oder in den Inſtitutionen? Sie<lb/>
+liegt in den Inſtitutionen. <hi rendition="#g">Darum Reform der Uni-<lb/>
+verſitaͤten</hi>!</p></div></div><lb/>
+<div n="2"><head><hi rendition="#b"><hi rendition="#aq">B.</hi> <hi rendition="#g">Die übrigen Verhältniſſe auf den<lb/>
+Univerſitäten</hi>.</hi></head><lb/>
+<p>Nachdem wir die Lehrer geſchildert, wie es ihrer giebt,<lb/>
+gehen wir zu den uͤbrigen Verhaͤltniſſen, die den Studenten<lb/>
+umfangen, uͤber. Es iſt nicht noͤthig, daß wir dabei eine<lb/>
+logiſche Gliederung feſthalten; wir haben nur die Zuſtaͤnde<lb/>
+zu uͤberſehen, in welchen unſere Hochſchuͤler leben. Es ſind<lb/>
+die Hoͤrſaͤle und was daneben iſt, vor und nach dem Beſuch<lb/>
+derſelben geſchieht. Wir werden ſehen, daß große Staͤdte die<lb/>
+ſchlimmeren Orte ſind.</p><lb/>
+<p>Wenn der von dem Gymnaſium Entlaſſene den Raum<lb/>
+der Hochſchule betreten hat, ſo iſt ſein erſtes Bemuͤhen, ſich<lb/>
+ein Quartier zu ſuchen. — An haͤusliches Leben, an die Fa-<lb/>
+milie gewoͤhnt, wuͤnſcht er ſich einen theilnehmenden Haus-<lb/>
+wirth, gefaͤllige, gutmuͤthige Hausleute. Denn das Anſchlie-<lb/>
+ßen an Menſchen iſt ihm Beduͤrfniß. Aber es iſt mehr, es<lb/>
+<pb n="63" facs="#f0081"/>
+iſt ein Nagel, der ſeine Sittlichkeit befeſtigt. In kleineren<lb/>
+Staͤdten findet er dieſes Beduͤrfniß leicht befriedigt, nicht in<lb/>
+den großen oder groͤßten. Hier ſtehen die Menſchen einander<lb/>
+uͤberhaupt fern; in den großen Haͤuſern wohnen oft Hunderte<lb/>
+zuſammen — der Menſch faͤllt in ſeinem Preiſe; enges An-<lb/>
+ſchließen, genaues Kennenlernen iſt nicht mehr moͤglich; Jeder<lb/>
+laͤßt den Andern gehen; der Juͤngling iſt ſich ſelbſt uͤberlaſſen;<lb/>
+die Bande, die ihn an den Buͤrger anſchließen, werden locke-<lb/>
+rer, die Moͤglichkeit zum leichten Leben, zum Libertinismus<lb/>
+groͤßer.</p><lb/>
+<p>Es iſt Sitte geworden, daß der Student ſein Quartier<lb/>
+<hi rendition="#g">monatweiſe</hi> miethe. Ehemals geſchah es auf <hi rendition="#g">Semeſter</hi>,<lb/>
+als noch die akademiſchen Uhren <hi rendition="#g">ganze halbe</hi> Jahre liefen.<lb/>
+Seitdem ſie aber oft ſchon in drei oder vier Monaten abge-<lb/>
+laufen ſind, findet der Student ſeinen Vortheil bei kuͤrzeren<lb/>
+Terminen. Gefaͤllt es ihm nicht, gefaͤllt er nicht, er zieht<lb/>
+weiter. Natuͤrlich iſt unter ſolchen Conjuncturen an ein ge-<lb/>
+genſeitiges Anſchließen von Student und Buͤrger gar nicht zu<lb/>
+denken. Jener macht unbedingte Forderungen, dieſer ſucht<lb/>
+von der kurzen Friſt des Zuſammenlebens moͤglichſt hohen Ge-<lb/>
+winn zu ziehen. Egoismus hier, Egoismus da, natuͤrlich am<lb/>
+potenzirteſten in großen Staͤdten. Eine zweite Quelle des Li-<lb/>
+bertinismus.</p><lb/>
+<p>Nachdem er ſich eingemiethet, ſucht er ſich eine Reſtau-<lb/>
+ration. In den beſten Faͤllen tritt er mit einer Geſellſchaft<lb/>
+von Studenten zuſammen, die regelmaͤßig zuſammen eſſen.<lb/>
+Denn dadurch entſteht ein gegenſeitiges Anſchließen, eine Zu-<lb/>
+ſammengehoͤrigkeit. Aber in vielen Faͤllen fehlt es den Einzel-<lb/>
+nen dazu an Bekanntſchaft, Gelegenheit. Mancher liebt auch<lb/>
+die Willkuͤr. Heute moͤchte er um Zwoͤlf, morgen um Drei,<lb/>
+uͤbermorgen gar nicht eſſen. Auch iſt das Auswaͤhlen der<lb/>
+<pb n="64" facs="#f0082"/>
+Speiſen, und der Wechſel uͤberhaupt angenehm. Darum ge-<lb/>
+hen Viele in die Reſtauration, wo <hi rendition="#aq">à la carte</hi> geſpeiſt wird,<lb/>
+heute in dieſe, morgen in jene. Die Geſellſchaft, die hier<lb/>
+zuſammenkommt, iſt ſich fremd, bleibt ſich fremd. Sie iſt<lb/>
+gemiſcht. Keine eigentliche Geſellſchaft, kein erheiterndes Ge-<lb/>
+ſpraͤch. Natuͤrlich am wenigſten in großen Staͤdten. Eine<lb/>
+dritte Quelle des Libertinismus.</p><lb/>
+<p>Alles geſchieht nach Laune und Gefallen: Wahl des<lb/>
+Quartiers, Wechſel deſſelben, wenn es ſein muß, allmonat-<lb/>
+lich; Veraͤnderung des Speiſewirthes taͤglich, der Speiſezeit,<lb/>
+wie es kommt — Alles <hi rendition="#aq">ad libitum — libertin — libertinage.</hi></p><lb/>
+<p>Nun iſt es Zeit, ſich die Matrikel zu verſchaffen. Er<lb/>
+meldet ſich bei dem Quaͤſtor, dann beim Rector. Die Uni-<lb/>
+verſitaͤt iſt groß, zahlreich beſucht; der ſich Meldenden ſind<lb/>
+viele; Perſoͤnlichkeiten verſchwinden, die Immatriculanden wer-<lb/>
+den nach Stuͤcken gezaͤhlt, wie in dem Schnellwagen: „Drei-<lb/>
+zehn Stuͤck, Schwager fahr’ zu! In 2 Stunden 49 Minu-<lb/>
+ten mußt du auf der Station ſein.“ <hi rendition="#aq">Rector magnificus</hi> iſt<lb/>
+ein viel beſchaͤftigter, geplagter Mann. Die Herren Commili-<lb/>
+tonen werden <hi rendition="#aq">en masse</hi> citirt, <hi rendition="#aq">en masse</hi> eingeſchrieben, <hi rendition="#aq">en<lb/>
+masse</hi> aufgefordert, zugeſprochen, die akademiſchen ſtrengen<lb/>
+Geſetze <hi rendition="#g">nun auch wirklich</hi> zu halten. Sie thun es. In<lb/>
+2 Stunden ſind ihrer 70—80 abgefertigt.</p><lb/>
+<p>Es geht, merkt der Neuling, Alles ſehr leicht und ſchnell.<lb/>
+Sein Geſichtskreis erweitert ſich; er merkt mit freudigem Ge-<lb/>
+fuͤhl, er iſt ein freier Mann, er iſt in einem Grade frei, wie<lb/>
+er ſich Solches nicht haͤtte traͤumen laſſen; die guten Eltern,<lb/>
+Papa und Mama, ſind weit; der Hausphiliſter bekuͤmmert<lb/>
+ſich nicht um ihn und verſorgt ihn mit einem Hausſchluͤſſel;<lb/>
+der Reſtaurateur iſt immer bereit; die gefuͤllte Boͤrſe gewaͤhrt<lb/>
+<pb n="65" facs="#f0083"/>
+ihm einen <hi rendition="#aq">passe par tout.</hi> Die akademiſche Freiheit, es iſt<lb/>
+ein herrlich Ding, <hi rendition="#aq">vivat</hi> hoch!</p><lb/>
+<p>Die Collegien ſollen beginnen. So ſteht im Katalog.<lb/>
+Aber es eilt nicht ſo. Die Herren Profeſſoren fangen noch<lb/>
+nicht an. Es iſt noch Zeit, daß ſich Bruder Studio vorher<lb/>
+mit andern Dingen auf der Univerſitaͤt gruͤndlich bekannt mache.<lb/>
+Die aͤlteren Bruͤder weiſen den „Fuchs“ zurecht, und weihen<lb/>
+ihn guͤtig und liebreich ein. Er fuͤhlt ſich uͤbergluͤcklich durch<lb/>
+die Freundſchaft eines „fidelen Hauſes“, durch den Smollis<lb/>
+mit einem „bemooſten Haupte“.</p><lb/>
+<p>Inzwiſchen durchmuſtert er das Lectionsverzeichniß, na-<lb/>
+tuͤrlich an der Hand und mit dem Beirath ſeiner erworbenen<lb/>
+Freunde. Der Vater oder der Rector Gymnaſii, das er ver-<lb/>
+laſſen, hat ihm gerathen, die und die Vorleſungen zu hoͤren,<lb/>
+ſo und ſo ſeinen Studienplan einzurichten. Aber die erfahre-<lb/>
+nen Freunde wiſſen es beſſer. Das empfohlene Collegium iſt<lb/>
+zwar nuͤtzlich, unter Umſtaͤnden wichtig, aber der Mann, der<lb/>
+es lieſ’t, iſt ein „gruͤndlich langweiliger Geſell“. Doch, das<lb/>
+Collegium gehoͤrt zu denen, woruͤber dereinſt, nach drei oder<lb/>
+vier, d. h. nach vielen Jahren, ein <hi rendition="#aq">testimonium</hi> beigebracht<lb/>
+werden muß. Alſo belegt muß es werden; dann iſt der Herr<lb/>
+Profeſſor auch ſtets freudig bereit, zu teſtiren. Man geht<lb/>
+darum einige Mal hinein, nachher aber beſucht man andere<lb/>
+Lehrer, die intereſſanter leſen. Ueberall zu belegen, wo man<lb/>
+hoͤren will, iſt nicht noͤthig. Es iſt zwar Geſetz, aber die<lb/>
+Maſſe der Zuhoͤrer iſt ſehr groß, Controle unmoͤglich. Liber-<lb/>
+tinage in dem Beſuchen der Vorleſungen, Libertinage in dem<lb/>
+Bezahlen derſelben.</p><lb/>
+<p>Doch wir ſetzen den beſten Fall: Der angehende Student<lb/>
+hat feſte Grundſaͤtze, er iſt gewiſſenhaft und fleißig, er ſchwaͤnzt<lb/>
+<pb n="66" facs="#f0084"/>
+nicht. Auch vergißt er Mappe und Dintenfaß nicht. Letztes<lb/>
+iſt abſolut noͤthig, denn die Vorleſungen ſind zwar nicht wohl-<lb/>
+feil, aber das Honorar reicht nicht hin, ihn von Univerſitaͤts-<lb/>
+wegen mit Dinte zu verſorgen. Er muß ſie ſich ſelbſt mit-<lb/>
+bringen, es iſt nicht anders, moͤgen auch die Beinkleider<lb/>
+darunter leiden. Dafuͤr aber darf er auch die Tiſche in dem<lb/>
+Hoͤrſaale durchbohren, und bei langer Weile zerſchneiden. Er<lb/>
+muß den Namen der Geliebten verewigen. Unſere Hoͤrſaͤle<lb/>
+ſehen darum aus, daß man ſich ſchaͤmen muß, wenn ein<lb/>
+Fremder ſie betritt. Unſre Juͤnglinge uͤben ſich waͤhrend des<lb/>
+Zuhoͤrens und waͤhrend der langen Pauſen — denn das aka-<lb/>
+demiſche Viertel oder bisweilen auch Drittel wird niemals im<lb/>
+Eifer des Leſens vergeſſen — in der Zerſtoͤrung des Staats-<lb/>
+eigenthums. Sie ſind in dieſer Beziehung in guter Schule.</p><lb/>
+<p>Die Vorleſung beginnt nach langem Warten. Das War-<lb/>
+ten macht muͤde. Gluͤcklich, dreimal gluͤcklich nun der Juͤng-<lb/>
+ling, wenn er vor einem Manne ſitzt, der Gedanken mittheilt,<lb/>
+gleich einem Fixſterne mit eignem Lichte leuchtet und ſeine<lb/>
+durſtige Seele zum kaſtaliſchen Quell hinleitet. Nun kann er<lb/>
+trinken in langen und tiefen Zuͤgen, wenn die Umſtaͤnde, das<lb/>
+Leben uͤberhaupt, das er ſeit 23 Stunden gefuͤhrt hat, es er-<lb/>
+lauben. Gottlob, es giebt noch ſolcher Docenten. Sie ſind<lb/>
+zwar ſo haͤufig nicht, wie die Fixſterne; aber wenn nur jede<lb/>
+Facultaͤt, wenn nur die philoſophiſche, die allgemeine, Einen<lb/>
+beſitzt, es iſt ein hohes, unſchaͤtzbares, leider ein ſeltenes<lb/>
+Gluͤck. Ewige Anerkennung, Ruhm und Dank einem Manne,<lb/>
+wie <hi rendition="#g">Schleiermacher</hi>, der taͤglich drei Stunden hinter ein-<lb/>
+ander in Brillantfeuer ſtrahlte. Hier war das akademiſche<lb/>
+Viertel einmal eine Wohlthat; man fuͤhlte das Beduͤrfniß,<lb/>
+auszuruhen, die zu Tage gefoͤrderten Schaͤtze zu ſammeln, zu<lb/>
+ordnen, ſich an ihrem Beſitze zu weiden.</p><lb/>
+<pb n="67" facs="#f0085"/>
+<p>Aber in den meiſten Faͤllen iſt es anders. Ableſen, Dic-<lb/>
+tiren, lahmer, matter, geiſtloſer Vortrag von der einen —<lb/>
+Nachſchreiben, Krumm- und Lahmſitzen auf der andern Seite,<lb/>
+toͤdtliche Langeweile — gelehrter Kram, deutſche d. h. unprak-<lb/>
+tiſche Gruͤndlichkeit, hiſtoriſcher Wuſt — was Wunder, daß<lb/>
+der Juͤngling bei dem ewigen Einerlei ermuͤdet, ſtumpf und<lb/>
+dumm wird, dann faullenzet, anfaͤngt zu ſchwaͤnzen, ſein hei-<lb/>
+ßes Blut an andern Orten abkuͤhlt und ſeine Kraft in andern<lb/>
+Richtungen uͤbt. Das Leben lockt, die luſtigen, fidelen Bruͤ-<lb/>
+der, die Kneipen, die Commerſche. Es iſt notoriſch, daß fuͤr<lb/>
+die Meiſten ein, zwei, drei oder mehr Semeſter verloren ge-<lb/>
+hen. Aber was heißt hier: <hi rendition="#g">verloren gehen</hi>? Iſt nichts<lb/>
+weiter verloren als Zeit und Geld? Iſt die Kraft, das<lb/>
+Mark des Juͤnglings unverbraucht geblieben? Wenn nicht in<lb/>
+geiſtiger Anſtrengung und leiblich ſtaͤrkenden Leibesuͤbungen —<lb/>
+<hi rendition="#g">wie dann und wo</hi>?</p><lb/>
+<p>Nein, Ihr Guten, dieſe akademiſche Freiheit preiſet Ihr<lb/>
+allein. Kein Beſonnener, kein Kenner, kein Freund der Ju-<lb/>
+gend kann ſie loben. Nicht wie Schuljungen wollen wir ſie<lb/>
+discipliniren, aber doch leiten. Die Moͤglichkeit der Verirrung<lb/>
+muß bleiben, weil an ſie die Moͤglichkeit der Entwicklung der<lb/>
+Freiheit gebunden iſt; aber die poſitiven Inſtitutionen duͤrfen<lb/>
+nicht fehlen, die die Kraft des Juͤnglings in edle Richtungen<lb/>
+mit Sicherheit hinlenken. Saget mir doch, was fuͤr Inſtitu-<lb/>
+tionen Ihr in’s Leben gerufen, zur Erreichung dieſes Zweckes?<lb/>
+Was haben wir, außer der Sprachkraft und Sprachunkraft<lb/>
+der akademiſchen Docenten? Zu was fuͤr Thaͤtigkeiten veran-<lb/>
+laßt Ihr den Juͤngling außer der Bewegung der Hand beim<lb/>
+Nachſchreiben, der Paſſivitaͤt beim Zuhoͤren und dem Aus-<lb/>
+wendiglernen ſeiner Hefte?! Gewiß, in vielen Faͤllen geſchieht<lb/>
+ein Mehr bei den beſſeren Juͤnglingen; aber koͤnnt Ihr in der<lb/>
+<pb n="68" facs="#f0086"/>
+Mehrzahl der Faͤlle darauf rechnen? Gehoͤrt es zu den <hi rendition="#g">Aus-<lb/>
+nahmen</hi>, wenn dieſes Mehr nicht eintritt?</p><lb/>
+<p>Wo iſt die unmittelbare, geiſtige Wechſelwirkung des Leh-<lb/>
+rers und des Schuͤlers? Wo die Gelegenheit, die Nothwen-<lb/>
+digkeit dazu? — Selten, oder nirgends.</p><lb/>
+<p>Wo die Inſtitute, die den Leib der Juͤnglinge ſtaͤhlen und<lb/>
+kraͤftigen, damit das heiße Blut ſie nicht verfuͤhre? — Sie<lb/>
+fehlen.</p><lb/>
+<p>Wo die Veranſtaltungen, daß der Juͤngling Bekanntſchaft<lb/>
+mache mit achtungswuͤrdigen Maͤnnern und edlen Frauen, und<lb/>
+ſich feine Sitte und aͤußere Bildung aneigne? —</p><lb/>
+<p>Wie bildet Ihr Kameradſchaften, Zuſammenſchaarung des<lb/>
+Gleichartigen, Standesgenoſſenſchaft und Corporationen? — —</p><lb/>
+<p>Wo zeigen ſich dem Juͤngling praktiſche Ideen in dem<lb/>
+Leben der Maͤnner und der Staͤnde?</p><lb/>
+<p>Sehet, auf dieſe und viele andere Fragen nach Dingen,<lb/>
+die, wie ich oben gezeigt habe, zur Erziehung derer, welche<lb/>
+die Culturtraͤger und Foͤrderer der Nation zu ſein berufen<lb/>
+ſind, gar nicht fehlen duͤrfen, habt Ihr gar keine Antwort.<lb/>
+Es fehlet an Allem, uͤberall <hi rendition="#aq">tabula rasa</hi>, Alles raſirt. Es<lb/>
+macht ſich in manchen Faͤllen das Beſſere, aber das iſt Euer<lb/>
+Verdienſt nicht. Und doch iſt es Eure Pflicht, dafuͤr Sorge<lb/>
+zu tragen, daß nur der Widerſpenſtige nicht wird, was er<lb/>
+werden kann und ſoll. Am Niederreißen, Negiren, Vernich-<lb/>
+ten hat man ſein Gefallen gehabt, auch auf den Univerſitaͤten.<lb/>
+Aber was iſt <hi rendition="#g">Poſitives</hi> geſchaffen worden? <hi rendition="#aq">Tabula rasa.</hi></p><lb/>
+<p>Eure Angſt iſt, daß etwas Ungehoͤriges geſchehe; darum<lb/>
+verhuͤtet Ihr nicht, daß nichts geſchieht. Wenn ſie nur kei-<lb/>
+nen Tumult machen, wenn nur kein Skandal entſteht, wenn<lb/>
+nur dieß nicht geſchieht, nur jenes nicht, wenn nur dieſes<lb/>
+— dieſes — dieſes — nicht, nicht, nicht eintritt; ſehet das<lb/>
+<pb n="69" facs="#f0087"/>
+iſt das Hoͤchſte, was Ihr anſtrebet, eine pure Negation, ein<lb/>
+reiner Nihilismus. Ob die Juͤnglinge in Faulheit, Paſſivitaͤt<lb/>
+und geiſtigen Tod verfallen, ob ſie in der Kneiperei und im<lb/>
+Schuldenmachen untergehen, ob ſie ihr Mark in den geheimen<lb/>
+Winkeln vergeuden und ſich entnerven, entmarken, entman-<lb/>
+nen, dagegen habt Ihr keine durchgreifende Mittel. <hi rendition="#g">Es iſt<lb/>
+entſetzlich, aber es iſt wahr</hi>.</p><lb/>
+<p>Als ich ſtudirte, 1808 u. ſ. w., es gab auch Kneipier’s,<lb/>
+Renommiſten, Schlaͤger und ſolche, die in Kloaken ſich her-<lb/>
+umtrieben. Aber ſie waren gekannt und — <hi rendition="#g">verachtet</hi>. Fra-<lb/>
+get jetzt nach, ob Solches in .... der Fall iſt! Wenn vor<lb/>
+25 Jahren Einer an einer ſchaͤndlichen Krankheit laborirte,<lb/>
+man zeigte heimlich mit Fingern auf ihn und Jeder mied ihn.<lb/>
+Fraget jetzt darnach! Damals war dieſe Krankheit, die auf<lb/>
+Handlungen hindeutet, die Leib und Seele vergiften, unter den<lb/>
+Studenten, wenigſtens Suͤddeutſchlands, eine Seltenheit. Und<lb/>
+jetzt? Iſt es eine Luͤge, eine Verleumdung, wenn ich be-<lb/>
+haupte, daß Juͤnglinge aus den beſten Familien in einer Uni-<lb/>
+verſitaͤtsſtadt, deren Namen ich hier verſchweige, an geheimem<lb/>
+Gift laboriren? Fuͤr ſie iſt die Naͤhe einer andern groͤßern<lb/>
+Stadt <note place="foot" n="*)">„In großen Städten verſchwinden die Studenten, Alles geht<lb/>
+vortrefflich, ruhig her, Niemand weiß von einem Skandal“, ſo<lb/>
+ſprecht Ihr lobpreiſend, aber was in den Bier- und Schnapps-<lb/>
+kellern, in den Winkeln und Häuſern, in welche Sirenen den<lb/>
+jungen Mann locken, was auf den Stuben geſchieht, da es<lb/>
+Dirnen giebt, welche die Studenten beſuchen, ja die — ich muß<lb/>
+es herausſagen — ſie zum Abonnement reizen, das wißt Ihr<lb/>
+nicht, und wer es weiß, ſagt es nicht gern. Aber es iſt!</note> eine Moͤrdergrube. Auch dort giebt es liederliche<lb/>
+Dirnen; aber hier werden ſie geduldet, ſie ſind privilegirt.<lb/>
+Dieſes iſt das Schreckliche. In wenigen Stunden iſt der<lb/>
+<fw type="sig" place="bottom">6</fw><lb/>
+<pb n="70" facs="#f0088"/>
+Juͤngling dort, wenn der Genuß des Weines ſein Blut er-<lb/>
+hitzt hat.</p><lb/>
+<p>Ich kann es <hi rendition="#g">nicht beweiſen</hi>, daß es auf Univerſitaͤ-<lb/>
+ten, die ſich in großen Staͤdten befinden, noch ſchlimmer ſteht;<lb/>
+aber das bedarf keines Beweiſes. Es kann nicht anders ſein.<lb/>
+Denket z. B. an Muͤnchen, wo auf <hi rendition="#g">jedes</hi> eheliche Kind ein<lb/>
+uneheliches kommt. Und dieſen Graͤuel der Verwuͤſtung dul-<lb/>
+det man nicht bloß, nein, man verlegt auch eine hohe Schule<lb/>
+in dieſes Sodom und preiſet es als das deutſche Athen. Wohl,<lb/>
+es wird eine hohe Schule ſein! Es iſt ſchrecklich.</p><lb/>
+<p>Iſt es ein Wunder, daß ein Vater, der Solches weiß,<lb/>
+<hi rendition="#g">zittert</hi>, wenn er ſeinen hoffnungsvollen, behuͤteten, reinen<lb/>
+Sohn auf die Univerſitaͤt entlaſſen will, entlaſſen muß? zit-<lb/>
+tert, wenn derſelbe heimkehret, ehe er ihn geſehen, weil er<lb/>
+fuͤrchtet, es moͤchte Ungeheures geſchehen ſein?</p><lb/>
+<p>Als oͤffentlicher Anklaͤger koͤnnte ich im Namen der Vaͤter<lb/>
+und Muͤtter und des Genius der Paͤdagogik gegen Euch auf-<lb/>
+treten, die Ihr dem Uebel nicht kraͤftiger ſteuert, wo Ihr es<lb/>
+koͤnnt! Aber ich thue es nicht, ich nenne nur das Verder-<lb/>
+ben ſelbſt und ſeine Quellen, damit ſie verſtopft werden.<lb/>
+Weiter will ich nichts, kann ich nichts wollen. Aber es iſt<lb/>
+hohe Zeit.</p><lb/>
+<p>In vorigen Zeiten glichen die Univerſitaͤten einem wilden<lb/>
+Walde in Alt-Germanien. Unter himmelhohen Eichen hauſe-<lb/>
+ten wilde Thiere mancherlei Art, zottige Baͤren, heulende<lb/>
+Woͤlfe und Auerochſen mit gekruͤmmten Hoͤrnern. Murmelnde<lb/>
+Baͤche ſtroͤmten von den Bergen herab und vereinigten ſich zu<lb/>
+reißenden Stroͤmen. Friſche Nordwinde ſtrichen durch den<lb/>
+Wald. Wer ihn betrat, ſiedelte ſich entweder an den Baͤchen<lb/>
+und Quellen an, um poetiſch zu luſtwandeln und ſich an den<lb/>
+ſuͤßen Liedern der Nachtigallen zu ergoͤtzen. Oder er geſellte<lb/>
+<pb n="71" facs="#f0089"/>
+ſich in wilder Kraft zu jenen Thieren, die gemeinſchaftlich<lb/>
+kaͤmpften mit Allem, was nicht in dem Walde war, und ſich<lb/>
+auch unter einander zerriſſen. Mancher blieb in dem Walde;<lb/>
+wer wieder herauskam, war zottiger und wilder geworden.<lb/>
+Aber das wilde Leben hatte ſeine Kraft geſtaͤhlt und er war<lb/>
+ein Mann geworden, dem die ſpaͤtere Politur die Mannhaf-<lb/>
+tigkeit nicht mehr zu rauben vermochte. Jetzt iſt der Wald<lb/>
+ausgehauen, alle Hoͤhen ſind geebnet, alles Hervorſtehende,<lb/>
+Characteriſtiſche iſt nivellirt, die Quellen und Baͤche ſind zu<lb/>
+Suͤmpfen geworden, die Bewohner der ſumpfigen Flaͤchen ath-<lb/>
+men erquickende Duͤnſte und nichts mangelt ihnen ſo ſehr als<lb/>
+die Eigenſchaften kraͤftiger Maͤnner.</p><lb/>
+<p>So waren die Univerſitaͤten, ſo ſind ſie jetzt.</p><lb/>
+<milestone unit="section" rendition="#hr"/>
+ <p><hi rendition="#g">Bemerkung</hi>. Ich habe oben keinmal ausdruͤcklich mit<lb/>
+einem Worte der Religion gedacht. Gehoͤrt nicht auch ſie in<lb/>
+die Reihe der unentbehrlichſten, nothwendigſten Bildungsmittel,<lb/>
+iſt ſie nicht auch das erſte fuͤr die <hi rendition="#g">akademiſche</hi> Jugend?<lb/>
+Sicher und gewiß, ſo gewiß, als ſie die Wurzel und die Bluͤ-<lb/>
+the alles wahren Lebens iſt. Dieſes iſt fuͤrwahr ein ſchmerz-<lb/>
+licher Gedanke, wenn wir an die Oede und Leere, welche in<lb/>
+dieſer Beziehung in der Regel unter den Studenten herrſcht,<lb/>
+denken. Sieht es nicht ſo aus, als waͤre die Religion, das<lb/>
+Chriſtenthum, die Kirche gar nicht fuͤr ſie da? Erkennt man<lb/>
+aus dem Streben und Leben der meiſten, daß ſie den Geiſt<lb/>
+wahrer Religioͤſitaͤt in ſich empfangen und fortgebildet haben?<lb/>
+— Doch, wir wollen nicht ungerecht ſein; es iſt Manches im<lb/>
+Innern verborgen, was nicht aͤußerlich in Mienen und Ge-<lb/>
+berden erſcheint; auch ſuchen wir nicht die Religioͤſitaͤt in Aeu-<lb/>
+ßerem, und wir wiſſen es, die Form und die Aeußerung der-<lb/>
+<pb n="72" facs="#f0090"/>
+ſelben iſt in jeder Altersperiode eine andere. Huͤten wir uns<lb/>
+darum, Alles mit <hi rendition="#g">einer</hi> Elle, <hi rendition="#g">einem</hi> Maßſtabe zu meſſen,<lb/>
+und geben wir auch in dieſer Beziehung der individuellen Ent-<lb/>
+wicklung einen freien Spielraum! Aber bei all’ dieſer libera-<lb/>
+len Geſinnung vermiſſen wir unter den Studenten im Allge-<lb/>
+meinen lebendigen Sinn fuͤr die Religion, hier gleich viel, ob<lb/>
+er ſich vorherrſchend durch ein Forſchen nach den religioͤſen Tie-<lb/>
+fen, oder durch Waͤrme des Gefuͤhls, oder durch Thatkraft<lb/>
+aͤußern moͤchte. Aber zur Aeußerung muͤßte er doch treiben,<lb/>
+falls ein lebendiger Keim und Trieb vorhanden waͤre.</p><lb/>
+<p>Wodurch ſoll dieſer, ſelbſt von den edleren und feineren<lb/>
+Gemuͤthern der Studenten ſchmerzlich gefuͤhlte Mangel erſetzt<lb/>
+werden? Welche Vorſchlaͤge waͤren in dieſer Beziehung zu<lb/>
+thun? Ich geſtehe es, ich bin in dieſer Beziehung in Verle-<lb/>
+genheit. Soll man eigne religioͤſe Vortraͤge und was ſich daran<lb/>
+anſchließen moͤchte, fuͤr die Studenten vorſchlagen, oder ſoll<lb/>
+man ſie nur hinweiſen auf fleißige Theilnahme an dem allge-<lb/>
+meinen Gottesdienſte? Was hier zu thun ſein moͤchte, und<lb/>
+ob von eignen Veranſtaltungen eine beſondere Wirkung fuͤr Geiſt<lb/>
+und Herz zu erwarten ſein duͤrfte, ich weiß es nicht. Ich muß<lb/>
+mich damit begnuͤgen, den herrſchenden Mangel angedeutet zu<lb/>
+haben, und das Weitere Andern uͤberlaſſen, ſo wie es uͤber-<lb/>
+haupt meine Aufgabe weniger iſt, radicale Heilmittel fuͤr die<lb/>
+aufgedeckten Gebrechen in Vorſchlag zu bringen, als die Uebel<lb/>
+ſelbſt zu bezeichnen. Das Heilen muß von denen ausgehen,<lb/>
+welchen Amt und Gewiſſen Solches zur Pflicht macht. Deß-<lb/>
+halb tadle man dieſe kleine Schrift nicht darum, weil die Rath-<lb/>
+ſchlaͤge zur Beſeitigung der Maͤngel und Gebrechen dieſen nicht<lb/>
+vollkommen entſprechen. Solches liegt in der Natur der Sache<lb/>
+und des Standpunktes, den ich einnehme. Erkennt man nur<lb/>
+einmal in rechtem Ernſte, der ja uns Deutſchen vorzuͤglich<lb/>
+<pb n="73" facs="#f0091"/>
+eigen ſein ſoll, die großen Gebrechen unſerer Univerſitaͤten, ſo<lb/>
+wird man gewiß auch die Mittel entdecken, durch welche den-<lb/>
+ſelben begegnet werden kann. Was der Eine nicht ſieht und<lb/>
+weiß, erkennt und verſteht der Andere, und die freie Discuſ-<lb/>
+ſion wird die einſeitigen Standpunkte der Einzelnen zu allſei-<lb/>
+tiger Auffaſſung vereinigen. In großen Dingen <hi rendition="#g">etwas</hi> gelei-<lb/>
+ſtet zu haben, ſelbſt wenn es bei einer zeitgemaͤßen Anregung<lb/>
+geblieben waͤre, verdient ſchon Anerkennung. Darum ſage<lb/>
+<hi rendition="#g">der</hi>, der das Beſſere weiß, <hi rendition="#g">dieſes Beſſere</hi>!</p></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+ <div n="1"><head><hi rendition="#b"><hi rendition="#g">Schluß</hi>.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>orin ich das Verderben auf den deutſchen Univerſitaͤten<lb/>
+finde, habe ich geſagt, unverholen und derb. Dieß war meine<lb/>
+Abſicht. Ich ſtehe deßhalb am Schluſſe. Auch habe ich nicht<lb/>
+verholen, was ich fuͤr eine Verbeſſerung anſehen wuͤrde. Ich<lb/>
+will Solches zuſammenfaſſen. Vorher aber muß ich noch ein-<lb/>
+mal auf die wichtige Wahrheit aufmerkſam machen, daß es<lb/>
+Einzelheiten ſind, durch deren alleinige Einfuͤhrung eine voͤl-<lb/>
+lige Umgeſtaltung in dem Grade und Maße, wie die Univer-<lb/>
+ſitaͤten ſie beduͤrfen, nicht herbeigefuͤhrt werden kann. Dieſe<lb/>
+haͤngt ab von der Umgeſtaltung anderer Lebensverhaͤltniſſe,<lb/>
+mit welchen unſere Unterrichtsanſtalten verbunden ſind, ſeit-<lb/>
+waͤrts und jenſeits derſelben. Nicht die Profeſſoren, deren<lb/>
+Wiſſenſchaftlichkeit und Methode u. ſ. w. ſind die alleinige<lb/>
+Hauptſache fuͤr die Bildung der Studirenden: es iſt das Le-<lb/>
+ben des ganzen Volkes, das ganze Leben auf der Hochſchule,<lb/>
+der Geiſt, der die Menſchen treibt, da wo jene die erſten<lb/>
+Schritte in’s Leben thun, die Richtung auf das Gemeine oder<lb/>
+Hoͤhere, welche vorherrſcht, die ausſchließliche Beſchaͤftigung<lb/>
+<pb n="74" facs="#f0092"/>
+mit Particularintereſſen, oder die Unterordnung derſelben unter<lb/>
+allgemeine, hoͤhere. Keine Bildungsanſtalt, kein Vortrag,<lb/>
+keine Methode kann erſetzen, was in dieſen wichtigſten Bezie-<lb/>
+hungen fehlt, was nur kommen kann vom allgemeinen Leben,<lb/>
+ſeinen Inſtitutionen, ſeinem Geiſte. Doch ich nenne <hi rendition="#g">Ein-<lb/>
+zelheiten</hi>.</p><lb/>
+<div n="2"><head><hi rendition="#aq">A.</hi></head><lb/>
+<p>1) Nur Solche werden zu Univerſitaͤtslehrern berufen,<lb/>
+die ſich <hi rendition="#g">anderwaͤrts</hi> ſchon als Maͤnner von Geiſt und Kraft<lb/>
+bewaͤhrt haben. Als Regel gilt: Vollendung des dreißigſten<lb/>
+Lebensjahres als <hi rendition="#aq">Minimum.</hi> Wer ſelbſt noch an Jahren und<lb/>
+Richtung ein Studioſus iſt, kann Studenten nicht <hi rendition="#g">erziehen</hi><lb/>
+(in dem oben dargeſtellten Sinne. Darum keine Verdrehung<lb/>
+der Anſicht wegen eines Wortes!)</p><lb/>
+<p>2) Jeder Lehrer wird auf beſtimmte Lehrfaͤcher, in be-<lb/>
+ſtimmter Zeit zu behandeln, verpflichtet. Jenſeits dieſer Ver-<lb/>
+pflichtung beginnt der freie Spielraum, jedoch ebenfalls inner-<lb/>
+halb beſtimmter Fachbegraͤnzung.</p><lb/>
+<p>3) Das <hi rendition="#g">Hiſtoriſche</hi> des Lehrſtoffes wird den Studen-<lb/>
+ten gedruckt uͤberliefert. (Zweckmaͤßig iſt auch die gedruckte<lb/>
+Mittheilung eines kurzen Leitfadens des dogmatiſchen Gehalts,<lb/>
+Andeutungen, Fingerzeige u. ſ. w.)</p><lb/>
+<p>4) Die vorherrſchende Lehrmethode iſt die <hi rendition="#g">dialogiſch-<lb/>
+entwickelnde</hi>. Unbedingt gilt ſie in allem Rationellen.<lb/>
+Das Hiſtoriſche wird als bekannt vorausgeſetzt, das aͤußerlich<lb/>
+Anſchauliche wird (wie bisher) vorgezeigt.</p><lb/>
+<p>5) Die Zahl der taͤglichen Lectionen, wozu ein Lehrer<lb/>
+verpflichtet wird, iſt hoͤchſtens drei; ſie gilt auch als <hi rendition="#aq">Maxi-<lb/>
+mum</hi> fuͤr den Studenten. Dieſelben ſind nicht zum paſſiven<lb/>
+Hoͤren, nicht zum Heftſchreiben, ſondern zur Erlernung des<lb/>
+Selbſtdenkens und Forſchens auf der Univerſitaͤt.</p><lb/>
+<pb n="75" facs="#f0093"/>
+<p>6) Die leitende Behoͤrde macht die Reihenfolge der Vor-<lb/>
+leſungen und ihre Vertheilung auf einzelne Semeſter bekannt.<lb/>
+Es ſei ein Rathſchlag, kein Zwang.</p><lb/>
+<p>7) Der Student muß ſich beſcheinigen laſſen, <hi rendition="#g">ob</hi> und<lb/>
+<hi rendition="#g">wie</hi> er an einer Vorleſung Theil genommen habe. Der Leh-<lb/>
+rer darf nur beſcheinigen, was er weiß — auf Amtseid und<lb/>
+Pflicht.</p><lb/>
+<p>8) Stipendien werden nur dem <choice><sic>ertheit</sic><corr>ertheilt</corr></choice>, der ſich durch<lb/>
+ſpecielle, in jeder Hinſicht glaubwuͤrdige Zeugniſſe als ein jun-<lb/>
+ger Mann von Geiſt und Strebkraft ausweiſet.</p><lb/>
+<p>9) Die Lehrer ſtehen auf fixem Gehalt. Keiner bezieht<lb/>
+Honorare. (Ob die Studenten eine Zahlung [und welche] an<lb/>
+die Univerſitaͤtskaſſe zu machen haben, wird der Weisheit der<lb/>
+Staatsbehoͤrden uͤberlaſſen.)</p><lb/>
+<p><hi rendition="#c">U. ſ. w.</hi></p></div><lb/>
+<div n="2"><head><hi rendition="#aq">B.</hi></head><lb/>
+<p>1) Der akademiſche Senat, d. h. das <hi rendition="#aq">corpus</hi> aller Leh-<lb/>
+rer ohne Ausnahme, beraͤth alle allgemeinen, jede Facultaͤt ihre<lb/>
+beſondern Angelegenheiten, und die Glieder derſelben theilen<lb/>
+ſich ihre Bemerkungen uͤber die, ihrer Facultaͤt angehoͤrigen<lb/>
+Studenten mit.</p><lb/>
+<p>2) Angeregt werden wiſſenſchaftliche Verſammlungen un-<lb/>
+ter ihnen.</p><lb/>
+<p>3) Es wird ein Geſellſchaftshaus fuͤr Profeſſoren und<lb/>
+Studenten errichtet, zu geſelliger Unterhaltung, Erheiterung<lb/>
+und Ausbildung.</p><lb/>
+<p>4) Fuͤr Kraͤftigung des Leibes der Studenten wird ge-<lb/>
+ſorgt durch Gymnaſtik aller Art.</p><lb/>
+<p><hi rendition="#c">U. ſ. w.</hi></p></div><lb/>
+<pb n="76" facs="#f0094"/>
+<div n="2"><head><hi rendition="#aq">C.</hi></head><lb/>
+<p>1) Auf keiner Univerſitaͤt, nicht in ihrem Umkreiſe, wird<lb/>
+eine Hure <note place="foot" n="*)">Nicht wahr, Ihr fühlt etwas bei obigem Worte, das ich ohne<lb/>
+Rückhalt ausſpreche. Das „feine Gefühl“, das in Euch wohnet,<lb/>
+wird durch meine Rede verletzet. — Wie, durch ein <hi rendition="#g">Wort</hi>?<lb/>
+Durch ein Wort, das die <hi rendition="#g">Thaten</hi> bezeichnet, die <hi rendition="#g">Ihr</hi> duldet<lb/>
+und durch Duldung befördert? Aber ich gebe die Thatſache zu,<lb/>
+Ihr ſeid verletzt. Wohl; nun ſo ſchließet daraus auf den <hi rendition="#g"><choice><sic>Ab-<lb/>
+ſchen</sic><corr>Ab-<lb/>
+ſcheu</corr></choice></hi>, den Andere empfinden, <hi rendition="#g">wenn ſie an Eure Thaten<lb/>
+denken</hi>.</note> geduldet.</p><lb/>
+<p>2) Auf keiner Univerſitaͤt wird ein leichtſinniger, zum<lb/>
+Zechen und Schuldenmachen verleitender Wirth geduldet.</p><lb/>
+<p>3) Auf keiner Univerſitaͤt wird das Duelliren geduldet.</p><lb/>
+<p><hi rendition="#et">(Eine Jury, beſtehend aus Profeſſoren und Studenten,<lb/>
+bildet das akademiſche Gericht, welches ſchlichtet und<lb/>
+richtet. Nur mündliches Verfahren, bei offenen Thü-<lb/>
+ren, nach einem pädagogiſchen, nicht nach einem Crimi-<lb/>
+nal-Codex.)</hi></p><lb/>
+<p><hi rendition="#c">U. ſ. w.</hi></p></div><lb/>
+<div n="2"><head><hi rendition="#aq">D.</hi></head><lb/>
+<p>Großen Univerſitaͤten wird eine <hi rendition="#g">Akademie</hi> beigegeben,<lb/>
+d. h. eine Geſellſchaft von gelehrten <hi rendition="#g">Forſchern</hi>, welche die<lb/>
+neueſten Reſultate der Wiſſenſchaften vortragen. An dieſen<lb/>
+Vortraͤgen kann jeder Student Antheil nehmen, ſobald er ſein<lb/>
+Triennium abſolvirt, oder ſein erſtes Staatsexamen gemacht hat.</p><lb/>
+<p><hi rendition="#c">U. ſ. w.</hi></p><lb/>
+<p><hi rendition="#c"><hi rendition="#b">„Noch viel Verdienſt iſt übrig. Auf, hab’ es nur!<lb/>
+die Welt wird’s anerkennen.“</hi></hi></p></div></div><lb/>
+<milestone unit="section" rendition="#hr"/>
+<pb facs="#f0095"/>
+<pb facs="#f0096"/>
+<pb facs="#f0097"/>
+</body>
+ </text>
+ </TEI>

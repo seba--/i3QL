@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Einleitung in das Studium der Antike </title>
+<title type="sub">oder Grundriß einer Anführung zur Kenntniß der alten Kunstwerke</title>
+<author>
+<persName ref="http://d-nb.info/gnd/11855073X">
+<surname>Heyne</surname>
+<forename>Christian Gottlob</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">35</measure>
+<measure type="tokens">2902</measure>
+<measure type="types">1001</measure>
+<measure type="characters">21956</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:37Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/heyne_einleitung_1772</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/heyne_einleitung_1772</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/heyne_einleitung_1772</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/heyne_einleitung_1772</idno>
+<idno type="DTADirName">heyne_einleitung_1772</idno>
+<idno type="DTAID">20271</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="M">Heyne, Christian Gottlob: Einleitung in das Studium der Antike. Göttingen u. a., 1772.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Einleitung in das Studium der Antike </title>
+<title level="m" type="sub">oder Grundriß einer Anführung zur Kenntniß der alten Kunstwerke</title>
+<author>
+<persName ref="http://d-nb.info/gnd/11855073X">
+<surname>Heyne</surname>
+<forename>Christian Gottlob</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">24 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Dieterich</name></publisher>
+<pubPlace>Göttingen</pubPlace>
+<pubPlace>Gotha</pubPlace>
+<date type="publication">1772</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">SUB Göttingen, 8 ARCH I, 511</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20ARCH%20I%2C%20511</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Kunstgeschichte</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Kunstgeschichte</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<pb facs="#f0006"/>
+<pb n="[1]" facs="#f0007"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#g">Einleitung<lb/>
+in das</hi><lb/>
+<hi rendition="#b">Studium der Antike,</hi><lb/>
+<hi rendition="#g">oder<lb/>
+Grundriß<lb/>
+einer<lb/>
+Anfuͤhrung zur Kenntniß</hi><lb/>
+der<lb/>
+<hi rendition="#g">alten Kunſtwerke.</hi></titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<titlePart type="desc"><hi rendition="#g">zum<lb/>
+Gebrauche bey ſeinen Vorleſungen</hi></titlePart><lb/>
+<byline><hi rendition="#g">entworfen<lb/>
+von</hi><lb/>
+<docAuthor><hi rendition="#g"><hi rendition="#b">Chr. Gottl. Heyne</hi></hi></docAuthor><lb/>
+Koͤn. Großbritt. Churbraunſchw. Luͤneb. Hofrath und<lb/>
+Prof. der Redekunſt und Dichtkunſt.</byline><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace><hi rendition="#g">Göttingen und Gotha,</hi></pubPlace><lb/>
+<publisher><hi rendition="#g">bey Johann Chriſtian Dieterich.</hi></publisher></docImprint></titlePage><lb/>
+<pb n="[2]" facs="#f0008"/>
+</front><body>
+<pb n="3" facs="#f0009"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <milestone unit="section" rendition="#hr"/><lb/>
+<div type="contents"><head><hi rendition="#b"><hi rendition="#g">Jnhalt.</hi></hi></head><lb/>
+<head><hi rendition="#c">Einleitung<lb/>
+<hi rendition="#b"><hi rendition="#g">in das Studium der Antike,</hi></hi><lb/>
+oder<lb/>
+Grundriß einer Anfuͤhrung zur Kenntniß<lb/>
+der alten Kunſtwerke.</hi></head><lb/>
+<list><item><hi rendition="#aq">I.</hi> <hi rendition="#fr">Abſchnitt.</hi> Von den alten Kunſtwerken uͤber-<lb/>
+haupt, und von den verſchiednen Arten der<lb/>
+Kenntniß derſelben.<lb/>
+</item><item><hi rendition="#aq">II.</hi> Geſchichte der Kunſt uͤberhaupt, und Nachrich-<lb/>
+ten von den Kunſtwerken der Aegyptier, der<lb/>
+Perſer und der Etruſcer inſonderheit.<lb/>
+</item><item><hi rendition="#aq">III.</hi> Kenntniß der Kunſtwerke, die ſich von den Grie-<lb/>
+chen und Roͤmern erhalten haben, und zwar<lb/>
+inſonderheit wird gehandelt<lb/>
+<list><item>1) von den Statuen,</item><lb/>
+<item>2) von den Buſten, Hermen und Koͤpfen,</item><lb/>
+<item>3) von den erhobnen Bildwerken,</item><lb/>
+<item>4) von den geſchnittnen Steinen,</item><lb/>
+<item>5) von den Gemaͤlden.</item></list></item></list></div><lb/>
+<fw type="sig" place="bottom">A 2</fw><fw type="catch" place="bottom"><hi rendition="#b"><hi rendition="#aq">I.</hi> Ab-</hi></fw><lb/>
+<pb n="4" facs="#f0010"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="1"><head><hi rendition="#b"><hi rendition="#aq">I.</hi> Abſchnitt.</hi><lb/>
+Von<lb/>
+<hi rendition="#b">der Kunſt und von den alten Kunſt-</hi><lb/>
+werken uͤberhaupt, und von den verſchied-<lb/>
+nen Arten der Kenntniß derſelben.</head><lb/>
+<div n="2"><head>§. 1.</head><lb/>
+<p><hi rendition="#in">S</hi>innliche Gegenſtaͤnde, und die Bilder un-<lb/>
+ſrer Seele von dieſen Gegenſtaͤnden, laſ-<lb/>
+ſen ſich <hi rendition="#fr">entweder</hi> durch die <hi rendition="#fr">ſinnliche<lb/>
+Vorſtellung und Abbildung der Gegen-<lb/>
+ſtaͤnde</hi> ſelbſt, <hi rendition="#fr">oder</hi> durch <hi rendition="#fr">ſinnliche Zeichen,<lb/>
+oder</hi> durch <hi rendition="#fr">beydes zugleich</hi> ausdruͤcken.</p><lb/>
+<p>Die <hi rendition="#fr">Formen der Koͤrper,</hi> als <hi rendition="#fr">Abbil-<lb/>
+dungen der Gegenſtaͤnde ſelbſt,</hi> laſſen ſich<lb/>
+<hi rendition="#fr">entweder in das Runde,</hi> oder <hi rendition="#fr">auf der Flaͤ-<lb/>
+che</hi> vorſtellen. Dieß iſt <hi rendition="#fr">Bildnerey und Ma-<lb/>
+lerey;</hi> und die Kuͤnſte ſind <hi rendition="#fr">die bildenden<lb/>
+Kuͤnſte.</hi></p><lb/>
+<p>Die <hi rendition="#fr">ſinnlichen Zeichen</hi> zum Ausdruck der<lb/>
+Bilder, die die Seele von den ſinnlichen Ge-<lb/>
+genſtaͤnden hat, ſind entweder <hi rendition="#fr">voruͤbergehende:<lb/>
+Geberden, Bewegungen, Toͤne;</hi> ihrer be-<lb/>
+dienen ſich <hi rendition="#fr">Tanzkunſt, Schauſpielkunſt, Be-<lb/>
+redſamkeit, Dichtkunſt, Tonkunſt;</hi> oder<lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">dauer-</hi></fw><lb/>
+<pb n="5" facs="#f0011"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <hi rendition="#fr">dauerhafte</hi> und <hi rendition="#fr">beſtaͤndige,</hi> dieſe ſind <hi rendition="#fr">Bil-<lb/>
+derſchrift, Hieroglyphen, Buchſtaben-<lb/>
+ſchrift.</hi></p></div><lb/>
+<div n="2"><head>§. 2.</head><lb/>
+<p>Sobald dieſe Abbildungen der Formen der<lb/>
+Koͤrper, oder dieſe Zeichen zum Ausdrucke der<lb/>
+Bilder, die in unſrer Seele von dieſen Formen<lb/>
+gegenwaͤrtig ſind, nach beſtimmten Regeln des<lb/>
+Ebenmaaßes und der Uebereinſtimmung zu ei-<lb/>
+nem vernuͤnftig gedachten Ganzen behandelt<lb/>
+wurden, ſo fiengen an <hi rendition="#fr">Kunſtwerke</hi> zu ſeyn;<lb/>
+und in ſofern <hi rendition="#fr">ſinnliche Vollkommenheit</hi> und<lb/>
+<hi rendition="#fr">Schoͤnheit</hi> darinnen ausgedruͤckt ward, und der<lb/>
+Kuͤnſtler die Abſicht hatte zu gefallen und zu<lb/>
+vergnuͤgen, ſo wurden es <hi rendition="#fr">ſchoͤne Kunſtwerke;</hi><lb/>
+und nunmehr wurden aus den bildenden Kuͤn-<lb/>
+ſten <hi rendition="#fr">ſchoͤne Kuͤnſte.</hi></p><lb/>
+<p>Hierbey von der Schoͤnheit in der Kunſt.<lb/>
+Abſonderung des ſchoͤnen Gedankens und der<lb/>
+ſchoͤnen Ausfuͤhrung. Von der Nachahmung<lb/>
+der Natur. Von dem Jdeal.</p></div><lb/>
+<div n="2"><head>§. 3.</head><lb/>
+<p>Oft wurden die Formen der Koͤrper mit<lb/>
+willkuͤhrlichen Zeichen verbunden, als bey <hi rendition="#fr">Jn-<lb/>
+ſchriften</hi> und auf <hi rendition="#fr">Muͤnzen,</hi> auch zuweilen bey<lb/>
+den uͤbrigen Kunſtwerken des Alterthums.</p><lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">Ohne</fw><lb/>
+<pb n="6" facs="#f0012"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <p>Ohne Formen und Zeichen, blos in Ord-<lb/>
+nung, Ebenmaaß und Uebereinſtimmung der<lb/>
+Theile und des Ganzen zu einer beſtimmten<lb/>
+Abſicht, beſtehet das Weſen der <hi rendition="#fr">Baukunſt.</hi></p><lb/>
+<p>Auch dieſe gehoͤrt unter die ſchoͤnen Kuͤnſte,<lb/>
+ſobald ſie nicht blos Feſtigkeit und Bequemlich-<lb/>
+keit, ſondern zugleich Schoͤnheit zur Abſicht<lb/>
+hat.</p></div><lb/>
+<div n="2"><head>§. 4.</head><lb/>
+<p>Die Formen der Koͤrper, auch die ſchoͤnen<lb/>
+Formen, koͤnnen als Zeichen der Begriffe und<lb/>
+Bilder der Seele von den Formen gebraucht<lb/>
+oder betrachtet werden. Das iſt, auch nicht-<lb/>
+ſinnliche Dinge koͤnnen vom Kuͤnſtler unter<lb/>
+ſinnlichen Bildern vorgeſtellt werden.</p><lb/>
+<p>Dieß ſind die <hi rendition="#fr">ſymboliſchen Vorſtellun-<lb/>
+gen</hi> und die <hi rendition="#fr">allegoriſchen Kunſtwerke.</hi> Naͤ-<lb/>
+here Begriffe von der <hi rendition="#fr">Allegorie</hi> und von der<lb/>
+<hi rendition="#fr">Symbolik</hi> des Alterthums. Schriften dar-<lb/>
+uͤber, und Beurtheilung derſelben.</p></div><lb/>
+<div n="2"><head>§. 5.</head><lb/>
+<p>Gleichwohl iſt die eigentliche Beſtimmung<lb/>
+der Kunſt, inſonderheit der bildenden Kunſt,<lb/>
+<hi rendition="#fr">Schoͤnheit,</hi> d. i. ſichtliche Vollkommenheit<lb/>
+auszudruͤcken; und dieß war auch das hoͤchſte<lb/>
+<fw type="catch" place="bottom">Geſetz</fw><lb/>
+<pb n="7" facs="#f0013"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> Geſetz der großen Kuͤnſtler des Alterthums.<lb/>
+Erforderliche Einſchraͤnkung des Satzes.</p></div><lb/>
+<div n="2"><head>§. 6.</head><lb/>
+<p>Die Werke der Bildnerey ſind zum Theil<lb/>
+verfertiget worden, um das Andenken von Per-<lb/>
+ſonen, oder von Gegenſtaͤnden, oder von Hand-<lb/>
+lungen und Begebenheiten aufzubehalten; oder<lb/>
+ſie koͤnnen doch nunmehr von uns als <hi rendition="#fr">Denk-<lb/>
+maͤler</hi> angeſehen werden, d. i. als Werke, wel-<lb/>
+che die Vorſtellung von Dingen erhalten, die<lb/>
+vergangen oder aus dem Gebrauche gekommen<lb/>
+ſind. Begriff von Denkmaͤlern; verſchiedne<lb/>
+Arten derſelben; Gebrauch und vernuͤnftiges<lb/>
+Studium derſelben.</p><lb/>
+<p>Betrachtet man die Ueberbleibſel der alten<lb/>
+Bildnerey blos unter dem Geſichtspunkte al-<lb/>
+ter Denkmaͤler, die man zu verſtehen und die<lb/>
+alten Sitten, Gebraͤuche, Vorſtellungsar-<lb/>
+ten, religioͤſen und mythiſchen Begriffe, oder<lb/>
+auch hiſtoriſchen Umſtaͤnde und Facta, dar-<lb/>
+aus zu erlaͤutern, und die dahin gehoͤrigen<lb/>
+Schriftſtellen der Alten zu erklaͤren ſucht, ſo iſt<lb/>
+dieß das <hi rendition="#fr">antiquariſche Studium, Studium<lb/>
+der Alterthuͤmer, Archaͤologie.</hi></p><lb/>
+<p>Beyfuͤgung einiger Gedanken, wie dieß<lb/>
+Studium mit Geſchmack, und zur Schaͤrfung<lb/>
+und Aufklaͤrung des Verſtandes, getrieben wer-<lb/>
+den kann.</p><lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">Ein</fw><lb/>
+<pb n="8" facs="#f0014"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <p>Ein noch weitlaͤufigerer Geſichtskreiß iſt,<lb/>
+wenn man alles hineinzieht, nicht nur, was aus<lb/>
+dem Alterthume ſich erhalten, auch was kei-<lb/>
+ne naͤchſte Beziehung auf die Kunſt hat; ſon-<lb/>
+dern auch alles, was die Art der Aufzeichnung<lb/>
+der Gedanken in den alten und mittlern Zeiten<lb/>
+anbetrift; alſo ſogar einen Theil der gelehrten<lb/>
+Kritik und der Diplomatik. Man koͤnnte es<lb/>
+die <hi rendition="#fr">Litteratur des Alterthums</hi> nennen. Ge-<lb/>
+danken uͤber den Umfang dieſer Litteratur.</p></div><lb/>
+<div n="2"><head>§. 7.</head><lb/>
+<p>Eben dieſe Werke der Alten laſſen ſich auf<lb/>
+eine weit edlere Art betrachten, in ſofern ſie <hi rendition="#fr">Wer-<lb/>
+ke der Kunſt</hi> und zwar der <hi rendition="#fr">ſchoͤnen Kunſt,</hi><lb/>
+ſind, und in ſofern Ausdruck und Vorſtellung<lb/>
+<hi rendition="#fr">ſinnlicher Vollkommenheit</hi> die Abſicht des<lb/>
+Meiſters geweſen iſt. Jn dieſem Geſichtspunkt<lb/>
+wird es das <hi rendition="#fr">Studium des ſchoͤnen Alter-<lb/>
+thums,</hi> der <hi rendition="#fr">Antike,</hi> der <hi rendition="#fr">ſchoͤnen Kunſtwer-<lb/>
+ke.</hi> Dieß Studium ſchraͤnkt ſich auf die bil-<lb/>
+denden Kuͤnſte, und auf die Werke der Bildne-<lb/>
+rey und der Malerey ein. (§. 1.)</p></div><lb/>
+<div n="2"><head>§. 8.</head><lb/>
+<p>Gleichwohl ſetzt das Studium der Antike,<lb/>
+wenn es nicht mangelhaft ſeyn ſoll, eine anti-<lb/>
+quariſche Kenntniß der Werke voraus, oder muß<lb/>
+damit verbunden werden. Und dieſe antiqua-<lb/>
+<fw type="catch" place="bottom">riſche</fw><lb/>
+<pb n="9" facs="#f0015"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> riſche Kenntniß kann wiederum jener weitlaͤufi-<lb/>
+gern Kenntniß des Alterthums uͤberhaupt, auch<lb/>
+in ſofern ſie aus Schriften, beſonders aus Dich-<lb/>
+tern, erkennt wird, auf keine Weiſe nicht ent-<lb/>
+behren.</p></div><lb/>
+<div n="2"><head>§. 9.</head><lb/>
+<p>Eine gute Anleitung zur Kenntniß der al-<lb/>
+ten Kunſtwerke muß alſo ſo eingerichtet ſeyn, daß<lb/>
+<hi rendition="#fr">die Erklaͤrung der Kunſtwerke ſelbſt</hi> mit<lb/>
+der <hi rendition="#fr">Erlaͤuterung ihres mechaniſchen</hi> ſowohl<lb/>
+als ihres <hi rendition="#fr">poetiſchen</hi> Theils und mit der <hi rendition="#fr">Auf-<lb/>
+ſchlieſſung der Schoͤnheit jedes Werks</hi> ver-<lb/>
+knuͤpft wird.</p></div><lb/>
+<div n="2"><head>§. 10.</head><lb/>
+<p>Die natuͤrliche Ordnung ſcheint zu ſeyn:<lb/>
+erſt <hi rendition="#fr">runde Bildwerke;</hi> dann <hi rendition="#fr">Bildwerke aus<lb/>
+Flaͤchen,</hi> oder <hi rendition="#fr">halbrunde;</hi> ferner Bildwerke <hi rendition="#fr">in<lb/>
+Flaͤchen,</hi> oder eingegrabene; und endlich Bild-<lb/>
+werke <hi rendition="#fr">auf Flaͤchen,</hi> oder Gemaͤlde.</p></div><lb/>
+<div n="2"><head>§. 11.</head><lb/>
+<p>Der wahre Geſichtspunkt des Studiums<lb/>
+des Alterthums. Abſicht, Nutzen und Werth<lb/>
+der Kenntniß der Antike. Von der Empfin-<lb/>
+dung des Schoͤnen, von der Bildung des Ge-<lb/>
+ſchmacks, von der Liebhaberey, von der Pflicht<lb/>
+ſich zu vergnuͤgen, und ſich des Genuſſes der ed-<lb/>
+leren Vergnuͤgungen faͤhig zu machen.</p></div></div><lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom"><hi rendition="#b"><hi rendition="#aq">II.</hi> Ab-</hi></fw><lb/>
+<pb n="10" facs="#f0016"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="1"><head><hi rendition="#b"><hi rendition="#aq">II.</hi> Abſchnitt.<lb/>
+<hi rendition="#g">Geſchichte der Kunſt,</hi></hi><lb/>
+mit<lb/>
+eingeſchalteten Nachrichten von den Kunſtwer-<lb/>
+ken der Aegyptier, der Perſer und der Etru-<lb/>
+ſcer inſonderheit.</head><lb/>
+<div n="2"><head>§. 1.</head><lb/>
+<p><hi rendition="#in">U</hi>rſprung der Kuͤnſte. Die fruͤhere Entſte-<lb/>
+hung der mechaniſchen Kuͤnſte. Die rohe<lb/>
+mechaniſche Behandlung in den ſchoͤnen Kuͤn-<lb/>
+ſten. Fortgang von Verbeſſerung des mecha-<lb/>
+niſchen Theils zu der Bearbeitung des poeti-<lb/>
+ſchen Theils der Kunſt. Erſt Bilder, dann<lb/>
+Kunſtwerke, endlich ſchoͤne Kunſtwerke. Re-<lb/>
+geln der Kunſt werden erſt von Kunſtwerken,<lb/>
+welche bereits vorhanden waren, genommen.</p></div><lb/>
+<div n="2"><head>§. 2.</head><lb/>
+<p>Nicht alle Nationen ſind bis zur ſchoͤnen<lb/>
+Kunſt fortgegangen. Die ſchoͤne Kunſt hat<lb/>
+ſich auch nicht unter einer Nation immerfort<lb/>
+erhalten. Die hoͤchſte Vollkommenheit der<lb/>
+Kunſt, von welcher wir wiſſen, haben die Grie-<lb/>
+chen erreicht. Phyſiſche und ſittliche Urſachen<lb/>
+davon.</p></div><lb/>
+<fw type="catch" place="bottom">§. 3.</fw><lb/>
+<pb n="11" facs="#f0017"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="2"><head>§. 3.</head><lb/>
+<p>Die Aegyptier haben den Ruhm des hoͤch-<lb/>
+ſten Alterthums in der Kunſt. Jn dem Mecha-<lb/>
+niſchen der Kunſt haben ſie es weit gebracht,<lb/>
+aber nie ſind ſie fuͤr ſich zur Vollkommenheit<lb/>
+der Kunſt und zur Schoͤnheit gelangt. Urſa-<lb/>
+chen davon. Drey Epochen ihrer Kunſt.<lb/>
+1) Die aͤlteſte, da ſie ihre eignen Koͤnige, Ge-<lb/>
+ſetze, Religion und Sitten hatten, bis auf die<lb/>
+Eroberung Aegyptens unter dem Cambyſes, v.<lb/>
+C. G. 524. Olymp. 64, 1. 2) Die Zeiten,<lb/>
+da ſie unter perſiſcher, griechiſcher und roͤmiſcher<lb/>
+Herrſchaft ſtanden. 3) Die Nachahmung<lb/>
+aͤgyptiſcher Werke durch griechiſche Kuͤnſtler un-<lb/>
+ter dem K. Adrian, nach C. G. 117 f. Eben da-<lb/>
+her der dreyfache Stil der aͤgyptiſchen Werke,<lb/>
+der aͤlteſte, ſpaͤtere und der aͤgyptiſchgriechiſche.<lb/>
+Beruͤhmteſte aͤgyptiſche Werke, und Schriften,<lb/>
+welche davon handeln, oder ſie in Kupfer vor-<lb/>
+ſtellen.</p></div><lb/>
+<div n="2"><head>§. 4.</head><lb/>
+<p>Fruͤhe Cultur der Kunſt unter den Etruſcern.<lb/>
+Sie ſind bis zur ſchoͤnen Kunſt fortgegangen.<lb/>
+Mit ihren eignen Bildern haben ſie die Mytho-<lb/>
+logie, Goͤtter- und Heldenlehre der Griechen ver-<lb/>
+bunden. Spuren ihrer Macht, ihres Reich-<lb/>
+thums und ihres Geſchmacks in den Ueberbleib-<lb/>
+ſeln ihrer Kunſtwerke. Sie waren ein geſitte-<lb/>
+<fw type="catch" place="bottom">tes,</fw><lb/>
+<pb n="12" facs="#f0018"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> tes, reiches und maͤchtiges Volk, ehe noch Rom<lb/>
+gebauet war, und ſie hoͤrten auf eine Nation zu<lb/>
+ſeyn, da die Roͤmer noch Barbaren waren,<lb/>
+nach der Schlacht am Vadimoniſchen See<lb/>
+n. E. R. 471. v. C. G. 284. n. Alexanders To-<lb/>
+de 39 J. Olymp. 124. Wiefern ſich an den<lb/>
+erhaltnen Werken ein aͤlteſter, mittlerer und ſpaͤ-<lb/>
+ter Stil bemerken laͤßt. Starker Ausdruck,<lb/>
+das Eigne ihrer Werke. Vorzuͤglichſte der<lb/>
+Etruſciſchen Werke, und Schriften und Kupfer-<lb/>
+werke davon. Von Etruſciſchen und Campa-<lb/>
+niſchen gemalten Gefaͤßen.</p></div><lb/>
+<div n="2"><head>§. 5.</head><lb/>
+<p>Die Kunſt unter den Griechen in ihrem er-<lb/>
+ſten Zuſtande von Daͤdalus Zeit an, drey Men-<lb/>
+ſchenalter vor dem Troianiſchen Kriege (dieſer<lb/>
+1184 J. vor C. G.) bis auf Xerxes Feldzug.<lb/>
+Schulen der Kunſt. Wachsthum der Kuͤnſte<lb/>
+in Sicilien und Großgriechenland.</p><lb/>
+<p>Flor der Kuͤnſte in Griechenland, Erſte<lb/>
+Periode 50 Jahre uͤber <note place="foot" n="*"><hi rendition="#aq">Diodor. XII. pr.</hi></note> von Olymp. 75 an<lb/>
+v. C. G. 480. nach den Schlachten bey Sala-<lb/>
+min und Plataͤaͤ, bis zu Anfang des Pelopon-<lb/>
+neſiſchen Krieges.</p><lb/>
+<p>Zweyte Periode unter des Pericles Staats-<lb/>
+verwaltung zu Athen. Epoche des großen Ge-<lb/>
+<fw type="catch" place="bottom">ſchmacks,</fw><lb/>
+<pb n="13" facs="#f0019"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> ſchmacks und Stils. Seit Ol. 80, 1. v.<lb/>
+C. G. 460.</p><lb/>
+<p>Dritte Epoche, von um Olymp. 83. 84.<lb/>
+an. v. C. G. 448. 444. Zeitalter des Phidias.<lb/>
+Hoͤchſte Vollkommenheit der Kunſt, bis nach<lb/>
+Alexanders des Großen Tode, Olymp. 114, 2.<lb/>
+v. C. G. 324.</p><lb/>
+<p>Vierte Epoche. Von der Zeit Folgen ab-<lb/>
+wechſelnde Perioden der Kunſt unter den Nach-<lb/>
+folgern Alexanders; zur Zeit des achaͤiſchen<lb/>
+Bundes; unter den Ptolemaͤern, Seleuciden,<lb/>
+in den Staͤdten und an den Hoͤfen in Kleinaſien;<lb/>
+endlich unter den Roͤmern. Bey jeder Epoche<lb/>
+ſind die großen Meiſter und die groͤßten Werke<lb/>
+beyzubringen. Jn den griechiſchen Werken<lb/>
+wird bemerkt, der aͤltere Stil, der große und ho-<lb/>
+he Stil von Phidias an, der ſchoͤne Stil von<lb/>
+Praxiteles an, um Olymp. 104. v. C. G. 364.<lb/>
+etwa 7 Jahr nach der Schlacht bey Leuctra,<lb/>
+bis auf Lyſipp und Apelles, unter Alexandern.<lb/>
+Stil der Nachahmer.</p></div><lb/>
+<div n="2"><head>§. 6.</head><lb/>
+<p>Erſte Begriffe der Roͤmer von der Kunſt<lb/>
+durch Anſicht der etruſciſchen und griechi-<lb/>
+ſchen Werke. Auspluͤnderung Etruriens<lb/>
+(ſ. §. 4.) und Griechenlands, und Weg-<lb/>
+fuͤhrung der griechiſchen Kunſtwerke, vornehm-<lb/>
+lich vom Triumph des Mummius an, nach<lb/>
+<fw type="catch" place="bottom">Zer-</fw><lb/>
+<pb n="14" facs="#f0020"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> Zerſtoͤrung der Stadt Corinth, und Trennung<lb/>
+des achaͤiſchen Bundes, Olymp. 158, 3. v. C. G.<lb/>
+146. Seitdem, Kunſtliebhaberey unter dem<lb/>
+Adel zu Rom. Die griechiſchen Kuͤnſtler zie-<lb/>
+hen ſich nach Rom. Flor der Kunſt unter Au-<lb/>
+guſt. Verdienſte der folgenden Kayſer um die<lb/>
+Kunſt. Verfall der Kunſt. Untergang. Wie-<lb/>
+derherſtellung.</p></div></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#aq">III.</hi> Abſchnitt.<lb/>
+Von den noch vorhandenen Kunſtwerken</hi><lb/>
+der Griechen und der Roͤmer, und zwar</head><lb/>
+<div n="2"><head><hi rendition="#aq">A.</hi> Von den alten Werken der Bildnerey.</head><lb/>
+<p><hi rendition="#in">D</hi>a dieſe Werke entweder <hi rendition="#fr">ganz in das Run-<lb/>
+de,</hi> oder <hi rendition="#fr">in das Halbrunde</hi> fallen, oder <hi rendition="#fr">in<lb/>
+eine Flaͤche gegraben</hi> ſind, ſo theilt ſich dieſer<lb/>
+Vortrag in zwey Hauptſtuͤcke: 1) <hi rendition="#fr">Von den<lb/>
+Bildſaͤulen,</hi> <note place="foot" n="*"><hi rendition="#aq">de re ſtatuaria et ſculptura.</hi></note> 2) <hi rendition="#fr">von den Werken ethab-<lb/>
+ner</hi> oder <hi rendition="#fr">vertiefter Arbeit</hi> <note place="foot" n="**"><hi rendition="#aq">de re anaglyptica ſ. toreutica, et de caelatura.</hi></note>.</p><lb/>
+<div n="3"><head><hi rendition="#fr">Erſte Abtheilung.</hi><lb/>
+<hi rendition="#b"><hi rendition="#g">Von den Bildſaͤulen.</hi></hi></head><lb/>
+<p>Da auch dieſe Bildſaͤulen bald <hi rendition="#fr">ganze Koͤr-<lb/>
+per</hi> <note place="foot" n="***"><hi rendition="#aq">ſtatuae, ſigna.</hi></note>, bald nur <hi rendition="#fr">Bruſtſtuͤcke</hi> <note place="foot" n="****"><hi rendition="#aq">imagines.</hi></note> oder <hi rendition="#fr">Koͤ-</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">pfe</hi></fw><lb/>
+<pb n="15" facs="#f0021"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <hi rendition="#fr">pfe</hi> vorſtellen, ſo zerfaͤllt auch dieſer Abſchnitt in<lb/>
+zwey Theile: <hi rendition="#fr">von den ganzen Bildſaͤulen,</hi><lb/>
+und <hi rendition="#fr">von den halben.</hi></p><lb/>
+<div n="4"><head><hi rendition="#fr">Erſtes Hauptſtuͤck.</hi><lb/>
+<hi rendition="#b"><hi rendition="#g">Von den ganzen Bildſaͤulen.</hi></hi></head><lb/>
+<div n="5"><head>§. 1.</head><lb/>
+<p>Die uns aus dem Alterthum erhaltnen<lb/>
+vorzuͤglichen Bildſaͤulen, geordnet nach dem ver-<lb/>
+ſchiednen Ausdrucke der Schoͤnheit des <hi rendition="#fr">maͤnnli-<lb/>
+chen</hi> und des <hi rendition="#fr">weiblichen</hi> Koͤrpers. Anzeige<lb/>
+der hiſtoriſchen Umſtaͤnde von jedem Stuͤcke.<lb/>
+Kupfer und Schriftſteller davon. Sujet und<lb/>
+Jdee jedes Werks, mit deſſen Erlaͤuterung. Ur-<lb/>
+theile der Kenner und der Kunſtverſtaͤndigen von<lb/>
+iedem Stuͤcke <note place="foot" n="*">folglich (wie im §. 9.) die Erlaͤuterung des me-<lb/>
+chaniſchen und des poetiſchen Theils, und<lb/>
+die Einſicht in die Schoͤnheit des Werks.</note>.</p></div><lb/>
+<div n="5"><head>§. 2.</head><lb/>
+<p>Sammlungen alter Bildſaͤulen, und Oerter<lb/>
+in und auſſer Jtalien, wo alte Bildwerke ange-<lb/>
+troffen werden. Kupferwerke davon, und kriti-<lb/>
+ſche Nachrichten von dieſen Werken.</p></div><lb/>
+<fw type="catch" place="bottom">§. 3.</fw><lb/>
+<pb n="16" facs="#f0022"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="5"><head>§. 3.</head><lb/>
+<p>Woher ſo viele Statuen nach Rom gekom-<lb/>
+men ſind, wie ſie ſich erhalten haben, wie ſie wie-<lb/>
+der gefunden worden, mit Anzeige der vorzuͤg-<lb/>
+lichſten Plaͤtze, wo man dergleichen Entdeckun-<lb/>
+gen gemach hat. Einſchaltung der Topogra-<lb/>
+phie von Rom. Ueberhaupt die Schickſale der<lb/>
+Kunſtwerke bey den großen Veraͤnderungen<lb/>
+Griechenlands und Jtaliens.</p></div><lb/>
+<div n="5"><head>§. 4.</head><lb/>
+<p>Urſprung und Schickſale der Kunſt der<lb/>
+Bildnerey. Die groͤßten alten Meiſter, mit<lb/>
+ihren beruͤhmteſten Werken.</p></div><lb/>
+<div n="5"><head>§. 5.</head><lb/>
+<p>Von dem Mechaniſchen der Bildnerey bey<lb/>
+den Alten; die dazu uͤblichen Maſſen und ihre<lb/>
+Bearbeitung. Anleitung zur Wahrnehmung<lb/>
+der Kunſt und der Schoͤnheit. Worinn die<lb/>
+Vortreflichkeit jener Kunſtwerke beſtehe.</p></div><lb/>
+<div n="5"><head>§. 6.</head><lb/>
+<p>Einige antiquariſche Anmerkungen uͤber die<lb/>
+Bekleidung, Aufſtellung, Aufſchriften und uͤber<lb/>
+die andren Nebenumſtaͤnde bey den Bildſaͤulen.</p></div><lb/>
+<fw type="catch" place="bottom">§. 7.</fw><lb/>
+<pb n="17" facs="#f0023"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="5"><head>§. 7.</head><lb/>
+<p>Von der Ergaͤnzung der gefundenen ver-<lb/>
+ſtuͤmmelten Bildſaͤulen, und der dadurch ent-<lb/>
+ſtandenen faſt allgemeinen Verfaͤlſchung.<lb/>
+Von den Kopeyen, und dem hierunter herr-<lb/>
+ſchenden Betrug. Vorſchriften der Kunſtver-<lb/>
+ſtaͤndigen zur Beurtheilung des Verfaͤlſchten,<lb/>
+und des Unaͤchten; oder, erſte Linien zur<lb/>
+<hi rendition="#fr">Kunſtkritik.</hi></p></div><lb/>
+<div n="5"><head>§. 8.</head><lb/>
+<p><hi rendition="#fr">Hermeneutik der Bildwerke,</hi> und in-<lb/>
+ſonderheit Anleitung zur Deutung der Bild-<lb/>
+ſaͤulen: Erforderniſſe und Huͤlfsmittel dazu,<lb/>
+und Verwahrung wider das Willkuͤhrliche<lb/>
+und Verworrene in den gemeinen Behaup-<lb/>
+tungen.</p></div><lb/>
+<div n="5"><head>§. 9.</head><lb/>
+<p>Praktiſche Regeln bey Betrachtung und<lb/>
+Beurtheilung, Zeichnung und Beſchreibung<lb/>
+alter Kunſtwerke. Vorſicht bey dem Gebrau-<lb/>
+che der Kopeyen, Gypsguͤſſe und Kupferſti-<lb/>
+che. Anwendung von dieſem allen auf die<lb/>
+Richtung des Geſchmacks.</p></div></div><lb/>
+<div n="4"><head><hi rendition="#fr">Zweytes Hauptſtuͤck.</hi><lb/>
+<hi rendition="#b">Von den Bruſtbildern, Hermen<lb/>
+und Koͤpfen.</hi></head><lb/>
+<div n="5"><head>§. 1.</head><lb/>
+<p>Erklaͤrung der verſchiednen Gattungen,<lb/>
+Maaſe, und Benennungen der halben Bilder.</p></div><lb/>
+<fw type="sig" place="bottom">B</fw><fw type="catch" place="bottom">§. 2.</fw><lb/>
+<pb n="18" facs="#f0024"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="5"><head>§. 2.</head><lb/>
+<p>Die Maſſen, aus denen ſie verfertiget<lb/>
+wurden, die Plaͤtze, die Abſichten und Be-<lb/>
+ſtimmungen ihrer Verfertigung und Aufſtellung;<lb/>
+uͤberhaupt einige antiquariſche Nachrichten von<lb/>
+den halben Bildern.</p></div><lb/>
+<div n="5"><head>§. 3.</head><lb/>
+<p>Der ſehr verſchiedne Werth der halben<lb/>
+Bilder, und die Gruͤnde, wornach er zu beur-<lb/>
+theilen iſt.</p></div><lb/>
+<div n="5"><head>§. 4.</head><lb/>
+<p>Ueber die Deutung und muthmaßliche<lb/>
+Beſtimmung der Perſonen, welche vorgeſtellt<lb/>
+ſeyn ſollen. Gruͤnde dieſer Deutung, und<lb/>
+Grade der Wahrſcheinlichkeit derſelben.</p></div><lb/>
+<div n="5"><head>§. 5.</head><lb/>
+<p>Einige vorzuͤgliche Buſten aus dem Alter-<lb/>
+thume. Muſea, worinnen ſie enthalten ſind.<lb/>
+Buͤcher, die ſie in Kupfer vorſtellen oder da-<lb/>
+von handeln.</p></div></div></div><lb/>
+<div n="3"><head><hi rendition="#fr">Zweyte Abtheilung.</hi><lb/>
+<hi rendition="#b">Von den Werken erhobner oder ver-<lb/>
+tiefter Arbeit.</hi></head><lb/>
+<p>Da dieſe entweder Werke in groͤßern Maſ-<lb/>
+ſen, oder Werke in edlen Steinen ſind, ſo laͤßt<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">ſich</fw><lb/>
+<pb n="19" facs="#f0025"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> ſich alles unter zween Hauptſtuͤcke bringen,<lb/>
+<hi rendition="#fr">Schnitzwerke</hi> und <hi rendition="#fr">geſchnittene Steine.</hi></p><lb/>
+<div n="4"><head><hi rendition="#fr">Erſtes Hauptſtuͤck.</hi><lb/>
+<hi rendition="#b"><hi rendition="#g">Alte Schnitzwerke.</hi></hi> <note place="foot" n="*"><hi rendition="#aq">Toreumata,</hi> insgemein, <hi rendition="#aq">Basreliefs.</hi></note></head><lb/>
+<div n="5"><head>§. 1.</head><lb/>
+<p>Verſchiedne Arten von Schnitzwerk, ver-<lb/>
+tieft oder erhoben, und dieſes wieder in verſchied-<lb/>
+ner Maaße; ſtarke, flache oder mittlere Er-<lb/>
+hebung.</p></div><lb/>
+<div n="5"><head>§. 2.</head><lb/>
+<p>Eigenſchaften und Regeln beyder Arten die-<lb/>
+ſes Bildwerks.</p></div><lb/>
+<div n="5"><head>§. 3.</head><lb/>
+<p>Geſchichte der Kunſt und die aͤlteſten oder be-<lb/>
+ruͤhmteſten Werke dieſer Art.</p></div><lb/>
+<div n="5"><head>§. 4.</head><lb/>
+<p>Die verſchiednen Maſſen, und ihre ver-<lb/>
+ſchiedene Behandlung, an den Werken mit er-<lb/>
+hobner Arbeit. Eingeſchaltete Nachrichten von<lb/>
+den Gebaͤuden, Werken, Geſchirren, Geraͤthen,<lb/>
+und allem dem, woran man Schnitzwerk ange-<lb/>
+bracht hat. <note place="foot" n="**"><hi rendition="#aq">Supellex antiquaria. Anticaglie.</hi></note> Vorzuͤglichſte Beyſpiele von je-<lb/>
+der Art, die noch vorhanden ſind. Die Schrif-<lb/>
+ten und die Kupferwerke dazu.</p></div><lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">§. 5.</fw><lb/>
+<pb n="20" facs="#f0026"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="5"><head>§. 5.</head><lb/>
+<p>Der ſehr verſchiedne Werth der alten erhob-<lb/>
+nen Werke; wie, und wornach er zu beſtim-<lb/>
+men iſt. Richtung unſerer Urtheile uͤber dieſe<lb/>
+Werke. Vorzug, den ſie vor andern fuͤr<lb/>
+den forſchenden und denkenden Liebhaber ha-<lb/>
+ben.</p></div><lb/>
+<div n="5"><head>§. 6.</head><lb/>
+<p>Die wichtigſten und merkwuͤrdigſten erhob-<lb/>
+nen Werke, die ſich erhalten haben, mit ihren<lb/>
+Erlaͤuterungen und Beurtheilungen. Plaͤ-<lb/>
+tze, Muſea und Kupferwerke, welche ſie<lb/>
+enthalten.</p></div><lb/>
+<div n="5"><head>§. 7.</head><lb/>
+<p>Anleitung nnd Huͤlfsmittel zur Erklaͤrung<lb/>
+der erhobenen Werke.</p></div></div><lb/>
+<div n="4"><head><hi rendition="#fr">Zweytes Hauptſtuͤck.</hi><lb/>
+<hi rendition="#b"><hi rendition="#g">Geſchnittne Steine.</hi></hi></head><lb/>
+<div n="5"><head>§. 1.</head><lb/>
+<p>Werth und Vorzuͤge dieſer Gattung<lb/>
+der alten Kunſtwerke vor den uͤbrigen.</p></div><lb/>
+<div n="5"><head>§. 2.</head><lb/>
+<p>Allgemeine Begriffe, und verſchiedene Nah-<lb/>
+men und Eintheilungen der Steine nach der<lb/>
+Materie und der Form erhobner und vertiefter<lb/>
+Arbeit, ehemaligem Gebrauch und jetziger Be-<lb/>
+ſtimmung.</p></div><lb/>
+<fw type="catch" place="bottom">§. 2.</fw><lb/>
+<pb n="21" facs="#f0027"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="5"><head>§. 3.</head><lb/>
+<p>Gebrauch der Steine bey den Alten zum<lb/>
+Siegeln, zum Schmucke und zur Zierde. Von<lb/>
+den Ringen. Vom Geſchmacke der Alten im<lb/>
+Schmucke und Gruͤnde deſſelben. Endlich<lb/>
+Aufbewahrung und Sammlungen der Steine<lb/>
+von Kunſtliebhabern unter den Alten.</p></div><lb/>
+<div n="5"><head>§. 4.</head><lb/>
+<p>Klaſſenabtheilung der Steine fuͤr die<lb/>
+Kunſtlehre; verſchieden von der Eintheilung<lb/>
+in der Naturlehre und in der Juwelirkunſt.<lb/>
+Die verſchiedenen Arten von edlen Steinen,<lb/>
+die geſchnitten werden, nach den Graden der<lb/>
+Durchſichtigkeit und den Farben, mit der<lb/>
+Vergleichung der alten und der neuen Nah-<lb/>
+men. Afterſteine und Paſten. Von Abguͤſ-<lb/>
+ſen und Abdruͤcken.</p></div><lb/>
+<div n="5"><head>§. 5.</head><lb/>
+<p>Die Kunſtbehandlung und das Mecha-<lb/>
+niſche der Arbeit. Wahrſcheinliches Verfah-<lb/>
+ren der alten Kuͤnſtler; nicht verſchieden von<lb/>
+dem jetzt uͤblichen. Das Poetiſche dieſer Ar-<lb/>
+beit, und ſeine Regeln. Sehr verſchiedener<lb/>
+Werth der alten Steine. Vortrefflichkeit<lb/>
+der guten und der beſten, und worinne ſie<lb/>
+beſteht. Vollkommenheit und Vorzug dieſer<lb/>
+Art alter Kunſtwerke vor den neuern, und<lb/>
+Urſachen davon.</p></div><lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">§. 6.</fw><lb/>
+<pb n="22" facs="#f0028"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="5"><head>§. 6.</head><lb/>
+<p>Geſchichte dieſer Kunſt bey den verſchied-<lb/>
+nen Voͤlkern und in den verſchiednen Zeital-<lb/>
+tern, mit dem verſchiednen Charakter dieſer<lb/>
+Kunſtwerke. Beruͤhmte Kuͤnſtler ſowohl des<lb/>
+Alterthums, als die neuern, welche Kopeyen<lb/>
+nach Antiken verfertiget haben.</p></div><lb/>
+<div n="5"><head>§. 7.</head><lb/>
+<p>Menge der geſchnittenen Steine. Wie<lb/>
+ſich die alten erhalten haben. Sammlung<lb/>
+von geſchnittenen Steinen. Arten der Auf-<lb/>
+bewahrung, Anordnung und Eintheilung der<lb/>
+Steine in dieſen Sammlungen. Muſea die-<lb/>
+ſer Art, oder Dactyliotheken, in verſchiede-<lb/>
+nen Theilen Europens, in den vorigen und<lb/>
+jetzigen Zeiten. Kupferwerke theils von einigen<lb/>
+dieſer Sammlungen, theils von zerſtreueten<lb/>
+Steinen und zuſammen getragenen Abdruͤ-<lb/>
+cken.</p></div><lb/>
+<div n="5"><head>§. 8.</head><lb/>
+<p>Von den vielen Kopeyen der alten Stei-<lb/>
+ne. Regeln der Kunſtverſtaͤndigen fuͤr die<lb/>
+Unterſcheidung der neuen Steine von den al-<lb/>
+ten. Unſicherheit dieſer Kritik. Sammlun-<lb/>
+gen von Abdruͤcken. Von den Lippertiſchen<lb/>
+Paſten und den Lippertiſchen Verdienſten.</p></div><lb/>
+<div n="5"><head>§. 9.</head><lb/>
+<p>Anleitung zur gelehrten Erklaͤrung der<lb/>
+Steine, nach den verſchiednen Vorſtellungen,<lb/>
+<fw type="catch" place="bottom">die</fw><lb/>
+<pb n="23" facs="#f0029"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> die ſich darauf befinden; Regeln und Huͤlfs-<lb/>
+mittel dazu.</p></div><lb/>
+<div n="5"><head>§. 10.</head><lb/>
+<p>Einige vorzuͤglich ſchoͤne oder beruͤhmte<lb/>
+Steine, mit litteraͤriſchen Nachrichten und der<lb/>
+Erklaͤrung der Steine.</p></div></div></div></div><lb/>
+<div n="2"><head><hi rendition="#aq">B.</hi> Von den alten Werken der Malerey.</head><lb/>
+<div n="3"><head>§. 1.</head><lb/>
+<p>Von der Malerey uͤberhaupt, ihren Erfor-<lb/>
+derniſſen und Wirkungen. Worauf es bey<lb/>
+Betrachtung und Bewunderung eines Werkes<lb/>
+ankoͤmmt. Vollkommenheit des Mechaniſchen<lb/>
+und des Dichteriſchen an einem Gemaͤlde.<lb/>
+Verſchiedene Schriftſteller zur Anleitung in der<lb/>
+Kenntniß, und zur Bildung des Geſchmacks<lb/>
+in dieſer Art Kunſtwerke.</p></div><lb/>
+<div n="3"><head>§. 2.</head><lb/>
+<p>Alte Malerey; allgemeine Nachrichten da-<lb/>
+von. Schriftſteller daruͤber.</p></div><lb/>
+<div n="3"><head>§. 3.</head><lb/>
+<p>Urſprung und Alterthum, nach verſchiednen<lb/>
+Stuffen, Wachsthum und Verfall der alten<lb/>
+Malerey, mit der Geſchichte der großen Meiſter,<lb/>
+und hiſtoriſchen Nachrichten und Urtheilen der<lb/>
+Alten und der Neuern von ihren Werken.</p></div><lb/>
+<fw type="catch" place="bottom">§. 4</fw><lb/>
+<pb n="24" facs="#f0030"/>
+<fw type="header" place="top"><milestone unit="section" rendition="#hr"/><lb/>
+</fw> <div n="3"><head>§. 4.</head><lb/>
+<p>Gattungen der alten Malerey, und Ver-<lb/>
+fahren der alten Maler ſowohl nach dem me-<lb/>
+chaniſchen als nach dem dichteriſchen Theile<lb/>
+der Kunſt.</p></div><lb/>
+<div n="3"><head>§. 5.</head><lb/>
+<p>Ueber den Grad der Vollkommenheit der<lb/>
+alten Malerey uͤberhaupt und nach den einzel-<lb/>
+nen Stuͤcken der Kunſt. Beſtimmung des<lb/>
+Werthes der alten Gemaͤlde, die ſich erhalten<lb/>
+haben.</p></div><lb/>
+<div n="3"><head>§. 6.</head><lb/>
+<p>Einige antiquariſche Anmerkungen uͤber den<lb/>
+Gebrauch der Malerey, die Beſtimmung und<lb/>
+Aufſtellung der Gemaͤlde, und uͤber das Uebli-<lb/>
+che in den Vorſtellungen auf dem Gemaͤlde.</p></div><lb/>
+<div n="3"><head>§. 7.</head><lb/>
+<p>Schickſale der Werke dieſer Art. Die we-<lb/>
+nigen alten Gemaͤlde, die ſich noch erhalten ha-<lb/>
+ben; die Kupfer, Erklaͤrungen und Schriften<lb/>
+daruͤber. Die Herculaniſchen Entdeckungen.</p></div><lb/>
+<div n="3"><head>§. 8.</head><lb/>
+<p>Ueber die <hi rendition="#fr">moſaiſche Arbeit,</hi> ihre verſchied-<lb/>
+ne Zubereitung, Grade der Vollkommenheit,<lb/>
+und ihren Werth. Antiquariſche Nachrichten da-<lb/>
+von. Erhaltne Werke dieſer Art. Kupfer<lb/>
+und Schriften daruͤber.</p></div></div></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+</body><back>
+<pb n="[25]" facs="#f0031"/>
+<pb n="[26]" facs="#f0032"/>
+<pb n="[27]" facs="#f0033"/>
+<pb n="[28]" facs="#f0034"/>
+<pb n="[29]" facs="#f0035"/>
+</back>
+</text> </TEI>

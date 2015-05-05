@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Schreiben an das Publicum</title>
+<title type="sub">Aus dem Französischen</title>
+<title type="volume" n="1"/>
+<author>
+<persName ref="http://d-nb.info/gnd/118535749">
+<forename>Friedrich</forename>
+<genName>II.</genName>
+<roleName>König von Preußen</roleName>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">24</measure>
+<measure type="tokens">1155</measure>
+<measure type="types">570</measure>
+<measure type="characters">8128</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-03T10:14:55Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/friedrich_publicum01_1753</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/friedrich_publicum01_1753</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/friedrich_publicum01_1753</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/friedrich_publicum01_1753</idno>
+<idno type="DTADirName">friedrich_publicum01_1753</idno>
+<idno type="DTAID">20880</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">[Friedrich II., König von Preußen]: Schreiben an das Publicum. [Übers. Gotthold Ephraim Lessing]. Bd. 1. Berlin, 1753.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Schreiben an das Publicum</title>
+<title level="m" type="sub">Aus dem Französischen</title>
+<title level="m" type="volume" n="1"/>
+<author>
+<persName ref="http://d-nb.info/gnd/118535749">
+<forename>Friedrich</forename>
+<genName>II.</genName>
+<roleName>König von Preußen</roleName>
+</persName>
+</author>
+<editor role="translator">
+<persName ref="http://d-nb.info/gnd/118572121">
+<addName>Gotthold Ephraim Lessing </addName>
+</persName>
+</editor>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">16 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Voss</name></publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">1753</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>Universitäts- und Landesbibliothek Halle</repository>
+<idno>
+<idno type="shelfmark">ULB Halle, Dd 2744 e/5 (8)</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den
+<ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Fachtext</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Sprachwissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Wissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Sprachwissenschaft</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">mts</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front><lb/>
+<pb facs="#f0001"/>
+<pb facs="#f0002"/>
+<pb facs="#f0003"/>
+<pb facs="#f0004"/>
+<pb facs="#f0005"/>
+<titlePage type="main"><docTitle><titlePart type="main"><hi rendition="#c"><hi rendition="#g">S</hi>ch<hi rendition="#g">reiben<lb/>
+an das<lb/>
+Publicum.</hi></hi></titlePart><lb/>
+<figure/><lb/>
+<titlePart type="desc"><hi rendition="#c"><hi rendition="#g">Aus dem Franzoͤſiſchen.</hi></hi></titlePart></docTitle><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint><pubPlace><hi rendition="#c"><hi rendition="#g">BERLIN</hi></hi></pubPlace><lb/>
+<docDate><hi rendition="#c"><hi rendition="#g">1753.</hi></hi></docDate></docImprint></titlePage><lb/>
+<pb facs="#f0006"/>
+</front><body>
+<pb facs="#f0007"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p><hi rendition="#in">I</hi>ch habe allezeit euern<lb/>
+Geſchmak geliebet, und<lb/>
+eure Grillen verehrt.<lb/>
+Ich kenne die unerſaͤttliche Be-<lb/>
+gierde, die ihr nach Neuig-<lb/>
+keiten hegt, und ich mache<lb/>
+mir eine Ehre daraus euch zu<lb/>
+dienen. Jene gemeinen Bege-<lb/>
+benheiten, welche euch die klei-<lb/>
+nen Miniſters, die ihr in Eu-<lb/>
+ropa unterhaltet, die Woche<lb/>
+<fw type="sig" place="bottom">2</fw><fw type="catch" place="bottom">zwey-</fw><lb/>
+<pb n="4" facs="#f0008"/>
+zweymal erzehlen, ſind euch<lb/>
+eckel geworden; ihr wollt etwas<lb/>
+beſonders, ihr wollt erſtaunli-<lb/>
+che Neuigkeiten haben. Eure<lb/>
+Miniſters melden euch dann<lb/>
+und wann ganz unglaubliche,<lb/>
+ſo wahr ſie auch, ohne Zweifel,<lb/>
+ſind, doch das iſt noch nicht ge-<lb/>
+nung; ihr liebt in der Staats-<lb/>
+kunſt die geheimen Sachen:<lb/>
+eben dieſe Neigung nun findet<lb/>
+ſich auch, nebſt einer großen<lb/>
+Geſchicklichkeit, ſie zu entde-<lb/>
+cken, bey mir, welches mich<lb/>
+in den Stand ſezt, euch von<lb/>
+dem, was jezt bey einem gewiſ-<lb/>
+ſen Hofe vorgehet, und ſehr<lb/>
+verborgen gehalten wird, zu un-<lb/>
+terrichten. Ihr koͤnnt, ohne daß<lb/>
+<fw type="catch" place="bottom">ich</fw><lb/>
+<pb n="5" facs="#f0009"/>
+ich es euch erklaͤren darf, leicht<lb/>
+begreiffen, daß in unſrer Zei-<lb/>
+tungsſprache ein gewiſſer Hof,<lb/>
+den Hof zu Berlin bedeutet.<lb/>
+Ich habe dieſe Neuigkeiten aus<lb/>
+der erſten Hand; es ſind keine<lb/>
+man ſagt, es ſind Begeben-<lb/>
+heiten die ihre voͤllige Richtig-<lb/>
+keit haben; ich habe erſchrek-<lb/>
+liche Sachen entdekt, und ich<lb/>
+vertraue ſie euch um ſo viel lie-<lb/>
+ber, da mir eure Klugheit und<lb/>
+Verſchwiegenheit bekannt iſt,<lb/>
+und dieſes Geheimniß alſo un-<lb/>
+ter uns Zweyen bleiben wird.</p><lb/>
+<p>Zittert fuͤr die Ruhe Euro-<lb/>
+pens. Wir ſind einem Zufalle<lb/>
+nahe, welcher das Gleichge-<lb/>
+<fw type="sig" place="bottom">3</fw><fw type="catch" place="bottom">wich-</fw><lb/>
+<pb n="6" facs="#f0010"/>
+wichte der Maͤchte, das unſre<lb/>
+Vaͤter ſo weislich angeordnet<lb/>
+haben, uͤber den Hauffen werf-<lb/>
+fen kan; es iſt um das Syſtem<lb/>
+des Abts von Saint Pierre<lb/>
+geſchehen, und nun wird es<lb/>
+nimmermehr zur Wirklichkeit<lb/>
+kommen. Ich habe erfahren,<lb/>
+daß man, vor einigen Tagen,<lb/>
+bey Hofe groſſen Rath gehal-<lb/>
+ten hat, welchem alle Angeſe-<lb/>
+hene beygewohnet haben; es<lb/>
+iſt eine Sache darinn vorge-<lb/>
+nommen worden, welche an<lb/>
+Wichtigkeit ihres gleichen, bey<lb/>
+Menſchen Gedenken, nicht ge-<lb/>
+habt hat. Ein Tonkuͤnſtler<lb/>
+aus Aix in Provence ſchickt<lb/>
+zwey Menuets, uͤber die er<lb/>
+<fw type="catch" place="bottom">zehn</fw><lb/>
+﻿
+<pb n="7" facs="#f0011"/>
+<lb/>
+zehn Jahr componirt hat, und<lb/>
+bittet, ſie auf dem Karneval ſpie-<lb/>
+len zu laſſen: dieſes wird den<lb/>
+ſeichten Geiſtern etwas nichts-<lb/>
+wuͤrdiges zu ſeyn ſcheinen, aber<lb/>
+wir Staatskundige, die wir<lb/>
+wiſſen, was hinter allem ſteckt,<lb/>
+und den Folgerungen bis zu<lb/>
+ihren letzten Schluͤſſen nachge-<lb/>
+hen, wir ſind viel zu gruͤndlich,<lb/>
+als daß wir ſo was fuͤr eine<lb/>
+Kleinigkeit anſehen ſolten. Als<lb/>
+man dieſes Begehren in Be-<lb/>
+rathſchlagung zog, theilte ſich<lb/>
+der Rath; eine Parthey war<lb/>
+fuͤr die Menuets, und die an-<lb/>
+dere machte die Gegner aus.<lb/>
+Die, welche fuͤr die Menuets<lb/>
+waren, behaupteten, daß man<lb/>
+<fw type="sig" place="bottom">4</fw><fw type="catch" place="bottom">ſie</fw><lb/>
+<pb n="8" facs="#f0012"/>
+ſie ſpielen muͤſſe, um durch die-<lb/>
+ſen Vorzug diejenigen aufzu-<lb/>
+muntern, welche einer gewiſſen<lb/>
+Macht wohl wollen, deren An-<lb/>
+zahl aber, zum Ungluͤcke, nicht<lb/>
+allzugroß iſt. Die Gegner<lb/>
+verſetzten, daß es wieder die<lb/>
+Ehre der Nation ſey, fremde<lb/>
+Menuets ſpielen zu laſſen, da<lb/>
+in dem Reiche ſelbſt ſo viel<lb/>
+neue gemacht wuͤrden. Hier-<lb/>
+auf antworteten die andern,<lb/>
+daß die Menuets dennoch gut<lb/>
+ſeyn koͤnnten, ob ſie gleich an-<lb/>
+derwerts gemacht waͤren, und<lb/>
+daß die Liebhaber der Kuͤnſte<lb/>
+mehr Achtung gegen die Wiſ-<lb/>
+ſenſchaft, als gegen das Vater-<lb/>
+land, oder den Ort, woher die<lb/>
+<fw type="catch" place="bottom">Menuets</fw><lb/>
+<pb n="9" facs="#f0013"/>
+Menuets gekommen waͤren,<lb/>
+haben muͤßten. Dieſe Gruͤnde<lb/>
+uͤberredeten die Gegner nicht;<lb/>
+ſie behaupteten vielmehr, daß<lb/>
+man dieſe Menuets fuͤr Con-<lb/>
+trebande halten muͤſſe. Wi-<lb/>
+der dieſen Auspruch ſchrien die<lb/>
+Menuetiſten ſehr heftig, und<lb/>
+bemuͤhten ſich zu beweiſen, daß<lb/>
+wenn man fremde Menuets fuͤr<lb/>
+Contrebande halten wolte, ſo<lb/>
+wuͤrde man andern Voͤlkern<lb/>
+dadurch das Recht geben, gleich-<lb/>
+falls alle Geburthen, die ihnen<lb/>
+Preuſſen liefere, zu verbieten;<lb/>
+daß den Handel einſchraͤnken<lb/>
+ihn verderben heiſſe, und end-<lb/>
+lich, daß es andre Maͤchte wohl<lb/>
+nicht mit kaltem Blute dulden<lb/>
+<fw type="sig" place="bottom">5</fw><fw type="catch" place="bottom">wuͤr-</fw><lb/>
+<pb n="10" facs="#f0014"/>
+wuͤrden, wenn man ſich das<lb/>
+Anſehen geben wolte, ihre Me-<lb/>
+nuets von den Taͤnzen und Fe-<lb/>
+ſten auszuſchlieſſen. Ihre An-<lb/>
+tagoniſten erhizten ſich hieruͤber<lb/>
+nicht wenig, indem ſie behaupte-<lb/>
+ten, daß man den Nutzen und<lb/>
+alle andere Abſichten der Ehre<lb/>
+aufopfern muͤſſe; daß es wider<lb/>
+die Wuͤrde eines Hofes ſey,<lb/>
+nach andern Toͤnen, als nach<lb/>
+den einheimiſchen, zu tanzen;<lb/>
+daß die Menuetiſten Neulinge<lb/>
+waͤren, welche in dem Lande<lb/>
+fremde Gebraͤuche einfuͤhren<lb/>
+wolten; daß man ſich von ſei-<lb/>
+nen alten Gewohnheiten nie-<lb/>
+mals muͤſſe abbringen laſſen,<lb/>
+wenn ſie auch ſchon nichts taug-<lb/>
+<fw type="catch" place="bottom">ten;</fw><lb/>
+<pb n="11" facs="#f0015"/>
+ten; und endlich, daß dieſe<lb/>
+Menuets die Sitten verduͤrben.<lb/>
+Der Streit ward hieruͤber ſo<lb/>
+hitzig, daß alle zugleich redeten,<lb/>
+daß jeder Recht haben wollte,<lb/>
+daß die, welche am wenigſten<lb/>
+aufgebracht waren, ſchon Vor-<lb/>
+ſpiele zu harten Worten mach-<lb/>
+ten, und daß man endlich ge-<lb/>
+noͤthiget wurde den Rath aus-<lb/>
+einander gehen zu laſſen. Er<lb/>
+verſammlete ſich den Tag dar-<lb/>
+auf aufs neue, dieſe Berath-<lb/>
+ſchlagungen wieder vorzuneh-<lb/>
+men; der Enthuſiasmus hatte<lb/>
+waͤhrender Zeit abgenommen,<lb/>
+und es war eine friedliebende<lb/>
+Parthey entſtanden. Dieſe<lb/>
+Einigkeitsſtifter ſchlugen, damit<lb/>
+<fw type="catch" place="bottom">ſie</fw><lb/>
+<pb n="12" facs="#f0016"/>
+ſie es jedem recht machen wol-<lb/>
+ten, vor, es zu verſtatten, daß<lb/>
+man diejenige Menuet, welche<lb/>
+uͤber die kleine Terz ſey, mit<lb/>
+Ausſchlieſſung der andern, ſpie-<lb/>
+len ſolle. Ob nun gleich dieſe<lb/>
+Vermittelung, weil ſie vernuͤnf-<lb/>
+tig war, nicht angenommen<lb/>
+wurde, ſo hinderte ſie dieſes<lb/>
+doch nicht, einen neuen Vor-<lb/>
+ſchlag zu wagen, welcher dar-<lb/>
+inne beſtand, daß man die Me-<lb/>
+nuets, ohne ſie zu tanzen, ſpie-<lb/>
+len wolle. Dieſes ward durch<lb/>
+eine betraͤchtliche Mehrheit der<lb/>
+Stimmen verworffen, und man<lb/>
+verſichert, daß jezt eine Art von<lb/>
+Manifeſt unter der Preſſe iſt,<lb/>
+worinne man die Urſachen aus-<lb/>
+<fw type="catch" place="bottom">fuͤhret,</fw><lb/>
+<pb n="13" facs="#f0017"/>
+fuͤhret, warum man die Me-<lb/>
+nuets nicht habe aufuͤhren laſ-<lb/>
+ſen. Dieſes Betragen kan viel-<lb/>
+leicht Folgen von der groͤßten<lb/>
+Wichtigkeit nach ſich ziehen. Da<lb/>
+nun Europa, und beſonders<lb/>
+eure Neugierde vielen Antheil<lb/>
+daran nehmen muß, ſo will ich<lb/>
+nicht unterlaſſen, mich ſorgfaͤl-<lb/>
+tig nach dem, was ferner vor-<lb/>
+gehen wird, zu erkundigen.<lb/>
+So viel iſt gewiß, der Hof be-<lb/>
+ſchaͤftigt ſich mit dieſer Angele-<lb/>
+genheit ſehr, welches auch ganz<lb/>
+natuͤrlich iſt, wenn man ihre<lb/>
+Wichtigkeit uͤberlegt: eine Me-<lb/>
+nuet kan eine ſehr ernſthafte<lb/>
+Sache werden. Wie viel Bey-<lb/>
+ſpiele von dieſer Art koͤnnte ich<lb/>
+<fw type="catch" place="bottom">nicht</fw><lb/>
+<pb n="14" facs="#f0018"/>
+nicht anfuͤhren? Ein Kopfputz,<lb/>
+welchen die Koͤnigin von Eng-<lb/>
+land Anna behandelte, und<lb/>
+den die Mylady Marlboroug<lb/>
+kaufte, zerriß die furchtbare<lb/>
+Verbuͤndung der Maͤchte, wel-<lb/>
+che Frankreich bekriegten, und<lb/>
+verurſachte den Frieden, wel-<lb/>
+chen die Koͤnigin Anna im Jahr<lb/>
+1710. ſchloß. Eine Verbeu-<lb/>
+gung welche Caͤſar den Herrn<lb/>
+des Raths, die ſich in dem<lb/>
+Tempel der Eintracht verſamm-<lb/>
+let hatten, zu machen vergaß,<lb/>
+machte den Brutus vollends<lb/>
+ſchluͤßig, ſich wieder ihn zu ver-<lb/>
+ſchwoͤren. Und war denn nicht<lb/>
+ein Apfel an alle dem Ungluͤcke<lb/>
+Schuld, welches der Nach-<lb/>
+<fw type="catch" place="bottom">kom-</fw><lb/>
+<pb n="15" facs="#f0019"/>
+kommenſchaft der erſten Be-<lb/>
+wohner des irdiſchen Paradie-<lb/>
+ſes wiederfahren iſt?</p><lb/>
+<p>Ihr werdet mir zugeſtehen,<lb/>
+daß eine Menuet ſo gut als ein<lb/>
+Kopfpuz, eine Verbeugung oder<lb/>
+ein Apfel iſt: man muß nur<lb/>
+warten und man wird ſchon ſe-<lb/>
+hen, zu was er Gelegenheit ge-<lb/>
+ben wird. Ich halte jezt, da<lb/>
+ich an euch ſchreibe, noch allzu<lb/>
+ſehr zuruͤck, weil es daß erſte-<lb/>
+mal iſt, daß ich mir dieſe Frey-<lb/>
+heit nehme, ich verſpreche euch<lb/>
+aber, mich bey der erſten Ge-<lb/>
+legenheit nicht mit den gemei-<lb/>
+nen Muthmaſſungen zu begnuͤ-<lb/>
+gen, ſondern die aller wunder-<lb/>
+barſten und ausſchweifendſten,<lb/>
+<fw type="catch" place="bottom">mit</fw><lb/>
+<pb n="16" facs="#f0020"/>
+mit weit mehr Unverſchaͤmtheit,<lb/>
+wenn es moͤglich iſt, zu wagen,<lb/>
+als eure kleinen Miniſters, de-<lb/>
+ren Monotonie und abge-<lb/>
+ſchmacktes Weſen euch eckel zu<lb/>
+werden anfangen. Wenn dieſe<lb/>
+Neuigkeiten eure Neugierigkeit<lb/>
+nicht reitzen, ſo verſpreche ich<lb/>
+euch kuͤnftig eben ſo romannen-<lb/>
+hafte, und noch weit ſeltſamere.</p><lb/>
+<p>N. S. Dieſen Augenblick<lb/>
+erfahre ich, daß die andern<lb/>
+Hoͤfe an dieſem Handel mit<lb/>
+den Menuets Theil genommen<lb/>
+haben, und daß ſie in kurzen<lb/>
+unſerm Hofe die aller ernſtlich-<lb/>
+ſten Vorſtellungen thun wer-<lb/>
+den. Das uͤbrige in unſerm<lb/>
+naͤchſten Blatte.</p><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<pb facs="#f0021"/>
+<pb facs="#f0022"/>
+<pb facs="#f0023"/>
+<pb facs="#f0024"/>
+<lb/>
+</body><back/></text> </TEI>

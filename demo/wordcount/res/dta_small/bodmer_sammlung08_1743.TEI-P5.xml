@@ -1,0 +1,3391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="http://www.deutschestextarchiv.de/basisformat.rng" type="xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">   <teiHeader>
+<fileDesc>
+<titleStmt>
+<title type="main">Sammlung Critischer, Poetischer, und anderer geistvollen Schriften</title>
+<title type="sub">Zur Verbesserung des Urtheiles und des Witzes in den Wercken der Wohlredenheit und der Poesie</title>
+<title type="volume" n="8">Achtes Stück</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118512315">
+<surname>Bodmer</surname>
+<forename>Johann Jacob</forename>
+</persName>
+</author>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/115266127">
+<surname>Geyken</surname>
+<forename>Alexander</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1018099549">
+<surname>Haaf</surname>
+<forename>Susanne</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName ref="http://d-nb.info/gnd/1019062681">
+<surname>Jurish</surname>
+<forename>Bryan</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Schulz</surname>
+<forename>Matthias</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Steinmann</surname>
+<forename>Jakob</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Thomas</surname>
+<forename>Christian</forename>
+</persName>
+</editor>
+<editor corresp="#DTACorpusPublisher">
+<persName>
+<surname>Wiegand</surname>
+<forename>Frank</forename>
+</persName>
+</editor>
+<respStmt>
+<orgName ref="http://www.clarin-d.de">CLARIN-D</orgName>
+<resp>
+<note type="remarkResponsibility">Langfristige Bereitstellung der DTA-Ausgabe</note>
+<ref target="http://fedora.dwds.de"/>
+</resp>
+</respStmt>
+</titleStmt>
+<editionStmt><edition>Vollständige digitalisierte Ausgabe.</edition></editionStmt>
+<extent>
+<measure type="images">97</measure>
+<measure type="tokens">19260</measure>
+<measure type="types">5231</measure>
+<measure type="characters">127852</measure>
+</extent>
+<publicationStmt>
+<publisher xml:id="DTACorpusPublisher">
+<email>dta@bbaw.de</email>
+<orgName role="project">Deutsches Textarchiv</orgName>
+<orgName role="hostingInstitution" xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities</orgName>
+<orgName role="hostingInstitution" xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</orgName>
+<address>
+<addrLine>Jägerstr. 22/23, 10117 Berlin</addrLine>
+<country>Germany</country>
+</address>
+</publisher>
+<pubPlace>Berlin</pubPlace>
+<date type="publication">2014-03-10T13:42:02Z</date>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/de/">
+<p>Distributed under the Creative Commons Attribution-NonCommercial 3.0 Unported License.</p>
+</licence>
+</availability>
+<idno>
+<idno type="URLWeb">http://www.deutschestextarchiv.de/bodmer_sammlung08_1743</idno>
+<idno type="URLXML">http://www.deutschestextarchiv.de/book/download_xml/bodmer_sammlung08_1743</idno>
+<idno type="URLHTML">http://www.deutschestextarchiv.de/book/download_html/bodmer_sammlung08_1743</idno>
+<idno type="URLText">http://www.deutschestextarchiv.de/book/download_text/bodmer_sammlung08_1743</idno>
+<idno type="DTADirName">bodmer_sammlung08_1743</idno>
+<idno type="DTAID">20059</idno>
+</idno>
+</publicationStmt>
+<sourceDesc>
+<bibl type="MM">[Bodmer, Johann Jacob]: Sammlung Critischer, Poetischer, und anderer geistvollen Schriften. Bd. 8. Zürich, 1743.</bibl>
+<biblFull>
+<titleStmt>
+<title level="m" type="main">Sammlung Critischer, Poetischer, und anderer geistvollen Schriften</title>
+<title level="m" type="sub">Zur Verbesserung des Urtheiles und des Witzes in den Wercken der Wohlredenheit und der Poesie</title>
+<title level="m" type="volume" n="8">Achtes Stück</title>
+<author>
+<persName ref="http://d-nb.info/gnd/118512315">
+<surname>Bodmer</surname>
+<forename>Johann Jacob</forename>
+</persName>
+</author>
+</titleStmt>
+<editionStmt>
+<edition n="1"/>
+</editionStmt>
+<extent>
+<measure type="pages">96 S.</measure>
+</extent>
+<publicationStmt>
+<publisher><name>Orell</name></publisher>
+<pubPlace>Zürich</pubPlace>
+<date type="publication">1743</date>
+</publicationStmt>
+</biblFull>
+<msDesc>
+<msIdentifier>
+<repository>SUB Göttingen</repository>
+<idno>
+<idno type="shelfmark">SUB Göttingen, 8 SVA II, 4845:8</idno>
+<idno type="URLCatalogue">https://opac.sub.uni-goettingen.de/DB=1/CMD?ACT=SRCHM&amp;IKT0=54&amp;TRM0=8%20SVA%20II%2C%204845%3A8</idno>
+</idno>
+</msIdentifier>
+<physDesc>
+<typeDesc>
+<p>Fraktur</p>
+</typeDesc>
+</physDesc>
+</msDesc>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<editorialDecl>
+<p>Dieses Werk wurde gemäß den <ref target="http://www.deutschestextarchiv.de/doku/richtlinien">DTA-Transkriptionsrichtlinien</ref>
+im Double-Keying-Verfahren von Nicht-Muttersprachlern erfasst und in XML/TEI P5 nach
+<ref target="http://www.deutschestextarchiv.de/doku/basisformat">DTA-Basisformat</ref> kodiert.</p>
+</editorialDecl>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="deu">German</language>
+</langUsage>
+<textClass>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtamain">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dtasub">Lyrik; Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1main">Belletristik</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#dwds1sub">Lyrik; Prosa</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">core</classCode>
+<classCode scheme="http://www.deutschestextarchiv.de/doku/klassifikation#DTACorpus">china</classCode>
+</textClass>
+</profileDesc>
+</teiHeader>
+<text><front>
+<pb n="[1]" facs="#f0001"/>
+<titlePage type="main"> <docTitle> <titlePart type="main"> <hi rendition="#b #g"><hi rendition="#in">S</hi>ammlung</hi><lb/>
+Critiſcher, Poetiſcher,<lb/>
+und anderer geiſtvollen<lb/>
+<hi rendition="#b #g"><hi rendition="#in">S</hi>chriften,</hi><lb/>
+Zur Verbeſſerung<lb/>
+des Urtheiles und des Witzes<lb/>
+in den Wercken<lb/>
+der Wohlredenheit und der Poeſie.<lb/>
+</titlePart> </docTitle>
+<titlePart type="volume"> Achtes Stuͤck.<lb/>
+</titlePart>
+<milestone unit="section" rendition="#hr"/><lb/>
+<docImprint> <pubPlace><hi rendition="#b">Zuͤrich,</hi></pubPlace><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Bey <publisher>Conrad Orell und Comp.</publisher> <docDate>1743</docDate>.<lb/>
+</docImprint> </titlePage>
+<pb n="[2]" facs="#f0002"/>
+<pb n="3" facs="#f0003"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Von der Poeſie des ſechszehnten<lb/>
+Jahrhunderts.</hi></head><lb/>
+<p><hi rendition="#in">J</hi>CH komme auf Sebaſtian Branden. Un-<lb/>
+ter den rohen Verſen deſſelben kan man<lb/>
+einen ſatyriſchen Sittenlehrer wahrnehmen,<lb/>
+der mit geſunden Lebeusregeln wohl verſehen iſt;<lb/>
+und dem es an geſchickten Zuͤgen, dieſelben aus-<lb/>
+zubilden, nicht gefehlt hat. Seine Geiſtesart<lb/>
+war zu dergleichen allegoriſchen Redensarten<lb/>
+und Bildern, womit man zu ſeiner Zeit die mo-<lb/>
+raliſchen und politiſchen Wahrheiten einkleidete,<lb/>
+und welche damahls ſo beliebt waren, gantz ge-<lb/>
+ſchickt. Man ſpuͤret ihm auch ſeine Literatur auf<lb/>
+allen Blaͤttern an, insbeſondere blicket Horatz<lb/>
+hier und dar aus ſeinen Vorſtellungen hervor.<lb/>
+Wir doͤrffen nur ſeine abgebiſſenen und verſchrum-<lb/>
+pelten Woͤrter wieder herſtellen, und ihnen die<lb/>
+gehoͤrige Geſtalt, Ausbildung, Lange und Maaß<lb/>
+geben, ſo wird dieſes offenbar gnug werden, und<lb/>
+die Kuͤhnheit, die ein ſaͤchſiſcher Puriſt haben muß,<lb/>
+ſich an der ungeſchliffenen Sprache zu verunrei-<lb/>
+nigen, wird ihm mit guten Lehren und Charac-<lb/>
+tern bezahlt werden, welche er in dem <hi rendition="#fr">Schleſi-<lb/>
+ſchen Helicon, Golau, Kottwitz, Lakmann,<lb/>
+Langnau, Corvini,</hi> und zwantzig ihres gleichen<lb/>
+vergebens ſuchen wird. Was er von ſeinem ei-<lb/>
+genen Gemuͤtheszuſtande, als eines moraliſchen<lb/>
+Scribenten ſchreibt, zeiget ein philoſophiſches und<lb/>
+groſſes Hertz:</p> <cit><quote>„Wer Ohren hat, der hoͤre,<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">VIII.</hi> St.] A 2</fw><fw type="catch" place="bottom">„und</fw><lb/>
+<pb n="4" facs="#f0004"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„und mercke. Jch ſchweige, denn der Wolf iſt<lb/>
+„nicht fern von mir. Ein Narr ſtraft man-<lb/>
+„chen vor der Zeit, ehe er weis, was ihm an-<lb/>
+„liegt. Muͤßte jeder des andern Ruͤcken ſeyn,<lb/>
+„ſo wuͤrde er bald innen werden, was ihn druͤ-<lb/>
+„ket. Jch weis wohl, wo mich der Schuh druͤ-<lb/>
+„ket, darum ob man mich ſchelten und ſprechen<lb/>
+„wollte, Artzt heile dich ſelber, denn du biſt<lb/>
+„auch in unſerer Rotte, ſo weis ich das, und<lb/>
+„bekenne es Gott; nemlich daß ich viel Thor-<lb/>
+„heiten gethan habe, und noch ietzo im Nar-<lb/>
+„renorden gehe; wie faſt ich an der Kappen<lb/>
+„ſchuͤttle, will ſie mich doch nicht gantz laſſen.<lb/>
+„Doch habe ich zu dieſem Ende Fleiß und Ernſt<lb/>
+„angekehrt, und damit, wie du ſieheſt, ſo viel<lb/>
+„gelernet, daß ich ietzo viel Narren kenne; ich<lb/>
+„habe auch den Muth mich, ob Gott will, fer-<lb/>
+„ner mittelſt Witzes und mit der Zeit zu beſ-<lb/>
+„ſern.„ Das ſtimmt mit Horatzens Vorſatze<lb/>
+uͤberein: ‒ ‒ ‒ ‒ <hi rendition="#aq">Fortaſſis &amp; iſtinc.<lb/>
+<hi rendition="#et">Largiter abſtulerit longa ætas, liber amicus,<lb/>
+Conſilium proprium, neque enim deſum mihi.</hi></hi></quote></cit><lb/>
+<p>Unſere heutigen poetiſchen Moraliſten haben das<lb/>
+Hertz nicht, ſelber ein ſolches Bekenntniß von ſich<lb/>
+ſelbſt abzulegen. Brand erzehlt uns ſein Vorhaben<lb/>
+mit dem groͤſten Nachdruck bey der natuͤrlichſten<lb/>
+Einfalt: „Die gantze Welt lebt in finſterer Nacht,</p><lb/>
+<cit><quote>„und verharret als blind in Suͤnden. Alle Straſ-<lb/>
+„ſen und Gaſſen ſind voll Narren; die mit<lb/>
+„nichts anders als mit Thorheit umgehen, aber<lb/>
+„doch den Nahmen nicht haben wollen. Aus<lb/>
+<fw type="catch" place="bottom">„dieſer</fw><lb/>
+<pb n="5" facs="#f0005"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+„dieſer Urſache habe ich gedacht, Schiffe fuͤr<lb/>
+„die Narren auszuruͤſten; Galeren, Fuſten,<lb/>
+„Kragken, Nauen, Barken, Kiele, Weidlin-<lb/>
+„ge, Hornache, Rennſchiffe, daneben Schlitten,<lb/>
+„Karren, Roßbaͤren, Rollwagen, denn ein<lb/>
+„Schiff moͤchte nicht alle die tragen, die ietzo in<lb/>
+„der Zahl der Narren ſind. Einige haben gar<lb/>
+„kein Fahrzeug gefunden. Dieſe alle ſtieben um<lb/>
+„mich herum wie die Jmmen, viele unterſtehen ſich<lb/>
+„zum Schiffe herzu zu ſchwimmen. Hier will<lb/>
+„ein jeder Fuhrmann ſey. Jch habe die Bild-<lb/>
+„niſſe dieſer Thoren und Narren daneben aus-<lb/>
+„gefertiget, damit ob jemand waͤre, der die<lb/>
+„Schrift verachtete, oder vielleicht nicht leſen<lb/>
+„koͤnnte, derſelbe ſein Weſen im Gemaͤhlde ſaͤhe.<lb/>
+„Er wird darinnen finden, wer er iſt, und wem<lb/>
+„er gleich ſey, und was ihm gebricht. Jch<lb/>
+„nenne dieſes den Narren-Spiegel, in welchem<lb/>
+„ſich ein jeder Narr kennen kan. Wer recht<lb/>
+„in denſelben ſieht, wird von ihm berichtet, wer<lb/>
+„er ſey. Wer ſich recht ſpiegelt, der lehrt wohl,<lb/>
+„daß er ſich nicht vor weiſe achten ſolle, nicht<lb/>
+„auf ſich halten, was nicht iſt. Denn es iſt nie-<lb/>
+„mand, dem nichts gebricht, oder der mit Wahr-<lb/>
+„heit ſprechen duͤrffe, daß er weiſe und nicht ein<lb/>
+„Narr ſey. Aber wer ſich vor einen Narren<lb/>
+„achtet, der iſt bald zu einem Weiſen gemachet;<lb/>
+„hingegen wer witzig ſeyn will, der iſt mein<lb/>
+„Gevater Fatuus. Dieſer thut mir auch daran<lb/>
+„Gewalt, ſo fern er dieſes Buch nicht behaͤlt.</quote></cit><lb/>
+<cit><quote>„Hier iſt kein Mangel an Narren, ein jeder<lb/>
+„findet, was ihn geluͤſtet, und wozu er gebohren<lb/>
+<fw type="sig" place="bottom">A 3</fw><fw type="catch" place="bottom">„ſey;</fw><lb/>
+<pb n="6" facs="#f0006"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„ſey; auch warum ſo viele Thoren ſind; was<lb/>
+„vor Freude und Ehre die Weisheit hat, und wie<lb/>
+„beſorglich ſie dem Narren ſteht. Hier findet<lb/>
+„man den gantzen Lauf der Welt, ſo daß das<lb/>
+„Buch zum Kauf gut werden muß. Man findet<lb/>
+„hier Narren, wie man will, zum Schimpfe,<lb/>
+„zum Ernſt, und zu allem Spiele. Ein Wei-<lb/>
+„ſer findet was ihn erfreuet, ein Narr redet<lb/>
+„gern von ſeinen Bruͤdern. Man findet hier<lb/>
+„arme und reiche Thoren, ſchlimm ſchlemm, ein<lb/>
+„jeder findet hier ſeines gleichen.</quote></cit><lb/>
+<p>Es zeigt ein unerſchrokenes Gewiſſen, ein ſtarckes<lb/>
+Vertrauen auf die Wahrheit, und eine groſſe<lb/>
+Liebe fuͤr die Beſſerung des Nebenmenſchen, wie<lb/>
+er ſich uͤber die Vorſtellung der gefaͤhrlichen Ar-<lb/>
+beit Satyren zu ſchreiben, troͤſtet.</p> <cit><quote>„Jch ſchneide<lb/>
+„hier manchem Manne eine Kappe, der ſich doch<lb/>
+„deſſen nichts annimmt. Haͤtte ich ihn bey ſei-<lb/>
+„nem Nahmen genannt, ſo haͤtte er geſagt, ich<lb/>
+„haͤtte ihn nicht erkennt. Doch hoffe ich, daß<lb/>
+„die Weiſen ein Wolgefallen daran haben, und<lb/>
+„aus ihrer Wiſſendheit ſagen werden, daß ich<lb/>
+„recht und wahr geſagt habe. Nachdem ich<lb/>
+„von den Narren ſolche Kundſchaft habe, ſo<lb/>
+„gebe ich einen <hi rendition="#aq">Squizzo</hi> von ihnen, ſie muͤſſen<lb/>
+„alle die Wahrheit hoͤren, ob ſie ihnen gleich nicht<lb/>
+„gefaͤllt; wie Terentius wohl ſpricht, daß wer die<lb/>
+„Wahrheit ſagt, Haß verdiene. Und wer ſich<lb/>
+„lange ſchneutzt, der wirft etwann Blut von<lb/>
+„ſich; und wann man die <hi rendition="#aq">Coleram</hi> anreget, ſo<lb/>
+„wird gar oft die Galle beweget. Darum achte<lb/>
+„ich es nicht, ob man mich ſchon mit Worten<lb/>
+<fw type="catch" place="bottom">„hinter-</fw><lb/>
+<pb n="7" facs="#f0007"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+„hintergehen, und um meine nuͤtzliche Lehre ſchel-<lb/>
+„ten wird. Jch habe mehr derſelben Narren, de-<lb/>
+„nen die Weisheit nicht wohl gefaͤllt, dies Buch<lb/>
+„iſt derſelben voll, doch bitte ich einen jeden,<lb/>
+„daß er vielmehr Vernunft und Ehre als mich<lb/>
+„oder mein ſchwaches Gedichte anſehen wolle.<lb/>
+„Jch habe wahrlich nicht ohne Arbeit ſo viele Nar-<lb/>
+„ren zuſammengebracht. Jch habe manchmahl<lb/>
+„des Nachts gewacht, da die ſchliefen, derer ich<lb/>
+„gedachte; oder vielleicht beym Spiele und Wein<lb/>
+„ſaſſen, und wenig an mich dachten. Einige<lb/>
+„fuhren in Schlitten im Schnee herum, daß<lb/>
+„ſie wohl halb erfroren. Andere giengen ſonſt<lb/>
+„auf Kalbesfuͤſſen; noch andre rechneten den<lb/>
+„Verluſt, den ſie den Tag gehabt hatten, oder<lb/>
+„was ihnen vor Gewinn aus etwas kommen<lb/>
+„moͤgte; oder wie ſie Morgens liegen und mit<lb/>
+„Schwaͤtzen verkaufen, und manchen betriegen<lb/>
+„moͤgten. Denſelben allen nachzudenken, wie<lb/>
+„ihre Weiſe, Worte, Wercke, mir gefallen,<lb/>
+„iſt kein Wunder, ob ich ſchon oft, da es nie-<lb/>
+„mand hoffete, gewachet habe, damit mein Ge-<lb/>
+„dichte nicht geſtraffet wuͤrde. Jn dieſen Spie-<lb/>
+„gel ſollen beyde Geſchlechter der Menſchen, die<lb/>
+„Maͤnner und die Frauen hineinſchauen. Jch<lb/>
+„meine je eines bey dem andern. Die Maͤnner<lb/>
+„ſind nicht die eintzigen Narren, ſondern man<lb/>
+„findet auch viel Naͤrrinnen, denen ich hier<lb/>
+„die Schleyer, die Schuͤrtze und <hi rendition="#aq">Voiles,</hi> mit<lb/>
+„Narrenkappen bedecke; auch Metzen haben Nar-<lb/>
+„ren-Roͤcke an. Sie wollen ohne dieſes ietzo<lb/>
+„tragen, was vormahls den Maͤnnern ſchaͤnd-<lb/>
+<fw type="sig" place="bottom">A 4</fw><fw type="catch" place="bottom">„lich</fw><lb/>
+<pb n="8" facs="#f0008"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„lich war, ſpitzige Schuhe, und ausgeſchnitte-<lb/>
+„ne Roͤcke, damit der Milchmarckt nicht be-<lb/>
+„decket werde. Sie wickeln viel Hudeln in die<lb/>
+„Zoͤpfe, und machen groſſe Hoͤrner auf die Koͤpfe,<lb/>
+„als ob es ein groſſer Stier waͤre. Alſo gehen<lb/>
+„ſie her, wie die wilden Thiere. Doch ſollen<lb/>
+„ehrbare Frauen mir verzeyhen, denn ich will<lb/>
+„ihrer zu keinem Argen gantz nicht gedencken.<lb/>
+„Der boͤſen giebt es doch nur zu viel.„</quote></cit><lb/>
+<p>Ein Scribent, der mit dergleichen Gemuͤthes-<lb/>
+Gedancken zum Vorſchein koͤmmt, muß ſich ſo<lb/>
+wohl mit ſeiner Guthertzigkeit als ſeinem Ver-<lb/>
+ſtande die Gunſt der Zuhoͤrer und Leſer erwerben.</p><lb/>
+<p>Die Lehren und Lebensregeln, die Brand vor-<lb/>
+traͤgt, die Frucht einer gereinigten Vernunft, wer-<lb/>
+den mit einer Menge ſatyriſcher Stiche und cha-<lb/>
+racteriſierender Zuͤge belebet. Die Exempel, die<lb/>
+zwar ſymboliſch, doch meiſtens aus der wahren<lb/>
+Hiſtorie hergenommen ſind, bekommen am meiſten<lb/>
+Platzes. Manchmal fuͤhrt er ſeine Perſonen ſelbſt<lb/>
+redend ein, zum Exempel den Koch, den er<lb/>
+unter andern ſagen laͤßt: Wir achten fleiſſig da-<lb/>
+rauf, wie wir viele Trachten zurichten; damit wir<lb/>
+den Magen und die Luſt zu eſſen reitzen, kochen<lb/>
+wir, ſieden, braten, ſchweitzen, roͤſten und ba-<lb/>
+ken; wir machen Pfefferbrey voll Zucker, Gewuͤrtze<lb/>
+und Specerey, wir geben einem Oxymel ein, der<lb/>
+denn bey der Steige <hi rendition="#fr">Gewell</hi> leidet, oder es wieder<lb/>
+mit Syropen und mit Kliſtieren von ihm pur-<lb/>
+gieren muß.</p><lb/>
+<p>Von dem Ueberhandnehmen der Pracht bey<lb/>
+ſchlechten Leuten ſagt er: Die Bauren waren<lb/>
+<fw type="catch" place="bottom">ehe-</fw><lb/>
+<pb n="9" facs="#f0009"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+ehedem einfaͤltig; da die Gerechtigkeit aus den Staͤd-<lb/>
+ten und den Mauren floh, wollte ſie in ſtrohern<lb/>
+Huͤtten ſeyn, ehe denn die Bauern Wein tran-<lb/>
+ken. Jhnen ſchmeckt der Zwilch nicht mehr, wie<lb/>
+ehemals, ſie wollen kein <hi rendition="#fr">Gippen</hi> mehr, es muß<lb/>
+luͤndiſches und mechelſches Kleid ſeyn, und gantz<lb/>
+zerhacket und geſpreitet, mit allen Farben wild<lb/>
+uͤber wild, und auf dem Ermel ein Gauchsbild.<lb/>
+Der zuvor ein Buͤrgerkauffmann war, will edel<lb/>
+und Rittersgenoſſe ſeyn, der Edelmann begehrt<lb/>
+ein Frey, der Graf gefuͤrſtet zu ſeyn, der Fuͤrſt<lb/>
+begehrt die Krone des Koͤnigs.</p><lb/>
+<p>Von der Pracht mit den Grabmaͤhlern ſagt er:<lb/>
+Die Seele hilft ein koͤſtliches Grab nichts, oder daß<lb/>
+man es von Marmor habe, und Schild, Helm<lb/>
+und Panier aufhaͤnge. - Dann erſtechen ſich die<lb/>
+Freunde um das Gut, welcher es gantz behalten ſolle;<lb/>
+die Teufel ſind der Seele gewiß und triumphie-<lb/>
+ren wuͤſte mit derſelben, fuͤhren ſie bald von ei-<lb/>
+nem in das andere, von eitel Kaͤlte in eitel Hitze.<lb/>
+Wir Menſchen leben gantz ohne Witz, daß wir<lb/>
+der Seele nicht wahrnehmen, und immerdar des<lb/>
+Leibes ſorgen. Alle Erde iſt Gott geſegnet, der<lb/>
+liegt wohl, der da wohl todt iſt. Der Himmel<lb/>
+decket manchen Todten, der ſich unter keinem<lb/>
+Steine ſtreckt; wie koͤnnte der ein ſchoͤneres Grab<lb/>
+haben, dem das Geſtirne von oben herab leuch-<lb/>
+tet. Wer wohl ſtirbt, deſſen Grab iſt das hoͤhe-<lb/>
+ſte, der Tod der Suͤnder iſt der boͤſeſte.</p><lb/>
+<p>Wie ſchwer es ſey den Frauen recht zu thun:<lb/>
+Die groͤſte Weisheit auf Erden iſt thun koͤnnen,<lb/>
+was jeder begehrt, und wo man das nicht vor<lb/>
+<fw type="sig" place="bottom">A 5</fw><fw type="catch" place="bottom">gut</fw><lb/>
+<pb n="10" facs="#f0010"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+gut nimmt, doch thun koͤnnen, was jedem ge-<lb/>
+ziemt. Wer aber Frauen recht thun will, der<lb/>
+muß etwann mehr, als ein Knecht ſeyn. Denn<lb/>
+ſie thun gar oft mehr durch ihre Bloͤdigkeit, als<lb/>
+durch ihre Liſtigkeit.</p><lb/>
+<p>Folgendes hat einen ſatyriſchen Schwung:<lb/>
+Wen der Teufel betriegen will, dem giebt er<lb/>
+viel Gut und Reichthum. Gedult in der Armut<lb/>
+iſt beſſer, als aller Welt Gluͤck, Reichthum und<lb/>
+Gut. Niemand uͤberhebe ſich ſeines Gluͤcks, denn<lb/>
+es nimmt ab, wann Gott will. Der iſt ein Narr,<lb/>
+der oft ſchreyt, o Gluͤck wie verlaͤſt du mich,<lb/>
+was zeiheſt du mich, gieb mir ſo viel, daß ich<lb/>
+noch eine Weile ein Narr bleibe! Denn groͤſſere<lb/>
+Narren ſind niemals worden, als diejenige, wel-<lb/>
+che hier alles Gluͤck gehabt haben.</p><lb/>
+<p>Das Capitel von unnuͤtzlichen Wuͤnſchen iſt<lb/>
+gantz lehrreich: Gott giebt uns allen das, was<lb/>
+er will; er weis was recht iſt, was zu viel;<lb/>
+auch was uns nuͤtze ſey, und wohl komme; woraus<lb/>
+uns Schade entſpringen ſolle; wenn er uns nicht lie-<lb/>
+ber haͤtte, als wir uns ſelbſt haben, und thaͤte, was<lb/>
+wir wuͤnſchen, und machte es wahr, ſo reute es uns eh<lb/>
+ein Jahr auskaͤme. Denn unſre Begierde macht uns<lb/>
+blind, daß wir Dinge wuͤnſchen, die wider uns ſind.<lb/>
+Wer wuͤnſchen will, daß er recht lebe, der wuͤn-<lb/>
+ſche daß ihm Gott zu dieſem Ende einen geſun-<lb/>
+den Sinn, Leib und Gemuͤthe gebe, und ihn<lb/>
+vor der Furcht des Todes, vor Zorn, Begier-<lb/>
+de, und dem boͤſen Geitz behuͤte.</p><lb/>
+<p>Jn dem Capitel von dem Vorherwiſſen Got-<lb/>
+tes ſind etliche tiefſinnige Gedancken: Eine Artz-<lb/>
+<fw type="catch" place="bottom">ney</fw><lb/>
+<pb n="11" facs="#f0011"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+ney macht einen geſund, und macht einen an-<lb/>
+dern noch mehr kranck. Einer nachdem er Got-<lb/>
+tes Strafe und gewaltige Hand empfunden, hat<lb/>
+ſeine Suͤnde mit viel Seufzern bedacht; der an-<lb/>
+dere hat ſeinen freyen Willen gebraucht, und da<lb/>
+er Gottes Gerechtigkeit gemercket, doch ſeine Barm-<lb/>
+hertzigkeit gemißbrauchet. Gott hat nie keinen verlaſ-<lb/>
+ſen, er wußte wohl warum ers gethan haͤtte. Wenn<lb/>
+er alles gleich wollte gehabt haben, ſo haͤtte er<lb/>
+wohl nichts als Roſen gemacht: Aber er woll-<lb/>
+te auch Diſteln haben, daß man an denſelben<lb/>
+ſeine Gerechtigkeit ſaͤhe. - - Die Urtheile Got-<lb/>
+tes ſind heimlich, niemand weis ihre Urſachen<lb/>
+gaͤntzlich, je mehr man ſie zu ergruͤnden begehrt,<lb/>
+je minder erfaͤhrt man davon. Ob jemand ſchon<lb/>
+waͤhnet, daß er ſie wiſſe, ſo iſt er deſſen doch<lb/>
+gantz ungewiß.</p><lb/>
+<p>Folgender Character von denen, welche mit<lb/>
+Vorſatz und aus Ruhmbegierde Narren ſeyn wol-<lb/>
+len, iſt bey den Sittenrichtern ſeltenes Vorkom-<lb/>
+mens:</p> <cit><quote>„Es iſt auf Erden mancher Narr, der<lb/>
+„ſich naͤrriſcher Gebehrden annimmt, und wenn<lb/>
+„man ihn ſchuͤnde, und ſoͤtte, ſo koͤnnte er es doch<lb/>
+„nicht weiter bringen, als daß er etwann die<lb/>
+„Ohren ſchuͤttelte; er will mit allem Fleiſſe naͤr-<lb/>
+„riſch ſeyn, doch ſeine Narrenweiſe gefaͤllt nie-<lb/>
+„manden; und wiewohl er einem Narren gleich<lb/>
+„thut, nimmt doch niemand ſeinen Schimpf vor<lb/>
+„gut auf. Daher ſprechen die Leute von ihm,<lb/>
+„der Narre wollte ſich gerne naͤrriſch ſtellen; und<lb/>
+„kan doch weder Weiſe noch Gebehrden, er iſt<lb/>
+<fw type="catch" place="bottom">„ein</fw><lb/>
+<pb n="12" facs="#f0012"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„ein Narre, und nichts werth. Es iſt ein<lb/>
+„ſeltzames Ding auf Erden, daß mancher ein<lb/>
+„witziger Mann ſeyn will, der ſich der Thor-<lb/>
+„heit annimmt, und daß ers vor einen Ruhm<lb/>
+„haͤlt, wenn man ſpricht: Der kann Narr-<lb/>
+„heit wohl.„</quote></cit><lb/>
+<p>Er hat der Deutſchen nicht vergeſſen; und<lb/>
+wir erkennen die Deutſchen ſeines Weltalters<lb/>
+noch in ihren Jtztlebenden Nachkindern.</p> <cit><quote>„Man-<lb/>
+„cher Narr haͤlt ſich vor hoch, daß er aus<lb/>
+„welſchen Landen gekommen iſt, als ob nicht<lb/>
+„auch in deutſcher Art Vernunft, und zarte<lb/>
+„Haͤupter waͤren, welche Weisheit und Kunſt<lb/>
+„lehren moͤgten, daß nicht noth waͤre, ſo fern<lb/>
+„zu Schulen zu kehren. ‒ ‒ Man meinte ehe-<lb/>
+„dem es waͤre keine Lehre, als zu Athen uͤber<lb/>
+„Meer. Hernach fand man ſie bey den Wel-<lb/>
+„ſchen, ietzo ſieht man ſie auch in Deutſch-<lb/>
+„land. Und gebraͤche uns nichts, waͤre der<lb/>
+„Wein nicht, und daß wir Deutſchen voll<lb/>
+„ſeyn wollen; und keine rechte Arbeit thun<lb/>
+„moͤgen.</quote></cit><lb/>
+<p>Unter den allegoriſch-moraliſchen Bildern,<lb/>
+an welchen man um die Zeiten der Glaubens-<lb/>
+Reformation viel Geſchmackes gefunden, duͤn-<lb/>
+ken mich folgende ſehr natuͤrlich: Wenn er<lb/>
+z. Ex. von dem gedruͤckten Narren ſagt, daß<lb/>
+ihm der <hi rendition="#fr">Eſel auf dem Ruͤcken ſitze.</hi> Er<lb/>
+fuͤhrt denſelben ein, wie er ſich ſelbſt derge-<lb/>
+ſtalt ſchildert:</p> <cit><quote>„Jch bin der, den alle Dinge<lb/>
+„druͤcken, ich will mich in einen Winkel ſchmie-<lb/>
+„gen, ob <hi rendition="#fr">der Eſel</hi> mich verlaſſen, und nicht<lb/>
+<fw type="catch" place="bottom">„ſtets</fw><lb/>
+<pb n="13" facs="#f0013"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+„ſtets <hi rendition="#fr">auf meinem Ruͤcken ſtehen</hi> wollte.„</quote></cit> <p>F<supplied>e</supplied>r-<lb/>
+ner, wenn er einen der ein altes Weib zur Ehe<lb/>
+nimmt, <hi rendition="#fr">um das Schmer in den Eſel krie-<lb/>
+chen</hi> laͤßt; wenn er die, welche ſich muthwilliger<lb/>
+Weiſe ins Ungluͤck ſtuͤrtzen, <hi rendition="#fr">in einen Brun-<lb/>
+nen ſpringen</hi> laͤßt; wenn er den Frauenhuͤ-<lb/>
+ter <hi rendition="#fr">der Heuſchrecken an der Sonne huͤten</hi><lb/>
+laͤßt; wenn er d<supplied>i</supplied>e Venus <hi rendition="#fr">Affen, Eſel, und Gaͤu-<lb/>
+che an einem Seile nach ſich ziehen</hi> laͤßt;<lb/>
+wenn der Bibliotaphos <hi rendition="#fr">die Fliegen mir einem<lb/>
+Wedel von den Buͤchern jagt;</hi> wenn er einem<lb/>
+Alten, der ſeine Narrheiten nicht laſſen kan, <hi rendition="#fr">das<lb/>
+Schindmeſſer in den Hintern ſetzt, alldieweil<lb/>
+er auf der Grube geht.</hi> Das gantze Werck<lb/>
+iſt voll ſolcher kleinen Allegorien, welche aus<lb/>
+Spruͤchwoͤrtern von gantz gemeinen Handlun-<lb/>
+gen formiert, und geſchickt appliciert ſind. Es<lb/>
+iſt verwunderſam, was er vor eine Mannig-<lb/>
+faltigkeit an Vorſtellungen und Ausdruͤcken hat,<lb/>
+eine jede Art der Thorheit unter einem eigenen<lb/>
+ſinnlichen Bilde des alltaͤglichen Lebens ſicht-<lb/>
+bar zu machen. Man wird in dem Buche wol<lb/>
+100 verſchiedene Ausdruͤcke zehlen, die ſo viel<lb/>
+ſagen, als <hi rendition="#fr">ein Narr ſeyn.</hi></p><lb/>
+<p>Dieſes koͤmmt nun in einem Wercke poe-<lb/>
+tiſch genug heraus, wo ein ſatyriſcher Scribent<lb/>
+ſich von der Proſa nicht weit entfernen darf.<lb/>
+Doch fehlt es ihm auch nicht an Kunſtmit-<lb/>
+teln der Poeſie, die niedrige Redensart am<lb/>
+rechten Orte zu erhoͤhen Z. Ex. in dieſen<lb/>
+Zeilen:</p> <cit><quote>„Wen Cupido trift, den entzuͤndt<lb/>
+„Amor ſein Bruder, daß er brennt, und die<lb/>
+<fw type="catch" place="bottom">„Flam-</fw><lb/>
+<pb n="14" facs="#f0014"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„Flamme nicht wohl loͤſchen mag, die der<lb/>
+„Dido ihr Leben nahm: Tereus waͤre kein<lb/>
+„Wiedehopf, Paſiphae vermiede den Stier,<lb/>
+„<hi rendition="#fr">Phaͤdra fuͤhre nicht dem Theſeus nach,</hi> und<lb/>
+„ſuchte nicht an ihrem Stiefſohne Schande;<lb/>
+„Scylla lieſſe dem Vater ſein Haar, Hya-<lb/>
+„cinth waͤre kein Ritterſporn, Leander ſchwoͤm-<lb/>
+„me nicht, Sappho fiele nicht vom Berg,<lb/>
+„Cyclops und Pan pfiffen nicht ſo traurig,<lb/>
+„<hi rendition="#fr">Leucothoe gebaͤhre nicht Wyhrauch,</hi> Myrr-<lb/>
+„ha waͤre nicht Adons Scheer, <hi rendition="#fr">Danae em-<lb/>
+„pfienge nicht durch das</hi> Gold, <hi rendition="#fr">Nyctimene<lb/>
+„floͤge nicht des Nachts</hi> aus, Echo waͤre nicht<lb/>
+„zu einer Stimme gemacht, Thisbe faͤrbte nicht<lb/>
+„die weiſſen Haare, Atallante waͤre keine Loͤ-<lb/>
+„win, ꝛc. wenn es die Liebe nicht gethan haͤtte.„</quote></cit><lb/>
+<p>Nach dieſer Art hat Hr. Hagedorn geſagt:</p><lb/>
+<cit><quote>Wer fuͤhrt den Orpheus in die Hoͤlle?</quote></cit><lb/>
+<p>Horatzens <hi rendition="#aq">pallida mors æquo pulſat pede pau-<lb/>
+perum tabernas, regumque turres,</hi> iſt recht gut<lb/>
+gegeben: Der Tod erſchuͤttert mit gleichem<lb/>
+Fuſſe die Koͤnigsſaͤle und die Hirtenhuͤtten. Und<lb/>
+in demſelben Capitel von denen, welche den<lb/>
+Tod nicht vorher ſehen, ſind etliche maleriſch<lb/>
+ausgebildete Gedancken: Die Narrheit faͤr-<lb/>
+bet uns, daß wir nicht daran gedencken, daß<lb/>
+der Tod uns nicht hier laſſen, und unſers ſchoͤ-<lb/>
+nen Haares, noch unſrer gruͤnen Kraͤntze und<lb/>
+Kronen nicht ſchonen wird. Er heißt wahr-<lb/>
+lich Hans acht ſein nicht, denn welchen er er-<lb/>
+greift und erſchuͤttert, wie ſtarck, ſchoͤn oder<lb/>
+jung der ſey, den lehret er einen gar ſeltza-<lb/>
+<fw type="catch" place="bottom">men</fw><lb/>
+<pb n="15" facs="#f0015"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+men Sprung ꝛc. - Darum iſt ein Thor, wer<lb/>
+den, dem er nicht entrinnen mag, alle Tage<lb/>
+flieht, und meint, wann er ſeine Schellen<lb/>
+ſchuͤttere, daß ihn der Tod nicht ſehen moͤge.<lb/>
+Es iſt kaum um einen Rock zu thun, daß der<lb/>
+Sohn nach dem Vater lebe. Zuweilen ſtirbt<lb/>
+er vor dem Vater, und man findet auch viel<lb/>
+Kaͤlberhaͤute.„</p><lb/>
+<p>Es iſt eine Scharfſinnigkeit, die aus der<lb/>
+Sache ſelber entſpringet, wenn er von dem<lb/>
+Koͤnig Midas ſagt, er habe recht gehabt,<lb/>
+daß er ſeinen Kopf gedeckt habe, damit man<lb/>
+ihm ſeine Eſelsohren nicht ſaͤhe; wiewohl<lb/>
+<hi rendition="#fr">dieſe hernach in den Rohren gewachſen<lb/>
+waͤren.</hi></p><lb/>
+<p>Und was vor Worte koͤnnten erhabener fuͤr<lb/>
+folgende hohe Gedancken ſeyn, als dieſe, wel-<lb/>
+che er der Weisheit in den Mund giebt:<lb/>
+Durch mich, ſagt ſie, haben die Koͤnige ihre<lb/>
+Kronen, durch mich entſtehen alle rechtmaͤſſi-<lb/>
+ge Geſetze, durch mich haben die Fuͤrſten ihr<lb/>
+Land, durch mich hat jede Obrigkeit ihre Rechts-<lb/>
+ſpruͤche. Wer mich lieb hat, den liebe ich auch;<lb/>
+wer mich fruͤhe ſucht, der findet mich. Bey<lb/>
+mir iſt Reichthum, Gut, und Ehre. Mich hat<lb/>
+Gott der Herr von Anbeginn in der Ewigkeit<lb/>
+beſeſſen, Er hat alle Dinge durch mich zuberei-<lb/>
+tet; nichts iſt ohne mich gemachet.</p><lb/>
+<p>Und mit was vor ſtarcken Zuͤgen hat er den<lb/>
+weiſen Menſchen nach der Vorbildung Vir-<lb/>
+gils geſchildert:</p> <cit><quote>„Der Weiſe iſt ſein eigener<lb/>
+Richter, ſo oft er Abgang an Weisheit lei-<lb/>
+<fw type="catch" place="bottom">det,</fw><lb/>
+<pb n="16" facs="#f0016"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+„det; er verſucht ſich auf ein Naͤgelgen,<lb/>
+„er achtet nicht, was der Adel ſpricht, noch<lb/>
+„das Geſchrey des gemeinen Volckes, er iſt<lb/>
+„rund, gantz, wie ein Ey, damit kein frem-<lb/>
+„der Mackel auf ihm bleibe, und ſich auf glat-<lb/>
+„tem Wege anreibe. Wie lange der Tag<lb/>
+„ſich im Krebs ſtrecket, wie lange die Nacht<lb/>
+„den Steinbock bedecket, ſo gedencket er,<lb/>
+„und wiegt eben aus, daß er in keinem Win-<lb/>
+„kel ſeines Hauſes etwas treibe, oder ein<lb/>
+„Wort rede, das nicht auf allen Seiten<lb/>
+„gleich wege, ꝛc.</quote></cit><lb/>
+<p>Jch habe ſchon Meldung gethan, daß Brand<lb/>
+die moraliſchen Spruͤche, <hi rendition="#fr">von der Beſcheiden-<lb/>
+heit</hi> betitelt, zum Drucke befoͤdert, welche<lb/>
+<hi rendition="#fr">Freydanck,</hi> einen Poeten aus dem dreyzehn-<lb/>
+ten Jahrhundert, zum Verfaſſer gehabt. Brand<lb/>
+ſagt uns davon in der Beſchlußrede, die er<lb/>
+zu dieſem Buche geſchrieben hat, daß er da-<lb/>
+zu von Mattheus Hoͤlderlin, und Jacob Wol-<lb/>
+fen verurſacht worden, dieſer Letztere habe es<lb/>
+zu Straßburg in der Cantzley zweymahl ab-<lb/>
+geſchrieben. Er lobet Freydanck als einen<lb/>
+hertzhaften Freund der Wahrheit, und ſtellt<lb/>
+ihn den Deutſchen zu einem Beyſpiel vor, daß<lb/>
+auch vor langen Zeiten Leute unter ihnen ge-<lb/>
+weſen, welche die Wahrheit mit der erfoder-<lb/>
+ten Freyheit haben reden doͤrffen. Er hat dem<lb/>
+Werck den Titel gemacht: <hi rendition="#fr">Von dem rechten<lb/>
+Wege des Lebens und aller Tugenden Aem-<lb/>
+tern und Eigenſchaften.</hi> Allein wir ſehen<lb/>
+gleich aus den erſten Verſen, daß der Ver-<lb/>
+<fw type="catch" place="bottom">faſſer</fw><lb/>
+<pb n="17" facs="#f0017"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+faſſer es betitelt hat: <hi rendition="#fr">Von der Beſcheidenheit;</hi><lb/>
+denn es faͤngt mit dieſen Zeilen an:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Ich bin genannt <hi rendition="#i">Beſcheidenheyt,</hi></hi></l><lb/>
+<l><hi rendition="#i">Die aller Tugend Kron auftreyt.</hi></l><lb/>
+<l><hi rendition="#i">Mich hat gedichtet Herr Freidanck.</hi></l></lg><lb/>
+<p>Er nimmt das Wort <hi rendition="#fr">Beſcheidenheit</hi> vor die<lb/>
+Tugend <hi rendition="#fr">Ziel und Maaß</hi> in ſeinem Thun und<lb/>
+Laſſen zu halten. Seine moraliſchen Lehren<lb/>
+hangen ſelten lange zuſammen, ſie ſind meiſtens<lb/>
+eine Verfaſſung von kurtzen Spruͤchen, Lebens-<lb/>
+regeln, und Betrachtungen, die zwar oͤfters<lb/>
+lange von einem Hauptſtuͤcke handeln, aber<lb/>
+unter ſich nicht verknuͤpfet ſind. Es giebt dar-<lb/>
+unter eben ſo wohlgedachte, als ſie insgemein<lb/>
+klug und gruͤndlich ſind. Er ſagt von dem<lb/>
+Liebhaben:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Der liebe floucht, den fleucht auch ſie,</hi></l><lb/>
+<l><hi rendition="#aq">Und der ihr begehrt, dem iſt ſie by.</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">Da man um Pfenning Lieb feil treit,</hi></l><lb/>
+<l><hi rendition="#aq">Da kauft ein Mann Unſeligkeit.</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Von den Weibern hat er recht feine Ge-<lb/>
+dancken:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Eim Mann man oft für Ehre hat,</hi></l><lb/>
+<l><hi rendition="#aq">Was frommen Weibern übel ſtaht.</hi></l><lb/>
+<l><hi rendition="#aq">Durch Not muſs oft ſyn keuſch ein Weib,</hi></l><lb/>
+<l><hi rendition="#aq">Der niemand anſpricht ihren Leib.</hi></l><lb/>
+<l><hi rendition="#aq">Wo Weib mit Lieb je miſſethet,</hi></l><lb/>
+<l><hi rendition="#aq">Das kam zuvor von Mannes Bet.</hi></l><lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">VIII.</hi> St.] B</fw><fw type="catch" place="bottom"><hi rendition="#aq">Ver-</hi></fw><lb/>
+<pb n="18" facs="#f0018"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie</hi></fw><lb/>
+<l><hi rendition="#aq">Verſagen was je der Frauen Sitt,</hi></l><lb/>
+<l><hi rendition="#aq">Doch thut in ſanft daſs man ſie bitt.</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">Thut ein Weib eine Miſſethat,</hi></l><lb/>
+<l><hi rendition="#aq">Der ein Mann tauſend an ihm hat,</hi></l><lb/>
+<l><hi rendition="#aq">Der tauſend will er Ehre han,</hi></l><lb/>
+<l><hi rendition="#aq">Und muſs des Weibes Ehr zergahn.</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">Würden die Weib ſo leichtlich froh</hi></l><lb/>
+<l><hi rendition="#aq">Von dem Mann, als die Mænner von ihn’n,</hi></l><lb/>
+<l><hi rendition="#aq">So hielten ſie oft ſteten Sinn.</hi></l></lg><lb/>
+<p>Von der Weisheit ſagt er mit weiſen Sinnen:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Der Weiſen und der Tummen Streit</hi></l><lb/>
+<l><hi rendition="#aq">Hat nun geweret manche Zeit,</hi></l><lb/>
+<l><hi rendition="#aq">Und muſs auch noch viel længer weren;</hi></l><lb/>
+<l><hi rendition="#aq">Man mag in leyder nicht entberen.</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">Den Weiſen oft gar manches würret,</hi></l><lb/>
+<l><hi rendition="#aq">Das die Thoren gantz nicht irret.</hi></l><lb/>
+<l><hi rendition="#aq">Die Weiſen mœchten nicht geneſen,</hi></l><lb/>
+<l><hi rendition="#aq">Solten ſie gantz ohn Thoren weſen.</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">Wie viel der Weis Weisheit ausgiet,</hi></l><lb/>
+<l><hi rendition="#aq">Hat er deßminder Weisheit nit.</hi></l></lg><lb/>
+<p>Von der Ehre macht er die wahre Anmer-<lb/>
+kung:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Der Ehr niemand für Gut begert.</hi></l><lb/>
+<l><hi rendition="#aq">Des Mannes Ehr recht alſo ſtaht,</hi></l><lb/>
+<l><hi rendition="#aq">Darnach als er ſich ſelber hat.</hi></l><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">Wie</hi></fw><lb/>
+<pb n="19" facs="#f0019"/>
+<fw type="header" place="top"><hi rendition="#b">des ſechszehnten Jahrhunderts.</hi></fw><lb/>
+<l><hi rendition="#aq">Wie ſoll des Laſters werden Rath</hi></l><lb/>
+<l><hi rendition="#aq">Dem all ſein Ehr zu Laſter gat.</hi></l><lb/>
+<l><hi rendition="#aq">Vil mancher hat der Ehre Namen,</hi></l><lb/>
+<l><hi rendition="#aq">Und will ſich doch der Ehre ſchamen.</hi></l></lg><lb/>
+<p>Von dem Lobe:</p><lb/>
+<cit><quote><hi rendition="#aq">Wer wohl thut, lobt ſich ſelber wohl.</hi></quote></cit><lb/>
+<p>Von Gewalt:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Es ward kein Kayſer nie ſo reich</hi></l><lb/>
+<l><hi rendition="#aq">Ich mag ihm ſeyn an denken gleich.</hi></l><lb/>
+<l><hi rendition="#aq">Die Fürſten zwingen mit Gewalt</hi></l><lb/>
+<l><hi rendition="#aq">Das Feld, Stein, Waſſer, Berg und Wald.</hi></l><lb/>
+<l><hi rendition="#aq">Dazu all Thier, beid wild und zam,</hi></l><lb/>
+<l><hi rendition="#aq">Sie thetens auch der Luft allſam</hi></l><lb/>
+<l><hi rendition="#aq">Wo ſie vermœchten mit Gewalt</hi></l><lb/>
+<l><hi rendition="#aq">Aber Gott hat ſolches abgeſtalt.</hi></l><lb/>
+<l><hi rendition="#aq">Sie müſſen die gemein lan ſeyn.</hi></l><lb/>
+<l><hi rendition="#aq">Mœchten ſie uns der Sonnen Schein</hi></l><lb/>
+<l><hi rendition="#aq">Verbergen, den Tauw, Wind und Regen,</hi></l><lb/>
+<l><hi rendition="#aq">Sie lieſſen es nicht unterwegen.</hi></l></lg><lb/>
+<p>Man wird in dieſen Exempeln den natuͤrli-<lb/>
+chen Nachdruck der alten Sprache durchge-<lb/>
+hends wahrnehmen. Die Woͤrter ſind nicht<lb/>
+ſo zerfetzet und zerbiſſen, wie bey Branden;<lb/>
+von dem Sylbenmaſſe koͤnnen wir nicht wohl<lb/>
+urtheilen, weil es uns nicht voͤllig bekannt iſt,<lb/>
+und man uͤber das aus gewiſſen Merckzeichen<lb/>
+gewahr wird, daß hin und wieder einige Syl-<lb/>
+ben von dem Abſchreiber bald weggeworffen,<lb/>
+bald hinzugeſetzet worden. Es koͤmmt mir<lb/>
+auch vor, als ob einige alte Woͤrter aus-<lb/>
+<fw type="sig" place="bottom">B 2</fw><fw type="catch" place="bottom">gemer-</fw><lb/>
+<pb n="20" facs="#f0020"/>
+<fw type="header" place="top"><hi rendition="#b">Von der Poeſie ꝛc.</hi></fw><lb/>
+gemertzet, und neuere dafuͤr geſetzet worden.<lb/>
+Viel Poeſie finden wir darinnen nicht, der<lb/>
+Verfaſſer hat eintzig auf das Spruchreiche,<lb/>
+und Deutliche geſehen; doch koͤnnen wir auch<lb/>
+einige lebhafte Stellen auszeichnen:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Wo ſind die nun, der Rom erſt was?</hi></l><lb/>
+<l><hi rendition="#aq">Auf ihrem Palaſt wæchſet Gras.</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">Wie lieb der Menſch lebendig ſey,</hi></l><lb/>
+<l><hi rendition="#aq">Er iſt nach Tod Beywohnung frey.</hi></l><lb/>
+<l><hi rendition="#aq">Der Bauch iſt gar ein bœſer Sack</hi></l><lb/>
+<l><hi rendition="#aq">Er verhœnt aller Würtze Geſchmack.</hi></l><lb/>
+<l><hi rendition="#aq">Wer Muſcatnuſs nimt in den Mund</hi></l><lb/>
+<l><hi rendition="#aq">Und es wieder austhet zu Stund;</hi></l><lb/>
+<l><hi rendition="#aq">Sie wær ihm darnach ungezæm,</hi></l><lb/>
+<l><hi rendition="#aq">Daß er ſie in Mund wieder næm.</hi></l><lb/>
+<l><hi rendition="#aq">Seit wir uns ſelber widerſtahn,</hi></l><lb/>
+<l><hi rendition="#aq">Wer ſoll uns dann vor ſauber han?</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">Zu der Seelen drey Straſſen gahn,</hi></l><lb/>
+<l><hi rendition="#aq">Die dem Tod allzeit offen ſtahn.</hi></l><lb/>
+<l><hi rendition="#aq">Wer in Sünden erlieget todt,</hi></l><lb/>
+<l><hi rendition="#aq">Des Seel wird leiden ewig Not.</hi></l><lb/>
+<l><hi rendition="#aq">Die ander iſt, wer übel thut</hi></l><lb/>
+<l><hi rendition="#aq">Und ſich bedünkt dennoch ſyn gut.</hi></l><lb/>
+<l><hi rendition="#aq">Die dritt Straſs iſt ſo breit und weit</hi></l><lb/>
+<l><hi rendition="#aq">Daſs all Welt darauf geht allzeit.</hi></l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l><hi rendition="#aq">Die Welt mit Falſchheit wircken thut</hi></l><lb/>
+<l><hi rendition="#aq">Ein Band, das zeucht zur Hœllen Glut.</hi></l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Criti-</hi></fw><lb/>
+<pb n="21" facs="#f0021"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Critiſche Betrachtungen uͤber des<lb/>
+Herrn von Hagedorn Ode auf<lb/>
+den Weiſen.</hi></head><lb/>
+<p><hi rendition="#in">D</hi>Er Herr Friedrich von Hagedorn Seere-<lb/>
+tair der Engliſchen Compagnie in Ham-<lb/>
+burg iſt einer von denen wenigen Verfaſſern,<lb/>
+welche den Kunſtrichtern unſrer Zeiten durch<lb/>
+vortreffliche Wercke Anlaß geben, die gute<lb/>
+Beſchaffenheit ihres Hertzens, das mit Be-<lb/>
+gierde lobet, und nur genoͤthiget tadelt, an<lb/>
+den Tag zu legen. Die Muſe hat ihn an ih-<lb/>
+rer Bruſt geſaͤuget, und ſein großmuͤthiger<lb/>
+Geiſt hat ihm die Denckensart der Engellaͤn-<lb/>
+der gantz uͤblich und eigen gemachet. Dieſe<lb/>
+hat ſich in ſeine Gedichte ergoſſen. Doch ich<lb/>
+kan ſeinen Werth nicht lebhafter abſchildern,<lb/>
+als einer von meinen Landesleuten in der poe-<lb/>
+tiſchen Sprache, (da er von einem Poeten<lb/>
+redet,) gethan hat:</p><lb/>
+<lg type="poem"><l>Ein andrer, deſſen Schrift mein wallend Hertz bewegt,</l><lb/>
+<l>Daß mein Geſang ſein Lob auf willgen Fluͤgeln traͤgt,</l><lb/>
+<l>Jſt jener, den ein Schwarm verbuhlter Froͤhligkeiten,</l><lb/>
+<l>Die Zaͤrtlichkeit, der Witz, und ſchlaue Schertz begleiten.</l><lb/>
+<l>Er fuͤhrte ſie zuerſt bey Hamburgs Schoͤnen ein;</l><lb/>
+<l>Bey ihrer Ankunft floh der falſchen Frommen Schein,</l><lb/>
+<l>Der Zunge Furchtſamkeit, die Plumpheit im Betragen,</l><lb/>
+<l>Der Glieder traͤge Laſt, die Minen, die nichts ſagen,</l><lb/>
+<l>Das Lachen ohne Sinn, die ſchwartze Sudeley,</l><lb/>
+<l>Mit der gekauften Luſt, und wuͤſten Schwelgerey.</l><lb/>
+<l>Wovon er nur erzaͤhlt, das kriegt urploͤtzlich Sitten.</l><lb/>
+<l>Annehmlichkeit und Reitz waͤchßt unter ſeinen Tritten.</l><lb/>
+<fw type="sig" place="bottom">B 3</fw><fw type="catch" place="bottom">Die</fw><lb/>
+<pb n="22" facs="#f0022"/>
+<fw type="header" place="top"><hi rendition="#b">Critiſche Betracht. uͤber die Ode</hi></fw><lb/>
+<l>Die Wahrheit weiſet ſich in holder Zierlichkeit,</l><lb/>
+<l>Und die Natur glaͤntzt hier gantz praͤchtig ungekleidt.</l><lb/>
+<l>Natuͤrlichs dieſer Art iſt kaum genug zu ſchaͤtzen,</l><lb/>
+<l>Und dem Erhabnen ſelbſt nur wenig nachzuſetzen.</l></lg><lb/>
+<p>Das Lob, das dieſer geſchickte Mann von<lb/>
+Kennern der wahren Poeſie bekommen, hat<lb/>
+die Wuͤrckung gehabt, daß auch ſchale Koͤpfe<lb/>
+angefangen haben, ihn vor etwas zu halten.<lb/>
+Dieſes hat ihm das Ungluͤck zugezogen, daß<lb/>
+er von den verwegenen Verfaſſern der <hi rendition="#fr">Be-<lb/>
+luſtigungen des Witzes und Verſtandes</hi> vor<lb/>
+einen ihrer Bande ausgeruffen worden. Ueber-<lb/>
+dies haben ſie ihm ſeine Ode auf den Wei-<lb/>
+ſen, die er abſonderlich fuͤr ſeine Freunde,<lb/>
+und gar nicht fuͤr ſie gedruckt hatte, aufge-<lb/>
+fangen, und unter die <hi rendition="#fr">monatlchen</hi> Geburten<lb/>
+ihres Witzes geworffen. Eine unbillige und<lb/>
+corſarenmaͤſſige Caperey! Wir haben darum<lb/>
+nicht vor gut gefunden, ihnen dieſe Beute zu<lb/>
+laſſen; wir haben ſie ihnen wieder abgenom-<lb/>
+men, und der Hr. Verfaſſer ſelbſt hat uns<lb/>
+erlaubet, ſie in der gegenwaͤrtigen Sammlung<lb/>
+einzutragen, wo wir Sorge tragen wollen,<lb/>
+ſie in ihrem eigenen unverdunckelten Glantze<lb/>
+vorzulegen.</p><lb/>
+<p>Jn dieſem philoſophiſchen Gedichte ſtechen<lb/>
+uͤberhaupt zweierley Schoͤnheiten hervor. Ei-<lb/>
+nige beziehen ſich auf die Erhabenheit der Ge-<lb/>
+dancken; die andern hingegen auf die Kraft<lb/>
+und Kuͤhnheit des Ausdruckes Jndem der<lb/>
+Poet uns die erhabenen Entſchluͤſſe ſeines Wei-<lb/>
+ſen entdecket, und zeiget wie er ſich dadurch<lb/>
+<fw type="catch" place="bottom">von</fw><lb/>
+<pb n="23" facs="#f0023"/>
+<fw type="header" place="top"><hi rendition="#b">auf den Weiſen.</hi></fw><lb/>
+von dem niedrigen Poͤbel entfernet, und ſei-<lb/>
+ne Gluͤckſeligkeit bey ſich ſelbſt findet, laͤßt er<lb/>
+uns ſein eigenes großmuͤthiges Hertz gleich-<lb/>
+ſam offen ſehen und bewundern; er giebt da-<lb/>
+durch ſeiner philoſophiſchen Beſchreibung ein<lb/>
+groſſes Gewicht der Glaubwuͤrdigkeit: Zumah-<lb/>
+len da in dieſem kleinen Gedichte mehr der-<lb/>
+gleichen kuͤhne Entſchluͤſſe und Hertzens-Ge-<lb/>
+danken zu finden ſind, als man in mancher weit-<lb/>
+laͤuftigen Sammlung deutſcher Poeſien vergeb-<lb/>
+lich ſuchen wird. Dergleichen ſind:</p><lb/>
+<lg type="poem"><l>Doch wer iſt groß? Der Fuͤrſten nicht vergoͤttert,</l><lb/>
+<l>Und edler denkt, als mancher Fuͤrſt gedacht.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l>Der Geiſt, durch den ein Cato groß geworden,</l><lb/>
+<l>Faͤhrt in kein Band, und ruht auf keinem Orden.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<lg type="poem"><l>Wie oft iſt der der Welt im Zorn gegeben,</l><lb/>
+<l>Den Cleriſey und Hof und Land erheben?</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Von der Schmeicheley und unverdienten<lb/>
+Schande:</p><lb/>
+<lg type="poem"><l>Fuͤhrt im Triumph die Bloͤden, die nichts wiſſen,</l><lb/>
+<l>Und, was ſie ſind, vom Poͤbel lernen muͤſſen.</l></lg><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Von der Weisheit:</p><lb/>
+<cit><quote>Jhr Geiſt iſt ſtarck und geht durch alle Geiſter.</quote></cit><lb/>
+<p>Was jetzo den edeln und kuͤhnen Ausdruck<lb/>
+betrift, der dieſem ſonſt philoſophiſchen Gedichte<lb/>
+ein poetiſches Anſehen mitheilen ſoll, ſo finde<lb/>
+ich, daß der Verfaſſer unterſchiedliche Kunſt-<lb/>
+griffe gebraucht hat, dieſes zu erhalten: Als<lb/>
+<fw type="sig" place="bottom">B 4</fw><fw type="catch" place="bottom">z. E.</fw><lb/>
+<pb n="24" facs="#f0024"/>
+<fw type="header" place="top"><hi rendition="#b">Crit. Betracht. uͤber die Ode</hi></fw><lb/>
+z. Ex. da er abgezogene Weſen mit guter Wahl<lb/>
+und Nachdruck in Perſonen verwandelt, und ih-<lb/>
+nen auch ſo gar aͤuſſerliche und ſichtbare Hand-<lb/>
+lungen zuſchreibet.</p><lb/>
+<p>Die Schaͤtze,</p><lb/>
+<cit><quote>Um die der Geitz nach fernen Ufern <hi rendition="#fr">reiſ’t.</hi></quote></cit><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Die Sorgen:</p><lb/>
+<cit><quote>Er ſchlaͤft mit Luſt, wo andrer <hi rendition="#fr">Sorgen wachen.</hi></quote></cit><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<p>Die Gunſt, Macht und Freyheit,</p><lb/>
+<cit><quote><hi rendition="#fr">Gunſt kroͤnt</hi> den Fleiß, den Macht u. Freyheit <hi rendition="#fr">ſchuͤtzen.</hi></quote></cit><lb/>
+<p>Das Lob,</p><lb/>
+<cit><quote>Wann war es nicht des Gluͤckes <hi rendition="#fr">Folge-Magd?</hi></quote></cit><lb/>
+<p>Die Schmeicheley:</p><lb/>
+<cit><quote>Die Schmeicheley legt ihre ſanften Bande,<lb/>
+Jhr glattes Joch nur eiteln Seelen an.</quote></cit><lb/>
+<p>Von der Weisheit ſagt er:</p><lb/>
+<cit><quote>An ihr verliert der Zufall ſeine Kraft.</quote></cit><lb/>
+<p>Ein anderer Kunſtgriff ſind einige gluͤcklich an-<lb/>
+gebrachte Umſchreibungen, und Erweiterungen.<lb/>
+z. E.</p><lb/>
+<lg type="poem"><l>Den Schatz, an dem kein Diebes-Finger klebet,</l><lb/>
+<l><hi rendition="#fr">Nach dem allein der Reichen Neid nicht ſtrebet.</hi></l><lb/>
+<l>Der H<hi rendition="#fr">andlung Frucht</hi> und <hi rendition="#fr">was ihr Muth erſtritten,</hi></l><lb/>
+<l>Wird, unbereut, Verdienſten zugewandt.</l><lb/>
+<l>Und meidet den, der <hi rendition="#fr">den Genuß vom Leben,</hi></l><lb/>
+<l>Der jeden Tag nur dem Gewerbe weiht.</l></lg><lb/>
+<p>Jch ſage nichts von den hier und da eingeſtreu-<lb/>
+ten kleinen aber lebhaften Beſchreibungen, als<lb/>
+z. E. in der dritten Strophe, noch von der gluͤck-<lb/>
+lichen Wahl der Beywoͤrter u. a. d.</p><lb/>
+<fw type="catch" place="bottom">Ein</fw><lb/>
+<pb n="25" facs="#f0025"/>
+<fw type="header" place="top"><hi rendition="#b">auf den Weiſen.</hi></fw><lb/>
+<lg type="poem"><head><hi rendition="#b">Der Weiſe.</hi></head><lb/>
+<lg n="1"><head><hi rendition="#aq">I</hi></head><lb/>
+<l><hi rendition="#in">E</hi>Jn Midas trotzt auf den Beſitz der Schaͤtze,<note place="foot">V. 1. Auf den Beſitz der Schaͤtze)<lb/>
+<cb/>
+Das Poſſeſſivum mein, dein,<lb/>
+ſein, kann oͤfters, wie hier ge-<lb/>
+ſchehen, mit gutem Nachdruck<lb/>
+durch ein Subſtantivum gegeben<lb/>
+werden. Und da der Poet hier<lb/>
+<cb/>
+von dem Beſitz nicht aber von<lb/>
+dem Genuß redet, ſo dienet die<lb/>
+Wahl dieſes Wortes den Trotz<lb/>
+eines ſolchen Midas recht laͤ-<lb/>
+cherlich zu machen.</note></l><lb/>
+<l>Um die der Geitz nach fernen Ufern reiſ’t.</l><lb/>
+<l>Pruͤft auch der Thor der Wahrheit ew’ge Saͤtze,</l><lb/>
+<l>Des Weiſen Gluͤck, den echten Helden-Geiſt,<lb/>
+<note place="left">5</note>Den Schatz, an dem kein Diebes-Finger klebet,<note place="foot">V. 5. An dem kein Diebes-Finger klebet)<lb/>
+<cb/>
+Jeder Verſtaͤndiger kan merken,<lb/>
+daß der Verfaſſer den Werth<lb/>
+des verborgenen und geheimen<lb/>
+Schatzes der Weisheit durch den<lb/>
+Gegenſatz der Unbeſtaͤndigkeit des<lb/>
+<cb/>
+betruͤglichen Reichthums erhoͤ-<lb/>
+hen will: Da jener nicht wie<lb/>
+dieſer durch tauſend Zufaͤlle ge-<lb/>
+raubet werden kan.</note></l><lb/>
+<l>Nach dem allein der Reichen Neid nicht ſtrebet?</l></lg><lb/>
+<lg n="2"><head><hi rendition="#aq"><hi rendition="#g">II.</hi></hi></head><lb/>
+<l>Ein Weiſer lebt<note place="foot">V. 7. Ein Weiſer lebt)<lb/>
+<cb/>
+Das Wort leben muß hier mit<lb/>
+Nachdruck und in ſeinem wahren<lb/>
+Begriff genommen werden. Er<lb/>
+lebt vernuͤnftig und vergnuͤgt.<lb/>
+Folglich iſt alles andere, was<lb/>
+<cb/>
+die Menſchen als die groͤſten<lb/>
+Schaͤtze ſuchen, zu dem wahren<lb/>
+Leben eines Menſchen gantz uͤber-<lb/>
+fluͤſſig.</note>, obgleich nicht krumme Griffe</l><lb/>
+<l>Jhm Geld und <hi rendition="#fr">Troſt</hi><note place="foot" xml:id="f01" next="#f02">V. 8. Jhm Geld und Troſt ꝛc.)<lb/>
+Dieſe Figur iſt zwar kuͤhn, lei- an Wahrſcheinlichkeit: Son-<lb/>
+det aber darum keinen Abgang dern dienet den Geitzigen, der<lb/>
+<fw type="catch" place="bottom">ſeinen</fw></note> in Schraͤnk’ und Kaſten ziehn;</l><lb/>
+<fw type="sig" place="bottom">B 5</fw><fw type="catch" place="bottom">Beſchwe-</fw><lb/>
+<lb/>
+<lb/>
+<lb/>
+<lb/>
+<pb n="26" facs="#f0026"/>
+<fw type="header" place="top"><hi rendition="#b">Crit. Betracht. uͤber die Ode</hi></fw><lb/>
+<l>Beſchweret gleich ſein wuchernd Gut nicht Schiffe,<lb/>
+<note place="left">10</note>Die zum Gewinn mit ſchnellen Segeln fliehn.</l><lb/>
+<l>Er darf ſich groß, er darf ſich gluͤcklich preiſen;</l><lb/>
+<l>Kein fremder Fluch verſaltzet ſeine Speiſen.</l></lg><lb/>
+<lg n="3"><head><hi rendition="#aq"><hi rendition="#g">III.</hi></hi></head><lb/>
+<l>Er ſchlaͤft mit Luſt, wo andrer <hi rendition="#fr">Sorgen wachen;</hi></l><lb/>
+<l>Wann Boreas um Dach und Fenſter heult,<lb/>
+<note place="left">15.</note>Und dann vielleicht der Wellen ſchwartzer <hi rendition="#fr">Rachen</hi><note place="foot" xml:id="f03" next="#f04">V. 15. Der Wellen ſchwartzer Rachen)<lb/>
+<cb/>
+Nach dem Gottſchediſchen Ge-<lb/>
+ſchmack wuͤrde dieſer Tropus<lb/>
+aufs wenigſte Lohenſteiniſch,<lb/>
+<cb/>
+oder gar Miltoniſch, d. i. aben-<lb/>
+theurlich ſeyn: Da muͤßte man<lb/>
+die ſeltſamen critiſchen Fragen<lb/>
+<fw type="catch" place="bottom">hoͤren,</fw></note></l><lb/>
+<fw type="catch" place="bottom">Den</fw><lb/>
+<note place="foot" xml:id="f02" prev="#f01"> <cb/>
+ſeinen Troſt in Kaſten und<lb/>
+Schraͤncke verſchlieſſen muß, recht<lb/>
+laͤcherlich zu machen. Der Poet<lb/>
+<cb/>
+ſagt, Troſt in die Schraͤncke und<lb/>
+Kaſten ziehn, wie Virgil geſagt<lb/>
+hat:<lb/>
+<cit><quote><hi rendition="#aq">Attollitque humeris famamque &amp; fata Nepotum.<lb/>
+<hi rendition="#et">Aen. VIII. 731.</hi></hi></quote></cit><lb/>
+Und Ovidius:<lb/>
+<cit><quote>‒ ‒ ‒ ‒ <hi rendition="#aq">Rupit cœleſtia crimina.</hi></quote></cit><lb/>
+<cb/>
+Das Wort Geld, welches bey<lb/>
+dem Worte Troſt ſteht, maͤſſi-<lb/>
+get die Kuͤhnheit der Figur, die<lb/>
+viel fremder geſchienen haͤtte,<lb/>
+wenn es nur geheiſſen haͤtte,<lb/>
+<cb/>
+keine krumme Griffe ziehn dem<lb/>
+Weiſen ſeinen Troſt, wie dem<lb/>
+Geitzigen in Schraͤncke und Ka-<lb/>
+ſten. Nach derſelben Figur hat<lb/>
+Opitz geſagt:<lb/>
+<lg type="poem"><l>O Menſch du Gluͤckesball, was haͤuſt du aus den Gruͤnden</l><lb/>
+<l>Und ſucheſt in der Bach, im Sande deine Suͤnden?</l></lg><lb/>
+<cb/>
+Die Suͤnden werden hier fuͤr<lb/>
+das Gold, als den Werckzeug<lb/>
+derſelben geſetzt, gleichwie von<lb/>
+unſerm Poeten der Troſt, als<lb/>
+die Wirckung des Goldes, die<lb/>
+es bey dem Geitzigen hat, dem<lb/>
+Gelde beygeſellet iſt. Jn den<lb/>
+<cb/>
+beyden angezogenen lateiniſchen<lb/>
+Verſen werden der Ruhm,<lb/>
+das Schickſal, und die Ue-<lb/>
+bertretungen fuͤr die Sachen<lb/>
+geſetzt, welche durch den Grab-<lb/>
+ſtichel und den Pinſel geſchil-<lb/>
+dert waren.</note><lb/>
+<lb/>
+<pb n="27" facs="#f0027"/>
+<fw type="header" place="top"><hi rendition="#b">auf den Weiſen.</hi></fw><lb/>
+<l>Den Frachten droht, und Maſt und Kiel ereilt,</l><lb/>
+<l>So oft der Herr der Waſſer und der Erden.</l><lb/>
+<l>Die Kraͤmer beugt, daß ſie nicht Fuͤrſten werden.</l></lg><lb/>
+<lg n="4"><head><hi rendition="#aq"><hi rendition="#g">IV.</hi></hi></head><lb/>
+<l>Was Recht und Fleiß und Zeit und Gluͤck ihm geben,</l><lb/>
+<note place="left">20</note><l>Verwaltet er<note place="foot">V. 20. Verwaltet er.<lb/>
+<cb/>
+Er beſitzt es nicht als ein Eigen-<lb/>
+thums-Herr; ſondern er ver-<lb/>
+<cb/>
+waltet es nur als etwas frem-<lb/>
+des.</note> mit milder Danckbarkeit,</l><lb/>
+<l>Und meidet den, der den <hi rendition="#fr">Genuß vom</hi> Leben,</l><lb/>
+<l>Der jeden Tag nur dem Gewerbe weiht,</l><lb/>
+<fw type="catch" place="bottom">Und</fw><lb/>
+<note place="foot" xml:id="f04" prev="#f03"> <cb/>
+hoͤren, ob denn die Wellen auch<lb/>
+eine Zunge, ob ſie auch Zaͤh-<lb/>
+ne haben? Wenn man ſchon<lb/>
+antworten wuͤrde; der Geitzige<lb/>
+ſtelle ſich in ſeiner Einbildung<lb/>
+die Gefahr in dergleichen Um-<lb/>
+ſtaͤnden noch ſo groß und er-<lb/>
+ſchrecklich vor, als ſie iſt; der<lb/>
+Tropus an ſich ſelbſt habe ſeine<lb/>
+maleriſche Wahrſcheinlichkeit;<lb/>
+man ſage in den gemeinen Re-<lb/>
+den, von den Wellen verſchlun-<lb/>
+gen werden, und was derglei-<lb/>
+chen mehr zur Rechtfertigung die-<lb/>
+ſer Redensart vorgebracht wer-<lb/>
+den koͤnnte; ſo bleiben dieſe<lb/>
+eritiſchen Helden auf ihrem ſechs-<lb/>
+ten Sinne, und geben ihrem<lb/>
+Ausſpruch durch ihr Anſehen,<lb/>
+und durch eine oͤftere Wieder-<lb/>
+holung einen ſolchen Nachdruk,<lb/>
+daß ihre glaͤubigen Schuͤler ſich<lb/>
+verſchweeren wuͤrden, es waͤre un-<lb/>
+moͤglich daß die Wellen einen Ra-<lb/>
+chen haben koͤnnen, wie die Loͤwen.<lb/>
+Alſo hat Hr. Gottſched ſelbſt<lb/>
+ſchon im Jahr 1728. den gleich-<lb/>
+<cb/>
+maͤſſigen Tropum, daß die Bluh-<lb/>
+men ihre Haͤlſe emporrecken,<lb/>
+mit dergleichen ſeltſamen Fra-<lb/>
+gen laͤcherlich zu machen geſucht.<lb/>
+Er hat geſagt: Der Lilie und<lb/>
+der Tulipe wird ein Haupt zu-<lb/>
+geſchrieben; Hr. Broks giebt<lb/>
+ihnen gar eine Stirne. Haben<lb/>
+ſie ein Haupt und eine Stirne<lb/>
+ſo haben ſie auch einen Hals,<lb/>
+ſo koͤnnen ſie ihn auch hervor-<lb/>
+recken. Vortrefflich! Warum<lb/>
+nicht auch eine Naſe, warum<lb/>
+nicht auch Ohren? Warum nicht<lb/>
+auch Schultern u. ſ. w.<lb/>
+Wir haben es ſeiner Beſchei-<lb/>
+denheit zu dancken, daß er uns<lb/>
+auf die abſonderliche Aehnlich-<lb/>
+keit, ſo einige Theile der Blu-<lb/>
+men mit gewiſſen Gliedmaſſen<lb/>
+des menſchlichen Leibes haben,<lb/>
+nicht einen gantzen Menſchen ge-<lb/>
+ſtaltet, und ihn mit Naͤgeln,<lb/>
+Nabel, desgleichen Lungen, Le-<lb/>
+ber, und uͤbrigen Eingeweide<lb/>
+verſehen, zuletzt noch mit Seele<lb/>
+und Leben begabet hat.</note><lb/>
+<lb/>
+<pb n="28" facs="#f0028"/>
+<fw type="header" place="top"><hi rendition="#b">Crit. Betracht. uͤber die Ode</hi></fw><lb/>
+<l>Und juͤdiſch lacht, ſo oft er ſieht und hoͤret,</l><lb/>
+<l>Wie die Vernunft Geſchmack und Wahrheit ehret.</l></lg><lb/>
+<lg n="5"><head><hi rendition="#aq">V.</hi></head><lb/>
+<note place="left">25</note><l>Wie edel iſt die Neigung echter Britten!</l><lb/>
+<l>Jhr Ueberfluß <hi rendition="#fr">bereichert den Verſtand.</hi><note place="foot">V. 26. Jhr Ueberfluß bereichert den Verſtand.<lb/>
+<cb/>
+Auch dieſes iſt eine nachdruͤckli-<lb/>
+che Ausdruͤckung, die viel geden-<lb/>
+ken laͤßt. Er ſagt nicht nur,<lb/>
+daß in Engelland der Verſtand<lb/>
+ein Mittel ſey Geld zu erwerben:<lb/>
+Sondern daß die Freygebigkeit<lb/>
+<cb/>
+den Verſtand auf tauſend Er-<lb/>
+findungen fuͤhre, und ihn an<lb/>
+Erfindung reich mache, und daß<lb/>
+die Engellaͤnder ihren Ueberfluß<lb/>
+zu dieſem Ende gebrauchen.</note></l><lb/>
+<l>Der Handlung Frucht und was ihr Muth erſtritten</l><lb/>
+<l>Wird, unbereut, Verdienſten zugewandt;</l><lb/>
+<l>Gunſt kroͤnt den Fleiß, den Macht und Freyheit ſchuͤtzen:<lb/>
+<note place="left">30</note>Die Reichſten ſind der Wiſſenſchaften Stuͤtzen.</l></lg><lb/>
+<lg n="6"><head><hi rendition="#aq"><hi rendition="#g">VI.</hi></hi></head><lb/>
+<l>O Freyheit! dort, nur dort iſt deine Wonne,<note place="foot">V. 31. O Freyheit dort, nur dort iſt deine Wonne, ꝛc.<lb/>
+<cb/>
+Jn dieſer und den drey folgen-<lb/>
+den Zeilen werden die Guͤter,<lb/>
+und Vortheile, welche der rechte<lb/>
+Gebrauch der Freyheit der Stadt<lb/>
+Londen zutheilet, mit dem groͤſ-<lb/>
+ſeſten Nachdruck erhoben. Die<lb/>
+<cb/>
+Gleichniſſe in der 33. und der<lb/>
+34ſten Zeile ſind von den herr-<lb/>
+lichſten Gegenſtaͤnden in der Na-<lb/>
+tur hergenommen, und ihre Zu-<lb/>
+ſammenſtellung haͤufet Nachdruk<lb/>
+auf Nachdruck.</note></l><lb/>
+<l>Der Staͤdte Schmuck, der Segen jeder Flur,</l><lb/>
+<l>Starck wie das Meer, erquickend wie die Sonne,</l><lb/>
+<l>Schoͤn wie ihr Licht, und reich wie die Natur.<lb/>
+<note place="left">35</note>Halb-gluͤcklich ſind die Sclaven, die dich nennen<note place="foot" xml:id="f05" next="#f06">V. 35. Halb-gluͤcklich ſind ꝛc.<lb/>
+Die Buͤrger, die unter einer deſpotiſchen Regierung leben,<lb/>
+<fw type="catch" place="bottom">und</fw></note></l><lb/>
+<l>Und nicht zu viel von deiner Wuͤrde kennen!</l></lg><lb/>
+<fw type="catch" place="bottom">Wer</fw><lb/>
+<lb/>
+<lb/>
+<lb/>
+<pb n="29" facs="#f0029"/>
+<fw type="header" place="top"><hi rendition="#b">auf den Weiſen.</hi></fw><lb/>
+<lg n="7"><head><hi rendition="#aq"><hi rendition="#g">VII.</hi></hi></head><lb/>
+<l>Wer heißt oft groß? Der ſchnell nach Ehren klettert,</l><lb/>
+<l>Den Kuͤhnheit hebt, die Hoͤhe ſchwindlicht macht.</l><lb/>
+<l>Doch wer iſt groß? Der Fuͤrſten nicht vergoͤttert,<lb/>
+<note place="left">40</note>Und edler denkt, als mancher Fuͤrſt gedacht,</l><lb/>
+<l>Der Wahrheit ſucht und Recht und Wahrheit findet.</l><lb/>
+<l>Und ſeinen Werth auf Witz und Tugend gruͤndet.</l></lg><lb/>
+<lg n="8"><head><hi rendition="#aq"><hi rendition="#g">VIII.</hi></hi></head><lb/>
+<l>Ein ſolcher kennt die Eitelkeit der Wuͤrden,</l><lb/>
+<l>Jn die das Gluͤck zu ſelten Kluge ſteckt.<lb/>
+<note place="left">45</note>Jhn ruͤhret nicht der Aufputz hoher Buͤrden;</l><lb/>
+<l>Jhm ſtrahlt kein Stern, der kleine Hertzen deckt.<note place="foot">V. 46. Jhm ſtrahlt kein Stern, der kleine Hertzen deckt.<lb/>
+<cb/>
+Das ſagt euch, daß ihn der Glanz<lb/>
+und Schimmer der aͤuſſerlichen<lb/>
+Ordenszeichen nicht blenden,<lb/>
+und bethoͤren koͤnnen, daß er<lb/>
+<cb/>
+das kleine Hertz, ſo oft darunter<lb/>
+verborgen liegt, nicht entdecken<lb/>
+ſollte.</note></l><lb/>
+<l>Der Geiſt, durch den ein Cato groß geworden,</l><lb/>
+<l>Faͤhrt in kein Band und ruht auf keinem Orden.</l></lg><lb/>
+<lg n="9"><head><hi rendition="#aq"><hi rendition="#g">IX.</hi></hi></head><lb/>
+<l>Wann machte ſich das Lob der Tugend eigen?<lb/>
+<note place="left">50</note>Wann war es nicht des Gluͤckes Folge-Magd?</l><lb/>
+<l>Wie oft beſchaͤmt der, dem die Schmeichler ſchweigen,</l><lb/>
+<fw type="catch" place="bottom">Dem</fw><lb/>
+<note place="foot" xml:id="f06" prev="#f05"> <cb/>
+und die Freyheit nur nach dem<lb/>
+<l>Nahmen, nicht nach ihrer vor-<lb/>
+trefflichen Natur kennen, ſind<lb/>
+einiger maſſen gluͤcklich zu heiſ-<lb/>
+ſen; denn wenn ſie dieſelbe voll-<lb/>
+<cb/>
+kommen kenneten, ſo wuͤrde der<lb/>
+Verdruß ſie zu miſſen, oder die<lb/>
+Begierde und Bemuͤhung ſie zu<lb/>
+erlangen, ihr Leben ungluͤcklich</l><lb/>
+machen.</note> <lb/>
+<lb/>
+<pb n="30" facs="#f0030"/>
+<fw type="header" place="top"><hi rendition="#b">Crit. Betracht. uͤber die Ode</hi></fw><lb/>
+<l>Den, dem ihr Schwarm viel ſuͤſſes vorgeſagt?</l><lb/>
+<l>Wie oft iſt der der Welt im Zorn gegeben,</l><lb/>
+<l>Den Cleriſey und Hof und Land erheben?</l></lg><lb/>
+<lg n="10"><head><hi rendition="#aq">X</hi></head><lb/>
+<note place="left">55</note><l>Die Einfalt lobt was vieler Stimmen loben;</l><lb/>
+<l>Die Menſchen-Furcht was ſie nicht ſtuͤrtzen kan.</l><lb/>
+<l>Germanicus wird billig hoch erhoben;</l><lb/>
+<l>Doch betet Rom auch ſeinen Buben an:</l><lb/>
+<l>Domitian, Roms ſchaͤndlichſter Berather,<lb/>
+<note place="left">60</note>Heißt wie Auguſt des Vaterlandes Vater.</l></lg><lb/>
+<lg n="11"><head><hi rendition="#aq"><hi rendition="#g">XI</hi></hi></head><lb/>
+<l>Wie mancher wird aus Eigennutz beſungen,</l><lb/>
+<l>Mit Lob betaͤubt, den jede That <hi rendition="#fr">entehrt!</hi><note place="foot">V. 62. Mit Lob betaͤubt, den jede That entehrt.<lb/>
+<cb/>
+Welcher Nachdruck! Denjeni-<lb/>
+gen, den alle ſeine Thaten alles<lb/>
+Lobs und aller Ehre unwuͤrdig<lb/>
+machen, durch ein ſchmeichleri-<lb/>
+ſches Lob ſo ſehr und ungeſtuͤm<lb/>
+<cb/>
+erheben, daß ein ſolcher Eiteler<lb/>
+ſelbſt dadurch betaͤubt wird, und<lb/>
+ſich des uͤbertriebenen Lobs faſt<lb/>
+ſchaͤmet.</note></l><lb/>
+<l>Des Frevlers Ruhm ertoͤnt auf feigen Zungen,<note place="foot">V. 63. Des Frevlers Ruhm ertoͤnt auf feigen Zungen.<lb/>
+<cb/>
+Das iſt, wird ein Gottſchedianer<lb/>
+ſagen, ein Bluͤmchen aus der un-<lb/>
+ergruͤndlichen und geheimnißrei-<lb/>
+chen Schreibart, die allmaͤh-<lb/>
+lich bey uns einſchleichen will,<lb/>
+die mehr gedencken laͤßt, als ſie<lb/>
+wircklich ſagt, und darum den Le-<lb/>
+ſer ermuͤdet. Da hingegen Gott-<lb/>
+<cb/>
+ſched eine ſo deutliche und fluͤſ-<lb/>
+ſige Schreibart in Gang gebracht<lb/>
+hat, welche auch die Unver-<lb/>
+ſtaͤndigſten verſtehen muͤſſen,<lb/>
+und die von Gedancken nicht<lb/>
+ſo beſchweret iſt, daß ſie die Le-<lb/>
+ſer ermuͤden koͤnnte.</note></l><lb/>
+<l>Bis ihm das Gluͤck den falſchen Ruͤcken kehrt.</l><lb/>
+<fw type="catch" place="bottom">65 Ahito-</fw><lb/>
+<lb/>
+<lb/>
+<pb n="31" facs="#f0031"/>
+<fw type="header" place="top"><hi rendition="#b">auf den Weiſen.</hi></fw><lb/>
+<note place="left">65</note><l>Ahitophel, und ſolcher Raͤthe hundert,</l><lb/>
+<l>So gar ein Suͤß ward, eh er hieng, bewundert.</l></lg><lb/>
+<lg n="9"><head><hi rendition="#aq"><hi rendition="#g">XII</hi></hi></head><lb/>
+<l>Die Schmeicheley legt ihre ſanften Bande,</l><lb/>
+<l>Jhr glattes Joch nur eitlen Seelen an.</l><lb/>
+<l>Unedter Ruhm und unverdiente Schande,<lb/>
+<note place="left">70</note>O waget euch an keinen Bidermann!</l><lb/>
+<l>Fuͤhrt im Triumph die Bloͤden, die nichts wiſſen,</l><lb/>
+<l>Und, was ſie ſind, vom Poͤbel lernen muͤſſen!</l></lg><lb/>
+<lg n="10"><head><hi rendition="#aq"><hi rendition="#g">XIII</hi></hi></head><lb/>
+<l>Ruhm, Ehre, Lob (wie wir den Beyfall nennen,</l><lb/>
+<l>Den alle Welt Verdienſten ſchuldig iſt)<lb/>
+<note place="left">75</note>Euch kan uns nur die Weisheit zuerkennen,</l><lb/>
+<l>Die unſern Werth nicht nach dem Anſehn mißt.</l><lb/>
+<l>Jhr Ernſt verſcheucht die Kuͤnſte kleiner Meiſter;</l><lb/>
+<l>Jhr Geiſt iſt ſtarck und geht durch alle Geiſter.</l></lg><lb/>
+<lg n="11"><head><hi rendition="#aq"><hi rendition="#g">XIV</hi></hi></head><lb/>
+<l>Jhr Preis, ihr Werth wird nicht vom Gluͤck entſchieden;<lb/>
+<note place="left">80</note>An ihr verliert der Zufall ſeine Kraft:</l><lb/>
+<l>Sie kennet ſich, und ihren innren Frieden</l><lb/>
+<l>Zerruͤttet nicht die Macht der Leidenſchaft.</l><lb/>
+<l>Was? darf man noch die niedren Groͤſſen preiſen?</l><lb/>
+<l>Kein Stand iſt groß, als nur der Stand des Weiſen.</l></lg><lb/>
+<fw type="catch" place="bottom">85 Er</fw><lb/>
+<pb n="32" facs="#f0032"/>
+<fw type="header" place="top"><hi rendition="#b">Crit. Betracht. uͤber die Ode ꝛc.</hi></fw><lb/>
+<lg n="15"><head><hi rendition="#aq"><hi rendition="#g">XV</hi></hi></head><lb/>
+<note place="left">85</note><l>Er weiß, ſein Gott kennt, waͤhlt und wirkt das Beſte:</l><lb/>
+<l>Das einzuſehn, iſt ſeine Luſt und Pflicht,</l><lb/>
+<l>Und bebte gleich der Welten Bau und Veſte,<note place="foot">V. 87. 88. Und bebte gleich ꝛc.<lb/>
+<cit><quote><hi rendition="#et"><hi rendition="#aq">Fractus illabatur orbis<lb/>
+Impavidum ferient ruinæ. Horat.</hi></hi></quote></cit><lb/>
+<cit><quote>Faͤllt der Himmel, er kan Weiſe decken;<lb/>
+Aber nicht ſchrecken.<lb/>
+<hi rendition="#et">Haller!</hi></quote></cit></note></l><lb/>
+<l>So zaget er bey ihrem Einfall nicht.</l><lb/>
+<l>Er ſtirbt getroſt: er ſegnet ſeine Zeiten<lb/>
+<note place="left">90</note>Und heiliget ſein Theil der Ewigkeiten.</l></lg></lg> <lb/>
+</div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Wohl-</hi></fw><lb/>
+<pb n="33" facs="#f0033"/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b">Wohlgemeinter Vorſchlag,<lb/>
+wie Herrn Chriſtoph Schwartzen<lb/>
+deutſche Aeneis von dem Gerichte der<lb/>
+Maklatur noch zu erretten waͤre; in<lb/>
+einem Schreiben an Herrn Heinrich<lb/>
+Gottfried Zunkel, als den Verleger<lb/>
+derſelben.</hi></head><lb/>
+<salute><hi rendition="#fr">Mein Herr.</hi></salute><lb/>
+<p><hi rendition="#in">J</hi>Hr alleine muͤßtet nicht wiſſen, was vor einen<lb/>
+gewaltigen Stoß das Anſehen des Hrn. Prof.<lb/>
+Gottſcheds ſeit einem halben Jahre erlitten hat,<lb/>
+wenn ihr euch noch mit der Hoffnung aufhalten koͤnn-<lb/>
+tet, daß ſein Beglaubigungsbrief die Kraft habe,<lb/>
+eurer Aeneis den Credit wieder herzuſtellen, den<lb/>
+ihr die Critiken bekannter Kunſtverſtaͤndigen faſt<lb/>
+durchgehends genommen haben. Der Hr. Prof.<lb/>
+hat ſeit einiger Zeit ſelbſt Creditive noͤthig; ſeine<lb/>
+heftigen Gegner haben ihm ſo wenig Credit uͤbrig<lb/>
+gelaſſen, daß man ihm auf ſein Wort nichts<lb/>
+mehr glaubt, was er nicht, wie einer aus dem<lb/>
+niedrigſten Poͤbel, mit baaren Gruͤnden bewei-<lb/>
+ſen kan. Aber was hat er eurem neuen Wer-<lb/>
+ke zum beſten hervorgebracht, die Cenſuren zu<lb/>
+widerlegen, oder die Schoͤnheiten deſſelben, die<lb/>
+unter den Schnitzern verborgen liegen, darun-<lb/>
+ter hervorzuziehen. Er ſagt uns viel Zeug von<lb/>
+einem Schocke elender Ueberſetzungen der Aeneis,<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l <hi rendition="#aq">VIII.</hi> St.] C</fw><fw type="catch" place="bottom">die</fw><lb/>
+<pb n="34" facs="#f0034"/>
+<fw type="header" place="top"><hi rendition="#b">Schreiben an Hrn. Zunckel</hi></fw><lb/>
+die Hrn. Schwartzens vorhergegangen ſind, und<lb/>
+ſchließt zuletzt, daß dieſe letztere alle dieſelben uͤber-<lb/>
+treffe. Ein ungeſchicktes Lob, daß Hr. Schwartz<lb/>
+es beſſer gemacht habe, als Murner oder Spreng,<lb/>
+oder Lau! Er verſichert uns zwar, daß es ihn<lb/>
+nicht gereuet habe, was er von der erſten Probe<lb/>
+geurtheilet: Aber was beweiſet dieſes gegen ſeine<lb/>
+Richter? Sie werden ſagen, er moͤgte ein ſolch<lb/>
+verſtockter Suͤnder ſeyn, daß ihn eine groͤſſere<lb/>
+Uebelthat nicht reuete. Vielleicht ſey die Zeit<lb/>
+ſeiner <hi rendition="#fr">Bekehrung</hi> noch nicht vorhanden, ſein<lb/>
+Hertz ſey noch verſteinert. Wahrhaftig der Pfleg-<lb/>
+vater der deutſchen Aeneis, der zuerſt den Ta-<lb/>
+lent des Hrn. Schwartzens zu einem ſolchen Un-<lb/>
+ternehmen erblicket, und ihn durch ſeine Aufmun-<lb/>
+terungen dazu verleitet hat, haͤtte ſich beſſer an-<lb/>
+greiffen ſollen, er haͤtte Virgil den halben Weg<lb/>
+herunterreiſſen, und Schwartzen die andre Helfte<lb/>
+emporruͤcken ſollen, damit ſie naͤher zu einander<lb/>
+gekommen waͤren. Vordieſem haͤtte er Muthes<lb/>
+und Worte genug dazu gehabt. Er haͤtte uns ge-<lb/>
+ſagt:</p> <cit><quote>„Jn Virgils Gedichte herrſchete lohen-<lb/>
+„ſteiniſche und miltoniſche Schwulſt, ſein Aus-<lb/>
+„druck ſey in allen unſern Buͤchern unerhoͤrt,<lb/>
+„mancher wackere Magiſter koͤnne vieles darin-<lb/>
+„nen nicht verſtehen, oder muͤßte es mit vielem<lb/>
+„Nachſinnen und Kopfbrechen errathen, die<lb/>
+„Conſtruction ſey verworffen, man hoͤre der-<lb/>
+„gleichen Latein auf den Univerſiteten nicht; Vir-<lb/>
+„gil verſchwende die Beywoͤrter zu uͤberfluͤſſigen<lb/>
+„Vorſtellungen, die weiter zu nichts dieneten, als<lb/>
+„zu ſchildern. Daher habe Hr. Schwartz bil-<lb/>
+<fw type="catch" place="bottom">„lig</fw><lb/>
+<pb n="35" facs="#f0035"/>
+<fw type="header" place="top"><hi rendition="#b">als Verleger der deutſch. Aeneis.</hi></fw><lb/>
+„lig die Aeneis natuͤrlicher, allgemeiner und ver-<lb/>
+„ſtaͤndlicher gemachet; er habe billig alle die<lb/>
+„Ausdruͤcke, die nur mahleten, weggeworffen;<lb/>
+„und die andern in unſre gewoͤhnliche Sprache,<lb/>
+„die man auf den Gaſſen und in den Krambu-<lb/>
+„den redete, uͤberſetzet.„</quote></cit> <p>Mit dergleichen Vor-<lb/>
+ſtellungen hat Hr. Gottſched die Leſer nothwen-<lb/>
+dig einnehmen ſollen, wenn er gewollt hat, daß<lb/>
+ſie Hrn. Schwartzens Ueberſetzung vor guͤltig er-<lb/>
+kenneten, welche in allen dieſen Stuͤcken von ih-<lb/>
+rer Urkunde abweichet, und gantz mager, kalt<lb/>
+und platt iſt, wo dieſe lebhaft, mahleriſch, praͤch-<lb/>
+tig und poetiſch iſt. Es war um ſo viel noth-<lb/>
+wendiger, weil die Critiken durchgehends tieffe<lb/>
+Eindruͤcke gemachet haͤtten.</p><lb/>
+<p>Der Hr. Schwartz ſelbſt hat die Nothwen-<lb/>
+digkeit deſſen wohl eingeſehen, und darum einen<lb/>
+ernſtlichen Verſuch gethan zu beweiſen, daß es<lb/>
+unmoͤglich waͤre, alle Redensarten des lateiniſchen<lb/>
+Originals mit ihren beſtimmten Begriffen in ih-<lb/>
+rem wahren Grade zu geben, und ſolche gleich-<lb/>
+wohl nach ſeiner Art, nemlich Zeile von Zeile, in<lb/>
+gereimte Proſa zu bringen. Man muß auch be-<lb/>
+kennen, daß er dieſes mit ſeinen eigenen Exem-<lb/>
+peln genugſam dargethan hat, und man kan nichts<lb/>
+dagegen einwenden, woferne das was ihm nicht<lb/>
+moͤglich war, auch allen andern eben ſo unmoͤg-<lb/>
+lich iſt. Es ſcheint zwar daß er ſelbſt einen Zwei-<lb/>
+fel in ſeinen Satz geſetzet habe, weil er das gan-<lb/>
+ze erſte B. der Aeneis umgeſetzet hat, damit er<lb/>
+den Erinnerungen ſeiner Tadler gemaͤß die Be-<lb/>
+griffe des Virgilianiſchen Ausdruckes genauer und<lb/>
+<fw type="sig" place="bottom">C 2</fw><fw type="catch" place="bottom">getreuer</fw><lb/>
+<pb n="36" facs="#f0036"/>
+<fw type="header" place="top"><hi rendition="#b">Schreiben an Hrn. Zunckel</hi></fw><lb/>
+getreuer verdeutſchete; und man koͤnnte daraus<lb/>
+ſchlieſſen, daß es zum wenigſten ihn <hi rendition="#fr">gereuet</hi> haͤtte,<lb/>
+die erſtere Probe, die Hr. Prof. Gottſched ſich<lb/>
+<hi rendition="#fr">nimmer reuen</hi> laͤßt zu loben, ſo ſchwach und nied-<lb/>
+rig verfertiget zu haben: Allein ſeine zweyte Ueber-<lb/>
+ſetzung iſt nicht praͤchtiger oder lebhafter aus-<lb/>
+gefallen als die erſtere, und wird ihn vermuth-<lb/>
+lich in ſeinem Grundſatze von der Unmoͤglichkeit<lb/>
+Virgils Gedancken deutſch zu geben beſteiffet ha-<lb/>
+ben. Man haͤtte es ihm auch vor ein redliches<lb/>
+Stuͤcke anfgenommen, wenn er dieſes gerades-<lb/>
+weges bekennt haͤtte, und er haͤtte damit, wo<lb/>
+nicht ſeine uͤbelgerathene Ueberſetzung, doch we-<lb/>
+nigſtens ſeine Aufrichtigkeit bewaͤhret. Allein je-<lb/>
+dermann hat ſich daran geaͤrgert, daß er ſeinen<lb/>
+Kunſtlehrern, deren getreuen Unterricht er ge-<lb/>
+noſſen, und gerne genutzet haͤtte, wenn es in ſei-<lb/>
+nem Vermoͤgen geſtanden waͤre, ſo ungeſchickte<lb/>
+und looſe Worte giebt, als wenn ſie Urſache waͤren,<lb/>
+daß er es nicht hat beſſer machen koͤnnen: Es iſt in<lb/>
+der That ſehr unerbaulich, daß er ſo viel boͤſe<lb/>
+Worte mit ſo groſſer Gelaſſenheit giebt, und be-<lb/>
+zeuget, <hi rendition="#fr">er rede noch ohne einen aufgebrach-<lb/>
+ren hitzigen Affect, und ſey gantz und gar<lb/>
+nicht geſonnen, ſich zu raͤchen, weil er ſonſt<lb/>
+gantz anders mit ſeinen Gegnern zu verfah-<lb/>
+ren wuͤßte.</hi> Bey Leſung dieſer Worte hat ein<lb/>
+ehrbarer Mann geſagt: Wenn es hier aus kal-<lb/>
+ten Wolcken donnert und blitzet, was wird wohl<lb/>
+vor ein Ungewitter entſtehen, wenn ſie in Hitze<lb/>
+kommen? Der gute Herr iſt in ſeinem Affecte<lb/>
+ſo blind, daß er es ſelbſt nicht weis. Was hat<lb/>
+<fw type="catch" place="bottom">ihn</fw><lb/>
+<pb n="37" facs="#f0037"/>
+<fw type="header" place="top"><hi rendition="#b">als Verleger der deutſch. Aeneis.</hi></fw><lb/>
+ihn ſonſt verblendet, wenn es nicht ein aufge-<lb/>
+brachter Affect gethan hat, daß er ſeinen groͤ-<lb/>
+ſten Feind nicht erkannt, ſondern ihn vor Hrn.<lb/>
+Bodmer angeſehen hat? Er ſollte doch von ſei-<lb/>
+nem groſſen Goͤnner, dem Hrn. Prof. Gottſched<lb/>
+mehr als einmahl gehoͤret haben, wie der Ver-<lb/>
+faſſer der fatalen Zuͤrichiſchen Dichtkunſt heiſſe,<lb/>
+die ſeiner eigenen ein Ende gemacht hat. Hr. Bod-<lb/>
+mer hat ihm nicht den geringſten <hi rendition="#fr">Schnitzer</hi> in<lb/>
+ſeiner Ueberſetzung ausgeſtellet, daß er damit das<lb/>
+<hi rendition="#fr">Geſetze der Natur an ihm uͤbertreten, oder<lb/>
+ſich an der Gottheit verſuͤndiget haͤtte.</hi> Viel-<lb/>
+leicht aber hat Herr Schwartz allein zu einer<lb/>
+Probe ſeines <hi rendition="#fr">gelinden Verfahrens, damit er<lb/>
+nicht boͤſes mit boͤſem vergoͤlte,</hi> dem wahren<lb/>
+Nahmen ſeines Gegners verſchonet, und an deſ-<lb/>
+ſen Statt Hrn. Bodmers geſetzet, welchem ſei-<lb/>
+ne ungebundenſten Reden keinen Schaden thun<lb/>
+moͤgen, weil ein andrer gemeint iſt. Es waͤre<lb/>
+gut, daß man dieſes gewiſſen Leſern uͤberreden<lb/>
+koͤnnte, welche lieber hundert Schnitzer, als ei-<lb/>
+ne eintzige Unbill verzeyhen, weil ſie die Fehler<lb/>
+des Witzes nur vor laͤcherlich, die Fehler des<lb/>
+Willens hingegen vor ſuͤndlich halten. Man<lb/>
+laͤßt einem Scribenten gern das Recht wieder-<lb/>
+fahren, daß ers nicht im Vermoͤgen gehabt ha-<lb/>
+be, in die feinen und fuͤr ihn unſpuͤrbaren Fuß-<lb/>
+tapfen Virgils einzutreten. Mancher armer Dich-<lb/>
+ter hat eine innerliche Ueberzeugung von der Vor-<lb/>
+trefflichkeit ſeines Werckes, er redet davon ſeiner<lb/>
+kurtzen Einſicht gemaͤß, und man glaubt ihm ſo<lb/>
+gut, als man einem Gelbſuͤchtigen Glauben zu-<lb/>
+<fw type="sig" place="bottom">E 3</fw><fw type="catch" place="bottom">ſtellt.</fw><lb/>
+<pb n="38" facs="#f0038"/>
+<fw type="header" place="top"><hi rendition="#b">Schreiben an Hrn. Zunckel</hi></fw><lb/>
+ſtellt. Man ſiehet auch wohl, daß Virgils Aus-<lb/>
+bildung, Mahlerey, Beſtimmung der Begriffe,<lb/>
+Hrn. Schwartzen zu fein und zu verſteckt wa-<lb/>
+ren, und ein jeder fiel vor ſich auf die Gedan-<lb/>
+ken, daß er ſie ohne Muthwillen und ohne Suͤn-<lb/>
+de ſo matt gegeben haͤtte. Aber wie will man<lb/>
+ihn doch entſchuldigen, daß er Leute die ſich Muͤ-<lb/>
+he gegeben, ihn etwas rechtes zu lehren, und<lb/>
+ihm weiters nichts zu Leide gethan haben, ja<lb/>
+daß er Bodmern, der ihm nicht einmahl dieſes<lb/>
+zu Leid gethan hat, mit ſo feindſeligen Worten<lb/>
+uͤberſudelt. Es zeiget zwar ein gutes Gemuͤthe,<lb/>
+da er eine ſo groſſe Sorgfalt fuͤr eure Buchhand-<lb/>
+lung, und einen ſo groſſen Eifer gegen diejenigen<lb/>
+blicken laͤßt, die euch an eurer Nahrung Abbruch<lb/>
+thun wollen. Aber wenn dieſe Sorgfalt und dieſer<lb/>
+Eifer nicht etwas angenommenes ſind, ſo duͤrffet<lb/>
+ihr ihm nur ſagen, daß eben er dieſer ſchaͤdliche<lb/>
+Menſch iſt, der euch mit der deutſchen Aeneis<lb/>
+den groͤſten Schaden zugefuͤget hat; das wird ihn<lb/>
+ſchon vermoͤgen, daß er euch den Verluſt bis auf<lb/>
+die eitele Hoffnung von Gewinn, wovon er euch<lb/>
+guͤldene Berge vorgeſchwatzet hat, erſetze. Er hat<lb/>
+das Werck gemacht, woran er Verluſt vorſiehet,<lb/>
+und er hat es ſo ungeſchickt gemacht, daß noth-<lb/>
+wendig dabey verlohren werden muß. Weder<lb/>
+Hr. Breitinger noch Hr. Pyra, noch Hr. Bod-<lb/>
+mer haben es verfertiget, und ſo ſchaͤdlich ge-<lb/>
+macht. Dieſe Herren haben es nicht dadurch zu<lb/>
+einem ſchlimmen Buche gemacht, daß ſie deſſen<lb/>
+Fehler eingeſehen, oder daß ſie ſolche kund ge-<lb/>
+<fw type="catch" place="bottom">macht</fw><lb/>
+<pb n="39" facs="#f0039"/>
+<fw type="header" place="top"><hi rendition="#b">als Verleger der deutſch. Aeneis.</hi></fw><lb/>
+macht haben. Sie ſind durch ſeine innerliche<lb/>
+Beſchaffenheit genoͤthiget und berechtiget worden,<lb/>
+ſo davon zu denken und zu reden, wie von ih-<lb/>
+nen geſchehen iſt. Eure Aeneis haͤtte nicht ei-<lb/>
+nen Donatſchnitzer weniger, als ſie hat, wenn<lb/>
+kein Kunſtrichter ſie angetaſtet haͤtte, und wenn<lb/>
+ihr 1000. Thaler damit gewonnen haͤttet. Jhr<lb/>
+koͤnnet von ihnen unbehindert noch ietzo ſo viel da-<lb/>
+rauf gewinnen, wenn es den Kaͤufern gelegen<lb/>
+iſt. Der Hr. Prof. Gottſched hat mit eben ſo<lb/>
+ſchlechter Waar noch ein weit mehrers gewonnen.<lb/>
+Es ſcheinet Hr. Schwartz traue den ietzigen Zei-<lb/>
+ten nicht ſo viel gutes zu, als den vorigen, da<lb/>
+oͤfters der bloſſe Nahme Hrn. Gottſcheds ein ma-<lb/>
+geres Buch verkauft hat, eh und bevor er noch<lb/>
+mit einer Hochmagnificenz verherrlichet war. Laſ-<lb/>
+ſet uns die Wahrheit geſtehen, eure Aeneis iſt<lb/>
+eine grundplatte Schrift. Jch ſage es nicht euch<lb/>
+zu beleidigen, oder zu erſchrecken, ſondern vielmehr<lb/>
+eurem mehrern Schaden vorzukommen. Das<lb/>
+ſchlimmſte fuͤr euch iſt, daß jedermann dieſes ein-<lb/>
+ſiehet, man hat ſie in allen Geſellſchaften zum Be-<lb/>
+ſten, und dem plumpeſten Kopf entfaͤhrt bey die-<lb/>
+ſer Gelegenheit ein luſtiger Einfall. Man ſagt<lb/>
+oͤffentlich, der Hr. Verfaſſer habe ſeine Sinnen<lb/>
+und Gedancken vielmehr <hi rendition="#aq">in patina</hi> als in Vir-<lb/>
+gils Aeneis gehabt; die Ueberſetzung ſey nur ſeine<lb/>
+Nebenabſicht, die Hauptabſicht ſey eine gute Sup-<lb/>
+pe und ein Kaͤlberbraten geweſen; er habe die<lb/>
+Aeneis in Beyeriſche Schincken und Knackwuͤrſte<lb/>
+uͤberſetzet; dem Leſer wuͤrde von ſeiner Verdeut-<lb/>
+ſchung ſo uͤbel, als wenn <hi rendition="#aq">unus coquus confundit</hi><lb/>
+<fw type="sig" place="bottom">C 4</fw><fw type="catch" place="bottom"><hi rendition="#aq">multa</hi></fw><lb/>
+<pb n="40" facs="#f0040"/>
+<fw type="header" place="top"><hi rendition="#b">Schreiben an Hrn. Zunkel</hi></fw><lb/>
+<hi rendition="#aq">multa Jura;</hi> in dieſem Verſtande ſey Hr. Schwartz<lb/>
+ein <hi rendition="#aq">Coctor Jurium;</hi> und was mehr dergleichen<lb/>
+poſſierliche Einfaͤlle ſind, die wenigſtens nicht ſo<lb/>
+zauberiſch herauskommen, als wenn dieſer ſchertz-<lb/>
+hafte Verfaſſer ein <hi rendition="#fr">paar Schweitzerhoſen ver-<lb/>
+ſchluͤckt.</hi> Aber niemand hat die deutſche Aeneis<lb/>
+aͤrger geſchimpft, als der Herr von Jonquilie.<lb/>
+Die gantze Stadt traͤgt ſich mit der Execution,<lb/>
+die er damit vorgenommen. Er lud am letzten<lb/>
+Abend des vorigen Jahres eine groſſe Anzahl Her-<lb/>
+ren und Frauenzimmer zu ſich, denſelben eroͤffnete<lb/>
+er beym Camin, daß er uͤber Schwartzens Ae-<lb/>
+neis Gericht gehalten haͤtte; und er haͤtte bey ſei-<lb/>
+nen richterlichen Amtspflichten gefunden, daß das<lb/>
+goͤttliche Gedichte Virgils darinnen geſchaͤndet,<lb/>
+entweyhet und entheiliget waͤre; dafuͤr habe er ſie<lb/>
+zum Feuer verurtheilet. Er hoffete daß niemand<lb/>
+wider ſein Richteramt oder ſein Urtheil etwas ein-<lb/>
+zuwenden haben werde, jenes habe er mit einem<lb/>
+halben Reichsthaler rechtmaͤſſig gekauft, und die-<lb/>
+ſes wollte er gegen einen jeden behaupten, wo-<lb/>
+fern jemand vorhanden waͤre, der fuͤr die Ver-<lb/>
+urtheilete reden wollte. Man billigte insgemein<lb/>
+ſein ausgeſprochenes Urtheil, und lobete ſeinen Ei-<lb/>
+fer fuͤr die Ehre des roͤmiſchen Poeten. Es ſchien,<lb/>
+daß ſich niemand der deutſchen Aeneis annehmen<lb/>
+wollte, bis nach langem ein junger Magiſter,<lb/>
+Nahmens Hr. Tulipe, ein bekannter Freund der<lb/>
+Hrrn. Gottſched u. Schwartz, auf den jedermanns<lb/>
+Augen gerichtet waren, ein Hertz faſſete, und<lb/>
+erſtlich vorſtellete, was vor ſaure Muͤhe es den<lb/>
+Hrn. Schwartz gekoſtet haͤtte, die Aeneis Vir-<lb/>
+<fw type="catch" place="bottom">gils</fw><lb/>
+<pb n="41" facs="#f0041"/>
+<fw type="header" place="top"><hi rendition="#b">als Verleger der deutſch. Aeneis.</hi></fw><lb/>
+gils in eben ſo viele deutſche Verſe Zeile von Zeile<lb/>
+zu uͤberſetzen, und dabey alle <hi rendition="#fr">Regeln der cri-<lb/>
+tiſchen Reinigkeit</hi> auf das genaueſte zu beobach-<lb/>
+ten, damit er der <hi rendition="#fr">ſtudierenden Jugend ein Mu-<lb/>
+ſter einer reinen Poeſie vorlegete.</hi> Er bat fer-<lb/>
+ner daß Hr. Jonquilie auf die kuͤnſtliche Vermi-<lb/>
+ſchung der Selbſtlauter und Mitlauter Acht ge-<lb/>
+ben moͤgte, welche in verſtaͤndigen Ohren einen<lb/>
+ſo ſuͤſſen Wohlklang verurſachete. Dieſer ant-<lb/>
+wortete ihm darauf: Es waͤre nicht genug, daß<lb/>
+die ſchwartziſche Aeneis eben ſo viel Zeilen haͤtte,<lb/>
+als die Roͤmiſche, ſie ſollte ihr vielmehr an der<lb/>
+Anzahl der Begriffe, an dem Maaſſe, dem Nach-<lb/>
+druck, und Leben derſelben gleichen; nichts waͤre<lb/>
+leichter als ein Werck von eben ſo vielen Verſen<lb/>
+machen, als Virgils haͤtte; man koͤnnte die An-<lb/>
+zahl der Virgilianiſchen Verſe vielleicht eben ſo<lb/>
+richtig im Hans Sachſen finden. Was den Wohl-<lb/>
+klang anlangete, ſo waͤre wahr, daß die Ohren<lb/>
+ſo viel Verſtand darinnen faͤnden, daß es ſchiene<lb/>
+aller Verſtand und Witz des Ueberſetzers waͤre<lb/>
+in die Buchſtaben und Sylben gefahren; man<lb/>
+wuͤrde in folgenden und tauſend dergleichen Zeilen<lb/>
+nichts weiters antreffen, als kuͤnſtlich vermiſchte<lb/>
+Selbſtlauter und Mitlauter; und in dieſer Be-<lb/>
+trachtung koͤnnte eine jede von denſelben fuͤr ſich<lb/>
+ſelbſt beſtehen, ohne daß ſie einen gewiſſermaſſen<lb/>
+beſtimmten Verſtand in ſich faſſete; oder die von<lb/>
+ihm geruͤhmte <hi rendition="#fr">critiſche Reinigkeit</hi> verletzete, wel-<lb/>
+che ſich nicht weiter als auf den Klang bezoͤge.<lb/>
+Wie rein und klingend, ſagte er, ſind zum<lb/>
+Exempel:</p><lb/>
+<fw type="sig" place="bottom">C 5</fw><fw type="catch" place="bottom">‒ ‒ beſetz-</fw><lb/>
+<pb n="42" facs="#f0042"/>
+<fw type="header" place="top"><hi rendition="#b">Schreiben an Hrn. Zunkel</hi></fw><lb/>
+<cit><quote>‒ ‒ Beſetzten Trinkpocal, fuͤllt ihn, wie Bel und die ‒ ‒ ‒</quote></cit><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<cit><quote>‒ ‒ Jhm folgende mit Wein, ein jeder ſchwieg und ſie ‒ ‒</quote></cit><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<cit><quote>Die Nymphen wohnen da, man braucht kein Seil und kei-<lb/>
+<hi rendition="#et">(nen ‒ ‒</hi></quote></cit><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<cit><quote>Als Priams aͤlteſte Princeſſin trug, und die ‒ ‒ ‒ ‒</quote></cit><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<cit><quote>‒ ‒ Entellen, der bey ihm im Graſe lag, dies ſcharf ‒ ‒</quote></cit><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<cit><quote>‒ ‒ Auf dem ſidoniſchen geſchenkten Pferd, und das ‒ ‒</quote></cit><lb/>
+<p>Jedoch, fuhr er fort, damit Hr. Tulipe ſehe,<lb/>
+daß ich mit der Aeneis ſeines Freundes nicht nach<lb/>
+der Schaͤrffe verfahre, ſo will ich nicht ſo viel<lb/>
+fodern, wie Horatz gethan, der ein Werck ver-<lb/>
+warf, das nicht mehrere Schoͤnheiten, als Feh-<lb/>
+ler hatte, ſondern ich will zufrieden ſeyn, wenn<lb/>
+er mir nur fuͤnfzig Zeilen von Virgils Geiſt und<lb/>
+Leben zeigen kan. Jch will in ſolchem Fall mein<lb/>
+Urtheil alſobald widerruffen. Hier nahm ein ge-<lb/>
+wiſſer Hr. das Wort und ſagte im Spotte, fuͤnf-<lb/>
+<gap unit="chars" quantity="1" reason="illegible"/>ig Virgilianiſche Zeilen von Schwartzen zu fo-<lb/>
+<supplied>d</supplied>ern, waͤre zu viel; wenn man ihm dreiſſig zei-<lb/>
+gen koͤnnte, ſo wuͤrde er nicht ſo grauſam ſeyn,<lb/>
+und um der zwanzig willen, die an der gefoder-<lb/>
+ten Anzahl abgiengen, ſein Urtheil vollſtrecken.<lb/>
+Hr. Jonquilie erklaͤrete ſich darauf, daß er um<lb/>
+der anweſenden Frauensperſonen willen, die aus<lb/>
+angebohrner Mildigkeit an Mord und Brand<lb/>
+keinen Gefallen haͤtten, dem gantzen Wercke ver-<lb/>
+ſchonen wollte, wenn man ihm nur zehn Zeilen von<lb/>
+<fw type="catch" place="bottom">Vir-</fw><lb/>
+<pb n="43" facs="#f0043"/>
+<fw type="header" place="top"><hi rendition="#b">als Verleger der deutſch. Aeneis.</hi></fw><lb/>
+Virgils Mahlerey und Nachdruck vorlegen koͤnnte.<lb/>
+Nach dieſer Erklaͤrung blaͤtterte Hr. Tulipe in<lb/>
+der neuen Aeneis lange hin und her, und kam<lb/>
+endlich mit folgenden Verſen vor den Tag:</p><lb/>
+<cit><quote>‒ ‒ ‒ ‒ ‒ ‒ der Tag bricht an, es ſcheinen<lb/>
+Die Sternen ſchon nicht mehr, ſo daß ihr ſchlaffen ſollt.</quote></cit><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<cit><quote>Worauf Achat ein Feur auf trockne Blaͤtter ſchlaͤgt.</quote></cit><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<cit><quote>Sie aber machen ſich zur Schmauſerey geſchickt.</quote></cit><lb/>
+<p>Er wollte die Anzahl der zehne, mit dergleichen<lb/>
+Zeilen voll machen, als Hr. Jonquilie ihm ein-<lb/>
+redete, und ſagte: Wenn ich nicht irre, ſo giebt<lb/>
+er mit ſeinem <hi rendition="#fr">der Tag bricht an,</hi> Virgils <hi rendition="#aq">nox<lb/>
+humida cœlo præcipitat,</hi> und mit <hi rendition="#fr">es ſcheinen<lb/>
+die Sternen ſchon nicht mehr, ſo daß ihr<lb/>
+ſchlaffen ſollt,</hi> giebt er das <hi rendition="#aq">ſuadent cadentia<lb/>
+ſydera ſomnos.</hi> Er ſetzt, <hi rendition="#fr">ein Feuer ſchlagen,</hi><lb/>
+wo Virgil geſagt, <hi rendition="#aq">ſilicis ſcintillam excudere,</hi><lb/>
+und <hi rendition="#fr">ſich zur Schmauſerey geſchickt machen,</hi><lb/>
+iſt das Lateiniſche <hi rendition="#aq">ſe prædæ ac dapibus futuris ac-<lb/>
+cingere.</hi> Nun will ich ſchon wetten, er giebt das<lb/>
+<hi rendition="#aq">torquet medios nox humida curſus,</hi> <hi rendition="#fr">die Mitter-<lb/>
+nacht iſt vorbey;</hi> und <hi rendition="#aq">me ſævus equis oriens af-<lb/>
+flavit anhelis,</hi> <hi rendition="#fr">ich ſpuͤre daß der Tag vorhan-<lb/>
+den ſey;</hi> <hi rendition="#aq">rapere in fomitem flammam,</hi> <hi rendition="#fr">ein Feuer<lb/>
+anmachen,</hi> <hi rendition="#aq">Ceres undis corrupta,</hi> <hi rendition="#fr">das naſſe Brod,</hi><lb/>
+<hi rendition="#aq">cerealia arma expedire,</hi> <hi rendition="#fr">das Backzeug auspa-<lb/>
+ken;</hi> <hi rendition="#aq">implentur veteris Bacchi,</hi> <hi rendition="#fr">ſie trancken Wein;</hi><lb/>
+<hi rendition="#aq">o quam te memorem Virgo,</hi> <hi rendition="#fr">o Jungfer wie</hi><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">ſoll</hi></fw><lb/>
+<pb n="44" facs="#f0044"/>
+<fw type="header" place="top"><hi rendition="#b">Schreiben an Hrn. Zunkel</hi></fw><lb/>
+<hi rendition="#fr">ſoll ich dich gruͤſſen?</hi> Er giebt dieſes in der<lb/>
+That nicht anders, ſagte Hr. Tulipe, und wa-<lb/>
+rum ſollte ers anders geben, das iſt der eigent-<lb/>
+liche Verſtand dieſer Woͤrter. Wolltet ihr wohl<lb/>
+begehren, <hi rendition="#fr">daß man bey einer Ueberſetzung bey<lb/>
+allen Redensarten des Originales bleiben, und<lb/>
+ſolche gleichwohl nach Hrn. Schwartzens Art,<lb/>
+Zeile von Zeile in gereimte Verſe bringen ſoll-<lb/>
+te? Das waͤre eine phyſicaliſche Unmoͤglichkeit;<lb/>
+denn die Natur der Sprache litte ſolches nicht;<lb/>
+es waͤre auch wuͤrklich abgeſchmackt und un-<lb/>
+gereimt, wenn man uͤberall der Lateiner Re-<lb/>
+densarten behalten wollte. Es hat ja jede<lb/>
+Sprache ihren beſondern Nachdruck, welchen<lb/>
+man</hi> <hi rendition="#aq"><hi rendition="#i">Genium linguæ</hi></hi> <hi rendition="#fr">nennet.</hi> Hr. Jonquilie er-<lb/>
+wiederte: Niemand ſagt, daß man das Latein<lb/>
+von Wort zu Wort geben muͤſſe, wie man jedes<lb/>
+im Woͤrterbuche nach ſeiner erſten und fluͤchtig-<lb/>
+ſten Bedeutung verdeutſchet findet; ſondern man<lb/>
+muß die Jdee von einem jeden mit aller Genauig-<lb/>
+keit und Beſtimmung in ihrem rechten Maaſſe<lb/>
+und Grade liefern. Glaubet ihr nun, daß<lb/>
+man die Virgilianiſchen Redensarten nicht ge-<lb/>
+nauer und nachdruͤcklicher geben koͤnne, als Hr.<lb/>
+Schwartz gethan hat, woferne man von der Na-<lb/>
+tur der deutſchen Sprache nicht abweichen, und<lb/>
+nicht abgeſchmackt werden wollte? Wuͤrde es nicht<lb/>
+ſchon Virgilianiſcher toͤnen, und doch Deutſch blei-<lb/>
+ben, wenn ich ſagte: Jch muß endlich ſcheiden;<lb/>
+die thauigte Nacht haͤlt ihren Lauf an dem mitt-<lb/>
+lern Theile des Himmels, ich verſpuͤre ſchon die<lb/>
+ſcharfe Luft des ankommenden Morgens, der mich<lb/>
+<fw type="catch" place="bottom">mit</fw><lb/>
+<pb n="45" facs="#f0045"/>
+<fw type="header" place="top"><hi rendition="#b">als Verleger der deutſch. Aeneis.</hi></fw><lb/>
+mit ſeinen ſchnaubenden Pferden anwehet. Viel-<lb/>
+leicht aber mißfaͤllt euch dieſes, weil es euch uner-<lb/>
+hoͤrt iſt. Wir druͤcken uns im gemeinen Um-<lb/>
+gange nicht ſo aus. Dem iſt alſo, aber wir ge-<lb/>
+ben uns im gemeinen Leben auch vor keine Poeten.<lb/>
+Man hat ſich auch zu Rom nicht ausgedruͤcket,<lb/>
+wie Virgil in der Aeneis thut, wenn man mit<lb/>
+ſeinem Koche, oder ſeinem Becker geredet hat.<lb/>
+Hr. Tulipe merckete, daß er anders faſſen muͤß-<lb/>
+te, er erinnerte ſich einer Stelle, die er in Hrn.<lb/>
+Gottſcheds Vorrede zu der deutſchen Aeneis gele-<lb/>
+ſen hatte, welche er dergeſtalt anbrachte: Jch<lb/>
+ſehe wohl Hr. Schwartz hat fuͤr euch zu deutlich ge-<lb/>
+ſchrieben, ihr haltet als ein ſcharfſinniger Kopf<lb/>
+mehr auf etwas weitgeſuchtes, gelehrtes und ſchwe-<lb/>
+res. Das iſt nun euer Geſchmack, und <hi rendition="#aq">de gu-<lb/>
+ſtibus non eſt diſputandum.</hi> Wenn euch aber Hr.<lb/>
+Schwartz in dieſem Stuͤcke keine Gnuͤge gethan,<lb/>
+ſo iſt das zu wenig, als daß ihr deßwegen ſei-<lb/>
+ne gantze Arbeit verwerffen ſolltet. Die Vor-<lb/>
+trefflichkeit der Aeneis beſtehet nicht bloß in der<lb/>
+Reinigkeit und der Schoͤnheit des Lateins, in dem<lb/>
+Adel und erhabenen Pracht der Schreibart, in<lb/>
+dem flieſſenden Wohlklange, und der bezaubern-<lb/>
+den Anmuth der Verſe. Es giebt darinnen noch<lb/>
+viel ſchaͤtzbarere Eigenſchaften, z. Ex. <hi rendition="#fr">die aͤuſſet-<lb/>
+liche und die innerliche Groͤſſe ſeiner Fabel,</hi><lb/>
+und der Hauptzweck des Dichters, nach welchem<lb/>
+er die Roͤmer bereden wollen, <hi rendition="#fr">ihre republickani-<lb/>
+ſche Freyheit zu vergeſſen, und ſich dem neu-<lb/>
+en Regenten willig zu unterwerffen.</hi> Auf<lb/>
+dieſe Stuͤcke hat Hr. Schwartz hauptſaͤchlich ge-<lb/>
+<fw type="catch" place="bottom">ſehen</fw><lb/>
+<pb n="46" facs="#f0046"/>
+<fw type="header" place="top"><hi rendition="#b">Schreiben an Hrn. Zunckel</hi></fw><lb/>
+ſehen, und ſie in ſeiner Ueberſetzung gluͤcklich vor-<lb/>
+geſtellet. Die ſittſamern und gewoͤhnlichern Re-<lb/>
+densarten, womit er ſich ausdruͤcket, haben ihn<lb/>
+daran nicht gehindert. Jch will euch dieſes gel-<lb/>
+ten laſſen, ſagte Hr. Jonquilie, aber ich ſehe<lb/>
+dann nicht, was Hr. Schwartz vor groͤſſere Ver-<lb/>
+dienſte habe, als Murner, oder Sprenge. Wir<lb/>
+finden in ihren Knittelreimen die Fabel der Ae-<lb/>
+neis, ihre Anlage, Verfaſſung, ihre Hauptab-<lb/>
+ſicht, und Hauptlehre ſo gut, als in Hrn. Schwar-<lb/>
+zens Wercke, und ein Ueberſetzer muͤßte den Kopf<lb/>
+in den Fingern haben, wenn er ſie gaͤntzlich ver-<lb/>
+fehlen ſollte. Wenn ihr dann daſſelbe vom Holtz-<lb/>
+ſtoſſe erretten wollet, ſo muͤſſet ihr mir etwas<lb/>
+mehrers darinnen zeigen, als dieſe geſchicktern Bruͤ-<lb/>
+der Hans Sachſens haben, ihr muͤſſet mir die<lb/>
+Kuͤrtze Virgils darinnen finden, der ſeinen beſten<lb/>
+Vortheil aus den Beywoͤrtern ziehet, womit er<lb/>
+die Geſtalten und die Beſchaffenheiten der Din-<lb/>
+ge erklaͤret, ſeine zuſammengepreßte Begriffe,<lb/>
+die Hoͤhe und den Glantz der Farben in ſei-<lb/>
+nen kunſtreichen Gemaͤhlden. Koͤnnet ihr die-<lb/>
+ſes nicht, ſo muß der Gerechtigkeit eine Genuͤge<lb/>
+gethan, und die deutſche Aeneis <hi rendition="#fr">dem Vulcan ab-<lb/>
+gethan werden.</hi> Jhr ſollet bald ſehen, was ich<lb/>
+mit dieſem <hi rendition="#fr">unerhoͤrten</hi> Ausdrucke ſagen wolle.<lb/>
+Mit dieſem Worte hielt er ſie, wie ſie mit ei-<lb/>
+nem ehrbaren Leichenkleide in ſchwartzem Mar-<lb/>
+roquin angethan war, uͤber das Caminfeuer,<lb/>
+wo ſie ſich bald in Rauch und Aſche, ihre erſten<lb/>
+Elemente, wieder aufloͤſete.</p><lb/>
+<fw type="catch" place="bottom">Jhr</fw><lb/>
+<pb n="47" facs="#f0047"/>
+<fw type="header" place="top"><hi rendition="#b">als Verleger der deutſch. Aeneis.</hi></fw><lb/>
+<p>Jhr koͤnnet aus dem allen genugſam abneh-<lb/>
+men, Herr Zunckel, was euch die groſſe Hoff-<lb/>
+nung eintragen werde, welche man euch von die-<lb/>
+ſem Buche gemachet hatte. Es waͤre ein Gluͤck<lb/>
+fuͤr euch, wenn es vielen dergleichen ſcharffen Rich-<lb/>
+tern in die Haͤnde gerathen wuͤrde, ihr koͤnntet ſein<lb/>
+ſo wenigſtens ohne Schaden loos werden, allein es<lb/>
+giebt allzuwenig Leſer, die einen Poeten zum Holtz-<lb/>
+ſtoſſe erkauffen, damit ſie ihn vom Moder erret-<lb/>
+ten. Die gemeine Stimme der Groſſen und der<lb/>
+Kleinen ſpricht uͤber ſie das Urtheil, daß ſie Mak-<lb/>
+latur ſey, und wieder zu Maklatur werden ſolle.<lb/>
+Dieſes kan freylich nicht ohne Abbruch eurer Nah-<lb/>
+rung geſchehen, und weil ich ſehr zweifle, daß Hr.<lb/>
+Schwartz, der ſie nicht beſſer gemacht hat, oder<lb/>
+Herr Gottſched, der ihn zu dieſer ſchaͤdlichen<lb/>
+That aufgeſtiftet hat, euch den Verluſt gutthun<lb/>
+werden, ſo kraͤncket es mich, um eurentwillen,<lb/>
+in der Seele. Das Mitleiden, das ich deßwe-<lb/>
+gen mit euch habe, hat mich ſinnreich gemachet,<lb/>
+ein Mittel zu erfinden, wie ihr wenigſtens ohne<lb/>
+Schaden davon kommen koͤnnet; und ich habe<lb/>
+euch wuͤrcklich einen Vorſchlag zu thun, den ich<lb/>
+vor unfehlbar anſehe. Er iſt ſehr einfaͤltig, und<lb/>
+beſtehet kurtz darinn, daß ihr die neue Aeneis<lb/>
+fuͤr das ausgebet, was ſie iſt, nehmlich fuͤr eine<lb/>
+verkleidete, und verkehrte Aeneis, wo Virgils<lb/>
+Werck ſeiner Pracht und Majeſtaͤt in den Be-<lb/>
+griffen und dem Ausdruck beraubet, und zu der all-<lb/>
+taͤglichen Plattheit des Ausdruckes und abentheur-<lb/>
+lichen Poſſen erniedriget worden, jungen Magiſtern<lb/>
+und ihren Untergebenen, welchen ſie im Latein<lb/>
+<fw type="catch" place="bottom">unver-</fw><lb/>
+<pb n="48" facs="#f0048"/>
+<fw type="header" place="top"><hi rendition="#b">Schreiben an Hrn. Zunckel</hi></fw><lb/>
+unverſtaͤndlich und unerhoͤrt geweſen, das Leſen<lb/>
+derſelben zu erleichtern, und ſie fuͤr ihre Faͤhig-<lb/>
+keit gemaͤß und anſtaͤndig zu machen. Jhr ſchrie-<lb/>
+bet zwar hiemit dem Hrn. Schwartzen einen Vor-<lb/>
+ſatz zu, den er nicht gehabt haben will, der ihm<lb/>
+aber weit mehr Ehre braͤchte, als da er ſeine<lb/>
+Plattheiten und zweydeutige Schwaͤncke vor eine<lb/>
+getreue und ſorgfaͤltige Ueberſetzung der lateini-<lb/>
+ſchen Aeneis geben will. Jetzo ſagt man, er<lb/>
+habe die Aeneis aus Unwiſſenheit, Unvermoͤgen<lb/>
+und Mangel an Geſchmacke und Empfindung ſo<lb/>
+niedrig und poſſierlich gemacht, er habe ihr das<lb/>
+zugetheilet, was ihm natuͤrlich und eigenthuͤmlich<lb/>
+waͤre, was albern waͤre ohne daß er es ver-<lb/>
+ſtuͤhnde und einſaͤhe; das luſtige Zeug darinnen<lb/>
+waͤre eine ungeſchmakte Frucht ſeines ſchalen Gei-<lb/>
+ſtes, der Plattheit vor Natuͤrlichkeit, und Lappe-<lb/>
+reien vor Witz hielte. Anſtatt deſſen wuͤrde es<lb/>
+kuͤnftig heiſſen, Hr. Schwartz haͤtte durch ſeinen<lb/>
+Witz und muntern Kopf aus eben denen Dingen<lb/>
+Niedrigkeit und Poſſen herausziehen koͤnnen, in<lb/>
+welchen Virgil Hoheit und Pracht gefunden; er<lb/>
+habe uns damit luſtig gemacht, womit jener uns<lb/>
+in Verwunderung geſetzet; er habe mit Witz und<lb/>
+Geſchicklichkeit ausgeſchweifet; er habe die Poſ-<lb/>
+ſen ſo kuͤnſtlich nachgeahmet, als wenn ſie ihm<lb/>
+eigen waͤren. Man wird ihn mit dem Titel des<lb/>
+deutſchen Scarrons beehren. Es iſt ohne Zwei-<lb/>
+fel ein groͤſſerer Ruhm, die <hi rendition="#fr">Narrheit wohl koͤn-<lb/>
+nen,</hi> als die Weisheit und den Ernſt ungeſchickt<lb/>
+nachmachen. Es waͤre darum gut, daß ihr zu die-<lb/>
+ſer verkleideten Aeneis Anmerckungen und Erklaͤ-<lb/>
+<fw type="catch" place="bottom">rungen</fw><lb/>
+<pb n="49" facs="#f0049"/>
+<fw type="header" place="top"><hi rendition="#b">als Verleger der deutſchen Aeneis</hi></fw><lb/>
+rungen machen lieſſet, worinnen der laͤcherliche<lb/>
+Witz und die poſſierliche Verkehrung in ihr rech-<lb/>
+tes Licht geſetzet, und dem Leſer auf die Spur<lb/>
+des Luſtigen geholffen wuͤrde; man muͤßte die<lb/>
+wohlflieſſende Plattheit, die feinen Zweydeutig-<lb/>
+keiten, die geſchickte Erniedrigung des Praͤchtigen,<lb/>
+die unerwartete Vermiſchung des Schimpfes mit<lb/>
+dem Ernſte, die angenehme Vermeidung aller har-<lb/>
+ten und Nachdencken erfodernden Gedancken ſorg-<lb/>
+faͤltig anmercken, und das alles des Hrn. Schw.<lb/>
+Kunſt und Vorſatze zuſchreiben. Man muͤſte um-<lb/>
+ſtaͤndlich anzeigen, wie er verſchiedene und gantz<lb/>
+abgeſonderte Begriffe in einem Guß zuſammen-<lb/>
+geſchmeltzet; mit einander verbunden, was unmoͤg-<lb/>
+lich zugleich beſtehen kan; den Nebenumſtand in die<lb/>
+Haupthandlung verkehret; Wunderwercke ver-<lb/>
+richtet; alltaͤgliche Wahrheiten mit unwiderſprech-<lb/>
+lichen Gruͤnden unterſtuͤtzet hat; und was derglei-<lb/>
+chen mehr iſt. Dieſes iſt deſto noͤthiger, weil man<lb/>
+ihm mit gutem Grunde vorwerffen koͤnnte, ſeine<lb/>
+Schwaͤncke ſeyn zu ſchal und ſeine Ausſchweifungen<lb/>
+haben das Saltz nicht, das in dem franzoͤſiſchen<lb/>
+Scarron den Poſſen einen Geſchmack giebt; der-<lb/>
+geſtalt daß man ihn mit denen Pritſchmeiſtern ver-<lb/>
+gleichen koͤnnte, welche ſich gerne naͤrriſch ſtellen<lb/>
+wollten, aber weder Weiſe noch Gebehrde dazu<lb/>
+verſtehen, und wenn man ſie gleich ſchuͤnde, es<lb/>
+nicht hoͤher bringen koͤnnen, als daß ſie die Ohren<lb/>
+ſchuͤtteln. Wird die Sache nach meiner Jdee<lb/>
+geſchickt ausgefuͤhret, ſo wird eure Aeneis nicht<lb/>
+nur den jungen Magiſtern und Studenten anſtaͤn-<lb/>
+dig ſeyn, welche die geheimnißvollen und mit Be-<lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">VIII.</hi> St.] D <supplied>1</supplied></fw><fw type="catch" place="bottom">grif-</fw><lb/>
+<pb n="50" facs="#f0050"/>
+<fw type="header" place="top"><hi rendition="#b">Schreiben an Hrn. Zunckel</hi></fw><lb/>
+griffen und Bildern ſo beſchwerten und unverſtaͤnd-<lb/>
+lichen Verſe Virgils ihrer Laſt ſo geſchickt entle-<lb/>
+diget, und mit Schertz und Schwaͤncken ihrem<lb/>
+Witz und Naturelle gemaͤß bereichert ſehen,<lb/>
+ſondern ſelbſt diejenigen, die jetzo nicht leiden<lb/>
+koͤnnen, daß Hr. Schwartz ſeine Aeneis mit<lb/>
+Virgils in einen gleichen Grad der Wuͤrde ſtel-<lb/>
+len will, werden ihr den Werth einer verkeh-<lb/>
+rten Aeneis gerne zugeſtehen. Sie moͤgen wohl<lb/>
+leiden, daß Virgil ſo klein gemachet werde, als<lb/>
+die Menſchen insgemein ſind, aber ſie geſtehen<lb/>
+nicht gerne, daß Schwartz eben ſo groß ſeyn ſolle,<lb/>
+als Virgil iſt. Wenn er es recht uͤberleget, ſo<lb/>
+wird er mit meinem Vorſchlage wohl zufrieden<lb/>
+ſeyn, er waͤre denn aus der Zahl derer, die lie-<lb/>
+ber poſſierlich ſeyn, als heiſſen wollen. Er wird<lb/>
+mir dancken, daß ich ſeinen wahren Talent, und<lb/>
+den eigentlichen Werth ſeiner Aeneis ausgefunden<lb/>
+habe. Jſt er in der poetiſchen Mahlerey nicht ge-<lb/>
+ſchickt ein lebhaftes Auge oder einen wohlberedten<lb/>
+Mund zu ſchildern, ſo hat er hingegen ein natuͤr-<lb/>
+liches Geſchicke, einen Schincken, einen Schuh,<lb/>
+oder einen Buckel nach dem Leben zu entwerffen.<lb/>
+Er hat denn ſchon verantwortet, warum man nicht<lb/>
+zehn Virgilianiſche Zeilen in ſeinem Wercke fin-<lb/>
+de, das waͤre wider ſeine Abſicht geweſen, er hat<lb/>
+nicht uͤberſetzen ſondern verhudeln wollen, und die-<lb/>
+ſes geſchickt ausgefuͤhrt. Waͤre es ihm aber nicht<lb/>
+anſtaͤndig, ſo hat es nichts zu bedeuten, ihr habet<lb/>
+ſeine Einwilligung nicht vonnoͤthen, die Aeneis iſt<lb/>
+euer, ihr habet ſie bezahlet. Wenn ihr zu der<lb/>
+vorgeſchlagenen Einrichtung oder den Anmerckun-<lb/>
+<fw type="catch" place="bottom">gen</fw><lb/>
+<pb n="51" facs="#f0051"/>
+<fw type="header" place="top"><hi rendition="#b">als Verleger der deutſchen Aeneis.</hi></fw><lb/>
+gen meiner Dienſte noͤthig habet, ſo ſtehen ſie euch<lb/>
+bereit. Jch will dann trachten, den Hrn. Conrec-<lb/>
+tor Erlebach, und den Hrn. Conr. Pyras wie auch<lb/>
+den unparteyiſchen Correſpondenten, meine aller-<lb/>
+liebſten Freunde, zu bereden, daß ſie zu Ver-<lb/>
+herrlichung eurer Aeneis das ihrige mit beytragen.<lb/>
+Laſſet mir eure Gedancken durch den Weg, durch<lb/>
+welchen euch dieſe Zeilen zukommen werden, mit<lb/>
+eheſtem wiſſen, und ſeht mich an, als denjenigen,<lb/>
+der gantz geneigt iſt, euch aus der augenſchein-<lb/>
+lichen Gefahr groſſen Abbruches an eurer Nahrung<lb/>
+nach ſeinem Vermoͤgen zu erretten. Jch habe<lb/>
+das Titelblatt, wie es nach meinem Vorſchlage<lb/>
+lauten muͤßte, nach ſeinem voͤlligen Jnhalt und<lb/>
+der ſcheinbarſten Abſetzung der Zeilen hier bey-<lb/>
+geſchloſſen. ꝛc.</p><lb/>
+<dateline><hi rendition="#et">Leipzig den 12. Jan. 1743.</hi></dateline><lb/>
+<closer><salute><hi rendition="#et"><hi rendition="#fr">Stephan Finck.</hi></hi></salute></closer><lb/>
+<postscript><p><hi rendition="#in">N</hi><hi rendition="#fr">Achſchrift.</hi> Jch habe die Ehre ench hierbey<lb/>
+aus dem ſiebenden Stuͤcke der Schweitzeri-<lb/>
+ſchen <hi rendition="#fr">Critiſchen Sammlung</hi> das <hi rendition="#fr">Abentheuer</hi><lb/>
+<fw type="sig" place="bottom">D 2</fw><fw type="catch" place="bottom">zu</fw><lb/>
+<pb n="52" facs="#f0052"/>
+<fw type="header" place="top"><hi rendition="#b">Schreiben an Hrn. Zunckel.</hi></fw><lb/>
+zu uͤberſenden, welches ſich in Hr. Conrector <hi rendition="#fr">Er-<lb/>
+lebachs</hi> Schule mit eurer Aeneis zugetragen hat.<lb/>
+Jhr werdet ſelbſt ſehen, wie wacker Hr. Schwartz<lb/>
+in dieſer Schrift zugedecket iſt. Man will uͤber<lb/>
+diß wiſſen, wann er unter dieſer Decke nicht<lb/>
+liegen wolle, ſo wollen ihn die Schweitzer noch mehr<lb/>
+uͤberdecken, bis daß er zu ſchwitzen komme; in<lb/>
+Hoffnung, werde er nicht <hi rendition="#fr">weiß,</hi> ſo werde er<lb/>
+doch ein wenig zarter, und wie ſie ſagen, <hi rendition="#fr">hand-<lb/>
+ſamer.</hi></p></postscript></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Die</hi></fw><lb/>
+</front><body>
+<pb n="[53]" facs="#f0053"/>
+<div n="1"><head><hi rendition="#b">Die verkleidete<lb/>
+<hi rendition="#g"><hi rendition="#in">A</hi>eneis</hi></hi><lb/>
+Ein<lb/>
+<hi rendition="#b"><hi rendition="#g"><hi rendition="#in">H</hi>eldengedicht</hi></hi><lb/>
+Fuͤr die<lb/>
+<hi rendition="#b"><hi rendition="#g"><hi rendition="#in">G</hi>ottſchedianer;</hi><lb/>
+Jn welchem Virgils Aeneis von der<lb/>
+Hoheit ihrer Begriffe und der Pracht</hi><lb/>
+ihres Ausdruckes befreyet,<lb/>
+Und in die verſtaͤndliche und leichte Sprache der<lb/>
+Deutſchuͤbenden Seelen,<lb/>
+Mit Eintragung vieler luſtiger Schwaͤncke<lb/>
+Und ſchimpfreicher Zweydeutigkeiten Zeile von<lb/>
+Zeile flieſſend und rauſchend uͤberſetzet iſt<lb/>
+<hi rendition="#b">Von Johann Chriſtoph Schwartz;</hi><lb/>
+mit Rath, Huͤlfe, und Beyfall<lb/>
+<hi rendition="#b">Sr. Hochedelgebohrnen Magnificenz<lb/>
+des Hrn. Profeſſors Gottſched;</hi><lb/>
+Samt noͤthigen<lb/>
+Einleitungen, Vertheidigungen und Erklaͤrungen,<lb/>
+von Stephan Finck ꝛc. ꝛc.<lb/>
+<hi rendition="#b">Regensburg</hi><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+Gedruckt und zu finden bey Heinrich Gottfried Zunckel.</head><lb/>
+<dateline><hi rendition="#g">1743.</hi></dateline><lb/>
+<pb n="54" facs="#f0054"/>
+<div n="2"><head><hi rendition="#b">Verſuch einer Ueberſetzung von Fa-<lb/>
+beln aus einer deutſchen Handſchrift des<lb/>
+vierzehnten Jahrhunderts.</hi></head><lb/>
+<p><hi rendition="#in">W</hi>Er recht uͤberſetzen will, muß vornehmlich<lb/>
+den Geiſt deſſen haben, den er uͤberſetzet;<lb/>
+und dann auch die Sprache deſſelben wohl ver-<lb/>
+ſtehen. Man hat darum in der neuen Vorrede<lb/>
+zu Hrn. Heinekens Longin dem Hr. Prof. G.<lb/>
+gerathen, daß er aus dem Beyeriſchen uͤberſetzen<lb/>
+ſollte; ohne Zweifel, weil man das Vertrauen<lb/>
+zu ihm gehabt hat, daß er den Geiſt der beyeri-<lb/>
+ſchen Scribenten gluͤklich erreichen, und ſich da-<lb/>
+neben von ihrer Sprache leichter als von der la-<lb/>
+teiniſchen meiſter machen koͤnnte. Der junge<lb/>
+Menſch, von welchem folgende Ueberſetzung iſt,<lb/>
+hat ſich aus eben dieſer Urſache nicht hoͤher ge-<lb/>
+waget, als daß er einige Fabeln aus der alten<lb/>
+deutſchen Handſchrift des vierzehnten Jahrhun-<lb/>
+derts uͤberſetzet hat, von welcher in dem Abſchnitt<lb/>
+von der deutſchen Poeſie unter dem ſchwaͤbiſch.<lb/>
+Stamme einige Nachrichten gegeben worden.<lb/>
+Es duͤnket mich in der That, daß er in den Geiſt<lb/>
+und die Sprache ſeines Originales geſchikt ein-<lb/>
+geſchlagen habe. Jch habe ihn darum angefri-<lb/>
+ſchet, daß er mit dieſer Arbeit fortfahren ſollte,<lb/>
+und ihm verſprochen, daß ich eine Probe davon<lb/>
+in dieſer Sammlung einruͤcken wollte, damit er<lb/>
+das Urtheil der Kunſtverſtaͤndigen daruͤber ver-<lb/>
+nehmen koͤnnte.</p><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Die</hi></fw><lb/>
+<pb n="55" facs="#f0055"/>
+<fw type="header" place="top"><hi rendition="#b">Fabeln.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b">I.</hi></hi></head><lb/>
+<head><hi rendition="#b">Die Schwalbe</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">D</hi>Je Schwalbe ſah einſt Hanf auf einen Acker ſaͤen.</l><lb/>
+<l>Gleich fiel ihr in den Sinn, was dieſes moͤgte ſeyn,</l><lb/>
+<l>Deßwegen warnet ſie die Voͤgel insgemein:</l><lb/>
+<l>Merckt ihrs nicht, das geſchieht zu unſrem Schaden;</l><lb/>
+<l>Wir ſind mit Feinden gar umringt, und uͤberladen.</l><lb/>
+<l>Es wird mir ſchwer in meinem Muth.</l><lb/>
+<l>Es iſt um uns gethan, ſtehn wir nicht auf der Hut.</l><lb/>
+<l>Denn waͤchßt der Hanf einſt auf, ſo werden ſie ihn ſpinnen:</l><lb/>
+<l>Dann wird von uns der zehnte nicht entrinnen.</l><lb/>
+<l>Denn aus dem Garn wird Netz und Strick gemacht,</l><lb/>
+<l>Mit dieſen faͤngt man uns bey Schaaren,</l><lb/>
+<l>Wenn wir nach unſrer Speiſe fahren.</l><lb/>
+<l>Doch weis ich euch noch einen Rath zu geben;</l><lb/>
+<l>Gehorcht ihr dem, behuͤtet ihr eur Leben.</l><lb/>
+<l>Jhr ſollt dem Anfang widerſtreben.</l><lb/>
+<l>Verſammelt euch mit einem Sinn,</l><lb/>
+<l>Und flieget auf das Hanffeld hin.</l><lb/>
+<l>Allda verbreitet euch und eſſet alle Saat,</l><lb/>
+<l>Ein jedes Koͤrnlein auf, das iſt mein Rath.</l><lb/>
+<l>Dadurch wird dann die Urſach hingenommen,</l><lb/>
+<l>Von welcher wir in Noth und Arbeit moͤgten kommen.</l><lb/>
+<l>Die Voͤgel daucht, ſie ſagte dies im Spott.</l><lb/>
+<l>Sie ſchimpften auf den Rath, und das Geboth.</l><lb/>
+<l>Der Hanf wuchs auf, nach ſeiner Art,</l><lb/>
+<l>Worauf er gleich geſponnen ward;</l><lb/>
+<l>Dann wurden Netz und Stricke draus gemacht;</l><lb/>
+<l>Wann ietzt der Voͤgel Heer nach Speiſe wollte fahren,</l><lb/>
+<l>Und ſicher dacht zu ſeyn, ſo fieng man ſie bey Schaaren.</l></lg></div><lb/>
+<fw type="sig" place="bottom"><hi rendition="#b">D 4</hi></fw><fw type="catch" place="bottom"><hi rendition="#b">Die</hi></fw><lb/>
+<pb n="56" facs="#f0056"/>
+<fw type="header" place="top"><hi rendition="#b">Ueberſetzung aus einer Handſchr.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">II.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Die Fliege und der kahle<lb/>
+Mann.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">M</hi>An ſagt, daß eine Flieg in Ungeſtuͤme flog,</l><lb/>
+<l>Und einen kahlen Mann vielmahls betrog.</l><lb/>
+<l>Jndem ſie ihm oft an die Stirne faß;</l><lb/>
+<l>Wenn er dann ſeiner nicht vergaß,</l><lb/>
+<l>Und mit der Hand oft nach ihr ſchlug,</l><lb/>
+<l>Da floh ſie bald und ſchnell genug.</l><lb/>
+<l>Sie trieb hernach noch ihr Geſpoͤtte,</l><lb/>
+<l>Daß er ſich ſelbſt geſchlagen haͤtte.</l><lb/>
+<l>Bald aber flog ſie wieder dar.</l><lb/>
+<l>Der kahle Mann nimmt ihrer wahr</l><lb/>
+<l>Und ſpricht: O Fliege hoͤr was ich dir ſage.</l><lb/>
+<l>Ob ich dir deinen Spott vertrage,</l><lb/>
+<l>Und ob ich mich gleich zehnmahl ſchlage:</l><lb/>
+<l>So werd ich doch davon nicht wund,</l><lb/>
+<l>Jch bleib hernach wie vor geſund.</l><lb/>
+<l>Dein Stachel toͤdet auch nicht mich;</l><lb/>
+<l>Traͤff’ aber ich nur einmahl dich,</l><lb/>
+<l>So laͤgeſt du im Staube todt.</l><lb/>
+<l>Begiebt ſich jemand ſelbſt in Noth</l><lb/>
+<l>Durch kleinen Schaden, den er thut,</l><lb/>
+<l>Der hat wohl einen tummen Muth.</l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Der</hi></fw><lb/>
+<pb n="57" facs="#f0057"/>
+<fw type="header" place="top"><hi rendition="#b">des vierzehnten Jahrhunderts.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">III.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Der krancke Loͤwe.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">E</hi>Jn Loͤwe war an Jahren alt,</l><lb/>
+<l>An Tugenden und Kraͤften kalt,</l><lb/>
+<l>Als ihm von Feinden weh geſchah.</l><lb/>
+<l>Da ihn ein Eber liegen ſah,</l><lb/>
+<l>Dacht er an ſeinen alten Schaden,</l><lb/>
+<l>Und biß den Loͤwen in die Waden.</l><lb/>
+<l>Der Ochs kam auch daher gerannt,</l><lb/>
+<l>Wo er den alten Loͤwen fand</l><lb/>
+<l>Er uͤbt an ihm auch ſeine Rach’,</l><lb/>
+<l>Jndem er ihn mit beyden Hoͤrnern ſtach.</l><lb/>
+<l>Mit andern Thieren kam zugleich</l><lb/>
+<l>Der Eſel auch hinzu, und gab ihm manchen Streich</l><lb/>
+<l>An ſeine krancke Stirn. Das iſt fuͤr die Untugend,</l><lb/>
+<l>Die du mir vor der Zeit erzeigt in deiner Jugend;</l><lb/>
+<l>Sprach er. Der Loͤwe fieng mit einem Seufzer an:</l><lb/>
+<l>„Jch litt es, ſchluͤge mich ein Mann,</l><lb/>
+<l>„Daß mich ein Eſel ſchlaͤgt, ſchmerzt mehr als alle</l><lb/>
+<l><hi rendition="#et">(Noth,</hi></l><lb/>
+<l>„So weh thut nicht der bittre Tod.</l></lg></div><lb/>
+<fw type="sig" place="bottom"><hi rendition="#b">D 5</hi></fw><fw type="catch" place="bottom"><hi rendition="#b">Der</hi></fw><lb/>
+<pb n="58" facs="#f0058"/>
+<fw type="header" place="top"><hi rendition="#b">Ueberſetzung aus einer Handſch.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">IV.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Der Koͤnig der Froͤſche.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">E</hi>Jn Weiher war von Froͤſchen voll.</l><lb/>
+<l>Denſelben war nach ihren Arten wohl.</l><lb/>
+<l>Sie hatten Waſſer Land und Feld,</l><lb/>
+<l>Und deſſen gnug ohn alles Geld.</l><lb/>
+<l>Sie waren unbeherrſchet gar,</l><lb/>
+<l>Und nahmen keines Herren wahr.</l><lb/>
+<l>Jn Freyheit ſtuhnd ihr aller Muth,</l><lb/>
+<l>Jhr Leib, ihr Leben, und ihr Gut.</l><lb/>
+<l>Die Freyheit mogten ſie nicht mehr vertragen.</l><lb/>
+<l>Sie fiengen ernſtlich an zu klagen,</l><lb/>
+<l>Sie moͤgten nicht ohn’ einen Koͤnig leben.</l><lb/>
+<l>Gott Jupiter ſollt ihnen einen geben,</l><lb/>
+<l>Der ihr Regent und Koͤnig waͤr.</l><lb/>
+<l>Deß lachete Gott Jupiter,</l><lb/>
+<l>Und ſchwieg. Sie hielten wiederum</l><lb/>
+<l>Um einen Herrſcher an. Kein Froſch blieb ſtumm.</l><lb/>
+<l>Da lag ein Traͤmel, plump und groß;</l><lb/>
+<l>Den Jupiter itzt in den Weiher ſchoß.</l><lb/>
+<l>Der ſollt ihr Koͤnig ſeyn. Dazu waͤr er gebohren.</l><lb/>
+<l>Sie hielten ſich zuerſt vor gantz verlohren,</l><lb/>
+<l>Sie waren ſchnell die Flucht zu wehlen,</l><lb/>
+<l>Verſtummet waren ihre Kehlen.</l><lb/>
+<fw type="catch" place="bottom">So</fw><lb/>
+<pb n="59" facs="#f0059"/>
+<fw type="header" place="top"><hi rendition="#b">des vierzehnten Jahrhunderts.</hi></fw><lb/>
+<l>So ſchrecklich war der erſte Schlag,</l><lb/>
+<l>Nach welchem bald der Traͤmel ſtille lag.</l><lb/>
+<l>Er ruͤhrte ſich nicht um ein Haar.</l><lb/>
+<l>Die Froͤſche wurden das gewahr.</l><lb/>
+<l>Sie konnten ſich im Spott nicht faſſen,</l><lb/>
+<l>Daß ſie nicht auf den Koͤnig ſaſſen.</l><lb/>
+<l>Sie fiengen wieder an zu ſchrey’n,</l><lb/>
+<l>Sie koͤnnten nicht in Ruhe ſeyn,</l><lb/>
+<l>Wuͤrd ihnen nicht ein Fuͤrſt gegeben,</l><lb/>
+<l>Ein Koͤnig, unter dem ſie moͤgten leben.</l><lb/>
+<l>Jhr Ungeſtuͤm verdroß den Gott ein wenig.</l><lb/>
+<l>Jm Zorn ernennet er den Storch zu ihrem Koͤnig.</l><lb/>
+<l>Der kam mit groſſem Staat, mit hohem Muth u. Weſen</l><lb/>
+<l>Vor ſeinem Ernſte mocht kein Froſch geneſen.</l><lb/>
+<l>Sein Magen war ſehr heiß, weit waren Kropf u. Schlund,</l><lb/>
+<l>Und immer offen ſtuhnd der Mund.</l><lb/>
+<l>Was ihm bekam, verſchlang er lebendig.</l><lb/>
+<l>Das Froͤſchen-Volck ſah ſich in letzter Noth,</l><lb/>
+<l>Sie ſchrien: hilf Jupiter, ſonſt ſind wir alle todt.</l><lb/>
+<l>Er ſchonet weder groß noch klein.</l><lb/>
+<l>Wir wollen gern ohn einen Koͤnig ſeyn.</l><lb/>
+<l>Es mag nicht ſeyn, ſprach Jupiter,</l><lb/>
+<l>Er iſt und bleibet euer Herr;</l><lb/>
+<fw type="catch" place="bottom">Ein</fw><lb/>
+<pb n="60" facs="#f0060"/>
+<fw type="header" place="top"><hi rendition="#b">Ueberſetzung aus einer Handſch.</hi></fw><lb/>
+<l>Ein Richter uͤber euer Leben.</l><lb/>
+<l>Jch hab ihn euch auf euer Flehn gegeben,</l><lb/>
+<l>Dem muͤſſet ihr ietzt unterthaͤnig ſeyn.</l><lb/>
+<l>Will er, ſo toͤdtet er ſo groß, als klein.</l><lb/>
+<l>Dadurch geſchieht euch lauter Recht;</l><lb/>
+<l>Wer Herr mag ſeyn, der ſey nicht Knecht.</l></lg></div><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b">V.</hi></hi></head><lb/>
+<head><hi rendition="#b">Der Weih und die<lb/>
+Dauben.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">D</hi>Er Weih ſtritt mit dem Volck der Dauben.</l><lb/>
+<l>Er griff es feindlich an mit morden und mit rauben.</l><lb/>
+<l>Die Dauben ſahen das mit Schmertzen,</l><lb/>
+<l>Und plagten ſich in ihrem Hertzen.</l><lb/>
+<l>Sie hielten einen Rath, und kamen uͤberein,</l><lb/>
+<l>Daß ſie ohn’ einen Vogt nicht ſicher moͤgten ſeyn;</l><lb/>
+<l>Zu dieſem wollten ſie den Habicht nehmen,</l><lb/>
+<l>Der waͤre ſtarck genug, des Weihen Grimm zu zaͤhmen.</l><lb/>
+<l>Da dieſer nun ihr Pfleger ward,</l><lb/>
+<l>Verjagt er zwar den Weih, doch ließ er nicht von Art.</l><lb/>
+<l>Da er der Dauben Freund</l><lb/>
+<l>Und Schirmer ſollte ſeyn, war er ihr groͤſter Feind.</l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#fr">Der</hi></fw><lb/>
+<pb n="61" facs="#f0061"/>
+<fw type="header" place="top"><hi rendition="#b">des vierzehnten Jahrhunderts.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">VI.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Der Geißbock und der<lb/>
+Loͤwe.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">E</hi>S ſuchte ſeine Weid in Hungersnoth</l><lb/>
+<l>Ein Geißbock, wie es ihm ſein Naturell gebot.</l><lb/>
+<l>Er gieng ſehr hoch in einer <hi rendition="#fr">Fluh</hi> <note place="foot" n="(a)"><hi rendition="#aq">Vocab. antiquum Alpinis noſtris uſitatiſſimum.</hi></note>;</l><lb/>
+<l>Kein Thier kam’ ihm daſelbſten zu.</l><lb/>
+<l>Da ſah er einen grimmgen Loͤwen</l><lb/>
+<l>Weit unter ihm im ebnen Boden ſtehen.</l><lb/>
+<l>Der ſprach zu ihm mit hingelegtem Grimme</l><lb/>
+<l>Und einem ſanften Ton der Stimme:</l><lb/>
+<l>Mich wundert, daß du magſt dein Leben</l><lb/>
+<l>Um ſolche ſchlechte Speiſe geben.</l><lb/>
+<l>Dein Steig iſt alles Schreckens voll,</l><lb/>
+<l>So hoch daß niemand ihn betreten ſoll.</l><lb/>
+<l>Auf Speiſe dort zu gehn, iſt gar nicht gut;</l><lb/>
+<l>Mißlaͤnge dem, der dieſes thut,</l><lb/>
+<l>So hieß es, ihm geſchaͤhe recht:</l><lb/>
+<l>Hierunten iſt der Weg nicht ſchlecht,</l><lb/>
+<l>Hierunten wo der Klee, und Gras und Blumen ſtehn.</l><lb/>
+<l>Hier giebt es auserleſne Weide.</l><lb/>
+<l>Kehr denn hieher auf dieſe Heide.</l><lb/>
+<l>Verlaß die Felſen ohne Reue,</l><lb/>
+<l>Und komm herab auf meine Treue.</l><lb/>
+<l>Der Geißbock ward in ſeinen Sinnen,</l><lb/>
+<l>Des Loͤwens boͤſen Willen innen.</l><lb/>
+<l>Jch weis, ſprach er, du ſageſt recht:</l><lb/>
+<l>Das Wort iſt gut, der Wille ſchlecht.</l><lb/>
+<l>Dein Hertz iſt boͤs, dein Rath iſt gut.</l><lb/>
+<l>Haͤtt ich darunten meine Hut</l><lb/>
+<l>So gut als hier, ich naͤhme bald</l><lb/>
+<l>Dort meinen beſſern Aufenthalt.</l><lb/>
+<l>Nun mag ich dort nicht ſicher ruhn,</l><lb/>
+<l>Drum kan ich dir nicht Folge thun.</l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Die</hi></fw><lb/>
+<pb n="62" facs="#f0062"/>
+<fw type="header" place="top"><hi rendition="#b">Ueberſetzung aus einer Handſch.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">VII.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Die Schnecke, der Adler<lb/>
+und die Kraͤhe.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">D</hi>Je Schnecke hatte ſich tief in ihr Haus gezogen;</l><lb/>
+<l>Da kam ein ſtarcker Aar geflogen.</l><lb/>
+<l>Der faſſet ſie mit ſeinen Klauen an,</l><lb/>
+<l>Er zweifelt, was es ſey: als auf denſelben Plan</l><lb/>
+<l>Gleich eine Kraͤhe koͤmmt, und zu ihm ſaget: Hoͤre,</l><lb/>
+<l>Die Schaal iſt guter Speiſe voll:</l><lb/>
+<l>Doch folgeſt du nicht meiner Lehre,</l><lb/>
+<l>Genieſſeſt du ſie nimmer wohl.</l><lb/>
+<l>Flieg auf, und ſchwinge dein Geſieder;</l><lb/>
+<l>Dann wirff mit Macht die Schnecke nieder.</l><lb/>
+<l>Zerbrich die Schaal und glaube mir</l><lb/>
+<l>Du haſt dann Speiſe nach Begier.</l><lb/>
+<l>Die Kraͤhe lehrt den Adler ſo.</l><lb/>
+<l>Deß ward die Schnecke gar nicht froh.</l><lb/>
+<l>Er warf ſie und ihr gantzes Haus</l><lb/>
+<l>An einen Stein, es brach, ſie fiel heraus.</l><lb/>
+<l>Die Kraͤhe nahm der Beute wahr,</l><lb/>
+<l>Fuhr zu, und aß ſie vor dem Aar.</l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Die</hi></fw><lb/>
+<pb n="63" facs="#f0063"/>
+<fw type="header" place="top"><hi rendition="#b">des vierzehnten Jahrhunderts.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">VIII.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Die Tanne und der Dornſtrauch.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">D</hi>Je Tanne kam in Ubermuth,</l><lb/>
+<l>Wie noch ſeithero mancher thut,</l><lb/>
+<l>Der oͤfters deſſen muß entgelten.</l><lb/>
+<l>Sie fieng voll Stoltzes an, den Dornſtrauch auszuſchelten,</l><lb/>
+<l>D<hi rendition="#g">er</hi> unter ihr ſo nah am Boden ſtuhnd.</l><lb/>
+<l>Sie ſprach: ich bin gantz lang und breit;</l><lb/>
+<l>Mit Aeſten bin ich wohl bekleidt.</l><lb/>
+<l>Gruͤn iſt die Kleidung meiner Zweigen,</l><lb/>
+<l>Den Wipfel ſieht man Luft an ſteigen.</l><lb/>
+<l>Mich lobt die Frau und auch ihr Mann.</l><lb/>
+<l>Ohn’ alles Lob ſieht man dich an.</l><lb/>
+<l>Du biſt ſonſt zu nichts beſſerm gut,</l><lb/>
+<l>Als in ein Feuer fuͤr die Glut.</l><lb/>
+<l>Wer dich beruͤhrt der wird bald wund.</l><lb/>
+<l>Dein Stachel iſt gar ungeſund,</l><lb/>
+<l>Verſehrt er eines Menſchen Leib.</l><lb/>
+<l>Dich haßt der Mann, und auch ſein Weib.</l><lb/>
+<l>Noch manch veraͤchtlich Wort floß ihr vom Munde,</l><lb/>
+<l>Und ſehet, in derſelben Stunde,</l><lb/>
+<l>Koͤmmt unverwarnt ein Zimmermann,</l><lb/>
+<l>Mit blanken Sagen, Aext’ und Beilen,</l><lb/>
+<l>Und ſcharfgeſchliffnen harten Keilen.</l><lb/>
+<l>Er braucht den ſtarken Arm, und ſtreckt ſie auf den Plan</l><lb/>
+<l>Der Dornſtrauch ſtuhnd gantz ſicher in dem Porte.</l><lb/>
+<l>Derſelbe ſagt hiernaͤchſt zur Tanne dieſe Worte:</l><lb/>
+<l>O wie biſt du gefallen, ſtoltzer Baum!</l><lb/>
+<l>Wie bald, wie tief, von welcher Hoͤhe!</l><lb/>
+<l>Da ich verachteſter noch aufrecht ſtehe.</l><lb/>
+<l>Dein Schmuck und deine Wuͤrdigkeit,</l><lb/>
+<l>Dieſelben thaten dir dies Leid.</l><lb/>
+<l>Die Schoͤnheit iſts, was dir geſchadet hat.</l><lb/>
+<l>Nun iſt dein Ruhm zu Boden und ſchachmatt. <note place="foot" n="(a)"><hi rendition="#aq">Dinem rum iſt geſchehen matt.</hi></note></l><lb/>
+<l>Wovon du dachteſt zu geneſen, <note place="foot" n="(b)"><hi rendition="#aq">Davon du wandeſt ſin geneſen.</hi></note></l><lb/>
+<l>Daſſelbe iſt dein Tod geweſen. <note place="foot" n="(c)"><hi rendition="#aq">Sich das iſt din tod geweſen.</hi></note></l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#b">Der</hi></fw><lb/>
+<pb n="64" facs="#f0064"/>
+<fw type="header" place="top"><hi rendition="#b">Ueberſetzung aus einer Handſch.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">IX.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Der Mann der warm und<lb/>
+kalt blaͤſt.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">E</hi>Jn Mann gieng uͤber Feld an einem Tag</l><lb/>
+<l>Da eine Menge Schnees lag, <note place="foot" n="(a)"><hi rendition="#aq">Ains tages ſo vil ſchnewes lit.</hi></note></l><lb/>
+<l>Er kam in einen Wald ſehr tief,</l><lb/>
+<l>Wo er lang in der Jrre lief.</l><lb/>
+<l>Er litt von Hunger groſſe Noth,</l><lb/>
+<l>Von Froſt erwartet er den Tod.</l><lb/>
+<l>Sein Gluͤck war, als er ſich ſo weit vergieng,</l><lb/>
+<l>Daß ihn ein wilder Mann mit Guͤtigkeit empfieng.</l><lb/>
+<l>Er nahm ihn in ſein Haus, und hielt ihn wohl;</l><lb/>
+<l>Wie jeder Wirth mit ſeinem Gaſte ſoll.</l><lb/>
+<l>So bald er in die Huͤtte kam,</l><lb/>
+<l>Begunt er wegen Froſtes lahm</l><lb/>
+<l>Jn die gefrohrne Hand zu hauchen.</l><lb/>
+<l>Sein Wirth fragt ihn, warum er das gethan;</l><lb/>
+<l>Darauf antwortet ihm der fremde Mann:</l><lb/>
+<l>Jch hauche darum in die Haͤnde,</l><lb/>
+<l>Damit die Waͤrme ſich dahin zuruͤcke wende.</l><lb/>
+<l>Der Waldmann ſprach: Das iſt ſehr gut.</l><lb/>
+<l>Die Waͤrme iſts, was dir wohl thut.</l><lb/>
+<l>Er macht ein Feur, und ſatzt ihn nieder;</l><lb/>
+<l>Von groſſem Froſt half er ihm wieder.</l><lb/>
+<l>Jndem ſie ſo beym Feuer ſaſſen,</l><lb/>
+<l>Wollt es ſein Wirth nicht bey dem halben laſſen.</l><lb/>
+<l>Er ſah wohl, daß er hungrig war,</l><lb/>
+<l>Er ſtellt ihm gute Speiſe dar;</l><lb/>
+<l>Und reicht ihm einen Trunk: Trinck nur, er iſt geſund.</l><lb/>
+<l>Der Fremde ſetzt den Becher an den Mund,</l><lb/>
+<l>Und trinckt; doch wird er bald gewahr,</l><lb/>
+<l>Daß dieſer Tranck gekochet war.</l><lb/>
+<l>Er brannt ihn auf die Zung: Alsbald blies er daran.</l><lb/>
+<l>Da ſprach zu ihm der wilde Mann:</l><lb/>
+<fw type="catch" place="bottom">Was</fw><lb/>
+<pb n="65" facs="#f0065"/>
+<fw type="header" place="top"><hi rendition="#b">des vierzehnten Jahrhunderts.</hi></fw><lb/>
+<l>Was ſoll das ſeyn, was haſt du izt gethan?</l><lb/>
+<l>Thu mir es kund. Er ſprach: Zu heiß iſt mir der <hi rendition="#fr">W</hi>ein;</l><lb/>
+<l>Jch blaſe dieſerwegen drein,</l><lb/>
+<l>Damit er kaͤlter moͤgte ſeyn.</l><lb/>
+<l>Der Waldmann ſprach: Wie? traͤgſt du heiß und kalt</l><lb/>
+<l>Jn einem Mund? Wuͤrd ich ſteinalt</l><lb/>
+<l>So koͤnnt ichs dir zu boͤſem nicht vergeſſen.</l><lb/>
+<l>Auch hab ich mich <note place="foot" n="(a)"><hi rendition="#aq">Ouch han ich mich vermeſſen.</hi></note> <hi rendition="#fr">vermeſſen,</hi></l><lb/>
+<l>Aus meinem Hauſe muß der Mann,</l><lb/>
+<l>Der heiß und kalt im Munde haben kan.</l><lb/>
+<l>Deßwegen raff dich auf, und geh hinaus,</l><lb/>
+<l>Du bleibeſt nicht in meinem Haus.</l></lg></div><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">VIII.</hi> St.] E</fw><fw type="catch" place="bottom">Der</fw><lb/>
+<pb n="66" facs="#f0066"/>
+<fw type="header" place="top"><hi rendition="#b">Ueberſetzung aus einer Handſch.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b">X.</hi></hi></head><lb/>
+<head><hi rendition="#b">Der Bauer, ſein Sohn, und<lb/>
+ihr Eſel.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">E</hi>Jn Bauersmann wollt auf den Jahrmarckt reiten,</l><lb/>
+<l>Sein Eſel und ſein Knabe ſollten ihn begleiten;</l><lb/>
+<l>Der Eſel trug ihn fort, der Sohn gieng hinten nach.</l><lb/>
+<l>Ein Maͤdgen ſah den Ritt, es wundert ſich, und ſprach:</l><lb/>
+<l>Fuͤrwahr es dauret mich des Knaben;</l><lb/>
+<l>Er iſt zu zart dem Eſel nachzutraben,</l><lb/>
+<l>Da dieſer ſtarckgebeinte Mann</l><lb/>
+<l>Jndeß zu Pferde ſitzt, das iſt nicht wohl gethan.</l><lb/>
+<l>Da dieß der Alte hoͤrt, macht er den Sattel leer,</l><lb/>
+<l>Er ſetzt den Knaben auf, und geht zu Fuß einher.</l><lb/>
+<l>Darauf begegnen ihm zween Greiſen,</l><lb/>
+<l>Die mit den Fingern auf ihn weiſen;</l><lb/>
+<l>Und einer ſpricht: Es iſt wohl Schein,</l><lb/>
+<l>Der Alte muß nicht recht bey Sinnen ſeyn,</l><lb/>
+<l>Er geht als ein Lakey dem Eſel an der Seiten,</l><lb/>
+<l>Er koͤnnte doch zugleich mit ſeinem Buben reiten.</l><lb/>
+<l>Der Alte folgt dem Rath, er ſizt zu ſeinem Sohn</l><lb/>
+<l>Dem Eſel auf das Kreutz, und reitet braf davon.</l><lb/>
+<l>Nicht lange reiten alle beyde,</l><lb/>
+<l>So wards dem alten Mann zu Leide. <note place="foot" n="(a)"><hi rendition="#aq">Das wart im ſchier ze laide.</hi></note></l><lb/>
+<l>Denn als mehr Leute ihm bekamen, <note place="foot" n="(b)"><hi rendition="#aq">Da im die Lüt bekament.</hi></note></l><lb/>
+<l>So ſagten ſie; Jn Midas Nahmen,</l><lb/>
+<l>Was vor ein alter Thor faͤhrt dort mit ſeinem Knaben</l><lb/>
+<l>Auf einem Eſelgen? Er will es wohl todt haben.</l><lb/>
+<l>Doch koͤnnt er dieſes leichtlich wenden,</l><lb/>
+<l>Und mit dem muntern Sohn den Weg zu Fuß vollenden.</l><lb/>
+<l>Da dieſes Wort geſchah, ſprach jener zu dem Knaben,</l><lb/>
+<l>Hinunter Sohn, wir ſollen beyde traben;</l><lb/>
+<l>Der Eſel muß auch Ruhe haben.</l><lb/>
+<fw type="catch" place="bottom">Nach</fw><lb/>
+<pb n="67" facs="#f0067"/>
+<fw type="header" place="top"><hi rendition="#b">des vierzehnten Jahrhunderts.</hi></fw><lb/>
+<l>Nach dieſem riefen Mann und Frau</l><lb/>
+<l>Aus einem Munde: Ey doch, ſchau!</l><lb/>
+<l>Wie thoͤrigt dieſe beyde ſind,</l><lb/>
+<l>Der alte Mann ſo wie ſein Kind,</l><lb/>
+<l>Daß nicht ihr Sinn zu reiten ſteht, <note place="foot" n="(c)"><hi rendition="#aq">Das ir ſinn nit ze riten ſtât.</hi></note></l><lb/>
+<l>Da doch der Eſel ledig geht!</l><lb/>
+<l>Ein Wunder, daß nicht ſie den Eſel tragen!</l><lb/>
+<l>Drauf ſprach der Vater: Sohn wohlher!</l><lb/>
+<l>Der Eſel iſt uns nicht zu ſchwer,</l><lb/>
+<l>Daß wir ihn nicht wohl moͤgten tragen.</l><lb/>
+<l>Laß ſehn, was dann die Leute ſagen.</l><lb/>
+<l>Sie warffen bald den Eſel nieder,</l><lb/>
+<l>Und banden ihm den Kopf und alle Glieder.</l><lb/>
+<l>Sie haͤngten ihn an eine Stangen;</l><lb/>
+<l>Doch waͤr er freudiger zu Fuß gegangen.</l><lb/>
+<l>Bald ward ein groß Geſchrey, man rief von Ort zu Ort:</l><lb/>
+<l>Zween tragen ihren Eſel fort,</l><lb/>
+<l>Der billiger ſie beyde ſollte tragen.</l><lb/>
+<l>Man mag es wohl zur neuen Maͤhre ſagen. <note place="foot" n="(†)"><hi rendition="#aq">Man mag es wol ze maere ſagen.</hi></note></l><lb/>
+<l>Man ſieht wohl, daß ſie Narren ſind,</l><lb/>
+<l>An Witze ſind ſie beyde blind. <note place="foot" n="(o)"><hi rendition="#aq">An wizen ſint ſi bede blind.</hi></note></l><lb/>
+<l>Der Alte hoͤrte wohl, daß jedermann</l><lb/>
+<l>Nur uͤbels von ihm redt. Er fieng izt ſeuftzend an:</l><lb/>
+<l>Mein Sohn, du hoͤrſt, der Eſel trage mich,</l><lb/>
+<l>So iſts nicht recht; er trage dich,</l><lb/>
+<l>So zehlet man mich zu den Thoren;</l><lb/>
+<l>Traͤgt er uns beyde dann, ſo iſt mein Witz verlohren</l><lb/>
+<l>Und geht er ledig fort, ſo weiß ich nicht zu leben;</l><lb/>
+<l>Wenn wir ihn dann auf unſre Schultern heben,</l><lb/>
+<l>So iſt kein Menſch unſinniger als wir.</l><lb/>
+<l>Wie iſt ihm denn zu thun? Der beſte Rath iſt hier:</l><lb/>
+<l>Jn allen Handlungen thu recht und wohl.</l><lb/>
+<l>Und ſieh nicht auf die Welt, ſie iſt der Schalckheit voll;</l><lb/>
+<l>Und kan nicht ohne Tadeln ſeyn.</l><lb/>
+<l>Deßwegen huͤlle dich in deine Tugend ein.</l><lb/>
+<l>Thu was du thuſt, nach des Gewiſſens Licht</l><lb/>
+<l>Und fuͤrchte Gottes Zorn, und nicht der Welt Gericht.</l></lg></div><lb/>
+<fw type="catch" place="bottom">E 2</fw><lb/>
+<pb n="68" facs="#f0068"/>
+<fw type="header" place="top"><hi rendition="#b">Ueberſetzung aus einer Handſchr.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">XI.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Der Froſch ein Marcktſchreyer.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">E</hi>S kam ein Froſch auf eine Wieſen,</l><lb/>
+<l>Da war manch wohlgemachtes Thier,</l><lb/>
+<l>Von Anſehn, herrlich und geprieſen;</l><lb/>
+<l>Die redt er an, und ſagte: Glaubt ihr mir,</l><lb/>
+<l>So muß ich euch Artzneyen geben;</l><lb/>
+<l>Dadurch verlaͤngert ihr das Leben.</l><lb/>
+<l>Durch meine groſſe Wiſſenſchaft</l><lb/>
+<l>Geb ich den Krancken neue Kraft;</l><lb/>
+<l>Mir mag in allen Koͤnigreichen</l><lb/>
+<l>Kein andrer Froſch an Weisheit gleichen,</l><lb/>
+<l>Und ſelbſt der Menſch hat nicht ſo hohe Kunſt.</l><lb/>
+<l>Des hab ich aller Leute Gunſt.</l><lb/>
+<l>Ein Fuchs erwiedert drauf: Herr Froſch<supplied>, </supplied>ey kan das ſeyn,</l><lb/>
+<l>Daß ſie Artzneyen koͤnnen geben?</l><lb/>
+<l>Dem widerſpricht der gruͤnen Farbe Schein.</l><lb/>
+<l>Verſtehn ſie dieſe Kunſt, ſo heilen ſie ihr Leben,</l><lb/>
+<l>Und ihre Kranckheit erſt; ſie machen ſich geſund,</l><lb/>
+<l>Hernachmals mich; ſo wird uns kund,</l><lb/>
+<l>Daß ſie ein groſſer Doctor ſind.</l><lb/>
+<l>Thun ſie das nicht, ſo ſind ſie blind.</l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">XII.</hi> Der</fw><lb/>
+<pb n="69" facs="#f0069"/>
+<fw type="header" place="top"><hi rendition="#b">des vierzehnten Jahrhunderts.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#b"><hi rendition="#aq">XII.</hi> Der ſtreit der Voͤgel u. der Thiere.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">V</hi>Or dieſem iſt ein ſchwerer Streit geweſen,</l><lb/>
+<l>Darinnen kaum der zehnde Mann geneſen.</l><lb/>
+<l>Die Thiere foderten fuͤr ſich und ihr Geſchlecht</l><lb/>
+<l>Das Land, als ihr gebuͤhrend Recht.</l><lb/>
+<l>Gott, ſagten ſie, hat uns das Land gegeben,</l><lb/>
+<l>Auf dem wir ſollten gehn und leben;</l><lb/>
+<l>Und was es bringt und traͤgt gehoͤret uns zur Speiſe.</l><lb/>
+<l>Die Voͤgel ſprachen gleicherweiſe</l><lb/>
+<l>Das Erdreich an; die Erde nebſt der Luft;</l><lb/>
+<l>Die beyde waͤren nur fuͤr ſie gemacht.</l><lb/>
+<l>Fuͤr dieſe wollten ſie in einer ſtrengen Schlacht</l><lb/>
+<l>Jhr Leben an die Thiere wagen.</l><lb/>
+<l>Daher erhub ſich nun ein toͤdlich-ſchwerer Krieg.</l><lb/>
+<l>Man ſtritt mit Heldenmuth um Ehr, Beſitz und Rechte,</l><lb/>
+<l>Mit Schilde, Spieß u. Schwerdt, ſo Rittersleut als Knechte.</l><lb/>
+<l>Man jagt und ward gejagt, mit ungewiſſem Sieg;</l><lb/>
+<l>Bis daß ein groſſer Riß im Vogelheer geſchah.</l><lb/>
+<l>Sobald als dieß die Fledermaus erſah,</l><lb/>
+<l>Verließ ſie heimlich ihre Schaaren.</l><lb/>
+<l>Sie miſcht ſich unter die, die ihre Feinde waren.</l><lb/>
+<l>Sie folgt des feigen Hertzens Rath,</l><lb/>
+<l>Und flieht da man ſie noͤthig hat.</l><lb/>
+<l>Jnzwiſchen ſteht mit ſtuͤrmendem Gefieder</l><lb/>
+<l>Der Adler vor den Riß, ergaͤntzt die Luͤcke wieder.</l><lb/>
+<l>Er ſchrie die Voͤgel an, gab ihnen Hertz und Muth,</l><lb/>
+<l>Wie Ajax that, und noch ein kuͤhner thut.</l><lb/>
+<l>Sie wuͤrgten ihm mit ſcharffen Schnaͤbeln nach.</l><lb/>
+<l>Dadurch verkehret ſich des Krieges Gluͤcke,</l><lb/>
+<l>Es wendet ſich der Sieg von ſeiner Flucht.</l><lb/>
+<l>Mit ihm fliegt auch die Fledermaus zuruͤcke.</l><lb/>
+<l>Sie kam zu der verdienten Straffe,</l><lb/>
+<l>Die Voͤgel machten ſie gantz nackt und bloß;</l><lb/>
+<l>Sie gaben ihr manch harten Puff und Stoß.</l><lb/>
+<l>Dazu ward ihr zur Buſſe das gegeben,</l><lb/>
+<l>Sie ſollte Nachts ihr ſchaͤndlich Leben</l><lb/>
+<l>Mit Speiſe zu verſorgen fliegen;</l><lb/>
+<l>Des Tages ſollte ſie im Finſtern liegen.</l></lg></div><lb/>
+<fw type="sig" place="bottom"><hi rendition="#b">E 3</hi></fw><fw type="catch" place="bottom"><hi rendition="#b"><hi rendition="#aq">XIII.</hi> Die</hi></fw><lb/>
+<pb n="70" facs="#f0070"/>
+<fw type="header" place="top"><hi rendition="#b">Ueberſetzung aus einer Handſch.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">XIII.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Die gefangene Wieſel.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">M</hi>An ſaget, eine Wieſel gieng</l><lb/>
+<l>Jn eines Wirthes Haus, wo ſie viel Maͤuſe fieng.</l><lb/>
+<l>Zulezt geſchah auf einer Fahrt,</l><lb/>
+<l>Daß ſie von ihm gefangen ward.</l><lb/>
+<l>Da ſprach ſie: Wirth, du ſollſt mich laſſen gehn.</l><lb/>
+<l>Wahrhaftig ich verdient es wohl,</l><lb/>
+<l>Daß man im Frieden mich erlaſſen ſoll.</l><lb/>
+<l>Gieb acht, wie ſauber iſt dein Haus,</l><lb/>
+<l>Da laͤuft izt weder Ratt noch Maus.</l><lb/>
+<l>Dafuͤr ſollſt du mir nun zum Lohne geben,</l><lb/>
+<l>Daß du mich friedlich laͤſſeſt leben.</l><lb/>
+<l>Das nehm ich an von dir zu einer Gabe</l><lb/>
+<l>Fuͤr allen Fleiß, womit ich dir gedienet habe.</l><lb/>
+<l>Der Wirth ſprach: Ja, das iſt wohl wahr,</l><lb/>
+<l>Mein Haus iſt izo gantz und gar</l><lb/>
+<l>Von Ratten und von Maͤuſen rein.</l><lb/>
+<l>Das thateſt du: doch nicht um meinetwillen;</l><lb/>
+<l>Nicht daß du mir ſo wollteſt nuͤtzlich ſeyn;</l><lb/>
+<l>Nein, ſondern deinen Balg zu fuͤllen.</l><lb/>
+<l>Du fiengeſt, Wieſel, meinen Feind;</l><lb/>
+<l>Warum? Er war nicht mein, und nicht dein Freund.</l><lb/>
+<l>Du wollteſt meine Speiſ’ allein,</l><lb/>
+<l>Und ohne viel Geſellen ſeyn.</l><lb/>
+<l>Warum denn ſollteſt du vor mir geneſen;</l><lb/>
+<l>Dieweil du in der That mein Feind geweſen?</l><lb/>
+<l>Verderbteſt du mir nicht mein Fleiſch und Brod?</l><lb/>
+<l>Deßwegen denn bereite dich zum Tod.</l><lb/>
+<l>Die Wieſel konnt es nicht entſagen;</l><lb/>
+<l>Dahero mußte ſie die Straffe tragen.</l><lb/>
+<l>Sie ward getoͤdet auf der Statt,</l><lb/>
+<l>Weil ohne Willen ſie gedienet hatt.</l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">XIV.</hi> Die</fw><lb/>
+<pb n="71" facs="#f0071"/>
+<fw type="header" place="top"><hi rendition="#b">des vierzehnten Jahrhunderts.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">XIV.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Die zween Geſellen und der Baͤr.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">Z</hi>Ween Spießgeſellen waren gut</l><lb/>
+<l>Von Worten, aber nicht von Muth.</l><lb/>
+<l>Sie giengen izt durch einen Wald,</l><lb/>
+<l>Gefahr war nah und <hi rendition="#fr">mannigfalt.</hi> <note place="foot" n="(a)"><hi rendition="#aq">Ir beder Red was manigfalt.</hi></note></l><lb/>
+<l>Da ſagten beyde auf den Eid,</l><lb/>
+<l>Sie wollten mit Aufrichtigkeit</l><lb/>
+<l>Zuſammenhalten, bis zum Tod.</l><lb/>
+<l>Der eine Freund war braun, der andre roth.</l><lb/>
+<l>Weil ſie in dieſer Rede ſind,</l><lb/>
+<l>Koͤmmt traͤges Schritts ein Baͤr gegangen.</l><lb/>
+<l>Der Rothe wartet nicht, ihn zu empfangen,</l><lb/>
+<l>Er klimmt auf einen Baum geſchwind.</l><lb/>
+<l>Der Braune kam in groſſe Noth;</l><lb/>
+<l>Er ſtellt ſich an, als waͤr er todt.</l><lb/>
+<l>Er ruͤhrt ſich weder hin noch her.</l><lb/>
+<l>Bedachtſam kam zu ihm der Baͤr,</l><lb/>
+<l>Wo er am Boden lag, der Laͤnge nach geſtreckt,</l><lb/>
+<l>Er haͤlt ihn fuͤr ein Aas, das laͤngſt verreckt.</l><lb/>
+<l>Er wirfft ihn um, und riecht ihn an.</l><lb/>
+<l>Zulezt gieng er davon, und ließ den todten Mann.</l><lb/>
+<l>Dieß alles ſah der rothe Spießgeſelle;</l><lb/>
+<l>Er gieng vom Baum herab zur Stelle,</l><lb/>
+<l>Und ſprach zu ſeinem Freund: Ey mein!</l><lb/>
+<l>Was mogte das Geraune ſeyn? <note place="foot" n="(b)"><hi rendition="#aq">Was mocht das gerune ſin?</hi></note></l><lb/>
+<l>Was raunte dir der kluge Baͤr?</l><lb/>
+<l>Jch ſah wohl auf dem Baum daß er</l><lb/>
+<l>Zu deinen Ohren hielt den Mund;</l><lb/>
+<l>Hat er dich was gelehrt, ſo thu mirs kund.</l><lb/>
+<l>Der Braune ſprach; Ja freylich raunt er mir,</l><lb/>
+<l>Und was er mir geraunt, das raun ich dir,</l><lb/>
+<l>Er ſagte: Meide den, (das iſt mein Rath,)</l><lb/>
+<l>Der auf den Baum gefluͤchtet hat:</l><lb/>
+<l>Denn geht es ernſtlich an die Noth,</l><lb/>
+<l>So laͤßt er dich, denn er iſt roth.</l></lg></div><lb/>
+<fw type="sig" place="bottom">E 4</fw><fw type="catch" place="bottom"><hi rendition="#aq">XV.</hi> Die</fw><lb/>
+<pb n="72" facs="#f0072"/>
+<fw type="header" place="top"><hi rendition="#b">Ueberſetzung aus einer Handſch.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">XV.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Die zween Toͤpfe.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">E</hi>Jn Waſſer ward einmahl ſo groß,</l><lb/>
+<l>Daß es aus ſeinem Bete floß,</l><lb/>
+<l>Und weit und breit im Land umſchweift;</l><lb/>
+<l>Es ſchleppt dahin, was es ergreift;</l><lb/>
+<l>Mit andern Dingen ſchleifts davon</l><lb/>
+<l>Zween Hafen, einer war von Thon:</l><lb/>
+<l>Der andre war aus Ertz gegoſſen.</l><lb/>
+<l>Die beyde kamen ſo gefloſſen,</l><lb/>
+<l>Und weil der erſte leichter war, <note place="foot" n="(a)"><hi rendition="#aq">Und won der irdin liechter was<lb/>
+Des wegs gelung im deſter bas</hi></note></l><lb/>
+<l>Gelang ſein Weg ihm deſto beſſer</l><lb/>
+<l>Auf dem ſtarckſtroͤhmenden Gewaͤſſer.</l><lb/>
+<l>Er fuhr voran, der andre nach.</l><lb/>
+<l>Der rief ihm zu: Jſt dir ſo gach, <note place="foot" n="(b)"><hi rendition="#aq">Der erin ſprach iſt dir ſo gach.</hi></note></l><lb/>
+<l>Mein Freund, und warteſt du nicht mein?</l><lb/>
+<l>Wir wollen Spießgeſellen ſeyn.</l><lb/>
+<l>Wart mein, ich will mit dir hinfahren;</l><lb/>
+<l>Gott wird uns beyde wohl bewahren.</l><lb/>
+<l>Der Topf von Thone ſprach: Jch bin fuͤr dich zu kranck <note place="foot" n="(c)"><hi rendition="#aq">Der irdin ſprach ich bin ze krank<lb/>
+Gewunneſt du mir an ainen wanck.</hi></note></l><lb/>
+<l>Gewuͤnneſt du mir an nur einen Wanck,</l><lb/>
+<l>Thaͤt ich von ungefehr nur einen Stoß an dich,</l><lb/>
+<l>Und ſtieſſeſt du zuruͤck an mich,</l><lb/>
+<l>So waͤr ich erſtes Streiches todt.</l><lb/>
+<l>Jch huͤte mich vor dieſer Noth.</l><lb/>
+<l>Du uͤbertriffſt an Staͤrcke mich,</l><lb/>
+<l>Drum bin ich kein Geſell fuͤr dich.</l><lb/>
+<l>Die Stoͤſſe waͤren mein und dein,</l><lb/>
+<l>Der Schade waͤre immer mein.</l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">XVI.</hi> Der</fw><lb/>
+<pb n="73" facs="#f0073"/>
+<fw type="header" place="top"><hi rendition="#b">des vierzehnten Jahrhunderts.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">XVI.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Der Froſch und der Ochs.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">E</hi>Jn Froſch war einſt mit ſeinem Jungen</l><lb/>
+<l>Aus ſeinem Sumpf ans Land geſprungen;</l><lb/>
+<l>Wo er ein groſſes Rindvieh fand;</l><lb/>
+<l>Das hielt er ſich vor eine Schand.</l><lb/>
+<l>Er ſprach: O Himmel, hab ich dir</l><lb/>
+<l>Darum zu dancken, daß du mir</l><lb/>
+<l>Solch einen kleinen Leib gegeben?</l><lb/>
+<l>Wie gantz verſchmaͤhet iſt mein Leben</l><lb/>
+<l>Vor vielen, welche groͤſſer ſind,</l><lb/>
+<l>Wie gegenwaͤrtig dieſes Rind!</l><lb/>
+<l>Er wollte gern dem Ochſen gleichen,</l><lb/>
+<l>Er blaͤht ſich ſehr, ihn zu erreichen.</l><lb/>
+<l>Sein Sohn ſieht das, und ſpricht: o nein!</l><lb/>
+<l>Es hilft nicht: Laß dein blaͤhen ſeyn.</l><lb/>
+<l>Du magſt dem nicht wohl widerſtreben,</l><lb/>
+<l>Was die Natur dir hat gegeben.</l><lb/>
+<l>Der Alte folgte nicht dem Knaben,</l><lb/>
+<l>Die Hoffart wollt er fuͤr ſich haben.</l><lb/>
+<l>Zum andern mahl nun, blaͤht er ſich,</l><lb/>
+<l>Und ſprach zn ſeinem Sohn: Moͤgt ich</l><lb/>
+<l>Dem groſſen Ochſen gleicher werden,</l><lb/>
+<l>Geſchaͤhe mir auf dieſer Erden</l><lb/>
+<l>Nichts liebers, Sohn, auf meinen Eid.</l><lb/>
+<l>Der Sohn ſprach: Vater, mir iſt leid,</l><lb/>
+<l>Daß du dich marterſt ohne Noth</l><lb/>
+<l>Jch fuͤrchte ſehr, du blaͤhſt dich todt,</l><lb/>
+<l>Folg mir und ſey mit Willen klein,</l><lb/>
+<l>Und laß dein uͤppig Blaͤhen ſeyn.</l><lb/>
+<l>Der Alte ſprach: Es waͤr ein Spott,</l><lb/>
+<l>Jch thu es nicht; mir helffe Gott;</l><lb/>
+<l>Jch muß groß werden, wie das Rind,</l><lb/>
+<l>Deß haſt du Ehre, werthes Kind.</l><lb/>
+<l>Er blaͤhte ſich, indem ers ſprach,</l><lb/>
+<l>So heftig auf, daß er zerbrach.</l></lg></div><lb/>
+<fw type="sig" place="bottom">E 5</fw><fw type="catch" place="bottom"><hi rendition="#aq">XVII.</hi> Der</fw><lb/>
+<pb n="74" facs="#f0074"/>
+<fw type="header" place="top"><hi rendition="#b">Ueberſetzung aus einer Handſch.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">XVII.</hi></hi></hi></head><lb/>
+<lg type="poem"><head><hi rendition="#b">Der Affe mit den Nuͤſſen.</hi></head><lb/>
+<lg n="1"><l><hi rendition="#in">E</hi>Jn Affe kam auf einen Platz gerannt,</l><lb/>
+<l>Wo er viel guter Nuͤſſe fand.</l><lb/>
+<l>Von dieſen aͤß er nur zu gern;</l><lb/>
+<l>Man hatte ihm geſagt, der Kern</l><lb/>
+<l>Waͤr angenehm und koͤſtlich gut.</l></lg><lb/>
+<lg n="2"><l>Verwirrt ward ihm ſein dummer Muth</l><lb/>
+<l>Als er die Bitterkeit entdeckt,</l><lb/>
+<l>Die in den gruͤnen Haͤuten ſteckt: <note place="foot" n="(a)"><hi rendition="#aq">Do er die Bitterkait bevand<lb/>
+Der Praetſchen.</hi></note></l><lb/>
+<l>Noch mehr, als er die Schalen nagt.</l><lb/>
+<l>Von Nuͤſſen iſt mir viel geſagt,</l></lg><lb/>
+<lg n="3"><l>Sprach er, izt iſt mir anders kund;</l><lb/>
+<l>Sie haben mir verderbt den Mund. <note place="foot" n="(b)"><hi rendition="#aq">Sy hand verhoenet mir den Mund.</hi></note></l><lb/>
+<l>Er warff die Nuß veraͤchtlich auf die Erden,</l><lb/>
+<l>Von welcher ihm der Kern nicht mogte werden.</l></lg></lg> </div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">XVIII.</hi> Der</fw><lb/>
+<pb n="75" facs="#f0075"/>
+<fw type="header" place="top"><hi rendition="#b">des vierzehnten Jahrhunderts.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">XVIII.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Der Fuchs und das hoͤlzerne Bild.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">E</hi>Jn Fuchs lief ehmals uͤber Land,</l><lb/>
+<l>Als er ein Menſchenbildniß fand;</l><lb/>
+<l>Aus Holz gehauen, kunſtesvoll,</l><lb/>
+<l>Sein Haupt gezieret, als es ſoll,</l><lb/>
+<l>Die Stirne ſchoͤn, die Augen klar,</l><lb/>
+<l>Die Wangen roth, ein ſilbern Haar;</l><lb/>
+<l>Der Mund war klein, die Zaͤhne weiß;</l><lb/>
+<l>Es war gezieret auf den Preis.</l><lb/>
+<l>Als nun der Fuchs das Bild erſah,</l><lb/>
+<l>Erſtaunt er ſehr, und ſagte da:</l><lb/>
+<l>Potz Stern! welch Wunder mag das ſeyn?</l><lb/>
+<l>Jſt das ein Menſch, was vor ein Schein!</l><lb/>
+<l>Jndem er dieſe Worte ſprach:</l><lb/>
+<l>Gieng er hin, wo das Bildniß lag.</l><lb/>
+<l>Er kehrt es hin, er kehrt es her;</l><lb/>
+<l>Betrachtets wohl, da mercket er,</l><lb/>
+<l>Daß ſeine Augen ohne Licht;</l><lb/>
+<l>Daß es ein Mund iſt, der nicht ſpricht;</l><lb/>
+<l>Die Haͤnde nie zu Wercke gehn,</l><lb/>
+<l>Die Fuͤſſe immer ſtille ſtehn.</l><lb/>
+<l>Der Fuchs ward dieſes ungern innen,</l><lb/>
+<l>Er dacht in ſeinen Fuchſes-Sinnen:</l><lb/>
+<l>Was ſoll das Auge ſonder Licht?</l><lb/>
+<l>Was ſoll der Mund, ſo er nicht ſpricht?</l><lb/>
+<l>Die Haͤnde, die zu Werck nicht gehn?</l><lb/>
+<l>Die Fuͤſſe, die nur ſtille ſtehn?</l><lb/>
+<l>Wer ſie mit reichem Schmuck bekleidt,</l><lb/>
+<l>Der treibet groſſe Ueppigkeit.</l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">XIX.</hi> Der</fw><lb/>
+<pb n="76" facs="#f0076"/>
+<fw type="header" place="top"><hi rendition="#b">Ueberſetzung aus einer Handſch.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">XIX.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Der Krebs und ſein Sohn.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">E</hi>Jn Krebs fuhr ſeinen Sohn mit dieſen Worten an:</l><lb/>
+<l>Wie gehſt du ſo verkehrt, Sohn, ſtehſt du in dem Wahn</l><lb/>
+<l>Du geheſt hinter ſich ganz recht?</l><lb/>
+<l>So biſt du Herr, und ich bin Knecht.</l><lb/>
+<l>Du ſollteſt lernen vor ſich gehn,</l><lb/>
+<l>Wie auch dein Vater geht; das wird dir beſſer ſtehn.</l><lb/>
+<l>Ein Sohn, der wie ſein Vater thut,</l><lb/>
+<l>Der wird gelobt, und das iſt recht und gut.</l><lb/>
+<l>Der Sohn ſprach: Vater, du ſagſt wohl.</l><lb/>
+<l>Jch weiß es, daß ein Sohn dem Vater folgen ſoll.</l><lb/>
+<l>Deßwegen geh nur vor; laß ſehen, wie du geheſt,</l><lb/>
+<l>So geh ich auch, wie du; und wie du ſteheſt,</l><lb/>
+<l>So ſteh ich auch; und wie du dich</l><lb/>
+<l>Dann ſtelleſt, ſtell ich gleichfalls mich.</l><lb/>
+<l>Da nun der Vater ſeinen Weg</l><lb/>
+<l>Zum Beyſpiel ſollte vor ſich gehen,</l><lb/>
+<l>War er dazu ganz ungeſchickt und traͤg;</l><lb/>
+<l>Hingegen war er ſchnell ſich ruͤckwerts fortzudrehen.</l><lb/>
+<l>Da ſprach der Sohn zum Vater: Mein!</l><lb/>
+<l>Was ſoll das vor ein Beyſpiel ſeyn?</l><lb/>
+<l>Du haſt denſelben Gang, wie ich,</l><lb/>
+<l>Und gehſt geſchwinde hinterſich,</l><lb/>
+<l>Jndem du ſollteſt vor ſich gehn.</l><lb/>
+<l>Drum laß dein Strafen lieber ſtehn.</l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">XX.</hi> Der</fw><lb/>
+<pb n="77" facs="#f0077"/>
+<fw type="header" place="top"><hi rendition="#b">des vierzehnten Jahrhunderts.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">XX.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Der Rabe und der Fuchs.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">E</hi>S ſaß ein Fuchs mit leerem Magen,</l><lb/>
+<l>Und im Gemuͤthe gantz zerſchlagen,</l><lb/>
+<l>Jm Schatten eines hohen Baums.</l><lb/>
+<l>Auf dieſen ſetzte ſich ein Rab in gleicher Stunde.</l><lb/>
+<l>Der hatt ein Stuͤcke Kaͤſ’ im Munde.</l><lb/>
+<l>Der Fuchs ſah dieß Begegniß gern:</l><lb/>
+<l>Er redt ihn an: Jch gruͤſſe meinen Herrn;</l><lb/>
+<l>Jch bin und bleibe ſtets dein Knecht.</l><lb/>
+<l>Das duͤnckt mich billig, gut, und recht.</l><lb/>
+<l>Du biſt ſo edel, ſchoͤn, und liederreich,</l><lb/>
+<l>Kein andrer Vogel iſt dir gleich;</l><lb/>
+<l>Man ſuche gleich in allen Koͤnigreichen.</l><lb/>
+<l>Jch ſchmeichle nicht, mein Herr, dir weichen</l><lb/>
+<l>Der Falck an Adel und an Macht;</l><lb/>
+<l>Der Pfau an Schein und lichter Pracht;</l><lb/>
+<l>An lieblichem Geſang die ſuͤſſe Nachtigall.</l><lb/>
+<l>Du uͤbertriffſt ſie weit mit deinem ſcharffen Schall.</l><lb/>
+<l>Man hoͤrt ihn weit und breit im holen Wald erklingen.</l><lb/>
+<l>Wenn du die Stimm erhebſt ein ſuͤſſes Lied zu ſingen,</l><lb/>
+<l>So dringt die Wolluſt ſich durch alle meine Glieder,</l><lb/>
+<l>Jch hoͤr entzuͤcket deine Lieder.</l><lb/>
+<l>Der Rabe ſprach: Du haſt ein zartes Ohr;</l><lb/>
+<l>Und Urtheil und Geſchmack darinnen.</l><lb/>
+<l>Jch will dir dieſe Luſt auch jezo nicht mißgoͤnnen.</l><lb/>
+<l>Damit ſchloß er das Aug, und hub den Kopf empor.</l><lb/>
+<l>Er ſtimmte ſtarck den widrigen Geſang,</l><lb/>
+<l>Der krachend durch den Berg und tiefen Thal erklang.</l><lb/>
+<l>Jn waͤhrendem Geſang entfiel der Kaͤſ’ ihm bald;</l><lb/>
+<l>Den nahm der Fuchs zum Danck, und trug ihn in den Wald.</l></lg></div><lb/>
+<fw type="catch" place="bottom"><hi rendition="#aq">XXI.</hi> Die</fw><lb/>
+<pb n="78" facs="#f0078"/>
+<fw type="header" place="top"><hi rendition="#b">Ueberſetzung aus einer Handſch.</hi></fw><lb/>
+<div n="3"><head><hi rendition="#aq"><hi rendition="#b"><hi rendition="#g">XXI.</hi></hi></hi></head><lb/>
+<head><hi rendition="#b">Die Lehren der Nachtigall.</hi></head><lb/>
+<lg type="poem"><l><hi rendition="#in">E</hi>Jn Weidmann fieng ein Voͤgellein,</l><lb/>
+<l>Das war voll Symphonie, doch klein;</l><lb/>
+<l>Es ward die Nachtigall genannt.</l><lb/>
+<l>Der Vogler nahm es in die Hand</l><lb/>
+<l>Und wollt ihm gleich den Hals umdrehn,</l><lb/>
+<l>Als es ihm flehte: Laß mich gehn,</l><lb/>
+<l>Du aͤſſeſt dich nicht ſatt von mir; <note place="foot" n="(a)"><hi rendition="#aq">Du machſt nit ſatt werden von mir.</hi></note></l><lb/>
+<l>Fuͤr ſelche Wohlthat geb ich dir</l><lb/>
+<l>Drey Lehren, die dir nuͤzlich ſeyn,</l><lb/>
+<l>Praͤgſt du ſie im Gedaͤchtniß ein.</l><lb/>
+<l>Er ſprach, ſag an: was mag das ſeyn?</l><lb/>
+<l>Da ſprach das kleine Voͤgellein:</l><lb/>
+<l>Die erſte Lehre: Glaube nicht</l><lb/>
+<l>Das, was ſich ſelber widerſpricht.</l><lb/>
+<l>Die andre: Gieb in deinem Hertzen</l><lb/>
+<l>Nicht Platz dem unbedachten Schmertzen</l><lb/>
+<l>Um was, das nicht kan widerkommen,</l><lb/>
+<l>Dergleichen Leid mag niemand frommen.</l><lb/>
+<l>Die dritt und letzte ſchaͤrfft dir ein,</l><lb/>
+<l>Du ſolleſt nicht bemuͤhet ſeyn</l><lb/>
+<l>Um das, was dir nicht werden mag;</l><lb/>
+<l>Der fuͤhrt auf ſeinen Kopf den Schlag, <note place="foot" n="(b)"><hi rendition="#aq">Er tuot im ſelber groſſen Schlag.</hi></note></l><lb/>
+<l>Der uͤberſiehet dieß Gebot,</l><lb/>
+<l>Und macht ſich zu der Leute Spott.</l><lb/>
+<l>Behaͤltſt du dieſe Lehren wohl,</l><lb/>
+<l>So biſt du aller Weißheit voll.</l><lb/>
+<l>Der Mann hatt an der Lehr Begnuͤgen</l><lb/>
+<l>Und ließ den kleinen Vogel fliegen.</l><lb/>
+<l>Er flog auf einen Baum hinauf,</l><lb/>
+<l>Mit leichtem Muth, und ſprach darauf:</l><lb/>
+<fw type="catch" place="bottom">Du</fw><lb/>
+<pb n="79" facs="#f0079"/>
+<fw type="header" place="top"><hi rendition="#b">des vierzehnten Jahrhunderts.</hi></fw><lb/>
+<l>Du ſollteſt dich wohl ſelber haſſen,</l><lb/>
+<l>Thor, daß du mich haſt fliegen laſſen.</l><lb/>
+<l>Das muß dir Schad und Ungluͤck ſeyn. <note place="foot" n="(c)"><hi rendition="#aq">Das muſs dir Schade ſin.</hi></note></l><lb/>
+<l>Denn ich trag einen edeln Stein</l><lb/>
+<l>Jm Leibe, wer ihn hat, wird groß,</l><lb/>
+<l>Jm Felde nimmer ſattellos.</l><lb/>
+<l>Er daͤmpft und toͤdet allen Gift;</l><lb/>
+<l>So groß, daß er ein Straußey uͤbertrift.</l><lb/>
+<l>Du ſiehſt, ſo viel haſt du verlohren.</l><lb/>
+<l>Der Weidmann haͤtte nun geſchworen,</l><lb/>
+<l>Das alles waͤre kurtzum wahr.</l><lb/>
+<l>Aus dummem Sinn vergaß er gar</l><lb/>
+<l>Der Lehren, die ihm erſt der Vogel ſelbſt gegeben.</l><lb/>
+<l>Er ward betruͤbt, als um ſein Leben;</l><lb/>
+<l>Er glaubte, was ſich widerſpricht;</l><lb/>
+<l>Er ſchonte ſeines Fleiſſes nicht</l><lb/>
+<l>Den Vogel, der ihm ſo entgangen,</l><lb/>
+<l>Und ſein Geluͤck damit, zum andern mahl zu fangen.</l><lb/>
+<l>Der weiſe Vogel redt ihm ein:</l><lb/>
+<l>Willſt du allzeit ein Narre ſeyn,</l><lb/>
+<l>Und denckſt an meine Lehren nicht;</l><lb/>
+<l>Daß man nicht glauben ſoll, was ſelbſt ſich widerſpricht?</l><lb/>
+<l>Jn mir dergleichen groſſen Stein</l><lb/>
+<l>Zu tragen, bin ich allzuklein.</l><lb/>
+<l>Daneben haſt du Leid und Schmertzen</l><lb/>
+<l>Um mich in deinem eiteln Hertzen,</l><lb/>
+<l>Dieweil ich deiner Hand entgangen.</l><lb/>
+<l>Zuletzt biſt du bemuͤht, mich wiederum zu fangen.</l><lb/>
+<l>Mein Weg und deiner ſind nicht gleich,</l><lb/>
+<l>Du wirſt an Weisheit nimmer reich.</l></lg></div></div></div><lb/>
+<pb n="80" facs="#f0080"/>
+<fw type="header" place="top"><hi rendition="#b">Von dem Mechaniſmo</hi></fw><lb/>
+<milestone unit="section" rendition="#hr"/><lb/>
+<div n="1"><head><hi rendition="#b"><hi rendition="#g">Sinnliche Erzehlung</hi><lb/>
+von der mechaniſchen<lb/>
+Verfertigung des deutſchen<lb/>
+Original-Stuͤckes von Cato.</hi></head><lb/>
+<p><hi rendition="#in">J</hi>Ch glaube nicht, daß es einer von unſern<lb/>
+Kunſtlehrern in dem <hi rendition="#aq">Mechaniſmo</hi> der Re-<lb/>
+geln hoͤher gebracht habe, als der Hr. Prof.<lb/>
+Gottſched gethan hat. Er iſt darinnen ſo weit<lb/>
+fortgegangen, daß ſeine Schuͤler des Naturelles,<lb/>
+der Erfindungs-Kraft, und deſſen, was in Latein<lb/>
+<hi rendition="#aq">Vivida vis animi</hi> genennt wird, keineswegs von-<lb/>
+noͤthen haben, und ſich ſtatt des Verſtandes mit<lb/>
+dem Gedaͤchtniß, dem Woͤrterbuche, und der<lb/>
+Sprache behelffen koͤnnen. Jhr Auge, ihre Hand<lb/>
+und ihr Ohr bekoͤmmt bey Verfertigung eines Ge-<lb/>
+dichtes das meiſte zu thun, der Kopf und das Hertz<lb/>
+haben gemeiniglich Ruhe. Daher werden die Gott-<lb/>
+ſchediſchen Kunſtregeln ſo brauchbar, daß ein je-<lb/>
+der, der nur Augen, Haͤnde und Ohren hat, ſich<lb/>
+ihrer bedienen kan. Was dieſer kunſtvolle Mann<lb/>
+gedacht und geſchrieben hat, der Tragiſchen Poe-<lb/>
+ſie bey den Deutſchen die Bahn zu brechen, iſt<lb/>
+insbeſondere in Abſicht auf dieſe mechaniſche Ge-<lb/>
+ſchicklichkeit und Leichtigkeit gantz ausnehmend,<lb/>
+und hat ihm bey allen ſeinen Verehrern den Nah-<lb/>
+men des groſſen Befoͤderers der deutſchen Schau-<lb/>
+buͤhne verdienet. Jch habe mir von ſeinen tragi-<lb/>
+<fw type="catch" place="bottom">ſchen</fw><lb/>
+<pb n="81" facs="#f0081"/>
+<fw type="header" place="top"><hi rendition="#b">des deutſchen Cato.</hi></fw><lb/>
+ſchen Regeln folgende, als die tiefſinnigſten und<lb/>
+brauchbarſten angemercket: Ein Trauerſpiel muß<lb/>
+fuͤnf Aufzuͤge haben; die Perſonen muͤſſen nicht<lb/>
+von der Buͤhne gehen, oder wiederkommen, ohne<lb/>
+zu ſagen, warum; die Scenen muͤſſen abgetheilt<lb/>
+ſeyn, wann neue Perſonen auftreten, oder alte<lb/>
+abgehen, <hi rendition="#fr">weil es eine Unordnung in dem aͤuſ-<lb/>
+ſerlichen Anſehen verurſachere;</hi> in den Trauer-<lb/>
+ſpielen muß keine luſtige Perſon ſeyn; die Gleich-<lb/>
+niſſe ſchicken ſich vor die tragiſche Schreibart nicht<lb/>
+wohl; man muß ſich des edeln <hi rendition="#fr">Du</hi> der Alten be-<lb/>
+dienen, <hi rendition="#fr">weil es manchen Vers viel ſtaͤrcker und<lb/>
+nachdruͤcklicher machet, als er vorhin hat wer-<lb/>
+den wollen.</hi> Dieſe und einige andere noch ver-<lb/>
+borgenere Kunſt-Regeln hat dieſer Kunſtlehrer in<lb/>
+ſeinem Cato mit groſſer Geſchicklichkeit angewen-<lb/>
+det, und ihn dadurch zu einer Vollkommenheit<lb/>
+gebracht, daß er vor ein deutſches Originalſtuͤcke<lb/>
+gelten kan. Darum hat er ſich auch berechtiget<lb/>
+geſehen, denſelben endlich aus der Liſte der Ueber-<lb/>
+ſetzungen und Nachahmungen heraus zu nehmen,<lb/>
+und mit den <hi rendition="#fr">Horaziern,</hi> dem <hi rendition="#fr">Timoleon</hi> und an-<lb/>
+dern unter die deutſchen Originalſtuͤcke zu ſtellen.<lb/>
+<note place="foot" n="(†)">Daß wir nicht bey Ueberſetzungen und Nachah-<lb/>
+mungen ſtehen geblieben, das zeigen ja auſſer dem Cato,<lb/>
+Titus Manlius, der Tod Caͤſars, Ulyſſes, die Horazier,<lb/>
+Timoleon, ꝛc. <hi rendition="#fr">Vorrede zum zweyten Theil der deutſchen<lb/>
+Schaubuͤhne.</hi></note> Und der Herr Mag. Joachim Schwabe hat<lb/>
+lieber zu wenig als zu viel ſagen wollen, als er in<lb/>
+der erſten Vorrede zu ſeinen eigenen <hi rendition="#fr">Beluſtigun-</hi><lb/>
+<fw type="sig" place="bottom">[Crit. Sam̃l. <hi rendition="#aq">VIII.</hi> St.] F</fw><fw type="catch" place="bottom"><hi rendition="#fr">gen</hi></fw><lb/>
+<pb n="82" facs="#f0082"/>
+<fw type="header" place="top"><hi rendition="#b">Von dem Mechaniſmo</hi></fw><lb/>
+<hi rendition="#fr">gen</hi> verſichert, der <hi rendition="#fr">groſſe</hi> Corneille der Frantzo-<lb/>
+ſen habe noch weniger Antheil an ſeinem Cid, als<lb/>
+ſich dieſer <hi rendition="#fr">groſſe</hi> Hr. Gottſched von ſeinem Cato<lb/>
+aus Beſcheidenheit zugeeignet. Wenn kuͤnftig<lb/>
+dem Hr. Gottſched gefallen wird, die ſuͤſſe Hoff-<lb/>
+nung zu erfuͤllen, welche er uns zu Anmerckungen<lb/>
+uͤber des Ariſtoteles Dichtkunſt gemachet hat, ſo<lb/>
+wird ihm ſein Cato allein die geſchickteſten Exem-<lb/>
+pel leihen, auf welche er ſich in ſeinen Erlaͤuterun-<lb/>
+gen beruffen kan. Da er ſolche in den Griechiſchen<lb/>
+Dichtern vergeblich geſucht haͤtte, hat er gantz<lb/>
+kluͤglich gehandelt, daß er das Muſter und Exem-<lb/>
+pel zu den Kunſtlehren der Tragoͤdie ſelbſt verfer-<lb/>
+tiget hat, wodurch der Leſer zum Empfang derſel-<lb/>
+ben vorbereitet, und die Kunſt noch vor ihrer dog-<lb/>
+matiſchen Erklaͤrung durch das Werck und die Er-<lb/>
+fahrung bekraͤftiget wird. Ein aufmerckſames Ge-<lb/>
+muͤthes-Auge kan ſie gantz deutlich darinnen erbli-<lb/>
+ken, und im Geiſt vorherſehen, was es von der ver-<lb/>
+ſprochenen Ariſtoteliſch-Gottſchediſchen Dichtkunſt<lb/>
+zu gewarten hat. Jch habe dem kunſtreichen Me-<lb/>
+chaniſmo in dieſer Tragoͤdie mit allem Fleiſſe nach-<lb/>
+geſpuͤret, und manches darinn entdecket, das un-<lb/>
+gemein dienen kan, die deutſche Schaubuͤhne ohne<lb/>
+groſſen Aufwand von unſerm Eigenthum mit Ori-<lb/>
+ginal-Stuͤcken zu bereichern. Jch getraue mir ſo<lb/>
+gar die Kunſtraͤder und Springfedern der mechani-<lb/>
+ſchen Arbeit des Poeten von einem zum andern<lb/>
+ausgeſpaͤhet zu haben.</p><lb/>
+<p>Sobald der Hr. Verfaſſer bey ſich beſchloſſen,<lb/>
+eine deutſche Original-Tragoͤdie von Cato zu ver-<lb/>
+fertigen, hat er ſich vor allen Dingen in einen<lb/>
+<fw type="catch" place="bottom">recht-</fw><lb/>
+<pb n="83" facs="#f0083"/>
+<fw type="header" place="top"><hi rendition="#b">des deutſchen Cato.</hi></fw><lb/>
+rechtmaͤßigen Beſitz des Frantzoͤſiſchen Cato des<lb/>
+Herrn Deschamps geſetzet; wozu er ungefehr drey<lb/>
+gute Groſchen aufgewendet hat. Das iſt eine<lb/>
+Tragoͤdie, die in ihrem Vaterlande ziemlich unbe-<lb/>
+kannt geblieben war, dergeſtalt daß ihr Verfaſſer<lb/>
+ſich gemuͤſſiget geſehen, zu ihrem und ſeinem Lobe<lb/>
+die Feder anzuſetzen, welches er in einer Verglei-<lb/>
+chung derſelben mit Addiſons Engellaͤndiſcher von<lb/>
+demſelben Jnnhalt gantz aufrichtig gethan, und<lb/>
+ihr mit groſſer Beſcheidenheit den Vorzug vor der<lb/>
+fremden zugeſprochen hat. Er hat dabey eine ſol-<lb/>
+che Manier gebraucht, daß er vielmehr fuͤr den<lb/>
+Vorzug der Frantzoͤſiſchen Schaubuͤhne vor der<lb/>
+Engellaͤndiſchen als vor ſeine Tragoͤdie zu fechten<lb/>
+geſchienen. Da Addiſons Cato die beſte Engel-<lb/>
+laͤndiſche Tragoͤdie iſt, und ſeine eigene eine von<lb/>
+den beſten Frantzoͤſiſchen, ſo beſtreitet er in Addi-<lb/>
+ſons Tragoͤdie die gantze Engellaͤndiſche Schau-<lb/>
+buͤhne, und ſetzet ſie unter die Frantzoͤſiſche hinun-<lb/>
+ter. Jch muß bekennen, daß er dieſes ſo gut aus-<lb/>
+gefuͤhret hat, als er gruͤndlich bewieſen, daß ſein<lb/>
+Werck beſſer als Addiſons ſey. Man mag den<lb/>
+Engliſchen Mylord, den er zum Schiedrichter ge-<lb/>
+nommen hat, darum befragen, wenn man ihn ir-<lb/>
+gend antrifft. Deschamps hat die Welt uͤberre-<lb/>
+den wollen, er habe vor Verfertigung ſeines Cato<lb/>
+den Engliſchen nicht geſehen, aber man iſt ſo un-<lb/>
+billig geweſen, daß mans ihm nicht hat glauben<lb/>
+wollen, ungeachtet man in ſeinem Wercke nicht<lb/>
+die geringſte Spur von Addiſon wahrnehmen kan.</p><lb/>
+<p>Ferner hat Hr. Gottſched ſich auch ein Recht<lb/>
+auf Addiſons Cato mit etlichen Groſchen erwor-<lb/>
+<fw type="sig" place="bottom">F 2</fw><fw type="catch" place="bottom">ben.</fw><lb/>
+<pb n="84" facs="#f0084"/>
+<fw type="header" place="top"><hi rendition="#b">Von dem Mechaniſmo</hi></fw><lb/>
+ben. Einige wollen zwar ſagen, daß er ihn bloß<lb/>
+nach des Hr. Boyers Franzoͤſiſchen Ueberſetzung<lb/>
+gehabt habe, aber das koͤmmt nur von ſeinen<lb/>
+Feinden, die ihm wohl ehe vorgeworffen, daß er<lb/>
+aus Ueberſetzungen uͤberſetze.</p><lb/>
+<p>Von der erſtern Tragoͤdie des Hr. Deschamps<lb/>
+hat er nun in einem guten Zeichen mit einem wohl-<lb/>
+ſchneidenden Meſſer folgende Scenen abgeloͤſet:<lb/>
+die fuͤnfte Scene des zweyten Aufzuges; im<lb/>
+vierten Aufzug die Helffte von der vierten Sce-<lb/>
+ne; und die fuͤnfte daſelbſt gantz; endlich den fuͤnf-<lb/>
+ten Aufzug mit allen ſeinen Scenen; als ſo viele ab-<lb/>
+gefaulte und gangrenirte Glieder. Mit Addiſons<lb/>
+Cato hat er eine noch ſtrengere Operation vorge-<lb/>
+nommen, und ihm auf einmahl alle vier erſtern<lb/>
+Aufzuͤge abgeſchnitten, und allein die eilfte und die<lb/>
+zwoͤlfte Scene aus dem vierten Aufzuge ſtehen laſ-<lb/>
+ſen. Selbſt in dem fuͤnften Aufzuge hat er in der<lb/>
+lezten Scene die Beſtaͤtigung der beyden Heyra-<lb/>
+then, des Portius und des Juba, geſchickt heraus-<lb/>
+geſchnitten. Alle dieſe abgeloͤßten Stuͤcke warff er<lb/>
+vor die Hunde; die andern tractierte er mit der<lb/>
+groͤſten Sorgfalt. Es waren <hi rendition="#aq">disjecta membra</hi><lb/>
+von zween verſchiedenen Poeten, Stuͤcke von zween<lb/>
+geſonderten Coͤrpern, deren einer an ſeinem Ober-<lb/>
+theile, der andere an den untern Theilen geſtuͤm-<lb/>
+melt war. Er probierte jetzo ſie in einen Leib auf<lb/>
+ein neues zuſammenzuſetzen; Allein einige Theile<lb/>
+waren in der erſten Operation verſchnitten, oder<lb/>
+gelaͤhmet, die Gelencke und Muskeln waren hier<lb/>
+und dar verletzet worden; darum mußte er, ſie zu<lb/>
+ergaͤntzen, neue erſchaffen, ſo wie die Goͤttin Ceres<lb/>
+<fw type="catch" place="bottom">die</fw><lb/>
+<pb n="85" facs="#f0085"/>
+<fw type="header" place="top"><hi rendition="#b">des deutſchen Cato.</hi></fw><lb/>
+die aufgegeſſene Schulter des Pelops mit einer<lb/>
+helffenbeinern erſetzen mußte. Ueber dieſes waren<lb/>
+einige ohne Proportion und Ebenmaſſe an Laͤnge<lb/>
+und Groͤſſe; dieſe mußte er, gleich Procruſtes, aus<lb/>
+einander daͤhnen oder zuſammen ziehen, bis ſie auf<lb/>
+einander paſſeten. Er verfertigete alſo die ſuͤnfte<lb/>
+und die ſechste Scene in dem zweyten Aufzuge,<lb/>
+nebſt ein paar Verſe am Ende des vierten Auf-<lb/>
+trittes daſelbſt; die lezte Scene im dritten Auf-<lb/>
+zuge; die hintere Helfte der erſten Seene im vierten<lb/>
+Aufzuge; einige Zeilen des Portius im andrrn Auf-<lb/>
+tritte daſelbſt; und 14. oder 15. Verſe im vierten<lb/>
+Auftritte auch daſelbſt, welche er unter Portius,<lb/>
+Portia und Caͤſar vertheilet hat. Alle dieſe Er-<lb/>
+gaͤntzungswercke machen nicht gar den zwoͤlften<lb/>
+Theil von dem Gantzen. Sein Chirurgiſches<lb/>
+Meſſer hatte ihm vornehmlich darinnen geſehlt,<lb/>
+daß es Addiſons Portius mit deſſen foͤdern Aufzuͤ-<lb/>
+gen weggeſchnitten, dadurch war des Poeten er-<lb/>
+ſchaffende Kraft meiſtens zu dieſem kleinen Koſten<lb/>
+eigener Arbeit gemuͤſſiget worden. Jezo ſchicketen<lb/>
+ſich alle Theile in dem gehoͤrigen Maſſe und Con-<lb/>
+figuration zu einander, aber es mangelte ihnen<lb/>
+noch an Zuſammenhang und Feſtigkeit; und dieſe<lb/>
+gab er ihnen mit einer Pappe von magiſchem Pulver,<lb/>
+damit heftete er alle dieſe verſchiedene Stuͤcke von<lb/>
+Scene zu Scene, und von Aufzug zu Aufzug, in<lb/>
+einen tragiſchen Leib feſt zuſammen. Er nahm mit<lb/>
+Freude wahr, daß ihm an Foͤder-Mittler-<lb/>
+und Hintertheilen nichts gebrache, und daß er ſich<lb/>
+auf ſeinem eigenen Gewichte aufrecht halten konnte.<lb/>
+Es war an Geſtalt und Anſehen eine vollkommene,<lb/>
+wohlgeſtaltete, und in allen ihren Theilen wohlge-<lb/>
+<fw type="sig" place="bottom">F 3</fw><fw type="catch" place="bottom">ord-</fw><lb/>
+<pb n="86" facs="#f0086"/>
+<fw type="header" place="top"><hi rendition="#b">Von dem Mechaniſmo</hi></fw><lb/>
+ordnete Tragoͤdie, die einen Anfang, ein Mittel, und<lb/>
+ein Ende hatte, die mit Protaſis, Epitaſis und<lb/>
+Cataſtrophe verſehen war, und der nicht das ge-<lb/>
+ringſte Gliedmaß zu ihrer gehoͤrigen Statur<lb/>
+mangelte.</p><lb/>
+<p>Dennoch konnte ſie noch kein <hi rendition="#fr">deutſches</hi> Origi-<lb/>
+nalſtuͤcke genennt werden, weil das foͤdere Fran-<lb/>
+zoͤſiſch, das hintere Engliſch, und hier und dar et-<lb/>
+was deutſches mit eingeſtreuet, war. Der Herr<lb/>
+Verfaſſer uͤberſetzete derowegen mit Beyſtande ei-<lb/>
+nes Frantzoͤſiſchen und eines Engliſchen Lexicons al-<lb/>
+les in das Deutſche; und dieſes that er mit einer<lb/>
+ſolchen Geſchicklichkeit des Gedaͤchtniſſes, und<lb/>
+wenn ihm dieſes fehlte, des Auges und der Hand<lb/>
+im Aufſchlagen der Woͤrterbuͤcher, daß er dem<lb/>
+Kopf die meiſte Arbeit mit dencken erſparete. Es<lb/>
+gluͤckete ihm damit ſo wohl, daß er auch durch ſein<lb/>
+Ueberſetzen allein ſeinem Wercke den Werth und<lb/>
+den Nahmen eines Originales erworben haͤtte.<lb/>
+Er verwandelte das Traurige in Luſtiges, das<lb/>
+groſſe in kleines, das kleine in groſſes, das einfaͤl-<lb/>
+tige in vermiſchtes, er umtauſchete die Foͤderſaͤtze mit<lb/>
+den Hinterſaͤtzen, er machete die Folgen zu ihren<lb/>
+Urſachen, und die Urſachen zu ihren Folgen, er<lb/>
+fieng mit einem Nachſatz an, ohne daß er ſolchem<lb/>
+einen Vorderſatz haͤtte vorher gehen laſſen, auf wel-<lb/>
+chen dieſer ſich bezogen haͤtte; er erweiterte, ver-<lb/>
+kuͤrtzete, vermehrete, verſchwieg. Er tauſchete das<lb/>
+nichtswirdige <hi rendition="#fr">Jhr</hi> mit dem edeln <hi rendition="#fr">Du,</hi> und ſetzete<lb/>
+einen <hi rendition="#aq">Monologum</hi> in der erſten Scene des vierten<lb/>
+Aufzuges in einen <hi rendition="#aq">Dialogum</hi> um. Er uͤberſetzete<lb/>
+bis auf die Nahmen der Perſonen; Addiſons Lu-<lb/>
+<fw type="catch" place="bottom">cia</fw><lb/>
+<pb n="87" facs="#f0087"/>
+<fw type="header" place="top"><hi rendition="#b">des deutſchen Cato.</hi></fw><lb/>
+cia ward in Phenize, Marcia in Portia uͤberſe-<lb/>
+zet. Alſo iſt der Nahme der Phenize geſetzt, wo<lb/>
+Lucia ſtehen ſollte, derer Rede und Gedancken die-<lb/>
+ſes ſind:</p><lb/>
+<lg type="poem"><l>. . . . Kein Mitleid nimmt ihn ein,</l><lb/>
+<l>Denn weil er ſelbſt nicht fehlt, ſo will er nie verzeihn.</l></lg><lb/>
+<p>Lucia redet dieſes von ihrer Schwachheit, die<lb/>
+ſie beym Addiſon mit ihrer Liebe gegen Portius<lb/>
+hatte blicken laſſen; von dieſer ſagt ſie, daß Cato<lb/>
+ſie niemahls gefuͤhlt, und darum nicht verzeihe.<lb/>
+Vor Gottſcheds Phenize ſchicket ſich dieſes nicht,<lb/>
+weil ſie ſich mit keiner ſolchen Schwachheit ver-<lb/>
+gangen hatte. Deßgleichen iſts nicht der Portia,<lb/>
+ſondern der Marcia Hertzensempfindung und Er-<lb/>
+fahrung in folgenden Zeilen:</p><lb/>
+<lg type="poem"><l>. . . . Noch hab ich allezeit,</l><lb/>
+<l>Seitdem das Schickſal mich an dieſen Ort gefuͤhret,</l><lb/>
+<l>Das zaͤrtſte Vaterhertz in ſeiner Bruſt geſpuͤret.</l></lg><lb/>
+<p>Portia hatte erſt ſeit dem Mittage deſſelben Tags<lb/>
+einen Vater an Cato erkennt, und die zaͤrtlichen<lb/>
+Spuren ſeines vaͤterlichen Hertzens gegen ihr nicht<lb/>
+eher wahrnehmen koͤnnen. Zuvor hatte ſie ſich in<lb/>
+ihrem gantzen Leben vor Arſazens Tochter gehal-<lb/>
+ten. Wir mercken bey dieſer Ungeſchicklichkeit<lb/>
+der Gedancken und Empfindungen, daß die Nah-<lb/>
+men und Perſonen der Lucia und der Martia um-<lb/>
+geſetzet worden. Eben daſſelbe iſt mit Juba und<lb/>
+Lucius geſchehen. Jener ward in Artaban, die-<lb/>
+ſer in Phokas uͤberſetzet.</p><lb/>
+<p>Man weiß ſonſt ohne mein Erinnern, wie Hr.<lb/>
+Gottſched auch in denen Schriften, die er ſo beſchei-<lb/>
+<fw type="sig" place="bottom">F 4</fw><fw type="catch" place="bottom">den</fw><lb/>
+<pb n="88" facs="#f0088"/>
+<fw type="header" place="top"><hi rendition="#b">Von dem Mechaniſmo</hi></fw><lb/>
+den iſt, vor Ueberſetzungen auszugeben, die Bilder<lb/>
+und Begriffe nicht in dem Originale, oder der Na-<lb/>
+tur der Sachen ſelbſt, ſondern aus ſeiner Kennt-<lb/>
+niß der deutſchen Sprache hernimmt, und beſtaͤn-<lb/>
+dig auf das ſieht, was ſich dem Gebrauche und<lb/>
+der Gewohnheit in dieſer Sprache gemaͤß mit An-<lb/>
+nehmlichkeit geben laͤßt; er vergißt niemahls, daß<lb/>
+er ein deutſcher Schriftſteller iſt, und fuͤr den Ge-<lb/>
+ſchmack deutſcher Ohren ſchreibt, dergleichen an<lb/>
+ſeinem eigenen Kopfe, und nicht an aller Leute, ſi-<lb/>
+zen; dergeſtalt kan er mit einer halben und gantz<lb/>
+ſeichten Kenntniß der Sprache ſeines Originales,<lb/>
+und des beſtimmten Nachdruckes in derſelben in<lb/>
+zierliches Deutſch uͤberſetzen, und wenn er dieſes<lb/>
+thut, ſo koͤmmt meiſtens ein Ausdruck ſeiner eige-<lb/>
+nen Gedancken an den Tag.</p><lb/>
+<p>Die Erfahrung hat gezeiget, daß es Hrn. Gott-<lb/>
+<choice><sic>fcheden</sic><corr>ſcheden</corr></choice> vollkommen gegluͤcket, ſeinen neugeſtalte-<lb/>
+ten Cato vor ein Originalſtuͤcke zu verkaufen; ge-<lb/>
+ſtalt der geſchickte Hr. Riccoboni ſelbſt den Cato<lb/>
+des Hrn. Deschamps unter den deutſchen Origi-<lb/>
+nalgedancken keinesweges erkannt, und einen lan-<lb/>
+gen Auszug daraus als aus einem deutſchen Ori-<lb/>
+ginale gemachet hat. Und wahrhafftig, wenn<lb/>
+Addiſon oder Deschamps einige Anforderung auf<lb/>
+den deutſchen Cato machen wuͤrden, muͤßten ſie<lb/>
+weder ihre eigene, noch die deutſche Sprache ver-<lb/>
+ſtehen. Jemand nehme nur die leichte Muͤhe und<lb/>
+uͤberſetze dieſen ins Frantzoͤſiſche oder ins Engliſche<lb/>
+zuruͤcke, ſo werden alle Zeilen im Maſſe, Grade,<lb/>
+Art, Kraft, und Verbindung der Gedancken, der<lb/>
+Bilder, und des Ausdruckes, anderſt herauskom-<lb/>
+<fw type="catch" place="bottom">men,</fw><lb/>
+<pb n="89" facs="#f0089"/>
+<fw type="header" place="top"><hi rendition="#b">des deutſchen Cato.</hi></fw><lb/>
+men, als in den Catonen des Engellaͤnders und<lb/>
+des Frantzoſen.</p><lb/>
+<p>Wir leſen z. Ex. in dem deutſchen Cato:</p><lb/>
+<cit><quote>. . . Mein Vater, <hi rendition="#fr">wie man ſpricht,</hi><lb/>
+Arſazes hat nunmehr das lezte Lebenslicht<lb/>
+Mit Tod und Gruft vertauſeht. . . .<lb/>
+<hi rendition="#et"><hi rendition="#aq">I.</hi> Aufz. 1. Auftr.</hi></quote></cit><lb/>
+<p>Da gehoͤrt nicht der Tropus nur allein Hr. Gott-<lb/>
+ſcheden, ſondern er hat in den Gedancke ſelbſt<lb/>
+mehr Sinnes geleget, indem er uns einigermaſſen<lb/>
+gedencken laͤßt, Arſene wuͤßte nur aus der gemei-<lb/>
+nen Sage, daß Arſazes ihr Vater waͤre, und<lb/>
+ſetzete einiges Mißtrauen darein. Ob wir nun<lb/>
+gleich hernach entdecken, daß ſie etwas anders hat<lb/>
+ſagen wollen, ſo ergetzet es uns doch, daß ſie ohne<lb/>
+es zu wiſſen wahrgeſagt hat. Jch zweifle nicht, das<lb/>
+<hi rendition="#fr">wie man ſpricht</hi> ſey eine Nachahmung der Zeile<lb/>
+in Neukirchs Telemach, die von dem Hr. Mau-<lb/>
+villon ſo hertzlich gelobet worden:</p><lb/>
+<cit><quote>Und <hi rendition="#fr">wie man ſagt,</hi> und glaubt, hat er alſo geſprochen.</quote></cit><lb/>
+<p>Wenn Cato im zweyten Auftritt ſagt:</p><lb/>
+<lg type="poem"><l>Hier zieht die Freyheit noch die lezte Kraft zuſammen,</l><lb/>
+<l>Mit der die Republick gewiß zu Grunde geht,</l><lb/>
+<l>Und wann ſie einmal faͤllt, wol niemal auferſteht.</l></lg><lb/>
+<p>So redet er aus Gottſcheds Hertzen. Des-<lb/>
+champs Cato hatte mit einer großmuͤthigen Zuver-<lb/>
+ſicht auf ſeine Perſon geſagt:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">Du Capitole en feu, de Rome gemiſſante</hi></l><lb/>
+<l><hi rendition="#aq">Je ranime en ces lieux la liberté mourante.</hi></l></lg><lb/>
+<fw type="sig" place="bottom">F 5</fw><fw type="catch" place="bottom">Jm</fw><lb/>
+<pb n="90" facs="#f0090"/>
+<fw type="header" place="top"><hi rendition="#b">Von dem Mechaniſmo</hi></fw><lb/>
+<p>Jm dritten Auftritt ſagt Phokas:</p><lb/>
+<cit><quote>Jch hab es auch geglaubt, und <hi rendition="#fr">konre nichts davor.</hi></quote></cit><lb/>
+<p>Er hatte geglaubt, daß Portia waͤre verlohren<lb/>
+worden, und es war nicht ſeine Schuld, daß er<lb/>
+eine Geſchichte geglaubt hatte, die wircklich ge-<lb/>
+ſchehen war, er konnte ſich ſelbſt nicht befehlen,<lb/>
+daß er ſie nicht glaubte, wenn er gleich gewollt haͤt-<lb/>
+te. Deschamps Phokas weiß von dergleichen<lb/>
+gruͤndlichen und nothwendigen Entſchuldigungen<lb/>
+nichts.</p><lb/>
+<p>Jn der lezten Scene des erſten Aufz. ſagt Des-<lb/>
+champs Pharnazes mit einer gottloſen Frechheit,<lb/>
+er thue nach dem Exempel der Goͤtter, wenn er dem<lb/>
+Caͤſar in ſeinen ungerechten Unternehmungen die-<lb/>
+ne: Dieſe tolle Rede hat Gottſched auf eine erbau-<lb/>
+liche Art gemildert:</p><lb/>
+<cit><quote>Jch folg in Caͤſars Dienſt den Goͤttern, <hi rendition="#fr">wie mich deucht.</hi></quote></cit><lb/>
+<p>Jm andern Auftritt des zweyten Aufz. fragt Cato<lb/>
+Caͤſars Abgeſandten um die Urſache ſeiner Abfer-<lb/>
+tigung, und dieſer giebt ihm folgende Antwort:</p><lb/>
+<lg type="poem"><l><hi rendition="#fr">Sprich,</hi> Caͤſar wollte gern der Roͤmer Wolfahrt wegen</l><lb/>
+<l>Mit dir allein allhier was groſſes uͤberlegen.</l></lg><lb/>
+<p>Durch das einzige <hi rendition="#fr">Sprich</hi> iſt hier Deschamps<lb/>
+platter Gedancke ſo tiefſinnig geworden, daß wir<lb/>
+ihn aus dem Geſichte verliehren.</p><lb/>
+<p>Jm vierten ſagt Arſene zu Pharnazes:</p><lb/>
+<lg type="poem"><l>Den Cato klagſt du an? kan das wol glaͤublich ſeyn?</l><lb/>
+<l>Beſchließt er was von mir? Gut, ich geh alles ein.</l><lb/>
+<l>Das Laſter zittert nur, wann uns die Tugend ſchuͤtzet.</l></lg><lb/>
+<fw type="catch" place="bottom">Auf</fw><lb/>
+<pb n="91" facs="#f0091"/>
+<fw type="header" place="top"><hi rendition="#b">des deutſchen Cato.</hi></fw><lb/>
+<p>Auf Frantzoͤſiſch hieſſe dieſes: <hi rendition="#aq">Vous accuſez Ca-<lb/>
+ton? Cela eſt-il croyable? Eſt-ce qu’il a reſolu<lb/>
+quelque choſe ſur moy; Eh bien! j’obeis. Le<lb/>
+vice tremble ſeulement, quand la vertu nous pro-<lb/>
+tege.</hi> Da iſt alles, was Deschamps geſagt hat,<lb/>
+umgekehrt:</p><lb/>
+<lg type="poem"><l><hi rendition="#aq">En accuſant Caton, eſt-on digne de foi?</hi></l><lb/>
+<l><hi rendition="#aq">Ses Projets ne ſont pas redoutables pour moi.</hi></l><lb/>
+<l><hi rendition="#aq">L’appuy de la vertu n’eſt l’effroi que du vice.</hi></l></lg><lb/>
+<p>Wenn Pharnazes beym Deschamps drohet,<lb/>
+daß er aus Utica ein Scheuſal und Schreckenbild<lb/>
+machen wolle:</p><lb/>
+<lg type="poem"><l>. . . . <hi rendition="#aq">Il faut dans ma fureur</hi></l><lb/>
+<l><hi rendition="#aq">Rendre Utique à jamais une image d’horreur;</hi></l></lg><lb/>
+<p>So bekoͤmmt er hingegen beym Gottſched ſo guͤtige<lb/>
+Gedancken, daß er den Schutt von dieſer Stadt<lb/>
+aufraͤumen will:</p><lb/>
+<cit><quote>. . . Wir muͤſſen nichts verſaͤumen,<lb/>
+Den Schutt von Uttica auf ewig aufzuraͤumen.<lb/>
+<hi rendition="#et"><hi rendition="#aq">II.</hi> Aufz. 7. Sc.</hi></quote></cit><lb/>
+<p>Deschamps hat dem Caͤſar nichts mehr als den<lb/>
+freyen und ſichern Zutritt in Catons Pallaſte in<lb/>
+waͤhrendem Waffenſtillſtande gegoͤnnet; Gott-<lb/>
+ſched iſt viel weiter gegangen, und hat dieſe bey-<lb/>
+den Feinde in einen vertraulichen Umgang mit ein-<lb/>
+ander verbunden:</p><lb/>
+<lg type="poem"><l>So laͤßt, Domitius, der Waffenſtillſtand zu,</l><lb/>
+<l>Daß <hi rendition="#fr">ich</hi> und <hi rendition="#fr">Cato</hi> hier ſo gar vertraulich thu.</l></lg><lb/>
+<p>Nach Deschamps haͤlt Cato es vor ein ruhmwirdi-<lb/>
+ges Schickſal, wenn man ſich raͤchet, oder im Unter-<lb/>
+nehmen der Rache umkoͤmmt:</p><lb/>
+<pb n="92" facs="#f0092"/>
+<fw type="header" place="top"><hi rendition="#b">Von dem Mechaniſmo</hi></fw><lb/>
+<cit><quote><hi rendition="#aq">Se vanger ou perir eſt un ſort glorieux;</hi></quote></cit><lb/>
+<p>Nach Gottſched geht Cato viel fertiger zum ſterben,</p><lb/>
+<cit><quote>Der groͤſte Ruhm iſt der ſich raͤchen und erkalten.</quote></cit><lb/>
+<p>Wenn Gottſcheds Cato dem Portius den Rath<lb/>
+giebt, daß er ſich auf ſein Sabinum zur Ruhe be-<lb/>
+geben ſollte, ſagt dieſer darauf:</p><lb/>
+<cit><quote>Du giebſt mir in der That ein ſolches Leben an,<lb/>
+Das ich auch von mir ſelbſt unmoͤglich haſſen kan.</quote></cit><lb/>
+<p>Welches gantz was anders iſt, als was Addi-<lb/>
+ſon ſeinen Portius auf einen gleichen Rath hat ant-<lb/>
+worten laſſen: „Jch hoffe, ſagt dieſer, mein Va-<lb/>
+„ter werde dem Portius kein ſolches Leben anprei-<lb/>
+„ſen, welches er ſelber vor niedertraͤchtig und ver-<lb/>
+„aͤchtlich haͤlt.„ Eben dieſer Portius Addiſons<lb/>
+hat in der lezten Scene, da Cato halbtodt herge-<lb/>
+tragen wird, nicht ſo viel Standhaftigkeit ein<lb/>
+Wort hervorzubringen, da hingegen Gottſcheds<lb/>
+Portius in demſelben Umſtande in dieſe kraͤfftigen<lb/>
+Worte ausbricht, die ſich vor ihn ſelbſt, vor Cato,<lb/>
+und die gantze Tragoͤdie ſo gut ſchicken:</p><lb/>
+<cit><quote>. . . . Mein Vater ſtirb doch nicht.</quote></cit><lb/>
+<p>Haͤtte ihm ſein Vater gefolget, ſo haͤtten wir ein<lb/>
+Trauerſpiel mit einem froͤlichen Ausgange be-<lb/>
+kommen.</p><lb/>
+<p>Man wird kaum einen von den herrſchenden.<lb/>
+Poeten finden, der mehr Scharfſinnigkeit im Oh-<lb/>
+re habe, als Hr. Gottſched; in ſeinem rechten<lb/>
+Ohre ligt ein Geſchmack, der bey ihm die Wir-<lb/>
+kungen des Verſtandes und des Geiſtes thut. Die-<lb/>
+<fw type="catch" place="bottom">ſer</fw><lb/>
+<pb n="93" facs="#f0093"/>
+<fw type="header" place="top"><hi rendition="#b">des deutſchen Cato.</hi></fw><lb/>
+ſer iſt uͤberaus fruchtbar, und wiewohl er ſich in<lb/>
+einer ſolchen Menge Schriften ergießt, nimmt er<lb/>
+doch niemahls ab.</p><lb/>
+<p>Zu dieſem allen koͤmmt jetzo noch, daß kein Poet<lb/>
+ſich der alten und gewoͤhnlichen Huͤlffsmittel, des<lb/>
+Reimes und des Sylbenmaſſes, geſchickter zu ſei-<lb/>
+nem Vortheil und Entmuͤſſigung zu bedienen ge-<lb/>
+wuſt hat; mit dem Reime weiß er, wie mit einer<lb/>
+Wuͤnſchelruthe Quellen von unbekannten und un-<lb/>
+erhoͤrten Gedancken und Einfaͤllen zu entdecken,<lb/>
+und mit dem Sylbenmaſſe kan er ſie als mit einem<lb/>
+kunſtreichen Canal in die duͤrreſten Felder des Ge-<lb/>
+hirnes hinleiten, wo nichts als ein oͤder Sandbo-<lb/>
+den angetroffen wird. Die tragiſchen Gedancken<lb/>
+und Ausdruͤcke Catons und ſeiner Cameraden ſind<lb/>
+groſſentheils durch dieſe <hi rendition="#aq">Baguette</hi> entdecket, und<lb/>
+durch dieſe Roͤhren und Leitungen in die Tragoͤdie<lb/>
+gebracht worden; Zum Ex. der edle Ausdruck des<lb/>
+edeln Gedanckens Pharnazens:</p><lb/>
+<cit><quote>Wie ſo, ruͤckt Caͤſar an? <hi rendition="#fr">Jch gaͤbe was darum.</hi></quote></cit><lb/>
+<p>Ferner, wann Caͤſar auf Arſenens Geſtandniß,<lb/>
+daß ſie ihn liebe, mit Entzuͤckung ausbricht:</p><lb/>
+<cit><quote>Du haſſeſt Caͤſar nicht, der dich verehrt und liebt;<lb/>
+Welch unverhoftes Wort! <hi rendition="#fr">Nun bin ich nicht betruͤbt.</hi></quote></cit><lb/>
+<p>Und wann Cato ſelbſt ſo heldenmuͤthig fluchet:</p><lb/>
+<cit><quote>Da ſchluͤge Jupiter mit Blitz und Donner drein!</quote></cit><lb/>
+<p>Noch mehr, wann er ſich in einem ſo wohl verſehenen<lb/>
+Waffenplatze ſo ruhig und gelaſſen Spieß und<lb/>
+Schild wuͤnſchet:</p><lb/>
+<cit><quote>O waͤren wir nur bald mit Spieß und Schild verſehen,<lb/>
+Da ſollt ihm ſchon ſein Recht durch meine Fauſt geſchehen.</quote></cit><lb/>
+<pb n="94" facs="#f0094"/>
+<fw type="header" place="top"><hi rendition="#b">Von dem Mechaniſmo</hi></fw><lb/>
+<p>Und da er an einem andern Orte den kuͤhnen Vor-<lb/>
+ſatz faſſet:</p><lb/>
+<cit><quote>Jch eile ſelber hin, und ſchone nicht des Lebens.</quote></cit><lb/>
+<p>Wenn hier und dar in der Schreib- und Redens-<lb/>
+Art gewiſſe Verwindungen und Umwelzungen<lb/>
+vorkommen, ſo ſind ſolche zweifelsfrey daher ent-<lb/>
+ſtanden, weil die Gedancken und Ausdruͤcke in den<lb/>
+oberwehnten Canaͤlen und Roͤhren dergeſtalt ein-<lb/>
+geſperret waren, daß ſie ſich ſelbſt gepreßt und ge-<lb/>
+ſtoſſen haben, und mit Ungeſtuͤm neben einander<lb/>
+heraus gefahren ſind. Daher koͤmmt es, daß<lb/>
+<hi rendition="#fr">Seleucia, ſobald Caͤſar Arſenen erblicket, zu-<lb/>
+erſt ſein Haupt durch die Pracht dieſer Schoͤn-<lb/>
+heit beſtricket hat.</hi> <note place="foot" n="(a)"><hi rendition="#c">Caͤſar.</hi><lb/>
+So hat Seleucia, ſo bald ich dich erblicket,<lb/>
+Durch deiner Schoͤnheit Pracht zuerſt mein Hertz beſtricket.<lb/>
+<hi rendition="#et"><hi rendition="#aq">III.</hi> Aufz. 2. Sc.</hi></note> Und, daß <hi rendition="#fr">Catons An-<lb/>
+blick in Domitius viel Ehrfurcht fuͤr ſein<lb/>
+Haupt gewuͤrcket hat.</hi> <note place="foot" n="(b)"><hi rendition="#c">Domit.</hi><lb/>
+Doch Cato koͤmmt bereits. Sein Anblick wuͤrckt in mir<lb/>
+Viel Ehrfurcht fuͤr dieß Haupt. . . .<lb/>
+<hi rendition="#et"><hi rendition="#aq">II.</hi> Aufz. 1. Sc.</hi></note> Deßgleichen daß<lb/>
+<hi rendition="#fr">Felix nicht begreift, was der Abgeſandten des<lb/>
+Pharnazes Widerkunft im Lager widerſpricht.</hi><lb/>
+<note place="foot" n="(c)">Felix. . . . . Jch begreiffe nicht,<lb/>
+<hi rendition="#c">Was ihrer Wiederkunft im Lager widerſpricht.</hi><lb/>
+<hi rendition="#et"><hi rendition="#aq">IV.</hi> Aufz. 1. Sc.</hi></note> Dadurch iſt auch Catons Glaube an Pla-<lb/>
+tons Lehre von der Unſterblichkeit der Seele in ei-<lb/>
+nem Athemzuge beſtaͤrcket, und wieder geſchwaͤcht<lb/>
+worden.</p><lb/>
+<fw type="catch" place="bottom">Ja</fw><lb/>
+<pb n="95" facs="#f0095"/>
+<fw type="header" place="top"><hi rendition="#b">des deutſchen Cato.</hi></fw><lb/>
+<lg type="poem"><l>Ja Plato du haſt <hi rendition="#fr">recht!</hi> dein Schluß hat groſſen <hi rendition="#fr">Schein.</hi></l><lb/>
+<l>Wahrhaftig dieſer Geiſt muß doch unſterblich ſeyn!</l></lg><lb/>
+<p>Man hat es Hrn. Gottſcheden uͤbel nehmen<lb/>
+wollen, daß er in Ueberſetzungen eigene Meinun-<lb/>
+gen und Gedancken angebracht, die er durch die<lb/>
+Mechanick des Reimes, des Sylbenmaſſes und<lb/>
+der Sprache in verborgenen und dunckeln Gru-<lb/>
+ben entdecket hat; Man hat es vor einen Mangel<lb/>
+der erforderten Treue anſehen wollen, die ein Ue-<lb/>
+berſetzer ſeiner Grundſchrift ſchuldig iſt: Aber hier<lb/>
+hat dieſer Vorwurf keinen Platz, denn da er ſich<lb/>
+nicht vorgenommen, Deschamps und Addiſons<lb/>
+Cato lediglich zu uͤberſetzen, ſondern ſie in ein deut-<lb/>
+ſches Originalſtuͤcke zu verwandeln, ſo war er be-<lb/>
+rechtiget, ſie gaͤntzlich auf den Kopf zu ſtellen, und in<lb/>
+der Art, dem Maaſſe und dem Verhaͤltniß der<lb/>
+Gedancken und des Ausdruckes umzukehren. Es<lb/>
+iſt ihm dieſes ſeinem Vorſatze gemaͤß gelungen,<lb/>
+und ſein Cato muß darum in den Jahrzeitbuͤchern<lb/>
+der Schaubuͤhne unter den Trauerſpielen<lb/>
+von dieſem Nahmen vor Cato den vierten gezehlt<lb/>
+werden; des Maternus war der erſte, Addiſons<lb/>
+der zweyte, und Deschamps der dritte dieſes Nah-<lb/>
+mens. Kein Menſch haͤtte es dem Verfaſſer ver-<lb/>
+argen koͤnnen, wenn er allen Mißverſtand, ſo aus<lb/>
+dieſer Nahmensgleichheit entſtehen konnte, zu ver-<lb/>
+meiden, ſein Werck mit einem eigenen Nahmen<lb/>
+getauft haͤtte. Wann er vor Utica und Rom an-<lb/>
+dere Staͤdte geſetzet, zu welchem Dienſte ihm die<lb/>
+gantze Geographie Strabons offen geſtanden,<lb/>
+wann er vor ſeine Roͤmer, Parther und Ponter,<lb/>
+neue Nationen eingefuͤhrt, wenn er Cato, Caͤſar<lb/>
+<fw type="catch" place="bottom">und</fw><lb/>
+<pb n="96" facs="#f0096"/>
+<fw type="header" place="top"><hi rendition="#b">Von dem deutſchen Cato.</hi></fw><lb/>
+und Pharnazes mit Griechiſchen, Aſiatiſchen oder<lb/>
+andern Nahmen begabet, wenn er endlich ſeine<lb/>
+Fabel vor ein <hi rendition="#aq">Anecdoton</hi> aus einer alten, verle-<lb/>
+genen Hiſtorie ausgegeben haͤtte, ſo haͤtte keine<lb/>
+Seele den Argwohn gefaſſet, daß er dem Addiſon<lb/>
+oder dem Deschamps nachgearbeitet, oder daß er<lb/>
+Rom, Cato und Caͤſar in Augen oder in Gedan-<lb/>
+ken gehabt haͤtte. Der Herr <hi rendition="#aq">Riviere du Fresny</hi><lb/>
+hat von demjenigen, der ſeine Wercke zum Druck<lb/>
+beſorget, den Ruhm erhalten, daß er zum zeichnen<lb/>
+einen recht ſonderbaren und verwunderſamen Ta-<lb/>
+lent gehabt; <hi rendition="#aq">Il n’avoit,</hi> ſind deſſen Worte, <hi rendition="#aq">au-<lb/>
+cune pratique du Crayon, du Pinceau, ni de la Plu-<lb/>
+me, mais il s’étoit fait à luy-méme un équivalent<lb/>
+de tout cela en prenant dans differentes eſtampes<lb/>
+des parties d’homme, d’animaux, de plante ou d’ar-<lb/>
+bre, qu’il decoupoit, &amp; dont il formoit un ſujet deſ-<lb/>
+ſiné ſeulement dans ſon imagination. Il les diſpo-<lb/>
+ſoit &amp; les colloit les uns aupres des autres, ſelon<lb/>
+que le ſujet le demandoit: il lui arrivoit même de<lb/>
+changer l’expreſſion des têtes, qui ne convenoient<lb/>
+pas à ſon idée, en ſuprimant les yeux, la bouche,<lb/>
+le nez, &amp; les autres parties du viſage, &amp; y en ajou-<lb/>
+tant d’autres qui étoient propres à exprimer la paſ-<lb/>
+ſion qu’il vouloit peindre: Ce qu’il y a d’étonnant,<lb/>
+c’eſt que cet aſſemblage de pieces raportées en ap-<lb/>
+parence au hazard &amp; ſans esquiſſe formoit un Tout<lb/>
+agreable, dont l’incorrection n’étoit ſenſible qu’à<lb/>
+des yeux connoiſſeurs.</hi> Denſelben Talent und daſ-<lb/>
+ſelbe Naturell, das <hi rendition="#aq">du Fresny</hi> zum zeichnen und<lb/>
+malen gehabt, hat unſer Hr. Gottſched zur Verfer-<lb/>
+tigung einer Tragoͤdie in der vollkommenſten Gleich-<lb/>
+heit; und davor gehoͤrt ihm eben daſſelbe Lob.</p></div><lb/>
+<pb n="[97]" facs="#f0097"/>
+</body></text> </TEI>
