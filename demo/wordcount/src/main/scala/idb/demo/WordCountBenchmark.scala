@@ -4,80 +4,98 @@ import java.io.{FileWriter, BufferedWriter}
 import java.nio.file.{Path, Paths}
 
 import idb.Relation
+import idb.demo.count.WordCountFactory
+import idb.demo.routine.{DTAKernKorpusRoutine, ChangeRoutineFactory, ChangeRoutine}
+import idb.syntax.iql.compilation.CompilerBinding
 
 /**
  * @author Mirko Köhler
  */
-class WordCountBenchmark(val factory : WordCountFactory) {
+class WordCountBenchmark(val wordcountFactory : WordCountFactory, val routineFactory : ChangeRoutineFactory) {
 
-	val directory : Path = Paths.get("res","dta_kernkorpus_2014-03-10")
+	private def create(isMaterialized : Boolean) : ChangeRoutine = routineFactory.create(wordcountFactory.create(isMaterialized))
 
-	val isMaterialized = false
-	val cacheFiles = true
+	val warmupIterations = 2
+	val measureIterations = 2
 
-	val warmupIterations = 1
-	val measureIterations = 1
+	val storeResultsInTextFiles = true
 
 	def run(): Unit = {
 
 		//First iteration with saving of results
-		println("benchmarking " + factory.getClass.getSimpleName)
-		println("Initial run...")
-		val time = executeWordCount(saveResults = true)
-		println(s"time: $time ms")
+		println("Running benchmark for " + wordcountFactory.getClass.getSimpleName)
+		println("--------------")
+		println("I. Initial run")
+		println("--------------")
+		val time = executeWordCount(saveResults = storeResultsInTextFiles)
+		println(s" -> Warmup Time (ms): $time")
 
-		println("Warmup...")
+
+		println("----------")
+		println("II. Warmup")
+		println("----------")
 		for (i <- 2 to warmupIterations) {
 			println(s"Iteration $i...")
 
 			val time = executeWordCount(saveResults = false)
-			println(s"time: $time ms")
+			println(s" -> Warmup Time (ms): $time")
 		}
 
-		println("Measure...")
-		var timeList : List[Long] = Nil
+		println("---------------")
+		println("III. Measure...")
+		println("---------------")
 
 		for (i <- 1 to measureIterations) {
 			println(s"Iteration $i...")
 
 			val time = executeWordCount(saveResults = false)
-			println(s"time: $time ms")
-			timeList = time :: timeList
+			println(s" -> Measured Time (ms): $time")
 		}
 
-		println(s"Measure finished. Average time: ${timeList.sum / timeList.length}ms")
 
 	}
 
-	private def writeResults(rel : Relation[(String,Int)]): Unit = {
-		val fw = new BufferedWriter(new FileWriter(factory.getClass.getSimpleName + "_results.txt"))
-		rel.foreach(x => fw.write(s"${x._1};${x._2}\n"))
+	private def writeResults(rel : Relation[_]): Unit = {
+		val fw = new BufferedWriter(new FileWriter(wordcountFactory.getClass.getSimpleName + "_results.txt"))
+		rel.foreach(x => fw.write(s"$x\n"))
 		fw.close()
 	}
 
-	private def executeWordCount(saveResults : Boolean): Long = {
+	private def executeWordCount(saveResults : Boolean): List[Long] = {
 		System.gc()
-		Thread.sleep(2500)
-		println("Start...")
+		Thread.sleep(3000)
 		println(s"Free/total memory: ${Runtime.getRuntime.freeMemory() / 1000000}mB/${Runtime.getRuntime.totalMemory() / 1000000}mB")
 
-		var wc = factory.create(directory, isMaterialized, cacheFiles)
-		wc.initialize()
-		val before = System.currentTimeMillis()
-		wc.addDir()
-		val after = System.currentTimeMillis()
+		var changeRoutine = create(saveResults)
+		var loop = true
 
-		if (saveResults && wc.isMaterialized) {
-			println("Saving results...")
-			writeResults(wc.getResult)
+		while(loop) {
+			System.gc()
+			Thread.sleep(3000)
+			changeRoutine.initialize()
+
+			changeRoutine.process()
+
+			if (changeRoutine.hasNext)
+				changeRoutine.next()
+			else
+				loop = false
 		}
 
-		System.gc()
-		Thread.sleep(2500)
 
-		wc = null
-		wc.close()
-		after - before
+		println("Run finished...")
+
+		if (saveResults && changeRoutine.wordcount.isMaterialized) {
+			println("Saving results...")
+			writeResults(changeRoutine.wordcount.getResult)
+		}
+
+		val res = changeRoutine.getTimes
+
+		changeRoutine = null
+		CompilerBinding.reset
+
+		res
 	}
 
 }
