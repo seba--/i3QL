@@ -5,6 +5,8 @@ import java.nio.file.{Files, FileSystem, Paths}
 import scala.collection.mutable
 
 /**
+ * This class is used as a data source for the SparkStreaming benchmark.
+ *
  * @author Mirko Köhler
  */
 object DataProvider {
@@ -34,13 +36,14 @@ object DataProvider {
 		}
 		dirstream.close()
 
-		val serverSocket = new ServerSocket(9999)
-		println("Listening on port " + 9999)
+		val serverSocket = new ServerSocket(port)
+		println("Listening on port " + port)
 
 		while (true) {
 			val socket = serverSocket.accept()
 			println("Got a new connection")
 			val out = new OutputStreamWriter(socket.getOutputStream)
+			println("All data sent.")
 			try {
 				cache.foreach(out.write)
 			//	serverSocket.close()
