@@ -57,11 +57,15 @@ class RemoteViewActor[V](view: RemoteView[V]) extends Actor {
  *
  * @author Ralf Mitschke
  */
-case class RemoteView[Domain](actorSystem: ActorSystem, isSet: Boolean)
+case class RemoteView[Domain](rel: Relation[Domain], actorSystem: ActorSystem)
   extends Relation[Domain]
   with NotifyObservers[Domain] {
 
   val actorRef: ActorRef = actorSystem.actorOf(Props(new RemoteViewActor(this)))
+
+  rel addObserver (new SentToRemote(actorRef))
+
+  def isSet = rel.isSet
 
   protected def lazyInitialize() {
     /* do nothing */
