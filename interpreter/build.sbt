@@ -9,7 +9,7 @@ parallelExecution in Test := false
 
 logBuffered in Test := false
 
-scalaVersion := "2.10.2-RC2"
+scalaVersion := "2.10.2"
 
 scalaOrganization in ThisBuild := "org.scala-lang.virtualized"
 

@@ -68,7 +68,7 @@
 				
 			Additionally, you have to add Scala Virtualized as Scala organization to your SBT build file:
 			
-				scalaVersion in ThisBuild := "2.10.2-RC2"
+				scalaVersion in ThisBuild := "2.10.2"
 				scalaOrganization in ThisBuild := "org.scala-lang.virtualized"
 		
 		2. Import i3Ql in your Scala project

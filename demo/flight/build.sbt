@@ -3,7 +3,7 @@ name := "flight"
 
 version := "0.0.1"
 
-scalaVersion in ThisBuild := "2.10.2-RC2"
+scalaVersion in ThisBuild := "2.10.2"
 
 scalaOrganization in ThisBuild := "org.scala-lang.virtualized"
 
