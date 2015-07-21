@@ -51,7 +51,7 @@ trait Observable[+V]
 
     def addObserver[U >: V] (o: Observer[U]) {
         // sanity check that the assumption of never adding the same observer twice holds
-        assert (!observers.contains (o.asInstanceOf[Observer[Any]]))
+//        assert (!observers.contains (o.asInstanceOf[Observer[Any]]))
         observers.add (o.asInstanceOf[Observer[Any]])
     }
 

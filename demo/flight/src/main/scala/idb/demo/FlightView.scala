@@ -4,11 +4,12 @@ import java.util.{Calendar, Date}
 
 
 import akka.actor.ActorSystem
+import idb.observer.CountingObserver
 import idb.operators.impl._
 import idb.remote._
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
-import idb.SetTable
+import idb.{MaterializedView, SetTable}
 import idb.syntax.iql.impl._
 import idb.syntax.iql.planning.PlanPrinter
 
@@ -57,10 +58,18 @@ object FlightView {
   }
 
 
+  def showResult[V](name: String, res: MaterializedView[V]): Unit = {
+    Predef.println(s"Results $name")
+    res.foreach(s => Predef.println("  " + s))
+  }
+
   def main(args: Array[String]): Unit = {
     import Predef.println
 
     val system = ActorSystem("Flight")
+
+    val compiledClientCounts = new CountingObserver
+    val partitionedClientCounts = new CountingObserver
 
     val partitionedQuery = compiledQuery match {
       case AggregationForSelfMaintainableFunctions(relAgg, fGroup, fAggFact, fConvert, isSetAgg) =>
@@ -70,7 +79,16 @@ object FlightView {
               case EquiJoinView(airportPartition, flightPartition, ix1, ix2, fProjEqui, isSetEqui) =>
                 val airportRemote = RemoteView(airportPartition, system)
                 val flightRemote = RemoteView(flightPartition, system)
-                EquiJoinView(airportRemote, flightRemote, ix1, ix2, fProjEqui, isSetEqui)
+                val remoteJoin = EquiJoinView(airportRemote, flightRemote, ix1, ix2, fProjEqui, isSetEqui)
+
+                airportRemote addObserver partitionedClientCounts
+                flightRemote addObserver partitionedClientCounts
+
+                airportPartition.asInstanceOf[CrossProductView[_,_,_]].left addObserver compiledClientCounts
+                airportPartition.asInstanceOf[CrossProductView[_,_,_]].right.asInstanceOf[SelectionView[_]].relation addObserver compiledClientCounts
+                flightPartition.asInstanceOf[SelectionView[_]].relation addObserver compiledClientCounts
+
+                remoteJoin
             }
 
             ProjectionView(partitionedRelProj, fProj, isSetProj)
@@ -78,31 +96,41 @@ object FlightView {
 
         AggregationForSelfMaintainableFunctions(partitionedRelAgg, fGroup, fAggFact, fConvert, isSetAgg)
     }
-    println("Partitioned query:" + partitionedQuery)
+
+    println(s"Compiled query:\n${compiledQuery.prettyprint("  ")}")
+    println(s"Partitioned query:\n${partitionedQuery.prettyprint("  ")}")
 
     val result = compiledQuery.asMaterialized
     val parresult = partitionedQuery.asMaterialized
-    result.foreach(println(_))
-    parresult.foreach(println(_))
+
+    showResult("result", result)
+    showResult("parresult", parresult)
+    println()
 
     initAirports()
     initFlights()
 
     println("Initial flights:")
-    result.foreach(println(_))
-    parresult.foreach(println(_))
-
+    showResult("result", result)
+    showResult("parresult", parresult)
     println()
+
     flight += Flight(3, 5, new Date(2014,  9, 14, 20, 15))
     println("Updated flights:")
-    result.foreach(println(_))
-    parresult.foreach(println(_))
-
+    showResult("result", result)
+    showResult("parresult", parresult)
     println()
+
     flight ~= Flight(2, 5, new Date(2014, 12, 31, 17,  5)) -> Flight(2, 5, new Date(2015,  1,  1, 11,  5))
     println("Updated flights (2):")
-    result.foreach(println(_))
-    parresult.foreach(println(_))
+    showResult("result", result)
+    showResult("parresult", parresult)
+    println()
+
+    println(s"Messages reaching client in compiled query: ${compiledClientCounts.msgCount}")
+    println(s"Data packages reaching client in compiled query: ${compiledClientCounts.dataCount}")
+    println(s"Messages reaching client in partitioned query: ${partitionedClientCounts.msgCount}")
+    println(s"Data packages reaching client in partitioned query: ${partitionedClientCounts.dataCount}")
 
     system.shutdown()
   }
