@@ -5,6 +5,7 @@ import java.util.{Calendar, Date}
 
 import akka.actor.ActorSystem
 import idb.operators.impl._
+import idb.remote._
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import idb.SetTable
@@ -59,76 +60,50 @@ object FlightView {
   def main(args: Array[String]): Unit = {
     import Predef.println
 
-    val plan = PlanPrinter(q)
-    println("Plan:\n" + plan)
+    val system = ActorSystem("Flight")
 
-    val result = compiledQuery.asMaterialized
-    result.foreach(println(_))
-
-    q match {
-      case GroupByClause3(fGroup,
-        WhereClause3(fWhere,
-          FromClause3(rel1, rel2, rel3,
-            SelectAggregateClause(AggregateTupledFunctionSelfMaintained(
-              start,
-              added,
-              removed,
-              updated,
-              project,
-              convert),
-            distinct)))) =>
-        println("Successful match")
-    }
-    println()
-
-    ActorSystem.
-
-    compiledQuery match {
-      case AggregationForSelfMaintainableFunctions(relAgg, fGroup, fAggFact, fConvert, _) =>
-        relAgg match {
-          case ProjectionView(relProj, fProj) =>
-            relProj match {
-              case EquiJoinView(airportPartition, flightParition, ix1, ix2, fProjEqui, _) =>
-
-                val remote = RemoteView()
-
-                flightParition match {
-                  case SelectionView(tableFlight, fSelect1, _) =>
-
-                    airportPartition match {
-                      case CrossProductView(tableAirportOrigin, rel2, fProjCross, _) =>
-                        rel2 match {
-                          case SelectionView(tableAirportDest, fSelect2, _) =>
-
-                            val remote = RemoteView(SendingActor(airportPartition))
-
-
-                        }
-                    }
-
-                }
+    val partitionedQuery = compiledQuery match {
+      case AggregationForSelfMaintainableFunctions(relAgg, fGroup, fAggFact, fConvert, isSetAgg) =>
+        val partitionedRelAgg = relAgg match {
+          case ProjectionView(relProj, fProj, isSetProj) =>
+            val partitionedRelProj = relProj match {
+              case EquiJoinView(airportPartition, flightPartition, ix1, ix2, fProjEqui, isSetEqui) =>
+                val airportRemote = RemoteView(airportPartition, system)
+                val flightRemote = RemoteView(flightPartition, system)
+                EquiJoinView(airportRemote, flightRemote, ix1, ix2, fProjEqui, isSetEqui)
             }
+
+            ProjectionView(partitionedRelProj, fProj, isSetProj)
         }
 
-        println("CompiledQuery match successful")
+        AggregationForSelfMaintainableFunctions(partitionedRelAgg, fGroup, fAggFact, fConvert, isSetAgg)
     }
-    println()
+    println("Partitioned query:" + partitionedQuery)
+
+    val result = compiledQuery.asMaterialized
+    val parresult = partitionedQuery.asMaterialized
+    result.foreach(println(_))
+    parresult.foreach(println(_))
 
     initAirports()
     initFlights()
 
     println("Initial flights:")
     result.foreach(println(_))
+    parresult.foreach(println(_))
 
     println()
     flight += Flight(3, 5, new Date(2014,  9, 14, 20, 15))
     println("Updated flights:")
     result.foreach(println(_))
+    parresult.foreach(println(_))
 
     println()
     flight ~= Flight(2, 5, new Date(2014, 12, 31, 17,  5)) -> Flight(2, 5, new Date(2015,  1,  1, 11,  5))
-
     println("Updated flights (2):")
     result.foreach(println(_))
+    parresult.foreach(println(_))
+
+    system.shutdown()
   }
 }
