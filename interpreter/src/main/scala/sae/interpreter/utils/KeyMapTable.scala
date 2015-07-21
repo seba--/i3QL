@@ -57,4 +57,6 @@ class KeyMapTable[K,V](val keyGenerator : KeyGenerator[K]) extends Relation[(K, 
 		notify_added((k,v))
 	}  */
 
+  def prettyprint(implicit prefix: String): String = prefix +
+    s"KeyMapTable($materializedMap)"
 }
