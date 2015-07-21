@@ -33,8 +33,20 @@
 package idb.operators.impl
 
 import idb.Relation
-import idb.observer.{NotifyObservers, Observable, Observer}
-import idb.operators.Selection
+import idb.observer._
+
+import akka.actor._
+
+
+class RemoteViewActor[V](view: RemoteView[V]) extends Actor {
+  override def receive = {
+    case Add(v: V) => view.notify_added(v)
+    case Remove(v: V) => view.notify_removed(v)
+    case Update(oldV: V, newV: V) => view.notify_updated(oldV, newV)
+    case AddAll(vs: Seq[V]) => view.notify_addedAll(vs)
+    case RemoveAll(vs: Seq[V]) => view.notify_removedAll(vs)
+  }
+}
 
 /**
  *
@@ -45,26 +57,31 @@ import idb.operators.Selection
  *
  * @author Ralf Mitschke
  */
-case class RemoteView[Domain](
-                             val relation: ActorRef, // Relation[Domain],
-                             )
+case class RemoteView[Domain](actorSystem: ActorSystem, isSet: Boolean)
   extends Relation[Domain]
   with NotifyObservers[Domain] {
 
-  relation addObserver this
-
+  val actorRef: ActorRef = actorSystem.actorOf(Props(new RemoteViewActor(this)))
 
   protected def lazyInitialize() {
     /* do nothing */
   }
 
-  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-    Nil
-  }
+  protected def children: Seq[Relation[_]] = Nil
+  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = Nil
 
   /**
    * Applies f to all elements of the view.
    */
   def foreach[T](f: (Domain) => T) { }
 
+  override def notify_added(v: Domain) = super.notify_added(v)
+
+  override def notify_addedAll(vs: Seq[Domain]) = super.notify_addedAll(vs)
+
+  override def notify_removed(v: Domain) = super.notify_removed(v)
+
+  override def notify_removedAll(vs: Seq[Domain]) = super.notify_removedAll(vs)
+
+  override def notify_updated(oldV: Domain, newV: Domain) = super.notify_updated(oldV, newV)
 }
