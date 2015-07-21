@@ -3,6 +3,7 @@ package idb.demo
 import java.util.{Calendar, Date}
 
 
+import akka.actor.ActorSystem
 import idb.operators.impl._
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
@@ -80,12 +81,17 @@ object FlightView {
     }
     println()
 
+    ActorSystem.
+
     compiledQuery match {
       case AggregationForSelfMaintainableFunctions(relAgg, fGroup, fAggFact, fConvert, _) =>
         relAgg match {
           case ProjectionView(relProj, fProj) =>
             relProj match {
               case EquiJoinView(airportPartition, flightParition, ix1, ix2, fProjEqui, _) =>
+
+                val remote = RemoteView()
+
                 flightParition match {
                   case SelectionView(tableFlight, fSelect1, _) =>
 

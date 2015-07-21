@@ -30,21 +30,21 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.operators.impl
-
-import idb.Relation
-import idb.observer._
+package idb.remote
 
 import akka.actor._
+import idb.Relation
+import idb.observer._
 
 
 class RemoteViewActor[V](view: RemoteView[V]) extends Actor {
   override def receive = {
-    case Add(v: V) => view.notify_added(v)
-    case Remove(v: V) => view.notify_removed(v)
-    case Update(oldV: V, newV: V) => view.notify_updated(oldV, newV)
-    case AddAll(vs: Seq[V]) => view.notify_addedAll(vs)
-    case RemoveAll(vs: Seq[V]) => view.notify_removedAll(vs)
+    case Added(v: V) => view.notify_added(v)
+    case Removed(v: V) => view.notify_removed(v)
+    case Updated(oldV: V, newV: V) => view.notify_updated(oldV, newV)
+    case AddedAll(vs: Seq[V]) => view.notify_addedAll(vs)
+    case RemovedAll(vs: Seq[V]) => view.notify_removedAll(vs)
+    case EndTransaction => view.notify_endTransaction()
   }
 }
 
@@ -84,4 +84,6 @@ case class RemoteView[Domain](actorSystem: ActorSystem, isSet: Boolean)
   override def notify_removedAll(vs: Seq[Domain]) = super.notify_removedAll(vs)
 
   override def notify_updated(oldV: Domain, newV: Domain) = super.notify_updated(oldV, newV)
+
+  override def notify_endTransaction() = super.notify_endTransaction()
 }
