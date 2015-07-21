@@ -46,7 +46,7 @@ import idb.Relation
  * @author Ralf Mitschke
  *
  */
-class ProjectionView[Domain, Range] (
+case class ProjectionView[Domain, Range] (
     val relation: Relation[Domain],
     val projection: Domain => Range,
     val isSet: Boolean
@@ -105,4 +105,3 @@ class ProjectionView[Domain, Range] (
   }
 
 }
-

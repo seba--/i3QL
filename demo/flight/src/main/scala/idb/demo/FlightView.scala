@@ -3,9 +3,12 @@ package idb.demo
 import java.util.{Calendar, Date}
 
 
+import idb.operators.impl._
 import idb.syntax.iql._
 import idb.syntax.iql.IR._
 import idb.SetTable
+import idb.syntax.iql.impl._
+import idb.syntax.iql.planning.PlanPrinter
 
 object FlightView {
 
@@ -25,6 +28,7 @@ object FlightView {
     GROUP BY ((a1: Rep[Airport], a2: Rep[Airport], f: Rep[Flight]) => a1.city)
   )
 
+  val compiledQuery: Relation[(String, Int)] = q
 
   def initAirports(): Unit = {
     airport += Airport(1, "AMS", "Amsterdam")
@@ -54,9 +58,55 @@ object FlightView {
   def main(args: Array[String]): Unit = {
     import Predef.println
 
-    val result = q.asMaterialized
+    val plan = PlanPrinter(q)
+    println("Plan:\n" + plan)
+
+    val result = compiledQuery.asMaterialized
     result.foreach(println(_))
 
+    q match {
+      case GroupByClause3(fGroup,
+        WhereClause3(fWhere,
+          FromClause3(rel1, rel2, rel3,
+            SelectAggregateClause(AggregateTupledFunctionSelfMaintained(
+              start,
+              added,
+              removed,
+              updated,
+              project,
+              convert),
+            distinct)))) =>
+        println("Successful match")
+    }
+    println()
+
+    compiledQuery match {
+      case AggregationForSelfMaintainableFunctions(relAgg, fGroup, fAggFact, fConvert, _) =>
+        relAgg match {
+          case ProjectionView(relProj, fProj) =>
+            relProj match {
+              case EquiJoinView(airportPartition, flightParition, ix1, ix2, fProjEqui, _) =>
+                flightParition match {
+                  case SelectionView(tableFlight, fSelect1, _) =>
+
+                    airportPartition match {
+                      case CrossProductView(tableAirportOrigin, rel2, fProjCross, _) =>
+                        rel2 match {
+                          case SelectionView(tableAirportDest, fSelect2, _) =>
+
+                            val remote = RemoteView(SendingActor(airportPartition))
+
+
+                        }
+                    }
+
+                }
+            }
+        }
+
+        println("CompiledQuery match successful")
+    }
+    println()
 
     initAirports()
     initFlights()
@@ -71,6 +121,7 @@ object FlightView {
 
     println()
     flight ~= Flight(2, 5, new Date(2014, 12, 31, 17,  5)) -> Flight(2, 5, new Date(2015,  1,  1, 11,  5))
+
     println("Updated flights (2):")
     result.foreach(println(_))
   }

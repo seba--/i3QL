@@ -23,7 +23,7 @@ import idb.observer.{Observable, NotifyObservers, Observer}
  * @author Malte V
  * @author Ralf Mitschke
  */
-class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
+case class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
                                                                                    val groupingFunction: Domain => Key,
                                                                                    val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
                                                                                    val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,

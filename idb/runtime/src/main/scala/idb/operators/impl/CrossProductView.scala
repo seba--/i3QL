@@ -9,7 +9,7 @@ import com.google.common.collect.{ConcurrentHashMultiset, Multiset}
  * The cross product does not really require the underlying relations to be materialized directly.
  * But it requires some point of materialization.
  */
-class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
+case class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA],
 												val right: Relation[DomainB],
 												val projection: (DomainA, DomainB) => Range,
 												override val isSet: Boolean)

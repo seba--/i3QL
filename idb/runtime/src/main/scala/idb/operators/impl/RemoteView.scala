@@ -32,9 +32,9 @@
  */
 package idb.operators.impl
 
-import idb.operators.Selection
-import idb.observer.{NotifyObservers, Observable, Observer}
 import idb.Relation
+import idb.observer.{NotifyObservers, Observable, Observer}
+import idb.operators.Selection
 
 /**
  *
@@ -45,14 +45,12 @@ import idb.Relation
  *
  * @author Ralf Mitschke
  */
-case class SelectionView[Domain](
-                             val relation: Relation[Domain],
-                             val filter: Domain => Boolean,
-                             val isSet: Boolean
+case class RemoteView[Domain](
+                             val relation: ActorRef, // Relation[Domain],
                              )
-  extends Selection[Domain]
-  with Observer[Domain]
+  extends Relation[Domain]
   with NotifyObservers[Domain] {
+
   relation addObserver this
 
 
@@ -60,78 +58,13 @@ case class SelectionView[Domain](
     /* do nothing */
   }
 
-
   override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-    if (o == relation) {
-      return List(this)
-    }
     Nil
-  }
-
-  override def endTransaction() {
-    notify_endTransaction()
   }
 
   /**
    * Applies f to all elements of the view.
    */
-  def foreach[T](f: (Domain) => T) {
-    relation.foreach(
-      (v: Domain) => if (filter(v)) {
-        f(v)
-      }
-    )
-  }
-
-  def updated(oldV: Domain, newV: Domain) {
-    val oldVPasses = applyFilter(oldV)
-    val newVPasses = applyFilter(newV)
-    if (oldVPasses && newVPasses) {
-      notify_updated(oldV, newV)
-    }
-    else {
-      // only one of the elements complies to the filter
-      if (oldVPasses) {
-        notify_removed(oldV)
-      }
-      if (newVPasses) {
-        notify_added(newV)
-      }
-    }
-  }
-
-  def removed(v: Domain) {
-    if (applyFilter(v)) {
-      notify_removed(v)
-    }
-  }
-
-  def removedAll(vs: Seq[Domain]) {
-    val removed = vs filter (applyFilter(_))
-    notify_removedAll(removed)
-  }
-
-
-  def added(v: Domain) {
-    if (applyFilter(v)) {
-      notify_added(v)
-    }
-  }
-
-  def addedAll(vs: Seq[Domain]) {
-    val added = vs filter (applyFilter(_))
-    notify_addedAll(added)
-  }
-
-  private def applyFilter(v: Domain): Boolean = {
-    try {
-      filter(v)
-    } catch {
-      case e: IndexOutOfBoundsException => false
-      case e: ClassCastException => false
-      case e: NoSuchElementException => false
-    }
-  }
-
+  def foreach[T](f: (Domain) => T) { }
 
 }

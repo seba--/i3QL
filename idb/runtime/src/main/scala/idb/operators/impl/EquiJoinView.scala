@@ -38,7 +38,7 @@ import idb.operators.EquiJoin
 import idb.observer.{NotifyObservers, Observer, Observable}
 
 
-class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
+case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
 												 val right: Relation[DomainB],
 												 val leftIndex: Index[Key, DomainA],
 												 val rightIndex: Index[Key, DomainB],
