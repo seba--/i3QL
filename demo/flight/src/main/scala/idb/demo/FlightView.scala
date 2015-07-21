@@ -3,8 +3,8 @@ package idb.demo
 import java.util.{Calendar, Date}
 
 
-import akka.actor.ActorSystem
-import idb.observer.CountingObserver
+import akka.actor._
+import idb.observer.{CountingObserver, Observable}
 import idb.operators.impl._
 import idb.remote._
 import idb.syntax.iql._
@@ -12,6 +12,23 @@ import idb.syntax.iql.IR._
 import idb.{MaterializedView, SetTable}
 import idb.syntax.iql.impl._
 import idb.syntax.iql.planning.PlanPrinter
+
+
+case class HostObservableAndForward[T](obs: Observable[T], target: ActorRef)/*(implicit pickler: Pickler[T])*/
+case class DoIt[T](fun: Observable[T] => Unit)
+
+class ObservableHost[T] extends Actor {
+  var hosted: Option[Observable[T]] = scala.None
+
+  override def receive = {
+    case HostObservableAndForward(obs, target) =>
+      obs.addObserver(new SentToRemote(target))
+      hosted = scala.Some(obs)
+
+    case DoIt(fun: (Observable[T] => Unit)) =>
+      fun(hosted.get)
+  }
+}
 
 object FlightView {
 
@@ -68,6 +85,13 @@ object FlightView {
 
     val system = ActorSystem("Flight")
 
+    val flightHost = system.actorOf(Props[ObservableHost[Flight]])
+    // we can later add flights by doing:
+    // flightHost ! DoIt(obs => obs.asInstanceOf[SelectionView[_]].relation += Flight(3, 5, new Date(2014,  9, 14, 20, 15))
+
+    val airportHost = system.actorOf(Props[ObservableHost[Airport]])
+
+
     val compiledClientCounts = new CountingObserver
     val partitionedClientCounts = new CountingObserver
 
@@ -77,9 +101,17 @@ object FlightView {
           case ProjectionView(relProj, fProj, isSetProj) =>
             val partitionedRelProj = relProj match {
               case EquiJoinView(airportPartition, flightPartition, ix1, ix2, fProjEqui, isSetEqui) =>
+
                 val airportRemote = RemoteView(airportPartition, system)
                 val flightRemote = RemoteView(flightPartition, system)
+
+                // this equi join joins two remote partitions, but the join itself is local to the client
                 val remoteJoin = EquiJoinView(airportRemote, flightRemote, ix1, ix2, fProjEqui, isSetEqui)
+
+                // need a local actor which can receive msgs from the remote host
+                // put `flightPartition` onto `flightNode` actor
+                flightHost ! HostObservableAndForward(flightPartition, flightRemote.actorRef)
+                airportHost ! HostObservableAndForward(airportPartition, airportRemote.actorRef)
 
                 airportRemote addObserver partitionedClientCounts
                 flightRemote addObserver partitionedClientCounts

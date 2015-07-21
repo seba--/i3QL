@@ -48,14 +48,13 @@ class RemoteViewActor[V](view: RemoteView[V]) extends Actor {
   }
 }
 
+
 /**
+ * A remote view forwards the updates received by an actor, so that they can be
+ * observed by local observers.
  *
- * A selection view is a selection that stores no tuples by itself.
- * All data is passed along if it passes the filter.
- *
- * The selection automatically registers as an observer of the relation upon construction
- *
- * @author Ralf Mitschke
+ * In a partitioned operator tree, this actor communicates with a remote actor
+ * which hosts remote parts of the tree.
  */
 case class RemoteView[Domain](rel: Relation[Domain], actorSystem: ActorSystem)
   extends Relation[Domain]
@@ -63,7 +62,7 @@ case class RemoteView[Domain](rel: Relation[Domain], actorSystem: ActorSystem)
 
   val actorRef: ActorRef = actorSystem.actorOf(Props(new RemoteViewActor(this)))
 
-  rel addObserver (new SentToRemote(actorRef))
+  // rel addObserver (new SentToRemote(actorRef))
 
   def isSet = rel.isSet
 
