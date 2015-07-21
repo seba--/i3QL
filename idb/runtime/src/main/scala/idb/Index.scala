@@ -174,4 +174,6 @@ trait Index[K, V]
     }
     notify_removedAll(kvs)
   }
+
+  override def prettyprint(implicit prefix: String) = prefix + this
 }

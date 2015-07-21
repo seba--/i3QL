@@ -51,4 +51,7 @@ trait Recursive[Domain]
     def foreach[T](f: (Domain) => T) {relation.foreach(f)}
 
 	def children = List (relation)
+
+    override def prettyprint(implicit prefix: String) = prefix +
+      s"Recursive(${nested(relation)})"
 }

@@ -285,4 +285,7 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
     }
   }
 
+  override def prettyprint(implicit prefix: String) = prefix +
+    s"TransactionalFixCombinatorRecursionView(${nested(source)})"
+
 }

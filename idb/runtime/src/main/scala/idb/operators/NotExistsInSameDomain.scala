@@ -23,6 +23,10 @@ trait NotExistsInSameDomain[Domain]
     def right: MaterializedView[Domain]
 
     override protected def children = List (left, right)
+
+    override def prettyprint(implicit prefix: String) = prefix +
+      s"NotExistsInSameDomain(${nested(left)}, ${nested(right)})"
+
 }
 
 

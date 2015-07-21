@@ -31,6 +31,8 @@ trait Aggregation[Domain, Key, AggregateValue, Result, AggregateFunctionType <: 
 
     override protected def children = List (source)
 
+  override def prettyprint(implicit prefix: String) = prefix +
+    s"Aggregation(grouping=$groupingFunction, aggregation=$aggregateFunctionFactory, ${nested(source)})"
 }
 
 /**

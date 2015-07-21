@@ -22,6 +22,9 @@ trait Union[Range, DomainA <: Range, DomainB <: Range]
     def right: Relation[DomainB]
 
     override protected def children = List (left, right)
+
+    override def prettyprint(implicit prefix: String) = prefix +
+      s"Union(${nested(left)},${nested(right)}})"
 }
 
 

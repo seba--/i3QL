@@ -24,6 +24,9 @@ trait Difference[Domain]
 
 	override protected def children = List (left, right)
 
+  override def prettyprint(implicit prefix: String) = prefix +
+    s"Difference(${nested(left)}, ${nested(right)})"
+
 }
 
 

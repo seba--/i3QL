@@ -47,4 +47,7 @@ trait Selection[Domain]
     def relation: Relation[Domain]
 
     def children = List (relation)
+
+    override def prettyprint(implicit prefix: String) = prefix +
+      s"Selection($filter, ${nested(relation)})"
 }

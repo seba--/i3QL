@@ -44,6 +44,8 @@ trait UnNestWithCount[Domain, Range]
 
     override protected def children = List (relation)
 
+    override def prettyprint(implicit prefix: String) = prefix +
+      s"UnNestWithCount($unNestFunction,${nested(relation)}})"
 }
 
 

@@ -77,4 +77,8 @@ trait Projection[Domain, Range]
     def relation: Relation[Domain]
 
     def children = List (relation)
+
+    override def prettyprint(implicit prefix: String) = prefix +
+      s"Projection($projection, ${nested(relation)})"
+
 }

@@ -115,4 +115,6 @@ trait Table[V]
   def lazyInitialize() {}
 
   def children = Nil
+
+  override def prettyprint(implicit prefix: String) = prefix + this
 }

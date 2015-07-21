@@ -77,5 +77,4 @@ trait MaterializedView[+V]
      * Returns the concrete element in this relation, with the most specific type
 -    */
     //def elementAt[T >: V](v: T): V
-
 }

@@ -11,4 +11,6 @@ trait SymmetricDifference[Domain] extends View[Domain] {
 
 	def right : Relation[Domain]
 
+	override def prettyprint(implicit prefix: String) = prefix +
+		s"SymmetricDifference(${nested(left)}, ${nested(right)})"
 }

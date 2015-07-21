@@ -235,4 +235,7 @@ class TransactionalAnchorAndFixPointRecursionView[Domain, Range, Key](val anchor
     }
   }
 
+  override def prettyprint(implicit prefix: String) = prefix +
+    s"TransactionalAnchorAndFixPointRecursionView(${nested(source)})"
+
 }

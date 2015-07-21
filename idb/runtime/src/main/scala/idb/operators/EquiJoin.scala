@@ -26,5 +26,8 @@ trait EquiJoin[DomainA, DomainB, Range, Key]
 
 	override def children = List(left,right)
 
+    override def prettyprint(implicit prefix: String) = prefix +
+      s"EquiJoin(leftKey=$leftKey, rightKey=$rightKey, ${nested(left)}, ${nested(right)})"
+
 }
 

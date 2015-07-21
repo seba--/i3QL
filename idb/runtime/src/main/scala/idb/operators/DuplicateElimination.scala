@@ -11,5 +11,8 @@ trait DuplicateElimination[Domain]
     def relation: Relation[Domain]
 
     override protected def children = List (relation)
+
+    override def prettyprint(implicit prefix: String) = prefix +
+      s"DuplicateElimination(${nested(relation)})"
 }
 

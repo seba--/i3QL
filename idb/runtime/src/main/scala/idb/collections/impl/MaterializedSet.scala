@@ -84,4 +84,8 @@ class MaterializedSet[V](val relation: Relation[V])
   def removedAll(vs: Seq[V]): Unit = {
     this --= vs
   }
+
+  override def prettyprint(implicit prefix: String) = prefix +
+    s"MaterializedSet(${nested(relation)})"
+
 }
