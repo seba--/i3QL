@@ -14,8 +14,12 @@ import idb.syntax.iql.impl._
 import idb.syntax.iql.planning.PlanPrinter
 
 
-case class HostObservableAndForward[T](obs: Observable[T], target: ActorRef)/*(implicit pickler: Pickler[T])*/
-case class DoIt[T](fun: Observable[T] => Unit)
+/**
+ * Sealed trait to simplify pickling.
+ */
+sealed trait HostMessage
+case class HostObservableAndForward[T](obs: Observable[T], target: ActorRef)/*(implicit pickler: Pickler[T])*/ extends HostMessage
+case class DoIt[T](fun: Observable[T] => Unit) extends HostMessage
 
 class ObservableHost[T] extends Actor {
   var hosted: Option[Observable[T]] = scala.None
@@ -108,8 +112,8 @@ object FlightView {
                 // this equi join joins two remote partitions, but the join itself is local to the client
                 val remoteJoin = EquiJoinView(airportRemote, flightRemote, ix1, ix2, fProjEqui, isSetEqui)
 
-                // need a local actor which can receive msgs from the remote host
-                // put `flightPartition` onto `flightNode` actor
+                // need a local actor which can receive msgs from the remote host -> flightRemote.actorRef
+                // put `flightPartition` onto `flightHost` actor
                 flightHost ! HostObservableAndForward(flightPartition, flightRemote.actorRef)
                 airportHost ! HostObservableAndForward(airportPartition, airportRemote.actorRef)
 
