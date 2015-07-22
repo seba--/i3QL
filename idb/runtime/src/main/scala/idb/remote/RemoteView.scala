@@ -91,5 +91,5 @@ case class RemoteView[Domain](rel: Relation[Domain], actorSystem: ActorSystem)
   override def notify_endTransaction() = super.notify_endTransaction()
 
   override def prettyprint(implicit prefix: String) = prefix +
-    s"RemoteView(${nested(rel)})"
+    s"RemoteView($actorRef,${nested(rel)})"
 }
