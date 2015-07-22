@@ -13,6 +13,9 @@ import idb.{MaterializedView, SetTable}
 import idb.syntax.iql.impl._
 import idb.syntax.iql.planning.PlanPrinter
 
+import scala.pickling._
+import scala.pickling.Defaults._
+import scala.pickling.json._
 
 /**
  * Sealed trait to simplify pickling.
@@ -47,8 +50,8 @@ object FlightView {
       f.from == a1.id AND
       f.to == a2.id AND
       a2.code == "PDX" AND
-      f.takeoff >= new Date(2014, 01, 01) AND
-      f.takeoff < new Date(2015, 01, 01))
+      f.takeoff >= new Date(2014, 1, 1) AND
+      f.takeoff < new Date(2015, 1, 1))
     GROUP BY ((a1: Rep[Airport], a2: Rep[Airport], f: Rep[Flight]) => a1.city)
   )
 
@@ -87,6 +90,10 @@ object FlightView {
   def main(args: Array[String]): Unit = {
     import Predef.println
 
+    val flight0 = Flight(1, 5, new Date(2014,  1,  2, 10,  0))
+    val p = flight0.pickle
+    println(s"Flight pickled:\n$p")
+
     val system = ActorSystem("Flight")
 
     val flightHost = system.actorOf(Props[ObservableHost[Flight]])
@@ -94,7 +101,6 @@ object FlightView {
     // flightHost ! DoIt(obs => obs.asInstanceOf[SelectionView[_]].relation += Flight(3, 5, new Date(2014,  9, 14, 20, 15))
 
     val airportHost = system.actorOf(Props[ObservableHost[Airport]])
-
 
     val compiledClientCounts = new CountingObserver
     val partitionedClientCounts = new CountingObserver

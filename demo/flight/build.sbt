@@ -10,5 +10,6 @@ scalaOrganization in ThisBuild := "org.scala-lang.virtualized"
 libraryDependencies in ThisBuild ++= Seq(
 	"de.tud.cs.st" %% "idb-syntax-iql" % "latest.integration",
 	"de.tud.cs.st" %% "idb-runtime" % "latest.integration",
-	"com.typesafe.akka" % "akka-actor_2.11" % "2.3.12"
+	"com.typesafe.akka" % "akka-actor_2.11" % "2.3.12",
+  "org.scala-lang.modules" % "scala-pickling_2.11" % "0.10.1"
 )
