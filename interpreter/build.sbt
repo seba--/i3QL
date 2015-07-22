@@ -9,7 +9,7 @@ parallelExecution in Test := false
 
 logBuffered in Test := false
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.11.2"
 
 scalaOrganization in ThisBuild := "org.scala-lang.virtualized"
 
@@ -19,4 +19,4 @@ libraryDependencies ++= Seq(
   "de.tud.cs.st" %% "idb-runtime" % "latest.integration"
 )
 
-libraryDependencies += "org.scalatest" % "scalatest_2.10" % "2.2.1" % "test"
+libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.2.1" % "test"
