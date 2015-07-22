@@ -15,7 +15,8 @@ libraryDependencies in ThisBuild ++= Seq(
     "com.novocode" % "junit-interface" % "latest.integration" % "test->default" ,
     "org.scala-lang.virtualized" % "scala-library" % virtScala,
     "org.scala-lang.virtualized" % "scala-compiler" % virtScala,
-    "com.typesafe.akka" % "akka-actor_2.11" % "2.3.12"
+    "com.typesafe.akka" % "akka-actor_2.11" % "2.3.12",
+    "org.scala-lang.modules" % "scala-pickling_2.11" % "0.10.1"
 )
 
 javaOptions in Test += "-Xmx4G"

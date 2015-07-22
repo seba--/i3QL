@@ -17,7 +17,7 @@ import idb.syntax.iql.planning.PlanPrinter
 import scala.pickling._
 import scala.pickling.Defaults._
 import scala.pickling.json._
-import scala.pickling.static.StaticOnly
+//import scala.pickling.static.StaticOnly
 
 /**
  * Sealed trait to simplify pickling.
@@ -123,8 +123,13 @@ object Test {
             val partitionedRelProj = relProj match {
               case EquiJoinView(airportPartition, flightPartition, ix1, ix2, fProjEqui, isSetEqui) =>
 
-                val airportPartitionPickle = airportPartition.pickle
-                val flightPartitionPickle = flightPartition.pickle
+                import idb.remote.Picklers._
+
+                //                val airportPartitionPickle = airportPartition.pickle
+//                val flightPartitionPickle = flightPartition.pickle
+                val flightTable = flightPartition.asInstanceOf[SelectionView[_]].relation.asInstanceOf[SetTable[Flight]]
+                val flightTablePickle = flightTable.pickle
+                println(s"flight table pickle:\n$flightTablePickle")
 
                 val airportRemote = RemoteView(airportPartition, system)
                 val flightRemote = RemoteView(flightPartition, system)

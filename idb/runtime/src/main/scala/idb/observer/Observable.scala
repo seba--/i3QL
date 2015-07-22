@@ -47,7 +47,7 @@ import collection.mutable
 trait Observable[+V]
 {
 
-    protected[observer] var observers: mutable.HashSet[Observer[Any]] = mutable.HashSet.empty
+    protected[idb] var observers: mutable.HashSet[Observer[Any]] = mutable.HashSet.empty
 
     def addObserver[U >: V] (o: Observer[U]) {
         // sanity check that the assumption of never adding the same observer twice holds
