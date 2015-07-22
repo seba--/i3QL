@@ -128,8 +128,8 @@ object Test {
                 //                val airportPartitionPickle = airportPartition.pickle
 //                val flightPartitionPickle = flightPartition.pickle
                 val flightTable = flightPartition.asInstanceOf[SelectionView[_]].relation.asInstanceOf[SetTable[Flight]]
-                val flightTablePickle = flightTable.pickle
-                println(s"flight table pickle:\n$flightTablePickle")
+                // val flightTablePickle = flightTable.pickle
+                // println(s"flight table pickle:\n$flightTablePickle")
 
                 val airportRemote = RemoteView(airportPartition, system)
                 val flightRemote = RemoteView(flightPartition, system)
