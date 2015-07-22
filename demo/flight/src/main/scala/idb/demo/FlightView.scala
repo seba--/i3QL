@@ -99,10 +99,6 @@ object Test {
   def main(args: Array[String]): Unit = {
     import Predef.println
 
-    val flight0 = Flight(1, 5, new Date(2014,  1,  2, 10,  0))
-    val p = flight0.pickle
-    println(s"Flight pickled:\n$p")
-
     val system = ActorSystem("Flight")
 
     val flightHost = system.actorOf(Props[ObservableHost[Flight]])
@@ -147,6 +143,10 @@ object Test {
 
         AggregationForSelfMaintainableFunctions(partitionedRelAgg, fGroup, fAggFact, fConvert, isSetAgg)
     }
+
+    val flight0 = Flight(1, 5, new Date(2014,  1,  2, 10,  0))
+    val p = flight0.pickle
+    println(s"Flight pickled:\n$p")
 
     println(s"Compiled query:\n${FlightQuery.compiledQuery.prettyprint("  ")}")
     println(s"Partitioned query:\n${partitionedQuery.prettyprint("  ")}")
