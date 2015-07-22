@@ -17,6 +17,7 @@ import idb.syntax.iql.planning.PlanPrinter
 import scala.pickling._
 import scala.pickling.Defaults._
 import scala.pickling.json._
+import scala.pickling.static.StaticOnly
 
 /**
  * Sealed trait to simplify pickling.
@@ -38,7 +39,12 @@ class ObservableHost[T] extends Actor {
   }
 }
 
+object Vars {
+  val year = 2014
+}
+
 object FlightQuery {
+  import Vars._
   import idb.syntax.iql.IR._
 
   val airport = SetTable.empty[Airport]
@@ -52,8 +58,8 @@ object FlightQuery {
       f.from == a1.id AND
         f.to == a2.id AND
         a2.code == "PDX" AND
-        f.takeoff >= new Date(2014, 1, 1) AND
-        f.takeoff < new Date(2015, 1, 1))
+        f.takeoff >= new Date(year, 1, 1) AND
+        f.takeoff < new Date(year+1, 1, 1))
       GROUP BY((a1: Rep[Airport], a2: Rep[Airport], f: Rep[Flight]) => a1.city)
     )
 
@@ -116,6 +122,9 @@ object Test {
           case ProjectionView(relProj, fProj, isSetProj) =>
             val partitionedRelProj = relProj match {
               case EquiJoinView(airportPartition, flightPartition, ix1, ix2, fProjEqui, isSetEqui) =>
+
+                val airportPartitionPickle = airportPartition.pickle
+                val flightPartitionPickle = flightPartition.pickle
 
                 val airportRemote = RemoteView(airportPartition, system)
                 val flightRemote = RemoteView(flightPartition, system)
