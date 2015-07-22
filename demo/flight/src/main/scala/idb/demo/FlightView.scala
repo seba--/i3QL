@@ -8,7 +8,8 @@ import idb.observer.{CountingObserver, Observable}
 import idb.operators.impl._
 import idb.remote._
 import idb.syntax.iql._
-import idb.syntax.iql.IR._
+import idb.syntax.iql.IR.Flight
+import idb.syntax.iql.IR.Airport
 import idb.{MaterializedView, SetTable}
 import idb.syntax.iql.impl._
 import idb.syntax.iql.planning.PlanPrinter
@@ -25,37 +26,45 @@ case class HostObservableAndForward[T](obs: Observable[T], target: ActorRef)/*(i
 case class DoIt[T](fun: Observable[T] => Unit) extends HostMessage
 
 class ObservableHost[T] extends Actor {
-  var hosted: Option[Observable[T]] = scala.None
+  var hosted: Option[Observable[T]] = None
 
   override def receive = {
-    case HostObservableAndForward(obs, target) =>
+    case HostObservableAndForward(obs: Observable[T], target) =>
       obs.addObserver(new SentToRemote(target))
-      hosted = scala.Some(obs)
+      hosted = Some(obs)
 
     case DoIt(fun: (Observable[T] => Unit)) =>
       fun(hosted.get)
   }
 }
 
-object FlightView {
+object FlightQuery {
+  import idb.syntax.iql.IR._
 
   val airport = SetTable.empty[Airport]
   val flight = SetTable.empty[Flight]
 
   val q = (
-    SELECT ((s: Rep[String]) => s,
-            COUNT(*))
-    FROM (airport, airport, flight)
-    WHERE ((a1, a2, f) =>
+    SELECT((s: Rep[String]) => s,
+      COUNT(*))
+      FROM(airport, airport, flight)
+      WHERE ((a1, a2, f) =>
       f.from == a1.id AND
-      f.to == a2.id AND
-      a2.code == "PDX" AND
-      f.takeoff >= new Date(2014, 1, 1) AND
-      f.takeoff < new Date(2015, 1, 1))
-    GROUP BY ((a1: Rep[Airport], a2: Rep[Airport], f: Rep[Flight]) => a1.city)
-  )
+        f.to == a2.id AND
+        a2.code == "PDX" AND
+        f.takeoff >= new Date(2014, 1, 1) AND
+        f.takeoff < new Date(2015, 1, 1))
+      GROUP BY((a1: Rep[Airport], a2: Rep[Airport], f: Rep[Flight]) => a1.city)
+    )
 
   val compiledQuery: Relation[(String, Int)] = q
+}
+
+
+
+object Test {
+
+  import FlightQuery.{flight,airport}
 
   def initAirports(): Unit = {
     airport += Airport(1, "AMS", "Amsterdam")
@@ -105,7 +114,7 @@ object FlightView {
     val compiledClientCounts = new CountingObserver
     val partitionedClientCounts = new CountingObserver
 
-    val partitionedQuery = compiledQuery match {
+    val partitionedQuery = FlightQuery.compiledQuery match {
       case AggregationForSelfMaintainableFunctions(relAgg, fGroup, fAggFact, fConvert, isSetAgg) =>
         val partitionedRelAgg = relAgg match {
           case ProjectionView(relProj, fProj, isSetProj) =>
@@ -139,10 +148,10 @@ object FlightView {
         AggregationForSelfMaintainableFunctions(partitionedRelAgg, fGroup, fAggFact, fConvert, isSetAgg)
     }
 
-    println(s"Compiled query:\n${compiledQuery.prettyprint("  ")}")
+    println(s"Compiled query:\n${FlightQuery.compiledQuery.prettyprint("  ")}")
     println(s"Partitioned query:\n${partitionedQuery.prettyprint("  ")}")
 
-    val result = compiledQuery.asMaterialized
+    val result = FlightQuery.compiledQuery.asMaterialized
     val parresult = partitionedQuery.asMaterialized
 
     showResult("result", result)
