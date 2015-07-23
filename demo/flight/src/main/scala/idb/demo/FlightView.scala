@@ -47,8 +47,8 @@ object FlightView {
       f.from == a1.id AND
       f.to == a2.id AND
       a2.code == "PDX" AND
-      f.takeoff >= new Date(2014, 01, 01) AND
-      f.takeoff < new Date(2015, 01, 01))
+      f.takeoff >= new Date(2014, 1, 1) AND
+      f.takeoff < new Date(2015, 1, 1))
     GROUP BY ((a1: Rep[Airport], a2: Rep[Airport], f: Rep[Flight]) => a1.city)
   )
 
@@ -76,6 +76,9 @@ object FlightView {
 
     for (d <- 1 to 349)
       flight += Flight(4, 5, new Date(2014, 1, d, 16,  0))
+
+    for (d <- 1 to 360)
+      flight += Flight(1, 5, new Date(2015,  1,  d, 10,  0))
   }
 
 
