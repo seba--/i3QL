@@ -1,6 +1,9 @@
 package idb.observer
 
-class CountingObserver extends Observer[Any] {
+import scala.pickling._
+import scala.pickling.Defaults._
+
+final class CountingObserver extends Observer[Any] {
   type V = Any
 
   private var _msgCount = 0
@@ -8,6 +11,8 @@ class CountingObserver extends Observer[Any] {
 
   private var _dataCount = 0
   def dataCount = _dataCount
+
+  def pickler = implicitly[Pickler[CountingObserver]]
 
   override def updated(oldV: V, newV: V) = {
     _msgCount += 1
