@@ -32,6 +32,7 @@
  */
 package idb
 
+import _root_.idb.remote.DynPickling
 import idb.observer.NotifyObservers
 
 /**
@@ -51,7 +52,8 @@ import idb.observer.NotifyObservers
  */
 trait Table[V]
   extends Relation[V]
-  with NotifyObservers[V] {
+  with NotifyObservers[V]
+  with DynPickling {
   def update(oldV: V, newV: V) {
     notify_updated(oldV, newV)
   }

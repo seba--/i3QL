@@ -32,6 +32,9 @@
  */
 package idb
 
+import scala.pickling.Pickler
+import scala.pickling.Defaults._
+
 /**
  *
  * @author Ralf Mitschke
@@ -43,6 +46,9 @@ class BagTable[V]
      * Runtime information whether a compiled query is a set or a bag
      */
     def isSet: Boolean = false
+
+    type This = BagTable[V]
+    def pickler = implicitly[Pickler[This]]
 }
 
 object BagTable

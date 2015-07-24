@@ -1,5 +1,6 @@
 package idb.remote
 
+import idb.SetTable
 import idb.observer.{Observable, Observer}
 
 import scala.collection.mutable
@@ -10,6 +11,15 @@ import scala.pickling.Defaults._
 import scala.pickling.pickler.AllPicklers
 import scala.pickling.static._
 
+import scala.language.implicitConversions
+
+trait DynPickling {
+  type This
+  def pickler: Pickler[This]
+}
+object DynPickling {
+  implicit def picklerDispatch(o: DynPickling): Pickler[o.This] = o.pickler
+}
 
 class ObserverPicklerUnpickler[T] extends Pickler[Observer[T]] with Unpickler[Observer[T]] {
   def pickle(obs: Observer[T], builder: PBuilder): Unit = ???
@@ -17,7 +27,12 @@ class ObserverPicklerUnpickler[T] extends Pickler[Observer[T]] with Unpickler[Ob
   def tag: FastTypeTag[Observer[T]] = FastTypeTag.materializeFastTypeTag[Observer[T]]
 }
 
-object Picklers {
+object Picklers extends App {
+
+  import DynPickling._
+  import scala.pickling.json._
+  val v = SetTable.empty[Int]
+  println(PickleOps(v).pickle)
 
   implicit val obsPickler: Pickler[Observer[Any]] = new ObserverPicklerUnpickler[Any]
   implicit val obsUnpickler: Unpickler[Observer[Any]] = new ObserverPicklerUnpickler[Any]
