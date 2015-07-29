@@ -33,15 +33,14 @@
 package idb.syntax.iql
 
 import idb.algebra.compiler.RelationalAlgebraSAEBinding
+import idb.algebra.{RelationalAlgebraIROptPackage, RelationalAlgebraIRFusionPackage, RelationalAlgebraIRNormalizePackage, RelationalAlgebraIROperatorsPackage}
 import idb.lms.extensions.ScalaOpsExpOptExtensions
+import idb.lms.extensions.equivalence.{StructExpAlphaEquivalence, TupledFunctionsExpAlphaEquivalence}
+import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
+import idb.lms.extensions.lifiting.LiftEverything
+
 import scala.language.implicitConversions
 import scala.virtualization.lms.common._
-import idb.algebra.{RelationalAlgebraIRFusionPackage, RelationalAlgebraIROperatorsPackage, RelationalAlgebraIRNormalizePackage, RelationalAlgebraIROptPackage}
-import idb.lms.extensions.equivalence.{StructExpAlphaEquivalence, TupledFunctionsExpAlphaEquivalence}
-import idb.lms.extensions.lifiting.LiftEverything
-import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
-import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
 
 
 /**

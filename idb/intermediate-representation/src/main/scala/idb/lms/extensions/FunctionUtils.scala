@@ -50,14 +50,6 @@ trait FunctionUtils
     //with ScalaOpsPkgExp
 {
 
-  /*  val that = this
-
-    private val printer = new QuoteFunction{
-        override val IR = that
-    }
-
-    def functionToString[A,B](f : printer.IR.Rep[A => B]) : String =
-        printer.quoteFunction(f)    */
 
     def parameterType[A, B] (function: Exp[A => B]): Manifest[Any] = {
         function.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
@@ -97,8 +89,8 @@ trait FunctionUtils
 	}
 	*/
 
-    def parameterManifest[A] (a: Exp[A]): Manifest[Any] = {
-        a.tp.asInstanceOf[Manifest[Any]]
+    def parameterManifest[A] (a: Exp[A]): Manifest[A] = {
+        a.tp.asInstanceOf[Manifest[A]]
     }
 
     def parameterManifest[A, B] (a: Exp[A], b: Exp[B]): Manifest[Any] = {
@@ -260,11 +252,9 @@ trait FunctionUtils
         function match {
 
             case Def (Lambda (_, UnboxedTuple (scala.List (a, b)), Block (body)))
-                if body == a => 0
+				if body == a =>	0
             case Def (Lambda (_, UnboxedTuple (scala.List (a, b)), Block (body)))
-                if body == b => 1
-
-
+				if body == b =>	1
 
             case Def (Lambda (_, UnboxedTuple (scala.List (a, b, c)), Block (body)))
                 if body == a => 0
@@ -298,6 +288,16 @@ trait FunctionUtils
 
             case Def (Lambda (_, x, Block (body)))
                 if body == x => 0
+
+			case Def (Lambda (_, t1, Block (body))) =>
+				body match {
+					case Def(FieldApply(`t1`, "_1") ) => 0
+					case Def(FieldApply(`t1`, "_2") ) => 1
+					case Def(FieldApply(`t1`, "_3") ) => 2
+					case Def(FieldApply(`t1`, "_4") ) => 3
+					case Def(FieldApply(`t1`, "_5") ) => 4
+					case _ => -1
+				}
 
             case _ => -1
         }

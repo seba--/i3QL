@@ -195,4 +195,51 @@ class TestFunctionUtils
         )
 
     }
+
+	@Test
+	def testReturnedParameterIndex1(): Unit = {
+		val f = (i : Rep[Int], j : Rep[Int]) => i
+
+		val func = (function: Rep[_ => _]) => function
+
+		func(f) match {
+			case Def(a) => Predef.println(a)
+			case _ =>
+		}
+
+		assertEquals(
+			0,
+			returnedParameter (f)
+		)
+	}
+
+	@Test
+	def testReturnedParameterIndex2(): Unit = {
+		val f = (i : Rep[Int], j : Rep[Int]) => j
+
+		assertEquals(
+			1,
+			returnedParameter (f)
+		)
+	}
+
+	@Test
+	def testReturnedParameterIndex3(): Unit = {
+		val f = (i : Rep[Int], j : Rep[Int]) => i + j
+
+		assertEquals(
+			-1,
+			returnedParameter (f)
+		)
+	}
+
+	@Test
+	def testReturnedParameterIndex4(): Unit = {
+		val f = (i : Rep[Int], j : Rep[Int], k : Rep[Int], l : Rep[Int]) => k
+
+		assertEquals(
+			2,
+			returnedParameter (f)
+		)
+	}
 }

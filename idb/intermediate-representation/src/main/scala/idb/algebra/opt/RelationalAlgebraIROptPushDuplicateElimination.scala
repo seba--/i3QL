@@ -61,7 +61,6 @@ trait RelationalAlgebraIROptPushDuplicateElimination
             // δ (Π {(x, y) => x} (a × b)) => δ (a)
             // δ (Π {(x, y) => y} (a × b)) => δ (b)
             case Def (Projection (Def (cross: CrossProduct[Any@unchecked, Any@unchecked]), f)) =>
-            {
                 // TODO, why can I not pattern match the cross product above as CrossProduct(a,b)?
                 val bodyIsParameterAtIndex = returnedParameter (f)
                 bodyIsParameterAtIndex match {
@@ -73,7 +72,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                             "Expected a binary function as projection after cross product, " +
                                 "but found more parameters" + f.toString)
                 }
-            }
+
 
             // δ (Π {(x, y) => x} (a {xa => ...} ⋈ {xb => ...} b)) =>
             //   Π {(x, y) => x} (δ (a) {xa => ...} ⋈ {xb => xb} δ (Π {xb => ...} (b)))

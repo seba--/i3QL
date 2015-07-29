@@ -32,9 +32,13 @@
  */
 package idb.algebra.opt
 
-import idb.algebra.ir.RelationalAlgebraIRBasicOperators
+import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
+import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
+import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
+
+import scala.virtualization.lms.common.{TupledFunctionsExp, StaticDataExp, StructExp, ScalaOpsPkgExp}
 
 /**
  * Rules for lifting projections higher up in the operator tree
@@ -56,59 +60,68 @@ trait RelationalAlgebraIROptLiftProjection
     override def crossProduct[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ): Rep[Query[(DomainA, DomainB)]] =
-        (relationA, relationB) match {
-            case (Def (p1@Projection (ra, fa)), Def (p2@Projection (rb, fb))) =>
-                projection (
-                    crossProduct (
-                        ra,
-                        rb
-                    )(domainOf (ra), domainOf (rb)),
-                    fun (
-                        (x: Rep[Any], y: Rep[Any]) => make_tuple2(fa (x), fb (y))//(p1.mRan, p2.mRan)
-                    )(
-                        parameterManifest (parameter (fa)), // dynamic manifests for x
-                        parameterManifest (parameter (fb)), // dynamic manifests for y
-                        manifest[(DomainA, DomainB)]
-                    )
-                )
-
-            case (Def (p1@Projection (ra, fa)), rb) =>
-                projection (
-                    crossProduct (
-                        ra,
-                        rb
-                    )(domainOf (ra), manifest[DomainB]),
-                    fun (
-                        (x: Rep[Any], y: Rep[DomainB]) => make_tuple2(fa (x), y)//(p1.mRan, manifest[DomainB])
-                    )(
-                        parameterManifest (parameter (fa)), // dynamic manifests for x
-                        manifest[DomainB],
-                        manifest[(DomainA, DomainB)]
-                    )
-                )
+    ): Rep[Query[(DomainA, DomainB)]] = {
 
 
-            case (ra, Def (Projection (rb, fb))) => {
-                val newProjection =        fun (
-                    (x: Rep[DomainA], y: Rep[Any]) => make_tuple2(x, fb (y))
-                )(
-                    manifest[DomainA],
-                    parameterManifest (parameter (fb)), // dynamic manifests for y
-                    manifest[(DomainA, DomainB)]
-                )
 
-                projection (
-                    crossProduct (
-                        ra,
-                        rb
-                    )(manifest[DomainA], domainOf (rb)),
-                    newProjection
+		Predef.println("LiftProjection")
+		Predef.println("(" + relationA.toString + ", " + relationB.toString + ")")
+		(relationA, relationB) match {
+			case (Def(p1@Projection(ra, fa)), Def(p2@Projection(rb, fb))) =>
+				Predef.println("A => (" + relationA + ", " + relationB + ")")
+				projection(
+					crossProduct(
+						ra,
+						rb
+					)(domainOf(ra), domainOf(rb)),
+					fun(
+						(x: Rep[Any], y: Rep[Any]) => make_tuple2(fa(x), fb(y)) //(p1.mRan, p2.mRan)
+					)(
+							parameterManifest(parameter(fa)), // dynamic manifests for x
+							parameterManifest(parameter(fb)), // dynamic manifests for y
+							manifest[(DomainA, DomainB)]
+						)
+				)
 
-                )
-            }
-            case _ => super.crossProduct (relationA, relationB)
-        }
+			case (Def(p1@Projection(ra, fa)), rb) =>
+				Predef.println("B => (" + relationA + ", " + relationB + ")")
+				projection(
+					crossProduct(
+						ra,
+						rb
+					)(domainOf(ra), manifest[DomainB]),
+					fun(
+						(x: Rep[Any], y: Rep[DomainB]) => make_tuple2(fa(x), y) //(p1.mRan, manifest[DomainB])
+					)(
+							parameterManifest(parameter(fa)), // dynamic manifests for x
+							manifest[DomainB],
+							manifest[(DomainA, DomainB)]
+						)
+				)
+
+
+			case (ra, Def(Projection(rb, fb))) => {
+				Predef.println("C => (" + relationA + ", " + relationB + ")")
+				val newProjection = fun(
+					(x: Rep[DomainA], y: Rep[Any]) => make_tuple2(x, fb(y))
+				)(
+						manifest[DomainA],
+						parameterManifest(parameter(fb)), // dynamic manifests for y
+						manifest[(DomainA, DomainB)]
+					)
+
+				projection(
+					crossProduct(
+						ra,
+						rb
+					)(manifest[DomainA], domainOf(rb)),
+					newProjection
+
+				)
+			}
+			case _ => super.crossProduct(relationA, relationB)
+		}
+	}
 
 }
 
