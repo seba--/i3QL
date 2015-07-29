@@ -71,7 +71,7 @@ trait RelationalAlgebraIROptCreateJoin
 
 
 
-	def createEqualityFunctions[A,B,C](function: Exp[A => Boolean])(implicit mDomX : Manifest[B], mDomY : Manifest[C]): (Exp[Any => Boolean], Exp[Any => Boolean]) = {
+	def createEqualityFunctions[A,B,C](function: Exp[A => Boolean])(implicit mDomX : Manifest[B], mDomY : Manifest[C]): (Exp[B => Any], Exp[C => Any]) = {
 		val params = parameters(function)
 		val b = body(function)
 
@@ -93,9 +93,11 @@ trait RelationalAlgebraIROptCreateJoin
 					val x = l(0)
 					val y = l(1)
 					if (usedByLeft == Set(x)) {
+						//return (doLambda[B, Any](x => lhs), doLambda[C, Any](y => rhs))
 						return (dynamicLambda(x, lhs), dynamicLambda(y, rhs))
 					}
 					else {
+						//return (doLambda[B, Any](x => rhs), doLambda[C, Any](y => lhs))
 						return (dynamicLambda(x, rhs), dynamicLambda(y, lhs))
 					}
 				}
@@ -113,9 +115,11 @@ trait RelationalAlgebraIROptCreateJoin
 					val x = params(0)
 					val y = params(1)
 					if (usedByLeft == Set(x)) {
+						//return (doLambda[B, Any](x => lhs), doLambda[C, Any](y => rhs))
 						return (dynamicLambda(x, lhs), dynamicLambda(y, rhs))
 					}
 					else {
+						//return (doLambda[B, Any](x => rhs), doLambda[C, Any](y => lhs))
 						return (dynamicLambda(x, rhs), dynamicLambda(y, lhs))
 					}
 				}

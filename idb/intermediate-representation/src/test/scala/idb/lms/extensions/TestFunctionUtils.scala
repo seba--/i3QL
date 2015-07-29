@@ -38,7 +38,7 @@ import org.junit.Assert._
 
 /**
  *
- * @author Ralf Mitschke
+ * @author Ralf Mitschke, Mirko Köhler
  */
 class TestFunctionUtils
     extends BaseFatExp
@@ -242,4 +242,43 @@ class TestFunctionUtils
 			returnedParameter (f)
 		)
 	}
+
+	@Test
+	def testReturnedParameterIndex5(): Unit = {
+		val f = (t : Rep[(Int, Int)]) => t._2
+
+		assertEquals(
+			1,
+			returnedParameter (f)
+		)
+	}
+
+
+	@Test
+	def testDisjunctiveParameterEquality1(): Unit = {
+		val f = (i : Rep[Int], j : Rep[Int]) => i == j
+
+		assertTrue(
+			isDisjunctiveParameterEquality(f)
+		)
+	}
+
+	@Test
+	def testDisjunctiveParameterEquality2(): Unit = {
+		val f = (i : Rep[Int], j : Rep[Int]) => i + 1 == j
+
+		assertTrue(
+			isDisjunctiveParameterEquality(f)
+		)
+	}
+
+	@Test
+	def testDisjunctiveParameterEquality3(): Unit = {
+		val f = (i : Rep[Int], j : Rep[Int]) => i + j == 0
+
+		assertFalse(
+			isDisjunctiveParameterEquality(f)
+		)
+	}
+
 }

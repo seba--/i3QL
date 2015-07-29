@@ -32,12 +32,13 @@
  */
 package idb.integration.test
 
-import UniversityDatabase._
+import idb.integration.test.UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import idb.syntax.iql._
 import org.junit.Assert._
-import org.junit.{Ignore, Test}
+import org.junit.Test
+
 import scala.language.implicitConversions
 
 
@@ -49,7 +50,7 @@ class TestExistsClauses1
     extends UniversityTestData
 {
 
-	@Ignore
+	//@Ignore
     @Test
     def testExists () {
         val result = compile (
@@ -62,30 +63,30 @@ class TestExistsClauses1
                 )
         ).asMaterialized
 
-        assertEquals (result.asList, Nil)
+        assertEquals (Nil, result.asList)
 
         students += sallyFields
 
-        assertEquals (result.asList, Nil)
+        assertEquals (Nil, result.asList)
 
         registrations += sallyTakesIcs1
 
-        assertEquals (result.asList, scala.List (sallyFields))
+        assertEquals (scala.List (sallyFields), result.asList)
 
         students -= sallyFields
 
-        assertEquals (result.asList, Nil)
+        assertEquals (Nil, result.asList)
 
         students += sallyFields
 
-        assertEquals (result.asList, scala.List (sallyFields))
+        assertEquals (scala.List (sallyFields), result.asList)
 
         registrations -= sallyTakesIcs1
 
-        assertEquals (result.asList, Nil)
+        assertEquals (Nil, result.asList)
     }
 
-	@Ignore
+	//@Ignore
     @Test
     def testNotExists () {
         val result = compile (
@@ -100,26 +101,26 @@ class TestExistsClauses1
                 )
         ).asMaterialized
 
-        assertEquals (result.asList, Nil)
+        assertEquals (Nil, result.asList)
 
         students += sallyFields
 
-        assertEquals (result.asList, scala.List (sallyFields))
+        assertEquals (scala.List (sallyFields), result.asList)
 
         registrations += sallyTakesIcs1
 
-        assertEquals (result.asList, Nil)
+        assertEquals (Nil, result.asList)
 
         students -= sallyFields
 
-        assertEquals (result.asList, Nil)
+        assertEquals (Nil, result.asList)
 
         students += sallyFields
 
-        assertEquals (result.asList, Nil)
+        assertEquals (Nil, result.asList)
 
         registrations -= sallyTakesIcs1
 
-        assertEquals (result.asList, scala.List (sallyFields))
+        assertEquals (scala.List (sallyFields), result.asList)
     }
 }

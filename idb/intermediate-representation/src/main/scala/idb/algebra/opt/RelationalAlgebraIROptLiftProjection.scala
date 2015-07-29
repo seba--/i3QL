@@ -61,14 +61,8 @@ trait RelationalAlgebraIROptLiftProjection
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     ): Rep[Query[(DomainA, DomainB)]] = {
-
-
-
-		Predef.println("LiftProjection")
-		Predef.println("(" + relationA.toString + ", " + relationB.toString + ")")
 		(relationA, relationB) match {
 			case (Def(p1@Projection(ra, fa)), Def(p2@Projection(rb, fb))) =>
-				Predef.println("A => (" + relationA + ", " + relationB + ")")
 				projection(
 					crossProduct(
 						ra,
@@ -84,7 +78,6 @@ trait RelationalAlgebraIROptLiftProjection
 				)
 
 			case (Def(p1@Projection(ra, fa)), rb) =>
-				Predef.println("B => (" + relationA + ", " + relationB + ")")
 				projection(
 					crossProduct(
 						ra,
@@ -101,7 +94,6 @@ trait RelationalAlgebraIROptLiftProjection
 
 
 			case (ra, Def(Projection(rb, fb))) => {
-				Predef.println("C => (" + relationA + ", " + relationB + ")")
 				val newProjection = fun(
 					(x: Rep[DomainA], y: Rep[Any]) => make_tuple2(x, fb(y))
 				)(
