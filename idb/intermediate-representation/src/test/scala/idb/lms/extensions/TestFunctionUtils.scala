@@ -253,6 +253,86 @@ class TestFunctionUtils
 		)
 	}
 
+	@Test
+	def testIsIdentity1(): Unit = {
+		val f = (i : Rep[Int]) => i
+
+		assertTrue(
+			isIdentity(f)
+		)
+	}
+
+
+	@Test
+	def testIsIdentity2(): Unit = {
+		val f = (t : Rep[(Int, Int)]) => (t._1, t._2)
+
+		assertTrue(
+			isIdentity(f)
+		)
+	}
+
+	@Test
+	def testIsIdentity3(): Unit = {
+		val f = (t : Rep[(Int, Int)]) => (t._2, t._1)
+
+		assertFalse(
+			isIdentity(f)
+		)
+	}
+
+	@Test
+	def testIsIdentity4(): Unit = {
+		val f = (i : Rep[Int]) => 0
+
+		assertFalse(
+			isIdentity(f)
+		)
+	}
+
+
+
+	@Test
+	def testReturnsFromTuple2_1(): Unit = {
+		val f = (t : Rep[(Int, Int)]) => t._1
+
+		assertTrue (
+			returnsLeftOfTuple2(f)
+		)
+
+		assertFalse (
+			returnsRightOfTuple2(f)
+		)
+	}
+
+	@Test
+	def testReturnsFromTuple2_2(): Unit = {
+		val f = (t : Rep[(Int, Int)]) => t._2
+
+		assertFalse (
+			returnsLeftOfTuple2(f)
+		)
+
+		assertTrue (
+			returnsRightOfTuple2(f)
+		)
+	}
+
+	@Test
+	def testReturnsFromTuple2_3(): Unit = {
+		val f = (t : Rep[(Int, Int)]) => t
+
+		assertFalse (
+			returnsLeftOfTuple2(f)
+		)
+
+		assertFalse (
+			returnsRightOfTuple2(f)
+		)
+	}
+
+
+
 
 	@Test
 	def testDisjunctiveParameterEquality1(): Unit = {

@@ -51,12 +51,12 @@ trait RelationalAlgebraIROptPackage
     with RelationalAlgebraIROptSimplifySetTheoryOps
     with RelationalAlgebraIROrderSetTheoryOps
     with RelationalAlgebraIROptSelectionInSetTheoryOps
-	with RelationalAlgebraIROptPushDuplicateElimination
 	with RelationalAlgebraIROptPushSelection
     with RelationalAlgebraIROptOrderSelections
     with RelationalAlgebraIROptPushSetTheoryOps
     with RelationalAlgebraIROptCreateJoin
-    with RelationalAlgebraIROptLiftProjection
+	with RelationalAlgebraIROptPushDuplicateElimination
+	with RelationalAlgebraIROptLiftProjection
 {
 
 }

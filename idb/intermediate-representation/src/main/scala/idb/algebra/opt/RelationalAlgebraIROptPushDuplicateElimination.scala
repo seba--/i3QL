@@ -82,13 +82,13 @@ trait RelationalAlgebraIROptPushDuplicateElimination
             case Def (Projection (Def (join: EquiJoin[Any@unchecked, Any@unchecked]), f))
                 // TODO, why can I not pattern match the equi join above as EquiJoin(a,b,list)?
                 if join.equalities.size < 6 => // we can only convert this using tupled functions of size 5
-            {
+
 
                 val bodyIsParameterAtIndex = returnedParameter (f)
                 bodyIsParameterAtIndex match {
                     case -1 =>
                         super.duplicateElimination (relation)
-                    case 0 => {
+                    case 0 =>
                         // if the first parameter is returned by the projection, this cast is legitimate
                         val relationA = join.relationA.asInstanceOf[Rep[Query[Domain]]]
                         val relationB = join.relationB
@@ -112,8 +112,8 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                             newJoin,
                             (p: Rep[(Domain, Any)]) => p._1
                         )
-                    }
-                    case 1 => {
+
+                    case 1 =>
                         val relationA = join.relationA
                         // if the second parameter is returned by the projection, this cast is legitimate
                         val relationB = join.relationB.asInstanceOf[Rep[Query[Domain]]]
@@ -137,13 +137,13 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                             newJoin,
                             (p: Rep[(Any, Domain)]) => p._2
                         )
-                    }
+
                     case _ =>
                         throw new IllegalStateException (
                             "Expected a binary function as projection after equi join, " +
                                 "but found more parameters" + f.toString)
                 }
-            }
+
 
             case _ => super.duplicateElimination (relation)
 

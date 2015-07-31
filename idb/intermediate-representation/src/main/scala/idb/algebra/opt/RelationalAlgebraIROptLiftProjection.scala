@@ -93,7 +93,7 @@ trait RelationalAlgebraIROptLiftProjection
 				)
 
 
-			case (ra, Def(Projection(rb, fb))) => {
+			case (ra, Def(Projection(rb, fb))) =>
 				val newProjection = fun(
 					(x: Rep[DomainA], y: Rep[Any]) => make_tuple2(x, fb(y))
 				)(
@@ -110,7 +110,7 @@ trait RelationalAlgebraIROptLiftProjection
 					newProjection
 
 				)
-			}
+
 			case _ => super.crossProduct(relationA, relationB)
 		}
 	}

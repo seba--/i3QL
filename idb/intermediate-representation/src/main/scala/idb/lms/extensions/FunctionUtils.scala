@@ -180,10 +180,10 @@ trait FunctionUtils
 				case Def (Equal (lhs, rhs)) =>
 					val usedByLeft = findSyms (lhs)(tupledParams)
 					val usedByRight = findSyms (rhs)(tupledParams)
-					return usedByLeft.size == 1 && usedByRight.size == 1 && usedByLeft != usedByRight
+					usedByLeft.size == 1 && usedByRight.size == 1 && usedByLeft != usedByRight
 
 				case _ =>
-					return false
+					false
 
 			}
 		//... else if the function has two parameters
@@ -194,14 +194,14 @@ trait FunctionUtils
 					val usedByLeft = findSyms (lhs)(params.toSet)
 					val usedByRight = findSyms (rhs)(params.toSet)
 					val bool = usedByLeft.size == 1 && usedByRight.size == 1 && usedByLeft != usedByRight
-					return bool
+					bool
 
 				case _ =>
-					return false
+					false
 
 			}
         } else {
-			return false
+			false
 		}
     }
 
@@ -210,26 +210,39 @@ trait FunctionUtils
 
     def isIdentity[Domain, Range] (function: Rep[Domain => Range]) : Boolean = {
         function match {
-            case Def(Lambda(_, UnboxedTuple(l1), Block(Def(Struct(tag, fields))))) =>
-                l1 == fields.map((t) => t._2)                         //TODO Check this.
+			//TODO What about Const?
+			case Def(Lambda(_, UnboxedTuple(l1), Block(Def(Struct(tag, fields))))) =>
+                l1 == fields.map((t) => t._2)
             case Def(Lambda(_, x, Block(body))) =>
                 body == x
+			//case c@Const(_) =>
             case _ => false
         }
     }
 
     def returnsLeftOfTuple2[Domain, Range] (function: Rep[Domain => Range]) : Boolean = {
         function match {
-            case Def (Lambda (_, UnboxedTuple (scala.List (a, _)), Block (r))) =>
-                a == r
+           // case Def (Lambda (_, UnboxedTuple (scala.List (a, _)), Block (r))) =>
+           //     a == r
+			case Def (Lambda (_, t1, Block (body))) =>
+				body match {
+					case Def(FieldApply(`t1`, "_1")) => true
+					case _ => false
+				}
             case _ => false
         }
     }
 
     def returnsRightOfTuple2[Domain, Range] (function: Rep[Domain => Range]) : Boolean = {
         function match {
-            case Def (Lambda (_, UnboxedTuple (scala.List (_, b)), Block (r))) =>
-                b == r
+           // case Def (Lambda (_, UnboxedTuple (scala.List (_, b)), Block (r))) =>
+           //     b == r
+			case Def (Lambda (_, t1, Block (body))) =>
+				body match {
+					case Def(FieldApply(`t1`, "_2")) => true
+					case _ => false
+				}
+
             case _ => false
         }
     }
@@ -251,7 +264,7 @@ trait FunctionUtils
         implicit val mRange = returnType (function).asInstanceOf[Manifest[Range]]
         function match {
 
-            case Def (Lambda (_, UnboxedTuple (scala.List (a, b)), Block (body)))
+         /*   case Def (Lambda (_, UnboxedTuple (scala.List (a, b)), Block (body)))
 				if body == a =>	0
             case Def (Lambda (_, UnboxedTuple (scala.List (a, b)), Block (body)))
 				if body == b =>	1
@@ -284,7 +297,7 @@ trait FunctionUtils
             case Def (Lambda (_, UnboxedTuple (scala.List (a, b, c, d, e)), Block (body)))
                 if body == d => 3
             case Def (Lambda (_, UnboxedTuple (scala.List (a, b, c, d, e)), Block (body)))
-                if body == e => 4
+                if body == e => 4    */
 
             case Def (Lambda (_, x, Block (body)))
                 if body == x => 0
@@ -377,22 +390,22 @@ trait FunctionUtils
         result
     }
 
-    def printEffects[T](ef: List[Exp[T]]): String =
-        ef.foldRight("")((x,y) => s"${printExp(x)}, $y")
+    def stringEffects[T](ef: List[Exp[T]]): String =
+        ef.foldRight("")((x,y) => s"${stringExp(x)}, $y")
 
-    def printExp[T](e: Exp[T]): String = e match {
-        case Def(Reify(e, _, ef)) => s"reify(${printExp(e)}, {${printEffects(ef)}})"
-        case Def(Equal(e1, e2)) => s"${printExp(e1)} == ${printExp(e2)}"
+    def stringExp[T](e: Exp[T]): String = e match {
+        case Def(Reify(e, _, ef)) => s"reify(${stringExp(e)}, {${stringEffects(ef)}})"
+        case Def(Equal(e1, e2)) => s"${stringExp(e1)} == ${stringExp(e2)}"
         //    case Def(Field(a)) => a
         case Const(c) => c.toString
         case Def(d) => d.toString
         case x => x.toString
     }
 
-    def printFun[A,B](function: Rep[Function[A,B]]): String = function match {
+    def stringFun[A,B](function: Rep[Function[A,B]]): String = function match {
         case Def (Lambda (_, x, body)) =>
-            s"(${x.tp.toString()} => ${printExp(body.res)}})"
-        case Const (c) => c.toString
+            s"(${x.tp.toString()} => ${stringExp(body.res)}})"
+        case Const (c) => "Const" + c.toString
         case _ => throw new IllegalArgumentException ("expected Lambda, found " + function.toString)
     }
 
