@@ -9,4 +9,4 @@ parallelExecution in Test := false
 
 logBuffered in Test := false
 
-fork in Test := true
+fork in Test := false

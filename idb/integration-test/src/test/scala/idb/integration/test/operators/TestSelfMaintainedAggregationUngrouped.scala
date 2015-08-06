@@ -28,7 +28,7 @@ class TestSelfMaintainedAggregationUngrouped extends AbstractStudentOperatorTest
 	@Before
 	def setUp() {
 		table = BagTable.empty[Student]
-		query = compile(SELECT (SUM ((s : Rep[Student]) => s.matriculationNumber)) FROM (table))
+		query = compile(SELECT (SUM ((s : Rep[Student]) => s.matriculationNumber)) FROM table)
 	}
 
 

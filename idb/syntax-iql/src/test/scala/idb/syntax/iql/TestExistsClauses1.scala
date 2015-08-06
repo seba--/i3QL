@@ -48,7 +48,7 @@ class TestExistsClauses1
 {
 
 
-  /*  @Test
+    @Test
     def testExists () {
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
@@ -70,7 +70,7 @@ class TestExistsClauses1
             query
         )
 
-    }  */
+    }
 
     @Test
     def testExistsWithOneOuterConjunction () {
@@ -101,7 +101,7 @@ class TestExistsClauses1
     }
 
 
- /*   @Test
+    @Test
     def testExistsWithMultipleOuterConjunctions () {
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
@@ -304,5 +304,5 @@ class TestExistsClauses1
             ),
             query
         )
-    }    */
+    }
 }

@@ -206,13 +206,13 @@ trait FunctionUtils
     }
 
 
-    def isTuple2Manifest[T] (m: Manifest[T]): Boolean = m.erasure.getName startsWith "scala.Tuple2"
+    def isTuple2Manifest[T] (m: Manifest[T]): Boolean = m.runtimeClass.getName startsWith "scala.Tuple2"
 
     def isIdentity[Domain, Range] (function: Rep[Domain => Range]) : Boolean = {
         function match {
 			//TODO What about Const?
 			case Def(Lambda(_, UnboxedTuple(l1), Block(Def(Struct(tag, fields))))) =>
-                l1 == fields.map((t) => t._2)
+				l1 == fields.map(t => t._2)
             case Def(Lambda(_, x, Block(body))) =>
                 body == x
 			//case c@Const(_) =>
@@ -264,7 +264,7 @@ trait FunctionUtils
         implicit val mRange = returnType (function).asInstanceOf[Manifest[Range]]
         function match {
 
-         /*   case Def (Lambda (_, UnboxedTuple (scala.List (a, b)), Block (body)))
+            case Def (Lambda (_, UnboxedTuple (scala.List (a, b)), Block (body)))
 				if body == a =>	0
             case Def (Lambda (_, UnboxedTuple (scala.List (a, b)), Block (body)))
 				if body == b =>	1
@@ -297,7 +297,7 @@ trait FunctionUtils
             case Def (Lambda (_, UnboxedTuple (scala.List (a, b, c, d, e)), Block (body)))
                 if body == d => 3
             case Def (Lambda (_, UnboxedTuple (scala.List (a, b, c, d, e)), Block (body)))
-                if body == e => 4    */
+                if body == e => 4
 
             case Def (Lambda (_, x, Block (body)))
                 if body == x => 0

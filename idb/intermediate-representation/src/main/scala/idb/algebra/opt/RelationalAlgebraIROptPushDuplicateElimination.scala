@@ -83,8 +83,8 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                 // TODO, why can I not pattern match the equi join above as EquiJoin(a,b,list)?
                 if join.equalities.size < 6 => // we can only convert this using tupled functions of size 5
 
+		        val bodyIsParameterAtIndex = returnedParameter (f)
 
-                val bodyIsParameterAtIndex = returnedParameter (f)
                 bodyIsParameterAtIndex match {
                     case -1 =>
                         super.duplicateElimination (relation)

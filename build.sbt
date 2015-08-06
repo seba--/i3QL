@@ -23,6 +23,8 @@ javaOptions in Test += "-Xmx4G"
 //Test settings
 parallelExecution in Test := false
 
+fork in Test := false
+
 logBuffered in Test := false
 
 //SHow additional test info

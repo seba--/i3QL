@@ -19,8 +19,8 @@ import idb.schema.university.Registration
  *
  * @author Mirko Köhler
  */
-class TestEquiJoin { //extends UniversityTestData with RelationalAlgebraPrintPlan {
-/*
+class TestEquiJoin extends UniversityTestData {
+
 	val IR = idb.syntax.iql.IR
 
 	val printQuery = true
@@ -38,7 +38,7 @@ class TestEquiJoin { //extends UniversityTestData with RelationalAlgebraPrintPla
 			)
 		)
 
-		if (printQuery)	Predef.println(quoteRelation(queryUncompiled))
+	//	if (printQuery)	Predef.println(quoteRelation(queryUncompiled))
 
 		val query = compile(queryUncompiled).asMaterialized
 
@@ -120,7 +120,7 @@ class TestEquiJoin { //extends UniversityTestData with RelationalAlgebraPrintPla
 
 		//TODO How to handle updates of double elements?
 		//Update double element of left relation
-/*		students ~= (jackBlack, jackCarter)
+	/*	students ~= (jackBlack, jackCarter)
 		students.endTransaction()
 
 		assertThat (query contains (johnFields, johnTakesEise), is (true))
@@ -194,7 +194,7 @@ class TestEquiJoin { //extends UniversityTestData with RelationalAlgebraPrintPla
 		students += johnFields += sallyFields += jackBlack += janeDoe
 		students.endTransaction()
 
-		assertThat (query.size, is (0))     */
+		assertThat (query.size, is (0))  */
 
-	}   */
+	}
 }

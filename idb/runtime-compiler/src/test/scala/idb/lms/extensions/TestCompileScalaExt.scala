@@ -32,6 +32,8 @@
  */
 package idb.lms.extensions
 
+import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
+
 import scala.language.reflectiveCalls
 import org.junit.Test
 import org.junit.Assert._
@@ -86,6 +88,7 @@ class TestCompileScalaExt
             with RelationalAlgebraSAEBinding
             with ScalaOpsPkgExp
             with University
+			with TupledFunctionsExpDynamicLambda
             with TupledFunctionsExp
             with LiftAll
         {
@@ -145,6 +148,7 @@ class TestCompileScalaExt
             with RelationalAlgebraSAEBinding
             with ScalaOpsPkgExp
             with University
+			with TupledFunctionsExpDynamicLambda
             with TupledFunctionsExp
             with LiftAll
         {
