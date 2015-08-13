@@ -33,6 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.{RelationalAlgebraSetTheoryOperators, RelationalAlgebraBasicOperators}
+import idb.algebra.remote.RemoteDescription
 
 
 /**
@@ -55,6 +56,8 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
+		def remoteDesc = RemoteDescription.join(relationA.remoteDesc, relationB.remoteDesc)
+
     }
 
     case class UnionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
@@ -68,6 +71,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
+		def remoteDesc = RemoteDescription.join(relationA.remoteDesc, relationB.remoteDesc)
     }
 
     case class Intersection[Domain: Manifest] (
@@ -78,6 +82,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
+		def remoteDesc = RemoteDescription.join(relationA.remoteDesc, relationB.remoteDesc)
 	}
 
     case class Difference[Domain: Manifest] (
@@ -88,6 +93,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Difference implements foreach
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
+		def remoteDesc = RemoteDescription.join(relationA.remoteDesc, relationB.remoteDesc)
 	}
 
 

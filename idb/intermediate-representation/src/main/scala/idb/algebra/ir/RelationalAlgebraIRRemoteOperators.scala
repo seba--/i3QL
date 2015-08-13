@@ -1,4 +1,4 @@
-/* License (BSD Style License):
+/* LiceUnionBSD Style License):
  *  Copyright (c) 2009, 2011
  *  Software Technology Group
  *  Department of Computer Science
@@ -30,30 +30,44 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.print
+package idb.algebra.ir
 
-import idb.algebra.ir._
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
+import idb.algebra.base.{RelationalAlgebraRemoteOperators, RelationalAlgebraBasicOperators}
+import idb.algebra.remote.{RemoteDescription}
 
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait RelationalAlgebraPrintPlan
-    extends RelationalAlgebraPrintPlanBase
-    with RelationalAlgebraPrintPlanBasicOperators
-    with RelationalAlgebraPrintPlanAggregationOperators
-    with RelationalAlgebraPrintPlanSetTheoryOperators
-    with RelationalAlgebraPrintPlanRecursiveOperators
-	with RelationalAlgebraPrintPlanRemoteOperators
+trait RelationalAlgebraIRRemoteOperators
+    extends RelationalAlgebraIRBase with RelationalAlgebraRemoteOperators
 {
+    case class Remote[Domain : Manifest] (
+        var relation: Rep[Query[Domain]],
+        thisDesc : RemoteDescription,
+		thatDesc : RemoteDescription
+    ) extends Def[Query[Domain]] with QueryBaseOps {
+		def isMaterialized: Boolean = relation.isMaterialized
+		def isSet = relation.isSet
+		def isIncrementLocal = relation.isIncrementLocal
 
-    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with StringOpsExpExt with SeqOpsExpExt with TupledFunctionsExp with
-        FunctionUtils with
-        RelationalAlgebraIRBasicOperators with RelationalAlgebraIRAggregationOperators with
-        RelationalAlgebraIRSetTheoryOperators with RelationalAlgebraIRRecursiveOperators with RelationalAlgebraIRRemoteOperators
+		def remoteDesc = thisDesc
+    }
+
+
+	def remote[Domain: Manifest] (
+		relation: Rep[Query[Domain]],
+		thisDesc : RemoteDescription,
+		thatDesc : RemoteDescription
+	): Rep[Query[Domain]] = {
+		Remote(relation, thisDesc, thatDesc)
+	}
+
+
 
 }
+
+
+

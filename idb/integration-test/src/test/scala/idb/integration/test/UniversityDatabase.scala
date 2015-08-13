@@ -32,6 +32,7 @@
  */
 package idb.integration.test
 
+import idb.annotations.RemoteHost
 import idb.schema.university._
 import idb.{Relation, BagTable, Table}
 
@@ -62,4 +63,13 @@ object UniversityDatabase
 
     val prerequisites: Table[CoursePrerequisite] = BagTable.empty
 
+	val remoteStudents : Table[Student] = new RemoteStudents
+
+	val remoteRegistrations : Table[Registration] = new RemoteRegistrations
 }
+
+@RemoteHost(description = "students")
+class RemoteStudents extends BagTable[Student]
+
+@RemoteHost(description = "registrations")
+class RemoteRegistrations extends BagTable[Registration]

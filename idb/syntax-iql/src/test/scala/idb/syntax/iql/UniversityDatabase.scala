@@ -32,6 +32,7 @@
  */
 package idb.syntax.iql
 
+import idb.annotations.RemoteHost
 import idb.schema.university._
 import idb.{BagTable, Table}
 
@@ -61,4 +62,7 @@ object UniversityDatabase
     val students: Table[Student] = BagTable.empty
 
     val prerequisites: Table[CoursePrerequisite] = BagTable.empty
+
+
 }
+

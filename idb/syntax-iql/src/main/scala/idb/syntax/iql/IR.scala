@@ -33,7 +33,7 @@
 package idb.syntax.iql
 
 import idb.algebra.compiler.RelationalAlgebraSAEBinding
-import idb.algebra.{RelationalAlgebraIROptPackage, RelationalAlgebraIRFusionPackage, RelationalAlgebraIRNormalizePackage, RelationalAlgebraIROperatorsPackage}
+import idb.algebra._
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import idb.lms.extensions.equivalence.{StructExpAlphaEquivalence, TupledFunctionsExpAlphaEquivalence}
 import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
@@ -56,6 +56,7 @@ import scala.virtualization.lms.common._
 object IR
     extends ScalaOpsExpOptExtensions
     with RelationalAlgebraIROperatorsPackage
+	with RelationalAlgebraIRDistPackage
 	with RelationalAlgebraIRFusionPackage
     with RelationalAlgebraIROptPackage
     with RelationalAlgebraIRNormalizePackage

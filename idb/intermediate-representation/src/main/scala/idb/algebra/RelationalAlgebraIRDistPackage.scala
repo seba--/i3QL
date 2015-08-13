@@ -30,30 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.print
+package idb.algebra
 
-import idb.algebra.ir._
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
+import idb.algebra.normalization.RelationalAlgebraIROrderSetTheoryOps
+import idb.algebra.opt._
+import idb.algebra.remote.RelationalAlgebraIRDistBasicOperators
 
 
 /**
+ * Packaged trait for all relational algebra optimizations.
+ * Note that trait mixin order is important.
+ * The basic idea is that normalization comes first, i.e., selection conditions are split up into multiple operators.
+ * The various optimizations currently require no order, but fusion has to come last, i.e.,
+ * creating fused functions for selection operations.
  *
  * @author Ralf Mitschke
+ *
  */
-trait RelationalAlgebraPrintPlan
-    extends RelationalAlgebraPrintPlanBase
-    with RelationalAlgebraPrintPlanBasicOperators
-    with RelationalAlgebraPrintPlanAggregationOperators
-    with RelationalAlgebraPrintPlanSetTheoryOperators
-    with RelationalAlgebraPrintPlanRecursiveOperators
-	with RelationalAlgebraPrintPlanRemoteOperators
-{
-
-    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with StringOpsExpExt with SeqOpsExpExt with TupledFunctionsExp with
-        FunctionUtils with
-        RelationalAlgebraIRBasicOperators with RelationalAlgebraIRAggregationOperators with
-        RelationalAlgebraIRSetTheoryOperators with RelationalAlgebraIRRecursiveOperators with RelationalAlgebraIRRemoteOperators
-
-}
+trait RelationalAlgebraIRDistPackage
+    extends RelationalAlgebraIRDistBasicOperators

@@ -32,28 +32,41 @@
  */
 package idb.algebra.print
 
-import idb.algebra.ir._
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
 
+import idb.algebra.ir.{RelationalAlgebraIRRemoteOperators, RelationalAlgebraIRBasicOperators}
+import idb.lms.extensions.FunctionUtils
+import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
+import idb.lms.extensions.print.{CodeGenIndent, QuoteFunction}
+
+import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraPrintPlan
+trait RelationalAlgebraPrintPlanRemoteOperators
     extends RelationalAlgebraPrintPlanBase
-    with RelationalAlgebraPrintPlanBasicOperators
-    with RelationalAlgebraPrintPlanAggregationOperators
-    with RelationalAlgebraPrintPlanSetTheoryOperators
-    with RelationalAlgebraPrintPlanRecursiveOperators
-	with RelationalAlgebraPrintPlanRemoteOperators
+    with QuoteFunction
+    with CodeGenIndent
 {
 
     override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with StringOpsExpExt with SeqOpsExpExt with TupledFunctionsExp with
-        FunctionUtils with
-        RelationalAlgebraIRBasicOperators with RelationalAlgebraIRAggregationOperators with
-        RelationalAlgebraIRSetTheoryOperators with RelationalAlgebraIRRecursiveOperators with RelationalAlgebraIRRemoteOperators
+        FunctionUtils with RelationalAlgebraIRRemoteOperators
+
+
+    import IR.{Remote, Def, Exp}
+
+
+    override def quoteRelation (x: Exp[Any]): String =
+        x match {
+            case Def (Remote (relation, thisDesc, thatDesc)) =>
+                withIndent (s"remote{$thisDesc -> $thatDesc}(\n") +
+                    withMoreIndent (quoteRelation (relation) + "\n") +
+                    withIndent (")")
+
+
+
+            case _ => super.quoteRelation (x)
+        }
 
 }

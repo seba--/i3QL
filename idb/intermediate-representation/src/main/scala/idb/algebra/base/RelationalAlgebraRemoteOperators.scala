@@ -30,30 +30,23 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.print
+package idb.algebra.base
 
-import idb.algebra.ir._
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
-
+import idb.algebra.remote.RemoteDescription
 
 /**
  *
  * @author Ralf Mitschke
+ *
  */
-trait RelationalAlgebraPrintPlan
-    extends RelationalAlgebraPrintPlanBase
-    with RelationalAlgebraPrintPlanBasicOperators
-    with RelationalAlgebraPrintPlanAggregationOperators
-    with RelationalAlgebraPrintPlanSetTheoryOperators
-    with RelationalAlgebraPrintPlanRecursiveOperators
-	with RelationalAlgebraPrintPlanRemoteOperators
-{
 
-    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with StringOpsExpExt with SeqOpsExpExt with TupledFunctionsExp with
-        FunctionUtils with
-        RelationalAlgebraIRBasicOperators with RelationalAlgebraIRAggregationOperators with
-        RelationalAlgebraIRSetTheoryOperators with RelationalAlgebraIRRecursiveOperators with RelationalAlgebraIRRemoteOperators
+trait RelationalAlgebraRemoteOperators
+    extends RelationalAlgebraBase
+{
+    def remote[Domain: Manifest] (
+        relation: Rep[Query[Domain]],
+	    thisDesc : RemoteDescription,
+        thatDesc : RemoteDescription
+    ): Rep[Query[Domain]]
 
 }

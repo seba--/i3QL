@@ -59,6 +59,7 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+		def remoteDesc = relation.remoteDesc
 	}
 
 	case class AggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
@@ -71,6 +72,7 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+		def remoteDesc = relation.remoteDesc
 	}
 
 	case class AggregationSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
@@ -84,6 +86,7 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+		def remoteDesc = relation.remoteDesc
 	}
 
 	case class AggregationNotSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
@@ -99,6 +102,7 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+		def remoteDesc = relation.remoteDesc
 	}
 
 	case class AggregationNotSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
@@ -111,6 +115,7 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+		def remoteDesc = relation.remoteDesc
 	}
 
 	case class AggregationNotSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
@@ -124,6 +129,7 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+		def remoteDesc = relation.remoteDesc
 	}
 
 	case class Grouping[Domain : Manifest, Result : Manifest] (
@@ -133,6 +139,7 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+		def remoteDesc = relation.remoteDesc
 	}
 
 	def aggregationSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](

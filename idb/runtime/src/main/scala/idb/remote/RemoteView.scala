@@ -93,3 +93,34 @@ case class RemoteView[Domain](rel: Relation[Domain], actorSystem: ActorSystem)
   override def prettyprint(implicit prefix: String) = prefix +
     s"RemoteView($actorRef,${nested(rel)})"
 }
+
+object RemoteView {
+	val system = ActorSystem("i3ql")
+
+	def apply[T](partition : Relation[T]) : RemoteView[T] = {
+		val remoteHost = system.actorOf(Props[ObservableHost[T]])
+
+		val remote = RemoteView(partition, system)
+
+		remoteHost ! HostObservableAndForward(partition, remote.actorRef)
+
+		remote
+	}
+
+	sealed trait HostMessage
+	case class HostObservableAndForward[T](obs: Observable[T], target: ActorRef)/*(implicit pickler: Pickler[T])*/ extends HostMessage
+	case class DoIt[T](fun: Observable[T] => Unit) extends HostMessage
+
+	class ObservableHost[T] extends Actor {
+		var hosted: Option[Observable[T]] = scala.None
+
+		override def receive = {
+			case HostObservableAndForward(obs : Observable[T], target) =>
+				obs.addObserver(new SentToRemote(target))
+				hosted = Some(obs)
+
+			case DoIt(fun: (Observable[T] => Unit)) =>
+				fun(hosted.get)
+		}
+	}
+}

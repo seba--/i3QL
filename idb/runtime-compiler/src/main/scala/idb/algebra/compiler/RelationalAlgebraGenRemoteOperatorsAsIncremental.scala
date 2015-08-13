@@ -8,12 +8,12 @@
  *  Redistribution and use in source and binary forms, with or without
  *  modification, are permitted provided that the following conditions are met:
  *
- *  - Redistributions of source code must retain the above copyright notice,
+ *  Redistributions of source code must retain the above copyright notice,
  *    this list of conditions and the following disclaimer.
- *  - Redistributions in binary form must reproduce the above copyright notice,
+ *  Redistributions in binary form must reproduce the above copyright notice,
  *    this list of conditions and the following disclaimer in the documentation
  *    and/or other materials provided with the distribution.
- *  - Neither the name of the Software Technology Group or Technische
+ *  Neither the name of the Software Technology Group or Technische
  *    Universität Darmstadt nor the names of its contributors may be used to
  *    endorse or promote products derived from this software without specific
  *    prior written permission.
@@ -30,18 +30,45 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.ir
+package idb.algebra.compiler
 
-import idb.annotations.LocalIncrement
+import idb.algebra.ir._
+import idb.lms.extensions.ScalaCodegenExt
+import idb.operators.impl._
+import idb.operators.impl.opt._
+import idb.remote.RemoteView
+
+import scala.virtualization.lms.common._
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-
-@LocalIncrement
-class Data
+trait RelationalAlgebraGenRemoteOperatorsAsIncremental
+    extends RelationalAlgebraGenBaseAsIncremental
+    with ScalaCodegenExt
+    with ScalaGenEffect
 {
+
+    val IR: RelationalAlgebraIRBasicOperators
+		with RelationalAlgebraIRSetTheoryOperators
+		with RelationalAlgebraIRRecursiveOperators
+		with RelationalAlgebraIRAggregationOperators
+		with RelationalAlgebraIRRemoteOperators
+		with RelationalAlgebraSAEBinding
+		with FunctionsExp
+
+
+    import IR._
+
+
+    override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
+        query match {
+            case Def (Remote (r, _, remoteDesc)) =>
+                RemoteView (compile (r))
+
+            case _ => super.compile (query)
+        }
+    }
 
 }

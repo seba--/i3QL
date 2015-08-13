@@ -33,6 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraRecursiveOperators
+import idb.algebra.remote.DefaultDescription
 
 /**
  *
@@ -62,6 +63,8 @@ trait RelationalAlgebraIRRecursiveOperators
         def isSet = false
 
         def isIncrementLocal = relation.isIncrementLocal
+
+		def remoteDesc = relation.remoteDesc
     }
 
     case class Recursion[Domain: Manifest] (
@@ -74,6 +77,8 @@ trait RelationalAlgebraIRRecursiveOperators
         def isSet = false
 
         def isIncrementLocal = result.isIncrementLocal
+		def remoteDesc = DefaultDescription
+
     }
 
     case class RecursionResult[Domain: Manifest] (
@@ -86,6 +91,7 @@ trait RelationalAlgebraIRRecursiveOperators
         def isSet = result.isSet
 
         def isIncrementLocal = result.isIncrementLocal
+		def remoteDesc = DefaultDescription
     }
 
 
@@ -135,9 +141,9 @@ trait RelationalAlgebraIRRecursiveOperators
             {
                 setFunction (Recursion (relation, result.asInstanceOf[Rep[Query[Domain]]]))
             }
-            case QueryRelation (r, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
+            case QueryRelation (r, _, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
                 "result tree.")
-            case QueryTable (e, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
+            case QueryTable (e, _, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
                 "result tree.")
 
             //why is sometimes the matched r used and sometimes e.relation?
@@ -149,75 +155,59 @@ trait RelationalAlgebraIRRecursiveOperators
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Domain]]) => e.relation = x)
 
             case Def (e@CrossProduct (a, b)) =>
-            {
-                setRecursionBase (a, b, base, result, (x: Rep[Query[Any]]) => e.relationA = x,
+				setRecursionBase (a, b, base, result, (x: Rep[Query[Any]]) => e.relationA = x,
                     (x: Rep[Query[Any]]) => e.relationB = x)
-            }
+
             case Def (e@EquiJoin (a, b, _)) =>
-            {
                 setRecursionBase (a, b, base, result, (x: Rep[Query[Any]]) => e.relationA = x,
                     (x: Rep[Query[Any]]) => e.relationB = x)
-            }
+
             case Def (e@UnionAdd (a, b)) =>
-            {
                 setRecursionBase (a, b, base, result, (x: Rep[Query[Domain]]) => e.relationA = x,
                     (x: Rep[Query[Domain]]) => e.relationB = x)
-            }
+
             case Def (e@UnionMax (a, b)) =>
-            {
                 setRecursionBase (a, b, base, result, (x: Rep[Query[Domain]]) => e.relationA = x,
                     (x: Rep[Query[Domain]]) => e.relationB = x)
-            }
+
             case Def (e@Intersection (a, b)) =>
-            {
                 setRecursionBase (a, b, base, result, (x: Rep[Query[Domain]]) => e.relationA = x,
                     (x: Rep[Query[Domain]]) => e.relationB = x)
-            }
+
             case Def (e@Difference (a, b)) =>
-            {
                 setRecursionBase (a, b, base, result, (x: Rep[Query[Domain]]) => e.relationA = x,
                     (x: Rep[Query[Domain]]) => e.relationB = x)
-            }
+
             case Def (e@DuplicateElimination (r)) =>
-            {
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Domain]]) => e.relation = x)
-            }
+
             case Def (e@TransitiveClosure (r, t, h)) =>
-            {
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-            }
+
             case Def (e@Unnest (r, f)) =>
-            {
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-            }
+
             case Def (e@AggregationSelfMaintained (r, _, _, _, _, _, _, _)) =>
-            {
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-            }
+
 			case Def (e@AggregationSelfMaintainedWithoutGrouping (r, _, _, _, _)) =>
-			{
 				insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-			}
+
 			case Def (e@AggregationSelfMaintainedWithoutConvert (r, _, _, _, _, _)) =>
-			{
 				insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-			}
+
 			case Def (e@AggregationNotSelfMaintained (r, _, _, _, _, _, _, _)) =>
-			{
 				insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-			}
+
 			case Def (e@AggregationNotSelfMaintainedWithoutGrouping (r, _, _, _, _)) =>
-			{
 				insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-			}
+
 			case Def (e@AggregationNotSelfMaintainedWithoutConvert (r, _, _, _, _, _)) =>
-			{
 				insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-			}
+
             case Def (e@Recursion (r, _)) =>
-            {
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Domain]]) => e.base = x)
-            }
+
         }
     }
 

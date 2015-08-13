@@ -14,4 +14,5 @@ trait RelationalAlgebraIROperatorsPackage
     with RelationalAlgebraIRAggregationOperators
     with RelationalAlgebraIRSubQueries
     with RelationalAlgebraIRMultiRelations
+	with RelationalAlgebraIRRemoteOperators
     with RelationalAlgebraDerivedOperators

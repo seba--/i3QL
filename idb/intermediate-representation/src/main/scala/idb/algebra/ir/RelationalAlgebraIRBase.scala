@@ -33,7 +33,8 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBase
-import idb.annotations.LocalIncrement
+import idb.algebra.remote.{DefaultDescription, RemoteDescription}
+import idb.annotations.{RemoteHost, LocalIncrement}
 import scala.language.higherKinds
 import scala.virtualization.lms.common.BaseExp
 import scala.language.implicitConversions
@@ -63,6 +64,11 @@ trait RelationalAlgebraIRBase
          * @return True, if the query is materialized.
          */
         def isMaterialized: Boolean
+
+		/**
+		 * Indicates to which remote descriptions (colors) this node belongs to.
+		 */
+		def remoteDesc : RemoteDescription
     }
 
     abstract class QueryBase[+Domain: Manifest] extends QueryBaseOps
@@ -78,7 +84,8 @@ trait RelationalAlgebraIRBase
         table: Table[Domain],
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
-        isMaterialized: Boolean = false
+        isMaterialized: Boolean = false,
+	    remoteDesc : RemoteDescription = DefaultDescription
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Table[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps
@@ -87,7 +94,8 @@ trait RelationalAlgebraIRBase
         table: Relation[Domain],
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
-        isMaterialized: Boolean = false
+        isMaterialized: Boolean = false,
+		remoteDesc : RemoteDescription = DefaultDescription
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps
@@ -98,12 +106,26 @@ trait RelationalAlgebraIRBase
 		def isMaterialized: Boolean = true //Materialization is always materialized
 		def isSet = false
 		def isIncrementLocal = false
+		def remoteDesc = relation.remoteDesc
 	}
 
+	//This version checks the type of the table for the annotation instead of the table itself
+//    protected def isIncrementLocal[Domain] (m: Manifest[Domain]) = {
+//		m.runtimeClass.getAnnotation (classOf[LocalIncrement]) != null
+//	}
 
-    protected def isIncrementLocal[Domain] (m: Manifest[Domain]) = {
-        m.runtimeClass.getAnnotation (classOf[LocalIncrement]) != null
-    }
+	protected def isIncrementLocal (m: Any) : Boolean = {
+		m.getClass.getAnnotation(classOf[LocalIncrement]) != null
+	}
+
+	protected def getRemoteDescription (m : Any) : RemoteDescription = {
+		val annotation = m.getClass.getAnnotation(classOf[RemoteHost])
+
+		if (annotation == null)
+			DefaultDescription
+		else
+			RemoteDescription(annotation.description())
+	}
 
     /**
      * Wraps an table as a leaf in the query tree
@@ -112,7 +134,13 @@ trait RelationalAlgebraIRBase
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Table[Domain]]
     ): Rep[Query[Domain]] =
-        QueryTable (table, isSet, isIncrementLocal (mDom))
+        QueryTable (
+			table,
+			isSet = isSet,
+			isIncrementLocal = isIncrementLocal (mDom),
+			isMaterialized = false,
+			getRemoteDescription(table)
+		)
 
 
     /**
@@ -122,7 +150,14 @@ trait RelationalAlgebraIRBase
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Relation[Domain]]
     ): Rep[Query[Domain]] =
-        QueryRelation (relation, isSet, isIncrementLocal (mDom))
+		QueryRelation (
+			relation,
+			isSet = isSet,
+			isIncrementLocal = isIncrementLocal (mDom),
+			isMaterialized = false,
+			getRemoteDescription(relation)
+		)
+
 
 	override def materialize[Domain : Manifest] (
 		relation : Rep[Query[Domain]]

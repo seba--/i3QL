@@ -48,9 +48,9 @@ trait RelationalAlgebraGenBaseAsIncremental
 
     def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] =
         query match {
-            case QueryRelation (relation, _, _, _) => relation
+            case QueryRelation (relation, _, _, _, _) => relation
 
-            case QueryTable (table, _, _, _) => table
+            case QueryTable (table, _, _, _, _) => table
 
             case Def(r) =>
                 throw new UnsupportedOperationException ("Compilation not supported for queries of type: " + r.getClass)

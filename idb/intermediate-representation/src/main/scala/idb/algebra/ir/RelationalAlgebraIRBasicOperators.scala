@@ -33,6 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBasicOperators
+import idb.algebra.remote.RemoteDescription
 
 
 /**
@@ -53,6 +54,8 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+		def remoteDesc = relation.remoteDesc
+
     }
 
     case class Selection[Domain: Manifest] (
@@ -64,6 +67,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+		def remoteDesc = relation.remoteDesc
 	}
 
     case class CrossProduct[DomainA: Manifest, DomainB: Manifest] (
@@ -77,6 +81,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
+		def remoteDesc = RemoteDescription.join(relationA.remoteDesc, relationB.remoteDesc)
     }
 
     case class EquiJoin[DomainA: Manifest, DomainB: Manifest] (
@@ -91,6 +96,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
+		def remoteDesc = RemoteDescription.join(relationA.remoteDesc, relationB.remoteDesc)
 	}
 
     case class DuplicateElimination[Domain: Manifest] (
@@ -100,6 +106,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Duplicate Elimination stores intermediate objects and therefore implements foreach
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+		def remoteDesc = relation.remoteDesc
 	}
 
     case class Unnest[Domain: Manifest, Range: Manifest] (
@@ -110,6 +117,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+		def remoteDesc = relation.remoteDesc
 	}
 
 
