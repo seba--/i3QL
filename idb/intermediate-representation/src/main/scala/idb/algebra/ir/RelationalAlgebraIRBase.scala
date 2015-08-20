@@ -73,6 +73,13 @@ trait RelationalAlgebraIRBase
 
     abstract class QueryBase[+Domain: Manifest] extends QueryBaseOps
 
+	implicit def repToQueryBaseOps(r : Rep[Query[_]]) : QueryBaseOps = {
+		r match {
+			case e : QueryBaseOps => e
+			case Def ( d ) => d.asInstanceOf[QueryBaseOps]
+		}
+	}
+
     def domainOf[T] (relation: Rep[Query[T]]): Manifest[Any] =
         relation.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
 
@@ -107,6 +114,15 @@ trait RelationalAlgebraIRBase
 		def isSet = false
 		def isIncrementLocal = false
 		def remoteDesc = relation.remoteDesc
+	}
+
+	case class Root[Domain : Manifest] (
+		relation : Rep[Query[Domain]]
+	) extends Def[Query[Domain]] with QueryBaseOps {
+		def isMaterialized: Boolean = relation.isMaterialized
+		def isSet = relation.isSet
+		def isIncrementLocal = relation.isIncrementLocal
+		def remoteDesc = DefaultDescription
 	}
 
 	//This version checks the type of the table for the annotation instead of the table itself
@@ -164,12 +180,12 @@ trait RelationalAlgebraIRBase
 	): Rep[Query[Domain]] =
 		Materialize(relation)
 
-	implicit def repToQueryBaseOps(r : Rep[Query[_]]) : QueryBaseOps = {
-		r match {
-			case e : QueryBaseOps => e
-			case Def ( d ) => d.asInstanceOf[QueryBaseOps]
-		}
-	}
+
+
+	override def root[Domain : Manifest] (
+		relation : Rep[Query[Domain]]
+	): Rep[Query[Domain]] =
+		Root(relation)
 
 
 }

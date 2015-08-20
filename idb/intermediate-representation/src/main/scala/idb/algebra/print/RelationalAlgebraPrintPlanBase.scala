@@ -65,6 +65,10 @@ trait RelationalAlgebraPrintPlanBase
                 withIndent ("materialize(" + "\n") +
                     withMoreIndent (quoteRelation (r) + "\n") +
                     withIndent (")")
+			case Def (IR.Root (r)) =>
+				withIndent ("root(" + "\n") +
+					withMoreIndent (quoteRelation (r) + "\n") +
+					withIndent (")")
             case _ => throw new IllegalArgumentException ("Unknown relation: " + x)
         }
 

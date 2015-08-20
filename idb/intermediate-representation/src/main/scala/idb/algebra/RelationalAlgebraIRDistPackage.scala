@@ -34,7 +34,7 @@ package idb.algebra
 
 import idb.algebra.normalization.RelationalAlgebraIROrderSetTheoryOps
 import idb.algebra.opt._
-import idb.algebra.remote.RelationalAlgebraIRDistBasicOperators
+import idb.algebra.remote.{RelationalAlgebraIRDistBase, RelationalAlgebraIRDistBasicOperators}
 
 
 /**
@@ -48,4 +48,5 @@ import idb.algebra.remote.RelationalAlgebraIRDistBasicOperators
  *
  */
 trait RelationalAlgebraIRDistPackage
-    extends RelationalAlgebraIRDistBasicOperators
+    extends RelationalAlgebraIRDistBase
+	with RelationalAlgebraIRDistBasicOperators

@@ -83,5 +83,11 @@ trait RelationalAlgebraBase
 		relation : Rep[Query[Domain]]
 	): Rep[Query[Domain]]
 
+	/**
+	 * Defines a root node for a query tree. This node is used by remote optimizations.
+	 */
+	def root[Domain : Manifest] (
+		relation : Rep[Query[Domain]]
+	): Rep[Query[Domain]]
 
 }

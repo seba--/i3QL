@@ -52,6 +52,8 @@ trait RelationalAlgebraGenBaseAsIncremental
 
             case QueryTable (table, _, _, _, _) => table
 
+			case Def (Root (relation)) => compile(relation)
+
             case Def(r) =>
                 throw new UnsupportedOperationException ("Compilation not supported for queries of type: " + r.getClass)
         }
