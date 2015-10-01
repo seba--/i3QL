@@ -60,7 +60,13 @@ object sae extends Build {
    */
 	lazy val interpreter = Project(id = "interpreter", base = file("interpreter"))
     	.dependsOn(syntax % "compile;test")
-   
+
+  /*
+    Project Hospital example
+   */
+  lazy val hospitalExample = Project(id = "hospital-example", base = file("hospital-example"))
+	  .dependsOn(syntax % "compile;test")
+
   /*
     Project Test Data
   */ 
@@ -71,7 +77,7 @@ object sae extends Build {
     Root Project
   */  
   lazy val root = Project(id = "sae", base = file("."))
-		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, databaseInterface, bindingASM, findbugs, metrics, profiler, interpreter)
+		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, databaseInterface, bindingASM, findbugs, metrics, profiler, interpreter, hospitalExample)
   
     
 

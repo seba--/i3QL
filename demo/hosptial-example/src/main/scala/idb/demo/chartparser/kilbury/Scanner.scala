@@ -30,43 +30,42 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.demo.chartparser.kilbury
 
-import idb.algebra.compiler.RelationalAlgebraSAEBinding
-import idb.algebra._
-import idb.lms.extensions.ScalaOpsExpOptExtensions
-import idb.lms.extensions.equivalence.{StructExpAlphaEquivalence, TupledFunctionsExpAlphaEquivalence}
-import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
-import idb.lms.extensions.lifiting.LiftEverything
-
-import scala.language.implicitConversions
-import scala.virtualization.lms.common._
-
+import idb.demo.chartparser.schema.ParserSchema
+import idb.SetTable
+import idb.syntax.iql._
+import idb.syntax.iql.IR._
 
 /**
  *
- *
- * This object binds the lms framework to concrete representations for relational algebra with lifted Scala
- * functions.
- * Importing the object automatically brings Rep and Exp into Scope.
- * Note that the order of the imports is important.
- *
  * @author Ralf Mitschke
  */
-object IR
-    extends ScalaOpsExpOptExtensions
-    with RelationalAlgebraIROperatorsPackage
-	with RelationalAlgebraIRFusionPackage
-	with RelationalAlgebraIRDistPackage
-	with RelationalAlgebraIROptPackage
-    with RelationalAlgebraIRNormalizePackage
-    with TupledFunctionsExpDynamicLambda
-    with RelationalAlgebraSAEBinding
-    with StructExpAlphaEquivalence
-    with TupledFunctionsExpAlphaEquivalence
-    with StaticDataExp
-    with LiftEverything
+trait Scanner
+    extends ParserSchema
 {
-    type SubQuery[+T] = IQL_SUB_QUERY[T]
+    val terminals = SetTable.empty[Terminal]
 
+    val input = SetTable.empty[InputToken]
+
+    val passiveEdges: Rep[Query[Edge]] =
+        SELECT ((t: Rep[Terminal], in: Rep[InputToken]) =>
+            PassiveEdge (in.position, in.position + 1, t.category)
+        ) FROM (terminals, input) WHERE ((t: Rep[Terminal], in: Rep[InputToken]) =>
+            t.tokenValue == in.value
+        )
+
+
+    val unknownEdges: Rep[Query[Edge]] =
+        SELECT ((in: Rep[InputToken]) =>
+            PassiveEdge (in.position, in.position + 1, "Unknown")
+        ) FROM input WHERE ((in: Rep[InputToken]) =>
+            NOT (
+                EXISTS (
+                    SELECT (*) FROM terminals WHERE ((t: Rep[Terminal]) =>
+                        t.tokenValue == in.value
+                        )
+                )
+            )
+            )
 }

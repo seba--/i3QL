@@ -55,15 +55,15 @@ trait ExpressionUtils
      * @param f function to apply to expressions and determining sub expression traversal
      */
     def traverseExpTree (e: Exp[Any])(implicit f: Exp[Any] => Boolean) {
-        if (!f (e)) {
+        if (!f (e))
             return
-        }
+
         e match {
-            case Def (s) => {
+            case Def (s) =>
                 val subExpr = syms (s)
                 subExpr.foreach (traverseExpTree)
-            }
-            case _ => return
+
+            case _ =>
         }
     }
 
@@ -75,17 +75,17 @@ trait ExpressionUtils
      * @param f function to apply to expressions and determining sub expression traversal
      */
     def traverseSameTypeExpTree[T] (e: Exp[T])(implicit f: Exp[T] => Boolean) {
-        if (!f (e)) {
+        if (!f (e))
             return
-        }
+
         e match {
-            case Def (s) => {
+            case Def (s) =>
                 val subExpr = syms (s)
                 subExpr.filter (_.isInstanceOf[Sym[T]]).map (_.asInstanceOf[Sym[T]]).foreach (
                     traverseSameTypeExpTree (_)(f)
                 )
-            }
-            case _ => return
+
+            case _ =>
         }
     }
 
