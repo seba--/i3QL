@@ -1,6 +1,8 @@
 package sae.example.hospital
 
-import idb.Table
+import idb.observer.Observer
+import idb.{Relation, Table}
+import idb.remote.RemoteView
 import sae.example.hospital.data.HospitalDatabase._
 import sae.example.hospital.data.Patient
 import sae.example.hospital.data.Person
@@ -45,27 +47,7 @@ object Queries extends HospitalTestData {
 			)
 
 
-		val materializedQ2 = q2.asMaterialized
-
-		personDatabase += johnDoe
-		personDatabase += sallyFields
-		personDatabase += johnCarter
-
-		knowledgeDatabase += lungCancer1
-		knowledgeDatabase += lungCancer2
-		knowledgeDatabase += commonCold1
-		knowledgeDatabase += panicDisorder1
-
-		patientDatabase += patientJohnDoe2
-		patientDatabase += patientSallyFields1
-		patientDatabase += patientJohnCarter1
-
-		Predef.println("Query results: ++++++++++++++++++++++++++++++")
-		materializedQ2.foreach(Predef.println)
-		Predef.println("+++++++++++++++++++++++++++++++++++++++++++++")
-
-		Predef.println(q2.prettyprint(""))
-		Predef.println("Hello!")
+		executeExample(q2, personDatabase, patientDatabase, knowledgeDatabase)
 
 	}
 
@@ -73,7 +55,27 @@ object Queries extends HospitalTestData {
 		import idb.syntax.iql._
 		import idb.syntax.iql.IR._
 
+		try {
+			val q2 = //: Relation[(Int, String, String)] =
+				compile(
+					root(
+						SELECT DISTINCT
+							((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
+							FROM
+							(distributedPersonDatabase, UNNEST (distributedPatientDatabase, (x : Rep[Patient]) => x.symptoms), distributedKnowledgeDatabase)
+							WHERE
+							((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) =>
+								person.personId == patientSymptom._1.personId AND
+									patientSymptom._2 == knowledgeData.symptom)
+					)
+				)
 
+			executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
+
+		} finally {
+			RemoteView.system.shutdown()
+
+		}
 		/*	val q1 = //: Relation[(Int, String, String)] =
 				compile(
 					root(
@@ -88,48 +90,71 @@ object Queries extends HospitalTestData {
 					)
 				)   */
 
-		val q2 = //: Relation[(Int, String, String)] =
-			compile(
-				root(
-					SELECT DISTINCT
-						((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
-						FROM
-						(distributedPersonDatabase, UNNEST (distributedPatientDatabase, (x : Rep[Patient]) => x.symptoms), distributedKnowledgeDatabase)
-						WHERE
-						((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) =>
-							person.personId == patientSymptom._1.personId AND
-								patientSymptom._2 == knowledgeData.symptom)
+
+
+	}
+
+	def distributedExample2(): Unit = {
+		import idb.syntax.iql._
+		import idb.syntax.iql.IR._
+
+		try {
+			val q2 = //: Relation[(Int, String, String)] =
+				compile(
+					root(
+						SELECT DISTINCT
+							((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) => (person.personId, person.name, knowledgeData.diagnosis))
+							FROM
+							(distributedPersonDatabase, distributedKnowledgeDatabase, UNNEST (distributedPatientDatabase, (x : Rep[Patient]) => x.symptoms))
+							WHERE
+							((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) =>
+								person.personId == patientSymptom._1.personId AND
+									patientSymptom._2 == knowledgeData.symptom)
+					)
 				)
-			)
+
+			executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
+
+		} finally {
+			RemoteView.system.shutdown()
+
+		}
+	}
+
+	private def executeExample(resultRelation : Relation[_], _personDatabase : Table[Person], _patientDatabase : Table[Patient], _knowledgeDatabase : Table[KnowledgeData]): Unit = {
+		Predef.println(resultRelation.prettyprint(""))
+
+		val qMat = resultRelation.asMaterialized
+
+		Predef.println("---> Add data to tables")
+		_personDatabase += johnDoe
+		_personDatabase += sallyFields
+		_personDatabase += johnCarter
+
+		_knowledgeDatabase += lungCancer1
+		_knowledgeDatabase += lungCancer2
+		_knowledgeDatabase += commonCold1
+		_knowledgeDatabase += panicDisorder1
+
+		_patientDatabase += patientJohnDoe2
+		_patientDatabase += patientSallyFields1
+		_patientDatabase += patientJohnCarter1
+
+		//It takes some time to push the data through the actor system. We need to wait some time to print the results.
+		Predef.println("---> Wait...")
+		Thread.sleep(5000)
+
+		Predef.println("---> Finished.")
+		qMat foreach Predef.println
+		Predef.println("<---")
 
 
-		val materializedQ2 = q2.asMaterialized
-
-		distributedPersonDatabase += johnDoe
-		distributedPersonDatabase += sallyFields
-		distributedPersonDatabase += johnCarter
-
-		distributedKnowledgeDatabase += lungCancer1
-		distributedKnowledgeDatabase += lungCancer2
-		distributedKnowledgeDatabase += commonCold1
-		distributedKnowledgeDatabase += panicDisorder1
-
-		distributedPatientDatabase += patientJohnDoe2
-		distributedPatientDatabase += patientSallyFields1
-		distributedPatientDatabase += patientJohnCarter1
-
-		Predef.println("Query results: ++++++++++++++++++++++++++++++")
-		materializedQ2.foreach(Predef.println)
-		Predef.println("+++++++++++++++++++++++++++++++++++++++++++++")
-
-		Predef.println(q2.prettyprint(""))
-		Predef.println("Hello!")
 	}
 
 
 	def main(args : Array[String]): Unit = {
 
-		distributedExample()
+		distributedExample2()
 
 		System.exit(0)
 	}

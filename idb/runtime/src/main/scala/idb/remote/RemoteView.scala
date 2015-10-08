@@ -32,20 +32,55 @@
  */
 package idb.remote
 
+import akka.actor.Actor.Receive
+import akka.actor.SupervisorStrategy._
 import akka.actor._
 import idb.Relation
 import idb.observer._
+import scala.concurrent.duration._
 
+import scala.language.postfixOps
+
+class SupervisionActor[V](val remoteView : RemoteView[V]) extends Actor {
+
+	var remoteActor : Option[ActorRef] = None
+
+	override def preStart(): Unit = {
+		remoteActor = Some(context.watch(context.actorOf(Props(new RemoteViewActor(remoteView)))))
+	}
+
+
+	override def receive: Receive = {
+		case msg =>
+			remoteActor match {
+				case Some(act) =>
+					if (RemoteView.debug) println("Forwarded ->  " + msg)
+					act forward msg
+				case None =>
+					if (RemoteView.debug) println("WARNING! No remote actor instantiated")
+			}
+	}
+
+	override val supervisorStrategy =
+		OneForOneStrategy(maxNrOfRetries = 3, withinTimeRange = 5 seconds) {
+			case e : Exception =>
+				if (RemoteView.debug) e.printStackTrace()
+				Stop
+		}
+
+}
 
 class RemoteViewActor[V](view: RemoteView[V]) extends Actor {
-  override def receive = {
-    case Added(v: V) => view.notify_added(v)
-    case Removed(v: V) => view.notify_removed(v)
-    case Updated(oldV: V, newV: V) => view.notify_updated(oldV, newV)
-    case AddedAll(vs: Seq[V]) => view.notify_addedAll(vs)
-    case RemovedAll(vs: Seq[V]) => view.notify_removedAll(vs)
-    case EndTransaction => view.notify_endTransaction()
-  }
+	override def receive = {
+		case Added(v: V) =>
+			if (RemoteView.debug) println("Added " + v)
+			view.notify_added(v)
+		case Removed(v: V) => view.notify_removed(v)
+		case Updated(oldV: V, newV: V) => view.notify_updated(oldV, newV)
+		case AddedAll(vs: Seq[V]) => view.notify_addedAll(vs)
+		case RemovedAll(vs: Seq[V]) => view.notify_removedAll(vs)
+		case EndTransaction => view.notify_endTransaction()
+	}
 }
 
 
@@ -56,53 +91,58 @@ class RemoteViewActor[V](view: RemoteView[V]) extends Actor {
  * In a partitioned operator tree, this actor communicates with a remote actor
  * which hosts remote parts of the tree.
  */
-case class RemoteView[Domain](rel: Relation[Domain], actorSystem: ActorSystem)
-  extends Relation[Domain]
-  with NotifyObservers[Domain] {
+class RemoteView[Domain](rel: Relation[Domain])
+	extends Relation[Domain]
+	with NotifyObservers[Domain] {
 
-  val actorRef: ActorRef = actorSystem.actorOf(Props(new RemoteViewActor(this)))
+	// rel addObserver (new SentToRemote(actorRef))
 
-  // rel addObserver (new SentToRemote(actorRef))
+	def isSet = rel.isSet
 
-  def isSet = rel.isSet
+	protected def lazyInitialize() {
+		/* do nothing */
+	}
 
-  protected def lazyInitialize() {
-    /* do nothing */
-  }
+	protected def children: Seq[Relation[_]] = Nil
+	override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = Nil
 
-  protected def children: Seq[Relation[_]] = Nil
-  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = Nil
+	/**
+	 * Applies f to all elements of the view.
+	 */
+	def foreach[T](f: (Domain) => T) { }
 
-  /**
-   * Applies f to all elements of the view.
-   */
-  def foreach[T](f: (Domain) => T) { }
+	override def notify_added(v: Domain) = super.notify_added(v)
 
-  override def notify_added(v: Domain) = super.notify_added(v)
+	override def notify_addedAll(vs: Seq[Domain]) = super.notify_addedAll(vs)
 
-  override def notify_addedAll(vs: Seq[Domain]) = super.notify_addedAll(vs)
+	override def notify_removed(v: Domain) = super.notify_removed(v)
 
-  override def notify_removed(v: Domain) = super.notify_removed(v)
+	override def notify_removedAll(vs: Seq[Domain]) = super.notify_removedAll(vs)
 
-  override def notify_removedAll(vs: Seq[Domain]) = super.notify_removedAll(vs)
+	override def notify_updated(oldV: Domain, newV: Domain) = super.notify_updated(oldV, newV)
 
-  override def notify_updated(oldV: Domain, newV: Domain) = super.notify_updated(oldV, newV)
+	override def notify_endTransaction() = super.notify_endTransaction()
 
-  override def notify_endTransaction() = super.notify_endTransaction()
-
-  override def prettyprint(implicit prefix: String) = prefix +
-    s"RemoteView($actorRef,${nested(rel)})"
+	override def prettyprint(implicit prefix: String) = prefix +
+		s"RemoteView(${nested(rel)})"
 }
 
 object RemoteView {
 	val system = ActorSystem("i3ql")
 
+	val debug = false
+
 	def apply[T](partition : Relation[T]) : RemoteView[T] = {
 		val remoteHost = system.actorOf(Props[ObservableHost[T]])
 
-		val remote = RemoteView(partition, system)
+		val remote = new RemoteView(partition)
 
-		remoteHost ! HostObservableAndForward(partition, remote.actorRef)
+		val errorDetector = system.actorOf(Props(new SupervisionActor(remote)))
+
+
+
+
+		remoteHost ! HostObservableAndForward(partition, errorDetector)
 
 		remote
 	}
