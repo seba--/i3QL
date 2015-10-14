@@ -53,6 +53,7 @@ trait ExpressionUtils
      * Otherwise traversal stops
      * @param e expression to traverse
      * @param f function to apply to expressions and determining sub expression traversal
+	 * @return False, if the traversal was stopped by f. True otherwise.
      */
     def traverseExpTree (e: Exp[Any])(implicit f: Exp[Any] => Boolean) {
         if (!f (e))

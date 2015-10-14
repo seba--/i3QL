@@ -37,9 +37,9 @@ object Queries extends HospitalTestData {
 				root(
 					SELECT DISTINCT
 						((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
-						FROM
+					FROM
 						(personDatabase, UNNEST (patientDatabase, (x : Rep[Patient]) => x.symptoms), knowledgeDatabase)
-						WHERE
+					WHERE
 						((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) =>
 							person.personId == patientSymptom._1.personId AND
 								patientSymptom._2 == knowledgeData.symptom)
@@ -61,9 +61,9 @@ object Queries extends HospitalTestData {
 					root(
 						SELECT DISTINCT
 							((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
-							FROM
+						FROM
 							(distributedPersonDatabase, UNNEST (distributedPatientDatabase, (x : Rep[Patient]) => x.symptoms), distributedKnowledgeDatabase)
-							WHERE
+						WHERE
 							((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) =>
 								person.personId == patientSymptom._1.personId AND
 									patientSymptom._2 == knowledgeData.symptom)
@@ -104,9 +104,9 @@ object Queries extends HospitalTestData {
 					root(
 						SELECT DISTINCT
 							((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) => (person.personId, person.name, knowledgeData.diagnosis))
-							FROM
+						FROM
 							(distributedPersonDatabase, distributedKnowledgeDatabase, UNNEST (distributedPatientDatabase, (x : Rep[Patient]) => x.symptoms))
-							WHERE
+						WHERE
 							((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) =>
 								person.personId == patientSymptom._1.personId AND
 									patientSymptom._2 == knowledgeData.symptom)

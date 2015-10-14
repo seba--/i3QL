@@ -30,66 +30,80 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.base
+package idb.lms.extensions
 
-import idb.algebra.remote.{DefaultDescription, RemoteDescription}
-
-import scala.language.higherKinds
-import scala.virtualization.lms.common.Base
-
+import org.junit.Assert._
+import org.junit.{Assert, Ignore, Test}
+import org.hamcrest.CoreMatchers._
+import scala.virtualization.lms.common._
 
 /**
  *
- * @author Ralf Mitschke
- *
+ * @author Mirko Köhler
  */
-trait RelationalAlgebraBase
-    extends Base
+class TestExpressionUtils
+    extends BaseFatExp
+    with NumericOpsExp
+    with EffectExp
+    with EqualExp
+    with TupledFunctionsExp
+    with TupleOpsExp
+    with BooleanOpsExp
+    with LiftAll
+    with ExpressionUtils
+	with PrimitiveOpsExp
 {
-    /**
-     * The abstract representation of the query tree
-     */
-    type Query[Domain]
 
-    /**
-     * A concrete table
-     */
-    type Table[Domain]
+    @Test
+    def testFindSyms1 () {
 
-    /**
-     * A concrete compiled relation
-     */
-    type Relation[+Domain]
+        val func : Rep[Int => Int] = (i: Rep[Int]) => {1 + i }
 
-    /**
-     * Wraps an table as a leaf in the query tree
-     */
-    def table[Domain] (table: Table[Domain], isSet: Boolean = false,  remote : RemoteDescription = DefaultDescription)(
-        implicit mDom: Manifest[Domain],
-        mRel: Manifest[Table[Domain]]
-    ): Rep[Query[Domain]]
+		func match {
+			case Def(Lambda(f, x, y)) =>
+				assertThat (findSyms(y.res)(Set(x)), is (Set(x)))
+			case _ => Assert.fail()
+		}
+    }
+
+	@Test
+	def testFindSyms2 () {
+
+		val func : Rep[((Int, Int)) => Int] = (i: Rep[Int], j: Rep[Int]) => j + i
+
+		func match {
+			case Def(Lambda(f, UnboxedTuple(xs), y)) =>
+				assertThat (findSyms(y.res)(xs.toSet), is (xs.toSet))
+			case _ => Assert.fail()
+		}
+	}
+
+	@Test
+	def testFindSyms3 () {
+
+		val func : Rep[((Int, Int)) => Int] = (i: Rep[Int], j: Rep[Int]) => j + 1
+
+		func match {
+			case Def(Lambda(f, UnboxedTuple(xs), y)) =>
+				assertThat (findSyms(y.res)(xs.toSet), is (Set(xs(1))))
+			case _ => Assert.fail()
+		}
+	}
+
+	@Test
+	def testFindSyms4 () {
+
+		val func : Rep[((Int, Int)) => Int] = (t: Rep[(Int, Int)]) => t._2
+
+		func match {
+			case Def(Lambda(f, x@UnboxedTuple(_), y)) =>
+				assertThat(findSyms(y.res)(Set(field(x, "_1"))).size, is (0))
+				assertThat(findSyms(y.res)(Set(field(x, "_2"))).size, is (1))
+			case _ => Assert.fail()
+		}
+	}
 
 
-    /**
-     * Wraps a compiled relation again as a leaf in the query tree
-     */
-    def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false)(
-        implicit mDom: Manifest[Domain],
-        mRel: Manifest[Relation[Domain]]
-    ): Rep[Query[Domain]]
 
-	/**
-	 * Materializes a relation.
-	 */
-	def materialize[Domain : Manifest] (
-		relation : Rep[Query[Domain]]
-	): Rep[Query[Domain]]
-
-	/**
-	 * Defines a root node for a query tree. This node is used by remote optimizations.
-	 */
-	def root[Domain : Manifest] (
-		relation : Rep[Query[Domain]]
-	): Rep[Query[Domain]]
 
 }

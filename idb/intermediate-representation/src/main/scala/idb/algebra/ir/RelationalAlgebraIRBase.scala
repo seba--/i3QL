@@ -146,7 +146,7 @@ trait RelationalAlgebraIRBase
     /**
      * Wraps an table as a leaf in the query tree
      */
-    override def table[Domain] (table: Table[Domain], isSet: Boolean = false)(
+    override def table[Domain] (table: Table[Domain], isSet: Boolean = false, remote : RemoteDescription = DefaultDescription)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Table[Domain]]
     ): Rep[Query[Domain]] =
@@ -155,7 +155,7 @@ trait RelationalAlgebraIRBase
 			isSet = isSet,
 			isIncrementLocal = isIncrementLocal (mDom),
 			isMaterialized = false,
-			getRemoteDescription(table)
+			if (remote == DefaultDescription) getRemoteDescription(table) else remote
 		)
 
 
