@@ -34,20 +34,22 @@ package idb.algebra
 
 import idb.algebra.normalization.RelationalAlgebraIROrderSetTheoryOps
 import idb.algebra.opt._
-import idb.algebra.remote.{RelationalAlgebraIRDistPushBasicOperators, RelationalAlgebraIRDistBase, RelationalAlgebraIRDistBasicOperators}
+import idb.algebra.remote._
 
 
 /**
- * Packaged trait for all relational algebra optimizations.
+ * Packaged trait for all remote-oriented optimizations.
  * Note that trait mixin order is important.
  * The basic idea is that normalization comes first, i.e., selection conditions are split up into multiple operators.
  * The various optimizations currently require no order, but fusion has to come last, i.e.,
  * creating fused functions for selection operations.
  *
- * @author Ralf Mitschke
+ * @author Mirko Köhler
  *
  */
 trait RelationalAlgebraIRDistPackage
     extends RelationalAlgebraIRDistBase
-	with RelationalAlgebraIRDistBasicOperators
+	with RelationalAlgebraIRDistBasicOperators  //Creates remote nodes
 	with RelationalAlgebraIRDistPushBasicOperators
+	with RelationalAlgebraIRDistJoinAssociativity
+	with RelationalAlgebraIRDistReorderJoins

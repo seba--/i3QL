@@ -47,8 +47,8 @@ import scala.virtualization.lms.common.{StringOpsExp, LiftAll}
  * @author Mirko Köhler
  *
  */
-class TestIRRemoteReorderJoin
-    extends RelationalAlgebraIRDistReorderJoins
+class TestIRRemoteJoinAssociativity
+    extends RelationalAlgebraIRDistJoinAssociativity
     with RelationalAlgebraIRBasicOperators
     with RelationalAlgebraPrintPlanBasicOperators
     with ScalaOpsExpOptExtensions
@@ -66,85 +66,39 @@ class TestIRRemoteReorderJoin
 		super.isPrimitiveType[T](m)
 
 
-   	@Test
-	def testFunctionHasParameter1(): Unit = {
-		val f = (t : Rep[(Int, Int)]) => t._1 + 1 == t._2
-
-		assertTrue(functionHasParameterAccess(f, 0))
-		assertTrue(functionHasParameterAccess(f, 1))
-	}
-
 	@Test
-	def testFunctionHasParameter2(): Unit = {
-		val f = (t : Rep[(Int, Int)]) => t._1 + 1 == 2
-
-		assertTrue(functionHasParameterAccess(f, 0))
-		assertFalse(functionHasParameterAccess(f, 1))
-	}
-
-	@Test
-	def testReorderJoins1(): Unit = {
+	def testJoinAssociativity1(): Unit = {
+		//a >< (b >< c) --> (a >< b) >< c
 
 		val tableA = table(scala.List.empty[String], remote = NameDescription("A"))
-		val tableB = table(scala.List.empty[String], remote = NameDescription("B"))
-
-		val eqBA = // : List[(Rep[String => Any], Rep[String => Any])] =
-			scala.List(
-				(fun((b : Rep[String]) => string_substring(b, 1)), fun((a : Rep[String]) => string_substring(a, 0)))
-			)
-
-
-		val q = equiJoin(tableB, tableA, eqBA)
-
-
-
-		q match {
-			case Def(Projection(
-				Def(EquiJoin(a, b, _)),
-				_
-			)) =>
-				assertTrue(a == tableA)
-				assertTrue(b == tableB)
-
-			case _ =>
-				fail(s"Wrong query structure : ${quoteRelation(q)}")
-		}
-
-	}
-
-	@Test
-	def testReorderJoins2(): Unit = {
-		//b >< (a >< c) --> a >< (b >< c)
-
-		val tableA = table(scala.List.empty[String], remote = NameDescription("A"))
-		val tableB = table(scala.List.empty[String], remote = NameDescription("B"))
+		val tableB = table(scala.List.empty[String], remote = NameDescription("A"))
 		val tableC = table(scala.List.empty[String], remote = NameDescription("C"))
 
-		val eqAC = // : List[(Rep[String => Any], Rep[String => Any])] =
+		val eqBC = // : List[(Rep[String => Any], Rep[String => Any])] =
 			scala.List(
-			(fun((a : Rep[String]) => string_substring(a, 1)), fun((c : Rep[String]) => string_substring(c, 0)))
+			(fun((b : Rep[String]) => string_substring(b, 1)), fun((c : Rep[String]) => string_substring(c, 0)))
 		)
 
-		val eqBAC = //: List[(Rep[String => Any], Rep[(String, String) => Any])] =
+		val eqABC = //: List[(Rep[String => Any], Rep[(String, String) => Any])] =
 			scala.List(
-			(fun((b : Rep[String]) => infix_toLowerCase(b)), fun((ac : Rep[(String, String)]) => infix_toLowerCase(ac._2))),
-			(fun((b : Rep[String]) => string_length(b)), fun((ac : Rep[(String, String)]) => string_length(ac._1)))
+			(fun((a : Rep[String]) => infix_toLowerCase(a)), fun((bc : Rep[(String, String)]) => infix_toLowerCase(bc._2))),
+			(fun((a : Rep[String]) => string_length(a)), fun((bc : Rep[(String, String)]) => string_length(bc._1)))
 		)
 
-		val q = equiJoin(tableB, equiJoin(tableA, tableC, eqAC), eqBAC)
+		val q = equiJoin(tableA, equiJoin(tableB, tableC, eqBC), eqABC)
 
 	/*	Predef.println("Global Defs Cache ######################")
 		globalDefsCache.foreach(Predef.println)
 		Predef.println("########################################")
-		Predef.println(quoteRelation(q))       */
+		Predef.println(quoteRelation(q))  */
 
 		q match {
 			case Def(Projection(
 					Def(EquiJoin(
-						a,
-						Def(EquiJoin(b, c, _)),
-						_)),
-					_)) =>
+						Def(EquiJoin(a, b, _)),
+						c,
+					_)),
+				_)) =>
 
 				assertTrue(a == tableA)
 				assertTrue(b == tableB)
@@ -157,42 +111,40 @@ class TestIRRemoteReorderJoin
 	}
 
 	@Test
-	def testReorderJoins3(): Unit = {
-		//(a >< c) >< b --> (a >< b) >< c
+	def testJoinAssociativity2(): Unit = {
+		//(a >< b) >< c --> a >< (b >< c)
 
 		val tableA = table(scala.List.empty[String], remote = NameDescription("A"))
-		val tableB = table(scala.List.empty[String], remote = NameDescription("B"))
+		val tableB = table(scala.List.empty[String], remote = NameDescription("C"))
 		val tableC = table(scala.List.empty[String], remote = NameDescription("C"))
 
-		val eqAC = // : List[(Rep[String => Any], Rep[String => Any])] =
+		val eqAB = // : List[(Rep[String => Any], Rep[String => Any])] =
 			scala.List(
-				(fun((a : Rep[String]) => string_substring(a, 1)), fun((c : Rep[String]) => string_substring(c, 0)))
+				(fun((a : Rep[String]) => string_substring(a, 1)), fun((b : Rep[String]) => string_substring(b, 0)))
 			)
 
-		val eqACB = //: List[(Rep[String => Any], Rep[(String, String) => Any])] =
+		val eqABC = //: List[(Rep[String => Any], Rep[(String, String) => Any])] =
 			scala.List(
-				(fun((ac : Rep[(String, String)]) => infix_toLowerCase(ac._2)), fun((b : Rep[String]) => infix_toLowerCase(b))),
-				(fun((ac : Rep[(String, String)]) => string_length(ac._1)), fun((b : Rep[String]) => string_length(b)))
+				(fun((ab : Rep[(String, String)]) => infix_toLowerCase(ab._2)), fun((c : Rep[String]) => infix_toLowerCase(c))),
+				(fun((ab : Rep[(String, String)]) => string_length(ab._1)), fun((c : Rep[String]) => string_length(c)))
 			)
 
-		val q = equiJoin(equiJoin(tableA, tableC, eqAC), tableB, eqACB)
+		val q = equiJoin(equiJoin(tableA, tableB, eqAB), tableC, eqABC)
 
-	/*	Predef.println("Global Defs Cache ######################")
-		globalDefsCache.foreach(Predef.println)
-		Predef.println("########################################")
-		Predef.println(quoteRelation(q))   */
+		/*
+			Predef.println("Global Defs Cache ######################")
+			globalDefsCache.foreach(Predef.println)
+			Predef.println("########################################")
+			Predef.println(quoteRelation(q))
+			*/
 
 		q match {
-			case
-				Def(Projection(
-					Def(Projection(
-						Def(EquiJoin(
-							a,
-							Def(EquiJoin(b, c, _)),
-							_)),
-					_)),
-				_))
-			=>
+			case Def(Projection(
+					Def(EquiJoin(
+						a,
+						Def(EquiJoin(b, c, _)),
+						_)),
+				_)) =>
 
 				assertTrue(a == tableA)
 				assertTrue(b == tableB)

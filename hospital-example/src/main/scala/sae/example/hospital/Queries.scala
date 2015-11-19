@@ -76,21 +76,6 @@ object Queries extends HospitalTestData {
 			RemoteView.system.shutdown()
 
 		}
-		/*	val q1 = //: Relation[(Int, String, String)] =
-				compile(
-					root(
-						SELECT
-							((person : Rep[Person], patient : Rep[Patient], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
-						FROM
-							(personDatabase, patientDatabase, knowledgeDatabase)
-						WHERE
-							((person : Rep[Person], patient : Rep[Patient], knowledgeData : Rep[KnowledgeData]) =>
-								person.personId == patient.personId AND
-								patient.symptoms.contains(knowledgeData.symptom))
-					)
-				)   */
-
-
 
 	}
 
@@ -121,6 +106,36 @@ object Queries extends HospitalTestData {
 		}
 	}
 
+	def distributedExample3(): Unit = {
+		import idb.syntax.iql._
+		import idb.syntax.iql.IR._
+
+		try {
+			val q2 = //: Relation[(Int, String, String)] =
+				compile(
+					root(
+						SELECT
+							((person : Rep[Person], patient : Rep[Patient], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
+						FROM
+							(distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
+						WHERE
+							((person : Rep[Person], patient : Rep[Patient], knowledgeData : Rep[KnowledgeData]) =>
+								person.personId == patient.personId AND
+									patient.symptoms.contains(knowledgeData.symptom))
+					)
+				)
+
+			executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
+
+		} finally {
+			RemoteView.system.shutdown()
+
+		}
+	}
+
+
+
+
 	private def executeExample(resultRelation : Relation[_], _personDatabase : Table[Person], _patientDatabase : Table[Patient], _knowledgeDatabase : Table[KnowledgeData]): Unit = {
 		Predef.println(resultRelation.prettyprint(""))
 
@@ -142,7 +157,7 @@ object Queries extends HospitalTestData {
 
 		//It takes some time to push the data through the actor system. We need to wait some time to print the results.
 		Predef.println("---> Wait...")
-		Thread.sleep(5000)
+		Thread.sleep(1000)
 
 		Predef.println("---> Finished.")
 		qMat foreach Predef.println
@@ -154,7 +169,7 @@ object Queries extends HospitalTestData {
 
 	def main(args : Array[String]): Unit = {
 
-		distributedExample2()
+		distributedExample()
 
 		System.exit(0)
 	}

@@ -46,9 +46,10 @@ trait QuoteFunction
     with ScalaGenStaticData
     with ScalaGenTupledFunctions
     with CodeGenIndent
+	with ScalaGenStringOpsExt
 {
 
-    override val IR: ScalaOpsPkgExp with StaticDataExp with TupledFunctionsExp with FunctionUtils
+    override val IR: ScalaOpsPkgExp with StaticDataExp with TupledFunctionsExp with FunctionUtils with StringOpsExpExt
 
     import IR._
 

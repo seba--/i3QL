@@ -23,41 +23,51 @@ trait RelationalAlgebraIRDistReorderJoins
 		val mDomB =  implicitly[Manifest[DomainB]]
 
 		(relationA, relationB) match {
+
 			case (a, b) if a.remoteDesc > b.remoteDesc =>
+				//a >< b --> b >< a
 				projection(
 					equiJoin(b, a, equalities.map(t => (t._2, t._1))),
 					fun(
 						(bx : Rep[DomainB], ax : Rep[DomainA]) => make_tuple2(ax, bx)
 					)(
-						manifest[DomainB],
-					    manifest[DomainA],
-						manifest[(DomainA, DomainB)]
-					)
+							manifest[DomainB],
+							manifest[DomainA],
+							manifest[(DomainA, DomainB)]
+						)
 				)
-			case (a, Def(eqJoin@EquiJoin(b, c, eqs))) if a.remoteDesc > b.remoteDesc =>
+			case (a, Def(eqJoin@EquiJoin(b, c, eqs)))
+				if (a.remoteDesc > b.remoteDesc)
+					&& equalities.forall((t) => !(functionHasParameterAccess(t._2,0) && functionHasParameterAccess(t._2,1)) ) //Checks whether the equality functions can be reorder, ie there is no (b,c) => b.f + c.f, for example.
+			=>
+
+				//a >< (b >< c) --> b >< (a >< c)
 				val mA = mDomA
 				val mB = eqJoin.mDomA
 				val mC = eqJoin.mDomB
 
+				//a => a.f, (b, c) => c.f  -->  a => a.f, c => c.f
 				val aJoinCEqs =
 					equalities
-						.filter(e => functionHasParameterAccess(e._2, 1) && !functionHasParameterAccess(e._2, 0))
+						.filter(e => !functionHasParameterAccess(e._2, 0))
 						.map(e => {
 							val Def(Lambda(f, x@UnboxedTuple(l), y)) = e._2
 							(e._1, dynamicLambda(l(1), y.res))
 						})
 
+				//b => b.f, c => c.f  -->  b => b.f, (a, c) => c.f
 				val bJoinACEqs1 =
-					eqs
+					eqs //<-- based on eqs!
 						.map(e =>  {
 							val Def(Lambda(f1, x1, y1)) = e._1
-							val Def(Lambda(f2, x2@UnboxedTuple(l2), y2)) = e._2
-							(e._1, dynamicLambda(x1, x2, y2.res))
+							val Def(Lambda(f2, x2, y2)) = e._2
+							(e._1, dynamicLambda(x1, x2, y2.res)) //x1 is just used as unknown var
 						})
 
+				//a => a.f, (b, c) => b.f  -->  b => b.f, (a, c) => a.f
 				val bJoinACEqs2 =
 					equalities
-						.filter(e => functionHasParameterAccess(e._2, 0) && !functionHasParameterAccess(e._2, 1))
+						.filter(e => !functionHasParameterAccess(e._2, 1))
 						.map(e => {
 							val Def(Lambda(f1, x1, y1)) = e._1
 							val Def(Lambda(f2, x2@UnboxedTuple(l2), y2)) = e._2
@@ -76,42 +86,63 @@ trait RelationalAlgebraIRDistReorderJoins
 					)
 				).asInstanceOf[Rep[Query[(DomainA, DomainB)]]]
 
+
+			case (Def(eqJoin@EquiJoin(a, b, eqs)), c)
+				if b.remoteDesc > c.remoteDesc
+					&& equalities.forall((t) => !(functionHasParameterAccess(t._1,0) && functionHasParameterAccess(t._1,1)) ) //Checks whether the equality functions can be reorder, ie there is no (a,b) => a.f + b.f, for example.
+			=>
+				//(a >< b) >< c --> (a >< c) >< b
+				val mA = eqJoin.mDomA
+				val mB = eqJoin.mDomB
+				val mC = mDomB
+
+				//(a, b) => a.f, c => c.f  -->  a => a.f, c => c.f
+				val aJoinCEqs =
+					equalities
+						.filter(e => !functionHasParameterAccess(e._1, 1))
+						.map(e => {
+							val Def(Lambda(f, x@UnboxedTuple(l), y)) = e._1
+							(dynamicLambda(l(0), y.res), e._2)
+					})
+
+				//a => a.f, b => b.f  -->  (a, c) => a.f, b => b.f
+				val aBJoinCEqs1 =
+					eqs //<-- based on eqs!
+						.map(e =>  {
+						val Def(Lambda(f1, x1, y1)) = e._1
+						val Def(Lambda(f2, x2, y2)) = e._2
+						(dynamicLambda(x1, x2, y1.res), e._2)
+					})
+
+				//(a, b) => b.f, c => c.f  --> (a, c) => c.f, b => b.f
+				val aBJoinCEqs2 =
+					equalities
+						.filter(e => !functionHasParameterAccess(e._1, 0))
+						.map(e => {
+						val Def(Lambda(f1, x1@UnboxedTuple(l1), y1)) = e._1
+						val Def(Lambda(f2, x2, y2)) = e._2
+						(dynamicLambda(l1(0), x2, y2.res), dynamicLambda(l1(1), y1.res))
+					})
+
+				projection(
+					equiJoin(equiJoin(a, c, aJoinCEqs), b, aBJoinCEqs1 ++ aBJoinCEqs2),
+					fun(
+						(ac : Rep[(_,_)], b : Rep[(_)]) =>
+							make_tuple2(
+								(make_tuple2((tuple2_get1[Any](ac), b)),
+								tuple2_get2[Any](ac)))
+					)(
+							tupledManifest(mA, mC.asInstanceOf[Manifest[Any]]),
+							mB,
+							tupledManifest(tupledManifest(mA, mB), mC.asInstanceOf[Manifest[Any]])
+						)
+				).asInstanceOf[Rep[Query[(DomainA, DomainB)]]]
+
+
+
 			case _ =>
 				super.equiJoin(relationA, relationB, equalities)
 
 		}
 	}
-
-
-
-	/**
-	 * Checks whether a function accesses its parameters
-	 * @param func The function in question
-	 * @param accessIndex Parameter index
-	 * @return True, if the function accesses the parameter
-	 */
-	protected def functionHasParameterAccess(func : Rep[_ => _], accessIndex : Int) : Boolean = {
-		func match {
-			case Def(Lambda(f, x@UnboxedTuple(l), y)) =>
-				var result = false
-				val traverseResult = traverseExpTree(y.res)(
-				{
-					case Def(FieldApply(`x`, s)) if s == s"_${accessIndex + 1}" =>
-						result = true //x._1 has been found
-						false
-					case s@Sym(_) if s == l(accessIndex) =>
-						result = true //x._1 has been found
-						false
-					case _ => true
-				}
-				)
-				result
-			case _ =>
-				Predef.println(s"RelationalAlgebraIRDistReorderJoins: Warning! $func is not a lambda!")
-				false
-		}
-	}
-
-
-
 }

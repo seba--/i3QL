@@ -316,6 +316,34 @@ trait FunctionUtils
         }
     }
 
+	/**
+	 * Checks whether a function accesses its parameters
+	 * @param func The function in question
+	 * @param accessIndex Parameter index of the parameter to be checked
+	 * @return True, if the function accesses the parameter
+	 */
+	protected def functionHasParameterAccess(func : Rep[_ => _], accessIndex : Int) : Boolean = {
+		func match {
+			case Def(Lambda(f, x@UnboxedTuple(l), y)) =>
+				var result = false
+				val traverseResult = traverseExpTree(y.res)(
+				{
+					case Def(FieldApply(`x`, s)) if s == s"_${accessIndex + 1}" =>
+						result = true //x._1 has been found
+						false
+					case s@Sym(_) if s == l(accessIndex) =>
+						result = true //x._1 has been found
+						false
+					case _ => true
+				}
+				)
+				result
+			case _ =>
+				Predef.println(s"RelationalAlgebraIRDistReorderJoins: Warning! $func is not a lambda!")
+				false
+		}
+	}
+
     /**
      * create a new conjunction.
      * Types are checked dynamically to conform to Domain.
@@ -431,4 +459,6 @@ trait FunctionUtils
 
         fun ((x: Rep[Domain]) => faUnsafe (x) || fbUnsafe (x))(mDomain, manifest[Boolean])
     }
+
+
 }
