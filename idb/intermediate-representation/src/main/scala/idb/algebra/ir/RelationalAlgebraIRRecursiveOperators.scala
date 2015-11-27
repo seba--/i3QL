@@ -33,7 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraRecursiveOperators
-import idb.query.DefaultDescription
+import idb.query.{QueryContext, DefaultDescription}
 
 /**
  *
@@ -99,13 +99,13 @@ trait RelationalAlgebraIRRecursiveOperators
         relation: Rep[Query[Edge]],
         tail: Rep[Edge => Vertex],
         head: Rep[Edge => Vertex]
-    ): Rep[Query[(Vertex, Vertex)]] =
+    )(implicit queryContext : QueryContext): Rep[Query[(Vertex, Vertex)]] =
         TransitiveClosure (relation, tail, head)
 
     def recursion[Domain: Manifest] (
         base: Rep[Query[Domain]],
         result: Rep[Query[Domain]]
-    ): Rep[Query[Domain]] = {
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] = {
         insertRecursionAtBase (result, base, result, (x: Rep[Query[Domain]]) => {})
         recursionResult(result, base)
     }
@@ -113,13 +113,13 @@ trait RelationalAlgebraIRRecursiveOperators
     def recursionNode[Domain: Manifest] (
         base: Rep[Query[Domain]],
         result: Rep[Query[Domain]]
-    ): Rep[Query[Domain]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
         Recursion (base, result)
 
     def recursionResult[Domain: Manifest] (
         result: Rep[Query[Domain]],
         source: Rep[Query[Domain]]
-    ): Rep[Query[Domain]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
         RecursionResult(result,source)
 
     /**

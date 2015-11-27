@@ -33,9 +33,8 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBase
-import idb.algebra.remote.DefaultDescription
 import idb.annotations.{RemoteHost, LocalIncrement}
-import idb.query.{DefaultDescription, RemoteDescription}
+import idb.query.{QueryContext, DefaultDescription, RemoteDescription}
 import scala.language.higherKinds
 import scala.virtualization.lms.common.BaseExp
 import scala.language.implicitConversions
@@ -178,14 +177,14 @@ trait RelationalAlgebraIRBase
 
 	override def materialize[Domain : Manifest] (
 		relation : Rep[Query[Domain]]
-	): Rep[Query[Domain]] =
+	)(implicit queryContext : QueryContext) : Rep[Query[Domain]] =
 		Materialize(relation)
 
 
 
 	override def root[Domain : Manifest] (
 		relation : Rep[Query[Domain]]
-	): Rep[Query[Domain]] =
+	)(implicit queryContext : QueryContext): Rep[Query[Domain]] =
 		Root(relation)
 
 

@@ -36,6 +36,7 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.normalization.RelationalAlgebraNormalize
 import idb.lms.extensions.FunctionUtils
 import idb.algebra.print.RelationalAlgebraPrintPlan
+import idb.query.QueryContext
 
 /**
  *
@@ -55,7 +56,7 @@ trait RelationalAlgebraIRFuseBasicOperators
     override def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    ): Rep[Query[Range]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Range]] =
         relation match {
             case Def (Projection (r, f)) =>
                 val mRangeUnsafe = function.tp.typeArguments (1).asInstanceOf[Manifest[Range]]
@@ -72,7 +73,7 @@ trait RelationalAlgebraIRFuseBasicOperators
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
         relation match {
             case Def (Selection (r, f)) => {
                 withoutNormalization (

@@ -34,6 +34,7 @@ package idb.syntax.iql.planning
 
 //import idb.syntax.iql.IR._
 
+import idb.query.QueryContext
 import idb.syntax.iql._
 import idb.syntax.iql.impl._
 
@@ -64,7 +65,8 @@ object ClauseToAlgebra {
         mDom: Manifest[Domain],
         mGrDom: Manifest[GroupDomain],
         mGrRan: Manifest[GroupRange],
-        mRan: Manifest[Range]
+        mRan: Manifest[Range],
+		queryContext : QueryContext
     ): Rep[Query[Range]] =
         query match {
             case FromClause1 (relation : Rep[Query[Domain]@unchecked], select) =>
@@ -102,13 +104,13 @@ object ClauseToAlgebra {
 
 
     def apply[
-    Select,
-    DomainA <: GroupDomainA,
-    DomainB <: GroupDomainB,
-    GroupDomainA,
-    GroupDomainB,
-    GroupRange <: Select,
-    Range
+		Select,
+		DomainA <: GroupDomainA,
+		DomainB <: GroupDomainB,
+		GroupDomainA,
+		GroupDomainB,
+		GroupRange <: Select,
+		Range
     ] (
         query: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
     )(
@@ -118,8 +120,9 @@ object ClauseToAlgebra {
         mGrDomA: Manifest[GroupDomainA],
         mGrDomB: Manifest[GroupDomainB],
         mGrRan: Manifest[GroupRange],
-        mRan: Manifest[Range]
-    ): Rep[Query[Range]] =
+        mRan: Manifest[Range],
+		queryContext : QueryContext
+	): Rep[Query[Range]] =
         query match {
             case FromClause2 (relationA: Rep[Query[DomainA]@unchecked], relationB: Rep[Query[DomainB]@unchecked], select) =>
                 applySelectClause (
@@ -128,7 +131,7 @@ object ClauseToAlgebra {
                         relationB
                     ),
                     select
-                )(mSel, manifest[(DomainA, DomainB)], mRan)
+                )(mSel, manifest[(DomainA, DomainB)], mRan, queryContext)
 
             case WhereClause2 (predicate, FromClause2 (relationA: Rep[Query[DomainA]@unchecked], relationB: Rep[Query[DomainB]@unchecked], select)) =>
                 applySelectClause (
@@ -138,9 +141,9 @@ object ClauseToAlgebra {
                             relationB
                         ),
                         predicate
-                    ) (manifest[(DomainA, DomainB)]),
+                    ) (manifest[(DomainA, DomainB)], queryContext),
                     select
-                ) (mSel, manifest[(DomainA, DomainB)], mRan)
+                ) (mSel, manifest[(DomainA, DomainB)], mRan, queryContext)
 
             case GroupByClause2 (group : Rep[((GroupDomainA, GroupDomainB)) => GroupRange], FromClause2 (relationA: Rep[Query[DomainA]@unchecked], relationB: Rep[Query[DomainB]@unchecked], select)) =>
                 applyGroupedSelectClause (
@@ -150,7 +153,7 @@ object ClauseToAlgebra {
                     ),
                     group,
                     select
-                ) (mSel, manifest[(DomainA, DomainB)], manifest[(GroupDomainA, GroupDomainB)], mGrRan, mRan)
+                ) (mSel, manifest[(DomainA, DomainB)], manifest[(GroupDomainA, GroupDomainB)], mGrRan, mRan, queryContext)
 
             case GroupByClause2 (group, WhereClause2 (predicate, FromClause2 (relationA: Rep[Query[DomainA]@unchecked], relationB: Rep[Query[DomainB]@unchecked], select))) =>
                 applyGroupedSelectClause (
@@ -160,23 +163,23 @@ object ClauseToAlgebra {
                             relationB
                         ),
                         predicate
-                    ) (manifest[(DomainA, DomainB)]),
+                    ) (manifest[(DomainA, DomainB)], queryContext),
                     group,
                     select
-                )  (mSel, manifest[(DomainA, DomainB)], manifest[(GroupDomainA, GroupDomainB)], mGrRan, mRan)
+                )  (mSel, manifest[(DomainA, DomainB)], manifest[(GroupDomainA, GroupDomainB)], mGrRan, mRan, queryContext)
         }
 
 
     def apply[
-    Select,
-    DomainA <: GroupDomainA,
-    DomainB <: GroupDomainB,
-    DomainC <: GroupDomainC,
-    GroupDomainA,
-    GroupDomainB,
-    GroupDomainC,
-    GroupRange <: Select,
-    Range
+		Select,
+		DomainA <: GroupDomainA,
+		DomainB <: GroupDomainB,
+		DomainC <: GroupDomainC,
+		GroupDomainA,
+		GroupDomainB,
+		GroupDomainC,
+		GroupRange <: Select,
+		Range
     ] (
         query: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange,
             Range]
@@ -189,7 +192,8 @@ object ClauseToAlgebra {
 		mGrDomB: Manifest[GroupDomainB],
 		mGrDomC : Manifest[GroupDomainC],
 		mGrRan: Manifest[GroupRange],
-		mRan: Manifest[Range]
+		mRan: Manifest[Range],
+		queryContext : QueryContext
 	): Rep[Query[Range]] =
         query match {
             case FromClause3 (relationA: Rep[Query[DomainA]@unchecked], relationB: Rep[Query[DomainB]@unchecked],
@@ -201,7 +205,7 @@ object ClauseToAlgebra {
                         relationC
                     ),
                     select
-                ) (mSel, manifest[(DomainA, DomainB, DomainC)], mRan)
+                ) (mSel, manifest[(DomainA, DomainB, DomainC)], mRan, queryContext)
 
             case WhereClause3 (predicate,
             FromClause3 (relationA: Rep[Query[DomainA]@unchecked], relationB: Rep[Query[DomainB]@unchecked],
@@ -214,9 +218,9 @@ object ClauseToAlgebra {
                             relationC
                         ),
                         predicate
-                    ) (manifest[(DomainA, DomainB, DomainC)]),
+                    ) (manifest[(DomainA, DomainB, DomainC)], queryContext),
                     select
-                ) (mSel, manifest[(DomainA, DomainB, DomainC)], mRan)
+                ) (mSel, manifest[(DomainA, DomainB, DomainC)], mRan, queryContext)
 
             case GroupByClause3 (group,
             FromClause3 (relationA: Rep[Query[DomainA]@unchecked], relationB: Rep[Query[DomainB]@unchecked],
@@ -229,7 +233,7 @@ object ClauseToAlgebra {
                     ),
                     group,
                     select
-                ) (mSel, manifest[(DomainA, DomainB, DomainC)], manifest[(GroupDomainA, GroupDomainB, GroupDomainC)], mGrRan, mRan)
+                ) (mSel, manifest[(DomainA, DomainB, DomainC)], manifest[(GroupDomainA, GroupDomainB, GroupDomainC)], mGrRan, mRan, queryContext)
 
             case GroupByClause3 (group, WhereClause3 (predicate,
             FromClause3 (relationA: Rep[Query[DomainA]@unchecked], relationB: Rep[Query[DomainB]@unchecked],
@@ -242,10 +246,10 @@ object ClauseToAlgebra {
                             relationC
                         ),
                         predicate
-                    ) (manifest[(DomainA, DomainB, DomainC)]),
+                    ) (manifest[(DomainA, DomainB, DomainC)], queryContext),
                     group,
                     select
-                ) (mSel, manifest[(DomainA, DomainB, DomainC)], manifest[(GroupDomainA, GroupDomainB, GroupDomainC)], mGrRan, mRan)
+                ) (mSel, manifest[(DomainA, DomainB, DomainC)], manifest[(GroupDomainA, GroupDomainB, GroupDomainC)], mGrRan, mRan, queryContext)
         }
 
 
@@ -274,7 +278,8 @@ object ClauseToAlgebra {
 		mGrDomC : Manifest[GroupDomainC],
 		mGrDomD: Manifest[GroupDomainD],
 		mGrRan: Manifest[GroupRange],
-		mRan: Manifest[Range]
+		mRan: Manifest[Range],
+		queryContext : QueryContext
 	): Rep[Query[Range]] =
 		query match {
 			case FromClause4 (relationA : Rep[Query[DomainA]@unchecked], relationB : Rep[Query[DomainB]@unchecked], relationC : Rep[Query[DomainC]@unchecked], relationD : Rep[Query[DomainD]@unchecked], select) =>
@@ -286,7 +291,7 @@ object ClauseToAlgebra {
 						relationD
 					),
 					select
-				)(mSel, manifest[(DomainA, DomainB, DomainC, DomainD)], mRan)
+				)(mSel, manifest[(DomainA, DomainB, DomainC, DomainD)], mRan, queryContext)
 
 			case WhereClause4 (predicate, FromClause4 (relationA : Rep[Query[DomainA]@unchecked], relationB : Rep[Query[DomainB]@unchecked], relationC : Rep[Query[DomainC]@unchecked], relationD : Rep[Query[DomainD]@unchecked], select)) =>
 				applySelectClause (
@@ -298,9 +303,9 @@ object ClauseToAlgebra {
 							relationD
 						),
 						predicate
-					) (manifest[(DomainA, DomainB, DomainC, DomainD)]),
+					) (manifest[(DomainA, DomainB, DomainC, DomainD)], queryContext),
 					select
-				)(mSel, manifest[(DomainA, DomainB, DomainC, DomainD)], mRan)
+				)(mSel, manifest[(DomainA, DomainB, DomainC, DomainD)], mRan, queryContext)
 
 			case GroupByClause4 (group, FromClause4 (relationA : Rep[Query[DomainA]@unchecked], relationB : Rep[Query[DomainB]@unchecked], relationC : Rep[Query[DomainC]@unchecked], relationD : Rep[Query[DomainD]@unchecked], select)) =>
 				applyGroupedSelectClause(
@@ -312,7 +317,7 @@ object ClauseToAlgebra {
 					),
 					group,
 					select
-				) (mSel, manifest[(DomainA, DomainB, DomainC, DomainD)], manifest[(GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD)], mGrRan, mRan)
+				) (mSel, manifest[(DomainA, DomainB, DomainC, DomainD)], manifest[(GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD)], mGrRan, mRan, queryContext)
 
 			case GroupByClause4 (group, WhereClause4 (predicate, FromClause4 (relationA : Rep[Query[DomainA]@unchecked], relationB : Rep[Query[DomainB]@unchecked], relationC : Rep[Query[DomainC]@unchecked], relationD : Rep[Query[DomainD]@unchecked], select))) =>
 				applyGroupedSelectClause(
@@ -324,10 +329,10 @@ object ClauseToAlgebra {
 							relationD
 						),
 						predicate
-					) (manifest[(DomainA, DomainB, DomainC, DomainD)]),
+					) (manifest[(DomainA, DomainB, DomainC, DomainD)], queryContext),
 					group,
 					select
-				) (mSel, manifest[(DomainA, DomainB, DomainC, DomainD)], manifest[(GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD)], mGrRan, mRan)
+				) (mSel, manifest[(DomainA, DomainB, DomainC, DomainD)], manifest[(GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD)], mGrRan, mRan, queryContext)
 		}
 
 	def apply[
@@ -359,7 +364,8 @@ object ClauseToAlgebra {
 		mGrDomD: Manifest[GroupDomainD],
 		mGrDomE : Manifest[GroupDomainE],
 		mGrRan: Manifest[GroupRange],
-		mRan: Manifest[Range]
+		mRan: Manifest[Range],
+		queryContext : QueryContext
 	): Rep[Query[Range]] =
 		query match {
 			case FromClause5 (relationA : Rep[Query[DomainA]@unchecked], relationB : Rep[Query[DomainB]@unchecked], relationC : Rep[Query[DomainC]@unchecked], relationD : Rep[Query[DomainD]@unchecked], relationE : Rep[Query[DomainE]@unchecked], select) =>
@@ -372,7 +378,7 @@ object ClauseToAlgebra {
 						relationE
 					),
 					select
-				)(mSel, manifest[(DomainA, DomainB, DomainC, DomainD, DomainE)], mRan)
+				)(mSel, manifest[(DomainA, DomainB, DomainC, DomainD, DomainE)], mRan, queryContext)
 
 			case WhereClause5 (predicate, FromClause5 (relationA : Rep[Query[DomainA]@unchecked], relationB : Rep[Query[DomainB]@unchecked], relationC : Rep[Query[DomainC]@unchecked], relationD : Rep[Query[DomainD]@unchecked], relationE : Rep[Query[DomainE]@unchecked], select)) =>
 				applySelectClause (
@@ -385,9 +391,9 @@ object ClauseToAlgebra {
 							relationE
 						),
 						predicate
-					)(manifest[(DomainA, DomainB, DomainC, DomainD, DomainE)]),
+					)(manifest[(DomainA, DomainB, DomainC, DomainD, DomainE)], queryContext),
 					select
-				)(mSel, manifest[(DomainA, DomainB, DomainC, DomainD, DomainE)], mRan)
+				)(mSel, manifest[(DomainA, DomainB, DomainC, DomainD, DomainE)], mRan, queryContext)
 
 			case GroupByClause5 (group, FromClause5 (relationA : Rep[Query[DomainA]@unchecked], relationB : Rep[Query[DomainB]@unchecked], relationC : Rep[Query[DomainC]@unchecked], relationD : Rep[Query[DomainD]@unchecked], relationE : Rep[Query[DomainE]@unchecked], select)) =>
 				applyGroupedSelectClause(
@@ -400,7 +406,7 @@ object ClauseToAlgebra {
 					),
 					group,
 					select
-				)(mSel, manifest[(DomainA, DomainB, DomainC, DomainD, DomainE)], manifest[(GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupDomainE)], mGrRan, mRan)
+				)(mSel, manifest[(DomainA, DomainB, DomainC, DomainD, DomainE)], manifest[(GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupDomainE)], mGrRan, mRan, queryContext)
 
 			case GroupByClause5 (group, WhereClause5 (predicate, FromClause5 (relationA : Rep[Query[DomainA]@unchecked], relationB : Rep[Query[DomainB]@unchecked], relationC : Rep[Query[DomainC]@unchecked], relationD : Rep[Query[DomainD]@unchecked], relationE : Rep[Query[DomainE]@unchecked], select))) =>
 				applyGroupedSelectClause(
@@ -413,13 +419,13 @@ object ClauseToAlgebra {
 							relationE
 						),
 						predicate
-					)(manifest[(DomainA, DomainB, DomainC, DomainD, DomainE)]),
+					)(manifest[(DomainA, DomainB, DomainC, DomainD, DomainE)], queryContext),
 					group,
 					select
-				)(mSel, manifest[(DomainA, DomainB, DomainC, DomainD, DomainE)], manifest[(GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupDomainE)], mGrRan, mRan)
+				)(mSel, manifest[(DomainA, DomainB, DomainC, DomainD, DomainE)], manifest[(GroupDomainA, GroupDomainB, GroupDomainC, GroupDomainD, GroupDomainE)], mGrRan, mRan, queryContext)
 		}
 
-    private def distinct[Domain: Manifest] (query: Rep[Query[Domain]], asDistinct: Boolean): Rep[Query[Domain]] = {
+    private def distinct[Domain: Manifest] (query: Rep[Query[Domain]], asDistinct: Boolean)(implicit queryContext : QueryContext): Rep[Query[Domain]] = {
         asDistinct match {
             case true => duplicateElimination (query)
             case false => query
@@ -430,7 +436,7 @@ object ClauseToAlgebra {
     private def applySelectClause[Select: Manifest, Domain <: Select : Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         select: SELECT_CLAUSE[Select, Range]
-    ): Rep[Query[Range]] = {
+    )(implicit queryContext : QueryContext): Rep[Query[Range]] = {
         select match {
             case SelectAggregateClause (aggregation : AggregateFunctionSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
                 distinct (
@@ -477,7 +483,7 @@ object ClauseToAlgebra {
 		relation: Rep[Query[Domain]],
 		group : Rep[GroupDomain => GroupRange],
 		select: SELECT_CLAUSE[Select, Range]
-	): Rep[Query[Range]] = {
+	)(implicit queryContext : QueryContext): Rep[Query[Range]] = {
 		select match {
 			case SelectAggregateClause (aggregation : AggregateFunctionSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
 				distinct (

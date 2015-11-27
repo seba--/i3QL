@@ -32,6 +32,7 @@
  */
 package idb.syntax.iql.planning
 
+import idb.query.QueryContext
 import idb.syntax.iql._
 import idb.syntax.iql.impl._
 
@@ -48,7 +49,7 @@ object SubQueryToAlgebra
 
     import IR._
 
-    private def applyDistinct[Domain: Manifest] (query: Rep[Query[Domain]], asDistinct: Boolean) =
+    private def applyDistinct[Domain: Manifest] (query: Rep[Query[Domain]], asDistinct: Boolean)(implicit queryContext : QueryContext) =
         asDistinct match {
             case true => duplicateElimination (query)
             case false => query
@@ -66,7 +67,7 @@ object SubQueryToAlgebra
         subQuery: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range],
         context: Rep[Query[ContextDomain]],
         contextParameter: Rep[ContextDomain]
-    ): Rep[Query[ContextDomain]] =
+    )(implicit queryContext : QueryContext): Rep[Query[ContextDomain]] =
         subQuery match {
             // This clause is definitely not correlated to the context
             case FromClause1 (relation, SelectProjectionClause (_, asDistinct)) =>
@@ -117,7 +118,7 @@ object SubQueryToAlgebra
     ] (
         subQuery: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range],
         context: Rep[Query[ContextDomain]]
-    ): Rep[Query[Range]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Range]] =
         subQuery match {
             case _ => throw new UnsupportedOperationException
         }

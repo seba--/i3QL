@@ -3,7 +3,6 @@ package sae.example.hospital
 import akka.actor.ActorSystem
 import idb.observer.Observer
 import idb.query.QueryContext
-import idb.{Relation, Table}
 import idb.remote.RemoteView
 import sae.example.hospital.data.HospitalDatabase._
 import sae.example.hospital.data.Patient
@@ -34,19 +33,21 @@ object Queries extends HospitalTestData {
 					)
 				)   */
 
+		implicit val queryContext = QueryContext.noRemote
+
 		val q2 = //: Relation[(Int, String, String)] =
 			compile(
-				root(
-					SELECT DISTINCT
-						((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
-					FROM
-						(personDatabase, UNNEST (patientDatabase, (x : Rep[Patient]) => x.symptoms), knowledgeDatabase)
-					WHERE
-						((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) =>
-							person.personId == patientSymptom._1.personId AND
-								patientSymptom._2 == knowledgeData.symptom)
-				)
+				SELECT DISTINCT
+					((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
+				FROM
+					(personDatabase, UNNEST (patientDatabase, (x : Rep[Patient]) => x.symptoms), knowledgeDatabase)
+				WHERE
+					((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) =>
+						person.personId == patientSymptom._1.personId AND
+							patientSymptom._2 == knowledgeData.symptom)
 			)
+
+
 
 
 		executeExample(q2, personDatabase, patientDatabase, knowledgeDatabase)
@@ -58,12 +59,12 @@ object Queries extends HospitalTestData {
 		import idb.syntax.iql.IR._
 
 		implicit val queryContext = QueryContext.create(
-			_actorSystem = ActorSystem("example")
+			actorSystem = ActorSystem("example")
 		)
 
 		try {
-			val q2 = //: Relation[(Int, String, String)] =
-				compileWithContext(
+			val q2 = // : Relation[(Int, String, String)] =
+				compile(
 					SELECT DISTINCT
 						((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
 					FROM
@@ -73,6 +74,7 @@ object Queries extends HospitalTestData {
 							person.personId == patientSymptom._1.personId AND
 								patientSymptom._2 == knowledgeData.symptom)
 				)
+
 
 			executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
 
@@ -87,12 +89,12 @@ object Queries extends HospitalTestData {
 		import idb.syntax.iql.IR._
 
 		implicit val queryContext = QueryContext.create(
-			_actorSystem = ActorSystem("example")
+			actorSystem = ActorSystem("example")
 		)
 
 		try {
 			val q2 = //: Relation[(Int, String, String)] =
-				compileWithContext(
+				compile(
 					SELECT DISTINCT
 						((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) => (person.personId, person.name, knowledgeData.diagnosis))
 					FROM
@@ -102,6 +104,7 @@ object Queries extends HospitalTestData {
 							person.personId == patientSymptom._1.personId AND
 								patientSymptom._2 == knowledgeData.symptom)
 				)
+
 
 
 			executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
@@ -116,12 +119,12 @@ object Queries extends HospitalTestData {
 		import idb.syntax.iql.IR._
 
 		implicit val queryContext = QueryContext.create(
-			_actorSystem = ActorSystem("example")
+			actorSystem = ActorSystem("example")
 		)
 
 		try {
-			val q2 = //: Relation[(Int, String, String)] =
-				compileWithContext(
+			val q2 = // : Relation[(Int, String, String)] =
+				compile(
 					SELECT
 						((person : Rep[Person], patient : Rep[Patient], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
 					FROM
@@ -133,6 +136,7 @@ object Queries extends HospitalTestData {
 				)
 
 
+
 			executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
 
 		} finally {
@@ -141,7 +145,7 @@ object Queries extends HospitalTestData {
 	}
 
 
-
+	import idb.{Table, Relation}
 
 	private def executeExample(resultRelation : Relation[_], _personDatabase : Table[Person], _patientDatabase : Table[Patient], _knowledgeDatabase : Table[KnowledgeData]): Unit = {
 		Predef.println(resultRelation.prettyprint(""))
@@ -161,10 +165,12 @@ object Queries extends HospitalTestData {
 		_patientDatabase += patientJohnDoe2
 		_patientDatabase += patientSallyFields1
 		_patientDatabase += patientJohnCarter1
+		Predef.println("<---")
 
 		//It takes some time to push the data through the actor system. We need to wait some time to print the results.
 		Predef.println("---> Wait...")
 		Thread.sleep(1000)
+		Predef.println("<---")
 
 		Predef.println("---> Finished.")
 		qMat foreach Predef.println

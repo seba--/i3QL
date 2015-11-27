@@ -89,6 +89,8 @@ trait UniversityTestData
 	val johnTakesEise = Registration (3, 2, "John takes EISE")
 
 	val jackTakesIcs1 = Registration (1, 6, "Jack takes ICS1")
+
+	val jackTakesIcs2 = Registration (2, 6, "Jack takes ICS2")
 	
 	val johnTakesSedc = Registration (4, 2, "John takes SEDC")
 

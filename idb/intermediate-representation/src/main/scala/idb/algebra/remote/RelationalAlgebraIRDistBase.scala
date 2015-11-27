@@ -1,7 +1,7 @@
 package idb.algebra.remote
 
 import idb.algebra.ir.{RelationalAlgebraIRBase, RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRemoteOperators}
-import idb.query.DefaultDescription
+import idb.query.{QueryContext, DefaultDescription}
 
 /**
  * @author Mirko Köhler
@@ -10,7 +10,7 @@ trait RelationalAlgebraIRDistBase
 	extends RelationalAlgebraIRBase
 	with RelationalAlgebraIRRemoteOperators{
 
-	override def root[Domain : Manifest] (relation : Rep[Query[Domain]]): Rep[Query[Domain]] = {
+	override def root[Domain : Manifest] (relation : Rep[Query[Domain]])(implicit queryContext : QueryContext): Rep[Query[Domain]] = {
 		//Adds a remote node as child of the root if it has another remote description
 		if (relation.remoteDesc != DefaultDescription)
 			root(remote(relation, DefaultDescription, relation.remoteDesc))

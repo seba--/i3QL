@@ -1,6 +1,7 @@
 package idb.algebra.remote
 
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRemoteOperators}
+import idb.query.QueryContext
 
 /**
  * @author Mirko Köhler
@@ -12,7 +13,7 @@ trait RelationalAlgebraIRDistPushBasicOperators
 	override def selection[Domain: Manifest] (
 		relation: Rep[Query[Domain]],
 		function: Rep[Domain => Boolean]
-	): Rep[Query[Domain]] = relation match {
+	)(implicit queryContext : QueryContext): Rep[Query[Domain]] = relation match {
 		case Def(Remote(rel, thisDesc, thatDesc)) => remote(selection(rel, function), thisDesc, thatDesc)
 		case _ => super.selection(relation, function)
 	}
@@ -20,7 +21,7 @@ trait RelationalAlgebraIRDistPushBasicOperators
 	override def projection[Domain: Manifest, Range: Manifest] (
 		relation: Rep[Query[Domain]],
 		function: Rep[Domain => Range]
-	): Rep[Query[Range]] = relation match {
+	)(implicit queryContext : QueryContext): Rep[Query[Range]] = relation match {
 		case Def(Remote(rel, thisDesc, thatDesc)) => remote(projection(rel, function), thisDesc, thatDesc)
 		case _ => super.projection(relation, function)
 	}

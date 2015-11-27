@@ -32,6 +32,7 @@
  */
 package idb.syntax.iql
 
+import idb.query.QueryContext
 import idb.syntax.iql.IR._
 
 /**
@@ -45,7 +46,7 @@ object WITH
 
     def RECURSIVE[Domain: Manifest] (
         recursionFactory: Rep[Query[Domain]] => Rep[Query[Domain]]
-    ): Rep[Query[Domain]] = {
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] = {
         val recursionSym: Rep[Query[Domain]] = recursionNode (null, null)
         val recursionDef =
             recursionSym match {

@@ -33,6 +33,7 @@
 package idb.algebra.normalization
 
 import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
+import idb.query.QueryContext
 import scala.virtualization.lms.common._
 import idb.lms.extensions.ExpressionUtils
 import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
@@ -61,7 +62,7 @@ trait RelationalAlgebraIRNormalizeBasicOperators
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
         if (normalize) {
             function match {
                 case Def (Lambda (f, x: Rep[Domain], body: Block[Boolean])) =>

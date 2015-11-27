@@ -35,7 +35,7 @@ class QueryContextImpl (
 
 object QueryContext {
 
-	val default = create()
+	val noRemote = create()
 
 	def create(
 		actorSystem : ActorSystem = null,

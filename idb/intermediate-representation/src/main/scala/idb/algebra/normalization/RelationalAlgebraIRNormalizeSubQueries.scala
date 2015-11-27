@@ -35,6 +35,7 @@ package idb.algebra.normalization
 import idb.algebra.base.RelationalAlgebraDerivedOperators
 import idb.algebra.ir._
 import idb.lms.extensions._
+import idb.query.QueryContext
 import scala.virtualization.lms.common._
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
@@ -58,7 +59,7 @@ trait RelationalAlgebraIRNormalizeSubQueries
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
         if (normalize) {
 
 

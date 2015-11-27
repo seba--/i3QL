@@ -33,6 +33,7 @@
 package idb.integration.test
 
 import UniversityDatabase._
+import idb.query.QueryContext
 import idb.syntax.iql._
 import org.junit.Assert._
 import org.junit.{Ignore, Test}
@@ -50,6 +51,7 @@ class TestBasicOperators
 
 	@Test
 	def testStudentNames() {
+		implicit val queryContext = QueryContext.noRemote
 
 		val query = compile (
 			SELECT (
@@ -76,6 +78,7 @@ class TestBasicOperators
 
 	@Test
 	def testStudentNames2() {
+		implicit val queryContext = QueryContext.noRemote
 
 		val query = compile(
 			SELECT (
@@ -103,6 +106,7 @@ class TestBasicOperators
 
 	@Test
 	def testStudentNames3() {
+		implicit val queryContext = QueryContext.noRemote
 
 		val query = compile (
 			SELECT (
@@ -133,6 +137,7 @@ class TestBasicOperators
 
 	@Test
 	def testGroup2() {
+		implicit val queryContext = QueryContext.noRemote
 
 		val query = compile (
 			SELECT (
@@ -168,6 +173,8 @@ class TestBasicOperators
 	@Test
 	@Ignore
     def testSelectFirstNameFromStudents () {
+		implicit val queryContext = QueryContext.noRemote
+
         val query = compile (
             SELECT ((_:Rep[Student]).firstName) FROM students
         ).asMaterialized
@@ -189,6 +196,8 @@ class TestBasicOperators
 	@Test
 	@Ignore
 	def testSelectFirstNameLastNameFromStudents () {
+		implicit val queryContext = QueryContext.noRemote
+
 		val query = compile (
 			SELECT ((s:Rep[Student]) => (s.firstName, s.lastName)) FROM students
 		).asMaterialized
@@ -211,6 +220,8 @@ class TestBasicOperators
 
 	@Test
 	def testGetStudentIDFromStudents () {
+		implicit val queryContext = QueryContext.noRemote
+
 		val query = compile (
 			SELECT ((s : Rep[Student]) => s.lastName + "@" + s.matriculationNumber) FROM students
 		).asMaterialized
@@ -233,6 +244,7 @@ class TestBasicOperators
 
 	@Test
 	def testRegistrationsForCourse () {
+		implicit val queryContext = QueryContext.noRemote
 
 		val query = compile(
 			SELECT (*) FROM registrations WHERE ((r : Rep[Registration]) => {
@@ -261,6 +273,8 @@ class TestBasicOperators
 	@Test
 	@Ignore
 	def testGetStudentMatriculationNumber () {
+		implicit val queryContext = QueryContext.noRemote
+
 		val query = compile(
 			SELECT ((_:Rep[Student]).matriculationNumber) FROM students WHERE ((s: Rep[Student]) => {
 				s.firstName == "John" && s.lastName == "Doe"
@@ -297,6 +311,8 @@ class TestBasicOperators
 	@Ignore
 	@Test
 	def testGetStudentPairs () {
+		implicit val queryContext = QueryContext.noRemote
+
 		val query = compile (
 			SELECT (*) FROM (students, students)
 		).asMaterialized
@@ -332,6 +348,8 @@ class TestBasicOperators
 
 	@Test
 	def testGetStudentsAndRegistrations () {
+		implicit val queryContext = QueryContext.noRemote
+
 		val query = compile (
 			SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
 				s.matriculationNumber == r.studentMatriculationNumber
@@ -378,6 +396,8 @@ class TestBasicOperators
 	@Ignore
 	@Test
 	def testGetStudentsAndTheirRegistrations () {
+		implicit val queryContext = QueryContext.noRemote
+
 		val query = compile (
 			SELECT ((s: Rep[Student], r: Rep[Registration]) => (s.lastName, r.courseNumber)) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
 				s.matriculationNumber == r.studentMatriculationNumber

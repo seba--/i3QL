@@ -35,6 +35,7 @@ package idb.algebra.fusion
 import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
 import idb.algebra.normalization.RelationalAlgebraNormalize
 import idb.lms.extensions.FunctionUtils
+import idb.query.QueryContext
 
 /**
  *
@@ -53,7 +54,7 @@ trait RelationalAlgebraIRFuseSetTheoryOperators
     override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ): Rep[Query[Range]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Range]] =
         (relationA, relationB) match {
             case (Def (Selection (ra, fa)), Def (Selection (rb, fb))) if ra == rb =>
                 withoutNormalization (
@@ -82,7 +83,7 @@ trait RelationalAlgebraIRFuseSetTheoryOperators
     override def intersection[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    ): Rep[Query[Domain]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
         (relationA, relationB) match {
             case (Def (Selection (ra, fa)), Def (Selection (rb, fb))) if ra == rb =>
                 withoutNormalization (
@@ -100,7 +101,7 @@ trait RelationalAlgebraIRFuseSetTheoryOperators
     override def difference[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    ): Rep[Query[Domain]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
         (relationA, relationB) match {
             case (Def (Selection (ra, fa)), Def (Selection (rb, fb))) if ra == rb =>
                 withoutNormalization (

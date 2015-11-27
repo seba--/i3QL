@@ -1,7 +1,7 @@
 package idb.algebra.remote
 
 import idb.algebra.ir.{RelationalAlgebraIRRemoteOperators, RelationalAlgebraIRBasicOperators}
-import idb.query.DefaultDescription
+import idb.query.{QueryContext, DefaultDescription}
 
 /**
  * @author Mirko Köhler
@@ -13,7 +13,7 @@ trait RelationalAlgebraIRDistBasicOperators
 	override def crossProduct[DomainA: Manifest, DomainB: Manifest] (
 		relationA: Rep[Query[DomainA]],
 		relationB: Rep[Query[DomainB]]
-	): Rep[Query[(DomainA, DomainB)]] = {
+	)(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB)]] = {
 		val mDomA = implicitly[Manifest[DomainA]]
 		val mDomB =  implicitly[Manifest[DomainB]]
 
@@ -46,7 +46,7 @@ trait RelationalAlgebraIRDistBasicOperators
 		relationA: Rep[Query[DomainA]],
 		relationB: Rep[Query[DomainB]],
 		equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-	): Rep[Query[(DomainA, DomainB)]] = {
+	)(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB)]] = {
 		val mDomA = implicitly[Manifest[DomainA]]
 		val mDomB =  implicitly[Manifest[DomainB]]
 

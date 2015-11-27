@@ -3,6 +3,8 @@ package idb.integration.test
 import java.util
 import java.util.Date
 
+import akka.actor.ActorSystem
+import idb.query.QueryContext
 import idb.syntax.iql.IR._
 import idb.{SetTable, Table, BagTable}
 import idb.algebra.ir._
@@ -16,6 +18,7 @@ import org.junit.Test
 import org.junit.Ignore
 import idb.syntax.iql._
 import UniversityDatabase._
+import org.hamcrest.CoreMatchers._
 
 import scala.virtualization.lms.common.{TupledFunctionsExp, StaticDataExp, StructExp, ScalaOpsPkgExp}
 
@@ -28,6 +31,11 @@ class TestRemote extends UniversityTestData {
 
 	@Test
 	def testRemote(): Unit = {
+		implicit val queryContext = QueryContext.create(
+			actorSystem = ActorSystem("test1")
+		)
+
+		//Initialize remote tables
 		@RemoteHost(description = "students")
 		class RemoteStudents extends BagTable[Student]
 
@@ -37,33 +45,45 @@ class TestRemote extends UniversityTestData {
 		val remoteStudents = new RemoteStudents
 		val remoteRegistrations = new RemoteRegistrations
 
-		val q = root(
+		//Query
+		val q =
 			plan(
 				SELECT (*) FROM (remoteStudents, remoteRegistrations)
 			)
-		)
 
+
+		/*
 		val printer = new RelationalAlgebraPrintPlan {
 			override val IR = idb.syntax.iql.IR
 		}
+		Predef.println(printer.quoteRelation(q))
+		*/
+
 
 		val compiledQ = compile(q).asMaterialized
 
-		Predef.println(printer.quoteRelation(q))
-		Predef.println("\n")
-		Predef.println(compiledQ.prettyprint("\t"))
-		Predef.println("\n")
-
+		//Add data to tables
 		remoteStudents.add(johnDoe)
 		remoteRegistrations.add(johnTakesEise)
 
-		compiledQ.foreach(x => Predef.println(x))
-		Predef.println("\n")
+		//Wait for actors
+		Thread.sleep(500)
+
+		//Test output
+		assertThat (compiledQ.size, is (1))
+		assertThat (compiledQ.contains((johnDoe, johnTakesEise)), is (true))
+
+		//Close context
+		queryContext.close()
 	}
 
 
 	@Test
 	def testRemote2(): Unit = {
+		implicit val queryContext = QueryContext.create(
+			actorSystem = ActorSystem("test2")
+		)
+
 		@RemoteHost(description = "students")
 		class RemoteStudents extends BagTable[Student]
 
@@ -73,32 +93,33 @@ class TestRemote extends UniversityTestData {
 		val remoteStudents = new RemoteStudents
 		val remoteRegistrations = new RemoteRegistrations
 
-		val q = root(
+		val q =
 			plan(
 				SELECT (*) FROM (remoteStudents, remoteStudents, remoteRegistrations, remoteStudents)
 			)
-		)
-
-		val printer = new RelationalAlgebraPrintPlan {
-			override val IR = idb.syntax.iql.IR
-		}
 
 		val compiledQ = compile(q).asMaterialized
-
-		Predef.println(printer.quoteRelation(q))
-		Predef.println("\n")
-		Predef.println(compiledQ.prettyprint("\t"))
-		Predef.println("\n")
 
 		remoteStudents.add(johnDoe)
 		remoteRegistrations.add(johnTakesEise)
 
-		compiledQ.foreach(x => Predef.println(x))
-		Predef.println("\n")
+		//Wait for actors
+		Thread.sleep(500)
+
+		//Test output
+		assertThat (compiledQ.size, is (1))
+		assertThat (compiledQ.contains((johnDoe, johnDoe, johnTakesEise, johnDoe)), is (true))
+
+		//Close context
+		queryContext.close()
 	}
 
 	@Test
 	def testRemote3(): Unit = {
+		implicit val queryContext = QueryContext.create(
+			actorSystem = ActorSystem("test3")
+		)
+
 		@RemoteHost(description = "students")
 		class RemoteStudents extends BagTable[Student]
 
@@ -108,9 +129,9 @@ class TestRemote extends UniversityTestData {
 		val remoteStudents = new RemoteStudents
 		val remoteRegistrations = new RemoteRegistrations
 
-		val q = root(
+		val q =
 			plan(
-				SELECT (COUNT(*))
+				SELECT ((i: Rep[Int]) => i)
 					FROM (remoteStudents, remoteStudents, remoteRegistrations, remoteRegistrations)
 					WHERE ((s1, s2, r1, r2) =>
 						s1.matriculationNumber == r1.studentMatriculationNumber AND
@@ -119,61 +140,66 @@ class TestRemote extends UniversityTestData {
 					)
 					GROUP BY ((s1: Rep[Student], s2: Rep[Student], r1: Rep[Registration], r2 : Rep[Registration]) => r1.courseNumber)
 			)
-		)
 
-		val printer = new RelationalAlgebraPrintPlan {
-			override val IR = idb.syntax.iql.IR
-		}
 
 		val compiledQ = compile(q).asMaterialized
-
-		Predef.println(printer.quoteRelation(q))
-		Predef.println("\n")
-		Predef.println(compiledQ.prettyprint("\t"))
-		Predef.println("\n")
 
 		remoteStudents.add(sallyFields)
 		remoteRegistrations.add(sallyTakesIcs1)
 		remoteStudents.add(jackBlack)
 		remoteRegistrations.add(jackTakesIcs1)
+		remoteRegistrations.add(sallyTakesIcs2)
+		remoteRegistrations.add(jackTakesIcs2)
 
-		compiledQ.foreach(x => Predef.println(x))
-		Predef.println("\n")
+		//Wait for actors
+		Thread.sleep(500)
+
+		//Test output
+		assertThat (compiledQ.size, is (2))
+		assertThat (compiledQ.contains(1), is (true))
+		assertThat (compiledQ.contains(2), is (true))
+
+
+		//Close context
+		queryContext.close()
 	}
 
 	@Test
 	def testRemote4(): Unit = {
+		implicit val queryContext = QueryContext.create(
+			actorSystem = ActorSystem("test4")
+		)
+
 		@RemoteHost(description = "students")
 		class RemoteStudents extends BagTable[Student]
 
 		val remoteStudents = new RemoteStudents
 
-		val q = root(
+		val q =
 			plan(
 				SELECT (COUNT(*))
 				FROM remoteStudents
 				WHERE (s1 =>
 					s1.lastName == "Doe"
 				)
-			)
+
 		)
 
-		val printer = new RelationalAlgebraPrintPlan {
-			override val IR = idb.syntax.iql.IR
-		}
-
 		val compiledQ = compile(q).asMaterialized
-
-		Predef.println(printer.quoteRelation(q))
-		Predef.println("\n")
-		Predef.println(compiledQ.prettyprint("\t"))
-		Predef.println("\n")
 
 		remoteStudents += johnDoe
 		remoteStudents += sallyFields
 
-		compiledQ.foreach(x => Predef.println(x))
-		Predef.println("\n")
+		//Wait for actors
+		Thread.sleep(500)
+
+		//Test output
+		assertThat (compiledQ.size, is (1))
+		assertThat (compiledQ.contains(1), is (true))
+
+
+		//Close context
+		queryContext.close()
 	}
 
 
@@ -181,6 +207,10 @@ class TestRemote extends UniversityTestData {
 	@Test
 	def testRemoteAirports(): Unit = {
 		import idb.syntax.iql.IR._
+
+		implicit val queryContext = QueryContext.create(
+			actorSystem = ActorSystem("test")
+		)
 
 		@RemoteHost(description = "airports")
 		object RemoteAirports extends SetTable[Airport]

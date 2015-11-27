@@ -33,6 +33,7 @@
 package idb.algebra.opt
 
 import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRBasicOperators}
+import idb.query.QueryContext
 
 /**
  * Simplification rules remove operators that reduce to trivial meanings.
@@ -49,7 +50,7 @@ trait RelationalAlgebraIROptSimplifySetTheoryOps
     override def intersection[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    ): Rep[Query[Domain]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
         (relationA, relationB) match {
             // a ∩ a = a
             case (a, b) if a == b =>
@@ -74,7 +75,7 @@ trait RelationalAlgebraIROptSimplifySetTheoryOps
     override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ): Rep[Query[Range]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Range]] =
         ((relationA, relationB) match {
 
             // a ∪ a = a
@@ -113,7 +114,7 @@ trait RelationalAlgebraIROptSimplifySetTheoryOps
     override def difference[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    ): Rep[Query[Domain]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
         (relationA, relationB) match {
 
             // (a - b) - (c - d) = a - ((b ∪ c) - d)

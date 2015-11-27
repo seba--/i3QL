@@ -46,34 +46,34 @@ trait RelationalAlgebraBasicOperators
     def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    ): Rep[Query[Range]]
+    )(implicit queryContext : QueryContext): Rep[Query[Range]]
 
 
     def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]]
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]]
 
 
     def crossProduct[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ): Rep[Query[(DomainA, DomainB)]]
+    )(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB)]]
 
 
     def equiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-    ): Rep[Query[(DomainA, DomainB)]]
+    )(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB)]]
 
 	def duplicateElimination[Domain : Manifest] (
 		relation: Rep[Query[Domain]]
-	): Rep[Query[Domain]]
+	)(implicit queryContext : QueryContext): Rep[Query[Domain]]
 
 	def unnest[Domain: Manifest, Range: Manifest] (
 		relation: Rep[Query[Domain]],
 		unnesting: Rep[Domain => Traversable[Range]]
-	): Rep[Query[(Domain,Range)]]
+	)(implicit queryContext : QueryContext): Rep[Query[(Domain,Range)]]
 
 }

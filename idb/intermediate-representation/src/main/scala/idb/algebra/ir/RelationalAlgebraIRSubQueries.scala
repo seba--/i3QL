@@ -34,6 +34,7 @@ package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraSubQueries
 import idb.lms.extensions.equivalence.FunctionsExpAlphaEquivalence
+import idb.query.QueryContext
 
 /**
  *
@@ -77,7 +78,7 @@ trait RelationalAlgebraIRSubQueries
         subQuery: SubQuery[Domain],
         planSubQueryWithContext: (SubQuery[Domain], Rep[Query[ContextDomain]],
             Rep[ContextDomain]) => Rep[Query[ContextDomain]]
-    ): Rep[Boolean] =
+    )(implicit queryContext : QueryContext): Rep[Boolean] =
         new ExistsCondition (subQuery, planSubQueryWithContext)
 
     override def isEquivalent[A, B] (a: Exp[A], b: Exp[B])(implicit renamings: VariableRenamings): Boolean =

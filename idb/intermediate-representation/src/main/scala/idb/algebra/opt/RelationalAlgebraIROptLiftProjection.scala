@@ -37,6 +37,7 @@ import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
 import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
+import idb.query.QueryContext
 
 import scala.virtualization.lms.common.{TupledFunctionsExp, StaticDataExp, StructExp, ScalaOpsPkgExp}
 
@@ -60,14 +61,14 @@ trait RelationalAlgebraIROptLiftProjection
     override def crossProduct[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ): Rep[Query[(DomainA, DomainB)]] = {
+    )(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB)]] = {
 		(relationA, relationB) match {
 			case (Def(p1@Projection(ra, fa)), Def(p2@Projection(rb, fb))) =>
 				projection(
 					crossProduct(
 						ra,
 						rb
-					)(domainOf(ra), domainOf(rb)),
+					)(domainOf(ra), domainOf(rb), queryContext),
 					fun(
 						(x: Rep[Any], y: Rep[Any]) => make_tuple2(fa(x), fb(y)) //(p1.mRan, p2.mRan)
 					)(
@@ -82,7 +83,7 @@ trait RelationalAlgebraIROptLiftProjection
 					crossProduct(
 						ra,
 						rb
-					)(domainOf(ra), manifest[DomainB]),
+					)(domainOf(ra), manifest[DomainB], queryContext),
 					fun(
 						(x: Rep[Any], y: Rep[DomainB]) => make_tuple2(fa(x), y) //(p1.mRan, manifest[DomainB])
 					)(
@@ -106,7 +107,7 @@ trait RelationalAlgebraIROptLiftProjection
 					crossProduct(
 						ra,
 						rb
-					)(manifest[DomainA], domainOf(rb)),
+					)(manifest[DomainA], domainOf(rb), queryContext),
 					newProjection
 
 				)

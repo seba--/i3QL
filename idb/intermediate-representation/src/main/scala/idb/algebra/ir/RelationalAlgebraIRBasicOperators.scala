@@ -33,7 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBasicOperators
-import idb.query.RemoteDescription
+import idb.query.{QueryContext, RemoteDescription}
 
 
 /**
@@ -124,37 +124,37 @@ trait RelationalAlgebraIRBasicOperators
     def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    ): Rep[Query[Range]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Range]] =
         Projection (relation, function)
 
     def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    ): Rep[Query[Domain]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
         Selection (relation, function)
 
     def crossProduct[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    ): Rep[Query[(DomainA, DomainB)]] =
+    )(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB)]] =
         CrossProduct (relationA, relationB)
 
     def equiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-    ): Rep[Query[(DomainA, DomainB)]] =
+    )(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB)]] =
         EquiJoin (relationA, relationB, equalities)
 
     def duplicateElimination[Domain: Manifest] (
         relation: Rep[Query[Domain]]
-    ): Rep[Query[Domain]] =
+    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
         DuplicateElimination (relation)
 
    def unnest[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         unnesting: Rep[Domain => Traversable[Range]]
-    ): Rep[Query[(Domain, Range)]] =
+    )(implicit queryContext : QueryContext): Rep[Query[(Domain, Range)]] =
         Unnest (relation, unnesting)
 
 }

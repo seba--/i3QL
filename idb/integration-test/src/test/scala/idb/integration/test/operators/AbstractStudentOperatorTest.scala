@@ -1,5 +1,7 @@
 package idb.integration.test.operators
 
+import akka.actor.ActorSystem
+import idb.query.QueryContext
 import idb.schema.university.Student
 import org.junit.Test
 import idb.integration.test.UniversityTestData
@@ -12,6 +14,8 @@ import idb.{MaterializedView, Relation}
  * @author Mirko Köhler
  */
 trait AbstractStudentOperatorTest[Range] extends AbstractOperatorTest[Student, Range] with UniversityTestData {
+
+	implicit val queryContext = QueryContext.noRemote
 
 	@Test
 	def testAddToEmptyA() {

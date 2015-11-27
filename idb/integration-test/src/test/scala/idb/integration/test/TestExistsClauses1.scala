@@ -33,6 +33,7 @@
 package idb.integration.test
 
 import idb.integration.test.UniversityDatabase._
+import idb.query.QueryContext
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import idb.syntax.iql._
@@ -54,6 +55,8 @@ class TestExistsClauses1
 	//@Ignore
     @Test
     def testExists () {
+		implicit val queryContext = QueryContext.noRemote
+
         val result = compile (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
                 EXISTS (
@@ -92,6 +95,8 @@ class TestExistsClauses1
 	@Ignore
     @Test
     def testNotExists () {
+		implicit val queryContext = QueryContext.noRemote
+
         val result = compile (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
                 NOT (

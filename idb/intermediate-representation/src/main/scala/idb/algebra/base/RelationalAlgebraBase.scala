@@ -32,8 +32,7 @@
  */
 package idb.algebra.base
 
-import idb.algebra.remote.DefaultDescription
-import idb.query.{DefaultDescription, RemoteDescription}
+import idb.query.{QueryContext, DefaultDescription, RemoteDescription}
 
 import scala.language.higherKinds
 import scala.virtualization.lms.common.Base
@@ -84,13 +83,13 @@ trait RelationalAlgebraBase
 	 */
 	def materialize[Domain : Manifest] (
 		relation : Rep[Query[Domain]]
-	): Rep[Query[Domain]]
+	)(implicit queryContext : QueryContext): Rep[Query[Domain]]
 
 	/**
 	 * Defines a root node for a query tree. This node is used by remote optimizations.
 	 */
 	def root[Domain : Manifest] (
 		relation : Rep[Query[Domain]]
-	): Rep[Query[Domain]]
+	)(implicit queryContext : QueryContext): Rep[Query[Domain]]
 
 }

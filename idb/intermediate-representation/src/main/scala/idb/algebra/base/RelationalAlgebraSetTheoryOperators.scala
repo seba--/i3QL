@@ -32,6 +32,8 @@
  */
 package idb.algebra.base
 
+import idb.query.QueryContext
+
 /**
  *
  * @author Ralf Mitschke
@@ -45,22 +47,22 @@ trait RelationalAlgebraSetTheoryOperators
 	def unionAdd[DomainA <: Range : Manifest, DomainB <: Range :Manifest, Range : Manifest] (
 		relationA: Rep[Query[DomainA]],
 		relationB: Rep[Query[DomainB]]
-	): Rep[Query[Range]]
+	)(implicit queryContext : QueryContext): Rep[Query[Range]]
 
 	def unionMax[DomainA <: Range : Manifest, DomainB <: Range :Manifest, Range : Manifest] (
 		relationA: Rep[Query[DomainA]],
 		relationB: Rep[Query[DomainB]]
-	): Rep[Query[Range]]
+	)(implicit queryContext : QueryContext): Rep[Query[Range]]
 
 	def intersection[Domain : Manifest] (
 		relationA: Rep[Query[Domain]],
 		relationB: Rep[Query[Domain]]
-	): Rep[Query[Domain]]
+	)(implicit queryContext : QueryContext): Rep[Query[Domain]]
 
 	def difference[Domain : Manifest] (
 		relationA: Rep[Query[Domain]],
 		relationB: Rep[Query[Domain]]
-	): Rep[Query[Domain]]
+	)(implicit queryContext : QueryContext): Rep[Query[Domain]]
 
 
 
