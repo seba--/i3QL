@@ -37,6 +37,7 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.print.{RelationalAlgebraPrintPlan, RelationalAlgebraPrintPlanBasicOperators}
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import idb.lms.extensions.operations.StringOpsExpExt
+import idb.query.NameDescription
 import org.junit.Assert._
 import org.junit.Test
 

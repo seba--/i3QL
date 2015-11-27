@@ -32,6 +32,8 @@
  */
 package idb.algebra.base
 
+import idb.query.QueryContext
+
 /**
  *
  * @author Ralf Mitschke

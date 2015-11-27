@@ -128,16 +128,15 @@ class RemoteView[Domain](rel: Relation[Domain])
 }
 
 object RemoteView {
-	val system = ActorSystem("i3ql")
 
 	val debug = false
 
-	def apply[T](partition : Relation[T]) : RemoteView[T] = {
-		val remoteHost = system.actorOf(Props[ObservableHost[T]])
+	def apply[T](actorSystem : ActorSystem, partition : Relation[T]) : RemoteView[T] = {
+		val remoteHost = actorSystem.actorOf(Props[ObservableHost[T]])
 
 		val remote = new RemoteView(partition)
 
-		val errorDetector = system.actorOf(Props(new SupervisionActor(remote)))
+		val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
 
 
 

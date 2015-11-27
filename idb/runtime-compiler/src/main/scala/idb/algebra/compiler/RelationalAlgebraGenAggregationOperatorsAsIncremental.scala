@@ -37,6 +37,7 @@ RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators}
 import idb.lms.extensions.ScalaCodegenExt
 import idb.operators.impl._
 import idb.operators.impl.opt._
+import idb.query.QueryContext
 import scala.virtualization.lms.common.ScalaGenEffect
 import scala.virtualization.lms.common.FunctionsExp
 
@@ -70,7 +71,7 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
 	import IR.AggregationNotSelfMaintainedWithoutConvert
     import IR.Grouping
 
-    override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
+    override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryContext : QueryContext): Relation[Domain] = {
         query match {
             case Def (e@AggregationSelfMaintained (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey, fConvert)) => {
                 if (e.isIncrementLocal)

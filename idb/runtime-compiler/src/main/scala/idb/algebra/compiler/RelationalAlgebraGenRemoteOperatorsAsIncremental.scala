@@ -36,6 +36,7 @@ import idb.algebra.ir._
 import idb.lms.extensions.ScalaCodegenExt
 import idb.operators.impl._
 import idb.operators.impl.opt._
+import idb.query.QueryContext
 import idb.remote.RemoteView
 
 import scala.virtualization.lms.common._
@@ -62,10 +63,10 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
     import IR._
 
 
-    override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
+    override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryContext : QueryContext): Relation[Domain] = {
         query match {
             case Def (Remote (r, _, remoteDesc)) =>
-                RemoteView (compile (r))
+                RemoteView (queryContext.actorSystem, compile (r))
 
             case _ => super.compile (query)
         }

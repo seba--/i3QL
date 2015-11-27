@@ -33,7 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraRecursiveOperators
-import idb.algebra.remote.DefaultDescription
+import idb.query.DefaultDescription
 
 /**
  *

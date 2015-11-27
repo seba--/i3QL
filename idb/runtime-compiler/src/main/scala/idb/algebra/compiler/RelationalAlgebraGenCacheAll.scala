@@ -33,6 +33,7 @@
 package idb.algebra.compiler
 
 import idb.algebra.ir.RelationalAlgebraIRBase
+import idb.query.QueryContext
 
 
 /**
@@ -49,7 +50,7 @@ trait RelationalAlgebraGenCacheAll
     import IR._
 
 
-    override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
+    override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryContext : QueryContext): Relation[Domain] = {
         queryCache.getOrElse (query, {
             val result = super.compile (query)
             queryCache += (query -> result)

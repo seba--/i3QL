@@ -33,7 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.{RelationalAlgebraRemoteOperators, RelationalAlgebraBasicOperators}
-import idb.algebra.remote.{RemoteDescription}
+import idb.query.RemoteDescription
 
 
 /**

@@ -32,7 +32,8 @@
  */
 package idb.algebra.base
 
-import idb.algebra.remote.{DefaultDescription, RemoteDescription}
+import idb.algebra.remote.DefaultDescription
+import idb.query.{DefaultDescription, RemoteDescription}
 
 import scala.language.higherKinds
 import scala.virtualization.lms.common.Base

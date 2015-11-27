@@ -1,6 +1,4 @@
-package idb.algebra.remote
-
-import idb.algebra.base.RelationalAlgebraBase
+package idb.query
 
 /**
  * @author Mirko Köhler

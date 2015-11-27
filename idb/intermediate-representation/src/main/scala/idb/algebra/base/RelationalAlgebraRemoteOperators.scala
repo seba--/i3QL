@@ -32,7 +32,7 @@
  */
 package idb.algebra.base
 
-import idb.algebra.remote.RemoteDescription
+import idb.query.RemoteDescription
 
 /**
  *

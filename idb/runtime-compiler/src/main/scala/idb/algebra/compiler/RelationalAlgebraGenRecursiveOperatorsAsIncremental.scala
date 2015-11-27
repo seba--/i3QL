@@ -35,6 +35,7 @@ package idb.algebra.compiler
 import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators}
 import idb.lms.extensions.ScalaCodegenExt
 import idb.operators.impl._
+import idb.query.QueryContext
 import scala.virtualization.lms.common.FunctionsExp
 import scala.virtualization.lms.common.ScalaGenEffect
 
@@ -58,7 +59,7 @@ trait RelationalAlgebraGenRecursiveOperatorsAsIncremental
     import IR._
 
 
-    override def compile[Domain] (query: Rep[Query[Domain]]): Relation[Domain] = {
+    override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryContext : QueryContext): Relation[Domain] = {
         query match {
 
         case Def (e@TransitiveClosure (r, h, t)) => {

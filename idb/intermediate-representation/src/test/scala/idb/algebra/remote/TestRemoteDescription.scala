@@ -1,5 +1,6 @@
 package idb.algebra.remote
 
+import idb.query.{SetDescription, NameDescription, DefaultDescription, RemoteDescription}
 import org.junit.Assert._
 import org.junit.Test
 

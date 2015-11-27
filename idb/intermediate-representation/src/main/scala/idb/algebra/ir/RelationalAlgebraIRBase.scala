@@ -33,8 +33,9 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBase
-import idb.algebra.remote.{DefaultDescription, RemoteDescription}
+import idb.algebra.remote.DefaultDescription
 import idb.annotations.{RemoteHost, LocalIncrement}
+import idb.query.{DefaultDescription, RemoteDescription}
 import scala.language.higherKinds
 import scala.virtualization.lms.common.BaseExp
 import scala.language.implicitConversions

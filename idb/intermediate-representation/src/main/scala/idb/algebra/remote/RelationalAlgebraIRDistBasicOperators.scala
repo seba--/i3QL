@@ -1,6 +1,7 @@
 package idb.algebra.remote
 
 import idb.algebra.ir.{RelationalAlgebraIRRemoteOperators, RelationalAlgebraIRBasicOperators}
+import idb.query.DefaultDescription
 
 /**
  * @author Mirko Köhler

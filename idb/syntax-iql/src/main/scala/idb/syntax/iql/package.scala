@@ -1,5 +1,6 @@
 package idb.syntax
 
+import idb.query.QueryContext
 import idb.syntax.iql.IR._
 import idb.syntax.iql.compilation.CompilerBinding
 import idb.syntax.iql.planning.{SubQueryToAlgebra, ClauseToAlgebra}
@@ -205,14 +206,19 @@ package object iql
         ClauseToAlgebra (clause)
 
 
+	def compileWithContext[Range: Manifest] (
+		query: Rep[Query[Range]]
+	)(
+		implicit queryContext : QueryContext
+	): Relation[Range] = {
+		val res = CompilerBinding.compile (root(query))
+		res
+	}
 
     implicit def compile[Range: Manifest] (
 	    query: Rep[Query[Range]]
-	): Relation[Range] = {
-        val res = CompilerBinding.compile (query)
-    //    CompilerBinding.reset
-        res
-    }
+	): Relation[Range] =
+		compileWithContext(query)(implicitly[Manifest[Range]], QueryContext.default)
 
     implicit def compile[
         Select: Manifest,
@@ -224,9 +230,13 @@ package object iql
         clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
     ): Relation[Range] = compile (plan (clause))
 
-    implicit def compile[Select: Manifest, DomainA <: GroupDomainA : Manifest, DomainB <: GroupDomainB : Manifest,
-    GroupDomainA: Manifest, GroupDomainB: Manifest,
-    GroupRange <: Select : Manifest, Range: Manifest] (
+    implicit def compile[
+		Select: Manifest,
+		DomainA <: GroupDomainA : Manifest,
+		DomainB <: GroupDomainB : Manifest,
+		GroupDomainA: Manifest, GroupDomainB: Manifest,
+    	GroupRange <: Select : Manifest, Range: Manifest
+	] (
         clause: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
     ): Relation[Range] = compile (plan (clause))
 
@@ -280,6 +290,96 @@ package object iql
         clause: IQL_QUERY_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB,
             GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
     ): Relation[Range] = compile (plan (clause))
+
+
+
+	def compileWithContext[
+		Select: Manifest,
+		Domain <: GroupDomain : Manifest,
+		GroupDomain: Manifest,
+		GroupRange <: Select : Manifest,
+		Range: Manifest
+	] (
+		clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
+	)(
+		implicit queryContext : QueryContext
+	): Relation[Range] =
+		compileWithContext (plan (clause))
+
+	def compileWithContext[
+		Select: Manifest,
+		DomainA <: GroupDomainA : Manifest,
+		DomainB <: GroupDomainB : Manifest,
+		GroupDomainA: Manifest, GroupDomainB: Manifest,
+		GroupRange <: Select : Manifest, Range: Manifest
+	] (
+		clause: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
+	)(
+		implicit queryContext : QueryContext
+	): Relation[Range] =
+		compileWithContext (plan (clause))
+
+	def compileWithContext[
+		Select: Manifest,
+		DomainA <: GroupDomainA : Manifest,
+		DomainB <: GroupDomainB : Manifest,
+		DomainC <: GroupDomainC : Manifest,
+		GroupDomainA: Manifest,
+		GroupDomainB: Manifest,
+		GroupDomainC: Manifest,
+		GroupRange <: Select : Manifest,
+		Range: Manifest
+	] (
+  		clause: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange,
+			  Range]
+  	)(
+		implicit queryContext : QueryContext
+	): Relation[Range] =
+		compileWithContext (plan (clause))
+
+	def compileWithContext[
+		Select: Manifest,
+		DomainA <: GroupDomainA : Manifest,
+		DomainB <: GroupDomainB : Manifest,
+		DomainC <: GroupDomainC : Manifest,
+		DomainD <: GroupDomainD : Manifest,
+		GroupDomainA: Manifest,
+		GroupDomainB: Manifest,
+		GroupDomainC: Manifest,
+		GroupDomainD: Manifest,
+		GroupRange <: Select : Manifest,
+		Range: Manifest
+	] (
+		clause: IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC,
+			  GroupDomainD, GroupRange, Range]
+	)(
+		implicit queryContext : QueryContext
+	): Relation[Range] =
+		compileWithContext (plan (clause))
+
+	def compileWithContext[
+		Select: Manifest,
+		DomainA <: GroupDomainA : Manifest,
+		DomainB <: GroupDomainB : Manifest,
+		DomainC <: GroupDomainC : Manifest,
+		DomainD <: GroupDomainD : Manifest,
+		DomainE <: GroupDomainE : Manifest,
+		GroupDomainA: Manifest,
+		GroupDomainB: Manifest,
+		GroupDomainC: Manifest,
+		GroupDomainD: Manifest,
+		GroupDomainE: Manifest,
+		GroupRange <: Select : Manifest,
+		Range: Manifest
+	] (
+		  clause: IQL_QUERY_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB,
+			  GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
+  	)(
+		implicit queryContext : QueryContext
+	): Relation[Range] =
+		compileWithContext (plan (clause))
+
+
 
     def reset() {
         CompilerBinding.reset
