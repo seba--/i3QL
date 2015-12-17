@@ -33,7 +33,7 @@
 package idb.algebra.compiler
 
 import idb.algebra.ir.RelationalAlgebraIRBase
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 
 
 /**
@@ -47,7 +47,7 @@ trait RelationalAlgebraGenBaseAsIncremental
 
     import IR._
 
-    def compile[Domain] (query: Rep[Query[Domain]])(implicit queryContext : QueryContext): Relation[Domain] =
+    def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] =
         query match {
             case QueryRelation (relation, _, _, _, _) => relation
 

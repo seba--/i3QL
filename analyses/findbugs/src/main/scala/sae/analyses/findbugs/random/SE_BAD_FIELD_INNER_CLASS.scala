@@ -37,7 +37,7 @@ object SE_BAD_FIELD_INNER_CLASS
 			SELECT ((t : Rep[(Type, Type)], i : Rep[Inheritance]) => t) FROM (nonStaticInner, inheritanceOfSerializable) WHERE ((t : Rep[(Type, Type)], i : Rep[Inheritance]) =>
 				t._1 == i.declaringClass)
 
-		val res = plan(SELECT (*) FROM serializableNonStaticInner WHERE ((t : Rep[(Type, Type)]) =>
+		SELECT (*) FROM serializableNonStaticInner WHERE ((t : Rep[(Type, Type)]) =>
       		NOT (
 				EXISTS (
 					SELECT (*) FROM inheritanceOfSerializable WHERE ((i : Rep[Inheritance]) =>
@@ -45,10 +45,10 @@ object SE_BAD_FIELD_INNER_CLASS
 					)
 				)
 			)
-		))
+		)
 
 
-    compile (res)
+
 
 
 	}

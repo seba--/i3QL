@@ -37,7 +37,7 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.print.{RelationalAlgebraPrintPlan, RelationalAlgebraPrintPlanBasicOperators}
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import idb.lms.extensions.operations.StringOpsExpExt
-import idb.query.NameDescription
+import idb.query.{QueryEnvironment, NameDescription}
 import org.junit.Assert._
 import org.junit.Test
 
@@ -70,6 +70,7 @@ class TestIRRemoteJoinAssociativity
 	@Test
 	def testJoinAssociativity1(): Unit = {
 		//a >< (b >< c) --> (a >< b) >< c
+		implicit val local = QueryEnvironment.Local
 
 		val tableA = table(scala.List.empty[String], remote = NameDescription("A"))
 		val tableB = table(scala.List.empty[String], remote = NameDescription("A"))
@@ -114,6 +115,8 @@ class TestIRRemoteJoinAssociativity
 	@Test
 	def testJoinAssociativity2(): Unit = {
 		//(a >< b) >< c --> a >< (b >< c)
+
+		implicit val local = QueryEnvironment.Local
 
 		val tableA = table(scala.List.empty[String], remote = NameDescription("A"))
 		val tableB = table(scala.List.empty[String], remote = NameDescription("C"))

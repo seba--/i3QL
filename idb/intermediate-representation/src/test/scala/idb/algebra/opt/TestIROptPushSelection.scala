@@ -38,6 +38,7 @@ import idb.algebra.print.RelationalAlgebraPrintPlanBasicOperators
 import idb.lms.extensions.equivalence.{TupledFunctionsExpAlphaEquivalence, StructExpAlphaEquivalence,
 ScalaOpsPkgExpAlphaEquivalence}
 import idb.lms.extensions.operations.OptionOpsExp
+import idb.query.QueryEnvironment
 import org.junit.Assert._
 import org.junit.{Ignore, Test}
 import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, LiftAll}
@@ -67,7 +68,9 @@ class TestIROptPushSelection
 
     @Test
     def testSelectionOverProjectionSimpleInt () {
-        val f1 = fun ((x: Rep[Int]) => x + 2)
+		implicit val local = QueryEnvironment.Local
+
+		val f1 = fun ((x: Rep[Int]) => x + 2)
         val f2 = fun ((x: Rep[Int]) => x > 0)
 
         val expA = selection (projection (emptyRelation[Int](), f1), f2)
@@ -82,7 +85,9 @@ class TestIROptPushSelection
 
     @Test
     def testSelectionOverProjectionConditionalInt () {
-        val f1 = fun ((x: Rep[Int]) => if (x > 0) unit (true) else unit (false))
+		implicit val local = QueryEnvironment.Local
+
+		val f1 = fun ((x: Rep[Int]) => if (x > 0) unit (true) else unit (false))
         val f2 = fun ((x: Rep[Boolean]) => x)
 
         val expA = selection (projection (emptyRelation[Int](), f1), f2)
@@ -97,7 +102,9 @@ class TestIROptPushSelection
 
     @Test
     def testSelectionOverProjectionSimpleTuple () {
-        val f1 = fun ((x: Rep[Int]) => (x, x > 0))
+		implicit val local = QueryEnvironment.Local
+
+		val f1 = fun ((x: Rep[Int]) => (x, x > 0))
 
         val f2 = fun ((x: Rep[(Int, Boolean)]) => x._2)
 
@@ -115,7 +122,9 @@ class TestIROptPushSelection
 
     @Test
     def testSelectionOverProjectionConditionalTuple () {
-        val f1 = fun ((x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false)))
+		implicit val local = QueryEnvironment.Local
+
+		val f1 = fun ((x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false)))
         val f2 = fun ((x: Rep[(Int, Boolean)]) => x._2)
 
         val expA = selection (projection (emptyRelation[Int](), f1), f2)
@@ -135,7 +144,9 @@ class TestIROptPushSelection
 
     @Test
     def testSelectionWithStaticDataFunction() {
-        val f1 = staticData( (x:Int) => x > 0)
+		implicit val local = QueryEnvironment.Local
+
+		val f1 = staticData( (x:Int) => x > 0)
 
         val f2 = fun((x:Rep[Int]) => x + 1)
 
@@ -152,7 +163,9 @@ class TestIROptPushSelection
 
     @Test
     def testSelectionWithTupledStaticDataFunction() {
-        val f1 = staticData( (x:(Int,Int)) => x._1 > 0)
+		implicit val local = QueryEnvironment.Local
+
+		val f1 = staticData( (x:(Int,Int)) => x._1 > 0)
 
         val f2 = fun((x1:Rep[Int], x2 :Rep[Int]) => (x1 + 1, x2))
 

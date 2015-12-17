@@ -32,6 +32,8 @@
  */
 package idb.algebra.compiler
 
+import idb.query.QueryEnvironment
+
 import scala.language.reflectiveCalls
 import org.junit.Test
 import org.junit.Assert._
@@ -53,8 +55,9 @@ class TestIRGenBasicOperatorsAsIncremental
 
     @Test
     def testConstructSelection () {
+		implicit val local = QueryEnvironment.Local
 
-        val base = new SetTable[Student]
+		val base = new SetTable[Student]
 
         val prog = new RelationalAlgebraIRBasicOperators
             with RelationalAlgebraIRSetTheoryOperators

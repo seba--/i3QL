@@ -32,6 +32,8 @@
  */
 package sae.bytecode.structure.derived
 
+import idb.query.QueryEnvironment
+
 import scala.language.implicitConversions
 import idb.syntax.iql._
 import sae.bytecode.structure.base._
@@ -50,11 +52,12 @@ trait BytecodeStructureDerivedRelations
     override val IR = idb.syntax.iql.IR
 
     import IR._
+	private implicit val queryEnvironment = QueryEnvironment.Default
 
     lazy val classInheritance: Rep[Query[Inheritance]] =
         SELECT (
             (c: Rep[ClassDeclaration]) => Inheritance (c, c.superType.get)
-        ) FROM (classDeclarations) WHERE (_.superType.isDefined)
+        ) FROM classDeclarations WHERE (_.superType.isDefined)
 
 
     // TODO why is the type annotation needed in UNNEST(classDeclarations,_.interfaces)

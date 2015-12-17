@@ -1,6 +1,6 @@
 package idb.integration.test.operators
 
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 import idb.syntax.iql._
 import org.junit.Assert._
 import org.hamcrest.CoreMatchers._
@@ -28,8 +28,7 @@ class TestEquiJoin extends UniversityTestData {
 
 	@Test
 	def testQuery2 () {
-		implicit val queryContext = QueryContext.noRemote
-
+		implicit val queryEnvironment = QueryEnvironment.Local
 
 		//Initialize query
 		val queryUncompiled = plan(

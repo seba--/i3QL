@@ -33,6 +33,7 @@
 package sae.bytecode.asm
 
 import idb.SetTable
+import idb.query.QueryEnvironment
 import sae.bytecode.structure.instructions.{BytecodeInstructionsManifest, BytecodeInstructionsRelations}
 import idb.syntax.iql._
 import sae.bytecode.asm.instructions.opcodes.{TABLESWITCH, LOOKUPSWITCH, RET, IINC}
@@ -46,6 +47,7 @@ trait ASMInstructionsRelations
     with BytecodeInstructionsManifest
     with BytecodeInstructionsRelations
 {
+	private implicit val queryEnvironment = QueryEnvironment.Default
 
     val basicInstructions =
         SetTable.empty[Instruction]

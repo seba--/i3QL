@@ -1,5 +1,6 @@
 package idb.integration.test.operators
 
+import idb.query.QueryEnvironment
 import idb.syntax.iql._
 import org.junit.Assert._
 import org.hamcrest.CoreMatchers._
@@ -28,8 +29,11 @@ class TestDuplicateElimination extends AbstractStudentOperatorTest[Student] with
 
 	@Before
 	def setUp() {
+		implicit val queryEnvironment = QueryEnvironment.Local
 		table = BagTable.empty[Student]
-		query = compile(SELECT DISTINCT (*) FROM (table))
+		query = compile (
+			SELECT DISTINCT * FROM table
+		)
 	}
 
 

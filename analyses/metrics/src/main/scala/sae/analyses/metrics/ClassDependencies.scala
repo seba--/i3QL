@@ -32,6 +32,8 @@
  */
 package sae.analyses.metrics
 
+import idb.query.QueryEnvironment
+
 import scala.language.implicitConversions
 import sae.bytecode.BytecodeDatabase
 import idb.syntax.iql._
@@ -43,6 +45,7 @@ import idb.syntax.iql.IR._
  */
 trait ClassDependencies
 {
+	private implicit val queryEnvironment = QueryEnvironment.Default
 
     def classDependencies (database: BytecodeDatabase): Rep[Query[Dependency[database.ObjectType]]] = {
         import database._

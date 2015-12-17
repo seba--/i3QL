@@ -55,16 +55,16 @@ trait AbstractTestAnalysesOnJDK
             val analysisName = analysis.getClass.getSimpleName
 
 			var database : BytecodeDatabase = null
-			println(s"Compile analysis ${analysisName}...")
+			println(s"Compile analysis $analysisName...")
             database = getDatabase
 			val relation = analysis (database).asMaterialized
 
-            println(s"Start analysis ${analysisName}...")
+            println(s"Start analysis $analysisName...")
 			database.addArchive(getStream)
 
 			assertEquals (expectedMatches, relation.size)
 		} finally {
-			idb.syntax.iql.reset()
+			idb.syntax.iql.resetCompiler()
 		}
 
 

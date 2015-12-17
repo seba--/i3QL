@@ -32,6 +32,7 @@
  */
 package idb.algebra.compiler
 
+import idb.query.QueryEnvironment
 import org.junit.Test
 import org.junit.Assert._
 import idb.SetTable
@@ -51,10 +52,9 @@ class TestIRGenBaseAsIncremental
 
     @Test
     def testConstructBaseRelation () {
+		implicit val local = QueryEnvironment.Local
 
-
-
-        import IR._
+		import IR._
         val base = new SetTable[Int]
         val query = table (base)
         val result = compile (query)

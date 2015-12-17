@@ -2,7 +2,7 @@ package sae.example.hospital
 
 import akka.actor.ActorSystem
 import idb.observer.Observer
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 import idb.remote.RemoteView
 import sae.example.hospital.data.HospitalDatabase._
 import sae.example.hospital.data.Patient
@@ -17,6 +17,23 @@ object Queries extends HospitalTestData {
 	def normalExample(): Unit = {
 		import idb.syntax.iql._
 		import idb.syntax.iql.IR._
+
+		implicit val queryContext = QueryEnvironment.Local
+
+		val q2 = //: Relation[(Int, String, String)] =
+			compile(
+				SELECT DISTINCT
+					((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
+				FROM
+					(personDatabase, UNNEST (patientDatabase, (x : Rep[Patient]) => x.symptoms), knowledgeDatabase)
+				WHERE
+					((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) =>
+						person.personId == patientSymptom._1.personId AND
+							patientSymptom._2 == knowledgeData.symptom)
+			)
+
+		executeExample(q2, personDatabase, patientDatabase, knowledgeDatabase)
+
 
 
 		/*	val q1 = //: Relation[(Int, String, String)] =
@@ -33,92 +50,67 @@ object Queries extends HospitalTestData {
 					)
 				)   */
 
-		implicit val queryContext = QueryContext.noRemote
-
-		val q2 = //: Relation[(Int, String, String)] =
-			compile(
-				SELECT DISTINCT
-					((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
-				FROM
-					(personDatabase, UNNEST (patientDatabase, (x : Rep[Patient]) => x.symptoms), knowledgeDatabase)
-				WHERE
-					((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) =>
-						person.personId == patientSymptom._1.personId AND
-							patientSymptom._2 == knowledgeData.symptom)
-			)
-
-
-
-
-		executeExample(q2, personDatabase, patientDatabase, knowledgeDatabase)
-
 	}
 
 	def distributedExample(): Unit = {
 		import idb.syntax.iql._
 		import idb.syntax.iql.IR._
 
-		implicit val queryContext = QueryContext.create(
+		implicit val queryContext = QueryEnvironment.create(
 			actorSystem = ActorSystem("example")
 		)
 
-		try {
-			val q2 = // : Relation[(Int, String, String)] =
-				compile(
-					SELECT DISTINCT
-						((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
-					FROM
-						(distributedPersonDatabase, UNNEST (distributedPatientDatabase, (x : Rep[Patient]) => x.symptoms), distributedKnowledgeDatabase)
-					WHERE
-						((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) =>
-							person.personId == patientSymptom._1.personId AND
-								patientSymptom._2 == knowledgeData.symptom)
-				)
 
+		val q2 = // : Relation[(Int, String, String)] =
+			compile (
+				SELECT DISTINCT
+					((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
+				FROM
+					(distributedPersonDatabase, UNNEST (distributedPatientDatabase, (x : Rep[Patient]) => x.symptoms), distributedKnowledgeDatabase)
+				WHERE
+					((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) =>
+						person.personId == patientSymptom._1.personId AND
+							patientSymptom._2 == knowledgeData.symptom)
+			)
 
-			executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
+		executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
 
-		} finally {
-			queryContext.close()
-		}
-
+		queryContext.close()
 	}
 
 	def distributedExample2(): Unit = {
 		import idb.syntax.iql._
 		import idb.syntax.iql.IR._
 
-		implicit val queryContext = QueryContext.create(
+		implicit val queryContext = QueryEnvironment.create(
 			actorSystem = ActorSystem("example")
 		)
 
-		try {
-			val q2 = //: Relation[(Int, String, String)] =
-				compile(
-					SELECT DISTINCT
-						((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) => (person.personId, person.name, knowledgeData.diagnosis))
-					FROM
-						(distributedPersonDatabase, distributedKnowledgeDatabase, UNNEST (distributedPatientDatabase, (x : Rep[Patient]) => x.symptoms))
-					WHERE
-						((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) =>
-							person.personId == patientSymptom._1.personId AND
-								patientSymptom._2 == knowledgeData.symptom)
-				)
+
+		val q2 = //: Relation[(Int, String, String)] =
+			compile(
+				SELECT DISTINCT
+					((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) => (person.personId, person.name, knowledgeData.diagnosis))
+				FROM
+					(distributedPersonDatabase, distributedKnowledgeDatabase, UNNEST (distributedPatientDatabase, (x : Rep[Patient]) => x.symptoms))
+				WHERE
+					((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) =>
+						person.personId == patientSymptom._1.personId AND
+							patientSymptom._2 == knowledgeData.symptom)
+			)
 
 
 
-			executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
+		executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
 
-		} finally {
-			queryContext.close()
-		}
+		queryContext.close()
 	}
 
 	def distributedExample3(): Unit = {
 		import idb.syntax.iql._
 		import idb.syntax.iql.IR._
 
-		implicit val queryContext = QueryContext.create(
+		implicit val queryContext = QueryEnvironment.create(
 			actorSystem = ActorSystem("example")
 		)
 

@@ -33,7 +33,7 @@
 package idb.integration.test
 
 import idb.integration.test.UniversityDatabase._
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 import idb.schema.university.{Course, Student}
 import idb.syntax.iql.IR._
 import idb.syntax.iql._
@@ -49,7 +49,7 @@ class TestAggregationOperators
 {
     @Test
 	def testCountStudents() {
-		implicit val queryContext = QueryContext.noRemote
+		implicit val queryEnvironment = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT (COUNT (*)) FROM students GROUP BY ((s : Rep[Student]) => s.lastName)
@@ -71,7 +71,7 @@ class TestAggregationOperators
 
 	@Test
 	def testSumCreditPoints() {
-		implicit val queryContext = QueryContext.noRemote
+		implicit val queryEnvironment = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT (
@@ -94,7 +94,7 @@ class TestAggregationOperators
 
 	@Test
 	def testAggregateGroupCountWithGroup () {
-		implicit val queryContext = QueryContext.noRemote
+		implicit val queryEnvironment = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT

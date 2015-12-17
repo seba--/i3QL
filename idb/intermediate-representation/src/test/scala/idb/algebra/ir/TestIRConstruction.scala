@@ -33,6 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.TestUtils
+import idb.query.QueryEnvironment
 import org.junit.Assert._
 import org.junit.Test
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
@@ -51,6 +52,8 @@ class TestIRConstruction
 {
     @Test
     def testSelection () {
+		implicit val local = QueryEnvironment.Local
+
         val f = fun ((x: Rep[Int]) => x > 0)
         val exp = selection (emptyRelation[Int](), f)
         val s = syms (exp)(0)
@@ -68,7 +71,9 @@ class TestIRConstruction
 
     @Test
     def testCommonSubExpressionWithSelection () {
-        val f = fun ((x: Rep[Int]) => x > 0)
+		implicit val local = QueryEnvironment.Local
+
+		val f = fun ((x: Rep[Int]) => x > 0)
         val exp1 = selection (emptyRelation[Int](), f)
         val exp2 = selection (emptyRelation[Int](), f)
 

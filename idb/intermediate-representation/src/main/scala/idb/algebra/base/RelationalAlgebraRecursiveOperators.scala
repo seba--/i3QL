@@ -32,7 +32,7 @@
  */
 package idb.algebra.base
 
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 
 /**
  *
@@ -48,12 +48,12 @@ trait RelationalAlgebraRecursiveOperators
 		relation: Rep[Query[Edge]],
 		tail: Rep[Edge => Vertex],
 		head: Rep[Edge => Vertex]
-	)(implicit queryContext : QueryContext): Rep[Query[(Vertex,Vertex)]]
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[(Vertex,Vertex)]]
 
 	def recursion[Domain : Manifest] (
 	    base : Rep[Query[Domain]],
 		result : Rep[Query[Domain]]
-	)(implicit queryContext : QueryContext): Rep[Query[Domain]]
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
 
     /**
      * A recursion node is an ast node that denotes that elements from result will enter the computation recursively.
@@ -62,7 +62,7 @@ trait RelationalAlgebraRecursiveOperators
     def recursionNode[Domain : Manifest] (
         base : Rep[Query[Domain]],
         result : Rep[Query[Domain]]
-	)(implicit queryContext : QueryContext): Rep[Query[Domain]]
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
 
     /**
      * A recursion result is a special ast node.
@@ -73,5 +73,5 @@ trait RelationalAlgebraRecursiveOperators
     def recursionResult[Domain: Manifest] (
         query: Rep[Query[Domain]],
         source: Rep[Query[Domain]]
-    )(implicit queryContext : QueryContext): Rep[Query[Domain]]
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
 }

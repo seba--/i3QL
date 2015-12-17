@@ -32,7 +32,7 @@
  */
 package idb.syntax.iql
 
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 import idb.syntax.iql.IR._
 
 /**
@@ -45,7 +45,7 @@ object EXISTS
 
     def apply[Select : Manifest, Domain <: GroupDomain : Manifest, GroupDomain : Manifest, GroupRange <: Select : Manifest, Range : Manifest] (
         subQuery: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
-    )(implicit queryContext : QueryContext): Rep[Boolean] =
+    )(implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default): Rep[Boolean] =
         existCondition (
             subQuery,
             planSubQueryWithContext(implicitly[Manifest[Select]], implicitly[Manifest[Domain]], implicitly[Manifest[GroupDomain]], implicitly[Manifest[GroupRange]], implicitly[Manifest[Range]]) _

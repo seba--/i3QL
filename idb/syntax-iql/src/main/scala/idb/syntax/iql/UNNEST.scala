@@ -32,7 +32,7 @@
  */
 package idb.syntax.iql
 
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 import idb.syntax.iql.IR._
 
 /**
@@ -47,7 +47,7 @@ object UNNEST
     def apply[Domain: Manifest, Range: Manifest] (
         query: Rep[Query[Domain]],
         unnesting: Rep[Domain] => Rep[Traversable[Range]]
-    )(implicit queryContext : QueryContext) : Rep[Query[(Domain,Range)]] =
+    )(implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default) : Rep[Query[(Domain,Range)]] =
         unnest (query, unnesting)
 
 }

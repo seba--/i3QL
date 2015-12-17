@@ -1,5 +1,6 @@
 package idb.integration.test.operators
 
+import idb.query.QueryEnvironment
 import idb.syntax.iql._
 import org.junit.Assert._
 import org.hamcrest.CoreMatchers._
@@ -27,8 +28,12 @@ class TestSelfMaintainedAggregationUngrouped extends AbstractStudentOperatorTest
 
 	@Before
 	def setUp() {
+		implicit val queryEnvironment = QueryEnvironment.Local
+
 		table = BagTable.empty[Student]
-		query = compile(SELECT (SUM ((s : Rep[Student]) => s.matriculationNumber)) FROM table)
+		query = compile (
+			SELECT (SUM ((s : Rep[Student]) => s.matriculationNumber)) FROM table
+		)
 	}
 
 

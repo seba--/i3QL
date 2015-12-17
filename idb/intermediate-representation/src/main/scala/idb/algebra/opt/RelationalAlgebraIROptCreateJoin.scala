@@ -34,7 +34,7 @@ package idb.algebra.opt
 
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.FunctionUtils
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 import scala.virtualization.lms.common.{EqualExp, TupledFunctionsExp}
 import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
 
@@ -54,16 +54,16 @@ trait RelationalAlgebraIROptCreateJoin
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    )(implicit queryContext : QueryContext): Rep[Query[Domain]] = {
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] = {
         (relation match {
             // rewrite a selection with a function of the form (a, b) => exprOf(a) == exprOf(b) into a join
 			case Def(c@CrossProduct(a, b)) if isDisjunctiveParameterEquality(function)(c.mDomA, c.mDomB) => {
-				equiJoin(a, b, scala.List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))(c.mDomA, c.mDomB, queryContext)
+				equiJoin(a, b, scala.List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))(c.mDomA, c.mDomB, queryEnvironment)
 			}
 
 			// add further equality tests to the join
 			case Def(c@EquiJoin(a, b, xs)) if isDisjunctiveParameterEquality(function)(c.mDomA, c.mDomB) =>
-				equiJoin(a, b, xs ::: scala.List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))(c.mDomA, c.mDomB, queryContext)
+				equiJoin(a, b, xs ::: scala.List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))(c.mDomA, c.mDomB, queryEnvironment)
 
             case _ => super.selection (relation, function)
         }).asInstanceOf[Rep[Query[Domain]]]

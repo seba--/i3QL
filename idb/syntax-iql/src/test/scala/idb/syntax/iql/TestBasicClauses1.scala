@@ -34,6 +34,7 @@ package idb.syntax.iql
 
 import TestUtil.assertEqualStructure
 import UniversityDatabase._
+import idb.query.QueryEnvironment
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.{Ignore, Test}
@@ -51,7 +52,7 @@ class TestBasicClauses1
 
     @Test
     def testTable () {
-
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM students
         )
@@ -61,6 +62,7 @@ class TestBasicClauses1
 
     @Test
     def testProject1 () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT ((_: Rep[Student]).lastName) FROM students
         )
@@ -73,8 +75,8 @@ class TestBasicClauses1
 
     @Test
     def testProject1TupleFun () {
-        val query = plan (
-            //SELECT (firstName, lastName) FROM students // TODO maybe re-enable that in a later version
+		implicit val queryEnvironment = QueryEnvironment.Local
+		val query = plan (
             SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students
         )
 
@@ -87,6 +89,7 @@ class TestBasicClauses1
 
     @Test
     def testSelection1 () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
         )
@@ -101,6 +104,7 @@ class TestBasicClauses1
     @Ignore //The structure of the expected result is in another order (but not a wrong order).
     @Test
     def testSelection1Negate () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) => s.lastName == "Fields" && !(s.firstName == "Sally"))
         )
@@ -121,6 +125,7 @@ class TestBasicClauses1
     @Ignore //The structure of the expected result is in another order (but not a wrong order).
     @Test
     def testSelection1NegateMultiplePositive () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) => s.lastName == "Fields" && s.matriculationNumber > 0 && !(s.firstName == "Sally"))
         )
@@ -140,6 +145,7 @@ class TestBasicClauses1
 
     @Test
     def testSelection1FunCall () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM courses WHERE ((c: Rep[Course]) => c.title.startsWith ("Introduction"))
         )
@@ -152,6 +158,7 @@ class TestBasicClauses1
 
     @Test
     def testSelection1ProjectTupleFun () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             //SELECT (firstName, lastName) FROM students WHERE ((s: Rep[Student]) => s.firstName == "Sally")
             SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students WHERE (
@@ -174,9 +181,10 @@ class TestBasicClauses1
 
     @Test
     def testSelection1ProjectTupleDirect () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
-            SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students WHERE ((s: Rep[Student]) => s
-                .firstName == "Sally")
+            SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students WHERE ((s: Rep[Student]) =>
+				s.firstName == "Sally")
         )
 
         assertEqualStructure (
@@ -194,8 +202,9 @@ class TestBasicClauses1
 
     @Test
     def testDistinctTable () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
-            SELECT DISTINCT (*) FROM students
+            SELECT DISTINCT * FROM students
         )
 
         assertEqualStructure (

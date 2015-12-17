@@ -33,7 +33,7 @@
 package idb.algebra.normalization
 
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRSetTheoryOperators}
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 
 /**
  * Simplification rules remove operators that reduce to trivial meanings.
@@ -51,7 +51,7 @@ trait RelationalAlgebraIROrderSetTheoryOps
     override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    )(implicit queryContext : QueryContext): Rep[Query[Range]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
         ((relationA, relationB) match {
 
             case (Def (UnionMax (leftLeft, leftRight)), right) =>

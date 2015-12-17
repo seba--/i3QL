@@ -33,7 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBasicOperators
-import idb.query.{QueryContext, RemoteDescription}
+import idb.query.{QueryEnvironment, RemoteDescription}
 
 
 /**
@@ -124,37 +124,37 @@ trait RelationalAlgebraIRBasicOperators
     def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    )(implicit queryContext : QueryContext): Rep[Query[Range]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
         Projection (relation, function)
 
     def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
         Selection (relation, function)
 
     def crossProduct[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    )(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB)]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] =
         CrossProduct (relationA, relationB)
 
     def equiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-    )(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB)]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] =
         EquiJoin (relationA, relationB, equalities)
 
     def duplicateElimination[Domain: Manifest] (
         relation: Rep[Query[Domain]]
-    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
         DuplicateElimination (relation)
 
    def unnest[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         unnesting: Rep[Domain => Traversable[Range]]
-    )(implicit queryContext : QueryContext): Rep[Query[(Domain, Range)]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(Domain, Range)]] =
         Unnest (relation, unnesting)
 
 }

@@ -35,7 +35,7 @@ package idb.algebra.opt
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.functions.{TupledFunctionsExpDynamicLambda, FunctionsExpDynamicLambdaAlphaEquivalence}
 import idb.lms.extensions.{FunctionUtils, ExpressionUtils}
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 import scala.virtualization.lms.common._
 
 /**
@@ -64,10 +64,10 @@ trait RelationalAlgebraIROptOrderSelections
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
         relation match {
             case Def (Selection (r, f@Sym (id))) if id > function.asInstanceOf[Sym[_]].id =>
-                selection (selection (r, function)(exactDomainOf (relation), queryContext), f)
+                selection (selection (r, function)(exactDomainOf (relation), queryEnvironment), f)
 
             case _ =>
                 super.selection (relation, function)

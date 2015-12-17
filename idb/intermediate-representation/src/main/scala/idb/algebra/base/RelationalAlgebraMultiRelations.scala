@@ -32,7 +32,7 @@
  */
 package idb.algebra.base
 
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 
 /**
  *
@@ -48,14 +48,14 @@ trait RelationalAlgebraMultiRelations
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]]
-    )(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB, DomainC)]]
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB, DomainC)]]
 
     def crossProduct[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         relationC: Rep[Query[DomainC]],
         relationD: Rep[Query[DomainD]]
-    )(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB, DomainC, DomainD)]]
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB, DomainC, DomainD)]]
 
     def crossProduct[DomainA: Manifest, DomainB: Manifest, DomainC: Manifest, DomainD: Manifest, DomainE: Manifest] (
         relationA: Rep[Query[DomainA]],
@@ -63,6 +63,6 @@ trait RelationalAlgebraMultiRelations
         relationC: Rep[Query[DomainC]],
         relationD: Rep[Query[DomainD]],
         relationE: Rep[Query[DomainE]]
-    )(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB, DomainC, DomainD, DomainE)]]
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB, DomainC, DomainD, DomainE)]]
 
 }

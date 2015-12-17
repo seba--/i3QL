@@ -1,5 +1,6 @@
 package idb.integration.test.operators
 
+import idb.query.QueryEnvironment
 import idb.syntax.iql._
 import org.junit.Assert._
 import org.hamcrest.CoreMatchers._
@@ -28,12 +29,16 @@ class TestSelection extends AbstractStudentOperatorTest[Student] with University
 	var query : Relation[Student] = null
 	var table : Table[Student] = null
 
+
 	@Before
 	def setUp() {
+		implicit val queryEnvironment = QueryEnvironment.Local
+
 		table = BagTable.empty[Student]
-		query = compile(
+		query = compile (
 			SELECT (*) FROM table WHERE ((s : Rep[Student]) => s.matriculationNumber < 5 )
 		)
+
 	}
 
 

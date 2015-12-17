@@ -36,6 +36,7 @@ import idb.algebra.TestUtils
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.print.RelationalAlgebraPrintPlanBasicOperators
 import idb.lms.extensions.ScalaOpsExpOptExtensions
+import idb.query.QueryEnvironment
 import org.junit.Assert._
 import org.junit.Test
 
@@ -65,6 +66,8 @@ class TestIROptCreateJoin
 
     @Test
     def testCreateEquiJoin () {
+		implicit val local = QueryEnvironment.Local
+
 		val selectionFunc = (t : Rep[(Int, Int)]) => t._1 == t._2
 
         val expA = selection (crossProduct (emptyRelation[Int](), emptyRelation[Int]()), selectionFunc)
@@ -78,6 +81,8 @@ class TestIROptCreateJoin
 
    	@Test
 	def testCreateEqualityFunctions1(): Unit = {
+		implicit val local = QueryEnvironment.Local
+
 		val f = (t : Rep[(Int, Int)]) => t._1 + 1 == t._2
 
 		val f1 : Rep[Int => Any] = (i : Rep[Int]) => i + 1
@@ -91,6 +96,8 @@ class TestIROptCreateJoin
 
 	@Test
 	def testCreateEqualityFunctions2(): Unit = {
+		implicit val local = QueryEnvironment.Local
+
 		val f = (i : Rep[Int], j : Rep[Int]) => i + 1 == j
 
 		val f1 : Rep[Int => Any] = (i : Rep[Int]) => i + 1

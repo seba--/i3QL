@@ -1,6 +1,6 @@
 package idb.integration.test.operators
 
-import idb.query.QueryContext
+import idb.query.QueryEnvironment$
 import idb.{Table, Relation}
 
 /**
@@ -8,15 +8,12 @@ import idb.{Table, Relation}
  */
 abstract class AbstractOperatorTest[Domain, Range:Manifest] {
 
-	implicit val queryContext : QueryContext
 
 	def getQuery : Relation[Range] = {
 		import idb.syntax.iql._
 
-
-
-		val result = compile(query)
-		reset()
+		val result : Relation[Range] = query
+		resetCompiler()
 		result
 	}
 

@@ -34,6 +34,7 @@ package idb.syntax.iql
 
 import TestUtil.assertEqualStructure
 import UniversityDatabase._
+import idb.query.QueryEnvironment
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.{Ignore, Test}
@@ -52,6 +53,7 @@ class TestRecursionClauses
 	@Ignore
     @Test
     def testTransitiveClosureAsRecursion () {
+		implicit val queryEnvironment = QueryEnvironment.Local
        	//Union is not recognized as recursion step
         val query =
             WITH RECURSIVE (

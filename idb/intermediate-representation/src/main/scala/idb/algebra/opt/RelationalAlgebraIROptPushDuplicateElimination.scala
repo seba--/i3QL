@@ -35,7 +35,7 @@ package idb.algebra.opt
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.functions.FunctionsExpDynamicLambda
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 import scala.virtualization.lms.common._
 
 /**
@@ -56,7 +56,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
 
     override def duplicateElimination[Domain: Manifest] (
         relation: Rep[Query[Domain]]
-    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
         (relation match {
 
             // δ (Π {(x, y) => x} (a × b)) => δ (a)
@@ -66,8 +66,8 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                 val bodyIsParameterAtIndex = returnedParameter (f)
                 bodyIsParameterAtIndex match {
                     case -1 => super.duplicateElimination (relation)
-                    case 0 => duplicateElimination (cross.relationA)(domainOf (cross.relationA), queryContext)
-                    case 1 => duplicateElimination (cross.relationB)(domainOf (cross.relationB), queryContext)
+                    case 0 => duplicateElimination (cross.relationA)(domainOf (cross.relationA), queryEnvironment)
+                    case 1 => duplicateElimination (cross.relationB)(domainOf (cross.relationB), queryEnvironment)
                     case _ =>
                         throw new IllegalStateException (
                             "Expected a binary function as projection after cross product, " +
@@ -107,7 +107,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                                     )
                                 ),
                                 scala.List ((equalityProjection, fun ((x: Rep[Any]) => x)))
-                            )(manifest[Domain], returnType (innerProjection), queryContext)
+                            )(manifest[Domain], returnType (innerProjection), queryEnvironment)
 
                         projection (
                             newJoin,
@@ -132,7 +132,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                                 ),
                                 duplicateElimination (relationB),
                                 scala.List ((fun ((x: Rep[Any]) => x), equalityProjection))
-                            )(returnType (innerProjection), manifest[Domain], queryContext)
+                            )(returnType (innerProjection), manifest[Domain], queryEnvironment)
 
                         projection (
                             newJoin,

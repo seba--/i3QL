@@ -33,7 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.{RelationalAlgebraAggregationOperators, RelationalAlgebraBasicOperators}
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 import scala.virtualization.lms.common.LiftAll
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 
@@ -152,7 +152,7 @@ trait RelationalAlgebraIRAggregationOperators
 		updated: Rep[( (Domain, Domain, RangeB) ) => RangeB],
 		convertKey : Rep[Key => RangeA],
 		convert : Rep[((RangeA, RangeB)) => Range]
-	)(implicit queryContext : QueryContext): Rep[Query[Range]] =
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
 		AggregationSelfMaintained[Domain, Key, RangeA, RangeB, Range] (
 			relation,
 			grouping,
@@ -171,7 +171,7 @@ trait RelationalAlgebraIRAggregationOperators
 		 added : Rep[((Domain, Range)) => Range],
 		 removed : Rep[((Domain, Range)) => Range],
 		 updated: Rep[((Domain, Domain, Range)) => Range]
-	)(implicit queryContext : QueryContext): Rep[Query[Range]] =
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
 		AggregationSelfMaintainedWithoutConvert (
 			relation,
 			grouping,
@@ -187,7 +187,7 @@ trait RelationalAlgebraIRAggregationOperators
 		added : Rep[((Domain, Range)) => Range],
 		removed : Rep[((Domain, Range)) => Range],
 		updated: Rep[( (Domain, Domain, Range) ) => Range]
-	)(implicit queryContext : QueryContext): Rep[Query[Range]] =
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
 		AggregationSelfMaintainedWithoutGrouping (
 			relation,
 			start,
@@ -205,7 +205,7 @@ trait RelationalAlgebraIRAggregationOperators
 		updated: Rep[( (Domain, Domain, RangeB, Seq[Domain]) ) => RangeB],
 		convertKey : Rep[Key => RangeA],
 		convert : Rep[((RangeA, RangeB)) => Range]
-  	)(implicit queryContext : QueryContext): Rep[Query[Range]] =
+  	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
 		AggregationNotSelfMaintained[Domain, Key, RangeA, RangeB, Range] (
 			relation,
 			grouping,
@@ -223,7 +223,7 @@ trait RelationalAlgebraIRAggregationOperators
 		added : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
 		removed : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
 		updated: Rep[( (Domain, Domain, Range, Seq[Domain]) ) => Range]
-	)(implicit queryContext : QueryContext): Rep[Query[Range]] =
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
 		AggregationNotSelfMaintainedWithoutGrouping (
 			relation,
 			start,
@@ -239,7 +239,7 @@ trait RelationalAlgebraIRAggregationOperators
 		added : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
 		removed : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
 		updated: Rep[( (Domain, Domain, Range, Seq[Domain]) ) => Range]
-	)(implicit queryContext : QueryContext): Rep[Query[Range]] =
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
 		AggregationNotSelfMaintainedWithoutConvert (
 			relation,
 			grouping,
@@ -252,7 +252,7 @@ trait RelationalAlgebraIRAggregationOperators
 	def grouping[Domain : Manifest, Range : Manifest] (
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Range]
-	)(implicit queryContext : QueryContext): Rep[Query[Range]] =
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
 		Grouping (relation,grouping)
 }
 

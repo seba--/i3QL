@@ -36,7 +36,7 @@ import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraI
 import idb.lms.extensions.{FunctionUtils, ScalaCodegenExt}
 import idb.operators.impl._
 import idb.operators.impl.opt._
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 import scala.virtualization.lms.common._
 import idb.MaterializedView
 import idb.algebra.print.RelationalAlgebraPrintPlan
@@ -63,7 +63,7 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
     import IR._
 
     // TODO incorporate set semantics into ir
-    override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryContext : QueryContext): Relation[Domain] = {
+    override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
         query match {
             case Def (Selection (r, f)) => {
                 new SelectionView (compile (r), compileFunctionWithDynamicManifests (f), false)

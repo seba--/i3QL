@@ -34,6 +34,7 @@ package idb.syntax.iql
 
 import UniversityDatabase._
 import TestUtil.assertEqualStructure
+import idb.query.QueryEnvironment
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.{Ignore, Test}
@@ -49,6 +50,7 @@ class TestBasicClauses2
 
     @Test
     def testCrossProduct2 () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses)
         )
@@ -68,6 +70,7 @@ class TestBasicClauses2
 
     @Test
     def testCrossProduct2WithProjection () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT ((s: Rep[Student], c: Rep[Course]) => s.lastName + c.title) FROM(students, courses)
         )
@@ -88,6 +91,7 @@ class TestBasicClauses2
 
     @Test
     def testGroup1 () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT ((s: Rep[String]) => s) FROM(students, courses) GROUP BY (
                 (s: Rep[Student], r: Rep[Course]) => s.lastName + " " + r.title)
@@ -115,6 +119,7 @@ class TestBasicClauses2
 
     @Test
     def testCrossProduct2Selection1st () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally"
@@ -138,6 +143,7 @@ class TestBasicClauses2
 
     @Test
     def testCrossProduct2Selection2nd () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 c.title.startsWith ("Introduction")
@@ -160,6 +166,7 @@ class TestBasicClauses2
 
     @Test
     def testCrossProduct2Selection1stAnd2nd () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally" &&
@@ -184,6 +191,7 @@ class TestBasicClauses2
 
     @Test
     def testCrossProduct2Selections1stAnd2ndInterleaved () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName == "Sally" &&
@@ -208,6 +216,7 @@ class TestBasicClauses2
 
     @Test
     def testCrossProduct2Selection1stAnd2ndCompared () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) => {
                 s.firstName != c.title
@@ -235,6 +244,7 @@ class TestBasicClauses2
 
     @Test
     def testJoin2 () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM (students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber
@@ -263,6 +273,7 @@ class TestBasicClauses2
 
     @Test
     def testJoin2Projection () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT ((r: Rep[Registration], c: Rep[Course]) => c.creditPoints) FROM(registrations, courses) WHERE (
                 (r: Rep[Registration], c: Rep[Course]) => r.courseNumber == c.number
@@ -293,6 +304,7 @@ class TestBasicClauses2
 
     @Test
     def testJoin2SelectionBoth () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&
@@ -322,6 +334,7 @@ class TestBasicClauses2
 
     @Test
     def testJoin2SelectionBothAndCompare () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&
@@ -356,6 +369,7 @@ class TestBasicClauses2
 
     @Test
     def testDistinctTables () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT DISTINCT (*) FROM(students, registrations)
         )

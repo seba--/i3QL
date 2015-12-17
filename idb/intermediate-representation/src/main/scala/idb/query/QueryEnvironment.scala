@@ -4,9 +4,11 @@ import akka.actor.ActorSystem
 
 
 /**
+ * This class describes the environment in which a query should be compiled to.
+ *
  * @author Mirko Köhler
  */
-trait QueryContext {
+trait QueryEnvironment {
 
 	def actorSystem : ActorSystem
 	def hosts : List[Host]
@@ -14,16 +16,16 @@ trait QueryContext {
 
 }
 
-class QueryContextImpl (
+protected class QueryEnvironmentImpl (
 	val _actorSystem : Option[ActorSystem] = None,
     val _hosts : List[Host] = List()
-) extends QueryContext {
+) extends QueryEnvironment {
 
 	def actorSystem =
 		if (_actorSystem.isDefined)
 			_actorSystem.get
 		else
-			throw new UnsupportedByQueryContextException("No actor system", this)
+			throw new UnsupportedByQueryEnvironmentException("No actor system", this)
 
 	def hosts = _hosts
 
@@ -33,15 +35,23 @@ class QueryContextImpl (
 	}
 }
 
-object QueryContext {
+object QueryEnvironment {
 
-	val noRemote = create()
+	/**
+	 * Environment used for local queries.
+	 */
+	val Local = create()
+
+	/**
+	 * Default environment, when no other environment has been specified.
+	 */
+	val Default = Local
 
 	def create(
 		actorSystem : ActorSystem = null,
 	    hosts : List[Host] = List()
-	) : QueryContext =
-		new QueryContextImpl (
+	) : QueryEnvironment =
+		new QueryEnvironmentImpl (
 			_actorSystem = if (actorSystem == null) None else Some(actorSystem),
 			_hosts = hosts
 

@@ -33,6 +33,7 @@
 package idb.syntax.iql
 
 import UniversityDatabase._
+import idb.query.QueryEnvironment
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import org.junit.Assert._
@@ -49,6 +50,7 @@ class TestBasicClauseOptimizations
 
     @Test
     def testPropagateFilterToRightViaJoin () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&
@@ -71,6 +73,7 @@ class TestBasicClauseOptimizations
 
     @Test
     def testPropagateFilterToLeftViaJoin () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
                 s.matriculationNumber == r.studentMatriculationNumber &&
@@ -93,6 +96,7 @@ class TestBasicClauseOptimizations
 
     @Test
     def testLocalIncrementJoin () {
+		implicit val queryEnvironment = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(lectures, bookRecommendations) WHERE ((l: Rep[Lecture], b: Rep[BookRecommendation]) => {
                 l.course == b.course

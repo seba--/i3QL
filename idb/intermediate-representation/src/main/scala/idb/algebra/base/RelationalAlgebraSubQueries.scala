@@ -32,7 +32,7 @@
  */
 package idb.algebra.base
 
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 
 import scala.language.implicitConversions
 import scala.language.higherKinds
@@ -68,6 +68,6 @@ trait RelationalAlgebraSubQueries
         subQuery: SubQuery[Domain],
         planSubQueryWithContext: (SubQuery[Domain], Rep[Query[ContextDomain]],
             Rep[ContextDomain]) => Rep[Query[ContextDomain]]
-    )(implicit queryContext : QueryContext): Rep[Boolean]
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Boolean]
 
 }

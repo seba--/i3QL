@@ -32,6 +32,7 @@
  */
 package idb.algebra.opt
 
+import idb.query.QueryEnvironment
 import org.junit.{Ignore, Test}
 import org.junit.Assert._
 import scala.virtualization.lms.common.LiftAll
@@ -63,8 +64,9 @@ class TestIROptFusion
 
     @Test
     def testSelectionFusion () {
+		implicit val local = QueryEnvironment.Local
 
-        val f1 = fun ((x: Rep[Int]) => x > 0)
+		val f1 = fun ((x: Rep[Int]) => x > 0)
         val f2 = fun ((x: Rep[Int]) => x < 1000)
         val expA = selection (selection (emptyRelation[Int](), f1), f2)
 
@@ -79,7 +81,9 @@ class TestIROptFusion
 
     @Test
     def testSelectionFusionTypingWithDifference () {
-        trait A
+		implicit val local = QueryEnvironment.Local
+
+		trait A
 
         def infix_isA (x: Rep[A]): Rep[Boolean] = true
 
@@ -106,7 +110,9 @@ class TestIROptFusion
     @Ignore
     @Test
     def testSelectionFusionTypingWithSame () {
-        trait A
+		implicit val local = QueryEnvironment.Local
+
+		trait A
 
         def infix_isA1 (x: Rep[A]): Rep[Boolean] = true
 
@@ -134,7 +140,9 @@ class TestIROptFusion
 
     @Test
     def testSelectionFusionTypingWithSameMostSpecific () {
-        trait A
+		implicit val local = QueryEnvironment.Local
+
+		trait A
 
         def infix_isA1 (x: Rep[A]): Rep[Boolean] = true
 
@@ -158,8 +166,9 @@ class TestIROptFusion
 
     @Test
     def testProjectionFusion () {
+		implicit val local = QueryEnvironment.Local
 
-        val f1 = fun ((x: Rep[Int]) => x + 1)
+		val f1 = fun ((x: Rep[Int]) => x + 1)
         val f2 = fun ((x: Rep[Int]) => x + 2)
         val expA = projection (projection (emptyRelation[Int](), f1), f2)
 
@@ -172,7 +181,9 @@ class TestIROptFusion
 
     @Test
     def testSelectionFusionWithStaticDataFunction() {
-        val f1 = staticData( (x:Int) => x != 0)
+		implicit val local = QueryEnvironment.Local
+
+		val f1 = staticData( (x:Int) => x != 0)
 
         val f2 = fun((x:Rep[Int]) => x == 100)
 
@@ -188,7 +199,9 @@ class TestIROptFusion
 
     @Test
     def testSelectionFusionWithIndirectStaticDataFunction() {
-        val f1 = staticData( (x:Int) => x != 0)
+		implicit val local = QueryEnvironment.Local
+
+		val f1 = staticData( (x:Int) => x != 0)
 
         val f2 = fun((x:Rep[Int]) => x == 100)
 
@@ -208,7 +221,9 @@ class TestIROptFusion
 
     @Test
     def testSelectionFusionWithStaticDataAndDynamicFunction() {
-        val f1 = staticData( (x:Int) => x != 0)
+		implicit val local = QueryEnvironment.Local
+
+		val f1 = staticData( (x:Int) => x != 0)
         val f2 = fun((x:Rep[Int]) => x == 100)
         val f1Ind = fun((x:Rep[Int]) => f1(x))
 
@@ -228,7 +243,9 @@ class TestIROptFusion
 
     @Test
     def testSelectionFusionWithStaticDataAndDynamicFunctions2() {
-        val fStatic = staticData( (x:String) => x.hashCode)
+		implicit val local = QueryEnvironment.Local
+
+		val fStatic = staticData( (x:String) => x.hashCode)
 
         val f1 = fun((x:Rep[Int]) => x > fStatic("hello"))
         val f2 = fun((x:Rep[Int]) => x > fStatic("world"))

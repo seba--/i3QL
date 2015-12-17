@@ -37,7 +37,7 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.print.{RelationalAlgebraPrintPlan, RelationalAlgebraPrintPlanBasicOperators}
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import idb.lms.extensions.operations.StringOpsExpExt
-import idb.query.NameDescription
+import idb.query.{QueryEnvironment, NameDescription}
 import org.junit.Assert._
 import org.junit.Test
 
@@ -85,6 +85,7 @@ class TestIRRemoteReorderJoin
 
 	@Test
 	def testReorderJoins1(): Unit = {
+		implicit val local = QueryEnvironment.Local
 
 		val tableA = table(scala.List.empty[String], remote = NameDescription("A"))
 		val tableB = table(scala.List.empty[String], remote = NameDescription("B"))
@@ -116,6 +117,7 @@ class TestIRRemoteReorderJoin
 	@Test
 	def testReorderJoins2(): Unit = {
 		//b >< (a >< c) --> a >< (b >< c)
+		implicit val local = QueryEnvironment.Local
 
 		val tableA = table(scala.List.empty[String], remote = NameDescription("A"))
 		val tableB = table(scala.List.empty[String], remote = NameDescription("B"))
@@ -160,6 +162,7 @@ class TestIRRemoteReorderJoin
 	@Test
 	def testReorderJoins3(): Unit = {
 		//(a >< c) >< b --> (a >< b) >< c
+		implicit val local = QueryEnvironment.Local
 
 		val tableA = table(scala.List.empty[String], remote = NameDescription("A"))
 		val tableB = table(scala.List.empty[String], remote = NameDescription("B"))

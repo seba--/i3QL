@@ -3,7 +3,7 @@ package idb.algebra.remote
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRemoteOperators}
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
-import idb.query.QueryContext
+import idb.query.QueryEnvironment
 
 /**
  * @author Mirko Köhler
@@ -19,7 +19,7 @@ trait RelationalAlgebraIRDistReorderJoins
 		relationA: Rep[Query[DomainA]],
 		relationB: Rep[Query[DomainB]],
 		equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-	)(implicit queryContext : QueryContext): Rep[Query[(DomainA, DomainB)]] = {
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
 		val mDomA = implicitly[Manifest[DomainA]]
 		val mDomB =  implicitly[Manifest[DomainB]]
 

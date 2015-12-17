@@ -33,7 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.{RelationalAlgebraSetTheoryOperators, RelationalAlgebraBasicOperators}
-import idb.query.{QueryContext, RemoteDescription}
+import idb.query.{QueryEnvironment, RemoteDescription}
 
 
 /**
@@ -100,25 +100,25 @@ trait RelationalAlgebraIRSetTheoryOperators
     def unionAdd[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    )(implicit queryContext : QueryContext): Rep[Query[Range]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
         UnionAdd (relationA, relationB)
 
     def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    )(implicit queryContext : QueryContext): Rep[Query[Range]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
         UnionMax (relationA, relationB)
 
     def intersection[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
         Intersection (relationA, relationB)
 
     def difference[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    )(implicit queryContext : QueryContext): Rep[Query[Domain]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
         Difference (relationA, relationB)
 
 
