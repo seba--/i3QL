@@ -32,7 +32,7 @@
  */
 package idb.algebra.base
 
-import idb.query.{QueryEnvironment, DefaultDescription, RemoteDescription}
+import idb.query._
 
 import scala.language.higherKinds
 import scala.virtualization.lms.common.Base
@@ -64,7 +64,7 @@ trait RelationalAlgebraBase
     /**
      * Wraps an table as a leaf in the query tree
      */
-    def table[Domain] (table: Table[Domain], isSet: Boolean = false,  remote : RemoteDescription = DefaultDescription)(
+    def table[Domain] (table: Table[Domain], isSet: Boolean = false,  host : Host = LocalHost, remote : RemoteDescription = DefaultDescription)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Table[Domain]]
     ): Rep[Query[Domain]]

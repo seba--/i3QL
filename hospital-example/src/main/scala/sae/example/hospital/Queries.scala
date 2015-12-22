@@ -2,12 +2,13 @@ package sae.example.hospital
 
 import akka.actor.ActorSystem
 import idb.observer.Observer
-import idb.query.QueryEnvironment
+import idb.query.{RemoteHost, QueryEnvironment}
 import idb.remote.RemoteView
 import sae.example.hospital.data.HospitalDatabase._
 import sae.example.hospital.data.Patient
 import sae.example.hospital.data.Person
 import sae.example.hospital.data._
+
 
 /**
  * @author Mirko Köhler
@@ -134,6 +135,33 @@ object Queries extends HospitalTestData {
 		} finally {
 			queryContext.close()
 		}
+	}
+
+	def distributedExampleWithHosts(): Unit = {
+		implicit val queryContext = QueryEnvironment.create(
+			actorSystem = ActorSystem("example"),
+			hosts = List(RemoteHost("PatientDBServer"), RemoteHost("PersonDBServer"), RemoteHost("KnowledgeDBServer")),
+		    permissions = Map("hospital" -> List(1, 2), "research" -> List(2, 3))
+		)
+
+		import idb.syntax.iql._
+		import idb.syntax.iql.IR._
+
+		val q2 = // : Relation[(Int, String, String)] =
+			compile (
+				SELECT DISTINCT
+					((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
+					FROM
+					(distributedPersonDatabase, UNNEST (distributedPatientDatabase, (x : Rep[Patient]) => x.symptoms), distributedKnowledgeDatabase)
+					WHERE
+					((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) =>
+						person.personId == patientSymptom._1.personId AND
+							patientSymptom._2 == knowledgeData.symptom)
+			)
+
+		executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
+
+		queryContext.close()
 	}
 
 

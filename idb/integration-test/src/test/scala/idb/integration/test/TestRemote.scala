@@ -9,7 +9,7 @@ import idb.syntax.iql.IR._
 import idb.{SetTable, Table, BagTable}
 import idb.algebra.ir._
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.annotations.RemoteHost
+import idb.annotations.Remote
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
 import idb.schema.university.{Registration, Student}
@@ -37,10 +37,10 @@ class TestRemote extends UniversityTestData {
 		)
 
 		//Initialize remote tables
-		@RemoteHost(description = "students")
+		@Remote(description = "students")
 		class RemoteStudents extends BagTable[Student]
 
-		@RemoteHost(description = "registrations")
+		@Remote(description = "registrations")
 		class RemoteRegistrations extends BagTable[Registration]
 
 		val remoteStudents = new RemoteStudents
@@ -87,10 +87,10 @@ class TestRemote extends UniversityTestData {
 			actorSystem = ActorSystem("test2")
 		)
 
-		@RemoteHost(description = "students")
+		@Remote(description = "students")
 		class RemoteStudents extends BagTable[Student]
 
-		@RemoteHost(description = "registrations")
+		@Remote(description = "registrations")
 		class RemoteRegistrations extends BagTable[Registration]
 
 		val remoteStudents = new RemoteStudents
@@ -124,10 +124,10 @@ class TestRemote extends UniversityTestData {
 			actorSystem = ActorSystem("test3")
 		)
 
-		@RemoteHost(description = "students")
+		@Remote(description = "students")
 		class RemoteStudents extends BagTable[Student]
 
-		@RemoteHost(description = "registrations")
+		@Remote(description = "registrations")
 		class RemoteRegistrations extends BagTable[Registration]
 
 		val remoteStudents = new RemoteStudents
@@ -174,7 +174,7 @@ class TestRemote extends UniversityTestData {
 			actorSystem = ActorSystem("test4")
 		)
 
-		@RemoteHost(description = "students")
+		@Remote(description = "students")
 		class RemoteStudents extends BagTable[Student]
 
 		val remoteStudents = new RemoteStudents
@@ -216,10 +216,10 @@ class TestRemote extends UniversityTestData {
 			actorSystem = ActorSystem("test")
 		)
 
-		@RemoteHost(description = "airports")
+		@Remote(description = "airports")
 		object RemoteAirports extends SetTable[Airport]
 
-		@RemoteHost(description = "flights")
+		@Remote(description = "flights")
 		object RemoteFlights extends SetTable[Flight]
 
 

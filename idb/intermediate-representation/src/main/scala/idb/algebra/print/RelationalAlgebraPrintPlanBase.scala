@@ -57,8 +57,8 @@ trait RelationalAlgebraPrintPlanBase
 
     def quoteRelation (x: Exp[Any]): String =
         x match {
-            case QueryTable (e, _, _, _, remote) =>
-                withIndent (s"table${e.hashCode}: Table[${x.tp.typeArguments(0)}](remote=${remote}")
+            case QueryTable (e, _, _, _, host, desc) =>
+                withIndent (s"table${e.hashCode}: Table[${x.tp.typeArguments(0)}](host=$host, desc=$desc")
             case QueryRelation (r, _, _, _, _) =>
                 withIndent ("relation" + r.hashCode () + ": Relation[" + x.tp.typeArguments (0) + "]")
             case Def (Materialize (r)) =>

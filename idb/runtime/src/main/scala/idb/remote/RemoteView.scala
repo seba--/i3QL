@@ -138,9 +138,6 @@ object RemoteView {
 
 		val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
 
-
-
-
 		remoteHost ! HostObservableAndForward(partition, errorDetector)
 
 		remote

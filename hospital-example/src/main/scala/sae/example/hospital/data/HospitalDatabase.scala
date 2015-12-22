@@ -1,7 +1,7 @@
 package sae.example.hospital.data
 
 import idb.{Table, SetTable}
-import idb.annotations.RemoteHost
+import idb.annotations.Remote
 
 /**
  * @author Mirko Köhler
@@ -15,19 +15,19 @@ object HospitalDatabase extends HospitalSchema {
 	val knowledgeDatabase = SetTable.empty[KnowledgeData]
 
 
-	@RemoteHost(description = "hospital")
+	@Remote(host = "PersonDBServer", description = "hospital")
 	class PersonDatabase extends SetTable[Person]
 
 	val distributedPersonDatabase : Table[Person] = new PersonDatabase
 
 
-	@RemoteHost(description = "hospital")
+	@Remote(host = "PatientDBServer", description = "hospital")
 	class PatientDatabase extends SetTable[Patient]
 
 	val distributedPatientDatabase : Table[Patient] = new PatientDatabase
 
 
-	@RemoteHost(description = "research")
+	@Remote(host = "KnowledgeDBServer", description = "research")
 	class KnowledgeDatabase extends SetTable[KnowledgeData]
 
 	val distributedKnowledgeDatabase : Table[KnowledgeData] = new KnowledgeDatabase

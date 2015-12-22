@@ -33,8 +33,8 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBase
-import idb.annotations.{RemoteHost, LocalIncrement}
-import idb.query.{QueryEnvironment, DefaultDescription, RemoteDescription}
+import idb.annotations.{Remote, LocalIncrement}
+import idb.query._
 import scala.language.higherKinds
 import scala.virtualization.lms.common.BaseExp
 import scala.language.implicitConversions
@@ -92,6 +92,7 @@ trait RelationalAlgebraIRBase
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
         isMaterialized: Boolean = false,
+		remoteHost : Host = LocalHost,
 	    remoteDesc : RemoteDescription = DefaultDescription
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Table[Domain]])
@@ -134,8 +135,17 @@ trait RelationalAlgebraIRBase
 		m.getClass.getAnnotation(classOf[LocalIncrement]) != null
 	}
 
+	protected def getRemoteHost (m : Any) : Host = {
+		val annotation = m.getClass.getAnnotation(classOf[Remote])
+
+		if (annotation == null)
+			LocalHost
+		else
+			RemoteHost(annotation.host())
+	}
+
 	protected def getRemoteDescription (m : Any) : RemoteDescription = {
-		val annotation = m.getClass.getAnnotation(classOf[RemoteHost])
+		val annotation = m.getClass.getAnnotation(classOf[Remote])
 
 		if (annotation == null)
 			DefaultDescription
@@ -146,7 +156,7 @@ trait RelationalAlgebraIRBase
     /**
      * Wraps an table as a leaf in the query tree
      */
-    override def table[Domain] (table: Table[Domain], isSet: Boolean = false, remote : RemoteDescription = DefaultDescription)(
+    override def table[Domain] (table: Table[Domain], isSet: Boolean = false, host : Host = LocalHost, remote : RemoteDescription = DefaultDescription)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Table[Domain]]
     ): Rep[Query[Domain]] =
@@ -155,6 +165,7 @@ trait RelationalAlgebraIRBase
 			isSet = isSet,
 			isIncrementLocal = isIncrementLocal (mDom),
 			isMaterialized = false,
+		    if (host == LocalHost) getRemoteHost(table) else host,
 			if (remote == DefaultDescription) getRemoteDescription(table) else remote
 		)
 

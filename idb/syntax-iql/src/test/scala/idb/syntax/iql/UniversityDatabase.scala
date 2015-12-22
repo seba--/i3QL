@@ -32,7 +32,7 @@
  */
 package idb.syntax.iql
 
-import idb.annotations.RemoteHost
+import idb.annotations.Remote
 import idb.schema.university._
 import idb.{BagTable, Table}
 
