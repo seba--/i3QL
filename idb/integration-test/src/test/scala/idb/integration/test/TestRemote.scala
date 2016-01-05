@@ -5,7 +5,6 @@ import java.util.Date
 
 import akka.actor.ActorSystem
 import idb.query.QueryEnvironment
-import idb.syntax.iql.IR._
 import idb.{SetTable, Table, BagTable}
 import idb.algebra.ir._
 import idb.algebra.print.RelationalAlgebraPrintPlan
@@ -37,14 +36,16 @@ class TestRemote extends UniversityTestData {
 		)
 
 		//Initialize remote tables
-		@Remote(description = "students")
+		@Remote(description = "students", host = "StudentServer")
 		class RemoteStudents extends BagTable[Student]
 
-		@Remote(description = "registrations")
+		@Remote(description = "registrations", host = "RegistrationHost")
 		class RemoteRegistrations extends BagTable[Registration]
 
 		val remoteStudents = new RemoteStudents
 		val remoteRegistrations = new RemoteRegistrations
+
+		import idb.syntax.iql.IR._
 
 		//Query
 		val q =
@@ -87,14 +88,16 @@ class TestRemote extends UniversityTestData {
 			actorSystem = ActorSystem("test2")
 		)
 
-		@Remote(description = "students")
+		@Remote(description = "students", host = "StudentServer")
 		class RemoteStudents extends BagTable[Student]
 
-		@Remote(description = "registrations")
+		@Remote(description = "registrations", host = "RegistrationHost")
 		class RemoteRegistrations extends BagTable[Registration]
 
 		val remoteStudents = new RemoteStudents
 		val remoteRegistrations = new RemoteRegistrations
+
+		import idb.syntax.iql.IR._
 
 		val q =
 			plan(
@@ -124,14 +127,16 @@ class TestRemote extends UniversityTestData {
 			actorSystem = ActorSystem("test3")
 		)
 
-		@Remote(description = "students")
+		@Remote(description = "students", host = "StudentServer")
 		class RemoteStudents extends BagTable[Student]
 
-		@Remote(description = "registrations")
+		@Remote(description = "registrations", host = "RegistrationHost")
 		class RemoteRegistrations extends BagTable[Registration]
 
 		val remoteStudents = new RemoteStudents
 		val remoteRegistrations = new RemoteRegistrations
+
+		import idb.syntax.iql.IR._
 
 		val q =
 			plan(
@@ -174,10 +179,12 @@ class TestRemote extends UniversityTestData {
 			actorSystem = ActorSystem("test4")
 		)
 
-		@Remote(description = "students")
+		@Remote(description = "students", host = "StudentServer")
 		class RemoteStudents extends BagTable[Student]
 
 		val remoteStudents = new RemoteStudents
+
+		import idb.syntax.iql.IR._
 
 		val q =
 			plan(
@@ -216,12 +223,11 @@ class TestRemote extends UniversityTestData {
 			actorSystem = ActorSystem("test")
 		)
 
-		@Remote(description = "airports")
+		@idb.annotations.Remote(description = "airports", host = "AirportServer")
 		object RemoteAirports extends SetTable[Airport]
 
-		@Remote(description = "flights")
+		@idb.annotations.Remote(description = "flights", host = "FlightServer")
 		object RemoteFlights extends SetTable[Flight]
-
 
 
 		val q = plan(
