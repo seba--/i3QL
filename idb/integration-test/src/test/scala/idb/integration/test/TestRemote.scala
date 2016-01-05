@@ -4,7 +4,7 @@ import java.util
 import java.util.Date
 
 import akka.actor.ActorSystem
-import idb.query.QueryEnvironment
+import idb.query._
 import idb.{SetTable, Table, BagTable}
 import idb.algebra.ir._
 import idb.algebra.print.RelationalAlgebraPrintPlan
@@ -36,16 +36,24 @@ class TestRemote extends UniversityTestData {
 		)
 
 		//Initialize remote tables
-		@Remote(description = "students", host = "StudentServer")
-		class RemoteStudents extends BagTable[Student]
-
+		//I. Using annotations ...
 		@Remote(description = "registrations", host = "RegistrationHost")
 		class RemoteRegistrations extends BagTable[Registration]
 
-		val remoteStudents = new RemoteStudents
 		val remoteRegistrations = new RemoteRegistrations
 
+		//II. using direct call to table ...
 		import idb.syntax.iql.IR._
+
+		val studentTable = BagTable.empty[Student]
+
+		val remoteStudents = table(
+			table = studentTable,
+			isSet = false,
+			host = RemoteHost("StudentServer"),
+			remote = NameDescription("students")
+		)
+
 
 		//Query
 		val q =
@@ -65,7 +73,7 @@ class TestRemote extends UniversityTestData {
 		val compiledQ = compile(q).asMaterialized
 
 		//Add data to tables
-		remoteStudents.add(johnDoe)
+		studentTable.add(johnDoe)
 		remoteRegistrations.add(johnTakesEise)
 
 		//Wait for actors
