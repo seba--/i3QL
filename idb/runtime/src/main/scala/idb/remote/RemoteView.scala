@@ -35,6 +35,7 @@ package idb.remote
 import akka.actor.Actor.Receive
 import akka.actor.SupervisorStrategy._
 import akka.actor._
+import akka.remote.RemoteScope
 import idb.Relation
 import idb.observer._
 import scala.concurrent.duration._
@@ -132,6 +133,10 @@ object RemoteView {
 	val debug = false
 
 	def apply[T](actorSystem : ActorSystem, partition : Relation[T]) : RemoteView[T] = {
+		
+		//val address = Address("akka.tcp", "sys", "host", 1234)
+		//val remoteHost = actorSystem.actorOf(Props[ObservableHost[T]].withDeploy(Deploy(scope = RemoteScope(address))))
+
 		val remoteHost = actorSystem.actorOf(Props[ObservableHost[T]])
 
 		val remote = new RemoteView(partition)
@@ -152,7 +157,7 @@ object RemoteView {
 
 		override def receive = {
 			case HostObservableAndForward(obs : Observable[T], target) =>
-				obs.addObserver(new SentToRemote(target))
+				obs.addObserver(new SendToRemote(target))
 				hosted = Some(obs)
 
 			case DoIt(fun: (Observable[T] => Unit)) =>
