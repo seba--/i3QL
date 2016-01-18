@@ -92,13 +92,13 @@ class RemoteViewActor[V](view: RemoteView[V]) extends Actor {
  * In a partitioned operator tree, this actor communicates with a remote actor
  * which hosts remote parts of the tree.
  */
-class RemoteView[Domain](rel: Relation[Domain])
+class RemoteView[Domain](rel: Relation[Domain], val isSet: Boolean)
 	extends Relation[Domain]
 	with NotifyObservers[Domain] {
 
 	// rel addObserver (new SentToRemote(actorRef))
 
-	def isSet = rel.isSet
+	// def isSet = rel.isSet
 
 	protected def lazyInitialize() {
 		/* do nothing */
@@ -133,19 +133,32 @@ object RemoteView {
 	val debug = false
 
 	def apply[T](actorSystem : ActorSystem, partition : Relation[T]) : RemoteView[T] = {
-		
+
 		//val address = Address("akka.tcp", "sys", "host", 1234)
 		//val remoteHost = actorSystem.actorOf(Props[ObservableHost[T]].withDeploy(Deploy(scope = RemoteScope(address))))
 
 		val remoteHost = actorSystem.actorOf(Props[ObservableHost[T]])
 
-		val remote = new RemoteView(partition)
+		val remote = new RemoteView(partition, partition.isSet)
 
 		val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
 
 		remoteHost ! HostObservableAndForward(partition, errorDetector)
 
 		remote
+	}
+
+	def apply[T](actorSystem: ActorSystem, remoteHostPath: ActorPath, isSet: Boolean) = {
+    val remoteHost = actorSystem.actorSelection(remoteHostPath)
+
+    val remote = new RemoteView[T](null, isSet)
+
+    val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
+
+    remoteHost ! errorDetector
+
+    remote
+
 	}
 
 	sealed trait HostMessage
