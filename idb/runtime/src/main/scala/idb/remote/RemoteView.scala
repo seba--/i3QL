@@ -38,6 +38,7 @@ import akka.actor._
 import akka.remote.RemoteScope
 import idb.Relation
 import idb.observer._
+import idb.remote.ObservableHost.{Forward, HostObservableAndForward}
 import scala.concurrent.duration._
 
 import scala.language.postfixOps
@@ -149,32 +150,15 @@ object RemoteView {
 	}
 
 	def apply[T](actorSystem: ActorSystem, remoteHostPath: ActorPath, isSet: Boolean) = {
-    val remoteHost = actorSystem.actorSelection(remoteHostPath)
+		val remoteHost = actorSystem.actorSelection(remoteHostPath)
 
-    val remote = new RemoteView[T](null, isSet)
+		val remote = new RemoteView[T](null, isSet)
 
-    val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
+		val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
 
-    remoteHost ! errorDetector
+		remoteHost ! Forward(errorDetector)
 
-    remote
+		remote
 
-	}
-
-	sealed trait HostMessage
-	case class HostObservableAndForward[T](obs: Observable[T], target: ActorRef)/*(implicit pickler: Pickler[T])*/ extends HostMessage
-	case class DoIt[T](fun: Observable[T] => Unit) extends HostMessage
-
-	class ObservableHost[T] extends Actor {
-		var hosted: Option[Observable[T]] = scala.None
-
-		override def receive = {
-			case HostObservableAndForward(obs : Observable[T], target) =>
-				obs.addObserver(new SendToRemote(target))
-				hosted = Some(obs)
-
-			case DoIt(fun: (Observable[T] => Unit)) =>
-				fun(hosted.get)
-		}
 	}
 }

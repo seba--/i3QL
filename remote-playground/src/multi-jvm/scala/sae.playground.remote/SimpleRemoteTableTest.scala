@@ -4,7 +4,7 @@ import akka.actor.{ActorPath, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.SetTable
-import idb.remote.{Added, RemoteTable, RemoteView, SendToRemote}
+import idb.remote._
 
 class SimpleRemoteTableTestMultiJvmNode1 extends SimpleRemoteTableTest
 
@@ -31,17 +31,15 @@ with STMultiNodeSpec with ImplicitSender {
       runOn(node1) {
         val db = SetTable.empty[String]
 
-        val actor = system.actorOf(Props(classOf[RemoteTable[String]], db), "db")
+        system.actorOf(Props(classOf[ObservableHost[String]], db), "db")
         enterBarrier("deployed")
 
         enterBarrier("sending")
-        Thread.sleep(1000)
-        println(db.hasObservers)
+        Thread.sleep(1000) // wait until RemoteTable has its observer registered
+        println("has observers: " + db.hasObservers)
 
         db += "Test1"
         db += "Test2"
-
-        enterBarrier("receiving")
       }
 
       runOn(node2) {
@@ -53,13 +51,9 @@ with STMultiNodeSpec with ImplicitSender {
         remoteView.addObserver(new SendToRemote[String](testActor))
         enterBarrier("sending")
 
-        enterBarrier("receiving")
-
         import scala.concurrent.duration._
-        expectMsg(1000.seconds, Added("Test1"))
-        expectMsg(1000.seconds, Added("Test2"))
-
-
+        expectMsg(10.seconds, Added("Test1"))
+        expectMsg(10.seconds, Added("Test2"))
       }
 
       enterBarrier("finished")
