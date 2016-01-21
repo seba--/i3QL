@@ -3,39 +3,33 @@ package sae.playground.remote
 import akka.actor.{ActorPath, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
-import idb.SetTable
+import idb.BagTable
 import idb.remote._
 
-class SimpleRemoteTableTestMultiJvmNode1 extends SimpleRemoteTableTest
+class RemoteViewSimpleTestMultiJvmNode1 extends RemoteViewSimpleTest
+class RemoteViewSimpleTestMultiJvmNode2 extends RemoteViewSimpleTest
+object RemoteViewSimpleTest {} // this object is necessary for multi-node testing
 
-class SimpleRemoteTableTestMultiJvmNode2 extends SimpleRemoteTableTest
-
-object SimpleRemoteTableTest {
-}
-
-class SimpleRemoteTableTest extends MultiNodeSpec(MultiNodeSampleConfig)
+class RemoteViewSimpleTest extends MultiNodeSpec(MultiNodeConfig)
 with STMultiNodeSpec with ImplicitSender {
 
-  import MultiNodeSampleConfig._
-  import SimpleRemoteTableTest._
+  import MultiNodeConfig._
+  import RemoteViewSimpleTest._
 
   def initialParticipants = roles.size
 
-  "A MultiNodeSample" must {
+  "A RemoteView" must {
+    "receive from a simple ObservableHost" in {
+      //enterBarrier("startup") // TODO: is this necessary?
 
-    "wait for all nodes to enter a barrier" in {
-      enterBarrier("startup")
-    }
-
-    "send to and receive from a remote node" in {
       runOn(node1) {
-        val db = SetTable.empty[String]
+        val db = BagTable.empty[String]
 
         system.actorOf(Props(classOf[ObservableHost[String]], db), "db")
         enterBarrier("deployed")
 
         enterBarrier("sending")
-        Thread.sleep(1000) // wait until RemoteTable has its observer registered
+        Thread.sleep(1000) // wait until ObservableHost has its observer registered
         println("has observers: " + db.hasObservers)
 
         db += "Test1"
@@ -46,7 +40,7 @@ with STMultiNodeSpec with ImplicitSender {
         enterBarrier("deployed")
 
         val remoteHostPath: ActorPath = node(node1) / "user" / "db"
-        val remoteView: RemoteView[String] = RemoteView[String](system, remoteHostPath, true)
+        val remoteView: RemoteView[String] = RemoteView[String](system, remoteHostPath, false)
 
         remoteView.addObserver(new SendToRemote[String](testActor))
         enterBarrier("sending")
@@ -56,7 +50,7 @@ with STMultiNodeSpec with ImplicitSender {
         expectMsg(10.seconds, Added("Test2"))
       }
 
-      enterBarrier("finished")
+      //enterBarrier("finished")
     }
   }
 }
