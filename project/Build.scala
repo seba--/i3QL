@@ -65,7 +65,7 @@ object sae extends Build {
     Project Hospital example
    */
   lazy val hospitalExample = Project(id = "hospital-example", base = file("hospital-example"))
-	  .dependsOn(syntax % "compile;test")
+	  .dependsOn(syntax % "compile;test").dependsOn(runtime % "compile;test")
 
   /*
     Project Test Data
@@ -84,5 +84,7 @@ object sae extends Build {
 	
 
   val virtScala = Option(System.getenv("SCALA_VIRTUALIZED_VERSION")).getOrElse("2.11.2")
+
+
 
 }

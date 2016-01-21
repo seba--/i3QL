@@ -15,7 +15,7 @@ import sae.example.hospital.data._
  */
 object Queries extends HospitalTestData {
 
-	def normalExample(): Unit = {
+/*	def normalExample(): Unit = {
 		import idb.syntax.iql._
 		import idb.syntax.iql.IR._
 
@@ -206,6 +206,6 @@ object Queries extends HospitalTestData {
 
 		System.exit(0)
 	}
-
+                */
 
 }
