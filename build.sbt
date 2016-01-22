@@ -15,7 +15,8 @@ libraryDependencies in ThisBuild ++= Seq(
     "com.novocode" % "junit-interface" % "latest.integration" % "test->default" ,
     "org.scala-lang.virtualized" % "scala-library" % virtScala,
     "org.scala-lang.virtualized" % "scala-compiler" % virtScala,
-    "com.typesafe.akka" % "akka-actor_2.11" % "2.3.12"
+    "com.typesafe.akka" % "akka-actor_2.11" % akkaVersion,
+    "com.typesafe.akka" % "akka-remote_2.11" % akkaVersion
 )
 
 javaOptions in Test += "-Xmx4G"
@@ -27,5 +28,5 @@ fork in Test := false
 
 logBuffered in Test := false
 
-//SHow additional test info
+//Show additional test info
 testOptions in ThisBuild += Tests.Argument(TestFrameworks.JUnit, "-v", "-a")

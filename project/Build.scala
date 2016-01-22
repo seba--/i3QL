@@ -68,6 +68,12 @@ object sae extends Build {
 	  .dependsOn(syntax % "compile;test").dependsOn(runtime % "compile;test")
 
   /*
+    Project Remote playground
+   */
+  lazy val remotePlayground = Project(id = "remote-playground", base = file("remote-playground"))
+    .dependsOn(syntax % "compile;test")
+
+  /*
     Project Test Data
   */ 
   
@@ -85,6 +91,5 @@ object sae extends Build {
 
   val virtScala = Option(System.getenv("SCALA_VIRTUALIZED_VERSION")).getOrElse("2.11.2")
 
-
-
+  val akkaVersion = "2.3.12"
 }
