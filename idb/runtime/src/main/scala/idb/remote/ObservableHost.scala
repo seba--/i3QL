@@ -34,4 +34,8 @@ class ObservableHost[T](var hosted: Option[Observable[T]] = None) extends Actor 
   def this(observable: Observable[T]) {
     this(Some(observable))
   }
+
+  def this() {
+    this(None)
+  }
 }
