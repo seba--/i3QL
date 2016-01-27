@@ -95,9 +95,11 @@ class RemoteViewActor[V](view: RemoteView[V]) extends Actor {
  * In a partitioned operator tree, this actor communicates with a remote actor
  * which hosts remote parts of the tree.
  */
-class RemoteView[Domain](rel: Option[Relation[Domain]], val isSet: Boolean)
+class RemoteView[Domain](rel: Option[Relation[Domain]], val address: Option[Address], val isSet: Boolean)
 	extends Relation[Domain]
 	with NotifyObservers[Domain] {
+
+	def isRealized = rel.isEmpty
 
 	// rel addObserver (new SentToRemote(actorRef))
 
@@ -132,6 +134,8 @@ class RemoteView[Domain](rel: Option[Relation[Domain]], val isSet: Boolean)
 			case Some(r) => nested(r)
 			case None => "<CONNECTED>"
 		}})"
+
+	def relation = rel.get
 }
 
 object RemoteView {
@@ -144,7 +148,7 @@ object RemoteView {
 	def apply[T](actorSystem : ActorSystem, partition : Relation[T]) : RemoteView[T] = {
 		val remoteHost = actorSystem.actorOf(Props[ObservableHost[T]])
 
-		val remoteView = new RemoteView(Some(partition), partition.isSet)
+		val remoteView = new RemoteView(Some(partition), None, partition.isSet)
 
 		val remoteViewActor = actorSystem.actorOf(Props(classOf[RemoteViewActor[T]], remoteView))
 		//val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
@@ -161,7 +165,7 @@ object RemoteView {
 		println("Creating remote host actor remotely")
 		val remoteHost = actorSystem.actorOf(Props(classOf[ObservableHost[T]], None).withDeploy(Deploy(scope = RemoteScope(address))))
 
-		val remoteView = new RemoteView[T](None, partition.isSet)
+		val remoteView = new RemoteView[T](None, None, partition.isSet)
 
 		val remoteViewActor = actorSystem.actorOf(Props(classOf[RemoteViewActor[T]], remoteView))
 		//val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
@@ -179,12 +183,16 @@ object RemoteView {
 	def apply[T](actorSystem: ActorSystem, remoteHostPath: ActorPath, isSet: Boolean) = {
 		val remoteHost = actorSystem.actorSelection(remoteHostPath)
 
-		val remoteView = new RemoteView[T](None, isSet)
+		val remoteView = new RemoteView[T](None, None, isSet)
 		val remoteViewActor = actorSystem.actorOf(Props(classOf[RemoteViewActor[T]], remoteView))
 		//val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
 
 		remoteHost ! Forward(remoteViewActor)
 		remoteView
 
+	}
+
+	def createUnrealized[T](/*actorSystem : ActorSystem, */address: Address, partition : Relation[T]): RemoteView[T] = {
+		new RemoteView[T](Some(partition), Some(address), partition.isSet)
 	}
 }
