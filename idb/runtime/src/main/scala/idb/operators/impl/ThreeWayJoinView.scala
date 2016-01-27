@@ -66,7 +66,7 @@ class ThreeWayJoinView[DomainA, DomainB, DomainC, Range, KeyA, KeyC](val left: R
 
   rightIndex addObserver RightObserver
 
-  override def children = List(leftIndex, middleToLeftIndex, middleToRightIndex, rightIndex)
+  override def children() = List(leftIndex, middleToLeftIndex, middleToRightIndex, rightIndex)
 
   override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
     if (o == leftIndex) {

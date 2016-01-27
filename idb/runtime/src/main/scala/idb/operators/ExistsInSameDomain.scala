@@ -30,7 +30,7 @@ trait ExistsInSameDomain[Domain]
 
     //def isStored = left.isStored && right.isStored // should always be true
 
-    override protected def children = List (left, right)
+    override def children() = List (left, right)
 
   override def prettyprint(implicit prefix: String) = prefix +
     s"ExistsInSameDomain(${nested(left)}, ${nested(right)})"

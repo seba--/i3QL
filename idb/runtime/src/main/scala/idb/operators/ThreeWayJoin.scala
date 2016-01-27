@@ -31,7 +31,7 @@ trait ThreeWayJoin[DomainA, DomainB, DomainC, Range, KeyA, KeyC]
 
     def projection: (DomainA, DomainB, DomainC) => Range
 
-	  def children = List(left,middle,right)
+	  def children() = List(left,middle,right)
 
     override def prettyprint(implicit prefix: String) = prefix +
       s"ThreeWayJoin(leftKey=$leftKey, rightKey=$rightKey, ${nested(left)}, ${nested(middle)}, ${nested(right)})"

@@ -21,7 +21,7 @@ trait TransitiveClosure[Edge, Vertex]
     def getTail: Edge => Vertex
     def getHead: Edge => Vertex
 
-    override protected def children = List (source)
+    override def children() = List (source)
 
     override def prettyprint(implicit prefix: String) = prefix +
       s"TransitiveClosure(${nested(source)})"

@@ -64,7 +64,7 @@ class TransactionalAnchorAndFixPointRecursionView[Domain, Range, Key](val anchor
 
   def keyFunc = domainKeyFunction
 
-  def children = List(anchors, source)
+  def children() = List(anchors, source)
 
   override def lazyInitialize() {
 

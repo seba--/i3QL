@@ -22,7 +22,7 @@ trait Difference[Domain]
 
     def right: Relation[Domain]
 
-	override protected def children = List (left, right)
+	override def children() = List (left, right)
 
   override def prettyprint(implicit prefix: String) = prefix +
     s"Difference(${nested(left)}, ${nested(right)})"

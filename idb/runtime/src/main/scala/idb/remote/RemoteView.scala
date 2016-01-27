@@ -107,7 +107,7 @@ class RemoteView[Domain](rel: Option[Relation[Domain]], val isSet: Boolean)
 		/* do nothing */
 	}
 
-	protected def children: Seq[Relation[_]] = Nil
+	def children(): Seq[Relation[_]] = Nil
 	override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = Nil
 
 	/**

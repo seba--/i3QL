@@ -73,7 +73,7 @@ trait Relation[+V]
     protected def lazyInitialize ()
 
 
-    protected def children: Seq[Relation[_]]
+    def children(): Seq[Relation[_]]
 
     /**
      * Converts the data of the view into a list representation.

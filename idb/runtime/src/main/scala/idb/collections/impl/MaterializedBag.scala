@@ -50,7 +50,7 @@ class MaterializedBag[V](val relation: Relation[V])
     notify_endTransaction()
   }
 
-  override protected def children = List(relation)
+  override def children() = List(relation)
 
   override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
     if (o == relation) {

@@ -63,7 +63,7 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
   rightDeletionIndex addObserver RightObserver
 
 
-  override def children = List(leftAdditionIndex, leftDeletionIndex, rightAdditionIndex, rightAdditionIndex)
+  override def children() = List(leftAdditionIndex, leftDeletionIndex, rightAdditionIndex, rightAdditionIndex)
 
   override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
     if (o == leftAdditionIndex || o == leftDeletionIndex) {

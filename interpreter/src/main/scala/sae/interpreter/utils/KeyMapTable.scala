@@ -17,7 +17,7 @@ class KeyMapTable[K,V](val keyGenerator : KeyGenerator[K]) extends Relation[(K, 
 	 */
 	override def isSet: Boolean = true
 
-	override protected def children: Seq[Relation[_]] = Seq()
+	override def children(): Seq[Relation[_]] = Seq()
 
 	override protected def lazyInitialize() { }
 

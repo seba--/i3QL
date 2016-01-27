@@ -65,7 +65,7 @@ trait CrossProduct[DomainA, DomainB, Range]
 
     def projection: (DomainA, DomainB) => Range
 
-    override protected def children = List (left, right)
+    override def children() = List (left, right)
 
     override def prettyprint(implicit prefix: String) = prefix +
       s"CrossProduct($projection, ${nested(left)}, ${nested(right)})"

@@ -42,7 +42,7 @@ trait UnNest[Domain, Range]
 
     def unNestFunction: Domain => Traversable[Range]
 
-    override protected def children = List (relation)
+    override def children() = List (relation)
 
     override def prettyprint(implicit prefix: String) = prefix +
       s"UnNest($unNestFunction,${nested(relation)})"

@@ -35,7 +35,7 @@ class SymmetricDifferenceView[Domain](val left: MaterializedView[Domain],
 	protected def lazyInitialize () { }
 
 
-	protected def children: Seq[Relation[_]] = Seq (left,right)
+	def children(): Seq[Relation[_]] = Seq (left,right)
 
 
 	object LeftObserver extends Observer[Domain] {

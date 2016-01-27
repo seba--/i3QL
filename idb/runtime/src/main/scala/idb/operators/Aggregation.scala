@@ -29,7 +29,7 @@ trait Aggregation[Domain, Key, AggregateValue, Result, AggregateFunctionType <: 
 
     def convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result
 
-    override protected def children = List (source)
+    override def children() = List (source)
 
   override def prettyprint(implicit prefix: String) = prefix +
     s"Aggregation(grouping=$groupingFunction, aggregation=$aggregateFunctionFactory, ${nested(source)})"

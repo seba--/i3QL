@@ -66,7 +66,7 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
 
   def keyFunc = domainKeyFunction
 
-  override def children = List(anchors, source)
+  override def children() = List(anchors, source)
 
   override def lazyInitialize() {
 

@@ -21,7 +21,7 @@ trait FixPointRecursion[Domain, Range, Key]
 
     def step: (Domain, Range) => Range
 
-    override protected def children = List (source)
+    override def children() = List (source)
 
     override def prettyprint(implicit prefix: String) = prefix +
       s"FixPointRecursion(${nested(source)})"
