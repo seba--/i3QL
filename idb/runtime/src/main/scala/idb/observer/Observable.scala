@@ -86,7 +86,7 @@ trait Observable[+V]
     /**
      * Returns the observed children, to allow a top down removal of observers
      */
-    protected def children: Seq[Observable[_]]
+    def children: Seq[Observable[_]]
 
     def descendants: Seq[Observable[_]] = {
         (for (child <- children) yield {
