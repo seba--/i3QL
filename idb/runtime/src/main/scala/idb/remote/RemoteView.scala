@@ -36,9 +36,11 @@ import akka.actor.Actor.Receive
 import akka.actor.SupervisorStrategy._
 import akka.actor._
 import akka.remote.RemoteScope
+import akka.util.Timeout
 import idb.Relation
 import idb.observer._
-import idb.remote.ObservableHost.{Forward, HostObservableAndForward}
+import idb.remote.ObservableHost.{Host, Forward, HostObservableAndForward}
+import scala.concurrent.Await
 import scala.concurrent.duration._
 
 import scala.language.postfixOps
@@ -95,11 +97,9 @@ class RemoteViewActor[V](view: RemoteView[V]) extends Actor {
  * In a partitioned operator tree, this actor communicates with a remote actor
  * which hosts remote parts of the tree.
  */
-class RemoteView[Domain](rel: Option[Relation[Domain]], val address: Option[Address], val isSet: Boolean)
+class RemoteView[Domain](val remoteHost: ActorRef, val isSet: Boolean)
 	extends Relation[Domain]
 	with NotifyObservers[Domain] {
-
-	def isRealized = rel.isEmpty
 
 	// rel addObserver (new SentToRemote(actorRef))
 
@@ -130,12 +130,9 @@ class RemoteView[Domain](rel: Option[Relation[Domain]], val address: Option[Addr
 	override def notify_endTransaction() = super.notify_endTransaction()
 
 	override def prettyprint(implicit prefix: String) = prefix +
-		s"RemoteView(${rel match {
-			case Some(r) => nested(r)
-			case None => "<CONNECTED>"
-		}})"
+		s"RemoteView(<CONNECTED>"
 
-	def relation = rel.get
+	def createActor(actorSystem: ActorSystem) = actorSystem.actorOf(Props(classOf[RemoteViewActor[Domain]], this))
 }
 
 object RemoteView {
@@ -148,31 +145,13 @@ object RemoteView {
 	def apply[T](actorSystem : ActorSystem, partition : Relation[T]) : RemoteView[T] = {
 		val remoteHost = actorSystem.actorOf(Props[ObservableHost[T]])
 
-		val remoteView = new RemoteView(Some(partition), None, partition.isSet)
+		val remoteView = new RemoteView[T](remoteHost, partition.isSet)
 
 		val remoteViewActor = actorSystem.actorOf(Props(classOf[RemoteViewActor[T]], remoteView))
 		//val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
 
 		remoteHost ! HostObservableAndForward(partition, remoteViewActor)
 
-		remoteView
-	}
-
-	/*
-	 * Create a new actor remotely which runs the contained partition
-	 */
-	def apply[T](actorSystem : ActorSystem, address: Address, partition : Relation[T]) : RemoteView[T] = {
-		println("Creating remote host actor remotely")
-		val remoteHost = actorSystem.actorOf(Props(classOf[ObservableHost[T]], None).withDeploy(Deploy(scope = RemoteScope(address))))
-
-		val remoteView = new RemoteView[T](None, None, partition.isSet)
-
-		val remoteViewActor = actorSystem.actorOf(Props(classOf[RemoteViewActor[T]], remoteView))
-		//val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
-
-		println("Sending host-and-forward")
-		remoteHost ! HostObservableAndForward(partition, remoteViewActor)
-		println("Sent ...")
 		remoteView
 	}
 
@@ -183,7 +162,7 @@ object RemoteView {
 	def apply[T](actorSystem: ActorSystem, remoteHostPath: ActorPath, isSet: Boolean) = {
 		val remoteHost = actorSystem.actorSelection(remoteHostPath)
 
-		val remoteView = new RemoteView[T](None, None, isSet)
+		val remoteView = new RemoteView[T](Await.result(remoteHost.resolveOne()(Timeout(1 second)), 1 second), isSet)
 		val remoteViewActor = actorSystem.actorOf(Props(classOf[RemoteViewActor[T]], remoteView))
 		//val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
 
@@ -192,7 +171,13 @@ object RemoteView {
 
 	}
 
-	def createUnrealized[T](/*actorSystem : ActorSystem, */address: Address, partition : Relation[T]): RemoteView[T] = {
-		new RemoteView[T](Some(partition), Some(address), partition.isSet)
+	def create[T](actorSystem: ActorSystem, remoteSystem: Address, partition: Relation[T]): RemoteView[T] = {
+		val remoteHost = actorSystem.actorOf(Props(classOf[ObservableHost[T]], None).withDeploy(Deploy(scope=RemoteScope(remoteSystem))))
+
+		val remoteView = new RemoteView[T](remoteHost, partition.isSet)
+
+		remoteHost ! Host(partition)
+
+		remoteView
 	}
 }
