@@ -10,8 +10,6 @@ object ObservableHost {
   case class Forward(target: ActorRef) extends HostMessage
   case class Host[T](obs: Observable[T]) extends HostMessage
   //case class DoIt[T](fun: Observable[T] => Unit) extends HostMessage
-
-
 }
 
 class ObservableHost[T](var hosted: Option[Observable[T]] = None) extends Actor {
@@ -32,11 +30,8 @@ class ObservableHost[T](var hosted: Option[Observable[T]] = None) extends Actor 
 
     case Host(obs: Observable[T]) => {
       hosted = Some(obs)
-      walk(obs)
+      forward(obs)
     }
-
-    /*case DoIt(fun: (Observable[T] => Unit)) =>
-      fun(hosted.get)*/
   }
 
   def this(observable: Observable[T]) {
@@ -47,14 +42,17 @@ class ObservableHost[T](var hosted: Option[Observable[T]] = None) extends Actor 
     this(None)
   }
 
-  def walk(actorSystem: ActorSystem /*TODO: Where to get this from?*/, rel: Relation[_], address: Option[Address] = None): Unit = {
+  def forward(rel: Observable[_]): Unit = {
     rel match {
       case remoteView: RemoteView[_] => {
         val remoteHost = remoteView.remoteHost
+
+        //TODO does this return the correct system?
+        val actorSystem = context.system
         val remoteViewActor = remoteView.createActor(actorSystem)
         remoteHost ! Forward(remoteViewActor)
       }
-      case _ => rel.children.foreach { ch => walk(actorSystem, ch, address) }
+      case _ => rel.children.foreach { ch => forward(ch) }
     }
   }
 }

@@ -32,8 +32,6 @@
  */
 package idb.remote
 
-import akka.actor.Actor.Receive
-import akka.actor.SupervisorStrategy._
 import akka.actor._
 import akka.remote.RemoteScope
 import akka.util.Timeout
