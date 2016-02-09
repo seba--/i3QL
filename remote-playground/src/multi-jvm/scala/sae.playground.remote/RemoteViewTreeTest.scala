@@ -4,7 +4,7 @@ import akka.actor.{Address, ActorPath, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.BagTable
-import idb.operators.impl.SelectionView
+import idb.operators.impl.{ProjectionView, SelectionView}
 import idb.remote._
 
 class RemoteViewTreeTestMultiJvmNode1 extends RemoteViewTreeTest
@@ -27,7 +27,7 @@ with STMultiNodeSpec with ImplicitSender {
         // will run the Table and the Selection (sent from node2)
         val db = BagTable.empty[Int]
 
-        system.actorOf(Props(classOf[ObservableHost[Int]], db), "db")
+        system.actorOf(Props(classOf[ObservableHost[Int]], db), "db") // TODO: provide easier way to create a remotely observable data source
         enterBarrier("deployed")
 
         enterBarrier("sending")
@@ -38,6 +38,8 @@ with STMultiNodeSpec with ImplicitSender {
         db += 2
         db += 3
         db += 4
+        db += 5
+        db += 6
       }
 
       runOn(node2) {
@@ -46,22 +48,35 @@ with STMultiNodeSpec with ImplicitSender {
 
         val remoteHostPath: ActorPath = node(node1) / "user" / "db"
         val fun: Int => Boolean = i => (i % 2) == 0
-        val tree = /*RemoteView(
+
+        // data flows from node1 (Table) -> node2 -> node1 -> node2
+        val tree = RemoteView(
           system,
-          node(node1).address,*/
-          new SelectionView(
-            RemoteView[Int](system, remoteHostPath, false),
-            fun,
+          node(node1).address,
+          new ProjectionView(
+            RemoteView(
+              system,
+              node(node2).address,
+              new SelectionView(
+                RemoteView[Int](system, remoteHostPath, false),
+                fun,
+                false
+              )
+            ),
+            (n:Int) => { n.toString * 2 },
             false
           )
-        //)
+        )
 
-        tree.addObserver(new SendToRemote[Int](testActor))
+        ObservableHost.forward(tree, system) // FIXME: always call this on the root node after tree construction (should happen automatically)
+        tree.addObserver(new SendToRemote[String](testActor))
+
         enterBarrier("sending")
 
         import scala.concurrent.duration._
-        expectMsg(10.seconds, Added(2))
-        expectMsg(10.seconds, Added(4))
+        expectMsg(10.seconds, Added("22"))
+        expectMsg(10.seconds, Added("44"))
+        expectMsg(10.seconds, Added("66"))
       }
 
       //enterBarrier("finished")

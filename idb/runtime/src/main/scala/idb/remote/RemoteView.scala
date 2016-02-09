@@ -43,36 +43,6 @@ import scala.concurrent.duration._
 
 import scala.language.postfixOps
 
-// TODO: remove this and implement supervision for real
-/*class SupervisionActor[V](val remoteView : RemoteView[V]) extends Actor {
-
-	var remoteActor : Option[ActorRef] = None
-
-	override def preStart(): Unit = {
-		remoteActor = Some(context.watch(context.actorOf(Props(new RemoteViewActor(remoteView)))))
-	}
-
-
-	override def receive: Receive = {
-		case msg =>
-			remoteActor match {
-				case Some(act) =>
-					if (RemoteView.debug) println("Forwarded ->  " + msg)
-					act forward msg
-				case None =>
-					if (RemoteView.debug) println("WARNING! No remote actor instantiated")
-			}
-	}
-
-	override val supervisorStrategy =
-		OneForOneStrategy(maxNrOfRetries = 3, withinTimeRange = 5 seconds) {
-			case e : Exception =>
-				if (RemoteView.debug) e.printStackTrace()
-				Stop
-		}
-
-}*/
-
 class RemoteViewActor[V](view: RemoteView[V]) extends Actor {
 	override def receive = {
 		case Added(v: V) =>
@@ -95,7 +65,7 @@ class RemoteViewActor[V](view: RemoteView[V]) extends Actor {
  * In a partitioned operator tree, this actor communicates with a remote actor
  * which hosts remote parts of the tree.
  */
-class RemoteView[Domain](val remoteHost: ActorRef, val isSet: Boolean)
+class RemoteView[Domain](val remoteHost: ActorRef, val isSet: Boolean) // TODO: maybe replace ActorRef by ActorPath (only one message is ever sent here, but that's probably not necessary)
 	extends Relation[Domain]
 	with NotifyObservers[Domain] {
 
@@ -159,17 +129,10 @@ object RemoteView {
 	 */
 	def apply[T](actorSystem: ActorSystem, remoteHostPath: ActorPath, isSet: Boolean) = {
 		val remoteHost = actorSystem.actorSelection(remoteHostPath)
-
-		val remoteView = new RemoteView[T](Await.result(remoteHost.resolveOne()(Timeout(1 second)), 1 second), isSet)
-		val remoteViewActor = actorSystem.actorOf(Props(classOf[RemoteViewActor[T]], remoteView))
-		//val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
-
-		remoteHost ! Forward(remoteViewActor)
-		remoteView
-
+		new RemoteView[T](Await.result(remoteHost.resolveOne()(Timeout(1 second)), 1 second), isSet)
 	}
 
-	def create[T](actorSystem: ActorSystem, remoteSystem: Address, partition: Relation[T]): RemoteView[T] = {
+	def apply[T](actorSystem: ActorSystem, remoteSystem: Address, partition: Relation[T]): RemoteView[T] = {
 		val remoteHost = actorSystem.actorOf(Props(classOf[ObservableHost[T]], None).withDeploy(Deploy(scope=RemoteScope(remoteSystem))))
 
 		val remoteView = new RemoteView[T](remoteHost, partition.isSet)
