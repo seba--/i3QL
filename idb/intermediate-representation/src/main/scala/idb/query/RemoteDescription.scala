@@ -9,6 +9,9 @@ trait RemoteDescription {
 
 	def >(other : RemoteDescription) : Boolean =
 		RemoteDescription.compareTo(this, other) > 0
+
+	//Unique identifier of the description
+	def identifier : List[String]
 }
 
 object RemoteDescription {
@@ -61,6 +64,12 @@ object RemoteDescription {
 	}
 }
 
-case object DefaultDescription extends RemoteDescription
-case class NameDescription(s : String) extends RemoteDescription
-case class SetDescription(descs : Set[RemoteDescription]) extends RemoteDescription
+case object DefaultDescription extends RemoteDescription {
+	val identifier : List[String] = Nil
+}
+case class NameDescription(s : String) extends RemoteDescription {
+	val identifier = List(s)
+}
+case class SetDescription(descs : Set[RemoteDescription]) extends RemoteDescription {
+	val identifier : List[String] = Nil
+}

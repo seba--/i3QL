@@ -20,9 +20,15 @@ trait QueryEnvironment {
 	def hosts : List[Host]
 
 	/**
-	 * Maps the descriptions of tables (i.e. colors) to the hosts that have the right to read the tables. The hosts are specified by their index in the host list.
+	 * Maps the descriptions of tables (i.e. colors) to the hosts that have the right to read the tables.
 	 */
 	def permission(name : String) : List[Host]
+
+	def permission(description : RemoteDescription) : List[Host] = description match {
+		case DefaultDescription => Nil
+		case NameDescription(name) => permission(name)
+		case SetDescription(set) => set.map(desc => permission(desc)).fold(hosts)((a, b) => a intersect b)
+	}
 
 	/**
 	 * Closes the environment. Queries with that environment should no longer be used.

@@ -3,7 +3,7 @@ package idb.algebra.remote
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRemoteOperators}
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
-import idb.query.QueryEnvironment
+import idb.query.{RemoteDescription, QueryEnvironment}
 
 /**
  * @author Mirko Köhler
@@ -25,7 +25,7 @@ trait RelationalAlgebraIRDistReorderJoins
 
 		(relationA, relationB) match {
 
-			case (a, b) if a.remoteDesc > b.remoteDesc =>
+			case (a, b) if isGreater(a.remoteDesc, b.remoteDesc, queryEnvironment) =>
 				//a >< b --> b >< a
 				projection(
 					equiJoin(b, a, equalities.map(t => (t._2, t._1))),
@@ -38,7 +38,7 @@ trait RelationalAlgebraIRDistReorderJoins
 						)
 				)
 			case (a, Def(eqJoin@EquiJoin(b, c, eqs)))
-				if (a.remoteDesc > b.remoteDesc)
+				if isGreater(a.remoteDesc, b.remoteDesc, queryEnvironment)
 					&& equalities.forall((t) => !(functionHasParameterAccess(t._2,0) && functionHasParameterAccess(t._2,1)) ) //Checks whether the equality functions can be reorder, ie there is no (b,c) => b.f + c.f, for example.
 			=>
 
@@ -89,7 +89,7 @@ trait RelationalAlgebraIRDistReorderJoins
 
 
 			case (Def(eqJoin@EquiJoin(a, b, eqs)), c)
-				if b.remoteDesc > c.remoteDesc
+				if isGreater(b.remoteDesc, c.remoteDesc, queryEnvironment)
 					&& equalities.forall((t) => !(functionHasParameterAccess(t._1,0) && functionHasParameterAccess(t._1,1)) ) //Checks whether the equality functions can be reorder, ie there is no (a,b) => a.f + b.f, for example.
 			=>
 				//(a >< b) >< c --> (a >< c) >< b
@@ -146,4 +146,34 @@ trait RelationalAlgebraIRDistReorderJoins
 
 		}
 	}
+
+	private def isGreater(a : RemoteDescription, b : RemoteDescription, env : QueryEnvironment) : Boolean =
+		isSmallerDef(b, a, env)
+
+	private def isSmaller(a : RemoteDescription, b : RemoteDescription, env : QueryEnvironment) : Boolean =
+		isSmallerDef(a, b, env)
+
+	val isSmallerDef : (RemoteDescription, RemoteDescription, QueryEnvironment) => Boolean =
+		isSmallerImpl1
+
+	private def isSmallerImpl1(a : RemoteDescription, b : RemoteDescription, env : QueryEnvironment) : Boolean =
+		a < b
+
+
+	private def isSmallerImpl2(a : RemoteDescription, b : RemoteDescription, env : QueryEnvironment) : Boolean = {
+		val aPermissions = (env permission a) sortWith ((h1, h2) => h1.name < h2.name)
+		val bPermissions = (env permission b) sortWith ((h1, h2) => h1.name < h2.name)
+
+		if (aPermissions equals bPermissions) {
+			a < b
+		} else if (aPermissions.isEmpty && bPermissions.nonEmpty) {
+			false
+		} else if (bPermissions.isEmpty) {
+			true
+		} else {
+			a < b
+		}
+	}
+
+
 }
