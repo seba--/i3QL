@@ -77,13 +77,13 @@ trait RelationalAlgebraPrintPlanBasicOperators
                     withIndent (")")
 
             case Def (c@CrossProduct (left, right)) =>
-                withIndent ("crossProduct[" + c.mDomA + "," + c.mDomB + "]{desc=" + c.remoteDesc + "}(" + "\n") +
+                withIndent ("crossProduct[" + c.mDomA + "," + c.mDomB + "]{desc=" + c.color + "}(" + "\n") +
                     withMoreIndent (quoteRelation (left) + ",\n") +
                     withMoreIndent (quoteRelation (right) + "\n") +
                     withIndent (")")
 
             case Def (e@EquiJoin (left, right, equalities)) =>
-                withIndent ("equiJoin{desc=" + e.remoteDesc + "}(" + "\n") +
+                withIndent ("equiJoin{desc=" + e.color + "}(" + "\n") +
                     withMoreIndent (quoteRelation (left) + ",\n") +
                     withMoreIndent (quoteRelation (right) + ",\n") +
                     withMoreIndent (withIndent ("Seq(\n")) +

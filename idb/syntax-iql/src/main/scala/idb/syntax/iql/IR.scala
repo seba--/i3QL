@@ -57,7 +57,7 @@ object IR
     extends ScalaOpsExpOptExtensions
     with RelationalAlgebraIROperatorsPackage
 	with RelationalAlgebraIRFusionPackage
-	with RelationalAlgebraIRDistPackage
+	with RelationalAlgebraIRRemotePackage
 	with RelationalAlgebraIROptPackage
     with RelationalAlgebraIRNormalizePackage
     with TupledFunctionsExpDynamicLambda

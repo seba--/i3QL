@@ -47,9 +47,9 @@ import idb.algebra.remote._
  * @author Mirko Köhler
  *
  */
-trait RelationalAlgebraIRDistPackage
-    extends RelationalAlgebraIRDistBase
-	with RelationalAlgebraIRDistBasicOperators  //Creates remote nodes
-	with RelationalAlgebraIRDistPushBasicOperators
-	with RelationalAlgebraIRDistJoinAssociativity
-	with RelationalAlgebraIRDistReorderJoins
+trait RelationalAlgebraIRRemotePackage
+    extends RelationalAlgebraIRRemoteBase
+	with RelationalAlgebraIRRemoteBasicOperators  //Creates remote nodes
+	with RelationalAlgebraIRRemotePushBasicOperators
+	with RelationalAlgebraIRRemoteJoinAssociativity
+	with RelationalAlgebraIRRemoteReorderJoins

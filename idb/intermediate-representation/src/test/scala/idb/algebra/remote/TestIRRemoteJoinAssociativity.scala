@@ -37,7 +37,7 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.print.{RelationalAlgebraPrintPlan, RelationalAlgebraPrintPlanBasicOperators}
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import idb.lms.extensions.operations.StringOpsExpExt
-import idb.query.{QueryEnvironment, NameDescription}
+import idb.query.{QueryEnvironment, SingleColor}
 import org.junit.Assert._
 import org.junit.Test
 
@@ -49,7 +49,7 @@ import scala.virtualization.lms.common.{StringOpsExp, LiftAll}
  *
  */
 class TestIRRemoteJoinAssociativity
-    extends RelationalAlgebraIRDistJoinAssociativity
+    extends RelationalAlgebraIRRemoteJoinAssociativity
     with RelationalAlgebraIRBasicOperators
     with RelationalAlgebraPrintPlanBasicOperators
     with ScalaOpsExpOptExtensions
@@ -72,9 +72,9 @@ class TestIRRemoteJoinAssociativity
 		//a >< (b >< c) --> (a >< b) >< c
 		implicit val local = QueryEnvironment.Local
 
-		val tableA = table(scala.List.empty[String], remote = NameDescription("A"))
-		val tableB = table(scala.List.empty[String], remote = NameDescription("A"))
-		val tableC = table(scala.List.empty[String], remote = NameDescription("C"))
+		val tableA = table(scala.List.empty[String], remote = SingleColor("A"))
+		val tableB = table(scala.List.empty[String], remote = SingleColor("A"))
+		val tableC = table(scala.List.empty[String], remote = SingleColor("C"))
 
 		val eqBC = // : List[(Rep[String => Any], Rep[String => Any])] =
 			scala.List(
@@ -118,9 +118,9 @@ class TestIRRemoteJoinAssociativity
 
 		implicit val local = QueryEnvironment.Local
 
-		val tableA = table(scala.List.empty[String], remote = NameDescription("A"))
-		val tableB = table(scala.List.empty[String], remote = NameDescription("C"))
-		val tableC = table(scala.List.empty[String], remote = NameDescription("C"))
+		val tableA = table(scala.List.empty[String], remote = SingleColor("A"))
+		val tableB = table(scala.List.empty[String], remote = SingleColor("C"))
+		val tableC = table(scala.List.empty[String], remote = SingleColor("C"))
 
 		val eqAB = // : List[(Rep[String => Any], Rep[String => Any])] =
 			scala.List(

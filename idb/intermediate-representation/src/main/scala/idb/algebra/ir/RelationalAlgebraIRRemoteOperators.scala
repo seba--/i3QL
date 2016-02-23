@@ -33,7 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.{RelationalAlgebraRemoteOperators, RelationalAlgebraBasicOperators}
-import idb.query.{QueryEnvironment, RemoteDescription}
+import idb.query.{QueryEnvironment, Color$}
 
 
 /**
@@ -46,21 +46,21 @@ trait RelationalAlgebraIRRemoteOperators
 {
     case class Remote[Domain : Manifest] (
         var relation: Rep[Query[Domain]],
-        thisDesc : RemoteDescription,
-		thatDesc : RemoteDescription
+        thisDesc : Color,
+		thatDesc : Color
     ) extends Def[Query[Domain]] with QueryBaseOps {
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = relation.isSet
 		def isIncrementLocal = relation.isIncrementLocal
 
-		def remoteDesc = thisDesc
+		def color = thisDesc
     }
 
 
 	def remote[Domain: Manifest] (
 		relation: Rep[Query[Domain]],
-		thisDesc : RemoteDescription,
-		thatDesc : RemoteDescription
+		thisDesc : Color,
+		thatDesc : Color
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] = {
 		Remote(relation, thisDesc, thatDesc)
 	}

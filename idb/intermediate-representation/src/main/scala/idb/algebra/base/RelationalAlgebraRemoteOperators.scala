@@ -32,7 +32,7 @@
  */
 package idb.algebra.base
 
-import idb.query.{QueryEnvironment, RemoteDescription}
+import idb.query.{QueryEnvironment, Color$}
 
 /**
  *
@@ -45,8 +45,8 @@ trait RelationalAlgebraRemoteOperators
 {
     def remote[Domain: Manifest] (
         relation: Rep[Query[Domain]],
-	    thisDesc : RemoteDescription,
-        thatDesc : RemoteDescription
+	    thisDesc : Color,
+        thatDesc : Color
     )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
 
 }

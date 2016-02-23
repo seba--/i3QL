@@ -8,7 +8,7 @@ import idb.query.QueryEnvironment
 /**
  * @author Mirko Köhler
  */
-trait RelationalAlgebraIRDistJoinAssociativity
+trait RelationalAlgebraIRRemoteJoinAssociativity
 	extends RelationalAlgebraIRBasicOperators
 	with RelationalAlgebraIRRemoteOperators
 	with TupledFunctionsExpDynamicLambda
@@ -27,7 +27,7 @@ trait RelationalAlgebraIRDistJoinAssociativity
 			(relationA, relationB) match {
 
 				case (a, Def(eqJoin@EquiJoin(b, c, eqs)))
-					if a.remoteDesc == b.remoteDesc && b.remoteDesc != c.remoteDesc
+					if a.color == b.color && b.color != c.color
 						&& equalities.forall((t) => !(functionHasParameterAccess(t._2,0) && functionHasParameterAccess(t._2,1)) ) //Checks whether the equality functions can be reordered.
 
 				=>
@@ -78,7 +78,7 @@ trait RelationalAlgebraIRDistJoinAssociativity
 
 
 				case (Def(eqJoin@EquiJoin(a, b, eqs)), c)
-					if b.remoteDesc == c.remoteDesc && a.remoteDesc != b.remoteDesc
+					if b.color == c.color && a.color != b.color
 					&& equalities.forall((t) => !(functionHasParameterAccess(t._1,0) && functionHasParameterAccess(t._1,1)) ) //Checks whether the equality functions can be reordered.
 					 =>
 					//(a >< b) >< c --> a >< (b >< c)

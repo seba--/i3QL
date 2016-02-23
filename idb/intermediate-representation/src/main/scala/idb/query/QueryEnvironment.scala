@@ -2,6 +2,8 @@ package idb.query
 
 import akka.actor.ActorSystem
 
+import scala.collection.mutable
+
 
 /**
  * This class describes the environment in which a query should be compiled to.
@@ -29,12 +31,22 @@ trait QueryEnvironment {
 	 */
 	def close(): Unit
 
+	def colors : mutable.Map[Int, Set[Any]]
+
+	def getColor(id : Int) : Set[Any] = {
+		colors.get(id) match {
+			case Some(c) => c
+			case None => Set.empty
+		}
+	}
+
 }
 
 protected class QueryEnvironmentImpl (
 	val _actorSystem : Option[ActorSystem] = None,
     val _hosts : List[Host] = List(),
-    val _permissions : Map[String, List[Int]] = Map()
+    val _permissions : Map[String, List[Int]] = Map(),
+ 	val _colors : mutable.Map[Int, Set[Any]] = mutable.Map.empty[Int, Set[Any]]
 ) extends QueryEnvironment {
 
 	override def actorSystem =
@@ -54,6 +66,10 @@ protected class QueryEnvironmentImpl (
 		if (_actorSystem.isDefined)
 			_actorSystem.get.shutdown()
 	}
+
+	override def colors = _colors
+
+
 }
 
 object QueryEnvironment {

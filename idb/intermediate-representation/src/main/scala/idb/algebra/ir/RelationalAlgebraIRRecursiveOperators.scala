@@ -33,7 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraRecursiveOperators
-import idb.query.{QueryEnvironment, DefaultDescription}
+import idb.query.{QueryEnvironment, NoColor}
 
 /**
  *
@@ -64,7 +64,7 @@ trait RelationalAlgebraIRRecursiveOperators
 
         def isIncrementLocal = relation.isIncrementLocal
 
-		def remoteDesc = relation.remoteDesc
+		def color = relation.color
     }
 
     case class Recursion[Domain: Manifest] (
@@ -77,7 +77,7 @@ trait RelationalAlgebraIRRecursiveOperators
         def isSet = false
 
         def isIncrementLocal = result.isIncrementLocal
-		def remoteDesc = DefaultDescription
+		def color = NoColor
 
     }
 
@@ -91,7 +91,7 @@ trait RelationalAlgebraIRRecursiveOperators
         def isSet = result.isSet
 
         def isIncrementLocal = result.isIncrementLocal
-		def remoteDesc = DefaultDescription
+		def color = NoColor
     }
 
 

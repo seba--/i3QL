@@ -51,7 +51,7 @@ class TestRemote extends UniversityTestData {
 			table = studentTable,
 			isSet = false,
 			host = RemoteHost("StudentServer"),
-			remote = NameDescription("students")
+			remote = SingleColor("students")
 		)
 
 

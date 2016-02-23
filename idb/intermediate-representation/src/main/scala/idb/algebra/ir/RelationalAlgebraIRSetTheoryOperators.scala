@@ -33,7 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.{RelationalAlgebraSetTheoryOperators, RelationalAlgebraBasicOperators}
-import idb.query.{QueryEnvironment, RemoteDescription}
+import idb.query.{QueryEnvironment, Color$}
 
 
 /**
@@ -56,7 +56,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def remoteDesc = RemoteDescription.join(relationA.remoteDesc, relationB.remoteDesc)
+		def color = Color.join(relationA.color, relationB.color)
 
     }
 
@@ -71,7 +71,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def remoteDesc = RemoteDescription.join(relationA.remoteDesc, relationB.remoteDesc)
+		def color = Color.join(relationA.color, relationB.color)
     }
 
     case class Intersection[Domain: Manifest] (
@@ -82,7 +82,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def remoteDesc = RemoteDescription.join(relationA.remoteDesc, relationB.remoteDesc)
+		def color = Color.join(relationA.color, relationB.color)
 	}
 
     case class Difference[Domain: Manifest] (
@@ -93,7 +93,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Difference implements foreach
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def remoteDesc = RemoteDescription.join(relationA.remoteDesc, relationB.remoteDesc)
+		def color = Color.join(relationA.color, relationB.color)
 	}
 
 

@@ -33,7 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBasicOperators
-import idb.query.{QueryEnvironment, RemoteDescription}
+import idb.query.{Color, QueryEnvironment, Color$}
 
 
 /**
@@ -54,7 +54,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
-		def remoteDesc = relation.remoteDesc
+		def color = relation.color
 
     }
 
@@ -67,7 +67,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
-		def remoteDesc = relation.remoteDesc
+		def color = relation.color
 	}
 
     case class CrossProduct[DomainA: Manifest, DomainB: Manifest] (
@@ -81,7 +81,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def remoteDesc = RemoteDescription.join(relationA.remoteDesc, relationB.remoteDesc)
+		def color = Color.join(relationA.color, relationB.color)
     }
 
     case class EquiJoin[DomainA: Manifest, DomainB: Manifest] (
@@ -96,7 +96,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def remoteDesc = RemoteDescription.join(relationA.remoteDesc, relationB.remoteDesc)
+		def color = Color.join(relationA.color, relationB.color)
 	}
 
     case class DuplicateElimination[Domain: Manifest] (
@@ -106,7 +106,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Duplicate Elimination stores intermediate objects and therefore implements foreach
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
-		def remoteDesc = relation.remoteDesc
+		def color = relation.color
 	}
 
     case class Unnest[Domain: Manifest, Range: Manifest] (
@@ -117,7 +117,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
-		def remoteDesc = relation.remoteDesc
+		def color = relation.color
 	}
 
 

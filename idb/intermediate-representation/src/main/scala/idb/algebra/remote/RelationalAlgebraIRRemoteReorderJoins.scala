@@ -8,7 +8,7 @@ import idb.query.QueryEnvironment
 /**
  * @author Mirko Köhler
  */
-trait RelationalAlgebraIRDistReorderJoins
+trait RelationalAlgebraIRRemoteReorderJoins
 	extends RelationalAlgebraIRBasicOperators
 	with RelationalAlgebraIRRemoteOperators
 	with TupledFunctionsExpDynamicLambda
@@ -25,7 +25,7 @@ trait RelationalAlgebraIRDistReorderJoins
 
 		(relationA, relationB) match {
 
-			case (a, b) if a.remoteDesc > b.remoteDesc =>
+			case (a, b) if a.color > b.color =>
 				//a >< b --> b >< a
 				projection(
 					equiJoin(b, a, equalities.map(t => (t._2, t._1))),
@@ -38,7 +38,7 @@ trait RelationalAlgebraIRDistReorderJoins
 						)
 				)
 			case (a, Def(eqJoin@EquiJoin(b, c, eqs)))
-				if (a.remoteDesc > b.remoteDesc)
+				if (a.color > b.color)
 					&& equalities.forall((t) => !(functionHasParameterAccess(t._2,0) && functionHasParameterAccess(t._2,1)) ) //Checks whether the equality functions can be reorder, ie there is no (b,c) => b.f + c.f, for example.
 			=>
 
@@ -89,7 +89,7 @@ trait RelationalAlgebraIRDistReorderJoins
 
 
 			case (Def(eqJoin@EquiJoin(a, b, eqs)), c)
-				if b.remoteDesc > c.remoteDesc
+				if b.color > c.color
 					&& equalities.forall((t) => !(functionHasParameterAccess(t._1,0) && functionHasParameterAccess(t._1,1)) ) //Checks whether the equality functions can be reorder, ie there is no (a,b) => a.f + b.f, for example.
 			=>
 				//(a >< b) >< c --> (a >< c) >< b

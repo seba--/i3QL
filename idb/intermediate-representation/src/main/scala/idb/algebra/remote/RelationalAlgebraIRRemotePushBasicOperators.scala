@@ -6,7 +6,7 @@ import idb.query.QueryEnvironment
 /**
  * @author Mirko Köhler
  */
-trait RelationalAlgebraIRDistPushBasicOperators
+trait RelationalAlgebraIRRemotePushBasicOperators
 	extends RelationalAlgebraIRBasicOperators
 	with RelationalAlgebraIRRemoteOperators{
 
