@@ -46,13 +46,14 @@ import idb.Relation
  * @author Ralf Mitschke
  */
 case class SelectionView[Domain](
-                             val relation: Relation[Domain],
-                             val filter: Domain => Boolean,
-                             val isSet: Boolean
-                             )
+	relation: Relation[Domain],
+	filter: Domain => Boolean,
+	isSet: Boolean
+)
   extends Selection[Domain]
   with Observer[Domain]
   with NotifyObservers[Domain] {
+
   relation addObserver this
 
 

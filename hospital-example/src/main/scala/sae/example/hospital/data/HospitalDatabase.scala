@@ -13,6 +13,9 @@ object HospitalDatabase extends HospitalSchema {
 	val personDatabase = SetTable.empty[Person]
 	val patientDatabase = SetTable.empty[Patient]
 	val knowledgeDatabase = SetTable.empty[KnowledgeData]
+	val financeDatabase = SetTable.empty[FinancialData]
+	val treatmentDatabase = SetTable.empty[TreatmentData]
+
 
 
 	@Remote(host = "PersonDBServer", description = "hospital")

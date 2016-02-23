@@ -43,14 +43,14 @@ object sae extends Build {
     Project Analyses
   */
 
-	lazy val analyses = Project(id = "analyses", base = file("analyses"))
-   	.aggregate (findbugs, metrics, profiler)
+  	lazy val analyses = Project(id = "analyses", base = file("analyses"))
+    	.aggregate (findbugs, metrics, profiler)
   
-  lazy val findbugs = Project(id = "analyses-findbugs", base = file("analyses/findbugs"))
-   	.dependsOn(databaseInterface % "compile", bindingASM % "compile", testData % "compile;test")
+  	lazy val findbugs = Project(id = "analyses-findbugs", base = file("analyses/findbugs"))
+    	.dependsOn(databaseInterface % "compile", bindingASM % "compile", testData % "compile;test")
   
-  lazy val metrics = Project(id = "analyses-metrics", base = file("analyses/metrics"))
-   	.dependsOn(databaseInterface % "compile", bindingASM % "compile", testData % "compile;test")
+  	lazy val metrics = Project(id = "analyses-metrics", base = file("analyses/metrics"))
+    	.dependsOn(databaseInterface % "compile", bindingASM % "compile", testData % "compile;test")
 
 	lazy val profiler = Project(id = "analyses-profiler", base = file("analyses/profiler"))
 		.dependsOn(databaseInterface % "compile", bindingASM % "compile", findbugs % "compile;test", metrics % "compile;test", testData % "compile;test")
@@ -59,13 +59,13 @@ object sae extends Build {
 	Project Interpreter
    */
 	lazy val interpreter = Project(id = "interpreter", base = file("interpreter"))
-   	.dependsOn(syntax % "compile;test")
+    	.dependsOn(syntax % "compile;test")
 
   /*
     Project Hospital example
    */
   lazy val hospitalExample = Project(id = "hospital-example", base = file("hospital-example"))
-	  .dependsOn(syntax % "compile;test")
+	  .dependsOn(syntax % "compile;test").dependsOn(runtime % "compile;test")
 
   /*
     Project Remote playground
@@ -83,7 +83,7 @@ object sae extends Build {
     Root Project
   */  
   lazy val root = Project(id = "sae", base = file("."))
-    .aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, databaseInterface, bindingASM, findbugs, metrics, profiler, interpreter, hospitalExample, remotePlayground)
+		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, databaseInterface, bindingASM, findbugs, metrics, profiler, interpreter, hospitalExample)
   
     
 

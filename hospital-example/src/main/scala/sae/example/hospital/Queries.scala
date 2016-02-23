@@ -61,22 +61,24 @@ object Queries extends HospitalTestData {
 			actorSystem = ActorSystem("example")
 		)
 
+		try {
 
-		val q2 = // : Relation[(Int, String, String)] =
-			compile (
-				SELECT DISTINCT
-					((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
-				FROM
-					(distributedPersonDatabase, UNNEST (distributedPatientDatabase, (x : Rep[Patient]) => x.symptoms), distributedKnowledgeDatabase)
-				WHERE
-					((person : Rep[Person], patientSymptom : Rep[(Patient, String)], knowledgeData : Rep[KnowledgeData]) =>
-						person.personId == patientSymptom._1.personId AND
-							patientSymptom._2 == knowledgeData.symptom)
-			)
+			val q2 = // : Relation[(Int, String, String)] =
+				compile(
+					SELECT DISTINCT
+						((person: Rep[Person], patientSymptom: Rep[(Patient, String)], knowledgeData: Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis))
+						FROM
+						(distributedPersonDatabase, UNNEST(distributedPatientDatabase, (x: Rep[Patient]) => x.symptoms), distributedKnowledgeDatabase)
+						WHERE
+						((person: Rep[Person], patientSymptom: Rep[(Patient, String)], knowledgeData: Rep[KnowledgeData]) =>
+							person.personId == patientSymptom._1.personId AND
+								patientSymptom._2 == knowledgeData.symptom)
+				)
 
-		executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
-
-		queryContext.close()
+			executeExample(q2, distributedPersonDatabase, distributedPatientDatabase, distributedKnowledgeDatabase)
+		} finally {
+			queryContext.close()
+		}
 	}
 
 	def distributedExample2(): Unit = {

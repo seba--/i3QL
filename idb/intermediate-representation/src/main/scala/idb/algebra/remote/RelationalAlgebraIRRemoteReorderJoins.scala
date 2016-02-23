@@ -25,7 +25,7 @@ trait RelationalAlgebraIRRemoteReorderJoins
 
 		(relationA, relationB) match {
 
-			case (a, b) if a.color > b.color =>
+			case (a, b) if isGreater(a.color, b.color, queryEnvironment) =>
 				//a >< b --> b >< a
 				projection(
 					equiJoin(b, a, equalities.map(t => (t._2, t._1))),
@@ -38,7 +38,7 @@ trait RelationalAlgebraIRRemoteReorderJoins
 						)
 				)
 			case (a, Def(eqJoin@EquiJoin(b, c, eqs)))
-				if (a.color > b.color)
+				if isGreater(a.color, b.color, queryEnvironment)
 					&& equalities.forall((t) => !(functionHasParameterAccess(t._2,0) && functionHasParameterAccess(t._2,1)) ) //Checks whether the equality functions can be reorder, ie there is no (b,c) => b.f + c.f, for example.
 			=>
 
@@ -89,7 +89,7 @@ trait RelationalAlgebraIRRemoteReorderJoins
 
 
 			case (Def(eqJoin@EquiJoin(a, b, eqs)), c)
-				if b.color > c.color
+				if isGreater(b.color, c.color, queryEnvironment)
 					&& equalities.forall((t) => !(functionHasParameterAccess(t._1,0) && functionHasParameterAccess(t._1,1)) ) //Checks whether the equality functions can be reorder, ie there is no (a,b) => a.f + b.f, for example.
 			=>
 				//(a >< b) >< c --> (a >< c) >< b
@@ -146,4 +146,34 @@ trait RelationalAlgebraIRRemoteReorderJoins
 
 		}
 	}
+
+	private def isGreater(a : Set[Any], b : Set[Any], env : QueryEnvironment) : Boolean =
+		isSmallerDef(b, a, env)
+
+	private def isSmaller(a : Set[Any], b : Set[Any], env : QueryEnvironment) : Boolean =
+		isSmallerDef(a, b, env)
+
+	val isSmallerDef : (Set[Any], Set[Any], QueryEnvironment) => Boolean =
+		isSmallerImpl1
+
+	private def isSmallerImpl1(a : Set[Any], b : Set[Any], env : QueryEnvironment) : Boolean =
+		a < b
+
+
+	private def isSmallerImpl2(a : Set[Any], b : Set[Any], env : QueryEnvironment) : Boolean = {
+		val aPermissions = (env permission a) sortWith ((h1, h2) => h1.name < h2.name)
+		val bPermissions = (env permission b) sortWith ((h1, h2) => h1.name < h2.name)
+
+		if (aPermissions equals bPermissions) {
+			a < b
+		} else if (aPermissions.isEmpty && bPermissions.nonEmpty) {
+			false
+		} else if (bPermissions.isEmpty) {
+			true
+		} else {
+			a < b
+		}
+	}
+
+
 }
