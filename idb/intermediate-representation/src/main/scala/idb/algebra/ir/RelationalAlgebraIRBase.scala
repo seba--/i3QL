@@ -72,8 +72,12 @@ trait RelationalAlgebraIRBase
 		}
 
 		def setColor(r : QueryBaseOps*)(implicit queryEnvironment: QueryEnvironment): Unit = {
-			val colorSet = r.foldLeft(Set.empty[Any])((s, query) => s.union(queryEnvironment.getColor(query.id)))
+			val colorSet = r.foldLeft(Set.empty[Any])((s, query) => s union query.getColor)
 			setColor(colorSet)
+		}
+
+		def getColor(implicit queryEnvironment: QueryEnvironment) : Set[Any] = {
+			queryEnvironment.getColor(id)
 		}
     }
 
